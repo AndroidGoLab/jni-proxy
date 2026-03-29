@@ -12,6 +12,1327 @@ var appsearchCmd = &cobra.Command{
 	Short: "appsearch service operations",
 }
 
+var appsearchAppSearchManagerSearchContextCmd = &cobra.Command{
+	Use:   "app-search-manager-search-context",
+	Short: "AppSearchManagerSearchContextService operations",
+}
+
+var appsearchAppSearchManagerSearchContextGetDatabaseNameCmd = &cobra.Command{
+	Use:   "get-database-name",
+	Short: "GetDatabaseName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAppSearchManagerSearchContextServiceClient(grpcConn)
+		req := &pb.GetDatabaseNameRequest{}
+		resp, err := client.GetDatabaseName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchCommitBlobResponseCmd = &cobra.Command{
+	Use:   "commit-blob-response",
+	Short: "CommitBlobResponseService operations",
+}
+
+var appsearchCommitBlobResponseNewCommitBlobResponseCmd = &cobra.Command{
+	Use:   "new-commit-blob-response",
+	Short: "NewCommitBlobResponse RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCommitBlobResponseServiceClient(grpcConn)
+		req := &pb.NewCommitBlobResponseRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.NewCommitBlobResponse(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchCommitBlobResponseDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCommitBlobResponseServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchCommitBlobResponseWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCommitBlobResponseServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchRemoveBlobResponseCmd = &cobra.Command{
+	Use:   "remove-blob-response",
+	Short: "RemoveBlobResponseService operations",
+}
+
+var appsearchRemoveBlobResponseNewRemoveBlobResponseCmd = &cobra.Command{
+	Use:   "new-remove-blob-response",
+	Short: "NewRemoveBlobResponse RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRemoveBlobResponseServiceClient(grpcConn)
+		req := &pb.NewRemoveBlobResponseRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.NewRemoveBlobResponse(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchRemoveBlobResponseDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRemoveBlobResponseServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchRemoveBlobResponseWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRemoveBlobResponseServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchSearchSuggestionResultCmd = &cobra.Command{
+	Use:   "search-suggestion-result",
+	Short: "SearchSuggestionResultService operations",
+}
+
+var appsearchSearchSuggestionResultDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSearchSuggestionResultServiceClient(grpcConn)
+		req := &pb.SearchSuggestionResultDescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchSearchSuggestionResultEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSearchSuggestionResultServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchSearchSuggestionResultGetSuggestedResultCmd = &cobra.Command{
+	Use:   "get-suggested-result",
+	Short: "GetSuggestedResult RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSearchSuggestionResultServiceClient(grpcConn)
+		req := &pb.GetSuggestedResultRequest{}
+		resp, err := client.GetSuggestedResult(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchSearchSuggestionResultHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSearchSuggestionResultServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchSearchSuggestionResultWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSearchSuggestionResultServiceClient(grpcConn)
+		req := &pb.SearchSuggestionResultWriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchSearchSuggestionResultBuilderCmd = &cobra.Command{
+	Use:   "search-suggestion-result-builder",
+	Short: "SearchSuggestionResultBuilderService operations",
+}
+
+var appsearchSearchSuggestionResultBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSearchSuggestionResultBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchSearchSuggestionResultBuilderSetSuggestedResultCmd = &cobra.Command{
+	Use:   "set-suggested-result",
+	Short: "SetSuggestedResult RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSearchSuggestionResultBuilderServiceClient(grpcConn)
+		req := &pb.SetSuggestedResultRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetSuggestedResult(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchSearchResultCmd = &cobra.Command{
+	Use:   "search-result",
+	Short: "SearchResultService operations",
+}
+
+var appsearchSearchResultDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSearchResultServiceClient(grpcConn)
+		req := &pb.SearchResultDescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchSearchResultGetDatabaseNameCmd = &cobra.Command{
+	Use:   "get-database-name",
+	Short: "GetDatabaseName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSearchResultServiceClient(grpcConn)
+		req := &pb.GetDatabaseNameRequest{}
+		resp, err := client.GetDatabaseName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchSearchResultGetGenericDocumentCmd = &cobra.Command{
+	Use:   "get-generic-document",
+	Short: "GetGenericDocument RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSearchResultServiceClient(grpcConn)
+		req := &pb.GetGenericDocumentRequest{}
+		resp, err := client.GetGenericDocument(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchSearchResultGetInformationalRankingSignalsCmd = &cobra.Command{
+	Use:   "get-informational-ranking-signals",
+	Short: "GetInformationalRankingSignals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSearchResultServiceClient(grpcConn)
+		req := &pb.GetInformationalRankingSignalsRequest{}
+		resp, err := client.GetInformationalRankingSignals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchSearchResultGetJoinedResultsCmd = &cobra.Command{
+	Use:   "get-joined-results",
+	Short: "GetJoinedResults RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSearchResultServiceClient(grpcConn)
+		req := &pb.GetJoinedResultsRequest{}
+		resp, err := client.GetJoinedResults(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchSearchResultGetMatchInfosCmd = &cobra.Command{
+	Use:   "get-match-infos",
+	Short: "GetMatchInfos RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSearchResultServiceClient(grpcConn)
+		req := &pb.GetMatchInfosRequest{}
+		resp, err := client.GetMatchInfos(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchSearchResultGetPackageNameCmd = &cobra.Command{
+	Use:   "get-package-name",
+	Short: "GetPackageName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSearchResultServiceClient(grpcConn)
+		req := &pb.GetPackageNameRequest{}
+		resp, err := client.GetPackageName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchSearchResultGetRankingSignalCmd = &cobra.Command{
+	Use:   "get-ranking-signal",
+	Short: "GetRankingSignal RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSearchResultServiceClient(grpcConn)
+		req := &pb.GetRankingSignalRequest{}
+		resp, err := client.GetRankingSignal(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchSearchResultWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSearchResultServiceClient(grpcConn)
+		req := &pb.SearchResultWriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchSearchResultBuilderCmd = &cobra.Command{
+	Use:   "search-result-builder",
+	Short: "SearchResultBuilderService operations",
+}
+
+var appsearchSearchResultBuilderAddInformationalRankingSignalCmd = &cobra.Command{
+	Use:   "add-informational-ranking-signal",
+	Short: "AddInformationalRankingSignal RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSearchResultBuilderServiceClient(grpcConn)
+		req := &pb.AddInformationalRankingSignalRequest{}
+		if v, err := cmd.Flags().GetFloat64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddInformationalRankingSignal(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchSearchResultBuilderAddJoinedResultCmd = &cobra.Command{
+	Use:   "add-joined-result",
+	Short: "AddJoinedResult RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSearchResultBuilderServiceClient(grpcConn)
+		req := &pb.AddJoinedResultRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddJoinedResult(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchSearchResultBuilderAddMatchInfoCmd = &cobra.Command{
+	Use:   "add-match-info",
+	Short: "AddMatchInfo RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSearchResultBuilderServiceClient(grpcConn)
+		req := &pb.AddMatchInfoRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddMatchInfo(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchSearchResultBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSearchResultBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchSearchResultBuilderSetGenericDocumentCmd = &cobra.Command{
+	Use:   "set-generic-document",
+	Short: "SetGenericDocument RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSearchResultBuilderServiceClient(grpcConn)
+		req := &pb.SetGenericDocumentRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetGenericDocument(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchSearchResultBuilderSetRankingSignalCmd = &cobra.Command{
+	Use:   "set-ranking-signal",
+	Short: "SetRankingSignal RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSearchResultBuilderServiceClient(grpcConn)
+		req := &pb.SetRankingSignalRequest{}
+		if v, err := cmd.Flags().GetFloat64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetRankingSignal(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchSearchResultMatchInfoCmd = &cobra.Command{
+	Use:   "search-result-match-info",
+	Short: "SearchResultMatchInfoService operations",
+}
+
+var appsearchSearchResultMatchInfoDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSearchResultMatchInfoServiceClient(grpcConn)
+		req := &pb.SearchResultMatchInfoDescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchSearchResultMatchInfoGetExactMatchCmd = &cobra.Command{
+	Use:   "get-exact-match",
+	Short: "GetExactMatch RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSearchResultMatchInfoServiceClient(grpcConn)
+		req := &pb.GetExactMatchRequest{}
+		resp, err := client.GetExactMatch(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchSearchResultMatchInfoGetExactMatchRangeCmd = &cobra.Command{
+	Use:   "get-exact-match-range",
+	Short: "GetExactMatchRange RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSearchResultMatchInfoServiceClient(grpcConn)
+		req := &pb.GetExactMatchRangeRequest{}
+		resp, err := client.GetExactMatchRange(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchSearchResultMatchInfoGetFullTextCmd = &cobra.Command{
+	Use:   "get-full-text",
+	Short: "GetFullText RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSearchResultMatchInfoServiceClient(grpcConn)
+		req := &pb.GetFullTextRequest{}
+		resp, err := client.GetFullText(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchSearchResultMatchInfoGetPropertyPathCmd = &cobra.Command{
+	Use:   "get-property-path",
+	Short: "GetPropertyPath RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSearchResultMatchInfoServiceClient(grpcConn)
+		req := &pb.GetPropertyPathRequest{}
+		resp, err := client.GetPropertyPath(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchSearchResultMatchInfoGetPropertyPathObjectCmd = &cobra.Command{
+	Use:   "get-property-path-object",
+	Short: "GetPropertyPathObject RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSearchResultMatchInfoServiceClient(grpcConn)
+		req := &pb.GetPropertyPathObjectRequest{}
+		resp, err := client.GetPropertyPathObject(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchSearchResultMatchInfoGetSnippetCmd = &cobra.Command{
+	Use:   "get-snippet",
+	Short: "GetSnippet RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSearchResultMatchInfoServiceClient(grpcConn)
+		req := &pb.GetSnippetRequest{}
+		resp, err := client.GetSnippet(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchSearchResultMatchInfoGetSnippetRangeCmd = &cobra.Command{
+	Use:   "get-snippet-range",
+	Short: "GetSnippetRange RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSearchResultMatchInfoServiceClient(grpcConn)
+		req := &pb.GetSnippetRangeRequest{}
+		resp, err := client.GetSnippetRange(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchSearchResultMatchInfoGetSubmatchCmd = &cobra.Command{
+	Use:   "get-submatch",
+	Short: "GetSubmatch RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSearchResultMatchInfoServiceClient(grpcConn)
+		req := &pb.GetSubmatchRequest{}
+		resp, err := client.GetSubmatch(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchSearchResultMatchInfoGetSubmatchRangeCmd = &cobra.Command{
+	Use:   "get-submatch-range",
+	Short: "GetSubmatchRange RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSearchResultMatchInfoServiceClient(grpcConn)
+		req := &pb.GetSubmatchRangeRequest{}
+		resp, err := client.GetSubmatchRange(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchSearchResultMatchInfoWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSearchResultMatchInfoServiceClient(grpcConn)
+		req := &pb.SearchResultMatchInfoWriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchSearchResultMatchRangeCmd = &cobra.Command{
+	Use:   "search-result-match-range",
+	Short: "SearchResultMatchRangeService operations",
+}
+
+var appsearchSearchResultMatchRangeEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSearchResultMatchRangeServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchSearchResultMatchRangeGetEndCmd = &cobra.Command{
+	Use:   "get-end",
+	Short: "GetEnd RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSearchResultMatchRangeServiceClient(grpcConn)
+		req := &pb.GetEndRequest{}
+		resp, err := client.GetEnd(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchSearchResultMatchRangeGetStartCmd = &cobra.Command{
+	Use:   "get-start",
+	Short: "GetStart RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSearchResultMatchRangeServiceClient(grpcConn)
+		req := &pb.GetStartRequest{}
+		resp, err := client.GetStart(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchSearchResultMatchRangeHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSearchResultMatchRangeServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchSearchResultMatchRangeToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSearchResultMatchRangeServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchAppSearchBatchResultCmd = &cobra.Command{
+	Use:   "app-search-batch-result",
+	Short: "AppSearchBatchResultService operations",
+}
+
+var appsearchAppSearchBatchResultIsSuccessCmd = &cobra.Command{
+	Use:   "is-success",
+	Short: "IsSuccess RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAppSearchBatchResultServiceClient(grpcConn)
+		req := &pb.IsSuccessRequest{}
+		resp, err := client.IsSuccess(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchAppSearchBatchResultToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAppSearchBatchResultServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchRemoveByDocumentIdRequestCmd = &cobra.Command{
+	Use:   "remove-by-document-id-request",
+	Short: "RemoveByDocumentIdRequestService operations",
+}
+
+var appsearchRemoveByDocumentIdRequestDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRemoveByDocumentIdRequestServiceClient(grpcConn)
+		req := &pb.RemoveByDocumentIdRequestDescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchRemoveByDocumentIdRequestGetIdsCmd = &cobra.Command{
+	Use:   "get-ids",
+	Short: "GetIds RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRemoveByDocumentIdRequestServiceClient(grpcConn)
+		req := &pb.GetIdsRequest{}
+		resp, err := client.GetIds(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchRemoveByDocumentIdRequestGetNamespaceCmd = &cobra.Command{
+	Use:   "get-namespace",
+	Short: "GetNamespace RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRemoveByDocumentIdRequestServiceClient(grpcConn)
+		req := &pb.GetNamespaceRequest{}
+		resp, err := client.GetNamespace(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchRemoveByDocumentIdRequestWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRemoveByDocumentIdRequestServiceClient(grpcConn)
+		req := &pb.RemoveByDocumentIdRequestWriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchRemoveByDocumentIdRequestBuilderCmd = &cobra.Command{
+	Use:   "remove-by-document-id-request-builder",
+	Short: "RemoveByDocumentIdRequestBuilderService operations",
+}
+
+var appsearchRemoveByDocumentIdRequestBuilderAddIdsCmd = &cobra.Command{
+	Use:   "add-ids",
+	Short: "AddIds RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRemoveByDocumentIdRequestBuilderServiceClient(grpcConn)
+		req := &pb.AddIdsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddIds(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchRemoveByDocumentIdRequestBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRemoveByDocumentIdRequestBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchSchemaVisibilityConfigCmd = &cobra.Command{
+	Use:   "schema-visibility-config",
+	Short: "SchemaVisibilityConfigService operations",
+}
+
+var appsearchSchemaVisibilityConfigDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSchemaVisibilityConfigServiceClient(grpcConn)
+		req := &pb.SchemaVisibilityConfigDescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchSchemaVisibilityConfigEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSchemaVisibilityConfigServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchSchemaVisibilityConfigGetAllowedPackagesCmd = &cobra.Command{
+	Use:   "get-allowed-packages",
+	Short: "GetAllowedPackages RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSchemaVisibilityConfigServiceClient(grpcConn)
+		req := &pb.GetAllowedPackagesRequest{}
+		resp, err := client.GetAllowedPackages(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchSchemaVisibilityConfigGetPubliclyVisibleTargetPackageCmd = &cobra.Command{
+	Use:   "get-publicly-visible-target-package",
+	Short: "GetPubliclyVisibleTargetPackage RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSchemaVisibilityConfigServiceClient(grpcConn)
+		req := &pb.GetPubliclyVisibleTargetPackageRequest{}
+		resp, err := client.GetPubliclyVisibleTargetPackage(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchSchemaVisibilityConfigGetRequiredPermissionsCmd = &cobra.Command{
+	Use:   "get-required-permissions",
+	Short: "GetRequiredPermissions RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSchemaVisibilityConfigServiceClient(grpcConn)
+		req := &pb.GetRequiredPermissionsRequest{}
+		resp, err := client.GetRequiredPermissions(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchSchemaVisibilityConfigHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSchemaVisibilityConfigServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchSchemaVisibilityConfigWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSchemaVisibilityConfigServiceClient(grpcConn)
+		req := &pb.SchemaVisibilityConfigWriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchSchemaVisibilityConfigBuilderCmd = &cobra.Command{
+	Use:   "schema-visibility-config-builder",
+	Short: "SchemaVisibilityConfigBuilderService operations",
+}
+
+var appsearchSchemaVisibilityConfigBuilderAddAllowedPackageCmd = &cobra.Command{
+	Use:   "add-allowed-package",
+	Short: "AddAllowedPackage RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSchemaVisibilityConfigBuilderServiceClient(grpcConn)
+		req := &pb.AddAllowedPackageRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddAllowedPackage(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchSchemaVisibilityConfigBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSchemaVisibilityConfigBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchSchemaVisibilityConfigBuilderClearAllowedPackagesCmd = &cobra.Command{
+	Use:   "clear-allowed-packages",
+	Short: "ClearAllowedPackages RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSchemaVisibilityConfigBuilderServiceClient(grpcConn)
+		req := &pb.ClearAllowedPackagesRequest{}
+		resp, err := client.ClearAllowedPackages(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchSchemaVisibilityConfigBuilderClearRequiredPermissionsCmd = &cobra.Command{
+	Use:   "clear-required-permissions",
+	Short: "ClearRequiredPermissions RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSchemaVisibilityConfigBuilderServiceClient(grpcConn)
+		req := &pb.ClearRequiredPermissionsRequest{}
+		resp, err := client.ClearRequiredPermissions(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchSchemaVisibilityConfigBuilderSetPubliclyVisibleTargetPackageCmd = &cobra.Command{
+	Use:   "set-publicly-visible-target-package",
+	Short: "SetPubliclyVisibleTargetPackage RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSchemaVisibilityConfigBuilderServiceClient(grpcConn)
+		req := &pb.SetPubliclyVisibleTargetPackageRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetPubliclyVisibleTargetPackage(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchGetByDocumentIdRequestCmd = &cobra.Command{
+	Use:   "get-by-document-id-request",
+	Short: "GetByDocumentIdRequestService operations",
+}
+
+var appsearchGetByDocumentIdRequestDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGetByDocumentIdRequestServiceClient(grpcConn)
+		req := &pb.GetByDocumentIdRequestDescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchGetByDocumentIdRequestGetIdsCmd = &cobra.Command{
+	Use:   "get-ids",
+	Short: "GetIds RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGetByDocumentIdRequestServiceClient(grpcConn)
+		req := &pb.GetIdsRequest{}
+		resp, err := client.GetIds(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchGetByDocumentIdRequestGetNamespaceCmd = &cobra.Command{
+	Use:   "get-namespace",
+	Short: "GetNamespace RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGetByDocumentIdRequestServiceClient(grpcConn)
+		req := &pb.GetNamespaceRequest{}
+		resp, err := client.GetNamespace(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchGetByDocumentIdRequestWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGetByDocumentIdRequestServiceClient(grpcConn)
+		req := &pb.GetByDocumentIdRequestWriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchGetByDocumentIdRequestBuilderCmd = &cobra.Command{
+	Use:   "get-by-document-id-request-builder",
+	Short: "GetByDocumentIdRequestBuilderService operations",
+}
+
+var appsearchGetByDocumentIdRequestBuilderAddIdsCmd = &cobra.Command{
+	Use:   "add-ids",
+	Short: "AddIds RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGetByDocumentIdRequestBuilderServiceClient(grpcConn)
+		req := &pb.AddIdsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddIds(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchGetByDocumentIdRequestBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGetByDocumentIdRequestBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var appsearchAppSearchResultCmd = &cobra.Command{
 	Use:   "app-search-result",
 	Short: "AppSearchResultService operations",
@@ -257,6 +1578,3841 @@ var appsearchReportSystemUsageRequestBuilderSetUsageTimestampMillisCmd = &cobra.
 	},
 }
 
+var appsearchSearchResultsCmd = &cobra.Command{
+	Use:   "search-results",
+	Short: "SearchResultsService operations",
+}
+
+var appsearchSearchResultsCloseCmd = &cobra.Command{
+	Use:   "close",
+	Short: "Close RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSearchResultsServiceClient(grpcConn)
+		req := &pb.CloseRequest{}
+		resp, err := client.Close(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchMigratorCmd = &cobra.Command{
+	Use:   "migrator",
+	Short: "MigratorService operations",
+}
+
+var appsearchMigratorOnDowngradeCmd = &cobra.Command{
+	Use:   "on-downgrade",
+	Short: "OnDowngrade RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMigratorServiceClient(grpcConn)
+		req := &pb.OnDowngradeRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.OnDowngrade(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchMigratorOnUpgradeCmd = &cobra.Command{
+	Use:   "on-upgrade",
+	Short: "OnUpgrade RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMigratorServiceClient(grpcConn)
+		req := &pb.OnUpgradeRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.OnUpgrade(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchMigratorShouldMigrateCmd = &cobra.Command{
+	Use:   "should-migrate",
+	Short: "ShouldMigrate RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMigratorServiceClient(grpcConn)
+		req := &pb.ShouldMigrateRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.ShouldMigrate(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchPackageIdentifierCmd = &cobra.Command{
+	Use:   "package-identifier",
+	Short: "PackageIdentifierService operations",
+}
+
+var appsearchPackageIdentifierNewPackageIdentifierCmd = &cobra.Command{
+	Use:   "new-package-identifier",
+	Short: "NewPackageIdentifier RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageIdentifierServiceClient(grpcConn)
+		req := &pb.NewPackageIdentifierRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.NewPackageIdentifier(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchPackageIdentifierEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageIdentifierServiceClient(grpcConn)
+		req := &pb.PackageIdentifierEqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchPackageIdentifierGetPackageNameCmd = &cobra.Command{
+	Use:   "get-package-name",
+	Short: "GetPackageName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageIdentifierServiceClient(grpcConn)
+		req := &pb.PackageIdentifierGetPackageNameRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetPackageName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchPackageIdentifierGetSha256CertificateCmd = &cobra.Command{
+	Use:   "get-sha256certificate",
+	Short: "GetSha256Certificate RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageIdentifierServiceClient(grpcConn)
+		req := &pb.GetSha256CertificateRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetSha256Certificate(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchPackageIdentifierHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageIdentifierServiceClient(grpcConn)
+		req := &pb.PackageIdentifierHashCodeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchReportUsageRequestCmd = &cobra.Command{
+	Use:   "report-usage-request",
+	Short: "ReportUsageRequestService operations",
+}
+
+var appsearchReportUsageRequestDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewReportUsageRequestServiceClient(grpcConn)
+		req := &pb.ReportUsageRequestDescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchReportUsageRequestGetDocumentIdCmd = &cobra.Command{
+	Use:   "get-document-id",
+	Short: "GetDocumentId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewReportUsageRequestServiceClient(grpcConn)
+		req := &pb.GetDocumentIdRequest{}
+		resp, err := client.GetDocumentId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchReportUsageRequestGetNamespaceCmd = &cobra.Command{
+	Use:   "get-namespace",
+	Short: "GetNamespace RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewReportUsageRequestServiceClient(grpcConn)
+		req := &pb.GetNamespaceRequest{}
+		resp, err := client.GetNamespace(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchReportUsageRequestGetUsageTimestampMillisCmd = &cobra.Command{
+	Use:   "get-usage-timestamp-millis",
+	Short: "GetUsageTimestampMillis RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewReportUsageRequestServiceClient(grpcConn)
+		req := &pb.GetUsageTimestampMillisRequest{}
+		resp, err := client.GetUsageTimestampMillis(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchReportUsageRequestWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewReportUsageRequestServiceClient(grpcConn)
+		req := &pb.ReportUsageRequestWriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchReportUsageRequestBuilderCmd = &cobra.Command{
+	Use:   "report-usage-request-builder",
+	Short: "ReportUsageRequestBuilderService operations",
+}
+
+var appsearchReportUsageRequestBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewReportUsageRequestBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchReportUsageRequestBuilderSetUsageTimestampMillisCmd = &cobra.Command{
+	Use:   "set-usage-timestamp-millis",
+	Short: "SetUsageTimestampMillis RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewReportUsageRequestBuilderServiceClient(grpcConn)
+		req := &pb.SetUsageTimestampMillisRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetUsageTimestampMillis(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchPutDocumentsRequestCmd = &cobra.Command{
+	Use:   "put-documents-request",
+	Short: "PutDocumentsRequestService operations",
+}
+
+var appsearchPutDocumentsRequestGetGenericDocumentsCmd = &cobra.Command{
+	Use:   "get-generic-documents",
+	Short: "GetGenericDocuments RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPutDocumentsRequestServiceClient(grpcConn)
+		req := &pb.GetGenericDocumentsRequest{}
+		resp, err := client.GetGenericDocuments(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchPutDocumentsRequestGetTakenActionGenericDocumentsCmd = &cobra.Command{
+	Use:   "get-taken-action-generic-documents",
+	Short: "GetTakenActionGenericDocuments RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPutDocumentsRequestServiceClient(grpcConn)
+		req := &pb.GetTakenActionGenericDocumentsRequest{}
+		resp, err := client.GetTakenActionGenericDocuments(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchPutDocumentsRequestBuilderCmd = &cobra.Command{
+	Use:   "put-documents-request-builder",
+	Short: "PutDocumentsRequestBuilderService operations",
+}
+
+var appsearchPutDocumentsRequestBuilderAddGenericDocumentsCmd = &cobra.Command{
+	Use:   "add-generic-documents",
+	Short: "AddGenericDocuments RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPutDocumentsRequestBuilderServiceClient(grpcConn)
+		req := &pb.AddGenericDocumentsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddGenericDocuments(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchPutDocumentsRequestBuilderAddTakenActionGenericDocumentsCmd = &cobra.Command{
+	Use:   "add-taken-action-generic-documents",
+	Short: "AddTakenActionGenericDocuments RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPutDocumentsRequestBuilderServiceClient(grpcConn)
+		req := &pb.AddTakenActionGenericDocumentsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddTakenActionGenericDocuments(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchPutDocumentsRequestBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPutDocumentsRequestBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchSetSchemaRequestCmd = &cobra.Command{
+	Use:   "set-schema-request",
+	Short: "SetSchemaRequestService operations",
+}
+
+var appsearchSetSchemaRequestEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSetSchemaRequestServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchSetSchemaRequestGetSchemasCmd = &cobra.Command{
+	Use:   "get-schemas",
+	Short: "GetSchemas RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSetSchemaRequestServiceClient(grpcConn)
+		req := &pb.GetSchemasRequest{}
+		resp, err := client.GetSchemas(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchSetSchemaRequestGetSchemasNotDisplayedBySystemCmd = &cobra.Command{
+	Use:   "get-schemas-not-displayed-by-system",
+	Short: "GetSchemasNotDisplayedBySystem RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSetSchemaRequestServiceClient(grpcConn)
+		req := &pb.GetSchemasNotDisplayedBySystemRequest{}
+		resp, err := client.GetSchemasNotDisplayedBySystem(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchSetSchemaRequestGetVersionCmd = &cobra.Command{
+	Use:   "get-version",
+	Short: "GetVersion RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSetSchemaRequestServiceClient(grpcConn)
+		req := &pb.GetVersionRequest{}
+		resp, err := client.GetVersion(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchSetSchemaRequestHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSetSchemaRequestServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchSetSchemaRequestIsForceOverrideCmd = &cobra.Command{
+	Use:   "is-force-override",
+	Short: "IsForceOverride RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSetSchemaRequestServiceClient(grpcConn)
+		req := &pb.IsForceOverrideRequest{}
+		resp, err := client.IsForceOverride(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchSetSchemaRequestBuilderCmd = &cobra.Command{
+	Use:   "set-schema-request-builder",
+	Short: "SetSchemaRequestBuilderService operations",
+}
+
+var appsearchSetSchemaRequestBuilderAddSchemaTypeVisibleToConfigCmd = &cobra.Command{
+	Use:   "add-schema-type-visible-to-config",
+	Short: "AddSchemaTypeVisibleToConfig RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSetSchemaRequestBuilderServiceClient(grpcConn)
+		req := &pb.AddSchemaTypeVisibleToConfigRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.AddSchemaTypeVisibleToConfig(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchSetSchemaRequestBuilderAddSchemasCmd = &cobra.Command{
+	Use:   "add-schemas",
+	Short: "AddSchemas RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSetSchemaRequestBuilderServiceClient(grpcConn)
+		req := &pb.AddSchemasRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddSchemas(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchSetSchemaRequestBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSetSchemaRequestBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchSetSchemaRequestBuilderClearMigratorsCmd = &cobra.Command{
+	Use:   "clear-migrators",
+	Short: "ClearMigrators RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSetSchemaRequestBuilderServiceClient(grpcConn)
+		req := &pb.ClearMigratorsRequest{}
+		resp, err := client.ClearMigrators(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchSetSchemaRequestBuilderClearRequiredPermissionsForSchemaTypeVisibilityCmd = &cobra.Command{
+	Use:   "clear-required-permissions-for-schema-type-visibility",
+	Short: "ClearRequiredPermissionsForSchemaTypeVisibility RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSetSchemaRequestBuilderServiceClient(grpcConn)
+		req := &pb.ClearRequiredPermissionsForSchemaTypeVisibilityRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.ClearRequiredPermissionsForSchemaTypeVisibility(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchSetSchemaRequestBuilderClearSchemaTypeVisibleToConfigsCmd = &cobra.Command{
+	Use:   "clear-schema-type-visible-to-configs",
+	Short: "ClearSchemaTypeVisibleToConfigs RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSetSchemaRequestBuilderServiceClient(grpcConn)
+		req := &pb.ClearSchemaTypeVisibleToConfigsRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.ClearSchemaTypeVisibleToConfigs(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchSetSchemaRequestBuilderClearSchemasCmd = &cobra.Command{
+	Use:   "clear-schemas",
+	Short: "ClearSchemas RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSetSchemaRequestBuilderServiceClient(grpcConn)
+		req := &pb.ClearSchemasRequest{}
+		resp, err := client.ClearSchemas(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchSetSchemaRequestBuilderSetForceOverrideCmd = &cobra.Command{
+	Use:   "set-force-override",
+	Short: "SetForceOverride RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSetSchemaRequestBuilderServiceClient(grpcConn)
+		req := &pb.SetForceOverrideRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetForceOverride(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchSetSchemaRequestBuilderSetMigratorCmd = &cobra.Command{
+	Use:   "set-migrator",
+	Short: "SetMigrator RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSetSchemaRequestBuilderServiceClient(grpcConn)
+		req := &pb.SetMigratorRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.SetMigrator(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchSetSchemaRequestBuilderSetPubliclyVisibleSchemaCmd = &cobra.Command{
+	Use:   "set-publicly-visible-schema",
+	Short: "SetPubliclyVisibleSchema RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSetSchemaRequestBuilderServiceClient(grpcConn)
+		req := &pb.SetPubliclyVisibleSchemaRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.SetPubliclyVisibleSchema(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchSetSchemaRequestBuilderSetSchemaTypeDisplayedBySystemCmd = &cobra.Command{
+	Use:   "set-schema-type-displayed-by-system",
+	Short: "SetSchemaTypeDisplayedBySystem RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSetSchemaRequestBuilderServiceClient(grpcConn)
+		req := &pb.SetSchemaTypeDisplayedBySystemRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetBool("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.SetSchemaTypeDisplayedBySystem(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchSetSchemaRequestBuilderSetSchemaTypeVisibilityForPackageCmd = &cobra.Command{
+	Use:   "set-schema-type-visibility-for-package",
+	Short: "SetSchemaTypeVisibilityForPackage RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSetSchemaRequestBuilderServiceClient(grpcConn)
+		req := &pb.SetSchemaTypeVisibilityForPackageRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetBool("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.SetSchemaTypeVisibilityForPackage(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchSetSchemaRequestBuilderSetVersionCmd = &cobra.Command{
+	Use:   "set-version",
+	Short: "SetVersion RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSetSchemaRequestBuilderServiceClient(grpcConn)
+		req := &pb.SetVersionRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetVersion(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchSetSchemaResponseCmd = &cobra.Command{
+	Use:   "set-schema-response",
+	Short: "SetSchemaResponseService operations",
+}
+
+var appsearchSetSchemaResponseDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSetSchemaResponseServiceClient(grpcConn)
+		req := &pb.SetSchemaResponseDescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchSetSchemaResponseGetDeletedTypesCmd = &cobra.Command{
+	Use:   "get-deleted-types",
+	Short: "GetDeletedTypes RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSetSchemaResponseServiceClient(grpcConn)
+		req := &pb.GetDeletedTypesRequest{}
+		resp, err := client.GetDeletedTypes(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchSetSchemaResponseGetIncompatibleTypesCmd = &cobra.Command{
+	Use:   "get-incompatible-types",
+	Short: "GetIncompatibleTypes RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSetSchemaResponseServiceClient(grpcConn)
+		req := &pb.GetIncompatibleTypesRequest{}
+		resp, err := client.GetIncompatibleTypes(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchSetSchemaResponseGetMigratedTypesCmd = &cobra.Command{
+	Use:   "get-migrated-types",
+	Short: "GetMigratedTypes RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSetSchemaResponseServiceClient(grpcConn)
+		req := &pb.GetMigratedTypesRequest{}
+		resp, err := client.GetMigratedTypes(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchSetSchemaResponseGetMigrationFailuresCmd = &cobra.Command{
+	Use:   "get-migration-failures",
+	Short: "GetMigrationFailures RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSetSchemaResponseServiceClient(grpcConn)
+		req := &pb.GetMigrationFailuresRequest{}
+		resp, err := client.GetMigrationFailures(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchSetSchemaResponseWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSetSchemaResponseServiceClient(grpcConn)
+		req := &pb.SetSchemaResponseWriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchSetSchemaResponseBuilderCmd = &cobra.Command{
+	Use:   "set-schema-response-builder",
+	Short: "SetSchemaResponseBuilderService operations",
+}
+
+var appsearchSetSchemaResponseBuilderAddDeletedTypeCmd = &cobra.Command{
+	Use:   "add-deleted-type",
+	Short: "AddDeletedType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSetSchemaResponseBuilderServiceClient(grpcConn)
+		req := &pb.AddDeletedTypeRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddDeletedType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchSetSchemaResponseBuilderAddIncompatibleTypeCmd = &cobra.Command{
+	Use:   "add-incompatible-type",
+	Short: "AddIncompatibleType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSetSchemaResponseBuilderServiceClient(grpcConn)
+		req := &pb.AddIncompatibleTypeRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddIncompatibleType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchSetSchemaResponseBuilderAddMigratedTypeCmd = &cobra.Command{
+	Use:   "add-migrated-type",
+	Short: "AddMigratedType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSetSchemaResponseBuilderServiceClient(grpcConn)
+		req := &pb.AddMigratedTypeRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddMigratedType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchSetSchemaResponseBuilderAddMigrationFailureCmd = &cobra.Command{
+	Use:   "add-migration-failure",
+	Short: "AddMigrationFailure RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSetSchemaResponseBuilderServiceClient(grpcConn)
+		req := &pb.AddMigrationFailureRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddMigrationFailure(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchSetSchemaResponseBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSetSchemaResponseBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchSetSchemaResponseMigrationFailureCmd = &cobra.Command{
+	Use:   "set-schema-response-migration-failure",
+	Short: "SetSchemaResponseMigrationFailureService operations",
+}
+
+var appsearchSetSchemaResponseMigrationFailureDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSetSchemaResponseMigrationFailureServiceClient(grpcConn)
+		req := &pb.SetSchemaResponseMigrationFailureDescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchSetSchemaResponseMigrationFailureGetAppSearchResultCmd = &cobra.Command{
+	Use:   "get-app-search-result",
+	Short: "GetAppSearchResult RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSetSchemaResponseMigrationFailureServiceClient(grpcConn)
+		req := &pb.GetAppSearchResultRequest{}
+		resp, err := client.GetAppSearchResult(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchSetSchemaResponseMigrationFailureGetDocumentIdCmd = &cobra.Command{
+	Use:   "get-document-id",
+	Short: "GetDocumentId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSetSchemaResponseMigrationFailureServiceClient(grpcConn)
+		req := &pb.GetDocumentIdRequest{}
+		resp, err := client.GetDocumentId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchSetSchemaResponseMigrationFailureGetNamespaceCmd = &cobra.Command{
+	Use:   "get-namespace",
+	Short: "GetNamespace RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSetSchemaResponseMigrationFailureServiceClient(grpcConn)
+		req := &pb.GetNamespaceRequest{}
+		resp, err := client.GetNamespace(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchSetSchemaResponseMigrationFailureGetSchemaTypeCmd = &cobra.Command{
+	Use:   "get-schema-type",
+	Short: "GetSchemaType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSetSchemaResponseMigrationFailureServiceClient(grpcConn)
+		req := &pb.GetSchemaTypeRequest{}
+		resp, err := client.GetSchemaType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchSetSchemaResponseMigrationFailureToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSetSchemaResponseMigrationFailureServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchSetSchemaResponseMigrationFailureWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSetSchemaResponseMigrationFailureServiceClient(grpcConn)
+		req := &pb.SetSchemaResponseMigrationFailureWriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchSetBlobVisibilityRequestCmd = &cobra.Command{
+	Use:   "set-blob-visibility-request",
+	Short: "SetBlobVisibilityRequestService operations",
+}
+
+var appsearchSetBlobVisibilityRequestGetNamespacesNotDisplayedBySystemCmd = &cobra.Command{
+	Use:   "get-namespaces-not-displayed-by-system",
+	Short: "GetNamespacesNotDisplayedBySystem RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSetBlobVisibilityRequestServiceClient(grpcConn)
+		req := &pb.GetNamespacesNotDisplayedBySystemRequest{}
+		resp, err := client.GetNamespacesNotDisplayedBySystem(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchSetBlobVisibilityRequestBuilderCmd = &cobra.Command{
+	Use:   "set-blob-visibility-request-builder",
+	Short: "SetBlobVisibilityRequestBuilderService operations",
+}
+
+var appsearchSetBlobVisibilityRequestBuilderAddNamespaceVisibleToConfigCmd = &cobra.Command{
+	Use:   "add-namespace-visible-to-config",
+	Short: "AddNamespaceVisibleToConfig RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSetBlobVisibilityRequestBuilderServiceClient(grpcConn)
+		req := &pb.AddNamespaceVisibleToConfigRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.AddNamespaceVisibleToConfig(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchSetBlobVisibilityRequestBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSetBlobVisibilityRequestBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchSetBlobVisibilityRequestBuilderClearNamespaceVisibleToConfigsCmd = &cobra.Command{
+	Use:   "clear-namespace-visible-to-configs",
+	Short: "ClearNamespaceVisibleToConfigs RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSetBlobVisibilityRequestBuilderServiceClient(grpcConn)
+		req := &pb.ClearNamespaceVisibleToConfigsRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.ClearNamespaceVisibleToConfigs(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchSetBlobVisibilityRequestBuilderSetNamespaceDisplayedBySystemCmd = &cobra.Command{
+	Use:   "set-namespace-displayed-by-system",
+	Short: "SetNamespaceDisplayedBySystem RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSetBlobVisibilityRequestBuilderServiceClient(grpcConn)
+		req := &pb.SetNamespaceDisplayedBySystemRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetBool("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.SetNamespaceDisplayedBySystem(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchGlobalSearchSessionCmd = &cobra.Command{
+	Use:   "global-search-session",
+	Short: "GlobalSearchSessionService operations",
+}
+
+var appsearchGlobalSearchSessionCloseCmd = &cobra.Command{
+	Use:   "close",
+	Short: "Close RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGlobalSearchSessionServiceClient(grpcConn)
+		req := &pb.CloseRequest{}
+		resp, err := client.Close(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchGlobalSearchSessionRegisterObserverCallbackCmd = &cobra.Command{
+	Use:   "register-observer-callback",
+	Short: "RegisterObserverCallback RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGlobalSearchSessionServiceClient(grpcConn)
+		req := &pb.RegisterObserverCallbackRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.RegisterObserverCallback(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchGlobalSearchSessionSearchCmd = &cobra.Command{
+	Use:   "search",
+	Short: "Search RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGlobalSearchSessionServiceClient(grpcConn)
+		req := &pb.SearchRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.Search(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchGlobalSearchSessionUnregisterObserverCallbackCmd = &cobra.Command{
+	Use:   "unregister-observer-callback",
+	Short: "UnregisterObserverCallback RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGlobalSearchSessionServiceClient(grpcConn)
+		req := &pb.UnregisterObserverCallbackRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.UnregisterObserverCallback(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchStorageInfoCmd = &cobra.Command{
+	Use:   "storage-info",
+	Short: "StorageInfoService operations",
+}
+
+var appsearchStorageInfoDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStorageInfoServiceClient(grpcConn)
+		req := &pb.StorageInfoDescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchStorageInfoGetAliveDocumentsCountCmd = &cobra.Command{
+	Use:   "get-alive-documents-count",
+	Short: "GetAliveDocumentsCount RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStorageInfoServiceClient(grpcConn)
+		req := &pb.GetAliveDocumentsCountRequest{}
+		resp, err := client.GetAliveDocumentsCount(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchStorageInfoGetAliveNamespacesCountCmd = &cobra.Command{
+	Use:   "get-alive-namespaces-count",
+	Short: "GetAliveNamespacesCount RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStorageInfoServiceClient(grpcConn)
+		req := &pb.GetAliveNamespacesCountRequest{}
+		resp, err := client.GetAliveNamespacesCount(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchStorageInfoGetBlobsCountCmd = &cobra.Command{
+	Use:   "get-blobs-count",
+	Short: "GetBlobsCount RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStorageInfoServiceClient(grpcConn)
+		req := &pb.GetBlobsCountRequest{}
+		resp, err := client.GetBlobsCount(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchStorageInfoGetBlobsSizeBytesCmd = &cobra.Command{
+	Use:   "get-blobs-size-bytes",
+	Short: "GetBlobsSizeBytes RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStorageInfoServiceClient(grpcConn)
+		req := &pb.GetBlobsSizeBytesRequest{}
+		resp, err := client.GetBlobsSizeBytes(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchStorageInfoGetSizeBytesCmd = &cobra.Command{
+	Use:   "get-size-bytes",
+	Short: "GetSizeBytes RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStorageInfoServiceClient(grpcConn)
+		req := &pb.GetSizeBytesRequest{}
+		resp, err := client.GetSizeBytes(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchStorageInfoWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStorageInfoServiceClient(grpcConn)
+		req := &pb.StorageInfoWriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchStorageInfoBuilderCmd = &cobra.Command{
+	Use:   "storage-info-builder",
+	Short: "StorageInfoBuilderService operations",
+}
+
+var appsearchStorageInfoBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStorageInfoBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchStorageInfoBuilderSetAliveDocumentsCountCmd = &cobra.Command{
+	Use:   "set-alive-documents-count",
+	Short: "SetAliveDocumentsCount RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStorageInfoBuilderServiceClient(grpcConn)
+		req := &pb.SetAliveDocumentsCountRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetAliveDocumentsCount(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchStorageInfoBuilderSetAliveNamespacesCountCmd = &cobra.Command{
+	Use:   "set-alive-namespaces-count",
+	Short: "SetAliveNamespacesCount RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStorageInfoBuilderServiceClient(grpcConn)
+		req := &pb.SetAliveNamespacesCountRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetAliveNamespacesCount(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchStorageInfoBuilderSetBlobsCountCmd = &cobra.Command{
+	Use:   "set-blobs-count",
+	Short: "SetBlobsCount RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStorageInfoBuilderServiceClient(grpcConn)
+		req := &pb.SetBlobsCountRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetBlobsCount(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchStorageInfoBuilderSetBlobsSizeBytesCmd = &cobra.Command{
+	Use:   "set-blobs-size-bytes",
+	Short: "SetBlobsSizeBytes RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStorageInfoBuilderServiceClient(grpcConn)
+		req := &pb.SetBlobsSizeBytesRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetBlobsSizeBytes(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchStorageInfoBuilderSetSizeBytesCmd = &cobra.Command{
+	Use:   "set-size-bytes",
+	Short: "SetSizeBytes RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStorageInfoBuilderServiceClient(grpcConn)
+		req := &pb.SetSizeBytesRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetSizeBytes(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchGenericDocumentCmd = &cobra.Command{
+	Use:   "generic-document",
+	Short: "GenericDocumentService operations",
+}
+
+var appsearchGenericDocumentEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGenericDocumentServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchGenericDocumentGetCreationTimestampMillisCmd = &cobra.Command{
+	Use:   "get-creation-timestamp-millis",
+	Short: "GetCreationTimestampMillis RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGenericDocumentServiceClient(grpcConn)
+		req := &pb.GetCreationTimestampMillisRequest{}
+		resp, err := client.GetCreationTimestampMillis(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchGenericDocumentGetIdCmd = &cobra.Command{
+	Use:   "get-id",
+	Short: "GetId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGenericDocumentServiceClient(grpcConn)
+		req := &pb.GetIdRequest{}
+		resp, err := client.GetId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchGenericDocumentGetNamespaceCmd = &cobra.Command{
+	Use:   "get-namespace",
+	Short: "GetNamespace RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGenericDocumentServiceClient(grpcConn)
+		req := &pb.GetNamespaceRequest{}
+		resp, err := client.GetNamespace(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchGenericDocumentGetPropertyCmd = &cobra.Command{
+	Use:   "get-property",
+	Short: "GetProperty RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGenericDocumentServiceClient(grpcConn)
+		req := &pb.GetPropertyRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetProperty(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchGenericDocumentGetPropertyBlobHandleCmd = &cobra.Command{
+	Use:   "get-property-blob-handle",
+	Short: "GetPropertyBlobHandle RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGenericDocumentServiceClient(grpcConn)
+		req := &pb.GetPropertyBlobHandleRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetPropertyBlobHandle(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchGenericDocumentGetPropertyBlobHandleArrayCmd = &cobra.Command{
+	Use:   "get-property-blob-handle-array",
+	Short: "GetPropertyBlobHandleArray RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGenericDocumentServiceClient(grpcConn)
+		req := &pb.GetPropertyBlobHandleArrayRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetPropertyBlobHandleArray(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchGenericDocumentGetPropertyBooleanCmd = &cobra.Command{
+	Use:   "get-property-boolean",
+	Short: "GetPropertyBoolean RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGenericDocumentServiceClient(grpcConn)
+		req := &pb.GetPropertyBooleanRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetPropertyBoolean(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchGenericDocumentGetPropertyBooleanArrayCmd = &cobra.Command{
+	Use:   "get-property-boolean-array",
+	Short: "GetPropertyBooleanArray RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGenericDocumentServiceClient(grpcConn)
+		req := &pb.GetPropertyBooleanArrayRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetPropertyBooleanArray(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchGenericDocumentGetPropertyBytesCmd = &cobra.Command{
+	Use:   "get-property-bytes",
+	Short: "GetPropertyBytes RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGenericDocumentServiceClient(grpcConn)
+		req := &pb.GetPropertyBytesRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetPropertyBytes(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchGenericDocumentGetPropertyBytesArrayCmd = &cobra.Command{
+	Use:   "get-property-bytes-array",
+	Short: "GetPropertyBytesArray RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGenericDocumentServiceClient(grpcConn)
+		req := &pb.GetPropertyBytesArrayRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetPropertyBytesArray(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchGenericDocumentGetPropertyDocumentCmd = &cobra.Command{
+	Use:   "get-property-document",
+	Short: "GetPropertyDocument RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGenericDocumentServiceClient(grpcConn)
+		req := &pb.GetPropertyDocumentRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetPropertyDocument(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchGenericDocumentGetPropertyDocumentArrayCmd = &cobra.Command{
+	Use:   "get-property-document-array",
+	Short: "GetPropertyDocumentArray RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGenericDocumentServiceClient(grpcConn)
+		req := &pb.GetPropertyDocumentArrayRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetPropertyDocumentArray(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchGenericDocumentGetPropertyDoubleCmd = &cobra.Command{
+	Use:   "get-property-double",
+	Short: "GetPropertyDouble RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGenericDocumentServiceClient(grpcConn)
+		req := &pb.GetPropertyDoubleRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetPropertyDouble(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchGenericDocumentGetPropertyDoubleArrayCmd = &cobra.Command{
+	Use:   "get-property-double-array",
+	Short: "GetPropertyDoubleArray RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGenericDocumentServiceClient(grpcConn)
+		req := &pb.GetPropertyDoubleArrayRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetPropertyDoubleArray(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchGenericDocumentGetPropertyEmbeddingCmd = &cobra.Command{
+	Use:   "get-property-embedding",
+	Short: "GetPropertyEmbedding RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGenericDocumentServiceClient(grpcConn)
+		req := &pb.GetPropertyEmbeddingRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetPropertyEmbedding(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchGenericDocumentGetPropertyEmbeddingArrayCmd = &cobra.Command{
+	Use:   "get-property-embedding-array",
+	Short: "GetPropertyEmbeddingArray RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGenericDocumentServiceClient(grpcConn)
+		req := &pb.GetPropertyEmbeddingArrayRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetPropertyEmbeddingArray(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchGenericDocumentGetPropertyLongCmd = &cobra.Command{
+	Use:   "get-property-long",
+	Short: "GetPropertyLong RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGenericDocumentServiceClient(grpcConn)
+		req := &pb.GetPropertyLongRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetPropertyLong(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchGenericDocumentGetPropertyLongArrayCmd = &cobra.Command{
+	Use:   "get-property-long-array",
+	Short: "GetPropertyLongArray RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGenericDocumentServiceClient(grpcConn)
+		req := &pb.GetPropertyLongArrayRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetPropertyLongArray(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchGenericDocumentGetPropertyNamesCmd = &cobra.Command{
+	Use:   "get-property-names",
+	Short: "GetPropertyNames RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGenericDocumentServiceClient(grpcConn)
+		req := &pb.GetPropertyNamesRequest{}
+		resp, err := client.GetPropertyNames(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchGenericDocumentGetPropertyStringCmd = &cobra.Command{
+	Use:   "get-property-string",
+	Short: "GetPropertyString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGenericDocumentServiceClient(grpcConn)
+		req := &pb.GetPropertyStringRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetPropertyString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchGenericDocumentGetPropertyStringArrayCmd = &cobra.Command{
+	Use:   "get-property-string-array",
+	Short: "GetPropertyStringArray RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGenericDocumentServiceClient(grpcConn)
+		req := &pb.GetPropertyStringArrayRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetPropertyStringArray(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchGenericDocumentGetSchemaTypeCmd = &cobra.Command{
+	Use:   "get-schema-type",
+	Short: "GetSchemaType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGenericDocumentServiceClient(grpcConn)
+		req := &pb.GetSchemaTypeRequest{}
+		resp, err := client.GetSchemaType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchGenericDocumentGetScoreCmd = &cobra.Command{
+	Use:   "get-score",
+	Short: "GetScore RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGenericDocumentServiceClient(grpcConn)
+		req := &pb.GetScoreRequest{}
+		resp, err := client.GetScore(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchGenericDocumentGetTtlMillisCmd = &cobra.Command{
+	Use:   "get-ttl-millis",
+	Short: "GetTtlMillis RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGenericDocumentServiceClient(grpcConn)
+		req := &pb.GetTtlMillisRequest{}
+		resp, err := client.GetTtlMillis(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchGenericDocumentHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGenericDocumentServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchGenericDocumentToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGenericDocumentServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchGenericDocumentGetMaxIndexedPropertiesCmd = &cobra.Command{
+	Use:   "get-max-indexed-properties",
+	Short: "GetMaxIndexedProperties RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGenericDocumentServiceClient(grpcConn)
+		req := &pb.GetMaxIndexedPropertiesRequest{}
+		resp, err := client.GetMaxIndexedProperties(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchGenericDocumentBuilderCmd = &cobra.Command{
+	Use:   "generic-document-builder",
+	Short: "GenericDocumentBuilderService operations",
+}
+
+var appsearchGenericDocumentBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGenericDocumentBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchGenericDocumentBuilderClearPropertyCmd = &cobra.Command{
+	Use:   "clear-property",
+	Short: "ClearProperty RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGenericDocumentBuilderServiceClient(grpcConn)
+		req := &pb.ClearPropertyRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.ClearProperty(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchGenericDocumentBuilderSetCreationTimestampMillisCmd = &cobra.Command{
+	Use:   "set-creation-timestamp-millis",
+	Short: "SetCreationTimestampMillis RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGenericDocumentBuilderServiceClient(grpcConn)
+		req := &pb.SetCreationTimestampMillisRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetCreationTimestampMillis(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchGenericDocumentBuilderSetIdCmd = &cobra.Command{
+	Use:   "set-id",
+	Short: "SetId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGenericDocumentBuilderServiceClient(grpcConn)
+		req := &pb.SetIdRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchGenericDocumentBuilderSetNamespaceCmd = &cobra.Command{
+	Use:   "set-namespace",
+	Short: "SetNamespace RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGenericDocumentBuilderServiceClient(grpcConn)
+		req := &pb.SetNamespaceRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetNamespace(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchGenericDocumentBuilderSetPropertyBlobHandleCmd = &cobra.Command{
+	Use:   "set-property-blob-handle",
+	Short: "SetPropertyBlobHandle RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGenericDocumentBuilderServiceClient(grpcConn)
+		req := &pb.SetPropertyBlobHandleRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.SetPropertyBlobHandle(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchGenericDocumentBuilderSetPropertyBooleanCmd = &cobra.Command{
+	Use:   "set-property-boolean",
+	Short: "SetPropertyBoolean RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGenericDocumentBuilderServiceClient(grpcConn)
+		req := &pb.SetPropertyBooleanRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.SetPropertyBoolean(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchGenericDocumentBuilderSetPropertyBytesCmd = &cobra.Command{
+	Use:   "set-property-bytes",
+	Short: "SetPropertyBytes RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGenericDocumentBuilderServiceClient(grpcConn)
+		req := &pb.SetPropertyBytesRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.SetPropertyBytes(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchGenericDocumentBuilderSetPropertyDocumentCmd = &cobra.Command{
+	Use:   "set-property-document",
+	Short: "SetPropertyDocument RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGenericDocumentBuilderServiceClient(grpcConn)
+		req := &pb.SetPropertyDocumentRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.SetPropertyDocument(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchGenericDocumentBuilderSetPropertyDoubleCmd = &cobra.Command{
+	Use:   "set-property-double",
+	Short: "SetPropertyDouble RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGenericDocumentBuilderServiceClient(grpcConn)
+		req := &pb.SetPropertyDoubleRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.SetPropertyDouble(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchGenericDocumentBuilderSetPropertyEmbeddingCmd = &cobra.Command{
+	Use:   "set-property-embedding",
+	Short: "SetPropertyEmbedding RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGenericDocumentBuilderServiceClient(grpcConn)
+		req := &pb.SetPropertyEmbeddingRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.SetPropertyEmbedding(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchGenericDocumentBuilderSetPropertyLongCmd = &cobra.Command{
+	Use:   "set-property-long",
+	Short: "SetPropertyLong RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGenericDocumentBuilderServiceClient(grpcConn)
+		req := &pb.SetPropertyLongRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.SetPropertyLong(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchGenericDocumentBuilderSetPropertyStringCmd = &cobra.Command{
+	Use:   "set-property-string",
+	Short: "SetPropertyString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGenericDocumentBuilderServiceClient(grpcConn)
+		req := &pb.SetPropertyStringRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.SetPropertyString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchGenericDocumentBuilderSetSchemaTypeCmd = &cobra.Command{
+	Use:   "set-schema-type",
+	Short: "SetSchemaType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGenericDocumentBuilderServiceClient(grpcConn)
+		req := &pb.SetSchemaTypeRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetSchemaType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchGenericDocumentBuilderSetScoreCmd = &cobra.Command{
+	Use:   "set-score",
+	Short: "SetScore RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGenericDocumentBuilderServiceClient(grpcConn)
+		req := &pb.SetScoreRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetScore(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchGenericDocumentBuilderSetTtlMillisCmd = &cobra.Command{
+	Use:   "set-ttl-millis",
+	Short: "SetTtlMillis RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGenericDocumentBuilderServiceClient(grpcConn)
+		req := &pb.SetTtlMillisRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetTtlMillis(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchAppSearchSchemaCmd = &cobra.Command{
+	Use:   "app-search-schema",
+	Short: "AppSearchSchemaService operations",
+}
+
+var appsearchAppSearchSchemaDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAppSearchSchemaServiceClient(grpcConn)
+		req := &pb.AppSearchSchemaDescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchAppSearchSchemaEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAppSearchSchemaServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchAppSearchSchemaGetParentTypesCmd = &cobra.Command{
+	Use:   "get-parent-types",
+	Short: "GetParentTypes RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAppSearchSchemaServiceClient(grpcConn)
+		req := &pb.GetParentTypesRequest{}
+		resp, err := client.GetParentTypes(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchAppSearchSchemaGetPropertiesCmd = &cobra.Command{
+	Use:   "get-properties",
+	Short: "GetProperties RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAppSearchSchemaServiceClient(grpcConn)
+		req := &pb.GetPropertiesRequest{}
+		resp, err := client.GetProperties(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchAppSearchSchemaGetSchemaTypeCmd = &cobra.Command{
+	Use:   "get-schema-type",
+	Short: "GetSchemaType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAppSearchSchemaServiceClient(grpcConn)
+		req := &pb.GetSchemaTypeRequest{}
+		resp, err := client.GetSchemaType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchAppSearchSchemaHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAppSearchSchemaServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchAppSearchSchemaToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAppSearchSchemaServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchAppSearchSchemaWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAppSearchSchemaServiceClient(grpcConn)
+		req := &pb.AppSearchSchemaWriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchAppSearchSchemaBooleanPropertyConfigCmd = &cobra.Command{
+	Use:   "app-search-schema-boolean-property-config",
+	Short: "AppSearchSchemaBooleanPropertyConfigService operations",
+}
+
+var appsearchAppSearchSchemaBooleanPropertyConfigIsScoringEnabledCmd = &cobra.Command{
+	Use:   "is-scoring-enabled",
+	Short: "IsScoringEnabled RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAppSearchSchemaBooleanPropertyConfigServiceClient(grpcConn)
+		req := &pb.IsScoringEnabledRequest{}
+		resp, err := client.IsScoringEnabled(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchAppSearchSchemaBuilderCmd = &cobra.Command{
+	Use:   "app-search-schema-builder",
+	Short: "AppSearchSchemaBuilderService operations",
+}
+
+var appsearchAppSearchSchemaBuilderAddParentTypeCmd = &cobra.Command{
+	Use:   "add-parent-type",
+	Short: "AddParentType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAppSearchSchemaBuilderServiceClient(grpcConn)
+		req := &pb.AddParentTypeRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddParentType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchAppSearchSchemaBuilderAddPropertyCmd = &cobra.Command{
+	Use:   "add-property",
+	Short: "AddProperty RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAppSearchSchemaBuilderServiceClient(grpcConn)
+		req := &pb.AddPropertyRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddProperty(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchAppSearchSchemaBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAppSearchSchemaBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchAppSearchSchemaBuilderClearParentTypesCmd = &cobra.Command{
+	Use:   "clear-parent-types",
+	Short: "ClearParentTypes RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAppSearchSchemaBuilderServiceClient(grpcConn)
+		req := &pb.ClearParentTypesRequest{}
+		resp, err := client.ClearParentTypes(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchAppSearchSchemaBuilderClearPropertiesCmd = &cobra.Command{
+	Use:   "clear-properties",
+	Short: "ClearProperties RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAppSearchSchemaBuilderServiceClient(grpcConn)
+		req := &pb.ClearPropertiesRequest{}
+		resp, err := client.ClearProperties(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchAppSearchSchemaBuilderSetSchemaTypeCmd = &cobra.Command{
+	Use:   "set-schema-type",
+	Short: "SetSchemaType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAppSearchSchemaBuilderServiceClient(grpcConn)
+		req := &pb.SetSchemaTypeRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetSchemaType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchAppSearchSchemaDocumentPropertyConfigCmd = &cobra.Command{
+	Use:   "app-search-schema-document-property-config",
+	Short: "AppSearchSchemaDocumentPropertyConfigService operations",
+}
+
+var appsearchAppSearchSchemaDocumentPropertyConfigGetIndexableNestedPropertiesCmd = &cobra.Command{
+	Use:   "get-indexable-nested-properties",
+	Short: "GetIndexableNestedProperties RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAppSearchSchemaDocumentPropertyConfigServiceClient(grpcConn)
+		req := &pb.GetIndexableNestedPropertiesRequest{}
+		resp, err := client.GetIndexableNestedProperties(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchAppSearchSchemaDocumentPropertyConfigGetSchemaTypeCmd = &cobra.Command{
+	Use:   "get-schema-type",
+	Short: "GetSchemaType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAppSearchSchemaDocumentPropertyConfigServiceClient(grpcConn)
+		req := &pb.GetSchemaTypeRequest{}
+		resp, err := client.GetSchemaType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchAppSearchSchemaDocumentPropertyConfigShouldIndexNestedPropertiesCmd = &cobra.Command{
+	Use:   "should-index-nested-properties",
+	Short: "ShouldIndexNestedProperties RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAppSearchSchemaDocumentPropertyConfigServiceClient(grpcConn)
+		req := &pb.ShouldIndexNestedPropertiesRequest{}
+		resp, err := client.ShouldIndexNestedProperties(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchAppSearchSchemaDoublePropertyConfigCmd = &cobra.Command{
+	Use:   "app-search-schema-double-property-config",
+	Short: "AppSearchSchemaDoublePropertyConfigService operations",
+}
+
+var appsearchAppSearchSchemaDoublePropertyConfigIsScoringEnabledCmd = &cobra.Command{
+	Use:   "is-scoring-enabled",
+	Short: "IsScoringEnabled RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAppSearchSchemaDoublePropertyConfigServiceClient(grpcConn)
+		req := &pb.IsScoringEnabledRequest{}
+		resp, err := client.IsScoringEnabled(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchAppSearchSchemaEmbeddingPropertyConfigCmd = &cobra.Command{
+	Use:   "app-search-schema-embedding-property-config",
+	Short: "AppSearchSchemaEmbeddingPropertyConfigService operations",
+}
+
+var appsearchAppSearchSchemaEmbeddingPropertyConfigGetIndexingTypeCmd = &cobra.Command{
+	Use:   "get-indexing-type",
+	Short: "GetIndexingType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAppSearchSchemaEmbeddingPropertyConfigServiceClient(grpcConn)
+		req := &pb.GetIndexingTypeRequest{}
+		resp, err := client.GetIndexingType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchAppSearchSchemaEmbeddingPropertyConfigGetQuantizationTypeCmd = &cobra.Command{
+	Use:   "get-quantization-type",
+	Short: "GetQuantizationType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAppSearchSchemaEmbeddingPropertyConfigServiceClient(grpcConn)
+		req := &pb.GetQuantizationTypeRequest{}
+		resp, err := client.GetQuantizationType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchAppSearchSchemaLongPropertyConfigCmd = &cobra.Command{
+	Use:   "app-search-schema-long-property-config",
+	Short: "AppSearchSchemaLongPropertyConfigService operations",
+}
+
+var appsearchAppSearchSchemaLongPropertyConfigGetIndexingTypeCmd = &cobra.Command{
+	Use:   "get-indexing-type",
+	Short: "GetIndexingType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAppSearchSchemaLongPropertyConfigServiceClient(grpcConn)
+		req := &pb.GetIndexingTypeRequest{}
+		resp, err := client.GetIndexingType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchAppSearchSchemaLongPropertyConfigIsScoringEnabledCmd = &cobra.Command{
+	Use:   "is-scoring-enabled",
+	Short: "IsScoringEnabled RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAppSearchSchemaLongPropertyConfigServiceClient(grpcConn)
+		req := &pb.IsScoringEnabledRequest{}
+		resp, err := client.IsScoringEnabled(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchAppSearchSchemaPropertyConfigCmd = &cobra.Command{
+	Use:   "app-search-schema-property-config",
+	Short: "AppSearchSchemaPropertyConfigService operations",
+}
+
+var appsearchAppSearchSchemaPropertyConfigEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAppSearchSchemaPropertyConfigServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchAppSearchSchemaPropertyConfigGetCardinalityCmd = &cobra.Command{
+	Use:   "get-cardinality",
+	Short: "GetCardinality RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAppSearchSchemaPropertyConfigServiceClient(grpcConn)
+		req := &pb.GetCardinalityRequest{}
+		resp, err := client.GetCardinality(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchAppSearchSchemaPropertyConfigGetNameCmd = &cobra.Command{
+	Use:   "get-name",
+	Short: "GetName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAppSearchSchemaPropertyConfigServiceClient(grpcConn)
+		req := &pb.GetNameRequest{}
+		resp, err := client.GetName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchAppSearchSchemaPropertyConfigHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAppSearchSchemaPropertyConfigServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchAppSearchSchemaPropertyConfigToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAppSearchSchemaPropertyConfigServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchAppSearchSchemaStringPropertyConfigCmd = &cobra.Command{
+	Use:   "app-search-schema-string-property-config",
+	Short: "AppSearchSchemaStringPropertyConfigService operations",
+}
+
+var appsearchAppSearchSchemaStringPropertyConfigGetIndexingTypeCmd = &cobra.Command{
+	Use:   "get-indexing-type",
+	Short: "GetIndexingType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAppSearchSchemaStringPropertyConfigServiceClient(grpcConn)
+		req := &pb.GetIndexingTypeRequest{}
+		resp, err := client.GetIndexingType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchAppSearchSchemaStringPropertyConfigGetJoinableValueTypeCmd = &cobra.Command{
+	Use:   "get-joinable-value-type",
+	Short: "GetJoinableValueType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAppSearchSchemaStringPropertyConfigServiceClient(grpcConn)
+		req := &pb.GetJoinableValueTypeRequest{}
+		resp, err := client.GetJoinableValueType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchAppSearchSchemaStringPropertyConfigGetTokenizerTypeCmd = &cobra.Command{
+	Use:   "get-tokenizer-type",
+	Short: "GetTokenizerType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAppSearchSchemaStringPropertyConfigServiceClient(grpcConn)
+		req := &pb.GetTokenizerTypeRequest{}
+		resp, err := client.GetTokenizerType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchJoinSpecCmd = &cobra.Command{
+	Use:   "join-spec",
+	Short: "JoinSpecService operations",
+}
+
+var appsearchJoinSpecDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewJoinSpecServiceClient(grpcConn)
+		req := &pb.JoinSpecDescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchJoinSpecGetAggregationScoringStrategyCmd = &cobra.Command{
+	Use:   "get-aggregation-scoring-strategy",
+	Short: "GetAggregationScoringStrategy RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewJoinSpecServiceClient(grpcConn)
+		req := &pb.GetAggregationScoringStrategyRequest{}
+		resp, err := client.GetAggregationScoringStrategy(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchJoinSpecGetChildPropertyExpressionCmd = &cobra.Command{
+	Use:   "get-child-property-expression",
+	Short: "GetChildPropertyExpression RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewJoinSpecServiceClient(grpcConn)
+		req := &pb.GetChildPropertyExpressionRequest{}
+		resp, err := client.GetChildPropertyExpression(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchJoinSpecGetMaxJoinedResultCountCmd = &cobra.Command{
+	Use:   "get-max-joined-result-count",
+	Short: "GetMaxJoinedResultCount RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewJoinSpecServiceClient(grpcConn)
+		req := &pb.GetMaxJoinedResultCountRequest{}
+		resp, err := client.GetMaxJoinedResultCount(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchJoinSpecGetNestedQueryCmd = &cobra.Command{
+	Use:   "get-nested-query",
+	Short: "GetNestedQuery RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewJoinSpecServiceClient(grpcConn)
+		req := &pb.GetNestedQueryRequest{}
+		resp, err := client.GetNestedQuery(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchJoinSpecGetNestedSearchSpecCmd = &cobra.Command{
+	Use:   "get-nested-search-spec",
+	Short: "GetNestedSearchSpec RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewJoinSpecServiceClient(grpcConn)
+		req := &pb.GetNestedSearchSpecRequest{}
+		resp, err := client.GetNestedSearchSpec(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchJoinSpecWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewJoinSpecServiceClient(grpcConn)
+		req := &pb.JoinSpecWriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchJoinSpecBuilderCmd = &cobra.Command{
+	Use:   "join-spec-builder",
+	Short: "JoinSpecBuilderService operations",
+}
+
+var appsearchJoinSpecBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewJoinSpecBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchJoinSpecBuilderSetAggregationScoringStrategyCmd = &cobra.Command{
+	Use:   "set-aggregation-scoring-strategy",
+	Short: "SetAggregationScoringStrategy RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewJoinSpecBuilderServiceClient(grpcConn)
+		req := &pb.SetAggregationScoringStrategyRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetAggregationScoringStrategy(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchJoinSpecBuilderSetChildPropertyExpressionCmd = &cobra.Command{
+	Use:   "set-child-property-expression",
+	Short: "SetChildPropertyExpression RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewJoinSpecBuilderServiceClient(grpcConn)
+		req := &pb.SetChildPropertyExpressionRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetChildPropertyExpression(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchJoinSpecBuilderSetMaxJoinedResultCountCmd = &cobra.Command{
+	Use:   "set-max-joined-result-count",
+	Short: "SetMaxJoinedResultCount RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewJoinSpecBuilderServiceClient(grpcConn)
+		req := &pb.SetMaxJoinedResultCountRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetMaxJoinedResultCount(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchJoinSpecBuilderSetNestedSearchCmd = &cobra.Command{
+	Use:   "set-nested-search",
+	Short: "SetNestedSearch RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewJoinSpecBuilderServiceClient(grpcConn)
+		req := &pb.SetNestedSearchRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.SetNestedSearch(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchEmbeddingVectorCmd = &cobra.Command{
+	Use:   "embedding-vector",
+	Short: "EmbeddingVectorService operations",
+}
+
+var appsearchEmbeddingVectorNewEmbeddingVectorCmd = &cobra.Command{
+	Use:   "new-embedding-vector",
+	Short: "NewEmbeddingVector RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEmbeddingVectorServiceClient(grpcConn)
+		req := &pb.NewEmbeddingVectorRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.NewEmbeddingVector(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchEmbeddingVectorDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEmbeddingVectorServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchEmbeddingVectorEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEmbeddingVectorServiceClient(grpcConn)
+		req := &pb.EmbeddingVectorEqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchEmbeddingVectorGetModelSignatureCmd = &cobra.Command{
+	Use:   "get-model-signature",
+	Short: "GetModelSignature RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEmbeddingVectorServiceClient(grpcConn)
+		req := &pb.GetModelSignatureRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetModelSignature(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchEmbeddingVectorGetValuesCmd = &cobra.Command{
+	Use:   "get-values",
+	Short: "GetValues RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEmbeddingVectorServiceClient(grpcConn)
+		req := &pb.GetValuesRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetValues(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchEmbeddingVectorHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEmbeddingVectorServiceClient(grpcConn)
+		req := &pb.EmbeddingVectorHashCodeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchEmbeddingVectorWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEmbeddingVectorServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchGetSchemaResponseCmd = &cobra.Command{
+	Use:   "get-schema-response",
+	Short: "GetSchemaResponseService operations",
+}
+
+var appsearchGetSchemaResponseDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGetSchemaResponseServiceClient(grpcConn)
+		req := &pb.GetSchemaResponseDescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchGetSchemaResponseGetSchemaTypesNotDisplayedBySystemCmd = &cobra.Command{
+	Use:   "get-schema-types-not-displayed-by-system",
+	Short: "GetSchemaTypesNotDisplayedBySystem RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGetSchemaResponseServiceClient(grpcConn)
+		req := &pb.GetSchemaTypesNotDisplayedBySystemRequest{}
+		resp, err := client.GetSchemaTypesNotDisplayedBySystem(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchGetSchemaResponseGetSchemasCmd = &cobra.Command{
+	Use:   "get-schemas",
+	Short: "GetSchemas RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGetSchemaResponseServiceClient(grpcConn)
+		req := &pb.GetSchemasRequest{}
+		resp, err := client.GetSchemas(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchGetSchemaResponseGetVersionCmd = &cobra.Command{
+	Use:   "get-version",
+	Short: "GetVersion RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGetSchemaResponseServiceClient(grpcConn)
+		req := &pb.GetVersionRequest{}
+		resp, err := client.GetVersion(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchGetSchemaResponseWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGetSchemaResponseServiceClient(grpcConn)
+		req := &pb.GetSchemaResponseWriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchGetSchemaResponseBuilderCmd = &cobra.Command{
+	Use:   "get-schema-response-builder",
+	Short: "GetSchemaResponseBuilderService operations",
+}
+
+var appsearchGetSchemaResponseBuilderAddSchemaCmd = &cobra.Command{
+	Use:   "add-schema",
+	Short: "AddSchema RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGetSchemaResponseBuilderServiceClient(grpcConn)
+		req := &pb.AddSchemaRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddSchema(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchGetSchemaResponseBuilderAddSchemaTypeNotDisplayedBySystemCmd = &cobra.Command{
+	Use:   "add-schema-type-not-displayed-by-system",
+	Short: "AddSchemaTypeNotDisplayedBySystem RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGetSchemaResponseBuilderServiceClient(grpcConn)
+		req := &pb.AddSchemaTypeNotDisplayedBySystemRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddSchemaTypeNotDisplayedBySystem(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchGetSchemaResponseBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGetSchemaResponseBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchGetSchemaResponseBuilderClearPubliclyVisibleSchemaCmd = &cobra.Command{
+	Use:   "clear-publicly-visible-schema",
+	Short: "ClearPubliclyVisibleSchema RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGetSchemaResponseBuilderServiceClient(grpcConn)
+		req := &pb.ClearPubliclyVisibleSchemaRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.ClearPubliclyVisibleSchema(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchGetSchemaResponseBuilderClearRequiredPermissionsForSchemaTypeVisibilityCmd = &cobra.Command{
+	Use:   "clear-required-permissions-for-schema-type-visibility",
+	Short: "ClearRequiredPermissionsForSchemaTypeVisibility RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGetSchemaResponseBuilderServiceClient(grpcConn)
+		req := &pb.ClearRequiredPermissionsForSchemaTypeVisibilityRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.ClearRequiredPermissionsForSchemaTypeVisibility(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchGetSchemaResponseBuilderClearSchemaTypeNotDisplayedBySystemCmd = &cobra.Command{
+	Use:   "clear-schema-type-not-displayed-by-system",
+	Short: "ClearSchemaTypeNotDisplayedBySystem RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGetSchemaResponseBuilderServiceClient(grpcConn)
+		req := &pb.ClearSchemaTypeNotDisplayedBySystemRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.ClearSchemaTypeNotDisplayedBySystem(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchGetSchemaResponseBuilderClearSchemaTypeVisibleToConfigsCmd = &cobra.Command{
+	Use:   "clear-schema-type-visible-to-configs",
+	Short: "ClearSchemaTypeVisibleToConfigs RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGetSchemaResponseBuilderServiceClient(grpcConn)
+		req := &pb.ClearSchemaTypeVisibleToConfigsRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.ClearSchemaTypeVisibleToConfigs(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchGetSchemaResponseBuilderClearSchemaTypeVisibleToPackagesCmd = &cobra.Command{
+	Use:   "clear-schema-type-visible-to-packages",
+	Short: "ClearSchemaTypeVisibleToPackages RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGetSchemaResponseBuilderServiceClient(grpcConn)
+		req := &pb.ClearSchemaTypeVisibleToPackagesRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.ClearSchemaTypeVisibleToPackages(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchGetSchemaResponseBuilderClearSchemasCmd = &cobra.Command{
+	Use:   "clear-schemas",
+	Short: "ClearSchemas RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGetSchemaResponseBuilderServiceClient(grpcConn)
+		req := &pb.ClearSchemasRequest{}
+		resp, err := client.ClearSchemas(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchGetSchemaResponseBuilderSetPubliclyVisibleSchemaCmd = &cobra.Command{
+	Use:   "set-publicly-visible-schema",
+	Short: "SetPubliclyVisibleSchema RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGetSchemaResponseBuilderServiceClient(grpcConn)
+		req := &pb.SetPubliclyVisibleSchemaRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.SetPubliclyVisibleSchema(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchGetSchemaResponseBuilderSetVersionCmd = &cobra.Command{
+	Use:   "set-version",
+	Short: "SetVersion RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGetSchemaResponseBuilderServiceClient(grpcConn)
+		req := &pb.SetVersionRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetVersion(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchOpenBlobForWriteResponseCmd = &cobra.Command{
+	Use:   "open-blob-for-write-response",
+	Short: "OpenBlobForWriteResponseService operations",
+}
+
+var appsearchOpenBlobForWriteResponseNewOpenBlobForWriteResponseCmd = &cobra.Command{
+	Use:   "new-open-blob-for-write-response",
+	Short: "NewOpenBlobForWriteResponse RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewOpenBlobForWriteResponseServiceClient(grpcConn)
+		req := &pb.NewOpenBlobForWriteResponseRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.NewOpenBlobForWriteResponse(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchOpenBlobForWriteResponseCloseCmd = &cobra.Command{
+	Use:   "close",
+	Short: "Close RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewOpenBlobForWriteResponseServiceClient(grpcConn)
+		req := &pb.OpenBlobForWriteResponseCloseRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.Close(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchOpenBlobForWriteResponseDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewOpenBlobForWriteResponseServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchOpenBlobForWriteResponseWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewOpenBlobForWriteResponseServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchEnterpriseGlobalSearchSessionCmd = &cobra.Command{
+	Use:   "enterprise-global-search-session",
+	Short: "EnterpriseGlobalSearchSessionService operations",
+}
+
+var appsearchEnterpriseGlobalSearchSessionSearchCmd = &cobra.Command{
+	Use:   "search",
+	Short: "Search RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEnterpriseGlobalSearchSessionServiceClient(grpcConn)
+		req := &pb.SearchRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.Search(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchOpenBlobForReadResponseCmd = &cobra.Command{
+	Use:   "open-blob-for-read-response",
+	Short: "OpenBlobForReadResponseService operations",
+}
+
+var appsearchOpenBlobForReadResponseNewOpenBlobForReadResponseCmd = &cobra.Command{
+	Use:   "new-open-blob-for-read-response",
+	Short: "NewOpenBlobForReadResponse RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewOpenBlobForReadResponseServiceClient(grpcConn)
+		req := &pb.NewOpenBlobForReadResponseRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.NewOpenBlobForReadResponse(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchOpenBlobForReadResponseCloseCmd = &cobra.Command{
+	Use:   "close",
+	Short: "Close RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewOpenBlobForReadResponseServiceClient(grpcConn)
+		req := &pb.OpenBlobForReadResponseCloseRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.Close(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchOpenBlobForReadResponseDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewOpenBlobForReadResponseServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchOpenBlobForReadResponseWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewOpenBlobForReadResponseServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var appsearchSearchSpecCmd = &cobra.Command{
 	Use:   "search-spec",
 	Short: "SearchSpecService operations",
@@ -269,7 +5425,7 @@ var appsearchSearchSpecDescribeContentsCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewSearchSpecServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
+		req := &pb.SearchSpecDescribeContentsRequest{}
 		resp, err := client.DescribeContents(ctx, req)
 		if err != nil {
 			return err
@@ -303,6 +5459,102 @@ var appsearchSearchSpecGetDefaultEmbeddingSearchMetricTypeCmd = &cobra.Command{
 		client := pb.NewSearchSpecServiceClient(grpcConn)
 		req := &pb.GetDefaultEmbeddingSearchMetricTypeRequest{}
 		resp, err := client.GetDefaultEmbeddingSearchMetricType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchSearchSpecGetEmbeddingParametersCmd = &cobra.Command{
+	Use:   "get-embedding-parameters",
+	Short: "GetEmbeddingParameters RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSearchSpecServiceClient(grpcConn)
+		req := &pb.GetEmbeddingParametersRequest{}
+		resp, err := client.GetEmbeddingParameters(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchSearchSpecGetFilterDocumentIdsCmd = &cobra.Command{
+	Use:   "get-filter-document-ids",
+	Short: "GetFilterDocumentIds RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSearchSpecServiceClient(grpcConn)
+		req := &pb.GetFilterDocumentIdsRequest{}
+		resp, err := client.GetFilterDocumentIds(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchSearchSpecGetFilterNamespacesCmd = &cobra.Command{
+	Use:   "get-filter-namespaces",
+	Short: "GetFilterNamespaces RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSearchSpecServiceClient(grpcConn)
+		req := &pb.GetFilterNamespacesRequest{}
+		resp, err := client.GetFilterNamespaces(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchSearchSpecGetFilterPackageNamesCmd = &cobra.Command{
+	Use:   "get-filter-package-names",
+	Short: "GetFilterPackageNames RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSearchSpecServiceClient(grpcConn)
+		req := &pb.GetFilterPackageNamesRequest{}
+		resp, err := client.GetFilterPackageNames(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchSearchSpecGetFilterSchemasCmd = &cobra.Command{
+	Use:   "get-filter-schemas",
+	Short: "GetFilterSchemas RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSearchSpecServiceClient(grpcConn)
+		req := &pb.GetFilterSchemasRequest{}
+		resp, err := client.GetFilterSchemas(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchSearchSpecGetInformationalRankingExpressionsCmd = &cobra.Command{
+	Use:   "get-informational-ranking-expressions",
+	Short: "GetInformationalRankingExpressions RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSearchSpecServiceClient(grpcConn)
+		req := &pb.GetInformationalRankingExpressionsRequest{}
+		resp, err := client.GetInformationalRankingExpressions(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -431,6 +5683,22 @@ var appsearchSearchSpecGetSearchSourceLogTagCmd = &cobra.Command{
 		client := pb.NewSearchSpecServiceClient(grpcConn)
 		req := &pb.GetSearchSourceLogTagRequest{}
 		resp, err := client.GetSearchSourceLogTag(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchSearchSpecGetSearchStringParametersCmd = &cobra.Command{
+	Use:   "get-search-string-parameters",
+	Short: "GetSearchStringParameters RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSearchSpecServiceClient(grpcConn)
+		req := &pb.GetSearchStringParametersRequest{}
+		resp, err := client.GetSearchStringParameters(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -589,7 +5857,7 @@ var appsearchSearchSpecWriteToParcelCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewSearchSpecServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
+		req := &pb.SearchSpecWriteToParcelRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
@@ -1311,4188 +6579,6 @@ var appsearchSearchSpecBuilderSetVerbatimSearchEnabledCmd = &cobra.Command{
 	},
 }
 
-var appsearchRemoveBlobResponseCmd = &cobra.Command{
-	Use:   "remove-blob-response",
-	Short: "RemoveBlobResponseService operations",
-}
-
-var appsearchRemoveBlobResponseNewRemoveBlobResponseCmd = &cobra.Command{
-	Use:   "new-remove-blob-response",
-	Short: "NewRemoveBlobResponse RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRemoveBlobResponseServiceClient(grpcConn)
-		req := &pb.NewRemoveBlobResponseRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.NewRemoveBlobResponse(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchRemoveBlobResponseDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRemoveBlobResponseServiceClient(grpcConn)
-		req := &pb.RemoveBlobResponseDescribeContentsRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchRemoveBlobResponseWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRemoveBlobResponseServiceClient(grpcConn)
-		req := &pb.RemoveBlobResponseWriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchGlobalSearchSessionCmd = &cobra.Command{
-	Use:   "global-search-session",
-	Short: "GlobalSearchSessionService operations",
-}
-
-var appsearchGlobalSearchSessionCloseCmd = &cobra.Command{
-	Use:   "close",
-	Short: "Close RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewGlobalSearchSessionServiceClient(grpcConn)
-		req := &pb.CloseRequest{}
-		resp, err := client.Close(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchGlobalSearchSessionRegisterObserverCallbackCmd = &cobra.Command{
-	Use:   "register-observer-callback",
-	Short: "RegisterObserverCallback RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewGlobalSearchSessionServiceClient(grpcConn)
-		req := &pb.RegisterObserverCallbackRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		resp, err := client.RegisterObserverCallback(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchGlobalSearchSessionSearchCmd = &cobra.Command{
-	Use:   "search",
-	Short: "Search RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewGlobalSearchSessionServiceClient(grpcConn)
-		req := &pb.SearchRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.Search(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchGlobalSearchSessionUnregisterObserverCallbackCmd = &cobra.Command{
-	Use:   "unregister-observer-callback",
-	Short: "UnregisterObserverCallback RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewGlobalSearchSessionServiceClient(grpcConn)
-		req := &pb.UnregisterObserverCallbackRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.UnregisterObserverCallback(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchSetBlobVisibilityRequestBuilderCmd = &cobra.Command{
-	Use:   "set-blob-visibility-request-builder",
-	Short: "SetBlobVisibilityRequestBuilderService operations",
-}
-
-var appsearchSetBlobVisibilityRequestBuilderAddNamespaceVisibleToConfigCmd = &cobra.Command{
-	Use:   "add-namespace-visible-to-config",
-	Short: "AddNamespaceVisibleToConfig RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSetBlobVisibilityRequestBuilderServiceClient(grpcConn)
-		req := &pb.AddNamespaceVisibleToConfigRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.AddNamespaceVisibleToConfig(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchSetBlobVisibilityRequestBuilderBuildCmd = &cobra.Command{
-	Use:   "build",
-	Short: "Build RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSetBlobVisibilityRequestBuilderServiceClient(grpcConn)
-		req := &pb.BuildRequest{}
-		resp, err := client.Build(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchSetBlobVisibilityRequestBuilderClearNamespaceVisibleToConfigsCmd = &cobra.Command{
-	Use:   "clear-namespace-visible-to-configs",
-	Short: "ClearNamespaceVisibleToConfigs RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSetBlobVisibilityRequestBuilderServiceClient(grpcConn)
-		req := &pb.ClearNamespaceVisibleToConfigsRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.ClearNamespaceVisibleToConfigs(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchSetBlobVisibilityRequestBuilderSetNamespaceDisplayedBySystemCmd = &cobra.Command{
-	Use:   "set-namespace-displayed-by-system",
-	Short: "SetNamespaceDisplayedBySystem RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSetBlobVisibilityRequestBuilderServiceClient(grpcConn)
-		req := &pb.SetNamespaceDisplayedBySystemRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetBool("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.SetNamespaceDisplayedBySystem(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchSchemaVisibilityConfigCmd = &cobra.Command{
-	Use:   "schema-visibility-config",
-	Short: "SchemaVisibilityConfigService operations",
-}
-
-var appsearchSchemaVisibilityConfigDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSchemaVisibilityConfigServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchSchemaVisibilityConfigEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSchemaVisibilityConfigServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchSchemaVisibilityConfigGetPubliclyVisibleTargetPackageCmd = &cobra.Command{
-	Use:   "get-publicly-visible-target-package",
-	Short: "GetPubliclyVisibleTargetPackage RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSchemaVisibilityConfigServiceClient(grpcConn)
-		req := &pb.GetPubliclyVisibleTargetPackageRequest{}
-		resp, err := client.GetPubliclyVisibleTargetPackage(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchSchemaVisibilityConfigHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSchemaVisibilityConfigServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchSchemaVisibilityConfigWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSchemaVisibilityConfigServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchSchemaVisibilityConfigBuilderCmd = &cobra.Command{
-	Use:   "schema-visibility-config-builder",
-	Short: "SchemaVisibilityConfigBuilderService operations",
-}
-
-var appsearchSchemaVisibilityConfigBuilderAddAllowedPackageCmd = &cobra.Command{
-	Use:   "add-allowed-package",
-	Short: "AddAllowedPackage RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSchemaVisibilityConfigBuilderServiceClient(grpcConn)
-		req := &pb.AddAllowedPackageRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.AddAllowedPackage(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchSchemaVisibilityConfigBuilderBuildCmd = &cobra.Command{
-	Use:   "build",
-	Short: "Build RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSchemaVisibilityConfigBuilderServiceClient(grpcConn)
-		req := &pb.BuildRequest{}
-		resp, err := client.Build(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchSchemaVisibilityConfigBuilderClearAllowedPackagesCmd = &cobra.Command{
-	Use:   "clear-allowed-packages",
-	Short: "ClearAllowedPackages RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSchemaVisibilityConfigBuilderServiceClient(grpcConn)
-		req := &pb.ClearAllowedPackagesRequest{}
-		resp, err := client.ClearAllowedPackages(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchSchemaVisibilityConfigBuilderClearRequiredPermissionsCmd = &cobra.Command{
-	Use:   "clear-required-permissions",
-	Short: "ClearRequiredPermissions RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSchemaVisibilityConfigBuilderServiceClient(grpcConn)
-		req := &pb.ClearRequiredPermissionsRequest{}
-		resp, err := client.ClearRequiredPermissions(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchSchemaVisibilityConfigBuilderSetPubliclyVisibleTargetPackageCmd = &cobra.Command{
-	Use:   "set-publicly-visible-target-package",
-	Short: "SetPubliclyVisibleTargetPackage RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSchemaVisibilityConfigBuilderServiceClient(grpcConn)
-		req := &pb.SetPubliclyVisibleTargetPackageRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetPubliclyVisibleTargetPackage(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchSearchResultCmd = &cobra.Command{
-	Use:   "search-result",
-	Short: "SearchResultService operations",
-}
-
-var appsearchSearchResultDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSearchResultServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchSearchResultGetDatabaseNameCmd = &cobra.Command{
-	Use:   "get-database-name",
-	Short: "GetDatabaseName RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSearchResultServiceClient(grpcConn)
-		req := &pb.GetDatabaseNameRequest{}
-		resp, err := client.GetDatabaseName(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchSearchResultGetGenericDocumentCmd = &cobra.Command{
-	Use:   "get-generic-document",
-	Short: "GetGenericDocument RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSearchResultServiceClient(grpcConn)
-		req := &pb.GetGenericDocumentRequest{}
-		resp, err := client.GetGenericDocument(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchSearchResultGetPackageNameCmd = &cobra.Command{
-	Use:   "get-package-name",
-	Short: "GetPackageName RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSearchResultServiceClient(grpcConn)
-		req := &pb.GetPackageNameRequest{}
-		resp, err := client.GetPackageName(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchSearchResultGetRankingSignalCmd = &cobra.Command{
-	Use:   "get-ranking-signal",
-	Short: "GetRankingSignal RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSearchResultServiceClient(grpcConn)
-		req := &pb.GetRankingSignalRequest{}
-		resp, err := client.GetRankingSignal(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchSearchResultWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSearchResultServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchSearchResultBuilderCmd = &cobra.Command{
-	Use:   "search-result-builder",
-	Short: "SearchResultBuilderService operations",
-}
-
-var appsearchSearchResultBuilderAddInformationalRankingSignalCmd = &cobra.Command{
-	Use:   "add-informational-ranking-signal",
-	Short: "AddInformationalRankingSignal RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSearchResultBuilderServiceClient(grpcConn)
-		req := &pb.AddInformationalRankingSignalRequest{}
-		if v, err := cmd.Flags().GetFloat64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.AddInformationalRankingSignal(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchSearchResultBuilderAddJoinedResultCmd = &cobra.Command{
-	Use:   "add-joined-result",
-	Short: "AddJoinedResult RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSearchResultBuilderServiceClient(grpcConn)
-		req := &pb.AddJoinedResultRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.AddJoinedResult(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchSearchResultBuilderAddMatchInfoCmd = &cobra.Command{
-	Use:   "add-match-info",
-	Short: "AddMatchInfo RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSearchResultBuilderServiceClient(grpcConn)
-		req := &pb.AddMatchInfoRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.AddMatchInfo(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchSearchResultBuilderBuildCmd = &cobra.Command{
-	Use:   "build",
-	Short: "Build RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSearchResultBuilderServiceClient(grpcConn)
-		req := &pb.BuildRequest{}
-		resp, err := client.Build(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchSearchResultBuilderSetGenericDocumentCmd = &cobra.Command{
-	Use:   "set-generic-document",
-	Short: "SetGenericDocument RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSearchResultBuilderServiceClient(grpcConn)
-		req := &pb.SetGenericDocumentRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetGenericDocument(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchSearchResultBuilderSetRankingSignalCmd = &cobra.Command{
-	Use:   "set-ranking-signal",
-	Short: "SetRankingSignal RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSearchResultBuilderServiceClient(grpcConn)
-		req := &pb.SetRankingSignalRequest{}
-		if v, err := cmd.Flags().GetFloat64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetRankingSignal(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchSearchResultMatchInfoCmd = &cobra.Command{
-	Use:   "search-result-match-info",
-	Short: "SearchResultMatchInfoService operations",
-}
-
-var appsearchSearchResultMatchInfoDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSearchResultMatchInfoServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchSearchResultMatchInfoGetExactMatchCmd = &cobra.Command{
-	Use:   "get-exact-match",
-	Short: "GetExactMatch RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSearchResultMatchInfoServiceClient(grpcConn)
-		req := &pb.GetExactMatchRequest{}
-		resp, err := client.GetExactMatch(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchSearchResultMatchInfoGetExactMatchRangeCmd = &cobra.Command{
-	Use:   "get-exact-match-range",
-	Short: "GetExactMatchRange RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSearchResultMatchInfoServiceClient(grpcConn)
-		req := &pb.GetExactMatchRangeRequest{}
-		resp, err := client.GetExactMatchRange(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchSearchResultMatchInfoGetFullTextCmd = &cobra.Command{
-	Use:   "get-full-text",
-	Short: "GetFullText RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSearchResultMatchInfoServiceClient(grpcConn)
-		req := &pb.GetFullTextRequest{}
-		resp, err := client.GetFullText(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchSearchResultMatchInfoGetPropertyPathCmd = &cobra.Command{
-	Use:   "get-property-path",
-	Short: "GetPropertyPath RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSearchResultMatchInfoServiceClient(grpcConn)
-		req := &pb.GetPropertyPathRequest{}
-		resp, err := client.GetPropertyPath(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchSearchResultMatchInfoGetPropertyPathObjectCmd = &cobra.Command{
-	Use:   "get-property-path-object",
-	Short: "GetPropertyPathObject RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSearchResultMatchInfoServiceClient(grpcConn)
-		req := &pb.GetPropertyPathObjectRequest{}
-		resp, err := client.GetPropertyPathObject(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchSearchResultMatchInfoGetSnippetCmd = &cobra.Command{
-	Use:   "get-snippet",
-	Short: "GetSnippet RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSearchResultMatchInfoServiceClient(grpcConn)
-		req := &pb.GetSnippetRequest{}
-		resp, err := client.GetSnippet(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchSearchResultMatchInfoGetSnippetRangeCmd = &cobra.Command{
-	Use:   "get-snippet-range",
-	Short: "GetSnippetRange RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSearchResultMatchInfoServiceClient(grpcConn)
-		req := &pb.GetSnippetRangeRequest{}
-		resp, err := client.GetSnippetRange(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchSearchResultMatchInfoGetSubmatchCmd = &cobra.Command{
-	Use:   "get-submatch",
-	Short: "GetSubmatch RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSearchResultMatchInfoServiceClient(grpcConn)
-		req := &pb.GetSubmatchRequest{}
-		resp, err := client.GetSubmatch(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchSearchResultMatchInfoGetSubmatchRangeCmd = &cobra.Command{
-	Use:   "get-submatch-range",
-	Short: "GetSubmatchRange RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSearchResultMatchInfoServiceClient(grpcConn)
-		req := &pb.GetSubmatchRangeRequest{}
-		resp, err := client.GetSubmatchRange(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchSearchResultMatchInfoWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSearchResultMatchInfoServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchSearchResultMatchRangeCmd = &cobra.Command{
-	Use:   "search-result-match-range",
-	Short: "SearchResultMatchRangeService operations",
-}
-
-var appsearchSearchResultMatchRangeEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSearchResultMatchRangeServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchSearchResultMatchRangeGetEndCmd = &cobra.Command{
-	Use:   "get-end",
-	Short: "GetEnd RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSearchResultMatchRangeServiceClient(grpcConn)
-		req := &pb.GetEndRequest{}
-		resp, err := client.GetEnd(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchSearchResultMatchRangeGetStartCmd = &cobra.Command{
-	Use:   "get-start",
-	Short: "GetStart RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSearchResultMatchRangeServiceClient(grpcConn)
-		req := &pb.GetStartRequest{}
-		resp, err := client.GetStart(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchSearchResultMatchRangeHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSearchResultMatchRangeServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchSearchResultMatchRangeToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSearchResultMatchRangeServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchSearchSuggestionSpecCmd = &cobra.Command{
-	Use:   "search-suggestion-spec",
-	Short: "SearchSuggestionSpecService operations",
-}
-
-var appsearchSearchSuggestionSpecDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSearchSuggestionSpecServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchSearchSuggestionSpecGetMaximumResultCountCmd = &cobra.Command{
-	Use:   "get-maximum-result-count",
-	Short: "GetMaximumResultCount RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSearchSuggestionSpecServiceClient(grpcConn)
-		req := &pb.GetMaximumResultCountRequest{}
-		resp, err := client.GetMaximumResultCount(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchSearchSuggestionSpecGetRankingStrategyCmd = &cobra.Command{
-	Use:   "get-ranking-strategy",
-	Short: "GetRankingStrategy RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSearchSuggestionSpecServiceClient(grpcConn)
-		req := &pb.GetRankingStrategyRequest{}
-		resp, err := client.GetRankingStrategy(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchSearchSuggestionSpecWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSearchSuggestionSpecServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchSearchSuggestionSpecBuilderCmd = &cobra.Command{
-	Use:   "search-suggestion-spec-builder",
-	Short: "SearchSuggestionSpecBuilderService operations",
-}
-
-var appsearchSearchSuggestionSpecBuilderAddFilterDocumentIdsCmd = &cobra.Command{
-	Use:   "add-filter-document-ids",
-	Short: "AddFilterDocumentIds RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSearchSuggestionSpecBuilderServiceClient(grpcConn)
-		req := &pb.SearchSuggestionSpecBuilderAddFilterDocumentIdsRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.AddFilterDocumentIds(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchSearchSuggestionSpecBuilderAddFilterNamespacesCmd = &cobra.Command{
-	Use:   "add-filter-namespaces",
-	Short: "AddFilterNamespaces RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSearchSuggestionSpecBuilderServiceClient(grpcConn)
-		req := &pb.AddFilterNamespacesRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.AddFilterNamespaces(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchSearchSuggestionSpecBuilderAddFilterSchemasCmd = &cobra.Command{
-	Use:   "add-filter-schemas",
-	Short: "AddFilterSchemas RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSearchSuggestionSpecBuilderServiceClient(grpcConn)
-		req := &pb.AddFilterSchemasRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.AddFilterSchemas(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchSearchSuggestionSpecBuilderAddSearchStringParametersCmd = &cobra.Command{
-	Use:   "add-search-string-parameters",
-	Short: "AddSearchStringParameters RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSearchSuggestionSpecBuilderServiceClient(grpcConn)
-		req := &pb.AddSearchStringParametersRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.AddSearchStringParameters(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchSearchSuggestionSpecBuilderBuildCmd = &cobra.Command{
-	Use:   "build",
-	Short: "Build RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSearchSuggestionSpecBuilderServiceClient(grpcConn)
-		req := &pb.BuildRequest{}
-		resp, err := client.Build(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchSearchSuggestionSpecBuilderSetRankingStrategyCmd = &cobra.Command{
-	Use:   "set-ranking-strategy",
-	Short: "SetRankingStrategy RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSearchSuggestionSpecBuilderServiceClient(grpcConn)
-		req := &pb.SetRankingStrategyRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetRankingStrategy(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchCommitBlobResponseCmd = &cobra.Command{
-	Use:   "commit-blob-response",
-	Short: "CommitBlobResponseService operations",
-}
-
-var appsearchCommitBlobResponseNewCommitBlobResponseCmd = &cobra.Command{
-	Use:   "new-commit-blob-response",
-	Short: "NewCommitBlobResponse RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCommitBlobResponseServiceClient(grpcConn)
-		req := &pb.NewCommitBlobResponseRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.NewCommitBlobResponse(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchCommitBlobResponseDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCommitBlobResponseServiceClient(grpcConn)
-		req := &pb.CommitBlobResponseDescribeContentsRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchCommitBlobResponseWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCommitBlobResponseServiceClient(grpcConn)
-		req := &pb.CommitBlobResponseWriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchGetSchemaResponseCmd = &cobra.Command{
-	Use:   "get-schema-response",
-	Short: "GetSchemaResponseService operations",
-}
-
-var appsearchGetSchemaResponseDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewGetSchemaResponseServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchGetSchemaResponseGetVersionCmd = &cobra.Command{
-	Use:   "get-version",
-	Short: "GetVersion RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewGetSchemaResponseServiceClient(grpcConn)
-		req := &pb.GetVersionRequest{}
-		resp, err := client.GetVersion(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchGetSchemaResponseWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewGetSchemaResponseServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchGetSchemaResponseBuilderCmd = &cobra.Command{
-	Use:   "get-schema-response-builder",
-	Short: "GetSchemaResponseBuilderService operations",
-}
-
-var appsearchGetSchemaResponseBuilderAddSchemaCmd = &cobra.Command{
-	Use:   "add-schema",
-	Short: "AddSchema RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewGetSchemaResponseBuilderServiceClient(grpcConn)
-		req := &pb.AddSchemaRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.AddSchema(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchGetSchemaResponseBuilderAddSchemaTypeNotDisplayedBySystemCmd = &cobra.Command{
-	Use:   "add-schema-type-not-displayed-by-system",
-	Short: "AddSchemaTypeNotDisplayedBySystem RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewGetSchemaResponseBuilderServiceClient(grpcConn)
-		req := &pb.AddSchemaTypeNotDisplayedBySystemRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.AddSchemaTypeNotDisplayedBySystem(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchGetSchemaResponseBuilderBuildCmd = &cobra.Command{
-	Use:   "build",
-	Short: "Build RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewGetSchemaResponseBuilderServiceClient(grpcConn)
-		req := &pb.BuildRequest{}
-		resp, err := client.Build(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchGetSchemaResponseBuilderClearPubliclyVisibleSchemaCmd = &cobra.Command{
-	Use:   "clear-publicly-visible-schema",
-	Short: "ClearPubliclyVisibleSchema RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewGetSchemaResponseBuilderServiceClient(grpcConn)
-		req := &pb.ClearPubliclyVisibleSchemaRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.ClearPubliclyVisibleSchema(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchGetSchemaResponseBuilderClearRequiredPermissionsForSchemaTypeVisibilityCmd = &cobra.Command{
-	Use:   "clear-required-permissions-for-schema-type-visibility",
-	Short: "ClearRequiredPermissionsForSchemaTypeVisibility RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewGetSchemaResponseBuilderServiceClient(grpcConn)
-		req := &pb.ClearRequiredPermissionsForSchemaTypeVisibilityRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.ClearRequiredPermissionsForSchemaTypeVisibility(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchGetSchemaResponseBuilderClearSchemaTypeNotDisplayedBySystemCmd = &cobra.Command{
-	Use:   "clear-schema-type-not-displayed-by-system",
-	Short: "ClearSchemaTypeNotDisplayedBySystem RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewGetSchemaResponseBuilderServiceClient(grpcConn)
-		req := &pb.ClearSchemaTypeNotDisplayedBySystemRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.ClearSchemaTypeNotDisplayedBySystem(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchGetSchemaResponseBuilderClearSchemaTypeVisibleToConfigsCmd = &cobra.Command{
-	Use:   "clear-schema-type-visible-to-configs",
-	Short: "ClearSchemaTypeVisibleToConfigs RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewGetSchemaResponseBuilderServiceClient(grpcConn)
-		req := &pb.ClearSchemaTypeVisibleToConfigsRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.ClearSchemaTypeVisibleToConfigs(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchGetSchemaResponseBuilderClearSchemaTypeVisibleToPackagesCmd = &cobra.Command{
-	Use:   "clear-schema-type-visible-to-packages",
-	Short: "ClearSchemaTypeVisibleToPackages RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewGetSchemaResponseBuilderServiceClient(grpcConn)
-		req := &pb.ClearSchemaTypeVisibleToPackagesRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.ClearSchemaTypeVisibleToPackages(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchGetSchemaResponseBuilderClearSchemasCmd = &cobra.Command{
-	Use:   "clear-schemas",
-	Short: "ClearSchemas RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewGetSchemaResponseBuilderServiceClient(grpcConn)
-		req := &pb.ClearSchemasRequest{}
-		resp, err := client.ClearSchemas(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchGetSchemaResponseBuilderSetPubliclyVisibleSchemaCmd = &cobra.Command{
-	Use:   "set-publicly-visible-schema",
-	Short: "SetPubliclyVisibleSchema RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewGetSchemaResponseBuilderServiceClient(grpcConn)
-		req := &pb.SetPubliclyVisibleSchemaRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.SetPubliclyVisibleSchema(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchGetSchemaResponseBuilderSetVersionCmd = &cobra.Command{
-	Use:   "set-version",
-	Short: "SetVersion RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewGetSchemaResponseBuilderServiceClient(grpcConn)
-		req := &pb.SetVersionRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetVersion(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchOpenBlobForReadResponseCmd = &cobra.Command{
-	Use:   "open-blob-for-read-response",
-	Short: "OpenBlobForReadResponseService operations",
-}
-
-var appsearchOpenBlobForReadResponseNewOpenBlobForReadResponseCmd = &cobra.Command{
-	Use:   "new-open-blob-for-read-response",
-	Short: "NewOpenBlobForReadResponse RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewOpenBlobForReadResponseServiceClient(grpcConn)
-		req := &pb.NewOpenBlobForReadResponseRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.NewOpenBlobForReadResponse(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchOpenBlobForReadResponseCloseCmd = &cobra.Command{
-	Use:   "close",
-	Short: "Close RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewOpenBlobForReadResponseServiceClient(grpcConn)
-		req := &pb.OpenBlobForReadResponseCloseRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.Close(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchOpenBlobForReadResponseDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewOpenBlobForReadResponseServiceClient(grpcConn)
-		req := &pb.OpenBlobForReadResponseDescribeContentsRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchOpenBlobForReadResponseWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewOpenBlobForReadResponseServiceClient(grpcConn)
-		req := &pb.OpenBlobForReadResponseWriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchMigratorCmd = &cobra.Command{
-	Use:   "migrator",
-	Short: "MigratorService operations",
-}
-
-var appsearchMigratorOnDowngradeCmd = &cobra.Command{
-	Use:   "on-downgrade",
-	Short: "OnDowngrade RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMigratorServiceClient(grpcConn)
-		req := &pb.OnDowngradeRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.OnDowngrade(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchMigratorOnUpgradeCmd = &cobra.Command{
-	Use:   "on-upgrade",
-	Short: "OnUpgrade RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMigratorServiceClient(grpcConn)
-		req := &pb.OnUpgradeRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.OnUpgrade(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchMigratorShouldMigrateCmd = &cobra.Command{
-	Use:   "should-migrate",
-	Short: "ShouldMigrate RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMigratorServiceClient(grpcConn)
-		req := &pb.ShouldMigrateRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.ShouldMigrate(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchAppSearchSchemaCmd = &cobra.Command{
-	Use:   "app-search-schema",
-	Short: "AppSearchSchemaService operations",
-}
-
-var appsearchAppSearchSchemaDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAppSearchSchemaServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchAppSearchSchemaEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAppSearchSchemaServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchAppSearchSchemaGetSchemaTypeCmd = &cobra.Command{
-	Use:   "get-schema-type",
-	Short: "GetSchemaType RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAppSearchSchemaServiceClient(grpcConn)
-		req := &pb.GetSchemaTypeRequest{}
-		resp, err := client.GetSchemaType(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchAppSearchSchemaHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAppSearchSchemaServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchAppSearchSchemaToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAppSearchSchemaServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchAppSearchSchemaWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAppSearchSchemaServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchAppSearchSchemaBooleanPropertyConfigCmd = &cobra.Command{
-	Use:   "app-search-schema-boolean-property-config",
-	Short: "AppSearchSchemaBooleanPropertyConfigService operations",
-}
-
-var appsearchAppSearchSchemaBooleanPropertyConfigIsScoringEnabledCmd = &cobra.Command{
-	Use:   "is-scoring-enabled",
-	Short: "IsScoringEnabled RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAppSearchSchemaBooleanPropertyConfigServiceClient(grpcConn)
-		req := &pb.IsScoringEnabledRequest{}
-		resp, err := client.IsScoringEnabled(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchAppSearchSchemaBuilderCmd = &cobra.Command{
-	Use:   "app-search-schema-builder",
-	Short: "AppSearchSchemaBuilderService operations",
-}
-
-var appsearchAppSearchSchemaBuilderAddParentTypeCmd = &cobra.Command{
-	Use:   "add-parent-type",
-	Short: "AddParentType RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAppSearchSchemaBuilderServiceClient(grpcConn)
-		req := &pb.AddParentTypeRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.AddParentType(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchAppSearchSchemaBuilderAddPropertyCmd = &cobra.Command{
-	Use:   "add-property",
-	Short: "AddProperty RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAppSearchSchemaBuilderServiceClient(grpcConn)
-		req := &pb.AddPropertyRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.AddProperty(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchAppSearchSchemaBuilderBuildCmd = &cobra.Command{
-	Use:   "build",
-	Short: "Build RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAppSearchSchemaBuilderServiceClient(grpcConn)
-		req := &pb.BuildRequest{}
-		resp, err := client.Build(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchAppSearchSchemaBuilderClearParentTypesCmd = &cobra.Command{
-	Use:   "clear-parent-types",
-	Short: "ClearParentTypes RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAppSearchSchemaBuilderServiceClient(grpcConn)
-		req := &pb.ClearParentTypesRequest{}
-		resp, err := client.ClearParentTypes(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchAppSearchSchemaBuilderClearPropertiesCmd = &cobra.Command{
-	Use:   "clear-properties",
-	Short: "ClearProperties RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAppSearchSchemaBuilderServiceClient(grpcConn)
-		req := &pb.ClearPropertiesRequest{}
-		resp, err := client.ClearProperties(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchAppSearchSchemaBuilderSetSchemaTypeCmd = &cobra.Command{
-	Use:   "set-schema-type",
-	Short: "SetSchemaType RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAppSearchSchemaBuilderServiceClient(grpcConn)
-		req := &pb.SetSchemaTypeRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetSchemaType(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchAppSearchSchemaDocumentPropertyConfigCmd = &cobra.Command{
-	Use:   "app-search-schema-document-property-config",
-	Short: "AppSearchSchemaDocumentPropertyConfigService operations",
-}
-
-var appsearchAppSearchSchemaDocumentPropertyConfigGetSchemaTypeCmd = &cobra.Command{
-	Use:   "get-schema-type",
-	Short: "GetSchemaType RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAppSearchSchemaDocumentPropertyConfigServiceClient(grpcConn)
-		req := &pb.GetSchemaTypeRequest{}
-		resp, err := client.GetSchemaType(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchAppSearchSchemaDocumentPropertyConfigShouldIndexNestedPropertiesCmd = &cobra.Command{
-	Use:   "should-index-nested-properties",
-	Short: "ShouldIndexNestedProperties RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAppSearchSchemaDocumentPropertyConfigServiceClient(grpcConn)
-		req := &pb.ShouldIndexNestedPropertiesRequest{}
-		resp, err := client.ShouldIndexNestedProperties(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchAppSearchSchemaDoublePropertyConfigCmd = &cobra.Command{
-	Use:   "app-search-schema-double-property-config",
-	Short: "AppSearchSchemaDoublePropertyConfigService operations",
-}
-
-var appsearchAppSearchSchemaDoublePropertyConfigIsScoringEnabledCmd = &cobra.Command{
-	Use:   "is-scoring-enabled",
-	Short: "IsScoringEnabled RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAppSearchSchemaDoublePropertyConfigServiceClient(grpcConn)
-		req := &pb.IsScoringEnabledRequest{}
-		resp, err := client.IsScoringEnabled(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchAppSearchSchemaEmbeddingPropertyConfigCmd = &cobra.Command{
-	Use:   "app-search-schema-embedding-property-config",
-	Short: "AppSearchSchemaEmbeddingPropertyConfigService operations",
-}
-
-var appsearchAppSearchSchemaEmbeddingPropertyConfigGetIndexingTypeCmd = &cobra.Command{
-	Use:   "get-indexing-type",
-	Short: "GetIndexingType RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAppSearchSchemaEmbeddingPropertyConfigServiceClient(grpcConn)
-		req := &pb.GetIndexingTypeRequest{}
-		resp, err := client.GetIndexingType(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchAppSearchSchemaEmbeddingPropertyConfigGetQuantizationTypeCmd = &cobra.Command{
-	Use:   "get-quantization-type",
-	Short: "GetQuantizationType RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAppSearchSchemaEmbeddingPropertyConfigServiceClient(grpcConn)
-		req := &pb.GetQuantizationTypeRequest{}
-		resp, err := client.GetQuantizationType(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchAppSearchSchemaLongPropertyConfigCmd = &cobra.Command{
-	Use:   "app-search-schema-long-property-config",
-	Short: "AppSearchSchemaLongPropertyConfigService operations",
-}
-
-var appsearchAppSearchSchemaLongPropertyConfigGetIndexingTypeCmd = &cobra.Command{
-	Use:   "get-indexing-type",
-	Short: "GetIndexingType RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAppSearchSchemaLongPropertyConfigServiceClient(grpcConn)
-		req := &pb.GetIndexingTypeRequest{}
-		resp, err := client.GetIndexingType(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchAppSearchSchemaLongPropertyConfigIsScoringEnabledCmd = &cobra.Command{
-	Use:   "is-scoring-enabled",
-	Short: "IsScoringEnabled RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAppSearchSchemaLongPropertyConfigServiceClient(grpcConn)
-		req := &pb.IsScoringEnabledRequest{}
-		resp, err := client.IsScoringEnabled(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchAppSearchSchemaPropertyConfigCmd = &cobra.Command{
-	Use:   "app-search-schema-property-config",
-	Short: "AppSearchSchemaPropertyConfigService operations",
-}
-
-var appsearchAppSearchSchemaPropertyConfigEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAppSearchSchemaPropertyConfigServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchAppSearchSchemaPropertyConfigGetCardinalityCmd = &cobra.Command{
-	Use:   "get-cardinality",
-	Short: "GetCardinality RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAppSearchSchemaPropertyConfigServiceClient(grpcConn)
-		req := &pb.GetCardinalityRequest{}
-		resp, err := client.GetCardinality(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchAppSearchSchemaPropertyConfigGetNameCmd = &cobra.Command{
-	Use:   "get-name",
-	Short: "GetName RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAppSearchSchemaPropertyConfigServiceClient(grpcConn)
-		req := &pb.GetNameRequest{}
-		resp, err := client.GetName(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchAppSearchSchemaPropertyConfigHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAppSearchSchemaPropertyConfigServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchAppSearchSchemaPropertyConfigToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAppSearchSchemaPropertyConfigServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchAppSearchSchemaStringPropertyConfigCmd = &cobra.Command{
-	Use:   "app-search-schema-string-property-config",
-	Short: "AppSearchSchemaStringPropertyConfigService operations",
-}
-
-var appsearchAppSearchSchemaStringPropertyConfigGetIndexingTypeCmd = &cobra.Command{
-	Use:   "get-indexing-type",
-	Short: "GetIndexingType RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAppSearchSchemaStringPropertyConfigServiceClient(grpcConn)
-		req := &pb.GetIndexingTypeRequest{}
-		resp, err := client.GetIndexingType(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchAppSearchSchemaStringPropertyConfigGetJoinableValueTypeCmd = &cobra.Command{
-	Use:   "get-joinable-value-type",
-	Short: "GetJoinableValueType RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAppSearchSchemaStringPropertyConfigServiceClient(grpcConn)
-		req := &pb.GetJoinableValueTypeRequest{}
-		resp, err := client.GetJoinableValueType(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchAppSearchSchemaStringPropertyConfigGetTokenizerTypeCmd = &cobra.Command{
-	Use:   "get-tokenizer-type",
-	Short: "GetTokenizerType RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAppSearchSchemaStringPropertyConfigServiceClient(grpcConn)
-		req := &pb.GetTokenizerTypeRequest{}
-		resp, err := client.GetTokenizerType(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchSetSchemaResponseCmd = &cobra.Command{
-	Use:   "set-schema-response",
-	Short: "SetSchemaResponseService operations",
-}
-
-var appsearchSetSchemaResponseDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSetSchemaResponseServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchSetSchemaResponseWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSetSchemaResponseServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchSetSchemaResponseBuilderCmd = &cobra.Command{
-	Use:   "set-schema-response-builder",
-	Short: "SetSchemaResponseBuilderService operations",
-}
-
-var appsearchSetSchemaResponseBuilderAddDeletedTypeCmd = &cobra.Command{
-	Use:   "add-deleted-type",
-	Short: "AddDeletedType RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSetSchemaResponseBuilderServiceClient(grpcConn)
-		req := &pb.AddDeletedTypeRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.AddDeletedType(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchSetSchemaResponseBuilderAddIncompatibleTypeCmd = &cobra.Command{
-	Use:   "add-incompatible-type",
-	Short: "AddIncompatibleType RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSetSchemaResponseBuilderServiceClient(grpcConn)
-		req := &pb.AddIncompatibleTypeRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.AddIncompatibleType(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchSetSchemaResponseBuilderAddMigratedTypeCmd = &cobra.Command{
-	Use:   "add-migrated-type",
-	Short: "AddMigratedType RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSetSchemaResponseBuilderServiceClient(grpcConn)
-		req := &pb.AddMigratedTypeRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.AddMigratedType(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchSetSchemaResponseBuilderAddMigrationFailureCmd = &cobra.Command{
-	Use:   "add-migration-failure",
-	Short: "AddMigrationFailure RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSetSchemaResponseBuilderServiceClient(grpcConn)
-		req := &pb.AddMigrationFailureRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.AddMigrationFailure(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchSetSchemaResponseBuilderBuildCmd = &cobra.Command{
-	Use:   "build",
-	Short: "Build RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSetSchemaResponseBuilderServiceClient(grpcConn)
-		req := &pb.BuildRequest{}
-		resp, err := client.Build(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchSetSchemaResponseMigrationFailureCmd = &cobra.Command{
-	Use:   "set-schema-response-migration-failure",
-	Short: "SetSchemaResponseMigrationFailureService operations",
-}
-
-var appsearchSetSchemaResponseMigrationFailureDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSetSchemaResponseMigrationFailureServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchSetSchemaResponseMigrationFailureGetDocumentIdCmd = &cobra.Command{
-	Use:   "get-document-id",
-	Short: "GetDocumentId RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSetSchemaResponseMigrationFailureServiceClient(grpcConn)
-		req := &pb.GetDocumentIdRequest{}
-		resp, err := client.GetDocumentId(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchSetSchemaResponseMigrationFailureGetNamespaceCmd = &cobra.Command{
-	Use:   "get-namespace",
-	Short: "GetNamespace RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSetSchemaResponseMigrationFailureServiceClient(grpcConn)
-		req := &pb.GetNamespaceRequest{}
-		resp, err := client.GetNamespace(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchSetSchemaResponseMigrationFailureGetSchemaTypeCmd = &cobra.Command{
-	Use:   "get-schema-type",
-	Short: "GetSchemaType RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSetSchemaResponseMigrationFailureServiceClient(grpcConn)
-		req := &pb.GetSchemaTypeRequest{}
-		resp, err := client.GetSchemaType(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchSetSchemaResponseMigrationFailureToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSetSchemaResponseMigrationFailureServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchSetSchemaResponseMigrationFailureWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSetSchemaResponseMigrationFailureServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchPackageIdentifierCmd = &cobra.Command{
-	Use:   "package-identifier",
-	Short: "PackageIdentifierService operations",
-}
-
-var appsearchPackageIdentifierNewPackageIdentifierCmd = &cobra.Command{
-	Use:   "new-package-identifier",
-	Short: "NewPackageIdentifier RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageIdentifierServiceClient(grpcConn)
-		req := &pb.NewPackageIdentifierRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.NewPackageIdentifier(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchPackageIdentifierEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageIdentifierServiceClient(grpcConn)
-		req := &pb.PackageIdentifierEqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchPackageIdentifierGetPackageNameCmd = &cobra.Command{
-	Use:   "get-package-name",
-	Short: "GetPackageName RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageIdentifierServiceClient(grpcConn)
-		req := &pb.PackageIdentifierGetPackageNameRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetPackageName(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchPackageIdentifierGetSha256CertificateCmd = &cobra.Command{
-	Use:   "get-sha256certificate",
-	Short: "GetSha256Certificate RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageIdentifierServiceClient(grpcConn)
-		req := &pb.GetSha256CertificateRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetSha256Certificate(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchPackageIdentifierHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageIdentifierServiceClient(grpcConn)
-		req := &pb.PackageIdentifierHashCodeRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchOpenBlobForWriteResponseCmd = &cobra.Command{
-	Use:   "open-blob-for-write-response",
-	Short: "OpenBlobForWriteResponseService operations",
-}
-
-var appsearchOpenBlobForWriteResponseNewOpenBlobForWriteResponseCmd = &cobra.Command{
-	Use:   "new-open-blob-for-write-response",
-	Short: "NewOpenBlobForWriteResponse RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewOpenBlobForWriteResponseServiceClient(grpcConn)
-		req := &pb.NewOpenBlobForWriteResponseRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.NewOpenBlobForWriteResponse(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchOpenBlobForWriteResponseCloseCmd = &cobra.Command{
-	Use:   "close",
-	Short: "Close RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewOpenBlobForWriteResponseServiceClient(grpcConn)
-		req := &pb.OpenBlobForWriteResponseCloseRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.Close(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchOpenBlobForWriteResponseDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewOpenBlobForWriteResponseServiceClient(grpcConn)
-		req := &pb.OpenBlobForWriteResponseDescribeContentsRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchOpenBlobForWriteResponseWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewOpenBlobForWriteResponseServiceClient(grpcConn)
-		req := &pb.OpenBlobForWriteResponseWriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchGetByDocumentIdRequestCmd = &cobra.Command{
-	Use:   "get-by-document-id-request",
-	Short: "GetByDocumentIdRequestService operations",
-}
-
-var appsearchGetByDocumentIdRequestDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewGetByDocumentIdRequestServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchGetByDocumentIdRequestGetNamespaceCmd = &cobra.Command{
-	Use:   "get-namespace",
-	Short: "GetNamespace RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewGetByDocumentIdRequestServiceClient(grpcConn)
-		req := &pb.GetNamespaceRequest{}
-		resp, err := client.GetNamespace(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchGetByDocumentIdRequestWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewGetByDocumentIdRequestServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchGetByDocumentIdRequestBuilderCmd = &cobra.Command{
-	Use:   "get-by-document-id-request-builder",
-	Short: "GetByDocumentIdRequestBuilderService operations",
-}
-
-var appsearchGetByDocumentIdRequestBuilderAddIdsCmd = &cobra.Command{
-	Use:   "add-ids",
-	Short: "AddIds RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewGetByDocumentIdRequestBuilderServiceClient(grpcConn)
-		req := &pb.AddIdsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.AddIds(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchGetByDocumentIdRequestBuilderBuildCmd = &cobra.Command{
-	Use:   "build",
-	Short: "Build RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewGetByDocumentIdRequestBuilderServiceClient(grpcConn)
-		req := &pb.BuildRequest{}
-		resp, err := client.Build(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchEnterpriseGlobalSearchSessionCmd = &cobra.Command{
-	Use:   "enterprise-global-search-session",
-	Short: "EnterpriseGlobalSearchSessionService operations",
-}
-
-var appsearchEnterpriseGlobalSearchSessionSearchCmd = &cobra.Command{
-	Use:   "search",
-	Short: "Search RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewEnterpriseGlobalSearchSessionServiceClient(grpcConn)
-		req := &pb.SearchRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.Search(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchAppSearchManagerSearchContextCmd = &cobra.Command{
-	Use:   "app-search-manager-search-context",
-	Short: "AppSearchManagerSearchContextService operations",
-}
-
-var appsearchAppSearchManagerSearchContextGetDatabaseNameCmd = &cobra.Command{
-	Use:   "get-database-name",
-	Short: "GetDatabaseName RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAppSearchManagerSearchContextServiceClient(grpcConn)
-		req := &pb.GetDatabaseNameRequest{}
-		resp, err := client.GetDatabaseName(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchSearchResultsCmd = &cobra.Command{
-	Use:   "search-results",
-	Short: "SearchResultsService operations",
-}
-
-var appsearchSearchResultsCloseCmd = &cobra.Command{
-	Use:   "close",
-	Short: "Close RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSearchResultsServiceClient(grpcConn)
-		req := &pb.CloseRequest{}
-		resp, err := client.Close(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchPutDocumentsRequestBuilderCmd = &cobra.Command{
-	Use:   "put-documents-request-builder",
-	Short: "PutDocumentsRequestBuilderService operations",
-}
-
-var appsearchPutDocumentsRequestBuilderAddGenericDocumentsCmd = &cobra.Command{
-	Use:   "add-generic-documents",
-	Short: "AddGenericDocuments RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPutDocumentsRequestBuilderServiceClient(grpcConn)
-		req := &pb.AddGenericDocumentsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.AddGenericDocuments(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchPutDocumentsRequestBuilderAddTakenActionGenericDocumentsCmd = &cobra.Command{
-	Use:   "add-taken-action-generic-documents",
-	Short: "AddTakenActionGenericDocuments RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPutDocumentsRequestBuilderServiceClient(grpcConn)
-		req := &pb.AddTakenActionGenericDocumentsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.AddTakenActionGenericDocuments(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchPutDocumentsRequestBuilderBuildCmd = &cobra.Command{
-	Use:   "build",
-	Short: "Build RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPutDocumentsRequestBuilderServiceClient(grpcConn)
-		req := &pb.BuildRequest{}
-		resp, err := client.Build(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchReportUsageRequestCmd = &cobra.Command{
-	Use:   "report-usage-request",
-	Short: "ReportUsageRequestService operations",
-}
-
-var appsearchReportUsageRequestDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewReportUsageRequestServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchReportUsageRequestGetDocumentIdCmd = &cobra.Command{
-	Use:   "get-document-id",
-	Short: "GetDocumentId RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewReportUsageRequestServiceClient(grpcConn)
-		req := &pb.GetDocumentIdRequest{}
-		resp, err := client.GetDocumentId(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchReportUsageRequestGetNamespaceCmd = &cobra.Command{
-	Use:   "get-namespace",
-	Short: "GetNamespace RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewReportUsageRequestServiceClient(grpcConn)
-		req := &pb.GetNamespaceRequest{}
-		resp, err := client.GetNamespace(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchReportUsageRequestGetUsageTimestampMillisCmd = &cobra.Command{
-	Use:   "get-usage-timestamp-millis",
-	Short: "GetUsageTimestampMillis RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewReportUsageRequestServiceClient(grpcConn)
-		req := &pb.GetUsageTimestampMillisRequest{}
-		resp, err := client.GetUsageTimestampMillis(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchReportUsageRequestWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewReportUsageRequestServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchReportUsageRequestBuilderCmd = &cobra.Command{
-	Use:   "report-usage-request-builder",
-	Short: "ReportUsageRequestBuilderService operations",
-}
-
-var appsearchReportUsageRequestBuilderBuildCmd = &cobra.Command{
-	Use:   "build",
-	Short: "Build RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewReportUsageRequestBuilderServiceClient(grpcConn)
-		req := &pb.BuildRequest{}
-		resp, err := client.Build(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchReportUsageRequestBuilderSetUsageTimestampMillisCmd = &cobra.Command{
-	Use:   "set-usage-timestamp-millis",
-	Short: "SetUsageTimestampMillis RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewReportUsageRequestBuilderServiceClient(grpcConn)
-		req := &pb.SetUsageTimestampMillisRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetUsageTimestampMillis(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchStorageInfoCmd = &cobra.Command{
-	Use:   "storage-info",
-	Short: "StorageInfoService operations",
-}
-
-var appsearchStorageInfoDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewStorageInfoServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchStorageInfoGetAliveDocumentsCountCmd = &cobra.Command{
-	Use:   "get-alive-documents-count",
-	Short: "GetAliveDocumentsCount RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewStorageInfoServiceClient(grpcConn)
-		req := &pb.GetAliveDocumentsCountRequest{}
-		resp, err := client.GetAliveDocumentsCount(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchStorageInfoGetAliveNamespacesCountCmd = &cobra.Command{
-	Use:   "get-alive-namespaces-count",
-	Short: "GetAliveNamespacesCount RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewStorageInfoServiceClient(grpcConn)
-		req := &pb.GetAliveNamespacesCountRequest{}
-		resp, err := client.GetAliveNamespacesCount(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchStorageInfoGetBlobsCountCmd = &cobra.Command{
-	Use:   "get-blobs-count",
-	Short: "GetBlobsCount RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewStorageInfoServiceClient(grpcConn)
-		req := &pb.GetBlobsCountRequest{}
-		resp, err := client.GetBlobsCount(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchStorageInfoGetBlobsSizeBytesCmd = &cobra.Command{
-	Use:   "get-blobs-size-bytes",
-	Short: "GetBlobsSizeBytes RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewStorageInfoServiceClient(grpcConn)
-		req := &pb.GetBlobsSizeBytesRequest{}
-		resp, err := client.GetBlobsSizeBytes(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchStorageInfoGetSizeBytesCmd = &cobra.Command{
-	Use:   "get-size-bytes",
-	Short: "GetSizeBytes RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewStorageInfoServiceClient(grpcConn)
-		req := &pb.GetSizeBytesRequest{}
-		resp, err := client.GetSizeBytes(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchStorageInfoWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewStorageInfoServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchStorageInfoBuilderCmd = &cobra.Command{
-	Use:   "storage-info-builder",
-	Short: "StorageInfoBuilderService operations",
-}
-
-var appsearchStorageInfoBuilderBuildCmd = &cobra.Command{
-	Use:   "build",
-	Short: "Build RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewStorageInfoBuilderServiceClient(grpcConn)
-		req := &pb.BuildRequest{}
-		resp, err := client.Build(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchStorageInfoBuilderSetAliveDocumentsCountCmd = &cobra.Command{
-	Use:   "set-alive-documents-count",
-	Short: "SetAliveDocumentsCount RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewStorageInfoBuilderServiceClient(grpcConn)
-		req := &pb.SetAliveDocumentsCountRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetAliveDocumentsCount(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchStorageInfoBuilderSetAliveNamespacesCountCmd = &cobra.Command{
-	Use:   "set-alive-namespaces-count",
-	Short: "SetAliveNamespacesCount RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewStorageInfoBuilderServiceClient(grpcConn)
-		req := &pb.SetAliveNamespacesCountRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetAliveNamespacesCount(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchStorageInfoBuilderSetBlobsCountCmd = &cobra.Command{
-	Use:   "set-blobs-count",
-	Short: "SetBlobsCount RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewStorageInfoBuilderServiceClient(grpcConn)
-		req := &pb.SetBlobsCountRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetBlobsCount(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchStorageInfoBuilderSetBlobsSizeBytesCmd = &cobra.Command{
-	Use:   "set-blobs-size-bytes",
-	Short: "SetBlobsSizeBytes RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewStorageInfoBuilderServiceClient(grpcConn)
-		req := &pb.SetBlobsSizeBytesRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetBlobsSizeBytes(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchStorageInfoBuilderSetSizeBytesCmd = &cobra.Command{
-	Use:   "set-size-bytes",
-	Short: "SetSizeBytes RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewStorageInfoBuilderServiceClient(grpcConn)
-		req := &pb.SetSizeBytesRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetSizeBytes(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchGenericDocumentCmd = &cobra.Command{
-	Use:   "generic-document",
-	Short: "GenericDocumentService operations",
-}
-
-var appsearchGenericDocumentEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewGenericDocumentServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchGenericDocumentGetCreationTimestampMillisCmd = &cobra.Command{
-	Use:   "get-creation-timestamp-millis",
-	Short: "GetCreationTimestampMillis RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewGenericDocumentServiceClient(grpcConn)
-		req := &pb.GetCreationTimestampMillisRequest{}
-		resp, err := client.GetCreationTimestampMillis(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchGenericDocumentGetIdCmd = &cobra.Command{
-	Use:   "get-id",
-	Short: "GetId RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewGenericDocumentServiceClient(grpcConn)
-		req := &pb.GetIdRequest{}
-		resp, err := client.GetId(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchGenericDocumentGetNamespaceCmd = &cobra.Command{
-	Use:   "get-namespace",
-	Short: "GetNamespace RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewGenericDocumentServiceClient(grpcConn)
-		req := &pb.GetNamespaceRequest{}
-		resp, err := client.GetNamespace(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchGenericDocumentGetPropertyCmd = &cobra.Command{
-	Use:   "get-property",
-	Short: "GetProperty RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewGenericDocumentServiceClient(grpcConn)
-		req := &pb.GetPropertyRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetProperty(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchGenericDocumentGetPropertyBlobHandleCmd = &cobra.Command{
-	Use:   "get-property-blob-handle",
-	Short: "GetPropertyBlobHandle RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewGenericDocumentServiceClient(grpcConn)
-		req := &pb.GetPropertyBlobHandleRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetPropertyBlobHandle(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchGenericDocumentGetPropertyBlobHandleArrayCmd = &cobra.Command{
-	Use:   "get-property-blob-handle-array",
-	Short: "GetPropertyBlobHandleArray RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewGenericDocumentServiceClient(grpcConn)
-		req := &pb.GetPropertyBlobHandleArrayRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetPropertyBlobHandleArray(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchGenericDocumentGetPropertyBooleanCmd = &cobra.Command{
-	Use:   "get-property-boolean",
-	Short: "GetPropertyBoolean RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewGenericDocumentServiceClient(grpcConn)
-		req := &pb.GetPropertyBooleanRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetPropertyBoolean(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchGenericDocumentGetPropertyBooleanArrayCmd = &cobra.Command{
-	Use:   "get-property-boolean-array",
-	Short: "GetPropertyBooleanArray RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewGenericDocumentServiceClient(grpcConn)
-		req := &pb.GetPropertyBooleanArrayRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetPropertyBooleanArray(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchGenericDocumentGetPropertyBytesCmd = &cobra.Command{
-	Use:   "get-property-bytes",
-	Short: "GetPropertyBytes RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewGenericDocumentServiceClient(grpcConn)
-		req := &pb.GetPropertyBytesRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetPropertyBytes(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchGenericDocumentGetPropertyBytesArrayCmd = &cobra.Command{
-	Use:   "get-property-bytes-array",
-	Short: "GetPropertyBytesArray RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewGenericDocumentServiceClient(grpcConn)
-		req := &pb.GetPropertyBytesArrayRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetPropertyBytesArray(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchGenericDocumentGetPropertyDocumentCmd = &cobra.Command{
-	Use:   "get-property-document",
-	Short: "GetPropertyDocument RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewGenericDocumentServiceClient(grpcConn)
-		req := &pb.GetPropertyDocumentRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetPropertyDocument(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchGenericDocumentGetPropertyDocumentArrayCmd = &cobra.Command{
-	Use:   "get-property-document-array",
-	Short: "GetPropertyDocumentArray RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewGenericDocumentServiceClient(grpcConn)
-		req := &pb.GetPropertyDocumentArrayRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetPropertyDocumentArray(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchGenericDocumentGetPropertyDoubleCmd = &cobra.Command{
-	Use:   "get-property-double",
-	Short: "GetPropertyDouble RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewGenericDocumentServiceClient(grpcConn)
-		req := &pb.GetPropertyDoubleRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetPropertyDouble(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchGenericDocumentGetPropertyDoubleArrayCmd = &cobra.Command{
-	Use:   "get-property-double-array",
-	Short: "GetPropertyDoubleArray RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewGenericDocumentServiceClient(grpcConn)
-		req := &pb.GetPropertyDoubleArrayRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetPropertyDoubleArray(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchGenericDocumentGetPropertyEmbeddingCmd = &cobra.Command{
-	Use:   "get-property-embedding",
-	Short: "GetPropertyEmbedding RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewGenericDocumentServiceClient(grpcConn)
-		req := &pb.GetPropertyEmbeddingRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetPropertyEmbedding(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchGenericDocumentGetPropertyEmbeddingArrayCmd = &cobra.Command{
-	Use:   "get-property-embedding-array",
-	Short: "GetPropertyEmbeddingArray RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewGenericDocumentServiceClient(grpcConn)
-		req := &pb.GetPropertyEmbeddingArrayRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetPropertyEmbeddingArray(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchGenericDocumentGetPropertyLongCmd = &cobra.Command{
-	Use:   "get-property-long",
-	Short: "GetPropertyLong RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewGenericDocumentServiceClient(grpcConn)
-		req := &pb.GetPropertyLongRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetPropertyLong(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchGenericDocumentGetPropertyLongArrayCmd = &cobra.Command{
-	Use:   "get-property-long-array",
-	Short: "GetPropertyLongArray RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewGenericDocumentServiceClient(grpcConn)
-		req := &pb.GetPropertyLongArrayRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetPropertyLongArray(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchGenericDocumentGetPropertyStringCmd = &cobra.Command{
-	Use:   "get-property-string",
-	Short: "GetPropertyString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewGenericDocumentServiceClient(grpcConn)
-		req := &pb.GetPropertyStringRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetPropertyString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchGenericDocumentGetPropertyStringArrayCmd = &cobra.Command{
-	Use:   "get-property-string-array",
-	Short: "GetPropertyStringArray RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewGenericDocumentServiceClient(grpcConn)
-		req := &pb.GetPropertyStringArrayRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetPropertyStringArray(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchGenericDocumentGetSchemaTypeCmd = &cobra.Command{
-	Use:   "get-schema-type",
-	Short: "GetSchemaType RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewGenericDocumentServiceClient(grpcConn)
-		req := &pb.GetSchemaTypeRequest{}
-		resp, err := client.GetSchemaType(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchGenericDocumentGetScoreCmd = &cobra.Command{
-	Use:   "get-score",
-	Short: "GetScore RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewGenericDocumentServiceClient(grpcConn)
-		req := &pb.GetScoreRequest{}
-		resp, err := client.GetScore(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchGenericDocumentGetTtlMillisCmd = &cobra.Command{
-	Use:   "get-ttl-millis",
-	Short: "GetTtlMillis RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewGenericDocumentServiceClient(grpcConn)
-		req := &pb.GetTtlMillisRequest{}
-		resp, err := client.GetTtlMillis(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchGenericDocumentHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewGenericDocumentServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchGenericDocumentToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewGenericDocumentServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchGenericDocumentGetMaxIndexedPropertiesCmd = &cobra.Command{
-	Use:   "get-max-indexed-properties",
-	Short: "GetMaxIndexedProperties RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewGenericDocumentServiceClient(grpcConn)
-		req := &pb.GetMaxIndexedPropertiesRequest{}
-		resp, err := client.GetMaxIndexedProperties(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchGenericDocumentBuilderCmd = &cobra.Command{
-	Use:   "generic-document-builder",
-	Short: "GenericDocumentBuilderService operations",
-}
-
-var appsearchGenericDocumentBuilderBuildCmd = &cobra.Command{
-	Use:   "build",
-	Short: "Build RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewGenericDocumentBuilderServiceClient(grpcConn)
-		req := &pb.BuildRequest{}
-		resp, err := client.Build(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchGenericDocumentBuilderClearPropertyCmd = &cobra.Command{
-	Use:   "clear-property",
-	Short: "ClearProperty RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewGenericDocumentBuilderServiceClient(grpcConn)
-		req := &pb.ClearPropertyRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.ClearProperty(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchGenericDocumentBuilderSetCreationTimestampMillisCmd = &cobra.Command{
-	Use:   "set-creation-timestamp-millis",
-	Short: "SetCreationTimestampMillis RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewGenericDocumentBuilderServiceClient(grpcConn)
-		req := &pb.SetCreationTimestampMillisRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetCreationTimestampMillis(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchGenericDocumentBuilderSetIdCmd = &cobra.Command{
-	Use:   "set-id",
-	Short: "SetId RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewGenericDocumentBuilderServiceClient(grpcConn)
-		req := &pb.SetIdRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetId(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchGenericDocumentBuilderSetNamespaceCmd = &cobra.Command{
-	Use:   "set-namespace",
-	Short: "SetNamespace RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewGenericDocumentBuilderServiceClient(grpcConn)
-		req := &pb.SetNamespaceRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetNamespace(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchGenericDocumentBuilderSetPropertyBlobHandleCmd = &cobra.Command{
-	Use:   "set-property-blob-handle",
-	Short: "SetPropertyBlobHandle RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewGenericDocumentBuilderServiceClient(grpcConn)
-		req := &pb.SetPropertyBlobHandleRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.SetPropertyBlobHandle(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchGenericDocumentBuilderSetPropertyBooleanCmd = &cobra.Command{
-	Use:   "set-property-boolean",
-	Short: "SetPropertyBoolean RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewGenericDocumentBuilderServiceClient(grpcConn)
-		req := &pb.SetPropertyBooleanRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.SetPropertyBoolean(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchGenericDocumentBuilderSetPropertyBytesCmd = &cobra.Command{
-	Use:   "set-property-bytes",
-	Short: "SetPropertyBytes RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewGenericDocumentBuilderServiceClient(grpcConn)
-		req := &pb.SetPropertyBytesRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.SetPropertyBytes(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchGenericDocumentBuilderSetPropertyDocumentCmd = &cobra.Command{
-	Use:   "set-property-document",
-	Short: "SetPropertyDocument RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewGenericDocumentBuilderServiceClient(grpcConn)
-		req := &pb.SetPropertyDocumentRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.SetPropertyDocument(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchGenericDocumentBuilderSetPropertyDoubleCmd = &cobra.Command{
-	Use:   "set-property-double",
-	Short: "SetPropertyDouble RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewGenericDocumentBuilderServiceClient(grpcConn)
-		req := &pb.SetPropertyDoubleRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.SetPropertyDouble(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchGenericDocumentBuilderSetPropertyEmbeddingCmd = &cobra.Command{
-	Use:   "set-property-embedding",
-	Short: "SetPropertyEmbedding RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewGenericDocumentBuilderServiceClient(grpcConn)
-		req := &pb.SetPropertyEmbeddingRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.SetPropertyEmbedding(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchGenericDocumentBuilderSetPropertyLongCmd = &cobra.Command{
-	Use:   "set-property-long",
-	Short: "SetPropertyLong RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewGenericDocumentBuilderServiceClient(grpcConn)
-		req := &pb.SetPropertyLongRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.SetPropertyLong(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchGenericDocumentBuilderSetPropertyStringCmd = &cobra.Command{
-	Use:   "set-property-string",
-	Short: "SetPropertyString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewGenericDocumentBuilderServiceClient(grpcConn)
-		req := &pb.SetPropertyStringRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.SetPropertyString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchGenericDocumentBuilderSetSchemaTypeCmd = &cobra.Command{
-	Use:   "set-schema-type",
-	Short: "SetSchemaType RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewGenericDocumentBuilderServiceClient(grpcConn)
-		req := &pb.SetSchemaTypeRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetSchemaType(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchGenericDocumentBuilderSetScoreCmd = &cobra.Command{
-	Use:   "set-score",
-	Short: "SetScore RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewGenericDocumentBuilderServiceClient(grpcConn)
-		req := &pb.SetScoreRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetScore(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchGenericDocumentBuilderSetTtlMillisCmd = &cobra.Command{
-	Use:   "set-ttl-millis",
-	Short: "SetTtlMillis RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewGenericDocumentBuilderServiceClient(grpcConn)
-		req := &pb.SetTtlMillisRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetTtlMillis(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchAppSearchBlobHandleCmd = &cobra.Command{
-	Use:   "app-search-blob-handle",
-	Short: "AppSearchBlobHandleService operations",
-}
-
-var appsearchAppSearchBlobHandleDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAppSearchBlobHandleServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchAppSearchBlobHandleEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAppSearchBlobHandleServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchAppSearchBlobHandleGetDatabaseNameCmd = &cobra.Command{
-	Use:   "get-database-name",
-	Short: "GetDatabaseName RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAppSearchBlobHandleServiceClient(grpcConn)
-		req := &pb.GetDatabaseNameRequest{}
-		resp, err := client.GetDatabaseName(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchAppSearchBlobHandleGetNamespaceCmd = &cobra.Command{
-	Use:   "get-namespace",
-	Short: "GetNamespace RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAppSearchBlobHandleServiceClient(grpcConn)
-		req := &pb.GetNamespaceRequest{}
-		resp, err := client.GetNamespace(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchAppSearchBlobHandleGetPackageNameCmd = &cobra.Command{
-	Use:   "get-package-name",
-	Short: "GetPackageName RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAppSearchBlobHandleServiceClient(grpcConn)
-		req := &pb.GetPackageNameRequest{}
-		resp, err := client.GetPackageName(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchAppSearchBlobHandleGetSha256DigestCmd = &cobra.Command{
-	Use:   "get-sha256digest",
-	Short: "GetSha256Digest RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAppSearchBlobHandleServiceClient(grpcConn)
-		req := &pb.GetSha256DigestRequest{}
-		resp, err := client.GetSha256Digest(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchAppSearchBlobHandleHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAppSearchBlobHandleServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchAppSearchBlobHandleToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAppSearchBlobHandleServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchAppSearchBlobHandleWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAppSearchBlobHandleServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchAppSearchBlobHandleCreateWithSha256Cmd = &cobra.Command{
-	Use:   "create-with-sha256",
-	Short: "CreateWithSha256 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAppSearchBlobHandleServiceClient(grpcConn)
-		req := &pb.CreateWithSha256Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetString("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetString("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetString("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		resp, err := client.CreateWithSha256(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
 var appsearchAppSearchSessionCmd = &cobra.Command{
 	Use:   "app-search-session",
 	Short: "AppSearchSessionService operations",
@@ -5529,982 +6615,6 @@ var appsearchAppSearchSessionSearchCmd = &cobra.Command{
 			req.Arg1 = v
 		}
 		resp, err := client.Search(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchSearchSuggestionResultCmd = &cobra.Command{
-	Use:   "search-suggestion-result",
-	Short: "SearchSuggestionResultService operations",
-}
-
-var appsearchSearchSuggestionResultDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSearchSuggestionResultServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchSearchSuggestionResultEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSearchSuggestionResultServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchSearchSuggestionResultGetSuggestedResultCmd = &cobra.Command{
-	Use:   "get-suggested-result",
-	Short: "GetSuggestedResult RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSearchSuggestionResultServiceClient(grpcConn)
-		req := &pb.GetSuggestedResultRequest{}
-		resp, err := client.GetSuggestedResult(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchSearchSuggestionResultHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSearchSuggestionResultServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchSearchSuggestionResultWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSearchSuggestionResultServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchSearchSuggestionResultBuilderCmd = &cobra.Command{
-	Use:   "search-suggestion-result-builder",
-	Short: "SearchSuggestionResultBuilderService operations",
-}
-
-var appsearchSearchSuggestionResultBuilderBuildCmd = &cobra.Command{
-	Use:   "build",
-	Short: "Build RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSearchSuggestionResultBuilderServiceClient(grpcConn)
-		req := &pb.BuildRequest{}
-		resp, err := client.Build(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchSearchSuggestionResultBuilderSetSuggestedResultCmd = &cobra.Command{
-	Use:   "set-suggested-result",
-	Short: "SetSuggestedResult RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSearchSuggestionResultBuilderServiceClient(grpcConn)
-		req := &pb.SetSuggestedResultRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetSuggestedResult(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchRemoveByDocumentIdRequestCmd = &cobra.Command{
-	Use:   "remove-by-document-id-request",
-	Short: "RemoveByDocumentIdRequestService operations",
-}
-
-var appsearchRemoveByDocumentIdRequestDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRemoveByDocumentIdRequestServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchRemoveByDocumentIdRequestGetNamespaceCmd = &cobra.Command{
-	Use:   "get-namespace",
-	Short: "GetNamespace RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRemoveByDocumentIdRequestServiceClient(grpcConn)
-		req := &pb.GetNamespaceRequest{}
-		resp, err := client.GetNamespace(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchRemoveByDocumentIdRequestWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRemoveByDocumentIdRequestServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchRemoveByDocumentIdRequestBuilderCmd = &cobra.Command{
-	Use:   "remove-by-document-id-request-builder",
-	Short: "RemoveByDocumentIdRequestBuilderService operations",
-}
-
-var appsearchRemoveByDocumentIdRequestBuilderAddIdsCmd = &cobra.Command{
-	Use:   "add-ids",
-	Short: "AddIds RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRemoveByDocumentIdRequestBuilderServiceClient(grpcConn)
-		req := &pb.AddIdsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.AddIds(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchRemoveByDocumentIdRequestBuilderBuildCmd = &cobra.Command{
-	Use:   "build",
-	Short: "Build RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRemoveByDocumentIdRequestBuilderServiceClient(grpcConn)
-		req := &pb.BuildRequest{}
-		resp, err := client.Build(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchSetSchemaRequestCmd = &cobra.Command{
-	Use:   "set-schema-request",
-	Short: "SetSchemaRequestService operations",
-}
-
-var appsearchSetSchemaRequestEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSetSchemaRequestServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchSetSchemaRequestGetVersionCmd = &cobra.Command{
-	Use:   "get-version",
-	Short: "GetVersion RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSetSchemaRequestServiceClient(grpcConn)
-		req := &pb.GetVersionRequest{}
-		resp, err := client.GetVersion(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchSetSchemaRequestHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSetSchemaRequestServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchSetSchemaRequestIsForceOverrideCmd = &cobra.Command{
-	Use:   "is-force-override",
-	Short: "IsForceOverride RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSetSchemaRequestServiceClient(grpcConn)
-		req := &pb.IsForceOverrideRequest{}
-		resp, err := client.IsForceOverride(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchSetSchemaRequestBuilderCmd = &cobra.Command{
-	Use:   "set-schema-request-builder",
-	Short: "SetSchemaRequestBuilderService operations",
-}
-
-var appsearchSetSchemaRequestBuilderAddSchemaTypeVisibleToConfigCmd = &cobra.Command{
-	Use:   "add-schema-type-visible-to-config",
-	Short: "AddSchemaTypeVisibleToConfig RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSetSchemaRequestBuilderServiceClient(grpcConn)
-		req := &pb.AddSchemaTypeVisibleToConfigRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.AddSchemaTypeVisibleToConfig(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchSetSchemaRequestBuilderAddSchemasCmd = &cobra.Command{
-	Use:   "add-schemas",
-	Short: "AddSchemas RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSetSchemaRequestBuilderServiceClient(grpcConn)
-		req := &pb.AddSchemasRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.AddSchemas(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchSetSchemaRequestBuilderBuildCmd = &cobra.Command{
-	Use:   "build",
-	Short: "Build RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSetSchemaRequestBuilderServiceClient(grpcConn)
-		req := &pb.BuildRequest{}
-		resp, err := client.Build(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchSetSchemaRequestBuilderClearMigratorsCmd = &cobra.Command{
-	Use:   "clear-migrators",
-	Short: "ClearMigrators RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSetSchemaRequestBuilderServiceClient(grpcConn)
-		req := &pb.ClearMigratorsRequest{}
-		resp, err := client.ClearMigrators(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchSetSchemaRequestBuilderClearRequiredPermissionsForSchemaTypeVisibilityCmd = &cobra.Command{
-	Use:   "clear-required-permissions-for-schema-type-visibility",
-	Short: "ClearRequiredPermissionsForSchemaTypeVisibility RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSetSchemaRequestBuilderServiceClient(grpcConn)
-		req := &pb.ClearRequiredPermissionsForSchemaTypeVisibilityRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.ClearRequiredPermissionsForSchemaTypeVisibility(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchSetSchemaRequestBuilderClearSchemaTypeVisibleToConfigsCmd = &cobra.Command{
-	Use:   "clear-schema-type-visible-to-configs",
-	Short: "ClearSchemaTypeVisibleToConfigs RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSetSchemaRequestBuilderServiceClient(grpcConn)
-		req := &pb.ClearSchemaTypeVisibleToConfigsRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.ClearSchemaTypeVisibleToConfigs(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchSetSchemaRequestBuilderClearSchemasCmd = &cobra.Command{
-	Use:   "clear-schemas",
-	Short: "ClearSchemas RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSetSchemaRequestBuilderServiceClient(grpcConn)
-		req := &pb.ClearSchemasRequest{}
-		resp, err := client.ClearSchemas(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchSetSchemaRequestBuilderSetForceOverrideCmd = &cobra.Command{
-	Use:   "set-force-override",
-	Short: "SetForceOverride RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSetSchemaRequestBuilderServiceClient(grpcConn)
-		req := &pb.SetForceOverrideRequest{}
-		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetForceOverride(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchSetSchemaRequestBuilderSetMigratorCmd = &cobra.Command{
-	Use:   "set-migrator",
-	Short: "SetMigrator RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSetSchemaRequestBuilderServiceClient(grpcConn)
-		req := &pb.SetMigratorRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.SetMigrator(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchSetSchemaRequestBuilderSetPubliclyVisibleSchemaCmd = &cobra.Command{
-	Use:   "set-publicly-visible-schema",
-	Short: "SetPubliclyVisibleSchema RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSetSchemaRequestBuilderServiceClient(grpcConn)
-		req := &pb.SetPubliclyVisibleSchemaRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.SetPubliclyVisibleSchema(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchSetSchemaRequestBuilderSetSchemaTypeDisplayedBySystemCmd = &cobra.Command{
-	Use:   "set-schema-type-displayed-by-system",
-	Short: "SetSchemaTypeDisplayedBySystem RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSetSchemaRequestBuilderServiceClient(grpcConn)
-		req := &pb.SetSchemaTypeDisplayedBySystemRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetBool("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.SetSchemaTypeDisplayedBySystem(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchSetSchemaRequestBuilderSetSchemaTypeVisibilityForPackageCmd = &cobra.Command{
-	Use:   "set-schema-type-visibility-for-package",
-	Short: "SetSchemaTypeVisibilityForPackage RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSetSchemaRequestBuilderServiceClient(grpcConn)
-		req := &pb.SetSchemaTypeVisibilityForPackageRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetBool("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.SetSchemaTypeVisibilityForPackage(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchSetSchemaRequestBuilderSetVersionCmd = &cobra.Command{
-	Use:   "set-version",
-	Short: "SetVersion RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSetSchemaRequestBuilderServiceClient(grpcConn)
-		req := &pb.SetVersionRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetVersion(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchAppSearchBatchResultCmd = &cobra.Command{
-	Use:   "app-search-batch-result",
-	Short: "AppSearchBatchResultService operations",
-}
-
-var appsearchAppSearchBatchResultIsSuccessCmd = &cobra.Command{
-	Use:   "is-success",
-	Short: "IsSuccess RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAppSearchBatchResultServiceClient(grpcConn)
-		req := &pb.IsSuccessRequest{}
-		resp, err := client.IsSuccess(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchAppSearchBatchResultToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAppSearchBatchResultServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchEmbeddingVectorCmd = &cobra.Command{
-	Use:   "embedding-vector",
-	Short: "EmbeddingVectorService operations",
-}
-
-var appsearchEmbeddingVectorNewEmbeddingVectorCmd = &cobra.Command{
-	Use:   "new-embedding-vector",
-	Short: "NewEmbeddingVector RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewEmbeddingVectorServiceClient(grpcConn)
-		req := &pb.NewEmbeddingVectorRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetString("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.NewEmbeddingVector(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchEmbeddingVectorDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewEmbeddingVectorServiceClient(grpcConn)
-		req := &pb.EmbeddingVectorDescribeContentsRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchEmbeddingVectorEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewEmbeddingVectorServiceClient(grpcConn)
-		req := &pb.EmbeddingVectorEqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchEmbeddingVectorGetModelSignatureCmd = &cobra.Command{
-	Use:   "get-model-signature",
-	Short: "GetModelSignature RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewEmbeddingVectorServiceClient(grpcConn)
-		req := &pb.GetModelSignatureRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetModelSignature(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchEmbeddingVectorGetValuesCmd = &cobra.Command{
-	Use:   "get-values",
-	Short: "GetValues RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewEmbeddingVectorServiceClient(grpcConn)
-		req := &pb.GetValuesRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetValues(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchEmbeddingVectorHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewEmbeddingVectorServiceClient(grpcConn)
-		req := &pb.EmbeddingVectorHashCodeRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchEmbeddingVectorWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewEmbeddingVectorServiceClient(grpcConn)
-		req := &pb.EmbeddingVectorWriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchJoinSpecCmd = &cobra.Command{
-	Use:   "join-spec",
-	Short: "JoinSpecService operations",
-}
-
-var appsearchJoinSpecDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewJoinSpecServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchJoinSpecGetAggregationScoringStrategyCmd = &cobra.Command{
-	Use:   "get-aggregation-scoring-strategy",
-	Short: "GetAggregationScoringStrategy RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewJoinSpecServiceClient(grpcConn)
-		req := &pb.GetAggregationScoringStrategyRequest{}
-		resp, err := client.GetAggregationScoringStrategy(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchJoinSpecGetChildPropertyExpressionCmd = &cobra.Command{
-	Use:   "get-child-property-expression",
-	Short: "GetChildPropertyExpression RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewJoinSpecServiceClient(grpcConn)
-		req := &pb.GetChildPropertyExpressionRequest{}
-		resp, err := client.GetChildPropertyExpression(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchJoinSpecGetMaxJoinedResultCountCmd = &cobra.Command{
-	Use:   "get-max-joined-result-count",
-	Short: "GetMaxJoinedResultCount RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewJoinSpecServiceClient(grpcConn)
-		req := &pb.GetMaxJoinedResultCountRequest{}
-		resp, err := client.GetMaxJoinedResultCount(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchJoinSpecGetNestedQueryCmd = &cobra.Command{
-	Use:   "get-nested-query",
-	Short: "GetNestedQuery RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewJoinSpecServiceClient(grpcConn)
-		req := &pb.GetNestedQueryRequest{}
-		resp, err := client.GetNestedQuery(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchJoinSpecGetNestedSearchSpecCmd = &cobra.Command{
-	Use:   "get-nested-search-spec",
-	Short: "GetNestedSearchSpec RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewJoinSpecServiceClient(grpcConn)
-		req := &pb.GetNestedSearchSpecRequest{}
-		resp, err := client.GetNestedSearchSpec(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchJoinSpecWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewJoinSpecServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchJoinSpecBuilderCmd = &cobra.Command{
-	Use:   "join-spec-builder",
-	Short: "JoinSpecBuilderService operations",
-}
-
-var appsearchJoinSpecBuilderBuildCmd = &cobra.Command{
-	Use:   "build",
-	Short: "Build RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewJoinSpecBuilderServiceClient(grpcConn)
-		req := &pb.BuildRequest{}
-		resp, err := client.Build(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchJoinSpecBuilderSetAggregationScoringStrategyCmd = &cobra.Command{
-	Use:   "set-aggregation-scoring-strategy",
-	Short: "SetAggregationScoringStrategy RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewJoinSpecBuilderServiceClient(grpcConn)
-		req := &pb.SetAggregationScoringStrategyRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetAggregationScoringStrategy(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchJoinSpecBuilderSetChildPropertyExpressionCmd = &cobra.Command{
-	Use:   "set-child-property-expression",
-	Short: "SetChildPropertyExpression RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewJoinSpecBuilderServiceClient(grpcConn)
-		req := &pb.SetChildPropertyExpressionRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetChildPropertyExpression(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchJoinSpecBuilderSetMaxJoinedResultCountCmd = &cobra.Command{
-	Use:   "set-max-joined-result-count",
-	Short: "SetMaxJoinedResultCount RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewJoinSpecBuilderServiceClient(grpcConn)
-		req := &pb.SetMaxJoinedResultCountRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetMaxJoinedResultCount(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appsearchJoinSpecBuilderSetNestedSearchCmd = &cobra.Command{
-	Use:   "set-nested-search",
-	Short: "SetNestedSearch RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewJoinSpecBuilderServiceClient(grpcConn)
-		req := &pb.SetNestedSearchRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.SetNestedSearch(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -6592,6 +6702,25 @@ var appsearchPropertyPathHashCodeCmd = &cobra.Command{
 			req.Handle = v
 		}
 		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchPropertyPathIteratorCmd = &cobra.Command{
+	Use:   "iterator",
+	Short: "Iterator RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPropertyPathServiceClient(grpcConn)
+		req := &pb.IteratorRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.Iterator(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -6766,7 +6895,557 @@ var appsearchPropertyPathPathSegmentCreate2_1Cmd = &cobra.Command{
 	},
 }
 
+var appsearchSearchSuggestionSpecCmd = &cobra.Command{
+	Use:   "search-suggestion-spec",
+	Short: "SearchSuggestionSpecService operations",
+}
+
+var appsearchSearchSuggestionSpecDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSearchSuggestionSpecServiceClient(grpcConn)
+		req := &pb.SearchSuggestionSpecDescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchSearchSuggestionSpecGetFilterNamespacesCmd = &cobra.Command{
+	Use:   "get-filter-namespaces",
+	Short: "GetFilterNamespaces RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSearchSuggestionSpecServiceClient(grpcConn)
+		req := &pb.GetFilterNamespacesRequest{}
+		resp, err := client.GetFilterNamespaces(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchSearchSuggestionSpecGetFilterSchemasCmd = &cobra.Command{
+	Use:   "get-filter-schemas",
+	Short: "GetFilterSchemas RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSearchSuggestionSpecServiceClient(grpcConn)
+		req := &pb.GetFilterSchemasRequest{}
+		resp, err := client.GetFilterSchemas(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchSearchSuggestionSpecGetMaximumResultCountCmd = &cobra.Command{
+	Use:   "get-maximum-result-count",
+	Short: "GetMaximumResultCount RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSearchSuggestionSpecServiceClient(grpcConn)
+		req := &pb.GetMaximumResultCountRequest{}
+		resp, err := client.GetMaximumResultCount(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchSearchSuggestionSpecGetRankingStrategyCmd = &cobra.Command{
+	Use:   "get-ranking-strategy",
+	Short: "GetRankingStrategy RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSearchSuggestionSpecServiceClient(grpcConn)
+		req := &pb.GetRankingStrategyRequest{}
+		resp, err := client.GetRankingStrategy(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchSearchSuggestionSpecGetSearchStringParametersCmd = &cobra.Command{
+	Use:   "get-search-string-parameters",
+	Short: "GetSearchStringParameters RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSearchSuggestionSpecServiceClient(grpcConn)
+		req := &pb.GetSearchStringParametersRequest{}
+		resp, err := client.GetSearchStringParameters(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchSearchSuggestionSpecWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSearchSuggestionSpecServiceClient(grpcConn)
+		req := &pb.SearchSuggestionSpecWriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchSearchSuggestionSpecBuilderCmd = &cobra.Command{
+	Use:   "search-suggestion-spec-builder",
+	Short: "SearchSuggestionSpecBuilderService operations",
+}
+
+var appsearchSearchSuggestionSpecBuilderAddFilterDocumentIdsCmd = &cobra.Command{
+	Use:   "add-filter-document-ids",
+	Short: "AddFilterDocumentIds RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSearchSuggestionSpecBuilderServiceClient(grpcConn)
+		req := &pb.SearchSuggestionSpecBuilderAddFilterDocumentIdsRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.AddFilterDocumentIds(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchSearchSuggestionSpecBuilderAddFilterNamespacesCmd = &cobra.Command{
+	Use:   "add-filter-namespaces",
+	Short: "AddFilterNamespaces RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSearchSuggestionSpecBuilderServiceClient(grpcConn)
+		req := &pb.AddFilterNamespacesRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddFilterNamespaces(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchSearchSuggestionSpecBuilderAddFilterSchemasCmd = &cobra.Command{
+	Use:   "add-filter-schemas",
+	Short: "AddFilterSchemas RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSearchSuggestionSpecBuilderServiceClient(grpcConn)
+		req := &pb.AddFilterSchemasRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddFilterSchemas(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchSearchSuggestionSpecBuilderAddSearchStringParametersCmd = &cobra.Command{
+	Use:   "add-search-string-parameters",
+	Short: "AddSearchStringParameters RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSearchSuggestionSpecBuilderServiceClient(grpcConn)
+		req := &pb.AddSearchStringParametersRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddSearchStringParameters(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchSearchSuggestionSpecBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSearchSuggestionSpecBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchSearchSuggestionSpecBuilderSetRankingStrategyCmd = &cobra.Command{
+	Use:   "set-ranking-strategy",
+	Short: "SetRankingStrategy RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSearchSuggestionSpecBuilderServiceClient(grpcConn)
+		req := &pb.SetRankingStrategyRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetRankingStrategy(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchAppSearchBlobHandleCmd = &cobra.Command{
+	Use:   "app-search-blob-handle",
+	Short: "AppSearchBlobHandleService operations",
+}
+
+var appsearchAppSearchBlobHandleDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAppSearchBlobHandleServiceClient(grpcConn)
+		req := &pb.AppSearchBlobHandleDescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchAppSearchBlobHandleEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAppSearchBlobHandleServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchAppSearchBlobHandleGetDatabaseNameCmd = &cobra.Command{
+	Use:   "get-database-name",
+	Short: "GetDatabaseName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAppSearchBlobHandleServiceClient(grpcConn)
+		req := &pb.GetDatabaseNameRequest{}
+		resp, err := client.GetDatabaseName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchAppSearchBlobHandleGetNamespaceCmd = &cobra.Command{
+	Use:   "get-namespace",
+	Short: "GetNamespace RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAppSearchBlobHandleServiceClient(grpcConn)
+		req := &pb.GetNamespaceRequest{}
+		resp, err := client.GetNamespace(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchAppSearchBlobHandleGetPackageNameCmd = &cobra.Command{
+	Use:   "get-package-name",
+	Short: "GetPackageName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAppSearchBlobHandleServiceClient(grpcConn)
+		req := &pb.GetPackageNameRequest{}
+		resp, err := client.GetPackageName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchAppSearchBlobHandleGetSha256DigestCmd = &cobra.Command{
+	Use:   "get-sha256digest",
+	Short: "GetSha256Digest RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAppSearchBlobHandleServiceClient(grpcConn)
+		req := &pb.GetSha256DigestRequest{}
+		resp, err := client.GetSha256Digest(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchAppSearchBlobHandleHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAppSearchBlobHandleServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchAppSearchBlobHandleToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAppSearchBlobHandleServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchAppSearchBlobHandleWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAppSearchBlobHandleServiceClient(grpcConn)
+		req := &pb.AppSearchBlobHandleWriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appsearchAppSearchBlobHandleCreateWithSha256Cmd = &cobra.Command{
+	Use:   "create-with-sha256",
+	Short: "CreateWithSha256 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAppSearchBlobHandleServiceClient(grpcConn)
+		req := &pb.CreateWithSha256Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetString("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetString("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.CreateWithSha256(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 func init() {
+	appsearchAppSearchManagerSearchContextCmd.AddCommand(appsearchAppSearchManagerSearchContextGetDatabaseNameCmd)
+	appsearchCmd.AddCommand(appsearchAppSearchManagerSearchContextCmd)
+	appsearchCommitBlobResponseNewCommitBlobResponseCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	appsearchCommitBlobResponseCmd.AddCommand(appsearchCommitBlobResponseNewCommitBlobResponseCmd)
+	appsearchCommitBlobResponseDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	appsearchCommitBlobResponseCmd.AddCommand(appsearchCommitBlobResponseDescribeContentsCmd)
+	appsearchCommitBlobResponseWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	appsearchCommitBlobResponseWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	appsearchCommitBlobResponseWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	appsearchCommitBlobResponseCmd.AddCommand(appsearchCommitBlobResponseWriteToParcelCmd)
+	appsearchCmd.AddCommand(appsearchCommitBlobResponseCmd)
+	appsearchRemoveBlobResponseNewRemoveBlobResponseCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	appsearchRemoveBlobResponseCmd.AddCommand(appsearchRemoveBlobResponseNewRemoveBlobResponseCmd)
+	appsearchRemoveBlobResponseDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	appsearchRemoveBlobResponseCmd.AddCommand(appsearchRemoveBlobResponseDescribeContentsCmd)
+	appsearchRemoveBlobResponseWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	appsearchRemoveBlobResponseWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	appsearchRemoveBlobResponseWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	appsearchRemoveBlobResponseCmd.AddCommand(appsearchRemoveBlobResponseWriteToParcelCmd)
+	appsearchCmd.AddCommand(appsearchRemoveBlobResponseCmd)
+	appsearchSearchSuggestionResultCmd.AddCommand(appsearchSearchSuggestionResultDescribeContentsCmd)
+	appsearchSearchSuggestionResultEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	appsearchSearchSuggestionResultCmd.AddCommand(appsearchSearchSuggestionResultEqualsCmd)
+	appsearchSearchSuggestionResultCmd.AddCommand(appsearchSearchSuggestionResultGetSuggestedResultCmd)
+	appsearchSearchSuggestionResultCmd.AddCommand(appsearchSearchSuggestionResultHashCodeCmd)
+	appsearchSearchSuggestionResultWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	appsearchSearchSuggestionResultWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	appsearchSearchSuggestionResultCmd.AddCommand(appsearchSearchSuggestionResultWriteToParcelCmd)
+	appsearchCmd.AddCommand(appsearchSearchSuggestionResultCmd)
+	appsearchSearchSuggestionResultBuilderCmd.AddCommand(appsearchSearchSuggestionResultBuilderBuildCmd)
+	appsearchSearchSuggestionResultBuilderSetSuggestedResultCmd.Flags().String("arg0", "", "arg0 (string)")
+	appsearchSearchSuggestionResultBuilderCmd.AddCommand(appsearchSearchSuggestionResultBuilderSetSuggestedResultCmd)
+	appsearchCmd.AddCommand(appsearchSearchSuggestionResultBuilderCmd)
+	appsearchSearchResultCmd.AddCommand(appsearchSearchResultDescribeContentsCmd)
+	appsearchSearchResultCmd.AddCommand(appsearchSearchResultGetDatabaseNameCmd)
+	appsearchSearchResultCmd.AddCommand(appsearchSearchResultGetGenericDocumentCmd)
+	appsearchSearchResultCmd.AddCommand(appsearchSearchResultGetInformationalRankingSignalsCmd)
+	appsearchSearchResultCmd.AddCommand(appsearchSearchResultGetJoinedResultsCmd)
+	appsearchSearchResultCmd.AddCommand(appsearchSearchResultGetMatchInfosCmd)
+	appsearchSearchResultCmd.AddCommand(appsearchSearchResultGetPackageNameCmd)
+	appsearchSearchResultCmd.AddCommand(appsearchSearchResultGetRankingSignalCmd)
+	appsearchSearchResultWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	appsearchSearchResultWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	appsearchSearchResultCmd.AddCommand(appsearchSearchResultWriteToParcelCmd)
+	appsearchCmd.AddCommand(appsearchSearchResultCmd)
+	appsearchSearchResultBuilderAddInformationalRankingSignalCmd.Flags().Float64("arg0", 0, "arg0 (float64)")
+	appsearchSearchResultBuilderCmd.AddCommand(appsearchSearchResultBuilderAddInformationalRankingSignalCmd)
+	appsearchSearchResultBuilderAddJoinedResultCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	appsearchSearchResultBuilderCmd.AddCommand(appsearchSearchResultBuilderAddJoinedResultCmd)
+	appsearchSearchResultBuilderAddMatchInfoCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	appsearchSearchResultBuilderCmd.AddCommand(appsearchSearchResultBuilderAddMatchInfoCmd)
+	appsearchSearchResultBuilderCmd.AddCommand(appsearchSearchResultBuilderBuildCmd)
+	appsearchSearchResultBuilderSetGenericDocumentCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	appsearchSearchResultBuilderCmd.AddCommand(appsearchSearchResultBuilderSetGenericDocumentCmd)
+	appsearchSearchResultBuilderSetRankingSignalCmd.Flags().Float64("arg0", 0, "arg0 (float64)")
+	appsearchSearchResultBuilderCmd.AddCommand(appsearchSearchResultBuilderSetRankingSignalCmd)
+	appsearchCmd.AddCommand(appsearchSearchResultBuilderCmd)
+	appsearchSearchResultMatchInfoCmd.AddCommand(appsearchSearchResultMatchInfoDescribeContentsCmd)
+	appsearchSearchResultMatchInfoCmd.AddCommand(appsearchSearchResultMatchInfoGetExactMatchCmd)
+	appsearchSearchResultMatchInfoCmd.AddCommand(appsearchSearchResultMatchInfoGetExactMatchRangeCmd)
+	appsearchSearchResultMatchInfoCmd.AddCommand(appsearchSearchResultMatchInfoGetFullTextCmd)
+	appsearchSearchResultMatchInfoCmd.AddCommand(appsearchSearchResultMatchInfoGetPropertyPathCmd)
+	appsearchSearchResultMatchInfoCmd.AddCommand(appsearchSearchResultMatchInfoGetPropertyPathObjectCmd)
+	appsearchSearchResultMatchInfoCmd.AddCommand(appsearchSearchResultMatchInfoGetSnippetCmd)
+	appsearchSearchResultMatchInfoCmd.AddCommand(appsearchSearchResultMatchInfoGetSnippetRangeCmd)
+	appsearchSearchResultMatchInfoCmd.AddCommand(appsearchSearchResultMatchInfoGetSubmatchCmd)
+	appsearchSearchResultMatchInfoCmd.AddCommand(appsearchSearchResultMatchInfoGetSubmatchRangeCmd)
+	appsearchSearchResultMatchInfoWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	appsearchSearchResultMatchInfoWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	appsearchSearchResultMatchInfoCmd.AddCommand(appsearchSearchResultMatchInfoWriteToParcelCmd)
+	appsearchCmd.AddCommand(appsearchSearchResultMatchInfoCmd)
+	appsearchSearchResultMatchRangeEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	appsearchSearchResultMatchRangeCmd.AddCommand(appsearchSearchResultMatchRangeEqualsCmd)
+	appsearchSearchResultMatchRangeCmd.AddCommand(appsearchSearchResultMatchRangeGetEndCmd)
+	appsearchSearchResultMatchRangeCmd.AddCommand(appsearchSearchResultMatchRangeGetStartCmd)
+	appsearchSearchResultMatchRangeCmd.AddCommand(appsearchSearchResultMatchRangeHashCodeCmd)
+	appsearchSearchResultMatchRangeCmd.AddCommand(appsearchSearchResultMatchRangeToStringCmd)
+	appsearchCmd.AddCommand(appsearchSearchResultMatchRangeCmd)
+	appsearchAppSearchBatchResultCmd.AddCommand(appsearchAppSearchBatchResultIsSuccessCmd)
+	appsearchAppSearchBatchResultCmd.AddCommand(appsearchAppSearchBatchResultToStringCmd)
+	appsearchCmd.AddCommand(appsearchAppSearchBatchResultCmd)
+	appsearchRemoveByDocumentIdRequestCmd.AddCommand(appsearchRemoveByDocumentIdRequestDescribeContentsCmd)
+	appsearchRemoveByDocumentIdRequestCmd.AddCommand(appsearchRemoveByDocumentIdRequestGetIdsCmd)
+	appsearchRemoveByDocumentIdRequestCmd.AddCommand(appsearchRemoveByDocumentIdRequestGetNamespaceCmd)
+	appsearchRemoveByDocumentIdRequestWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	appsearchRemoveByDocumentIdRequestWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	appsearchRemoveByDocumentIdRequestCmd.AddCommand(appsearchRemoveByDocumentIdRequestWriteToParcelCmd)
+	appsearchCmd.AddCommand(appsearchRemoveByDocumentIdRequestCmd)
+	appsearchRemoveByDocumentIdRequestBuilderAddIdsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	appsearchRemoveByDocumentIdRequestBuilderCmd.AddCommand(appsearchRemoveByDocumentIdRequestBuilderAddIdsCmd)
+	appsearchRemoveByDocumentIdRequestBuilderCmd.AddCommand(appsearchRemoveByDocumentIdRequestBuilderBuildCmd)
+	appsearchCmd.AddCommand(appsearchRemoveByDocumentIdRequestBuilderCmd)
+	appsearchSchemaVisibilityConfigCmd.AddCommand(appsearchSchemaVisibilityConfigDescribeContentsCmd)
+	appsearchSchemaVisibilityConfigEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	appsearchSchemaVisibilityConfigCmd.AddCommand(appsearchSchemaVisibilityConfigEqualsCmd)
+	appsearchSchemaVisibilityConfigCmd.AddCommand(appsearchSchemaVisibilityConfigGetAllowedPackagesCmd)
+	appsearchSchemaVisibilityConfigCmd.AddCommand(appsearchSchemaVisibilityConfigGetPubliclyVisibleTargetPackageCmd)
+	appsearchSchemaVisibilityConfigCmd.AddCommand(appsearchSchemaVisibilityConfigGetRequiredPermissionsCmd)
+	appsearchSchemaVisibilityConfigCmd.AddCommand(appsearchSchemaVisibilityConfigHashCodeCmd)
+	appsearchSchemaVisibilityConfigWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	appsearchSchemaVisibilityConfigWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	appsearchSchemaVisibilityConfigCmd.AddCommand(appsearchSchemaVisibilityConfigWriteToParcelCmd)
+	appsearchCmd.AddCommand(appsearchSchemaVisibilityConfigCmd)
+	appsearchSchemaVisibilityConfigBuilderAddAllowedPackageCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	appsearchSchemaVisibilityConfigBuilderCmd.AddCommand(appsearchSchemaVisibilityConfigBuilderAddAllowedPackageCmd)
+	appsearchSchemaVisibilityConfigBuilderCmd.AddCommand(appsearchSchemaVisibilityConfigBuilderBuildCmd)
+	appsearchSchemaVisibilityConfigBuilderCmd.AddCommand(appsearchSchemaVisibilityConfigBuilderClearAllowedPackagesCmd)
+	appsearchSchemaVisibilityConfigBuilderCmd.AddCommand(appsearchSchemaVisibilityConfigBuilderClearRequiredPermissionsCmd)
+	appsearchSchemaVisibilityConfigBuilderSetPubliclyVisibleTargetPackageCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	appsearchSchemaVisibilityConfigBuilderCmd.AddCommand(appsearchSchemaVisibilityConfigBuilderSetPubliclyVisibleTargetPackageCmd)
+	appsearchCmd.AddCommand(appsearchSchemaVisibilityConfigBuilderCmd)
+	appsearchGetByDocumentIdRequestCmd.AddCommand(appsearchGetByDocumentIdRequestDescribeContentsCmd)
+	appsearchGetByDocumentIdRequestCmd.AddCommand(appsearchGetByDocumentIdRequestGetIdsCmd)
+	appsearchGetByDocumentIdRequestCmd.AddCommand(appsearchGetByDocumentIdRequestGetNamespaceCmd)
+	appsearchGetByDocumentIdRequestWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	appsearchGetByDocumentIdRequestWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	appsearchGetByDocumentIdRequestCmd.AddCommand(appsearchGetByDocumentIdRequestWriteToParcelCmd)
+	appsearchCmd.AddCommand(appsearchGetByDocumentIdRequestCmd)
+	appsearchGetByDocumentIdRequestBuilderAddIdsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	appsearchGetByDocumentIdRequestBuilderCmd.AddCommand(appsearchGetByDocumentIdRequestBuilderAddIdsCmd)
+	appsearchGetByDocumentIdRequestBuilderCmd.AddCommand(appsearchGetByDocumentIdRequestBuilderBuildCmd)
+	appsearchCmd.AddCommand(appsearchGetByDocumentIdRequestBuilderCmd)
 	appsearchAppSearchResultEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	appsearchAppSearchResultCmd.AddCommand(appsearchAppSearchResultEqualsCmd)
 	appsearchAppSearchResultCmd.AddCommand(appsearchAppSearchResultGetErrorMessageCmd)
@@ -6786,9 +7465,407 @@ func init() {
 	appsearchReportSystemUsageRequestBuilderSetUsageTimestampMillisCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	appsearchReportSystemUsageRequestBuilderCmd.AddCommand(appsearchReportSystemUsageRequestBuilderSetUsageTimestampMillisCmd)
 	appsearchCmd.AddCommand(appsearchReportSystemUsageRequestBuilderCmd)
+	appsearchSearchResultsCmd.AddCommand(appsearchSearchResultsCloseCmd)
+	appsearchCmd.AddCommand(appsearchSearchResultsCmd)
+	appsearchMigratorOnDowngradeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	appsearchMigratorOnDowngradeCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	appsearchMigratorOnDowngradeCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	appsearchMigratorCmd.AddCommand(appsearchMigratorOnDowngradeCmd)
+	appsearchMigratorOnUpgradeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	appsearchMigratorOnUpgradeCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	appsearchMigratorOnUpgradeCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	appsearchMigratorCmd.AddCommand(appsearchMigratorOnUpgradeCmd)
+	appsearchMigratorShouldMigrateCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	appsearchMigratorShouldMigrateCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	appsearchMigratorCmd.AddCommand(appsearchMigratorShouldMigrateCmd)
+	appsearchCmd.AddCommand(appsearchMigratorCmd)
+	appsearchPackageIdentifierNewPackageIdentifierCmd.Flags().String("arg0", "", "arg0 (string)")
+	appsearchPackageIdentifierNewPackageIdentifierCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	appsearchPackageIdentifierCmd.AddCommand(appsearchPackageIdentifierNewPackageIdentifierCmd)
+	appsearchPackageIdentifierEqualsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	appsearchPackageIdentifierEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	appsearchPackageIdentifierCmd.AddCommand(appsearchPackageIdentifierEqualsCmd)
+	appsearchPackageIdentifierGetPackageNameCmd.Flags().Int64("handle", 0, "handle (int64)")
+	appsearchPackageIdentifierCmd.AddCommand(appsearchPackageIdentifierGetPackageNameCmd)
+	appsearchPackageIdentifierGetSha256CertificateCmd.Flags().Int64("handle", 0, "handle (int64)")
+	appsearchPackageIdentifierCmd.AddCommand(appsearchPackageIdentifierGetSha256CertificateCmd)
+	appsearchPackageIdentifierHashCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	appsearchPackageIdentifierCmd.AddCommand(appsearchPackageIdentifierHashCodeCmd)
+	appsearchCmd.AddCommand(appsearchPackageIdentifierCmd)
+	appsearchReportUsageRequestCmd.AddCommand(appsearchReportUsageRequestDescribeContentsCmd)
+	appsearchReportUsageRequestCmd.AddCommand(appsearchReportUsageRequestGetDocumentIdCmd)
+	appsearchReportUsageRequestCmd.AddCommand(appsearchReportUsageRequestGetNamespaceCmd)
+	appsearchReportUsageRequestCmd.AddCommand(appsearchReportUsageRequestGetUsageTimestampMillisCmd)
+	appsearchReportUsageRequestWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	appsearchReportUsageRequestWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	appsearchReportUsageRequestCmd.AddCommand(appsearchReportUsageRequestWriteToParcelCmd)
+	appsearchCmd.AddCommand(appsearchReportUsageRequestCmd)
+	appsearchReportUsageRequestBuilderCmd.AddCommand(appsearchReportUsageRequestBuilderBuildCmd)
+	appsearchReportUsageRequestBuilderSetUsageTimestampMillisCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	appsearchReportUsageRequestBuilderCmd.AddCommand(appsearchReportUsageRequestBuilderSetUsageTimestampMillisCmd)
+	appsearchCmd.AddCommand(appsearchReportUsageRequestBuilderCmd)
+	appsearchPutDocumentsRequestCmd.AddCommand(appsearchPutDocumentsRequestGetGenericDocumentsCmd)
+	appsearchPutDocumentsRequestCmd.AddCommand(appsearchPutDocumentsRequestGetTakenActionGenericDocumentsCmd)
+	appsearchCmd.AddCommand(appsearchPutDocumentsRequestCmd)
+	appsearchPutDocumentsRequestBuilderAddGenericDocumentsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	appsearchPutDocumentsRequestBuilderCmd.AddCommand(appsearchPutDocumentsRequestBuilderAddGenericDocumentsCmd)
+	appsearchPutDocumentsRequestBuilderAddTakenActionGenericDocumentsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	appsearchPutDocumentsRequestBuilderCmd.AddCommand(appsearchPutDocumentsRequestBuilderAddTakenActionGenericDocumentsCmd)
+	appsearchPutDocumentsRequestBuilderCmd.AddCommand(appsearchPutDocumentsRequestBuilderBuildCmd)
+	appsearchCmd.AddCommand(appsearchPutDocumentsRequestBuilderCmd)
+	appsearchSetSchemaRequestEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	appsearchSetSchemaRequestCmd.AddCommand(appsearchSetSchemaRequestEqualsCmd)
+	appsearchSetSchemaRequestCmd.AddCommand(appsearchSetSchemaRequestGetSchemasCmd)
+	appsearchSetSchemaRequestCmd.AddCommand(appsearchSetSchemaRequestGetSchemasNotDisplayedBySystemCmd)
+	appsearchSetSchemaRequestCmd.AddCommand(appsearchSetSchemaRequestGetVersionCmd)
+	appsearchSetSchemaRequestCmd.AddCommand(appsearchSetSchemaRequestHashCodeCmd)
+	appsearchSetSchemaRequestCmd.AddCommand(appsearchSetSchemaRequestIsForceOverrideCmd)
+	appsearchCmd.AddCommand(appsearchSetSchemaRequestCmd)
+	appsearchSetSchemaRequestBuilderAddSchemaTypeVisibleToConfigCmd.Flags().String("arg0", "", "arg0 (string)")
+	appsearchSetSchemaRequestBuilderAddSchemaTypeVisibleToConfigCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	appsearchSetSchemaRequestBuilderCmd.AddCommand(appsearchSetSchemaRequestBuilderAddSchemaTypeVisibleToConfigCmd)
+	appsearchSetSchemaRequestBuilderAddSchemasCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	appsearchSetSchemaRequestBuilderCmd.AddCommand(appsearchSetSchemaRequestBuilderAddSchemasCmd)
+	appsearchSetSchemaRequestBuilderCmd.AddCommand(appsearchSetSchemaRequestBuilderBuildCmd)
+	appsearchSetSchemaRequestBuilderCmd.AddCommand(appsearchSetSchemaRequestBuilderClearMigratorsCmd)
+	appsearchSetSchemaRequestBuilderClearRequiredPermissionsForSchemaTypeVisibilityCmd.Flags().String("arg0", "", "arg0 (string)")
+	appsearchSetSchemaRequestBuilderCmd.AddCommand(appsearchSetSchemaRequestBuilderClearRequiredPermissionsForSchemaTypeVisibilityCmd)
+	appsearchSetSchemaRequestBuilderClearSchemaTypeVisibleToConfigsCmd.Flags().String("arg0", "", "arg0 (string)")
+	appsearchSetSchemaRequestBuilderCmd.AddCommand(appsearchSetSchemaRequestBuilderClearSchemaTypeVisibleToConfigsCmd)
+	appsearchSetSchemaRequestBuilderCmd.AddCommand(appsearchSetSchemaRequestBuilderClearSchemasCmd)
+	appsearchSetSchemaRequestBuilderSetForceOverrideCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	appsearchSetSchemaRequestBuilderCmd.AddCommand(appsearchSetSchemaRequestBuilderSetForceOverrideCmd)
+	appsearchSetSchemaRequestBuilderSetMigratorCmd.Flags().String("arg0", "", "arg0 (string)")
+	appsearchSetSchemaRequestBuilderSetMigratorCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	appsearchSetSchemaRequestBuilderCmd.AddCommand(appsearchSetSchemaRequestBuilderSetMigratorCmd)
+	appsearchSetSchemaRequestBuilderSetPubliclyVisibleSchemaCmd.Flags().String("arg0", "", "arg0 (string)")
+	appsearchSetSchemaRequestBuilderSetPubliclyVisibleSchemaCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	appsearchSetSchemaRequestBuilderCmd.AddCommand(appsearchSetSchemaRequestBuilderSetPubliclyVisibleSchemaCmd)
+	appsearchSetSchemaRequestBuilderSetSchemaTypeDisplayedBySystemCmd.Flags().String("arg0", "", "arg0 (string)")
+	appsearchSetSchemaRequestBuilderSetSchemaTypeDisplayedBySystemCmd.Flags().Bool("arg1", false, "arg1 (bool)")
+	appsearchSetSchemaRequestBuilderCmd.AddCommand(appsearchSetSchemaRequestBuilderSetSchemaTypeDisplayedBySystemCmd)
+	appsearchSetSchemaRequestBuilderSetSchemaTypeVisibilityForPackageCmd.Flags().String("arg0", "", "arg0 (string)")
+	appsearchSetSchemaRequestBuilderSetSchemaTypeVisibilityForPackageCmd.Flags().Bool("arg1", false, "arg1 (bool)")
+	appsearchSetSchemaRequestBuilderSetSchemaTypeVisibilityForPackageCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	appsearchSetSchemaRequestBuilderCmd.AddCommand(appsearchSetSchemaRequestBuilderSetSchemaTypeVisibilityForPackageCmd)
+	appsearchSetSchemaRequestBuilderSetVersionCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	appsearchSetSchemaRequestBuilderCmd.AddCommand(appsearchSetSchemaRequestBuilderSetVersionCmd)
+	appsearchCmd.AddCommand(appsearchSetSchemaRequestBuilderCmd)
+	appsearchSetSchemaResponseCmd.AddCommand(appsearchSetSchemaResponseDescribeContentsCmd)
+	appsearchSetSchemaResponseCmd.AddCommand(appsearchSetSchemaResponseGetDeletedTypesCmd)
+	appsearchSetSchemaResponseCmd.AddCommand(appsearchSetSchemaResponseGetIncompatibleTypesCmd)
+	appsearchSetSchemaResponseCmd.AddCommand(appsearchSetSchemaResponseGetMigratedTypesCmd)
+	appsearchSetSchemaResponseCmd.AddCommand(appsearchSetSchemaResponseGetMigrationFailuresCmd)
+	appsearchSetSchemaResponseWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	appsearchSetSchemaResponseWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	appsearchSetSchemaResponseCmd.AddCommand(appsearchSetSchemaResponseWriteToParcelCmd)
+	appsearchCmd.AddCommand(appsearchSetSchemaResponseCmd)
+	appsearchSetSchemaResponseBuilderAddDeletedTypeCmd.Flags().String("arg0", "", "arg0 (string)")
+	appsearchSetSchemaResponseBuilderCmd.AddCommand(appsearchSetSchemaResponseBuilderAddDeletedTypeCmd)
+	appsearchSetSchemaResponseBuilderAddIncompatibleTypeCmd.Flags().String("arg0", "", "arg0 (string)")
+	appsearchSetSchemaResponseBuilderCmd.AddCommand(appsearchSetSchemaResponseBuilderAddIncompatibleTypeCmd)
+	appsearchSetSchemaResponseBuilderAddMigratedTypeCmd.Flags().String("arg0", "", "arg0 (string)")
+	appsearchSetSchemaResponseBuilderCmd.AddCommand(appsearchSetSchemaResponseBuilderAddMigratedTypeCmd)
+	appsearchSetSchemaResponseBuilderAddMigrationFailureCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	appsearchSetSchemaResponseBuilderCmd.AddCommand(appsearchSetSchemaResponseBuilderAddMigrationFailureCmd)
+	appsearchSetSchemaResponseBuilderCmd.AddCommand(appsearchSetSchemaResponseBuilderBuildCmd)
+	appsearchCmd.AddCommand(appsearchSetSchemaResponseBuilderCmd)
+	appsearchSetSchemaResponseMigrationFailureCmd.AddCommand(appsearchSetSchemaResponseMigrationFailureDescribeContentsCmd)
+	appsearchSetSchemaResponseMigrationFailureCmd.AddCommand(appsearchSetSchemaResponseMigrationFailureGetAppSearchResultCmd)
+	appsearchSetSchemaResponseMigrationFailureCmd.AddCommand(appsearchSetSchemaResponseMigrationFailureGetDocumentIdCmd)
+	appsearchSetSchemaResponseMigrationFailureCmd.AddCommand(appsearchSetSchemaResponseMigrationFailureGetNamespaceCmd)
+	appsearchSetSchemaResponseMigrationFailureCmd.AddCommand(appsearchSetSchemaResponseMigrationFailureGetSchemaTypeCmd)
+	appsearchSetSchemaResponseMigrationFailureCmd.AddCommand(appsearchSetSchemaResponseMigrationFailureToStringCmd)
+	appsearchSetSchemaResponseMigrationFailureWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	appsearchSetSchemaResponseMigrationFailureWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	appsearchSetSchemaResponseMigrationFailureCmd.AddCommand(appsearchSetSchemaResponseMigrationFailureWriteToParcelCmd)
+	appsearchCmd.AddCommand(appsearchSetSchemaResponseMigrationFailureCmd)
+	appsearchSetBlobVisibilityRequestCmd.AddCommand(appsearchSetBlobVisibilityRequestGetNamespacesNotDisplayedBySystemCmd)
+	appsearchCmd.AddCommand(appsearchSetBlobVisibilityRequestCmd)
+	appsearchSetBlobVisibilityRequestBuilderAddNamespaceVisibleToConfigCmd.Flags().String("arg0", "", "arg0 (string)")
+	appsearchSetBlobVisibilityRequestBuilderAddNamespaceVisibleToConfigCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	appsearchSetBlobVisibilityRequestBuilderCmd.AddCommand(appsearchSetBlobVisibilityRequestBuilderAddNamespaceVisibleToConfigCmd)
+	appsearchSetBlobVisibilityRequestBuilderCmd.AddCommand(appsearchSetBlobVisibilityRequestBuilderBuildCmd)
+	appsearchSetBlobVisibilityRequestBuilderClearNamespaceVisibleToConfigsCmd.Flags().String("arg0", "", "arg0 (string)")
+	appsearchSetBlobVisibilityRequestBuilderCmd.AddCommand(appsearchSetBlobVisibilityRequestBuilderClearNamespaceVisibleToConfigsCmd)
+	appsearchSetBlobVisibilityRequestBuilderSetNamespaceDisplayedBySystemCmd.Flags().String("arg0", "", "arg0 (string)")
+	appsearchSetBlobVisibilityRequestBuilderSetNamespaceDisplayedBySystemCmd.Flags().Bool("arg1", false, "arg1 (bool)")
+	appsearchSetBlobVisibilityRequestBuilderCmd.AddCommand(appsearchSetBlobVisibilityRequestBuilderSetNamespaceDisplayedBySystemCmd)
+	appsearchCmd.AddCommand(appsearchSetBlobVisibilityRequestBuilderCmd)
+	appsearchGlobalSearchSessionCmd.AddCommand(appsearchGlobalSearchSessionCloseCmd)
+	appsearchGlobalSearchSessionRegisterObserverCallbackCmd.Flags().String("arg0", "", "arg0 (string)")
+	appsearchGlobalSearchSessionRegisterObserverCallbackCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	appsearchGlobalSearchSessionRegisterObserverCallbackCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	appsearchGlobalSearchSessionRegisterObserverCallbackCmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	appsearchGlobalSearchSessionCmd.AddCommand(appsearchGlobalSearchSessionRegisterObserverCallbackCmd)
+	appsearchGlobalSearchSessionSearchCmd.Flags().String("arg0", "", "arg0 (string)")
+	appsearchGlobalSearchSessionSearchCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	appsearchGlobalSearchSessionCmd.AddCommand(appsearchGlobalSearchSessionSearchCmd)
+	appsearchGlobalSearchSessionUnregisterObserverCallbackCmd.Flags().String("arg0", "", "arg0 (string)")
+	appsearchGlobalSearchSessionUnregisterObserverCallbackCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	appsearchGlobalSearchSessionCmd.AddCommand(appsearchGlobalSearchSessionUnregisterObserverCallbackCmd)
+	appsearchCmd.AddCommand(appsearchGlobalSearchSessionCmd)
+	appsearchStorageInfoCmd.AddCommand(appsearchStorageInfoDescribeContentsCmd)
+	appsearchStorageInfoCmd.AddCommand(appsearchStorageInfoGetAliveDocumentsCountCmd)
+	appsearchStorageInfoCmd.AddCommand(appsearchStorageInfoGetAliveNamespacesCountCmd)
+	appsearchStorageInfoCmd.AddCommand(appsearchStorageInfoGetBlobsCountCmd)
+	appsearchStorageInfoCmd.AddCommand(appsearchStorageInfoGetBlobsSizeBytesCmd)
+	appsearchStorageInfoCmd.AddCommand(appsearchStorageInfoGetSizeBytesCmd)
+	appsearchStorageInfoWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	appsearchStorageInfoWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	appsearchStorageInfoCmd.AddCommand(appsearchStorageInfoWriteToParcelCmd)
+	appsearchCmd.AddCommand(appsearchStorageInfoCmd)
+	appsearchStorageInfoBuilderCmd.AddCommand(appsearchStorageInfoBuilderBuildCmd)
+	appsearchStorageInfoBuilderSetAliveDocumentsCountCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	appsearchStorageInfoBuilderCmd.AddCommand(appsearchStorageInfoBuilderSetAliveDocumentsCountCmd)
+	appsearchStorageInfoBuilderSetAliveNamespacesCountCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	appsearchStorageInfoBuilderCmd.AddCommand(appsearchStorageInfoBuilderSetAliveNamespacesCountCmd)
+	appsearchStorageInfoBuilderSetBlobsCountCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	appsearchStorageInfoBuilderCmd.AddCommand(appsearchStorageInfoBuilderSetBlobsCountCmd)
+	appsearchStorageInfoBuilderSetBlobsSizeBytesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	appsearchStorageInfoBuilderCmd.AddCommand(appsearchStorageInfoBuilderSetBlobsSizeBytesCmd)
+	appsearchStorageInfoBuilderSetSizeBytesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	appsearchStorageInfoBuilderCmd.AddCommand(appsearchStorageInfoBuilderSetSizeBytesCmd)
+	appsearchCmd.AddCommand(appsearchStorageInfoBuilderCmd)
+	appsearchGenericDocumentEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	appsearchGenericDocumentCmd.AddCommand(appsearchGenericDocumentEqualsCmd)
+	appsearchGenericDocumentCmd.AddCommand(appsearchGenericDocumentGetCreationTimestampMillisCmd)
+	appsearchGenericDocumentCmd.AddCommand(appsearchGenericDocumentGetIdCmd)
+	appsearchGenericDocumentCmd.AddCommand(appsearchGenericDocumentGetNamespaceCmd)
+	appsearchGenericDocumentGetPropertyCmd.Flags().String("arg0", "", "arg0 (string)")
+	appsearchGenericDocumentCmd.AddCommand(appsearchGenericDocumentGetPropertyCmd)
+	appsearchGenericDocumentGetPropertyBlobHandleCmd.Flags().String("arg0", "", "arg0 (string)")
+	appsearchGenericDocumentCmd.AddCommand(appsearchGenericDocumentGetPropertyBlobHandleCmd)
+	appsearchGenericDocumentGetPropertyBlobHandleArrayCmd.Flags().String("arg0", "", "arg0 (string)")
+	appsearchGenericDocumentCmd.AddCommand(appsearchGenericDocumentGetPropertyBlobHandleArrayCmd)
+	appsearchGenericDocumentGetPropertyBooleanCmd.Flags().String("arg0", "", "arg0 (string)")
+	appsearchGenericDocumentCmd.AddCommand(appsearchGenericDocumentGetPropertyBooleanCmd)
+	appsearchGenericDocumentGetPropertyBooleanArrayCmd.Flags().String("arg0", "", "arg0 (string)")
+	appsearchGenericDocumentCmd.AddCommand(appsearchGenericDocumentGetPropertyBooleanArrayCmd)
+	appsearchGenericDocumentGetPropertyBytesCmd.Flags().String("arg0", "", "arg0 (string)")
+	appsearchGenericDocumentCmd.AddCommand(appsearchGenericDocumentGetPropertyBytesCmd)
+	appsearchGenericDocumentGetPropertyBytesArrayCmd.Flags().String("arg0", "", "arg0 (string)")
+	appsearchGenericDocumentCmd.AddCommand(appsearchGenericDocumentGetPropertyBytesArrayCmd)
+	appsearchGenericDocumentGetPropertyDocumentCmd.Flags().String("arg0", "", "arg0 (string)")
+	appsearchGenericDocumentCmd.AddCommand(appsearchGenericDocumentGetPropertyDocumentCmd)
+	appsearchGenericDocumentGetPropertyDocumentArrayCmd.Flags().String("arg0", "", "arg0 (string)")
+	appsearchGenericDocumentCmd.AddCommand(appsearchGenericDocumentGetPropertyDocumentArrayCmd)
+	appsearchGenericDocumentGetPropertyDoubleCmd.Flags().String("arg0", "", "arg0 (string)")
+	appsearchGenericDocumentCmd.AddCommand(appsearchGenericDocumentGetPropertyDoubleCmd)
+	appsearchGenericDocumentGetPropertyDoubleArrayCmd.Flags().String("arg0", "", "arg0 (string)")
+	appsearchGenericDocumentCmd.AddCommand(appsearchGenericDocumentGetPropertyDoubleArrayCmd)
+	appsearchGenericDocumentGetPropertyEmbeddingCmd.Flags().String("arg0", "", "arg0 (string)")
+	appsearchGenericDocumentCmd.AddCommand(appsearchGenericDocumentGetPropertyEmbeddingCmd)
+	appsearchGenericDocumentGetPropertyEmbeddingArrayCmd.Flags().String("arg0", "", "arg0 (string)")
+	appsearchGenericDocumentCmd.AddCommand(appsearchGenericDocumentGetPropertyEmbeddingArrayCmd)
+	appsearchGenericDocumentGetPropertyLongCmd.Flags().String("arg0", "", "arg0 (string)")
+	appsearchGenericDocumentCmd.AddCommand(appsearchGenericDocumentGetPropertyLongCmd)
+	appsearchGenericDocumentGetPropertyLongArrayCmd.Flags().String("arg0", "", "arg0 (string)")
+	appsearchGenericDocumentCmd.AddCommand(appsearchGenericDocumentGetPropertyLongArrayCmd)
+	appsearchGenericDocumentCmd.AddCommand(appsearchGenericDocumentGetPropertyNamesCmd)
+	appsearchGenericDocumentGetPropertyStringCmd.Flags().String("arg0", "", "arg0 (string)")
+	appsearchGenericDocumentCmd.AddCommand(appsearchGenericDocumentGetPropertyStringCmd)
+	appsearchGenericDocumentGetPropertyStringArrayCmd.Flags().String("arg0", "", "arg0 (string)")
+	appsearchGenericDocumentCmd.AddCommand(appsearchGenericDocumentGetPropertyStringArrayCmd)
+	appsearchGenericDocumentCmd.AddCommand(appsearchGenericDocumentGetSchemaTypeCmd)
+	appsearchGenericDocumentCmd.AddCommand(appsearchGenericDocumentGetScoreCmd)
+	appsearchGenericDocumentCmd.AddCommand(appsearchGenericDocumentGetTtlMillisCmd)
+	appsearchGenericDocumentCmd.AddCommand(appsearchGenericDocumentHashCodeCmd)
+	appsearchGenericDocumentCmd.AddCommand(appsearchGenericDocumentToStringCmd)
+	appsearchGenericDocumentCmd.AddCommand(appsearchGenericDocumentGetMaxIndexedPropertiesCmd)
+	appsearchCmd.AddCommand(appsearchGenericDocumentCmd)
+	appsearchGenericDocumentBuilderCmd.AddCommand(appsearchGenericDocumentBuilderBuildCmd)
+	appsearchGenericDocumentBuilderClearPropertyCmd.Flags().String("arg0", "", "arg0 (string)")
+	appsearchGenericDocumentBuilderCmd.AddCommand(appsearchGenericDocumentBuilderClearPropertyCmd)
+	appsearchGenericDocumentBuilderSetCreationTimestampMillisCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	appsearchGenericDocumentBuilderCmd.AddCommand(appsearchGenericDocumentBuilderSetCreationTimestampMillisCmd)
+	appsearchGenericDocumentBuilderSetIdCmd.Flags().String("arg0", "", "arg0 (string)")
+	appsearchGenericDocumentBuilderCmd.AddCommand(appsearchGenericDocumentBuilderSetIdCmd)
+	appsearchGenericDocumentBuilderSetNamespaceCmd.Flags().String("arg0", "", "arg0 (string)")
+	appsearchGenericDocumentBuilderCmd.AddCommand(appsearchGenericDocumentBuilderSetNamespaceCmd)
+	appsearchGenericDocumentBuilderSetPropertyBlobHandleCmd.Flags().String("arg0", "", "arg0 (string)")
+	appsearchGenericDocumentBuilderSetPropertyBlobHandleCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	appsearchGenericDocumentBuilderCmd.AddCommand(appsearchGenericDocumentBuilderSetPropertyBlobHandleCmd)
+	appsearchGenericDocumentBuilderSetPropertyBooleanCmd.Flags().String("arg0", "", "arg0 (string)")
+	appsearchGenericDocumentBuilderSetPropertyBooleanCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	appsearchGenericDocumentBuilderCmd.AddCommand(appsearchGenericDocumentBuilderSetPropertyBooleanCmd)
+	appsearchGenericDocumentBuilderSetPropertyBytesCmd.Flags().String("arg0", "", "arg0 (string)")
+	appsearchGenericDocumentBuilderSetPropertyBytesCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	appsearchGenericDocumentBuilderCmd.AddCommand(appsearchGenericDocumentBuilderSetPropertyBytesCmd)
+	appsearchGenericDocumentBuilderSetPropertyDocumentCmd.Flags().String("arg0", "", "arg0 (string)")
+	appsearchGenericDocumentBuilderSetPropertyDocumentCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	appsearchGenericDocumentBuilderCmd.AddCommand(appsearchGenericDocumentBuilderSetPropertyDocumentCmd)
+	appsearchGenericDocumentBuilderSetPropertyDoubleCmd.Flags().String("arg0", "", "arg0 (string)")
+	appsearchGenericDocumentBuilderSetPropertyDoubleCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	appsearchGenericDocumentBuilderCmd.AddCommand(appsearchGenericDocumentBuilderSetPropertyDoubleCmd)
+	appsearchGenericDocumentBuilderSetPropertyEmbeddingCmd.Flags().String("arg0", "", "arg0 (string)")
+	appsearchGenericDocumentBuilderSetPropertyEmbeddingCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	appsearchGenericDocumentBuilderCmd.AddCommand(appsearchGenericDocumentBuilderSetPropertyEmbeddingCmd)
+	appsearchGenericDocumentBuilderSetPropertyLongCmd.Flags().String("arg0", "", "arg0 (string)")
+	appsearchGenericDocumentBuilderSetPropertyLongCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	appsearchGenericDocumentBuilderCmd.AddCommand(appsearchGenericDocumentBuilderSetPropertyLongCmd)
+	appsearchGenericDocumentBuilderSetPropertyStringCmd.Flags().String("arg0", "", "arg0 (string)")
+	appsearchGenericDocumentBuilderSetPropertyStringCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	appsearchGenericDocumentBuilderCmd.AddCommand(appsearchGenericDocumentBuilderSetPropertyStringCmd)
+	appsearchGenericDocumentBuilderSetSchemaTypeCmd.Flags().String("arg0", "", "arg0 (string)")
+	appsearchGenericDocumentBuilderCmd.AddCommand(appsearchGenericDocumentBuilderSetSchemaTypeCmd)
+	appsearchGenericDocumentBuilderSetScoreCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	appsearchGenericDocumentBuilderCmd.AddCommand(appsearchGenericDocumentBuilderSetScoreCmd)
+	appsearchGenericDocumentBuilderSetTtlMillisCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	appsearchGenericDocumentBuilderCmd.AddCommand(appsearchGenericDocumentBuilderSetTtlMillisCmd)
+	appsearchCmd.AddCommand(appsearchGenericDocumentBuilderCmd)
+	appsearchAppSearchSchemaCmd.AddCommand(appsearchAppSearchSchemaDescribeContentsCmd)
+	appsearchAppSearchSchemaEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	appsearchAppSearchSchemaCmd.AddCommand(appsearchAppSearchSchemaEqualsCmd)
+	appsearchAppSearchSchemaCmd.AddCommand(appsearchAppSearchSchemaGetParentTypesCmd)
+	appsearchAppSearchSchemaCmd.AddCommand(appsearchAppSearchSchemaGetPropertiesCmd)
+	appsearchAppSearchSchemaCmd.AddCommand(appsearchAppSearchSchemaGetSchemaTypeCmd)
+	appsearchAppSearchSchemaCmd.AddCommand(appsearchAppSearchSchemaHashCodeCmd)
+	appsearchAppSearchSchemaCmd.AddCommand(appsearchAppSearchSchemaToStringCmd)
+	appsearchAppSearchSchemaWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	appsearchAppSearchSchemaWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	appsearchAppSearchSchemaCmd.AddCommand(appsearchAppSearchSchemaWriteToParcelCmd)
+	appsearchCmd.AddCommand(appsearchAppSearchSchemaCmd)
+	appsearchAppSearchSchemaBooleanPropertyConfigCmd.AddCommand(appsearchAppSearchSchemaBooleanPropertyConfigIsScoringEnabledCmd)
+	appsearchCmd.AddCommand(appsearchAppSearchSchemaBooleanPropertyConfigCmd)
+	appsearchAppSearchSchemaBuilderAddParentTypeCmd.Flags().String("arg0", "", "arg0 (string)")
+	appsearchAppSearchSchemaBuilderCmd.AddCommand(appsearchAppSearchSchemaBuilderAddParentTypeCmd)
+	appsearchAppSearchSchemaBuilderAddPropertyCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	appsearchAppSearchSchemaBuilderCmd.AddCommand(appsearchAppSearchSchemaBuilderAddPropertyCmd)
+	appsearchAppSearchSchemaBuilderCmd.AddCommand(appsearchAppSearchSchemaBuilderBuildCmd)
+	appsearchAppSearchSchemaBuilderCmd.AddCommand(appsearchAppSearchSchemaBuilderClearParentTypesCmd)
+	appsearchAppSearchSchemaBuilderCmd.AddCommand(appsearchAppSearchSchemaBuilderClearPropertiesCmd)
+	appsearchAppSearchSchemaBuilderSetSchemaTypeCmd.Flags().String("arg0", "", "arg0 (string)")
+	appsearchAppSearchSchemaBuilderCmd.AddCommand(appsearchAppSearchSchemaBuilderSetSchemaTypeCmd)
+	appsearchCmd.AddCommand(appsearchAppSearchSchemaBuilderCmd)
+	appsearchAppSearchSchemaDocumentPropertyConfigCmd.AddCommand(appsearchAppSearchSchemaDocumentPropertyConfigGetIndexableNestedPropertiesCmd)
+	appsearchAppSearchSchemaDocumentPropertyConfigCmd.AddCommand(appsearchAppSearchSchemaDocumentPropertyConfigGetSchemaTypeCmd)
+	appsearchAppSearchSchemaDocumentPropertyConfigCmd.AddCommand(appsearchAppSearchSchemaDocumentPropertyConfigShouldIndexNestedPropertiesCmd)
+	appsearchCmd.AddCommand(appsearchAppSearchSchemaDocumentPropertyConfigCmd)
+	appsearchAppSearchSchemaDoublePropertyConfigCmd.AddCommand(appsearchAppSearchSchemaDoublePropertyConfigIsScoringEnabledCmd)
+	appsearchCmd.AddCommand(appsearchAppSearchSchemaDoublePropertyConfigCmd)
+	appsearchAppSearchSchemaEmbeddingPropertyConfigCmd.AddCommand(appsearchAppSearchSchemaEmbeddingPropertyConfigGetIndexingTypeCmd)
+	appsearchAppSearchSchemaEmbeddingPropertyConfigCmd.AddCommand(appsearchAppSearchSchemaEmbeddingPropertyConfigGetQuantizationTypeCmd)
+	appsearchCmd.AddCommand(appsearchAppSearchSchemaEmbeddingPropertyConfigCmd)
+	appsearchAppSearchSchemaLongPropertyConfigCmd.AddCommand(appsearchAppSearchSchemaLongPropertyConfigGetIndexingTypeCmd)
+	appsearchAppSearchSchemaLongPropertyConfigCmd.AddCommand(appsearchAppSearchSchemaLongPropertyConfigIsScoringEnabledCmd)
+	appsearchCmd.AddCommand(appsearchAppSearchSchemaLongPropertyConfigCmd)
+	appsearchAppSearchSchemaPropertyConfigEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	appsearchAppSearchSchemaPropertyConfigCmd.AddCommand(appsearchAppSearchSchemaPropertyConfigEqualsCmd)
+	appsearchAppSearchSchemaPropertyConfigCmd.AddCommand(appsearchAppSearchSchemaPropertyConfigGetCardinalityCmd)
+	appsearchAppSearchSchemaPropertyConfigCmd.AddCommand(appsearchAppSearchSchemaPropertyConfigGetNameCmd)
+	appsearchAppSearchSchemaPropertyConfigCmd.AddCommand(appsearchAppSearchSchemaPropertyConfigHashCodeCmd)
+	appsearchAppSearchSchemaPropertyConfigCmd.AddCommand(appsearchAppSearchSchemaPropertyConfigToStringCmd)
+	appsearchCmd.AddCommand(appsearchAppSearchSchemaPropertyConfigCmd)
+	appsearchAppSearchSchemaStringPropertyConfigCmd.AddCommand(appsearchAppSearchSchemaStringPropertyConfigGetIndexingTypeCmd)
+	appsearchAppSearchSchemaStringPropertyConfigCmd.AddCommand(appsearchAppSearchSchemaStringPropertyConfigGetJoinableValueTypeCmd)
+	appsearchAppSearchSchemaStringPropertyConfigCmd.AddCommand(appsearchAppSearchSchemaStringPropertyConfigGetTokenizerTypeCmd)
+	appsearchCmd.AddCommand(appsearchAppSearchSchemaStringPropertyConfigCmd)
+	appsearchJoinSpecCmd.AddCommand(appsearchJoinSpecDescribeContentsCmd)
+	appsearchJoinSpecCmd.AddCommand(appsearchJoinSpecGetAggregationScoringStrategyCmd)
+	appsearchJoinSpecCmd.AddCommand(appsearchJoinSpecGetChildPropertyExpressionCmd)
+	appsearchJoinSpecCmd.AddCommand(appsearchJoinSpecGetMaxJoinedResultCountCmd)
+	appsearchJoinSpecCmd.AddCommand(appsearchJoinSpecGetNestedQueryCmd)
+	appsearchJoinSpecCmd.AddCommand(appsearchJoinSpecGetNestedSearchSpecCmd)
+	appsearchJoinSpecWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	appsearchJoinSpecWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	appsearchJoinSpecCmd.AddCommand(appsearchJoinSpecWriteToParcelCmd)
+	appsearchCmd.AddCommand(appsearchJoinSpecCmd)
+	appsearchJoinSpecBuilderCmd.AddCommand(appsearchJoinSpecBuilderBuildCmd)
+	appsearchJoinSpecBuilderSetAggregationScoringStrategyCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	appsearchJoinSpecBuilderCmd.AddCommand(appsearchJoinSpecBuilderSetAggregationScoringStrategyCmd)
+	appsearchJoinSpecBuilderSetChildPropertyExpressionCmd.Flags().String("arg0", "", "arg0 (string)")
+	appsearchJoinSpecBuilderCmd.AddCommand(appsearchJoinSpecBuilderSetChildPropertyExpressionCmd)
+	appsearchJoinSpecBuilderSetMaxJoinedResultCountCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	appsearchJoinSpecBuilderCmd.AddCommand(appsearchJoinSpecBuilderSetMaxJoinedResultCountCmd)
+	appsearchJoinSpecBuilderSetNestedSearchCmd.Flags().String("arg0", "", "arg0 (string)")
+	appsearchJoinSpecBuilderSetNestedSearchCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	appsearchJoinSpecBuilderCmd.AddCommand(appsearchJoinSpecBuilderSetNestedSearchCmd)
+	appsearchCmd.AddCommand(appsearchJoinSpecBuilderCmd)
+	appsearchEmbeddingVectorNewEmbeddingVectorCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	appsearchEmbeddingVectorNewEmbeddingVectorCmd.Flags().String("arg1", "", "arg1 (string)")
+	appsearchEmbeddingVectorCmd.AddCommand(appsearchEmbeddingVectorNewEmbeddingVectorCmd)
+	appsearchEmbeddingVectorDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	appsearchEmbeddingVectorCmd.AddCommand(appsearchEmbeddingVectorDescribeContentsCmd)
+	appsearchEmbeddingVectorEqualsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	appsearchEmbeddingVectorEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	appsearchEmbeddingVectorCmd.AddCommand(appsearchEmbeddingVectorEqualsCmd)
+	appsearchEmbeddingVectorGetModelSignatureCmd.Flags().Int64("handle", 0, "handle (int64)")
+	appsearchEmbeddingVectorCmd.AddCommand(appsearchEmbeddingVectorGetModelSignatureCmd)
+	appsearchEmbeddingVectorGetValuesCmd.Flags().Int64("handle", 0, "handle (int64)")
+	appsearchEmbeddingVectorCmd.AddCommand(appsearchEmbeddingVectorGetValuesCmd)
+	appsearchEmbeddingVectorHashCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	appsearchEmbeddingVectorCmd.AddCommand(appsearchEmbeddingVectorHashCodeCmd)
+	appsearchEmbeddingVectorWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	appsearchEmbeddingVectorWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	appsearchEmbeddingVectorWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	appsearchEmbeddingVectorCmd.AddCommand(appsearchEmbeddingVectorWriteToParcelCmd)
+	appsearchCmd.AddCommand(appsearchEmbeddingVectorCmd)
+	appsearchGetSchemaResponseCmd.AddCommand(appsearchGetSchemaResponseDescribeContentsCmd)
+	appsearchGetSchemaResponseCmd.AddCommand(appsearchGetSchemaResponseGetSchemaTypesNotDisplayedBySystemCmd)
+	appsearchGetSchemaResponseCmd.AddCommand(appsearchGetSchemaResponseGetSchemasCmd)
+	appsearchGetSchemaResponseCmd.AddCommand(appsearchGetSchemaResponseGetVersionCmd)
+	appsearchGetSchemaResponseWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	appsearchGetSchemaResponseWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	appsearchGetSchemaResponseCmd.AddCommand(appsearchGetSchemaResponseWriteToParcelCmd)
+	appsearchCmd.AddCommand(appsearchGetSchemaResponseCmd)
+	appsearchGetSchemaResponseBuilderAddSchemaCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	appsearchGetSchemaResponseBuilderCmd.AddCommand(appsearchGetSchemaResponseBuilderAddSchemaCmd)
+	appsearchGetSchemaResponseBuilderAddSchemaTypeNotDisplayedBySystemCmd.Flags().String("arg0", "", "arg0 (string)")
+	appsearchGetSchemaResponseBuilderCmd.AddCommand(appsearchGetSchemaResponseBuilderAddSchemaTypeNotDisplayedBySystemCmd)
+	appsearchGetSchemaResponseBuilderCmd.AddCommand(appsearchGetSchemaResponseBuilderBuildCmd)
+	appsearchGetSchemaResponseBuilderClearPubliclyVisibleSchemaCmd.Flags().String("arg0", "", "arg0 (string)")
+	appsearchGetSchemaResponseBuilderCmd.AddCommand(appsearchGetSchemaResponseBuilderClearPubliclyVisibleSchemaCmd)
+	appsearchGetSchemaResponseBuilderClearRequiredPermissionsForSchemaTypeVisibilityCmd.Flags().String("arg0", "", "arg0 (string)")
+	appsearchGetSchemaResponseBuilderCmd.AddCommand(appsearchGetSchemaResponseBuilderClearRequiredPermissionsForSchemaTypeVisibilityCmd)
+	appsearchGetSchemaResponseBuilderClearSchemaTypeNotDisplayedBySystemCmd.Flags().String("arg0", "", "arg0 (string)")
+	appsearchGetSchemaResponseBuilderCmd.AddCommand(appsearchGetSchemaResponseBuilderClearSchemaTypeNotDisplayedBySystemCmd)
+	appsearchGetSchemaResponseBuilderClearSchemaTypeVisibleToConfigsCmd.Flags().String("arg0", "", "arg0 (string)")
+	appsearchGetSchemaResponseBuilderCmd.AddCommand(appsearchGetSchemaResponseBuilderClearSchemaTypeVisibleToConfigsCmd)
+	appsearchGetSchemaResponseBuilderClearSchemaTypeVisibleToPackagesCmd.Flags().String("arg0", "", "arg0 (string)")
+	appsearchGetSchemaResponseBuilderCmd.AddCommand(appsearchGetSchemaResponseBuilderClearSchemaTypeVisibleToPackagesCmd)
+	appsearchGetSchemaResponseBuilderCmd.AddCommand(appsearchGetSchemaResponseBuilderClearSchemasCmd)
+	appsearchGetSchemaResponseBuilderSetPubliclyVisibleSchemaCmd.Flags().String("arg0", "", "arg0 (string)")
+	appsearchGetSchemaResponseBuilderSetPubliclyVisibleSchemaCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	appsearchGetSchemaResponseBuilderCmd.AddCommand(appsearchGetSchemaResponseBuilderSetPubliclyVisibleSchemaCmd)
+	appsearchGetSchemaResponseBuilderSetVersionCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	appsearchGetSchemaResponseBuilderCmd.AddCommand(appsearchGetSchemaResponseBuilderSetVersionCmd)
+	appsearchCmd.AddCommand(appsearchGetSchemaResponseBuilderCmd)
+	appsearchOpenBlobForWriteResponseNewOpenBlobForWriteResponseCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	appsearchOpenBlobForWriteResponseCmd.AddCommand(appsearchOpenBlobForWriteResponseNewOpenBlobForWriteResponseCmd)
+	appsearchOpenBlobForWriteResponseCloseCmd.Flags().Int64("handle", 0, "handle (int64)")
+	appsearchOpenBlobForWriteResponseCmd.AddCommand(appsearchOpenBlobForWriteResponseCloseCmd)
+	appsearchOpenBlobForWriteResponseDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	appsearchOpenBlobForWriteResponseCmd.AddCommand(appsearchOpenBlobForWriteResponseDescribeContentsCmd)
+	appsearchOpenBlobForWriteResponseWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	appsearchOpenBlobForWriteResponseWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	appsearchOpenBlobForWriteResponseWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	appsearchOpenBlobForWriteResponseCmd.AddCommand(appsearchOpenBlobForWriteResponseWriteToParcelCmd)
+	appsearchCmd.AddCommand(appsearchOpenBlobForWriteResponseCmd)
+	appsearchEnterpriseGlobalSearchSessionSearchCmd.Flags().String("arg0", "", "arg0 (string)")
+	appsearchEnterpriseGlobalSearchSessionSearchCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	appsearchEnterpriseGlobalSearchSessionCmd.AddCommand(appsearchEnterpriseGlobalSearchSessionSearchCmd)
+	appsearchCmd.AddCommand(appsearchEnterpriseGlobalSearchSessionCmd)
+	appsearchOpenBlobForReadResponseNewOpenBlobForReadResponseCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	appsearchOpenBlobForReadResponseCmd.AddCommand(appsearchOpenBlobForReadResponseNewOpenBlobForReadResponseCmd)
+	appsearchOpenBlobForReadResponseCloseCmd.Flags().Int64("handle", 0, "handle (int64)")
+	appsearchOpenBlobForReadResponseCmd.AddCommand(appsearchOpenBlobForReadResponseCloseCmd)
+	appsearchOpenBlobForReadResponseDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	appsearchOpenBlobForReadResponseCmd.AddCommand(appsearchOpenBlobForReadResponseDescribeContentsCmd)
+	appsearchOpenBlobForReadResponseWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	appsearchOpenBlobForReadResponseWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	appsearchOpenBlobForReadResponseWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	appsearchOpenBlobForReadResponseCmd.AddCommand(appsearchOpenBlobForReadResponseWriteToParcelCmd)
+	appsearchCmd.AddCommand(appsearchOpenBlobForReadResponseCmd)
 	appsearchSearchSpecCmd.AddCommand(appsearchSearchSpecDescribeContentsCmd)
 	appsearchSearchSpecCmd.AddCommand(appsearchSearchSpecGetAdvancedRankingExpressionCmd)
 	appsearchSearchSpecCmd.AddCommand(appsearchSearchSpecGetDefaultEmbeddingSearchMetricTypeCmd)
+	appsearchSearchSpecCmd.AddCommand(appsearchSearchSpecGetEmbeddingParametersCmd)
+	appsearchSearchSpecCmd.AddCommand(appsearchSearchSpecGetFilterDocumentIdsCmd)
+	appsearchSearchSpecCmd.AddCommand(appsearchSearchSpecGetFilterNamespacesCmd)
+	appsearchSearchSpecCmd.AddCommand(appsearchSearchSpecGetFilterPackageNamesCmd)
+	appsearchSearchSpecCmd.AddCommand(appsearchSearchSpecGetFilterSchemasCmd)
+	appsearchSearchSpecCmd.AddCommand(appsearchSearchSpecGetInformationalRankingExpressionsCmd)
 	appsearchSearchSpecCmd.AddCommand(appsearchSearchSpecGetJoinSpecCmd)
 	appsearchSearchSpecCmd.AddCommand(appsearchSearchSpecGetMaxSnippetSizeCmd)
 	appsearchSearchSpecCmd.AddCommand(appsearchSearchSpecGetOrderCmd)
@@ -6797,6 +7874,7 @@ func init() {
 	appsearchSearchSpecCmd.AddCommand(appsearchSearchSpecGetResultGroupingLimitCmd)
 	appsearchSearchSpecCmd.AddCommand(appsearchSearchSpecGetResultGroupingTypeFlagsCmd)
 	appsearchSearchSpecCmd.AddCommand(appsearchSearchSpecGetSearchSourceLogTagCmd)
+	appsearchSearchSpecCmd.AddCommand(appsearchSearchSpecGetSearchStringParametersCmd)
 	appsearchSearchSpecCmd.AddCommand(appsearchSearchSpecGetSnippetCountCmd)
 	appsearchSearchSpecCmd.AddCommand(appsearchSearchSpecGetSnippetCountPerPropertyCmd)
 	appsearchSearchSpecCmd.AddCommand(appsearchSearchSpecGetTermMatchCmd)
@@ -6876,100 +7954,46 @@ func init() {
 	appsearchSearchSpecBuilderSetVerbatimSearchEnabledCmd.Flags().Bool("arg0", false, "arg0 (bool)")
 	appsearchSearchSpecBuilderCmd.AddCommand(appsearchSearchSpecBuilderSetVerbatimSearchEnabledCmd)
 	appsearchCmd.AddCommand(appsearchSearchSpecBuilderCmd)
-	appsearchRemoveBlobResponseNewRemoveBlobResponseCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	appsearchRemoveBlobResponseCmd.AddCommand(appsearchRemoveBlobResponseNewRemoveBlobResponseCmd)
-	appsearchRemoveBlobResponseDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	appsearchRemoveBlobResponseCmd.AddCommand(appsearchRemoveBlobResponseDescribeContentsCmd)
-	appsearchRemoveBlobResponseWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
-	appsearchRemoveBlobResponseWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	appsearchRemoveBlobResponseWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	appsearchRemoveBlobResponseCmd.AddCommand(appsearchRemoveBlobResponseWriteToParcelCmd)
-	appsearchCmd.AddCommand(appsearchRemoveBlobResponseCmd)
-	appsearchGlobalSearchSessionCmd.AddCommand(appsearchGlobalSearchSessionCloseCmd)
-	appsearchGlobalSearchSessionRegisterObserverCallbackCmd.Flags().String("arg0", "", "arg0 (string)")
-	appsearchGlobalSearchSessionRegisterObserverCallbackCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	appsearchGlobalSearchSessionRegisterObserverCallbackCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	appsearchGlobalSearchSessionRegisterObserverCallbackCmd.Flags().Int64("arg3", 0, "arg3 (int64)")
-	appsearchGlobalSearchSessionCmd.AddCommand(appsearchGlobalSearchSessionRegisterObserverCallbackCmd)
-	appsearchGlobalSearchSessionSearchCmd.Flags().String("arg0", "", "arg0 (string)")
-	appsearchGlobalSearchSessionSearchCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	appsearchGlobalSearchSessionCmd.AddCommand(appsearchGlobalSearchSessionSearchCmd)
-	appsearchGlobalSearchSessionUnregisterObserverCallbackCmd.Flags().String("arg0", "", "arg0 (string)")
-	appsearchGlobalSearchSessionUnregisterObserverCallbackCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	appsearchGlobalSearchSessionCmd.AddCommand(appsearchGlobalSearchSessionUnregisterObserverCallbackCmd)
-	appsearchCmd.AddCommand(appsearchGlobalSearchSessionCmd)
-	appsearchSetBlobVisibilityRequestBuilderAddNamespaceVisibleToConfigCmd.Flags().String("arg0", "", "arg0 (string)")
-	appsearchSetBlobVisibilityRequestBuilderAddNamespaceVisibleToConfigCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	appsearchSetBlobVisibilityRequestBuilderCmd.AddCommand(appsearchSetBlobVisibilityRequestBuilderAddNamespaceVisibleToConfigCmd)
-	appsearchSetBlobVisibilityRequestBuilderCmd.AddCommand(appsearchSetBlobVisibilityRequestBuilderBuildCmd)
-	appsearchSetBlobVisibilityRequestBuilderClearNamespaceVisibleToConfigsCmd.Flags().String("arg0", "", "arg0 (string)")
-	appsearchSetBlobVisibilityRequestBuilderCmd.AddCommand(appsearchSetBlobVisibilityRequestBuilderClearNamespaceVisibleToConfigsCmd)
-	appsearchSetBlobVisibilityRequestBuilderSetNamespaceDisplayedBySystemCmd.Flags().String("arg0", "", "arg0 (string)")
-	appsearchSetBlobVisibilityRequestBuilderSetNamespaceDisplayedBySystemCmd.Flags().Bool("arg1", false, "arg1 (bool)")
-	appsearchSetBlobVisibilityRequestBuilderCmd.AddCommand(appsearchSetBlobVisibilityRequestBuilderSetNamespaceDisplayedBySystemCmd)
-	appsearchCmd.AddCommand(appsearchSetBlobVisibilityRequestBuilderCmd)
-	appsearchSchemaVisibilityConfigCmd.AddCommand(appsearchSchemaVisibilityConfigDescribeContentsCmd)
-	appsearchSchemaVisibilityConfigEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	appsearchSchemaVisibilityConfigCmd.AddCommand(appsearchSchemaVisibilityConfigEqualsCmd)
-	appsearchSchemaVisibilityConfigCmd.AddCommand(appsearchSchemaVisibilityConfigGetPubliclyVisibleTargetPackageCmd)
-	appsearchSchemaVisibilityConfigCmd.AddCommand(appsearchSchemaVisibilityConfigHashCodeCmd)
-	appsearchSchemaVisibilityConfigWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	appsearchSchemaVisibilityConfigWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	appsearchSchemaVisibilityConfigCmd.AddCommand(appsearchSchemaVisibilityConfigWriteToParcelCmd)
-	appsearchCmd.AddCommand(appsearchSchemaVisibilityConfigCmd)
-	appsearchSchemaVisibilityConfigBuilderAddAllowedPackageCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	appsearchSchemaVisibilityConfigBuilderCmd.AddCommand(appsearchSchemaVisibilityConfigBuilderAddAllowedPackageCmd)
-	appsearchSchemaVisibilityConfigBuilderCmd.AddCommand(appsearchSchemaVisibilityConfigBuilderBuildCmd)
-	appsearchSchemaVisibilityConfigBuilderCmd.AddCommand(appsearchSchemaVisibilityConfigBuilderClearAllowedPackagesCmd)
-	appsearchSchemaVisibilityConfigBuilderCmd.AddCommand(appsearchSchemaVisibilityConfigBuilderClearRequiredPermissionsCmd)
-	appsearchSchemaVisibilityConfigBuilderSetPubliclyVisibleTargetPackageCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	appsearchSchemaVisibilityConfigBuilderCmd.AddCommand(appsearchSchemaVisibilityConfigBuilderSetPubliclyVisibleTargetPackageCmd)
-	appsearchCmd.AddCommand(appsearchSchemaVisibilityConfigBuilderCmd)
-	appsearchSearchResultCmd.AddCommand(appsearchSearchResultDescribeContentsCmd)
-	appsearchSearchResultCmd.AddCommand(appsearchSearchResultGetDatabaseNameCmd)
-	appsearchSearchResultCmd.AddCommand(appsearchSearchResultGetGenericDocumentCmd)
-	appsearchSearchResultCmd.AddCommand(appsearchSearchResultGetPackageNameCmd)
-	appsearchSearchResultCmd.AddCommand(appsearchSearchResultGetRankingSignalCmd)
-	appsearchSearchResultWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	appsearchSearchResultWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	appsearchSearchResultCmd.AddCommand(appsearchSearchResultWriteToParcelCmd)
-	appsearchCmd.AddCommand(appsearchSearchResultCmd)
-	appsearchSearchResultBuilderAddInformationalRankingSignalCmd.Flags().Float64("arg0", 0, "arg0 (float64)")
-	appsearchSearchResultBuilderCmd.AddCommand(appsearchSearchResultBuilderAddInformationalRankingSignalCmd)
-	appsearchSearchResultBuilderAddJoinedResultCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	appsearchSearchResultBuilderCmd.AddCommand(appsearchSearchResultBuilderAddJoinedResultCmd)
-	appsearchSearchResultBuilderAddMatchInfoCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	appsearchSearchResultBuilderCmd.AddCommand(appsearchSearchResultBuilderAddMatchInfoCmd)
-	appsearchSearchResultBuilderCmd.AddCommand(appsearchSearchResultBuilderBuildCmd)
-	appsearchSearchResultBuilderSetGenericDocumentCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	appsearchSearchResultBuilderCmd.AddCommand(appsearchSearchResultBuilderSetGenericDocumentCmd)
-	appsearchSearchResultBuilderSetRankingSignalCmd.Flags().Float64("arg0", 0, "arg0 (float64)")
-	appsearchSearchResultBuilderCmd.AddCommand(appsearchSearchResultBuilderSetRankingSignalCmd)
-	appsearchCmd.AddCommand(appsearchSearchResultBuilderCmd)
-	appsearchSearchResultMatchInfoCmd.AddCommand(appsearchSearchResultMatchInfoDescribeContentsCmd)
-	appsearchSearchResultMatchInfoCmd.AddCommand(appsearchSearchResultMatchInfoGetExactMatchCmd)
-	appsearchSearchResultMatchInfoCmd.AddCommand(appsearchSearchResultMatchInfoGetExactMatchRangeCmd)
-	appsearchSearchResultMatchInfoCmd.AddCommand(appsearchSearchResultMatchInfoGetFullTextCmd)
-	appsearchSearchResultMatchInfoCmd.AddCommand(appsearchSearchResultMatchInfoGetPropertyPathCmd)
-	appsearchSearchResultMatchInfoCmd.AddCommand(appsearchSearchResultMatchInfoGetPropertyPathObjectCmd)
-	appsearchSearchResultMatchInfoCmd.AddCommand(appsearchSearchResultMatchInfoGetSnippetCmd)
-	appsearchSearchResultMatchInfoCmd.AddCommand(appsearchSearchResultMatchInfoGetSnippetRangeCmd)
-	appsearchSearchResultMatchInfoCmd.AddCommand(appsearchSearchResultMatchInfoGetSubmatchCmd)
-	appsearchSearchResultMatchInfoCmd.AddCommand(appsearchSearchResultMatchInfoGetSubmatchRangeCmd)
-	appsearchSearchResultMatchInfoWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	appsearchSearchResultMatchInfoWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	appsearchSearchResultMatchInfoCmd.AddCommand(appsearchSearchResultMatchInfoWriteToParcelCmd)
-	appsearchCmd.AddCommand(appsearchSearchResultMatchInfoCmd)
-	appsearchSearchResultMatchRangeEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	appsearchSearchResultMatchRangeCmd.AddCommand(appsearchSearchResultMatchRangeEqualsCmd)
-	appsearchSearchResultMatchRangeCmd.AddCommand(appsearchSearchResultMatchRangeGetEndCmd)
-	appsearchSearchResultMatchRangeCmd.AddCommand(appsearchSearchResultMatchRangeGetStartCmd)
-	appsearchSearchResultMatchRangeCmd.AddCommand(appsearchSearchResultMatchRangeHashCodeCmd)
-	appsearchSearchResultMatchRangeCmd.AddCommand(appsearchSearchResultMatchRangeToStringCmd)
-	appsearchCmd.AddCommand(appsearchSearchResultMatchRangeCmd)
+	appsearchAppSearchSessionCmd.AddCommand(appsearchAppSearchSessionCloseCmd)
+	appsearchAppSearchSessionSearchCmd.Flags().String("arg0", "", "arg0 (string)")
+	appsearchAppSearchSessionSearchCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	appsearchAppSearchSessionCmd.AddCommand(appsearchAppSearchSessionSearchCmd)
+	appsearchCmd.AddCommand(appsearchAppSearchSessionCmd)
+	appsearchPropertyPathNewPropertyPathCmd.Flags().String("arg0", "", "arg0 (string)")
+	appsearchPropertyPathCmd.AddCommand(appsearchPropertyPathNewPropertyPathCmd)
+	appsearchPropertyPathEqualsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	appsearchPropertyPathEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	appsearchPropertyPathCmd.AddCommand(appsearchPropertyPathEqualsCmd)
+	appsearchPropertyPathGetCmd.Flags().Int64("handle", 0, "handle (int64)")
+	appsearchPropertyPathGetCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	appsearchPropertyPathCmd.AddCommand(appsearchPropertyPathGetCmd)
+	appsearchPropertyPathHashCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	appsearchPropertyPathCmd.AddCommand(appsearchPropertyPathHashCodeCmd)
+	appsearchPropertyPathIteratorCmd.Flags().Int64("handle", 0, "handle (int64)")
+	appsearchPropertyPathCmd.AddCommand(appsearchPropertyPathIteratorCmd)
+	appsearchPropertyPathSizeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	appsearchPropertyPathCmd.AddCommand(appsearchPropertyPathSizeCmd)
+	appsearchPropertyPathToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
+	appsearchPropertyPathCmd.AddCommand(appsearchPropertyPathToStringCmd)
+	appsearchCmd.AddCommand(appsearchPropertyPathCmd)
+	appsearchPropertyPathPathSegmentEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	appsearchPropertyPathPathSegmentCmd.AddCommand(appsearchPropertyPathPathSegmentEqualsCmd)
+	appsearchPropertyPathPathSegmentCmd.AddCommand(appsearchPropertyPathPathSegmentGetPropertyIndexCmd)
+	appsearchPropertyPathPathSegmentCmd.AddCommand(appsearchPropertyPathPathSegmentGetPropertyNameCmd)
+	appsearchPropertyPathPathSegmentCmd.AddCommand(appsearchPropertyPathPathSegmentHashCodeCmd)
+	appsearchPropertyPathPathSegmentCmd.AddCommand(appsearchPropertyPathPathSegmentToStringCmd)
+	appsearchPropertyPathPathSegmentCreate1Cmd.Flags().String("arg0", "", "arg0 (string)")
+	appsearchPropertyPathPathSegmentCmd.AddCommand(appsearchPropertyPathPathSegmentCreate1Cmd)
+	appsearchPropertyPathPathSegmentCreate2_1Cmd.Flags().String("arg0", "", "arg0 (string)")
+	appsearchPropertyPathPathSegmentCreate2_1Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	appsearchPropertyPathPathSegmentCmd.AddCommand(appsearchPropertyPathPathSegmentCreate2_1Cmd)
+	appsearchCmd.AddCommand(appsearchPropertyPathPathSegmentCmd)
 	appsearchSearchSuggestionSpecCmd.AddCommand(appsearchSearchSuggestionSpecDescribeContentsCmd)
+	appsearchSearchSuggestionSpecCmd.AddCommand(appsearchSearchSuggestionSpecGetFilterNamespacesCmd)
+	appsearchSearchSuggestionSpecCmd.AddCommand(appsearchSearchSuggestionSpecGetFilterSchemasCmd)
 	appsearchSearchSuggestionSpecCmd.AddCommand(appsearchSearchSuggestionSpecGetMaximumResultCountCmd)
 	appsearchSearchSuggestionSpecCmd.AddCommand(appsearchSearchSuggestionSpecGetRankingStrategyCmd)
+	appsearchSearchSuggestionSpecCmd.AddCommand(appsearchSearchSuggestionSpecGetSearchStringParametersCmd)
 	appsearchSearchSuggestionSpecWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	appsearchSearchSuggestionSpecWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
 	appsearchSearchSuggestionSpecCmd.AddCommand(appsearchSearchSuggestionSpecWriteToParcelCmd)
@@ -6987,302 +8011,6 @@ func init() {
 	appsearchSearchSuggestionSpecBuilderSetRankingStrategyCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
 	appsearchSearchSuggestionSpecBuilderCmd.AddCommand(appsearchSearchSuggestionSpecBuilderSetRankingStrategyCmd)
 	appsearchCmd.AddCommand(appsearchSearchSuggestionSpecBuilderCmd)
-	appsearchCommitBlobResponseNewCommitBlobResponseCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	appsearchCommitBlobResponseCmd.AddCommand(appsearchCommitBlobResponseNewCommitBlobResponseCmd)
-	appsearchCommitBlobResponseDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	appsearchCommitBlobResponseCmd.AddCommand(appsearchCommitBlobResponseDescribeContentsCmd)
-	appsearchCommitBlobResponseWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
-	appsearchCommitBlobResponseWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	appsearchCommitBlobResponseWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	appsearchCommitBlobResponseCmd.AddCommand(appsearchCommitBlobResponseWriteToParcelCmd)
-	appsearchCmd.AddCommand(appsearchCommitBlobResponseCmd)
-	appsearchGetSchemaResponseCmd.AddCommand(appsearchGetSchemaResponseDescribeContentsCmd)
-	appsearchGetSchemaResponseCmd.AddCommand(appsearchGetSchemaResponseGetVersionCmd)
-	appsearchGetSchemaResponseWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	appsearchGetSchemaResponseWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	appsearchGetSchemaResponseCmd.AddCommand(appsearchGetSchemaResponseWriteToParcelCmd)
-	appsearchCmd.AddCommand(appsearchGetSchemaResponseCmd)
-	appsearchGetSchemaResponseBuilderAddSchemaCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	appsearchGetSchemaResponseBuilderCmd.AddCommand(appsearchGetSchemaResponseBuilderAddSchemaCmd)
-	appsearchGetSchemaResponseBuilderAddSchemaTypeNotDisplayedBySystemCmd.Flags().String("arg0", "", "arg0 (string)")
-	appsearchGetSchemaResponseBuilderCmd.AddCommand(appsearchGetSchemaResponseBuilderAddSchemaTypeNotDisplayedBySystemCmd)
-	appsearchGetSchemaResponseBuilderCmd.AddCommand(appsearchGetSchemaResponseBuilderBuildCmd)
-	appsearchGetSchemaResponseBuilderClearPubliclyVisibleSchemaCmd.Flags().String("arg0", "", "arg0 (string)")
-	appsearchGetSchemaResponseBuilderCmd.AddCommand(appsearchGetSchemaResponseBuilderClearPubliclyVisibleSchemaCmd)
-	appsearchGetSchemaResponseBuilderClearRequiredPermissionsForSchemaTypeVisibilityCmd.Flags().String("arg0", "", "arg0 (string)")
-	appsearchGetSchemaResponseBuilderCmd.AddCommand(appsearchGetSchemaResponseBuilderClearRequiredPermissionsForSchemaTypeVisibilityCmd)
-	appsearchGetSchemaResponseBuilderClearSchemaTypeNotDisplayedBySystemCmd.Flags().String("arg0", "", "arg0 (string)")
-	appsearchGetSchemaResponseBuilderCmd.AddCommand(appsearchGetSchemaResponseBuilderClearSchemaTypeNotDisplayedBySystemCmd)
-	appsearchGetSchemaResponseBuilderClearSchemaTypeVisibleToConfigsCmd.Flags().String("arg0", "", "arg0 (string)")
-	appsearchGetSchemaResponseBuilderCmd.AddCommand(appsearchGetSchemaResponseBuilderClearSchemaTypeVisibleToConfigsCmd)
-	appsearchGetSchemaResponseBuilderClearSchemaTypeVisibleToPackagesCmd.Flags().String("arg0", "", "arg0 (string)")
-	appsearchGetSchemaResponseBuilderCmd.AddCommand(appsearchGetSchemaResponseBuilderClearSchemaTypeVisibleToPackagesCmd)
-	appsearchGetSchemaResponseBuilderCmd.AddCommand(appsearchGetSchemaResponseBuilderClearSchemasCmd)
-	appsearchGetSchemaResponseBuilderSetPubliclyVisibleSchemaCmd.Flags().String("arg0", "", "arg0 (string)")
-	appsearchGetSchemaResponseBuilderSetPubliclyVisibleSchemaCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	appsearchGetSchemaResponseBuilderCmd.AddCommand(appsearchGetSchemaResponseBuilderSetPubliclyVisibleSchemaCmd)
-	appsearchGetSchemaResponseBuilderSetVersionCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	appsearchGetSchemaResponseBuilderCmd.AddCommand(appsearchGetSchemaResponseBuilderSetVersionCmd)
-	appsearchCmd.AddCommand(appsearchGetSchemaResponseBuilderCmd)
-	appsearchOpenBlobForReadResponseNewOpenBlobForReadResponseCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	appsearchOpenBlobForReadResponseCmd.AddCommand(appsearchOpenBlobForReadResponseNewOpenBlobForReadResponseCmd)
-	appsearchOpenBlobForReadResponseCloseCmd.Flags().Int64("handle", 0, "handle (int64)")
-	appsearchOpenBlobForReadResponseCmd.AddCommand(appsearchOpenBlobForReadResponseCloseCmd)
-	appsearchOpenBlobForReadResponseDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	appsearchOpenBlobForReadResponseCmd.AddCommand(appsearchOpenBlobForReadResponseDescribeContentsCmd)
-	appsearchOpenBlobForReadResponseWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
-	appsearchOpenBlobForReadResponseWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	appsearchOpenBlobForReadResponseWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	appsearchOpenBlobForReadResponseCmd.AddCommand(appsearchOpenBlobForReadResponseWriteToParcelCmd)
-	appsearchCmd.AddCommand(appsearchOpenBlobForReadResponseCmd)
-	appsearchMigratorOnDowngradeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	appsearchMigratorOnDowngradeCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	appsearchMigratorOnDowngradeCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	appsearchMigratorCmd.AddCommand(appsearchMigratorOnDowngradeCmd)
-	appsearchMigratorOnUpgradeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	appsearchMigratorOnUpgradeCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	appsearchMigratorOnUpgradeCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	appsearchMigratorCmd.AddCommand(appsearchMigratorOnUpgradeCmd)
-	appsearchMigratorShouldMigrateCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	appsearchMigratorShouldMigrateCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	appsearchMigratorCmd.AddCommand(appsearchMigratorShouldMigrateCmd)
-	appsearchCmd.AddCommand(appsearchMigratorCmd)
-	appsearchAppSearchSchemaCmd.AddCommand(appsearchAppSearchSchemaDescribeContentsCmd)
-	appsearchAppSearchSchemaEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	appsearchAppSearchSchemaCmd.AddCommand(appsearchAppSearchSchemaEqualsCmd)
-	appsearchAppSearchSchemaCmd.AddCommand(appsearchAppSearchSchemaGetSchemaTypeCmd)
-	appsearchAppSearchSchemaCmd.AddCommand(appsearchAppSearchSchemaHashCodeCmd)
-	appsearchAppSearchSchemaCmd.AddCommand(appsearchAppSearchSchemaToStringCmd)
-	appsearchAppSearchSchemaWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	appsearchAppSearchSchemaWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	appsearchAppSearchSchemaCmd.AddCommand(appsearchAppSearchSchemaWriteToParcelCmd)
-	appsearchCmd.AddCommand(appsearchAppSearchSchemaCmd)
-	appsearchAppSearchSchemaBooleanPropertyConfigCmd.AddCommand(appsearchAppSearchSchemaBooleanPropertyConfigIsScoringEnabledCmd)
-	appsearchCmd.AddCommand(appsearchAppSearchSchemaBooleanPropertyConfigCmd)
-	appsearchAppSearchSchemaBuilderAddParentTypeCmd.Flags().String("arg0", "", "arg0 (string)")
-	appsearchAppSearchSchemaBuilderCmd.AddCommand(appsearchAppSearchSchemaBuilderAddParentTypeCmd)
-	appsearchAppSearchSchemaBuilderAddPropertyCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	appsearchAppSearchSchemaBuilderCmd.AddCommand(appsearchAppSearchSchemaBuilderAddPropertyCmd)
-	appsearchAppSearchSchemaBuilderCmd.AddCommand(appsearchAppSearchSchemaBuilderBuildCmd)
-	appsearchAppSearchSchemaBuilderCmd.AddCommand(appsearchAppSearchSchemaBuilderClearParentTypesCmd)
-	appsearchAppSearchSchemaBuilderCmd.AddCommand(appsearchAppSearchSchemaBuilderClearPropertiesCmd)
-	appsearchAppSearchSchemaBuilderSetSchemaTypeCmd.Flags().String("arg0", "", "arg0 (string)")
-	appsearchAppSearchSchemaBuilderCmd.AddCommand(appsearchAppSearchSchemaBuilderSetSchemaTypeCmd)
-	appsearchCmd.AddCommand(appsearchAppSearchSchemaBuilderCmd)
-	appsearchAppSearchSchemaDocumentPropertyConfigCmd.AddCommand(appsearchAppSearchSchemaDocumentPropertyConfigGetSchemaTypeCmd)
-	appsearchAppSearchSchemaDocumentPropertyConfigCmd.AddCommand(appsearchAppSearchSchemaDocumentPropertyConfigShouldIndexNestedPropertiesCmd)
-	appsearchCmd.AddCommand(appsearchAppSearchSchemaDocumentPropertyConfigCmd)
-	appsearchAppSearchSchemaDoublePropertyConfigCmd.AddCommand(appsearchAppSearchSchemaDoublePropertyConfigIsScoringEnabledCmd)
-	appsearchCmd.AddCommand(appsearchAppSearchSchemaDoublePropertyConfigCmd)
-	appsearchAppSearchSchemaEmbeddingPropertyConfigCmd.AddCommand(appsearchAppSearchSchemaEmbeddingPropertyConfigGetIndexingTypeCmd)
-	appsearchAppSearchSchemaEmbeddingPropertyConfigCmd.AddCommand(appsearchAppSearchSchemaEmbeddingPropertyConfigGetQuantizationTypeCmd)
-	appsearchCmd.AddCommand(appsearchAppSearchSchemaEmbeddingPropertyConfigCmd)
-	appsearchAppSearchSchemaLongPropertyConfigCmd.AddCommand(appsearchAppSearchSchemaLongPropertyConfigGetIndexingTypeCmd)
-	appsearchAppSearchSchemaLongPropertyConfigCmd.AddCommand(appsearchAppSearchSchemaLongPropertyConfigIsScoringEnabledCmd)
-	appsearchCmd.AddCommand(appsearchAppSearchSchemaLongPropertyConfigCmd)
-	appsearchAppSearchSchemaPropertyConfigEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	appsearchAppSearchSchemaPropertyConfigCmd.AddCommand(appsearchAppSearchSchemaPropertyConfigEqualsCmd)
-	appsearchAppSearchSchemaPropertyConfigCmd.AddCommand(appsearchAppSearchSchemaPropertyConfigGetCardinalityCmd)
-	appsearchAppSearchSchemaPropertyConfigCmd.AddCommand(appsearchAppSearchSchemaPropertyConfigGetNameCmd)
-	appsearchAppSearchSchemaPropertyConfigCmd.AddCommand(appsearchAppSearchSchemaPropertyConfigHashCodeCmd)
-	appsearchAppSearchSchemaPropertyConfigCmd.AddCommand(appsearchAppSearchSchemaPropertyConfigToStringCmd)
-	appsearchCmd.AddCommand(appsearchAppSearchSchemaPropertyConfigCmd)
-	appsearchAppSearchSchemaStringPropertyConfigCmd.AddCommand(appsearchAppSearchSchemaStringPropertyConfigGetIndexingTypeCmd)
-	appsearchAppSearchSchemaStringPropertyConfigCmd.AddCommand(appsearchAppSearchSchemaStringPropertyConfigGetJoinableValueTypeCmd)
-	appsearchAppSearchSchemaStringPropertyConfigCmd.AddCommand(appsearchAppSearchSchemaStringPropertyConfigGetTokenizerTypeCmd)
-	appsearchCmd.AddCommand(appsearchAppSearchSchemaStringPropertyConfigCmd)
-	appsearchSetSchemaResponseCmd.AddCommand(appsearchSetSchemaResponseDescribeContentsCmd)
-	appsearchSetSchemaResponseWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	appsearchSetSchemaResponseWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	appsearchSetSchemaResponseCmd.AddCommand(appsearchSetSchemaResponseWriteToParcelCmd)
-	appsearchCmd.AddCommand(appsearchSetSchemaResponseCmd)
-	appsearchSetSchemaResponseBuilderAddDeletedTypeCmd.Flags().String("arg0", "", "arg0 (string)")
-	appsearchSetSchemaResponseBuilderCmd.AddCommand(appsearchSetSchemaResponseBuilderAddDeletedTypeCmd)
-	appsearchSetSchemaResponseBuilderAddIncompatibleTypeCmd.Flags().String("arg0", "", "arg0 (string)")
-	appsearchSetSchemaResponseBuilderCmd.AddCommand(appsearchSetSchemaResponseBuilderAddIncompatibleTypeCmd)
-	appsearchSetSchemaResponseBuilderAddMigratedTypeCmd.Flags().String("arg0", "", "arg0 (string)")
-	appsearchSetSchemaResponseBuilderCmd.AddCommand(appsearchSetSchemaResponseBuilderAddMigratedTypeCmd)
-	appsearchSetSchemaResponseBuilderAddMigrationFailureCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	appsearchSetSchemaResponseBuilderCmd.AddCommand(appsearchSetSchemaResponseBuilderAddMigrationFailureCmd)
-	appsearchSetSchemaResponseBuilderCmd.AddCommand(appsearchSetSchemaResponseBuilderBuildCmd)
-	appsearchCmd.AddCommand(appsearchSetSchemaResponseBuilderCmd)
-	appsearchSetSchemaResponseMigrationFailureCmd.AddCommand(appsearchSetSchemaResponseMigrationFailureDescribeContentsCmd)
-	appsearchSetSchemaResponseMigrationFailureCmd.AddCommand(appsearchSetSchemaResponseMigrationFailureGetDocumentIdCmd)
-	appsearchSetSchemaResponseMigrationFailureCmd.AddCommand(appsearchSetSchemaResponseMigrationFailureGetNamespaceCmd)
-	appsearchSetSchemaResponseMigrationFailureCmd.AddCommand(appsearchSetSchemaResponseMigrationFailureGetSchemaTypeCmd)
-	appsearchSetSchemaResponseMigrationFailureCmd.AddCommand(appsearchSetSchemaResponseMigrationFailureToStringCmd)
-	appsearchSetSchemaResponseMigrationFailureWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	appsearchSetSchemaResponseMigrationFailureWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	appsearchSetSchemaResponseMigrationFailureCmd.AddCommand(appsearchSetSchemaResponseMigrationFailureWriteToParcelCmd)
-	appsearchCmd.AddCommand(appsearchSetSchemaResponseMigrationFailureCmd)
-	appsearchPackageIdentifierNewPackageIdentifierCmd.Flags().String("arg0", "", "arg0 (string)")
-	appsearchPackageIdentifierNewPackageIdentifierCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	appsearchPackageIdentifierCmd.AddCommand(appsearchPackageIdentifierNewPackageIdentifierCmd)
-	appsearchPackageIdentifierEqualsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	appsearchPackageIdentifierEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	appsearchPackageIdentifierCmd.AddCommand(appsearchPackageIdentifierEqualsCmd)
-	appsearchPackageIdentifierGetPackageNameCmd.Flags().Int64("handle", 0, "handle (int64)")
-	appsearchPackageIdentifierCmd.AddCommand(appsearchPackageIdentifierGetPackageNameCmd)
-	appsearchPackageIdentifierGetSha256CertificateCmd.Flags().Int64("handle", 0, "handle (int64)")
-	appsearchPackageIdentifierCmd.AddCommand(appsearchPackageIdentifierGetSha256CertificateCmd)
-	appsearchPackageIdentifierHashCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
-	appsearchPackageIdentifierCmd.AddCommand(appsearchPackageIdentifierHashCodeCmd)
-	appsearchCmd.AddCommand(appsearchPackageIdentifierCmd)
-	appsearchOpenBlobForWriteResponseNewOpenBlobForWriteResponseCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	appsearchOpenBlobForWriteResponseCmd.AddCommand(appsearchOpenBlobForWriteResponseNewOpenBlobForWriteResponseCmd)
-	appsearchOpenBlobForWriteResponseCloseCmd.Flags().Int64("handle", 0, "handle (int64)")
-	appsearchOpenBlobForWriteResponseCmd.AddCommand(appsearchOpenBlobForWriteResponseCloseCmd)
-	appsearchOpenBlobForWriteResponseDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	appsearchOpenBlobForWriteResponseCmd.AddCommand(appsearchOpenBlobForWriteResponseDescribeContentsCmd)
-	appsearchOpenBlobForWriteResponseWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
-	appsearchOpenBlobForWriteResponseWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	appsearchOpenBlobForWriteResponseWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	appsearchOpenBlobForWriteResponseCmd.AddCommand(appsearchOpenBlobForWriteResponseWriteToParcelCmd)
-	appsearchCmd.AddCommand(appsearchOpenBlobForWriteResponseCmd)
-	appsearchGetByDocumentIdRequestCmd.AddCommand(appsearchGetByDocumentIdRequestDescribeContentsCmd)
-	appsearchGetByDocumentIdRequestCmd.AddCommand(appsearchGetByDocumentIdRequestGetNamespaceCmd)
-	appsearchGetByDocumentIdRequestWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	appsearchGetByDocumentIdRequestWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	appsearchGetByDocumentIdRequestCmd.AddCommand(appsearchGetByDocumentIdRequestWriteToParcelCmd)
-	appsearchCmd.AddCommand(appsearchGetByDocumentIdRequestCmd)
-	appsearchGetByDocumentIdRequestBuilderAddIdsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	appsearchGetByDocumentIdRequestBuilderCmd.AddCommand(appsearchGetByDocumentIdRequestBuilderAddIdsCmd)
-	appsearchGetByDocumentIdRequestBuilderCmd.AddCommand(appsearchGetByDocumentIdRequestBuilderBuildCmd)
-	appsearchCmd.AddCommand(appsearchGetByDocumentIdRequestBuilderCmd)
-	appsearchEnterpriseGlobalSearchSessionSearchCmd.Flags().String("arg0", "", "arg0 (string)")
-	appsearchEnterpriseGlobalSearchSessionSearchCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	appsearchEnterpriseGlobalSearchSessionCmd.AddCommand(appsearchEnterpriseGlobalSearchSessionSearchCmd)
-	appsearchCmd.AddCommand(appsearchEnterpriseGlobalSearchSessionCmd)
-	appsearchAppSearchManagerSearchContextCmd.AddCommand(appsearchAppSearchManagerSearchContextGetDatabaseNameCmd)
-	appsearchCmd.AddCommand(appsearchAppSearchManagerSearchContextCmd)
-	appsearchSearchResultsCmd.AddCommand(appsearchSearchResultsCloseCmd)
-	appsearchCmd.AddCommand(appsearchSearchResultsCmd)
-	appsearchPutDocumentsRequestBuilderAddGenericDocumentsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	appsearchPutDocumentsRequestBuilderCmd.AddCommand(appsearchPutDocumentsRequestBuilderAddGenericDocumentsCmd)
-	appsearchPutDocumentsRequestBuilderAddTakenActionGenericDocumentsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	appsearchPutDocumentsRequestBuilderCmd.AddCommand(appsearchPutDocumentsRequestBuilderAddTakenActionGenericDocumentsCmd)
-	appsearchPutDocumentsRequestBuilderCmd.AddCommand(appsearchPutDocumentsRequestBuilderBuildCmd)
-	appsearchCmd.AddCommand(appsearchPutDocumentsRequestBuilderCmd)
-	appsearchReportUsageRequestCmd.AddCommand(appsearchReportUsageRequestDescribeContentsCmd)
-	appsearchReportUsageRequestCmd.AddCommand(appsearchReportUsageRequestGetDocumentIdCmd)
-	appsearchReportUsageRequestCmd.AddCommand(appsearchReportUsageRequestGetNamespaceCmd)
-	appsearchReportUsageRequestCmd.AddCommand(appsearchReportUsageRequestGetUsageTimestampMillisCmd)
-	appsearchReportUsageRequestWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	appsearchReportUsageRequestWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	appsearchReportUsageRequestCmd.AddCommand(appsearchReportUsageRequestWriteToParcelCmd)
-	appsearchCmd.AddCommand(appsearchReportUsageRequestCmd)
-	appsearchReportUsageRequestBuilderCmd.AddCommand(appsearchReportUsageRequestBuilderBuildCmd)
-	appsearchReportUsageRequestBuilderSetUsageTimestampMillisCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	appsearchReportUsageRequestBuilderCmd.AddCommand(appsearchReportUsageRequestBuilderSetUsageTimestampMillisCmd)
-	appsearchCmd.AddCommand(appsearchReportUsageRequestBuilderCmd)
-	appsearchStorageInfoCmd.AddCommand(appsearchStorageInfoDescribeContentsCmd)
-	appsearchStorageInfoCmd.AddCommand(appsearchStorageInfoGetAliveDocumentsCountCmd)
-	appsearchStorageInfoCmd.AddCommand(appsearchStorageInfoGetAliveNamespacesCountCmd)
-	appsearchStorageInfoCmd.AddCommand(appsearchStorageInfoGetBlobsCountCmd)
-	appsearchStorageInfoCmd.AddCommand(appsearchStorageInfoGetBlobsSizeBytesCmd)
-	appsearchStorageInfoCmd.AddCommand(appsearchStorageInfoGetSizeBytesCmd)
-	appsearchStorageInfoWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	appsearchStorageInfoWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	appsearchStorageInfoCmd.AddCommand(appsearchStorageInfoWriteToParcelCmd)
-	appsearchCmd.AddCommand(appsearchStorageInfoCmd)
-	appsearchStorageInfoBuilderCmd.AddCommand(appsearchStorageInfoBuilderBuildCmd)
-	appsearchStorageInfoBuilderSetAliveDocumentsCountCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	appsearchStorageInfoBuilderCmd.AddCommand(appsearchStorageInfoBuilderSetAliveDocumentsCountCmd)
-	appsearchStorageInfoBuilderSetAliveNamespacesCountCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	appsearchStorageInfoBuilderCmd.AddCommand(appsearchStorageInfoBuilderSetAliveNamespacesCountCmd)
-	appsearchStorageInfoBuilderSetBlobsCountCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	appsearchStorageInfoBuilderCmd.AddCommand(appsearchStorageInfoBuilderSetBlobsCountCmd)
-	appsearchStorageInfoBuilderSetBlobsSizeBytesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	appsearchStorageInfoBuilderCmd.AddCommand(appsearchStorageInfoBuilderSetBlobsSizeBytesCmd)
-	appsearchStorageInfoBuilderSetSizeBytesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	appsearchStorageInfoBuilderCmd.AddCommand(appsearchStorageInfoBuilderSetSizeBytesCmd)
-	appsearchCmd.AddCommand(appsearchStorageInfoBuilderCmd)
-	appsearchGenericDocumentEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	appsearchGenericDocumentCmd.AddCommand(appsearchGenericDocumentEqualsCmd)
-	appsearchGenericDocumentCmd.AddCommand(appsearchGenericDocumentGetCreationTimestampMillisCmd)
-	appsearchGenericDocumentCmd.AddCommand(appsearchGenericDocumentGetIdCmd)
-	appsearchGenericDocumentCmd.AddCommand(appsearchGenericDocumentGetNamespaceCmd)
-	appsearchGenericDocumentGetPropertyCmd.Flags().String("arg0", "", "arg0 (string)")
-	appsearchGenericDocumentCmd.AddCommand(appsearchGenericDocumentGetPropertyCmd)
-	appsearchGenericDocumentGetPropertyBlobHandleCmd.Flags().String("arg0", "", "arg0 (string)")
-	appsearchGenericDocumentCmd.AddCommand(appsearchGenericDocumentGetPropertyBlobHandleCmd)
-	appsearchGenericDocumentGetPropertyBlobHandleArrayCmd.Flags().String("arg0", "", "arg0 (string)")
-	appsearchGenericDocumentCmd.AddCommand(appsearchGenericDocumentGetPropertyBlobHandleArrayCmd)
-	appsearchGenericDocumentGetPropertyBooleanCmd.Flags().String("arg0", "", "arg0 (string)")
-	appsearchGenericDocumentCmd.AddCommand(appsearchGenericDocumentGetPropertyBooleanCmd)
-	appsearchGenericDocumentGetPropertyBooleanArrayCmd.Flags().String("arg0", "", "arg0 (string)")
-	appsearchGenericDocumentCmd.AddCommand(appsearchGenericDocumentGetPropertyBooleanArrayCmd)
-	appsearchGenericDocumentGetPropertyBytesCmd.Flags().String("arg0", "", "arg0 (string)")
-	appsearchGenericDocumentCmd.AddCommand(appsearchGenericDocumentGetPropertyBytesCmd)
-	appsearchGenericDocumentGetPropertyBytesArrayCmd.Flags().String("arg0", "", "arg0 (string)")
-	appsearchGenericDocumentCmd.AddCommand(appsearchGenericDocumentGetPropertyBytesArrayCmd)
-	appsearchGenericDocumentGetPropertyDocumentCmd.Flags().String("arg0", "", "arg0 (string)")
-	appsearchGenericDocumentCmd.AddCommand(appsearchGenericDocumentGetPropertyDocumentCmd)
-	appsearchGenericDocumentGetPropertyDocumentArrayCmd.Flags().String("arg0", "", "arg0 (string)")
-	appsearchGenericDocumentCmd.AddCommand(appsearchGenericDocumentGetPropertyDocumentArrayCmd)
-	appsearchGenericDocumentGetPropertyDoubleCmd.Flags().String("arg0", "", "arg0 (string)")
-	appsearchGenericDocumentCmd.AddCommand(appsearchGenericDocumentGetPropertyDoubleCmd)
-	appsearchGenericDocumentGetPropertyDoubleArrayCmd.Flags().String("arg0", "", "arg0 (string)")
-	appsearchGenericDocumentCmd.AddCommand(appsearchGenericDocumentGetPropertyDoubleArrayCmd)
-	appsearchGenericDocumentGetPropertyEmbeddingCmd.Flags().String("arg0", "", "arg0 (string)")
-	appsearchGenericDocumentCmd.AddCommand(appsearchGenericDocumentGetPropertyEmbeddingCmd)
-	appsearchGenericDocumentGetPropertyEmbeddingArrayCmd.Flags().String("arg0", "", "arg0 (string)")
-	appsearchGenericDocumentCmd.AddCommand(appsearchGenericDocumentGetPropertyEmbeddingArrayCmd)
-	appsearchGenericDocumentGetPropertyLongCmd.Flags().String("arg0", "", "arg0 (string)")
-	appsearchGenericDocumentCmd.AddCommand(appsearchGenericDocumentGetPropertyLongCmd)
-	appsearchGenericDocumentGetPropertyLongArrayCmd.Flags().String("arg0", "", "arg0 (string)")
-	appsearchGenericDocumentCmd.AddCommand(appsearchGenericDocumentGetPropertyLongArrayCmd)
-	appsearchGenericDocumentGetPropertyStringCmd.Flags().String("arg0", "", "arg0 (string)")
-	appsearchGenericDocumentCmd.AddCommand(appsearchGenericDocumentGetPropertyStringCmd)
-	appsearchGenericDocumentGetPropertyStringArrayCmd.Flags().String("arg0", "", "arg0 (string)")
-	appsearchGenericDocumentCmd.AddCommand(appsearchGenericDocumentGetPropertyStringArrayCmd)
-	appsearchGenericDocumentCmd.AddCommand(appsearchGenericDocumentGetSchemaTypeCmd)
-	appsearchGenericDocumentCmd.AddCommand(appsearchGenericDocumentGetScoreCmd)
-	appsearchGenericDocumentCmd.AddCommand(appsearchGenericDocumentGetTtlMillisCmd)
-	appsearchGenericDocumentCmd.AddCommand(appsearchGenericDocumentHashCodeCmd)
-	appsearchGenericDocumentCmd.AddCommand(appsearchGenericDocumentToStringCmd)
-	appsearchGenericDocumentCmd.AddCommand(appsearchGenericDocumentGetMaxIndexedPropertiesCmd)
-	appsearchCmd.AddCommand(appsearchGenericDocumentCmd)
-	appsearchGenericDocumentBuilderCmd.AddCommand(appsearchGenericDocumentBuilderBuildCmd)
-	appsearchGenericDocumentBuilderClearPropertyCmd.Flags().String("arg0", "", "arg0 (string)")
-	appsearchGenericDocumentBuilderCmd.AddCommand(appsearchGenericDocumentBuilderClearPropertyCmd)
-	appsearchGenericDocumentBuilderSetCreationTimestampMillisCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	appsearchGenericDocumentBuilderCmd.AddCommand(appsearchGenericDocumentBuilderSetCreationTimestampMillisCmd)
-	appsearchGenericDocumentBuilderSetIdCmd.Flags().String("arg0", "", "arg0 (string)")
-	appsearchGenericDocumentBuilderCmd.AddCommand(appsearchGenericDocumentBuilderSetIdCmd)
-	appsearchGenericDocumentBuilderSetNamespaceCmd.Flags().String("arg0", "", "arg0 (string)")
-	appsearchGenericDocumentBuilderCmd.AddCommand(appsearchGenericDocumentBuilderSetNamespaceCmd)
-	appsearchGenericDocumentBuilderSetPropertyBlobHandleCmd.Flags().String("arg0", "", "arg0 (string)")
-	appsearchGenericDocumentBuilderSetPropertyBlobHandleCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	appsearchGenericDocumentBuilderCmd.AddCommand(appsearchGenericDocumentBuilderSetPropertyBlobHandleCmd)
-	appsearchGenericDocumentBuilderSetPropertyBooleanCmd.Flags().String("arg0", "", "arg0 (string)")
-	appsearchGenericDocumentBuilderSetPropertyBooleanCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	appsearchGenericDocumentBuilderCmd.AddCommand(appsearchGenericDocumentBuilderSetPropertyBooleanCmd)
-	appsearchGenericDocumentBuilderSetPropertyBytesCmd.Flags().String("arg0", "", "arg0 (string)")
-	appsearchGenericDocumentBuilderSetPropertyBytesCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	appsearchGenericDocumentBuilderCmd.AddCommand(appsearchGenericDocumentBuilderSetPropertyBytesCmd)
-	appsearchGenericDocumentBuilderSetPropertyDocumentCmd.Flags().String("arg0", "", "arg0 (string)")
-	appsearchGenericDocumentBuilderSetPropertyDocumentCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	appsearchGenericDocumentBuilderCmd.AddCommand(appsearchGenericDocumentBuilderSetPropertyDocumentCmd)
-	appsearchGenericDocumentBuilderSetPropertyDoubleCmd.Flags().String("arg0", "", "arg0 (string)")
-	appsearchGenericDocumentBuilderSetPropertyDoubleCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	appsearchGenericDocumentBuilderCmd.AddCommand(appsearchGenericDocumentBuilderSetPropertyDoubleCmd)
-	appsearchGenericDocumentBuilderSetPropertyEmbeddingCmd.Flags().String("arg0", "", "arg0 (string)")
-	appsearchGenericDocumentBuilderSetPropertyEmbeddingCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	appsearchGenericDocumentBuilderCmd.AddCommand(appsearchGenericDocumentBuilderSetPropertyEmbeddingCmd)
-	appsearchGenericDocumentBuilderSetPropertyLongCmd.Flags().String("arg0", "", "arg0 (string)")
-	appsearchGenericDocumentBuilderSetPropertyLongCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	appsearchGenericDocumentBuilderCmd.AddCommand(appsearchGenericDocumentBuilderSetPropertyLongCmd)
-	appsearchGenericDocumentBuilderSetPropertyStringCmd.Flags().String("arg0", "", "arg0 (string)")
-	appsearchGenericDocumentBuilderSetPropertyStringCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	appsearchGenericDocumentBuilderCmd.AddCommand(appsearchGenericDocumentBuilderSetPropertyStringCmd)
-	appsearchGenericDocumentBuilderSetSchemaTypeCmd.Flags().String("arg0", "", "arg0 (string)")
-	appsearchGenericDocumentBuilderCmd.AddCommand(appsearchGenericDocumentBuilderSetSchemaTypeCmd)
-	appsearchGenericDocumentBuilderSetScoreCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	appsearchGenericDocumentBuilderCmd.AddCommand(appsearchGenericDocumentBuilderSetScoreCmd)
-	appsearchGenericDocumentBuilderSetTtlMillisCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	appsearchGenericDocumentBuilderCmd.AddCommand(appsearchGenericDocumentBuilderSetTtlMillisCmd)
-	appsearchCmd.AddCommand(appsearchGenericDocumentBuilderCmd)
 	appsearchAppSearchBlobHandleCmd.AddCommand(appsearchAppSearchBlobHandleDescribeContentsCmd)
 	appsearchAppSearchBlobHandleEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	appsearchAppSearchBlobHandleCmd.AddCommand(appsearchAppSearchBlobHandleEqualsCmd)
@@ -7301,139 +8029,5 @@ func init() {
 	appsearchAppSearchBlobHandleCreateWithSha256Cmd.Flags().String("arg3", "", "arg3 (string)")
 	appsearchAppSearchBlobHandleCmd.AddCommand(appsearchAppSearchBlobHandleCreateWithSha256Cmd)
 	appsearchCmd.AddCommand(appsearchAppSearchBlobHandleCmd)
-	appsearchAppSearchSessionCmd.AddCommand(appsearchAppSearchSessionCloseCmd)
-	appsearchAppSearchSessionSearchCmd.Flags().String("arg0", "", "arg0 (string)")
-	appsearchAppSearchSessionSearchCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	appsearchAppSearchSessionCmd.AddCommand(appsearchAppSearchSessionSearchCmd)
-	appsearchCmd.AddCommand(appsearchAppSearchSessionCmd)
-	appsearchSearchSuggestionResultCmd.AddCommand(appsearchSearchSuggestionResultDescribeContentsCmd)
-	appsearchSearchSuggestionResultEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	appsearchSearchSuggestionResultCmd.AddCommand(appsearchSearchSuggestionResultEqualsCmd)
-	appsearchSearchSuggestionResultCmd.AddCommand(appsearchSearchSuggestionResultGetSuggestedResultCmd)
-	appsearchSearchSuggestionResultCmd.AddCommand(appsearchSearchSuggestionResultHashCodeCmd)
-	appsearchSearchSuggestionResultWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	appsearchSearchSuggestionResultWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	appsearchSearchSuggestionResultCmd.AddCommand(appsearchSearchSuggestionResultWriteToParcelCmd)
-	appsearchCmd.AddCommand(appsearchSearchSuggestionResultCmd)
-	appsearchSearchSuggestionResultBuilderCmd.AddCommand(appsearchSearchSuggestionResultBuilderBuildCmd)
-	appsearchSearchSuggestionResultBuilderSetSuggestedResultCmd.Flags().String("arg0", "", "arg0 (string)")
-	appsearchSearchSuggestionResultBuilderCmd.AddCommand(appsearchSearchSuggestionResultBuilderSetSuggestedResultCmd)
-	appsearchCmd.AddCommand(appsearchSearchSuggestionResultBuilderCmd)
-	appsearchRemoveByDocumentIdRequestCmd.AddCommand(appsearchRemoveByDocumentIdRequestDescribeContentsCmd)
-	appsearchRemoveByDocumentIdRequestCmd.AddCommand(appsearchRemoveByDocumentIdRequestGetNamespaceCmd)
-	appsearchRemoveByDocumentIdRequestWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	appsearchRemoveByDocumentIdRequestWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	appsearchRemoveByDocumentIdRequestCmd.AddCommand(appsearchRemoveByDocumentIdRequestWriteToParcelCmd)
-	appsearchCmd.AddCommand(appsearchRemoveByDocumentIdRequestCmd)
-	appsearchRemoveByDocumentIdRequestBuilderAddIdsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	appsearchRemoveByDocumentIdRequestBuilderCmd.AddCommand(appsearchRemoveByDocumentIdRequestBuilderAddIdsCmd)
-	appsearchRemoveByDocumentIdRequestBuilderCmd.AddCommand(appsearchRemoveByDocumentIdRequestBuilderBuildCmd)
-	appsearchCmd.AddCommand(appsearchRemoveByDocumentIdRequestBuilderCmd)
-	appsearchSetSchemaRequestEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	appsearchSetSchemaRequestCmd.AddCommand(appsearchSetSchemaRequestEqualsCmd)
-	appsearchSetSchemaRequestCmd.AddCommand(appsearchSetSchemaRequestGetVersionCmd)
-	appsearchSetSchemaRequestCmd.AddCommand(appsearchSetSchemaRequestHashCodeCmd)
-	appsearchSetSchemaRequestCmd.AddCommand(appsearchSetSchemaRequestIsForceOverrideCmd)
-	appsearchCmd.AddCommand(appsearchSetSchemaRequestCmd)
-	appsearchSetSchemaRequestBuilderAddSchemaTypeVisibleToConfigCmd.Flags().String("arg0", "", "arg0 (string)")
-	appsearchSetSchemaRequestBuilderAddSchemaTypeVisibleToConfigCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	appsearchSetSchemaRequestBuilderCmd.AddCommand(appsearchSetSchemaRequestBuilderAddSchemaTypeVisibleToConfigCmd)
-	appsearchSetSchemaRequestBuilderAddSchemasCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	appsearchSetSchemaRequestBuilderCmd.AddCommand(appsearchSetSchemaRequestBuilderAddSchemasCmd)
-	appsearchSetSchemaRequestBuilderCmd.AddCommand(appsearchSetSchemaRequestBuilderBuildCmd)
-	appsearchSetSchemaRequestBuilderCmd.AddCommand(appsearchSetSchemaRequestBuilderClearMigratorsCmd)
-	appsearchSetSchemaRequestBuilderClearRequiredPermissionsForSchemaTypeVisibilityCmd.Flags().String("arg0", "", "arg0 (string)")
-	appsearchSetSchemaRequestBuilderCmd.AddCommand(appsearchSetSchemaRequestBuilderClearRequiredPermissionsForSchemaTypeVisibilityCmd)
-	appsearchSetSchemaRequestBuilderClearSchemaTypeVisibleToConfigsCmd.Flags().String("arg0", "", "arg0 (string)")
-	appsearchSetSchemaRequestBuilderCmd.AddCommand(appsearchSetSchemaRequestBuilderClearSchemaTypeVisibleToConfigsCmd)
-	appsearchSetSchemaRequestBuilderCmd.AddCommand(appsearchSetSchemaRequestBuilderClearSchemasCmd)
-	appsearchSetSchemaRequestBuilderSetForceOverrideCmd.Flags().Bool("arg0", false, "arg0 (bool)")
-	appsearchSetSchemaRequestBuilderCmd.AddCommand(appsearchSetSchemaRequestBuilderSetForceOverrideCmd)
-	appsearchSetSchemaRequestBuilderSetMigratorCmd.Flags().String("arg0", "", "arg0 (string)")
-	appsearchSetSchemaRequestBuilderSetMigratorCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	appsearchSetSchemaRequestBuilderCmd.AddCommand(appsearchSetSchemaRequestBuilderSetMigratorCmd)
-	appsearchSetSchemaRequestBuilderSetPubliclyVisibleSchemaCmd.Flags().String("arg0", "", "arg0 (string)")
-	appsearchSetSchemaRequestBuilderSetPubliclyVisibleSchemaCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	appsearchSetSchemaRequestBuilderCmd.AddCommand(appsearchSetSchemaRequestBuilderSetPubliclyVisibleSchemaCmd)
-	appsearchSetSchemaRequestBuilderSetSchemaTypeDisplayedBySystemCmd.Flags().String("arg0", "", "arg0 (string)")
-	appsearchSetSchemaRequestBuilderSetSchemaTypeDisplayedBySystemCmd.Flags().Bool("arg1", false, "arg1 (bool)")
-	appsearchSetSchemaRequestBuilderCmd.AddCommand(appsearchSetSchemaRequestBuilderSetSchemaTypeDisplayedBySystemCmd)
-	appsearchSetSchemaRequestBuilderSetSchemaTypeVisibilityForPackageCmd.Flags().String("arg0", "", "arg0 (string)")
-	appsearchSetSchemaRequestBuilderSetSchemaTypeVisibilityForPackageCmd.Flags().Bool("arg1", false, "arg1 (bool)")
-	appsearchSetSchemaRequestBuilderSetSchemaTypeVisibilityForPackageCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	appsearchSetSchemaRequestBuilderCmd.AddCommand(appsearchSetSchemaRequestBuilderSetSchemaTypeVisibilityForPackageCmd)
-	appsearchSetSchemaRequestBuilderSetVersionCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	appsearchSetSchemaRequestBuilderCmd.AddCommand(appsearchSetSchemaRequestBuilderSetVersionCmd)
-	appsearchCmd.AddCommand(appsearchSetSchemaRequestBuilderCmd)
-	appsearchAppSearchBatchResultCmd.AddCommand(appsearchAppSearchBatchResultIsSuccessCmd)
-	appsearchAppSearchBatchResultCmd.AddCommand(appsearchAppSearchBatchResultToStringCmd)
-	appsearchCmd.AddCommand(appsearchAppSearchBatchResultCmd)
-	appsearchEmbeddingVectorNewEmbeddingVectorCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	appsearchEmbeddingVectorNewEmbeddingVectorCmd.Flags().String("arg1", "", "arg1 (string)")
-	appsearchEmbeddingVectorCmd.AddCommand(appsearchEmbeddingVectorNewEmbeddingVectorCmd)
-	appsearchEmbeddingVectorDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	appsearchEmbeddingVectorCmd.AddCommand(appsearchEmbeddingVectorDescribeContentsCmd)
-	appsearchEmbeddingVectorEqualsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	appsearchEmbeddingVectorEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	appsearchEmbeddingVectorCmd.AddCommand(appsearchEmbeddingVectorEqualsCmd)
-	appsearchEmbeddingVectorGetModelSignatureCmd.Flags().Int64("handle", 0, "handle (int64)")
-	appsearchEmbeddingVectorCmd.AddCommand(appsearchEmbeddingVectorGetModelSignatureCmd)
-	appsearchEmbeddingVectorGetValuesCmd.Flags().Int64("handle", 0, "handle (int64)")
-	appsearchEmbeddingVectorCmd.AddCommand(appsearchEmbeddingVectorGetValuesCmd)
-	appsearchEmbeddingVectorHashCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
-	appsearchEmbeddingVectorCmd.AddCommand(appsearchEmbeddingVectorHashCodeCmd)
-	appsearchEmbeddingVectorWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
-	appsearchEmbeddingVectorWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	appsearchEmbeddingVectorWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	appsearchEmbeddingVectorCmd.AddCommand(appsearchEmbeddingVectorWriteToParcelCmd)
-	appsearchCmd.AddCommand(appsearchEmbeddingVectorCmd)
-	appsearchJoinSpecCmd.AddCommand(appsearchJoinSpecDescribeContentsCmd)
-	appsearchJoinSpecCmd.AddCommand(appsearchJoinSpecGetAggregationScoringStrategyCmd)
-	appsearchJoinSpecCmd.AddCommand(appsearchJoinSpecGetChildPropertyExpressionCmd)
-	appsearchJoinSpecCmd.AddCommand(appsearchJoinSpecGetMaxJoinedResultCountCmd)
-	appsearchJoinSpecCmd.AddCommand(appsearchJoinSpecGetNestedQueryCmd)
-	appsearchJoinSpecCmd.AddCommand(appsearchJoinSpecGetNestedSearchSpecCmd)
-	appsearchJoinSpecWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	appsearchJoinSpecWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	appsearchJoinSpecCmd.AddCommand(appsearchJoinSpecWriteToParcelCmd)
-	appsearchCmd.AddCommand(appsearchJoinSpecCmd)
-	appsearchJoinSpecBuilderCmd.AddCommand(appsearchJoinSpecBuilderBuildCmd)
-	appsearchJoinSpecBuilderSetAggregationScoringStrategyCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	appsearchJoinSpecBuilderCmd.AddCommand(appsearchJoinSpecBuilderSetAggregationScoringStrategyCmd)
-	appsearchJoinSpecBuilderSetChildPropertyExpressionCmd.Flags().String("arg0", "", "arg0 (string)")
-	appsearchJoinSpecBuilderCmd.AddCommand(appsearchJoinSpecBuilderSetChildPropertyExpressionCmd)
-	appsearchJoinSpecBuilderSetMaxJoinedResultCountCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	appsearchJoinSpecBuilderCmd.AddCommand(appsearchJoinSpecBuilderSetMaxJoinedResultCountCmd)
-	appsearchJoinSpecBuilderSetNestedSearchCmd.Flags().String("arg0", "", "arg0 (string)")
-	appsearchJoinSpecBuilderSetNestedSearchCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	appsearchJoinSpecBuilderCmd.AddCommand(appsearchJoinSpecBuilderSetNestedSearchCmd)
-	appsearchCmd.AddCommand(appsearchJoinSpecBuilderCmd)
-	appsearchPropertyPathNewPropertyPathCmd.Flags().String("arg0", "", "arg0 (string)")
-	appsearchPropertyPathCmd.AddCommand(appsearchPropertyPathNewPropertyPathCmd)
-	appsearchPropertyPathEqualsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	appsearchPropertyPathEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	appsearchPropertyPathCmd.AddCommand(appsearchPropertyPathEqualsCmd)
-	appsearchPropertyPathGetCmd.Flags().Int64("handle", 0, "handle (int64)")
-	appsearchPropertyPathGetCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	appsearchPropertyPathCmd.AddCommand(appsearchPropertyPathGetCmd)
-	appsearchPropertyPathHashCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
-	appsearchPropertyPathCmd.AddCommand(appsearchPropertyPathHashCodeCmd)
-	appsearchPropertyPathSizeCmd.Flags().Int64("handle", 0, "handle (int64)")
-	appsearchPropertyPathCmd.AddCommand(appsearchPropertyPathSizeCmd)
-	appsearchPropertyPathToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
-	appsearchPropertyPathCmd.AddCommand(appsearchPropertyPathToStringCmd)
-	appsearchCmd.AddCommand(appsearchPropertyPathCmd)
-	appsearchPropertyPathPathSegmentEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	appsearchPropertyPathPathSegmentCmd.AddCommand(appsearchPropertyPathPathSegmentEqualsCmd)
-	appsearchPropertyPathPathSegmentCmd.AddCommand(appsearchPropertyPathPathSegmentGetPropertyIndexCmd)
-	appsearchPropertyPathPathSegmentCmd.AddCommand(appsearchPropertyPathPathSegmentGetPropertyNameCmd)
-	appsearchPropertyPathPathSegmentCmd.AddCommand(appsearchPropertyPathPathSegmentHashCodeCmd)
-	appsearchPropertyPathPathSegmentCmd.AddCommand(appsearchPropertyPathPathSegmentToStringCmd)
-	appsearchPropertyPathPathSegmentCreate1Cmd.Flags().String("arg0", "", "arg0 (string)")
-	appsearchPropertyPathPathSegmentCmd.AddCommand(appsearchPropertyPathPathSegmentCreate1Cmd)
-	appsearchPropertyPathPathSegmentCreate2_1Cmd.Flags().String("arg0", "", "arg0 (string)")
-	appsearchPropertyPathPathSegmentCreate2_1Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	appsearchPropertyPathPathSegmentCmd.AddCommand(appsearchPropertyPathPathSegmentCreate2_1Cmd)
-	appsearchCmd.AddCommand(appsearchPropertyPathPathSegmentCmd)
 	rootCmd.AddCommand(appsearchCmd)
 }

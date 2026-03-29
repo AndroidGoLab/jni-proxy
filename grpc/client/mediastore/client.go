@@ -46,6 +46,18 @@ func (c *MediaStoreClient) GetDocumentUri(ctx context.Context, handle int64, arg
 	return resp.GetResult(), nil
 }
 
+// GetExternalVolumeNames calls the GetExternalVolumeNames RPC.
+func (c *MediaStoreClient) GetExternalVolumeNames(ctx context.Context, handle int64, arg0 int64) (int64, error) {
+	resp, err := c.svc.GetExternalVolumeNames(ctx, &pb.GetExternalVolumeNamesRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // GetGeneration calls the GetGeneration RPC.
 func (c *MediaStoreClient) GetGeneration(ctx context.Context, handle int64, arg0 int64, arg1 string) (int64, error) {
 	resp, err := c.svc.GetGeneration(ctx, &pb.GetGenerationRequest{
@@ -100,6 +112,18 @@ func (c *MediaStoreClient) GetOriginalMediaFormatFileDescriptor(ctx context.Cont
 func (c *MediaStoreClient) GetPickImagesMaxLimit(ctx context.Context, handle int64) (int32, error) {
 	resp, err := c.svc.GetPickImagesMaxLimit(ctx, &pb.GetPickImagesMaxLimitRequest{
 		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetRecentExternalVolumeNames calls the GetRecentExternalVolumeNames RPC.
+func (c *MediaStoreClient) GetRecentExternalVolumeNames(ctx context.Context, handle int64, arg0 int64) (int64, error) {
+	resp, err := c.svc.GetRecentExternalVolumeNames(ctx, &pb.GetRecentExternalVolumeNamesRequest{
+		Handle: handle,
+		Arg0:   arg0,
 	})
 	if err != nil {
 		return 0, err

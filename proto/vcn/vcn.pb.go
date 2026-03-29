@@ -23,86 +23,6 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-type DescribeContentsRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *DescribeContentsRequest) Reset() {
-	*x = DescribeContentsRequest{}
-	mi := &file_proto_vcn_vcn_proto_msgTypes[0]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *DescribeContentsRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*DescribeContentsRequest) ProtoMessage() {}
-
-func (x *DescribeContentsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_vcn_vcn_proto_msgTypes[0]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use DescribeContentsRequest.ProtoReflect.Descriptor instead.
-func (*DescribeContentsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{0}
-}
-
-type DescribeContentsResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *DescribeContentsResponse) Reset() {
-	*x = DescribeContentsResponse{}
-	mi := &file_proto_vcn_vcn_proto_msgTypes[1]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *DescribeContentsResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*DescribeContentsResponse) ProtoMessage() {}
-
-func (x *DescribeContentsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_vcn_vcn_proto_msgTypes[1]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use DescribeContentsResponse.ProtoReflect.Descriptor instead.
-func (*DescribeContentsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{1}
-}
-
-func (x *DescribeContentsResponse) GetResult() int32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
 type EqualsRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
@@ -112,7 +32,7 @@ type EqualsRequest struct {
 
 func (x *EqualsRequest) Reset() {
 	*x = EqualsRequest{}
-	mi := &file_proto_vcn_vcn_proto_msgTypes[2]
+	mi := &file_proto_vcn_vcn_proto_msgTypes[0]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -124,7 +44,7 @@ func (x *EqualsRequest) String() string {
 func (*EqualsRequest) ProtoMessage() {}
 
 func (x *EqualsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_vcn_vcn_proto_msgTypes[2]
+	mi := &file_proto_vcn_vcn_proto_msgTypes[0]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -137,7 +57,7 @@ func (x *EqualsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use EqualsRequest.ProtoReflect.Descriptor instead.
 func (*EqualsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{2}
+	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{0}
 }
 
 func (x *EqualsRequest) GetArg0() int64 {
@@ -156,7 +76,7 @@ type EqualsResponse struct {
 
 func (x *EqualsResponse) Reset() {
 	*x = EqualsResponse{}
-	mi := &file_proto_vcn_vcn_proto_msgTypes[3]
+	mi := &file_proto_vcn_vcn_proto_msgTypes[1]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -168,7 +88,7 @@ func (x *EqualsResponse) String() string {
 func (*EqualsResponse) ProtoMessage() {}
 
 func (x *EqualsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_vcn_vcn_proto_msgTypes[3]
+	mi := &file_proto_vcn_vcn_proto_msgTypes[1]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -181,7 +101,7 @@ func (x *EqualsResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use EqualsResponse.ProtoReflect.Descriptor instead.
 func (*EqualsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{3}
+	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{1}
 }
 
 func (x *EqualsResponse) GetResult() bool {
@@ -189,6 +109,86 @@ func (x *EqualsResponse) GetResult() bool {
 		return x.Result
 	}
 	return false
+}
+
+type GetSsidsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSsidsRequest) Reset() {
+	*x = GetSsidsRequest{}
+	mi := &file_proto_vcn_vcn_proto_msgTypes[2]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSsidsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSsidsRequest) ProtoMessage() {}
+
+func (x *GetSsidsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vcn_vcn_proto_msgTypes[2]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSsidsRequest.ProtoReflect.Descriptor instead.
+func (*GetSsidsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{2}
+}
+
+type GetSsidsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSsidsResponse) Reset() {
+	*x = GetSsidsResponse{}
+	mi := &file_proto_vcn_vcn_proto_msgTypes[3]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSsidsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSsidsResponse) ProtoMessage() {}
+
+func (x *GetSsidsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vcn_vcn_proto_msgTypes[3]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSsidsResponse.ProtoReflect.Descriptor instead.
+func (*GetSsidsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{3}
+}
+
+func (x *GetSsidsResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
 }
 
 type HashCodeRequest struct {
@@ -271,182 +271,6 @@ func (x *HashCodeResponse) GetResult() int32 {
 	return 0
 }
 
-type WriteToParcelRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *WriteToParcelRequest) Reset() {
-	*x = WriteToParcelRequest{}
-	mi := &file_proto_vcn_vcn_proto_msgTypes[6]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *WriteToParcelRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*WriteToParcelRequest) ProtoMessage() {}
-
-func (x *WriteToParcelRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_vcn_vcn_proto_msgTypes[6]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use WriteToParcelRequest.ProtoReflect.Descriptor instead.
-func (*WriteToParcelRequest) Descriptor() ([]byte, []int) {
-	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{6}
-}
-
-func (x *WriteToParcelRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-func (x *WriteToParcelRequest) GetArg1() int32 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-type WriteToParcelResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *WriteToParcelResponse) Reset() {
-	*x = WriteToParcelResponse{}
-	mi := &file_proto_vcn_vcn_proto_msgTypes[7]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *WriteToParcelResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*WriteToParcelResponse) ProtoMessage() {}
-
-func (x *WriteToParcelResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_vcn_vcn_proto_msgTypes[7]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use WriteToParcelResponse.ProtoReflect.Descriptor instead.
-func (*WriteToParcelResponse) Descriptor() ([]byte, []int) {
-	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{7}
-}
-
-type AddGatewayConnectionConfigRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *AddGatewayConnectionConfigRequest) Reset() {
-	*x = AddGatewayConnectionConfigRequest{}
-	mi := &file_proto_vcn_vcn_proto_msgTypes[8]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *AddGatewayConnectionConfigRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*AddGatewayConnectionConfigRequest) ProtoMessage() {}
-
-func (x *AddGatewayConnectionConfigRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_vcn_vcn_proto_msgTypes[8]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use AddGatewayConnectionConfigRequest.ProtoReflect.Descriptor instead.
-func (*AddGatewayConnectionConfigRequest) Descriptor() ([]byte, []int) {
-	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{8}
-}
-
-func (x *AddGatewayConnectionConfigRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type AddGatewayConnectionConfigResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *AddGatewayConnectionConfigResponse) Reset() {
-	*x = AddGatewayConnectionConfigResponse{}
-	mi := &file_proto_vcn_vcn_proto_msgTypes[9]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *AddGatewayConnectionConfigResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*AddGatewayConnectionConfigResponse) ProtoMessage() {}
-
-func (x *AddGatewayConnectionConfigResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_vcn_vcn_proto_msgTypes[9]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use AddGatewayConnectionConfigResponse.ProtoReflect.Descriptor instead.
-func (*AddGatewayConnectionConfigResponse) Descriptor() ([]byte, []int) {
-	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{9}
-}
-
-func (x *AddGatewayConnectionConfigResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
 type BuildRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	unknownFields protoimpl.UnknownFields
@@ -455,7 +279,7 @@ type BuildRequest struct {
 
 func (x *BuildRequest) Reset() {
 	*x = BuildRequest{}
-	mi := &file_proto_vcn_vcn_proto_msgTypes[10]
+	mi := &file_proto_vcn_vcn_proto_msgTypes[6]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -467,7 +291,7 @@ func (x *BuildRequest) String() string {
 func (*BuildRequest) ProtoMessage() {}
 
 func (x *BuildRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_vcn_vcn_proto_msgTypes[10]
+	mi := &file_proto_vcn_vcn_proto_msgTypes[6]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -480,7 +304,7 @@ func (x *BuildRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use BuildRequest.ProtoReflect.Descriptor instead.
 func (*BuildRequest) Descriptor() ([]byte, []int) {
-	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{10}
+	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{6}
 }
 
 type BuildResponse struct {
@@ -492,7 +316,7 @@ type BuildResponse struct {
 
 func (x *BuildResponse) Reset() {
 	*x = BuildResponse{}
-	mi := &file_proto_vcn_vcn_proto_msgTypes[11]
+	mi := &file_proto_vcn_vcn_proto_msgTypes[7]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -504,7 +328,7 @@ func (x *BuildResponse) String() string {
 func (*BuildResponse) ProtoMessage() {}
 
 func (x *BuildResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_vcn_vcn_proto_msgTypes[11]
+	mi := &file_proto_vcn_vcn_proto_msgTypes[7]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -517,1002 +341,10 @@ func (x *BuildResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use BuildResponse.ProtoReflect.Descriptor instead.
 func (*BuildResponse) Descriptor() ([]byte, []int) {
-	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{11}
+	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{7}
 }
 
 func (x *BuildResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetCbsRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetCbsRequest) Reset() {
-	*x = GetCbsRequest{}
-	mi := &file_proto_vcn_vcn_proto_msgTypes[12]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetCbsRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetCbsRequest) ProtoMessage() {}
-
-func (x *GetCbsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_vcn_vcn_proto_msgTypes[12]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetCbsRequest.ProtoReflect.Descriptor instead.
-func (*GetCbsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{12}
-}
-
-type GetCbsResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetCbsResponse) Reset() {
-	*x = GetCbsResponse{}
-	mi := &file_proto_vcn_vcn_proto_msgTypes[13]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetCbsResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetCbsResponse) ProtoMessage() {}
-
-func (x *GetCbsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_vcn_vcn_proto_msgTypes[13]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetCbsResponse.ProtoReflect.Descriptor instead.
-func (*GetCbsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{13}
-}
-
-func (x *GetCbsResponse) GetResult() int32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetDunRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetDunRequest) Reset() {
-	*x = GetDunRequest{}
-	mi := &file_proto_vcn_vcn_proto_msgTypes[14]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetDunRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetDunRequest) ProtoMessage() {}
-
-func (x *GetDunRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_vcn_vcn_proto_msgTypes[14]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetDunRequest.ProtoReflect.Descriptor instead.
-func (*GetDunRequest) Descriptor() ([]byte, []int) {
-	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{14}
-}
-
-type GetDunResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetDunResponse) Reset() {
-	*x = GetDunResponse{}
-	mi := &file_proto_vcn_vcn_proto_msgTypes[15]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetDunResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetDunResponse) ProtoMessage() {}
-
-func (x *GetDunResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_vcn_vcn_proto_msgTypes[15]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetDunResponse.ProtoReflect.Descriptor instead.
-func (*GetDunResponse) Descriptor() ([]byte, []int) {
-	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{15}
-}
-
-func (x *GetDunResponse) GetResult() int32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetImsRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetImsRequest) Reset() {
-	*x = GetImsRequest{}
-	mi := &file_proto_vcn_vcn_proto_msgTypes[16]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetImsRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetImsRequest) ProtoMessage() {}
-
-func (x *GetImsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_vcn_vcn_proto_msgTypes[16]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetImsRequest.ProtoReflect.Descriptor instead.
-func (*GetImsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{16}
-}
-
-type GetImsResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetImsResponse) Reset() {
-	*x = GetImsResponse{}
-	mi := &file_proto_vcn_vcn_proto_msgTypes[17]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetImsResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetImsResponse) ProtoMessage() {}
-
-func (x *GetImsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_vcn_vcn_proto_msgTypes[17]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetImsResponse.ProtoReflect.Descriptor instead.
-func (*GetImsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{17}
-}
-
-func (x *GetImsResponse) GetResult() int32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetInternetRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetInternetRequest) Reset() {
-	*x = GetInternetRequest{}
-	mi := &file_proto_vcn_vcn_proto_msgTypes[18]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetInternetRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetInternetRequest) ProtoMessage() {}
-
-func (x *GetInternetRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_vcn_vcn_proto_msgTypes[18]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetInternetRequest.ProtoReflect.Descriptor instead.
-func (*GetInternetRequest) Descriptor() ([]byte, []int) {
-	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{18}
-}
-
-type GetInternetResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetInternetResponse) Reset() {
-	*x = GetInternetResponse{}
-	mi := &file_proto_vcn_vcn_proto_msgTypes[19]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetInternetResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetInternetResponse) ProtoMessage() {}
-
-func (x *GetInternetResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_vcn_vcn_proto_msgTypes[19]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetInternetResponse.ProtoReflect.Descriptor instead.
-func (*GetInternetResponse) Descriptor() ([]byte, []int) {
-	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{19}
-}
-
-func (x *GetInternetResponse) GetResult() int32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetMmsRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetMmsRequest) Reset() {
-	*x = GetMmsRequest{}
-	mi := &file_proto_vcn_vcn_proto_msgTypes[20]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetMmsRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetMmsRequest) ProtoMessage() {}
-
-func (x *GetMmsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_vcn_vcn_proto_msgTypes[20]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetMmsRequest.ProtoReflect.Descriptor instead.
-func (*GetMmsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{20}
-}
-
-type GetMmsResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetMmsResponse) Reset() {
-	*x = GetMmsResponse{}
-	mi := &file_proto_vcn_vcn_proto_msgTypes[21]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetMmsResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetMmsResponse) ProtoMessage() {}
-
-func (x *GetMmsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_vcn_vcn_proto_msgTypes[21]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetMmsResponse.ProtoReflect.Descriptor instead.
-func (*GetMmsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{21}
-}
-
-func (x *GetMmsResponse) GetResult() int32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetOpportunisticRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetOpportunisticRequest) Reset() {
-	*x = GetOpportunisticRequest{}
-	mi := &file_proto_vcn_vcn_proto_msgTypes[22]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetOpportunisticRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetOpportunisticRequest) ProtoMessage() {}
-
-func (x *GetOpportunisticRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_vcn_vcn_proto_msgTypes[22]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetOpportunisticRequest.ProtoReflect.Descriptor instead.
-func (*GetOpportunisticRequest) Descriptor() ([]byte, []int) {
-	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{22}
-}
-
-type GetOpportunisticResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetOpportunisticResponse) Reset() {
-	*x = GetOpportunisticResponse{}
-	mi := &file_proto_vcn_vcn_proto_msgTypes[23]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetOpportunisticResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetOpportunisticResponse) ProtoMessage() {}
-
-func (x *GetOpportunisticResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_vcn_vcn_proto_msgTypes[23]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetOpportunisticResponse.ProtoReflect.Descriptor instead.
-func (*GetOpportunisticResponse) Descriptor() ([]byte, []int) {
-	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{23}
-}
-
-func (x *GetOpportunisticResponse) GetResult() int32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetRcsRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetRcsRequest) Reset() {
-	*x = GetRcsRequest{}
-	mi := &file_proto_vcn_vcn_proto_msgTypes[24]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetRcsRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetRcsRequest) ProtoMessage() {}
-
-func (x *GetRcsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_vcn_vcn_proto_msgTypes[24]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetRcsRequest.ProtoReflect.Descriptor instead.
-func (*GetRcsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{24}
-}
-
-type GetRcsResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetRcsResponse) Reset() {
-	*x = GetRcsResponse{}
-	mi := &file_proto_vcn_vcn_proto_msgTypes[25]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetRcsResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetRcsResponse) ProtoMessage() {}
-
-func (x *GetRcsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_vcn_vcn_proto_msgTypes[25]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetRcsResponse.ProtoReflect.Descriptor instead.
-func (*GetRcsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{25}
-}
-
-func (x *GetRcsResponse) GetResult() int32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetRoamingRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetRoamingRequest) Reset() {
-	*x = GetRoamingRequest{}
-	mi := &file_proto_vcn_vcn_proto_msgTypes[26]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetRoamingRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetRoamingRequest) ProtoMessage() {}
-
-func (x *GetRoamingRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_vcn_vcn_proto_msgTypes[26]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetRoamingRequest.ProtoReflect.Descriptor instead.
-func (*GetRoamingRequest) Descriptor() ([]byte, []int) {
-	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{26}
-}
-
-type GetRoamingResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetRoamingResponse) Reset() {
-	*x = GetRoamingResponse{}
-	mi := &file_proto_vcn_vcn_proto_msgTypes[27]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetRoamingResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetRoamingResponse) ProtoMessage() {}
-
-func (x *GetRoamingResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_vcn_vcn_proto_msgTypes[27]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetRoamingResponse.ProtoReflect.Descriptor instead.
-func (*GetRoamingResponse) Descriptor() ([]byte, []int) {
-	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{27}
-}
-
-func (x *GetRoamingResponse) GetResult() int32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type SetCbsRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetCbsRequest) Reset() {
-	*x = SetCbsRequest{}
-	mi := &file_proto_vcn_vcn_proto_msgTypes[28]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetCbsRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetCbsRequest) ProtoMessage() {}
-
-func (x *SetCbsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_vcn_vcn_proto_msgTypes[28]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetCbsRequest.ProtoReflect.Descriptor instead.
-func (*SetCbsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{28}
-}
-
-func (x *SetCbsRequest) GetArg0() int32 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type SetCbsResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetCbsResponse) Reset() {
-	*x = SetCbsResponse{}
-	mi := &file_proto_vcn_vcn_proto_msgTypes[29]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetCbsResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetCbsResponse) ProtoMessage() {}
-
-func (x *SetCbsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_vcn_vcn_proto_msgTypes[29]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetCbsResponse.ProtoReflect.Descriptor instead.
-func (*SetCbsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{29}
-}
-
-func (x *SetCbsResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type SetDunRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetDunRequest) Reset() {
-	*x = SetDunRequest{}
-	mi := &file_proto_vcn_vcn_proto_msgTypes[30]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetDunRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetDunRequest) ProtoMessage() {}
-
-func (x *SetDunRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_vcn_vcn_proto_msgTypes[30]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetDunRequest.ProtoReflect.Descriptor instead.
-func (*SetDunRequest) Descriptor() ([]byte, []int) {
-	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{30}
-}
-
-func (x *SetDunRequest) GetArg0() int32 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type SetDunResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetDunResponse) Reset() {
-	*x = SetDunResponse{}
-	mi := &file_proto_vcn_vcn_proto_msgTypes[31]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetDunResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetDunResponse) ProtoMessage() {}
-
-func (x *SetDunResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_vcn_vcn_proto_msgTypes[31]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetDunResponse.ProtoReflect.Descriptor instead.
-func (*SetDunResponse) Descriptor() ([]byte, []int) {
-	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{31}
-}
-
-func (x *SetDunResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type SetImsRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetImsRequest) Reset() {
-	*x = SetImsRequest{}
-	mi := &file_proto_vcn_vcn_proto_msgTypes[32]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetImsRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetImsRequest) ProtoMessage() {}
-
-func (x *SetImsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_vcn_vcn_proto_msgTypes[32]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetImsRequest.ProtoReflect.Descriptor instead.
-func (*SetImsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{32}
-}
-
-func (x *SetImsRequest) GetArg0() int32 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type SetImsResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetImsResponse) Reset() {
-	*x = SetImsResponse{}
-	mi := &file_proto_vcn_vcn_proto_msgTypes[33]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetImsResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetImsResponse) ProtoMessage() {}
-
-func (x *SetImsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_vcn_vcn_proto_msgTypes[33]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetImsResponse.ProtoReflect.Descriptor instead.
-func (*SetImsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{33}
-}
-
-func (x *SetImsResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type SetInternetRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetInternetRequest) Reset() {
-	*x = SetInternetRequest{}
-	mi := &file_proto_vcn_vcn_proto_msgTypes[34]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetInternetRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetInternetRequest) ProtoMessage() {}
-
-func (x *SetInternetRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_vcn_vcn_proto_msgTypes[34]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetInternetRequest.ProtoReflect.Descriptor instead.
-func (*SetInternetRequest) Descriptor() ([]byte, []int) {
-	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{34}
-}
-
-func (x *SetInternetRequest) GetArg0() int32 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type SetInternetResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetInternetResponse) Reset() {
-	*x = SetInternetResponse{}
-	mi := &file_proto_vcn_vcn_proto_msgTypes[35]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetInternetResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetInternetResponse) ProtoMessage() {}
-
-func (x *SetInternetResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_vcn_vcn_proto_msgTypes[35]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetInternetResponse.ProtoReflect.Descriptor instead.
-func (*SetInternetResponse) Descriptor() ([]byte, []int) {
-	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{35}
-}
-
-func (x *SetInternetResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
@@ -1528,7 +360,7 @@ type SetMeteredRequest struct {
 
 func (x *SetMeteredRequest) Reset() {
 	*x = SetMeteredRequest{}
-	mi := &file_proto_vcn_vcn_proto_msgTypes[36]
+	mi := &file_proto_vcn_vcn_proto_msgTypes[8]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1540,7 +372,7 @@ func (x *SetMeteredRequest) String() string {
 func (*SetMeteredRequest) ProtoMessage() {}
 
 func (x *SetMeteredRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_vcn_vcn_proto_msgTypes[36]
+	mi := &file_proto_vcn_vcn_proto_msgTypes[8]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1553,7 +385,7 @@ func (x *SetMeteredRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetMeteredRequest.ProtoReflect.Descriptor instead.
 func (*SetMeteredRequest) Descriptor() ([]byte, []int) {
-	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{36}
+	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{8}
 }
 
 func (x *SetMeteredRequest) GetArg0() int32 {
@@ -1572,7 +404,7 @@ type SetMeteredResponse struct {
 
 func (x *SetMeteredResponse) Reset() {
 	*x = SetMeteredResponse{}
-	mi := &file_proto_vcn_vcn_proto_msgTypes[37]
+	mi := &file_proto_vcn_vcn_proto_msgTypes[9]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1584,7 +416,7 @@ func (x *SetMeteredResponse) String() string {
 func (*SetMeteredResponse) ProtoMessage() {}
 
 func (x *SetMeteredResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_vcn_vcn_proto_msgTypes[37]
+	mi := &file_proto_vcn_vcn_proto_msgTypes[9]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1597,7 +429,7 @@ func (x *SetMeteredResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetMeteredResponse.ProtoReflect.Descriptor instead.
 func (*SetMeteredResponse) Descriptor() ([]byte, []int) {
-	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{37}
+	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{9}
 }
 
 func (x *SetMeteredResponse) GetResult() int64 {
@@ -1617,7 +449,7 @@ type SetMinDownstreamBandwidthKbpsRequest struct {
 
 func (x *SetMinDownstreamBandwidthKbpsRequest) Reset() {
 	*x = SetMinDownstreamBandwidthKbpsRequest{}
-	mi := &file_proto_vcn_vcn_proto_msgTypes[38]
+	mi := &file_proto_vcn_vcn_proto_msgTypes[10]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1629,7 +461,7 @@ func (x *SetMinDownstreamBandwidthKbpsRequest) String() string {
 func (*SetMinDownstreamBandwidthKbpsRequest) ProtoMessage() {}
 
 func (x *SetMinDownstreamBandwidthKbpsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_vcn_vcn_proto_msgTypes[38]
+	mi := &file_proto_vcn_vcn_proto_msgTypes[10]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1642,7 +474,7 @@ func (x *SetMinDownstreamBandwidthKbpsRequest) ProtoReflect() protoreflect.Messa
 
 // Deprecated: Use SetMinDownstreamBandwidthKbpsRequest.ProtoReflect.Descriptor instead.
 func (*SetMinDownstreamBandwidthKbpsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{38}
+	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{10}
 }
 
 func (x *SetMinDownstreamBandwidthKbpsRequest) GetArg0() int32 {
@@ -1668,7 +500,7 @@ type SetMinDownstreamBandwidthKbpsResponse struct {
 
 func (x *SetMinDownstreamBandwidthKbpsResponse) Reset() {
 	*x = SetMinDownstreamBandwidthKbpsResponse{}
-	mi := &file_proto_vcn_vcn_proto_msgTypes[39]
+	mi := &file_proto_vcn_vcn_proto_msgTypes[11]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1680,7 +512,7 @@ func (x *SetMinDownstreamBandwidthKbpsResponse) String() string {
 func (*SetMinDownstreamBandwidthKbpsResponse) ProtoMessage() {}
 
 func (x *SetMinDownstreamBandwidthKbpsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_vcn_vcn_proto_msgTypes[39]
+	mi := &file_proto_vcn_vcn_proto_msgTypes[11]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1693,7 +525,7 @@ func (x *SetMinDownstreamBandwidthKbpsResponse) ProtoReflect() protoreflect.Mess
 
 // Deprecated: Use SetMinDownstreamBandwidthKbpsResponse.ProtoReflect.Descriptor instead.
 func (*SetMinDownstreamBandwidthKbpsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{39}
+	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{11}
 }
 
 func (x *SetMinDownstreamBandwidthKbpsResponse) GetResult() int64 {
@@ -1713,7 +545,7 @@ type SetMinUpstreamBandwidthKbpsRequest struct {
 
 func (x *SetMinUpstreamBandwidthKbpsRequest) Reset() {
 	*x = SetMinUpstreamBandwidthKbpsRequest{}
-	mi := &file_proto_vcn_vcn_proto_msgTypes[40]
+	mi := &file_proto_vcn_vcn_proto_msgTypes[12]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1725,7 +557,7 @@ func (x *SetMinUpstreamBandwidthKbpsRequest) String() string {
 func (*SetMinUpstreamBandwidthKbpsRequest) ProtoMessage() {}
 
 func (x *SetMinUpstreamBandwidthKbpsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_vcn_vcn_proto_msgTypes[40]
+	mi := &file_proto_vcn_vcn_proto_msgTypes[12]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1738,7 +570,7 @@ func (x *SetMinUpstreamBandwidthKbpsRequest) ProtoReflect() protoreflect.Message
 
 // Deprecated: Use SetMinUpstreamBandwidthKbpsRequest.ProtoReflect.Descriptor instead.
 func (*SetMinUpstreamBandwidthKbpsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{40}
+	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{12}
 }
 
 func (x *SetMinUpstreamBandwidthKbpsRequest) GetArg0() int32 {
@@ -1764,7 +596,7 @@ type SetMinUpstreamBandwidthKbpsResponse struct {
 
 func (x *SetMinUpstreamBandwidthKbpsResponse) Reset() {
 	*x = SetMinUpstreamBandwidthKbpsResponse{}
-	mi := &file_proto_vcn_vcn_proto_msgTypes[41]
+	mi := &file_proto_vcn_vcn_proto_msgTypes[13]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1776,7 +608,7 @@ func (x *SetMinUpstreamBandwidthKbpsResponse) String() string {
 func (*SetMinUpstreamBandwidthKbpsResponse) ProtoMessage() {}
 
 func (x *SetMinUpstreamBandwidthKbpsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_vcn_vcn_proto_msgTypes[41]
+	mi := &file_proto_vcn_vcn_proto_msgTypes[13]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1789,10 +621,1162 @@ func (x *SetMinUpstreamBandwidthKbpsResponse) ProtoReflect() protoreflect.Messag
 
 // Deprecated: Use SetMinUpstreamBandwidthKbpsResponse.ProtoReflect.Descriptor instead.
 func (*SetMinUpstreamBandwidthKbpsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{41}
+	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{13}
 }
 
 func (x *SetMinUpstreamBandwidthKbpsResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetCbsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetCbsRequest) Reset() {
+	*x = GetCbsRequest{}
+	mi := &file_proto_vcn_vcn_proto_msgTypes[14]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetCbsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetCbsRequest) ProtoMessage() {}
+
+func (x *GetCbsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vcn_vcn_proto_msgTypes[14]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetCbsRequest.ProtoReflect.Descriptor instead.
+func (*GetCbsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{14}
+}
+
+type GetCbsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetCbsResponse) Reset() {
+	*x = GetCbsResponse{}
+	mi := &file_proto_vcn_vcn_proto_msgTypes[15]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetCbsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetCbsResponse) ProtoMessage() {}
+
+func (x *GetCbsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vcn_vcn_proto_msgTypes[15]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetCbsResponse.ProtoReflect.Descriptor instead.
+func (*GetCbsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{15}
+}
+
+func (x *GetCbsResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetDunRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetDunRequest) Reset() {
+	*x = GetDunRequest{}
+	mi := &file_proto_vcn_vcn_proto_msgTypes[16]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetDunRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetDunRequest) ProtoMessage() {}
+
+func (x *GetDunRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vcn_vcn_proto_msgTypes[16]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetDunRequest.ProtoReflect.Descriptor instead.
+func (*GetDunRequest) Descriptor() ([]byte, []int) {
+	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{16}
+}
+
+type GetDunResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetDunResponse) Reset() {
+	*x = GetDunResponse{}
+	mi := &file_proto_vcn_vcn_proto_msgTypes[17]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetDunResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetDunResponse) ProtoMessage() {}
+
+func (x *GetDunResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vcn_vcn_proto_msgTypes[17]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetDunResponse.ProtoReflect.Descriptor instead.
+func (*GetDunResponse) Descriptor() ([]byte, []int) {
+	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{17}
+}
+
+func (x *GetDunResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetImsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetImsRequest) Reset() {
+	*x = GetImsRequest{}
+	mi := &file_proto_vcn_vcn_proto_msgTypes[18]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetImsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetImsRequest) ProtoMessage() {}
+
+func (x *GetImsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vcn_vcn_proto_msgTypes[18]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetImsRequest.ProtoReflect.Descriptor instead.
+func (*GetImsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{18}
+}
+
+type GetImsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetImsResponse) Reset() {
+	*x = GetImsResponse{}
+	mi := &file_proto_vcn_vcn_proto_msgTypes[19]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetImsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetImsResponse) ProtoMessage() {}
+
+func (x *GetImsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vcn_vcn_proto_msgTypes[19]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetImsResponse.ProtoReflect.Descriptor instead.
+func (*GetImsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{19}
+}
+
+func (x *GetImsResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetInternetRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetInternetRequest) Reset() {
+	*x = GetInternetRequest{}
+	mi := &file_proto_vcn_vcn_proto_msgTypes[20]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetInternetRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetInternetRequest) ProtoMessage() {}
+
+func (x *GetInternetRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vcn_vcn_proto_msgTypes[20]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetInternetRequest.ProtoReflect.Descriptor instead.
+func (*GetInternetRequest) Descriptor() ([]byte, []int) {
+	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{20}
+}
+
+type GetInternetResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetInternetResponse) Reset() {
+	*x = GetInternetResponse{}
+	mi := &file_proto_vcn_vcn_proto_msgTypes[21]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetInternetResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetInternetResponse) ProtoMessage() {}
+
+func (x *GetInternetResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vcn_vcn_proto_msgTypes[21]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetInternetResponse.ProtoReflect.Descriptor instead.
+func (*GetInternetResponse) Descriptor() ([]byte, []int) {
+	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{21}
+}
+
+func (x *GetInternetResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetMmsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMmsRequest) Reset() {
+	*x = GetMmsRequest{}
+	mi := &file_proto_vcn_vcn_proto_msgTypes[22]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMmsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMmsRequest) ProtoMessage() {}
+
+func (x *GetMmsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vcn_vcn_proto_msgTypes[22]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMmsRequest.ProtoReflect.Descriptor instead.
+func (*GetMmsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{22}
+}
+
+type GetMmsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMmsResponse) Reset() {
+	*x = GetMmsResponse{}
+	mi := &file_proto_vcn_vcn_proto_msgTypes[23]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMmsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMmsResponse) ProtoMessage() {}
+
+func (x *GetMmsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vcn_vcn_proto_msgTypes[23]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMmsResponse.ProtoReflect.Descriptor instead.
+func (*GetMmsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{23}
+}
+
+func (x *GetMmsResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetOperatorPlmnIdsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetOperatorPlmnIdsRequest) Reset() {
+	*x = GetOperatorPlmnIdsRequest{}
+	mi := &file_proto_vcn_vcn_proto_msgTypes[24]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetOperatorPlmnIdsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetOperatorPlmnIdsRequest) ProtoMessage() {}
+
+func (x *GetOperatorPlmnIdsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vcn_vcn_proto_msgTypes[24]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetOperatorPlmnIdsRequest.ProtoReflect.Descriptor instead.
+func (*GetOperatorPlmnIdsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{24}
+}
+
+type GetOperatorPlmnIdsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetOperatorPlmnIdsResponse) Reset() {
+	*x = GetOperatorPlmnIdsResponse{}
+	mi := &file_proto_vcn_vcn_proto_msgTypes[25]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetOperatorPlmnIdsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetOperatorPlmnIdsResponse) ProtoMessage() {}
+
+func (x *GetOperatorPlmnIdsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vcn_vcn_proto_msgTypes[25]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetOperatorPlmnIdsResponse.ProtoReflect.Descriptor instead.
+func (*GetOperatorPlmnIdsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{25}
+}
+
+func (x *GetOperatorPlmnIdsResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetOpportunisticRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetOpportunisticRequest) Reset() {
+	*x = GetOpportunisticRequest{}
+	mi := &file_proto_vcn_vcn_proto_msgTypes[26]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetOpportunisticRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetOpportunisticRequest) ProtoMessage() {}
+
+func (x *GetOpportunisticRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vcn_vcn_proto_msgTypes[26]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetOpportunisticRequest.ProtoReflect.Descriptor instead.
+func (*GetOpportunisticRequest) Descriptor() ([]byte, []int) {
+	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{26}
+}
+
+type GetOpportunisticResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetOpportunisticResponse) Reset() {
+	*x = GetOpportunisticResponse{}
+	mi := &file_proto_vcn_vcn_proto_msgTypes[27]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetOpportunisticResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetOpportunisticResponse) ProtoMessage() {}
+
+func (x *GetOpportunisticResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vcn_vcn_proto_msgTypes[27]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetOpportunisticResponse.ProtoReflect.Descriptor instead.
+func (*GetOpportunisticResponse) Descriptor() ([]byte, []int) {
+	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{27}
+}
+
+func (x *GetOpportunisticResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetRcsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetRcsRequest) Reset() {
+	*x = GetRcsRequest{}
+	mi := &file_proto_vcn_vcn_proto_msgTypes[28]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetRcsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetRcsRequest) ProtoMessage() {}
+
+func (x *GetRcsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vcn_vcn_proto_msgTypes[28]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetRcsRequest.ProtoReflect.Descriptor instead.
+func (*GetRcsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{28}
+}
+
+type GetRcsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetRcsResponse) Reset() {
+	*x = GetRcsResponse{}
+	mi := &file_proto_vcn_vcn_proto_msgTypes[29]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetRcsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetRcsResponse) ProtoMessage() {}
+
+func (x *GetRcsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vcn_vcn_proto_msgTypes[29]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetRcsResponse.ProtoReflect.Descriptor instead.
+func (*GetRcsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{29}
+}
+
+func (x *GetRcsResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetRoamingRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetRoamingRequest) Reset() {
+	*x = GetRoamingRequest{}
+	mi := &file_proto_vcn_vcn_proto_msgTypes[30]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetRoamingRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetRoamingRequest) ProtoMessage() {}
+
+func (x *GetRoamingRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vcn_vcn_proto_msgTypes[30]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetRoamingRequest.ProtoReflect.Descriptor instead.
+func (*GetRoamingRequest) Descriptor() ([]byte, []int) {
+	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{30}
+}
+
+type GetRoamingResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetRoamingResponse) Reset() {
+	*x = GetRoamingResponse{}
+	mi := &file_proto_vcn_vcn_proto_msgTypes[31]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetRoamingResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetRoamingResponse) ProtoMessage() {}
+
+func (x *GetRoamingResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vcn_vcn_proto_msgTypes[31]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetRoamingResponse.ProtoReflect.Descriptor instead.
+func (*GetRoamingResponse) Descriptor() ([]byte, []int) {
+	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{31}
+}
+
+func (x *GetRoamingResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetSimSpecificCarrierIdsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSimSpecificCarrierIdsRequest) Reset() {
+	*x = GetSimSpecificCarrierIdsRequest{}
+	mi := &file_proto_vcn_vcn_proto_msgTypes[32]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSimSpecificCarrierIdsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSimSpecificCarrierIdsRequest) ProtoMessage() {}
+
+func (x *GetSimSpecificCarrierIdsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vcn_vcn_proto_msgTypes[32]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSimSpecificCarrierIdsRequest.ProtoReflect.Descriptor instead.
+func (*GetSimSpecificCarrierIdsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{32}
+}
+
+type GetSimSpecificCarrierIdsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSimSpecificCarrierIdsResponse) Reset() {
+	*x = GetSimSpecificCarrierIdsResponse{}
+	mi := &file_proto_vcn_vcn_proto_msgTypes[33]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSimSpecificCarrierIdsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSimSpecificCarrierIdsResponse) ProtoMessage() {}
+
+func (x *GetSimSpecificCarrierIdsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vcn_vcn_proto_msgTypes[33]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSimSpecificCarrierIdsResponse.ProtoReflect.Descriptor instead.
+func (*GetSimSpecificCarrierIdsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{33}
+}
+
+func (x *GetSimSpecificCarrierIdsResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetCbsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetCbsRequest) Reset() {
+	*x = SetCbsRequest{}
+	mi := &file_proto_vcn_vcn_proto_msgTypes[34]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetCbsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetCbsRequest) ProtoMessage() {}
+
+func (x *SetCbsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vcn_vcn_proto_msgTypes[34]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetCbsRequest.ProtoReflect.Descriptor instead.
+func (*SetCbsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{34}
+}
+
+func (x *SetCbsRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetCbsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetCbsResponse) Reset() {
+	*x = SetCbsResponse{}
+	mi := &file_proto_vcn_vcn_proto_msgTypes[35]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetCbsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetCbsResponse) ProtoMessage() {}
+
+func (x *SetCbsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vcn_vcn_proto_msgTypes[35]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetCbsResponse.ProtoReflect.Descriptor instead.
+func (*SetCbsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{35}
+}
+
+func (x *SetCbsResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetDunRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetDunRequest) Reset() {
+	*x = SetDunRequest{}
+	mi := &file_proto_vcn_vcn_proto_msgTypes[36]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetDunRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetDunRequest) ProtoMessage() {}
+
+func (x *SetDunRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vcn_vcn_proto_msgTypes[36]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetDunRequest.ProtoReflect.Descriptor instead.
+func (*SetDunRequest) Descriptor() ([]byte, []int) {
+	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{36}
+}
+
+func (x *SetDunRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetDunResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetDunResponse) Reset() {
+	*x = SetDunResponse{}
+	mi := &file_proto_vcn_vcn_proto_msgTypes[37]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetDunResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetDunResponse) ProtoMessage() {}
+
+func (x *SetDunResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vcn_vcn_proto_msgTypes[37]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetDunResponse.ProtoReflect.Descriptor instead.
+func (*SetDunResponse) Descriptor() ([]byte, []int) {
+	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{37}
+}
+
+func (x *SetDunResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetImsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetImsRequest) Reset() {
+	*x = SetImsRequest{}
+	mi := &file_proto_vcn_vcn_proto_msgTypes[38]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetImsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetImsRequest) ProtoMessage() {}
+
+func (x *SetImsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vcn_vcn_proto_msgTypes[38]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetImsRequest.ProtoReflect.Descriptor instead.
+func (*SetImsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{38}
+}
+
+func (x *SetImsRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetImsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetImsResponse) Reset() {
+	*x = SetImsResponse{}
+	mi := &file_proto_vcn_vcn_proto_msgTypes[39]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetImsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetImsResponse) ProtoMessage() {}
+
+func (x *SetImsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vcn_vcn_proto_msgTypes[39]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetImsResponse.ProtoReflect.Descriptor instead.
+func (*SetImsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{39}
+}
+
+func (x *SetImsResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetInternetRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetInternetRequest) Reset() {
+	*x = SetInternetRequest{}
+	mi := &file_proto_vcn_vcn_proto_msgTypes[40]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetInternetRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetInternetRequest) ProtoMessage() {}
+
+func (x *SetInternetRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vcn_vcn_proto_msgTypes[40]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetInternetRequest.ProtoReflect.Descriptor instead.
+func (*SetInternetRequest) Descriptor() ([]byte, []int) {
+	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{40}
+}
+
+func (x *SetInternetRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetInternetResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetInternetResponse) Reset() {
+	*x = SetInternetResponse{}
+	mi := &file_proto_vcn_vcn_proto_msgTypes[41]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetInternetResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetInternetResponse) ProtoMessage() {}
+
+func (x *SetInternetResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vcn_vcn_proto_msgTypes[41]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetInternetResponse.ProtoReflect.Descriptor instead.
+func (*SetInternetResponse) Descriptor() ([]byte, []int) {
+	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{41}
+}
+
+func (x *SetInternetResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
@@ -2151,26 +2135,26 @@ func (x *SetRoamingResponse) GetResult() int64 {
 	return 0
 }
 
-type GetExposedCapabilitiesRequest struct {
+type DescribeContentsRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetExposedCapabilitiesRequest) Reset() {
-	*x = GetExposedCapabilitiesRequest{}
+func (x *DescribeContentsRequest) Reset() {
+	*x = DescribeContentsRequest{}
 	mi := &file_proto_vcn_vcn_proto_msgTypes[50]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetExposedCapabilitiesRequest) String() string {
+func (x *DescribeContentsRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetExposedCapabilitiesRequest) ProtoMessage() {}
+func (*DescribeContentsRequest) ProtoMessage() {}
 
-func (x *GetExposedCapabilitiesRequest) ProtoReflect() protoreflect.Message {
+func (x *DescribeContentsRequest) ProtoReflect() protoreflect.Message {
 	mi := &file_proto_vcn_vcn_proto_msgTypes[50]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -2182,32 +2166,32 @@ func (x *GetExposedCapabilitiesRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetExposedCapabilitiesRequest.ProtoReflect.Descriptor instead.
-func (*GetExposedCapabilitiesRequest) Descriptor() ([]byte, []int) {
+// Deprecated: Use DescribeContentsRequest.ProtoReflect.Descriptor instead.
+func (*DescribeContentsRequest) Descriptor() ([]byte, []int) {
 	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{50}
 }
 
-type GetExposedCapabilitiesResponse struct {
+type DescribeContentsResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetExposedCapabilitiesResponse) Reset() {
-	*x = GetExposedCapabilitiesResponse{}
+func (x *DescribeContentsResponse) Reset() {
+	*x = DescribeContentsResponse{}
 	mi := &file_proto_vcn_vcn_proto_msgTypes[51]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetExposedCapabilitiesResponse) String() string {
+func (x *DescribeContentsResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetExposedCapabilitiesResponse) ProtoMessage() {}
+func (*DescribeContentsResponse) ProtoMessage() {}
 
-func (x *GetExposedCapabilitiesResponse) ProtoReflect() protoreflect.Message {
+func (x *DescribeContentsResponse) ProtoReflect() protoreflect.Message {
 	mi := &file_proto_vcn_vcn_proto_msgTypes[51]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -2219,38 +2203,38 @@ func (x *GetExposedCapabilitiesResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetExposedCapabilitiesResponse.ProtoReflect.Descriptor instead.
-func (*GetExposedCapabilitiesResponse) Descriptor() ([]byte, []int) {
+// Deprecated: Use DescribeContentsResponse.ProtoReflect.Descriptor instead.
+func (*DescribeContentsResponse) Descriptor() ([]byte, []int) {
 	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{51}
 }
 
-func (x *GetExposedCapabilitiesResponse) GetResult() int64 {
+func (x *DescribeContentsResponse) GetResult() int32 {
 	if x != nil {
 		return x.Result
 	}
 	return 0
 }
 
-type GetGatewayConnectionNameRequest struct {
+type GetGatewayConnectionConfigsRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetGatewayConnectionNameRequest) Reset() {
-	*x = GetGatewayConnectionNameRequest{}
+func (x *GetGatewayConnectionConfigsRequest) Reset() {
+	*x = GetGatewayConnectionConfigsRequest{}
 	mi := &file_proto_vcn_vcn_proto_msgTypes[52]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetGatewayConnectionNameRequest) String() string {
+func (x *GetGatewayConnectionConfigsRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetGatewayConnectionNameRequest) ProtoMessage() {}
+func (*GetGatewayConnectionConfigsRequest) ProtoMessage() {}
 
-func (x *GetGatewayConnectionNameRequest) ProtoReflect() protoreflect.Message {
+func (x *GetGatewayConnectionConfigsRequest) ProtoReflect() protoreflect.Message {
 	mi := &file_proto_vcn_vcn_proto_msgTypes[52]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -2262,32 +2246,32 @@ func (x *GetGatewayConnectionNameRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetGatewayConnectionNameRequest.ProtoReflect.Descriptor instead.
-func (*GetGatewayConnectionNameRequest) Descriptor() ([]byte, []int) {
+// Deprecated: Use GetGatewayConnectionConfigsRequest.ProtoReflect.Descriptor instead.
+func (*GetGatewayConnectionConfigsRequest) Descriptor() ([]byte, []int) {
 	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{52}
 }
 
-type GetGatewayConnectionNameResponse struct {
+type GetGatewayConnectionConfigsResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetGatewayConnectionNameResponse) Reset() {
-	*x = GetGatewayConnectionNameResponse{}
+func (x *GetGatewayConnectionConfigsResponse) Reset() {
+	*x = GetGatewayConnectionConfigsResponse{}
 	mi := &file_proto_vcn_vcn_proto_msgTypes[53]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetGatewayConnectionNameResponse) String() string {
+func (x *GetGatewayConnectionConfigsResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetGatewayConnectionNameResponse) ProtoMessage() {}
+func (*GetGatewayConnectionConfigsResponse) ProtoMessage() {}
 
-func (x *GetGatewayConnectionNameResponse) ProtoReflect() protoreflect.Message {
+func (x *GetGatewayConnectionConfigsResponse) ProtoReflect() protoreflect.Message {
 	mi := &file_proto_vcn_vcn_proto_msgTypes[53]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -2299,38 +2283,38 @@ func (x *GetGatewayConnectionNameResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetGatewayConnectionNameResponse.ProtoReflect.Descriptor instead.
-func (*GetGatewayConnectionNameResponse) Descriptor() ([]byte, []int) {
+// Deprecated: Use GetGatewayConnectionConfigsResponse.ProtoReflect.Descriptor instead.
+func (*GetGatewayConnectionConfigsResponse) Descriptor() ([]byte, []int) {
 	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{53}
 }
 
-func (x *GetGatewayConnectionNameResponse) GetResult() string {
+func (x *GetGatewayConnectionConfigsResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
-	return ""
+	return 0
 }
 
-type GetMaxMtuRequest struct {
+type GetRestrictedUnderlyingNetworkTransportsRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetMaxMtuRequest) Reset() {
-	*x = GetMaxMtuRequest{}
+func (x *GetRestrictedUnderlyingNetworkTransportsRequest) Reset() {
+	*x = GetRestrictedUnderlyingNetworkTransportsRequest{}
 	mi := &file_proto_vcn_vcn_proto_msgTypes[54]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetMaxMtuRequest) String() string {
+func (x *GetRestrictedUnderlyingNetworkTransportsRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetMaxMtuRequest) ProtoMessage() {}
+func (*GetRestrictedUnderlyingNetworkTransportsRequest) ProtoMessage() {}
 
-func (x *GetMaxMtuRequest) ProtoReflect() protoreflect.Message {
+func (x *GetRestrictedUnderlyingNetworkTransportsRequest) ProtoReflect() protoreflect.Message {
 	mi := &file_proto_vcn_vcn_proto_msgTypes[54]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -2342,32 +2326,32 @@ func (x *GetMaxMtuRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetMaxMtuRequest.ProtoReflect.Descriptor instead.
-func (*GetMaxMtuRequest) Descriptor() ([]byte, []int) {
+// Deprecated: Use GetRestrictedUnderlyingNetworkTransportsRequest.ProtoReflect.Descriptor instead.
+func (*GetRestrictedUnderlyingNetworkTransportsRequest) Descriptor() ([]byte, []int) {
 	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{54}
 }
 
-type GetMaxMtuResponse struct {
+type GetRestrictedUnderlyingNetworkTransportsResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetMaxMtuResponse) Reset() {
-	*x = GetMaxMtuResponse{}
+func (x *GetRestrictedUnderlyingNetworkTransportsResponse) Reset() {
+	*x = GetRestrictedUnderlyingNetworkTransportsResponse{}
 	mi := &file_proto_vcn_vcn_proto_msgTypes[55]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetMaxMtuResponse) String() string {
+func (x *GetRestrictedUnderlyingNetworkTransportsResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetMaxMtuResponse) ProtoMessage() {}
+func (*GetRestrictedUnderlyingNetworkTransportsResponse) ProtoMessage() {}
 
-func (x *GetMaxMtuResponse) ProtoReflect() protoreflect.Message {
+func (x *GetRestrictedUnderlyingNetworkTransportsResponse) ProtoReflect() protoreflect.Message {
 	mi := &file_proto_vcn_vcn_proto_msgTypes[55]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -2379,38 +2363,40 @@ func (x *GetMaxMtuResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetMaxMtuResponse.ProtoReflect.Descriptor instead.
-func (*GetMaxMtuResponse) Descriptor() ([]byte, []int) {
+// Deprecated: Use GetRestrictedUnderlyingNetworkTransportsResponse.ProtoReflect.Descriptor instead.
+func (*GetRestrictedUnderlyingNetworkTransportsResponse) Descriptor() ([]byte, []int) {
 	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{55}
 }
 
-func (x *GetMaxMtuResponse) GetResult() int32 {
+func (x *GetRestrictedUnderlyingNetworkTransportsResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
 	return 0
 }
 
-type GetMinUdpPort4500NatTimeoutSecondsRequest struct {
+type WriteToParcelRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetMinUdpPort4500NatTimeoutSecondsRequest) Reset() {
-	*x = GetMinUdpPort4500NatTimeoutSecondsRequest{}
+func (x *WriteToParcelRequest) Reset() {
+	*x = WriteToParcelRequest{}
 	mi := &file_proto_vcn_vcn_proto_msgTypes[56]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetMinUdpPort4500NatTimeoutSecondsRequest) String() string {
+func (x *WriteToParcelRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetMinUdpPort4500NatTimeoutSecondsRequest) ProtoMessage() {}
+func (*WriteToParcelRequest) ProtoMessage() {}
 
-func (x *GetMinUdpPort4500NatTimeoutSecondsRequest) ProtoReflect() protoreflect.Message {
+func (x *WriteToParcelRequest) ProtoReflect() protoreflect.Message {
 	mi := &file_proto_vcn_vcn_proto_msgTypes[56]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -2422,32 +2408,45 @@ func (x *GetMinUdpPort4500NatTimeoutSecondsRequest) ProtoReflect() protoreflect.
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetMinUdpPort4500NatTimeoutSecondsRequest.ProtoReflect.Descriptor instead.
-func (*GetMinUdpPort4500NatTimeoutSecondsRequest) Descriptor() ([]byte, []int) {
+// Deprecated: Use WriteToParcelRequest.ProtoReflect.Descriptor instead.
+func (*WriteToParcelRequest) Descriptor() ([]byte, []int) {
 	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{56}
 }
 
-type GetMinUdpPort4500NatTimeoutSecondsResponse struct {
+func (x *WriteToParcelRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *WriteToParcelRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type WriteToParcelResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetMinUdpPort4500NatTimeoutSecondsResponse) Reset() {
-	*x = GetMinUdpPort4500NatTimeoutSecondsResponse{}
+func (x *WriteToParcelResponse) Reset() {
+	*x = WriteToParcelResponse{}
 	mi := &file_proto_vcn_vcn_proto_msgTypes[57]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetMinUdpPort4500NatTimeoutSecondsResponse) String() string {
+func (x *WriteToParcelResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetMinUdpPort4500NatTimeoutSecondsResponse) ProtoMessage() {}
+func (*WriteToParcelResponse) ProtoMessage() {}
 
-func (x *GetMinUdpPort4500NatTimeoutSecondsResponse) ProtoReflect() protoreflect.Message {
+func (x *WriteToParcelResponse) ProtoReflect() protoreflect.Message {
 	mi := &file_proto_vcn_vcn_proto_msgTypes[57]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -2459,816 +2458,33 @@ func (x *GetMinUdpPort4500NatTimeoutSecondsResponse) ProtoReflect() protoreflect
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetMinUdpPort4500NatTimeoutSecondsResponse.ProtoReflect.Descriptor instead.
-func (*GetMinUdpPort4500NatTimeoutSecondsResponse) Descriptor() ([]byte, []int) {
+// Deprecated: Use WriteToParcelResponse.ProtoReflect.Descriptor instead.
+func (*WriteToParcelResponse) Descriptor() ([]byte, []int) {
 	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{57}
 }
 
-func (x *GetMinUdpPort4500NatTimeoutSecondsResponse) GetResult() int32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetRetryIntervalsMillisRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetRetryIntervalsMillisRequest) Reset() {
-	*x = GetRetryIntervalsMillisRequest{}
-	mi := &file_proto_vcn_vcn_proto_msgTypes[58]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetRetryIntervalsMillisRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetRetryIntervalsMillisRequest) ProtoMessage() {}
-
-func (x *GetRetryIntervalsMillisRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_vcn_vcn_proto_msgTypes[58]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetRetryIntervalsMillisRequest.ProtoReflect.Descriptor instead.
-func (*GetRetryIntervalsMillisRequest) Descriptor() ([]byte, []int) {
-	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{58}
-}
-
-type GetRetryIntervalsMillisResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetRetryIntervalsMillisResponse) Reset() {
-	*x = GetRetryIntervalsMillisResponse{}
-	mi := &file_proto_vcn_vcn_proto_msgTypes[59]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetRetryIntervalsMillisResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetRetryIntervalsMillisResponse) ProtoMessage() {}
-
-func (x *GetRetryIntervalsMillisResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_vcn_vcn_proto_msgTypes[59]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetRetryIntervalsMillisResponse.ProtoReflect.Descriptor instead.
-func (*GetRetryIntervalsMillisResponse) Descriptor() ([]byte, []int) {
-	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{59}
-}
-
-func (x *GetRetryIntervalsMillisResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type HasGatewayOptionRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *HasGatewayOptionRequest) Reset() {
-	*x = HasGatewayOptionRequest{}
-	mi := &file_proto_vcn_vcn_proto_msgTypes[60]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *HasGatewayOptionRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*HasGatewayOptionRequest) ProtoMessage() {}
-
-func (x *HasGatewayOptionRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_vcn_vcn_proto_msgTypes[60]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use HasGatewayOptionRequest.ProtoReflect.Descriptor instead.
-func (*HasGatewayOptionRequest) Descriptor() ([]byte, []int) {
-	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{60}
-}
-
-func (x *HasGatewayOptionRequest) GetArg0() int32 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type HasGatewayOptionResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *HasGatewayOptionResponse) Reset() {
-	*x = HasGatewayOptionResponse{}
-	mi := &file_proto_vcn_vcn_proto_msgTypes[61]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *HasGatewayOptionResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*HasGatewayOptionResponse) ProtoMessage() {}
-
-func (x *HasGatewayOptionResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_vcn_vcn_proto_msgTypes[61]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use HasGatewayOptionResponse.ProtoReflect.Descriptor instead.
-func (*HasGatewayOptionResponse) Descriptor() ([]byte, []int) {
-	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{61}
-}
-
-func (x *HasGatewayOptionResponse) GetResult() bool {
-	if x != nil {
-		return x.Result
-	}
-	return false
-}
-
-type IsSafeModeEnabledRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *IsSafeModeEnabledRequest) Reset() {
-	*x = IsSafeModeEnabledRequest{}
-	mi := &file_proto_vcn_vcn_proto_msgTypes[62]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *IsSafeModeEnabledRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*IsSafeModeEnabledRequest) ProtoMessage() {}
-
-func (x *IsSafeModeEnabledRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_vcn_vcn_proto_msgTypes[62]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use IsSafeModeEnabledRequest.ProtoReflect.Descriptor instead.
-func (*IsSafeModeEnabledRequest) Descriptor() ([]byte, []int) {
-	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{62}
-}
-
-type IsSafeModeEnabledResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *IsSafeModeEnabledResponse) Reset() {
-	*x = IsSafeModeEnabledResponse{}
-	mi := &file_proto_vcn_vcn_proto_msgTypes[63]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *IsSafeModeEnabledResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*IsSafeModeEnabledResponse) ProtoMessage() {}
-
-func (x *IsSafeModeEnabledResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_vcn_vcn_proto_msgTypes[63]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use IsSafeModeEnabledResponse.ProtoReflect.Descriptor instead.
-func (*IsSafeModeEnabledResponse) Descriptor() ([]byte, []int) {
-	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{63}
-}
-
-func (x *IsSafeModeEnabledResponse) GetResult() bool {
-	if x != nil {
-		return x.Result
-	}
-	return false
-}
-
-type AddExposedCapabilityRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *AddExposedCapabilityRequest) Reset() {
-	*x = AddExposedCapabilityRequest{}
-	mi := &file_proto_vcn_vcn_proto_msgTypes[64]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *AddExposedCapabilityRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*AddExposedCapabilityRequest) ProtoMessage() {}
-
-func (x *AddExposedCapabilityRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_vcn_vcn_proto_msgTypes[64]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use AddExposedCapabilityRequest.ProtoReflect.Descriptor instead.
-func (*AddExposedCapabilityRequest) Descriptor() ([]byte, []int) {
-	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{64}
-}
-
-func (x *AddExposedCapabilityRequest) GetArg0() int32 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type AddExposedCapabilityResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *AddExposedCapabilityResponse) Reset() {
-	*x = AddExposedCapabilityResponse{}
-	mi := &file_proto_vcn_vcn_proto_msgTypes[65]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *AddExposedCapabilityResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*AddExposedCapabilityResponse) ProtoMessage() {}
-
-func (x *AddExposedCapabilityResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_vcn_vcn_proto_msgTypes[65]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use AddExposedCapabilityResponse.ProtoReflect.Descriptor instead.
-func (*AddExposedCapabilityResponse) Descriptor() ([]byte, []int) {
-	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{65}
-}
-
-func (x *AddExposedCapabilityResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type AddGatewayOptionRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *AddGatewayOptionRequest) Reset() {
-	*x = AddGatewayOptionRequest{}
-	mi := &file_proto_vcn_vcn_proto_msgTypes[66]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *AddGatewayOptionRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*AddGatewayOptionRequest) ProtoMessage() {}
-
-func (x *AddGatewayOptionRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_vcn_vcn_proto_msgTypes[66]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use AddGatewayOptionRequest.ProtoReflect.Descriptor instead.
-func (*AddGatewayOptionRequest) Descriptor() ([]byte, []int) {
-	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{66}
-}
-
-func (x *AddGatewayOptionRequest) GetArg0() int32 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type AddGatewayOptionResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *AddGatewayOptionResponse) Reset() {
-	*x = AddGatewayOptionResponse{}
-	mi := &file_proto_vcn_vcn_proto_msgTypes[67]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *AddGatewayOptionResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*AddGatewayOptionResponse) ProtoMessage() {}
-
-func (x *AddGatewayOptionResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_vcn_vcn_proto_msgTypes[67]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use AddGatewayOptionResponse.ProtoReflect.Descriptor instead.
-func (*AddGatewayOptionResponse) Descriptor() ([]byte, []int) {
-	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{67}
-}
-
-func (x *AddGatewayOptionResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type RemoveExposedCapabilityRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *RemoveExposedCapabilityRequest) Reset() {
-	*x = RemoveExposedCapabilityRequest{}
-	mi := &file_proto_vcn_vcn_proto_msgTypes[68]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *RemoveExposedCapabilityRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*RemoveExposedCapabilityRequest) ProtoMessage() {}
-
-func (x *RemoveExposedCapabilityRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_vcn_vcn_proto_msgTypes[68]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use RemoveExposedCapabilityRequest.ProtoReflect.Descriptor instead.
-func (*RemoveExposedCapabilityRequest) Descriptor() ([]byte, []int) {
-	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{68}
-}
-
-func (x *RemoveExposedCapabilityRequest) GetArg0() int32 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type RemoveExposedCapabilityResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *RemoveExposedCapabilityResponse) Reset() {
-	*x = RemoveExposedCapabilityResponse{}
-	mi := &file_proto_vcn_vcn_proto_msgTypes[69]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *RemoveExposedCapabilityResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*RemoveExposedCapabilityResponse) ProtoMessage() {}
-
-func (x *RemoveExposedCapabilityResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_vcn_vcn_proto_msgTypes[69]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use RemoveExposedCapabilityResponse.ProtoReflect.Descriptor instead.
-func (*RemoveExposedCapabilityResponse) Descriptor() ([]byte, []int) {
-	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{69}
-}
-
-func (x *RemoveExposedCapabilityResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type RemoveGatewayOptionRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *RemoveGatewayOptionRequest) Reset() {
-	*x = RemoveGatewayOptionRequest{}
-	mi := &file_proto_vcn_vcn_proto_msgTypes[70]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *RemoveGatewayOptionRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*RemoveGatewayOptionRequest) ProtoMessage() {}
-
-func (x *RemoveGatewayOptionRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_vcn_vcn_proto_msgTypes[70]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use RemoveGatewayOptionRequest.ProtoReflect.Descriptor instead.
-func (*RemoveGatewayOptionRequest) Descriptor() ([]byte, []int) {
-	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{70}
-}
-
-func (x *RemoveGatewayOptionRequest) GetArg0() int32 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type RemoveGatewayOptionResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *RemoveGatewayOptionResponse) Reset() {
-	*x = RemoveGatewayOptionResponse{}
-	mi := &file_proto_vcn_vcn_proto_msgTypes[71]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *RemoveGatewayOptionResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*RemoveGatewayOptionResponse) ProtoMessage() {}
-
-func (x *RemoveGatewayOptionResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_vcn_vcn_proto_msgTypes[71]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use RemoveGatewayOptionResponse.ProtoReflect.Descriptor instead.
-func (*RemoveGatewayOptionResponse) Descriptor() ([]byte, []int) {
-	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{71}
-}
-
-func (x *RemoveGatewayOptionResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type SetMaxMtuRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetMaxMtuRequest) Reset() {
-	*x = SetMaxMtuRequest{}
-	mi := &file_proto_vcn_vcn_proto_msgTypes[72]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetMaxMtuRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetMaxMtuRequest) ProtoMessage() {}
-
-func (x *SetMaxMtuRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_vcn_vcn_proto_msgTypes[72]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetMaxMtuRequest.ProtoReflect.Descriptor instead.
-func (*SetMaxMtuRequest) Descriptor() ([]byte, []int) {
-	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{72}
-}
-
-func (x *SetMaxMtuRequest) GetArg0() int32 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type SetMaxMtuResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetMaxMtuResponse) Reset() {
-	*x = SetMaxMtuResponse{}
-	mi := &file_proto_vcn_vcn_proto_msgTypes[73]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetMaxMtuResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetMaxMtuResponse) ProtoMessage() {}
-
-func (x *SetMaxMtuResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_vcn_vcn_proto_msgTypes[73]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetMaxMtuResponse.ProtoReflect.Descriptor instead.
-func (*SetMaxMtuResponse) Descriptor() ([]byte, []int) {
-	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{73}
-}
-
-func (x *SetMaxMtuResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type SetMinUdpPort4500NatTimeoutSecondsRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetMinUdpPort4500NatTimeoutSecondsRequest) Reset() {
-	*x = SetMinUdpPort4500NatTimeoutSecondsRequest{}
-	mi := &file_proto_vcn_vcn_proto_msgTypes[74]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetMinUdpPort4500NatTimeoutSecondsRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetMinUdpPort4500NatTimeoutSecondsRequest) ProtoMessage() {}
-
-func (x *SetMinUdpPort4500NatTimeoutSecondsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_vcn_vcn_proto_msgTypes[74]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetMinUdpPort4500NatTimeoutSecondsRequest.ProtoReflect.Descriptor instead.
-func (*SetMinUdpPort4500NatTimeoutSecondsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{74}
-}
-
-func (x *SetMinUdpPort4500NatTimeoutSecondsRequest) GetArg0() int32 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type SetMinUdpPort4500NatTimeoutSecondsResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetMinUdpPort4500NatTimeoutSecondsResponse) Reset() {
-	*x = SetMinUdpPort4500NatTimeoutSecondsResponse{}
-	mi := &file_proto_vcn_vcn_proto_msgTypes[75]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetMinUdpPort4500NatTimeoutSecondsResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetMinUdpPort4500NatTimeoutSecondsResponse) ProtoMessage() {}
-
-func (x *SetMinUdpPort4500NatTimeoutSecondsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_vcn_vcn_proto_msgTypes[75]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetMinUdpPort4500NatTimeoutSecondsResponse.ProtoReflect.Descriptor instead.
-func (*SetMinUdpPort4500NatTimeoutSecondsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{75}
-}
-
-func (x *SetMinUdpPort4500NatTimeoutSecondsResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type SetRetryIntervalsMillisRequest struct {
+type AddGatewayConnectionConfigRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *SetRetryIntervalsMillisRequest) Reset() {
-	*x = SetRetryIntervalsMillisRequest{}
-	mi := &file_proto_vcn_vcn_proto_msgTypes[76]
+func (x *AddGatewayConnectionConfigRequest) Reset() {
+	*x = AddGatewayConnectionConfigRequest{}
+	mi := &file_proto_vcn_vcn_proto_msgTypes[58]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *SetRetryIntervalsMillisRequest) String() string {
+func (x *AddGatewayConnectionConfigRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*SetRetryIntervalsMillisRequest) ProtoMessage() {}
+func (*AddGatewayConnectionConfigRequest) ProtoMessage() {}
 
-func (x *SetRetryIntervalsMillisRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_vcn_vcn_proto_msgTypes[76]
+func (x *AddGatewayConnectionConfigRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vcn_vcn_proto_msgTypes[58]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3279,40 +2495,40 @@ func (x *SetRetryIntervalsMillisRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use SetRetryIntervalsMillisRequest.ProtoReflect.Descriptor instead.
-func (*SetRetryIntervalsMillisRequest) Descriptor() ([]byte, []int) {
-	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{76}
+// Deprecated: Use AddGatewayConnectionConfigRequest.ProtoReflect.Descriptor instead.
+func (*AddGatewayConnectionConfigRequest) Descriptor() ([]byte, []int) {
+	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{58}
 }
 
-func (x *SetRetryIntervalsMillisRequest) GetArg0() int64 {
+func (x *AddGatewayConnectionConfigRequest) GetArg0() int64 {
 	if x != nil {
 		return x.Arg0
 	}
 	return 0
 }
 
-type SetRetryIntervalsMillisResponse struct {
+type AddGatewayConnectionConfigResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *SetRetryIntervalsMillisResponse) Reset() {
-	*x = SetRetryIntervalsMillisResponse{}
-	mi := &file_proto_vcn_vcn_proto_msgTypes[77]
+func (x *AddGatewayConnectionConfigResponse) Reset() {
+	*x = AddGatewayConnectionConfigResponse{}
+	mi := &file_proto_vcn_vcn_proto_msgTypes[59]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *SetRetryIntervalsMillisResponse) String() string {
+func (x *AddGatewayConnectionConfigResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*SetRetryIntervalsMillisResponse) ProtoMessage() {}
+func (*AddGatewayConnectionConfigResponse) ProtoMessage() {}
 
-func (x *SetRetryIntervalsMillisResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_vcn_vcn_proto_msgTypes[77]
+func (x *AddGatewayConnectionConfigResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vcn_vcn_proto_msgTypes[59]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3323,100 +2539,12 @@ func (x *SetRetryIntervalsMillisResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use SetRetryIntervalsMillisResponse.ProtoReflect.Descriptor instead.
-func (*SetRetryIntervalsMillisResponse) Descriptor() ([]byte, []int) {
-	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{77}
+// Deprecated: Use AddGatewayConnectionConfigResponse.ProtoReflect.Descriptor instead.
+func (*AddGatewayConnectionConfigResponse) Descriptor() ([]byte, []int) {
+	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{59}
 }
 
-func (x *SetRetryIntervalsMillisResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type SetSafeModeEnabledRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          bool                   `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetSafeModeEnabledRequest) Reset() {
-	*x = SetSafeModeEnabledRequest{}
-	mi := &file_proto_vcn_vcn_proto_msgTypes[78]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetSafeModeEnabledRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetSafeModeEnabledRequest) ProtoMessage() {}
-
-func (x *SetSafeModeEnabledRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_vcn_vcn_proto_msgTypes[78]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetSafeModeEnabledRequest.ProtoReflect.Descriptor instead.
-func (*SetSafeModeEnabledRequest) Descriptor() ([]byte, []int) {
-	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{78}
-}
-
-func (x *SetSafeModeEnabledRequest) GetArg0() bool {
-	if x != nil {
-		return x.Arg0
-	}
-	return false
-}
-
-type SetSafeModeEnabledResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetSafeModeEnabledResponse) Reset() {
-	*x = SetSafeModeEnabledResponse{}
-	mi := &file_proto_vcn_vcn_proto_msgTypes[79]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetSafeModeEnabledResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetSafeModeEnabledResponse) ProtoMessage() {}
-
-func (x *SetSafeModeEnabledResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_vcn_vcn_proto_msgTypes[79]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetSafeModeEnabledResponse.ProtoReflect.Descriptor instead.
-func (*SetSafeModeEnabledResponse) Descriptor() ([]byte, []int) {
-	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{79}
-}
-
-func (x *SetSafeModeEnabledResponse) GetResult() int64 {
+func (x *AddGatewayConnectionConfigResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
@@ -3432,7 +2560,7 @@ type ClearVcnConfigRequest struct {
 
 func (x *ClearVcnConfigRequest) Reset() {
 	*x = ClearVcnConfigRequest{}
-	mi := &file_proto_vcn_vcn_proto_msgTypes[80]
+	mi := &file_proto_vcn_vcn_proto_msgTypes[60]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3444,7 +2572,7 @@ func (x *ClearVcnConfigRequest) String() string {
 func (*ClearVcnConfigRequest) ProtoMessage() {}
 
 func (x *ClearVcnConfigRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_vcn_vcn_proto_msgTypes[80]
+	mi := &file_proto_vcn_vcn_proto_msgTypes[60]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3457,7 +2585,7 @@ func (x *ClearVcnConfigRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ClearVcnConfigRequest.ProtoReflect.Descriptor instead.
 func (*ClearVcnConfigRequest) Descriptor() ([]byte, []int) {
-	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{80}
+	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{60}
 }
 
 func (x *ClearVcnConfigRequest) GetArg0() int64 {
@@ -3475,7 +2603,7 @@ type ClearVcnConfigResponse struct {
 
 func (x *ClearVcnConfigResponse) Reset() {
 	*x = ClearVcnConfigResponse{}
-	mi := &file_proto_vcn_vcn_proto_msgTypes[81]
+	mi := &file_proto_vcn_vcn_proto_msgTypes[61]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3487,7 +2615,7 @@ func (x *ClearVcnConfigResponse) String() string {
 func (*ClearVcnConfigResponse) ProtoMessage() {}
 
 func (x *ClearVcnConfigResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_vcn_vcn_proto_msgTypes[81]
+	mi := &file_proto_vcn_vcn_proto_msgTypes[61]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3500,7 +2628,87 @@ func (x *ClearVcnConfigResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ClearVcnConfigResponse.ProtoReflect.Descriptor instead.
 func (*ClearVcnConfigResponse) Descriptor() ([]byte, []int) {
-	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{81}
+	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{61}
+}
+
+type GetConfiguredSubscriptionGroupsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetConfiguredSubscriptionGroupsRequest) Reset() {
+	*x = GetConfiguredSubscriptionGroupsRequest{}
+	mi := &file_proto_vcn_vcn_proto_msgTypes[62]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetConfiguredSubscriptionGroupsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetConfiguredSubscriptionGroupsRequest) ProtoMessage() {}
+
+func (x *GetConfiguredSubscriptionGroupsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vcn_vcn_proto_msgTypes[62]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetConfiguredSubscriptionGroupsRequest.ProtoReflect.Descriptor instead.
+func (*GetConfiguredSubscriptionGroupsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{62}
+}
+
+type GetConfiguredSubscriptionGroupsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetConfiguredSubscriptionGroupsResponse) Reset() {
+	*x = GetConfiguredSubscriptionGroupsResponse{}
+	mi := &file_proto_vcn_vcn_proto_msgTypes[63]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetConfiguredSubscriptionGroupsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetConfiguredSubscriptionGroupsResponse) ProtoMessage() {}
+
+func (x *GetConfiguredSubscriptionGroupsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vcn_vcn_proto_msgTypes[63]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetConfiguredSubscriptionGroupsResponse.ProtoReflect.Descriptor instead.
+func (*GetConfiguredSubscriptionGroupsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{63}
+}
+
+func (x *GetConfiguredSubscriptionGroupsResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
 }
 
 type RegisterVcnStatusCallbackRequest struct {
@@ -3514,7 +2722,7 @@ type RegisterVcnStatusCallbackRequest struct {
 
 func (x *RegisterVcnStatusCallbackRequest) Reset() {
 	*x = RegisterVcnStatusCallbackRequest{}
-	mi := &file_proto_vcn_vcn_proto_msgTypes[82]
+	mi := &file_proto_vcn_vcn_proto_msgTypes[64]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3526,7 +2734,7 @@ func (x *RegisterVcnStatusCallbackRequest) String() string {
 func (*RegisterVcnStatusCallbackRequest) ProtoMessage() {}
 
 func (x *RegisterVcnStatusCallbackRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_vcn_vcn_proto_msgTypes[82]
+	mi := &file_proto_vcn_vcn_proto_msgTypes[64]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3539,7 +2747,7 @@ func (x *RegisterVcnStatusCallbackRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RegisterVcnStatusCallbackRequest.ProtoReflect.Descriptor instead.
 func (*RegisterVcnStatusCallbackRequest) Descriptor() ([]byte, []int) {
-	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{82}
+	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{64}
 }
 
 func (x *RegisterVcnStatusCallbackRequest) GetArg0() int64 {
@@ -3571,7 +2779,7 @@ type RegisterVcnStatusCallbackResponse struct {
 
 func (x *RegisterVcnStatusCallbackResponse) Reset() {
 	*x = RegisterVcnStatusCallbackResponse{}
-	mi := &file_proto_vcn_vcn_proto_msgTypes[83]
+	mi := &file_proto_vcn_vcn_proto_msgTypes[65]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3583,7 +2791,7 @@ func (x *RegisterVcnStatusCallbackResponse) String() string {
 func (*RegisterVcnStatusCallbackResponse) ProtoMessage() {}
 
 func (x *RegisterVcnStatusCallbackResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_vcn_vcn_proto_msgTypes[83]
+	mi := &file_proto_vcn_vcn_proto_msgTypes[65]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3596,7 +2804,7 @@ func (x *RegisterVcnStatusCallbackResponse) ProtoReflect() protoreflect.Message 
 
 // Deprecated: Use RegisterVcnStatusCallbackResponse.ProtoReflect.Descriptor instead.
 func (*RegisterVcnStatusCallbackResponse) Descriptor() ([]byte, []int) {
-	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{83}
+	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{65}
 }
 
 type SetVcnConfigRequest struct {
@@ -3609,7 +2817,7 @@ type SetVcnConfigRequest struct {
 
 func (x *SetVcnConfigRequest) Reset() {
 	*x = SetVcnConfigRequest{}
-	mi := &file_proto_vcn_vcn_proto_msgTypes[84]
+	mi := &file_proto_vcn_vcn_proto_msgTypes[66]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3621,7 +2829,7 @@ func (x *SetVcnConfigRequest) String() string {
 func (*SetVcnConfigRequest) ProtoMessage() {}
 
 func (x *SetVcnConfigRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_vcn_vcn_proto_msgTypes[84]
+	mi := &file_proto_vcn_vcn_proto_msgTypes[66]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3634,7 +2842,7 @@ func (x *SetVcnConfigRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetVcnConfigRequest.ProtoReflect.Descriptor instead.
 func (*SetVcnConfigRequest) Descriptor() ([]byte, []int) {
-	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{84}
+	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{66}
 }
 
 func (x *SetVcnConfigRequest) GetArg0() int64 {
@@ -3659,7 +2867,7 @@ type SetVcnConfigResponse struct {
 
 func (x *SetVcnConfigResponse) Reset() {
 	*x = SetVcnConfigResponse{}
-	mi := &file_proto_vcn_vcn_proto_msgTypes[85]
+	mi := &file_proto_vcn_vcn_proto_msgTypes[67]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3671,7 +2879,7 @@ func (x *SetVcnConfigResponse) String() string {
 func (*SetVcnConfigResponse) ProtoMessage() {}
 
 func (x *SetVcnConfigResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_vcn_vcn_proto_msgTypes[85]
+	mi := &file_proto_vcn_vcn_proto_msgTypes[67]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3684,7 +2892,7 @@ func (x *SetVcnConfigResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetVcnConfigResponse.ProtoReflect.Descriptor instead.
 func (*SetVcnConfigResponse) Descriptor() ([]byte, []int) {
-	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{85}
+	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{67}
 }
 
 type UnregisterVcnStatusCallbackRequest struct {
@@ -3696,7 +2904,7 @@ type UnregisterVcnStatusCallbackRequest struct {
 
 func (x *UnregisterVcnStatusCallbackRequest) Reset() {
 	*x = UnregisterVcnStatusCallbackRequest{}
-	mi := &file_proto_vcn_vcn_proto_msgTypes[86]
+	mi := &file_proto_vcn_vcn_proto_msgTypes[68]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3708,7 +2916,7 @@ func (x *UnregisterVcnStatusCallbackRequest) String() string {
 func (*UnregisterVcnStatusCallbackRequest) ProtoMessage() {}
 
 func (x *UnregisterVcnStatusCallbackRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_vcn_vcn_proto_msgTypes[86]
+	mi := &file_proto_vcn_vcn_proto_msgTypes[68]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3721,7 +2929,7 @@ func (x *UnregisterVcnStatusCallbackRequest) ProtoReflect() protoreflect.Message
 
 // Deprecated: Use UnregisterVcnStatusCallbackRequest.ProtoReflect.Descriptor instead.
 func (*UnregisterVcnStatusCallbackRequest) Descriptor() ([]byte, []int) {
-	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{86}
+	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{68}
 }
 
 func (x *UnregisterVcnStatusCallbackRequest) GetArg0() int64 {
@@ -3739,7 +2947,7 @@ type UnregisterVcnStatusCallbackResponse struct {
 
 func (x *UnregisterVcnStatusCallbackResponse) Reset() {
 	*x = UnregisterVcnStatusCallbackResponse{}
-	mi := &file_proto_vcn_vcn_proto_msgTypes[87]
+	mi := &file_proto_vcn_vcn_proto_msgTypes[69]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3751,7 +2959,7 @@ func (x *UnregisterVcnStatusCallbackResponse) String() string {
 func (*UnregisterVcnStatusCallbackResponse) ProtoMessage() {}
 
 func (x *UnregisterVcnStatusCallbackResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_vcn_vcn_proto_msgTypes[87]
+	mi := &file_proto_vcn_vcn_proto_msgTypes[69]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3764,7 +2972,7 @@ func (x *UnregisterVcnStatusCallbackResponse) ProtoReflect() protoreflect.Messag
 
 // Deprecated: Use UnregisterVcnStatusCallbackResponse.ProtoReflect.Descriptor instead.
 func (*UnregisterVcnStatusCallbackResponse) Descriptor() ([]byte, []int) {
-	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{87}
+	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{69}
 }
 
 type OnGatewayConnectionErrorRequest struct {
@@ -3778,7 +2986,7 @@ type OnGatewayConnectionErrorRequest struct {
 
 func (x *OnGatewayConnectionErrorRequest) Reset() {
 	*x = OnGatewayConnectionErrorRequest{}
-	mi := &file_proto_vcn_vcn_proto_msgTypes[88]
+	mi := &file_proto_vcn_vcn_proto_msgTypes[70]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3790,7 +2998,7 @@ func (x *OnGatewayConnectionErrorRequest) String() string {
 func (*OnGatewayConnectionErrorRequest) ProtoMessage() {}
 
 func (x *OnGatewayConnectionErrorRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_vcn_vcn_proto_msgTypes[88]
+	mi := &file_proto_vcn_vcn_proto_msgTypes[70]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3803,7 +3011,7 @@ func (x *OnGatewayConnectionErrorRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnGatewayConnectionErrorRequest.ProtoReflect.Descriptor instead.
 func (*OnGatewayConnectionErrorRequest) Descriptor() ([]byte, []int) {
-	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{88}
+	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{70}
 }
 
 func (x *OnGatewayConnectionErrorRequest) GetArg0() string {
@@ -3835,7 +3043,7 @@ type OnGatewayConnectionErrorResponse struct {
 
 func (x *OnGatewayConnectionErrorResponse) Reset() {
 	*x = OnGatewayConnectionErrorResponse{}
-	mi := &file_proto_vcn_vcn_proto_msgTypes[89]
+	mi := &file_proto_vcn_vcn_proto_msgTypes[71]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3847,7 +3055,7 @@ func (x *OnGatewayConnectionErrorResponse) String() string {
 func (*OnGatewayConnectionErrorResponse) ProtoMessage() {}
 
 func (x *OnGatewayConnectionErrorResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_vcn_vcn_proto_msgTypes[89]
+	mi := &file_proto_vcn_vcn_proto_msgTypes[71]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3860,7 +3068,7 @@ func (x *OnGatewayConnectionErrorResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnGatewayConnectionErrorResponse.ProtoReflect.Descriptor instead.
 func (*OnGatewayConnectionErrorResponse) Descriptor() ([]byte, []int) {
-	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{89}
+	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{71}
 }
 
 type OnStatusChangedRequest struct {
@@ -3872,7 +3080,7 @@ type OnStatusChangedRequest struct {
 
 func (x *OnStatusChangedRequest) Reset() {
 	*x = OnStatusChangedRequest{}
-	mi := &file_proto_vcn_vcn_proto_msgTypes[90]
+	mi := &file_proto_vcn_vcn_proto_msgTypes[72]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3884,7 +3092,7 @@ func (x *OnStatusChangedRequest) String() string {
 func (*OnStatusChangedRequest) ProtoMessage() {}
 
 func (x *OnStatusChangedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_vcn_vcn_proto_msgTypes[90]
+	mi := &file_proto_vcn_vcn_proto_msgTypes[72]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3897,7 +3105,7 @@ func (x *OnStatusChangedRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnStatusChangedRequest.ProtoReflect.Descriptor instead.
 func (*OnStatusChangedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{90}
+	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{72}
 }
 
 func (x *OnStatusChangedRequest) GetArg0() int32 {
@@ -3915,7 +3123,7 @@ type OnStatusChangedResponse struct {
 
 func (x *OnStatusChangedResponse) Reset() {
 	*x = OnStatusChangedResponse{}
-	mi := &file_proto_vcn_vcn_proto_msgTypes[91]
+	mi := &file_proto_vcn_vcn_proto_msgTypes[73]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3927,7 +3135,7 @@ func (x *OnStatusChangedResponse) String() string {
 func (*OnStatusChangedResponse) ProtoMessage() {}
 
 func (x *OnStatusChangedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_vcn_vcn_proto_msgTypes[91]
+	mi := &file_proto_vcn_vcn_proto_msgTypes[73]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3940,7 +3148,1359 @@ func (x *OnStatusChangedResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnStatusChangedResponse.ProtoReflect.Descriptor instead.
 func (*OnStatusChangedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{73}
+}
+
+type GetExposedCapabilitiesRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetExposedCapabilitiesRequest) Reset() {
+	*x = GetExposedCapabilitiesRequest{}
+	mi := &file_proto_vcn_vcn_proto_msgTypes[74]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetExposedCapabilitiesRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetExposedCapabilitiesRequest) ProtoMessage() {}
+
+func (x *GetExposedCapabilitiesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vcn_vcn_proto_msgTypes[74]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetExposedCapabilitiesRequest.ProtoReflect.Descriptor instead.
+func (*GetExposedCapabilitiesRequest) Descriptor() ([]byte, []int) {
+	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{74}
+}
+
+type GetExposedCapabilitiesResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetExposedCapabilitiesResponse) Reset() {
+	*x = GetExposedCapabilitiesResponse{}
+	mi := &file_proto_vcn_vcn_proto_msgTypes[75]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetExposedCapabilitiesResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetExposedCapabilitiesResponse) ProtoMessage() {}
+
+func (x *GetExposedCapabilitiesResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vcn_vcn_proto_msgTypes[75]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetExposedCapabilitiesResponse.ProtoReflect.Descriptor instead.
+func (*GetExposedCapabilitiesResponse) Descriptor() ([]byte, []int) {
+	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{75}
+}
+
+func (x *GetExposedCapabilitiesResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetGatewayConnectionNameRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetGatewayConnectionNameRequest) Reset() {
+	*x = GetGatewayConnectionNameRequest{}
+	mi := &file_proto_vcn_vcn_proto_msgTypes[76]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetGatewayConnectionNameRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetGatewayConnectionNameRequest) ProtoMessage() {}
+
+func (x *GetGatewayConnectionNameRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vcn_vcn_proto_msgTypes[76]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetGatewayConnectionNameRequest.ProtoReflect.Descriptor instead.
+func (*GetGatewayConnectionNameRequest) Descriptor() ([]byte, []int) {
+	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{76}
+}
+
+type GetGatewayConnectionNameResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetGatewayConnectionNameResponse) Reset() {
+	*x = GetGatewayConnectionNameResponse{}
+	mi := &file_proto_vcn_vcn_proto_msgTypes[77]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetGatewayConnectionNameResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetGatewayConnectionNameResponse) ProtoMessage() {}
+
+func (x *GetGatewayConnectionNameResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vcn_vcn_proto_msgTypes[77]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetGatewayConnectionNameResponse.ProtoReflect.Descriptor instead.
+func (*GetGatewayConnectionNameResponse) Descriptor() ([]byte, []int) {
+	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{77}
+}
+
+func (x *GetGatewayConnectionNameResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type GetMaxMtuRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMaxMtuRequest) Reset() {
+	*x = GetMaxMtuRequest{}
+	mi := &file_proto_vcn_vcn_proto_msgTypes[78]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMaxMtuRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMaxMtuRequest) ProtoMessage() {}
+
+func (x *GetMaxMtuRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vcn_vcn_proto_msgTypes[78]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMaxMtuRequest.ProtoReflect.Descriptor instead.
+func (*GetMaxMtuRequest) Descriptor() ([]byte, []int) {
+	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{78}
+}
+
+type GetMaxMtuResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMaxMtuResponse) Reset() {
+	*x = GetMaxMtuResponse{}
+	mi := &file_proto_vcn_vcn_proto_msgTypes[79]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMaxMtuResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMaxMtuResponse) ProtoMessage() {}
+
+func (x *GetMaxMtuResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vcn_vcn_proto_msgTypes[79]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMaxMtuResponse.ProtoReflect.Descriptor instead.
+func (*GetMaxMtuResponse) Descriptor() ([]byte, []int) {
+	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{79}
+}
+
+func (x *GetMaxMtuResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetMinUdpPort4500NatTimeoutSecondsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMinUdpPort4500NatTimeoutSecondsRequest) Reset() {
+	*x = GetMinUdpPort4500NatTimeoutSecondsRequest{}
+	mi := &file_proto_vcn_vcn_proto_msgTypes[80]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMinUdpPort4500NatTimeoutSecondsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMinUdpPort4500NatTimeoutSecondsRequest) ProtoMessage() {}
+
+func (x *GetMinUdpPort4500NatTimeoutSecondsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vcn_vcn_proto_msgTypes[80]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMinUdpPort4500NatTimeoutSecondsRequest.ProtoReflect.Descriptor instead.
+func (*GetMinUdpPort4500NatTimeoutSecondsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{80}
+}
+
+type GetMinUdpPort4500NatTimeoutSecondsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMinUdpPort4500NatTimeoutSecondsResponse) Reset() {
+	*x = GetMinUdpPort4500NatTimeoutSecondsResponse{}
+	mi := &file_proto_vcn_vcn_proto_msgTypes[81]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMinUdpPort4500NatTimeoutSecondsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMinUdpPort4500NatTimeoutSecondsResponse) ProtoMessage() {}
+
+func (x *GetMinUdpPort4500NatTimeoutSecondsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vcn_vcn_proto_msgTypes[81]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMinUdpPort4500NatTimeoutSecondsResponse.ProtoReflect.Descriptor instead.
+func (*GetMinUdpPort4500NatTimeoutSecondsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{81}
+}
+
+func (x *GetMinUdpPort4500NatTimeoutSecondsResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetRetryIntervalsMillisRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetRetryIntervalsMillisRequest) Reset() {
+	*x = GetRetryIntervalsMillisRequest{}
+	mi := &file_proto_vcn_vcn_proto_msgTypes[82]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetRetryIntervalsMillisRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetRetryIntervalsMillisRequest) ProtoMessage() {}
+
+func (x *GetRetryIntervalsMillisRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vcn_vcn_proto_msgTypes[82]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetRetryIntervalsMillisRequest.ProtoReflect.Descriptor instead.
+func (*GetRetryIntervalsMillisRequest) Descriptor() ([]byte, []int) {
+	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{82}
+}
+
+type GetRetryIntervalsMillisResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetRetryIntervalsMillisResponse) Reset() {
+	*x = GetRetryIntervalsMillisResponse{}
+	mi := &file_proto_vcn_vcn_proto_msgTypes[83]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetRetryIntervalsMillisResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetRetryIntervalsMillisResponse) ProtoMessage() {}
+
+func (x *GetRetryIntervalsMillisResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vcn_vcn_proto_msgTypes[83]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetRetryIntervalsMillisResponse.ProtoReflect.Descriptor instead.
+func (*GetRetryIntervalsMillisResponse) Descriptor() ([]byte, []int) {
+	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{83}
+}
+
+func (x *GetRetryIntervalsMillisResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetVcnUnderlyingNetworkPrioritiesRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetVcnUnderlyingNetworkPrioritiesRequest) Reset() {
+	*x = GetVcnUnderlyingNetworkPrioritiesRequest{}
+	mi := &file_proto_vcn_vcn_proto_msgTypes[84]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetVcnUnderlyingNetworkPrioritiesRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetVcnUnderlyingNetworkPrioritiesRequest) ProtoMessage() {}
+
+func (x *GetVcnUnderlyingNetworkPrioritiesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vcn_vcn_proto_msgTypes[84]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetVcnUnderlyingNetworkPrioritiesRequest.ProtoReflect.Descriptor instead.
+func (*GetVcnUnderlyingNetworkPrioritiesRequest) Descriptor() ([]byte, []int) {
+	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{84}
+}
+
+type GetVcnUnderlyingNetworkPrioritiesResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetVcnUnderlyingNetworkPrioritiesResponse) Reset() {
+	*x = GetVcnUnderlyingNetworkPrioritiesResponse{}
+	mi := &file_proto_vcn_vcn_proto_msgTypes[85]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetVcnUnderlyingNetworkPrioritiesResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetVcnUnderlyingNetworkPrioritiesResponse) ProtoMessage() {}
+
+func (x *GetVcnUnderlyingNetworkPrioritiesResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vcn_vcn_proto_msgTypes[85]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetVcnUnderlyingNetworkPrioritiesResponse.ProtoReflect.Descriptor instead.
+func (*GetVcnUnderlyingNetworkPrioritiesResponse) Descriptor() ([]byte, []int) {
+	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{85}
+}
+
+func (x *GetVcnUnderlyingNetworkPrioritiesResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type HasGatewayOptionRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *HasGatewayOptionRequest) Reset() {
+	*x = HasGatewayOptionRequest{}
+	mi := &file_proto_vcn_vcn_proto_msgTypes[86]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *HasGatewayOptionRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*HasGatewayOptionRequest) ProtoMessage() {}
+
+func (x *HasGatewayOptionRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vcn_vcn_proto_msgTypes[86]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use HasGatewayOptionRequest.ProtoReflect.Descriptor instead.
+func (*HasGatewayOptionRequest) Descriptor() ([]byte, []int) {
+	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{86}
+}
+
+func (x *HasGatewayOptionRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type HasGatewayOptionResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *HasGatewayOptionResponse) Reset() {
+	*x = HasGatewayOptionResponse{}
+	mi := &file_proto_vcn_vcn_proto_msgTypes[87]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *HasGatewayOptionResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*HasGatewayOptionResponse) ProtoMessage() {}
+
+func (x *HasGatewayOptionResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vcn_vcn_proto_msgTypes[87]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use HasGatewayOptionResponse.ProtoReflect.Descriptor instead.
+func (*HasGatewayOptionResponse) Descriptor() ([]byte, []int) {
+	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{87}
+}
+
+func (x *HasGatewayOptionResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type IsSafeModeEnabledRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsSafeModeEnabledRequest) Reset() {
+	*x = IsSafeModeEnabledRequest{}
+	mi := &file_proto_vcn_vcn_proto_msgTypes[88]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsSafeModeEnabledRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsSafeModeEnabledRequest) ProtoMessage() {}
+
+func (x *IsSafeModeEnabledRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vcn_vcn_proto_msgTypes[88]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsSafeModeEnabledRequest.ProtoReflect.Descriptor instead.
+func (*IsSafeModeEnabledRequest) Descriptor() ([]byte, []int) {
+	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{88}
+}
+
+type IsSafeModeEnabledResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsSafeModeEnabledResponse) Reset() {
+	*x = IsSafeModeEnabledResponse{}
+	mi := &file_proto_vcn_vcn_proto_msgTypes[89]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsSafeModeEnabledResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsSafeModeEnabledResponse) ProtoMessage() {}
+
+func (x *IsSafeModeEnabledResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vcn_vcn_proto_msgTypes[89]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsSafeModeEnabledResponse.ProtoReflect.Descriptor instead.
+func (*IsSafeModeEnabledResponse) Descriptor() ([]byte, []int) {
+	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{89}
+}
+
+func (x *IsSafeModeEnabledResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type AddExposedCapabilityRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddExposedCapabilityRequest) Reset() {
+	*x = AddExposedCapabilityRequest{}
+	mi := &file_proto_vcn_vcn_proto_msgTypes[90]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddExposedCapabilityRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddExposedCapabilityRequest) ProtoMessage() {}
+
+func (x *AddExposedCapabilityRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vcn_vcn_proto_msgTypes[90]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddExposedCapabilityRequest.ProtoReflect.Descriptor instead.
+func (*AddExposedCapabilityRequest) Descriptor() ([]byte, []int) {
+	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{90}
+}
+
+func (x *AddExposedCapabilityRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type AddExposedCapabilityResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddExposedCapabilityResponse) Reset() {
+	*x = AddExposedCapabilityResponse{}
+	mi := &file_proto_vcn_vcn_proto_msgTypes[91]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddExposedCapabilityResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddExposedCapabilityResponse) ProtoMessage() {}
+
+func (x *AddExposedCapabilityResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vcn_vcn_proto_msgTypes[91]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddExposedCapabilityResponse.ProtoReflect.Descriptor instead.
+func (*AddExposedCapabilityResponse) Descriptor() ([]byte, []int) {
 	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{91}
+}
+
+func (x *AddExposedCapabilityResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type AddGatewayOptionRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddGatewayOptionRequest) Reset() {
+	*x = AddGatewayOptionRequest{}
+	mi := &file_proto_vcn_vcn_proto_msgTypes[92]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddGatewayOptionRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddGatewayOptionRequest) ProtoMessage() {}
+
+func (x *AddGatewayOptionRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vcn_vcn_proto_msgTypes[92]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddGatewayOptionRequest.ProtoReflect.Descriptor instead.
+func (*AddGatewayOptionRequest) Descriptor() ([]byte, []int) {
+	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{92}
+}
+
+func (x *AddGatewayOptionRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type AddGatewayOptionResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddGatewayOptionResponse) Reset() {
+	*x = AddGatewayOptionResponse{}
+	mi := &file_proto_vcn_vcn_proto_msgTypes[93]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddGatewayOptionResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddGatewayOptionResponse) ProtoMessage() {}
+
+func (x *AddGatewayOptionResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vcn_vcn_proto_msgTypes[93]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddGatewayOptionResponse.ProtoReflect.Descriptor instead.
+func (*AddGatewayOptionResponse) Descriptor() ([]byte, []int) {
+	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{93}
+}
+
+func (x *AddGatewayOptionResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type RemoveExposedCapabilityRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RemoveExposedCapabilityRequest) Reset() {
+	*x = RemoveExposedCapabilityRequest{}
+	mi := &file_proto_vcn_vcn_proto_msgTypes[94]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RemoveExposedCapabilityRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RemoveExposedCapabilityRequest) ProtoMessage() {}
+
+func (x *RemoveExposedCapabilityRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vcn_vcn_proto_msgTypes[94]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RemoveExposedCapabilityRequest.ProtoReflect.Descriptor instead.
+func (*RemoveExposedCapabilityRequest) Descriptor() ([]byte, []int) {
+	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{94}
+}
+
+func (x *RemoveExposedCapabilityRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type RemoveExposedCapabilityResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RemoveExposedCapabilityResponse) Reset() {
+	*x = RemoveExposedCapabilityResponse{}
+	mi := &file_proto_vcn_vcn_proto_msgTypes[95]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RemoveExposedCapabilityResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RemoveExposedCapabilityResponse) ProtoMessage() {}
+
+func (x *RemoveExposedCapabilityResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vcn_vcn_proto_msgTypes[95]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RemoveExposedCapabilityResponse.ProtoReflect.Descriptor instead.
+func (*RemoveExposedCapabilityResponse) Descriptor() ([]byte, []int) {
+	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{95}
+}
+
+func (x *RemoveExposedCapabilityResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type RemoveGatewayOptionRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RemoveGatewayOptionRequest) Reset() {
+	*x = RemoveGatewayOptionRequest{}
+	mi := &file_proto_vcn_vcn_proto_msgTypes[96]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RemoveGatewayOptionRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RemoveGatewayOptionRequest) ProtoMessage() {}
+
+func (x *RemoveGatewayOptionRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vcn_vcn_proto_msgTypes[96]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RemoveGatewayOptionRequest.ProtoReflect.Descriptor instead.
+func (*RemoveGatewayOptionRequest) Descriptor() ([]byte, []int) {
+	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{96}
+}
+
+func (x *RemoveGatewayOptionRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type RemoveGatewayOptionResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RemoveGatewayOptionResponse) Reset() {
+	*x = RemoveGatewayOptionResponse{}
+	mi := &file_proto_vcn_vcn_proto_msgTypes[97]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RemoveGatewayOptionResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RemoveGatewayOptionResponse) ProtoMessage() {}
+
+func (x *RemoveGatewayOptionResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vcn_vcn_proto_msgTypes[97]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RemoveGatewayOptionResponse.ProtoReflect.Descriptor instead.
+func (*RemoveGatewayOptionResponse) Descriptor() ([]byte, []int) {
+	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{97}
+}
+
+func (x *RemoveGatewayOptionResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetMaxMtuRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetMaxMtuRequest) Reset() {
+	*x = SetMaxMtuRequest{}
+	mi := &file_proto_vcn_vcn_proto_msgTypes[98]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetMaxMtuRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetMaxMtuRequest) ProtoMessage() {}
+
+func (x *SetMaxMtuRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vcn_vcn_proto_msgTypes[98]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetMaxMtuRequest.ProtoReflect.Descriptor instead.
+func (*SetMaxMtuRequest) Descriptor() ([]byte, []int) {
+	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{98}
+}
+
+func (x *SetMaxMtuRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetMaxMtuResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetMaxMtuResponse) Reset() {
+	*x = SetMaxMtuResponse{}
+	mi := &file_proto_vcn_vcn_proto_msgTypes[99]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetMaxMtuResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetMaxMtuResponse) ProtoMessage() {}
+
+func (x *SetMaxMtuResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vcn_vcn_proto_msgTypes[99]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetMaxMtuResponse.ProtoReflect.Descriptor instead.
+func (*SetMaxMtuResponse) Descriptor() ([]byte, []int) {
+	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{99}
+}
+
+func (x *SetMaxMtuResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetMinUdpPort4500NatTimeoutSecondsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetMinUdpPort4500NatTimeoutSecondsRequest) Reset() {
+	*x = SetMinUdpPort4500NatTimeoutSecondsRequest{}
+	mi := &file_proto_vcn_vcn_proto_msgTypes[100]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetMinUdpPort4500NatTimeoutSecondsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetMinUdpPort4500NatTimeoutSecondsRequest) ProtoMessage() {}
+
+func (x *SetMinUdpPort4500NatTimeoutSecondsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vcn_vcn_proto_msgTypes[100]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetMinUdpPort4500NatTimeoutSecondsRequest.ProtoReflect.Descriptor instead.
+func (*SetMinUdpPort4500NatTimeoutSecondsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{100}
+}
+
+func (x *SetMinUdpPort4500NatTimeoutSecondsRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetMinUdpPort4500NatTimeoutSecondsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetMinUdpPort4500NatTimeoutSecondsResponse) Reset() {
+	*x = SetMinUdpPort4500NatTimeoutSecondsResponse{}
+	mi := &file_proto_vcn_vcn_proto_msgTypes[101]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetMinUdpPort4500NatTimeoutSecondsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetMinUdpPort4500NatTimeoutSecondsResponse) ProtoMessage() {}
+
+func (x *SetMinUdpPort4500NatTimeoutSecondsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vcn_vcn_proto_msgTypes[101]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetMinUdpPort4500NatTimeoutSecondsResponse.ProtoReflect.Descriptor instead.
+func (*SetMinUdpPort4500NatTimeoutSecondsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{101}
+}
+
+func (x *SetMinUdpPort4500NatTimeoutSecondsResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetRetryIntervalsMillisRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetRetryIntervalsMillisRequest) Reset() {
+	*x = SetRetryIntervalsMillisRequest{}
+	mi := &file_proto_vcn_vcn_proto_msgTypes[102]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetRetryIntervalsMillisRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetRetryIntervalsMillisRequest) ProtoMessage() {}
+
+func (x *SetRetryIntervalsMillisRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vcn_vcn_proto_msgTypes[102]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetRetryIntervalsMillisRequest.ProtoReflect.Descriptor instead.
+func (*SetRetryIntervalsMillisRequest) Descriptor() ([]byte, []int) {
+	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{102}
+}
+
+func (x *SetRetryIntervalsMillisRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetRetryIntervalsMillisResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetRetryIntervalsMillisResponse) Reset() {
+	*x = SetRetryIntervalsMillisResponse{}
+	mi := &file_proto_vcn_vcn_proto_msgTypes[103]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetRetryIntervalsMillisResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetRetryIntervalsMillisResponse) ProtoMessage() {}
+
+func (x *SetRetryIntervalsMillisResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vcn_vcn_proto_msgTypes[103]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetRetryIntervalsMillisResponse.ProtoReflect.Descriptor instead.
+func (*SetRetryIntervalsMillisResponse) Descriptor() ([]byte, []int) {
+	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{103}
+}
+
+func (x *SetRetryIntervalsMillisResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetSafeModeEnabledRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          bool                   `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetSafeModeEnabledRequest) Reset() {
+	*x = SetSafeModeEnabledRequest{}
+	mi := &file_proto_vcn_vcn_proto_msgTypes[104]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetSafeModeEnabledRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetSafeModeEnabledRequest) ProtoMessage() {}
+
+func (x *SetSafeModeEnabledRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vcn_vcn_proto_msgTypes[104]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetSafeModeEnabledRequest.ProtoReflect.Descriptor instead.
+func (*SetSafeModeEnabledRequest) Descriptor() ([]byte, []int) {
+	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{104}
+}
+
+func (x *SetSafeModeEnabledRequest) GetArg0() bool {
+	if x != nil {
+		return x.Arg0
+	}
+	return false
+}
+
+type SetSafeModeEnabledResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetSafeModeEnabledResponse) Reset() {
+	*x = SetSafeModeEnabledResponse{}
+	mi := &file_proto_vcn_vcn_proto_msgTypes[105]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetSafeModeEnabledResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetSafeModeEnabledResponse) ProtoMessage() {}
+
+func (x *SetSafeModeEnabledResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vcn_vcn_proto_msgTypes[105]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetSafeModeEnabledResponse.ProtoReflect.Descriptor instead.
+func (*SetSafeModeEnabledResponse) Descriptor() ([]byte, []int) {
+	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{105}
+}
+
+func (x *SetSafeModeEnabledResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
 }
 
 type GetMeteredRequest struct {
@@ -3951,7 +4511,7 @@ type GetMeteredRequest struct {
 
 func (x *GetMeteredRequest) Reset() {
 	*x = GetMeteredRequest{}
-	mi := &file_proto_vcn_vcn_proto_msgTypes[92]
+	mi := &file_proto_vcn_vcn_proto_msgTypes[106]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3963,7 +4523,7 @@ func (x *GetMeteredRequest) String() string {
 func (*GetMeteredRequest) ProtoMessage() {}
 
 func (x *GetMeteredRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_vcn_vcn_proto_msgTypes[92]
+	mi := &file_proto_vcn_vcn_proto_msgTypes[106]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3976,7 +4536,7 @@ func (x *GetMeteredRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetMeteredRequest.ProtoReflect.Descriptor instead.
 func (*GetMeteredRequest) Descriptor() ([]byte, []int) {
-	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{92}
+	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{106}
 }
 
 type GetMeteredResponse struct {
@@ -3988,7 +4548,7 @@ type GetMeteredResponse struct {
 
 func (x *GetMeteredResponse) Reset() {
 	*x = GetMeteredResponse{}
-	mi := &file_proto_vcn_vcn_proto_msgTypes[93]
+	mi := &file_proto_vcn_vcn_proto_msgTypes[107]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4000,7 +4560,7 @@ func (x *GetMeteredResponse) String() string {
 func (*GetMeteredResponse) ProtoMessage() {}
 
 func (x *GetMeteredResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_vcn_vcn_proto_msgTypes[93]
+	mi := &file_proto_vcn_vcn_proto_msgTypes[107]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4013,7 +4573,7 @@ func (x *GetMeteredResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetMeteredResponse.ProtoReflect.Descriptor instead.
 func (*GetMeteredResponse) Descriptor() ([]byte, []int) {
-	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{93}
+	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{107}
 }
 
 func (x *GetMeteredResponse) GetResult() int32 {
@@ -4031,7 +4591,7 @@ type GetMinEntryDownstreamBandwidthKbpsRequest struct {
 
 func (x *GetMinEntryDownstreamBandwidthKbpsRequest) Reset() {
 	*x = GetMinEntryDownstreamBandwidthKbpsRequest{}
-	mi := &file_proto_vcn_vcn_proto_msgTypes[94]
+	mi := &file_proto_vcn_vcn_proto_msgTypes[108]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4043,7 +4603,7 @@ func (x *GetMinEntryDownstreamBandwidthKbpsRequest) String() string {
 func (*GetMinEntryDownstreamBandwidthKbpsRequest) ProtoMessage() {}
 
 func (x *GetMinEntryDownstreamBandwidthKbpsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_vcn_vcn_proto_msgTypes[94]
+	mi := &file_proto_vcn_vcn_proto_msgTypes[108]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4056,7 +4616,7 @@ func (x *GetMinEntryDownstreamBandwidthKbpsRequest) ProtoReflect() protoreflect.
 
 // Deprecated: Use GetMinEntryDownstreamBandwidthKbpsRequest.ProtoReflect.Descriptor instead.
 func (*GetMinEntryDownstreamBandwidthKbpsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{94}
+	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{108}
 }
 
 type GetMinEntryDownstreamBandwidthKbpsResponse struct {
@@ -4068,7 +4628,7 @@ type GetMinEntryDownstreamBandwidthKbpsResponse struct {
 
 func (x *GetMinEntryDownstreamBandwidthKbpsResponse) Reset() {
 	*x = GetMinEntryDownstreamBandwidthKbpsResponse{}
-	mi := &file_proto_vcn_vcn_proto_msgTypes[95]
+	mi := &file_proto_vcn_vcn_proto_msgTypes[109]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4080,7 +4640,7 @@ func (x *GetMinEntryDownstreamBandwidthKbpsResponse) String() string {
 func (*GetMinEntryDownstreamBandwidthKbpsResponse) ProtoMessage() {}
 
 func (x *GetMinEntryDownstreamBandwidthKbpsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_vcn_vcn_proto_msgTypes[95]
+	mi := &file_proto_vcn_vcn_proto_msgTypes[109]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4093,7 +4653,7 @@ func (x *GetMinEntryDownstreamBandwidthKbpsResponse) ProtoReflect() protoreflect
 
 // Deprecated: Use GetMinEntryDownstreamBandwidthKbpsResponse.ProtoReflect.Descriptor instead.
 func (*GetMinEntryDownstreamBandwidthKbpsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{95}
+	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{109}
 }
 
 func (x *GetMinEntryDownstreamBandwidthKbpsResponse) GetResult() int32 {
@@ -4111,7 +4671,7 @@ type GetMinEntryUpstreamBandwidthKbpsRequest struct {
 
 func (x *GetMinEntryUpstreamBandwidthKbpsRequest) Reset() {
 	*x = GetMinEntryUpstreamBandwidthKbpsRequest{}
-	mi := &file_proto_vcn_vcn_proto_msgTypes[96]
+	mi := &file_proto_vcn_vcn_proto_msgTypes[110]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4123,7 +4683,7 @@ func (x *GetMinEntryUpstreamBandwidthKbpsRequest) String() string {
 func (*GetMinEntryUpstreamBandwidthKbpsRequest) ProtoMessage() {}
 
 func (x *GetMinEntryUpstreamBandwidthKbpsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_vcn_vcn_proto_msgTypes[96]
+	mi := &file_proto_vcn_vcn_proto_msgTypes[110]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4136,7 +4696,7 @@ func (x *GetMinEntryUpstreamBandwidthKbpsRequest) ProtoReflect() protoreflect.Me
 
 // Deprecated: Use GetMinEntryUpstreamBandwidthKbpsRequest.ProtoReflect.Descriptor instead.
 func (*GetMinEntryUpstreamBandwidthKbpsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{96}
+	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{110}
 }
 
 type GetMinEntryUpstreamBandwidthKbpsResponse struct {
@@ -4148,7 +4708,7 @@ type GetMinEntryUpstreamBandwidthKbpsResponse struct {
 
 func (x *GetMinEntryUpstreamBandwidthKbpsResponse) Reset() {
 	*x = GetMinEntryUpstreamBandwidthKbpsResponse{}
-	mi := &file_proto_vcn_vcn_proto_msgTypes[97]
+	mi := &file_proto_vcn_vcn_proto_msgTypes[111]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4160,7 +4720,7 @@ func (x *GetMinEntryUpstreamBandwidthKbpsResponse) String() string {
 func (*GetMinEntryUpstreamBandwidthKbpsResponse) ProtoMessage() {}
 
 func (x *GetMinEntryUpstreamBandwidthKbpsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_vcn_vcn_proto_msgTypes[97]
+	mi := &file_proto_vcn_vcn_proto_msgTypes[111]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4173,7 +4733,7 @@ func (x *GetMinEntryUpstreamBandwidthKbpsResponse) ProtoReflect() protoreflect.M
 
 // Deprecated: Use GetMinEntryUpstreamBandwidthKbpsResponse.ProtoReflect.Descriptor instead.
 func (*GetMinEntryUpstreamBandwidthKbpsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{97}
+	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{111}
 }
 
 func (x *GetMinEntryUpstreamBandwidthKbpsResponse) GetResult() int32 {
@@ -4191,7 +4751,7 @@ type GetMinExitDownstreamBandwidthKbpsRequest struct {
 
 func (x *GetMinExitDownstreamBandwidthKbpsRequest) Reset() {
 	*x = GetMinExitDownstreamBandwidthKbpsRequest{}
-	mi := &file_proto_vcn_vcn_proto_msgTypes[98]
+	mi := &file_proto_vcn_vcn_proto_msgTypes[112]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4203,7 +4763,7 @@ func (x *GetMinExitDownstreamBandwidthKbpsRequest) String() string {
 func (*GetMinExitDownstreamBandwidthKbpsRequest) ProtoMessage() {}
 
 func (x *GetMinExitDownstreamBandwidthKbpsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_vcn_vcn_proto_msgTypes[98]
+	mi := &file_proto_vcn_vcn_proto_msgTypes[112]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4216,7 +4776,7 @@ func (x *GetMinExitDownstreamBandwidthKbpsRequest) ProtoReflect() protoreflect.M
 
 // Deprecated: Use GetMinExitDownstreamBandwidthKbpsRequest.ProtoReflect.Descriptor instead.
 func (*GetMinExitDownstreamBandwidthKbpsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{98}
+	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{112}
 }
 
 type GetMinExitDownstreamBandwidthKbpsResponse struct {
@@ -4228,7 +4788,7 @@ type GetMinExitDownstreamBandwidthKbpsResponse struct {
 
 func (x *GetMinExitDownstreamBandwidthKbpsResponse) Reset() {
 	*x = GetMinExitDownstreamBandwidthKbpsResponse{}
-	mi := &file_proto_vcn_vcn_proto_msgTypes[99]
+	mi := &file_proto_vcn_vcn_proto_msgTypes[113]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4240,7 +4800,7 @@ func (x *GetMinExitDownstreamBandwidthKbpsResponse) String() string {
 func (*GetMinExitDownstreamBandwidthKbpsResponse) ProtoMessage() {}
 
 func (x *GetMinExitDownstreamBandwidthKbpsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_vcn_vcn_proto_msgTypes[99]
+	mi := &file_proto_vcn_vcn_proto_msgTypes[113]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4253,7 +4813,7 @@ func (x *GetMinExitDownstreamBandwidthKbpsResponse) ProtoReflect() protoreflect.
 
 // Deprecated: Use GetMinExitDownstreamBandwidthKbpsResponse.ProtoReflect.Descriptor instead.
 func (*GetMinExitDownstreamBandwidthKbpsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{99}
+	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{113}
 }
 
 func (x *GetMinExitDownstreamBandwidthKbpsResponse) GetResult() int32 {
@@ -4271,7 +4831,7 @@ type GetMinExitUpstreamBandwidthKbpsRequest struct {
 
 func (x *GetMinExitUpstreamBandwidthKbpsRequest) Reset() {
 	*x = GetMinExitUpstreamBandwidthKbpsRequest{}
-	mi := &file_proto_vcn_vcn_proto_msgTypes[100]
+	mi := &file_proto_vcn_vcn_proto_msgTypes[114]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4283,7 +4843,7 @@ func (x *GetMinExitUpstreamBandwidthKbpsRequest) String() string {
 func (*GetMinExitUpstreamBandwidthKbpsRequest) ProtoMessage() {}
 
 func (x *GetMinExitUpstreamBandwidthKbpsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_vcn_vcn_proto_msgTypes[100]
+	mi := &file_proto_vcn_vcn_proto_msgTypes[114]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4296,7 +4856,7 @@ func (x *GetMinExitUpstreamBandwidthKbpsRequest) ProtoReflect() protoreflect.Mes
 
 // Deprecated: Use GetMinExitUpstreamBandwidthKbpsRequest.ProtoReflect.Descriptor instead.
 func (*GetMinExitUpstreamBandwidthKbpsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{100}
+	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{114}
 }
 
 type GetMinExitUpstreamBandwidthKbpsResponse struct {
@@ -4308,7 +4868,7 @@ type GetMinExitUpstreamBandwidthKbpsResponse struct {
 
 func (x *GetMinExitUpstreamBandwidthKbpsResponse) Reset() {
 	*x = GetMinExitUpstreamBandwidthKbpsResponse{}
-	mi := &file_proto_vcn_vcn_proto_msgTypes[101]
+	mi := &file_proto_vcn_vcn_proto_msgTypes[115]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4320,7 +4880,7 @@ func (x *GetMinExitUpstreamBandwidthKbpsResponse) String() string {
 func (*GetMinExitUpstreamBandwidthKbpsResponse) ProtoMessage() {}
 
 func (x *GetMinExitUpstreamBandwidthKbpsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_vcn_vcn_proto_msgTypes[101]
+	mi := &file_proto_vcn_vcn_proto_msgTypes[115]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4333,7 +4893,7 @@ func (x *GetMinExitUpstreamBandwidthKbpsResponse) ProtoReflect() protoreflect.Me
 
 // Deprecated: Use GetMinExitUpstreamBandwidthKbpsResponse.ProtoReflect.Descriptor instead.
 func (*GetMinExitUpstreamBandwidthKbpsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{101}
+	return file_proto_vcn_vcn_proto_rawDescGZIP(), []int{115}
 }
 
 func (x *GetMinExitUpstreamBandwidthKbpsResponse) GetResult() int32 {
@@ -4347,27 +4907,33 @@ var File_proto_vcn_vcn_proto protoreflect.FileDescriptor
 
 const file_proto_vcn_vcn_proto_rawDesc = "" +
 	"\n" +
-	"\x13proto/vcn/vcn.proto\x12\x03vcn\"\x19\n" +
-	"\x17DescribeContentsRequest\"2\n" +
-	"\x18DescribeContentsResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\"#\n" +
+	"\x13proto/vcn/vcn.proto\x12\x03vcn\"#\n" +
 	"\rEqualsRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"(\n" +
 	"\x0eEqualsResponse\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\bR\x06result\"\x11\n" +
+	"\x0fGetSsidsRequest\"*\n" +
+	"\x10GetSsidsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x11\n" +
 	"\x0fHashCodeRequest\"*\n" +
 	"\x10HashCodeResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\">\n" +
-	"\x14WriteToParcelRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\"\x17\n" +
-	"\x15WriteToParcelResponse\"7\n" +
-	"!AddGatewayConnectionConfigRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"<\n" +
-	"\"AddGatewayConnectionConfigResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\x0e\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x0e\n" +
 	"\fBuildRequest\"'\n" +
 	"\rBuildResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"'\n" +
+	"\x11SetMeteredRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\",\n" +
+	"\x12SetMeteredResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"N\n" +
+	"$SetMinDownstreamBandwidthKbpsRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\"?\n" +
+	"%SetMinDownstreamBandwidthKbpsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"L\n" +
+	"\"SetMinUpstreamBandwidthKbpsRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\"=\n" +
+	"#SetMinUpstreamBandwidthKbpsResponse\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\x03R\x06result\"\x0f\n" +
 	"\rGetCbsRequest\"(\n" +
 	"\x0eGetCbsResponse\x12\x16\n" +
@@ -4383,7 +4949,10 @@ const file_proto_vcn_vcn_proto_rawDesc = "" +
 	"\x06result\x18\x01 \x01(\x05R\x06result\"\x0f\n" +
 	"\rGetMmsRequest\"(\n" +
 	"\x0eGetMmsResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\"\x19\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x1b\n" +
+	"\x19GetOperatorPlmnIdsRequest\"4\n" +
+	"\x1aGetOperatorPlmnIdsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x19\n" +
 	"\x17GetOpportunisticRequest\"2\n" +
 	"\x18GetOpportunisticResponse\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\x05R\x06result\"\x0f\n" +
@@ -4392,7 +4961,10 @@ const file_proto_vcn_vcn_proto_rawDesc = "" +
 	"\x06result\x18\x01 \x01(\x05R\x06result\"\x13\n" +
 	"\x11GetRoamingRequest\",\n" +
 	"\x12GetRoamingResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\"#\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"!\n" +
+	"\x1fGetSimSpecificCarrierIdsRequest\":\n" +
+	" GetSimSpecificCarrierIdsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"#\n" +
 	"\rSetCbsRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"(\n" +
 	"\x0eSetCbsResponse\x12\x16\n" +
@@ -4408,20 +4980,6 @@ const file_proto_vcn_vcn_proto_rawDesc = "" +
 	"\x12SetInternetRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"-\n" +
 	"\x13SetInternetResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"'\n" +
-	"\x11SetMeteredRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\",\n" +
-	"\x12SetMeteredResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"N\n" +
-	"$SetMinDownstreamBandwidthKbpsRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\"?\n" +
-	"%SetMinDownstreamBandwidthKbpsResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"L\n" +
-	"\"SetMinUpstreamBandwidthKbpsRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\"=\n" +
-	"#SetMinUpstreamBandwidthKbpsResponse\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\x03R\x06result\"#\n" +
 	"\rSetMmsRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"(\n" +
@@ -4438,7 +4996,50 @@ const file_proto_vcn_vcn_proto_rawDesc = "" +
 	"\x11SetRoamingRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\",\n" +
 	"\x12SetRoamingResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1f\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x19\n" +
+	"\x17DescribeContentsRequest\"2\n" +
+	"\x18DescribeContentsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"$\n" +
+	"\"GetGatewayConnectionConfigsRequest\"=\n" +
+	"#GetGatewayConnectionConfigsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"1\n" +
+	"/GetRestrictedUnderlyingNetworkTransportsRequest\"J\n" +
+	"0GetRestrictedUnderlyingNetworkTransportsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\">\n" +
+	"\x14WriteToParcelRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\"\x17\n" +
+	"\x15WriteToParcelResponse\"7\n" +
+	"!AddGatewayConnectionConfigRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"<\n" +
+	"\"AddGatewayConnectionConfigResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"+\n" +
+	"\x15ClearVcnConfigRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x18\n" +
+	"\x16ClearVcnConfigResponse\"(\n" +
+	"&GetConfiguredSubscriptionGroupsRequest\"A\n" +
+	"'GetConfiguredSubscriptionGroupsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"^\n" +
+	" RegisterVcnStatusCallbackRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\"#\n" +
+	"!RegisterVcnStatusCallbackResponse\"=\n" +
+	"\x13SetVcnConfigRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"\x16\n" +
+	"\x14SetVcnConfigResponse\"8\n" +
+	"\"UnregisterVcnStatusCallbackRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"%\n" +
+	"#UnregisterVcnStatusCallbackResponse\"]\n" +
+	"\x1fOnGatewayConnectionErrorRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\"\"\n" +
+	" OnGatewayConnectionErrorResponse\",\n" +
+	"\x16OnStatusChangedRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"\x19\n" +
+	"\x17OnStatusChangedResponse\"\x1f\n" +
 	"\x1dGetExposedCapabilitiesRequest\"8\n" +
 	"\x1eGetExposedCapabilitiesResponse\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\x03R\x06result\"!\n" +
@@ -4453,6 +5054,9 @@ const file_proto_vcn_vcn_proto_rawDesc = "" +
 	"\x06result\x18\x01 \x01(\x05R\x06result\" \n" +
 	"\x1eGetRetryIntervalsMillisRequest\"9\n" +
 	"\x1fGetRetryIntervalsMillisResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"*\n" +
+	"(GetVcnUnderlyingNetworkPrioritiesRequest\"C\n" +
+	")GetVcnUnderlyingNetworkPrioritiesResponse\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\x03R\x06result\"-\n" +
 	"\x17HasGatewayOptionRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"2\n" +
@@ -4492,30 +5096,7 @@ const file_proto_vcn_vcn_proto_rawDesc = "" +
 	"\x19SetSafeModeEnabledRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\bR\x04arg0\"4\n" +
 	"\x1aSetSafeModeEnabledResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"+\n" +
-	"\x15ClearVcnConfigRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x18\n" +
-	"\x16ClearVcnConfigResponse\"^\n" +
-	" RegisterVcnStatusCallbackRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
-	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\"#\n" +
-	"!RegisterVcnStatusCallbackResponse\"=\n" +
-	"\x13SetVcnConfigRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"\x16\n" +
-	"\x14SetVcnConfigResponse\"8\n" +
-	"\"UnregisterVcnStatusCallbackRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"%\n" +
-	"#UnregisterVcnStatusCallbackResponse\"]\n" +
-	"\x1fOnGatewayConnectionErrorRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\x12\x12\n" +
-	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\"\"\n" +
-	" OnGatewayConnectionErrorResponse\",\n" +
-	"\x16OnStatusChangedRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"\x19\n" +
-	"\x17OnStatusChangedResponse\"\x13\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x13\n" +
 	"\x11GetMeteredRequest\",\n" +
 	"\x12GetMeteredResponse\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\x05R\x06result\"+\n" +
@@ -4530,26 +5111,30 @@ const file_proto_vcn_vcn_proto_rawDesc = "" +
 	"\x06result\x18\x01 \x01(\x05R\x06result\"(\n" +
 	"&GetMinExitUpstreamBandwidthKbpsRequest\"A\n" +
 	"'GetMinExitUpstreamBandwidthKbpsResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result2\x94\x02\n" +
-	"\rConfigService\x12O\n" +
-	"\x10DescribeContents\x12\x1c.vcn.DescribeContentsRequest\x1a\x1d.vcn.DescribeContentsResponse\x121\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result2\xcb\x01\n" +
+	"$WifiUnderlyingNetworkTemplateService\x121\n" +
 	"\x06Equals\x12\x12.vcn.EqualsRequest\x1a\x13.vcn.EqualsResponse\x127\n" +
-	"\bHashCode\x12\x14.vcn.HashCodeRequest\x1a\x15.vcn.HashCodeResponse\x12F\n" +
-	"\rWriteToParcel\x12\x19.vcn.WriteToParcelRequest\x1a\x1a.vcn.WriteToParcelResponse2\xb5\x01\n" +
-	"\x14ConfigBuilderService\x12m\n" +
-	"\x1aAddGatewayConnectionConfig\x12&.vcn.AddGatewayConnectionConfigRequest\x1a'.vcn.AddGatewayConnectionConfigResponse\x12.\n" +
-	"\x05Build\x12\x11.vcn.BuildRequest\x1a\x12.vcn.BuildResponse2\xe3\x04\n" +
+	"\bGetSsids\x12\x14.vcn.GetSsidsRequest\x1a\x15.vcn.GetSsidsResponse\x127\n" +
+	"\bHashCode\x12\x14.vcn.HashCodeRequest\x1a\x15.vcn.HashCodeResponse2\x86\x03\n" +
+	"+WifiUnderlyingNetworkTemplateBuilderService\x12.\n" +
+	"\x05Build\x12\x11.vcn.BuildRequest\x1a\x12.vcn.BuildResponse\x12=\n" +
+	"\n" +
+	"SetMetered\x12\x16.vcn.SetMeteredRequest\x1a\x17.vcn.SetMeteredResponse\x12v\n" +
+	"\x1dSetMinDownstreamBandwidthKbps\x12).vcn.SetMinDownstreamBandwidthKbpsRequest\x1a*.vcn.SetMinDownstreamBandwidthKbpsResponse\x12p\n" +
+	"\x1bSetMinUpstreamBandwidthKbps\x12'.vcn.SetMinUpstreamBandwidthKbpsRequest\x1a(.vcn.SetMinUpstreamBandwidthKbpsResponse2\xa3\x06\n" +
 	"$CellUnderlyingNetworkTemplateService\x121\n" +
 	"\x06Equals\x12\x12.vcn.EqualsRequest\x1a\x13.vcn.EqualsResponse\x121\n" +
 	"\x06GetCbs\x12\x12.vcn.GetCbsRequest\x1a\x13.vcn.GetCbsResponse\x121\n" +
 	"\x06GetDun\x12\x12.vcn.GetDunRequest\x1a\x13.vcn.GetDunResponse\x121\n" +
 	"\x06GetIms\x12\x12.vcn.GetImsRequest\x1a\x13.vcn.GetImsResponse\x12@\n" +
 	"\vGetInternet\x12\x17.vcn.GetInternetRequest\x1a\x18.vcn.GetInternetResponse\x121\n" +
-	"\x06GetMms\x12\x12.vcn.GetMmsRequest\x1a\x13.vcn.GetMmsResponse\x12O\n" +
+	"\x06GetMms\x12\x12.vcn.GetMmsRequest\x1a\x13.vcn.GetMmsResponse\x12U\n" +
+	"\x12GetOperatorPlmnIds\x12\x1e.vcn.GetOperatorPlmnIdsRequest\x1a\x1f.vcn.GetOperatorPlmnIdsResponse\x12O\n" +
 	"\x10GetOpportunistic\x12\x1c.vcn.GetOpportunisticRequest\x1a\x1d.vcn.GetOpportunisticResponse\x121\n" +
 	"\x06GetRcs\x12\x12.vcn.GetRcsRequest\x1a\x13.vcn.GetRcsResponse\x12=\n" +
 	"\n" +
-	"GetRoaming\x12\x16.vcn.GetRoamingRequest\x1a\x17.vcn.GetRoamingResponse\x127\n" +
+	"GetRoaming\x12\x16.vcn.GetRoamingRequest\x1a\x17.vcn.GetRoamingResponse\x12g\n" +
+	"\x18GetSimSpecificCarrierIds\x12$.vcn.GetSimSpecificCarrierIdsRequest\x1a%.vcn.GetSimSpecificCarrierIdsResponse\x127\n" +
 	"\bHashCode\x12\x14.vcn.HashCodeRequest\x1a\x15.vcn.HashCodeResponse2\xd7\x06\n" +
 	"+CellUnderlyingNetworkTemplateBuilderService\x12.\n" +
 	"\x05Build\x12\x11.vcn.BuildRequest\x1a\x12.vcn.BuildResponse\x121\n" +
@@ -4565,23 +5150,34 @@ const file_proto_vcn_vcn_proto_rawDesc = "" +
 	"\x10SetOpportunistic\x12\x1c.vcn.SetOpportunisticRequest\x1a\x1d.vcn.SetOpportunisticResponse\x121\n" +
 	"\x06SetRcs\x12\x12.vcn.SetRcsRequest\x1a\x13.vcn.SetRcsResponse\x12=\n" +
 	"\n" +
-	"SetRoaming\x12\x16.vcn.SetRoamingRequest\x1a\x17.vcn.SetRoamingResponse2\x92\x01\n" +
-	"$WifiUnderlyingNetworkTemplateService\x121\n" +
-	"\x06Equals\x12\x12.vcn.EqualsRequest\x1a\x13.vcn.EqualsResponse\x127\n" +
-	"\bHashCode\x12\x14.vcn.HashCodeRequest\x1a\x15.vcn.HashCodeResponse2\x86\x03\n" +
-	"+WifiUnderlyingNetworkTemplateBuilderService\x12.\n" +
-	"\x05Build\x12\x11.vcn.BuildRequest\x1a\x12.vcn.BuildResponse\x12=\n" +
-	"\n" +
-	"SetMetered\x12\x16.vcn.SetMeteredRequest\x1a\x17.vcn.SetMeteredResponse\x12v\n" +
-	"\x1dSetMinDownstreamBandwidthKbps\x12).vcn.SetMinDownstreamBandwidthKbpsRequest\x1a*.vcn.SetMinDownstreamBandwidthKbpsResponse\x12p\n" +
-	"\x1bSetMinUpstreamBandwidthKbps\x12'.vcn.SetMinUpstreamBandwidthKbpsRequest\x1a(.vcn.SetMinUpstreamBandwidthKbpsResponse2\xa7\x06\n" +
+	"SetRoaming\x12\x16.vcn.SetRoamingRequest\x1a\x17.vcn.SetRoamingResponse2\xa0\x04\n" +
+	"\rConfigService\x12O\n" +
+	"\x10DescribeContents\x12\x1c.vcn.DescribeContentsRequest\x1a\x1d.vcn.DescribeContentsResponse\x121\n" +
+	"\x06Equals\x12\x12.vcn.EqualsRequest\x1a\x13.vcn.EqualsResponse\x12p\n" +
+	"\x1bGetGatewayConnectionConfigs\x12'.vcn.GetGatewayConnectionConfigsRequest\x1a(.vcn.GetGatewayConnectionConfigsResponse\x12\x97\x01\n" +
+	"(GetRestrictedUnderlyingNetworkTransports\x124.vcn.GetRestrictedUnderlyingNetworkTransportsRequest\x1a5.vcn.GetRestrictedUnderlyingNetworkTransportsResponse\x127\n" +
+	"\bHashCode\x12\x14.vcn.HashCodeRequest\x1a\x15.vcn.HashCodeResponse\x12F\n" +
+	"\rWriteToParcel\x12\x19.vcn.WriteToParcelRequest\x1a\x1a.vcn.WriteToParcelResponse2\xb5\x01\n" +
+	"\x14ConfigBuilderService\x12m\n" +
+	"\x1aAddGatewayConnectionConfig\x12&.vcn.AddGatewayConnectionConfigRequest\x1a'.vcn.AddGatewayConnectionConfigResponse\x12.\n" +
+	"\x05Build\x12\x11.vcn.BuildRequest\x1a\x12.vcn.BuildResponse2\xfc\x03\n" +
+	"\x0eManagerService\x12I\n" +
+	"\x0eClearVcnConfig\x12\x1a.vcn.ClearVcnConfigRequest\x1a\x1b.vcn.ClearVcnConfigResponse\x12|\n" +
+	"\x1fGetConfiguredSubscriptionGroups\x12+.vcn.GetConfiguredSubscriptionGroupsRequest\x1a,.vcn.GetConfiguredSubscriptionGroupsResponse\x12j\n" +
+	"\x19RegisterVcnStatusCallback\x12%.vcn.RegisterVcnStatusCallbackRequest\x1a&.vcn.RegisterVcnStatusCallbackResponse\x12C\n" +
+	"\fSetVcnConfig\x12\x18.vcn.SetVcnConfigRequest\x1a\x19.vcn.SetVcnConfigResponse\x12p\n" +
+	"\x1bUnregisterVcnStatusCallback\x12'.vcn.UnregisterVcnStatusCallbackRequest\x1a(.vcn.UnregisterVcnStatusCallbackResponse2\xd8\x01\n" +
+	"\x1fManagerVcnStatusCallbackService\x12g\n" +
+	"\x18OnGatewayConnectionError\x12$.vcn.OnGatewayConnectionErrorRequest\x1a%.vcn.OnGatewayConnectionErrorResponse\x12L\n" +
+	"\x0fOnStatusChanged\x12\x1b.vcn.OnStatusChangedRequest\x1a\x1c.vcn.OnStatusChangedResponse2\xac\a\n" +
 	"\x1eGatewayConnectionConfigService\x121\n" +
 	"\x06Equals\x12\x12.vcn.EqualsRequest\x1a\x13.vcn.EqualsResponse\x12a\n" +
 	"\x16GetExposedCapabilities\x12\".vcn.GetExposedCapabilitiesRequest\x1a#.vcn.GetExposedCapabilitiesResponse\x12g\n" +
 	"\x18GetGatewayConnectionName\x12$.vcn.GetGatewayConnectionNameRequest\x1a%.vcn.GetGatewayConnectionNameResponse\x12:\n" +
 	"\tGetMaxMtu\x12\x15.vcn.GetMaxMtuRequest\x1a\x16.vcn.GetMaxMtuResponse\x12\x85\x01\n" +
 	"\"GetMinUdpPort4500NatTimeoutSeconds\x12..vcn.GetMinUdpPort4500NatTimeoutSecondsRequest\x1a/.vcn.GetMinUdpPort4500NatTimeoutSecondsResponse\x12d\n" +
-	"\x17GetRetryIntervalsMillis\x12#.vcn.GetRetryIntervalsMillisRequest\x1a$.vcn.GetRetryIntervalsMillisResponse\x12O\n" +
+	"\x17GetRetryIntervalsMillis\x12#.vcn.GetRetryIntervalsMillisRequest\x1a$.vcn.GetRetryIntervalsMillisResponse\x12\x82\x01\n" +
+	"!GetVcnUnderlyingNetworkPriorities\x12-.vcn.GetVcnUnderlyingNetworkPrioritiesRequest\x1a..vcn.GetVcnUnderlyingNetworkPrioritiesResponse\x12O\n" +
 	"\x10HasGatewayOption\x12\x1c.vcn.HasGatewayOptionRequest\x1a\x1d.vcn.HasGatewayOptionResponse\x127\n" +
 	"\bHashCode\x12\x14.vcn.HashCodeRequest\x1a\x15.vcn.HashCodeResponse\x12R\n" +
 	"\x11IsSafeModeEnabled\x12\x1d.vcn.IsSafeModeEnabledRequest\x1a\x1e.vcn.IsSafeModeEnabledResponse2\xc6\x06\n" +
@@ -4594,15 +5190,7 @@ const file_proto_vcn_vcn_proto_rawDesc = "" +
 	"\tSetMaxMtu\x12\x15.vcn.SetMaxMtuRequest\x1a\x16.vcn.SetMaxMtuResponse\x12\x85\x01\n" +
 	"\"SetMinUdpPort4500NatTimeoutSeconds\x12..vcn.SetMinUdpPort4500NatTimeoutSecondsRequest\x1a/.vcn.SetMinUdpPort4500NatTimeoutSecondsResponse\x12d\n" +
 	"\x17SetRetryIntervalsMillis\x12#.vcn.SetRetryIntervalsMillisRequest\x1a$.vcn.SetRetryIntervalsMillisResponse\x12U\n" +
-	"\x12SetSafeModeEnabled\x12\x1e.vcn.SetSafeModeEnabledRequest\x1a\x1f.vcn.SetSafeModeEnabledResponse2\xfe\x02\n" +
-	"\x0eManagerService\x12I\n" +
-	"\x0eClearVcnConfig\x12\x1a.vcn.ClearVcnConfigRequest\x1a\x1b.vcn.ClearVcnConfigResponse\x12j\n" +
-	"\x19RegisterVcnStatusCallback\x12%.vcn.RegisterVcnStatusCallbackRequest\x1a&.vcn.RegisterVcnStatusCallbackResponse\x12C\n" +
-	"\fSetVcnConfig\x12\x18.vcn.SetVcnConfigRequest\x1a\x19.vcn.SetVcnConfigResponse\x12p\n" +
-	"\x1bUnregisterVcnStatusCallback\x12'.vcn.UnregisterVcnStatusCallbackRequest\x1a(.vcn.UnregisterVcnStatusCallbackResponse2\xd8\x01\n" +
-	"\x1fManagerVcnStatusCallbackService\x12g\n" +
-	"\x18OnGatewayConnectionError\x12$.vcn.OnGatewayConnectionErrorRequest\x1a%.vcn.OnGatewayConnectionErrorResponse\x12L\n" +
-	"\x0fOnStatusChanged\x12\x1b.vcn.OnStatusChangedRequest\x1a\x1c.vcn.OnStatusChangedResponse2\xd9\x05\n" +
+	"\x12SetSafeModeEnabled\x12\x1e.vcn.SetSafeModeEnabledRequest\x1a\x1f.vcn.SetSafeModeEnabledResponse2\xd9\x05\n" +
 	" UnderlyingNetworkTemplateService\x121\n" +
 	"\x06Equals\x12\x12.vcn.EqualsRequest\x1a\x13.vcn.EqualsResponse\x12=\n" +
 	"\n" +
@@ -4625,244 +5213,272 @@ func file_proto_vcn_vcn_proto_rawDescGZIP() []byte {
 	return file_proto_vcn_vcn_proto_rawDescData
 }
 
-var file_proto_vcn_vcn_proto_msgTypes = make([]protoimpl.MessageInfo, 102)
+var file_proto_vcn_vcn_proto_msgTypes = make([]protoimpl.MessageInfo, 116)
 var file_proto_vcn_vcn_proto_goTypes = []any{
-	(*DescribeContentsRequest)(nil),                    // 0: vcn.DescribeContentsRequest
-	(*DescribeContentsResponse)(nil),                   // 1: vcn.DescribeContentsResponse
-	(*EqualsRequest)(nil),                              // 2: vcn.EqualsRequest
-	(*EqualsResponse)(nil),                             // 3: vcn.EqualsResponse
-	(*HashCodeRequest)(nil),                            // 4: vcn.HashCodeRequest
-	(*HashCodeResponse)(nil),                           // 5: vcn.HashCodeResponse
-	(*WriteToParcelRequest)(nil),                       // 6: vcn.WriteToParcelRequest
-	(*WriteToParcelResponse)(nil),                      // 7: vcn.WriteToParcelResponse
-	(*AddGatewayConnectionConfigRequest)(nil),          // 8: vcn.AddGatewayConnectionConfigRequest
-	(*AddGatewayConnectionConfigResponse)(nil),         // 9: vcn.AddGatewayConnectionConfigResponse
-	(*BuildRequest)(nil),                               // 10: vcn.BuildRequest
-	(*BuildResponse)(nil),                              // 11: vcn.BuildResponse
-	(*GetCbsRequest)(nil),                              // 12: vcn.GetCbsRequest
-	(*GetCbsResponse)(nil),                             // 13: vcn.GetCbsResponse
-	(*GetDunRequest)(nil),                              // 14: vcn.GetDunRequest
-	(*GetDunResponse)(nil),                             // 15: vcn.GetDunResponse
-	(*GetImsRequest)(nil),                              // 16: vcn.GetImsRequest
-	(*GetImsResponse)(nil),                             // 17: vcn.GetImsResponse
-	(*GetInternetRequest)(nil),                         // 18: vcn.GetInternetRequest
-	(*GetInternetResponse)(nil),                        // 19: vcn.GetInternetResponse
-	(*GetMmsRequest)(nil),                              // 20: vcn.GetMmsRequest
-	(*GetMmsResponse)(nil),                             // 21: vcn.GetMmsResponse
-	(*GetOpportunisticRequest)(nil),                    // 22: vcn.GetOpportunisticRequest
-	(*GetOpportunisticResponse)(nil),                   // 23: vcn.GetOpportunisticResponse
-	(*GetRcsRequest)(nil),                              // 24: vcn.GetRcsRequest
-	(*GetRcsResponse)(nil),                             // 25: vcn.GetRcsResponse
-	(*GetRoamingRequest)(nil),                          // 26: vcn.GetRoamingRequest
-	(*GetRoamingResponse)(nil),                         // 27: vcn.GetRoamingResponse
-	(*SetCbsRequest)(nil),                              // 28: vcn.SetCbsRequest
-	(*SetCbsResponse)(nil),                             // 29: vcn.SetCbsResponse
-	(*SetDunRequest)(nil),                              // 30: vcn.SetDunRequest
-	(*SetDunResponse)(nil),                             // 31: vcn.SetDunResponse
-	(*SetImsRequest)(nil),                              // 32: vcn.SetImsRequest
-	(*SetImsResponse)(nil),                             // 33: vcn.SetImsResponse
-	(*SetInternetRequest)(nil),                         // 34: vcn.SetInternetRequest
-	(*SetInternetResponse)(nil),                        // 35: vcn.SetInternetResponse
-	(*SetMeteredRequest)(nil),                          // 36: vcn.SetMeteredRequest
-	(*SetMeteredResponse)(nil),                         // 37: vcn.SetMeteredResponse
-	(*SetMinDownstreamBandwidthKbpsRequest)(nil),       // 38: vcn.SetMinDownstreamBandwidthKbpsRequest
-	(*SetMinDownstreamBandwidthKbpsResponse)(nil),      // 39: vcn.SetMinDownstreamBandwidthKbpsResponse
-	(*SetMinUpstreamBandwidthKbpsRequest)(nil),         // 40: vcn.SetMinUpstreamBandwidthKbpsRequest
-	(*SetMinUpstreamBandwidthKbpsResponse)(nil),        // 41: vcn.SetMinUpstreamBandwidthKbpsResponse
-	(*SetMmsRequest)(nil),                              // 42: vcn.SetMmsRequest
-	(*SetMmsResponse)(nil),                             // 43: vcn.SetMmsResponse
-	(*SetOpportunisticRequest)(nil),                    // 44: vcn.SetOpportunisticRequest
-	(*SetOpportunisticResponse)(nil),                   // 45: vcn.SetOpportunisticResponse
-	(*SetRcsRequest)(nil),                              // 46: vcn.SetRcsRequest
-	(*SetRcsResponse)(nil),                             // 47: vcn.SetRcsResponse
-	(*SetRoamingRequest)(nil),                          // 48: vcn.SetRoamingRequest
-	(*SetRoamingResponse)(nil),                         // 49: vcn.SetRoamingResponse
-	(*GetExposedCapabilitiesRequest)(nil),              // 50: vcn.GetExposedCapabilitiesRequest
-	(*GetExposedCapabilitiesResponse)(nil),             // 51: vcn.GetExposedCapabilitiesResponse
-	(*GetGatewayConnectionNameRequest)(nil),            // 52: vcn.GetGatewayConnectionNameRequest
-	(*GetGatewayConnectionNameResponse)(nil),           // 53: vcn.GetGatewayConnectionNameResponse
-	(*GetMaxMtuRequest)(nil),                           // 54: vcn.GetMaxMtuRequest
-	(*GetMaxMtuResponse)(nil),                          // 55: vcn.GetMaxMtuResponse
-	(*GetMinUdpPort4500NatTimeoutSecondsRequest)(nil),  // 56: vcn.GetMinUdpPort4500NatTimeoutSecondsRequest
-	(*GetMinUdpPort4500NatTimeoutSecondsResponse)(nil), // 57: vcn.GetMinUdpPort4500NatTimeoutSecondsResponse
-	(*GetRetryIntervalsMillisRequest)(nil),             // 58: vcn.GetRetryIntervalsMillisRequest
-	(*GetRetryIntervalsMillisResponse)(nil),            // 59: vcn.GetRetryIntervalsMillisResponse
-	(*HasGatewayOptionRequest)(nil),                    // 60: vcn.HasGatewayOptionRequest
-	(*HasGatewayOptionResponse)(nil),                   // 61: vcn.HasGatewayOptionResponse
-	(*IsSafeModeEnabledRequest)(nil),                   // 62: vcn.IsSafeModeEnabledRequest
-	(*IsSafeModeEnabledResponse)(nil),                  // 63: vcn.IsSafeModeEnabledResponse
-	(*AddExposedCapabilityRequest)(nil),                // 64: vcn.AddExposedCapabilityRequest
-	(*AddExposedCapabilityResponse)(nil),               // 65: vcn.AddExposedCapabilityResponse
-	(*AddGatewayOptionRequest)(nil),                    // 66: vcn.AddGatewayOptionRequest
-	(*AddGatewayOptionResponse)(nil),                   // 67: vcn.AddGatewayOptionResponse
-	(*RemoveExposedCapabilityRequest)(nil),             // 68: vcn.RemoveExposedCapabilityRequest
-	(*RemoveExposedCapabilityResponse)(nil),            // 69: vcn.RemoveExposedCapabilityResponse
-	(*RemoveGatewayOptionRequest)(nil),                 // 70: vcn.RemoveGatewayOptionRequest
-	(*RemoveGatewayOptionResponse)(nil),                // 71: vcn.RemoveGatewayOptionResponse
-	(*SetMaxMtuRequest)(nil),                           // 72: vcn.SetMaxMtuRequest
-	(*SetMaxMtuResponse)(nil),                          // 73: vcn.SetMaxMtuResponse
-	(*SetMinUdpPort4500NatTimeoutSecondsRequest)(nil),  // 74: vcn.SetMinUdpPort4500NatTimeoutSecondsRequest
-	(*SetMinUdpPort4500NatTimeoutSecondsResponse)(nil), // 75: vcn.SetMinUdpPort4500NatTimeoutSecondsResponse
-	(*SetRetryIntervalsMillisRequest)(nil),             // 76: vcn.SetRetryIntervalsMillisRequest
-	(*SetRetryIntervalsMillisResponse)(nil),            // 77: vcn.SetRetryIntervalsMillisResponse
-	(*SetSafeModeEnabledRequest)(nil),                  // 78: vcn.SetSafeModeEnabledRequest
-	(*SetSafeModeEnabledResponse)(nil),                 // 79: vcn.SetSafeModeEnabledResponse
-	(*ClearVcnConfigRequest)(nil),                      // 80: vcn.ClearVcnConfigRequest
-	(*ClearVcnConfigResponse)(nil),                     // 81: vcn.ClearVcnConfigResponse
-	(*RegisterVcnStatusCallbackRequest)(nil),           // 82: vcn.RegisterVcnStatusCallbackRequest
-	(*RegisterVcnStatusCallbackResponse)(nil),          // 83: vcn.RegisterVcnStatusCallbackResponse
-	(*SetVcnConfigRequest)(nil),                        // 84: vcn.SetVcnConfigRequest
-	(*SetVcnConfigResponse)(nil),                       // 85: vcn.SetVcnConfigResponse
-	(*UnregisterVcnStatusCallbackRequest)(nil),         // 86: vcn.UnregisterVcnStatusCallbackRequest
-	(*UnregisterVcnStatusCallbackResponse)(nil),        // 87: vcn.UnregisterVcnStatusCallbackResponse
-	(*OnGatewayConnectionErrorRequest)(nil),            // 88: vcn.OnGatewayConnectionErrorRequest
-	(*OnGatewayConnectionErrorResponse)(nil),           // 89: vcn.OnGatewayConnectionErrorResponse
-	(*OnStatusChangedRequest)(nil),                     // 90: vcn.OnStatusChangedRequest
-	(*OnStatusChangedResponse)(nil),                    // 91: vcn.OnStatusChangedResponse
-	(*GetMeteredRequest)(nil),                          // 92: vcn.GetMeteredRequest
-	(*GetMeteredResponse)(nil),                         // 93: vcn.GetMeteredResponse
-	(*GetMinEntryDownstreamBandwidthKbpsRequest)(nil),  // 94: vcn.GetMinEntryDownstreamBandwidthKbpsRequest
-	(*GetMinEntryDownstreamBandwidthKbpsResponse)(nil), // 95: vcn.GetMinEntryDownstreamBandwidthKbpsResponse
-	(*GetMinEntryUpstreamBandwidthKbpsRequest)(nil),    // 96: vcn.GetMinEntryUpstreamBandwidthKbpsRequest
-	(*GetMinEntryUpstreamBandwidthKbpsResponse)(nil),   // 97: vcn.GetMinEntryUpstreamBandwidthKbpsResponse
-	(*GetMinExitDownstreamBandwidthKbpsRequest)(nil),   // 98: vcn.GetMinExitDownstreamBandwidthKbpsRequest
-	(*GetMinExitDownstreamBandwidthKbpsResponse)(nil),  // 99: vcn.GetMinExitDownstreamBandwidthKbpsResponse
-	(*GetMinExitUpstreamBandwidthKbpsRequest)(nil),     // 100: vcn.GetMinExitUpstreamBandwidthKbpsRequest
-	(*GetMinExitUpstreamBandwidthKbpsResponse)(nil),    // 101: vcn.GetMinExitUpstreamBandwidthKbpsResponse
+	(*EqualsRequest)(nil),                                    // 0: vcn.EqualsRequest
+	(*EqualsResponse)(nil),                                   // 1: vcn.EqualsResponse
+	(*GetSsidsRequest)(nil),                                  // 2: vcn.GetSsidsRequest
+	(*GetSsidsResponse)(nil),                                 // 3: vcn.GetSsidsResponse
+	(*HashCodeRequest)(nil),                                  // 4: vcn.HashCodeRequest
+	(*HashCodeResponse)(nil),                                 // 5: vcn.HashCodeResponse
+	(*BuildRequest)(nil),                                     // 6: vcn.BuildRequest
+	(*BuildResponse)(nil),                                    // 7: vcn.BuildResponse
+	(*SetMeteredRequest)(nil),                                // 8: vcn.SetMeteredRequest
+	(*SetMeteredResponse)(nil),                               // 9: vcn.SetMeteredResponse
+	(*SetMinDownstreamBandwidthKbpsRequest)(nil),             // 10: vcn.SetMinDownstreamBandwidthKbpsRequest
+	(*SetMinDownstreamBandwidthKbpsResponse)(nil),            // 11: vcn.SetMinDownstreamBandwidthKbpsResponse
+	(*SetMinUpstreamBandwidthKbpsRequest)(nil),               // 12: vcn.SetMinUpstreamBandwidthKbpsRequest
+	(*SetMinUpstreamBandwidthKbpsResponse)(nil),              // 13: vcn.SetMinUpstreamBandwidthKbpsResponse
+	(*GetCbsRequest)(nil),                                    // 14: vcn.GetCbsRequest
+	(*GetCbsResponse)(nil),                                   // 15: vcn.GetCbsResponse
+	(*GetDunRequest)(nil),                                    // 16: vcn.GetDunRequest
+	(*GetDunResponse)(nil),                                   // 17: vcn.GetDunResponse
+	(*GetImsRequest)(nil),                                    // 18: vcn.GetImsRequest
+	(*GetImsResponse)(nil),                                   // 19: vcn.GetImsResponse
+	(*GetInternetRequest)(nil),                               // 20: vcn.GetInternetRequest
+	(*GetInternetResponse)(nil),                              // 21: vcn.GetInternetResponse
+	(*GetMmsRequest)(nil),                                    // 22: vcn.GetMmsRequest
+	(*GetMmsResponse)(nil),                                   // 23: vcn.GetMmsResponse
+	(*GetOperatorPlmnIdsRequest)(nil),                        // 24: vcn.GetOperatorPlmnIdsRequest
+	(*GetOperatorPlmnIdsResponse)(nil),                       // 25: vcn.GetOperatorPlmnIdsResponse
+	(*GetOpportunisticRequest)(nil),                          // 26: vcn.GetOpportunisticRequest
+	(*GetOpportunisticResponse)(nil),                         // 27: vcn.GetOpportunisticResponse
+	(*GetRcsRequest)(nil),                                    // 28: vcn.GetRcsRequest
+	(*GetRcsResponse)(nil),                                   // 29: vcn.GetRcsResponse
+	(*GetRoamingRequest)(nil),                                // 30: vcn.GetRoamingRequest
+	(*GetRoamingResponse)(nil),                               // 31: vcn.GetRoamingResponse
+	(*GetSimSpecificCarrierIdsRequest)(nil),                  // 32: vcn.GetSimSpecificCarrierIdsRequest
+	(*GetSimSpecificCarrierIdsResponse)(nil),                 // 33: vcn.GetSimSpecificCarrierIdsResponse
+	(*SetCbsRequest)(nil),                                    // 34: vcn.SetCbsRequest
+	(*SetCbsResponse)(nil),                                   // 35: vcn.SetCbsResponse
+	(*SetDunRequest)(nil),                                    // 36: vcn.SetDunRequest
+	(*SetDunResponse)(nil),                                   // 37: vcn.SetDunResponse
+	(*SetImsRequest)(nil),                                    // 38: vcn.SetImsRequest
+	(*SetImsResponse)(nil),                                   // 39: vcn.SetImsResponse
+	(*SetInternetRequest)(nil),                               // 40: vcn.SetInternetRequest
+	(*SetInternetResponse)(nil),                              // 41: vcn.SetInternetResponse
+	(*SetMmsRequest)(nil),                                    // 42: vcn.SetMmsRequest
+	(*SetMmsResponse)(nil),                                   // 43: vcn.SetMmsResponse
+	(*SetOpportunisticRequest)(nil),                          // 44: vcn.SetOpportunisticRequest
+	(*SetOpportunisticResponse)(nil),                         // 45: vcn.SetOpportunisticResponse
+	(*SetRcsRequest)(nil),                                    // 46: vcn.SetRcsRequest
+	(*SetRcsResponse)(nil),                                   // 47: vcn.SetRcsResponse
+	(*SetRoamingRequest)(nil),                                // 48: vcn.SetRoamingRequest
+	(*SetRoamingResponse)(nil),                               // 49: vcn.SetRoamingResponse
+	(*DescribeContentsRequest)(nil),                          // 50: vcn.DescribeContentsRequest
+	(*DescribeContentsResponse)(nil),                         // 51: vcn.DescribeContentsResponse
+	(*GetGatewayConnectionConfigsRequest)(nil),               // 52: vcn.GetGatewayConnectionConfigsRequest
+	(*GetGatewayConnectionConfigsResponse)(nil),              // 53: vcn.GetGatewayConnectionConfigsResponse
+	(*GetRestrictedUnderlyingNetworkTransportsRequest)(nil),  // 54: vcn.GetRestrictedUnderlyingNetworkTransportsRequest
+	(*GetRestrictedUnderlyingNetworkTransportsResponse)(nil), // 55: vcn.GetRestrictedUnderlyingNetworkTransportsResponse
+	(*WriteToParcelRequest)(nil),                             // 56: vcn.WriteToParcelRequest
+	(*WriteToParcelResponse)(nil),                            // 57: vcn.WriteToParcelResponse
+	(*AddGatewayConnectionConfigRequest)(nil),                // 58: vcn.AddGatewayConnectionConfigRequest
+	(*AddGatewayConnectionConfigResponse)(nil),               // 59: vcn.AddGatewayConnectionConfigResponse
+	(*ClearVcnConfigRequest)(nil),                            // 60: vcn.ClearVcnConfigRequest
+	(*ClearVcnConfigResponse)(nil),                           // 61: vcn.ClearVcnConfigResponse
+	(*GetConfiguredSubscriptionGroupsRequest)(nil),           // 62: vcn.GetConfiguredSubscriptionGroupsRequest
+	(*GetConfiguredSubscriptionGroupsResponse)(nil),          // 63: vcn.GetConfiguredSubscriptionGroupsResponse
+	(*RegisterVcnStatusCallbackRequest)(nil),                 // 64: vcn.RegisterVcnStatusCallbackRequest
+	(*RegisterVcnStatusCallbackResponse)(nil),                // 65: vcn.RegisterVcnStatusCallbackResponse
+	(*SetVcnConfigRequest)(nil),                              // 66: vcn.SetVcnConfigRequest
+	(*SetVcnConfigResponse)(nil),                             // 67: vcn.SetVcnConfigResponse
+	(*UnregisterVcnStatusCallbackRequest)(nil),               // 68: vcn.UnregisterVcnStatusCallbackRequest
+	(*UnregisterVcnStatusCallbackResponse)(nil),              // 69: vcn.UnregisterVcnStatusCallbackResponse
+	(*OnGatewayConnectionErrorRequest)(nil),                  // 70: vcn.OnGatewayConnectionErrorRequest
+	(*OnGatewayConnectionErrorResponse)(nil),                 // 71: vcn.OnGatewayConnectionErrorResponse
+	(*OnStatusChangedRequest)(nil),                           // 72: vcn.OnStatusChangedRequest
+	(*OnStatusChangedResponse)(nil),                          // 73: vcn.OnStatusChangedResponse
+	(*GetExposedCapabilitiesRequest)(nil),                    // 74: vcn.GetExposedCapabilitiesRequest
+	(*GetExposedCapabilitiesResponse)(nil),                   // 75: vcn.GetExposedCapabilitiesResponse
+	(*GetGatewayConnectionNameRequest)(nil),                  // 76: vcn.GetGatewayConnectionNameRequest
+	(*GetGatewayConnectionNameResponse)(nil),                 // 77: vcn.GetGatewayConnectionNameResponse
+	(*GetMaxMtuRequest)(nil),                                 // 78: vcn.GetMaxMtuRequest
+	(*GetMaxMtuResponse)(nil),                                // 79: vcn.GetMaxMtuResponse
+	(*GetMinUdpPort4500NatTimeoutSecondsRequest)(nil),        // 80: vcn.GetMinUdpPort4500NatTimeoutSecondsRequest
+	(*GetMinUdpPort4500NatTimeoutSecondsResponse)(nil),       // 81: vcn.GetMinUdpPort4500NatTimeoutSecondsResponse
+	(*GetRetryIntervalsMillisRequest)(nil),                   // 82: vcn.GetRetryIntervalsMillisRequest
+	(*GetRetryIntervalsMillisResponse)(nil),                  // 83: vcn.GetRetryIntervalsMillisResponse
+	(*GetVcnUnderlyingNetworkPrioritiesRequest)(nil),         // 84: vcn.GetVcnUnderlyingNetworkPrioritiesRequest
+	(*GetVcnUnderlyingNetworkPrioritiesResponse)(nil),        // 85: vcn.GetVcnUnderlyingNetworkPrioritiesResponse
+	(*HasGatewayOptionRequest)(nil),                          // 86: vcn.HasGatewayOptionRequest
+	(*HasGatewayOptionResponse)(nil),                         // 87: vcn.HasGatewayOptionResponse
+	(*IsSafeModeEnabledRequest)(nil),                         // 88: vcn.IsSafeModeEnabledRequest
+	(*IsSafeModeEnabledResponse)(nil),                        // 89: vcn.IsSafeModeEnabledResponse
+	(*AddExposedCapabilityRequest)(nil),                      // 90: vcn.AddExposedCapabilityRequest
+	(*AddExposedCapabilityResponse)(nil),                     // 91: vcn.AddExposedCapabilityResponse
+	(*AddGatewayOptionRequest)(nil),                          // 92: vcn.AddGatewayOptionRequest
+	(*AddGatewayOptionResponse)(nil),                         // 93: vcn.AddGatewayOptionResponse
+	(*RemoveExposedCapabilityRequest)(nil),                   // 94: vcn.RemoveExposedCapabilityRequest
+	(*RemoveExposedCapabilityResponse)(nil),                  // 95: vcn.RemoveExposedCapabilityResponse
+	(*RemoveGatewayOptionRequest)(nil),                       // 96: vcn.RemoveGatewayOptionRequest
+	(*RemoveGatewayOptionResponse)(nil),                      // 97: vcn.RemoveGatewayOptionResponse
+	(*SetMaxMtuRequest)(nil),                                 // 98: vcn.SetMaxMtuRequest
+	(*SetMaxMtuResponse)(nil),                                // 99: vcn.SetMaxMtuResponse
+	(*SetMinUdpPort4500NatTimeoutSecondsRequest)(nil),        // 100: vcn.SetMinUdpPort4500NatTimeoutSecondsRequest
+	(*SetMinUdpPort4500NatTimeoutSecondsResponse)(nil),       // 101: vcn.SetMinUdpPort4500NatTimeoutSecondsResponse
+	(*SetRetryIntervalsMillisRequest)(nil),                   // 102: vcn.SetRetryIntervalsMillisRequest
+	(*SetRetryIntervalsMillisResponse)(nil),                  // 103: vcn.SetRetryIntervalsMillisResponse
+	(*SetSafeModeEnabledRequest)(nil),                        // 104: vcn.SetSafeModeEnabledRequest
+	(*SetSafeModeEnabledResponse)(nil),                       // 105: vcn.SetSafeModeEnabledResponse
+	(*GetMeteredRequest)(nil),                                // 106: vcn.GetMeteredRequest
+	(*GetMeteredResponse)(nil),                               // 107: vcn.GetMeteredResponse
+	(*GetMinEntryDownstreamBandwidthKbpsRequest)(nil),        // 108: vcn.GetMinEntryDownstreamBandwidthKbpsRequest
+	(*GetMinEntryDownstreamBandwidthKbpsResponse)(nil),       // 109: vcn.GetMinEntryDownstreamBandwidthKbpsResponse
+	(*GetMinEntryUpstreamBandwidthKbpsRequest)(nil),          // 110: vcn.GetMinEntryUpstreamBandwidthKbpsRequest
+	(*GetMinEntryUpstreamBandwidthKbpsResponse)(nil),         // 111: vcn.GetMinEntryUpstreamBandwidthKbpsResponse
+	(*GetMinExitDownstreamBandwidthKbpsRequest)(nil),         // 112: vcn.GetMinExitDownstreamBandwidthKbpsRequest
+	(*GetMinExitDownstreamBandwidthKbpsResponse)(nil),        // 113: vcn.GetMinExitDownstreamBandwidthKbpsResponse
+	(*GetMinExitUpstreamBandwidthKbpsRequest)(nil),           // 114: vcn.GetMinExitUpstreamBandwidthKbpsRequest
+	(*GetMinExitUpstreamBandwidthKbpsResponse)(nil),          // 115: vcn.GetMinExitUpstreamBandwidthKbpsResponse
 }
 var file_proto_vcn_vcn_proto_depIdxs = []int32{
-	0,   // 0: vcn.ConfigService.DescribeContents:input_type -> vcn.DescribeContentsRequest
-	2,   // 1: vcn.ConfigService.Equals:input_type -> vcn.EqualsRequest
-	4,   // 2: vcn.ConfigService.HashCode:input_type -> vcn.HashCodeRequest
-	6,   // 3: vcn.ConfigService.WriteToParcel:input_type -> vcn.WriteToParcelRequest
-	8,   // 4: vcn.ConfigBuilderService.AddGatewayConnectionConfig:input_type -> vcn.AddGatewayConnectionConfigRequest
-	10,  // 5: vcn.ConfigBuilderService.Build:input_type -> vcn.BuildRequest
-	2,   // 6: vcn.CellUnderlyingNetworkTemplateService.Equals:input_type -> vcn.EqualsRequest
-	12,  // 7: vcn.CellUnderlyingNetworkTemplateService.GetCbs:input_type -> vcn.GetCbsRequest
-	14,  // 8: vcn.CellUnderlyingNetworkTemplateService.GetDun:input_type -> vcn.GetDunRequest
-	16,  // 9: vcn.CellUnderlyingNetworkTemplateService.GetIms:input_type -> vcn.GetImsRequest
-	18,  // 10: vcn.CellUnderlyingNetworkTemplateService.GetInternet:input_type -> vcn.GetInternetRequest
-	20,  // 11: vcn.CellUnderlyingNetworkTemplateService.GetMms:input_type -> vcn.GetMmsRequest
-	22,  // 12: vcn.CellUnderlyingNetworkTemplateService.GetOpportunistic:input_type -> vcn.GetOpportunisticRequest
-	24,  // 13: vcn.CellUnderlyingNetworkTemplateService.GetRcs:input_type -> vcn.GetRcsRequest
-	26,  // 14: vcn.CellUnderlyingNetworkTemplateService.GetRoaming:input_type -> vcn.GetRoamingRequest
-	4,   // 15: vcn.CellUnderlyingNetworkTemplateService.HashCode:input_type -> vcn.HashCodeRequest
-	10,  // 16: vcn.CellUnderlyingNetworkTemplateBuilderService.Build:input_type -> vcn.BuildRequest
-	28,  // 17: vcn.CellUnderlyingNetworkTemplateBuilderService.SetCbs:input_type -> vcn.SetCbsRequest
-	30,  // 18: vcn.CellUnderlyingNetworkTemplateBuilderService.SetDun:input_type -> vcn.SetDunRequest
-	32,  // 19: vcn.CellUnderlyingNetworkTemplateBuilderService.SetIms:input_type -> vcn.SetImsRequest
-	34,  // 20: vcn.CellUnderlyingNetworkTemplateBuilderService.SetInternet:input_type -> vcn.SetInternetRequest
-	36,  // 21: vcn.CellUnderlyingNetworkTemplateBuilderService.SetMetered:input_type -> vcn.SetMeteredRequest
-	38,  // 22: vcn.CellUnderlyingNetworkTemplateBuilderService.SetMinDownstreamBandwidthKbps:input_type -> vcn.SetMinDownstreamBandwidthKbpsRequest
-	40,  // 23: vcn.CellUnderlyingNetworkTemplateBuilderService.SetMinUpstreamBandwidthKbps:input_type -> vcn.SetMinUpstreamBandwidthKbpsRequest
-	42,  // 24: vcn.CellUnderlyingNetworkTemplateBuilderService.SetMms:input_type -> vcn.SetMmsRequest
-	44,  // 25: vcn.CellUnderlyingNetworkTemplateBuilderService.SetOpportunistic:input_type -> vcn.SetOpportunisticRequest
-	46,  // 26: vcn.CellUnderlyingNetworkTemplateBuilderService.SetRcs:input_type -> vcn.SetRcsRequest
-	48,  // 27: vcn.CellUnderlyingNetworkTemplateBuilderService.SetRoaming:input_type -> vcn.SetRoamingRequest
-	2,   // 28: vcn.WifiUnderlyingNetworkTemplateService.Equals:input_type -> vcn.EqualsRequest
-	4,   // 29: vcn.WifiUnderlyingNetworkTemplateService.HashCode:input_type -> vcn.HashCodeRequest
-	10,  // 30: vcn.WifiUnderlyingNetworkTemplateBuilderService.Build:input_type -> vcn.BuildRequest
-	36,  // 31: vcn.WifiUnderlyingNetworkTemplateBuilderService.SetMetered:input_type -> vcn.SetMeteredRequest
-	38,  // 32: vcn.WifiUnderlyingNetworkTemplateBuilderService.SetMinDownstreamBandwidthKbps:input_type -> vcn.SetMinDownstreamBandwidthKbpsRequest
-	40,  // 33: vcn.WifiUnderlyingNetworkTemplateBuilderService.SetMinUpstreamBandwidthKbps:input_type -> vcn.SetMinUpstreamBandwidthKbpsRequest
-	2,   // 34: vcn.GatewayConnectionConfigService.Equals:input_type -> vcn.EqualsRequest
-	50,  // 35: vcn.GatewayConnectionConfigService.GetExposedCapabilities:input_type -> vcn.GetExposedCapabilitiesRequest
-	52,  // 36: vcn.GatewayConnectionConfigService.GetGatewayConnectionName:input_type -> vcn.GetGatewayConnectionNameRequest
-	54,  // 37: vcn.GatewayConnectionConfigService.GetMaxMtu:input_type -> vcn.GetMaxMtuRequest
-	56,  // 38: vcn.GatewayConnectionConfigService.GetMinUdpPort4500NatTimeoutSeconds:input_type -> vcn.GetMinUdpPort4500NatTimeoutSecondsRequest
-	58,  // 39: vcn.GatewayConnectionConfigService.GetRetryIntervalsMillis:input_type -> vcn.GetRetryIntervalsMillisRequest
-	60,  // 40: vcn.GatewayConnectionConfigService.HasGatewayOption:input_type -> vcn.HasGatewayOptionRequest
-	4,   // 41: vcn.GatewayConnectionConfigService.HashCode:input_type -> vcn.HashCodeRequest
-	62,  // 42: vcn.GatewayConnectionConfigService.IsSafeModeEnabled:input_type -> vcn.IsSafeModeEnabledRequest
-	64,  // 43: vcn.GatewayConnectionConfigBuilderService.AddExposedCapability:input_type -> vcn.AddExposedCapabilityRequest
-	66,  // 44: vcn.GatewayConnectionConfigBuilderService.AddGatewayOption:input_type -> vcn.AddGatewayOptionRequest
-	10,  // 45: vcn.GatewayConnectionConfigBuilderService.Build:input_type -> vcn.BuildRequest
-	68,  // 46: vcn.GatewayConnectionConfigBuilderService.RemoveExposedCapability:input_type -> vcn.RemoveExposedCapabilityRequest
-	70,  // 47: vcn.GatewayConnectionConfigBuilderService.RemoveGatewayOption:input_type -> vcn.RemoveGatewayOptionRequest
-	72,  // 48: vcn.GatewayConnectionConfigBuilderService.SetMaxMtu:input_type -> vcn.SetMaxMtuRequest
-	74,  // 49: vcn.GatewayConnectionConfigBuilderService.SetMinUdpPort4500NatTimeoutSeconds:input_type -> vcn.SetMinUdpPort4500NatTimeoutSecondsRequest
-	76,  // 50: vcn.GatewayConnectionConfigBuilderService.SetRetryIntervalsMillis:input_type -> vcn.SetRetryIntervalsMillisRequest
-	78,  // 51: vcn.GatewayConnectionConfigBuilderService.SetSafeModeEnabled:input_type -> vcn.SetSafeModeEnabledRequest
-	80,  // 52: vcn.ManagerService.ClearVcnConfig:input_type -> vcn.ClearVcnConfigRequest
-	82,  // 53: vcn.ManagerService.RegisterVcnStatusCallback:input_type -> vcn.RegisterVcnStatusCallbackRequest
-	84,  // 54: vcn.ManagerService.SetVcnConfig:input_type -> vcn.SetVcnConfigRequest
-	86,  // 55: vcn.ManagerService.UnregisterVcnStatusCallback:input_type -> vcn.UnregisterVcnStatusCallbackRequest
-	88,  // 56: vcn.ManagerVcnStatusCallbackService.OnGatewayConnectionError:input_type -> vcn.OnGatewayConnectionErrorRequest
-	90,  // 57: vcn.ManagerVcnStatusCallbackService.OnStatusChanged:input_type -> vcn.OnStatusChangedRequest
-	2,   // 58: vcn.UnderlyingNetworkTemplateService.Equals:input_type -> vcn.EqualsRequest
-	92,  // 59: vcn.UnderlyingNetworkTemplateService.GetMetered:input_type -> vcn.GetMeteredRequest
-	94,  // 60: vcn.UnderlyingNetworkTemplateService.GetMinEntryDownstreamBandwidthKbps:input_type -> vcn.GetMinEntryDownstreamBandwidthKbpsRequest
-	96,  // 61: vcn.UnderlyingNetworkTemplateService.GetMinEntryUpstreamBandwidthKbps:input_type -> vcn.GetMinEntryUpstreamBandwidthKbpsRequest
-	98,  // 62: vcn.UnderlyingNetworkTemplateService.GetMinExitDownstreamBandwidthKbps:input_type -> vcn.GetMinExitDownstreamBandwidthKbpsRequest
-	100, // 63: vcn.UnderlyingNetworkTemplateService.GetMinExitUpstreamBandwidthKbps:input_type -> vcn.GetMinExitUpstreamBandwidthKbpsRequest
-	4,   // 64: vcn.UnderlyingNetworkTemplateService.HashCode:input_type -> vcn.HashCodeRequest
-	1,   // 65: vcn.ConfigService.DescribeContents:output_type -> vcn.DescribeContentsResponse
-	3,   // 66: vcn.ConfigService.Equals:output_type -> vcn.EqualsResponse
-	5,   // 67: vcn.ConfigService.HashCode:output_type -> vcn.HashCodeResponse
-	7,   // 68: vcn.ConfigService.WriteToParcel:output_type -> vcn.WriteToParcelResponse
-	9,   // 69: vcn.ConfigBuilderService.AddGatewayConnectionConfig:output_type -> vcn.AddGatewayConnectionConfigResponse
-	11,  // 70: vcn.ConfigBuilderService.Build:output_type -> vcn.BuildResponse
-	3,   // 71: vcn.CellUnderlyingNetworkTemplateService.Equals:output_type -> vcn.EqualsResponse
-	13,  // 72: vcn.CellUnderlyingNetworkTemplateService.GetCbs:output_type -> vcn.GetCbsResponse
-	15,  // 73: vcn.CellUnderlyingNetworkTemplateService.GetDun:output_type -> vcn.GetDunResponse
-	17,  // 74: vcn.CellUnderlyingNetworkTemplateService.GetIms:output_type -> vcn.GetImsResponse
-	19,  // 75: vcn.CellUnderlyingNetworkTemplateService.GetInternet:output_type -> vcn.GetInternetResponse
-	21,  // 76: vcn.CellUnderlyingNetworkTemplateService.GetMms:output_type -> vcn.GetMmsResponse
-	23,  // 77: vcn.CellUnderlyingNetworkTemplateService.GetOpportunistic:output_type -> vcn.GetOpportunisticResponse
-	25,  // 78: vcn.CellUnderlyingNetworkTemplateService.GetRcs:output_type -> vcn.GetRcsResponse
-	27,  // 79: vcn.CellUnderlyingNetworkTemplateService.GetRoaming:output_type -> vcn.GetRoamingResponse
-	5,   // 80: vcn.CellUnderlyingNetworkTemplateService.HashCode:output_type -> vcn.HashCodeResponse
-	11,  // 81: vcn.CellUnderlyingNetworkTemplateBuilderService.Build:output_type -> vcn.BuildResponse
-	29,  // 82: vcn.CellUnderlyingNetworkTemplateBuilderService.SetCbs:output_type -> vcn.SetCbsResponse
-	31,  // 83: vcn.CellUnderlyingNetworkTemplateBuilderService.SetDun:output_type -> vcn.SetDunResponse
-	33,  // 84: vcn.CellUnderlyingNetworkTemplateBuilderService.SetIms:output_type -> vcn.SetImsResponse
-	35,  // 85: vcn.CellUnderlyingNetworkTemplateBuilderService.SetInternet:output_type -> vcn.SetInternetResponse
-	37,  // 86: vcn.CellUnderlyingNetworkTemplateBuilderService.SetMetered:output_type -> vcn.SetMeteredResponse
-	39,  // 87: vcn.CellUnderlyingNetworkTemplateBuilderService.SetMinDownstreamBandwidthKbps:output_type -> vcn.SetMinDownstreamBandwidthKbpsResponse
-	41,  // 88: vcn.CellUnderlyingNetworkTemplateBuilderService.SetMinUpstreamBandwidthKbps:output_type -> vcn.SetMinUpstreamBandwidthKbpsResponse
-	43,  // 89: vcn.CellUnderlyingNetworkTemplateBuilderService.SetMms:output_type -> vcn.SetMmsResponse
-	45,  // 90: vcn.CellUnderlyingNetworkTemplateBuilderService.SetOpportunistic:output_type -> vcn.SetOpportunisticResponse
-	47,  // 91: vcn.CellUnderlyingNetworkTemplateBuilderService.SetRcs:output_type -> vcn.SetRcsResponse
-	49,  // 92: vcn.CellUnderlyingNetworkTemplateBuilderService.SetRoaming:output_type -> vcn.SetRoamingResponse
-	3,   // 93: vcn.WifiUnderlyingNetworkTemplateService.Equals:output_type -> vcn.EqualsResponse
-	5,   // 94: vcn.WifiUnderlyingNetworkTemplateService.HashCode:output_type -> vcn.HashCodeResponse
-	11,  // 95: vcn.WifiUnderlyingNetworkTemplateBuilderService.Build:output_type -> vcn.BuildResponse
-	37,  // 96: vcn.WifiUnderlyingNetworkTemplateBuilderService.SetMetered:output_type -> vcn.SetMeteredResponse
-	39,  // 97: vcn.WifiUnderlyingNetworkTemplateBuilderService.SetMinDownstreamBandwidthKbps:output_type -> vcn.SetMinDownstreamBandwidthKbpsResponse
-	41,  // 98: vcn.WifiUnderlyingNetworkTemplateBuilderService.SetMinUpstreamBandwidthKbps:output_type -> vcn.SetMinUpstreamBandwidthKbpsResponse
-	3,   // 99: vcn.GatewayConnectionConfigService.Equals:output_type -> vcn.EqualsResponse
-	51,  // 100: vcn.GatewayConnectionConfigService.GetExposedCapabilities:output_type -> vcn.GetExposedCapabilitiesResponse
-	53,  // 101: vcn.GatewayConnectionConfigService.GetGatewayConnectionName:output_type -> vcn.GetGatewayConnectionNameResponse
-	55,  // 102: vcn.GatewayConnectionConfigService.GetMaxMtu:output_type -> vcn.GetMaxMtuResponse
-	57,  // 103: vcn.GatewayConnectionConfigService.GetMinUdpPort4500NatTimeoutSeconds:output_type -> vcn.GetMinUdpPort4500NatTimeoutSecondsResponse
-	59,  // 104: vcn.GatewayConnectionConfigService.GetRetryIntervalsMillis:output_type -> vcn.GetRetryIntervalsMillisResponse
-	61,  // 105: vcn.GatewayConnectionConfigService.HasGatewayOption:output_type -> vcn.HasGatewayOptionResponse
-	5,   // 106: vcn.GatewayConnectionConfigService.HashCode:output_type -> vcn.HashCodeResponse
-	63,  // 107: vcn.GatewayConnectionConfigService.IsSafeModeEnabled:output_type -> vcn.IsSafeModeEnabledResponse
-	65,  // 108: vcn.GatewayConnectionConfigBuilderService.AddExposedCapability:output_type -> vcn.AddExposedCapabilityResponse
-	67,  // 109: vcn.GatewayConnectionConfigBuilderService.AddGatewayOption:output_type -> vcn.AddGatewayOptionResponse
-	11,  // 110: vcn.GatewayConnectionConfigBuilderService.Build:output_type -> vcn.BuildResponse
-	69,  // 111: vcn.GatewayConnectionConfigBuilderService.RemoveExposedCapability:output_type -> vcn.RemoveExposedCapabilityResponse
-	71,  // 112: vcn.GatewayConnectionConfigBuilderService.RemoveGatewayOption:output_type -> vcn.RemoveGatewayOptionResponse
-	73,  // 113: vcn.GatewayConnectionConfigBuilderService.SetMaxMtu:output_type -> vcn.SetMaxMtuResponse
-	75,  // 114: vcn.GatewayConnectionConfigBuilderService.SetMinUdpPort4500NatTimeoutSeconds:output_type -> vcn.SetMinUdpPort4500NatTimeoutSecondsResponse
-	77,  // 115: vcn.GatewayConnectionConfigBuilderService.SetRetryIntervalsMillis:output_type -> vcn.SetRetryIntervalsMillisResponse
-	79,  // 116: vcn.GatewayConnectionConfigBuilderService.SetSafeModeEnabled:output_type -> vcn.SetSafeModeEnabledResponse
-	81,  // 117: vcn.ManagerService.ClearVcnConfig:output_type -> vcn.ClearVcnConfigResponse
-	83,  // 118: vcn.ManagerService.RegisterVcnStatusCallback:output_type -> vcn.RegisterVcnStatusCallbackResponse
-	85,  // 119: vcn.ManagerService.SetVcnConfig:output_type -> vcn.SetVcnConfigResponse
-	87,  // 120: vcn.ManagerService.UnregisterVcnStatusCallback:output_type -> vcn.UnregisterVcnStatusCallbackResponse
-	89,  // 121: vcn.ManagerVcnStatusCallbackService.OnGatewayConnectionError:output_type -> vcn.OnGatewayConnectionErrorResponse
-	91,  // 122: vcn.ManagerVcnStatusCallbackService.OnStatusChanged:output_type -> vcn.OnStatusChangedResponse
-	3,   // 123: vcn.UnderlyingNetworkTemplateService.Equals:output_type -> vcn.EqualsResponse
-	93,  // 124: vcn.UnderlyingNetworkTemplateService.GetMetered:output_type -> vcn.GetMeteredResponse
-	95,  // 125: vcn.UnderlyingNetworkTemplateService.GetMinEntryDownstreamBandwidthKbps:output_type -> vcn.GetMinEntryDownstreamBandwidthKbpsResponse
-	97,  // 126: vcn.UnderlyingNetworkTemplateService.GetMinEntryUpstreamBandwidthKbps:output_type -> vcn.GetMinEntryUpstreamBandwidthKbpsResponse
-	99,  // 127: vcn.UnderlyingNetworkTemplateService.GetMinExitDownstreamBandwidthKbps:output_type -> vcn.GetMinExitDownstreamBandwidthKbpsResponse
-	101, // 128: vcn.UnderlyingNetworkTemplateService.GetMinExitUpstreamBandwidthKbps:output_type -> vcn.GetMinExitUpstreamBandwidthKbpsResponse
-	5,   // 129: vcn.UnderlyingNetworkTemplateService.HashCode:output_type -> vcn.HashCodeResponse
-	65,  // [65:130] is the sub-list for method output_type
-	0,   // [0:65] is the sub-list for method input_type
+	0,   // 0: vcn.WifiUnderlyingNetworkTemplateService.Equals:input_type -> vcn.EqualsRequest
+	2,   // 1: vcn.WifiUnderlyingNetworkTemplateService.GetSsids:input_type -> vcn.GetSsidsRequest
+	4,   // 2: vcn.WifiUnderlyingNetworkTemplateService.HashCode:input_type -> vcn.HashCodeRequest
+	6,   // 3: vcn.WifiUnderlyingNetworkTemplateBuilderService.Build:input_type -> vcn.BuildRequest
+	8,   // 4: vcn.WifiUnderlyingNetworkTemplateBuilderService.SetMetered:input_type -> vcn.SetMeteredRequest
+	10,  // 5: vcn.WifiUnderlyingNetworkTemplateBuilderService.SetMinDownstreamBandwidthKbps:input_type -> vcn.SetMinDownstreamBandwidthKbpsRequest
+	12,  // 6: vcn.WifiUnderlyingNetworkTemplateBuilderService.SetMinUpstreamBandwidthKbps:input_type -> vcn.SetMinUpstreamBandwidthKbpsRequest
+	0,   // 7: vcn.CellUnderlyingNetworkTemplateService.Equals:input_type -> vcn.EqualsRequest
+	14,  // 8: vcn.CellUnderlyingNetworkTemplateService.GetCbs:input_type -> vcn.GetCbsRequest
+	16,  // 9: vcn.CellUnderlyingNetworkTemplateService.GetDun:input_type -> vcn.GetDunRequest
+	18,  // 10: vcn.CellUnderlyingNetworkTemplateService.GetIms:input_type -> vcn.GetImsRequest
+	20,  // 11: vcn.CellUnderlyingNetworkTemplateService.GetInternet:input_type -> vcn.GetInternetRequest
+	22,  // 12: vcn.CellUnderlyingNetworkTemplateService.GetMms:input_type -> vcn.GetMmsRequest
+	24,  // 13: vcn.CellUnderlyingNetworkTemplateService.GetOperatorPlmnIds:input_type -> vcn.GetOperatorPlmnIdsRequest
+	26,  // 14: vcn.CellUnderlyingNetworkTemplateService.GetOpportunistic:input_type -> vcn.GetOpportunisticRequest
+	28,  // 15: vcn.CellUnderlyingNetworkTemplateService.GetRcs:input_type -> vcn.GetRcsRequest
+	30,  // 16: vcn.CellUnderlyingNetworkTemplateService.GetRoaming:input_type -> vcn.GetRoamingRequest
+	32,  // 17: vcn.CellUnderlyingNetworkTemplateService.GetSimSpecificCarrierIds:input_type -> vcn.GetSimSpecificCarrierIdsRequest
+	4,   // 18: vcn.CellUnderlyingNetworkTemplateService.HashCode:input_type -> vcn.HashCodeRequest
+	6,   // 19: vcn.CellUnderlyingNetworkTemplateBuilderService.Build:input_type -> vcn.BuildRequest
+	34,  // 20: vcn.CellUnderlyingNetworkTemplateBuilderService.SetCbs:input_type -> vcn.SetCbsRequest
+	36,  // 21: vcn.CellUnderlyingNetworkTemplateBuilderService.SetDun:input_type -> vcn.SetDunRequest
+	38,  // 22: vcn.CellUnderlyingNetworkTemplateBuilderService.SetIms:input_type -> vcn.SetImsRequest
+	40,  // 23: vcn.CellUnderlyingNetworkTemplateBuilderService.SetInternet:input_type -> vcn.SetInternetRequest
+	8,   // 24: vcn.CellUnderlyingNetworkTemplateBuilderService.SetMetered:input_type -> vcn.SetMeteredRequest
+	10,  // 25: vcn.CellUnderlyingNetworkTemplateBuilderService.SetMinDownstreamBandwidthKbps:input_type -> vcn.SetMinDownstreamBandwidthKbpsRequest
+	12,  // 26: vcn.CellUnderlyingNetworkTemplateBuilderService.SetMinUpstreamBandwidthKbps:input_type -> vcn.SetMinUpstreamBandwidthKbpsRequest
+	42,  // 27: vcn.CellUnderlyingNetworkTemplateBuilderService.SetMms:input_type -> vcn.SetMmsRequest
+	44,  // 28: vcn.CellUnderlyingNetworkTemplateBuilderService.SetOpportunistic:input_type -> vcn.SetOpportunisticRequest
+	46,  // 29: vcn.CellUnderlyingNetworkTemplateBuilderService.SetRcs:input_type -> vcn.SetRcsRequest
+	48,  // 30: vcn.CellUnderlyingNetworkTemplateBuilderService.SetRoaming:input_type -> vcn.SetRoamingRequest
+	50,  // 31: vcn.ConfigService.DescribeContents:input_type -> vcn.DescribeContentsRequest
+	0,   // 32: vcn.ConfigService.Equals:input_type -> vcn.EqualsRequest
+	52,  // 33: vcn.ConfigService.GetGatewayConnectionConfigs:input_type -> vcn.GetGatewayConnectionConfigsRequest
+	54,  // 34: vcn.ConfigService.GetRestrictedUnderlyingNetworkTransports:input_type -> vcn.GetRestrictedUnderlyingNetworkTransportsRequest
+	4,   // 35: vcn.ConfigService.HashCode:input_type -> vcn.HashCodeRequest
+	56,  // 36: vcn.ConfigService.WriteToParcel:input_type -> vcn.WriteToParcelRequest
+	58,  // 37: vcn.ConfigBuilderService.AddGatewayConnectionConfig:input_type -> vcn.AddGatewayConnectionConfigRequest
+	6,   // 38: vcn.ConfigBuilderService.Build:input_type -> vcn.BuildRequest
+	60,  // 39: vcn.ManagerService.ClearVcnConfig:input_type -> vcn.ClearVcnConfigRequest
+	62,  // 40: vcn.ManagerService.GetConfiguredSubscriptionGroups:input_type -> vcn.GetConfiguredSubscriptionGroupsRequest
+	64,  // 41: vcn.ManagerService.RegisterVcnStatusCallback:input_type -> vcn.RegisterVcnStatusCallbackRequest
+	66,  // 42: vcn.ManagerService.SetVcnConfig:input_type -> vcn.SetVcnConfigRequest
+	68,  // 43: vcn.ManagerService.UnregisterVcnStatusCallback:input_type -> vcn.UnregisterVcnStatusCallbackRequest
+	70,  // 44: vcn.ManagerVcnStatusCallbackService.OnGatewayConnectionError:input_type -> vcn.OnGatewayConnectionErrorRequest
+	72,  // 45: vcn.ManagerVcnStatusCallbackService.OnStatusChanged:input_type -> vcn.OnStatusChangedRequest
+	0,   // 46: vcn.GatewayConnectionConfigService.Equals:input_type -> vcn.EqualsRequest
+	74,  // 47: vcn.GatewayConnectionConfigService.GetExposedCapabilities:input_type -> vcn.GetExposedCapabilitiesRequest
+	76,  // 48: vcn.GatewayConnectionConfigService.GetGatewayConnectionName:input_type -> vcn.GetGatewayConnectionNameRequest
+	78,  // 49: vcn.GatewayConnectionConfigService.GetMaxMtu:input_type -> vcn.GetMaxMtuRequest
+	80,  // 50: vcn.GatewayConnectionConfigService.GetMinUdpPort4500NatTimeoutSeconds:input_type -> vcn.GetMinUdpPort4500NatTimeoutSecondsRequest
+	82,  // 51: vcn.GatewayConnectionConfigService.GetRetryIntervalsMillis:input_type -> vcn.GetRetryIntervalsMillisRequest
+	84,  // 52: vcn.GatewayConnectionConfigService.GetVcnUnderlyingNetworkPriorities:input_type -> vcn.GetVcnUnderlyingNetworkPrioritiesRequest
+	86,  // 53: vcn.GatewayConnectionConfigService.HasGatewayOption:input_type -> vcn.HasGatewayOptionRequest
+	4,   // 54: vcn.GatewayConnectionConfigService.HashCode:input_type -> vcn.HashCodeRequest
+	88,  // 55: vcn.GatewayConnectionConfigService.IsSafeModeEnabled:input_type -> vcn.IsSafeModeEnabledRequest
+	90,  // 56: vcn.GatewayConnectionConfigBuilderService.AddExposedCapability:input_type -> vcn.AddExposedCapabilityRequest
+	92,  // 57: vcn.GatewayConnectionConfigBuilderService.AddGatewayOption:input_type -> vcn.AddGatewayOptionRequest
+	6,   // 58: vcn.GatewayConnectionConfigBuilderService.Build:input_type -> vcn.BuildRequest
+	94,  // 59: vcn.GatewayConnectionConfigBuilderService.RemoveExposedCapability:input_type -> vcn.RemoveExposedCapabilityRequest
+	96,  // 60: vcn.GatewayConnectionConfigBuilderService.RemoveGatewayOption:input_type -> vcn.RemoveGatewayOptionRequest
+	98,  // 61: vcn.GatewayConnectionConfigBuilderService.SetMaxMtu:input_type -> vcn.SetMaxMtuRequest
+	100, // 62: vcn.GatewayConnectionConfigBuilderService.SetMinUdpPort4500NatTimeoutSeconds:input_type -> vcn.SetMinUdpPort4500NatTimeoutSecondsRequest
+	102, // 63: vcn.GatewayConnectionConfigBuilderService.SetRetryIntervalsMillis:input_type -> vcn.SetRetryIntervalsMillisRequest
+	104, // 64: vcn.GatewayConnectionConfigBuilderService.SetSafeModeEnabled:input_type -> vcn.SetSafeModeEnabledRequest
+	0,   // 65: vcn.UnderlyingNetworkTemplateService.Equals:input_type -> vcn.EqualsRequest
+	106, // 66: vcn.UnderlyingNetworkTemplateService.GetMetered:input_type -> vcn.GetMeteredRequest
+	108, // 67: vcn.UnderlyingNetworkTemplateService.GetMinEntryDownstreamBandwidthKbps:input_type -> vcn.GetMinEntryDownstreamBandwidthKbpsRequest
+	110, // 68: vcn.UnderlyingNetworkTemplateService.GetMinEntryUpstreamBandwidthKbps:input_type -> vcn.GetMinEntryUpstreamBandwidthKbpsRequest
+	112, // 69: vcn.UnderlyingNetworkTemplateService.GetMinExitDownstreamBandwidthKbps:input_type -> vcn.GetMinExitDownstreamBandwidthKbpsRequest
+	114, // 70: vcn.UnderlyingNetworkTemplateService.GetMinExitUpstreamBandwidthKbps:input_type -> vcn.GetMinExitUpstreamBandwidthKbpsRequest
+	4,   // 71: vcn.UnderlyingNetworkTemplateService.HashCode:input_type -> vcn.HashCodeRequest
+	1,   // 72: vcn.WifiUnderlyingNetworkTemplateService.Equals:output_type -> vcn.EqualsResponse
+	3,   // 73: vcn.WifiUnderlyingNetworkTemplateService.GetSsids:output_type -> vcn.GetSsidsResponse
+	5,   // 74: vcn.WifiUnderlyingNetworkTemplateService.HashCode:output_type -> vcn.HashCodeResponse
+	7,   // 75: vcn.WifiUnderlyingNetworkTemplateBuilderService.Build:output_type -> vcn.BuildResponse
+	9,   // 76: vcn.WifiUnderlyingNetworkTemplateBuilderService.SetMetered:output_type -> vcn.SetMeteredResponse
+	11,  // 77: vcn.WifiUnderlyingNetworkTemplateBuilderService.SetMinDownstreamBandwidthKbps:output_type -> vcn.SetMinDownstreamBandwidthKbpsResponse
+	13,  // 78: vcn.WifiUnderlyingNetworkTemplateBuilderService.SetMinUpstreamBandwidthKbps:output_type -> vcn.SetMinUpstreamBandwidthKbpsResponse
+	1,   // 79: vcn.CellUnderlyingNetworkTemplateService.Equals:output_type -> vcn.EqualsResponse
+	15,  // 80: vcn.CellUnderlyingNetworkTemplateService.GetCbs:output_type -> vcn.GetCbsResponse
+	17,  // 81: vcn.CellUnderlyingNetworkTemplateService.GetDun:output_type -> vcn.GetDunResponse
+	19,  // 82: vcn.CellUnderlyingNetworkTemplateService.GetIms:output_type -> vcn.GetImsResponse
+	21,  // 83: vcn.CellUnderlyingNetworkTemplateService.GetInternet:output_type -> vcn.GetInternetResponse
+	23,  // 84: vcn.CellUnderlyingNetworkTemplateService.GetMms:output_type -> vcn.GetMmsResponse
+	25,  // 85: vcn.CellUnderlyingNetworkTemplateService.GetOperatorPlmnIds:output_type -> vcn.GetOperatorPlmnIdsResponse
+	27,  // 86: vcn.CellUnderlyingNetworkTemplateService.GetOpportunistic:output_type -> vcn.GetOpportunisticResponse
+	29,  // 87: vcn.CellUnderlyingNetworkTemplateService.GetRcs:output_type -> vcn.GetRcsResponse
+	31,  // 88: vcn.CellUnderlyingNetworkTemplateService.GetRoaming:output_type -> vcn.GetRoamingResponse
+	33,  // 89: vcn.CellUnderlyingNetworkTemplateService.GetSimSpecificCarrierIds:output_type -> vcn.GetSimSpecificCarrierIdsResponse
+	5,   // 90: vcn.CellUnderlyingNetworkTemplateService.HashCode:output_type -> vcn.HashCodeResponse
+	7,   // 91: vcn.CellUnderlyingNetworkTemplateBuilderService.Build:output_type -> vcn.BuildResponse
+	35,  // 92: vcn.CellUnderlyingNetworkTemplateBuilderService.SetCbs:output_type -> vcn.SetCbsResponse
+	37,  // 93: vcn.CellUnderlyingNetworkTemplateBuilderService.SetDun:output_type -> vcn.SetDunResponse
+	39,  // 94: vcn.CellUnderlyingNetworkTemplateBuilderService.SetIms:output_type -> vcn.SetImsResponse
+	41,  // 95: vcn.CellUnderlyingNetworkTemplateBuilderService.SetInternet:output_type -> vcn.SetInternetResponse
+	9,   // 96: vcn.CellUnderlyingNetworkTemplateBuilderService.SetMetered:output_type -> vcn.SetMeteredResponse
+	11,  // 97: vcn.CellUnderlyingNetworkTemplateBuilderService.SetMinDownstreamBandwidthKbps:output_type -> vcn.SetMinDownstreamBandwidthKbpsResponse
+	13,  // 98: vcn.CellUnderlyingNetworkTemplateBuilderService.SetMinUpstreamBandwidthKbps:output_type -> vcn.SetMinUpstreamBandwidthKbpsResponse
+	43,  // 99: vcn.CellUnderlyingNetworkTemplateBuilderService.SetMms:output_type -> vcn.SetMmsResponse
+	45,  // 100: vcn.CellUnderlyingNetworkTemplateBuilderService.SetOpportunistic:output_type -> vcn.SetOpportunisticResponse
+	47,  // 101: vcn.CellUnderlyingNetworkTemplateBuilderService.SetRcs:output_type -> vcn.SetRcsResponse
+	49,  // 102: vcn.CellUnderlyingNetworkTemplateBuilderService.SetRoaming:output_type -> vcn.SetRoamingResponse
+	51,  // 103: vcn.ConfigService.DescribeContents:output_type -> vcn.DescribeContentsResponse
+	1,   // 104: vcn.ConfigService.Equals:output_type -> vcn.EqualsResponse
+	53,  // 105: vcn.ConfigService.GetGatewayConnectionConfigs:output_type -> vcn.GetGatewayConnectionConfigsResponse
+	55,  // 106: vcn.ConfigService.GetRestrictedUnderlyingNetworkTransports:output_type -> vcn.GetRestrictedUnderlyingNetworkTransportsResponse
+	5,   // 107: vcn.ConfigService.HashCode:output_type -> vcn.HashCodeResponse
+	57,  // 108: vcn.ConfigService.WriteToParcel:output_type -> vcn.WriteToParcelResponse
+	59,  // 109: vcn.ConfigBuilderService.AddGatewayConnectionConfig:output_type -> vcn.AddGatewayConnectionConfigResponse
+	7,   // 110: vcn.ConfigBuilderService.Build:output_type -> vcn.BuildResponse
+	61,  // 111: vcn.ManagerService.ClearVcnConfig:output_type -> vcn.ClearVcnConfigResponse
+	63,  // 112: vcn.ManagerService.GetConfiguredSubscriptionGroups:output_type -> vcn.GetConfiguredSubscriptionGroupsResponse
+	65,  // 113: vcn.ManagerService.RegisterVcnStatusCallback:output_type -> vcn.RegisterVcnStatusCallbackResponse
+	67,  // 114: vcn.ManagerService.SetVcnConfig:output_type -> vcn.SetVcnConfigResponse
+	69,  // 115: vcn.ManagerService.UnregisterVcnStatusCallback:output_type -> vcn.UnregisterVcnStatusCallbackResponse
+	71,  // 116: vcn.ManagerVcnStatusCallbackService.OnGatewayConnectionError:output_type -> vcn.OnGatewayConnectionErrorResponse
+	73,  // 117: vcn.ManagerVcnStatusCallbackService.OnStatusChanged:output_type -> vcn.OnStatusChangedResponse
+	1,   // 118: vcn.GatewayConnectionConfigService.Equals:output_type -> vcn.EqualsResponse
+	75,  // 119: vcn.GatewayConnectionConfigService.GetExposedCapabilities:output_type -> vcn.GetExposedCapabilitiesResponse
+	77,  // 120: vcn.GatewayConnectionConfigService.GetGatewayConnectionName:output_type -> vcn.GetGatewayConnectionNameResponse
+	79,  // 121: vcn.GatewayConnectionConfigService.GetMaxMtu:output_type -> vcn.GetMaxMtuResponse
+	81,  // 122: vcn.GatewayConnectionConfigService.GetMinUdpPort4500NatTimeoutSeconds:output_type -> vcn.GetMinUdpPort4500NatTimeoutSecondsResponse
+	83,  // 123: vcn.GatewayConnectionConfigService.GetRetryIntervalsMillis:output_type -> vcn.GetRetryIntervalsMillisResponse
+	85,  // 124: vcn.GatewayConnectionConfigService.GetVcnUnderlyingNetworkPriorities:output_type -> vcn.GetVcnUnderlyingNetworkPrioritiesResponse
+	87,  // 125: vcn.GatewayConnectionConfigService.HasGatewayOption:output_type -> vcn.HasGatewayOptionResponse
+	5,   // 126: vcn.GatewayConnectionConfigService.HashCode:output_type -> vcn.HashCodeResponse
+	89,  // 127: vcn.GatewayConnectionConfigService.IsSafeModeEnabled:output_type -> vcn.IsSafeModeEnabledResponse
+	91,  // 128: vcn.GatewayConnectionConfigBuilderService.AddExposedCapability:output_type -> vcn.AddExposedCapabilityResponse
+	93,  // 129: vcn.GatewayConnectionConfigBuilderService.AddGatewayOption:output_type -> vcn.AddGatewayOptionResponse
+	7,   // 130: vcn.GatewayConnectionConfigBuilderService.Build:output_type -> vcn.BuildResponse
+	95,  // 131: vcn.GatewayConnectionConfigBuilderService.RemoveExposedCapability:output_type -> vcn.RemoveExposedCapabilityResponse
+	97,  // 132: vcn.GatewayConnectionConfigBuilderService.RemoveGatewayOption:output_type -> vcn.RemoveGatewayOptionResponse
+	99,  // 133: vcn.GatewayConnectionConfigBuilderService.SetMaxMtu:output_type -> vcn.SetMaxMtuResponse
+	101, // 134: vcn.GatewayConnectionConfigBuilderService.SetMinUdpPort4500NatTimeoutSeconds:output_type -> vcn.SetMinUdpPort4500NatTimeoutSecondsResponse
+	103, // 135: vcn.GatewayConnectionConfigBuilderService.SetRetryIntervalsMillis:output_type -> vcn.SetRetryIntervalsMillisResponse
+	105, // 136: vcn.GatewayConnectionConfigBuilderService.SetSafeModeEnabled:output_type -> vcn.SetSafeModeEnabledResponse
+	1,   // 137: vcn.UnderlyingNetworkTemplateService.Equals:output_type -> vcn.EqualsResponse
+	107, // 138: vcn.UnderlyingNetworkTemplateService.GetMetered:output_type -> vcn.GetMeteredResponse
+	109, // 139: vcn.UnderlyingNetworkTemplateService.GetMinEntryDownstreamBandwidthKbps:output_type -> vcn.GetMinEntryDownstreamBandwidthKbpsResponse
+	111, // 140: vcn.UnderlyingNetworkTemplateService.GetMinEntryUpstreamBandwidthKbps:output_type -> vcn.GetMinEntryUpstreamBandwidthKbpsResponse
+	113, // 141: vcn.UnderlyingNetworkTemplateService.GetMinExitDownstreamBandwidthKbps:output_type -> vcn.GetMinExitDownstreamBandwidthKbpsResponse
+	115, // 142: vcn.UnderlyingNetworkTemplateService.GetMinExitUpstreamBandwidthKbps:output_type -> vcn.GetMinExitUpstreamBandwidthKbpsResponse
+	5,   // 143: vcn.UnderlyingNetworkTemplateService.HashCode:output_type -> vcn.HashCodeResponse
+	72,  // [72:144] is the sub-list for method output_type
+	0,   // [0:72] is the sub-list for method input_type
 	0,   // [0:0] is the sub-list for extension type_name
 	0,   // [0:0] is the sub-list for extension extendee
 	0,   // [0:0] is the sub-list for field type_name
@@ -4879,7 +5495,7 @@ func file_proto_vcn_vcn_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_proto_vcn_vcn_proto_rawDesc), len(file_proto_vcn_vcn_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   102,
+			NumMessages:   116,
 			NumExtensions: 0,
 			NumServices:   11,
 		},

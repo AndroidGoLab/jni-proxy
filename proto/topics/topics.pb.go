@@ -663,422 +663,6 @@ func (x *ToStringResponse) GetResult() string {
 	return ""
 }
 
-type GetAdsSdkNameRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetAdsSdkNameRequest) Reset() {
-	*x = GetAdsSdkNameRequest{}
-	mi := &file_proto_topics_topics_proto_msgTypes[14]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetAdsSdkNameRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetAdsSdkNameRequest) ProtoMessage() {}
-
-func (x *GetAdsSdkNameRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_topics_topics_proto_msgTypes[14]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetAdsSdkNameRequest.ProtoReflect.Descriptor instead.
-func (*GetAdsSdkNameRequest) Descriptor() ([]byte, []int) {
-	return file_proto_topics_topics_proto_rawDescGZIP(), []int{14}
-}
-
-type GetAdsSdkNameResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetAdsSdkNameResponse) Reset() {
-	*x = GetAdsSdkNameResponse{}
-	mi := &file_proto_topics_topics_proto_msgTypes[15]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetAdsSdkNameResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetAdsSdkNameResponse) ProtoMessage() {}
-
-func (x *GetAdsSdkNameResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_topics_topics_proto_msgTypes[15]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetAdsSdkNameResponse.ProtoReflect.Descriptor instead.
-func (*GetAdsSdkNameResponse) Descriptor() ([]byte, []int) {
-	return file_proto_topics_topics_proto_rawDescGZIP(), []int{15}
-}
-
-func (x *GetAdsSdkNameResponse) GetResult() string {
-	if x != nil {
-		return x.Result
-	}
-	return ""
-}
-
-type ShouldRecordObservationRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ShouldRecordObservationRequest) Reset() {
-	*x = ShouldRecordObservationRequest{}
-	mi := &file_proto_topics_topics_proto_msgTypes[16]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ShouldRecordObservationRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ShouldRecordObservationRequest) ProtoMessage() {}
-
-func (x *ShouldRecordObservationRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_topics_topics_proto_msgTypes[16]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ShouldRecordObservationRequest.ProtoReflect.Descriptor instead.
-func (*ShouldRecordObservationRequest) Descriptor() ([]byte, []int) {
-	return file_proto_topics_topics_proto_rawDescGZIP(), []int{16}
-}
-
-type ShouldRecordObservationResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ShouldRecordObservationResponse) Reset() {
-	*x = ShouldRecordObservationResponse{}
-	mi := &file_proto_topics_topics_proto_msgTypes[17]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ShouldRecordObservationResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ShouldRecordObservationResponse) ProtoMessage() {}
-
-func (x *ShouldRecordObservationResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_topics_topics_proto_msgTypes[17]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ShouldRecordObservationResponse.ProtoReflect.Descriptor instead.
-func (*ShouldRecordObservationResponse) Descriptor() ([]byte, []int) {
-	return file_proto_topics_topics_proto_rawDescGZIP(), []int{17}
-}
-
-func (x *ShouldRecordObservationResponse) GetResult() bool {
-	if x != nil {
-		return x.Result
-	}
-	return false
-}
-
-type BuildRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *BuildRequest) Reset() {
-	*x = BuildRequest{}
-	mi := &file_proto_topics_topics_proto_msgTypes[18]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *BuildRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*BuildRequest) ProtoMessage() {}
-
-func (x *BuildRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_topics_topics_proto_msgTypes[18]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use BuildRequest.ProtoReflect.Descriptor instead.
-func (*BuildRequest) Descriptor() ([]byte, []int) {
-	return file_proto_topics_topics_proto_rawDescGZIP(), []int{18}
-}
-
-type BuildResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *BuildResponse) Reset() {
-	*x = BuildResponse{}
-	mi := &file_proto_topics_topics_proto_msgTypes[19]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *BuildResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*BuildResponse) ProtoMessage() {}
-
-func (x *BuildResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_topics_topics_proto_msgTypes[19]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use BuildResponse.ProtoReflect.Descriptor instead.
-func (*BuildResponse) Descriptor() ([]byte, []int) {
-	return file_proto_topics_topics_proto_rawDescGZIP(), []int{19}
-}
-
-func (x *BuildResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type SetAdsSdkNameRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetAdsSdkNameRequest) Reset() {
-	*x = SetAdsSdkNameRequest{}
-	mi := &file_proto_topics_topics_proto_msgTypes[20]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetAdsSdkNameRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetAdsSdkNameRequest) ProtoMessage() {}
-
-func (x *SetAdsSdkNameRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_topics_topics_proto_msgTypes[20]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetAdsSdkNameRequest.ProtoReflect.Descriptor instead.
-func (*SetAdsSdkNameRequest) Descriptor() ([]byte, []int) {
-	return file_proto_topics_topics_proto_rawDescGZIP(), []int{20}
-}
-
-func (x *SetAdsSdkNameRequest) GetArg0() string {
-	if x != nil {
-		return x.Arg0
-	}
-	return ""
-}
-
-type SetAdsSdkNameResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetAdsSdkNameResponse) Reset() {
-	*x = SetAdsSdkNameResponse{}
-	mi := &file_proto_topics_topics_proto_msgTypes[21]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetAdsSdkNameResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetAdsSdkNameResponse) ProtoMessage() {}
-
-func (x *SetAdsSdkNameResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_topics_topics_proto_msgTypes[21]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetAdsSdkNameResponse.ProtoReflect.Descriptor instead.
-func (*SetAdsSdkNameResponse) Descriptor() ([]byte, []int) {
-	return file_proto_topics_topics_proto_rawDescGZIP(), []int{21}
-}
-
-func (x *SetAdsSdkNameResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type SetShouldRecordObservationRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          bool                   `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetShouldRecordObservationRequest) Reset() {
-	*x = SetShouldRecordObservationRequest{}
-	mi := &file_proto_topics_topics_proto_msgTypes[22]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetShouldRecordObservationRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetShouldRecordObservationRequest) ProtoMessage() {}
-
-func (x *SetShouldRecordObservationRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_topics_topics_proto_msgTypes[22]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetShouldRecordObservationRequest.ProtoReflect.Descriptor instead.
-func (*SetShouldRecordObservationRequest) Descriptor() ([]byte, []int) {
-	return file_proto_topics_topics_proto_rawDescGZIP(), []int{22}
-}
-
-func (x *SetShouldRecordObservationRequest) GetArg0() bool {
-	if x != nil {
-		return x.Arg0
-	}
-	return false
-}
-
-type SetShouldRecordObservationResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetShouldRecordObservationResponse) Reset() {
-	*x = SetShouldRecordObservationResponse{}
-	mi := &file_proto_topics_topics_proto_msgTypes[23]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetShouldRecordObservationResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetShouldRecordObservationResponse) ProtoMessage() {}
-
-func (x *SetShouldRecordObservationResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_topics_topics_proto_msgTypes[23]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetShouldRecordObservationResponse.ProtoReflect.Descriptor instead.
-func (*SetShouldRecordObservationResponse) Descriptor() ([]byte, []int) {
-	return file_proto_topics_topics_proto_rawDescGZIP(), []int{23}
-}
-
-func (x *SetShouldRecordObservationResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
 type GetRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
@@ -1088,7 +672,7 @@ type GetRequest struct {
 
 func (x *GetRequest) Reset() {
 	*x = GetRequest{}
-	mi := &file_proto_topics_topics_proto_msgTypes[24]
+	mi := &file_proto_topics_topics_proto_msgTypes[14]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1100,7 +684,7 @@ func (x *GetRequest) String() string {
 func (*GetRequest) ProtoMessage() {}
 
 func (x *GetRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_topics_topics_proto_msgTypes[24]
+	mi := &file_proto_topics_topics_proto_msgTypes[14]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1113,7 +697,7 @@ func (x *GetRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetRequest.ProtoReflect.Descriptor instead.
 func (*GetRequest) Descriptor() ([]byte, []int) {
-	return file_proto_topics_topics_proto_rawDescGZIP(), []int{24}
+	return file_proto_topics_topics_proto_rawDescGZIP(), []int{14}
 }
 
 func (x *GetRequest) GetArg0() int64 {
@@ -1132,7 +716,7 @@ type GetResponse struct {
 
 func (x *GetResponse) Reset() {
 	*x = GetResponse{}
-	mi := &file_proto_topics_topics_proto_msgTypes[25]
+	mi := &file_proto_topics_topics_proto_msgTypes[15]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1144,7 +728,7 @@ func (x *GetResponse) String() string {
 func (*GetResponse) ProtoMessage() {}
 
 func (x *GetResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_topics_topics_proto_msgTypes[25]
+	mi := &file_proto_topics_topics_proto_msgTypes[15]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1157,7 +741,7 @@ func (x *GetResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetResponse.ProtoReflect.Descriptor instead.
 func (*GetResponse) Descriptor() ([]byte, []int) {
-	return file_proto_topics_topics_proto_rawDescGZIP(), []int{25}
+	return file_proto_topics_topics_proto_rawDescGZIP(), []int{15}
 }
 
 func (x *GetResponse) GetResult() int64 {
@@ -1178,7 +762,7 @@ type NewTopicRequest struct {
 
 func (x *NewTopicRequest) Reset() {
 	*x = NewTopicRequest{}
-	mi := &file_proto_topics_topics_proto_msgTypes[26]
+	mi := &file_proto_topics_topics_proto_msgTypes[16]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1190,7 +774,7 @@ func (x *NewTopicRequest) String() string {
 func (*NewTopicRequest) ProtoMessage() {}
 
 func (x *NewTopicRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_topics_topics_proto_msgTypes[26]
+	mi := &file_proto_topics_topics_proto_msgTypes[16]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1203,7 +787,7 @@ func (x *NewTopicRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NewTopicRequest.ProtoReflect.Descriptor instead.
 func (*NewTopicRequest) Descriptor() ([]byte, []int) {
-	return file_proto_topics_topics_proto_rawDescGZIP(), []int{26}
+	return file_proto_topics_topics_proto_rawDescGZIP(), []int{16}
 }
 
 func (x *NewTopicRequest) GetArg0() int64 {
@@ -1236,7 +820,7 @@ type NewTopicResponse struct {
 
 func (x *NewTopicResponse) Reset() {
 	*x = NewTopicResponse{}
-	mi := &file_proto_topics_topics_proto_msgTypes[27]
+	mi := &file_proto_topics_topics_proto_msgTypes[17]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1248,7 +832,7 @@ func (x *NewTopicResponse) String() string {
 func (*NewTopicResponse) ProtoMessage() {}
 
 func (x *NewTopicResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_topics_topics_proto_msgTypes[27]
+	mi := &file_proto_topics_topics_proto_msgTypes[17]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1261,7 +845,7 @@ func (x *NewTopicResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NewTopicResponse.ProtoReflect.Descriptor instead.
 func (*NewTopicResponse) Descriptor() ([]byte, []int) {
-	return file_proto_topics_topics_proto_rawDescGZIP(), []int{27}
+	return file_proto_topics_topics_proto_rawDescGZIP(), []int{17}
 }
 
 func (x *NewTopicResponse) GetResult() int64 {
@@ -1280,7 +864,7 @@ type GetModelVersionRequest struct {
 
 func (x *GetModelVersionRequest) Reset() {
 	*x = GetModelVersionRequest{}
-	mi := &file_proto_topics_topics_proto_msgTypes[28]
+	mi := &file_proto_topics_topics_proto_msgTypes[18]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1292,7 +876,7 @@ func (x *GetModelVersionRequest) String() string {
 func (*GetModelVersionRequest) ProtoMessage() {}
 
 func (x *GetModelVersionRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_topics_topics_proto_msgTypes[28]
+	mi := &file_proto_topics_topics_proto_msgTypes[18]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1305,7 +889,7 @@ func (x *GetModelVersionRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetModelVersionRequest.ProtoReflect.Descriptor instead.
 func (*GetModelVersionRequest) Descriptor() ([]byte, []int) {
-	return file_proto_topics_topics_proto_rawDescGZIP(), []int{28}
+	return file_proto_topics_topics_proto_rawDescGZIP(), []int{18}
 }
 
 func (x *GetModelVersionRequest) GetHandle() int64 {
@@ -1324,7 +908,7 @@ type GetModelVersionResponse struct {
 
 func (x *GetModelVersionResponse) Reset() {
 	*x = GetModelVersionResponse{}
-	mi := &file_proto_topics_topics_proto_msgTypes[29]
+	mi := &file_proto_topics_topics_proto_msgTypes[19]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1336,7 +920,7 @@ func (x *GetModelVersionResponse) String() string {
 func (*GetModelVersionResponse) ProtoMessage() {}
 
 func (x *GetModelVersionResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_topics_topics_proto_msgTypes[29]
+	mi := &file_proto_topics_topics_proto_msgTypes[19]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1349,7 +933,7 @@ func (x *GetModelVersionResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetModelVersionResponse.ProtoReflect.Descriptor instead.
 func (*GetModelVersionResponse) Descriptor() ([]byte, []int) {
-	return file_proto_topics_topics_proto_rawDescGZIP(), []int{29}
+	return file_proto_topics_topics_proto_rawDescGZIP(), []int{19}
 }
 
 func (x *GetModelVersionResponse) GetResult() int64 {
@@ -1368,7 +952,7 @@ type GetTaxonomyVersionRequest struct {
 
 func (x *GetTaxonomyVersionRequest) Reset() {
 	*x = GetTaxonomyVersionRequest{}
-	mi := &file_proto_topics_topics_proto_msgTypes[30]
+	mi := &file_proto_topics_topics_proto_msgTypes[20]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1380,7 +964,7 @@ func (x *GetTaxonomyVersionRequest) String() string {
 func (*GetTaxonomyVersionRequest) ProtoMessage() {}
 
 func (x *GetTaxonomyVersionRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_topics_topics_proto_msgTypes[30]
+	mi := &file_proto_topics_topics_proto_msgTypes[20]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1393,7 +977,7 @@ func (x *GetTaxonomyVersionRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetTaxonomyVersionRequest.ProtoReflect.Descriptor instead.
 func (*GetTaxonomyVersionRequest) Descriptor() ([]byte, []int) {
-	return file_proto_topics_topics_proto_rawDescGZIP(), []int{30}
+	return file_proto_topics_topics_proto_rawDescGZIP(), []int{20}
 }
 
 func (x *GetTaxonomyVersionRequest) GetHandle() int64 {
@@ -1412,7 +996,7 @@ type GetTaxonomyVersionResponse struct {
 
 func (x *GetTaxonomyVersionResponse) Reset() {
 	*x = GetTaxonomyVersionResponse{}
-	mi := &file_proto_topics_topics_proto_msgTypes[31]
+	mi := &file_proto_topics_topics_proto_msgTypes[21]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1424,7 +1008,7 @@ func (x *GetTaxonomyVersionResponse) String() string {
 func (*GetTaxonomyVersionResponse) ProtoMessage() {}
 
 func (x *GetTaxonomyVersionResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_topics_topics_proto_msgTypes[31]
+	mi := &file_proto_topics_topics_proto_msgTypes[21]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1437,7 +1021,7 @@ func (x *GetTaxonomyVersionResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetTaxonomyVersionResponse.ProtoReflect.Descriptor instead.
 func (*GetTaxonomyVersionResponse) Descriptor() ([]byte, []int) {
-	return file_proto_topics_topics_proto_rawDescGZIP(), []int{31}
+	return file_proto_topics_topics_proto_rawDescGZIP(), []int{21}
 }
 
 func (x *GetTaxonomyVersionResponse) GetResult() int64 {
@@ -1456,7 +1040,7 @@ type GetTopicIdRequest struct {
 
 func (x *GetTopicIdRequest) Reset() {
 	*x = GetTopicIdRequest{}
-	mi := &file_proto_topics_topics_proto_msgTypes[32]
+	mi := &file_proto_topics_topics_proto_msgTypes[22]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1468,7 +1052,7 @@ func (x *GetTopicIdRequest) String() string {
 func (*GetTopicIdRequest) ProtoMessage() {}
 
 func (x *GetTopicIdRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_topics_topics_proto_msgTypes[32]
+	mi := &file_proto_topics_topics_proto_msgTypes[22]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1481,7 +1065,7 @@ func (x *GetTopicIdRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetTopicIdRequest.ProtoReflect.Descriptor instead.
 func (*GetTopicIdRequest) Descriptor() ([]byte, []int) {
-	return file_proto_topics_topics_proto_rawDescGZIP(), []int{32}
+	return file_proto_topics_topics_proto_rawDescGZIP(), []int{22}
 }
 
 func (x *GetTopicIdRequest) GetHandle() int64 {
@@ -1500,7 +1084,7 @@ type GetTopicIdResponse struct {
 
 func (x *GetTopicIdResponse) Reset() {
 	*x = GetTopicIdResponse{}
-	mi := &file_proto_topics_topics_proto_msgTypes[33]
+	mi := &file_proto_topics_topics_proto_msgTypes[23]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1512,7 +1096,7 @@ func (x *GetTopicIdResponse) String() string {
 func (*GetTopicIdResponse) ProtoMessage() {}
 
 func (x *GetTopicIdResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_topics_topics_proto_msgTypes[33]
+	mi := &file_proto_topics_topics_proto_msgTypes[23]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1525,7 +1109,7 @@ func (x *GetTopicIdResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetTopicIdResponse.ProtoReflect.Descriptor instead.
 func (*GetTopicIdResponse) Descriptor() ([]byte, []int) {
-	return file_proto_topics_topics_proto_rawDescGZIP(), []int{33}
+	return file_proto_topics_topics_proto_rawDescGZIP(), []int{23}
 }
 
 func (x *GetTopicIdResponse) GetResult() int32 {
@@ -1544,7 +1128,7 @@ type GetTopicsResponseEqualsRequest struct {
 
 func (x *GetTopicsResponseEqualsRequest) Reset() {
 	*x = GetTopicsResponseEqualsRequest{}
-	mi := &file_proto_topics_topics_proto_msgTypes[34]
+	mi := &file_proto_topics_topics_proto_msgTypes[24]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1556,7 +1140,7 @@ func (x *GetTopicsResponseEqualsRequest) String() string {
 func (*GetTopicsResponseEqualsRequest) ProtoMessage() {}
 
 func (x *GetTopicsResponseEqualsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_topics_topics_proto_msgTypes[34]
+	mi := &file_proto_topics_topics_proto_msgTypes[24]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1569,12 +1153,172 @@ func (x *GetTopicsResponseEqualsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetTopicsResponseEqualsRequest.ProtoReflect.Descriptor instead.
 func (*GetTopicsResponseEqualsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_topics_topics_proto_rawDescGZIP(), []int{34}
+	return file_proto_topics_topics_proto_rawDescGZIP(), []int{24}
 }
 
 func (x *GetTopicsResponseEqualsRequest) GetArg0() int64 {
 	if x != nil {
 		return x.Arg0
+	}
+	return 0
+}
+
+type GetEncryptedTopicsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetEncryptedTopicsRequest) Reset() {
+	*x = GetEncryptedTopicsRequest{}
+	mi := &file_proto_topics_topics_proto_msgTypes[25]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetEncryptedTopicsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetEncryptedTopicsRequest) ProtoMessage() {}
+
+func (x *GetEncryptedTopicsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_topics_topics_proto_msgTypes[25]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetEncryptedTopicsRequest.ProtoReflect.Descriptor instead.
+func (*GetEncryptedTopicsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_topics_topics_proto_rawDescGZIP(), []int{25}
+}
+
+type GetEncryptedTopicsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetEncryptedTopicsResponse) Reset() {
+	*x = GetEncryptedTopicsResponse{}
+	mi := &file_proto_topics_topics_proto_msgTypes[26]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetEncryptedTopicsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetEncryptedTopicsResponse) ProtoMessage() {}
+
+func (x *GetEncryptedTopicsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_topics_topics_proto_msgTypes[26]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetEncryptedTopicsResponse.ProtoReflect.Descriptor instead.
+func (*GetEncryptedTopicsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_topics_topics_proto_rawDescGZIP(), []int{26}
+}
+
+func (x *GetEncryptedTopicsResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetTopicsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTopicsRequest) Reset() {
+	*x = GetTopicsRequest{}
+	mi := &file_proto_topics_topics_proto_msgTypes[27]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTopicsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTopicsRequest) ProtoMessage() {}
+
+func (x *GetTopicsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_topics_topics_proto_msgTypes[27]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTopicsRequest.ProtoReflect.Descriptor instead.
+func (*GetTopicsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_topics_topics_proto_rawDescGZIP(), []int{27}
+}
+
+type GetTopicsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTopicsResponse) Reset() {
+	*x = GetTopicsResponse{}
+	mi := &file_proto_topics_topics_proto_msgTypes[28]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTopicsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTopicsResponse) ProtoMessage() {}
+
+func (x *GetTopicsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_topics_topics_proto_msgTypes[28]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTopicsResponse.ProtoReflect.Descriptor instead.
+func (*GetTopicsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_topics_topics_proto_rawDescGZIP(), []int{28}
+}
+
+func (x *GetTopicsResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
 	}
 	return 0
 }
@@ -1587,7 +1331,7 @@ type GetTopicsResponseHashCodeRequest struct {
 
 func (x *GetTopicsResponseHashCodeRequest) Reset() {
 	*x = GetTopicsResponseHashCodeRequest{}
-	mi := &file_proto_topics_topics_proto_msgTypes[35]
+	mi := &file_proto_topics_topics_proto_msgTypes[29]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1599,7 +1343,7 @@ func (x *GetTopicsResponseHashCodeRequest) String() string {
 func (*GetTopicsResponseHashCodeRequest) ProtoMessage() {}
 
 func (x *GetTopicsResponseHashCodeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_topics_topics_proto_msgTypes[35]
+	mi := &file_proto_topics_topics_proto_msgTypes[29]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1612,7 +1356,423 @@ func (x *GetTopicsResponseHashCodeRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetTopicsResponseHashCodeRequest.ProtoReflect.Descriptor instead.
 func (*GetTopicsResponseHashCodeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_topics_topics_proto_rawDescGZIP(), []int{29}
+}
+
+type BuildRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *BuildRequest) Reset() {
+	*x = BuildRequest{}
+	mi := &file_proto_topics_topics_proto_msgTypes[30]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *BuildRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*BuildRequest) ProtoMessage() {}
+
+func (x *BuildRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_topics_topics_proto_msgTypes[30]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use BuildRequest.ProtoReflect.Descriptor instead.
+func (*BuildRequest) Descriptor() ([]byte, []int) {
+	return file_proto_topics_topics_proto_rawDescGZIP(), []int{30}
+}
+
+type BuildResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *BuildResponse) Reset() {
+	*x = BuildResponse{}
+	mi := &file_proto_topics_topics_proto_msgTypes[31]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *BuildResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*BuildResponse) ProtoMessage() {}
+
+func (x *BuildResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_topics_topics_proto_msgTypes[31]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use BuildResponse.ProtoReflect.Descriptor instead.
+func (*BuildResponse) Descriptor() ([]byte, []int) {
+	return file_proto_topics_topics_proto_rawDescGZIP(), []int{31}
+}
+
+func (x *BuildResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetAdsSdkNameRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetAdsSdkNameRequest) Reset() {
+	*x = GetAdsSdkNameRequest{}
+	mi := &file_proto_topics_topics_proto_msgTypes[32]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetAdsSdkNameRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetAdsSdkNameRequest) ProtoMessage() {}
+
+func (x *GetAdsSdkNameRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_topics_topics_proto_msgTypes[32]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetAdsSdkNameRequest.ProtoReflect.Descriptor instead.
+func (*GetAdsSdkNameRequest) Descriptor() ([]byte, []int) {
+	return file_proto_topics_topics_proto_rawDescGZIP(), []int{32}
+}
+
+type GetAdsSdkNameResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetAdsSdkNameResponse) Reset() {
+	*x = GetAdsSdkNameResponse{}
+	mi := &file_proto_topics_topics_proto_msgTypes[33]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetAdsSdkNameResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetAdsSdkNameResponse) ProtoMessage() {}
+
+func (x *GetAdsSdkNameResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_topics_topics_proto_msgTypes[33]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetAdsSdkNameResponse.ProtoReflect.Descriptor instead.
+func (*GetAdsSdkNameResponse) Descriptor() ([]byte, []int) {
+	return file_proto_topics_topics_proto_rawDescGZIP(), []int{33}
+}
+
+func (x *GetAdsSdkNameResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type ShouldRecordObservationRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ShouldRecordObservationRequest) Reset() {
+	*x = ShouldRecordObservationRequest{}
+	mi := &file_proto_topics_topics_proto_msgTypes[34]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ShouldRecordObservationRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ShouldRecordObservationRequest) ProtoMessage() {}
+
+func (x *ShouldRecordObservationRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_topics_topics_proto_msgTypes[34]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ShouldRecordObservationRequest.ProtoReflect.Descriptor instead.
+func (*ShouldRecordObservationRequest) Descriptor() ([]byte, []int) {
+	return file_proto_topics_topics_proto_rawDescGZIP(), []int{34}
+}
+
+type ShouldRecordObservationResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ShouldRecordObservationResponse) Reset() {
+	*x = ShouldRecordObservationResponse{}
+	mi := &file_proto_topics_topics_proto_msgTypes[35]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ShouldRecordObservationResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ShouldRecordObservationResponse) ProtoMessage() {}
+
+func (x *ShouldRecordObservationResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_topics_topics_proto_msgTypes[35]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ShouldRecordObservationResponse.ProtoReflect.Descriptor instead.
+func (*ShouldRecordObservationResponse) Descriptor() ([]byte, []int) {
 	return file_proto_topics_topics_proto_rawDescGZIP(), []int{35}
+}
+
+func (x *ShouldRecordObservationResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type SetAdsSdkNameRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetAdsSdkNameRequest) Reset() {
+	*x = SetAdsSdkNameRequest{}
+	mi := &file_proto_topics_topics_proto_msgTypes[36]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetAdsSdkNameRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetAdsSdkNameRequest) ProtoMessage() {}
+
+func (x *SetAdsSdkNameRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_topics_topics_proto_msgTypes[36]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetAdsSdkNameRequest.ProtoReflect.Descriptor instead.
+func (*SetAdsSdkNameRequest) Descriptor() ([]byte, []int) {
+	return file_proto_topics_topics_proto_rawDescGZIP(), []int{36}
+}
+
+func (x *SetAdsSdkNameRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type SetAdsSdkNameResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetAdsSdkNameResponse) Reset() {
+	*x = SetAdsSdkNameResponse{}
+	mi := &file_proto_topics_topics_proto_msgTypes[37]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetAdsSdkNameResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetAdsSdkNameResponse) ProtoMessage() {}
+
+func (x *SetAdsSdkNameResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_topics_topics_proto_msgTypes[37]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetAdsSdkNameResponse.ProtoReflect.Descriptor instead.
+func (*SetAdsSdkNameResponse) Descriptor() ([]byte, []int) {
+	return file_proto_topics_topics_proto_rawDescGZIP(), []int{37}
+}
+
+func (x *SetAdsSdkNameResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetShouldRecordObservationRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          bool                   `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetShouldRecordObservationRequest) Reset() {
+	*x = SetShouldRecordObservationRequest{}
+	mi := &file_proto_topics_topics_proto_msgTypes[38]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetShouldRecordObservationRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetShouldRecordObservationRequest) ProtoMessage() {}
+
+func (x *SetShouldRecordObservationRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_topics_topics_proto_msgTypes[38]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetShouldRecordObservationRequest.ProtoReflect.Descriptor instead.
+func (*SetShouldRecordObservationRequest) Descriptor() ([]byte, []int) {
+	return file_proto_topics_topics_proto_rawDescGZIP(), []int{38}
+}
+
+func (x *SetShouldRecordObservationRequest) GetArg0() bool {
+	if x != nil {
+		return x.Arg0
+	}
+	return false
+}
+
+type SetShouldRecordObservationResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetShouldRecordObservationResponse) Reset() {
+	*x = SetShouldRecordObservationResponse{}
+	mi := &file_proto_topics_topics_proto_msgTypes[39]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetShouldRecordObservationResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetShouldRecordObservationResponse) ProtoMessage() {}
+
+func (x *SetShouldRecordObservationResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_topics_topics_proto_msgTypes[39]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetShouldRecordObservationResponse.ProtoReflect.Descriptor instead.
+func (*SetShouldRecordObservationResponse) Descriptor() ([]byte, []int) {
+	return file_proto_topics_topics_proto_rawDescGZIP(), []int{39}
+}
+
+func (x *SetShouldRecordObservationResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
 }
 
 var File_proto_topics_topics_proto protoreflect.FileDescriptor
@@ -1650,24 +1810,7 @@ const file_proto_topics_topics_proto_rawDesc = "" +
 	"\x0fToStringRequest\x12\x16\n" +
 	"\x06handle\x18\x01 \x01(\x03R\x06handle\"*\n" +
 	"\x10ToStringResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\tR\x06result\"\x16\n" +
-	"\x14GetAdsSdkNameRequest\"/\n" +
-	"\x15GetAdsSdkNameResponse\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\tR\x06result\" \n" +
-	"\x1eShouldRecordObservationRequest\"9\n" +
-	"\x1fShouldRecordObservationResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\bR\x06result\"\x0e\n" +
-	"\fBuildRequest\"'\n" +
-	"\rBuildResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"*\n" +
-	"\x14SetAdsSdkNameRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"/\n" +
-	"\x15SetAdsSdkNameResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"7\n" +
-	"!SetShouldRecordObservationRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\bR\x04arg0\"<\n" +
-	"\"SetShouldRecordObservationResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\" \n" +
 	"\n" +
 	"GetRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"%\n" +
@@ -1692,8 +1835,31 @@ const file_proto_topics_topics_proto_rawDesc = "" +
 	"\x12GetTopicIdResponse\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\x05R\x06result\"4\n" +
 	"\x1eGetTopicsResponseEqualsRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\"\n" +
-	" GetTopicsResponseHashCodeRequest2\xb6\x04\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x1b\n" +
+	"\x19GetEncryptedTopicsRequest\"4\n" +
+	"\x1aGetEncryptedTopicsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x12\n" +
+	"\x10GetTopicsRequest\"+\n" +
+	"\x11GetTopicsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\"\n" +
+	" GetTopicsResponseHashCodeRequest\"\x0e\n" +
+	"\fBuildRequest\"'\n" +
+	"\rBuildResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x16\n" +
+	"\x14GetAdsSdkNameRequest\"/\n" +
+	"\x15GetAdsSdkNameResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\" \n" +
+	"\x1eShouldRecordObservationRequest\"9\n" +
+	"\x1fShouldRecordObservationResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"*\n" +
+	"\x14SetAdsSdkNameRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"/\n" +
+	"\x15SetAdsSdkNameResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"7\n" +
+	"!SetShouldRecordObservationRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\bR\x04arg0\"<\n" +
+	"\"SetShouldRecordObservationResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result2\xb6\x04\n" +
 	"\x15EncryptedTopicService\x12X\n" +
 	"\x11NewEncryptedTopic\x12 .topics.NewEncryptedTopicRequest\x1a!.topics.NewEncryptedTopicResponse\x127\n" +
 	"\x06Equals\x12\x15.topics.EqualsRequest\x1a\x16.topics.EqualsResponse\x12[\n" +
@@ -1701,14 +1867,7 @@ const file_proto_topics_topics_proto_rawDesc = "" +
 	"\x11GetEncryptedTopic\x12 .topics.GetEncryptedTopicRequest\x1a!.topics.GetEncryptedTopicResponse\x12U\n" +
 	"\x10GetKeyIdentifier\x12\x1f.topics.GetKeyIdentifierRequest\x1a .topics.GetKeyIdentifierResponse\x12=\n" +
 	"\bHashCode\x12\x17.topics.HashCodeRequest\x1a\x18.topics.HashCodeResponse\x12=\n" +
-	"\bToString\x12\x17.topics.ToStringRequest\x1a\x18.topics.ToStringResponse2\xd3\x01\n" +
-	"\x17GetTopicsRequestService\x12L\n" +
-	"\rGetAdsSdkName\x12\x1c.topics.GetAdsSdkNameRequest\x1a\x1d.topics.GetAdsSdkNameResponse\x12j\n" +
-	"\x17ShouldRecordObservation\x12&.topics.ShouldRecordObservationRequest\x1a'.topics.ShouldRecordObservationResponse2\x99\x02\n" +
-	"\x1eGetTopicsRequestBuilderService\x124\n" +
-	"\x05Build\x12\x14.topics.BuildRequest\x1a\x15.topics.BuildResponse\x12L\n" +
-	"\rSetAdsSdkName\x12\x1c.topics.SetAdsSdkNameRequest\x1a\x1d.topics.SetAdsSdkNameResponse\x12s\n" +
-	"\x1aSetShouldRecordObservation\x12).topics.SetShouldRecordObservationRequest\x1a*.topics.SetShouldRecordObservationResponse2@\n" +
+	"\bToString\x12\x17.topics.ToStringRequest\x1a\x18.topics.ToStringResponse2@\n" +
 	"\x0eManagerService\x12.\n" +
 	"\x03Get\x12\x12.topics.GetRequest\x1a\x13.topics.GetResponse2\xfa\x03\n" +
 	"\fTopicService\x12=\n" +
@@ -1719,12 +1878,21 @@ const file_proto_topics_topics_proto_rawDesc = "" +
 	"\n" +
 	"GetTopicId\x12\x19.topics.GetTopicIdRequest\x1a\x1a.topics.GetTopicIdResponse\x12=\n" +
 	"\bHashCode\x12\x17.topics.HashCodeRequest\x1a\x18.topics.HashCodeResponse\x12=\n" +
-	"\bToString\x12\x17.topics.ToStringRequest\x1a\x18.topics.ToStringResponse2\xb4\x01\n" +
+	"\bToString\x12\x17.topics.ToStringRequest\x1a\x18.topics.ToStringResponse2\xd3\x02\n" +
 	"\x18GetTopicsResponseService\x12H\n" +
-	"\x06Equals\x12&.topics.GetTopicsResponseEqualsRequest\x1a\x16.topics.EqualsResponse\x12N\n" +
+	"\x06Equals\x12&.topics.GetTopicsResponseEqualsRequest\x1a\x16.topics.EqualsResponse\x12[\n" +
+	"\x12GetEncryptedTopics\x12!.topics.GetEncryptedTopicsRequest\x1a\".topics.GetEncryptedTopicsResponse\x12@\n" +
+	"\tGetTopics\x12\x18.topics.GetTopicsRequest\x1a\x19.topics.GetTopicsResponse\x12N\n" +
 	"\bHashCode\x12(.topics.GetTopicsResponseHashCodeRequest\x1a\x18.topics.HashCodeResponse2W\n" +
 	"\x1fGetTopicsResponseBuilderService\x124\n" +
-	"\x05Build\x12\x14.topics.BuildRequest\x1a\x15.topics.BuildResponseB0Z.github.com/AndroidGoLab/jni-proxy/proto/topicsb\x06proto3"
+	"\x05Build\x12\x14.topics.BuildRequest\x1a\x15.topics.BuildResponse2\xd3\x01\n" +
+	"\x17GetTopicsRequestService\x12L\n" +
+	"\rGetAdsSdkName\x12\x1c.topics.GetAdsSdkNameRequest\x1a\x1d.topics.GetAdsSdkNameResponse\x12j\n" +
+	"\x17ShouldRecordObservation\x12&.topics.ShouldRecordObservationRequest\x1a'.topics.ShouldRecordObservationResponse2\x99\x02\n" +
+	"\x1eGetTopicsRequestBuilderService\x124\n" +
+	"\x05Build\x12\x14.topics.BuildRequest\x1a\x15.topics.BuildResponse\x12L\n" +
+	"\rSetAdsSdkName\x12\x1c.topics.SetAdsSdkNameRequest\x1a\x1d.topics.SetAdsSdkNameResponse\x12s\n" +
+	"\x1aSetShouldRecordObservation\x12).topics.SetShouldRecordObservationRequest\x1a*.topics.SetShouldRecordObservationResponseB0Z.github.com/AndroidGoLab/jni-proxy/proto/topicsb\x06proto3"
 
 var (
 	file_proto_topics_topics_proto_rawDescOnce sync.Once
@@ -1738,7 +1906,7 @@ func file_proto_topics_topics_proto_rawDescGZIP() []byte {
 	return file_proto_topics_topics_proto_rawDescData
 }
 
-var file_proto_topics_topics_proto_msgTypes = make([]protoimpl.MessageInfo, 36)
+var file_proto_topics_topics_proto_msgTypes = make([]protoimpl.MessageInfo, 40)
 var file_proto_topics_topics_proto_goTypes = []any{
 	(*NewEncryptedTopicRequest)(nil),           // 0: topics.NewEncryptedTopicRequest
 	(*NewEncryptedTopicResponse)(nil),          // 1: topics.NewEncryptedTopicResponse
@@ -1754,28 +1922,32 @@ var file_proto_topics_topics_proto_goTypes = []any{
 	(*HashCodeResponse)(nil),                   // 11: topics.HashCodeResponse
 	(*ToStringRequest)(nil),                    // 12: topics.ToStringRequest
 	(*ToStringResponse)(nil),                   // 13: topics.ToStringResponse
-	(*GetAdsSdkNameRequest)(nil),               // 14: topics.GetAdsSdkNameRequest
-	(*GetAdsSdkNameResponse)(nil),              // 15: topics.GetAdsSdkNameResponse
-	(*ShouldRecordObservationRequest)(nil),     // 16: topics.ShouldRecordObservationRequest
-	(*ShouldRecordObservationResponse)(nil),    // 17: topics.ShouldRecordObservationResponse
-	(*BuildRequest)(nil),                       // 18: topics.BuildRequest
-	(*BuildResponse)(nil),                      // 19: topics.BuildResponse
-	(*SetAdsSdkNameRequest)(nil),               // 20: topics.SetAdsSdkNameRequest
-	(*SetAdsSdkNameResponse)(nil),              // 21: topics.SetAdsSdkNameResponse
-	(*SetShouldRecordObservationRequest)(nil),  // 22: topics.SetShouldRecordObservationRequest
-	(*SetShouldRecordObservationResponse)(nil), // 23: topics.SetShouldRecordObservationResponse
-	(*GetRequest)(nil),                         // 24: topics.GetRequest
-	(*GetResponse)(nil),                        // 25: topics.GetResponse
-	(*NewTopicRequest)(nil),                    // 26: topics.NewTopicRequest
-	(*NewTopicResponse)(nil),                   // 27: topics.NewTopicResponse
-	(*GetModelVersionRequest)(nil),             // 28: topics.GetModelVersionRequest
-	(*GetModelVersionResponse)(nil),            // 29: topics.GetModelVersionResponse
-	(*GetTaxonomyVersionRequest)(nil),          // 30: topics.GetTaxonomyVersionRequest
-	(*GetTaxonomyVersionResponse)(nil),         // 31: topics.GetTaxonomyVersionResponse
-	(*GetTopicIdRequest)(nil),                  // 32: topics.GetTopicIdRequest
-	(*GetTopicIdResponse)(nil),                 // 33: topics.GetTopicIdResponse
-	(*GetTopicsResponseEqualsRequest)(nil),     // 34: topics.GetTopicsResponseEqualsRequest
-	(*GetTopicsResponseHashCodeRequest)(nil),   // 35: topics.GetTopicsResponseHashCodeRequest
+	(*GetRequest)(nil),                         // 14: topics.GetRequest
+	(*GetResponse)(nil),                        // 15: topics.GetResponse
+	(*NewTopicRequest)(nil),                    // 16: topics.NewTopicRequest
+	(*NewTopicResponse)(nil),                   // 17: topics.NewTopicResponse
+	(*GetModelVersionRequest)(nil),             // 18: topics.GetModelVersionRequest
+	(*GetModelVersionResponse)(nil),            // 19: topics.GetModelVersionResponse
+	(*GetTaxonomyVersionRequest)(nil),          // 20: topics.GetTaxonomyVersionRequest
+	(*GetTaxonomyVersionResponse)(nil),         // 21: topics.GetTaxonomyVersionResponse
+	(*GetTopicIdRequest)(nil),                  // 22: topics.GetTopicIdRequest
+	(*GetTopicIdResponse)(nil),                 // 23: topics.GetTopicIdResponse
+	(*GetTopicsResponseEqualsRequest)(nil),     // 24: topics.GetTopicsResponseEqualsRequest
+	(*GetEncryptedTopicsRequest)(nil),          // 25: topics.GetEncryptedTopicsRequest
+	(*GetEncryptedTopicsResponse)(nil),         // 26: topics.GetEncryptedTopicsResponse
+	(*GetTopicsRequest)(nil),                   // 27: topics.GetTopicsRequest
+	(*GetTopicsResponse)(nil),                  // 28: topics.GetTopicsResponse
+	(*GetTopicsResponseHashCodeRequest)(nil),   // 29: topics.GetTopicsResponseHashCodeRequest
+	(*BuildRequest)(nil),                       // 30: topics.BuildRequest
+	(*BuildResponse)(nil),                      // 31: topics.BuildResponse
+	(*GetAdsSdkNameRequest)(nil),               // 32: topics.GetAdsSdkNameRequest
+	(*GetAdsSdkNameResponse)(nil),              // 33: topics.GetAdsSdkNameResponse
+	(*ShouldRecordObservationRequest)(nil),     // 34: topics.ShouldRecordObservationRequest
+	(*ShouldRecordObservationResponse)(nil),    // 35: topics.ShouldRecordObservationResponse
+	(*SetAdsSdkNameRequest)(nil),               // 36: topics.SetAdsSdkNameRequest
+	(*SetAdsSdkNameResponse)(nil),              // 37: topics.SetAdsSdkNameResponse
+	(*SetShouldRecordObservationRequest)(nil),  // 38: topics.SetShouldRecordObservationRequest
+	(*SetShouldRecordObservationResponse)(nil), // 39: topics.SetShouldRecordObservationResponse
 }
 var file_proto_topics_topics_proto_depIdxs = []int32{
 	0,  // 0: topics.EncryptedTopicService.NewEncryptedTopic:input_type -> topics.NewEncryptedTopicRequest
@@ -1785,47 +1957,51 @@ var file_proto_topics_topics_proto_depIdxs = []int32{
 	8,  // 4: topics.EncryptedTopicService.GetKeyIdentifier:input_type -> topics.GetKeyIdentifierRequest
 	10, // 5: topics.EncryptedTopicService.HashCode:input_type -> topics.HashCodeRequest
 	12, // 6: topics.EncryptedTopicService.ToString:input_type -> topics.ToStringRequest
-	14, // 7: topics.GetTopicsRequestService.GetAdsSdkName:input_type -> topics.GetAdsSdkNameRequest
-	16, // 8: topics.GetTopicsRequestService.ShouldRecordObservation:input_type -> topics.ShouldRecordObservationRequest
-	18, // 9: topics.GetTopicsRequestBuilderService.Build:input_type -> topics.BuildRequest
-	20, // 10: topics.GetTopicsRequestBuilderService.SetAdsSdkName:input_type -> topics.SetAdsSdkNameRequest
-	22, // 11: topics.GetTopicsRequestBuilderService.SetShouldRecordObservation:input_type -> topics.SetShouldRecordObservationRequest
-	24, // 12: topics.ManagerService.Get:input_type -> topics.GetRequest
-	26, // 13: topics.TopicService.NewTopic:input_type -> topics.NewTopicRequest
-	2,  // 14: topics.TopicService.Equals:input_type -> topics.EqualsRequest
-	28, // 15: topics.TopicService.GetModelVersion:input_type -> topics.GetModelVersionRequest
-	30, // 16: topics.TopicService.GetTaxonomyVersion:input_type -> topics.GetTaxonomyVersionRequest
-	32, // 17: topics.TopicService.GetTopicId:input_type -> topics.GetTopicIdRequest
-	10, // 18: topics.TopicService.HashCode:input_type -> topics.HashCodeRequest
-	12, // 19: topics.TopicService.ToString:input_type -> topics.ToStringRequest
-	34, // 20: topics.GetTopicsResponseService.Equals:input_type -> topics.GetTopicsResponseEqualsRequest
-	35, // 21: topics.GetTopicsResponseService.HashCode:input_type -> topics.GetTopicsResponseHashCodeRequest
-	18, // 22: topics.GetTopicsResponseBuilderService.Build:input_type -> topics.BuildRequest
-	1,  // 23: topics.EncryptedTopicService.NewEncryptedTopic:output_type -> topics.NewEncryptedTopicResponse
-	3,  // 24: topics.EncryptedTopicService.Equals:output_type -> topics.EqualsResponse
-	5,  // 25: topics.EncryptedTopicService.GetEncapsulatedKey:output_type -> topics.GetEncapsulatedKeyResponse
-	7,  // 26: topics.EncryptedTopicService.GetEncryptedTopic:output_type -> topics.GetEncryptedTopicResponse
-	9,  // 27: topics.EncryptedTopicService.GetKeyIdentifier:output_type -> topics.GetKeyIdentifierResponse
-	11, // 28: topics.EncryptedTopicService.HashCode:output_type -> topics.HashCodeResponse
-	13, // 29: topics.EncryptedTopicService.ToString:output_type -> topics.ToStringResponse
-	15, // 30: topics.GetTopicsRequestService.GetAdsSdkName:output_type -> topics.GetAdsSdkNameResponse
-	17, // 31: topics.GetTopicsRequestService.ShouldRecordObservation:output_type -> topics.ShouldRecordObservationResponse
-	19, // 32: topics.GetTopicsRequestBuilderService.Build:output_type -> topics.BuildResponse
-	21, // 33: topics.GetTopicsRequestBuilderService.SetAdsSdkName:output_type -> topics.SetAdsSdkNameResponse
-	23, // 34: topics.GetTopicsRequestBuilderService.SetShouldRecordObservation:output_type -> topics.SetShouldRecordObservationResponse
-	25, // 35: topics.ManagerService.Get:output_type -> topics.GetResponse
-	27, // 36: topics.TopicService.NewTopic:output_type -> topics.NewTopicResponse
-	3,  // 37: topics.TopicService.Equals:output_type -> topics.EqualsResponse
-	29, // 38: topics.TopicService.GetModelVersion:output_type -> topics.GetModelVersionResponse
-	31, // 39: topics.TopicService.GetTaxonomyVersion:output_type -> topics.GetTaxonomyVersionResponse
-	33, // 40: topics.TopicService.GetTopicId:output_type -> topics.GetTopicIdResponse
-	11, // 41: topics.TopicService.HashCode:output_type -> topics.HashCodeResponse
-	13, // 42: topics.TopicService.ToString:output_type -> topics.ToStringResponse
-	3,  // 43: topics.GetTopicsResponseService.Equals:output_type -> topics.EqualsResponse
-	11, // 44: topics.GetTopicsResponseService.HashCode:output_type -> topics.HashCodeResponse
-	19, // 45: topics.GetTopicsResponseBuilderService.Build:output_type -> topics.BuildResponse
-	23, // [23:46] is the sub-list for method output_type
-	0,  // [0:23] is the sub-list for method input_type
+	14, // 7: topics.ManagerService.Get:input_type -> topics.GetRequest
+	16, // 8: topics.TopicService.NewTopic:input_type -> topics.NewTopicRequest
+	2,  // 9: topics.TopicService.Equals:input_type -> topics.EqualsRequest
+	18, // 10: topics.TopicService.GetModelVersion:input_type -> topics.GetModelVersionRequest
+	20, // 11: topics.TopicService.GetTaxonomyVersion:input_type -> topics.GetTaxonomyVersionRequest
+	22, // 12: topics.TopicService.GetTopicId:input_type -> topics.GetTopicIdRequest
+	10, // 13: topics.TopicService.HashCode:input_type -> topics.HashCodeRequest
+	12, // 14: topics.TopicService.ToString:input_type -> topics.ToStringRequest
+	24, // 15: topics.GetTopicsResponseService.Equals:input_type -> topics.GetTopicsResponseEqualsRequest
+	25, // 16: topics.GetTopicsResponseService.GetEncryptedTopics:input_type -> topics.GetEncryptedTopicsRequest
+	27, // 17: topics.GetTopicsResponseService.GetTopics:input_type -> topics.GetTopicsRequest
+	29, // 18: topics.GetTopicsResponseService.HashCode:input_type -> topics.GetTopicsResponseHashCodeRequest
+	30, // 19: topics.GetTopicsResponseBuilderService.Build:input_type -> topics.BuildRequest
+	32, // 20: topics.GetTopicsRequestService.GetAdsSdkName:input_type -> topics.GetAdsSdkNameRequest
+	34, // 21: topics.GetTopicsRequestService.ShouldRecordObservation:input_type -> topics.ShouldRecordObservationRequest
+	30, // 22: topics.GetTopicsRequestBuilderService.Build:input_type -> topics.BuildRequest
+	36, // 23: topics.GetTopicsRequestBuilderService.SetAdsSdkName:input_type -> topics.SetAdsSdkNameRequest
+	38, // 24: topics.GetTopicsRequestBuilderService.SetShouldRecordObservation:input_type -> topics.SetShouldRecordObservationRequest
+	1,  // 25: topics.EncryptedTopicService.NewEncryptedTopic:output_type -> topics.NewEncryptedTopicResponse
+	3,  // 26: topics.EncryptedTopicService.Equals:output_type -> topics.EqualsResponse
+	5,  // 27: topics.EncryptedTopicService.GetEncapsulatedKey:output_type -> topics.GetEncapsulatedKeyResponse
+	7,  // 28: topics.EncryptedTopicService.GetEncryptedTopic:output_type -> topics.GetEncryptedTopicResponse
+	9,  // 29: topics.EncryptedTopicService.GetKeyIdentifier:output_type -> topics.GetKeyIdentifierResponse
+	11, // 30: topics.EncryptedTopicService.HashCode:output_type -> topics.HashCodeResponse
+	13, // 31: topics.EncryptedTopicService.ToString:output_type -> topics.ToStringResponse
+	15, // 32: topics.ManagerService.Get:output_type -> topics.GetResponse
+	17, // 33: topics.TopicService.NewTopic:output_type -> topics.NewTopicResponse
+	3,  // 34: topics.TopicService.Equals:output_type -> topics.EqualsResponse
+	19, // 35: topics.TopicService.GetModelVersion:output_type -> topics.GetModelVersionResponse
+	21, // 36: topics.TopicService.GetTaxonomyVersion:output_type -> topics.GetTaxonomyVersionResponse
+	23, // 37: topics.TopicService.GetTopicId:output_type -> topics.GetTopicIdResponse
+	11, // 38: topics.TopicService.HashCode:output_type -> topics.HashCodeResponse
+	13, // 39: topics.TopicService.ToString:output_type -> topics.ToStringResponse
+	3,  // 40: topics.GetTopicsResponseService.Equals:output_type -> topics.EqualsResponse
+	26, // 41: topics.GetTopicsResponseService.GetEncryptedTopics:output_type -> topics.GetEncryptedTopicsResponse
+	28, // 42: topics.GetTopicsResponseService.GetTopics:output_type -> topics.GetTopicsResponse
+	11, // 43: topics.GetTopicsResponseService.HashCode:output_type -> topics.HashCodeResponse
+	31, // 44: topics.GetTopicsResponseBuilderService.Build:output_type -> topics.BuildResponse
+	33, // 45: topics.GetTopicsRequestService.GetAdsSdkName:output_type -> topics.GetAdsSdkNameResponse
+	35, // 46: topics.GetTopicsRequestService.ShouldRecordObservation:output_type -> topics.ShouldRecordObservationResponse
+	31, // 47: topics.GetTopicsRequestBuilderService.Build:output_type -> topics.BuildResponse
+	37, // 48: topics.GetTopicsRequestBuilderService.SetAdsSdkName:output_type -> topics.SetAdsSdkNameResponse
+	39, // 49: topics.GetTopicsRequestBuilderService.SetShouldRecordObservation:output_type -> topics.SetShouldRecordObservationResponse
+	25, // [25:50] is the sub-list for method output_type
+	0,  // [0:25] is the sub-list for method input_type
 	0,  // [0:0] is the sub-list for extension type_name
 	0,  // [0:0] is the sub-list for extension extendee
 	0,  // [0:0] is the sub-list for field type_name
@@ -1842,7 +2018,7 @@ func file_proto_topics_topics_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_proto_topics_topics_proto_rawDesc), len(file_proto_topics_topics_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   36,
+			NumMessages:   40,
 			NumExtensions: 0,
 			NumServices:   7,
 		},

@@ -15,87 +15,6 @@ import (
 	"google.golang.org/grpc/status"
 )
 
-// RelativeFrameTimeHistogramServer implements pb.RelativeFrameTimeHistogramServiceServer.
-type RelativeFrameTimeHistogramServer struct {
-	pb.UnimplementedRelativeFrameTimeHistogramServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *RelativeFrameTimeHistogramServer) NewRelativeFrameTimeHistogram(_ context.Context, req *pb.NewRelativeFrameTimeHistogramRequest) (*pb.NewRelativeFrameTimeHistogramResponse, error) {
-	obj, err := jnipkg.NewRelativeFrameTimeHistogram(s.Ctx.VM)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
-	}
-	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-	}
-	return &pb.NewRelativeFrameTimeHistogramResponse{Result: handle}, nil
-}
-
-func (s *RelativeFrameTimeHistogramServer) AddRelativeFrameTimeMillis(_ context.Context, req *pb.AddRelativeFrameTimeMillisRequest) (*pb.AddRelativeFrameTimeMillisResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.RelativeFrameTimeHistogram{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.AddRelativeFrameTimeMillis(req.GetArg0()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.AddRelativeFrameTimeMillisResponse{}, nil
-}
-
-func (s *RelativeFrameTimeHistogramServer) GetBucketCounters(_ context.Context, req *pb.GetBucketCountersRequest) (*pb.GetBucketCountersResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.RelativeFrameTimeHistogram{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetBucketCounters()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetBucketCountersResponse{Result: handle}, nil
-}
-
-func (s *RelativeFrameTimeHistogramServer) GetBucketEndpointsMillis(_ context.Context, req *pb.GetBucketEndpointsMillisRequest) (*pb.GetBucketEndpointsMillisResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.RelativeFrameTimeHistogram{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetBucketEndpointsMillis()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetBucketEndpointsMillisResponse{Result: handle}, nil
-}
-
 // AppJankStatsServer implements pb.AppJankStatsServiceServer.
 type AppJankStatsServer struct {
 	pb.UnimplementedAppJankStatsServiceServer
@@ -237,4 +156,85 @@ func (s *AppJankStatsServer) GetWidgetState(_ context.Context, req *pb.GetWidget
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
 	return &pb.GetWidgetStateResponse{Result: result}, nil
+}
+
+// RelativeFrameTimeHistogramServer implements pb.RelativeFrameTimeHistogramServiceServer.
+type RelativeFrameTimeHistogramServer struct {
+	pb.UnimplementedRelativeFrameTimeHistogramServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *RelativeFrameTimeHistogramServer) NewRelativeFrameTimeHistogram(_ context.Context, req *pb.NewRelativeFrameTimeHistogramRequest) (*pb.NewRelativeFrameTimeHistogramResponse, error) {
+	obj, err := jnipkg.NewRelativeFrameTimeHistogram(s.Ctx.VM)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewRelativeFrameTimeHistogramResponse{Result: handle}, nil
+}
+
+func (s *RelativeFrameTimeHistogramServer) AddRelativeFrameTimeMillis(_ context.Context, req *pb.AddRelativeFrameTimeMillisRequest) (*pb.AddRelativeFrameTimeMillisResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.RelativeFrameTimeHistogram{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.AddRelativeFrameTimeMillis(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.AddRelativeFrameTimeMillisResponse{}, nil
+}
+
+func (s *RelativeFrameTimeHistogramServer) GetBucketCounters(_ context.Context, req *pb.GetBucketCountersRequest) (*pb.GetBucketCountersResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.RelativeFrameTimeHistogram{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetBucketCounters()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetBucketCountersResponse{Result: handle}, nil
+}
+
+func (s *RelativeFrameTimeHistogramServer) GetBucketEndpointsMillis(_ context.Context, req *pb.GetBucketEndpointsMillisRequest) (*pb.GetBucketEndpointsMillisResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.RelativeFrameTimeHistogram{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetBucketEndpointsMillis()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetBucketEndpointsMillisResponse{Result: handle}, nil
 }

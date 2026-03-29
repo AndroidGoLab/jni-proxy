@@ -37,6 +37,13 @@ message GetCameraIdListResponse {
   int64 result = 1;
 }
 
+message GetConcurrentCameraIdsRequest {
+}
+
+message GetConcurrentCameraIdsResponse {
+  int64 result = 1;
+}
+
 message GetTorchStrengthLevelRequest {
   string arg0 = 1;
 }
@@ -172,6 +179,7 @@ service ManagerService {
   rpc GetCameraDeviceSetup (GetCameraDeviceSetupRequest) returns (GetCameraDeviceSetupResponse);
   rpc GetCameraExtensionCharacteristics (GetCameraExtensionCharacteristicsRequest) returns (GetCameraExtensionCharacteristicsResponse);
   rpc GetCameraIdList (GetCameraIdListRequest) returns (GetCameraIdListResponse);
+  rpc GetConcurrentCameraIds (GetConcurrentCameraIdsRequest) returns (GetConcurrentCameraIdsResponse);
   rpc GetTorchStrengthLevel (GetTorchStrengthLevelRequest) returns (GetTorchStrengthLevelResponse);
   rpc IsCameraDeviceSetupSupported (IsCameraDeviceSetupSupportedRequest) returns (IsCameraDeviceSetupSupportedResponse);
   rpc OpenCamera (OpenCameraRequest) returns (OpenCameraResponse);

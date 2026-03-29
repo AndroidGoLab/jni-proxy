@@ -12,6 +12,119 @@ var numberCmd = &cobra.Command{
 	Short: "number service operations",
 }
 
+var numberLocalizedNumberFormatterCmd = &cobra.Command{
+	Use:   "localized-number-formatter",
+	Short: "LocalizedNumberFormatterService operations",
+}
+
+var numberLocalizedNumberFormatterFormat1Cmd = &cobra.Command{
+	Use:   "format1",
+	Short: "Format1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLocalizedNumberFormatterServiceClient(grpcConn)
+		req := &pb.Format1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Format1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var numberLocalizedNumberFormatterFormat1_1Cmd = &cobra.Command{
+	Use:   "format1_1",
+	Short: "Format1_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLocalizedNumberFormatterServiceClient(grpcConn)
+		req := &pb.Format1_1Request{}
+		if v, err := cmd.Flags().GetFloat64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Format1_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var numberLocalizedNumberFormatterFormat1_2Cmd = &cobra.Command{
+	Use:   "format1_2",
+	Short: "Format1_2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLocalizedNumberFormatterServiceClient(grpcConn)
+		req := &pb.Format1_2Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Format1_2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var numberLocalizedNumberFormatterFormat1_3Cmd = &cobra.Command{
+	Use:   "format1_3",
+	Short: "Format1_3 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLocalizedNumberFormatterServiceClient(grpcConn)
+		req := &pb.Format1_3Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Format1_3(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var numberLocalizedNumberFormatterToFormatCmd = &cobra.Command{
+	Use:   "to-format",
+	Short: "ToFormat RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLocalizedNumberFormatterServiceClient(grpcConn)
+		req := &pb.ToFormatRequest{}
+		resp, err := client.ToFormat(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var numberLocalizedNumberFormatterWithoutLocaleCmd = &cobra.Command{
+	Use:   "without-locale",
+	Short: "WithoutLocale RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLocalizedNumberFormatterServiceClient(grpcConn)
+		req := &pb.WithoutLocaleRequest{}
+		resp, err := client.WithoutLocale(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var numberScientificNotationCmd = &cobra.Command{
 	Use:   "scientific-notation",
 	Short: "ScientificNotationService operations",
@@ -55,23 +168,23 @@ var numberScientificNotationWithMinExponentDigitsCmd = &cobra.Command{
 	},
 }
 
-var numberScaleCmd = &cobra.Command{
-	Use:   "scale",
-	Short: "ScaleService operations",
+var numberUnlocalizedNumberRangeFormatterCmd = &cobra.Command{
+	Use:   "unlocalized-number-range-formatter",
+	Short: "UnlocalizedNumberRangeFormatterService operations",
 }
 
-var numberScaleByBigDecimalCmd = &cobra.Command{
-	Use:   "by-big-decimal",
-	Short: "ByBigDecimal RPC",
+var numberUnlocalizedNumberRangeFormatterLocale1Cmd = &cobra.Command{
+	Use:   "locale1",
+	Short: "Locale1 RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewScaleServiceClient(grpcConn)
-		req := &pb.ByBigDecimalRequest{}
+		client := pb.NewUnlocalizedNumberRangeFormatterServiceClient(grpcConn)
+		req := &pb.Locale1Request{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		resp, err := client.ByBigDecimal(ctx, req)
+		resp, err := client.Locale1(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -79,18 +192,18 @@ var numberScaleByBigDecimalCmd = &cobra.Command{
 	},
 }
 
-var numberScaleByDoubleCmd = &cobra.Command{
-	Use:   "by-double",
-	Short: "ByDouble RPC",
+var numberUnlocalizedNumberRangeFormatterLocale1_1Cmd = &cobra.Command{
+	Use:   "locale1_1",
+	Short: "Locale1_1 RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewScaleServiceClient(grpcConn)
-		req := &pb.ByDoubleRequest{}
-		if v, err := cmd.Flags().GetFloat64("arg0"); err == nil {
+		client := pb.NewUnlocalizedNumberRangeFormatterServiceClient(grpcConn)
+		req := &pb.Locale1_1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		resp, err := client.ByDouble(ctx, req)
+		resp, err := client.Locale1_1(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -98,56 +211,23 @@ var numberScaleByDoubleCmd = &cobra.Command{
 	},
 }
 
-var numberScaleByDoubleAndPowerOfTenCmd = &cobra.Command{
-	Use:   "by-double-and-power-of-ten",
-	Short: "ByDoubleAndPowerOfTen RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewScaleServiceClient(grpcConn)
-		req := &pb.ByDoubleAndPowerOfTenRequest{}
-		if v, err := cmd.Flags().GetFloat64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.ByDoubleAndPowerOfTen(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
+var numberIntegerWidthCmd = &cobra.Command{
+	Use:   "integer-width",
+	Short: "IntegerWidthService operations",
 }
 
-var numberScaleNoneCmd = &cobra.Command{
-	Use:   "none",
-	Short: "None RPC",
+var numberIntegerWidthTruncateAtCmd = &cobra.Command{
+	Use:   "truncate-at",
+	Short: "TruncateAt RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewScaleServiceClient(grpcConn)
-		req := &pb.NoneRequest{}
-		resp, err := client.None(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var numberScalePowerOfTenCmd = &cobra.Command{
-	Use:   "power-of-ten",
-	Short: "PowerOfTen RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewScaleServiceClient(grpcConn)
-		req := &pb.PowerOfTenRequest{}
+		client := pb.NewIntegerWidthServiceClient(grpcConn)
+		req := &pb.TruncateAtRequest{}
 		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		resp, err := client.PowerOfTen(ctx, req)
+		resp, err := client.TruncateAt(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -155,67 +235,18 @@ var numberScalePowerOfTenCmd = &cobra.Command{
 	},
 }
 
-var numberFractionPrecisionCmd = &cobra.Command{
-	Use:   "fraction-precision",
-	Short: "FractionPrecisionService operations",
-}
-
-var numberFractionPrecisionWithMaxDigitsCmd = &cobra.Command{
-	Use:   "with-max-digits",
-	Short: "WithMaxDigits RPC",
+var numberIntegerWidthZeroFillToCmd = &cobra.Command{
+	Use:   "zero-fill-to",
+	Short: "ZeroFillTo RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewFractionPrecisionServiceClient(grpcConn)
-		req := &pb.WithMaxDigitsRequest{}
+		client := pb.NewIntegerWidthServiceClient(grpcConn)
+		req := &pb.ZeroFillToRequest{}
 		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		resp, err := client.WithMaxDigits(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var numberFractionPrecisionWithMinDigitsCmd = &cobra.Command{
-	Use:   "with-min-digits",
-	Short: "WithMinDigits RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFractionPrecisionServiceClient(grpcConn)
-		req := &pb.WithMinDigitsRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.WithMinDigits(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var numberFractionPrecisionWithSignificantDigitsCmd = &cobra.Command{
-	Use:   "with-significant-digits",
-	Short: "WithSignificantDigits RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFractionPrecisionServiceClient(grpcConn)
-		req := &pb.WithSignificantDigitsRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.WithSignificantDigits(ctx, req)
+		resp, err := client.ZeroFillTo(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -475,6 +506,386 @@ var numberPrecisionUnlimitedCmd = &cobra.Command{
 	},
 }
 
+var numberFormattedNumberCmd = &cobra.Command{
+	Use:   "formatted-number",
+	Short: "FormattedNumberService operations",
+}
+
+var numberFormattedNumberCharAtCmd = &cobra.Command{
+	Use:   "char-at",
+	Short: "CharAt RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFormattedNumberServiceClient(grpcConn)
+		req := &pb.CharAtRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.CharAt(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var numberFormattedNumberGetNounClassCmd = &cobra.Command{
+	Use:   "get-noun-class",
+	Short: "GetNounClass RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFormattedNumberServiceClient(grpcConn)
+		req := &pb.GetNounClassRequest{}
+		resp, err := client.GetNounClass(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var numberFormattedNumberGetOutputUnitCmd = &cobra.Command{
+	Use:   "get-output-unit",
+	Short: "GetOutputUnit RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFormattedNumberServiceClient(grpcConn)
+		req := &pb.GetOutputUnitRequest{}
+		resp, err := client.GetOutputUnit(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var numberFormattedNumberLengthCmd = &cobra.Command{
+	Use:   "length",
+	Short: "Length RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFormattedNumberServiceClient(grpcConn)
+		req := &pb.LengthRequest{}
+		resp, err := client.Length(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var numberFormattedNumberNextPositionCmd = &cobra.Command{
+	Use:   "next-position",
+	Short: "NextPosition RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFormattedNumberServiceClient(grpcConn)
+		req := &pb.NextPositionRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.NextPosition(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var numberFormattedNumberSubSequenceCmd = &cobra.Command{
+	Use:   "sub-sequence",
+	Short: "SubSequence RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFormattedNumberServiceClient(grpcConn)
+		req := &pb.SubSequenceRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.SubSequence(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var numberFormattedNumberToBigDecimalCmd = &cobra.Command{
+	Use:   "to-big-decimal",
+	Short: "ToBigDecimal RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFormattedNumberServiceClient(grpcConn)
+		req := &pb.ToBigDecimalRequest{}
+		resp, err := client.ToBigDecimal(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var numberFormattedNumberToCharacterIteratorCmd = &cobra.Command{
+	Use:   "to-character-iterator",
+	Short: "ToCharacterIterator RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFormattedNumberServiceClient(grpcConn)
+		req := &pb.ToCharacterIteratorRequest{}
+		resp, err := client.ToCharacterIterator(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var numberFormattedNumberToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFormattedNumberServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var numberRangeFormatterCmd = &cobra.Command{
+	Use:   "range-formatter",
+	Short: "RangeFormatterService operations",
+}
+
+var numberRangeFormatterWithCmd = &cobra.Command{
+	Use:   "with",
+	Short: "With RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRangeFormatterServiceClient(grpcConn)
+		req := &pb.WithRequest{}
+		resp, err := client.With(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var numberRangeFormatterWithLocale1Cmd = &cobra.Command{
+	Use:   "with-locale1",
+	Short: "WithLocale1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRangeFormatterServiceClient(grpcConn)
+		req := &pb.WithLocale1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.WithLocale1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var numberRangeFormatterWithLocale1_1Cmd = &cobra.Command{
+	Use:   "with-locale1_1",
+	Short: "WithLocale1_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRangeFormatterServiceClient(grpcConn)
+		req := &pb.WithLocale1_1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.WithLocale1_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var numberRangeFormatterRangeCollapseCmd = &cobra.Command{
+	Use:   "range-formatter-range-collapse",
+	Short: "RangeFormatterRangeCollapseService operations",
+}
+
+var numberRangeFormatterRangeCollapseValuesCmd = &cobra.Command{
+	Use:   "values",
+	Short: "Values RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRangeFormatterRangeCollapseServiceClient(grpcConn)
+		req := &pb.ValuesRequest{}
+		resp, err := client.Values(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var numberRangeFormatterRangeCollapseValueOfCmd = &cobra.Command{
+	Use:   "value-of",
+	Short: "ValueOf RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRangeFormatterRangeCollapseServiceClient(grpcConn)
+		req := &pb.ValueOfRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.ValueOf(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var numberRangeFormatterRangeIdentityFallbackCmd = &cobra.Command{
+	Use:   "range-formatter-range-identity-fallback",
+	Short: "RangeFormatterRangeIdentityFallbackService operations",
+}
+
+var numberRangeFormatterRangeIdentityFallbackValuesCmd = &cobra.Command{
+	Use:   "values",
+	Short: "Values RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRangeFormatterRangeIdentityFallbackServiceClient(grpcConn)
+		req := &pb.ValuesRequest{}
+		resp, err := client.Values(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var numberRangeFormatterRangeIdentityFallbackValueOfCmd = &cobra.Command{
+	Use:   "value-of",
+	Short: "ValueOf RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRangeFormatterRangeIdentityFallbackServiceClient(grpcConn)
+		req := &pb.ValueOfRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.ValueOf(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var numberRangeFormatterRangeIdentityResultCmd = &cobra.Command{
+	Use:   "range-formatter-range-identity-result",
+	Short: "RangeFormatterRangeIdentityResultService operations",
+}
+
+var numberRangeFormatterRangeIdentityResultValuesCmd = &cobra.Command{
+	Use:   "values",
+	Short: "Values RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRangeFormatterRangeIdentityResultServiceClient(grpcConn)
+		req := &pb.ValuesRequest{}
+		resp, err := client.Values(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var numberRangeFormatterRangeIdentityResultValueOfCmd = &cobra.Command{
+	Use:   "value-of",
+	Short: "ValueOf RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRangeFormatterRangeIdentityResultServiceClient(grpcConn)
+		req := &pb.ValueOfRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.ValueOf(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var numberRangeFormatterSettingsCmd = &cobra.Command{
+	Use:   "range-formatter-settings",
+	Short: "RangeFormatterSettingsService operations",
+}
+
+var numberRangeFormatterSettingsEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRangeFormatterSettingsServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var numberRangeFormatterSettingsHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRangeFormatterSettingsServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var numberLocalizedNumberRangeFormatterCmd = &cobra.Command{
 	Use:   "localized-number-range-formatter",
 	Short: "LocalizedNumberRangeFormatterService operations",
@@ -555,6 +966,494 @@ var numberLocalizedNumberRangeFormatterWithoutLocaleCmd = &cobra.Command{
 		client := pb.NewLocalizedNumberRangeFormatterServiceClient(grpcConn)
 		req := &pb.WithoutLocaleRequest{}
 		resp, err := client.WithoutLocale(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var numberFormattedNumberRangeCmd = &cobra.Command{
+	Use:   "formatted-number-range",
+	Short: "FormattedNumberRangeService operations",
+}
+
+var numberFormattedNumberRangeCharAtCmd = &cobra.Command{
+	Use:   "char-at",
+	Short: "CharAt RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFormattedNumberRangeServiceClient(grpcConn)
+		req := &pb.CharAtRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.CharAt(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var numberFormattedNumberRangeEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFormattedNumberRangeServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var numberFormattedNumberRangeGetFirstBigDecimalCmd = &cobra.Command{
+	Use:   "get-first-big-decimal",
+	Short: "GetFirstBigDecimal RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFormattedNumberRangeServiceClient(grpcConn)
+		req := &pb.GetFirstBigDecimalRequest{}
+		resp, err := client.GetFirstBigDecimal(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var numberFormattedNumberRangeGetIdentityResultCmd = &cobra.Command{
+	Use:   "get-identity-result",
+	Short: "GetIdentityResult RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFormattedNumberRangeServiceClient(grpcConn)
+		req := &pb.GetIdentityResultRequest{}
+		resp, err := client.GetIdentityResult(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var numberFormattedNumberRangeGetSecondBigDecimalCmd = &cobra.Command{
+	Use:   "get-second-big-decimal",
+	Short: "GetSecondBigDecimal RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFormattedNumberRangeServiceClient(grpcConn)
+		req := &pb.GetSecondBigDecimalRequest{}
+		resp, err := client.GetSecondBigDecimal(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var numberFormattedNumberRangeHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFormattedNumberRangeServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var numberFormattedNumberRangeLengthCmd = &cobra.Command{
+	Use:   "length",
+	Short: "Length RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFormattedNumberRangeServiceClient(grpcConn)
+		req := &pb.LengthRequest{}
+		resp, err := client.Length(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var numberFormattedNumberRangeNextPositionCmd = &cobra.Command{
+	Use:   "next-position",
+	Short: "NextPosition RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFormattedNumberRangeServiceClient(grpcConn)
+		req := &pb.NextPositionRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.NextPosition(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var numberFormattedNumberRangeSubSequenceCmd = &cobra.Command{
+	Use:   "sub-sequence",
+	Short: "SubSequence RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFormattedNumberRangeServiceClient(grpcConn)
+		req := &pb.SubSequenceRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.SubSequence(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var numberFormattedNumberRangeToCharacterIteratorCmd = &cobra.Command{
+	Use:   "to-character-iterator",
+	Short: "ToCharacterIterator RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFormattedNumberRangeServiceClient(grpcConn)
+		req := &pb.ToCharacterIteratorRequest{}
+		resp, err := client.ToCharacterIterator(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var numberFormattedNumberRangeToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFormattedNumberRangeServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var numberFormatterSettingsCmd = &cobra.Command{
+	Use:   "formatter-settings",
+	Short: "FormatterSettingsService operations",
+}
+
+var numberFormatterSettingsEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFormatterSettingsServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var numberFormatterSettingsHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFormatterSettingsServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var numberCurrencyPrecisionCmd = &cobra.Command{
+	Use:   "currency-precision",
+	Short: "CurrencyPrecisionService operations",
+}
+
+var numberCurrencyPrecisionWithCurrencyCmd = &cobra.Command{
+	Use:   "with-currency",
+	Short: "WithCurrency RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCurrencyPrecisionServiceClient(grpcConn)
+		req := &pb.WithCurrencyRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.WithCurrency(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var numberNotationCmd = &cobra.Command{
+	Use:   "notation",
+	Short: "NotationService operations",
+}
+
+var numberNotationCompactLongCmd = &cobra.Command{
+	Use:   "compact-long",
+	Short: "CompactLong RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNotationServiceClient(grpcConn)
+		req := &pb.CompactLongRequest{}
+		resp, err := client.CompactLong(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var numberNotationCompactShortCmd = &cobra.Command{
+	Use:   "compact-short",
+	Short: "CompactShort RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNotationServiceClient(grpcConn)
+		req := &pb.CompactShortRequest{}
+		resp, err := client.CompactShort(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var numberNotationEngineeringCmd = &cobra.Command{
+	Use:   "engineering",
+	Short: "Engineering RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNotationServiceClient(grpcConn)
+		req := &pb.EngineeringRequest{}
+		resp, err := client.Engineering(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var numberNotationScientificCmd = &cobra.Command{
+	Use:   "scientific",
+	Short: "Scientific RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNotationServiceClient(grpcConn)
+		req := &pb.ScientificRequest{}
+		resp, err := client.Scientific(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var numberNotationSimpleCmd = &cobra.Command{
+	Use:   "simple",
+	Short: "Simple RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNotationServiceClient(grpcConn)
+		req := &pb.SimpleRequest{}
+		resp, err := client.Simple(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var numberScaleCmd = &cobra.Command{
+	Use:   "scale",
+	Short: "ScaleService operations",
+}
+
+var numberScaleByBigDecimalCmd = &cobra.Command{
+	Use:   "by-big-decimal",
+	Short: "ByBigDecimal RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewScaleServiceClient(grpcConn)
+		req := &pb.ByBigDecimalRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.ByBigDecimal(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var numberScaleByDoubleCmd = &cobra.Command{
+	Use:   "by-double",
+	Short: "ByDouble RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewScaleServiceClient(grpcConn)
+		req := &pb.ByDoubleRequest{}
+		if v, err := cmd.Flags().GetFloat64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.ByDouble(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var numberScaleByDoubleAndPowerOfTenCmd = &cobra.Command{
+	Use:   "by-double-and-power-of-ten",
+	Short: "ByDoubleAndPowerOfTen RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewScaleServiceClient(grpcConn)
+		req := &pb.ByDoubleAndPowerOfTenRequest{}
+		if v, err := cmd.Flags().GetFloat64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.ByDoubleAndPowerOfTen(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var numberScaleNoneCmd = &cobra.Command{
+	Use:   "none",
+	Short: "None RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewScaleServiceClient(grpcConn)
+		req := &pb.NoneRequest{}
+		resp, err := client.None(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var numberScalePowerOfTenCmd = &cobra.Command{
+	Use:   "power-of-ten",
+	Short: "PowerOfTen RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewScaleServiceClient(grpcConn)
+		req := &pb.PowerOfTenRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.PowerOfTen(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var numberUnlocalizedNumberFormatterCmd = &cobra.Command{
+	Use:   "unlocalized-number-formatter",
+	Short: "UnlocalizedNumberFormatterService operations",
+}
+
+var numberUnlocalizedNumberFormatterLocale1Cmd = &cobra.Command{
+	Use:   "locale1",
+	Short: "Locale1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewUnlocalizedNumberFormatterServiceClient(grpcConn)
+		req := &pb.Locale1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Locale1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var numberUnlocalizedNumberFormatterLocale1_1Cmd = &cobra.Command{
+	Use:   "locale1_1",
+	Short: "Locale1_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewUnlocalizedNumberFormatterServiceClient(grpcConn)
+		req := &pb.Locale1_1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Locale1_1(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -861,176 +1760,23 @@ var numberFormatterUnitWidthValueOfCmd = &cobra.Command{
 	},
 }
 
-var numberLocalizedNumberFormatterCmd = &cobra.Command{
-	Use:   "localized-number-formatter",
-	Short: "LocalizedNumberFormatterService operations",
+var numberFractionPrecisionCmd = &cobra.Command{
+	Use:   "fraction-precision",
+	Short: "FractionPrecisionService operations",
 }
 
-var numberLocalizedNumberFormatterFormat1Cmd = &cobra.Command{
-	Use:   "format1",
-	Short: "Format1 RPC",
+var numberFractionPrecisionWithMaxDigitsCmd = &cobra.Command{
+	Use:   "with-max-digits",
+	Short: "WithMaxDigits RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewLocalizedNumberFormatterServiceClient(grpcConn)
-		req := &pb.Format1Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Format1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var numberLocalizedNumberFormatterFormat1_1Cmd = &cobra.Command{
-	Use:   "format1_1",
-	Short: "Format1_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewLocalizedNumberFormatterServiceClient(grpcConn)
-		req := &pb.Format1_1Request{}
-		if v, err := cmd.Flags().GetFloat64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Format1_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var numberLocalizedNumberFormatterFormat1_2Cmd = &cobra.Command{
-	Use:   "format1_2",
-	Short: "Format1_2 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewLocalizedNumberFormatterServiceClient(grpcConn)
-		req := &pb.Format1_2Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Format1_2(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var numberLocalizedNumberFormatterFormat1_3Cmd = &cobra.Command{
-	Use:   "format1_3",
-	Short: "Format1_3 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewLocalizedNumberFormatterServiceClient(grpcConn)
-		req := &pb.Format1_3Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Format1_3(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var numberLocalizedNumberFormatterToFormatCmd = &cobra.Command{
-	Use:   "to-format",
-	Short: "ToFormat RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewLocalizedNumberFormatterServiceClient(grpcConn)
-		req := &pb.ToFormatRequest{}
-		resp, err := client.ToFormat(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var numberLocalizedNumberFormatterWithoutLocaleCmd = &cobra.Command{
-	Use:   "without-locale",
-	Short: "WithoutLocale RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewLocalizedNumberFormatterServiceClient(grpcConn)
-		req := &pb.WithoutLocaleRequest{}
-		resp, err := client.WithoutLocale(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var numberRangeFormatterSettingsCmd = &cobra.Command{
-	Use:   "range-formatter-settings",
-	Short: "RangeFormatterSettingsService operations",
-}
-
-var numberRangeFormatterSettingsEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRangeFormatterSettingsServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var numberRangeFormatterSettingsHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRangeFormatterSettingsServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var numberIntegerWidthCmd = &cobra.Command{
-	Use:   "integer-width",
-	Short: "IntegerWidthService operations",
-}
-
-var numberIntegerWidthTruncateAtCmd = &cobra.Command{
-	Use:   "truncate-at",
-	Short: "TruncateAt RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewIntegerWidthServiceClient(grpcConn)
-		req := &pb.TruncateAtRequest{}
+		client := pb.NewFractionPrecisionServiceClient(grpcConn)
+		req := &pb.WithMaxDigitsRequest{}
 		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		resp, err := client.TruncateAt(ctx, req)
+		resp, err := client.WithMaxDigits(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1038,18 +1784,18 @@ var numberIntegerWidthTruncateAtCmd = &cobra.Command{
 	},
 }
 
-var numberIntegerWidthZeroFillToCmd = &cobra.Command{
-	Use:   "zero-fill-to",
-	Short: "ZeroFillTo RPC",
+var numberFractionPrecisionWithMinDigitsCmd = &cobra.Command{
+	Use:   "with-min-digits",
+	Short: "WithMinDigits RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewIntegerWidthServiceClient(grpcConn)
-		req := &pb.ZeroFillToRequest{}
+		client := pb.NewFractionPrecisionServiceClient(grpcConn)
+		req := &pb.WithMinDigitsRequest{}
 		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		resp, err := client.ZeroFillTo(ctx, req)
+		resp, err := client.WithMinDigits(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1057,770 +1803,24 @@ var numberIntegerWidthZeroFillToCmd = &cobra.Command{
 	},
 }
 
-var numberUnlocalizedNumberFormatterCmd = &cobra.Command{
-	Use:   "unlocalized-number-formatter",
-	Short: "UnlocalizedNumberFormatterService operations",
-}
-
-var numberUnlocalizedNumberFormatterLocale1Cmd = &cobra.Command{
-	Use:   "locale1",
-	Short: "Locale1 RPC",
+var numberFractionPrecisionWithSignificantDigitsCmd = &cobra.Command{
+	Use:   "with-significant-digits",
+	Short: "WithSignificantDigits RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewUnlocalizedNumberFormatterServiceClient(grpcConn)
-		req := &pb.Locale1Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Locale1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var numberUnlocalizedNumberFormatterLocale1_1Cmd = &cobra.Command{
-	Use:   "locale1_1",
-	Short: "Locale1_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewUnlocalizedNumberFormatterServiceClient(grpcConn)
-		req := &pb.Locale1_1Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Locale1_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var numberNotationCmd = &cobra.Command{
-	Use:   "notation",
-	Short: "NotationService operations",
-}
-
-var numberNotationCompactLongCmd = &cobra.Command{
-	Use:   "compact-long",
-	Short: "CompactLong RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewNotationServiceClient(grpcConn)
-		req := &pb.CompactLongRequest{}
-		resp, err := client.CompactLong(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var numberNotationCompactShortCmd = &cobra.Command{
-	Use:   "compact-short",
-	Short: "CompactShort RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewNotationServiceClient(grpcConn)
-		req := &pb.CompactShortRequest{}
-		resp, err := client.CompactShort(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var numberNotationEngineeringCmd = &cobra.Command{
-	Use:   "engineering",
-	Short: "Engineering RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewNotationServiceClient(grpcConn)
-		req := &pb.EngineeringRequest{}
-		resp, err := client.Engineering(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var numberNotationScientificCmd = &cobra.Command{
-	Use:   "scientific",
-	Short: "Scientific RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewNotationServiceClient(grpcConn)
-		req := &pb.ScientificRequest{}
-		resp, err := client.Scientific(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var numberNotationSimpleCmd = &cobra.Command{
-	Use:   "simple",
-	Short: "Simple RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewNotationServiceClient(grpcConn)
-		req := &pb.SimpleRequest{}
-		resp, err := client.Simple(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var numberFormattedNumberRangeCmd = &cobra.Command{
-	Use:   "formatted-number-range",
-	Short: "FormattedNumberRangeService operations",
-}
-
-var numberFormattedNumberRangeCharAtCmd = &cobra.Command{
-	Use:   "char-at",
-	Short: "CharAt RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFormattedNumberRangeServiceClient(grpcConn)
-		req := &pb.CharAtRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.CharAt(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var numberFormattedNumberRangeEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFormattedNumberRangeServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var numberFormattedNumberRangeGetFirstBigDecimalCmd = &cobra.Command{
-	Use:   "get-first-big-decimal",
-	Short: "GetFirstBigDecimal RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFormattedNumberRangeServiceClient(grpcConn)
-		req := &pb.GetFirstBigDecimalRequest{}
-		resp, err := client.GetFirstBigDecimal(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var numberFormattedNumberRangeGetIdentityResultCmd = &cobra.Command{
-	Use:   "get-identity-result",
-	Short: "GetIdentityResult RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFormattedNumberRangeServiceClient(grpcConn)
-		req := &pb.GetIdentityResultRequest{}
-		resp, err := client.GetIdentityResult(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var numberFormattedNumberRangeGetSecondBigDecimalCmd = &cobra.Command{
-	Use:   "get-second-big-decimal",
-	Short: "GetSecondBigDecimal RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFormattedNumberRangeServiceClient(grpcConn)
-		req := &pb.GetSecondBigDecimalRequest{}
-		resp, err := client.GetSecondBigDecimal(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var numberFormattedNumberRangeHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFormattedNumberRangeServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var numberFormattedNumberRangeLengthCmd = &cobra.Command{
-	Use:   "length",
-	Short: "Length RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFormattedNumberRangeServiceClient(grpcConn)
-		req := &pb.LengthRequest{}
-		resp, err := client.Length(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var numberFormattedNumberRangeNextPositionCmd = &cobra.Command{
-	Use:   "next-position",
-	Short: "NextPosition RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFormattedNumberRangeServiceClient(grpcConn)
-		req := &pb.NextPositionRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.NextPosition(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var numberFormattedNumberRangeSubSequenceCmd = &cobra.Command{
-	Use:   "sub-sequence",
-	Short: "SubSequence RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFormattedNumberRangeServiceClient(grpcConn)
-		req := &pb.SubSequenceRequest{}
+		client := pb.NewFractionPrecisionServiceClient(grpcConn)
+		req := &pb.WithSignificantDigitsRequest{}
 		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
 			req.Arg0 = v
 		}
 		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
 			req.Arg1 = v
 		}
-		resp, err := client.SubSequence(ctx, req)
-		if err != nil {
-			return err
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
 		}
-		return printProtoMessage(resp)
-	},
-}
-
-var numberFormattedNumberRangeToCharacterIteratorCmd = &cobra.Command{
-	Use:   "to-character-iterator",
-	Short: "ToCharacterIterator RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFormattedNumberRangeServiceClient(grpcConn)
-		req := &pb.ToCharacterIteratorRequest{}
-		resp, err := client.ToCharacterIterator(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var numberFormattedNumberRangeToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFormattedNumberRangeServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var numberRangeFormatterCmd = &cobra.Command{
-	Use:   "range-formatter",
-	Short: "RangeFormatterService operations",
-}
-
-var numberRangeFormatterWithCmd = &cobra.Command{
-	Use:   "with",
-	Short: "With RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRangeFormatterServiceClient(grpcConn)
-		req := &pb.WithRequest{}
-		resp, err := client.With(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var numberRangeFormatterWithLocale1Cmd = &cobra.Command{
-	Use:   "with-locale1",
-	Short: "WithLocale1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRangeFormatterServiceClient(grpcConn)
-		req := &pb.WithLocale1Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.WithLocale1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var numberRangeFormatterWithLocale1_1Cmd = &cobra.Command{
-	Use:   "with-locale1_1",
-	Short: "WithLocale1_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRangeFormatterServiceClient(grpcConn)
-		req := &pb.WithLocale1_1Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.WithLocale1_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var numberRangeFormatterRangeCollapseCmd = &cobra.Command{
-	Use:   "range-formatter-range-collapse",
-	Short: "RangeFormatterRangeCollapseService operations",
-}
-
-var numberRangeFormatterRangeCollapseValuesCmd = &cobra.Command{
-	Use:   "values",
-	Short: "Values RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRangeFormatterRangeCollapseServiceClient(grpcConn)
-		req := &pb.ValuesRequest{}
-		resp, err := client.Values(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var numberRangeFormatterRangeCollapseValueOfCmd = &cobra.Command{
-	Use:   "value-of",
-	Short: "ValueOf RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRangeFormatterRangeCollapseServiceClient(grpcConn)
-		req := &pb.ValueOfRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.ValueOf(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var numberRangeFormatterRangeIdentityFallbackCmd = &cobra.Command{
-	Use:   "range-formatter-range-identity-fallback",
-	Short: "RangeFormatterRangeIdentityFallbackService operations",
-}
-
-var numberRangeFormatterRangeIdentityFallbackValuesCmd = &cobra.Command{
-	Use:   "values",
-	Short: "Values RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRangeFormatterRangeIdentityFallbackServiceClient(grpcConn)
-		req := &pb.ValuesRequest{}
-		resp, err := client.Values(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var numberRangeFormatterRangeIdentityFallbackValueOfCmd = &cobra.Command{
-	Use:   "value-of",
-	Short: "ValueOf RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRangeFormatterRangeIdentityFallbackServiceClient(grpcConn)
-		req := &pb.ValueOfRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.ValueOf(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var numberRangeFormatterRangeIdentityResultCmd = &cobra.Command{
-	Use:   "range-formatter-range-identity-result",
-	Short: "RangeFormatterRangeIdentityResultService operations",
-}
-
-var numberRangeFormatterRangeIdentityResultValuesCmd = &cobra.Command{
-	Use:   "values",
-	Short: "Values RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRangeFormatterRangeIdentityResultServiceClient(grpcConn)
-		req := &pb.ValuesRequest{}
-		resp, err := client.Values(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var numberRangeFormatterRangeIdentityResultValueOfCmd = &cobra.Command{
-	Use:   "value-of",
-	Short: "ValueOf RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRangeFormatterRangeIdentityResultServiceClient(grpcConn)
-		req := &pb.ValueOfRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.ValueOf(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var numberUnlocalizedNumberRangeFormatterCmd = &cobra.Command{
-	Use:   "unlocalized-number-range-formatter",
-	Short: "UnlocalizedNumberRangeFormatterService operations",
-}
-
-var numberUnlocalizedNumberRangeFormatterLocale1Cmd = &cobra.Command{
-	Use:   "locale1",
-	Short: "Locale1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewUnlocalizedNumberRangeFormatterServiceClient(grpcConn)
-		req := &pb.Locale1Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Locale1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var numberUnlocalizedNumberRangeFormatterLocale1_1Cmd = &cobra.Command{
-	Use:   "locale1_1",
-	Short: "Locale1_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewUnlocalizedNumberRangeFormatterServiceClient(grpcConn)
-		req := &pb.Locale1_1Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Locale1_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var numberFormattedNumberCmd = &cobra.Command{
-	Use:   "formatted-number",
-	Short: "FormattedNumberService operations",
-}
-
-var numberFormattedNumberCharAtCmd = &cobra.Command{
-	Use:   "char-at",
-	Short: "CharAt RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFormattedNumberServiceClient(grpcConn)
-		req := &pb.CharAtRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.CharAt(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var numberFormattedNumberGetNounClassCmd = &cobra.Command{
-	Use:   "get-noun-class",
-	Short: "GetNounClass RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFormattedNumberServiceClient(grpcConn)
-		req := &pb.GetNounClassRequest{}
-		resp, err := client.GetNounClass(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var numberFormattedNumberGetOutputUnitCmd = &cobra.Command{
-	Use:   "get-output-unit",
-	Short: "GetOutputUnit RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFormattedNumberServiceClient(grpcConn)
-		req := &pb.GetOutputUnitRequest{}
-		resp, err := client.GetOutputUnit(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var numberFormattedNumberLengthCmd = &cobra.Command{
-	Use:   "length",
-	Short: "Length RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFormattedNumberServiceClient(grpcConn)
-		req := &pb.LengthRequest{}
-		resp, err := client.Length(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var numberFormattedNumberNextPositionCmd = &cobra.Command{
-	Use:   "next-position",
-	Short: "NextPosition RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFormattedNumberServiceClient(grpcConn)
-		req := &pb.NextPositionRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.NextPosition(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var numberFormattedNumberSubSequenceCmd = &cobra.Command{
-	Use:   "sub-sequence",
-	Short: "SubSequence RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFormattedNumberServiceClient(grpcConn)
-		req := &pb.SubSequenceRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.SubSequence(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var numberFormattedNumberToBigDecimalCmd = &cobra.Command{
-	Use:   "to-big-decimal",
-	Short: "ToBigDecimal RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFormattedNumberServiceClient(grpcConn)
-		req := &pb.ToBigDecimalRequest{}
-		resp, err := client.ToBigDecimal(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var numberFormattedNumberToCharacterIteratorCmd = &cobra.Command{
-	Use:   "to-character-iterator",
-	Short: "ToCharacterIterator RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFormattedNumberServiceClient(grpcConn)
-		req := &pb.ToCharacterIteratorRequest{}
-		resp, err := client.ToCharacterIterator(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var numberFormattedNumberToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFormattedNumberServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var numberFormatterSettingsCmd = &cobra.Command{
-	Use:   "formatter-settings",
-	Short: "FormatterSettingsService operations",
-}
-
-var numberFormatterSettingsEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFormatterSettingsServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var numberFormatterSettingsHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFormatterSettingsServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var numberCurrencyPrecisionCmd = &cobra.Command{
-	Use:   "currency-precision",
-	Short: "CurrencyPrecisionService operations",
-}
-
-var numberCurrencyPrecisionWithCurrencyCmd = &cobra.Command{
-	Use:   "with-currency",
-	Short: "WithCurrency RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCurrencyPrecisionServiceClient(grpcConn)
-		req := &pb.WithCurrencyRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.WithCurrency(ctx, req)
+		resp, err := client.WithSignificantDigits(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1829,31 +1829,32 @@ var numberCurrencyPrecisionWithCurrencyCmd = &cobra.Command{
 }
 
 func init() {
+	numberLocalizedNumberFormatterFormat1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	numberLocalizedNumberFormatterCmd.AddCommand(numberLocalizedNumberFormatterFormat1Cmd)
+	numberLocalizedNumberFormatterFormat1_1Cmd.Flags().Float64("arg0", 0, "arg0 (float64)")
+	numberLocalizedNumberFormatterCmd.AddCommand(numberLocalizedNumberFormatterFormat1_1Cmd)
+	numberLocalizedNumberFormatterFormat1_2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	numberLocalizedNumberFormatterCmd.AddCommand(numberLocalizedNumberFormatterFormat1_2Cmd)
+	numberLocalizedNumberFormatterFormat1_3Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	numberLocalizedNumberFormatterCmd.AddCommand(numberLocalizedNumberFormatterFormat1_3Cmd)
+	numberLocalizedNumberFormatterCmd.AddCommand(numberLocalizedNumberFormatterToFormatCmd)
+	numberLocalizedNumberFormatterCmd.AddCommand(numberLocalizedNumberFormatterWithoutLocaleCmd)
+	numberCmd.AddCommand(numberLocalizedNumberFormatterCmd)
 	numberScientificNotationWithExponentSignDisplayCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	numberScientificNotationCmd.AddCommand(numberScientificNotationWithExponentSignDisplayCmd)
 	numberScientificNotationWithMinExponentDigitsCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
 	numberScientificNotationCmd.AddCommand(numberScientificNotationWithMinExponentDigitsCmd)
 	numberCmd.AddCommand(numberScientificNotationCmd)
-	numberScaleByBigDecimalCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	numberScaleCmd.AddCommand(numberScaleByBigDecimalCmd)
-	numberScaleByDoubleCmd.Flags().Float64("arg0", 0, "arg0 (float64)")
-	numberScaleCmd.AddCommand(numberScaleByDoubleCmd)
-	numberScaleByDoubleAndPowerOfTenCmd.Flags().Float64("arg0", 0, "arg0 (float64)")
-	numberScaleByDoubleAndPowerOfTenCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	numberScaleCmd.AddCommand(numberScaleByDoubleAndPowerOfTenCmd)
-	numberScaleCmd.AddCommand(numberScaleNoneCmd)
-	numberScalePowerOfTenCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	numberScaleCmd.AddCommand(numberScalePowerOfTenCmd)
-	numberCmd.AddCommand(numberScaleCmd)
-	numberFractionPrecisionWithMaxDigitsCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	numberFractionPrecisionCmd.AddCommand(numberFractionPrecisionWithMaxDigitsCmd)
-	numberFractionPrecisionWithMinDigitsCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	numberFractionPrecisionCmd.AddCommand(numberFractionPrecisionWithMinDigitsCmd)
-	numberFractionPrecisionWithSignificantDigitsCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	numberFractionPrecisionWithSignificantDigitsCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	numberFractionPrecisionWithSignificantDigitsCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	numberFractionPrecisionCmd.AddCommand(numberFractionPrecisionWithSignificantDigitsCmd)
-	numberCmd.AddCommand(numberFractionPrecisionCmd)
+	numberUnlocalizedNumberRangeFormatterLocale1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	numberUnlocalizedNumberRangeFormatterCmd.AddCommand(numberUnlocalizedNumberRangeFormatterLocale1Cmd)
+	numberUnlocalizedNumberRangeFormatterLocale1_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	numberUnlocalizedNumberRangeFormatterCmd.AddCommand(numberUnlocalizedNumberRangeFormatterLocale1_1Cmd)
+	numberCmd.AddCommand(numberUnlocalizedNumberRangeFormatterCmd)
+	numberIntegerWidthTruncateAtCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	numberIntegerWidthCmd.AddCommand(numberIntegerWidthTruncateAtCmd)
+	numberIntegerWidthZeroFillToCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	numberIntegerWidthCmd.AddCommand(numberIntegerWidthZeroFillToCmd)
+	numberCmd.AddCommand(numberIntegerWidthCmd)
 	numberPrecisionTrailingZeroDisplayCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	numberPrecisionCmd.AddCommand(numberPrecisionTrailingZeroDisplayCmd)
 	numberPrecisionCurrencyCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
@@ -1881,6 +1882,42 @@ func init() {
 	numberPrecisionCmd.AddCommand(numberPrecisionMinSignificantDigitsCmd)
 	numberPrecisionCmd.AddCommand(numberPrecisionUnlimitedCmd)
 	numberCmd.AddCommand(numberPrecisionCmd)
+	numberFormattedNumberCharAtCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	numberFormattedNumberCmd.AddCommand(numberFormattedNumberCharAtCmd)
+	numberFormattedNumberCmd.AddCommand(numberFormattedNumberGetNounClassCmd)
+	numberFormattedNumberCmd.AddCommand(numberFormattedNumberGetOutputUnitCmd)
+	numberFormattedNumberCmd.AddCommand(numberFormattedNumberLengthCmd)
+	numberFormattedNumberNextPositionCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	numberFormattedNumberCmd.AddCommand(numberFormattedNumberNextPositionCmd)
+	numberFormattedNumberSubSequenceCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	numberFormattedNumberSubSequenceCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	numberFormattedNumberCmd.AddCommand(numberFormattedNumberSubSequenceCmd)
+	numberFormattedNumberCmd.AddCommand(numberFormattedNumberToBigDecimalCmd)
+	numberFormattedNumberCmd.AddCommand(numberFormattedNumberToCharacterIteratorCmd)
+	numberFormattedNumberCmd.AddCommand(numberFormattedNumberToStringCmd)
+	numberCmd.AddCommand(numberFormattedNumberCmd)
+	numberRangeFormatterCmd.AddCommand(numberRangeFormatterWithCmd)
+	numberRangeFormatterWithLocale1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	numberRangeFormatterCmd.AddCommand(numberRangeFormatterWithLocale1Cmd)
+	numberRangeFormatterWithLocale1_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	numberRangeFormatterCmd.AddCommand(numberRangeFormatterWithLocale1_1Cmd)
+	numberCmd.AddCommand(numberRangeFormatterCmd)
+	numberRangeFormatterRangeCollapseCmd.AddCommand(numberRangeFormatterRangeCollapseValuesCmd)
+	numberRangeFormatterRangeCollapseValueOfCmd.Flags().String("arg0", "", "arg0 (string)")
+	numberRangeFormatterRangeCollapseCmd.AddCommand(numberRangeFormatterRangeCollapseValueOfCmd)
+	numberCmd.AddCommand(numberRangeFormatterRangeCollapseCmd)
+	numberRangeFormatterRangeIdentityFallbackCmd.AddCommand(numberRangeFormatterRangeIdentityFallbackValuesCmd)
+	numberRangeFormatterRangeIdentityFallbackValueOfCmd.Flags().String("arg0", "", "arg0 (string)")
+	numberRangeFormatterRangeIdentityFallbackCmd.AddCommand(numberRangeFormatterRangeIdentityFallbackValueOfCmd)
+	numberCmd.AddCommand(numberRangeFormatterRangeIdentityFallbackCmd)
+	numberRangeFormatterRangeIdentityResultCmd.AddCommand(numberRangeFormatterRangeIdentityResultValuesCmd)
+	numberRangeFormatterRangeIdentityResultValueOfCmd.Flags().String("arg0", "", "arg0 (string)")
+	numberRangeFormatterRangeIdentityResultCmd.AddCommand(numberRangeFormatterRangeIdentityResultValueOfCmd)
+	numberCmd.AddCommand(numberRangeFormatterRangeIdentityResultCmd)
+	numberRangeFormatterSettingsEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	numberRangeFormatterSettingsCmd.AddCommand(numberRangeFormatterSettingsEqualsCmd)
+	numberRangeFormatterSettingsCmd.AddCommand(numberRangeFormatterSettingsHashCodeCmd)
+	numberCmd.AddCommand(numberRangeFormatterSettingsCmd)
 	numberLocalizedNumberRangeFormatterFormatRange2Cmd.Flags().Float64("arg0", 0, "arg0 (float64)")
 	numberLocalizedNumberRangeFormatterFormatRange2Cmd.Flags().Float64("arg1", 0, "arg1 (float64)")
 	numberLocalizedNumberRangeFormatterCmd.AddCommand(numberLocalizedNumberRangeFormatterFormatRange2Cmd)
@@ -1892,6 +1929,52 @@ func init() {
 	numberLocalizedNumberRangeFormatterCmd.AddCommand(numberLocalizedNumberRangeFormatterFormatRange2_2Cmd)
 	numberLocalizedNumberRangeFormatterCmd.AddCommand(numberLocalizedNumberRangeFormatterWithoutLocaleCmd)
 	numberCmd.AddCommand(numberLocalizedNumberRangeFormatterCmd)
+	numberFormattedNumberRangeCharAtCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	numberFormattedNumberRangeCmd.AddCommand(numberFormattedNumberRangeCharAtCmd)
+	numberFormattedNumberRangeEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	numberFormattedNumberRangeCmd.AddCommand(numberFormattedNumberRangeEqualsCmd)
+	numberFormattedNumberRangeCmd.AddCommand(numberFormattedNumberRangeGetFirstBigDecimalCmd)
+	numberFormattedNumberRangeCmd.AddCommand(numberFormattedNumberRangeGetIdentityResultCmd)
+	numberFormattedNumberRangeCmd.AddCommand(numberFormattedNumberRangeGetSecondBigDecimalCmd)
+	numberFormattedNumberRangeCmd.AddCommand(numberFormattedNumberRangeHashCodeCmd)
+	numberFormattedNumberRangeCmd.AddCommand(numberFormattedNumberRangeLengthCmd)
+	numberFormattedNumberRangeNextPositionCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	numberFormattedNumberRangeCmd.AddCommand(numberFormattedNumberRangeNextPositionCmd)
+	numberFormattedNumberRangeSubSequenceCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	numberFormattedNumberRangeSubSequenceCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	numberFormattedNumberRangeCmd.AddCommand(numberFormattedNumberRangeSubSequenceCmd)
+	numberFormattedNumberRangeCmd.AddCommand(numberFormattedNumberRangeToCharacterIteratorCmd)
+	numberFormattedNumberRangeCmd.AddCommand(numberFormattedNumberRangeToStringCmd)
+	numberCmd.AddCommand(numberFormattedNumberRangeCmd)
+	numberFormatterSettingsEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	numberFormatterSettingsCmd.AddCommand(numberFormatterSettingsEqualsCmd)
+	numberFormatterSettingsCmd.AddCommand(numberFormatterSettingsHashCodeCmd)
+	numberCmd.AddCommand(numberFormatterSettingsCmd)
+	numberCurrencyPrecisionWithCurrencyCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	numberCurrencyPrecisionCmd.AddCommand(numberCurrencyPrecisionWithCurrencyCmd)
+	numberCmd.AddCommand(numberCurrencyPrecisionCmd)
+	numberNotationCmd.AddCommand(numberNotationCompactLongCmd)
+	numberNotationCmd.AddCommand(numberNotationCompactShortCmd)
+	numberNotationCmd.AddCommand(numberNotationEngineeringCmd)
+	numberNotationCmd.AddCommand(numberNotationScientificCmd)
+	numberNotationCmd.AddCommand(numberNotationSimpleCmd)
+	numberCmd.AddCommand(numberNotationCmd)
+	numberScaleByBigDecimalCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	numberScaleCmd.AddCommand(numberScaleByBigDecimalCmd)
+	numberScaleByDoubleCmd.Flags().Float64("arg0", 0, "arg0 (float64)")
+	numberScaleCmd.AddCommand(numberScaleByDoubleCmd)
+	numberScaleByDoubleAndPowerOfTenCmd.Flags().Float64("arg0", 0, "arg0 (float64)")
+	numberScaleByDoubleAndPowerOfTenCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	numberScaleCmd.AddCommand(numberScaleByDoubleAndPowerOfTenCmd)
+	numberScaleCmd.AddCommand(numberScaleNoneCmd)
+	numberScalePowerOfTenCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	numberScaleCmd.AddCommand(numberScalePowerOfTenCmd)
+	numberCmd.AddCommand(numberScaleCmd)
+	numberUnlocalizedNumberFormatterLocale1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	numberUnlocalizedNumberFormatterCmd.AddCommand(numberUnlocalizedNumberFormatterLocale1Cmd)
+	numberUnlocalizedNumberFormatterLocale1_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	numberUnlocalizedNumberFormatterCmd.AddCommand(numberUnlocalizedNumberFormatterLocale1_1Cmd)
+	numberCmd.AddCommand(numberUnlocalizedNumberFormatterCmd)
 	numberFormatterCmd.AddCommand(numberFormatterWithCmd)
 	numberFormatterWithLocale1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	numberFormatterCmd.AddCommand(numberFormatterWithLocale1Cmd)
@@ -1922,97 +2005,14 @@ func init() {
 	numberFormatterUnitWidthValueOfCmd.Flags().String("arg0", "", "arg0 (string)")
 	numberFormatterUnitWidthCmd.AddCommand(numberFormatterUnitWidthValueOfCmd)
 	numberCmd.AddCommand(numberFormatterUnitWidthCmd)
-	numberLocalizedNumberFormatterFormat1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	numberLocalizedNumberFormatterCmd.AddCommand(numberLocalizedNumberFormatterFormat1Cmd)
-	numberLocalizedNumberFormatterFormat1_1Cmd.Flags().Float64("arg0", 0, "arg0 (float64)")
-	numberLocalizedNumberFormatterCmd.AddCommand(numberLocalizedNumberFormatterFormat1_1Cmd)
-	numberLocalizedNumberFormatterFormat1_2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	numberLocalizedNumberFormatterCmd.AddCommand(numberLocalizedNumberFormatterFormat1_2Cmd)
-	numberLocalizedNumberFormatterFormat1_3Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	numberLocalizedNumberFormatterCmd.AddCommand(numberLocalizedNumberFormatterFormat1_3Cmd)
-	numberLocalizedNumberFormatterCmd.AddCommand(numberLocalizedNumberFormatterToFormatCmd)
-	numberLocalizedNumberFormatterCmd.AddCommand(numberLocalizedNumberFormatterWithoutLocaleCmd)
-	numberCmd.AddCommand(numberLocalizedNumberFormatterCmd)
-	numberRangeFormatterSettingsEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	numberRangeFormatterSettingsCmd.AddCommand(numberRangeFormatterSettingsEqualsCmd)
-	numberRangeFormatterSettingsCmd.AddCommand(numberRangeFormatterSettingsHashCodeCmd)
-	numberCmd.AddCommand(numberRangeFormatterSettingsCmd)
-	numberIntegerWidthTruncateAtCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	numberIntegerWidthCmd.AddCommand(numberIntegerWidthTruncateAtCmd)
-	numberIntegerWidthZeroFillToCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	numberIntegerWidthCmd.AddCommand(numberIntegerWidthZeroFillToCmd)
-	numberCmd.AddCommand(numberIntegerWidthCmd)
-	numberUnlocalizedNumberFormatterLocale1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	numberUnlocalizedNumberFormatterCmd.AddCommand(numberUnlocalizedNumberFormatterLocale1Cmd)
-	numberUnlocalizedNumberFormatterLocale1_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	numberUnlocalizedNumberFormatterCmd.AddCommand(numberUnlocalizedNumberFormatterLocale1_1Cmd)
-	numberCmd.AddCommand(numberUnlocalizedNumberFormatterCmd)
-	numberNotationCmd.AddCommand(numberNotationCompactLongCmd)
-	numberNotationCmd.AddCommand(numberNotationCompactShortCmd)
-	numberNotationCmd.AddCommand(numberNotationEngineeringCmd)
-	numberNotationCmd.AddCommand(numberNotationScientificCmd)
-	numberNotationCmd.AddCommand(numberNotationSimpleCmd)
-	numberCmd.AddCommand(numberNotationCmd)
-	numberFormattedNumberRangeCharAtCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	numberFormattedNumberRangeCmd.AddCommand(numberFormattedNumberRangeCharAtCmd)
-	numberFormattedNumberRangeEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	numberFormattedNumberRangeCmd.AddCommand(numberFormattedNumberRangeEqualsCmd)
-	numberFormattedNumberRangeCmd.AddCommand(numberFormattedNumberRangeGetFirstBigDecimalCmd)
-	numberFormattedNumberRangeCmd.AddCommand(numberFormattedNumberRangeGetIdentityResultCmd)
-	numberFormattedNumberRangeCmd.AddCommand(numberFormattedNumberRangeGetSecondBigDecimalCmd)
-	numberFormattedNumberRangeCmd.AddCommand(numberFormattedNumberRangeHashCodeCmd)
-	numberFormattedNumberRangeCmd.AddCommand(numberFormattedNumberRangeLengthCmd)
-	numberFormattedNumberRangeNextPositionCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	numberFormattedNumberRangeCmd.AddCommand(numberFormattedNumberRangeNextPositionCmd)
-	numberFormattedNumberRangeSubSequenceCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	numberFormattedNumberRangeSubSequenceCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	numberFormattedNumberRangeCmd.AddCommand(numberFormattedNumberRangeSubSequenceCmd)
-	numberFormattedNumberRangeCmd.AddCommand(numberFormattedNumberRangeToCharacterIteratorCmd)
-	numberFormattedNumberRangeCmd.AddCommand(numberFormattedNumberRangeToStringCmd)
-	numberCmd.AddCommand(numberFormattedNumberRangeCmd)
-	numberRangeFormatterCmd.AddCommand(numberRangeFormatterWithCmd)
-	numberRangeFormatterWithLocale1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	numberRangeFormatterCmd.AddCommand(numberRangeFormatterWithLocale1Cmd)
-	numberRangeFormatterWithLocale1_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	numberRangeFormatterCmd.AddCommand(numberRangeFormatterWithLocale1_1Cmd)
-	numberCmd.AddCommand(numberRangeFormatterCmd)
-	numberRangeFormatterRangeCollapseCmd.AddCommand(numberRangeFormatterRangeCollapseValuesCmd)
-	numberRangeFormatterRangeCollapseValueOfCmd.Flags().String("arg0", "", "arg0 (string)")
-	numberRangeFormatterRangeCollapseCmd.AddCommand(numberRangeFormatterRangeCollapseValueOfCmd)
-	numberCmd.AddCommand(numberRangeFormatterRangeCollapseCmd)
-	numberRangeFormatterRangeIdentityFallbackCmd.AddCommand(numberRangeFormatterRangeIdentityFallbackValuesCmd)
-	numberRangeFormatterRangeIdentityFallbackValueOfCmd.Flags().String("arg0", "", "arg0 (string)")
-	numberRangeFormatterRangeIdentityFallbackCmd.AddCommand(numberRangeFormatterRangeIdentityFallbackValueOfCmd)
-	numberCmd.AddCommand(numberRangeFormatterRangeIdentityFallbackCmd)
-	numberRangeFormatterRangeIdentityResultCmd.AddCommand(numberRangeFormatterRangeIdentityResultValuesCmd)
-	numberRangeFormatterRangeIdentityResultValueOfCmd.Flags().String("arg0", "", "arg0 (string)")
-	numberRangeFormatterRangeIdentityResultCmd.AddCommand(numberRangeFormatterRangeIdentityResultValueOfCmd)
-	numberCmd.AddCommand(numberRangeFormatterRangeIdentityResultCmd)
-	numberUnlocalizedNumberRangeFormatterLocale1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	numberUnlocalizedNumberRangeFormatterCmd.AddCommand(numberUnlocalizedNumberRangeFormatterLocale1Cmd)
-	numberUnlocalizedNumberRangeFormatterLocale1_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	numberUnlocalizedNumberRangeFormatterCmd.AddCommand(numberUnlocalizedNumberRangeFormatterLocale1_1Cmd)
-	numberCmd.AddCommand(numberUnlocalizedNumberRangeFormatterCmd)
-	numberFormattedNumberCharAtCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	numberFormattedNumberCmd.AddCommand(numberFormattedNumberCharAtCmd)
-	numberFormattedNumberCmd.AddCommand(numberFormattedNumberGetNounClassCmd)
-	numberFormattedNumberCmd.AddCommand(numberFormattedNumberGetOutputUnitCmd)
-	numberFormattedNumberCmd.AddCommand(numberFormattedNumberLengthCmd)
-	numberFormattedNumberNextPositionCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	numberFormattedNumberCmd.AddCommand(numberFormattedNumberNextPositionCmd)
-	numberFormattedNumberSubSequenceCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	numberFormattedNumberSubSequenceCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	numberFormattedNumberCmd.AddCommand(numberFormattedNumberSubSequenceCmd)
-	numberFormattedNumberCmd.AddCommand(numberFormattedNumberToBigDecimalCmd)
-	numberFormattedNumberCmd.AddCommand(numberFormattedNumberToCharacterIteratorCmd)
-	numberFormattedNumberCmd.AddCommand(numberFormattedNumberToStringCmd)
-	numberCmd.AddCommand(numberFormattedNumberCmd)
-	numberFormatterSettingsEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	numberFormatterSettingsCmd.AddCommand(numberFormatterSettingsEqualsCmd)
-	numberFormatterSettingsCmd.AddCommand(numberFormatterSettingsHashCodeCmd)
-	numberCmd.AddCommand(numberFormatterSettingsCmd)
-	numberCurrencyPrecisionWithCurrencyCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	numberCurrencyPrecisionCmd.AddCommand(numberCurrencyPrecisionWithCurrencyCmd)
-	numberCmd.AddCommand(numberCurrencyPrecisionCmd)
+	numberFractionPrecisionWithMaxDigitsCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	numberFractionPrecisionCmd.AddCommand(numberFractionPrecisionWithMaxDigitsCmd)
+	numberFractionPrecisionWithMinDigitsCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	numberFractionPrecisionCmd.AddCommand(numberFractionPrecisionWithMinDigitsCmd)
+	numberFractionPrecisionWithSignificantDigitsCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	numberFractionPrecisionWithSignificantDigitsCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	numberFractionPrecisionWithSignificantDigitsCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	numberFractionPrecisionCmd.AddCommand(numberFractionPrecisionWithSignificantDigitsCmd)
+	numberCmd.AddCommand(numberFractionPrecisionCmd)
 	rootCmd.AddCommand(numberCmd)
 }

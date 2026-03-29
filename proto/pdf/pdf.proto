@@ -6,1224 +6,6 @@ package pdf;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/pdf";
 
-message NewPaintRequest {
-}
-
-message NewPaintResponse {
-  int64 result = 1;
-}
-
-message AscentRequest {
-  int64 handle = 1;
-}
-
-message AscentResponse {
-  float result = 1;
-}
-
-message BreakText5Request {
-  int64 handle = 1;
-  int64 arg0 = 2;
-  int32 arg1 = 3;
-  int32 arg2 = 4;
-  float arg3 = 5;
-  int64 arg4 = 6;
-}
-
-message BreakText5Response {
-  int32 result = 1;
-}
-
-message BreakText6_1Request {
-  int64 handle = 1;
-  string arg0 = 2;
-  int32 arg1 = 3;
-  int32 arg2 = 4;
-  bool arg3 = 5;
-  float arg4 = 6;
-  int64 arg5 = 7;
-}
-
-message BreakText6_1Response {
-  int32 result = 1;
-}
-
-message BreakText4_2Request {
-  int64 handle = 1;
-  string arg0 = 2;
-  bool arg1 = 3;
-  float arg2 = 4;
-  int64 arg3 = 5;
-}
-
-message BreakText4_2Response {
-  int32 result = 1;
-}
-
-message ClearShadowLayerRequest {
-  int64 handle = 1;
-}
-
-message ClearShadowLayerResponse {
-}
-
-message DescentRequest {
-  int64 handle = 1;
-}
-
-message DescentResponse {
-  float result = 1;
-}
-
-message EqualsForTextMeasurementRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-}
-
-message EqualsForTextMeasurementResponse {
-  bool result = 1;
-}
-
-message GetAlphaRequest {
-  int64 handle = 1;
-}
-
-message GetAlphaResponse {
-  int32 result = 1;
-}
-
-message GetBlendModeRequest {
-  int64 handle = 1;
-}
-
-message GetBlendModeResponse {
-  int64 result = 1;
-}
-
-message GetColorRequest {
-  int64 handle = 1;
-}
-
-message GetColorResponse {
-  int32 result = 1;
-}
-
-message GetColorFilterRequest {
-  int64 handle = 1;
-}
-
-message GetColorFilterResponse {
-  int64 result = 1;
-}
-
-message GetColorLongRequest {
-  int64 handle = 1;
-}
-
-message GetColorLongResponse {
-  int64 result = 1;
-}
-
-message GetEndHyphenEditRequest {
-  int64 handle = 1;
-}
-
-message GetEndHyphenEditResponse {
-  int32 result = 1;
-}
-
-message GetFillPathRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-  int64 arg1 = 3;
-}
-
-message GetFillPathResponse {
-  bool result = 1;
-}
-
-message GetFlagsRequest {
-  int64 handle = 1;
-}
-
-message GetFlagsResponse {
-  int32 result = 1;
-}
-
-message GetFontFeatureSettingsRequest {
-  int64 handle = 1;
-}
-
-message GetFontFeatureSettingsResponse {
-  string result = 1;
-}
-
-message GetFontMetrics0Request {
-  int64 handle = 1;
-}
-
-message GetFontMetrics0Response {
-  int64 result = 1;
-}
-
-message GetFontMetrics1_1Request {
-  int64 handle = 1;
-  int64 arg0 = 2;
-}
-
-message GetFontMetrics1_1Response {
-  float result = 1;
-}
-
-message GetFontMetricsForLocaleRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-}
-
-message GetFontMetricsForLocaleResponse {
-}
-
-message GetFontMetricsInt0Request {
-  int64 handle = 1;
-}
-
-message GetFontMetricsInt0Response {
-  int64 result = 1;
-}
-
-message GetFontMetricsInt1_1Request {
-  int64 handle = 1;
-  int64 arg0 = 2;
-}
-
-message GetFontMetricsInt1_1Response {
-  int32 result = 1;
-}
-
-message GetFontMetricsInt7_2Request {
-  int64 handle = 1;
-  int64 arg0 = 2;
-  int32 arg1 = 3;
-  int32 arg2 = 4;
-  int32 arg3 = 5;
-  int32 arg4 = 6;
-  bool arg5 = 7;
-  int64 arg6 = 8;
-}
-
-message GetFontMetricsInt7_2Response {
-}
-
-message GetFontMetricsInt7_3Request {
-  int64 handle = 1;
-  string arg0 = 2;
-  int32 arg1 = 3;
-  int32 arg2 = 4;
-  int32 arg3 = 5;
-  int32 arg4 = 6;
-  bool arg5 = 7;
-  int64 arg6 = 8;
-}
-
-message GetFontMetricsInt7_3Response {
-}
-
-message GetFontMetricsIntForLocaleRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-}
-
-message GetFontMetricsIntForLocaleResponse {
-}
-
-message GetFontSpacingRequest {
-  int64 handle = 1;
-}
-
-message GetFontSpacingResponse {
-  float result = 1;
-}
-
-message GetFontVariationSettingsRequest {
-  int64 handle = 1;
-}
-
-message GetFontVariationSettingsResponse {
-  string result = 1;
-}
-
-message GetHintingRequest {
-  int64 handle = 1;
-}
-
-message GetHintingResponse {
-  int32 result = 1;
-}
-
-message GetLetterSpacingRequest {
-  int64 handle = 1;
-}
-
-message GetLetterSpacingResponse {
-  float result = 1;
-}
-
-message GetMaskFilterRequest {
-  int64 handle = 1;
-}
-
-message GetMaskFilterResponse {
-  int64 result = 1;
-}
-
-message GetOffsetForAdvance7Request {
-  int64 handle = 1;
-  int64 arg0 = 2;
-  int32 arg1 = 3;
-  int32 arg2 = 4;
-  int32 arg3 = 5;
-  int32 arg4 = 6;
-  bool arg5 = 7;
-  float arg6 = 8;
-}
-
-message GetOffsetForAdvance7Response {
-  int32 result = 1;
-}
-
-message GetOffsetForAdvance7_1Request {
-  int64 handle = 1;
-  string arg0 = 2;
-  int32 arg1 = 3;
-  int32 arg2 = 4;
-  int32 arg3 = 5;
-  int32 arg4 = 6;
-  bool arg5 = 7;
-  float arg6 = 8;
-}
-
-message GetOffsetForAdvance7_1Response {
-  int32 result = 1;
-}
-
-message GetPathEffectRequest {
-  int64 handle = 1;
-}
-
-message GetPathEffectResponse {
-  int64 result = 1;
-}
-
-message GetRunAdvance7Request {
-  int64 handle = 1;
-  int64 arg0 = 2;
-  int32 arg1 = 3;
-  int32 arg2 = 4;
-  int32 arg3 = 5;
-  int32 arg4 = 6;
-  bool arg5 = 7;
-  int32 arg6 = 8;
-}
-
-message GetRunAdvance7Response {
-  float result = 1;
-}
-
-message GetRunAdvance7_1Request {
-  int64 handle = 1;
-  string arg0 = 2;
-  int32 arg1 = 3;
-  int32 arg2 = 4;
-  int32 arg3 = 5;
-  int32 arg4 = 6;
-  bool arg5 = 7;
-  int32 arg6 = 8;
-}
-
-message GetRunAdvance7_1Response {
-  float result = 1;
-}
-
-message GetRunCharacterAdvance9Request {
-  int64 handle = 1;
-  int64 arg0 = 2;
-  int32 arg1 = 3;
-  int32 arg2 = 4;
-  int32 arg3 = 5;
-  int32 arg4 = 6;
-  bool arg5 = 7;
-  int32 arg6 = 8;
-  int64 arg7 = 9;
-  int32 arg8 = 10;
-}
-
-message GetRunCharacterAdvance9Response {
-  float result = 1;
-}
-
-message GetRunCharacterAdvance9_1Request {
-  int64 handle = 1;
-  string arg0 = 2;
-  int32 arg1 = 3;
-  int32 arg2 = 4;
-  int32 arg3 = 5;
-  int32 arg4 = 6;
-  bool arg5 = 7;
-  int32 arg6 = 8;
-  int64 arg7 = 9;
-  int32 arg8 = 10;
-}
-
-message GetRunCharacterAdvance9_1Response {
-  float result = 1;
-}
-
-message GetShaderRequest {
-  int64 handle = 1;
-}
-
-message GetShaderResponse {
-  int64 result = 1;
-}
-
-message GetShadowLayerColorRequest {
-  int64 handle = 1;
-}
-
-message GetShadowLayerColorResponse {
-  int32 result = 1;
-}
-
-message GetShadowLayerColorLongRequest {
-  int64 handle = 1;
-}
-
-message GetShadowLayerColorLongResponse {
-  int64 result = 1;
-}
-
-message GetShadowLayerDxRequest {
-  int64 handle = 1;
-}
-
-message GetShadowLayerDxResponse {
-  float result = 1;
-}
-
-message GetShadowLayerDyRequest {
-  int64 handle = 1;
-}
-
-message GetShadowLayerDyResponse {
-  float result = 1;
-}
-
-message GetShadowLayerRadiusRequest {
-  int64 handle = 1;
-}
-
-message GetShadowLayerRadiusResponse {
-  float result = 1;
-}
-
-message GetStartHyphenEditRequest {
-  int64 handle = 1;
-}
-
-message GetStartHyphenEditResponse {
-  int32 result = 1;
-}
-
-message GetStrikeThruPositionRequest {
-  int64 handle = 1;
-}
-
-message GetStrikeThruPositionResponse {
-  float result = 1;
-}
-
-message GetStrikeThruThicknessRequest {
-  int64 handle = 1;
-}
-
-message GetStrikeThruThicknessResponse {
-  float result = 1;
-}
-
-message GetStrokeCapRequest {
-  int64 handle = 1;
-}
-
-message GetStrokeCapResponse {
-  int64 result = 1;
-}
-
-message GetStrokeJoinRequest {
-  int64 handle = 1;
-}
-
-message GetStrokeJoinResponse {
-  int64 result = 1;
-}
-
-message GetStrokeMiterRequest {
-  int64 handle = 1;
-}
-
-message GetStrokeMiterResponse {
-  float result = 1;
-}
-
-message GetStrokeWidthRequest {
-  int64 handle = 1;
-}
-
-message GetStrokeWidthResponse {
-  float result = 1;
-}
-
-message GetStyleRequest {
-  int64 handle = 1;
-}
-
-message GetStyleResponse {
-  int64 result = 1;
-}
-
-message GetTextAlignRequest {
-  int64 handle = 1;
-}
-
-message GetTextAlignResponse {
-  int64 result = 1;
-}
-
-message GetTextBounds4Request {
-  int64 handle = 1;
-  int64 arg0 = 2;
-  int32 arg1 = 3;
-  int32 arg2 = 4;
-  int64 arg3 = 5;
-}
-
-message GetTextBounds4Response {
-}
-
-message GetTextBounds4_1Request {
-  int64 handle = 1;
-  string arg0 = 2;
-  int32 arg1 = 3;
-  int32 arg2 = 4;
-  int64 arg3 = 5;
-}
-
-message GetTextBounds4_1Response {
-}
-
-message GetTextBounds4_2Request {
-  int64 handle = 1;
-  string arg0 = 2;
-  int32 arg1 = 3;
-  int32 arg2 = 4;
-  int64 arg3 = 5;
-}
-
-message GetTextBounds4_2Response {
-}
-
-message GetTextLocaleRequest {
-  int64 handle = 1;
-}
-
-message GetTextLocaleResponse {
-  int64 result = 1;
-}
-
-message GetTextLocalesRequest {
-  int64 handle = 1;
-}
-
-message GetTextLocalesResponse {
-  int64 result = 1;
-}
-
-message GetTextPath6Request {
-  int64 handle = 1;
-  int64 arg0 = 2;
-  int32 arg1 = 3;
-  int32 arg2 = 4;
-  float arg3 = 5;
-  float arg4 = 6;
-  int64 arg5 = 7;
-}
-
-message GetTextPath6Response {
-}
-
-message GetTextPath6_1Request {
-  int64 handle = 1;
-  string arg0 = 2;
-  int32 arg1 = 3;
-  int32 arg2 = 4;
-  float arg3 = 5;
-  float arg4 = 6;
-  int64 arg5 = 7;
-}
-
-message GetTextPath6_1Response {
-}
-
-message GetTextRunAdvancesRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-  int32 arg1 = 3;
-  int32 arg2 = 4;
-  int32 arg3 = 5;
-  int32 arg4 = 6;
-  bool arg5 = 7;
-  int64 arg6 = 8;
-  int32 arg7 = 9;
-}
-
-message GetTextRunAdvancesResponse {
-  float result = 1;
-}
-
-message GetTextRunCursor6Request {
-  int64 handle = 1;
-  int64 arg0 = 2;
-  int32 arg1 = 3;
-  int32 arg2 = 4;
-  bool arg3 = 5;
-  int32 arg4 = 6;
-  int32 arg5 = 7;
-}
-
-message GetTextRunCursor6Response {
-  int32 result = 1;
-}
-
-message GetTextRunCursor6_1Request {
-  int64 handle = 1;
-  string arg0 = 2;
-  int32 arg1 = 3;
-  int32 arg2 = 4;
-  bool arg3 = 5;
-  int32 arg4 = 6;
-  int32 arg5 = 7;
-}
-
-message GetTextRunCursor6_1Response {
-  int32 result = 1;
-}
-
-message GetTextScaleXRequest {
-  int64 handle = 1;
-}
-
-message GetTextScaleXResponse {
-  float result = 1;
-}
-
-message GetTextSizeRequest {
-  int64 handle = 1;
-}
-
-message GetTextSizeResponse {
-  float result = 1;
-}
-
-message GetTextSkewXRequest {
-  int64 handle = 1;
-}
-
-message GetTextSkewXResponse {
-  float result = 1;
-}
-
-message GetTextWidths4Request {
-  int64 handle = 1;
-  int64 arg0 = 2;
-  int32 arg1 = 3;
-  int32 arg2 = 4;
-  int64 arg3 = 5;
-}
-
-message GetTextWidths4Response {
-  int32 result = 1;
-}
-
-message GetTextWidths4_1Request {
-  int64 handle = 1;
-  string arg0 = 2;
-  int32 arg1 = 3;
-  int32 arg2 = 4;
-  int64 arg3 = 5;
-}
-
-message GetTextWidths4_1Response {
-  int32 result = 1;
-}
-
-message GetTextWidths2_2Request {
-  int64 handle = 1;
-  string arg0 = 2;
-  int64 arg1 = 3;
-}
-
-message GetTextWidths2_2Response {
-  int32 result = 1;
-}
-
-message GetTextWidths4_3Request {
-  int64 handle = 1;
-  string arg0 = 2;
-  int32 arg1 = 3;
-  int32 arg2 = 4;
-  int64 arg3 = 5;
-}
-
-message GetTextWidths4_3Response {
-  int32 result = 1;
-}
-
-message GetTypefaceRequest {
-  int64 handle = 1;
-}
-
-message GetTypefaceResponse {
-  int64 result = 1;
-}
-
-message GetUnderlinePositionRequest {
-  int64 handle = 1;
-}
-
-message GetUnderlinePositionResponse {
-  float result = 1;
-}
-
-message GetUnderlineThicknessRequest {
-  int64 handle = 1;
-}
-
-message GetUnderlineThicknessResponse {
-  float result = 1;
-}
-
-message GetWordSpacingRequest {
-  int64 handle = 1;
-}
-
-message GetWordSpacingResponse {
-  float result = 1;
-}
-
-message GetXfermodeRequest {
-  int64 handle = 1;
-}
-
-message GetXfermodeResponse {
-  int64 result = 1;
-}
-
-message HasGlyphRequest {
-  int64 handle = 1;
-  string arg0 = 2;
-}
-
-message HasGlyphResponse {
-  bool result = 1;
-}
-
-message IsAntiAliasRequest {
-  int64 handle = 1;
-}
-
-message IsAntiAliasResponse {
-  bool result = 1;
-}
-
-message IsDitherRequest {
-  int64 handle = 1;
-}
-
-message IsDitherResponse {
-  bool result = 1;
-}
-
-message IsElegantTextHeightRequest {
-  int64 handle = 1;
-}
-
-message IsElegantTextHeightResponse {
-  bool result = 1;
-}
-
-message IsFakeBoldTextRequest {
-  int64 handle = 1;
-}
-
-message IsFakeBoldTextResponse {
-  bool result = 1;
-}
-
-message IsFilterBitmapRequest {
-  int64 handle = 1;
-}
-
-message IsFilterBitmapResponse {
-  bool result = 1;
-}
-
-message IsLinearTextRequest {
-  int64 handle = 1;
-}
-
-message IsLinearTextResponse {
-  bool result = 1;
-}
-
-message IsStrikeThruTextRequest {
-  int64 handle = 1;
-}
-
-message IsStrikeThruTextResponse {
-  bool result = 1;
-}
-
-message IsSubpixelTextRequest {
-  int64 handle = 1;
-}
-
-message IsSubpixelTextResponse {
-  bool result = 1;
-}
-
-message IsUnderlineTextRequest {
-  int64 handle = 1;
-}
-
-message IsUnderlineTextResponse {
-  bool result = 1;
-}
-
-message MeasureText3Request {
-  int64 handle = 1;
-  int64 arg0 = 2;
-  int32 arg1 = 3;
-  int32 arg2 = 4;
-}
-
-message MeasureText3Response {
-  float result = 1;
-}
-
-message MeasureText3_1Request {
-  int64 handle = 1;
-  string arg0 = 2;
-  int32 arg1 = 3;
-  int32 arg2 = 4;
-}
-
-message MeasureText3_1Response {
-  float result = 1;
-}
-
-message MeasureText1_2Request {
-  int64 handle = 1;
-  string arg0 = 2;
-}
-
-message MeasureText1_2Response {
-  float result = 1;
-}
-
-message MeasureText3_3Request {
-  int64 handle = 1;
-  string arg0 = 2;
-  int32 arg1 = 3;
-  int32 arg2 = 4;
-}
-
-message MeasureText3_3Response {
-  float result = 1;
-}
-
-message ResetRequest {
-  int64 handle = 1;
-}
-
-message ResetResponse {
-}
-
-message SetRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-}
-
-message SetResponse {
-}
-
-message SetARGBRequest {
-  int64 handle = 1;
-  int32 arg0 = 2;
-  int32 arg1 = 3;
-  int32 arg2 = 4;
-  int32 arg3 = 5;
-}
-
-message SetARGBResponse {
-}
-
-message SetAlphaRequest {
-  int64 handle = 1;
-  int32 arg0 = 2;
-}
-
-message SetAlphaResponse {
-}
-
-message SetAntiAliasRequest {
-  int64 handle = 1;
-  bool arg0 = 2;
-}
-
-message SetAntiAliasResponse {
-}
-
-message SetBlendModeRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-}
-
-message SetBlendModeResponse {
-}
-
-message SetColor1Request {
-  int64 handle = 1;
-  int32 arg0 = 2;
-}
-
-message SetColor1Response {
-}
-
-message SetColor1_1Request {
-  int64 handle = 1;
-  int64 arg0 = 2;
-}
-
-message SetColor1_1Response {
-}
-
-message SetColorFilterRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-}
-
-message SetColorFilterResponse {
-  int64 result = 1;
-}
-
-message SetDitherRequest {
-  int64 handle = 1;
-  bool arg0 = 2;
-}
-
-message SetDitherResponse {
-}
-
-message SetElegantTextHeightRequest {
-  int64 handle = 1;
-  bool arg0 = 2;
-}
-
-message SetElegantTextHeightResponse {
-}
-
-message SetEndHyphenEditRequest {
-  int64 handle = 1;
-  int32 arg0 = 2;
-}
-
-message SetEndHyphenEditResponse {
-}
-
-message SetFakeBoldTextRequest {
-  int64 handle = 1;
-  bool arg0 = 2;
-}
-
-message SetFakeBoldTextResponse {
-}
-
-message SetFilterBitmapRequest {
-  int64 handle = 1;
-  bool arg0 = 2;
-}
-
-message SetFilterBitmapResponse {
-}
-
-message SetFlagsRequest {
-  int64 handle = 1;
-  int32 arg0 = 2;
-}
-
-message SetFlagsResponse {
-}
-
-message SetFontFeatureSettingsRequest {
-  int64 handle = 1;
-  string arg0 = 2;
-}
-
-message SetFontFeatureSettingsResponse {
-}
-
-message SetFontVariationSettingsRequest {
-  int64 handle = 1;
-  string arg0 = 2;
-}
-
-message SetFontVariationSettingsResponse {
-  bool result = 1;
-}
-
-message SetHintingRequest {
-  int64 handle = 1;
-  int32 arg0 = 2;
-}
-
-message SetHintingResponse {
-}
-
-message SetLetterSpacingRequest {
-  int64 handle = 1;
-  float arg0 = 2;
-}
-
-message SetLetterSpacingResponse {
-}
-
-message SetLinearTextRequest {
-  int64 handle = 1;
-  bool arg0 = 2;
-}
-
-message SetLinearTextResponse {
-}
-
-message SetMaskFilterRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-}
-
-message SetMaskFilterResponse {
-  int64 result = 1;
-}
-
-message SetPathEffectRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-}
-
-message SetPathEffectResponse {
-  int64 result = 1;
-}
-
-message SetShaderRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-}
-
-message SetShaderResponse {
-  int64 result = 1;
-}
-
-message SetShadowLayer4Request {
-  int64 handle = 1;
-  float arg0 = 2;
-  float arg1 = 3;
-  float arg2 = 4;
-  int32 arg3 = 5;
-}
-
-message SetShadowLayer4Response {
-}
-
-message SetShadowLayer4_1Request {
-  int64 handle = 1;
-  float arg0 = 2;
-  float arg1 = 3;
-  float arg2 = 4;
-  int64 arg3 = 5;
-}
-
-message SetShadowLayer4_1Response {
-}
-
-message SetStartHyphenEditRequest {
-  int64 handle = 1;
-  int32 arg0 = 2;
-}
-
-message SetStartHyphenEditResponse {
-}
-
-message SetStrikeThruTextRequest {
-  int64 handle = 1;
-  bool arg0 = 2;
-}
-
-message SetStrikeThruTextResponse {
-}
-
-message SetStrokeCapRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-}
-
-message SetStrokeCapResponse {
-}
-
-message SetStrokeJoinRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-}
-
-message SetStrokeJoinResponse {
-}
-
-message SetStrokeMiterRequest {
-  int64 handle = 1;
-  float arg0 = 2;
-}
-
-message SetStrokeMiterResponse {
-}
-
-message SetStrokeWidthRequest {
-  int64 handle = 1;
-  float arg0 = 2;
-}
-
-message SetStrokeWidthResponse {
-}
-
-message SetStyleRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-}
-
-message SetStyleResponse {
-}
-
-message SetSubpixelTextRequest {
-  int64 handle = 1;
-  bool arg0 = 2;
-}
-
-message SetSubpixelTextResponse {
-}
-
-message SetTextAlignRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-}
-
-message SetTextAlignResponse {
-}
-
-message SetTextLocaleRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-}
-
-message SetTextLocaleResponse {
-}
-
-message SetTextLocalesRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-}
-
-message SetTextLocalesResponse {
-}
-
-message SetTextScaleXRequest {
-  int64 handle = 1;
-  float arg0 = 2;
-}
-
-message SetTextScaleXResponse {
-}
-
-message SetTextSizeRequest {
-  int64 handle = 1;
-  float arg0 = 2;
-}
-
-message SetTextSizeResponse {
-}
-
-message SetTextSkewXRequest {
-  int64 handle = 1;
-  float arg0 = 2;
-}
-
-message SetTextSkewXResponse {
-}
-
-message SetTypefaceRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-}
-
-message SetTypefaceResponse {
-  int64 result = 1;
-}
-
-message SetUnderlineTextRequest {
-  int64 handle = 1;
-  bool arg0 = 2;
-}
-
-message SetUnderlineTextResponse {
-}
-
-message SetWordSpacingRequest {
-  int64 handle = 1;
-  float arg0 = 2;
-}
-
-message SetWordSpacingResponse {
-}
-
-message SetXfermodeRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-}
-
-message SetXfermodeResponse {
-  int64 result = 1;
-}
-
-message ValuesRequest {
-}
-
-message ValuesResponse {
-  int64 result = 1;
-}
-
-message ValueOfRequest {
-  string arg0 = 1;
-}
-
-message ValueOfResponse {
-  int64 result = 1;
-}
-
 message EqualsRequest {
   int64 arg0 = 1;
 }
@@ -1232,155 +14,10 @@ message EqualsResponse {
   bool result = 1;
 }
 
-message HashCodeRequest {
+message GetStyleRequest {
 }
 
-message HashCodeResponse {
-  int32 result = 1;
-}
-
-message ToStringRequest {
-}
-
-message ToStringResponse {
-  string result = 1;
-}
-
-message Set1Request {
-  int64 arg0 = 1;
-}
-
-message Set1Response {
-}
-
-message Set1_1Request {
-  int64 arg0 = 1;
-}
-
-message Set1_1Response {
-}
-
-message NewRendererPreVRequest {
-  int64 arg0 = 1;
-}
-
-message NewRendererPreVResponse {
-  int64 result = 1;
-}
-
-message CloseRequest {
-  int64 handle = 1;
-}
-
-message CloseResponse {
-}
-
-message GetDocumentLinearizationTypeRequest {
-  int64 handle = 1;
-}
-
-message GetDocumentLinearizationTypeResponse {
-  int32 result = 1;
-}
-
-message GetPageCountRequest {
-  int64 handle = 1;
-}
-
-message GetPageCountResponse {
-  int32 result = 1;
-}
-
-message GetPdfFormTypeRequest {
-  int64 handle = 1;
-}
-
-message GetPdfFormTypeResponse {
-  int32 result = 1;
-}
-
-message OpenPageRequest {
-  int64 handle = 1;
-  int32 arg0 = 2;
-}
-
-message OpenPageResponse {
-  int64 result = 1;
-}
-
-message WriteRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-  bool arg1 = 3;
-}
-
-message WriteResponse {
-}
-
-message RendererPreVPageCloseRequest {
-}
-
-message GetFormWidgetInfoAtIndexRequest {
-  int32 arg0 = 1;
-}
-
-message GetFormWidgetInfoAtIndexResponse {
-  int64 result = 1;
-}
-
-message GetFormWidgetInfoAtPositionRequest {
-  int32 arg0 = 1;
-  int32 arg1 = 2;
-}
-
-message GetFormWidgetInfoAtPositionResponse {
-  int64 result = 1;
-}
-
-message GetHeightRequest {
-}
-
-message GetHeightResponse {
-  int32 result = 1;
-}
-
-message GetIndexRequest {
-}
-
-message GetIndexResponse {
-  int32 result = 1;
-}
-
-message GetWidthRequest {
-}
-
-message GetWidthResponse {
-  int32 result = 1;
-}
-
-message RenderRequest {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-  int64 arg2 = 3;
-  int64 arg3 = 4;
-}
-
-message RenderResponse {
-}
-
-message SelectContentRequest {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-}
-
-message SelectContentResponse {
-  int64 result = 1;
-}
-
-message TypefaceGetStyleRequest {
-}
-
-message TypefaceGetStyleResponse {
+message GetStyleResponse {
   int32 result = 1;
 }
 
@@ -1395,6 +32,13 @@ message GetWeightRequest {
 }
 
 message GetWeightResponse {
+  int32 result = 1;
+}
+
+message HashCodeRequest {
+}
+
+message HashCodeResponse {
   int32 result = 1;
 }
 
@@ -1536,11 +180,11 @@ message AddCustomFallbackResponse {
   int64 result = 1;
 }
 
-message TypefaceCustomFallbackBuilderSetStyleRequest {
+message SetStyleRequest {
   int64 arg0 = 1;
 }
 
-message TypefaceCustomFallbackBuilderSetStyleResponse {
+message SetStyleResponse {
   int64 result = 1;
 }
 
@@ -1559,7 +203,97 @@ message GetMaxCustomFallbackCountResponse {
   int32 result = 1;
 }
 
+message NewDocumentRequest {
+}
+
+message NewDocumentResponse {
+  int64 result = 1;
+}
+
+message CloseRequest {
+  int64 handle = 1;
+}
+
+message CloseResponse {
+}
+
+message FinishPageRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message FinishPageResponse {
+}
+
+message GetPagesRequest {
+  int64 handle = 1;
+}
+
+message GetPagesResponse {
+  int64 result = 1;
+}
+
+message StartPageRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message StartPageResponse {
+  int64 result = 1;
+}
+
+message WriteToRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message WriteToResponse {
+}
+
+message GetCanvasRequest {
+}
+
+message GetCanvasResponse {
+  int64 result = 1;
+}
+
+message GetInfoRequest {
+}
+
+message GetInfoResponse {
+  int64 result = 1;
+}
+
+message GetContentRectRequest {
+}
+
+message GetContentRectResponse {
+  int64 result = 1;
+}
+
+message GetPageHeightRequest {
+}
+
+message GetPageHeightResponse {
+  int32 result = 1;
+}
+
+message GetPageNumberRequest {
+}
+
+message GetPageNumberResponse {
+  int32 result = 1;
+}
+
+message GetPageWidthRequest {
+}
+
+message GetPageWidthResponse {
+  int32 result = 1;
+}
+
 message NewCanvasRequest {
+  int64 arg0 = 1;
 }
 
 message NewCanvasResponse {
@@ -2415,8 +1149,12 @@ message GetDrawFilterResponse {
   int64 result = 1;
 }
 
-message CanvasGetHeightRequest {
+message GetHeightRequest {
   int64 handle = 1;
+}
+
+message GetHeightResponse {
+  int32 result = 1;
 }
 
 message GetMatrix0Request {
@@ -2459,8 +1197,12 @@ message GetSaveCountResponse {
   int32 result = 1;
 }
 
-message CanvasGetWidthRequest {
+message GetWidthRequest {
   int64 handle = 1;
+}
+
+message GetWidthResponse {
+  int32 result = 1;
 }
 
 message IsHardwareAcceleratedRequest {
@@ -2749,123 +1491,179 @@ message TranslateRequest {
 message TranslateResponse {
 }
 
-message GetPasswordRequest {
+message ValuesRequest {
 }
 
-message GetPasswordResponse {
-  string result = 1;
+message ValuesResponse {
+  int64 result = 1;
 }
 
-message SetPasswordRequest {
+message ValueOfRequest {
   string arg0 = 1;
 }
 
-message SetPasswordResponse {
+message ValueOfResponse {
   int64 result = 1;
 }
 
-message NewDocumentRequest {
+message NewRendererPreVRequest {
+  int64 arg0 = 1;
 }
 
-message NewDocumentResponse {
+message NewRendererPreVResponse {
   int64 result = 1;
 }
 
-message FinishPageRequest {
+message GetDocumentLinearizationTypeRequest {
+  int64 handle = 1;
+}
+
+message GetDocumentLinearizationTypeResponse {
+  int32 result = 1;
+}
+
+message GetPageCountRequest {
+  int64 handle = 1;
+}
+
+message GetPageCountResponse {
+  int32 result = 1;
+}
+
+message GetPdfFormTypeRequest {
+  int64 handle = 1;
+}
+
+message GetPdfFormTypeResponse {
+  int32 result = 1;
+}
+
+message OpenPageRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message OpenPageResponse {
+  int64 result = 1;
+}
+
+message WriteRequest {
   int64 handle = 1;
   int64 arg0 = 2;
+  bool arg1 = 3;
 }
 
-message FinishPageResponse {
+message WriteResponse {
 }
 
-message StartPageRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
+message ApplyEditRequest {
+  int64 arg0 = 1;
 }
 
-message StartPageResponse {
+message ApplyEditResponse {
   int64 result = 1;
 }
 
-message WriteToRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
+message RendererPreVPageCloseRequest {
 }
 
-message WriteToResponse {
-}
-
-message GetCanvasRequest {
-}
-
-message GetCanvasResponse {
-  int64 result = 1;
-}
-
-message GetInfoRequest {
-}
-
-message GetInfoResponse {
-  int64 result = 1;
-}
-
-message GetContentRectRequest {
-}
-
-message GetContentRectResponse {
-  int64 result = 1;
-}
-
-message GetPageHeightRequest {
-}
-
-message GetPageHeightResponse {
-  int32 result = 1;
-}
-
-message GetPageNumberRequest {
-}
-
-message GetPageNumberResponse {
-  int32 result = 1;
-}
-
-message GetPageWidthRequest {
-}
-
-message GetPageWidthResponse {
-  int32 result = 1;
-}
-
-message GetRenderFlagsRequest {
-}
-
-message GetRenderFlagsResponse {
-  int32 result = 1;
-}
-
-message GetRenderModeRequest {
-}
-
-message GetRenderModeResponse {
-  int32 result = 1;
-}
-
-message SetRenderFlags1Request {
+message GetFormWidgetInfoAtIndexRequest {
   int32 arg0 = 1;
 }
 
-message SetRenderFlags1Response {
+message GetFormWidgetInfoAtIndexResponse {
   int64 result = 1;
 }
 
-message SetRenderFlags2_1Request {
+message GetFormWidgetInfoAtPositionRequest {
   int32 arg0 = 1;
   int32 arg1 = 2;
 }
 
-message SetRenderFlags2_1Response {
+message GetFormWidgetInfoAtPositionResponse {
+  int64 result = 1;
+}
+
+message GetFormWidgetInfos0Request {
+}
+
+message GetFormWidgetInfos0Response {
+  int64 result = 1;
+}
+
+message GetFormWidgetInfos1_1Request {
+  int64 arg0 = 1;
+}
+
+message GetFormWidgetInfos1_1Response {
+  int64 result = 1;
+}
+
+message GetGotoLinksRequest {
+}
+
+message GetGotoLinksResponse {
+  int64 result = 1;
+}
+
+message RendererPreVPageGetHeightRequest {
+}
+
+message GetImageContentsRequest {
+}
+
+message GetImageContentsResponse {
+  int64 result = 1;
+}
+
+message GetIndexRequest {
+}
+
+message GetIndexResponse {
+  int32 result = 1;
+}
+
+message GetLinkContentsRequest {
+}
+
+message GetLinkContentsResponse {
+  int64 result = 1;
+}
+
+message GetTextContentsRequest {
+}
+
+message GetTextContentsResponse {
+  int64 result = 1;
+}
+
+message RendererPreVPageGetWidthRequest {
+}
+
+message RenderRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+  int64 arg3 = 4;
+}
+
+message RenderResponse {
+}
+
+message SearchTextRequest {
+  string arg0 = 1;
+}
+
+message SearchTextResponse {
+  int64 result = 1;
+}
+
+message SelectContentRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message SelectContentResponse {
   int64 result = 1;
 }
 
@@ -2960,12 +1758,12 @@ message GetByteCountResponse {
   int32 result = 1;
 }
 
-message BitmapGetColorRequest {
+message GetColorRequest {
   int32 arg0 = 1;
   int32 arg1 = 2;
 }
 
-message BitmapGetColorResponse {
+message GetColorResponse {
   int64 result = 1;
 }
 
@@ -3005,6 +1803,9 @@ message GetHardwareBufferRequest {
 
 message GetHardwareBufferResponse {
   int64 result = 1;
+}
+
+message BitmapGetHeightRequest {
 }
 
 message GetNinePatchChunkRequest {
@@ -3089,6 +1890,9 @@ message GetScaledWidth1_2Request {
 
 message GetScaledWidth1_2Response {
   int32 result = 1;
+}
+
+message BitmapGetWidthRequest {
 }
 
 message HasAlphaRequest {
@@ -3444,6 +2248,21 @@ message WrapHardwareBufferResponse {
   int64 result = 1;
 }
 
+message GetPasswordRequest {
+}
+
+message GetPasswordResponse {
+  string result = 1;
+}
+
+message SetPasswordRequest {
+  string arg0 = 1;
+}
+
+message SetPasswordResponse {
+  int64 result = 1;
+}
+
 message NewRendererRequest {
   int64 arg0 = 1;
 }
@@ -3461,6 +2280,12 @@ message ShouldScaleForPrintingResponse {
 }
 
 message RendererPageCloseRequest {
+}
+
+message RendererPageGetHeightRequest {
+}
+
+message RendererPageGetWidthRequest {
 }
 
 message Render4Request {
@@ -3558,8 +2383,12 @@ message GetStatSizeResponse {
   int64 result = 1;
 }
 
-message ParcelFileDescriptorToStringRequest {
+message ToStringRequest {
   int64 handle = 1;
+}
+
+message ToStringResponse {
+  string result = 1;
 }
 
 message ParcelFileDescriptorWriteToParcelRequest {
@@ -3702,1437 +2531,1258 @@ message OnCloseRequest {
 message OnCloseResponse {
 }
 
-message PaintGetStyleRequest {
+message GetRenderFlagsRequest {
 }
 
-message GetStyleResponse2 {
+message GetRenderFlagsResponse {
   int32 result = 1;
 }
 
-message PaintAscentRequest {
+message GetRenderModeRequest {
 }
 
-message PaintBreakText5Request {
-  int64 arg0 = 1;
+message GetRenderModeResponse {
+  int32 result = 1;
+}
+
+message SetRenderFlags1Request {
+  int32 arg0 = 1;
+}
+
+message SetRenderFlags1Response {
+  int64 result = 1;
+}
+
+message SetRenderFlags2_1Request {
+  int32 arg0 = 1;
   int32 arg1 = 2;
-  int32 arg2 = 3;
-  float arg3 = 4;
-  int64 arg4 = 5;
 }
 
-message PaintBreakText6_1Request {
-  string arg0 = 1;
-  int32 arg1 = 2;
-  int32 arg2 = 3;
-  bool arg3 = 4;
-  float arg4 = 5;
-  int64 arg5 = 6;
+message SetRenderFlags2_1Response {
+  int64 result = 1;
 }
 
-message PaintBreakText4_2Request {
-  string arg0 = 1;
-  bool arg1 = 2;
-  float arg2 = 3;
-  int64 arg3 = 4;
+message NewPaintRequest {
 }
 
-message PaintClearShadowLayerRequest {
+message NewPaintResponse {
+  int64 result = 1;
 }
 
-message PaintDescentRequest {
+message AscentRequest {
+  int64 handle = 1;
 }
 
-message PaintEqualsForTextMeasurementRequest {
-  int64 arg0 = 1;
+message AscentResponse {
+  float result = 1;
 }
 
-message PaintGetAlphaRequest {
+message BreakText5Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+  int32 arg2 = 4;
+  float arg3 = 5;
+  int64 arg4 = 6;
 }
 
-message PaintGetBlendModeRequest {
+message BreakText5Response {
+  int32 result = 1;
+}
+
+message BreakText6_1Request {
+  int64 handle = 1;
+  string arg0 = 2;
+  int32 arg1 = 3;
+  int32 arg2 = 4;
+  bool arg3 = 5;
+  float arg4 = 6;
+  int64 arg5 = 7;
+}
+
+message BreakText6_1Response {
+  int32 result = 1;
+}
+
+message BreakText4_2Request {
+  int64 handle = 1;
+  string arg0 = 2;
+  bool arg1 = 3;
+  float arg2 = 4;
+  int64 arg3 = 5;
+}
+
+message BreakText4_2Response {
+  int32 result = 1;
+}
+
+message ClearShadowLayerRequest {
+  int64 handle = 1;
+}
+
+message ClearShadowLayerResponse {
+}
+
+message DescentRequest {
+  int64 handle = 1;
+}
+
+message DescentResponse {
+  float result = 1;
+}
+
+message EqualsForTextMeasurementRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message EqualsForTextMeasurementResponse {
+  bool result = 1;
+}
+
+message GetAlphaRequest {
+  int64 handle = 1;
+}
+
+message GetAlphaResponse {
+  int32 result = 1;
+}
+
+message GetBlendModeRequest {
+  int64 handle = 1;
+}
+
+message GetBlendModeResponse {
+  int64 result = 1;
 }
 
 message PaintGetColorRequest {
+  int64 handle = 1;
 }
 
-message PaintGetColorFilterRequest {
+message PaintGetColorResponse {
+  int32 result = 1;
 }
 
-message PaintGetColorLongRequest {
+message GetColorFilterRequest {
+  int64 handle = 1;
 }
 
-message PaintGetEndHyphenEditRequest {
+message GetColorFilterResponse {
+  int64 result = 1;
 }
 
-message PaintGetFillPathRequest {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
+message GetColorLongRequest {
+  int64 handle = 1;
 }
 
-message PaintGetFlagsRequest {
+message GetColorLongResponse {
+  int64 result = 1;
 }
 
-message PaintGetFontFeatureSettingsRequest {
+message GetEndHyphenEditRequest {
+  int64 handle = 1;
 }
 
-message PaintGetFontMetrics0Request {
+message GetEndHyphenEditResponse {
+  int32 result = 1;
 }
 
-message PaintGetFontMetrics1_1Request {
-  int64 arg0 = 1;
+message GetFillPathRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
 }
 
-message PaintGetFontMetricsForLocaleRequest {
-  int64 arg0 = 1;
+message GetFillPathResponse {
+  bool result = 1;
 }
 
-message PaintGetFontMetricsInt0Request {
+message GetFlagsRequest {
+  int64 handle = 1;
 }
 
-message PaintGetFontMetricsInt1_1Request {
-  int64 arg0 = 1;
+message GetFlagsResponse {
+  int32 result = 1;
 }
 
-message PaintGetFontMetricsInt7_2Request {
-  int64 arg0 = 1;
-  int32 arg1 = 2;
-  int32 arg2 = 3;
-  int32 arg3 = 4;
-  int32 arg4 = 5;
-  bool arg5 = 6;
-  int64 arg6 = 7;
+message GetFontFeatureSettingsRequest {
+  int64 handle = 1;
 }
 
-message PaintGetFontMetricsInt7_3Request {
-  string arg0 = 1;
-  int32 arg1 = 2;
-  int32 arg2 = 3;
-  int32 arg3 = 4;
-  int32 arg4 = 5;
-  bool arg5 = 6;
-  int64 arg6 = 7;
+message GetFontFeatureSettingsResponse {
+  string result = 1;
 }
 
-message PaintGetFontMetricsIntForLocaleRequest {
-  int64 arg0 = 1;
+message GetFontMetrics0Request {
+  int64 handle = 1;
 }
 
-message PaintGetFontSpacingRequest {
+message GetFontMetrics0Response {
+  int64 result = 1;
 }
 
-message PaintGetFontVariationSettingsRequest {
+message GetFontMetrics1_1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
 }
 
-message PaintGetHintingRequest {
+message GetFontMetrics1_1Response {
+  float result = 1;
 }
 
-message PaintGetLetterSpacingRequest {
+message GetFontMetricsForLocaleRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
 }
 
-message PaintGetMaskFilterRequest {
+message GetFontMetricsForLocaleResponse {
 }
 
-message PaintGetOffsetForAdvance7Request {
-  int64 arg0 = 1;
-  int32 arg1 = 2;
-  int32 arg2 = 3;
-  int32 arg3 = 4;
-  int32 arg4 = 5;
-  bool arg5 = 6;
-  float arg6 = 7;
+message GetFontMetricsInt0Request {
+  int64 handle = 1;
 }
 
-message PaintGetOffsetForAdvance7_1Request {
-  string arg0 = 1;
-  int32 arg1 = 2;
-  int32 arg2 = 3;
-  int32 arg3 = 4;
-  int32 arg4 = 5;
-  bool arg5 = 6;
-  float arg6 = 7;
+message GetFontMetricsInt0Response {
+  int64 result = 1;
 }
 
-message PaintGetPathEffectRequest {
+message GetFontMetricsInt1_1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
 }
 
-message PaintGetRunAdvance7Request {
-  int64 arg0 = 1;
-  int32 arg1 = 2;
-  int32 arg2 = 3;
-  int32 arg3 = 4;
-  int32 arg4 = 5;
-  bool arg5 = 6;
-  int32 arg6 = 7;
+message GetFontMetricsInt1_1Response {
+  int32 result = 1;
 }
 
-message PaintGetRunAdvance7_1Request {
-  string arg0 = 1;
-  int32 arg1 = 2;
-  int32 arg2 = 3;
-  int32 arg3 = 4;
-  int32 arg4 = 5;
-  bool arg5 = 6;
-  int32 arg6 = 7;
+message GetFontMetricsInt7_2Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+  int32 arg2 = 4;
+  int32 arg3 = 5;
+  int32 arg4 = 6;
+  bool arg5 = 7;
+  int64 arg6 = 8;
 }
 
-message PaintGetRunCharacterAdvance9Request {
-  int64 arg0 = 1;
-  int32 arg1 = 2;
-  int32 arg2 = 3;
-  int32 arg3 = 4;
-  int32 arg4 = 5;
-  bool arg5 = 6;
-  int32 arg6 = 7;
-  int64 arg7 = 8;
-  int32 arg8 = 9;
+message GetFontMetricsInt7_2Response {
 }
 
-message PaintGetRunCharacterAdvance9_1Request {
-  string arg0 = 1;
-  int32 arg1 = 2;
-  int32 arg2 = 3;
-  int32 arg3 = 4;
-  int32 arg4 = 5;
-  bool arg5 = 6;
-  int32 arg6 = 7;
-  int64 arg7 = 8;
-  int32 arg8 = 9;
+message GetFontMetricsInt7_3Request {
+  int64 handle = 1;
+  string arg0 = 2;
+  int32 arg1 = 3;
+  int32 arg2 = 4;
+  int32 arg3 = 5;
+  int32 arg4 = 6;
+  bool arg5 = 7;
+  int64 arg6 = 8;
 }
 
-message PaintGetShaderRequest {
+message GetFontMetricsInt7_3Response {
 }
 
-message PaintGetShadowLayerColorRequest {
+message GetFontMetricsIntForLocaleRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
 }
 
-message PaintGetShadowLayerColorLongRequest {
+message GetFontMetricsIntForLocaleResponse {
 }
 
-message PaintGetShadowLayerDxRequest {
+message GetFontSpacingRequest {
+  int64 handle = 1;
 }
 
-message PaintGetShadowLayerDyRequest {
+message GetFontSpacingResponse {
+  float result = 1;
 }
 
-message PaintGetShadowLayerRadiusRequest {
+message GetFontVariationSettingsRequest {
+  int64 handle = 1;
 }
 
-message PaintGetStartHyphenEditRequest {
+message GetFontVariationSettingsResponse {
+  string result = 1;
 }
 
-message PaintGetStrikeThruPositionRequest {
+message GetHintingRequest {
+  int64 handle = 1;
 }
 
-message PaintGetStrikeThruThicknessRequest {
+message GetHintingResponse {
+  int32 result = 1;
 }
 
-message PaintGetStrokeCapRequest {
+message GetLetterSpacingRequest {
+  int64 handle = 1;
 }
 
-message PaintGetStrokeJoinRequest {
+message GetLetterSpacingResponse {
+  float result = 1;
 }
 
-message PaintGetStrokeMiterRequest {
+message GetMaskFilterRequest {
+  int64 handle = 1;
 }
 
-message PaintGetStrokeWidthRequest {
+message GetMaskFilterResponse {
+  int64 result = 1;
+}
+
+message GetOffsetForAdvance7Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+  int32 arg2 = 4;
+  int32 arg3 = 5;
+  int32 arg4 = 6;
+  bool arg5 = 7;
+  float arg6 = 8;
+}
+
+message GetOffsetForAdvance7Response {
+  int32 result = 1;
+}
+
+message GetOffsetForAdvance7_1Request {
+  int64 handle = 1;
+  string arg0 = 2;
+  int32 arg1 = 3;
+  int32 arg2 = 4;
+  int32 arg3 = 5;
+  int32 arg4 = 6;
+  bool arg5 = 7;
+  float arg6 = 8;
+}
+
+message GetOffsetForAdvance7_1Response {
+  int32 result = 1;
+}
+
+message GetPathEffectRequest {
+  int64 handle = 1;
+}
+
+message GetPathEffectResponse {
+  int64 result = 1;
+}
+
+message GetRunAdvance7Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+  int32 arg2 = 4;
+  int32 arg3 = 5;
+  int32 arg4 = 6;
+  bool arg5 = 7;
+  int32 arg6 = 8;
+}
+
+message GetRunAdvance7Response {
+  float result = 1;
+}
+
+message GetRunAdvance7_1Request {
+  int64 handle = 1;
+  string arg0 = 2;
+  int32 arg1 = 3;
+  int32 arg2 = 4;
+  int32 arg3 = 5;
+  int32 arg4 = 6;
+  bool arg5 = 7;
+  int32 arg6 = 8;
+}
+
+message GetRunAdvance7_1Response {
+  float result = 1;
+}
+
+message GetRunCharacterAdvance9Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+  int32 arg2 = 4;
+  int32 arg3 = 5;
+  int32 arg4 = 6;
+  bool arg5 = 7;
+  int32 arg6 = 8;
+  int64 arg7 = 9;
+  int32 arg8 = 10;
+}
+
+message GetRunCharacterAdvance9Response {
+  float result = 1;
+}
+
+message GetRunCharacterAdvance9_1Request {
+  int64 handle = 1;
+  string arg0 = 2;
+  int32 arg1 = 3;
+  int32 arg2 = 4;
+  int32 arg3 = 5;
+  int32 arg4 = 6;
+  bool arg5 = 7;
+  int32 arg6 = 8;
+  int64 arg7 = 9;
+  int32 arg8 = 10;
+}
+
+message GetRunCharacterAdvance9_1Response {
+  float result = 1;
+}
+
+message GetShaderRequest {
+  int64 handle = 1;
+}
+
+message GetShaderResponse {
+  int64 result = 1;
+}
+
+message GetShadowLayerColorRequest {
+  int64 handle = 1;
+}
+
+message GetShadowLayerColorResponse {
+  int32 result = 1;
+}
+
+message GetShadowLayerColorLongRequest {
+  int64 handle = 1;
+}
+
+message GetShadowLayerColorLongResponse {
+  int64 result = 1;
+}
+
+message GetShadowLayerDxRequest {
+  int64 handle = 1;
+}
+
+message GetShadowLayerDxResponse {
+  float result = 1;
+}
+
+message GetShadowLayerDyRequest {
+  int64 handle = 1;
+}
+
+message GetShadowLayerDyResponse {
+  float result = 1;
+}
+
+message GetShadowLayerRadiusRequest {
+  int64 handle = 1;
+}
+
+message GetShadowLayerRadiusResponse {
+  float result = 1;
+}
+
+message GetStartHyphenEditRequest {
+  int64 handle = 1;
+}
+
+message GetStartHyphenEditResponse {
+  int32 result = 1;
+}
+
+message GetStrikeThruPositionRequest {
+  int64 handle = 1;
+}
+
+message GetStrikeThruPositionResponse {
+  float result = 1;
+}
+
+message GetStrikeThruThicknessRequest {
+  int64 handle = 1;
+}
+
+message GetStrikeThruThicknessResponse {
+  float result = 1;
+}
+
+message GetStrokeCapRequest {
+  int64 handle = 1;
+}
+
+message GetStrokeCapResponse {
+  int64 result = 1;
+}
+
+message GetStrokeJoinRequest {
+  int64 handle = 1;
+}
+
+message GetStrokeJoinResponse {
+  int64 result = 1;
+}
+
+message GetStrokeMiterRequest {
+  int64 handle = 1;
+}
+
+message GetStrokeMiterResponse {
+  float result = 1;
+}
+
+message GetStrokeWidthRequest {
+  int64 handle = 1;
+}
+
+message GetStrokeWidthResponse {
+  float result = 1;
+}
+
+message PaintGetStyleRequest {
+  int64 handle = 1;
 }
 
 message PaintGetStyleResponse {
   int64 result = 1;
 }
 
-message PaintGetTextAlignRequest {
+message GetTextAlignRequest {
+  int64 handle = 1;
 }
 
-message PaintGetTextBounds4Request {
-  int64 arg0 = 1;
-  int32 arg1 = 2;
-  int32 arg2 = 3;
-  int64 arg3 = 4;
+message GetTextAlignResponse {
+  int64 result = 1;
 }
 
-message PaintGetTextBounds4_1Request {
-  string arg0 = 1;
-  int32 arg1 = 2;
-  int32 arg2 = 3;
-  int64 arg3 = 4;
+message GetTextBounds4Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+  int32 arg2 = 4;
+  int64 arg3 = 5;
 }
 
-message PaintGetTextBounds4_2Request {
-  string arg0 = 1;
-  int32 arg1 = 2;
-  int32 arg2 = 3;
-  int64 arg3 = 4;
+message GetTextBounds4Response {
 }
 
-message PaintGetTextLocaleRequest {
+message GetTextBounds4_1Request {
+  int64 handle = 1;
+  string arg0 = 2;
+  int32 arg1 = 3;
+  int32 arg2 = 4;
+  int64 arg3 = 5;
 }
 
-message PaintGetTextLocalesRequest {
+message GetTextBounds4_1Response {
 }
 
-message PaintGetTextPath6Request {
-  int64 arg0 = 1;
-  int32 arg1 = 2;
-  int32 arg2 = 3;
-  float arg3 = 4;
-  float arg4 = 5;
-  int64 arg5 = 6;
+message GetTextBounds4_2Request {
+  int64 handle = 1;
+  string arg0 = 2;
+  int32 arg1 = 3;
+  int32 arg2 = 4;
+  int64 arg3 = 5;
 }
 
-message PaintGetTextPath6_1Request {
-  string arg0 = 1;
-  int32 arg1 = 2;
-  int32 arg2 = 3;
-  float arg3 = 4;
-  float arg4 = 5;
-  int64 arg5 = 6;
+message GetTextBounds4_2Response {
 }
 
-message PaintGetTextRunAdvancesRequest {
-  int64 arg0 = 1;
-  int32 arg1 = 2;
-  int32 arg2 = 3;
-  int32 arg3 = 4;
-  int32 arg4 = 5;
-  bool arg5 = 6;
-  int64 arg6 = 7;
-  int32 arg7 = 8;
+message GetTextLocaleRequest {
+  int64 handle = 1;
 }
 
-message PaintGetTextRunCursor6Request {
-  int64 arg0 = 1;
-  int32 arg1 = 2;
-  int32 arg2 = 3;
-  bool arg3 = 4;
-  int32 arg4 = 5;
-  int32 arg5 = 6;
+message GetTextLocaleResponse {
+  int64 result = 1;
 }
 
-message PaintGetTextRunCursor6_1Request {
-  string arg0 = 1;
-  int32 arg1 = 2;
-  int32 arg2 = 3;
-  bool arg3 = 4;
-  int32 arg4 = 5;
-  int32 arg5 = 6;
+message GetTextLocalesRequest {
+  int64 handle = 1;
 }
 
-message PaintGetTextScaleXRequest {
+message GetTextLocalesResponse {
+  int64 result = 1;
 }
 
-message PaintGetTextSizeRequest {
+message GetTextPath6Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+  int32 arg2 = 4;
+  float arg3 = 5;
+  float arg4 = 6;
+  int64 arg5 = 7;
 }
 
-message PaintGetTextSkewXRequest {
+message GetTextPath6Response {
 }
 
-message PaintGetTextWidths4Request {
-  int64 arg0 = 1;
-  int32 arg1 = 2;
-  int32 arg2 = 3;
-  int64 arg3 = 4;
+message GetTextPath6_1Request {
+  int64 handle = 1;
+  string arg0 = 2;
+  int32 arg1 = 3;
+  int32 arg2 = 4;
+  float arg3 = 5;
+  float arg4 = 6;
+  int64 arg5 = 7;
 }
 
-message PaintGetTextWidths4_1Request {
-  string arg0 = 1;
-  int32 arg1 = 2;
-  int32 arg2 = 3;
-  int64 arg3 = 4;
+message GetTextPath6_1Response {
 }
 
-message PaintGetTextWidths2_2Request {
-  string arg0 = 1;
-  int64 arg1 = 2;
+message GetTextRunAdvancesRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+  int32 arg2 = 4;
+  int32 arg3 = 5;
+  int32 arg4 = 6;
+  bool arg5 = 7;
+  int64 arg6 = 8;
+  int32 arg7 = 9;
 }
 
-message PaintGetTextWidths4_3Request {
-  string arg0 = 1;
-  int32 arg1 = 2;
-  int32 arg2 = 3;
-  int64 arg3 = 4;
+message GetTextRunAdvancesResponse {
+  float result = 1;
 }
 
-message PaintGetTypefaceRequest {
+message GetTextRunCursor6Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+  int32 arg2 = 4;
+  bool arg3 = 5;
+  int32 arg4 = 6;
+  int32 arg5 = 7;
 }
 
-message PaintGetUnderlinePositionRequest {
+message GetTextRunCursor6Response {
+  int32 result = 1;
 }
 
-message PaintGetUnderlineThicknessRequest {
+message GetTextRunCursor6_1Request {
+  int64 handle = 1;
+  string arg0 = 2;
+  int32 arg1 = 3;
+  int32 arg2 = 4;
+  bool arg3 = 5;
+  int32 arg4 = 6;
+  int32 arg5 = 7;
 }
 
-message PaintGetWordSpacingRequest {
+message GetTextRunCursor6_1Response {
+  int32 result = 1;
 }
 
-message PaintGetXfermodeRequest {
+message GetTextScaleXRequest {
+  int64 handle = 1;
 }
 
-message PaintHasGlyphRequest {
-  string arg0 = 1;
+message GetTextScaleXResponse {
+  float result = 1;
 }
 
-message PaintIsAntiAliasRequest {
+message GetTextSizeRequest {
+  int64 handle = 1;
 }
 
-message PaintIsDitherRequest {
+message GetTextSizeResponse {
+  float result = 1;
 }
 
-message PaintIsElegantTextHeightRequest {
+message GetTextSkewXRequest {
+  int64 handle = 1;
 }
 
-message PaintIsFakeBoldTextRequest {
+message GetTextSkewXResponse {
+  float result = 1;
 }
 
-message PaintIsFilterBitmapRequest {
+message GetTextWidths4Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+  int32 arg2 = 4;
+  int64 arg3 = 5;
 }
 
-message PaintIsLinearTextRequest {
+message GetTextWidths4Response {
+  int32 result = 1;
 }
 
-message PaintIsStrikeThruTextRequest {
+message GetTextWidths4_1Request {
+  int64 handle = 1;
+  string arg0 = 2;
+  int32 arg1 = 3;
+  int32 arg2 = 4;
+  int64 arg3 = 5;
 }
 
-message PaintIsSubpixelTextRequest {
+message GetTextWidths4_1Response {
+  int32 result = 1;
 }
 
-message PaintIsUnderlineTextRequest {
+message GetTextWidths2_2Request {
+  int64 handle = 1;
+  string arg0 = 2;
+  int64 arg1 = 3;
 }
 
-message PaintMeasureText3Request {
-  int64 arg0 = 1;
-  int32 arg1 = 2;
-  int32 arg2 = 3;
+message GetTextWidths2_2Response {
+  int32 result = 1;
 }
 
-message PaintMeasureText3_1Request {
-  string arg0 = 1;
-  int32 arg1 = 2;
-  int32 arg2 = 3;
+message GetTextWidths4_3Request {
+  int64 handle = 1;
+  string arg0 = 2;
+  int32 arg1 = 3;
+  int32 arg2 = 4;
+  int64 arg3 = 5;
 }
 
-message PaintMeasureText1_2Request {
-  string arg0 = 1;
+message GetTextWidths4_3Response {
+  int32 result = 1;
 }
 
-message PaintMeasureText3_3Request {
-  string arg0 = 1;
-  int32 arg1 = 2;
-  int32 arg2 = 3;
+message GetTypefaceRequest {
+  int64 handle = 1;
 }
 
-message PaintResetRequest {
+message GetTypefaceResponse {
+  int64 result = 1;
 }
 
-message PaintSetRequest {
-  int64 arg0 = 1;
+message GetUnderlinePositionRequest {
+  int64 handle = 1;
 }
 
-message PaintSetARGBRequest {
-  int32 arg0 = 1;
-  int32 arg1 = 2;
-  int32 arg2 = 3;
-  int32 arg3 = 4;
+message GetUnderlinePositionResponse {
+  float result = 1;
 }
 
-message PaintSetAlphaRequest {
-  int32 arg0 = 1;
+message GetUnderlineThicknessRequest {
+  int64 handle = 1;
 }
 
-message PaintSetAntiAliasRequest {
-  bool arg0 = 1;
+message GetUnderlineThicknessResponse {
+  float result = 1;
 }
 
-message PaintSetBlendModeRequest {
-  int64 arg0 = 1;
+message GetWordSpacingRequest {
+  int64 handle = 1;
 }
 
-message PaintSetColor1Request {
-  int32 arg0 = 1;
+message GetWordSpacingResponse {
+  float result = 1;
 }
 
-message PaintSetColor1_1Request {
-  int64 arg0 = 1;
+message GetXfermodeRequest {
+  int64 handle = 1;
 }
 
-message PaintSetColorFilterRequest {
-  int64 arg0 = 1;
+message GetXfermodeResponse {
+  int64 result = 1;
 }
 
-message PaintSetDitherRequest {
-  bool arg0 = 1;
+message HasGlyphRequest {
+  int64 handle = 1;
+  string arg0 = 2;
 }
 
-message PaintSetElegantTextHeightRequest {
-  bool arg0 = 1;
+message HasGlyphResponse {
+  bool result = 1;
 }
 
-message PaintSetEndHyphenEditRequest {
-  int32 arg0 = 1;
+message IsAntiAliasRequest {
+  int64 handle = 1;
 }
 
-message PaintSetFakeBoldTextRequest {
-  bool arg0 = 1;
+message IsAntiAliasResponse {
+  bool result = 1;
 }
 
-message PaintSetFilterBitmapRequest {
-  bool arg0 = 1;
+message IsDitherRequest {
+  int64 handle = 1;
 }
 
-message PaintSetFlagsRequest {
-  int32 arg0 = 1;
+message IsDitherResponse {
+  bool result = 1;
 }
 
-message PaintSetFontFeatureSettingsRequest {
-  string arg0 = 1;
+message IsElegantTextHeightRequest {
+  int64 handle = 1;
 }
 
-message PaintSetFontVariationSettingsRequest {
-  string arg0 = 1;
+message IsElegantTextHeightResponse {
+  bool result = 1;
 }
 
-message PaintSetHintingRequest {
-  int32 arg0 = 1;
+message IsFakeBoldTextRequest {
+  int64 handle = 1;
 }
 
-message PaintSetLetterSpacingRequest {
-  float arg0 = 1;
+message IsFakeBoldTextResponse {
+  bool result = 1;
 }
 
-message PaintSetLinearTextRequest {
-  bool arg0 = 1;
+message IsFilterBitmapRequest {
+  int64 handle = 1;
 }
 
-message PaintSetMaskFilterRequest {
-  int64 arg0 = 1;
+message IsFilterBitmapResponse {
+  bool result = 1;
 }
 
-message PaintSetPathEffectRequest {
-  int64 arg0 = 1;
+message IsLinearTextRequest {
+  int64 handle = 1;
 }
 
-message PaintSetShaderRequest {
-  int64 arg0 = 1;
+message IsLinearTextResponse {
+  bool result = 1;
 }
 
-message PaintSetShadowLayer4Request {
-  float arg0 = 1;
-  float arg1 = 2;
-  float arg2 = 3;
-  int32 arg3 = 4;
+message IsStrikeThruTextRequest {
+  int64 handle = 1;
 }
 
-message PaintSetShadowLayer4_1Request {
-  float arg0 = 1;
-  float arg1 = 2;
-  float arg2 = 3;
-  int64 arg3 = 4;
+message IsStrikeThruTextResponse {
+  bool result = 1;
 }
 
-message PaintSetStartHyphenEditRequest {
-  int32 arg0 = 1;
+message IsSubpixelTextRequest {
+  int64 handle = 1;
 }
 
-message PaintSetStrikeThruTextRequest {
-  bool arg0 = 1;
+message IsSubpixelTextResponse {
+  bool result = 1;
 }
 
-message PaintSetStrokeCapRequest {
-  int64 arg0 = 1;
+message IsUnderlineTextRequest {
+  int64 handle = 1;
 }
 
-message PaintSetStrokeJoinRequest {
-  int64 arg0 = 1;
+message IsUnderlineTextResponse {
+  bool result = 1;
 }
 
-message PaintSetStrokeMiterRequest {
-  float arg0 = 1;
+message MeasureText3Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+  int32 arg2 = 4;
 }
 
-message PaintSetStrokeWidthRequest {
-  float arg0 = 1;
+message MeasureText3Response {
+  float result = 1;
+}
+
+message MeasureText3_1Request {
+  int64 handle = 1;
+  string arg0 = 2;
+  int32 arg1 = 3;
+  int32 arg2 = 4;
+}
+
+message MeasureText3_1Response {
+  float result = 1;
+}
+
+message MeasureText1_2Request {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message MeasureText1_2Response {
+  float result = 1;
+}
+
+message MeasureText3_3Request {
+  int64 handle = 1;
+  string arg0 = 2;
+  int32 arg1 = 3;
+  int32 arg2 = 4;
+}
+
+message MeasureText3_3Response {
+  float result = 1;
+}
+
+message ResetRequest {
+  int64 handle = 1;
+}
+
+message ResetResponse {
+}
+
+message SetRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetResponse {
+}
+
+message SetARGBRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+  int32 arg2 = 4;
+  int32 arg3 = 5;
+}
+
+message SetARGBResponse {
+}
+
+message SetAlphaRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetAlphaResponse {
+}
+
+message SetAntiAliasRequest {
+  int64 handle = 1;
+  bool arg0 = 2;
+}
+
+message SetAntiAliasResponse {
+}
+
+message SetBlendModeRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetBlendModeResponse {
+}
+
+message SetColor1Request {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetColor1Response {
+}
+
+message SetColor1_1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetColor1_1Response {
+}
+
+message SetColorFilterRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetColorFilterResponse {
+  int64 result = 1;
+}
+
+message SetDitherRequest {
+  int64 handle = 1;
+  bool arg0 = 2;
+}
+
+message SetDitherResponse {
+}
+
+message SetElegantTextHeightRequest {
+  int64 handle = 1;
+  bool arg0 = 2;
+}
+
+message SetElegantTextHeightResponse {
+}
+
+message SetEndHyphenEditRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetEndHyphenEditResponse {
+}
+
+message SetFakeBoldTextRequest {
+  int64 handle = 1;
+  bool arg0 = 2;
+}
+
+message SetFakeBoldTextResponse {
+}
+
+message SetFilterBitmapRequest {
+  int64 handle = 1;
+  bool arg0 = 2;
+}
+
+message SetFilterBitmapResponse {
+}
+
+message SetFlagsRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetFlagsResponse {
+}
+
+message SetFontFeatureSettingsRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message SetFontFeatureSettingsResponse {
+}
+
+message SetFontVariationSettingsRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message SetFontVariationSettingsResponse {
+  bool result = 1;
+}
+
+message SetHintingRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetHintingResponse {
+}
+
+message SetLetterSpacingRequest {
+  int64 handle = 1;
+  float arg0 = 2;
+}
+
+message SetLetterSpacingResponse {
+}
+
+message SetLinearTextRequest {
+  int64 handle = 1;
+  bool arg0 = 2;
+}
+
+message SetLinearTextResponse {
+}
+
+message SetMaskFilterRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetMaskFilterResponse {
+  int64 result = 1;
+}
+
+message SetPathEffectRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetPathEffectResponse {
+  int64 result = 1;
+}
+
+message SetShaderRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetShaderResponse {
+  int64 result = 1;
+}
+
+message SetShadowLayer4Request {
+  int64 handle = 1;
+  float arg0 = 2;
+  float arg1 = 3;
+  float arg2 = 4;
+  int32 arg3 = 5;
+}
+
+message SetShadowLayer4Response {
+}
+
+message SetShadowLayer4_1Request {
+  int64 handle = 1;
+  float arg0 = 2;
+  float arg1 = 3;
+  float arg2 = 4;
+  int64 arg3 = 5;
+}
+
+message SetShadowLayer4_1Response {
+}
+
+message SetStartHyphenEditRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetStartHyphenEditResponse {
+}
+
+message SetStrikeThruTextRequest {
+  int64 handle = 1;
+  bool arg0 = 2;
+}
+
+message SetStrikeThruTextResponse {
+}
+
+message SetStrokeCapRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetStrokeCapResponse {
+}
+
+message SetStrokeJoinRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetStrokeJoinResponse {
+}
+
+message SetStrokeMiterRequest {
+  int64 handle = 1;
+  float arg0 = 2;
+}
+
+message SetStrokeMiterResponse {
+}
+
+message SetStrokeWidthRequest {
+  int64 handle = 1;
+  float arg0 = 2;
+}
+
+message SetStrokeWidthResponse {
 }
 
 message PaintSetStyleRequest {
-  int64 arg0 = 1;
+  int64 handle = 1;
+  int64 arg0 = 2;
 }
 
-message PaintSetSubpixelTextRequest {
-  bool arg0 = 1;
+message PaintSetStyleResponse {
 }
 
-message PaintSetTextAlignRequest {
-  int64 arg0 = 1;
+message SetSubpixelTextRequest {
+  int64 handle = 1;
+  bool arg0 = 2;
 }
 
-message PaintSetTextLocaleRequest {
-  int64 arg0 = 1;
+message SetSubpixelTextResponse {
 }
 
-message PaintSetTextLocalesRequest {
-  int64 arg0 = 1;
+message SetTextAlignRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
 }
 
-message PaintSetTextScaleXRequest {
-  float arg0 = 1;
+message SetTextAlignResponse {
 }
 
-message PaintSetTextSizeRequest {
-  float arg0 = 1;
+message SetTextLocaleRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
 }
 
-message PaintSetTextSkewXRequest {
-  float arg0 = 1;
+message SetTextLocaleResponse {
 }
 
-message PaintSetTypefaceRequest {
-  int64 arg0 = 1;
+message SetTextLocalesRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
 }
 
-message PaintSetUnderlineTextRequest {
-  bool arg0 = 1;
+message SetTextLocalesResponse {
 }
 
-message PaintSetWordSpacingRequest {
-  float arg0 = 1;
+message SetTextScaleXRequest {
+  int64 handle = 1;
+  float arg0 = 2;
 }
 
-message PaintSetXfermodeRequest {
-  int64 arg0 = 1;
+message SetTextScaleXResponse {
 }
 
-message RendererCloseRequest {
+message SetTextSizeRequest {
+  int64 handle = 1;
+  float arg0 = 2;
 }
 
-message RendererGetDocumentLinearizationTypeRequest {
+message SetTextSizeResponse {
 }
 
-message RendererGetPageCountRequest {
+message SetTextSkewXRequest {
+  int64 handle = 1;
+  float arg0 = 2;
 }
 
-message RendererGetPdfFormTypeRequest {
+message SetTextSkewXResponse {
 }
 
-message RendererOpenPageRequest {
-  int32 arg0 = 1;
+message SetTypefaceRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
 }
 
-message RendererShouldScaleForPrintingRequest {
-}
-
-message RendererWriteRequest {
-  int64 arg0 = 1;
-  bool arg1 = 2;
-}
-
-message ApplyEditRequest {
-  int64 arg0 = 1;
-}
-
-message ApplyEditResponse {
+message SetTypefaceResponse {
   int64 result = 1;
 }
 
-message GetFormWidgetInfos0Request {
+message SetUnderlineTextRequest {
+  int64 handle = 1;
+  bool arg0 = 2;
 }
 
-message GetFormWidgetInfos0Response {
+message SetUnderlineTextResponse {
+}
+
+message SetWordSpacingRequest {
+  int64 handle = 1;
+  float arg0 = 2;
+}
+
+message SetWordSpacingResponse {
+}
+
+message SetXfermodeRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetXfermodeResponse {
   int64 result = 1;
 }
 
-message GetFormWidgetInfos1_1Request {
-  int64 arg0 = 1;
-}
-
-message GetFormWidgetInfos1_1Response {
-  int64 result = 1;
-}
-
-message GetGotoLinksRequest {
-}
-
-message GetGotoLinksResponse {
-  int64 result = 1;
-}
-
-message GetImageContentsRequest {
-}
-
-message GetImageContentsResponse {
-  int64 result = 1;
-}
-
-message GetLinkContentsRequest {
-}
-
-message GetLinkContentsResponse {
-  int64 result = 1;
-}
-
-message GetTextContentsRequest {
-}
-
-message GetTextContentsResponse {
-  int64 result = 1;
-}
-
-message SearchTextRequest {
-  string arg0 = 1;
-}
-
-message SearchTextResponse {
-  int64 result = 1;
-}
-
-message CanvasGetDensityRequest {
-}
-
-message CanvasSetDensityRequest {
-  int32 arg0 = 1;
-}
-
-message CanvasClipOutPathRequest {
-  int64 arg0 = 1;
-}
-
-message CanvasClipOutRect1Request {
-  int64 arg0 = 1;
-}
-
-message CanvasClipOutRect1_1Request {
-  int64 arg0 = 1;
-}
-
-message CanvasClipOutRect4_2Request {
-  float arg0 = 1;
-  float arg1 = 2;
-  float arg2 = 3;
-  float arg3 = 4;
-}
-
-message CanvasClipOutRect4_3Request {
-  int32 arg0 = 1;
-  int32 arg1 = 2;
-  int32 arg2 = 3;
-  int32 arg3 = 4;
-}
-
-message CanvasClipOutShaderRequest {
-  int64 arg0 = 1;
-}
-
-message CanvasClipPath1Request {
-  int64 arg0 = 1;
-}
-
-message CanvasClipPath2_1Request {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-}
-
-message CanvasClipRect1Request {
-  int64 arg0 = 1;
-}
-
-message CanvasClipRect2_1Request {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-}
-
-message CanvasClipRect1_2Request {
-  int64 arg0 = 1;
-}
-
-message CanvasClipRect2_3Request {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-}
-
-message CanvasClipRect4_4Request {
-  float arg0 = 1;
-  float arg1 = 2;
-  float arg2 = 3;
-  float arg3 = 4;
-}
-
-message CanvasClipRect5_5Request {
-  float arg0 = 1;
-  float arg1 = 2;
-  float arg2 = 3;
-  float arg3 = 4;
-  int64 arg4 = 5;
-}
-
-message CanvasClipRect4_6Request {
-  int32 arg0 = 1;
-  int32 arg1 = 2;
-  int32 arg2 = 3;
-  int32 arg3 = 4;
-}
-
-message CanvasClipShaderRequest {
-  int64 arg0 = 1;
-}
-
-message CanvasConcat1Request {
-  int64 arg0 = 1;
-}
-
-message CanvasConcat1_1Request {
-  int64 arg0 = 1;
-}
-
-message CanvasDisableZRequest {
-}
-
-message CanvasDrawARGBRequest {
-  int32 arg0 = 1;
-  int32 arg1 = 2;
-  int32 arg2 = 3;
-  int32 arg3 = 4;
-}
-
-message CanvasDrawArc5Request {
-  int64 arg0 = 1;
-  float arg1 = 2;
-  float arg2 = 3;
-  bool arg3 = 4;
-  int64 arg4 = 5;
-}
-
-message CanvasDrawArc8_1Request {
-  float arg0 = 1;
-  float arg1 = 2;
-  float arg2 = 3;
-  float arg3 = 4;
-  float arg4 = 5;
-  float arg5 = 6;
-  bool arg6 = 7;
-  int64 arg7 = 8;
-}
-
-message CanvasDrawBitmap3Request {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-  int64 arg2 = 3;
-}
-
-message CanvasDrawBitmap4_1Request {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-  int64 arg2 = 3;
-  int64 arg3 = 4;
-}
-
-message CanvasDrawBitmap4_2Request {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-  int64 arg2 = 3;
-  int64 arg3 = 4;
-}
-
-message CanvasDrawBitmap4_3Request {
-  int64 arg0 = 1;
-  float arg1 = 2;
-  float arg2 = 3;
-  int64 arg3 = 4;
-}
-
-message CanvasDrawBitmap9_4Request {
-  int64 arg0 = 1;
-  int32 arg1 = 2;
-  int32 arg2 = 3;
-  float arg3 = 4;
-  float arg4 = 5;
-  int32 arg5 = 6;
-  int32 arg6 = 7;
-  bool arg7 = 8;
-  int64 arg8 = 9;
-}
-
-message CanvasDrawBitmap9_5Request {
-  int64 arg0 = 1;
-  int32 arg1 = 2;
-  int32 arg2 = 3;
-  int32 arg3 = 4;
-  int32 arg4 = 5;
-  int32 arg5 = 6;
-  int32 arg6 = 7;
-  bool arg7 = 8;
-  int64 arg8 = 9;
-}
-
-message CanvasDrawBitmapMeshRequest {
-  int64 arg0 = 1;
-  int32 arg1 = 2;
-  int32 arg2 = 3;
-  int64 arg3 = 4;
-  int32 arg4 = 5;
-  int64 arg5 = 6;
-  int32 arg6 = 7;
-  int64 arg7 = 8;
-}
-
-message CanvasDrawCircleRequest {
-  float arg0 = 1;
-  float arg1 = 2;
-  float arg2 = 3;
-  int64 arg3 = 4;
-}
-
-message CanvasDrawColor1Request {
-  int32 arg0 = 1;
-}
-
-message CanvasDrawColor2_1Request {
-  int32 arg0 = 1;
-  int64 arg1 = 2;
-}
-
-message CanvasDrawColor2_2Request {
-  int32 arg0 = 1;
-  int64 arg1 = 2;
-}
-
-message CanvasDrawColor1_3Request {
-  int64 arg0 = 1;
-}
-
-message CanvasDrawColor2_4Request {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-}
-
-message CanvasDrawDoubleRoundRect7Request {
-  int64 arg0 = 1;
-  float arg1 = 2;
-  float arg2 = 3;
-  int64 arg3 = 4;
-  float arg4 = 5;
-  float arg5 = 6;
-  int64 arg6 = 7;
-}
-
-message CanvasDrawDoubleRoundRect5_1Request {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-  int64 arg2 = 3;
-  int64 arg3 = 4;
-  int64 arg4 = 5;
-}
-
-message CanvasDrawGlyphsRequest {
-  int64 arg0 = 1;
-  int32 arg1 = 2;
-  int64 arg2 = 3;
-  int32 arg3 = 4;
-  int32 arg4 = 5;
-  int64 arg5 = 6;
-  int64 arg6 = 7;
-}
-
-message CanvasDrawLineRequest {
-  float arg0 = 1;
-  float arg1 = 2;
-  float arg2 = 3;
-  float arg3 = 4;
-  int64 arg4 = 5;
-}
-
-message CanvasDrawLines2Request {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-}
-
-message CanvasDrawLines4_1Request {
-  int64 arg0 = 1;
-  int32 arg1 = 2;
-  int32 arg2 = 3;
-  int64 arg3 = 4;
-}
-
-message CanvasDrawMeshRequest {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-  int64 arg2 = 3;
-}
-
-message CanvasDrawOval2Request {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-}
-
-message CanvasDrawOval5_1Request {
-  float arg0 = 1;
-  float arg1 = 2;
-  float arg2 = 3;
-  float arg3 = 4;
-  int64 arg4 = 5;
-}
-
-message CanvasDrawPaintRequest {
-  int64 arg0 = 1;
-}
-
-message CanvasDrawPatch3Request {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-  int64 arg2 = 3;
-}
-
-message CanvasDrawPatch3_1Request {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-  int64 arg2 = 3;
-}
-
-message CanvasDrawPathRequest {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-}
-
-message CanvasDrawPicture1Request {
-  int64 arg0 = 1;
-}
-
-message CanvasDrawPicture2_1Request {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-}
-
-message CanvasDrawPicture2_2Request {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-}
-
-message CanvasDrawPointRequest {
-  float arg0 = 1;
-  float arg1 = 2;
-  int64 arg2 = 3;
-}
-
-message CanvasDrawPoints2Request {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
+message PaintFontMetricsToStringRequest {
 }
 
-message CanvasDrawPoints4_1Request {
+message Set1Request {
   int64 arg0 = 1;
-  int32 arg1 = 2;
-  int32 arg2 = 3;
-  int64 arg3 = 4;
 }
 
-message CanvasDrawPosText5Request {
-  int64 arg0 = 1;
-  int32 arg1 = 2;
-  int32 arg2 = 3;
-  int64 arg3 = 4;
-  int64 arg4 = 5;
-}
-
-message CanvasDrawPosText3_1Request {
-  string arg0 = 1;
-  int64 arg1 = 2;
-  int64 arg2 = 3;
-}
-
-message CanvasDrawRGBRequest {
-  int32 arg0 = 1;
-  int32 arg1 = 2;
-  int32 arg2 = 3;
-}
-
-message CanvasDrawRect2Request {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-}
-
-message CanvasDrawRect2_1Request {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-}
-
-message CanvasDrawRect5_2Request {
-  float arg0 = 1;
-  float arg1 = 2;
-  float arg2 = 3;
-  float arg3 = 4;
-  int64 arg4 = 5;
-}
-
-message CanvasDrawRegionRequest {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-}
-
-message CanvasDrawRenderNodeRequest {
-  int64 arg0 = 1;
-}
-
-message CanvasDrawRoundRect4Request {
-  int64 arg0 = 1;
-  float arg1 = 2;
-  float arg2 = 3;
-  int64 arg3 = 4;
-}
-
-message CanvasDrawRoundRect7_1Request {
-  float arg0 = 1;
-  float arg1 = 2;
-  float arg2 = 3;
-  float arg3 = 4;
-  float arg4 = 5;
-  float arg5 = 6;
-  int64 arg6 = 7;
-}
-
-message CanvasDrawText6Request {
-  int64 arg0 = 1;
-  int32 arg1 = 2;
-  int32 arg2 = 3;
-  float arg3 = 4;
-  float arg4 = 5;
-  int64 arg5 = 6;
-}
-
-message CanvasDrawText6_1Request {
-  string arg0 = 1;
-  int32 arg1 = 2;
-  int32 arg2 = 3;
-  float arg3 = 4;
-  float arg4 = 5;
-  int64 arg5 = 6;
-}
-
-message CanvasDrawText4_2Request {
-  string arg0 = 1;
-  float arg1 = 2;
-  float arg2 = 3;
-  int64 arg3 = 4;
-}
-
-message CanvasDrawText6_3Request {
-  string arg0 = 1;
-  int32 arg1 = 2;
-  int32 arg2 = 3;
-  float arg3 = 4;
-  float arg4 = 5;
-  int64 arg5 = 6;
-}
-
-message CanvasDrawTextOnPath7Request {
-  int64 arg0 = 1;
-  int32 arg1 = 2;
-  int32 arg2 = 3;
-  int64 arg3 = 4;
-  float arg4 = 5;
-  float arg5 = 6;
-  int64 arg6 = 7;
-}
-
-message CanvasDrawTextOnPath5_1Request {
-  string arg0 = 1;
-  int64 arg1 = 2;
-  float arg2 = 3;
-  float arg3 = 4;
-  int64 arg4 = 5;
-}
-
-message CanvasDrawTextRun9Request {
-  int64 arg0 = 1;
-  int32 arg1 = 2;
-  int32 arg2 = 3;
-  int32 arg3 = 4;
-  int32 arg4 = 5;
-  float arg5 = 6;
-  float arg6 = 7;
-  bool arg7 = 8;
-  int64 arg8 = 9;
-}
-
-message CanvasDrawTextRun9_1Request {
-  int64 arg0 = 1;
-  int32 arg1 = 2;
-  int32 arg2 = 3;
-  int32 arg3 = 4;
-  int32 arg4 = 5;
-  float arg5 = 6;
-  float arg6 = 7;
-  bool arg7 = 8;
-  int64 arg8 = 9;
-}
-
-message CanvasDrawTextRun9_2Request {
-  string arg0 = 1;
-  int32 arg1 = 2;
-  int32 arg2 = 3;
-  int32 arg3 = 4;
-  int32 arg4 = 5;
-  float arg5 = 6;
-  float arg6 = 7;
-  bool arg7 = 8;
-  int64 arg8 = 9;
-}
-
-message CanvasDrawVerticesRequest {
-  int64 arg0 = 1;
-  int32 arg1 = 2;
-  int64 arg2 = 3;
-  int32 arg3 = 4;
-  int64 arg4 = 5;
-  int32 arg5 = 6;
-  int64 arg6 = 7;
-  int32 arg7 = 8;
-  int64 arg8 = 9;
-  int32 arg9 = 10;
-  int32 arg10 = 11;
-  int64 arg11 = 12;
-}
-
-message CanvasEnableZRequest {
-}
-
-message CanvasGetClipBounds0Request {
-}
-
-message CanvasGetClipBounds1_1Request {
-  int64 arg0 = 1;
-}
-
-message CanvasGetDrawFilterRequest {
-}
-
-message CanvasGetMatrix0Request {
-}
-
-message CanvasGetMatrix1_1Request {
-  int64 arg0 = 1;
-}
-
-message CanvasGetMaximumBitmapHeightRequest {
-}
-
-message CanvasGetMaximumBitmapWidthRequest {
-}
-
-message CanvasGetSaveCountRequest {
-}
-
-message CanvasIsHardwareAcceleratedRequest {
-}
-
-message CanvasIsOpaqueRequest {
-}
-
-message CanvasQuickReject1Request {
-  int64 arg0 = 1;
-}
-
-message CanvasQuickReject2_1Request {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-}
-
-message CanvasQuickReject1_2Request {
-  int64 arg0 = 1;
-}
-
-message CanvasQuickReject2_3Request {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
+message Set1Response {
 }
 
-message CanvasQuickReject4_4Request {
-  float arg0 = 1;
-  float arg1 = 2;
-  float arg2 = 3;
-  float arg3 = 4;
-}
-
-message CanvasQuickReject5_5Request {
-  float arg0 = 1;
-  float arg1 = 2;
-  float arg2 = 3;
-  float arg3 = 4;
-  int64 arg4 = 5;
-}
-
-message CanvasRestoreRequest {
-}
-
-message CanvasRestoreToCountRequest {
-  int32 arg0 = 1;
-}
-
-message CanvasRotate1Request {
-  float arg0 = 1;
-}
-
-message CanvasRotate3_1Request {
-  float arg0 = 1;
-  float arg1 = 2;
-  float arg2 = 3;
-}
-
-message CanvasSaveRequest {
-}
-
-message CanvasSaveLayer2Request {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-}
-
-message CanvasSaveLayer3_1Request {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-  int32 arg2 = 3;
-}
-
-message CanvasSaveLayer5_2Request {
-  float arg0 = 1;
-  float arg1 = 2;
-  float arg2 = 3;
-  float arg3 = 4;
-  int64 arg4 = 5;
-}
-
-message CanvasSaveLayer6_3Request {
-  float arg0 = 1;
-  float arg1 = 2;
-  float arg2 = 3;
-  float arg3 = 4;
-  int64 arg4 = 5;
-  int32 arg5 = 6;
-}
-
-message CanvasSaveLayerAlpha2Request {
-  int64 arg0 = 1;
-  int32 arg1 = 2;
-}
-
-message CanvasSaveLayerAlpha3_1Request {
-  int64 arg0 = 1;
-  int32 arg1 = 2;
-  int32 arg2 = 3;
-}
-
-message CanvasSaveLayerAlpha5_2Request {
-  float arg0 = 1;
-  float arg1 = 2;
-  float arg2 = 3;
-  float arg3 = 4;
-  int32 arg4 = 5;
-}
-
-message CanvasSaveLayerAlpha6_3Request {
-  float arg0 = 1;
-  float arg1 = 2;
-  float arg2 = 3;
-  float arg3 = 4;
-  int32 arg4 = 5;
-  int32 arg5 = 6;
-}
-
-message CanvasScale2Request {
-  float arg0 = 1;
-  float arg1 = 2;
-}
-
-message CanvasScale4_1Request {
-  float arg0 = 1;
-  float arg1 = 2;
-  float arg2 = 3;
-  float arg3 = 4;
-}
-
-message CanvasSetBitmapRequest {
-  int64 arg0 = 1;
-}
-
-message CanvasSetDrawFilterRequest {
-  int64 arg0 = 1;
-}
-
-message CanvasSetMatrixRequest {
-  int64 arg0 = 1;
-}
-
-message CanvasSkewRequest {
-  float arg0 = 1;
-  float arg1 = 2;
-}
-
-message CanvasTranslateRequest {
-  float arg0 = 1;
-  float arg1 = 2;
-}
-
-message ParcelFileDescriptorCanDetectErrorsRequest {
-}
-
-message ParcelFileDescriptorCheckErrorRequest {
-}
-
-message ParcelFileDescriptorCloseWithErrorRequest {
-  string arg0 = 1;
-}
-
-message ParcelFileDescriptorDetachFdRequest {
-}
-
-message ParcelFileDescriptorDup0Request {
-}
-
-message ParcelFileDescriptorGetFdRequest {
-}
-
-message ParcelFileDescriptorGetFileDescriptorRequest {
-}
-
-message ParcelFileDescriptorGetStatSizeRequest {
-}
-
-message ParcelFileDescriptorAdoptFdRequest {
-  int32 arg0 = 1;
-}
-
-message ParcelFileDescriptorCreatePipeRequest {
-}
-
-message ParcelFileDescriptorCreateReliablePipeRequest {
-}
-
-message ParcelFileDescriptorCreateReliableSocketPairRequest {
-}
-
-message ParcelFileDescriptorCreateSocketPairRequest {
-}
-
-message ParcelFileDescriptorDup1_1Request {
-  int64 arg0 = 1;
-}
-
-message ParcelFileDescriptorFromDatagramSocketRequest {
+message Set1_1Request {
   int64 arg0 = 1;
 }
 
-message ParcelFileDescriptorFromFdRequest {
-  int32 arg0 = 1;
-}
-
-message ParcelFileDescriptorFromSocketRequest {
-  int64 arg0 = 1;
-}
-
-message ParcelFileDescriptorOpenRequest {
-  int64 arg0 = 1;
-  int32 arg1 = 2;
+message Set1_1Response {
 }
 
-message ParcelFileDescriptorParseModeRequest {
-  string arg0 = 1;
+message PaintFontMetricsIntToStringRequest {
 }
 
 message NewPrintedPdfDocumentRequest {
@@ -5165,198 +3815,9 @@ message PrintedPdfDocumentStartPageRequest {
   int32 arg0 = 2;
 }
 
-service PaintService {
-  rpc NewPaint (NewPaintRequest) returns (NewPaintResponse);
-  rpc Ascent (AscentRequest) returns (AscentResponse);
-  rpc BreakText5 (BreakText5Request) returns (BreakText5Response);
-  rpc BreakText6_1 (BreakText6_1Request) returns (BreakText6_1Response);
-  rpc BreakText4_2 (BreakText4_2Request) returns (BreakText4_2Response);
-  rpc ClearShadowLayer (ClearShadowLayerRequest) returns (ClearShadowLayerResponse);
-  rpc Descent (DescentRequest) returns (DescentResponse);
-  rpc EqualsForTextMeasurement (EqualsForTextMeasurementRequest) returns (EqualsForTextMeasurementResponse);
-  rpc GetAlpha (GetAlphaRequest) returns (GetAlphaResponse);
-  rpc GetBlendMode (GetBlendModeRequest) returns (GetBlendModeResponse);
-  rpc GetColor (GetColorRequest) returns (GetColorResponse);
-  rpc GetColorFilter (GetColorFilterRequest) returns (GetColorFilterResponse);
-  rpc GetColorLong (GetColorLongRequest) returns (GetColorLongResponse);
-  rpc GetEndHyphenEdit (GetEndHyphenEditRequest) returns (GetEndHyphenEditResponse);
-  rpc GetFillPath (GetFillPathRequest) returns (GetFillPathResponse);
-  rpc GetFlags (GetFlagsRequest) returns (GetFlagsResponse);
-  rpc GetFontFeatureSettings (GetFontFeatureSettingsRequest) returns (GetFontFeatureSettingsResponse);
-  rpc GetFontMetrics0 (GetFontMetrics0Request) returns (GetFontMetrics0Response);
-  rpc GetFontMetrics1_1 (GetFontMetrics1_1Request) returns (GetFontMetrics1_1Response);
-  rpc GetFontMetricsForLocale (GetFontMetricsForLocaleRequest) returns (GetFontMetricsForLocaleResponse);
-  rpc GetFontMetricsInt0 (GetFontMetricsInt0Request) returns (GetFontMetricsInt0Response);
-  rpc GetFontMetricsInt1_1 (GetFontMetricsInt1_1Request) returns (GetFontMetricsInt1_1Response);
-  rpc GetFontMetricsInt7_2 (GetFontMetricsInt7_2Request) returns (GetFontMetricsInt7_2Response);
-  rpc GetFontMetricsInt7_3 (GetFontMetricsInt7_3Request) returns (GetFontMetricsInt7_3Response);
-  rpc GetFontMetricsIntForLocale (GetFontMetricsIntForLocaleRequest) returns (GetFontMetricsIntForLocaleResponse);
-  rpc GetFontSpacing (GetFontSpacingRequest) returns (GetFontSpacingResponse);
-  rpc GetFontVariationSettings (GetFontVariationSettingsRequest) returns (GetFontVariationSettingsResponse);
-  rpc GetHinting (GetHintingRequest) returns (GetHintingResponse);
-  rpc GetLetterSpacing (GetLetterSpacingRequest) returns (GetLetterSpacingResponse);
-  rpc GetMaskFilter (GetMaskFilterRequest) returns (GetMaskFilterResponse);
-  rpc GetOffsetForAdvance7 (GetOffsetForAdvance7Request) returns (GetOffsetForAdvance7Response);
-  rpc GetOffsetForAdvance7_1 (GetOffsetForAdvance7_1Request) returns (GetOffsetForAdvance7_1Response);
-  rpc GetPathEffect (GetPathEffectRequest) returns (GetPathEffectResponse);
-  rpc GetRunAdvance7 (GetRunAdvance7Request) returns (GetRunAdvance7Response);
-  rpc GetRunAdvance7_1 (GetRunAdvance7_1Request) returns (GetRunAdvance7_1Response);
-  rpc GetRunCharacterAdvance9 (GetRunCharacterAdvance9Request) returns (GetRunCharacterAdvance9Response);
-  rpc GetRunCharacterAdvance9_1 (GetRunCharacterAdvance9_1Request) returns (GetRunCharacterAdvance9_1Response);
-  rpc GetShader (GetShaderRequest) returns (GetShaderResponse);
-  rpc GetShadowLayerColor (GetShadowLayerColorRequest) returns (GetShadowLayerColorResponse);
-  rpc GetShadowLayerColorLong (GetShadowLayerColorLongRequest) returns (GetShadowLayerColorLongResponse);
-  rpc GetShadowLayerDx (GetShadowLayerDxRequest) returns (GetShadowLayerDxResponse);
-  rpc GetShadowLayerDy (GetShadowLayerDyRequest) returns (GetShadowLayerDyResponse);
-  rpc GetShadowLayerRadius (GetShadowLayerRadiusRequest) returns (GetShadowLayerRadiusResponse);
-  rpc GetStartHyphenEdit (GetStartHyphenEditRequest) returns (GetStartHyphenEditResponse);
-  rpc GetStrikeThruPosition (GetStrikeThruPositionRequest) returns (GetStrikeThruPositionResponse);
-  rpc GetStrikeThruThickness (GetStrikeThruThicknessRequest) returns (GetStrikeThruThicknessResponse);
-  rpc GetStrokeCap (GetStrokeCapRequest) returns (GetStrokeCapResponse);
-  rpc GetStrokeJoin (GetStrokeJoinRequest) returns (GetStrokeJoinResponse);
-  rpc GetStrokeMiter (GetStrokeMiterRequest) returns (GetStrokeMiterResponse);
-  rpc GetStrokeWidth (GetStrokeWidthRequest) returns (GetStrokeWidthResponse);
-  rpc GetStyle (GetStyleRequest) returns (GetStyleResponse);
-  rpc GetTextAlign (GetTextAlignRequest) returns (GetTextAlignResponse);
-  rpc GetTextBounds4 (GetTextBounds4Request) returns (GetTextBounds4Response);
-  rpc GetTextBounds4_1 (GetTextBounds4_1Request) returns (GetTextBounds4_1Response);
-  rpc GetTextBounds4_2 (GetTextBounds4_2Request) returns (GetTextBounds4_2Response);
-  rpc GetTextLocale (GetTextLocaleRequest) returns (GetTextLocaleResponse);
-  rpc GetTextLocales (GetTextLocalesRequest) returns (GetTextLocalesResponse);
-  rpc GetTextPath6 (GetTextPath6Request) returns (GetTextPath6Response);
-  rpc GetTextPath6_1 (GetTextPath6_1Request) returns (GetTextPath6_1Response);
-  rpc GetTextRunAdvances (GetTextRunAdvancesRequest) returns (GetTextRunAdvancesResponse);
-  rpc GetTextRunCursor6 (GetTextRunCursor6Request) returns (GetTextRunCursor6Response);
-  rpc GetTextRunCursor6_1 (GetTextRunCursor6_1Request) returns (GetTextRunCursor6_1Response);
-  rpc GetTextScaleX (GetTextScaleXRequest) returns (GetTextScaleXResponse);
-  rpc GetTextSize (GetTextSizeRequest) returns (GetTextSizeResponse);
-  rpc GetTextSkewX (GetTextSkewXRequest) returns (GetTextSkewXResponse);
-  rpc GetTextWidths4 (GetTextWidths4Request) returns (GetTextWidths4Response);
-  rpc GetTextWidths4_1 (GetTextWidths4_1Request) returns (GetTextWidths4_1Response);
-  rpc GetTextWidths2_2 (GetTextWidths2_2Request) returns (GetTextWidths2_2Response);
-  rpc GetTextWidths4_3 (GetTextWidths4_3Request) returns (GetTextWidths4_3Response);
-  rpc GetTypeface (GetTypefaceRequest) returns (GetTypefaceResponse);
-  rpc GetUnderlinePosition (GetUnderlinePositionRequest) returns (GetUnderlinePositionResponse);
-  rpc GetUnderlineThickness (GetUnderlineThicknessRequest) returns (GetUnderlineThicknessResponse);
-  rpc GetWordSpacing (GetWordSpacingRequest) returns (GetWordSpacingResponse);
-  rpc GetXfermode (GetXfermodeRequest) returns (GetXfermodeResponse);
-  rpc HasGlyph (HasGlyphRequest) returns (HasGlyphResponse);
-  rpc IsAntiAlias (IsAntiAliasRequest) returns (IsAntiAliasResponse);
-  rpc IsDither (IsDitherRequest) returns (IsDitherResponse);
-  rpc IsElegantTextHeight (IsElegantTextHeightRequest) returns (IsElegantTextHeightResponse);
-  rpc IsFakeBoldText (IsFakeBoldTextRequest) returns (IsFakeBoldTextResponse);
-  rpc IsFilterBitmap (IsFilterBitmapRequest) returns (IsFilterBitmapResponse);
-  rpc IsLinearText (IsLinearTextRequest) returns (IsLinearTextResponse);
-  rpc IsStrikeThruText (IsStrikeThruTextRequest) returns (IsStrikeThruTextResponse);
-  rpc IsSubpixelText (IsSubpixelTextRequest) returns (IsSubpixelTextResponse);
-  rpc IsUnderlineText (IsUnderlineTextRequest) returns (IsUnderlineTextResponse);
-  rpc MeasureText3 (MeasureText3Request) returns (MeasureText3Response);
-  rpc MeasureText3_1 (MeasureText3_1Request) returns (MeasureText3_1Response);
-  rpc MeasureText1_2 (MeasureText1_2Request) returns (MeasureText1_2Response);
-  rpc MeasureText3_3 (MeasureText3_3Request) returns (MeasureText3_3Response);
-  rpc Reset (ResetRequest) returns (ResetResponse);
-  rpc Set (SetRequest) returns (SetResponse);
-  rpc SetARGB (SetARGBRequest) returns (SetARGBResponse);
-  rpc SetAlpha (SetAlphaRequest) returns (SetAlphaResponse);
-  rpc SetAntiAlias (SetAntiAliasRequest) returns (SetAntiAliasResponse);
-  rpc SetBlendMode (SetBlendModeRequest) returns (SetBlendModeResponse);
-  rpc SetColor1 (SetColor1Request) returns (SetColor1Response);
-  rpc SetColor1_1 (SetColor1_1Request) returns (SetColor1_1Response);
-  rpc SetColorFilter (SetColorFilterRequest) returns (SetColorFilterResponse);
-  rpc SetDither (SetDitherRequest) returns (SetDitherResponse);
-  rpc SetElegantTextHeight (SetElegantTextHeightRequest) returns (SetElegantTextHeightResponse);
-  rpc SetEndHyphenEdit (SetEndHyphenEditRequest) returns (SetEndHyphenEditResponse);
-  rpc SetFakeBoldText (SetFakeBoldTextRequest) returns (SetFakeBoldTextResponse);
-  rpc SetFilterBitmap (SetFilterBitmapRequest) returns (SetFilterBitmapResponse);
-  rpc SetFlags (SetFlagsRequest) returns (SetFlagsResponse);
-  rpc SetFontFeatureSettings (SetFontFeatureSettingsRequest) returns (SetFontFeatureSettingsResponse);
-  rpc SetFontVariationSettings (SetFontVariationSettingsRequest) returns (SetFontVariationSettingsResponse);
-  rpc SetHinting (SetHintingRequest) returns (SetHintingResponse);
-  rpc SetLetterSpacing (SetLetterSpacingRequest) returns (SetLetterSpacingResponse);
-  rpc SetLinearText (SetLinearTextRequest) returns (SetLinearTextResponse);
-  rpc SetMaskFilter (SetMaskFilterRequest) returns (SetMaskFilterResponse);
-  rpc SetPathEffect (SetPathEffectRequest) returns (SetPathEffectResponse);
-  rpc SetShader (SetShaderRequest) returns (SetShaderResponse);
-  rpc SetShadowLayer4 (SetShadowLayer4Request) returns (SetShadowLayer4Response);
-  rpc SetShadowLayer4_1 (SetShadowLayer4_1Request) returns (SetShadowLayer4_1Response);
-  rpc SetStartHyphenEdit (SetStartHyphenEditRequest) returns (SetStartHyphenEditResponse);
-  rpc SetStrikeThruText (SetStrikeThruTextRequest) returns (SetStrikeThruTextResponse);
-  rpc SetStrokeCap (SetStrokeCapRequest) returns (SetStrokeCapResponse);
-  rpc SetStrokeJoin (SetStrokeJoinRequest) returns (SetStrokeJoinResponse);
-  rpc SetStrokeMiter (SetStrokeMiterRequest) returns (SetStrokeMiterResponse);
-  rpc SetStrokeWidth (SetStrokeWidthRequest) returns (SetStrokeWidthResponse);
-  rpc SetStyle (SetStyleRequest) returns (SetStyleResponse);
-  rpc SetSubpixelText (SetSubpixelTextRequest) returns (SetSubpixelTextResponse);
-  rpc SetTextAlign (SetTextAlignRequest) returns (SetTextAlignResponse);
-  rpc SetTextLocale (SetTextLocaleRequest) returns (SetTextLocaleResponse);
-  rpc SetTextLocales (SetTextLocalesRequest) returns (SetTextLocalesResponse);
-  rpc SetTextScaleX (SetTextScaleXRequest) returns (SetTextScaleXResponse);
-  rpc SetTextSize (SetTextSizeRequest) returns (SetTextSizeResponse);
-  rpc SetTextSkewX (SetTextSkewXRequest) returns (SetTextSkewXResponse);
-  rpc SetTypeface (SetTypefaceRequest) returns (SetTypefaceResponse);
-  rpc SetUnderlineText (SetUnderlineTextRequest) returns (SetUnderlineTextResponse);
-  rpc SetWordSpacing (SetWordSpacingRequest) returns (SetWordSpacingResponse);
-  rpc SetXfermode (SetXfermodeRequest) returns (SetXfermodeResponse);
-}
-
-service PaintAlignService {
-  rpc Values (ValuesRequest) returns (ValuesResponse);
-  rpc ValueOf (ValueOfRequest) returns (ValueOfResponse);
-}
-
-service PaintCapService {
-  rpc Values (ValuesRequest) returns (ValuesResponse);
-  rpc ValueOf (ValueOfRequest) returns (ValueOfResponse);
-}
-
-service PaintFontMetricsService {
-  rpc Equals (EqualsRequest) returns (EqualsResponse);
-  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
-  rpc ToString (ToStringRequest) returns (ToStringResponse);
-}
-
-service PaintFontMetricsIntService {
-  rpc Equals (EqualsRequest) returns (EqualsResponse);
-  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
-  rpc Set1 (Set1Request) returns (Set1Response);
-  rpc Set1_1 (Set1_1Request) returns (Set1_1Response);
-  rpc ToString (ToStringRequest) returns (ToStringResponse);
-}
-
-service PaintJoinService {
-  rpc Values (ValuesRequest) returns (ValuesResponse);
-  rpc ValueOf (ValueOfRequest) returns (ValueOfResponse);
-}
-
-service PaintStyleService {
-  rpc Values (ValuesRequest) returns (ValuesResponse);
-  rpc ValueOf (ValueOfRequest) returns (ValueOfResponse);
-}
-
-service RendererPreVService {
-  rpc NewRendererPreV (NewRendererPreVRequest) returns (NewRendererPreVResponse);
-  rpc Close (CloseRequest) returns (CloseResponse);
-  rpc GetDocumentLinearizationType (GetDocumentLinearizationTypeRequest) returns (GetDocumentLinearizationTypeResponse);
-  rpc GetPageCount (GetPageCountRequest) returns (GetPageCountResponse);
-  rpc GetPdfFormType (GetPdfFormTypeRequest) returns (GetPdfFormTypeResponse);
-  rpc OpenPage (OpenPageRequest) returns (OpenPageResponse);
-  rpc Write (WriteRequest) returns (WriteResponse);
-}
-
-service RendererPreVPageService {
-  rpc Close (RendererPreVPageCloseRequest) returns (CloseResponse);
-  rpc GetFormWidgetInfoAtIndex (GetFormWidgetInfoAtIndexRequest) returns (GetFormWidgetInfoAtIndexResponse);
-  rpc GetFormWidgetInfoAtPosition (GetFormWidgetInfoAtPositionRequest) returns (GetFormWidgetInfoAtPositionResponse);
-  rpc GetHeight (GetHeightRequest) returns (GetHeightResponse);
-  rpc GetIndex (GetIndexRequest) returns (GetIndexResponse);
-  rpc GetWidth (GetWidthRequest) returns (GetWidthResponse);
-  rpc Render (RenderRequest) returns (RenderResponse);
-  rpc SelectContent (SelectContentRequest) returns (SelectContentResponse);
-}
-
 service TypefaceService {
   rpc Equals (EqualsRequest) returns (EqualsResponse);
-  rpc GetStyle (TypefaceGetStyleRequest) returns (TypefaceGetStyleResponse);
+  rpc GetStyle (GetStyleRequest) returns (GetStyleResponse);
   rpc GetSystemFontFamilyName (GetSystemFontFamilyNameRequest) returns (GetSystemFontFamilyNameResponse);
   rpc GetWeight (GetWeightRequest) returns (GetWeightResponse);
   rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
@@ -5384,9 +3845,30 @@ service TypefaceBuilderService {
 service TypefaceCustomFallbackBuilderService {
   rpc AddCustomFallback (AddCustomFallbackRequest) returns (AddCustomFallbackResponse);
   rpc Build (BuildRequest) returns (BuildResponse);
-  rpc SetStyle (TypefaceCustomFallbackBuilderSetStyleRequest) returns (TypefaceCustomFallbackBuilderSetStyleResponse);
+  rpc SetStyle (SetStyleRequest) returns (SetStyleResponse);
   rpc SetSystemFallback (SetSystemFallbackRequest) returns (SetSystemFallbackResponse);
   rpc GetMaxCustomFallbackCount (GetMaxCustomFallbackCountRequest) returns (GetMaxCustomFallbackCountResponse);
+}
+
+service DocumentService {
+  rpc NewDocument (NewDocumentRequest) returns (NewDocumentResponse);
+  rpc Close (CloseRequest) returns (CloseResponse);
+  rpc FinishPage (FinishPageRequest) returns (FinishPageResponse);
+  rpc GetPages (GetPagesRequest) returns (GetPagesResponse);
+  rpc StartPage (StartPageRequest) returns (StartPageResponse);
+  rpc WriteTo (WriteToRequest) returns (WriteToResponse);
+}
+
+service DocumentPageService {
+  rpc GetCanvas (GetCanvasRequest) returns (GetCanvasResponse);
+  rpc GetInfo (GetInfoRequest) returns (GetInfoResponse);
+}
+
+service DocumentPageInfoService {
+  rpc GetContentRect (GetContentRectRequest) returns (GetContentRectResponse);
+  rpc GetPageHeight (GetPageHeightRequest) returns (GetPageHeightResponse);
+  rpc GetPageNumber (GetPageNumberRequest) returns (GetPageNumberResponse);
+  rpc GetPageWidth (GetPageWidthRequest) returns (GetPageWidthResponse);
 }
 
 service CanvasService {
@@ -5470,13 +3952,13 @@ service CanvasService {
   rpc GetClipBounds1_1 (GetClipBounds1_1Request) returns (GetClipBounds1_1Response);
   rpc GetDensity (GetDensityRequest) returns (GetDensityResponse);
   rpc GetDrawFilter (GetDrawFilterRequest) returns (GetDrawFilterResponse);
-  rpc GetHeight (CanvasGetHeightRequest) returns (GetHeightResponse);
+  rpc GetHeight (GetHeightRequest) returns (GetHeightResponse);
   rpc GetMatrix0 (GetMatrix0Request) returns (GetMatrix0Response);
   rpc GetMatrix1_1 (GetMatrix1_1Request) returns (GetMatrix1_1Response);
   rpc GetMaximumBitmapHeight (GetMaximumBitmapHeightRequest) returns (GetMaximumBitmapHeightResponse);
   rpc GetMaximumBitmapWidth (GetMaximumBitmapWidthRequest) returns (GetMaximumBitmapWidthResponse);
   rpc GetSaveCount (GetSaveCountRequest) returns (GetSaveCountResponse);
-  rpc GetWidth (CanvasGetWidthRequest) returns (GetWidthResponse);
+  rpc GetWidth (GetWidthRequest) returns (GetWidthResponse);
   rpc IsHardwareAccelerated (IsHardwareAcceleratedRequest) returns (IsHardwareAcceleratedResponse);
   rpc IsOpaque (IsOpaqueRequest) returns (IsOpaqueResponse);
   rpc QuickReject1 (QuickReject1Request) returns (QuickReject1Response);
@@ -5518,44 +4000,33 @@ service CanvasVertexModeService {
   rpc ValueOf (ValueOfRequest) returns (ValueOfResponse);
 }
 
-service LoadParamsService {
-  rpc GetPassword (GetPasswordRequest) returns (GetPasswordResponse);
-}
-
-service LoadParamsBuilderService {
-  rpc Build (BuildRequest) returns (BuildResponse);
-  rpc SetPassword (SetPasswordRequest) returns (SetPasswordResponse);
-}
-
-service DocumentService {
-  rpc NewDocument (NewDocumentRequest) returns (NewDocumentResponse);
+service RendererPreVService {
+  rpc NewRendererPreV (NewRendererPreVRequest) returns (NewRendererPreVResponse);
   rpc Close (CloseRequest) returns (CloseResponse);
-  rpc FinishPage (FinishPageRequest) returns (FinishPageResponse);
-  rpc StartPage (StartPageRequest) returns (StartPageResponse);
-  rpc WriteTo (WriteToRequest) returns (WriteToResponse);
+  rpc GetDocumentLinearizationType (GetDocumentLinearizationTypeRequest) returns (GetDocumentLinearizationTypeResponse);
+  rpc GetPageCount (GetPageCountRequest) returns (GetPageCountResponse);
+  rpc GetPdfFormType (GetPdfFormTypeRequest) returns (GetPdfFormTypeResponse);
+  rpc OpenPage (OpenPageRequest) returns (OpenPageResponse);
+  rpc Write (WriteRequest) returns (WriteResponse);
 }
 
-service DocumentPageService {
-  rpc GetCanvas (GetCanvasRequest) returns (GetCanvasResponse);
-  rpc GetInfo (GetInfoRequest) returns (GetInfoResponse);
-}
-
-service DocumentPageInfoService {
-  rpc GetContentRect (GetContentRectRequest) returns (GetContentRectResponse);
-  rpc GetPageHeight (GetPageHeightRequest) returns (GetPageHeightResponse);
-  rpc GetPageNumber (GetPageNumberRequest) returns (GetPageNumberResponse);
-  rpc GetPageWidth (GetPageWidthRequest) returns (GetPageWidthResponse);
-}
-
-service RenderParamsService {
-  rpc GetRenderFlags (GetRenderFlagsRequest) returns (GetRenderFlagsResponse);
-  rpc GetRenderMode (GetRenderModeRequest) returns (GetRenderModeResponse);
-}
-
-service RenderParamsBuilderService {
-  rpc Build (BuildRequest) returns (BuildResponse);
-  rpc SetRenderFlags1 (SetRenderFlags1Request) returns (SetRenderFlags1Response);
-  rpc SetRenderFlags2_1 (SetRenderFlags2_1Request) returns (SetRenderFlags2_1Response);
+service RendererPreVPageService {
+  rpc ApplyEdit (ApplyEditRequest) returns (ApplyEditResponse);
+  rpc Close (RendererPreVPageCloseRequest) returns (CloseResponse);
+  rpc GetFormWidgetInfoAtIndex (GetFormWidgetInfoAtIndexRequest) returns (GetFormWidgetInfoAtIndexResponse);
+  rpc GetFormWidgetInfoAtPosition (GetFormWidgetInfoAtPositionRequest) returns (GetFormWidgetInfoAtPositionResponse);
+  rpc GetFormWidgetInfos0 (GetFormWidgetInfos0Request) returns (GetFormWidgetInfos0Response);
+  rpc GetFormWidgetInfos1_1 (GetFormWidgetInfos1_1Request) returns (GetFormWidgetInfos1_1Response);
+  rpc GetGotoLinks (GetGotoLinksRequest) returns (GetGotoLinksResponse);
+  rpc GetHeight (RendererPreVPageGetHeightRequest) returns (GetHeightResponse);
+  rpc GetImageContents (GetImageContentsRequest) returns (GetImageContentsResponse);
+  rpc GetIndex (GetIndexRequest) returns (GetIndexResponse);
+  rpc GetLinkContents (GetLinkContentsRequest) returns (GetLinkContentsResponse);
+  rpc GetTextContents (GetTextContentsRequest) returns (GetTextContentsResponse);
+  rpc GetWidth (RendererPreVPageGetWidthRequest) returns (GetWidthResponse);
+  rpc Render (RenderRequest) returns (RenderResponse);
+  rpc SearchText (SearchTextRequest) returns (SearchTextResponse);
+  rpc SelectContent (SelectContentRequest) returns (SelectContentResponse);
 }
 
 service BitmapService {
@@ -5571,14 +4042,14 @@ service BitmapService {
   rpc ExtractAlpha2_1 (ExtractAlpha2_1Request) returns (ExtractAlpha2_1Response);
   rpc GetAllocationByteCount (GetAllocationByteCountRequest) returns (GetAllocationByteCountResponse);
   rpc GetByteCount (GetByteCountRequest) returns (GetByteCountResponse);
-  rpc GetColor (BitmapGetColorRequest) returns (BitmapGetColorResponse);
+  rpc GetColor (GetColorRequest) returns (GetColorResponse);
   rpc GetColorSpace (GetColorSpaceRequest) returns (GetColorSpaceResponse);
   rpc GetConfig (GetConfigRequest) returns (GetConfigResponse);
   rpc GetDensity (BitmapGetDensityRequest) returns (GetDensityResponse);
   rpc GetGainmap (GetGainmapRequest) returns (GetGainmapResponse);
   rpc GetGenerationId (GetGenerationIdRequest) returns (GetGenerationIdResponse);
   rpc GetHardwareBuffer (GetHardwareBufferRequest) returns (GetHardwareBufferResponse);
-  rpc GetHeight (GetHeightRequest) returns (GetHeightResponse);
+  rpc GetHeight (BitmapGetHeightRequest) returns (GetHeightResponse);
   rpc GetNinePatchChunk (GetNinePatchChunkRequest) returns (GetNinePatchChunkResponse);
   rpc GetPixel (GetPixelRequest) returns (GetPixelResponse);
   rpc GetPixels (GetPixelsRequest) returns (GetPixelsResponse);
@@ -5589,7 +4060,7 @@ service BitmapService {
   rpc GetScaledWidth1 (GetScaledWidth1Request) returns (GetScaledWidth1Response);
   rpc GetScaledWidth1_1 (GetScaledWidth1_1Request) returns (GetScaledWidth1_1Response);
   rpc GetScaledWidth1_2 (GetScaledWidth1_2Request) returns (GetScaledWidth1_2Response);
-  rpc GetWidth (GetWidthRequest) returns (GetWidthResponse);
+  rpc GetWidth (BitmapGetWidthRequest) returns (GetWidthResponse);
   rpc HasAlpha (HasAlphaRequest) returns (HasAlphaResponse);
   rpc HasGainmap (HasGainmapRequest) returns (HasGainmapResponse);
   rpc HasMipMap (HasMipMapRequest) returns (HasMipMapResponse);
@@ -5641,6 +4112,15 @@ service BitmapConfigService {
   rpc ValueOf (ValueOfRequest) returns (ValueOfResponse);
 }
 
+service LoadParamsService {
+  rpc GetPassword (GetPasswordRequest) returns (GetPasswordResponse);
+}
+
+service LoadParamsBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetPassword (SetPasswordRequest) returns (SetPasswordResponse);
+}
+
 service RendererService {
   rpc NewRenderer (NewRendererRequest) returns (NewRendererResponse);
   rpc Close (CloseRequest) returns (CloseResponse);
@@ -5653,23 +4133,23 @@ service RendererService {
 }
 
 service RendererPageService {
+  rpc ApplyEdit (ApplyEditRequest) returns (ApplyEditResponse);
   rpc Close (RendererPageCloseRequest) returns (CloseResponse);
   rpc GetFormWidgetInfoAtIndex (GetFormWidgetInfoAtIndexRequest) returns (GetFormWidgetInfoAtIndexResponse);
   rpc GetFormWidgetInfoAtPosition (GetFormWidgetInfoAtPositionRequest) returns (GetFormWidgetInfoAtPositionResponse);
-  rpc GetHeight (GetHeightRequest) returns (GetHeightResponse);
-  rpc GetIndex (GetIndexRequest) returns (GetIndexResponse);
-  rpc GetWidth (GetWidthRequest) returns (GetWidthResponse);
-  rpc Render4 (Render4Request) returns (Render4Response);
-  rpc Render4_1 (Render4_1Request) returns (Render4_1Response);
-  rpc SelectContent (SelectContentRequest) returns (SelectContentResponse);
-  rpc ApplyEdit (ApplyEditRequest) returns (ApplyEditResponse);
   rpc GetFormWidgetInfos0 (GetFormWidgetInfos0Request) returns (GetFormWidgetInfos0Response);
   rpc GetFormWidgetInfos1_1 (GetFormWidgetInfos1_1Request) returns (GetFormWidgetInfos1_1Response);
   rpc GetGotoLinks (GetGotoLinksRequest) returns (GetGotoLinksResponse);
+  rpc GetHeight (RendererPageGetHeightRequest) returns (GetHeightResponse);
   rpc GetImageContents (GetImageContentsRequest) returns (GetImageContentsResponse);
+  rpc GetIndex (GetIndexRequest) returns (GetIndexResponse);
   rpc GetLinkContents (GetLinkContentsRequest) returns (GetLinkContentsResponse);
   rpc GetTextContents (GetTextContentsRequest) returns (GetTextContentsResponse);
+  rpc GetWidth (RendererPageGetWidthRequest) returns (GetWidthResponse);
+  rpc Render4 (Render4Request) returns (Render4Response);
+  rpc Render4_1 (Render4_1Request) returns (Render4_1Response);
   rpc SearchText (SearchTextRequest) returns (SearchTextResponse);
+  rpc SelectContent (SelectContentRequest) returns (SelectContentResponse);
 }
 
 service ParcelFileDescriptorService {
@@ -5684,7 +4164,7 @@ service ParcelFileDescriptorService {
   rpc GetFd (GetFdRequest) returns (GetFdResponse);
   rpc GetFileDescriptor (GetFileDescriptorRequest) returns (GetFileDescriptorResponse);
   rpc GetStatSize (GetStatSizeRequest) returns (GetStatSizeResponse);
-  rpc ToString (ParcelFileDescriptorToStringRequest) returns (ToStringResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
   rpc WriteToParcel (ParcelFileDescriptorWriteToParcelRequest) returns (WriteToParcelResponse);
   rpc AdoptFd (AdoptFdRequest) returns (AdoptFdResponse);
   rpc CreatePipe (CreatePipeRequest) returns (CreatePipeResponse);
@@ -5712,6 +4192,185 @@ service ParcelFileDescriptorAutoCloseOutputStreamService {
 
 service ParcelFileDescriptorOnCloseListenerService {
   rpc OnClose (OnCloseRequest) returns (OnCloseResponse);
+}
+
+service RenderParamsService {
+  rpc GetRenderFlags (GetRenderFlagsRequest) returns (GetRenderFlagsResponse);
+  rpc GetRenderMode (GetRenderModeRequest) returns (GetRenderModeResponse);
+}
+
+service RenderParamsBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetRenderFlags1 (SetRenderFlags1Request) returns (SetRenderFlags1Response);
+  rpc SetRenderFlags2_1 (SetRenderFlags2_1Request) returns (SetRenderFlags2_1Response);
+}
+
+service PaintService {
+  rpc NewPaint (NewPaintRequest) returns (NewPaintResponse);
+  rpc Ascent (AscentRequest) returns (AscentResponse);
+  rpc BreakText5 (BreakText5Request) returns (BreakText5Response);
+  rpc BreakText6_1 (BreakText6_1Request) returns (BreakText6_1Response);
+  rpc BreakText4_2 (BreakText4_2Request) returns (BreakText4_2Response);
+  rpc ClearShadowLayer (ClearShadowLayerRequest) returns (ClearShadowLayerResponse);
+  rpc Descent (DescentRequest) returns (DescentResponse);
+  rpc EqualsForTextMeasurement (EqualsForTextMeasurementRequest) returns (EqualsForTextMeasurementResponse);
+  rpc GetAlpha (GetAlphaRequest) returns (GetAlphaResponse);
+  rpc GetBlendMode (GetBlendModeRequest) returns (GetBlendModeResponse);
+  rpc GetColor (PaintGetColorRequest) returns (PaintGetColorResponse);
+  rpc GetColorFilter (GetColorFilterRequest) returns (GetColorFilterResponse);
+  rpc GetColorLong (GetColorLongRequest) returns (GetColorLongResponse);
+  rpc GetEndHyphenEdit (GetEndHyphenEditRequest) returns (GetEndHyphenEditResponse);
+  rpc GetFillPath (GetFillPathRequest) returns (GetFillPathResponse);
+  rpc GetFlags (GetFlagsRequest) returns (GetFlagsResponse);
+  rpc GetFontFeatureSettings (GetFontFeatureSettingsRequest) returns (GetFontFeatureSettingsResponse);
+  rpc GetFontMetrics0 (GetFontMetrics0Request) returns (GetFontMetrics0Response);
+  rpc GetFontMetrics1_1 (GetFontMetrics1_1Request) returns (GetFontMetrics1_1Response);
+  rpc GetFontMetricsForLocale (GetFontMetricsForLocaleRequest) returns (GetFontMetricsForLocaleResponse);
+  rpc GetFontMetricsInt0 (GetFontMetricsInt0Request) returns (GetFontMetricsInt0Response);
+  rpc GetFontMetricsInt1_1 (GetFontMetricsInt1_1Request) returns (GetFontMetricsInt1_1Response);
+  rpc GetFontMetricsInt7_2 (GetFontMetricsInt7_2Request) returns (GetFontMetricsInt7_2Response);
+  rpc GetFontMetricsInt7_3 (GetFontMetricsInt7_3Request) returns (GetFontMetricsInt7_3Response);
+  rpc GetFontMetricsIntForLocale (GetFontMetricsIntForLocaleRequest) returns (GetFontMetricsIntForLocaleResponse);
+  rpc GetFontSpacing (GetFontSpacingRequest) returns (GetFontSpacingResponse);
+  rpc GetFontVariationSettings (GetFontVariationSettingsRequest) returns (GetFontVariationSettingsResponse);
+  rpc GetHinting (GetHintingRequest) returns (GetHintingResponse);
+  rpc GetLetterSpacing (GetLetterSpacingRequest) returns (GetLetterSpacingResponse);
+  rpc GetMaskFilter (GetMaskFilterRequest) returns (GetMaskFilterResponse);
+  rpc GetOffsetForAdvance7 (GetOffsetForAdvance7Request) returns (GetOffsetForAdvance7Response);
+  rpc GetOffsetForAdvance7_1 (GetOffsetForAdvance7_1Request) returns (GetOffsetForAdvance7_1Response);
+  rpc GetPathEffect (GetPathEffectRequest) returns (GetPathEffectResponse);
+  rpc GetRunAdvance7 (GetRunAdvance7Request) returns (GetRunAdvance7Response);
+  rpc GetRunAdvance7_1 (GetRunAdvance7_1Request) returns (GetRunAdvance7_1Response);
+  rpc GetRunCharacterAdvance9 (GetRunCharacterAdvance9Request) returns (GetRunCharacterAdvance9Response);
+  rpc GetRunCharacterAdvance9_1 (GetRunCharacterAdvance9_1Request) returns (GetRunCharacterAdvance9_1Response);
+  rpc GetShader (GetShaderRequest) returns (GetShaderResponse);
+  rpc GetShadowLayerColor (GetShadowLayerColorRequest) returns (GetShadowLayerColorResponse);
+  rpc GetShadowLayerColorLong (GetShadowLayerColorLongRequest) returns (GetShadowLayerColorLongResponse);
+  rpc GetShadowLayerDx (GetShadowLayerDxRequest) returns (GetShadowLayerDxResponse);
+  rpc GetShadowLayerDy (GetShadowLayerDyRequest) returns (GetShadowLayerDyResponse);
+  rpc GetShadowLayerRadius (GetShadowLayerRadiusRequest) returns (GetShadowLayerRadiusResponse);
+  rpc GetStartHyphenEdit (GetStartHyphenEditRequest) returns (GetStartHyphenEditResponse);
+  rpc GetStrikeThruPosition (GetStrikeThruPositionRequest) returns (GetStrikeThruPositionResponse);
+  rpc GetStrikeThruThickness (GetStrikeThruThicknessRequest) returns (GetStrikeThruThicknessResponse);
+  rpc GetStrokeCap (GetStrokeCapRequest) returns (GetStrokeCapResponse);
+  rpc GetStrokeJoin (GetStrokeJoinRequest) returns (GetStrokeJoinResponse);
+  rpc GetStrokeMiter (GetStrokeMiterRequest) returns (GetStrokeMiterResponse);
+  rpc GetStrokeWidth (GetStrokeWidthRequest) returns (GetStrokeWidthResponse);
+  rpc GetStyle (PaintGetStyleRequest) returns (PaintGetStyleResponse);
+  rpc GetTextAlign (GetTextAlignRequest) returns (GetTextAlignResponse);
+  rpc GetTextBounds4 (GetTextBounds4Request) returns (GetTextBounds4Response);
+  rpc GetTextBounds4_1 (GetTextBounds4_1Request) returns (GetTextBounds4_1Response);
+  rpc GetTextBounds4_2 (GetTextBounds4_2Request) returns (GetTextBounds4_2Response);
+  rpc GetTextLocale (GetTextLocaleRequest) returns (GetTextLocaleResponse);
+  rpc GetTextLocales (GetTextLocalesRequest) returns (GetTextLocalesResponse);
+  rpc GetTextPath6 (GetTextPath6Request) returns (GetTextPath6Response);
+  rpc GetTextPath6_1 (GetTextPath6_1Request) returns (GetTextPath6_1Response);
+  rpc GetTextRunAdvances (GetTextRunAdvancesRequest) returns (GetTextRunAdvancesResponse);
+  rpc GetTextRunCursor6 (GetTextRunCursor6Request) returns (GetTextRunCursor6Response);
+  rpc GetTextRunCursor6_1 (GetTextRunCursor6_1Request) returns (GetTextRunCursor6_1Response);
+  rpc GetTextScaleX (GetTextScaleXRequest) returns (GetTextScaleXResponse);
+  rpc GetTextSize (GetTextSizeRequest) returns (GetTextSizeResponse);
+  rpc GetTextSkewX (GetTextSkewXRequest) returns (GetTextSkewXResponse);
+  rpc GetTextWidths4 (GetTextWidths4Request) returns (GetTextWidths4Response);
+  rpc GetTextWidths4_1 (GetTextWidths4_1Request) returns (GetTextWidths4_1Response);
+  rpc GetTextWidths2_2 (GetTextWidths2_2Request) returns (GetTextWidths2_2Response);
+  rpc GetTextWidths4_3 (GetTextWidths4_3Request) returns (GetTextWidths4_3Response);
+  rpc GetTypeface (GetTypefaceRequest) returns (GetTypefaceResponse);
+  rpc GetUnderlinePosition (GetUnderlinePositionRequest) returns (GetUnderlinePositionResponse);
+  rpc GetUnderlineThickness (GetUnderlineThicknessRequest) returns (GetUnderlineThicknessResponse);
+  rpc GetWordSpacing (GetWordSpacingRequest) returns (GetWordSpacingResponse);
+  rpc GetXfermode (GetXfermodeRequest) returns (GetXfermodeResponse);
+  rpc HasGlyph (HasGlyphRequest) returns (HasGlyphResponse);
+  rpc IsAntiAlias (IsAntiAliasRequest) returns (IsAntiAliasResponse);
+  rpc IsDither (IsDitherRequest) returns (IsDitherResponse);
+  rpc IsElegantTextHeight (IsElegantTextHeightRequest) returns (IsElegantTextHeightResponse);
+  rpc IsFakeBoldText (IsFakeBoldTextRequest) returns (IsFakeBoldTextResponse);
+  rpc IsFilterBitmap (IsFilterBitmapRequest) returns (IsFilterBitmapResponse);
+  rpc IsLinearText (IsLinearTextRequest) returns (IsLinearTextResponse);
+  rpc IsStrikeThruText (IsStrikeThruTextRequest) returns (IsStrikeThruTextResponse);
+  rpc IsSubpixelText (IsSubpixelTextRequest) returns (IsSubpixelTextResponse);
+  rpc IsUnderlineText (IsUnderlineTextRequest) returns (IsUnderlineTextResponse);
+  rpc MeasureText3 (MeasureText3Request) returns (MeasureText3Response);
+  rpc MeasureText3_1 (MeasureText3_1Request) returns (MeasureText3_1Response);
+  rpc MeasureText1_2 (MeasureText1_2Request) returns (MeasureText1_2Response);
+  rpc MeasureText3_3 (MeasureText3_3Request) returns (MeasureText3_3Response);
+  rpc Reset (ResetRequest) returns (ResetResponse);
+  rpc Set (SetRequest) returns (SetResponse);
+  rpc SetARGB (SetARGBRequest) returns (SetARGBResponse);
+  rpc SetAlpha (SetAlphaRequest) returns (SetAlphaResponse);
+  rpc SetAntiAlias (SetAntiAliasRequest) returns (SetAntiAliasResponse);
+  rpc SetBlendMode (SetBlendModeRequest) returns (SetBlendModeResponse);
+  rpc SetColor1 (SetColor1Request) returns (SetColor1Response);
+  rpc SetColor1_1 (SetColor1_1Request) returns (SetColor1_1Response);
+  rpc SetColorFilter (SetColorFilterRequest) returns (SetColorFilterResponse);
+  rpc SetDither (SetDitherRequest) returns (SetDitherResponse);
+  rpc SetElegantTextHeight (SetElegantTextHeightRequest) returns (SetElegantTextHeightResponse);
+  rpc SetEndHyphenEdit (SetEndHyphenEditRequest) returns (SetEndHyphenEditResponse);
+  rpc SetFakeBoldText (SetFakeBoldTextRequest) returns (SetFakeBoldTextResponse);
+  rpc SetFilterBitmap (SetFilterBitmapRequest) returns (SetFilterBitmapResponse);
+  rpc SetFlags (SetFlagsRequest) returns (SetFlagsResponse);
+  rpc SetFontFeatureSettings (SetFontFeatureSettingsRequest) returns (SetFontFeatureSettingsResponse);
+  rpc SetFontVariationSettings (SetFontVariationSettingsRequest) returns (SetFontVariationSettingsResponse);
+  rpc SetHinting (SetHintingRequest) returns (SetHintingResponse);
+  rpc SetLetterSpacing (SetLetterSpacingRequest) returns (SetLetterSpacingResponse);
+  rpc SetLinearText (SetLinearTextRequest) returns (SetLinearTextResponse);
+  rpc SetMaskFilter (SetMaskFilterRequest) returns (SetMaskFilterResponse);
+  rpc SetPathEffect (SetPathEffectRequest) returns (SetPathEffectResponse);
+  rpc SetShader (SetShaderRequest) returns (SetShaderResponse);
+  rpc SetShadowLayer4 (SetShadowLayer4Request) returns (SetShadowLayer4Response);
+  rpc SetShadowLayer4_1 (SetShadowLayer4_1Request) returns (SetShadowLayer4_1Response);
+  rpc SetStartHyphenEdit (SetStartHyphenEditRequest) returns (SetStartHyphenEditResponse);
+  rpc SetStrikeThruText (SetStrikeThruTextRequest) returns (SetStrikeThruTextResponse);
+  rpc SetStrokeCap (SetStrokeCapRequest) returns (SetStrokeCapResponse);
+  rpc SetStrokeJoin (SetStrokeJoinRequest) returns (SetStrokeJoinResponse);
+  rpc SetStrokeMiter (SetStrokeMiterRequest) returns (SetStrokeMiterResponse);
+  rpc SetStrokeWidth (SetStrokeWidthRequest) returns (SetStrokeWidthResponse);
+  rpc SetStyle (PaintSetStyleRequest) returns (PaintSetStyleResponse);
+  rpc SetSubpixelText (SetSubpixelTextRequest) returns (SetSubpixelTextResponse);
+  rpc SetTextAlign (SetTextAlignRequest) returns (SetTextAlignResponse);
+  rpc SetTextLocale (SetTextLocaleRequest) returns (SetTextLocaleResponse);
+  rpc SetTextLocales (SetTextLocalesRequest) returns (SetTextLocalesResponse);
+  rpc SetTextScaleX (SetTextScaleXRequest) returns (SetTextScaleXResponse);
+  rpc SetTextSize (SetTextSizeRequest) returns (SetTextSizeResponse);
+  rpc SetTextSkewX (SetTextSkewXRequest) returns (SetTextSkewXResponse);
+  rpc SetTypeface (SetTypefaceRequest) returns (SetTypefaceResponse);
+  rpc SetUnderlineText (SetUnderlineTextRequest) returns (SetUnderlineTextResponse);
+  rpc SetWordSpacing (SetWordSpacingRequest) returns (SetWordSpacingResponse);
+  rpc SetXfermode (SetXfermodeRequest) returns (SetXfermodeResponse);
+}
+
+service PaintAlignService {
+  rpc Values (ValuesRequest) returns (ValuesResponse);
+  rpc ValueOf (ValueOfRequest) returns (ValueOfResponse);
+}
+
+service PaintCapService {
+  rpc Values (ValuesRequest) returns (ValuesResponse);
+  rpc ValueOf (ValueOfRequest) returns (ValueOfResponse);
+}
+
+service PaintFontMetricsService {
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (PaintFontMetricsToStringRequest) returns (ToStringResponse);
+}
+
+service PaintFontMetricsIntService {
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc Set1 (Set1Request) returns (Set1Response);
+  rpc Set1_1 (Set1_1Request) returns (Set1_1Response);
+  rpc ToString (PaintFontMetricsIntToStringRequest) returns (ToStringResponse);
+}
+
+service PaintJoinService {
+  rpc Values (ValuesRequest) returns (ValuesResponse);
+  rpc ValueOf (ValueOfRequest) returns (ValueOfResponse);
+}
+
+service PaintStyleService {
+  rpc Values (ValuesRequest) returns (ValuesResponse);
+  rpc ValueOf (ValueOfRequest) returns (ValueOfResponse);
 }
 
 service PrintedPdfDocumentService {

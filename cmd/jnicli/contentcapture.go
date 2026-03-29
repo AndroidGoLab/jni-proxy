@@ -12,20 +12,20 @@ var contentcaptureCmd = &cobra.Command{
 	Short: "contentcapture service operations",
 }
 
-var contentcaptureDataShareWriteAdapterCmd = &cobra.Command{
-	Use:   "data-share-write-adapter",
-	Short: "DataShareWriteAdapterService operations",
+var contentcaptureContentCaptureManagerCmd = &cobra.Command{
+	Use:   "content-capture-manager",
+	Short: "ContentCaptureManagerService operations",
 }
 
-var contentcaptureDataShareWriteAdapterOnRejectedCmd = &cobra.Command{
-	Use:   "on-rejected",
-	Short: "OnRejected RPC",
+var contentcaptureContentCaptureManagerGetContentCaptureConditionsCmd = &cobra.Command{
+	Use:   "get-content-capture-conditions",
+	Short: "GetContentCaptureConditions RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewDataShareWriteAdapterServiceClient(grpcConn)
-		req := &pb.OnRejectedRequest{}
-		resp, err := client.OnRejected(ctx, req)
+		client := pb.NewContentCaptureManagerServiceClient(grpcConn)
+		req := &pb.GetContentCaptureConditionsRequest{}
+		resp, err := client.GetContentCaptureConditions(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -33,18 +33,94 @@ var contentcaptureDataShareWriteAdapterOnRejectedCmd = &cobra.Command{
 	},
 }
 
-var contentcaptureDataShareWriteAdapterOnWriteCmd = &cobra.Command{
-	Use:   "on-write",
-	Short: "OnWrite RPC",
+var contentcaptureContentCaptureManagerGetServiceComponentNameCmd = &cobra.Command{
+	Use:   "get-service-component-name",
+	Short: "GetServiceComponentName RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewDataShareWriteAdapterServiceClient(grpcConn)
-		req := &pb.OnWriteRequest{}
+		client := pb.NewContentCaptureManagerServiceClient(grpcConn)
+		req := &pb.GetServiceComponentNameRequest{}
+		resp, err := client.GetServiceComponentName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentcaptureContentCaptureManagerIsContentCaptureEnabledCmd = &cobra.Command{
+	Use:   "is-content-capture-enabled",
+	Short: "IsContentCaptureEnabled RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContentCaptureManagerServiceClient(grpcConn)
+		req := &pb.IsContentCaptureEnabledRequest{}
+		resp, err := client.IsContentCaptureEnabled(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentcaptureContentCaptureManagerRemoveDataCmd = &cobra.Command{
+	Use:   "remove-data",
+	Short: "RemoveData RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContentCaptureManagerServiceClient(grpcConn)
+		req := &pb.RemoveDataRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		resp, err := client.OnWrite(ctx, req)
+		resp, err := client.RemoveData(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentcaptureContentCaptureManagerSetContentCaptureEnabledCmd = &cobra.Command{
+	Use:   "set-content-capture-enabled",
+	Short: "SetContentCaptureEnabled RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContentCaptureManagerServiceClient(grpcConn)
+		req := &pb.SetContentCaptureEnabledRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetContentCaptureEnabled(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentcaptureContentCaptureManagerShareDataCmd = &cobra.Command{
+	Use:   "share-data",
+	Short: "ShareData RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContentCaptureManagerServiceClient(grpcConn)
+		req := &pb.ShareDataRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.ShareData(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -481,6 +557,365 @@ var contentcaptureContentCaptureSessionIdWriteToParcelCmd = &cobra.Command{
 	},
 }
 
+var contentcaptureContentCaptureConditionCmd = &cobra.Command{
+	Use:   "content-capture-condition",
+	Short: "ContentCaptureConditionService operations",
+}
+
+var contentcaptureContentCaptureConditionNewContentCaptureConditionCmd = &cobra.Command{
+	Use:   "new-content-capture-condition",
+	Short: "NewContentCaptureCondition RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContentCaptureConditionServiceClient(grpcConn)
+		req := &pb.NewContentCaptureConditionRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.NewContentCaptureCondition(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentcaptureContentCaptureConditionDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContentCaptureConditionServiceClient(grpcConn)
+		req := &pb.ContentCaptureConditionDescribeContentsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentcaptureContentCaptureConditionEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContentCaptureConditionServiceClient(grpcConn)
+		req := &pb.ContentCaptureConditionEqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentcaptureContentCaptureConditionGetFlagsCmd = &cobra.Command{
+	Use:   "get-flags",
+	Short: "GetFlags RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContentCaptureConditionServiceClient(grpcConn)
+		req := &pb.GetFlagsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetFlags(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentcaptureContentCaptureConditionGetLocusIdCmd = &cobra.Command{
+	Use:   "get-locus-id",
+	Short: "GetLocusId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContentCaptureConditionServiceClient(grpcConn)
+		req := &pb.GetLocusIdRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetLocusId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentcaptureContentCaptureConditionHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContentCaptureConditionServiceClient(grpcConn)
+		req := &pb.ContentCaptureConditionHashCodeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentcaptureContentCaptureConditionToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContentCaptureConditionServiceClient(grpcConn)
+		req := &pb.ContentCaptureConditionToStringRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentcaptureContentCaptureConditionWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContentCaptureConditionServiceClient(grpcConn)
+		req := &pb.ContentCaptureConditionWriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentcaptureDataShareWriteAdapterCmd = &cobra.Command{
+	Use:   "data-share-write-adapter",
+	Short: "DataShareWriteAdapterService operations",
+}
+
+var contentcaptureDataShareWriteAdapterOnRejectedCmd = &cobra.Command{
+	Use:   "on-rejected",
+	Short: "OnRejected RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDataShareWriteAdapterServiceClient(grpcConn)
+		req := &pb.OnRejectedRequest{}
+		resp, err := client.OnRejected(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentcaptureDataShareWriteAdapterOnWriteCmd = &cobra.Command{
+	Use:   "on-write",
+	Short: "OnWrite RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDataShareWriteAdapterServiceClient(grpcConn)
+		req := &pb.OnWriteRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnWrite(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentcaptureContentCaptureContextCmd = &cobra.Command{
+	Use:   "content-capture-context",
+	Short: "ContentCaptureContextService operations",
+}
+
+var contentcaptureContentCaptureContextDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContentCaptureContextServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentcaptureContentCaptureContextGetExtrasCmd = &cobra.Command{
+	Use:   "get-extras",
+	Short: "GetExtras RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContentCaptureContextServiceClient(grpcConn)
+		req := &pb.GetExtrasRequest{}
+		resp, err := client.GetExtras(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentcaptureContentCaptureContextGetLocusIdCmd = &cobra.Command{
+	Use:   "get-locus-id",
+	Short: "GetLocusId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContentCaptureContextServiceClient(grpcConn)
+		req := &pb.ContentCaptureContextGetLocusIdRequest{}
+		resp, err := client.GetLocusId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentcaptureContentCaptureContextToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContentCaptureContextServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentcaptureContentCaptureContextWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContentCaptureContextServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentcaptureContentCaptureContextForLocusIdCmd = &cobra.Command{
+	Use:   "for-locus-id",
+	Short: "ForLocusId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContentCaptureContextServiceClient(grpcConn)
+		req := &pb.ForLocusIdRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.ForLocusId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentcaptureContentCaptureContextBuilderCmd = &cobra.Command{
+	Use:   "content-capture-context-builder",
+	Short: "ContentCaptureContextBuilderService operations",
+}
+
+var contentcaptureContentCaptureContextBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContentCaptureContextBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentcaptureContentCaptureContextBuilderSetExtrasCmd = &cobra.Command{
+	Use:   "set-extras",
+	Short: "SetExtras RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContentCaptureContextBuilderServiceClient(grpcConn)
+		req := &pb.SetExtrasRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetExtras(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var contentcaptureDataRemovalRequestCmd = &cobra.Command{
 	Use:   "data-removal-request",
 	Short: "DataRemovalRequestService operations",
@@ -495,6 +930,22 @@ var contentcaptureDataRemovalRequestDescribeContentsCmd = &cobra.Command{
 		client := pb.NewDataRemovalRequestServiceClient(grpcConn)
 		req := &pb.DescribeContentsRequest{}
 		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentcaptureDataRemovalRequestGetLocusIdRequestsCmd = &cobra.Command{
+	Use:   "get-locus-id-requests",
+	Short: "GetLocusIdRequests RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDataRemovalRequestServiceClient(grpcConn)
+		req := &pb.GetLocusIdRequestsRequest{}
+		resp, err := client.GetLocusIdRequests(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -627,7 +1078,7 @@ var contentcaptureDataRemovalRequestLocusIdRequestGetFlagsCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewDataRemovalRequestLocusIdRequestServiceClient(grpcConn)
-		req := &pb.GetFlagsRequest{}
+		req := &pb.DataRemovalRequestLocusIdRequestGetFlagsRequest{}
 		resp, err := client.GetFlags(ctx, req)
 		if err != nil {
 			return err
@@ -643,427 +1094,8 @@ var contentcaptureDataRemovalRequestLocusIdRequestGetLocusIdCmd = &cobra.Command
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewDataRemovalRequestLocusIdRequestServiceClient(grpcConn)
-		req := &pb.GetLocusIdRequest{}
+		req := &pb.DataRemovalRequestLocusIdRequestGetLocusIdRequest{}
 		resp, err := client.GetLocusId(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var contentcaptureContentCaptureContextCmd = &cobra.Command{
-	Use:   "content-capture-context",
-	Short: "ContentCaptureContextService operations",
-}
-
-var contentcaptureContentCaptureContextDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewContentCaptureContextServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var contentcaptureContentCaptureContextGetExtrasCmd = &cobra.Command{
-	Use:   "get-extras",
-	Short: "GetExtras RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewContentCaptureContextServiceClient(grpcConn)
-		req := &pb.GetExtrasRequest{}
-		resp, err := client.GetExtras(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var contentcaptureContentCaptureContextGetLocusIdCmd = &cobra.Command{
-	Use:   "get-locus-id",
-	Short: "GetLocusId RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewContentCaptureContextServiceClient(grpcConn)
-		req := &pb.GetLocusIdRequest{}
-		resp, err := client.GetLocusId(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var contentcaptureContentCaptureContextToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewContentCaptureContextServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var contentcaptureContentCaptureContextWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewContentCaptureContextServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var contentcaptureContentCaptureContextForLocusIdCmd = &cobra.Command{
-	Use:   "for-locus-id",
-	Short: "ForLocusId RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewContentCaptureContextServiceClient(grpcConn)
-		req := &pb.ForLocusIdRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.ForLocusId(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var contentcaptureContentCaptureContextBuilderCmd = &cobra.Command{
-	Use:   "content-capture-context-builder",
-	Short: "ContentCaptureContextBuilderService operations",
-}
-
-var contentcaptureContentCaptureContextBuilderBuildCmd = &cobra.Command{
-	Use:   "build",
-	Short: "Build RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewContentCaptureContextBuilderServiceClient(grpcConn)
-		req := &pb.BuildRequest{}
-		resp, err := client.Build(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var contentcaptureContentCaptureContextBuilderSetExtrasCmd = &cobra.Command{
-	Use:   "set-extras",
-	Short: "SetExtras RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewContentCaptureContextBuilderServiceClient(grpcConn)
-		req := &pb.SetExtrasRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetExtras(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var contentcaptureContentCaptureConditionCmd = &cobra.Command{
-	Use:   "content-capture-condition",
-	Short: "ContentCaptureConditionService operations",
-}
-
-var contentcaptureContentCaptureConditionNewContentCaptureConditionCmd = &cobra.Command{
-	Use:   "new-content-capture-condition",
-	Short: "NewContentCaptureCondition RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewContentCaptureConditionServiceClient(grpcConn)
-		req := &pb.NewContentCaptureConditionRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.NewContentCaptureCondition(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var contentcaptureContentCaptureConditionDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewContentCaptureConditionServiceClient(grpcConn)
-		req := &pb.ContentCaptureConditionDescribeContentsRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var contentcaptureContentCaptureConditionEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewContentCaptureConditionServiceClient(grpcConn)
-		req := &pb.ContentCaptureConditionEqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var contentcaptureContentCaptureConditionGetFlagsCmd = &cobra.Command{
-	Use:   "get-flags",
-	Short: "GetFlags RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewContentCaptureConditionServiceClient(grpcConn)
-		req := &pb.ContentCaptureConditionGetFlagsRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetFlags(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var contentcaptureContentCaptureConditionGetLocusIdCmd = &cobra.Command{
-	Use:   "get-locus-id",
-	Short: "GetLocusId RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewContentCaptureConditionServiceClient(grpcConn)
-		req := &pb.ContentCaptureConditionGetLocusIdRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetLocusId(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var contentcaptureContentCaptureConditionHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewContentCaptureConditionServiceClient(grpcConn)
-		req := &pb.ContentCaptureConditionHashCodeRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var contentcaptureContentCaptureConditionToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewContentCaptureConditionServiceClient(grpcConn)
-		req := &pb.ContentCaptureConditionToStringRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var contentcaptureContentCaptureConditionWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewContentCaptureConditionServiceClient(grpcConn)
-		req := &pb.ContentCaptureConditionWriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var contentcaptureContentCaptureManagerCmd = &cobra.Command{
-	Use:   "content-capture-manager",
-	Short: "ContentCaptureManagerService operations",
-}
-
-var contentcaptureContentCaptureManagerGetServiceComponentNameCmd = &cobra.Command{
-	Use:   "get-service-component-name",
-	Short: "GetServiceComponentName RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewContentCaptureManagerServiceClient(grpcConn)
-		req := &pb.GetServiceComponentNameRequest{}
-		resp, err := client.GetServiceComponentName(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var contentcaptureContentCaptureManagerIsContentCaptureEnabledCmd = &cobra.Command{
-	Use:   "is-content-capture-enabled",
-	Short: "IsContentCaptureEnabled RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewContentCaptureManagerServiceClient(grpcConn)
-		req := &pb.IsContentCaptureEnabledRequest{}
-		resp, err := client.IsContentCaptureEnabled(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var contentcaptureContentCaptureManagerRemoveDataCmd = &cobra.Command{
-	Use:   "remove-data",
-	Short: "RemoveData RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewContentCaptureManagerServiceClient(grpcConn)
-		req := &pb.RemoveDataRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.RemoveData(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var contentcaptureContentCaptureManagerSetContentCaptureEnabledCmd = &cobra.Command{
-	Use:   "set-content-capture-enabled",
-	Short: "SetContentCaptureEnabled RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewContentCaptureManagerServiceClient(grpcConn)
-		req := &pb.SetContentCaptureEnabledRequest{}
-		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetContentCaptureEnabled(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var contentcaptureContentCaptureManagerShareDataCmd = &cobra.Command{
-	Use:   "share-data",
-	Short: "ShareData RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewContentCaptureManagerServiceClient(grpcConn)
-		req := &pb.ShareDataRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.ShareData(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1146,7 +1178,7 @@ var contentcaptureDataShareRequestGetLocusIdCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewDataShareRequestServiceClient(grpcConn)
-		req := &pb.DataShareRequestGetLocusIdRequest{}
+		req := &pb.GetLocusIdRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
@@ -1260,10 +1292,18 @@ var contentcaptureDataShareRequestWriteToParcelCmd = &cobra.Command{
 }
 
 func init() {
-	contentcaptureDataShareWriteAdapterCmd.AddCommand(contentcaptureDataShareWriteAdapterOnRejectedCmd)
-	contentcaptureDataShareWriteAdapterOnWriteCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	contentcaptureDataShareWriteAdapterCmd.AddCommand(contentcaptureDataShareWriteAdapterOnWriteCmd)
-	contentcaptureCmd.AddCommand(contentcaptureDataShareWriteAdapterCmd)
+	contentcaptureContentCaptureManagerCmd.AddCommand(contentcaptureContentCaptureManagerGetContentCaptureConditionsCmd)
+	contentcaptureContentCaptureManagerCmd.AddCommand(contentcaptureContentCaptureManagerGetServiceComponentNameCmd)
+	contentcaptureContentCaptureManagerCmd.AddCommand(contentcaptureContentCaptureManagerIsContentCaptureEnabledCmd)
+	contentcaptureContentCaptureManagerRemoveDataCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentcaptureContentCaptureManagerCmd.AddCommand(contentcaptureContentCaptureManagerRemoveDataCmd)
+	contentcaptureContentCaptureManagerSetContentCaptureEnabledCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	contentcaptureContentCaptureManagerCmd.AddCommand(contentcaptureContentCaptureManagerSetContentCaptureEnabledCmd)
+	contentcaptureContentCaptureManagerShareDataCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentcaptureContentCaptureManagerShareDataCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	contentcaptureContentCaptureManagerShareDataCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	contentcaptureContentCaptureManagerCmd.AddCommand(contentcaptureContentCaptureManagerShareDataCmd)
+	contentcaptureCmd.AddCommand(contentcaptureContentCaptureManagerCmd)
 	contentcaptureContentCaptureSessionCmd.AddCommand(contentcaptureContentCaptureSessionCloseCmd)
 	contentcaptureContentCaptureSessionCreateContentCaptureSessionCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	contentcaptureContentCaptureSessionCmd.AddCommand(contentcaptureContentCaptureSessionCreateContentCaptureSessionCmd)
@@ -1306,36 +1346,6 @@ func init() {
 	contentcaptureContentCaptureSessionIdWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
 	contentcaptureContentCaptureSessionIdCmd.AddCommand(contentcaptureContentCaptureSessionIdWriteToParcelCmd)
 	contentcaptureCmd.AddCommand(contentcaptureContentCaptureSessionIdCmd)
-	contentcaptureDataRemovalRequestCmd.AddCommand(contentcaptureDataRemovalRequestDescribeContentsCmd)
-	contentcaptureDataRemovalRequestCmd.AddCommand(contentcaptureDataRemovalRequestGetPackageNameCmd)
-	contentcaptureDataRemovalRequestCmd.AddCommand(contentcaptureDataRemovalRequestIsForEverythingCmd)
-	contentcaptureDataRemovalRequestWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	contentcaptureDataRemovalRequestWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	contentcaptureDataRemovalRequestCmd.AddCommand(contentcaptureDataRemovalRequestWriteToParcelCmd)
-	contentcaptureCmd.AddCommand(contentcaptureDataRemovalRequestCmd)
-	contentcaptureDataRemovalRequestBuilderAddLocusIdCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	contentcaptureDataRemovalRequestBuilderAddLocusIdCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	contentcaptureDataRemovalRequestBuilderCmd.AddCommand(contentcaptureDataRemovalRequestBuilderAddLocusIdCmd)
-	contentcaptureDataRemovalRequestBuilderCmd.AddCommand(contentcaptureDataRemovalRequestBuilderBuildCmd)
-	contentcaptureDataRemovalRequestBuilderCmd.AddCommand(contentcaptureDataRemovalRequestBuilderForEverythingCmd)
-	contentcaptureCmd.AddCommand(contentcaptureDataRemovalRequestBuilderCmd)
-	contentcaptureDataRemovalRequestLocusIdRequestCmd.AddCommand(contentcaptureDataRemovalRequestLocusIdRequestGetFlagsCmd)
-	contentcaptureDataRemovalRequestLocusIdRequestCmd.AddCommand(contentcaptureDataRemovalRequestLocusIdRequestGetLocusIdCmd)
-	contentcaptureCmd.AddCommand(contentcaptureDataRemovalRequestLocusIdRequestCmd)
-	contentcaptureContentCaptureContextCmd.AddCommand(contentcaptureContentCaptureContextDescribeContentsCmd)
-	contentcaptureContentCaptureContextCmd.AddCommand(contentcaptureContentCaptureContextGetExtrasCmd)
-	contentcaptureContentCaptureContextCmd.AddCommand(contentcaptureContentCaptureContextGetLocusIdCmd)
-	contentcaptureContentCaptureContextCmd.AddCommand(contentcaptureContentCaptureContextToStringCmd)
-	contentcaptureContentCaptureContextWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	contentcaptureContentCaptureContextWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	contentcaptureContentCaptureContextCmd.AddCommand(contentcaptureContentCaptureContextWriteToParcelCmd)
-	contentcaptureContentCaptureContextForLocusIdCmd.Flags().String("arg0", "", "arg0 (string)")
-	contentcaptureContentCaptureContextCmd.AddCommand(contentcaptureContentCaptureContextForLocusIdCmd)
-	contentcaptureCmd.AddCommand(contentcaptureContentCaptureContextCmd)
-	contentcaptureContentCaptureContextBuilderCmd.AddCommand(contentcaptureContentCaptureContextBuilderBuildCmd)
-	contentcaptureContentCaptureContextBuilderSetExtrasCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	contentcaptureContentCaptureContextBuilderCmd.AddCommand(contentcaptureContentCaptureContextBuilderSetExtrasCmd)
-	contentcaptureCmd.AddCommand(contentcaptureContentCaptureContextBuilderCmd)
 	contentcaptureContentCaptureConditionNewContentCaptureConditionCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	contentcaptureContentCaptureConditionNewContentCaptureConditionCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
 	contentcaptureContentCaptureConditionCmd.AddCommand(contentcaptureContentCaptureConditionNewContentCaptureConditionCmd)
@@ -1357,17 +1367,41 @@ func init() {
 	contentcaptureContentCaptureConditionWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
 	contentcaptureContentCaptureConditionCmd.AddCommand(contentcaptureContentCaptureConditionWriteToParcelCmd)
 	contentcaptureCmd.AddCommand(contentcaptureContentCaptureConditionCmd)
-	contentcaptureContentCaptureManagerCmd.AddCommand(contentcaptureContentCaptureManagerGetServiceComponentNameCmd)
-	contentcaptureContentCaptureManagerCmd.AddCommand(contentcaptureContentCaptureManagerIsContentCaptureEnabledCmd)
-	contentcaptureContentCaptureManagerRemoveDataCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	contentcaptureContentCaptureManagerCmd.AddCommand(contentcaptureContentCaptureManagerRemoveDataCmd)
-	contentcaptureContentCaptureManagerSetContentCaptureEnabledCmd.Flags().Bool("arg0", false, "arg0 (bool)")
-	contentcaptureContentCaptureManagerCmd.AddCommand(contentcaptureContentCaptureManagerSetContentCaptureEnabledCmd)
-	contentcaptureContentCaptureManagerShareDataCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	contentcaptureContentCaptureManagerShareDataCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	contentcaptureContentCaptureManagerShareDataCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	contentcaptureContentCaptureManagerCmd.AddCommand(contentcaptureContentCaptureManagerShareDataCmd)
-	contentcaptureCmd.AddCommand(contentcaptureContentCaptureManagerCmd)
+	contentcaptureDataShareWriteAdapterCmd.AddCommand(contentcaptureDataShareWriteAdapterOnRejectedCmd)
+	contentcaptureDataShareWriteAdapterOnWriteCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentcaptureDataShareWriteAdapterCmd.AddCommand(contentcaptureDataShareWriteAdapterOnWriteCmd)
+	contentcaptureCmd.AddCommand(contentcaptureDataShareWriteAdapterCmd)
+	contentcaptureContentCaptureContextCmd.AddCommand(contentcaptureContentCaptureContextDescribeContentsCmd)
+	contentcaptureContentCaptureContextCmd.AddCommand(contentcaptureContentCaptureContextGetExtrasCmd)
+	contentcaptureContentCaptureContextCmd.AddCommand(contentcaptureContentCaptureContextGetLocusIdCmd)
+	contentcaptureContentCaptureContextCmd.AddCommand(contentcaptureContentCaptureContextToStringCmd)
+	contentcaptureContentCaptureContextWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentcaptureContentCaptureContextWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	contentcaptureContentCaptureContextCmd.AddCommand(contentcaptureContentCaptureContextWriteToParcelCmd)
+	contentcaptureContentCaptureContextForLocusIdCmd.Flags().String("arg0", "", "arg0 (string)")
+	contentcaptureContentCaptureContextCmd.AddCommand(contentcaptureContentCaptureContextForLocusIdCmd)
+	contentcaptureCmd.AddCommand(contentcaptureContentCaptureContextCmd)
+	contentcaptureContentCaptureContextBuilderCmd.AddCommand(contentcaptureContentCaptureContextBuilderBuildCmd)
+	contentcaptureContentCaptureContextBuilderSetExtrasCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentcaptureContentCaptureContextBuilderCmd.AddCommand(contentcaptureContentCaptureContextBuilderSetExtrasCmd)
+	contentcaptureCmd.AddCommand(contentcaptureContentCaptureContextBuilderCmd)
+	contentcaptureDataRemovalRequestCmd.AddCommand(contentcaptureDataRemovalRequestDescribeContentsCmd)
+	contentcaptureDataRemovalRequestCmd.AddCommand(contentcaptureDataRemovalRequestGetLocusIdRequestsCmd)
+	contentcaptureDataRemovalRequestCmd.AddCommand(contentcaptureDataRemovalRequestGetPackageNameCmd)
+	contentcaptureDataRemovalRequestCmd.AddCommand(contentcaptureDataRemovalRequestIsForEverythingCmd)
+	contentcaptureDataRemovalRequestWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentcaptureDataRemovalRequestWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	contentcaptureDataRemovalRequestCmd.AddCommand(contentcaptureDataRemovalRequestWriteToParcelCmd)
+	contentcaptureCmd.AddCommand(contentcaptureDataRemovalRequestCmd)
+	contentcaptureDataRemovalRequestBuilderAddLocusIdCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentcaptureDataRemovalRequestBuilderAddLocusIdCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	contentcaptureDataRemovalRequestBuilderCmd.AddCommand(contentcaptureDataRemovalRequestBuilderAddLocusIdCmd)
+	contentcaptureDataRemovalRequestBuilderCmd.AddCommand(contentcaptureDataRemovalRequestBuilderBuildCmd)
+	contentcaptureDataRemovalRequestBuilderCmd.AddCommand(contentcaptureDataRemovalRequestBuilderForEverythingCmd)
+	contentcaptureCmd.AddCommand(contentcaptureDataRemovalRequestBuilderCmd)
+	contentcaptureDataRemovalRequestLocusIdRequestCmd.AddCommand(contentcaptureDataRemovalRequestLocusIdRequestGetFlagsCmd)
+	contentcaptureDataRemovalRequestLocusIdRequestCmd.AddCommand(contentcaptureDataRemovalRequestLocusIdRequestGetLocusIdCmd)
+	contentcaptureCmd.AddCommand(contentcaptureDataRemovalRequestLocusIdRequestCmd)
 	contentcaptureDataShareRequestNewDataShareRequestCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	contentcaptureDataShareRequestNewDataShareRequestCmd.Flags().String("arg1", "", "arg1 (string)")
 	contentcaptureDataShareRequestCmd.AddCommand(contentcaptureDataShareRequestNewDataShareRequestCmd)

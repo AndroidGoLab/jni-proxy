@@ -12,6 +12,30 @@ var adidCmd = &cobra.Command{
 	Short: "adid service operations",
 }
 
+var adidAdIdManagerCmd = &cobra.Command{
+	Use:   "ad-id-manager",
+	Short: "AdIdManagerService operations",
+}
+
+var adidAdIdManagerGetCmd = &cobra.Command{
+	Use:   "get",
+	Short: "Get RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAdIdManagerServiceClient(grpcConn)
+		req := &pb.GetRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Get(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var adidAdIdCmd = &cobra.Command{
 	Use:   "ad-id",
 	Short: "AdIdService operations",
@@ -137,31 +161,10 @@ var adidAdIdToStringCmd = &cobra.Command{
 	},
 }
 
-var adidAdIdManagerCmd = &cobra.Command{
-	Use:   "ad-id-manager",
-	Short: "AdIdManagerService operations",
-}
-
-var adidAdIdManagerGetCmd = &cobra.Command{
-	Use:   "get",
-	Short: "Get RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAdIdManagerServiceClient(grpcConn)
-		req := &pb.GetRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Get(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
 func init() {
+	adidAdIdManagerGetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	adidAdIdManagerCmd.AddCommand(adidAdIdManagerGetCmd)
+	adidCmd.AddCommand(adidAdIdManagerCmd)
 	adidAdIdNewAdIdCmd.Flags().String("arg0", "", "arg0 (string)")
 	adidAdIdNewAdIdCmd.Flags().Bool("arg1", false, "arg1 (bool)")
 	adidAdIdCmd.AddCommand(adidAdIdNewAdIdCmd)
@@ -177,8 +180,5 @@ func init() {
 	adidAdIdToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
 	adidAdIdCmd.AddCommand(adidAdIdToStringCmd)
 	adidCmd.AddCommand(adidAdIdCmd)
-	adidAdIdManagerGetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	adidAdIdManagerCmd.AddCommand(adidAdIdManagerGetCmd)
-	adidCmd.AddCommand(adidAdIdManagerCmd)
 	rootCmd.AddCommand(adidCmd)
 }

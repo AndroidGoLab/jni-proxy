@@ -9,6 +9,70 @@ import (
 	"google.golang.org/grpc"
 )
 
+// OverlayManagerTransactionClient wraps the gRPC OverlayManagerTransactionService client.
+type OverlayManagerTransactionClient struct {
+	svc pb.OverlayManagerTransactionServiceClient
+}
+
+// NewOverlayManagerTransactionClient creates a new OverlayManagerTransaction client.
+func NewOverlayManagerTransactionClient(cc grpc.ClientConnInterface) *OverlayManagerTransactionClient {
+	return &OverlayManagerTransactionClient{
+		svc: pb.NewOverlayManagerTransactionServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *OverlayManagerTransactionClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// RegisterFabricatedOverlay calls the RegisterFabricatedOverlay RPC.
+func (c *OverlayManagerTransactionClient) RegisterFabricatedOverlay(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.RegisterFabricatedOverlay(ctx, &pb.RegisterFabricatedOverlayRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// ToString calls the ToString RPC.
+func (c *OverlayManagerTransactionClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// UnregisterFabricatedOverlay calls the UnregisterFabricatedOverlay RPC.
+func (c *OverlayManagerTransactionClient) UnregisterFabricatedOverlay(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.UnregisterFabricatedOverlay(ctx, &pb.UnregisterFabricatedOverlayRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *OverlayManagerTransactionClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// NewInstance calls the NewInstance RPC.
+func (c *OverlayManagerTransactionClient) NewInstance(ctx context.Context) (int64, error) {
+	resp, err := c.svc.NewInstance(ctx, &pb.NewInstanceRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // FabricatedOverlayClient wraps the gRPC FabricatedOverlayService client.
 type FabricatedOverlayClient struct {
 	svc pb.FabricatedOverlayServiceClient
@@ -157,6 +221,37 @@ func (c *OverlayIdentifierClient) WriteToParcel(ctx context.Context, arg0 int64,
 	return err
 }
 
+// OverlayManagerClient wraps the gRPC OverlayManagerService client.
+type OverlayManagerClient struct {
+	svc pb.OverlayManagerServiceClient
+}
+
+// NewOverlayManagerClient creates a new OverlayManager client.
+func NewOverlayManagerClient(cc grpc.ClientConnInterface) *OverlayManagerClient {
+	return &OverlayManagerClient{
+		svc: pb.NewOverlayManagerServiceClient(cc),
+	}
+}
+
+// Commit calls the Commit RPC.
+func (c *OverlayManagerClient) Commit(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.Commit(ctx, &pb.CommitRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// GetOverlayInfosForTarget calls the GetOverlayInfosForTarget RPC.
+func (c *OverlayManagerClient) GetOverlayInfosForTarget(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.GetOverlayInfosForTarget(ctx, &pb.GetOverlayInfosForTargetRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // OverlayInfoClient wraps the gRPC OverlayInfoService client.
 type OverlayInfoClient struct {
 	svc pb.OverlayInfoServiceClient
@@ -250,88 +345,4 @@ func (c *OverlayInfoClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 
 		Arg1: arg1,
 	})
 	return err
-}
-
-// OverlayManagerClient wraps the gRPC OverlayManagerService client.
-type OverlayManagerClient struct {
-	svc pb.OverlayManagerServiceClient
-}
-
-// NewOverlayManagerClient creates a new OverlayManager client.
-func NewOverlayManagerClient(cc grpc.ClientConnInterface) *OverlayManagerClient {
-	return &OverlayManagerClient{
-		svc: pb.NewOverlayManagerServiceClient(cc),
-	}
-}
-
-// Commit calls the Commit RPC.
-func (c *OverlayManagerClient) Commit(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.Commit(ctx, &pb.CommitRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// OverlayManagerTransactionClient wraps the gRPC OverlayManagerTransactionService client.
-type OverlayManagerTransactionClient struct {
-	svc pb.OverlayManagerTransactionServiceClient
-}
-
-// NewOverlayManagerTransactionClient creates a new OverlayManagerTransaction client.
-func NewOverlayManagerTransactionClient(cc grpc.ClientConnInterface) *OverlayManagerTransactionClient {
-	return &OverlayManagerTransactionClient{
-		svc: pb.NewOverlayManagerTransactionServiceClient(cc),
-	}
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *OverlayManagerTransactionClient) DescribeContents(ctx context.Context) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// RegisterFabricatedOverlay calls the RegisterFabricatedOverlay RPC.
-func (c *OverlayManagerTransactionClient) RegisterFabricatedOverlay(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.RegisterFabricatedOverlay(ctx, &pb.RegisterFabricatedOverlayRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// ToString calls the ToString RPC.
-func (c *OverlayManagerTransactionClient) ToString(ctx context.Context) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// UnregisterFabricatedOverlay calls the UnregisterFabricatedOverlay RPC.
-func (c *OverlayManagerTransactionClient) UnregisterFabricatedOverlay(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.UnregisterFabricatedOverlay(ctx, &pb.UnregisterFabricatedOverlayRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *OverlayManagerTransactionClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// NewInstance calls the NewInstance RPC.
-func (c *OverlayManagerTransactionClient) NewInstance(ctx context.Context) (int64, error) {
-	resp, err := c.svc.NewInstance(ctx, &pb.NewInstanceRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
 }

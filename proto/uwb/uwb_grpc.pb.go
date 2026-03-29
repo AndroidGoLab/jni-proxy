@@ -21,6 +21,515 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
+	ComplexChannelService_DescribeContents_FullMethodName = "/uwb.ComplexChannelService/DescribeContents"
+	ComplexChannelService_Equals_FullMethodName           = "/uwb.ComplexChannelService/Equals"
+	ComplexChannelService_GetChannel_FullMethodName       = "/uwb.ComplexChannelService/GetChannel"
+	ComplexChannelService_GetPreambleIndex_FullMethodName = "/uwb.ComplexChannelService/GetPreambleIndex"
+	ComplexChannelService_HashCode_FullMethodName         = "/uwb.ComplexChannelService/HashCode"
+	ComplexChannelService_ToString_FullMethodName         = "/uwb.ComplexChannelService/ToString"
+	ComplexChannelService_WriteToParcel_FullMethodName    = "/uwb.ComplexChannelService/WriteToParcel"
+)
+
+// ComplexChannelServiceClient is the client API for ComplexChannelService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ComplexChannelServiceClient interface {
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	GetChannel(ctx context.Context, in *GetChannelRequest, opts ...grpc.CallOption) (*GetChannelResponse, error)
+	GetPreambleIndex(ctx context.Context, in *GetPreambleIndexRequest, opts ...grpc.CallOption) (*GetPreambleIndexResponse, error)
+	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type complexChannelServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewComplexChannelServiceClient(cc grpc.ClientConnInterface) ComplexChannelServiceClient {
+	return &complexChannelServiceClient{cc}
+}
+
+func (c *complexChannelServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, ComplexChannelService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *complexChannelServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(EqualsResponse)
+	err := c.cc.Invoke(ctx, ComplexChannelService_Equals_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *complexChannelServiceClient) GetChannel(ctx context.Context, in *GetChannelRequest, opts ...grpc.CallOption) (*GetChannelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetChannelResponse)
+	err := c.cc.Invoke(ctx, ComplexChannelService_GetChannel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *complexChannelServiceClient) GetPreambleIndex(ctx context.Context, in *GetPreambleIndexRequest, opts ...grpc.CallOption) (*GetPreambleIndexResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetPreambleIndexResponse)
+	err := c.cc.Invoke(ctx, ComplexChannelService_GetPreambleIndex_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *complexChannelServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HashCodeResponse)
+	err := c.cc.Invoke(ctx, ComplexChannelService_HashCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *complexChannelServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, ComplexChannelService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *complexChannelServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, ComplexChannelService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ComplexChannelServiceServer is the server API for ComplexChannelService service.
+// All implementations must embed UnimplementedComplexChannelServiceServer
+// for forward compatibility.
+type ComplexChannelServiceServer interface {
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
+	GetChannel(context.Context, *GetChannelRequest) (*GetChannelResponse, error)
+	GetPreambleIndex(context.Context, *GetPreambleIndexRequest) (*GetPreambleIndexResponse, error)
+	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
+	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedComplexChannelServiceServer()
+}
+
+// UnimplementedComplexChannelServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedComplexChannelServiceServer struct{}
+
+func (UnimplementedComplexChannelServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedComplexChannelServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
+}
+func (UnimplementedComplexChannelServiceServer) GetChannel(context.Context, *GetChannelRequest) (*GetChannelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetChannel not implemented")
+}
+func (UnimplementedComplexChannelServiceServer) GetPreambleIndex(context.Context, *GetPreambleIndexRequest) (*GetPreambleIndexResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetPreambleIndex not implemented")
+}
+func (UnimplementedComplexChannelServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
+}
+func (UnimplementedComplexChannelServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedComplexChannelServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedComplexChannelServiceServer) mustEmbedUnimplementedComplexChannelServiceServer() {}
+func (UnimplementedComplexChannelServiceServer) testEmbeddedByValue()                               {}
+
+// UnsafeComplexChannelServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ComplexChannelServiceServer will
+// result in compilation errors.
+type UnsafeComplexChannelServiceServer interface {
+	mustEmbedUnimplementedComplexChannelServiceServer()
+}
+
+func RegisterComplexChannelServiceServer(s grpc.ServiceRegistrar, srv ComplexChannelServiceServer) {
+	// If the following call panics, it indicates UnimplementedComplexChannelServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&ComplexChannelService_ServiceDesc, srv)
+}
+
+func _ComplexChannelService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ComplexChannelServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ComplexChannelService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ComplexChannelServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ComplexChannelService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EqualsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ComplexChannelServiceServer).Equals(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ComplexChannelService_Equals_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ComplexChannelServiceServer).Equals(ctx, req.(*EqualsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ComplexChannelService_GetChannel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetChannelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ComplexChannelServiceServer).GetChannel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ComplexChannelService_GetChannel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ComplexChannelServiceServer).GetChannel(ctx, req.(*GetChannelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ComplexChannelService_GetPreambleIndex_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPreambleIndexRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ComplexChannelServiceServer).GetPreambleIndex(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ComplexChannelService_GetPreambleIndex_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ComplexChannelServiceServer).GetPreambleIndex(ctx, req.(*GetPreambleIndexRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ComplexChannelService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HashCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ComplexChannelServiceServer).HashCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ComplexChannelService_HashCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ComplexChannelServiceServer).HashCode(ctx, req.(*HashCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ComplexChannelService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ComplexChannelServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ComplexChannelService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ComplexChannelServiceServer).ToString(ctx, req.(*ToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ComplexChannelService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ComplexChannelServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ComplexChannelService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ComplexChannelServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ComplexChannelService_ServiceDesc is the grpc.ServiceDesc for ComplexChannelService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ComplexChannelService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "uwb.ComplexChannelService",
+	HandlerType: (*ComplexChannelServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "DescribeContents",
+			Handler:    _ComplexChannelService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "Equals",
+			Handler:    _ComplexChannelService_Equals_Handler,
+		},
+		{
+			MethodName: "GetChannel",
+			Handler:    _ComplexChannelService_GetChannel_Handler,
+		},
+		{
+			MethodName: "GetPreambleIndex",
+			Handler:    _ComplexChannelService_GetPreambleIndex_Handler,
+		},
+		{
+			MethodName: "HashCode",
+			Handler:    _ComplexChannelService_HashCode_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _ComplexChannelService_ToString_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _ComplexChannelService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/uwb/uwb.proto",
+}
+
+const (
+	ComplexChannelBuilderService_Build_FullMethodName            = "/uwb.ComplexChannelBuilderService/Build"
+	ComplexChannelBuilderService_SetChannel_FullMethodName       = "/uwb.ComplexChannelBuilderService/SetChannel"
+	ComplexChannelBuilderService_SetPreambleIndex_FullMethodName = "/uwb.ComplexChannelBuilderService/SetPreambleIndex"
+)
+
+// ComplexChannelBuilderServiceClient is the client API for ComplexChannelBuilderService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ComplexChannelBuilderServiceClient interface {
+	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
+	SetChannel(ctx context.Context, in *SetChannelRequest, opts ...grpc.CallOption) (*SetChannelResponse, error)
+	SetPreambleIndex(ctx context.Context, in *SetPreambleIndexRequest, opts ...grpc.CallOption) (*SetPreambleIndexResponse, error)
+}
+
+type complexChannelBuilderServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewComplexChannelBuilderServiceClient(cc grpc.ClientConnInterface) ComplexChannelBuilderServiceClient {
+	return &complexChannelBuilderServiceClient{cc}
+}
+
+func (c *complexChannelBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(BuildResponse)
+	err := c.cc.Invoke(ctx, ComplexChannelBuilderService_Build_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *complexChannelBuilderServiceClient) SetChannel(ctx context.Context, in *SetChannelRequest, opts ...grpc.CallOption) (*SetChannelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetChannelResponse)
+	err := c.cc.Invoke(ctx, ComplexChannelBuilderService_SetChannel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *complexChannelBuilderServiceClient) SetPreambleIndex(ctx context.Context, in *SetPreambleIndexRequest, opts ...grpc.CallOption) (*SetPreambleIndexResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetPreambleIndexResponse)
+	err := c.cc.Invoke(ctx, ComplexChannelBuilderService_SetPreambleIndex_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ComplexChannelBuilderServiceServer is the server API for ComplexChannelBuilderService service.
+// All implementations must embed UnimplementedComplexChannelBuilderServiceServer
+// for forward compatibility.
+type ComplexChannelBuilderServiceServer interface {
+	Build(context.Context, *BuildRequest) (*BuildResponse, error)
+	SetChannel(context.Context, *SetChannelRequest) (*SetChannelResponse, error)
+	SetPreambleIndex(context.Context, *SetPreambleIndexRequest) (*SetPreambleIndexResponse, error)
+	mustEmbedUnimplementedComplexChannelBuilderServiceServer()
+}
+
+// UnimplementedComplexChannelBuilderServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedComplexChannelBuilderServiceServer struct{}
+
+func (UnimplementedComplexChannelBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
+}
+func (UnimplementedComplexChannelBuilderServiceServer) SetChannel(context.Context, *SetChannelRequest) (*SetChannelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetChannel not implemented")
+}
+func (UnimplementedComplexChannelBuilderServiceServer) SetPreambleIndex(context.Context, *SetPreambleIndexRequest) (*SetPreambleIndexResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetPreambleIndex not implemented")
+}
+func (UnimplementedComplexChannelBuilderServiceServer) mustEmbedUnimplementedComplexChannelBuilderServiceServer() {
+}
+func (UnimplementedComplexChannelBuilderServiceServer) testEmbeddedByValue() {}
+
+// UnsafeComplexChannelBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ComplexChannelBuilderServiceServer will
+// result in compilation errors.
+type UnsafeComplexChannelBuilderServiceServer interface {
+	mustEmbedUnimplementedComplexChannelBuilderServiceServer()
+}
+
+func RegisterComplexChannelBuilderServiceServer(s grpc.ServiceRegistrar, srv ComplexChannelBuilderServiceServer) {
+	// If the following call panics, it indicates UnimplementedComplexChannelBuilderServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&ComplexChannelBuilderService_ServiceDesc, srv)
+}
+
+func _ComplexChannelBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BuildRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ComplexChannelBuilderServiceServer).Build(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ComplexChannelBuilderService_Build_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ComplexChannelBuilderServiceServer).Build(ctx, req.(*BuildRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ComplexChannelBuilderService_SetChannel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetChannelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ComplexChannelBuilderServiceServer).SetChannel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ComplexChannelBuilderService_SetChannel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ComplexChannelBuilderServiceServer).SetChannel(ctx, req.(*SetChannelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ComplexChannelBuilderService_SetPreambleIndex_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetPreambleIndexRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ComplexChannelBuilderServiceServer).SetPreambleIndex(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ComplexChannelBuilderService_SetPreambleIndex_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ComplexChannelBuilderServiceServer).SetPreambleIndex(ctx, req.(*SetPreambleIndexRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ComplexChannelBuilderService_ServiceDesc is the grpc.ServiceDesc for ComplexChannelBuilderService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ComplexChannelBuilderService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "uwb.ComplexChannelBuilderService",
+	HandlerType: (*ComplexChannelBuilderServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Build",
+			Handler:    _ComplexChannelBuilderService_Build_Handler,
+		},
+		{
+			MethodName: "SetChannel",
+			Handler:    _ComplexChannelBuilderService_SetChannel_Handler,
+		},
+		{
+			MethodName: "SetPreambleIndex",
+			Handler:    _ComplexChannelBuilderService_SetPreambleIndex_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/uwb/uwb.proto",
+}
+
+const (
 	AddressService_DescribeContents_FullMethodName         = "/uwb.AddressService/DescribeContents"
 	AddressService_Equals_FullMethodName                   = "/uwb.AddressService/Equals"
 	AddressService_GetAddressBytes_FullMethodName          = "/uwb.AddressService/GetAddressBytes"
@@ -1354,517 +1863,14 @@ var RangingParamsBuilderService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	ComplexChannelService_DescribeContents_FullMethodName = "/uwb.ComplexChannelService/DescribeContents"
-	ComplexChannelService_Equals_FullMethodName           = "/uwb.ComplexChannelService/Equals"
-	ComplexChannelService_GetChannel_FullMethodName       = "/uwb.ComplexChannelService/GetChannel"
-	ComplexChannelService_GetPreambleIndex_FullMethodName = "/uwb.ComplexChannelService/GetPreambleIndex"
-	ComplexChannelService_HashCode_FullMethodName         = "/uwb.ComplexChannelService/HashCode"
-	ComplexChannelService_ToString_FullMethodName         = "/uwb.ComplexChannelService/ToString"
-	ComplexChannelService_WriteToParcel_FullMethodName    = "/uwb.ComplexChannelService/WriteToParcel"
-)
-
-// ComplexChannelServiceClient is the client API for ComplexChannelService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type ComplexChannelServiceClient interface {
-	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
-	GetChannel(ctx context.Context, in *GetChannelRequest, opts ...grpc.CallOption) (*GetChannelResponse, error)
-	GetPreambleIndex(ctx context.Context, in *GetPreambleIndexRequest, opts ...grpc.CallOption) (*GetPreambleIndexResponse, error)
-	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
-	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
-	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
-}
-
-type complexChannelServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewComplexChannelServiceClient(cc grpc.ClientConnInterface) ComplexChannelServiceClient {
-	return &complexChannelServiceClient{cc}
-}
-
-func (c *complexChannelServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, ComplexChannelService_DescribeContents_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *complexChannelServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(EqualsResponse)
-	err := c.cc.Invoke(ctx, ComplexChannelService_Equals_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *complexChannelServiceClient) GetChannel(ctx context.Context, in *GetChannelRequest, opts ...grpc.CallOption) (*GetChannelResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetChannelResponse)
-	err := c.cc.Invoke(ctx, ComplexChannelService_GetChannel_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *complexChannelServiceClient) GetPreambleIndex(ctx context.Context, in *GetPreambleIndexRequest, opts ...grpc.CallOption) (*GetPreambleIndexResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetPreambleIndexResponse)
-	err := c.cc.Invoke(ctx, ComplexChannelService_GetPreambleIndex_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *complexChannelServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(HashCodeResponse)
-	err := c.cc.Invoke(ctx, ComplexChannelService_HashCode_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *complexChannelServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ToStringResponse)
-	err := c.cc.Invoke(ctx, ComplexChannelService_ToString_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *complexChannelServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, ComplexChannelService_WriteToParcel_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// ComplexChannelServiceServer is the server API for ComplexChannelService service.
-// All implementations must embed UnimplementedComplexChannelServiceServer
-// for forward compatibility.
-type ComplexChannelServiceServer interface {
-	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
-	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
-	GetChannel(context.Context, *GetChannelRequest) (*GetChannelResponse, error)
-	GetPreambleIndex(context.Context, *GetPreambleIndexRequest) (*GetPreambleIndexResponse, error)
-	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
-	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
-	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
-	mustEmbedUnimplementedComplexChannelServiceServer()
-}
-
-// UnimplementedComplexChannelServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedComplexChannelServiceServer struct{}
-
-func (UnimplementedComplexChannelServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
-}
-func (UnimplementedComplexChannelServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
-}
-func (UnimplementedComplexChannelServiceServer) GetChannel(context.Context, *GetChannelRequest) (*GetChannelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetChannel not implemented")
-}
-func (UnimplementedComplexChannelServiceServer) GetPreambleIndex(context.Context, *GetPreambleIndexRequest) (*GetPreambleIndexResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetPreambleIndex not implemented")
-}
-func (UnimplementedComplexChannelServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
-}
-func (UnimplementedComplexChannelServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
-}
-func (UnimplementedComplexChannelServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
-}
-func (UnimplementedComplexChannelServiceServer) mustEmbedUnimplementedComplexChannelServiceServer() {}
-func (UnimplementedComplexChannelServiceServer) testEmbeddedByValue()                               {}
-
-// UnsafeComplexChannelServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to ComplexChannelServiceServer will
-// result in compilation errors.
-type UnsafeComplexChannelServiceServer interface {
-	mustEmbedUnimplementedComplexChannelServiceServer()
-}
-
-func RegisterComplexChannelServiceServer(s grpc.ServiceRegistrar, srv ComplexChannelServiceServer) {
-	// If the following call panics, it indicates UnimplementedComplexChannelServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&ComplexChannelService_ServiceDesc, srv)
-}
-
-func _ComplexChannelService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DescribeContentsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ComplexChannelServiceServer).DescribeContents(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ComplexChannelService_DescribeContents_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ComplexChannelServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ComplexChannelService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(EqualsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ComplexChannelServiceServer).Equals(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ComplexChannelService_Equals_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ComplexChannelServiceServer).Equals(ctx, req.(*EqualsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ComplexChannelService_GetChannel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetChannelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ComplexChannelServiceServer).GetChannel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ComplexChannelService_GetChannel_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ComplexChannelServiceServer).GetChannel(ctx, req.(*GetChannelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ComplexChannelService_GetPreambleIndex_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetPreambleIndexRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ComplexChannelServiceServer).GetPreambleIndex(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ComplexChannelService_GetPreambleIndex_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ComplexChannelServiceServer).GetPreambleIndex(ctx, req.(*GetPreambleIndexRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ComplexChannelService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(HashCodeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ComplexChannelServiceServer).HashCode(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ComplexChannelService_HashCode_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ComplexChannelServiceServer).HashCode(ctx, req.(*HashCodeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ComplexChannelService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ToStringRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ComplexChannelServiceServer).ToString(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ComplexChannelService_ToString_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ComplexChannelServiceServer).ToString(ctx, req.(*ToStringRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ComplexChannelService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WriteToParcelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ComplexChannelServiceServer).WriteToParcel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ComplexChannelService_WriteToParcel_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ComplexChannelServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// ComplexChannelService_ServiceDesc is the grpc.ServiceDesc for ComplexChannelService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var ComplexChannelService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "uwb.ComplexChannelService",
-	HandlerType: (*ComplexChannelServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "DescribeContents",
-			Handler:    _ComplexChannelService_DescribeContents_Handler,
-		},
-		{
-			MethodName: "Equals",
-			Handler:    _ComplexChannelService_Equals_Handler,
-		},
-		{
-			MethodName: "GetChannel",
-			Handler:    _ComplexChannelService_GetChannel_Handler,
-		},
-		{
-			MethodName: "GetPreambleIndex",
-			Handler:    _ComplexChannelService_GetPreambleIndex_Handler,
-		},
-		{
-			MethodName: "HashCode",
-			Handler:    _ComplexChannelService_HashCode_Handler,
-		},
-		{
-			MethodName: "ToString",
-			Handler:    _ComplexChannelService_ToString_Handler,
-		},
-		{
-			MethodName: "WriteToParcel",
-			Handler:    _ComplexChannelService_WriteToParcel_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/uwb/uwb.proto",
-}
-
-const (
-	ComplexChannelBuilderService_Build_FullMethodName            = "/uwb.ComplexChannelBuilderService/Build"
-	ComplexChannelBuilderService_SetChannel_FullMethodName       = "/uwb.ComplexChannelBuilderService/SetChannel"
-	ComplexChannelBuilderService_SetPreambleIndex_FullMethodName = "/uwb.ComplexChannelBuilderService/SetPreambleIndex"
-)
-
-// ComplexChannelBuilderServiceClient is the client API for ComplexChannelBuilderService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type ComplexChannelBuilderServiceClient interface {
-	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
-	SetChannel(ctx context.Context, in *SetChannelRequest, opts ...grpc.CallOption) (*SetChannelResponse, error)
-	SetPreambleIndex(ctx context.Context, in *SetPreambleIndexRequest, opts ...grpc.CallOption) (*SetPreambleIndexResponse, error)
-}
-
-type complexChannelBuilderServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewComplexChannelBuilderServiceClient(cc grpc.ClientConnInterface) ComplexChannelBuilderServiceClient {
-	return &complexChannelBuilderServiceClient{cc}
-}
-
-func (c *complexChannelBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(BuildResponse)
-	err := c.cc.Invoke(ctx, ComplexChannelBuilderService_Build_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *complexChannelBuilderServiceClient) SetChannel(ctx context.Context, in *SetChannelRequest, opts ...grpc.CallOption) (*SetChannelResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetChannelResponse)
-	err := c.cc.Invoke(ctx, ComplexChannelBuilderService_SetChannel_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *complexChannelBuilderServiceClient) SetPreambleIndex(ctx context.Context, in *SetPreambleIndexRequest, opts ...grpc.CallOption) (*SetPreambleIndexResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetPreambleIndexResponse)
-	err := c.cc.Invoke(ctx, ComplexChannelBuilderService_SetPreambleIndex_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// ComplexChannelBuilderServiceServer is the server API for ComplexChannelBuilderService service.
-// All implementations must embed UnimplementedComplexChannelBuilderServiceServer
-// for forward compatibility.
-type ComplexChannelBuilderServiceServer interface {
-	Build(context.Context, *BuildRequest) (*BuildResponse, error)
-	SetChannel(context.Context, *SetChannelRequest) (*SetChannelResponse, error)
-	SetPreambleIndex(context.Context, *SetPreambleIndexRequest) (*SetPreambleIndexResponse, error)
-	mustEmbedUnimplementedComplexChannelBuilderServiceServer()
-}
-
-// UnimplementedComplexChannelBuilderServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedComplexChannelBuilderServiceServer struct{}
-
-func (UnimplementedComplexChannelBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
-}
-func (UnimplementedComplexChannelBuilderServiceServer) SetChannel(context.Context, *SetChannelRequest) (*SetChannelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetChannel not implemented")
-}
-func (UnimplementedComplexChannelBuilderServiceServer) SetPreambleIndex(context.Context, *SetPreambleIndexRequest) (*SetPreambleIndexResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetPreambleIndex not implemented")
-}
-func (UnimplementedComplexChannelBuilderServiceServer) mustEmbedUnimplementedComplexChannelBuilderServiceServer() {
-}
-func (UnimplementedComplexChannelBuilderServiceServer) testEmbeddedByValue() {}
-
-// UnsafeComplexChannelBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to ComplexChannelBuilderServiceServer will
-// result in compilation errors.
-type UnsafeComplexChannelBuilderServiceServer interface {
-	mustEmbedUnimplementedComplexChannelBuilderServiceServer()
-}
-
-func RegisterComplexChannelBuilderServiceServer(s grpc.ServiceRegistrar, srv ComplexChannelBuilderServiceServer) {
-	// If the following call panics, it indicates UnimplementedComplexChannelBuilderServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&ComplexChannelBuilderService_ServiceDesc, srv)
-}
-
-func _ComplexChannelBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(BuildRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ComplexChannelBuilderServiceServer).Build(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ComplexChannelBuilderService_Build_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ComplexChannelBuilderServiceServer).Build(ctx, req.(*BuildRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ComplexChannelBuilderService_SetChannel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetChannelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ComplexChannelBuilderServiceServer).SetChannel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ComplexChannelBuilderService_SetChannel_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ComplexChannelBuilderServiceServer).SetChannel(ctx, req.(*SetChannelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ComplexChannelBuilderService_SetPreambleIndex_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetPreambleIndexRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ComplexChannelBuilderServiceServer).SetPreambleIndex(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ComplexChannelBuilderService_SetPreambleIndex_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ComplexChannelBuilderServiceServer).SetPreambleIndex(ctx, req.(*SetPreambleIndexRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// ComplexChannelBuilderService_ServiceDesc is the grpc.ServiceDesc for ComplexChannelBuilderService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var ComplexChannelBuilderService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "uwb.ComplexChannelBuilderService",
-	HandlerType: (*ComplexChannelBuilderServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "Build",
-			Handler:    _ComplexChannelBuilderService_Build_Handler,
-		},
-		{
-			MethodName: "SetChannel",
-			Handler:    _ComplexChannelBuilderService_SetChannel_Handler,
-		},
-		{
-			MethodName: "SetPreambleIndex",
-			Handler:    _ComplexChannelBuilderService_SetPreambleIndex_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/uwb/uwb.proto",
-}
-
-const (
 	RangingCapabilitiesService_DescribeContents_FullMethodName                          = "/uwb.RangingCapabilitiesService/DescribeContents"
 	RangingCapabilitiesService_GetMinimumRangingInterval_FullMethodName                 = "/uwb.RangingCapabilitiesService/GetMinimumRangingInterval"
+	RangingCapabilitiesService_GetSupportedChannels_FullMethodName                      = "/uwb.RangingCapabilitiesService/GetSupportedChannels"
+	RangingCapabilitiesService_GetSupportedConfigIds_FullMethodName                     = "/uwb.RangingCapabilitiesService/GetSupportedConfigIds"
+	RangingCapabilitiesService_GetSupportedNotificationConfigurations_FullMethodName    = "/uwb.RangingCapabilitiesService/GetSupportedNotificationConfigurations"
+	RangingCapabilitiesService_GetSupportedPreambleIndexes_FullMethodName               = "/uwb.RangingCapabilitiesService/GetSupportedPreambleIndexes"
+	RangingCapabilitiesService_GetSupportedRangingUpdateRates_FullMethodName            = "/uwb.RangingCapabilitiesService/GetSupportedRangingUpdateRates"
+	RangingCapabilitiesService_GetSupportedSlotDurations_FullMethodName                 = "/uwb.RangingCapabilitiesService/GetSupportedSlotDurations"
 	RangingCapabilitiesService_IsAzimuthalAngleSupported_FullMethodName                 = "/uwb.RangingCapabilitiesService/IsAzimuthalAngleSupported"
 	RangingCapabilitiesService_IsBackgroundRangingSupported_FullMethodName              = "/uwb.RangingCapabilitiesService/IsBackgroundRangingSupported"
 	RangingCapabilitiesService_IsDistanceMeasurementSupported_FullMethodName            = "/uwb.RangingCapabilitiesService/IsDistanceMeasurementSupported"
@@ -1880,6 +1886,12 @@ const (
 type RangingCapabilitiesServiceClient interface {
 	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
 	GetMinimumRangingInterval(ctx context.Context, in *GetMinimumRangingIntervalRequest, opts ...grpc.CallOption) (*GetMinimumRangingIntervalResponse, error)
+	GetSupportedChannels(ctx context.Context, in *GetSupportedChannelsRequest, opts ...grpc.CallOption) (*GetSupportedChannelsResponse, error)
+	GetSupportedConfigIds(ctx context.Context, in *GetSupportedConfigIdsRequest, opts ...grpc.CallOption) (*GetSupportedConfigIdsResponse, error)
+	GetSupportedNotificationConfigurations(ctx context.Context, in *GetSupportedNotificationConfigurationsRequest, opts ...grpc.CallOption) (*GetSupportedNotificationConfigurationsResponse, error)
+	GetSupportedPreambleIndexes(ctx context.Context, in *GetSupportedPreambleIndexesRequest, opts ...grpc.CallOption) (*GetSupportedPreambleIndexesResponse, error)
+	GetSupportedRangingUpdateRates(ctx context.Context, in *GetSupportedRangingUpdateRatesRequest, opts ...grpc.CallOption) (*GetSupportedRangingUpdateRatesResponse, error)
+	GetSupportedSlotDurations(ctx context.Context, in *GetSupportedSlotDurationsRequest, opts ...grpc.CallOption) (*GetSupportedSlotDurationsResponse, error)
 	IsAzimuthalAngleSupported(ctx context.Context, in *IsAzimuthalAngleSupportedRequest, opts ...grpc.CallOption) (*IsAzimuthalAngleSupportedResponse, error)
 	IsBackgroundRangingSupported(ctx context.Context, in *IsBackgroundRangingSupportedRequest, opts ...grpc.CallOption) (*IsBackgroundRangingSupportedResponse, error)
 	IsDistanceMeasurementSupported(ctx context.Context, in *IsDistanceMeasurementSupportedRequest, opts ...grpc.CallOption) (*IsDistanceMeasurementSupportedResponse, error)
@@ -1911,6 +1923,66 @@ func (c *rangingCapabilitiesServiceClient) GetMinimumRangingInterval(ctx context
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetMinimumRangingIntervalResponse)
 	err := c.cc.Invoke(ctx, RangingCapabilitiesService_GetMinimumRangingInterval_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *rangingCapabilitiesServiceClient) GetSupportedChannels(ctx context.Context, in *GetSupportedChannelsRequest, opts ...grpc.CallOption) (*GetSupportedChannelsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSupportedChannelsResponse)
+	err := c.cc.Invoke(ctx, RangingCapabilitiesService_GetSupportedChannels_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *rangingCapabilitiesServiceClient) GetSupportedConfigIds(ctx context.Context, in *GetSupportedConfigIdsRequest, opts ...grpc.CallOption) (*GetSupportedConfigIdsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSupportedConfigIdsResponse)
+	err := c.cc.Invoke(ctx, RangingCapabilitiesService_GetSupportedConfigIds_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *rangingCapabilitiesServiceClient) GetSupportedNotificationConfigurations(ctx context.Context, in *GetSupportedNotificationConfigurationsRequest, opts ...grpc.CallOption) (*GetSupportedNotificationConfigurationsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSupportedNotificationConfigurationsResponse)
+	err := c.cc.Invoke(ctx, RangingCapabilitiesService_GetSupportedNotificationConfigurations_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *rangingCapabilitiesServiceClient) GetSupportedPreambleIndexes(ctx context.Context, in *GetSupportedPreambleIndexesRequest, opts ...grpc.CallOption) (*GetSupportedPreambleIndexesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSupportedPreambleIndexesResponse)
+	err := c.cc.Invoke(ctx, RangingCapabilitiesService_GetSupportedPreambleIndexes_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *rangingCapabilitiesServiceClient) GetSupportedRangingUpdateRates(ctx context.Context, in *GetSupportedRangingUpdateRatesRequest, opts ...grpc.CallOption) (*GetSupportedRangingUpdateRatesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSupportedRangingUpdateRatesResponse)
+	err := c.cc.Invoke(ctx, RangingCapabilitiesService_GetSupportedRangingUpdateRates_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *rangingCapabilitiesServiceClient) GetSupportedSlotDurations(ctx context.Context, in *GetSupportedSlotDurationsRequest, opts ...grpc.CallOption) (*GetSupportedSlotDurationsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSupportedSlotDurationsResponse)
+	err := c.cc.Invoke(ctx, RangingCapabilitiesService_GetSupportedSlotDurations_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -1993,6 +2065,12 @@ func (c *rangingCapabilitiesServiceClient) WriteToParcel(ctx context.Context, in
 type RangingCapabilitiesServiceServer interface {
 	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
 	GetMinimumRangingInterval(context.Context, *GetMinimumRangingIntervalRequest) (*GetMinimumRangingIntervalResponse, error)
+	GetSupportedChannels(context.Context, *GetSupportedChannelsRequest) (*GetSupportedChannelsResponse, error)
+	GetSupportedConfigIds(context.Context, *GetSupportedConfigIdsRequest) (*GetSupportedConfigIdsResponse, error)
+	GetSupportedNotificationConfigurations(context.Context, *GetSupportedNotificationConfigurationsRequest) (*GetSupportedNotificationConfigurationsResponse, error)
+	GetSupportedPreambleIndexes(context.Context, *GetSupportedPreambleIndexesRequest) (*GetSupportedPreambleIndexesResponse, error)
+	GetSupportedRangingUpdateRates(context.Context, *GetSupportedRangingUpdateRatesRequest) (*GetSupportedRangingUpdateRatesResponse, error)
+	GetSupportedSlotDurations(context.Context, *GetSupportedSlotDurationsRequest) (*GetSupportedSlotDurationsResponse, error)
 	IsAzimuthalAngleSupported(context.Context, *IsAzimuthalAngleSupportedRequest) (*IsAzimuthalAngleSupportedResponse, error)
 	IsBackgroundRangingSupported(context.Context, *IsBackgroundRangingSupportedRequest) (*IsBackgroundRangingSupportedResponse, error)
 	IsDistanceMeasurementSupported(context.Context, *IsDistanceMeasurementSupportedRequest) (*IsDistanceMeasurementSupportedResponse, error)
@@ -2015,6 +2093,24 @@ func (UnimplementedRangingCapabilitiesServiceServer) DescribeContents(context.Co
 }
 func (UnimplementedRangingCapabilitiesServiceServer) GetMinimumRangingInterval(context.Context, *GetMinimumRangingIntervalRequest) (*GetMinimumRangingIntervalResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetMinimumRangingInterval not implemented")
+}
+func (UnimplementedRangingCapabilitiesServiceServer) GetSupportedChannels(context.Context, *GetSupportedChannelsRequest) (*GetSupportedChannelsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSupportedChannels not implemented")
+}
+func (UnimplementedRangingCapabilitiesServiceServer) GetSupportedConfigIds(context.Context, *GetSupportedConfigIdsRequest) (*GetSupportedConfigIdsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSupportedConfigIds not implemented")
+}
+func (UnimplementedRangingCapabilitiesServiceServer) GetSupportedNotificationConfigurations(context.Context, *GetSupportedNotificationConfigurationsRequest) (*GetSupportedNotificationConfigurationsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSupportedNotificationConfigurations not implemented")
+}
+func (UnimplementedRangingCapabilitiesServiceServer) GetSupportedPreambleIndexes(context.Context, *GetSupportedPreambleIndexesRequest) (*GetSupportedPreambleIndexesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSupportedPreambleIndexes not implemented")
+}
+func (UnimplementedRangingCapabilitiesServiceServer) GetSupportedRangingUpdateRates(context.Context, *GetSupportedRangingUpdateRatesRequest) (*GetSupportedRangingUpdateRatesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSupportedRangingUpdateRates not implemented")
+}
+func (UnimplementedRangingCapabilitiesServiceServer) GetSupportedSlotDurations(context.Context, *GetSupportedSlotDurationsRequest) (*GetSupportedSlotDurationsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSupportedSlotDurations not implemented")
 }
 func (UnimplementedRangingCapabilitiesServiceServer) IsAzimuthalAngleSupported(context.Context, *IsAzimuthalAngleSupportedRequest) (*IsAzimuthalAngleSupportedResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method IsAzimuthalAngleSupported not implemented")
@@ -2091,6 +2187,114 @@ func _RangingCapabilitiesService_GetMinimumRangingInterval_Handler(srv interface
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(RangingCapabilitiesServiceServer).GetMinimumRangingInterval(ctx, req.(*GetMinimumRangingIntervalRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RangingCapabilitiesService_GetSupportedChannels_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSupportedChannelsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RangingCapabilitiesServiceServer).GetSupportedChannels(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RangingCapabilitiesService_GetSupportedChannels_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RangingCapabilitiesServiceServer).GetSupportedChannels(ctx, req.(*GetSupportedChannelsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RangingCapabilitiesService_GetSupportedConfigIds_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSupportedConfigIdsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RangingCapabilitiesServiceServer).GetSupportedConfigIds(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RangingCapabilitiesService_GetSupportedConfigIds_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RangingCapabilitiesServiceServer).GetSupportedConfigIds(ctx, req.(*GetSupportedConfigIdsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RangingCapabilitiesService_GetSupportedNotificationConfigurations_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSupportedNotificationConfigurationsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RangingCapabilitiesServiceServer).GetSupportedNotificationConfigurations(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RangingCapabilitiesService_GetSupportedNotificationConfigurations_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RangingCapabilitiesServiceServer).GetSupportedNotificationConfigurations(ctx, req.(*GetSupportedNotificationConfigurationsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RangingCapabilitiesService_GetSupportedPreambleIndexes_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSupportedPreambleIndexesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RangingCapabilitiesServiceServer).GetSupportedPreambleIndexes(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RangingCapabilitiesService_GetSupportedPreambleIndexes_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RangingCapabilitiesServiceServer).GetSupportedPreambleIndexes(ctx, req.(*GetSupportedPreambleIndexesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RangingCapabilitiesService_GetSupportedRangingUpdateRates_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSupportedRangingUpdateRatesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RangingCapabilitiesServiceServer).GetSupportedRangingUpdateRates(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RangingCapabilitiesService_GetSupportedRangingUpdateRates_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RangingCapabilitiesServiceServer).GetSupportedRangingUpdateRates(ctx, req.(*GetSupportedRangingUpdateRatesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RangingCapabilitiesService_GetSupportedSlotDurations_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSupportedSlotDurationsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RangingCapabilitiesServiceServer).GetSupportedSlotDurations(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RangingCapabilitiesService_GetSupportedSlotDurations_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RangingCapabilitiesServiceServer).GetSupportedSlotDurations(ctx, req.(*GetSupportedSlotDurationsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -2235,6 +2439,30 @@ var RangingCapabilitiesService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetMinimumRangingInterval",
 			Handler:    _RangingCapabilitiesService_GetMinimumRangingInterval_Handler,
+		},
+		{
+			MethodName: "GetSupportedChannels",
+			Handler:    _RangingCapabilitiesService_GetSupportedChannels_Handler,
+		},
+		{
+			MethodName: "GetSupportedConfigIds",
+			Handler:    _RangingCapabilitiesService_GetSupportedConfigIds_Handler,
+		},
+		{
+			MethodName: "GetSupportedNotificationConfigurations",
+			Handler:    _RangingCapabilitiesService_GetSupportedNotificationConfigurations_Handler,
+		},
+		{
+			MethodName: "GetSupportedPreambleIndexes",
+			Handler:    _RangingCapabilitiesService_GetSupportedPreambleIndexes_Handler,
+		},
+		{
+			MethodName: "GetSupportedRangingUpdateRates",
+			Handler:    _RangingCapabilitiesService_GetSupportedRangingUpdateRates_Handler,
+		},
+		{
+			MethodName: "GetSupportedSlotDurations",
+			Handler:    _RangingCapabilitiesService_GetSupportedSlotDurations_Handler,
 		},
 		{
 			MethodName: "IsAzimuthalAngleSupported",

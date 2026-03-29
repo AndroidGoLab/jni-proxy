@@ -124,1047 +124,6 @@ var OnObbStateChangeListenerService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	ManagerService_AllocateBytes2_FullMethodName                  = "/storage.ManagerService/AllocateBytes2"
-	ManagerService_AllocateBytes2_1_FullMethodName                = "/storage.ManagerService/AllocateBytes2_1"
-	ManagerService_GetAllocatableBytes_FullMethodName             = "/storage.ManagerService/GetAllocatableBytes"
-	ManagerService_GetCacheQuotaBytes_FullMethodName              = "/storage.ManagerService/GetCacheQuotaBytes"
-	ManagerService_GetCacheSizeBytes_FullMethodName               = "/storage.ManagerService/GetCacheSizeBytes"
-	ManagerService_GetManageSpaceActivityIntent_FullMethodName    = "/storage.ManagerService/GetManageSpaceActivityIntent"
-	ManagerService_GetMountedObbPath_FullMethodName               = "/storage.ManagerService/GetMountedObbPath"
-	ManagerService_GetPrimaryStorageVolume_FullMethodName         = "/storage.ManagerService/GetPrimaryStorageVolume"
-	ManagerService_GetStorageVolume1_FullMethodName               = "/storage.ManagerService/GetStorageVolume1"
-	ManagerService_GetStorageVolume1_1_FullMethodName             = "/storage.ManagerService/GetStorageVolume1_1"
-	ManagerService_GetUuidForPath_FullMethodName                  = "/storage.ManagerService/GetUuidForPath"
-	ManagerService_IsAllocationSupported_FullMethodName           = "/storage.ManagerService/IsAllocationSupported"
-	ManagerService_IsCacheBehaviorGroup_FullMethodName            = "/storage.ManagerService/IsCacheBehaviorGroup"
-	ManagerService_IsCacheBehaviorTombstone_FullMethodName        = "/storage.ManagerService/IsCacheBehaviorTombstone"
-	ManagerService_IsCheckpointSupported_FullMethodName           = "/storage.ManagerService/IsCheckpointSupported"
-	ManagerService_IsEncrypted_FullMethodName                     = "/storage.ManagerService/IsEncrypted"
-	ManagerService_IsObbMounted_FullMethodName                    = "/storage.ManagerService/IsObbMounted"
-	ManagerService_MountObb_FullMethodName                        = "/storage.ManagerService/MountObb"
-	ManagerService_RegisterStorageVolumeCallback_FullMethodName   = "/storage.ManagerService/RegisterStorageVolumeCallback"
-	ManagerService_SetCacheBehaviorGroup_FullMethodName           = "/storage.ManagerService/SetCacheBehaviorGroup"
-	ManagerService_SetCacheBehaviorTombstone_FullMethodName       = "/storage.ManagerService/SetCacheBehaviorTombstone"
-	ManagerService_UnmountObb_FullMethodName                      = "/storage.ManagerService/UnmountObb"
-	ManagerService_UnregisterStorageVolumeCallback_FullMethodName = "/storage.ManagerService/UnregisterStorageVolumeCallback"
-)
-
-// ManagerServiceClient is the client API for ManagerService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type ManagerServiceClient interface {
-	AllocateBytes2(ctx context.Context, in *AllocateBytes2Request, opts ...grpc.CallOption) (*AllocateBytes2Response, error)
-	AllocateBytes2_1(ctx context.Context, in *AllocateBytes2_1Request, opts ...grpc.CallOption) (*AllocateBytes2_1Response, error)
-	GetAllocatableBytes(ctx context.Context, in *GetAllocatableBytesRequest, opts ...grpc.CallOption) (*GetAllocatableBytesResponse, error)
-	GetCacheQuotaBytes(ctx context.Context, in *GetCacheQuotaBytesRequest, opts ...grpc.CallOption) (*GetCacheQuotaBytesResponse, error)
-	GetCacheSizeBytes(ctx context.Context, in *GetCacheSizeBytesRequest, opts ...grpc.CallOption) (*GetCacheSizeBytesResponse, error)
-	GetManageSpaceActivityIntent(ctx context.Context, in *GetManageSpaceActivityIntentRequest, opts ...grpc.CallOption) (*GetManageSpaceActivityIntentResponse, error)
-	GetMountedObbPath(ctx context.Context, in *GetMountedObbPathRequest, opts ...grpc.CallOption) (*GetMountedObbPathResponse, error)
-	GetPrimaryStorageVolume(ctx context.Context, in *GetPrimaryStorageVolumeRequest, opts ...grpc.CallOption) (*GetPrimaryStorageVolumeResponse, error)
-	GetStorageVolume1(ctx context.Context, in *GetStorageVolume1Request, opts ...grpc.CallOption) (*GetStorageVolume1Response, error)
-	GetStorageVolume1_1(ctx context.Context, in *GetStorageVolume1_1Request, opts ...grpc.CallOption) (*GetStorageVolume1_1Response, error)
-	GetUuidForPath(ctx context.Context, in *GetUuidForPathRequest, opts ...grpc.CallOption) (*GetUuidForPathResponse, error)
-	IsAllocationSupported(ctx context.Context, in *IsAllocationSupportedRequest, opts ...grpc.CallOption) (*IsAllocationSupportedResponse, error)
-	IsCacheBehaviorGroup(ctx context.Context, in *IsCacheBehaviorGroupRequest, opts ...grpc.CallOption) (*IsCacheBehaviorGroupResponse, error)
-	IsCacheBehaviorTombstone(ctx context.Context, in *IsCacheBehaviorTombstoneRequest, opts ...grpc.CallOption) (*IsCacheBehaviorTombstoneResponse, error)
-	IsCheckpointSupported(ctx context.Context, in *IsCheckpointSupportedRequest, opts ...grpc.CallOption) (*IsCheckpointSupportedResponse, error)
-	IsEncrypted(ctx context.Context, in *IsEncryptedRequest, opts ...grpc.CallOption) (*IsEncryptedResponse, error)
-	IsObbMounted(ctx context.Context, in *IsObbMountedRequest, opts ...grpc.CallOption) (*IsObbMountedResponse, error)
-	MountObb(ctx context.Context, in *MountObbRequest, opts ...grpc.CallOption) (*MountObbResponse, error)
-	RegisterStorageVolumeCallback(ctx context.Context, in *RegisterStorageVolumeCallbackRequest, opts ...grpc.CallOption) (*RegisterStorageVolumeCallbackResponse, error)
-	SetCacheBehaviorGroup(ctx context.Context, in *SetCacheBehaviorGroupRequest, opts ...grpc.CallOption) (*SetCacheBehaviorGroupResponse, error)
-	SetCacheBehaviorTombstone(ctx context.Context, in *SetCacheBehaviorTombstoneRequest, opts ...grpc.CallOption) (*SetCacheBehaviorTombstoneResponse, error)
-	UnmountObb(ctx context.Context, in *UnmountObbRequest, opts ...grpc.CallOption) (*UnmountObbResponse, error)
-	UnregisterStorageVolumeCallback(ctx context.Context, in *UnregisterStorageVolumeCallbackRequest, opts ...grpc.CallOption) (*UnregisterStorageVolumeCallbackResponse, error)
-}
-
-type managerServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewManagerServiceClient(cc grpc.ClientConnInterface) ManagerServiceClient {
-	return &managerServiceClient{cc}
-}
-
-func (c *managerServiceClient) AllocateBytes2(ctx context.Context, in *AllocateBytes2Request, opts ...grpc.CallOption) (*AllocateBytes2Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(AllocateBytes2Response)
-	err := c.cc.Invoke(ctx, ManagerService_AllocateBytes2_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *managerServiceClient) AllocateBytes2_1(ctx context.Context, in *AllocateBytes2_1Request, opts ...grpc.CallOption) (*AllocateBytes2_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(AllocateBytes2_1Response)
-	err := c.cc.Invoke(ctx, ManagerService_AllocateBytes2_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *managerServiceClient) GetAllocatableBytes(ctx context.Context, in *GetAllocatableBytesRequest, opts ...grpc.CallOption) (*GetAllocatableBytesResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetAllocatableBytesResponse)
-	err := c.cc.Invoke(ctx, ManagerService_GetAllocatableBytes_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *managerServiceClient) GetCacheQuotaBytes(ctx context.Context, in *GetCacheQuotaBytesRequest, opts ...grpc.CallOption) (*GetCacheQuotaBytesResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetCacheQuotaBytesResponse)
-	err := c.cc.Invoke(ctx, ManagerService_GetCacheQuotaBytes_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *managerServiceClient) GetCacheSizeBytes(ctx context.Context, in *GetCacheSizeBytesRequest, opts ...grpc.CallOption) (*GetCacheSizeBytesResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetCacheSizeBytesResponse)
-	err := c.cc.Invoke(ctx, ManagerService_GetCacheSizeBytes_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *managerServiceClient) GetManageSpaceActivityIntent(ctx context.Context, in *GetManageSpaceActivityIntentRequest, opts ...grpc.CallOption) (*GetManageSpaceActivityIntentResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetManageSpaceActivityIntentResponse)
-	err := c.cc.Invoke(ctx, ManagerService_GetManageSpaceActivityIntent_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *managerServiceClient) GetMountedObbPath(ctx context.Context, in *GetMountedObbPathRequest, opts ...grpc.CallOption) (*GetMountedObbPathResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetMountedObbPathResponse)
-	err := c.cc.Invoke(ctx, ManagerService_GetMountedObbPath_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *managerServiceClient) GetPrimaryStorageVolume(ctx context.Context, in *GetPrimaryStorageVolumeRequest, opts ...grpc.CallOption) (*GetPrimaryStorageVolumeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetPrimaryStorageVolumeResponse)
-	err := c.cc.Invoke(ctx, ManagerService_GetPrimaryStorageVolume_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *managerServiceClient) GetStorageVolume1(ctx context.Context, in *GetStorageVolume1Request, opts ...grpc.CallOption) (*GetStorageVolume1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetStorageVolume1Response)
-	err := c.cc.Invoke(ctx, ManagerService_GetStorageVolume1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *managerServiceClient) GetStorageVolume1_1(ctx context.Context, in *GetStorageVolume1_1Request, opts ...grpc.CallOption) (*GetStorageVolume1_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetStorageVolume1_1Response)
-	err := c.cc.Invoke(ctx, ManagerService_GetStorageVolume1_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *managerServiceClient) GetUuidForPath(ctx context.Context, in *GetUuidForPathRequest, opts ...grpc.CallOption) (*GetUuidForPathResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetUuidForPathResponse)
-	err := c.cc.Invoke(ctx, ManagerService_GetUuidForPath_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *managerServiceClient) IsAllocationSupported(ctx context.Context, in *IsAllocationSupportedRequest, opts ...grpc.CallOption) (*IsAllocationSupportedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsAllocationSupportedResponse)
-	err := c.cc.Invoke(ctx, ManagerService_IsAllocationSupported_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *managerServiceClient) IsCacheBehaviorGroup(ctx context.Context, in *IsCacheBehaviorGroupRequest, opts ...grpc.CallOption) (*IsCacheBehaviorGroupResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsCacheBehaviorGroupResponse)
-	err := c.cc.Invoke(ctx, ManagerService_IsCacheBehaviorGroup_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *managerServiceClient) IsCacheBehaviorTombstone(ctx context.Context, in *IsCacheBehaviorTombstoneRequest, opts ...grpc.CallOption) (*IsCacheBehaviorTombstoneResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsCacheBehaviorTombstoneResponse)
-	err := c.cc.Invoke(ctx, ManagerService_IsCacheBehaviorTombstone_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *managerServiceClient) IsCheckpointSupported(ctx context.Context, in *IsCheckpointSupportedRequest, opts ...grpc.CallOption) (*IsCheckpointSupportedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsCheckpointSupportedResponse)
-	err := c.cc.Invoke(ctx, ManagerService_IsCheckpointSupported_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *managerServiceClient) IsEncrypted(ctx context.Context, in *IsEncryptedRequest, opts ...grpc.CallOption) (*IsEncryptedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsEncryptedResponse)
-	err := c.cc.Invoke(ctx, ManagerService_IsEncrypted_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *managerServiceClient) IsObbMounted(ctx context.Context, in *IsObbMountedRequest, opts ...grpc.CallOption) (*IsObbMountedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsObbMountedResponse)
-	err := c.cc.Invoke(ctx, ManagerService_IsObbMounted_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *managerServiceClient) MountObb(ctx context.Context, in *MountObbRequest, opts ...grpc.CallOption) (*MountObbResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(MountObbResponse)
-	err := c.cc.Invoke(ctx, ManagerService_MountObb_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *managerServiceClient) RegisterStorageVolumeCallback(ctx context.Context, in *RegisterStorageVolumeCallbackRequest, opts ...grpc.CallOption) (*RegisterStorageVolumeCallbackResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(RegisterStorageVolumeCallbackResponse)
-	err := c.cc.Invoke(ctx, ManagerService_RegisterStorageVolumeCallback_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *managerServiceClient) SetCacheBehaviorGroup(ctx context.Context, in *SetCacheBehaviorGroupRequest, opts ...grpc.CallOption) (*SetCacheBehaviorGroupResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetCacheBehaviorGroupResponse)
-	err := c.cc.Invoke(ctx, ManagerService_SetCacheBehaviorGroup_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *managerServiceClient) SetCacheBehaviorTombstone(ctx context.Context, in *SetCacheBehaviorTombstoneRequest, opts ...grpc.CallOption) (*SetCacheBehaviorTombstoneResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetCacheBehaviorTombstoneResponse)
-	err := c.cc.Invoke(ctx, ManagerService_SetCacheBehaviorTombstone_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *managerServiceClient) UnmountObb(ctx context.Context, in *UnmountObbRequest, opts ...grpc.CallOption) (*UnmountObbResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(UnmountObbResponse)
-	err := c.cc.Invoke(ctx, ManagerService_UnmountObb_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *managerServiceClient) UnregisterStorageVolumeCallback(ctx context.Context, in *UnregisterStorageVolumeCallbackRequest, opts ...grpc.CallOption) (*UnregisterStorageVolumeCallbackResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(UnregisterStorageVolumeCallbackResponse)
-	err := c.cc.Invoke(ctx, ManagerService_UnregisterStorageVolumeCallback_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// ManagerServiceServer is the server API for ManagerService service.
-// All implementations must embed UnimplementedManagerServiceServer
-// for forward compatibility.
-type ManagerServiceServer interface {
-	AllocateBytes2(context.Context, *AllocateBytes2Request) (*AllocateBytes2Response, error)
-	AllocateBytes2_1(context.Context, *AllocateBytes2_1Request) (*AllocateBytes2_1Response, error)
-	GetAllocatableBytes(context.Context, *GetAllocatableBytesRequest) (*GetAllocatableBytesResponse, error)
-	GetCacheQuotaBytes(context.Context, *GetCacheQuotaBytesRequest) (*GetCacheQuotaBytesResponse, error)
-	GetCacheSizeBytes(context.Context, *GetCacheSizeBytesRequest) (*GetCacheSizeBytesResponse, error)
-	GetManageSpaceActivityIntent(context.Context, *GetManageSpaceActivityIntentRequest) (*GetManageSpaceActivityIntentResponse, error)
-	GetMountedObbPath(context.Context, *GetMountedObbPathRequest) (*GetMountedObbPathResponse, error)
-	GetPrimaryStorageVolume(context.Context, *GetPrimaryStorageVolumeRequest) (*GetPrimaryStorageVolumeResponse, error)
-	GetStorageVolume1(context.Context, *GetStorageVolume1Request) (*GetStorageVolume1Response, error)
-	GetStorageVolume1_1(context.Context, *GetStorageVolume1_1Request) (*GetStorageVolume1_1Response, error)
-	GetUuidForPath(context.Context, *GetUuidForPathRequest) (*GetUuidForPathResponse, error)
-	IsAllocationSupported(context.Context, *IsAllocationSupportedRequest) (*IsAllocationSupportedResponse, error)
-	IsCacheBehaviorGroup(context.Context, *IsCacheBehaviorGroupRequest) (*IsCacheBehaviorGroupResponse, error)
-	IsCacheBehaviorTombstone(context.Context, *IsCacheBehaviorTombstoneRequest) (*IsCacheBehaviorTombstoneResponse, error)
-	IsCheckpointSupported(context.Context, *IsCheckpointSupportedRequest) (*IsCheckpointSupportedResponse, error)
-	IsEncrypted(context.Context, *IsEncryptedRequest) (*IsEncryptedResponse, error)
-	IsObbMounted(context.Context, *IsObbMountedRequest) (*IsObbMountedResponse, error)
-	MountObb(context.Context, *MountObbRequest) (*MountObbResponse, error)
-	RegisterStorageVolumeCallback(context.Context, *RegisterStorageVolumeCallbackRequest) (*RegisterStorageVolumeCallbackResponse, error)
-	SetCacheBehaviorGroup(context.Context, *SetCacheBehaviorGroupRequest) (*SetCacheBehaviorGroupResponse, error)
-	SetCacheBehaviorTombstone(context.Context, *SetCacheBehaviorTombstoneRequest) (*SetCacheBehaviorTombstoneResponse, error)
-	UnmountObb(context.Context, *UnmountObbRequest) (*UnmountObbResponse, error)
-	UnregisterStorageVolumeCallback(context.Context, *UnregisterStorageVolumeCallbackRequest) (*UnregisterStorageVolumeCallbackResponse, error)
-	mustEmbedUnimplementedManagerServiceServer()
-}
-
-// UnimplementedManagerServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedManagerServiceServer struct{}
-
-func (UnimplementedManagerServiceServer) AllocateBytes2(context.Context, *AllocateBytes2Request) (*AllocateBytes2Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method AllocateBytes2 not implemented")
-}
-func (UnimplementedManagerServiceServer) AllocateBytes2_1(context.Context, *AllocateBytes2_1Request) (*AllocateBytes2_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method AllocateBytes2_1 not implemented")
-}
-func (UnimplementedManagerServiceServer) GetAllocatableBytes(context.Context, *GetAllocatableBytesRequest) (*GetAllocatableBytesResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetAllocatableBytes not implemented")
-}
-func (UnimplementedManagerServiceServer) GetCacheQuotaBytes(context.Context, *GetCacheQuotaBytesRequest) (*GetCacheQuotaBytesResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetCacheQuotaBytes not implemented")
-}
-func (UnimplementedManagerServiceServer) GetCacheSizeBytes(context.Context, *GetCacheSizeBytesRequest) (*GetCacheSizeBytesResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetCacheSizeBytes not implemented")
-}
-func (UnimplementedManagerServiceServer) GetManageSpaceActivityIntent(context.Context, *GetManageSpaceActivityIntentRequest) (*GetManageSpaceActivityIntentResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetManageSpaceActivityIntent not implemented")
-}
-func (UnimplementedManagerServiceServer) GetMountedObbPath(context.Context, *GetMountedObbPathRequest) (*GetMountedObbPathResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetMountedObbPath not implemented")
-}
-func (UnimplementedManagerServiceServer) GetPrimaryStorageVolume(context.Context, *GetPrimaryStorageVolumeRequest) (*GetPrimaryStorageVolumeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetPrimaryStorageVolume not implemented")
-}
-func (UnimplementedManagerServiceServer) GetStorageVolume1(context.Context, *GetStorageVolume1Request) (*GetStorageVolume1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetStorageVolume1 not implemented")
-}
-func (UnimplementedManagerServiceServer) GetStorageVolume1_1(context.Context, *GetStorageVolume1_1Request) (*GetStorageVolume1_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetStorageVolume1_1 not implemented")
-}
-func (UnimplementedManagerServiceServer) GetUuidForPath(context.Context, *GetUuidForPathRequest) (*GetUuidForPathResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetUuidForPath not implemented")
-}
-func (UnimplementedManagerServiceServer) IsAllocationSupported(context.Context, *IsAllocationSupportedRequest) (*IsAllocationSupportedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsAllocationSupported not implemented")
-}
-func (UnimplementedManagerServiceServer) IsCacheBehaviorGroup(context.Context, *IsCacheBehaviorGroupRequest) (*IsCacheBehaviorGroupResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsCacheBehaviorGroup not implemented")
-}
-func (UnimplementedManagerServiceServer) IsCacheBehaviorTombstone(context.Context, *IsCacheBehaviorTombstoneRequest) (*IsCacheBehaviorTombstoneResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsCacheBehaviorTombstone not implemented")
-}
-func (UnimplementedManagerServiceServer) IsCheckpointSupported(context.Context, *IsCheckpointSupportedRequest) (*IsCheckpointSupportedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsCheckpointSupported not implemented")
-}
-func (UnimplementedManagerServiceServer) IsEncrypted(context.Context, *IsEncryptedRequest) (*IsEncryptedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsEncrypted not implemented")
-}
-func (UnimplementedManagerServiceServer) IsObbMounted(context.Context, *IsObbMountedRequest) (*IsObbMountedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsObbMounted not implemented")
-}
-func (UnimplementedManagerServiceServer) MountObb(context.Context, *MountObbRequest) (*MountObbResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method MountObb not implemented")
-}
-func (UnimplementedManagerServiceServer) RegisterStorageVolumeCallback(context.Context, *RegisterStorageVolumeCallbackRequest) (*RegisterStorageVolumeCallbackResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method RegisterStorageVolumeCallback not implemented")
-}
-func (UnimplementedManagerServiceServer) SetCacheBehaviorGroup(context.Context, *SetCacheBehaviorGroupRequest) (*SetCacheBehaviorGroupResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetCacheBehaviorGroup not implemented")
-}
-func (UnimplementedManagerServiceServer) SetCacheBehaviorTombstone(context.Context, *SetCacheBehaviorTombstoneRequest) (*SetCacheBehaviorTombstoneResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetCacheBehaviorTombstone not implemented")
-}
-func (UnimplementedManagerServiceServer) UnmountObb(context.Context, *UnmountObbRequest) (*UnmountObbResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method UnmountObb not implemented")
-}
-func (UnimplementedManagerServiceServer) UnregisterStorageVolumeCallback(context.Context, *UnregisterStorageVolumeCallbackRequest) (*UnregisterStorageVolumeCallbackResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method UnregisterStorageVolumeCallback not implemented")
-}
-func (UnimplementedManagerServiceServer) mustEmbedUnimplementedManagerServiceServer() {}
-func (UnimplementedManagerServiceServer) testEmbeddedByValue()                        {}
-
-// UnsafeManagerServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to ManagerServiceServer will
-// result in compilation errors.
-type UnsafeManagerServiceServer interface {
-	mustEmbedUnimplementedManagerServiceServer()
-}
-
-func RegisterManagerServiceServer(s grpc.ServiceRegistrar, srv ManagerServiceServer) {
-	// If the following call panics, it indicates UnimplementedManagerServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&ManagerService_ServiceDesc, srv)
-}
-
-func _ManagerService_AllocateBytes2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AllocateBytes2Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerServiceServer).AllocateBytes2(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerService_AllocateBytes2_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).AllocateBytes2(ctx, req.(*AllocateBytes2Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ManagerService_AllocateBytes2_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AllocateBytes2_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerServiceServer).AllocateBytes2_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerService_AllocateBytes2_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).AllocateBytes2_1(ctx, req.(*AllocateBytes2_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ManagerService_GetAllocatableBytes_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetAllocatableBytesRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerServiceServer).GetAllocatableBytes(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerService_GetAllocatableBytes_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).GetAllocatableBytes(ctx, req.(*GetAllocatableBytesRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ManagerService_GetCacheQuotaBytes_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetCacheQuotaBytesRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerServiceServer).GetCacheQuotaBytes(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerService_GetCacheQuotaBytes_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).GetCacheQuotaBytes(ctx, req.(*GetCacheQuotaBytesRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ManagerService_GetCacheSizeBytes_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetCacheSizeBytesRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerServiceServer).GetCacheSizeBytes(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerService_GetCacheSizeBytes_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).GetCacheSizeBytes(ctx, req.(*GetCacheSizeBytesRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ManagerService_GetManageSpaceActivityIntent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetManageSpaceActivityIntentRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerServiceServer).GetManageSpaceActivityIntent(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerService_GetManageSpaceActivityIntent_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).GetManageSpaceActivityIntent(ctx, req.(*GetManageSpaceActivityIntentRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ManagerService_GetMountedObbPath_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetMountedObbPathRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerServiceServer).GetMountedObbPath(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerService_GetMountedObbPath_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).GetMountedObbPath(ctx, req.(*GetMountedObbPathRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ManagerService_GetPrimaryStorageVolume_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetPrimaryStorageVolumeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerServiceServer).GetPrimaryStorageVolume(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerService_GetPrimaryStorageVolume_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).GetPrimaryStorageVolume(ctx, req.(*GetPrimaryStorageVolumeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ManagerService_GetStorageVolume1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetStorageVolume1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerServiceServer).GetStorageVolume1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerService_GetStorageVolume1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).GetStorageVolume1(ctx, req.(*GetStorageVolume1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ManagerService_GetStorageVolume1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetStorageVolume1_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerServiceServer).GetStorageVolume1_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerService_GetStorageVolume1_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).GetStorageVolume1_1(ctx, req.(*GetStorageVolume1_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ManagerService_GetUuidForPath_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetUuidForPathRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerServiceServer).GetUuidForPath(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerService_GetUuidForPath_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).GetUuidForPath(ctx, req.(*GetUuidForPathRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ManagerService_IsAllocationSupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsAllocationSupportedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerServiceServer).IsAllocationSupported(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerService_IsAllocationSupported_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).IsAllocationSupported(ctx, req.(*IsAllocationSupportedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ManagerService_IsCacheBehaviorGroup_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsCacheBehaviorGroupRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerServiceServer).IsCacheBehaviorGroup(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerService_IsCacheBehaviorGroup_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).IsCacheBehaviorGroup(ctx, req.(*IsCacheBehaviorGroupRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ManagerService_IsCacheBehaviorTombstone_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsCacheBehaviorTombstoneRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerServiceServer).IsCacheBehaviorTombstone(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerService_IsCacheBehaviorTombstone_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).IsCacheBehaviorTombstone(ctx, req.(*IsCacheBehaviorTombstoneRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ManagerService_IsCheckpointSupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsCheckpointSupportedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerServiceServer).IsCheckpointSupported(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerService_IsCheckpointSupported_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).IsCheckpointSupported(ctx, req.(*IsCheckpointSupportedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ManagerService_IsEncrypted_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsEncryptedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerServiceServer).IsEncrypted(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerService_IsEncrypted_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).IsEncrypted(ctx, req.(*IsEncryptedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ManagerService_IsObbMounted_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsObbMountedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerServiceServer).IsObbMounted(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerService_IsObbMounted_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).IsObbMounted(ctx, req.(*IsObbMountedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ManagerService_MountObb_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(MountObbRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerServiceServer).MountObb(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerService_MountObb_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).MountObb(ctx, req.(*MountObbRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ManagerService_RegisterStorageVolumeCallback_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(RegisterStorageVolumeCallbackRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerServiceServer).RegisterStorageVolumeCallback(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerService_RegisterStorageVolumeCallback_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).RegisterStorageVolumeCallback(ctx, req.(*RegisterStorageVolumeCallbackRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ManagerService_SetCacheBehaviorGroup_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetCacheBehaviorGroupRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerServiceServer).SetCacheBehaviorGroup(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerService_SetCacheBehaviorGroup_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).SetCacheBehaviorGroup(ctx, req.(*SetCacheBehaviorGroupRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ManagerService_SetCacheBehaviorTombstone_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetCacheBehaviorTombstoneRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerServiceServer).SetCacheBehaviorTombstone(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerService_SetCacheBehaviorTombstone_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).SetCacheBehaviorTombstone(ctx, req.(*SetCacheBehaviorTombstoneRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ManagerService_UnmountObb_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UnmountObbRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerServiceServer).UnmountObb(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerService_UnmountObb_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).UnmountObb(ctx, req.(*UnmountObbRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ManagerService_UnregisterStorageVolumeCallback_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UnregisterStorageVolumeCallbackRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerServiceServer).UnregisterStorageVolumeCallback(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerService_UnregisterStorageVolumeCallback_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).UnregisterStorageVolumeCallback(ctx, req.(*UnregisterStorageVolumeCallbackRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// ManagerService_ServiceDesc is the grpc.ServiceDesc for ManagerService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var ManagerService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "storage.ManagerService",
-	HandlerType: (*ManagerServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "AllocateBytes2",
-			Handler:    _ManagerService_AllocateBytes2_Handler,
-		},
-		{
-			MethodName: "AllocateBytes2_1",
-			Handler:    _ManagerService_AllocateBytes2_1_Handler,
-		},
-		{
-			MethodName: "GetAllocatableBytes",
-			Handler:    _ManagerService_GetAllocatableBytes_Handler,
-		},
-		{
-			MethodName: "GetCacheQuotaBytes",
-			Handler:    _ManagerService_GetCacheQuotaBytes_Handler,
-		},
-		{
-			MethodName: "GetCacheSizeBytes",
-			Handler:    _ManagerService_GetCacheSizeBytes_Handler,
-		},
-		{
-			MethodName: "GetManageSpaceActivityIntent",
-			Handler:    _ManagerService_GetManageSpaceActivityIntent_Handler,
-		},
-		{
-			MethodName: "GetMountedObbPath",
-			Handler:    _ManagerService_GetMountedObbPath_Handler,
-		},
-		{
-			MethodName: "GetPrimaryStorageVolume",
-			Handler:    _ManagerService_GetPrimaryStorageVolume_Handler,
-		},
-		{
-			MethodName: "GetStorageVolume1",
-			Handler:    _ManagerService_GetStorageVolume1_Handler,
-		},
-		{
-			MethodName: "GetStorageVolume1_1",
-			Handler:    _ManagerService_GetStorageVolume1_1_Handler,
-		},
-		{
-			MethodName: "GetUuidForPath",
-			Handler:    _ManagerService_GetUuidForPath_Handler,
-		},
-		{
-			MethodName: "IsAllocationSupported",
-			Handler:    _ManagerService_IsAllocationSupported_Handler,
-		},
-		{
-			MethodName: "IsCacheBehaviorGroup",
-			Handler:    _ManagerService_IsCacheBehaviorGroup_Handler,
-		},
-		{
-			MethodName: "IsCacheBehaviorTombstone",
-			Handler:    _ManagerService_IsCacheBehaviorTombstone_Handler,
-		},
-		{
-			MethodName: "IsCheckpointSupported",
-			Handler:    _ManagerService_IsCheckpointSupported_Handler,
-		},
-		{
-			MethodName: "IsEncrypted",
-			Handler:    _ManagerService_IsEncrypted_Handler,
-		},
-		{
-			MethodName: "IsObbMounted",
-			Handler:    _ManagerService_IsObbMounted_Handler,
-		},
-		{
-			MethodName: "MountObb",
-			Handler:    _ManagerService_MountObb_Handler,
-		},
-		{
-			MethodName: "RegisterStorageVolumeCallback",
-			Handler:    _ManagerService_RegisterStorageVolumeCallback_Handler,
-		},
-		{
-			MethodName: "SetCacheBehaviorGroup",
-			Handler:    _ManagerService_SetCacheBehaviorGroup_Handler,
-		},
-		{
-			MethodName: "SetCacheBehaviorTombstone",
-			Handler:    _ManagerService_SetCacheBehaviorTombstone_Handler,
-		},
-		{
-			MethodName: "UnmountObb",
-			Handler:    _ManagerService_UnmountObb_Handler,
-		},
-		{
-			MethodName: "UnregisterStorageVolumeCallback",
-			Handler:    _ManagerService_UnregisterStorageVolumeCallback_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/storage/storage.proto",
-}
-
-const (
-	ManagerStorageVolumeCallbackService_OnStateChanged_FullMethodName = "/storage.ManagerStorageVolumeCallbackService/OnStateChanged"
-)
-
-// ManagerStorageVolumeCallbackServiceClient is the client API for ManagerStorageVolumeCallbackService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type ManagerStorageVolumeCallbackServiceClient interface {
-	OnStateChanged(ctx context.Context, in *OnStateChangedRequest, opts ...grpc.CallOption) (*OnStateChangedResponse, error)
-}
-
-type managerStorageVolumeCallbackServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewManagerStorageVolumeCallbackServiceClient(cc grpc.ClientConnInterface) ManagerStorageVolumeCallbackServiceClient {
-	return &managerStorageVolumeCallbackServiceClient{cc}
-}
-
-func (c *managerStorageVolumeCallbackServiceClient) OnStateChanged(ctx context.Context, in *OnStateChangedRequest, opts ...grpc.CallOption) (*OnStateChangedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnStateChangedResponse)
-	err := c.cc.Invoke(ctx, ManagerStorageVolumeCallbackService_OnStateChanged_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// ManagerStorageVolumeCallbackServiceServer is the server API for ManagerStorageVolumeCallbackService service.
-// All implementations must embed UnimplementedManagerStorageVolumeCallbackServiceServer
-// for forward compatibility.
-type ManagerStorageVolumeCallbackServiceServer interface {
-	OnStateChanged(context.Context, *OnStateChangedRequest) (*OnStateChangedResponse, error)
-	mustEmbedUnimplementedManagerStorageVolumeCallbackServiceServer()
-}
-
-// UnimplementedManagerStorageVolumeCallbackServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedManagerStorageVolumeCallbackServiceServer struct{}
-
-func (UnimplementedManagerStorageVolumeCallbackServiceServer) OnStateChanged(context.Context, *OnStateChangedRequest) (*OnStateChangedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnStateChanged not implemented")
-}
-func (UnimplementedManagerStorageVolumeCallbackServiceServer) mustEmbedUnimplementedManagerStorageVolumeCallbackServiceServer() {
-}
-func (UnimplementedManagerStorageVolumeCallbackServiceServer) testEmbeddedByValue() {}
-
-// UnsafeManagerStorageVolumeCallbackServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to ManagerStorageVolumeCallbackServiceServer will
-// result in compilation errors.
-type UnsafeManagerStorageVolumeCallbackServiceServer interface {
-	mustEmbedUnimplementedManagerStorageVolumeCallbackServiceServer()
-}
-
-func RegisterManagerStorageVolumeCallbackServiceServer(s grpc.ServiceRegistrar, srv ManagerStorageVolumeCallbackServiceServer) {
-	// If the following call panics, it indicates UnimplementedManagerStorageVolumeCallbackServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&ManagerStorageVolumeCallbackService_ServiceDesc, srv)
-}
-
-func _ManagerStorageVolumeCallbackService_OnStateChanged_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnStateChangedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerStorageVolumeCallbackServiceServer).OnStateChanged(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerStorageVolumeCallbackService_OnStateChanged_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerStorageVolumeCallbackServiceServer).OnStateChanged(ctx, req.(*OnStateChangedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// ManagerStorageVolumeCallbackService_ServiceDesc is the grpc.ServiceDesc for ManagerStorageVolumeCallbackService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var ManagerStorageVolumeCallbackService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "storage.ManagerStorageVolumeCallbackService",
-	HandlerType: (*ManagerStorageVolumeCallbackServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "OnStateChanged",
-			Handler:    _ManagerStorageVolumeCallbackService_OnStateChanged_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/storage/storage.proto",
-}
-
-const (
 	VolumeService_CreateAccessIntent_FullMethodName           = "/storage.VolumeService/CreateAccessIntent"
 	VolumeService_CreateOpenDocumentTreeIntent_FullMethodName = "/storage.VolumeService/CreateOpenDocumentTreeIntent"
 	VolumeService_DescribeContents_FullMethodName             = "/storage.VolumeService/DescribeContents"
@@ -1868,6 +827,1161 @@ var VolumeService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "WriteToParcel",
 			Handler:    _VolumeService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/storage/storage.proto",
+}
+
+const (
+	ManagerService_AllocateBytes2_FullMethodName                           = "/storage.ManagerService/AllocateBytes2"
+	ManagerService_AllocateBytes2_1_FullMethodName                         = "/storage.ManagerService/AllocateBytes2_1"
+	ManagerService_GetAllocatableBytes_FullMethodName                      = "/storage.ManagerService/GetAllocatableBytes"
+	ManagerService_GetCacheQuotaBytes_FullMethodName                       = "/storage.ManagerService/GetCacheQuotaBytes"
+	ManagerService_GetCacheSizeBytes_FullMethodName                        = "/storage.ManagerService/GetCacheSizeBytes"
+	ManagerService_GetManageSpaceActivityIntent_FullMethodName             = "/storage.ManagerService/GetManageSpaceActivityIntent"
+	ManagerService_GetMountedObbPath_FullMethodName                        = "/storage.ManagerService/GetMountedObbPath"
+	ManagerService_GetPrimaryStorageVolume_FullMethodName                  = "/storage.ManagerService/GetPrimaryStorageVolume"
+	ManagerService_GetRecentStorageVolumes_FullMethodName                  = "/storage.ManagerService/GetRecentStorageVolumes"
+	ManagerService_GetStorageVolume1_FullMethodName                        = "/storage.ManagerService/GetStorageVolume1"
+	ManagerService_GetStorageVolume1_1_FullMethodName                      = "/storage.ManagerService/GetStorageVolume1_1"
+	ManagerService_GetStorageVolumes_FullMethodName                        = "/storage.ManagerService/GetStorageVolumes"
+	ManagerService_GetStorageVolumesIncludingSharedProfiles_FullMethodName = "/storage.ManagerService/GetStorageVolumesIncludingSharedProfiles"
+	ManagerService_GetUuidForPath_FullMethodName                           = "/storage.ManagerService/GetUuidForPath"
+	ManagerService_IsAllocationSupported_FullMethodName                    = "/storage.ManagerService/IsAllocationSupported"
+	ManagerService_IsCacheBehaviorGroup_FullMethodName                     = "/storage.ManagerService/IsCacheBehaviorGroup"
+	ManagerService_IsCacheBehaviorTombstone_FullMethodName                 = "/storage.ManagerService/IsCacheBehaviorTombstone"
+	ManagerService_IsCheckpointSupported_FullMethodName                    = "/storage.ManagerService/IsCheckpointSupported"
+	ManagerService_IsEncrypted_FullMethodName                              = "/storage.ManagerService/IsEncrypted"
+	ManagerService_IsObbMounted_FullMethodName                             = "/storage.ManagerService/IsObbMounted"
+	ManagerService_MountObb_FullMethodName                                 = "/storage.ManagerService/MountObb"
+	ManagerService_RegisterStorageVolumeCallback_FullMethodName            = "/storage.ManagerService/RegisterStorageVolumeCallback"
+	ManagerService_SetCacheBehaviorGroup_FullMethodName                    = "/storage.ManagerService/SetCacheBehaviorGroup"
+	ManagerService_SetCacheBehaviorTombstone_FullMethodName                = "/storage.ManagerService/SetCacheBehaviorTombstone"
+	ManagerService_UnmountObb_FullMethodName                               = "/storage.ManagerService/UnmountObb"
+	ManagerService_UnregisterStorageVolumeCallback_FullMethodName          = "/storage.ManagerService/UnregisterStorageVolumeCallback"
+)
+
+// ManagerServiceClient is the client API for ManagerService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ManagerServiceClient interface {
+	AllocateBytes2(ctx context.Context, in *AllocateBytes2Request, opts ...grpc.CallOption) (*AllocateBytes2Response, error)
+	AllocateBytes2_1(ctx context.Context, in *AllocateBytes2_1Request, opts ...grpc.CallOption) (*AllocateBytes2_1Response, error)
+	GetAllocatableBytes(ctx context.Context, in *GetAllocatableBytesRequest, opts ...grpc.CallOption) (*GetAllocatableBytesResponse, error)
+	GetCacheQuotaBytes(ctx context.Context, in *GetCacheQuotaBytesRequest, opts ...grpc.CallOption) (*GetCacheQuotaBytesResponse, error)
+	GetCacheSizeBytes(ctx context.Context, in *GetCacheSizeBytesRequest, opts ...grpc.CallOption) (*GetCacheSizeBytesResponse, error)
+	GetManageSpaceActivityIntent(ctx context.Context, in *GetManageSpaceActivityIntentRequest, opts ...grpc.CallOption) (*GetManageSpaceActivityIntentResponse, error)
+	GetMountedObbPath(ctx context.Context, in *GetMountedObbPathRequest, opts ...grpc.CallOption) (*GetMountedObbPathResponse, error)
+	GetPrimaryStorageVolume(ctx context.Context, in *GetPrimaryStorageVolumeRequest, opts ...grpc.CallOption) (*GetPrimaryStorageVolumeResponse, error)
+	GetRecentStorageVolumes(ctx context.Context, in *GetRecentStorageVolumesRequest, opts ...grpc.CallOption) (*GetRecentStorageVolumesResponse, error)
+	GetStorageVolume1(ctx context.Context, in *GetStorageVolume1Request, opts ...grpc.CallOption) (*GetStorageVolume1Response, error)
+	GetStorageVolume1_1(ctx context.Context, in *GetStorageVolume1_1Request, opts ...grpc.CallOption) (*GetStorageVolume1_1Response, error)
+	GetStorageVolumes(ctx context.Context, in *GetStorageVolumesRequest, opts ...grpc.CallOption) (*GetStorageVolumesResponse, error)
+	GetStorageVolumesIncludingSharedProfiles(ctx context.Context, in *GetStorageVolumesIncludingSharedProfilesRequest, opts ...grpc.CallOption) (*GetStorageVolumesIncludingSharedProfilesResponse, error)
+	GetUuidForPath(ctx context.Context, in *GetUuidForPathRequest, opts ...grpc.CallOption) (*GetUuidForPathResponse, error)
+	IsAllocationSupported(ctx context.Context, in *IsAllocationSupportedRequest, opts ...grpc.CallOption) (*IsAllocationSupportedResponse, error)
+	IsCacheBehaviorGroup(ctx context.Context, in *IsCacheBehaviorGroupRequest, opts ...grpc.CallOption) (*IsCacheBehaviorGroupResponse, error)
+	IsCacheBehaviorTombstone(ctx context.Context, in *IsCacheBehaviorTombstoneRequest, opts ...grpc.CallOption) (*IsCacheBehaviorTombstoneResponse, error)
+	IsCheckpointSupported(ctx context.Context, in *IsCheckpointSupportedRequest, opts ...grpc.CallOption) (*IsCheckpointSupportedResponse, error)
+	IsEncrypted(ctx context.Context, in *IsEncryptedRequest, opts ...grpc.CallOption) (*IsEncryptedResponse, error)
+	IsObbMounted(ctx context.Context, in *IsObbMountedRequest, opts ...grpc.CallOption) (*IsObbMountedResponse, error)
+	MountObb(ctx context.Context, in *MountObbRequest, opts ...grpc.CallOption) (*MountObbResponse, error)
+	RegisterStorageVolumeCallback(ctx context.Context, in *RegisterStorageVolumeCallbackRequest, opts ...grpc.CallOption) (*RegisterStorageVolumeCallbackResponse, error)
+	SetCacheBehaviorGroup(ctx context.Context, in *SetCacheBehaviorGroupRequest, opts ...grpc.CallOption) (*SetCacheBehaviorGroupResponse, error)
+	SetCacheBehaviorTombstone(ctx context.Context, in *SetCacheBehaviorTombstoneRequest, opts ...grpc.CallOption) (*SetCacheBehaviorTombstoneResponse, error)
+	UnmountObb(ctx context.Context, in *UnmountObbRequest, opts ...grpc.CallOption) (*UnmountObbResponse, error)
+	UnregisterStorageVolumeCallback(ctx context.Context, in *UnregisterStorageVolumeCallbackRequest, opts ...grpc.CallOption) (*UnregisterStorageVolumeCallbackResponse, error)
+}
+
+type managerServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewManagerServiceClient(cc grpc.ClientConnInterface) ManagerServiceClient {
+	return &managerServiceClient{cc}
+}
+
+func (c *managerServiceClient) AllocateBytes2(ctx context.Context, in *AllocateBytes2Request, opts ...grpc.CallOption) (*AllocateBytes2Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(AllocateBytes2Response)
+	err := c.cc.Invoke(ctx, ManagerService_AllocateBytes2_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *managerServiceClient) AllocateBytes2_1(ctx context.Context, in *AllocateBytes2_1Request, opts ...grpc.CallOption) (*AllocateBytes2_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(AllocateBytes2_1Response)
+	err := c.cc.Invoke(ctx, ManagerService_AllocateBytes2_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *managerServiceClient) GetAllocatableBytes(ctx context.Context, in *GetAllocatableBytesRequest, opts ...grpc.CallOption) (*GetAllocatableBytesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetAllocatableBytesResponse)
+	err := c.cc.Invoke(ctx, ManagerService_GetAllocatableBytes_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *managerServiceClient) GetCacheQuotaBytes(ctx context.Context, in *GetCacheQuotaBytesRequest, opts ...grpc.CallOption) (*GetCacheQuotaBytesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetCacheQuotaBytesResponse)
+	err := c.cc.Invoke(ctx, ManagerService_GetCacheQuotaBytes_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *managerServiceClient) GetCacheSizeBytes(ctx context.Context, in *GetCacheSizeBytesRequest, opts ...grpc.CallOption) (*GetCacheSizeBytesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetCacheSizeBytesResponse)
+	err := c.cc.Invoke(ctx, ManagerService_GetCacheSizeBytes_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *managerServiceClient) GetManageSpaceActivityIntent(ctx context.Context, in *GetManageSpaceActivityIntentRequest, opts ...grpc.CallOption) (*GetManageSpaceActivityIntentResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetManageSpaceActivityIntentResponse)
+	err := c.cc.Invoke(ctx, ManagerService_GetManageSpaceActivityIntent_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *managerServiceClient) GetMountedObbPath(ctx context.Context, in *GetMountedObbPathRequest, opts ...grpc.CallOption) (*GetMountedObbPathResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetMountedObbPathResponse)
+	err := c.cc.Invoke(ctx, ManagerService_GetMountedObbPath_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *managerServiceClient) GetPrimaryStorageVolume(ctx context.Context, in *GetPrimaryStorageVolumeRequest, opts ...grpc.CallOption) (*GetPrimaryStorageVolumeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetPrimaryStorageVolumeResponse)
+	err := c.cc.Invoke(ctx, ManagerService_GetPrimaryStorageVolume_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *managerServiceClient) GetRecentStorageVolumes(ctx context.Context, in *GetRecentStorageVolumesRequest, opts ...grpc.CallOption) (*GetRecentStorageVolumesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetRecentStorageVolumesResponse)
+	err := c.cc.Invoke(ctx, ManagerService_GetRecentStorageVolumes_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *managerServiceClient) GetStorageVolume1(ctx context.Context, in *GetStorageVolume1Request, opts ...grpc.CallOption) (*GetStorageVolume1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetStorageVolume1Response)
+	err := c.cc.Invoke(ctx, ManagerService_GetStorageVolume1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *managerServiceClient) GetStorageVolume1_1(ctx context.Context, in *GetStorageVolume1_1Request, opts ...grpc.CallOption) (*GetStorageVolume1_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetStorageVolume1_1Response)
+	err := c.cc.Invoke(ctx, ManagerService_GetStorageVolume1_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *managerServiceClient) GetStorageVolumes(ctx context.Context, in *GetStorageVolumesRequest, opts ...grpc.CallOption) (*GetStorageVolumesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetStorageVolumesResponse)
+	err := c.cc.Invoke(ctx, ManagerService_GetStorageVolumes_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *managerServiceClient) GetStorageVolumesIncludingSharedProfiles(ctx context.Context, in *GetStorageVolumesIncludingSharedProfilesRequest, opts ...grpc.CallOption) (*GetStorageVolumesIncludingSharedProfilesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetStorageVolumesIncludingSharedProfilesResponse)
+	err := c.cc.Invoke(ctx, ManagerService_GetStorageVolumesIncludingSharedProfiles_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *managerServiceClient) GetUuidForPath(ctx context.Context, in *GetUuidForPathRequest, opts ...grpc.CallOption) (*GetUuidForPathResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetUuidForPathResponse)
+	err := c.cc.Invoke(ctx, ManagerService_GetUuidForPath_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *managerServiceClient) IsAllocationSupported(ctx context.Context, in *IsAllocationSupportedRequest, opts ...grpc.CallOption) (*IsAllocationSupportedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsAllocationSupportedResponse)
+	err := c.cc.Invoke(ctx, ManagerService_IsAllocationSupported_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *managerServiceClient) IsCacheBehaviorGroup(ctx context.Context, in *IsCacheBehaviorGroupRequest, opts ...grpc.CallOption) (*IsCacheBehaviorGroupResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsCacheBehaviorGroupResponse)
+	err := c.cc.Invoke(ctx, ManagerService_IsCacheBehaviorGroup_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *managerServiceClient) IsCacheBehaviorTombstone(ctx context.Context, in *IsCacheBehaviorTombstoneRequest, opts ...grpc.CallOption) (*IsCacheBehaviorTombstoneResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsCacheBehaviorTombstoneResponse)
+	err := c.cc.Invoke(ctx, ManagerService_IsCacheBehaviorTombstone_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *managerServiceClient) IsCheckpointSupported(ctx context.Context, in *IsCheckpointSupportedRequest, opts ...grpc.CallOption) (*IsCheckpointSupportedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsCheckpointSupportedResponse)
+	err := c.cc.Invoke(ctx, ManagerService_IsCheckpointSupported_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *managerServiceClient) IsEncrypted(ctx context.Context, in *IsEncryptedRequest, opts ...grpc.CallOption) (*IsEncryptedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsEncryptedResponse)
+	err := c.cc.Invoke(ctx, ManagerService_IsEncrypted_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *managerServiceClient) IsObbMounted(ctx context.Context, in *IsObbMountedRequest, opts ...grpc.CallOption) (*IsObbMountedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsObbMountedResponse)
+	err := c.cc.Invoke(ctx, ManagerService_IsObbMounted_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *managerServiceClient) MountObb(ctx context.Context, in *MountObbRequest, opts ...grpc.CallOption) (*MountObbResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(MountObbResponse)
+	err := c.cc.Invoke(ctx, ManagerService_MountObb_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *managerServiceClient) RegisterStorageVolumeCallback(ctx context.Context, in *RegisterStorageVolumeCallbackRequest, opts ...grpc.CallOption) (*RegisterStorageVolumeCallbackResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(RegisterStorageVolumeCallbackResponse)
+	err := c.cc.Invoke(ctx, ManagerService_RegisterStorageVolumeCallback_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *managerServiceClient) SetCacheBehaviorGroup(ctx context.Context, in *SetCacheBehaviorGroupRequest, opts ...grpc.CallOption) (*SetCacheBehaviorGroupResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetCacheBehaviorGroupResponse)
+	err := c.cc.Invoke(ctx, ManagerService_SetCacheBehaviorGroup_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *managerServiceClient) SetCacheBehaviorTombstone(ctx context.Context, in *SetCacheBehaviorTombstoneRequest, opts ...grpc.CallOption) (*SetCacheBehaviorTombstoneResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetCacheBehaviorTombstoneResponse)
+	err := c.cc.Invoke(ctx, ManagerService_SetCacheBehaviorTombstone_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *managerServiceClient) UnmountObb(ctx context.Context, in *UnmountObbRequest, opts ...grpc.CallOption) (*UnmountObbResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(UnmountObbResponse)
+	err := c.cc.Invoke(ctx, ManagerService_UnmountObb_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *managerServiceClient) UnregisterStorageVolumeCallback(ctx context.Context, in *UnregisterStorageVolumeCallbackRequest, opts ...grpc.CallOption) (*UnregisterStorageVolumeCallbackResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(UnregisterStorageVolumeCallbackResponse)
+	err := c.cc.Invoke(ctx, ManagerService_UnregisterStorageVolumeCallback_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ManagerServiceServer is the server API for ManagerService service.
+// All implementations must embed UnimplementedManagerServiceServer
+// for forward compatibility.
+type ManagerServiceServer interface {
+	AllocateBytes2(context.Context, *AllocateBytes2Request) (*AllocateBytes2Response, error)
+	AllocateBytes2_1(context.Context, *AllocateBytes2_1Request) (*AllocateBytes2_1Response, error)
+	GetAllocatableBytes(context.Context, *GetAllocatableBytesRequest) (*GetAllocatableBytesResponse, error)
+	GetCacheQuotaBytes(context.Context, *GetCacheQuotaBytesRequest) (*GetCacheQuotaBytesResponse, error)
+	GetCacheSizeBytes(context.Context, *GetCacheSizeBytesRequest) (*GetCacheSizeBytesResponse, error)
+	GetManageSpaceActivityIntent(context.Context, *GetManageSpaceActivityIntentRequest) (*GetManageSpaceActivityIntentResponse, error)
+	GetMountedObbPath(context.Context, *GetMountedObbPathRequest) (*GetMountedObbPathResponse, error)
+	GetPrimaryStorageVolume(context.Context, *GetPrimaryStorageVolumeRequest) (*GetPrimaryStorageVolumeResponse, error)
+	GetRecentStorageVolumes(context.Context, *GetRecentStorageVolumesRequest) (*GetRecentStorageVolumesResponse, error)
+	GetStorageVolume1(context.Context, *GetStorageVolume1Request) (*GetStorageVolume1Response, error)
+	GetStorageVolume1_1(context.Context, *GetStorageVolume1_1Request) (*GetStorageVolume1_1Response, error)
+	GetStorageVolumes(context.Context, *GetStorageVolumesRequest) (*GetStorageVolumesResponse, error)
+	GetStorageVolumesIncludingSharedProfiles(context.Context, *GetStorageVolumesIncludingSharedProfilesRequest) (*GetStorageVolumesIncludingSharedProfilesResponse, error)
+	GetUuidForPath(context.Context, *GetUuidForPathRequest) (*GetUuidForPathResponse, error)
+	IsAllocationSupported(context.Context, *IsAllocationSupportedRequest) (*IsAllocationSupportedResponse, error)
+	IsCacheBehaviorGroup(context.Context, *IsCacheBehaviorGroupRequest) (*IsCacheBehaviorGroupResponse, error)
+	IsCacheBehaviorTombstone(context.Context, *IsCacheBehaviorTombstoneRequest) (*IsCacheBehaviorTombstoneResponse, error)
+	IsCheckpointSupported(context.Context, *IsCheckpointSupportedRequest) (*IsCheckpointSupportedResponse, error)
+	IsEncrypted(context.Context, *IsEncryptedRequest) (*IsEncryptedResponse, error)
+	IsObbMounted(context.Context, *IsObbMountedRequest) (*IsObbMountedResponse, error)
+	MountObb(context.Context, *MountObbRequest) (*MountObbResponse, error)
+	RegisterStorageVolumeCallback(context.Context, *RegisterStorageVolumeCallbackRequest) (*RegisterStorageVolumeCallbackResponse, error)
+	SetCacheBehaviorGroup(context.Context, *SetCacheBehaviorGroupRequest) (*SetCacheBehaviorGroupResponse, error)
+	SetCacheBehaviorTombstone(context.Context, *SetCacheBehaviorTombstoneRequest) (*SetCacheBehaviorTombstoneResponse, error)
+	UnmountObb(context.Context, *UnmountObbRequest) (*UnmountObbResponse, error)
+	UnregisterStorageVolumeCallback(context.Context, *UnregisterStorageVolumeCallbackRequest) (*UnregisterStorageVolumeCallbackResponse, error)
+	mustEmbedUnimplementedManagerServiceServer()
+}
+
+// UnimplementedManagerServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedManagerServiceServer struct{}
+
+func (UnimplementedManagerServiceServer) AllocateBytes2(context.Context, *AllocateBytes2Request) (*AllocateBytes2Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method AllocateBytes2 not implemented")
+}
+func (UnimplementedManagerServiceServer) AllocateBytes2_1(context.Context, *AllocateBytes2_1Request) (*AllocateBytes2_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method AllocateBytes2_1 not implemented")
+}
+func (UnimplementedManagerServiceServer) GetAllocatableBytes(context.Context, *GetAllocatableBytesRequest) (*GetAllocatableBytesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetAllocatableBytes not implemented")
+}
+func (UnimplementedManagerServiceServer) GetCacheQuotaBytes(context.Context, *GetCacheQuotaBytesRequest) (*GetCacheQuotaBytesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetCacheQuotaBytes not implemented")
+}
+func (UnimplementedManagerServiceServer) GetCacheSizeBytes(context.Context, *GetCacheSizeBytesRequest) (*GetCacheSizeBytesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetCacheSizeBytes not implemented")
+}
+func (UnimplementedManagerServiceServer) GetManageSpaceActivityIntent(context.Context, *GetManageSpaceActivityIntentRequest) (*GetManageSpaceActivityIntentResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetManageSpaceActivityIntent not implemented")
+}
+func (UnimplementedManagerServiceServer) GetMountedObbPath(context.Context, *GetMountedObbPathRequest) (*GetMountedObbPathResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetMountedObbPath not implemented")
+}
+func (UnimplementedManagerServiceServer) GetPrimaryStorageVolume(context.Context, *GetPrimaryStorageVolumeRequest) (*GetPrimaryStorageVolumeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetPrimaryStorageVolume not implemented")
+}
+func (UnimplementedManagerServiceServer) GetRecentStorageVolumes(context.Context, *GetRecentStorageVolumesRequest) (*GetRecentStorageVolumesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetRecentStorageVolumes not implemented")
+}
+func (UnimplementedManagerServiceServer) GetStorageVolume1(context.Context, *GetStorageVolume1Request) (*GetStorageVolume1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetStorageVolume1 not implemented")
+}
+func (UnimplementedManagerServiceServer) GetStorageVolume1_1(context.Context, *GetStorageVolume1_1Request) (*GetStorageVolume1_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetStorageVolume1_1 not implemented")
+}
+func (UnimplementedManagerServiceServer) GetStorageVolumes(context.Context, *GetStorageVolumesRequest) (*GetStorageVolumesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetStorageVolumes not implemented")
+}
+func (UnimplementedManagerServiceServer) GetStorageVolumesIncludingSharedProfiles(context.Context, *GetStorageVolumesIncludingSharedProfilesRequest) (*GetStorageVolumesIncludingSharedProfilesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetStorageVolumesIncludingSharedProfiles not implemented")
+}
+func (UnimplementedManagerServiceServer) GetUuidForPath(context.Context, *GetUuidForPathRequest) (*GetUuidForPathResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetUuidForPath not implemented")
+}
+func (UnimplementedManagerServiceServer) IsAllocationSupported(context.Context, *IsAllocationSupportedRequest) (*IsAllocationSupportedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsAllocationSupported not implemented")
+}
+func (UnimplementedManagerServiceServer) IsCacheBehaviorGroup(context.Context, *IsCacheBehaviorGroupRequest) (*IsCacheBehaviorGroupResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsCacheBehaviorGroup not implemented")
+}
+func (UnimplementedManagerServiceServer) IsCacheBehaviorTombstone(context.Context, *IsCacheBehaviorTombstoneRequest) (*IsCacheBehaviorTombstoneResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsCacheBehaviorTombstone not implemented")
+}
+func (UnimplementedManagerServiceServer) IsCheckpointSupported(context.Context, *IsCheckpointSupportedRequest) (*IsCheckpointSupportedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsCheckpointSupported not implemented")
+}
+func (UnimplementedManagerServiceServer) IsEncrypted(context.Context, *IsEncryptedRequest) (*IsEncryptedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsEncrypted not implemented")
+}
+func (UnimplementedManagerServiceServer) IsObbMounted(context.Context, *IsObbMountedRequest) (*IsObbMountedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsObbMounted not implemented")
+}
+func (UnimplementedManagerServiceServer) MountObb(context.Context, *MountObbRequest) (*MountObbResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method MountObb not implemented")
+}
+func (UnimplementedManagerServiceServer) RegisterStorageVolumeCallback(context.Context, *RegisterStorageVolumeCallbackRequest) (*RegisterStorageVolumeCallbackResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method RegisterStorageVolumeCallback not implemented")
+}
+func (UnimplementedManagerServiceServer) SetCacheBehaviorGroup(context.Context, *SetCacheBehaviorGroupRequest) (*SetCacheBehaviorGroupResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetCacheBehaviorGroup not implemented")
+}
+func (UnimplementedManagerServiceServer) SetCacheBehaviorTombstone(context.Context, *SetCacheBehaviorTombstoneRequest) (*SetCacheBehaviorTombstoneResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetCacheBehaviorTombstone not implemented")
+}
+func (UnimplementedManagerServiceServer) UnmountObb(context.Context, *UnmountObbRequest) (*UnmountObbResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method UnmountObb not implemented")
+}
+func (UnimplementedManagerServiceServer) UnregisterStorageVolumeCallback(context.Context, *UnregisterStorageVolumeCallbackRequest) (*UnregisterStorageVolumeCallbackResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method UnregisterStorageVolumeCallback not implemented")
+}
+func (UnimplementedManagerServiceServer) mustEmbedUnimplementedManagerServiceServer() {}
+func (UnimplementedManagerServiceServer) testEmbeddedByValue()                        {}
+
+// UnsafeManagerServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ManagerServiceServer will
+// result in compilation errors.
+type UnsafeManagerServiceServer interface {
+	mustEmbedUnimplementedManagerServiceServer()
+}
+
+func RegisterManagerServiceServer(s grpc.ServiceRegistrar, srv ManagerServiceServer) {
+	// If the following call panics, it indicates UnimplementedManagerServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&ManagerService_ServiceDesc, srv)
+}
+
+func _ManagerService_AllocateBytes2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AllocateBytes2Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerServiceServer).AllocateBytes2(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerService_AllocateBytes2_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerServiceServer).AllocateBytes2(ctx, req.(*AllocateBytes2Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ManagerService_AllocateBytes2_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AllocateBytes2_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerServiceServer).AllocateBytes2_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerService_AllocateBytes2_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerServiceServer).AllocateBytes2_1(ctx, req.(*AllocateBytes2_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ManagerService_GetAllocatableBytes_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetAllocatableBytesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerServiceServer).GetAllocatableBytes(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerService_GetAllocatableBytes_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerServiceServer).GetAllocatableBytes(ctx, req.(*GetAllocatableBytesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ManagerService_GetCacheQuotaBytes_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetCacheQuotaBytesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerServiceServer).GetCacheQuotaBytes(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerService_GetCacheQuotaBytes_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerServiceServer).GetCacheQuotaBytes(ctx, req.(*GetCacheQuotaBytesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ManagerService_GetCacheSizeBytes_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetCacheSizeBytesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerServiceServer).GetCacheSizeBytes(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerService_GetCacheSizeBytes_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerServiceServer).GetCacheSizeBytes(ctx, req.(*GetCacheSizeBytesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ManagerService_GetManageSpaceActivityIntent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetManageSpaceActivityIntentRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerServiceServer).GetManageSpaceActivityIntent(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerService_GetManageSpaceActivityIntent_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerServiceServer).GetManageSpaceActivityIntent(ctx, req.(*GetManageSpaceActivityIntentRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ManagerService_GetMountedObbPath_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetMountedObbPathRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerServiceServer).GetMountedObbPath(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerService_GetMountedObbPath_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerServiceServer).GetMountedObbPath(ctx, req.(*GetMountedObbPathRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ManagerService_GetPrimaryStorageVolume_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPrimaryStorageVolumeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerServiceServer).GetPrimaryStorageVolume(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerService_GetPrimaryStorageVolume_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerServiceServer).GetPrimaryStorageVolume(ctx, req.(*GetPrimaryStorageVolumeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ManagerService_GetRecentStorageVolumes_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetRecentStorageVolumesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerServiceServer).GetRecentStorageVolumes(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerService_GetRecentStorageVolumes_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerServiceServer).GetRecentStorageVolumes(ctx, req.(*GetRecentStorageVolumesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ManagerService_GetStorageVolume1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetStorageVolume1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerServiceServer).GetStorageVolume1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerService_GetStorageVolume1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerServiceServer).GetStorageVolume1(ctx, req.(*GetStorageVolume1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ManagerService_GetStorageVolume1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetStorageVolume1_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerServiceServer).GetStorageVolume1_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerService_GetStorageVolume1_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerServiceServer).GetStorageVolume1_1(ctx, req.(*GetStorageVolume1_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ManagerService_GetStorageVolumes_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetStorageVolumesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerServiceServer).GetStorageVolumes(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerService_GetStorageVolumes_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerServiceServer).GetStorageVolumes(ctx, req.(*GetStorageVolumesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ManagerService_GetStorageVolumesIncludingSharedProfiles_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetStorageVolumesIncludingSharedProfilesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerServiceServer).GetStorageVolumesIncludingSharedProfiles(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerService_GetStorageVolumesIncludingSharedProfiles_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerServiceServer).GetStorageVolumesIncludingSharedProfiles(ctx, req.(*GetStorageVolumesIncludingSharedProfilesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ManagerService_GetUuidForPath_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetUuidForPathRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerServiceServer).GetUuidForPath(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerService_GetUuidForPath_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerServiceServer).GetUuidForPath(ctx, req.(*GetUuidForPathRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ManagerService_IsAllocationSupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsAllocationSupportedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerServiceServer).IsAllocationSupported(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerService_IsAllocationSupported_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerServiceServer).IsAllocationSupported(ctx, req.(*IsAllocationSupportedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ManagerService_IsCacheBehaviorGroup_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsCacheBehaviorGroupRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerServiceServer).IsCacheBehaviorGroup(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerService_IsCacheBehaviorGroup_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerServiceServer).IsCacheBehaviorGroup(ctx, req.(*IsCacheBehaviorGroupRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ManagerService_IsCacheBehaviorTombstone_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsCacheBehaviorTombstoneRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerServiceServer).IsCacheBehaviorTombstone(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerService_IsCacheBehaviorTombstone_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerServiceServer).IsCacheBehaviorTombstone(ctx, req.(*IsCacheBehaviorTombstoneRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ManagerService_IsCheckpointSupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsCheckpointSupportedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerServiceServer).IsCheckpointSupported(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerService_IsCheckpointSupported_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerServiceServer).IsCheckpointSupported(ctx, req.(*IsCheckpointSupportedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ManagerService_IsEncrypted_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsEncryptedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerServiceServer).IsEncrypted(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerService_IsEncrypted_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerServiceServer).IsEncrypted(ctx, req.(*IsEncryptedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ManagerService_IsObbMounted_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsObbMountedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerServiceServer).IsObbMounted(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerService_IsObbMounted_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerServiceServer).IsObbMounted(ctx, req.(*IsObbMountedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ManagerService_MountObb_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MountObbRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerServiceServer).MountObb(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerService_MountObb_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerServiceServer).MountObb(ctx, req.(*MountObbRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ManagerService_RegisterStorageVolumeCallback_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RegisterStorageVolumeCallbackRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerServiceServer).RegisterStorageVolumeCallback(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerService_RegisterStorageVolumeCallback_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerServiceServer).RegisterStorageVolumeCallback(ctx, req.(*RegisterStorageVolumeCallbackRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ManagerService_SetCacheBehaviorGroup_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetCacheBehaviorGroupRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerServiceServer).SetCacheBehaviorGroup(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerService_SetCacheBehaviorGroup_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerServiceServer).SetCacheBehaviorGroup(ctx, req.(*SetCacheBehaviorGroupRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ManagerService_SetCacheBehaviorTombstone_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetCacheBehaviorTombstoneRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerServiceServer).SetCacheBehaviorTombstone(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerService_SetCacheBehaviorTombstone_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerServiceServer).SetCacheBehaviorTombstone(ctx, req.(*SetCacheBehaviorTombstoneRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ManagerService_UnmountObb_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UnmountObbRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerServiceServer).UnmountObb(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerService_UnmountObb_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerServiceServer).UnmountObb(ctx, req.(*UnmountObbRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ManagerService_UnregisterStorageVolumeCallback_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UnregisterStorageVolumeCallbackRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerServiceServer).UnregisterStorageVolumeCallback(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerService_UnregisterStorageVolumeCallback_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerServiceServer).UnregisterStorageVolumeCallback(ctx, req.(*UnregisterStorageVolumeCallbackRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ManagerService_ServiceDesc is the grpc.ServiceDesc for ManagerService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ManagerService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "storage.ManagerService",
+	HandlerType: (*ManagerServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "AllocateBytes2",
+			Handler:    _ManagerService_AllocateBytes2_Handler,
+		},
+		{
+			MethodName: "AllocateBytes2_1",
+			Handler:    _ManagerService_AllocateBytes2_1_Handler,
+		},
+		{
+			MethodName: "GetAllocatableBytes",
+			Handler:    _ManagerService_GetAllocatableBytes_Handler,
+		},
+		{
+			MethodName: "GetCacheQuotaBytes",
+			Handler:    _ManagerService_GetCacheQuotaBytes_Handler,
+		},
+		{
+			MethodName: "GetCacheSizeBytes",
+			Handler:    _ManagerService_GetCacheSizeBytes_Handler,
+		},
+		{
+			MethodName: "GetManageSpaceActivityIntent",
+			Handler:    _ManagerService_GetManageSpaceActivityIntent_Handler,
+		},
+		{
+			MethodName: "GetMountedObbPath",
+			Handler:    _ManagerService_GetMountedObbPath_Handler,
+		},
+		{
+			MethodName: "GetPrimaryStorageVolume",
+			Handler:    _ManagerService_GetPrimaryStorageVolume_Handler,
+		},
+		{
+			MethodName: "GetRecentStorageVolumes",
+			Handler:    _ManagerService_GetRecentStorageVolumes_Handler,
+		},
+		{
+			MethodName: "GetStorageVolume1",
+			Handler:    _ManagerService_GetStorageVolume1_Handler,
+		},
+		{
+			MethodName: "GetStorageVolume1_1",
+			Handler:    _ManagerService_GetStorageVolume1_1_Handler,
+		},
+		{
+			MethodName: "GetStorageVolumes",
+			Handler:    _ManagerService_GetStorageVolumes_Handler,
+		},
+		{
+			MethodName: "GetStorageVolumesIncludingSharedProfiles",
+			Handler:    _ManagerService_GetStorageVolumesIncludingSharedProfiles_Handler,
+		},
+		{
+			MethodName: "GetUuidForPath",
+			Handler:    _ManagerService_GetUuidForPath_Handler,
+		},
+		{
+			MethodName: "IsAllocationSupported",
+			Handler:    _ManagerService_IsAllocationSupported_Handler,
+		},
+		{
+			MethodName: "IsCacheBehaviorGroup",
+			Handler:    _ManagerService_IsCacheBehaviorGroup_Handler,
+		},
+		{
+			MethodName: "IsCacheBehaviorTombstone",
+			Handler:    _ManagerService_IsCacheBehaviorTombstone_Handler,
+		},
+		{
+			MethodName: "IsCheckpointSupported",
+			Handler:    _ManagerService_IsCheckpointSupported_Handler,
+		},
+		{
+			MethodName: "IsEncrypted",
+			Handler:    _ManagerService_IsEncrypted_Handler,
+		},
+		{
+			MethodName: "IsObbMounted",
+			Handler:    _ManagerService_IsObbMounted_Handler,
+		},
+		{
+			MethodName: "MountObb",
+			Handler:    _ManagerService_MountObb_Handler,
+		},
+		{
+			MethodName: "RegisterStorageVolumeCallback",
+			Handler:    _ManagerService_RegisterStorageVolumeCallback_Handler,
+		},
+		{
+			MethodName: "SetCacheBehaviorGroup",
+			Handler:    _ManagerService_SetCacheBehaviorGroup_Handler,
+		},
+		{
+			MethodName: "SetCacheBehaviorTombstone",
+			Handler:    _ManagerService_SetCacheBehaviorTombstone_Handler,
+		},
+		{
+			MethodName: "UnmountObb",
+			Handler:    _ManagerService_UnmountObb_Handler,
+		},
+		{
+			MethodName: "UnregisterStorageVolumeCallback",
+			Handler:    _ManagerService_UnregisterStorageVolumeCallback_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/storage/storage.proto",
+}
+
+const (
+	ManagerStorageVolumeCallbackService_OnStateChanged_FullMethodName = "/storage.ManagerStorageVolumeCallbackService/OnStateChanged"
+)
+
+// ManagerStorageVolumeCallbackServiceClient is the client API for ManagerStorageVolumeCallbackService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ManagerStorageVolumeCallbackServiceClient interface {
+	OnStateChanged(ctx context.Context, in *OnStateChangedRequest, opts ...grpc.CallOption) (*OnStateChangedResponse, error)
+}
+
+type managerStorageVolumeCallbackServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewManagerStorageVolumeCallbackServiceClient(cc grpc.ClientConnInterface) ManagerStorageVolumeCallbackServiceClient {
+	return &managerStorageVolumeCallbackServiceClient{cc}
+}
+
+func (c *managerStorageVolumeCallbackServiceClient) OnStateChanged(ctx context.Context, in *OnStateChangedRequest, opts ...grpc.CallOption) (*OnStateChangedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnStateChangedResponse)
+	err := c.cc.Invoke(ctx, ManagerStorageVolumeCallbackService_OnStateChanged_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ManagerStorageVolumeCallbackServiceServer is the server API for ManagerStorageVolumeCallbackService service.
+// All implementations must embed UnimplementedManagerStorageVolumeCallbackServiceServer
+// for forward compatibility.
+type ManagerStorageVolumeCallbackServiceServer interface {
+	OnStateChanged(context.Context, *OnStateChangedRequest) (*OnStateChangedResponse, error)
+	mustEmbedUnimplementedManagerStorageVolumeCallbackServiceServer()
+}
+
+// UnimplementedManagerStorageVolumeCallbackServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedManagerStorageVolumeCallbackServiceServer struct{}
+
+func (UnimplementedManagerStorageVolumeCallbackServiceServer) OnStateChanged(context.Context, *OnStateChangedRequest) (*OnStateChangedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnStateChanged not implemented")
+}
+func (UnimplementedManagerStorageVolumeCallbackServiceServer) mustEmbedUnimplementedManagerStorageVolumeCallbackServiceServer() {
+}
+func (UnimplementedManagerStorageVolumeCallbackServiceServer) testEmbeddedByValue() {}
+
+// UnsafeManagerStorageVolumeCallbackServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ManagerStorageVolumeCallbackServiceServer will
+// result in compilation errors.
+type UnsafeManagerStorageVolumeCallbackServiceServer interface {
+	mustEmbedUnimplementedManagerStorageVolumeCallbackServiceServer()
+}
+
+func RegisterManagerStorageVolumeCallbackServiceServer(s grpc.ServiceRegistrar, srv ManagerStorageVolumeCallbackServiceServer) {
+	// If the following call panics, it indicates UnimplementedManagerStorageVolumeCallbackServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&ManagerStorageVolumeCallbackService_ServiceDesc, srv)
+}
+
+func _ManagerStorageVolumeCallbackService_OnStateChanged_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnStateChangedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerStorageVolumeCallbackServiceServer).OnStateChanged(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerStorageVolumeCallbackService_OnStateChanged_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerStorageVolumeCallbackServiceServer).OnStateChanged(ctx, req.(*OnStateChangedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ManagerStorageVolumeCallbackService_ServiceDesc is the grpc.ServiceDesc for ManagerStorageVolumeCallbackService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ManagerStorageVolumeCallbackService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "storage.ManagerStorageVolumeCallbackService",
+	HandlerType: (*ManagerStorageVolumeCallbackServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "OnStateChanged",
+			Handler:    _ManagerStorageVolumeCallbackService_OnStateChanged_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

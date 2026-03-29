@@ -21,6 +21,336 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
+	TimerStatService_NewTimerStat_FullMethodName     = "/health.TimerStatService/NewTimerStat"
+	TimerStatService_DescribeContents_FullMethodName = "/health.TimerStatService/DescribeContents"
+	TimerStatService_GetCount_FullMethodName         = "/health.TimerStatService/GetCount"
+	TimerStatService_GetTime_FullMethodName          = "/health.TimerStatService/GetTime"
+	TimerStatService_SetCount_FullMethodName         = "/health.TimerStatService/SetCount"
+	TimerStatService_SetTime_FullMethodName          = "/health.TimerStatService/SetTime"
+	TimerStatService_WriteToParcel_FullMethodName    = "/health.TimerStatService/WriteToParcel"
+)
+
+// TimerStatServiceClient is the client API for TimerStatService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type TimerStatServiceClient interface {
+	NewTimerStat(ctx context.Context, in *NewTimerStatRequest, opts ...grpc.CallOption) (*NewTimerStatResponse, error)
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	GetCount(ctx context.Context, in *GetCountRequest, opts ...grpc.CallOption) (*GetCountResponse, error)
+	GetTime(ctx context.Context, in *GetTimeRequest, opts ...grpc.CallOption) (*GetTimeResponse, error)
+	SetCount(ctx context.Context, in *SetCountRequest, opts ...grpc.CallOption) (*SetCountResponse, error)
+	SetTime(ctx context.Context, in *SetTimeRequest, opts ...grpc.CallOption) (*SetTimeResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type timerStatServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewTimerStatServiceClient(cc grpc.ClientConnInterface) TimerStatServiceClient {
+	return &timerStatServiceClient{cc}
+}
+
+func (c *timerStatServiceClient) NewTimerStat(ctx context.Context, in *NewTimerStatRequest, opts ...grpc.CallOption) (*NewTimerStatResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewTimerStatResponse)
+	err := c.cc.Invoke(ctx, TimerStatService_NewTimerStat_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *timerStatServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, TimerStatService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *timerStatServiceClient) GetCount(ctx context.Context, in *GetCountRequest, opts ...grpc.CallOption) (*GetCountResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetCountResponse)
+	err := c.cc.Invoke(ctx, TimerStatService_GetCount_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *timerStatServiceClient) GetTime(ctx context.Context, in *GetTimeRequest, opts ...grpc.CallOption) (*GetTimeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTimeResponse)
+	err := c.cc.Invoke(ctx, TimerStatService_GetTime_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *timerStatServiceClient) SetCount(ctx context.Context, in *SetCountRequest, opts ...grpc.CallOption) (*SetCountResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetCountResponse)
+	err := c.cc.Invoke(ctx, TimerStatService_SetCount_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *timerStatServiceClient) SetTime(ctx context.Context, in *SetTimeRequest, opts ...grpc.CallOption) (*SetTimeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetTimeResponse)
+	err := c.cc.Invoke(ctx, TimerStatService_SetTime_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *timerStatServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, TimerStatService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// TimerStatServiceServer is the server API for TimerStatService service.
+// All implementations must embed UnimplementedTimerStatServiceServer
+// for forward compatibility.
+type TimerStatServiceServer interface {
+	NewTimerStat(context.Context, *NewTimerStatRequest) (*NewTimerStatResponse, error)
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	GetCount(context.Context, *GetCountRequest) (*GetCountResponse, error)
+	GetTime(context.Context, *GetTimeRequest) (*GetTimeResponse, error)
+	SetCount(context.Context, *SetCountRequest) (*SetCountResponse, error)
+	SetTime(context.Context, *SetTimeRequest) (*SetTimeResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedTimerStatServiceServer()
+}
+
+// UnimplementedTimerStatServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedTimerStatServiceServer struct{}
+
+func (UnimplementedTimerStatServiceServer) NewTimerStat(context.Context, *NewTimerStatRequest) (*NewTimerStatResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewTimerStat not implemented")
+}
+func (UnimplementedTimerStatServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedTimerStatServiceServer) GetCount(context.Context, *GetCountRequest) (*GetCountResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetCount not implemented")
+}
+func (UnimplementedTimerStatServiceServer) GetTime(context.Context, *GetTimeRequest) (*GetTimeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTime not implemented")
+}
+func (UnimplementedTimerStatServiceServer) SetCount(context.Context, *SetCountRequest) (*SetCountResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetCount not implemented")
+}
+func (UnimplementedTimerStatServiceServer) SetTime(context.Context, *SetTimeRequest) (*SetTimeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetTime not implemented")
+}
+func (UnimplementedTimerStatServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedTimerStatServiceServer) mustEmbedUnimplementedTimerStatServiceServer() {}
+func (UnimplementedTimerStatServiceServer) testEmbeddedByValue()                          {}
+
+// UnsafeTimerStatServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to TimerStatServiceServer will
+// result in compilation errors.
+type UnsafeTimerStatServiceServer interface {
+	mustEmbedUnimplementedTimerStatServiceServer()
+}
+
+func RegisterTimerStatServiceServer(s grpc.ServiceRegistrar, srv TimerStatServiceServer) {
+	// If the following call panics, it indicates UnimplementedTimerStatServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&TimerStatService_ServiceDesc, srv)
+}
+
+func _TimerStatService_NewTimerStat_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewTimerStatRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TimerStatServiceServer).NewTimerStat(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TimerStatService_NewTimerStat_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TimerStatServiceServer).NewTimerStat(ctx, req.(*NewTimerStatRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TimerStatService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TimerStatServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TimerStatService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TimerStatServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TimerStatService_GetCount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetCountRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TimerStatServiceServer).GetCount(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TimerStatService_GetCount_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TimerStatServiceServer).GetCount(ctx, req.(*GetCountRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TimerStatService_GetTime_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTimeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TimerStatServiceServer).GetTime(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TimerStatService_GetTime_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TimerStatServiceServer).GetTime(ctx, req.(*GetTimeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TimerStatService_SetCount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetCountRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TimerStatServiceServer).SetCount(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TimerStatService_SetCount_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TimerStatServiceServer).SetCount(ctx, req.(*SetCountRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TimerStatService_SetTime_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetTimeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TimerStatServiceServer).SetTime(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TimerStatService_SetTime_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TimerStatServiceServer).SetTime(ctx, req.(*SetTimeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TimerStatService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TimerStatServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TimerStatService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TimerStatServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// TimerStatService_ServiceDesc is the grpc.ServiceDesc for TimerStatService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var TimerStatService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "health.TimerStatService",
+	HandlerType: (*TimerStatServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewTimerStat",
+			Handler:    _TimerStatService_NewTimerStat_Handler,
+		},
+		{
+			MethodName: "DescribeContents",
+			Handler:    _TimerStatService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "GetCount",
+			Handler:    _TimerStatService_GetCount_Handler,
+		},
+		{
+			MethodName: "GetTime",
+			Handler:    _TimerStatService_GetTime_Handler,
+		},
+		{
+			MethodName: "SetCount",
+			Handler:    _TimerStatService_SetCount_Handler,
+		},
+		{
+			MethodName: "SetTime",
+			Handler:    _TimerStatService_SetTime_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _TimerStatService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/health/health.proto",
+}
+
+const (
 	StatsService_GetDataType_FullMethodName             = "/health.StatsService/GetDataType"
 	StatsService_GetMeasurement_FullMethodName          = "/health.StatsService/GetMeasurement"
 	StatsService_GetMeasurementKeyAt_FullMethodName     = "/health.StatsService/GetMeasurementKeyAt"
@@ -1207,336 +1537,6 @@ var SystemHealthManagerService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "TakeUidSnapshots",
 			Handler:    _SystemHealthManagerService_TakeUidSnapshots_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/health/health.proto",
-}
-
-const (
-	TimerStatService_NewTimerStat_FullMethodName     = "/health.TimerStatService/NewTimerStat"
-	TimerStatService_DescribeContents_FullMethodName = "/health.TimerStatService/DescribeContents"
-	TimerStatService_GetCount_FullMethodName         = "/health.TimerStatService/GetCount"
-	TimerStatService_GetTime_FullMethodName          = "/health.TimerStatService/GetTime"
-	TimerStatService_SetCount_FullMethodName         = "/health.TimerStatService/SetCount"
-	TimerStatService_SetTime_FullMethodName          = "/health.TimerStatService/SetTime"
-	TimerStatService_WriteToParcel_FullMethodName    = "/health.TimerStatService/WriteToParcel"
-)
-
-// TimerStatServiceClient is the client API for TimerStatService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type TimerStatServiceClient interface {
-	NewTimerStat(ctx context.Context, in *NewTimerStatRequest, opts ...grpc.CallOption) (*NewTimerStatResponse, error)
-	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	GetCount(ctx context.Context, in *GetCountRequest, opts ...grpc.CallOption) (*GetCountResponse, error)
-	GetTime(ctx context.Context, in *GetTimeRequest, opts ...grpc.CallOption) (*GetTimeResponse, error)
-	SetCount(ctx context.Context, in *SetCountRequest, opts ...grpc.CallOption) (*SetCountResponse, error)
-	SetTime(ctx context.Context, in *SetTimeRequest, opts ...grpc.CallOption) (*SetTimeResponse, error)
-	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
-}
-
-type timerStatServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewTimerStatServiceClient(cc grpc.ClientConnInterface) TimerStatServiceClient {
-	return &timerStatServiceClient{cc}
-}
-
-func (c *timerStatServiceClient) NewTimerStat(ctx context.Context, in *NewTimerStatRequest, opts ...grpc.CallOption) (*NewTimerStatResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewTimerStatResponse)
-	err := c.cc.Invoke(ctx, TimerStatService_NewTimerStat_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *timerStatServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, TimerStatService_DescribeContents_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *timerStatServiceClient) GetCount(ctx context.Context, in *GetCountRequest, opts ...grpc.CallOption) (*GetCountResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetCountResponse)
-	err := c.cc.Invoke(ctx, TimerStatService_GetCount_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *timerStatServiceClient) GetTime(ctx context.Context, in *GetTimeRequest, opts ...grpc.CallOption) (*GetTimeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetTimeResponse)
-	err := c.cc.Invoke(ctx, TimerStatService_GetTime_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *timerStatServiceClient) SetCount(ctx context.Context, in *SetCountRequest, opts ...grpc.CallOption) (*SetCountResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetCountResponse)
-	err := c.cc.Invoke(ctx, TimerStatService_SetCount_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *timerStatServiceClient) SetTime(ctx context.Context, in *SetTimeRequest, opts ...grpc.CallOption) (*SetTimeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetTimeResponse)
-	err := c.cc.Invoke(ctx, TimerStatService_SetTime_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *timerStatServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, TimerStatService_WriteToParcel_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// TimerStatServiceServer is the server API for TimerStatService service.
-// All implementations must embed UnimplementedTimerStatServiceServer
-// for forward compatibility.
-type TimerStatServiceServer interface {
-	NewTimerStat(context.Context, *NewTimerStatRequest) (*NewTimerStatResponse, error)
-	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
-	GetCount(context.Context, *GetCountRequest) (*GetCountResponse, error)
-	GetTime(context.Context, *GetTimeRequest) (*GetTimeResponse, error)
-	SetCount(context.Context, *SetCountRequest) (*SetCountResponse, error)
-	SetTime(context.Context, *SetTimeRequest) (*SetTimeResponse, error)
-	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
-	mustEmbedUnimplementedTimerStatServiceServer()
-}
-
-// UnimplementedTimerStatServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedTimerStatServiceServer struct{}
-
-func (UnimplementedTimerStatServiceServer) NewTimerStat(context.Context, *NewTimerStatRequest) (*NewTimerStatResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewTimerStat not implemented")
-}
-func (UnimplementedTimerStatServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
-}
-func (UnimplementedTimerStatServiceServer) GetCount(context.Context, *GetCountRequest) (*GetCountResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetCount not implemented")
-}
-func (UnimplementedTimerStatServiceServer) GetTime(context.Context, *GetTimeRequest) (*GetTimeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetTime not implemented")
-}
-func (UnimplementedTimerStatServiceServer) SetCount(context.Context, *SetCountRequest) (*SetCountResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetCount not implemented")
-}
-func (UnimplementedTimerStatServiceServer) SetTime(context.Context, *SetTimeRequest) (*SetTimeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetTime not implemented")
-}
-func (UnimplementedTimerStatServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
-}
-func (UnimplementedTimerStatServiceServer) mustEmbedUnimplementedTimerStatServiceServer() {}
-func (UnimplementedTimerStatServiceServer) testEmbeddedByValue()                          {}
-
-// UnsafeTimerStatServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to TimerStatServiceServer will
-// result in compilation errors.
-type UnsafeTimerStatServiceServer interface {
-	mustEmbedUnimplementedTimerStatServiceServer()
-}
-
-func RegisterTimerStatServiceServer(s grpc.ServiceRegistrar, srv TimerStatServiceServer) {
-	// If the following call panics, it indicates UnimplementedTimerStatServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&TimerStatService_ServiceDesc, srv)
-}
-
-func _TimerStatService_NewTimerStat_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewTimerStatRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TimerStatServiceServer).NewTimerStat(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TimerStatService_NewTimerStat_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TimerStatServiceServer).NewTimerStat(ctx, req.(*NewTimerStatRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TimerStatService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DescribeContentsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TimerStatServiceServer).DescribeContents(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TimerStatService_DescribeContents_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TimerStatServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TimerStatService_GetCount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetCountRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TimerStatServiceServer).GetCount(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TimerStatService_GetCount_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TimerStatServiceServer).GetCount(ctx, req.(*GetCountRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TimerStatService_GetTime_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetTimeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TimerStatServiceServer).GetTime(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TimerStatService_GetTime_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TimerStatServiceServer).GetTime(ctx, req.(*GetTimeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TimerStatService_SetCount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetCountRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TimerStatServiceServer).SetCount(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TimerStatService_SetCount_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TimerStatServiceServer).SetCount(ctx, req.(*SetCountRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TimerStatService_SetTime_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetTimeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TimerStatServiceServer).SetTime(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TimerStatService_SetTime_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TimerStatServiceServer).SetTime(ctx, req.(*SetTimeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TimerStatService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WriteToParcelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TimerStatServiceServer).WriteToParcel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TimerStatService_WriteToParcel_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TimerStatServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// TimerStatService_ServiceDesc is the grpc.ServiceDesc for TimerStatService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var TimerStatService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "health.TimerStatService",
-	HandlerType: (*TimerStatServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "NewTimerStat",
-			Handler:    _TimerStatService_NewTimerStat_Handler,
-		},
-		{
-			MethodName: "DescribeContents",
-			Handler:    _TimerStatService_DescribeContents_Handler,
-		},
-		{
-			MethodName: "GetCount",
-			Handler:    _TimerStatService_GetCount_Handler,
-		},
-		{
-			MethodName: "GetTime",
-			Handler:    _TimerStatService_GetTime_Handler,
-		},
-		{
-			MethodName: "SetCount",
-			Handler:    _TimerStatService_SetCount_Handler,
-		},
-		{
-			MethodName: "SetTime",
-			Handler:    _TimerStatService_SetTime_Handler,
-		},
-		{
-			MethodName: "WriteToParcel",
-			Handler:    _TimerStatService_WriteToParcel_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

@@ -104,20 +104,20 @@ var accessibilityEventSourceSendAccessibilityEventUncheckedCmd = &cobra.Command{
 	},
 }
 
-var accessibilityRecordCmd = &cobra.Command{
-	Use:   "record",
-	Short: "RecordService operations",
+var accessibilityWindowInfoCmd = &cobra.Command{
+	Use:   "window-info",
+	Short: "WindowInfoService operations",
 }
 
-var accessibilityRecordNewRecordCmd = &cobra.Command{
-	Use:   "new-record",
-	Short: "NewRecord RPC",
+var accessibilityWindowInfoNewWindowInfoCmd = &cobra.Command{
+	Use:   "new-window-info",
+	Short: "NewWindowInfo RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewRecordServiceClient(grpcConn)
-		req := &pb.NewRecordRequest{}
-		resp, err := client.NewRecord(ctx, req)
+		client := pb.NewWindowInfoServiceClient(grpcConn)
+		req := &pb.NewWindowInfoRequest{}
+		resp, err := client.NewWindowInfo(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -125,18 +125,18 @@ var accessibilityRecordNewRecordCmd = &cobra.Command{
 	},
 }
 
-var accessibilityRecordGetAddedCountCmd = &cobra.Command{
-	Use:   "get-added-count",
-	Short: "GetAddedCount RPC",
+var accessibilityWindowInfoDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewRecordServiceClient(grpcConn)
-		req := &pb.GetAddedCountRequest{}
+		client := pb.NewWindowInfoServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
-		resp, err := client.GetAddedCount(ctx, req)
+		resp, err := client.DescribeContents(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -144,18 +144,21 @@ var accessibilityRecordGetAddedCountCmd = &cobra.Command{
 	},
 }
 
-var accessibilityRecordGetBeforeTextCmd = &cobra.Command{
-	Use:   "get-before-text",
-	Short: "GetBeforeText RPC",
+var accessibilityWindowInfoEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewRecordServiceClient(grpcConn)
-		req := &pb.GetBeforeTextRequest{}
+		client := pb.NewWindowInfoServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
-		resp, err := client.GetBeforeText(ctx, req)
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -163,18 +166,18 @@ var accessibilityRecordGetBeforeTextCmd = &cobra.Command{
 	},
 }
 
-var accessibilityRecordGetClassNameCmd = &cobra.Command{
-	Use:   "get-class-name",
-	Short: "GetClassName RPC",
+var accessibilityWindowInfoGetAnchorCmd = &cobra.Command{
+	Use:   "get-anchor",
+	Short: "GetAnchor RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewRecordServiceClient(grpcConn)
-		req := &pb.GetClassNameRequest{}
+		client := pb.NewWindowInfoServiceClient(grpcConn)
+		req := &pb.GetAnchorRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
-		resp, err := client.GetClassName(ctx, req)
+		resp, err := client.GetAnchor(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -182,18 +185,21 @@ var accessibilityRecordGetClassNameCmd = &cobra.Command{
 	},
 }
 
-var accessibilityRecordGetContentDescriptionCmd = &cobra.Command{
-	Use:   "get-content-description",
-	Short: "GetContentDescription RPC",
+var accessibilityWindowInfoGetBoundsInScreenCmd = &cobra.Command{
+	Use:   "get-bounds-in-screen",
+	Short: "GetBoundsInScreen RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewRecordServiceClient(grpcConn)
-		req := &pb.GetContentDescriptionRequest{}
+		client := pb.NewWindowInfoServiceClient(grpcConn)
+		req := &pb.GetBoundsInScreenRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
-		resp, err := client.GetContentDescription(ctx, req)
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetBoundsInScreen(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -201,18 +207,21 @@ var accessibilityRecordGetContentDescriptionCmd = &cobra.Command{
 	},
 }
 
-var accessibilityRecordGetCurrentItemIndexCmd = &cobra.Command{
-	Use:   "get-current-item-index",
-	Short: "GetCurrentItemIndex RPC",
+var accessibilityWindowInfoGetChildCmd = &cobra.Command{
+	Use:   "get-child",
+	Short: "GetChild RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewRecordServiceClient(grpcConn)
-		req := &pb.GetCurrentItemIndexRequest{}
+		client := pb.NewWindowInfoServiceClient(grpcConn)
+		req := &pb.GetChildRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
-		resp, err := client.GetCurrentItemIndex(ctx, req)
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetChild(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -220,13 +229,32 @@ var accessibilityRecordGetCurrentItemIndexCmd = &cobra.Command{
 	},
 }
 
-var accessibilityRecordGetDisplayIdCmd = &cobra.Command{
+var accessibilityWindowInfoGetChildCountCmd = &cobra.Command{
+	Use:   "get-child-count",
+	Short: "GetChildCount RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWindowInfoServiceClient(grpcConn)
+		req := &pb.GetChildCountRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetChildCount(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accessibilityWindowInfoGetDisplayIdCmd = &cobra.Command{
 	Use:   "get-display-id",
 	Short: "GetDisplayId RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewRecordServiceClient(grpcConn)
+		client := pb.NewWindowInfoServiceClient(grpcConn)
 		req := &pb.GetDisplayIdRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
@@ -239,18 +267,18 @@ var accessibilityRecordGetDisplayIdCmd = &cobra.Command{
 	},
 }
 
-var accessibilityRecordGetFromIndexCmd = &cobra.Command{
-	Use:   "get-from-index",
-	Short: "GetFromIndex RPC",
+var accessibilityWindowInfoGetIdCmd = &cobra.Command{
+	Use:   "get-id",
+	Short: "GetId RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewRecordServiceClient(grpcConn)
-		req := &pb.GetFromIndexRequest{}
+		client := pb.NewWindowInfoServiceClient(grpcConn)
+		req := &pb.GetIdRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
-		resp, err := client.GetFromIndex(ctx, req)
+		resp, err := client.GetId(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -258,18 +286,18 @@ var accessibilityRecordGetFromIndexCmd = &cobra.Command{
 	},
 }
 
-var accessibilityRecordGetItemCountCmd = &cobra.Command{
-	Use:   "get-item-count",
-	Short: "GetItemCount RPC",
+var accessibilityWindowInfoGetLayerCmd = &cobra.Command{
+	Use:   "get-layer",
+	Short: "GetLayer RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewRecordServiceClient(grpcConn)
-		req := &pb.GetItemCountRequest{}
+		client := pb.NewWindowInfoServiceClient(grpcConn)
+		req := &pb.GetLayerRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
-		resp, err := client.GetItemCount(ctx, req)
+		resp, err := client.GetLayer(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -277,18 +305,18 @@ var accessibilityRecordGetItemCountCmd = &cobra.Command{
 	},
 }
 
-var accessibilityRecordGetMaxScrollXCmd = &cobra.Command{
-	Use:   "get-max-scroll-x",
-	Short: "GetMaxScrollX RPC",
+var accessibilityWindowInfoGetLocalesCmd = &cobra.Command{
+	Use:   "get-locales",
+	Short: "GetLocales RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewRecordServiceClient(grpcConn)
-		req := &pb.GetMaxScrollXRequest{}
+		client := pb.NewWindowInfoServiceClient(grpcConn)
+		req := &pb.GetLocalesRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
-		resp, err := client.GetMaxScrollX(ctx, req)
+		resp, err := client.GetLocales(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -296,18 +324,18 @@ var accessibilityRecordGetMaxScrollXCmd = &cobra.Command{
 	},
 }
 
-var accessibilityRecordGetMaxScrollYCmd = &cobra.Command{
-	Use:   "get-max-scroll-y",
-	Short: "GetMaxScrollY RPC",
+var accessibilityWindowInfoGetParentCmd = &cobra.Command{
+	Use:   "get-parent",
+	Short: "GetParent RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewRecordServiceClient(grpcConn)
-		req := &pb.GetMaxScrollYRequest{}
+		client := pb.NewWindowInfoServiceClient(grpcConn)
+		req := &pb.GetParentRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
-		resp, err := client.GetMaxScrollY(ctx, req)
+		resp, err := client.GetParent(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -315,18 +343,21 @@ var accessibilityRecordGetMaxScrollYCmd = &cobra.Command{
 	},
 }
 
-var accessibilityRecordGetParcelableDataCmd = &cobra.Command{
-	Use:   "get-parcelable-data",
-	Short: "GetParcelableData RPC",
+var accessibilityWindowInfoGetRegionInScreenCmd = &cobra.Command{
+	Use:   "get-region-in-screen",
+	Short: "GetRegionInScreen RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewRecordServiceClient(grpcConn)
-		req := &pb.GetParcelableDataRequest{}
+		client := pb.NewWindowInfoServiceClient(grpcConn)
+		req := &pb.GetRegionInScreenRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
-		resp, err := client.GetParcelableData(ctx, req)
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetRegionInScreen(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -334,18 +365,18 @@ var accessibilityRecordGetParcelableDataCmd = &cobra.Command{
 	},
 }
 
-var accessibilityRecordGetRemovedCountCmd = &cobra.Command{
-	Use:   "get-removed-count",
-	Short: "GetRemovedCount RPC",
+var accessibilityWindowInfoGetRoot0Cmd = &cobra.Command{
+	Use:   "get-root0",
+	Short: "GetRoot0 RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewRecordServiceClient(grpcConn)
-		req := &pb.GetRemovedCountRequest{}
+		client := pb.NewWindowInfoServiceClient(grpcConn)
+		req := &pb.GetRoot0Request{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
-		resp, err := client.GetRemovedCount(ctx, req)
+		resp, err := client.GetRoot0(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -353,116 +384,21 @@ var accessibilityRecordGetRemovedCountCmd = &cobra.Command{
 	},
 }
 
-var accessibilityRecordGetScrollDeltaXCmd = &cobra.Command{
-	Use:   "get-scroll-delta-x",
-	Short: "GetScrollDeltaX RPC",
+var accessibilityWindowInfoGetRoot1_1Cmd = &cobra.Command{
+	Use:   "get-root1_1",
+	Short: "GetRoot1_1 RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewRecordServiceClient(grpcConn)
-		req := &pb.GetScrollDeltaXRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetScrollDeltaX(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accessibilityRecordGetScrollDeltaYCmd = &cobra.Command{
-	Use:   "get-scroll-delta-y",
-	Short: "GetScrollDeltaY RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRecordServiceClient(grpcConn)
-		req := &pb.GetScrollDeltaYRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetScrollDeltaY(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accessibilityRecordGetScrollXCmd = &cobra.Command{
-	Use:   "get-scroll-x",
-	Short: "GetScrollX RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRecordServiceClient(grpcConn)
-		req := &pb.GetScrollXRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetScrollX(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accessibilityRecordGetScrollYCmd = &cobra.Command{
-	Use:   "get-scroll-y",
-	Short: "GetScrollY RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRecordServiceClient(grpcConn)
-		req := &pb.GetScrollYRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetScrollY(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accessibilityRecordGetSource0Cmd = &cobra.Command{
-	Use:   "get-source0",
-	Short: "GetSource0 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRecordServiceClient(grpcConn)
-		req := &pb.GetSource0Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetSource0(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accessibilityRecordGetSource1_1Cmd = &cobra.Command{
-	Use:   "get-source1_1",
-	Short: "GetSource1_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRecordServiceClient(grpcConn)
-		req := &pb.GetSource1_1Request{}
+		client := pb.NewWindowInfoServiceClient(grpcConn)
+		req := &pb.GetRoot1_1Request{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
 		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		resp, err := client.GetSource1_1(ctx, req)
+		resp, err := client.GetRoot1_1(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -470,18 +406,18 @@ var accessibilityRecordGetSource1_1Cmd = &cobra.Command{
 	},
 }
 
-var accessibilityRecordGetToIndexCmd = &cobra.Command{
-	Use:   "get-to-index",
-	Short: "GetToIndex RPC",
+var accessibilityWindowInfoGetTitleCmd = &cobra.Command{
+	Use:   "get-title",
+	Short: "GetTitle RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewRecordServiceClient(grpcConn)
-		req := &pb.GetToIndexRequest{}
+		client := pb.NewWindowInfoServiceClient(grpcConn)
+		req := &pb.GetTitleRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
-		resp, err := client.GetToIndex(ctx, req)
+		resp, err := client.GetTitle(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -489,18 +425,18 @@ var accessibilityRecordGetToIndexCmd = &cobra.Command{
 	},
 }
 
-var accessibilityRecordGetWindowIdCmd = &cobra.Command{
-	Use:   "get-window-id",
-	Short: "GetWindowId RPC",
+var accessibilityWindowInfoGetTransitionTimeMillisCmd = &cobra.Command{
+	Use:   "get-transition-time-millis",
+	Short: "GetTransitionTimeMillis RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewRecordServiceClient(grpcConn)
-		req := &pb.GetWindowIdRequest{}
+		client := pb.NewWindowInfoServiceClient(grpcConn)
+		req := &pb.GetTransitionTimeMillisRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
-		resp, err := client.GetWindowId(ctx, req)
+		resp, err := client.GetTransitionTimeMillis(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -508,18 +444,18 @@ var accessibilityRecordGetWindowIdCmd = &cobra.Command{
 	},
 }
 
-var accessibilityRecordIsCheckedCmd = &cobra.Command{
-	Use:   "is-checked",
-	Short: "IsChecked RPC",
+var accessibilityWindowInfoGetTypeCmd = &cobra.Command{
+	Use:   "get-type",
+	Short: "GetType RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewRecordServiceClient(grpcConn)
-		req := &pb.IsCheckedRequest{}
+		client := pb.NewWindowInfoServiceClient(grpcConn)
+		req := &pb.GetTypeRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
-		resp, err := client.IsChecked(ctx, req)
+		resp, err := client.GetType(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -527,18 +463,18 @@ var accessibilityRecordIsCheckedCmd = &cobra.Command{
 	},
 }
 
-var accessibilityRecordIsEnabledCmd = &cobra.Command{
-	Use:   "is-enabled",
-	Short: "IsEnabled RPC",
+var accessibilityWindowInfoHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewRecordServiceClient(grpcConn)
-		req := &pb.IsEnabledRequest{}
+		client := pb.NewWindowInfoServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
-		resp, err := client.IsEnabled(ctx, req)
+		resp, err := client.HashCode(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -546,18 +482,18 @@ var accessibilityRecordIsEnabledCmd = &cobra.Command{
 	},
 }
 
-var accessibilityRecordIsFullScreenCmd = &cobra.Command{
-	Use:   "is-full-screen",
-	Short: "IsFullScreen RPC",
+var accessibilityWindowInfoIsAccessibilityFocusedCmd = &cobra.Command{
+	Use:   "is-accessibility-focused",
+	Short: "IsAccessibilityFocused RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewRecordServiceClient(grpcConn)
-		req := &pb.IsFullScreenRequest{}
+		client := pb.NewWindowInfoServiceClient(grpcConn)
+		req := &pb.IsAccessibilityFocusedRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
-		resp, err := client.IsFullScreen(ctx, req)
+		resp, err := client.IsAccessibilityFocused(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -565,18 +501,18 @@ var accessibilityRecordIsFullScreenCmd = &cobra.Command{
 	},
 }
 
-var accessibilityRecordIsPasswordCmd = &cobra.Command{
-	Use:   "is-password",
-	Short: "IsPassword RPC",
+var accessibilityWindowInfoIsActiveCmd = &cobra.Command{
+	Use:   "is-active",
+	Short: "IsActive RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewRecordServiceClient(grpcConn)
-		req := &pb.IsPasswordRequest{}
+		client := pb.NewWindowInfoServiceClient(grpcConn)
+		req := &pb.IsActiveRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
-		resp, err := client.IsPassword(ctx, req)
+		resp, err := client.IsActive(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -584,18 +520,18 @@ var accessibilityRecordIsPasswordCmd = &cobra.Command{
 	},
 }
 
-var accessibilityRecordIsScrollableCmd = &cobra.Command{
-	Use:   "is-scrollable",
-	Short: "IsScrollable RPC",
+var accessibilityWindowInfoIsFocusedCmd = &cobra.Command{
+	Use:   "is-focused",
+	Short: "IsFocused RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewRecordServiceClient(grpcConn)
-		req := &pb.IsScrollableRequest{}
+		client := pb.NewWindowInfoServiceClient(grpcConn)
+		req := &pb.IsFocusedRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
-		resp, err := client.IsScrollable(ctx, req)
+		resp, err := client.IsFocused(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -603,13 +539,32 @@ var accessibilityRecordIsScrollableCmd = &cobra.Command{
 	},
 }
 
-var accessibilityRecordRecycleCmd = &cobra.Command{
+var accessibilityWindowInfoIsInPictureInPictureModeCmd = &cobra.Command{
+	Use:   "is-in-picture-in-picture-mode",
+	Short: "IsInPictureInPictureMode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWindowInfoServiceClient(grpcConn)
+		req := &pb.IsInPictureInPictureModeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.IsInPictureInPictureMode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accessibilityWindowInfoRecycleCmd = &cobra.Command{
 	Use:   "recycle",
 	Short: "Recycle RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewRecordServiceClient(grpcConn)
+		client := pb.NewWindowInfoServiceClient(grpcConn)
 		req := &pb.RecycleRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
@@ -622,522 +577,13 @@ var accessibilityRecordRecycleCmd = &cobra.Command{
 	},
 }
 
-var accessibilityRecordSetAddedCountCmd = &cobra.Command{
-	Use:   "set-added-count",
-	Short: "SetAddedCount RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRecordServiceClient(grpcConn)
-		req := &pb.SetAddedCountRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetAddedCount(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accessibilityRecordSetBeforeTextCmd = &cobra.Command{
-	Use:   "set-before-text",
-	Short: "SetBeforeText RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRecordServiceClient(grpcConn)
-		req := &pb.SetBeforeTextRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetBeforeText(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accessibilityRecordSetCheckedCmd = &cobra.Command{
-	Use:   "set-checked",
-	Short: "SetChecked RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRecordServiceClient(grpcConn)
-		req := &pb.SetCheckedRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetChecked(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accessibilityRecordSetClassNameCmd = &cobra.Command{
-	Use:   "set-class-name",
-	Short: "SetClassName RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRecordServiceClient(grpcConn)
-		req := &pb.SetClassNameRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetClassName(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accessibilityRecordSetContentDescriptionCmd = &cobra.Command{
-	Use:   "set-content-description",
-	Short: "SetContentDescription RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRecordServiceClient(grpcConn)
-		req := &pb.SetContentDescriptionRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetContentDescription(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accessibilityRecordSetCurrentItemIndexCmd = &cobra.Command{
-	Use:   "set-current-item-index",
-	Short: "SetCurrentItemIndex RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRecordServiceClient(grpcConn)
-		req := &pb.SetCurrentItemIndexRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetCurrentItemIndex(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accessibilityRecordSetEnabledCmd = &cobra.Command{
-	Use:   "set-enabled",
-	Short: "SetEnabled RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRecordServiceClient(grpcConn)
-		req := &pb.SetEnabledRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetEnabled(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accessibilityRecordSetFromIndexCmd = &cobra.Command{
-	Use:   "set-from-index",
-	Short: "SetFromIndex RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRecordServiceClient(grpcConn)
-		req := &pb.SetFromIndexRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetFromIndex(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accessibilityRecordSetFullScreenCmd = &cobra.Command{
-	Use:   "set-full-screen",
-	Short: "SetFullScreen RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRecordServiceClient(grpcConn)
-		req := &pb.SetFullScreenRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetFullScreen(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accessibilityRecordSetItemCountCmd = &cobra.Command{
-	Use:   "set-item-count",
-	Short: "SetItemCount RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRecordServiceClient(grpcConn)
-		req := &pb.SetItemCountRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetItemCount(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accessibilityRecordSetMaxScrollXCmd = &cobra.Command{
-	Use:   "set-max-scroll-x",
-	Short: "SetMaxScrollX RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRecordServiceClient(grpcConn)
-		req := &pb.SetMaxScrollXRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetMaxScrollX(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accessibilityRecordSetMaxScrollYCmd = &cobra.Command{
-	Use:   "set-max-scroll-y",
-	Short: "SetMaxScrollY RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRecordServiceClient(grpcConn)
-		req := &pb.SetMaxScrollYRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetMaxScrollY(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accessibilityRecordSetParcelableDataCmd = &cobra.Command{
-	Use:   "set-parcelable-data",
-	Short: "SetParcelableData RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRecordServiceClient(grpcConn)
-		req := &pb.SetParcelableDataRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetParcelableData(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accessibilityRecordSetPasswordCmd = &cobra.Command{
-	Use:   "set-password",
-	Short: "SetPassword RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRecordServiceClient(grpcConn)
-		req := &pb.SetPasswordRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetPassword(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accessibilityRecordSetRemovedCountCmd = &cobra.Command{
-	Use:   "set-removed-count",
-	Short: "SetRemovedCount RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRecordServiceClient(grpcConn)
-		req := &pb.SetRemovedCountRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetRemovedCount(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accessibilityRecordSetScrollDeltaXCmd = &cobra.Command{
-	Use:   "set-scroll-delta-x",
-	Short: "SetScrollDeltaX RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRecordServiceClient(grpcConn)
-		req := &pb.SetScrollDeltaXRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetScrollDeltaX(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accessibilityRecordSetScrollDeltaYCmd = &cobra.Command{
-	Use:   "set-scroll-delta-y",
-	Short: "SetScrollDeltaY RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRecordServiceClient(grpcConn)
-		req := &pb.SetScrollDeltaYRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetScrollDeltaY(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accessibilityRecordSetScrollXCmd = &cobra.Command{
-	Use:   "set-scroll-x",
-	Short: "SetScrollX RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRecordServiceClient(grpcConn)
-		req := &pb.SetScrollXRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetScrollX(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accessibilityRecordSetScrollYCmd = &cobra.Command{
-	Use:   "set-scroll-y",
-	Short: "SetScrollY RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRecordServiceClient(grpcConn)
-		req := &pb.SetScrollYRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetScrollY(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accessibilityRecordSetScrollableCmd = &cobra.Command{
-	Use:   "set-scrollable",
-	Short: "SetScrollable RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRecordServiceClient(grpcConn)
-		req := &pb.SetScrollableRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetScrollable(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accessibilityRecordSetSource1Cmd = &cobra.Command{
-	Use:   "set-source1",
-	Short: "SetSource1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRecordServiceClient(grpcConn)
-		req := &pb.SetSource1Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetSource1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accessibilityRecordSetSource2_1Cmd = &cobra.Command{
-	Use:   "set-source2_1",
-	Short: "SetSource2_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRecordServiceClient(grpcConn)
-		req := &pb.SetSource2_1Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.SetSource2_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accessibilityRecordSetToIndexCmd = &cobra.Command{
-	Use:   "set-to-index",
-	Short: "SetToIndex RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRecordServiceClient(grpcConn)
-		req := &pb.SetToIndexRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetToIndex(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accessibilityRecordToStringCmd = &cobra.Command{
+var accessibilityWindowInfoToStringCmd = &cobra.Command{
 	Use:   "to-string",
 	Short: "ToString RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewRecordServiceClient(grpcConn)
+		client := pb.NewWindowInfoServiceClient(grpcConn)
 		req := &pb.ToStringRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
@@ -1150,13 +596,38 @@ var accessibilityRecordToStringCmd = &cobra.Command{
 	},
 }
 
-var accessibilityRecordObtain0Cmd = &cobra.Command{
+var accessibilityWindowInfoWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWindowInfoServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accessibilityWindowInfoObtain0Cmd = &cobra.Command{
 	Use:   "obtain0",
 	Short: "Obtain0 RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewRecordServiceClient(grpcConn)
+		client := pb.NewWindowInfoServiceClient(grpcConn)
 		req := &pb.Obtain0Request{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
@@ -1169,13 +640,13 @@ var accessibilityRecordObtain0Cmd = &cobra.Command{
 	},
 }
 
-var accessibilityRecordObtain1_1Cmd = &cobra.Command{
+var accessibilityWindowInfoObtain1_1Cmd = &cobra.Command{
 	Use:   "obtain1_1",
 	Short: "Obtain1_1 RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewRecordServiceClient(grpcConn)
+		client := pb.NewWindowInfoServiceClient(grpcConn)
 		req := &pb.Obtain1_1Request{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
@@ -1410,6 +881,50 @@ var accessibilityNodeInfoEqualsCmd = &cobra.Command{
 	},
 }
 
+var accessibilityNodeInfoFindAccessibilityNodeInfosByTextCmd = &cobra.Command{
+	Use:   "find-accessibility-node-infos-by-text",
+	Short: "FindAccessibilityNodeInfosByText RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNodeInfoServiceClient(grpcConn)
+		req := &pb.FindAccessibilityNodeInfosByTextRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.FindAccessibilityNodeInfosByText(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accessibilityNodeInfoFindAccessibilityNodeInfosByViewIdCmd = &cobra.Command{
+	Use:   "find-accessibility-node-infos-by-view-id",
+	Short: "FindAccessibilityNodeInfosByViewId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNodeInfoServiceClient(grpcConn)
+		req := &pb.FindAccessibilityNodeInfosByViewIdRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.FindAccessibilityNodeInfosByViewId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var accessibilityNodeInfoFindFocusCmd = &cobra.Command{
 	Use:   "find-focus",
 	Short: "FindFocus RPC",
@@ -1454,6 +969,25 @@ var accessibilityNodeInfoFocusSearchCmd = &cobra.Command{
 	},
 }
 
+var accessibilityNodeInfoGetActionListCmd = &cobra.Command{
+	Use:   "get-action-list",
+	Short: "GetActionList RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNodeInfoServiceClient(grpcConn)
+		req := &pb.GetActionListRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetActionList(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var accessibilityNodeInfoGetActionsCmd = &cobra.Command{
 	Use:   "get-actions",
 	Short: "GetActions RPC",
@@ -1466,6 +1000,25 @@ var accessibilityNodeInfoGetActionsCmd = &cobra.Command{
 			req.Handle = v
 		}
 		resp, err := client.GetActions(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accessibilityNodeInfoGetAvailableExtraDataCmd = &cobra.Command{
+	Use:   "get-available-extra-data",
+	Short: "GetAvailableExtraData RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNodeInfoServiceClient(grpcConn)
+		req := &pb.GetAvailableExtraDataRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetAvailableExtraData(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1883,6 +1436,25 @@ var accessibilityNodeInfoGetLabeledByCmd = &cobra.Command{
 			req.Handle = v
 		}
 		resp, err := client.GetLabeledBy(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accessibilityNodeInfoGetLabeledByListCmd = &cobra.Command{
+	Use:   "get-labeled-by-list",
+	Short: "GetLabeledByList RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNodeInfoServiceClient(grpcConn)
+		req := &pb.GetLabeledByListRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetLabeledByList(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -4834,7 +4406,7 @@ var accessibilityNodeInfoAccessibilityActionGetIdCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewNodeInfoAccessibilityActionServiceClient(grpcConn)
-		req := &pb.GetIdRequest{}
+		req := &pb.NodeInfoAccessibilityActionGetIdRequest{}
 		resp, err := client.GetId(ctx, req)
 		if err != nil {
 			return err
@@ -4957,7 +4529,7 @@ var accessibilityNodeInfoCollectionInfoGetItemCountCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewNodeInfoCollectionInfoServiceClient(grpcConn)
-		req := &pb.NodeInfoCollectionInfoGetItemCountRequest{}
+		req := &pb.GetItemCountRequest{}
 		resp, err := client.GetItemCount(ctx, req)
 		if err != nil {
 			return err
@@ -5378,7 +4950,7 @@ var accessibilityNodeInfoRangeInfoGetTypeCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewNodeInfoRangeInfoServiceClient(grpcConn)
-		req := &pb.GetTypeRequest{}
+		req := &pb.NodeInfoRangeInfoGetTypeRequest{}
 		resp, err := client.GetType(ctx, req)
 		if err != nil {
 			return err
@@ -5505,660 +5077,6 @@ var accessibilityNodeInfoTouchDelegateInfoWriteToParcelCmd = &cobra.Command{
 			req.Arg1 = v
 		}
 		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accessibilityWindowInfoCmd = &cobra.Command{
-	Use:   "window-info",
-	Short: "WindowInfoService operations",
-}
-
-var accessibilityWindowInfoNewWindowInfoCmd = &cobra.Command{
-	Use:   "new-window-info",
-	Short: "NewWindowInfo RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWindowInfoServiceClient(grpcConn)
-		req := &pb.NewWindowInfoRequest{}
-		resp, err := client.NewWindowInfo(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accessibilityWindowInfoDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWindowInfoServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accessibilityWindowInfoEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWindowInfoServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accessibilityWindowInfoGetAnchorCmd = &cobra.Command{
-	Use:   "get-anchor",
-	Short: "GetAnchor RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWindowInfoServiceClient(grpcConn)
-		req := &pb.GetAnchorRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetAnchor(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accessibilityWindowInfoGetBoundsInScreenCmd = &cobra.Command{
-	Use:   "get-bounds-in-screen",
-	Short: "GetBoundsInScreen RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWindowInfoServiceClient(grpcConn)
-		req := &pb.GetBoundsInScreenRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetBoundsInScreen(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accessibilityWindowInfoGetChildCmd = &cobra.Command{
-	Use:   "get-child",
-	Short: "GetChild RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWindowInfoServiceClient(grpcConn)
-		req := &pb.GetChildRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetChild(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accessibilityWindowInfoGetChildCountCmd = &cobra.Command{
-	Use:   "get-child-count",
-	Short: "GetChildCount RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWindowInfoServiceClient(grpcConn)
-		req := &pb.GetChildCountRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetChildCount(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accessibilityWindowInfoGetDisplayIdCmd = &cobra.Command{
-	Use:   "get-display-id",
-	Short: "GetDisplayId RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWindowInfoServiceClient(grpcConn)
-		req := &pb.GetDisplayIdRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetDisplayId(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accessibilityWindowInfoGetIdCmd = &cobra.Command{
-	Use:   "get-id",
-	Short: "GetId RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWindowInfoServiceClient(grpcConn)
-		req := &pb.WindowInfoGetIdRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetId(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accessibilityWindowInfoGetLayerCmd = &cobra.Command{
-	Use:   "get-layer",
-	Short: "GetLayer RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWindowInfoServiceClient(grpcConn)
-		req := &pb.GetLayerRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetLayer(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accessibilityWindowInfoGetLocalesCmd = &cobra.Command{
-	Use:   "get-locales",
-	Short: "GetLocales RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWindowInfoServiceClient(grpcConn)
-		req := &pb.GetLocalesRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetLocales(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accessibilityWindowInfoGetParentCmd = &cobra.Command{
-	Use:   "get-parent",
-	Short: "GetParent RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWindowInfoServiceClient(grpcConn)
-		req := &pb.GetParentRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetParent(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accessibilityWindowInfoGetRegionInScreenCmd = &cobra.Command{
-	Use:   "get-region-in-screen",
-	Short: "GetRegionInScreen RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWindowInfoServiceClient(grpcConn)
-		req := &pb.GetRegionInScreenRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetRegionInScreen(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accessibilityWindowInfoGetRoot0Cmd = &cobra.Command{
-	Use:   "get-root0",
-	Short: "GetRoot0 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWindowInfoServiceClient(grpcConn)
-		req := &pb.GetRoot0Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetRoot0(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accessibilityWindowInfoGetRoot1_1Cmd = &cobra.Command{
-	Use:   "get-root1_1",
-	Short: "GetRoot1_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWindowInfoServiceClient(grpcConn)
-		req := &pb.GetRoot1_1Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetRoot1_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accessibilityWindowInfoGetTitleCmd = &cobra.Command{
-	Use:   "get-title",
-	Short: "GetTitle RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWindowInfoServiceClient(grpcConn)
-		req := &pb.GetTitleRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetTitle(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accessibilityWindowInfoGetTransitionTimeMillisCmd = &cobra.Command{
-	Use:   "get-transition-time-millis",
-	Short: "GetTransitionTimeMillis RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWindowInfoServiceClient(grpcConn)
-		req := &pb.GetTransitionTimeMillisRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetTransitionTimeMillis(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accessibilityWindowInfoGetTypeCmd = &cobra.Command{
-	Use:   "get-type",
-	Short: "GetType RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWindowInfoServiceClient(grpcConn)
-		req := &pb.WindowInfoGetTypeRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetType(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accessibilityWindowInfoHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWindowInfoServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accessibilityWindowInfoIsAccessibilityFocusedCmd = &cobra.Command{
-	Use:   "is-accessibility-focused",
-	Short: "IsAccessibilityFocused RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWindowInfoServiceClient(grpcConn)
-		req := &pb.IsAccessibilityFocusedRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.IsAccessibilityFocused(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accessibilityWindowInfoIsActiveCmd = &cobra.Command{
-	Use:   "is-active",
-	Short: "IsActive RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWindowInfoServiceClient(grpcConn)
-		req := &pb.IsActiveRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.IsActive(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accessibilityWindowInfoIsFocusedCmd = &cobra.Command{
-	Use:   "is-focused",
-	Short: "IsFocused RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWindowInfoServiceClient(grpcConn)
-		req := &pb.IsFocusedRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.IsFocused(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accessibilityWindowInfoIsInPictureInPictureModeCmd = &cobra.Command{
-	Use:   "is-in-picture-in-picture-mode",
-	Short: "IsInPictureInPictureMode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWindowInfoServiceClient(grpcConn)
-		req := &pb.IsInPictureInPictureModeRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.IsInPictureInPictureMode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accessibilityWindowInfoRecycleCmd = &cobra.Command{
-	Use:   "recycle",
-	Short: "Recycle RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWindowInfoServiceClient(grpcConn)
-		req := &pb.RecycleRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.Recycle(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accessibilityWindowInfoToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWindowInfoServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accessibilityWindowInfoWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWindowInfoServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accessibilityWindowInfoObtain0Cmd = &cobra.Command{
-	Use:   "obtain0",
-	Short: "Obtain0 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWindowInfoServiceClient(grpcConn)
-		req := &pb.Obtain0Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.Obtain0(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accessibilityWindowInfoObtain1_1Cmd = &cobra.Command{
-	Use:   "obtain1_1",
-	Short: "Obtain1_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWindowInfoServiceClient(grpcConn)
-		req := &pb.Obtain1_1Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Obtain1_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accessibilityNodeProviderCmd = &cobra.Command{
-	Use:   "node-provider",
-	Short: "NodeProviderService operations",
-}
-
-var accessibilityNodeProviderAddExtraDataToAccessibilityNodeInfoCmd = &cobra.Command{
-	Use:   "add-extra-data-to-accessibility-node-info",
-	Short: "AddExtraDataToAccessibilityNodeInfo RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewNodeProviderServiceClient(grpcConn)
-		req := &pb.AddExtraDataToAccessibilityNodeInfoRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetString("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		resp, err := client.AddExtraDataToAccessibilityNodeInfo(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accessibilityNodeProviderCreateAccessibilityNodeInfoCmd = &cobra.Command{
-	Use:   "create-accessibility-node-info",
-	Short: "CreateAccessibilityNodeInfo RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewNodeProviderServiceClient(grpcConn)
-		req := &pb.CreateAccessibilityNodeInfoRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.CreateAccessibilityNodeInfo(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accessibilityNodeProviderFindFocusCmd = &cobra.Command{
-	Use:   "find-focus",
-	Short: "FindFocus RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewNodeProviderServiceClient(grpcConn)
-		req := &pb.NodeProviderFindFocusRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.FindFocus(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accessibilityNodeProviderPerformActionCmd = &cobra.Command{
-	Use:   "perform-action",
-	Short: "PerformAction RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewNodeProviderServiceClient(grpcConn)
-		req := &pb.PerformActionRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.PerformAction(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -6713,6 +5631,57 @@ var accessibilityManagerGetAccessibilityFocusStrokeWidthCmd = &cobra.Command{
 		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.GetAccessibilityFocusStrokeWidthRequest{}
 		resp, err := client.GetAccessibilityFocusStrokeWidth(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accessibilityManagerGetAccessibilityServiceListCmd = &cobra.Command{
+	Use:   "get-accessibility-service-list",
+	Short: "GetAccessibilityServiceList RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerServiceClient(grpcConn)
+		req := &pb.GetAccessibilityServiceListRequest{}
+		resp, err := client.GetAccessibilityServiceList(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accessibilityManagerGetEnabledAccessibilityServiceListCmd = &cobra.Command{
+	Use:   "get-enabled-accessibility-service-list",
+	Short: "GetEnabledAccessibilityServiceList RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerServiceClient(grpcConn)
+		req := &pb.GetEnabledAccessibilityServiceListRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetEnabledAccessibilityServiceList(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accessibilityManagerGetInstalledAccessibilityServiceListCmd = &cobra.Command{
+	Use:   "get-installed-accessibility-service-list",
+	Short: "GetInstalledAccessibilityServiceList RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerServiceClient(grpcConn)
+		req := &pb.GetInstalledAccessibilityServiceListRequest{}
+		resp, err := client.GetInstalledAccessibilityServiceList(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -7727,6 +6696,1230 @@ var accessibilityEventObtain1_2Cmd = &cobra.Command{
 	},
 }
 
+var accessibilityRecordCmd = &cobra.Command{
+	Use:   "record",
+	Short: "RecordService operations",
+}
+
+var accessibilityRecordNewRecordCmd = &cobra.Command{
+	Use:   "new-record",
+	Short: "NewRecord RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRecordServiceClient(grpcConn)
+		req := &pb.NewRecordRequest{}
+		resp, err := client.NewRecord(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accessibilityRecordGetAddedCountCmd = &cobra.Command{
+	Use:   "get-added-count",
+	Short: "GetAddedCount RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRecordServiceClient(grpcConn)
+		req := &pb.GetAddedCountRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetAddedCount(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accessibilityRecordGetBeforeTextCmd = &cobra.Command{
+	Use:   "get-before-text",
+	Short: "GetBeforeText RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRecordServiceClient(grpcConn)
+		req := &pb.GetBeforeTextRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetBeforeText(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accessibilityRecordGetClassNameCmd = &cobra.Command{
+	Use:   "get-class-name",
+	Short: "GetClassName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRecordServiceClient(grpcConn)
+		req := &pb.GetClassNameRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetClassName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accessibilityRecordGetContentDescriptionCmd = &cobra.Command{
+	Use:   "get-content-description",
+	Short: "GetContentDescription RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRecordServiceClient(grpcConn)
+		req := &pb.GetContentDescriptionRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetContentDescription(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accessibilityRecordGetCurrentItemIndexCmd = &cobra.Command{
+	Use:   "get-current-item-index",
+	Short: "GetCurrentItemIndex RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRecordServiceClient(grpcConn)
+		req := &pb.GetCurrentItemIndexRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetCurrentItemIndex(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accessibilityRecordGetDisplayIdCmd = &cobra.Command{
+	Use:   "get-display-id",
+	Short: "GetDisplayId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRecordServiceClient(grpcConn)
+		req := &pb.GetDisplayIdRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetDisplayId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accessibilityRecordGetFromIndexCmd = &cobra.Command{
+	Use:   "get-from-index",
+	Short: "GetFromIndex RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRecordServiceClient(grpcConn)
+		req := &pb.GetFromIndexRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetFromIndex(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accessibilityRecordGetItemCountCmd = &cobra.Command{
+	Use:   "get-item-count",
+	Short: "GetItemCount RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRecordServiceClient(grpcConn)
+		req := &pb.RecordGetItemCountRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetItemCount(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accessibilityRecordGetMaxScrollXCmd = &cobra.Command{
+	Use:   "get-max-scroll-x",
+	Short: "GetMaxScrollX RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRecordServiceClient(grpcConn)
+		req := &pb.GetMaxScrollXRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetMaxScrollX(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accessibilityRecordGetMaxScrollYCmd = &cobra.Command{
+	Use:   "get-max-scroll-y",
+	Short: "GetMaxScrollY RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRecordServiceClient(grpcConn)
+		req := &pb.GetMaxScrollYRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetMaxScrollY(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accessibilityRecordGetParcelableDataCmd = &cobra.Command{
+	Use:   "get-parcelable-data",
+	Short: "GetParcelableData RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRecordServiceClient(grpcConn)
+		req := &pb.GetParcelableDataRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetParcelableData(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accessibilityRecordGetRemovedCountCmd = &cobra.Command{
+	Use:   "get-removed-count",
+	Short: "GetRemovedCount RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRecordServiceClient(grpcConn)
+		req := &pb.GetRemovedCountRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetRemovedCount(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accessibilityRecordGetScrollDeltaXCmd = &cobra.Command{
+	Use:   "get-scroll-delta-x",
+	Short: "GetScrollDeltaX RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRecordServiceClient(grpcConn)
+		req := &pb.GetScrollDeltaXRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetScrollDeltaX(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accessibilityRecordGetScrollDeltaYCmd = &cobra.Command{
+	Use:   "get-scroll-delta-y",
+	Short: "GetScrollDeltaY RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRecordServiceClient(grpcConn)
+		req := &pb.GetScrollDeltaYRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetScrollDeltaY(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accessibilityRecordGetScrollXCmd = &cobra.Command{
+	Use:   "get-scroll-x",
+	Short: "GetScrollX RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRecordServiceClient(grpcConn)
+		req := &pb.GetScrollXRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetScrollX(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accessibilityRecordGetScrollYCmd = &cobra.Command{
+	Use:   "get-scroll-y",
+	Short: "GetScrollY RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRecordServiceClient(grpcConn)
+		req := &pb.GetScrollYRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetScrollY(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accessibilityRecordGetSource0Cmd = &cobra.Command{
+	Use:   "get-source0",
+	Short: "GetSource0 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRecordServiceClient(grpcConn)
+		req := &pb.GetSource0Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetSource0(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accessibilityRecordGetSource1_1Cmd = &cobra.Command{
+	Use:   "get-source1_1",
+	Short: "GetSource1_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRecordServiceClient(grpcConn)
+		req := &pb.GetSource1_1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetSource1_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accessibilityRecordGetTextCmd = &cobra.Command{
+	Use:   "get-text",
+	Short: "GetText RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRecordServiceClient(grpcConn)
+		req := &pb.GetTextRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetText(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accessibilityRecordGetToIndexCmd = &cobra.Command{
+	Use:   "get-to-index",
+	Short: "GetToIndex RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRecordServiceClient(grpcConn)
+		req := &pb.GetToIndexRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetToIndex(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accessibilityRecordGetWindowIdCmd = &cobra.Command{
+	Use:   "get-window-id",
+	Short: "GetWindowId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRecordServiceClient(grpcConn)
+		req := &pb.GetWindowIdRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetWindowId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accessibilityRecordIsCheckedCmd = &cobra.Command{
+	Use:   "is-checked",
+	Short: "IsChecked RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRecordServiceClient(grpcConn)
+		req := &pb.IsCheckedRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.IsChecked(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accessibilityRecordIsEnabledCmd = &cobra.Command{
+	Use:   "is-enabled",
+	Short: "IsEnabled RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRecordServiceClient(grpcConn)
+		req := &pb.IsEnabledRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.IsEnabled(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accessibilityRecordIsFullScreenCmd = &cobra.Command{
+	Use:   "is-full-screen",
+	Short: "IsFullScreen RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRecordServiceClient(grpcConn)
+		req := &pb.IsFullScreenRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.IsFullScreen(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accessibilityRecordIsPasswordCmd = &cobra.Command{
+	Use:   "is-password",
+	Short: "IsPassword RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRecordServiceClient(grpcConn)
+		req := &pb.IsPasswordRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.IsPassword(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accessibilityRecordIsScrollableCmd = &cobra.Command{
+	Use:   "is-scrollable",
+	Short: "IsScrollable RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRecordServiceClient(grpcConn)
+		req := &pb.IsScrollableRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.IsScrollable(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accessibilityRecordRecycleCmd = &cobra.Command{
+	Use:   "recycle",
+	Short: "Recycle RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRecordServiceClient(grpcConn)
+		req := &pb.RecycleRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.Recycle(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accessibilityRecordSetAddedCountCmd = &cobra.Command{
+	Use:   "set-added-count",
+	Short: "SetAddedCount RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRecordServiceClient(grpcConn)
+		req := &pb.SetAddedCountRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetAddedCount(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accessibilityRecordSetBeforeTextCmd = &cobra.Command{
+	Use:   "set-before-text",
+	Short: "SetBeforeText RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRecordServiceClient(grpcConn)
+		req := &pb.SetBeforeTextRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetBeforeText(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accessibilityRecordSetCheckedCmd = &cobra.Command{
+	Use:   "set-checked",
+	Short: "SetChecked RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRecordServiceClient(grpcConn)
+		req := &pb.SetCheckedRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetChecked(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accessibilityRecordSetClassNameCmd = &cobra.Command{
+	Use:   "set-class-name",
+	Short: "SetClassName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRecordServiceClient(grpcConn)
+		req := &pb.SetClassNameRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetClassName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accessibilityRecordSetContentDescriptionCmd = &cobra.Command{
+	Use:   "set-content-description",
+	Short: "SetContentDescription RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRecordServiceClient(grpcConn)
+		req := &pb.SetContentDescriptionRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetContentDescription(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accessibilityRecordSetCurrentItemIndexCmd = &cobra.Command{
+	Use:   "set-current-item-index",
+	Short: "SetCurrentItemIndex RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRecordServiceClient(grpcConn)
+		req := &pb.SetCurrentItemIndexRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetCurrentItemIndex(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accessibilityRecordSetEnabledCmd = &cobra.Command{
+	Use:   "set-enabled",
+	Short: "SetEnabled RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRecordServiceClient(grpcConn)
+		req := &pb.SetEnabledRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetEnabled(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accessibilityRecordSetFromIndexCmd = &cobra.Command{
+	Use:   "set-from-index",
+	Short: "SetFromIndex RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRecordServiceClient(grpcConn)
+		req := &pb.SetFromIndexRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetFromIndex(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accessibilityRecordSetFullScreenCmd = &cobra.Command{
+	Use:   "set-full-screen",
+	Short: "SetFullScreen RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRecordServiceClient(grpcConn)
+		req := &pb.SetFullScreenRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetFullScreen(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accessibilityRecordSetItemCountCmd = &cobra.Command{
+	Use:   "set-item-count",
+	Short: "SetItemCount RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRecordServiceClient(grpcConn)
+		req := &pb.SetItemCountRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetItemCount(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accessibilityRecordSetMaxScrollXCmd = &cobra.Command{
+	Use:   "set-max-scroll-x",
+	Short: "SetMaxScrollX RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRecordServiceClient(grpcConn)
+		req := &pb.SetMaxScrollXRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetMaxScrollX(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accessibilityRecordSetMaxScrollYCmd = &cobra.Command{
+	Use:   "set-max-scroll-y",
+	Short: "SetMaxScrollY RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRecordServiceClient(grpcConn)
+		req := &pb.SetMaxScrollYRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetMaxScrollY(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accessibilityRecordSetParcelableDataCmd = &cobra.Command{
+	Use:   "set-parcelable-data",
+	Short: "SetParcelableData RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRecordServiceClient(grpcConn)
+		req := &pb.SetParcelableDataRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetParcelableData(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accessibilityRecordSetPasswordCmd = &cobra.Command{
+	Use:   "set-password",
+	Short: "SetPassword RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRecordServiceClient(grpcConn)
+		req := &pb.SetPasswordRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetPassword(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accessibilityRecordSetRemovedCountCmd = &cobra.Command{
+	Use:   "set-removed-count",
+	Short: "SetRemovedCount RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRecordServiceClient(grpcConn)
+		req := &pb.SetRemovedCountRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetRemovedCount(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accessibilityRecordSetScrollDeltaXCmd = &cobra.Command{
+	Use:   "set-scroll-delta-x",
+	Short: "SetScrollDeltaX RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRecordServiceClient(grpcConn)
+		req := &pb.SetScrollDeltaXRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetScrollDeltaX(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accessibilityRecordSetScrollDeltaYCmd = &cobra.Command{
+	Use:   "set-scroll-delta-y",
+	Short: "SetScrollDeltaY RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRecordServiceClient(grpcConn)
+		req := &pb.SetScrollDeltaYRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetScrollDeltaY(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accessibilityRecordSetScrollXCmd = &cobra.Command{
+	Use:   "set-scroll-x",
+	Short: "SetScrollX RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRecordServiceClient(grpcConn)
+		req := &pb.SetScrollXRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetScrollX(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accessibilityRecordSetScrollYCmd = &cobra.Command{
+	Use:   "set-scroll-y",
+	Short: "SetScrollY RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRecordServiceClient(grpcConn)
+		req := &pb.SetScrollYRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetScrollY(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accessibilityRecordSetScrollableCmd = &cobra.Command{
+	Use:   "set-scrollable",
+	Short: "SetScrollable RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRecordServiceClient(grpcConn)
+		req := &pb.SetScrollableRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetScrollable(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accessibilityRecordSetSource1Cmd = &cobra.Command{
+	Use:   "set-source1",
+	Short: "SetSource1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRecordServiceClient(grpcConn)
+		req := &pb.SetSource1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetSource1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accessibilityRecordSetSource2_1Cmd = &cobra.Command{
+	Use:   "set-source2_1",
+	Short: "SetSource2_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRecordServiceClient(grpcConn)
+		req := &pb.SetSource2_1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.SetSource2_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accessibilityRecordSetToIndexCmd = &cobra.Command{
+	Use:   "set-to-index",
+	Short: "SetToIndex RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRecordServiceClient(grpcConn)
+		req := &pb.SetToIndexRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetToIndex(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accessibilityRecordToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRecordServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accessibilityRecordObtain0Cmd = &cobra.Command{
+	Use:   "obtain0",
+	Short: "Obtain0 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRecordServiceClient(grpcConn)
+		req := &pb.Obtain0Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.Obtain0(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accessibilityRecordObtain1_1Cmd = &cobra.Command{
+	Use:   "obtain1_1",
+	Short: "Obtain1_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRecordServiceClient(grpcConn)
+		req := &pb.Obtain1_1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Obtain1_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accessibilityNodeProviderCmd = &cobra.Command{
+	Use:   "node-provider",
+	Short: "NodeProviderService operations",
+}
+
+var accessibilityNodeProviderAddExtraDataToAccessibilityNodeInfoCmd = &cobra.Command{
+	Use:   "add-extra-data-to-accessibility-node-info",
+	Short: "AddExtraDataToAccessibilityNodeInfo RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNodeProviderServiceClient(grpcConn)
+		req := &pb.AddExtraDataToAccessibilityNodeInfoRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetString("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.AddExtraDataToAccessibilityNodeInfo(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accessibilityNodeProviderCreateAccessibilityNodeInfoCmd = &cobra.Command{
+	Use:   "create-accessibility-node-info",
+	Short: "CreateAccessibilityNodeInfo RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNodeProviderServiceClient(grpcConn)
+		req := &pb.CreateAccessibilityNodeInfoRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.CreateAccessibilityNodeInfo(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accessibilityNodeProviderFindAccessibilityNodeInfosByTextCmd = &cobra.Command{
+	Use:   "find-accessibility-node-infos-by-text",
+	Short: "FindAccessibilityNodeInfosByText RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNodeProviderServiceClient(grpcConn)
+		req := &pb.NodeProviderFindAccessibilityNodeInfosByTextRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.FindAccessibilityNodeInfosByText(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accessibilityNodeProviderFindFocusCmd = &cobra.Command{
+	Use:   "find-focus",
+	Short: "FindFocus RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNodeProviderServiceClient(grpcConn)
+		req := &pb.NodeProviderFindFocusRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.FindFocus(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accessibilityNodeProviderPerformActionCmd = &cobra.Command{
+	Use:   "perform-action",
+	Short: "PerformAction RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNodeProviderServiceClient(grpcConn)
+		req := &pb.PerformActionRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.PerformAction(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 func init() {
 	accessibilityRequestPreparerCmd.AddCommand(accessibilityRequestPreparerGetViewCmd)
 	accessibilityRequestPreparerOnPrepareExtraDataCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
@@ -7740,138 +7933,70 @@ func init() {
 	accessibilityEventSourceSendAccessibilityEventUncheckedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	accessibilityEventSourceCmd.AddCommand(accessibilityEventSourceSendAccessibilityEventUncheckedCmd)
 	accessibilityCmd.AddCommand(accessibilityEventSourceCmd)
-	accessibilityRecordCmd.AddCommand(accessibilityRecordNewRecordCmd)
-	accessibilityRecordGetAddedCountCmd.Flags().Int64("handle", 0, "handle (int64)")
-	accessibilityRecordCmd.AddCommand(accessibilityRecordGetAddedCountCmd)
-	accessibilityRecordGetBeforeTextCmd.Flags().Int64("handle", 0, "handle (int64)")
-	accessibilityRecordCmd.AddCommand(accessibilityRecordGetBeforeTextCmd)
-	accessibilityRecordGetClassNameCmd.Flags().Int64("handle", 0, "handle (int64)")
-	accessibilityRecordCmd.AddCommand(accessibilityRecordGetClassNameCmd)
-	accessibilityRecordGetContentDescriptionCmd.Flags().Int64("handle", 0, "handle (int64)")
-	accessibilityRecordCmd.AddCommand(accessibilityRecordGetContentDescriptionCmd)
-	accessibilityRecordGetCurrentItemIndexCmd.Flags().Int64("handle", 0, "handle (int64)")
-	accessibilityRecordCmd.AddCommand(accessibilityRecordGetCurrentItemIndexCmd)
-	accessibilityRecordGetDisplayIdCmd.Flags().Int64("handle", 0, "handle (int64)")
-	accessibilityRecordCmd.AddCommand(accessibilityRecordGetDisplayIdCmd)
-	accessibilityRecordGetFromIndexCmd.Flags().Int64("handle", 0, "handle (int64)")
-	accessibilityRecordCmd.AddCommand(accessibilityRecordGetFromIndexCmd)
-	accessibilityRecordGetItemCountCmd.Flags().Int64("handle", 0, "handle (int64)")
-	accessibilityRecordCmd.AddCommand(accessibilityRecordGetItemCountCmd)
-	accessibilityRecordGetMaxScrollXCmd.Flags().Int64("handle", 0, "handle (int64)")
-	accessibilityRecordCmd.AddCommand(accessibilityRecordGetMaxScrollXCmd)
-	accessibilityRecordGetMaxScrollYCmd.Flags().Int64("handle", 0, "handle (int64)")
-	accessibilityRecordCmd.AddCommand(accessibilityRecordGetMaxScrollYCmd)
-	accessibilityRecordGetParcelableDataCmd.Flags().Int64("handle", 0, "handle (int64)")
-	accessibilityRecordCmd.AddCommand(accessibilityRecordGetParcelableDataCmd)
-	accessibilityRecordGetRemovedCountCmd.Flags().Int64("handle", 0, "handle (int64)")
-	accessibilityRecordCmd.AddCommand(accessibilityRecordGetRemovedCountCmd)
-	accessibilityRecordGetScrollDeltaXCmd.Flags().Int64("handle", 0, "handle (int64)")
-	accessibilityRecordCmd.AddCommand(accessibilityRecordGetScrollDeltaXCmd)
-	accessibilityRecordGetScrollDeltaYCmd.Flags().Int64("handle", 0, "handle (int64)")
-	accessibilityRecordCmd.AddCommand(accessibilityRecordGetScrollDeltaYCmd)
-	accessibilityRecordGetScrollXCmd.Flags().Int64("handle", 0, "handle (int64)")
-	accessibilityRecordCmd.AddCommand(accessibilityRecordGetScrollXCmd)
-	accessibilityRecordGetScrollYCmd.Flags().Int64("handle", 0, "handle (int64)")
-	accessibilityRecordCmd.AddCommand(accessibilityRecordGetScrollYCmd)
-	accessibilityRecordGetSource0Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	accessibilityRecordCmd.AddCommand(accessibilityRecordGetSource0Cmd)
-	accessibilityRecordGetSource1_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	accessibilityRecordGetSource1_1Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	accessibilityRecordCmd.AddCommand(accessibilityRecordGetSource1_1Cmd)
-	accessibilityRecordGetToIndexCmd.Flags().Int64("handle", 0, "handle (int64)")
-	accessibilityRecordCmd.AddCommand(accessibilityRecordGetToIndexCmd)
-	accessibilityRecordGetWindowIdCmd.Flags().Int64("handle", 0, "handle (int64)")
-	accessibilityRecordCmd.AddCommand(accessibilityRecordGetWindowIdCmd)
-	accessibilityRecordIsCheckedCmd.Flags().Int64("handle", 0, "handle (int64)")
-	accessibilityRecordCmd.AddCommand(accessibilityRecordIsCheckedCmd)
-	accessibilityRecordIsEnabledCmd.Flags().Int64("handle", 0, "handle (int64)")
-	accessibilityRecordCmd.AddCommand(accessibilityRecordIsEnabledCmd)
-	accessibilityRecordIsFullScreenCmd.Flags().Int64("handle", 0, "handle (int64)")
-	accessibilityRecordCmd.AddCommand(accessibilityRecordIsFullScreenCmd)
-	accessibilityRecordIsPasswordCmd.Flags().Int64("handle", 0, "handle (int64)")
-	accessibilityRecordCmd.AddCommand(accessibilityRecordIsPasswordCmd)
-	accessibilityRecordIsScrollableCmd.Flags().Int64("handle", 0, "handle (int64)")
-	accessibilityRecordCmd.AddCommand(accessibilityRecordIsScrollableCmd)
-	accessibilityRecordRecycleCmd.Flags().Int64("handle", 0, "handle (int64)")
-	accessibilityRecordCmd.AddCommand(accessibilityRecordRecycleCmd)
-	accessibilityRecordSetAddedCountCmd.Flags().Int64("handle", 0, "handle (int64)")
-	accessibilityRecordSetAddedCountCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	accessibilityRecordCmd.AddCommand(accessibilityRecordSetAddedCountCmd)
-	accessibilityRecordSetBeforeTextCmd.Flags().Int64("handle", 0, "handle (int64)")
-	accessibilityRecordSetBeforeTextCmd.Flags().String("arg0", "", "arg0 (string)")
-	accessibilityRecordCmd.AddCommand(accessibilityRecordSetBeforeTextCmd)
-	accessibilityRecordSetCheckedCmd.Flags().Int64("handle", 0, "handle (int64)")
-	accessibilityRecordSetCheckedCmd.Flags().Bool("arg0", false, "arg0 (bool)")
-	accessibilityRecordCmd.AddCommand(accessibilityRecordSetCheckedCmd)
-	accessibilityRecordSetClassNameCmd.Flags().Int64("handle", 0, "handle (int64)")
-	accessibilityRecordSetClassNameCmd.Flags().String("arg0", "", "arg0 (string)")
-	accessibilityRecordCmd.AddCommand(accessibilityRecordSetClassNameCmd)
-	accessibilityRecordSetContentDescriptionCmd.Flags().Int64("handle", 0, "handle (int64)")
-	accessibilityRecordSetContentDescriptionCmd.Flags().String("arg0", "", "arg0 (string)")
-	accessibilityRecordCmd.AddCommand(accessibilityRecordSetContentDescriptionCmd)
-	accessibilityRecordSetCurrentItemIndexCmd.Flags().Int64("handle", 0, "handle (int64)")
-	accessibilityRecordSetCurrentItemIndexCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	accessibilityRecordCmd.AddCommand(accessibilityRecordSetCurrentItemIndexCmd)
-	accessibilityRecordSetEnabledCmd.Flags().Int64("handle", 0, "handle (int64)")
-	accessibilityRecordSetEnabledCmd.Flags().Bool("arg0", false, "arg0 (bool)")
-	accessibilityRecordCmd.AddCommand(accessibilityRecordSetEnabledCmd)
-	accessibilityRecordSetFromIndexCmd.Flags().Int64("handle", 0, "handle (int64)")
-	accessibilityRecordSetFromIndexCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	accessibilityRecordCmd.AddCommand(accessibilityRecordSetFromIndexCmd)
-	accessibilityRecordSetFullScreenCmd.Flags().Int64("handle", 0, "handle (int64)")
-	accessibilityRecordSetFullScreenCmd.Flags().Bool("arg0", false, "arg0 (bool)")
-	accessibilityRecordCmd.AddCommand(accessibilityRecordSetFullScreenCmd)
-	accessibilityRecordSetItemCountCmd.Flags().Int64("handle", 0, "handle (int64)")
-	accessibilityRecordSetItemCountCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	accessibilityRecordCmd.AddCommand(accessibilityRecordSetItemCountCmd)
-	accessibilityRecordSetMaxScrollXCmd.Flags().Int64("handle", 0, "handle (int64)")
-	accessibilityRecordSetMaxScrollXCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	accessibilityRecordCmd.AddCommand(accessibilityRecordSetMaxScrollXCmd)
-	accessibilityRecordSetMaxScrollYCmd.Flags().Int64("handle", 0, "handle (int64)")
-	accessibilityRecordSetMaxScrollYCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	accessibilityRecordCmd.AddCommand(accessibilityRecordSetMaxScrollYCmd)
-	accessibilityRecordSetParcelableDataCmd.Flags().Int64("handle", 0, "handle (int64)")
-	accessibilityRecordSetParcelableDataCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	accessibilityRecordCmd.AddCommand(accessibilityRecordSetParcelableDataCmd)
-	accessibilityRecordSetPasswordCmd.Flags().Int64("handle", 0, "handle (int64)")
-	accessibilityRecordSetPasswordCmd.Flags().Bool("arg0", false, "arg0 (bool)")
-	accessibilityRecordCmd.AddCommand(accessibilityRecordSetPasswordCmd)
-	accessibilityRecordSetRemovedCountCmd.Flags().Int64("handle", 0, "handle (int64)")
-	accessibilityRecordSetRemovedCountCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	accessibilityRecordCmd.AddCommand(accessibilityRecordSetRemovedCountCmd)
-	accessibilityRecordSetScrollDeltaXCmd.Flags().Int64("handle", 0, "handle (int64)")
-	accessibilityRecordSetScrollDeltaXCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	accessibilityRecordCmd.AddCommand(accessibilityRecordSetScrollDeltaXCmd)
-	accessibilityRecordSetScrollDeltaYCmd.Flags().Int64("handle", 0, "handle (int64)")
-	accessibilityRecordSetScrollDeltaYCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	accessibilityRecordCmd.AddCommand(accessibilityRecordSetScrollDeltaYCmd)
-	accessibilityRecordSetScrollXCmd.Flags().Int64("handle", 0, "handle (int64)")
-	accessibilityRecordSetScrollXCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	accessibilityRecordCmd.AddCommand(accessibilityRecordSetScrollXCmd)
-	accessibilityRecordSetScrollYCmd.Flags().Int64("handle", 0, "handle (int64)")
-	accessibilityRecordSetScrollYCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	accessibilityRecordCmd.AddCommand(accessibilityRecordSetScrollYCmd)
-	accessibilityRecordSetScrollableCmd.Flags().Int64("handle", 0, "handle (int64)")
-	accessibilityRecordSetScrollableCmd.Flags().Bool("arg0", false, "arg0 (bool)")
-	accessibilityRecordCmd.AddCommand(accessibilityRecordSetScrollableCmd)
-	accessibilityRecordSetSource1Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	accessibilityRecordSetSource1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	accessibilityRecordCmd.AddCommand(accessibilityRecordSetSource1Cmd)
-	accessibilityRecordSetSource2_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	accessibilityRecordSetSource2_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	accessibilityRecordSetSource2_1Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	accessibilityRecordCmd.AddCommand(accessibilityRecordSetSource2_1Cmd)
-	accessibilityRecordSetToIndexCmd.Flags().Int64("handle", 0, "handle (int64)")
-	accessibilityRecordSetToIndexCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	accessibilityRecordCmd.AddCommand(accessibilityRecordSetToIndexCmd)
-	accessibilityRecordToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
-	accessibilityRecordCmd.AddCommand(accessibilityRecordToStringCmd)
-	accessibilityRecordObtain0Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	accessibilityRecordCmd.AddCommand(accessibilityRecordObtain0Cmd)
-	accessibilityRecordObtain1_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	accessibilityRecordObtain1_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	accessibilityRecordCmd.AddCommand(accessibilityRecordObtain1_1Cmd)
-	accessibilityCmd.AddCommand(accessibilityRecordCmd)
+	accessibilityWindowInfoCmd.AddCommand(accessibilityWindowInfoNewWindowInfoCmd)
+	accessibilityWindowInfoDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	accessibilityWindowInfoCmd.AddCommand(accessibilityWindowInfoDescribeContentsCmd)
+	accessibilityWindowInfoEqualsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	accessibilityWindowInfoEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	accessibilityWindowInfoCmd.AddCommand(accessibilityWindowInfoEqualsCmd)
+	accessibilityWindowInfoGetAnchorCmd.Flags().Int64("handle", 0, "handle (int64)")
+	accessibilityWindowInfoCmd.AddCommand(accessibilityWindowInfoGetAnchorCmd)
+	accessibilityWindowInfoGetBoundsInScreenCmd.Flags().Int64("handle", 0, "handle (int64)")
+	accessibilityWindowInfoGetBoundsInScreenCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	accessibilityWindowInfoCmd.AddCommand(accessibilityWindowInfoGetBoundsInScreenCmd)
+	accessibilityWindowInfoGetChildCmd.Flags().Int64("handle", 0, "handle (int64)")
+	accessibilityWindowInfoGetChildCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	accessibilityWindowInfoCmd.AddCommand(accessibilityWindowInfoGetChildCmd)
+	accessibilityWindowInfoGetChildCountCmd.Flags().Int64("handle", 0, "handle (int64)")
+	accessibilityWindowInfoCmd.AddCommand(accessibilityWindowInfoGetChildCountCmd)
+	accessibilityWindowInfoGetDisplayIdCmd.Flags().Int64("handle", 0, "handle (int64)")
+	accessibilityWindowInfoCmd.AddCommand(accessibilityWindowInfoGetDisplayIdCmd)
+	accessibilityWindowInfoGetIdCmd.Flags().Int64("handle", 0, "handle (int64)")
+	accessibilityWindowInfoCmd.AddCommand(accessibilityWindowInfoGetIdCmd)
+	accessibilityWindowInfoGetLayerCmd.Flags().Int64("handle", 0, "handle (int64)")
+	accessibilityWindowInfoCmd.AddCommand(accessibilityWindowInfoGetLayerCmd)
+	accessibilityWindowInfoGetLocalesCmd.Flags().Int64("handle", 0, "handle (int64)")
+	accessibilityWindowInfoCmd.AddCommand(accessibilityWindowInfoGetLocalesCmd)
+	accessibilityWindowInfoGetParentCmd.Flags().Int64("handle", 0, "handle (int64)")
+	accessibilityWindowInfoCmd.AddCommand(accessibilityWindowInfoGetParentCmd)
+	accessibilityWindowInfoGetRegionInScreenCmd.Flags().Int64("handle", 0, "handle (int64)")
+	accessibilityWindowInfoGetRegionInScreenCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	accessibilityWindowInfoCmd.AddCommand(accessibilityWindowInfoGetRegionInScreenCmd)
+	accessibilityWindowInfoGetRoot0Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	accessibilityWindowInfoCmd.AddCommand(accessibilityWindowInfoGetRoot0Cmd)
+	accessibilityWindowInfoGetRoot1_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	accessibilityWindowInfoGetRoot1_1Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	accessibilityWindowInfoCmd.AddCommand(accessibilityWindowInfoGetRoot1_1Cmd)
+	accessibilityWindowInfoGetTitleCmd.Flags().Int64("handle", 0, "handle (int64)")
+	accessibilityWindowInfoCmd.AddCommand(accessibilityWindowInfoGetTitleCmd)
+	accessibilityWindowInfoGetTransitionTimeMillisCmd.Flags().Int64("handle", 0, "handle (int64)")
+	accessibilityWindowInfoCmd.AddCommand(accessibilityWindowInfoGetTransitionTimeMillisCmd)
+	accessibilityWindowInfoGetTypeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	accessibilityWindowInfoCmd.AddCommand(accessibilityWindowInfoGetTypeCmd)
+	accessibilityWindowInfoHashCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	accessibilityWindowInfoCmd.AddCommand(accessibilityWindowInfoHashCodeCmd)
+	accessibilityWindowInfoIsAccessibilityFocusedCmd.Flags().Int64("handle", 0, "handle (int64)")
+	accessibilityWindowInfoCmd.AddCommand(accessibilityWindowInfoIsAccessibilityFocusedCmd)
+	accessibilityWindowInfoIsActiveCmd.Flags().Int64("handle", 0, "handle (int64)")
+	accessibilityWindowInfoCmd.AddCommand(accessibilityWindowInfoIsActiveCmd)
+	accessibilityWindowInfoIsFocusedCmd.Flags().Int64("handle", 0, "handle (int64)")
+	accessibilityWindowInfoCmd.AddCommand(accessibilityWindowInfoIsFocusedCmd)
+	accessibilityWindowInfoIsInPictureInPictureModeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	accessibilityWindowInfoCmd.AddCommand(accessibilityWindowInfoIsInPictureInPictureModeCmd)
+	accessibilityWindowInfoRecycleCmd.Flags().Int64("handle", 0, "handle (int64)")
+	accessibilityWindowInfoCmd.AddCommand(accessibilityWindowInfoRecycleCmd)
+	accessibilityWindowInfoToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
+	accessibilityWindowInfoCmd.AddCommand(accessibilityWindowInfoToStringCmd)
+	accessibilityWindowInfoWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	accessibilityWindowInfoWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	accessibilityWindowInfoWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	accessibilityWindowInfoCmd.AddCommand(accessibilityWindowInfoWriteToParcelCmd)
+	accessibilityWindowInfoObtain0Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	accessibilityWindowInfoCmd.AddCommand(accessibilityWindowInfoObtain0Cmd)
+	accessibilityWindowInfoObtain1_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	accessibilityWindowInfoObtain1_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	accessibilityWindowInfoCmd.AddCommand(accessibilityWindowInfoObtain1_1Cmd)
+	accessibilityCmd.AddCommand(accessibilityWindowInfoCmd)
 	accessibilityNodeInfoCmd.AddCommand(accessibilityNodeInfoNewNodeInfoCmd)
 	accessibilityNodeInfoAddAction1Cmd.Flags().Int64("handle", 0, "handle (int64)")
 	accessibilityNodeInfoAddAction1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
@@ -7900,14 +8025,24 @@ func init() {
 	accessibilityNodeInfoEqualsCmd.Flags().Int64("handle", 0, "handle (int64)")
 	accessibilityNodeInfoEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	accessibilityNodeInfoCmd.AddCommand(accessibilityNodeInfoEqualsCmd)
+	accessibilityNodeInfoFindAccessibilityNodeInfosByTextCmd.Flags().Int64("handle", 0, "handle (int64)")
+	accessibilityNodeInfoFindAccessibilityNodeInfosByTextCmd.Flags().String("arg0", "", "arg0 (string)")
+	accessibilityNodeInfoCmd.AddCommand(accessibilityNodeInfoFindAccessibilityNodeInfosByTextCmd)
+	accessibilityNodeInfoFindAccessibilityNodeInfosByViewIdCmd.Flags().Int64("handle", 0, "handle (int64)")
+	accessibilityNodeInfoFindAccessibilityNodeInfosByViewIdCmd.Flags().String("arg0", "", "arg0 (string)")
+	accessibilityNodeInfoCmd.AddCommand(accessibilityNodeInfoFindAccessibilityNodeInfosByViewIdCmd)
 	accessibilityNodeInfoFindFocusCmd.Flags().Int64("handle", 0, "handle (int64)")
 	accessibilityNodeInfoFindFocusCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
 	accessibilityNodeInfoCmd.AddCommand(accessibilityNodeInfoFindFocusCmd)
 	accessibilityNodeInfoFocusSearchCmd.Flags().Int64("handle", 0, "handle (int64)")
 	accessibilityNodeInfoFocusSearchCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
 	accessibilityNodeInfoCmd.AddCommand(accessibilityNodeInfoFocusSearchCmd)
+	accessibilityNodeInfoGetActionListCmd.Flags().Int64("handle", 0, "handle (int64)")
+	accessibilityNodeInfoCmd.AddCommand(accessibilityNodeInfoGetActionListCmd)
 	accessibilityNodeInfoGetActionsCmd.Flags().Int64("handle", 0, "handle (int64)")
 	accessibilityNodeInfoCmd.AddCommand(accessibilityNodeInfoGetActionsCmd)
+	accessibilityNodeInfoGetAvailableExtraDataCmd.Flags().Int64("handle", 0, "handle (int64)")
+	accessibilityNodeInfoCmd.AddCommand(accessibilityNodeInfoGetAvailableExtraDataCmd)
 	accessibilityNodeInfoGetBoundsInParentCmd.Flags().Int64("handle", 0, "handle (int64)")
 	accessibilityNodeInfoGetBoundsInParentCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	accessibilityNodeInfoCmd.AddCommand(accessibilityNodeInfoGetBoundsInParentCmd)
@@ -7956,6 +8091,8 @@ func init() {
 	accessibilityNodeInfoCmd.AddCommand(accessibilityNodeInfoGetLabelForCmd)
 	accessibilityNodeInfoGetLabeledByCmd.Flags().Int64("handle", 0, "handle (int64)")
 	accessibilityNodeInfoCmd.AddCommand(accessibilityNodeInfoGetLabeledByCmd)
+	accessibilityNodeInfoGetLabeledByListCmd.Flags().Int64("handle", 0, "handle (int64)")
+	accessibilityNodeInfoCmd.AddCommand(accessibilityNodeInfoGetLabeledByListCmd)
 	accessibilityNodeInfoGetLiveRegionCmd.Flags().Int64("handle", 0, "handle (int64)")
 	accessibilityNodeInfoCmd.AddCommand(accessibilityNodeInfoGetLiveRegionCmd)
 	accessibilityNodeInfoGetMaxTextLengthCmd.Flags().Int64("handle", 0, "handle (int64)")
@@ -8402,84 +8539,6 @@ func init() {
 	accessibilityNodeInfoTouchDelegateInfoWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
 	accessibilityNodeInfoTouchDelegateInfoCmd.AddCommand(accessibilityNodeInfoTouchDelegateInfoWriteToParcelCmd)
 	accessibilityCmd.AddCommand(accessibilityNodeInfoTouchDelegateInfoCmd)
-	accessibilityWindowInfoCmd.AddCommand(accessibilityWindowInfoNewWindowInfoCmd)
-	accessibilityWindowInfoDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	accessibilityWindowInfoCmd.AddCommand(accessibilityWindowInfoDescribeContentsCmd)
-	accessibilityWindowInfoEqualsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	accessibilityWindowInfoEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	accessibilityWindowInfoCmd.AddCommand(accessibilityWindowInfoEqualsCmd)
-	accessibilityWindowInfoGetAnchorCmd.Flags().Int64("handle", 0, "handle (int64)")
-	accessibilityWindowInfoCmd.AddCommand(accessibilityWindowInfoGetAnchorCmd)
-	accessibilityWindowInfoGetBoundsInScreenCmd.Flags().Int64("handle", 0, "handle (int64)")
-	accessibilityWindowInfoGetBoundsInScreenCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	accessibilityWindowInfoCmd.AddCommand(accessibilityWindowInfoGetBoundsInScreenCmd)
-	accessibilityWindowInfoGetChildCmd.Flags().Int64("handle", 0, "handle (int64)")
-	accessibilityWindowInfoGetChildCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	accessibilityWindowInfoCmd.AddCommand(accessibilityWindowInfoGetChildCmd)
-	accessibilityWindowInfoGetChildCountCmd.Flags().Int64("handle", 0, "handle (int64)")
-	accessibilityWindowInfoCmd.AddCommand(accessibilityWindowInfoGetChildCountCmd)
-	accessibilityWindowInfoGetDisplayIdCmd.Flags().Int64("handle", 0, "handle (int64)")
-	accessibilityWindowInfoCmd.AddCommand(accessibilityWindowInfoGetDisplayIdCmd)
-	accessibilityWindowInfoGetIdCmd.Flags().Int64("handle", 0, "handle (int64)")
-	accessibilityWindowInfoCmd.AddCommand(accessibilityWindowInfoGetIdCmd)
-	accessibilityWindowInfoGetLayerCmd.Flags().Int64("handle", 0, "handle (int64)")
-	accessibilityWindowInfoCmd.AddCommand(accessibilityWindowInfoGetLayerCmd)
-	accessibilityWindowInfoGetLocalesCmd.Flags().Int64("handle", 0, "handle (int64)")
-	accessibilityWindowInfoCmd.AddCommand(accessibilityWindowInfoGetLocalesCmd)
-	accessibilityWindowInfoGetParentCmd.Flags().Int64("handle", 0, "handle (int64)")
-	accessibilityWindowInfoCmd.AddCommand(accessibilityWindowInfoGetParentCmd)
-	accessibilityWindowInfoGetRegionInScreenCmd.Flags().Int64("handle", 0, "handle (int64)")
-	accessibilityWindowInfoGetRegionInScreenCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	accessibilityWindowInfoCmd.AddCommand(accessibilityWindowInfoGetRegionInScreenCmd)
-	accessibilityWindowInfoGetRoot0Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	accessibilityWindowInfoCmd.AddCommand(accessibilityWindowInfoGetRoot0Cmd)
-	accessibilityWindowInfoGetRoot1_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	accessibilityWindowInfoGetRoot1_1Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	accessibilityWindowInfoCmd.AddCommand(accessibilityWindowInfoGetRoot1_1Cmd)
-	accessibilityWindowInfoGetTitleCmd.Flags().Int64("handle", 0, "handle (int64)")
-	accessibilityWindowInfoCmd.AddCommand(accessibilityWindowInfoGetTitleCmd)
-	accessibilityWindowInfoGetTransitionTimeMillisCmd.Flags().Int64("handle", 0, "handle (int64)")
-	accessibilityWindowInfoCmd.AddCommand(accessibilityWindowInfoGetTransitionTimeMillisCmd)
-	accessibilityWindowInfoGetTypeCmd.Flags().Int64("handle", 0, "handle (int64)")
-	accessibilityWindowInfoCmd.AddCommand(accessibilityWindowInfoGetTypeCmd)
-	accessibilityWindowInfoHashCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
-	accessibilityWindowInfoCmd.AddCommand(accessibilityWindowInfoHashCodeCmd)
-	accessibilityWindowInfoIsAccessibilityFocusedCmd.Flags().Int64("handle", 0, "handle (int64)")
-	accessibilityWindowInfoCmd.AddCommand(accessibilityWindowInfoIsAccessibilityFocusedCmd)
-	accessibilityWindowInfoIsActiveCmd.Flags().Int64("handle", 0, "handle (int64)")
-	accessibilityWindowInfoCmd.AddCommand(accessibilityWindowInfoIsActiveCmd)
-	accessibilityWindowInfoIsFocusedCmd.Flags().Int64("handle", 0, "handle (int64)")
-	accessibilityWindowInfoCmd.AddCommand(accessibilityWindowInfoIsFocusedCmd)
-	accessibilityWindowInfoIsInPictureInPictureModeCmd.Flags().Int64("handle", 0, "handle (int64)")
-	accessibilityWindowInfoCmd.AddCommand(accessibilityWindowInfoIsInPictureInPictureModeCmd)
-	accessibilityWindowInfoRecycleCmd.Flags().Int64("handle", 0, "handle (int64)")
-	accessibilityWindowInfoCmd.AddCommand(accessibilityWindowInfoRecycleCmd)
-	accessibilityWindowInfoToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
-	accessibilityWindowInfoCmd.AddCommand(accessibilityWindowInfoToStringCmd)
-	accessibilityWindowInfoWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
-	accessibilityWindowInfoWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	accessibilityWindowInfoWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	accessibilityWindowInfoCmd.AddCommand(accessibilityWindowInfoWriteToParcelCmd)
-	accessibilityWindowInfoObtain0Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	accessibilityWindowInfoCmd.AddCommand(accessibilityWindowInfoObtain0Cmd)
-	accessibilityWindowInfoObtain1_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	accessibilityWindowInfoObtain1_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	accessibilityWindowInfoCmd.AddCommand(accessibilityWindowInfoObtain1_1Cmd)
-	accessibilityCmd.AddCommand(accessibilityWindowInfoCmd)
-	accessibilityNodeProviderAddExtraDataToAccessibilityNodeInfoCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	accessibilityNodeProviderAddExtraDataToAccessibilityNodeInfoCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	accessibilityNodeProviderAddExtraDataToAccessibilityNodeInfoCmd.Flags().String("arg2", "", "arg2 (string)")
-	accessibilityNodeProviderAddExtraDataToAccessibilityNodeInfoCmd.Flags().Int64("arg3", 0, "arg3 (int64)")
-	accessibilityNodeProviderCmd.AddCommand(accessibilityNodeProviderAddExtraDataToAccessibilityNodeInfoCmd)
-	accessibilityNodeProviderCreateAccessibilityNodeInfoCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	accessibilityNodeProviderCmd.AddCommand(accessibilityNodeProviderCreateAccessibilityNodeInfoCmd)
-	accessibilityNodeProviderFindFocusCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	accessibilityNodeProviderCmd.AddCommand(accessibilityNodeProviderFindFocusCmd)
-	accessibilityNodeProviderPerformActionCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	accessibilityNodeProviderPerformActionCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	accessibilityNodeProviderPerformActionCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	accessibilityNodeProviderCmd.AddCommand(accessibilityNodeProviderPerformActionCmd)
-	accessibilityCmd.AddCommand(accessibilityNodeProviderCmd)
 	accessibilityCaptioningManagerAddCaptioningChangeListenerCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	accessibilityCaptioningManagerCmd.AddCommand(accessibilityCaptioningManagerAddCaptioningChangeListenerCmd)
 	accessibilityCaptioningManagerCmd.AddCommand(accessibilityCaptioningManagerGetFontScaleCmd)
@@ -8531,6 +8590,10 @@ func init() {
 	accessibilityManagerCmd.AddCommand(accessibilityManagerAddTouchExplorationStateChangeListenerCmd)
 	accessibilityManagerCmd.AddCommand(accessibilityManagerGetAccessibilityFocusColorCmd)
 	accessibilityManagerCmd.AddCommand(accessibilityManagerGetAccessibilityFocusStrokeWidthCmd)
+	accessibilityManagerCmd.AddCommand(accessibilityManagerGetAccessibilityServiceListCmd)
+	accessibilityManagerGetEnabledAccessibilityServiceListCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	accessibilityManagerCmd.AddCommand(accessibilityManagerGetEnabledAccessibilityServiceListCmd)
+	accessibilityManagerCmd.AddCommand(accessibilityManagerGetInstalledAccessibilityServiceListCmd)
 	accessibilityManagerGetRecommendedTimeoutMillisCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
 	accessibilityManagerGetRecommendedTimeoutMillisCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
 	accessibilityManagerCmd.AddCommand(accessibilityManagerGetRecommendedTimeoutMillisCmd)
@@ -8647,5 +8710,156 @@ func init() {
 	accessibilityEventObtain1_2Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
 	accessibilityEventCmd.AddCommand(accessibilityEventObtain1_2Cmd)
 	accessibilityCmd.AddCommand(accessibilityEventCmd)
+	accessibilityRecordCmd.AddCommand(accessibilityRecordNewRecordCmd)
+	accessibilityRecordGetAddedCountCmd.Flags().Int64("handle", 0, "handle (int64)")
+	accessibilityRecordCmd.AddCommand(accessibilityRecordGetAddedCountCmd)
+	accessibilityRecordGetBeforeTextCmd.Flags().Int64("handle", 0, "handle (int64)")
+	accessibilityRecordCmd.AddCommand(accessibilityRecordGetBeforeTextCmd)
+	accessibilityRecordGetClassNameCmd.Flags().Int64("handle", 0, "handle (int64)")
+	accessibilityRecordCmd.AddCommand(accessibilityRecordGetClassNameCmd)
+	accessibilityRecordGetContentDescriptionCmd.Flags().Int64("handle", 0, "handle (int64)")
+	accessibilityRecordCmd.AddCommand(accessibilityRecordGetContentDescriptionCmd)
+	accessibilityRecordGetCurrentItemIndexCmd.Flags().Int64("handle", 0, "handle (int64)")
+	accessibilityRecordCmd.AddCommand(accessibilityRecordGetCurrentItemIndexCmd)
+	accessibilityRecordGetDisplayIdCmd.Flags().Int64("handle", 0, "handle (int64)")
+	accessibilityRecordCmd.AddCommand(accessibilityRecordGetDisplayIdCmd)
+	accessibilityRecordGetFromIndexCmd.Flags().Int64("handle", 0, "handle (int64)")
+	accessibilityRecordCmd.AddCommand(accessibilityRecordGetFromIndexCmd)
+	accessibilityRecordGetItemCountCmd.Flags().Int64("handle", 0, "handle (int64)")
+	accessibilityRecordCmd.AddCommand(accessibilityRecordGetItemCountCmd)
+	accessibilityRecordGetMaxScrollXCmd.Flags().Int64("handle", 0, "handle (int64)")
+	accessibilityRecordCmd.AddCommand(accessibilityRecordGetMaxScrollXCmd)
+	accessibilityRecordGetMaxScrollYCmd.Flags().Int64("handle", 0, "handle (int64)")
+	accessibilityRecordCmd.AddCommand(accessibilityRecordGetMaxScrollYCmd)
+	accessibilityRecordGetParcelableDataCmd.Flags().Int64("handle", 0, "handle (int64)")
+	accessibilityRecordCmd.AddCommand(accessibilityRecordGetParcelableDataCmd)
+	accessibilityRecordGetRemovedCountCmd.Flags().Int64("handle", 0, "handle (int64)")
+	accessibilityRecordCmd.AddCommand(accessibilityRecordGetRemovedCountCmd)
+	accessibilityRecordGetScrollDeltaXCmd.Flags().Int64("handle", 0, "handle (int64)")
+	accessibilityRecordCmd.AddCommand(accessibilityRecordGetScrollDeltaXCmd)
+	accessibilityRecordGetScrollDeltaYCmd.Flags().Int64("handle", 0, "handle (int64)")
+	accessibilityRecordCmd.AddCommand(accessibilityRecordGetScrollDeltaYCmd)
+	accessibilityRecordGetScrollXCmd.Flags().Int64("handle", 0, "handle (int64)")
+	accessibilityRecordCmd.AddCommand(accessibilityRecordGetScrollXCmd)
+	accessibilityRecordGetScrollYCmd.Flags().Int64("handle", 0, "handle (int64)")
+	accessibilityRecordCmd.AddCommand(accessibilityRecordGetScrollYCmd)
+	accessibilityRecordGetSource0Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	accessibilityRecordCmd.AddCommand(accessibilityRecordGetSource0Cmd)
+	accessibilityRecordGetSource1_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	accessibilityRecordGetSource1_1Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	accessibilityRecordCmd.AddCommand(accessibilityRecordGetSource1_1Cmd)
+	accessibilityRecordGetTextCmd.Flags().Int64("handle", 0, "handle (int64)")
+	accessibilityRecordCmd.AddCommand(accessibilityRecordGetTextCmd)
+	accessibilityRecordGetToIndexCmd.Flags().Int64("handle", 0, "handle (int64)")
+	accessibilityRecordCmd.AddCommand(accessibilityRecordGetToIndexCmd)
+	accessibilityRecordGetWindowIdCmd.Flags().Int64("handle", 0, "handle (int64)")
+	accessibilityRecordCmd.AddCommand(accessibilityRecordGetWindowIdCmd)
+	accessibilityRecordIsCheckedCmd.Flags().Int64("handle", 0, "handle (int64)")
+	accessibilityRecordCmd.AddCommand(accessibilityRecordIsCheckedCmd)
+	accessibilityRecordIsEnabledCmd.Flags().Int64("handle", 0, "handle (int64)")
+	accessibilityRecordCmd.AddCommand(accessibilityRecordIsEnabledCmd)
+	accessibilityRecordIsFullScreenCmd.Flags().Int64("handle", 0, "handle (int64)")
+	accessibilityRecordCmd.AddCommand(accessibilityRecordIsFullScreenCmd)
+	accessibilityRecordIsPasswordCmd.Flags().Int64("handle", 0, "handle (int64)")
+	accessibilityRecordCmd.AddCommand(accessibilityRecordIsPasswordCmd)
+	accessibilityRecordIsScrollableCmd.Flags().Int64("handle", 0, "handle (int64)")
+	accessibilityRecordCmd.AddCommand(accessibilityRecordIsScrollableCmd)
+	accessibilityRecordRecycleCmd.Flags().Int64("handle", 0, "handle (int64)")
+	accessibilityRecordCmd.AddCommand(accessibilityRecordRecycleCmd)
+	accessibilityRecordSetAddedCountCmd.Flags().Int64("handle", 0, "handle (int64)")
+	accessibilityRecordSetAddedCountCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	accessibilityRecordCmd.AddCommand(accessibilityRecordSetAddedCountCmd)
+	accessibilityRecordSetBeforeTextCmd.Flags().Int64("handle", 0, "handle (int64)")
+	accessibilityRecordSetBeforeTextCmd.Flags().String("arg0", "", "arg0 (string)")
+	accessibilityRecordCmd.AddCommand(accessibilityRecordSetBeforeTextCmd)
+	accessibilityRecordSetCheckedCmd.Flags().Int64("handle", 0, "handle (int64)")
+	accessibilityRecordSetCheckedCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	accessibilityRecordCmd.AddCommand(accessibilityRecordSetCheckedCmd)
+	accessibilityRecordSetClassNameCmd.Flags().Int64("handle", 0, "handle (int64)")
+	accessibilityRecordSetClassNameCmd.Flags().String("arg0", "", "arg0 (string)")
+	accessibilityRecordCmd.AddCommand(accessibilityRecordSetClassNameCmd)
+	accessibilityRecordSetContentDescriptionCmd.Flags().Int64("handle", 0, "handle (int64)")
+	accessibilityRecordSetContentDescriptionCmd.Flags().String("arg0", "", "arg0 (string)")
+	accessibilityRecordCmd.AddCommand(accessibilityRecordSetContentDescriptionCmd)
+	accessibilityRecordSetCurrentItemIndexCmd.Flags().Int64("handle", 0, "handle (int64)")
+	accessibilityRecordSetCurrentItemIndexCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	accessibilityRecordCmd.AddCommand(accessibilityRecordSetCurrentItemIndexCmd)
+	accessibilityRecordSetEnabledCmd.Flags().Int64("handle", 0, "handle (int64)")
+	accessibilityRecordSetEnabledCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	accessibilityRecordCmd.AddCommand(accessibilityRecordSetEnabledCmd)
+	accessibilityRecordSetFromIndexCmd.Flags().Int64("handle", 0, "handle (int64)")
+	accessibilityRecordSetFromIndexCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	accessibilityRecordCmd.AddCommand(accessibilityRecordSetFromIndexCmd)
+	accessibilityRecordSetFullScreenCmd.Flags().Int64("handle", 0, "handle (int64)")
+	accessibilityRecordSetFullScreenCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	accessibilityRecordCmd.AddCommand(accessibilityRecordSetFullScreenCmd)
+	accessibilityRecordSetItemCountCmd.Flags().Int64("handle", 0, "handle (int64)")
+	accessibilityRecordSetItemCountCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	accessibilityRecordCmd.AddCommand(accessibilityRecordSetItemCountCmd)
+	accessibilityRecordSetMaxScrollXCmd.Flags().Int64("handle", 0, "handle (int64)")
+	accessibilityRecordSetMaxScrollXCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	accessibilityRecordCmd.AddCommand(accessibilityRecordSetMaxScrollXCmd)
+	accessibilityRecordSetMaxScrollYCmd.Flags().Int64("handle", 0, "handle (int64)")
+	accessibilityRecordSetMaxScrollYCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	accessibilityRecordCmd.AddCommand(accessibilityRecordSetMaxScrollYCmd)
+	accessibilityRecordSetParcelableDataCmd.Flags().Int64("handle", 0, "handle (int64)")
+	accessibilityRecordSetParcelableDataCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	accessibilityRecordCmd.AddCommand(accessibilityRecordSetParcelableDataCmd)
+	accessibilityRecordSetPasswordCmd.Flags().Int64("handle", 0, "handle (int64)")
+	accessibilityRecordSetPasswordCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	accessibilityRecordCmd.AddCommand(accessibilityRecordSetPasswordCmd)
+	accessibilityRecordSetRemovedCountCmd.Flags().Int64("handle", 0, "handle (int64)")
+	accessibilityRecordSetRemovedCountCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	accessibilityRecordCmd.AddCommand(accessibilityRecordSetRemovedCountCmd)
+	accessibilityRecordSetScrollDeltaXCmd.Flags().Int64("handle", 0, "handle (int64)")
+	accessibilityRecordSetScrollDeltaXCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	accessibilityRecordCmd.AddCommand(accessibilityRecordSetScrollDeltaXCmd)
+	accessibilityRecordSetScrollDeltaYCmd.Flags().Int64("handle", 0, "handle (int64)")
+	accessibilityRecordSetScrollDeltaYCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	accessibilityRecordCmd.AddCommand(accessibilityRecordSetScrollDeltaYCmd)
+	accessibilityRecordSetScrollXCmd.Flags().Int64("handle", 0, "handle (int64)")
+	accessibilityRecordSetScrollXCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	accessibilityRecordCmd.AddCommand(accessibilityRecordSetScrollXCmd)
+	accessibilityRecordSetScrollYCmd.Flags().Int64("handle", 0, "handle (int64)")
+	accessibilityRecordSetScrollYCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	accessibilityRecordCmd.AddCommand(accessibilityRecordSetScrollYCmd)
+	accessibilityRecordSetScrollableCmd.Flags().Int64("handle", 0, "handle (int64)")
+	accessibilityRecordSetScrollableCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	accessibilityRecordCmd.AddCommand(accessibilityRecordSetScrollableCmd)
+	accessibilityRecordSetSource1Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	accessibilityRecordSetSource1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	accessibilityRecordCmd.AddCommand(accessibilityRecordSetSource1Cmd)
+	accessibilityRecordSetSource2_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	accessibilityRecordSetSource2_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	accessibilityRecordSetSource2_1Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	accessibilityRecordCmd.AddCommand(accessibilityRecordSetSource2_1Cmd)
+	accessibilityRecordSetToIndexCmd.Flags().Int64("handle", 0, "handle (int64)")
+	accessibilityRecordSetToIndexCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	accessibilityRecordCmd.AddCommand(accessibilityRecordSetToIndexCmd)
+	accessibilityRecordToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
+	accessibilityRecordCmd.AddCommand(accessibilityRecordToStringCmd)
+	accessibilityRecordObtain0Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	accessibilityRecordCmd.AddCommand(accessibilityRecordObtain0Cmd)
+	accessibilityRecordObtain1_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	accessibilityRecordObtain1_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	accessibilityRecordCmd.AddCommand(accessibilityRecordObtain1_1Cmd)
+	accessibilityCmd.AddCommand(accessibilityRecordCmd)
+	accessibilityNodeProviderAddExtraDataToAccessibilityNodeInfoCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	accessibilityNodeProviderAddExtraDataToAccessibilityNodeInfoCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	accessibilityNodeProviderAddExtraDataToAccessibilityNodeInfoCmd.Flags().String("arg2", "", "arg2 (string)")
+	accessibilityNodeProviderAddExtraDataToAccessibilityNodeInfoCmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	accessibilityNodeProviderCmd.AddCommand(accessibilityNodeProviderAddExtraDataToAccessibilityNodeInfoCmd)
+	accessibilityNodeProviderCreateAccessibilityNodeInfoCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	accessibilityNodeProviderCmd.AddCommand(accessibilityNodeProviderCreateAccessibilityNodeInfoCmd)
+	accessibilityNodeProviderFindAccessibilityNodeInfosByTextCmd.Flags().String("arg0", "", "arg0 (string)")
+	accessibilityNodeProviderFindAccessibilityNodeInfosByTextCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	accessibilityNodeProviderCmd.AddCommand(accessibilityNodeProviderFindAccessibilityNodeInfosByTextCmd)
+	accessibilityNodeProviderFindFocusCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	accessibilityNodeProviderCmd.AddCommand(accessibilityNodeProviderFindFocusCmd)
+	accessibilityNodeProviderPerformActionCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	accessibilityNodeProviderPerformActionCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	accessibilityNodeProviderPerformActionCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	accessibilityNodeProviderCmd.AddCommand(accessibilityNodeProviderPerformActionCmd)
+	accessibilityCmd.AddCommand(accessibilityNodeProviderCmd)
 	rootCmd.AddCommand(accessibilityCmd)
 }

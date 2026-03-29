@@ -21,6 +21,706 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
+	EnvelopeEffectInfoService_DescribeContents_FullMethodName                 = "/vibrator.EnvelopeEffectInfoService/DescribeContents"
+	EnvelopeEffectInfoService_Equals_FullMethodName                           = "/vibrator.EnvelopeEffectInfoService/Equals"
+	EnvelopeEffectInfoService_GetMaxControlPointDurationMillis_FullMethodName = "/vibrator.EnvelopeEffectInfoService/GetMaxControlPointDurationMillis"
+	EnvelopeEffectInfoService_GetMaxDurationMillis_FullMethodName             = "/vibrator.EnvelopeEffectInfoService/GetMaxDurationMillis"
+	EnvelopeEffectInfoService_GetMaxSize_FullMethodName                       = "/vibrator.EnvelopeEffectInfoService/GetMaxSize"
+	EnvelopeEffectInfoService_GetMinControlPointDurationMillis_FullMethodName = "/vibrator.EnvelopeEffectInfoService/GetMinControlPointDurationMillis"
+	EnvelopeEffectInfoService_HashCode_FullMethodName                         = "/vibrator.EnvelopeEffectInfoService/HashCode"
+	EnvelopeEffectInfoService_ToString_FullMethodName                         = "/vibrator.EnvelopeEffectInfoService/ToString"
+	EnvelopeEffectInfoService_WriteToParcel_FullMethodName                    = "/vibrator.EnvelopeEffectInfoService/WriteToParcel"
+)
+
+// EnvelopeEffectInfoServiceClient is the client API for EnvelopeEffectInfoService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type EnvelopeEffectInfoServiceClient interface {
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	GetMaxControlPointDurationMillis(ctx context.Context, in *GetMaxControlPointDurationMillisRequest, opts ...grpc.CallOption) (*GetMaxControlPointDurationMillisResponse, error)
+	GetMaxDurationMillis(ctx context.Context, in *GetMaxDurationMillisRequest, opts ...grpc.CallOption) (*GetMaxDurationMillisResponse, error)
+	GetMaxSize(ctx context.Context, in *GetMaxSizeRequest, opts ...grpc.CallOption) (*GetMaxSizeResponse, error)
+	GetMinControlPointDurationMillis(ctx context.Context, in *GetMinControlPointDurationMillisRequest, opts ...grpc.CallOption) (*GetMinControlPointDurationMillisResponse, error)
+	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type envelopeEffectInfoServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewEnvelopeEffectInfoServiceClient(cc grpc.ClientConnInterface) EnvelopeEffectInfoServiceClient {
+	return &envelopeEffectInfoServiceClient{cc}
+}
+
+func (c *envelopeEffectInfoServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, EnvelopeEffectInfoService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *envelopeEffectInfoServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(EqualsResponse)
+	err := c.cc.Invoke(ctx, EnvelopeEffectInfoService_Equals_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *envelopeEffectInfoServiceClient) GetMaxControlPointDurationMillis(ctx context.Context, in *GetMaxControlPointDurationMillisRequest, opts ...grpc.CallOption) (*GetMaxControlPointDurationMillisResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetMaxControlPointDurationMillisResponse)
+	err := c.cc.Invoke(ctx, EnvelopeEffectInfoService_GetMaxControlPointDurationMillis_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *envelopeEffectInfoServiceClient) GetMaxDurationMillis(ctx context.Context, in *GetMaxDurationMillisRequest, opts ...grpc.CallOption) (*GetMaxDurationMillisResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetMaxDurationMillisResponse)
+	err := c.cc.Invoke(ctx, EnvelopeEffectInfoService_GetMaxDurationMillis_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *envelopeEffectInfoServiceClient) GetMaxSize(ctx context.Context, in *GetMaxSizeRequest, opts ...grpc.CallOption) (*GetMaxSizeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetMaxSizeResponse)
+	err := c.cc.Invoke(ctx, EnvelopeEffectInfoService_GetMaxSize_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *envelopeEffectInfoServiceClient) GetMinControlPointDurationMillis(ctx context.Context, in *GetMinControlPointDurationMillisRequest, opts ...grpc.CallOption) (*GetMinControlPointDurationMillisResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetMinControlPointDurationMillisResponse)
+	err := c.cc.Invoke(ctx, EnvelopeEffectInfoService_GetMinControlPointDurationMillis_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *envelopeEffectInfoServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HashCodeResponse)
+	err := c.cc.Invoke(ctx, EnvelopeEffectInfoService_HashCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *envelopeEffectInfoServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, EnvelopeEffectInfoService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *envelopeEffectInfoServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, EnvelopeEffectInfoService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// EnvelopeEffectInfoServiceServer is the server API for EnvelopeEffectInfoService service.
+// All implementations must embed UnimplementedEnvelopeEffectInfoServiceServer
+// for forward compatibility.
+type EnvelopeEffectInfoServiceServer interface {
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
+	GetMaxControlPointDurationMillis(context.Context, *GetMaxControlPointDurationMillisRequest) (*GetMaxControlPointDurationMillisResponse, error)
+	GetMaxDurationMillis(context.Context, *GetMaxDurationMillisRequest) (*GetMaxDurationMillisResponse, error)
+	GetMaxSize(context.Context, *GetMaxSizeRequest) (*GetMaxSizeResponse, error)
+	GetMinControlPointDurationMillis(context.Context, *GetMinControlPointDurationMillisRequest) (*GetMinControlPointDurationMillisResponse, error)
+	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
+	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedEnvelopeEffectInfoServiceServer()
+}
+
+// UnimplementedEnvelopeEffectInfoServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedEnvelopeEffectInfoServiceServer struct{}
+
+func (UnimplementedEnvelopeEffectInfoServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedEnvelopeEffectInfoServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
+}
+func (UnimplementedEnvelopeEffectInfoServiceServer) GetMaxControlPointDurationMillis(context.Context, *GetMaxControlPointDurationMillisRequest) (*GetMaxControlPointDurationMillisResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetMaxControlPointDurationMillis not implemented")
+}
+func (UnimplementedEnvelopeEffectInfoServiceServer) GetMaxDurationMillis(context.Context, *GetMaxDurationMillisRequest) (*GetMaxDurationMillisResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetMaxDurationMillis not implemented")
+}
+func (UnimplementedEnvelopeEffectInfoServiceServer) GetMaxSize(context.Context, *GetMaxSizeRequest) (*GetMaxSizeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetMaxSize not implemented")
+}
+func (UnimplementedEnvelopeEffectInfoServiceServer) GetMinControlPointDurationMillis(context.Context, *GetMinControlPointDurationMillisRequest) (*GetMinControlPointDurationMillisResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetMinControlPointDurationMillis not implemented")
+}
+func (UnimplementedEnvelopeEffectInfoServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
+}
+func (UnimplementedEnvelopeEffectInfoServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedEnvelopeEffectInfoServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedEnvelopeEffectInfoServiceServer) mustEmbedUnimplementedEnvelopeEffectInfoServiceServer() {
+}
+func (UnimplementedEnvelopeEffectInfoServiceServer) testEmbeddedByValue() {}
+
+// UnsafeEnvelopeEffectInfoServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to EnvelopeEffectInfoServiceServer will
+// result in compilation errors.
+type UnsafeEnvelopeEffectInfoServiceServer interface {
+	mustEmbedUnimplementedEnvelopeEffectInfoServiceServer()
+}
+
+func RegisterEnvelopeEffectInfoServiceServer(s grpc.ServiceRegistrar, srv EnvelopeEffectInfoServiceServer) {
+	// If the following call panics, it indicates UnimplementedEnvelopeEffectInfoServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&EnvelopeEffectInfoService_ServiceDesc, srv)
+}
+
+func _EnvelopeEffectInfoService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EnvelopeEffectInfoServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: EnvelopeEffectInfoService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EnvelopeEffectInfoServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _EnvelopeEffectInfoService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EqualsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EnvelopeEffectInfoServiceServer).Equals(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: EnvelopeEffectInfoService_Equals_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EnvelopeEffectInfoServiceServer).Equals(ctx, req.(*EqualsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _EnvelopeEffectInfoService_GetMaxControlPointDurationMillis_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetMaxControlPointDurationMillisRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EnvelopeEffectInfoServiceServer).GetMaxControlPointDurationMillis(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: EnvelopeEffectInfoService_GetMaxControlPointDurationMillis_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EnvelopeEffectInfoServiceServer).GetMaxControlPointDurationMillis(ctx, req.(*GetMaxControlPointDurationMillisRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _EnvelopeEffectInfoService_GetMaxDurationMillis_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetMaxDurationMillisRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EnvelopeEffectInfoServiceServer).GetMaxDurationMillis(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: EnvelopeEffectInfoService_GetMaxDurationMillis_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EnvelopeEffectInfoServiceServer).GetMaxDurationMillis(ctx, req.(*GetMaxDurationMillisRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _EnvelopeEffectInfoService_GetMaxSize_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetMaxSizeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EnvelopeEffectInfoServiceServer).GetMaxSize(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: EnvelopeEffectInfoService_GetMaxSize_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EnvelopeEffectInfoServiceServer).GetMaxSize(ctx, req.(*GetMaxSizeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _EnvelopeEffectInfoService_GetMinControlPointDurationMillis_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetMinControlPointDurationMillisRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EnvelopeEffectInfoServiceServer).GetMinControlPointDurationMillis(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: EnvelopeEffectInfoService_GetMinControlPointDurationMillis_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EnvelopeEffectInfoServiceServer).GetMinControlPointDurationMillis(ctx, req.(*GetMinControlPointDurationMillisRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _EnvelopeEffectInfoService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HashCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EnvelopeEffectInfoServiceServer).HashCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: EnvelopeEffectInfoService_HashCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EnvelopeEffectInfoServiceServer).HashCode(ctx, req.(*HashCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _EnvelopeEffectInfoService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EnvelopeEffectInfoServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: EnvelopeEffectInfoService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EnvelopeEffectInfoServiceServer).ToString(ctx, req.(*ToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _EnvelopeEffectInfoService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EnvelopeEffectInfoServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: EnvelopeEffectInfoService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EnvelopeEffectInfoServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// EnvelopeEffectInfoService_ServiceDesc is the grpc.ServiceDesc for EnvelopeEffectInfoService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var EnvelopeEffectInfoService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "vibrator.EnvelopeEffectInfoService",
+	HandlerType: (*EnvelopeEffectInfoServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "DescribeContents",
+			Handler:    _EnvelopeEffectInfoService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "Equals",
+			Handler:    _EnvelopeEffectInfoService_Equals_Handler,
+		},
+		{
+			MethodName: "GetMaxControlPointDurationMillis",
+			Handler:    _EnvelopeEffectInfoService_GetMaxControlPointDurationMillis_Handler,
+		},
+		{
+			MethodName: "GetMaxDurationMillis",
+			Handler:    _EnvelopeEffectInfoService_GetMaxDurationMillis_Handler,
+		},
+		{
+			MethodName: "GetMaxSize",
+			Handler:    _EnvelopeEffectInfoService_GetMaxSize_Handler,
+		},
+		{
+			MethodName: "GetMinControlPointDurationMillis",
+			Handler:    _EnvelopeEffectInfoService_GetMinControlPointDurationMillis_Handler,
+		},
+		{
+			MethodName: "HashCode",
+			Handler:    _EnvelopeEffectInfoService_HashCode_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _EnvelopeEffectInfoService_ToString_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _EnvelopeEffectInfoService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/vibrator/vibrator.proto",
+}
+
+const (
+	FrequencyProfileService_GetFrequenciesOutputAcceleration_FullMethodName = "/vibrator.FrequencyProfileService/GetFrequenciesOutputAcceleration"
+	FrequencyProfileService_GetFrequencyRange_FullMethodName                = "/vibrator.FrequencyProfileService/GetFrequencyRange"
+	FrequencyProfileService_GetMaxFrequencyHz_FullMethodName                = "/vibrator.FrequencyProfileService/GetMaxFrequencyHz"
+	FrequencyProfileService_GetMaxOutputAccelerationGs_FullMethodName       = "/vibrator.FrequencyProfileService/GetMaxOutputAccelerationGs"
+	FrequencyProfileService_GetMinFrequencyHz_FullMethodName                = "/vibrator.FrequencyProfileService/GetMinFrequencyHz"
+	FrequencyProfileService_GetOutputAccelerationGs_FullMethodName          = "/vibrator.FrequencyProfileService/GetOutputAccelerationGs"
+)
+
+// FrequencyProfileServiceClient is the client API for FrequencyProfileService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type FrequencyProfileServiceClient interface {
+	GetFrequenciesOutputAcceleration(ctx context.Context, in *GetFrequenciesOutputAccelerationRequest, opts ...grpc.CallOption) (*GetFrequenciesOutputAccelerationResponse, error)
+	GetFrequencyRange(ctx context.Context, in *GetFrequencyRangeRequest, opts ...grpc.CallOption) (*GetFrequencyRangeResponse, error)
+	GetMaxFrequencyHz(ctx context.Context, in *GetMaxFrequencyHzRequest, opts ...grpc.CallOption) (*GetMaxFrequencyHzResponse, error)
+	GetMaxOutputAccelerationGs(ctx context.Context, in *GetMaxOutputAccelerationGsRequest, opts ...grpc.CallOption) (*GetMaxOutputAccelerationGsResponse, error)
+	GetMinFrequencyHz(ctx context.Context, in *GetMinFrequencyHzRequest, opts ...grpc.CallOption) (*GetMinFrequencyHzResponse, error)
+	GetOutputAccelerationGs(ctx context.Context, in *GetOutputAccelerationGsRequest, opts ...grpc.CallOption) (*GetOutputAccelerationGsResponse, error)
+}
+
+type frequencyProfileServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewFrequencyProfileServiceClient(cc grpc.ClientConnInterface) FrequencyProfileServiceClient {
+	return &frequencyProfileServiceClient{cc}
+}
+
+func (c *frequencyProfileServiceClient) GetFrequenciesOutputAcceleration(ctx context.Context, in *GetFrequenciesOutputAccelerationRequest, opts ...grpc.CallOption) (*GetFrequenciesOutputAccelerationResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetFrequenciesOutputAccelerationResponse)
+	err := c.cc.Invoke(ctx, FrequencyProfileService_GetFrequenciesOutputAcceleration_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *frequencyProfileServiceClient) GetFrequencyRange(ctx context.Context, in *GetFrequencyRangeRequest, opts ...grpc.CallOption) (*GetFrequencyRangeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetFrequencyRangeResponse)
+	err := c.cc.Invoke(ctx, FrequencyProfileService_GetFrequencyRange_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *frequencyProfileServiceClient) GetMaxFrequencyHz(ctx context.Context, in *GetMaxFrequencyHzRequest, opts ...grpc.CallOption) (*GetMaxFrequencyHzResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetMaxFrequencyHzResponse)
+	err := c.cc.Invoke(ctx, FrequencyProfileService_GetMaxFrequencyHz_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *frequencyProfileServiceClient) GetMaxOutputAccelerationGs(ctx context.Context, in *GetMaxOutputAccelerationGsRequest, opts ...grpc.CallOption) (*GetMaxOutputAccelerationGsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetMaxOutputAccelerationGsResponse)
+	err := c.cc.Invoke(ctx, FrequencyProfileService_GetMaxOutputAccelerationGs_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *frequencyProfileServiceClient) GetMinFrequencyHz(ctx context.Context, in *GetMinFrequencyHzRequest, opts ...grpc.CallOption) (*GetMinFrequencyHzResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetMinFrequencyHzResponse)
+	err := c.cc.Invoke(ctx, FrequencyProfileService_GetMinFrequencyHz_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *frequencyProfileServiceClient) GetOutputAccelerationGs(ctx context.Context, in *GetOutputAccelerationGsRequest, opts ...grpc.CallOption) (*GetOutputAccelerationGsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetOutputAccelerationGsResponse)
+	err := c.cc.Invoke(ctx, FrequencyProfileService_GetOutputAccelerationGs_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// FrequencyProfileServiceServer is the server API for FrequencyProfileService service.
+// All implementations must embed UnimplementedFrequencyProfileServiceServer
+// for forward compatibility.
+type FrequencyProfileServiceServer interface {
+	GetFrequenciesOutputAcceleration(context.Context, *GetFrequenciesOutputAccelerationRequest) (*GetFrequenciesOutputAccelerationResponse, error)
+	GetFrequencyRange(context.Context, *GetFrequencyRangeRequest) (*GetFrequencyRangeResponse, error)
+	GetMaxFrequencyHz(context.Context, *GetMaxFrequencyHzRequest) (*GetMaxFrequencyHzResponse, error)
+	GetMaxOutputAccelerationGs(context.Context, *GetMaxOutputAccelerationGsRequest) (*GetMaxOutputAccelerationGsResponse, error)
+	GetMinFrequencyHz(context.Context, *GetMinFrequencyHzRequest) (*GetMinFrequencyHzResponse, error)
+	GetOutputAccelerationGs(context.Context, *GetOutputAccelerationGsRequest) (*GetOutputAccelerationGsResponse, error)
+	mustEmbedUnimplementedFrequencyProfileServiceServer()
+}
+
+// UnimplementedFrequencyProfileServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedFrequencyProfileServiceServer struct{}
+
+func (UnimplementedFrequencyProfileServiceServer) GetFrequenciesOutputAcceleration(context.Context, *GetFrequenciesOutputAccelerationRequest) (*GetFrequenciesOutputAccelerationResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetFrequenciesOutputAcceleration not implemented")
+}
+func (UnimplementedFrequencyProfileServiceServer) GetFrequencyRange(context.Context, *GetFrequencyRangeRequest) (*GetFrequencyRangeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetFrequencyRange not implemented")
+}
+func (UnimplementedFrequencyProfileServiceServer) GetMaxFrequencyHz(context.Context, *GetMaxFrequencyHzRequest) (*GetMaxFrequencyHzResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetMaxFrequencyHz not implemented")
+}
+func (UnimplementedFrequencyProfileServiceServer) GetMaxOutputAccelerationGs(context.Context, *GetMaxOutputAccelerationGsRequest) (*GetMaxOutputAccelerationGsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetMaxOutputAccelerationGs not implemented")
+}
+func (UnimplementedFrequencyProfileServiceServer) GetMinFrequencyHz(context.Context, *GetMinFrequencyHzRequest) (*GetMinFrequencyHzResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetMinFrequencyHz not implemented")
+}
+func (UnimplementedFrequencyProfileServiceServer) GetOutputAccelerationGs(context.Context, *GetOutputAccelerationGsRequest) (*GetOutputAccelerationGsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetOutputAccelerationGs not implemented")
+}
+func (UnimplementedFrequencyProfileServiceServer) mustEmbedUnimplementedFrequencyProfileServiceServer() {
+}
+func (UnimplementedFrequencyProfileServiceServer) testEmbeddedByValue() {}
+
+// UnsafeFrequencyProfileServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to FrequencyProfileServiceServer will
+// result in compilation errors.
+type UnsafeFrequencyProfileServiceServer interface {
+	mustEmbedUnimplementedFrequencyProfileServiceServer()
+}
+
+func RegisterFrequencyProfileServiceServer(s grpc.ServiceRegistrar, srv FrequencyProfileServiceServer) {
+	// If the following call panics, it indicates UnimplementedFrequencyProfileServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&FrequencyProfileService_ServiceDesc, srv)
+}
+
+func _FrequencyProfileService_GetFrequenciesOutputAcceleration_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetFrequenciesOutputAccelerationRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FrequencyProfileServiceServer).GetFrequenciesOutputAcceleration(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: FrequencyProfileService_GetFrequenciesOutputAcceleration_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FrequencyProfileServiceServer).GetFrequenciesOutputAcceleration(ctx, req.(*GetFrequenciesOutputAccelerationRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _FrequencyProfileService_GetFrequencyRange_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetFrequencyRangeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FrequencyProfileServiceServer).GetFrequencyRange(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: FrequencyProfileService_GetFrequencyRange_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FrequencyProfileServiceServer).GetFrequencyRange(ctx, req.(*GetFrequencyRangeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _FrequencyProfileService_GetMaxFrequencyHz_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetMaxFrequencyHzRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FrequencyProfileServiceServer).GetMaxFrequencyHz(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: FrequencyProfileService_GetMaxFrequencyHz_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FrequencyProfileServiceServer).GetMaxFrequencyHz(ctx, req.(*GetMaxFrequencyHzRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _FrequencyProfileService_GetMaxOutputAccelerationGs_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetMaxOutputAccelerationGsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FrequencyProfileServiceServer).GetMaxOutputAccelerationGs(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: FrequencyProfileService_GetMaxOutputAccelerationGs_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FrequencyProfileServiceServer).GetMaxOutputAccelerationGs(ctx, req.(*GetMaxOutputAccelerationGsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _FrequencyProfileService_GetMinFrequencyHz_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetMinFrequencyHzRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FrequencyProfileServiceServer).GetMinFrequencyHz(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: FrequencyProfileService_GetMinFrequencyHz_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FrequencyProfileServiceServer).GetMinFrequencyHz(ctx, req.(*GetMinFrequencyHzRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _FrequencyProfileService_GetOutputAccelerationGs_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetOutputAccelerationGsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FrequencyProfileServiceServer).GetOutputAccelerationGs(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: FrequencyProfileService_GetOutputAccelerationGs_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FrequencyProfileServiceServer).GetOutputAccelerationGs(ctx, req.(*GetOutputAccelerationGsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// FrequencyProfileService_ServiceDesc is the grpc.ServiceDesc for FrequencyProfileService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var FrequencyProfileService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "vibrator.FrequencyProfileService",
+	HandlerType: (*FrequencyProfileServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "GetFrequenciesOutputAcceleration",
+			Handler:    _FrequencyProfileService_GetFrequenciesOutputAcceleration_Handler,
+		},
+		{
+			MethodName: "GetFrequencyRange",
+			Handler:    _FrequencyProfileService_GetFrequencyRange_Handler,
+		},
+		{
+			MethodName: "GetMaxFrequencyHz",
+			Handler:    _FrequencyProfileService_GetMaxFrequencyHz_Handler,
+		},
+		{
+			MethodName: "GetMaxOutputAccelerationGs",
+			Handler:    _FrequencyProfileService_GetMaxOutputAccelerationGs_Handler,
+		},
+		{
+			MethodName: "GetMinFrequencyHz",
+			Handler:    _FrequencyProfileService_GetMinFrequencyHz_Handler,
+		},
+		{
+			MethodName: "GetOutputAccelerationGs",
+			Handler:    _FrequencyProfileService_GetOutputAccelerationGs_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/vibrator/vibrator.proto",
+}
+
+const (
 	VibratorService_AreAllEffectsSupported_FullMethodName      = "/vibrator.VibratorService/AreAllEffectsSupported"
 	VibratorService_AreAllPrimitivesSupported_FullMethodName   = "/vibrator.VibratorService/AreAllPrimitivesSupported"
 	VibratorService_AreEffectsSupported_FullMethodName         = "/vibrator.VibratorService/AreEffectsSupported"
@@ -876,630 +1576,6 @@ var VibratorService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "Vibrate3_6",
 			Handler:    _VibratorService_Vibrate3_6_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/vibrator/vibrator.proto",
-}
-
-const (
-	EnvelopeEffectInfoService_DescribeContents_FullMethodName                 = "/vibrator.EnvelopeEffectInfoService/DescribeContents"
-	EnvelopeEffectInfoService_Equals_FullMethodName                           = "/vibrator.EnvelopeEffectInfoService/Equals"
-	EnvelopeEffectInfoService_GetMaxControlPointDurationMillis_FullMethodName = "/vibrator.EnvelopeEffectInfoService/GetMaxControlPointDurationMillis"
-	EnvelopeEffectInfoService_GetMaxDurationMillis_FullMethodName             = "/vibrator.EnvelopeEffectInfoService/GetMaxDurationMillis"
-	EnvelopeEffectInfoService_GetMaxSize_FullMethodName                       = "/vibrator.EnvelopeEffectInfoService/GetMaxSize"
-	EnvelopeEffectInfoService_GetMinControlPointDurationMillis_FullMethodName = "/vibrator.EnvelopeEffectInfoService/GetMinControlPointDurationMillis"
-	EnvelopeEffectInfoService_HashCode_FullMethodName                         = "/vibrator.EnvelopeEffectInfoService/HashCode"
-	EnvelopeEffectInfoService_ToString_FullMethodName                         = "/vibrator.EnvelopeEffectInfoService/ToString"
-	EnvelopeEffectInfoService_WriteToParcel_FullMethodName                    = "/vibrator.EnvelopeEffectInfoService/WriteToParcel"
-)
-
-// EnvelopeEffectInfoServiceClient is the client API for EnvelopeEffectInfoService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type EnvelopeEffectInfoServiceClient interface {
-	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
-	GetMaxControlPointDurationMillis(ctx context.Context, in *GetMaxControlPointDurationMillisRequest, opts ...grpc.CallOption) (*GetMaxControlPointDurationMillisResponse, error)
-	GetMaxDurationMillis(ctx context.Context, in *GetMaxDurationMillisRequest, opts ...grpc.CallOption) (*GetMaxDurationMillisResponse, error)
-	GetMaxSize(ctx context.Context, in *GetMaxSizeRequest, opts ...grpc.CallOption) (*GetMaxSizeResponse, error)
-	GetMinControlPointDurationMillis(ctx context.Context, in *GetMinControlPointDurationMillisRequest, opts ...grpc.CallOption) (*GetMinControlPointDurationMillisResponse, error)
-	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
-	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
-	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
-}
-
-type envelopeEffectInfoServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewEnvelopeEffectInfoServiceClient(cc grpc.ClientConnInterface) EnvelopeEffectInfoServiceClient {
-	return &envelopeEffectInfoServiceClient{cc}
-}
-
-func (c *envelopeEffectInfoServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, EnvelopeEffectInfoService_DescribeContents_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *envelopeEffectInfoServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(EqualsResponse)
-	err := c.cc.Invoke(ctx, EnvelopeEffectInfoService_Equals_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *envelopeEffectInfoServiceClient) GetMaxControlPointDurationMillis(ctx context.Context, in *GetMaxControlPointDurationMillisRequest, opts ...grpc.CallOption) (*GetMaxControlPointDurationMillisResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetMaxControlPointDurationMillisResponse)
-	err := c.cc.Invoke(ctx, EnvelopeEffectInfoService_GetMaxControlPointDurationMillis_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *envelopeEffectInfoServiceClient) GetMaxDurationMillis(ctx context.Context, in *GetMaxDurationMillisRequest, opts ...grpc.CallOption) (*GetMaxDurationMillisResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetMaxDurationMillisResponse)
-	err := c.cc.Invoke(ctx, EnvelopeEffectInfoService_GetMaxDurationMillis_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *envelopeEffectInfoServiceClient) GetMaxSize(ctx context.Context, in *GetMaxSizeRequest, opts ...grpc.CallOption) (*GetMaxSizeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetMaxSizeResponse)
-	err := c.cc.Invoke(ctx, EnvelopeEffectInfoService_GetMaxSize_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *envelopeEffectInfoServiceClient) GetMinControlPointDurationMillis(ctx context.Context, in *GetMinControlPointDurationMillisRequest, opts ...grpc.CallOption) (*GetMinControlPointDurationMillisResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetMinControlPointDurationMillisResponse)
-	err := c.cc.Invoke(ctx, EnvelopeEffectInfoService_GetMinControlPointDurationMillis_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *envelopeEffectInfoServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(HashCodeResponse)
-	err := c.cc.Invoke(ctx, EnvelopeEffectInfoService_HashCode_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *envelopeEffectInfoServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ToStringResponse)
-	err := c.cc.Invoke(ctx, EnvelopeEffectInfoService_ToString_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *envelopeEffectInfoServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, EnvelopeEffectInfoService_WriteToParcel_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// EnvelopeEffectInfoServiceServer is the server API for EnvelopeEffectInfoService service.
-// All implementations must embed UnimplementedEnvelopeEffectInfoServiceServer
-// for forward compatibility.
-type EnvelopeEffectInfoServiceServer interface {
-	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
-	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
-	GetMaxControlPointDurationMillis(context.Context, *GetMaxControlPointDurationMillisRequest) (*GetMaxControlPointDurationMillisResponse, error)
-	GetMaxDurationMillis(context.Context, *GetMaxDurationMillisRequest) (*GetMaxDurationMillisResponse, error)
-	GetMaxSize(context.Context, *GetMaxSizeRequest) (*GetMaxSizeResponse, error)
-	GetMinControlPointDurationMillis(context.Context, *GetMinControlPointDurationMillisRequest) (*GetMinControlPointDurationMillisResponse, error)
-	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
-	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
-	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
-	mustEmbedUnimplementedEnvelopeEffectInfoServiceServer()
-}
-
-// UnimplementedEnvelopeEffectInfoServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedEnvelopeEffectInfoServiceServer struct{}
-
-func (UnimplementedEnvelopeEffectInfoServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
-}
-func (UnimplementedEnvelopeEffectInfoServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
-}
-func (UnimplementedEnvelopeEffectInfoServiceServer) GetMaxControlPointDurationMillis(context.Context, *GetMaxControlPointDurationMillisRequest) (*GetMaxControlPointDurationMillisResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetMaxControlPointDurationMillis not implemented")
-}
-func (UnimplementedEnvelopeEffectInfoServiceServer) GetMaxDurationMillis(context.Context, *GetMaxDurationMillisRequest) (*GetMaxDurationMillisResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetMaxDurationMillis not implemented")
-}
-func (UnimplementedEnvelopeEffectInfoServiceServer) GetMaxSize(context.Context, *GetMaxSizeRequest) (*GetMaxSizeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetMaxSize not implemented")
-}
-func (UnimplementedEnvelopeEffectInfoServiceServer) GetMinControlPointDurationMillis(context.Context, *GetMinControlPointDurationMillisRequest) (*GetMinControlPointDurationMillisResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetMinControlPointDurationMillis not implemented")
-}
-func (UnimplementedEnvelopeEffectInfoServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
-}
-func (UnimplementedEnvelopeEffectInfoServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
-}
-func (UnimplementedEnvelopeEffectInfoServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
-}
-func (UnimplementedEnvelopeEffectInfoServiceServer) mustEmbedUnimplementedEnvelopeEffectInfoServiceServer() {
-}
-func (UnimplementedEnvelopeEffectInfoServiceServer) testEmbeddedByValue() {}
-
-// UnsafeEnvelopeEffectInfoServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to EnvelopeEffectInfoServiceServer will
-// result in compilation errors.
-type UnsafeEnvelopeEffectInfoServiceServer interface {
-	mustEmbedUnimplementedEnvelopeEffectInfoServiceServer()
-}
-
-func RegisterEnvelopeEffectInfoServiceServer(s grpc.ServiceRegistrar, srv EnvelopeEffectInfoServiceServer) {
-	// If the following call panics, it indicates UnimplementedEnvelopeEffectInfoServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&EnvelopeEffectInfoService_ServiceDesc, srv)
-}
-
-func _EnvelopeEffectInfoService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DescribeContentsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(EnvelopeEffectInfoServiceServer).DescribeContents(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: EnvelopeEffectInfoService_DescribeContents_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(EnvelopeEffectInfoServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _EnvelopeEffectInfoService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(EqualsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(EnvelopeEffectInfoServiceServer).Equals(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: EnvelopeEffectInfoService_Equals_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(EnvelopeEffectInfoServiceServer).Equals(ctx, req.(*EqualsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _EnvelopeEffectInfoService_GetMaxControlPointDurationMillis_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetMaxControlPointDurationMillisRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(EnvelopeEffectInfoServiceServer).GetMaxControlPointDurationMillis(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: EnvelopeEffectInfoService_GetMaxControlPointDurationMillis_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(EnvelopeEffectInfoServiceServer).GetMaxControlPointDurationMillis(ctx, req.(*GetMaxControlPointDurationMillisRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _EnvelopeEffectInfoService_GetMaxDurationMillis_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetMaxDurationMillisRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(EnvelopeEffectInfoServiceServer).GetMaxDurationMillis(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: EnvelopeEffectInfoService_GetMaxDurationMillis_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(EnvelopeEffectInfoServiceServer).GetMaxDurationMillis(ctx, req.(*GetMaxDurationMillisRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _EnvelopeEffectInfoService_GetMaxSize_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetMaxSizeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(EnvelopeEffectInfoServiceServer).GetMaxSize(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: EnvelopeEffectInfoService_GetMaxSize_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(EnvelopeEffectInfoServiceServer).GetMaxSize(ctx, req.(*GetMaxSizeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _EnvelopeEffectInfoService_GetMinControlPointDurationMillis_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetMinControlPointDurationMillisRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(EnvelopeEffectInfoServiceServer).GetMinControlPointDurationMillis(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: EnvelopeEffectInfoService_GetMinControlPointDurationMillis_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(EnvelopeEffectInfoServiceServer).GetMinControlPointDurationMillis(ctx, req.(*GetMinControlPointDurationMillisRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _EnvelopeEffectInfoService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(HashCodeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(EnvelopeEffectInfoServiceServer).HashCode(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: EnvelopeEffectInfoService_HashCode_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(EnvelopeEffectInfoServiceServer).HashCode(ctx, req.(*HashCodeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _EnvelopeEffectInfoService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ToStringRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(EnvelopeEffectInfoServiceServer).ToString(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: EnvelopeEffectInfoService_ToString_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(EnvelopeEffectInfoServiceServer).ToString(ctx, req.(*ToStringRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _EnvelopeEffectInfoService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WriteToParcelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(EnvelopeEffectInfoServiceServer).WriteToParcel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: EnvelopeEffectInfoService_WriteToParcel_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(EnvelopeEffectInfoServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// EnvelopeEffectInfoService_ServiceDesc is the grpc.ServiceDesc for EnvelopeEffectInfoService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var EnvelopeEffectInfoService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "vibrator.EnvelopeEffectInfoService",
-	HandlerType: (*EnvelopeEffectInfoServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "DescribeContents",
-			Handler:    _EnvelopeEffectInfoService_DescribeContents_Handler,
-		},
-		{
-			MethodName: "Equals",
-			Handler:    _EnvelopeEffectInfoService_Equals_Handler,
-		},
-		{
-			MethodName: "GetMaxControlPointDurationMillis",
-			Handler:    _EnvelopeEffectInfoService_GetMaxControlPointDurationMillis_Handler,
-		},
-		{
-			MethodName: "GetMaxDurationMillis",
-			Handler:    _EnvelopeEffectInfoService_GetMaxDurationMillis_Handler,
-		},
-		{
-			MethodName: "GetMaxSize",
-			Handler:    _EnvelopeEffectInfoService_GetMaxSize_Handler,
-		},
-		{
-			MethodName: "GetMinControlPointDurationMillis",
-			Handler:    _EnvelopeEffectInfoService_GetMinControlPointDurationMillis_Handler,
-		},
-		{
-			MethodName: "HashCode",
-			Handler:    _EnvelopeEffectInfoService_HashCode_Handler,
-		},
-		{
-			MethodName: "ToString",
-			Handler:    _EnvelopeEffectInfoService_ToString_Handler,
-		},
-		{
-			MethodName: "WriteToParcel",
-			Handler:    _EnvelopeEffectInfoService_WriteToParcel_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/vibrator/vibrator.proto",
-}
-
-const (
-	FrequencyProfileService_GetMaxFrequencyHz_FullMethodName          = "/vibrator.FrequencyProfileService/GetMaxFrequencyHz"
-	FrequencyProfileService_GetMaxOutputAccelerationGs_FullMethodName = "/vibrator.FrequencyProfileService/GetMaxOutputAccelerationGs"
-	FrequencyProfileService_GetMinFrequencyHz_FullMethodName          = "/vibrator.FrequencyProfileService/GetMinFrequencyHz"
-	FrequencyProfileService_GetOutputAccelerationGs_FullMethodName    = "/vibrator.FrequencyProfileService/GetOutputAccelerationGs"
-)
-
-// FrequencyProfileServiceClient is the client API for FrequencyProfileService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type FrequencyProfileServiceClient interface {
-	GetMaxFrequencyHz(ctx context.Context, in *GetMaxFrequencyHzRequest, opts ...grpc.CallOption) (*GetMaxFrequencyHzResponse, error)
-	GetMaxOutputAccelerationGs(ctx context.Context, in *GetMaxOutputAccelerationGsRequest, opts ...grpc.CallOption) (*GetMaxOutputAccelerationGsResponse, error)
-	GetMinFrequencyHz(ctx context.Context, in *GetMinFrequencyHzRequest, opts ...grpc.CallOption) (*GetMinFrequencyHzResponse, error)
-	GetOutputAccelerationGs(ctx context.Context, in *GetOutputAccelerationGsRequest, opts ...grpc.CallOption) (*GetOutputAccelerationGsResponse, error)
-}
-
-type frequencyProfileServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewFrequencyProfileServiceClient(cc grpc.ClientConnInterface) FrequencyProfileServiceClient {
-	return &frequencyProfileServiceClient{cc}
-}
-
-func (c *frequencyProfileServiceClient) GetMaxFrequencyHz(ctx context.Context, in *GetMaxFrequencyHzRequest, opts ...grpc.CallOption) (*GetMaxFrequencyHzResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetMaxFrequencyHzResponse)
-	err := c.cc.Invoke(ctx, FrequencyProfileService_GetMaxFrequencyHz_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *frequencyProfileServiceClient) GetMaxOutputAccelerationGs(ctx context.Context, in *GetMaxOutputAccelerationGsRequest, opts ...grpc.CallOption) (*GetMaxOutputAccelerationGsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetMaxOutputAccelerationGsResponse)
-	err := c.cc.Invoke(ctx, FrequencyProfileService_GetMaxOutputAccelerationGs_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *frequencyProfileServiceClient) GetMinFrequencyHz(ctx context.Context, in *GetMinFrequencyHzRequest, opts ...grpc.CallOption) (*GetMinFrequencyHzResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetMinFrequencyHzResponse)
-	err := c.cc.Invoke(ctx, FrequencyProfileService_GetMinFrequencyHz_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *frequencyProfileServiceClient) GetOutputAccelerationGs(ctx context.Context, in *GetOutputAccelerationGsRequest, opts ...grpc.CallOption) (*GetOutputAccelerationGsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetOutputAccelerationGsResponse)
-	err := c.cc.Invoke(ctx, FrequencyProfileService_GetOutputAccelerationGs_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// FrequencyProfileServiceServer is the server API for FrequencyProfileService service.
-// All implementations must embed UnimplementedFrequencyProfileServiceServer
-// for forward compatibility.
-type FrequencyProfileServiceServer interface {
-	GetMaxFrequencyHz(context.Context, *GetMaxFrequencyHzRequest) (*GetMaxFrequencyHzResponse, error)
-	GetMaxOutputAccelerationGs(context.Context, *GetMaxOutputAccelerationGsRequest) (*GetMaxOutputAccelerationGsResponse, error)
-	GetMinFrequencyHz(context.Context, *GetMinFrequencyHzRequest) (*GetMinFrequencyHzResponse, error)
-	GetOutputAccelerationGs(context.Context, *GetOutputAccelerationGsRequest) (*GetOutputAccelerationGsResponse, error)
-	mustEmbedUnimplementedFrequencyProfileServiceServer()
-}
-
-// UnimplementedFrequencyProfileServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedFrequencyProfileServiceServer struct{}
-
-func (UnimplementedFrequencyProfileServiceServer) GetMaxFrequencyHz(context.Context, *GetMaxFrequencyHzRequest) (*GetMaxFrequencyHzResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetMaxFrequencyHz not implemented")
-}
-func (UnimplementedFrequencyProfileServiceServer) GetMaxOutputAccelerationGs(context.Context, *GetMaxOutputAccelerationGsRequest) (*GetMaxOutputAccelerationGsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetMaxOutputAccelerationGs not implemented")
-}
-func (UnimplementedFrequencyProfileServiceServer) GetMinFrequencyHz(context.Context, *GetMinFrequencyHzRequest) (*GetMinFrequencyHzResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetMinFrequencyHz not implemented")
-}
-func (UnimplementedFrequencyProfileServiceServer) GetOutputAccelerationGs(context.Context, *GetOutputAccelerationGsRequest) (*GetOutputAccelerationGsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetOutputAccelerationGs not implemented")
-}
-func (UnimplementedFrequencyProfileServiceServer) mustEmbedUnimplementedFrequencyProfileServiceServer() {
-}
-func (UnimplementedFrequencyProfileServiceServer) testEmbeddedByValue() {}
-
-// UnsafeFrequencyProfileServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to FrequencyProfileServiceServer will
-// result in compilation errors.
-type UnsafeFrequencyProfileServiceServer interface {
-	mustEmbedUnimplementedFrequencyProfileServiceServer()
-}
-
-func RegisterFrequencyProfileServiceServer(s grpc.ServiceRegistrar, srv FrequencyProfileServiceServer) {
-	// If the following call panics, it indicates UnimplementedFrequencyProfileServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&FrequencyProfileService_ServiceDesc, srv)
-}
-
-func _FrequencyProfileService_GetMaxFrequencyHz_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetMaxFrequencyHzRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(FrequencyProfileServiceServer).GetMaxFrequencyHz(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: FrequencyProfileService_GetMaxFrequencyHz_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FrequencyProfileServiceServer).GetMaxFrequencyHz(ctx, req.(*GetMaxFrequencyHzRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _FrequencyProfileService_GetMaxOutputAccelerationGs_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetMaxOutputAccelerationGsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(FrequencyProfileServiceServer).GetMaxOutputAccelerationGs(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: FrequencyProfileService_GetMaxOutputAccelerationGs_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FrequencyProfileServiceServer).GetMaxOutputAccelerationGs(ctx, req.(*GetMaxOutputAccelerationGsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _FrequencyProfileService_GetMinFrequencyHz_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetMinFrequencyHzRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(FrequencyProfileServiceServer).GetMinFrequencyHz(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: FrequencyProfileService_GetMinFrequencyHz_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FrequencyProfileServiceServer).GetMinFrequencyHz(ctx, req.(*GetMinFrequencyHzRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _FrequencyProfileService_GetOutputAccelerationGs_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetOutputAccelerationGsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(FrequencyProfileServiceServer).GetOutputAccelerationGs(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: FrequencyProfileService_GetOutputAccelerationGs_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FrequencyProfileServiceServer).GetOutputAccelerationGs(ctx, req.(*GetOutputAccelerationGsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// FrequencyProfileService_ServiceDesc is the grpc.ServiceDesc for FrequencyProfileService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var FrequencyProfileService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "vibrator.FrequencyProfileService",
-	HandlerType: (*FrequencyProfileServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "GetMaxFrequencyHz",
-			Handler:    _FrequencyProfileService_GetMaxFrequencyHz_Handler,
-		},
-		{
-			MethodName: "GetMaxOutputAccelerationGs",
-			Handler:    _FrequencyProfileService_GetMaxOutputAccelerationGs_Handler,
-		},
-		{
-			MethodName: "GetMinFrequencyHz",
-			Handler:    _FrequencyProfileService_GetMinFrequencyHz_Handler,
-		},
-		{
-			MethodName: "GetOutputAccelerationGs",
-			Handler:    _FrequencyProfileService_GetOutputAccelerationGs_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

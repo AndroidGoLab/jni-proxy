@@ -21,187 +21,9 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	PromptContentItemPlainTextService_NewPromptContentItemPlainText_FullMethodName = "/biometrics.PromptContentItemPlainTextService/NewPromptContentItemPlainText"
-	PromptContentItemPlainTextService_DescribeContents_FullMethodName              = "/biometrics.PromptContentItemPlainTextService/DescribeContents"
-	PromptContentItemPlainTextService_WriteToParcel_FullMethodName                 = "/biometrics.PromptContentItemPlainTextService/WriteToParcel"
-)
-
-// PromptContentItemPlainTextServiceClient is the client API for PromptContentItemPlainTextService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type PromptContentItemPlainTextServiceClient interface {
-	NewPromptContentItemPlainText(ctx context.Context, in *NewPromptContentItemPlainTextRequest, opts ...grpc.CallOption) (*NewPromptContentItemPlainTextResponse, error)
-	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
-}
-
-type promptContentItemPlainTextServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewPromptContentItemPlainTextServiceClient(cc grpc.ClientConnInterface) PromptContentItemPlainTextServiceClient {
-	return &promptContentItemPlainTextServiceClient{cc}
-}
-
-func (c *promptContentItemPlainTextServiceClient) NewPromptContentItemPlainText(ctx context.Context, in *NewPromptContentItemPlainTextRequest, opts ...grpc.CallOption) (*NewPromptContentItemPlainTextResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewPromptContentItemPlainTextResponse)
-	err := c.cc.Invoke(ctx, PromptContentItemPlainTextService_NewPromptContentItemPlainText_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *promptContentItemPlainTextServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, PromptContentItemPlainTextService_DescribeContents_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *promptContentItemPlainTextServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, PromptContentItemPlainTextService_WriteToParcel_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// PromptContentItemPlainTextServiceServer is the server API for PromptContentItemPlainTextService service.
-// All implementations must embed UnimplementedPromptContentItemPlainTextServiceServer
-// for forward compatibility.
-type PromptContentItemPlainTextServiceServer interface {
-	NewPromptContentItemPlainText(context.Context, *NewPromptContentItemPlainTextRequest) (*NewPromptContentItemPlainTextResponse, error)
-	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
-	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
-	mustEmbedUnimplementedPromptContentItemPlainTextServiceServer()
-}
-
-// UnimplementedPromptContentItemPlainTextServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedPromptContentItemPlainTextServiceServer struct{}
-
-func (UnimplementedPromptContentItemPlainTextServiceServer) NewPromptContentItemPlainText(context.Context, *NewPromptContentItemPlainTextRequest) (*NewPromptContentItemPlainTextResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewPromptContentItemPlainText not implemented")
-}
-func (UnimplementedPromptContentItemPlainTextServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
-}
-func (UnimplementedPromptContentItemPlainTextServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
-}
-func (UnimplementedPromptContentItemPlainTextServiceServer) mustEmbedUnimplementedPromptContentItemPlainTextServiceServer() {
-}
-func (UnimplementedPromptContentItemPlainTextServiceServer) testEmbeddedByValue() {}
-
-// UnsafePromptContentItemPlainTextServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to PromptContentItemPlainTextServiceServer will
-// result in compilation errors.
-type UnsafePromptContentItemPlainTextServiceServer interface {
-	mustEmbedUnimplementedPromptContentItemPlainTextServiceServer()
-}
-
-func RegisterPromptContentItemPlainTextServiceServer(s grpc.ServiceRegistrar, srv PromptContentItemPlainTextServiceServer) {
-	// If the following call panics, it indicates UnimplementedPromptContentItemPlainTextServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&PromptContentItemPlainTextService_ServiceDesc, srv)
-}
-
-func _PromptContentItemPlainTextService_NewPromptContentItemPlainText_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewPromptContentItemPlainTextRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PromptContentItemPlainTextServiceServer).NewPromptContentItemPlainText(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PromptContentItemPlainTextService_NewPromptContentItemPlainText_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PromptContentItemPlainTextServiceServer).NewPromptContentItemPlainText(ctx, req.(*NewPromptContentItemPlainTextRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PromptContentItemPlainTextService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DescribeContentsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PromptContentItemPlainTextServiceServer).DescribeContents(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PromptContentItemPlainTextService_DescribeContents_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PromptContentItemPlainTextServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PromptContentItemPlainTextService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WriteToParcelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PromptContentItemPlainTextServiceServer).WriteToParcel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PromptContentItemPlainTextService_WriteToParcel_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PromptContentItemPlainTextServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// PromptContentItemPlainTextService_ServiceDesc is the grpc.ServiceDesc for PromptContentItemPlainTextService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var PromptContentItemPlainTextService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "biometrics.PromptContentItemPlainTextService",
-	HandlerType: (*PromptContentItemPlainTextServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "NewPromptContentItemPlainText",
-			Handler:    _PromptContentItemPlainTextService_NewPromptContentItemPlainText_Handler,
-		},
-		{
-			MethodName: "DescribeContents",
-			Handler:    _PromptContentItemPlainTextService_DescribeContents_Handler,
-		},
-		{
-			MethodName: "WriteToParcel",
-			Handler:    _PromptContentItemPlainTextService_WriteToParcel_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/biometrics/biometrics.proto",
-}
-
-const (
 	PromptVerticalListContentViewService_DescribeContents_FullMethodName              = "/biometrics.PromptVerticalListContentViewService/DescribeContents"
 	PromptVerticalListContentViewService_GetDescription_FullMethodName                = "/biometrics.PromptVerticalListContentViewService/GetDescription"
+	PromptVerticalListContentViewService_GetListItems_FullMethodName                  = "/biometrics.PromptVerticalListContentViewService/GetListItems"
 	PromptVerticalListContentViewService_WriteToParcel_FullMethodName                 = "/biometrics.PromptVerticalListContentViewService/WriteToParcel"
 	PromptVerticalListContentViewService_GetMaxEachItemCharacterNumber_FullMethodName = "/biometrics.PromptVerticalListContentViewService/GetMaxEachItemCharacterNumber"
 	PromptVerticalListContentViewService_GetMaxItemCount_FullMethodName               = "/biometrics.PromptVerticalListContentViewService/GetMaxItemCount"
@@ -211,9 +33,10 @@ const (
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type PromptVerticalListContentViewServiceClient interface {
-	DescribeContents(ctx context.Context, in *PromptVerticalListContentViewDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
 	GetDescription(ctx context.Context, in *GetDescriptionRequest, opts ...grpc.CallOption) (*GetDescriptionResponse, error)
-	WriteToParcel(ctx context.Context, in *PromptVerticalListContentViewWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+	GetListItems(ctx context.Context, in *GetListItemsRequest, opts ...grpc.CallOption) (*GetListItemsResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
 	GetMaxEachItemCharacterNumber(ctx context.Context, in *GetMaxEachItemCharacterNumberRequest, opts ...grpc.CallOption) (*GetMaxEachItemCharacterNumberResponse, error)
 	GetMaxItemCount(ctx context.Context, in *GetMaxItemCountRequest, opts ...grpc.CallOption) (*GetMaxItemCountResponse, error)
 }
@@ -226,7 +49,7 @@ func NewPromptVerticalListContentViewServiceClient(cc grpc.ClientConnInterface) 
 	return &promptVerticalListContentViewServiceClient{cc}
 }
 
-func (c *promptVerticalListContentViewServiceClient) DescribeContents(ctx context.Context, in *PromptVerticalListContentViewDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+func (c *promptVerticalListContentViewServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(DescribeContentsResponse)
 	err := c.cc.Invoke(ctx, PromptVerticalListContentViewService_DescribeContents_FullMethodName, in, out, cOpts...)
@@ -246,7 +69,17 @@ func (c *promptVerticalListContentViewServiceClient) GetDescription(ctx context.
 	return out, nil
 }
 
-func (c *promptVerticalListContentViewServiceClient) WriteToParcel(ctx context.Context, in *PromptVerticalListContentViewWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+func (c *promptVerticalListContentViewServiceClient) GetListItems(ctx context.Context, in *GetListItemsRequest, opts ...grpc.CallOption) (*GetListItemsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetListItemsResponse)
+	err := c.cc.Invoke(ctx, PromptVerticalListContentViewService_GetListItems_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *promptVerticalListContentViewServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(WriteToParcelResponse)
 	err := c.cc.Invoke(ctx, PromptVerticalListContentViewService_WriteToParcel_FullMethodName, in, out, cOpts...)
@@ -280,9 +113,10 @@ func (c *promptVerticalListContentViewServiceClient) GetMaxItemCount(ctx context
 // All implementations must embed UnimplementedPromptVerticalListContentViewServiceServer
 // for forward compatibility.
 type PromptVerticalListContentViewServiceServer interface {
-	DescribeContents(context.Context, *PromptVerticalListContentViewDescribeContentsRequest) (*DescribeContentsResponse, error)
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
 	GetDescription(context.Context, *GetDescriptionRequest) (*GetDescriptionResponse, error)
-	WriteToParcel(context.Context, *PromptVerticalListContentViewWriteToParcelRequest) (*WriteToParcelResponse, error)
+	GetListItems(context.Context, *GetListItemsRequest) (*GetListItemsResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
 	GetMaxEachItemCharacterNumber(context.Context, *GetMaxEachItemCharacterNumberRequest) (*GetMaxEachItemCharacterNumberResponse, error)
 	GetMaxItemCount(context.Context, *GetMaxItemCountRequest) (*GetMaxItemCountResponse, error)
 	mustEmbedUnimplementedPromptVerticalListContentViewServiceServer()
@@ -295,13 +129,16 @@ type PromptVerticalListContentViewServiceServer interface {
 // pointer dereference when methods are called.
 type UnimplementedPromptVerticalListContentViewServiceServer struct{}
 
-func (UnimplementedPromptVerticalListContentViewServiceServer) DescribeContents(context.Context, *PromptVerticalListContentViewDescribeContentsRequest) (*DescribeContentsResponse, error) {
+func (UnimplementedPromptVerticalListContentViewServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
 }
 func (UnimplementedPromptVerticalListContentViewServiceServer) GetDescription(context.Context, *GetDescriptionRequest) (*GetDescriptionResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetDescription not implemented")
 }
-func (UnimplementedPromptVerticalListContentViewServiceServer) WriteToParcel(context.Context, *PromptVerticalListContentViewWriteToParcelRequest) (*WriteToParcelResponse, error) {
+func (UnimplementedPromptVerticalListContentViewServiceServer) GetListItems(context.Context, *GetListItemsRequest) (*GetListItemsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetListItems not implemented")
+}
+func (UnimplementedPromptVerticalListContentViewServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
 }
 func (UnimplementedPromptVerticalListContentViewServiceServer) GetMaxEachItemCharacterNumber(context.Context, *GetMaxEachItemCharacterNumberRequest) (*GetMaxEachItemCharacterNumberResponse, error) {
@@ -333,7 +170,7 @@ func RegisterPromptVerticalListContentViewServiceServer(s grpc.ServiceRegistrar,
 }
 
 func _PromptVerticalListContentViewService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(PromptVerticalListContentViewDescribeContentsRequest)
+	in := new(DescribeContentsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -345,7 +182,7 @@ func _PromptVerticalListContentViewService_DescribeContents_Handler(srv interfac
 		FullMethod: PromptVerticalListContentViewService_DescribeContents_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PromptVerticalListContentViewServiceServer).DescribeContents(ctx, req.(*PromptVerticalListContentViewDescribeContentsRequest))
+		return srv.(PromptVerticalListContentViewServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -368,8 +205,26 @@ func _PromptVerticalListContentViewService_GetDescription_Handler(srv interface{
 	return interceptor(ctx, in, info, handler)
 }
 
+func _PromptVerticalListContentViewService_GetListItems_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetListItemsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PromptVerticalListContentViewServiceServer).GetListItems(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PromptVerticalListContentViewService_GetListItems_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PromptVerticalListContentViewServiceServer).GetListItems(ctx, req.(*GetListItemsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _PromptVerticalListContentViewService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(PromptVerticalListContentViewWriteToParcelRequest)
+	in := new(WriteToParcelRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -381,7 +236,7 @@ func _PromptVerticalListContentViewService_WriteToParcel_Handler(srv interface{}
 		FullMethod: PromptVerticalListContentViewService_WriteToParcel_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PromptVerticalListContentViewServiceServer).WriteToParcel(ctx, req.(*PromptVerticalListContentViewWriteToParcelRequest))
+		return srv.(PromptVerticalListContentViewServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -436,6 +291,10 @@ var PromptVerticalListContentViewService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetDescription",
 			Handler:    _PromptVerticalListContentViewService_GetDescription_Handler,
+		},
+		{
+			MethodName: "GetListItems",
+			Handler:    _PromptVerticalListContentViewService_GetListItems_Handler,
 		},
 		{
 			MethodName: "WriteToParcel",
@@ -682,8 +541,8 @@ const (
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type PromptContentItemBulletedTextServiceClient interface {
 	NewPromptContentItemBulletedText(ctx context.Context, in *NewPromptContentItemBulletedTextRequest, opts ...grpc.CallOption) (*NewPromptContentItemBulletedTextResponse, error)
-	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+	DescribeContents(ctx context.Context, in *PromptContentItemBulletedTextDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	WriteToParcel(ctx context.Context, in *PromptContentItemBulletedTextWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
 }
 
 type promptContentItemBulletedTextServiceClient struct {
@@ -704,7 +563,7 @@ func (c *promptContentItemBulletedTextServiceClient) NewPromptContentItemBullete
 	return out, nil
 }
 
-func (c *promptContentItemBulletedTextServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+func (c *promptContentItemBulletedTextServiceClient) DescribeContents(ctx context.Context, in *PromptContentItemBulletedTextDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(DescribeContentsResponse)
 	err := c.cc.Invoke(ctx, PromptContentItemBulletedTextService_DescribeContents_FullMethodName, in, out, cOpts...)
@@ -714,7 +573,7 @@ func (c *promptContentItemBulletedTextServiceClient) DescribeContents(ctx contex
 	return out, nil
 }
 
-func (c *promptContentItemBulletedTextServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+func (c *promptContentItemBulletedTextServiceClient) WriteToParcel(ctx context.Context, in *PromptContentItemBulletedTextWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(WriteToParcelResponse)
 	err := c.cc.Invoke(ctx, PromptContentItemBulletedTextService_WriteToParcel_FullMethodName, in, out, cOpts...)
@@ -729,8 +588,8 @@ func (c *promptContentItemBulletedTextServiceClient) WriteToParcel(ctx context.C
 // for forward compatibility.
 type PromptContentItemBulletedTextServiceServer interface {
 	NewPromptContentItemBulletedText(context.Context, *NewPromptContentItemBulletedTextRequest) (*NewPromptContentItemBulletedTextResponse, error)
-	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
-	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	DescribeContents(context.Context, *PromptContentItemBulletedTextDescribeContentsRequest) (*DescribeContentsResponse, error)
+	WriteToParcel(context.Context, *PromptContentItemBulletedTextWriteToParcelRequest) (*WriteToParcelResponse, error)
 	mustEmbedUnimplementedPromptContentItemBulletedTextServiceServer()
 }
 
@@ -744,10 +603,10 @@ type UnimplementedPromptContentItemBulletedTextServiceServer struct{}
 func (UnimplementedPromptContentItemBulletedTextServiceServer) NewPromptContentItemBulletedText(context.Context, *NewPromptContentItemBulletedTextRequest) (*NewPromptContentItemBulletedTextResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method NewPromptContentItemBulletedText not implemented")
 }
-func (UnimplementedPromptContentItemBulletedTextServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+func (UnimplementedPromptContentItemBulletedTextServiceServer) DescribeContents(context.Context, *PromptContentItemBulletedTextDescribeContentsRequest) (*DescribeContentsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
 }
-func (UnimplementedPromptContentItemBulletedTextServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+func (UnimplementedPromptContentItemBulletedTextServiceServer) WriteToParcel(context.Context, *PromptContentItemBulletedTextWriteToParcelRequest) (*WriteToParcelResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
 }
 func (UnimplementedPromptContentItemBulletedTextServiceServer) mustEmbedUnimplementedPromptContentItemBulletedTextServiceServer() {
@@ -791,7 +650,7 @@ func _PromptContentItemBulletedTextService_NewPromptContentItemBulletedText_Hand
 }
 
 func _PromptContentItemBulletedTextService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DescribeContentsRequest)
+	in := new(PromptContentItemBulletedTextDescribeContentsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -803,13 +662,13 @@ func _PromptContentItemBulletedTextService_DescribeContents_Handler(srv interfac
 		FullMethod: PromptContentItemBulletedTextService_DescribeContents_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PromptContentItemBulletedTextServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+		return srv.(PromptContentItemBulletedTextServiceServer).DescribeContents(ctx, req.(*PromptContentItemBulletedTextDescribeContentsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _PromptContentItemBulletedTextService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WriteToParcelRequest)
+	in := new(PromptContentItemBulletedTextWriteToParcelRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -821,7 +680,7 @@ func _PromptContentItemBulletedTextService_WriteToParcel_Handler(srv interface{}
 		FullMethod: PromptContentItemBulletedTextService_WriteToParcel_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PromptContentItemBulletedTextServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+		return srv.(PromptContentItemBulletedTextServiceServer).WriteToParcel(ctx, req.(*PromptContentItemBulletedTextWriteToParcelRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -851,6 +710,185 @@ var PromptContentItemBulletedTextService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
+	PromptContentItemPlainTextService_NewPromptContentItemPlainText_FullMethodName = "/biometrics.PromptContentItemPlainTextService/NewPromptContentItemPlainText"
+	PromptContentItemPlainTextService_DescribeContents_FullMethodName              = "/biometrics.PromptContentItemPlainTextService/DescribeContents"
+	PromptContentItemPlainTextService_WriteToParcel_FullMethodName                 = "/biometrics.PromptContentItemPlainTextService/WriteToParcel"
+)
+
+// PromptContentItemPlainTextServiceClient is the client API for PromptContentItemPlainTextService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type PromptContentItemPlainTextServiceClient interface {
+	NewPromptContentItemPlainText(ctx context.Context, in *NewPromptContentItemPlainTextRequest, opts ...grpc.CallOption) (*NewPromptContentItemPlainTextResponse, error)
+	DescribeContents(ctx context.Context, in *PromptContentItemPlainTextDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	WriteToParcel(ctx context.Context, in *PromptContentItemPlainTextWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type promptContentItemPlainTextServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewPromptContentItemPlainTextServiceClient(cc grpc.ClientConnInterface) PromptContentItemPlainTextServiceClient {
+	return &promptContentItemPlainTextServiceClient{cc}
+}
+
+func (c *promptContentItemPlainTextServiceClient) NewPromptContentItemPlainText(ctx context.Context, in *NewPromptContentItemPlainTextRequest, opts ...grpc.CallOption) (*NewPromptContentItemPlainTextResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewPromptContentItemPlainTextResponse)
+	err := c.cc.Invoke(ctx, PromptContentItemPlainTextService_NewPromptContentItemPlainText_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *promptContentItemPlainTextServiceClient) DescribeContents(ctx context.Context, in *PromptContentItemPlainTextDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, PromptContentItemPlainTextService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *promptContentItemPlainTextServiceClient) WriteToParcel(ctx context.Context, in *PromptContentItemPlainTextWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, PromptContentItemPlainTextService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// PromptContentItemPlainTextServiceServer is the server API for PromptContentItemPlainTextService service.
+// All implementations must embed UnimplementedPromptContentItemPlainTextServiceServer
+// for forward compatibility.
+type PromptContentItemPlainTextServiceServer interface {
+	NewPromptContentItemPlainText(context.Context, *NewPromptContentItemPlainTextRequest) (*NewPromptContentItemPlainTextResponse, error)
+	DescribeContents(context.Context, *PromptContentItemPlainTextDescribeContentsRequest) (*DescribeContentsResponse, error)
+	WriteToParcel(context.Context, *PromptContentItemPlainTextWriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedPromptContentItemPlainTextServiceServer()
+}
+
+// UnimplementedPromptContentItemPlainTextServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedPromptContentItemPlainTextServiceServer struct{}
+
+func (UnimplementedPromptContentItemPlainTextServiceServer) NewPromptContentItemPlainText(context.Context, *NewPromptContentItemPlainTextRequest) (*NewPromptContentItemPlainTextResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewPromptContentItemPlainText not implemented")
+}
+func (UnimplementedPromptContentItemPlainTextServiceServer) DescribeContents(context.Context, *PromptContentItemPlainTextDescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedPromptContentItemPlainTextServiceServer) WriteToParcel(context.Context, *PromptContentItemPlainTextWriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedPromptContentItemPlainTextServiceServer) mustEmbedUnimplementedPromptContentItemPlainTextServiceServer() {
+}
+func (UnimplementedPromptContentItemPlainTextServiceServer) testEmbeddedByValue() {}
+
+// UnsafePromptContentItemPlainTextServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to PromptContentItemPlainTextServiceServer will
+// result in compilation errors.
+type UnsafePromptContentItemPlainTextServiceServer interface {
+	mustEmbedUnimplementedPromptContentItemPlainTextServiceServer()
+}
+
+func RegisterPromptContentItemPlainTextServiceServer(s grpc.ServiceRegistrar, srv PromptContentItemPlainTextServiceServer) {
+	// If the following call panics, it indicates UnimplementedPromptContentItemPlainTextServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&PromptContentItemPlainTextService_ServiceDesc, srv)
+}
+
+func _PromptContentItemPlainTextService_NewPromptContentItemPlainText_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewPromptContentItemPlainTextRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PromptContentItemPlainTextServiceServer).NewPromptContentItemPlainText(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PromptContentItemPlainTextService_NewPromptContentItemPlainText_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PromptContentItemPlainTextServiceServer).NewPromptContentItemPlainText(ctx, req.(*NewPromptContentItemPlainTextRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PromptContentItemPlainTextService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(PromptContentItemPlainTextDescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PromptContentItemPlainTextServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PromptContentItemPlainTextService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PromptContentItemPlainTextServiceServer).DescribeContents(ctx, req.(*PromptContentItemPlainTextDescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PromptContentItemPlainTextService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(PromptContentItemPlainTextWriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PromptContentItemPlainTextServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PromptContentItemPlainTextService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PromptContentItemPlainTextServiceServer).WriteToParcel(ctx, req.(*PromptContentItemPlainTextWriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// PromptContentItemPlainTextService_ServiceDesc is the grpc.ServiceDesc for PromptContentItemPlainTextService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var PromptContentItemPlainTextService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "biometrics.PromptContentItemPlainTextService",
+	HandlerType: (*PromptContentItemPlainTextServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewPromptContentItemPlainText",
+			Handler:    _PromptContentItemPlainTextService_NewPromptContentItemPlainText_Handler,
+		},
+		{
+			MethodName: "DescribeContents",
+			Handler:    _PromptContentItemPlainTextService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _PromptContentItemPlainTextService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/biometrics/biometrics.proto",
+}
+
+const (
 	PromptContentViewWithMoreOptionsButtonService_DescribeContents_FullMethodName             = "/biometrics.PromptContentViewWithMoreOptionsButtonService/DescribeContents"
 	PromptContentViewWithMoreOptionsButtonService_GetDescription_FullMethodName               = "/biometrics.PromptContentViewWithMoreOptionsButtonService/GetDescription"
 	PromptContentViewWithMoreOptionsButtonService_GetMoreOptionsButtonListener_FullMethodName = "/biometrics.PromptContentViewWithMoreOptionsButtonService/GetMoreOptionsButtonListener"
@@ -861,10 +899,10 @@ const (
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type PromptContentViewWithMoreOptionsButtonServiceClient interface {
-	DescribeContents(ctx context.Context, in *PromptContentViewWithMoreOptionsButtonDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
 	GetDescription(ctx context.Context, in *GetDescriptionRequest, opts ...grpc.CallOption) (*GetDescriptionResponse, error)
 	GetMoreOptionsButtonListener(ctx context.Context, in *GetMoreOptionsButtonListenerRequest, opts ...grpc.CallOption) (*GetMoreOptionsButtonListenerResponse, error)
-	WriteToParcel(ctx context.Context, in *PromptContentViewWithMoreOptionsButtonWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
 }
 
 type promptContentViewWithMoreOptionsButtonServiceClient struct {
@@ -875,7 +913,7 @@ func NewPromptContentViewWithMoreOptionsButtonServiceClient(cc grpc.ClientConnIn
 	return &promptContentViewWithMoreOptionsButtonServiceClient{cc}
 }
 
-func (c *promptContentViewWithMoreOptionsButtonServiceClient) DescribeContents(ctx context.Context, in *PromptContentViewWithMoreOptionsButtonDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+func (c *promptContentViewWithMoreOptionsButtonServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(DescribeContentsResponse)
 	err := c.cc.Invoke(ctx, PromptContentViewWithMoreOptionsButtonService_DescribeContents_FullMethodName, in, out, cOpts...)
@@ -905,7 +943,7 @@ func (c *promptContentViewWithMoreOptionsButtonServiceClient) GetMoreOptionsButt
 	return out, nil
 }
 
-func (c *promptContentViewWithMoreOptionsButtonServiceClient) WriteToParcel(ctx context.Context, in *PromptContentViewWithMoreOptionsButtonWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+func (c *promptContentViewWithMoreOptionsButtonServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(WriteToParcelResponse)
 	err := c.cc.Invoke(ctx, PromptContentViewWithMoreOptionsButtonService_WriteToParcel_FullMethodName, in, out, cOpts...)
@@ -919,10 +957,10 @@ func (c *promptContentViewWithMoreOptionsButtonServiceClient) WriteToParcel(ctx 
 // All implementations must embed UnimplementedPromptContentViewWithMoreOptionsButtonServiceServer
 // for forward compatibility.
 type PromptContentViewWithMoreOptionsButtonServiceServer interface {
-	DescribeContents(context.Context, *PromptContentViewWithMoreOptionsButtonDescribeContentsRequest) (*DescribeContentsResponse, error)
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
 	GetDescription(context.Context, *GetDescriptionRequest) (*GetDescriptionResponse, error)
 	GetMoreOptionsButtonListener(context.Context, *GetMoreOptionsButtonListenerRequest) (*GetMoreOptionsButtonListenerResponse, error)
-	WriteToParcel(context.Context, *PromptContentViewWithMoreOptionsButtonWriteToParcelRequest) (*WriteToParcelResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
 	mustEmbedUnimplementedPromptContentViewWithMoreOptionsButtonServiceServer()
 }
 
@@ -933,7 +971,7 @@ type PromptContentViewWithMoreOptionsButtonServiceServer interface {
 // pointer dereference when methods are called.
 type UnimplementedPromptContentViewWithMoreOptionsButtonServiceServer struct{}
 
-func (UnimplementedPromptContentViewWithMoreOptionsButtonServiceServer) DescribeContents(context.Context, *PromptContentViewWithMoreOptionsButtonDescribeContentsRequest) (*DescribeContentsResponse, error) {
+func (UnimplementedPromptContentViewWithMoreOptionsButtonServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
 }
 func (UnimplementedPromptContentViewWithMoreOptionsButtonServiceServer) GetDescription(context.Context, *GetDescriptionRequest) (*GetDescriptionResponse, error) {
@@ -942,7 +980,7 @@ func (UnimplementedPromptContentViewWithMoreOptionsButtonServiceServer) GetDescr
 func (UnimplementedPromptContentViewWithMoreOptionsButtonServiceServer) GetMoreOptionsButtonListener(context.Context, *GetMoreOptionsButtonListenerRequest) (*GetMoreOptionsButtonListenerResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetMoreOptionsButtonListener not implemented")
 }
-func (UnimplementedPromptContentViewWithMoreOptionsButtonServiceServer) WriteToParcel(context.Context, *PromptContentViewWithMoreOptionsButtonWriteToParcelRequest) (*WriteToParcelResponse, error) {
+func (UnimplementedPromptContentViewWithMoreOptionsButtonServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
 }
 func (UnimplementedPromptContentViewWithMoreOptionsButtonServiceServer) mustEmbedUnimplementedPromptContentViewWithMoreOptionsButtonServiceServer() {
@@ -968,7 +1006,7 @@ func RegisterPromptContentViewWithMoreOptionsButtonServiceServer(s grpc.ServiceR
 }
 
 func _PromptContentViewWithMoreOptionsButtonService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(PromptContentViewWithMoreOptionsButtonDescribeContentsRequest)
+	in := new(DescribeContentsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -980,7 +1018,7 @@ func _PromptContentViewWithMoreOptionsButtonService_DescribeContents_Handler(srv
 		FullMethod: PromptContentViewWithMoreOptionsButtonService_DescribeContents_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PromptContentViewWithMoreOptionsButtonServiceServer).DescribeContents(ctx, req.(*PromptContentViewWithMoreOptionsButtonDescribeContentsRequest))
+		return srv.(PromptContentViewWithMoreOptionsButtonServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -1022,7 +1060,7 @@ func _PromptContentViewWithMoreOptionsButtonService_GetMoreOptionsButtonListener
 }
 
 func _PromptContentViewWithMoreOptionsButtonService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(PromptContentViewWithMoreOptionsButtonWriteToParcelRequest)
+	in := new(WriteToParcelRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -1034,7 +1072,7 @@ func _PromptContentViewWithMoreOptionsButtonService_WriteToParcel_Handler(srv in
 		FullMethod: PromptContentViewWithMoreOptionsButtonService_WriteToParcel_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PromptContentViewWithMoreOptionsButtonServiceServer).WriteToParcel(ctx, req.(*PromptContentViewWithMoreOptionsButtonWriteToParcelRequest))
+		return srv.(PromptContentViewWithMoreOptionsButtonServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }

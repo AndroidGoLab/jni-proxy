@@ -21,6 +21,554 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
+	HostNfcFServiceService_OnBind_FullMethodName             = "/cardemulation.HostNfcFServiceService/OnBind"
+	HostNfcFServiceService_OnDeactivated_FullMethodName      = "/cardemulation.HostNfcFServiceService/OnDeactivated"
+	HostNfcFServiceService_ProcessNfcFPacket_FullMethodName  = "/cardemulation.HostNfcFServiceService/ProcessNfcFPacket"
+	HostNfcFServiceService_SendResponsePacket_FullMethodName = "/cardemulation.HostNfcFServiceService/SendResponsePacket"
+)
+
+// HostNfcFServiceServiceClient is the client API for HostNfcFServiceService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type HostNfcFServiceServiceClient interface {
+	OnBind(ctx context.Context, in *OnBindRequest, opts ...grpc.CallOption) (*OnBindResponse, error)
+	OnDeactivated(ctx context.Context, in *OnDeactivatedRequest, opts ...grpc.CallOption) (*OnDeactivatedResponse, error)
+	ProcessNfcFPacket(ctx context.Context, in *ProcessNfcFPacketRequest, opts ...grpc.CallOption) (*ProcessNfcFPacketResponse, error)
+	SendResponsePacket(ctx context.Context, in *SendResponsePacketRequest, opts ...grpc.CallOption) (*SendResponsePacketResponse, error)
+}
+
+type hostNfcFServiceServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewHostNfcFServiceServiceClient(cc grpc.ClientConnInterface) HostNfcFServiceServiceClient {
+	return &hostNfcFServiceServiceClient{cc}
+}
+
+func (c *hostNfcFServiceServiceClient) OnBind(ctx context.Context, in *OnBindRequest, opts ...grpc.CallOption) (*OnBindResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnBindResponse)
+	err := c.cc.Invoke(ctx, HostNfcFServiceService_OnBind_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *hostNfcFServiceServiceClient) OnDeactivated(ctx context.Context, in *OnDeactivatedRequest, opts ...grpc.CallOption) (*OnDeactivatedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnDeactivatedResponse)
+	err := c.cc.Invoke(ctx, HostNfcFServiceService_OnDeactivated_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *hostNfcFServiceServiceClient) ProcessNfcFPacket(ctx context.Context, in *ProcessNfcFPacketRequest, opts ...grpc.CallOption) (*ProcessNfcFPacketResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ProcessNfcFPacketResponse)
+	err := c.cc.Invoke(ctx, HostNfcFServiceService_ProcessNfcFPacket_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *hostNfcFServiceServiceClient) SendResponsePacket(ctx context.Context, in *SendResponsePacketRequest, opts ...grpc.CallOption) (*SendResponsePacketResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SendResponsePacketResponse)
+	err := c.cc.Invoke(ctx, HostNfcFServiceService_SendResponsePacket_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// HostNfcFServiceServiceServer is the server API for HostNfcFServiceService service.
+// All implementations must embed UnimplementedHostNfcFServiceServiceServer
+// for forward compatibility.
+type HostNfcFServiceServiceServer interface {
+	OnBind(context.Context, *OnBindRequest) (*OnBindResponse, error)
+	OnDeactivated(context.Context, *OnDeactivatedRequest) (*OnDeactivatedResponse, error)
+	ProcessNfcFPacket(context.Context, *ProcessNfcFPacketRequest) (*ProcessNfcFPacketResponse, error)
+	SendResponsePacket(context.Context, *SendResponsePacketRequest) (*SendResponsePacketResponse, error)
+	mustEmbedUnimplementedHostNfcFServiceServiceServer()
+}
+
+// UnimplementedHostNfcFServiceServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedHostNfcFServiceServiceServer struct{}
+
+func (UnimplementedHostNfcFServiceServiceServer) OnBind(context.Context, *OnBindRequest) (*OnBindResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnBind not implemented")
+}
+func (UnimplementedHostNfcFServiceServiceServer) OnDeactivated(context.Context, *OnDeactivatedRequest) (*OnDeactivatedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnDeactivated not implemented")
+}
+func (UnimplementedHostNfcFServiceServiceServer) ProcessNfcFPacket(context.Context, *ProcessNfcFPacketRequest) (*ProcessNfcFPacketResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ProcessNfcFPacket not implemented")
+}
+func (UnimplementedHostNfcFServiceServiceServer) SendResponsePacket(context.Context, *SendResponsePacketRequest) (*SendResponsePacketResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SendResponsePacket not implemented")
+}
+func (UnimplementedHostNfcFServiceServiceServer) mustEmbedUnimplementedHostNfcFServiceServiceServer() {
+}
+func (UnimplementedHostNfcFServiceServiceServer) testEmbeddedByValue() {}
+
+// UnsafeHostNfcFServiceServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to HostNfcFServiceServiceServer will
+// result in compilation errors.
+type UnsafeHostNfcFServiceServiceServer interface {
+	mustEmbedUnimplementedHostNfcFServiceServiceServer()
+}
+
+func RegisterHostNfcFServiceServiceServer(s grpc.ServiceRegistrar, srv HostNfcFServiceServiceServer) {
+	// If the following call panics, it indicates UnimplementedHostNfcFServiceServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&HostNfcFServiceService_ServiceDesc, srv)
+}
+
+func _HostNfcFServiceService_OnBind_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnBindRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(HostNfcFServiceServiceServer).OnBind(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: HostNfcFServiceService_OnBind_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(HostNfcFServiceServiceServer).OnBind(ctx, req.(*OnBindRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _HostNfcFServiceService_OnDeactivated_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnDeactivatedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(HostNfcFServiceServiceServer).OnDeactivated(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: HostNfcFServiceService_OnDeactivated_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(HostNfcFServiceServiceServer).OnDeactivated(ctx, req.(*OnDeactivatedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _HostNfcFServiceService_ProcessNfcFPacket_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ProcessNfcFPacketRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(HostNfcFServiceServiceServer).ProcessNfcFPacket(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: HostNfcFServiceService_ProcessNfcFPacket_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(HostNfcFServiceServiceServer).ProcessNfcFPacket(ctx, req.(*ProcessNfcFPacketRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _HostNfcFServiceService_SendResponsePacket_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SendResponsePacketRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(HostNfcFServiceServiceServer).SendResponsePacket(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: HostNfcFServiceService_SendResponsePacket_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(HostNfcFServiceServiceServer).SendResponsePacket(ctx, req.(*SendResponsePacketRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// HostNfcFServiceService_ServiceDesc is the grpc.ServiceDesc for HostNfcFServiceService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var HostNfcFServiceService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "cardemulation.HostNfcFServiceService",
+	HandlerType: (*HostNfcFServiceServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "OnBind",
+			Handler:    _HostNfcFServiceService_OnBind_Handler,
+		},
+		{
+			MethodName: "OnDeactivated",
+			Handler:    _HostNfcFServiceService_OnDeactivated_Handler,
+		},
+		{
+			MethodName: "ProcessNfcFPacket",
+			Handler:    _HostNfcFServiceService_ProcessNfcFPacket_Handler,
+		},
+		{
+			MethodName: "SendResponsePacket",
+			Handler:    _HostNfcFServiceService_SendResponsePacket_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/cardemulation/cardemulation.proto",
+}
+
+const (
+	NfcFCardEmulationService_DisableService_FullMethodName                 = "/cardemulation.NfcFCardEmulationService/DisableService"
+	NfcFCardEmulationService_EnableService_FullMethodName                  = "/cardemulation.NfcFCardEmulationService/EnableService"
+	NfcFCardEmulationService_GetNfcid2ForService_FullMethodName            = "/cardemulation.NfcFCardEmulationService/GetNfcid2ForService"
+	NfcFCardEmulationService_GetSystemCodeForService_FullMethodName        = "/cardemulation.NfcFCardEmulationService/GetSystemCodeForService"
+	NfcFCardEmulationService_RegisterSystemCodeForService_FullMethodName   = "/cardemulation.NfcFCardEmulationService/RegisterSystemCodeForService"
+	NfcFCardEmulationService_SetNfcid2ForService_FullMethodName            = "/cardemulation.NfcFCardEmulationService/SetNfcid2ForService"
+	NfcFCardEmulationService_UnregisterSystemCodeForService_FullMethodName = "/cardemulation.NfcFCardEmulationService/UnregisterSystemCodeForService"
+)
+
+// NfcFCardEmulationServiceClient is the client API for NfcFCardEmulationService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type NfcFCardEmulationServiceClient interface {
+	DisableService(ctx context.Context, in *DisableServiceRequest, opts ...grpc.CallOption) (*DisableServiceResponse, error)
+	EnableService(ctx context.Context, in *EnableServiceRequest, opts ...grpc.CallOption) (*EnableServiceResponse, error)
+	GetNfcid2ForService(ctx context.Context, in *GetNfcid2ForServiceRequest, opts ...grpc.CallOption) (*GetNfcid2ForServiceResponse, error)
+	GetSystemCodeForService(ctx context.Context, in *GetSystemCodeForServiceRequest, opts ...grpc.CallOption) (*GetSystemCodeForServiceResponse, error)
+	RegisterSystemCodeForService(ctx context.Context, in *RegisterSystemCodeForServiceRequest, opts ...grpc.CallOption) (*RegisterSystemCodeForServiceResponse, error)
+	SetNfcid2ForService(ctx context.Context, in *SetNfcid2ForServiceRequest, opts ...grpc.CallOption) (*SetNfcid2ForServiceResponse, error)
+	UnregisterSystemCodeForService(ctx context.Context, in *UnregisterSystemCodeForServiceRequest, opts ...grpc.CallOption) (*UnregisterSystemCodeForServiceResponse, error)
+}
+
+type nfcFCardEmulationServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewNfcFCardEmulationServiceClient(cc grpc.ClientConnInterface) NfcFCardEmulationServiceClient {
+	return &nfcFCardEmulationServiceClient{cc}
+}
+
+func (c *nfcFCardEmulationServiceClient) DisableService(ctx context.Context, in *DisableServiceRequest, opts ...grpc.CallOption) (*DisableServiceResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DisableServiceResponse)
+	err := c.cc.Invoke(ctx, NfcFCardEmulationService_DisableService_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nfcFCardEmulationServiceClient) EnableService(ctx context.Context, in *EnableServiceRequest, opts ...grpc.CallOption) (*EnableServiceResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(EnableServiceResponse)
+	err := c.cc.Invoke(ctx, NfcFCardEmulationService_EnableService_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nfcFCardEmulationServiceClient) GetNfcid2ForService(ctx context.Context, in *GetNfcid2ForServiceRequest, opts ...grpc.CallOption) (*GetNfcid2ForServiceResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetNfcid2ForServiceResponse)
+	err := c.cc.Invoke(ctx, NfcFCardEmulationService_GetNfcid2ForService_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nfcFCardEmulationServiceClient) GetSystemCodeForService(ctx context.Context, in *GetSystemCodeForServiceRequest, opts ...grpc.CallOption) (*GetSystemCodeForServiceResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSystemCodeForServiceResponse)
+	err := c.cc.Invoke(ctx, NfcFCardEmulationService_GetSystemCodeForService_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nfcFCardEmulationServiceClient) RegisterSystemCodeForService(ctx context.Context, in *RegisterSystemCodeForServiceRequest, opts ...grpc.CallOption) (*RegisterSystemCodeForServiceResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(RegisterSystemCodeForServiceResponse)
+	err := c.cc.Invoke(ctx, NfcFCardEmulationService_RegisterSystemCodeForService_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nfcFCardEmulationServiceClient) SetNfcid2ForService(ctx context.Context, in *SetNfcid2ForServiceRequest, opts ...grpc.CallOption) (*SetNfcid2ForServiceResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetNfcid2ForServiceResponse)
+	err := c.cc.Invoke(ctx, NfcFCardEmulationService_SetNfcid2ForService_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nfcFCardEmulationServiceClient) UnregisterSystemCodeForService(ctx context.Context, in *UnregisterSystemCodeForServiceRequest, opts ...grpc.CallOption) (*UnregisterSystemCodeForServiceResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(UnregisterSystemCodeForServiceResponse)
+	err := c.cc.Invoke(ctx, NfcFCardEmulationService_UnregisterSystemCodeForService_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// NfcFCardEmulationServiceServer is the server API for NfcFCardEmulationService service.
+// All implementations must embed UnimplementedNfcFCardEmulationServiceServer
+// for forward compatibility.
+type NfcFCardEmulationServiceServer interface {
+	DisableService(context.Context, *DisableServiceRequest) (*DisableServiceResponse, error)
+	EnableService(context.Context, *EnableServiceRequest) (*EnableServiceResponse, error)
+	GetNfcid2ForService(context.Context, *GetNfcid2ForServiceRequest) (*GetNfcid2ForServiceResponse, error)
+	GetSystemCodeForService(context.Context, *GetSystemCodeForServiceRequest) (*GetSystemCodeForServiceResponse, error)
+	RegisterSystemCodeForService(context.Context, *RegisterSystemCodeForServiceRequest) (*RegisterSystemCodeForServiceResponse, error)
+	SetNfcid2ForService(context.Context, *SetNfcid2ForServiceRequest) (*SetNfcid2ForServiceResponse, error)
+	UnregisterSystemCodeForService(context.Context, *UnregisterSystemCodeForServiceRequest) (*UnregisterSystemCodeForServiceResponse, error)
+	mustEmbedUnimplementedNfcFCardEmulationServiceServer()
+}
+
+// UnimplementedNfcFCardEmulationServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedNfcFCardEmulationServiceServer struct{}
+
+func (UnimplementedNfcFCardEmulationServiceServer) DisableService(context.Context, *DisableServiceRequest) (*DisableServiceResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DisableService not implemented")
+}
+func (UnimplementedNfcFCardEmulationServiceServer) EnableService(context.Context, *EnableServiceRequest) (*EnableServiceResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method EnableService not implemented")
+}
+func (UnimplementedNfcFCardEmulationServiceServer) GetNfcid2ForService(context.Context, *GetNfcid2ForServiceRequest) (*GetNfcid2ForServiceResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetNfcid2ForService not implemented")
+}
+func (UnimplementedNfcFCardEmulationServiceServer) GetSystemCodeForService(context.Context, *GetSystemCodeForServiceRequest) (*GetSystemCodeForServiceResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSystemCodeForService not implemented")
+}
+func (UnimplementedNfcFCardEmulationServiceServer) RegisterSystemCodeForService(context.Context, *RegisterSystemCodeForServiceRequest) (*RegisterSystemCodeForServiceResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method RegisterSystemCodeForService not implemented")
+}
+func (UnimplementedNfcFCardEmulationServiceServer) SetNfcid2ForService(context.Context, *SetNfcid2ForServiceRequest) (*SetNfcid2ForServiceResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetNfcid2ForService not implemented")
+}
+func (UnimplementedNfcFCardEmulationServiceServer) UnregisterSystemCodeForService(context.Context, *UnregisterSystemCodeForServiceRequest) (*UnregisterSystemCodeForServiceResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method UnregisterSystemCodeForService not implemented")
+}
+func (UnimplementedNfcFCardEmulationServiceServer) mustEmbedUnimplementedNfcFCardEmulationServiceServer() {
+}
+func (UnimplementedNfcFCardEmulationServiceServer) testEmbeddedByValue() {}
+
+// UnsafeNfcFCardEmulationServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to NfcFCardEmulationServiceServer will
+// result in compilation errors.
+type UnsafeNfcFCardEmulationServiceServer interface {
+	mustEmbedUnimplementedNfcFCardEmulationServiceServer()
+}
+
+func RegisterNfcFCardEmulationServiceServer(s grpc.ServiceRegistrar, srv NfcFCardEmulationServiceServer) {
+	// If the following call panics, it indicates UnimplementedNfcFCardEmulationServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&NfcFCardEmulationService_ServiceDesc, srv)
+}
+
+func _NfcFCardEmulationService_DisableService_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DisableServiceRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NfcFCardEmulationServiceServer).DisableService(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NfcFCardEmulationService_DisableService_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NfcFCardEmulationServiceServer).DisableService(ctx, req.(*DisableServiceRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NfcFCardEmulationService_EnableService_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EnableServiceRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NfcFCardEmulationServiceServer).EnableService(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NfcFCardEmulationService_EnableService_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NfcFCardEmulationServiceServer).EnableService(ctx, req.(*EnableServiceRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NfcFCardEmulationService_GetNfcid2ForService_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetNfcid2ForServiceRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NfcFCardEmulationServiceServer).GetNfcid2ForService(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NfcFCardEmulationService_GetNfcid2ForService_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NfcFCardEmulationServiceServer).GetNfcid2ForService(ctx, req.(*GetNfcid2ForServiceRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NfcFCardEmulationService_GetSystemCodeForService_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSystemCodeForServiceRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NfcFCardEmulationServiceServer).GetSystemCodeForService(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NfcFCardEmulationService_GetSystemCodeForService_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NfcFCardEmulationServiceServer).GetSystemCodeForService(ctx, req.(*GetSystemCodeForServiceRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NfcFCardEmulationService_RegisterSystemCodeForService_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RegisterSystemCodeForServiceRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NfcFCardEmulationServiceServer).RegisterSystemCodeForService(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NfcFCardEmulationService_RegisterSystemCodeForService_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NfcFCardEmulationServiceServer).RegisterSystemCodeForService(ctx, req.(*RegisterSystemCodeForServiceRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NfcFCardEmulationService_SetNfcid2ForService_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetNfcid2ForServiceRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NfcFCardEmulationServiceServer).SetNfcid2ForService(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NfcFCardEmulationService_SetNfcid2ForService_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NfcFCardEmulationServiceServer).SetNfcid2ForService(ctx, req.(*SetNfcid2ForServiceRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NfcFCardEmulationService_UnregisterSystemCodeForService_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UnregisterSystemCodeForServiceRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NfcFCardEmulationServiceServer).UnregisterSystemCodeForService(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NfcFCardEmulationService_UnregisterSystemCodeForService_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NfcFCardEmulationServiceServer).UnregisterSystemCodeForService(ctx, req.(*UnregisterSystemCodeForServiceRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// NfcFCardEmulationService_ServiceDesc is the grpc.ServiceDesc for NfcFCardEmulationService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var NfcFCardEmulationService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "cardemulation.NfcFCardEmulationService",
+	HandlerType: (*NfcFCardEmulationServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "DisableService",
+			Handler:    _NfcFCardEmulationService_DisableService_Handler,
+		},
+		{
+			MethodName: "EnableService",
+			Handler:    _NfcFCardEmulationService_EnableService_Handler,
+		},
+		{
+			MethodName: "GetNfcid2ForService",
+			Handler:    _NfcFCardEmulationService_GetNfcid2ForService_Handler,
+		},
+		{
+			MethodName: "GetSystemCodeForService",
+			Handler:    _NfcFCardEmulationService_GetSystemCodeForService_Handler,
+		},
+		{
+			MethodName: "RegisterSystemCodeForService",
+			Handler:    _NfcFCardEmulationService_RegisterSystemCodeForService_Handler,
+		},
+		{
+			MethodName: "SetNfcid2ForService",
+			Handler:    _NfcFCardEmulationService_SetNfcid2ForService_Handler,
+		},
+		{
+			MethodName: "UnregisterSystemCodeForService",
+			Handler:    _NfcFCardEmulationService_UnregisterSystemCodeForService_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/cardemulation/cardemulation.proto",
+}
+
+const (
 	HostApduServiceService_NotifyUnhandled_FullMethodName    = "/cardemulation.HostApduServiceService/NotifyUnhandled"
 	HostApduServiceService_OnBind_FullMethodName             = "/cardemulation.HostApduServiceService/OnBind"
 	HostApduServiceService_OnDeactivated_FullMethodName      = "/cardemulation.HostApduServiceService/OnDeactivated"
@@ -276,695 +824,9 @@ var HostApduServiceService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	PollingFrameService_DescribeContents_FullMethodName         = "/cardemulation.PollingFrameService/DescribeContents"
-	PollingFrameService_GetData_FullMethodName                  = "/cardemulation.PollingFrameService/GetData"
-	PollingFrameService_GetTimestamp_FullMethodName             = "/cardemulation.PollingFrameService/GetTimestamp"
-	PollingFrameService_GetTriggeredAutoTransact_FullMethodName = "/cardemulation.PollingFrameService/GetTriggeredAutoTransact"
-	PollingFrameService_GetType_FullMethodName                  = "/cardemulation.PollingFrameService/GetType"
-	PollingFrameService_GetVendorSpecificGain_FullMethodName    = "/cardemulation.PollingFrameService/GetVendorSpecificGain"
-	PollingFrameService_ToString_FullMethodName                 = "/cardemulation.PollingFrameService/ToString"
-	PollingFrameService_WriteToParcel_FullMethodName            = "/cardemulation.PollingFrameService/WriteToParcel"
-)
-
-// PollingFrameServiceClient is the client API for PollingFrameService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type PollingFrameServiceClient interface {
-	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	GetData(ctx context.Context, in *GetDataRequest, opts ...grpc.CallOption) (*GetDataResponse, error)
-	GetTimestamp(ctx context.Context, in *GetTimestampRequest, opts ...grpc.CallOption) (*GetTimestampResponse, error)
-	GetTriggeredAutoTransact(ctx context.Context, in *GetTriggeredAutoTransactRequest, opts ...grpc.CallOption) (*GetTriggeredAutoTransactResponse, error)
-	GetType(ctx context.Context, in *GetTypeRequest, opts ...grpc.CallOption) (*GetTypeResponse, error)
-	GetVendorSpecificGain(ctx context.Context, in *GetVendorSpecificGainRequest, opts ...grpc.CallOption) (*GetVendorSpecificGainResponse, error)
-	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
-	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
-}
-
-type pollingFrameServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewPollingFrameServiceClient(cc grpc.ClientConnInterface) PollingFrameServiceClient {
-	return &pollingFrameServiceClient{cc}
-}
-
-func (c *pollingFrameServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, PollingFrameService_DescribeContents_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *pollingFrameServiceClient) GetData(ctx context.Context, in *GetDataRequest, opts ...grpc.CallOption) (*GetDataResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetDataResponse)
-	err := c.cc.Invoke(ctx, PollingFrameService_GetData_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *pollingFrameServiceClient) GetTimestamp(ctx context.Context, in *GetTimestampRequest, opts ...grpc.CallOption) (*GetTimestampResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetTimestampResponse)
-	err := c.cc.Invoke(ctx, PollingFrameService_GetTimestamp_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *pollingFrameServiceClient) GetTriggeredAutoTransact(ctx context.Context, in *GetTriggeredAutoTransactRequest, opts ...grpc.CallOption) (*GetTriggeredAutoTransactResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetTriggeredAutoTransactResponse)
-	err := c.cc.Invoke(ctx, PollingFrameService_GetTriggeredAutoTransact_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *pollingFrameServiceClient) GetType(ctx context.Context, in *GetTypeRequest, opts ...grpc.CallOption) (*GetTypeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetTypeResponse)
-	err := c.cc.Invoke(ctx, PollingFrameService_GetType_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *pollingFrameServiceClient) GetVendorSpecificGain(ctx context.Context, in *GetVendorSpecificGainRequest, opts ...grpc.CallOption) (*GetVendorSpecificGainResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetVendorSpecificGainResponse)
-	err := c.cc.Invoke(ctx, PollingFrameService_GetVendorSpecificGain_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *pollingFrameServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ToStringResponse)
-	err := c.cc.Invoke(ctx, PollingFrameService_ToString_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *pollingFrameServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, PollingFrameService_WriteToParcel_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// PollingFrameServiceServer is the server API for PollingFrameService service.
-// All implementations must embed UnimplementedPollingFrameServiceServer
-// for forward compatibility.
-type PollingFrameServiceServer interface {
-	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
-	GetData(context.Context, *GetDataRequest) (*GetDataResponse, error)
-	GetTimestamp(context.Context, *GetTimestampRequest) (*GetTimestampResponse, error)
-	GetTriggeredAutoTransact(context.Context, *GetTriggeredAutoTransactRequest) (*GetTriggeredAutoTransactResponse, error)
-	GetType(context.Context, *GetTypeRequest) (*GetTypeResponse, error)
-	GetVendorSpecificGain(context.Context, *GetVendorSpecificGainRequest) (*GetVendorSpecificGainResponse, error)
-	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
-	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
-	mustEmbedUnimplementedPollingFrameServiceServer()
-}
-
-// UnimplementedPollingFrameServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedPollingFrameServiceServer struct{}
-
-func (UnimplementedPollingFrameServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
-}
-func (UnimplementedPollingFrameServiceServer) GetData(context.Context, *GetDataRequest) (*GetDataResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetData not implemented")
-}
-func (UnimplementedPollingFrameServiceServer) GetTimestamp(context.Context, *GetTimestampRequest) (*GetTimestampResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetTimestamp not implemented")
-}
-func (UnimplementedPollingFrameServiceServer) GetTriggeredAutoTransact(context.Context, *GetTriggeredAutoTransactRequest) (*GetTriggeredAutoTransactResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetTriggeredAutoTransact not implemented")
-}
-func (UnimplementedPollingFrameServiceServer) GetType(context.Context, *GetTypeRequest) (*GetTypeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetType not implemented")
-}
-func (UnimplementedPollingFrameServiceServer) GetVendorSpecificGain(context.Context, *GetVendorSpecificGainRequest) (*GetVendorSpecificGainResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetVendorSpecificGain not implemented")
-}
-func (UnimplementedPollingFrameServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
-}
-func (UnimplementedPollingFrameServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
-}
-func (UnimplementedPollingFrameServiceServer) mustEmbedUnimplementedPollingFrameServiceServer() {}
-func (UnimplementedPollingFrameServiceServer) testEmbeddedByValue()                             {}
-
-// UnsafePollingFrameServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to PollingFrameServiceServer will
-// result in compilation errors.
-type UnsafePollingFrameServiceServer interface {
-	mustEmbedUnimplementedPollingFrameServiceServer()
-}
-
-func RegisterPollingFrameServiceServer(s grpc.ServiceRegistrar, srv PollingFrameServiceServer) {
-	// If the following call panics, it indicates UnimplementedPollingFrameServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&PollingFrameService_ServiceDesc, srv)
-}
-
-func _PollingFrameService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DescribeContentsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PollingFrameServiceServer).DescribeContents(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PollingFrameService_DescribeContents_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PollingFrameServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PollingFrameService_GetData_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetDataRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PollingFrameServiceServer).GetData(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PollingFrameService_GetData_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PollingFrameServiceServer).GetData(ctx, req.(*GetDataRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PollingFrameService_GetTimestamp_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetTimestampRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PollingFrameServiceServer).GetTimestamp(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PollingFrameService_GetTimestamp_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PollingFrameServiceServer).GetTimestamp(ctx, req.(*GetTimestampRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PollingFrameService_GetTriggeredAutoTransact_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetTriggeredAutoTransactRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PollingFrameServiceServer).GetTriggeredAutoTransact(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PollingFrameService_GetTriggeredAutoTransact_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PollingFrameServiceServer).GetTriggeredAutoTransact(ctx, req.(*GetTriggeredAutoTransactRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PollingFrameService_GetType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetTypeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PollingFrameServiceServer).GetType(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PollingFrameService_GetType_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PollingFrameServiceServer).GetType(ctx, req.(*GetTypeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PollingFrameService_GetVendorSpecificGain_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetVendorSpecificGainRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PollingFrameServiceServer).GetVendorSpecificGain(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PollingFrameService_GetVendorSpecificGain_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PollingFrameServiceServer).GetVendorSpecificGain(ctx, req.(*GetVendorSpecificGainRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PollingFrameService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ToStringRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PollingFrameServiceServer).ToString(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PollingFrameService_ToString_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PollingFrameServiceServer).ToString(ctx, req.(*ToStringRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PollingFrameService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WriteToParcelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PollingFrameServiceServer).WriteToParcel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PollingFrameService_WriteToParcel_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PollingFrameServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// PollingFrameService_ServiceDesc is the grpc.ServiceDesc for PollingFrameService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var PollingFrameService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "cardemulation.PollingFrameService",
-	HandlerType: (*PollingFrameServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "DescribeContents",
-			Handler:    _PollingFrameService_DescribeContents_Handler,
-		},
-		{
-			MethodName: "GetData",
-			Handler:    _PollingFrameService_GetData_Handler,
-		},
-		{
-			MethodName: "GetTimestamp",
-			Handler:    _PollingFrameService_GetTimestamp_Handler,
-		},
-		{
-			MethodName: "GetTriggeredAutoTransact",
-			Handler:    _PollingFrameService_GetTriggeredAutoTransact_Handler,
-		},
-		{
-			MethodName: "GetType",
-			Handler:    _PollingFrameService_GetType_Handler,
-		},
-		{
-			MethodName: "GetVendorSpecificGain",
-			Handler:    _PollingFrameService_GetVendorSpecificGain_Handler,
-		},
-		{
-			MethodName: "ToString",
-			Handler:    _PollingFrameService_ToString_Handler,
-		},
-		{
-			MethodName: "WriteToParcel",
-			Handler:    _PollingFrameService_WriteToParcel_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/cardemulation/cardemulation.proto",
-}
-
-const (
-	HostNfcFServiceService_OnBind_FullMethodName             = "/cardemulation.HostNfcFServiceService/OnBind"
-	HostNfcFServiceService_OnDeactivated_FullMethodName      = "/cardemulation.HostNfcFServiceService/OnDeactivated"
-	HostNfcFServiceService_ProcessNfcFPacket_FullMethodName  = "/cardemulation.HostNfcFServiceService/ProcessNfcFPacket"
-	HostNfcFServiceService_SendResponsePacket_FullMethodName = "/cardemulation.HostNfcFServiceService/SendResponsePacket"
-)
-
-// HostNfcFServiceServiceClient is the client API for HostNfcFServiceService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type HostNfcFServiceServiceClient interface {
-	OnBind(ctx context.Context, in *OnBindRequest, opts ...grpc.CallOption) (*OnBindResponse, error)
-	OnDeactivated(ctx context.Context, in *OnDeactivatedRequest, opts ...grpc.CallOption) (*OnDeactivatedResponse, error)
-	ProcessNfcFPacket(ctx context.Context, in *ProcessNfcFPacketRequest, opts ...grpc.CallOption) (*ProcessNfcFPacketResponse, error)
-	SendResponsePacket(ctx context.Context, in *SendResponsePacketRequest, opts ...grpc.CallOption) (*SendResponsePacketResponse, error)
-}
-
-type hostNfcFServiceServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewHostNfcFServiceServiceClient(cc grpc.ClientConnInterface) HostNfcFServiceServiceClient {
-	return &hostNfcFServiceServiceClient{cc}
-}
-
-func (c *hostNfcFServiceServiceClient) OnBind(ctx context.Context, in *OnBindRequest, opts ...grpc.CallOption) (*OnBindResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnBindResponse)
-	err := c.cc.Invoke(ctx, HostNfcFServiceService_OnBind_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *hostNfcFServiceServiceClient) OnDeactivated(ctx context.Context, in *OnDeactivatedRequest, opts ...grpc.CallOption) (*OnDeactivatedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnDeactivatedResponse)
-	err := c.cc.Invoke(ctx, HostNfcFServiceService_OnDeactivated_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *hostNfcFServiceServiceClient) ProcessNfcFPacket(ctx context.Context, in *ProcessNfcFPacketRequest, opts ...grpc.CallOption) (*ProcessNfcFPacketResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ProcessNfcFPacketResponse)
-	err := c.cc.Invoke(ctx, HostNfcFServiceService_ProcessNfcFPacket_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *hostNfcFServiceServiceClient) SendResponsePacket(ctx context.Context, in *SendResponsePacketRequest, opts ...grpc.CallOption) (*SendResponsePacketResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SendResponsePacketResponse)
-	err := c.cc.Invoke(ctx, HostNfcFServiceService_SendResponsePacket_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// HostNfcFServiceServiceServer is the server API for HostNfcFServiceService service.
-// All implementations must embed UnimplementedHostNfcFServiceServiceServer
-// for forward compatibility.
-type HostNfcFServiceServiceServer interface {
-	OnBind(context.Context, *OnBindRequest) (*OnBindResponse, error)
-	OnDeactivated(context.Context, *OnDeactivatedRequest) (*OnDeactivatedResponse, error)
-	ProcessNfcFPacket(context.Context, *ProcessNfcFPacketRequest) (*ProcessNfcFPacketResponse, error)
-	SendResponsePacket(context.Context, *SendResponsePacketRequest) (*SendResponsePacketResponse, error)
-	mustEmbedUnimplementedHostNfcFServiceServiceServer()
-}
-
-// UnimplementedHostNfcFServiceServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedHostNfcFServiceServiceServer struct{}
-
-func (UnimplementedHostNfcFServiceServiceServer) OnBind(context.Context, *OnBindRequest) (*OnBindResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnBind not implemented")
-}
-func (UnimplementedHostNfcFServiceServiceServer) OnDeactivated(context.Context, *OnDeactivatedRequest) (*OnDeactivatedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnDeactivated not implemented")
-}
-func (UnimplementedHostNfcFServiceServiceServer) ProcessNfcFPacket(context.Context, *ProcessNfcFPacketRequest) (*ProcessNfcFPacketResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ProcessNfcFPacket not implemented")
-}
-func (UnimplementedHostNfcFServiceServiceServer) SendResponsePacket(context.Context, *SendResponsePacketRequest) (*SendResponsePacketResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SendResponsePacket not implemented")
-}
-func (UnimplementedHostNfcFServiceServiceServer) mustEmbedUnimplementedHostNfcFServiceServiceServer() {
-}
-func (UnimplementedHostNfcFServiceServiceServer) testEmbeddedByValue() {}
-
-// UnsafeHostNfcFServiceServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to HostNfcFServiceServiceServer will
-// result in compilation errors.
-type UnsafeHostNfcFServiceServiceServer interface {
-	mustEmbedUnimplementedHostNfcFServiceServiceServer()
-}
-
-func RegisterHostNfcFServiceServiceServer(s grpc.ServiceRegistrar, srv HostNfcFServiceServiceServer) {
-	// If the following call panics, it indicates UnimplementedHostNfcFServiceServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&HostNfcFServiceService_ServiceDesc, srv)
-}
-
-func _HostNfcFServiceService_OnBind_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnBindRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(HostNfcFServiceServiceServer).OnBind(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: HostNfcFServiceService_OnBind_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(HostNfcFServiceServiceServer).OnBind(ctx, req.(*OnBindRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _HostNfcFServiceService_OnDeactivated_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnDeactivatedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(HostNfcFServiceServiceServer).OnDeactivated(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: HostNfcFServiceService_OnDeactivated_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(HostNfcFServiceServiceServer).OnDeactivated(ctx, req.(*OnDeactivatedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _HostNfcFServiceService_ProcessNfcFPacket_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ProcessNfcFPacketRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(HostNfcFServiceServiceServer).ProcessNfcFPacket(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: HostNfcFServiceService_ProcessNfcFPacket_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(HostNfcFServiceServiceServer).ProcessNfcFPacket(ctx, req.(*ProcessNfcFPacketRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _HostNfcFServiceService_SendResponsePacket_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SendResponsePacketRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(HostNfcFServiceServiceServer).SendResponsePacket(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: HostNfcFServiceService_SendResponsePacket_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(HostNfcFServiceServiceServer).SendResponsePacket(ctx, req.(*SendResponsePacketRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// HostNfcFServiceService_ServiceDesc is the grpc.ServiceDesc for HostNfcFServiceService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var HostNfcFServiceService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "cardemulation.HostNfcFServiceService",
-	HandlerType: (*HostNfcFServiceServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "OnBind",
-			Handler:    _HostNfcFServiceService_OnBind_Handler,
-		},
-		{
-			MethodName: "OnDeactivated",
-			Handler:    _HostNfcFServiceService_OnDeactivated_Handler,
-		},
-		{
-			MethodName: "ProcessNfcFPacket",
-			Handler:    _HostNfcFServiceService_ProcessNfcFPacket_Handler,
-		},
-		{
-			MethodName: "SendResponsePacket",
-			Handler:    _HostNfcFServiceService_SendResponsePacket_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/cardemulation/cardemulation.proto",
-}
-
-const (
-	OffHostApduServiceService_OnBind_FullMethodName = "/cardemulation.OffHostApduServiceService/OnBind"
-)
-
-// OffHostApduServiceServiceClient is the client API for OffHostApduServiceService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type OffHostApduServiceServiceClient interface {
-	OnBind(ctx context.Context, in *OnBindRequest, opts ...grpc.CallOption) (*OnBindResponse, error)
-}
-
-type offHostApduServiceServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewOffHostApduServiceServiceClient(cc grpc.ClientConnInterface) OffHostApduServiceServiceClient {
-	return &offHostApduServiceServiceClient{cc}
-}
-
-func (c *offHostApduServiceServiceClient) OnBind(ctx context.Context, in *OnBindRequest, opts ...grpc.CallOption) (*OnBindResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnBindResponse)
-	err := c.cc.Invoke(ctx, OffHostApduServiceService_OnBind_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// OffHostApduServiceServiceServer is the server API for OffHostApduServiceService service.
-// All implementations must embed UnimplementedOffHostApduServiceServiceServer
-// for forward compatibility.
-type OffHostApduServiceServiceServer interface {
-	OnBind(context.Context, *OnBindRequest) (*OnBindResponse, error)
-	mustEmbedUnimplementedOffHostApduServiceServiceServer()
-}
-
-// UnimplementedOffHostApduServiceServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedOffHostApduServiceServiceServer struct{}
-
-func (UnimplementedOffHostApduServiceServiceServer) OnBind(context.Context, *OnBindRequest) (*OnBindResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnBind not implemented")
-}
-func (UnimplementedOffHostApduServiceServiceServer) mustEmbedUnimplementedOffHostApduServiceServiceServer() {
-}
-func (UnimplementedOffHostApduServiceServiceServer) testEmbeddedByValue() {}
-
-// UnsafeOffHostApduServiceServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to OffHostApduServiceServiceServer will
-// result in compilation errors.
-type UnsafeOffHostApduServiceServiceServer interface {
-	mustEmbedUnimplementedOffHostApduServiceServiceServer()
-}
-
-func RegisterOffHostApduServiceServiceServer(s grpc.ServiceRegistrar, srv OffHostApduServiceServiceServer) {
-	// If the following call panics, it indicates UnimplementedOffHostApduServiceServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&OffHostApduServiceService_ServiceDesc, srv)
-}
-
-func _OffHostApduServiceService_OnBind_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnBindRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(OffHostApduServiceServiceServer).OnBind(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: OffHostApduServiceService_OnBind_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(OffHostApduServiceServiceServer).OnBind(ctx, req.(*OnBindRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// OffHostApduServiceService_ServiceDesc is the grpc.ServiceDesc for OffHostApduServiceService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var OffHostApduServiceService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "cardemulation.OffHostApduServiceService",
-	HandlerType: (*OffHostApduServiceServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "OnBind",
-			Handler:    _OffHostApduServiceService_OnBind_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/cardemulation/cardemulation.proto",
-}
-
-const (
 	CardEmulationService_CategoryAllowsForegroundPreference_FullMethodName            = "/cardemulation.CardEmulationService/CategoryAllowsForegroundPreference"
+	CardEmulationService_GetAidsForPreferredPaymentService_FullMethodName             = "/cardemulation.CardEmulationService/GetAidsForPreferredPaymentService"
+	CardEmulationService_GetAidsForService_FullMethodName                             = "/cardemulation.CardEmulationService/GetAidsForService"
 	CardEmulationService_GetDefaultNfcSubscriptionId_FullMethodName                   = "/cardemulation.CardEmulationService/GetDefaultNfcSubscriptionId"
 	CardEmulationService_GetDescriptionForPreferredPaymentService_FullMethodName      = "/cardemulation.CardEmulationService/GetDescriptionForPreferredPaymentService"
 	CardEmulationService_GetRouteDestinationForPreferredPaymentService_FullMethodName = "/cardemulation.CardEmulationService/GetRouteDestinationForPreferredPaymentService"
@@ -992,6 +854,8 @@ const (
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type CardEmulationServiceClient interface {
 	CategoryAllowsForegroundPreference(ctx context.Context, in *CategoryAllowsForegroundPreferenceRequest, opts ...grpc.CallOption) (*CategoryAllowsForegroundPreferenceResponse, error)
+	GetAidsForPreferredPaymentService(ctx context.Context, in *GetAidsForPreferredPaymentServiceRequest, opts ...grpc.CallOption) (*GetAidsForPreferredPaymentServiceResponse, error)
+	GetAidsForService(ctx context.Context, in *GetAidsForServiceRequest, opts ...grpc.CallOption) (*GetAidsForServiceResponse, error)
 	GetDefaultNfcSubscriptionId(ctx context.Context, in *GetDefaultNfcSubscriptionIdRequest, opts ...grpc.CallOption) (*GetDefaultNfcSubscriptionIdResponse, error)
 	GetDescriptionForPreferredPaymentService(ctx context.Context, in *GetDescriptionForPreferredPaymentServiceRequest, opts ...grpc.CallOption) (*GetDescriptionForPreferredPaymentServiceResponse, error)
 	GetRouteDestinationForPreferredPaymentService(ctx context.Context, in *GetRouteDestinationForPreferredPaymentServiceRequest, opts ...grpc.CallOption) (*GetRouteDestinationForPreferredPaymentServiceResponse, error)
@@ -1026,6 +890,26 @@ func (c *cardEmulationServiceClient) CategoryAllowsForegroundPreference(ctx cont
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(CategoryAllowsForegroundPreferenceResponse)
 	err := c.cc.Invoke(ctx, CardEmulationService_CategoryAllowsForegroundPreference_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cardEmulationServiceClient) GetAidsForPreferredPaymentService(ctx context.Context, in *GetAidsForPreferredPaymentServiceRequest, opts ...grpc.CallOption) (*GetAidsForPreferredPaymentServiceResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetAidsForPreferredPaymentServiceResponse)
+	err := c.cc.Invoke(ctx, CardEmulationService_GetAidsForPreferredPaymentService_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cardEmulationServiceClient) GetAidsForService(ctx context.Context, in *GetAidsForServiceRequest, opts ...grpc.CallOption) (*GetAidsForServiceResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetAidsForServiceResponse)
+	err := c.cc.Invoke(ctx, CardEmulationService_GetAidsForService_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -1237,6 +1121,8 @@ func (c *cardEmulationServiceClient) UnsetPreferredService(ctx context.Context, 
 // for forward compatibility.
 type CardEmulationServiceServer interface {
 	CategoryAllowsForegroundPreference(context.Context, *CategoryAllowsForegroundPreferenceRequest) (*CategoryAllowsForegroundPreferenceResponse, error)
+	GetAidsForPreferredPaymentService(context.Context, *GetAidsForPreferredPaymentServiceRequest) (*GetAidsForPreferredPaymentServiceResponse, error)
+	GetAidsForService(context.Context, *GetAidsForServiceRequest) (*GetAidsForServiceResponse, error)
 	GetDefaultNfcSubscriptionId(context.Context, *GetDefaultNfcSubscriptionIdRequest) (*GetDefaultNfcSubscriptionIdResponse, error)
 	GetDescriptionForPreferredPaymentService(context.Context, *GetDescriptionForPreferredPaymentServiceRequest) (*GetDescriptionForPreferredPaymentServiceResponse, error)
 	GetRouteDestinationForPreferredPaymentService(context.Context, *GetRouteDestinationForPreferredPaymentServiceRequest) (*GetRouteDestinationForPreferredPaymentServiceResponse, error)
@@ -1269,6 +1155,12 @@ type UnimplementedCardEmulationServiceServer struct{}
 
 func (UnimplementedCardEmulationServiceServer) CategoryAllowsForegroundPreference(context.Context, *CategoryAllowsForegroundPreferenceRequest) (*CategoryAllowsForegroundPreferenceResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method CategoryAllowsForegroundPreference not implemented")
+}
+func (UnimplementedCardEmulationServiceServer) GetAidsForPreferredPaymentService(context.Context, *GetAidsForPreferredPaymentServiceRequest) (*GetAidsForPreferredPaymentServiceResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetAidsForPreferredPaymentService not implemented")
+}
+func (UnimplementedCardEmulationServiceServer) GetAidsForService(context.Context, *GetAidsForServiceRequest) (*GetAidsForServiceResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetAidsForService not implemented")
 }
 func (UnimplementedCardEmulationServiceServer) GetDefaultNfcSubscriptionId(context.Context, *GetDefaultNfcSubscriptionIdRequest) (*GetDefaultNfcSubscriptionIdResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetDefaultNfcSubscriptionId not implemented")
@@ -1365,6 +1257,42 @@ func _CardEmulationService_CategoryAllowsForegroundPreference_Handler(srv interf
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(CardEmulationServiceServer).CategoryAllowsForegroundPreference(ctx, req.(*CategoryAllowsForegroundPreferenceRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CardEmulationService_GetAidsForPreferredPaymentService_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetAidsForPreferredPaymentServiceRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CardEmulationServiceServer).GetAidsForPreferredPaymentService(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CardEmulationService_GetAidsForPreferredPaymentService_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CardEmulationServiceServer).GetAidsForPreferredPaymentService(ctx, req.(*GetAidsForPreferredPaymentServiceRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CardEmulationService_GetAidsForService_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetAidsForServiceRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CardEmulationServiceServer).GetAidsForService(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CardEmulationService_GetAidsForService_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CardEmulationServiceServer).GetAidsForService(ctx, req.(*GetAidsForServiceRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -1741,6 +1669,14 @@ var CardEmulationService_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _CardEmulationService_CategoryAllowsForegroundPreference_Handler,
 		},
 		{
+			MethodName: "GetAidsForPreferredPaymentService",
+			Handler:    _CardEmulationService_GetAidsForPreferredPaymentService_Handler,
+		},
+		{
+			MethodName: "GetAidsForService",
+			Handler:    _CardEmulationService_GetAidsForService_Handler,
+		},
+		{
 			MethodName: "GetDefaultNfcSubscriptionId",
 			Handler:    _CardEmulationService_GetDefaultNfcSubscriptionId_Handler,
 		},
@@ -1826,330 +1762,470 @@ var CardEmulationService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	NfcFCardEmulationService_DisableService_FullMethodName                 = "/cardemulation.NfcFCardEmulationService/DisableService"
-	NfcFCardEmulationService_EnableService_FullMethodName                  = "/cardemulation.NfcFCardEmulationService/EnableService"
-	NfcFCardEmulationService_GetNfcid2ForService_FullMethodName            = "/cardemulation.NfcFCardEmulationService/GetNfcid2ForService"
-	NfcFCardEmulationService_GetSystemCodeForService_FullMethodName        = "/cardemulation.NfcFCardEmulationService/GetSystemCodeForService"
-	NfcFCardEmulationService_RegisterSystemCodeForService_FullMethodName   = "/cardemulation.NfcFCardEmulationService/RegisterSystemCodeForService"
-	NfcFCardEmulationService_SetNfcid2ForService_FullMethodName            = "/cardemulation.NfcFCardEmulationService/SetNfcid2ForService"
-	NfcFCardEmulationService_UnregisterSystemCodeForService_FullMethodName = "/cardemulation.NfcFCardEmulationService/UnregisterSystemCodeForService"
+	OffHostApduServiceService_OnBind_FullMethodName = "/cardemulation.OffHostApduServiceService/OnBind"
 )
 
-// NfcFCardEmulationServiceClient is the client API for NfcFCardEmulationService service.
+// OffHostApduServiceServiceClient is the client API for OffHostApduServiceService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type NfcFCardEmulationServiceClient interface {
-	DisableService(ctx context.Context, in *DisableServiceRequest, opts ...grpc.CallOption) (*DisableServiceResponse, error)
-	EnableService(ctx context.Context, in *EnableServiceRequest, opts ...grpc.CallOption) (*EnableServiceResponse, error)
-	GetNfcid2ForService(ctx context.Context, in *GetNfcid2ForServiceRequest, opts ...grpc.CallOption) (*GetNfcid2ForServiceResponse, error)
-	GetSystemCodeForService(ctx context.Context, in *GetSystemCodeForServiceRequest, opts ...grpc.CallOption) (*GetSystemCodeForServiceResponse, error)
-	RegisterSystemCodeForService(ctx context.Context, in *RegisterSystemCodeForServiceRequest, opts ...grpc.CallOption) (*RegisterSystemCodeForServiceResponse, error)
-	SetNfcid2ForService(ctx context.Context, in *SetNfcid2ForServiceRequest, opts ...grpc.CallOption) (*SetNfcid2ForServiceResponse, error)
-	UnregisterSystemCodeForService(ctx context.Context, in *UnregisterSystemCodeForServiceRequest, opts ...grpc.CallOption) (*UnregisterSystemCodeForServiceResponse, error)
+type OffHostApduServiceServiceClient interface {
+	OnBind(ctx context.Context, in *OnBindRequest, opts ...grpc.CallOption) (*OnBindResponse, error)
 }
 
-type nfcFCardEmulationServiceClient struct {
+type offHostApduServiceServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewNfcFCardEmulationServiceClient(cc grpc.ClientConnInterface) NfcFCardEmulationServiceClient {
-	return &nfcFCardEmulationServiceClient{cc}
+func NewOffHostApduServiceServiceClient(cc grpc.ClientConnInterface) OffHostApduServiceServiceClient {
+	return &offHostApduServiceServiceClient{cc}
 }
 
-func (c *nfcFCardEmulationServiceClient) DisableService(ctx context.Context, in *DisableServiceRequest, opts ...grpc.CallOption) (*DisableServiceResponse, error) {
+func (c *offHostApduServiceServiceClient) OnBind(ctx context.Context, in *OnBindRequest, opts ...grpc.CallOption) (*OnBindResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DisableServiceResponse)
-	err := c.cc.Invoke(ctx, NfcFCardEmulationService_DisableService_FullMethodName, in, out, cOpts...)
+	out := new(OnBindResponse)
+	err := c.cc.Invoke(ctx, OffHostApduServiceService_OnBind_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *nfcFCardEmulationServiceClient) EnableService(ctx context.Context, in *EnableServiceRequest, opts ...grpc.CallOption) (*EnableServiceResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(EnableServiceResponse)
-	err := c.cc.Invoke(ctx, NfcFCardEmulationService_EnableService_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *nfcFCardEmulationServiceClient) GetNfcid2ForService(ctx context.Context, in *GetNfcid2ForServiceRequest, opts ...grpc.CallOption) (*GetNfcid2ForServiceResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetNfcid2ForServiceResponse)
-	err := c.cc.Invoke(ctx, NfcFCardEmulationService_GetNfcid2ForService_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *nfcFCardEmulationServiceClient) GetSystemCodeForService(ctx context.Context, in *GetSystemCodeForServiceRequest, opts ...grpc.CallOption) (*GetSystemCodeForServiceResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetSystemCodeForServiceResponse)
-	err := c.cc.Invoke(ctx, NfcFCardEmulationService_GetSystemCodeForService_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *nfcFCardEmulationServiceClient) RegisterSystemCodeForService(ctx context.Context, in *RegisterSystemCodeForServiceRequest, opts ...grpc.CallOption) (*RegisterSystemCodeForServiceResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(RegisterSystemCodeForServiceResponse)
-	err := c.cc.Invoke(ctx, NfcFCardEmulationService_RegisterSystemCodeForService_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *nfcFCardEmulationServiceClient) SetNfcid2ForService(ctx context.Context, in *SetNfcid2ForServiceRequest, opts ...grpc.CallOption) (*SetNfcid2ForServiceResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetNfcid2ForServiceResponse)
-	err := c.cc.Invoke(ctx, NfcFCardEmulationService_SetNfcid2ForService_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *nfcFCardEmulationServiceClient) UnregisterSystemCodeForService(ctx context.Context, in *UnregisterSystemCodeForServiceRequest, opts ...grpc.CallOption) (*UnregisterSystemCodeForServiceResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(UnregisterSystemCodeForServiceResponse)
-	err := c.cc.Invoke(ctx, NfcFCardEmulationService_UnregisterSystemCodeForService_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// NfcFCardEmulationServiceServer is the server API for NfcFCardEmulationService service.
-// All implementations must embed UnimplementedNfcFCardEmulationServiceServer
+// OffHostApduServiceServiceServer is the server API for OffHostApduServiceService service.
+// All implementations must embed UnimplementedOffHostApduServiceServiceServer
 // for forward compatibility.
-type NfcFCardEmulationServiceServer interface {
-	DisableService(context.Context, *DisableServiceRequest) (*DisableServiceResponse, error)
-	EnableService(context.Context, *EnableServiceRequest) (*EnableServiceResponse, error)
-	GetNfcid2ForService(context.Context, *GetNfcid2ForServiceRequest) (*GetNfcid2ForServiceResponse, error)
-	GetSystemCodeForService(context.Context, *GetSystemCodeForServiceRequest) (*GetSystemCodeForServiceResponse, error)
-	RegisterSystemCodeForService(context.Context, *RegisterSystemCodeForServiceRequest) (*RegisterSystemCodeForServiceResponse, error)
-	SetNfcid2ForService(context.Context, *SetNfcid2ForServiceRequest) (*SetNfcid2ForServiceResponse, error)
-	UnregisterSystemCodeForService(context.Context, *UnregisterSystemCodeForServiceRequest) (*UnregisterSystemCodeForServiceResponse, error)
-	mustEmbedUnimplementedNfcFCardEmulationServiceServer()
+type OffHostApduServiceServiceServer interface {
+	OnBind(context.Context, *OnBindRequest) (*OnBindResponse, error)
+	mustEmbedUnimplementedOffHostApduServiceServiceServer()
 }
 
-// UnimplementedNfcFCardEmulationServiceServer must be embedded to have
+// UnimplementedOffHostApduServiceServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedNfcFCardEmulationServiceServer struct{}
+type UnimplementedOffHostApduServiceServiceServer struct{}
 
-func (UnimplementedNfcFCardEmulationServiceServer) DisableService(context.Context, *DisableServiceRequest) (*DisableServiceResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method DisableService not implemented")
+func (UnimplementedOffHostApduServiceServiceServer) OnBind(context.Context, *OnBindRequest) (*OnBindResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnBind not implemented")
 }
-func (UnimplementedNfcFCardEmulationServiceServer) EnableService(context.Context, *EnableServiceRequest) (*EnableServiceResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method EnableService not implemented")
+func (UnimplementedOffHostApduServiceServiceServer) mustEmbedUnimplementedOffHostApduServiceServiceServer() {
 }
-func (UnimplementedNfcFCardEmulationServiceServer) GetNfcid2ForService(context.Context, *GetNfcid2ForServiceRequest) (*GetNfcid2ForServiceResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetNfcid2ForService not implemented")
-}
-func (UnimplementedNfcFCardEmulationServiceServer) GetSystemCodeForService(context.Context, *GetSystemCodeForServiceRequest) (*GetSystemCodeForServiceResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetSystemCodeForService not implemented")
-}
-func (UnimplementedNfcFCardEmulationServiceServer) RegisterSystemCodeForService(context.Context, *RegisterSystemCodeForServiceRequest) (*RegisterSystemCodeForServiceResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method RegisterSystemCodeForService not implemented")
-}
-func (UnimplementedNfcFCardEmulationServiceServer) SetNfcid2ForService(context.Context, *SetNfcid2ForServiceRequest) (*SetNfcid2ForServiceResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetNfcid2ForService not implemented")
-}
-func (UnimplementedNfcFCardEmulationServiceServer) UnregisterSystemCodeForService(context.Context, *UnregisterSystemCodeForServiceRequest) (*UnregisterSystemCodeForServiceResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method UnregisterSystemCodeForService not implemented")
-}
-func (UnimplementedNfcFCardEmulationServiceServer) mustEmbedUnimplementedNfcFCardEmulationServiceServer() {
-}
-func (UnimplementedNfcFCardEmulationServiceServer) testEmbeddedByValue() {}
+func (UnimplementedOffHostApduServiceServiceServer) testEmbeddedByValue() {}
 
-// UnsafeNfcFCardEmulationServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to NfcFCardEmulationServiceServer will
+// UnsafeOffHostApduServiceServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to OffHostApduServiceServiceServer will
 // result in compilation errors.
-type UnsafeNfcFCardEmulationServiceServer interface {
-	mustEmbedUnimplementedNfcFCardEmulationServiceServer()
+type UnsafeOffHostApduServiceServiceServer interface {
+	mustEmbedUnimplementedOffHostApduServiceServiceServer()
 }
 
-func RegisterNfcFCardEmulationServiceServer(s grpc.ServiceRegistrar, srv NfcFCardEmulationServiceServer) {
-	// If the following call panics, it indicates UnimplementedNfcFCardEmulationServiceServer was
+func RegisterOffHostApduServiceServiceServer(s grpc.ServiceRegistrar, srv OffHostApduServiceServiceServer) {
+	// If the following call panics, it indicates UnimplementedOffHostApduServiceServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&NfcFCardEmulationService_ServiceDesc, srv)
+	s.RegisterService(&OffHostApduServiceService_ServiceDesc, srv)
 }
 
-func _NfcFCardEmulationService_DisableService_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DisableServiceRequest)
+func _OffHostApduServiceService_OnBind_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnBindRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(NfcFCardEmulationServiceServer).DisableService(ctx, in)
+		return srv.(OffHostApduServiceServiceServer).OnBind(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: NfcFCardEmulationService_DisableService_FullMethodName,
+		FullMethod: OffHostApduServiceService_OnBind_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NfcFCardEmulationServiceServer).DisableService(ctx, req.(*DisableServiceRequest))
+		return srv.(OffHostApduServiceServiceServer).OnBind(ctx, req.(*OnBindRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _NfcFCardEmulationService_EnableService_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(EnableServiceRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(NfcFCardEmulationServiceServer).EnableService(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: NfcFCardEmulationService_EnableService_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NfcFCardEmulationServiceServer).EnableService(ctx, req.(*EnableServiceRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _NfcFCardEmulationService_GetNfcid2ForService_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetNfcid2ForServiceRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(NfcFCardEmulationServiceServer).GetNfcid2ForService(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: NfcFCardEmulationService_GetNfcid2ForService_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NfcFCardEmulationServiceServer).GetNfcid2ForService(ctx, req.(*GetNfcid2ForServiceRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _NfcFCardEmulationService_GetSystemCodeForService_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetSystemCodeForServiceRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(NfcFCardEmulationServiceServer).GetSystemCodeForService(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: NfcFCardEmulationService_GetSystemCodeForService_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NfcFCardEmulationServiceServer).GetSystemCodeForService(ctx, req.(*GetSystemCodeForServiceRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _NfcFCardEmulationService_RegisterSystemCodeForService_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(RegisterSystemCodeForServiceRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(NfcFCardEmulationServiceServer).RegisterSystemCodeForService(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: NfcFCardEmulationService_RegisterSystemCodeForService_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NfcFCardEmulationServiceServer).RegisterSystemCodeForService(ctx, req.(*RegisterSystemCodeForServiceRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _NfcFCardEmulationService_SetNfcid2ForService_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetNfcid2ForServiceRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(NfcFCardEmulationServiceServer).SetNfcid2ForService(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: NfcFCardEmulationService_SetNfcid2ForService_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NfcFCardEmulationServiceServer).SetNfcid2ForService(ctx, req.(*SetNfcid2ForServiceRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _NfcFCardEmulationService_UnregisterSystemCodeForService_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UnregisterSystemCodeForServiceRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(NfcFCardEmulationServiceServer).UnregisterSystemCodeForService(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: NfcFCardEmulationService_UnregisterSystemCodeForService_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NfcFCardEmulationServiceServer).UnregisterSystemCodeForService(ctx, req.(*UnregisterSystemCodeForServiceRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// NfcFCardEmulationService_ServiceDesc is the grpc.ServiceDesc for NfcFCardEmulationService service.
+// OffHostApduServiceService_ServiceDesc is the grpc.ServiceDesc for OffHostApduServiceService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var NfcFCardEmulationService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "cardemulation.NfcFCardEmulationService",
-	HandlerType: (*NfcFCardEmulationServiceServer)(nil),
+var OffHostApduServiceService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "cardemulation.OffHostApduServiceService",
+	HandlerType: (*OffHostApduServiceServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "DisableService",
-			Handler:    _NfcFCardEmulationService_DisableService_Handler,
+			MethodName: "OnBind",
+			Handler:    _OffHostApduServiceService_OnBind_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/cardemulation/cardemulation.proto",
+}
+
+const (
+	PollingFrameService_DescribeContents_FullMethodName         = "/cardemulation.PollingFrameService/DescribeContents"
+	PollingFrameService_GetData_FullMethodName                  = "/cardemulation.PollingFrameService/GetData"
+	PollingFrameService_GetTimestamp_FullMethodName             = "/cardemulation.PollingFrameService/GetTimestamp"
+	PollingFrameService_GetTriggeredAutoTransact_FullMethodName = "/cardemulation.PollingFrameService/GetTriggeredAutoTransact"
+	PollingFrameService_GetType_FullMethodName                  = "/cardemulation.PollingFrameService/GetType"
+	PollingFrameService_GetVendorSpecificGain_FullMethodName    = "/cardemulation.PollingFrameService/GetVendorSpecificGain"
+	PollingFrameService_ToString_FullMethodName                 = "/cardemulation.PollingFrameService/ToString"
+	PollingFrameService_WriteToParcel_FullMethodName            = "/cardemulation.PollingFrameService/WriteToParcel"
+)
+
+// PollingFrameServiceClient is the client API for PollingFrameService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type PollingFrameServiceClient interface {
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	GetData(ctx context.Context, in *GetDataRequest, opts ...grpc.CallOption) (*GetDataResponse, error)
+	GetTimestamp(ctx context.Context, in *GetTimestampRequest, opts ...grpc.CallOption) (*GetTimestampResponse, error)
+	GetTriggeredAutoTransact(ctx context.Context, in *GetTriggeredAutoTransactRequest, opts ...grpc.CallOption) (*GetTriggeredAutoTransactResponse, error)
+	GetType(ctx context.Context, in *GetTypeRequest, opts ...grpc.CallOption) (*GetTypeResponse, error)
+	GetVendorSpecificGain(ctx context.Context, in *GetVendorSpecificGainRequest, opts ...grpc.CallOption) (*GetVendorSpecificGainResponse, error)
+	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type pollingFrameServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewPollingFrameServiceClient(cc grpc.ClientConnInterface) PollingFrameServiceClient {
+	return &pollingFrameServiceClient{cc}
+}
+
+func (c *pollingFrameServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, PollingFrameService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *pollingFrameServiceClient) GetData(ctx context.Context, in *GetDataRequest, opts ...grpc.CallOption) (*GetDataResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetDataResponse)
+	err := c.cc.Invoke(ctx, PollingFrameService_GetData_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *pollingFrameServiceClient) GetTimestamp(ctx context.Context, in *GetTimestampRequest, opts ...grpc.CallOption) (*GetTimestampResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTimestampResponse)
+	err := c.cc.Invoke(ctx, PollingFrameService_GetTimestamp_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *pollingFrameServiceClient) GetTriggeredAutoTransact(ctx context.Context, in *GetTriggeredAutoTransactRequest, opts ...grpc.CallOption) (*GetTriggeredAutoTransactResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTriggeredAutoTransactResponse)
+	err := c.cc.Invoke(ctx, PollingFrameService_GetTriggeredAutoTransact_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *pollingFrameServiceClient) GetType(ctx context.Context, in *GetTypeRequest, opts ...grpc.CallOption) (*GetTypeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTypeResponse)
+	err := c.cc.Invoke(ctx, PollingFrameService_GetType_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *pollingFrameServiceClient) GetVendorSpecificGain(ctx context.Context, in *GetVendorSpecificGainRequest, opts ...grpc.CallOption) (*GetVendorSpecificGainResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetVendorSpecificGainResponse)
+	err := c.cc.Invoke(ctx, PollingFrameService_GetVendorSpecificGain_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *pollingFrameServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, PollingFrameService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *pollingFrameServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, PollingFrameService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// PollingFrameServiceServer is the server API for PollingFrameService service.
+// All implementations must embed UnimplementedPollingFrameServiceServer
+// for forward compatibility.
+type PollingFrameServiceServer interface {
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	GetData(context.Context, *GetDataRequest) (*GetDataResponse, error)
+	GetTimestamp(context.Context, *GetTimestampRequest) (*GetTimestampResponse, error)
+	GetTriggeredAutoTransact(context.Context, *GetTriggeredAutoTransactRequest) (*GetTriggeredAutoTransactResponse, error)
+	GetType(context.Context, *GetTypeRequest) (*GetTypeResponse, error)
+	GetVendorSpecificGain(context.Context, *GetVendorSpecificGainRequest) (*GetVendorSpecificGainResponse, error)
+	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedPollingFrameServiceServer()
+}
+
+// UnimplementedPollingFrameServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedPollingFrameServiceServer struct{}
+
+func (UnimplementedPollingFrameServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedPollingFrameServiceServer) GetData(context.Context, *GetDataRequest) (*GetDataResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetData not implemented")
+}
+func (UnimplementedPollingFrameServiceServer) GetTimestamp(context.Context, *GetTimestampRequest) (*GetTimestampResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTimestamp not implemented")
+}
+func (UnimplementedPollingFrameServiceServer) GetTriggeredAutoTransact(context.Context, *GetTriggeredAutoTransactRequest) (*GetTriggeredAutoTransactResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTriggeredAutoTransact not implemented")
+}
+func (UnimplementedPollingFrameServiceServer) GetType(context.Context, *GetTypeRequest) (*GetTypeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetType not implemented")
+}
+func (UnimplementedPollingFrameServiceServer) GetVendorSpecificGain(context.Context, *GetVendorSpecificGainRequest) (*GetVendorSpecificGainResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetVendorSpecificGain not implemented")
+}
+func (UnimplementedPollingFrameServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedPollingFrameServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedPollingFrameServiceServer) mustEmbedUnimplementedPollingFrameServiceServer() {}
+func (UnimplementedPollingFrameServiceServer) testEmbeddedByValue()                             {}
+
+// UnsafePollingFrameServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to PollingFrameServiceServer will
+// result in compilation errors.
+type UnsafePollingFrameServiceServer interface {
+	mustEmbedUnimplementedPollingFrameServiceServer()
+}
+
+func RegisterPollingFrameServiceServer(s grpc.ServiceRegistrar, srv PollingFrameServiceServer) {
+	// If the following call panics, it indicates UnimplementedPollingFrameServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&PollingFrameService_ServiceDesc, srv)
+}
+
+func _PollingFrameService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PollingFrameServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PollingFrameService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PollingFrameServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PollingFrameService_GetData_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetDataRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PollingFrameServiceServer).GetData(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PollingFrameService_GetData_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PollingFrameServiceServer).GetData(ctx, req.(*GetDataRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PollingFrameService_GetTimestamp_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTimestampRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PollingFrameServiceServer).GetTimestamp(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PollingFrameService_GetTimestamp_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PollingFrameServiceServer).GetTimestamp(ctx, req.(*GetTimestampRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PollingFrameService_GetTriggeredAutoTransact_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTriggeredAutoTransactRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PollingFrameServiceServer).GetTriggeredAutoTransact(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PollingFrameService_GetTriggeredAutoTransact_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PollingFrameServiceServer).GetTriggeredAutoTransact(ctx, req.(*GetTriggeredAutoTransactRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PollingFrameService_GetType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTypeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PollingFrameServiceServer).GetType(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PollingFrameService_GetType_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PollingFrameServiceServer).GetType(ctx, req.(*GetTypeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PollingFrameService_GetVendorSpecificGain_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetVendorSpecificGainRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PollingFrameServiceServer).GetVendorSpecificGain(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PollingFrameService_GetVendorSpecificGain_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PollingFrameServiceServer).GetVendorSpecificGain(ctx, req.(*GetVendorSpecificGainRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PollingFrameService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PollingFrameServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PollingFrameService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PollingFrameServiceServer).ToString(ctx, req.(*ToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PollingFrameService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PollingFrameServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PollingFrameService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PollingFrameServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// PollingFrameService_ServiceDesc is the grpc.ServiceDesc for PollingFrameService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var PollingFrameService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "cardemulation.PollingFrameService",
+	HandlerType: (*PollingFrameServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "DescribeContents",
+			Handler:    _PollingFrameService_DescribeContents_Handler,
 		},
 		{
-			MethodName: "EnableService",
-			Handler:    _NfcFCardEmulationService_EnableService_Handler,
+			MethodName: "GetData",
+			Handler:    _PollingFrameService_GetData_Handler,
 		},
 		{
-			MethodName: "GetNfcid2ForService",
-			Handler:    _NfcFCardEmulationService_GetNfcid2ForService_Handler,
+			MethodName: "GetTimestamp",
+			Handler:    _PollingFrameService_GetTimestamp_Handler,
 		},
 		{
-			MethodName: "GetSystemCodeForService",
-			Handler:    _NfcFCardEmulationService_GetSystemCodeForService_Handler,
+			MethodName: "GetTriggeredAutoTransact",
+			Handler:    _PollingFrameService_GetTriggeredAutoTransact_Handler,
 		},
 		{
-			MethodName: "RegisterSystemCodeForService",
-			Handler:    _NfcFCardEmulationService_RegisterSystemCodeForService_Handler,
+			MethodName: "GetType",
+			Handler:    _PollingFrameService_GetType_Handler,
 		},
 		{
-			MethodName: "SetNfcid2ForService",
-			Handler:    _NfcFCardEmulationService_SetNfcid2ForService_Handler,
+			MethodName: "GetVendorSpecificGain",
+			Handler:    _PollingFrameService_GetVendorSpecificGain_Handler,
 		},
 		{
-			MethodName: "UnregisterSystemCodeForService",
-			Handler:    _NfcFCardEmulationService_UnregisterSystemCodeForService_Handler,
+			MethodName: "ToString",
+			Handler:    _PollingFrameService_ToString_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _PollingFrameService_WriteToParcel_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

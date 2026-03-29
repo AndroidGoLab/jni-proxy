@@ -15,6 +15,92 @@ import (
 	"google.golang.org/grpc/status"
 )
 
+// PageMatchBoundsServer implements pb.PageMatchBoundsServiceServer.
+type PageMatchBoundsServer struct {
+	pb.UnimplementedPageMatchBoundsServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *PageMatchBoundsServer) NewPageMatchBounds(_ context.Context, req *pb.NewPageMatchBoundsRequest) (*pb.NewPageMatchBoundsResponse, error) {
+	obj, err := jnipkg.NewPageMatchBounds(s.Ctx.VM, s.Handles.Get(req.GetArg0()), req.GetArg1())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewPageMatchBoundsResponse{Result: handle}, nil
+}
+
+func (s *PageMatchBoundsServer) DescribeContents(_ context.Context, req *pb.PageMatchBoundsDescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.PageMatchBounds{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.DescribeContents()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.DescribeContentsResponse{Result: result}, nil
+}
+
+func (s *PageMatchBoundsServer) GetBounds(_ context.Context, req *pb.GetBoundsRequest) (*pb.GetBoundsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.PageMatchBounds{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetBounds()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetBoundsResponse{Result: handle}, nil
+}
+
+func (s *PageMatchBoundsServer) GetTextStartIndex(_ context.Context, req *pb.GetTextStartIndexRequest) (*pb.GetTextStartIndexResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.PageMatchBounds{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetTextStartIndex()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetTextStartIndexResponse{Result: result}, nil
+}
+
+func (s *PageMatchBoundsServer) WriteToParcel(_ context.Context, req *pb.PageMatchBoundsWriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.PageMatchBounds{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.WriteToParcel(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.WriteToParcelResponse{}, nil
+}
+
 // ListItemServer implements pb.ListItemServiceServer.
 type ListItemServer struct {
 	pb.UnimplementedListItemServiceServer
@@ -107,7 +193,7 @@ func (s *ListItemServer) IsSelected(_ context.Context, req *pb.IsSelectedRequest
 	return &pb.IsSelectedResponse{Result: result}, nil
 }
 
-func (s *ListItemServer) ToString(_ context.Context, req *pb.ListItemToStringRequest) (*pb.ToStringResponse, error) {
+func (s *ListItemServer) ToString(_ context.Context, req *pb.ToStringRequest) (*pb.ToStringResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -127,69 +213,6 @@ func (s *ListItemServer) WriteToParcel(_ context.Context, req *pb.ListItemWriteT
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
 	mgr := &jnipkg.ListItem{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.WriteToParcel(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.WriteToParcelResponse{}, nil
-}
-
-// PageMatchBoundsServer implements pb.PageMatchBoundsServiceServer.
-type PageMatchBoundsServer struct {
-	pb.UnimplementedPageMatchBoundsServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *PageMatchBoundsServer) NewPageMatchBounds(_ context.Context, req *pb.NewPageMatchBoundsRequest) (*pb.NewPageMatchBoundsResponse, error) {
-	obj, err := jnipkg.NewPageMatchBounds(s.Ctx.VM, s.Handles.Get(req.GetArg0()), req.GetArg1())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
-	}
-	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-	}
-	return &pb.NewPageMatchBoundsResponse{Result: handle}, nil
-}
-
-func (s *PageMatchBoundsServer) DescribeContents(_ context.Context, req *pb.PageMatchBoundsDescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.PageMatchBounds{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.DescribeContents()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.DescribeContentsResponse{Result: result}, nil
-}
-
-func (s *PageMatchBoundsServer) GetTextStartIndex(_ context.Context, req *pb.GetTextStartIndexRequest) (*pb.GetTextStartIndexResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.PageMatchBounds{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetTextStartIndex()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetTextStartIndexResponse{Result: result}, nil
-}
-
-func (s *PageMatchBoundsServer) WriteToParcel(_ context.Context, req *pb.PageMatchBoundsWriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.PageMatchBounds{VM: s.Ctx.VM, Obj: rawObj}
 
 	if err := mgr.WriteToParcel(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)

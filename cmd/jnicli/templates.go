@@ -12,526 +12,6 @@ var templatesCmd = &cobra.Command{
 	Short: "templates service operations",
 }
 
-var templatesStatelessTemplateCmd = &cobra.Command{
-	Use:   "stateless-template",
-	Short: "StatelessTemplateService operations",
-}
-
-var templatesStatelessTemplateNewStatelessTemplateCmd = &cobra.Command{
-	Use:   "new-stateless-template",
-	Short: "NewStatelessTemplate RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewStatelessTemplateServiceClient(grpcConn)
-		req := &pb.NewStatelessTemplateRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.NewStatelessTemplate(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var templatesStatelessTemplateGetTemplateTypeCmd = &cobra.Command{
-	Use:   "get-template-type",
-	Short: "GetTemplateType RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewStatelessTemplateServiceClient(grpcConn)
-		req := &pb.GetTemplateTypeRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetTemplateType(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var templatesTemperatureControlTemplateCmd = &cobra.Command{
-	Use:   "temperature-control-template",
-	Short: "TemperatureControlTemplateService operations",
-}
-
-var templatesTemperatureControlTemplateNewTemperatureControlTemplateCmd = &cobra.Command{
-	Use:   "new-temperature-control-template",
-	Short: "NewTemperatureControlTemplate RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTemperatureControlTemplateServiceClient(grpcConn)
-		req := &pb.NewTemperatureControlTemplateRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg4"); err == nil {
-			req.Arg4 = v
-		}
-		resp, err := client.NewTemperatureControlTemplate(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var templatesTemperatureControlTemplateGetCurrentActiveModeCmd = &cobra.Command{
-	Use:   "get-current-active-mode",
-	Short: "GetCurrentActiveMode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTemperatureControlTemplateServiceClient(grpcConn)
-		req := &pb.GetCurrentActiveModeRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetCurrentActiveMode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var templatesTemperatureControlTemplateGetCurrentModeCmd = &cobra.Command{
-	Use:   "get-current-mode",
-	Short: "GetCurrentMode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTemperatureControlTemplateServiceClient(grpcConn)
-		req := &pb.GetCurrentModeRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetCurrentMode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var templatesTemperatureControlTemplateGetModesCmd = &cobra.Command{
-	Use:   "get-modes",
-	Short: "GetModes RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTemperatureControlTemplateServiceClient(grpcConn)
-		req := &pb.GetModesRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetModes(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var templatesTemperatureControlTemplateGetTemplateCmd = &cobra.Command{
-	Use:   "get-template",
-	Short: "GetTemplate RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTemperatureControlTemplateServiceClient(grpcConn)
-		req := &pb.GetTemplateRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetTemplate(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var templatesTemperatureControlTemplateGetTemplateTypeCmd = &cobra.Command{
-	Use:   "get-template-type",
-	Short: "GetTemplateType RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTemperatureControlTemplateServiceClient(grpcConn)
-		req := &pb.GetTemplateTypeRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetTemplateType(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var templatesControlButtonCmd = &cobra.Command{
-	Use:   "control-button",
-	Short: "ControlButtonService operations",
-}
-
-var templatesControlButtonNewControlButtonCmd = &cobra.Command{
-	Use:   "new-control-button",
-	Short: "NewControlButton RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewControlButtonServiceClient(grpcConn)
-		req := &pb.NewControlButtonRequest{}
-		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetString("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.NewControlButton(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var templatesControlButtonDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewControlButtonServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var templatesControlButtonGetActionDescriptionCmd = &cobra.Command{
-	Use:   "get-action-description",
-	Short: "GetActionDescription RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewControlButtonServiceClient(grpcConn)
-		req := &pb.GetActionDescriptionRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetActionDescription(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var templatesControlButtonIsCheckedCmd = &cobra.Command{
-	Use:   "is-checked",
-	Short: "IsChecked RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewControlButtonServiceClient(grpcConn)
-		req := &pb.IsCheckedRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.IsChecked(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var templatesControlButtonWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewControlButtonServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var templatesRangeTemplateCmd = &cobra.Command{
-	Use:   "range-template",
-	Short: "RangeTemplateService operations",
-}
-
-var templatesRangeTemplateNewRangeTemplateCmd = &cobra.Command{
-	Use:   "new-range-template",
-	Short: "NewRangeTemplate RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRangeTemplateServiceClient(grpcConn)
-		req := &pb.NewRangeTemplateRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetFloat32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetFloat32("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetFloat32("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		if v, err := cmd.Flags().GetFloat32("arg4"); err == nil {
-			req.Arg4 = v
-		}
-		if v, err := cmd.Flags().GetString("arg5"); err == nil {
-			req.Arg5 = v
-		}
-		resp, err := client.NewRangeTemplate(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var templatesRangeTemplateGetCurrentValueCmd = &cobra.Command{
-	Use:   "get-current-value",
-	Short: "GetCurrentValue RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRangeTemplateServiceClient(grpcConn)
-		req := &pb.GetCurrentValueRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetCurrentValue(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var templatesRangeTemplateGetFormatStringCmd = &cobra.Command{
-	Use:   "get-format-string",
-	Short: "GetFormatString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRangeTemplateServiceClient(grpcConn)
-		req := &pb.GetFormatStringRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetFormatString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var templatesRangeTemplateGetMaxValueCmd = &cobra.Command{
-	Use:   "get-max-value",
-	Short: "GetMaxValue RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRangeTemplateServiceClient(grpcConn)
-		req := &pb.GetMaxValueRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetMaxValue(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var templatesRangeTemplateGetMinValueCmd = &cobra.Command{
-	Use:   "get-min-value",
-	Short: "GetMinValue RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRangeTemplateServiceClient(grpcConn)
-		req := &pb.GetMinValueRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetMinValue(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var templatesRangeTemplateGetStepValueCmd = &cobra.Command{
-	Use:   "get-step-value",
-	Short: "GetStepValue RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRangeTemplateServiceClient(grpcConn)
-		req := &pb.GetStepValueRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetStepValue(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var templatesRangeTemplateGetTemplateTypeCmd = &cobra.Command{
-	Use:   "get-template-type",
-	Short: "GetTemplateType RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRangeTemplateServiceClient(grpcConn)
-		req := &pb.GetTemplateTypeRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetTemplateType(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var templatesToggleTemplateCmd = &cobra.Command{
-	Use:   "toggle-template",
-	Short: "ToggleTemplateService operations",
-}
-
-var templatesToggleTemplateNewToggleTemplateCmd = &cobra.Command{
-	Use:   "new-toggle-template",
-	Short: "NewToggleTemplate RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewToggleTemplateServiceClient(grpcConn)
-		req := &pb.NewToggleTemplateRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.NewToggleTemplate(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var templatesToggleTemplateGetContentDescriptionCmd = &cobra.Command{
-	Use:   "get-content-description",
-	Short: "GetContentDescription RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewToggleTemplateServiceClient(grpcConn)
-		req := &pb.GetContentDescriptionRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetContentDescription(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var templatesToggleTemplateGetTemplateTypeCmd = &cobra.Command{
-	Use:   "get-template-type",
-	Short: "GetTemplateType RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewToggleTemplateServiceClient(grpcConn)
-		req := &pb.GetTemplateTypeRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetTemplateType(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var templatesToggleTemplateIsCheckedCmd = &cobra.Command{
-	Use:   "is-checked",
-	Short: "IsChecked RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewToggleTemplateServiceClient(grpcConn)
-		req := &pb.IsCheckedRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.IsChecked(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
 var templatesThumbnailTemplateCmd = &cobra.Command{
 	Use:   "thumbnail-template",
 	Short: "ThumbnailTemplateService operations",
@@ -710,6 +190,49 @@ var templatesControlTemplateGetNoTemplateObjectCmd = &cobra.Command{
 	},
 }
 
+var templatesStatelessTemplateCmd = &cobra.Command{
+	Use:   "stateless-template",
+	Short: "StatelessTemplateService operations",
+}
+
+var templatesStatelessTemplateNewStatelessTemplateCmd = &cobra.Command{
+	Use:   "new-stateless-template",
+	Short: "NewStatelessTemplate RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStatelessTemplateServiceClient(grpcConn)
+		req := &pb.NewStatelessTemplateRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.NewStatelessTemplate(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var templatesStatelessTemplateGetTemplateTypeCmd = &cobra.Command{
+	Use:   "get-template-type",
+	Short: "GetTemplateType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStatelessTemplateServiceClient(grpcConn)
+		req := &pb.GetTemplateTypeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetTemplateType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var templatesToggleRangeTemplateCmd = &cobra.Command{
 	Use:   "toggle-range-template",
 	Short: "ToggleRangeTemplateService operations",
@@ -816,43 +339,521 @@ var templatesToggleRangeTemplateIsCheckedCmd = &cobra.Command{
 	},
 }
 
+var templatesRangeTemplateCmd = &cobra.Command{
+	Use:   "range-template",
+	Short: "RangeTemplateService operations",
+}
+
+var templatesRangeTemplateNewRangeTemplateCmd = &cobra.Command{
+	Use:   "new-range-template",
+	Short: "NewRangeTemplate RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRangeTemplateServiceClient(grpcConn)
+		req := &pb.NewRangeTemplateRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		if v, err := cmd.Flags().GetString("arg5"); err == nil {
+			req.Arg5 = v
+		}
+		resp, err := client.NewRangeTemplate(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var templatesRangeTemplateGetCurrentValueCmd = &cobra.Command{
+	Use:   "get-current-value",
+	Short: "GetCurrentValue RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRangeTemplateServiceClient(grpcConn)
+		req := &pb.GetCurrentValueRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetCurrentValue(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var templatesRangeTemplateGetFormatStringCmd = &cobra.Command{
+	Use:   "get-format-string",
+	Short: "GetFormatString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRangeTemplateServiceClient(grpcConn)
+		req := &pb.GetFormatStringRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetFormatString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var templatesRangeTemplateGetMaxValueCmd = &cobra.Command{
+	Use:   "get-max-value",
+	Short: "GetMaxValue RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRangeTemplateServiceClient(grpcConn)
+		req := &pb.GetMaxValueRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetMaxValue(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var templatesRangeTemplateGetMinValueCmd = &cobra.Command{
+	Use:   "get-min-value",
+	Short: "GetMinValue RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRangeTemplateServiceClient(grpcConn)
+		req := &pb.GetMinValueRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetMinValue(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var templatesRangeTemplateGetStepValueCmd = &cobra.Command{
+	Use:   "get-step-value",
+	Short: "GetStepValue RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRangeTemplateServiceClient(grpcConn)
+		req := &pb.GetStepValueRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetStepValue(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var templatesRangeTemplateGetTemplateTypeCmd = &cobra.Command{
+	Use:   "get-template-type",
+	Short: "GetTemplateType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRangeTemplateServiceClient(grpcConn)
+		req := &pb.GetTemplateTypeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetTemplateType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var templatesTemperatureControlTemplateCmd = &cobra.Command{
+	Use:   "temperature-control-template",
+	Short: "TemperatureControlTemplateService operations",
+}
+
+var templatesTemperatureControlTemplateNewTemperatureControlTemplateCmd = &cobra.Command{
+	Use:   "new-temperature-control-template",
+	Short: "NewTemperatureControlTemplate RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTemperatureControlTemplateServiceClient(grpcConn)
+		req := &pb.NewTemperatureControlTemplateRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		resp, err := client.NewTemperatureControlTemplate(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var templatesTemperatureControlTemplateGetCurrentActiveModeCmd = &cobra.Command{
+	Use:   "get-current-active-mode",
+	Short: "GetCurrentActiveMode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTemperatureControlTemplateServiceClient(grpcConn)
+		req := &pb.GetCurrentActiveModeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetCurrentActiveMode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var templatesTemperatureControlTemplateGetCurrentModeCmd = &cobra.Command{
+	Use:   "get-current-mode",
+	Short: "GetCurrentMode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTemperatureControlTemplateServiceClient(grpcConn)
+		req := &pb.GetCurrentModeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetCurrentMode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var templatesTemperatureControlTemplateGetModesCmd = &cobra.Command{
+	Use:   "get-modes",
+	Short: "GetModes RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTemperatureControlTemplateServiceClient(grpcConn)
+		req := &pb.GetModesRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetModes(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var templatesTemperatureControlTemplateGetTemplateCmd = &cobra.Command{
+	Use:   "get-template",
+	Short: "GetTemplate RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTemperatureControlTemplateServiceClient(grpcConn)
+		req := &pb.GetTemplateRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetTemplate(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var templatesTemperatureControlTemplateGetTemplateTypeCmd = &cobra.Command{
+	Use:   "get-template-type",
+	Short: "GetTemplateType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTemperatureControlTemplateServiceClient(grpcConn)
+		req := &pb.GetTemplateTypeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetTemplateType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var templatesToggleTemplateCmd = &cobra.Command{
+	Use:   "toggle-template",
+	Short: "ToggleTemplateService operations",
+}
+
+var templatesToggleTemplateNewToggleTemplateCmd = &cobra.Command{
+	Use:   "new-toggle-template",
+	Short: "NewToggleTemplate RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewToggleTemplateServiceClient(grpcConn)
+		req := &pb.NewToggleTemplateRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.NewToggleTemplate(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var templatesToggleTemplateGetContentDescriptionCmd = &cobra.Command{
+	Use:   "get-content-description",
+	Short: "GetContentDescription RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewToggleTemplateServiceClient(grpcConn)
+		req := &pb.GetContentDescriptionRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetContentDescription(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var templatesToggleTemplateGetTemplateTypeCmd = &cobra.Command{
+	Use:   "get-template-type",
+	Short: "GetTemplateType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewToggleTemplateServiceClient(grpcConn)
+		req := &pb.GetTemplateTypeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetTemplateType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var templatesToggleTemplateIsCheckedCmd = &cobra.Command{
+	Use:   "is-checked",
+	Short: "IsChecked RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewToggleTemplateServiceClient(grpcConn)
+		req := &pb.IsCheckedRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.IsChecked(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var templatesControlButtonCmd = &cobra.Command{
+	Use:   "control-button",
+	Short: "ControlButtonService operations",
+}
+
+var templatesControlButtonNewControlButtonCmd = &cobra.Command{
+	Use:   "new-control-button",
+	Short: "NewControlButton RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewControlButtonServiceClient(grpcConn)
+		req := &pb.NewControlButtonRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.NewControlButton(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var templatesControlButtonDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewControlButtonServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var templatesControlButtonGetActionDescriptionCmd = &cobra.Command{
+	Use:   "get-action-description",
+	Short: "GetActionDescription RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewControlButtonServiceClient(grpcConn)
+		req := &pb.GetActionDescriptionRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetActionDescription(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var templatesControlButtonIsCheckedCmd = &cobra.Command{
+	Use:   "is-checked",
+	Short: "IsChecked RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewControlButtonServiceClient(grpcConn)
+		req := &pb.IsCheckedRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.IsChecked(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var templatesControlButtonWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewControlButtonServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 func init() {
+	templatesThumbnailTemplateNewThumbnailTemplateCmd.Flags().String("arg0", "", "arg0 (string)")
+	templatesThumbnailTemplateNewThumbnailTemplateCmd.Flags().Bool("arg1", false, "arg1 (bool)")
+	templatesThumbnailTemplateNewThumbnailTemplateCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	templatesThumbnailTemplateNewThumbnailTemplateCmd.Flags().String("arg3", "", "arg3 (string)")
+	templatesThumbnailTemplateCmd.AddCommand(templatesThumbnailTemplateNewThumbnailTemplateCmd)
+	templatesThumbnailTemplateGetContentDescriptionCmd.Flags().Int64("handle", 0, "handle (int64)")
+	templatesThumbnailTemplateCmd.AddCommand(templatesThumbnailTemplateGetContentDescriptionCmd)
+	templatesThumbnailTemplateGetTemplateTypeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	templatesThumbnailTemplateCmd.AddCommand(templatesThumbnailTemplateGetTemplateTypeCmd)
+	templatesThumbnailTemplateGetThumbnailCmd.Flags().Int64("handle", 0, "handle (int64)")
+	templatesThumbnailTemplateCmd.AddCommand(templatesThumbnailTemplateGetThumbnailCmd)
+	templatesThumbnailTemplateIsActiveCmd.Flags().Int64("handle", 0, "handle (int64)")
+	templatesThumbnailTemplateCmd.AddCommand(templatesThumbnailTemplateIsActiveCmd)
+	templatesCmd.AddCommand(templatesThumbnailTemplateCmd)
+	templatesControlTemplateCmd.AddCommand(templatesControlTemplateGetTemplateIdCmd)
+	templatesControlTemplateCmd.AddCommand(templatesControlTemplateGetTemplateTypeCmd)
+	templatesControlTemplateCmd.AddCommand(templatesControlTemplateGetErrorTemplateCmd)
+	templatesControlTemplateCmd.AddCommand(templatesControlTemplateGetNoTemplateObjectCmd)
+	templatesCmd.AddCommand(templatesControlTemplateCmd)
 	templatesStatelessTemplateNewStatelessTemplateCmd.Flags().String("arg0", "", "arg0 (string)")
 	templatesStatelessTemplateCmd.AddCommand(templatesStatelessTemplateNewStatelessTemplateCmd)
 	templatesStatelessTemplateGetTemplateTypeCmd.Flags().Int64("handle", 0, "handle (int64)")
 	templatesStatelessTemplateCmd.AddCommand(templatesStatelessTemplateGetTemplateTypeCmd)
 	templatesCmd.AddCommand(templatesStatelessTemplateCmd)
-	templatesTemperatureControlTemplateNewTemperatureControlTemplateCmd.Flags().String("arg0", "", "arg0 (string)")
-	templatesTemperatureControlTemplateNewTemperatureControlTemplateCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	templatesTemperatureControlTemplateNewTemperatureControlTemplateCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
-	templatesTemperatureControlTemplateNewTemperatureControlTemplateCmd.Flags().Int32("arg3", 0, "arg3 (int32)")
-	templatesTemperatureControlTemplateNewTemperatureControlTemplateCmd.Flags().Int32("arg4", 0, "arg4 (int32)")
-	templatesTemperatureControlTemplateCmd.AddCommand(templatesTemperatureControlTemplateNewTemperatureControlTemplateCmd)
-	templatesTemperatureControlTemplateGetCurrentActiveModeCmd.Flags().Int64("handle", 0, "handle (int64)")
-	templatesTemperatureControlTemplateCmd.AddCommand(templatesTemperatureControlTemplateGetCurrentActiveModeCmd)
-	templatesTemperatureControlTemplateGetCurrentModeCmd.Flags().Int64("handle", 0, "handle (int64)")
-	templatesTemperatureControlTemplateCmd.AddCommand(templatesTemperatureControlTemplateGetCurrentModeCmd)
-	templatesTemperatureControlTemplateGetModesCmd.Flags().Int64("handle", 0, "handle (int64)")
-	templatesTemperatureControlTemplateCmd.AddCommand(templatesTemperatureControlTemplateGetModesCmd)
-	templatesTemperatureControlTemplateGetTemplateCmd.Flags().Int64("handle", 0, "handle (int64)")
-	templatesTemperatureControlTemplateCmd.AddCommand(templatesTemperatureControlTemplateGetTemplateCmd)
-	templatesTemperatureControlTemplateGetTemplateTypeCmd.Flags().Int64("handle", 0, "handle (int64)")
-	templatesTemperatureControlTemplateCmd.AddCommand(templatesTemperatureControlTemplateGetTemplateTypeCmd)
-	templatesCmd.AddCommand(templatesTemperatureControlTemplateCmd)
-	templatesControlButtonNewControlButtonCmd.Flags().Bool("arg0", false, "arg0 (bool)")
-	templatesControlButtonNewControlButtonCmd.Flags().String("arg1", "", "arg1 (string)")
-	templatesControlButtonCmd.AddCommand(templatesControlButtonNewControlButtonCmd)
-	templatesControlButtonDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	templatesControlButtonCmd.AddCommand(templatesControlButtonDescribeContentsCmd)
-	templatesControlButtonGetActionDescriptionCmd.Flags().Int64("handle", 0, "handle (int64)")
-	templatesControlButtonCmd.AddCommand(templatesControlButtonGetActionDescriptionCmd)
-	templatesControlButtonIsCheckedCmd.Flags().Int64("handle", 0, "handle (int64)")
-	templatesControlButtonCmd.AddCommand(templatesControlButtonIsCheckedCmd)
-	templatesControlButtonWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
-	templatesControlButtonWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	templatesControlButtonWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	templatesControlButtonCmd.AddCommand(templatesControlButtonWriteToParcelCmd)
-	templatesCmd.AddCommand(templatesControlButtonCmd)
+	templatesToggleRangeTemplateNewToggleRangeTemplateCmd.Flags().String("arg0", "", "arg0 (string)")
+	templatesToggleRangeTemplateNewToggleRangeTemplateCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	templatesToggleRangeTemplateNewToggleRangeTemplateCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	templatesToggleRangeTemplateCmd.AddCommand(templatesToggleRangeTemplateNewToggleRangeTemplateCmd)
+	templatesToggleRangeTemplateGetActionDescriptionCmd.Flags().Int64("handle", 0, "handle (int64)")
+	templatesToggleRangeTemplateCmd.AddCommand(templatesToggleRangeTemplateGetActionDescriptionCmd)
+	templatesToggleRangeTemplateGetRangeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	templatesToggleRangeTemplateCmd.AddCommand(templatesToggleRangeTemplateGetRangeCmd)
+	templatesToggleRangeTemplateGetTemplateTypeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	templatesToggleRangeTemplateCmd.AddCommand(templatesToggleRangeTemplateGetTemplateTypeCmd)
+	templatesToggleRangeTemplateIsCheckedCmd.Flags().Int64("handle", 0, "handle (int64)")
+	templatesToggleRangeTemplateCmd.AddCommand(templatesToggleRangeTemplateIsCheckedCmd)
+	templatesCmd.AddCommand(templatesToggleRangeTemplateCmd)
 	templatesRangeTemplateNewRangeTemplateCmd.Flags().String("arg0", "", "arg0 (string)")
 	templatesRangeTemplateNewRangeTemplateCmd.Flags().Float32("arg1", 0, "arg1 (float32)")
 	templatesRangeTemplateNewRangeTemplateCmd.Flags().Float32("arg2", 0, "arg2 (float32)")
@@ -873,6 +874,23 @@ func init() {
 	templatesRangeTemplateGetTemplateTypeCmd.Flags().Int64("handle", 0, "handle (int64)")
 	templatesRangeTemplateCmd.AddCommand(templatesRangeTemplateGetTemplateTypeCmd)
 	templatesCmd.AddCommand(templatesRangeTemplateCmd)
+	templatesTemperatureControlTemplateNewTemperatureControlTemplateCmd.Flags().String("arg0", "", "arg0 (string)")
+	templatesTemperatureControlTemplateNewTemperatureControlTemplateCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	templatesTemperatureControlTemplateNewTemperatureControlTemplateCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	templatesTemperatureControlTemplateNewTemperatureControlTemplateCmd.Flags().Int32("arg3", 0, "arg3 (int32)")
+	templatesTemperatureControlTemplateNewTemperatureControlTemplateCmd.Flags().Int32("arg4", 0, "arg4 (int32)")
+	templatesTemperatureControlTemplateCmd.AddCommand(templatesTemperatureControlTemplateNewTemperatureControlTemplateCmd)
+	templatesTemperatureControlTemplateGetCurrentActiveModeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	templatesTemperatureControlTemplateCmd.AddCommand(templatesTemperatureControlTemplateGetCurrentActiveModeCmd)
+	templatesTemperatureControlTemplateGetCurrentModeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	templatesTemperatureControlTemplateCmd.AddCommand(templatesTemperatureControlTemplateGetCurrentModeCmd)
+	templatesTemperatureControlTemplateGetModesCmd.Flags().Int64("handle", 0, "handle (int64)")
+	templatesTemperatureControlTemplateCmd.AddCommand(templatesTemperatureControlTemplateGetModesCmd)
+	templatesTemperatureControlTemplateGetTemplateCmd.Flags().Int64("handle", 0, "handle (int64)")
+	templatesTemperatureControlTemplateCmd.AddCommand(templatesTemperatureControlTemplateGetTemplateCmd)
+	templatesTemperatureControlTemplateGetTemplateTypeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	templatesTemperatureControlTemplateCmd.AddCommand(templatesTemperatureControlTemplateGetTemplateTypeCmd)
+	templatesCmd.AddCommand(templatesTemperatureControlTemplateCmd)
 	templatesToggleTemplateNewToggleTemplateCmd.Flags().String("arg0", "", "arg0 (string)")
 	templatesToggleTemplateNewToggleTemplateCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
 	templatesToggleTemplateCmd.AddCommand(templatesToggleTemplateNewToggleTemplateCmd)
@@ -883,37 +901,19 @@ func init() {
 	templatesToggleTemplateIsCheckedCmd.Flags().Int64("handle", 0, "handle (int64)")
 	templatesToggleTemplateCmd.AddCommand(templatesToggleTemplateIsCheckedCmd)
 	templatesCmd.AddCommand(templatesToggleTemplateCmd)
-	templatesThumbnailTemplateNewThumbnailTemplateCmd.Flags().String("arg0", "", "arg0 (string)")
-	templatesThumbnailTemplateNewThumbnailTemplateCmd.Flags().Bool("arg1", false, "arg1 (bool)")
-	templatesThumbnailTemplateNewThumbnailTemplateCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	templatesThumbnailTemplateNewThumbnailTemplateCmd.Flags().String("arg3", "", "arg3 (string)")
-	templatesThumbnailTemplateCmd.AddCommand(templatesThumbnailTemplateNewThumbnailTemplateCmd)
-	templatesThumbnailTemplateGetContentDescriptionCmd.Flags().Int64("handle", 0, "handle (int64)")
-	templatesThumbnailTemplateCmd.AddCommand(templatesThumbnailTemplateGetContentDescriptionCmd)
-	templatesThumbnailTemplateGetTemplateTypeCmd.Flags().Int64("handle", 0, "handle (int64)")
-	templatesThumbnailTemplateCmd.AddCommand(templatesThumbnailTemplateGetTemplateTypeCmd)
-	templatesThumbnailTemplateGetThumbnailCmd.Flags().Int64("handle", 0, "handle (int64)")
-	templatesThumbnailTemplateCmd.AddCommand(templatesThumbnailTemplateGetThumbnailCmd)
-	templatesThumbnailTemplateIsActiveCmd.Flags().Int64("handle", 0, "handle (int64)")
-	templatesThumbnailTemplateCmd.AddCommand(templatesThumbnailTemplateIsActiveCmd)
-	templatesCmd.AddCommand(templatesThumbnailTemplateCmd)
-	templatesControlTemplateCmd.AddCommand(templatesControlTemplateGetTemplateIdCmd)
-	templatesControlTemplateCmd.AddCommand(templatesControlTemplateGetTemplateTypeCmd)
-	templatesControlTemplateCmd.AddCommand(templatesControlTemplateGetErrorTemplateCmd)
-	templatesControlTemplateCmd.AddCommand(templatesControlTemplateGetNoTemplateObjectCmd)
-	templatesCmd.AddCommand(templatesControlTemplateCmd)
-	templatesToggleRangeTemplateNewToggleRangeTemplateCmd.Flags().String("arg0", "", "arg0 (string)")
-	templatesToggleRangeTemplateNewToggleRangeTemplateCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	templatesToggleRangeTemplateNewToggleRangeTemplateCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	templatesToggleRangeTemplateCmd.AddCommand(templatesToggleRangeTemplateNewToggleRangeTemplateCmd)
-	templatesToggleRangeTemplateGetActionDescriptionCmd.Flags().Int64("handle", 0, "handle (int64)")
-	templatesToggleRangeTemplateCmd.AddCommand(templatesToggleRangeTemplateGetActionDescriptionCmd)
-	templatesToggleRangeTemplateGetRangeCmd.Flags().Int64("handle", 0, "handle (int64)")
-	templatesToggleRangeTemplateCmd.AddCommand(templatesToggleRangeTemplateGetRangeCmd)
-	templatesToggleRangeTemplateGetTemplateTypeCmd.Flags().Int64("handle", 0, "handle (int64)")
-	templatesToggleRangeTemplateCmd.AddCommand(templatesToggleRangeTemplateGetTemplateTypeCmd)
-	templatesToggleRangeTemplateIsCheckedCmd.Flags().Int64("handle", 0, "handle (int64)")
-	templatesToggleRangeTemplateCmd.AddCommand(templatesToggleRangeTemplateIsCheckedCmd)
-	templatesCmd.AddCommand(templatesToggleRangeTemplateCmd)
+	templatesControlButtonNewControlButtonCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	templatesControlButtonNewControlButtonCmd.Flags().String("arg1", "", "arg1 (string)")
+	templatesControlButtonCmd.AddCommand(templatesControlButtonNewControlButtonCmd)
+	templatesControlButtonDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	templatesControlButtonCmd.AddCommand(templatesControlButtonDescribeContentsCmd)
+	templatesControlButtonGetActionDescriptionCmd.Flags().Int64("handle", 0, "handle (int64)")
+	templatesControlButtonCmd.AddCommand(templatesControlButtonGetActionDescriptionCmd)
+	templatesControlButtonIsCheckedCmd.Flags().Int64("handle", 0, "handle (int64)")
+	templatesControlButtonCmd.AddCommand(templatesControlButtonIsCheckedCmd)
+	templatesControlButtonWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	templatesControlButtonWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	templatesControlButtonWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	templatesControlButtonCmd.AddCommand(templatesControlButtonWriteToParcelCmd)
+	templatesCmd.AddCommand(templatesControlButtonCmd)
 	rootCmd.AddCommand(templatesCmd)
 }

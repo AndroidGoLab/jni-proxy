@@ -21,140 +21,292 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	DataShareWriteAdapterService_OnRejected_FullMethodName = "/contentcapture.DataShareWriteAdapterService/OnRejected"
-	DataShareWriteAdapterService_OnWrite_FullMethodName    = "/contentcapture.DataShareWriteAdapterService/OnWrite"
+	ContentCaptureManagerService_GetContentCaptureConditions_FullMethodName = "/contentcapture.ContentCaptureManagerService/GetContentCaptureConditions"
+	ContentCaptureManagerService_GetServiceComponentName_FullMethodName     = "/contentcapture.ContentCaptureManagerService/GetServiceComponentName"
+	ContentCaptureManagerService_IsContentCaptureEnabled_FullMethodName     = "/contentcapture.ContentCaptureManagerService/IsContentCaptureEnabled"
+	ContentCaptureManagerService_RemoveData_FullMethodName                  = "/contentcapture.ContentCaptureManagerService/RemoveData"
+	ContentCaptureManagerService_SetContentCaptureEnabled_FullMethodName    = "/contentcapture.ContentCaptureManagerService/SetContentCaptureEnabled"
+	ContentCaptureManagerService_ShareData_FullMethodName                   = "/contentcapture.ContentCaptureManagerService/ShareData"
 )
 
-// DataShareWriteAdapterServiceClient is the client API for DataShareWriteAdapterService service.
+// ContentCaptureManagerServiceClient is the client API for ContentCaptureManagerService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type DataShareWriteAdapterServiceClient interface {
-	OnRejected(ctx context.Context, in *OnRejectedRequest, opts ...grpc.CallOption) (*OnRejectedResponse, error)
-	OnWrite(ctx context.Context, in *OnWriteRequest, opts ...grpc.CallOption) (*OnWriteResponse, error)
+type ContentCaptureManagerServiceClient interface {
+	GetContentCaptureConditions(ctx context.Context, in *GetContentCaptureConditionsRequest, opts ...grpc.CallOption) (*GetContentCaptureConditionsResponse, error)
+	GetServiceComponentName(ctx context.Context, in *GetServiceComponentNameRequest, opts ...grpc.CallOption) (*GetServiceComponentNameResponse, error)
+	IsContentCaptureEnabled(ctx context.Context, in *IsContentCaptureEnabledRequest, opts ...grpc.CallOption) (*IsContentCaptureEnabledResponse, error)
+	RemoveData(ctx context.Context, in *RemoveDataRequest, opts ...grpc.CallOption) (*RemoveDataResponse, error)
+	SetContentCaptureEnabled(ctx context.Context, in *SetContentCaptureEnabledRequest, opts ...grpc.CallOption) (*SetContentCaptureEnabledResponse, error)
+	ShareData(ctx context.Context, in *ShareDataRequest, opts ...grpc.CallOption) (*ShareDataResponse, error)
 }
 
-type dataShareWriteAdapterServiceClient struct {
+type contentCaptureManagerServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewDataShareWriteAdapterServiceClient(cc grpc.ClientConnInterface) DataShareWriteAdapterServiceClient {
-	return &dataShareWriteAdapterServiceClient{cc}
+func NewContentCaptureManagerServiceClient(cc grpc.ClientConnInterface) ContentCaptureManagerServiceClient {
+	return &contentCaptureManagerServiceClient{cc}
 }
 
-func (c *dataShareWriteAdapterServiceClient) OnRejected(ctx context.Context, in *OnRejectedRequest, opts ...grpc.CallOption) (*OnRejectedResponse, error) {
+func (c *contentCaptureManagerServiceClient) GetContentCaptureConditions(ctx context.Context, in *GetContentCaptureConditionsRequest, opts ...grpc.CallOption) (*GetContentCaptureConditionsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnRejectedResponse)
-	err := c.cc.Invoke(ctx, DataShareWriteAdapterService_OnRejected_FullMethodName, in, out, cOpts...)
+	out := new(GetContentCaptureConditionsResponse)
+	err := c.cc.Invoke(ctx, ContentCaptureManagerService_GetContentCaptureConditions_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *dataShareWriteAdapterServiceClient) OnWrite(ctx context.Context, in *OnWriteRequest, opts ...grpc.CallOption) (*OnWriteResponse, error) {
+func (c *contentCaptureManagerServiceClient) GetServiceComponentName(ctx context.Context, in *GetServiceComponentNameRequest, opts ...grpc.CallOption) (*GetServiceComponentNameResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnWriteResponse)
-	err := c.cc.Invoke(ctx, DataShareWriteAdapterService_OnWrite_FullMethodName, in, out, cOpts...)
+	out := new(GetServiceComponentNameResponse)
+	err := c.cc.Invoke(ctx, ContentCaptureManagerService_GetServiceComponentName_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// DataShareWriteAdapterServiceServer is the server API for DataShareWriteAdapterService service.
-// All implementations must embed UnimplementedDataShareWriteAdapterServiceServer
+func (c *contentCaptureManagerServiceClient) IsContentCaptureEnabled(ctx context.Context, in *IsContentCaptureEnabledRequest, opts ...grpc.CallOption) (*IsContentCaptureEnabledResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsContentCaptureEnabledResponse)
+	err := c.cc.Invoke(ctx, ContentCaptureManagerService_IsContentCaptureEnabled_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *contentCaptureManagerServiceClient) RemoveData(ctx context.Context, in *RemoveDataRequest, opts ...grpc.CallOption) (*RemoveDataResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(RemoveDataResponse)
+	err := c.cc.Invoke(ctx, ContentCaptureManagerService_RemoveData_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *contentCaptureManagerServiceClient) SetContentCaptureEnabled(ctx context.Context, in *SetContentCaptureEnabledRequest, opts ...grpc.CallOption) (*SetContentCaptureEnabledResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetContentCaptureEnabledResponse)
+	err := c.cc.Invoke(ctx, ContentCaptureManagerService_SetContentCaptureEnabled_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *contentCaptureManagerServiceClient) ShareData(ctx context.Context, in *ShareDataRequest, opts ...grpc.CallOption) (*ShareDataResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ShareDataResponse)
+	err := c.cc.Invoke(ctx, ContentCaptureManagerService_ShareData_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ContentCaptureManagerServiceServer is the server API for ContentCaptureManagerService service.
+// All implementations must embed UnimplementedContentCaptureManagerServiceServer
 // for forward compatibility.
-type DataShareWriteAdapterServiceServer interface {
-	OnRejected(context.Context, *OnRejectedRequest) (*OnRejectedResponse, error)
-	OnWrite(context.Context, *OnWriteRequest) (*OnWriteResponse, error)
-	mustEmbedUnimplementedDataShareWriteAdapterServiceServer()
+type ContentCaptureManagerServiceServer interface {
+	GetContentCaptureConditions(context.Context, *GetContentCaptureConditionsRequest) (*GetContentCaptureConditionsResponse, error)
+	GetServiceComponentName(context.Context, *GetServiceComponentNameRequest) (*GetServiceComponentNameResponse, error)
+	IsContentCaptureEnabled(context.Context, *IsContentCaptureEnabledRequest) (*IsContentCaptureEnabledResponse, error)
+	RemoveData(context.Context, *RemoveDataRequest) (*RemoveDataResponse, error)
+	SetContentCaptureEnabled(context.Context, *SetContentCaptureEnabledRequest) (*SetContentCaptureEnabledResponse, error)
+	ShareData(context.Context, *ShareDataRequest) (*ShareDataResponse, error)
+	mustEmbedUnimplementedContentCaptureManagerServiceServer()
 }
 
-// UnimplementedDataShareWriteAdapterServiceServer must be embedded to have
+// UnimplementedContentCaptureManagerServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedDataShareWriteAdapterServiceServer struct{}
+type UnimplementedContentCaptureManagerServiceServer struct{}
 
-func (UnimplementedDataShareWriteAdapterServiceServer) OnRejected(context.Context, *OnRejectedRequest) (*OnRejectedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnRejected not implemented")
+func (UnimplementedContentCaptureManagerServiceServer) GetContentCaptureConditions(context.Context, *GetContentCaptureConditionsRequest) (*GetContentCaptureConditionsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetContentCaptureConditions not implemented")
 }
-func (UnimplementedDataShareWriteAdapterServiceServer) OnWrite(context.Context, *OnWriteRequest) (*OnWriteResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnWrite not implemented")
+func (UnimplementedContentCaptureManagerServiceServer) GetServiceComponentName(context.Context, *GetServiceComponentNameRequest) (*GetServiceComponentNameResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetServiceComponentName not implemented")
 }
-func (UnimplementedDataShareWriteAdapterServiceServer) mustEmbedUnimplementedDataShareWriteAdapterServiceServer() {
+func (UnimplementedContentCaptureManagerServiceServer) IsContentCaptureEnabled(context.Context, *IsContentCaptureEnabledRequest) (*IsContentCaptureEnabledResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsContentCaptureEnabled not implemented")
 }
-func (UnimplementedDataShareWriteAdapterServiceServer) testEmbeddedByValue() {}
+func (UnimplementedContentCaptureManagerServiceServer) RemoveData(context.Context, *RemoveDataRequest) (*RemoveDataResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method RemoveData not implemented")
+}
+func (UnimplementedContentCaptureManagerServiceServer) SetContentCaptureEnabled(context.Context, *SetContentCaptureEnabledRequest) (*SetContentCaptureEnabledResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetContentCaptureEnabled not implemented")
+}
+func (UnimplementedContentCaptureManagerServiceServer) ShareData(context.Context, *ShareDataRequest) (*ShareDataResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ShareData not implemented")
+}
+func (UnimplementedContentCaptureManagerServiceServer) mustEmbedUnimplementedContentCaptureManagerServiceServer() {
+}
+func (UnimplementedContentCaptureManagerServiceServer) testEmbeddedByValue() {}
 
-// UnsafeDataShareWriteAdapterServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to DataShareWriteAdapterServiceServer will
+// UnsafeContentCaptureManagerServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ContentCaptureManagerServiceServer will
 // result in compilation errors.
-type UnsafeDataShareWriteAdapterServiceServer interface {
-	mustEmbedUnimplementedDataShareWriteAdapterServiceServer()
+type UnsafeContentCaptureManagerServiceServer interface {
+	mustEmbedUnimplementedContentCaptureManagerServiceServer()
 }
 
-func RegisterDataShareWriteAdapterServiceServer(s grpc.ServiceRegistrar, srv DataShareWriteAdapterServiceServer) {
-	// If the following call panics, it indicates UnimplementedDataShareWriteAdapterServiceServer was
+func RegisterContentCaptureManagerServiceServer(s grpc.ServiceRegistrar, srv ContentCaptureManagerServiceServer) {
+	// If the following call panics, it indicates UnimplementedContentCaptureManagerServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&DataShareWriteAdapterService_ServiceDesc, srv)
+	s.RegisterService(&ContentCaptureManagerService_ServiceDesc, srv)
 }
 
-func _DataShareWriteAdapterService_OnRejected_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnRejectedRequest)
+func _ContentCaptureManagerService_GetContentCaptureConditions_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetContentCaptureConditionsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(DataShareWriteAdapterServiceServer).OnRejected(ctx, in)
+		return srv.(ContentCaptureManagerServiceServer).GetContentCaptureConditions(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: DataShareWriteAdapterService_OnRejected_FullMethodName,
+		FullMethod: ContentCaptureManagerService_GetContentCaptureConditions_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DataShareWriteAdapterServiceServer).OnRejected(ctx, req.(*OnRejectedRequest))
+		return srv.(ContentCaptureManagerServiceServer).GetContentCaptureConditions(ctx, req.(*GetContentCaptureConditionsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _DataShareWriteAdapterService_OnWrite_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnWriteRequest)
+func _ContentCaptureManagerService_GetServiceComponentName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetServiceComponentNameRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(DataShareWriteAdapterServiceServer).OnWrite(ctx, in)
+		return srv.(ContentCaptureManagerServiceServer).GetServiceComponentName(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: DataShareWriteAdapterService_OnWrite_FullMethodName,
+		FullMethod: ContentCaptureManagerService_GetServiceComponentName_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DataShareWriteAdapterServiceServer).OnWrite(ctx, req.(*OnWriteRequest))
+		return srv.(ContentCaptureManagerServiceServer).GetServiceComponentName(ctx, req.(*GetServiceComponentNameRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// DataShareWriteAdapterService_ServiceDesc is the grpc.ServiceDesc for DataShareWriteAdapterService service.
+func _ContentCaptureManagerService_IsContentCaptureEnabled_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsContentCaptureEnabledRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ContentCaptureManagerServiceServer).IsContentCaptureEnabled(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ContentCaptureManagerService_IsContentCaptureEnabled_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ContentCaptureManagerServiceServer).IsContentCaptureEnabled(ctx, req.(*IsContentCaptureEnabledRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ContentCaptureManagerService_RemoveData_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RemoveDataRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ContentCaptureManagerServiceServer).RemoveData(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ContentCaptureManagerService_RemoveData_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ContentCaptureManagerServiceServer).RemoveData(ctx, req.(*RemoveDataRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ContentCaptureManagerService_SetContentCaptureEnabled_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetContentCaptureEnabledRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ContentCaptureManagerServiceServer).SetContentCaptureEnabled(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ContentCaptureManagerService_SetContentCaptureEnabled_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ContentCaptureManagerServiceServer).SetContentCaptureEnabled(ctx, req.(*SetContentCaptureEnabledRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ContentCaptureManagerService_ShareData_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ShareDataRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ContentCaptureManagerServiceServer).ShareData(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ContentCaptureManagerService_ShareData_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ContentCaptureManagerServiceServer).ShareData(ctx, req.(*ShareDataRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ContentCaptureManagerService_ServiceDesc is the grpc.ServiceDesc for ContentCaptureManagerService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var DataShareWriteAdapterService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "contentcapture.DataShareWriteAdapterService",
-	HandlerType: (*DataShareWriteAdapterServiceServer)(nil),
+var ContentCaptureManagerService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "contentcapture.ContentCaptureManagerService",
+	HandlerType: (*ContentCaptureManagerServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "OnRejected",
-			Handler:    _DataShareWriteAdapterService_OnRejected_Handler,
+			MethodName: "GetContentCaptureConditions",
+			Handler:    _ContentCaptureManagerService_GetContentCaptureConditions_Handler,
 		},
 		{
-			MethodName: "OnWrite",
-			Handler:    _DataShareWriteAdapterService_OnWrite_Handler,
+			MethodName: "GetServiceComponentName",
+			Handler:    _ContentCaptureManagerService_GetServiceComponentName_Handler,
+		},
+		{
+			MethodName: "IsContentCaptureEnabled",
+			Handler:    _ContentCaptureManagerService_IsContentCaptureEnabled_Handler,
+		},
+		{
+			MethodName: "RemoveData",
+			Handler:    _ContentCaptureManagerService_RemoveData_Handler,
+		},
+		{
+			MethodName: "SetContentCaptureEnabled",
+			Handler:    _ContentCaptureManagerService_SetContentCaptureEnabled_Handler,
+		},
+		{
+			MethodName: "ShareData",
+			Handler:    _ContentCaptureManagerService_ShareData_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -1166,536 +1318,509 @@ var ContentCaptureSessionIdService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	DataRemovalRequestService_DescribeContents_FullMethodName = "/contentcapture.DataRemovalRequestService/DescribeContents"
-	DataRemovalRequestService_GetPackageName_FullMethodName   = "/contentcapture.DataRemovalRequestService/GetPackageName"
-	DataRemovalRequestService_IsForEverything_FullMethodName  = "/contentcapture.DataRemovalRequestService/IsForEverything"
-	DataRemovalRequestService_WriteToParcel_FullMethodName    = "/contentcapture.DataRemovalRequestService/WriteToParcel"
+	ContentCaptureConditionService_NewContentCaptureCondition_FullMethodName = "/contentcapture.ContentCaptureConditionService/NewContentCaptureCondition"
+	ContentCaptureConditionService_DescribeContents_FullMethodName           = "/contentcapture.ContentCaptureConditionService/DescribeContents"
+	ContentCaptureConditionService_Equals_FullMethodName                     = "/contentcapture.ContentCaptureConditionService/Equals"
+	ContentCaptureConditionService_GetFlags_FullMethodName                   = "/contentcapture.ContentCaptureConditionService/GetFlags"
+	ContentCaptureConditionService_GetLocusId_FullMethodName                 = "/contentcapture.ContentCaptureConditionService/GetLocusId"
+	ContentCaptureConditionService_HashCode_FullMethodName                   = "/contentcapture.ContentCaptureConditionService/HashCode"
+	ContentCaptureConditionService_ToString_FullMethodName                   = "/contentcapture.ContentCaptureConditionService/ToString"
+	ContentCaptureConditionService_WriteToParcel_FullMethodName              = "/contentcapture.ContentCaptureConditionService/WriteToParcel"
 )
 
-// DataRemovalRequestServiceClient is the client API for DataRemovalRequestService service.
+// ContentCaptureConditionServiceClient is the client API for ContentCaptureConditionService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type DataRemovalRequestServiceClient interface {
-	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	GetPackageName(ctx context.Context, in *GetPackageNameRequest, opts ...grpc.CallOption) (*GetPackageNameResponse, error)
-	IsForEverything(ctx context.Context, in *IsForEverythingRequest, opts ...grpc.CallOption) (*IsForEverythingResponse, error)
-	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
-}
-
-type dataRemovalRequestServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewDataRemovalRequestServiceClient(cc grpc.ClientConnInterface) DataRemovalRequestServiceClient {
-	return &dataRemovalRequestServiceClient{cc}
-}
-
-func (c *dataRemovalRequestServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, DataRemovalRequestService_DescribeContents_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *dataRemovalRequestServiceClient) GetPackageName(ctx context.Context, in *GetPackageNameRequest, opts ...grpc.CallOption) (*GetPackageNameResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetPackageNameResponse)
-	err := c.cc.Invoke(ctx, DataRemovalRequestService_GetPackageName_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *dataRemovalRequestServiceClient) IsForEverything(ctx context.Context, in *IsForEverythingRequest, opts ...grpc.CallOption) (*IsForEverythingResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsForEverythingResponse)
-	err := c.cc.Invoke(ctx, DataRemovalRequestService_IsForEverything_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *dataRemovalRequestServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, DataRemovalRequestService_WriteToParcel_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// DataRemovalRequestServiceServer is the server API for DataRemovalRequestService service.
-// All implementations must embed UnimplementedDataRemovalRequestServiceServer
-// for forward compatibility.
-type DataRemovalRequestServiceServer interface {
-	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
-	GetPackageName(context.Context, *GetPackageNameRequest) (*GetPackageNameResponse, error)
-	IsForEverything(context.Context, *IsForEverythingRequest) (*IsForEverythingResponse, error)
-	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
-	mustEmbedUnimplementedDataRemovalRequestServiceServer()
-}
-
-// UnimplementedDataRemovalRequestServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedDataRemovalRequestServiceServer struct{}
-
-func (UnimplementedDataRemovalRequestServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
-}
-func (UnimplementedDataRemovalRequestServiceServer) GetPackageName(context.Context, *GetPackageNameRequest) (*GetPackageNameResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetPackageName not implemented")
-}
-func (UnimplementedDataRemovalRequestServiceServer) IsForEverything(context.Context, *IsForEverythingRequest) (*IsForEverythingResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsForEverything not implemented")
-}
-func (UnimplementedDataRemovalRequestServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
-}
-func (UnimplementedDataRemovalRequestServiceServer) mustEmbedUnimplementedDataRemovalRequestServiceServer() {
-}
-func (UnimplementedDataRemovalRequestServiceServer) testEmbeddedByValue() {}
-
-// UnsafeDataRemovalRequestServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to DataRemovalRequestServiceServer will
-// result in compilation errors.
-type UnsafeDataRemovalRequestServiceServer interface {
-	mustEmbedUnimplementedDataRemovalRequestServiceServer()
-}
-
-func RegisterDataRemovalRequestServiceServer(s grpc.ServiceRegistrar, srv DataRemovalRequestServiceServer) {
-	// If the following call panics, it indicates UnimplementedDataRemovalRequestServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&DataRemovalRequestService_ServiceDesc, srv)
-}
-
-func _DataRemovalRequestService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DescribeContentsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DataRemovalRequestServiceServer).DescribeContents(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DataRemovalRequestService_DescribeContents_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DataRemovalRequestServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DataRemovalRequestService_GetPackageName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetPackageNameRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DataRemovalRequestServiceServer).GetPackageName(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DataRemovalRequestService_GetPackageName_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DataRemovalRequestServiceServer).GetPackageName(ctx, req.(*GetPackageNameRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DataRemovalRequestService_IsForEverything_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsForEverythingRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DataRemovalRequestServiceServer).IsForEverything(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DataRemovalRequestService_IsForEverything_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DataRemovalRequestServiceServer).IsForEverything(ctx, req.(*IsForEverythingRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DataRemovalRequestService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WriteToParcelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DataRemovalRequestServiceServer).WriteToParcel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DataRemovalRequestService_WriteToParcel_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DataRemovalRequestServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// DataRemovalRequestService_ServiceDesc is the grpc.ServiceDesc for DataRemovalRequestService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var DataRemovalRequestService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "contentcapture.DataRemovalRequestService",
-	HandlerType: (*DataRemovalRequestServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "DescribeContents",
-			Handler:    _DataRemovalRequestService_DescribeContents_Handler,
-		},
-		{
-			MethodName: "GetPackageName",
-			Handler:    _DataRemovalRequestService_GetPackageName_Handler,
-		},
-		{
-			MethodName: "IsForEverything",
-			Handler:    _DataRemovalRequestService_IsForEverything_Handler,
-		},
-		{
-			MethodName: "WriteToParcel",
-			Handler:    _DataRemovalRequestService_WriteToParcel_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/contentcapture/contentcapture.proto",
-}
-
-const (
-	DataRemovalRequestBuilderService_AddLocusId_FullMethodName    = "/contentcapture.DataRemovalRequestBuilderService/AddLocusId"
-	DataRemovalRequestBuilderService_Build_FullMethodName         = "/contentcapture.DataRemovalRequestBuilderService/Build"
-	DataRemovalRequestBuilderService_ForEverything_FullMethodName = "/contentcapture.DataRemovalRequestBuilderService/ForEverything"
-)
-
-// DataRemovalRequestBuilderServiceClient is the client API for DataRemovalRequestBuilderService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type DataRemovalRequestBuilderServiceClient interface {
-	AddLocusId(ctx context.Context, in *AddLocusIdRequest, opts ...grpc.CallOption) (*AddLocusIdResponse, error)
-	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
-	ForEverything(ctx context.Context, in *ForEverythingRequest, opts ...grpc.CallOption) (*ForEverythingResponse, error)
-}
-
-type dataRemovalRequestBuilderServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewDataRemovalRequestBuilderServiceClient(cc grpc.ClientConnInterface) DataRemovalRequestBuilderServiceClient {
-	return &dataRemovalRequestBuilderServiceClient{cc}
-}
-
-func (c *dataRemovalRequestBuilderServiceClient) AddLocusId(ctx context.Context, in *AddLocusIdRequest, opts ...grpc.CallOption) (*AddLocusIdResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(AddLocusIdResponse)
-	err := c.cc.Invoke(ctx, DataRemovalRequestBuilderService_AddLocusId_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *dataRemovalRequestBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(BuildResponse)
-	err := c.cc.Invoke(ctx, DataRemovalRequestBuilderService_Build_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *dataRemovalRequestBuilderServiceClient) ForEverything(ctx context.Context, in *ForEverythingRequest, opts ...grpc.CallOption) (*ForEverythingResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ForEverythingResponse)
-	err := c.cc.Invoke(ctx, DataRemovalRequestBuilderService_ForEverything_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// DataRemovalRequestBuilderServiceServer is the server API for DataRemovalRequestBuilderService service.
-// All implementations must embed UnimplementedDataRemovalRequestBuilderServiceServer
-// for forward compatibility.
-type DataRemovalRequestBuilderServiceServer interface {
-	AddLocusId(context.Context, *AddLocusIdRequest) (*AddLocusIdResponse, error)
-	Build(context.Context, *BuildRequest) (*BuildResponse, error)
-	ForEverything(context.Context, *ForEverythingRequest) (*ForEverythingResponse, error)
-	mustEmbedUnimplementedDataRemovalRequestBuilderServiceServer()
-}
-
-// UnimplementedDataRemovalRequestBuilderServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedDataRemovalRequestBuilderServiceServer struct{}
-
-func (UnimplementedDataRemovalRequestBuilderServiceServer) AddLocusId(context.Context, *AddLocusIdRequest) (*AddLocusIdResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method AddLocusId not implemented")
-}
-func (UnimplementedDataRemovalRequestBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
-}
-func (UnimplementedDataRemovalRequestBuilderServiceServer) ForEverything(context.Context, *ForEverythingRequest) (*ForEverythingResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ForEverything not implemented")
-}
-func (UnimplementedDataRemovalRequestBuilderServiceServer) mustEmbedUnimplementedDataRemovalRequestBuilderServiceServer() {
-}
-func (UnimplementedDataRemovalRequestBuilderServiceServer) testEmbeddedByValue() {}
-
-// UnsafeDataRemovalRequestBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to DataRemovalRequestBuilderServiceServer will
-// result in compilation errors.
-type UnsafeDataRemovalRequestBuilderServiceServer interface {
-	mustEmbedUnimplementedDataRemovalRequestBuilderServiceServer()
-}
-
-func RegisterDataRemovalRequestBuilderServiceServer(s grpc.ServiceRegistrar, srv DataRemovalRequestBuilderServiceServer) {
-	// If the following call panics, it indicates UnimplementedDataRemovalRequestBuilderServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&DataRemovalRequestBuilderService_ServiceDesc, srv)
-}
-
-func _DataRemovalRequestBuilderService_AddLocusId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AddLocusIdRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DataRemovalRequestBuilderServiceServer).AddLocusId(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DataRemovalRequestBuilderService_AddLocusId_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DataRemovalRequestBuilderServiceServer).AddLocusId(ctx, req.(*AddLocusIdRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DataRemovalRequestBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(BuildRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DataRemovalRequestBuilderServiceServer).Build(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DataRemovalRequestBuilderService_Build_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DataRemovalRequestBuilderServiceServer).Build(ctx, req.(*BuildRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DataRemovalRequestBuilderService_ForEverything_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ForEverythingRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DataRemovalRequestBuilderServiceServer).ForEverything(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DataRemovalRequestBuilderService_ForEverything_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DataRemovalRequestBuilderServiceServer).ForEverything(ctx, req.(*ForEverythingRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// DataRemovalRequestBuilderService_ServiceDesc is the grpc.ServiceDesc for DataRemovalRequestBuilderService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var DataRemovalRequestBuilderService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "contentcapture.DataRemovalRequestBuilderService",
-	HandlerType: (*DataRemovalRequestBuilderServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "AddLocusId",
-			Handler:    _DataRemovalRequestBuilderService_AddLocusId_Handler,
-		},
-		{
-			MethodName: "Build",
-			Handler:    _DataRemovalRequestBuilderService_Build_Handler,
-		},
-		{
-			MethodName: "ForEverything",
-			Handler:    _DataRemovalRequestBuilderService_ForEverything_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/contentcapture/contentcapture.proto",
-}
-
-const (
-	DataRemovalRequestLocusIdRequestService_GetFlags_FullMethodName   = "/contentcapture.DataRemovalRequestLocusIdRequestService/GetFlags"
-	DataRemovalRequestLocusIdRequestService_GetLocusId_FullMethodName = "/contentcapture.DataRemovalRequestLocusIdRequestService/GetLocusId"
-)
-
-// DataRemovalRequestLocusIdRequestServiceClient is the client API for DataRemovalRequestLocusIdRequestService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type DataRemovalRequestLocusIdRequestServiceClient interface {
+type ContentCaptureConditionServiceClient interface {
+	NewContentCaptureCondition(ctx context.Context, in *NewContentCaptureConditionRequest, opts ...grpc.CallOption) (*NewContentCaptureConditionResponse, error)
+	DescribeContents(ctx context.Context, in *ContentCaptureConditionDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	Equals(ctx context.Context, in *ContentCaptureConditionEqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
 	GetFlags(ctx context.Context, in *GetFlagsRequest, opts ...grpc.CallOption) (*GetFlagsResponse, error)
 	GetLocusId(ctx context.Context, in *GetLocusIdRequest, opts ...grpc.CallOption) (*GetLocusIdResponse, error)
+	HashCode(ctx context.Context, in *ContentCaptureConditionHashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+	ToString(ctx context.Context, in *ContentCaptureConditionToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+	WriteToParcel(ctx context.Context, in *ContentCaptureConditionWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
 }
 
-type dataRemovalRequestLocusIdRequestServiceClient struct {
+type contentCaptureConditionServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewDataRemovalRequestLocusIdRequestServiceClient(cc grpc.ClientConnInterface) DataRemovalRequestLocusIdRequestServiceClient {
-	return &dataRemovalRequestLocusIdRequestServiceClient{cc}
+func NewContentCaptureConditionServiceClient(cc grpc.ClientConnInterface) ContentCaptureConditionServiceClient {
+	return &contentCaptureConditionServiceClient{cc}
 }
 
-func (c *dataRemovalRequestLocusIdRequestServiceClient) GetFlags(ctx context.Context, in *GetFlagsRequest, opts ...grpc.CallOption) (*GetFlagsResponse, error) {
+func (c *contentCaptureConditionServiceClient) NewContentCaptureCondition(ctx context.Context, in *NewContentCaptureConditionRequest, opts ...grpc.CallOption) (*NewContentCaptureConditionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewContentCaptureConditionResponse)
+	err := c.cc.Invoke(ctx, ContentCaptureConditionService_NewContentCaptureCondition_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *contentCaptureConditionServiceClient) DescribeContents(ctx context.Context, in *ContentCaptureConditionDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, ContentCaptureConditionService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *contentCaptureConditionServiceClient) Equals(ctx context.Context, in *ContentCaptureConditionEqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(EqualsResponse)
+	err := c.cc.Invoke(ctx, ContentCaptureConditionService_Equals_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *contentCaptureConditionServiceClient) GetFlags(ctx context.Context, in *GetFlagsRequest, opts ...grpc.CallOption) (*GetFlagsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetFlagsResponse)
-	err := c.cc.Invoke(ctx, DataRemovalRequestLocusIdRequestService_GetFlags_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ContentCaptureConditionService_GetFlags_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *dataRemovalRequestLocusIdRequestServiceClient) GetLocusId(ctx context.Context, in *GetLocusIdRequest, opts ...grpc.CallOption) (*GetLocusIdResponse, error) {
+func (c *contentCaptureConditionServiceClient) GetLocusId(ctx context.Context, in *GetLocusIdRequest, opts ...grpc.CallOption) (*GetLocusIdResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetLocusIdResponse)
-	err := c.cc.Invoke(ctx, DataRemovalRequestLocusIdRequestService_GetLocusId_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ContentCaptureConditionService_GetLocusId_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// DataRemovalRequestLocusIdRequestServiceServer is the server API for DataRemovalRequestLocusIdRequestService service.
-// All implementations must embed UnimplementedDataRemovalRequestLocusIdRequestServiceServer
-// for forward compatibility.
-type DataRemovalRequestLocusIdRequestServiceServer interface {
-	GetFlags(context.Context, *GetFlagsRequest) (*GetFlagsResponse, error)
-	GetLocusId(context.Context, *GetLocusIdRequest) (*GetLocusIdResponse, error)
-	mustEmbedUnimplementedDataRemovalRequestLocusIdRequestServiceServer()
+func (c *contentCaptureConditionServiceClient) HashCode(ctx context.Context, in *ContentCaptureConditionHashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HashCodeResponse)
+	err := c.cc.Invoke(ctx, ContentCaptureConditionService_HashCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
 }
 
-// UnimplementedDataRemovalRequestLocusIdRequestServiceServer must be embedded to have
+func (c *contentCaptureConditionServiceClient) ToString(ctx context.Context, in *ContentCaptureConditionToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, ContentCaptureConditionService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *contentCaptureConditionServiceClient) WriteToParcel(ctx context.Context, in *ContentCaptureConditionWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, ContentCaptureConditionService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ContentCaptureConditionServiceServer is the server API for ContentCaptureConditionService service.
+// All implementations must embed UnimplementedContentCaptureConditionServiceServer
+// for forward compatibility.
+type ContentCaptureConditionServiceServer interface {
+	NewContentCaptureCondition(context.Context, *NewContentCaptureConditionRequest) (*NewContentCaptureConditionResponse, error)
+	DescribeContents(context.Context, *ContentCaptureConditionDescribeContentsRequest) (*DescribeContentsResponse, error)
+	Equals(context.Context, *ContentCaptureConditionEqualsRequest) (*EqualsResponse, error)
+	GetFlags(context.Context, *GetFlagsRequest) (*GetFlagsResponse, error)
+	GetLocusId(context.Context, *GetLocusIdRequest) (*GetLocusIdResponse, error)
+	HashCode(context.Context, *ContentCaptureConditionHashCodeRequest) (*HashCodeResponse, error)
+	ToString(context.Context, *ContentCaptureConditionToStringRequest) (*ToStringResponse, error)
+	WriteToParcel(context.Context, *ContentCaptureConditionWriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedContentCaptureConditionServiceServer()
+}
+
+// UnimplementedContentCaptureConditionServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedDataRemovalRequestLocusIdRequestServiceServer struct{}
+type UnimplementedContentCaptureConditionServiceServer struct{}
 
-func (UnimplementedDataRemovalRequestLocusIdRequestServiceServer) GetFlags(context.Context, *GetFlagsRequest) (*GetFlagsResponse, error) {
+func (UnimplementedContentCaptureConditionServiceServer) NewContentCaptureCondition(context.Context, *NewContentCaptureConditionRequest) (*NewContentCaptureConditionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewContentCaptureCondition not implemented")
+}
+func (UnimplementedContentCaptureConditionServiceServer) DescribeContents(context.Context, *ContentCaptureConditionDescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedContentCaptureConditionServiceServer) Equals(context.Context, *ContentCaptureConditionEqualsRequest) (*EqualsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
+}
+func (UnimplementedContentCaptureConditionServiceServer) GetFlags(context.Context, *GetFlagsRequest) (*GetFlagsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetFlags not implemented")
 }
-func (UnimplementedDataRemovalRequestLocusIdRequestServiceServer) GetLocusId(context.Context, *GetLocusIdRequest) (*GetLocusIdResponse, error) {
+func (UnimplementedContentCaptureConditionServiceServer) GetLocusId(context.Context, *GetLocusIdRequest) (*GetLocusIdResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetLocusId not implemented")
 }
-func (UnimplementedDataRemovalRequestLocusIdRequestServiceServer) mustEmbedUnimplementedDataRemovalRequestLocusIdRequestServiceServer() {
+func (UnimplementedContentCaptureConditionServiceServer) HashCode(context.Context, *ContentCaptureConditionHashCodeRequest) (*HashCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
 }
-func (UnimplementedDataRemovalRequestLocusIdRequestServiceServer) testEmbeddedByValue() {}
+func (UnimplementedContentCaptureConditionServiceServer) ToString(context.Context, *ContentCaptureConditionToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedContentCaptureConditionServiceServer) WriteToParcel(context.Context, *ContentCaptureConditionWriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedContentCaptureConditionServiceServer) mustEmbedUnimplementedContentCaptureConditionServiceServer() {
+}
+func (UnimplementedContentCaptureConditionServiceServer) testEmbeddedByValue() {}
 
-// UnsafeDataRemovalRequestLocusIdRequestServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to DataRemovalRequestLocusIdRequestServiceServer will
+// UnsafeContentCaptureConditionServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ContentCaptureConditionServiceServer will
 // result in compilation errors.
-type UnsafeDataRemovalRequestLocusIdRequestServiceServer interface {
-	mustEmbedUnimplementedDataRemovalRequestLocusIdRequestServiceServer()
+type UnsafeContentCaptureConditionServiceServer interface {
+	mustEmbedUnimplementedContentCaptureConditionServiceServer()
 }
 
-func RegisterDataRemovalRequestLocusIdRequestServiceServer(s grpc.ServiceRegistrar, srv DataRemovalRequestLocusIdRequestServiceServer) {
-	// If the following call panics, it indicates UnimplementedDataRemovalRequestLocusIdRequestServiceServer was
+func RegisterContentCaptureConditionServiceServer(s grpc.ServiceRegistrar, srv ContentCaptureConditionServiceServer) {
+	// If the following call panics, it indicates UnimplementedContentCaptureConditionServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&DataRemovalRequestLocusIdRequestService_ServiceDesc, srv)
+	s.RegisterService(&ContentCaptureConditionService_ServiceDesc, srv)
 }
 
-func _DataRemovalRequestLocusIdRequestService_GetFlags_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ContentCaptureConditionService_NewContentCaptureCondition_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewContentCaptureConditionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ContentCaptureConditionServiceServer).NewContentCaptureCondition(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ContentCaptureConditionService_NewContentCaptureCondition_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ContentCaptureConditionServiceServer).NewContentCaptureCondition(ctx, req.(*NewContentCaptureConditionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ContentCaptureConditionService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ContentCaptureConditionDescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ContentCaptureConditionServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ContentCaptureConditionService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ContentCaptureConditionServiceServer).DescribeContents(ctx, req.(*ContentCaptureConditionDescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ContentCaptureConditionService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ContentCaptureConditionEqualsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ContentCaptureConditionServiceServer).Equals(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ContentCaptureConditionService_Equals_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ContentCaptureConditionServiceServer).Equals(ctx, req.(*ContentCaptureConditionEqualsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ContentCaptureConditionService_GetFlags_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetFlagsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(DataRemovalRequestLocusIdRequestServiceServer).GetFlags(ctx, in)
+		return srv.(ContentCaptureConditionServiceServer).GetFlags(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: DataRemovalRequestLocusIdRequestService_GetFlags_FullMethodName,
+		FullMethod: ContentCaptureConditionService_GetFlags_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DataRemovalRequestLocusIdRequestServiceServer).GetFlags(ctx, req.(*GetFlagsRequest))
+		return srv.(ContentCaptureConditionServiceServer).GetFlags(ctx, req.(*GetFlagsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _DataRemovalRequestLocusIdRequestService_GetLocusId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ContentCaptureConditionService_GetLocusId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetLocusIdRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(DataRemovalRequestLocusIdRequestServiceServer).GetLocusId(ctx, in)
+		return srv.(ContentCaptureConditionServiceServer).GetLocusId(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: DataRemovalRequestLocusIdRequestService_GetLocusId_FullMethodName,
+		FullMethod: ContentCaptureConditionService_GetLocusId_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DataRemovalRequestLocusIdRequestServiceServer).GetLocusId(ctx, req.(*GetLocusIdRequest))
+		return srv.(ContentCaptureConditionServiceServer).GetLocusId(ctx, req.(*GetLocusIdRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// DataRemovalRequestLocusIdRequestService_ServiceDesc is the grpc.ServiceDesc for DataRemovalRequestLocusIdRequestService service.
+func _ContentCaptureConditionService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ContentCaptureConditionHashCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ContentCaptureConditionServiceServer).HashCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ContentCaptureConditionService_HashCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ContentCaptureConditionServiceServer).HashCode(ctx, req.(*ContentCaptureConditionHashCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ContentCaptureConditionService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ContentCaptureConditionToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ContentCaptureConditionServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ContentCaptureConditionService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ContentCaptureConditionServiceServer).ToString(ctx, req.(*ContentCaptureConditionToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ContentCaptureConditionService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ContentCaptureConditionWriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ContentCaptureConditionServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ContentCaptureConditionService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ContentCaptureConditionServiceServer).WriteToParcel(ctx, req.(*ContentCaptureConditionWriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ContentCaptureConditionService_ServiceDesc is the grpc.ServiceDesc for ContentCaptureConditionService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var DataRemovalRequestLocusIdRequestService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "contentcapture.DataRemovalRequestLocusIdRequestService",
-	HandlerType: (*DataRemovalRequestLocusIdRequestServiceServer)(nil),
+var ContentCaptureConditionService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "contentcapture.ContentCaptureConditionService",
+	HandlerType: (*ContentCaptureConditionServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
+			MethodName: "NewContentCaptureCondition",
+			Handler:    _ContentCaptureConditionService_NewContentCaptureCondition_Handler,
+		},
+		{
+			MethodName: "DescribeContents",
+			Handler:    _ContentCaptureConditionService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "Equals",
+			Handler:    _ContentCaptureConditionService_Equals_Handler,
+		},
+		{
 			MethodName: "GetFlags",
-			Handler:    _DataRemovalRequestLocusIdRequestService_GetFlags_Handler,
+			Handler:    _ContentCaptureConditionService_GetFlags_Handler,
 		},
 		{
 			MethodName: "GetLocusId",
-			Handler:    _DataRemovalRequestLocusIdRequestService_GetLocusId_Handler,
+			Handler:    _ContentCaptureConditionService_GetLocusId_Handler,
+		},
+		{
+			MethodName: "HashCode",
+			Handler:    _ContentCaptureConditionService_HashCode_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _ContentCaptureConditionService_ToString_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _ContentCaptureConditionService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/contentcapture/contentcapture.proto",
+}
+
+const (
+	DataShareWriteAdapterService_OnRejected_FullMethodName = "/contentcapture.DataShareWriteAdapterService/OnRejected"
+	DataShareWriteAdapterService_OnWrite_FullMethodName    = "/contentcapture.DataShareWriteAdapterService/OnWrite"
+)
+
+// DataShareWriteAdapterServiceClient is the client API for DataShareWriteAdapterService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type DataShareWriteAdapterServiceClient interface {
+	OnRejected(ctx context.Context, in *OnRejectedRequest, opts ...grpc.CallOption) (*OnRejectedResponse, error)
+	OnWrite(ctx context.Context, in *OnWriteRequest, opts ...grpc.CallOption) (*OnWriteResponse, error)
+}
+
+type dataShareWriteAdapterServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewDataShareWriteAdapterServiceClient(cc grpc.ClientConnInterface) DataShareWriteAdapterServiceClient {
+	return &dataShareWriteAdapterServiceClient{cc}
+}
+
+func (c *dataShareWriteAdapterServiceClient) OnRejected(ctx context.Context, in *OnRejectedRequest, opts ...grpc.CallOption) (*OnRejectedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnRejectedResponse)
+	err := c.cc.Invoke(ctx, DataShareWriteAdapterService_OnRejected_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *dataShareWriteAdapterServiceClient) OnWrite(ctx context.Context, in *OnWriteRequest, opts ...grpc.CallOption) (*OnWriteResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnWriteResponse)
+	err := c.cc.Invoke(ctx, DataShareWriteAdapterService_OnWrite_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// DataShareWriteAdapterServiceServer is the server API for DataShareWriteAdapterService service.
+// All implementations must embed UnimplementedDataShareWriteAdapterServiceServer
+// for forward compatibility.
+type DataShareWriteAdapterServiceServer interface {
+	OnRejected(context.Context, *OnRejectedRequest) (*OnRejectedResponse, error)
+	OnWrite(context.Context, *OnWriteRequest) (*OnWriteResponse, error)
+	mustEmbedUnimplementedDataShareWriteAdapterServiceServer()
+}
+
+// UnimplementedDataShareWriteAdapterServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedDataShareWriteAdapterServiceServer struct{}
+
+func (UnimplementedDataShareWriteAdapterServiceServer) OnRejected(context.Context, *OnRejectedRequest) (*OnRejectedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnRejected not implemented")
+}
+func (UnimplementedDataShareWriteAdapterServiceServer) OnWrite(context.Context, *OnWriteRequest) (*OnWriteResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnWrite not implemented")
+}
+func (UnimplementedDataShareWriteAdapterServiceServer) mustEmbedUnimplementedDataShareWriteAdapterServiceServer() {
+}
+func (UnimplementedDataShareWriteAdapterServiceServer) testEmbeddedByValue() {}
+
+// UnsafeDataShareWriteAdapterServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to DataShareWriteAdapterServiceServer will
+// result in compilation errors.
+type UnsafeDataShareWriteAdapterServiceServer interface {
+	mustEmbedUnimplementedDataShareWriteAdapterServiceServer()
+}
+
+func RegisterDataShareWriteAdapterServiceServer(s grpc.ServiceRegistrar, srv DataShareWriteAdapterServiceServer) {
+	// If the following call panics, it indicates UnimplementedDataShareWriteAdapterServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&DataShareWriteAdapterService_ServiceDesc, srv)
+}
+
+func _DataShareWriteAdapterService_OnRejected_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnRejectedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DataShareWriteAdapterServiceServer).OnRejected(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DataShareWriteAdapterService_OnRejected_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DataShareWriteAdapterServiceServer).OnRejected(ctx, req.(*OnRejectedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DataShareWriteAdapterService_OnWrite_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnWriteRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DataShareWriteAdapterServiceServer).OnWrite(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DataShareWriteAdapterService_OnWrite_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DataShareWriteAdapterServiceServer).OnWrite(ctx, req.(*OnWriteRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// DataShareWriteAdapterService_ServiceDesc is the grpc.ServiceDesc for DataShareWriteAdapterService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var DataShareWriteAdapterService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "contentcapture.DataShareWriteAdapterService",
+	HandlerType: (*DataShareWriteAdapterServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "OnRejected",
+			Handler:    _DataShareWriteAdapterService_OnRejected_Handler,
+		},
+		{
+			MethodName: "OnWrite",
+			Handler:    _DataShareWriteAdapterService_OnWrite_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -1717,7 +1842,7 @@ const (
 type ContentCaptureContextServiceClient interface {
 	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
 	GetExtras(ctx context.Context, in *GetExtrasRequest, opts ...grpc.CallOption) (*GetExtrasResponse, error)
-	GetLocusId(ctx context.Context, in *GetLocusIdRequest, opts ...grpc.CallOption) (*GetLocusIdResponse, error)
+	GetLocusId(ctx context.Context, in *ContentCaptureContextGetLocusIdRequest, opts ...grpc.CallOption) (*GetLocusIdResponse, error)
 	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
 	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
 	ForLocusId(ctx context.Context, in *ForLocusIdRequest, opts ...grpc.CallOption) (*ForLocusIdResponse, error)
@@ -1751,7 +1876,7 @@ func (c *contentCaptureContextServiceClient) GetExtras(ctx context.Context, in *
 	return out, nil
 }
 
-func (c *contentCaptureContextServiceClient) GetLocusId(ctx context.Context, in *GetLocusIdRequest, opts ...grpc.CallOption) (*GetLocusIdResponse, error) {
+func (c *contentCaptureContextServiceClient) GetLocusId(ctx context.Context, in *ContentCaptureContextGetLocusIdRequest, opts ...grpc.CallOption) (*GetLocusIdResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetLocusIdResponse)
 	err := c.cc.Invoke(ctx, ContentCaptureContextService_GetLocusId_FullMethodName, in, out, cOpts...)
@@ -1797,7 +1922,7 @@ func (c *contentCaptureContextServiceClient) ForLocusId(ctx context.Context, in 
 type ContentCaptureContextServiceServer interface {
 	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
 	GetExtras(context.Context, *GetExtrasRequest) (*GetExtrasResponse, error)
-	GetLocusId(context.Context, *GetLocusIdRequest) (*GetLocusIdResponse, error)
+	GetLocusId(context.Context, *ContentCaptureContextGetLocusIdRequest) (*GetLocusIdResponse, error)
 	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
 	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
 	ForLocusId(context.Context, *ForLocusIdRequest) (*ForLocusIdResponse, error)
@@ -1817,7 +1942,7 @@ func (UnimplementedContentCaptureContextServiceServer) DescribeContents(context.
 func (UnimplementedContentCaptureContextServiceServer) GetExtras(context.Context, *GetExtrasRequest) (*GetExtrasResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetExtras not implemented")
 }
-func (UnimplementedContentCaptureContextServiceServer) GetLocusId(context.Context, *GetLocusIdRequest) (*GetLocusIdResponse, error) {
+func (UnimplementedContentCaptureContextServiceServer) GetLocusId(context.Context, *ContentCaptureContextGetLocusIdRequest) (*GetLocusIdResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetLocusId not implemented")
 }
 func (UnimplementedContentCaptureContextServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
@@ -1888,7 +2013,7 @@ func _ContentCaptureContextService_GetExtras_Handler(srv interface{}, ctx contex
 }
 
 func _ContentCaptureContextService_GetLocusId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetLocusIdRequest)
+	in := new(ContentCaptureContextGetLocusIdRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -1900,7 +2025,7 @@ func _ContentCaptureContextService_GetLocusId_Handler(srv interface{}, ctx conte
 		FullMethod: ContentCaptureContextService_GetLocusId_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ContentCaptureContextServiceServer).GetLocusId(ctx, req.(*GetLocusIdRequest))
+		return srv.(ContentCaptureContextServiceServer).GetLocusId(ctx, req.(*ContentCaptureContextGetLocusIdRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -2137,368 +2262,254 @@ var ContentCaptureContextBuilderService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	ContentCaptureConditionService_NewContentCaptureCondition_FullMethodName = "/contentcapture.ContentCaptureConditionService/NewContentCaptureCondition"
-	ContentCaptureConditionService_DescribeContents_FullMethodName           = "/contentcapture.ContentCaptureConditionService/DescribeContents"
-	ContentCaptureConditionService_Equals_FullMethodName                     = "/contentcapture.ContentCaptureConditionService/Equals"
-	ContentCaptureConditionService_GetFlags_FullMethodName                   = "/contentcapture.ContentCaptureConditionService/GetFlags"
-	ContentCaptureConditionService_GetLocusId_FullMethodName                 = "/contentcapture.ContentCaptureConditionService/GetLocusId"
-	ContentCaptureConditionService_HashCode_FullMethodName                   = "/contentcapture.ContentCaptureConditionService/HashCode"
-	ContentCaptureConditionService_ToString_FullMethodName                   = "/contentcapture.ContentCaptureConditionService/ToString"
-	ContentCaptureConditionService_WriteToParcel_FullMethodName              = "/contentcapture.ContentCaptureConditionService/WriteToParcel"
+	DataRemovalRequestService_DescribeContents_FullMethodName   = "/contentcapture.DataRemovalRequestService/DescribeContents"
+	DataRemovalRequestService_GetLocusIdRequests_FullMethodName = "/contentcapture.DataRemovalRequestService/GetLocusIdRequests"
+	DataRemovalRequestService_GetPackageName_FullMethodName     = "/contentcapture.DataRemovalRequestService/GetPackageName"
+	DataRemovalRequestService_IsForEverything_FullMethodName    = "/contentcapture.DataRemovalRequestService/IsForEverything"
+	DataRemovalRequestService_WriteToParcel_FullMethodName      = "/contentcapture.DataRemovalRequestService/WriteToParcel"
 )
 
-// ContentCaptureConditionServiceClient is the client API for ContentCaptureConditionService service.
+// DataRemovalRequestServiceClient is the client API for DataRemovalRequestService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type ContentCaptureConditionServiceClient interface {
-	NewContentCaptureCondition(ctx context.Context, in *NewContentCaptureConditionRequest, opts ...grpc.CallOption) (*NewContentCaptureConditionResponse, error)
-	DescribeContents(ctx context.Context, in *ContentCaptureConditionDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	Equals(ctx context.Context, in *ContentCaptureConditionEqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
-	GetFlags(ctx context.Context, in *ContentCaptureConditionGetFlagsRequest, opts ...grpc.CallOption) (*GetFlagsResponse, error)
-	GetLocusId(ctx context.Context, in *ContentCaptureConditionGetLocusIdRequest, opts ...grpc.CallOption) (*GetLocusIdResponse, error)
-	HashCode(ctx context.Context, in *ContentCaptureConditionHashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
-	ToString(ctx context.Context, in *ContentCaptureConditionToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
-	WriteToParcel(ctx context.Context, in *ContentCaptureConditionWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+type DataRemovalRequestServiceClient interface {
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	GetLocusIdRequests(ctx context.Context, in *GetLocusIdRequestsRequest, opts ...grpc.CallOption) (*GetLocusIdRequestsResponse, error)
+	GetPackageName(ctx context.Context, in *GetPackageNameRequest, opts ...grpc.CallOption) (*GetPackageNameResponse, error)
+	IsForEverything(ctx context.Context, in *IsForEverythingRequest, opts ...grpc.CallOption) (*IsForEverythingResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
 }
 
-type contentCaptureConditionServiceClient struct {
+type dataRemovalRequestServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewContentCaptureConditionServiceClient(cc grpc.ClientConnInterface) ContentCaptureConditionServiceClient {
-	return &contentCaptureConditionServiceClient{cc}
+func NewDataRemovalRequestServiceClient(cc grpc.ClientConnInterface) DataRemovalRequestServiceClient {
+	return &dataRemovalRequestServiceClient{cc}
 }
 
-func (c *contentCaptureConditionServiceClient) NewContentCaptureCondition(ctx context.Context, in *NewContentCaptureConditionRequest, opts ...grpc.CallOption) (*NewContentCaptureConditionResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewContentCaptureConditionResponse)
-	err := c.cc.Invoke(ctx, ContentCaptureConditionService_NewContentCaptureCondition_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *contentCaptureConditionServiceClient) DescribeContents(ctx context.Context, in *ContentCaptureConditionDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+func (c *dataRemovalRequestServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, ContentCaptureConditionService_DescribeContents_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, DataRemovalRequestService_DescribeContents_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *contentCaptureConditionServiceClient) Equals(ctx context.Context, in *ContentCaptureConditionEqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+func (c *dataRemovalRequestServiceClient) GetLocusIdRequests(ctx context.Context, in *GetLocusIdRequestsRequest, opts ...grpc.CallOption) (*GetLocusIdRequestsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(EqualsResponse)
-	err := c.cc.Invoke(ctx, ContentCaptureConditionService_Equals_FullMethodName, in, out, cOpts...)
+	out := new(GetLocusIdRequestsResponse)
+	err := c.cc.Invoke(ctx, DataRemovalRequestService_GetLocusIdRequests_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *contentCaptureConditionServiceClient) GetFlags(ctx context.Context, in *ContentCaptureConditionGetFlagsRequest, opts ...grpc.CallOption) (*GetFlagsResponse, error) {
+func (c *dataRemovalRequestServiceClient) GetPackageName(ctx context.Context, in *GetPackageNameRequest, opts ...grpc.CallOption) (*GetPackageNameResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetFlagsResponse)
-	err := c.cc.Invoke(ctx, ContentCaptureConditionService_GetFlags_FullMethodName, in, out, cOpts...)
+	out := new(GetPackageNameResponse)
+	err := c.cc.Invoke(ctx, DataRemovalRequestService_GetPackageName_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *contentCaptureConditionServiceClient) GetLocusId(ctx context.Context, in *ContentCaptureConditionGetLocusIdRequest, opts ...grpc.CallOption) (*GetLocusIdResponse, error) {
+func (c *dataRemovalRequestServiceClient) IsForEverything(ctx context.Context, in *IsForEverythingRequest, opts ...grpc.CallOption) (*IsForEverythingResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetLocusIdResponse)
-	err := c.cc.Invoke(ctx, ContentCaptureConditionService_GetLocusId_FullMethodName, in, out, cOpts...)
+	out := new(IsForEverythingResponse)
+	err := c.cc.Invoke(ctx, DataRemovalRequestService_IsForEverything_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *contentCaptureConditionServiceClient) HashCode(ctx context.Context, in *ContentCaptureConditionHashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(HashCodeResponse)
-	err := c.cc.Invoke(ctx, ContentCaptureConditionService_HashCode_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *contentCaptureConditionServiceClient) ToString(ctx context.Context, in *ContentCaptureConditionToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ToStringResponse)
-	err := c.cc.Invoke(ctx, ContentCaptureConditionService_ToString_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *contentCaptureConditionServiceClient) WriteToParcel(ctx context.Context, in *ContentCaptureConditionWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+func (c *dataRemovalRequestServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, ContentCaptureConditionService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, DataRemovalRequestService_WriteToParcel_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// ContentCaptureConditionServiceServer is the server API for ContentCaptureConditionService service.
-// All implementations must embed UnimplementedContentCaptureConditionServiceServer
+// DataRemovalRequestServiceServer is the server API for DataRemovalRequestService service.
+// All implementations must embed UnimplementedDataRemovalRequestServiceServer
 // for forward compatibility.
-type ContentCaptureConditionServiceServer interface {
-	NewContentCaptureCondition(context.Context, *NewContentCaptureConditionRequest) (*NewContentCaptureConditionResponse, error)
-	DescribeContents(context.Context, *ContentCaptureConditionDescribeContentsRequest) (*DescribeContentsResponse, error)
-	Equals(context.Context, *ContentCaptureConditionEqualsRequest) (*EqualsResponse, error)
-	GetFlags(context.Context, *ContentCaptureConditionGetFlagsRequest) (*GetFlagsResponse, error)
-	GetLocusId(context.Context, *ContentCaptureConditionGetLocusIdRequest) (*GetLocusIdResponse, error)
-	HashCode(context.Context, *ContentCaptureConditionHashCodeRequest) (*HashCodeResponse, error)
-	ToString(context.Context, *ContentCaptureConditionToStringRequest) (*ToStringResponse, error)
-	WriteToParcel(context.Context, *ContentCaptureConditionWriteToParcelRequest) (*WriteToParcelResponse, error)
-	mustEmbedUnimplementedContentCaptureConditionServiceServer()
+type DataRemovalRequestServiceServer interface {
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	GetLocusIdRequests(context.Context, *GetLocusIdRequestsRequest) (*GetLocusIdRequestsResponse, error)
+	GetPackageName(context.Context, *GetPackageNameRequest) (*GetPackageNameResponse, error)
+	IsForEverything(context.Context, *IsForEverythingRequest) (*IsForEverythingResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedDataRemovalRequestServiceServer()
 }
 
-// UnimplementedContentCaptureConditionServiceServer must be embedded to have
+// UnimplementedDataRemovalRequestServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedContentCaptureConditionServiceServer struct{}
+type UnimplementedDataRemovalRequestServiceServer struct{}
 
-func (UnimplementedContentCaptureConditionServiceServer) NewContentCaptureCondition(context.Context, *NewContentCaptureConditionRequest) (*NewContentCaptureConditionResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewContentCaptureCondition not implemented")
-}
-func (UnimplementedContentCaptureConditionServiceServer) DescribeContents(context.Context, *ContentCaptureConditionDescribeContentsRequest) (*DescribeContentsResponse, error) {
+func (UnimplementedDataRemovalRequestServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
 }
-func (UnimplementedContentCaptureConditionServiceServer) Equals(context.Context, *ContentCaptureConditionEqualsRequest) (*EqualsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
+func (UnimplementedDataRemovalRequestServiceServer) GetLocusIdRequests(context.Context, *GetLocusIdRequestsRequest) (*GetLocusIdRequestsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetLocusIdRequests not implemented")
 }
-func (UnimplementedContentCaptureConditionServiceServer) GetFlags(context.Context, *ContentCaptureConditionGetFlagsRequest) (*GetFlagsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetFlags not implemented")
+func (UnimplementedDataRemovalRequestServiceServer) GetPackageName(context.Context, *GetPackageNameRequest) (*GetPackageNameResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetPackageName not implemented")
 }
-func (UnimplementedContentCaptureConditionServiceServer) GetLocusId(context.Context, *ContentCaptureConditionGetLocusIdRequest) (*GetLocusIdResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetLocusId not implemented")
+func (UnimplementedDataRemovalRequestServiceServer) IsForEverything(context.Context, *IsForEverythingRequest) (*IsForEverythingResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsForEverything not implemented")
 }
-func (UnimplementedContentCaptureConditionServiceServer) HashCode(context.Context, *ContentCaptureConditionHashCodeRequest) (*HashCodeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
-}
-func (UnimplementedContentCaptureConditionServiceServer) ToString(context.Context, *ContentCaptureConditionToStringRequest) (*ToStringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
-}
-func (UnimplementedContentCaptureConditionServiceServer) WriteToParcel(context.Context, *ContentCaptureConditionWriteToParcelRequest) (*WriteToParcelResponse, error) {
+func (UnimplementedDataRemovalRequestServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
 }
-func (UnimplementedContentCaptureConditionServiceServer) mustEmbedUnimplementedContentCaptureConditionServiceServer() {
+func (UnimplementedDataRemovalRequestServiceServer) mustEmbedUnimplementedDataRemovalRequestServiceServer() {
 }
-func (UnimplementedContentCaptureConditionServiceServer) testEmbeddedByValue() {}
+func (UnimplementedDataRemovalRequestServiceServer) testEmbeddedByValue() {}
 
-// UnsafeContentCaptureConditionServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to ContentCaptureConditionServiceServer will
+// UnsafeDataRemovalRequestServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to DataRemovalRequestServiceServer will
 // result in compilation errors.
-type UnsafeContentCaptureConditionServiceServer interface {
-	mustEmbedUnimplementedContentCaptureConditionServiceServer()
+type UnsafeDataRemovalRequestServiceServer interface {
+	mustEmbedUnimplementedDataRemovalRequestServiceServer()
 }
 
-func RegisterContentCaptureConditionServiceServer(s grpc.ServiceRegistrar, srv ContentCaptureConditionServiceServer) {
-	// If the following call panics, it indicates UnimplementedContentCaptureConditionServiceServer was
+func RegisterDataRemovalRequestServiceServer(s grpc.ServiceRegistrar, srv DataRemovalRequestServiceServer) {
+	// If the following call panics, it indicates UnimplementedDataRemovalRequestServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&ContentCaptureConditionService_ServiceDesc, srv)
+	s.RegisterService(&DataRemovalRequestService_ServiceDesc, srv)
 }
 
-func _ContentCaptureConditionService_NewContentCaptureCondition_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewContentCaptureConditionRequest)
+func _DataRemovalRequestService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ContentCaptureConditionServiceServer).NewContentCaptureCondition(ctx, in)
+		return srv.(DataRemovalRequestServiceServer).DescribeContents(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: ContentCaptureConditionService_NewContentCaptureCondition_FullMethodName,
+		FullMethod: DataRemovalRequestService_DescribeContents_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ContentCaptureConditionServiceServer).NewContentCaptureCondition(ctx, req.(*NewContentCaptureConditionRequest))
+		return srv.(DataRemovalRequestServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ContentCaptureConditionService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ContentCaptureConditionDescribeContentsRequest)
+func _DataRemovalRequestService_GetLocusIdRequests_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetLocusIdRequestsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ContentCaptureConditionServiceServer).DescribeContents(ctx, in)
+		return srv.(DataRemovalRequestServiceServer).GetLocusIdRequests(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: ContentCaptureConditionService_DescribeContents_FullMethodName,
+		FullMethod: DataRemovalRequestService_GetLocusIdRequests_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ContentCaptureConditionServiceServer).DescribeContents(ctx, req.(*ContentCaptureConditionDescribeContentsRequest))
+		return srv.(DataRemovalRequestServiceServer).GetLocusIdRequests(ctx, req.(*GetLocusIdRequestsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ContentCaptureConditionService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ContentCaptureConditionEqualsRequest)
+func _DataRemovalRequestService_GetPackageName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPackageNameRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ContentCaptureConditionServiceServer).Equals(ctx, in)
+		return srv.(DataRemovalRequestServiceServer).GetPackageName(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: ContentCaptureConditionService_Equals_FullMethodName,
+		FullMethod: DataRemovalRequestService_GetPackageName_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ContentCaptureConditionServiceServer).Equals(ctx, req.(*ContentCaptureConditionEqualsRequest))
+		return srv.(DataRemovalRequestServiceServer).GetPackageName(ctx, req.(*GetPackageNameRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ContentCaptureConditionService_GetFlags_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ContentCaptureConditionGetFlagsRequest)
+func _DataRemovalRequestService_IsForEverything_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsForEverythingRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ContentCaptureConditionServiceServer).GetFlags(ctx, in)
+		return srv.(DataRemovalRequestServiceServer).IsForEverything(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: ContentCaptureConditionService_GetFlags_FullMethodName,
+		FullMethod: DataRemovalRequestService_IsForEverything_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ContentCaptureConditionServiceServer).GetFlags(ctx, req.(*ContentCaptureConditionGetFlagsRequest))
+		return srv.(DataRemovalRequestServiceServer).IsForEverything(ctx, req.(*IsForEverythingRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ContentCaptureConditionService_GetLocusId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ContentCaptureConditionGetLocusIdRequest)
+func _DataRemovalRequestService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ContentCaptureConditionServiceServer).GetLocusId(ctx, in)
+		return srv.(DataRemovalRequestServiceServer).WriteToParcel(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: ContentCaptureConditionService_GetLocusId_FullMethodName,
+		FullMethod: DataRemovalRequestService_WriteToParcel_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ContentCaptureConditionServiceServer).GetLocusId(ctx, req.(*ContentCaptureConditionGetLocusIdRequest))
+		return srv.(DataRemovalRequestServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ContentCaptureConditionService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ContentCaptureConditionHashCodeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ContentCaptureConditionServiceServer).HashCode(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ContentCaptureConditionService_HashCode_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ContentCaptureConditionServiceServer).HashCode(ctx, req.(*ContentCaptureConditionHashCodeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ContentCaptureConditionService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ContentCaptureConditionToStringRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ContentCaptureConditionServiceServer).ToString(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ContentCaptureConditionService_ToString_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ContentCaptureConditionServiceServer).ToString(ctx, req.(*ContentCaptureConditionToStringRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ContentCaptureConditionService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ContentCaptureConditionWriteToParcelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ContentCaptureConditionServiceServer).WriteToParcel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ContentCaptureConditionService_WriteToParcel_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ContentCaptureConditionServiceServer).WriteToParcel(ctx, req.(*ContentCaptureConditionWriteToParcelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// ContentCaptureConditionService_ServiceDesc is the grpc.ServiceDesc for ContentCaptureConditionService service.
+// DataRemovalRequestService_ServiceDesc is the grpc.ServiceDesc for DataRemovalRequestService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var ContentCaptureConditionService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "contentcapture.ContentCaptureConditionService",
-	HandlerType: (*ContentCaptureConditionServiceServer)(nil),
+var DataRemovalRequestService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "contentcapture.DataRemovalRequestService",
+	HandlerType: (*DataRemovalRequestServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "NewContentCaptureCondition",
-			Handler:    _ContentCaptureConditionService_NewContentCaptureCondition_Handler,
-		},
-		{
 			MethodName: "DescribeContents",
-			Handler:    _ContentCaptureConditionService_DescribeContents_Handler,
+			Handler:    _DataRemovalRequestService_DescribeContents_Handler,
 		},
 		{
-			MethodName: "Equals",
-			Handler:    _ContentCaptureConditionService_Equals_Handler,
+			MethodName: "GetLocusIdRequests",
+			Handler:    _DataRemovalRequestService_GetLocusIdRequests_Handler,
 		},
 		{
-			MethodName: "GetFlags",
-			Handler:    _ContentCaptureConditionService_GetFlags_Handler,
+			MethodName: "GetPackageName",
+			Handler:    _DataRemovalRequestService_GetPackageName_Handler,
 		},
 		{
-			MethodName: "GetLocusId",
-			Handler:    _ContentCaptureConditionService_GetLocusId_Handler,
-		},
-		{
-			MethodName: "HashCode",
-			Handler:    _ContentCaptureConditionService_HashCode_Handler,
-		},
-		{
-			MethodName: "ToString",
-			Handler:    _ContentCaptureConditionService_ToString_Handler,
+			MethodName: "IsForEverything",
+			Handler:    _DataRemovalRequestService_IsForEverything_Handler,
 		},
 		{
 			MethodName: "WriteToParcel",
-			Handler:    _ContentCaptureConditionService_WriteToParcel_Handler,
+			Handler:    _DataRemovalRequestService_WriteToParcel_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -2506,254 +2517,319 @@ var ContentCaptureConditionService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	ContentCaptureManagerService_GetServiceComponentName_FullMethodName  = "/contentcapture.ContentCaptureManagerService/GetServiceComponentName"
-	ContentCaptureManagerService_IsContentCaptureEnabled_FullMethodName  = "/contentcapture.ContentCaptureManagerService/IsContentCaptureEnabled"
-	ContentCaptureManagerService_RemoveData_FullMethodName               = "/contentcapture.ContentCaptureManagerService/RemoveData"
-	ContentCaptureManagerService_SetContentCaptureEnabled_FullMethodName = "/contentcapture.ContentCaptureManagerService/SetContentCaptureEnabled"
-	ContentCaptureManagerService_ShareData_FullMethodName                = "/contentcapture.ContentCaptureManagerService/ShareData"
+	DataRemovalRequestBuilderService_AddLocusId_FullMethodName    = "/contentcapture.DataRemovalRequestBuilderService/AddLocusId"
+	DataRemovalRequestBuilderService_Build_FullMethodName         = "/contentcapture.DataRemovalRequestBuilderService/Build"
+	DataRemovalRequestBuilderService_ForEverything_FullMethodName = "/contentcapture.DataRemovalRequestBuilderService/ForEverything"
 )
 
-// ContentCaptureManagerServiceClient is the client API for ContentCaptureManagerService service.
+// DataRemovalRequestBuilderServiceClient is the client API for DataRemovalRequestBuilderService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type ContentCaptureManagerServiceClient interface {
-	GetServiceComponentName(ctx context.Context, in *GetServiceComponentNameRequest, opts ...grpc.CallOption) (*GetServiceComponentNameResponse, error)
-	IsContentCaptureEnabled(ctx context.Context, in *IsContentCaptureEnabledRequest, opts ...grpc.CallOption) (*IsContentCaptureEnabledResponse, error)
-	RemoveData(ctx context.Context, in *RemoveDataRequest, opts ...grpc.CallOption) (*RemoveDataResponse, error)
-	SetContentCaptureEnabled(ctx context.Context, in *SetContentCaptureEnabledRequest, opts ...grpc.CallOption) (*SetContentCaptureEnabledResponse, error)
-	ShareData(ctx context.Context, in *ShareDataRequest, opts ...grpc.CallOption) (*ShareDataResponse, error)
+type DataRemovalRequestBuilderServiceClient interface {
+	AddLocusId(ctx context.Context, in *AddLocusIdRequest, opts ...grpc.CallOption) (*AddLocusIdResponse, error)
+	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
+	ForEverything(ctx context.Context, in *ForEverythingRequest, opts ...grpc.CallOption) (*ForEverythingResponse, error)
 }
 
-type contentCaptureManagerServiceClient struct {
+type dataRemovalRequestBuilderServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewContentCaptureManagerServiceClient(cc grpc.ClientConnInterface) ContentCaptureManagerServiceClient {
-	return &contentCaptureManagerServiceClient{cc}
+func NewDataRemovalRequestBuilderServiceClient(cc grpc.ClientConnInterface) DataRemovalRequestBuilderServiceClient {
+	return &dataRemovalRequestBuilderServiceClient{cc}
 }
 
-func (c *contentCaptureManagerServiceClient) GetServiceComponentName(ctx context.Context, in *GetServiceComponentNameRequest, opts ...grpc.CallOption) (*GetServiceComponentNameResponse, error) {
+func (c *dataRemovalRequestBuilderServiceClient) AddLocusId(ctx context.Context, in *AddLocusIdRequest, opts ...grpc.CallOption) (*AddLocusIdResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetServiceComponentNameResponse)
-	err := c.cc.Invoke(ctx, ContentCaptureManagerService_GetServiceComponentName_FullMethodName, in, out, cOpts...)
+	out := new(AddLocusIdResponse)
+	err := c.cc.Invoke(ctx, DataRemovalRequestBuilderService_AddLocusId_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *contentCaptureManagerServiceClient) IsContentCaptureEnabled(ctx context.Context, in *IsContentCaptureEnabledRequest, opts ...grpc.CallOption) (*IsContentCaptureEnabledResponse, error) {
+func (c *dataRemovalRequestBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsContentCaptureEnabledResponse)
-	err := c.cc.Invoke(ctx, ContentCaptureManagerService_IsContentCaptureEnabled_FullMethodName, in, out, cOpts...)
+	out := new(BuildResponse)
+	err := c.cc.Invoke(ctx, DataRemovalRequestBuilderService_Build_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *contentCaptureManagerServiceClient) RemoveData(ctx context.Context, in *RemoveDataRequest, opts ...grpc.CallOption) (*RemoveDataResponse, error) {
+func (c *dataRemovalRequestBuilderServiceClient) ForEverything(ctx context.Context, in *ForEverythingRequest, opts ...grpc.CallOption) (*ForEverythingResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(RemoveDataResponse)
-	err := c.cc.Invoke(ctx, ContentCaptureManagerService_RemoveData_FullMethodName, in, out, cOpts...)
+	out := new(ForEverythingResponse)
+	err := c.cc.Invoke(ctx, DataRemovalRequestBuilderService_ForEverything_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *contentCaptureManagerServiceClient) SetContentCaptureEnabled(ctx context.Context, in *SetContentCaptureEnabledRequest, opts ...grpc.CallOption) (*SetContentCaptureEnabledResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetContentCaptureEnabledResponse)
-	err := c.cc.Invoke(ctx, ContentCaptureManagerService_SetContentCaptureEnabled_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *contentCaptureManagerServiceClient) ShareData(ctx context.Context, in *ShareDataRequest, opts ...grpc.CallOption) (*ShareDataResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ShareDataResponse)
-	err := c.cc.Invoke(ctx, ContentCaptureManagerService_ShareData_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// ContentCaptureManagerServiceServer is the server API for ContentCaptureManagerService service.
-// All implementations must embed UnimplementedContentCaptureManagerServiceServer
+// DataRemovalRequestBuilderServiceServer is the server API for DataRemovalRequestBuilderService service.
+// All implementations must embed UnimplementedDataRemovalRequestBuilderServiceServer
 // for forward compatibility.
-type ContentCaptureManagerServiceServer interface {
-	GetServiceComponentName(context.Context, *GetServiceComponentNameRequest) (*GetServiceComponentNameResponse, error)
-	IsContentCaptureEnabled(context.Context, *IsContentCaptureEnabledRequest) (*IsContentCaptureEnabledResponse, error)
-	RemoveData(context.Context, *RemoveDataRequest) (*RemoveDataResponse, error)
-	SetContentCaptureEnabled(context.Context, *SetContentCaptureEnabledRequest) (*SetContentCaptureEnabledResponse, error)
-	ShareData(context.Context, *ShareDataRequest) (*ShareDataResponse, error)
-	mustEmbedUnimplementedContentCaptureManagerServiceServer()
+type DataRemovalRequestBuilderServiceServer interface {
+	AddLocusId(context.Context, *AddLocusIdRequest) (*AddLocusIdResponse, error)
+	Build(context.Context, *BuildRequest) (*BuildResponse, error)
+	ForEverything(context.Context, *ForEverythingRequest) (*ForEverythingResponse, error)
+	mustEmbedUnimplementedDataRemovalRequestBuilderServiceServer()
 }
 
-// UnimplementedContentCaptureManagerServiceServer must be embedded to have
+// UnimplementedDataRemovalRequestBuilderServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedContentCaptureManagerServiceServer struct{}
+type UnimplementedDataRemovalRequestBuilderServiceServer struct{}
 
-func (UnimplementedContentCaptureManagerServiceServer) GetServiceComponentName(context.Context, *GetServiceComponentNameRequest) (*GetServiceComponentNameResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetServiceComponentName not implemented")
+func (UnimplementedDataRemovalRequestBuilderServiceServer) AddLocusId(context.Context, *AddLocusIdRequest) (*AddLocusIdResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method AddLocusId not implemented")
 }
-func (UnimplementedContentCaptureManagerServiceServer) IsContentCaptureEnabled(context.Context, *IsContentCaptureEnabledRequest) (*IsContentCaptureEnabledResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsContentCaptureEnabled not implemented")
+func (UnimplementedDataRemovalRequestBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
 }
-func (UnimplementedContentCaptureManagerServiceServer) RemoveData(context.Context, *RemoveDataRequest) (*RemoveDataResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method RemoveData not implemented")
+func (UnimplementedDataRemovalRequestBuilderServiceServer) ForEverything(context.Context, *ForEverythingRequest) (*ForEverythingResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ForEverything not implemented")
 }
-func (UnimplementedContentCaptureManagerServiceServer) SetContentCaptureEnabled(context.Context, *SetContentCaptureEnabledRequest) (*SetContentCaptureEnabledResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetContentCaptureEnabled not implemented")
+func (UnimplementedDataRemovalRequestBuilderServiceServer) mustEmbedUnimplementedDataRemovalRequestBuilderServiceServer() {
 }
-func (UnimplementedContentCaptureManagerServiceServer) ShareData(context.Context, *ShareDataRequest) (*ShareDataResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ShareData not implemented")
-}
-func (UnimplementedContentCaptureManagerServiceServer) mustEmbedUnimplementedContentCaptureManagerServiceServer() {
-}
-func (UnimplementedContentCaptureManagerServiceServer) testEmbeddedByValue() {}
+func (UnimplementedDataRemovalRequestBuilderServiceServer) testEmbeddedByValue() {}
 
-// UnsafeContentCaptureManagerServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to ContentCaptureManagerServiceServer will
+// UnsafeDataRemovalRequestBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to DataRemovalRequestBuilderServiceServer will
 // result in compilation errors.
-type UnsafeContentCaptureManagerServiceServer interface {
-	mustEmbedUnimplementedContentCaptureManagerServiceServer()
+type UnsafeDataRemovalRequestBuilderServiceServer interface {
+	mustEmbedUnimplementedDataRemovalRequestBuilderServiceServer()
 }
 
-func RegisterContentCaptureManagerServiceServer(s grpc.ServiceRegistrar, srv ContentCaptureManagerServiceServer) {
-	// If the following call panics, it indicates UnimplementedContentCaptureManagerServiceServer was
+func RegisterDataRemovalRequestBuilderServiceServer(s grpc.ServiceRegistrar, srv DataRemovalRequestBuilderServiceServer) {
+	// If the following call panics, it indicates UnimplementedDataRemovalRequestBuilderServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&ContentCaptureManagerService_ServiceDesc, srv)
+	s.RegisterService(&DataRemovalRequestBuilderService_ServiceDesc, srv)
 }
 
-func _ContentCaptureManagerService_GetServiceComponentName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetServiceComponentNameRequest)
+func _DataRemovalRequestBuilderService_AddLocusId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AddLocusIdRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ContentCaptureManagerServiceServer).GetServiceComponentName(ctx, in)
+		return srv.(DataRemovalRequestBuilderServiceServer).AddLocusId(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: ContentCaptureManagerService_GetServiceComponentName_FullMethodName,
+		FullMethod: DataRemovalRequestBuilderService_AddLocusId_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ContentCaptureManagerServiceServer).GetServiceComponentName(ctx, req.(*GetServiceComponentNameRequest))
+		return srv.(DataRemovalRequestBuilderServiceServer).AddLocusId(ctx, req.(*AddLocusIdRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ContentCaptureManagerService_IsContentCaptureEnabled_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsContentCaptureEnabledRequest)
+func _DataRemovalRequestBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BuildRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ContentCaptureManagerServiceServer).IsContentCaptureEnabled(ctx, in)
+		return srv.(DataRemovalRequestBuilderServiceServer).Build(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: ContentCaptureManagerService_IsContentCaptureEnabled_FullMethodName,
+		FullMethod: DataRemovalRequestBuilderService_Build_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ContentCaptureManagerServiceServer).IsContentCaptureEnabled(ctx, req.(*IsContentCaptureEnabledRequest))
+		return srv.(DataRemovalRequestBuilderServiceServer).Build(ctx, req.(*BuildRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ContentCaptureManagerService_RemoveData_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(RemoveDataRequest)
+func _DataRemovalRequestBuilderService_ForEverything_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ForEverythingRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ContentCaptureManagerServiceServer).RemoveData(ctx, in)
+		return srv.(DataRemovalRequestBuilderServiceServer).ForEverything(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: ContentCaptureManagerService_RemoveData_FullMethodName,
+		FullMethod: DataRemovalRequestBuilderService_ForEverything_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ContentCaptureManagerServiceServer).RemoveData(ctx, req.(*RemoveDataRequest))
+		return srv.(DataRemovalRequestBuilderServiceServer).ForEverything(ctx, req.(*ForEverythingRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ContentCaptureManagerService_SetContentCaptureEnabled_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetContentCaptureEnabledRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ContentCaptureManagerServiceServer).SetContentCaptureEnabled(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ContentCaptureManagerService_SetContentCaptureEnabled_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ContentCaptureManagerServiceServer).SetContentCaptureEnabled(ctx, req.(*SetContentCaptureEnabledRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ContentCaptureManagerService_ShareData_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ShareDataRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ContentCaptureManagerServiceServer).ShareData(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ContentCaptureManagerService_ShareData_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ContentCaptureManagerServiceServer).ShareData(ctx, req.(*ShareDataRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// ContentCaptureManagerService_ServiceDesc is the grpc.ServiceDesc for ContentCaptureManagerService service.
+// DataRemovalRequestBuilderService_ServiceDesc is the grpc.ServiceDesc for DataRemovalRequestBuilderService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var ContentCaptureManagerService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "contentcapture.ContentCaptureManagerService",
-	HandlerType: (*ContentCaptureManagerServiceServer)(nil),
+var DataRemovalRequestBuilderService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "contentcapture.DataRemovalRequestBuilderService",
+	HandlerType: (*DataRemovalRequestBuilderServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "GetServiceComponentName",
-			Handler:    _ContentCaptureManagerService_GetServiceComponentName_Handler,
+			MethodName: "AddLocusId",
+			Handler:    _DataRemovalRequestBuilderService_AddLocusId_Handler,
 		},
 		{
-			MethodName: "IsContentCaptureEnabled",
-			Handler:    _ContentCaptureManagerService_IsContentCaptureEnabled_Handler,
+			MethodName: "Build",
+			Handler:    _DataRemovalRequestBuilderService_Build_Handler,
 		},
 		{
-			MethodName: "RemoveData",
-			Handler:    _ContentCaptureManagerService_RemoveData_Handler,
+			MethodName: "ForEverything",
+			Handler:    _DataRemovalRequestBuilderService_ForEverything_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/contentcapture/contentcapture.proto",
+}
+
+const (
+	DataRemovalRequestLocusIdRequestService_GetFlags_FullMethodName   = "/contentcapture.DataRemovalRequestLocusIdRequestService/GetFlags"
+	DataRemovalRequestLocusIdRequestService_GetLocusId_FullMethodName = "/contentcapture.DataRemovalRequestLocusIdRequestService/GetLocusId"
+)
+
+// DataRemovalRequestLocusIdRequestServiceClient is the client API for DataRemovalRequestLocusIdRequestService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type DataRemovalRequestLocusIdRequestServiceClient interface {
+	GetFlags(ctx context.Context, in *DataRemovalRequestLocusIdRequestGetFlagsRequest, opts ...grpc.CallOption) (*GetFlagsResponse, error)
+	GetLocusId(ctx context.Context, in *DataRemovalRequestLocusIdRequestGetLocusIdRequest, opts ...grpc.CallOption) (*GetLocusIdResponse, error)
+}
+
+type dataRemovalRequestLocusIdRequestServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewDataRemovalRequestLocusIdRequestServiceClient(cc grpc.ClientConnInterface) DataRemovalRequestLocusIdRequestServiceClient {
+	return &dataRemovalRequestLocusIdRequestServiceClient{cc}
+}
+
+func (c *dataRemovalRequestLocusIdRequestServiceClient) GetFlags(ctx context.Context, in *DataRemovalRequestLocusIdRequestGetFlagsRequest, opts ...grpc.CallOption) (*GetFlagsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetFlagsResponse)
+	err := c.cc.Invoke(ctx, DataRemovalRequestLocusIdRequestService_GetFlags_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *dataRemovalRequestLocusIdRequestServiceClient) GetLocusId(ctx context.Context, in *DataRemovalRequestLocusIdRequestGetLocusIdRequest, opts ...grpc.CallOption) (*GetLocusIdResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetLocusIdResponse)
+	err := c.cc.Invoke(ctx, DataRemovalRequestLocusIdRequestService_GetLocusId_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// DataRemovalRequestLocusIdRequestServiceServer is the server API for DataRemovalRequestLocusIdRequestService service.
+// All implementations must embed UnimplementedDataRemovalRequestLocusIdRequestServiceServer
+// for forward compatibility.
+type DataRemovalRequestLocusIdRequestServiceServer interface {
+	GetFlags(context.Context, *DataRemovalRequestLocusIdRequestGetFlagsRequest) (*GetFlagsResponse, error)
+	GetLocusId(context.Context, *DataRemovalRequestLocusIdRequestGetLocusIdRequest) (*GetLocusIdResponse, error)
+	mustEmbedUnimplementedDataRemovalRequestLocusIdRequestServiceServer()
+}
+
+// UnimplementedDataRemovalRequestLocusIdRequestServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedDataRemovalRequestLocusIdRequestServiceServer struct{}
+
+func (UnimplementedDataRemovalRequestLocusIdRequestServiceServer) GetFlags(context.Context, *DataRemovalRequestLocusIdRequestGetFlagsRequest) (*GetFlagsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetFlags not implemented")
+}
+func (UnimplementedDataRemovalRequestLocusIdRequestServiceServer) GetLocusId(context.Context, *DataRemovalRequestLocusIdRequestGetLocusIdRequest) (*GetLocusIdResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetLocusId not implemented")
+}
+func (UnimplementedDataRemovalRequestLocusIdRequestServiceServer) mustEmbedUnimplementedDataRemovalRequestLocusIdRequestServiceServer() {
+}
+func (UnimplementedDataRemovalRequestLocusIdRequestServiceServer) testEmbeddedByValue() {}
+
+// UnsafeDataRemovalRequestLocusIdRequestServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to DataRemovalRequestLocusIdRequestServiceServer will
+// result in compilation errors.
+type UnsafeDataRemovalRequestLocusIdRequestServiceServer interface {
+	mustEmbedUnimplementedDataRemovalRequestLocusIdRequestServiceServer()
+}
+
+func RegisterDataRemovalRequestLocusIdRequestServiceServer(s grpc.ServiceRegistrar, srv DataRemovalRequestLocusIdRequestServiceServer) {
+	// If the following call panics, it indicates UnimplementedDataRemovalRequestLocusIdRequestServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&DataRemovalRequestLocusIdRequestService_ServiceDesc, srv)
+}
+
+func _DataRemovalRequestLocusIdRequestService_GetFlags_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DataRemovalRequestLocusIdRequestGetFlagsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DataRemovalRequestLocusIdRequestServiceServer).GetFlags(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DataRemovalRequestLocusIdRequestService_GetFlags_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DataRemovalRequestLocusIdRequestServiceServer).GetFlags(ctx, req.(*DataRemovalRequestLocusIdRequestGetFlagsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DataRemovalRequestLocusIdRequestService_GetLocusId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DataRemovalRequestLocusIdRequestGetLocusIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DataRemovalRequestLocusIdRequestServiceServer).GetLocusId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DataRemovalRequestLocusIdRequestService_GetLocusId_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DataRemovalRequestLocusIdRequestServiceServer).GetLocusId(ctx, req.(*DataRemovalRequestLocusIdRequestGetLocusIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// DataRemovalRequestLocusIdRequestService_ServiceDesc is the grpc.ServiceDesc for DataRemovalRequestLocusIdRequestService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var DataRemovalRequestLocusIdRequestService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "contentcapture.DataRemovalRequestLocusIdRequestService",
+	HandlerType: (*DataRemovalRequestLocusIdRequestServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "GetFlags",
+			Handler:    _DataRemovalRequestLocusIdRequestService_GetFlags_Handler,
 		},
 		{
-			MethodName: "SetContentCaptureEnabled",
-			Handler:    _ContentCaptureManagerService_SetContentCaptureEnabled_Handler,
-		},
-		{
-			MethodName: "ShareData",
-			Handler:    _ContentCaptureManagerService_ShareData_Handler,
+			MethodName: "GetLocusId",
+			Handler:    _DataRemovalRequestLocusIdRequestService_GetLocusId_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -2779,7 +2855,7 @@ type DataShareRequestServiceClient interface {
 	NewDataShareRequest(ctx context.Context, in *NewDataShareRequestRequest, opts ...grpc.CallOption) (*NewDataShareRequestResponse, error)
 	DescribeContents(ctx context.Context, in *DataShareRequestDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
 	Equals(ctx context.Context, in *DataShareRequestEqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
-	GetLocusId(ctx context.Context, in *DataShareRequestGetLocusIdRequest, opts ...grpc.CallOption) (*GetLocusIdResponse, error)
+	GetLocusId(ctx context.Context, in *GetLocusIdRequest, opts ...grpc.CallOption) (*GetLocusIdResponse, error)
 	GetMimeType(ctx context.Context, in *GetMimeTypeRequest, opts ...grpc.CallOption) (*GetMimeTypeResponse, error)
 	GetPackageName(ctx context.Context, in *DataShareRequestGetPackageNameRequest, opts ...grpc.CallOption) (*GetPackageNameResponse, error)
 	HashCode(ctx context.Context, in *DataShareRequestHashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
@@ -2825,7 +2901,7 @@ func (c *dataShareRequestServiceClient) Equals(ctx context.Context, in *DataShar
 	return out, nil
 }
 
-func (c *dataShareRequestServiceClient) GetLocusId(ctx context.Context, in *DataShareRequestGetLocusIdRequest, opts ...grpc.CallOption) (*GetLocusIdResponse, error) {
+func (c *dataShareRequestServiceClient) GetLocusId(ctx context.Context, in *GetLocusIdRequest, opts ...grpc.CallOption) (*GetLocusIdResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetLocusIdResponse)
 	err := c.cc.Invoke(ctx, DataShareRequestService_GetLocusId_FullMethodName, in, out, cOpts...)
@@ -2892,7 +2968,7 @@ type DataShareRequestServiceServer interface {
 	NewDataShareRequest(context.Context, *NewDataShareRequestRequest) (*NewDataShareRequestResponse, error)
 	DescribeContents(context.Context, *DataShareRequestDescribeContentsRequest) (*DescribeContentsResponse, error)
 	Equals(context.Context, *DataShareRequestEqualsRequest) (*EqualsResponse, error)
-	GetLocusId(context.Context, *DataShareRequestGetLocusIdRequest) (*GetLocusIdResponse, error)
+	GetLocusId(context.Context, *GetLocusIdRequest) (*GetLocusIdResponse, error)
 	GetMimeType(context.Context, *GetMimeTypeRequest) (*GetMimeTypeResponse, error)
 	GetPackageName(context.Context, *DataShareRequestGetPackageNameRequest) (*GetPackageNameResponse, error)
 	HashCode(context.Context, *DataShareRequestHashCodeRequest) (*HashCodeResponse, error)
@@ -2917,7 +2993,7 @@ func (UnimplementedDataShareRequestServiceServer) DescribeContents(context.Conte
 func (UnimplementedDataShareRequestServiceServer) Equals(context.Context, *DataShareRequestEqualsRequest) (*EqualsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
 }
-func (UnimplementedDataShareRequestServiceServer) GetLocusId(context.Context, *DataShareRequestGetLocusIdRequest) (*GetLocusIdResponse, error) {
+func (UnimplementedDataShareRequestServiceServer) GetLocusId(context.Context, *GetLocusIdRequest) (*GetLocusIdResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetLocusId not implemented")
 }
 func (UnimplementedDataShareRequestServiceServer) GetMimeType(context.Context, *GetMimeTypeRequest) (*GetMimeTypeResponse, error) {
@@ -3012,7 +3088,7 @@ func _DataShareRequestService_Equals_Handler(srv interface{}, ctx context.Contex
 }
 
 func _DataShareRequestService_GetLocusId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DataShareRequestGetLocusIdRequest)
+	in := new(GetLocusIdRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -3024,7 +3100,7 @@ func _DataShareRequestService_GetLocusId_Handler(srv interface{}, ctx context.Co
 		FullMethod: DataShareRequestService_GetLocusId_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DataShareRequestServiceServer).GetLocusId(ctx, req.(*DataShareRequestGetLocusIdRequest))
+		return srv.(DataShareRequestServiceServer).GetLocusId(ctx, req.(*GetLocusIdRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }

@@ -9,6 +9,26 @@ import (
 	"google.golang.org/grpc"
 )
 
+// StateChangeListenerClient wraps the gRPC StateChangeListenerService client.
+type StateChangeListenerClient struct {
+	svc pb.StateChangeListenerServiceClient
+}
+
+// NewStateChangeListenerClient creates a new StateChangeListener client.
+func NewStateChangeListenerClient(cc grpc.ClientConnInterface) *StateChangeListenerClient {
+	return &StateChangeListenerClient{
+		svc: pb.NewStateChangeListenerServiceClient(cc),
+	}
+}
+
+// OnEnabledStateChanged calls the OnEnabledStateChanged RPC.
+func (c *StateChangeListenerClient) OnEnabledStateChanged(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.OnEnabledStateChanged(ctx, &pb.OnEnabledStateChangedRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
 // ManagerClient wraps the gRPC ManagerService client.
 type ManagerClient struct {
 	svc pb.ManagerServiceClient
@@ -33,26 +53,6 @@ func (c *ManagerClient) RegisterStateChangeListener(ctx context.Context, arg0 in
 // UnregisterStateChangeListener calls the UnregisterStateChangeListener RPC.
 func (c *ManagerClient) UnregisterStateChangeListener(ctx context.Context, arg0 int64) error {
 	_, err := c.svc.UnregisterStateChangeListener(ctx, &pb.UnregisterStateChangeListenerRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// StateChangeListenerClient wraps the gRPC StateChangeListenerService client.
-type StateChangeListenerClient struct {
-	svc pb.StateChangeListenerServiceClient
-}
-
-// NewStateChangeListenerClient creates a new StateChangeListener client.
-func NewStateChangeListenerClient(cc grpc.ClientConnInterface) *StateChangeListenerClient {
-	return &StateChangeListenerClient{
-		svc: pb.NewStateChangeListenerServiceClient(cc),
-	}
-}
-
-// OnEnabledStateChanged calls the OnEnabledStateChanged RPC.
-func (c *StateChangeListenerClient) OnEnabledStateChanged(ctx context.Context, arg0 bool) error {
-	_, err := c.svc.OnEnabledStateChanged(ctx, &pb.OnEnabledStateChangedRequest{
 		Arg0: arg0,
 	})
 	return err

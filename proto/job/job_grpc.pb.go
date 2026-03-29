@@ -720,932 +720,6 @@ var WorkItemBuilderService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	SchedulerService_CanRunUserInitiatedJobs_FullMethodName = "/job.SchedulerService/CanRunUserInitiatedJobs"
-	SchedulerService_Cancel_FullMethodName                  = "/job.SchedulerService/Cancel"
-	SchedulerService_CancelAll_FullMethodName               = "/job.SchedulerService/CancelAll"
-	SchedulerService_CancelInAllNamespaces_FullMethodName   = "/job.SchedulerService/CancelInAllNamespaces"
-	SchedulerService_Enqueue_FullMethodName                 = "/job.SchedulerService/Enqueue"
-	SchedulerService_ForNamespace_FullMethodName            = "/job.SchedulerService/ForNamespace"
-	SchedulerService_GetNamespace_FullMethodName            = "/job.SchedulerService/GetNamespace"
-	SchedulerService_GetPendingJob_FullMethodName           = "/job.SchedulerService/GetPendingJob"
-	SchedulerService_GetPendingJobReason_FullMethodName     = "/job.SchedulerService/GetPendingJobReason"
-	SchedulerService_GetPendingJobReasons_FullMethodName    = "/job.SchedulerService/GetPendingJobReasons"
-	SchedulerService_Schedule_FullMethodName                = "/job.SchedulerService/Schedule"
-)
-
-// SchedulerServiceClient is the client API for SchedulerService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type SchedulerServiceClient interface {
-	CanRunUserInitiatedJobs(ctx context.Context, in *CanRunUserInitiatedJobsRequest, opts ...grpc.CallOption) (*CanRunUserInitiatedJobsResponse, error)
-	Cancel(ctx context.Context, in *CancelRequest, opts ...grpc.CallOption) (*CancelResponse, error)
-	CancelAll(ctx context.Context, in *CancelAllRequest, opts ...grpc.CallOption) (*CancelAllResponse, error)
-	CancelInAllNamespaces(ctx context.Context, in *CancelInAllNamespacesRequest, opts ...grpc.CallOption) (*CancelInAllNamespacesResponse, error)
-	Enqueue(ctx context.Context, in *EnqueueRequest, opts ...grpc.CallOption) (*EnqueueResponse, error)
-	ForNamespace(ctx context.Context, in *ForNamespaceRequest, opts ...grpc.CallOption) (*ForNamespaceResponse, error)
-	GetNamespace(ctx context.Context, in *GetNamespaceRequest, opts ...grpc.CallOption) (*GetNamespaceResponse, error)
-	GetPendingJob(ctx context.Context, in *GetPendingJobRequest, opts ...grpc.CallOption) (*GetPendingJobResponse, error)
-	GetPendingJobReason(ctx context.Context, in *GetPendingJobReasonRequest, opts ...grpc.CallOption) (*GetPendingJobReasonResponse, error)
-	GetPendingJobReasons(ctx context.Context, in *GetPendingJobReasonsRequest, opts ...grpc.CallOption) (*GetPendingJobReasonsResponse, error)
-	Schedule(ctx context.Context, in *ScheduleRequest, opts ...grpc.CallOption) (*ScheduleResponse, error)
-}
-
-type schedulerServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewSchedulerServiceClient(cc grpc.ClientConnInterface) SchedulerServiceClient {
-	return &schedulerServiceClient{cc}
-}
-
-func (c *schedulerServiceClient) CanRunUserInitiatedJobs(ctx context.Context, in *CanRunUserInitiatedJobsRequest, opts ...grpc.CallOption) (*CanRunUserInitiatedJobsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CanRunUserInitiatedJobsResponse)
-	err := c.cc.Invoke(ctx, SchedulerService_CanRunUserInitiatedJobs_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *schedulerServiceClient) Cancel(ctx context.Context, in *CancelRequest, opts ...grpc.CallOption) (*CancelResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CancelResponse)
-	err := c.cc.Invoke(ctx, SchedulerService_Cancel_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *schedulerServiceClient) CancelAll(ctx context.Context, in *CancelAllRequest, opts ...grpc.CallOption) (*CancelAllResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CancelAllResponse)
-	err := c.cc.Invoke(ctx, SchedulerService_CancelAll_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *schedulerServiceClient) CancelInAllNamespaces(ctx context.Context, in *CancelInAllNamespacesRequest, opts ...grpc.CallOption) (*CancelInAllNamespacesResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CancelInAllNamespacesResponse)
-	err := c.cc.Invoke(ctx, SchedulerService_CancelInAllNamespaces_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *schedulerServiceClient) Enqueue(ctx context.Context, in *EnqueueRequest, opts ...grpc.CallOption) (*EnqueueResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(EnqueueResponse)
-	err := c.cc.Invoke(ctx, SchedulerService_Enqueue_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *schedulerServiceClient) ForNamespace(ctx context.Context, in *ForNamespaceRequest, opts ...grpc.CallOption) (*ForNamespaceResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ForNamespaceResponse)
-	err := c.cc.Invoke(ctx, SchedulerService_ForNamespace_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *schedulerServiceClient) GetNamespace(ctx context.Context, in *GetNamespaceRequest, opts ...grpc.CallOption) (*GetNamespaceResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetNamespaceResponse)
-	err := c.cc.Invoke(ctx, SchedulerService_GetNamespace_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *schedulerServiceClient) GetPendingJob(ctx context.Context, in *GetPendingJobRequest, opts ...grpc.CallOption) (*GetPendingJobResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetPendingJobResponse)
-	err := c.cc.Invoke(ctx, SchedulerService_GetPendingJob_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *schedulerServiceClient) GetPendingJobReason(ctx context.Context, in *GetPendingJobReasonRequest, opts ...grpc.CallOption) (*GetPendingJobReasonResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetPendingJobReasonResponse)
-	err := c.cc.Invoke(ctx, SchedulerService_GetPendingJobReason_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *schedulerServiceClient) GetPendingJobReasons(ctx context.Context, in *GetPendingJobReasonsRequest, opts ...grpc.CallOption) (*GetPendingJobReasonsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetPendingJobReasonsResponse)
-	err := c.cc.Invoke(ctx, SchedulerService_GetPendingJobReasons_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *schedulerServiceClient) Schedule(ctx context.Context, in *ScheduleRequest, opts ...grpc.CallOption) (*ScheduleResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ScheduleResponse)
-	err := c.cc.Invoke(ctx, SchedulerService_Schedule_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// SchedulerServiceServer is the server API for SchedulerService service.
-// All implementations must embed UnimplementedSchedulerServiceServer
-// for forward compatibility.
-type SchedulerServiceServer interface {
-	CanRunUserInitiatedJobs(context.Context, *CanRunUserInitiatedJobsRequest) (*CanRunUserInitiatedJobsResponse, error)
-	Cancel(context.Context, *CancelRequest) (*CancelResponse, error)
-	CancelAll(context.Context, *CancelAllRequest) (*CancelAllResponse, error)
-	CancelInAllNamespaces(context.Context, *CancelInAllNamespacesRequest) (*CancelInAllNamespacesResponse, error)
-	Enqueue(context.Context, *EnqueueRequest) (*EnqueueResponse, error)
-	ForNamespace(context.Context, *ForNamespaceRequest) (*ForNamespaceResponse, error)
-	GetNamespace(context.Context, *GetNamespaceRequest) (*GetNamespaceResponse, error)
-	GetPendingJob(context.Context, *GetPendingJobRequest) (*GetPendingJobResponse, error)
-	GetPendingJobReason(context.Context, *GetPendingJobReasonRequest) (*GetPendingJobReasonResponse, error)
-	GetPendingJobReasons(context.Context, *GetPendingJobReasonsRequest) (*GetPendingJobReasonsResponse, error)
-	Schedule(context.Context, *ScheduleRequest) (*ScheduleResponse, error)
-	mustEmbedUnimplementedSchedulerServiceServer()
-}
-
-// UnimplementedSchedulerServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedSchedulerServiceServer struct{}
-
-func (UnimplementedSchedulerServiceServer) CanRunUserInitiatedJobs(context.Context, *CanRunUserInitiatedJobsRequest) (*CanRunUserInitiatedJobsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method CanRunUserInitiatedJobs not implemented")
-}
-func (UnimplementedSchedulerServiceServer) Cancel(context.Context, *CancelRequest) (*CancelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Cancel not implemented")
-}
-func (UnimplementedSchedulerServiceServer) CancelAll(context.Context, *CancelAllRequest) (*CancelAllResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method CancelAll not implemented")
-}
-func (UnimplementedSchedulerServiceServer) CancelInAllNamespaces(context.Context, *CancelInAllNamespacesRequest) (*CancelInAllNamespacesResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method CancelInAllNamespaces not implemented")
-}
-func (UnimplementedSchedulerServiceServer) Enqueue(context.Context, *EnqueueRequest) (*EnqueueResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Enqueue not implemented")
-}
-func (UnimplementedSchedulerServiceServer) ForNamespace(context.Context, *ForNamespaceRequest) (*ForNamespaceResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ForNamespace not implemented")
-}
-func (UnimplementedSchedulerServiceServer) GetNamespace(context.Context, *GetNamespaceRequest) (*GetNamespaceResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetNamespace not implemented")
-}
-func (UnimplementedSchedulerServiceServer) GetPendingJob(context.Context, *GetPendingJobRequest) (*GetPendingJobResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetPendingJob not implemented")
-}
-func (UnimplementedSchedulerServiceServer) GetPendingJobReason(context.Context, *GetPendingJobReasonRequest) (*GetPendingJobReasonResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetPendingJobReason not implemented")
-}
-func (UnimplementedSchedulerServiceServer) GetPendingJobReasons(context.Context, *GetPendingJobReasonsRequest) (*GetPendingJobReasonsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetPendingJobReasons not implemented")
-}
-func (UnimplementedSchedulerServiceServer) Schedule(context.Context, *ScheduleRequest) (*ScheduleResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Schedule not implemented")
-}
-func (UnimplementedSchedulerServiceServer) mustEmbedUnimplementedSchedulerServiceServer() {}
-func (UnimplementedSchedulerServiceServer) testEmbeddedByValue()                          {}
-
-// UnsafeSchedulerServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to SchedulerServiceServer will
-// result in compilation errors.
-type UnsafeSchedulerServiceServer interface {
-	mustEmbedUnimplementedSchedulerServiceServer()
-}
-
-func RegisterSchedulerServiceServer(s grpc.ServiceRegistrar, srv SchedulerServiceServer) {
-	// If the following call panics, it indicates UnimplementedSchedulerServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&SchedulerService_ServiceDesc, srv)
-}
-
-func _SchedulerService_CanRunUserInitiatedJobs_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CanRunUserInitiatedJobsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SchedulerServiceServer).CanRunUserInitiatedJobs(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SchedulerService_CanRunUserInitiatedJobs_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SchedulerServiceServer).CanRunUserInitiatedJobs(ctx, req.(*CanRunUserInitiatedJobsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SchedulerService_Cancel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CancelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SchedulerServiceServer).Cancel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SchedulerService_Cancel_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SchedulerServiceServer).Cancel(ctx, req.(*CancelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SchedulerService_CancelAll_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CancelAllRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SchedulerServiceServer).CancelAll(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SchedulerService_CancelAll_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SchedulerServiceServer).CancelAll(ctx, req.(*CancelAllRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SchedulerService_CancelInAllNamespaces_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CancelInAllNamespacesRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SchedulerServiceServer).CancelInAllNamespaces(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SchedulerService_CancelInAllNamespaces_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SchedulerServiceServer).CancelInAllNamespaces(ctx, req.(*CancelInAllNamespacesRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SchedulerService_Enqueue_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(EnqueueRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SchedulerServiceServer).Enqueue(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SchedulerService_Enqueue_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SchedulerServiceServer).Enqueue(ctx, req.(*EnqueueRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SchedulerService_ForNamespace_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ForNamespaceRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SchedulerServiceServer).ForNamespace(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SchedulerService_ForNamespace_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SchedulerServiceServer).ForNamespace(ctx, req.(*ForNamespaceRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SchedulerService_GetNamespace_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetNamespaceRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SchedulerServiceServer).GetNamespace(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SchedulerService_GetNamespace_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SchedulerServiceServer).GetNamespace(ctx, req.(*GetNamespaceRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SchedulerService_GetPendingJob_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetPendingJobRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SchedulerServiceServer).GetPendingJob(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SchedulerService_GetPendingJob_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SchedulerServiceServer).GetPendingJob(ctx, req.(*GetPendingJobRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SchedulerService_GetPendingJobReason_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetPendingJobReasonRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SchedulerServiceServer).GetPendingJobReason(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SchedulerService_GetPendingJobReason_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SchedulerServiceServer).GetPendingJobReason(ctx, req.(*GetPendingJobReasonRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SchedulerService_GetPendingJobReasons_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetPendingJobReasonsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SchedulerServiceServer).GetPendingJobReasons(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SchedulerService_GetPendingJobReasons_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SchedulerServiceServer).GetPendingJobReasons(ctx, req.(*GetPendingJobReasonsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SchedulerService_Schedule_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ScheduleRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SchedulerServiceServer).Schedule(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SchedulerService_Schedule_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SchedulerServiceServer).Schedule(ctx, req.(*ScheduleRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// SchedulerService_ServiceDesc is the grpc.ServiceDesc for SchedulerService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var SchedulerService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "job.SchedulerService",
-	HandlerType: (*SchedulerServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "CanRunUserInitiatedJobs",
-			Handler:    _SchedulerService_CanRunUserInitiatedJobs_Handler,
-		},
-		{
-			MethodName: "Cancel",
-			Handler:    _SchedulerService_Cancel_Handler,
-		},
-		{
-			MethodName: "CancelAll",
-			Handler:    _SchedulerService_CancelAll_Handler,
-		},
-		{
-			MethodName: "CancelInAllNamespaces",
-			Handler:    _SchedulerService_CancelInAllNamespaces_Handler,
-		},
-		{
-			MethodName: "Enqueue",
-			Handler:    _SchedulerService_Enqueue_Handler,
-		},
-		{
-			MethodName: "ForNamespace",
-			Handler:    _SchedulerService_ForNamespace_Handler,
-		},
-		{
-			MethodName: "GetNamespace",
-			Handler:    _SchedulerService_GetNamespace_Handler,
-		},
-		{
-			MethodName: "GetPendingJob",
-			Handler:    _SchedulerService_GetPendingJob_Handler,
-		},
-		{
-			MethodName: "GetPendingJobReason",
-			Handler:    _SchedulerService_GetPendingJobReason_Handler,
-		},
-		{
-			MethodName: "GetPendingJobReasons",
-			Handler:    _SchedulerService_GetPendingJobReasons_Handler,
-		},
-		{
-			MethodName: "Schedule",
-			Handler:    _SchedulerService_Schedule_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/job/job.proto",
-}
-
-const (
-	ServiceService_JobFinished_FullMethodName                      = "/job.ServiceService/JobFinished"
-	ServiceService_OnBind_FullMethodName                           = "/job.ServiceService/OnBind"
-	ServiceService_OnNetworkChanged_FullMethodName                 = "/job.ServiceService/OnNetworkChanged"
-	ServiceService_OnStartJob_FullMethodName                       = "/job.ServiceService/OnStartJob"
-	ServiceService_OnStopJob_FullMethodName                        = "/job.ServiceService/OnStopJob"
-	ServiceService_SetNotification_FullMethodName                  = "/job.ServiceService/SetNotification"
-	ServiceService_UpdateEstimatedNetworkBytes4_FullMethodName     = "/job.ServiceService/UpdateEstimatedNetworkBytes4"
-	ServiceService_UpdateEstimatedNetworkBytes3_1_FullMethodName   = "/job.ServiceService/UpdateEstimatedNetworkBytes3_1"
-	ServiceService_UpdateTransferredNetworkBytes4_FullMethodName   = "/job.ServiceService/UpdateTransferredNetworkBytes4"
-	ServiceService_UpdateTransferredNetworkBytes3_1_FullMethodName = "/job.ServiceService/UpdateTransferredNetworkBytes3_1"
-)
-
-// ServiceServiceClient is the client API for ServiceService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type ServiceServiceClient interface {
-	JobFinished(ctx context.Context, in *JobFinishedRequest, opts ...grpc.CallOption) (*JobFinishedResponse, error)
-	OnBind(ctx context.Context, in *OnBindRequest, opts ...grpc.CallOption) (*OnBindResponse, error)
-	OnNetworkChanged(ctx context.Context, in *OnNetworkChangedRequest, opts ...grpc.CallOption) (*OnNetworkChangedResponse, error)
-	OnStartJob(ctx context.Context, in *OnStartJobRequest, opts ...grpc.CallOption) (*OnStartJobResponse, error)
-	OnStopJob(ctx context.Context, in *OnStopJobRequest, opts ...grpc.CallOption) (*OnStopJobResponse, error)
-	SetNotification(ctx context.Context, in *SetNotificationRequest, opts ...grpc.CallOption) (*SetNotificationResponse, error)
-	UpdateEstimatedNetworkBytes4(ctx context.Context, in *UpdateEstimatedNetworkBytes4Request, opts ...grpc.CallOption) (*UpdateEstimatedNetworkBytes4Response, error)
-	UpdateEstimatedNetworkBytes3_1(ctx context.Context, in *UpdateEstimatedNetworkBytes3_1Request, opts ...grpc.CallOption) (*UpdateEstimatedNetworkBytes3_1Response, error)
-	UpdateTransferredNetworkBytes4(ctx context.Context, in *UpdateTransferredNetworkBytes4Request, opts ...grpc.CallOption) (*UpdateTransferredNetworkBytes4Response, error)
-	UpdateTransferredNetworkBytes3_1(ctx context.Context, in *UpdateTransferredNetworkBytes3_1Request, opts ...grpc.CallOption) (*UpdateTransferredNetworkBytes3_1Response, error)
-}
-
-type serviceServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewServiceServiceClient(cc grpc.ClientConnInterface) ServiceServiceClient {
-	return &serviceServiceClient{cc}
-}
-
-func (c *serviceServiceClient) JobFinished(ctx context.Context, in *JobFinishedRequest, opts ...grpc.CallOption) (*JobFinishedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(JobFinishedResponse)
-	err := c.cc.Invoke(ctx, ServiceService_JobFinished_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *serviceServiceClient) OnBind(ctx context.Context, in *OnBindRequest, opts ...grpc.CallOption) (*OnBindResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnBindResponse)
-	err := c.cc.Invoke(ctx, ServiceService_OnBind_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *serviceServiceClient) OnNetworkChanged(ctx context.Context, in *OnNetworkChangedRequest, opts ...grpc.CallOption) (*OnNetworkChangedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnNetworkChangedResponse)
-	err := c.cc.Invoke(ctx, ServiceService_OnNetworkChanged_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *serviceServiceClient) OnStartJob(ctx context.Context, in *OnStartJobRequest, opts ...grpc.CallOption) (*OnStartJobResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnStartJobResponse)
-	err := c.cc.Invoke(ctx, ServiceService_OnStartJob_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *serviceServiceClient) OnStopJob(ctx context.Context, in *OnStopJobRequest, opts ...grpc.CallOption) (*OnStopJobResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnStopJobResponse)
-	err := c.cc.Invoke(ctx, ServiceService_OnStopJob_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *serviceServiceClient) SetNotification(ctx context.Context, in *SetNotificationRequest, opts ...grpc.CallOption) (*SetNotificationResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetNotificationResponse)
-	err := c.cc.Invoke(ctx, ServiceService_SetNotification_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *serviceServiceClient) UpdateEstimatedNetworkBytes4(ctx context.Context, in *UpdateEstimatedNetworkBytes4Request, opts ...grpc.CallOption) (*UpdateEstimatedNetworkBytes4Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(UpdateEstimatedNetworkBytes4Response)
-	err := c.cc.Invoke(ctx, ServiceService_UpdateEstimatedNetworkBytes4_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *serviceServiceClient) UpdateEstimatedNetworkBytes3_1(ctx context.Context, in *UpdateEstimatedNetworkBytes3_1Request, opts ...grpc.CallOption) (*UpdateEstimatedNetworkBytes3_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(UpdateEstimatedNetworkBytes3_1Response)
-	err := c.cc.Invoke(ctx, ServiceService_UpdateEstimatedNetworkBytes3_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *serviceServiceClient) UpdateTransferredNetworkBytes4(ctx context.Context, in *UpdateTransferredNetworkBytes4Request, opts ...grpc.CallOption) (*UpdateTransferredNetworkBytes4Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(UpdateTransferredNetworkBytes4Response)
-	err := c.cc.Invoke(ctx, ServiceService_UpdateTransferredNetworkBytes4_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *serviceServiceClient) UpdateTransferredNetworkBytes3_1(ctx context.Context, in *UpdateTransferredNetworkBytes3_1Request, opts ...grpc.CallOption) (*UpdateTransferredNetworkBytes3_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(UpdateTransferredNetworkBytes3_1Response)
-	err := c.cc.Invoke(ctx, ServiceService_UpdateTransferredNetworkBytes3_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// ServiceServiceServer is the server API for ServiceService service.
-// All implementations must embed UnimplementedServiceServiceServer
-// for forward compatibility.
-type ServiceServiceServer interface {
-	JobFinished(context.Context, *JobFinishedRequest) (*JobFinishedResponse, error)
-	OnBind(context.Context, *OnBindRequest) (*OnBindResponse, error)
-	OnNetworkChanged(context.Context, *OnNetworkChangedRequest) (*OnNetworkChangedResponse, error)
-	OnStartJob(context.Context, *OnStartJobRequest) (*OnStartJobResponse, error)
-	OnStopJob(context.Context, *OnStopJobRequest) (*OnStopJobResponse, error)
-	SetNotification(context.Context, *SetNotificationRequest) (*SetNotificationResponse, error)
-	UpdateEstimatedNetworkBytes4(context.Context, *UpdateEstimatedNetworkBytes4Request) (*UpdateEstimatedNetworkBytes4Response, error)
-	UpdateEstimatedNetworkBytes3_1(context.Context, *UpdateEstimatedNetworkBytes3_1Request) (*UpdateEstimatedNetworkBytes3_1Response, error)
-	UpdateTransferredNetworkBytes4(context.Context, *UpdateTransferredNetworkBytes4Request) (*UpdateTransferredNetworkBytes4Response, error)
-	UpdateTransferredNetworkBytes3_1(context.Context, *UpdateTransferredNetworkBytes3_1Request) (*UpdateTransferredNetworkBytes3_1Response, error)
-	mustEmbedUnimplementedServiceServiceServer()
-}
-
-// UnimplementedServiceServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedServiceServiceServer struct{}
-
-func (UnimplementedServiceServiceServer) JobFinished(context.Context, *JobFinishedRequest) (*JobFinishedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method JobFinished not implemented")
-}
-func (UnimplementedServiceServiceServer) OnBind(context.Context, *OnBindRequest) (*OnBindResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnBind not implemented")
-}
-func (UnimplementedServiceServiceServer) OnNetworkChanged(context.Context, *OnNetworkChangedRequest) (*OnNetworkChangedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnNetworkChanged not implemented")
-}
-func (UnimplementedServiceServiceServer) OnStartJob(context.Context, *OnStartJobRequest) (*OnStartJobResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnStartJob not implemented")
-}
-func (UnimplementedServiceServiceServer) OnStopJob(context.Context, *OnStopJobRequest) (*OnStopJobResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnStopJob not implemented")
-}
-func (UnimplementedServiceServiceServer) SetNotification(context.Context, *SetNotificationRequest) (*SetNotificationResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetNotification not implemented")
-}
-func (UnimplementedServiceServiceServer) UpdateEstimatedNetworkBytes4(context.Context, *UpdateEstimatedNetworkBytes4Request) (*UpdateEstimatedNetworkBytes4Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method UpdateEstimatedNetworkBytes4 not implemented")
-}
-func (UnimplementedServiceServiceServer) UpdateEstimatedNetworkBytes3_1(context.Context, *UpdateEstimatedNetworkBytes3_1Request) (*UpdateEstimatedNetworkBytes3_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method UpdateEstimatedNetworkBytes3_1 not implemented")
-}
-func (UnimplementedServiceServiceServer) UpdateTransferredNetworkBytes4(context.Context, *UpdateTransferredNetworkBytes4Request) (*UpdateTransferredNetworkBytes4Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method UpdateTransferredNetworkBytes4 not implemented")
-}
-func (UnimplementedServiceServiceServer) UpdateTransferredNetworkBytes3_1(context.Context, *UpdateTransferredNetworkBytes3_1Request) (*UpdateTransferredNetworkBytes3_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method UpdateTransferredNetworkBytes3_1 not implemented")
-}
-func (UnimplementedServiceServiceServer) mustEmbedUnimplementedServiceServiceServer() {}
-func (UnimplementedServiceServiceServer) testEmbeddedByValue()                        {}
-
-// UnsafeServiceServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to ServiceServiceServer will
-// result in compilation errors.
-type UnsafeServiceServiceServer interface {
-	mustEmbedUnimplementedServiceServiceServer()
-}
-
-func RegisterServiceServiceServer(s grpc.ServiceRegistrar, srv ServiceServiceServer) {
-	// If the following call panics, it indicates UnimplementedServiceServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&ServiceService_ServiceDesc, srv)
-}
-
-func _ServiceService_JobFinished_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(JobFinishedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ServiceServiceServer).JobFinished(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ServiceService_JobFinished_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ServiceServiceServer).JobFinished(ctx, req.(*JobFinishedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ServiceService_OnBind_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnBindRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ServiceServiceServer).OnBind(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ServiceService_OnBind_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ServiceServiceServer).OnBind(ctx, req.(*OnBindRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ServiceService_OnNetworkChanged_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnNetworkChangedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ServiceServiceServer).OnNetworkChanged(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ServiceService_OnNetworkChanged_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ServiceServiceServer).OnNetworkChanged(ctx, req.(*OnNetworkChangedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ServiceService_OnStartJob_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnStartJobRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ServiceServiceServer).OnStartJob(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ServiceService_OnStartJob_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ServiceServiceServer).OnStartJob(ctx, req.(*OnStartJobRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ServiceService_OnStopJob_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnStopJobRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ServiceServiceServer).OnStopJob(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ServiceService_OnStopJob_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ServiceServiceServer).OnStopJob(ctx, req.(*OnStopJobRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ServiceService_SetNotification_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetNotificationRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ServiceServiceServer).SetNotification(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ServiceService_SetNotification_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ServiceServiceServer).SetNotification(ctx, req.(*SetNotificationRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ServiceService_UpdateEstimatedNetworkBytes4_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UpdateEstimatedNetworkBytes4Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ServiceServiceServer).UpdateEstimatedNetworkBytes4(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ServiceService_UpdateEstimatedNetworkBytes4_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ServiceServiceServer).UpdateEstimatedNetworkBytes4(ctx, req.(*UpdateEstimatedNetworkBytes4Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ServiceService_UpdateEstimatedNetworkBytes3_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UpdateEstimatedNetworkBytes3_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ServiceServiceServer).UpdateEstimatedNetworkBytes3_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ServiceService_UpdateEstimatedNetworkBytes3_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ServiceServiceServer).UpdateEstimatedNetworkBytes3_1(ctx, req.(*UpdateEstimatedNetworkBytes3_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ServiceService_UpdateTransferredNetworkBytes4_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UpdateTransferredNetworkBytes4Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ServiceServiceServer).UpdateTransferredNetworkBytes4(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ServiceService_UpdateTransferredNetworkBytes4_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ServiceServiceServer).UpdateTransferredNetworkBytes4(ctx, req.(*UpdateTransferredNetworkBytes4Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ServiceService_UpdateTransferredNetworkBytes3_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UpdateTransferredNetworkBytes3_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ServiceServiceServer).UpdateTransferredNetworkBytes3_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ServiceService_UpdateTransferredNetworkBytes3_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ServiceServiceServer).UpdateTransferredNetworkBytes3_1(ctx, req.(*UpdateTransferredNetworkBytes3_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// ServiceService_ServiceDesc is the grpc.ServiceDesc for ServiceService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var ServiceService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "job.ServiceService",
-	HandlerType: (*ServiceServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "JobFinished",
-			Handler:    _ServiceService_JobFinished_Handler,
-		},
-		{
-			MethodName: "OnBind",
-			Handler:    _ServiceService_OnBind_Handler,
-		},
-		{
-			MethodName: "OnNetworkChanged",
-			Handler:    _ServiceService_OnNetworkChanged_Handler,
-		},
-		{
-			MethodName: "OnStartJob",
-			Handler:    _ServiceService_OnStartJob_Handler,
-		},
-		{
-			MethodName: "OnStopJob",
-			Handler:    _ServiceService_OnStopJob_Handler,
-		},
-		{
-			MethodName: "SetNotification",
-			Handler:    _ServiceService_SetNotification_Handler,
-		},
-		{
-			MethodName: "UpdateEstimatedNetworkBytes4",
-			Handler:    _ServiceService_UpdateEstimatedNetworkBytes4_Handler,
-		},
-		{
-			MethodName: "UpdateEstimatedNetworkBytes3_1",
-			Handler:    _ServiceService_UpdateEstimatedNetworkBytes3_1_Handler,
-		},
-		{
-			MethodName: "UpdateTransferredNetworkBytes4",
-			Handler:    _ServiceService_UpdateTransferredNetworkBytes4_Handler,
-		},
-		{
-			MethodName: "UpdateTransferredNetworkBytes3_1",
-			Handler:    _ServiceService_UpdateTransferredNetworkBytes3_1_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/job/job.proto",
-}
-
-const (
 	PendingJobReasonsInfoService_NewPendingJobReasonsInfo_FullMethodName = "/job.PendingJobReasonsInfoService/NewPendingJobReasonsInfo"
 	PendingJobReasonsInfoService_DescribeContents_FullMethodName         = "/job.PendingJobReasonsInfoService/DescribeContents"
 	PendingJobReasonsInfoService_GetPendingJobReasons_FullMethodName     = "/job.PendingJobReasonsInfoService/GetPendingJobReasons"
@@ -1659,7 +733,7 @@ const (
 type PendingJobReasonsInfoServiceClient interface {
 	NewPendingJobReasonsInfo(ctx context.Context, in *NewPendingJobReasonsInfoRequest, opts ...grpc.CallOption) (*NewPendingJobReasonsInfoResponse, error)
 	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	GetPendingJobReasons(ctx context.Context, in *PendingJobReasonsInfoGetPendingJobReasonsRequest, opts ...grpc.CallOption) (*GetPendingJobReasonsResponse, error)
+	GetPendingJobReasons(ctx context.Context, in *GetPendingJobReasonsRequest, opts ...grpc.CallOption) (*GetPendingJobReasonsResponse, error)
 	GetTimestampMillis(ctx context.Context, in *GetTimestampMillisRequest, opts ...grpc.CallOption) (*GetTimestampMillisResponse, error)
 	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
 }
@@ -1692,7 +766,7 @@ func (c *pendingJobReasonsInfoServiceClient) DescribeContents(ctx context.Contex
 	return out, nil
 }
 
-func (c *pendingJobReasonsInfoServiceClient) GetPendingJobReasons(ctx context.Context, in *PendingJobReasonsInfoGetPendingJobReasonsRequest, opts ...grpc.CallOption) (*GetPendingJobReasonsResponse, error) {
+func (c *pendingJobReasonsInfoServiceClient) GetPendingJobReasons(ctx context.Context, in *GetPendingJobReasonsRequest, opts ...grpc.CallOption) (*GetPendingJobReasonsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetPendingJobReasonsResponse)
 	err := c.cc.Invoke(ctx, PendingJobReasonsInfoService_GetPendingJobReasons_FullMethodName, in, out, cOpts...)
@@ -1728,7 +802,7 @@ func (c *pendingJobReasonsInfoServiceClient) WriteToParcel(ctx context.Context, 
 type PendingJobReasonsInfoServiceServer interface {
 	NewPendingJobReasonsInfo(context.Context, *NewPendingJobReasonsInfoRequest) (*NewPendingJobReasonsInfoResponse, error)
 	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
-	GetPendingJobReasons(context.Context, *PendingJobReasonsInfoGetPendingJobReasonsRequest) (*GetPendingJobReasonsResponse, error)
+	GetPendingJobReasons(context.Context, *GetPendingJobReasonsRequest) (*GetPendingJobReasonsResponse, error)
 	GetTimestampMillis(context.Context, *GetTimestampMillisRequest) (*GetTimestampMillisResponse, error)
 	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
 	mustEmbedUnimplementedPendingJobReasonsInfoServiceServer()
@@ -1747,7 +821,7 @@ func (UnimplementedPendingJobReasonsInfoServiceServer) NewPendingJobReasonsInfo(
 func (UnimplementedPendingJobReasonsInfoServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
 }
-func (UnimplementedPendingJobReasonsInfoServiceServer) GetPendingJobReasons(context.Context, *PendingJobReasonsInfoGetPendingJobReasonsRequest) (*GetPendingJobReasonsResponse, error) {
+func (UnimplementedPendingJobReasonsInfoServiceServer) GetPendingJobReasons(context.Context, *GetPendingJobReasonsRequest) (*GetPendingJobReasonsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetPendingJobReasons not implemented")
 }
 func (UnimplementedPendingJobReasonsInfoServiceServer) GetTimestampMillis(context.Context, *GetTimestampMillisRequest) (*GetTimestampMillisResponse, error) {
@@ -1815,7 +889,7 @@ func _PendingJobReasonsInfoService_DescribeContents_Handler(srv interface{}, ctx
 }
 
 func _PendingJobReasonsInfoService_GetPendingJobReasons_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(PendingJobReasonsInfoGetPendingJobReasonsRequest)
+	in := new(GetPendingJobReasonsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -1827,7 +901,7 @@ func _PendingJobReasonsInfoService_GetPendingJobReasons_Handler(srv interface{},
 		FullMethod: PendingJobReasonsInfoService_GetPendingJobReasons_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PendingJobReasonsInfoServiceServer).GetPendingJobReasons(ctx, req.(*PendingJobReasonsInfoGetPendingJobReasonsRequest))
+		return srv.(PendingJobReasonsInfoServiceServer).GetPendingJobReasons(ctx, req.(*GetPendingJobReasonsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -1901,379 +975,12 @@ var PendingJobReasonsInfoService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	ServiceEngineService_GetBinder_FullMethodName                     = "/job.ServiceEngineService/GetBinder"
-	ServiceEngineService_JobFinished_FullMethodName                   = "/job.ServiceEngineService/JobFinished"
-	ServiceEngineService_OnNetworkChanged_FullMethodName              = "/job.ServiceEngineService/OnNetworkChanged"
-	ServiceEngineService_OnStartJob_FullMethodName                    = "/job.ServiceEngineService/OnStartJob"
-	ServiceEngineService_OnStopJob_FullMethodName                     = "/job.ServiceEngineService/OnStopJob"
-	ServiceEngineService_SetNotification_FullMethodName               = "/job.ServiceEngineService/SetNotification"
-	ServiceEngineService_UpdateEstimatedNetworkBytes_FullMethodName   = "/job.ServiceEngineService/UpdateEstimatedNetworkBytes"
-	ServiceEngineService_UpdateTransferredNetworkBytes_FullMethodName = "/job.ServiceEngineService/UpdateTransferredNetworkBytes"
-)
-
-// ServiceEngineServiceClient is the client API for ServiceEngineService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type ServiceEngineServiceClient interface {
-	GetBinder(ctx context.Context, in *GetBinderRequest, opts ...grpc.CallOption) (*GetBinderResponse, error)
-	JobFinished(ctx context.Context, in *JobFinishedRequest, opts ...grpc.CallOption) (*JobFinishedResponse, error)
-	OnNetworkChanged(ctx context.Context, in *OnNetworkChangedRequest, opts ...grpc.CallOption) (*OnNetworkChangedResponse, error)
-	OnStartJob(ctx context.Context, in *OnStartJobRequest, opts ...grpc.CallOption) (*OnStartJobResponse, error)
-	OnStopJob(ctx context.Context, in *OnStopJobRequest, opts ...grpc.CallOption) (*OnStopJobResponse, error)
-	SetNotification(ctx context.Context, in *SetNotificationRequest, opts ...grpc.CallOption) (*SetNotificationResponse, error)
-	UpdateEstimatedNetworkBytes(ctx context.Context, in *UpdateEstimatedNetworkBytesRequest, opts ...grpc.CallOption) (*UpdateEstimatedNetworkBytesResponse, error)
-	UpdateTransferredNetworkBytes(ctx context.Context, in *UpdateTransferredNetworkBytesRequest, opts ...grpc.CallOption) (*UpdateTransferredNetworkBytesResponse, error)
-}
-
-type serviceEngineServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewServiceEngineServiceClient(cc grpc.ClientConnInterface) ServiceEngineServiceClient {
-	return &serviceEngineServiceClient{cc}
-}
-
-func (c *serviceEngineServiceClient) GetBinder(ctx context.Context, in *GetBinderRequest, opts ...grpc.CallOption) (*GetBinderResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetBinderResponse)
-	err := c.cc.Invoke(ctx, ServiceEngineService_GetBinder_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *serviceEngineServiceClient) JobFinished(ctx context.Context, in *JobFinishedRequest, opts ...grpc.CallOption) (*JobFinishedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(JobFinishedResponse)
-	err := c.cc.Invoke(ctx, ServiceEngineService_JobFinished_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *serviceEngineServiceClient) OnNetworkChanged(ctx context.Context, in *OnNetworkChangedRequest, opts ...grpc.CallOption) (*OnNetworkChangedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnNetworkChangedResponse)
-	err := c.cc.Invoke(ctx, ServiceEngineService_OnNetworkChanged_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *serviceEngineServiceClient) OnStartJob(ctx context.Context, in *OnStartJobRequest, opts ...grpc.CallOption) (*OnStartJobResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnStartJobResponse)
-	err := c.cc.Invoke(ctx, ServiceEngineService_OnStartJob_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *serviceEngineServiceClient) OnStopJob(ctx context.Context, in *OnStopJobRequest, opts ...grpc.CallOption) (*OnStopJobResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnStopJobResponse)
-	err := c.cc.Invoke(ctx, ServiceEngineService_OnStopJob_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *serviceEngineServiceClient) SetNotification(ctx context.Context, in *SetNotificationRequest, opts ...grpc.CallOption) (*SetNotificationResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetNotificationResponse)
-	err := c.cc.Invoke(ctx, ServiceEngineService_SetNotification_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *serviceEngineServiceClient) UpdateEstimatedNetworkBytes(ctx context.Context, in *UpdateEstimatedNetworkBytesRequest, opts ...grpc.CallOption) (*UpdateEstimatedNetworkBytesResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(UpdateEstimatedNetworkBytesResponse)
-	err := c.cc.Invoke(ctx, ServiceEngineService_UpdateEstimatedNetworkBytes_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *serviceEngineServiceClient) UpdateTransferredNetworkBytes(ctx context.Context, in *UpdateTransferredNetworkBytesRequest, opts ...grpc.CallOption) (*UpdateTransferredNetworkBytesResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(UpdateTransferredNetworkBytesResponse)
-	err := c.cc.Invoke(ctx, ServiceEngineService_UpdateTransferredNetworkBytes_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// ServiceEngineServiceServer is the server API for ServiceEngineService service.
-// All implementations must embed UnimplementedServiceEngineServiceServer
-// for forward compatibility.
-type ServiceEngineServiceServer interface {
-	GetBinder(context.Context, *GetBinderRequest) (*GetBinderResponse, error)
-	JobFinished(context.Context, *JobFinishedRequest) (*JobFinishedResponse, error)
-	OnNetworkChanged(context.Context, *OnNetworkChangedRequest) (*OnNetworkChangedResponse, error)
-	OnStartJob(context.Context, *OnStartJobRequest) (*OnStartJobResponse, error)
-	OnStopJob(context.Context, *OnStopJobRequest) (*OnStopJobResponse, error)
-	SetNotification(context.Context, *SetNotificationRequest) (*SetNotificationResponse, error)
-	UpdateEstimatedNetworkBytes(context.Context, *UpdateEstimatedNetworkBytesRequest) (*UpdateEstimatedNetworkBytesResponse, error)
-	UpdateTransferredNetworkBytes(context.Context, *UpdateTransferredNetworkBytesRequest) (*UpdateTransferredNetworkBytesResponse, error)
-	mustEmbedUnimplementedServiceEngineServiceServer()
-}
-
-// UnimplementedServiceEngineServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedServiceEngineServiceServer struct{}
-
-func (UnimplementedServiceEngineServiceServer) GetBinder(context.Context, *GetBinderRequest) (*GetBinderResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetBinder not implemented")
-}
-func (UnimplementedServiceEngineServiceServer) JobFinished(context.Context, *JobFinishedRequest) (*JobFinishedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method JobFinished not implemented")
-}
-func (UnimplementedServiceEngineServiceServer) OnNetworkChanged(context.Context, *OnNetworkChangedRequest) (*OnNetworkChangedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnNetworkChanged not implemented")
-}
-func (UnimplementedServiceEngineServiceServer) OnStartJob(context.Context, *OnStartJobRequest) (*OnStartJobResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnStartJob not implemented")
-}
-func (UnimplementedServiceEngineServiceServer) OnStopJob(context.Context, *OnStopJobRequest) (*OnStopJobResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnStopJob not implemented")
-}
-func (UnimplementedServiceEngineServiceServer) SetNotification(context.Context, *SetNotificationRequest) (*SetNotificationResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetNotification not implemented")
-}
-func (UnimplementedServiceEngineServiceServer) UpdateEstimatedNetworkBytes(context.Context, *UpdateEstimatedNetworkBytesRequest) (*UpdateEstimatedNetworkBytesResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method UpdateEstimatedNetworkBytes not implemented")
-}
-func (UnimplementedServiceEngineServiceServer) UpdateTransferredNetworkBytes(context.Context, *UpdateTransferredNetworkBytesRequest) (*UpdateTransferredNetworkBytesResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method UpdateTransferredNetworkBytes not implemented")
-}
-func (UnimplementedServiceEngineServiceServer) mustEmbedUnimplementedServiceEngineServiceServer() {}
-func (UnimplementedServiceEngineServiceServer) testEmbeddedByValue()                              {}
-
-// UnsafeServiceEngineServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to ServiceEngineServiceServer will
-// result in compilation errors.
-type UnsafeServiceEngineServiceServer interface {
-	mustEmbedUnimplementedServiceEngineServiceServer()
-}
-
-func RegisterServiceEngineServiceServer(s grpc.ServiceRegistrar, srv ServiceEngineServiceServer) {
-	// If the following call panics, it indicates UnimplementedServiceEngineServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&ServiceEngineService_ServiceDesc, srv)
-}
-
-func _ServiceEngineService_GetBinder_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetBinderRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ServiceEngineServiceServer).GetBinder(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ServiceEngineService_GetBinder_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ServiceEngineServiceServer).GetBinder(ctx, req.(*GetBinderRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ServiceEngineService_JobFinished_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(JobFinishedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ServiceEngineServiceServer).JobFinished(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ServiceEngineService_JobFinished_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ServiceEngineServiceServer).JobFinished(ctx, req.(*JobFinishedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ServiceEngineService_OnNetworkChanged_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnNetworkChangedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ServiceEngineServiceServer).OnNetworkChanged(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ServiceEngineService_OnNetworkChanged_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ServiceEngineServiceServer).OnNetworkChanged(ctx, req.(*OnNetworkChangedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ServiceEngineService_OnStartJob_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnStartJobRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ServiceEngineServiceServer).OnStartJob(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ServiceEngineService_OnStartJob_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ServiceEngineServiceServer).OnStartJob(ctx, req.(*OnStartJobRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ServiceEngineService_OnStopJob_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnStopJobRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ServiceEngineServiceServer).OnStopJob(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ServiceEngineService_OnStopJob_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ServiceEngineServiceServer).OnStopJob(ctx, req.(*OnStopJobRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ServiceEngineService_SetNotification_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetNotificationRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ServiceEngineServiceServer).SetNotification(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ServiceEngineService_SetNotification_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ServiceEngineServiceServer).SetNotification(ctx, req.(*SetNotificationRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ServiceEngineService_UpdateEstimatedNetworkBytes_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UpdateEstimatedNetworkBytesRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ServiceEngineServiceServer).UpdateEstimatedNetworkBytes(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ServiceEngineService_UpdateEstimatedNetworkBytes_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ServiceEngineServiceServer).UpdateEstimatedNetworkBytes(ctx, req.(*UpdateEstimatedNetworkBytesRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ServiceEngineService_UpdateTransferredNetworkBytes_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UpdateTransferredNetworkBytesRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ServiceEngineServiceServer).UpdateTransferredNetworkBytes(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ServiceEngineService_UpdateTransferredNetworkBytes_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ServiceEngineServiceServer).UpdateTransferredNetworkBytes(ctx, req.(*UpdateTransferredNetworkBytesRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// ServiceEngineService_ServiceDesc is the grpc.ServiceDesc for ServiceEngineService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var ServiceEngineService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "job.ServiceEngineService",
-	HandlerType: (*ServiceEngineServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "GetBinder",
-			Handler:    _ServiceEngineService_GetBinder_Handler,
-		},
-		{
-			MethodName: "JobFinished",
-			Handler:    _ServiceEngineService_JobFinished_Handler,
-		},
-		{
-			MethodName: "OnNetworkChanged",
-			Handler:    _ServiceEngineService_OnNetworkChanged_Handler,
-		},
-		{
-			MethodName: "OnStartJob",
-			Handler:    _ServiceEngineService_OnStartJob_Handler,
-		},
-		{
-			MethodName: "OnStopJob",
-			Handler:    _ServiceEngineService_OnStopJob_Handler,
-		},
-		{
-			MethodName: "SetNotification",
-			Handler:    _ServiceEngineService_SetNotification_Handler,
-		},
-		{
-			MethodName: "UpdateEstimatedNetworkBytes",
-			Handler:    _ServiceEngineService_UpdateEstimatedNetworkBytes_Handler,
-		},
-		{
-			MethodName: "UpdateTransferredNetworkBytes",
-			Handler:    _ServiceEngineService_UpdateTransferredNetworkBytes_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/job/job.proto",
-}
-
-const (
 	InfoService_DescribeContents_FullMethodName                 = "/job.InfoService/DescribeContents"
 	InfoService_Equals_FullMethodName                           = "/job.InfoService/Equals"
 	InfoService_GetBackoffPolicy_FullMethodName                 = "/job.InfoService/GetBackoffPolicy"
 	InfoService_GetClipData_FullMethodName                      = "/job.InfoService/GetClipData"
 	InfoService_GetClipGrantFlags_FullMethodName                = "/job.InfoService/GetClipGrantFlags"
+	InfoService_GetDebugTags_FullMethodName                     = "/job.InfoService/GetDebugTags"
 	InfoService_GetEstimatedNetworkDownloadBytes_FullMethodName = "/job.InfoService/GetEstimatedNetworkDownloadBytes"
 	InfoService_GetEstimatedNetworkUploadBytes_FullMethodName   = "/job.InfoService/GetEstimatedNetworkUploadBytes"
 	InfoService_GetExtras_FullMethodName                        = "/job.InfoService/GetExtras"
@@ -2319,6 +1026,7 @@ type InfoServiceClient interface {
 	GetBackoffPolicy(ctx context.Context, in *GetBackoffPolicyRequest, opts ...grpc.CallOption) (*GetBackoffPolicyResponse, error)
 	GetClipData(ctx context.Context, in *GetClipDataRequest, opts ...grpc.CallOption) (*GetClipDataResponse, error)
 	GetClipGrantFlags(ctx context.Context, in *GetClipGrantFlagsRequest, opts ...grpc.CallOption) (*GetClipGrantFlagsResponse, error)
+	GetDebugTags(ctx context.Context, in *GetDebugTagsRequest, opts ...grpc.CallOption) (*GetDebugTagsResponse, error)
 	GetEstimatedNetworkDownloadBytes(ctx context.Context, in *InfoGetEstimatedNetworkDownloadBytesRequest, opts ...grpc.CallOption) (*GetEstimatedNetworkDownloadBytesResponse, error)
 	GetEstimatedNetworkUploadBytes(ctx context.Context, in *InfoGetEstimatedNetworkUploadBytesRequest, opts ...grpc.CallOption) (*GetEstimatedNetworkUploadBytesResponse, error)
 	GetExtras(ctx context.Context, in *InfoGetExtrasRequest, opts ...grpc.CallOption) (*GetExtrasResponse, error)
@@ -2407,6 +1115,16 @@ func (c *infoServiceClient) GetClipGrantFlags(ctx context.Context, in *GetClipGr
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetClipGrantFlagsResponse)
 	err := c.cc.Invoke(ctx, InfoService_GetClipGrantFlags_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *infoServiceClient) GetDebugTags(ctx context.Context, in *GetDebugTagsRequest, opts ...grpc.CallOption) (*GetDebugTagsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetDebugTagsResponse)
+	err := c.cc.Invoke(ctx, InfoService_GetDebugTags_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -2762,6 +1480,7 @@ type InfoServiceServer interface {
 	GetBackoffPolicy(context.Context, *GetBackoffPolicyRequest) (*GetBackoffPolicyResponse, error)
 	GetClipData(context.Context, *GetClipDataRequest) (*GetClipDataResponse, error)
 	GetClipGrantFlags(context.Context, *GetClipGrantFlagsRequest) (*GetClipGrantFlagsResponse, error)
+	GetDebugTags(context.Context, *GetDebugTagsRequest) (*GetDebugTagsResponse, error)
 	GetEstimatedNetworkDownloadBytes(context.Context, *InfoGetEstimatedNetworkDownloadBytesRequest) (*GetEstimatedNetworkDownloadBytesResponse, error)
 	GetEstimatedNetworkUploadBytes(context.Context, *InfoGetEstimatedNetworkUploadBytesRequest) (*GetEstimatedNetworkUploadBytesResponse, error)
 	GetExtras(context.Context, *InfoGetExtrasRequest) (*GetExtrasResponse, error)
@@ -2820,6 +1539,9 @@ func (UnimplementedInfoServiceServer) GetClipData(context.Context, *GetClipDataR
 }
 func (UnimplementedInfoServiceServer) GetClipGrantFlags(context.Context, *GetClipGrantFlagsRequest) (*GetClipGrantFlagsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetClipGrantFlags not implemented")
+}
+func (UnimplementedInfoServiceServer) GetDebugTags(context.Context, *GetDebugTagsRequest) (*GetDebugTagsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetDebugTags not implemented")
 }
 func (UnimplementedInfoServiceServer) GetEstimatedNetworkDownloadBytes(context.Context, *InfoGetEstimatedNetworkDownloadBytesRequest) (*GetEstimatedNetworkDownloadBytesResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetEstimatedNetworkDownloadBytes not implemented")
@@ -3030,6 +1752,24 @@ func _InfoService_GetClipGrantFlags_Handler(srv interface{}, ctx context.Context
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(InfoServiceServer).GetClipGrantFlags(ctx, req.(*GetClipGrantFlagsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InfoService_GetDebugTags_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetDebugTagsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InfoServiceServer).GetDebugTags(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InfoService_GetDebugTags_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InfoServiceServer).GetDebugTags(ctx, req.(*GetDebugTagsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -3672,6 +2412,10 @@ var InfoService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetClipGrantFlags",
 			Handler:    _InfoService_GetClipGrantFlags_Handler,
+		},
+		{
+			MethodName: "GetDebugTags",
+			Handler:    _InfoService_GetDebugTags_Handler,
 		},
 		{
 			MethodName: "GetEstimatedNetworkDownloadBytes",
@@ -5274,6 +4018,1008 @@ var InfoTriggerContentUriService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
+	ServiceService_JobFinished_FullMethodName                      = "/job.ServiceService/JobFinished"
+	ServiceService_OnBind_FullMethodName                           = "/job.ServiceService/OnBind"
+	ServiceService_OnNetworkChanged_FullMethodName                 = "/job.ServiceService/OnNetworkChanged"
+	ServiceService_OnStartJob_FullMethodName                       = "/job.ServiceService/OnStartJob"
+	ServiceService_OnStopJob_FullMethodName                        = "/job.ServiceService/OnStopJob"
+	ServiceService_SetNotification_FullMethodName                  = "/job.ServiceService/SetNotification"
+	ServiceService_UpdateEstimatedNetworkBytes4_FullMethodName     = "/job.ServiceService/UpdateEstimatedNetworkBytes4"
+	ServiceService_UpdateEstimatedNetworkBytes3_1_FullMethodName   = "/job.ServiceService/UpdateEstimatedNetworkBytes3_1"
+	ServiceService_UpdateTransferredNetworkBytes4_FullMethodName   = "/job.ServiceService/UpdateTransferredNetworkBytes4"
+	ServiceService_UpdateTransferredNetworkBytes3_1_FullMethodName = "/job.ServiceService/UpdateTransferredNetworkBytes3_1"
+)
+
+// ServiceServiceClient is the client API for ServiceService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ServiceServiceClient interface {
+	JobFinished(ctx context.Context, in *JobFinishedRequest, opts ...grpc.CallOption) (*JobFinishedResponse, error)
+	OnBind(ctx context.Context, in *OnBindRequest, opts ...grpc.CallOption) (*OnBindResponse, error)
+	OnNetworkChanged(ctx context.Context, in *OnNetworkChangedRequest, opts ...grpc.CallOption) (*OnNetworkChangedResponse, error)
+	OnStartJob(ctx context.Context, in *OnStartJobRequest, opts ...grpc.CallOption) (*OnStartJobResponse, error)
+	OnStopJob(ctx context.Context, in *OnStopJobRequest, opts ...grpc.CallOption) (*OnStopJobResponse, error)
+	SetNotification(ctx context.Context, in *SetNotificationRequest, opts ...grpc.CallOption) (*SetNotificationResponse, error)
+	UpdateEstimatedNetworkBytes4(ctx context.Context, in *UpdateEstimatedNetworkBytes4Request, opts ...grpc.CallOption) (*UpdateEstimatedNetworkBytes4Response, error)
+	UpdateEstimatedNetworkBytes3_1(ctx context.Context, in *UpdateEstimatedNetworkBytes3_1Request, opts ...grpc.CallOption) (*UpdateEstimatedNetworkBytes3_1Response, error)
+	UpdateTransferredNetworkBytes4(ctx context.Context, in *UpdateTransferredNetworkBytes4Request, opts ...grpc.CallOption) (*UpdateTransferredNetworkBytes4Response, error)
+	UpdateTransferredNetworkBytes3_1(ctx context.Context, in *UpdateTransferredNetworkBytes3_1Request, opts ...grpc.CallOption) (*UpdateTransferredNetworkBytes3_1Response, error)
+}
+
+type serviceServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewServiceServiceClient(cc grpc.ClientConnInterface) ServiceServiceClient {
+	return &serviceServiceClient{cc}
+}
+
+func (c *serviceServiceClient) JobFinished(ctx context.Context, in *JobFinishedRequest, opts ...grpc.CallOption) (*JobFinishedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(JobFinishedResponse)
+	err := c.cc.Invoke(ctx, ServiceService_JobFinished_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceServiceClient) OnBind(ctx context.Context, in *OnBindRequest, opts ...grpc.CallOption) (*OnBindResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnBindResponse)
+	err := c.cc.Invoke(ctx, ServiceService_OnBind_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceServiceClient) OnNetworkChanged(ctx context.Context, in *OnNetworkChangedRequest, opts ...grpc.CallOption) (*OnNetworkChangedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnNetworkChangedResponse)
+	err := c.cc.Invoke(ctx, ServiceService_OnNetworkChanged_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceServiceClient) OnStartJob(ctx context.Context, in *OnStartJobRequest, opts ...grpc.CallOption) (*OnStartJobResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnStartJobResponse)
+	err := c.cc.Invoke(ctx, ServiceService_OnStartJob_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceServiceClient) OnStopJob(ctx context.Context, in *OnStopJobRequest, opts ...grpc.CallOption) (*OnStopJobResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnStopJobResponse)
+	err := c.cc.Invoke(ctx, ServiceService_OnStopJob_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceServiceClient) SetNotification(ctx context.Context, in *SetNotificationRequest, opts ...grpc.CallOption) (*SetNotificationResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetNotificationResponse)
+	err := c.cc.Invoke(ctx, ServiceService_SetNotification_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceServiceClient) UpdateEstimatedNetworkBytes4(ctx context.Context, in *UpdateEstimatedNetworkBytes4Request, opts ...grpc.CallOption) (*UpdateEstimatedNetworkBytes4Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(UpdateEstimatedNetworkBytes4Response)
+	err := c.cc.Invoke(ctx, ServiceService_UpdateEstimatedNetworkBytes4_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceServiceClient) UpdateEstimatedNetworkBytes3_1(ctx context.Context, in *UpdateEstimatedNetworkBytes3_1Request, opts ...grpc.CallOption) (*UpdateEstimatedNetworkBytes3_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(UpdateEstimatedNetworkBytes3_1Response)
+	err := c.cc.Invoke(ctx, ServiceService_UpdateEstimatedNetworkBytes3_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceServiceClient) UpdateTransferredNetworkBytes4(ctx context.Context, in *UpdateTransferredNetworkBytes4Request, opts ...grpc.CallOption) (*UpdateTransferredNetworkBytes4Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(UpdateTransferredNetworkBytes4Response)
+	err := c.cc.Invoke(ctx, ServiceService_UpdateTransferredNetworkBytes4_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceServiceClient) UpdateTransferredNetworkBytes3_1(ctx context.Context, in *UpdateTransferredNetworkBytes3_1Request, opts ...grpc.CallOption) (*UpdateTransferredNetworkBytes3_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(UpdateTransferredNetworkBytes3_1Response)
+	err := c.cc.Invoke(ctx, ServiceService_UpdateTransferredNetworkBytes3_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ServiceServiceServer is the server API for ServiceService service.
+// All implementations must embed UnimplementedServiceServiceServer
+// for forward compatibility.
+type ServiceServiceServer interface {
+	JobFinished(context.Context, *JobFinishedRequest) (*JobFinishedResponse, error)
+	OnBind(context.Context, *OnBindRequest) (*OnBindResponse, error)
+	OnNetworkChanged(context.Context, *OnNetworkChangedRequest) (*OnNetworkChangedResponse, error)
+	OnStartJob(context.Context, *OnStartJobRequest) (*OnStartJobResponse, error)
+	OnStopJob(context.Context, *OnStopJobRequest) (*OnStopJobResponse, error)
+	SetNotification(context.Context, *SetNotificationRequest) (*SetNotificationResponse, error)
+	UpdateEstimatedNetworkBytes4(context.Context, *UpdateEstimatedNetworkBytes4Request) (*UpdateEstimatedNetworkBytes4Response, error)
+	UpdateEstimatedNetworkBytes3_1(context.Context, *UpdateEstimatedNetworkBytes3_1Request) (*UpdateEstimatedNetworkBytes3_1Response, error)
+	UpdateTransferredNetworkBytes4(context.Context, *UpdateTransferredNetworkBytes4Request) (*UpdateTransferredNetworkBytes4Response, error)
+	UpdateTransferredNetworkBytes3_1(context.Context, *UpdateTransferredNetworkBytes3_1Request) (*UpdateTransferredNetworkBytes3_1Response, error)
+	mustEmbedUnimplementedServiceServiceServer()
+}
+
+// UnimplementedServiceServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedServiceServiceServer struct{}
+
+func (UnimplementedServiceServiceServer) JobFinished(context.Context, *JobFinishedRequest) (*JobFinishedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method JobFinished not implemented")
+}
+func (UnimplementedServiceServiceServer) OnBind(context.Context, *OnBindRequest) (*OnBindResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnBind not implemented")
+}
+func (UnimplementedServiceServiceServer) OnNetworkChanged(context.Context, *OnNetworkChangedRequest) (*OnNetworkChangedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnNetworkChanged not implemented")
+}
+func (UnimplementedServiceServiceServer) OnStartJob(context.Context, *OnStartJobRequest) (*OnStartJobResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnStartJob not implemented")
+}
+func (UnimplementedServiceServiceServer) OnStopJob(context.Context, *OnStopJobRequest) (*OnStopJobResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnStopJob not implemented")
+}
+func (UnimplementedServiceServiceServer) SetNotification(context.Context, *SetNotificationRequest) (*SetNotificationResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetNotification not implemented")
+}
+func (UnimplementedServiceServiceServer) UpdateEstimatedNetworkBytes4(context.Context, *UpdateEstimatedNetworkBytes4Request) (*UpdateEstimatedNetworkBytes4Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method UpdateEstimatedNetworkBytes4 not implemented")
+}
+func (UnimplementedServiceServiceServer) UpdateEstimatedNetworkBytes3_1(context.Context, *UpdateEstimatedNetworkBytes3_1Request) (*UpdateEstimatedNetworkBytes3_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method UpdateEstimatedNetworkBytes3_1 not implemented")
+}
+func (UnimplementedServiceServiceServer) UpdateTransferredNetworkBytes4(context.Context, *UpdateTransferredNetworkBytes4Request) (*UpdateTransferredNetworkBytes4Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method UpdateTransferredNetworkBytes4 not implemented")
+}
+func (UnimplementedServiceServiceServer) UpdateTransferredNetworkBytes3_1(context.Context, *UpdateTransferredNetworkBytes3_1Request) (*UpdateTransferredNetworkBytes3_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method UpdateTransferredNetworkBytes3_1 not implemented")
+}
+func (UnimplementedServiceServiceServer) mustEmbedUnimplementedServiceServiceServer() {}
+func (UnimplementedServiceServiceServer) testEmbeddedByValue()                        {}
+
+// UnsafeServiceServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ServiceServiceServer will
+// result in compilation errors.
+type UnsafeServiceServiceServer interface {
+	mustEmbedUnimplementedServiceServiceServer()
+}
+
+func RegisterServiceServiceServer(s grpc.ServiceRegistrar, srv ServiceServiceServer) {
+	// If the following call panics, it indicates UnimplementedServiceServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&ServiceService_ServiceDesc, srv)
+}
+
+func _ServiceService_JobFinished_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(JobFinishedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceServiceServer).JobFinished(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ServiceService_JobFinished_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceServiceServer).JobFinished(ctx, req.(*JobFinishedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ServiceService_OnBind_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnBindRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceServiceServer).OnBind(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ServiceService_OnBind_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceServiceServer).OnBind(ctx, req.(*OnBindRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ServiceService_OnNetworkChanged_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnNetworkChangedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceServiceServer).OnNetworkChanged(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ServiceService_OnNetworkChanged_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceServiceServer).OnNetworkChanged(ctx, req.(*OnNetworkChangedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ServiceService_OnStartJob_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnStartJobRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceServiceServer).OnStartJob(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ServiceService_OnStartJob_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceServiceServer).OnStartJob(ctx, req.(*OnStartJobRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ServiceService_OnStopJob_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnStopJobRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceServiceServer).OnStopJob(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ServiceService_OnStopJob_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceServiceServer).OnStopJob(ctx, req.(*OnStopJobRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ServiceService_SetNotification_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetNotificationRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceServiceServer).SetNotification(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ServiceService_SetNotification_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceServiceServer).SetNotification(ctx, req.(*SetNotificationRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ServiceService_UpdateEstimatedNetworkBytes4_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateEstimatedNetworkBytes4Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceServiceServer).UpdateEstimatedNetworkBytes4(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ServiceService_UpdateEstimatedNetworkBytes4_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceServiceServer).UpdateEstimatedNetworkBytes4(ctx, req.(*UpdateEstimatedNetworkBytes4Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ServiceService_UpdateEstimatedNetworkBytes3_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateEstimatedNetworkBytes3_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceServiceServer).UpdateEstimatedNetworkBytes3_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ServiceService_UpdateEstimatedNetworkBytes3_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceServiceServer).UpdateEstimatedNetworkBytes3_1(ctx, req.(*UpdateEstimatedNetworkBytes3_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ServiceService_UpdateTransferredNetworkBytes4_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateTransferredNetworkBytes4Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceServiceServer).UpdateTransferredNetworkBytes4(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ServiceService_UpdateTransferredNetworkBytes4_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceServiceServer).UpdateTransferredNetworkBytes4(ctx, req.(*UpdateTransferredNetworkBytes4Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ServiceService_UpdateTransferredNetworkBytes3_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateTransferredNetworkBytes3_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceServiceServer).UpdateTransferredNetworkBytes3_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ServiceService_UpdateTransferredNetworkBytes3_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceServiceServer).UpdateTransferredNetworkBytes3_1(ctx, req.(*UpdateTransferredNetworkBytes3_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ServiceService_ServiceDesc is the grpc.ServiceDesc for ServiceService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ServiceService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "job.ServiceService",
+	HandlerType: (*ServiceServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "JobFinished",
+			Handler:    _ServiceService_JobFinished_Handler,
+		},
+		{
+			MethodName: "OnBind",
+			Handler:    _ServiceService_OnBind_Handler,
+		},
+		{
+			MethodName: "OnNetworkChanged",
+			Handler:    _ServiceService_OnNetworkChanged_Handler,
+		},
+		{
+			MethodName: "OnStartJob",
+			Handler:    _ServiceService_OnStartJob_Handler,
+		},
+		{
+			MethodName: "OnStopJob",
+			Handler:    _ServiceService_OnStopJob_Handler,
+		},
+		{
+			MethodName: "SetNotification",
+			Handler:    _ServiceService_SetNotification_Handler,
+		},
+		{
+			MethodName: "UpdateEstimatedNetworkBytes4",
+			Handler:    _ServiceService_UpdateEstimatedNetworkBytes4_Handler,
+		},
+		{
+			MethodName: "UpdateEstimatedNetworkBytes3_1",
+			Handler:    _ServiceService_UpdateEstimatedNetworkBytes3_1_Handler,
+		},
+		{
+			MethodName: "UpdateTransferredNetworkBytes4",
+			Handler:    _ServiceService_UpdateTransferredNetworkBytes4_Handler,
+		},
+		{
+			MethodName: "UpdateTransferredNetworkBytes3_1",
+			Handler:    _ServiceService_UpdateTransferredNetworkBytes3_1_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/job/job.proto",
+}
+
+const (
+	SchedulerService_CanRunUserInitiatedJobs_FullMethodName     = "/job.SchedulerService/CanRunUserInitiatedJobs"
+	SchedulerService_Cancel_FullMethodName                      = "/job.SchedulerService/Cancel"
+	SchedulerService_CancelAll_FullMethodName                   = "/job.SchedulerService/CancelAll"
+	SchedulerService_CancelInAllNamespaces_FullMethodName       = "/job.SchedulerService/CancelInAllNamespaces"
+	SchedulerService_Enqueue_FullMethodName                     = "/job.SchedulerService/Enqueue"
+	SchedulerService_ForNamespace_FullMethodName                = "/job.SchedulerService/ForNamespace"
+	SchedulerService_GetAllPendingJobs_FullMethodName           = "/job.SchedulerService/GetAllPendingJobs"
+	SchedulerService_GetNamespace_FullMethodName                = "/job.SchedulerService/GetNamespace"
+	SchedulerService_GetPendingJob_FullMethodName               = "/job.SchedulerService/GetPendingJob"
+	SchedulerService_GetPendingJobReason_FullMethodName         = "/job.SchedulerService/GetPendingJobReason"
+	SchedulerService_GetPendingJobReasons_FullMethodName        = "/job.SchedulerService/GetPendingJobReasons"
+	SchedulerService_GetPendingJobReasonsHistory_FullMethodName = "/job.SchedulerService/GetPendingJobReasonsHistory"
+	SchedulerService_Schedule_FullMethodName                    = "/job.SchedulerService/Schedule"
+)
+
+// SchedulerServiceClient is the client API for SchedulerService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type SchedulerServiceClient interface {
+	CanRunUserInitiatedJobs(ctx context.Context, in *CanRunUserInitiatedJobsRequest, opts ...grpc.CallOption) (*CanRunUserInitiatedJobsResponse, error)
+	Cancel(ctx context.Context, in *CancelRequest, opts ...grpc.CallOption) (*CancelResponse, error)
+	CancelAll(ctx context.Context, in *CancelAllRequest, opts ...grpc.CallOption) (*CancelAllResponse, error)
+	CancelInAllNamespaces(ctx context.Context, in *CancelInAllNamespacesRequest, opts ...grpc.CallOption) (*CancelInAllNamespacesResponse, error)
+	Enqueue(ctx context.Context, in *EnqueueRequest, opts ...grpc.CallOption) (*EnqueueResponse, error)
+	ForNamespace(ctx context.Context, in *ForNamespaceRequest, opts ...grpc.CallOption) (*ForNamespaceResponse, error)
+	GetAllPendingJobs(ctx context.Context, in *GetAllPendingJobsRequest, opts ...grpc.CallOption) (*GetAllPendingJobsResponse, error)
+	GetNamespace(ctx context.Context, in *GetNamespaceRequest, opts ...grpc.CallOption) (*GetNamespaceResponse, error)
+	GetPendingJob(ctx context.Context, in *GetPendingJobRequest, opts ...grpc.CallOption) (*GetPendingJobResponse, error)
+	GetPendingJobReason(ctx context.Context, in *GetPendingJobReasonRequest, opts ...grpc.CallOption) (*GetPendingJobReasonResponse, error)
+	GetPendingJobReasons(ctx context.Context, in *SchedulerGetPendingJobReasonsRequest, opts ...grpc.CallOption) (*GetPendingJobReasonsResponse, error)
+	GetPendingJobReasonsHistory(ctx context.Context, in *GetPendingJobReasonsHistoryRequest, opts ...grpc.CallOption) (*GetPendingJobReasonsHistoryResponse, error)
+	Schedule(ctx context.Context, in *ScheduleRequest, opts ...grpc.CallOption) (*ScheduleResponse, error)
+}
+
+type schedulerServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewSchedulerServiceClient(cc grpc.ClientConnInterface) SchedulerServiceClient {
+	return &schedulerServiceClient{cc}
+}
+
+func (c *schedulerServiceClient) CanRunUserInitiatedJobs(ctx context.Context, in *CanRunUserInitiatedJobsRequest, opts ...grpc.CallOption) (*CanRunUserInitiatedJobsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CanRunUserInitiatedJobsResponse)
+	err := c.cc.Invoke(ctx, SchedulerService_CanRunUserInitiatedJobs_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *schedulerServiceClient) Cancel(ctx context.Context, in *CancelRequest, opts ...grpc.CallOption) (*CancelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CancelResponse)
+	err := c.cc.Invoke(ctx, SchedulerService_Cancel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *schedulerServiceClient) CancelAll(ctx context.Context, in *CancelAllRequest, opts ...grpc.CallOption) (*CancelAllResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CancelAllResponse)
+	err := c.cc.Invoke(ctx, SchedulerService_CancelAll_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *schedulerServiceClient) CancelInAllNamespaces(ctx context.Context, in *CancelInAllNamespacesRequest, opts ...grpc.CallOption) (*CancelInAllNamespacesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CancelInAllNamespacesResponse)
+	err := c.cc.Invoke(ctx, SchedulerService_CancelInAllNamespaces_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *schedulerServiceClient) Enqueue(ctx context.Context, in *EnqueueRequest, opts ...grpc.CallOption) (*EnqueueResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(EnqueueResponse)
+	err := c.cc.Invoke(ctx, SchedulerService_Enqueue_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *schedulerServiceClient) ForNamespace(ctx context.Context, in *ForNamespaceRequest, opts ...grpc.CallOption) (*ForNamespaceResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ForNamespaceResponse)
+	err := c.cc.Invoke(ctx, SchedulerService_ForNamespace_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *schedulerServiceClient) GetAllPendingJobs(ctx context.Context, in *GetAllPendingJobsRequest, opts ...grpc.CallOption) (*GetAllPendingJobsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetAllPendingJobsResponse)
+	err := c.cc.Invoke(ctx, SchedulerService_GetAllPendingJobs_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *schedulerServiceClient) GetNamespace(ctx context.Context, in *GetNamespaceRequest, opts ...grpc.CallOption) (*GetNamespaceResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetNamespaceResponse)
+	err := c.cc.Invoke(ctx, SchedulerService_GetNamespace_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *schedulerServiceClient) GetPendingJob(ctx context.Context, in *GetPendingJobRequest, opts ...grpc.CallOption) (*GetPendingJobResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetPendingJobResponse)
+	err := c.cc.Invoke(ctx, SchedulerService_GetPendingJob_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *schedulerServiceClient) GetPendingJobReason(ctx context.Context, in *GetPendingJobReasonRequest, opts ...grpc.CallOption) (*GetPendingJobReasonResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetPendingJobReasonResponse)
+	err := c.cc.Invoke(ctx, SchedulerService_GetPendingJobReason_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *schedulerServiceClient) GetPendingJobReasons(ctx context.Context, in *SchedulerGetPendingJobReasonsRequest, opts ...grpc.CallOption) (*GetPendingJobReasonsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetPendingJobReasonsResponse)
+	err := c.cc.Invoke(ctx, SchedulerService_GetPendingJobReasons_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *schedulerServiceClient) GetPendingJobReasonsHistory(ctx context.Context, in *GetPendingJobReasonsHistoryRequest, opts ...grpc.CallOption) (*GetPendingJobReasonsHistoryResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetPendingJobReasonsHistoryResponse)
+	err := c.cc.Invoke(ctx, SchedulerService_GetPendingJobReasonsHistory_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *schedulerServiceClient) Schedule(ctx context.Context, in *ScheduleRequest, opts ...grpc.CallOption) (*ScheduleResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ScheduleResponse)
+	err := c.cc.Invoke(ctx, SchedulerService_Schedule_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// SchedulerServiceServer is the server API for SchedulerService service.
+// All implementations must embed UnimplementedSchedulerServiceServer
+// for forward compatibility.
+type SchedulerServiceServer interface {
+	CanRunUserInitiatedJobs(context.Context, *CanRunUserInitiatedJobsRequest) (*CanRunUserInitiatedJobsResponse, error)
+	Cancel(context.Context, *CancelRequest) (*CancelResponse, error)
+	CancelAll(context.Context, *CancelAllRequest) (*CancelAllResponse, error)
+	CancelInAllNamespaces(context.Context, *CancelInAllNamespacesRequest) (*CancelInAllNamespacesResponse, error)
+	Enqueue(context.Context, *EnqueueRequest) (*EnqueueResponse, error)
+	ForNamespace(context.Context, *ForNamespaceRequest) (*ForNamespaceResponse, error)
+	GetAllPendingJobs(context.Context, *GetAllPendingJobsRequest) (*GetAllPendingJobsResponse, error)
+	GetNamespace(context.Context, *GetNamespaceRequest) (*GetNamespaceResponse, error)
+	GetPendingJob(context.Context, *GetPendingJobRequest) (*GetPendingJobResponse, error)
+	GetPendingJobReason(context.Context, *GetPendingJobReasonRequest) (*GetPendingJobReasonResponse, error)
+	GetPendingJobReasons(context.Context, *SchedulerGetPendingJobReasonsRequest) (*GetPendingJobReasonsResponse, error)
+	GetPendingJobReasonsHistory(context.Context, *GetPendingJobReasonsHistoryRequest) (*GetPendingJobReasonsHistoryResponse, error)
+	Schedule(context.Context, *ScheduleRequest) (*ScheduleResponse, error)
+	mustEmbedUnimplementedSchedulerServiceServer()
+}
+
+// UnimplementedSchedulerServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedSchedulerServiceServer struct{}
+
+func (UnimplementedSchedulerServiceServer) CanRunUserInitiatedJobs(context.Context, *CanRunUserInitiatedJobsRequest) (*CanRunUserInitiatedJobsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method CanRunUserInitiatedJobs not implemented")
+}
+func (UnimplementedSchedulerServiceServer) Cancel(context.Context, *CancelRequest) (*CancelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Cancel not implemented")
+}
+func (UnimplementedSchedulerServiceServer) CancelAll(context.Context, *CancelAllRequest) (*CancelAllResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method CancelAll not implemented")
+}
+func (UnimplementedSchedulerServiceServer) CancelInAllNamespaces(context.Context, *CancelInAllNamespacesRequest) (*CancelInAllNamespacesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method CancelInAllNamespaces not implemented")
+}
+func (UnimplementedSchedulerServiceServer) Enqueue(context.Context, *EnqueueRequest) (*EnqueueResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Enqueue not implemented")
+}
+func (UnimplementedSchedulerServiceServer) ForNamespace(context.Context, *ForNamespaceRequest) (*ForNamespaceResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ForNamespace not implemented")
+}
+func (UnimplementedSchedulerServiceServer) GetAllPendingJobs(context.Context, *GetAllPendingJobsRequest) (*GetAllPendingJobsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetAllPendingJobs not implemented")
+}
+func (UnimplementedSchedulerServiceServer) GetNamespace(context.Context, *GetNamespaceRequest) (*GetNamespaceResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetNamespace not implemented")
+}
+func (UnimplementedSchedulerServiceServer) GetPendingJob(context.Context, *GetPendingJobRequest) (*GetPendingJobResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetPendingJob not implemented")
+}
+func (UnimplementedSchedulerServiceServer) GetPendingJobReason(context.Context, *GetPendingJobReasonRequest) (*GetPendingJobReasonResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetPendingJobReason not implemented")
+}
+func (UnimplementedSchedulerServiceServer) GetPendingJobReasons(context.Context, *SchedulerGetPendingJobReasonsRequest) (*GetPendingJobReasonsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetPendingJobReasons not implemented")
+}
+func (UnimplementedSchedulerServiceServer) GetPendingJobReasonsHistory(context.Context, *GetPendingJobReasonsHistoryRequest) (*GetPendingJobReasonsHistoryResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetPendingJobReasonsHistory not implemented")
+}
+func (UnimplementedSchedulerServiceServer) Schedule(context.Context, *ScheduleRequest) (*ScheduleResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Schedule not implemented")
+}
+func (UnimplementedSchedulerServiceServer) mustEmbedUnimplementedSchedulerServiceServer() {}
+func (UnimplementedSchedulerServiceServer) testEmbeddedByValue()                          {}
+
+// UnsafeSchedulerServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to SchedulerServiceServer will
+// result in compilation errors.
+type UnsafeSchedulerServiceServer interface {
+	mustEmbedUnimplementedSchedulerServiceServer()
+}
+
+func RegisterSchedulerServiceServer(s grpc.ServiceRegistrar, srv SchedulerServiceServer) {
+	// If the following call panics, it indicates UnimplementedSchedulerServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&SchedulerService_ServiceDesc, srv)
+}
+
+func _SchedulerService_CanRunUserInitiatedJobs_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CanRunUserInitiatedJobsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SchedulerServiceServer).CanRunUserInitiatedJobs(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SchedulerService_CanRunUserInitiatedJobs_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SchedulerServiceServer).CanRunUserInitiatedJobs(ctx, req.(*CanRunUserInitiatedJobsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SchedulerService_Cancel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CancelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SchedulerServiceServer).Cancel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SchedulerService_Cancel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SchedulerServiceServer).Cancel(ctx, req.(*CancelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SchedulerService_CancelAll_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CancelAllRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SchedulerServiceServer).CancelAll(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SchedulerService_CancelAll_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SchedulerServiceServer).CancelAll(ctx, req.(*CancelAllRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SchedulerService_CancelInAllNamespaces_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CancelInAllNamespacesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SchedulerServiceServer).CancelInAllNamespaces(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SchedulerService_CancelInAllNamespaces_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SchedulerServiceServer).CancelInAllNamespaces(ctx, req.(*CancelInAllNamespacesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SchedulerService_Enqueue_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EnqueueRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SchedulerServiceServer).Enqueue(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SchedulerService_Enqueue_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SchedulerServiceServer).Enqueue(ctx, req.(*EnqueueRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SchedulerService_ForNamespace_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ForNamespaceRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SchedulerServiceServer).ForNamespace(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SchedulerService_ForNamespace_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SchedulerServiceServer).ForNamespace(ctx, req.(*ForNamespaceRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SchedulerService_GetAllPendingJobs_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetAllPendingJobsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SchedulerServiceServer).GetAllPendingJobs(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SchedulerService_GetAllPendingJobs_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SchedulerServiceServer).GetAllPendingJobs(ctx, req.(*GetAllPendingJobsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SchedulerService_GetNamespace_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetNamespaceRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SchedulerServiceServer).GetNamespace(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SchedulerService_GetNamespace_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SchedulerServiceServer).GetNamespace(ctx, req.(*GetNamespaceRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SchedulerService_GetPendingJob_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPendingJobRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SchedulerServiceServer).GetPendingJob(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SchedulerService_GetPendingJob_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SchedulerServiceServer).GetPendingJob(ctx, req.(*GetPendingJobRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SchedulerService_GetPendingJobReason_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPendingJobReasonRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SchedulerServiceServer).GetPendingJobReason(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SchedulerService_GetPendingJobReason_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SchedulerServiceServer).GetPendingJobReason(ctx, req.(*GetPendingJobReasonRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SchedulerService_GetPendingJobReasons_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SchedulerGetPendingJobReasonsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SchedulerServiceServer).GetPendingJobReasons(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SchedulerService_GetPendingJobReasons_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SchedulerServiceServer).GetPendingJobReasons(ctx, req.(*SchedulerGetPendingJobReasonsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SchedulerService_GetPendingJobReasonsHistory_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPendingJobReasonsHistoryRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SchedulerServiceServer).GetPendingJobReasonsHistory(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SchedulerService_GetPendingJobReasonsHistory_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SchedulerServiceServer).GetPendingJobReasonsHistory(ctx, req.(*GetPendingJobReasonsHistoryRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SchedulerService_Schedule_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ScheduleRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SchedulerServiceServer).Schedule(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SchedulerService_Schedule_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SchedulerServiceServer).Schedule(ctx, req.(*ScheduleRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// SchedulerService_ServiceDesc is the grpc.ServiceDesc for SchedulerService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var SchedulerService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "job.SchedulerService",
+	HandlerType: (*SchedulerServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "CanRunUserInitiatedJobs",
+			Handler:    _SchedulerService_CanRunUserInitiatedJobs_Handler,
+		},
+		{
+			MethodName: "Cancel",
+			Handler:    _SchedulerService_Cancel_Handler,
+		},
+		{
+			MethodName: "CancelAll",
+			Handler:    _SchedulerService_CancelAll_Handler,
+		},
+		{
+			MethodName: "CancelInAllNamespaces",
+			Handler:    _SchedulerService_CancelInAllNamespaces_Handler,
+		},
+		{
+			MethodName: "Enqueue",
+			Handler:    _SchedulerService_Enqueue_Handler,
+		},
+		{
+			MethodName: "ForNamespace",
+			Handler:    _SchedulerService_ForNamespace_Handler,
+		},
+		{
+			MethodName: "GetAllPendingJobs",
+			Handler:    _SchedulerService_GetAllPendingJobs_Handler,
+		},
+		{
+			MethodName: "GetNamespace",
+			Handler:    _SchedulerService_GetNamespace_Handler,
+		},
+		{
+			MethodName: "GetPendingJob",
+			Handler:    _SchedulerService_GetPendingJob_Handler,
+		},
+		{
+			MethodName: "GetPendingJobReason",
+			Handler:    _SchedulerService_GetPendingJobReason_Handler,
+		},
+		{
+			MethodName: "GetPendingJobReasons",
+			Handler:    _SchedulerService_GetPendingJobReasons_Handler,
+		},
+		{
+			MethodName: "GetPendingJobReasonsHistory",
+			Handler:    _SchedulerService_GetPendingJobReasonsHistory_Handler,
+		},
+		{
+			MethodName: "Schedule",
+			Handler:    _SchedulerService_Schedule_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/job/job.proto",
+}
+
+const (
 	ParametersService_CompleteWork_FullMethodName                   = "/job.ParametersService/CompleteWork"
 	ParametersService_DequeueWork_FullMethodName                    = "/job.ParametersService/DequeueWork"
 	ParametersService_DescribeContents_FullMethodName               = "/job.ParametersService/DescribeContents"
@@ -5977,6 +5723,374 @@ var ParametersService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "WriteToParcel",
 			Handler:    _ParametersService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/job/job.proto",
+}
+
+const (
+	ServiceEngineService_GetBinder_FullMethodName                     = "/job.ServiceEngineService/GetBinder"
+	ServiceEngineService_JobFinished_FullMethodName                   = "/job.ServiceEngineService/JobFinished"
+	ServiceEngineService_OnNetworkChanged_FullMethodName              = "/job.ServiceEngineService/OnNetworkChanged"
+	ServiceEngineService_OnStartJob_FullMethodName                    = "/job.ServiceEngineService/OnStartJob"
+	ServiceEngineService_OnStopJob_FullMethodName                     = "/job.ServiceEngineService/OnStopJob"
+	ServiceEngineService_SetNotification_FullMethodName               = "/job.ServiceEngineService/SetNotification"
+	ServiceEngineService_UpdateEstimatedNetworkBytes_FullMethodName   = "/job.ServiceEngineService/UpdateEstimatedNetworkBytes"
+	ServiceEngineService_UpdateTransferredNetworkBytes_FullMethodName = "/job.ServiceEngineService/UpdateTransferredNetworkBytes"
+)
+
+// ServiceEngineServiceClient is the client API for ServiceEngineService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ServiceEngineServiceClient interface {
+	GetBinder(ctx context.Context, in *GetBinderRequest, opts ...grpc.CallOption) (*GetBinderResponse, error)
+	JobFinished(ctx context.Context, in *JobFinishedRequest, opts ...grpc.CallOption) (*JobFinishedResponse, error)
+	OnNetworkChanged(ctx context.Context, in *OnNetworkChangedRequest, opts ...grpc.CallOption) (*OnNetworkChangedResponse, error)
+	OnStartJob(ctx context.Context, in *OnStartJobRequest, opts ...grpc.CallOption) (*OnStartJobResponse, error)
+	OnStopJob(ctx context.Context, in *OnStopJobRequest, opts ...grpc.CallOption) (*OnStopJobResponse, error)
+	SetNotification(ctx context.Context, in *SetNotificationRequest, opts ...grpc.CallOption) (*SetNotificationResponse, error)
+	UpdateEstimatedNetworkBytes(ctx context.Context, in *UpdateEstimatedNetworkBytesRequest, opts ...grpc.CallOption) (*UpdateEstimatedNetworkBytesResponse, error)
+	UpdateTransferredNetworkBytes(ctx context.Context, in *UpdateTransferredNetworkBytesRequest, opts ...grpc.CallOption) (*UpdateTransferredNetworkBytesResponse, error)
+}
+
+type serviceEngineServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewServiceEngineServiceClient(cc grpc.ClientConnInterface) ServiceEngineServiceClient {
+	return &serviceEngineServiceClient{cc}
+}
+
+func (c *serviceEngineServiceClient) GetBinder(ctx context.Context, in *GetBinderRequest, opts ...grpc.CallOption) (*GetBinderResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetBinderResponse)
+	err := c.cc.Invoke(ctx, ServiceEngineService_GetBinder_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceEngineServiceClient) JobFinished(ctx context.Context, in *JobFinishedRequest, opts ...grpc.CallOption) (*JobFinishedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(JobFinishedResponse)
+	err := c.cc.Invoke(ctx, ServiceEngineService_JobFinished_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceEngineServiceClient) OnNetworkChanged(ctx context.Context, in *OnNetworkChangedRequest, opts ...grpc.CallOption) (*OnNetworkChangedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnNetworkChangedResponse)
+	err := c.cc.Invoke(ctx, ServiceEngineService_OnNetworkChanged_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceEngineServiceClient) OnStartJob(ctx context.Context, in *OnStartJobRequest, opts ...grpc.CallOption) (*OnStartJobResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnStartJobResponse)
+	err := c.cc.Invoke(ctx, ServiceEngineService_OnStartJob_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceEngineServiceClient) OnStopJob(ctx context.Context, in *OnStopJobRequest, opts ...grpc.CallOption) (*OnStopJobResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnStopJobResponse)
+	err := c.cc.Invoke(ctx, ServiceEngineService_OnStopJob_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceEngineServiceClient) SetNotification(ctx context.Context, in *SetNotificationRequest, opts ...grpc.CallOption) (*SetNotificationResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetNotificationResponse)
+	err := c.cc.Invoke(ctx, ServiceEngineService_SetNotification_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceEngineServiceClient) UpdateEstimatedNetworkBytes(ctx context.Context, in *UpdateEstimatedNetworkBytesRequest, opts ...grpc.CallOption) (*UpdateEstimatedNetworkBytesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(UpdateEstimatedNetworkBytesResponse)
+	err := c.cc.Invoke(ctx, ServiceEngineService_UpdateEstimatedNetworkBytes_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceEngineServiceClient) UpdateTransferredNetworkBytes(ctx context.Context, in *UpdateTransferredNetworkBytesRequest, opts ...grpc.CallOption) (*UpdateTransferredNetworkBytesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(UpdateTransferredNetworkBytesResponse)
+	err := c.cc.Invoke(ctx, ServiceEngineService_UpdateTransferredNetworkBytes_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ServiceEngineServiceServer is the server API for ServiceEngineService service.
+// All implementations must embed UnimplementedServiceEngineServiceServer
+// for forward compatibility.
+type ServiceEngineServiceServer interface {
+	GetBinder(context.Context, *GetBinderRequest) (*GetBinderResponse, error)
+	JobFinished(context.Context, *JobFinishedRequest) (*JobFinishedResponse, error)
+	OnNetworkChanged(context.Context, *OnNetworkChangedRequest) (*OnNetworkChangedResponse, error)
+	OnStartJob(context.Context, *OnStartJobRequest) (*OnStartJobResponse, error)
+	OnStopJob(context.Context, *OnStopJobRequest) (*OnStopJobResponse, error)
+	SetNotification(context.Context, *SetNotificationRequest) (*SetNotificationResponse, error)
+	UpdateEstimatedNetworkBytes(context.Context, *UpdateEstimatedNetworkBytesRequest) (*UpdateEstimatedNetworkBytesResponse, error)
+	UpdateTransferredNetworkBytes(context.Context, *UpdateTransferredNetworkBytesRequest) (*UpdateTransferredNetworkBytesResponse, error)
+	mustEmbedUnimplementedServiceEngineServiceServer()
+}
+
+// UnimplementedServiceEngineServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedServiceEngineServiceServer struct{}
+
+func (UnimplementedServiceEngineServiceServer) GetBinder(context.Context, *GetBinderRequest) (*GetBinderResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetBinder not implemented")
+}
+func (UnimplementedServiceEngineServiceServer) JobFinished(context.Context, *JobFinishedRequest) (*JobFinishedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method JobFinished not implemented")
+}
+func (UnimplementedServiceEngineServiceServer) OnNetworkChanged(context.Context, *OnNetworkChangedRequest) (*OnNetworkChangedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnNetworkChanged not implemented")
+}
+func (UnimplementedServiceEngineServiceServer) OnStartJob(context.Context, *OnStartJobRequest) (*OnStartJobResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnStartJob not implemented")
+}
+func (UnimplementedServiceEngineServiceServer) OnStopJob(context.Context, *OnStopJobRequest) (*OnStopJobResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnStopJob not implemented")
+}
+func (UnimplementedServiceEngineServiceServer) SetNotification(context.Context, *SetNotificationRequest) (*SetNotificationResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetNotification not implemented")
+}
+func (UnimplementedServiceEngineServiceServer) UpdateEstimatedNetworkBytes(context.Context, *UpdateEstimatedNetworkBytesRequest) (*UpdateEstimatedNetworkBytesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method UpdateEstimatedNetworkBytes not implemented")
+}
+func (UnimplementedServiceEngineServiceServer) UpdateTransferredNetworkBytes(context.Context, *UpdateTransferredNetworkBytesRequest) (*UpdateTransferredNetworkBytesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method UpdateTransferredNetworkBytes not implemented")
+}
+func (UnimplementedServiceEngineServiceServer) mustEmbedUnimplementedServiceEngineServiceServer() {}
+func (UnimplementedServiceEngineServiceServer) testEmbeddedByValue()                              {}
+
+// UnsafeServiceEngineServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ServiceEngineServiceServer will
+// result in compilation errors.
+type UnsafeServiceEngineServiceServer interface {
+	mustEmbedUnimplementedServiceEngineServiceServer()
+}
+
+func RegisterServiceEngineServiceServer(s grpc.ServiceRegistrar, srv ServiceEngineServiceServer) {
+	// If the following call panics, it indicates UnimplementedServiceEngineServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&ServiceEngineService_ServiceDesc, srv)
+}
+
+func _ServiceEngineService_GetBinder_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetBinderRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceEngineServiceServer).GetBinder(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ServiceEngineService_GetBinder_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceEngineServiceServer).GetBinder(ctx, req.(*GetBinderRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ServiceEngineService_JobFinished_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(JobFinishedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceEngineServiceServer).JobFinished(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ServiceEngineService_JobFinished_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceEngineServiceServer).JobFinished(ctx, req.(*JobFinishedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ServiceEngineService_OnNetworkChanged_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnNetworkChangedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceEngineServiceServer).OnNetworkChanged(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ServiceEngineService_OnNetworkChanged_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceEngineServiceServer).OnNetworkChanged(ctx, req.(*OnNetworkChangedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ServiceEngineService_OnStartJob_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnStartJobRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceEngineServiceServer).OnStartJob(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ServiceEngineService_OnStartJob_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceEngineServiceServer).OnStartJob(ctx, req.(*OnStartJobRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ServiceEngineService_OnStopJob_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnStopJobRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceEngineServiceServer).OnStopJob(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ServiceEngineService_OnStopJob_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceEngineServiceServer).OnStopJob(ctx, req.(*OnStopJobRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ServiceEngineService_SetNotification_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetNotificationRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceEngineServiceServer).SetNotification(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ServiceEngineService_SetNotification_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceEngineServiceServer).SetNotification(ctx, req.(*SetNotificationRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ServiceEngineService_UpdateEstimatedNetworkBytes_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateEstimatedNetworkBytesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceEngineServiceServer).UpdateEstimatedNetworkBytes(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ServiceEngineService_UpdateEstimatedNetworkBytes_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceEngineServiceServer).UpdateEstimatedNetworkBytes(ctx, req.(*UpdateEstimatedNetworkBytesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ServiceEngineService_UpdateTransferredNetworkBytes_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateTransferredNetworkBytesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceEngineServiceServer).UpdateTransferredNetworkBytes(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ServiceEngineService_UpdateTransferredNetworkBytes_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceEngineServiceServer).UpdateTransferredNetworkBytes(ctx, req.(*UpdateTransferredNetworkBytesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ServiceEngineService_ServiceDesc is the grpc.ServiceDesc for ServiceEngineService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ServiceEngineService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "job.ServiceEngineService",
+	HandlerType: (*ServiceEngineServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "GetBinder",
+			Handler:    _ServiceEngineService_GetBinder_Handler,
+		},
+		{
+			MethodName: "JobFinished",
+			Handler:    _ServiceEngineService_JobFinished_Handler,
+		},
+		{
+			MethodName: "OnNetworkChanged",
+			Handler:    _ServiceEngineService_OnNetworkChanged_Handler,
+		},
+		{
+			MethodName: "OnStartJob",
+			Handler:    _ServiceEngineService_OnStartJob_Handler,
+		},
+		{
+			MethodName: "OnStopJob",
+			Handler:    _ServiceEngineService_OnStopJob_Handler,
+		},
+		{
+			MethodName: "SetNotification",
+			Handler:    _ServiceEngineService_SetNotification_Handler,
+		},
+		{
+			MethodName: "UpdateEstimatedNetworkBytes",
+			Handler:    _ServiceEngineService_UpdateEstimatedNetworkBytes_Handler,
+		},
+		{
+			MethodName: "UpdateTransferredNetworkBytes",
+			Handler:    _ServiceEngineService_UpdateTransferredNetworkBytes_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

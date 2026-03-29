@@ -74,6 +74,29 @@ func (s *FieldClassificationServer) GetAutofillId(_ context.Context, req *pb.Get
 	return &pb.GetAutofillIdResponse{Result: handle}, nil
 }
 
+func (s *FieldClassificationServer) GetHints(_ context.Context, req *pb.GetHintsRequest) (*pb.GetHintsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.FieldClassification{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetHints()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetHintsResponse{Result: handle}, nil
+}
+
 func (s *FieldClassificationServer) ToString(_ context.Context, req *pb.ToStringRequest) (*pb.ToStringResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {

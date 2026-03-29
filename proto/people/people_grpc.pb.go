@@ -21,6 +21,222 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
+	ManagerService_AddOrUpdateStatus_FullMethodName = "/people.ManagerService/AddOrUpdateStatus"
+	ManagerService_ClearStatus_FullMethodName       = "/people.ManagerService/ClearStatus"
+	ManagerService_ClearStatuses_FullMethodName     = "/people.ManagerService/ClearStatuses"
+	ManagerService_GetStatuses_FullMethodName       = "/people.ManagerService/GetStatuses"
+)
+
+// ManagerServiceClient is the client API for ManagerService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ManagerServiceClient interface {
+	AddOrUpdateStatus(ctx context.Context, in *AddOrUpdateStatusRequest, opts ...grpc.CallOption) (*AddOrUpdateStatusResponse, error)
+	ClearStatus(ctx context.Context, in *ClearStatusRequest, opts ...grpc.CallOption) (*ClearStatusResponse, error)
+	ClearStatuses(ctx context.Context, in *ClearStatusesRequest, opts ...grpc.CallOption) (*ClearStatusesResponse, error)
+	GetStatuses(ctx context.Context, in *GetStatusesRequest, opts ...grpc.CallOption) (*GetStatusesResponse, error)
+}
+
+type managerServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewManagerServiceClient(cc grpc.ClientConnInterface) ManagerServiceClient {
+	return &managerServiceClient{cc}
+}
+
+func (c *managerServiceClient) AddOrUpdateStatus(ctx context.Context, in *AddOrUpdateStatusRequest, opts ...grpc.CallOption) (*AddOrUpdateStatusResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(AddOrUpdateStatusResponse)
+	err := c.cc.Invoke(ctx, ManagerService_AddOrUpdateStatus_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *managerServiceClient) ClearStatus(ctx context.Context, in *ClearStatusRequest, opts ...grpc.CallOption) (*ClearStatusResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ClearStatusResponse)
+	err := c.cc.Invoke(ctx, ManagerService_ClearStatus_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *managerServiceClient) ClearStatuses(ctx context.Context, in *ClearStatusesRequest, opts ...grpc.CallOption) (*ClearStatusesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ClearStatusesResponse)
+	err := c.cc.Invoke(ctx, ManagerService_ClearStatuses_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *managerServiceClient) GetStatuses(ctx context.Context, in *GetStatusesRequest, opts ...grpc.CallOption) (*GetStatusesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetStatusesResponse)
+	err := c.cc.Invoke(ctx, ManagerService_GetStatuses_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ManagerServiceServer is the server API for ManagerService service.
+// All implementations must embed UnimplementedManagerServiceServer
+// for forward compatibility.
+type ManagerServiceServer interface {
+	AddOrUpdateStatus(context.Context, *AddOrUpdateStatusRequest) (*AddOrUpdateStatusResponse, error)
+	ClearStatus(context.Context, *ClearStatusRequest) (*ClearStatusResponse, error)
+	ClearStatuses(context.Context, *ClearStatusesRequest) (*ClearStatusesResponse, error)
+	GetStatuses(context.Context, *GetStatusesRequest) (*GetStatusesResponse, error)
+	mustEmbedUnimplementedManagerServiceServer()
+}
+
+// UnimplementedManagerServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedManagerServiceServer struct{}
+
+func (UnimplementedManagerServiceServer) AddOrUpdateStatus(context.Context, *AddOrUpdateStatusRequest) (*AddOrUpdateStatusResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method AddOrUpdateStatus not implemented")
+}
+func (UnimplementedManagerServiceServer) ClearStatus(context.Context, *ClearStatusRequest) (*ClearStatusResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ClearStatus not implemented")
+}
+func (UnimplementedManagerServiceServer) ClearStatuses(context.Context, *ClearStatusesRequest) (*ClearStatusesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ClearStatuses not implemented")
+}
+func (UnimplementedManagerServiceServer) GetStatuses(context.Context, *GetStatusesRequest) (*GetStatusesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetStatuses not implemented")
+}
+func (UnimplementedManagerServiceServer) mustEmbedUnimplementedManagerServiceServer() {}
+func (UnimplementedManagerServiceServer) testEmbeddedByValue()                        {}
+
+// UnsafeManagerServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ManagerServiceServer will
+// result in compilation errors.
+type UnsafeManagerServiceServer interface {
+	mustEmbedUnimplementedManagerServiceServer()
+}
+
+func RegisterManagerServiceServer(s grpc.ServiceRegistrar, srv ManagerServiceServer) {
+	// If the following call panics, it indicates UnimplementedManagerServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&ManagerService_ServiceDesc, srv)
+}
+
+func _ManagerService_AddOrUpdateStatus_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AddOrUpdateStatusRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerServiceServer).AddOrUpdateStatus(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerService_AddOrUpdateStatus_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerServiceServer).AddOrUpdateStatus(ctx, req.(*AddOrUpdateStatusRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ManagerService_ClearStatus_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ClearStatusRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerServiceServer).ClearStatus(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerService_ClearStatus_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerServiceServer).ClearStatus(ctx, req.(*ClearStatusRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ManagerService_ClearStatuses_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ClearStatusesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerServiceServer).ClearStatuses(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerService_ClearStatuses_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerServiceServer).ClearStatuses(ctx, req.(*ClearStatusesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ManagerService_GetStatuses_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetStatusesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerServiceServer).GetStatuses(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerService_GetStatuses_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerServiceServer).GetStatuses(ctx, req.(*GetStatusesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ManagerService_ServiceDesc is the grpc.ServiceDesc for ManagerService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ManagerService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "people.ManagerService",
+	HandlerType: (*ManagerServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "AddOrUpdateStatus",
+			Handler:    _ManagerService_AddOrUpdateStatus_Handler,
+		},
+		{
+			MethodName: "ClearStatus",
+			Handler:    _ManagerService_ClearStatus_Handler,
+		},
+		{
+			MethodName: "ClearStatuses",
+			Handler:    _ManagerService_ClearStatuses_Handler,
+		},
+		{
+			MethodName: "GetStatuses",
+			Handler:    _ManagerService_GetStatuses_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/people/people.proto",
+}
+
+const (
 	ConversationStatusService_DescribeContents_FullMethodName   = "/people.ConversationStatusService/DescribeContents"
 	ConversationStatusService_Equals_FullMethodName             = "/people.ConversationStatusService/Equals"
 	ConversationStatusService_GetActivity_FullMethodName        = "/people.ConversationStatusService/GetActivity"
@@ -828,184 +1044,6 @@ var ConversationStatusBuilderService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "SetStartTimeMillis",
 			Handler:    _ConversationStatusBuilderService_SetStartTimeMillis_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/people/people.proto",
-}
-
-const (
-	ManagerService_AddOrUpdateStatus_FullMethodName = "/people.ManagerService/AddOrUpdateStatus"
-	ManagerService_ClearStatus_FullMethodName       = "/people.ManagerService/ClearStatus"
-	ManagerService_ClearStatuses_FullMethodName     = "/people.ManagerService/ClearStatuses"
-)
-
-// ManagerServiceClient is the client API for ManagerService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type ManagerServiceClient interface {
-	AddOrUpdateStatus(ctx context.Context, in *AddOrUpdateStatusRequest, opts ...grpc.CallOption) (*AddOrUpdateStatusResponse, error)
-	ClearStatus(ctx context.Context, in *ClearStatusRequest, opts ...grpc.CallOption) (*ClearStatusResponse, error)
-	ClearStatuses(ctx context.Context, in *ClearStatusesRequest, opts ...grpc.CallOption) (*ClearStatusesResponse, error)
-}
-
-type managerServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewManagerServiceClient(cc grpc.ClientConnInterface) ManagerServiceClient {
-	return &managerServiceClient{cc}
-}
-
-func (c *managerServiceClient) AddOrUpdateStatus(ctx context.Context, in *AddOrUpdateStatusRequest, opts ...grpc.CallOption) (*AddOrUpdateStatusResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(AddOrUpdateStatusResponse)
-	err := c.cc.Invoke(ctx, ManagerService_AddOrUpdateStatus_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *managerServiceClient) ClearStatus(ctx context.Context, in *ClearStatusRequest, opts ...grpc.CallOption) (*ClearStatusResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ClearStatusResponse)
-	err := c.cc.Invoke(ctx, ManagerService_ClearStatus_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *managerServiceClient) ClearStatuses(ctx context.Context, in *ClearStatusesRequest, opts ...grpc.CallOption) (*ClearStatusesResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ClearStatusesResponse)
-	err := c.cc.Invoke(ctx, ManagerService_ClearStatuses_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// ManagerServiceServer is the server API for ManagerService service.
-// All implementations must embed UnimplementedManagerServiceServer
-// for forward compatibility.
-type ManagerServiceServer interface {
-	AddOrUpdateStatus(context.Context, *AddOrUpdateStatusRequest) (*AddOrUpdateStatusResponse, error)
-	ClearStatus(context.Context, *ClearStatusRequest) (*ClearStatusResponse, error)
-	ClearStatuses(context.Context, *ClearStatusesRequest) (*ClearStatusesResponse, error)
-	mustEmbedUnimplementedManagerServiceServer()
-}
-
-// UnimplementedManagerServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedManagerServiceServer struct{}
-
-func (UnimplementedManagerServiceServer) AddOrUpdateStatus(context.Context, *AddOrUpdateStatusRequest) (*AddOrUpdateStatusResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method AddOrUpdateStatus not implemented")
-}
-func (UnimplementedManagerServiceServer) ClearStatus(context.Context, *ClearStatusRequest) (*ClearStatusResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ClearStatus not implemented")
-}
-func (UnimplementedManagerServiceServer) ClearStatuses(context.Context, *ClearStatusesRequest) (*ClearStatusesResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ClearStatuses not implemented")
-}
-func (UnimplementedManagerServiceServer) mustEmbedUnimplementedManagerServiceServer() {}
-func (UnimplementedManagerServiceServer) testEmbeddedByValue()                        {}
-
-// UnsafeManagerServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to ManagerServiceServer will
-// result in compilation errors.
-type UnsafeManagerServiceServer interface {
-	mustEmbedUnimplementedManagerServiceServer()
-}
-
-func RegisterManagerServiceServer(s grpc.ServiceRegistrar, srv ManagerServiceServer) {
-	// If the following call panics, it indicates UnimplementedManagerServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&ManagerService_ServiceDesc, srv)
-}
-
-func _ManagerService_AddOrUpdateStatus_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AddOrUpdateStatusRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerServiceServer).AddOrUpdateStatus(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerService_AddOrUpdateStatus_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).AddOrUpdateStatus(ctx, req.(*AddOrUpdateStatusRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ManagerService_ClearStatus_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ClearStatusRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerServiceServer).ClearStatus(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerService_ClearStatus_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).ClearStatus(ctx, req.(*ClearStatusRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ManagerService_ClearStatuses_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ClearStatusesRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerServiceServer).ClearStatuses(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerService_ClearStatuses_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).ClearStatuses(ctx, req.(*ClearStatusesRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// ManagerService_ServiceDesc is the grpc.ServiceDesc for ManagerService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var ManagerService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "people.ManagerService",
-	HandlerType: (*ManagerServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "AddOrUpdateStatus",
-			Handler:    _ManagerService_AddOrUpdateStatus_Handler,
-		},
-		{
-			MethodName: "ClearStatus",
-			Handler:    _ManagerService_ClearStatus_Handler,
-		},
-		{
-			MethodName: "ClearStatuses",
-			Handler:    _ManagerService_ClearStatuses_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

@@ -23,16 +23,513 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-type EqualsRequest struct {
+type GetFontRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetFontRequest) Reset() {
+	*x = GetFontRequest{}
+	mi := &file_proto_fonts_fonts_proto_msgTypes[0]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetFontRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetFontRequest) ProtoMessage() {}
+
+func (x *GetFontRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_fonts_fonts_proto_msgTypes[0]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetFontRequest.ProtoReflect.Descriptor instead.
+func (*GetFontRequest) Descriptor() ([]byte, []int) {
+	return file_proto_fonts_fonts_proto_rawDescGZIP(), []int{0}
+}
+
+func (x *GetFontRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type GetFontResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetFontResponse) Reset() {
+	*x = GetFontResponse{}
+	mi := &file_proto_fonts_fonts_proto_msgTypes[1]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetFontResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetFontResponse) ProtoMessage() {}
+
+func (x *GetFontResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_fonts_fonts_proto_msgTypes[1]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetFontResponse.ProtoReflect.Descriptor instead.
+func (*GetFontResponse) Descriptor() ([]byte, []int) {
+	return file_proto_fonts_fonts_proto_rawDescGZIP(), []int{1}
+}
+
+func (x *GetFontResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetSizeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSizeRequest) Reset() {
+	*x = GetSizeRequest{}
+	mi := &file_proto_fonts_fonts_proto_msgTypes[2]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSizeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSizeRequest) ProtoMessage() {}
+
+func (x *GetSizeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_fonts_fonts_proto_msgTypes[2]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSizeRequest.ProtoReflect.Descriptor instead.
+func (*GetSizeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_fonts_fonts_proto_rawDescGZIP(), []int{2}
+}
+
+type GetSizeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSizeResponse) Reset() {
+	*x = GetSizeResponse{}
+	mi := &file_proto_fonts_fonts_proto_msgTypes[3]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSizeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSizeResponse) ProtoMessage() {}
+
+func (x *GetSizeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_fonts_fonts_proto_msgTypes[3]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSizeResponse.ProtoReflect.Descriptor instead.
+func (*GetSizeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_fonts_fonts_proto_rawDescGZIP(), []int{3}
+}
+
+func (x *GetSizeResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type AddFontRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
+func (x *AddFontRequest) Reset() {
+	*x = AddFontRequest{}
+	mi := &file_proto_fonts_fonts_proto_msgTypes[4]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddFontRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddFontRequest) ProtoMessage() {}
+
+func (x *AddFontRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_fonts_fonts_proto_msgTypes[4]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddFontRequest.ProtoReflect.Descriptor instead.
+func (*AddFontRequest) Descriptor() ([]byte, []int) {
+	return file_proto_fonts_fonts_proto_rawDescGZIP(), []int{4}
+}
+
+func (x *AddFontRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type AddFontResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddFontResponse) Reset() {
+	*x = AddFontResponse{}
+	mi := &file_proto_fonts_fonts_proto_msgTypes[5]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddFontResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddFontResponse) ProtoMessage() {}
+
+func (x *AddFontResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_fonts_fonts_proto_msgTypes[5]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddFontResponse.ProtoReflect.Descriptor instead.
+func (*AddFontResponse) Descriptor() ([]byte, []int) {
+	return file_proto_fonts_fonts_proto_rawDescGZIP(), []int{5}
+}
+
+func (x *AddFontResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type BuildRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *BuildRequest) Reset() {
+	*x = BuildRequest{}
+	mi := &file_proto_fonts_fonts_proto_msgTypes[6]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *BuildRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*BuildRequest) ProtoMessage() {}
+
+func (x *BuildRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_fonts_fonts_proto_msgTypes[6]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use BuildRequest.ProtoReflect.Descriptor instead.
+func (*BuildRequest) Descriptor() ([]byte, []int) {
+	return file_proto_fonts_fonts_proto_rawDescGZIP(), []int{6}
+}
+
+type BuildResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *BuildResponse) Reset() {
+	*x = BuildResponse{}
+	mi := &file_proto_fonts_fonts_proto_msgTypes[7]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *BuildResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*BuildResponse) ProtoMessage() {}
+
+func (x *BuildResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_fonts_fonts_proto_msgTypes[7]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use BuildResponse.ProtoReflect.Descriptor instead.
+func (*BuildResponse) Descriptor() ([]byte, []int) {
+	return file_proto_fonts_fonts_proto_rawDescGZIP(), []int{7}
+}
+
+func (x *BuildResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type BuildVariableFamilyRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *BuildVariableFamilyRequest) Reset() {
+	*x = BuildVariableFamilyRequest{}
+	mi := &file_proto_fonts_fonts_proto_msgTypes[8]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *BuildVariableFamilyRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*BuildVariableFamilyRequest) ProtoMessage() {}
+
+func (x *BuildVariableFamilyRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_fonts_fonts_proto_msgTypes[8]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use BuildVariableFamilyRequest.ProtoReflect.Descriptor instead.
+func (*BuildVariableFamilyRequest) Descriptor() ([]byte, []int) {
+	return file_proto_fonts_fonts_proto_rawDescGZIP(), []int{8}
+}
+
+type BuildVariableFamilyResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *BuildVariableFamilyResponse) Reset() {
+	*x = BuildVariableFamilyResponse{}
+	mi := &file_proto_fonts_fonts_proto_msgTypes[9]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *BuildVariableFamilyResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*BuildVariableFamilyResponse) ProtoMessage() {}
+
+func (x *BuildVariableFamilyResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_fonts_fonts_proto_msgTypes[9]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use BuildVariableFamilyResponse.ProtoReflect.Descriptor instead.
+func (*BuildVariableFamilyResponse) Descriptor() ([]byte, []int) {
+	return file_proto_fonts_fonts_proto_rawDescGZIP(), []int{9}
+}
+
+func (x *BuildVariableFamilyResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type NewFontStyleRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewFontStyleRequest) Reset() {
+	*x = NewFontStyleRequest{}
+	mi := &file_proto_fonts_fonts_proto_msgTypes[10]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewFontStyleRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewFontStyleRequest) ProtoMessage() {}
+
+func (x *NewFontStyleRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_fonts_fonts_proto_msgTypes[10]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewFontStyleRequest.ProtoReflect.Descriptor instead.
+func (*NewFontStyleRequest) Descriptor() ([]byte, []int) {
+	return file_proto_fonts_fonts_proto_rawDescGZIP(), []int{10}
+}
+
+type NewFontStyleResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewFontStyleResponse) Reset() {
+	*x = NewFontStyleResponse{}
+	mi := &file_proto_fonts_fonts_proto_msgTypes[11]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewFontStyleResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewFontStyleResponse) ProtoMessage() {}
+
+func (x *NewFontStyleResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_fonts_fonts_proto_msgTypes[11]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewFontStyleResponse.ProtoReflect.Descriptor instead.
+func (*NewFontStyleResponse) Descriptor() ([]byte, []int) {
+	return file_proto_fonts_fonts_proto_rawDescGZIP(), []int{11}
+}
+
+func (x *NewFontStyleResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type EqualsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
 func (x *EqualsRequest) Reset() {
 	*x = EqualsRequest{}
-	mi := &file_proto_fonts_fonts_proto_msgTypes[0]
+	mi := &file_proto_fonts_fonts_proto_msgTypes[12]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -44,7 +541,7 @@ func (x *EqualsRequest) String() string {
 func (*EqualsRequest) ProtoMessage() {}
 
 func (x *EqualsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_fonts_fonts_proto_msgTypes[0]
+	mi := &file_proto_fonts_fonts_proto_msgTypes[12]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -57,7 +554,14 @@ func (x *EqualsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use EqualsRequest.ProtoReflect.Descriptor instead.
 func (*EqualsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_fonts_fonts_proto_rawDescGZIP(), []int{0}
+	return file_proto_fonts_fonts_proto_rawDescGZIP(), []int{12}
+}
+
+func (x *EqualsRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
 }
 
 func (x *EqualsRequest) GetArg0() int64 {
@@ -76,7 +580,7 @@ type EqualsResponse struct {
 
 func (x *EqualsResponse) Reset() {
 	*x = EqualsResponse{}
-	mi := &file_proto_fonts_fonts_proto_msgTypes[1]
+	mi := &file_proto_fonts_fonts_proto_msgTypes[13]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -88,7 +592,7 @@ func (x *EqualsResponse) String() string {
 func (*EqualsResponse) ProtoMessage() {}
 
 func (x *EqualsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_fonts_fonts_proto_msgTypes[1]
+	mi := &file_proto_fonts_fonts_proto_msgTypes[13]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -101,7 +605,7 @@ func (x *EqualsResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use EqualsResponse.ProtoReflect.Descriptor instead.
 func (*EqualsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_fonts_fonts_proto_rawDescGZIP(), []int{1}
+	return file_proto_fonts_fonts_proto_rawDescGZIP(), []int{13}
 }
 
 func (x *EqualsResponse) GetResult() bool {
@@ -109,6 +613,866 @@ func (x *EqualsResponse) GetResult() bool {
 		return x.Result
 	}
 	return false
+}
+
+type GetSlantRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSlantRequest) Reset() {
+	*x = GetSlantRequest{}
+	mi := &file_proto_fonts_fonts_proto_msgTypes[14]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSlantRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSlantRequest) ProtoMessage() {}
+
+func (x *GetSlantRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_fonts_fonts_proto_msgTypes[14]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSlantRequest.ProtoReflect.Descriptor instead.
+func (*GetSlantRequest) Descriptor() ([]byte, []int) {
+	return file_proto_fonts_fonts_proto_rawDescGZIP(), []int{14}
+}
+
+func (x *GetSlantRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetSlantResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSlantResponse) Reset() {
+	*x = GetSlantResponse{}
+	mi := &file_proto_fonts_fonts_proto_msgTypes[15]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSlantResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSlantResponse) ProtoMessage() {}
+
+func (x *GetSlantResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_fonts_fonts_proto_msgTypes[15]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSlantResponse.ProtoReflect.Descriptor instead.
+func (*GetSlantResponse) Descriptor() ([]byte, []int) {
+	return file_proto_fonts_fonts_proto_rawDescGZIP(), []int{15}
+}
+
+func (x *GetSlantResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetWeightRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetWeightRequest) Reset() {
+	*x = GetWeightRequest{}
+	mi := &file_proto_fonts_fonts_proto_msgTypes[16]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetWeightRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetWeightRequest) ProtoMessage() {}
+
+func (x *GetWeightRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_fonts_fonts_proto_msgTypes[16]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetWeightRequest.ProtoReflect.Descriptor instead.
+func (*GetWeightRequest) Descriptor() ([]byte, []int) {
+	return file_proto_fonts_fonts_proto_rawDescGZIP(), []int{16}
+}
+
+func (x *GetWeightRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetWeightResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetWeightResponse) Reset() {
+	*x = GetWeightResponse{}
+	mi := &file_proto_fonts_fonts_proto_msgTypes[17]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetWeightResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetWeightResponse) ProtoMessage() {}
+
+func (x *GetWeightResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_fonts_fonts_proto_msgTypes[17]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetWeightResponse.ProtoReflect.Descriptor instead.
+func (*GetWeightResponse) Descriptor() ([]byte, []int) {
+	return file_proto_fonts_fonts_proto_rawDescGZIP(), []int{17}
+}
+
+func (x *GetWeightResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type HashCodeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *HashCodeRequest) Reset() {
+	*x = HashCodeRequest{}
+	mi := &file_proto_fonts_fonts_proto_msgTypes[18]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *HashCodeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*HashCodeRequest) ProtoMessage() {}
+
+func (x *HashCodeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_fonts_fonts_proto_msgTypes[18]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use HashCodeRequest.ProtoReflect.Descriptor instead.
+func (*HashCodeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_fonts_fonts_proto_rawDescGZIP(), []int{18}
+}
+
+func (x *HashCodeRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type HashCodeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *HashCodeResponse) Reset() {
+	*x = HashCodeResponse{}
+	mi := &file_proto_fonts_fonts_proto_msgTypes[19]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *HashCodeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*HashCodeResponse) ProtoMessage() {}
+
+func (x *HashCodeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_fonts_fonts_proto_msgTypes[19]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use HashCodeResponse.ProtoReflect.Descriptor instead.
+func (*HashCodeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_fonts_fonts_proto_rawDescGZIP(), []int{19}
+}
+
+func (x *HashCodeResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type ToStringRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ToStringRequest) Reset() {
+	*x = ToStringRequest{}
+	mi := &file_proto_fonts_fonts_proto_msgTypes[20]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ToStringRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ToStringRequest) ProtoMessage() {}
+
+func (x *ToStringRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_fonts_fonts_proto_msgTypes[20]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ToStringRequest.ProtoReflect.Descriptor instead.
+func (*ToStringRequest) Descriptor() ([]byte, []int) {
+	return file_proto_fonts_fonts_proto_rawDescGZIP(), []int{20}
+}
+
+func (x *ToStringRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type ToStringResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ToStringResponse) Reset() {
+	*x = ToStringResponse{}
+	mi := &file_proto_fonts_fonts_proto_msgTypes[21]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ToStringResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ToStringResponse) ProtoMessage() {}
+
+func (x *ToStringResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_fonts_fonts_proto_msgTypes[21]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ToStringResponse.ProtoReflect.Descriptor instead.
+func (*ToStringResponse) Descriptor() ([]byte, []int) {
+	return file_proto_fonts_fonts_proto_rawDescGZIP(), []int{21}
+}
+
+func (x *ToStringResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type NewFontVariationAxisRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          float32                `protobuf:"fixed32,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewFontVariationAxisRequest) Reset() {
+	*x = NewFontVariationAxisRequest{}
+	mi := &file_proto_fonts_fonts_proto_msgTypes[22]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewFontVariationAxisRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewFontVariationAxisRequest) ProtoMessage() {}
+
+func (x *NewFontVariationAxisRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_fonts_fonts_proto_msgTypes[22]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewFontVariationAxisRequest.ProtoReflect.Descriptor instead.
+func (*NewFontVariationAxisRequest) Descriptor() ([]byte, []int) {
+	return file_proto_fonts_fonts_proto_rawDescGZIP(), []int{22}
+}
+
+func (x *NewFontVariationAxisRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+func (x *NewFontVariationAxisRequest) GetArg1() float32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type NewFontVariationAxisResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewFontVariationAxisResponse) Reset() {
+	*x = NewFontVariationAxisResponse{}
+	mi := &file_proto_fonts_fonts_proto_msgTypes[23]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewFontVariationAxisResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewFontVariationAxisResponse) ProtoMessage() {}
+
+func (x *NewFontVariationAxisResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_fonts_fonts_proto_msgTypes[23]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewFontVariationAxisResponse.ProtoReflect.Descriptor instead.
+func (*NewFontVariationAxisResponse) Descriptor() ([]byte, []int) {
+	return file_proto_fonts_fonts_proto_rawDescGZIP(), []int{23}
+}
+
+func (x *NewFontVariationAxisResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetStyleValueRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetStyleValueRequest) Reset() {
+	*x = GetStyleValueRequest{}
+	mi := &file_proto_fonts_fonts_proto_msgTypes[24]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetStyleValueRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetStyleValueRequest) ProtoMessage() {}
+
+func (x *GetStyleValueRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_fonts_fonts_proto_msgTypes[24]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetStyleValueRequest.ProtoReflect.Descriptor instead.
+func (*GetStyleValueRequest) Descriptor() ([]byte, []int) {
+	return file_proto_fonts_fonts_proto_rawDescGZIP(), []int{24}
+}
+
+func (x *GetStyleValueRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetStyleValueResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        float32                `protobuf:"fixed32,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetStyleValueResponse) Reset() {
+	*x = GetStyleValueResponse{}
+	mi := &file_proto_fonts_fonts_proto_msgTypes[25]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetStyleValueResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetStyleValueResponse) ProtoMessage() {}
+
+func (x *GetStyleValueResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_fonts_fonts_proto_msgTypes[25]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetStyleValueResponse.ProtoReflect.Descriptor instead.
+func (*GetStyleValueResponse) Descriptor() ([]byte, []int) {
+	return file_proto_fonts_fonts_proto_rawDescGZIP(), []int{25}
+}
+
+func (x *GetStyleValueResponse) GetResult() float32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetTagRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTagRequest) Reset() {
+	*x = GetTagRequest{}
+	mi := &file_proto_fonts_fonts_proto_msgTypes[26]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTagRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTagRequest) ProtoMessage() {}
+
+func (x *GetTagRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_fonts_fonts_proto_msgTypes[26]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTagRequest.ProtoReflect.Descriptor instead.
+func (*GetTagRequest) Descriptor() ([]byte, []int) {
+	return file_proto_fonts_fonts_proto_rawDescGZIP(), []int{26}
+}
+
+func (x *GetTagRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetTagResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTagResponse) Reset() {
+	*x = GetTagResponse{}
+	mi := &file_proto_fonts_fonts_proto_msgTypes[27]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTagResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTagResponse) ProtoMessage() {}
+
+func (x *GetTagResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_fonts_fonts_proto_msgTypes[27]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTagResponse.ProtoReflect.Descriptor instead.
+func (*GetTagResponse) Descriptor() ([]byte, []int) {
+	return file_proto_fonts_fonts_proto_rawDescGZIP(), []int{27}
+}
+
+func (x *GetTagResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type FromFontVariationSettingsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          string                 `protobuf:"bytes,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *FromFontVariationSettingsRequest) Reset() {
+	*x = FromFontVariationSettingsRequest{}
+	mi := &file_proto_fonts_fonts_proto_msgTypes[28]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *FromFontVariationSettingsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*FromFontVariationSettingsRequest) ProtoMessage() {}
+
+func (x *FromFontVariationSettingsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_fonts_fonts_proto_msgTypes[28]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use FromFontVariationSettingsRequest.ProtoReflect.Descriptor instead.
+func (*FromFontVariationSettingsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_fonts_fonts_proto_rawDescGZIP(), []int{28}
+}
+
+func (x *FromFontVariationSettingsRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *FromFontVariationSettingsRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type FromFontVariationSettingsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *FromFontVariationSettingsResponse) Reset() {
+	*x = FromFontVariationSettingsResponse{}
+	mi := &file_proto_fonts_fonts_proto_msgTypes[29]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *FromFontVariationSettingsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*FromFontVariationSettingsResponse) ProtoMessage() {}
+
+func (x *FromFontVariationSettingsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_fonts_fonts_proto_msgTypes[29]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use FromFontVariationSettingsResponse.ProtoReflect.Descriptor instead.
+func (*FromFontVariationSettingsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_fonts_fonts_proto_rawDescGZIP(), []int{29}
+}
+
+func (x *FromFontVariationSettingsResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type ToFontVariationSettingsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ToFontVariationSettingsRequest) Reset() {
+	*x = ToFontVariationSettingsRequest{}
+	mi := &file_proto_fonts_fonts_proto_msgTypes[30]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ToFontVariationSettingsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ToFontVariationSettingsRequest) ProtoMessage() {}
+
+func (x *ToFontVariationSettingsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_fonts_fonts_proto_msgTypes[30]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ToFontVariationSettingsRequest.ProtoReflect.Descriptor instead.
+func (*ToFontVariationSettingsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_fonts_fonts_proto_rawDescGZIP(), []int{30}
+}
+
+func (x *ToFontVariationSettingsRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *ToFontVariationSettingsRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type ToFontVariationSettingsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ToFontVariationSettingsResponse) Reset() {
+	*x = ToFontVariationSettingsResponse{}
+	mi := &file_proto_fonts_fonts_proto_msgTypes[31]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ToFontVariationSettingsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ToFontVariationSettingsResponse) ProtoMessage() {}
+
+func (x *ToFontVariationSettingsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_fonts_fonts_proto_msgTypes[31]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ToFontVariationSettingsResponse.ProtoReflect.Descriptor instead.
+func (*ToFontVariationSettingsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_fonts_fonts_proto_rawDescGZIP(), []int{31}
+}
+
+func (x *ToFontVariationSettingsResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type FontEqualsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *FontEqualsRequest) Reset() {
+	*x = FontEqualsRequest{}
+	mi := &file_proto_fonts_fonts_proto_msgTypes[32]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *FontEqualsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*FontEqualsRequest) ProtoMessage() {}
+
+func (x *FontEqualsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_fonts_fonts_proto_msgTypes[32]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use FontEqualsRequest.ProtoReflect.Descriptor instead.
+func (*FontEqualsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_fonts_fonts_proto_rawDescGZIP(), []int{32}
+}
+
+func (x *FontEqualsRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
 }
 
 type GetAxesRequest struct {
@@ -119,7 +1483,7 @@ type GetAxesRequest struct {
 
 func (x *GetAxesRequest) Reset() {
 	*x = GetAxesRequest{}
-	mi := &file_proto_fonts_fonts_proto_msgTypes[2]
+	mi := &file_proto_fonts_fonts_proto_msgTypes[33]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -131,7 +1495,7 @@ func (x *GetAxesRequest) String() string {
 func (*GetAxesRequest) ProtoMessage() {}
 
 func (x *GetAxesRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_fonts_fonts_proto_msgTypes[2]
+	mi := &file_proto_fonts_fonts_proto_msgTypes[33]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -144,7 +1508,7 @@ func (x *GetAxesRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetAxesRequest.ProtoReflect.Descriptor instead.
 func (*GetAxesRequest) Descriptor() ([]byte, []int) {
-	return file_proto_fonts_fonts_proto_rawDescGZIP(), []int{2}
+	return file_proto_fonts_fonts_proto_rawDescGZIP(), []int{33}
 }
 
 type GetAxesResponse struct {
@@ -156,7 +1520,7 @@ type GetAxesResponse struct {
 
 func (x *GetAxesResponse) Reset() {
 	*x = GetAxesResponse{}
-	mi := &file_proto_fonts_fonts_proto_msgTypes[3]
+	mi := &file_proto_fonts_fonts_proto_msgTypes[34]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -168,7 +1532,7 @@ func (x *GetAxesResponse) String() string {
 func (*GetAxesResponse) ProtoMessage() {}
 
 func (x *GetAxesResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_fonts_fonts_proto_msgTypes[3]
+	mi := &file_proto_fonts_fonts_proto_msgTypes[34]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -181,7 +1545,7 @@ func (x *GetAxesResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetAxesResponse.ProtoReflect.Descriptor instead.
 func (*GetAxesResponse) Descriptor() ([]byte, []int) {
-	return file_proto_fonts_fonts_proto_rawDescGZIP(), []int{3}
+	return file_proto_fonts_fonts_proto_rawDescGZIP(), []int{34}
 }
 
 func (x *GetAxesResponse) GetResult() int64 {
@@ -199,7 +1563,7 @@ type GetBufferRequest struct {
 
 func (x *GetBufferRequest) Reset() {
 	*x = GetBufferRequest{}
-	mi := &file_proto_fonts_fonts_proto_msgTypes[4]
+	mi := &file_proto_fonts_fonts_proto_msgTypes[35]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -211,7 +1575,7 @@ func (x *GetBufferRequest) String() string {
 func (*GetBufferRequest) ProtoMessage() {}
 
 func (x *GetBufferRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_fonts_fonts_proto_msgTypes[4]
+	mi := &file_proto_fonts_fonts_proto_msgTypes[35]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -224,7 +1588,7 @@ func (x *GetBufferRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetBufferRequest.ProtoReflect.Descriptor instead.
 func (*GetBufferRequest) Descriptor() ([]byte, []int) {
-	return file_proto_fonts_fonts_proto_rawDescGZIP(), []int{4}
+	return file_proto_fonts_fonts_proto_rawDescGZIP(), []int{35}
 }
 
 type GetBufferResponse struct {
@@ -236,7 +1600,7 @@ type GetBufferResponse struct {
 
 func (x *GetBufferResponse) Reset() {
 	*x = GetBufferResponse{}
-	mi := &file_proto_fonts_fonts_proto_msgTypes[5]
+	mi := &file_proto_fonts_fonts_proto_msgTypes[36]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -248,7 +1612,7 @@ func (x *GetBufferResponse) String() string {
 func (*GetBufferResponse) ProtoMessage() {}
 
 func (x *GetBufferResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_fonts_fonts_proto_msgTypes[5]
+	mi := &file_proto_fonts_fonts_proto_msgTypes[36]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -261,7 +1625,7 @@ func (x *GetBufferResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetBufferResponse.ProtoReflect.Descriptor instead.
 func (*GetBufferResponse) Descriptor() ([]byte, []int) {
-	return file_proto_fonts_fonts_proto_rawDescGZIP(), []int{5}
+	return file_proto_fonts_fonts_proto_rawDescGZIP(), []int{36}
 }
 
 func (x *GetBufferResponse) GetResult() int64 {
@@ -279,7 +1643,7 @@ type GetFileRequest struct {
 
 func (x *GetFileRequest) Reset() {
 	*x = GetFileRequest{}
-	mi := &file_proto_fonts_fonts_proto_msgTypes[6]
+	mi := &file_proto_fonts_fonts_proto_msgTypes[37]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -291,7 +1655,7 @@ func (x *GetFileRequest) String() string {
 func (*GetFileRequest) ProtoMessage() {}
 
 func (x *GetFileRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_fonts_fonts_proto_msgTypes[6]
+	mi := &file_proto_fonts_fonts_proto_msgTypes[37]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -304,7 +1668,7 @@ func (x *GetFileRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetFileRequest.ProtoReflect.Descriptor instead.
 func (*GetFileRequest) Descriptor() ([]byte, []int) {
-	return file_proto_fonts_fonts_proto_rawDescGZIP(), []int{6}
+	return file_proto_fonts_fonts_proto_rawDescGZIP(), []int{37}
 }
 
 type GetFileResponse struct {
@@ -316,7 +1680,7 @@ type GetFileResponse struct {
 
 func (x *GetFileResponse) Reset() {
 	*x = GetFileResponse{}
-	mi := &file_proto_fonts_fonts_proto_msgTypes[7]
+	mi := &file_proto_fonts_fonts_proto_msgTypes[38]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -328,7 +1692,7 @@ func (x *GetFileResponse) String() string {
 func (*GetFileResponse) ProtoMessage() {}
 
 func (x *GetFileResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_fonts_fonts_proto_msgTypes[7]
+	mi := &file_proto_fonts_fonts_proto_msgTypes[38]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -341,7 +1705,7 @@ func (x *GetFileResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetFileResponse.ProtoReflect.Descriptor instead.
 func (*GetFileResponse) Descriptor() ([]byte, []int) {
-	return file_proto_fonts_fonts_proto_rawDescGZIP(), []int{7}
+	return file_proto_fonts_fonts_proto_rawDescGZIP(), []int{38}
 }
 
 func (x *GetFileResponse) GetResult() int64 {
@@ -362,7 +1726,7 @@ type GetGlyphBoundsRequest struct {
 
 func (x *GetGlyphBoundsRequest) Reset() {
 	*x = GetGlyphBoundsRequest{}
-	mi := &file_proto_fonts_fonts_proto_msgTypes[8]
+	mi := &file_proto_fonts_fonts_proto_msgTypes[39]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -374,7 +1738,7 @@ func (x *GetGlyphBoundsRequest) String() string {
 func (*GetGlyphBoundsRequest) ProtoMessage() {}
 
 func (x *GetGlyphBoundsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_fonts_fonts_proto_msgTypes[8]
+	mi := &file_proto_fonts_fonts_proto_msgTypes[39]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -387,7 +1751,7 @@ func (x *GetGlyphBoundsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetGlyphBoundsRequest.ProtoReflect.Descriptor instead.
 func (*GetGlyphBoundsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_fonts_fonts_proto_rawDescGZIP(), []int{8}
+	return file_proto_fonts_fonts_proto_rawDescGZIP(), []int{39}
 }
 
 func (x *GetGlyphBoundsRequest) GetArg0() int32 {
@@ -420,7 +1784,7 @@ type GetGlyphBoundsResponse struct {
 
 func (x *GetGlyphBoundsResponse) Reset() {
 	*x = GetGlyphBoundsResponse{}
-	mi := &file_proto_fonts_fonts_proto_msgTypes[9]
+	mi := &file_proto_fonts_fonts_proto_msgTypes[40]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -432,7 +1796,7 @@ func (x *GetGlyphBoundsResponse) String() string {
 func (*GetGlyphBoundsResponse) ProtoMessage() {}
 
 func (x *GetGlyphBoundsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_fonts_fonts_proto_msgTypes[9]
+	mi := &file_proto_fonts_fonts_proto_msgTypes[40]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -445,7 +1809,7 @@ func (x *GetGlyphBoundsResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetGlyphBoundsResponse.ProtoReflect.Descriptor instead.
 func (*GetGlyphBoundsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_fonts_fonts_proto_rawDescGZIP(), []int{9}
+	return file_proto_fonts_fonts_proto_rawDescGZIP(), []int{40}
 }
 
 func (x *GetGlyphBoundsResponse) GetResult() float32 {
@@ -463,7 +1827,7 @@ type GetLocaleListRequest struct {
 
 func (x *GetLocaleListRequest) Reset() {
 	*x = GetLocaleListRequest{}
-	mi := &file_proto_fonts_fonts_proto_msgTypes[10]
+	mi := &file_proto_fonts_fonts_proto_msgTypes[41]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -475,7 +1839,7 @@ func (x *GetLocaleListRequest) String() string {
 func (*GetLocaleListRequest) ProtoMessage() {}
 
 func (x *GetLocaleListRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_fonts_fonts_proto_msgTypes[10]
+	mi := &file_proto_fonts_fonts_proto_msgTypes[41]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -488,7 +1852,7 @@ func (x *GetLocaleListRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetLocaleListRequest.ProtoReflect.Descriptor instead.
 func (*GetLocaleListRequest) Descriptor() ([]byte, []int) {
-	return file_proto_fonts_fonts_proto_rawDescGZIP(), []int{10}
+	return file_proto_fonts_fonts_proto_rawDescGZIP(), []int{41}
 }
 
 type GetLocaleListResponse struct {
@@ -500,7 +1864,7 @@ type GetLocaleListResponse struct {
 
 func (x *GetLocaleListResponse) Reset() {
 	*x = GetLocaleListResponse{}
-	mi := &file_proto_fonts_fonts_proto_msgTypes[11]
+	mi := &file_proto_fonts_fonts_proto_msgTypes[42]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -512,7 +1876,7 @@ func (x *GetLocaleListResponse) String() string {
 func (*GetLocaleListResponse) ProtoMessage() {}
 
 func (x *GetLocaleListResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_fonts_fonts_proto_msgTypes[11]
+	mi := &file_proto_fonts_fonts_proto_msgTypes[42]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -525,7 +1889,7 @@ func (x *GetLocaleListResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetLocaleListResponse.ProtoReflect.Descriptor instead.
 func (*GetLocaleListResponse) Descriptor() ([]byte, []int) {
-	return file_proto_fonts_fonts_proto_rawDescGZIP(), []int{11}
+	return file_proto_fonts_fonts_proto_rawDescGZIP(), []int{42}
 }
 
 func (x *GetLocaleListResponse) GetResult() int64 {
@@ -545,7 +1909,7 @@ type GetMetricsRequest struct {
 
 func (x *GetMetricsRequest) Reset() {
 	*x = GetMetricsRequest{}
-	mi := &file_proto_fonts_fonts_proto_msgTypes[12]
+	mi := &file_proto_fonts_fonts_proto_msgTypes[43]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -557,7 +1921,7 @@ func (x *GetMetricsRequest) String() string {
 func (*GetMetricsRequest) ProtoMessage() {}
 
 func (x *GetMetricsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_fonts_fonts_proto_msgTypes[12]
+	mi := &file_proto_fonts_fonts_proto_msgTypes[43]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -570,7 +1934,7 @@ func (x *GetMetricsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetMetricsRequest.ProtoReflect.Descriptor instead.
 func (*GetMetricsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_fonts_fonts_proto_rawDescGZIP(), []int{12}
+	return file_proto_fonts_fonts_proto_rawDescGZIP(), []int{43}
 }
 
 func (x *GetMetricsRequest) GetArg0() int64 {
@@ -595,7 +1959,7 @@ type GetMetricsResponse struct {
 
 func (x *GetMetricsResponse) Reset() {
 	*x = GetMetricsResponse{}
-	mi := &file_proto_fonts_fonts_proto_msgTypes[13]
+	mi := &file_proto_fonts_fonts_proto_msgTypes[44]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -607,7 +1971,7 @@ func (x *GetMetricsResponse) String() string {
 func (*GetMetricsResponse) ProtoMessage() {}
 
 func (x *GetMetricsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_fonts_fonts_proto_msgTypes[13]
+	mi := &file_proto_fonts_fonts_proto_msgTypes[44]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -620,7 +1984,7 @@ func (x *GetMetricsResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetMetricsResponse.ProtoReflect.Descriptor instead.
 func (*GetMetricsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_fonts_fonts_proto_rawDescGZIP(), []int{13}
+	return file_proto_fonts_fonts_proto_rawDescGZIP(), []int{44}
 }
 
 type GetSourceIdentifierRequest struct {
@@ -631,7 +1995,7 @@ type GetSourceIdentifierRequest struct {
 
 func (x *GetSourceIdentifierRequest) Reset() {
 	*x = GetSourceIdentifierRequest{}
-	mi := &file_proto_fonts_fonts_proto_msgTypes[14]
+	mi := &file_proto_fonts_fonts_proto_msgTypes[45]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -643,7 +2007,7 @@ func (x *GetSourceIdentifierRequest) String() string {
 func (*GetSourceIdentifierRequest) ProtoMessage() {}
 
 func (x *GetSourceIdentifierRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_fonts_fonts_proto_msgTypes[14]
+	mi := &file_proto_fonts_fonts_proto_msgTypes[45]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -656,7 +2020,7 @@ func (x *GetSourceIdentifierRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetSourceIdentifierRequest.ProtoReflect.Descriptor instead.
 func (*GetSourceIdentifierRequest) Descriptor() ([]byte, []int) {
-	return file_proto_fonts_fonts_proto_rawDescGZIP(), []int{14}
+	return file_proto_fonts_fonts_proto_rawDescGZIP(), []int{45}
 }
 
 type GetSourceIdentifierResponse struct {
@@ -668,7 +2032,7 @@ type GetSourceIdentifierResponse struct {
 
 func (x *GetSourceIdentifierResponse) Reset() {
 	*x = GetSourceIdentifierResponse{}
-	mi := &file_proto_fonts_fonts_proto_msgTypes[15]
+	mi := &file_proto_fonts_fonts_proto_msgTypes[46]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -680,7 +2044,7 @@ func (x *GetSourceIdentifierResponse) String() string {
 func (*GetSourceIdentifierResponse) ProtoMessage() {}
 
 func (x *GetSourceIdentifierResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_fonts_fonts_proto_msgTypes[15]
+	mi := &file_proto_fonts_fonts_proto_msgTypes[46]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -693,7 +2057,7 @@ func (x *GetSourceIdentifierResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetSourceIdentifierResponse.ProtoReflect.Descriptor instead.
 func (*GetSourceIdentifierResponse) Descriptor() ([]byte, []int) {
-	return file_proto_fonts_fonts_proto_rawDescGZIP(), []int{15}
+	return file_proto_fonts_fonts_proto_rawDescGZIP(), []int{46}
 }
 
 func (x *GetSourceIdentifierResponse) GetResult() int32 {
@@ -711,7 +2075,7 @@ type GetStyleRequest struct {
 
 func (x *GetStyleRequest) Reset() {
 	*x = GetStyleRequest{}
-	mi := &file_proto_fonts_fonts_proto_msgTypes[16]
+	mi := &file_proto_fonts_fonts_proto_msgTypes[47]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -723,7 +2087,7 @@ func (x *GetStyleRequest) String() string {
 func (*GetStyleRequest) ProtoMessage() {}
 
 func (x *GetStyleRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_fonts_fonts_proto_msgTypes[16]
+	mi := &file_proto_fonts_fonts_proto_msgTypes[47]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -736,7 +2100,7 @@ func (x *GetStyleRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetStyleRequest.ProtoReflect.Descriptor instead.
 func (*GetStyleRequest) Descriptor() ([]byte, []int) {
-	return file_proto_fonts_fonts_proto_rawDescGZIP(), []int{16}
+	return file_proto_fonts_fonts_proto_rawDescGZIP(), []int{47}
 }
 
 type GetStyleResponse struct {
@@ -748,7 +2112,7 @@ type GetStyleResponse struct {
 
 func (x *GetStyleResponse) Reset() {
 	*x = GetStyleResponse{}
-	mi := &file_proto_fonts_fonts_proto_msgTypes[17]
+	mi := &file_proto_fonts_fonts_proto_msgTypes[48]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -760,7 +2124,7 @@ func (x *GetStyleResponse) String() string {
 func (*GetStyleResponse) ProtoMessage() {}
 
 func (x *GetStyleResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_fonts_fonts_proto_msgTypes[17]
+	mi := &file_proto_fonts_fonts_proto_msgTypes[48]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -773,7 +2137,7 @@ func (x *GetStyleResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetStyleResponse.ProtoReflect.Descriptor instead.
 func (*GetStyleResponse) Descriptor() ([]byte, []int) {
-	return file_proto_fonts_fonts_proto_rawDescGZIP(), []int{17}
+	return file_proto_fonts_fonts_proto_rawDescGZIP(), []int{48}
 }
 
 func (x *GetStyleResponse) GetResult() int64 {
@@ -791,7 +2155,7 @@ type GetTtcIndexRequest struct {
 
 func (x *GetTtcIndexRequest) Reset() {
 	*x = GetTtcIndexRequest{}
-	mi := &file_proto_fonts_fonts_proto_msgTypes[18]
+	mi := &file_proto_fonts_fonts_proto_msgTypes[49]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -803,7 +2167,7 @@ func (x *GetTtcIndexRequest) String() string {
 func (*GetTtcIndexRequest) ProtoMessage() {}
 
 func (x *GetTtcIndexRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_fonts_fonts_proto_msgTypes[18]
+	mi := &file_proto_fonts_fonts_proto_msgTypes[49]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -816,7 +2180,7 @@ func (x *GetTtcIndexRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetTtcIndexRequest.ProtoReflect.Descriptor instead.
 func (*GetTtcIndexRequest) Descriptor() ([]byte, []int) {
-	return file_proto_fonts_fonts_proto_rawDescGZIP(), []int{18}
+	return file_proto_fonts_fonts_proto_rawDescGZIP(), []int{49}
 }
 
 type GetTtcIndexResponse struct {
@@ -828,7 +2192,7 @@ type GetTtcIndexResponse struct {
 
 func (x *GetTtcIndexResponse) Reset() {
 	*x = GetTtcIndexResponse{}
-	mi := &file_proto_fonts_fonts_proto_msgTypes[19]
+	mi := &file_proto_fonts_fonts_proto_msgTypes[50]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -840,7 +2204,7 @@ func (x *GetTtcIndexResponse) String() string {
 func (*GetTtcIndexResponse) ProtoMessage() {}
 
 func (x *GetTtcIndexResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_fonts_fonts_proto_msgTypes[19]
+	mi := &file_proto_fonts_fonts_proto_msgTypes[50]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -853,7 +2217,7 @@ func (x *GetTtcIndexResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetTtcIndexResponse.ProtoReflect.Descriptor instead.
 func (*GetTtcIndexResponse) Descriptor() ([]byte, []int) {
-	return file_proto_fonts_fonts_proto_rawDescGZIP(), []int{19}
+	return file_proto_fonts_fonts_proto_rawDescGZIP(), []int{50}
 }
 
 func (x *GetTtcIndexResponse) GetResult() int32 {
@@ -863,27 +2227,27 @@ func (x *GetTtcIndexResponse) GetResult() int32 {
 	return 0
 }
 
-type HashCodeRequest struct {
+type FontHashCodeRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *HashCodeRequest) Reset() {
-	*x = HashCodeRequest{}
-	mi := &file_proto_fonts_fonts_proto_msgTypes[20]
+func (x *FontHashCodeRequest) Reset() {
+	*x = FontHashCodeRequest{}
+	mi := &file_proto_fonts_fonts_proto_msgTypes[51]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *HashCodeRequest) String() string {
+func (x *FontHashCodeRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*HashCodeRequest) ProtoMessage() {}
+func (*FontHashCodeRequest) ProtoMessage() {}
 
-func (x *HashCodeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_fonts_fonts_proto_msgTypes[20]
+func (x *FontHashCodeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_fonts_fonts_proto_msgTypes[51]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -894,33 +2258,32 @@ func (x *HashCodeRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use HashCodeRequest.ProtoReflect.Descriptor instead.
-func (*HashCodeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_fonts_fonts_proto_rawDescGZIP(), []int{20}
+// Deprecated: Use FontHashCodeRequest.ProtoReflect.Descriptor instead.
+func (*FontHashCodeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_fonts_fonts_proto_rawDescGZIP(), []int{51}
 }
 
-type HashCodeResponse struct {
+type FontToStringRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *HashCodeResponse) Reset() {
-	*x = HashCodeResponse{}
-	mi := &file_proto_fonts_fonts_proto_msgTypes[21]
+func (x *FontToStringRequest) Reset() {
+	*x = FontToStringRequest{}
+	mi := &file_proto_fonts_fonts_proto_msgTypes[52]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *HashCodeResponse) String() string {
+func (x *FontToStringRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*HashCodeResponse) ProtoMessage() {}
+func (*FontToStringRequest) ProtoMessage() {}
 
-func (x *HashCodeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_fonts_fonts_proto_msgTypes[21]
+func (x *FontToStringRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_fonts_fonts_proto_msgTypes[52]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -931,176 +2294,9 @@ func (x *HashCodeResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use HashCodeResponse.ProtoReflect.Descriptor instead.
-func (*HashCodeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_fonts_fonts_proto_rawDescGZIP(), []int{21}
-}
-
-func (x *HashCodeResponse) GetResult() int32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type ToStringRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ToStringRequest) Reset() {
-	*x = ToStringRequest{}
-	mi := &file_proto_fonts_fonts_proto_msgTypes[22]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ToStringRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ToStringRequest) ProtoMessage() {}
-
-func (x *ToStringRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_fonts_fonts_proto_msgTypes[22]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ToStringRequest.ProtoReflect.Descriptor instead.
-func (*ToStringRequest) Descriptor() ([]byte, []int) {
-	return file_proto_fonts_fonts_proto_rawDescGZIP(), []int{22}
-}
-
-type ToStringResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ToStringResponse) Reset() {
-	*x = ToStringResponse{}
-	mi := &file_proto_fonts_fonts_proto_msgTypes[23]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ToStringResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ToStringResponse) ProtoMessage() {}
-
-func (x *ToStringResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_fonts_fonts_proto_msgTypes[23]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ToStringResponse.ProtoReflect.Descriptor instead.
-func (*ToStringResponse) Descriptor() ([]byte, []int) {
-	return file_proto_fonts_fonts_proto_rawDescGZIP(), []int{23}
-}
-
-func (x *ToStringResponse) GetResult() string {
-	if x != nil {
-		return x.Result
-	}
-	return ""
-}
-
-type BuildRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *BuildRequest) Reset() {
-	*x = BuildRequest{}
-	mi := &file_proto_fonts_fonts_proto_msgTypes[24]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *BuildRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*BuildRequest) ProtoMessage() {}
-
-func (x *BuildRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_fonts_fonts_proto_msgTypes[24]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use BuildRequest.ProtoReflect.Descriptor instead.
-func (*BuildRequest) Descriptor() ([]byte, []int) {
-	return file_proto_fonts_fonts_proto_rawDescGZIP(), []int{24}
-}
-
-type BuildResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *BuildResponse) Reset() {
-	*x = BuildResponse{}
-	mi := &file_proto_fonts_fonts_proto_msgTypes[25]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *BuildResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*BuildResponse) ProtoMessage() {}
-
-func (x *BuildResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_fonts_fonts_proto_msgTypes[25]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use BuildResponse.ProtoReflect.Descriptor instead.
-func (*BuildResponse) Descriptor() ([]byte, []int) {
-	return file_proto_fonts_fonts_proto_rawDescGZIP(), []int{25}
-}
-
-func (x *BuildResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
+// Deprecated: Use FontToStringRequest.ProtoReflect.Descriptor instead.
+func (*FontToStringRequest) Descriptor() ([]byte, []int) {
+	return file_proto_fonts_fonts_proto_rawDescGZIP(), []int{52}
 }
 
 type SetFontVariationSettings1Request struct {
@@ -1112,7 +2308,7 @@ type SetFontVariationSettings1Request struct {
 
 func (x *SetFontVariationSettings1Request) Reset() {
 	*x = SetFontVariationSettings1Request{}
-	mi := &file_proto_fonts_fonts_proto_msgTypes[26]
+	mi := &file_proto_fonts_fonts_proto_msgTypes[53]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1124,7 +2320,7 @@ func (x *SetFontVariationSettings1Request) String() string {
 func (*SetFontVariationSettings1Request) ProtoMessage() {}
 
 func (x *SetFontVariationSettings1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_fonts_fonts_proto_msgTypes[26]
+	mi := &file_proto_fonts_fonts_proto_msgTypes[53]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1137,7 +2333,7 @@ func (x *SetFontVariationSettings1Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetFontVariationSettings1Request.ProtoReflect.Descriptor instead.
 func (*SetFontVariationSettings1Request) Descriptor() ([]byte, []int) {
-	return file_proto_fonts_fonts_proto_rawDescGZIP(), []int{26}
+	return file_proto_fonts_fonts_proto_rawDescGZIP(), []int{53}
 }
 
 func (x *SetFontVariationSettings1Request) GetArg0() int64 {
@@ -1156,7 +2352,7 @@ type SetFontVariationSettings1Response struct {
 
 func (x *SetFontVariationSettings1Response) Reset() {
 	*x = SetFontVariationSettings1Response{}
-	mi := &file_proto_fonts_fonts_proto_msgTypes[27]
+	mi := &file_proto_fonts_fonts_proto_msgTypes[54]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1168,7 +2364,7 @@ func (x *SetFontVariationSettings1Response) String() string {
 func (*SetFontVariationSettings1Response) ProtoMessage() {}
 
 func (x *SetFontVariationSettings1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_fonts_fonts_proto_msgTypes[27]
+	mi := &file_proto_fonts_fonts_proto_msgTypes[54]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1181,7 +2377,7 @@ func (x *SetFontVariationSettings1Response) ProtoReflect() protoreflect.Message 
 
 // Deprecated: Use SetFontVariationSettings1Response.ProtoReflect.Descriptor instead.
 func (*SetFontVariationSettings1Response) Descriptor() ([]byte, []int) {
-	return file_proto_fonts_fonts_proto_rawDescGZIP(), []int{27}
+	return file_proto_fonts_fonts_proto_rawDescGZIP(), []int{54}
 }
 
 func (x *SetFontVariationSettings1Response) GetResult() int64 {
@@ -1200,7 +2396,7 @@ type SetFontVariationSettings1_1Request struct {
 
 func (x *SetFontVariationSettings1_1Request) Reset() {
 	*x = SetFontVariationSettings1_1Request{}
-	mi := &file_proto_fonts_fonts_proto_msgTypes[28]
+	mi := &file_proto_fonts_fonts_proto_msgTypes[55]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1212,7 +2408,7 @@ func (x *SetFontVariationSettings1_1Request) String() string {
 func (*SetFontVariationSettings1_1Request) ProtoMessage() {}
 
 func (x *SetFontVariationSettings1_1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_fonts_fonts_proto_msgTypes[28]
+	mi := &file_proto_fonts_fonts_proto_msgTypes[55]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1225,7 +2421,7 @@ func (x *SetFontVariationSettings1_1Request) ProtoReflect() protoreflect.Message
 
 // Deprecated: Use SetFontVariationSettings1_1Request.ProtoReflect.Descriptor instead.
 func (*SetFontVariationSettings1_1Request) Descriptor() ([]byte, []int) {
-	return file_proto_fonts_fonts_proto_rawDescGZIP(), []int{28}
+	return file_proto_fonts_fonts_proto_rawDescGZIP(), []int{55}
 }
 
 func (x *SetFontVariationSettings1_1Request) GetArg0() string {
@@ -1244,7 +2440,7 @@ type SetFontVariationSettings1_1Response struct {
 
 func (x *SetFontVariationSettings1_1Response) Reset() {
 	*x = SetFontVariationSettings1_1Response{}
-	mi := &file_proto_fonts_fonts_proto_msgTypes[29]
+	mi := &file_proto_fonts_fonts_proto_msgTypes[56]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1256,7 +2452,7 @@ func (x *SetFontVariationSettings1_1Response) String() string {
 func (*SetFontVariationSettings1_1Response) ProtoMessage() {}
 
 func (x *SetFontVariationSettings1_1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_fonts_fonts_proto_msgTypes[29]
+	mi := &file_proto_fonts_fonts_proto_msgTypes[56]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1269,7 +2465,7 @@ func (x *SetFontVariationSettings1_1Response) ProtoReflect() protoreflect.Messag
 
 // Deprecated: Use SetFontVariationSettings1_1Response.ProtoReflect.Descriptor instead.
 func (*SetFontVariationSettings1_1Response) Descriptor() ([]byte, []int) {
-	return file_proto_fonts_fonts_proto_rawDescGZIP(), []int{29}
+	return file_proto_fonts_fonts_proto_rawDescGZIP(), []int{56}
 }
 
 func (x *SetFontVariationSettings1_1Response) GetResult() int64 {
@@ -1288,7 +2484,7 @@ type SetSlantRequest struct {
 
 func (x *SetSlantRequest) Reset() {
 	*x = SetSlantRequest{}
-	mi := &file_proto_fonts_fonts_proto_msgTypes[30]
+	mi := &file_proto_fonts_fonts_proto_msgTypes[57]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1300,7 +2496,7 @@ func (x *SetSlantRequest) String() string {
 func (*SetSlantRequest) ProtoMessage() {}
 
 func (x *SetSlantRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_fonts_fonts_proto_msgTypes[30]
+	mi := &file_proto_fonts_fonts_proto_msgTypes[57]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1313,7 +2509,7 @@ func (x *SetSlantRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetSlantRequest.ProtoReflect.Descriptor instead.
 func (*SetSlantRequest) Descriptor() ([]byte, []int) {
-	return file_proto_fonts_fonts_proto_rawDescGZIP(), []int{30}
+	return file_proto_fonts_fonts_proto_rawDescGZIP(), []int{57}
 }
 
 func (x *SetSlantRequest) GetArg0() int32 {
@@ -1332,7 +2528,7 @@ type SetSlantResponse struct {
 
 func (x *SetSlantResponse) Reset() {
 	*x = SetSlantResponse{}
-	mi := &file_proto_fonts_fonts_proto_msgTypes[31]
+	mi := &file_proto_fonts_fonts_proto_msgTypes[58]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1344,7 +2540,7 @@ func (x *SetSlantResponse) String() string {
 func (*SetSlantResponse) ProtoMessage() {}
 
 func (x *SetSlantResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_fonts_fonts_proto_msgTypes[31]
+	mi := &file_proto_fonts_fonts_proto_msgTypes[58]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1357,7 +2553,7 @@ func (x *SetSlantResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetSlantResponse.ProtoReflect.Descriptor instead.
 func (*SetSlantResponse) Descriptor() ([]byte, []int) {
-	return file_proto_fonts_fonts_proto_rawDescGZIP(), []int{31}
+	return file_proto_fonts_fonts_proto_rawDescGZIP(), []int{58}
 }
 
 func (x *SetSlantResponse) GetResult() int64 {
@@ -1376,7 +2572,7 @@ type SetTtcIndexRequest struct {
 
 func (x *SetTtcIndexRequest) Reset() {
 	*x = SetTtcIndexRequest{}
-	mi := &file_proto_fonts_fonts_proto_msgTypes[32]
+	mi := &file_proto_fonts_fonts_proto_msgTypes[59]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1388,7 +2584,7 @@ func (x *SetTtcIndexRequest) String() string {
 func (*SetTtcIndexRequest) ProtoMessage() {}
 
 func (x *SetTtcIndexRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_fonts_fonts_proto_msgTypes[32]
+	mi := &file_proto_fonts_fonts_proto_msgTypes[59]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1401,7 +2597,7 @@ func (x *SetTtcIndexRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetTtcIndexRequest.ProtoReflect.Descriptor instead.
 func (*SetTtcIndexRequest) Descriptor() ([]byte, []int) {
-	return file_proto_fonts_fonts_proto_rawDescGZIP(), []int{32}
+	return file_proto_fonts_fonts_proto_rawDescGZIP(), []int{59}
 }
 
 func (x *SetTtcIndexRequest) GetArg0() int32 {
@@ -1420,7 +2616,7 @@ type SetTtcIndexResponse struct {
 
 func (x *SetTtcIndexResponse) Reset() {
 	*x = SetTtcIndexResponse{}
-	mi := &file_proto_fonts_fonts_proto_msgTypes[33]
+	mi := &file_proto_fonts_fonts_proto_msgTypes[60]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1432,7 +2628,7 @@ func (x *SetTtcIndexResponse) String() string {
 func (*SetTtcIndexResponse) ProtoMessage() {}
 
 func (x *SetTtcIndexResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_fonts_fonts_proto_msgTypes[33]
+	mi := &file_proto_fonts_fonts_proto_msgTypes[60]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1445,7 +2641,7 @@ func (x *SetTtcIndexResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetTtcIndexResponse.ProtoReflect.Descriptor instead.
 func (*SetTtcIndexResponse) Descriptor() ([]byte, []int) {
-	return file_proto_fonts_fonts_proto_rawDescGZIP(), []int{33}
+	return file_proto_fonts_fonts_proto_rawDescGZIP(), []int{60}
 }
 
 func (x *SetTtcIndexResponse) GetResult() int64 {
@@ -1464,7 +2660,7 @@ type SetWeightRequest struct {
 
 func (x *SetWeightRequest) Reset() {
 	*x = SetWeightRequest{}
-	mi := &file_proto_fonts_fonts_proto_msgTypes[34]
+	mi := &file_proto_fonts_fonts_proto_msgTypes[61]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1476,7 +2672,7 @@ func (x *SetWeightRequest) String() string {
 func (*SetWeightRequest) ProtoMessage() {}
 
 func (x *SetWeightRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_fonts_fonts_proto_msgTypes[34]
+	mi := &file_proto_fonts_fonts_proto_msgTypes[61]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1489,7 +2685,7 @@ func (x *SetWeightRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetWeightRequest.ProtoReflect.Descriptor instead.
 func (*SetWeightRequest) Descriptor() ([]byte, []int) {
-	return file_proto_fonts_fonts_proto_rawDescGZIP(), []int{34}
+	return file_proto_fonts_fonts_proto_rawDescGZIP(), []int{61}
 }
 
 func (x *SetWeightRequest) GetArg0() int32 {
@@ -1508,7 +2704,7 @@ type SetWeightResponse struct {
 
 func (x *SetWeightResponse) Reset() {
 	*x = SetWeightResponse{}
-	mi := &file_proto_fonts_fonts_proto_msgTypes[35]
+	mi := &file_proto_fonts_fonts_proto_msgTypes[62]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1520,7 +2716,7 @@ func (x *SetWeightResponse) String() string {
 func (*SetWeightResponse) ProtoMessage() {}
 
 func (x *SetWeightResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_fonts_fonts_proto_msgTypes[35]
+	mi := &file_proto_fonts_fonts_proto_msgTypes[62]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1533,7 +2729,7 @@ func (x *SetWeightResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetWeightResponse.ProtoReflect.Descriptor instead.
 func (*SetWeightResponse) Descriptor() ([]byte, []int) {
-	return file_proto_fonts_fonts_proto_rawDescGZIP(), []int{35}
+	return file_proto_fonts_fonts_proto_rawDescGZIP(), []int{62}
 }
 
 func (x *SetWeightResponse) GetResult() int64 {
@@ -1543,1239 +2739,26 @@ func (x *SetWeightResponse) GetResult() int64 {
 	return 0
 }
 
-type NewFontStyleRequest struct {
+type GetAvailableFontsRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *NewFontStyleRequest) Reset() {
-	*x = NewFontStyleRequest{}
-	mi := &file_proto_fonts_fonts_proto_msgTypes[36]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *NewFontStyleRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*NewFontStyleRequest) ProtoMessage() {}
-
-func (x *NewFontStyleRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_fonts_fonts_proto_msgTypes[36]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use NewFontStyleRequest.ProtoReflect.Descriptor instead.
-func (*NewFontStyleRequest) Descriptor() ([]byte, []int) {
-	return file_proto_fonts_fonts_proto_rawDescGZIP(), []int{36}
-}
-
-type NewFontStyleResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *NewFontStyleResponse) Reset() {
-	*x = NewFontStyleResponse{}
-	mi := &file_proto_fonts_fonts_proto_msgTypes[37]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *NewFontStyleResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*NewFontStyleResponse) ProtoMessage() {}
-
-func (x *NewFontStyleResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_fonts_fonts_proto_msgTypes[37]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use NewFontStyleResponse.ProtoReflect.Descriptor instead.
-func (*NewFontStyleResponse) Descriptor() ([]byte, []int) {
-	return file_proto_fonts_fonts_proto_rawDescGZIP(), []int{37}
-}
-
-func (x *NewFontStyleResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type FontStyleEqualsRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *FontStyleEqualsRequest) Reset() {
-	*x = FontStyleEqualsRequest{}
-	mi := &file_proto_fonts_fonts_proto_msgTypes[38]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *FontStyleEqualsRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*FontStyleEqualsRequest) ProtoMessage() {}
-
-func (x *FontStyleEqualsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_fonts_fonts_proto_msgTypes[38]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use FontStyleEqualsRequest.ProtoReflect.Descriptor instead.
-func (*FontStyleEqualsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_fonts_fonts_proto_rawDescGZIP(), []int{38}
-}
-
-func (x *FontStyleEqualsRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-func (x *FontStyleEqualsRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type GetSlantRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetSlantRequest) Reset() {
-	*x = GetSlantRequest{}
-	mi := &file_proto_fonts_fonts_proto_msgTypes[39]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetSlantRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetSlantRequest) ProtoMessage() {}
-
-func (x *GetSlantRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_fonts_fonts_proto_msgTypes[39]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetSlantRequest.ProtoReflect.Descriptor instead.
-func (*GetSlantRequest) Descriptor() ([]byte, []int) {
-	return file_proto_fonts_fonts_proto_rawDescGZIP(), []int{39}
-}
-
-func (x *GetSlantRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-type GetSlantResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetSlantResponse) Reset() {
-	*x = GetSlantResponse{}
-	mi := &file_proto_fonts_fonts_proto_msgTypes[40]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetSlantResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetSlantResponse) ProtoMessage() {}
-
-func (x *GetSlantResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_fonts_fonts_proto_msgTypes[40]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetSlantResponse.ProtoReflect.Descriptor instead.
-func (*GetSlantResponse) Descriptor() ([]byte, []int) {
-	return file_proto_fonts_fonts_proto_rawDescGZIP(), []int{40}
-}
-
-func (x *GetSlantResponse) GetResult() int32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetWeightRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetWeightRequest) Reset() {
-	*x = GetWeightRequest{}
-	mi := &file_proto_fonts_fonts_proto_msgTypes[41]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetWeightRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetWeightRequest) ProtoMessage() {}
-
-func (x *GetWeightRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_fonts_fonts_proto_msgTypes[41]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetWeightRequest.ProtoReflect.Descriptor instead.
-func (*GetWeightRequest) Descriptor() ([]byte, []int) {
-	return file_proto_fonts_fonts_proto_rawDescGZIP(), []int{41}
-}
-
-func (x *GetWeightRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-type GetWeightResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetWeightResponse) Reset() {
-	*x = GetWeightResponse{}
-	mi := &file_proto_fonts_fonts_proto_msgTypes[42]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetWeightResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetWeightResponse) ProtoMessage() {}
-
-func (x *GetWeightResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_fonts_fonts_proto_msgTypes[42]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetWeightResponse.ProtoReflect.Descriptor instead.
-func (*GetWeightResponse) Descriptor() ([]byte, []int) {
-	return file_proto_fonts_fonts_proto_rawDescGZIP(), []int{42}
-}
-
-func (x *GetWeightResponse) GetResult() int32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type FontStyleHashCodeRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *FontStyleHashCodeRequest) Reset() {
-	*x = FontStyleHashCodeRequest{}
-	mi := &file_proto_fonts_fonts_proto_msgTypes[43]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *FontStyleHashCodeRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*FontStyleHashCodeRequest) ProtoMessage() {}
-
-func (x *FontStyleHashCodeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_fonts_fonts_proto_msgTypes[43]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use FontStyleHashCodeRequest.ProtoReflect.Descriptor instead.
-func (*FontStyleHashCodeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_fonts_fonts_proto_rawDescGZIP(), []int{43}
-}
-
-func (x *FontStyleHashCodeRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-type FontStyleToStringRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *FontStyleToStringRequest) Reset() {
-	*x = FontStyleToStringRequest{}
-	mi := &file_proto_fonts_fonts_proto_msgTypes[44]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *FontStyleToStringRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*FontStyleToStringRequest) ProtoMessage() {}
-
-func (x *FontStyleToStringRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_fonts_fonts_proto_msgTypes[44]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use FontStyleToStringRequest.ProtoReflect.Descriptor instead.
-func (*FontStyleToStringRequest) Descriptor() ([]byte, []int) {
-	return file_proto_fonts_fonts_proto_rawDescGZIP(), []int{44}
-}
-
-func (x *FontStyleToStringRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-type NewFontVariationAxisRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          float32                `protobuf:"fixed32,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *NewFontVariationAxisRequest) Reset() {
-	*x = NewFontVariationAxisRequest{}
-	mi := &file_proto_fonts_fonts_proto_msgTypes[45]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *NewFontVariationAxisRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*NewFontVariationAxisRequest) ProtoMessage() {}
-
-func (x *NewFontVariationAxisRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_fonts_fonts_proto_msgTypes[45]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use NewFontVariationAxisRequest.ProtoReflect.Descriptor instead.
-func (*NewFontVariationAxisRequest) Descriptor() ([]byte, []int) {
-	return file_proto_fonts_fonts_proto_rawDescGZIP(), []int{45}
-}
-
-func (x *NewFontVariationAxisRequest) GetArg0() string {
-	if x != nil {
-		return x.Arg0
-	}
-	return ""
-}
-
-func (x *NewFontVariationAxisRequest) GetArg1() float32 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-type NewFontVariationAxisResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *NewFontVariationAxisResponse) Reset() {
-	*x = NewFontVariationAxisResponse{}
-	mi := &file_proto_fonts_fonts_proto_msgTypes[46]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *NewFontVariationAxisResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*NewFontVariationAxisResponse) ProtoMessage() {}
-
-func (x *NewFontVariationAxisResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_fonts_fonts_proto_msgTypes[46]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use NewFontVariationAxisResponse.ProtoReflect.Descriptor instead.
-func (*NewFontVariationAxisResponse) Descriptor() ([]byte, []int) {
-	return file_proto_fonts_fonts_proto_rawDescGZIP(), []int{46}
-}
-
-func (x *NewFontVariationAxisResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type FontVariationAxisEqualsRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *FontVariationAxisEqualsRequest) Reset() {
-	*x = FontVariationAxisEqualsRequest{}
-	mi := &file_proto_fonts_fonts_proto_msgTypes[47]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *FontVariationAxisEqualsRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*FontVariationAxisEqualsRequest) ProtoMessage() {}
-
-func (x *FontVariationAxisEqualsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_fonts_fonts_proto_msgTypes[47]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use FontVariationAxisEqualsRequest.ProtoReflect.Descriptor instead.
-func (*FontVariationAxisEqualsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_fonts_fonts_proto_rawDescGZIP(), []int{47}
-}
-
-func (x *FontVariationAxisEqualsRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-func (x *FontVariationAxisEqualsRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type GetStyleValueRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetStyleValueRequest) Reset() {
-	*x = GetStyleValueRequest{}
-	mi := &file_proto_fonts_fonts_proto_msgTypes[48]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetStyleValueRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetStyleValueRequest) ProtoMessage() {}
-
-func (x *GetStyleValueRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_fonts_fonts_proto_msgTypes[48]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetStyleValueRequest.ProtoReflect.Descriptor instead.
-func (*GetStyleValueRequest) Descriptor() ([]byte, []int) {
-	return file_proto_fonts_fonts_proto_rawDescGZIP(), []int{48}
-}
-
-func (x *GetStyleValueRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-type GetStyleValueResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        float32                `protobuf:"fixed32,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetStyleValueResponse) Reset() {
-	*x = GetStyleValueResponse{}
-	mi := &file_proto_fonts_fonts_proto_msgTypes[49]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetStyleValueResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetStyleValueResponse) ProtoMessage() {}
-
-func (x *GetStyleValueResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_fonts_fonts_proto_msgTypes[49]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetStyleValueResponse.ProtoReflect.Descriptor instead.
-func (*GetStyleValueResponse) Descriptor() ([]byte, []int) {
-	return file_proto_fonts_fonts_proto_rawDescGZIP(), []int{49}
-}
-
-func (x *GetStyleValueResponse) GetResult() float32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetTagRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetTagRequest) Reset() {
-	*x = GetTagRequest{}
-	mi := &file_proto_fonts_fonts_proto_msgTypes[50]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetTagRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetTagRequest) ProtoMessage() {}
-
-func (x *GetTagRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_fonts_fonts_proto_msgTypes[50]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetTagRequest.ProtoReflect.Descriptor instead.
-func (*GetTagRequest) Descriptor() ([]byte, []int) {
-	return file_proto_fonts_fonts_proto_rawDescGZIP(), []int{50}
-}
-
-func (x *GetTagRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-type GetTagResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetTagResponse) Reset() {
-	*x = GetTagResponse{}
-	mi := &file_proto_fonts_fonts_proto_msgTypes[51]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetTagResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetTagResponse) ProtoMessage() {}
-
-func (x *GetTagResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_fonts_fonts_proto_msgTypes[51]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetTagResponse.ProtoReflect.Descriptor instead.
-func (*GetTagResponse) Descriptor() ([]byte, []int) {
-	return file_proto_fonts_fonts_proto_rawDescGZIP(), []int{51}
-}
-
-func (x *GetTagResponse) GetResult() string {
-	if x != nil {
-		return x.Result
-	}
-	return ""
-}
-
-type FontVariationAxisHashCodeRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *FontVariationAxisHashCodeRequest) Reset() {
-	*x = FontVariationAxisHashCodeRequest{}
-	mi := &file_proto_fonts_fonts_proto_msgTypes[52]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *FontVariationAxisHashCodeRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*FontVariationAxisHashCodeRequest) ProtoMessage() {}
-
-func (x *FontVariationAxisHashCodeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_fonts_fonts_proto_msgTypes[52]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use FontVariationAxisHashCodeRequest.ProtoReflect.Descriptor instead.
-func (*FontVariationAxisHashCodeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_fonts_fonts_proto_rawDescGZIP(), []int{52}
-}
-
-func (x *FontVariationAxisHashCodeRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-type FontVariationAxisToStringRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *FontVariationAxisToStringRequest) Reset() {
-	*x = FontVariationAxisToStringRequest{}
-	mi := &file_proto_fonts_fonts_proto_msgTypes[53]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *FontVariationAxisToStringRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*FontVariationAxisToStringRequest) ProtoMessage() {}
-
-func (x *FontVariationAxisToStringRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_fonts_fonts_proto_msgTypes[53]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use FontVariationAxisToStringRequest.ProtoReflect.Descriptor instead.
-func (*FontVariationAxisToStringRequest) Descriptor() ([]byte, []int) {
-	return file_proto_fonts_fonts_proto_rawDescGZIP(), []int{53}
-}
-
-func (x *FontVariationAxisToStringRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-type FromFontVariationSettingsRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	Arg0          string                 `protobuf:"bytes,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *FromFontVariationSettingsRequest) Reset() {
-	*x = FromFontVariationSettingsRequest{}
-	mi := &file_proto_fonts_fonts_proto_msgTypes[54]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *FromFontVariationSettingsRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*FromFontVariationSettingsRequest) ProtoMessage() {}
-
-func (x *FromFontVariationSettingsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_fonts_fonts_proto_msgTypes[54]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use FromFontVariationSettingsRequest.ProtoReflect.Descriptor instead.
-func (*FromFontVariationSettingsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_fonts_fonts_proto_rawDescGZIP(), []int{54}
-}
-
-func (x *FromFontVariationSettingsRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-func (x *FromFontVariationSettingsRequest) GetArg0() string {
-	if x != nil {
-		return x.Arg0
-	}
-	return ""
-}
-
-type FromFontVariationSettingsResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *FromFontVariationSettingsResponse) Reset() {
-	*x = FromFontVariationSettingsResponse{}
-	mi := &file_proto_fonts_fonts_proto_msgTypes[55]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *FromFontVariationSettingsResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*FromFontVariationSettingsResponse) ProtoMessage() {}
-
-func (x *FromFontVariationSettingsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_fonts_fonts_proto_msgTypes[55]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use FromFontVariationSettingsResponse.ProtoReflect.Descriptor instead.
-func (*FromFontVariationSettingsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_fonts_fonts_proto_rawDescGZIP(), []int{55}
-}
-
-func (x *FromFontVariationSettingsResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type ToFontVariationSettingsRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ToFontVariationSettingsRequest) Reset() {
-	*x = ToFontVariationSettingsRequest{}
-	mi := &file_proto_fonts_fonts_proto_msgTypes[56]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ToFontVariationSettingsRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ToFontVariationSettingsRequest) ProtoMessage() {}
-
-func (x *ToFontVariationSettingsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_fonts_fonts_proto_msgTypes[56]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ToFontVariationSettingsRequest.ProtoReflect.Descriptor instead.
-func (*ToFontVariationSettingsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_fonts_fonts_proto_rawDescGZIP(), []int{56}
-}
-
-func (x *ToFontVariationSettingsRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-func (x *ToFontVariationSettingsRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type ToFontVariationSettingsResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ToFontVariationSettingsResponse) Reset() {
-	*x = ToFontVariationSettingsResponse{}
-	mi := &file_proto_fonts_fonts_proto_msgTypes[57]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ToFontVariationSettingsResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ToFontVariationSettingsResponse) ProtoMessage() {}
-
-func (x *ToFontVariationSettingsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_fonts_fonts_proto_msgTypes[57]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ToFontVariationSettingsResponse.ProtoReflect.Descriptor instead.
-func (*ToFontVariationSettingsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_fonts_fonts_proto_rawDescGZIP(), []int{57}
-}
-
-func (x *ToFontVariationSettingsResponse) GetResult() string {
-	if x != nil {
-		return x.Result
-	}
-	return ""
-}
-
-type GetFontRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetFontRequest) Reset() {
-	*x = GetFontRequest{}
-	mi := &file_proto_fonts_fonts_proto_msgTypes[58]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetFontRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetFontRequest) ProtoMessage() {}
-
-func (x *GetFontRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_fonts_fonts_proto_msgTypes[58]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetFontRequest.ProtoReflect.Descriptor instead.
-func (*GetFontRequest) Descriptor() ([]byte, []int) {
-	return file_proto_fonts_fonts_proto_rawDescGZIP(), []int{58}
-}
-
-func (x *GetFontRequest) GetArg0() int32 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type GetFontResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetFontResponse) Reset() {
-	*x = GetFontResponse{}
-	mi := &file_proto_fonts_fonts_proto_msgTypes[59]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetFontResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetFontResponse) ProtoMessage() {}
-
-func (x *GetFontResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_fonts_fonts_proto_msgTypes[59]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetFontResponse.ProtoReflect.Descriptor instead.
-func (*GetFontResponse) Descriptor() ([]byte, []int) {
-	return file_proto_fonts_fonts_proto_rawDescGZIP(), []int{59}
-}
-
-func (x *GetFontResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetSizeRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetSizeRequest) Reset() {
-	*x = GetSizeRequest{}
-	mi := &file_proto_fonts_fonts_proto_msgTypes[60]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetSizeRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetSizeRequest) ProtoMessage() {}
-
-func (x *GetSizeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_fonts_fonts_proto_msgTypes[60]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetSizeRequest.ProtoReflect.Descriptor instead.
-func (*GetSizeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_fonts_fonts_proto_rawDescGZIP(), []int{60}
-}
-
-type GetSizeResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetSizeResponse) Reset() {
-	*x = GetSizeResponse{}
-	mi := &file_proto_fonts_fonts_proto_msgTypes[61]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetSizeResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetSizeResponse) ProtoMessage() {}
-
-func (x *GetSizeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_fonts_fonts_proto_msgTypes[61]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetSizeResponse.ProtoReflect.Descriptor instead.
-func (*GetSizeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_fonts_fonts_proto_rawDescGZIP(), []int{61}
-}
-
-func (x *GetSizeResponse) GetResult() int32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type AddFontRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *AddFontRequest) Reset() {
-	*x = AddFontRequest{}
-	mi := &file_proto_fonts_fonts_proto_msgTypes[62]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *AddFontRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*AddFontRequest) ProtoMessage() {}
-
-func (x *AddFontRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_fonts_fonts_proto_msgTypes[62]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use AddFontRequest.ProtoReflect.Descriptor instead.
-func (*AddFontRequest) Descriptor() ([]byte, []int) {
-	return file_proto_fonts_fonts_proto_rawDescGZIP(), []int{62}
-}
-
-func (x *AddFontRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type AddFontResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *AddFontResponse) Reset() {
-	*x = AddFontResponse{}
+func (x *GetAvailableFontsRequest) Reset() {
+	*x = GetAvailableFontsRequest{}
 	mi := &file_proto_fonts_fonts_proto_msgTypes[63]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *AddFontResponse) String() string {
+func (x *GetAvailableFontsRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*AddFontResponse) ProtoMessage() {}
+func (*GetAvailableFontsRequest) ProtoMessage() {}
 
-func (x *AddFontResponse) ProtoReflect() protoreflect.Message {
+func (x *GetAvailableFontsRequest) ProtoReflect() protoreflect.Message {
 	mi := &file_proto_fonts_fonts_proto_msgTypes[63]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -2787,76 +2770,33 @@ func (x *AddFontResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use AddFontResponse.ProtoReflect.Descriptor instead.
-func (*AddFontResponse) Descriptor() ([]byte, []int) {
+// Deprecated: Use GetAvailableFontsRequest.ProtoReflect.Descriptor instead.
+func (*GetAvailableFontsRequest) Descriptor() ([]byte, []int) {
 	return file_proto_fonts_fonts_proto_rawDescGZIP(), []int{63}
 }
 
-func (x *AddFontResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type BuildVariableFamilyRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *BuildVariableFamilyRequest) Reset() {
-	*x = BuildVariableFamilyRequest{}
-	mi := &file_proto_fonts_fonts_proto_msgTypes[64]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *BuildVariableFamilyRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*BuildVariableFamilyRequest) ProtoMessage() {}
-
-func (x *BuildVariableFamilyRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_fonts_fonts_proto_msgTypes[64]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use BuildVariableFamilyRequest.ProtoReflect.Descriptor instead.
-func (*BuildVariableFamilyRequest) Descriptor() ([]byte, []int) {
-	return file_proto_fonts_fonts_proto_rawDescGZIP(), []int{64}
-}
-
-type BuildVariableFamilyResponse struct {
+type GetAvailableFontsResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *BuildVariableFamilyResponse) Reset() {
-	*x = BuildVariableFamilyResponse{}
-	mi := &file_proto_fonts_fonts_proto_msgTypes[65]
+func (x *GetAvailableFontsResponse) Reset() {
+	*x = GetAvailableFontsResponse{}
+	mi := &file_proto_fonts_fonts_proto_msgTypes[64]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *BuildVariableFamilyResponse) String() string {
+func (x *GetAvailableFontsResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*BuildVariableFamilyResponse) ProtoMessage() {}
+func (*GetAvailableFontsResponse) ProtoMessage() {}
 
-func (x *BuildVariableFamilyResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_fonts_fonts_proto_msgTypes[65]
+func (x *GetAvailableFontsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_fonts_fonts_proto_msgTypes[64]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2867,12 +2807,12 @@ func (x *BuildVariableFamilyResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use BuildVariableFamilyResponse.ProtoReflect.Descriptor instead.
-func (*BuildVariableFamilyResponse) Descriptor() ([]byte, []int) {
-	return file_proto_fonts_fonts_proto_rawDescGZIP(), []int{65}
+// Deprecated: Use GetAvailableFontsResponse.ProtoReflect.Descriptor instead.
+func (*GetAvailableFontsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_fonts_fonts_proto_rawDescGZIP(), []int{64}
 }
 
-func (x *BuildVariableFamilyResponse) GetResult() int64 {
+func (x *GetAvailableFontsResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
@@ -2883,11 +2823,73 @@ var File_proto_fonts_fonts_proto protoreflect.FileDescriptor
 
 const file_proto_fonts_fonts_proto_rawDesc = "" +
 	"\n" +
-	"\x17proto/fonts/fonts.proto\x12\x05fonts\"#\n" +
-	"\rEqualsRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"(\n" +
+	"\x17proto/fonts/fonts.proto\x12\x05fonts\"$\n" +
+	"\x0eGetFontRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\")\n" +
+	"\x0fGetFontResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x10\n" +
+	"\x0eGetSizeRequest\")\n" +
+	"\x0fGetSizeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"$\n" +
+	"\x0eAddFontRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\")\n" +
+	"\x0fAddFontResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x0e\n" +
+	"\fBuildRequest\"'\n" +
+	"\rBuildResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1c\n" +
+	"\x1aBuildVariableFamilyRequest\"5\n" +
+	"\x1bBuildVariableFamilyResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x15\n" +
+	"\x13NewFontStyleRequest\".\n" +
+	"\x14NewFontStyleResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\";\n" +
+	"\rEqualsRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"(\n" +
 	"\x0eEqualsResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\bR\x06result\"\x10\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\")\n" +
+	"\x0fGetSlantRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"*\n" +
+	"\x10GetSlantResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"*\n" +
+	"\x10GetWeightRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"+\n" +
+	"\x11GetWeightResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\")\n" +
+	"\x0fHashCodeRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"*\n" +
+	"\x10HashCodeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\")\n" +
+	"\x0fToStringRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"*\n" +
+	"\x10ToStringResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"E\n" +
+	"\x1bNewFontVariationAxisRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x02R\x04arg1\"6\n" +
+	"\x1cNewFontVariationAxisResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\".\n" +
+	"\x14GetStyleValueRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"/\n" +
+	"\x15GetStyleValueResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x02R\x06result\"'\n" +
+	"\rGetTagRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"(\n" +
+	"\x0eGetTagResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"N\n" +
+	" FromFontVariationSettingsRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\tR\x04arg0\";\n" +
+	"!FromFontVariationSettingsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"L\n" +
+	"\x1eToFontVariationSettingsRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"9\n" +
+	"\x1fToFontVariationSettingsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"'\n" +
+	"\x11FontEqualsRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x10\n" +
 	"\x0eGetAxesRequest\")\n" +
 	"\x0fGetAxesResponse\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\x03R\x06result\"\x12\n" +
@@ -2918,16 +2920,9 @@ const file_proto_fonts_fonts_proto_rawDesc = "" +
 	"\x06result\x18\x01 \x01(\x03R\x06result\"\x14\n" +
 	"\x12GetTtcIndexRequest\"-\n" +
 	"\x13GetTtcIndexResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\"\x11\n" +
-	"\x0fHashCodeRequest\"*\n" +
-	"\x10HashCodeResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\"\x11\n" +
-	"\x0fToStringRequest\"*\n" +
-	"\x10ToStringResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\tR\x06result\"\x0e\n" +
-	"\fBuildRequest\"'\n" +
-	"\rBuildResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"6\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x15\n" +
+	"\x13FontHashCodeRequest\"\x15\n" +
+	"\x13FontToStringRequest\"6\n" +
 	" SetFontVariationSettings1Request\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\";\n" +
 	"!SetFontVariationSettings1Response\x12\x16\n" +
@@ -2947,71 +2942,35 @@ const file_proto_fonts_fonts_proto_rawDesc = "" +
 	"\x10SetWeightRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"+\n" +
 	"\x11SetWeightResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\x15\n" +
-	"\x13NewFontStyleRequest\".\n" +
-	"\x14NewFontStyleResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"D\n" +
-	"\x16FontStyleEqualsRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
-	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\")\n" +
-	"\x0fGetSlantRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\"*\n" +
-	"\x10GetSlantResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\"*\n" +
-	"\x10GetWeightRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\"+\n" +
-	"\x11GetWeightResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\"2\n" +
-	"\x18FontStyleHashCodeRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\"2\n" +
-	"\x18FontStyleToStringRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\"E\n" +
-	"\x1bNewFontVariationAxisRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\x02R\x04arg1\"6\n" +
-	"\x1cNewFontVariationAxisResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"L\n" +
-	"\x1eFontVariationAxisEqualsRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
-	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\".\n" +
-	"\x14GetStyleValueRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\"/\n" +
-	"\x15GetStyleValueResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x02R\x06result\"'\n" +
-	"\rGetTagRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\"(\n" +
-	"\x0eGetTagResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\tR\x06result\":\n" +
-	" FontVariationAxisHashCodeRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\":\n" +
-	" FontVariationAxisToStringRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\"N\n" +
-	" FromFontVariationSettingsRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
-	"\x04arg0\x18\x02 \x01(\tR\x04arg0\";\n" +
-	"!FromFontVariationSettingsResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"L\n" +
-	"\x1eToFontVariationSettingsRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
-	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"9\n" +
-	"\x1fToFontVariationSettingsResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\tR\x06result\"$\n" +
-	"\x0eGetFontRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\")\n" +
-	"\x0fGetFontResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\x10\n" +
-	"\x0eGetSizeRequest\")\n" +
-	"\x0fGetSizeResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\"$\n" +
-	"\x0eAddFontRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\")\n" +
-	"\x0fAddFontResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1c\n" +
-	"\x1aBuildVariableFamilyRequest\"5\n" +
-	"\x1bBuildVariableFamilyResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result2\xb1\x06\n" +
-	"\vFontService\x125\n" +
-	"\x06Equals\x12\x14.fonts.EqualsRequest\x1a\x15.fonts.EqualsResponse\x128\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1a\n" +
+	"\x18GetAvailableFontsRequest\"3\n" +
+	"\x19GetAvailableFontsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result2\x87\x01\n" +
+	"\x11FontFamilyService\x128\n" +
+	"\aGetFont\x12\x15.fonts.GetFontRequest\x1a\x16.fonts.GetFontResponse\x128\n" +
+	"\aGetSize\x12\x15.fonts.GetSizeRequest\x1a\x16.fonts.GetSizeResponse2\xe6\x01\n" +
+	"\x18FontFamilyBuilderService\x128\n" +
+	"\aAddFont\x12\x15.fonts.AddFontRequest\x1a\x16.fonts.AddFontResponse\x122\n" +
+	"\x05Build\x12\x13.fonts.BuildRequest\x1a\x14.fonts.BuildResponse\x12\\\n" +
+	"\x13BuildVariableFamily\x12!.fonts.BuildVariableFamilyRequest\x1a\".fonts.BuildVariableFamilyResponse2\x89\x03\n" +
+	"\x10FontStyleService\x12G\n" +
+	"\fNewFontStyle\x12\x1a.fonts.NewFontStyleRequest\x1a\x1b.fonts.NewFontStyleResponse\x125\n" +
+	"\x06Equals\x12\x14.fonts.EqualsRequest\x1a\x15.fonts.EqualsResponse\x12;\n" +
+	"\bGetSlant\x12\x16.fonts.GetSlantRequest\x1a\x17.fonts.GetSlantResponse\x12>\n" +
+	"\tGetWeight\x12\x17.fonts.GetWeightRequest\x1a\x18.fonts.GetWeightResponse\x12;\n" +
+	"\bHashCode\x12\x16.fonts.HashCodeRequest\x1a\x17.fonts.HashCodeResponse\x12;\n" +
+	"\bToString\x12\x16.fonts.ToStringRequest\x1a\x17.fonts.ToStringResponse2\x89\x05\n" +
+	"\x18FontVariationAxisService\x12_\n" +
+	"\x14NewFontVariationAxis\x12\".fonts.NewFontVariationAxisRequest\x1a#.fonts.NewFontVariationAxisResponse\x125\n" +
+	"\x06Equals\x12\x14.fonts.EqualsRequest\x1a\x15.fonts.EqualsResponse\x12J\n" +
+	"\rGetStyleValue\x12\x1b.fonts.GetStyleValueRequest\x1a\x1c.fonts.GetStyleValueResponse\x125\n" +
+	"\x06GetTag\x12\x14.fonts.GetTagRequest\x1a\x15.fonts.GetTagResponse\x12;\n" +
+	"\bHashCode\x12\x16.fonts.HashCodeRequest\x1a\x17.fonts.HashCodeResponse\x12;\n" +
+	"\bToString\x12\x16.fonts.ToStringRequest\x1a\x17.fonts.ToStringResponse\x12n\n" +
+	"\x19FromFontVariationSettings\x12'.fonts.FromFontVariationSettingsRequest\x1a(.fonts.FromFontVariationSettingsResponse\x12h\n" +
+	"\x17ToFontVariationSettings\x12%.fonts.ToFontVariationSettingsRequest\x1a&.fonts.ToFontVariationSettingsResponse2\xbd\x06\n" +
+	"\vFontService\x129\n" +
+	"\x06Equals\x12\x18.fonts.FontEqualsRequest\x1a\x15.fonts.EqualsResponse\x128\n" +
 	"\aGetAxes\x12\x15.fonts.GetAxesRequest\x1a\x16.fonts.GetAxesResponse\x12>\n" +
 	"\tGetBuffer\x12\x17.fonts.GetBufferRequest\x1a\x18.fonts.GetBufferResponse\x128\n" +
 	"\aGetFile\x12\x15.fonts.GetFileRequest\x1a\x16.fonts.GetFileResponse\x12M\n" +
@@ -3021,39 +2980,18 @@ const file_proto_fonts_fonts_proto_rawDesc = "" +
 	"GetMetrics\x12\x18.fonts.GetMetricsRequest\x1a\x19.fonts.GetMetricsResponse\x12\\\n" +
 	"\x13GetSourceIdentifier\x12!.fonts.GetSourceIdentifierRequest\x1a\".fonts.GetSourceIdentifierResponse\x12;\n" +
 	"\bGetStyle\x12\x16.fonts.GetStyleRequest\x1a\x17.fonts.GetStyleResponse\x12D\n" +
-	"\vGetTtcIndex\x12\x19.fonts.GetTtcIndexRequest\x1a\x1a.fonts.GetTtcIndexResponse\x12;\n" +
-	"\bHashCode\x12\x16.fonts.HashCodeRequest\x1a\x17.fonts.HashCodeResponse\x12;\n" +
-	"\bToString\x12\x16.fonts.ToStringRequest\x1a\x17.fonts.ToStringResponse2\xf1\x03\n" +
+	"\vGetTtcIndex\x12\x19.fonts.GetTtcIndexRequest\x1a\x1a.fonts.GetTtcIndexResponse\x12?\n" +
+	"\bHashCode\x12\x1a.fonts.FontHashCodeRequest\x1a\x17.fonts.HashCodeResponse\x12?\n" +
+	"\bToString\x12\x1a.fonts.FontToStringRequest\x1a\x17.fonts.ToStringResponse2\xf1\x03\n" +
 	"\x12FontBuilderService\x122\n" +
 	"\x05Build\x12\x13.fonts.BuildRequest\x1a\x14.fonts.BuildResponse\x12n\n" +
 	"\x19SetFontVariationSettings1\x12'.fonts.SetFontVariationSettings1Request\x1a(.fonts.SetFontVariationSettings1Response\x12t\n" +
 	"\x1bSetFontVariationSettings1_1\x12).fonts.SetFontVariationSettings1_1Request\x1a*.fonts.SetFontVariationSettings1_1Response\x12;\n" +
 	"\bSetSlant\x12\x16.fonts.SetSlantRequest\x1a\x17.fonts.SetSlantResponse\x12D\n" +
 	"\vSetTtcIndex\x12\x19.fonts.SetTtcIndexRequest\x1a\x1a.fonts.SetTtcIndexResponse\x12>\n" +
-	"\tSetWeight\x12\x17.fonts.SetWeightRequest\x1a\x18.fonts.SetWeightResponse2\xa4\x03\n" +
-	"\x10FontStyleService\x12G\n" +
-	"\fNewFontStyle\x12\x1a.fonts.NewFontStyleRequest\x1a\x1b.fonts.NewFontStyleResponse\x12>\n" +
-	"\x06Equals\x12\x1d.fonts.FontStyleEqualsRequest\x1a\x15.fonts.EqualsResponse\x12;\n" +
-	"\bGetSlant\x12\x16.fonts.GetSlantRequest\x1a\x17.fonts.GetSlantResponse\x12>\n" +
-	"\tGetWeight\x12\x17.fonts.GetWeightRequest\x1a\x18.fonts.GetWeightResponse\x12D\n" +
-	"\bHashCode\x12\x1f.fonts.FontStyleHashCodeRequest\x1a\x17.fonts.HashCodeResponse\x12D\n" +
-	"\bToString\x12\x1f.fonts.FontStyleToStringRequest\x1a\x17.fonts.ToStringResponse2\xbc\x05\n" +
-	"\x18FontVariationAxisService\x12_\n" +
-	"\x14NewFontVariationAxis\x12\".fonts.NewFontVariationAxisRequest\x1a#.fonts.NewFontVariationAxisResponse\x12F\n" +
-	"\x06Equals\x12%.fonts.FontVariationAxisEqualsRequest\x1a\x15.fonts.EqualsResponse\x12J\n" +
-	"\rGetStyleValue\x12\x1b.fonts.GetStyleValueRequest\x1a\x1c.fonts.GetStyleValueResponse\x125\n" +
-	"\x06GetTag\x12\x14.fonts.GetTagRequest\x1a\x15.fonts.GetTagResponse\x12L\n" +
-	"\bHashCode\x12'.fonts.FontVariationAxisHashCodeRequest\x1a\x17.fonts.HashCodeResponse\x12L\n" +
-	"\bToString\x12'.fonts.FontVariationAxisToStringRequest\x1a\x17.fonts.ToStringResponse\x12n\n" +
-	"\x19FromFontVariationSettings\x12'.fonts.FromFontVariationSettingsRequest\x1a(.fonts.FromFontVariationSettingsResponse\x12h\n" +
-	"\x17ToFontVariationSettings\x12%.fonts.ToFontVariationSettingsRequest\x1a&.fonts.ToFontVariationSettingsResponse2\x87\x01\n" +
-	"\x11FontFamilyService\x128\n" +
-	"\aGetFont\x12\x15.fonts.GetFontRequest\x1a\x16.fonts.GetFontResponse\x128\n" +
-	"\aGetSize\x12\x15.fonts.GetSizeRequest\x1a\x16.fonts.GetSizeResponse2\xe6\x01\n" +
-	"\x18FontFamilyBuilderService\x128\n" +
-	"\aAddFont\x12\x15.fonts.AddFontRequest\x1a\x16.fonts.AddFontResponse\x122\n" +
-	"\x05Build\x12\x13.fonts.BuildRequest\x1a\x14.fonts.BuildResponse\x12\\\n" +
-	"\x13BuildVariableFamily\x12!.fonts.BuildVariableFamilyRequest\x1a\".fonts.BuildVariableFamilyResponseB/Z-github.com/AndroidGoLab/jni-proxy/proto/fontsb\x06proto3"
+	"\tSetWeight\x12\x17.fonts.SetWeightRequest\x1a\x18.fonts.SetWeightResponse2l\n" +
+	"\x12SystemFontsService\x12V\n" +
+	"\x11GetAvailableFonts\x12\x1f.fonts.GetAvailableFontsRequest\x1a .fonts.GetAvailableFontsResponseB/Z-github.com/AndroidGoLab/jni-proxy/proto/fontsb\x06proto3"
 
 var (
 	file_proto_fonts_fonts_proto_rawDescOnce sync.Once
@@ -3067,152 +3005,153 @@ func file_proto_fonts_fonts_proto_rawDescGZIP() []byte {
 	return file_proto_fonts_fonts_proto_rawDescData
 }
 
-var file_proto_fonts_fonts_proto_msgTypes = make([]protoimpl.MessageInfo, 66)
+var file_proto_fonts_fonts_proto_msgTypes = make([]protoimpl.MessageInfo, 65)
 var file_proto_fonts_fonts_proto_goTypes = []any{
-	(*EqualsRequest)(nil),                       // 0: fonts.EqualsRequest
-	(*EqualsResponse)(nil),                      // 1: fonts.EqualsResponse
-	(*GetAxesRequest)(nil),                      // 2: fonts.GetAxesRequest
-	(*GetAxesResponse)(nil),                     // 3: fonts.GetAxesResponse
-	(*GetBufferRequest)(nil),                    // 4: fonts.GetBufferRequest
-	(*GetBufferResponse)(nil),                   // 5: fonts.GetBufferResponse
-	(*GetFileRequest)(nil),                      // 6: fonts.GetFileRequest
-	(*GetFileResponse)(nil),                     // 7: fonts.GetFileResponse
-	(*GetGlyphBoundsRequest)(nil),               // 8: fonts.GetGlyphBoundsRequest
-	(*GetGlyphBoundsResponse)(nil),              // 9: fonts.GetGlyphBoundsResponse
-	(*GetLocaleListRequest)(nil),                // 10: fonts.GetLocaleListRequest
-	(*GetLocaleListResponse)(nil),               // 11: fonts.GetLocaleListResponse
-	(*GetMetricsRequest)(nil),                   // 12: fonts.GetMetricsRequest
-	(*GetMetricsResponse)(nil),                  // 13: fonts.GetMetricsResponse
-	(*GetSourceIdentifierRequest)(nil),          // 14: fonts.GetSourceIdentifierRequest
-	(*GetSourceIdentifierResponse)(nil),         // 15: fonts.GetSourceIdentifierResponse
-	(*GetStyleRequest)(nil),                     // 16: fonts.GetStyleRequest
-	(*GetStyleResponse)(nil),                    // 17: fonts.GetStyleResponse
-	(*GetTtcIndexRequest)(nil),                  // 18: fonts.GetTtcIndexRequest
-	(*GetTtcIndexResponse)(nil),                 // 19: fonts.GetTtcIndexResponse
-	(*HashCodeRequest)(nil),                     // 20: fonts.HashCodeRequest
-	(*HashCodeResponse)(nil),                    // 21: fonts.HashCodeResponse
-	(*ToStringRequest)(nil),                     // 22: fonts.ToStringRequest
-	(*ToStringResponse)(nil),                    // 23: fonts.ToStringResponse
-	(*BuildRequest)(nil),                        // 24: fonts.BuildRequest
-	(*BuildResponse)(nil),                       // 25: fonts.BuildResponse
-	(*SetFontVariationSettings1Request)(nil),    // 26: fonts.SetFontVariationSettings1Request
-	(*SetFontVariationSettings1Response)(nil),   // 27: fonts.SetFontVariationSettings1Response
-	(*SetFontVariationSettings1_1Request)(nil),  // 28: fonts.SetFontVariationSettings1_1Request
-	(*SetFontVariationSettings1_1Response)(nil), // 29: fonts.SetFontVariationSettings1_1Response
-	(*SetSlantRequest)(nil),                     // 30: fonts.SetSlantRequest
-	(*SetSlantResponse)(nil),                    // 31: fonts.SetSlantResponse
-	(*SetTtcIndexRequest)(nil),                  // 32: fonts.SetTtcIndexRequest
-	(*SetTtcIndexResponse)(nil),                 // 33: fonts.SetTtcIndexResponse
-	(*SetWeightRequest)(nil),                    // 34: fonts.SetWeightRequest
-	(*SetWeightResponse)(nil),                   // 35: fonts.SetWeightResponse
-	(*NewFontStyleRequest)(nil),                 // 36: fonts.NewFontStyleRequest
-	(*NewFontStyleResponse)(nil),                // 37: fonts.NewFontStyleResponse
-	(*FontStyleEqualsRequest)(nil),              // 38: fonts.FontStyleEqualsRequest
-	(*GetSlantRequest)(nil),                     // 39: fonts.GetSlantRequest
-	(*GetSlantResponse)(nil),                    // 40: fonts.GetSlantResponse
-	(*GetWeightRequest)(nil),                    // 41: fonts.GetWeightRequest
-	(*GetWeightResponse)(nil),                   // 42: fonts.GetWeightResponse
-	(*FontStyleHashCodeRequest)(nil),            // 43: fonts.FontStyleHashCodeRequest
-	(*FontStyleToStringRequest)(nil),            // 44: fonts.FontStyleToStringRequest
-	(*NewFontVariationAxisRequest)(nil),         // 45: fonts.NewFontVariationAxisRequest
-	(*NewFontVariationAxisResponse)(nil),        // 46: fonts.NewFontVariationAxisResponse
-	(*FontVariationAxisEqualsRequest)(nil),      // 47: fonts.FontVariationAxisEqualsRequest
-	(*GetStyleValueRequest)(nil),                // 48: fonts.GetStyleValueRequest
-	(*GetStyleValueResponse)(nil),               // 49: fonts.GetStyleValueResponse
-	(*GetTagRequest)(nil),                       // 50: fonts.GetTagRequest
-	(*GetTagResponse)(nil),                      // 51: fonts.GetTagResponse
-	(*FontVariationAxisHashCodeRequest)(nil),    // 52: fonts.FontVariationAxisHashCodeRequest
-	(*FontVariationAxisToStringRequest)(nil),    // 53: fonts.FontVariationAxisToStringRequest
-	(*FromFontVariationSettingsRequest)(nil),    // 54: fonts.FromFontVariationSettingsRequest
-	(*FromFontVariationSettingsResponse)(nil),   // 55: fonts.FromFontVariationSettingsResponse
-	(*ToFontVariationSettingsRequest)(nil),      // 56: fonts.ToFontVariationSettingsRequest
-	(*ToFontVariationSettingsResponse)(nil),     // 57: fonts.ToFontVariationSettingsResponse
-	(*GetFontRequest)(nil),                      // 58: fonts.GetFontRequest
-	(*GetFontResponse)(nil),                     // 59: fonts.GetFontResponse
-	(*GetSizeRequest)(nil),                      // 60: fonts.GetSizeRequest
-	(*GetSizeResponse)(nil),                     // 61: fonts.GetSizeResponse
-	(*AddFontRequest)(nil),                      // 62: fonts.AddFontRequest
-	(*AddFontResponse)(nil),                     // 63: fonts.AddFontResponse
-	(*BuildVariableFamilyRequest)(nil),          // 64: fonts.BuildVariableFamilyRequest
-	(*BuildVariableFamilyResponse)(nil),         // 65: fonts.BuildVariableFamilyResponse
+	(*GetFontRequest)(nil),                      // 0: fonts.GetFontRequest
+	(*GetFontResponse)(nil),                     // 1: fonts.GetFontResponse
+	(*GetSizeRequest)(nil),                      // 2: fonts.GetSizeRequest
+	(*GetSizeResponse)(nil),                     // 3: fonts.GetSizeResponse
+	(*AddFontRequest)(nil),                      // 4: fonts.AddFontRequest
+	(*AddFontResponse)(nil),                     // 5: fonts.AddFontResponse
+	(*BuildRequest)(nil),                        // 6: fonts.BuildRequest
+	(*BuildResponse)(nil),                       // 7: fonts.BuildResponse
+	(*BuildVariableFamilyRequest)(nil),          // 8: fonts.BuildVariableFamilyRequest
+	(*BuildVariableFamilyResponse)(nil),         // 9: fonts.BuildVariableFamilyResponse
+	(*NewFontStyleRequest)(nil),                 // 10: fonts.NewFontStyleRequest
+	(*NewFontStyleResponse)(nil),                // 11: fonts.NewFontStyleResponse
+	(*EqualsRequest)(nil),                       // 12: fonts.EqualsRequest
+	(*EqualsResponse)(nil),                      // 13: fonts.EqualsResponse
+	(*GetSlantRequest)(nil),                     // 14: fonts.GetSlantRequest
+	(*GetSlantResponse)(nil),                    // 15: fonts.GetSlantResponse
+	(*GetWeightRequest)(nil),                    // 16: fonts.GetWeightRequest
+	(*GetWeightResponse)(nil),                   // 17: fonts.GetWeightResponse
+	(*HashCodeRequest)(nil),                     // 18: fonts.HashCodeRequest
+	(*HashCodeResponse)(nil),                    // 19: fonts.HashCodeResponse
+	(*ToStringRequest)(nil),                     // 20: fonts.ToStringRequest
+	(*ToStringResponse)(nil),                    // 21: fonts.ToStringResponse
+	(*NewFontVariationAxisRequest)(nil),         // 22: fonts.NewFontVariationAxisRequest
+	(*NewFontVariationAxisResponse)(nil),        // 23: fonts.NewFontVariationAxisResponse
+	(*GetStyleValueRequest)(nil),                // 24: fonts.GetStyleValueRequest
+	(*GetStyleValueResponse)(nil),               // 25: fonts.GetStyleValueResponse
+	(*GetTagRequest)(nil),                       // 26: fonts.GetTagRequest
+	(*GetTagResponse)(nil),                      // 27: fonts.GetTagResponse
+	(*FromFontVariationSettingsRequest)(nil),    // 28: fonts.FromFontVariationSettingsRequest
+	(*FromFontVariationSettingsResponse)(nil),   // 29: fonts.FromFontVariationSettingsResponse
+	(*ToFontVariationSettingsRequest)(nil),      // 30: fonts.ToFontVariationSettingsRequest
+	(*ToFontVariationSettingsResponse)(nil),     // 31: fonts.ToFontVariationSettingsResponse
+	(*FontEqualsRequest)(nil),                   // 32: fonts.FontEqualsRequest
+	(*GetAxesRequest)(nil),                      // 33: fonts.GetAxesRequest
+	(*GetAxesResponse)(nil),                     // 34: fonts.GetAxesResponse
+	(*GetBufferRequest)(nil),                    // 35: fonts.GetBufferRequest
+	(*GetBufferResponse)(nil),                   // 36: fonts.GetBufferResponse
+	(*GetFileRequest)(nil),                      // 37: fonts.GetFileRequest
+	(*GetFileResponse)(nil),                     // 38: fonts.GetFileResponse
+	(*GetGlyphBoundsRequest)(nil),               // 39: fonts.GetGlyphBoundsRequest
+	(*GetGlyphBoundsResponse)(nil),              // 40: fonts.GetGlyphBoundsResponse
+	(*GetLocaleListRequest)(nil),                // 41: fonts.GetLocaleListRequest
+	(*GetLocaleListResponse)(nil),               // 42: fonts.GetLocaleListResponse
+	(*GetMetricsRequest)(nil),                   // 43: fonts.GetMetricsRequest
+	(*GetMetricsResponse)(nil),                  // 44: fonts.GetMetricsResponse
+	(*GetSourceIdentifierRequest)(nil),          // 45: fonts.GetSourceIdentifierRequest
+	(*GetSourceIdentifierResponse)(nil),         // 46: fonts.GetSourceIdentifierResponse
+	(*GetStyleRequest)(nil),                     // 47: fonts.GetStyleRequest
+	(*GetStyleResponse)(nil),                    // 48: fonts.GetStyleResponse
+	(*GetTtcIndexRequest)(nil),                  // 49: fonts.GetTtcIndexRequest
+	(*GetTtcIndexResponse)(nil),                 // 50: fonts.GetTtcIndexResponse
+	(*FontHashCodeRequest)(nil),                 // 51: fonts.FontHashCodeRequest
+	(*FontToStringRequest)(nil),                 // 52: fonts.FontToStringRequest
+	(*SetFontVariationSettings1Request)(nil),    // 53: fonts.SetFontVariationSettings1Request
+	(*SetFontVariationSettings1Response)(nil),   // 54: fonts.SetFontVariationSettings1Response
+	(*SetFontVariationSettings1_1Request)(nil),  // 55: fonts.SetFontVariationSettings1_1Request
+	(*SetFontVariationSettings1_1Response)(nil), // 56: fonts.SetFontVariationSettings1_1Response
+	(*SetSlantRequest)(nil),                     // 57: fonts.SetSlantRequest
+	(*SetSlantResponse)(nil),                    // 58: fonts.SetSlantResponse
+	(*SetTtcIndexRequest)(nil),                  // 59: fonts.SetTtcIndexRequest
+	(*SetTtcIndexResponse)(nil),                 // 60: fonts.SetTtcIndexResponse
+	(*SetWeightRequest)(nil),                    // 61: fonts.SetWeightRequest
+	(*SetWeightResponse)(nil),                   // 62: fonts.SetWeightResponse
+	(*GetAvailableFontsRequest)(nil),            // 63: fonts.GetAvailableFontsRequest
+	(*GetAvailableFontsResponse)(nil),           // 64: fonts.GetAvailableFontsResponse
 }
 var file_proto_fonts_fonts_proto_depIdxs = []int32{
-	0,  // 0: fonts.FontService.Equals:input_type -> fonts.EqualsRequest
-	2,  // 1: fonts.FontService.GetAxes:input_type -> fonts.GetAxesRequest
-	4,  // 2: fonts.FontService.GetBuffer:input_type -> fonts.GetBufferRequest
-	6,  // 3: fonts.FontService.GetFile:input_type -> fonts.GetFileRequest
-	8,  // 4: fonts.FontService.GetGlyphBounds:input_type -> fonts.GetGlyphBoundsRequest
-	10, // 5: fonts.FontService.GetLocaleList:input_type -> fonts.GetLocaleListRequest
-	12, // 6: fonts.FontService.GetMetrics:input_type -> fonts.GetMetricsRequest
-	14, // 7: fonts.FontService.GetSourceIdentifier:input_type -> fonts.GetSourceIdentifierRequest
-	16, // 8: fonts.FontService.GetStyle:input_type -> fonts.GetStyleRequest
-	18, // 9: fonts.FontService.GetTtcIndex:input_type -> fonts.GetTtcIndexRequest
-	20, // 10: fonts.FontService.HashCode:input_type -> fonts.HashCodeRequest
-	22, // 11: fonts.FontService.ToString:input_type -> fonts.ToStringRequest
-	24, // 12: fonts.FontBuilderService.Build:input_type -> fonts.BuildRequest
-	26, // 13: fonts.FontBuilderService.SetFontVariationSettings1:input_type -> fonts.SetFontVariationSettings1Request
-	28, // 14: fonts.FontBuilderService.SetFontVariationSettings1_1:input_type -> fonts.SetFontVariationSettings1_1Request
-	30, // 15: fonts.FontBuilderService.SetSlant:input_type -> fonts.SetSlantRequest
-	32, // 16: fonts.FontBuilderService.SetTtcIndex:input_type -> fonts.SetTtcIndexRequest
-	34, // 17: fonts.FontBuilderService.SetWeight:input_type -> fonts.SetWeightRequest
-	36, // 18: fonts.FontStyleService.NewFontStyle:input_type -> fonts.NewFontStyleRequest
-	38, // 19: fonts.FontStyleService.Equals:input_type -> fonts.FontStyleEqualsRequest
-	39, // 20: fonts.FontStyleService.GetSlant:input_type -> fonts.GetSlantRequest
-	41, // 21: fonts.FontStyleService.GetWeight:input_type -> fonts.GetWeightRequest
-	43, // 22: fonts.FontStyleService.HashCode:input_type -> fonts.FontStyleHashCodeRequest
-	44, // 23: fonts.FontStyleService.ToString:input_type -> fonts.FontStyleToStringRequest
-	45, // 24: fonts.FontVariationAxisService.NewFontVariationAxis:input_type -> fonts.NewFontVariationAxisRequest
-	47, // 25: fonts.FontVariationAxisService.Equals:input_type -> fonts.FontVariationAxisEqualsRequest
-	48, // 26: fonts.FontVariationAxisService.GetStyleValue:input_type -> fonts.GetStyleValueRequest
-	50, // 27: fonts.FontVariationAxisService.GetTag:input_type -> fonts.GetTagRequest
-	52, // 28: fonts.FontVariationAxisService.HashCode:input_type -> fonts.FontVariationAxisHashCodeRequest
-	53, // 29: fonts.FontVariationAxisService.ToString:input_type -> fonts.FontVariationAxisToStringRequest
-	54, // 30: fonts.FontVariationAxisService.FromFontVariationSettings:input_type -> fonts.FromFontVariationSettingsRequest
-	56, // 31: fonts.FontVariationAxisService.ToFontVariationSettings:input_type -> fonts.ToFontVariationSettingsRequest
-	58, // 32: fonts.FontFamilyService.GetFont:input_type -> fonts.GetFontRequest
-	60, // 33: fonts.FontFamilyService.GetSize:input_type -> fonts.GetSizeRequest
-	62, // 34: fonts.FontFamilyBuilderService.AddFont:input_type -> fonts.AddFontRequest
-	24, // 35: fonts.FontFamilyBuilderService.Build:input_type -> fonts.BuildRequest
-	64, // 36: fonts.FontFamilyBuilderService.BuildVariableFamily:input_type -> fonts.BuildVariableFamilyRequest
-	1,  // 37: fonts.FontService.Equals:output_type -> fonts.EqualsResponse
-	3,  // 38: fonts.FontService.GetAxes:output_type -> fonts.GetAxesResponse
-	5,  // 39: fonts.FontService.GetBuffer:output_type -> fonts.GetBufferResponse
-	7,  // 40: fonts.FontService.GetFile:output_type -> fonts.GetFileResponse
-	9,  // 41: fonts.FontService.GetGlyphBounds:output_type -> fonts.GetGlyphBoundsResponse
-	11, // 42: fonts.FontService.GetLocaleList:output_type -> fonts.GetLocaleListResponse
-	13, // 43: fonts.FontService.GetMetrics:output_type -> fonts.GetMetricsResponse
-	15, // 44: fonts.FontService.GetSourceIdentifier:output_type -> fonts.GetSourceIdentifierResponse
-	17, // 45: fonts.FontService.GetStyle:output_type -> fonts.GetStyleResponse
-	19, // 46: fonts.FontService.GetTtcIndex:output_type -> fonts.GetTtcIndexResponse
-	21, // 47: fonts.FontService.HashCode:output_type -> fonts.HashCodeResponse
-	23, // 48: fonts.FontService.ToString:output_type -> fonts.ToStringResponse
-	25, // 49: fonts.FontBuilderService.Build:output_type -> fonts.BuildResponse
-	27, // 50: fonts.FontBuilderService.SetFontVariationSettings1:output_type -> fonts.SetFontVariationSettings1Response
-	29, // 51: fonts.FontBuilderService.SetFontVariationSettings1_1:output_type -> fonts.SetFontVariationSettings1_1Response
-	31, // 52: fonts.FontBuilderService.SetSlant:output_type -> fonts.SetSlantResponse
-	33, // 53: fonts.FontBuilderService.SetTtcIndex:output_type -> fonts.SetTtcIndexResponse
-	35, // 54: fonts.FontBuilderService.SetWeight:output_type -> fonts.SetWeightResponse
-	37, // 55: fonts.FontStyleService.NewFontStyle:output_type -> fonts.NewFontStyleResponse
-	1,  // 56: fonts.FontStyleService.Equals:output_type -> fonts.EqualsResponse
-	40, // 57: fonts.FontStyleService.GetSlant:output_type -> fonts.GetSlantResponse
-	42, // 58: fonts.FontStyleService.GetWeight:output_type -> fonts.GetWeightResponse
-	21, // 59: fonts.FontStyleService.HashCode:output_type -> fonts.HashCodeResponse
-	23, // 60: fonts.FontStyleService.ToString:output_type -> fonts.ToStringResponse
-	46, // 61: fonts.FontVariationAxisService.NewFontVariationAxis:output_type -> fonts.NewFontVariationAxisResponse
-	1,  // 62: fonts.FontVariationAxisService.Equals:output_type -> fonts.EqualsResponse
-	49, // 63: fonts.FontVariationAxisService.GetStyleValue:output_type -> fonts.GetStyleValueResponse
-	51, // 64: fonts.FontVariationAxisService.GetTag:output_type -> fonts.GetTagResponse
-	21, // 65: fonts.FontVariationAxisService.HashCode:output_type -> fonts.HashCodeResponse
-	23, // 66: fonts.FontVariationAxisService.ToString:output_type -> fonts.ToStringResponse
-	55, // 67: fonts.FontVariationAxisService.FromFontVariationSettings:output_type -> fonts.FromFontVariationSettingsResponse
-	57, // 68: fonts.FontVariationAxisService.ToFontVariationSettings:output_type -> fonts.ToFontVariationSettingsResponse
-	59, // 69: fonts.FontFamilyService.GetFont:output_type -> fonts.GetFontResponse
-	61, // 70: fonts.FontFamilyService.GetSize:output_type -> fonts.GetSizeResponse
-	63, // 71: fonts.FontFamilyBuilderService.AddFont:output_type -> fonts.AddFontResponse
-	25, // 72: fonts.FontFamilyBuilderService.Build:output_type -> fonts.BuildResponse
-	65, // 73: fonts.FontFamilyBuilderService.BuildVariableFamily:output_type -> fonts.BuildVariableFamilyResponse
-	37, // [37:74] is the sub-list for method output_type
-	0,  // [0:37] is the sub-list for method input_type
+	0,  // 0: fonts.FontFamilyService.GetFont:input_type -> fonts.GetFontRequest
+	2,  // 1: fonts.FontFamilyService.GetSize:input_type -> fonts.GetSizeRequest
+	4,  // 2: fonts.FontFamilyBuilderService.AddFont:input_type -> fonts.AddFontRequest
+	6,  // 3: fonts.FontFamilyBuilderService.Build:input_type -> fonts.BuildRequest
+	8,  // 4: fonts.FontFamilyBuilderService.BuildVariableFamily:input_type -> fonts.BuildVariableFamilyRequest
+	10, // 5: fonts.FontStyleService.NewFontStyle:input_type -> fonts.NewFontStyleRequest
+	12, // 6: fonts.FontStyleService.Equals:input_type -> fonts.EqualsRequest
+	14, // 7: fonts.FontStyleService.GetSlant:input_type -> fonts.GetSlantRequest
+	16, // 8: fonts.FontStyleService.GetWeight:input_type -> fonts.GetWeightRequest
+	18, // 9: fonts.FontStyleService.HashCode:input_type -> fonts.HashCodeRequest
+	20, // 10: fonts.FontStyleService.ToString:input_type -> fonts.ToStringRequest
+	22, // 11: fonts.FontVariationAxisService.NewFontVariationAxis:input_type -> fonts.NewFontVariationAxisRequest
+	12, // 12: fonts.FontVariationAxisService.Equals:input_type -> fonts.EqualsRequest
+	24, // 13: fonts.FontVariationAxisService.GetStyleValue:input_type -> fonts.GetStyleValueRequest
+	26, // 14: fonts.FontVariationAxisService.GetTag:input_type -> fonts.GetTagRequest
+	18, // 15: fonts.FontVariationAxisService.HashCode:input_type -> fonts.HashCodeRequest
+	20, // 16: fonts.FontVariationAxisService.ToString:input_type -> fonts.ToStringRequest
+	28, // 17: fonts.FontVariationAxisService.FromFontVariationSettings:input_type -> fonts.FromFontVariationSettingsRequest
+	30, // 18: fonts.FontVariationAxisService.ToFontVariationSettings:input_type -> fonts.ToFontVariationSettingsRequest
+	32, // 19: fonts.FontService.Equals:input_type -> fonts.FontEqualsRequest
+	33, // 20: fonts.FontService.GetAxes:input_type -> fonts.GetAxesRequest
+	35, // 21: fonts.FontService.GetBuffer:input_type -> fonts.GetBufferRequest
+	37, // 22: fonts.FontService.GetFile:input_type -> fonts.GetFileRequest
+	39, // 23: fonts.FontService.GetGlyphBounds:input_type -> fonts.GetGlyphBoundsRequest
+	41, // 24: fonts.FontService.GetLocaleList:input_type -> fonts.GetLocaleListRequest
+	43, // 25: fonts.FontService.GetMetrics:input_type -> fonts.GetMetricsRequest
+	45, // 26: fonts.FontService.GetSourceIdentifier:input_type -> fonts.GetSourceIdentifierRequest
+	47, // 27: fonts.FontService.GetStyle:input_type -> fonts.GetStyleRequest
+	49, // 28: fonts.FontService.GetTtcIndex:input_type -> fonts.GetTtcIndexRequest
+	51, // 29: fonts.FontService.HashCode:input_type -> fonts.FontHashCodeRequest
+	52, // 30: fonts.FontService.ToString:input_type -> fonts.FontToStringRequest
+	6,  // 31: fonts.FontBuilderService.Build:input_type -> fonts.BuildRequest
+	53, // 32: fonts.FontBuilderService.SetFontVariationSettings1:input_type -> fonts.SetFontVariationSettings1Request
+	55, // 33: fonts.FontBuilderService.SetFontVariationSettings1_1:input_type -> fonts.SetFontVariationSettings1_1Request
+	57, // 34: fonts.FontBuilderService.SetSlant:input_type -> fonts.SetSlantRequest
+	59, // 35: fonts.FontBuilderService.SetTtcIndex:input_type -> fonts.SetTtcIndexRequest
+	61, // 36: fonts.FontBuilderService.SetWeight:input_type -> fonts.SetWeightRequest
+	63, // 37: fonts.SystemFontsService.GetAvailableFonts:input_type -> fonts.GetAvailableFontsRequest
+	1,  // 38: fonts.FontFamilyService.GetFont:output_type -> fonts.GetFontResponse
+	3,  // 39: fonts.FontFamilyService.GetSize:output_type -> fonts.GetSizeResponse
+	5,  // 40: fonts.FontFamilyBuilderService.AddFont:output_type -> fonts.AddFontResponse
+	7,  // 41: fonts.FontFamilyBuilderService.Build:output_type -> fonts.BuildResponse
+	9,  // 42: fonts.FontFamilyBuilderService.BuildVariableFamily:output_type -> fonts.BuildVariableFamilyResponse
+	11, // 43: fonts.FontStyleService.NewFontStyle:output_type -> fonts.NewFontStyleResponse
+	13, // 44: fonts.FontStyleService.Equals:output_type -> fonts.EqualsResponse
+	15, // 45: fonts.FontStyleService.GetSlant:output_type -> fonts.GetSlantResponse
+	17, // 46: fonts.FontStyleService.GetWeight:output_type -> fonts.GetWeightResponse
+	19, // 47: fonts.FontStyleService.HashCode:output_type -> fonts.HashCodeResponse
+	21, // 48: fonts.FontStyleService.ToString:output_type -> fonts.ToStringResponse
+	23, // 49: fonts.FontVariationAxisService.NewFontVariationAxis:output_type -> fonts.NewFontVariationAxisResponse
+	13, // 50: fonts.FontVariationAxisService.Equals:output_type -> fonts.EqualsResponse
+	25, // 51: fonts.FontVariationAxisService.GetStyleValue:output_type -> fonts.GetStyleValueResponse
+	27, // 52: fonts.FontVariationAxisService.GetTag:output_type -> fonts.GetTagResponse
+	19, // 53: fonts.FontVariationAxisService.HashCode:output_type -> fonts.HashCodeResponse
+	21, // 54: fonts.FontVariationAxisService.ToString:output_type -> fonts.ToStringResponse
+	29, // 55: fonts.FontVariationAxisService.FromFontVariationSettings:output_type -> fonts.FromFontVariationSettingsResponse
+	31, // 56: fonts.FontVariationAxisService.ToFontVariationSettings:output_type -> fonts.ToFontVariationSettingsResponse
+	13, // 57: fonts.FontService.Equals:output_type -> fonts.EqualsResponse
+	34, // 58: fonts.FontService.GetAxes:output_type -> fonts.GetAxesResponse
+	36, // 59: fonts.FontService.GetBuffer:output_type -> fonts.GetBufferResponse
+	38, // 60: fonts.FontService.GetFile:output_type -> fonts.GetFileResponse
+	40, // 61: fonts.FontService.GetGlyphBounds:output_type -> fonts.GetGlyphBoundsResponse
+	42, // 62: fonts.FontService.GetLocaleList:output_type -> fonts.GetLocaleListResponse
+	44, // 63: fonts.FontService.GetMetrics:output_type -> fonts.GetMetricsResponse
+	46, // 64: fonts.FontService.GetSourceIdentifier:output_type -> fonts.GetSourceIdentifierResponse
+	48, // 65: fonts.FontService.GetStyle:output_type -> fonts.GetStyleResponse
+	50, // 66: fonts.FontService.GetTtcIndex:output_type -> fonts.GetTtcIndexResponse
+	19, // 67: fonts.FontService.HashCode:output_type -> fonts.HashCodeResponse
+	21, // 68: fonts.FontService.ToString:output_type -> fonts.ToStringResponse
+	7,  // 69: fonts.FontBuilderService.Build:output_type -> fonts.BuildResponse
+	54, // 70: fonts.FontBuilderService.SetFontVariationSettings1:output_type -> fonts.SetFontVariationSettings1Response
+	56, // 71: fonts.FontBuilderService.SetFontVariationSettings1_1:output_type -> fonts.SetFontVariationSettings1_1Response
+	58, // 72: fonts.FontBuilderService.SetSlant:output_type -> fonts.SetSlantResponse
+	60, // 73: fonts.FontBuilderService.SetTtcIndex:output_type -> fonts.SetTtcIndexResponse
+	62, // 74: fonts.FontBuilderService.SetWeight:output_type -> fonts.SetWeightResponse
+	64, // 75: fonts.SystemFontsService.GetAvailableFonts:output_type -> fonts.GetAvailableFontsResponse
+	38, // [38:76] is the sub-list for method output_type
+	0,  // [0:38] is the sub-list for method input_type
 	0,  // [0:0] is the sub-list for extension type_name
 	0,  // [0:0] is the sub-list for extension extendee
 	0,  // [0:0] is the sub-list for field type_name
@@ -3229,9 +3168,9 @@ func file_proto_fonts_fonts_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_proto_fonts_fonts_proto_rawDesc), len(file_proto_fonts_fonts_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   66,
+			NumMessages:   65,
 			NumExtensions: 0,
-			NumServices:   6,
+			NumServices:   7,
 		},
 		GoTypes:           file_proto_fonts_fonts_proto_goTypes,
 		DependencyIndexes: file_proto_fonts_fonts_proto_depIdxs,

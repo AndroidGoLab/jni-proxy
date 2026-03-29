@@ -33,650 +33,6 @@ var windowOnBackInvokedCallbackOnBackInvokedCmd = &cobra.Command{
 	},
 }
 
-var windowSplashScreenViewCmd = &cobra.Command{
-	Use:   "splash-screen-view",
-	Short: "SplashScreenViewService operations",
-}
-
-var windowSplashScreenViewGetIconAnimationDurationCmd = &cobra.Command{
-	Use:   "get-icon-animation-duration",
-	Short: "GetIconAnimationDuration RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSplashScreenViewServiceClient(grpcConn)
-		req := &pb.GetIconAnimationDurationRequest{}
-		resp, err := client.GetIconAnimationDuration(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var windowSplashScreenViewGetIconAnimationStartCmd = &cobra.Command{
-	Use:   "get-icon-animation-start",
-	Short: "GetIconAnimationStart RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSplashScreenViewServiceClient(grpcConn)
-		req := &pb.GetIconAnimationStartRequest{}
-		resp, err := client.GetIconAnimationStart(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var windowSplashScreenViewGetIconViewCmd = &cobra.Command{
-	Use:   "get-icon-view",
-	Short: "GetIconView RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSplashScreenViewServiceClient(grpcConn)
-		req := &pb.GetIconViewRequest{}
-		resp, err := client.GetIconView(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var windowSplashScreenViewRemoveCmd = &cobra.Command{
-	Use:   "remove",
-	Short: "Remove RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSplashScreenViewServiceClient(grpcConn)
-		req := &pb.RemoveRequest{}
-		resp, err := client.Remove(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var windowSplashScreenViewSetAlphaCmd = &cobra.Command{
-	Use:   "set-alpha",
-	Short: "SetAlpha RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSplashScreenViewServiceClient(grpcConn)
-		req := &pb.SetAlphaRequest{}
-		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetAlpha(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var windowTrustedPresentationThresholdsCmd = &cobra.Command{
-	Use:   "trusted-presentation-thresholds",
-	Short: "TrustedPresentationThresholdsService operations",
-}
-
-var windowTrustedPresentationThresholdsNewTrustedPresentationThresholdsCmd = &cobra.Command{
-	Use:   "new-trusted-presentation-thresholds",
-	Short: "NewTrustedPresentationThresholds RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTrustedPresentationThresholdsServiceClient(grpcConn)
-		req := &pb.NewTrustedPresentationThresholdsRequest{}
-		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetFloat32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.NewTrustedPresentationThresholds(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var windowTrustedPresentationThresholdsDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTrustedPresentationThresholdsServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var windowTrustedPresentationThresholdsEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTrustedPresentationThresholdsServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var windowTrustedPresentationThresholdsGetMinAlphaCmd = &cobra.Command{
-	Use:   "get-min-alpha",
-	Short: "GetMinAlpha RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTrustedPresentationThresholdsServiceClient(grpcConn)
-		req := &pb.GetMinAlphaRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetMinAlpha(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var windowTrustedPresentationThresholdsGetMinFractionRenderedCmd = &cobra.Command{
-	Use:   "get-min-fraction-rendered",
-	Short: "GetMinFractionRendered RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTrustedPresentationThresholdsServiceClient(grpcConn)
-		req := &pb.GetMinFractionRenderedRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetMinFractionRendered(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var windowTrustedPresentationThresholdsGetStabilityRequirementMillisCmd = &cobra.Command{
-	Use:   "get-stability-requirement-millis",
-	Short: "GetStabilityRequirementMillis RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTrustedPresentationThresholdsServiceClient(grpcConn)
-		req := &pb.GetStabilityRequirementMillisRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetStabilityRequirementMillis(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var windowTrustedPresentationThresholdsHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTrustedPresentationThresholdsServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var windowTrustedPresentationThresholdsToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTrustedPresentationThresholdsServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var windowTrustedPresentationThresholdsWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTrustedPresentationThresholdsServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var windowSurfaceSyncGroupCmd = &cobra.Command{
-	Use:   "surface-sync-group",
-	Short: "SurfaceSyncGroupService operations",
-}
-
-var windowSurfaceSyncGroupNewSurfaceSyncGroupCmd = &cobra.Command{
-	Use:   "new-surface-sync-group",
-	Short: "NewSurfaceSyncGroup RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSurfaceSyncGroupServiceClient(grpcConn)
-		req := &pb.NewSurfaceSyncGroupRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.NewSurfaceSyncGroup(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var windowSurfaceSyncGroupAdd2Cmd = &cobra.Command{
-	Use:   "add2",
-	Short: "Add2 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSurfaceSyncGroupServiceClient(grpcConn)
-		req := &pb.Add2Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.Add2(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var windowSurfaceSyncGroupAdd2_1Cmd = &cobra.Command{
-	Use:   "add2_1",
-	Short: "Add2_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSurfaceSyncGroupServiceClient(grpcConn)
-		req := &pb.Add2_1Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.Add2_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var windowSurfaceSyncGroupAddTransactionCmd = &cobra.Command{
-	Use:   "add-transaction",
-	Short: "AddTransaction RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSurfaceSyncGroupServiceClient(grpcConn)
-		req := &pb.AddTransactionRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.AddTransaction(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var windowSurfaceSyncGroupMarkSyncReadyCmd = &cobra.Command{
-	Use:   "mark-sync-ready",
-	Short: "MarkSyncReady RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSurfaceSyncGroupServiceClient(grpcConn)
-		req := &pb.MarkSyncReadyRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.MarkSyncReady(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var windowInputTransferTokenCmd = &cobra.Command{
-	Use:   "input-transfer-token",
-	Short: "InputTransferTokenService operations",
-}
-
-var windowInputTransferTokenDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewInputTransferTokenServiceClient(grpcConn)
-		req := &pb.InputTransferTokenDescribeContentsRequest{}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var windowInputTransferTokenEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewInputTransferTokenServiceClient(grpcConn)
-		req := &pb.InputTransferTokenEqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var windowInputTransferTokenHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewInputTransferTokenServiceClient(grpcConn)
-		req := &pb.InputTransferTokenHashCodeRequest{}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var windowInputTransferTokenWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewInputTransferTokenServiceClient(grpcConn)
-		req := &pb.InputTransferTokenWriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var windowSystemOnBackInvokedCallbacksCmd = &cobra.Command{
-	Use:   "system-on-back-invoked-callbacks",
-	Short: "SystemOnBackInvokedCallbacksService operations",
-}
-
-var windowSystemOnBackInvokedCallbacksFinishAndRemoveTaskCallbackCmd = &cobra.Command{
-	Use:   "finish-and-remove-task-callback",
-	Short: "FinishAndRemoveTaskCallback RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSystemOnBackInvokedCallbacksServiceClient(grpcConn)
-		req := &pb.FinishAndRemoveTaskCallbackRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.FinishAndRemoveTaskCallback(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var windowSystemOnBackInvokedCallbacksMoveTaskToBackCallbackCmd = &cobra.Command{
-	Use:   "move-task-to-back-callback",
-	Short: "MoveTaskToBackCallback RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSystemOnBackInvokedCallbacksServiceClient(grpcConn)
-		req := &pb.MoveTaskToBackCallbackRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.MoveTaskToBackCallback(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var windowOnBackInvokedDispatcherCmd = &cobra.Command{
-	Use:   "on-back-invoked-dispatcher",
-	Short: "OnBackInvokedDispatcherService operations",
-}
-
-var windowOnBackInvokedDispatcherRegisterOnBackInvokedCallbackCmd = &cobra.Command{
-	Use:   "register-on-back-invoked-callback",
-	Short: "RegisterOnBackInvokedCallback RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewOnBackInvokedDispatcherServiceClient(grpcConn)
-		req := &pb.RegisterOnBackInvokedCallbackRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.RegisterOnBackInvokedCallback(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var windowOnBackInvokedDispatcherUnregisterOnBackInvokedCallbackCmd = &cobra.Command{
-	Use:   "unregister-on-back-invoked-callback",
-	Short: "UnregisterOnBackInvokedCallback RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewOnBackInvokedDispatcherServiceClient(grpcConn)
-		req := &pb.UnregisterOnBackInvokedCallbackRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.UnregisterOnBackInvokedCallback(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var windowSplashScreenCmd = &cobra.Command{
-	Use:   "splash-screen",
-	Short: "SplashScreenService operations",
-}
-
-var windowSplashScreenClearOnExitAnimationListenerCmd = &cobra.Command{
-	Use:   "clear-on-exit-animation-listener",
-	Short: "ClearOnExitAnimationListener RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSplashScreenServiceClient(grpcConn)
-		req := &pb.ClearOnExitAnimationListenerRequest{}
-		resp, err := client.ClearOnExitAnimationListener(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var windowSplashScreenSetOnExitAnimationListenerCmd = &cobra.Command{
-	Use:   "set-on-exit-animation-listener",
-	Short: "SetOnExitAnimationListener RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSplashScreenServiceClient(grpcConn)
-		req := &pb.SetOnExitAnimationListenerRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetOnExitAnimationListener(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var windowSplashScreenSetSplashScreenThemeCmd = &cobra.Command{
-	Use:   "set-splash-screen-theme",
-	Short: "SetSplashScreenTheme RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSplashScreenServiceClient(grpcConn)
-		req := &pb.SetSplashScreenThemeRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetSplashScreenTheme(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var windowSplashScreenOnExitAnimationListenerCmd = &cobra.Command{
-	Use:   "splash-screen-on-exit-animation-listener",
-	Short: "SplashScreenOnExitAnimationListenerService operations",
-}
-
-var windowSplashScreenOnExitAnimationListenerOnSplashScreenExitCmd = &cobra.Command{
-	Use:   "on-splash-screen-exit",
-	Short: "OnSplashScreenExit RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSplashScreenOnExitAnimationListenerServiceClient(grpcConn)
-		req := &pb.OnSplashScreenExitRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.OnSplashScreenExit(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
 var windowBackEventCmd = &cobra.Command{
 	Use:   "back-event",
 	Short: "BackEventService operations",
@@ -846,16 +202,697 @@ var windowBackEventToStringCmd = &cobra.Command{
 	},
 }
 
+var windowOnBackInvokedDispatcherCmd = &cobra.Command{
+	Use:   "on-back-invoked-dispatcher",
+	Short: "OnBackInvokedDispatcherService operations",
+}
+
+var windowOnBackInvokedDispatcherRegisterOnBackInvokedCallbackCmd = &cobra.Command{
+	Use:   "register-on-back-invoked-callback",
+	Short: "RegisterOnBackInvokedCallback RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewOnBackInvokedDispatcherServiceClient(grpcConn)
+		req := &pb.RegisterOnBackInvokedCallbackRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.RegisterOnBackInvokedCallback(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var windowOnBackInvokedDispatcherUnregisterOnBackInvokedCallbackCmd = &cobra.Command{
+	Use:   "unregister-on-back-invoked-callback",
+	Short: "UnregisterOnBackInvokedCallback RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewOnBackInvokedDispatcherServiceClient(grpcConn)
+		req := &pb.UnregisterOnBackInvokedCallbackRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.UnregisterOnBackInvokedCallback(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var windowSplashScreenCmd = &cobra.Command{
+	Use:   "splash-screen",
+	Short: "SplashScreenService operations",
+}
+
+var windowSplashScreenClearOnExitAnimationListenerCmd = &cobra.Command{
+	Use:   "clear-on-exit-animation-listener",
+	Short: "ClearOnExitAnimationListener RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSplashScreenServiceClient(grpcConn)
+		req := &pb.ClearOnExitAnimationListenerRequest{}
+		resp, err := client.ClearOnExitAnimationListener(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var windowSplashScreenSetOnExitAnimationListenerCmd = &cobra.Command{
+	Use:   "set-on-exit-animation-listener",
+	Short: "SetOnExitAnimationListener RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSplashScreenServiceClient(grpcConn)
+		req := &pb.SetOnExitAnimationListenerRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetOnExitAnimationListener(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var windowSplashScreenSetSplashScreenThemeCmd = &cobra.Command{
+	Use:   "set-splash-screen-theme",
+	Short: "SetSplashScreenTheme RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSplashScreenServiceClient(grpcConn)
+		req := &pb.SetSplashScreenThemeRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetSplashScreenTheme(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var windowSplashScreenOnExitAnimationListenerCmd = &cobra.Command{
+	Use:   "splash-screen-on-exit-animation-listener",
+	Short: "SplashScreenOnExitAnimationListenerService operations",
+}
+
+var windowSplashScreenOnExitAnimationListenerOnSplashScreenExitCmd = &cobra.Command{
+	Use:   "on-splash-screen-exit",
+	Short: "OnSplashScreenExit RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSplashScreenOnExitAnimationListenerServiceClient(grpcConn)
+		req := &pb.OnSplashScreenExitRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnSplashScreenExit(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var windowInputTransferTokenCmd = &cobra.Command{
+	Use:   "input-transfer-token",
+	Short: "InputTransferTokenService operations",
+}
+
+var windowInputTransferTokenDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputTransferTokenServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var windowInputTransferTokenEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputTransferTokenServiceClient(grpcConn)
+		req := &pb.InputTransferTokenEqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var windowInputTransferTokenHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputTransferTokenServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var windowInputTransferTokenWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputTransferTokenServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var windowTrustedPresentationThresholdsCmd = &cobra.Command{
+	Use:   "trusted-presentation-thresholds",
+	Short: "TrustedPresentationThresholdsService operations",
+}
+
+var windowTrustedPresentationThresholdsNewTrustedPresentationThresholdsCmd = &cobra.Command{
+	Use:   "new-trusted-presentation-thresholds",
+	Short: "NewTrustedPresentationThresholds RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTrustedPresentationThresholdsServiceClient(grpcConn)
+		req := &pb.NewTrustedPresentationThresholdsRequest{}
+		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.NewTrustedPresentationThresholds(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var windowTrustedPresentationThresholdsDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTrustedPresentationThresholdsServiceClient(grpcConn)
+		req := &pb.TrustedPresentationThresholdsDescribeContentsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var windowTrustedPresentationThresholdsEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTrustedPresentationThresholdsServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var windowTrustedPresentationThresholdsGetMinAlphaCmd = &cobra.Command{
+	Use:   "get-min-alpha",
+	Short: "GetMinAlpha RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTrustedPresentationThresholdsServiceClient(grpcConn)
+		req := &pb.GetMinAlphaRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetMinAlpha(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var windowTrustedPresentationThresholdsGetMinFractionRenderedCmd = &cobra.Command{
+	Use:   "get-min-fraction-rendered",
+	Short: "GetMinFractionRendered RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTrustedPresentationThresholdsServiceClient(grpcConn)
+		req := &pb.GetMinFractionRenderedRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetMinFractionRendered(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var windowTrustedPresentationThresholdsGetStabilityRequirementMillisCmd = &cobra.Command{
+	Use:   "get-stability-requirement-millis",
+	Short: "GetStabilityRequirementMillis RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTrustedPresentationThresholdsServiceClient(grpcConn)
+		req := &pb.GetStabilityRequirementMillisRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetStabilityRequirementMillis(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var windowTrustedPresentationThresholdsHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTrustedPresentationThresholdsServiceClient(grpcConn)
+		req := &pb.TrustedPresentationThresholdsHashCodeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var windowTrustedPresentationThresholdsToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTrustedPresentationThresholdsServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var windowTrustedPresentationThresholdsWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTrustedPresentationThresholdsServiceClient(grpcConn)
+		req := &pb.TrustedPresentationThresholdsWriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var windowSurfaceSyncGroupCmd = &cobra.Command{
+	Use:   "surface-sync-group",
+	Short: "SurfaceSyncGroupService operations",
+}
+
+var windowSurfaceSyncGroupNewSurfaceSyncGroupCmd = &cobra.Command{
+	Use:   "new-surface-sync-group",
+	Short: "NewSurfaceSyncGroup RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSurfaceSyncGroupServiceClient(grpcConn)
+		req := &pb.NewSurfaceSyncGroupRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.NewSurfaceSyncGroup(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var windowSurfaceSyncGroupAdd2Cmd = &cobra.Command{
+	Use:   "add2",
+	Short: "Add2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSurfaceSyncGroupServiceClient(grpcConn)
+		req := &pb.Add2Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.Add2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var windowSurfaceSyncGroupAdd2_1Cmd = &cobra.Command{
+	Use:   "add2_1",
+	Short: "Add2_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSurfaceSyncGroupServiceClient(grpcConn)
+		req := &pb.Add2_1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.Add2_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var windowSurfaceSyncGroupAddTransactionCmd = &cobra.Command{
+	Use:   "add-transaction",
+	Short: "AddTransaction RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSurfaceSyncGroupServiceClient(grpcConn)
+		req := &pb.AddTransactionRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddTransaction(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var windowSurfaceSyncGroupMarkSyncReadyCmd = &cobra.Command{
+	Use:   "mark-sync-ready",
+	Short: "MarkSyncReady RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSurfaceSyncGroupServiceClient(grpcConn)
+		req := &pb.MarkSyncReadyRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.MarkSyncReady(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var windowSplashScreenViewCmd = &cobra.Command{
+	Use:   "splash-screen-view",
+	Short: "SplashScreenViewService operations",
+}
+
+var windowSplashScreenViewGetIconAnimationDurationCmd = &cobra.Command{
+	Use:   "get-icon-animation-duration",
+	Short: "GetIconAnimationDuration RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSplashScreenViewServiceClient(grpcConn)
+		req := &pb.GetIconAnimationDurationRequest{}
+		resp, err := client.GetIconAnimationDuration(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var windowSplashScreenViewGetIconAnimationStartCmd = &cobra.Command{
+	Use:   "get-icon-animation-start",
+	Short: "GetIconAnimationStart RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSplashScreenViewServiceClient(grpcConn)
+		req := &pb.GetIconAnimationStartRequest{}
+		resp, err := client.GetIconAnimationStart(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var windowSplashScreenViewGetIconViewCmd = &cobra.Command{
+	Use:   "get-icon-view",
+	Short: "GetIconView RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSplashScreenViewServiceClient(grpcConn)
+		req := &pb.GetIconViewRequest{}
+		resp, err := client.GetIconView(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var windowSplashScreenViewRemoveCmd = &cobra.Command{
+	Use:   "remove",
+	Short: "Remove RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSplashScreenViewServiceClient(grpcConn)
+		req := &pb.RemoveRequest{}
+		resp, err := client.Remove(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var windowSplashScreenViewSetAlphaCmd = &cobra.Command{
+	Use:   "set-alpha",
+	Short: "SetAlpha RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSplashScreenViewServiceClient(grpcConn)
+		req := &pb.SetAlphaRequest{}
+		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetAlpha(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var windowSystemOnBackInvokedCallbacksCmd = &cobra.Command{
+	Use:   "system-on-back-invoked-callbacks",
+	Short: "SystemOnBackInvokedCallbacksService operations",
+}
+
+var windowSystemOnBackInvokedCallbacksFinishAndRemoveTaskCallbackCmd = &cobra.Command{
+	Use:   "finish-and-remove-task-callback",
+	Short: "FinishAndRemoveTaskCallback RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSystemOnBackInvokedCallbacksServiceClient(grpcConn)
+		req := &pb.FinishAndRemoveTaskCallbackRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.FinishAndRemoveTaskCallback(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var windowSystemOnBackInvokedCallbacksMoveTaskToBackCallbackCmd = &cobra.Command{
+	Use:   "move-task-to-back-callback",
+	Short: "MoveTaskToBackCallback RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSystemOnBackInvokedCallbacksServiceClient(grpcConn)
+		req := &pb.MoveTaskToBackCallbackRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.MoveTaskToBackCallback(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 func init() {
 	windowOnBackInvokedCallbackCmd.AddCommand(windowOnBackInvokedCallbackOnBackInvokedCmd)
 	windowCmd.AddCommand(windowOnBackInvokedCallbackCmd)
-	windowSplashScreenViewCmd.AddCommand(windowSplashScreenViewGetIconAnimationDurationCmd)
-	windowSplashScreenViewCmd.AddCommand(windowSplashScreenViewGetIconAnimationStartCmd)
-	windowSplashScreenViewCmd.AddCommand(windowSplashScreenViewGetIconViewCmd)
-	windowSplashScreenViewCmd.AddCommand(windowSplashScreenViewRemoveCmd)
-	windowSplashScreenViewSetAlphaCmd.Flags().Float32("arg0", 0, "arg0 (float32)")
-	windowSplashScreenViewCmd.AddCommand(windowSplashScreenViewSetAlphaCmd)
-	windowCmd.AddCommand(windowSplashScreenViewCmd)
+	windowBackEventNewBackEventCmd.Flags().Float32("arg0", 0, "arg0 (float32)")
+	windowBackEventNewBackEventCmd.Flags().Float32("arg1", 0, "arg1 (float32)")
+	windowBackEventNewBackEventCmd.Flags().Float32("arg2", 0, "arg2 (float32)")
+	windowBackEventNewBackEventCmd.Flags().Int32("arg3", 0, "arg3 (int32)")
+	windowBackEventCmd.AddCommand(windowBackEventNewBackEventCmd)
+	windowBackEventEqualsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	windowBackEventEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	windowBackEventCmd.AddCommand(windowBackEventEqualsCmd)
+	windowBackEventGetFrameTimeMillisCmd.Flags().Int64("handle", 0, "handle (int64)")
+	windowBackEventCmd.AddCommand(windowBackEventGetFrameTimeMillisCmd)
+	windowBackEventGetProgressCmd.Flags().Int64("handle", 0, "handle (int64)")
+	windowBackEventCmd.AddCommand(windowBackEventGetProgressCmd)
+	windowBackEventGetSwipeEdgeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	windowBackEventCmd.AddCommand(windowBackEventGetSwipeEdgeCmd)
+	windowBackEventGetTouchXCmd.Flags().Int64("handle", 0, "handle (int64)")
+	windowBackEventCmd.AddCommand(windowBackEventGetTouchXCmd)
+	windowBackEventGetTouchYCmd.Flags().Int64("handle", 0, "handle (int64)")
+	windowBackEventCmd.AddCommand(windowBackEventGetTouchYCmd)
+	windowBackEventToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
+	windowBackEventCmd.AddCommand(windowBackEventToStringCmd)
+	windowCmd.AddCommand(windowBackEventCmd)
+	windowOnBackInvokedDispatcherRegisterOnBackInvokedCallbackCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	windowOnBackInvokedDispatcherRegisterOnBackInvokedCallbackCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	windowOnBackInvokedDispatcherCmd.AddCommand(windowOnBackInvokedDispatcherRegisterOnBackInvokedCallbackCmd)
+	windowOnBackInvokedDispatcherUnregisterOnBackInvokedCallbackCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	windowOnBackInvokedDispatcherCmd.AddCommand(windowOnBackInvokedDispatcherUnregisterOnBackInvokedCallbackCmd)
+	windowCmd.AddCommand(windowOnBackInvokedDispatcherCmd)
+	windowSplashScreenCmd.AddCommand(windowSplashScreenClearOnExitAnimationListenerCmd)
+	windowSplashScreenSetOnExitAnimationListenerCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	windowSplashScreenCmd.AddCommand(windowSplashScreenSetOnExitAnimationListenerCmd)
+	windowSplashScreenSetSplashScreenThemeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	windowSplashScreenCmd.AddCommand(windowSplashScreenSetSplashScreenThemeCmd)
+	windowCmd.AddCommand(windowSplashScreenCmd)
+	windowSplashScreenOnExitAnimationListenerOnSplashScreenExitCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	windowSplashScreenOnExitAnimationListenerCmd.AddCommand(windowSplashScreenOnExitAnimationListenerOnSplashScreenExitCmd)
+	windowCmd.AddCommand(windowSplashScreenOnExitAnimationListenerCmd)
+	windowInputTransferTokenCmd.AddCommand(windowInputTransferTokenDescribeContentsCmd)
+	windowInputTransferTokenEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	windowInputTransferTokenCmd.AddCommand(windowInputTransferTokenEqualsCmd)
+	windowInputTransferTokenCmd.AddCommand(windowInputTransferTokenHashCodeCmd)
+	windowInputTransferTokenWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	windowInputTransferTokenWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	windowInputTransferTokenCmd.AddCommand(windowInputTransferTokenWriteToParcelCmd)
+	windowCmd.AddCommand(windowInputTransferTokenCmd)
 	windowTrustedPresentationThresholdsNewTrustedPresentationThresholdsCmd.Flags().Float32("arg0", 0, "arg0 (float32)")
 	windowTrustedPresentationThresholdsNewTrustedPresentationThresholdsCmd.Flags().Float32("arg1", 0, "arg1 (float32)")
 	windowTrustedPresentationThresholdsNewTrustedPresentationThresholdsCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
@@ -896,54 +933,17 @@ func init() {
 	windowSurfaceSyncGroupMarkSyncReadyCmd.Flags().Int64("handle", 0, "handle (int64)")
 	windowSurfaceSyncGroupCmd.AddCommand(windowSurfaceSyncGroupMarkSyncReadyCmd)
 	windowCmd.AddCommand(windowSurfaceSyncGroupCmd)
-	windowInputTransferTokenCmd.AddCommand(windowInputTransferTokenDescribeContentsCmd)
-	windowInputTransferTokenEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	windowInputTransferTokenCmd.AddCommand(windowInputTransferTokenEqualsCmd)
-	windowInputTransferTokenCmd.AddCommand(windowInputTransferTokenHashCodeCmd)
-	windowInputTransferTokenWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	windowInputTransferTokenWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	windowInputTransferTokenCmd.AddCommand(windowInputTransferTokenWriteToParcelCmd)
-	windowCmd.AddCommand(windowInputTransferTokenCmd)
+	windowSplashScreenViewCmd.AddCommand(windowSplashScreenViewGetIconAnimationDurationCmd)
+	windowSplashScreenViewCmd.AddCommand(windowSplashScreenViewGetIconAnimationStartCmd)
+	windowSplashScreenViewCmd.AddCommand(windowSplashScreenViewGetIconViewCmd)
+	windowSplashScreenViewCmd.AddCommand(windowSplashScreenViewRemoveCmd)
+	windowSplashScreenViewSetAlphaCmd.Flags().Float32("arg0", 0, "arg0 (float32)")
+	windowSplashScreenViewCmd.AddCommand(windowSplashScreenViewSetAlphaCmd)
+	windowCmd.AddCommand(windowSplashScreenViewCmd)
 	windowSystemOnBackInvokedCallbacksFinishAndRemoveTaskCallbackCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	windowSystemOnBackInvokedCallbacksCmd.AddCommand(windowSystemOnBackInvokedCallbacksFinishAndRemoveTaskCallbackCmd)
 	windowSystemOnBackInvokedCallbacksMoveTaskToBackCallbackCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	windowSystemOnBackInvokedCallbacksCmd.AddCommand(windowSystemOnBackInvokedCallbacksMoveTaskToBackCallbackCmd)
 	windowCmd.AddCommand(windowSystemOnBackInvokedCallbacksCmd)
-	windowOnBackInvokedDispatcherRegisterOnBackInvokedCallbackCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	windowOnBackInvokedDispatcherRegisterOnBackInvokedCallbackCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	windowOnBackInvokedDispatcherCmd.AddCommand(windowOnBackInvokedDispatcherRegisterOnBackInvokedCallbackCmd)
-	windowOnBackInvokedDispatcherUnregisterOnBackInvokedCallbackCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	windowOnBackInvokedDispatcherCmd.AddCommand(windowOnBackInvokedDispatcherUnregisterOnBackInvokedCallbackCmd)
-	windowCmd.AddCommand(windowOnBackInvokedDispatcherCmd)
-	windowSplashScreenCmd.AddCommand(windowSplashScreenClearOnExitAnimationListenerCmd)
-	windowSplashScreenSetOnExitAnimationListenerCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	windowSplashScreenCmd.AddCommand(windowSplashScreenSetOnExitAnimationListenerCmd)
-	windowSplashScreenSetSplashScreenThemeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	windowSplashScreenCmd.AddCommand(windowSplashScreenSetSplashScreenThemeCmd)
-	windowCmd.AddCommand(windowSplashScreenCmd)
-	windowSplashScreenOnExitAnimationListenerOnSplashScreenExitCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	windowSplashScreenOnExitAnimationListenerCmd.AddCommand(windowSplashScreenOnExitAnimationListenerOnSplashScreenExitCmd)
-	windowCmd.AddCommand(windowSplashScreenOnExitAnimationListenerCmd)
-	windowBackEventNewBackEventCmd.Flags().Float32("arg0", 0, "arg0 (float32)")
-	windowBackEventNewBackEventCmd.Flags().Float32("arg1", 0, "arg1 (float32)")
-	windowBackEventNewBackEventCmd.Flags().Float32("arg2", 0, "arg2 (float32)")
-	windowBackEventNewBackEventCmd.Flags().Int32("arg3", 0, "arg3 (int32)")
-	windowBackEventCmd.AddCommand(windowBackEventNewBackEventCmd)
-	windowBackEventEqualsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	windowBackEventEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	windowBackEventCmd.AddCommand(windowBackEventEqualsCmd)
-	windowBackEventGetFrameTimeMillisCmd.Flags().Int64("handle", 0, "handle (int64)")
-	windowBackEventCmd.AddCommand(windowBackEventGetFrameTimeMillisCmd)
-	windowBackEventGetProgressCmd.Flags().Int64("handle", 0, "handle (int64)")
-	windowBackEventCmd.AddCommand(windowBackEventGetProgressCmd)
-	windowBackEventGetSwipeEdgeCmd.Flags().Int64("handle", 0, "handle (int64)")
-	windowBackEventCmd.AddCommand(windowBackEventGetSwipeEdgeCmd)
-	windowBackEventGetTouchXCmd.Flags().Int64("handle", 0, "handle (int64)")
-	windowBackEventCmd.AddCommand(windowBackEventGetTouchXCmd)
-	windowBackEventGetTouchYCmd.Flags().Int64("handle", 0, "handle (int64)")
-	windowBackEventCmd.AddCommand(windowBackEventGetTouchYCmd)
-	windowBackEventToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
-	windowBackEventCmd.AddCommand(windowBackEventToStringCmd)
-	windowCmd.AddCommand(windowBackEventCmd)
 	rootCmd.AddCommand(windowCmd)
 }

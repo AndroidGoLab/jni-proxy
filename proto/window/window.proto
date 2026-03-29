@@ -12,38 +12,140 @@ message OnBackInvokedRequest {
 message OnBackInvokedResponse {
 }
 
-message GetIconAnimationDurationRequest {
-}
-
-message GetIconAnimationDurationResponse {
-  int64 result = 1;
-}
-
-message GetIconAnimationStartRequest {
-}
-
-message GetIconAnimationStartResponse {
-  int64 result = 1;
-}
-
-message GetIconViewRequest {
-}
-
-message GetIconViewResponse {
-  int64 result = 1;
-}
-
-message RemoveRequest {
-}
-
-message RemoveResponse {
-}
-
-message SetAlphaRequest {
+message NewBackEventRequest {
   float arg0 = 1;
+  float arg1 = 2;
+  float arg2 = 3;
+  int32 arg3 = 4;
 }
 
-message SetAlphaResponse {
+message NewBackEventResponse {
+  int64 result = 1;
+}
+
+message EqualsRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message EqualsResponse {
+  bool result = 1;
+}
+
+message GetFrameTimeMillisRequest {
+  int64 handle = 1;
+}
+
+message GetFrameTimeMillisResponse {
+  int64 result = 1;
+}
+
+message GetProgressRequest {
+  int64 handle = 1;
+}
+
+message GetProgressResponse {
+  float result = 1;
+}
+
+message GetSwipeEdgeRequest {
+  int64 handle = 1;
+}
+
+message GetSwipeEdgeResponse {
+  int32 result = 1;
+}
+
+message GetTouchXRequest {
+  int64 handle = 1;
+}
+
+message GetTouchXResponse {
+  float result = 1;
+}
+
+message GetTouchYRequest {
+  int64 handle = 1;
+}
+
+message GetTouchYResponse {
+  float result = 1;
+}
+
+message ToStringRequest {
+  int64 handle = 1;
+}
+
+message ToStringResponse {
+  string result = 1;
+}
+
+message RegisterOnBackInvokedCallbackRequest {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message RegisterOnBackInvokedCallbackResponse {
+}
+
+message UnregisterOnBackInvokedCallbackRequest {
+  int64 arg0 = 1;
+}
+
+message UnregisterOnBackInvokedCallbackResponse {
+}
+
+message ClearOnExitAnimationListenerRequest {
+}
+
+message ClearOnExitAnimationListenerResponse {
+}
+
+message SetOnExitAnimationListenerRequest {
+  int64 arg0 = 1;
+}
+
+message SetOnExitAnimationListenerResponse {
+}
+
+message SetSplashScreenThemeRequest {
+  int32 arg0 = 1;
+}
+
+message SetSplashScreenThemeResponse {
+}
+
+message OnSplashScreenExitRequest {
+  int64 arg0 = 1;
+}
+
+message OnSplashScreenExitResponse {
+}
+
+message DescribeContentsRequest {
+}
+
+message DescribeContentsResponse {
+  int32 result = 1;
+}
+
+message InputTransferTokenEqualsRequest {
+  int64 arg0 = 1;
+}
+
+message HashCodeRequest {
+}
+
+message HashCodeResponse {
+  int32 result = 1;
+}
+
+message WriteToParcelRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message WriteToParcelResponse {
 }
 
 message NewTrustedPresentationThresholdsRequest {
@@ -56,21 +158,8 @@ message NewTrustedPresentationThresholdsResponse {
   int64 result = 1;
 }
 
-message DescribeContentsRequest {
+message TrustedPresentationThresholdsDescribeContentsRequest {
   int64 handle = 1;
-}
-
-message DescribeContentsResponse {
-  int32 result = 1;
-}
-
-message EqualsRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-}
-
-message EqualsResponse {
-  bool result = 1;
 }
 
 message GetMinAlphaRequest {
@@ -97,29 +186,14 @@ message GetStabilityRequirementMillisResponse {
   int32 result = 1;
 }
 
-message HashCodeRequest {
+message TrustedPresentationThresholdsHashCodeRequest {
   int64 handle = 1;
 }
 
-message HashCodeResponse {
-  int32 result = 1;
-}
-
-message ToStringRequest {
-  int64 handle = 1;
-}
-
-message ToStringResponse {
-  string result = 1;
-}
-
-message WriteToParcelRequest {
+message TrustedPresentationThresholdsWriteToParcelRequest {
   int64 handle = 1;
   int64 arg0 = 2;
   int32 arg1 = 3;
-}
-
-message WriteToParcelResponse {
 }
 
 message NewSurfaceSyncGroupRequest {
@@ -165,19 +239,38 @@ message MarkSyncReadyRequest {
 message MarkSyncReadyResponse {
 }
 
-message InputTransferTokenDescribeContentsRequest {
+message GetIconAnimationDurationRequest {
 }
 
-message InputTransferTokenEqualsRequest {
-  int64 arg0 = 1;
+message GetIconAnimationDurationResponse {
+  int64 result = 1;
 }
 
-message InputTransferTokenHashCodeRequest {
+message GetIconAnimationStartRequest {
 }
 
-message InputTransferTokenWriteToParcelRequest {
-  int64 arg0 = 1;
-  int32 arg1 = 2;
+message GetIconAnimationStartResponse {
+  int64 result = 1;
+}
+
+message GetIconViewRequest {
+}
+
+message GetIconViewResponse {
+  int64 result = 1;
+}
+
+message RemoveRequest {
+}
+
+message RemoveResponse {
+}
+
+message SetAlphaRequest {
+  float arg0 = 1;
+}
+
+message SetAlphaResponse {
 }
 
 message FinishAndRemoveTaskCallbackRequest {
@@ -196,141 +289,19 @@ message MoveTaskToBackCallbackResponse {
   int64 result = 1;
 }
 
-message RegisterOnBackInvokedCallbackRequest {
-  int32 arg0 = 1;
-  int64 arg1 = 2;
-}
-
-message RegisterOnBackInvokedCallbackResponse {
-}
-
-message UnregisterOnBackInvokedCallbackRequest {
-  int64 arg0 = 1;
-}
-
-message UnregisterOnBackInvokedCallbackResponse {
-}
-
-message ClearOnExitAnimationListenerRequest {
-}
-
-message ClearOnExitAnimationListenerResponse {
-}
-
-message SetOnExitAnimationListenerRequest {
-  int64 arg0 = 1;
-}
-
-message SetOnExitAnimationListenerResponse {
-}
-
-message SetSplashScreenThemeRequest {
-  int32 arg0 = 1;
-}
-
-message SetSplashScreenThemeResponse {
-}
-
-message OnSplashScreenExitRequest {
-  int64 arg0 = 1;
-}
-
-message OnSplashScreenExitResponse {
-}
-
-message NewBackEventRequest {
-  float arg0 = 1;
-  float arg1 = 2;
-  float arg2 = 3;
-  int32 arg3 = 4;
-}
-
-message NewBackEventResponse {
-  int64 result = 1;
-}
-
-message GetFrameTimeMillisRequest {
-  int64 handle = 1;
-}
-
-message GetFrameTimeMillisResponse {
-  int64 result = 1;
-}
-
-message GetProgressRequest {
-  int64 handle = 1;
-}
-
-message GetProgressResponse {
-  float result = 1;
-}
-
-message GetSwipeEdgeRequest {
-  int64 handle = 1;
-}
-
-message GetSwipeEdgeResponse {
-  int32 result = 1;
-}
-
-message GetTouchXRequest {
-  int64 handle = 1;
-}
-
-message GetTouchXResponse {
-  float result = 1;
-}
-
-message GetTouchYRequest {
-  int64 handle = 1;
-}
-
-message GetTouchYResponse {
-  float result = 1;
-}
-
 service OnBackInvokedCallbackService {
   rpc OnBackInvoked (OnBackInvokedRequest) returns (OnBackInvokedResponse);
 }
 
-service SplashScreenViewService {
-  rpc GetIconAnimationDuration (GetIconAnimationDurationRequest) returns (GetIconAnimationDurationResponse);
-  rpc GetIconAnimationStart (GetIconAnimationStartRequest) returns (GetIconAnimationStartResponse);
-  rpc GetIconView (GetIconViewRequest) returns (GetIconViewResponse);
-  rpc Remove (RemoveRequest) returns (RemoveResponse);
-  rpc SetAlpha (SetAlphaRequest) returns (SetAlphaResponse);
-}
-
-service TrustedPresentationThresholdsService {
-  rpc NewTrustedPresentationThresholds (NewTrustedPresentationThresholdsRequest) returns (NewTrustedPresentationThresholdsResponse);
-  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+service BackEventService {
+  rpc NewBackEvent (NewBackEventRequest) returns (NewBackEventResponse);
   rpc Equals (EqualsRequest) returns (EqualsResponse);
-  rpc GetMinAlpha (GetMinAlphaRequest) returns (GetMinAlphaResponse);
-  rpc GetMinFractionRendered (GetMinFractionRenderedRequest) returns (GetMinFractionRenderedResponse);
-  rpc GetStabilityRequirementMillis (GetStabilityRequirementMillisRequest) returns (GetStabilityRequirementMillisResponse);
-  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc GetFrameTimeMillis (GetFrameTimeMillisRequest) returns (GetFrameTimeMillisResponse);
+  rpc GetProgress (GetProgressRequest) returns (GetProgressResponse);
+  rpc GetSwipeEdge (GetSwipeEdgeRequest) returns (GetSwipeEdgeResponse);
+  rpc GetTouchX (GetTouchXRequest) returns (GetTouchXResponse);
+  rpc GetTouchY (GetTouchYRequest) returns (GetTouchYResponse);
   rpc ToString (ToStringRequest) returns (ToStringResponse);
-  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
-}
-
-service SurfaceSyncGroupService {
-  rpc NewSurfaceSyncGroup (NewSurfaceSyncGroupRequest) returns (NewSurfaceSyncGroupResponse);
-  rpc Add2 (Add2Request) returns (Add2Response);
-  rpc Add2_1 (Add2_1Request) returns (Add2_1Response);
-  rpc AddTransaction (AddTransactionRequest) returns (AddTransactionResponse);
-  rpc MarkSyncReady (MarkSyncReadyRequest) returns (MarkSyncReadyResponse);
-}
-
-service InputTransferTokenService {
-  rpc DescribeContents (InputTransferTokenDescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc Equals (InputTransferTokenEqualsRequest) returns (EqualsResponse);
-  rpc HashCode (InputTransferTokenHashCodeRequest) returns (HashCodeResponse);
-  rpc WriteToParcel (InputTransferTokenWriteToParcelRequest) returns (WriteToParcelResponse);
-}
-
-service SystemOnBackInvokedCallbacksService {
-  rpc FinishAndRemoveTaskCallback (FinishAndRemoveTaskCallbackRequest) returns (FinishAndRemoveTaskCallbackResponse);
-  rpc MoveTaskToBackCallback (MoveTaskToBackCallbackRequest) returns (MoveTaskToBackCallbackResponse);
 }
 
 service OnBackInvokedDispatcherService {
@@ -348,13 +319,42 @@ service SplashScreenOnExitAnimationListenerService {
   rpc OnSplashScreenExit (OnSplashScreenExitRequest) returns (OnSplashScreenExitResponse);
 }
 
-service BackEventService {
-  rpc NewBackEvent (NewBackEventRequest) returns (NewBackEventResponse);
+service InputTransferTokenService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (InputTransferTokenEqualsRequest) returns (EqualsResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service TrustedPresentationThresholdsService {
+  rpc NewTrustedPresentationThresholds (NewTrustedPresentationThresholdsRequest) returns (NewTrustedPresentationThresholdsResponse);
+  rpc DescribeContents (TrustedPresentationThresholdsDescribeContentsRequest) returns (DescribeContentsResponse);
   rpc Equals (EqualsRequest) returns (EqualsResponse);
-  rpc GetFrameTimeMillis (GetFrameTimeMillisRequest) returns (GetFrameTimeMillisResponse);
-  rpc GetProgress (GetProgressRequest) returns (GetProgressResponse);
-  rpc GetSwipeEdge (GetSwipeEdgeRequest) returns (GetSwipeEdgeResponse);
-  rpc GetTouchX (GetTouchXRequest) returns (GetTouchXResponse);
-  rpc GetTouchY (GetTouchYRequest) returns (GetTouchYResponse);
+  rpc GetMinAlpha (GetMinAlphaRequest) returns (GetMinAlphaResponse);
+  rpc GetMinFractionRendered (GetMinFractionRenderedRequest) returns (GetMinFractionRenderedResponse);
+  rpc GetStabilityRequirementMillis (GetStabilityRequirementMillisRequest) returns (GetStabilityRequirementMillisResponse);
+  rpc HashCode (TrustedPresentationThresholdsHashCodeRequest) returns (HashCodeResponse);
   rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (TrustedPresentationThresholdsWriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service SurfaceSyncGroupService {
+  rpc NewSurfaceSyncGroup (NewSurfaceSyncGroupRequest) returns (NewSurfaceSyncGroupResponse);
+  rpc Add2 (Add2Request) returns (Add2Response);
+  rpc Add2_1 (Add2_1Request) returns (Add2_1Response);
+  rpc AddTransaction (AddTransactionRequest) returns (AddTransactionResponse);
+  rpc MarkSyncReady (MarkSyncReadyRequest) returns (MarkSyncReadyResponse);
+}
+
+service SplashScreenViewService {
+  rpc GetIconAnimationDuration (GetIconAnimationDurationRequest) returns (GetIconAnimationDurationResponse);
+  rpc GetIconAnimationStart (GetIconAnimationStartRequest) returns (GetIconAnimationStartResponse);
+  rpc GetIconView (GetIconViewRequest) returns (GetIconViewResponse);
+  rpc Remove (RemoveRequest) returns (RemoveResponse);
+  rpc SetAlpha (SetAlphaRequest) returns (SetAlphaResponse);
+}
+
+service SystemOnBackInvokedCallbacksService {
+  rpc FinishAndRemoveTaskCallback (FinishAndRemoveTaskCallbackRequest) returns (FinishAndRemoveTaskCallbackResponse);
+  rpc MoveTaskToBackCallback (MoveTaskToBackCallbackRequest) returns (MoveTaskToBackCallbackResponse);
 }

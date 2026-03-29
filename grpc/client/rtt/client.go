@@ -9,6 +9,54 @@ import (
 	"google.golang.org/grpc"
 )
 
+// RangingCapabilitiesClient wraps the gRPC RangingCapabilitiesService client.
+type RangingCapabilitiesClient struct {
+	svc pb.RangingCapabilitiesServiceClient
+}
+
+// NewRangingCapabilitiesClient creates a new RangingCapabilities client.
+func NewRangingCapabilitiesClient(cc grpc.ClientConnInterface) *RangingCapabilitiesClient {
+	return &RangingCapabilitiesClient{
+		svc: pb.NewRangingCapabilitiesServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *RangingCapabilitiesClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasPeriodicRangingHardwareFeature calls the HasPeriodicRangingHardwareFeature RPC.
+func (c *RangingCapabilitiesClient) HasPeriodicRangingHardwareFeature(ctx context.Context) (bool, error) {
+	resp, err := c.svc.HasPeriodicRangingHardwareFeature(ctx, &pb.HasPeriodicRangingHardwareFeatureRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *RangingCapabilitiesClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *RangingCapabilitiesClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
 // RangingParamsClient wraps the gRPC RangingParamsService client.
 type RangingParamsClient struct {
 	svc pb.RangingParamsServiceClient
@@ -156,52 +204,4 @@ func (c *RangingParamsBuilderClient) SetRangingUpdateRate(ctx context.Context, a
 		return 0, err
 	}
 	return resp.GetResult(), nil
-}
-
-// RangingCapabilitiesClient wraps the gRPC RangingCapabilitiesService client.
-type RangingCapabilitiesClient struct {
-	svc pb.RangingCapabilitiesServiceClient
-}
-
-// NewRangingCapabilitiesClient creates a new RangingCapabilities client.
-func NewRangingCapabilitiesClient(cc grpc.ClientConnInterface) *RangingCapabilitiesClient {
-	return &RangingCapabilitiesClient{
-		svc: pb.NewRangingCapabilitiesServiceClient(cc),
-	}
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *RangingCapabilitiesClient) DescribeContents(ctx context.Context) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HasPeriodicRangingHardwareFeature calls the HasPeriodicRangingHardwareFeature RPC.
-func (c *RangingCapabilitiesClient) HasPeriodicRangingHardwareFeature(ctx context.Context) (bool, error) {
-	resp, err := c.svc.HasPeriodicRangingHardwareFeature(ctx, &pb.HasPeriodicRangingHardwareFeatureRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToString calls the ToString RPC.
-func (c *RangingCapabilitiesClient) ToString(ctx context.Context) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *RangingCapabilitiesClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
 }

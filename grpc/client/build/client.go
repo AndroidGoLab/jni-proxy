@@ -21,6 +21,17 @@ func NewBuildClient(cc grpc.ClientConnInterface) *BuildClient {
 	}
 }
 
+// GetFingerprintedPartitions calls the GetFingerprintedPartitions RPC.
+func (c *BuildClient) GetFingerprintedPartitions(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetFingerprintedPartitions(ctx, &pb.GetFingerprintedPartitionsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // GetMajorSdkVersion calls the GetMajorSdkVersion RPC.
 func (c *BuildClient) GetMajorSdkVersion(ctx context.Context, handle int64, arg0 int32) (int32, error) {
 	resp, err := c.svc.GetMajorSdkVersion(ctx, &pb.GetMajorSdkVersionRequest{

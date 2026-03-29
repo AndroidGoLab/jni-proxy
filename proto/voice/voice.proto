@@ -6,6 +6,50 @@ package voice;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/voice";
 
+message DescribeContentsRequest {
+}
+
+message DescribeContentsResponse {
+  int32 result = 1;
+}
+
+message EqualsRequest {
+  int64 arg0 = 1;
+}
+
+message EqualsResponse {
+  bool result = 1;
+}
+
+message GetActivityIdRequest {
+}
+
+message GetActivityIdResponse {
+  int64 result = 1;
+}
+
+message HashCodeRequest {
+}
+
+message HashCodeResponse {
+  int32 result = 1;
+}
+
+message ToStringRequest {
+}
+
+message ToStringResponse {
+  string result = 1;
+}
+
+message WriteToParcelRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message WriteToParcelResponse {
+}
+
 message OnBindRequest {
   int64 arg0 = 1;
 }
@@ -48,6 +92,99 @@ message OnTrimMemoryRequest {
 message OnTrimMemoryResponse {
 }
 
+message NewInteractionServiceRequest {
+}
+
+message NewInteractionServiceResponse {
+  int64 result = 1;
+}
+
+message GetDisabledShowContextRequest {
+  int64 handle = 1;
+}
+
+message GetDisabledShowContextResponse {
+  int32 result = 1;
+}
+
+message InteractionServiceOnBindRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message OnLaunchVoiceAssistFromKeyguardRequest {
+  int64 handle = 1;
+}
+
+message OnLaunchVoiceAssistFromKeyguardResponse {
+}
+
+message OnPrepareToShowSessionRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message OnPrepareToShowSessionResponse {
+}
+
+message OnReadyRequest {
+  int64 handle = 1;
+}
+
+message OnReadyResponse {
+}
+
+message OnShowSessionFailedRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message OnShowSessionFailedResponse {
+}
+
+message OnShutdownRequest {
+  int64 handle = 1;
+}
+
+message OnShutdownResponse {
+}
+
+message SetDisabledShowContextRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetDisabledShowContextResponse {
+}
+
+message SetUiHintsRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetUiHintsResponse {
+}
+
+message ShowSessionRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message ShowSessionResponse {
+}
+
+message IsActiveServiceRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message IsActiveServiceResponse {
+  bool result = 1;
+}
+
 message NewInteractionSessionRequest {
   int64 arg0 = 1;
 }
@@ -87,14 +224,6 @@ message GetContextRequest {
 
 message GetContextResponse {
   int64 result = 1;
-}
-
-message GetDisabledShowContextRequest {
-  int64 handle = 1;
-}
-
-message GetDisabledShowContextResponse {
-  int32 result = 1;
 }
 
 message GetLayoutInflaterRequest {
@@ -402,14 +531,6 @@ message SetContentViewRequest {
 message SetContentViewResponse {
 }
 
-message SetDisabledShowContextRequest {
-  int64 handle = 1;
-  int32 arg0 = 2;
-}
-
-message SetDisabledShowContextResponse {
-}
-
 message SetKeepAwakeRequest {
   int64 handle = 1;
   bool arg0 = 2;
@@ -495,28 +616,6 @@ message SendAbortResultRequest {
 }
 
 message SendAbortResultResponse {
-}
-
-message EqualsRequest {
-  int64 arg0 = 1;
-}
-
-message EqualsResponse {
-  bool result = 1;
-}
-
-message HashCodeRequest {
-}
-
-message HashCodeResponse {
-  int32 result = 1;
-}
-
-message GetActivityIdRequest {
-}
-
-message GetActivityIdResponse {
-  int64 result = 1;
 }
 
 message GetAssistContentRequest {
@@ -661,103 +760,13 @@ message IsActiveResponse {
   bool result = 1;
 }
 
-message ToStringRequest {
-}
-
-message ToStringResponse {
-  string result = 1;
-}
-
-message NewInteractionServiceRequest {
-}
-
-message NewInteractionServiceResponse {
-  int64 result = 1;
-}
-
-message InteractionServiceOnBindRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-}
-
-message OnLaunchVoiceAssistFromKeyguardRequest {
-  int64 handle = 1;
-}
-
-message OnLaunchVoiceAssistFromKeyguardResponse {
-}
-
-message OnPrepareToShowSessionRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-  int32 arg1 = 3;
-}
-
-message OnPrepareToShowSessionResponse {
-}
-
-message OnReadyRequest {
-  int64 handle = 1;
-}
-
-message OnReadyResponse {
-}
-
-message OnShowSessionFailedRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-}
-
-message OnShowSessionFailedResponse {
-}
-
-message OnShutdownRequest {
-  int64 handle = 1;
-}
-
-message OnShutdownResponse {
-}
-
-message SetUiHintsRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-}
-
-message SetUiHintsResponse {
-}
-
-message ShowSessionRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-  int32 arg1 = 3;
-}
-
-message ShowSessionResponse {
-}
-
-message IsActiveServiceRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-  int64 arg1 = 3;
-}
-
-message IsActiveServiceResponse {
-  bool result = 1;
-}
-
-message DescribeContentsRequest {
-}
-
-message DescribeContentsResponse {
-  int32 result = 1;
-}
-
-message WriteToParcelRequest {
-  int64 arg0 = 1;
-  int32 arg1 = 2;
-}
-
-message WriteToParcelResponse {
+service VisibleActivityInfoService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetActivityId (GetActivityIdRequest) returns (GetActivityIdResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
 }
 
 service InteractionSessionServiceService {
@@ -767,6 +776,21 @@ service InteractionSessionServiceService {
   rpc OnLowMemory (OnLowMemoryRequest) returns (OnLowMemoryResponse);
   rpc OnNewSession (OnNewSessionRequest) returns (OnNewSessionResponse);
   rpc OnTrimMemory (OnTrimMemoryRequest) returns (OnTrimMemoryResponse);
+}
+
+service InteractionServiceService {
+  rpc NewInteractionService (NewInteractionServiceRequest) returns (NewInteractionServiceResponse);
+  rpc GetDisabledShowContext (GetDisabledShowContextRequest) returns (GetDisabledShowContextResponse);
+  rpc OnBind (InteractionServiceOnBindRequest) returns (OnBindResponse);
+  rpc OnLaunchVoiceAssistFromKeyguard (OnLaunchVoiceAssistFromKeyguardRequest) returns (OnLaunchVoiceAssistFromKeyguardResponse);
+  rpc OnPrepareToShowSession (OnPrepareToShowSessionRequest) returns (OnPrepareToShowSessionResponse);
+  rpc OnReady (OnReadyRequest) returns (OnReadyResponse);
+  rpc OnShowSessionFailed (OnShowSessionFailedRequest) returns (OnShowSessionFailedResponse);
+  rpc OnShutdown (OnShutdownRequest) returns (OnShutdownResponse);
+  rpc SetDisabledShowContext (SetDisabledShowContextRequest) returns (SetDisabledShowContextResponse);
+  rpc SetUiHints (SetUiHintsRequest) returns (SetUiHintsResponse);
+  rpc ShowSession (ShowSessionRequest) returns (ShowSessionResponse);
+  rpc IsActiveService (IsActiveServiceRequest) returns (IsActiveServiceResponse);
 }
 
 service InteractionSessionService {
@@ -879,28 +903,4 @@ service InteractionSessionRequestService {
   rpc GetExtras (GetExtrasRequest) returns (GetExtrasResponse);
   rpc IsActive (IsActiveRequest) returns (IsActiveResponse);
   rpc ToString (ToStringRequest) returns (ToStringResponse);
-}
-
-service InteractionServiceService {
-  rpc NewInteractionService (NewInteractionServiceRequest) returns (NewInteractionServiceResponse);
-  rpc GetDisabledShowContext (GetDisabledShowContextRequest) returns (GetDisabledShowContextResponse);
-  rpc OnBind (InteractionServiceOnBindRequest) returns (OnBindResponse);
-  rpc OnLaunchVoiceAssistFromKeyguard (OnLaunchVoiceAssistFromKeyguardRequest) returns (OnLaunchVoiceAssistFromKeyguardResponse);
-  rpc OnPrepareToShowSession (OnPrepareToShowSessionRequest) returns (OnPrepareToShowSessionResponse);
-  rpc OnReady (OnReadyRequest) returns (OnReadyResponse);
-  rpc OnShowSessionFailed (OnShowSessionFailedRequest) returns (OnShowSessionFailedResponse);
-  rpc OnShutdown (OnShutdownRequest) returns (OnShutdownResponse);
-  rpc SetDisabledShowContext (SetDisabledShowContextRequest) returns (SetDisabledShowContextResponse);
-  rpc SetUiHints (SetUiHintsRequest) returns (SetUiHintsResponse);
-  rpc ShowSession (ShowSessionRequest) returns (ShowSessionResponse);
-  rpc IsActiveService (IsActiveServiceRequest) returns (IsActiveServiceResponse);
-}
-
-service VisibleActivityInfoService {
-  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc Equals (EqualsRequest) returns (EqualsResponse);
-  rpc GetActivityId (GetActivityIdRequest) returns (GetActivityIdResponse);
-  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
-  rpc ToString (ToStringRequest) returns (ToStringResponse);
-  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
 }

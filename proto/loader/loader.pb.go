@@ -23,342 +23,6 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-type NewResourcesLoaderRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *NewResourcesLoaderRequest) Reset() {
-	*x = NewResourcesLoaderRequest{}
-	mi := &file_proto_loader_loader_proto_msgTypes[0]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *NewResourcesLoaderRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*NewResourcesLoaderRequest) ProtoMessage() {}
-
-func (x *NewResourcesLoaderRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_loader_loader_proto_msgTypes[0]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use NewResourcesLoaderRequest.ProtoReflect.Descriptor instead.
-func (*NewResourcesLoaderRequest) Descriptor() ([]byte, []int) {
-	return file_proto_loader_loader_proto_rawDescGZIP(), []int{0}
-}
-
-type NewResourcesLoaderResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *NewResourcesLoaderResponse) Reset() {
-	*x = NewResourcesLoaderResponse{}
-	mi := &file_proto_loader_loader_proto_msgTypes[1]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *NewResourcesLoaderResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*NewResourcesLoaderResponse) ProtoMessage() {}
-
-func (x *NewResourcesLoaderResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_loader_loader_proto_msgTypes[1]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use NewResourcesLoaderResponse.ProtoReflect.Descriptor instead.
-func (*NewResourcesLoaderResponse) Descriptor() ([]byte, []int) {
-	return file_proto_loader_loader_proto_rawDescGZIP(), []int{1}
-}
-
-func (x *NewResourcesLoaderResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type AddProviderRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *AddProviderRequest) Reset() {
-	*x = AddProviderRequest{}
-	mi := &file_proto_loader_loader_proto_msgTypes[2]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *AddProviderRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*AddProviderRequest) ProtoMessage() {}
-
-func (x *AddProviderRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_loader_loader_proto_msgTypes[2]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use AddProviderRequest.ProtoReflect.Descriptor instead.
-func (*AddProviderRequest) Descriptor() ([]byte, []int) {
-	return file_proto_loader_loader_proto_rawDescGZIP(), []int{2}
-}
-
-func (x *AddProviderRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-func (x *AddProviderRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type AddProviderResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *AddProviderResponse) Reset() {
-	*x = AddProviderResponse{}
-	mi := &file_proto_loader_loader_proto_msgTypes[3]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *AddProviderResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*AddProviderResponse) ProtoMessage() {}
-
-func (x *AddProviderResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_loader_loader_proto_msgTypes[3]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use AddProviderResponse.ProtoReflect.Descriptor instead.
-func (*AddProviderResponse) Descriptor() ([]byte, []int) {
-	return file_proto_loader_loader_proto_rawDescGZIP(), []int{3}
-}
-
-type ClearProvidersRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ClearProvidersRequest) Reset() {
-	*x = ClearProvidersRequest{}
-	mi := &file_proto_loader_loader_proto_msgTypes[4]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ClearProvidersRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ClearProvidersRequest) ProtoMessage() {}
-
-func (x *ClearProvidersRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_loader_loader_proto_msgTypes[4]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ClearProvidersRequest.ProtoReflect.Descriptor instead.
-func (*ClearProvidersRequest) Descriptor() ([]byte, []int) {
-	return file_proto_loader_loader_proto_rawDescGZIP(), []int{4}
-}
-
-func (x *ClearProvidersRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-type ClearProvidersResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ClearProvidersResponse) Reset() {
-	*x = ClearProvidersResponse{}
-	mi := &file_proto_loader_loader_proto_msgTypes[5]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ClearProvidersResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ClearProvidersResponse) ProtoMessage() {}
-
-func (x *ClearProvidersResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_loader_loader_proto_msgTypes[5]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ClearProvidersResponse.ProtoReflect.Descriptor instead.
-func (*ClearProvidersResponse) Descriptor() ([]byte, []int) {
-	return file_proto_loader_loader_proto_rawDescGZIP(), []int{5}
-}
-
-type RemoveProviderRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *RemoveProviderRequest) Reset() {
-	*x = RemoveProviderRequest{}
-	mi := &file_proto_loader_loader_proto_msgTypes[6]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *RemoveProviderRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*RemoveProviderRequest) ProtoMessage() {}
-
-func (x *RemoveProviderRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_loader_loader_proto_msgTypes[6]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use RemoveProviderRequest.ProtoReflect.Descriptor instead.
-func (*RemoveProviderRequest) Descriptor() ([]byte, []int) {
-	return file_proto_loader_loader_proto_rawDescGZIP(), []int{6}
-}
-
-func (x *RemoveProviderRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-func (x *RemoveProviderRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type RemoveProviderResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *RemoveProviderResponse) Reset() {
-	*x = RemoveProviderResponse{}
-	mi := &file_proto_loader_loader_proto_msgTypes[7]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *RemoveProviderResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*RemoveProviderResponse) ProtoMessage() {}
-
-func (x *RemoveProviderResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_loader_loader_proto_msgTypes[7]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use RemoveProviderResponse.ProtoReflect.Descriptor instead.
-func (*RemoveProviderResponse) Descriptor() ([]byte, []int) {
-	return file_proto_loader_loader_proto_rawDescGZIP(), []int{7}
-}
-
 type CloseRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	unknownFields protoimpl.UnknownFields
@@ -367,7 +31,7 @@ type CloseRequest struct {
 
 func (x *CloseRequest) Reset() {
 	*x = CloseRequest{}
-	mi := &file_proto_loader_loader_proto_msgTypes[8]
+	mi := &file_proto_loader_loader_proto_msgTypes[0]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -379,7 +43,7 @@ func (x *CloseRequest) String() string {
 func (*CloseRequest) ProtoMessage() {}
 
 func (x *CloseRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_loader_loader_proto_msgTypes[8]
+	mi := &file_proto_loader_loader_proto_msgTypes[0]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -392,7 +56,7 @@ func (x *CloseRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CloseRequest.ProtoReflect.Descriptor instead.
 func (*CloseRequest) Descriptor() ([]byte, []int) {
-	return file_proto_loader_loader_proto_rawDescGZIP(), []int{8}
+	return file_proto_loader_loader_proto_rawDescGZIP(), []int{0}
 }
 
 type CloseResponse struct {
@@ -403,7 +67,7 @@ type CloseResponse struct {
 
 func (x *CloseResponse) Reset() {
 	*x = CloseResponse{}
-	mi := &file_proto_loader_loader_proto_msgTypes[9]
+	mi := &file_proto_loader_loader_proto_msgTypes[1]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -415,7 +79,7 @@ func (x *CloseResponse) String() string {
 func (*CloseResponse) ProtoMessage() {}
 
 func (x *CloseResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_loader_loader_proto_msgTypes[9]
+	mi := &file_proto_loader_loader_proto_msgTypes[1]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -428,7 +92,7 @@ func (x *CloseResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CloseResponse.ProtoReflect.Descriptor instead.
 func (*CloseResponse) Descriptor() ([]byte, []int) {
-	return file_proto_loader_loader_proto_rawDescGZIP(), []int{9}
+	return file_proto_loader_loader_proto_rawDescGZIP(), []int{1}
 }
 
 type EmptyRequest struct {
@@ -440,7 +104,7 @@ type EmptyRequest struct {
 
 func (x *EmptyRequest) Reset() {
 	*x = EmptyRequest{}
-	mi := &file_proto_loader_loader_proto_msgTypes[10]
+	mi := &file_proto_loader_loader_proto_msgTypes[2]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -452,7 +116,7 @@ func (x *EmptyRequest) String() string {
 func (*EmptyRequest) ProtoMessage() {}
 
 func (x *EmptyRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_loader_loader_proto_msgTypes[10]
+	mi := &file_proto_loader_loader_proto_msgTypes[2]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -465,7 +129,7 @@ func (x *EmptyRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use EmptyRequest.ProtoReflect.Descriptor instead.
 func (*EmptyRequest) Descriptor() ([]byte, []int) {
-	return file_proto_loader_loader_proto_rawDescGZIP(), []int{10}
+	return file_proto_loader_loader_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *EmptyRequest) GetArg0() int64 {
@@ -484,7 +148,7 @@ type EmptyResponse struct {
 
 func (x *EmptyResponse) Reset() {
 	*x = EmptyResponse{}
-	mi := &file_proto_loader_loader_proto_msgTypes[11]
+	mi := &file_proto_loader_loader_proto_msgTypes[3]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -496,7 +160,7 @@ func (x *EmptyResponse) String() string {
 func (*EmptyResponse) ProtoMessage() {}
 
 func (x *EmptyResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_loader_loader_proto_msgTypes[11]
+	mi := &file_proto_loader_loader_proto_msgTypes[3]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -509,7 +173,7 @@ func (x *EmptyResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use EmptyResponse.ProtoReflect.Descriptor instead.
 func (*EmptyResponse) Descriptor() ([]byte, []int) {
-	return file_proto_loader_loader_proto_rawDescGZIP(), []int{11}
+	return file_proto_loader_loader_proto_rawDescGZIP(), []int{3}
 }
 
 func (x *EmptyResponse) GetResult() int64 {
@@ -528,7 +192,7 @@ type LoadFromApk1Request struct {
 
 func (x *LoadFromApk1Request) Reset() {
 	*x = LoadFromApk1Request{}
-	mi := &file_proto_loader_loader_proto_msgTypes[12]
+	mi := &file_proto_loader_loader_proto_msgTypes[4]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -540,7 +204,7 @@ func (x *LoadFromApk1Request) String() string {
 func (*LoadFromApk1Request) ProtoMessage() {}
 
 func (x *LoadFromApk1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_loader_loader_proto_msgTypes[12]
+	mi := &file_proto_loader_loader_proto_msgTypes[4]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -553,7 +217,7 @@ func (x *LoadFromApk1Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use LoadFromApk1Request.ProtoReflect.Descriptor instead.
 func (*LoadFromApk1Request) Descriptor() ([]byte, []int) {
-	return file_proto_loader_loader_proto_rawDescGZIP(), []int{12}
+	return file_proto_loader_loader_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *LoadFromApk1Request) GetArg0() int64 {
@@ -572,7 +236,7 @@ type LoadFromApk1Response struct {
 
 func (x *LoadFromApk1Response) Reset() {
 	*x = LoadFromApk1Response{}
-	mi := &file_proto_loader_loader_proto_msgTypes[13]
+	mi := &file_proto_loader_loader_proto_msgTypes[5]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -584,7 +248,7 @@ func (x *LoadFromApk1Response) String() string {
 func (*LoadFromApk1Response) ProtoMessage() {}
 
 func (x *LoadFromApk1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_loader_loader_proto_msgTypes[13]
+	mi := &file_proto_loader_loader_proto_msgTypes[5]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -597,7 +261,7 @@ func (x *LoadFromApk1Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use LoadFromApk1Response.ProtoReflect.Descriptor instead.
 func (*LoadFromApk1Response) Descriptor() ([]byte, []int) {
-	return file_proto_loader_loader_proto_rawDescGZIP(), []int{13}
+	return file_proto_loader_loader_proto_rawDescGZIP(), []int{5}
 }
 
 func (x *LoadFromApk1Response) GetResult() int64 {
@@ -617,7 +281,7 @@ type LoadFromApk2_1Request struct {
 
 func (x *LoadFromApk2_1Request) Reset() {
 	*x = LoadFromApk2_1Request{}
-	mi := &file_proto_loader_loader_proto_msgTypes[14]
+	mi := &file_proto_loader_loader_proto_msgTypes[6]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -629,7 +293,7 @@ func (x *LoadFromApk2_1Request) String() string {
 func (*LoadFromApk2_1Request) ProtoMessage() {}
 
 func (x *LoadFromApk2_1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_loader_loader_proto_msgTypes[14]
+	mi := &file_proto_loader_loader_proto_msgTypes[6]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -642,7 +306,7 @@ func (x *LoadFromApk2_1Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use LoadFromApk2_1Request.ProtoReflect.Descriptor instead.
 func (*LoadFromApk2_1Request) Descriptor() ([]byte, []int) {
-	return file_proto_loader_loader_proto_rawDescGZIP(), []int{14}
+	return file_proto_loader_loader_proto_rawDescGZIP(), []int{6}
 }
 
 func (x *LoadFromApk2_1Request) GetArg0() int64 {
@@ -668,7 +332,7 @@ type LoadFromApk2_1Response struct {
 
 func (x *LoadFromApk2_1Response) Reset() {
 	*x = LoadFromApk2_1Response{}
-	mi := &file_proto_loader_loader_proto_msgTypes[15]
+	mi := &file_proto_loader_loader_proto_msgTypes[7]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -680,7 +344,7 @@ func (x *LoadFromApk2_1Response) String() string {
 func (*LoadFromApk2_1Response) ProtoMessage() {}
 
 func (x *LoadFromApk2_1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_loader_loader_proto_msgTypes[15]
+	mi := &file_proto_loader_loader_proto_msgTypes[7]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -693,7 +357,7 @@ func (x *LoadFromApk2_1Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use LoadFromApk2_1Response.ProtoReflect.Descriptor instead.
 func (*LoadFromApk2_1Response) Descriptor() ([]byte, []int) {
-	return file_proto_loader_loader_proto_rawDescGZIP(), []int{15}
+	return file_proto_loader_loader_proto_rawDescGZIP(), []int{7}
 }
 
 func (x *LoadFromApk2_1Response) GetResult() int64 {
@@ -713,7 +377,7 @@ type LoadFromDirectoryRequest struct {
 
 func (x *LoadFromDirectoryRequest) Reset() {
 	*x = LoadFromDirectoryRequest{}
-	mi := &file_proto_loader_loader_proto_msgTypes[16]
+	mi := &file_proto_loader_loader_proto_msgTypes[8]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -725,7 +389,7 @@ func (x *LoadFromDirectoryRequest) String() string {
 func (*LoadFromDirectoryRequest) ProtoMessage() {}
 
 func (x *LoadFromDirectoryRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_loader_loader_proto_msgTypes[16]
+	mi := &file_proto_loader_loader_proto_msgTypes[8]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -738,7 +402,7 @@ func (x *LoadFromDirectoryRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use LoadFromDirectoryRequest.ProtoReflect.Descriptor instead.
 func (*LoadFromDirectoryRequest) Descriptor() ([]byte, []int) {
-	return file_proto_loader_loader_proto_rawDescGZIP(), []int{16}
+	return file_proto_loader_loader_proto_rawDescGZIP(), []int{8}
 }
 
 func (x *LoadFromDirectoryRequest) GetArg0() string {
@@ -764,7 +428,7 @@ type LoadFromDirectoryResponse struct {
 
 func (x *LoadFromDirectoryResponse) Reset() {
 	*x = LoadFromDirectoryResponse{}
-	mi := &file_proto_loader_loader_proto_msgTypes[17]
+	mi := &file_proto_loader_loader_proto_msgTypes[9]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -776,7 +440,7 @@ func (x *LoadFromDirectoryResponse) String() string {
 func (*LoadFromDirectoryResponse) ProtoMessage() {}
 
 func (x *LoadFromDirectoryResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_loader_loader_proto_msgTypes[17]
+	mi := &file_proto_loader_loader_proto_msgTypes[9]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -789,7 +453,7 @@ func (x *LoadFromDirectoryResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use LoadFromDirectoryResponse.ProtoReflect.Descriptor instead.
 func (*LoadFromDirectoryResponse) Descriptor() ([]byte, []int) {
-	return file_proto_loader_loader_proto_rawDescGZIP(), []int{17}
+	return file_proto_loader_loader_proto_rawDescGZIP(), []int{9}
 }
 
 func (x *LoadFromDirectoryResponse) GetResult() int64 {
@@ -809,7 +473,7 @@ type LoadFromSplitRequest struct {
 
 func (x *LoadFromSplitRequest) Reset() {
 	*x = LoadFromSplitRequest{}
-	mi := &file_proto_loader_loader_proto_msgTypes[18]
+	mi := &file_proto_loader_loader_proto_msgTypes[10]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -821,7 +485,7 @@ func (x *LoadFromSplitRequest) String() string {
 func (*LoadFromSplitRequest) ProtoMessage() {}
 
 func (x *LoadFromSplitRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_loader_loader_proto_msgTypes[18]
+	mi := &file_proto_loader_loader_proto_msgTypes[10]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -834,7 +498,7 @@ func (x *LoadFromSplitRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use LoadFromSplitRequest.ProtoReflect.Descriptor instead.
 func (*LoadFromSplitRequest) Descriptor() ([]byte, []int) {
-	return file_proto_loader_loader_proto_rawDescGZIP(), []int{18}
+	return file_proto_loader_loader_proto_rawDescGZIP(), []int{10}
 }
 
 func (x *LoadFromSplitRequest) GetArg0() int64 {
@@ -860,7 +524,7 @@ type LoadFromSplitResponse struct {
 
 func (x *LoadFromSplitResponse) Reset() {
 	*x = LoadFromSplitResponse{}
-	mi := &file_proto_loader_loader_proto_msgTypes[19]
+	mi := &file_proto_loader_loader_proto_msgTypes[11]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -872,7 +536,7 @@ func (x *LoadFromSplitResponse) String() string {
 func (*LoadFromSplitResponse) ProtoMessage() {}
 
 func (x *LoadFromSplitResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_loader_loader_proto_msgTypes[19]
+	mi := &file_proto_loader_loader_proto_msgTypes[11]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -885,7 +549,7 @@ func (x *LoadFromSplitResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use LoadFromSplitResponse.ProtoReflect.Descriptor instead.
 func (*LoadFromSplitResponse) Descriptor() ([]byte, []int) {
-	return file_proto_loader_loader_proto_rawDescGZIP(), []int{19}
+	return file_proto_loader_loader_proto_rawDescGZIP(), []int{11}
 }
 
 func (x *LoadFromSplitResponse) GetResult() int64 {
@@ -905,7 +569,7 @@ type LoadFromTableRequest struct {
 
 func (x *LoadFromTableRequest) Reset() {
 	*x = LoadFromTableRequest{}
-	mi := &file_proto_loader_loader_proto_msgTypes[20]
+	mi := &file_proto_loader_loader_proto_msgTypes[12]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -917,7 +581,7 @@ func (x *LoadFromTableRequest) String() string {
 func (*LoadFromTableRequest) ProtoMessage() {}
 
 func (x *LoadFromTableRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_loader_loader_proto_msgTypes[20]
+	mi := &file_proto_loader_loader_proto_msgTypes[12]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -930,7 +594,7 @@ func (x *LoadFromTableRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use LoadFromTableRequest.ProtoReflect.Descriptor instead.
 func (*LoadFromTableRequest) Descriptor() ([]byte, []int) {
-	return file_proto_loader_loader_proto_rawDescGZIP(), []int{20}
+	return file_proto_loader_loader_proto_rawDescGZIP(), []int{12}
 }
 
 func (x *LoadFromTableRequest) GetArg0() int64 {
@@ -956,7 +620,7 @@ type LoadFromTableResponse struct {
 
 func (x *LoadFromTableResponse) Reset() {
 	*x = LoadFromTableResponse{}
-	mi := &file_proto_loader_loader_proto_msgTypes[21]
+	mi := &file_proto_loader_loader_proto_msgTypes[13]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -968,7 +632,7 @@ func (x *LoadFromTableResponse) String() string {
 func (*LoadFromTableResponse) ProtoMessage() {}
 
 func (x *LoadFromTableResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_loader_loader_proto_msgTypes[21]
+	mi := &file_proto_loader_loader_proto_msgTypes[13]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -981,7 +645,7 @@ func (x *LoadFromTableResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use LoadFromTableResponse.ProtoReflect.Descriptor instead.
 func (*LoadFromTableResponse) Descriptor() ([]byte, []int) {
-	return file_proto_loader_loader_proto_rawDescGZIP(), []int{21}
+	return file_proto_loader_loader_proto_rawDescGZIP(), []int{13}
 }
 
 func (x *LoadFromTableResponse) GetResult() int64 {
@@ -1000,7 +664,7 @@ type LoadOverlayRequest struct {
 
 func (x *LoadOverlayRequest) Reset() {
 	*x = LoadOverlayRequest{}
-	mi := &file_proto_loader_loader_proto_msgTypes[22]
+	mi := &file_proto_loader_loader_proto_msgTypes[14]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1012,7 +676,7 @@ func (x *LoadOverlayRequest) String() string {
 func (*LoadOverlayRequest) ProtoMessage() {}
 
 func (x *LoadOverlayRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_loader_loader_proto_msgTypes[22]
+	mi := &file_proto_loader_loader_proto_msgTypes[14]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1025,7 +689,7 @@ func (x *LoadOverlayRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use LoadOverlayRequest.ProtoReflect.Descriptor instead.
 func (*LoadOverlayRequest) Descriptor() ([]byte, []int) {
-	return file_proto_loader_loader_proto_rawDescGZIP(), []int{22}
+	return file_proto_loader_loader_proto_rawDescGZIP(), []int{14}
 }
 
 func (x *LoadOverlayRequest) GetArg0() int64 {
@@ -1044,7 +708,7 @@ type LoadOverlayResponse struct {
 
 func (x *LoadOverlayResponse) Reset() {
 	*x = LoadOverlayResponse{}
-	mi := &file_proto_loader_loader_proto_msgTypes[23]
+	mi := &file_proto_loader_loader_proto_msgTypes[15]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1056,7 +720,7 @@ func (x *LoadOverlayResponse) String() string {
 func (*LoadOverlayResponse) ProtoMessage() {}
 
 func (x *LoadOverlayResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_loader_loader_proto_msgTypes[23]
+	mi := &file_proto_loader_loader_proto_msgTypes[15]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1069,7 +733,7 @@ func (x *LoadOverlayResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use LoadOverlayResponse.ProtoReflect.Descriptor instead.
 func (*LoadOverlayResponse) Descriptor() ([]byte, []int) {
-	return file_proto_loader_loader_proto_rawDescGZIP(), []int{23}
+	return file_proto_loader_loader_proto_rawDescGZIP(), []int{15}
 }
 
 func (x *LoadOverlayResponse) GetResult() int64 {
@@ -1079,25 +743,435 @@ func (x *LoadOverlayResponse) GetResult() int64 {
 	return 0
 }
 
+type NewResourcesLoaderRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewResourcesLoaderRequest) Reset() {
+	*x = NewResourcesLoaderRequest{}
+	mi := &file_proto_loader_loader_proto_msgTypes[16]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewResourcesLoaderRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewResourcesLoaderRequest) ProtoMessage() {}
+
+func (x *NewResourcesLoaderRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_loader_loader_proto_msgTypes[16]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewResourcesLoaderRequest.ProtoReflect.Descriptor instead.
+func (*NewResourcesLoaderRequest) Descriptor() ([]byte, []int) {
+	return file_proto_loader_loader_proto_rawDescGZIP(), []int{16}
+}
+
+type NewResourcesLoaderResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewResourcesLoaderResponse) Reset() {
+	*x = NewResourcesLoaderResponse{}
+	mi := &file_proto_loader_loader_proto_msgTypes[17]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewResourcesLoaderResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewResourcesLoaderResponse) ProtoMessage() {}
+
+func (x *NewResourcesLoaderResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_loader_loader_proto_msgTypes[17]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewResourcesLoaderResponse.ProtoReflect.Descriptor instead.
+func (*NewResourcesLoaderResponse) Descriptor() ([]byte, []int) {
+	return file_proto_loader_loader_proto_rawDescGZIP(), []int{17}
+}
+
+func (x *NewResourcesLoaderResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type AddProviderRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddProviderRequest) Reset() {
+	*x = AddProviderRequest{}
+	mi := &file_proto_loader_loader_proto_msgTypes[18]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddProviderRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddProviderRequest) ProtoMessage() {}
+
+func (x *AddProviderRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_loader_loader_proto_msgTypes[18]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddProviderRequest.ProtoReflect.Descriptor instead.
+func (*AddProviderRequest) Descriptor() ([]byte, []int) {
+	return file_proto_loader_loader_proto_rawDescGZIP(), []int{18}
+}
+
+func (x *AddProviderRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *AddProviderRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type AddProviderResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddProviderResponse) Reset() {
+	*x = AddProviderResponse{}
+	mi := &file_proto_loader_loader_proto_msgTypes[19]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddProviderResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddProviderResponse) ProtoMessage() {}
+
+func (x *AddProviderResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_loader_loader_proto_msgTypes[19]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddProviderResponse.ProtoReflect.Descriptor instead.
+func (*AddProviderResponse) Descriptor() ([]byte, []int) {
+	return file_proto_loader_loader_proto_rawDescGZIP(), []int{19}
+}
+
+type ClearProvidersRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ClearProvidersRequest) Reset() {
+	*x = ClearProvidersRequest{}
+	mi := &file_proto_loader_loader_proto_msgTypes[20]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ClearProvidersRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ClearProvidersRequest) ProtoMessage() {}
+
+func (x *ClearProvidersRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_loader_loader_proto_msgTypes[20]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ClearProvidersRequest.ProtoReflect.Descriptor instead.
+func (*ClearProvidersRequest) Descriptor() ([]byte, []int) {
+	return file_proto_loader_loader_proto_rawDescGZIP(), []int{20}
+}
+
+func (x *ClearProvidersRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type ClearProvidersResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ClearProvidersResponse) Reset() {
+	*x = ClearProvidersResponse{}
+	mi := &file_proto_loader_loader_proto_msgTypes[21]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ClearProvidersResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ClearProvidersResponse) ProtoMessage() {}
+
+func (x *ClearProvidersResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_loader_loader_proto_msgTypes[21]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ClearProvidersResponse.ProtoReflect.Descriptor instead.
+func (*ClearProvidersResponse) Descriptor() ([]byte, []int) {
+	return file_proto_loader_loader_proto_rawDescGZIP(), []int{21}
+}
+
+type GetProvidersRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetProvidersRequest) Reset() {
+	*x = GetProvidersRequest{}
+	mi := &file_proto_loader_loader_proto_msgTypes[22]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetProvidersRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetProvidersRequest) ProtoMessage() {}
+
+func (x *GetProvidersRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_loader_loader_proto_msgTypes[22]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetProvidersRequest.ProtoReflect.Descriptor instead.
+func (*GetProvidersRequest) Descriptor() ([]byte, []int) {
+	return file_proto_loader_loader_proto_rawDescGZIP(), []int{22}
+}
+
+func (x *GetProvidersRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetProvidersResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetProvidersResponse) Reset() {
+	*x = GetProvidersResponse{}
+	mi := &file_proto_loader_loader_proto_msgTypes[23]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetProvidersResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetProvidersResponse) ProtoMessage() {}
+
+func (x *GetProvidersResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_loader_loader_proto_msgTypes[23]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetProvidersResponse.ProtoReflect.Descriptor instead.
+func (*GetProvidersResponse) Descriptor() ([]byte, []int) {
+	return file_proto_loader_loader_proto_rawDescGZIP(), []int{23}
+}
+
+func (x *GetProvidersResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type RemoveProviderRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RemoveProviderRequest) Reset() {
+	*x = RemoveProviderRequest{}
+	mi := &file_proto_loader_loader_proto_msgTypes[24]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RemoveProviderRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RemoveProviderRequest) ProtoMessage() {}
+
+func (x *RemoveProviderRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_loader_loader_proto_msgTypes[24]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RemoveProviderRequest.ProtoReflect.Descriptor instead.
+func (*RemoveProviderRequest) Descriptor() ([]byte, []int) {
+	return file_proto_loader_loader_proto_rawDescGZIP(), []int{24}
+}
+
+func (x *RemoveProviderRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *RemoveProviderRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type RemoveProviderResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RemoveProviderResponse) Reset() {
+	*x = RemoveProviderResponse{}
+	mi := &file_proto_loader_loader_proto_msgTypes[25]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RemoveProviderResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RemoveProviderResponse) ProtoMessage() {}
+
+func (x *RemoveProviderResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_loader_loader_proto_msgTypes[25]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RemoveProviderResponse.ProtoReflect.Descriptor instead.
+func (*RemoveProviderResponse) Descriptor() ([]byte, []int) {
+	return file_proto_loader_loader_proto_rawDescGZIP(), []int{25}
+}
+
 var File_proto_loader_loader_proto protoreflect.FileDescriptor
 
 const file_proto_loader_loader_proto_rawDesc = "" +
 	"\n" +
-	"\x19proto/loader/loader.proto\x12\x06loader\"\x1b\n" +
-	"\x19NewResourcesLoaderRequest\"4\n" +
-	"\x1aNewResourcesLoaderResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"@\n" +
-	"\x12AddProviderRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
-	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"\x15\n" +
-	"\x13AddProviderResponse\"/\n" +
-	"\x15ClearProvidersRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\"\x18\n" +
-	"\x16ClearProvidersResponse\"C\n" +
-	"\x15RemoveProviderRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
-	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"\x18\n" +
-	"\x16RemoveProviderResponse\"\x0e\n" +
+	"\x19proto/loader/loader.proto\x12\x06loader\"\x0e\n" +
 	"\fCloseRequest\"\x0f\n" +
 	"\rCloseResponse\"\"\n" +
 	"\fEmptyRequest\x12\x12\n" +
@@ -1131,12 +1205,25 @@ const file_proto_loader_loader_proto_rawDesc = "" +
 	"\x12LoadOverlayRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"-\n" +
 	"\x13LoadOverlayResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result2\xdf\x02\n" +
-	"\x16ResourcesLoaderService\x12[\n" +
-	"\x12NewResourcesLoader\x12!.loader.NewResourcesLoaderRequest\x1a\".loader.NewResourcesLoaderResponse\x12F\n" +
-	"\vAddProvider\x12\x1a.loader.AddProviderRequest\x1a\x1b.loader.AddProviderResponse\x12O\n" +
-	"\x0eClearProviders\x12\x1d.loader.ClearProvidersRequest\x1a\x1e.loader.ClearProvidersResponse\x12O\n" +
-	"\x0eRemoveProvider\x12\x1d.loader.RemoveProviderRequest\x1a\x1e.loader.RemoveProviderResponse2\xe0\x04\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1b\n" +
+	"\x19NewResourcesLoaderRequest\"4\n" +
+	"\x1aNewResourcesLoaderResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"@\n" +
+	"\x12AddProviderRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"\x15\n" +
+	"\x13AddProviderResponse\"/\n" +
+	"\x15ClearProvidersRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"\x18\n" +
+	"\x16ClearProvidersResponse\"-\n" +
+	"\x13GetProvidersRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\".\n" +
+	"\x14GetProvidersResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"C\n" +
+	"\x15RemoveProviderRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"\x18\n" +
+	"\x16RemoveProviderResponse2\xe0\x04\n" +
 	"\x18ResourcesProviderService\x124\n" +
 	"\x05Close\x12\x14.loader.CloseRequest\x1a\x15.loader.CloseResponse\x124\n" +
 	"\x05Empty\x12\x14.loader.EmptyRequest\x1a\x15.loader.EmptyResponse\x12I\n" +
@@ -1145,7 +1232,13 @@ const file_proto_loader_loader_proto_rawDesc = "" +
 	"\x11LoadFromDirectory\x12 .loader.LoadFromDirectoryRequest\x1a!.loader.LoadFromDirectoryResponse\x12L\n" +
 	"\rLoadFromSplit\x12\x1c.loader.LoadFromSplitRequest\x1a\x1d.loader.LoadFromSplitResponse\x12L\n" +
 	"\rLoadFromTable\x12\x1c.loader.LoadFromTableRequest\x1a\x1d.loader.LoadFromTableResponse\x12F\n" +
-	"\vLoadOverlay\x12\x1a.loader.LoadOverlayRequest\x1a\x1b.loader.LoadOverlayResponseB0Z.github.com/AndroidGoLab/jni-proxy/proto/loaderb\x06proto3"
+	"\vLoadOverlay\x12\x1a.loader.LoadOverlayRequest\x1a\x1b.loader.LoadOverlayResponse2\xaa\x03\n" +
+	"\x16ResourcesLoaderService\x12[\n" +
+	"\x12NewResourcesLoader\x12!.loader.NewResourcesLoaderRequest\x1a\".loader.NewResourcesLoaderResponse\x12F\n" +
+	"\vAddProvider\x12\x1a.loader.AddProviderRequest\x1a\x1b.loader.AddProviderResponse\x12O\n" +
+	"\x0eClearProviders\x12\x1d.loader.ClearProvidersRequest\x1a\x1e.loader.ClearProvidersResponse\x12I\n" +
+	"\fGetProviders\x12\x1b.loader.GetProvidersRequest\x1a\x1c.loader.GetProvidersResponse\x12O\n" +
+	"\x0eRemoveProvider\x12\x1d.loader.RemoveProviderRequest\x1a\x1e.loader.RemoveProviderResponseB0Z.github.com/AndroidGoLab/jni-proxy/proto/loaderb\x06proto3"
 
 var (
 	file_proto_loader_loader_proto_rawDescOnce sync.Once
@@ -1159,60 +1252,64 @@ func file_proto_loader_loader_proto_rawDescGZIP() []byte {
 	return file_proto_loader_loader_proto_rawDescData
 }
 
-var file_proto_loader_loader_proto_msgTypes = make([]protoimpl.MessageInfo, 24)
+var file_proto_loader_loader_proto_msgTypes = make([]protoimpl.MessageInfo, 26)
 var file_proto_loader_loader_proto_goTypes = []any{
-	(*NewResourcesLoaderRequest)(nil),  // 0: loader.NewResourcesLoaderRequest
-	(*NewResourcesLoaderResponse)(nil), // 1: loader.NewResourcesLoaderResponse
-	(*AddProviderRequest)(nil),         // 2: loader.AddProviderRequest
-	(*AddProviderResponse)(nil),        // 3: loader.AddProviderResponse
-	(*ClearProvidersRequest)(nil),      // 4: loader.ClearProvidersRequest
-	(*ClearProvidersResponse)(nil),     // 5: loader.ClearProvidersResponse
-	(*RemoveProviderRequest)(nil),      // 6: loader.RemoveProviderRequest
-	(*RemoveProviderResponse)(nil),     // 7: loader.RemoveProviderResponse
-	(*CloseRequest)(nil),               // 8: loader.CloseRequest
-	(*CloseResponse)(nil),              // 9: loader.CloseResponse
-	(*EmptyRequest)(nil),               // 10: loader.EmptyRequest
-	(*EmptyResponse)(nil),              // 11: loader.EmptyResponse
-	(*LoadFromApk1Request)(nil),        // 12: loader.LoadFromApk1Request
-	(*LoadFromApk1Response)(nil),       // 13: loader.LoadFromApk1Response
-	(*LoadFromApk2_1Request)(nil),      // 14: loader.LoadFromApk2_1Request
-	(*LoadFromApk2_1Response)(nil),     // 15: loader.LoadFromApk2_1Response
-	(*LoadFromDirectoryRequest)(nil),   // 16: loader.LoadFromDirectoryRequest
-	(*LoadFromDirectoryResponse)(nil),  // 17: loader.LoadFromDirectoryResponse
-	(*LoadFromSplitRequest)(nil),       // 18: loader.LoadFromSplitRequest
-	(*LoadFromSplitResponse)(nil),      // 19: loader.LoadFromSplitResponse
-	(*LoadFromTableRequest)(nil),       // 20: loader.LoadFromTableRequest
-	(*LoadFromTableResponse)(nil),      // 21: loader.LoadFromTableResponse
-	(*LoadOverlayRequest)(nil),         // 22: loader.LoadOverlayRequest
-	(*LoadOverlayResponse)(nil),        // 23: loader.LoadOverlayResponse
+	(*CloseRequest)(nil),               // 0: loader.CloseRequest
+	(*CloseResponse)(nil),              // 1: loader.CloseResponse
+	(*EmptyRequest)(nil),               // 2: loader.EmptyRequest
+	(*EmptyResponse)(nil),              // 3: loader.EmptyResponse
+	(*LoadFromApk1Request)(nil),        // 4: loader.LoadFromApk1Request
+	(*LoadFromApk1Response)(nil),       // 5: loader.LoadFromApk1Response
+	(*LoadFromApk2_1Request)(nil),      // 6: loader.LoadFromApk2_1Request
+	(*LoadFromApk2_1Response)(nil),     // 7: loader.LoadFromApk2_1Response
+	(*LoadFromDirectoryRequest)(nil),   // 8: loader.LoadFromDirectoryRequest
+	(*LoadFromDirectoryResponse)(nil),  // 9: loader.LoadFromDirectoryResponse
+	(*LoadFromSplitRequest)(nil),       // 10: loader.LoadFromSplitRequest
+	(*LoadFromSplitResponse)(nil),      // 11: loader.LoadFromSplitResponse
+	(*LoadFromTableRequest)(nil),       // 12: loader.LoadFromTableRequest
+	(*LoadFromTableResponse)(nil),      // 13: loader.LoadFromTableResponse
+	(*LoadOverlayRequest)(nil),         // 14: loader.LoadOverlayRequest
+	(*LoadOverlayResponse)(nil),        // 15: loader.LoadOverlayResponse
+	(*NewResourcesLoaderRequest)(nil),  // 16: loader.NewResourcesLoaderRequest
+	(*NewResourcesLoaderResponse)(nil), // 17: loader.NewResourcesLoaderResponse
+	(*AddProviderRequest)(nil),         // 18: loader.AddProviderRequest
+	(*AddProviderResponse)(nil),        // 19: loader.AddProviderResponse
+	(*ClearProvidersRequest)(nil),      // 20: loader.ClearProvidersRequest
+	(*ClearProvidersResponse)(nil),     // 21: loader.ClearProvidersResponse
+	(*GetProvidersRequest)(nil),        // 22: loader.GetProvidersRequest
+	(*GetProvidersResponse)(nil),       // 23: loader.GetProvidersResponse
+	(*RemoveProviderRequest)(nil),      // 24: loader.RemoveProviderRequest
+	(*RemoveProviderResponse)(nil),     // 25: loader.RemoveProviderResponse
 }
 var file_proto_loader_loader_proto_depIdxs = []int32{
-	0,  // 0: loader.ResourcesLoaderService.NewResourcesLoader:input_type -> loader.NewResourcesLoaderRequest
-	2,  // 1: loader.ResourcesLoaderService.AddProvider:input_type -> loader.AddProviderRequest
-	4,  // 2: loader.ResourcesLoaderService.ClearProviders:input_type -> loader.ClearProvidersRequest
-	6,  // 3: loader.ResourcesLoaderService.RemoveProvider:input_type -> loader.RemoveProviderRequest
-	8,  // 4: loader.ResourcesProviderService.Close:input_type -> loader.CloseRequest
-	10, // 5: loader.ResourcesProviderService.Empty:input_type -> loader.EmptyRequest
-	12, // 6: loader.ResourcesProviderService.LoadFromApk1:input_type -> loader.LoadFromApk1Request
-	14, // 7: loader.ResourcesProviderService.LoadFromApk2_1:input_type -> loader.LoadFromApk2_1Request
-	16, // 8: loader.ResourcesProviderService.LoadFromDirectory:input_type -> loader.LoadFromDirectoryRequest
-	18, // 9: loader.ResourcesProviderService.LoadFromSplit:input_type -> loader.LoadFromSplitRequest
-	20, // 10: loader.ResourcesProviderService.LoadFromTable:input_type -> loader.LoadFromTableRequest
-	22, // 11: loader.ResourcesProviderService.LoadOverlay:input_type -> loader.LoadOverlayRequest
-	1,  // 12: loader.ResourcesLoaderService.NewResourcesLoader:output_type -> loader.NewResourcesLoaderResponse
-	3,  // 13: loader.ResourcesLoaderService.AddProvider:output_type -> loader.AddProviderResponse
-	5,  // 14: loader.ResourcesLoaderService.ClearProviders:output_type -> loader.ClearProvidersResponse
-	7,  // 15: loader.ResourcesLoaderService.RemoveProvider:output_type -> loader.RemoveProviderResponse
-	9,  // 16: loader.ResourcesProviderService.Close:output_type -> loader.CloseResponse
-	11, // 17: loader.ResourcesProviderService.Empty:output_type -> loader.EmptyResponse
-	13, // 18: loader.ResourcesProviderService.LoadFromApk1:output_type -> loader.LoadFromApk1Response
-	15, // 19: loader.ResourcesProviderService.LoadFromApk2_1:output_type -> loader.LoadFromApk2_1Response
-	17, // 20: loader.ResourcesProviderService.LoadFromDirectory:output_type -> loader.LoadFromDirectoryResponse
-	19, // 21: loader.ResourcesProviderService.LoadFromSplit:output_type -> loader.LoadFromSplitResponse
-	21, // 22: loader.ResourcesProviderService.LoadFromTable:output_type -> loader.LoadFromTableResponse
-	23, // 23: loader.ResourcesProviderService.LoadOverlay:output_type -> loader.LoadOverlayResponse
-	12, // [12:24] is the sub-list for method output_type
-	0,  // [0:12] is the sub-list for method input_type
+	0,  // 0: loader.ResourcesProviderService.Close:input_type -> loader.CloseRequest
+	2,  // 1: loader.ResourcesProviderService.Empty:input_type -> loader.EmptyRequest
+	4,  // 2: loader.ResourcesProviderService.LoadFromApk1:input_type -> loader.LoadFromApk1Request
+	6,  // 3: loader.ResourcesProviderService.LoadFromApk2_1:input_type -> loader.LoadFromApk2_1Request
+	8,  // 4: loader.ResourcesProviderService.LoadFromDirectory:input_type -> loader.LoadFromDirectoryRequest
+	10, // 5: loader.ResourcesProviderService.LoadFromSplit:input_type -> loader.LoadFromSplitRequest
+	12, // 6: loader.ResourcesProviderService.LoadFromTable:input_type -> loader.LoadFromTableRequest
+	14, // 7: loader.ResourcesProviderService.LoadOverlay:input_type -> loader.LoadOverlayRequest
+	16, // 8: loader.ResourcesLoaderService.NewResourcesLoader:input_type -> loader.NewResourcesLoaderRequest
+	18, // 9: loader.ResourcesLoaderService.AddProvider:input_type -> loader.AddProviderRequest
+	20, // 10: loader.ResourcesLoaderService.ClearProviders:input_type -> loader.ClearProvidersRequest
+	22, // 11: loader.ResourcesLoaderService.GetProviders:input_type -> loader.GetProvidersRequest
+	24, // 12: loader.ResourcesLoaderService.RemoveProvider:input_type -> loader.RemoveProviderRequest
+	1,  // 13: loader.ResourcesProviderService.Close:output_type -> loader.CloseResponse
+	3,  // 14: loader.ResourcesProviderService.Empty:output_type -> loader.EmptyResponse
+	5,  // 15: loader.ResourcesProviderService.LoadFromApk1:output_type -> loader.LoadFromApk1Response
+	7,  // 16: loader.ResourcesProviderService.LoadFromApk2_1:output_type -> loader.LoadFromApk2_1Response
+	9,  // 17: loader.ResourcesProviderService.LoadFromDirectory:output_type -> loader.LoadFromDirectoryResponse
+	11, // 18: loader.ResourcesProviderService.LoadFromSplit:output_type -> loader.LoadFromSplitResponse
+	13, // 19: loader.ResourcesProviderService.LoadFromTable:output_type -> loader.LoadFromTableResponse
+	15, // 20: loader.ResourcesProviderService.LoadOverlay:output_type -> loader.LoadOverlayResponse
+	17, // 21: loader.ResourcesLoaderService.NewResourcesLoader:output_type -> loader.NewResourcesLoaderResponse
+	19, // 22: loader.ResourcesLoaderService.AddProvider:output_type -> loader.AddProviderResponse
+	21, // 23: loader.ResourcesLoaderService.ClearProviders:output_type -> loader.ClearProvidersResponse
+	23, // 24: loader.ResourcesLoaderService.GetProviders:output_type -> loader.GetProvidersResponse
+	25, // 25: loader.ResourcesLoaderService.RemoveProvider:output_type -> loader.RemoveProviderResponse
+	13, // [13:26] is the sub-list for method output_type
+	0,  // [0:13] is the sub-list for method input_type
 	0,  // [0:0] is the sub-list for extension type_name
 	0,  // [0:0] is the sub-list for extension extendee
 	0,  // [0:0] is the sub-list for field type_name
@@ -1229,7 +1326,7 @@ func file_proto_loader_loader_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_proto_loader_loader_proto_rawDesc), len(file_proto_loader_loader_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   24,
+			NumMessages:   26,
 			NumExtensions: 0,
 			NumServices:   2,
 		},

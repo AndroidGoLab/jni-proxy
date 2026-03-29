@@ -12,42 +12,23 @@ var gestureCmd = &cobra.Command{
 	Short: "gesture service operations",
 }
 
-var gestureGestureCmd = &cobra.Command{
-	Use:   "gesture",
-	Short: "GestureService operations",
+var gestureUtilsCmd = &cobra.Command{
+	Use:   "utils",
+	Short: "UtilsService operations",
 }
 
-var gestureGestureNewGestureCmd = &cobra.Command{
-	Use:   "new-gesture",
-	Short: "NewGesture RPC",
+var gestureUtilsComputeOrientedBoundingBoxCmd = &cobra.Command{
+	Use:   "compute-oriented-bounding-box",
+	Short: "ComputeOrientedBoundingBox RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewGestureServiceClient(grpcConn)
-		req := &pb.NewGestureRequest{}
-		resp, err := client.NewGesture(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var gestureGestureAddStrokeCmd = &cobra.Command{
-	Use:   "add-stroke",
-	Short: "AddStroke RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewGestureServiceClient(grpcConn)
-		req := &pb.AddStrokeRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
+		client := pb.NewUtilsServiceClient(grpcConn)
+		req := &pb.ComputeOrientedBoundingBoxRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		resp, err := client.AddStroke(ctx, req)
+		resp, err := client.ComputeOrientedBoundingBox(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -55,253 +36,21 @@ var gestureGestureAddStrokeCmd = &cobra.Command{
 	},
 }
 
-var gestureGestureCloneCmd = &cobra.Command{
-	Use:   "clone",
-	Short: "Clone RPC",
+var gestureUtilsSpatialSampling2Cmd = &cobra.Command{
+	Use:   "spatial-sampling2",
+	Short: "SpatialSampling2 RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewGestureServiceClient(grpcConn)
-		req := &pb.CloneRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.Clone(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var gestureGestureDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewGestureServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var gestureGestureGetBoundingBoxCmd = &cobra.Command{
-	Use:   "get-bounding-box",
-	Short: "GetBoundingBox RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewGestureServiceClient(grpcConn)
-		req := &pb.GetBoundingBoxRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetBoundingBox(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var gestureGestureGetIDCmd = &cobra.Command{
-	Use:   "get-id",
-	Short: "GetID RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewGestureServiceClient(grpcConn)
-		req := &pb.GetIDRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetID(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var gestureGestureGetLengthCmd = &cobra.Command{
-	Use:   "get-length",
-	Short: "GetLength RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewGestureServiceClient(grpcConn)
-		req := &pb.GetLengthRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetLength(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var gestureGestureGetStrokesCountCmd = &cobra.Command{
-	Use:   "get-strokes-count",
-	Short: "GetStrokesCount RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewGestureServiceClient(grpcConn)
-		req := &pb.GetStrokesCountRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetStrokesCount(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var gestureGestureToBitmap4Cmd = &cobra.Command{
-	Use:   "to-bitmap4",
-	Short: "ToBitmap4 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewGestureServiceClient(grpcConn)
-		req := &pb.ToBitmap4Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		resp, err := client.ToBitmap4(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var gestureGestureToBitmap5_1Cmd = &cobra.Command{
-	Use:   "to-bitmap5_1",
-	Short: "ToBitmap5_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewGestureServiceClient(grpcConn)
-		req := &pb.ToBitmap5_1Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg4"); err == nil {
-			req.Arg4 = v
-		}
-		resp, err := client.ToBitmap5_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var gestureGestureToPath0Cmd = &cobra.Command{
-	Use:   "to-path0",
-	Short: "ToPath0 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewGestureServiceClient(grpcConn)
-		req := &pb.ToPath0Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.ToPath0(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var gestureGestureToPath1_1Cmd = &cobra.Command{
-	Use:   "to-path1_1",
-	Short: "ToPath1_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewGestureServiceClient(grpcConn)
-		req := &pb.ToPath1_1Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.ToPath1_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var gestureGestureToPath5_2Cmd = &cobra.Command{
-	Use:   "to-path5_2",
-	Short: "ToPath5_2 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewGestureServiceClient(grpcConn)
-		req := &pb.ToPath5_2Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
+		client := pb.NewUtilsServiceClient(grpcConn)
+		req := &pb.SpatialSampling2Request{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
 		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
 			req.Arg1 = v
 		}
-		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg4"); err == nil {
-			req.Arg4 = v
-		}
-		resp, err := client.ToPath5_2(ctx, req)
+		resp, err := client.SpatialSampling2(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -309,55 +58,24 @@ var gestureGestureToPath5_2Cmd = &cobra.Command{
 	},
 }
 
-var gestureGestureToPath4_3Cmd = &cobra.Command{
-	Use:   "to-path4_3",
-	Short: "ToPath4_3 RPC",
+var gestureUtilsSpatialSampling3_1Cmd = &cobra.Command{
+	Use:   "spatial-sampling3_1",
+	Short: "SpatialSampling3_1 RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewGestureServiceClient(grpcConn)
-		req := &pb.ToPath4_3Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		resp, err := client.ToPath4_3(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var gestureGestureWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewGestureServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
+		client := pb.NewUtilsServiceClient(grpcConn)
+		req := &pb.SpatialSampling3_1Request{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
 		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
 			req.Arg1 = v
 		}
-		resp, err := client.WriteToParcel(ctx, req)
+		if v, err := cmd.Flags().GetBool("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.SpatialSampling3_1(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -365,20 +83,21 @@ var gestureGestureWriteToParcelCmd = &cobra.Command{
 	},
 }
 
-var gestureStoreCmd = &cobra.Command{
-	Use:   "store",
-	Short: "StoreService operations",
-}
-
-var gestureStoreNewStoreCmd = &cobra.Command{
-	Use:   "new-store",
-	Short: "NewStore RPC",
+var gestureUtilsTemporalSamplingCmd = &cobra.Command{
+	Use:   "temporal-sampling",
+	Short: "TemporalSampling RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewStoreServiceClient(grpcConn)
-		req := &pb.NewStoreRequest{}
-		resp, err := client.NewStore(ctx, req)
+		client := pb.NewUtilsServiceClient(grpcConn)
+		req := &pb.TemporalSamplingRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.TemporalSampling(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -386,17 +105,19 @@ var gestureStoreNewStoreCmd = &cobra.Command{
 	},
 }
 
-var gestureStoreAddGestureCmd = &cobra.Command{
+var gestureLibraryCmd = &cobra.Command{
+	Use:   "library",
+	Short: "LibraryService operations",
+}
+
+var gestureLibraryAddGestureCmd = &cobra.Command{
 	Use:   "add-gesture",
 	Short: "AddGesture RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewStoreServiceClient(grpcConn)
+		client := pb.NewLibraryServiceClient(grpcConn)
 		req := &pb.AddGestureRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
 		if v, err := cmd.Flags().GetString("arg0"); err == nil {
 			req.Arg0 = v
 		}
@@ -411,17 +132,49 @@ var gestureStoreAddGestureCmd = &cobra.Command{
 	},
 }
 
-var gestureStoreGetOrientationStyleCmd = &cobra.Command{
+var gestureLibraryGetGestureEntriesCmd = &cobra.Command{
+	Use:   "get-gesture-entries",
+	Short: "GetGestureEntries RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLibraryServiceClient(grpcConn)
+		req := &pb.GetGestureEntriesRequest{}
+		resp, err := client.GetGestureEntries(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var gestureLibraryGetGesturesCmd = &cobra.Command{
+	Use:   "get-gestures",
+	Short: "GetGestures RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLibraryServiceClient(grpcConn)
+		req := &pb.GetGesturesRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetGestures(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var gestureLibraryGetOrientationStyleCmd = &cobra.Command{
 	Use:   "get-orientation-style",
 	Short: "GetOrientationStyle RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewStoreServiceClient(grpcConn)
+		client := pb.NewLibraryServiceClient(grpcConn)
 		req := &pb.GetOrientationStyleRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
 		resp, err := client.GetOrientationStyle(ctx, req)
 		if err != nil {
 			return err
@@ -430,17 +183,14 @@ var gestureStoreGetOrientationStyleCmd = &cobra.Command{
 	},
 }
 
-var gestureStoreGetSequenceTypeCmd = &cobra.Command{
+var gestureLibraryGetSequenceTypeCmd = &cobra.Command{
 	Use:   "get-sequence-type",
 	Short: "GetSequenceType RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewStoreServiceClient(grpcConn)
+		client := pb.NewLibraryServiceClient(grpcConn)
 		req := &pb.GetSequenceTypeRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
 		resp, err := client.GetSequenceType(ctx, req)
 		if err != nil {
 			return err
@@ -449,18 +199,15 @@ var gestureStoreGetSequenceTypeCmd = &cobra.Command{
 	},
 }
 
-var gestureStoreHasChangedCmd = &cobra.Command{
-	Use:   "has-changed",
-	Short: "HasChanged RPC",
+var gestureLibraryIsReadOnlyCmd = &cobra.Command{
+	Use:   "is-read-only",
+	Short: "IsReadOnly RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewStoreServiceClient(grpcConn)
-		req := &pb.HasChangedRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.HasChanged(ctx, req)
+		client := pb.NewLibraryServiceClient(grpcConn)
+		req := &pb.IsReadOnlyRequest{}
+		resp, err := client.IsReadOnly(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -468,21 +215,34 @@ var gestureStoreHasChangedCmd = &cobra.Command{
 	},
 }
 
-var gestureStoreLoad1Cmd = &cobra.Command{
-	Use:   "load1",
-	Short: "Load1 RPC",
+var gestureLibraryLoadCmd = &cobra.Command{
+	Use:   "load",
+	Short: "Load RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewStoreServiceClient(grpcConn)
-		req := &pb.Load1Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
+		client := pb.NewLibraryServiceClient(grpcConn)
+		req := &pb.LoadRequest{}
+		resp, err := client.Load(ctx, req)
+		if err != nil {
+			return err
 		}
+		return printProtoMessage(resp)
+	},
+}
+
+var gestureLibraryRecognizeCmd = &cobra.Command{
+	Use:   "recognize",
+	Short: "Recognize RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLibraryServiceClient(grpcConn)
+		req := &pb.RecognizeRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		resp, err := client.Load1(ctx, req)
+		resp, err := client.Recognize(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -490,42 +250,14 @@ var gestureStoreLoad1Cmd = &cobra.Command{
 	},
 }
 
-var gestureStoreLoad2_1Cmd = &cobra.Command{
-	Use:   "load2_1",
-	Short: "Load2_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewStoreServiceClient(grpcConn)
-		req := &pb.Load2_1Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetBool("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.Load2_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var gestureStoreRemoveEntryCmd = &cobra.Command{
+var gestureLibraryRemoveEntryCmd = &cobra.Command{
 	Use:   "remove-entry",
 	Short: "RemoveEntry RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewStoreServiceClient(grpcConn)
+		client := pb.NewLibraryServiceClient(grpcConn)
 		req := &pb.RemoveEntryRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
 		if v, err := cmd.Flags().GetString("arg0"); err == nil {
 			req.Arg0 = v
 		}
@@ -537,17 +269,14 @@ var gestureStoreRemoveEntryCmd = &cobra.Command{
 	},
 }
 
-var gestureStoreRemoveGestureCmd = &cobra.Command{
+var gestureLibraryRemoveGestureCmd = &cobra.Command{
 	Use:   "remove-gesture",
 	Short: "RemoveGesture RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewStoreServiceClient(grpcConn)
+		client := pb.NewLibraryServiceClient(grpcConn)
 		req := &pb.RemoveGestureRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
 		if v, err := cmd.Flags().GetString("arg0"); err == nil {
 			req.Arg0 = v
 		}
@@ -562,21 +291,15 @@ var gestureStoreRemoveGestureCmd = &cobra.Command{
 	},
 }
 
-var gestureStoreSave1Cmd = &cobra.Command{
-	Use:   "save1",
-	Short: "Save1 RPC",
+var gestureLibrarySaveCmd = &cobra.Command{
+	Use:   "save",
+	Short: "Save RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewStoreServiceClient(grpcConn)
-		req := &pb.Save1Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Save1(ctx, req)
+		client := pb.NewLibraryServiceClient(grpcConn)
+		req := &pb.SaveRequest{}
+		resp, err := client.Save(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -584,42 +307,14 @@ var gestureStoreSave1Cmd = &cobra.Command{
 	},
 }
 
-var gestureStoreSave2_1Cmd = &cobra.Command{
-	Use:   "save2_1",
-	Short: "Save2_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewStoreServiceClient(grpcConn)
-		req := &pb.Save2_1Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetBool("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.Save2_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var gestureStoreSetOrientationStyleCmd = &cobra.Command{
+var gestureLibrarySetOrientationStyleCmd = &cobra.Command{
 	Use:   "set-orientation-style",
 	Short: "SetOrientationStyle RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewStoreServiceClient(grpcConn)
+		client := pb.NewLibraryServiceClient(grpcConn)
 		req := &pb.SetOrientationStyleRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
 		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
 			req.Arg0 = v
 		}
@@ -631,21 +326,322 @@ var gestureStoreSetOrientationStyleCmd = &cobra.Command{
 	},
 }
 
-var gestureStoreSetSequenceTypeCmd = &cobra.Command{
+var gestureLibrarySetSequenceTypeCmd = &cobra.Command{
 	Use:   "set-sequence-type",
 	Short: "SetSequenceType RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewStoreServiceClient(grpcConn)
+		client := pb.NewLibraryServiceClient(grpcConn)
 		req := &pb.SetSequenceTypeRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
 		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
 			req.Arg0 = v
 		}
 		resp, err := client.SetSequenceType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var gesturePredictionCmd = &cobra.Command{
+	Use:   "prediction",
+	Short: "PredictionService operations",
+}
+
+var gesturePredictionToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPredictionServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var gesturePointCmd = &cobra.Command{
+	Use:   "point",
+	Short: "PointService operations",
+}
+
+var gesturePointNewPointCmd = &cobra.Command{
+	Use:   "new-point",
+	Short: "NewPoint RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPointServiceClient(grpcConn)
+		req := &pb.NewPointRequest{}
+		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.NewPoint(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var gesturePointCloneCmd = &cobra.Command{
+	Use:   "clone",
+	Short: "Clone RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPointServiceClient(grpcConn)
+		req := &pb.CloneRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.Clone(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var gestureStrokeCmd = &cobra.Command{
+	Use:   "stroke",
+	Short: "StrokeService operations",
+}
+
+var gestureStrokeNewStrokeCmd = &cobra.Command{
+	Use:   "new-stroke",
+	Short: "NewStroke RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStrokeServiceClient(grpcConn)
+		req := &pb.NewStrokeRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.NewStroke(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var gestureStrokeClearPathCmd = &cobra.Command{
+	Use:   "clear-path",
+	Short: "ClearPath RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStrokeServiceClient(grpcConn)
+		req := &pb.ClearPathRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.ClearPath(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var gestureStrokeCloneCmd = &cobra.Command{
+	Use:   "clone",
+	Short: "Clone RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStrokeServiceClient(grpcConn)
+		req := &pb.CloneRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.Clone(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var gestureStrokeComputeOrientedBoundingBoxCmd = &cobra.Command{
+	Use:   "compute-oriented-bounding-box",
+	Short: "ComputeOrientedBoundingBox RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStrokeServiceClient(grpcConn)
+		req := &pb.StrokeComputeOrientedBoundingBoxRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.ComputeOrientedBoundingBox(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var gestureStrokeGetPathCmd = &cobra.Command{
+	Use:   "get-path",
+	Short: "GetPath RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStrokeServiceClient(grpcConn)
+		req := &pb.GetPathRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetPath(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var gestureStrokeToPathCmd = &cobra.Command{
+	Use:   "to-path",
+	Short: "ToPath RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStrokeServiceClient(grpcConn)
+		req := &pb.ToPathRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.ToPath(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var gestureLibrariesCmd = &cobra.Command{
+	Use:   "libraries",
+	Short: "LibrariesService operations",
+}
+
+var gestureLibrariesFromFile1Cmd = &cobra.Command{
+	Use:   "from-file1",
+	Short: "FromFile1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLibrariesServiceClient(grpcConn)
+		req := &pb.FromFile1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.FromFile1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var gestureLibrariesFromFile1_1Cmd = &cobra.Command{
+	Use:   "from-file1_1",
+	Short: "FromFile1_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLibrariesServiceClient(grpcConn)
+		req := &pb.FromFile1_1Request{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.FromFile1_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var gestureLibrariesFromFileDescriptorCmd = &cobra.Command{
+	Use:   "from-file-descriptor",
+	Short: "FromFileDescriptor RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLibrariesServiceClient(grpcConn)
+		req := &pb.FromFileDescriptorRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.FromFileDescriptor(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var gestureLibrariesFromPrivateFileCmd = &cobra.Command{
+	Use:   "from-private-file",
+	Short: "FromPrivateFile RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLibrariesServiceClient(grpcConn)
+		req := &pb.FromPrivateFileRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.FromPrivateFile(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var gestureLibrariesFromRawResourceCmd = &cobra.Command{
+	Use:   "from-raw-resource",
+	Short: "FromRawResource RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLibrariesServiceClient(grpcConn)
+		req := &pb.FromRawResourceRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.FromRawResource(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -840,6 +836,25 @@ var gestureOverlayViewDrawCmd = &cobra.Command{
 			req.Arg0 = v
 		}
 		resp, err := client.Draw(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var gestureOverlayViewGetCurrentStrokeCmd = &cobra.Command{
+	Use:   "get-current-stroke",
+	Short: "GetCurrentStroke RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewOverlayViewServiceClient(grpcConn)
+		req := &pb.GetCurrentStrokeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetCurrentStroke(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1726,19 +1741,38 @@ var gestureOverlayViewOnGesturingListenerOnGesturingStartedCmd = &cobra.Command{
 	},
 }
 
-var gestureLibraryCmd = &cobra.Command{
-	Use:   "library",
-	Short: "LibraryService operations",
+var gestureStoreCmd = &cobra.Command{
+	Use:   "store",
+	Short: "StoreService operations",
 }
 
-var gestureLibraryAddGestureCmd = &cobra.Command{
+var gestureStoreNewStoreCmd = &cobra.Command{
+	Use:   "new-store",
+	Short: "NewStore RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStoreServiceClient(grpcConn)
+		req := &pb.NewStoreRequest{}
+		resp, err := client.NewStore(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var gestureStoreAddGestureCmd = &cobra.Command{
 	Use:   "add-gesture",
 	Short: "AddGesture RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewLibraryServiceClient(grpcConn)
-		req := &pb.LibraryAddGestureRequest{}
+		client := pb.NewStoreServiceClient(grpcConn)
+		req := &pb.StoreAddGestureRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
 		if v, err := cmd.Flags().GetString("arg0"); err == nil {
 			req.Arg0 = v
 		}
@@ -1753,14 +1787,58 @@ var gestureLibraryAddGestureCmd = &cobra.Command{
 	},
 }
 
-var gestureLibraryGetOrientationStyleCmd = &cobra.Command{
+var gestureStoreGetGestureEntriesCmd = &cobra.Command{
+	Use:   "get-gesture-entries",
+	Short: "GetGestureEntries RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStoreServiceClient(grpcConn)
+		req := &pb.StoreGetGestureEntriesRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetGestureEntries(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var gestureStoreGetGesturesCmd = &cobra.Command{
+	Use:   "get-gestures",
+	Short: "GetGestures RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStoreServiceClient(grpcConn)
+		req := &pb.StoreGetGesturesRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetGestures(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var gestureStoreGetOrientationStyleCmd = &cobra.Command{
 	Use:   "get-orientation-style",
 	Short: "GetOrientationStyle RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewLibraryServiceClient(grpcConn)
-		req := &pb.LibraryGetOrientationStyleRequest{}
+		client := pb.NewStoreServiceClient(grpcConn)
+		req := &pb.StoreGetOrientationStyleRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
 		resp, err := client.GetOrientationStyle(ctx, req)
 		if err != nil {
 			return err
@@ -1769,14 +1847,17 @@ var gestureLibraryGetOrientationStyleCmd = &cobra.Command{
 	},
 }
 
-var gestureLibraryGetSequenceTypeCmd = &cobra.Command{
+var gestureStoreGetSequenceTypeCmd = &cobra.Command{
 	Use:   "get-sequence-type",
 	Short: "GetSequenceType RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewLibraryServiceClient(grpcConn)
-		req := &pb.LibraryGetSequenceTypeRequest{}
+		client := pb.NewStoreServiceClient(grpcConn)
+		req := &pb.StoreGetSequenceTypeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
 		resp, err := client.GetSequenceType(ctx, req)
 		if err != nil {
 			return err
@@ -1785,15 +1866,18 @@ var gestureLibraryGetSequenceTypeCmd = &cobra.Command{
 	},
 }
 
-var gestureLibraryIsReadOnlyCmd = &cobra.Command{
-	Use:   "is-read-only",
-	Short: "IsReadOnly RPC",
+var gestureStoreHasChangedCmd = &cobra.Command{
+	Use:   "has-changed",
+	Short: "HasChanged RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewLibraryServiceClient(grpcConn)
-		req := &pb.IsReadOnlyRequest{}
-		resp, err := client.IsReadOnly(ctx, req)
+		client := pb.NewStoreServiceClient(grpcConn)
+		req := &pb.HasChangedRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.HasChanged(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1801,15 +1885,21 @@ var gestureLibraryIsReadOnlyCmd = &cobra.Command{
 	},
 }
 
-var gestureLibraryLoadCmd = &cobra.Command{
-	Use:   "load",
-	Short: "Load RPC",
+var gestureStoreLoad1Cmd = &cobra.Command{
+	Use:   "load1",
+	Short: "Load1 RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewLibraryServiceClient(grpcConn)
-		req := &pb.LoadRequest{}
-		resp, err := client.Load(ctx, req)
+		client := pb.NewStoreServiceClient(grpcConn)
+		req := &pb.Load1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Load1(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1817,14 +1907,64 @@ var gestureLibraryLoadCmd = &cobra.Command{
 	},
 }
 
-var gestureLibraryRemoveEntryCmd = &cobra.Command{
+var gestureStoreLoad2_1Cmd = &cobra.Command{
+	Use:   "load2_1",
+	Short: "Load2_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStoreServiceClient(grpcConn)
+		req := &pb.Load2_1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetBool("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.Load2_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var gestureStoreRecognizeCmd = &cobra.Command{
+	Use:   "recognize",
+	Short: "Recognize RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStoreServiceClient(grpcConn)
+		req := &pb.StoreRecognizeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Recognize(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var gestureStoreRemoveEntryCmd = &cobra.Command{
 	Use:   "remove-entry",
 	Short: "RemoveEntry RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewLibraryServiceClient(grpcConn)
-		req := &pb.LibraryRemoveEntryRequest{}
+		client := pb.NewStoreServiceClient(grpcConn)
+		req := &pb.StoreRemoveEntryRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
 		if v, err := cmd.Flags().GetString("arg0"); err == nil {
 			req.Arg0 = v
 		}
@@ -1836,14 +1976,17 @@ var gestureLibraryRemoveEntryCmd = &cobra.Command{
 	},
 }
 
-var gestureLibraryRemoveGestureCmd = &cobra.Command{
+var gestureStoreRemoveGestureCmd = &cobra.Command{
 	Use:   "remove-gesture",
 	Short: "RemoveGesture RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewLibraryServiceClient(grpcConn)
-		req := &pb.LibraryRemoveGestureRequest{}
+		client := pb.NewStoreServiceClient(grpcConn)
+		req := &pb.StoreRemoveGestureRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
 		if v, err := cmd.Flags().GetString("arg0"); err == nil {
 			req.Arg0 = v
 		}
@@ -1858,15 +2001,21 @@ var gestureLibraryRemoveGestureCmd = &cobra.Command{
 	},
 }
 
-var gestureLibrarySaveCmd = &cobra.Command{
-	Use:   "save",
-	Short: "Save RPC",
+var gestureStoreSave1Cmd = &cobra.Command{
+	Use:   "save1",
+	Short: "Save1 RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewLibraryServiceClient(grpcConn)
-		req := &pb.SaveRequest{}
-		resp, err := client.Save(ctx, req)
+		client := pb.NewStoreServiceClient(grpcConn)
+		req := &pb.Save1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Save1(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1874,14 +2023,42 @@ var gestureLibrarySaveCmd = &cobra.Command{
 	},
 }
 
-var gestureLibrarySetOrientationStyleCmd = &cobra.Command{
+var gestureStoreSave2_1Cmd = &cobra.Command{
+	Use:   "save2_1",
+	Short: "Save2_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStoreServiceClient(grpcConn)
+		req := &pb.Save2_1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetBool("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.Save2_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var gestureStoreSetOrientationStyleCmd = &cobra.Command{
 	Use:   "set-orientation-style",
 	Short: "SetOrientationStyle RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewLibraryServiceClient(grpcConn)
-		req := &pb.LibrarySetOrientationStyleRequest{}
+		client := pb.NewStoreServiceClient(grpcConn)
+		req := &pb.StoreSetOrientationStyleRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
 		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
 			req.Arg0 = v
 		}
@@ -1893,14 +2070,17 @@ var gestureLibrarySetOrientationStyleCmd = &cobra.Command{
 	},
 }
 
-var gestureLibrarySetSequenceTypeCmd = &cobra.Command{
+var gestureStoreSetSequenceTypeCmd = &cobra.Command{
 	Use:   "set-sequence-type",
 	Short: "SetSequenceType RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewLibraryServiceClient(grpcConn)
-		req := &pb.LibrarySetSequenceTypeRequest{}
+		client := pb.NewStoreServiceClient(grpcConn)
+		req := &pb.StoreSetSequenceTypeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
 		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
 			req.Arg0 = v
 		}
@@ -1912,20 +2092,20 @@ var gestureLibrarySetSequenceTypeCmd = &cobra.Command{
 	},
 }
 
-var gesturePredictionCmd = &cobra.Command{
-	Use:   "prediction",
-	Short: "PredictionService operations",
+var gestureGestureCmd = &cobra.Command{
+	Use:   "gesture",
+	Short: "GestureService operations",
 }
 
-var gesturePredictionToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
+var gestureGestureNewGestureCmd = &cobra.Command{
+	Use:   "new-gesture",
+	Short: "NewGesture RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewPredictionServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
-		resp, err := client.ToString(ctx, req)
+		client := pb.NewGestureServiceClient(grpcConn)
+		req := &pb.NewGestureRequest{}
+		resp, err := client.NewGesture(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1933,42 +2113,21 @@ var gesturePredictionToStringCmd = &cobra.Command{
 	},
 }
 
-var gestureStrokeCmd = &cobra.Command{
-	Use:   "stroke",
-	Short: "StrokeService operations",
-}
-
-var gestureStrokeNewStrokeCmd = &cobra.Command{
-	Use:   "new-stroke",
-	Short: "NewStroke RPC",
+var gestureGestureAddStrokeCmd = &cobra.Command{
+	Use:   "add-stroke",
+	Short: "AddStroke RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewStrokeServiceClient(grpcConn)
-		req := &pb.NewStrokeRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.NewStroke(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var gestureStrokeClearPathCmd = &cobra.Command{
-	Use:   "clear-path",
-	Short: "ClearPath RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewStrokeServiceClient(grpcConn)
-		req := &pb.ClearPathRequest{}
+		client := pb.NewGestureServiceClient(grpcConn)
+		req := &pb.AddStrokeRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
-		resp, err := client.ClearPath(ctx, req)
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddStroke(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1976,13 +2135,13 @@ var gestureStrokeClearPathCmd = &cobra.Command{
 	},
 }
 
-var gestureStrokeCloneCmd = &cobra.Command{
+var gestureGestureCloneCmd = &cobra.Command{
 	Use:   "clone",
 	Short: "Clone RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewStrokeServiceClient(grpcConn)
+		client := pb.NewGestureServiceClient(grpcConn)
 		req := &pb.CloneRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
@@ -1995,18 +2154,18 @@ var gestureStrokeCloneCmd = &cobra.Command{
 	},
 }
 
-var gestureStrokeComputeOrientedBoundingBoxCmd = &cobra.Command{
-	Use:   "compute-oriented-bounding-box",
-	Short: "ComputeOrientedBoundingBox RPC",
+var gestureGestureDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewStrokeServiceClient(grpcConn)
-		req := &pb.ComputeOrientedBoundingBoxRequest{}
+		client := pb.NewGestureServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
-		resp, err := client.ComputeOrientedBoundingBox(ctx, req)
+		resp, err := client.DescribeContents(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -2014,18 +2173,18 @@ var gestureStrokeComputeOrientedBoundingBoxCmd = &cobra.Command{
 	},
 }
 
-var gestureStrokeGetPathCmd = &cobra.Command{
-	Use:   "get-path",
-	Short: "GetPath RPC",
+var gestureGestureGetBoundingBoxCmd = &cobra.Command{
+	Use:   "get-bounding-box",
+	Short: "GetBoundingBox RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewStrokeServiceClient(grpcConn)
-		req := &pb.GetPathRequest{}
+		client := pb.NewGestureServiceClient(grpcConn)
+		req := &pb.GetBoundingBoxRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
-		resp, err := client.GetPath(ctx, req)
+		resp, err := client.GetBoundingBox(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -2033,27 +2192,106 @@ var gestureStrokeGetPathCmd = &cobra.Command{
 	},
 }
 
-var gestureStrokeToPathCmd = &cobra.Command{
-	Use:   "to-path",
-	Short: "ToPath RPC",
+var gestureGestureGetIDCmd = &cobra.Command{
+	Use:   "get-id",
+	Short: "GetID RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewStrokeServiceClient(grpcConn)
-		req := &pb.ToPathRequest{}
+		client := pb.NewGestureServiceClient(grpcConn)
+		req := &pb.GetIDRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
-		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
+		resp, err := client.GetID(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var gestureGestureGetLengthCmd = &cobra.Command{
+	Use:   "get-length",
+	Short: "GetLength RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGestureServiceClient(grpcConn)
+		req := &pb.GetLengthRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetLength(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var gestureGestureGetStrokesCmd = &cobra.Command{
+	Use:   "get-strokes",
+	Short: "GetStrokes RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGestureServiceClient(grpcConn)
+		req := &pb.GetStrokesRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetStrokes(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var gestureGestureGetStrokesCountCmd = &cobra.Command{
+	Use:   "get-strokes-count",
+	Short: "GetStrokesCount RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGestureServiceClient(grpcConn)
+		req := &pb.GetStrokesCountRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetStrokesCount(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var gestureGestureToBitmap4Cmd = &cobra.Command{
+	Use:   "to-bitmap4",
+	Short: "ToBitmap4 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGestureServiceClient(grpcConn)
+		req := &pb.ToBitmap4Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		if v, err := cmd.Flags().GetFloat32("arg1"); err == nil {
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
 			req.Arg1 = v
 		}
 		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
 			req.Arg2 = v
 		}
-		resp, err := client.ToPath(ctx, req)
+		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.ToBitmap4(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -2061,119 +2299,33 @@ var gestureStrokeToPathCmd = &cobra.Command{
 	},
 }
 
-var gesturePointCmd = &cobra.Command{
-	Use:   "point",
-	Short: "PointService operations",
-}
-
-var gesturePointNewPointCmd = &cobra.Command{
-	Use:   "new-point",
-	Short: "NewPoint RPC",
+var gestureGestureToBitmap5_1Cmd = &cobra.Command{
+	Use:   "to-bitmap5_1",
+	Short: "ToBitmap5_1 RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewPointServiceClient(grpcConn)
-		req := &pb.NewPointRequest{}
-		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetFloat32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.NewPoint(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var gesturePointCloneCmd = &cobra.Command{
-	Use:   "clone",
-	Short: "Clone RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPointServiceClient(grpcConn)
-		req := &pb.CloneRequest{}
+		client := pb.NewGestureServiceClient(grpcConn)
+		req := &pb.ToBitmap5_1Request{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
-		resp, err := client.Clone(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var gestureUtilsCmd = &cobra.Command{
-	Use:   "utils",
-	Short: "UtilsService operations",
-}
-
-var gestureUtilsComputeOrientedBoundingBoxCmd = &cobra.Command{
-	Use:   "compute-oriented-bounding-box",
-	Short: "ComputeOrientedBoundingBox RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewUtilsServiceClient(grpcConn)
-		req := &pb.UtilsComputeOrientedBoundingBoxRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.ComputeOrientedBoundingBox(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var gestureUtilsSpatialSampling2Cmd = &cobra.Command{
-	Use:   "spatial-sampling2",
-	Short: "SpatialSampling2 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewUtilsServiceClient(grpcConn)
-		req := &pb.SpatialSampling2Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
 			req.Arg0 = v
 		}
 		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
 			req.Arg1 = v
 		}
-		resp, err := client.SpatialSampling2(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var gestureUtilsSpatialSampling3_1Cmd = &cobra.Command{
-	Use:   "spatial-sampling3_1",
-	Short: "SpatialSampling3_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewUtilsServiceClient(grpcConn)
-		req := &pb.SpatialSampling3_1Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetBool("arg2"); err == nil {
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
 			req.Arg2 = v
 		}
-		resp, err := client.SpatialSampling3_1(ctx, req)
+		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		resp, err := client.ToBitmap5_1(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -2181,21 +2333,74 @@ var gestureUtilsSpatialSampling3_1Cmd = &cobra.Command{
 	},
 }
 
-var gestureUtilsTemporalSamplingCmd = &cobra.Command{
-	Use:   "temporal-sampling",
-	Short: "TemporalSampling RPC",
+var gestureGestureToPath0Cmd = &cobra.Command{
+	Use:   "to-path0",
+	Short: "ToPath0 RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewUtilsServiceClient(grpcConn)
-		req := &pb.TemporalSamplingRequest{}
+		client := pb.NewGestureServiceClient(grpcConn)
+		req := &pb.ToPath0Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.ToPath0(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var gestureGestureToPath1_1Cmd = &cobra.Command{
+	Use:   "to-path1_1",
+	Short: "ToPath1_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGestureServiceClient(grpcConn)
+		req := &pb.ToPath1_1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.ToPath1_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var gestureGestureToPath5_2Cmd = &cobra.Command{
+	Use:   "to-path5_2",
+	Short: "ToPath5_2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGestureServiceClient(grpcConn)
+		req := &pb.ToPath5_2Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
 		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
 			req.Arg1 = v
 		}
-		resp, err := client.TemporalSampling(ctx, req)
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		resp, err := client.ToPath5_2(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -2203,83 +2408,30 @@ var gestureUtilsTemporalSamplingCmd = &cobra.Command{
 	},
 }
 
-var gestureLibrariesCmd = &cobra.Command{
-	Use:   "libraries",
-	Short: "LibrariesService operations",
-}
-
-var gestureLibrariesFromFile1Cmd = &cobra.Command{
-	Use:   "from-file1",
-	Short: "FromFile1 RPC",
+var gestureGestureToPath4_3Cmd = &cobra.Command{
+	Use:   "to-path4_3",
+	Short: "ToPath4_3 RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewLibrariesServiceClient(grpcConn)
-		req := &pb.FromFile1Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+		client := pb.NewGestureServiceClient(grpcConn)
+		req := &pb.ToPath4_3Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		resp, err := client.FromFile1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var gestureLibrariesFromFile1_1Cmd = &cobra.Command{
-	Use:   "from-file1_1",
-	Short: "FromFile1_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewLibrariesServiceClient(grpcConn)
-		req := &pb.FromFile1_1Request{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.FromFile1_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var gestureLibrariesFromFileDescriptorCmd = &cobra.Command{
-	Use:   "from-file-descriptor",
-	Short: "FromFileDescriptor RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewLibrariesServiceClient(grpcConn)
-		req := &pb.FromFileDescriptorRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.FromFileDescriptor(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var gestureLibrariesFromPrivateFileCmd = &cobra.Command{
-	Use:   "from-private-file",
-	Short: "FromPrivateFile RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewLibrariesServiceClient(grpcConn)
-		req := &pb.FromPrivateFileRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
 			req.Arg1 = v
 		}
-		resp, err := client.FromPrivateFile(ctx, req)
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.ToPath4_3(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -2287,21 +2439,24 @@ var gestureLibrariesFromPrivateFileCmd = &cobra.Command{
 	},
 }
 
-var gestureLibrariesFromRawResourceCmd = &cobra.Command{
-	Use:   "from-raw-resource",
-	Short: "FromRawResource RPC",
+var gestureGestureWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewLibrariesServiceClient(grpcConn)
-		req := &pb.FromRawResourceRequest{}
+		client := pb.NewGestureServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
 		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
 			req.Arg1 = v
 		}
-		resp, err := client.FromRawResource(ctx, req)
+		resp, err := client.WriteToParcel(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -2310,97 +2465,80 @@ var gestureLibrariesFromRawResourceCmd = &cobra.Command{
 }
 
 func init() {
-	gestureGestureCmd.AddCommand(gestureGestureNewGestureCmd)
-	gestureGestureAddStrokeCmd.Flags().Int64("handle", 0, "handle (int64)")
-	gestureGestureAddStrokeCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	gestureGestureCmd.AddCommand(gestureGestureAddStrokeCmd)
-	gestureGestureCloneCmd.Flags().Int64("handle", 0, "handle (int64)")
-	gestureGestureCmd.AddCommand(gestureGestureCloneCmd)
-	gestureGestureDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	gestureGestureCmd.AddCommand(gestureGestureDescribeContentsCmd)
-	gestureGestureGetBoundingBoxCmd.Flags().Int64("handle", 0, "handle (int64)")
-	gestureGestureCmd.AddCommand(gestureGestureGetBoundingBoxCmd)
-	gestureGestureGetIDCmd.Flags().Int64("handle", 0, "handle (int64)")
-	gestureGestureCmd.AddCommand(gestureGestureGetIDCmd)
-	gestureGestureGetLengthCmd.Flags().Int64("handle", 0, "handle (int64)")
-	gestureGestureCmd.AddCommand(gestureGestureGetLengthCmd)
-	gestureGestureGetStrokesCountCmd.Flags().Int64("handle", 0, "handle (int64)")
-	gestureGestureCmd.AddCommand(gestureGestureGetStrokesCountCmd)
-	gestureGestureToBitmap4Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	gestureGestureToBitmap4Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	gestureGestureToBitmap4Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	gestureGestureToBitmap4Cmd.Flags().Int32("arg2", 0, "arg2 (int32)")
-	gestureGestureToBitmap4Cmd.Flags().Int32("arg3", 0, "arg3 (int32)")
-	gestureGestureCmd.AddCommand(gestureGestureToBitmap4Cmd)
-	gestureGestureToBitmap5_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	gestureGestureToBitmap5_1Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	gestureGestureToBitmap5_1Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	gestureGestureToBitmap5_1Cmd.Flags().Int32("arg2", 0, "arg2 (int32)")
-	gestureGestureToBitmap5_1Cmd.Flags().Int32("arg3", 0, "arg3 (int32)")
-	gestureGestureToBitmap5_1Cmd.Flags().Int32("arg4", 0, "arg4 (int32)")
-	gestureGestureCmd.AddCommand(gestureGestureToBitmap5_1Cmd)
-	gestureGestureToPath0Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	gestureGestureCmd.AddCommand(gestureGestureToPath0Cmd)
-	gestureGestureToPath1_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	gestureGestureToPath1_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	gestureGestureCmd.AddCommand(gestureGestureToPath1_1Cmd)
-	gestureGestureToPath5_2Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	gestureGestureToPath5_2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	gestureGestureToPath5_2Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	gestureGestureToPath5_2Cmd.Flags().Int32("arg2", 0, "arg2 (int32)")
-	gestureGestureToPath5_2Cmd.Flags().Int32("arg3", 0, "arg3 (int32)")
-	gestureGestureToPath5_2Cmd.Flags().Int32("arg4", 0, "arg4 (int32)")
-	gestureGestureCmd.AddCommand(gestureGestureToPath5_2Cmd)
-	gestureGestureToPath4_3Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	gestureGestureToPath4_3Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	gestureGestureToPath4_3Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	gestureGestureToPath4_3Cmd.Flags().Int32("arg2", 0, "arg2 (int32)")
-	gestureGestureToPath4_3Cmd.Flags().Int32("arg3", 0, "arg3 (int32)")
-	gestureGestureCmd.AddCommand(gestureGestureToPath4_3Cmd)
-	gestureGestureWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
-	gestureGestureWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	gestureGestureWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	gestureGestureCmd.AddCommand(gestureGestureWriteToParcelCmd)
-	gestureCmd.AddCommand(gestureGestureCmd)
-	gestureStoreCmd.AddCommand(gestureStoreNewStoreCmd)
-	gestureStoreAddGestureCmd.Flags().Int64("handle", 0, "handle (int64)")
-	gestureStoreAddGestureCmd.Flags().String("arg0", "", "arg0 (string)")
-	gestureStoreAddGestureCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	gestureStoreCmd.AddCommand(gestureStoreAddGestureCmd)
-	gestureStoreGetOrientationStyleCmd.Flags().Int64("handle", 0, "handle (int64)")
-	gestureStoreCmd.AddCommand(gestureStoreGetOrientationStyleCmd)
-	gestureStoreGetSequenceTypeCmd.Flags().Int64("handle", 0, "handle (int64)")
-	gestureStoreCmd.AddCommand(gestureStoreGetSequenceTypeCmd)
-	gestureStoreHasChangedCmd.Flags().Int64("handle", 0, "handle (int64)")
-	gestureStoreCmd.AddCommand(gestureStoreHasChangedCmd)
-	gestureStoreLoad1Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	gestureStoreLoad1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	gestureStoreCmd.AddCommand(gestureStoreLoad1Cmd)
-	gestureStoreLoad2_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	gestureStoreLoad2_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	gestureStoreLoad2_1Cmd.Flags().Bool("arg1", false, "arg1 (bool)")
-	gestureStoreCmd.AddCommand(gestureStoreLoad2_1Cmd)
-	gestureStoreRemoveEntryCmd.Flags().Int64("handle", 0, "handle (int64)")
-	gestureStoreRemoveEntryCmd.Flags().String("arg0", "", "arg0 (string)")
-	gestureStoreCmd.AddCommand(gestureStoreRemoveEntryCmd)
-	gestureStoreRemoveGestureCmd.Flags().Int64("handle", 0, "handle (int64)")
-	gestureStoreRemoveGestureCmd.Flags().String("arg0", "", "arg0 (string)")
-	gestureStoreRemoveGestureCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	gestureStoreCmd.AddCommand(gestureStoreRemoveGestureCmd)
-	gestureStoreSave1Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	gestureStoreSave1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	gestureStoreCmd.AddCommand(gestureStoreSave1Cmd)
-	gestureStoreSave2_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	gestureStoreSave2_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	gestureStoreSave2_1Cmd.Flags().Bool("arg1", false, "arg1 (bool)")
-	gestureStoreCmd.AddCommand(gestureStoreSave2_1Cmd)
-	gestureStoreSetOrientationStyleCmd.Flags().Int64("handle", 0, "handle (int64)")
-	gestureStoreSetOrientationStyleCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	gestureStoreCmd.AddCommand(gestureStoreSetOrientationStyleCmd)
-	gestureStoreSetSequenceTypeCmd.Flags().Int64("handle", 0, "handle (int64)")
-	gestureStoreSetSequenceTypeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	gestureStoreCmd.AddCommand(gestureStoreSetSequenceTypeCmd)
-	gestureCmd.AddCommand(gestureStoreCmd)
+	gestureUtilsComputeOrientedBoundingBoxCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	gestureUtilsCmd.AddCommand(gestureUtilsComputeOrientedBoundingBoxCmd)
+	gestureUtilsSpatialSampling2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	gestureUtilsSpatialSampling2Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	gestureUtilsCmd.AddCommand(gestureUtilsSpatialSampling2Cmd)
+	gestureUtilsSpatialSampling3_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	gestureUtilsSpatialSampling3_1Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	gestureUtilsSpatialSampling3_1Cmd.Flags().Bool("arg2", false, "arg2 (bool)")
+	gestureUtilsCmd.AddCommand(gestureUtilsSpatialSampling3_1Cmd)
+	gestureUtilsTemporalSamplingCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	gestureUtilsTemporalSamplingCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	gestureUtilsCmd.AddCommand(gestureUtilsTemporalSamplingCmd)
+	gestureCmd.AddCommand(gestureUtilsCmd)
+	gestureLibraryAddGestureCmd.Flags().String("arg0", "", "arg0 (string)")
+	gestureLibraryAddGestureCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	gestureLibraryCmd.AddCommand(gestureLibraryAddGestureCmd)
+	gestureLibraryCmd.AddCommand(gestureLibraryGetGestureEntriesCmd)
+	gestureLibraryGetGesturesCmd.Flags().String("arg0", "", "arg0 (string)")
+	gestureLibraryCmd.AddCommand(gestureLibraryGetGesturesCmd)
+	gestureLibraryCmd.AddCommand(gestureLibraryGetOrientationStyleCmd)
+	gestureLibraryCmd.AddCommand(gestureLibraryGetSequenceTypeCmd)
+	gestureLibraryCmd.AddCommand(gestureLibraryIsReadOnlyCmd)
+	gestureLibraryCmd.AddCommand(gestureLibraryLoadCmd)
+	gestureLibraryRecognizeCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	gestureLibraryCmd.AddCommand(gestureLibraryRecognizeCmd)
+	gestureLibraryRemoveEntryCmd.Flags().String("arg0", "", "arg0 (string)")
+	gestureLibraryCmd.AddCommand(gestureLibraryRemoveEntryCmd)
+	gestureLibraryRemoveGestureCmd.Flags().String("arg0", "", "arg0 (string)")
+	gestureLibraryRemoveGestureCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	gestureLibraryCmd.AddCommand(gestureLibraryRemoveGestureCmd)
+	gestureLibraryCmd.AddCommand(gestureLibrarySaveCmd)
+	gestureLibrarySetOrientationStyleCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	gestureLibraryCmd.AddCommand(gestureLibrarySetOrientationStyleCmd)
+	gestureLibrarySetSequenceTypeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	gestureLibraryCmd.AddCommand(gestureLibrarySetSequenceTypeCmd)
+	gestureCmd.AddCommand(gestureLibraryCmd)
+	gesturePredictionCmd.AddCommand(gesturePredictionToStringCmd)
+	gestureCmd.AddCommand(gesturePredictionCmd)
+	gesturePointNewPointCmd.Flags().Float32("arg0", 0, "arg0 (float32)")
+	gesturePointNewPointCmd.Flags().Float32("arg1", 0, "arg1 (float32)")
+	gesturePointNewPointCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	gesturePointCmd.AddCommand(gesturePointNewPointCmd)
+	gesturePointCloneCmd.Flags().Int64("handle", 0, "handle (int64)")
+	gesturePointCmd.AddCommand(gesturePointCloneCmd)
+	gestureCmd.AddCommand(gesturePointCmd)
+	gestureStrokeNewStrokeCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	gestureStrokeCmd.AddCommand(gestureStrokeNewStrokeCmd)
+	gestureStrokeClearPathCmd.Flags().Int64("handle", 0, "handle (int64)")
+	gestureStrokeCmd.AddCommand(gestureStrokeClearPathCmd)
+	gestureStrokeCloneCmd.Flags().Int64("handle", 0, "handle (int64)")
+	gestureStrokeCmd.AddCommand(gestureStrokeCloneCmd)
+	gestureStrokeComputeOrientedBoundingBoxCmd.Flags().Int64("handle", 0, "handle (int64)")
+	gestureStrokeCmd.AddCommand(gestureStrokeComputeOrientedBoundingBoxCmd)
+	gestureStrokeGetPathCmd.Flags().Int64("handle", 0, "handle (int64)")
+	gestureStrokeCmd.AddCommand(gestureStrokeGetPathCmd)
+	gestureStrokeToPathCmd.Flags().Int64("handle", 0, "handle (int64)")
+	gestureStrokeToPathCmd.Flags().Float32("arg0", 0, "arg0 (float32)")
+	gestureStrokeToPathCmd.Flags().Float32("arg1", 0, "arg1 (float32)")
+	gestureStrokeToPathCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	gestureStrokeCmd.AddCommand(gestureStrokeToPathCmd)
+	gestureCmd.AddCommand(gestureStrokeCmd)
+	gestureLibrariesFromFile1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	gestureLibrariesCmd.AddCommand(gestureLibrariesFromFile1Cmd)
+	gestureLibrariesFromFile1_1Cmd.Flags().String("arg0", "", "arg0 (string)")
+	gestureLibrariesCmd.AddCommand(gestureLibrariesFromFile1_1Cmd)
+	gestureLibrariesFromFileDescriptorCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	gestureLibrariesCmd.AddCommand(gestureLibrariesFromFileDescriptorCmd)
+	gestureLibrariesFromPrivateFileCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	gestureLibrariesFromPrivateFileCmd.Flags().String("arg1", "", "arg1 (string)")
+	gestureLibrariesCmd.AddCommand(gestureLibrariesFromPrivateFileCmd)
+	gestureLibrariesFromRawResourceCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	gestureLibrariesFromRawResourceCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	gestureLibrariesCmd.AddCommand(gestureLibrariesFromRawResourceCmd)
+	gestureCmd.AddCommand(gestureLibrariesCmd)
 	gestureOverlayViewNewOverlayViewCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	gestureOverlayViewCmd.AddCommand(gestureOverlayViewNewOverlayViewCmd)
 	gestureOverlayViewAddOnGestureListenerCmd.Flags().Int64("handle", 0, "handle (int64)")
@@ -2425,6 +2563,8 @@ func init() {
 	gestureOverlayViewDrawCmd.Flags().Int64("handle", 0, "handle (int64)")
 	gestureOverlayViewDrawCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	gestureOverlayViewCmd.AddCommand(gestureOverlayViewDrawCmd)
+	gestureOverlayViewGetCurrentStrokeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	gestureOverlayViewCmd.AddCommand(gestureOverlayViewGetCurrentStrokeCmd)
 	gestureOverlayViewGetFadeOffsetCmd.Flags().Int64("handle", 0, "handle (int64)")
 	gestureOverlayViewCmd.AddCommand(gestureOverlayViewGetFadeOffsetCmd)
 	gestureOverlayViewGetGestureCmd.Flags().Int64("handle", 0, "handle (int64)")
@@ -2535,74 +2675,106 @@ func init() {
 	gestureOverlayViewOnGesturingListenerOnGesturingStartedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	gestureOverlayViewOnGesturingListenerCmd.AddCommand(gestureOverlayViewOnGesturingListenerOnGesturingStartedCmd)
 	gestureCmd.AddCommand(gestureOverlayViewOnGesturingListenerCmd)
-	gestureLibraryAddGestureCmd.Flags().String("arg0", "", "arg0 (string)")
-	gestureLibraryAddGestureCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	gestureLibraryCmd.AddCommand(gestureLibraryAddGestureCmd)
-	gestureLibraryCmd.AddCommand(gestureLibraryGetOrientationStyleCmd)
-	gestureLibraryCmd.AddCommand(gestureLibraryGetSequenceTypeCmd)
-	gestureLibraryCmd.AddCommand(gestureLibraryIsReadOnlyCmd)
-	gestureLibraryCmd.AddCommand(gestureLibraryLoadCmd)
-	gestureLibraryRemoveEntryCmd.Flags().String("arg0", "", "arg0 (string)")
-	gestureLibraryCmd.AddCommand(gestureLibraryRemoveEntryCmd)
-	gestureLibraryRemoveGestureCmd.Flags().String("arg0", "", "arg0 (string)")
-	gestureLibraryRemoveGestureCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	gestureLibraryCmd.AddCommand(gestureLibraryRemoveGestureCmd)
-	gestureLibraryCmd.AddCommand(gestureLibrarySaveCmd)
-	gestureLibrarySetOrientationStyleCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	gestureLibraryCmd.AddCommand(gestureLibrarySetOrientationStyleCmd)
-	gestureLibrarySetSequenceTypeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	gestureLibraryCmd.AddCommand(gestureLibrarySetSequenceTypeCmd)
-	gestureCmd.AddCommand(gestureLibraryCmd)
-	gesturePredictionCmd.AddCommand(gesturePredictionToStringCmd)
-	gestureCmd.AddCommand(gesturePredictionCmd)
-	gestureStrokeNewStrokeCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	gestureStrokeCmd.AddCommand(gestureStrokeNewStrokeCmd)
-	gestureStrokeClearPathCmd.Flags().Int64("handle", 0, "handle (int64)")
-	gestureStrokeCmd.AddCommand(gestureStrokeClearPathCmd)
-	gestureStrokeCloneCmd.Flags().Int64("handle", 0, "handle (int64)")
-	gestureStrokeCmd.AddCommand(gestureStrokeCloneCmd)
-	gestureStrokeComputeOrientedBoundingBoxCmd.Flags().Int64("handle", 0, "handle (int64)")
-	gestureStrokeCmd.AddCommand(gestureStrokeComputeOrientedBoundingBoxCmd)
-	gestureStrokeGetPathCmd.Flags().Int64("handle", 0, "handle (int64)")
-	gestureStrokeCmd.AddCommand(gestureStrokeGetPathCmd)
-	gestureStrokeToPathCmd.Flags().Int64("handle", 0, "handle (int64)")
-	gestureStrokeToPathCmd.Flags().Float32("arg0", 0, "arg0 (float32)")
-	gestureStrokeToPathCmd.Flags().Float32("arg1", 0, "arg1 (float32)")
-	gestureStrokeToPathCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
-	gestureStrokeCmd.AddCommand(gestureStrokeToPathCmd)
-	gestureCmd.AddCommand(gestureStrokeCmd)
-	gesturePointNewPointCmd.Flags().Float32("arg0", 0, "arg0 (float32)")
-	gesturePointNewPointCmd.Flags().Float32("arg1", 0, "arg1 (float32)")
-	gesturePointNewPointCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	gesturePointCmd.AddCommand(gesturePointNewPointCmd)
-	gesturePointCloneCmd.Flags().Int64("handle", 0, "handle (int64)")
-	gesturePointCmd.AddCommand(gesturePointCloneCmd)
-	gestureCmd.AddCommand(gesturePointCmd)
-	gestureUtilsComputeOrientedBoundingBoxCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	gestureUtilsCmd.AddCommand(gestureUtilsComputeOrientedBoundingBoxCmd)
-	gestureUtilsSpatialSampling2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	gestureUtilsSpatialSampling2Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	gestureUtilsCmd.AddCommand(gestureUtilsSpatialSampling2Cmd)
-	gestureUtilsSpatialSampling3_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	gestureUtilsSpatialSampling3_1Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	gestureUtilsSpatialSampling3_1Cmd.Flags().Bool("arg2", false, "arg2 (bool)")
-	gestureUtilsCmd.AddCommand(gestureUtilsSpatialSampling3_1Cmd)
-	gestureUtilsTemporalSamplingCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	gestureUtilsTemporalSamplingCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	gestureUtilsCmd.AddCommand(gestureUtilsTemporalSamplingCmd)
-	gestureCmd.AddCommand(gestureUtilsCmd)
-	gestureLibrariesFromFile1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	gestureLibrariesCmd.AddCommand(gestureLibrariesFromFile1Cmd)
-	gestureLibrariesFromFile1_1Cmd.Flags().String("arg0", "", "arg0 (string)")
-	gestureLibrariesCmd.AddCommand(gestureLibrariesFromFile1_1Cmd)
-	gestureLibrariesFromFileDescriptorCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	gestureLibrariesCmd.AddCommand(gestureLibrariesFromFileDescriptorCmd)
-	gestureLibrariesFromPrivateFileCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	gestureLibrariesFromPrivateFileCmd.Flags().String("arg1", "", "arg1 (string)")
-	gestureLibrariesCmd.AddCommand(gestureLibrariesFromPrivateFileCmd)
-	gestureLibrariesFromRawResourceCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	gestureLibrariesFromRawResourceCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	gestureLibrariesCmd.AddCommand(gestureLibrariesFromRawResourceCmd)
-	gestureCmd.AddCommand(gestureLibrariesCmd)
+	gestureStoreCmd.AddCommand(gestureStoreNewStoreCmd)
+	gestureStoreAddGestureCmd.Flags().Int64("handle", 0, "handle (int64)")
+	gestureStoreAddGestureCmd.Flags().String("arg0", "", "arg0 (string)")
+	gestureStoreAddGestureCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	gestureStoreCmd.AddCommand(gestureStoreAddGestureCmd)
+	gestureStoreGetGestureEntriesCmd.Flags().Int64("handle", 0, "handle (int64)")
+	gestureStoreCmd.AddCommand(gestureStoreGetGestureEntriesCmd)
+	gestureStoreGetGesturesCmd.Flags().Int64("handle", 0, "handle (int64)")
+	gestureStoreGetGesturesCmd.Flags().String("arg0", "", "arg0 (string)")
+	gestureStoreCmd.AddCommand(gestureStoreGetGesturesCmd)
+	gestureStoreGetOrientationStyleCmd.Flags().Int64("handle", 0, "handle (int64)")
+	gestureStoreCmd.AddCommand(gestureStoreGetOrientationStyleCmd)
+	gestureStoreGetSequenceTypeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	gestureStoreCmd.AddCommand(gestureStoreGetSequenceTypeCmd)
+	gestureStoreHasChangedCmd.Flags().Int64("handle", 0, "handle (int64)")
+	gestureStoreCmd.AddCommand(gestureStoreHasChangedCmd)
+	gestureStoreLoad1Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	gestureStoreLoad1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	gestureStoreCmd.AddCommand(gestureStoreLoad1Cmd)
+	gestureStoreLoad2_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	gestureStoreLoad2_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	gestureStoreLoad2_1Cmd.Flags().Bool("arg1", false, "arg1 (bool)")
+	gestureStoreCmd.AddCommand(gestureStoreLoad2_1Cmd)
+	gestureStoreRecognizeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	gestureStoreRecognizeCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	gestureStoreCmd.AddCommand(gestureStoreRecognizeCmd)
+	gestureStoreRemoveEntryCmd.Flags().Int64("handle", 0, "handle (int64)")
+	gestureStoreRemoveEntryCmd.Flags().String("arg0", "", "arg0 (string)")
+	gestureStoreCmd.AddCommand(gestureStoreRemoveEntryCmd)
+	gestureStoreRemoveGestureCmd.Flags().Int64("handle", 0, "handle (int64)")
+	gestureStoreRemoveGestureCmd.Flags().String("arg0", "", "arg0 (string)")
+	gestureStoreRemoveGestureCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	gestureStoreCmd.AddCommand(gestureStoreRemoveGestureCmd)
+	gestureStoreSave1Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	gestureStoreSave1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	gestureStoreCmd.AddCommand(gestureStoreSave1Cmd)
+	gestureStoreSave2_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	gestureStoreSave2_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	gestureStoreSave2_1Cmd.Flags().Bool("arg1", false, "arg1 (bool)")
+	gestureStoreCmd.AddCommand(gestureStoreSave2_1Cmd)
+	gestureStoreSetOrientationStyleCmd.Flags().Int64("handle", 0, "handle (int64)")
+	gestureStoreSetOrientationStyleCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	gestureStoreCmd.AddCommand(gestureStoreSetOrientationStyleCmd)
+	gestureStoreSetSequenceTypeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	gestureStoreSetSequenceTypeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	gestureStoreCmd.AddCommand(gestureStoreSetSequenceTypeCmd)
+	gestureCmd.AddCommand(gestureStoreCmd)
+	gestureGestureCmd.AddCommand(gestureGestureNewGestureCmd)
+	gestureGestureAddStrokeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	gestureGestureAddStrokeCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	gestureGestureCmd.AddCommand(gestureGestureAddStrokeCmd)
+	gestureGestureCloneCmd.Flags().Int64("handle", 0, "handle (int64)")
+	gestureGestureCmd.AddCommand(gestureGestureCloneCmd)
+	gestureGestureDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	gestureGestureCmd.AddCommand(gestureGestureDescribeContentsCmd)
+	gestureGestureGetBoundingBoxCmd.Flags().Int64("handle", 0, "handle (int64)")
+	gestureGestureCmd.AddCommand(gestureGestureGetBoundingBoxCmd)
+	gestureGestureGetIDCmd.Flags().Int64("handle", 0, "handle (int64)")
+	gestureGestureCmd.AddCommand(gestureGestureGetIDCmd)
+	gestureGestureGetLengthCmd.Flags().Int64("handle", 0, "handle (int64)")
+	gestureGestureCmd.AddCommand(gestureGestureGetLengthCmd)
+	gestureGestureGetStrokesCmd.Flags().Int64("handle", 0, "handle (int64)")
+	gestureGestureCmd.AddCommand(gestureGestureGetStrokesCmd)
+	gestureGestureGetStrokesCountCmd.Flags().Int64("handle", 0, "handle (int64)")
+	gestureGestureCmd.AddCommand(gestureGestureGetStrokesCountCmd)
+	gestureGestureToBitmap4Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	gestureGestureToBitmap4Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	gestureGestureToBitmap4Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	gestureGestureToBitmap4Cmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	gestureGestureToBitmap4Cmd.Flags().Int32("arg3", 0, "arg3 (int32)")
+	gestureGestureCmd.AddCommand(gestureGestureToBitmap4Cmd)
+	gestureGestureToBitmap5_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	gestureGestureToBitmap5_1Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	gestureGestureToBitmap5_1Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	gestureGestureToBitmap5_1Cmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	gestureGestureToBitmap5_1Cmd.Flags().Int32("arg3", 0, "arg3 (int32)")
+	gestureGestureToBitmap5_1Cmd.Flags().Int32("arg4", 0, "arg4 (int32)")
+	gestureGestureCmd.AddCommand(gestureGestureToBitmap5_1Cmd)
+	gestureGestureToPath0Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	gestureGestureCmd.AddCommand(gestureGestureToPath0Cmd)
+	gestureGestureToPath1_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	gestureGestureToPath1_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	gestureGestureCmd.AddCommand(gestureGestureToPath1_1Cmd)
+	gestureGestureToPath5_2Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	gestureGestureToPath5_2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	gestureGestureToPath5_2Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	gestureGestureToPath5_2Cmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	gestureGestureToPath5_2Cmd.Flags().Int32("arg3", 0, "arg3 (int32)")
+	gestureGestureToPath5_2Cmd.Flags().Int32("arg4", 0, "arg4 (int32)")
+	gestureGestureCmd.AddCommand(gestureGestureToPath5_2Cmd)
+	gestureGestureToPath4_3Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	gestureGestureToPath4_3Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	gestureGestureToPath4_3Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	gestureGestureToPath4_3Cmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	gestureGestureToPath4_3Cmd.Flags().Int32("arg3", 0, "arg3 (int32)")
+	gestureGestureCmd.AddCommand(gestureGestureToPath4_3Cmd)
+	gestureGestureWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	gestureGestureWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	gestureGestureWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	gestureGestureCmd.AddCommand(gestureGestureWriteToParcelCmd)
+	gestureCmd.AddCommand(gestureGestureCmd)
 	rootCmd.AddCommand(gestureCmd)
 }

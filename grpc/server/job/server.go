@@ -180,6 +180,92 @@ func (s *WorkItemServer) WriteToParcel(_ context.Context, req *pb.WriteToParcelR
 	return &pb.WriteToParcelResponse{}, nil
 }
 
+// PendingJobReasonsInfoServer implements pb.PendingJobReasonsInfoServiceServer.
+type PendingJobReasonsInfoServer struct {
+	pb.UnimplementedPendingJobReasonsInfoServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *PendingJobReasonsInfoServer) NewPendingJobReasonsInfo(_ context.Context, req *pb.NewPendingJobReasonsInfoRequest) (*pb.NewPendingJobReasonsInfoResponse, error) {
+	obj, err := jnipkg.NewPendingJobReasonsInfo(s.Ctx.VM, req.GetArg0(), s.Handles.Get(req.GetArg1()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewPendingJobReasonsInfoResponse{Result: handle}, nil
+}
+
+func (s *PendingJobReasonsInfoServer) DescribeContents(_ context.Context, req *pb.DescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.PendingJobReasonsInfo{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.DescribeContents()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.DescribeContentsResponse{Result: result}, nil
+}
+
+func (s *PendingJobReasonsInfoServer) GetPendingJobReasons(_ context.Context, req *pb.GetPendingJobReasonsRequest) (*pb.GetPendingJobReasonsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.PendingJobReasonsInfo{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetPendingJobReasons()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetPendingJobReasonsResponse{Result: handle}, nil
+}
+
+func (s *PendingJobReasonsInfoServer) GetTimestampMillis(_ context.Context, req *pb.GetTimestampMillisRequest) (*pb.GetTimestampMillisResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.PendingJobReasonsInfo{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetTimestampMillis()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetTimestampMillisResponse{Result: result}, nil
+}
+
+func (s *PendingJobReasonsInfoServer) WriteToParcel(_ context.Context, req *pb.WriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.PendingJobReasonsInfo{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.WriteToParcel(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.WriteToParcelResponse{}, nil
+}
+
 // SchedulerServer implements pb.SchedulerServiceServer.
 type SchedulerServer struct {
 	pb.UnimplementedSchedulerServiceServer
@@ -277,6 +363,29 @@ func (s *SchedulerServer) ForNamespace(_ context.Context, req *pb.ForNamespaceRe
 	return &pb.ForNamespaceResponse{Result: handle}, nil
 }
 
+func (s *SchedulerServer) GetAllPendingJobs(_ context.Context, req *pb.GetAllPendingJobsRequest) (*pb.GetAllPendingJobsResponse, error) {
+	mgr, err := jnipkg.NewScheduler(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.GetAllPendingJobs()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetAllPendingJobsResponse{Result: handle}, nil
+}
+
 func (s *SchedulerServer) GetNamespace(_ context.Context, req *pb.GetNamespaceRequest) (*pb.GetNamespaceResponse, error) {
 	mgr, err := jnipkg.NewScheduler(s.Ctx)
 	if err != nil {
@@ -328,7 +437,7 @@ func (s *SchedulerServer) GetPendingJobReason(_ context.Context, req *pb.GetPend
 	return &pb.GetPendingJobReasonResponse{Result: result}, nil
 }
 
-func (s *SchedulerServer) GetPendingJobReasons(_ context.Context, req *pb.GetPendingJobReasonsRequest) (*pb.GetPendingJobReasonsResponse, error) {
+func (s *SchedulerServer) GetPendingJobReasons(_ context.Context, req *pb.SchedulerGetPendingJobReasonsRequest) (*pb.GetPendingJobReasonsResponse, error) {
 	mgr, err := jnipkg.NewScheduler(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
@@ -351,64 +460,14 @@ func (s *SchedulerServer) GetPendingJobReasons(_ context.Context, req *pb.GetPen
 	return &pb.GetPendingJobReasonsResponse{Result: handle}, nil
 }
 
-func (s *SchedulerServer) Schedule(_ context.Context, req *pb.ScheduleRequest) (*pb.ScheduleResponse, error) {
+func (s *SchedulerServer) GetPendingJobReasonsHistory(_ context.Context, req *pb.GetPendingJobReasonsHistoryRequest) (*pb.GetPendingJobReasonsHistoryResponse, error) {
 	mgr, err := jnipkg.NewScheduler(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
 	defer mgr.Close()
 
-	result, err := mgr.Schedule(s.Handles.Get(req.GetArg0()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.ScheduleResponse{Result: result}, nil
-}
-
-// PendingJobReasonsInfoServer implements pb.PendingJobReasonsInfoServiceServer.
-type PendingJobReasonsInfoServer struct {
-	pb.UnimplementedPendingJobReasonsInfoServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *PendingJobReasonsInfoServer) NewPendingJobReasonsInfo(_ context.Context, req *pb.NewPendingJobReasonsInfoRequest) (*pb.NewPendingJobReasonsInfoResponse, error) {
-	obj, err := jnipkg.NewPendingJobReasonsInfo(s.Ctx.VM, req.GetArg0(), s.Handles.Get(req.GetArg1()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
-	}
-	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-	}
-	return &pb.NewPendingJobReasonsInfoResponse{Result: handle}, nil
-}
-
-func (s *PendingJobReasonsInfoServer) DescribeContents(_ context.Context, req *pb.DescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.PendingJobReasonsInfo{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.DescribeContents()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.DescribeContentsResponse{Result: result}, nil
-}
-
-func (s *PendingJobReasonsInfoServer) GetPendingJobReasons(_ context.Context, req *pb.PendingJobReasonsInfoGetPendingJobReasonsRequest) (*pb.GetPendingJobReasonsResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.PendingJobReasonsInfo{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetPendingJobReasons()
+	result, err := mgr.GetPendingJobReasonsHistory(req.GetArg0())
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
@@ -421,32 +480,19 @@ func (s *PendingJobReasonsInfoServer) GetPendingJobReasons(_ context.Context, re
 			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
 		}
 	}
-	return &pb.GetPendingJobReasonsResponse{Result: handle}, nil
+	return &pb.GetPendingJobReasonsHistoryResponse{Result: handle}, nil
 }
 
-func (s *PendingJobReasonsInfoServer) GetTimestampMillis(_ context.Context, req *pb.GetTimestampMillisRequest) (*pb.GetTimestampMillisResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+func (s *SchedulerServer) Schedule(_ context.Context, req *pb.ScheduleRequest) (*pb.ScheduleResponse, error) {
+	mgr, err := jnipkg.NewScheduler(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
-	mgr := &jnipkg.PendingJobReasonsInfo{VM: s.Ctx.VM, Obj: rawObj}
+	defer mgr.Close()
 
-	result, err := mgr.GetTimestampMillis()
+	result, err := mgr.Schedule(s.Handles.Get(req.GetArg0()))
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.GetTimestampMillisResponse{Result: result}, nil
-}
-
-func (s *PendingJobReasonsInfoServer) WriteToParcel(_ context.Context, req *pb.WriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.PendingJobReasonsInfo{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.WriteToParcel(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.WriteToParcelResponse{}, nil
+	return &pb.ScheduleResponse{Result: result}, nil
 }

@@ -282,195 +282,6 @@ func (s *Matrix3fServer) Transpose(_ context.Context, req *pb.TransposeRequest) 
 	return &pb.TransposeResponse{}, nil
 }
 
-// Matrix2fServer implements pb.Matrix2FServiceServer.
-type Matrix2fServer struct {
-	pb.UnimplementedMatrix2FServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *Matrix2fServer) NewMatrix2f(_ context.Context, req *pb.NewMatrix2FRequest) (*pb.NewMatrix2FResponse, error) {
-	obj, err := jnipkg.NewMatrix2f(s.Ctx.VM)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
-	}
-	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-	}
-	return &pb.NewMatrix2FResponse{Result: handle}, nil
-}
-
-func (s *Matrix2fServer) Get(_ context.Context, req *pb.GetRequest) (*pb.GetResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Matrix2f{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.Get(req.GetArg0(), req.GetArg1())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetResponse{Result: result}, nil
-}
-
-func (s *Matrix2fServer) GetArray(_ context.Context, req *pb.GetArrayRequest) (*pb.GetArrayResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Matrix2f{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetArray()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetArrayResponse{Result: handle}, nil
-}
-
-func (s *Matrix2fServer) Load(_ context.Context, req *pb.LoadRequest) (*pb.LoadResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Matrix2f{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.Load(s.Handles.Get(req.GetArg0())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.LoadResponse{}, nil
-}
-
-func (s *Matrix2fServer) LoadIdentity(_ context.Context, req *pb.LoadIdentityRequest) (*pb.LoadIdentityResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Matrix2f{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.LoadIdentity(); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.LoadIdentityResponse{}, nil
-}
-
-func (s *Matrix2fServer) LoadMultiply(_ context.Context, req *pb.LoadMultiplyRequest) (*pb.LoadMultiplyResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Matrix2f{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.LoadMultiply(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.LoadMultiplyResponse{}, nil
-}
-
-func (s *Matrix2fServer) LoadRotate(_ context.Context, req *pb.LoadRotateRequest) (*pb.LoadRotateResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Matrix2f{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.LoadRotate(req.GetArg0()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.LoadRotateResponse{}, nil
-}
-
-func (s *Matrix2fServer) LoadScale(_ context.Context, req *pb.LoadScaleRequest) (*pb.LoadScaleResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Matrix2f{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.LoadScale(req.GetArg0(), req.GetArg1()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.LoadScaleResponse{}, nil
-}
-
-func (s *Matrix2fServer) Multiply(_ context.Context, req *pb.MultiplyRequest) (*pb.MultiplyResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Matrix2f{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.Multiply(s.Handles.Get(req.GetArg0())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.MultiplyResponse{}, nil
-}
-
-func (s *Matrix2fServer) Rotate(_ context.Context, req *pb.RotateRequest) (*pb.RotateResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Matrix2f{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.Rotate(req.GetArg0()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.RotateResponse{}, nil
-}
-
-func (s *Matrix2fServer) Scale(_ context.Context, req *pb.ScaleRequest) (*pb.ScaleResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Matrix2f{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.Scale(req.GetArg0(), req.GetArg1()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.ScaleResponse{}, nil
-}
-
-func (s *Matrix2fServer) Set(_ context.Context, req *pb.SetRequest) (*pb.SetResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Matrix2f{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.Set(req.GetArg0(), req.GetArg1(), req.GetArg2()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SetResponse{}, nil
-}
-
-func (s *Matrix2fServer) Transpose(_ context.Context, req *pb.TransposeRequest) (*pb.TransposeResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Matrix2f{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.Transpose(); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.TransposeResponse{}, nil
-}
-
 // Matrix4fServer implements pb.Matrix4FServiceServer.
 type Matrix4fServer struct {
 	pb.UnimplementedMatrix4FServiceServer
@@ -662,7 +473,7 @@ func (s *Matrix4fServer) LoadProjectionNormalized(_ context.Context, req *pb.Loa
 	return &pb.LoadProjectionNormalizedResponse{}, nil
 }
 
-func (s *Matrix4fServer) LoadRotate(_ context.Context, req *pb.Matrix4FLoadRotateRequest) (*pb.LoadRotateResponse, error) {
+func (s *Matrix4fServer) LoadRotate(_ context.Context, req *pb.LoadRotateRequest) (*pb.LoadRotateResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -675,7 +486,7 @@ func (s *Matrix4fServer) LoadRotate(_ context.Context, req *pb.Matrix4FLoadRotat
 	return &pb.LoadRotateResponse{}, nil
 }
 
-func (s *Matrix4fServer) LoadScale(_ context.Context, req *pb.Matrix4FLoadScaleRequest) (*pb.LoadScaleResponse, error) {
+func (s *Matrix4fServer) LoadScale(_ context.Context, req *pb.LoadScaleRequest) (*pb.LoadScaleResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -714,7 +525,7 @@ func (s *Matrix4fServer) Multiply(_ context.Context, req *pb.MultiplyRequest) (*
 	return &pb.MultiplyResponse{}, nil
 }
 
-func (s *Matrix4fServer) Rotate(_ context.Context, req *pb.Matrix4FRotateRequest) (*pb.RotateResponse, error) {
+func (s *Matrix4fServer) Rotate(_ context.Context, req *pb.RotateRequest) (*pb.RotateResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -727,7 +538,7 @@ func (s *Matrix4fServer) Rotate(_ context.Context, req *pb.Matrix4FRotateRequest
 	return &pb.RotateResponse{}, nil
 }
 
-func (s *Matrix4fServer) Scale(_ context.Context, req *pb.Matrix4FScaleRequest) (*pb.ScaleResponse, error) {
+func (s *Matrix4fServer) Scale(_ context.Context, req *pb.ScaleRequest) (*pb.ScaleResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -2053,4 +1864,193 @@ func (s *FieldPackerServer) Subalign(_ context.Context, req *pb.SubalignRequest)
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
 	return &pb.SubalignResponse{}, nil
+}
+
+// Matrix2fServer implements pb.Matrix2FServiceServer.
+type Matrix2fServer struct {
+	pb.UnimplementedMatrix2FServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *Matrix2fServer) NewMatrix2f(_ context.Context, req *pb.NewMatrix2FRequest) (*pb.NewMatrix2FResponse, error) {
+	obj, err := jnipkg.NewMatrix2f(s.Ctx.VM)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewMatrix2FResponse{Result: handle}, nil
+}
+
+func (s *Matrix2fServer) Get(_ context.Context, req *pb.GetRequest) (*pb.GetResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Matrix2f{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.Get(req.GetArg0(), req.GetArg1())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetResponse{Result: result}, nil
+}
+
+func (s *Matrix2fServer) GetArray(_ context.Context, req *pb.GetArrayRequest) (*pb.GetArrayResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Matrix2f{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetArray()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetArrayResponse{Result: handle}, nil
+}
+
+func (s *Matrix2fServer) Load(_ context.Context, req *pb.LoadRequest) (*pb.LoadResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Matrix2f{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.Load(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.LoadResponse{}, nil
+}
+
+func (s *Matrix2fServer) LoadIdentity(_ context.Context, req *pb.LoadIdentityRequest) (*pb.LoadIdentityResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Matrix2f{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.LoadIdentity(); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.LoadIdentityResponse{}, nil
+}
+
+func (s *Matrix2fServer) LoadMultiply(_ context.Context, req *pb.LoadMultiplyRequest) (*pb.LoadMultiplyResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Matrix2f{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.LoadMultiply(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.LoadMultiplyResponse{}, nil
+}
+
+func (s *Matrix2fServer) LoadRotate(_ context.Context, req *pb.Matrix2FLoadRotateRequest) (*pb.LoadRotateResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Matrix2f{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.LoadRotate(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.LoadRotateResponse{}, nil
+}
+
+func (s *Matrix2fServer) LoadScale(_ context.Context, req *pb.Matrix2FLoadScaleRequest) (*pb.LoadScaleResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Matrix2f{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.LoadScale(req.GetArg0(), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.LoadScaleResponse{}, nil
+}
+
+func (s *Matrix2fServer) Multiply(_ context.Context, req *pb.MultiplyRequest) (*pb.MultiplyResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Matrix2f{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.Multiply(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.MultiplyResponse{}, nil
+}
+
+func (s *Matrix2fServer) Rotate(_ context.Context, req *pb.Matrix2FRotateRequest) (*pb.RotateResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Matrix2f{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.Rotate(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.RotateResponse{}, nil
+}
+
+func (s *Matrix2fServer) Scale(_ context.Context, req *pb.Matrix2FScaleRequest) (*pb.ScaleResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Matrix2f{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.Scale(req.GetArg0(), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ScaleResponse{}, nil
+}
+
+func (s *Matrix2fServer) Set(_ context.Context, req *pb.SetRequest) (*pb.SetResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Matrix2f{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.Set(req.GetArg0(), req.GetArg1(), req.GetArg2()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetResponse{}, nil
+}
+
+func (s *Matrix2fServer) Transpose(_ context.Context, req *pb.TransposeRequest) (*pb.TransposeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Matrix2f{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.Transpose(); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.TransposeResponse{}, nil
 }

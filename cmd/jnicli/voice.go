@@ -12,6 +12,116 @@ var voiceCmd = &cobra.Command{
 	Short: "voice service operations",
 }
 
+var voiceVisibleActivityInfoCmd = &cobra.Command{
+	Use:   "visible-activity-info",
+	Short: "VisibleActivityInfoService operations",
+}
+
+var voiceVisibleActivityInfoDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVisibleActivityInfoServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var voiceVisibleActivityInfoEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVisibleActivityInfoServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var voiceVisibleActivityInfoGetActivityIdCmd = &cobra.Command{
+	Use:   "get-activity-id",
+	Short: "GetActivityId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVisibleActivityInfoServiceClient(grpcConn)
+		req := &pb.GetActivityIdRequest{}
+		resp, err := client.GetActivityId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var voiceVisibleActivityInfoHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVisibleActivityInfoServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var voiceVisibleActivityInfoToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVisibleActivityInfoServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var voiceVisibleActivityInfoWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVisibleActivityInfoServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var voiceInteractionSessionServiceCmd = &cobra.Command{
 	Use:   "interaction-session-service",
 	Short: "InteractionSessionServiceService operations",
@@ -118,6 +228,266 @@ var voiceInteractionSessionServiceOnTrimMemoryCmd = &cobra.Command{
 			req.Arg0 = v
 		}
 		resp, err := client.OnTrimMemory(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var voiceInteractionServiceCmd = &cobra.Command{
+	Use:   "interaction-service",
+	Short: "InteractionServiceService operations",
+}
+
+var voiceInteractionServiceNewInteractionServiceCmd = &cobra.Command{
+	Use:   "new-interaction-service",
+	Short: "NewInteractionService RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInteractionServiceServiceClient(grpcConn)
+		req := &pb.NewInteractionServiceRequest{}
+		resp, err := client.NewInteractionService(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var voiceInteractionServiceGetDisabledShowContextCmd = &cobra.Command{
+	Use:   "get-disabled-show-context",
+	Short: "GetDisabledShowContext RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInteractionServiceServiceClient(grpcConn)
+		req := &pb.GetDisabledShowContextRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetDisabledShowContext(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var voiceInteractionServiceOnBindCmd = &cobra.Command{
+	Use:   "on-bind",
+	Short: "OnBind RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInteractionServiceServiceClient(grpcConn)
+		req := &pb.InteractionServiceOnBindRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnBind(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var voiceInteractionServiceOnLaunchVoiceAssistFromKeyguardCmd = &cobra.Command{
+	Use:   "on-launch-voice-assist-from-keyguard",
+	Short: "OnLaunchVoiceAssistFromKeyguard RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInteractionServiceServiceClient(grpcConn)
+		req := &pb.OnLaunchVoiceAssistFromKeyguardRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.OnLaunchVoiceAssistFromKeyguard(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var voiceInteractionServiceOnPrepareToShowSessionCmd = &cobra.Command{
+	Use:   "on-prepare-to-show-session",
+	Short: "OnPrepareToShowSession RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInteractionServiceServiceClient(grpcConn)
+		req := &pb.OnPrepareToShowSessionRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.OnPrepareToShowSession(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var voiceInteractionServiceOnReadyCmd = &cobra.Command{
+	Use:   "on-ready",
+	Short: "OnReady RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInteractionServiceServiceClient(grpcConn)
+		req := &pb.OnReadyRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.OnReady(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var voiceInteractionServiceOnShowSessionFailedCmd = &cobra.Command{
+	Use:   "on-show-session-failed",
+	Short: "OnShowSessionFailed RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInteractionServiceServiceClient(grpcConn)
+		req := &pb.OnShowSessionFailedRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnShowSessionFailed(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var voiceInteractionServiceOnShutdownCmd = &cobra.Command{
+	Use:   "on-shutdown",
+	Short: "OnShutdown RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInteractionServiceServiceClient(grpcConn)
+		req := &pb.OnShutdownRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.OnShutdown(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var voiceInteractionServiceSetDisabledShowContextCmd = &cobra.Command{
+	Use:   "set-disabled-show-context",
+	Short: "SetDisabledShowContext RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInteractionServiceServiceClient(grpcConn)
+		req := &pb.SetDisabledShowContextRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetDisabledShowContext(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var voiceInteractionServiceSetUiHintsCmd = &cobra.Command{
+	Use:   "set-ui-hints",
+	Short: "SetUiHints RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInteractionServiceServiceClient(grpcConn)
+		req := &pb.SetUiHintsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetUiHints(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var voiceInteractionServiceShowSessionCmd = &cobra.Command{
+	Use:   "show-session",
+	Short: "ShowSession RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInteractionServiceServiceClient(grpcConn)
+		req := &pb.ShowSessionRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.ShowSession(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var voiceInteractionServiceIsActiveServiceCmd = &cobra.Command{
+	Use:   "is-active-service",
+	Short: "IsActiveService RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInteractionServiceServiceClient(grpcConn)
+		req := &pb.IsActiveServiceRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.IsActiveService(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1893,377 +2263,17 @@ var voiceInteractionSessionRequestToStringCmd = &cobra.Command{
 	},
 }
 
-var voiceInteractionServiceCmd = &cobra.Command{
-	Use:   "interaction-service",
-	Short: "InteractionServiceService operations",
-}
-
-var voiceInteractionServiceNewInteractionServiceCmd = &cobra.Command{
-	Use:   "new-interaction-service",
-	Short: "NewInteractionService RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewInteractionServiceServiceClient(grpcConn)
-		req := &pb.NewInteractionServiceRequest{}
-		resp, err := client.NewInteractionService(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var voiceInteractionServiceGetDisabledShowContextCmd = &cobra.Command{
-	Use:   "get-disabled-show-context",
-	Short: "GetDisabledShowContext RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewInteractionServiceServiceClient(grpcConn)
-		req := &pb.GetDisabledShowContextRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetDisabledShowContext(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var voiceInteractionServiceOnBindCmd = &cobra.Command{
-	Use:   "on-bind",
-	Short: "OnBind RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewInteractionServiceServiceClient(grpcConn)
-		req := &pb.InteractionServiceOnBindRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.OnBind(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var voiceInteractionServiceOnLaunchVoiceAssistFromKeyguardCmd = &cobra.Command{
-	Use:   "on-launch-voice-assist-from-keyguard",
-	Short: "OnLaunchVoiceAssistFromKeyguard RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewInteractionServiceServiceClient(grpcConn)
-		req := &pb.OnLaunchVoiceAssistFromKeyguardRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.OnLaunchVoiceAssistFromKeyguard(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var voiceInteractionServiceOnPrepareToShowSessionCmd = &cobra.Command{
-	Use:   "on-prepare-to-show-session",
-	Short: "OnPrepareToShowSession RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewInteractionServiceServiceClient(grpcConn)
-		req := &pb.OnPrepareToShowSessionRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.OnPrepareToShowSession(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var voiceInteractionServiceOnReadyCmd = &cobra.Command{
-	Use:   "on-ready",
-	Short: "OnReady RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewInteractionServiceServiceClient(grpcConn)
-		req := &pb.OnReadyRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.OnReady(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var voiceInteractionServiceOnShowSessionFailedCmd = &cobra.Command{
-	Use:   "on-show-session-failed",
-	Short: "OnShowSessionFailed RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewInteractionServiceServiceClient(grpcConn)
-		req := &pb.OnShowSessionFailedRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.OnShowSessionFailed(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var voiceInteractionServiceOnShutdownCmd = &cobra.Command{
-	Use:   "on-shutdown",
-	Short: "OnShutdown RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewInteractionServiceServiceClient(grpcConn)
-		req := &pb.OnShutdownRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.OnShutdown(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var voiceInteractionServiceSetDisabledShowContextCmd = &cobra.Command{
-	Use:   "set-disabled-show-context",
-	Short: "SetDisabledShowContext RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewInteractionServiceServiceClient(grpcConn)
-		req := &pb.SetDisabledShowContextRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetDisabledShowContext(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var voiceInteractionServiceSetUiHintsCmd = &cobra.Command{
-	Use:   "set-ui-hints",
-	Short: "SetUiHints RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewInteractionServiceServiceClient(grpcConn)
-		req := &pb.SetUiHintsRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetUiHints(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var voiceInteractionServiceShowSessionCmd = &cobra.Command{
-	Use:   "show-session",
-	Short: "ShowSession RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewInteractionServiceServiceClient(grpcConn)
-		req := &pb.ShowSessionRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.ShowSession(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var voiceInteractionServiceIsActiveServiceCmd = &cobra.Command{
-	Use:   "is-active-service",
-	Short: "IsActiveService RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewInteractionServiceServiceClient(grpcConn)
-		req := &pb.IsActiveServiceRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.IsActiveService(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var voiceVisibleActivityInfoCmd = &cobra.Command{
-	Use:   "visible-activity-info",
-	Short: "VisibleActivityInfoService operations",
-}
-
-var voiceVisibleActivityInfoDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewVisibleActivityInfoServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var voiceVisibleActivityInfoEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewVisibleActivityInfoServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var voiceVisibleActivityInfoGetActivityIdCmd = &cobra.Command{
-	Use:   "get-activity-id",
-	Short: "GetActivityId RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewVisibleActivityInfoServiceClient(grpcConn)
-		req := &pb.GetActivityIdRequest{}
-		resp, err := client.GetActivityId(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var voiceVisibleActivityInfoHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewVisibleActivityInfoServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var voiceVisibleActivityInfoToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewVisibleActivityInfoServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var voiceVisibleActivityInfoWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewVisibleActivityInfoServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
 func init() {
+	voiceVisibleActivityInfoCmd.AddCommand(voiceVisibleActivityInfoDescribeContentsCmd)
+	voiceVisibleActivityInfoEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	voiceVisibleActivityInfoCmd.AddCommand(voiceVisibleActivityInfoEqualsCmd)
+	voiceVisibleActivityInfoCmd.AddCommand(voiceVisibleActivityInfoGetActivityIdCmd)
+	voiceVisibleActivityInfoCmd.AddCommand(voiceVisibleActivityInfoHashCodeCmd)
+	voiceVisibleActivityInfoCmd.AddCommand(voiceVisibleActivityInfoToStringCmd)
+	voiceVisibleActivityInfoWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	voiceVisibleActivityInfoWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	voiceVisibleActivityInfoCmd.AddCommand(voiceVisibleActivityInfoWriteToParcelCmd)
+	voiceCmd.AddCommand(voiceVisibleActivityInfoCmd)
 	voiceInteractionSessionServiceOnBindCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	voiceInteractionSessionServiceCmd.AddCommand(voiceInteractionSessionServiceOnBindCmd)
 	voiceInteractionSessionServiceOnConfigurationChangedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
@@ -2275,6 +2285,40 @@ func init() {
 	voiceInteractionSessionServiceOnTrimMemoryCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
 	voiceInteractionSessionServiceCmd.AddCommand(voiceInteractionSessionServiceOnTrimMemoryCmd)
 	voiceCmd.AddCommand(voiceInteractionSessionServiceCmd)
+	voiceInteractionServiceCmd.AddCommand(voiceInteractionServiceNewInteractionServiceCmd)
+	voiceInteractionServiceGetDisabledShowContextCmd.Flags().Int64("handle", 0, "handle (int64)")
+	voiceInteractionServiceCmd.AddCommand(voiceInteractionServiceGetDisabledShowContextCmd)
+	voiceInteractionServiceOnBindCmd.Flags().Int64("handle", 0, "handle (int64)")
+	voiceInteractionServiceOnBindCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	voiceInteractionServiceCmd.AddCommand(voiceInteractionServiceOnBindCmd)
+	voiceInteractionServiceOnLaunchVoiceAssistFromKeyguardCmd.Flags().Int64("handle", 0, "handle (int64)")
+	voiceInteractionServiceCmd.AddCommand(voiceInteractionServiceOnLaunchVoiceAssistFromKeyguardCmd)
+	voiceInteractionServiceOnPrepareToShowSessionCmd.Flags().Int64("handle", 0, "handle (int64)")
+	voiceInteractionServiceOnPrepareToShowSessionCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	voiceInteractionServiceOnPrepareToShowSessionCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	voiceInteractionServiceCmd.AddCommand(voiceInteractionServiceOnPrepareToShowSessionCmd)
+	voiceInteractionServiceOnReadyCmd.Flags().Int64("handle", 0, "handle (int64)")
+	voiceInteractionServiceCmd.AddCommand(voiceInteractionServiceOnReadyCmd)
+	voiceInteractionServiceOnShowSessionFailedCmd.Flags().Int64("handle", 0, "handle (int64)")
+	voiceInteractionServiceOnShowSessionFailedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	voiceInteractionServiceCmd.AddCommand(voiceInteractionServiceOnShowSessionFailedCmd)
+	voiceInteractionServiceOnShutdownCmd.Flags().Int64("handle", 0, "handle (int64)")
+	voiceInteractionServiceCmd.AddCommand(voiceInteractionServiceOnShutdownCmd)
+	voiceInteractionServiceSetDisabledShowContextCmd.Flags().Int64("handle", 0, "handle (int64)")
+	voiceInteractionServiceSetDisabledShowContextCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	voiceInteractionServiceCmd.AddCommand(voiceInteractionServiceSetDisabledShowContextCmd)
+	voiceInteractionServiceSetUiHintsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	voiceInteractionServiceSetUiHintsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	voiceInteractionServiceCmd.AddCommand(voiceInteractionServiceSetUiHintsCmd)
+	voiceInteractionServiceShowSessionCmd.Flags().Int64("handle", 0, "handle (int64)")
+	voiceInteractionServiceShowSessionCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	voiceInteractionServiceShowSessionCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	voiceInteractionServiceCmd.AddCommand(voiceInteractionServiceShowSessionCmd)
+	voiceInteractionServiceIsActiveServiceCmd.Flags().Int64("handle", 0, "handle (int64)")
+	voiceInteractionServiceIsActiveServiceCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	voiceInteractionServiceIsActiveServiceCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	voiceInteractionServiceCmd.AddCommand(voiceInteractionServiceIsActiveServiceCmd)
+	voiceCmd.AddCommand(voiceInteractionServiceCmd)
 	voiceInteractionSessionNewInteractionSessionCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	voiceInteractionSessionCmd.AddCommand(voiceInteractionSessionNewInteractionSessionCmd)
 	voiceInteractionSessionCloseSystemDialogsCmd.Flags().Int64("handle", 0, "handle (int64)")
@@ -2490,49 +2534,5 @@ func init() {
 	voiceInteractionSessionRequestCmd.AddCommand(voiceInteractionSessionRequestIsActiveCmd)
 	voiceInteractionSessionRequestCmd.AddCommand(voiceInteractionSessionRequestToStringCmd)
 	voiceCmd.AddCommand(voiceInteractionSessionRequestCmd)
-	voiceInteractionServiceCmd.AddCommand(voiceInteractionServiceNewInteractionServiceCmd)
-	voiceInteractionServiceGetDisabledShowContextCmd.Flags().Int64("handle", 0, "handle (int64)")
-	voiceInteractionServiceCmd.AddCommand(voiceInteractionServiceGetDisabledShowContextCmd)
-	voiceInteractionServiceOnBindCmd.Flags().Int64("handle", 0, "handle (int64)")
-	voiceInteractionServiceOnBindCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	voiceInteractionServiceCmd.AddCommand(voiceInteractionServiceOnBindCmd)
-	voiceInteractionServiceOnLaunchVoiceAssistFromKeyguardCmd.Flags().Int64("handle", 0, "handle (int64)")
-	voiceInteractionServiceCmd.AddCommand(voiceInteractionServiceOnLaunchVoiceAssistFromKeyguardCmd)
-	voiceInteractionServiceOnPrepareToShowSessionCmd.Flags().Int64("handle", 0, "handle (int64)")
-	voiceInteractionServiceOnPrepareToShowSessionCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	voiceInteractionServiceOnPrepareToShowSessionCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	voiceInteractionServiceCmd.AddCommand(voiceInteractionServiceOnPrepareToShowSessionCmd)
-	voiceInteractionServiceOnReadyCmd.Flags().Int64("handle", 0, "handle (int64)")
-	voiceInteractionServiceCmd.AddCommand(voiceInteractionServiceOnReadyCmd)
-	voiceInteractionServiceOnShowSessionFailedCmd.Flags().Int64("handle", 0, "handle (int64)")
-	voiceInteractionServiceOnShowSessionFailedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	voiceInteractionServiceCmd.AddCommand(voiceInteractionServiceOnShowSessionFailedCmd)
-	voiceInteractionServiceOnShutdownCmd.Flags().Int64("handle", 0, "handle (int64)")
-	voiceInteractionServiceCmd.AddCommand(voiceInteractionServiceOnShutdownCmd)
-	voiceInteractionServiceSetDisabledShowContextCmd.Flags().Int64("handle", 0, "handle (int64)")
-	voiceInteractionServiceSetDisabledShowContextCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	voiceInteractionServiceCmd.AddCommand(voiceInteractionServiceSetDisabledShowContextCmd)
-	voiceInteractionServiceSetUiHintsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	voiceInteractionServiceSetUiHintsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	voiceInteractionServiceCmd.AddCommand(voiceInteractionServiceSetUiHintsCmd)
-	voiceInteractionServiceShowSessionCmd.Flags().Int64("handle", 0, "handle (int64)")
-	voiceInteractionServiceShowSessionCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	voiceInteractionServiceShowSessionCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	voiceInteractionServiceCmd.AddCommand(voiceInteractionServiceShowSessionCmd)
-	voiceInteractionServiceIsActiveServiceCmd.Flags().Int64("handle", 0, "handle (int64)")
-	voiceInteractionServiceIsActiveServiceCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	voiceInteractionServiceIsActiveServiceCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	voiceInteractionServiceCmd.AddCommand(voiceInteractionServiceIsActiveServiceCmd)
-	voiceCmd.AddCommand(voiceInteractionServiceCmd)
-	voiceVisibleActivityInfoCmd.AddCommand(voiceVisibleActivityInfoDescribeContentsCmd)
-	voiceVisibleActivityInfoEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	voiceVisibleActivityInfoCmd.AddCommand(voiceVisibleActivityInfoEqualsCmd)
-	voiceVisibleActivityInfoCmd.AddCommand(voiceVisibleActivityInfoGetActivityIdCmd)
-	voiceVisibleActivityInfoCmd.AddCommand(voiceVisibleActivityInfoHashCodeCmd)
-	voiceVisibleActivityInfoCmd.AddCommand(voiceVisibleActivityInfoToStringCmd)
-	voiceVisibleActivityInfoWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	voiceVisibleActivityInfoWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	voiceVisibleActivityInfoCmd.AddCommand(voiceVisibleActivityInfoWriteToParcelCmd)
-	voiceCmd.AddCommand(voiceVisibleActivityInfoCmd)
 	rootCmd.AddCommand(voiceCmd)
 }

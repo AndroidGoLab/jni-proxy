@@ -43,6 +43,17 @@ func (c *PageSelectionClient) GetPage(ctx context.Context, handle int64) (int32,
 	return resp.GetResult(), nil
 }
 
+// GetSelectedTextContents calls the GetSelectedTextContents RPC.
+func (c *PageSelectionClient) GetSelectedTextContents(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetSelectedTextContents(ctx, &pb.GetSelectedTextContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // GetStart calls the GetStart RPC.
 func (c *PageSelectionClient) GetStart(ctx context.Context, handle int64) (int64, error) {
 	resp, err := c.svc.GetStart(ctx, &pb.GetStartRequest{

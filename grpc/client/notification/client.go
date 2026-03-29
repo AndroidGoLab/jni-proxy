@@ -9,6 +9,1251 @@ import (
 	"google.golang.org/grpc"
 )
 
+// ManagerClient wraps the gRPC ManagerService client.
+type ManagerClient struct {
+	svc pb.ManagerServiceClient
+}
+
+// NewManagerClient creates a new Manager client.
+func NewManagerClient(cc grpc.ClientConnInterface) *ManagerClient {
+	return &ManagerClient{
+		svc: pb.NewManagerServiceClient(cc),
+	}
+}
+
+// AddAutomaticZenRule calls the AddAutomaticZenRule RPC.
+func (c *ManagerClient) AddAutomaticZenRule(ctx context.Context, arg0 int64) (string, error) {
+	resp, err := c.svc.AddAutomaticZenRule(ctx, &pb.AddAutomaticZenRuleRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// AreAutomaticZenRulesUserManaged calls the AreAutomaticZenRulesUserManaged RPC.
+func (c *ManagerClient) AreAutomaticZenRulesUserManaged(ctx context.Context) (bool, error) {
+	resp, err := c.svc.AreAutomaticZenRulesUserManaged(ctx, &pb.AreAutomaticZenRulesUserManagedRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AreBubblesAllowed calls the AreBubblesAllowed RPC.
+func (c *ManagerClient) AreBubblesAllowed(ctx context.Context) (bool, error) {
+	resp, err := c.svc.AreBubblesAllowed(ctx, &pb.AreBubblesAllowedRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AreBubblesEnabled calls the AreBubblesEnabled RPC.
+func (c *ManagerClient) AreBubblesEnabled(ctx context.Context) (bool, error) {
+	resp, err := c.svc.AreBubblesEnabled(ctx, &pb.AreBubblesEnabledRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AreNotificationsEnabled calls the AreNotificationsEnabled RPC.
+func (c *ManagerClient) AreNotificationsEnabled(ctx context.Context) (bool, error) {
+	resp, err := c.svc.AreNotificationsEnabled(ctx, &pb.AreNotificationsEnabledRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AreNotificationsPaused calls the AreNotificationsPaused RPC.
+func (c *ManagerClient) AreNotificationsPaused(ctx context.Context) (bool, error) {
+	resp, err := c.svc.AreNotificationsPaused(ctx, &pb.AreNotificationsPausedRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CanNotifyAsPackage calls the CanNotifyAsPackage RPC.
+func (c *ManagerClient) CanNotifyAsPackage(ctx context.Context, arg0 string) (bool, error) {
+	resp, err := c.svc.CanNotifyAsPackage(ctx, &pb.CanNotifyAsPackageRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CanPostPromotedNotifications calls the CanPostPromotedNotifications RPC.
+func (c *ManagerClient) CanPostPromotedNotifications(ctx context.Context) (bool, error) {
+	resp, err := c.svc.CanPostPromotedNotifications(ctx, &pb.CanPostPromotedNotificationsRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CanUseFullScreenIntent calls the CanUseFullScreenIntent RPC.
+func (c *ManagerClient) CanUseFullScreenIntent(ctx context.Context) (bool, error) {
+	resp, err := c.svc.CanUseFullScreenIntent(ctx, &pb.CanUseFullScreenIntentRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Cancel1 calls the Cancel1 RPC.
+func (c *ManagerClient) Cancel1(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.Cancel1(ctx, &pb.Cancel1Request{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// Cancel2_1 calls the Cancel2_1 RPC.
+func (c *ManagerClient) Cancel2_1(ctx context.Context, arg0 string, arg1 int32) error {
+	_, err := c.svc.Cancel2_1(ctx, &pb.Cancel2_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// CancelAll calls the CancelAll RPC.
+func (c *ManagerClient) CancelAll(ctx context.Context) error {
+	_, err := c.svc.CancelAll(ctx, &pb.CancelAllRequest{})
+	return err
+}
+
+// CancelAsPackage calls the CancelAsPackage RPC.
+func (c *ManagerClient) CancelAsPackage(ctx context.Context, arg0 string, arg1 string, arg2 int32) error {
+	_, err := c.svc.CancelAsPackage(ctx, &pb.CancelAsPackageRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// CreateNotificationChannel calls the CreateNotificationChannel RPC.
+func (c *ManagerClient) CreateNotificationChannel(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.CreateNotificationChannel(ctx, &pb.CreateNotificationChannelRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// CreateNotificationChannelGroup calls the CreateNotificationChannelGroup RPC.
+func (c *ManagerClient) CreateNotificationChannelGroup(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.CreateNotificationChannelGroup(ctx, &pb.CreateNotificationChannelGroupRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// DeleteNotificationChannel calls the DeleteNotificationChannel RPC.
+func (c *ManagerClient) DeleteNotificationChannel(ctx context.Context, arg0 string) error {
+	_, err := c.svc.DeleteNotificationChannel(ctx, &pb.DeleteNotificationChannelRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// DeleteNotificationChannelGroup calls the DeleteNotificationChannelGroup RPC.
+func (c *ManagerClient) DeleteNotificationChannelGroup(ctx context.Context, arg0 string) error {
+	_, err := c.svc.DeleteNotificationChannelGroup(ctx, &pb.DeleteNotificationChannelGroupRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// GetActiveNotifications calls the GetActiveNotifications RPC.
+func (c *ManagerClient) GetActiveNotifications(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetActiveNotifications(ctx, &pb.GetActiveNotificationsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAutomaticZenRule calls the GetAutomaticZenRule RPC.
+func (c *ManagerClient) GetAutomaticZenRule(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.GetAutomaticZenRule(ctx, &pb.GetAutomaticZenRuleRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAutomaticZenRuleState calls the GetAutomaticZenRuleState RPC.
+func (c *ManagerClient) GetAutomaticZenRuleState(ctx context.Context, arg0 string) (int32, error) {
+	resp, err := c.svc.GetAutomaticZenRuleState(ctx, &pb.GetAutomaticZenRuleStateRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetBubblePreference calls the GetBubblePreference RPC.
+func (c *ManagerClient) GetBubblePreference(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetBubblePreference(ctx, &pb.GetBubblePreferenceRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetConsolidatedNotificationPolicy calls the GetConsolidatedNotificationPolicy RPC.
+func (c *ManagerClient) GetConsolidatedNotificationPolicy(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetConsolidatedNotificationPolicy(ctx, &pb.GetConsolidatedNotificationPolicyRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCurrentInterruptionFilter calls the GetCurrentInterruptionFilter RPC.
+func (c *ManagerClient) GetCurrentInterruptionFilter(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetCurrentInterruptionFilter(ctx, &pb.GetCurrentInterruptionFilterRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetImportance calls the GetImportance RPC.
+func (c *ManagerClient) GetImportance(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetImportance(ctx, &pb.GetImportanceRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetNotificationChannel1 calls the GetNotificationChannel1 RPC.
+func (c *ManagerClient) GetNotificationChannel1(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.GetNotificationChannel1(ctx, &pb.GetNotificationChannel1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetNotificationChannel2_1 calls the GetNotificationChannel2_1 RPC.
+func (c *ManagerClient) GetNotificationChannel2_1(ctx context.Context, arg0 string, arg1 string) (int64, error) {
+	resp, err := c.svc.GetNotificationChannel2_1(ctx, &pb.GetNotificationChannel2_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetNotificationChannelGroup calls the GetNotificationChannelGroup RPC.
+func (c *ManagerClient) GetNotificationChannelGroup(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.GetNotificationChannelGroup(ctx, &pb.GetNotificationChannelGroupRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetNotificationChannelGroups calls the GetNotificationChannelGroups RPC.
+func (c *ManagerClient) GetNotificationChannelGroups(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetNotificationChannelGroups(ctx, &pb.GetNotificationChannelGroupsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetNotificationChannels calls the GetNotificationChannels RPC.
+func (c *ManagerClient) GetNotificationChannels(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetNotificationChannels(ctx, &pb.GetNotificationChannelsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetNotificationDelegate calls the GetNotificationDelegate RPC.
+func (c *ManagerClient) GetNotificationDelegate(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetNotificationDelegate(ctx, &pb.GetNotificationDelegateRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetNotificationPolicy calls the GetNotificationPolicy RPC.
+func (c *ManagerClient) GetNotificationPolicy(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetNotificationPolicy(ctx, &pb.GetNotificationPolicyRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsNotificationListenerAccessGranted calls the IsNotificationListenerAccessGranted RPC.
+func (c *ManagerClient) IsNotificationListenerAccessGranted(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.IsNotificationListenerAccessGranted(ctx, &pb.IsNotificationListenerAccessGrantedRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsNotificationPolicyAccessGranted calls the IsNotificationPolicyAccessGranted RPC.
+func (c *ManagerClient) IsNotificationPolicyAccessGranted(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsNotificationPolicyAccessGranted(ctx, &pb.IsNotificationPolicyAccessGrantedRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// MatchesCallFilter calls the MatchesCallFilter RPC.
+func (c *ManagerClient) MatchesCallFilter(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.MatchesCallFilter(ctx, &pb.MatchesCallFilterRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Notify2 calls the Notify2 RPC.
+func (c *ManagerClient) Notify2(ctx context.Context, arg0 int32, arg1 int64) error {
+	_, err := c.svc.Notify2(ctx, &pb.Notify2Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// Notify3_1 calls the Notify3_1 RPC.
+func (c *ManagerClient) Notify3_1(ctx context.Context, arg0 string, arg1 int32, arg2 int64) error {
+	_, err := c.svc.Notify3_1(ctx, &pb.Notify3_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// NotifyAsPackage calls the NotifyAsPackage RPC.
+func (c *ManagerClient) NotifyAsPackage(ctx context.Context, arg0 string, arg1 string, arg2 int32, arg3 int64) error {
+	_, err := c.svc.NotifyAsPackage(ctx, &pb.NotifyAsPackageRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	return err
+}
+
+// RemoveAutomaticZenRule calls the RemoveAutomaticZenRule RPC.
+func (c *ManagerClient) RemoveAutomaticZenRule(ctx context.Context, arg0 string) (bool, error) {
+	resp, err := c.svc.RemoveAutomaticZenRule(ctx, &pb.RemoveAutomaticZenRuleRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetAutomaticZenRuleState calls the SetAutomaticZenRuleState RPC.
+func (c *ManagerClient) SetAutomaticZenRuleState(ctx context.Context, arg0 string, arg1 int64) error {
+	_, err := c.svc.SetAutomaticZenRuleState(ctx, &pb.SetAutomaticZenRuleStateRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// SetInterruptionFilter calls the SetInterruptionFilter RPC.
+func (c *ManagerClient) SetInterruptionFilter(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.SetInterruptionFilter(ctx, &pb.SetInterruptionFilterRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetNotificationDelegate calls the SetNotificationDelegate RPC.
+func (c *ManagerClient) SetNotificationDelegate(ctx context.Context, arg0 string) error {
+	_, err := c.svc.SetNotificationDelegate(ctx, &pb.SetNotificationDelegateRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetNotificationPolicy calls the SetNotificationPolicy RPC.
+func (c *ManagerClient) SetNotificationPolicy(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetNotificationPolicy(ctx, &pb.SetNotificationPolicyRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// ShouldHideSilentStatusBarIcons calls the ShouldHideSilentStatusBarIcons RPC.
+func (c *ManagerClient) ShouldHideSilentStatusBarIcons(ctx context.Context) (bool, error) {
+	resp, err := c.svc.ShouldHideSilentStatusBarIcons(ctx, &pb.ShouldHideSilentStatusBarIconsRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// UpdateAutomaticZenRule calls the UpdateAutomaticZenRule RPC.
+func (c *ManagerClient) UpdateAutomaticZenRule(ctx context.Context, arg0 string, arg1 int64) (bool, error) {
+	resp, err := c.svc.UpdateAutomaticZenRule(ctx, &pb.UpdateAutomaticZenRuleRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ManagerPolicyClient wraps the gRPC ManagerPolicyService client.
+type ManagerPolicyClient struct {
+	svc pb.ManagerPolicyServiceClient
+}
+
+// NewManagerPolicyClient creates a new ManagerPolicy client.
+func NewManagerPolicyClient(cc grpc.ClientConnInterface) *ManagerPolicyClient {
+	return &ManagerPolicyClient{
+		svc: pb.NewManagerPolicyServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *ManagerPolicyClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *ManagerPolicyClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *ManagerPolicyClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *ManagerPolicyClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *ManagerPolicyClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// PriorityCategoriesToString calls the PriorityCategoriesToString RPC.
+func (c *ManagerPolicyClient) PriorityCategoriesToString(ctx context.Context, arg0 int32) (string, error) {
+	resp, err := c.svc.PriorityCategoriesToString(ctx, &pb.PriorityCategoriesToStringRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// PrioritySendersToString calls the PrioritySendersToString RPC.
+func (c *ManagerPolicyClient) PrioritySendersToString(ctx context.Context, arg0 int32) (string, error) {
+	resp, err := c.svc.PrioritySendersToString(ctx, &pb.PrioritySendersToStringRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// SuppressedEffectsToString calls the SuppressedEffectsToString RPC.
+func (c *ManagerPolicyClient) SuppressedEffectsToString(ctx context.Context, arg0 int32) (string, error) {
+	resp, err := c.svc.SuppressedEffectsToString(ctx, &pb.SuppressedEffectsToStringRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// ChannelClient wraps the gRPC ChannelService client.
+type ChannelClient struct {
+	svc pb.ChannelServiceClient
+}
+
+// NewChannelClient creates a new Channel client.
+func NewChannelClient(cc grpc.ClientConnInterface) *ChannelClient {
+	return &ChannelClient{
+		svc: pb.NewChannelServiceClient(cc),
+	}
+}
+
+// CanBubble calls the CanBubble RPC.
+func (c *ChannelClient) CanBubble(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.CanBubble(ctx, &pb.CanBubbleRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CanBypassDnd calls the CanBypassDnd RPC.
+func (c *ChannelClient) CanBypassDnd(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.CanBypassDnd(ctx, &pb.CanBypassDndRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CanShowBadge calls the CanShowBadge RPC.
+func (c *ChannelClient) CanShowBadge(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.CanShowBadge(ctx, &pb.CanShowBadgeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *ChannelClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.ChannelDescribeContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// EnableLights calls the EnableLights RPC.
+func (c *ChannelClient) EnableLights(ctx context.Context, handle int64, arg0 bool) error {
+	_, err := c.svc.EnableLights(ctx, &pb.EnableLightsRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// EnableVibration calls the EnableVibration RPC.
+func (c *ChannelClient) EnableVibration(ctx context.Context, handle int64, arg0 bool) error {
+	_, err := c.svc.EnableVibration(ctx, &pb.EnableVibrationRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// Equals calls the Equals RPC.
+func (c *ChannelClient) Equals(ctx context.Context, handle int64, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.ChannelEqualsRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAudioAttributes calls the GetAudioAttributes RPC.
+func (c *ChannelClient) GetAudioAttributes(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetAudioAttributes(ctx, &pb.GetAudioAttributesRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetConversationId calls the GetConversationId RPC.
+func (c *ChannelClient) GetConversationId(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetConversationId(ctx, &pb.GetConversationIdRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDescription calls the GetDescription RPC.
+func (c *ChannelClient) GetDescription(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetDescription(ctx, &pb.GetDescriptionRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetGroup calls the GetGroup RPC.
+func (c *ChannelClient) GetGroup(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetGroup(ctx, &pb.GetGroupRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetId calls the GetId RPC.
+func (c *ChannelClient) GetId(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetId(ctx, &pb.GetIdRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetImportance calls the GetImportance RPC.
+func (c *ChannelClient) GetImportance(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetImportance(ctx, &pb.ChannelGetImportanceRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLightColor calls the GetLightColor RPC.
+func (c *ChannelClient) GetLightColor(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetLightColor(ctx, &pb.GetLightColorRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLockscreenVisibility calls the GetLockscreenVisibility RPC.
+func (c *ChannelClient) GetLockscreenVisibility(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetLockscreenVisibility(ctx, &pb.GetLockscreenVisibilityRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetName calls the GetName RPC.
+func (c *ChannelClient) GetName(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetName(ctx, &pb.GetNameRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetParentChannelId calls the GetParentChannelId RPC.
+func (c *ChannelClient) GetParentChannelId(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetParentChannelId(ctx, &pb.GetParentChannelIdRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSound calls the GetSound RPC.
+func (c *ChannelClient) GetSound(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetSound(ctx, &pb.GetSoundRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetVibrationEffect calls the GetVibrationEffect RPC.
+func (c *ChannelClient) GetVibrationEffect(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetVibrationEffect(ctx, &pb.GetVibrationEffectRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetVibrationPattern calls the GetVibrationPattern RPC.
+func (c *ChannelClient) GetVibrationPattern(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetVibrationPattern(ctx, &pb.GetVibrationPatternRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasUserSetImportance calls the HasUserSetImportance RPC.
+func (c *ChannelClient) HasUserSetImportance(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.HasUserSetImportance(ctx, &pb.HasUserSetImportanceRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasUserSetSound calls the HasUserSetSound RPC.
+func (c *ChannelClient) HasUserSetSound(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.HasUserSetSound(ctx, &pb.HasUserSetSoundRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *ChannelClient) HashCode(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.ChannelHashCodeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsBlockable calls the IsBlockable RPC.
+func (c *ChannelClient) IsBlockable(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsBlockable(ctx, &pb.IsBlockableRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsConversation calls the IsConversation RPC.
+func (c *ChannelClient) IsConversation(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsConversation(ctx, &pb.IsConversationRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsDemoted calls the IsDemoted RPC.
+func (c *ChannelClient) IsDemoted(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsDemoted(ctx, &pb.IsDemotedRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsImportantConversation calls the IsImportantConversation RPC.
+func (c *ChannelClient) IsImportantConversation(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsImportantConversation(ctx, &pb.IsImportantConversationRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetAllowBubbles calls the SetAllowBubbles RPC.
+func (c *ChannelClient) SetAllowBubbles(ctx context.Context, handle int64, arg0 bool) error {
+	_, err := c.svc.SetAllowBubbles(ctx, &pb.SetAllowBubblesRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetBlockable calls the SetBlockable RPC.
+func (c *ChannelClient) SetBlockable(ctx context.Context, handle int64, arg0 bool) error {
+	_, err := c.svc.SetBlockable(ctx, &pb.SetBlockableRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetBypassDnd calls the SetBypassDnd RPC.
+func (c *ChannelClient) SetBypassDnd(ctx context.Context, handle int64, arg0 bool) error {
+	_, err := c.svc.SetBypassDnd(ctx, &pb.SetBypassDndRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetConversationId calls the SetConversationId RPC.
+func (c *ChannelClient) SetConversationId(ctx context.Context, handle int64, arg0 string, arg1 string) error {
+	_, err := c.svc.SetConversationId(ctx, &pb.SetConversationIdRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// SetDescription calls the SetDescription RPC.
+func (c *ChannelClient) SetDescription(ctx context.Context, handle int64, arg0 string) error {
+	_, err := c.svc.SetDescription(ctx, &pb.SetDescriptionRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetGroup calls the SetGroup RPC.
+func (c *ChannelClient) SetGroup(ctx context.Context, handle int64, arg0 string) error {
+	_, err := c.svc.SetGroup(ctx, &pb.SetGroupRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetImportance calls the SetImportance RPC.
+func (c *ChannelClient) SetImportance(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.SetImportance(ctx, &pb.SetImportanceRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetLightColor calls the SetLightColor RPC.
+func (c *ChannelClient) SetLightColor(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.SetLightColor(ctx, &pb.SetLightColorRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetLockscreenVisibility calls the SetLockscreenVisibility RPC.
+func (c *ChannelClient) SetLockscreenVisibility(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.SetLockscreenVisibility(ctx, &pb.SetLockscreenVisibilityRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetName calls the SetName RPC.
+func (c *ChannelClient) SetName(ctx context.Context, handle int64, arg0 string) error {
+	_, err := c.svc.SetName(ctx, &pb.SetNameRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetShowBadge calls the SetShowBadge RPC.
+func (c *ChannelClient) SetShowBadge(ctx context.Context, handle int64, arg0 bool) error {
+	_, err := c.svc.SetShowBadge(ctx, &pb.SetShowBadgeRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetSound calls the SetSound RPC.
+func (c *ChannelClient) SetSound(ctx context.Context, handle int64, arg0 int64, arg1 int64) error {
+	_, err := c.svc.SetSound(ctx, &pb.SetSoundRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// SetVibrationEffect calls the SetVibrationEffect RPC.
+func (c *ChannelClient) SetVibrationEffect(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetVibrationEffect(ctx, &pb.SetVibrationEffectRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetVibrationPattern calls the SetVibrationPattern RPC.
+func (c *ChannelClient) SetVibrationPattern(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetVibrationPattern(ctx, &pb.SetVibrationPatternRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// ShouldShowLights calls the ShouldShowLights RPC.
+func (c *ChannelClient) ShouldShowLights(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.ShouldShowLights(ctx, &pb.ShouldShowLightsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ShouldVibrate calls the ShouldVibrate RPC.
+func (c *ChannelClient) ShouldVibrate(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.ShouldVibrate(ctx, &pb.ShouldVibrateRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *ChannelClient) ToString(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ChannelToStringRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *ChannelClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.ChannelWriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// StatusBarNotificationClient wraps the gRPC StatusBarNotificationService client.
+type StatusBarNotificationClient struct {
+	svc pb.StatusBarNotificationServiceClient
+}
+
+// NewStatusBarNotificationClient creates a new StatusBarNotification client.
+func NewStatusBarNotificationClient(cc grpc.ClientConnInterface) *StatusBarNotificationClient {
+	return &StatusBarNotificationClient{
+		svc: pb.NewStatusBarNotificationServiceClient(cc),
+	}
+}
+
+// Clone0 calls the Clone0 RPC.
+func (c *StatusBarNotificationClient) Clone0(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.Clone0(ctx, &pb.Clone0Request{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *StatusBarNotificationClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.StatusBarNotificationDescribeContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetGroupKey calls the GetGroupKey RPC.
+func (c *StatusBarNotificationClient) GetGroupKey(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetGroupKey(ctx, &pb.GetGroupKeyRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetId calls the GetId RPC.
+func (c *StatusBarNotificationClient) GetId(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetId(ctx, &pb.GetIdRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetKey calls the GetKey RPC.
+func (c *StatusBarNotificationClient) GetKey(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetKey(ctx, &pb.GetKeyRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetNotification calls the GetNotification RPC.
+func (c *StatusBarNotificationClient) GetNotification(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetNotification(ctx, &pb.GetNotificationRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetOpPkg calls the GetOpPkg RPC.
+func (c *StatusBarNotificationClient) GetOpPkg(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetOpPkg(ctx, &pb.GetOpPkgRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetOverrideGroupKey calls the GetOverrideGroupKey RPC.
+func (c *StatusBarNotificationClient) GetOverrideGroupKey(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetOverrideGroupKey(ctx, &pb.GetOverrideGroupKeyRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPackageName calls the GetPackageName RPC.
+func (c *StatusBarNotificationClient) GetPackageName(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetPackageName(ctx, &pb.GetPackageNameRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPostTime calls the GetPostTime RPC.
+func (c *StatusBarNotificationClient) GetPostTime(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetPostTime(ctx, &pb.GetPostTimeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTag calls the GetTag RPC.
+func (c *StatusBarNotificationClient) GetTag(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetTag(ctx, &pb.GetTagRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetUid calls the GetUid RPC.
+func (c *StatusBarNotificationClient) GetUid(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetUid(ctx, &pb.GetUidRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetUser calls the GetUser RPC.
+func (c *StatusBarNotificationClient) GetUser(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetUser(ctx, &pb.GetUserRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetUserId calls the GetUserId RPC.
+func (c *StatusBarNotificationClient) GetUserId(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetUserId(ctx, &pb.GetUserIdRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsAppGroup calls the IsAppGroup RPC.
+func (c *StatusBarNotificationClient) IsAppGroup(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsAppGroup(ctx, &pb.IsAppGroupRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsClearable calls the IsClearable RPC.
+func (c *StatusBarNotificationClient) IsClearable(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsClearable(ctx, &pb.IsClearableRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsGroup calls the IsGroup RPC.
+func (c *StatusBarNotificationClient) IsGroup(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsGroup(ctx, &pb.IsGroupRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsOngoing calls the IsOngoing RPC.
+func (c *StatusBarNotificationClient) IsOngoing(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsOngoing(ctx, &pb.IsOngoingRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetOverrideGroupKey calls the SetOverrideGroupKey RPC.
+func (c *StatusBarNotificationClient) SetOverrideGroupKey(ctx context.Context, handle int64, arg0 string) error {
+	_, err := c.svc.SetOverrideGroupKey(ctx, &pb.SetOverrideGroupKeyRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// ToString calls the ToString RPC.
+func (c *StatusBarNotificationClient) ToString(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.StatusBarNotificationToStringRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *StatusBarNotificationClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.StatusBarNotificationWriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// Clone0_1 calls the Clone0_1 RPC.
+func (c *StatusBarNotificationClient) Clone0_1(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.Clone0_1(ctx, &pb.Clone0_1Request{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // NotificationClient wraps the gRPC NotificationService client.
 type NotificationClient struct {
 	svc pb.NotificationServiceClient
@@ -34,7 +1279,7 @@ func (c *NotificationClient) Clone0(ctx context.Context, handle int64) (int64, e
 
 // DescribeContents calls the DescribeContents RPC.
 func (c *NotificationClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{
+	resp, err := c.svc.DescribeContents(ctx, &pb.NotificationDescribeContentsRequest{
 		Handle: handle,
 	})
 	if err != nil {
@@ -83,6 +1328,17 @@ func (c *NotificationClient) GetChannelId(ctx context.Context, handle int64) (st
 	})
 	if err != nil {
 		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetContextualActions calls the GetContextualActions RPC.
+func (c *NotificationClient) GetContextualActions(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetContextualActions(ctx, &pb.GetContextualActionsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
 	}
 	return resp.GetResult(), nil
 }
@@ -221,7 +1477,7 @@ func (c *NotificationClient) HasPromotableCharacteristics(ctx context.Context, h
 
 // ToString calls the ToString RPC.
 func (c *NotificationClient) ToString(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{
+	resp, err := c.svc.ToString(ctx, &pb.NotificationToStringRequest{
 		Handle: handle,
 	})
 	if err != nil {
@@ -232,7 +1488,7 @@ func (c *NotificationClient) ToString(ctx context.Context, handle int64) (string
 
 // WriteToParcel calls the WriteToParcel RPC.
 func (c *NotificationClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+	_, err := c.svc.WriteToParcel(ctx, &pb.NotificationWriteToParcelRequest{
 		Handle: handle,
 		Arg0:   arg0,
 		Arg1:   arg1,
@@ -274,7 +1530,7 @@ func (c *ActionClient) Clone0(ctx context.Context) (int64, error) {
 
 // DescribeContents calls the DescribeContents RPC.
 func (c *ActionClient) DescribeContents(ctx context.Context) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.ActionDescribeContentsRequest{})
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
 	if err != nil {
 		return 0, err
 	}
@@ -355,7 +1611,7 @@ func (c *ActionClient) IsContextual(ctx context.Context) (bool, error) {
 
 // WriteToParcel calls the WriteToParcel RPC.
 func (c *ActionClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.ActionWriteToParcelRequest{
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
 		Arg0: arg0,
 		Arg1: arg1,
 	})
@@ -530,7 +1786,7 @@ func NewBubbleMetadataClient(cc grpc.ClientConnInterface) *BubbleMetadataClient 
 
 // DescribeContents calls the DescribeContents RPC.
 func (c *BubbleMetadataClient) DescribeContents(ctx context.Context) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.BubbleMetadataDescribeContentsRequest{})
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
 	if err != nil {
 		return 0, err
 	}
@@ -629,7 +1885,7 @@ func (c *BubbleMetadataClient) IsNotificationSuppressed(ctx context.Context) (bo
 
 // WriteToParcel calls the WriteToParcel RPC.
 func (c *BubbleMetadataClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.BubbleMetadataWriteToParcelRequest{
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
 		Arg0: arg0,
 		Arg1: arg1,
 	})
@@ -763,7 +2019,7 @@ func (c *BuilderClient) GetExtras(ctx context.Context) (int64, error) {
 
 // GetNotification calls the GetNotification RPC.
 func (c *BuilderClient) GetNotification(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetNotification(ctx, &pb.GetNotificationRequest{})
+	resp, err := c.svc.GetNotification(ctx, &pb.BuilderGetNotificationRequest{})
 	if err != nil {
 		return 0, err
 	}
@@ -1047,7 +2303,7 @@ func (c *BuilderClient) SetFullScreenIntent(ctx context.Context, arg0 int64, arg
 
 // SetGroup calls the SetGroup RPC.
 func (c *BuilderClient) SetGroup(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.SetGroup(ctx, &pb.SetGroupRequest{
+	resp, err := c.svc.SetGroup(ctx, &pb.BuilderSetGroupRequest{
 		Arg0: arg0,
 	})
 	if err != nil {
@@ -1822,9 +3078,27 @@ func (c *MessagingStyleClient) GetConversationTitle(ctx context.Context) (int64,
 	return resp.GetResult(), nil
 }
 
+// GetHistoricMessages calls the GetHistoricMessages RPC.
+func (c *MessagingStyleClient) GetHistoricMessages(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetHistoricMessages(ctx, &pb.GetHistoricMessagesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMessages calls the GetMessages RPC.
+func (c *MessagingStyleClient) GetMessages(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetMessages(ctx, &pb.GetMessagesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // GetUser calls the GetUser RPC.
 func (c *MessagingStyleClient) GetUser(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetUser(ctx, &pb.GetUserRequest{})
+	resp, err := c.svc.GetUser(ctx, &pb.MessagingStyleGetUserRequest{})
 	if err != nil {
 		return 0, err
 	}
@@ -1926,6 +3200,24 @@ func (c *ProgressStyleClient) GetProgressEndIcon(ctx context.Context) (int64, er
 // GetProgressMax calls the GetProgressMax RPC.
 func (c *ProgressStyleClient) GetProgressMax(ctx context.Context) (int32, error) {
 	resp, err := c.svc.GetProgressMax(ctx, &pb.GetProgressMaxRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetProgressPoints calls the GetProgressPoints RPC.
+func (c *ProgressStyleClient) GetProgressPoints(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetProgressPoints(ctx, &pb.GetProgressPointsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetProgressSegments calls the GetProgressSegments RPC.
+func (c *ProgressStyleClient) GetProgressSegments(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetProgressSegments(ctx, &pb.GetProgressSegmentsRequest{})
 	if err != nil {
 		return 0, err
 	}
@@ -2247,6 +3539,15 @@ func (c *WearableExtenderClient) Extend(ctx context.Context, arg0 int64) (int64,
 	return resp.GetResult(), nil
 }
 
+// GetActions calls the GetActions RPC.
+func (c *WearableExtenderClient) GetActions(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetActions(ctx, &pb.GetActionsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // GetBridgeTag calls the GetBridgeTag RPC.
 func (c *WearableExtenderClient) GetBridgeTag(ctx context.Context) (string, error) {
 	resp, err := c.svc.GetBridgeTag(ctx, &pb.GetBridgeTagRequest{})
@@ -2387,6 +3688,15 @@ func (c *WearableExtenderClient) GetHintShowBackgroundOnly(ctx context.Context) 
 	resp, err := c.svc.GetHintShowBackgroundOnly(ctx, &pb.GetHintShowBackgroundOnlyRequest{})
 	if err != nil {
 		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPages calls the GetPages RPC.
+func (c *WearableExtenderClient) GetPages(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetPages(ctx, &pb.GetPagesRequest{})
+	if err != nil {
+		return 0, err
 	}
 	return resp.GetResult(), nil
 }
@@ -2596,679 +3906,21 @@ func (c *WearableExtenderClient) Clone0_1(ctx context.Context) (int64, error) {
 	return resp.GetResult(), nil
 }
 
-// StatusBarNotificationClient wraps the gRPC StatusBarNotificationService client.
-type StatusBarNotificationClient struct {
-	svc pb.StatusBarNotificationServiceClient
-}
-
-// NewStatusBarNotificationClient creates a new StatusBarNotification client.
-func NewStatusBarNotificationClient(cc grpc.ClientConnInterface) *StatusBarNotificationClient {
-	return &StatusBarNotificationClient{
-		svc: pb.NewStatusBarNotificationServiceClient(cc),
-	}
-}
-
-// Clone0 calls the Clone0 RPC.
-func (c *StatusBarNotificationClient) Clone0(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.Clone0(ctx, &pb.Clone0Request{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *StatusBarNotificationClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetGroupKey calls the GetGroupKey RPC.
-func (c *StatusBarNotificationClient) GetGroupKey(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.GetGroupKey(ctx, &pb.GetGroupKeyRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetId calls the GetId RPC.
-func (c *StatusBarNotificationClient) GetId(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetId(ctx, &pb.GetIdRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetKey calls the GetKey RPC.
-func (c *StatusBarNotificationClient) GetKey(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.GetKey(ctx, &pb.GetKeyRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetNotification calls the GetNotification RPC.
-func (c *StatusBarNotificationClient) GetNotification(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetNotification(ctx, &pb.StatusBarNotificationGetNotificationRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetOpPkg calls the GetOpPkg RPC.
-func (c *StatusBarNotificationClient) GetOpPkg(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.GetOpPkg(ctx, &pb.GetOpPkgRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetOverrideGroupKey calls the GetOverrideGroupKey RPC.
-func (c *StatusBarNotificationClient) GetOverrideGroupKey(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.GetOverrideGroupKey(ctx, &pb.GetOverrideGroupKeyRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetPackageName calls the GetPackageName RPC.
-func (c *StatusBarNotificationClient) GetPackageName(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.GetPackageName(ctx, &pb.GetPackageNameRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetPostTime calls the GetPostTime RPC.
-func (c *StatusBarNotificationClient) GetPostTime(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetPostTime(ctx, &pb.GetPostTimeRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetTag calls the GetTag RPC.
-func (c *StatusBarNotificationClient) GetTag(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.GetTag(ctx, &pb.GetTagRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetUid calls the GetUid RPC.
-func (c *StatusBarNotificationClient) GetUid(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetUid(ctx, &pb.GetUidRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetUser calls the GetUser RPC.
-func (c *StatusBarNotificationClient) GetUser(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetUser(ctx, &pb.StatusBarNotificationGetUserRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetUserId calls the GetUserId RPC.
-func (c *StatusBarNotificationClient) GetUserId(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetUserId(ctx, &pb.GetUserIdRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsAppGroup calls the IsAppGroup RPC.
-func (c *StatusBarNotificationClient) IsAppGroup(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.IsAppGroup(ctx, &pb.IsAppGroupRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsClearable calls the IsClearable RPC.
-func (c *StatusBarNotificationClient) IsClearable(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.IsClearable(ctx, &pb.IsClearableRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsGroup calls the IsGroup RPC.
-func (c *StatusBarNotificationClient) IsGroup(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.IsGroup(ctx, &pb.IsGroupRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsOngoing calls the IsOngoing RPC.
-func (c *StatusBarNotificationClient) IsOngoing(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.IsOngoing(ctx, &pb.IsOngoingRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetOverrideGroupKey calls the SetOverrideGroupKey RPC.
-func (c *StatusBarNotificationClient) SetOverrideGroupKey(ctx context.Context, handle int64, arg0 string) error {
-	_, err := c.svc.SetOverrideGroupKey(ctx, &pb.SetOverrideGroupKeyRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// ToString calls the ToString RPC.
-func (c *StatusBarNotificationClient) ToString(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *StatusBarNotificationClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// Clone0_1 calls the Clone0_1 RPC.
-func (c *StatusBarNotificationClient) Clone0_1(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.Clone0_1(ctx, &pb.Clone0_1Request{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ManagerClient wraps the gRPC ManagerService client.
-type ManagerClient struct {
-	svc pb.ManagerServiceClient
-}
-
-// NewManagerClient creates a new Manager client.
-func NewManagerClient(cc grpc.ClientConnInterface) *ManagerClient {
-	return &ManagerClient{
-		svc: pb.NewManagerServiceClient(cc),
-	}
-}
-
-// AddAutomaticZenRule calls the AddAutomaticZenRule RPC.
-func (c *ManagerClient) AddAutomaticZenRule(ctx context.Context, arg0 int64) (string, error) {
-	resp, err := c.svc.AddAutomaticZenRule(ctx, &pb.AddAutomaticZenRuleRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// AreAutomaticZenRulesUserManaged calls the AreAutomaticZenRulesUserManaged RPC.
-func (c *ManagerClient) AreAutomaticZenRulesUserManaged(ctx context.Context) (bool, error) {
-	resp, err := c.svc.AreAutomaticZenRulesUserManaged(ctx, &pb.AreAutomaticZenRulesUserManagedRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// AreBubblesAllowed calls the AreBubblesAllowed RPC.
-func (c *ManagerClient) AreBubblesAllowed(ctx context.Context) (bool, error) {
-	resp, err := c.svc.AreBubblesAllowed(ctx, &pb.AreBubblesAllowedRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// AreBubblesEnabled calls the AreBubblesEnabled RPC.
-func (c *ManagerClient) AreBubblesEnabled(ctx context.Context) (bool, error) {
-	resp, err := c.svc.AreBubblesEnabled(ctx, &pb.AreBubblesEnabledRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// AreNotificationsEnabled calls the AreNotificationsEnabled RPC.
-func (c *ManagerClient) AreNotificationsEnabled(ctx context.Context) (bool, error) {
-	resp, err := c.svc.AreNotificationsEnabled(ctx, &pb.AreNotificationsEnabledRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// AreNotificationsPaused calls the AreNotificationsPaused RPC.
-func (c *ManagerClient) AreNotificationsPaused(ctx context.Context) (bool, error) {
-	resp, err := c.svc.AreNotificationsPaused(ctx, &pb.AreNotificationsPausedRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// CanNotifyAsPackage calls the CanNotifyAsPackage RPC.
-func (c *ManagerClient) CanNotifyAsPackage(ctx context.Context, arg0 string) (bool, error) {
-	resp, err := c.svc.CanNotifyAsPackage(ctx, &pb.CanNotifyAsPackageRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// CanPostPromotedNotifications calls the CanPostPromotedNotifications RPC.
-func (c *ManagerClient) CanPostPromotedNotifications(ctx context.Context) (bool, error) {
-	resp, err := c.svc.CanPostPromotedNotifications(ctx, &pb.CanPostPromotedNotificationsRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// CanUseFullScreenIntent calls the CanUseFullScreenIntent RPC.
-func (c *ManagerClient) CanUseFullScreenIntent(ctx context.Context) (bool, error) {
-	resp, err := c.svc.CanUseFullScreenIntent(ctx, &pb.CanUseFullScreenIntentRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Cancel1 calls the Cancel1 RPC.
-func (c *ManagerClient) Cancel1(ctx context.Context, arg0 int32) error {
-	_, err := c.svc.Cancel1(ctx, &pb.Cancel1Request{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// Cancel2_1 calls the Cancel2_1 RPC.
-func (c *ManagerClient) Cancel2_1(ctx context.Context, arg0 string, arg1 int32) error {
-	_, err := c.svc.Cancel2_1(ctx, &pb.Cancel2_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// CancelAll calls the CancelAll RPC.
-func (c *ManagerClient) CancelAll(ctx context.Context) error {
-	_, err := c.svc.CancelAll(ctx, &pb.CancelAllRequest{})
-	return err
-}
-
-// CancelAsPackage calls the CancelAsPackage RPC.
-func (c *ManagerClient) CancelAsPackage(ctx context.Context, arg0 string, arg1 string, arg2 int32) error {
-	_, err := c.svc.CancelAsPackage(ctx, &pb.CancelAsPackageRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	return err
-}
-
-// CreateNotificationChannel calls the CreateNotificationChannel RPC.
-func (c *ManagerClient) CreateNotificationChannel(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.CreateNotificationChannel(ctx, &pb.CreateNotificationChannelRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// CreateNotificationChannelGroup calls the CreateNotificationChannelGroup RPC.
-func (c *ManagerClient) CreateNotificationChannelGroup(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.CreateNotificationChannelGroup(ctx, &pb.CreateNotificationChannelGroupRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// DeleteNotificationChannel calls the DeleteNotificationChannel RPC.
-func (c *ManagerClient) DeleteNotificationChannel(ctx context.Context, arg0 string) error {
-	_, err := c.svc.DeleteNotificationChannel(ctx, &pb.DeleteNotificationChannelRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// DeleteNotificationChannelGroup calls the DeleteNotificationChannelGroup RPC.
-func (c *ManagerClient) DeleteNotificationChannelGroup(ctx context.Context, arg0 string) error {
-	_, err := c.svc.DeleteNotificationChannelGroup(ctx, &pb.DeleteNotificationChannelGroupRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// GetActiveNotifications calls the GetActiveNotifications RPC.
-func (c *ManagerClient) GetActiveNotifications(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetActiveNotifications(ctx, &pb.GetActiveNotificationsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetAutomaticZenRule calls the GetAutomaticZenRule RPC.
-func (c *ManagerClient) GetAutomaticZenRule(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.GetAutomaticZenRule(ctx, &pb.GetAutomaticZenRuleRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetAutomaticZenRuleState calls the GetAutomaticZenRuleState RPC.
-func (c *ManagerClient) GetAutomaticZenRuleState(ctx context.Context, arg0 string) (int32, error) {
-	resp, err := c.svc.GetAutomaticZenRuleState(ctx, &pb.GetAutomaticZenRuleStateRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetBubblePreference calls the GetBubblePreference RPC.
-func (c *ManagerClient) GetBubblePreference(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetBubblePreference(ctx, &pb.GetBubblePreferenceRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetConsolidatedNotificationPolicy calls the GetConsolidatedNotificationPolicy RPC.
-func (c *ManagerClient) GetConsolidatedNotificationPolicy(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetConsolidatedNotificationPolicy(ctx, &pb.GetConsolidatedNotificationPolicyRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetCurrentInterruptionFilter calls the GetCurrentInterruptionFilter RPC.
-func (c *ManagerClient) GetCurrentInterruptionFilter(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetCurrentInterruptionFilter(ctx, &pb.GetCurrentInterruptionFilterRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetImportance calls the GetImportance RPC.
-func (c *ManagerClient) GetImportance(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetImportance(ctx, &pb.GetImportanceRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetNotificationChannel1 calls the GetNotificationChannel1 RPC.
-func (c *ManagerClient) GetNotificationChannel1(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.GetNotificationChannel1(ctx, &pb.GetNotificationChannel1Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetNotificationChannel2_1 calls the GetNotificationChannel2_1 RPC.
-func (c *ManagerClient) GetNotificationChannel2_1(ctx context.Context, arg0 string, arg1 string) (int64, error) {
-	resp, err := c.svc.GetNotificationChannel2_1(ctx, &pb.GetNotificationChannel2_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetNotificationChannelGroup calls the GetNotificationChannelGroup RPC.
-func (c *ManagerClient) GetNotificationChannelGroup(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.GetNotificationChannelGroup(ctx, &pb.GetNotificationChannelGroupRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetNotificationDelegate calls the GetNotificationDelegate RPC.
-func (c *ManagerClient) GetNotificationDelegate(ctx context.Context) (string, error) {
-	resp, err := c.svc.GetNotificationDelegate(ctx, &pb.GetNotificationDelegateRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetNotificationPolicy calls the GetNotificationPolicy RPC.
-func (c *ManagerClient) GetNotificationPolicy(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetNotificationPolicy(ctx, &pb.GetNotificationPolicyRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsNotificationListenerAccessGranted calls the IsNotificationListenerAccessGranted RPC.
-func (c *ManagerClient) IsNotificationListenerAccessGranted(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.IsNotificationListenerAccessGranted(ctx, &pb.IsNotificationListenerAccessGrantedRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsNotificationPolicyAccessGranted calls the IsNotificationPolicyAccessGranted RPC.
-func (c *ManagerClient) IsNotificationPolicyAccessGranted(ctx context.Context) (bool, error) {
-	resp, err := c.svc.IsNotificationPolicyAccessGranted(ctx, &pb.IsNotificationPolicyAccessGrantedRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// MatchesCallFilter calls the MatchesCallFilter RPC.
-func (c *ManagerClient) MatchesCallFilter(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.MatchesCallFilter(ctx, &pb.MatchesCallFilterRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Notify2 calls the Notify2 RPC.
-func (c *ManagerClient) Notify2(ctx context.Context, arg0 int32, arg1 int64) error {
-	_, err := c.svc.Notify2(ctx, &pb.Notify2Request{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// Notify3_1 calls the Notify3_1 RPC.
-func (c *ManagerClient) Notify3_1(ctx context.Context, arg0 string, arg1 int32, arg2 int64) error {
-	_, err := c.svc.Notify3_1(ctx, &pb.Notify3_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	return err
-}
-
-// NotifyAsPackage calls the NotifyAsPackage RPC.
-func (c *ManagerClient) NotifyAsPackage(ctx context.Context, arg0 string, arg1 string, arg2 int32, arg3 int64) error {
-	_, err := c.svc.NotifyAsPackage(ctx, &pb.NotifyAsPackageRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-	})
-	return err
-}
-
-// RemoveAutomaticZenRule calls the RemoveAutomaticZenRule RPC.
-func (c *ManagerClient) RemoveAutomaticZenRule(ctx context.Context, arg0 string) (bool, error) {
-	resp, err := c.svc.RemoveAutomaticZenRule(ctx, &pb.RemoveAutomaticZenRuleRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetAutomaticZenRuleState calls the SetAutomaticZenRuleState RPC.
-func (c *ManagerClient) SetAutomaticZenRuleState(ctx context.Context, arg0 string, arg1 int64) error {
-	_, err := c.svc.SetAutomaticZenRuleState(ctx, &pb.SetAutomaticZenRuleStateRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// SetInterruptionFilter calls the SetInterruptionFilter RPC.
-func (c *ManagerClient) SetInterruptionFilter(ctx context.Context, arg0 int32) error {
-	_, err := c.svc.SetInterruptionFilter(ctx, &pb.SetInterruptionFilterRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetNotificationDelegate calls the SetNotificationDelegate RPC.
-func (c *ManagerClient) SetNotificationDelegate(ctx context.Context, arg0 string) error {
-	_, err := c.svc.SetNotificationDelegate(ctx, &pb.SetNotificationDelegateRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetNotificationPolicy calls the SetNotificationPolicy RPC.
-func (c *ManagerClient) SetNotificationPolicy(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.SetNotificationPolicy(ctx, &pb.SetNotificationPolicyRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// ShouldHideSilentStatusBarIcons calls the ShouldHideSilentStatusBarIcons RPC.
-func (c *ManagerClient) ShouldHideSilentStatusBarIcons(ctx context.Context) (bool, error) {
-	resp, err := c.svc.ShouldHideSilentStatusBarIcons(ctx, &pb.ShouldHideSilentStatusBarIconsRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// UpdateAutomaticZenRule calls the UpdateAutomaticZenRule RPC.
-func (c *ManagerClient) UpdateAutomaticZenRule(ctx context.Context, arg0 string, arg1 int64) (bool, error) {
-	resp, err := c.svc.UpdateAutomaticZenRule(ctx, &pb.UpdateAutomaticZenRuleRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ManagerPolicyClient wraps the gRPC ManagerPolicyService client.
-type ManagerPolicyClient struct {
-	svc pb.ManagerPolicyServiceClient
-}
-
-// NewManagerPolicyClient creates a new ManagerPolicy client.
-func NewManagerPolicyClient(cc grpc.ClientConnInterface) *ManagerPolicyClient {
-	return &ManagerPolicyClient{
-		svc: pb.NewManagerPolicyServiceClient(cc),
+// ZenDeviceEffectsClient wraps the gRPC ZenDeviceEffectsService client.
+type ZenDeviceEffectsClient struct {
+	svc pb.ZenDeviceEffectsServiceClient
+}
+
+// NewZenDeviceEffectsClient creates a new ZenDeviceEffects client.
+func NewZenDeviceEffectsClient(cc grpc.ClientConnInterface) *ZenDeviceEffectsClient {
+	return &ZenDeviceEffectsClient{
+		svc: pb.NewZenDeviceEffectsServiceClient(cc),
 	}
 }
 
 // DescribeContents calls the DescribeContents RPC.
-func (c *ManagerPolicyClient) DescribeContents(ctx context.Context) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.ManagerPolicyDescribeContentsRequest{})
+func (c *ZenDeviceEffectsClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
 	if err != nil {
 		return 0, err
 	}
@@ -3276,7 +3928,7 @@ func (c *ManagerPolicyClient) DescribeContents(ctx context.Context) (int32, erro
 }
 
 // Equals calls the Equals RPC.
-func (c *ManagerPolicyClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+func (c *ZenDeviceEffectsClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
 	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
 		Arg0: arg0,
 	})
@@ -3287,7 +3939,7 @@ func (c *ManagerPolicyClient) Equals(ctx context.Context, arg0 int64) (bool, err
 }
 
 // HashCode calls the HashCode RPC.
-func (c *ManagerPolicyClient) HashCode(ctx context.Context) (int32, error) {
+func (c *ZenDeviceEffectsClient) HashCode(ctx context.Context) (int32, error) {
 	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
 	if err != nil {
 		return 0, err
@@ -3295,9 +3947,45 @@ func (c *ManagerPolicyClient) HashCode(ctx context.Context) (int32, error) {
 	return resp.GetResult(), nil
 }
 
+// ShouldDimWallpaper calls the ShouldDimWallpaper RPC.
+func (c *ZenDeviceEffectsClient) ShouldDimWallpaper(ctx context.Context) (bool, error) {
+	resp, err := c.svc.ShouldDimWallpaper(ctx, &pb.ShouldDimWallpaperRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ShouldDisplayGrayscale calls the ShouldDisplayGrayscale RPC.
+func (c *ZenDeviceEffectsClient) ShouldDisplayGrayscale(ctx context.Context) (bool, error) {
+	resp, err := c.svc.ShouldDisplayGrayscale(ctx, &pb.ShouldDisplayGrayscaleRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ShouldSuppressAmbientDisplay calls the ShouldSuppressAmbientDisplay RPC.
+func (c *ZenDeviceEffectsClient) ShouldSuppressAmbientDisplay(ctx context.Context) (bool, error) {
+	resp, err := c.svc.ShouldSuppressAmbientDisplay(ctx, &pb.ShouldSuppressAmbientDisplayRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ShouldUseNightMode calls the ShouldUseNightMode RPC.
+func (c *ZenDeviceEffectsClient) ShouldUseNightMode(ctx context.Context) (bool, error) {
+	resp, err := c.svc.ShouldUseNightMode(ctx, &pb.ShouldUseNightModeRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
 // ToString calls the ToString RPC.
-func (c *ManagerPolicyClient) ToString(ctx context.Context) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ManagerPolicyToStringRequest{})
+func (c *ZenDeviceEffectsClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
 	if err != nil {
 		return "", err
 	}
@@ -3305,75 +3993,430 @@ func (c *ManagerPolicyClient) ToString(ctx context.Context) (string, error) {
 }
 
 // WriteToParcel calls the WriteToParcel RPC.
-func (c *ManagerPolicyClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.ManagerPolicyWriteToParcelRequest{
+func (c *ZenDeviceEffectsClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
 		Arg0: arg0,
 		Arg1: arg1,
 	})
 	return err
 }
 
-// PriorityCategoriesToString calls the PriorityCategoriesToString RPC.
-func (c *ManagerPolicyClient) PriorityCategoriesToString(ctx context.Context, arg0 int32) (string, error) {
-	resp, err := c.svc.PriorityCategoriesToString(ctx, &pb.PriorityCategoriesToStringRequest{
-		Arg0: arg0,
-	})
+// ZenDeviceEffectsBuilderClient wraps the gRPC ZenDeviceEffectsBuilderService client.
+type ZenDeviceEffectsBuilderClient struct {
+	svc pb.ZenDeviceEffectsBuilderServiceClient
+}
+
+// NewZenDeviceEffectsBuilderClient creates a new ZenDeviceEffectsBuilder client.
+func NewZenDeviceEffectsBuilderClient(cc grpc.ClientConnInterface) *ZenDeviceEffectsBuilderClient {
+	return &ZenDeviceEffectsBuilderClient{
+		svc: pb.NewZenDeviceEffectsBuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *ZenDeviceEffectsBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
 	if err != nil {
-		return "", err
+		return 0, err
 	}
 	return resp.GetResult(), nil
 }
 
-// PrioritySendersToString calls the PrioritySendersToString RPC.
-func (c *ManagerPolicyClient) PrioritySendersToString(ctx context.Context, arg0 int32) (string, error) {
-	resp, err := c.svc.PrioritySendersToString(ctx, &pb.PrioritySendersToStringRequest{
+// SetShouldDimWallpaper calls the SetShouldDimWallpaper RPC.
+func (c *ZenDeviceEffectsBuilderClient) SetShouldDimWallpaper(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetShouldDimWallpaper(ctx, &pb.SetShouldDimWallpaperRequest{
 		Arg0: arg0,
 	})
 	if err != nil {
-		return "", err
+		return 0, err
 	}
 	return resp.GetResult(), nil
 }
 
-// SuppressedEffectsToString calls the SuppressedEffectsToString RPC.
-func (c *ManagerPolicyClient) SuppressedEffectsToString(ctx context.Context, arg0 int32) (string, error) {
-	resp, err := c.svc.SuppressedEffectsToString(ctx, &pb.SuppressedEffectsToStringRequest{
+// SetShouldDisplayGrayscale calls the SetShouldDisplayGrayscale RPC.
+func (c *ZenDeviceEffectsBuilderClient) SetShouldDisplayGrayscale(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetShouldDisplayGrayscale(ctx, &pb.SetShouldDisplayGrayscaleRequest{
 		Arg0: arg0,
 	})
 	if err != nil {
-		return "", err
+		return 0, err
 	}
 	return resp.GetResult(), nil
 }
 
-// ChannelClient wraps the gRPC ChannelService client.
-type ChannelClient struct {
-	svc pb.ChannelServiceClient
+// SetShouldSuppressAmbientDisplay calls the SetShouldSuppressAmbientDisplay RPC.
+func (c *ZenDeviceEffectsBuilderClient) SetShouldSuppressAmbientDisplay(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetShouldSuppressAmbientDisplay(ctx, &pb.SetShouldSuppressAmbientDisplayRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
 }
 
-// NewChannelClient creates a new Channel client.
-func NewChannelClient(cc grpc.ClientConnInterface) *ChannelClient {
-	return &ChannelClient{
-		svc: pb.NewChannelServiceClient(cc),
+// SetShouldUseNightMode calls the SetShouldUseNightMode RPC.
+func (c *ZenDeviceEffectsBuilderClient) SetShouldUseNightMode(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetShouldUseNightMode(ctx, &pb.SetShouldUseNightModeRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ListenerServiceClient wraps the gRPC ListenerServiceService client.
+type ListenerServiceClient struct {
+	svc pb.ListenerServiceServiceClient
+}
+
+// NewListenerServiceClient creates a new ListenerService client.
+func NewListenerServiceClient(cc grpc.ClientConnInterface) *ListenerServiceClient {
+	return &ListenerServiceClient{
+		svc: pb.NewListenerServiceServiceClient(cc),
+	}
+}
+
+// CancelAllNotifications calls the CancelAllNotifications RPC.
+func (c *ListenerServiceClient) CancelAllNotifications(ctx context.Context) error {
+	_, err := c.svc.CancelAllNotifications(ctx, &pb.CancelAllNotificationsRequest{})
+	return err
+}
+
+// CancelNotification1 calls the CancelNotification1 RPC.
+func (c *ListenerServiceClient) CancelNotification1(ctx context.Context, arg0 string) error {
+	_, err := c.svc.CancelNotification1(ctx, &pb.CancelNotification1Request{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// CancelNotification3_1 calls the CancelNotification3_1 RPC.
+func (c *ListenerServiceClient) CancelNotification3_1(ctx context.Context, arg0 string, arg1 string, arg2 int32) error {
+	_, err := c.svc.CancelNotification3_1(ctx, &pb.CancelNotification3_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// CancelNotifications calls the CancelNotifications RPC.
+func (c *ListenerServiceClient) CancelNotifications(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.CancelNotifications(ctx, &pb.CancelNotificationsRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// ClearRequestedListenerHints calls the ClearRequestedListenerHints RPC.
+func (c *ListenerServiceClient) ClearRequestedListenerHints(ctx context.Context) error {
+	_, err := c.svc.ClearRequestedListenerHints(ctx, &pb.ClearRequestedListenerHintsRequest{})
+	return err
+}
+
+// CreateConversationNotificationChannelForPackage calls the CreateConversationNotificationChannelForPackage RPC.
+func (c *ListenerServiceClient) CreateConversationNotificationChannelForPackage(ctx context.Context, arg0 string, arg1 int64, arg2 string, arg3 string) (int64, error) {
+	resp, err := c.svc.CreateConversationNotificationChannelForPackage(ctx, &pb.CreateConversationNotificationChannelForPackageRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetActiveNotifications0 calls the GetActiveNotifications0 RPC.
+func (c *ListenerServiceClient) GetActiveNotifications0(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetActiveNotifications0(ctx, &pb.GetActiveNotifications0Request{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetActiveNotifications1_1 calls the GetActiveNotifications1_1 RPC.
+func (c *ListenerServiceClient) GetActiveNotifications1_1(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.GetActiveNotifications1_1(ctx, &pb.GetActiveNotifications1_1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCurrentInterruptionFilter calls the GetCurrentInterruptionFilter RPC.
+func (c *ListenerServiceClient) GetCurrentInterruptionFilter(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetCurrentInterruptionFilter(ctx, &pb.GetCurrentInterruptionFilterRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCurrentListenerHints calls the GetCurrentListenerHints RPC.
+func (c *ListenerServiceClient) GetCurrentListenerHints(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetCurrentListenerHints(ctx, &pb.GetCurrentListenerHintsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCurrentRanking calls the GetCurrentRanking RPC.
+func (c *ListenerServiceClient) GetCurrentRanking(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetCurrentRanking(ctx, &pb.GetCurrentRankingRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetNotificationChannelGroups calls the GetNotificationChannelGroups RPC.
+func (c *ListenerServiceClient) GetNotificationChannelGroups(ctx context.Context, arg0 string, arg1 int64) (int64, error) {
+	resp, err := c.svc.GetNotificationChannelGroups(ctx, &pb.ListenerServiceGetNotificationChannelGroupsRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetNotificationChannels calls the GetNotificationChannels RPC.
+func (c *ListenerServiceClient) GetNotificationChannels(ctx context.Context, arg0 string, arg1 int64) (int64, error) {
+	resp, err := c.svc.GetNotificationChannels(ctx, &pb.ListenerServiceGetNotificationChannelsRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSnoozedNotifications calls the GetSnoozedNotifications RPC.
+func (c *ListenerServiceClient) GetSnoozedNotifications(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetSnoozedNotifications(ctx, &pb.GetSnoozedNotificationsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnBind calls the OnBind RPC.
+func (c *ListenerServiceClient) OnBind(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.OnBind(ctx, &pb.OnBindRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnDestroy calls the OnDestroy RPC.
+func (c *ListenerServiceClient) OnDestroy(ctx context.Context) error {
+	_, err := c.svc.OnDestroy(ctx, &pb.OnDestroyRequest{})
+	return err
+}
+
+// OnInterruptionFilterChanged calls the OnInterruptionFilterChanged RPC.
+func (c *ListenerServiceClient) OnInterruptionFilterChanged(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.OnInterruptionFilterChanged(ctx, &pb.OnInterruptionFilterChangedRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnListenerConnected calls the OnListenerConnected RPC.
+func (c *ListenerServiceClient) OnListenerConnected(ctx context.Context) error {
+	_, err := c.svc.OnListenerConnected(ctx, &pb.OnListenerConnectedRequest{})
+	return err
+}
+
+// OnListenerDisconnected calls the OnListenerDisconnected RPC.
+func (c *ListenerServiceClient) OnListenerDisconnected(ctx context.Context) error {
+	_, err := c.svc.OnListenerDisconnected(ctx, &pb.OnListenerDisconnectedRequest{})
+	return err
+}
+
+// OnListenerHintsChanged calls the OnListenerHintsChanged RPC.
+func (c *ListenerServiceClient) OnListenerHintsChanged(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.OnListenerHintsChanged(ctx, &pb.OnListenerHintsChangedRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnNotificationChannelGroupModified calls the OnNotificationChannelGroupModified RPC.
+func (c *ListenerServiceClient) OnNotificationChannelGroupModified(ctx context.Context, arg0 string, arg1 int64, arg2 int64, arg3 int32) error {
+	_, err := c.svc.OnNotificationChannelGroupModified(ctx, &pb.OnNotificationChannelGroupModifiedRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	return err
+}
+
+// OnNotificationChannelModified calls the OnNotificationChannelModified RPC.
+func (c *ListenerServiceClient) OnNotificationChannelModified(ctx context.Context, arg0 string, arg1 int64, arg2 int64, arg3 int32) error {
+	_, err := c.svc.OnNotificationChannelModified(ctx, &pb.OnNotificationChannelModifiedRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	return err
+}
+
+// OnNotificationPosted1 calls the OnNotificationPosted1 RPC.
+func (c *ListenerServiceClient) OnNotificationPosted1(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnNotificationPosted1(ctx, &pb.OnNotificationPosted1Request{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnNotificationPosted2_1 calls the OnNotificationPosted2_1 RPC.
+func (c *ListenerServiceClient) OnNotificationPosted2_1(ctx context.Context, arg0 int64, arg1 int64) error {
+	_, err := c.svc.OnNotificationPosted2_1(ctx, &pb.OnNotificationPosted2_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// OnNotificationRankingUpdate calls the OnNotificationRankingUpdate RPC.
+func (c *ListenerServiceClient) OnNotificationRankingUpdate(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnNotificationRankingUpdate(ctx, &pb.OnNotificationRankingUpdateRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnNotificationRemoved1 calls the OnNotificationRemoved1 RPC.
+func (c *ListenerServiceClient) OnNotificationRemoved1(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnNotificationRemoved1(ctx, &pb.OnNotificationRemoved1Request{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnNotificationRemoved2_1 calls the OnNotificationRemoved2_1 RPC.
+func (c *ListenerServiceClient) OnNotificationRemoved2_1(ctx context.Context, arg0 int64, arg1 int64) error {
+	_, err := c.svc.OnNotificationRemoved2_1(ctx, &pb.OnNotificationRemoved2_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// OnNotificationRemoved3_2 calls the OnNotificationRemoved3_2 RPC.
+func (c *ListenerServiceClient) OnNotificationRemoved3_2(ctx context.Context, arg0 int64, arg1 int64, arg2 int32) error {
+	_, err := c.svc.OnNotificationRemoved3_2(ctx, &pb.OnNotificationRemoved3_2Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// OnSilentStatusBarIconsVisibilityChanged calls the OnSilentStatusBarIconsVisibilityChanged RPC.
+func (c *ListenerServiceClient) OnSilentStatusBarIconsVisibilityChanged(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.OnSilentStatusBarIconsVisibilityChanged(ctx, &pb.OnSilentStatusBarIconsVisibilityChangedRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// RequestInterruptionFilter calls the RequestInterruptionFilter RPC.
+func (c *ListenerServiceClient) RequestInterruptionFilter(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.RequestInterruptionFilter(ctx, &pb.RequestInterruptionFilterRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// RequestListenerHints calls the RequestListenerHints RPC.
+func (c *ListenerServiceClient) RequestListenerHints(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.RequestListenerHints(ctx, &pb.RequestListenerHintsRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// RequestUnbind0 calls the RequestUnbind0 RPC.
+func (c *ListenerServiceClient) RequestUnbind0(ctx context.Context) error {
+	_, err := c.svc.RequestUnbind0(ctx, &pb.RequestUnbind0Request{})
+	return err
+}
+
+// SetNotificationsShown calls the SetNotificationsShown RPC.
+func (c *ListenerServiceClient) SetNotificationsShown(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetNotificationsShown(ctx, &pb.SetNotificationsShownRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SnoozeNotification calls the SnoozeNotification RPC.
+func (c *ListenerServiceClient) SnoozeNotification(ctx context.Context, arg0 string, arg1 int64) error {
+	_, err := c.svc.SnoozeNotification(ctx, &pb.SnoozeNotificationRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// UpdateNotificationChannel calls the UpdateNotificationChannel RPC.
+func (c *ListenerServiceClient) UpdateNotificationChannel(ctx context.Context, arg0 string, arg1 int64, arg2 int64) error {
+	_, err := c.svc.UpdateNotificationChannel(ctx, &pb.UpdateNotificationChannelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// RequestRebind calls the RequestRebind RPC.
+func (c *ListenerServiceClient) RequestRebind(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.RequestRebind(ctx, &pb.RequestRebindRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// RequestUnbind1_1 calls the RequestUnbind1_1 RPC.
+func (c *ListenerServiceClient) RequestUnbind1_1(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.RequestUnbind1_1(ctx, &pb.RequestUnbind1_1Request{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// ListenerServiceRankingClient wraps the gRPC ListenerServiceRankingService client.
+type ListenerServiceRankingClient struct {
+	svc pb.ListenerServiceRankingServiceClient
+}
+
+// NewListenerServiceRankingClient creates a new ListenerServiceRanking client.
+func NewListenerServiceRankingClient(cc grpc.ClientConnInterface) *ListenerServiceRankingClient {
+	return &ListenerServiceRankingClient{
+		svc: pb.NewListenerServiceRankingServiceClient(cc),
 	}
 }
 
 // CanBubble calls the CanBubble RPC.
-func (c *ChannelClient) CanBubble(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.CanBubble(ctx, &pb.CanBubbleRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// CanBypassDnd calls the CanBypassDnd RPC.
-func (c *ChannelClient) CanBypassDnd(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.CanBypassDnd(ctx, &pb.CanBypassDndRequest{
-		Handle: handle,
-	})
+func (c *ListenerServiceRankingClient) CanBubble(ctx context.Context) (bool, error) {
+	resp, err := c.svc.CanBubble(ctx, &pb.ListenerServiceRankingCanBubbleRequest{})
 	if err != nil {
 		return false, err
 	}
@@ -3381,50 +4424,18 @@ func (c *ChannelClient) CanBypassDnd(ctx context.Context, handle int64) (bool, e
 }
 
 // CanShowBadge calls the CanShowBadge RPC.
-func (c *ChannelClient) CanShowBadge(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.CanShowBadge(ctx, &pb.CanShowBadgeRequest{
-		Handle: handle,
-	})
+func (c *ListenerServiceRankingClient) CanShowBadge(ctx context.Context) (bool, error) {
+	resp, err := c.svc.CanShowBadge(ctx, &pb.ListenerServiceRankingCanShowBadgeRequest{})
 	if err != nil {
 		return false, err
 	}
 	return resp.GetResult(), nil
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *ChannelClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// EnableLights calls the EnableLights RPC.
-func (c *ChannelClient) EnableLights(ctx context.Context, handle int64, arg0 bool) error {
-	_, err := c.svc.EnableLights(ctx, &pb.EnableLightsRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// EnableVibration calls the EnableVibration RPC.
-func (c *ChannelClient) EnableVibration(ctx context.Context, handle int64, arg0 bool) error {
-	_, err := c.svc.EnableVibration(ctx, &pb.EnableVibrationRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
 }
 
 // Equals calls the Equals RPC.
-func (c *ChannelClient) Equals(ctx context.Context, handle int64, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.ChannelEqualsRequest{
-		Handle: handle,
-		Arg0:   arg0,
+func (c *ListenerServiceRankingClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
 	})
 	if err != nil {
 		return false, err
@@ -3432,187 +4443,126 @@ func (c *ChannelClient) Equals(ctx context.Context, handle int64, arg0 int64) (b
 	return resp.GetResult(), nil
 }
 
-// GetAudioAttributes calls the GetAudioAttributes RPC.
-func (c *ChannelClient) GetAudioAttributes(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetAudioAttributes(ctx, &pb.GetAudioAttributesRequest{
-		Handle: handle,
-	})
+// GetChannel calls the GetChannel RPC.
+func (c *ListenerServiceRankingClient) GetChannel(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetChannel(ctx, &pb.GetChannelRequest{})
 	if err != nil {
 		return 0, err
 	}
 	return resp.GetResult(), nil
 }
 
-// GetConversationId calls the GetConversationId RPC.
-func (c *ChannelClient) GetConversationId(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.GetConversationId(ctx, &pb.GetConversationIdRequest{
-		Handle: handle,
-	})
+// GetConversationShortcutInfo calls the GetConversationShortcutInfo RPC.
+func (c *ListenerServiceRankingClient) GetConversationShortcutInfo(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetConversationShortcutInfo(ctx, &pb.GetConversationShortcutInfoRequest{})
 	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetDescription calls the GetDescription RPC.
-func (c *ChannelClient) GetDescription(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.GetDescription(ctx, &pb.GetDescriptionRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetGroup calls the GetGroup RPC.
-func (c *ChannelClient) GetGroup(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.GetGroup(ctx, &pb.GetGroupRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetId calls the GetId RPC.
-func (c *ChannelClient) GetId(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.GetId(ctx, &pb.GetIdRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return "", err
+		return 0, err
 	}
 	return resp.GetResult(), nil
 }
 
 // GetImportance calls the GetImportance RPC.
-func (c *ChannelClient) GetImportance(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetImportance(ctx, &pb.ChannelGetImportanceRequest{
-		Handle: handle,
-	})
+func (c *ListenerServiceRankingClient) GetImportance(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetImportance(ctx, &pb.GetImportanceRequest{})
 	if err != nil {
 		return 0, err
 	}
 	return resp.GetResult(), nil
 }
 
-// GetLightColor calls the GetLightColor RPC.
-func (c *ChannelClient) GetLightColor(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetLightColor(ctx, &pb.GetLightColorRequest{
-		Handle: handle,
-	})
+// GetImportanceExplanation calls the GetImportanceExplanation RPC.
+func (c *ListenerServiceRankingClient) GetImportanceExplanation(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetImportanceExplanation(ctx, &pb.GetImportanceExplanationRequest{})
 	if err != nil {
 		return 0, err
 	}
 	return resp.GetResult(), nil
 }
 
-// GetLockscreenVisibility calls the GetLockscreenVisibility RPC.
-func (c *ChannelClient) GetLockscreenVisibility(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetLockscreenVisibility(ctx, &pb.GetLockscreenVisibilityRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetName calls the GetName RPC.
-func (c *ChannelClient) GetName(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetName(ctx, &pb.GetNameRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetParentChannelId calls the GetParentChannelId RPC.
-func (c *ChannelClient) GetParentChannelId(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.GetParentChannelId(ctx, &pb.GetParentChannelIdRequest{
-		Handle: handle,
-	})
+// GetKey calls the GetKey RPC.
+func (c *ListenerServiceRankingClient) GetKey(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetKey(ctx, &pb.ListenerServiceRankingGetKeyRequest{})
 	if err != nil {
 		return "", err
 	}
 	return resp.GetResult(), nil
 }
 
-// GetSound calls the GetSound RPC.
-func (c *ChannelClient) GetSound(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetSound(ctx, &pb.GetSoundRequest{
-		Handle: handle,
-	})
+// GetLastAudiblyAlertedMillis calls the GetLastAudiblyAlertedMillis RPC.
+func (c *ListenerServiceRankingClient) GetLastAudiblyAlertedMillis(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetLastAudiblyAlertedMillis(ctx, &pb.GetLastAudiblyAlertedMillisRequest{})
 	if err != nil {
 		return 0, err
 	}
 	return resp.GetResult(), nil
 }
 
-// GetVibrationEffect calls the GetVibrationEffect RPC.
-func (c *ChannelClient) GetVibrationEffect(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetVibrationEffect(ctx, &pb.GetVibrationEffectRequest{
-		Handle: handle,
-	})
+// GetLockscreenVisibilityOverride calls the GetLockscreenVisibilityOverride RPC.
+func (c *ListenerServiceRankingClient) GetLockscreenVisibilityOverride(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetLockscreenVisibilityOverride(ctx, &pb.GetLockscreenVisibilityOverrideRequest{})
 	if err != nil {
 		return 0, err
 	}
 	return resp.GetResult(), nil
 }
 
-// GetVibrationPattern calls the GetVibrationPattern RPC.
-func (c *ChannelClient) GetVibrationPattern(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetVibrationPattern(ctx, &pb.GetVibrationPatternRequest{
-		Handle: handle,
-	})
+// GetOverrideGroupKey calls the GetOverrideGroupKey RPC.
+func (c *ListenerServiceRankingClient) GetOverrideGroupKey(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetOverrideGroupKey(ctx, &pb.ListenerServiceRankingGetOverrideGroupKeyRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetRank calls the GetRank RPC.
+func (c *ListenerServiceRankingClient) GetRank(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetRank(ctx, &pb.GetRankRequest{})
 	if err != nil {
 		return 0, err
 	}
 	return resp.GetResult(), nil
 }
 
-// HasUserSetImportance calls the HasUserSetImportance RPC.
-func (c *ChannelClient) HasUserSetImportance(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.HasUserSetImportance(ctx, &pb.HasUserSetImportanceRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HasUserSetSound calls the HasUserSetSound RPC.
-func (c *ChannelClient) HasUserSetSound(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.HasUserSetSound(ctx, &pb.HasUserSetSoundRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *ChannelClient) HashCode(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.ChannelHashCodeRequest{
-		Handle: handle,
-	})
+// GetSmartActions calls the GetSmartActions RPC.
+func (c *ListenerServiceRankingClient) GetSmartActions(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetSmartActions(ctx, &pb.GetSmartActionsRequest{})
 	if err != nil {
 		return 0, err
 	}
 	return resp.GetResult(), nil
 }
 
-// IsBlockable calls the IsBlockable RPC.
-func (c *ChannelClient) IsBlockable(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.IsBlockable(ctx, &pb.IsBlockableRequest{
-		Handle: handle,
-	})
+// GetSmartReplies calls the GetSmartReplies RPC.
+func (c *ListenerServiceRankingClient) GetSmartReplies(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetSmartReplies(ctx, &pb.GetSmartRepliesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSuppressedVisualEffects calls the GetSuppressedVisualEffects RPC.
+func (c *ListenerServiceRankingClient) GetSuppressedVisualEffects(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetSuppressedVisualEffects(ctx, &pb.GetSuppressedVisualEffectsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetUserSentiment calls the GetUserSentiment RPC.
+func (c *ListenerServiceRankingClient) GetUserSentiment(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetUserSentiment(ctx, &pb.GetUserSentimentRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsAmbient calls the IsAmbient RPC.
+func (c *ListenerServiceRankingClient) IsAmbient(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsAmbient(ctx, &pb.IsAmbientRequest{})
 	if err != nil {
 		return false, err
 	}
@@ -3620,9 +4570,57 @@ func (c *ChannelClient) IsBlockable(ctx context.Context, handle int64) (bool, er
 }
 
 // IsConversation calls the IsConversation RPC.
-func (c *ChannelClient) IsConversation(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.IsConversation(ctx, &pb.IsConversationRequest{
-		Handle: handle,
+func (c *ListenerServiceRankingClient) IsConversation(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsConversation(ctx, &pb.ListenerServiceRankingIsConversationRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsSuspended calls the IsSuspended RPC.
+func (c *ListenerServiceRankingClient) IsSuspended(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsSuspended(ctx, &pb.IsSuspendedRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// MatchesInterruptionFilter calls the MatchesInterruptionFilter RPC.
+func (c *ListenerServiceRankingClient) MatchesInterruptionFilter(ctx context.Context) (bool, error) {
+	resp, err := c.svc.MatchesInterruptionFilter(ctx, &pb.MatchesInterruptionFilterRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ListenerServiceRankingMapClient wraps the gRPC ListenerServiceRankingMapService client.
+type ListenerServiceRankingMapClient struct {
+	svc pb.ListenerServiceRankingMapServiceClient
+}
+
+// NewListenerServiceRankingMapClient creates a new ListenerServiceRankingMap client.
+func NewListenerServiceRankingMapClient(cc grpc.ClientConnInterface) *ListenerServiceRankingMapClient {
+	return &ListenerServiceRankingMapClient{
+		svc: pb.NewListenerServiceRankingMapServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *ListenerServiceRankingMapClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *ListenerServiceRankingMapClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
 	})
 	if err != nil {
 		return false, err
@@ -3630,195 +4628,115 @@ func (c *ChannelClient) IsConversation(ctx context.Context, handle int64) (bool,
 	return resp.GetResult(), nil
 }
 
-// IsDemoted calls the IsDemoted RPC.
-func (c *ChannelClient) IsDemoted(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.IsDemoted(ctx, &pb.IsDemotedRequest{
-		Handle: handle,
-	})
+// GetOrderedKeys calls the GetOrderedKeys RPC.
+func (c *ListenerServiceRankingMapClient) GetOrderedKeys(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetOrderedKeys(ctx, &pb.GetOrderedKeysRequest{})
 	if err != nil {
-		return false, err
+		return 0, err
 	}
 	return resp.GetResult(), nil
 }
 
-// IsImportantConversation calls the IsImportantConversation RPC.
-func (c *ChannelClient) IsImportantConversation(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.IsImportantConversation(ctx, &pb.IsImportantConversationRequest{
-		Handle: handle,
+// GetRanking calls the GetRanking RPC.
+func (c *ListenerServiceRankingMapClient) GetRanking(ctx context.Context, arg0 string, arg1 int64) (bool, error) {
+	resp, err := c.svc.GetRanking(ctx, &pb.GetRankingRequest{
+		Arg0: arg0,
+		Arg1: arg1,
 	})
 	if err != nil {
 		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetAllowBubbles calls the SetAllowBubbles RPC.
-func (c *ChannelClient) SetAllowBubbles(ctx context.Context, handle int64, arg0 bool) error {
-	_, err := c.svc.SetAllowBubbles(ctx, &pb.SetAllowBubblesRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetBlockable calls the SetBlockable RPC.
-func (c *ChannelClient) SetBlockable(ctx context.Context, handle int64, arg0 bool) error {
-	_, err := c.svc.SetBlockable(ctx, &pb.SetBlockableRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetBypassDnd calls the SetBypassDnd RPC.
-func (c *ChannelClient) SetBypassDnd(ctx context.Context, handle int64, arg0 bool) error {
-	_, err := c.svc.SetBypassDnd(ctx, &pb.SetBypassDndRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetConversationId calls the SetConversationId RPC.
-func (c *ChannelClient) SetConversationId(ctx context.Context, handle int64, arg0 string, arg1 string) error {
-	_, err := c.svc.SetConversationId(ctx, &pb.SetConversationIdRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// SetDescription calls the SetDescription RPC.
-func (c *ChannelClient) SetDescription(ctx context.Context, handle int64, arg0 string) error {
-	_, err := c.svc.SetDescription(ctx, &pb.SetDescriptionRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetGroup calls the SetGroup RPC.
-func (c *ChannelClient) SetGroup(ctx context.Context, handle int64, arg0 string) error {
-	_, err := c.svc.SetGroup(ctx, &pb.ChannelSetGroupRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetImportance calls the SetImportance RPC.
-func (c *ChannelClient) SetImportance(ctx context.Context, handle int64, arg0 int32) error {
-	_, err := c.svc.SetImportance(ctx, &pb.SetImportanceRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetLightColor calls the SetLightColor RPC.
-func (c *ChannelClient) SetLightColor(ctx context.Context, handle int64, arg0 int32) error {
-	_, err := c.svc.SetLightColor(ctx, &pb.SetLightColorRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetLockscreenVisibility calls the SetLockscreenVisibility RPC.
-func (c *ChannelClient) SetLockscreenVisibility(ctx context.Context, handle int64, arg0 int32) error {
-	_, err := c.svc.SetLockscreenVisibility(ctx, &pb.SetLockscreenVisibilityRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetName calls the SetName RPC.
-func (c *ChannelClient) SetName(ctx context.Context, handle int64, arg0 string) error {
-	_, err := c.svc.SetName(ctx, &pb.SetNameRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetShowBadge calls the SetShowBadge RPC.
-func (c *ChannelClient) SetShowBadge(ctx context.Context, handle int64, arg0 bool) error {
-	_, err := c.svc.SetShowBadge(ctx, &pb.SetShowBadgeRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetSound calls the SetSound RPC.
-func (c *ChannelClient) SetSound(ctx context.Context, handle int64, arg0 int64, arg1 int64) error {
-	_, err := c.svc.SetSound(ctx, &pb.SetSoundRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// SetVibrationEffect calls the SetVibrationEffect RPC.
-func (c *ChannelClient) SetVibrationEffect(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.SetVibrationEffect(ctx, &pb.SetVibrationEffectRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetVibrationPattern calls the SetVibrationPattern RPC.
-func (c *ChannelClient) SetVibrationPattern(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.SetVibrationPattern(ctx, &pb.SetVibrationPatternRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// ShouldShowLights calls the ShouldShowLights RPC.
-func (c *ChannelClient) ShouldShowLights(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.ShouldShowLights(ctx, &pb.ShouldShowLightsRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ShouldVibrate calls the ShouldVibrate RPC.
-func (c *ChannelClient) ShouldVibrate(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.ShouldVibrate(ctx, &pb.ShouldVibrateRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToString calls the ToString RPC.
-func (c *ChannelClient) ToString(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return "", err
 	}
 	return resp.GetResult(), nil
 }
 
 // WriteToParcel calls the WriteToParcel RPC.
-func (c *ChannelClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+func (c *ListenerServiceRankingMapClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
 	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// ConditionProviderServiceClient wraps the gRPC ConditionProviderServiceService client.
+type ConditionProviderServiceClient struct {
+	svc pb.ConditionProviderServiceServiceClient
+}
+
+// NewConditionProviderServiceClient creates a new ConditionProviderService client.
+func NewConditionProviderServiceClient(cc grpc.ClientConnInterface) *ConditionProviderServiceClient {
+	return &ConditionProviderServiceClient{
+		svc: pb.NewConditionProviderServiceServiceClient(cc),
+	}
+}
+
+// NotifyCondition calls the NotifyCondition RPC.
+func (c *ConditionProviderServiceClient) NotifyCondition(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.NotifyCondition(ctx, &pb.NotifyConditionRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// NotifyConditions calls the NotifyConditions RPC.
+func (c *ConditionProviderServiceClient) NotifyConditions(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.NotifyConditions(ctx, &pb.NotifyConditionsRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnBind calls the OnBind RPC.
+func (c *ConditionProviderServiceClient) OnBind(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.OnBind(ctx, &pb.OnBindRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnConnected calls the OnConnected RPC.
+func (c *ConditionProviderServiceClient) OnConnected(ctx context.Context) error {
+	_, err := c.svc.OnConnected(ctx, &pb.OnConnectedRequest{})
+	return err
+}
+
+// OnRequestConditions calls the OnRequestConditions RPC.
+func (c *ConditionProviderServiceClient) OnRequestConditions(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.OnRequestConditions(ctx, &pb.OnRequestConditionsRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnSubscribe calls the OnSubscribe RPC.
+func (c *ConditionProviderServiceClient) OnSubscribe(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnSubscribe(ctx, &pb.OnSubscribeRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnUnsubscribe calls the OnUnsubscribe RPC.
+func (c *ConditionProviderServiceClient) OnUnsubscribe(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnUnsubscribe(ctx, &pb.OnUnsubscribeRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// RequestUnbind calls the RequestUnbind RPC.
+func (c *ConditionProviderServiceClient) RequestUnbind(ctx context.Context) error {
+	_, err := c.svc.RequestUnbind(ctx, &pb.RequestUnbindRequest{})
+	return err
+}
+
+// RequestRebind calls the RequestRebind RPC.
+func (c *ConditionProviderServiceClient) RequestRebind(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.RequestRebind(ctx, &pb.RequestRebindRequest{
+		Arg0: arg0,
 	})
 	return err
 }
@@ -3848,7 +4766,7 @@ func (c *ConditionClient) Copy(ctx context.Context, handle int64) (int64, error)
 
 // DescribeContents calls the DescribeContents RPC.
 func (c *ConditionClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{
+	resp, err := c.svc.DescribeContents(ctx, &pb.ConditionDescribeContentsRequest{
 		Handle: handle,
 	})
 	if err != nil {
@@ -3882,7 +4800,7 @@ func (c *ConditionClient) HashCode(ctx context.Context, handle int64) (int32, er
 
 // ToString calls the ToString RPC.
 func (c *ConditionClient) ToString(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{
+	resp, err := c.svc.ToString(ctx, &pb.ConditionToStringRequest{
 		Handle: handle,
 	})
 	if err != nil {
@@ -3893,7 +4811,7 @@ func (c *ConditionClient) ToString(ctx context.Context, handle int64) (string, e
 
 // WriteToParcel calls the WriteToParcel RPC.
 func (c *ConditionClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+	_, err := c.svc.WriteToParcel(ctx, &pb.ConditionWriteToParcelRequest{
 		Handle: handle,
 		Arg0:   arg0,
 		Arg1:   arg1,
@@ -3964,7 +4882,7 @@ func NewZenPolicyClient(cc grpc.ClientConnInterface) *ZenPolicyClient {
 
 // DescribeContents calls the DescribeContents RPC.
 func (c *ZenPolicyClient) DescribeContents(ctx context.Context) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.ZenPolicyDescribeContentsRequest{})
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
 	if err != nil {
 		return 0, err
 	}
@@ -3973,7 +4891,7 @@ func (c *ZenPolicyClient) DescribeContents(ctx context.Context) (int32, error) {
 
 // Equals calls the Equals RPC.
 func (c *ZenPolicyClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.ZenPolicyEqualsRequest{
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
 		Arg0: arg0,
 	})
 	if err != nil {
@@ -4164,7 +5082,7 @@ func (c *ZenPolicyClient) GetVisualEffectStatusBar(ctx context.Context) (int32, 
 
 // HashCode calls the HashCode RPC.
 func (c *ZenPolicyClient) HashCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.ZenPolicyHashCodeRequest{})
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
 	if err != nil {
 		return 0, err
 	}
@@ -4173,7 +5091,7 @@ func (c *ZenPolicyClient) HashCode(ctx context.Context) (int32, error) {
 
 // ToString calls the ToString RPC.
 func (c *ZenPolicyClient) ToString(ctx context.Context) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ZenPolicyToStringRequest{})
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
 	if err != nil {
 		return "", err
 	}
@@ -4182,7 +5100,7 @@ func (c *ZenPolicyClient) ToString(ctx context.Context) (string, error) {
 
 // WriteToParcel calls the WriteToParcel RPC.
 func (c *ZenPolicyClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.ZenPolicyWriteToParcelRequest{
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
 		Arg0: arg0,
 		Arg1: arg1,
 	})
@@ -4425,799 +5343,6 @@ func (c *ZenPolicyBuilderClient) ShowPeeking(ctx context.Context, arg0 bool) (in
 // ShowStatusBarIcons calls the ShowStatusBarIcons RPC.
 func (c *ZenPolicyBuilderClient) ShowStatusBarIcons(ctx context.Context, arg0 bool) (int64, error) {
 	resp, err := c.svc.ShowStatusBarIcons(ctx, &pb.ShowStatusBarIconsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ConditionProviderServiceClient wraps the gRPC ConditionProviderServiceService client.
-type ConditionProviderServiceClient struct {
-	svc pb.ConditionProviderServiceServiceClient
-}
-
-// NewConditionProviderServiceClient creates a new ConditionProviderService client.
-func NewConditionProviderServiceClient(cc grpc.ClientConnInterface) *ConditionProviderServiceClient {
-	return &ConditionProviderServiceClient{
-		svc: pb.NewConditionProviderServiceServiceClient(cc),
-	}
-}
-
-// NotifyCondition calls the NotifyCondition RPC.
-func (c *ConditionProviderServiceClient) NotifyCondition(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.NotifyCondition(ctx, &pb.NotifyConditionRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// NotifyConditions calls the NotifyConditions RPC.
-func (c *ConditionProviderServiceClient) NotifyConditions(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.NotifyConditions(ctx, &pb.NotifyConditionsRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// OnBind calls the OnBind RPC.
-func (c *ConditionProviderServiceClient) OnBind(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.OnBind(ctx, &pb.OnBindRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// OnConnected calls the OnConnected RPC.
-func (c *ConditionProviderServiceClient) OnConnected(ctx context.Context) error {
-	_, err := c.svc.OnConnected(ctx, &pb.OnConnectedRequest{})
-	return err
-}
-
-// OnRequestConditions calls the OnRequestConditions RPC.
-func (c *ConditionProviderServiceClient) OnRequestConditions(ctx context.Context, arg0 int32) error {
-	_, err := c.svc.OnRequestConditions(ctx, &pb.OnRequestConditionsRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// OnSubscribe calls the OnSubscribe RPC.
-func (c *ConditionProviderServiceClient) OnSubscribe(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.OnSubscribe(ctx, &pb.OnSubscribeRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// OnUnsubscribe calls the OnUnsubscribe RPC.
-func (c *ConditionProviderServiceClient) OnUnsubscribe(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.OnUnsubscribe(ctx, &pb.OnUnsubscribeRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// RequestUnbind calls the RequestUnbind RPC.
-func (c *ConditionProviderServiceClient) RequestUnbind(ctx context.Context) error {
-	_, err := c.svc.RequestUnbind(ctx, &pb.RequestUnbindRequest{})
-	return err
-}
-
-// RequestRebind calls the RequestRebind RPC.
-func (c *ConditionProviderServiceClient) RequestRebind(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.RequestRebind(ctx, &pb.RequestRebindRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// ListenerServiceClient wraps the gRPC ListenerServiceService client.
-type ListenerServiceClient struct {
-	svc pb.ListenerServiceServiceClient
-}
-
-// NewListenerServiceClient creates a new ListenerService client.
-func NewListenerServiceClient(cc grpc.ClientConnInterface) *ListenerServiceClient {
-	return &ListenerServiceClient{
-		svc: pb.NewListenerServiceServiceClient(cc),
-	}
-}
-
-// CancelAllNotifications calls the CancelAllNotifications RPC.
-func (c *ListenerServiceClient) CancelAllNotifications(ctx context.Context) error {
-	_, err := c.svc.CancelAllNotifications(ctx, &pb.CancelAllNotificationsRequest{})
-	return err
-}
-
-// CancelNotification1 calls the CancelNotification1 RPC.
-func (c *ListenerServiceClient) CancelNotification1(ctx context.Context, arg0 string) error {
-	_, err := c.svc.CancelNotification1(ctx, &pb.CancelNotification1Request{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// CancelNotification3_1 calls the CancelNotification3_1 RPC.
-func (c *ListenerServiceClient) CancelNotification3_1(ctx context.Context, arg0 string, arg1 string, arg2 int32) error {
-	_, err := c.svc.CancelNotification3_1(ctx, &pb.CancelNotification3_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	return err
-}
-
-// CancelNotifications calls the CancelNotifications RPC.
-func (c *ListenerServiceClient) CancelNotifications(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.CancelNotifications(ctx, &pb.CancelNotificationsRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// ClearRequestedListenerHints calls the ClearRequestedListenerHints RPC.
-func (c *ListenerServiceClient) ClearRequestedListenerHints(ctx context.Context) error {
-	_, err := c.svc.ClearRequestedListenerHints(ctx, &pb.ClearRequestedListenerHintsRequest{})
-	return err
-}
-
-// CreateConversationNotificationChannelForPackage calls the CreateConversationNotificationChannelForPackage RPC.
-func (c *ListenerServiceClient) CreateConversationNotificationChannelForPackage(ctx context.Context, arg0 string, arg1 int64, arg2 string, arg3 string) (int64, error) {
-	resp, err := c.svc.CreateConversationNotificationChannelForPackage(ctx, &pb.CreateConversationNotificationChannelForPackageRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetActiveNotifications0 calls the GetActiveNotifications0 RPC.
-func (c *ListenerServiceClient) GetActiveNotifications0(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetActiveNotifications0(ctx, &pb.GetActiveNotifications0Request{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetActiveNotifications1_1 calls the GetActiveNotifications1_1 RPC.
-func (c *ListenerServiceClient) GetActiveNotifications1_1(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.GetActiveNotifications1_1(ctx, &pb.GetActiveNotifications1_1Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetCurrentInterruptionFilter calls the GetCurrentInterruptionFilter RPC.
-func (c *ListenerServiceClient) GetCurrentInterruptionFilter(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetCurrentInterruptionFilter(ctx, &pb.GetCurrentInterruptionFilterRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetCurrentListenerHints calls the GetCurrentListenerHints RPC.
-func (c *ListenerServiceClient) GetCurrentListenerHints(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetCurrentListenerHints(ctx, &pb.GetCurrentListenerHintsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetCurrentRanking calls the GetCurrentRanking RPC.
-func (c *ListenerServiceClient) GetCurrentRanking(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetCurrentRanking(ctx, &pb.GetCurrentRankingRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetSnoozedNotifications calls the GetSnoozedNotifications RPC.
-func (c *ListenerServiceClient) GetSnoozedNotifications(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetSnoozedNotifications(ctx, &pb.GetSnoozedNotificationsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// OnBind calls the OnBind RPC.
-func (c *ListenerServiceClient) OnBind(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.OnBind(ctx, &pb.OnBindRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// OnDestroy calls the OnDestroy RPC.
-func (c *ListenerServiceClient) OnDestroy(ctx context.Context) error {
-	_, err := c.svc.OnDestroy(ctx, &pb.OnDestroyRequest{})
-	return err
-}
-
-// OnInterruptionFilterChanged calls the OnInterruptionFilterChanged RPC.
-func (c *ListenerServiceClient) OnInterruptionFilterChanged(ctx context.Context, arg0 int32) error {
-	_, err := c.svc.OnInterruptionFilterChanged(ctx, &pb.OnInterruptionFilterChangedRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// OnListenerConnected calls the OnListenerConnected RPC.
-func (c *ListenerServiceClient) OnListenerConnected(ctx context.Context) error {
-	_, err := c.svc.OnListenerConnected(ctx, &pb.OnListenerConnectedRequest{})
-	return err
-}
-
-// OnListenerDisconnected calls the OnListenerDisconnected RPC.
-func (c *ListenerServiceClient) OnListenerDisconnected(ctx context.Context) error {
-	_, err := c.svc.OnListenerDisconnected(ctx, &pb.OnListenerDisconnectedRequest{})
-	return err
-}
-
-// OnListenerHintsChanged calls the OnListenerHintsChanged RPC.
-func (c *ListenerServiceClient) OnListenerHintsChanged(ctx context.Context, arg0 int32) error {
-	_, err := c.svc.OnListenerHintsChanged(ctx, &pb.OnListenerHintsChangedRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// OnNotificationChannelGroupModified calls the OnNotificationChannelGroupModified RPC.
-func (c *ListenerServiceClient) OnNotificationChannelGroupModified(ctx context.Context, arg0 string, arg1 int64, arg2 int64, arg3 int32) error {
-	_, err := c.svc.OnNotificationChannelGroupModified(ctx, &pb.OnNotificationChannelGroupModifiedRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-	})
-	return err
-}
-
-// OnNotificationChannelModified calls the OnNotificationChannelModified RPC.
-func (c *ListenerServiceClient) OnNotificationChannelModified(ctx context.Context, arg0 string, arg1 int64, arg2 int64, arg3 int32) error {
-	_, err := c.svc.OnNotificationChannelModified(ctx, &pb.OnNotificationChannelModifiedRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-	})
-	return err
-}
-
-// OnNotificationPosted1 calls the OnNotificationPosted1 RPC.
-func (c *ListenerServiceClient) OnNotificationPosted1(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.OnNotificationPosted1(ctx, &pb.OnNotificationPosted1Request{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// OnNotificationPosted2_1 calls the OnNotificationPosted2_1 RPC.
-func (c *ListenerServiceClient) OnNotificationPosted2_1(ctx context.Context, arg0 int64, arg1 int64) error {
-	_, err := c.svc.OnNotificationPosted2_1(ctx, &pb.OnNotificationPosted2_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// OnNotificationRankingUpdate calls the OnNotificationRankingUpdate RPC.
-func (c *ListenerServiceClient) OnNotificationRankingUpdate(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.OnNotificationRankingUpdate(ctx, &pb.OnNotificationRankingUpdateRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// OnNotificationRemoved1 calls the OnNotificationRemoved1 RPC.
-func (c *ListenerServiceClient) OnNotificationRemoved1(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.OnNotificationRemoved1(ctx, &pb.OnNotificationRemoved1Request{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// OnNotificationRemoved2_1 calls the OnNotificationRemoved2_1 RPC.
-func (c *ListenerServiceClient) OnNotificationRemoved2_1(ctx context.Context, arg0 int64, arg1 int64) error {
-	_, err := c.svc.OnNotificationRemoved2_1(ctx, &pb.OnNotificationRemoved2_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// OnNotificationRemoved3_2 calls the OnNotificationRemoved3_2 RPC.
-func (c *ListenerServiceClient) OnNotificationRemoved3_2(ctx context.Context, arg0 int64, arg1 int64, arg2 int32) error {
-	_, err := c.svc.OnNotificationRemoved3_2(ctx, &pb.OnNotificationRemoved3_2Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	return err
-}
-
-// OnSilentStatusBarIconsVisibilityChanged calls the OnSilentStatusBarIconsVisibilityChanged RPC.
-func (c *ListenerServiceClient) OnSilentStatusBarIconsVisibilityChanged(ctx context.Context, arg0 bool) error {
-	_, err := c.svc.OnSilentStatusBarIconsVisibilityChanged(ctx, &pb.OnSilentStatusBarIconsVisibilityChangedRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// RequestInterruptionFilter calls the RequestInterruptionFilter RPC.
-func (c *ListenerServiceClient) RequestInterruptionFilter(ctx context.Context, arg0 int32) error {
-	_, err := c.svc.RequestInterruptionFilter(ctx, &pb.RequestInterruptionFilterRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// RequestListenerHints calls the RequestListenerHints RPC.
-func (c *ListenerServiceClient) RequestListenerHints(ctx context.Context, arg0 int32) error {
-	_, err := c.svc.RequestListenerHints(ctx, &pb.RequestListenerHintsRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// RequestUnbind0 calls the RequestUnbind0 RPC.
-func (c *ListenerServiceClient) RequestUnbind0(ctx context.Context) error {
-	_, err := c.svc.RequestUnbind0(ctx, &pb.RequestUnbind0Request{})
-	return err
-}
-
-// SetNotificationsShown calls the SetNotificationsShown RPC.
-func (c *ListenerServiceClient) SetNotificationsShown(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.SetNotificationsShown(ctx, &pb.SetNotificationsShownRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SnoozeNotification calls the SnoozeNotification RPC.
-func (c *ListenerServiceClient) SnoozeNotification(ctx context.Context, arg0 string, arg1 int64) error {
-	_, err := c.svc.SnoozeNotification(ctx, &pb.SnoozeNotificationRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// UpdateNotificationChannel calls the UpdateNotificationChannel RPC.
-func (c *ListenerServiceClient) UpdateNotificationChannel(ctx context.Context, arg0 string, arg1 int64, arg2 int64) error {
-	_, err := c.svc.UpdateNotificationChannel(ctx, &pb.UpdateNotificationChannelRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	return err
-}
-
-// RequestRebind calls the RequestRebind RPC.
-func (c *ListenerServiceClient) RequestRebind(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.RequestRebind(ctx, &pb.RequestRebindRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// RequestUnbind1_1 calls the RequestUnbind1_1 RPC.
-func (c *ListenerServiceClient) RequestUnbind1_1(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.RequestUnbind1_1(ctx, &pb.RequestUnbind1_1Request{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// ListenerServiceRankingClient wraps the gRPC ListenerServiceRankingService client.
-type ListenerServiceRankingClient struct {
-	svc pb.ListenerServiceRankingServiceClient
-}
-
-// NewListenerServiceRankingClient creates a new ListenerServiceRanking client.
-func NewListenerServiceRankingClient(cc grpc.ClientConnInterface) *ListenerServiceRankingClient {
-	return &ListenerServiceRankingClient{
-		svc: pb.NewListenerServiceRankingServiceClient(cc),
-	}
-}
-
-// CanBubble calls the CanBubble RPC.
-func (c *ListenerServiceRankingClient) CanBubble(ctx context.Context) (bool, error) {
-	resp, err := c.svc.CanBubble(ctx, &pb.ListenerServiceRankingCanBubbleRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// CanShowBadge calls the CanShowBadge RPC.
-func (c *ListenerServiceRankingClient) CanShowBadge(ctx context.Context) (bool, error) {
-	resp, err := c.svc.CanShowBadge(ctx, &pb.ListenerServiceRankingCanShowBadgeRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Equals calls the Equals RPC.
-func (c *ListenerServiceRankingClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.ListenerServiceRankingEqualsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetChannel calls the GetChannel RPC.
-func (c *ListenerServiceRankingClient) GetChannel(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetChannel(ctx, &pb.GetChannelRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetConversationShortcutInfo calls the GetConversationShortcutInfo RPC.
-func (c *ListenerServiceRankingClient) GetConversationShortcutInfo(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetConversationShortcutInfo(ctx, &pb.GetConversationShortcutInfoRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetImportance calls the GetImportance RPC.
-func (c *ListenerServiceRankingClient) GetImportance(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetImportance(ctx, &pb.GetImportanceRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetImportanceExplanation calls the GetImportanceExplanation RPC.
-func (c *ListenerServiceRankingClient) GetImportanceExplanation(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetImportanceExplanation(ctx, &pb.GetImportanceExplanationRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetKey calls the GetKey RPC.
-func (c *ListenerServiceRankingClient) GetKey(ctx context.Context) (string, error) {
-	resp, err := c.svc.GetKey(ctx, &pb.ListenerServiceRankingGetKeyRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetLastAudiblyAlertedMillis calls the GetLastAudiblyAlertedMillis RPC.
-func (c *ListenerServiceRankingClient) GetLastAudiblyAlertedMillis(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetLastAudiblyAlertedMillis(ctx, &pb.GetLastAudiblyAlertedMillisRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetLockscreenVisibilityOverride calls the GetLockscreenVisibilityOverride RPC.
-func (c *ListenerServiceRankingClient) GetLockscreenVisibilityOverride(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetLockscreenVisibilityOverride(ctx, &pb.GetLockscreenVisibilityOverrideRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetOverrideGroupKey calls the GetOverrideGroupKey RPC.
-func (c *ListenerServiceRankingClient) GetOverrideGroupKey(ctx context.Context) (string, error) {
-	resp, err := c.svc.GetOverrideGroupKey(ctx, &pb.ListenerServiceRankingGetOverrideGroupKeyRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetRank calls the GetRank RPC.
-func (c *ListenerServiceRankingClient) GetRank(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetRank(ctx, &pb.GetRankRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetSuppressedVisualEffects calls the GetSuppressedVisualEffects RPC.
-func (c *ListenerServiceRankingClient) GetSuppressedVisualEffects(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetSuppressedVisualEffects(ctx, &pb.GetSuppressedVisualEffectsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetUserSentiment calls the GetUserSentiment RPC.
-func (c *ListenerServiceRankingClient) GetUserSentiment(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetUserSentiment(ctx, &pb.GetUserSentimentRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsAmbient calls the IsAmbient RPC.
-func (c *ListenerServiceRankingClient) IsAmbient(ctx context.Context) (bool, error) {
-	resp, err := c.svc.IsAmbient(ctx, &pb.IsAmbientRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsConversation calls the IsConversation RPC.
-func (c *ListenerServiceRankingClient) IsConversation(ctx context.Context) (bool, error) {
-	resp, err := c.svc.IsConversation(ctx, &pb.ListenerServiceRankingIsConversationRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsSuspended calls the IsSuspended RPC.
-func (c *ListenerServiceRankingClient) IsSuspended(ctx context.Context) (bool, error) {
-	resp, err := c.svc.IsSuspended(ctx, &pb.IsSuspendedRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// MatchesInterruptionFilter calls the MatchesInterruptionFilter RPC.
-func (c *ListenerServiceRankingClient) MatchesInterruptionFilter(ctx context.Context) (bool, error) {
-	resp, err := c.svc.MatchesInterruptionFilter(ctx, &pb.MatchesInterruptionFilterRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ListenerServiceRankingMapClient wraps the gRPC ListenerServiceRankingMapService client.
-type ListenerServiceRankingMapClient struct {
-	svc pb.ListenerServiceRankingMapServiceClient
-}
-
-// NewListenerServiceRankingMapClient creates a new ListenerServiceRankingMap client.
-func NewListenerServiceRankingMapClient(cc grpc.ClientConnInterface) *ListenerServiceRankingMapClient {
-	return &ListenerServiceRankingMapClient{
-		svc: pb.NewListenerServiceRankingMapServiceClient(cc),
-	}
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *ListenerServiceRankingMapClient) DescribeContents(ctx context.Context) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.ListenerServiceRankingMapDescribeContentsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Equals calls the Equals RPC.
-func (c *ListenerServiceRankingMapClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.ListenerServiceRankingMapEqualsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetOrderedKeys calls the GetOrderedKeys RPC.
-func (c *ListenerServiceRankingMapClient) GetOrderedKeys(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetOrderedKeys(ctx, &pb.GetOrderedKeysRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetRanking calls the GetRanking RPC.
-func (c *ListenerServiceRankingMapClient) GetRanking(ctx context.Context, arg0 string, arg1 int64) (bool, error) {
-	resp, err := c.svc.GetRanking(ctx, &pb.GetRankingRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *ListenerServiceRankingMapClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.ListenerServiceRankingMapWriteToParcelRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// ZenDeviceEffectsClient wraps the gRPC ZenDeviceEffectsService client.
-type ZenDeviceEffectsClient struct {
-	svc pb.ZenDeviceEffectsServiceClient
-}
-
-// NewZenDeviceEffectsClient creates a new ZenDeviceEffects client.
-func NewZenDeviceEffectsClient(cc grpc.ClientConnInterface) *ZenDeviceEffectsClient {
-	return &ZenDeviceEffectsClient{
-		svc: pb.NewZenDeviceEffectsServiceClient(cc),
-	}
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *ZenDeviceEffectsClient) DescribeContents(ctx context.Context) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.ZenDeviceEffectsDescribeContentsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Equals calls the Equals RPC.
-func (c *ZenDeviceEffectsClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.ZenDeviceEffectsEqualsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *ZenDeviceEffectsClient) HashCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.ZenDeviceEffectsHashCodeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ShouldDimWallpaper calls the ShouldDimWallpaper RPC.
-func (c *ZenDeviceEffectsClient) ShouldDimWallpaper(ctx context.Context) (bool, error) {
-	resp, err := c.svc.ShouldDimWallpaper(ctx, &pb.ShouldDimWallpaperRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ShouldDisplayGrayscale calls the ShouldDisplayGrayscale RPC.
-func (c *ZenDeviceEffectsClient) ShouldDisplayGrayscale(ctx context.Context) (bool, error) {
-	resp, err := c.svc.ShouldDisplayGrayscale(ctx, &pb.ShouldDisplayGrayscaleRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ShouldSuppressAmbientDisplay calls the ShouldSuppressAmbientDisplay RPC.
-func (c *ZenDeviceEffectsClient) ShouldSuppressAmbientDisplay(ctx context.Context) (bool, error) {
-	resp, err := c.svc.ShouldSuppressAmbientDisplay(ctx, &pb.ShouldSuppressAmbientDisplayRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ShouldUseNightMode calls the ShouldUseNightMode RPC.
-func (c *ZenDeviceEffectsClient) ShouldUseNightMode(ctx context.Context) (bool, error) {
-	resp, err := c.svc.ShouldUseNightMode(ctx, &pb.ShouldUseNightModeRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToString calls the ToString RPC.
-func (c *ZenDeviceEffectsClient) ToString(ctx context.Context) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ZenDeviceEffectsToStringRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *ZenDeviceEffectsClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.ZenDeviceEffectsWriteToParcelRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// ZenDeviceEffectsBuilderClient wraps the gRPC ZenDeviceEffectsBuilderService client.
-type ZenDeviceEffectsBuilderClient struct {
-	svc pb.ZenDeviceEffectsBuilderServiceClient
-}
-
-// NewZenDeviceEffectsBuilderClient creates a new ZenDeviceEffectsBuilder client.
-func NewZenDeviceEffectsBuilderClient(cc grpc.ClientConnInterface) *ZenDeviceEffectsBuilderClient {
-	return &ZenDeviceEffectsBuilderClient{
-		svc: pb.NewZenDeviceEffectsBuilderServiceClient(cc),
-	}
-}
-
-// Build calls the Build RPC.
-func (c *ZenDeviceEffectsBuilderClient) Build(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetShouldDimWallpaper calls the SetShouldDimWallpaper RPC.
-func (c *ZenDeviceEffectsBuilderClient) SetShouldDimWallpaper(ctx context.Context, arg0 bool) (int64, error) {
-	resp, err := c.svc.SetShouldDimWallpaper(ctx, &pb.SetShouldDimWallpaperRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetShouldDisplayGrayscale calls the SetShouldDisplayGrayscale RPC.
-func (c *ZenDeviceEffectsBuilderClient) SetShouldDisplayGrayscale(ctx context.Context, arg0 bool) (int64, error) {
-	resp, err := c.svc.SetShouldDisplayGrayscale(ctx, &pb.SetShouldDisplayGrayscaleRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetShouldSuppressAmbientDisplay calls the SetShouldSuppressAmbientDisplay RPC.
-func (c *ZenDeviceEffectsBuilderClient) SetShouldSuppressAmbientDisplay(ctx context.Context, arg0 bool) (int64, error) {
-	resp, err := c.svc.SetShouldSuppressAmbientDisplay(ctx, &pb.SetShouldSuppressAmbientDisplayRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetShouldUseNightMode calls the SetShouldUseNightMode RPC.
-func (c *ZenDeviceEffectsBuilderClient) SetShouldUseNightMode(ctx context.Context, arg0 bool) (int64, error) {
-	resp, err := c.svc.SetShouldUseNightMode(ctx, &pb.SetShouldUseNightModeRequest{
 		Arg0: arg0,
 	})
 	if err != nil {

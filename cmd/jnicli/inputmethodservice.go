@@ -12,6 +12,678 @@ var inputmethodserviceCmd = &cobra.Command{
 	Short: "inputmethodservice service operations",
 }
 
+var inputmethodserviceKeyboardViewCmd = &cobra.Command{
+	Use:   "keyboard-view",
+	Short: "KeyboardViewService operations",
+}
+
+var inputmethodserviceKeyboardViewNewKeyboardViewCmd = &cobra.Command{
+	Use:   "new-keyboard-view",
+	Short: "NewKeyboardView RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewKeyboardViewServiceClient(grpcConn)
+		req := &pb.NewKeyboardViewRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.NewKeyboardView(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodserviceKeyboardViewClosingCmd = &cobra.Command{
+	Use:   "closing",
+	Short: "Closing RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewKeyboardViewServiceClient(grpcConn)
+		req := &pb.ClosingRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.Closing(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodserviceKeyboardViewGetKeyboardCmd = &cobra.Command{
+	Use:   "get-keyboard",
+	Short: "GetKeyboard RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewKeyboardViewServiceClient(grpcConn)
+		req := &pb.GetKeyboardRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetKeyboard(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodserviceKeyboardViewHandleBackCmd = &cobra.Command{
+	Use:   "handle-back",
+	Short: "HandleBack RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewKeyboardViewServiceClient(grpcConn)
+		req := &pb.HandleBackRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.HandleBack(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodserviceKeyboardViewInvalidateAllKeysCmd = &cobra.Command{
+	Use:   "invalidate-all-keys",
+	Short: "InvalidateAllKeys RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewKeyboardViewServiceClient(grpcConn)
+		req := &pb.InvalidateAllKeysRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.InvalidateAllKeys(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodserviceKeyboardViewInvalidateKeyCmd = &cobra.Command{
+	Use:   "invalidate-key",
+	Short: "InvalidateKey RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewKeyboardViewServiceClient(grpcConn)
+		req := &pb.InvalidateKeyRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.InvalidateKey(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodserviceKeyboardViewIsPreviewEnabledCmd = &cobra.Command{
+	Use:   "is-preview-enabled",
+	Short: "IsPreviewEnabled RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewKeyboardViewServiceClient(grpcConn)
+		req := &pb.IsPreviewEnabledRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.IsPreviewEnabled(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodserviceKeyboardViewIsProximityCorrectionEnabledCmd = &cobra.Command{
+	Use:   "is-proximity-correction-enabled",
+	Short: "IsProximityCorrectionEnabled RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewKeyboardViewServiceClient(grpcConn)
+		req := &pb.IsProximityCorrectionEnabledRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.IsProximityCorrectionEnabled(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodserviceKeyboardViewIsShiftedCmd = &cobra.Command{
+	Use:   "is-shifted",
+	Short: "IsShifted RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewKeyboardViewServiceClient(grpcConn)
+		req := &pb.IsShiftedRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.IsShifted(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodserviceKeyboardViewOnClickCmd = &cobra.Command{
+	Use:   "on-click",
+	Short: "OnClick RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewKeyboardViewServiceClient(grpcConn)
+		req := &pb.OnClickRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnClick(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodserviceKeyboardViewOnDetachedFromWindowCmd = &cobra.Command{
+	Use:   "on-detached-from-window",
+	Short: "OnDetachedFromWindow RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewKeyboardViewServiceClient(grpcConn)
+		req := &pb.OnDetachedFromWindowRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.OnDetachedFromWindow(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodserviceKeyboardViewOnDrawCmd = &cobra.Command{
+	Use:   "on-draw",
+	Short: "OnDraw RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewKeyboardViewServiceClient(grpcConn)
+		req := &pb.OnDrawRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnDraw(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodserviceKeyboardViewOnHoverEventCmd = &cobra.Command{
+	Use:   "on-hover-event",
+	Short: "OnHoverEvent RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewKeyboardViewServiceClient(grpcConn)
+		req := &pb.OnHoverEventRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnHoverEvent(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodserviceKeyboardViewOnMeasureCmd = &cobra.Command{
+	Use:   "on-measure",
+	Short: "OnMeasure RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewKeyboardViewServiceClient(grpcConn)
+		req := &pb.OnMeasureRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.OnMeasure(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodserviceKeyboardViewOnSizeChangedCmd = &cobra.Command{
+	Use:   "on-size-changed",
+	Short: "OnSizeChanged RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewKeyboardViewServiceClient(grpcConn)
+		req := &pb.OnSizeChangedRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.OnSizeChanged(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodserviceKeyboardViewOnTouchEventCmd = &cobra.Command{
+	Use:   "on-touch-event",
+	Short: "OnTouchEvent RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewKeyboardViewServiceClient(grpcConn)
+		req := &pb.OnTouchEventRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnTouchEvent(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodserviceKeyboardViewSetKeyboardCmd = &cobra.Command{
+	Use:   "set-keyboard",
+	Short: "SetKeyboard RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewKeyboardViewServiceClient(grpcConn)
+		req := &pb.SetKeyboardRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetKeyboard(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodserviceKeyboardViewSetOnKeyboardActionListenerCmd = &cobra.Command{
+	Use:   "set-on-keyboard-action-listener",
+	Short: "SetOnKeyboardActionListener RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewKeyboardViewServiceClient(grpcConn)
+		req := &pb.SetOnKeyboardActionListenerRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetOnKeyboardActionListener(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodserviceKeyboardViewSetPopupOffsetCmd = &cobra.Command{
+	Use:   "set-popup-offset",
+	Short: "SetPopupOffset RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewKeyboardViewServiceClient(grpcConn)
+		req := &pb.SetPopupOffsetRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.SetPopupOffset(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodserviceKeyboardViewSetPopupParentCmd = &cobra.Command{
+	Use:   "set-popup-parent",
+	Short: "SetPopupParent RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewKeyboardViewServiceClient(grpcConn)
+		req := &pb.SetPopupParentRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetPopupParent(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodserviceKeyboardViewSetPreviewEnabledCmd = &cobra.Command{
+	Use:   "set-preview-enabled",
+	Short: "SetPreviewEnabled RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewKeyboardViewServiceClient(grpcConn)
+		req := &pb.SetPreviewEnabledRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetPreviewEnabled(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodserviceKeyboardViewSetProximityCorrectionEnabledCmd = &cobra.Command{
+	Use:   "set-proximity-correction-enabled",
+	Short: "SetProximityCorrectionEnabled RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewKeyboardViewServiceClient(grpcConn)
+		req := &pb.SetProximityCorrectionEnabledRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetProximityCorrectionEnabled(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodserviceKeyboardViewSetShiftedCmd = &cobra.Command{
+	Use:   "set-shifted",
+	Short: "SetShifted RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewKeyboardViewServiceClient(grpcConn)
+		req := &pb.SetShiftedRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetShifted(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodserviceKeyboardViewSetVerticalCorrectionCmd = &cobra.Command{
+	Use:   "set-vertical-correction",
+	Short: "SetVerticalCorrection RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewKeyboardViewServiceClient(grpcConn)
+		req := &pb.SetVerticalCorrectionRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetVerticalCorrection(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodserviceKeyboardViewOnKeyboardActionListenerCmd = &cobra.Command{
+	Use:   "keyboard-view-on-keyboard-action-listener",
+	Short: "KeyboardViewOnKeyboardActionListenerService operations",
+}
+
+var inputmethodserviceKeyboardViewOnKeyboardActionListenerOnKeyCmd = &cobra.Command{
+	Use:   "on-key",
+	Short: "OnKey RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewKeyboardViewOnKeyboardActionListenerServiceClient(grpcConn)
+		req := &pb.OnKeyRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.OnKey(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodserviceKeyboardViewOnKeyboardActionListenerOnPressCmd = &cobra.Command{
+	Use:   "on-press",
+	Short: "OnPress RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewKeyboardViewOnKeyboardActionListenerServiceClient(grpcConn)
+		req := &pb.OnPressRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnPress(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodserviceKeyboardViewOnKeyboardActionListenerOnReleaseCmd = &cobra.Command{
+	Use:   "on-release",
+	Short: "OnRelease RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewKeyboardViewOnKeyboardActionListenerServiceClient(grpcConn)
+		req := &pb.OnReleaseRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnRelease(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodserviceKeyboardViewOnKeyboardActionListenerOnTextCmd = &cobra.Command{
+	Use:   "on-text",
+	Short: "OnText RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewKeyboardViewOnKeyboardActionListenerServiceClient(grpcConn)
+		req := &pb.OnTextRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnText(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodserviceKeyboardViewOnKeyboardActionListenerSwipeDownCmd = &cobra.Command{
+	Use:   "swipe-down",
+	Short: "SwipeDown RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewKeyboardViewOnKeyboardActionListenerServiceClient(grpcConn)
+		req := &pb.SwipeDownRequest{}
+		resp, err := client.SwipeDown(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodserviceKeyboardViewOnKeyboardActionListenerSwipeLeftCmd = &cobra.Command{
+	Use:   "swipe-left",
+	Short: "SwipeLeft RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewKeyboardViewOnKeyboardActionListenerServiceClient(grpcConn)
+		req := &pb.SwipeLeftRequest{}
+		resp, err := client.SwipeLeft(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodserviceKeyboardViewOnKeyboardActionListenerSwipeRightCmd = &cobra.Command{
+	Use:   "swipe-right",
+	Short: "SwipeRight RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewKeyboardViewOnKeyboardActionListenerServiceClient(grpcConn)
+		req := &pb.SwipeRightRequest{}
+		resp, err := client.SwipeRight(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodserviceKeyboardViewOnKeyboardActionListenerSwipeUpCmd = &cobra.Command{
+	Use:   "swipe-up",
+	Short: "SwipeUp RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewKeyboardViewOnKeyboardActionListenerServiceClient(grpcConn)
+		req := &pb.SwipeUpRequest{}
+		resp, err := client.SwipeUp(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var inputmethodserviceKeyboardCmd = &cobra.Command{
 	Use:   "keyboard",
 	Short: "KeyboardService operations",
@@ -58,6 +730,25 @@ var inputmethodserviceKeyboardGetHeightCmd = &cobra.Command{
 	},
 }
 
+var inputmethodserviceKeyboardGetKeysCmd = &cobra.Command{
+	Use:   "get-keys",
+	Short: "GetKeys RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewKeyboardServiceClient(grpcConn)
+		req := &pb.GetKeysRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetKeys(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var inputmethodserviceKeyboardGetMinWidthCmd = &cobra.Command{
 	Use:   "get-min-width",
 	Short: "GetMinWidth RPC",
@@ -70,6 +761,25 @@ var inputmethodserviceKeyboardGetMinWidthCmd = &cobra.Command{
 			req.Handle = v
 		}
 		resp, err := client.GetMinWidth(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodserviceKeyboardGetModifierKeysCmd = &cobra.Command{
+	Use:   "get-modifier-keys",
+	Short: "GetModifierKeys RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewKeyboardServiceClient(grpcConn)
+		req := &pb.GetModifierKeysRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetModifierKeys(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -255,6 +965,226 @@ var inputmethodserviceKeyboardKeySquaredDistanceFromCmd = &cobra.Command{
 			req.Arg1 = v
 		}
 		resp, err := client.SquaredDistanceFrom(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodserviceExtractEditTextCmd = &cobra.Command{
+	Use:   "extract-edit-text",
+	Short: "ExtractEditTextService operations",
+}
+
+var inputmethodserviceExtractEditTextNewExtractEditTextCmd = &cobra.Command{
+	Use:   "new-extract-edit-text",
+	Short: "NewExtractEditText RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewExtractEditTextServiceClient(grpcConn)
+		req := &pb.NewExtractEditTextRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.NewExtractEditText(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodserviceExtractEditTextFinishInternalChangesCmd = &cobra.Command{
+	Use:   "finish-internal-changes",
+	Short: "FinishInternalChanges RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewExtractEditTextServiceClient(grpcConn)
+		req := &pb.FinishInternalChangesRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.FinishInternalChanges(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodserviceExtractEditTextHasFocusCmd = &cobra.Command{
+	Use:   "has-focus",
+	Short: "HasFocus RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewExtractEditTextServiceClient(grpcConn)
+		req := &pb.HasFocusRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.HasFocus(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodserviceExtractEditTextHasVerticalScrollBarCmd = &cobra.Command{
+	Use:   "has-vertical-scroll-bar",
+	Short: "HasVerticalScrollBar RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewExtractEditTextServiceClient(grpcConn)
+		req := &pb.HasVerticalScrollBarRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.HasVerticalScrollBar(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodserviceExtractEditTextHasWindowFocusCmd = &cobra.Command{
+	Use:   "has-window-focus",
+	Short: "HasWindowFocus RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewExtractEditTextServiceClient(grpcConn)
+		req := &pb.HasWindowFocusRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.HasWindowFocus(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodserviceExtractEditTextIsFocusedCmd = &cobra.Command{
+	Use:   "is-focused",
+	Short: "IsFocused RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewExtractEditTextServiceClient(grpcConn)
+		req := &pb.IsFocusedRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.IsFocused(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodserviceExtractEditTextIsInputMethodTargetCmd = &cobra.Command{
+	Use:   "is-input-method-target",
+	Short: "IsInputMethodTarget RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewExtractEditTextServiceClient(grpcConn)
+		req := &pb.IsInputMethodTargetRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.IsInputMethodTarget(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodserviceExtractEditTextOnTextContextMenuItemCmd = &cobra.Command{
+	Use:   "on-text-context-menu-item",
+	Short: "OnTextContextMenuItem RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewExtractEditTextServiceClient(grpcConn)
+		req := &pb.OnTextContextMenuItemRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnTextContextMenuItem(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodserviceExtractEditTextPerformClickCmd = &cobra.Command{
+	Use:   "perform-click",
+	Short: "PerformClick RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewExtractEditTextServiceClient(grpcConn)
+		req := &pb.PerformClickRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.PerformClick(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodserviceExtractEditTextSetExtractedTextCmd = &cobra.Command{
+	Use:   "set-extracted-text",
+	Short: "SetExtractedText RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewExtractEditTextServiceClient(grpcConn)
+		req := &pb.SetExtractedTextRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetExtractedText(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodserviceExtractEditTextStartInternalChangesCmd = &cobra.Command{
+	Use:   "start-internal-changes",
+	Short: "StartInternalChanges RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewExtractEditTextServiceClient(grpcConn)
+		req := &pb.StartInternalChangesRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.StartInternalChanges(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -3289,906 +4219,102 @@ var inputmethodserviceInputMethodServiceInputMethodSessionImplViewClickedCmd = &
 	},
 }
 
-var inputmethodserviceExtractEditTextCmd = &cobra.Command{
-	Use:   "extract-edit-text",
-	Short: "ExtractEditTextService operations",
-}
-
-var inputmethodserviceExtractEditTextNewExtractEditTextCmd = &cobra.Command{
-	Use:   "new-extract-edit-text",
-	Short: "NewExtractEditText RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewExtractEditTextServiceClient(grpcConn)
-		req := &pb.NewExtractEditTextRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.NewExtractEditText(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var inputmethodserviceExtractEditTextFinishInternalChangesCmd = &cobra.Command{
-	Use:   "finish-internal-changes",
-	Short: "FinishInternalChanges RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewExtractEditTextServiceClient(grpcConn)
-		req := &pb.FinishInternalChangesRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.FinishInternalChanges(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var inputmethodserviceExtractEditTextHasFocusCmd = &cobra.Command{
-	Use:   "has-focus",
-	Short: "HasFocus RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewExtractEditTextServiceClient(grpcConn)
-		req := &pb.HasFocusRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.HasFocus(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var inputmethodserviceExtractEditTextHasVerticalScrollBarCmd = &cobra.Command{
-	Use:   "has-vertical-scroll-bar",
-	Short: "HasVerticalScrollBar RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewExtractEditTextServiceClient(grpcConn)
-		req := &pb.HasVerticalScrollBarRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.HasVerticalScrollBar(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var inputmethodserviceExtractEditTextHasWindowFocusCmd = &cobra.Command{
-	Use:   "has-window-focus",
-	Short: "HasWindowFocus RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewExtractEditTextServiceClient(grpcConn)
-		req := &pb.HasWindowFocusRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.HasWindowFocus(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var inputmethodserviceExtractEditTextIsFocusedCmd = &cobra.Command{
-	Use:   "is-focused",
-	Short: "IsFocused RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewExtractEditTextServiceClient(grpcConn)
-		req := &pb.IsFocusedRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.IsFocused(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var inputmethodserviceExtractEditTextIsInputMethodTargetCmd = &cobra.Command{
-	Use:   "is-input-method-target",
-	Short: "IsInputMethodTarget RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewExtractEditTextServiceClient(grpcConn)
-		req := &pb.IsInputMethodTargetRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.IsInputMethodTarget(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var inputmethodserviceExtractEditTextOnTextContextMenuItemCmd = &cobra.Command{
-	Use:   "on-text-context-menu-item",
-	Short: "OnTextContextMenuItem RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewExtractEditTextServiceClient(grpcConn)
-		req := &pb.OnTextContextMenuItemRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.OnTextContextMenuItem(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var inputmethodserviceExtractEditTextPerformClickCmd = &cobra.Command{
-	Use:   "perform-click",
-	Short: "PerformClick RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewExtractEditTextServiceClient(grpcConn)
-		req := &pb.PerformClickRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.PerformClick(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var inputmethodserviceExtractEditTextSetExtractedTextCmd = &cobra.Command{
-	Use:   "set-extracted-text",
-	Short: "SetExtractedText RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewExtractEditTextServiceClient(grpcConn)
-		req := &pb.SetExtractedTextRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetExtractedText(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var inputmethodserviceExtractEditTextStartInternalChangesCmd = &cobra.Command{
-	Use:   "start-internal-changes",
-	Short: "StartInternalChanges RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewExtractEditTextServiceClient(grpcConn)
-		req := &pb.StartInternalChangesRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.StartInternalChanges(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var inputmethodserviceKeyboardViewCmd = &cobra.Command{
-	Use:   "keyboard-view",
-	Short: "KeyboardViewService operations",
-}
-
-var inputmethodserviceKeyboardViewNewKeyboardViewCmd = &cobra.Command{
-	Use:   "new-keyboard-view",
-	Short: "NewKeyboardView RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewKeyboardViewServiceClient(grpcConn)
-		req := &pb.NewKeyboardViewRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.NewKeyboardView(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var inputmethodserviceKeyboardViewClosingCmd = &cobra.Command{
-	Use:   "closing",
-	Short: "Closing RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewKeyboardViewServiceClient(grpcConn)
-		req := &pb.ClosingRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.Closing(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var inputmethodserviceKeyboardViewGetKeyboardCmd = &cobra.Command{
-	Use:   "get-keyboard",
-	Short: "GetKeyboard RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewKeyboardViewServiceClient(grpcConn)
-		req := &pb.GetKeyboardRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetKeyboard(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var inputmethodserviceKeyboardViewHandleBackCmd = &cobra.Command{
-	Use:   "handle-back",
-	Short: "HandleBack RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewKeyboardViewServiceClient(grpcConn)
-		req := &pb.HandleBackRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.HandleBack(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var inputmethodserviceKeyboardViewInvalidateAllKeysCmd = &cobra.Command{
-	Use:   "invalidate-all-keys",
-	Short: "InvalidateAllKeys RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewKeyboardViewServiceClient(grpcConn)
-		req := &pb.InvalidateAllKeysRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.InvalidateAllKeys(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var inputmethodserviceKeyboardViewInvalidateKeyCmd = &cobra.Command{
-	Use:   "invalidate-key",
-	Short: "InvalidateKey RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewKeyboardViewServiceClient(grpcConn)
-		req := &pb.InvalidateKeyRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.InvalidateKey(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var inputmethodserviceKeyboardViewIsPreviewEnabledCmd = &cobra.Command{
-	Use:   "is-preview-enabled",
-	Short: "IsPreviewEnabled RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewKeyboardViewServiceClient(grpcConn)
-		req := &pb.IsPreviewEnabledRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.IsPreviewEnabled(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var inputmethodserviceKeyboardViewIsProximityCorrectionEnabledCmd = &cobra.Command{
-	Use:   "is-proximity-correction-enabled",
-	Short: "IsProximityCorrectionEnabled RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewKeyboardViewServiceClient(grpcConn)
-		req := &pb.IsProximityCorrectionEnabledRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.IsProximityCorrectionEnabled(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var inputmethodserviceKeyboardViewIsShiftedCmd = &cobra.Command{
-	Use:   "is-shifted",
-	Short: "IsShifted RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewKeyboardViewServiceClient(grpcConn)
-		req := &pb.IsShiftedRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.IsShifted(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var inputmethodserviceKeyboardViewOnClickCmd = &cobra.Command{
-	Use:   "on-click",
-	Short: "OnClick RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewKeyboardViewServiceClient(grpcConn)
-		req := &pb.OnClickRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.OnClick(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var inputmethodserviceKeyboardViewOnDetachedFromWindowCmd = &cobra.Command{
-	Use:   "on-detached-from-window",
-	Short: "OnDetachedFromWindow RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewKeyboardViewServiceClient(grpcConn)
-		req := &pb.OnDetachedFromWindowRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.OnDetachedFromWindow(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var inputmethodserviceKeyboardViewOnDrawCmd = &cobra.Command{
-	Use:   "on-draw",
-	Short: "OnDraw RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewKeyboardViewServiceClient(grpcConn)
-		req := &pb.OnDrawRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.OnDraw(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var inputmethodserviceKeyboardViewOnHoverEventCmd = &cobra.Command{
-	Use:   "on-hover-event",
-	Short: "OnHoverEvent RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewKeyboardViewServiceClient(grpcConn)
-		req := &pb.OnHoverEventRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.OnHoverEvent(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var inputmethodserviceKeyboardViewOnMeasureCmd = &cobra.Command{
-	Use:   "on-measure",
-	Short: "OnMeasure RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewKeyboardViewServiceClient(grpcConn)
-		req := &pb.OnMeasureRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.OnMeasure(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var inputmethodserviceKeyboardViewOnSizeChangedCmd = &cobra.Command{
-	Use:   "on-size-changed",
-	Short: "OnSizeChanged RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewKeyboardViewServiceClient(grpcConn)
-		req := &pb.OnSizeChangedRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		resp, err := client.OnSizeChanged(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var inputmethodserviceKeyboardViewOnTouchEventCmd = &cobra.Command{
-	Use:   "on-touch-event",
-	Short: "OnTouchEvent RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewKeyboardViewServiceClient(grpcConn)
-		req := &pb.OnTouchEventRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.OnTouchEvent(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var inputmethodserviceKeyboardViewSetKeyboardCmd = &cobra.Command{
-	Use:   "set-keyboard",
-	Short: "SetKeyboard RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewKeyboardViewServiceClient(grpcConn)
-		req := &pb.SetKeyboardRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetKeyboard(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var inputmethodserviceKeyboardViewSetOnKeyboardActionListenerCmd = &cobra.Command{
-	Use:   "set-on-keyboard-action-listener",
-	Short: "SetOnKeyboardActionListener RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewKeyboardViewServiceClient(grpcConn)
-		req := &pb.SetOnKeyboardActionListenerRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetOnKeyboardActionListener(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var inputmethodserviceKeyboardViewSetPopupOffsetCmd = &cobra.Command{
-	Use:   "set-popup-offset",
-	Short: "SetPopupOffset RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewKeyboardViewServiceClient(grpcConn)
-		req := &pb.SetPopupOffsetRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.SetPopupOffset(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var inputmethodserviceKeyboardViewSetPopupParentCmd = &cobra.Command{
-	Use:   "set-popup-parent",
-	Short: "SetPopupParent RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewKeyboardViewServiceClient(grpcConn)
-		req := &pb.SetPopupParentRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetPopupParent(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var inputmethodserviceKeyboardViewSetPreviewEnabledCmd = &cobra.Command{
-	Use:   "set-preview-enabled",
-	Short: "SetPreviewEnabled RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewKeyboardViewServiceClient(grpcConn)
-		req := &pb.SetPreviewEnabledRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetPreviewEnabled(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var inputmethodserviceKeyboardViewSetProximityCorrectionEnabledCmd = &cobra.Command{
-	Use:   "set-proximity-correction-enabled",
-	Short: "SetProximityCorrectionEnabled RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewKeyboardViewServiceClient(grpcConn)
-		req := &pb.SetProximityCorrectionEnabledRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetProximityCorrectionEnabled(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var inputmethodserviceKeyboardViewSetShiftedCmd = &cobra.Command{
-	Use:   "set-shifted",
-	Short: "SetShifted RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewKeyboardViewServiceClient(grpcConn)
-		req := &pb.SetShiftedRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetShifted(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var inputmethodserviceKeyboardViewSetVerticalCorrectionCmd = &cobra.Command{
-	Use:   "set-vertical-correction",
-	Short: "SetVerticalCorrection RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewKeyboardViewServiceClient(grpcConn)
-		req := &pb.SetVerticalCorrectionRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetVerticalCorrection(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var inputmethodserviceKeyboardViewOnKeyboardActionListenerCmd = &cobra.Command{
-	Use:   "keyboard-view-on-keyboard-action-listener",
-	Short: "KeyboardViewOnKeyboardActionListenerService operations",
-}
-
-var inputmethodserviceKeyboardViewOnKeyboardActionListenerOnKeyCmd = &cobra.Command{
-	Use:   "on-key",
-	Short: "OnKey RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewKeyboardViewOnKeyboardActionListenerServiceClient(grpcConn)
-		req := &pb.OnKeyRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.OnKey(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var inputmethodserviceKeyboardViewOnKeyboardActionListenerOnPressCmd = &cobra.Command{
-	Use:   "on-press",
-	Short: "OnPress RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewKeyboardViewOnKeyboardActionListenerServiceClient(grpcConn)
-		req := &pb.OnPressRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.OnPress(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var inputmethodserviceKeyboardViewOnKeyboardActionListenerOnReleaseCmd = &cobra.Command{
-	Use:   "on-release",
-	Short: "OnRelease RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewKeyboardViewOnKeyboardActionListenerServiceClient(grpcConn)
-		req := &pb.OnReleaseRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.OnRelease(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var inputmethodserviceKeyboardViewOnKeyboardActionListenerOnTextCmd = &cobra.Command{
-	Use:   "on-text",
-	Short: "OnText RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewKeyboardViewOnKeyboardActionListenerServiceClient(grpcConn)
-		req := &pb.OnTextRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.OnText(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var inputmethodserviceKeyboardViewOnKeyboardActionListenerSwipeDownCmd = &cobra.Command{
-	Use:   "swipe-down",
-	Short: "SwipeDown RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewKeyboardViewOnKeyboardActionListenerServiceClient(grpcConn)
-		req := &pb.SwipeDownRequest{}
-		resp, err := client.SwipeDown(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var inputmethodserviceKeyboardViewOnKeyboardActionListenerSwipeLeftCmd = &cobra.Command{
-	Use:   "swipe-left",
-	Short: "SwipeLeft RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewKeyboardViewOnKeyboardActionListenerServiceClient(grpcConn)
-		req := &pb.SwipeLeftRequest{}
-		resp, err := client.SwipeLeft(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var inputmethodserviceKeyboardViewOnKeyboardActionListenerSwipeRightCmd = &cobra.Command{
-	Use:   "swipe-right",
-	Short: "SwipeRight RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewKeyboardViewOnKeyboardActionListenerServiceClient(grpcConn)
-		req := &pb.SwipeRightRequest{}
-		resp, err := client.SwipeRight(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var inputmethodserviceKeyboardViewOnKeyboardActionListenerSwipeUpCmd = &cobra.Command{
-	Use:   "swipe-up",
-	Short: "SwipeUp RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewKeyboardViewOnKeyboardActionListenerServiceClient(grpcConn)
-		req := &pb.SwipeUpRequest{}
-		resp, err := client.SwipeUp(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
 func init() {
+	inputmethodserviceKeyboardViewNewKeyboardViewCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	inputmethodserviceKeyboardViewNewKeyboardViewCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	inputmethodserviceKeyboardViewCmd.AddCommand(inputmethodserviceKeyboardViewNewKeyboardViewCmd)
+	inputmethodserviceKeyboardViewClosingCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodserviceKeyboardViewCmd.AddCommand(inputmethodserviceKeyboardViewClosingCmd)
+	inputmethodserviceKeyboardViewGetKeyboardCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodserviceKeyboardViewCmd.AddCommand(inputmethodserviceKeyboardViewGetKeyboardCmd)
+	inputmethodserviceKeyboardViewHandleBackCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodserviceKeyboardViewCmd.AddCommand(inputmethodserviceKeyboardViewHandleBackCmd)
+	inputmethodserviceKeyboardViewInvalidateAllKeysCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodserviceKeyboardViewCmd.AddCommand(inputmethodserviceKeyboardViewInvalidateAllKeysCmd)
+	inputmethodserviceKeyboardViewInvalidateKeyCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodserviceKeyboardViewInvalidateKeyCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	inputmethodserviceKeyboardViewCmd.AddCommand(inputmethodserviceKeyboardViewInvalidateKeyCmd)
+	inputmethodserviceKeyboardViewIsPreviewEnabledCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodserviceKeyboardViewCmd.AddCommand(inputmethodserviceKeyboardViewIsPreviewEnabledCmd)
+	inputmethodserviceKeyboardViewIsProximityCorrectionEnabledCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodserviceKeyboardViewCmd.AddCommand(inputmethodserviceKeyboardViewIsProximityCorrectionEnabledCmd)
+	inputmethodserviceKeyboardViewIsShiftedCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodserviceKeyboardViewCmd.AddCommand(inputmethodserviceKeyboardViewIsShiftedCmd)
+	inputmethodserviceKeyboardViewOnClickCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodserviceKeyboardViewOnClickCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	inputmethodserviceKeyboardViewCmd.AddCommand(inputmethodserviceKeyboardViewOnClickCmd)
+	inputmethodserviceKeyboardViewOnDetachedFromWindowCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodserviceKeyboardViewCmd.AddCommand(inputmethodserviceKeyboardViewOnDetachedFromWindowCmd)
+	inputmethodserviceKeyboardViewOnDrawCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodserviceKeyboardViewOnDrawCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	inputmethodserviceKeyboardViewCmd.AddCommand(inputmethodserviceKeyboardViewOnDrawCmd)
+	inputmethodserviceKeyboardViewOnHoverEventCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodserviceKeyboardViewOnHoverEventCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	inputmethodserviceKeyboardViewCmd.AddCommand(inputmethodserviceKeyboardViewOnHoverEventCmd)
+	inputmethodserviceKeyboardViewOnMeasureCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodserviceKeyboardViewOnMeasureCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	inputmethodserviceKeyboardViewOnMeasureCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	inputmethodserviceKeyboardViewCmd.AddCommand(inputmethodserviceKeyboardViewOnMeasureCmd)
+	inputmethodserviceKeyboardViewOnSizeChangedCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodserviceKeyboardViewOnSizeChangedCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	inputmethodserviceKeyboardViewOnSizeChangedCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	inputmethodserviceKeyboardViewOnSizeChangedCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	inputmethodserviceKeyboardViewOnSizeChangedCmd.Flags().Int32("arg3", 0, "arg3 (int32)")
+	inputmethodserviceKeyboardViewCmd.AddCommand(inputmethodserviceKeyboardViewOnSizeChangedCmd)
+	inputmethodserviceKeyboardViewOnTouchEventCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodserviceKeyboardViewOnTouchEventCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	inputmethodserviceKeyboardViewCmd.AddCommand(inputmethodserviceKeyboardViewOnTouchEventCmd)
+	inputmethodserviceKeyboardViewSetKeyboardCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodserviceKeyboardViewSetKeyboardCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	inputmethodserviceKeyboardViewCmd.AddCommand(inputmethodserviceKeyboardViewSetKeyboardCmd)
+	inputmethodserviceKeyboardViewSetOnKeyboardActionListenerCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodserviceKeyboardViewSetOnKeyboardActionListenerCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	inputmethodserviceKeyboardViewCmd.AddCommand(inputmethodserviceKeyboardViewSetOnKeyboardActionListenerCmd)
+	inputmethodserviceKeyboardViewSetPopupOffsetCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodserviceKeyboardViewSetPopupOffsetCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	inputmethodserviceKeyboardViewSetPopupOffsetCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	inputmethodserviceKeyboardViewCmd.AddCommand(inputmethodserviceKeyboardViewSetPopupOffsetCmd)
+	inputmethodserviceKeyboardViewSetPopupParentCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodserviceKeyboardViewSetPopupParentCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	inputmethodserviceKeyboardViewCmd.AddCommand(inputmethodserviceKeyboardViewSetPopupParentCmd)
+	inputmethodserviceKeyboardViewSetPreviewEnabledCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodserviceKeyboardViewSetPreviewEnabledCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	inputmethodserviceKeyboardViewCmd.AddCommand(inputmethodserviceKeyboardViewSetPreviewEnabledCmd)
+	inputmethodserviceKeyboardViewSetProximityCorrectionEnabledCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodserviceKeyboardViewSetProximityCorrectionEnabledCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	inputmethodserviceKeyboardViewCmd.AddCommand(inputmethodserviceKeyboardViewSetProximityCorrectionEnabledCmd)
+	inputmethodserviceKeyboardViewSetShiftedCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodserviceKeyboardViewSetShiftedCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	inputmethodserviceKeyboardViewCmd.AddCommand(inputmethodserviceKeyboardViewSetShiftedCmd)
+	inputmethodserviceKeyboardViewSetVerticalCorrectionCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodserviceKeyboardViewSetVerticalCorrectionCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	inputmethodserviceKeyboardViewCmd.AddCommand(inputmethodserviceKeyboardViewSetVerticalCorrectionCmd)
+	inputmethodserviceCmd.AddCommand(inputmethodserviceKeyboardViewCmd)
+	inputmethodserviceKeyboardViewOnKeyboardActionListenerOnKeyCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	inputmethodserviceKeyboardViewOnKeyboardActionListenerOnKeyCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	inputmethodserviceKeyboardViewOnKeyboardActionListenerCmd.AddCommand(inputmethodserviceKeyboardViewOnKeyboardActionListenerOnKeyCmd)
+	inputmethodserviceKeyboardViewOnKeyboardActionListenerOnPressCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	inputmethodserviceKeyboardViewOnKeyboardActionListenerCmd.AddCommand(inputmethodserviceKeyboardViewOnKeyboardActionListenerOnPressCmd)
+	inputmethodserviceKeyboardViewOnKeyboardActionListenerOnReleaseCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	inputmethodserviceKeyboardViewOnKeyboardActionListenerCmd.AddCommand(inputmethodserviceKeyboardViewOnKeyboardActionListenerOnReleaseCmd)
+	inputmethodserviceKeyboardViewOnKeyboardActionListenerOnTextCmd.Flags().String("arg0", "", "arg0 (string)")
+	inputmethodserviceKeyboardViewOnKeyboardActionListenerCmd.AddCommand(inputmethodserviceKeyboardViewOnKeyboardActionListenerOnTextCmd)
+	inputmethodserviceKeyboardViewOnKeyboardActionListenerCmd.AddCommand(inputmethodserviceKeyboardViewOnKeyboardActionListenerSwipeDownCmd)
+	inputmethodserviceKeyboardViewOnKeyboardActionListenerCmd.AddCommand(inputmethodserviceKeyboardViewOnKeyboardActionListenerSwipeLeftCmd)
+	inputmethodserviceKeyboardViewOnKeyboardActionListenerCmd.AddCommand(inputmethodserviceKeyboardViewOnKeyboardActionListenerSwipeRightCmd)
+	inputmethodserviceKeyboardViewOnKeyboardActionListenerCmd.AddCommand(inputmethodserviceKeyboardViewOnKeyboardActionListenerSwipeUpCmd)
+	inputmethodserviceCmd.AddCommand(inputmethodserviceKeyboardViewOnKeyboardActionListenerCmd)
 	inputmethodserviceKeyboardNewKeyboardCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	inputmethodserviceKeyboardNewKeyboardCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
 	inputmethodserviceKeyboardCmd.AddCommand(inputmethodserviceKeyboardNewKeyboardCmd)
 	inputmethodserviceKeyboardGetHeightCmd.Flags().Int64("handle", 0, "handle (int64)")
 	inputmethodserviceKeyboardCmd.AddCommand(inputmethodserviceKeyboardGetHeightCmd)
+	inputmethodserviceKeyboardGetKeysCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodserviceKeyboardCmd.AddCommand(inputmethodserviceKeyboardGetKeysCmd)
 	inputmethodserviceKeyboardGetMinWidthCmd.Flags().Int64("handle", 0, "handle (int64)")
 	inputmethodserviceKeyboardCmd.AddCommand(inputmethodserviceKeyboardGetMinWidthCmd)
+	inputmethodserviceKeyboardGetModifierKeysCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodserviceKeyboardCmd.AddCommand(inputmethodserviceKeyboardGetModifierKeysCmd)
 	inputmethodserviceKeyboardGetNearestKeysCmd.Flags().Int64("handle", 0, "handle (int64)")
 	inputmethodserviceKeyboardGetNearestKeysCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
 	inputmethodserviceKeyboardGetNearestKeysCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
@@ -4212,6 +4338,31 @@ func init() {
 	inputmethodserviceKeyboardKeySquaredDistanceFromCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
 	inputmethodserviceKeyboardKeyCmd.AddCommand(inputmethodserviceKeyboardKeySquaredDistanceFromCmd)
 	inputmethodserviceCmd.AddCommand(inputmethodserviceKeyboardKeyCmd)
+	inputmethodserviceExtractEditTextNewExtractEditTextCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	inputmethodserviceExtractEditTextCmd.AddCommand(inputmethodserviceExtractEditTextNewExtractEditTextCmd)
+	inputmethodserviceExtractEditTextFinishInternalChangesCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodserviceExtractEditTextCmd.AddCommand(inputmethodserviceExtractEditTextFinishInternalChangesCmd)
+	inputmethodserviceExtractEditTextHasFocusCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodserviceExtractEditTextCmd.AddCommand(inputmethodserviceExtractEditTextHasFocusCmd)
+	inputmethodserviceExtractEditTextHasVerticalScrollBarCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodserviceExtractEditTextCmd.AddCommand(inputmethodserviceExtractEditTextHasVerticalScrollBarCmd)
+	inputmethodserviceExtractEditTextHasWindowFocusCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodserviceExtractEditTextCmd.AddCommand(inputmethodserviceExtractEditTextHasWindowFocusCmd)
+	inputmethodserviceExtractEditTextIsFocusedCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodserviceExtractEditTextCmd.AddCommand(inputmethodserviceExtractEditTextIsFocusedCmd)
+	inputmethodserviceExtractEditTextIsInputMethodTargetCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodserviceExtractEditTextCmd.AddCommand(inputmethodserviceExtractEditTextIsInputMethodTargetCmd)
+	inputmethodserviceExtractEditTextOnTextContextMenuItemCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodserviceExtractEditTextOnTextContextMenuItemCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	inputmethodserviceExtractEditTextCmd.AddCommand(inputmethodserviceExtractEditTextOnTextContextMenuItemCmd)
+	inputmethodserviceExtractEditTextPerformClickCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodserviceExtractEditTextCmd.AddCommand(inputmethodserviceExtractEditTextPerformClickCmd)
+	inputmethodserviceExtractEditTextSetExtractedTextCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodserviceExtractEditTextSetExtractedTextCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	inputmethodserviceExtractEditTextCmd.AddCommand(inputmethodserviceExtractEditTextSetExtractedTextCmd)
+	inputmethodserviceExtractEditTextStartInternalChangesCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodserviceExtractEditTextCmd.AddCommand(inputmethodserviceExtractEditTextStartInternalChangesCmd)
+	inputmethodserviceCmd.AddCommand(inputmethodserviceExtractEditTextCmd)
 	inputmethodserviceAbstractInputMethodServiceCmd.AddCommand(inputmethodserviceAbstractInputMethodServiceGetKeyDispatcherStateCmd)
 	inputmethodserviceAbstractInputMethodServiceGetSystemServiceCmd.Flags().String("arg0", "", "arg0 (string)")
 	inputmethodserviceAbstractInputMethodServiceCmd.AddCommand(inputmethodserviceAbstractInputMethodServiceGetSystemServiceCmd)
@@ -4593,114 +4744,5 @@ func init() {
 	inputmethodserviceInputMethodServiceInputMethodSessionImplViewClickedCmd.Flags().Bool("arg0", false, "arg0 (bool)")
 	inputmethodserviceInputMethodServiceInputMethodSessionImplCmd.AddCommand(inputmethodserviceInputMethodServiceInputMethodSessionImplViewClickedCmd)
 	inputmethodserviceCmd.AddCommand(inputmethodserviceInputMethodServiceInputMethodSessionImplCmd)
-	inputmethodserviceExtractEditTextNewExtractEditTextCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	inputmethodserviceExtractEditTextCmd.AddCommand(inputmethodserviceExtractEditTextNewExtractEditTextCmd)
-	inputmethodserviceExtractEditTextFinishInternalChangesCmd.Flags().Int64("handle", 0, "handle (int64)")
-	inputmethodserviceExtractEditTextCmd.AddCommand(inputmethodserviceExtractEditTextFinishInternalChangesCmd)
-	inputmethodserviceExtractEditTextHasFocusCmd.Flags().Int64("handle", 0, "handle (int64)")
-	inputmethodserviceExtractEditTextCmd.AddCommand(inputmethodserviceExtractEditTextHasFocusCmd)
-	inputmethodserviceExtractEditTextHasVerticalScrollBarCmd.Flags().Int64("handle", 0, "handle (int64)")
-	inputmethodserviceExtractEditTextCmd.AddCommand(inputmethodserviceExtractEditTextHasVerticalScrollBarCmd)
-	inputmethodserviceExtractEditTextHasWindowFocusCmd.Flags().Int64("handle", 0, "handle (int64)")
-	inputmethodserviceExtractEditTextCmd.AddCommand(inputmethodserviceExtractEditTextHasWindowFocusCmd)
-	inputmethodserviceExtractEditTextIsFocusedCmd.Flags().Int64("handle", 0, "handle (int64)")
-	inputmethodserviceExtractEditTextCmd.AddCommand(inputmethodserviceExtractEditTextIsFocusedCmd)
-	inputmethodserviceExtractEditTextIsInputMethodTargetCmd.Flags().Int64("handle", 0, "handle (int64)")
-	inputmethodserviceExtractEditTextCmd.AddCommand(inputmethodserviceExtractEditTextIsInputMethodTargetCmd)
-	inputmethodserviceExtractEditTextOnTextContextMenuItemCmd.Flags().Int64("handle", 0, "handle (int64)")
-	inputmethodserviceExtractEditTextOnTextContextMenuItemCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	inputmethodserviceExtractEditTextCmd.AddCommand(inputmethodserviceExtractEditTextOnTextContextMenuItemCmd)
-	inputmethodserviceExtractEditTextPerformClickCmd.Flags().Int64("handle", 0, "handle (int64)")
-	inputmethodserviceExtractEditTextCmd.AddCommand(inputmethodserviceExtractEditTextPerformClickCmd)
-	inputmethodserviceExtractEditTextSetExtractedTextCmd.Flags().Int64("handle", 0, "handle (int64)")
-	inputmethodserviceExtractEditTextSetExtractedTextCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	inputmethodserviceExtractEditTextCmd.AddCommand(inputmethodserviceExtractEditTextSetExtractedTextCmd)
-	inputmethodserviceExtractEditTextStartInternalChangesCmd.Flags().Int64("handle", 0, "handle (int64)")
-	inputmethodserviceExtractEditTextCmd.AddCommand(inputmethodserviceExtractEditTextStartInternalChangesCmd)
-	inputmethodserviceCmd.AddCommand(inputmethodserviceExtractEditTextCmd)
-	inputmethodserviceKeyboardViewNewKeyboardViewCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	inputmethodserviceKeyboardViewNewKeyboardViewCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	inputmethodserviceKeyboardViewCmd.AddCommand(inputmethodserviceKeyboardViewNewKeyboardViewCmd)
-	inputmethodserviceKeyboardViewClosingCmd.Flags().Int64("handle", 0, "handle (int64)")
-	inputmethodserviceKeyboardViewCmd.AddCommand(inputmethodserviceKeyboardViewClosingCmd)
-	inputmethodserviceKeyboardViewGetKeyboardCmd.Flags().Int64("handle", 0, "handle (int64)")
-	inputmethodserviceKeyboardViewCmd.AddCommand(inputmethodserviceKeyboardViewGetKeyboardCmd)
-	inputmethodserviceKeyboardViewHandleBackCmd.Flags().Int64("handle", 0, "handle (int64)")
-	inputmethodserviceKeyboardViewCmd.AddCommand(inputmethodserviceKeyboardViewHandleBackCmd)
-	inputmethodserviceKeyboardViewInvalidateAllKeysCmd.Flags().Int64("handle", 0, "handle (int64)")
-	inputmethodserviceKeyboardViewCmd.AddCommand(inputmethodserviceKeyboardViewInvalidateAllKeysCmd)
-	inputmethodserviceKeyboardViewInvalidateKeyCmd.Flags().Int64("handle", 0, "handle (int64)")
-	inputmethodserviceKeyboardViewInvalidateKeyCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	inputmethodserviceKeyboardViewCmd.AddCommand(inputmethodserviceKeyboardViewInvalidateKeyCmd)
-	inputmethodserviceKeyboardViewIsPreviewEnabledCmd.Flags().Int64("handle", 0, "handle (int64)")
-	inputmethodserviceKeyboardViewCmd.AddCommand(inputmethodserviceKeyboardViewIsPreviewEnabledCmd)
-	inputmethodserviceKeyboardViewIsProximityCorrectionEnabledCmd.Flags().Int64("handle", 0, "handle (int64)")
-	inputmethodserviceKeyboardViewCmd.AddCommand(inputmethodserviceKeyboardViewIsProximityCorrectionEnabledCmd)
-	inputmethodserviceKeyboardViewIsShiftedCmd.Flags().Int64("handle", 0, "handle (int64)")
-	inputmethodserviceKeyboardViewCmd.AddCommand(inputmethodserviceKeyboardViewIsShiftedCmd)
-	inputmethodserviceKeyboardViewOnClickCmd.Flags().Int64("handle", 0, "handle (int64)")
-	inputmethodserviceKeyboardViewOnClickCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	inputmethodserviceKeyboardViewCmd.AddCommand(inputmethodserviceKeyboardViewOnClickCmd)
-	inputmethodserviceKeyboardViewOnDetachedFromWindowCmd.Flags().Int64("handle", 0, "handle (int64)")
-	inputmethodserviceKeyboardViewCmd.AddCommand(inputmethodserviceKeyboardViewOnDetachedFromWindowCmd)
-	inputmethodserviceKeyboardViewOnDrawCmd.Flags().Int64("handle", 0, "handle (int64)")
-	inputmethodserviceKeyboardViewOnDrawCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	inputmethodserviceKeyboardViewCmd.AddCommand(inputmethodserviceKeyboardViewOnDrawCmd)
-	inputmethodserviceKeyboardViewOnHoverEventCmd.Flags().Int64("handle", 0, "handle (int64)")
-	inputmethodserviceKeyboardViewOnHoverEventCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	inputmethodserviceKeyboardViewCmd.AddCommand(inputmethodserviceKeyboardViewOnHoverEventCmd)
-	inputmethodserviceKeyboardViewOnMeasureCmd.Flags().Int64("handle", 0, "handle (int64)")
-	inputmethodserviceKeyboardViewOnMeasureCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	inputmethodserviceKeyboardViewOnMeasureCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	inputmethodserviceKeyboardViewCmd.AddCommand(inputmethodserviceKeyboardViewOnMeasureCmd)
-	inputmethodserviceKeyboardViewOnSizeChangedCmd.Flags().Int64("handle", 0, "handle (int64)")
-	inputmethodserviceKeyboardViewOnSizeChangedCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	inputmethodserviceKeyboardViewOnSizeChangedCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	inputmethodserviceKeyboardViewOnSizeChangedCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
-	inputmethodserviceKeyboardViewOnSizeChangedCmd.Flags().Int32("arg3", 0, "arg3 (int32)")
-	inputmethodserviceKeyboardViewCmd.AddCommand(inputmethodserviceKeyboardViewOnSizeChangedCmd)
-	inputmethodserviceKeyboardViewOnTouchEventCmd.Flags().Int64("handle", 0, "handle (int64)")
-	inputmethodserviceKeyboardViewOnTouchEventCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	inputmethodserviceKeyboardViewCmd.AddCommand(inputmethodserviceKeyboardViewOnTouchEventCmd)
-	inputmethodserviceKeyboardViewSetKeyboardCmd.Flags().Int64("handle", 0, "handle (int64)")
-	inputmethodserviceKeyboardViewSetKeyboardCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	inputmethodserviceKeyboardViewCmd.AddCommand(inputmethodserviceKeyboardViewSetKeyboardCmd)
-	inputmethodserviceKeyboardViewSetOnKeyboardActionListenerCmd.Flags().Int64("handle", 0, "handle (int64)")
-	inputmethodserviceKeyboardViewSetOnKeyboardActionListenerCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	inputmethodserviceKeyboardViewCmd.AddCommand(inputmethodserviceKeyboardViewSetOnKeyboardActionListenerCmd)
-	inputmethodserviceKeyboardViewSetPopupOffsetCmd.Flags().Int64("handle", 0, "handle (int64)")
-	inputmethodserviceKeyboardViewSetPopupOffsetCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	inputmethodserviceKeyboardViewSetPopupOffsetCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	inputmethodserviceKeyboardViewCmd.AddCommand(inputmethodserviceKeyboardViewSetPopupOffsetCmd)
-	inputmethodserviceKeyboardViewSetPopupParentCmd.Flags().Int64("handle", 0, "handle (int64)")
-	inputmethodserviceKeyboardViewSetPopupParentCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	inputmethodserviceKeyboardViewCmd.AddCommand(inputmethodserviceKeyboardViewSetPopupParentCmd)
-	inputmethodserviceKeyboardViewSetPreviewEnabledCmd.Flags().Int64("handle", 0, "handle (int64)")
-	inputmethodserviceKeyboardViewSetPreviewEnabledCmd.Flags().Bool("arg0", false, "arg0 (bool)")
-	inputmethodserviceKeyboardViewCmd.AddCommand(inputmethodserviceKeyboardViewSetPreviewEnabledCmd)
-	inputmethodserviceKeyboardViewSetProximityCorrectionEnabledCmd.Flags().Int64("handle", 0, "handle (int64)")
-	inputmethodserviceKeyboardViewSetProximityCorrectionEnabledCmd.Flags().Bool("arg0", false, "arg0 (bool)")
-	inputmethodserviceKeyboardViewCmd.AddCommand(inputmethodserviceKeyboardViewSetProximityCorrectionEnabledCmd)
-	inputmethodserviceKeyboardViewSetShiftedCmd.Flags().Int64("handle", 0, "handle (int64)")
-	inputmethodserviceKeyboardViewSetShiftedCmd.Flags().Bool("arg0", false, "arg0 (bool)")
-	inputmethodserviceKeyboardViewCmd.AddCommand(inputmethodserviceKeyboardViewSetShiftedCmd)
-	inputmethodserviceKeyboardViewSetVerticalCorrectionCmd.Flags().Int64("handle", 0, "handle (int64)")
-	inputmethodserviceKeyboardViewSetVerticalCorrectionCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	inputmethodserviceKeyboardViewCmd.AddCommand(inputmethodserviceKeyboardViewSetVerticalCorrectionCmd)
-	inputmethodserviceCmd.AddCommand(inputmethodserviceKeyboardViewCmd)
-	inputmethodserviceKeyboardViewOnKeyboardActionListenerOnKeyCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	inputmethodserviceKeyboardViewOnKeyboardActionListenerOnKeyCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	inputmethodserviceKeyboardViewOnKeyboardActionListenerCmd.AddCommand(inputmethodserviceKeyboardViewOnKeyboardActionListenerOnKeyCmd)
-	inputmethodserviceKeyboardViewOnKeyboardActionListenerOnPressCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	inputmethodserviceKeyboardViewOnKeyboardActionListenerCmd.AddCommand(inputmethodserviceKeyboardViewOnKeyboardActionListenerOnPressCmd)
-	inputmethodserviceKeyboardViewOnKeyboardActionListenerOnReleaseCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	inputmethodserviceKeyboardViewOnKeyboardActionListenerCmd.AddCommand(inputmethodserviceKeyboardViewOnKeyboardActionListenerOnReleaseCmd)
-	inputmethodserviceKeyboardViewOnKeyboardActionListenerOnTextCmd.Flags().String("arg0", "", "arg0 (string)")
-	inputmethodserviceKeyboardViewOnKeyboardActionListenerCmd.AddCommand(inputmethodserviceKeyboardViewOnKeyboardActionListenerOnTextCmd)
-	inputmethodserviceKeyboardViewOnKeyboardActionListenerCmd.AddCommand(inputmethodserviceKeyboardViewOnKeyboardActionListenerSwipeDownCmd)
-	inputmethodserviceKeyboardViewOnKeyboardActionListenerCmd.AddCommand(inputmethodserviceKeyboardViewOnKeyboardActionListenerSwipeLeftCmd)
-	inputmethodserviceKeyboardViewOnKeyboardActionListenerCmd.AddCommand(inputmethodserviceKeyboardViewOnKeyboardActionListenerSwipeRightCmd)
-	inputmethodserviceKeyboardViewOnKeyboardActionListenerCmd.AddCommand(inputmethodserviceKeyboardViewOnKeyboardActionListenerSwipeUpCmd)
-	inputmethodserviceCmd.AddCommand(inputmethodserviceKeyboardViewOnKeyboardActionListenerCmd)
 	rootCmd.AddCommand(inputmethodserviceCmd)
 }

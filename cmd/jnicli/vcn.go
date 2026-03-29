@@ -12,34 +12,18 @@ var vcnCmd = &cobra.Command{
 	Short: "vcn service operations",
 }
 
-var vcnConfigCmd = &cobra.Command{
-	Use:   "config",
-	Short: "ConfigService operations",
+var vcnWifiUnderlyingNetworkTemplateCmd = &cobra.Command{
+	Use:   "wifi-underlying-network-template",
+	Short: "WifiUnderlyingNetworkTemplateService operations",
 }
 
-var vcnConfigDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewConfigServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var vcnConfigEqualsCmd = &cobra.Command{
+var vcnWifiUnderlyingNetworkTemplateEqualsCmd = &cobra.Command{
 	Use:   "equals",
 	Short: "Equals RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewConfigServiceClient(grpcConn)
+		client := pb.NewWifiUnderlyingNetworkTemplateServiceClient(grpcConn)
 		req := &pb.EqualsRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -52,13 +36,29 @@ var vcnConfigEqualsCmd = &cobra.Command{
 	},
 }
 
-var vcnConfigHashCodeCmd = &cobra.Command{
+var vcnWifiUnderlyingNetworkTemplateGetSsidsCmd = &cobra.Command{
+	Use:   "get-ssids",
+	Short: "GetSsids RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWifiUnderlyingNetworkTemplateServiceClient(grpcConn)
+		req := &pb.GetSsidsRequest{}
+		resp, err := client.GetSsids(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var vcnWifiUnderlyingNetworkTemplateHashCodeCmd = &cobra.Command{
 	Use:   "hash-code",
 	Short: "HashCode RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewConfigServiceClient(grpcConn)
+		client := pb.NewWifiUnderlyingNetworkTemplateServiceClient(grpcConn)
 		req := &pb.HashCodeRequest{}
 		resp, err := client.HashCode(ctx, req)
 		if err != nil {
@@ -68,61 +68,83 @@ var vcnConfigHashCodeCmd = &cobra.Command{
 	},
 }
 
-var vcnConfigWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewConfigServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
+var vcnWifiUnderlyingNetworkTemplateBuilderCmd = &cobra.Command{
+	Use:   "wifi-underlying-network-template-builder",
+	Short: "WifiUnderlyingNetworkTemplateBuilderService operations",
 }
 
-var vcnConfigBuilderCmd = &cobra.Command{
-	Use:   "config-builder",
-	Short: "ConfigBuilderService operations",
-}
-
-var vcnConfigBuilderAddGatewayConnectionConfigCmd = &cobra.Command{
-	Use:   "add-gateway-connection-config",
-	Short: "AddGatewayConnectionConfig RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewConfigBuilderServiceClient(grpcConn)
-		req := &pb.AddGatewayConnectionConfigRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.AddGatewayConnectionConfig(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var vcnConfigBuilderBuildCmd = &cobra.Command{
+var vcnWifiUnderlyingNetworkTemplateBuilderBuildCmd = &cobra.Command{
 	Use:   "build",
 	Short: "Build RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewConfigBuilderServiceClient(grpcConn)
+		client := pb.NewWifiUnderlyingNetworkTemplateBuilderServiceClient(grpcConn)
 		req := &pb.BuildRequest{}
 		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var vcnWifiUnderlyingNetworkTemplateBuilderSetMeteredCmd = &cobra.Command{
+	Use:   "set-metered",
+	Short: "SetMetered RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWifiUnderlyingNetworkTemplateBuilderServiceClient(grpcConn)
+		req := &pb.SetMeteredRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetMetered(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var vcnWifiUnderlyingNetworkTemplateBuilderSetMinDownstreamBandwidthKbpsCmd = &cobra.Command{
+	Use:   "set-min-downstream-bandwidth-kbps",
+	Short: "SetMinDownstreamBandwidthKbps RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWifiUnderlyingNetworkTemplateBuilderServiceClient(grpcConn)
+		req := &pb.SetMinDownstreamBandwidthKbpsRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.SetMinDownstreamBandwidthKbps(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var vcnWifiUnderlyingNetworkTemplateBuilderSetMinUpstreamBandwidthKbpsCmd = &cobra.Command{
+	Use:   "set-min-upstream-bandwidth-kbps",
+	Short: "SetMinUpstreamBandwidthKbps RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWifiUnderlyingNetworkTemplateBuilderServiceClient(grpcConn)
+		req := &pb.SetMinUpstreamBandwidthKbpsRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.SetMinUpstreamBandwidthKbps(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -234,6 +256,22 @@ var vcnCellUnderlyingNetworkTemplateGetMmsCmd = &cobra.Command{
 	},
 }
 
+var vcnCellUnderlyingNetworkTemplateGetOperatorPlmnIdsCmd = &cobra.Command{
+	Use:   "get-operator-plmn-ids",
+	Short: "GetOperatorPlmnIds RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellUnderlyingNetworkTemplateServiceClient(grpcConn)
+		req := &pb.GetOperatorPlmnIdsRequest{}
+		resp, err := client.GetOperatorPlmnIds(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var vcnCellUnderlyingNetworkTemplateGetOpportunisticCmd = &cobra.Command{
 	Use:   "get-opportunistic",
 	Short: "GetOpportunistic RPC",
@@ -275,6 +313,22 @@ var vcnCellUnderlyingNetworkTemplateGetRoamingCmd = &cobra.Command{
 		client := pb.NewCellUnderlyingNetworkTemplateServiceClient(grpcConn)
 		req := &pb.GetRoamingRequest{}
 		resp, err := client.GetRoaming(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var vcnCellUnderlyingNetworkTemplateGetSimSpecificCarrierIdsCmd = &cobra.Command{
+	Use:   "get-sim-specific-carrier-ids",
+	Short: "GetSimSpecificCarrierIds RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellUnderlyingNetworkTemplateServiceClient(grpcConn)
+		req := &pb.GetSimSpecificCarrierIdsRequest{}
+		resp, err := client.GetSimSpecificCarrierIds(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -534,18 +588,34 @@ var vcnCellUnderlyingNetworkTemplateBuilderSetRoamingCmd = &cobra.Command{
 	},
 }
 
-var vcnWifiUnderlyingNetworkTemplateCmd = &cobra.Command{
-	Use:   "wifi-underlying-network-template",
-	Short: "WifiUnderlyingNetworkTemplateService operations",
+var vcnConfigCmd = &cobra.Command{
+	Use:   "config",
+	Short: "ConfigService operations",
 }
 
-var vcnWifiUnderlyingNetworkTemplateEqualsCmd = &cobra.Command{
+var vcnConfigDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConfigServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var vcnConfigEqualsCmd = &cobra.Command{
 	Use:   "equals",
 	Short: "Equals RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewWifiUnderlyingNetworkTemplateServiceClient(grpcConn)
+		client := pb.NewConfigServiceClient(grpcConn)
 		req := &pb.EqualsRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -558,13 +628,45 @@ var vcnWifiUnderlyingNetworkTemplateEqualsCmd = &cobra.Command{
 	},
 }
 
-var vcnWifiUnderlyingNetworkTemplateHashCodeCmd = &cobra.Command{
+var vcnConfigGetGatewayConnectionConfigsCmd = &cobra.Command{
+	Use:   "get-gateway-connection-configs",
+	Short: "GetGatewayConnectionConfigs RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConfigServiceClient(grpcConn)
+		req := &pb.GetGatewayConnectionConfigsRequest{}
+		resp, err := client.GetGatewayConnectionConfigs(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var vcnConfigGetRestrictedUnderlyingNetworkTransportsCmd = &cobra.Command{
+	Use:   "get-restricted-underlying-network-transports",
+	Short: "GetRestrictedUnderlyingNetworkTransports RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConfigServiceClient(grpcConn)
+		req := &pb.GetRestrictedUnderlyingNetworkTransportsRequest{}
+		resp, err := client.GetRestrictedUnderlyingNetworkTransports(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var vcnConfigHashCodeCmd = &cobra.Command{
 	Use:   "hash-code",
 	Short: "HashCode RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewWifiUnderlyingNetworkTemplateServiceClient(grpcConn)
+		client := pb.NewConfigServiceClient(grpcConn)
 		req := &pb.HashCodeRequest{}
 		resp, err := client.HashCode(ctx, req)
 		if err != nil {
@@ -574,18 +676,59 @@ var vcnWifiUnderlyingNetworkTemplateHashCodeCmd = &cobra.Command{
 	},
 }
 
-var vcnWifiUnderlyingNetworkTemplateBuilderCmd = &cobra.Command{
-	Use:   "wifi-underlying-network-template-builder",
-	Short: "WifiUnderlyingNetworkTemplateBuilderService operations",
+var vcnConfigWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConfigServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
 }
 
-var vcnWifiUnderlyingNetworkTemplateBuilderBuildCmd = &cobra.Command{
+var vcnConfigBuilderCmd = &cobra.Command{
+	Use:   "config-builder",
+	Short: "ConfigBuilderService operations",
+}
+
+var vcnConfigBuilderAddGatewayConnectionConfigCmd = &cobra.Command{
+	Use:   "add-gateway-connection-config",
+	Short: "AddGatewayConnectionConfig RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConfigBuilderServiceClient(grpcConn)
+		req := &pb.AddGatewayConnectionConfigRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddGatewayConnectionConfig(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var vcnConfigBuilderBuildCmd = &cobra.Command{
 	Use:   "build",
 	Short: "Build RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewWifiUnderlyingNetworkTemplateBuilderServiceClient(grpcConn)
+		client := pb.NewConfigBuilderServiceClient(grpcConn)
 		req := &pb.BuildRequest{}
 		resp, err := client.Build(ctx, req)
 		if err != nil {
@@ -595,18 +738,23 @@ var vcnWifiUnderlyingNetworkTemplateBuilderBuildCmd = &cobra.Command{
 	},
 }
 
-var vcnWifiUnderlyingNetworkTemplateBuilderSetMeteredCmd = &cobra.Command{
-	Use:   "set-metered",
-	Short: "SetMetered RPC",
+var vcnManagerCmd = &cobra.Command{
+	Use:   "manager",
+	Short: "ManagerService operations",
+}
+
+var vcnManagerClearVcnConfigCmd = &cobra.Command{
+	Use:   "clear-vcn-config",
+	Short: "ClearVcnConfig RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewWifiUnderlyingNetworkTemplateBuilderServiceClient(grpcConn)
-		req := &pb.SetMeteredRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+		client := pb.NewManagerServiceClient(grpcConn)
+		req := &pb.ClearVcnConfigRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		resp, err := client.SetMetered(ctx, req)
+		resp, err := client.ClearVcnConfig(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -614,21 +762,15 @@ var vcnWifiUnderlyingNetworkTemplateBuilderSetMeteredCmd = &cobra.Command{
 	},
 }
 
-var vcnWifiUnderlyingNetworkTemplateBuilderSetMinDownstreamBandwidthKbpsCmd = &cobra.Command{
-	Use:   "set-min-downstream-bandwidth-kbps",
-	Short: "SetMinDownstreamBandwidthKbps RPC",
+var vcnManagerGetConfiguredSubscriptionGroupsCmd = &cobra.Command{
+	Use:   "get-configured-subscription-groups",
+	Short: "GetConfiguredSubscriptionGroups RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewWifiUnderlyingNetworkTemplateBuilderServiceClient(grpcConn)
-		req := &pb.SetMinDownstreamBandwidthKbpsRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.SetMinDownstreamBandwidthKbps(ctx, req)
+		client := pb.NewManagerServiceClient(grpcConn)
+		req := &pb.GetConfiguredSubscriptionGroupsRequest{}
+		resp, err := client.GetConfiguredSubscriptionGroups(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -636,21 +778,114 @@ var vcnWifiUnderlyingNetworkTemplateBuilderSetMinDownstreamBandwidthKbpsCmd = &c
 	},
 }
 
-var vcnWifiUnderlyingNetworkTemplateBuilderSetMinUpstreamBandwidthKbpsCmd = &cobra.Command{
-	Use:   "set-min-upstream-bandwidth-kbps",
-	Short: "SetMinUpstreamBandwidthKbps RPC",
+var vcnManagerRegisterVcnStatusCallbackCmd = &cobra.Command{
+	Use:   "register-vcn-status-callback",
+	Short: "RegisterVcnStatusCallback RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewWifiUnderlyingNetworkTemplateBuilderServiceClient(grpcConn)
-		req := &pb.SetMinUpstreamBandwidthKbpsRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+		client := pb.NewManagerServiceClient(grpcConn)
+		req := &pb.RegisterVcnStatusCallbackRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.RegisterVcnStatusCallback(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var vcnManagerSetVcnConfigCmd = &cobra.Command{
+	Use:   "set-vcn-config",
+	Short: "SetVcnConfig RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerServiceClient(grpcConn)
+		req := &pb.SetVcnConfigRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.SetVcnConfig(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var vcnManagerUnregisterVcnStatusCallbackCmd = &cobra.Command{
+	Use:   "unregister-vcn-status-callback",
+	Short: "UnregisterVcnStatusCallback RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerServiceClient(grpcConn)
+		req := &pb.UnregisterVcnStatusCallbackRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.UnregisterVcnStatusCallback(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var vcnManagerVcnStatusCallbackCmd = &cobra.Command{
+	Use:   "manager-vcn-status-callback",
+	Short: "ManagerVcnStatusCallbackService operations",
+}
+
+var vcnManagerVcnStatusCallbackOnGatewayConnectionErrorCmd = &cobra.Command{
+	Use:   "on-gateway-connection-error",
+	Short: "OnGatewayConnectionError RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerVcnStatusCallbackServiceClient(grpcConn)
+		req := &pb.OnGatewayConnectionErrorRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
 			req.Arg0 = v
 		}
 		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
 			req.Arg1 = v
 		}
-		resp, err := client.SetMinUpstreamBandwidthKbps(ctx, req)
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.OnGatewayConnectionError(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var vcnManagerVcnStatusCallbackOnStatusChangedCmd = &cobra.Command{
+	Use:   "on-status-changed",
+	Short: "OnStatusChanged RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerVcnStatusCallbackServiceClient(grpcConn)
+		req := &pb.OnStatusChangedRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnStatusChanged(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -755,6 +990,22 @@ var vcnGatewayConnectionConfigGetRetryIntervalsMillisCmd = &cobra.Command{
 		client := pb.NewGatewayConnectionConfigServiceClient(grpcConn)
 		req := &pb.GetRetryIntervalsMillisRequest{}
 		resp, err := client.GetRetryIntervalsMillis(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var vcnGatewayConnectionConfigGetVcnUnderlyingNetworkPrioritiesCmd = &cobra.Command{
+	Use:   "get-vcn-underlying-network-priorities",
+	Short: "GetVcnUnderlyingNetworkPriorities RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGatewayConnectionConfigServiceClient(grpcConn)
+		req := &pb.GetVcnUnderlyingNetworkPrioritiesRequest{}
+		resp, err := client.GetVcnUnderlyingNetworkPriorities(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -986,145 +1237,6 @@ var vcnGatewayConnectionConfigBuilderSetSafeModeEnabledCmd = &cobra.Command{
 	},
 }
 
-var vcnManagerCmd = &cobra.Command{
-	Use:   "manager",
-	Short: "ManagerService operations",
-}
-
-var vcnManagerClearVcnConfigCmd = &cobra.Command{
-	Use:   "clear-vcn-config",
-	Short: "ClearVcnConfig RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewManagerServiceClient(grpcConn)
-		req := &pb.ClearVcnConfigRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.ClearVcnConfig(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var vcnManagerRegisterVcnStatusCallbackCmd = &cobra.Command{
-	Use:   "register-vcn-status-callback",
-	Short: "RegisterVcnStatusCallback RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewManagerServiceClient(grpcConn)
-		req := &pb.RegisterVcnStatusCallbackRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.RegisterVcnStatusCallback(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var vcnManagerSetVcnConfigCmd = &cobra.Command{
-	Use:   "set-vcn-config",
-	Short: "SetVcnConfig RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewManagerServiceClient(grpcConn)
-		req := &pb.SetVcnConfigRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.SetVcnConfig(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var vcnManagerUnregisterVcnStatusCallbackCmd = &cobra.Command{
-	Use:   "unregister-vcn-status-callback",
-	Short: "UnregisterVcnStatusCallback RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewManagerServiceClient(grpcConn)
-		req := &pb.UnregisterVcnStatusCallbackRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.UnregisterVcnStatusCallback(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var vcnManagerVcnStatusCallbackCmd = &cobra.Command{
-	Use:   "manager-vcn-status-callback",
-	Short: "ManagerVcnStatusCallbackService operations",
-}
-
-var vcnManagerVcnStatusCallbackOnGatewayConnectionErrorCmd = &cobra.Command{
-	Use:   "on-gateway-connection-error",
-	Short: "OnGatewayConnectionError RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewManagerVcnStatusCallbackServiceClient(grpcConn)
-		req := &pb.OnGatewayConnectionErrorRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.OnGatewayConnectionError(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var vcnManagerVcnStatusCallbackOnStatusChangedCmd = &cobra.Command{
-	Use:   "on-status-changed",
-	Short: "OnStatusChanged RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewManagerVcnStatusCallbackServiceClient(grpcConn)
-		req := &pb.OnStatusChangedRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.OnStatusChanged(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
 var vcnUnderlyingNetworkTemplateCmd = &cobra.Command{
 	Use:   "underlying-network-template",
 	Short: "UnderlyingNetworkTemplateService operations",
@@ -1246,18 +1358,21 @@ var vcnUnderlyingNetworkTemplateHashCodeCmd = &cobra.Command{
 }
 
 func init() {
-	vcnConfigCmd.AddCommand(vcnConfigDescribeContentsCmd)
-	vcnConfigEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	vcnConfigCmd.AddCommand(vcnConfigEqualsCmd)
-	vcnConfigCmd.AddCommand(vcnConfigHashCodeCmd)
-	vcnConfigWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	vcnConfigWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	vcnConfigCmd.AddCommand(vcnConfigWriteToParcelCmd)
-	vcnCmd.AddCommand(vcnConfigCmd)
-	vcnConfigBuilderAddGatewayConnectionConfigCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	vcnConfigBuilderCmd.AddCommand(vcnConfigBuilderAddGatewayConnectionConfigCmd)
-	vcnConfigBuilderCmd.AddCommand(vcnConfigBuilderBuildCmd)
-	vcnCmd.AddCommand(vcnConfigBuilderCmd)
+	vcnWifiUnderlyingNetworkTemplateEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	vcnWifiUnderlyingNetworkTemplateCmd.AddCommand(vcnWifiUnderlyingNetworkTemplateEqualsCmd)
+	vcnWifiUnderlyingNetworkTemplateCmd.AddCommand(vcnWifiUnderlyingNetworkTemplateGetSsidsCmd)
+	vcnWifiUnderlyingNetworkTemplateCmd.AddCommand(vcnWifiUnderlyingNetworkTemplateHashCodeCmd)
+	vcnCmd.AddCommand(vcnWifiUnderlyingNetworkTemplateCmd)
+	vcnWifiUnderlyingNetworkTemplateBuilderCmd.AddCommand(vcnWifiUnderlyingNetworkTemplateBuilderBuildCmd)
+	vcnWifiUnderlyingNetworkTemplateBuilderSetMeteredCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	vcnWifiUnderlyingNetworkTemplateBuilderCmd.AddCommand(vcnWifiUnderlyingNetworkTemplateBuilderSetMeteredCmd)
+	vcnWifiUnderlyingNetworkTemplateBuilderSetMinDownstreamBandwidthKbpsCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	vcnWifiUnderlyingNetworkTemplateBuilderSetMinDownstreamBandwidthKbpsCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	vcnWifiUnderlyingNetworkTemplateBuilderCmd.AddCommand(vcnWifiUnderlyingNetworkTemplateBuilderSetMinDownstreamBandwidthKbpsCmd)
+	vcnWifiUnderlyingNetworkTemplateBuilderSetMinUpstreamBandwidthKbpsCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	vcnWifiUnderlyingNetworkTemplateBuilderSetMinUpstreamBandwidthKbpsCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	vcnWifiUnderlyingNetworkTemplateBuilderCmd.AddCommand(vcnWifiUnderlyingNetworkTemplateBuilderSetMinUpstreamBandwidthKbpsCmd)
+	vcnCmd.AddCommand(vcnWifiUnderlyingNetworkTemplateBuilderCmd)
 	vcnCellUnderlyingNetworkTemplateEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	vcnCellUnderlyingNetworkTemplateCmd.AddCommand(vcnCellUnderlyingNetworkTemplateEqualsCmd)
 	vcnCellUnderlyingNetworkTemplateCmd.AddCommand(vcnCellUnderlyingNetworkTemplateGetCbsCmd)
@@ -1265,9 +1380,11 @@ func init() {
 	vcnCellUnderlyingNetworkTemplateCmd.AddCommand(vcnCellUnderlyingNetworkTemplateGetImsCmd)
 	vcnCellUnderlyingNetworkTemplateCmd.AddCommand(vcnCellUnderlyingNetworkTemplateGetInternetCmd)
 	vcnCellUnderlyingNetworkTemplateCmd.AddCommand(vcnCellUnderlyingNetworkTemplateGetMmsCmd)
+	vcnCellUnderlyingNetworkTemplateCmd.AddCommand(vcnCellUnderlyingNetworkTemplateGetOperatorPlmnIdsCmd)
 	vcnCellUnderlyingNetworkTemplateCmd.AddCommand(vcnCellUnderlyingNetworkTemplateGetOpportunisticCmd)
 	vcnCellUnderlyingNetworkTemplateCmd.AddCommand(vcnCellUnderlyingNetworkTemplateGetRcsCmd)
 	vcnCellUnderlyingNetworkTemplateCmd.AddCommand(vcnCellUnderlyingNetworkTemplateGetRoamingCmd)
+	vcnCellUnderlyingNetworkTemplateCmd.AddCommand(vcnCellUnderlyingNetworkTemplateGetSimSpecificCarrierIdsCmd)
 	vcnCellUnderlyingNetworkTemplateCmd.AddCommand(vcnCellUnderlyingNetworkTemplateHashCodeCmd)
 	vcnCmd.AddCommand(vcnCellUnderlyingNetworkTemplateCmd)
 	vcnCellUnderlyingNetworkTemplateBuilderCmd.AddCommand(vcnCellUnderlyingNetworkTemplateBuilderBuildCmd)
@@ -1296,20 +1413,40 @@ func init() {
 	vcnCellUnderlyingNetworkTemplateBuilderSetRoamingCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
 	vcnCellUnderlyingNetworkTemplateBuilderCmd.AddCommand(vcnCellUnderlyingNetworkTemplateBuilderSetRoamingCmd)
 	vcnCmd.AddCommand(vcnCellUnderlyingNetworkTemplateBuilderCmd)
-	vcnWifiUnderlyingNetworkTemplateEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	vcnWifiUnderlyingNetworkTemplateCmd.AddCommand(vcnWifiUnderlyingNetworkTemplateEqualsCmd)
-	vcnWifiUnderlyingNetworkTemplateCmd.AddCommand(vcnWifiUnderlyingNetworkTemplateHashCodeCmd)
-	vcnCmd.AddCommand(vcnWifiUnderlyingNetworkTemplateCmd)
-	vcnWifiUnderlyingNetworkTemplateBuilderCmd.AddCommand(vcnWifiUnderlyingNetworkTemplateBuilderBuildCmd)
-	vcnWifiUnderlyingNetworkTemplateBuilderSetMeteredCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	vcnWifiUnderlyingNetworkTemplateBuilderCmd.AddCommand(vcnWifiUnderlyingNetworkTemplateBuilderSetMeteredCmd)
-	vcnWifiUnderlyingNetworkTemplateBuilderSetMinDownstreamBandwidthKbpsCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	vcnWifiUnderlyingNetworkTemplateBuilderSetMinDownstreamBandwidthKbpsCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	vcnWifiUnderlyingNetworkTemplateBuilderCmd.AddCommand(vcnWifiUnderlyingNetworkTemplateBuilderSetMinDownstreamBandwidthKbpsCmd)
-	vcnWifiUnderlyingNetworkTemplateBuilderSetMinUpstreamBandwidthKbpsCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	vcnWifiUnderlyingNetworkTemplateBuilderSetMinUpstreamBandwidthKbpsCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	vcnWifiUnderlyingNetworkTemplateBuilderCmd.AddCommand(vcnWifiUnderlyingNetworkTemplateBuilderSetMinUpstreamBandwidthKbpsCmd)
-	vcnCmd.AddCommand(vcnWifiUnderlyingNetworkTemplateBuilderCmd)
+	vcnConfigCmd.AddCommand(vcnConfigDescribeContentsCmd)
+	vcnConfigEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	vcnConfigCmd.AddCommand(vcnConfigEqualsCmd)
+	vcnConfigCmd.AddCommand(vcnConfigGetGatewayConnectionConfigsCmd)
+	vcnConfigCmd.AddCommand(vcnConfigGetRestrictedUnderlyingNetworkTransportsCmd)
+	vcnConfigCmd.AddCommand(vcnConfigHashCodeCmd)
+	vcnConfigWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	vcnConfigWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	vcnConfigCmd.AddCommand(vcnConfigWriteToParcelCmd)
+	vcnCmd.AddCommand(vcnConfigCmd)
+	vcnConfigBuilderAddGatewayConnectionConfigCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	vcnConfigBuilderCmd.AddCommand(vcnConfigBuilderAddGatewayConnectionConfigCmd)
+	vcnConfigBuilderCmd.AddCommand(vcnConfigBuilderBuildCmd)
+	vcnCmd.AddCommand(vcnConfigBuilderCmd)
+	vcnManagerClearVcnConfigCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	vcnManagerCmd.AddCommand(vcnManagerClearVcnConfigCmd)
+	vcnManagerCmd.AddCommand(vcnManagerGetConfiguredSubscriptionGroupsCmd)
+	vcnManagerRegisterVcnStatusCallbackCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	vcnManagerRegisterVcnStatusCallbackCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	vcnManagerRegisterVcnStatusCallbackCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	vcnManagerCmd.AddCommand(vcnManagerRegisterVcnStatusCallbackCmd)
+	vcnManagerSetVcnConfigCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	vcnManagerSetVcnConfigCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	vcnManagerCmd.AddCommand(vcnManagerSetVcnConfigCmd)
+	vcnManagerUnregisterVcnStatusCallbackCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	vcnManagerCmd.AddCommand(vcnManagerUnregisterVcnStatusCallbackCmd)
+	vcnCmd.AddCommand(vcnManagerCmd)
+	vcnManagerVcnStatusCallbackOnGatewayConnectionErrorCmd.Flags().String("arg0", "", "arg0 (string)")
+	vcnManagerVcnStatusCallbackOnGatewayConnectionErrorCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	vcnManagerVcnStatusCallbackOnGatewayConnectionErrorCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	vcnManagerVcnStatusCallbackCmd.AddCommand(vcnManagerVcnStatusCallbackOnGatewayConnectionErrorCmd)
+	vcnManagerVcnStatusCallbackOnStatusChangedCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	vcnManagerVcnStatusCallbackCmd.AddCommand(vcnManagerVcnStatusCallbackOnStatusChangedCmd)
+	vcnCmd.AddCommand(vcnManagerVcnStatusCallbackCmd)
 	vcnGatewayConnectionConfigEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	vcnGatewayConnectionConfigCmd.AddCommand(vcnGatewayConnectionConfigEqualsCmd)
 	vcnGatewayConnectionConfigCmd.AddCommand(vcnGatewayConnectionConfigGetExposedCapabilitiesCmd)
@@ -1317,6 +1454,7 @@ func init() {
 	vcnGatewayConnectionConfigCmd.AddCommand(vcnGatewayConnectionConfigGetMaxMtuCmd)
 	vcnGatewayConnectionConfigCmd.AddCommand(vcnGatewayConnectionConfigGetMinUdpPort4500NatTimeoutSecondsCmd)
 	vcnGatewayConnectionConfigCmd.AddCommand(vcnGatewayConnectionConfigGetRetryIntervalsMillisCmd)
+	vcnGatewayConnectionConfigCmd.AddCommand(vcnGatewayConnectionConfigGetVcnUnderlyingNetworkPrioritiesCmd)
 	vcnGatewayConnectionConfigHasGatewayOptionCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
 	vcnGatewayConnectionConfigCmd.AddCommand(vcnGatewayConnectionConfigHasGatewayOptionCmd)
 	vcnGatewayConnectionConfigCmd.AddCommand(vcnGatewayConnectionConfigHashCodeCmd)
@@ -1340,25 +1478,6 @@ func init() {
 	vcnGatewayConnectionConfigBuilderSetSafeModeEnabledCmd.Flags().Bool("arg0", false, "arg0 (bool)")
 	vcnGatewayConnectionConfigBuilderCmd.AddCommand(vcnGatewayConnectionConfigBuilderSetSafeModeEnabledCmd)
 	vcnCmd.AddCommand(vcnGatewayConnectionConfigBuilderCmd)
-	vcnManagerClearVcnConfigCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	vcnManagerCmd.AddCommand(vcnManagerClearVcnConfigCmd)
-	vcnManagerRegisterVcnStatusCallbackCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	vcnManagerRegisterVcnStatusCallbackCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	vcnManagerRegisterVcnStatusCallbackCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	vcnManagerCmd.AddCommand(vcnManagerRegisterVcnStatusCallbackCmd)
-	vcnManagerSetVcnConfigCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	vcnManagerSetVcnConfigCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	vcnManagerCmd.AddCommand(vcnManagerSetVcnConfigCmd)
-	vcnManagerUnregisterVcnStatusCallbackCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	vcnManagerCmd.AddCommand(vcnManagerUnregisterVcnStatusCallbackCmd)
-	vcnCmd.AddCommand(vcnManagerCmd)
-	vcnManagerVcnStatusCallbackOnGatewayConnectionErrorCmd.Flags().String("arg0", "", "arg0 (string)")
-	vcnManagerVcnStatusCallbackOnGatewayConnectionErrorCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	vcnManagerVcnStatusCallbackOnGatewayConnectionErrorCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	vcnManagerVcnStatusCallbackCmd.AddCommand(vcnManagerVcnStatusCallbackOnGatewayConnectionErrorCmd)
-	vcnManagerVcnStatusCallbackOnStatusChangedCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	vcnManagerVcnStatusCallbackCmd.AddCommand(vcnManagerVcnStatusCallbackOnStatusChangedCmd)
-	vcnCmd.AddCommand(vcnManagerVcnStatusCallbackCmd)
 	vcnUnderlyingNetworkTemplateEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	vcnUnderlyingNetworkTemplateCmd.AddCommand(vcnUnderlyingNetworkTemplateEqualsCmd)
 	vcnUnderlyingNetworkTemplateCmd.AddCommand(vcnUnderlyingNetworkTemplateGetMeteredCmd)

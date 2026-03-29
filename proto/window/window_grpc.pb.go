@@ -124,1274 +124,367 @@ var OnBackInvokedCallbackService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	SplashScreenViewService_GetIconAnimationDuration_FullMethodName = "/window.SplashScreenViewService/GetIconAnimationDuration"
-	SplashScreenViewService_GetIconAnimationStart_FullMethodName    = "/window.SplashScreenViewService/GetIconAnimationStart"
-	SplashScreenViewService_GetIconView_FullMethodName              = "/window.SplashScreenViewService/GetIconView"
-	SplashScreenViewService_Remove_FullMethodName                   = "/window.SplashScreenViewService/Remove"
-	SplashScreenViewService_SetAlpha_FullMethodName                 = "/window.SplashScreenViewService/SetAlpha"
+	BackEventService_NewBackEvent_FullMethodName       = "/window.BackEventService/NewBackEvent"
+	BackEventService_Equals_FullMethodName             = "/window.BackEventService/Equals"
+	BackEventService_GetFrameTimeMillis_FullMethodName = "/window.BackEventService/GetFrameTimeMillis"
+	BackEventService_GetProgress_FullMethodName        = "/window.BackEventService/GetProgress"
+	BackEventService_GetSwipeEdge_FullMethodName       = "/window.BackEventService/GetSwipeEdge"
+	BackEventService_GetTouchX_FullMethodName          = "/window.BackEventService/GetTouchX"
+	BackEventService_GetTouchY_FullMethodName          = "/window.BackEventService/GetTouchY"
+	BackEventService_ToString_FullMethodName           = "/window.BackEventService/ToString"
 )
 
-// SplashScreenViewServiceClient is the client API for SplashScreenViewService service.
+// BackEventServiceClient is the client API for BackEventService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type SplashScreenViewServiceClient interface {
-	GetIconAnimationDuration(ctx context.Context, in *GetIconAnimationDurationRequest, opts ...grpc.CallOption) (*GetIconAnimationDurationResponse, error)
-	GetIconAnimationStart(ctx context.Context, in *GetIconAnimationStartRequest, opts ...grpc.CallOption) (*GetIconAnimationStartResponse, error)
-	GetIconView(ctx context.Context, in *GetIconViewRequest, opts ...grpc.CallOption) (*GetIconViewResponse, error)
-	Remove(ctx context.Context, in *RemoveRequest, opts ...grpc.CallOption) (*RemoveResponse, error)
-	SetAlpha(ctx context.Context, in *SetAlphaRequest, opts ...grpc.CallOption) (*SetAlphaResponse, error)
-}
-
-type splashScreenViewServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewSplashScreenViewServiceClient(cc grpc.ClientConnInterface) SplashScreenViewServiceClient {
-	return &splashScreenViewServiceClient{cc}
-}
-
-func (c *splashScreenViewServiceClient) GetIconAnimationDuration(ctx context.Context, in *GetIconAnimationDurationRequest, opts ...grpc.CallOption) (*GetIconAnimationDurationResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetIconAnimationDurationResponse)
-	err := c.cc.Invoke(ctx, SplashScreenViewService_GetIconAnimationDuration_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *splashScreenViewServiceClient) GetIconAnimationStart(ctx context.Context, in *GetIconAnimationStartRequest, opts ...grpc.CallOption) (*GetIconAnimationStartResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetIconAnimationStartResponse)
-	err := c.cc.Invoke(ctx, SplashScreenViewService_GetIconAnimationStart_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *splashScreenViewServiceClient) GetIconView(ctx context.Context, in *GetIconViewRequest, opts ...grpc.CallOption) (*GetIconViewResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetIconViewResponse)
-	err := c.cc.Invoke(ctx, SplashScreenViewService_GetIconView_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *splashScreenViewServiceClient) Remove(ctx context.Context, in *RemoveRequest, opts ...grpc.CallOption) (*RemoveResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(RemoveResponse)
-	err := c.cc.Invoke(ctx, SplashScreenViewService_Remove_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *splashScreenViewServiceClient) SetAlpha(ctx context.Context, in *SetAlphaRequest, opts ...grpc.CallOption) (*SetAlphaResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetAlphaResponse)
-	err := c.cc.Invoke(ctx, SplashScreenViewService_SetAlpha_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// SplashScreenViewServiceServer is the server API for SplashScreenViewService service.
-// All implementations must embed UnimplementedSplashScreenViewServiceServer
-// for forward compatibility.
-type SplashScreenViewServiceServer interface {
-	GetIconAnimationDuration(context.Context, *GetIconAnimationDurationRequest) (*GetIconAnimationDurationResponse, error)
-	GetIconAnimationStart(context.Context, *GetIconAnimationStartRequest) (*GetIconAnimationStartResponse, error)
-	GetIconView(context.Context, *GetIconViewRequest) (*GetIconViewResponse, error)
-	Remove(context.Context, *RemoveRequest) (*RemoveResponse, error)
-	SetAlpha(context.Context, *SetAlphaRequest) (*SetAlphaResponse, error)
-	mustEmbedUnimplementedSplashScreenViewServiceServer()
-}
-
-// UnimplementedSplashScreenViewServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedSplashScreenViewServiceServer struct{}
-
-func (UnimplementedSplashScreenViewServiceServer) GetIconAnimationDuration(context.Context, *GetIconAnimationDurationRequest) (*GetIconAnimationDurationResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetIconAnimationDuration not implemented")
-}
-func (UnimplementedSplashScreenViewServiceServer) GetIconAnimationStart(context.Context, *GetIconAnimationStartRequest) (*GetIconAnimationStartResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetIconAnimationStart not implemented")
-}
-func (UnimplementedSplashScreenViewServiceServer) GetIconView(context.Context, *GetIconViewRequest) (*GetIconViewResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetIconView not implemented")
-}
-func (UnimplementedSplashScreenViewServiceServer) Remove(context.Context, *RemoveRequest) (*RemoveResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Remove not implemented")
-}
-func (UnimplementedSplashScreenViewServiceServer) SetAlpha(context.Context, *SetAlphaRequest) (*SetAlphaResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetAlpha not implemented")
-}
-func (UnimplementedSplashScreenViewServiceServer) mustEmbedUnimplementedSplashScreenViewServiceServer() {
-}
-func (UnimplementedSplashScreenViewServiceServer) testEmbeddedByValue() {}
-
-// UnsafeSplashScreenViewServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to SplashScreenViewServiceServer will
-// result in compilation errors.
-type UnsafeSplashScreenViewServiceServer interface {
-	mustEmbedUnimplementedSplashScreenViewServiceServer()
-}
-
-func RegisterSplashScreenViewServiceServer(s grpc.ServiceRegistrar, srv SplashScreenViewServiceServer) {
-	// If the following call panics, it indicates UnimplementedSplashScreenViewServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&SplashScreenViewService_ServiceDesc, srv)
-}
-
-func _SplashScreenViewService_GetIconAnimationDuration_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetIconAnimationDurationRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SplashScreenViewServiceServer).GetIconAnimationDuration(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SplashScreenViewService_GetIconAnimationDuration_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SplashScreenViewServiceServer).GetIconAnimationDuration(ctx, req.(*GetIconAnimationDurationRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SplashScreenViewService_GetIconAnimationStart_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetIconAnimationStartRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SplashScreenViewServiceServer).GetIconAnimationStart(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SplashScreenViewService_GetIconAnimationStart_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SplashScreenViewServiceServer).GetIconAnimationStart(ctx, req.(*GetIconAnimationStartRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SplashScreenViewService_GetIconView_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetIconViewRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SplashScreenViewServiceServer).GetIconView(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SplashScreenViewService_GetIconView_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SplashScreenViewServiceServer).GetIconView(ctx, req.(*GetIconViewRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SplashScreenViewService_Remove_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(RemoveRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SplashScreenViewServiceServer).Remove(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SplashScreenViewService_Remove_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SplashScreenViewServiceServer).Remove(ctx, req.(*RemoveRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SplashScreenViewService_SetAlpha_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetAlphaRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SplashScreenViewServiceServer).SetAlpha(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SplashScreenViewService_SetAlpha_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SplashScreenViewServiceServer).SetAlpha(ctx, req.(*SetAlphaRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// SplashScreenViewService_ServiceDesc is the grpc.ServiceDesc for SplashScreenViewService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var SplashScreenViewService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "window.SplashScreenViewService",
-	HandlerType: (*SplashScreenViewServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "GetIconAnimationDuration",
-			Handler:    _SplashScreenViewService_GetIconAnimationDuration_Handler,
-		},
-		{
-			MethodName: "GetIconAnimationStart",
-			Handler:    _SplashScreenViewService_GetIconAnimationStart_Handler,
-		},
-		{
-			MethodName: "GetIconView",
-			Handler:    _SplashScreenViewService_GetIconView_Handler,
-		},
-		{
-			MethodName: "Remove",
-			Handler:    _SplashScreenViewService_Remove_Handler,
-		},
-		{
-			MethodName: "SetAlpha",
-			Handler:    _SplashScreenViewService_SetAlpha_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/window/window.proto",
-}
-
-const (
-	TrustedPresentationThresholdsService_NewTrustedPresentationThresholds_FullMethodName = "/window.TrustedPresentationThresholdsService/NewTrustedPresentationThresholds"
-	TrustedPresentationThresholdsService_DescribeContents_FullMethodName                 = "/window.TrustedPresentationThresholdsService/DescribeContents"
-	TrustedPresentationThresholdsService_Equals_FullMethodName                           = "/window.TrustedPresentationThresholdsService/Equals"
-	TrustedPresentationThresholdsService_GetMinAlpha_FullMethodName                      = "/window.TrustedPresentationThresholdsService/GetMinAlpha"
-	TrustedPresentationThresholdsService_GetMinFractionRendered_FullMethodName           = "/window.TrustedPresentationThresholdsService/GetMinFractionRendered"
-	TrustedPresentationThresholdsService_GetStabilityRequirementMillis_FullMethodName    = "/window.TrustedPresentationThresholdsService/GetStabilityRequirementMillis"
-	TrustedPresentationThresholdsService_HashCode_FullMethodName                         = "/window.TrustedPresentationThresholdsService/HashCode"
-	TrustedPresentationThresholdsService_ToString_FullMethodName                         = "/window.TrustedPresentationThresholdsService/ToString"
-	TrustedPresentationThresholdsService_WriteToParcel_FullMethodName                    = "/window.TrustedPresentationThresholdsService/WriteToParcel"
-)
-
-// TrustedPresentationThresholdsServiceClient is the client API for TrustedPresentationThresholdsService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type TrustedPresentationThresholdsServiceClient interface {
-	NewTrustedPresentationThresholds(ctx context.Context, in *NewTrustedPresentationThresholdsRequest, opts ...grpc.CallOption) (*NewTrustedPresentationThresholdsResponse, error)
-	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+type BackEventServiceClient interface {
+	NewBackEvent(ctx context.Context, in *NewBackEventRequest, opts ...grpc.CallOption) (*NewBackEventResponse, error)
 	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
-	GetMinAlpha(ctx context.Context, in *GetMinAlphaRequest, opts ...grpc.CallOption) (*GetMinAlphaResponse, error)
-	GetMinFractionRendered(ctx context.Context, in *GetMinFractionRenderedRequest, opts ...grpc.CallOption) (*GetMinFractionRenderedResponse, error)
-	GetStabilityRequirementMillis(ctx context.Context, in *GetStabilityRequirementMillisRequest, opts ...grpc.CallOption) (*GetStabilityRequirementMillisResponse, error)
-	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+	GetFrameTimeMillis(ctx context.Context, in *GetFrameTimeMillisRequest, opts ...grpc.CallOption) (*GetFrameTimeMillisResponse, error)
+	GetProgress(ctx context.Context, in *GetProgressRequest, opts ...grpc.CallOption) (*GetProgressResponse, error)
+	GetSwipeEdge(ctx context.Context, in *GetSwipeEdgeRequest, opts ...grpc.CallOption) (*GetSwipeEdgeResponse, error)
+	GetTouchX(ctx context.Context, in *GetTouchXRequest, opts ...grpc.CallOption) (*GetTouchXResponse, error)
+	GetTouchY(ctx context.Context, in *GetTouchYRequest, opts ...grpc.CallOption) (*GetTouchYResponse, error)
 	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
-	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
 }
 
-type trustedPresentationThresholdsServiceClient struct {
+type backEventServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewTrustedPresentationThresholdsServiceClient(cc grpc.ClientConnInterface) TrustedPresentationThresholdsServiceClient {
-	return &trustedPresentationThresholdsServiceClient{cc}
+func NewBackEventServiceClient(cc grpc.ClientConnInterface) BackEventServiceClient {
+	return &backEventServiceClient{cc}
 }
 
-func (c *trustedPresentationThresholdsServiceClient) NewTrustedPresentationThresholds(ctx context.Context, in *NewTrustedPresentationThresholdsRequest, opts ...grpc.CallOption) (*NewTrustedPresentationThresholdsResponse, error) {
+func (c *backEventServiceClient) NewBackEvent(ctx context.Context, in *NewBackEventRequest, opts ...grpc.CallOption) (*NewBackEventResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewTrustedPresentationThresholdsResponse)
-	err := c.cc.Invoke(ctx, TrustedPresentationThresholdsService_NewTrustedPresentationThresholds_FullMethodName, in, out, cOpts...)
+	out := new(NewBackEventResponse)
+	err := c.cc.Invoke(ctx, BackEventService_NewBackEvent_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *trustedPresentationThresholdsServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, TrustedPresentationThresholdsService_DescribeContents_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *trustedPresentationThresholdsServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+func (c *backEventServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(EqualsResponse)
-	err := c.cc.Invoke(ctx, TrustedPresentationThresholdsService_Equals_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, BackEventService_Equals_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *trustedPresentationThresholdsServiceClient) GetMinAlpha(ctx context.Context, in *GetMinAlphaRequest, opts ...grpc.CallOption) (*GetMinAlphaResponse, error) {
+func (c *backEventServiceClient) GetFrameTimeMillis(ctx context.Context, in *GetFrameTimeMillisRequest, opts ...grpc.CallOption) (*GetFrameTimeMillisResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetMinAlphaResponse)
-	err := c.cc.Invoke(ctx, TrustedPresentationThresholdsService_GetMinAlpha_FullMethodName, in, out, cOpts...)
+	out := new(GetFrameTimeMillisResponse)
+	err := c.cc.Invoke(ctx, BackEventService_GetFrameTimeMillis_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *trustedPresentationThresholdsServiceClient) GetMinFractionRendered(ctx context.Context, in *GetMinFractionRenderedRequest, opts ...grpc.CallOption) (*GetMinFractionRenderedResponse, error) {
+func (c *backEventServiceClient) GetProgress(ctx context.Context, in *GetProgressRequest, opts ...grpc.CallOption) (*GetProgressResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetMinFractionRenderedResponse)
-	err := c.cc.Invoke(ctx, TrustedPresentationThresholdsService_GetMinFractionRendered_FullMethodName, in, out, cOpts...)
+	out := new(GetProgressResponse)
+	err := c.cc.Invoke(ctx, BackEventService_GetProgress_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *trustedPresentationThresholdsServiceClient) GetStabilityRequirementMillis(ctx context.Context, in *GetStabilityRequirementMillisRequest, opts ...grpc.CallOption) (*GetStabilityRequirementMillisResponse, error) {
+func (c *backEventServiceClient) GetSwipeEdge(ctx context.Context, in *GetSwipeEdgeRequest, opts ...grpc.CallOption) (*GetSwipeEdgeResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetStabilityRequirementMillisResponse)
-	err := c.cc.Invoke(ctx, TrustedPresentationThresholdsService_GetStabilityRequirementMillis_FullMethodName, in, out, cOpts...)
+	out := new(GetSwipeEdgeResponse)
+	err := c.cc.Invoke(ctx, BackEventService_GetSwipeEdge_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *trustedPresentationThresholdsServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+func (c *backEventServiceClient) GetTouchX(ctx context.Context, in *GetTouchXRequest, opts ...grpc.CallOption) (*GetTouchXResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(HashCodeResponse)
-	err := c.cc.Invoke(ctx, TrustedPresentationThresholdsService_HashCode_FullMethodName, in, out, cOpts...)
+	out := new(GetTouchXResponse)
+	err := c.cc.Invoke(ctx, BackEventService_GetTouchX_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *trustedPresentationThresholdsServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+func (c *backEventServiceClient) GetTouchY(ctx context.Context, in *GetTouchYRequest, opts ...grpc.CallOption) (*GetTouchYResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTouchYResponse)
+	err := c.cc.Invoke(ctx, BackEventService_GetTouchY_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *backEventServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(ToStringResponse)
-	err := c.cc.Invoke(ctx, TrustedPresentationThresholdsService_ToString_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, BackEventService_ToString_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *trustedPresentationThresholdsServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, TrustedPresentationThresholdsService_WriteToParcel_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// TrustedPresentationThresholdsServiceServer is the server API for TrustedPresentationThresholdsService service.
-// All implementations must embed UnimplementedTrustedPresentationThresholdsServiceServer
+// BackEventServiceServer is the server API for BackEventService service.
+// All implementations must embed UnimplementedBackEventServiceServer
 // for forward compatibility.
-type TrustedPresentationThresholdsServiceServer interface {
-	NewTrustedPresentationThresholds(context.Context, *NewTrustedPresentationThresholdsRequest) (*NewTrustedPresentationThresholdsResponse, error)
-	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+type BackEventServiceServer interface {
+	NewBackEvent(context.Context, *NewBackEventRequest) (*NewBackEventResponse, error)
 	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
-	GetMinAlpha(context.Context, *GetMinAlphaRequest) (*GetMinAlphaResponse, error)
-	GetMinFractionRendered(context.Context, *GetMinFractionRenderedRequest) (*GetMinFractionRenderedResponse, error)
-	GetStabilityRequirementMillis(context.Context, *GetStabilityRequirementMillisRequest) (*GetStabilityRequirementMillisResponse, error)
-	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
+	GetFrameTimeMillis(context.Context, *GetFrameTimeMillisRequest) (*GetFrameTimeMillisResponse, error)
+	GetProgress(context.Context, *GetProgressRequest) (*GetProgressResponse, error)
+	GetSwipeEdge(context.Context, *GetSwipeEdgeRequest) (*GetSwipeEdgeResponse, error)
+	GetTouchX(context.Context, *GetTouchXRequest) (*GetTouchXResponse, error)
+	GetTouchY(context.Context, *GetTouchYRequest) (*GetTouchYResponse, error)
 	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
-	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
-	mustEmbedUnimplementedTrustedPresentationThresholdsServiceServer()
+	mustEmbedUnimplementedBackEventServiceServer()
 }
 
-// UnimplementedTrustedPresentationThresholdsServiceServer must be embedded to have
+// UnimplementedBackEventServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedTrustedPresentationThresholdsServiceServer struct{}
+type UnimplementedBackEventServiceServer struct{}
 
-func (UnimplementedTrustedPresentationThresholdsServiceServer) NewTrustedPresentationThresholds(context.Context, *NewTrustedPresentationThresholdsRequest) (*NewTrustedPresentationThresholdsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewTrustedPresentationThresholds not implemented")
+func (UnimplementedBackEventServiceServer) NewBackEvent(context.Context, *NewBackEventRequest) (*NewBackEventResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewBackEvent not implemented")
 }
-func (UnimplementedTrustedPresentationThresholdsServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
-}
-func (UnimplementedTrustedPresentationThresholdsServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
+func (UnimplementedBackEventServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
 }
-func (UnimplementedTrustedPresentationThresholdsServiceServer) GetMinAlpha(context.Context, *GetMinAlphaRequest) (*GetMinAlphaResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetMinAlpha not implemented")
+func (UnimplementedBackEventServiceServer) GetFrameTimeMillis(context.Context, *GetFrameTimeMillisRequest) (*GetFrameTimeMillisResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetFrameTimeMillis not implemented")
 }
-func (UnimplementedTrustedPresentationThresholdsServiceServer) GetMinFractionRendered(context.Context, *GetMinFractionRenderedRequest) (*GetMinFractionRenderedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetMinFractionRendered not implemented")
+func (UnimplementedBackEventServiceServer) GetProgress(context.Context, *GetProgressRequest) (*GetProgressResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetProgress not implemented")
 }
-func (UnimplementedTrustedPresentationThresholdsServiceServer) GetStabilityRequirementMillis(context.Context, *GetStabilityRequirementMillisRequest) (*GetStabilityRequirementMillisResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetStabilityRequirementMillis not implemented")
+func (UnimplementedBackEventServiceServer) GetSwipeEdge(context.Context, *GetSwipeEdgeRequest) (*GetSwipeEdgeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSwipeEdge not implemented")
 }
-func (UnimplementedTrustedPresentationThresholdsServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
+func (UnimplementedBackEventServiceServer) GetTouchX(context.Context, *GetTouchXRequest) (*GetTouchXResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTouchX not implemented")
 }
-func (UnimplementedTrustedPresentationThresholdsServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
+func (UnimplementedBackEventServiceServer) GetTouchY(context.Context, *GetTouchYRequest) (*GetTouchYResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTouchY not implemented")
+}
+func (UnimplementedBackEventServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
 }
-func (UnimplementedTrustedPresentationThresholdsServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
-}
-func (UnimplementedTrustedPresentationThresholdsServiceServer) mustEmbedUnimplementedTrustedPresentationThresholdsServiceServer() {
-}
-func (UnimplementedTrustedPresentationThresholdsServiceServer) testEmbeddedByValue() {}
+func (UnimplementedBackEventServiceServer) mustEmbedUnimplementedBackEventServiceServer() {}
+func (UnimplementedBackEventServiceServer) testEmbeddedByValue()                          {}
 
-// UnsafeTrustedPresentationThresholdsServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to TrustedPresentationThresholdsServiceServer will
+// UnsafeBackEventServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to BackEventServiceServer will
 // result in compilation errors.
-type UnsafeTrustedPresentationThresholdsServiceServer interface {
-	mustEmbedUnimplementedTrustedPresentationThresholdsServiceServer()
+type UnsafeBackEventServiceServer interface {
+	mustEmbedUnimplementedBackEventServiceServer()
 }
 
-func RegisterTrustedPresentationThresholdsServiceServer(s grpc.ServiceRegistrar, srv TrustedPresentationThresholdsServiceServer) {
-	// If the following call panics, it indicates UnimplementedTrustedPresentationThresholdsServiceServer was
+func RegisterBackEventServiceServer(s grpc.ServiceRegistrar, srv BackEventServiceServer) {
+	// If the following call panics, it indicates UnimplementedBackEventServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&TrustedPresentationThresholdsService_ServiceDesc, srv)
+	s.RegisterService(&BackEventService_ServiceDesc, srv)
 }
 
-func _TrustedPresentationThresholdsService_NewTrustedPresentationThresholds_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewTrustedPresentationThresholdsRequest)
+func _BackEventService_NewBackEvent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewBackEventRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(TrustedPresentationThresholdsServiceServer).NewTrustedPresentationThresholds(ctx, in)
+		return srv.(BackEventServiceServer).NewBackEvent(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: TrustedPresentationThresholdsService_NewTrustedPresentationThresholds_FullMethodName,
+		FullMethod: BackEventService_NewBackEvent_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TrustedPresentationThresholdsServiceServer).NewTrustedPresentationThresholds(ctx, req.(*NewTrustedPresentationThresholdsRequest))
+		return srv.(BackEventServiceServer).NewBackEvent(ctx, req.(*NewBackEventRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _TrustedPresentationThresholdsService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DescribeContentsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TrustedPresentationThresholdsServiceServer).DescribeContents(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TrustedPresentationThresholdsService_DescribeContents_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TrustedPresentationThresholdsServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TrustedPresentationThresholdsService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _BackEventService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(EqualsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(TrustedPresentationThresholdsServiceServer).Equals(ctx, in)
+		return srv.(BackEventServiceServer).Equals(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: TrustedPresentationThresholdsService_Equals_FullMethodName,
+		FullMethod: BackEventService_Equals_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TrustedPresentationThresholdsServiceServer).Equals(ctx, req.(*EqualsRequest))
+		return srv.(BackEventServiceServer).Equals(ctx, req.(*EqualsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _TrustedPresentationThresholdsService_GetMinAlpha_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetMinAlphaRequest)
+func _BackEventService_GetFrameTimeMillis_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetFrameTimeMillisRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(TrustedPresentationThresholdsServiceServer).GetMinAlpha(ctx, in)
+		return srv.(BackEventServiceServer).GetFrameTimeMillis(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: TrustedPresentationThresholdsService_GetMinAlpha_FullMethodName,
+		FullMethod: BackEventService_GetFrameTimeMillis_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TrustedPresentationThresholdsServiceServer).GetMinAlpha(ctx, req.(*GetMinAlphaRequest))
+		return srv.(BackEventServiceServer).GetFrameTimeMillis(ctx, req.(*GetFrameTimeMillisRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _TrustedPresentationThresholdsService_GetMinFractionRendered_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetMinFractionRenderedRequest)
+func _BackEventService_GetProgress_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetProgressRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(TrustedPresentationThresholdsServiceServer).GetMinFractionRendered(ctx, in)
+		return srv.(BackEventServiceServer).GetProgress(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: TrustedPresentationThresholdsService_GetMinFractionRendered_FullMethodName,
+		FullMethod: BackEventService_GetProgress_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TrustedPresentationThresholdsServiceServer).GetMinFractionRendered(ctx, req.(*GetMinFractionRenderedRequest))
+		return srv.(BackEventServiceServer).GetProgress(ctx, req.(*GetProgressRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _TrustedPresentationThresholdsService_GetStabilityRequirementMillis_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetStabilityRequirementMillisRequest)
+func _BackEventService_GetSwipeEdge_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSwipeEdgeRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(TrustedPresentationThresholdsServiceServer).GetStabilityRequirementMillis(ctx, in)
+		return srv.(BackEventServiceServer).GetSwipeEdge(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: TrustedPresentationThresholdsService_GetStabilityRequirementMillis_FullMethodName,
+		FullMethod: BackEventService_GetSwipeEdge_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TrustedPresentationThresholdsServiceServer).GetStabilityRequirementMillis(ctx, req.(*GetStabilityRequirementMillisRequest))
+		return srv.(BackEventServiceServer).GetSwipeEdge(ctx, req.(*GetSwipeEdgeRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _TrustedPresentationThresholdsService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(HashCodeRequest)
+func _BackEventService_GetTouchX_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTouchXRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(TrustedPresentationThresholdsServiceServer).HashCode(ctx, in)
+		return srv.(BackEventServiceServer).GetTouchX(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: TrustedPresentationThresholdsService_HashCode_FullMethodName,
+		FullMethod: BackEventService_GetTouchX_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TrustedPresentationThresholdsServiceServer).HashCode(ctx, req.(*HashCodeRequest))
+		return srv.(BackEventServiceServer).GetTouchX(ctx, req.(*GetTouchXRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _TrustedPresentationThresholdsService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _BackEventService_GetTouchY_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTouchYRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(BackEventServiceServer).GetTouchY(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: BackEventService_GetTouchY_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(BackEventServiceServer).GetTouchY(ctx, req.(*GetTouchYRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _BackEventService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(ToStringRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(TrustedPresentationThresholdsServiceServer).ToString(ctx, in)
+		return srv.(BackEventServiceServer).ToString(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: TrustedPresentationThresholdsService_ToString_FullMethodName,
+		FullMethod: BackEventService_ToString_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TrustedPresentationThresholdsServiceServer).ToString(ctx, req.(*ToStringRequest))
+		return srv.(BackEventServiceServer).ToString(ctx, req.(*ToStringRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _TrustedPresentationThresholdsService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WriteToParcelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TrustedPresentationThresholdsServiceServer).WriteToParcel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TrustedPresentationThresholdsService_WriteToParcel_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TrustedPresentationThresholdsServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// TrustedPresentationThresholdsService_ServiceDesc is the grpc.ServiceDesc for TrustedPresentationThresholdsService service.
+// BackEventService_ServiceDesc is the grpc.ServiceDesc for BackEventService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var TrustedPresentationThresholdsService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "window.TrustedPresentationThresholdsService",
-	HandlerType: (*TrustedPresentationThresholdsServiceServer)(nil),
+var BackEventService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "window.BackEventService",
+	HandlerType: (*BackEventServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "NewTrustedPresentationThresholds",
-			Handler:    _TrustedPresentationThresholdsService_NewTrustedPresentationThresholds_Handler,
-		},
-		{
-			MethodName: "DescribeContents",
-			Handler:    _TrustedPresentationThresholdsService_DescribeContents_Handler,
+			MethodName: "NewBackEvent",
+			Handler:    _BackEventService_NewBackEvent_Handler,
 		},
 		{
 			MethodName: "Equals",
-			Handler:    _TrustedPresentationThresholdsService_Equals_Handler,
+			Handler:    _BackEventService_Equals_Handler,
 		},
 		{
-			MethodName: "GetMinAlpha",
-			Handler:    _TrustedPresentationThresholdsService_GetMinAlpha_Handler,
+			MethodName: "GetFrameTimeMillis",
+			Handler:    _BackEventService_GetFrameTimeMillis_Handler,
 		},
 		{
-			MethodName: "GetMinFractionRendered",
-			Handler:    _TrustedPresentationThresholdsService_GetMinFractionRendered_Handler,
+			MethodName: "GetProgress",
+			Handler:    _BackEventService_GetProgress_Handler,
 		},
 		{
-			MethodName: "GetStabilityRequirementMillis",
-			Handler:    _TrustedPresentationThresholdsService_GetStabilityRequirementMillis_Handler,
+			MethodName: "GetSwipeEdge",
+			Handler:    _BackEventService_GetSwipeEdge_Handler,
 		},
 		{
-			MethodName: "HashCode",
-			Handler:    _TrustedPresentationThresholdsService_HashCode_Handler,
+			MethodName: "GetTouchX",
+			Handler:    _BackEventService_GetTouchX_Handler,
+		},
+		{
+			MethodName: "GetTouchY",
+			Handler:    _BackEventService_GetTouchY_Handler,
 		},
 		{
 			MethodName: "ToString",
-			Handler:    _TrustedPresentationThresholdsService_ToString_Handler,
-		},
-		{
-			MethodName: "WriteToParcel",
-			Handler:    _TrustedPresentationThresholdsService_WriteToParcel_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/window/window.proto",
-}
-
-const (
-	SurfaceSyncGroupService_NewSurfaceSyncGroup_FullMethodName = "/window.SurfaceSyncGroupService/NewSurfaceSyncGroup"
-	SurfaceSyncGroupService_Add2_FullMethodName                = "/window.SurfaceSyncGroupService/Add2"
-	SurfaceSyncGroupService_Add2_1_FullMethodName              = "/window.SurfaceSyncGroupService/Add2_1"
-	SurfaceSyncGroupService_AddTransaction_FullMethodName      = "/window.SurfaceSyncGroupService/AddTransaction"
-	SurfaceSyncGroupService_MarkSyncReady_FullMethodName       = "/window.SurfaceSyncGroupService/MarkSyncReady"
-)
-
-// SurfaceSyncGroupServiceClient is the client API for SurfaceSyncGroupService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type SurfaceSyncGroupServiceClient interface {
-	NewSurfaceSyncGroup(ctx context.Context, in *NewSurfaceSyncGroupRequest, opts ...grpc.CallOption) (*NewSurfaceSyncGroupResponse, error)
-	Add2(ctx context.Context, in *Add2Request, opts ...grpc.CallOption) (*Add2Response, error)
-	Add2_1(ctx context.Context, in *Add2_1Request, opts ...grpc.CallOption) (*Add2_1Response, error)
-	AddTransaction(ctx context.Context, in *AddTransactionRequest, opts ...grpc.CallOption) (*AddTransactionResponse, error)
-	MarkSyncReady(ctx context.Context, in *MarkSyncReadyRequest, opts ...grpc.CallOption) (*MarkSyncReadyResponse, error)
-}
-
-type surfaceSyncGroupServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewSurfaceSyncGroupServiceClient(cc grpc.ClientConnInterface) SurfaceSyncGroupServiceClient {
-	return &surfaceSyncGroupServiceClient{cc}
-}
-
-func (c *surfaceSyncGroupServiceClient) NewSurfaceSyncGroup(ctx context.Context, in *NewSurfaceSyncGroupRequest, opts ...grpc.CallOption) (*NewSurfaceSyncGroupResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewSurfaceSyncGroupResponse)
-	err := c.cc.Invoke(ctx, SurfaceSyncGroupService_NewSurfaceSyncGroup_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *surfaceSyncGroupServiceClient) Add2(ctx context.Context, in *Add2Request, opts ...grpc.CallOption) (*Add2Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(Add2Response)
-	err := c.cc.Invoke(ctx, SurfaceSyncGroupService_Add2_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *surfaceSyncGroupServiceClient) Add2_1(ctx context.Context, in *Add2_1Request, opts ...grpc.CallOption) (*Add2_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(Add2_1Response)
-	err := c.cc.Invoke(ctx, SurfaceSyncGroupService_Add2_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *surfaceSyncGroupServiceClient) AddTransaction(ctx context.Context, in *AddTransactionRequest, opts ...grpc.CallOption) (*AddTransactionResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(AddTransactionResponse)
-	err := c.cc.Invoke(ctx, SurfaceSyncGroupService_AddTransaction_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *surfaceSyncGroupServiceClient) MarkSyncReady(ctx context.Context, in *MarkSyncReadyRequest, opts ...grpc.CallOption) (*MarkSyncReadyResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(MarkSyncReadyResponse)
-	err := c.cc.Invoke(ctx, SurfaceSyncGroupService_MarkSyncReady_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// SurfaceSyncGroupServiceServer is the server API for SurfaceSyncGroupService service.
-// All implementations must embed UnimplementedSurfaceSyncGroupServiceServer
-// for forward compatibility.
-type SurfaceSyncGroupServiceServer interface {
-	NewSurfaceSyncGroup(context.Context, *NewSurfaceSyncGroupRequest) (*NewSurfaceSyncGroupResponse, error)
-	Add2(context.Context, *Add2Request) (*Add2Response, error)
-	Add2_1(context.Context, *Add2_1Request) (*Add2_1Response, error)
-	AddTransaction(context.Context, *AddTransactionRequest) (*AddTransactionResponse, error)
-	MarkSyncReady(context.Context, *MarkSyncReadyRequest) (*MarkSyncReadyResponse, error)
-	mustEmbedUnimplementedSurfaceSyncGroupServiceServer()
-}
-
-// UnimplementedSurfaceSyncGroupServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedSurfaceSyncGroupServiceServer struct{}
-
-func (UnimplementedSurfaceSyncGroupServiceServer) NewSurfaceSyncGroup(context.Context, *NewSurfaceSyncGroupRequest) (*NewSurfaceSyncGroupResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewSurfaceSyncGroup not implemented")
-}
-func (UnimplementedSurfaceSyncGroupServiceServer) Add2(context.Context, *Add2Request) (*Add2Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method Add2 not implemented")
-}
-func (UnimplementedSurfaceSyncGroupServiceServer) Add2_1(context.Context, *Add2_1Request) (*Add2_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method Add2_1 not implemented")
-}
-func (UnimplementedSurfaceSyncGroupServiceServer) AddTransaction(context.Context, *AddTransactionRequest) (*AddTransactionResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method AddTransaction not implemented")
-}
-func (UnimplementedSurfaceSyncGroupServiceServer) MarkSyncReady(context.Context, *MarkSyncReadyRequest) (*MarkSyncReadyResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method MarkSyncReady not implemented")
-}
-func (UnimplementedSurfaceSyncGroupServiceServer) mustEmbedUnimplementedSurfaceSyncGroupServiceServer() {
-}
-func (UnimplementedSurfaceSyncGroupServiceServer) testEmbeddedByValue() {}
-
-// UnsafeSurfaceSyncGroupServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to SurfaceSyncGroupServiceServer will
-// result in compilation errors.
-type UnsafeSurfaceSyncGroupServiceServer interface {
-	mustEmbedUnimplementedSurfaceSyncGroupServiceServer()
-}
-
-func RegisterSurfaceSyncGroupServiceServer(s grpc.ServiceRegistrar, srv SurfaceSyncGroupServiceServer) {
-	// If the following call panics, it indicates UnimplementedSurfaceSyncGroupServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&SurfaceSyncGroupService_ServiceDesc, srv)
-}
-
-func _SurfaceSyncGroupService_NewSurfaceSyncGroup_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewSurfaceSyncGroupRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SurfaceSyncGroupServiceServer).NewSurfaceSyncGroup(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SurfaceSyncGroupService_NewSurfaceSyncGroup_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SurfaceSyncGroupServiceServer).NewSurfaceSyncGroup(ctx, req.(*NewSurfaceSyncGroupRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SurfaceSyncGroupService_Add2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(Add2Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SurfaceSyncGroupServiceServer).Add2(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SurfaceSyncGroupService_Add2_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SurfaceSyncGroupServiceServer).Add2(ctx, req.(*Add2Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SurfaceSyncGroupService_Add2_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(Add2_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SurfaceSyncGroupServiceServer).Add2_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SurfaceSyncGroupService_Add2_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SurfaceSyncGroupServiceServer).Add2_1(ctx, req.(*Add2_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SurfaceSyncGroupService_AddTransaction_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AddTransactionRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SurfaceSyncGroupServiceServer).AddTransaction(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SurfaceSyncGroupService_AddTransaction_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SurfaceSyncGroupServiceServer).AddTransaction(ctx, req.(*AddTransactionRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SurfaceSyncGroupService_MarkSyncReady_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(MarkSyncReadyRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SurfaceSyncGroupServiceServer).MarkSyncReady(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SurfaceSyncGroupService_MarkSyncReady_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SurfaceSyncGroupServiceServer).MarkSyncReady(ctx, req.(*MarkSyncReadyRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// SurfaceSyncGroupService_ServiceDesc is the grpc.ServiceDesc for SurfaceSyncGroupService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var SurfaceSyncGroupService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "window.SurfaceSyncGroupService",
-	HandlerType: (*SurfaceSyncGroupServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "NewSurfaceSyncGroup",
-			Handler:    _SurfaceSyncGroupService_NewSurfaceSyncGroup_Handler,
-		},
-		{
-			MethodName: "Add2",
-			Handler:    _SurfaceSyncGroupService_Add2_Handler,
-		},
-		{
-			MethodName: "Add2_1",
-			Handler:    _SurfaceSyncGroupService_Add2_1_Handler,
-		},
-		{
-			MethodName: "AddTransaction",
-			Handler:    _SurfaceSyncGroupService_AddTransaction_Handler,
-		},
-		{
-			MethodName: "MarkSyncReady",
-			Handler:    _SurfaceSyncGroupService_MarkSyncReady_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/window/window.proto",
-}
-
-const (
-	InputTransferTokenService_DescribeContents_FullMethodName = "/window.InputTransferTokenService/DescribeContents"
-	InputTransferTokenService_Equals_FullMethodName           = "/window.InputTransferTokenService/Equals"
-	InputTransferTokenService_HashCode_FullMethodName         = "/window.InputTransferTokenService/HashCode"
-	InputTransferTokenService_WriteToParcel_FullMethodName    = "/window.InputTransferTokenService/WriteToParcel"
-)
-
-// InputTransferTokenServiceClient is the client API for InputTransferTokenService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type InputTransferTokenServiceClient interface {
-	DescribeContents(ctx context.Context, in *InputTransferTokenDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	Equals(ctx context.Context, in *InputTransferTokenEqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
-	HashCode(ctx context.Context, in *InputTransferTokenHashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
-	WriteToParcel(ctx context.Context, in *InputTransferTokenWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
-}
-
-type inputTransferTokenServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewInputTransferTokenServiceClient(cc grpc.ClientConnInterface) InputTransferTokenServiceClient {
-	return &inputTransferTokenServiceClient{cc}
-}
-
-func (c *inputTransferTokenServiceClient) DescribeContents(ctx context.Context, in *InputTransferTokenDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, InputTransferTokenService_DescribeContents_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *inputTransferTokenServiceClient) Equals(ctx context.Context, in *InputTransferTokenEqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(EqualsResponse)
-	err := c.cc.Invoke(ctx, InputTransferTokenService_Equals_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *inputTransferTokenServiceClient) HashCode(ctx context.Context, in *InputTransferTokenHashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(HashCodeResponse)
-	err := c.cc.Invoke(ctx, InputTransferTokenService_HashCode_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *inputTransferTokenServiceClient) WriteToParcel(ctx context.Context, in *InputTransferTokenWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, InputTransferTokenService_WriteToParcel_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// InputTransferTokenServiceServer is the server API for InputTransferTokenService service.
-// All implementations must embed UnimplementedInputTransferTokenServiceServer
-// for forward compatibility.
-type InputTransferTokenServiceServer interface {
-	DescribeContents(context.Context, *InputTransferTokenDescribeContentsRequest) (*DescribeContentsResponse, error)
-	Equals(context.Context, *InputTransferTokenEqualsRequest) (*EqualsResponse, error)
-	HashCode(context.Context, *InputTransferTokenHashCodeRequest) (*HashCodeResponse, error)
-	WriteToParcel(context.Context, *InputTransferTokenWriteToParcelRequest) (*WriteToParcelResponse, error)
-	mustEmbedUnimplementedInputTransferTokenServiceServer()
-}
-
-// UnimplementedInputTransferTokenServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedInputTransferTokenServiceServer struct{}
-
-func (UnimplementedInputTransferTokenServiceServer) DescribeContents(context.Context, *InputTransferTokenDescribeContentsRequest) (*DescribeContentsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
-}
-func (UnimplementedInputTransferTokenServiceServer) Equals(context.Context, *InputTransferTokenEqualsRequest) (*EqualsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
-}
-func (UnimplementedInputTransferTokenServiceServer) HashCode(context.Context, *InputTransferTokenHashCodeRequest) (*HashCodeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
-}
-func (UnimplementedInputTransferTokenServiceServer) WriteToParcel(context.Context, *InputTransferTokenWriteToParcelRequest) (*WriteToParcelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
-}
-func (UnimplementedInputTransferTokenServiceServer) mustEmbedUnimplementedInputTransferTokenServiceServer() {
-}
-func (UnimplementedInputTransferTokenServiceServer) testEmbeddedByValue() {}
-
-// UnsafeInputTransferTokenServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to InputTransferTokenServiceServer will
-// result in compilation errors.
-type UnsafeInputTransferTokenServiceServer interface {
-	mustEmbedUnimplementedInputTransferTokenServiceServer()
-}
-
-func RegisterInputTransferTokenServiceServer(s grpc.ServiceRegistrar, srv InputTransferTokenServiceServer) {
-	// If the following call panics, it indicates UnimplementedInputTransferTokenServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&InputTransferTokenService_ServiceDesc, srv)
-}
-
-func _InputTransferTokenService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(InputTransferTokenDescribeContentsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(InputTransferTokenServiceServer).DescribeContents(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: InputTransferTokenService_DescribeContents_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(InputTransferTokenServiceServer).DescribeContents(ctx, req.(*InputTransferTokenDescribeContentsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _InputTransferTokenService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(InputTransferTokenEqualsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(InputTransferTokenServiceServer).Equals(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: InputTransferTokenService_Equals_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(InputTransferTokenServiceServer).Equals(ctx, req.(*InputTransferTokenEqualsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _InputTransferTokenService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(InputTransferTokenHashCodeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(InputTransferTokenServiceServer).HashCode(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: InputTransferTokenService_HashCode_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(InputTransferTokenServiceServer).HashCode(ctx, req.(*InputTransferTokenHashCodeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _InputTransferTokenService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(InputTransferTokenWriteToParcelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(InputTransferTokenServiceServer).WriteToParcel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: InputTransferTokenService_WriteToParcel_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(InputTransferTokenServiceServer).WriteToParcel(ctx, req.(*InputTransferTokenWriteToParcelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// InputTransferTokenService_ServiceDesc is the grpc.ServiceDesc for InputTransferTokenService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var InputTransferTokenService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "window.InputTransferTokenService",
-	HandlerType: (*InputTransferTokenServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "DescribeContents",
-			Handler:    _InputTransferTokenService_DescribeContents_Handler,
-		},
-		{
-			MethodName: "Equals",
-			Handler:    _InputTransferTokenService_Equals_Handler,
-		},
-		{
-			MethodName: "HashCode",
-			Handler:    _InputTransferTokenService_HashCode_Handler,
-		},
-		{
-			MethodName: "WriteToParcel",
-			Handler:    _InputTransferTokenService_WriteToParcel_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/window/window.proto",
-}
-
-const (
-	SystemOnBackInvokedCallbacksService_FinishAndRemoveTaskCallback_FullMethodName = "/window.SystemOnBackInvokedCallbacksService/FinishAndRemoveTaskCallback"
-	SystemOnBackInvokedCallbacksService_MoveTaskToBackCallback_FullMethodName      = "/window.SystemOnBackInvokedCallbacksService/MoveTaskToBackCallback"
-)
-
-// SystemOnBackInvokedCallbacksServiceClient is the client API for SystemOnBackInvokedCallbacksService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type SystemOnBackInvokedCallbacksServiceClient interface {
-	FinishAndRemoveTaskCallback(ctx context.Context, in *FinishAndRemoveTaskCallbackRequest, opts ...grpc.CallOption) (*FinishAndRemoveTaskCallbackResponse, error)
-	MoveTaskToBackCallback(ctx context.Context, in *MoveTaskToBackCallbackRequest, opts ...grpc.CallOption) (*MoveTaskToBackCallbackResponse, error)
-}
-
-type systemOnBackInvokedCallbacksServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewSystemOnBackInvokedCallbacksServiceClient(cc grpc.ClientConnInterface) SystemOnBackInvokedCallbacksServiceClient {
-	return &systemOnBackInvokedCallbacksServiceClient{cc}
-}
-
-func (c *systemOnBackInvokedCallbacksServiceClient) FinishAndRemoveTaskCallback(ctx context.Context, in *FinishAndRemoveTaskCallbackRequest, opts ...grpc.CallOption) (*FinishAndRemoveTaskCallbackResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(FinishAndRemoveTaskCallbackResponse)
-	err := c.cc.Invoke(ctx, SystemOnBackInvokedCallbacksService_FinishAndRemoveTaskCallback_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *systemOnBackInvokedCallbacksServiceClient) MoveTaskToBackCallback(ctx context.Context, in *MoveTaskToBackCallbackRequest, opts ...grpc.CallOption) (*MoveTaskToBackCallbackResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(MoveTaskToBackCallbackResponse)
-	err := c.cc.Invoke(ctx, SystemOnBackInvokedCallbacksService_MoveTaskToBackCallback_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// SystemOnBackInvokedCallbacksServiceServer is the server API for SystemOnBackInvokedCallbacksService service.
-// All implementations must embed UnimplementedSystemOnBackInvokedCallbacksServiceServer
-// for forward compatibility.
-type SystemOnBackInvokedCallbacksServiceServer interface {
-	FinishAndRemoveTaskCallback(context.Context, *FinishAndRemoveTaskCallbackRequest) (*FinishAndRemoveTaskCallbackResponse, error)
-	MoveTaskToBackCallback(context.Context, *MoveTaskToBackCallbackRequest) (*MoveTaskToBackCallbackResponse, error)
-	mustEmbedUnimplementedSystemOnBackInvokedCallbacksServiceServer()
-}
-
-// UnimplementedSystemOnBackInvokedCallbacksServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedSystemOnBackInvokedCallbacksServiceServer struct{}
-
-func (UnimplementedSystemOnBackInvokedCallbacksServiceServer) FinishAndRemoveTaskCallback(context.Context, *FinishAndRemoveTaskCallbackRequest) (*FinishAndRemoveTaskCallbackResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method FinishAndRemoveTaskCallback not implemented")
-}
-func (UnimplementedSystemOnBackInvokedCallbacksServiceServer) MoveTaskToBackCallback(context.Context, *MoveTaskToBackCallbackRequest) (*MoveTaskToBackCallbackResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method MoveTaskToBackCallback not implemented")
-}
-func (UnimplementedSystemOnBackInvokedCallbacksServiceServer) mustEmbedUnimplementedSystemOnBackInvokedCallbacksServiceServer() {
-}
-func (UnimplementedSystemOnBackInvokedCallbacksServiceServer) testEmbeddedByValue() {}
-
-// UnsafeSystemOnBackInvokedCallbacksServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to SystemOnBackInvokedCallbacksServiceServer will
-// result in compilation errors.
-type UnsafeSystemOnBackInvokedCallbacksServiceServer interface {
-	mustEmbedUnimplementedSystemOnBackInvokedCallbacksServiceServer()
-}
-
-func RegisterSystemOnBackInvokedCallbacksServiceServer(s grpc.ServiceRegistrar, srv SystemOnBackInvokedCallbacksServiceServer) {
-	// If the following call panics, it indicates UnimplementedSystemOnBackInvokedCallbacksServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&SystemOnBackInvokedCallbacksService_ServiceDesc, srv)
-}
-
-func _SystemOnBackInvokedCallbacksService_FinishAndRemoveTaskCallback_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(FinishAndRemoveTaskCallbackRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SystemOnBackInvokedCallbacksServiceServer).FinishAndRemoveTaskCallback(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SystemOnBackInvokedCallbacksService_FinishAndRemoveTaskCallback_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SystemOnBackInvokedCallbacksServiceServer).FinishAndRemoveTaskCallback(ctx, req.(*FinishAndRemoveTaskCallbackRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SystemOnBackInvokedCallbacksService_MoveTaskToBackCallback_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(MoveTaskToBackCallbackRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SystemOnBackInvokedCallbacksServiceServer).MoveTaskToBackCallback(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SystemOnBackInvokedCallbacksService_MoveTaskToBackCallback_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SystemOnBackInvokedCallbacksServiceServer).MoveTaskToBackCallback(ctx, req.(*MoveTaskToBackCallbackRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// SystemOnBackInvokedCallbacksService_ServiceDesc is the grpc.ServiceDesc for SystemOnBackInvokedCallbacksService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var SystemOnBackInvokedCallbacksService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "window.SystemOnBackInvokedCallbacksService",
-	HandlerType: (*SystemOnBackInvokedCallbacksServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "FinishAndRemoveTaskCallback",
-			Handler:    _SystemOnBackInvokedCallbacksService_FinishAndRemoveTaskCallback_Handler,
-		},
-		{
-			MethodName: "MoveTaskToBackCallback",
-			Handler:    _SystemOnBackInvokedCallbacksService_MoveTaskToBackCallback_Handler,
+			Handler:    _BackEventService_ToString_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -1821,367 +914,1274 @@ var SplashScreenOnExitAnimationListenerService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	BackEventService_NewBackEvent_FullMethodName       = "/window.BackEventService/NewBackEvent"
-	BackEventService_Equals_FullMethodName             = "/window.BackEventService/Equals"
-	BackEventService_GetFrameTimeMillis_FullMethodName = "/window.BackEventService/GetFrameTimeMillis"
-	BackEventService_GetProgress_FullMethodName        = "/window.BackEventService/GetProgress"
-	BackEventService_GetSwipeEdge_FullMethodName       = "/window.BackEventService/GetSwipeEdge"
-	BackEventService_GetTouchX_FullMethodName          = "/window.BackEventService/GetTouchX"
-	BackEventService_GetTouchY_FullMethodName          = "/window.BackEventService/GetTouchY"
-	BackEventService_ToString_FullMethodName           = "/window.BackEventService/ToString"
+	InputTransferTokenService_DescribeContents_FullMethodName = "/window.InputTransferTokenService/DescribeContents"
+	InputTransferTokenService_Equals_FullMethodName           = "/window.InputTransferTokenService/Equals"
+	InputTransferTokenService_HashCode_FullMethodName         = "/window.InputTransferTokenService/HashCode"
+	InputTransferTokenService_WriteToParcel_FullMethodName    = "/window.InputTransferTokenService/WriteToParcel"
 )
 
-// BackEventServiceClient is the client API for BackEventService service.
+// InputTransferTokenServiceClient is the client API for InputTransferTokenService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type BackEventServiceClient interface {
-	NewBackEvent(ctx context.Context, in *NewBackEventRequest, opts ...grpc.CallOption) (*NewBackEventResponse, error)
-	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
-	GetFrameTimeMillis(ctx context.Context, in *GetFrameTimeMillisRequest, opts ...grpc.CallOption) (*GetFrameTimeMillisResponse, error)
-	GetProgress(ctx context.Context, in *GetProgressRequest, opts ...grpc.CallOption) (*GetProgressResponse, error)
-	GetSwipeEdge(ctx context.Context, in *GetSwipeEdgeRequest, opts ...grpc.CallOption) (*GetSwipeEdgeResponse, error)
-	GetTouchX(ctx context.Context, in *GetTouchXRequest, opts ...grpc.CallOption) (*GetTouchXResponse, error)
-	GetTouchY(ctx context.Context, in *GetTouchYRequest, opts ...grpc.CallOption) (*GetTouchYResponse, error)
-	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+type InputTransferTokenServiceClient interface {
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	Equals(ctx context.Context, in *InputTransferTokenEqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
 }
 
-type backEventServiceClient struct {
+type inputTransferTokenServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewBackEventServiceClient(cc grpc.ClientConnInterface) BackEventServiceClient {
-	return &backEventServiceClient{cc}
+func NewInputTransferTokenServiceClient(cc grpc.ClientConnInterface) InputTransferTokenServiceClient {
+	return &inputTransferTokenServiceClient{cc}
 }
 
-func (c *backEventServiceClient) NewBackEvent(ctx context.Context, in *NewBackEventRequest, opts ...grpc.CallOption) (*NewBackEventResponse, error) {
+func (c *inputTransferTokenServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewBackEventResponse)
-	err := c.cc.Invoke(ctx, BackEventService_NewBackEvent_FullMethodName, in, out, cOpts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, InputTransferTokenService_DescribeContents_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *backEventServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+func (c *inputTransferTokenServiceClient) Equals(ctx context.Context, in *InputTransferTokenEqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(EqualsResponse)
-	err := c.cc.Invoke(ctx, BackEventService_Equals_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, InputTransferTokenService_Equals_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *backEventServiceClient) GetFrameTimeMillis(ctx context.Context, in *GetFrameTimeMillisRequest, opts ...grpc.CallOption) (*GetFrameTimeMillisResponse, error) {
+func (c *inputTransferTokenServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetFrameTimeMillisResponse)
-	err := c.cc.Invoke(ctx, BackEventService_GetFrameTimeMillis_FullMethodName, in, out, cOpts...)
+	out := new(HashCodeResponse)
+	err := c.cc.Invoke(ctx, InputTransferTokenService_HashCode_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *backEventServiceClient) GetProgress(ctx context.Context, in *GetProgressRequest, opts ...grpc.CallOption) (*GetProgressResponse, error) {
+func (c *inputTransferTokenServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetProgressResponse)
-	err := c.cc.Invoke(ctx, BackEventService_GetProgress_FullMethodName, in, out, cOpts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, InputTransferTokenService_WriteToParcel_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *backEventServiceClient) GetSwipeEdge(ctx context.Context, in *GetSwipeEdgeRequest, opts ...grpc.CallOption) (*GetSwipeEdgeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetSwipeEdgeResponse)
-	err := c.cc.Invoke(ctx, BackEventService_GetSwipeEdge_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *backEventServiceClient) GetTouchX(ctx context.Context, in *GetTouchXRequest, opts ...grpc.CallOption) (*GetTouchXResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetTouchXResponse)
-	err := c.cc.Invoke(ctx, BackEventService_GetTouchX_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *backEventServiceClient) GetTouchY(ctx context.Context, in *GetTouchYRequest, opts ...grpc.CallOption) (*GetTouchYResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetTouchYResponse)
-	err := c.cc.Invoke(ctx, BackEventService_GetTouchY_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *backEventServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ToStringResponse)
-	err := c.cc.Invoke(ctx, BackEventService_ToString_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// BackEventServiceServer is the server API for BackEventService service.
-// All implementations must embed UnimplementedBackEventServiceServer
+// InputTransferTokenServiceServer is the server API for InputTransferTokenService service.
+// All implementations must embed UnimplementedInputTransferTokenServiceServer
 // for forward compatibility.
-type BackEventServiceServer interface {
-	NewBackEvent(context.Context, *NewBackEventRequest) (*NewBackEventResponse, error)
-	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
-	GetFrameTimeMillis(context.Context, *GetFrameTimeMillisRequest) (*GetFrameTimeMillisResponse, error)
-	GetProgress(context.Context, *GetProgressRequest) (*GetProgressResponse, error)
-	GetSwipeEdge(context.Context, *GetSwipeEdgeRequest) (*GetSwipeEdgeResponse, error)
-	GetTouchX(context.Context, *GetTouchXRequest) (*GetTouchXResponse, error)
-	GetTouchY(context.Context, *GetTouchYRequest) (*GetTouchYResponse, error)
-	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
-	mustEmbedUnimplementedBackEventServiceServer()
+type InputTransferTokenServiceServer interface {
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	Equals(context.Context, *InputTransferTokenEqualsRequest) (*EqualsResponse, error)
+	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedInputTransferTokenServiceServer()
 }
 
-// UnimplementedBackEventServiceServer must be embedded to have
+// UnimplementedInputTransferTokenServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedBackEventServiceServer struct{}
+type UnimplementedInputTransferTokenServiceServer struct{}
 
-func (UnimplementedBackEventServiceServer) NewBackEvent(context.Context, *NewBackEventRequest) (*NewBackEventResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewBackEvent not implemented")
+func (UnimplementedInputTransferTokenServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
 }
-func (UnimplementedBackEventServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
+func (UnimplementedInputTransferTokenServiceServer) Equals(context.Context, *InputTransferTokenEqualsRequest) (*EqualsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
 }
-func (UnimplementedBackEventServiceServer) GetFrameTimeMillis(context.Context, *GetFrameTimeMillisRequest) (*GetFrameTimeMillisResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetFrameTimeMillis not implemented")
+func (UnimplementedInputTransferTokenServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
 }
-func (UnimplementedBackEventServiceServer) GetProgress(context.Context, *GetProgressRequest) (*GetProgressResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetProgress not implemented")
+func (UnimplementedInputTransferTokenServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
 }
-func (UnimplementedBackEventServiceServer) GetSwipeEdge(context.Context, *GetSwipeEdgeRequest) (*GetSwipeEdgeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetSwipeEdge not implemented")
+func (UnimplementedInputTransferTokenServiceServer) mustEmbedUnimplementedInputTransferTokenServiceServer() {
 }
-func (UnimplementedBackEventServiceServer) GetTouchX(context.Context, *GetTouchXRequest) (*GetTouchXResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetTouchX not implemented")
-}
-func (UnimplementedBackEventServiceServer) GetTouchY(context.Context, *GetTouchYRequest) (*GetTouchYResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetTouchY not implemented")
-}
-func (UnimplementedBackEventServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
-}
-func (UnimplementedBackEventServiceServer) mustEmbedUnimplementedBackEventServiceServer() {}
-func (UnimplementedBackEventServiceServer) testEmbeddedByValue()                          {}
+func (UnimplementedInputTransferTokenServiceServer) testEmbeddedByValue() {}
 
-// UnsafeBackEventServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to BackEventServiceServer will
+// UnsafeInputTransferTokenServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to InputTransferTokenServiceServer will
 // result in compilation errors.
-type UnsafeBackEventServiceServer interface {
-	mustEmbedUnimplementedBackEventServiceServer()
+type UnsafeInputTransferTokenServiceServer interface {
+	mustEmbedUnimplementedInputTransferTokenServiceServer()
 }
 
-func RegisterBackEventServiceServer(s grpc.ServiceRegistrar, srv BackEventServiceServer) {
-	// If the following call panics, it indicates UnimplementedBackEventServiceServer was
+func RegisterInputTransferTokenServiceServer(s grpc.ServiceRegistrar, srv InputTransferTokenServiceServer) {
+	// If the following call panics, it indicates UnimplementedInputTransferTokenServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&BackEventService_ServiceDesc, srv)
+	s.RegisterService(&InputTransferTokenService_ServiceDesc, srv)
 }
 
-func _BackEventService_NewBackEvent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewBackEventRequest)
+func _InputTransferTokenService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(BackEventServiceServer).NewBackEvent(ctx, in)
+		return srv.(InputTransferTokenServiceServer).DescribeContents(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: BackEventService_NewBackEvent_FullMethodName,
+		FullMethod: InputTransferTokenService_DescribeContents_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BackEventServiceServer).NewBackEvent(ctx, req.(*NewBackEventRequest))
+		return srv.(InputTransferTokenServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _BackEventService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _InputTransferTokenService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(InputTransferTokenEqualsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InputTransferTokenServiceServer).Equals(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InputTransferTokenService_Equals_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InputTransferTokenServiceServer).Equals(ctx, req.(*InputTransferTokenEqualsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InputTransferTokenService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HashCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InputTransferTokenServiceServer).HashCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InputTransferTokenService_HashCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InputTransferTokenServiceServer).HashCode(ctx, req.(*HashCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InputTransferTokenService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InputTransferTokenServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InputTransferTokenService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InputTransferTokenServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// InputTransferTokenService_ServiceDesc is the grpc.ServiceDesc for InputTransferTokenService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var InputTransferTokenService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "window.InputTransferTokenService",
+	HandlerType: (*InputTransferTokenServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "DescribeContents",
+			Handler:    _InputTransferTokenService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "Equals",
+			Handler:    _InputTransferTokenService_Equals_Handler,
+		},
+		{
+			MethodName: "HashCode",
+			Handler:    _InputTransferTokenService_HashCode_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _InputTransferTokenService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/window/window.proto",
+}
+
+const (
+	TrustedPresentationThresholdsService_NewTrustedPresentationThresholds_FullMethodName = "/window.TrustedPresentationThresholdsService/NewTrustedPresentationThresholds"
+	TrustedPresentationThresholdsService_DescribeContents_FullMethodName                 = "/window.TrustedPresentationThresholdsService/DescribeContents"
+	TrustedPresentationThresholdsService_Equals_FullMethodName                           = "/window.TrustedPresentationThresholdsService/Equals"
+	TrustedPresentationThresholdsService_GetMinAlpha_FullMethodName                      = "/window.TrustedPresentationThresholdsService/GetMinAlpha"
+	TrustedPresentationThresholdsService_GetMinFractionRendered_FullMethodName           = "/window.TrustedPresentationThresholdsService/GetMinFractionRendered"
+	TrustedPresentationThresholdsService_GetStabilityRequirementMillis_FullMethodName    = "/window.TrustedPresentationThresholdsService/GetStabilityRequirementMillis"
+	TrustedPresentationThresholdsService_HashCode_FullMethodName                         = "/window.TrustedPresentationThresholdsService/HashCode"
+	TrustedPresentationThresholdsService_ToString_FullMethodName                         = "/window.TrustedPresentationThresholdsService/ToString"
+	TrustedPresentationThresholdsService_WriteToParcel_FullMethodName                    = "/window.TrustedPresentationThresholdsService/WriteToParcel"
+)
+
+// TrustedPresentationThresholdsServiceClient is the client API for TrustedPresentationThresholdsService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type TrustedPresentationThresholdsServiceClient interface {
+	NewTrustedPresentationThresholds(ctx context.Context, in *NewTrustedPresentationThresholdsRequest, opts ...grpc.CallOption) (*NewTrustedPresentationThresholdsResponse, error)
+	DescribeContents(ctx context.Context, in *TrustedPresentationThresholdsDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	GetMinAlpha(ctx context.Context, in *GetMinAlphaRequest, opts ...grpc.CallOption) (*GetMinAlphaResponse, error)
+	GetMinFractionRendered(ctx context.Context, in *GetMinFractionRenderedRequest, opts ...grpc.CallOption) (*GetMinFractionRenderedResponse, error)
+	GetStabilityRequirementMillis(ctx context.Context, in *GetStabilityRequirementMillisRequest, opts ...grpc.CallOption) (*GetStabilityRequirementMillisResponse, error)
+	HashCode(ctx context.Context, in *TrustedPresentationThresholdsHashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+	WriteToParcel(ctx context.Context, in *TrustedPresentationThresholdsWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type trustedPresentationThresholdsServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewTrustedPresentationThresholdsServiceClient(cc grpc.ClientConnInterface) TrustedPresentationThresholdsServiceClient {
+	return &trustedPresentationThresholdsServiceClient{cc}
+}
+
+func (c *trustedPresentationThresholdsServiceClient) NewTrustedPresentationThresholds(ctx context.Context, in *NewTrustedPresentationThresholdsRequest, opts ...grpc.CallOption) (*NewTrustedPresentationThresholdsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewTrustedPresentationThresholdsResponse)
+	err := c.cc.Invoke(ctx, TrustedPresentationThresholdsService_NewTrustedPresentationThresholds_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *trustedPresentationThresholdsServiceClient) DescribeContents(ctx context.Context, in *TrustedPresentationThresholdsDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, TrustedPresentationThresholdsService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *trustedPresentationThresholdsServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(EqualsResponse)
+	err := c.cc.Invoke(ctx, TrustedPresentationThresholdsService_Equals_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *trustedPresentationThresholdsServiceClient) GetMinAlpha(ctx context.Context, in *GetMinAlphaRequest, opts ...grpc.CallOption) (*GetMinAlphaResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetMinAlphaResponse)
+	err := c.cc.Invoke(ctx, TrustedPresentationThresholdsService_GetMinAlpha_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *trustedPresentationThresholdsServiceClient) GetMinFractionRendered(ctx context.Context, in *GetMinFractionRenderedRequest, opts ...grpc.CallOption) (*GetMinFractionRenderedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetMinFractionRenderedResponse)
+	err := c.cc.Invoke(ctx, TrustedPresentationThresholdsService_GetMinFractionRendered_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *trustedPresentationThresholdsServiceClient) GetStabilityRequirementMillis(ctx context.Context, in *GetStabilityRequirementMillisRequest, opts ...grpc.CallOption) (*GetStabilityRequirementMillisResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetStabilityRequirementMillisResponse)
+	err := c.cc.Invoke(ctx, TrustedPresentationThresholdsService_GetStabilityRequirementMillis_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *trustedPresentationThresholdsServiceClient) HashCode(ctx context.Context, in *TrustedPresentationThresholdsHashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HashCodeResponse)
+	err := c.cc.Invoke(ctx, TrustedPresentationThresholdsService_HashCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *trustedPresentationThresholdsServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, TrustedPresentationThresholdsService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *trustedPresentationThresholdsServiceClient) WriteToParcel(ctx context.Context, in *TrustedPresentationThresholdsWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, TrustedPresentationThresholdsService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// TrustedPresentationThresholdsServiceServer is the server API for TrustedPresentationThresholdsService service.
+// All implementations must embed UnimplementedTrustedPresentationThresholdsServiceServer
+// for forward compatibility.
+type TrustedPresentationThresholdsServiceServer interface {
+	NewTrustedPresentationThresholds(context.Context, *NewTrustedPresentationThresholdsRequest) (*NewTrustedPresentationThresholdsResponse, error)
+	DescribeContents(context.Context, *TrustedPresentationThresholdsDescribeContentsRequest) (*DescribeContentsResponse, error)
+	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
+	GetMinAlpha(context.Context, *GetMinAlphaRequest) (*GetMinAlphaResponse, error)
+	GetMinFractionRendered(context.Context, *GetMinFractionRenderedRequest) (*GetMinFractionRenderedResponse, error)
+	GetStabilityRequirementMillis(context.Context, *GetStabilityRequirementMillisRequest) (*GetStabilityRequirementMillisResponse, error)
+	HashCode(context.Context, *TrustedPresentationThresholdsHashCodeRequest) (*HashCodeResponse, error)
+	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
+	WriteToParcel(context.Context, *TrustedPresentationThresholdsWriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedTrustedPresentationThresholdsServiceServer()
+}
+
+// UnimplementedTrustedPresentationThresholdsServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedTrustedPresentationThresholdsServiceServer struct{}
+
+func (UnimplementedTrustedPresentationThresholdsServiceServer) NewTrustedPresentationThresholds(context.Context, *NewTrustedPresentationThresholdsRequest) (*NewTrustedPresentationThresholdsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewTrustedPresentationThresholds not implemented")
+}
+func (UnimplementedTrustedPresentationThresholdsServiceServer) DescribeContents(context.Context, *TrustedPresentationThresholdsDescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedTrustedPresentationThresholdsServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
+}
+func (UnimplementedTrustedPresentationThresholdsServiceServer) GetMinAlpha(context.Context, *GetMinAlphaRequest) (*GetMinAlphaResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetMinAlpha not implemented")
+}
+func (UnimplementedTrustedPresentationThresholdsServiceServer) GetMinFractionRendered(context.Context, *GetMinFractionRenderedRequest) (*GetMinFractionRenderedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetMinFractionRendered not implemented")
+}
+func (UnimplementedTrustedPresentationThresholdsServiceServer) GetStabilityRequirementMillis(context.Context, *GetStabilityRequirementMillisRequest) (*GetStabilityRequirementMillisResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetStabilityRequirementMillis not implemented")
+}
+func (UnimplementedTrustedPresentationThresholdsServiceServer) HashCode(context.Context, *TrustedPresentationThresholdsHashCodeRequest) (*HashCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
+}
+func (UnimplementedTrustedPresentationThresholdsServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedTrustedPresentationThresholdsServiceServer) WriteToParcel(context.Context, *TrustedPresentationThresholdsWriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedTrustedPresentationThresholdsServiceServer) mustEmbedUnimplementedTrustedPresentationThresholdsServiceServer() {
+}
+func (UnimplementedTrustedPresentationThresholdsServiceServer) testEmbeddedByValue() {}
+
+// UnsafeTrustedPresentationThresholdsServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to TrustedPresentationThresholdsServiceServer will
+// result in compilation errors.
+type UnsafeTrustedPresentationThresholdsServiceServer interface {
+	mustEmbedUnimplementedTrustedPresentationThresholdsServiceServer()
+}
+
+func RegisterTrustedPresentationThresholdsServiceServer(s grpc.ServiceRegistrar, srv TrustedPresentationThresholdsServiceServer) {
+	// If the following call panics, it indicates UnimplementedTrustedPresentationThresholdsServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&TrustedPresentationThresholdsService_ServiceDesc, srv)
+}
+
+func _TrustedPresentationThresholdsService_NewTrustedPresentationThresholds_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewTrustedPresentationThresholdsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TrustedPresentationThresholdsServiceServer).NewTrustedPresentationThresholds(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TrustedPresentationThresholdsService_NewTrustedPresentationThresholds_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TrustedPresentationThresholdsServiceServer).NewTrustedPresentationThresholds(ctx, req.(*NewTrustedPresentationThresholdsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TrustedPresentationThresholdsService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(TrustedPresentationThresholdsDescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TrustedPresentationThresholdsServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TrustedPresentationThresholdsService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TrustedPresentationThresholdsServiceServer).DescribeContents(ctx, req.(*TrustedPresentationThresholdsDescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TrustedPresentationThresholdsService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(EqualsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(BackEventServiceServer).Equals(ctx, in)
+		return srv.(TrustedPresentationThresholdsServiceServer).Equals(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: BackEventService_Equals_FullMethodName,
+		FullMethod: TrustedPresentationThresholdsService_Equals_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BackEventServiceServer).Equals(ctx, req.(*EqualsRequest))
+		return srv.(TrustedPresentationThresholdsServiceServer).Equals(ctx, req.(*EqualsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _BackEventService_GetFrameTimeMillis_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetFrameTimeMillisRequest)
+func _TrustedPresentationThresholdsService_GetMinAlpha_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetMinAlphaRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(BackEventServiceServer).GetFrameTimeMillis(ctx, in)
+		return srv.(TrustedPresentationThresholdsServiceServer).GetMinAlpha(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: BackEventService_GetFrameTimeMillis_FullMethodName,
+		FullMethod: TrustedPresentationThresholdsService_GetMinAlpha_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BackEventServiceServer).GetFrameTimeMillis(ctx, req.(*GetFrameTimeMillisRequest))
+		return srv.(TrustedPresentationThresholdsServiceServer).GetMinAlpha(ctx, req.(*GetMinAlphaRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _BackEventService_GetProgress_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetProgressRequest)
+func _TrustedPresentationThresholdsService_GetMinFractionRendered_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetMinFractionRenderedRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(BackEventServiceServer).GetProgress(ctx, in)
+		return srv.(TrustedPresentationThresholdsServiceServer).GetMinFractionRendered(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: BackEventService_GetProgress_FullMethodName,
+		FullMethod: TrustedPresentationThresholdsService_GetMinFractionRendered_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BackEventServiceServer).GetProgress(ctx, req.(*GetProgressRequest))
+		return srv.(TrustedPresentationThresholdsServiceServer).GetMinFractionRendered(ctx, req.(*GetMinFractionRenderedRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _BackEventService_GetSwipeEdge_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetSwipeEdgeRequest)
+func _TrustedPresentationThresholdsService_GetStabilityRequirementMillis_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetStabilityRequirementMillisRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(BackEventServiceServer).GetSwipeEdge(ctx, in)
+		return srv.(TrustedPresentationThresholdsServiceServer).GetStabilityRequirementMillis(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: BackEventService_GetSwipeEdge_FullMethodName,
+		FullMethod: TrustedPresentationThresholdsService_GetStabilityRequirementMillis_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BackEventServiceServer).GetSwipeEdge(ctx, req.(*GetSwipeEdgeRequest))
+		return srv.(TrustedPresentationThresholdsServiceServer).GetStabilityRequirementMillis(ctx, req.(*GetStabilityRequirementMillisRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _BackEventService_GetTouchX_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetTouchXRequest)
+func _TrustedPresentationThresholdsService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(TrustedPresentationThresholdsHashCodeRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(BackEventServiceServer).GetTouchX(ctx, in)
+		return srv.(TrustedPresentationThresholdsServiceServer).HashCode(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: BackEventService_GetTouchX_FullMethodName,
+		FullMethod: TrustedPresentationThresholdsService_HashCode_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BackEventServiceServer).GetTouchX(ctx, req.(*GetTouchXRequest))
+		return srv.(TrustedPresentationThresholdsServiceServer).HashCode(ctx, req.(*TrustedPresentationThresholdsHashCodeRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _BackEventService_GetTouchY_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetTouchYRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(BackEventServiceServer).GetTouchY(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: BackEventService_GetTouchY_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BackEventServiceServer).GetTouchY(ctx, req.(*GetTouchYRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _BackEventService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _TrustedPresentationThresholdsService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(ToStringRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(BackEventServiceServer).ToString(ctx, in)
+		return srv.(TrustedPresentationThresholdsServiceServer).ToString(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: BackEventService_ToString_FullMethodName,
+		FullMethod: TrustedPresentationThresholdsService_ToString_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BackEventServiceServer).ToString(ctx, req.(*ToStringRequest))
+		return srv.(TrustedPresentationThresholdsServiceServer).ToString(ctx, req.(*ToStringRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// BackEventService_ServiceDesc is the grpc.ServiceDesc for BackEventService service.
+func _TrustedPresentationThresholdsService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(TrustedPresentationThresholdsWriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TrustedPresentationThresholdsServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TrustedPresentationThresholdsService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TrustedPresentationThresholdsServiceServer).WriteToParcel(ctx, req.(*TrustedPresentationThresholdsWriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// TrustedPresentationThresholdsService_ServiceDesc is the grpc.ServiceDesc for TrustedPresentationThresholdsService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var BackEventService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "window.BackEventService",
-	HandlerType: (*BackEventServiceServer)(nil),
+var TrustedPresentationThresholdsService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "window.TrustedPresentationThresholdsService",
+	HandlerType: (*TrustedPresentationThresholdsServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "NewBackEvent",
-			Handler:    _BackEventService_NewBackEvent_Handler,
+			MethodName: "NewTrustedPresentationThresholds",
+			Handler:    _TrustedPresentationThresholdsService_NewTrustedPresentationThresholds_Handler,
+		},
+		{
+			MethodName: "DescribeContents",
+			Handler:    _TrustedPresentationThresholdsService_DescribeContents_Handler,
 		},
 		{
 			MethodName: "Equals",
-			Handler:    _BackEventService_Equals_Handler,
+			Handler:    _TrustedPresentationThresholdsService_Equals_Handler,
 		},
 		{
-			MethodName: "GetFrameTimeMillis",
-			Handler:    _BackEventService_GetFrameTimeMillis_Handler,
+			MethodName: "GetMinAlpha",
+			Handler:    _TrustedPresentationThresholdsService_GetMinAlpha_Handler,
 		},
 		{
-			MethodName: "GetProgress",
-			Handler:    _BackEventService_GetProgress_Handler,
+			MethodName: "GetMinFractionRendered",
+			Handler:    _TrustedPresentationThresholdsService_GetMinFractionRendered_Handler,
 		},
 		{
-			MethodName: "GetSwipeEdge",
-			Handler:    _BackEventService_GetSwipeEdge_Handler,
+			MethodName: "GetStabilityRequirementMillis",
+			Handler:    _TrustedPresentationThresholdsService_GetStabilityRequirementMillis_Handler,
 		},
 		{
-			MethodName: "GetTouchX",
-			Handler:    _BackEventService_GetTouchX_Handler,
-		},
-		{
-			MethodName: "GetTouchY",
-			Handler:    _BackEventService_GetTouchY_Handler,
+			MethodName: "HashCode",
+			Handler:    _TrustedPresentationThresholdsService_HashCode_Handler,
 		},
 		{
 			MethodName: "ToString",
-			Handler:    _BackEventService_ToString_Handler,
+			Handler:    _TrustedPresentationThresholdsService_ToString_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _TrustedPresentationThresholdsService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/window/window.proto",
+}
+
+const (
+	SurfaceSyncGroupService_NewSurfaceSyncGroup_FullMethodName = "/window.SurfaceSyncGroupService/NewSurfaceSyncGroup"
+	SurfaceSyncGroupService_Add2_FullMethodName                = "/window.SurfaceSyncGroupService/Add2"
+	SurfaceSyncGroupService_Add2_1_FullMethodName              = "/window.SurfaceSyncGroupService/Add2_1"
+	SurfaceSyncGroupService_AddTransaction_FullMethodName      = "/window.SurfaceSyncGroupService/AddTransaction"
+	SurfaceSyncGroupService_MarkSyncReady_FullMethodName       = "/window.SurfaceSyncGroupService/MarkSyncReady"
+)
+
+// SurfaceSyncGroupServiceClient is the client API for SurfaceSyncGroupService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type SurfaceSyncGroupServiceClient interface {
+	NewSurfaceSyncGroup(ctx context.Context, in *NewSurfaceSyncGroupRequest, opts ...grpc.CallOption) (*NewSurfaceSyncGroupResponse, error)
+	Add2(ctx context.Context, in *Add2Request, opts ...grpc.CallOption) (*Add2Response, error)
+	Add2_1(ctx context.Context, in *Add2_1Request, opts ...grpc.CallOption) (*Add2_1Response, error)
+	AddTransaction(ctx context.Context, in *AddTransactionRequest, opts ...grpc.CallOption) (*AddTransactionResponse, error)
+	MarkSyncReady(ctx context.Context, in *MarkSyncReadyRequest, opts ...grpc.CallOption) (*MarkSyncReadyResponse, error)
+}
+
+type surfaceSyncGroupServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewSurfaceSyncGroupServiceClient(cc grpc.ClientConnInterface) SurfaceSyncGroupServiceClient {
+	return &surfaceSyncGroupServiceClient{cc}
+}
+
+func (c *surfaceSyncGroupServiceClient) NewSurfaceSyncGroup(ctx context.Context, in *NewSurfaceSyncGroupRequest, opts ...grpc.CallOption) (*NewSurfaceSyncGroupResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewSurfaceSyncGroupResponse)
+	err := c.cc.Invoke(ctx, SurfaceSyncGroupService_NewSurfaceSyncGroup_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *surfaceSyncGroupServiceClient) Add2(ctx context.Context, in *Add2Request, opts ...grpc.CallOption) (*Add2Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(Add2Response)
+	err := c.cc.Invoke(ctx, SurfaceSyncGroupService_Add2_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *surfaceSyncGroupServiceClient) Add2_1(ctx context.Context, in *Add2_1Request, opts ...grpc.CallOption) (*Add2_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(Add2_1Response)
+	err := c.cc.Invoke(ctx, SurfaceSyncGroupService_Add2_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *surfaceSyncGroupServiceClient) AddTransaction(ctx context.Context, in *AddTransactionRequest, opts ...grpc.CallOption) (*AddTransactionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(AddTransactionResponse)
+	err := c.cc.Invoke(ctx, SurfaceSyncGroupService_AddTransaction_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *surfaceSyncGroupServiceClient) MarkSyncReady(ctx context.Context, in *MarkSyncReadyRequest, opts ...grpc.CallOption) (*MarkSyncReadyResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(MarkSyncReadyResponse)
+	err := c.cc.Invoke(ctx, SurfaceSyncGroupService_MarkSyncReady_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// SurfaceSyncGroupServiceServer is the server API for SurfaceSyncGroupService service.
+// All implementations must embed UnimplementedSurfaceSyncGroupServiceServer
+// for forward compatibility.
+type SurfaceSyncGroupServiceServer interface {
+	NewSurfaceSyncGroup(context.Context, *NewSurfaceSyncGroupRequest) (*NewSurfaceSyncGroupResponse, error)
+	Add2(context.Context, *Add2Request) (*Add2Response, error)
+	Add2_1(context.Context, *Add2_1Request) (*Add2_1Response, error)
+	AddTransaction(context.Context, *AddTransactionRequest) (*AddTransactionResponse, error)
+	MarkSyncReady(context.Context, *MarkSyncReadyRequest) (*MarkSyncReadyResponse, error)
+	mustEmbedUnimplementedSurfaceSyncGroupServiceServer()
+}
+
+// UnimplementedSurfaceSyncGroupServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedSurfaceSyncGroupServiceServer struct{}
+
+func (UnimplementedSurfaceSyncGroupServiceServer) NewSurfaceSyncGroup(context.Context, *NewSurfaceSyncGroupRequest) (*NewSurfaceSyncGroupResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewSurfaceSyncGroup not implemented")
+}
+func (UnimplementedSurfaceSyncGroupServiceServer) Add2(context.Context, *Add2Request) (*Add2Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method Add2 not implemented")
+}
+func (UnimplementedSurfaceSyncGroupServiceServer) Add2_1(context.Context, *Add2_1Request) (*Add2_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method Add2_1 not implemented")
+}
+func (UnimplementedSurfaceSyncGroupServiceServer) AddTransaction(context.Context, *AddTransactionRequest) (*AddTransactionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method AddTransaction not implemented")
+}
+func (UnimplementedSurfaceSyncGroupServiceServer) MarkSyncReady(context.Context, *MarkSyncReadyRequest) (*MarkSyncReadyResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method MarkSyncReady not implemented")
+}
+func (UnimplementedSurfaceSyncGroupServiceServer) mustEmbedUnimplementedSurfaceSyncGroupServiceServer() {
+}
+func (UnimplementedSurfaceSyncGroupServiceServer) testEmbeddedByValue() {}
+
+// UnsafeSurfaceSyncGroupServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to SurfaceSyncGroupServiceServer will
+// result in compilation errors.
+type UnsafeSurfaceSyncGroupServiceServer interface {
+	mustEmbedUnimplementedSurfaceSyncGroupServiceServer()
+}
+
+func RegisterSurfaceSyncGroupServiceServer(s grpc.ServiceRegistrar, srv SurfaceSyncGroupServiceServer) {
+	// If the following call panics, it indicates UnimplementedSurfaceSyncGroupServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&SurfaceSyncGroupService_ServiceDesc, srv)
+}
+
+func _SurfaceSyncGroupService_NewSurfaceSyncGroup_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewSurfaceSyncGroupRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SurfaceSyncGroupServiceServer).NewSurfaceSyncGroup(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SurfaceSyncGroupService_NewSurfaceSyncGroup_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SurfaceSyncGroupServiceServer).NewSurfaceSyncGroup(ctx, req.(*NewSurfaceSyncGroupRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SurfaceSyncGroupService_Add2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(Add2Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SurfaceSyncGroupServiceServer).Add2(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SurfaceSyncGroupService_Add2_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SurfaceSyncGroupServiceServer).Add2(ctx, req.(*Add2Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SurfaceSyncGroupService_Add2_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(Add2_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SurfaceSyncGroupServiceServer).Add2_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SurfaceSyncGroupService_Add2_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SurfaceSyncGroupServiceServer).Add2_1(ctx, req.(*Add2_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SurfaceSyncGroupService_AddTransaction_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AddTransactionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SurfaceSyncGroupServiceServer).AddTransaction(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SurfaceSyncGroupService_AddTransaction_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SurfaceSyncGroupServiceServer).AddTransaction(ctx, req.(*AddTransactionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SurfaceSyncGroupService_MarkSyncReady_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MarkSyncReadyRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SurfaceSyncGroupServiceServer).MarkSyncReady(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SurfaceSyncGroupService_MarkSyncReady_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SurfaceSyncGroupServiceServer).MarkSyncReady(ctx, req.(*MarkSyncReadyRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// SurfaceSyncGroupService_ServiceDesc is the grpc.ServiceDesc for SurfaceSyncGroupService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var SurfaceSyncGroupService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "window.SurfaceSyncGroupService",
+	HandlerType: (*SurfaceSyncGroupServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewSurfaceSyncGroup",
+			Handler:    _SurfaceSyncGroupService_NewSurfaceSyncGroup_Handler,
+		},
+		{
+			MethodName: "Add2",
+			Handler:    _SurfaceSyncGroupService_Add2_Handler,
+		},
+		{
+			MethodName: "Add2_1",
+			Handler:    _SurfaceSyncGroupService_Add2_1_Handler,
+		},
+		{
+			MethodName: "AddTransaction",
+			Handler:    _SurfaceSyncGroupService_AddTransaction_Handler,
+		},
+		{
+			MethodName: "MarkSyncReady",
+			Handler:    _SurfaceSyncGroupService_MarkSyncReady_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/window/window.proto",
+}
+
+const (
+	SplashScreenViewService_GetIconAnimationDuration_FullMethodName = "/window.SplashScreenViewService/GetIconAnimationDuration"
+	SplashScreenViewService_GetIconAnimationStart_FullMethodName    = "/window.SplashScreenViewService/GetIconAnimationStart"
+	SplashScreenViewService_GetIconView_FullMethodName              = "/window.SplashScreenViewService/GetIconView"
+	SplashScreenViewService_Remove_FullMethodName                   = "/window.SplashScreenViewService/Remove"
+	SplashScreenViewService_SetAlpha_FullMethodName                 = "/window.SplashScreenViewService/SetAlpha"
+)
+
+// SplashScreenViewServiceClient is the client API for SplashScreenViewService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type SplashScreenViewServiceClient interface {
+	GetIconAnimationDuration(ctx context.Context, in *GetIconAnimationDurationRequest, opts ...grpc.CallOption) (*GetIconAnimationDurationResponse, error)
+	GetIconAnimationStart(ctx context.Context, in *GetIconAnimationStartRequest, opts ...grpc.CallOption) (*GetIconAnimationStartResponse, error)
+	GetIconView(ctx context.Context, in *GetIconViewRequest, opts ...grpc.CallOption) (*GetIconViewResponse, error)
+	Remove(ctx context.Context, in *RemoveRequest, opts ...grpc.CallOption) (*RemoveResponse, error)
+	SetAlpha(ctx context.Context, in *SetAlphaRequest, opts ...grpc.CallOption) (*SetAlphaResponse, error)
+}
+
+type splashScreenViewServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewSplashScreenViewServiceClient(cc grpc.ClientConnInterface) SplashScreenViewServiceClient {
+	return &splashScreenViewServiceClient{cc}
+}
+
+func (c *splashScreenViewServiceClient) GetIconAnimationDuration(ctx context.Context, in *GetIconAnimationDurationRequest, opts ...grpc.CallOption) (*GetIconAnimationDurationResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetIconAnimationDurationResponse)
+	err := c.cc.Invoke(ctx, SplashScreenViewService_GetIconAnimationDuration_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *splashScreenViewServiceClient) GetIconAnimationStart(ctx context.Context, in *GetIconAnimationStartRequest, opts ...grpc.CallOption) (*GetIconAnimationStartResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetIconAnimationStartResponse)
+	err := c.cc.Invoke(ctx, SplashScreenViewService_GetIconAnimationStart_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *splashScreenViewServiceClient) GetIconView(ctx context.Context, in *GetIconViewRequest, opts ...grpc.CallOption) (*GetIconViewResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetIconViewResponse)
+	err := c.cc.Invoke(ctx, SplashScreenViewService_GetIconView_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *splashScreenViewServiceClient) Remove(ctx context.Context, in *RemoveRequest, opts ...grpc.CallOption) (*RemoveResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(RemoveResponse)
+	err := c.cc.Invoke(ctx, SplashScreenViewService_Remove_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *splashScreenViewServiceClient) SetAlpha(ctx context.Context, in *SetAlphaRequest, opts ...grpc.CallOption) (*SetAlphaResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetAlphaResponse)
+	err := c.cc.Invoke(ctx, SplashScreenViewService_SetAlpha_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// SplashScreenViewServiceServer is the server API for SplashScreenViewService service.
+// All implementations must embed UnimplementedSplashScreenViewServiceServer
+// for forward compatibility.
+type SplashScreenViewServiceServer interface {
+	GetIconAnimationDuration(context.Context, *GetIconAnimationDurationRequest) (*GetIconAnimationDurationResponse, error)
+	GetIconAnimationStart(context.Context, *GetIconAnimationStartRequest) (*GetIconAnimationStartResponse, error)
+	GetIconView(context.Context, *GetIconViewRequest) (*GetIconViewResponse, error)
+	Remove(context.Context, *RemoveRequest) (*RemoveResponse, error)
+	SetAlpha(context.Context, *SetAlphaRequest) (*SetAlphaResponse, error)
+	mustEmbedUnimplementedSplashScreenViewServiceServer()
+}
+
+// UnimplementedSplashScreenViewServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedSplashScreenViewServiceServer struct{}
+
+func (UnimplementedSplashScreenViewServiceServer) GetIconAnimationDuration(context.Context, *GetIconAnimationDurationRequest) (*GetIconAnimationDurationResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetIconAnimationDuration not implemented")
+}
+func (UnimplementedSplashScreenViewServiceServer) GetIconAnimationStart(context.Context, *GetIconAnimationStartRequest) (*GetIconAnimationStartResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetIconAnimationStart not implemented")
+}
+func (UnimplementedSplashScreenViewServiceServer) GetIconView(context.Context, *GetIconViewRequest) (*GetIconViewResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetIconView not implemented")
+}
+func (UnimplementedSplashScreenViewServiceServer) Remove(context.Context, *RemoveRequest) (*RemoveResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Remove not implemented")
+}
+func (UnimplementedSplashScreenViewServiceServer) SetAlpha(context.Context, *SetAlphaRequest) (*SetAlphaResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetAlpha not implemented")
+}
+func (UnimplementedSplashScreenViewServiceServer) mustEmbedUnimplementedSplashScreenViewServiceServer() {
+}
+func (UnimplementedSplashScreenViewServiceServer) testEmbeddedByValue() {}
+
+// UnsafeSplashScreenViewServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to SplashScreenViewServiceServer will
+// result in compilation errors.
+type UnsafeSplashScreenViewServiceServer interface {
+	mustEmbedUnimplementedSplashScreenViewServiceServer()
+}
+
+func RegisterSplashScreenViewServiceServer(s grpc.ServiceRegistrar, srv SplashScreenViewServiceServer) {
+	// If the following call panics, it indicates UnimplementedSplashScreenViewServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&SplashScreenViewService_ServiceDesc, srv)
+}
+
+func _SplashScreenViewService_GetIconAnimationDuration_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetIconAnimationDurationRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SplashScreenViewServiceServer).GetIconAnimationDuration(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SplashScreenViewService_GetIconAnimationDuration_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SplashScreenViewServiceServer).GetIconAnimationDuration(ctx, req.(*GetIconAnimationDurationRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SplashScreenViewService_GetIconAnimationStart_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetIconAnimationStartRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SplashScreenViewServiceServer).GetIconAnimationStart(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SplashScreenViewService_GetIconAnimationStart_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SplashScreenViewServiceServer).GetIconAnimationStart(ctx, req.(*GetIconAnimationStartRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SplashScreenViewService_GetIconView_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetIconViewRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SplashScreenViewServiceServer).GetIconView(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SplashScreenViewService_GetIconView_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SplashScreenViewServiceServer).GetIconView(ctx, req.(*GetIconViewRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SplashScreenViewService_Remove_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RemoveRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SplashScreenViewServiceServer).Remove(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SplashScreenViewService_Remove_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SplashScreenViewServiceServer).Remove(ctx, req.(*RemoveRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SplashScreenViewService_SetAlpha_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetAlphaRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SplashScreenViewServiceServer).SetAlpha(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SplashScreenViewService_SetAlpha_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SplashScreenViewServiceServer).SetAlpha(ctx, req.(*SetAlphaRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// SplashScreenViewService_ServiceDesc is the grpc.ServiceDesc for SplashScreenViewService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var SplashScreenViewService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "window.SplashScreenViewService",
+	HandlerType: (*SplashScreenViewServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "GetIconAnimationDuration",
+			Handler:    _SplashScreenViewService_GetIconAnimationDuration_Handler,
+		},
+		{
+			MethodName: "GetIconAnimationStart",
+			Handler:    _SplashScreenViewService_GetIconAnimationStart_Handler,
+		},
+		{
+			MethodName: "GetIconView",
+			Handler:    _SplashScreenViewService_GetIconView_Handler,
+		},
+		{
+			MethodName: "Remove",
+			Handler:    _SplashScreenViewService_Remove_Handler,
+		},
+		{
+			MethodName: "SetAlpha",
+			Handler:    _SplashScreenViewService_SetAlpha_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/window/window.proto",
+}
+
+const (
+	SystemOnBackInvokedCallbacksService_FinishAndRemoveTaskCallback_FullMethodName = "/window.SystemOnBackInvokedCallbacksService/FinishAndRemoveTaskCallback"
+	SystemOnBackInvokedCallbacksService_MoveTaskToBackCallback_FullMethodName      = "/window.SystemOnBackInvokedCallbacksService/MoveTaskToBackCallback"
+)
+
+// SystemOnBackInvokedCallbacksServiceClient is the client API for SystemOnBackInvokedCallbacksService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type SystemOnBackInvokedCallbacksServiceClient interface {
+	FinishAndRemoveTaskCallback(ctx context.Context, in *FinishAndRemoveTaskCallbackRequest, opts ...grpc.CallOption) (*FinishAndRemoveTaskCallbackResponse, error)
+	MoveTaskToBackCallback(ctx context.Context, in *MoveTaskToBackCallbackRequest, opts ...grpc.CallOption) (*MoveTaskToBackCallbackResponse, error)
+}
+
+type systemOnBackInvokedCallbacksServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewSystemOnBackInvokedCallbacksServiceClient(cc grpc.ClientConnInterface) SystemOnBackInvokedCallbacksServiceClient {
+	return &systemOnBackInvokedCallbacksServiceClient{cc}
+}
+
+func (c *systemOnBackInvokedCallbacksServiceClient) FinishAndRemoveTaskCallback(ctx context.Context, in *FinishAndRemoveTaskCallbackRequest, opts ...grpc.CallOption) (*FinishAndRemoveTaskCallbackResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(FinishAndRemoveTaskCallbackResponse)
+	err := c.cc.Invoke(ctx, SystemOnBackInvokedCallbacksService_FinishAndRemoveTaskCallback_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *systemOnBackInvokedCallbacksServiceClient) MoveTaskToBackCallback(ctx context.Context, in *MoveTaskToBackCallbackRequest, opts ...grpc.CallOption) (*MoveTaskToBackCallbackResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(MoveTaskToBackCallbackResponse)
+	err := c.cc.Invoke(ctx, SystemOnBackInvokedCallbacksService_MoveTaskToBackCallback_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// SystemOnBackInvokedCallbacksServiceServer is the server API for SystemOnBackInvokedCallbacksService service.
+// All implementations must embed UnimplementedSystemOnBackInvokedCallbacksServiceServer
+// for forward compatibility.
+type SystemOnBackInvokedCallbacksServiceServer interface {
+	FinishAndRemoveTaskCallback(context.Context, *FinishAndRemoveTaskCallbackRequest) (*FinishAndRemoveTaskCallbackResponse, error)
+	MoveTaskToBackCallback(context.Context, *MoveTaskToBackCallbackRequest) (*MoveTaskToBackCallbackResponse, error)
+	mustEmbedUnimplementedSystemOnBackInvokedCallbacksServiceServer()
+}
+
+// UnimplementedSystemOnBackInvokedCallbacksServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedSystemOnBackInvokedCallbacksServiceServer struct{}
+
+func (UnimplementedSystemOnBackInvokedCallbacksServiceServer) FinishAndRemoveTaskCallback(context.Context, *FinishAndRemoveTaskCallbackRequest) (*FinishAndRemoveTaskCallbackResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method FinishAndRemoveTaskCallback not implemented")
+}
+func (UnimplementedSystemOnBackInvokedCallbacksServiceServer) MoveTaskToBackCallback(context.Context, *MoveTaskToBackCallbackRequest) (*MoveTaskToBackCallbackResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method MoveTaskToBackCallback not implemented")
+}
+func (UnimplementedSystemOnBackInvokedCallbacksServiceServer) mustEmbedUnimplementedSystemOnBackInvokedCallbacksServiceServer() {
+}
+func (UnimplementedSystemOnBackInvokedCallbacksServiceServer) testEmbeddedByValue() {}
+
+// UnsafeSystemOnBackInvokedCallbacksServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to SystemOnBackInvokedCallbacksServiceServer will
+// result in compilation errors.
+type UnsafeSystemOnBackInvokedCallbacksServiceServer interface {
+	mustEmbedUnimplementedSystemOnBackInvokedCallbacksServiceServer()
+}
+
+func RegisterSystemOnBackInvokedCallbacksServiceServer(s grpc.ServiceRegistrar, srv SystemOnBackInvokedCallbacksServiceServer) {
+	// If the following call panics, it indicates UnimplementedSystemOnBackInvokedCallbacksServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&SystemOnBackInvokedCallbacksService_ServiceDesc, srv)
+}
+
+func _SystemOnBackInvokedCallbacksService_FinishAndRemoveTaskCallback_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(FinishAndRemoveTaskCallbackRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SystemOnBackInvokedCallbacksServiceServer).FinishAndRemoveTaskCallback(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SystemOnBackInvokedCallbacksService_FinishAndRemoveTaskCallback_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SystemOnBackInvokedCallbacksServiceServer).FinishAndRemoveTaskCallback(ctx, req.(*FinishAndRemoveTaskCallbackRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SystemOnBackInvokedCallbacksService_MoveTaskToBackCallback_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MoveTaskToBackCallbackRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SystemOnBackInvokedCallbacksServiceServer).MoveTaskToBackCallback(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SystemOnBackInvokedCallbacksService_MoveTaskToBackCallback_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SystemOnBackInvokedCallbacksServiceServer).MoveTaskToBackCallback(ctx, req.(*MoveTaskToBackCallbackRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// SystemOnBackInvokedCallbacksService_ServiceDesc is the grpc.ServiceDesc for SystemOnBackInvokedCallbacksService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var SystemOnBackInvokedCallbacksService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "window.SystemOnBackInvokedCallbacksService",
+	HandlerType: (*SystemOnBackInvokedCallbacksServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "FinishAndRemoveTaskCallback",
+			Handler:    _SystemOnBackInvokedCallbacksService_FinishAndRemoveTaskCallback_Handler,
+		},
+		{
+			MethodName: "MoveTaskToBackCallback",
+			Handler:    _SystemOnBackInvokedCallbacksService_MoveTaskToBackCallback_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

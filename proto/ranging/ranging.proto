@@ -21,24 +21,10 @@ message EqualsResponse {
   bool result = 1;
 }
 
-message GetDataNotificationConfigRequest {
+message GetUuidRequest {
 }
 
-message GetDataNotificationConfigResponse {
-  int64 result = 1;
-}
-
-message GetRangingMeasurementsLimitRequest {
-}
-
-message GetRangingMeasurementsLimitResponse {
-  int32 result = 1;
-}
-
-message GetSensorFusionParamsRequest {
-}
-
-message GetSensorFusionParamsResponse {
+message GetUuidResponse {
   int64 result = 1;
 }
 
@@ -47,13 +33,6 @@ message HashCodeRequest {
 
 message HashCodeResponse {
   int32 result = 1;
-}
-
-message IsAngleOfArrivalNeededRequest {
-}
-
-message IsAngleOfArrivalNeededResponse {
-  bool result = 1;
 }
 
 message ToStringRequest {
@@ -76,6 +55,42 @@ message BuildRequest {
 
 message BuildResponse {
   int64 result = 1;
+}
+
+message SetUuidRequest {
+  int64 arg0 = 1;
+}
+
+message SetUuidResponse {
+  int64 result = 1;
+}
+
+message GetDataNotificationConfigRequest {
+}
+
+message GetDataNotificationConfigResponse {
+  int64 result = 1;
+}
+
+message GetRangingMeasurementsLimitRequest {
+}
+
+message GetRangingMeasurementsLimitResponse {
+  int32 result = 1;
+}
+
+message GetSensorFusionParamsRequest {
+}
+
+message GetSensorFusionParamsResponse {
+  int64 result = 1;
+}
+
+message IsAngleOfArrivalNeededRequest {
+}
+
+message IsAngleOfArrivalNeededResponse {
+  bool result = 1;
 }
 
 message SetAngleOfArrivalNeededRequest {
@@ -110,119 +125,48 @@ message SetSensorFusionParamsResponse {
   int64 result = 1;
 }
 
-message GetConfidenceRequest {
+message GetDeviceRoleRequest {
 }
 
-message GetConfidenceResponse {
+message GetDeviceRoleResponse {
   int32 result = 1;
 }
 
-message GetMeasurementRequest {
+message GetRangingParamsRequest {
 }
 
-message GetMeasurementResponse {
-  double result = 1;
-}
-
-message GetAzimuthRequest {
-}
-
-message GetAzimuthResponse {
+message GetRangingParamsResponse {
   int64 result = 1;
 }
 
-message GetDistanceRequest {
+message GetSessionConfigRequest {
 }
 
-message GetDistanceResponse {
+message GetSessionConfigResponse {
   int64 result = 1;
 }
 
-message GetElevationRequest {
+message SetSessionConfigRequest {
+  int64 arg0 = 1;
 }
 
-message GetElevationResponse {
+message SetSessionConfigResponse {
   int64 result = 1;
 }
 
-message GetRangingTechnologyRequest {
+message IsSensorFusionEnabledRequest {
 }
 
-message GetRangingTechnologyResponse {
-  int32 result = 1;
-}
-
-message GetRssiRequest {
-}
-
-message GetRssiResponse {
-  int32 result = 1;
-}
-
-message GetTimestampMillisRequest {
-}
-
-message GetTimestampMillisResponse {
-  int64 result = 1;
-}
-
-message HasRssiRequest {
-}
-
-message HasRssiResponse {
+message IsSensorFusionEnabledResponse {
   bool result = 1;
 }
 
-message GetNotificationConfigTypeRequest {
+message SetSensorFusionEnabledRequest {
+  bool arg0 = 1;
 }
 
-message GetNotificationConfigTypeResponse {
-  int32 result = 1;
-}
-
-message GetProximityFarCmRequest {
-}
-
-message GetProximityFarCmResponse {
-  int32 result = 1;
-}
-
-message GetProximityNearCmRequest {
-}
-
-message GetProximityNearCmResponse {
-  int32 result = 1;
-}
-
-message SetNotificationConfigTypeRequest {
-  int32 arg0 = 1;
-}
-
-message SetNotificationConfigTypeResponse {
+message SetSensorFusionEnabledResponse {
   int64 result = 1;
-}
-
-message SetProximityFarCmRequest {
-  int32 arg0 = 1;
-}
-
-message SetProximityFarCmResponse {
-  int64 result = 1;
-}
-
-message SetProximityNearCmRequest {
-  int32 arg0 = 1;
-}
-
-message SetProximityNearCmResponse {
-  int64 result = 1;
-}
-
-message GetRangingSessionTypeRequest {
-}
-
-message GetRangingSessionTypeResponse {
-  int32 result = 1;
 }
 
 message AddDeviceToRangingSessionRequest {
@@ -310,19 +254,95 @@ message OnStoppedRequest {
 message OnStoppedResponse {
 }
 
-message IsSensorFusionEnabledRequest {
+message GetCsCapabilitiesRequest {
 }
 
-message IsSensorFusionEnabledResponse {
-  bool result = 1;
-}
-
-message SetSensorFusionEnabledRequest {
-  bool arg0 = 1;
-}
-
-message SetSensorFusionEnabledResponse {
+message GetCsCapabilitiesResponse {
   int64 result = 1;
+}
+
+message GetRttRangingCapabilitiesRequest {
+}
+
+message GetRttRangingCapabilitiesResponse {
+  int64 result = 1;
+}
+
+message GetUwbCapabilitiesRequest {
+}
+
+message GetUwbCapabilitiesResponse {
+  int64 result = 1;
+}
+
+message GetRangingSessionTypeRequest {
+}
+
+message GetRangingSessionTypeResponse {
+  int32 result = 1;
+}
+
+message GetConfidenceRequest {
+}
+
+message GetConfidenceResponse {
+  int32 result = 1;
+}
+
+message GetMeasurementRequest {
+}
+
+message GetMeasurementResponse {
+  double result = 1;
+}
+
+message GetAzimuthRequest {
+}
+
+message GetAzimuthResponse {
+  int64 result = 1;
+}
+
+message GetDistanceRequest {
+}
+
+message GetDistanceResponse {
+  int64 result = 1;
+}
+
+message GetElevationRequest {
+}
+
+message GetElevationResponse {
+  int64 result = 1;
+}
+
+message GetRangingTechnologyRequest {
+}
+
+message GetRangingTechnologyResponse {
+  int32 result = 1;
+}
+
+message GetRssiRequest {
+}
+
+message GetRssiResponse {
+  int32 result = 1;
+}
+
+message GetTimestampMillisRequest {
+}
+
+message GetTimestampMillisResponse {
+  int64 result = 1;
+}
+
+message HasRssiRequest {
+}
+
+message HasRssiResponse {
+  bool result = 1;
 }
 
 message CreateRangingSessionRequest {
@@ -356,69 +376,63 @@ message OnRangingCapabilitiesRequest {
 message OnRangingCapabilitiesResponse {
 }
 
-message GetUuidRequest {
+message GetNotificationConfigTypeRequest {
 }
 
-message GetUuidResponse {
-  int64 result = 1;
-}
-
-message SetUuidRequest {
-  int64 arg0 = 1;
-}
-
-message SetUuidResponse {
-  int64 result = 1;
-}
-
-message GetDeviceRoleRequest {
-}
-
-message GetDeviceRoleResponse {
+message GetNotificationConfigTypeResponse {
   int32 result = 1;
 }
 
-message GetRangingParamsRequest {
+message GetProximityFarCmRequest {
 }
 
-message GetRangingParamsResponse {
+message GetProximityFarCmResponse {
+  int32 result = 1;
+}
+
+message GetProximityNearCmRequest {
+}
+
+message GetProximityNearCmResponse {
+  int32 result = 1;
+}
+
+message SetNotificationConfigTypeRequest {
+  int32 arg0 = 1;
+}
+
+message SetNotificationConfigTypeResponse {
   int64 result = 1;
 }
 
-message GetSessionConfigRequest {
+message SetProximityFarCmRequest {
+  int32 arg0 = 1;
 }
 
-message GetSessionConfigResponse {
+message SetProximityFarCmResponse {
   int64 result = 1;
 }
 
-message SetSessionConfigRequest {
-  int64 arg0 = 1;
+message SetProximityNearCmRequest {
+  int32 arg0 = 1;
 }
 
-message SetSessionConfigResponse {
+message SetProximityNearCmResponse {
   int64 result = 1;
 }
 
-message GetCsCapabilitiesRequest {
+service DeviceService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetUuid (GetUuidRequest) returns (GetUuidResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
 }
 
-message GetCsCapabilitiesResponse {
-  int64 result = 1;
-}
-
-message GetRttRangingCapabilitiesRequest {
-}
-
-message GetRttRangingCapabilitiesResponse {
-  int64 result = 1;
-}
-
-message GetUwbCapabilitiesRequest {
-}
-
-message GetUwbCapabilitiesResponse {
-  int64 result = 1;
+service DeviceBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetUuid (SetUuidRequest) returns (SetUuidResponse);
 }
 
 service SessionConfigService {
@@ -441,47 +455,32 @@ service SessionConfigBuilderService {
   rpc SetSensorFusionParams (SetSensorFusionParamsRequest) returns (SetSensorFusionParamsResponse);
 }
 
-service MeasurementService {
+service PreferenceService {
   rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc GetConfidence (GetConfidenceRequest) returns (GetConfidenceResponse);
-  rpc GetMeasurement (GetMeasurementRequest) returns (GetMeasurementResponse);
+  rpc GetDeviceRole (GetDeviceRoleRequest) returns (GetDeviceRoleResponse);
+  rpc GetRangingParams (GetRangingParamsRequest) returns (GetRangingParamsResponse);
+  rpc GetSessionConfig (GetSessionConfigRequest) returns (GetSessionConfigResponse);
   rpc ToString (ToStringRequest) returns (ToStringResponse);
   rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
 }
 
-service DataService {
-  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc GetAzimuth (GetAzimuthRequest) returns (GetAzimuthResponse);
-  rpc GetDistance (GetDistanceRequest) returns (GetDistanceResponse);
-  rpc GetElevation (GetElevationRequest) returns (GetElevationResponse);
-  rpc GetRangingTechnology (GetRangingTechnologyRequest) returns (GetRangingTechnologyResponse);
-  rpc GetRssi (GetRssiRequest) returns (GetRssiResponse);
-  rpc GetTimestampMillis (GetTimestampMillisRequest) returns (GetTimestampMillisResponse);
-  rpc HasRssi (HasRssiRequest) returns (HasRssiResponse);
-  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+service PreferenceBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetSessionConfig (SetSessionConfigRequest) returns (SetSessionConfigResponse);
 }
 
-service DataNotificationConfigService {
+service SensorFusionParamsService {
   rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
   rpc Equals (EqualsRequest) returns (EqualsResponse);
-  rpc GetNotificationConfigType (GetNotificationConfigTypeRequest) returns (GetNotificationConfigTypeResponse);
-  rpc GetProximityFarCm (GetProximityFarCmRequest) returns (GetProximityFarCmResponse);
-  rpc GetProximityNearCm (GetProximityNearCmRequest) returns (GetProximityNearCmResponse);
   rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc IsSensorFusionEnabled (IsSensorFusionEnabledRequest) returns (IsSensorFusionEnabledResponse);
   rpc ToString (ToStringRequest) returns (ToStringResponse);
   rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
 }
 
-service DataNotificationConfigBuilderService {
+service SensorFusionParamsBuilderService {
   rpc Build (BuildRequest) returns (BuildResponse);
-  rpc SetNotificationConfigType (SetNotificationConfigTypeRequest) returns (SetNotificationConfigTypeResponse);
-  rpc SetProximityFarCm (SetProximityFarCmRequest) returns (SetProximityFarCmResponse);
-  rpc SetProximityNearCm (SetProximityNearCmRequest) returns (SetProximityNearCmResponse);
-}
-
-service ConfigService {
-  rpc GetRangingSessionType (GetRangingSessionTypeRequest) returns (GetRangingSessionTypeResponse);
-  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc SetSensorFusionEnabled (SetSensorFusionEnabledRequest) returns (SetSensorFusionEnabledResponse);
 }
 
 service SessionService {
@@ -503,18 +502,38 @@ service SessionCallbackService {
   rpc OnStopped (OnStoppedRequest) returns (OnStoppedResponse);
 }
 
-service SensorFusionParamsService {
+service CapabilitiesService {
   rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc Equals (EqualsRequest) returns (EqualsResponse);
-  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
-  rpc IsSensorFusionEnabled (IsSensorFusionEnabledRequest) returns (IsSensorFusionEnabledResponse);
+  rpc GetCsCapabilities (GetCsCapabilitiesRequest) returns (GetCsCapabilitiesResponse);
+  rpc GetRttRangingCapabilities (GetRttRangingCapabilitiesRequest) returns (GetRttRangingCapabilitiesResponse);
+  rpc GetUwbCapabilities (GetUwbCapabilitiesRequest) returns (GetUwbCapabilitiesResponse);
   rpc ToString (ToStringRequest) returns (ToStringResponse);
   rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
 }
 
-service SensorFusionParamsBuilderService {
-  rpc Build (BuildRequest) returns (BuildResponse);
-  rpc SetSensorFusionEnabled (SetSensorFusionEnabledRequest) returns (SetSensorFusionEnabledResponse);
+service ConfigService {
+  rpc GetRangingSessionType (GetRangingSessionTypeRequest) returns (GetRangingSessionTypeResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+}
+
+service MeasurementService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetConfidence (GetConfidenceRequest) returns (GetConfidenceResponse);
+  rpc GetMeasurement (GetMeasurementRequest) returns (GetMeasurementResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service DataService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetAzimuth (GetAzimuthRequest) returns (GetAzimuthResponse);
+  rpc GetDistance (GetDistanceRequest) returns (GetDistanceResponse);
+  rpc GetElevation (GetElevationRequest) returns (GetElevationResponse);
+  rpc GetRangingTechnology (GetRangingTechnologyRequest) returns (GetRangingTechnologyResponse);
+  rpc GetRssi (GetRssiRequest) returns (GetRssiResponse);
+  rpc GetTimestampMillis (GetTimestampMillisRequest) returns (GetTimestampMillisResponse);
+  rpc HasRssi (HasRssiRequest) returns (HasRssiResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
 }
 
 service ManagerService {
@@ -527,39 +546,20 @@ service ManagerRangingCapabilitiesCallbackService {
   rpc OnRangingCapabilities (OnRangingCapabilitiesRequest) returns (OnRangingCapabilitiesResponse);
 }
 
-service DeviceService {
+service DataNotificationConfigService {
   rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
   rpc Equals (EqualsRequest) returns (EqualsResponse);
-  rpc GetUuid (GetUuidRequest) returns (GetUuidResponse);
+  rpc GetNotificationConfigType (GetNotificationConfigTypeRequest) returns (GetNotificationConfigTypeResponse);
+  rpc GetProximityFarCm (GetProximityFarCmRequest) returns (GetProximityFarCmResponse);
+  rpc GetProximityNearCm (GetProximityNearCmRequest) returns (GetProximityNearCmResponse);
   rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
   rpc ToString (ToStringRequest) returns (ToStringResponse);
   rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
 }
 
-service DeviceBuilderService {
+service DataNotificationConfigBuilderService {
   rpc Build (BuildRequest) returns (BuildResponse);
-  rpc SetUuid (SetUuidRequest) returns (SetUuidResponse);
-}
-
-service PreferenceService {
-  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc GetDeviceRole (GetDeviceRoleRequest) returns (GetDeviceRoleResponse);
-  rpc GetRangingParams (GetRangingParamsRequest) returns (GetRangingParamsResponse);
-  rpc GetSessionConfig (GetSessionConfigRequest) returns (GetSessionConfigResponse);
-  rpc ToString (ToStringRequest) returns (ToStringResponse);
-  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
-}
-
-service PreferenceBuilderService {
-  rpc Build (BuildRequest) returns (BuildResponse);
-  rpc SetSessionConfig (SetSessionConfigRequest) returns (SetSessionConfigResponse);
-}
-
-service CapabilitiesService {
-  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc GetCsCapabilities (GetCsCapabilitiesRequest) returns (GetCsCapabilitiesResponse);
-  rpc GetRttRangingCapabilities (GetRttRangingCapabilitiesRequest) returns (GetRttRangingCapabilitiesResponse);
-  rpc GetUwbCapabilities (GetUwbCapabilitiesRequest) returns (GetUwbCapabilitiesResponse);
-  rpc ToString (ToStringRequest) returns (ToStringResponse);
-  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+  rpc SetNotificationConfigType (SetNotificationConfigTypeRequest) returns (SetNotificationConfigTypeResponse);
+  rpc SetProximityFarCm (SetProximityFarCmRequest) returns (SetProximityFarCmResponse);
+  rpc SetProximityNearCm (SetProximityNearCmRequest) returns (SetProximityNearCmResponse);
 }

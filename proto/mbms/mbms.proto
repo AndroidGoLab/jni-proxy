@@ -6,6 +6,21 @@ package mbms;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/mbms";
 
+message DescribeContentsRequest {
+}
+
+message DescribeContentsResponse {
+  int32 result = 1;
+}
+
+message WriteToParcelRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message WriteToParcelResponse {
+}
+
 message NewStreamingSessionCallbackRequest {
 }
 
@@ -27,6 +42,151 @@ message OnMiddlewareReadyRequest {
 }
 
 message OnMiddlewareReadyResponse {
+}
+
+message NewDownloadProgressListenerRequest {
+}
+
+message NewDownloadProgressListenerResponse {
+  int64 result = 1;
+}
+
+message OnProgressUpdatedRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+  int32 arg2 = 4;
+  int32 arg3 = 5;
+  int32 arg4 = 6;
+  int32 arg5 = 7;
+}
+
+message OnProgressUpdatedResponse {
+}
+
+message EqualsRequest {
+  int64 arg0 = 1;
+}
+
+message EqualsResponse {
+  bool result = 1;
+}
+
+message GetLocalesRequest {
+}
+
+message GetLocalesResponse {
+  int64 result = 1;
+}
+
+message GetNameForLocaleRequest {
+  int64 arg0 = 1;
+}
+
+message GetNameForLocaleResponse {
+  int64 result = 1;
+}
+
+message GetNamedContentLocalesRequest {
+}
+
+message GetNamedContentLocalesResponse {
+  int64 result = 1;
+}
+
+message GetServiceClassNameRequest {
+}
+
+message GetServiceClassNameResponse {
+  string result = 1;
+}
+
+message GetServiceIdRequest {
+}
+
+message GetServiceIdResponse {
+  string result = 1;
+}
+
+message GetSessionEndTimeRequest {
+}
+
+message GetSessionEndTimeResponse {
+  int64 result = 1;
+}
+
+message GetSessionStartTimeRequest {
+}
+
+message GetSessionStartTimeResponse {
+  int64 result = 1;
+}
+
+message HashCodeRequest {
+}
+
+message HashCodeResponse {
+  int32 result = 1;
+}
+
+message CloseRequest {
+}
+
+message CloseResponse {
+}
+
+message GetInfoRequest {
+}
+
+message GetInfoResponse {
+  int64 result = 1;
+}
+
+message GetPlaybackUriRequest {
+}
+
+message GetPlaybackUriResponse {
+  int64 result = 1;
+}
+
+message NewDownloadReceiverRequest {
+}
+
+message NewDownloadReceiverResponse {
+  int64 result = 1;
+}
+
+message OnReceiveRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message OnReceiveResponse {
+}
+
+message NewDownloadSessionCallbackRequest {
+}
+
+message NewDownloadSessionCallbackResponse {
+  int64 result = 1;
+}
+
+message NewDownloadStatusListenerRequest {
+}
+
+message NewDownloadStatusListenerResponse {
+  int64 result = 1;
+}
+
+message OnStatusUpdatedRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+  int32 arg2 = 4;
+}
+
+message OnStatusUpdatedResponse {
 }
 
 message NewStreamingServiceCallbackRequest {
@@ -68,69 +228,25 @@ message OnStreamStateUpdatedRequest {
 message OnStreamStateUpdatedResponse {
 }
 
-message EqualsRequest {
-  int64 arg0 = 1;
+message GetFilesRequest {
 }
 
-message EqualsResponse {
-  bool result = 1;
-}
-
-message GetNameForLocaleRequest {
-  int64 arg0 = 1;
-}
-
-message GetNameForLocaleResponse {
+message GetFilesResponse {
   int64 result = 1;
 }
 
-message GetServiceClassNameRequest {
+message GetMimeTypeRequest {
 }
 
-message GetServiceClassNameResponse {
+message GetMimeTypeResponse {
   string result = 1;
 }
 
-message GetServiceIdRequest {
+message GetUriRequest {
 }
 
-message GetServiceIdResponse {
-  string result = 1;
-}
-
-message GetSessionEndTimeRequest {
-}
-
-message GetSessionEndTimeResponse {
+message GetUriResponse {
   int64 result = 1;
-}
-
-message GetSessionStartTimeRequest {
-}
-
-message GetSessionStartTimeResponse {
-  int64 result = 1;
-}
-
-message HashCodeRequest {
-}
-
-message HashCodeResponse {
-  int32 result = 1;
-}
-
-message NewDownloadSessionCallbackRequest {
-}
-
-message NewDownloadSessionCallbackResponse {
-  int64 result = 1;
-}
-
-message DescribeContentsRequest {
-}
-
-message DescribeContentsResponse {
-  int32 result = 1;
 }
 
 message GetDestinationUriRequest {
@@ -166,14 +282,6 @@ message ToByteArrayRequest {
 
 message ToByteArrayResponse {
   int64 result = 1;
-}
-
-message WriteToParcelRequest {
-  int64 arg0 = 1;
-  int32 arg1 = 2;
-}
-
-message WriteToParcelResponse {
 }
 
 message GetMaxAppIntentSizeRequest {
@@ -237,12 +345,6 @@ message FromSerializedRequestResponse {
   int64 result = 1;
 }
 
-message CloseRequest {
-}
-
-message CloseResponse {
-}
-
 message GetTmgiRequest {
 }
 
@@ -250,91 +352,54 @@ message GetTmgiResponse {
   int64 result = 1;
 }
 
-message NewDownloadProgressListenerRequest {
-}
-
-message NewDownloadProgressListenerResponse {
-  int64 result = 1;
-}
-
-message OnProgressUpdatedRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-  int64 arg1 = 3;
-  int32 arg2 = 4;
-  int32 arg3 = 5;
-  int32 arg4 = 6;
-  int32 arg5 = 7;
-}
-
-message OnProgressUpdatedResponse {
-}
-
-message GetInfoRequest {
-}
-
-message GetInfoResponse {
-  int64 result = 1;
-}
-
-message GetPlaybackUriRequest {
-}
-
-message GetPlaybackUriResponse {
-  int64 result = 1;
-}
-
-message NewDownloadStatusListenerRequest {
-}
-
-message NewDownloadStatusListenerResponse {
-  int64 result = 1;
-}
-
-message OnStatusUpdatedRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-  int64 arg1 = 3;
-  int32 arg2 = 4;
-}
-
-message OnStatusUpdatedResponse {
-}
-
-message NewDownloadReceiverRequest {
-}
-
-message NewDownloadReceiverResponse {
-  int64 result = 1;
-}
-
-message OnReceiveRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-  int64 arg1 = 3;
-}
-
-message OnReceiveResponse {
-}
-
-message GetMimeTypeRequest {
-}
-
-message GetMimeTypeResponse {
-  string result = 1;
-}
-
-message GetUriRequest {
-}
-
-message GetUriResponse {
-  int64 result = 1;
+service StreamingServiceInfoService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
 }
 
 service StreamingSessionCallbackService {
   rpc NewStreamingSessionCallback (NewStreamingSessionCallbackRequest) returns (NewStreamingSessionCallbackResponse);
   rpc OnError (OnErrorRequest) returns (OnErrorResponse);
   rpc OnMiddlewareReady (OnMiddlewareReadyRequest) returns (OnMiddlewareReadyResponse);
+}
+
+service DownloadProgressListenerService {
+  rpc NewDownloadProgressListener (NewDownloadProgressListenerRequest) returns (NewDownloadProgressListenerResponse);
+  rpc OnProgressUpdated (OnProgressUpdatedRequest) returns (OnProgressUpdatedResponse);
+}
+
+service ServiceInfoService {
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetLocales (GetLocalesRequest) returns (GetLocalesResponse);
+  rpc GetNameForLocale (GetNameForLocaleRequest) returns (GetNameForLocaleResponse);
+  rpc GetNamedContentLocales (GetNamedContentLocalesRequest) returns (GetNamedContentLocalesResponse);
+  rpc GetServiceClassName (GetServiceClassNameRequest) returns (GetServiceClassNameResponse);
+  rpc GetServiceId (GetServiceIdRequest) returns (GetServiceIdResponse);
+  rpc GetSessionEndTime (GetSessionEndTimeRequest) returns (GetSessionEndTimeResponse);
+  rpc GetSessionStartTime (GetSessionStartTimeRequest) returns (GetSessionStartTimeResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+}
+
+service StreamingServiceService {
+  rpc Close (CloseRequest) returns (CloseResponse);
+  rpc GetInfo (GetInfoRequest) returns (GetInfoResponse);
+  rpc GetPlaybackUri (GetPlaybackUriRequest) returns (GetPlaybackUriResponse);
+}
+
+service DownloadReceiverService {
+  rpc NewDownloadReceiver (NewDownloadReceiverRequest) returns (NewDownloadReceiverResponse);
+  rpc OnReceive (OnReceiveRequest) returns (OnReceiveResponse);
+}
+
+service DownloadSessionCallbackService {
+  rpc NewDownloadSessionCallback (NewDownloadSessionCallbackRequest) returns (NewDownloadSessionCallbackResponse);
+  rpc OnError (OnErrorRequest) returns (OnErrorResponse);
+  rpc OnMiddlewareReady (OnMiddlewareReadyRequest) returns (OnMiddlewareReadyResponse);
+}
+
+service DownloadStatusListenerService {
+  rpc NewDownloadStatusListener (NewDownloadStatusListenerRequest) returns (NewDownloadStatusListenerResponse);
+  rpc OnStatusUpdated (OnStatusUpdatedRequest) returns (OnStatusUpdatedResponse);
 }
 
 service StreamingServiceCallbackService {
@@ -346,20 +411,19 @@ service StreamingServiceCallbackService {
   rpc OnStreamStateUpdated (OnStreamStateUpdatedRequest) returns (OnStreamStateUpdatedResponse);
 }
 
-service ServiceInfoService {
-  rpc Equals (EqualsRequest) returns (EqualsResponse);
-  rpc GetNameForLocale (GetNameForLocaleRequest) returns (GetNameForLocaleResponse);
-  rpc GetServiceClassName (GetServiceClassNameRequest) returns (GetServiceClassNameResponse);
-  rpc GetServiceId (GetServiceIdRequest) returns (GetServiceIdResponse);
-  rpc GetSessionEndTime (GetSessionEndTimeRequest) returns (GetSessionEndTimeResponse);
-  rpc GetSessionStartTime (GetSessionStartTimeRequest) returns (GetSessionStartTimeResponse);
-  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+service FileServiceInfoService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetFiles (GetFilesRequest) returns (GetFilesResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
 }
 
-service DownloadSessionCallbackService {
-  rpc NewDownloadSessionCallback (NewDownloadSessionCallbackRequest) returns (NewDownloadSessionCallbackResponse);
-  rpc OnError (OnErrorRequest) returns (OnErrorResponse);
-  rpc OnMiddlewareReady (OnMiddlewareReadyRequest) returns (OnMiddlewareReadyResponse);
+service FileInfoService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetMimeType (GetMimeTypeRequest) returns (GetMimeTypeResponse);
+  rpc GetUri (GetUriRequest) returns (GetUriResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
 }
 
 service DownloadRequestService {
@@ -388,44 +452,4 @@ service DownloadRequestBuilderService {
 service GroupCallService {
   rpc Close (CloseRequest) returns (CloseResponse);
   rpc GetTmgi (GetTmgiRequest) returns (GetTmgiResponse);
-}
-
-service FileServiceInfoService {
-  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
-}
-
-service DownloadProgressListenerService {
-  rpc NewDownloadProgressListener (NewDownloadProgressListenerRequest) returns (NewDownloadProgressListenerResponse);
-  rpc OnProgressUpdated (OnProgressUpdatedRequest) returns (OnProgressUpdatedResponse);
-}
-
-service StreamingServiceService {
-  rpc Close (CloseRequest) returns (CloseResponse);
-  rpc GetInfo (GetInfoRequest) returns (GetInfoResponse);
-  rpc GetPlaybackUri (GetPlaybackUriRequest) returns (GetPlaybackUriResponse);
-}
-
-service DownloadStatusListenerService {
-  rpc NewDownloadStatusListener (NewDownloadStatusListenerRequest) returns (NewDownloadStatusListenerResponse);
-  rpc OnStatusUpdated (OnStatusUpdatedRequest) returns (OnStatusUpdatedResponse);
-}
-
-service StreamingServiceInfoService {
-  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
-}
-
-service DownloadReceiverService {
-  rpc NewDownloadReceiver (NewDownloadReceiverRequest) returns (NewDownloadReceiverResponse);
-  rpc OnReceive (OnReceiveRequest) returns (OnReceiveResponse);
-}
-
-service FileInfoService {
-  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc Equals (EqualsRequest) returns (EqualsResponse);
-  rpc GetMimeType (GetMimeTypeRequest) returns (GetMimeTypeResponse);
-  rpc GetUri (GetUriRequest) returns (GetUriResponse);
-  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
-  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
 }

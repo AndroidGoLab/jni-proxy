@@ -6,12 +6,136 @@ package fonts;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/fonts";
 
-message EqualsRequest {
+message GetFontRequest {
+  int32 arg0 = 1;
+}
+
+message GetFontResponse {
+  int64 result = 1;
+}
+
+message GetSizeRequest {
+}
+
+message GetSizeResponse {
+  int32 result = 1;
+}
+
+message AddFontRequest {
   int64 arg0 = 1;
+}
+
+message AddFontResponse {
+  int64 result = 1;
+}
+
+message BuildRequest {
+}
+
+message BuildResponse {
+  int64 result = 1;
+}
+
+message BuildVariableFamilyRequest {
+}
+
+message BuildVariableFamilyResponse {
+  int64 result = 1;
+}
+
+message NewFontStyleRequest {
+}
+
+message NewFontStyleResponse {
+  int64 result = 1;
+}
+
+message EqualsRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
 }
 
 message EqualsResponse {
   bool result = 1;
+}
+
+message GetSlantRequest {
+  int64 handle = 1;
+}
+
+message GetSlantResponse {
+  int32 result = 1;
+}
+
+message GetWeightRequest {
+  int64 handle = 1;
+}
+
+message GetWeightResponse {
+  int32 result = 1;
+}
+
+message HashCodeRequest {
+  int64 handle = 1;
+}
+
+message HashCodeResponse {
+  int32 result = 1;
+}
+
+message ToStringRequest {
+  int64 handle = 1;
+}
+
+message ToStringResponse {
+  string result = 1;
+}
+
+message NewFontVariationAxisRequest {
+  string arg0 = 1;
+  float arg1 = 2;
+}
+
+message NewFontVariationAxisResponse {
+  int64 result = 1;
+}
+
+message GetStyleValueRequest {
+  int64 handle = 1;
+}
+
+message GetStyleValueResponse {
+  float result = 1;
+}
+
+message GetTagRequest {
+  int64 handle = 1;
+}
+
+message GetTagResponse {
+  string result = 1;
+}
+
+message FromFontVariationSettingsRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message FromFontVariationSettingsResponse {
+  int64 result = 1;
+}
+
+message ToFontVariationSettingsRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message ToFontVariationSettingsResponse {
+  string result = 1;
+}
+
+message FontEqualsRequest {
+  int64 arg0 = 1;
 }
 
 message GetAxesRequest {
@@ -81,25 +205,10 @@ message GetTtcIndexResponse {
   int32 result = 1;
 }
 
-message HashCodeRequest {
+message FontHashCodeRequest {
 }
 
-message HashCodeResponse {
-  int32 result = 1;
-}
-
-message ToStringRequest {
-}
-
-message ToStringResponse {
-  string result = 1;
-}
-
-message BuildRequest {
-}
-
-message BuildResponse {
-  int64 result = 1;
+message FontToStringRequest {
 }
 
 message SetFontVariationSettings1Request {
@@ -142,170 +251,11 @@ message SetWeightResponse {
   int64 result = 1;
 }
 
-message NewFontStyleRequest {
+message GetAvailableFontsRequest {
 }
 
-message NewFontStyleResponse {
+message GetAvailableFontsResponse {
   int64 result = 1;
-}
-
-message FontStyleEqualsRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-}
-
-message GetSlantRequest {
-  int64 handle = 1;
-}
-
-message GetSlantResponse {
-  int32 result = 1;
-}
-
-message GetWeightRequest {
-  int64 handle = 1;
-}
-
-message GetWeightResponse {
-  int32 result = 1;
-}
-
-message FontStyleHashCodeRequest {
-  int64 handle = 1;
-}
-
-message FontStyleToStringRequest {
-  int64 handle = 1;
-}
-
-message NewFontVariationAxisRequest {
-  string arg0 = 1;
-  float arg1 = 2;
-}
-
-message NewFontVariationAxisResponse {
-  int64 result = 1;
-}
-
-message FontVariationAxisEqualsRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-}
-
-message GetStyleValueRequest {
-  int64 handle = 1;
-}
-
-message GetStyleValueResponse {
-  float result = 1;
-}
-
-message GetTagRequest {
-  int64 handle = 1;
-}
-
-message GetTagResponse {
-  string result = 1;
-}
-
-message FontVariationAxisHashCodeRequest {
-  int64 handle = 1;
-}
-
-message FontVariationAxisToStringRequest {
-  int64 handle = 1;
-}
-
-message FromFontVariationSettingsRequest {
-  int64 handle = 1;
-  string arg0 = 2;
-}
-
-message FromFontVariationSettingsResponse {
-  int64 result = 1;
-}
-
-message ToFontVariationSettingsRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-}
-
-message ToFontVariationSettingsResponse {
-  string result = 1;
-}
-
-message GetFontRequest {
-  int32 arg0 = 1;
-}
-
-message GetFontResponse {
-  int64 result = 1;
-}
-
-message GetSizeRequest {
-}
-
-message GetSizeResponse {
-  int32 result = 1;
-}
-
-message AddFontRequest {
-  int64 arg0 = 1;
-}
-
-message AddFontResponse {
-  int64 result = 1;
-}
-
-message BuildVariableFamilyRequest {
-}
-
-message BuildVariableFamilyResponse {
-  int64 result = 1;
-}
-
-service FontService {
-  rpc Equals (EqualsRequest) returns (EqualsResponse);
-  rpc GetAxes (GetAxesRequest) returns (GetAxesResponse);
-  rpc GetBuffer (GetBufferRequest) returns (GetBufferResponse);
-  rpc GetFile (GetFileRequest) returns (GetFileResponse);
-  rpc GetGlyphBounds (GetGlyphBoundsRequest) returns (GetGlyphBoundsResponse);
-  rpc GetLocaleList (GetLocaleListRequest) returns (GetLocaleListResponse);
-  rpc GetMetrics (GetMetricsRequest) returns (GetMetricsResponse);
-  rpc GetSourceIdentifier (GetSourceIdentifierRequest) returns (GetSourceIdentifierResponse);
-  rpc GetStyle (GetStyleRequest) returns (GetStyleResponse);
-  rpc GetTtcIndex (GetTtcIndexRequest) returns (GetTtcIndexResponse);
-  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
-  rpc ToString (ToStringRequest) returns (ToStringResponse);
-}
-
-service FontBuilderService {
-  rpc Build (BuildRequest) returns (BuildResponse);
-  rpc SetFontVariationSettings1 (SetFontVariationSettings1Request) returns (SetFontVariationSettings1Response);
-  rpc SetFontVariationSettings1_1 (SetFontVariationSettings1_1Request) returns (SetFontVariationSettings1_1Response);
-  rpc SetSlant (SetSlantRequest) returns (SetSlantResponse);
-  rpc SetTtcIndex (SetTtcIndexRequest) returns (SetTtcIndexResponse);
-  rpc SetWeight (SetWeightRequest) returns (SetWeightResponse);
-}
-
-service FontStyleService {
-  rpc NewFontStyle (NewFontStyleRequest) returns (NewFontStyleResponse);
-  rpc Equals (FontStyleEqualsRequest) returns (EqualsResponse);
-  rpc GetSlant (GetSlantRequest) returns (GetSlantResponse);
-  rpc GetWeight (GetWeightRequest) returns (GetWeightResponse);
-  rpc HashCode (FontStyleHashCodeRequest) returns (HashCodeResponse);
-  rpc ToString (FontStyleToStringRequest) returns (ToStringResponse);
-}
-
-service FontVariationAxisService {
-  rpc NewFontVariationAxis (NewFontVariationAxisRequest) returns (NewFontVariationAxisResponse);
-  rpc Equals (FontVariationAxisEqualsRequest) returns (EqualsResponse);
-  rpc GetStyleValue (GetStyleValueRequest) returns (GetStyleValueResponse);
-  rpc GetTag (GetTagRequest) returns (GetTagResponse);
-  rpc HashCode (FontVariationAxisHashCodeRequest) returns (HashCodeResponse);
-  rpc ToString (FontVariationAxisToStringRequest) returns (ToStringResponse);
-  rpc FromFontVariationSettings (FromFontVariationSettingsRequest) returns (FromFontVariationSettingsResponse);
-  rpc ToFontVariationSettings (ToFontVariationSettingsRequest) returns (ToFontVariationSettingsResponse);
 }
 
 service FontFamilyService {
@@ -317,4 +267,52 @@ service FontFamilyBuilderService {
   rpc AddFont (AddFontRequest) returns (AddFontResponse);
   rpc Build (BuildRequest) returns (BuildResponse);
   rpc BuildVariableFamily (BuildVariableFamilyRequest) returns (BuildVariableFamilyResponse);
+}
+
+service FontStyleService {
+  rpc NewFontStyle (NewFontStyleRequest) returns (NewFontStyleResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetSlant (GetSlantRequest) returns (GetSlantResponse);
+  rpc GetWeight (GetWeightRequest) returns (GetWeightResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+}
+
+service FontVariationAxisService {
+  rpc NewFontVariationAxis (NewFontVariationAxisRequest) returns (NewFontVariationAxisResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetStyleValue (GetStyleValueRequest) returns (GetStyleValueResponse);
+  rpc GetTag (GetTagRequest) returns (GetTagResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc FromFontVariationSettings (FromFontVariationSettingsRequest) returns (FromFontVariationSettingsResponse);
+  rpc ToFontVariationSettings (ToFontVariationSettingsRequest) returns (ToFontVariationSettingsResponse);
+}
+
+service FontService {
+  rpc Equals (FontEqualsRequest) returns (EqualsResponse);
+  rpc GetAxes (GetAxesRequest) returns (GetAxesResponse);
+  rpc GetBuffer (GetBufferRequest) returns (GetBufferResponse);
+  rpc GetFile (GetFileRequest) returns (GetFileResponse);
+  rpc GetGlyphBounds (GetGlyphBoundsRequest) returns (GetGlyphBoundsResponse);
+  rpc GetLocaleList (GetLocaleListRequest) returns (GetLocaleListResponse);
+  rpc GetMetrics (GetMetricsRequest) returns (GetMetricsResponse);
+  rpc GetSourceIdentifier (GetSourceIdentifierRequest) returns (GetSourceIdentifierResponse);
+  rpc GetStyle (GetStyleRequest) returns (GetStyleResponse);
+  rpc GetTtcIndex (GetTtcIndexRequest) returns (GetTtcIndexResponse);
+  rpc HashCode (FontHashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (FontToStringRequest) returns (ToStringResponse);
+}
+
+service FontBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetFontVariationSettings1 (SetFontVariationSettings1Request) returns (SetFontVariationSettings1Response);
+  rpc SetFontVariationSettings1_1 (SetFontVariationSettings1_1Request) returns (SetFontVariationSettings1_1Response);
+  rpc SetSlant (SetSlantRequest) returns (SetSlantResponse);
+  rpc SetTtcIndex (SetTtcIndexRequest) returns (SetTtcIndexResponse);
+  rpc SetWeight (SetWeightRequest) returns (SetWeightResponse);
+}
+
+service SystemFontsService {
+  rpc GetAvailableFonts (GetAvailableFontsRequest) returns (GetAvailableFontsResponse);
 }

@@ -65,7 +65,7 @@ func (s *InstanceServer) Equals(_ context.Context, req *pb.InstanceEqualsRequest
 	return &pb.EqualsResponse{Result: result}, nil
 }
 
-func (s *InstanceServer) GetDescription(_ context.Context, req *pb.GetDescriptionRequest) (*pb.GetDescriptionResponse, error) {
+func (s *InstanceServer) GetDescription(_ context.Context, req *pb.InstanceGetDescriptionRequest) (*pb.GetDescriptionResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")

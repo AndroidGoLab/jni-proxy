@@ -15,6 +15,464 @@ import (
 	"google.golang.org/grpc/status"
 )
 
+// TypefaceSpanServer implements pb.TypefaceSpanServiceServer.
+type TypefaceSpanServer struct {
+	pb.UnimplementedTypefaceSpanServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *TypefaceSpanServer) NewTypefaceSpan(_ context.Context, req *pb.NewTypefaceSpanRequest) (*pb.NewTypefaceSpanResponse, error) {
+	obj, err := jnipkg.NewTypefaceSpan(s.Ctx.VM, s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewTypefaceSpanResponse{Result: handle}, nil
+}
+
+func (s *TypefaceSpanServer) DescribeContents(_ context.Context, req *pb.DescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.TypefaceSpan{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.DescribeContents()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.DescribeContentsResponse{Result: result}, nil
+}
+
+func (s *TypefaceSpanServer) GetFamily(_ context.Context, req *pb.GetFamilyRequest) (*pb.GetFamilyResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.TypefaceSpan{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetFamily()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetFamilyResponse{Result: result}, nil
+}
+
+func (s *TypefaceSpanServer) GetSpanTypeId(_ context.Context, req *pb.GetSpanTypeIdRequest) (*pb.GetSpanTypeIdResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.TypefaceSpan{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetSpanTypeId()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetSpanTypeIdResponse{Result: result}, nil
+}
+
+func (s *TypefaceSpanServer) GetTypeface(_ context.Context, req *pb.GetTypefaceRequest) (*pb.GetTypefaceResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.TypefaceSpan{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetTypeface()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetTypefaceResponse{Result: handle}, nil
+}
+
+func (s *TypefaceSpanServer) ToString(_ context.Context, req *pb.ToStringRequest) (*pb.ToStringResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.TypefaceSpan{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.ToString()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ToStringResponse{Result: result}, nil
+}
+
+func (s *TypefaceSpanServer) UpdateDrawState(_ context.Context, req *pb.UpdateDrawStateRequest) (*pb.UpdateDrawStateResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.TypefaceSpan{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.UpdateDrawState(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.UpdateDrawStateResponse{}, nil
+}
+
+func (s *TypefaceSpanServer) UpdateMeasureState(_ context.Context, req *pb.UpdateMeasureStateRequest) (*pb.UpdateMeasureStateResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.TypefaceSpan{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.UpdateMeasureState(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.UpdateMeasureStateResponse{}, nil
+}
+
+func (s *TypefaceSpanServer) WriteToParcel(_ context.Context, req *pb.WriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.TypefaceSpan{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.WriteToParcel(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.WriteToParcelResponse{}, nil
+}
+
+// IconMarginSpanServer implements pb.IconMarginSpanServiceServer.
+type IconMarginSpanServer struct {
+	pb.UnimplementedIconMarginSpanServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *IconMarginSpanServer) NewIconMarginSpan(_ context.Context, req *pb.NewIconMarginSpanRequest) (*pb.NewIconMarginSpanResponse, error) {
+	obj, err := jnipkg.NewIconMarginSpan(s.Ctx.VM, s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewIconMarginSpanResponse{Result: handle}, nil
+}
+
+func (s *IconMarginSpanServer) ChooseHeight(_ context.Context, req *pb.ChooseHeightRequest) (*pb.ChooseHeightResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.IconMarginSpan{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.ChooseHeight(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3(), req.GetArg4(), s.Handles.Get(req.GetArg5())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ChooseHeightResponse{}, nil
+}
+
+func (s *IconMarginSpanServer) DrawLeadingMargin(_ context.Context, req *pb.DrawLeadingMarginRequest) (*pb.DrawLeadingMarginResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.IconMarginSpan{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.DrawLeadingMargin(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()), req.GetArg2(), req.GetArg3(), req.GetArg4(), req.GetArg5(), req.GetArg6(), req.GetArg7(), req.GetArg8(), req.GetArg9(), req.GetArg10(), s.Handles.Get(req.GetArg11())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.DrawLeadingMarginResponse{}, nil
+}
+
+func (s *IconMarginSpanServer) GetBitmap(_ context.Context, req *pb.GetBitmapRequest) (*pb.GetBitmapResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.IconMarginSpan{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetBitmap()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetBitmapResponse{Result: handle}, nil
+}
+
+func (s *IconMarginSpanServer) GetLeadingMargin(_ context.Context, req *pb.GetLeadingMarginRequest) (*pb.GetLeadingMarginResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.IconMarginSpan{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetLeadingMargin(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetLeadingMarginResponse{Result: result}, nil
+}
+
+func (s *IconMarginSpanServer) GetPadding(_ context.Context, req *pb.GetPaddingRequest) (*pb.GetPaddingResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.IconMarginSpan{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetPadding()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetPaddingResponse{Result: result}, nil
+}
+
+func (s *IconMarginSpanServer) ToString(_ context.Context, req *pb.ToStringRequest) (*pb.ToStringResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.IconMarginSpan{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.ToString()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ToStringResponse{Result: result}, nil
+}
+
+// SuggestionSpanServer implements pb.SuggestionSpanServiceServer.
+type SuggestionSpanServer struct {
+	pb.UnimplementedSuggestionSpanServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *SuggestionSpanServer) NewSuggestionSpan(_ context.Context, req *pb.NewSuggestionSpanRequest) (*pb.NewSuggestionSpanResponse, error) {
+	obj, err := jnipkg.NewSuggestionSpan(s.Ctx.VM, s.Ctx.Obj, s.Handles.Get(req.GetArg1()), req.GetArg2())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewSuggestionSpanResponse{Result: handle}, nil
+}
+
+func (s *SuggestionSpanServer) DescribeContents(_ context.Context, req *pb.DescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.SuggestionSpan{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.DescribeContents()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.DescribeContentsResponse{Result: result}, nil
+}
+
+func (s *SuggestionSpanServer) Equals(_ context.Context, req *pb.EqualsRequest) (*pb.EqualsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.SuggestionSpan{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.Equals(s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.EqualsResponse{Result: result}, nil
+}
+
+func (s *SuggestionSpanServer) GetFlags(_ context.Context, req *pb.GetFlagsRequest) (*pb.GetFlagsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.SuggestionSpan{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetFlags()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetFlagsResponse{Result: result}, nil
+}
+
+func (s *SuggestionSpanServer) GetLocale(_ context.Context, req *pb.GetLocaleRequest) (*pb.GetLocaleResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.SuggestionSpan{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetLocale()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetLocaleResponse{Result: result}, nil
+}
+
+func (s *SuggestionSpanServer) GetLocaleObject(_ context.Context, req *pb.GetLocaleObjectRequest) (*pb.GetLocaleObjectResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.SuggestionSpan{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetLocaleObject()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetLocaleObjectResponse{Result: handle}, nil
+}
+
+func (s *SuggestionSpanServer) GetSpanTypeId(_ context.Context, req *pb.GetSpanTypeIdRequest) (*pb.GetSpanTypeIdResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.SuggestionSpan{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetSpanTypeId()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetSpanTypeIdResponse{Result: result}, nil
+}
+
+func (s *SuggestionSpanServer) GetSuggestions(_ context.Context, req *pb.GetSuggestionsRequest) (*pb.GetSuggestionsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.SuggestionSpan{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetSuggestions()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetSuggestionsResponse{Result: handle}, nil
+}
+
+func (s *SuggestionSpanServer) GetUnderlineColor(_ context.Context, req *pb.GetUnderlineColorRequest) (*pb.GetUnderlineColorResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.SuggestionSpan{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetUnderlineColor()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetUnderlineColorResponse{Result: result}, nil
+}
+
+func (s *SuggestionSpanServer) HashCode(_ context.Context, req *pb.HashCodeRequest) (*pb.HashCodeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.SuggestionSpan{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.HashCode()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.HashCodeResponse{Result: result}, nil
+}
+
+func (s *SuggestionSpanServer) SetFlags(_ context.Context, req *pb.SetFlagsRequest) (*pb.SetFlagsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.SuggestionSpan{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetFlags(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetFlagsResponse{}, nil
+}
+
+func (s *SuggestionSpanServer) UpdateDrawState(_ context.Context, req *pb.UpdateDrawStateRequest) (*pb.UpdateDrawStateResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.SuggestionSpan{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.UpdateDrawState(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.UpdateDrawStateResponse{}, nil
+}
+
+func (s *SuggestionSpanServer) WriteToParcel(_ context.Context, req *pb.WriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.SuggestionSpan{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.WriteToParcel(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.WriteToParcelResponse{}, nil
+}
+
 // TextAppearanceSpanServer implements pb.TextAppearanceSpanServiceServer.
 type TextAppearanceSpanServer struct {
 	pb.UnimplementedTextAppearanceSpanServiceServer
@@ -378,6 +836,1647 @@ func (s *TextAppearanceSpanServer) WriteToParcel(_ context.Context, req *pb.Writ
 	return &pb.WriteToParcelResponse{}, nil
 }
 
+// BulletSpanServer implements pb.BulletSpanServiceServer.
+type BulletSpanServer struct {
+	pb.UnimplementedBulletSpanServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *BulletSpanServer) NewBulletSpan(_ context.Context, req *pb.NewBulletSpanRequest) (*pb.NewBulletSpanResponse, error) {
+	obj, err := jnipkg.NewBulletSpan(s.Ctx.VM)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewBulletSpanResponse{Result: handle}, nil
+}
+
+func (s *BulletSpanServer) DescribeContents(_ context.Context, req *pb.DescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.BulletSpan{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.DescribeContents()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.DescribeContentsResponse{Result: result}, nil
+}
+
+func (s *BulletSpanServer) DrawLeadingMargin(_ context.Context, req *pb.DrawLeadingMarginRequest) (*pb.DrawLeadingMarginResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.BulletSpan{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.DrawLeadingMargin(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()), req.GetArg2(), req.GetArg3(), req.GetArg4(), req.GetArg5(), req.GetArg6(), req.GetArg7(), req.GetArg8(), req.GetArg9(), req.GetArg10(), s.Handles.Get(req.GetArg11())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.DrawLeadingMarginResponse{}, nil
+}
+
+func (s *BulletSpanServer) GetBulletRadius(_ context.Context, req *pb.GetBulletRadiusRequest) (*pb.GetBulletRadiusResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.BulletSpan{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetBulletRadius()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetBulletRadiusResponse{Result: result}, nil
+}
+
+func (s *BulletSpanServer) GetColor(_ context.Context, req *pb.GetColorRequest) (*pb.GetColorResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.BulletSpan{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetColor()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetColorResponse{Result: result}, nil
+}
+
+func (s *BulletSpanServer) GetGapWidth(_ context.Context, req *pb.GetGapWidthRequest) (*pb.GetGapWidthResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.BulletSpan{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetGapWidth()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetGapWidthResponse{Result: result}, nil
+}
+
+func (s *BulletSpanServer) GetLeadingMargin(_ context.Context, req *pb.GetLeadingMarginRequest) (*pb.GetLeadingMarginResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.BulletSpan{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetLeadingMargin(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetLeadingMarginResponse{Result: result}, nil
+}
+
+func (s *BulletSpanServer) GetSpanTypeId(_ context.Context, req *pb.GetSpanTypeIdRequest) (*pb.GetSpanTypeIdResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.BulletSpan{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetSpanTypeId()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetSpanTypeIdResponse{Result: result}, nil
+}
+
+func (s *BulletSpanServer) ToString(_ context.Context, req *pb.ToStringRequest) (*pb.ToStringResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.BulletSpan{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.ToString()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ToStringResponse{Result: result}, nil
+}
+
+func (s *BulletSpanServer) WriteToParcel(_ context.Context, req *pb.WriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.BulletSpan{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.WriteToParcel(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.WriteToParcelResponse{}, nil
+}
+
+// StrikethroughSpanServer implements pb.StrikethroughSpanServiceServer.
+type StrikethroughSpanServer struct {
+	pb.UnimplementedStrikethroughSpanServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *StrikethroughSpanServer) NewStrikethroughSpan(_ context.Context, req *pb.NewStrikethroughSpanRequest) (*pb.NewStrikethroughSpanResponse, error) {
+	obj, err := jnipkg.NewStrikethroughSpan(s.Ctx.VM)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewStrikethroughSpanResponse{Result: handle}, nil
+}
+
+func (s *StrikethroughSpanServer) DescribeContents(_ context.Context, req *pb.DescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.StrikethroughSpan{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.DescribeContents()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.DescribeContentsResponse{Result: result}, nil
+}
+
+func (s *StrikethroughSpanServer) GetSpanTypeId(_ context.Context, req *pb.GetSpanTypeIdRequest) (*pb.GetSpanTypeIdResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.StrikethroughSpan{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetSpanTypeId()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetSpanTypeIdResponse{Result: result}, nil
+}
+
+func (s *StrikethroughSpanServer) ToString(_ context.Context, req *pb.ToStringRequest) (*pb.ToStringResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.StrikethroughSpan{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.ToString()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ToStringResponse{Result: result}, nil
+}
+
+func (s *StrikethroughSpanServer) UpdateDrawState(_ context.Context, req *pb.UpdateDrawStateRequest) (*pb.UpdateDrawStateResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.StrikethroughSpan{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.UpdateDrawState(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.UpdateDrawStateResponse{}, nil
+}
+
+func (s *StrikethroughSpanServer) WriteToParcel(_ context.Context, req *pb.WriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.StrikethroughSpan{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.WriteToParcel(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.WriteToParcelResponse{}, nil
+}
+
+// SubscriptSpanServer implements pb.SubscriptSpanServiceServer.
+type SubscriptSpanServer struct {
+	pb.UnimplementedSubscriptSpanServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *SubscriptSpanServer) NewSubscriptSpan(_ context.Context, req *pb.NewSubscriptSpanRequest) (*pb.NewSubscriptSpanResponse, error) {
+	obj, err := jnipkg.NewSubscriptSpan(s.Ctx.VM)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewSubscriptSpanResponse{Result: handle}, nil
+}
+
+func (s *SubscriptSpanServer) DescribeContents(_ context.Context, req *pb.DescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.SubscriptSpan{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.DescribeContents()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.DescribeContentsResponse{Result: result}, nil
+}
+
+func (s *SubscriptSpanServer) GetSpanTypeId(_ context.Context, req *pb.GetSpanTypeIdRequest) (*pb.GetSpanTypeIdResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.SubscriptSpan{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetSpanTypeId()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetSpanTypeIdResponse{Result: result}, nil
+}
+
+func (s *SubscriptSpanServer) ToString(_ context.Context, req *pb.ToStringRequest) (*pb.ToStringResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.SubscriptSpan{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.ToString()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ToStringResponse{Result: result}, nil
+}
+
+func (s *SubscriptSpanServer) UpdateDrawState(_ context.Context, req *pb.UpdateDrawStateRequest) (*pb.UpdateDrawStateResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.SubscriptSpan{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.UpdateDrawState(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.UpdateDrawStateResponse{}, nil
+}
+
+func (s *SubscriptSpanServer) UpdateMeasureState(_ context.Context, req *pb.UpdateMeasureStateRequest) (*pb.UpdateMeasureStateResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.SubscriptSpan{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.UpdateMeasureState(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.UpdateMeasureStateResponse{}, nil
+}
+
+func (s *SubscriptSpanServer) WriteToParcel(_ context.Context, req *pb.WriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.SubscriptSpan{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.WriteToParcel(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.WriteToParcelResponse{}, nil
+}
+
+// SuggestionRangeSpanServer implements pb.SuggestionRangeSpanServiceServer.
+type SuggestionRangeSpanServer struct {
+	pb.UnimplementedSuggestionRangeSpanServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *SuggestionRangeSpanServer) NewSuggestionRangeSpan(_ context.Context, req *pb.NewSuggestionRangeSpanRequest) (*pb.NewSuggestionRangeSpanResponse, error) {
+	obj, err := jnipkg.NewSuggestionRangeSpan(s.Ctx.VM)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewSuggestionRangeSpanResponse{Result: handle}, nil
+}
+
+func (s *SuggestionRangeSpanServer) DescribeContents(_ context.Context, req *pb.DescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.SuggestionRangeSpan{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.DescribeContents()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.DescribeContentsResponse{Result: result}, nil
+}
+
+func (s *SuggestionRangeSpanServer) GetBackgroundColor(_ context.Context, req *pb.GetBackgroundColorRequest) (*pb.GetBackgroundColorResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.SuggestionRangeSpan{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetBackgroundColor()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetBackgroundColorResponse{Result: result}, nil
+}
+
+func (s *SuggestionRangeSpanServer) GetSpanTypeId(_ context.Context, req *pb.GetSpanTypeIdRequest) (*pb.GetSpanTypeIdResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.SuggestionRangeSpan{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetSpanTypeId()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetSpanTypeIdResponse{Result: result}, nil
+}
+
+func (s *SuggestionRangeSpanServer) SetBackgroundColor(_ context.Context, req *pb.SetBackgroundColorRequest) (*pb.SetBackgroundColorResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.SuggestionRangeSpan{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetBackgroundColor(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetBackgroundColorResponse{}, nil
+}
+
+func (s *SuggestionRangeSpanServer) UpdateDrawState(_ context.Context, req *pb.UpdateDrawStateRequest) (*pb.UpdateDrawStateResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.SuggestionRangeSpan{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.UpdateDrawState(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.UpdateDrawStateResponse{}, nil
+}
+
+func (s *SuggestionRangeSpanServer) WriteToParcel(_ context.Context, req *pb.WriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.SuggestionRangeSpan{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.WriteToParcel(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.WriteToParcelResponse{}, nil
+}
+
+// LineBreakConfigSpanServer implements pb.LineBreakConfigSpanServiceServer.
+type LineBreakConfigSpanServer struct {
+	pb.UnimplementedLineBreakConfigSpanServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *LineBreakConfigSpanServer) NewLineBreakConfigSpan(_ context.Context, req *pb.NewLineBreakConfigSpanRequest) (*pb.NewLineBreakConfigSpanResponse, error) {
+	obj, err := jnipkg.NewLineBreakConfigSpan(s.Ctx.VM, s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewLineBreakConfigSpanResponse{Result: handle}, nil
+}
+
+func (s *LineBreakConfigSpanServer) DescribeContents(_ context.Context, req *pb.DescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.LineBreakConfigSpan{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.DescribeContents()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.DescribeContentsResponse{Result: result}, nil
+}
+
+func (s *LineBreakConfigSpanServer) Equals(_ context.Context, req *pb.EqualsRequest) (*pb.EqualsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.LineBreakConfigSpan{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.Equals(s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.EqualsResponse{Result: result}, nil
+}
+
+func (s *LineBreakConfigSpanServer) GetLineBreakConfig(_ context.Context, req *pb.GetLineBreakConfigRequest) (*pb.GetLineBreakConfigResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.LineBreakConfigSpan{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetLineBreakConfig()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetLineBreakConfigResponse{Result: handle}, nil
+}
+
+func (s *LineBreakConfigSpanServer) GetSpanTypeId(_ context.Context, req *pb.GetSpanTypeIdRequest) (*pb.GetSpanTypeIdResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.LineBreakConfigSpan{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetSpanTypeId()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetSpanTypeIdResponse{Result: result}, nil
+}
+
+func (s *LineBreakConfigSpanServer) HashCode(_ context.Context, req *pb.HashCodeRequest) (*pb.HashCodeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.LineBreakConfigSpan{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.HashCode()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.HashCodeResponse{Result: result}, nil
+}
+
+func (s *LineBreakConfigSpanServer) ToString(_ context.Context, req *pb.ToStringRequest) (*pb.ToStringResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.LineBreakConfigSpan{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.ToString()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ToStringResponse{Result: result}, nil
+}
+
+func (s *LineBreakConfigSpanServer) WriteToParcel(_ context.Context, req *pb.WriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.LineBreakConfigSpan{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.WriteToParcel(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.WriteToParcelResponse{}, nil
+}
+
+func (s *LineBreakConfigSpanServer) CreateNoBreakSpan(_ context.Context, req *pb.CreateNoBreakSpanRequest) (*pb.CreateNoBreakSpanResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.LineBreakConfigSpan{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.CreateNoBreakSpan()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.CreateNoBreakSpanResponse{Result: handle}, nil
+}
+
+func (s *LineBreakConfigSpanServer) CreateNoHyphenationSpan(_ context.Context, req *pb.CreateNoHyphenationSpanRequest) (*pb.CreateNoHyphenationSpanResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.LineBreakConfigSpan{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.CreateNoHyphenationSpan()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.CreateNoHyphenationSpanResponse{Result: handle}, nil
+}
+
+// SpanServer implements pb.SpanServiceServer.
+type SpanServer struct {
+	pb.UnimplementedSpanServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *SpanServer) NewSpan(_ context.Context, req *pb.NewSpanRequest) (*pb.NewSpanResponse, error) {
+	obj, err := jnipkg.NewSpan(s.Ctx.VM, s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewSpanResponse{Result: handle}, nil
+}
+
+func (s *SpanServer) DescribeContents(_ context.Context, req *pb.DescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Span{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.DescribeContents()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.DescribeContentsResponse{Result: result}, nil
+}
+
+func (s *SpanServer) GetFontWeightAdjustment(_ context.Context, req *pb.GetFontWeightAdjustmentRequest) (*pb.GetFontWeightAdjustmentResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Span{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetFontWeightAdjustment()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetFontWeightAdjustmentResponse{Result: result}, nil
+}
+
+func (s *SpanServer) GetSpanTypeId(_ context.Context, req *pb.GetSpanTypeIdRequest) (*pb.GetSpanTypeIdResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Span{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetSpanTypeId()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetSpanTypeIdResponse{Result: result}, nil
+}
+
+func (s *SpanServer) GetStyle(_ context.Context, req *pb.GetStyleRequest) (*pb.GetStyleResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Span{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetStyle()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetStyleResponse{Result: result}, nil
+}
+
+func (s *SpanServer) ToString(_ context.Context, req *pb.ToStringRequest) (*pb.ToStringResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Span{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.ToString()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ToStringResponse{Result: result}, nil
+}
+
+func (s *SpanServer) UpdateDrawState(_ context.Context, req *pb.UpdateDrawStateRequest) (*pb.UpdateDrawStateResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Span{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.UpdateDrawState(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.UpdateDrawStateResponse{}, nil
+}
+
+func (s *SpanServer) UpdateMeasureState(_ context.Context, req *pb.UpdateMeasureStateRequest) (*pb.UpdateMeasureStateResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Span{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.UpdateMeasureState(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.UpdateMeasureStateResponse{}, nil
+}
+
+func (s *SpanServer) WriteToParcel(_ context.Context, req *pb.WriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Span{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.WriteToParcel(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.WriteToParcelResponse{}, nil
+}
+
+// TtsSpanServer implements pb.TtsSpanServiceServer.
+type TtsSpanServer struct {
+	pb.UnimplementedTtsSpanServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *TtsSpanServer) NewTtsSpan(_ context.Context, req *pb.NewTtsSpanRequest) (*pb.NewTtsSpanResponse, error) {
+	obj, err := jnipkg.NewTtsSpan(s.Ctx.VM, s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewTtsSpanResponse{Result: handle}, nil
+}
+
+func (s *TtsSpanServer) DescribeContents(_ context.Context, req *pb.DescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.TtsSpan{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.DescribeContents()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.DescribeContentsResponse{Result: result}, nil
+}
+
+func (s *TtsSpanServer) GetArgs(_ context.Context, req *pb.GetArgsRequest) (*pb.GetArgsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.TtsSpan{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetArgs()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetArgsResponse{Result: handle}, nil
+}
+
+func (s *TtsSpanServer) GetSpanTypeId(_ context.Context, req *pb.GetSpanTypeIdRequest) (*pb.GetSpanTypeIdResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.TtsSpan{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetSpanTypeId()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetSpanTypeIdResponse{Result: result}, nil
+}
+
+func (s *TtsSpanServer) GetType(_ context.Context, req *pb.GetTypeRequest) (*pb.GetTypeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.TtsSpan{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetType()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetTypeResponse{Result: result}, nil
+}
+
+func (s *TtsSpanServer) WriteToParcel(_ context.Context, req *pb.WriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.TtsSpan{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.WriteToParcel(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.WriteToParcelResponse{}, nil
+}
+
+// RelativeSizeSpanServer implements pb.RelativeSizeSpanServiceServer.
+type RelativeSizeSpanServer struct {
+	pb.UnimplementedRelativeSizeSpanServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *RelativeSizeSpanServer) NewRelativeSizeSpan(_ context.Context, req *pb.NewRelativeSizeSpanRequest) (*pb.NewRelativeSizeSpanResponse, error) {
+	obj, err := jnipkg.NewRelativeSizeSpan(s.Ctx.VM, s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewRelativeSizeSpanResponse{Result: handle}, nil
+}
+
+func (s *RelativeSizeSpanServer) DescribeContents(_ context.Context, req *pb.DescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.RelativeSizeSpan{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.DescribeContents()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.DescribeContentsResponse{Result: result}, nil
+}
+
+func (s *RelativeSizeSpanServer) GetSizeChange(_ context.Context, req *pb.GetSizeChangeRequest) (*pb.GetSizeChangeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.RelativeSizeSpan{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetSizeChange()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetSizeChangeResponse{Result: result}, nil
+}
+
+func (s *RelativeSizeSpanServer) GetSpanTypeId(_ context.Context, req *pb.GetSpanTypeIdRequest) (*pb.GetSpanTypeIdResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.RelativeSizeSpan{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetSpanTypeId()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetSpanTypeIdResponse{Result: result}, nil
+}
+
+func (s *RelativeSizeSpanServer) ToString(_ context.Context, req *pb.ToStringRequest) (*pb.ToStringResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.RelativeSizeSpan{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.ToString()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ToStringResponse{Result: result}, nil
+}
+
+func (s *RelativeSizeSpanServer) UpdateDrawState(_ context.Context, req *pb.UpdateDrawStateRequest) (*pb.UpdateDrawStateResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.RelativeSizeSpan{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.UpdateDrawState(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.UpdateDrawStateResponse{}, nil
+}
+
+func (s *RelativeSizeSpanServer) UpdateMeasureState(_ context.Context, req *pb.UpdateMeasureStateRequest) (*pb.UpdateMeasureStateResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.RelativeSizeSpan{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.UpdateMeasureState(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.UpdateMeasureStateResponse{}, nil
+}
+
+func (s *RelativeSizeSpanServer) WriteToParcel(_ context.Context, req *pb.WriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.RelativeSizeSpan{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.WriteToParcel(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.WriteToParcelResponse{}, nil
+}
+
+// EasyEditSpanServer implements pb.EasyEditSpanServiceServer.
+type EasyEditSpanServer struct {
+	pb.UnimplementedEasyEditSpanServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *EasyEditSpanServer) NewEasyEditSpan(_ context.Context, req *pb.NewEasyEditSpanRequest) (*pb.NewEasyEditSpanResponse, error) {
+	obj, err := jnipkg.NewEasyEditSpan(s.Ctx.VM)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewEasyEditSpanResponse{Result: handle}, nil
+}
+
+func (s *EasyEditSpanServer) DescribeContents(_ context.Context, req *pb.DescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.EasyEditSpan{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.DescribeContents()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.DescribeContentsResponse{Result: result}, nil
+}
+
+func (s *EasyEditSpanServer) GetSpanTypeId(_ context.Context, req *pb.GetSpanTypeIdRequest) (*pb.GetSpanTypeIdResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.EasyEditSpan{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetSpanTypeId()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetSpanTypeIdResponse{Result: result}, nil
+}
+
+func (s *EasyEditSpanServer) WriteToParcel(_ context.Context, req *pb.WriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.EasyEditSpan{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.WriteToParcel(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.WriteToParcelResponse{}, nil
+}
+
+// URLSpanServer implements pb.URLSpanServiceServer.
+type URLSpanServer struct {
+	pb.UnimplementedURLSpanServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *URLSpanServer) NewURLSpan(_ context.Context, req *pb.NewURLSpanRequest) (*pb.NewURLSpanResponse, error) {
+	obj, err := jnipkg.NewURLSpan(s.Ctx.VM, s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewURLSpanResponse{Result: handle}, nil
+}
+
+func (s *URLSpanServer) DescribeContents(_ context.Context, req *pb.DescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.URLSpan{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.DescribeContents()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.DescribeContentsResponse{Result: result}, nil
+}
+
+func (s *URLSpanServer) GetSpanTypeId(_ context.Context, req *pb.GetSpanTypeIdRequest) (*pb.GetSpanTypeIdResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.URLSpan{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetSpanTypeId()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetSpanTypeIdResponse{Result: result}, nil
+}
+
+func (s *URLSpanServer) GetURL(_ context.Context, req *pb.GetURLRequest) (*pb.GetURLResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.URLSpan{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetURL()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetURLResponse{Result: result}, nil
+}
+
+func (s *URLSpanServer) OnClick(_ context.Context, req *pb.OnClickRequest) (*pb.OnClickResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.URLSpan{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.OnClick(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.OnClickResponse{}, nil
+}
+
+func (s *URLSpanServer) ToString(_ context.Context, req *pb.ToStringRequest) (*pb.ToStringResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.URLSpan{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.ToString()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ToStringResponse{Result: result}, nil
+}
+
+func (s *URLSpanServer) WriteToParcel(_ context.Context, req *pb.WriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.URLSpan{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.WriteToParcel(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.WriteToParcelResponse{}, nil
+}
+
+// ForegroundColorSpanServer implements pb.ForegroundColorSpanServiceServer.
+type ForegroundColorSpanServer struct {
+	pb.UnimplementedForegroundColorSpanServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *ForegroundColorSpanServer) NewForegroundColorSpan(_ context.Context, req *pb.NewForegroundColorSpanRequest) (*pb.NewForegroundColorSpanResponse, error) {
+	obj, err := jnipkg.NewForegroundColorSpan(s.Ctx.VM, s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewForegroundColorSpanResponse{Result: handle}, nil
+}
+
+func (s *ForegroundColorSpanServer) DescribeContents(_ context.Context, req *pb.DescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ForegroundColorSpan{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.DescribeContents()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.DescribeContentsResponse{Result: result}, nil
+}
+
+func (s *ForegroundColorSpanServer) GetForegroundColor(_ context.Context, req *pb.GetForegroundColorRequest) (*pb.GetForegroundColorResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ForegroundColorSpan{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetForegroundColor()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetForegroundColorResponse{Result: result}, nil
+}
+
+func (s *ForegroundColorSpanServer) GetSpanTypeId(_ context.Context, req *pb.GetSpanTypeIdRequest) (*pb.GetSpanTypeIdResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ForegroundColorSpan{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetSpanTypeId()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetSpanTypeIdResponse{Result: result}, nil
+}
+
+func (s *ForegroundColorSpanServer) ToString(_ context.Context, req *pb.ToStringRequest) (*pb.ToStringResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ForegroundColorSpan{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.ToString()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ToStringResponse{Result: result}, nil
+}
+
+func (s *ForegroundColorSpanServer) UpdateDrawState(_ context.Context, req *pb.UpdateDrawStateRequest) (*pb.UpdateDrawStateResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ForegroundColorSpan{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.UpdateDrawState(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.UpdateDrawStateResponse{}, nil
+}
+
+func (s *ForegroundColorSpanServer) WriteToParcel(_ context.Context, req *pb.WriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ForegroundColorSpan{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.WriteToParcel(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.WriteToParcelResponse{}, nil
+}
+
+// DrawableMarginSpanServer implements pb.DrawableMarginSpanServiceServer.
+type DrawableMarginSpanServer struct {
+	pb.UnimplementedDrawableMarginSpanServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *DrawableMarginSpanServer) NewDrawableMarginSpan(_ context.Context, req *pb.NewDrawableMarginSpanRequest) (*pb.NewDrawableMarginSpanResponse, error) {
+	obj, err := jnipkg.NewDrawableMarginSpan(s.Ctx.VM, s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewDrawableMarginSpanResponse{Result: handle}, nil
+}
+
+func (s *DrawableMarginSpanServer) ChooseHeight(_ context.Context, req *pb.ChooseHeightRequest) (*pb.ChooseHeightResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.DrawableMarginSpan{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.ChooseHeight(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3(), req.GetArg4(), s.Handles.Get(req.GetArg5())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ChooseHeightResponse{}, nil
+}
+
+func (s *DrawableMarginSpanServer) DrawLeadingMargin(_ context.Context, req *pb.DrawLeadingMarginRequest) (*pb.DrawLeadingMarginResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.DrawableMarginSpan{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.DrawLeadingMargin(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()), req.GetArg2(), req.GetArg3(), req.GetArg4(), req.GetArg5(), req.GetArg6(), req.GetArg7(), req.GetArg8(), req.GetArg9(), req.GetArg10(), s.Handles.Get(req.GetArg11())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.DrawLeadingMarginResponse{}, nil
+}
+
+func (s *DrawableMarginSpanServer) GetDrawable(_ context.Context, req *pb.DrawableMarginSpanGetDrawableRequest) (*pb.GetDrawableResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.DrawableMarginSpan{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetDrawable()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetDrawableResponse{Result: handle}, nil
+}
+
+func (s *DrawableMarginSpanServer) GetLeadingMargin(_ context.Context, req *pb.GetLeadingMarginRequest) (*pb.GetLeadingMarginResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.DrawableMarginSpan{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetLeadingMargin(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetLeadingMarginResponse{Result: result}, nil
+}
+
+func (s *DrawableMarginSpanServer) GetPadding(_ context.Context, req *pb.GetPaddingRequest) (*pb.GetPaddingResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.DrawableMarginSpan{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetPadding()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetPaddingResponse{Result: result}, nil
+}
+
+func (s *DrawableMarginSpanServer) ToString(_ context.Context, req *pb.ToStringRequest) (*pb.ToStringResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.DrawableMarginSpan{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.ToString()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ToStringResponse{Result: result}, nil
+}
+
+// AbsoluteSizeSpanServer implements pb.AbsoluteSizeSpanServiceServer.
+type AbsoluteSizeSpanServer struct {
+	pb.UnimplementedAbsoluteSizeSpanServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *AbsoluteSizeSpanServer) NewAbsoluteSizeSpan(_ context.Context, req *pb.NewAbsoluteSizeSpanRequest) (*pb.NewAbsoluteSizeSpanResponse, error) {
+	obj, err := jnipkg.NewAbsoluteSizeSpan(s.Ctx.VM, s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewAbsoluteSizeSpanResponse{Result: handle}, nil
+}
+
+func (s *AbsoluteSizeSpanServer) DescribeContents(_ context.Context, req *pb.DescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.AbsoluteSizeSpan{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.DescribeContents()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.DescribeContentsResponse{Result: result}, nil
+}
+
+func (s *AbsoluteSizeSpanServer) GetDip(_ context.Context, req *pb.GetDipRequest) (*pb.GetDipResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.AbsoluteSizeSpan{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetDip()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetDipResponse{Result: result}, nil
+}
+
+func (s *AbsoluteSizeSpanServer) GetSize(_ context.Context, req *pb.AbsoluteSizeSpanGetSizeRequest) (*pb.GetSizeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.AbsoluteSizeSpan{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetSize()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetSizeResponse{Result: result}, nil
+}
+
+func (s *AbsoluteSizeSpanServer) GetSpanTypeId(_ context.Context, req *pb.GetSpanTypeIdRequest) (*pb.GetSpanTypeIdResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.AbsoluteSizeSpan{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetSpanTypeId()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetSpanTypeIdResponse{Result: result}, nil
+}
+
+func (s *AbsoluteSizeSpanServer) ToString(_ context.Context, req *pb.ToStringRequest) (*pb.ToStringResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.AbsoluteSizeSpan{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.ToString()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ToStringResponse{Result: result}, nil
+}
+
+func (s *AbsoluteSizeSpanServer) UpdateDrawState(_ context.Context, req *pb.UpdateDrawStateRequest) (*pb.UpdateDrawStateResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.AbsoluteSizeSpan{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.UpdateDrawState(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.UpdateDrawStateResponse{}, nil
+}
+
+func (s *AbsoluteSizeSpanServer) UpdateMeasureState(_ context.Context, req *pb.UpdateMeasureStateRequest) (*pb.UpdateMeasureStateResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.AbsoluteSizeSpan{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.UpdateMeasureState(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.UpdateMeasureStateResponse{}, nil
+}
+
+func (s *AbsoluteSizeSpanServer) WriteToParcel(_ context.Context, req *pb.WriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.AbsoluteSizeSpan{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.WriteToParcel(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.WriteToParcelResponse{}, nil
+}
+
+// MaskFilterSpanServer implements pb.MaskFilterSpanServiceServer.
+type MaskFilterSpanServer struct {
+	pb.UnimplementedMaskFilterSpanServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *MaskFilterSpanServer) NewMaskFilterSpan(_ context.Context, req *pb.NewMaskFilterSpanRequest) (*pb.NewMaskFilterSpanResponse, error) {
+	obj, err := jnipkg.NewMaskFilterSpan(s.Ctx.VM, s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewMaskFilterSpanResponse{Result: handle}, nil
+}
+
+func (s *MaskFilterSpanServer) GetMaskFilter(_ context.Context, req *pb.GetMaskFilterRequest) (*pb.GetMaskFilterResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.MaskFilterSpan{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetMaskFilter()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetMaskFilterResponse{Result: handle}, nil
+}
+
+func (s *MaskFilterSpanServer) ToString(_ context.Context, req *pb.ToStringRequest) (*pb.ToStringResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.MaskFilterSpan{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.ToString()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ToStringResponse{Result: result}, nil
+}
+
+func (s *MaskFilterSpanServer) UpdateDrawState(_ context.Context, req *pb.UpdateDrawStateRequest) (*pb.UpdateDrawStateResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.MaskFilterSpan{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.UpdateDrawState(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.UpdateDrawStateResponse{}, nil
+}
+
+// UnderlineSpanServer implements pb.UnderlineSpanServiceServer.
+type UnderlineSpanServer struct {
+	pb.UnimplementedUnderlineSpanServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *UnderlineSpanServer) NewUnderlineSpan(_ context.Context, req *pb.NewUnderlineSpanRequest) (*pb.NewUnderlineSpanResponse, error) {
+	obj, err := jnipkg.NewUnderlineSpan(s.Ctx.VM)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewUnderlineSpanResponse{Result: handle}, nil
+}
+
+func (s *UnderlineSpanServer) DescribeContents(_ context.Context, req *pb.DescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.UnderlineSpan{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.DescribeContents()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.DescribeContentsResponse{Result: result}, nil
+}
+
+func (s *UnderlineSpanServer) GetSpanTypeId(_ context.Context, req *pb.GetSpanTypeIdRequest) (*pb.GetSpanTypeIdResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.UnderlineSpan{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetSpanTypeId()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetSpanTypeIdResponse{Result: result}, nil
+}
+
+func (s *UnderlineSpanServer) ToString(_ context.Context, req *pb.ToStringRequest) (*pb.ToStringResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.UnderlineSpan{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.ToString()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ToStringResponse{Result: result}, nil
+}
+
+func (s *UnderlineSpanServer) UpdateDrawState(_ context.Context, req *pb.UpdateDrawStateRequest) (*pb.UpdateDrawStateResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.UnderlineSpan{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.UpdateDrawState(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.UpdateDrawStateResponse{}, nil
+}
+
+func (s *UnderlineSpanServer) WriteToParcel(_ context.Context, req *pb.WriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.UnderlineSpan{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.WriteToParcel(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.WriteToParcelResponse{}, nil
+}
+
 // NoWritingToolsSpanServer implements pb.NoWritingToolsSpanServiceServer.
 type NoWritingToolsSpanServer struct {
 	pb.UnimplementedNoWritingToolsSpanServiceServer
@@ -601,15 +2700,15 @@ func (s *QuoteSpanServer) WriteToParcel(_ context.Context, req *pb.WriteToParcel
 	return &pb.WriteToParcelResponse{}, nil
 }
 
-// RelativeSizeSpanServer implements pb.RelativeSizeSpanServiceServer.
-type RelativeSizeSpanServer struct {
-	pb.UnimplementedRelativeSizeSpanServiceServer
+// SuperscriptSpanServer implements pb.SuperscriptSpanServiceServer.
+type SuperscriptSpanServer struct {
+	pb.UnimplementedSuperscriptSpanServiceServer
 	Ctx     *app.Context
 	Handles *handlestore.HandleStore
 }
 
-func (s *RelativeSizeSpanServer) NewRelativeSizeSpan(_ context.Context, req *pb.NewRelativeSizeSpanRequest) (*pb.NewRelativeSizeSpanResponse, error) {
-	obj, err := jnipkg.NewRelativeSizeSpan(s.Ctx.VM, s.Handles.Get(req.GetArg0()))
+func (s *SuperscriptSpanServer) NewSuperscriptSpan(_ context.Context, req *pb.NewSuperscriptSpanRequest) (*pb.NewSuperscriptSpanResponse, error) {
+	obj, err := jnipkg.NewSuperscriptSpan(s.Ctx.VM)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create object: %v", err)
 	}
@@ -620,15 +2719,15 @@ func (s *RelativeSizeSpanServer) NewRelativeSizeSpan(_ context.Context, req *pb.
 	}); doErr != nil {
 		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
 	}
-	return &pb.NewRelativeSizeSpanResponse{Result: handle}, nil
+	return &pb.NewSuperscriptSpanResponse{Result: handle}, nil
 }
 
-func (s *RelativeSizeSpanServer) DescribeContents(_ context.Context, req *pb.DescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
+func (s *SuperscriptSpanServer) DescribeContents(_ context.Context, req *pb.DescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.RelativeSizeSpan{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.SuperscriptSpan{VM: s.Ctx.VM, Obj: rawObj}
 
 	result, err := mgr.DescribeContents()
 	if err != nil {
@@ -637,26 +2736,12 @@ func (s *RelativeSizeSpanServer) DescribeContents(_ context.Context, req *pb.Des
 	return &pb.DescribeContentsResponse{Result: result}, nil
 }
 
-func (s *RelativeSizeSpanServer) GetSizeChange(_ context.Context, req *pb.GetSizeChangeRequest) (*pb.GetSizeChangeResponse, error) {
+func (s *SuperscriptSpanServer) GetSpanTypeId(_ context.Context, req *pb.GetSpanTypeIdRequest) (*pb.GetSpanTypeIdResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.RelativeSizeSpan{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetSizeChange()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetSizeChangeResponse{Result: result}, nil
-}
-
-func (s *RelativeSizeSpanServer) GetSpanTypeId(_ context.Context, req *pb.GetSpanTypeIdRequest) (*pb.GetSpanTypeIdResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.RelativeSizeSpan{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.SuperscriptSpan{VM: s.Ctx.VM, Obj: rawObj}
 
 	result, err := mgr.GetSpanTypeId()
 	if err != nil {
@@ -665,12 +2750,12 @@ func (s *RelativeSizeSpanServer) GetSpanTypeId(_ context.Context, req *pb.GetSpa
 	return &pb.GetSpanTypeIdResponse{Result: result}, nil
 }
 
-func (s *RelativeSizeSpanServer) ToString(_ context.Context, req *pb.ToStringRequest) (*pb.ToStringResponse, error) {
+func (s *SuperscriptSpanServer) ToString(_ context.Context, req *pb.ToStringRequest) (*pb.ToStringResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.RelativeSizeSpan{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.SuperscriptSpan{VM: s.Ctx.VM, Obj: rawObj}
 
 	result, err := mgr.ToString()
 	if err != nil {
@@ -679,12 +2764,12 @@ func (s *RelativeSizeSpanServer) ToString(_ context.Context, req *pb.ToStringReq
 	return &pb.ToStringResponse{Result: result}, nil
 }
 
-func (s *RelativeSizeSpanServer) UpdateDrawState(_ context.Context, req *pb.UpdateDrawStateRequest) (*pb.UpdateDrawStateResponse, error) {
+func (s *SuperscriptSpanServer) UpdateDrawState(_ context.Context, req *pb.UpdateDrawStateRequest) (*pb.UpdateDrawStateResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.RelativeSizeSpan{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.SuperscriptSpan{VM: s.Ctx.VM, Obj: rawObj}
 
 	if err := mgr.UpdateDrawState(s.Handles.Get(req.GetArg0())); err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
@@ -692,12 +2777,12 @@ func (s *RelativeSizeSpanServer) UpdateDrawState(_ context.Context, req *pb.Upda
 	return &pb.UpdateDrawStateResponse{}, nil
 }
 
-func (s *RelativeSizeSpanServer) UpdateMeasureState(_ context.Context, req *pb.UpdateMeasureStateRequest) (*pb.UpdateMeasureStateResponse, error) {
+func (s *SuperscriptSpanServer) UpdateMeasureState(_ context.Context, req *pb.UpdateMeasureStateRequest) (*pb.UpdateMeasureStateResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.RelativeSizeSpan{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.SuperscriptSpan{VM: s.Ctx.VM, Obj: rawObj}
 
 	if err := mgr.UpdateMeasureState(s.Handles.Get(req.GetArg0())); err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
@@ -705,1657 +2790,17 @@ func (s *RelativeSizeSpanServer) UpdateMeasureState(_ context.Context, req *pb.U
 	return &pb.UpdateMeasureStateResponse{}, nil
 }
 
-func (s *RelativeSizeSpanServer) WriteToParcel(_ context.Context, req *pb.WriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
+func (s *SuperscriptSpanServer) WriteToParcel(_ context.Context, req *pb.WriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.RelativeSizeSpan{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.SuperscriptSpan{VM: s.Ctx.VM, Obj: rawObj}
 
 	if err := mgr.WriteToParcel(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
 	return &pb.WriteToParcelResponse{}, nil
-}
-
-// AbsoluteSizeSpanServer implements pb.AbsoluteSizeSpanServiceServer.
-type AbsoluteSizeSpanServer struct {
-	pb.UnimplementedAbsoluteSizeSpanServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *AbsoluteSizeSpanServer) NewAbsoluteSizeSpan(_ context.Context, req *pb.NewAbsoluteSizeSpanRequest) (*pb.NewAbsoluteSizeSpanResponse, error) {
-	obj, err := jnipkg.NewAbsoluteSizeSpan(s.Ctx.VM, s.Handles.Get(req.GetArg0()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
-	}
-	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-	}
-	return &pb.NewAbsoluteSizeSpanResponse{Result: handle}, nil
-}
-
-func (s *AbsoluteSizeSpanServer) DescribeContents(_ context.Context, req *pb.DescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.AbsoluteSizeSpan{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.DescribeContents()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.DescribeContentsResponse{Result: result}, nil
-}
-
-func (s *AbsoluteSizeSpanServer) GetDip(_ context.Context, req *pb.GetDipRequest) (*pb.GetDipResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.AbsoluteSizeSpan{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetDip()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetDipResponse{Result: result}, nil
-}
-
-func (s *AbsoluteSizeSpanServer) GetSize(_ context.Context, req *pb.GetSizeRequest) (*pb.GetSizeResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.AbsoluteSizeSpan{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetSize()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetSizeResponse{Result: result}, nil
-}
-
-func (s *AbsoluteSizeSpanServer) GetSpanTypeId(_ context.Context, req *pb.GetSpanTypeIdRequest) (*pb.GetSpanTypeIdResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.AbsoluteSizeSpan{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetSpanTypeId()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetSpanTypeIdResponse{Result: result}, nil
-}
-
-func (s *AbsoluteSizeSpanServer) ToString(_ context.Context, req *pb.ToStringRequest) (*pb.ToStringResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.AbsoluteSizeSpan{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.ToString()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.ToStringResponse{Result: result}, nil
-}
-
-func (s *AbsoluteSizeSpanServer) UpdateDrawState(_ context.Context, req *pb.UpdateDrawStateRequest) (*pb.UpdateDrawStateResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.AbsoluteSizeSpan{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.UpdateDrawState(s.Handles.Get(req.GetArg0())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.UpdateDrawStateResponse{}, nil
-}
-
-func (s *AbsoluteSizeSpanServer) UpdateMeasureState(_ context.Context, req *pb.UpdateMeasureStateRequest) (*pb.UpdateMeasureStateResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.AbsoluteSizeSpan{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.UpdateMeasureState(s.Handles.Get(req.GetArg0())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.UpdateMeasureStateResponse{}, nil
-}
-
-func (s *AbsoluteSizeSpanServer) WriteToParcel(_ context.Context, req *pb.WriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.AbsoluteSizeSpan{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.WriteToParcel(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.WriteToParcelResponse{}, nil
-}
-
-// SubscriptSpanServer implements pb.SubscriptSpanServiceServer.
-type SubscriptSpanServer struct {
-	pb.UnimplementedSubscriptSpanServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *SubscriptSpanServer) NewSubscriptSpan(_ context.Context, req *pb.NewSubscriptSpanRequest) (*pb.NewSubscriptSpanResponse, error) {
-	obj, err := jnipkg.NewSubscriptSpan(s.Ctx.VM)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
-	}
-	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-	}
-	return &pb.NewSubscriptSpanResponse{Result: handle}, nil
-}
-
-func (s *SubscriptSpanServer) DescribeContents(_ context.Context, req *pb.DescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.SubscriptSpan{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.DescribeContents()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.DescribeContentsResponse{Result: result}, nil
-}
-
-func (s *SubscriptSpanServer) GetSpanTypeId(_ context.Context, req *pb.GetSpanTypeIdRequest) (*pb.GetSpanTypeIdResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.SubscriptSpan{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetSpanTypeId()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetSpanTypeIdResponse{Result: result}, nil
-}
-
-func (s *SubscriptSpanServer) ToString(_ context.Context, req *pb.ToStringRequest) (*pb.ToStringResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.SubscriptSpan{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.ToString()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.ToStringResponse{Result: result}, nil
-}
-
-func (s *SubscriptSpanServer) UpdateDrawState(_ context.Context, req *pb.UpdateDrawStateRequest) (*pb.UpdateDrawStateResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.SubscriptSpan{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.UpdateDrawState(s.Handles.Get(req.GetArg0())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.UpdateDrawStateResponse{}, nil
-}
-
-func (s *SubscriptSpanServer) UpdateMeasureState(_ context.Context, req *pb.UpdateMeasureStateRequest) (*pb.UpdateMeasureStateResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.SubscriptSpan{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.UpdateMeasureState(s.Handles.Get(req.GetArg0())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.UpdateMeasureStateResponse{}, nil
-}
-
-func (s *SubscriptSpanServer) WriteToParcel(_ context.Context, req *pb.WriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.SubscriptSpan{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.WriteToParcel(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.WriteToParcelResponse{}, nil
-}
-
-// DrawableMarginSpanServer implements pb.DrawableMarginSpanServiceServer.
-type DrawableMarginSpanServer struct {
-	pb.UnimplementedDrawableMarginSpanServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *DrawableMarginSpanServer) NewDrawableMarginSpan(_ context.Context, req *pb.NewDrawableMarginSpanRequest) (*pb.NewDrawableMarginSpanResponse, error) {
-	obj, err := jnipkg.NewDrawableMarginSpan(s.Ctx.VM, s.Handles.Get(req.GetArg0()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
-	}
-	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-	}
-	return &pb.NewDrawableMarginSpanResponse{Result: handle}, nil
-}
-
-func (s *DrawableMarginSpanServer) ChooseHeight(_ context.Context, req *pb.DrawableMarginSpanChooseHeightRequest) (*pb.ChooseHeightResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.DrawableMarginSpan{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.ChooseHeight(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3(), req.GetArg4(), s.Handles.Get(req.GetArg5())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.ChooseHeightResponse{}, nil
-}
-
-func (s *DrawableMarginSpanServer) DrawLeadingMargin(_ context.Context, req *pb.DrawLeadingMarginRequest) (*pb.DrawLeadingMarginResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.DrawableMarginSpan{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.DrawLeadingMargin(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()), req.GetArg2(), req.GetArg3(), req.GetArg4(), req.GetArg5(), req.GetArg6(), req.GetArg7(), req.GetArg8(), req.GetArg9(), req.GetArg10(), s.Handles.Get(req.GetArg11())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.DrawLeadingMarginResponse{}, nil
-}
-
-func (s *DrawableMarginSpanServer) GetDrawable(_ context.Context, req *pb.GetDrawableRequest) (*pb.GetDrawableResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.DrawableMarginSpan{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetDrawable()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetDrawableResponse{Result: handle}, nil
-}
-
-func (s *DrawableMarginSpanServer) GetLeadingMargin(_ context.Context, req *pb.GetLeadingMarginRequest) (*pb.GetLeadingMarginResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.DrawableMarginSpan{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetLeadingMargin(req.GetArg0())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetLeadingMarginResponse{Result: result}, nil
-}
-
-func (s *DrawableMarginSpanServer) GetPadding(_ context.Context, req *pb.GetPaddingRequest) (*pb.GetPaddingResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.DrawableMarginSpan{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetPadding()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetPaddingResponse{Result: result}, nil
-}
-
-func (s *DrawableMarginSpanServer) ToString(_ context.Context, req *pb.ToStringRequest) (*pb.ToStringResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.DrawableMarginSpan{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.ToString()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.ToStringResponse{Result: result}, nil
-}
-
-// ForegroundColorSpanServer implements pb.ForegroundColorSpanServiceServer.
-type ForegroundColorSpanServer struct {
-	pb.UnimplementedForegroundColorSpanServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *ForegroundColorSpanServer) NewForegroundColorSpan(_ context.Context, req *pb.NewForegroundColorSpanRequest) (*pb.NewForegroundColorSpanResponse, error) {
-	obj, err := jnipkg.NewForegroundColorSpan(s.Ctx.VM, s.Handles.Get(req.GetArg0()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
-	}
-	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-	}
-	return &pb.NewForegroundColorSpanResponse{Result: handle}, nil
-}
-
-func (s *ForegroundColorSpanServer) DescribeContents(_ context.Context, req *pb.DescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.ForegroundColorSpan{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.DescribeContents()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.DescribeContentsResponse{Result: result}, nil
-}
-
-func (s *ForegroundColorSpanServer) GetForegroundColor(_ context.Context, req *pb.GetForegroundColorRequest) (*pb.GetForegroundColorResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.ForegroundColorSpan{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetForegroundColor()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetForegroundColorResponse{Result: result}, nil
-}
-
-func (s *ForegroundColorSpanServer) GetSpanTypeId(_ context.Context, req *pb.GetSpanTypeIdRequest) (*pb.GetSpanTypeIdResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.ForegroundColorSpan{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetSpanTypeId()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetSpanTypeIdResponse{Result: result}, nil
-}
-
-func (s *ForegroundColorSpanServer) ToString(_ context.Context, req *pb.ToStringRequest) (*pb.ToStringResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.ForegroundColorSpan{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.ToString()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.ToStringResponse{Result: result}, nil
-}
-
-func (s *ForegroundColorSpanServer) UpdateDrawState(_ context.Context, req *pb.UpdateDrawStateRequest) (*pb.UpdateDrawStateResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.ForegroundColorSpan{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.UpdateDrawState(s.Handles.Get(req.GetArg0())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.UpdateDrawStateResponse{}, nil
-}
-
-func (s *ForegroundColorSpanServer) WriteToParcel(_ context.Context, req *pb.WriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.ForegroundColorSpan{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.WriteToParcel(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.WriteToParcelResponse{}, nil
-}
-
-// TypefaceSpanServer implements pb.TypefaceSpanServiceServer.
-type TypefaceSpanServer struct {
-	pb.UnimplementedTypefaceSpanServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *TypefaceSpanServer) NewTypefaceSpan(_ context.Context, req *pb.NewTypefaceSpanRequest) (*pb.NewTypefaceSpanResponse, error) {
-	obj, err := jnipkg.NewTypefaceSpan(s.Ctx.VM, s.Handles.Get(req.GetArg0()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
-	}
-	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-	}
-	return &pb.NewTypefaceSpanResponse{Result: handle}, nil
-}
-
-func (s *TypefaceSpanServer) DescribeContents(_ context.Context, req *pb.DescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.TypefaceSpan{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.DescribeContents()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.DescribeContentsResponse{Result: result}, nil
-}
-
-func (s *TypefaceSpanServer) GetFamily(_ context.Context, req *pb.GetFamilyRequest) (*pb.GetFamilyResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.TypefaceSpan{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetFamily()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetFamilyResponse{Result: result}, nil
-}
-
-func (s *TypefaceSpanServer) GetSpanTypeId(_ context.Context, req *pb.GetSpanTypeIdRequest) (*pb.GetSpanTypeIdResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.TypefaceSpan{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetSpanTypeId()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetSpanTypeIdResponse{Result: result}, nil
-}
-
-func (s *TypefaceSpanServer) GetTypeface(_ context.Context, req *pb.GetTypefaceRequest) (*pb.GetTypefaceResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.TypefaceSpan{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetTypeface()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetTypefaceResponse{Result: handle}, nil
-}
-
-func (s *TypefaceSpanServer) ToString(_ context.Context, req *pb.ToStringRequest) (*pb.ToStringResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.TypefaceSpan{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.ToString()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.ToStringResponse{Result: result}, nil
-}
-
-func (s *TypefaceSpanServer) UpdateDrawState(_ context.Context, req *pb.UpdateDrawStateRequest) (*pb.UpdateDrawStateResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.TypefaceSpan{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.UpdateDrawState(s.Handles.Get(req.GetArg0())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.UpdateDrawStateResponse{}, nil
-}
-
-func (s *TypefaceSpanServer) UpdateMeasureState(_ context.Context, req *pb.UpdateMeasureStateRequest) (*pb.UpdateMeasureStateResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.TypefaceSpan{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.UpdateMeasureState(s.Handles.Get(req.GetArg0())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.UpdateMeasureStateResponse{}, nil
-}
-
-func (s *TypefaceSpanServer) WriteToParcel(_ context.Context, req *pb.WriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.TypefaceSpan{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.WriteToParcel(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.WriteToParcelResponse{}, nil
-}
-
-// BulletSpanServer implements pb.BulletSpanServiceServer.
-type BulletSpanServer struct {
-	pb.UnimplementedBulletSpanServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *BulletSpanServer) NewBulletSpan(_ context.Context, req *pb.NewBulletSpanRequest) (*pb.NewBulletSpanResponse, error) {
-	obj, err := jnipkg.NewBulletSpan(s.Ctx.VM)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
-	}
-	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-	}
-	return &pb.NewBulletSpanResponse{Result: handle}, nil
-}
-
-func (s *BulletSpanServer) DescribeContents(_ context.Context, req *pb.DescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.BulletSpan{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.DescribeContents()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.DescribeContentsResponse{Result: result}, nil
-}
-
-func (s *BulletSpanServer) DrawLeadingMargin(_ context.Context, req *pb.DrawLeadingMarginRequest) (*pb.DrawLeadingMarginResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.BulletSpan{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.DrawLeadingMargin(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()), req.GetArg2(), req.GetArg3(), req.GetArg4(), req.GetArg5(), req.GetArg6(), req.GetArg7(), req.GetArg8(), req.GetArg9(), req.GetArg10(), s.Handles.Get(req.GetArg11())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.DrawLeadingMarginResponse{}, nil
-}
-
-func (s *BulletSpanServer) GetBulletRadius(_ context.Context, req *pb.GetBulletRadiusRequest) (*pb.GetBulletRadiusResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.BulletSpan{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetBulletRadius()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetBulletRadiusResponse{Result: result}, nil
-}
-
-func (s *BulletSpanServer) GetColor(_ context.Context, req *pb.GetColorRequest) (*pb.GetColorResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.BulletSpan{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetColor()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetColorResponse{Result: result}, nil
-}
-
-func (s *BulletSpanServer) GetGapWidth(_ context.Context, req *pb.GetGapWidthRequest) (*pb.GetGapWidthResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.BulletSpan{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetGapWidth()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetGapWidthResponse{Result: result}, nil
-}
-
-func (s *BulletSpanServer) GetLeadingMargin(_ context.Context, req *pb.GetLeadingMarginRequest) (*pb.GetLeadingMarginResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.BulletSpan{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetLeadingMargin(req.GetArg0())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetLeadingMarginResponse{Result: result}, nil
-}
-
-func (s *BulletSpanServer) GetSpanTypeId(_ context.Context, req *pb.GetSpanTypeIdRequest) (*pb.GetSpanTypeIdResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.BulletSpan{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetSpanTypeId()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetSpanTypeIdResponse{Result: result}, nil
-}
-
-func (s *BulletSpanServer) ToString(_ context.Context, req *pb.ToStringRequest) (*pb.ToStringResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.BulletSpan{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.ToString()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.ToStringResponse{Result: result}, nil
-}
-
-func (s *BulletSpanServer) WriteToParcel(_ context.Context, req *pb.WriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.BulletSpan{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.WriteToParcel(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.WriteToParcelResponse{}, nil
-}
-
-// UnderlineSpanServer implements pb.UnderlineSpanServiceServer.
-type UnderlineSpanServer struct {
-	pb.UnimplementedUnderlineSpanServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *UnderlineSpanServer) NewUnderlineSpan(_ context.Context, req *pb.NewUnderlineSpanRequest) (*pb.NewUnderlineSpanResponse, error) {
-	obj, err := jnipkg.NewUnderlineSpan(s.Ctx.VM)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
-	}
-	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-	}
-	return &pb.NewUnderlineSpanResponse{Result: handle}, nil
-}
-
-func (s *UnderlineSpanServer) DescribeContents(_ context.Context, req *pb.DescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.UnderlineSpan{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.DescribeContents()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.DescribeContentsResponse{Result: result}, nil
-}
-
-func (s *UnderlineSpanServer) GetSpanTypeId(_ context.Context, req *pb.GetSpanTypeIdRequest) (*pb.GetSpanTypeIdResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.UnderlineSpan{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetSpanTypeId()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetSpanTypeIdResponse{Result: result}, nil
-}
-
-func (s *UnderlineSpanServer) ToString(_ context.Context, req *pb.ToStringRequest) (*pb.ToStringResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.UnderlineSpan{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.ToString()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.ToStringResponse{Result: result}, nil
-}
-
-func (s *UnderlineSpanServer) UpdateDrawState(_ context.Context, req *pb.UpdateDrawStateRequest) (*pb.UpdateDrawStateResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.UnderlineSpan{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.UpdateDrawState(s.Handles.Get(req.GetArg0())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.UpdateDrawStateResponse{}, nil
-}
-
-func (s *UnderlineSpanServer) WriteToParcel(_ context.Context, req *pb.WriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.UnderlineSpan{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.WriteToParcel(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.WriteToParcelResponse{}, nil
-}
-
-// SpanServer implements pb.SpanServiceServer.
-type SpanServer struct {
-	pb.UnimplementedSpanServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *SpanServer) NewSpan(_ context.Context, req *pb.NewSpanRequest) (*pb.NewSpanResponse, error) {
-	obj, err := jnipkg.NewSpan(s.Ctx.VM, s.Handles.Get(req.GetArg0()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
-	}
-	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-	}
-	return &pb.NewSpanResponse{Result: handle}, nil
-}
-
-func (s *SpanServer) DescribeContents(_ context.Context, req *pb.DescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Span{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.DescribeContents()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.DescribeContentsResponse{Result: result}, nil
-}
-
-func (s *SpanServer) GetFontWeightAdjustment(_ context.Context, req *pb.GetFontWeightAdjustmentRequest) (*pb.GetFontWeightAdjustmentResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Span{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetFontWeightAdjustment()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetFontWeightAdjustmentResponse{Result: result}, nil
-}
-
-func (s *SpanServer) GetSpanTypeId(_ context.Context, req *pb.GetSpanTypeIdRequest) (*pb.GetSpanTypeIdResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Span{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetSpanTypeId()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetSpanTypeIdResponse{Result: result}, nil
-}
-
-func (s *SpanServer) GetStyle(_ context.Context, req *pb.GetStyleRequest) (*pb.GetStyleResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Span{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetStyle()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetStyleResponse{Result: result}, nil
-}
-
-func (s *SpanServer) ToString(_ context.Context, req *pb.ToStringRequest) (*pb.ToStringResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Span{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.ToString()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.ToStringResponse{Result: result}, nil
-}
-
-func (s *SpanServer) UpdateDrawState(_ context.Context, req *pb.UpdateDrawStateRequest) (*pb.UpdateDrawStateResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Span{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.UpdateDrawState(s.Handles.Get(req.GetArg0())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.UpdateDrawStateResponse{}, nil
-}
-
-func (s *SpanServer) UpdateMeasureState(_ context.Context, req *pb.UpdateMeasureStateRequest) (*pb.UpdateMeasureStateResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Span{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.UpdateMeasureState(s.Handles.Get(req.GetArg0())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.UpdateMeasureStateResponse{}, nil
-}
-
-func (s *SpanServer) WriteToParcel(_ context.Context, req *pb.WriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Span{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.WriteToParcel(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.WriteToParcelResponse{}, nil
-}
-
-// SuggestionSpanServer implements pb.SuggestionSpanServiceServer.
-type SuggestionSpanServer struct {
-	pb.UnimplementedSuggestionSpanServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *SuggestionSpanServer) NewSuggestionSpan(_ context.Context, req *pb.NewSuggestionSpanRequest) (*pb.NewSuggestionSpanResponse, error) {
-	obj, err := jnipkg.NewSuggestionSpan(s.Ctx.VM, s.Ctx.Obj, s.Handles.Get(req.GetArg1()), req.GetArg2())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
-	}
-	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-	}
-	return &pb.NewSuggestionSpanResponse{Result: handle}, nil
-}
-
-func (s *SuggestionSpanServer) DescribeContents(_ context.Context, req *pb.DescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.SuggestionSpan{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.DescribeContents()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.DescribeContentsResponse{Result: result}, nil
-}
-
-func (s *SuggestionSpanServer) Equals(_ context.Context, req *pb.EqualsRequest) (*pb.EqualsResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.SuggestionSpan{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.Equals(s.Handles.Get(req.GetArg0()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.EqualsResponse{Result: result}, nil
-}
-
-func (s *SuggestionSpanServer) GetFlags(_ context.Context, req *pb.GetFlagsRequest) (*pb.GetFlagsResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.SuggestionSpan{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetFlags()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetFlagsResponse{Result: result}, nil
-}
-
-func (s *SuggestionSpanServer) GetLocale(_ context.Context, req *pb.GetLocaleRequest) (*pb.GetLocaleResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.SuggestionSpan{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetLocale()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetLocaleResponse{Result: result}, nil
-}
-
-func (s *SuggestionSpanServer) GetLocaleObject(_ context.Context, req *pb.GetLocaleObjectRequest) (*pb.GetLocaleObjectResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.SuggestionSpan{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetLocaleObject()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetLocaleObjectResponse{Result: handle}, nil
-}
-
-func (s *SuggestionSpanServer) GetSpanTypeId(_ context.Context, req *pb.GetSpanTypeIdRequest) (*pb.GetSpanTypeIdResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.SuggestionSpan{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetSpanTypeId()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetSpanTypeIdResponse{Result: result}, nil
-}
-
-func (s *SuggestionSpanServer) GetSuggestions(_ context.Context, req *pb.GetSuggestionsRequest) (*pb.GetSuggestionsResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.SuggestionSpan{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetSuggestions()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetSuggestionsResponse{Result: handle}, nil
-}
-
-func (s *SuggestionSpanServer) GetUnderlineColor(_ context.Context, req *pb.GetUnderlineColorRequest) (*pb.GetUnderlineColorResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.SuggestionSpan{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetUnderlineColor()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetUnderlineColorResponse{Result: result}, nil
-}
-
-func (s *SuggestionSpanServer) HashCode(_ context.Context, req *pb.HashCodeRequest) (*pb.HashCodeResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.SuggestionSpan{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.HashCode()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.HashCodeResponse{Result: result}, nil
-}
-
-func (s *SuggestionSpanServer) SetFlags(_ context.Context, req *pb.SetFlagsRequest) (*pb.SetFlagsResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.SuggestionSpan{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.SetFlags(req.GetArg0()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SetFlagsResponse{}, nil
-}
-
-func (s *SuggestionSpanServer) UpdateDrawState(_ context.Context, req *pb.UpdateDrawStateRequest) (*pb.UpdateDrawStateResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.SuggestionSpan{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.UpdateDrawState(s.Handles.Get(req.GetArg0())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.UpdateDrawStateResponse{}, nil
-}
-
-func (s *SuggestionSpanServer) WriteToParcel(_ context.Context, req *pb.WriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.SuggestionSpan{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.WriteToParcel(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.WriteToParcelResponse{}, nil
-}
-
-// LineBreakConfigSpanServer implements pb.LineBreakConfigSpanServiceServer.
-type LineBreakConfigSpanServer struct {
-	pb.UnimplementedLineBreakConfigSpanServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *LineBreakConfigSpanServer) NewLineBreakConfigSpan(_ context.Context, req *pb.NewLineBreakConfigSpanRequest) (*pb.NewLineBreakConfigSpanResponse, error) {
-	obj, err := jnipkg.NewLineBreakConfigSpan(s.Ctx.VM, s.Handles.Get(req.GetArg0()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
-	}
-	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-	}
-	return &pb.NewLineBreakConfigSpanResponse{Result: handle}, nil
-}
-
-func (s *LineBreakConfigSpanServer) DescribeContents(_ context.Context, req *pb.DescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.LineBreakConfigSpan{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.DescribeContents()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.DescribeContentsResponse{Result: result}, nil
-}
-
-func (s *LineBreakConfigSpanServer) Equals(_ context.Context, req *pb.EqualsRequest) (*pb.EqualsResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.LineBreakConfigSpan{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.Equals(s.Handles.Get(req.GetArg0()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.EqualsResponse{Result: result}, nil
-}
-
-func (s *LineBreakConfigSpanServer) GetLineBreakConfig(_ context.Context, req *pb.GetLineBreakConfigRequest) (*pb.GetLineBreakConfigResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.LineBreakConfigSpan{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetLineBreakConfig()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetLineBreakConfigResponse{Result: handle}, nil
-}
-
-func (s *LineBreakConfigSpanServer) GetSpanTypeId(_ context.Context, req *pb.GetSpanTypeIdRequest) (*pb.GetSpanTypeIdResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.LineBreakConfigSpan{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetSpanTypeId()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetSpanTypeIdResponse{Result: result}, nil
-}
-
-func (s *LineBreakConfigSpanServer) HashCode(_ context.Context, req *pb.HashCodeRequest) (*pb.HashCodeResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.LineBreakConfigSpan{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.HashCode()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.HashCodeResponse{Result: result}, nil
-}
-
-func (s *LineBreakConfigSpanServer) ToString(_ context.Context, req *pb.ToStringRequest) (*pb.ToStringResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.LineBreakConfigSpan{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.ToString()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.ToStringResponse{Result: result}, nil
-}
-
-func (s *LineBreakConfigSpanServer) WriteToParcel(_ context.Context, req *pb.WriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.LineBreakConfigSpan{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.WriteToParcel(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.WriteToParcelResponse{}, nil
-}
-
-func (s *LineBreakConfigSpanServer) CreateNoBreakSpan(_ context.Context, req *pb.CreateNoBreakSpanRequest) (*pb.CreateNoBreakSpanResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.LineBreakConfigSpan{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.CreateNoBreakSpan()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.CreateNoBreakSpanResponse{Result: handle}, nil
-}
-
-func (s *LineBreakConfigSpanServer) CreateNoHyphenationSpan(_ context.Context, req *pb.CreateNoHyphenationSpanRequest) (*pb.CreateNoHyphenationSpanResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.LineBreakConfigSpan{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.CreateNoHyphenationSpan()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.CreateNoHyphenationSpanResponse{Result: handle}, nil
-}
-
-// ScaleXSpanServer implements pb.ScaleXSpanServiceServer.
-type ScaleXSpanServer struct {
-	pb.UnimplementedScaleXSpanServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *ScaleXSpanServer) NewScaleXSpan(_ context.Context, req *pb.NewScaleXSpanRequest) (*pb.NewScaleXSpanResponse, error) {
-	obj, err := jnipkg.NewScaleXSpan(s.Ctx.VM, s.Handles.Get(req.GetArg0()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
-	}
-	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-	}
-	return &pb.NewScaleXSpanResponse{Result: handle}, nil
-}
-
-func (s *ScaleXSpanServer) DescribeContents(_ context.Context, req *pb.DescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.ScaleXSpan{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.DescribeContents()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.DescribeContentsResponse{Result: result}, nil
-}
-
-func (s *ScaleXSpanServer) GetScaleX(_ context.Context, req *pb.GetScaleXRequest) (*pb.GetScaleXResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.ScaleXSpan{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetScaleX()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetScaleXResponse{Result: result}, nil
-}
-
-func (s *ScaleXSpanServer) GetSpanTypeId(_ context.Context, req *pb.GetSpanTypeIdRequest) (*pb.GetSpanTypeIdResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.ScaleXSpan{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetSpanTypeId()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetSpanTypeIdResponse{Result: result}, nil
-}
-
-func (s *ScaleXSpanServer) ToString(_ context.Context, req *pb.ToStringRequest) (*pb.ToStringResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.ScaleXSpan{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.ToString()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.ToStringResponse{Result: result}, nil
-}
-
-func (s *ScaleXSpanServer) UpdateDrawState(_ context.Context, req *pb.UpdateDrawStateRequest) (*pb.UpdateDrawStateResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.ScaleXSpan{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.UpdateDrawState(s.Handles.Get(req.GetArg0())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.UpdateDrawStateResponse{}, nil
-}
-
-func (s *ScaleXSpanServer) UpdateMeasureState(_ context.Context, req *pb.UpdateMeasureStateRequest) (*pb.UpdateMeasureStateResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.ScaleXSpan{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.UpdateMeasureState(s.Handles.Get(req.GetArg0())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.UpdateMeasureStateResponse{}, nil
-}
-
-func (s *ScaleXSpanServer) WriteToParcel(_ context.Context, req *pb.WriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.ScaleXSpan{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.WriteToParcel(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.WriteToParcelResponse{}, nil
-}
-
-// ImageSpanServer implements pb.ImageSpanServiceServer.
-type ImageSpanServer struct {
-	pb.UnimplementedImageSpanServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *ImageSpanServer) NewImageSpan(_ context.Context, req *pb.NewImageSpanRequest) (*pb.NewImageSpanResponse, error) {
-	obj, err := jnipkg.NewImageSpan(s.Ctx.VM, s.Ctx.Obj, s.Handles.Get(req.GetArg1()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
-	}
-	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-	}
-	return &pb.NewImageSpanResponse{Result: handle}, nil
-}
-
-func (s *ImageSpanServer) GetDrawable(_ context.Context, req *pb.GetDrawableRequest) (*pb.GetDrawableResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.ImageSpan{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetDrawable()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetDrawableResponse{Result: handle}, nil
-}
-
-func (s *ImageSpanServer) GetSource(_ context.Context, req *pb.GetSourceRequest) (*pb.GetSourceResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.ImageSpan{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetSource()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetSourceResponse{Result: result}, nil
-}
-
-func (s *ImageSpanServer) ToString(_ context.Context, req *pb.ToStringRequest) (*pb.ToStringResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.ImageSpan{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.ToString()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.ToStringResponse{Result: result}, nil
-}
-
-// IconMarginSpanServer implements pb.IconMarginSpanServiceServer.
-type IconMarginSpanServer struct {
-	pb.UnimplementedIconMarginSpanServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *IconMarginSpanServer) NewIconMarginSpan(_ context.Context, req *pb.NewIconMarginSpanRequest) (*pb.NewIconMarginSpanResponse, error) {
-	obj, err := jnipkg.NewIconMarginSpan(s.Ctx.VM, s.Handles.Get(req.GetArg0()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
-	}
-	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-	}
-	return &pb.NewIconMarginSpanResponse{Result: handle}, nil
-}
-
-func (s *IconMarginSpanServer) ChooseHeight(_ context.Context, req *pb.IconMarginSpanChooseHeightRequest) (*pb.ChooseHeightResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.IconMarginSpan{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.ChooseHeight(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3(), req.GetArg4(), s.Handles.Get(req.GetArg5())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.ChooseHeightResponse{}, nil
-}
-
-func (s *IconMarginSpanServer) DrawLeadingMargin(_ context.Context, req *pb.DrawLeadingMarginRequest) (*pb.DrawLeadingMarginResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.IconMarginSpan{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.DrawLeadingMargin(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()), req.GetArg2(), req.GetArg3(), req.GetArg4(), req.GetArg5(), req.GetArg6(), req.GetArg7(), req.GetArg8(), req.GetArg9(), req.GetArg10(), s.Handles.Get(req.GetArg11())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.DrawLeadingMarginResponse{}, nil
-}
-
-func (s *IconMarginSpanServer) GetBitmap(_ context.Context, req *pb.GetBitmapRequest) (*pb.GetBitmapResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.IconMarginSpan{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetBitmap()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetBitmapResponse{Result: handle}, nil
-}
-
-func (s *IconMarginSpanServer) GetLeadingMargin(_ context.Context, req *pb.GetLeadingMarginRequest) (*pb.GetLeadingMarginResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.IconMarginSpan{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetLeadingMargin(req.GetArg0())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetLeadingMarginResponse{Result: result}, nil
-}
-
-func (s *IconMarginSpanServer) GetPadding(_ context.Context, req *pb.GetPaddingRequest) (*pb.GetPaddingResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.IconMarginSpan{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetPadding()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetPaddingResponse{Result: result}, nil
-}
-
-func (s *IconMarginSpanServer) ToString(_ context.Context, req *pb.ToStringRequest) (*pb.ToStringResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.IconMarginSpan{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.ToString()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.ToStringResponse{Result: result}, nil
 }
 
 // LocaleSpanServer implements pb.LocaleSpanServiceServer.
@@ -2507,15 +2952,15 @@ func (s *LocaleSpanServer) WriteToParcel(_ context.Context, req *pb.WriteToParce
 	return &pb.WriteToParcelResponse{}, nil
 }
 
-// SuperscriptSpanServer implements pb.SuperscriptSpanServiceServer.
-type SuperscriptSpanServer struct {
-	pb.UnimplementedSuperscriptSpanServiceServer
+// ScaleXSpanServer implements pb.ScaleXSpanServiceServer.
+type ScaleXSpanServer struct {
+	pb.UnimplementedScaleXSpanServiceServer
 	Ctx     *app.Context
 	Handles *handlestore.HandleStore
 }
 
-func (s *SuperscriptSpanServer) NewSuperscriptSpan(_ context.Context, req *pb.NewSuperscriptSpanRequest) (*pb.NewSuperscriptSpanResponse, error) {
-	obj, err := jnipkg.NewSuperscriptSpan(s.Ctx.VM)
+func (s *ScaleXSpanServer) NewScaleXSpan(_ context.Context, req *pb.NewScaleXSpanRequest) (*pb.NewScaleXSpanResponse, error) {
+	obj, err := jnipkg.NewScaleXSpan(s.Ctx.VM, s.Handles.Get(req.GetArg0()))
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create object: %v", err)
 	}
@@ -2526,15 +2971,15 @@ func (s *SuperscriptSpanServer) NewSuperscriptSpan(_ context.Context, req *pb.Ne
 	}); doErr != nil {
 		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
 	}
-	return &pb.NewSuperscriptSpanResponse{Result: handle}, nil
+	return &pb.NewScaleXSpanResponse{Result: handle}, nil
 }
 
-func (s *SuperscriptSpanServer) DescribeContents(_ context.Context, req *pb.DescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
+func (s *ScaleXSpanServer) DescribeContents(_ context.Context, req *pb.DescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.SuperscriptSpan{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.ScaleXSpan{VM: s.Ctx.VM, Obj: rawObj}
 
 	result, err := mgr.DescribeContents()
 	if err != nil {
@@ -2543,12 +2988,26 @@ func (s *SuperscriptSpanServer) DescribeContents(_ context.Context, req *pb.Desc
 	return &pb.DescribeContentsResponse{Result: result}, nil
 }
 
-func (s *SuperscriptSpanServer) GetSpanTypeId(_ context.Context, req *pb.GetSpanTypeIdRequest) (*pb.GetSpanTypeIdResponse, error) {
+func (s *ScaleXSpanServer) GetScaleX(_ context.Context, req *pb.GetScaleXRequest) (*pb.GetScaleXResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.SuperscriptSpan{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.ScaleXSpan{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetScaleX()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetScaleXResponse{Result: result}, nil
+}
+
+func (s *ScaleXSpanServer) GetSpanTypeId(_ context.Context, req *pb.GetSpanTypeIdRequest) (*pb.GetSpanTypeIdResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ScaleXSpan{VM: s.Ctx.VM, Obj: rawObj}
 
 	result, err := mgr.GetSpanTypeId()
 	if err != nil {
@@ -2557,12 +3016,12 @@ func (s *SuperscriptSpanServer) GetSpanTypeId(_ context.Context, req *pb.GetSpan
 	return &pb.GetSpanTypeIdResponse{Result: result}, nil
 }
 
-func (s *SuperscriptSpanServer) ToString(_ context.Context, req *pb.ToStringRequest) (*pb.ToStringResponse, error) {
+func (s *ScaleXSpanServer) ToString(_ context.Context, req *pb.ToStringRequest) (*pb.ToStringResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.SuperscriptSpan{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.ScaleXSpan{VM: s.Ctx.VM, Obj: rawObj}
 
 	result, err := mgr.ToString()
 	if err != nil {
@@ -2571,12 +3030,12 @@ func (s *SuperscriptSpanServer) ToString(_ context.Context, req *pb.ToStringRequ
 	return &pb.ToStringResponse{Result: result}, nil
 }
 
-func (s *SuperscriptSpanServer) UpdateDrawState(_ context.Context, req *pb.UpdateDrawStateRequest) (*pb.UpdateDrawStateResponse, error) {
+func (s *ScaleXSpanServer) UpdateDrawState(_ context.Context, req *pb.UpdateDrawStateRequest) (*pb.UpdateDrawStateResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.SuperscriptSpan{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.ScaleXSpan{VM: s.Ctx.VM, Obj: rawObj}
 
 	if err := mgr.UpdateDrawState(s.Handles.Get(req.GetArg0())); err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
@@ -2584,12 +3043,12 @@ func (s *SuperscriptSpanServer) UpdateDrawState(_ context.Context, req *pb.Updat
 	return &pb.UpdateDrawStateResponse{}, nil
 }
 
-func (s *SuperscriptSpanServer) UpdateMeasureState(_ context.Context, req *pb.UpdateMeasureStateRequest) (*pb.UpdateMeasureStateResponse, error) {
+func (s *ScaleXSpanServer) UpdateMeasureState(_ context.Context, req *pb.UpdateMeasureStateRequest) (*pb.UpdateMeasureStateResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.SuperscriptSpan{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.ScaleXSpan{VM: s.Ctx.VM, Obj: rawObj}
 
 	if err := mgr.UpdateMeasureState(s.Handles.Get(req.GetArg0())); err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
@@ -2597,12 +3056,12 @@ func (s *SuperscriptSpanServer) UpdateMeasureState(_ context.Context, req *pb.Up
 	return &pb.UpdateMeasureStateResponse{}, nil
 }
 
-func (s *SuperscriptSpanServer) WriteToParcel(_ context.Context, req *pb.WriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
+func (s *ScaleXSpanServer) WriteToParcel(_ context.Context, req *pb.WriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.SuperscriptSpan{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.ScaleXSpan{VM: s.Ctx.VM, Obj: rawObj}
 
 	if err := mgr.WriteToParcel(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
@@ -2610,15 +3069,15 @@ func (s *SuperscriptSpanServer) WriteToParcel(_ context.Context, req *pb.WriteTo
 	return &pb.WriteToParcelResponse{}, nil
 }
 
-// TtsSpanServer implements pb.TtsSpanServiceServer.
-type TtsSpanServer struct {
-	pb.UnimplementedTtsSpanServiceServer
+// ImageSpanServer implements pb.ImageSpanServiceServer.
+type ImageSpanServer struct {
+	pb.UnimplementedImageSpanServiceServer
 	Ctx     *app.Context
 	Handles *handlestore.HandleStore
 }
 
-func (s *TtsSpanServer) NewTtsSpan(_ context.Context, req *pb.NewTtsSpanRequest) (*pb.NewTtsSpanResponse, error) {
-	obj, err := jnipkg.NewTtsSpan(s.Ctx.VM, s.Handles.Get(req.GetArg0()))
+func (s *ImageSpanServer) NewImageSpan(_ context.Context, req *pb.NewImageSpanRequest) (*pb.NewImageSpanResponse, error) {
+	obj, err := jnipkg.NewImageSpan(s.Ctx.VM, s.Ctx.Obj, s.Handles.Get(req.GetArg1()))
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create object: %v", err)
 	}
@@ -2629,31 +3088,17 @@ func (s *TtsSpanServer) NewTtsSpan(_ context.Context, req *pb.NewTtsSpanRequest)
 	}); doErr != nil {
 		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
 	}
-	return &pb.NewTtsSpanResponse{Result: handle}, nil
+	return &pb.NewImageSpanResponse{Result: handle}, nil
 }
 
-func (s *TtsSpanServer) DescribeContents(_ context.Context, req *pb.DescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
+func (s *ImageSpanServer) GetDrawable(_ context.Context, req *pb.ImageSpanGetDrawableRequest) (*pb.GetDrawableResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.TtsSpan{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.ImageSpan{VM: s.Ctx.VM, Obj: rawObj}
 
-	result, err := mgr.DescribeContents()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.DescribeContentsResponse{Result: result}, nil
-}
-
-func (s *TtsSpanServer) GetArgs(_ context.Context, req *pb.GetArgsRequest) (*pb.GetArgsResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.TtsSpan{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetArgs()
+	result, err := mgr.GetDrawable()
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
@@ -2666,286 +3111,35 @@ func (s *TtsSpanServer) GetArgs(_ context.Context, req *pb.GetArgsRequest) (*pb.
 			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
 		}
 	}
-	return &pb.GetArgsResponse{Result: handle}, nil
+	return &pb.GetDrawableResponse{Result: handle}, nil
 }
 
-func (s *TtsSpanServer) GetSpanTypeId(_ context.Context, req *pb.GetSpanTypeIdRequest) (*pb.GetSpanTypeIdResponse, error) {
+func (s *ImageSpanServer) GetSource(_ context.Context, req *pb.GetSourceRequest) (*pb.GetSourceResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.TtsSpan{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.ImageSpan{VM: s.Ctx.VM, Obj: rawObj}
 
-	result, err := mgr.GetSpanTypeId()
+	result, err := mgr.GetSource()
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.GetSpanTypeIdResponse{Result: result}, nil
+	return &pb.GetSourceResponse{Result: result}, nil
 }
 
-func (s *TtsSpanServer) GetType(_ context.Context, req *pb.GetTypeRequest) (*pb.GetTypeResponse, error) {
+func (s *ImageSpanServer) ToString(_ context.Context, req *pb.ToStringRequest) (*pb.ToStringResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.TtsSpan{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetType()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetTypeResponse{Result: result}, nil
-}
-
-func (s *TtsSpanServer) WriteToParcel(_ context.Context, req *pb.WriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.TtsSpan{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.WriteToParcel(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.WriteToParcelResponse{}, nil
-}
-
-// SuggestionRangeSpanServer implements pb.SuggestionRangeSpanServiceServer.
-type SuggestionRangeSpanServer struct {
-	pb.UnimplementedSuggestionRangeSpanServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *SuggestionRangeSpanServer) NewSuggestionRangeSpan(_ context.Context, req *pb.NewSuggestionRangeSpanRequest) (*pb.NewSuggestionRangeSpanResponse, error) {
-	obj, err := jnipkg.NewSuggestionRangeSpan(s.Ctx.VM)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
-	}
-	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-	}
-	return &pb.NewSuggestionRangeSpanResponse{Result: handle}, nil
-}
-
-func (s *SuggestionRangeSpanServer) DescribeContents(_ context.Context, req *pb.DescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.SuggestionRangeSpan{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.DescribeContents()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.DescribeContentsResponse{Result: result}, nil
-}
-
-func (s *SuggestionRangeSpanServer) GetBackgroundColor(_ context.Context, req *pb.GetBackgroundColorRequest) (*pb.GetBackgroundColorResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.SuggestionRangeSpan{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetBackgroundColor()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetBackgroundColorResponse{Result: result}, nil
-}
-
-func (s *SuggestionRangeSpanServer) GetSpanTypeId(_ context.Context, req *pb.GetSpanTypeIdRequest) (*pb.GetSpanTypeIdResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.SuggestionRangeSpan{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetSpanTypeId()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetSpanTypeIdResponse{Result: result}, nil
-}
-
-func (s *SuggestionRangeSpanServer) SetBackgroundColor(_ context.Context, req *pb.SetBackgroundColorRequest) (*pb.SetBackgroundColorResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.SuggestionRangeSpan{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.SetBackgroundColor(req.GetArg0()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SetBackgroundColorResponse{}, nil
-}
-
-func (s *SuggestionRangeSpanServer) UpdateDrawState(_ context.Context, req *pb.UpdateDrawStateRequest) (*pb.UpdateDrawStateResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.SuggestionRangeSpan{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.UpdateDrawState(s.Handles.Get(req.GetArg0())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.UpdateDrawStateResponse{}, nil
-}
-
-func (s *SuggestionRangeSpanServer) WriteToParcel(_ context.Context, req *pb.WriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.SuggestionRangeSpan{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.WriteToParcel(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.WriteToParcelResponse{}, nil
-}
-
-// EasyEditSpanServer implements pb.EasyEditSpanServiceServer.
-type EasyEditSpanServer struct {
-	pb.UnimplementedEasyEditSpanServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *EasyEditSpanServer) NewEasyEditSpan(_ context.Context, req *pb.NewEasyEditSpanRequest) (*pb.NewEasyEditSpanResponse, error) {
-	obj, err := jnipkg.NewEasyEditSpan(s.Ctx.VM)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
-	}
-	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-	}
-	return &pb.NewEasyEditSpanResponse{Result: handle}, nil
-}
-
-func (s *EasyEditSpanServer) DescribeContents(_ context.Context, req *pb.DescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.EasyEditSpan{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.DescribeContents()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.DescribeContentsResponse{Result: result}, nil
-}
-
-func (s *EasyEditSpanServer) GetSpanTypeId(_ context.Context, req *pb.GetSpanTypeIdRequest) (*pb.GetSpanTypeIdResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.EasyEditSpan{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetSpanTypeId()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetSpanTypeIdResponse{Result: result}, nil
-}
-
-func (s *EasyEditSpanServer) WriteToParcel(_ context.Context, req *pb.WriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.EasyEditSpan{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.WriteToParcel(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.WriteToParcelResponse{}, nil
-}
-
-// MaskFilterSpanServer implements pb.MaskFilterSpanServiceServer.
-type MaskFilterSpanServer struct {
-	pb.UnimplementedMaskFilterSpanServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *MaskFilterSpanServer) NewMaskFilterSpan(_ context.Context, req *pb.NewMaskFilterSpanRequest) (*pb.NewMaskFilterSpanResponse, error) {
-	obj, err := jnipkg.NewMaskFilterSpan(s.Ctx.VM, s.Handles.Get(req.GetArg0()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
-	}
-	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-	}
-	return &pb.NewMaskFilterSpanResponse{Result: handle}, nil
-}
-
-func (s *MaskFilterSpanServer) GetMaskFilter(_ context.Context, req *pb.GetMaskFilterRequest) (*pb.GetMaskFilterResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.MaskFilterSpan{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetMaskFilter()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetMaskFilterResponse{Result: handle}, nil
-}
-
-func (s *MaskFilterSpanServer) ToString(_ context.Context, req *pb.ToStringRequest) (*pb.ToStringResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.MaskFilterSpan{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.ImageSpan{VM: s.Ctx.VM, Obj: rawObj}
 
 	result, err := mgr.ToString()
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
 	return &pb.ToStringResponse{Result: result}, nil
-}
-
-func (s *MaskFilterSpanServer) UpdateDrawState(_ context.Context, req *pb.UpdateDrawStateRequest) (*pb.UpdateDrawStateResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.MaskFilterSpan{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.UpdateDrawState(s.Handles.Get(req.GetArg0())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.UpdateDrawStateResponse{}, nil
 }
 
 // BackgroundColorSpanServer implements pb.BackgroundColorSpanServiceServer.
@@ -3045,200 +3239,6 @@ func (s *BackgroundColorSpanServer) WriteToParcel(_ context.Context, req *pb.Wri
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
 	mgr := &jnipkg.BackgroundColorSpan{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.WriteToParcel(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.WriteToParcelResponse{}, nil
-}
-
-// StrikethroughSpanServer implements pb.StrikethroughSpanServiceServer.
-type StrikethroughSpanServer struct {
-	pb.UnimplementedStrikethroughSpanServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *StrikethroughSpanServer) NewStrikethroughSpan(_ context.Context, req *pb.NewStrikethroughSpanRequest) (*pb.NewStrikethroughSpanResponse, error) {
-	obj, err := jnipkg.NewStrikethroughSpan(s.Ctx.VM)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
-	}
-	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-	}
-	return &pb.NewStrikethroughSpanResponse{Result: handle}, nil
-}
-
-func (s *StrikethroughSpanServer) DescribeContents(_ context.Context, req *pb.DescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.StrikethroughSpan{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.DescribeContents()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.DescribeContentsResponse{Result: result}, nil
-}
-
-func (s *StrikethroughSpanServer) GetSpanTypeId(_ context.Context, req *pb.GetSpanTypeIdRequest) (*pb.GetSpanTypeIdResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.StrikethroughSpan{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetSpanTypeId()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetSpanTypeIdResponse{Result: result}, nil
-}
-
-func (s *StrikethroughSpanServer) ToString(_ context.Context, req *pb.ToStringRequest) (*pb.ToStringResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.StrikethroughSpan{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.ToString()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.ToStringResponse{Result: result}, nil
-}
-
-func (s *StrikethroughSpanServer) UpdateDrawState(_ context.Context, req *pb.UpdateDrawStateRequest) (*pb.UpdateDrawStateResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.StrikethroughSpan{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.UpdateDrawState(s.Handles.Get(req.GetArg0())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.UpdateDrawStateResponse{}, nil
-}
-
-func (s *StrikethroughSpanServer) WriteToParcel(_ context.Context, req *pb.WriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.StrikethroughSpan{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.WriteToParcel(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.WriteToParcelResponse{}, nil
-}
-
-// URLSpanServer implements pb.URLSpanServiceServer.
-type URLSpanServer struct {
-	pb.UnimplementedURLSpanServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *URLSpanServer) NewURLSpan(_ context.Context, req *pb.NewURLSpanRequest) (*pb.NewURLSpanResponse, error) {
-	obj, err := jnipkg.NewURLSpan(s.Ctx.VM, s.Handles.Get(req.GetArg0()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
-	}
-	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-	}
-	return &pb.NewURLSpanResponse{Result: handle}, nil
-}
-
-func (s *URLSpanServer) DescribeContents(_ context.Context, req *pb.DescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.URLSpan{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.DescribeContents()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.DescribeContentsResponse{Result: result}, nil
-}
-
-func (s *URLSpanServer) GetSpanTypeId(_ context.Context, req *pb.GetSpanTypeIdRequest) (*pb.GetSpanTypeIdResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.URLSpan{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetSpanTypeId()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetSpanTypeIdResponse{Result: result}, nil
-}
-
-func (s *URLSpanServer) GetURL(_ context.Context, req *pb.GetURLRequest) (*pb.GetURLResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.URLSpan{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetURL()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetURLResponse{Result: result}, nil
-}
-
-func (s *URLSpanServer) OnClick(_ context.Context, req *pb.URLSpanOnClickRequest) (*pb.OnClickResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.URLSpan{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.OnClick(s.Handles.Get(req.GetArg0())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.OnClickResponse{}, nil
-}
-
-func (s *URLSpanServer) ToString(_ context.Context, req *pb.ToStringRequest) (*pb.ToStringResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.URLSpan{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.ToString()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.ToStringResponse{Result: result}, nil
-}
-
-func (s *URLSpanServer) WriteToParcel(_ context.Context, req *pb.WriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.URLSpan{VM: s.Ctx.VM, Obj: rawObj}
 
 	if err := mgr.WriteToParcel(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)

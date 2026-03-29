@@ -9,28 +9,67 @@ import (
 	"google.golang.org/grpc"
 )
 
-// DataShareWriteAdapterClient wraps the gRPC DataShareWriteAdapterService client.
-type DataShareWriteAdapterClient struct {
-	svc pb.DataShareWriteAdapterServiceClient
+// ContentCaptureManagerClient wraps the gRPC ContentCaptureManagerService client.
+type ContentCaptureManagerClient struct {
+	svc pb.ContentCaptureManagerServiceClient
 }
 
-// NewDataShareWriteAdapterClient creates a new DataShareWriteAdapter client.
-func NewDataShareWriteAdapterClient(cc grpc.ClientConnInterface) *DataShareWriteAdapterClient {
-	return &DataShareWriteAdapterClient{
-		svc: pb.NewDataShareWriteAdapterServiceClient(cc),
+// NewContentCaptureManagerClient creates a new ContentCaptureManager client.
+func NewContentCaptureManagerClient(cc grpc.ClientConnInterface) *ContentCaptureManagerClient {
+	return &ContentCaptureManagerClient{
+		svc: pb.NewContentCaptureManagerServiceClient(cc),
 	}
 }
 
-// OnRejected calls the OnRejected RPC.
-func (c *DataShareWriteAdapterClient) OnRejected(ctx context.Context) error {
-	_, err := c.svc.OnRejected(ctx, &pb.OnRejectedRequest{})
+// GetContentCaptureConditions calls the GetContentCaptureConditions RPC.
+func (c *ContentCaptureManagerClient) GetContentCaptureConditions(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetContentCaptureConditions(ctx, &pb.GetContentCaptureConditionsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetServiceComponentName calls the GetServiceComponentName RPC.
+func (c *ContentCaptureManagerClient) GetServiceComponentName(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetServiceComponentName(ctx, &pb.GetServiceComponentNameRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsContentCaptureEnabled calls the IsContentCaptureEnabled RPC.
+func (c *ContentCaptureManagerClient) IsContentCaptureEnabled(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsContentCaptureEnabled(ctx, &pb.IsContentCaptureEnabledRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// RemoveData calls the RemoveData RPC.
+func (c *ContentCaptureManagerClient) RemoveData(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.RemoveData(ctx, &pb.RemoveDataRequest{
+		Arg0: arg0,
+	})
 	return err
 }
 
-// OnWrite calls the OnWrite RPC.
-func (c *DataShareWriteAdapterClient) OnWrite(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.OnWrite(ctx, &pb.OnWriteRequest{
+// SetContentCaptureEnabled calls the SetContentCaptureEnabled RPC.
+func (c *ContentCaptureManagerClient) SetContentCaptureEnabled(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.SetContentCaptureEnabled(ctx, &pb.SetContentCaptureEnabledRequest{
 		Arg0: arg0,
+	})
+	return err
+}
+
+// ShareData calls the ShareData RPC.
+func (c *ContentCaptureManagerClient) ShareData(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) error {
+	_, err := c.svc.ShareData(ctx, &pb.ShareDataRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
 	})
 	return err
 }
@@ -259,6 +298,221 @@ func (c *ContentCaptureSessionIdClient) WriteToParcel(ctx context.Context, arg0 
 	return err
 }
 
+// ContentCaptureConditionClient wraps the gRPC ContentCaptureConditionService client.
+type ContentCaptureConditionClient struct {
+	svc pb.ContentCaptureConditionServiceClient
+}
+
+// NewContentCaptureConditionClient creates a new ContentCaptureCondition client.
+func NewContentCaptureConditionClient(cc grpc.ClientConnInterface) *ContentCaptureConditionClient {
+	return &ContentCaptureConditionClient{
+		svc: pb.NewContentCaptureConditionServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *ContentCaptureConditionClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.ContentCaptureConditionDescribeContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *ContentCaptureConditionClient) Equals(ctx context.Context, handle int64, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.ContentCaptureConditionEqualsRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetFlags calls the GetFlags RPC.
+func (c *ContentCaptureConditionClient) GetFlags(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetFlags(ctx, &pb.GetFlagsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLocusId calls the GetLocusId RPC.
+func (c *ContentCaptureConditionClient) GetLocusId(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetLocusId(ctx, &pb.GetLocusIdRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *ContentCaptureConditionClient) HashCode(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.ContentCaptureConditionHashCodeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *ContentCaptureConditionClient) ToString(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ContentCaptureConditionToStringRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *ContentCaptureConditionClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.ContentCaptureConditionWriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// DataShareWriteAdapterClient wraps the gRPC DataShareWriteAdapterService client.
+type DataShareWriteAdapterClient struct {
+	svc pb.DataShareWriteAdapterServiceClient
+}
+
+// NewDataShareWriteAdapterClient creates a new DataShareWriteAdapter client.
+func NewDataShareWriteAdapterClient(cc grpc.ClientConnInterface) *DataShareWriteAdapterClient {
+	return &DataShareWriteAdapterClient{
+		svc: pb.NewDataShareWriteAdapterServiceClient(cc),
+	}
+}
+
+// OnRejected calls the OnRejected RPC.
+func (c *DataShareWriteAdapterClient) OnRejected(ctx context.Context) error {
+	_, err := c.svc.OnRejected(ctx, &pb.OnRejectedRequest{})
+	return err
+}
+
+// OnWrite calls the OnWrite RPC.
+func (c *DataShareWriteAdapterClient) OnWrite(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnWrite(ctx, &pb.OnWriteRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// ContentCaptureContextClient wraps the gRPC ContentCaptureContextService client.
+type ContentCaptureContextClient struct {
+	svc pb.ContentCaptureContextServiceClient
+}
+
+// NewContentCaptureContextClient creates a new ContentCaptureContext client.
+func NewContentCaptureContextClient(cc grpc.ClientConnInterface) *ContentCaptureContextClient {
+	return &ContentCaptureContextClient{
+		svc: pb.NewContentCaptureContextServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *ContentCaptureContextClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetExtras calls the GetExtras RPC.
+func (c *ContentCaptureContextClient) GetExtras(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetExtras(ctx, &pb.GetExtrasRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLocusId calls the GetLocusId RPC.
+func (c *ContentCaptureContextClient) GetLocusId(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetLocusId(ctx, &pb.ContentCaptureContextGetLocusIdRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *ContentCaptureContextClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *ContentCaptureContextClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// ForLocusId calls the ForLocusId RPC.
+func (c *ContentCaptureContextClient) ForLocusId(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.ForLocusId(ctx, &pb.ForLocusIdRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ContentCaptureContextBuilderClient wraps the gRPC ContentCaptureContextBuilderService client.
+type ContentCaptureContextBuilderClient struct {
+	svc pb.ContentCaptureContextBuilderServiceClient
+}
+
+// NewContentCaptureContextBuilderClient creates a new ContentCaptureContextBuilder client.
+func NewContentCaptureContextBuilderClient(cc grpc.ClientConnInterface) *ContentCaptureContextBuilderClient {
+	return &ContentCaptureContextBuilderClient{
+		svc: pb.NewContentCaptureContextBuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *ContentCaptureContextBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetExtras calls the SetExtras RPC.
+func (c *ContentCaptureContextBuilderClient) SetExtras(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetExtras(ctx, &pb.SetExtrasRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // DataRemovalRequestClient wraps the gRPC DataRemovalRequestService client.
 type DataRemovalRequestClient struct {
 	svc pb.DataRemovalRequestServiceClient
@@ -274,6 +528,15 @@ func NewDataRemovalRequestClient(cc grpc.ClientConnInterface) *DataRemovalReques
 // DescribeContents calls the DescribeContents RPC.
 func (c *DataRemovalRequestClient) DescribeContents(ctx context.Context) (int32, error) {
 	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLocusIdRequests calls the GetLocusIdRequests RPC.
+func (c *DataRemovalRequestClient) GetLocusIdRequests(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetLocusIdRequests(ctx, &pb.GetLocusIdRequestsRequest{})
 	if err != nil {
 		return 0, err
 	}
@@ -363,7 +626,7 @@ func NewDataRemovalRequestLocusIdRequestClient(cc grpc.ClientConnInterface) *Dat
 
 // GetFlags calls the GetFlags RPC.
 func (c *DataRemovalRequestLocusIdRequestClient) GetFlags(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetFlags(ctx, &pb.GetFlagsRequest{})
+	resp, err := c.svc.GetFlags(ctx, &pb.DataRemovalRequestLocusIdRequestGetFlagsRequest{})
 	if err != nil {
 		return 0, err
 	}
@@ -372,256 +635,11 @@ func (c *DataRemovalRequestLocusIdRequestClient) GetFlags(ctx context.Context) (
 
 // GetLocusId calls the GetLocusId RPC.
 func (c *DataRemovalRequestLocusIdRequestClient) GetLocusId(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetLocusId(ctx, &pb.GetLocusIdRequest{})
+	resp, err := c.svc.GetLocusId(ctx, &pb.DataRemovalRequestLocusIdRequestGetLocusIdRequest{})
 	if err != nil {
 		return 0, err
 	}
 	return resp.GetResult(), nil
-}
-
-// ContentCaptureContextClient wraps the gRPC ContentCaptureContextService client.
-type ContentCaptureContextClient struct {
-	svc pb.ContentCaptureContextServiceClient
-}
-
-// NewContentCaptureContextClient creates a new ContentCaptureContext client.
-func NewContentCaptureContextClient(cc grpc.ClientConnInterface) *ContentCaptureContextClient {
-	return &ContentCaptureContextClient{
-		svc: pb.NewContentCaptureContextServiceClient(cc),
-	}
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *ContentCaptureContextClient) DescribeContents(ctx context.Context) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetExtras calls the GetExtras RPC.
-func (c *ContentCaptureContextClient) GetExtras(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetExtras(ctx, &pb.GetExtrasRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetLocusId calls the GetLocusId RPC.
-func (c *ContentCaptureContextClient) GetLocusId(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetLocusId(ctx, &pb.GetLocusIdRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToString calls the ToString RPC.
-func (c *ContentCaptureContextClient) ToString(ctx context.Context) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *ContentCaptureContextClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// ForLocusId calls the ForLocusId RPC.
-func (c *ContentCaptureContextClient) ForLocusId(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.ForLocusId(ctx, &pb.ForLocusIdRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ContentCaptureContextBuilderClient wraps the gRPC ContentCaptureContextBuilderService client.
-type ContentCaptureContextBuilderClient struct {
-	svc pb.ContentCaptureContextBuilderServiceClient
-}
-
-// NewContentCaptureContextBuilderClient creates a new ContentCaptureContextBuilder client.
-func NewContentCaptureContextBuilderClient(cc grpc.ClientConnInterface) *ContentCaptureContextBuilderClient {
-	return &ContentCaptureContextBuilderClient{
-		svc: pb.NewContentCaptureContextBuilderServiceClient(cc),
-	}
-}
-
-// Build calls the Build RPC.
-func (c *ContentCaptureContextBuilderClient) Build(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetExtras calls the SetExtras RPC.
-func (c *ContentCaptureContextBuilderClient) SetExtras(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetExtras(ctx, &pb.SetExtrasRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ContentCaptureConditionClient wraps the gRPC ContentCaptureConditionService client.
-type ContentCaptureConditionClient struct {
-	svc pb.ContentCaptureConditionServiceClient
-}
-
-// NewContentCaptureConditionClient creates a new ContentCaptureCondition client.
-func NewContentCaptureConditionClient(cc grpc.ClientConnInterface) *ContentCaptureConditionClient {
-	return &ContentCaptureConditionClient{
-		svc: pb.NewContentCaptureConditionServiceClient(cc),
-	}
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *ContentCaptureConditionClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.ContentCaptureConditionDescribeContentsRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Equals calls the Equals RPC.
-func (c *ContentCaptureConditionClient) Equals(ctx context.Context, handle int64, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.ContentCaptureConditionEqualsRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetFlags calls the GetFlags RPC.
-func (c *ContentCaptureConditionClient) GetFlags(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetFlags(ctx, &pb.ContentCaptureConditionGetFlagsRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetLocusId calls the GetLocusId RPC.
-func (c *ContentCaptureConditionClient) GetLocusId(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetLocusId(ctx, &pb.ContentCaptureConditionGetLocusIdRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *ContentCaptureConditionClient) HashCode(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.ContentCaptureConditionHashCodeRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToString calls the ToString RPC.
-func (c *ContentCaptureConditionClient) ToString(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ContentCaptureConditionToStringRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *ContentCaptureConditionClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.ContentCaptureConditionWriteToParcelRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// ContentCaptureManagerClient wraps the gRPC ContentCaptureManagerService client.
-type ContentCaptureManagerClient struct {
-	svc pb.ContentCaptureManagerServiceClient
-}
-
-// NewContentCaptureManagerClient creates a new ContentCaptureManager client.
-func NewContentCaptureManagerClient(cc grpc.ClientConnInterface) *ContentCaptureManagerClient {
-	return &ContentCaptureManagerClient{
-		svc: pb.NewContentCaptureManagerServiceClient(cc),
-	}
-}
-
-// GetServiceComponentName calls the GetServiceComponentName RPC.
-func (c *ContentCaptureManagerClient) GetServiceComponentName(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetServiceComponentName(ctx, &pb.GetServiceComponentNameRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsContentCaptureEnabled calls the IsContentCaptureEnabled RPC.
-func (c *ContentCaptureManagerClient) IsContentCaptureEnabled(ctx context.Context) (bool, error) {
-	resp, err := c.svc.IsContentCaptureEnabled(ctx, &pb.IsContentCaptureEnabledRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// RemoveData calls the RemoveData RPC.
-func (c *ContentCaptureManagerClient) RemoveData(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.RemoveData(ctx, &pb.RemoveDataRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetContentCaptureEnabled calls the SetContentCaptureEnabled RPC.
-func (c *ContentCaptureManagerClient) SetContentCaptureEnabled(ctx context.Context, arg0 bool) error {
-	_, err := c.svc.SetContentCaptureEnabled(ctx, &pb.SetContentCaptureEnabledRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// ShareData calls the ShareData RPC.
-func (c *ContentCaptureManagerClient) ShareData(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) error {
-	_, err := c.svc.ShareData(ctx, &pb.ShareDataRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	return err
 }
 
 // DataShareRequestClient wraps the gRPC DataShareRequestService client.
@@ -661,7 +679,7 @@ func (c *DataShareRequestClient) Equals(ctx context.Context, handle int64, arg0 
 
 // GetLocusId calls the GetLocusId RPC.
 func (c *DataShareRequestClient) GetLocusId(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetLocusId(ctx, &pb.DataShareRequestGetLocusIdRequest{
+	resp, err := c.svc.GetLocusId(ctx, &pb.GetLocusIdRequest{
 		Handle: handle,
 	})
 	if err != nil {

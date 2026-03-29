@@ -26,6 +26,9 @@ const (
 	NumberService_Equals_FullMethodName                         = "/emergency.NumberService/Equals"
 	NumberService_GetCountryIso_FullMethodName                  = "/emergency.NumberService/GetCountryIso"
 	NumberService_GetEmergencyCallRouting_FullMethodName        = "/emergency.NumberService/GetEmergencyCallRouting"
+	NumberService_GetEmergencyNumberSources_FullMethodName      = "/emergency.NumberService/GetEmergencyNumberSources"
+	NumberService_GetEmergencyServiceCategories_FullMethodName  = "/emergency.NumberService/GetEmergencyServiceCategories"
+	NumberService_GetEmergencyUrns_FullMethodName               = "/emergency.NumberService/GetEmergencyUrns"
 	NumberService_GetMnc_FullMethodName                         = "/emergency.NumberService/GetMnc"
 	NumberService_GetNumber_FullMethodName                      = "/emergency.NumberService/GetNumber"
 	NumberService_HashCode_FullMethodName                       = "/emergency.NumberService/HashCode"
@@ -45,6 +48,9 @@ type NumberServiceClient interface {
 	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
 	GetCountryIso(ctx context.Context, in *GetCountryIsoRequest, opts ...grpc.CallOption) (*GetCountryIsoResponse, error)
 	GetEmergencyCallRouting(ctx context.Context, in *GetEmergencyCallRoutingRequest, opts ...grpc.CallOption) (*GetEmergencyCallRoutingResponse, error)
+	GetEmergencyNumberSources(ctx context.Context, in *GetEmergencyNumberSourcesRequest, opts ...grpc.CallOption) (*GetEmergencyNumberSourcesResponse, error)
+	GetEmergencyServiceCategories(ctx context.Context, in *GetEmergencyServiceCategoriesRequest, opts ...grpc.CallOption) (*GetEmergencyServiceCategoriesResponse, error)
+	GetEmergencyUrns(ctx context.Context, in *GetEmergencyUrnsRequest, opts ...grpc.CallOption) (*GetEmergencyUrnsResponse, error)
 	GetMnc(ctx context.Context, in *GetMncRequest, opts ...grpc.CallOption) (*GetMncResponse, error)
 	GetNumber(ctx context.Context, in *GetNumberRequest, opts ...grpc.CallOption) (*GetNumberResponse, error)
 	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
@@ -107,6 +113,36 @@ func (c *numberServiceClient) GetEmergencyCallRouting(ctx context.Context, in *G
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetEmergencyCallRoutingResponse)
 	err := c.cc.Invoke(ctx, NumberService_GetEmergencyCallRouting_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *numberServiceClient) GetEmergencyNumberSources(ctx context.Context, in *GetEmergencyNumberSourcesRequest, opts ...grpc.CallOption) (*GetEmergencyNumberSourcesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetEmergencyNumberSourcesResponse)
+	err := c.cc.Invoke(ctx, NumberService_GetEmergencyNumberSources_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *numberServiceClient) GetEmergencyServiceCategories(ctx context.Context, in *GetEmergencyServiceCategoriesRequest, opts ...grpc.CallOption) (*GetEmergencyServiceCategoriesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetEmergencyServiceCategoriesResponse)
+	err := c.cc.Invoke(ctx, NumberService_GetEmergencyServiceCategories_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *numberServiceClient) GetEmergencyUrns(ctx context.Context, in *GetEmergencyUrnsRequest, opts ...grpc.CallOption) (*GetEmergencyUrnsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetEmergencyUrnsResponse)
+	err := c.cc.Invoke(ctx, NumberService_GetEmergencyUrns_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -202,6 +238,9 @@ type NumberServiceServer interface {
 	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
 	GetCountryIso(context.Context, *GetCountryIsoRequest) (*GetCountryIsoResponse, error)
 	GetEmergencyCallRouting(context.Context, *GetEmergencyCallRoutingRequest) (*GetEmergencyCallRoutingResponse, error)
+	GetEmergencyNumberSources(context.Context, *GetEmergencyNumberSourcesRequest) (*GetEmergencyNumberSourcesResponse, error)
+	GetEmergencyServiceCategories(context.Context, *GetEmergencyServiceCategoriesRequest) (*GetEmergencyServiceCategoriesResponse, error)
+	GetEmergencyUrns(context.Context, *GetEmergencyUrnsRequest) (*GetEmergencyUrnsResponse, error)
 	GetMnc(context.Context, *GetMncRequest) (*GetMncResponse, error)
 	GetNumber(context.Context, *GetNumberRequest) (*GetNumberResponse, error)
 	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
@@ -234,6 +273,15 @@ func (UnimplementedNumberServiceServer) GetCountryIso(context.Context, *GetCount
 }
 func (UnimplementedNumberServiceServer) GetEmergencyCallRouting(context.Context, *GetEmergencyCallRoutingRequest) (*GetEmergencyCallRoutingResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetEmergencyCallRouting not implemented")
+}
+func (UnimplementedNumberServiceServer) GetEmergencyNumberSources(context.Context, *GetEmergencyNumberSourcesRequest) (*GetEmergencyNumberSourcesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetEmergencyNumberSources not implemented")
+}
+func (UnimplementedNumberServiceServer) GetEmergencyServiceCategories(context.Context, *GetEmergencyServiceCategoriesRequest) (*GetEmergencyServiceCategoriesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetEmergencyServiceCategories not implemented")
+}
+func (UnimplementedNumberServiceServer) GetEmergencyUrns(context.Context, *GetEmergencyUrnsRequest) (*GetEmergencyUrnsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetEmergencyUrns not implemented")
 }
 func (UnimplementedNumberServiceServer) GetMnc(context.Context, *GetMncRequest) (*GetMncResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetMnc not implemented")
@@ -366,6 +414,60 @@ func _NumberService_GetEmergencyCallRouting_Handler(srv interface{}, ctx context
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(NumberServiceServer).GetEmergencyCallRouting(ctx, req.(*GetEmergencyCallRoutingRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NumberService_GetEmergencyNumberSources_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetEmergencyNumberSourcesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NumberServiceServer).GetEmergencyNumberSources(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NumberService_GetEmergencyNumberSources_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NumberServiceServer).GetEmergencyNumberSources(ctx, req.(*GetEmergencyNumberSourcesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NumberService_GetEmergencyServiceCategories_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetEmergencyServiceCategoriesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NumberServiceServer).GetEmergencyServiceCategories(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NumberService_GetEmergencyServiceCategories_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NumberServiceServer).GetEmergencyServiceCategories(ctx, req.(*GetEmergencyServiceCategoriesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NumberService_GetEmergencyUrns_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetEmergencyUrnsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NumberServiceServer).GetEmergencyUrns(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NumberService_GetEmergencyUrns_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NumberServiceServer).GetEmergencyUrns(ctx, req.(*GetEmergencyUrnsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -540,6 +642,18 @@ var NumberService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetEmergencyCallRouting",
 			Handler:    _NumberService_GetEmergencyCallRouting_Handler,
+		},
+		{
+			MethodName: "GetEmergencyNumberSources",
+			Handler:    _NumberService_GetEmergencyNumberSources_Handler,
+		},
+		{
+			MethodName: "GetEmergencyServiceCategories",
+			Handler:    _NumberService_GetEmergencyServiceCategories_Handler,
+		},
+		{
+			MethodName: "GetEmergencyUrns",
+			Handler:    _NumberService_GetEmergencyUrns_Handler,
 		},
 		{
 			MethodName: "GetMnc",

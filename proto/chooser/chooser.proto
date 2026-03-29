@@ -6,11 +6,84 @@ package chooser;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/chooser";
 
+message NewTargetRequest {
+  string arg0 = 1;
+  int64 arg1 = 2;
+  float arg2 = 3;
+  int64 arg3 = 4;
+  int64 arg4 = 5;
+}
+
+message NewTargetResponse {
+  int64 result = 1;
+}
+
 message DescribeContentsRequest {
+  int64 handle = 1;
 }
 
 message DescribeContentsResponse {
   int32 result = 1;
+}
+
+message GetComponentNameRequest {
+  int64 handle = 1;
+}
+
+message GetComponentNameResponse {
+  int64 result = 1;
+}
+
+message GetIconRequest {
+  int64 handle = 1;
+}
+
+message GetIconResponse {
+  int64 result = 1;
+}
+
+message GetIntentExtrasRequest {
+  int64 handle = 1;
+}
+
+message GetIntentExtrasResponse {
+  int64 result = 1;
+}
+
+message GetScoreRequest {
+  int64 handle = 1;
+}
+
+message GetScoreResponse {
+  float result = 1;
+}
+
+message GetTitleRequest {
+  int64 handle = 1;
+}
+
+message GetTitleResponse {
+  int64 result = 1;
+}
+
+message ToStringRequest {
+  int64 handle = 1;
+}
+
+message ToStringResponse {
+  string result = 1;
+}
+
+message WriteToParcelRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message WriteToParcelResponse {
+}
+
+message ActionDescribeContentsRequest {
 }
 
 message GetActionRequest {
@@ -20,11 +93,7 @@ message GetActionResponse {
   int64 result = 1;
 }
 
-message GetIconRequest {
-}
-
-message GetIconResponse {
-  int64 result = 1;
+message ActionGetIconRequest {
 }
 
 message GetLabelRequest {
@@ -34,19 +103,12 @@ message GetLabelResponse {
   int64 result = 1;
 }
 
-message ToStringRequest {
+message ActionToStringRequest {
 }
 
-message ToStringResponse {
-  string result = 1;
-}
-
-message WriteToParcelRequest {
+message ActionWriteToParcelRequest {
   int64 arg0 = 1;
   int32 arg1 = 2;
-}
-
-message WriteToParcelResponse {
 }
 
 message BuildRequest {
@@ -54,6 +116,26 @@ message BuildRequest {
 
 message BuildResponse {
   int64 result = 1;
+}
+
+message OnBindRequest {
+  int64 arg0 = 1;
+}
+
+message OnBindResponse {
+  int64 result = 1;
+}
+
+message OnGetChooserTargetsRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message OnGetChooserTargetsResponse {
+  int64 result = 1;
+}
+
+message ResultDescribeContentsRequest {
 }
 
 message EqualsRequest {
@@ -92,111 +174,47 @@ message IsShortcutResponse {
   bool result = 1;
 }
 
-message OnBindRequest {
+message ResultWriteToParcelRequest {
   int64 arg0 = 1;
+  int32 arg1 = 2;
 }
 
-message OnBindResponse {
-  int64 result = 1;
-}
-
-message NewTargetRequest {
-  string arg0 = 1;
-  int64 arg1 = 2;
-  float arg2 = 3;
-  int64 arg3 = 4;
-  int64 arg4 = 5;
-}
-
-message NewTargetResponse {
-  int64 result = 1;
-}
-
-message TargetDescribeContentsRequest {
-  int64 handle = 1;
-}
-
-message GetComponentNameRequest {
-  int64 handle = 1;
-}
-
-message GetComponentNameResponse {
-  int64 result = 1;
-}
-
-message TargetGetIconRequest {
-  int64 handle = 1;
-}
-
-message GetIntentExtrasRequest {
-  int64 handle = 1;
-}
-
-message GetIntentExtrasResponse {
-  int64 result = 1;
-}
-
-message GetScoreRequest {
-  int64 handle = 1;
-}
-
-message GetScoreResponse {
-  float result = 1;
-}
-
-message GetTitleRequest {
-  int64 handle = 1;
-}
-
-message GetTitleResponse {
-  int64 result = 1;
-}
-
-message TargetToStringRequest {
-  int64 handle = 1;
-}
-
-message TargetWriteToParcelRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-  int32 arg1 = 3;
+service TargetService {
+  rpc NewTarget (NewTargetRequest) returns (NewTargetResponse);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetComponentName (GetComponentNameRequest) returns (GetComponentNameResponse);
+  rpc GetIcon (GetIconRequest) returns (GetIconResponse);
+  rpc GetIntentExtras (GetIntentExtrasRequest) returns (GetIntentExtrasResponse);
+  rpc GetScore (GetScoreRequest) returns (GetScoreResponse);
+  rpc GetTitle (GetTitleRequest) returns (GetTitleResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
 }
 
 service ActionService {
-  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc DescribeContents (ActionDescribeContentsRequest) returns (DescribeContentsResponse);
   rpc GetAction (GetActionRequest) returns (GetActionResponse);
-  rpc GetIcon (GetIconRequest) returns (GetIconResponse);
+  rpc GetIcon (ActionGetIconRequest) returns (GetIconResponse);
   rpc GetLabel (GetLabelRequest) returns (GetLabelResponse);
-  rpc ToString (ToStringRequest) returns (ToStringResponse);
-  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+  rpc ToString (ActionToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (ActionWriteToParcelRequest) returns (WriteToParcelResponse);
 }
 
 service ActionBuilderService {
   rpc Build (BuildRequest) returns (BuildResponse);
 }
 
+service TargetServiceService {
+  rpc OnBind (OnBindRequest) returns (OnBindResponse);
+  rpc OnGetChooserTargets (OnGetChooserTargetsRequest) returns (OnGetChooserTargetsResponse);
+}
+
 service ResultService {
-  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc DescribeContents (ResultDescribeContentsRequest) returns (DescribeContentsResponse);
   rpc Equals (EqualsRequest) returns (EqualsResponse);
   rpc GetSelectedComponent (GetSelectedComponentRequest) returns (GetSelectedComponentResponse);
   rpc GetType (GetTypeRequest) returns (GetTypeResponse);
   rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
   rpc IsShortcut (IsShortcutRequest) returns (IsShortcutResponse);
-  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
-}
-
-service TargetServiceService {
-  rpc OnBind (OnBindRequest) returns (OnBindResponse);
-}
-
-service TargetService {
-  rpc NewTarget (NewTargetRequest) returns (NewTargetResponse);
-  rpc DescribeContents (TargetDescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc GetComponentName (GetComponentNameRequest) returns (GetComponentNameResponse);
-  rpc GetIcon (TargetGetIconRequest) returns (GetIconResponse);
-  rpc GetIntentExtras (GetIntentExtrasRequest) returns (GetIntentExtrasResponse);
-  rpc GetScore (GetScoreRequest) returns (GetScoreResponse);
-  rpc GetTitle (GetTitleRequest) returns (GetTitleResponse);
-  rpc ToString (TargetToStringRequest) returns (ToStringResponse);
-  rpc WriteToParcel (TargetWriteToParcelRequest) returns (WriteToParcelResponse);
+  rpc WriteToParcel (ResultWriteToParcelRequest) returns (WriteToParcelResponse);
 }

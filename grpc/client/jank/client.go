@@ -9,49 +9,6 @@ import (
 	"google.golang.org/grpc"
 )
 
-// RelativeFrameTimeHistogramClient wraps the gRPC RelativeFrameTimeHistogramService client.
-type RelativeFrameTimeHistogramClient struct {
-	svc pb.RelativeFrameTimeHistogramServiceClient
-}
-
-// NewRelativeFrameTimeHistogramClient creates a new RelativeFrameTimeHistogram client.
-func NewRelativeFrameTimeHistogramClient(cc grpc.ClientConnInterface) *RelativeFrameTimeHistogramClient {
-	return &RelativeFrameTimeHistogramClient{
-		svc: pb.NewRelativeFrameTimeHistogramServiceClient(cc),
-	}
-}
-
-// AddRelativeFrameTimeMillis calls the AddRelativeFrameTimeMillis RPC.
-func (c *RelativeFrameTimeHistogramClient) AddRelativeFrameTimeMillis(ctx context.Context, handle int64, arg0 int32) error {
-	_, err := c.svc.AddRelativeFrameTimeMillis(ctx, &pb.AddRelativeFrameTimeMillisRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// GetBucketCounters calls the GetBucketCounters RPC.
-func (c *RelativeFrameTimeHistogramClient) GetBucketCounters(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetBucketCounters(ctx, &pb.GetBucketCountersRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetBucketEndpointsMillis calls the GetBucketEndpointsMillis RPC.
-func (c *RelativeFrameTimeHistogramClient) GetBucketEndpointsMillis(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetBucketEndpointsMillis(ctx, &pb.GetBucketEndpointsMillisRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
 // AppJankStatsClient wraps the gRPC AppJankStatsService client.
 type AppJankStatsClient struct {
 	svc pb.AppJankStatsServiceClient
@@ -148,6 +105,49 @@ func (c *AppJankStatsClient) GetWidgetState(ctx context.Context, handle int64) (
 	})
 	if err != nil {
 		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// RelativeFrameTimeHistogramClient wraps the gRPC RelativeFrameTimeHistogramService client.
+type RelativeFrameTimeHistogramClient struct {
+	svc pb.RelativeFrameTimeHistogramServiceClient
+}
+
+// NewRelativeFrameTimeHistogramClient creates a new RelativeFrameTimeHistogram client.
+func NewRelativeFrameTimeHistogramClient(cc grpc.ClientConnInterface) *RelativeFrameTimeHistogramClient {
+	return &RelativeFrameTimeHistogramClient{
+		svc: pb.NewRelativeFrameTimeHistogramServiceClient(cc),
+	}
+}
+
+// AddRelativeFrameTimeMillis calls the AddRelativeFrameTimeMillis RPC.
+func (c *RelativeFrameTimeHistogramClient) AddRelativeFrameTimeMillis(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.AddRelativeFrameTimeMillis(ctx, &pb.AddRelativeFrameTimeMillisRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// GetBucketCounters calls the GetBucketCounters RPC.
+func (c *RelativeFrameTimeHistogramClient) GetBucketCounters(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetBucketCounters(ctx, &pb.GetBucketCountersRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetBucketEndpointsMillis calls the GetBucketEndpointsMillis RPC.
+func (c *RelativeFrameTimeHistogramClient) GetBucketEndpointsMillis(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetBucketEndpointsMillis(ctx, &pb.GetBucketEndpointsMillisRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
 	}
 	return resp.GetResult(), nil
 }

@@ -21,764 +21,368 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	IdentityChangedListenerService_NewIdentityChangedListener_FullMethodName = "/aware.IdentityChangedListenerService/NewIdentityChangedListener"
-	IdentityChangedListenerService_OnClusterIdChanged_FullMethodName         = "/aware.IdentityChangedListenerService/OnClusterIdChanged"
-	IdentityChangedListenerService_OnIdentityChanged_FullMethodName          = "/aware.IdentityChangedListenerService/OnIdentityChanged"
+	SubscribeConfigService_DescribeContents_FullMethodName                  = "/aware.SubscribeConfigService/DescribeContents"
+	SubscribeConfigService_Equals_FullMethodName                            = "/aware.SubscribeConfigService/Equals"
+	SubscribeConfigService_GetInstantCommunicationBand_FullMethodName       = "/aware.SubscribeConfigService/GetInstantCommunicationBand"
+	SubscribeConfigService_GetPairingConfig_FullMethodName                  = "/aware.SubscribeConfigService/GetPairingConfig"
+	SubscribeConfigService_HashCode_FullMethodName                          = "/aware.SubscribeConfigService/HashCode"
+	SubscribeConfigService_IsInstantCommunicationModeEnabled_FullMethodName = "/aware.SubscribeConfigService/IsInstantCommunicationModeEnabled"
+	SubscribeConfigService_ToString_FullMethodName                          = "/aware.SubscribeConfigService/ToString"
+	SubscribeConfigService_WriteToParcel_FullMethodName                     = "/aware.SubscribeConfigService/WriteToParcel"
 )
 
-// IdentityChangedListenerServiceClient is the client API for IdentityChangedListenerService service.
+// SubscribeConfigServiceClient is the client API for SubscribeConfigService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type IdentityChangedListenerServiceClient interface {
-	NewIdentityChangedListener(ctx context.Context, in *NewIdentityChangedListenerRequest, opts ...grpc.CallOption) (*NewIdentityChangedListenerResponse, error)
-	OnClusterIdChanged(ctx context.Context, in *OnClusterIdChangedRequest, opts ...grpc.CallOption) (*OnClusterIdChangedResponse, error)
-	OnIdentityChanged(ctx context.Context, in *OnIdentityChangedRequest, opts ...grpc.CallOption) (*OnIdentityChangedResponse, error)
-}
-
-type identityChangedListenerServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewIdentityChangedListenerServiceClient(cc grpc.ClientConnInterface) IdentityChangedListenerServiceClient {
-	return &identityChangedListenerServiceClient{cc}
-}
-
-func (c *identityChangedListenerServiceClient) NewIdentityChangedListener(ctx context.Context, in *NewIdentityChangedListenerRequest, opts ...grpc.CallOption) (*NewIdentityChangedListenerResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewIdentityChangedListenerResponse)
-	err := c.cc.Invoke(ctx, IdentityChangedListenerService_NewIdentityChangedListener_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *identityChangedListenerServiceClient) OnClusterIdChanged(ctx context.Context, in *OnClusterIdChangedRequest, opts ...grpc.CallOption) (*OnClusterIdChangedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnClusterIdChangedResponse)
-	err := c.cc.Invoke(ctx, IdentityChangedListenerService_OnClusterIdChanged_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *identityChangedListenerServiceClient) OnIdentityChanged(ctx context.Context, in *OnIdentityChangedRequest, opts ...grpc.CallOption) (*OnIdentityChangedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnIdentityChangedResponse)
-	err := c.cc.Invoke(ctx, IdentityChangedListenerService_OnIdentityChanged_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// IdentityChangedListenerServiceServer is the server API for IdentityChangedListenerService service.
-// All implementations must embed UnimplementedIdentityChangedListenerServiceServer
-// for forward compatibility.
-type IdentityChangedListenerServiceServer interface {
-	NewIdentityChangedListener(context.Context, *NewIdentityChangedListenerRequest) (*NewIdentityChangedListenerResponse, error)
-	OnClusterIdChanged(context.Context, *OnClusterIdChangedRequest) (*OnClusterIdChangedResponse, error)
-	OnIdentityChanged(context.Context, *OnIdentityChangedRequest) (*OnIdentityChangedResponse, error)
-	mustEmbedUnimplementedIdentityChangedListenerServiceServer()
-}
-
-// UnimplementedIdentityChangedListenerServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedIdentityChangedListenerServiceServer struct{}
-
-func (UnimplementedIdentityChangedListenerServiceServer) NewIdentityChangedListener(context.Context, *NewIdentityChangedListenerRequest) (*NewIdentityChangedListenerResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewIdentityChangedListener not implemented")
-}
-func (UnimplementedIdentityChangedListenerServiceServer) OnClusterIdChanged(context.Context, *OnClusterIdChangedRequest) (*OnClusterIdChangedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnClusterIdChanged not implemented")
-}
-func (UnimplementedIdentityChangedListenerServiceServer) OnIdentityChanged(context.Context, *OnIdentityChangedRequest) (*OnIdentityChangedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnIdentityChanged not implemented")
-}
-func (UnimplementedIdentityChangedListenerServiceServer) mustEmbedUnimplementedIdentityChangedListenerServiceServer() {
-}
-func (UnimplementedIdentityChangedListenerServiceServer) testEmbeddedByValue() {}
-
-// UnsafeIdentityChangedListenerServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to IdentityChangedListenerServiceServer will
-// result in compilation errors.
-type UnsafeIdentityChangedListenerServiceServer interface {
-	mustEmbedUnimplementedIdentityChangedListenerServiceServer()
-}
-
-func RegisterIdentityChangedListenerServiceServer(s grpc.ServiceRegistrar, srv IdentityChangedListenerServiceServer) {
-	// If the following call panics, it indicates UnimplementedIdentityChangedListenerServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&IdentityChangedListenerService_ServiceDesc, srv)
-}
-
-func _IdentityChangedListenerService_NewIdentityChangedListener_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewIdentityChangedListenerRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(IdentityChangedListenerServiceServer).NewIdentityChangedListener(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: IdentityChangedListenerService_NewIdentityChangedListener_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(IdentityChangedListenerServiceServer).NewIdentityChangedListener(ctx, req.(*NewIdentityChangedListenerRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _IdentityChangedListenerService_OnClusterIdChanged_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnClusterIdChangedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(IdentityChangedListenerServiceServer).OnClusterIdChanged(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: IdentityChangedListenerService_OnClusterIdChanged_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(IdentityChangedListenerServiceServer).OnClusterIdChanged(ctx, req.(*OnClusterIdChangedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _IdentityChangedListenerService_OnIdentityChanged_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnIdentityChangedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(IdentityChangedListenerServiceServer).OnIdentityChanged(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: IdentityChangedListenerService_OnIdentityChanged_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(IdentityChangedListenerServiceServer).OnIdentityChanged(ctx, req.(*OnIdentityChangedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// IdentityChangedListenerService_ServiceDesc is the grpc.ServiceDesc for IdentityChangedListenerService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var IdentityChangedListenerService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "aware.IdentityChangedListenerService",
-	HandlerType: (*IdentityChangedListenerServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "NewIdentityChangedListener",
-			Handler:    _IdentityChangedListenerService_NewIdentityChangedListener_Handler,
-		},
-		{
-			MethodName: "OnClusterIdChanged",
-			Handler:    _IdentityChangedListenerService_OnClusterIdChanged_Handler,
-		},
-		{
-			MethodName: "OnIdentityChanged",
-			Handler:    _IdentityChangedListenerService_OnIdentityChanged_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/aware/aware.proto",
-}
-
-const (
-	ParcelablePeerHandleService_NewParcelablePeerHandle_FullMethodName = "/aware.ParcelablePeerHandleService/NewParcelablePeerHandle"
-	ParcelablePeerHandleService_DescribeContents_FullMethodName        = "/aware.ParcelablePeerHandleService/DescribeContents"
-	ParcelablePeerHandleService_WriteToParcel_FullMethodName           = "/aware.ParcelablePeerHandleService/WriteToParcel"
-)
-
-// ParcelablePeerHandleServiceClient is the client API for ParcelablePeerHandleService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type ParcelablePeerHandleServiceClient interface {
-	NewParcelablePeerHandle(ctx context.Context, in *NewParcelablePeerHandleRequest, opts ...grpc.CallOption) (*NewParcelablePeerHandleResponse, error)
+type SubscribeConfigServiceClient interface {
 	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	GetInstantCommunicationBand(ctx context.Context, in *GetInstantCommunicationBandRequest, opts ...grpc.CallOption) (*GetInstantCommunicationBandResponse, error)
+	GetPairingConfig(ctx context.Context, in *GetPairingConfigRequest, opts ...grpc.CallOption) (*GetPairingConfigResponse, error)
+	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+	IsInstantCommunicationModeEnabled(ctx context.Context, in *IsInstantCommunicationModeEnabledRequest, opts ...grpc.CallOption) (*IsInstantCommunicationModeEnabledResponse, error)
+	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
 	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
 }
 
-type parcelablePeerHandleServiceClient struct {
+type subscribeConfigServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewParcelablePeerHandleServiceClient(cc grpc.ClientConnInterface) ParcelablePeerHandleServiceClient {
-	return &parcelablePeerHandleServiceClient{cc}
+func NewSubscribeConfigServiceClient(cc grpc.ClientConnInterface) SubscribeConfigServiceClient {
+	return &subscribeConfigServiceClient{cc}
 }
 
-func (c *parcelablePeerHandleServiceClient) NewParcelablePeerHandle(ctx context.Context, in *NewParcelablePeerHandleRequest, opts ...grpc.CallOption) (*NewParcelablePeerHandleResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewParcelablePeerHandleResponse)
-	err := c.cc.Invoke(ctx, ParcelablePeerHandleService_NewParcelablePeerHandle_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *parcelablePeerHandleServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+func (c *subscribeConfigServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, ParcelablePeerHandleService_DescribeContents_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, SubscribeConfigService_DescribeContents_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *parcelablePeerHandleServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+func (c *subscribeConfigServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(EqualsResponse)
+	err := c.cc.Invoke(ctx, SubscribeConfigService_Equals_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *subscribeConfigServiceClient) GetInstantCommunicationBand(ctx context.Context, in *GetInstantCommunicationBandRequest, opts ...grpc.CallOption) (*GetInstantCommunicationBandResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetInstantCommunicationBandResponse)
+	err := c.cc.Invoke(ctx, SubscribeConfigService_GetInstantCommunicationBand_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *subscribeConfigServiceClient) GetPairingConfig(ctx context.Context, in *GetPairingConfigRequest, opts ...grpc.CallOption) (*GetPairingConfigResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetPairingConfigResponse)
+	err := c.cc.Invoke(ctx, SubscribeConfigService_GetPairingConfig_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *subscribeConfigServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HashCodeResponse)
+	err := c.cc.Invoke(ctx, SubscribeConfigService_HashCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *subscribeConfigServiceClient) IsInstantCommunicationModeEnabled(ctx context.Context, in *IsInstantCommunicationModeEnabledRequest, opts ...grpc.CallOption) (*IsInstantCommunicationModeEnabledResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsInstantCommunicationModeEnabledResponse)
+	err := c.cc.Invoke(ctx, SubscribeConfigService_IsInstantCommunicationModeEnabled_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *subscribeConfigServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, SubscribeConfigService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *subscribeConfigServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, ParcelablePeerHandleService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, SubscribeConfigService_WriteToParcel_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// ParcelablePeerHandleServiceServer is the server API for ParcelablePeerHandleService service.
-// All implementations must embed UnimplementedParcelablePeerHandleServiceServer
+// SubscribeConfigServiceServer is the server API for SubscribeConfigService service.
+// All implementations must embed UnimplementedSubscribeConfigServiceServer
 // for forward compatibility.
-type ParcelablePeerHandleServiceServer interface {
-	NewParcelablePeerHandle(context.Context, *NewParcelablePeerHandleRequest) (*NewParcelablePeerHandleResponse, error)
+type SubscribeConfigServiceServer interface {
 	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
+	GetInstantCommunicationBand(context.Context, *GetInstantCommunicationBandRequest) (*GetInstantCommunicationBandResponse, error)
+	GetPairingConfig(context.Context, *GetPairingConfigRequest) (*GetPairingConfigResponse, error)
+	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
+	IsInstantCommunicationModeEnabled(context.Context, *IsInstantCommunicationModeEnabledRequest) (*IsInstantCommunicationModeEnabledResponse, error)
+	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
 	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
-	mustEmbedUnimplementedParcelablePeerHandleServiceServer()
+	mustEmbedUnimplementedSubscribeConfigServiceServer()
 }
 
-// UnimplementedParcelablePeerHandleServiceServer must be embedded to have
+// UnimplementedSubscribeConfigServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedParcelablePeerHandleServiceServer struct{}
+type UnimplementedSubscribeConfigServiceServer struct{}
 
-func (UnimplementedParcelablePeerHandleServiceServer) NewParcelablePeerHandle(context.Context, *NewParcelablePeerHandleRequest) (*NewParcelablePeerHandleResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewParcelablePeerHandle not implemented")
-}
-func (UnimplementedParcelablePeerHandleServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+func (UnimplementedSubscribeConfigServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
 }
-func (UnimplementedParcelablePeerHandleServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+func (UnimplementedSubscribeConfigServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
+}
+func (UnimplementedSubscribeConfigServiceServer) GetInstantCommunicationBand(context.Context, *GetInstantCommunicationBandRequest) (*GetInstantCommunicationBandResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetInstantCommunicationBand not implemented")
+}
+func (UnimplementedSubscribeConfigServiceServer) GetPairingConfig(context.Context, *GetPairingConfigRequest) (*GetPairingConfigResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetPairingConfig not implemented")
+}
+func (UnimplementedSubscribeConfigServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
+}
+func (UnimplementedSubscribeConfigServiceServer) IsInstantCommunicationModeEnabled(context.Context, *IsInstantCommunicationModeEnabledRequest) (*IsInstantCommunicationModeEnabledResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsInstantCommunicationModeEnabled not implemented")
+}
+func (UnimplementedSubscribeConfigServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedSubscribeConfigServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
 }
-func (UnimplementedParcelablePeerHandleServiceServer) mustEmbedUnimplementedParcelablePeerHandleServiceServer() {
+func (UnimplementedSubscribeConfigServiceServer) mustEmbedUnimplementedSubscribeConfigServiceServer() {
 }
-func (UnimplementedParcelablePeerHandleServiceServer) testEmbeddedByValue() {}
+func (UnimplementedSubscribeConfigServiceServer) testEmbeddedByValue() {}
 
-// UnsafeParcelablePeerHandleServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to ParcelablePeerHandleServiceServer will
+// UnsafeSubscribeConfigServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to SubscribeConfigServiceServer will
 // result in compilation errors.
-type UnsafeParcelablePeerHandleServiceServer interface {
-	mustEmbedUnimplementedParcelablePeerHandleServiceServer()
+type UnsafeSubscribeConfigServiceServer interface {
+	mustEmbedUnimplementedSubscribeConfigServiceServer()
 }
 
-func RegisterParcelablePeerHandleServiceServer(s grpc.ServiceRegistrar, srv ParcelablePeerHandleServiceServer) {
-	// If the following call panics, it indicates UnimplementedParcelablePeerHandleServiceServer was
+func RegisterSubscribeConfigServiceServer(s grpc.ServiceRegistrar, srv SubscribeConfigServiceServer) {
+	// If the following call panics, it indicates UnimplementedSubscribeConfigServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&ParcelablePeerHandleService_ServiceDesc, srv)
+	s.RegisterService(&SubscribeConfigService_ServiceDesc, srv)
 }
 
-func _ParcelablePeerHandleService_NewParcelablePeerHandle_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewParcelablePeerHandleRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ParcelablePeerHandleServiceServer).NewParcelablePeerHandle(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ParcelablePeerHandleService_NewParcelablePeerHandle_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ParcelablePeerHandleServiceServer).NewParcelablePeerHandle(ctx, req.(*NewParcelablePeerHandleRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ParcelablePeerHandleService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _SubscribeConfigService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(DescribeContentsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ParcelablePeerHandleServiceServer).DescribeContents(ctx, in)
+		return srv.(SubscribeConfigServiceServer).DescribeContents(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: ParcelablePeerHandleService_DescribeContents_FullMethodName,
+		FullMethod: SubscribeConfigService_DescribeContents_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ParcelablePeerHandleServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+		return srv.(SubscribeConfigServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ParcelablePeerHandleService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WriteToParcelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ParcelablePeerHandleServiceServer).WriteToParcel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ParcelablePeerHandleService_WriteToParcel_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ParcelablePeerHandleServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// ParcelablePeerHandleService_ServiceDesc is the grpc.ServiceDesc for ParcelablePeerHandleService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var ParcelablePeerHandleService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "aware.ParcelablePeerHandleService",
-	HandlerType: (*ParcelablePeerHandleServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "NewParcelablePeerHandle",
-			Handler:    _ParcelablePeerHandleService_NewParcelablePeerHandle_Handler,
-		},
-		{
-			MethodName: "DescribeContents",
-			Handler:    _ParcelablePeerHandleService_DescribeContents_Handler,
-		},
-		{
-			MethodName: "WriteToParcel",
-			Handler:    _ParcelablePeerHandleService_WriteToParcel_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/aware/aware.proto",
-}
-
-const (
-	WifiAwareNetworkSpecifierService_CanBeSatisfiedBy_FullMethodName                   = "/aware.WifiAwareNetworkSpecifierService/CanBeSatisfiedBy"
-	WifiAwareNetworkSpecifierService_DescribeContents_FullMethodName                   = "/aware.WifiAwareNetworkSpecifierService/DescribeContents"
-	WifiAwareNetworkSpecifierService_Equals_FullMethodName                             = "/aware.WifiAwareNetworkSpecifierService/Equals"
-	WifiAwareNetworkSpecifierService_GetChannelFrequencyMhz_FullMethodName             = "/aware.WifiAwareNetworkSpecifierService/GetChannelFrequencyMhz"
-	WifiAwareNetworkSpecifierService_GetWifiAwareDataPathSecurityConfig_FullMethodName = "/aware.WifiAwareNetworkSpecifierService/GetWifiAwareDataPathSecurityConfig"
-	WifiAwareNetworkSpecifierService_HashCode_FullMethodName                           = "/aware.WifiAwareNetworkSpecifierService/HashCode"
-	WifiAwareNetworkSpecifierService_IsChannelRequired_FullMethodName                  = "/aware.WifiAwareNetworkSpecifierService/IsChannelRequired"
-	WifiAwareNetworkSpecifierService_ToString_FullMethodName                           = "/aware.WifiAwareNetworkSpecifierService/ToString"
-	WifiAwareNetworkSpecifierService_WriteToParcel_FullMethodName                      = "/aware.WifiAwareNetworkSpecifierService/WriteToParcel"
-)
-
-// WifiAwareNetworkSpecifierServiceClient is the client API for WifiAwareNetworkSpecifierService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type WifiAwareNetworkSpecifierServiceClient interface {
-	CanBeSatisfiedBy(ctx context.Context, in *CanBeSatisfiedByRequest, opts ...grpc.CallOption) (*CanBeSatisfiedByResponse, error)
-	DescribeContents(ctx context.Context, in *WifiAwareNetworkSpecifierDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
-	GetChannelFrequencyMhz(ctx context.Context, in *GetChannelFrequencyMhzRequest, opts ...grpc.CallOption) (*GetChannelFrequencyMhzResponse, error)
-	GetWifiAwareDataPathSecurityConfig(ctx context.Context, in *GetWifiAwareDataPathSecurityConfigRequest, opts ...grpc.CallOption) (*GetWifiAwareDataPathSecurityConfigResponse, error)
-	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
-	IsChannelRequired(ctx context.Context, in *IsChannelRequiredRequest, opts ...grpc.CallOption) (*IsChannelRequiredResponse, error)
-	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
-	WriteToParcel(ctx context.Context, in *WifiAwareNetworkSpecifierWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
-}
-
-type wifiAwareNetworkSpecifierServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewWifiAwareNetworkSpecifierServiceClient(cc grpc.ClientConnInterface) WifiAwareNetworkSpecifierServiceClient {
-	return &wifiAwareNetworkSpecifierServiceClient{cc}
-}
-
-func (c *wifiAwareNetworkSpecifierServiceClient) CanBeSatisfiedBy(ctx context.Context, in *CanBeSatisfiedByRequest, opts ...grpc.CallOption) (*CanBeSatisfiedByResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CanBeSatisfiedByResponse)
-	err := c.cc.Invoke(ctx, WifiAwareNetworkSpecifierService_CanBeSatisfiedBy_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *wifiAwareNetworkSpecifierServiceClient) DescribeContents(ctx context.Context, in *WifiAwareNetworkSpecifierDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, WifiAwareNetworkSpecifierService_DescribeContents_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *wifiAwareNetworkSpecifierServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(EqualsResponse)
-	err := c.cc.Invoke(ctx, WifiAwareNetworkSpecifierService_Equals_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *wifiAwareNetworkSpecifierServiceClient) GetChannelFrequencyMhz(ctx context.Context, in *GetChannelFrequencyMhzRequest, opts ...grpc.CallOption) (*GetChannelFrequencyMhzResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetChannelFrequencyMhzResponse)
-	err := c.cc.Invoke(ctx, WifiAwareNetworkSpecifierService_GetChannelFrequencyMhz_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *wifiAwareNetworkSpecifierServiceClient) GetWifiAwareDataPathSecurityConfig(ctx context.Context, in *GetWifiAwareDataPathSecurityConfigRequest, opts ...grpc.CallOption) (*GetWifiAwareDataPathSecurityConfigResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetWifiAwareDataPathSecurityConfigResponse)
-	err := c.cc.Invoke(ctx, WifiAwareNetworkSpecifierService_GetWifiAwareDataPathSecurityConfig_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *wifiAwareNetworkSpecifierServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(HashCodeResponse)
-	err := c.cc.Invoke(ctx, WifiAwareNetworkSpecifierService_HashCode_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *wifiAwareNetworkSpecifierServiceClient) IsChannelRequired(ctx context.Context, in *IsChannelRequiredRequest, opts ...grpc.CallOption) (*IsChannelRequiredResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsChannelRequiredResponse)
-	err := c.cc.Invoke(ctx, WifiAwareNetworkSpecifierService_IsChannelRequired_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *wifiAwareNetworkSpecifierServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ToStringResponse)
-	err := c.cc.Invoke(ctx, WifiAwareNetworkSpecifierService_ToString_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *wifiAwareNetworkSpecifierServiceClient) WriteToParcel(ctx context.Context, in *WifiAwareNetworkSpecifierWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, WifiAwareNetworkSpecifierService_WriteToParcel_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// WifiAwareNetworkSpecifierServiceServer is the server API for WifiAwareNetworkSpecifierService service.
-// All implementations must embed UnimplementedWifiAwareNetworkSpecifierServiceServer
-// for forward compatibility.
-type WifiAwareNetworkSpecifierServiceServer interface {
-	CanBeSatisfiedBy(context.Context, *CanBeSatisfiedByRequest) (*CanBeSatisfiedByResponse, error)
-	DescribeContents(context.Context, *WifiAwareNetworkSpecifierDescribeContentsRequest) (*DescribeContentsResponse, error)
-	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
-	GetChannelFrequencyMhz(context.Context, *GetChannelFrequencyMhzRequest) (*GetChannelFrequencyMhzResponse, error)
-	GetWifiAwareDataPathSecurityConfig(context.Context, *GetWifiAwareDataPathSecurityConfigRequest) (*GetWifiAwareDataPathSecurityConfigResponse, error)
-	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
-	IsChannelRequired(context.Context, *IsChannelRequiredRequest) (*IsChannelRequiredResponse, error)
-	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
-	WriteToParcel(context.Context, *WifiAwareNetworkSpecifierWriteToParcelRequest) (*WriteToParcelResponse, error)
-	mustEmbedUnimplementedWifiAwareNetworkSpecifierServiceServer()
-}
-
-// UnimplementedWifiAwareNetworkSpecifierServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedWifiAwareNetworkSpecifierServiceServer struct{}
-
-func (UnimplementedWifiAwareNetworkSpecifierServiceServer) CanBeSatisfiedBy(context.Context, *CanBeSatisfiedByRequest) (*CanBeSatisfiedByResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method CanBeSatisfiedBy not implemented")
-}
-func (UnimplementedWifiAwareNetworkSpecifierServiceServer) DescribeContents(context.Context, *WifiAwareNetworkSpecifierDescribeContentsRequest) (*DescribeContentsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
-}
-func (UnimplementedWifiAwareNetworkSpecifierServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
-}
-func (UnimplementedWifiAwareNetworkSpecifierServiceServer) GetChannelFrequencyMhz(context.Context, *GetChannelFrequencyMhzRequest) (*GetChannelFrequencyMhzResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetChannelFrequencyMhz not implemented")
-}
-func (UnimplementedWifiAwareNetworkSpecifierServiceServer) GetWifiAwareDataPathSecurityConfig(context.Context, *GetWifiAwareDataPathSecurityConfigRequest) (*GetWifiAwareDataPathSecurityConfigResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetWifiAwareDataPathSecurityConfig not implemented")
-}
-func (UnimplementedWifiAwareNetworkSpecifierServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
-}
-func (UnimplementedWifiAwareNetworkSpecifierServiceServer) IsChannelRequired(context.Context, *IsChannelRequiredRequest) (*IsChannelRequiredResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsChannelRequired not implemented")
-}
-func (UnimplementedWifiAwareNetworkSpecifierServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
-}
-func (UnimplementedWifiAwareNetworkSpecifierServiceServer) WriteToParcel(context.Context, *WifiAwareNetworkSpecifierWriteToParcelRequest) (*WriteToParcelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
-}
-func (UnimplementedWifiAwareNetworkSpecifierServiceServer) mustEmbedUnimplementedWifiAwareNetworkSpecifierServiceServer() {
-}
-func (UnimplementedWifiAwareNetworkSpecifierServiceServer) testEmbeddedByValue() {}
-
-// UnsafeWifiAwareNetworkSpecifierServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to WifiAwareNetworkSpecifierServiceServer will
-// result in compilation errors.
-type UnsafeWifiAwareNetworkSpecifierServiceServer interface {
-	mustEmbedUnimplementedWifiAwareNetworkSpecifierServiceServer()
-}
-
-func RegisterWifiAwareNetworkSpecifierServiceServer(s grpc.ServiceRegistrar, srv WifiAwareNetworkSpecifierServiceServer) {
-	// If the following call panics, it indicates UnimplementedWifiAwareNetworkSpecifierServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&WifiAwareNetworkSpecifierService_ServiceDesc, srv)
-}
-
-func _WifiAwareNetworkSpecifierService_CanBeSatisfiedBy_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CanBeSatisfiedByRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(WifiAwareNetworkSpecifierServiceServer).CanBeSatisfiedBy(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: WifiAwareNetworkSpecifierService_CanBeSatisfiedBy_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiAwareNetworkSpecifierServiceServer).CanBeSatisfiedBy(ctx, req.(*CanBeSatisfiedByRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _WifiAwareNetworkSpecifierService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WifiAwareNetworkSpecifierDescribeContentsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(WifiAwareNetworkSpecifierServiceServer).DescribeContents(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: WifiAwareNetworkSpecifierService_DescribeContents_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiAwareNetworkSpecifierServiceServer).DescribeContents(ctx, req.(*WifiAwareNetworkSpecifierDescribeContentsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _WifiAwareNetworkSpecifierService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _SubscribeConfigService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(EqualsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiAwareNetworkSpecifierServiceServer).Equals(ctx, in)
+		return srv.(SubscribeConfigServiceServer).Equals(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiAwareNetworkSpecifierService_Equals_FullMethodName,
+		FullMethod: SubscribeConfigService_Equals_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiAwareNetworkSpecifierServiceServer).Equals(ctx, req.(*EqualsRequest))
+		return srv.(SubscribeConfigServiceServer).Equals(ctx, req.(*EqualsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiAwareNetworkSpecifierService_GetChannelFrequencyMhz_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetChannelFrequencyMhzRequest)
+func _SubscribeConfigService_GetInstantCommunicationBand_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetInstantCommunicationBandRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiAwareNetworkSpecifierServiceServer).GetChannelFrequencyMhz(ctx, in)
+		return srv.(SubscribeConfigServiceServer).GetInstantCommunicationBand(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiAwareNetworkSpecifierService_GetChannelFrequencyMhz_FullMethodName,
+		FullMethod: SubscribeConfigService_GetInstantCommunicationBand_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiAwareNetworkSpecifierServiceServer).GetChannelFrequencyMhz(ctx, req.(*GetChannelFrequencyMhzRequest))
+		return srv.(SubscribeConfigServiceServer).GetInstantCommunicationBand(ctx, req.(*GetInstantCommunicationBandRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiAwareNetworkSpecifierService_GetWifiAwareDataPathSecurityConfig_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetWifiAwareDataPathSecurityConfigRequest)
+func _SubscribeConfigService_GetPairingConfig_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPairingConfigRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiAwareNetworkSpecifierServiceServer).GetWifiAwareDataPathSecurityConfig(ctx, in)
+		return srv.(SubscribeConfigServiceServer).GetPairingConfig(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiAwareNetworkSpecifierService_GetWifiAwareDataPathSecurityConfig_FullMethodName,
+		FullMethod: SubscribeConfigService_GetPairingConfig_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiAwareNetworkSpecifierServiceServer).GetWifiAwareDataPathSecurityConfig(ctx, req.(*GetWifiAwareDataPathSecurityConfigRequest))
+		return srv.(SubscribeConfigServiceServer).GetPairingConfig(ctx, req.(*GetPairingConfigRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiAwareNetworkSpecifierService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _SubscribeConfigService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(HashCodeRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiAwareNetworkSpecifierServiceServer).HashCode(ctx, in)
+		return srv.(SubscribeConfigServiceServer).HashCode(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiAwareNetworkSpecifierService_HashCode_FullMethodName,
+		FullMethod: SubscribeConfigService_HashCode_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiAwareNetworkSpecifierServiceServer).HashCode(ctx, req.(*HashCodeRequest))
+		return srv.(SubscribeConfigServiceServer).HashCode(ctx, req.(*HashCodeRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiAwareNetworkSpecifierService_IsChannelRequired_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsChannelRequiredRequest)
+func _SubscribeConfigService_IsInstantCommunicationModeEnabled_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsInstantCommunicationModeEnabledRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiAwareNetworkSpecifierServiceServer).IsChannelRequired(ctx, in)
+		return srv.(SubscribeConfigServiceServer).IsInstantCommunicationModeEnabled(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiAwareNetworkSpecifierService_IsChannelRequired_FullMethodName,
+		FullMethod: SubscribeConfigService_IsInstantCommunicationModeEnabled_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiAwareNetworkSpecifierServiceServer).IsChannelRequired(ctx, req.(*IsChannelRequiredRequest))
+		return srv.(SubscribeConfigServiceServer).IsInstantCommunicationModeEnabled(ctx, req.(*IsInstantCommunicationModeEnabledRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiAwareNetworkSpecifierService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _SubscribeConfigService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(ToStringRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiAwareNetworkSpecifierServiceServer).ToString(ctx, in)
+		return srv.(SubscribeConfigServiceServer).ToString(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiAwareNetworkSpecifierService_ToString_FullMethodName,
+		FullMethod: SubscribeConfigService_ToString_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiAwareNetworkSpecifierServiceServer).ToString(ctx, req.(*ToStringRequest))
+		return srv.(SubscribeConfigServiceServer).ToString(ctx, req.(*ToStringRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiAwareNetworkSpecifierService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WifiAwareNetworkSpecifierWriteToParcelRequest)
+func _SubscribeConfigService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiAwareNetworkSpecifierServiceServer).WriteToParcel(ctx, in)
+		return srv.(SubscribeConfigServiceServer).WriteToParcel(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiAwareNetworkSpecifierService_WriteToParcel_FullMethodName,
+		FullMethod: SubscribeConfigService_WriteToParcel_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiAwareNetworkSpecifierServiceServer).WriteToParcel(ctx, req.(*WifiAwareNetworkSpecifierWriteToParcelRequest))
+		return srv.(SubscribeConfigServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// WifiAwareNetworkSpecifierService_ServiceDesc is the grpc.ServiceDesc for WifiAwareNetworkSpecifierService service.
+// SubscribeConfigService_ServiceDesc is the grpc.ServiceDesc for SubscribeConfigService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var WifiAwareNetworkSpecifierService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "aware.WifiAwareNetworkSpecifierService",
-	HandlerType: (*WifiAwareNetworkSpecifierServiceServer)(nil),
+var SubscribeConfigService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "aware.SubscribeConfigService",
+	HandlerType: (*SubscribeConfigServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "CanBeSatisfiedBy",
-			Handler:    _WifiAwareNetworkSpecifierService_CanBeSatisfiedBy_Handler,
-		},
-		{
 			MethodName: "DescribeContents",
-			Handler:    _WifiAwareNetworkSpecifierService_DescribeContents_Handler,
+			Handler:    _SubscribeConfigService_DescribeContents_Handler,
 		},
 		{
 			MethodName: "Equals",
-			Handler:    _WifiAwareNetworkSpecifierService_Equals_Handler,
+			Handler:    _SubscribeConfigService_Equals_Handler,
 		},
 		{
-			MethodName: "GetChannelFrequencyMhz",
-			Handler:    _WifiAwareNetworkSpecifierService_GetChannelFrequencyMhz_Handler,
+			MethodName: "GetInstantCommunicationBand",
+			Handler:    _SubscribeConfigService_GetInstantCommunicationBand_Handler,
 		},
 		{
-			MethodName: "GetWifiAwareDataPathSecurityConfig",
-			Handler:    _WifiAwareNetworkSpecifierService_GetWifiAwareDataPathSecurityConfig_Handler,
+			MethodName: "GetPairingConfig",
+			Handler:    _SubscribeConfigService_GetPairingConfig_Handler,
 		},
 		{
 			MethodName: "HashCode",
-			Handler:    _WifiAwareNetworkSpecifierService_HashCode_Handler,
+			Handler:    _SubscribeConfigService_HashCode_Handler,
 		},
 		{
-			MethodName: "IsChannelRequired",
-			Handler:    _WifiAwareNetworkSpecifierService_IsChannelRequired_Handler,
+			MethodName: "IsInstantCommunicationModeEnabled",
+			Handler:    _SubscribeConfigService_IsInstantCommunicationModeEnabled_Handler,
 		},
 		{
 			MethodName: "ToString",
-			Handler:    _WifiAwareNetworkSpecifierService_ToString_Handler,
+			Handler:    _SubscribeConfigService_ToString_Handler,
 		},
 		{
 			MethodName: "WriteToParcel",
-			Handler:    _WifiAwareNetworkSpecifierService_WriteToParcel_Handler,
+			Handler:    _SubscribeConfigService_WriteToParcel_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -786,330 +390,444 @@ var WifiAwareNetworkSpecifierService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	WifiAwareNetworkSpecifierBuilderService_Build_FullMethodName                     = "/aware.WifiAwareNetworkSpecifierBuilderService/Build"
-	WifiAwareNetworkSpecifierBuilderService_SetChannelFrequencyMhz_FullMethodName    = "/aware.WifiAwareNetworkSpecifierBuilderService/SetChannelFrequencyMhz"
-	WifiAwareNetworkSpecifierBuilderService_SetDataPathSecurityConfig_FullMethodName = "/aware.WifiAwareNetworkSpecifierBuilderService/SetDataPathSecurityConfig"
-	WifiAwareNetworkSpecifierBuilderService_SetPmk_FullMethodName                    = "/aware.WifiAwareNetworkSpecifierBuilderService/SetPmk"
-	WifiAwareNetworkSpecifierBuilderService_SetPort_FullMethodName                   = "/aware.WifiAwareNetworkSpecifierBuilderService/SetPort"
-	WifiAwareNetworkSpecifierBuilderService_SetPskPassphrase_FullMethodName          = "/aware.WifiAwareNetworkSpecifierBuilderService/SetPskPassphrase"
-	WifiAwareNetworkSpecifierBuilderService_SetTransportProtocol_FullMethodName      = "/aware.WifiAwareNetworkSpecifierBuilderService/SetTransportProtocol"
+	SubscribeConfigBuilderService_Build_FullMethodName                              = "/aware.SubscribeConfigBuilderService/Build"
+	SubscribeConfigBuilderService_SetInstantCommunicationModeEnabled_FullMethodName = "/aware.SubscribeConfigBuilderService/SetInstantCommunicationModeEnabled"
+	SubscribeConfigBuilderService_SetMaxDistanceMm_FullMethodName                   = "/aware.SubscribeConfigBuilderService/SetMaxDistanceMm"
+	SubscribeConfigBuilderService_SetMinDistanceMm_FullMethodName                   = "/aware.SubscribeConfigBuilderService/SetMinDistanceMm"
+	SubscribeConfigBuilderService_SetPairingConfig_FullMethodName                   = "/aware.SubscribeConfigBuilderService/SetPairingConfig"
+	SubscribeConfigBuilderService_SetServiceName_FullMethodName                     = "/aware.SubscribeConfigBuilderService/SetServiceName"
+	SubscribeConfigBuilderService_SetServiceSpecificInfo_FullMethodName             = "/aware.SubscribeConfigBuilderService/SetServiceSpecificInfo"
+	SubscribeConfigBuilderService_SetSubscribeType_FullMethodName                   = "/aware.SubscribeConfigBuilderService/SetSubscribeType"
+	SubscribeConfigBuilderService_SetTerminateNotificationEnabled_FullMethodName    = "/aware.SubscribeConfigBuilderService/SetTerminateNotificationEnabled"
+	SubscribeConfigBuilderService_SetTtlSec_FullMethodName                          = "/aware.SubscribeConfigBuilderService/SetTtlSec"
 )
 
-// WifiAwareNetworkSpecifierBuilderServiceClient is the client API for WifiAwareNetworkSpecifierBuilderService service.
+// SubscribeConfigBuilderServiceClient is the client API for SubscribeConfigBuilderService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type WifiAwareNetworkSpecifierBuilderServiceClient interface {
+type SubscribeConfigBuilderServiceClient interface {
 	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
-	SetChannelFrequencyMhz(ctx context.Context, in *SetChannelFrequencyMhzRequest, opts ...grpc.CallOption) (*SetChannelFrequencyMhzResponse, error)
-	SetDataPathSecurityConfig(ctx context.Context, in *SetDataPathSecurityConfigRequest, opts ...grpc.CallOption) (*SetDataPathSecurityConfigResponse, error)
-	SetPmk(ctx context.Context, in *SetPmkRequest, opts ...grpc.CallOption) (*SetPmkResponse, error)
-	SetPort(ctx context.Context, in *SetPortRequest, opts ...grpc.CallOption) (*SetPortResponse, error)
-	SetPskPassphrase(ctx context.Context, in *SetPskPassphraseRequest, opts ...grpc.CallOption) (*SetPskPassphraseResponse, error)
-	SetTransportProtocol(ctx context.Context, in *SetTransportProtocolRequest, opts ...grpc.CallOption) (*SetTransportProtocolResponse, error)
+	SetInstantCommunicationModeEnabled(ctx context.Context, in *SetInstantCommunicationModeEnabledRequest, opts ...grpc.CallOption) (*SetInstantCommunicationModeEnabledResponse, error)
+	SetMaxDistanceMm(ctx context.Context, in *SetMaxDistanceMmRequest, opts ...grpc.CallOption) (*SetMaxDistanceMmResponse, error)
+	SetMinDistanceMm(ctx context.Context, in *SetMinDistanceMmRequest, opts ...grpc.CallOption) (*SetMinDistanceMmResponse, error)
+	SetPairingConfig(ctx context.Context, in *SetPairingConfigRequest, opts ...grpc.CallOption) (*SetPairingConfigResponse, error)
+	SetServiceName(ctx context.Context, in *SetServiceNameRequest, opts ...grpc.CallOption) (*SetServiceNameResponse, error)
+	SetServiceSpecificInfo(ctx context.Context, in *SetServiceSpecificInfoRequest, opts ...grpc.CallOption) (*SetServiceSpecificInfoResponse, error)
+	SetSubscribeType(ctx context.Context, in *SetSubscribeTypeRequest, opts ...grpc.CallOption) (*SetSubscribeTypeResponse, error)
+	SetTerminateNotificationEnabled(ctx context.Context, in *SetTerminateNotificationEnabledRequest, opts ...grpc.CallOption) (*SetTerminateNotificationEnabledResponse, error)
+	SetTtlSec(ctx context.Context, in *SetTtlSecRequest, opts ...grpc.CallOption) (*SetTtlSecResponse, error)
 }
 
-type wifiAwareNetworkSpecifierBuilderServiceClient struct {
+type subscribeConfigBuilderServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewWifiAwareNetworkSpecifierBuilderServiceClient(cc grpc.ClientConnInterface) WifiAwareNetworkSpecifierBuilderServiceClient {
-	return &wifiAwareNetworkSpecifierBuilderServiceClient{cc}
+func NewSubscribeConfigBuilderServiceClient(cc grpc.ClientConnInterface) SubscribeConfigBuilderServiceClient {
+	return &subscribeConfigBuilderServiceClient{cc}
 }
 
-func (c *wifiAwareNetworkSpecifierBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
+func (c *subscribeConfigBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(BuildResponse)
-	err := c.cc.Invoke(ctx, WifiAwareNetworkSpecifierBuilderService_Build_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, SubscribeConfigBuilderService_Build_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiAwareNetworkSpecifierBuilderServiceClient) SetChannelFrequencyMhz(ctx context.Context, in *SetChannelFrequencyMhzRequest, opts ...grpc.CallOption) (*SetChannelFrequencyMhzResponse, error) {
+func (c *subscribeConfigBuilderServiceClient) SetInstantCommunicationModeEnabled(ctx context.Context, in *SetInstantCommunicationModeEnabledRequest, opts ...grpc.CallOption) (*SetInstantCommunicationModeEnabledResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetChannelFrequencyMhzResponse)
-	err := c.cc.Invoke(ctx, WifiAwareNetworkSpecifierBuilderService_SetChannelFrequencyMhz_FullMethodName, in, out, cOpts...)
+	out := new(SetInstantCommunicationModeEnabledResponse)
+	err := c.cc.Invoke(ctx, SubscribeConfigBuilderService_SetInstantCommunicationModeEnabled_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiAwareNetworkSpecifierBuilderServiceClient) SetDataPathSecurityConfig(ctx context.Context, in *SetDataPathSecurityConfigRequest, opts ...grpc.CallOption) (*SetDataPathSecurityConfigResponse, error) {
+func (c *subscribeConfigBuilderServiceClient) SetMaxDistanceMm(ctx context.Context, in *SetMaxDistanceMmRequest, opts ...grpc.CallOption) (*SetMaxDistanceMmResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetDataPathSecurityConfigResponse)
-	err := c.cc.Invoke(ctx, WifiAwareNetworkSpecifierBuilderService_SetDataPathSecurityConfig_FullMethodName, in, out, cOpts...)
+	out := new(SetMaxDistanceMmResponse)
+	err := c.cc.Invoke(ctx, SubscribeConfigBuilderService_SetMaxDistanceMm_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiAwareNetworkSpecifierBuilderServiceClient) SetPmk(ctx context.Context, in *SetPmkRequest, opts ...grpc.CallOption) (*SetPmkResponse, error) {
+func (c *subscribeConfigBuilderServiceClient) SetMinDistanceMm(ctx context.Context, in *SetMinDistanceMmRequest, opts ...grpc.CallOption) (*SetMinDistanceMmResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetPmkResponse)
-	err := c.cc.Invoke(ctx, WifiAwareNetworkSpecifierBuilderService_SetPmk_FullMethodName, in, out, cOpts...)
+	out := new(SetMinDistanceMmResponse)
+	err := c.cc.Invoke(ctx, SubscribeConfigBuilderService_SetMinDistanceMm_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiAwareNetworkSpecifierBuilderServiceClient) SetPort(ctx context.Context, in *SetPortRequest, opts ...grpc.CallOption) (*SetPortResponse, error) {
+func (c *subscribeConfigBuilderServiceClient) SetPairingConfig(ctx context.Context, in *SetPairingConfigRequest, opts ...grpc.CallOption) (*SetPairingConfigResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetPortResponse)
-	err := c.cc.Invoke(ctx, WifiAwareNetworkSpecifierBuilderService_SetPort_FullMethodName, in, out, cOpts...)
+	out := new(SetPairingConfigResponse)
+	err := c.cc.Invoke(ctx, SubscribeConfigBuilderService_SetPairingConfig_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiAwareNetworkSpecifierBuilderServiceClient) SetPskPassphrase(ctx context.Context, in *SetPskPassphraseRequest, opts ...grpc.CallOption) (*SetPskPassphraseResponse, error) {
+func (c *subscribeConfigBuilderServiceClient) SetServiceName(ctx context.Context, in *SetServiceNameRequest, opts ...grpc.CallOption) (*SetServiceNameResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetPskPassphraseResponse)
-	err := c.cc.Invoke(ctx, WifiAwareNetworkSpecifierBuilderService_SetPskPassphrase_FullMethodName, in, out, cOpts...)
+	out := new(SetServiceNameResponse)
+	err := c.cc.Invoke(ctx, SubscribeConfigBuilderService_SetServiceName_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiAwareNetworkSpecifierBuilderServiceClient) SetTransportProtocol(ctx context.Context, in *SetTransportProtocolRequest, opts ...grpc.CallOption) (*SetTransportProtocolResponse, error) {
+func (c *subscribeConfigBuilderServiceClient) SetServiceSpecificInfo(ctx context.Context, in *SetServiceSpecificInfoRequest, opts ...grpc.CallOption) (*SetServiceSpecificInfoResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetTransportProtocolResponse)
-	err := c.cc.Invoke(ctx, WifiAwareNetworkSpecifierBuilderService_SetTransportProtocol_FullMethodName, in, out, cOpts...)
+	out := new(SetServiceSpecificInfoResponse)
+	err := c.cc.Invoke(ctx, SubscribeConfigBuilderService_SetServiceSpecificInfo_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// WifiAwareNetworkSpecifierBuilderServiceServer is the server API for WifiAwareNetworkSpecifierBuilderService service.
-// All implementations must embed UnimplementedWifiAwareNetworkSpecifierBuilderServiceServer
+func (c *subscribeConfigBuilderServiceClient) SetSubscribeType(ctx context.Context, in *SetSubscribeTypeRequest, opts ...grpc.CallOption) (*SetSubscribeTypeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetSubscribeTypeResponse)
+	err := c.cc.Invoke(ctx, SubscribeConfigBuilderService_SetSubscribeType_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *subscribeConfigBuilderServiceClient) SetTerminateNotificationEnabled(ctx context.Context, in *SetTerminateNotificationEnabledRequest, opts ...grpc.CallOption) (*SetTerminateNotificationEnabledResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetTerminateNotificationEnabledResponse)
+	err := c.cc.Invoke(ctx, SubscribeConfigBuilderService_SetTerminateNotificationEnabled_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *subscribeConfigBuilderServiceClient) SetTtlSec(ctx context.Context, in *SetTtlSecRequest, opts ...grpc.CallOption) (*SetTtlSecResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetTtlSecResponse)
+	err := c.cc.Invoke(ctx, SubscribeConfigBuilderService_SetTtlSec_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// SubscribeConfigBuilderServiceServer is the server API for SubscribeConfigBuilderService service.
+// All implementations must embed UnimplementedSubscribeConfigBuilderServiceServer
 // for forward compatibility.
-type WifiAwareNetworkSpecifierBuilderServiceServer interface {
+type SubscribeConfigBuilderServiceServer interface {
 	Build(context.Context, *BuildRequest) (*BuildResponse, error)
-	SetChannelFrequencyMhz(context.Context, *SetChannelFrequencyMhzRequest) (*SetChannelFrequencyMhzResponse, error)
-	SetDataPathSecurityConfig(context.Context, *SetDataPathSecurityConfigRequest) (*SetDataPathSecurityConfigResponse, error)
-	SetPmk(context.Context, *SetPmkRequest) (*SetPmkResponse, error)
-	SetPort(context.Context, *SetPortRequest) (*SetPortResponse, error)
-	SetPskPassphrase(context.Context, *SetPskPassphraseRequest) (*SetPskPassphraseResponse, error)
-	SetTransportProtocol(context.Context, *SetTransportProtocolRequest) (*SetTransportProtocolResponse, error)
-	mustEmbedUnimplementedWifiAwareNetworkSpecifierBuilderServiceServer()
+	SetInstantCommunicationModeEnabled(context.Context, *SetInstantCommunicationModeEnabledRequest) (*SetInstantCommunicationModeEnabledResponse, error)
+	SetMaxDistanceMm(context.Context, *SetMaxDistanceMmRequest) (*SetMaxDistanceMmResponse, error)
+	SetMinDistanceMm(context.Context, *SetMinDistanceMmRequest) (*SetMinDistanceMmResponse, error)
+	SetPairingConfig(context.Context, *SetPairingConfigRequest) (*SetPairingConfigResponse, error)
+	SetServiceName(context.Context, *SetServiceNameRequest) (*SetServiceNameResponse, error)
+	SetServiceSpecificInfo(context.Context, *SetServiceSpecificInfoRequest) (*SetServiceSpecificInfoResponse, error)
+	SetSubscribeType(context.Context, *SetSubscribeTypeRequest) (*SetSubscribeTypeResponse, error)
+	SetTerminateNotificationEnabled(context.Context, *SetTerminateNotificationEnabledRequest) (*SetTerminateNotificationEnabledResponse, error)
+	SetTtlSec(context.Context, *SetTtlSecRequest) (*SetTtlSecResponse, error)
+	mustEmbedUnimplementedSubscribeConfigBuilderServiceServer()
 }
 
-// UnimplementedWifiAwareNetworkSpecifierBuilderServiceServer must be embedded to have
+// UnimplementedSubscribeConfigBuilderServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedWifiAwareNetworkSpecifierBuilderServiceServer struct{}
+type UnimplementedSubscribeConfigBuilderServiceServer struct{}
 
-func (UnimplementedWifiAwareNetworkSpecifierBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
+func (UnimplementedSubscribeConfigBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
 }
-func (UnimplementedWifiAwareNetworkSpecifierBuilderServiceServer) SetChannelFrequencyMhz(context.Context, *SetChannelFrequencyMhzRequest) (*SetChannelFrequencyMhzResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetChannelFrequencyMhz not implemented")
+func (UnimplementedSubscribeConfigBuilderServiceServer) SetInstantCommunicationModeEnabled(context.Context, *SetInstantCommunicationModeEnabledRequest) (*SetInstantCommunicationModeEnabledResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetInstantCommunicationModeEnabled not implemented")
 }
-func (UnimplementedWifiAwareNetworkSpecifierBuilderServiceServer) SetDataPathSecurityConfig(context.Context, *SetDataPathSecurityConfigRequest) (*SetDataPathSecurityConfigResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetDataPathSecurityConfig not implemented")
+func (UnimplementedSubscribeConfigBuilderServiceServer) SetMaxDistanceMm(context.Context, *SetMaxDistanceMmRequest) (*SetMaxDistanceMmResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetMaxDistanceMm not implemented")
 }
-func (UnimplementedWifiAwareNetworkSpecifierBuilderServiceServer) SetPmk(context.Context, *SetPmkRequest) (*SetPmkResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetPmk not implemented")
+func (UnimplementedSubscribeConfigBuilderServiceServer) SetMinDistanceMm(context.Context, *SetMinDistanceMmRequest) (*SetMinDistanceMmResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetMinDistanceMm not implemented")
 }
-func (UnimplementedWifiAwareNetworkSpecifierBuilderServiceServer) SetPort(context.Context, *SetPortRequest) (*SetPortResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetPort not implemented")
+func (UnimplementedSubscribeConfigBuilderServiceServer) SetPairingConfig(context.Context, *SetPairingConfigRequest) (*SetPairingConfigResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetPairingConfig not implemented")
 }
-func (UnimplementedWifiAwareNetworkSpecifierBuilderServiceServer) SetPskPassphrase(context.Context, *SetPskPassphraseRequest) (*SetPskPassphraseResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetPskPassphrase not implemented")
+func (UnimplementedSubscribeConfigBuilderServiceServer) SetServiceName(context.Context, *SetServiceNameRequest) (*SetServiceNameResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetServiceName not implemented")
 }
-func (UnimplementedWifiAwareNetworkSpecifierBuilderServiceServer) SetTransportProtocol(context.Context, *SetTransportProtocolRequest) (*SetTransportProtocolResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetTransportProtocol not implemented")
+func (UnimplementedSubscribeConfigBuilderServiceServer) SetServiceSpecificInfo(context.Context, *SetServiceSpecificInfoRequest) (*SetServiceSpecificInfoResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetServiceSpecificInfo not implemented")
 }
-func (UnimplementedWifiAwareNetworkSpecifierBuilderServiceServer) mustEmbedUnimplementedWifiAwareNetworkSpecifierBuilderServiceServer() {
+func (UnimplementedSubscribeConfigBuilderServiceServer) SetSubscribeType(context.Context, *SetSubscribeTypeRequest) (*SetSubscribeTypeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetSubscribeType not implemented")
 }
-func (UnimplementedWifiAwareNetworkSpecifierBuilderServiceServer) testEmbeddedByValue() {}
+func (UnimplementedSubscribeConfigBuilderServiceServer) SetTerminateNotificationEnabled(context.Context, *SetTerminateNotificationEnabledRequest) (*SetTerminateNotificationEnabledResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetTerminateNotificationEnabled not implemented")
+}
+func (UnimplementedSubscribeConfigBuilderServiceServer) SetTtlSec(context.Context, *SetTtlSecRequest) (*SetTtlSecResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetTtlSec not implemented")
+}
+func (UnimplementedSubscribeConfigBuilderServiceServer) mustEmbedUnimplementedSubscribeConfigBuilderServiceServer() {
+}
+func (UnimplementedSubscribeConfigBuilderServiceServer) testEmbeddedByValue() {}
 
-// UnsafeWifiAwareNetworkSpecifierBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to WifiAwareNetworkSpecifierBuilderServiceServer will
+// UnsafeSubscribeConfigBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to SubscribeConfigBuilderServiceServer will
 // result in compilation errors.
-type UnsafeWifiAwareNetworkSpecifierBuilderServiceServer interface {
-	mustEmbedUnimplementedWifiAwareNetworkSpecifierBuilderServiceServer()
+type UnsafeSubscribeConfigBuilderServiceServer interface {
+	mustEmbedUnimplementedSubscribeConfigBuilderServiceServer()
 }
 
-func RegisterWifiAwareNetworkSpecifierBuilderServiceServer(s grpc.ServiceRegistrar, srv WifiAwareNetworkSpecifierBuilderServiceServer) {
-	// If the following call panics, it indicates UnimplementedWifiAwareNetworkSpecifierBuilderServiceServer was
+func RegisterSubscribeConfigBuilderServiceServer(s grpc.ServiceRegistrar, srv SubscribeConfigBuilderServiceServer) {
+	// If the following call panics, it indicates UnimplementedSubscribeConfigBuilderServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&WifiAwareNetworkSpecifierBuilderService_ServiceDesc, srv)
+	s.RegisterService(&SubscribeConfigBuilderService_ServiceDesc, srv)
 }
 
-func _WifiAwareNetworkSpecifierBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _SubscribeConfigBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(BuildRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiAwareNetworkSpecifierBuilderServiceServer).Build(ctx, in)
+		return srv.(SubscribeConfigBuilderServiceServer).Build(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiAwareNetworkSpecifierBuilderService_Build_FullMethodName,
+		FullMethod: SubscribeConfigBuilderService_Build_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiAwareNetworkSpecifierBuilderServiceServer).Build(ctx, req.(*BuildRequest))
+		return srv.(SubscribeConfigBuilderServiceServer).Build(ctx, req.(*BuildRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiAwareNetworkSpecifierBuilderService_SetChannelFrequencyMhz_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetChannelFrequencyMhzRequest)
+func _SubscribeConfigBuilderService_SetInstantCommunicationModeEnabled_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetInstantCommunicationModeEnabledRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiAwareNetworkSpecifierBuilderServiceServer).SetChannelFrequencyMhz(ctx, in)
+		return srv.(SubscribeConfigBuilderServiceServer).SetInstantCommunicationModeEnabled(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiAwareNetworkSpecifierBuilderService_SetChannelFrequencyMhz_FullMethodName,
+		FullMethod: SubscribeConfigBuilderService_SetInstantCommunicationModeEnabled_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiAwareNetworkSpecifierBuilderServiceServer).SetChannelFrequencyMhz(ctx, req.(*SetChannelFrequencyMhzRequest))
+		return srv.(SubscribeConfigBuilderServiceServer).SetInstantCommunicationModeEnabled(ctx, req.(*SetInstantCommunicationModeEnabledRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiAwareNetworkSpecifierBuilderService_SetDataPathSecurityConfig_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetDataPathSecurityConfigRequest)
+func _SubscribeConfigBuilderService_SetMaxDistanceMm_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetMaxDistanceMmRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiAwareNetworkSpecifierBuilderServiceServer).SetDataPathSecurityConfig(ctx, in)
+		return srv.(SubscribeConfigBuilderServiceServer).SetMaxDistanceMm(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiAwareNetworkSpecifierBuilderService_SetDataPathSecurityConfig_FullMethodName,
+		FullMethod: SubscribeConfigBuilderService_SetMaxDistanceMm_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiAwareNetworkSpecifierBuilderServiceServer).SetDataPathSecurityConfig(ctx, req.(*SetDataPathSecurityConfigRequest))
+		return srv.(SubscribeConfigBuilderServiceServer).SetMaxDistanceMm(ctx, req.(*SetMaxDistanceMmRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiAwareNetworkSpecifierBuilderService_SetPmk_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetPmkRequest)
+func _SubscribeConfigBuilderService_SetMinDistanceMm_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetMinDistanceMmRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiAwareNetworkSpecifierBuilderServiceServer).SetPmk(ctx, in)
+		return srv.(SubscribeConfigBuilderServiceServer).SetMinDistanceMm(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiAwareNetworkSpecifierBuilderService_SetPmk_FullMethodName,
+		FullMethod: SubscribeConfigBuilderService_SetMinDistanceMm_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiAwareNetworkSpecifierBuilderServiceServer).SetPmk(ctx, req.(*SetPmkRequest))
+		return srv.(SubscribeConfigBuilderServiceServer).SetMinDistanceMm(ctx, req.(*SetMinDistanceMmRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiAwareNetworkSpecifierBuilderService_SetPort_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetPortRequest)
+func _SubscribeConfigBuilderService_SetPairingConfig_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetPairingConfigRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiAwareNetworkSpecifierBuilderServiceServer).SetPort(ctx, in)
+		return srv.(SubscribeConfigBuilderServiceServer).SetPairingConfig(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiAwareNetworkSpecifierBuilderService_SetPort_FullMethodName,
+		FullMethod: SubscribeConfigBuilderService_SetPairingConfig_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiAwareNetworkSpecifierBuilderServiceServer).SetPort(ctx, req.(*SetPortRequest))
+		return srv.(SubscribeConfigBuilderServiceServer).SetPairingConfig(ctx, req.(*SetPairingConfigRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiAwareNetworkSpecifierBuilderService_SetPskPassphrase_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetPskPassphraseRequest)
+func _SubscribeConfigBuilderService_SetServiceName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetServiceNameRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiAwareNetworkSpecifierBuilderServiceServer).SetPskPassphrase(ctx, in)
+		return srv.(SubscribeConfigBuilderServiceServer).SetServiceName(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiAwareNetworkSpecifierBuilderService_SetPskPassphrase_FullMethodName,
+		FullMethod: SubscribeConfigBuilderService_SetServiceName_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiAwareNetworkSpecifierBuilderServiceServer).SetPskPassphrase(ctx, req.(*SetPskPassphraseRequest))
+		return srv.(SubscribeConfigBuilderServiceServer).SetServiceName(ctx, req.(*SetServiceNameRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiAwareNetworkSpecifierBuilderService_SetTransportProtocol_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetTransportProtocolRequest)
+func _SubscribeConfigBuilderService_SetServiceSpecificInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetServiceSpecificInfoRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiAwareNetworkSpecifierBuilderServiceServer).SetTransportProtocol(ctx, in)
+		return srv.(SubscribeConfigBuilderServiceServer).SetServiceSpecificInfo(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiAwareNetworkSpecifierBuilderService_SetTransportProtocol_FullMethodName,
+		FullMethod: SubscribeConfigBuilderService_SetServiceSpecificInfo_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiAwareNetworkSpecifierBuilderServiceServer).SetTransportProtocol(ctx, req.(*SetTransportProtocolRequest))
+		return srv.(SubscribeConfigBuilderServiceServer).SetServiceSpecificInfo(ctx, req.(*SetServiceSpecificInfoRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// WifiAwareNetworkSpecifierBuilderService_ServiceDesc is the grpc.ServiceDesc for WifiAwareNetworkSpecifierBuilderService service.
+func _SubscribeConfigBuilderService_SetSubscribeType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetSubscribeTypeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SubscribeConfigBuilderServiceServer).SetSubscribeType(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SubscribeConfigBuilderService_SetSubscribeType_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SubscribeConfigBuilderServiceServer).SetSubscribeType(ctx, req.(*SetSubscribeTypeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SubscribeConfigBuilderService_SetTerminateNotificationEnabled_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetTerminateNotificationEnabledRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SubscribeConfigBuilderServiceServer).SetTerminateNotificationEnabled(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SubscribeConfigBuilderService_SetTerminateNotificationEnabled_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SubscribeConfigBuilderServiceServer).SetTerminateNotificationEnabled(ctx, req.(*SetTerminateNotificationEnabledRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SubscribeConfigBuilderService_SetTtlSec_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetTtlSecRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SubscribeConfigBuilderServiceServer).SetTtlSec(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SubscribeConfigBuilderService_SetTtlSec_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SubscribeConfigBuilderServiceServer).SetTtlSec(ctx, req.(*SetTtlSecRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// SubscribeConfigBuilderService_ServiceDesc is the grpc.ServiceDesc for SubscribeConfigBuilderService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var WifiAwareNetworkSpecifierBuilderService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "aware.WifiAwareNetworkSpecifierBuilderService",
-	HandlerType: (*WifiAwareNetworkSpecifierBuilderServiceServer)(nil),
+var SubscribeConfigBuilderService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "aware.SubscribeConfigBuilderService",
+	HandlerType: (*SubscribeConfigBuilderServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
 			MethodName: "Build",
-			Handler:    _WifiAwareNetworkSpecifierBuilderService_Build_Handler,
+			Handler:    _SubscribeConfigBuilderService_Build_Handler,
 		},
 		{
-			MethodName: "SetChannelFrequencyMhz",
-			Handler:    _WifiAwareNetworkSpecifierBuilderService_SetChannelFrequencyMhz_Handler,
+			MethodName: "SetInstantCommunicationModeEnabled",
+			Handler:    _SubscribeConfigBuilderService_SetInstantCommunicationModeEnabled_Handler,
 		},
 		{
-			MethodName: "SetDataPathSecurityConfig",
-			Handler:    _WifiAwareNetworkSpecifierBuilderService_SetDataPathSecurityConfig_Handler,
+			MethodName: "SetMaxDistanceMm",
+			Handler:    _SubscribeConfigBuilderService_SetMaxDistanceMm_Handler,
 		},
 		{
-			MethodName: "SetPmk",
-			Handler:    _WifiAwareNetworkSpecifierBuilderService_SetPmk_Handler,
+			MethodName: "SetMinDistanceMm",
+			Handler:    _SubscribeConfigBuilderService_SetMinDistanceMm_Handler,
 		},
 		{
-			MethodName: "SetPort",
-			Handler:    _WifiAwareNetworkSpecifierBuilderService_SetPort_Handler,
+			MethodName: "SetPairingConfig",
+			Handler:    _SubscribeConfigBuilderService_SetPairingConfig_Handler,
 		},
 		{
-			MethodName: "SetPskPassphrase",
-			Handler:    _WifiAwareNetworkSpecifierBuilderService_SetPskPassphrase_Handler,
+			MethodName: "SetServiceName",
+			Handler:    _SubscribeConfigBuilderService_SetServiceName_Handler,
 		},
 		{
-			MethodName: "SetTransportProtocol",
-			Handler:    _WifiAwareNetworkSpecifierBuilderService_SetTransportProtocol_Handler,
+			MethodName: "SetServiceSpecificInfo",
+			Handler:    _SubscribeConfigBuilderService_SetServiceSpecificInfo_Handler,
+		},
+		{
+			MethodName: "SetSubscribeType",
+			Handler:    _SubscribeConfigBuilderService_SetSubscribeType_Handler,
+		},
+		{
+			MethodName: "SetTerminateNotificationEnabled",
+			Handler:    _SubscribeConfigBuilderService_SetTerminateNotificationEnabled_Handler,
+		},
+		{
+			MethodName: "SetTtlSec",
+			Handler:    _SubscribeConfigBuilderService_SetTtlSec_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -1524,8 +1242,3805 @@ var WifiAwareManagerService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
+	DiscoverySessionService_AcceptPairingRequest_FullMethodName             = "/aware.DiscoverySessionService/AcceptPairingRequest"
+	DiscoverySessionService_Close_FullMethodName                            = "/aware.DiscoverySessionService/Close"
+	DiscoverySessionService_CreateNetworkSpecifierOpen_FullMethodName       = "/aware.DiscoverySessionService/CreateNetworkSpecifierOpen"
+	DiscoverySessionService_CreateNetworkSpecifierPassphrase_FullMethodName = "/aware.DiscoverySessionService/CreateNetworkSpecifierPassphrase"
+	DiscoverySessionService_InitiateBootstrappingRequest_FullMethodName     = "/aware.DiscoverySessionService/InitiateBootstrappingRequest"
+	DiscoverySessionService_InitiatePairingRequest_FullMethodName           = "/aware.DiscoverySessionService/InitiatePairingRequest"
+	DiscoverySessionService_RejectPairingRequest_FullMethodName             = "/aware.DiscoverySessionService/RejectPairingRequest"
+	DiscoverySessionService_SendMessage_FullMethodName                      = "/aware.DiscoverySessionService/SendMessage"
+)
+
+// DiscoverySessionServiceClient is the client API for DiscoverySessionService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type DiscoverySessionServiceClient interface {
+	AcceptPairingRequest(ctx context.Context, in *AcceptPairingRequestRequest, opts ...grpc.CallOption) (*AcceptPairingRequestResponse, error)
+	Close(ctx context.Context, in *CloseRequest, opts ...grpc.CallOption) (*CloseResponse, error)
+	CreateNetworkSpecifierOpen(ctx context.Context, in *CreateNetworkSpecifierOpenRequest, opts ...grpc.CallOption) (*CreateNetworkSpecifierOpenResponse, error)
+	CreateNetworkSpecifierPassphrase(ctx context.Context, in *CreateNetworkSpecifierPassphraseRequest, opts ...grpc.CallOption) (*CreateNetworkSpecifierPassphraseResponse, error)
+	InitiateBootstrappingRequest(ctx context.Context, in *InitiateBootstrappingRequestRequest, opts ...grpc.CallOption) (*InitiateBootstrappingRequestResponse, error)
+	InitiatePairingRequest(ctx context.Context, in *InitiatePairingRequestRequest, opts ...grpc.CallOption) (*InitiatePairingRequestResponse, error)
+	RejectPairingRequest(ctx context.Context, in *RejectPairingRequestRequest, opts ...grpc.CallOption) (*RejectPairingRequestResponse, error)
+	SendMessage(ctx context.Context, in *SendMessageRequest, opts ...grpc.CallOption) (*SendMessageResponse, error)
+}
+
+type discoverySessionServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewDiscoverySessionServiceClient(cc grpc.ClientConnInterface) DiscoverySessionServiceClient {
+	return &discoverySessionServiceClient{cc}
+}
+
+func (c *discoverySessionServiceClient) AcceptPairingRequest(ctx context.Context, in *AcceptPairingRequestRequest, opts ...grpc.CallOption) (*AcceptPairingRequestResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(AcceptPairingRequestResponse)
+	err := c.cc.Invoke(ctx, DiscoverySessionService_AcceptPairingRequest_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *discoverySessionServiceClient) Close(ctx context.Context, in *CloseRequest, opts ...grpc.CallOption) (*CloseResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CloseResponse)
+	err := c.cc.Invoke(ctx, DiscoverySessionService_Close_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *discoverySessionServiceClient) CreateNetworkSpecifierOpen(ctx context.Context, in *CreateNetworkSpecifierOpenRequest, opts ...grpc.CallOption) (*CreateNetworkSpecifierOpenResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CreateNetworkSpecifierOpenResponse)
+	err := c.cc.Invoke(ctx, DiscoverySessionService_CreateNetworkSpecifierOpen_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *discoverySessionServiceClient) CreateNetworkSpecifierPassphrase(ctx context.Context, in *CreateNetworkSpecifierPassphraseRequest, opts ...grpc.CallOption) (*CreateNetworkSpecifierPassphraseResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CreateNetworkSpecifierPassphraseResponse)
+	err := c.cc.Invoke(ctx, DiscoverySessionService_CreateNetworkSpecifierPassphrase_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *discoverySessionServiceClient) InitiateBootstrappingRequest(ctx context.Context, in *InitiateBootstrappingRequestRequest, opts ...grpc.CallOption) (*InitiateBootstrappingRequestResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(InitiateBootstrappingRequestResponse)
+	err := c.cc.Invoke(ctx, DiscoverySessionService_InitiateBootstrappingRequest_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *discoverySessionServiceClient) InitiatePairingRequest(ctx context.Context, in *InitiatePairingRequestRequest, opts ...grpc.CallOption) (*InitiatePairingRequestResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(InitiatePairingRequestResponse)
+	err := c.cc.Invoke(ctx, DiscoverySessionService_InitiatePairingRequest_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *discoverySessionServiceClient) RejectPairingRequest(ctx context.Context, in *RejectPairingRequestRequest, opts ...grpc.CallOption) (*RejectPairingRequestResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(RejectPairingRequestResponse)
+	err := c.cc.Invoke(ctx, DiscoverySessionService_RejectPairingRequest_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *discoverySessionServiceClient) SendMessage(ctx context.Context, in *SendMessageRequest, opts ...grpc.CallOption) (*SendMessageResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SendMessageResponse)
+	err := c.cc.Invoke(ctx, DiscoverySessionService_SendMessage_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// DiscoverySessionServiceServer is the server API for DiscoverySessionService service.
+// All implementations must embed UnimplementedDiscoverySessionServiceServer
+// for forward compatibility.
+type DiscoverySessionServiceServer interface {
+	AcceptPairingRequest(context.Context, *AcceptPairingRequestRequest) (*AcceptPairingRequestResponse, error)
+	Close(context.Context, *CloseRequest) (*CloseResponse, error)
+	CreateNetworkSpecifierOpen(context.Context, *CreateNetworkSpecifierOpenRequest) (*CreateNetworkSpecifierOpenResponse, error)
+	CreateNetworkSpecifierPassphrase(context.Context, *CreateNetworkSpecifierPassphraseRequest) (*CreateNetworkSpecifierPassphraseResponse, error)
+	InitiateBootstrappingRequest(context.Context, *InitiateBootstrappingRequestRequest) (*InitiateBootstrappingRequestResponse, error)
+	InitiatePairingRequest(context.Context, *InitiatePairingRequestRequest) (*InitiatePairingRequestResponse, error)
+	RejectPairingRequest(context.Context, *RejectPairingRequestRequest) (*RejectPairingRequestResponse, error)
+	SendMessage(context.Context, *SendMessageRequest) (*SendMessageResponse, error)
+	mustEmbedUnimplementedDiscoverySessionServiceServer()
+}
+
+// UnimplementedDiscoverySessionServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedDiscoverySessionServiceServer struct{}
+
+func (UnimplementedDiscoverySessionServiceServer) AcceptPairingRequest(context.Context, *AcceptPairingRequestRequest) (*AcceptPairingRequestResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method AcceptPairingRequest not implemented")
+}
+func (UnimplementedDiscoverySessionServiceServer) Close(context.Context, *CloseRequest) (*CloseResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Close not implemented")
+}
+func (UnimplementedDiscoverySessionServiceServer) CreateNetworkSpecifierOpen(context.Context, *CreateNetworkSpecifierOpenRequest) (*CreateNetworkSpecifierOpenResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method CreateNetworkSpecifierOpen not implemented")
+}
+func (UnimplementedDiscoverySessionServiceServer) CreateNetworkSpecifierPassphrase(context.Context, *CreateNetworkSpecifierPassphraseRequest) (*CreateNetworkSpecifierPassphraseResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method CreateNetworkSpecifierPassphrase not implemented")
+}
+func (UnimplementedDiscoverySessionServiceServer) InitiateBootstrappingRequest(context.Context, *InitiateBootstrappingRequestRequest) (*InitiateBootstrappingRequestResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method InitiateBootstrappingRequest not implemented")
+}
+func (UnimplementedDiscoverySessionServiceServer) InitiatePairingRequest(context.Context, *InitiatePairingRequestRequest) (*InitiatePairingRequestResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method InitiatePairingRequest not implemented")
+}
+func (UnimplementedDiscoverySessionServiceServer) RejectPairingRequest(context.Context, *RejectPairingRequestRequest) (*RejectPairingRequestResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method RejectPairingRequest not implemented")
+}
+func (UnimplementedDiscoverySessionServiceServer) SendMessage(context.Context, *SendMessageRequest) (*SendMessageResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SendMessage not implemented")
+}
+func (UnimplementedDiscoverySessionServiceServer) mustEmbedUnimplementedDiscoverySessionServiceServer() {
+}
+func (UnimplementedDiscoverySessionServiceServer) testEmbeddedByValue() {}
+
+// UnsafeDiscoverySessionServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to DiscoverySessionServiceServer will
+// result in compilation errors.
+type UnsafeDiscoverySessionServiceServer interface {
+	mustEmbedUnimplementedDiscoverySessionServiceServer()
+}
+
+func RegisterDiscoverySessionServiceServer(s grpc.ServiceRegistrar, srv DiscoverySessionServiceServer) {
+	// If the following call panics, it indicates UnimplementedDiscoverySessionServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&DiscoverySessionService_ServiceDesc, srv)
+}
+
+func _DiscoverySessionService_AcceptPairingRequest_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AcceptPairingRequestRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DiscoverySessionServiceServer).AcceptPairingRequest(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DiscoverySessionService_AcceptPairingRequest_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DiscoverySessionServiceServer).AcceptPairingRequest(ctx, req.(*AcceptPairingRequestRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DiscoverySessionService_Close_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CloseRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DiscoverySessionServiceServer).Close(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DiscoverySessionService_Close_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DiscoverySessionServiceServer).Close(ctx, req.(*CloseRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DiscoverySessionService_CreateNetworkSpecifierOpen_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreateNetworkSpecifierOpenRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DiscoverySessionServiceServer).CreateNetworkSpecifierOpen(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DiscoverySessionService_CreateNetworkSpecifierOpen_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DiscoverySessionServiceServer).CreateNetworkSpecifierOpen(ctx, req.(*CreateNetworkSpecifierOpenRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DiscoverySessionService_CreateNetworkSpecifierPassphrase_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreateNetworkSpecifierPassphraseRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DiscoverySessionServiceServer).CreateNetworkSpecifierPassphrase(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DiscoverySessionService_CreateNetworkSpecifierPassphrase_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DiscoverySessionServiceServer).CreateNetworkSpecifierPassphrase(ctx, req.(*CreateNetworkSpecifierPassphraseRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DiscoverySessionService_InitiateBootstrappingRequest_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(InitiateBootstrappingRequestRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DiscoverySessionServiceServer).InitiateBootstrappingRequest(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DiscoverySessionService_InitiateBootstrappingRequest_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DiscoverySessionServiceServer).InitiateBootstrappingRequest(ctx, req.(*InitiateBootstrappingRequestRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DiscoverySessionService_InitiatePairingRequest_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(InitiatePairingRequestRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DiscoverySessionServiceServer).InitiatePairingRequest(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DiscoverySessionService_InitiatePairingRequest_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DiscoverySessionServiceServer).InitiatePairingRequest(ctx, req.(*InitiatePairingRequestRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DiscoverySessionService_RejectPairingRequest_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RejectPairingRequestRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DiscoverySessionServiceServer).RejectPairingRequest(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DiscoverySessionService_RejectPairingRequest_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DiscoverySessionServiceServer).RejectPairingRequest(ctx, req.(*RejectPairingRequestRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DiscoverySessionService_SendMessage_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SendMessageRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DiscoverySessionServiceServer).SendMessage(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DiscoverySessionService_SendMessage_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DiscoverySessionServiceServer).SendMessage(ctx, req.(*SendMessageRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// DiscoverySessionService_ServiceDesc is the grpc.ServiceDesc for DiscoverySessionService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var DiscoverySessionService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "aware.DiscoverySessionService",
+	HandlerType: (*DiscoverySessionServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "AcceptPairingRequest",
+			Handler:    _DiscoverySessionService_AcceptPairingRequest_Handler,
+		},
+		{
+			MethodName: "Close",
+			Handler:    _DiscoverySessionService_Close_Handler,
+		},
+		{
+			MethodName: "CreateNetworkSpecifierOpen",
+			Handler:    _DiscoverySessionService_CreateNetworkSpecifierOpen_Handler,
+		},
+		{
+			MethodName: "CreateNetworkSpecifierPassphrase",
+			Handler:    _DiscoverySessionService_CreateNetworkSpecifierPassphrase_Handler,
+		},
+		{
+			MethodName: "InitiateBootstrappingRequest",
+			Handler:    _DiscoverySessionService_InitiateBootstrappingRequest_Handler,
+		},
+		{
+			MethodName: "InitiatePairingRequest",
+			Handler:    _DiscoverySessionService_InitiatePairingRequest_Handler,
+		},
+		{
+			MethodName: "RejectPairingRequest",
+			Handler:    _DiscoverySessionService_RejectPairingRequest_Handler,
+		},
+		{
+			MethodName: "SendMessage",
+			Handler:    _DiscoverySessionService_SendMessage_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/aware/aware.proto",
+}
+
+const (
+	WifiAwareNetworkSpecifierService_CanBeSatisfiedBy_FullMethodName                   = "/aware.WifiAwareNetworkSpecifierService/CanBeSatisfiedBy"
+	WifiAwareNetworkSpecifierService_DescribeContents_FullMethodName                   = "/aware.WifiAwareNetworkSpecifierService/DescribeContents"
+	WifiAwareNetworkSpecifierService_Equals_FullMethodName                             = "/aware.WifiAwareNetworkSpecifierService/Equals"
+	WifiAwareNetworkSpecifierService_GetChannelFrequencyMhz_FullMethodName             = "/aware.WifiAwareNetworkSpecifierService/GetChannelFrequencyMhz"
+	WifiAwareNetworkSpecifierService_GetWifiAwareDataPathSecurityConfig_FullMethodName = "/aware.WifiAwareNetworkSpecifierService/GetWifiAwareDataPathSecurityConfig"
+	WifiAwareNetworkSpecifierService_HashCode_FullMethodName                           = "/aware.WifiAwareNetworkSpecifierService/HashCode"
+	WifiAwareNetworkSpecifierService_IsChannelRequired_FullMethodName                  = "/aware.WifiAwareNetworkSpecifierService/IsChannelRequired"
+	WifiAwareNetworkSpecifierService_ToString_FullMethodName                           = "/aware.WifiAwareNetworkSpecifierService/ToString"
+	WifiAwareNetworkSpecifierService_WriteToParcel_FullMethodName                      = "/aware.WifiAwareNetworkSpecifierService/WriteToParcel"
+)
+
+// WifiAwareNetworkSpecifierServiceClient is the client API for WifiAwareNetworkSpecifierService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type WifiAwareNetworkSpecifierServiceClient interface {
+	CanBeSatisfiedBy(ctx context.Context, in *CanBeSatisfiedByRequest, opts ...grpc.CallOption) (*CanBeSatisfiedByResponse, error)
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	GetChannelFrequencyMhz(ctx context.Context, in *GetChannelFrequencyMhzRequest, opts ...grpc.CallOption) (*GetChannelFrequencyMhzResponse, error)
+	GetWifiAwareDataPathSecurityConfig(ctx context.Context, in *GetWifiAwareDataPathSecurityConfigRequest, opts ...grpc.CallOption) (*GetWifiAwareDataPathSecurityConfigResponse, error)
+	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+	IsChannelRequired(ctx context.Context, in *IsChannelRequiredRequest, opts ...grpc.CallOption) (*IsChannelRequiredResponse, error)
+	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type wifiAwareNetworkSpecifierServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewWifiAwareNetworkSpecifierServiceClient(cc grpc.ClientConnInterface) WifiAwareNetworkSpecifierServiceClient {
+	return &wifiAwareNetworkSpecifierServiceClient{cc}
+}
+
+func (c *wifiAwareNetworkSpecifierServiceClient) CanBeSatisfiedBy(ctx context.Context, in *CanBeSatisfiedByRequest, opts ...grpc.CallOption) (*CanBeSatisfiedByResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CanBeSatisfiedByResponse)
+	err := c.cc.Invoke(ctx, WifiAwareNetworkSpecifierService_CanBeSatisfiedBy_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *wifiAwareNetworkSpecifierServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, WifiAwareNetworkSpecifierService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *wifiAwareNetworkSpecifierServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(EqualsResponse)
+	err := c.cc.Invoke(ctx, WifiAwareNetworkSpecifierService_Equals_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *wifiAwareNetworkSpecifierServiceClient) GetChannelFrequencyMhz(ctx context.Context, in *GetChannelFrequencyMhzRequest, opts ...grpc.CallOption) (*GetChannelFrequencyMhzResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetChannelFrequencyMhzResponse)
+	err := c.cc.Invoke(ctx, WifiAwareNetworkSpecifierService_GetChannelFrequencyMhz_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *wifiAwareNetworkSpecifierServiceClient) GetWifiAwareDataPathSecurityConfig(ctx context.Context, in *GetWifiAwareDataPathSecurityConfigRequest, opts ...grpc.CallOption) (*GetWifiAwareDataPathSecurityConfigResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetWifiAwareDataPathSecurityConfigResponse)
+	err := c.cc.Invoke(ctx, WifiAwareNetworkSpecifierService_GetWifiAwareDataPathSecurityConfig_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *wifiAwareNetworkSpecifierServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HashCodeResponse)
+	err := c.cc.Invoke(ctx, WifiAwareNetworkSpecifierService_HashCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *wifiAwareNetworkSpecifierServiceClient) IsChannelRequired(ctx context.Context, in *IsChannelRequiredRequest, opts ...grpc.CallOption) (*IsChannelRequiredResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsChannelRequiredResponse)
+	err := c.cc.Invoke(ctx, WifiAwareNetworkSpecifierService_IsChannelRequired_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *wifiAwareNetworkSpecifierServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, WifiAwareNetworkSpecifierService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *wifiAwareNetworkSpecifierServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, WifiAwareNetworkSpecifierService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// WifiAwareNetworkSpecifierServiceServer is the server API for WifiAwareNetworkSpecifierService service.
+// All implementations must embed UnimplementedWifiAwareNetworkSpecifierServiceServer
+// for forward compatibility.
+type WifiAwareNetworkSpecifierServiceServer interface {
+	CanBeSatisfiedBy(context.Context, *CanBeSatisfiedByRequest) (*CanBeSatisfiedByResponse, error)
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
+	GetChannelFrequencyMhz(context.Context, *GetChannelFrequencyMhzRequest) (*GetChannelFrequencyMhzResponse, error)
+	GetWifiAwareDataPathSecurityConfig(context.Context, *GetWifiAwareDataPathSecurityConfigRequest) (*GetWifiAwareDataPathSecurityConfigResponse, error)
+	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
+	IsChannelRequired(context.Context, *IsChannelRequiredRequest) (*IsChannelRequiredResponse, error)
+	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedWifiAwareNetworkSpecifierServiceServer()
+}
+
+// UnimplementedWifiAwareNetworkSpecifierServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedWifiAwareNetworkSpecifierServiceServer struct{}
+
+func (UnimplementedWifiAwareNetworkSpecifierServiceServer) CanBeSatisfiedBy(context.Context, *CanBeSatisfiedByRequest) (*CanBeSatisfiedByResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method CanBeSatisfiedBy not implemented")
+}
+func (UnimplementedWifiAwareNetworkSpecifierServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedWifiAwareNetworkSpecifierServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
+}
+func (UnimplementedWifiAwareNetworkSpecifierServiceServer) GetChannelFrequencyMhz(context.Context, *GetChannelFrequencyMhzRequest) (*GetChannelFrequencyMhzResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetChannelFrequencyMhz not implemented")
+}
+func (UnimplementedWifiAwareNetworkSpecifierServiceServer) GetWifiAwareDataPathSecurityConfig(context.Context, *GetWifiAwareDataPathSecurityConfigRequest) (*GetWifiAwareDataPathSecurityConfigResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetWifiAwareDataPathSecurityConfig not implemented")
+}
+func (UnimplementedWifiAwareNetworkSpecifierServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
+}
+func (UnimplementedWifiAwareNetworkSpecifierServiceServer) IsChannelRequired(context.Context, *IsChannelRequiredRequest) (*IsChannelRequiredResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsChannelRequired not implemented")
+}
+func (UnimplementedWifiAwareNetworkSpecifierServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedWifiAwareNetworkSpecifierServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedWifiAwareNetworkSpecifierServiceServer) mustEmbedUnimplementedWifiAwareNetworkSpecifierServiceServer() {
+}
+func (UnimplementedWifiAwareNetworkSpecifierServiceServer) testEmbeddedByValue() {}
+
+// UnsafeWifiAwareNetworkSpecifierServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to WifiAwareNetworkSpecifierServiceServer will
+// result in compilation errors.
+type UnsafeWifiAwareNetworkSpecifierServiceServer interface {
+	mustEmbedUnimplementedWifiAwareNetworkSpecifierServiceServer()
+}
+
+func RegisterWifiAwareNetworkSpecifierServiceServer(s grpc.ServiceRegistrar, srv WifiAwareNetworkSpecifierServiceServer) {
+	// If the following call panics, it indicates UnimplementedWifiAwareNetworkSpecifierServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&WifiAwareNetworkSpecifierService_ServiceDesc, srv)
+}
+
+func _WifiAwareNetworkSpecifierService_CanBeSatisfiedBy_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CanBeSatisfiedByRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WifiAwareNetworkSpecifierServiceServer).CanBeSatisfiedBy(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WifiAwareNetworkSpecifierService_CanBeSatisfiedBy_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WifiAwareNetworkSpecifierServiceServer).CanBeSatisfiedBy(ctx, req.(*CanBeSatisfiedByRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WifiAwareNetworkSpecifierService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WifiAwareNetworkSpecifierServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WifiAwareNetworkSpecifierService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WifiAwareNetworkSpecifierServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WifiAwareNetworkSpecifierService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EqualsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WifiAwareNetworkSpecifierServiceServer).Equals(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WifiAwareNetworkSpecifierService_Equals_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WifiAwareNetworkSpecifierServiceServer).Equals(ctx, req.(*EqualsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WifiAwareNetworkSpecifierService_GetChannelFrequencyMhz_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetChannelFrequencyMhzRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WifiAwareNetworkSpecifierServiceServer).GetChannelFrequencyMhz(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WifiAwareNetworkSpecifierService_GetChannelFrequencyMhz_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WifiAwareNetworkSpecifierServiceServer).GetChannelFrequencyMhz(ctx, req.(*GetChannelFrequencyMhzRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WifiAwareNetworkSpecifierService_GetWifiAwareDataPathSecurityConfig_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetWifiAwareDataPathSecurityConfigRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WifiAwareNetworkSpecifierServiceServer).GetWifiAwareDataPathSecurityConfig(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WifiAwareNetworkSpecifierService_GetWifiAwareDataPathSecurityConfig_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WifiAwareNetworkSpecifierServiceServer).GetWifiAwareDataPathSecurityConfig(ctx, req.(*GetWifiAwareDataPathSecurityConfigRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WifiAwareNetworkSpecifierService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HashCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WifiAwareNetworkSpecifierServiceServer).HashCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WifiAwareNetworkSpecifierService_HashCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WifiAwareNetworkSpecifierServiceServer).HashCode(ctx, req.(*HashCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WifiAwareNetworkSpecifierService_IsChannelRequired_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsChannelRequiredRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WifiAwareNetworkSpecifierServiceServer).IsChannelRequired(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WifiAwareNetworkSpecifierService_IsChannelRequired_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WifiAwareNetworkSpecifierServiceServer).IsChannelRequired(ctx, req.(*IsChannelRequiredRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WifiAwareNetworkSpecifierService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WifiAwareNetworkSpecifierServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WifiAwareNetworkSpecifierService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WifiAwareNetworkSpecifierServiceServer).ToString(ctx, req.(*ToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WifiAwareNetworkSpecifierService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WifiAwareNetworkSpecifierServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WifiAwareNetworkSpecifierService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WifiAwareNetworkSpecifierServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// WifiAwareNetworkSpecifierService_ServiceDesc is the grpc.ServiceDesc for WifiAwareNetworkSpecifierService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var WifiAwareNetworkSpecifierService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "aware.WifiAwareNetworkSpecifierService",
+	HandlerType: (*WifiAwareNetworkSpecifierServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "CanBeSatisfiedBy",
+			Handler:    _WifiAwareNetworkSpecifierService_CanBeSatisfiedBy_Handler,
+		},
+		{
+			MethodName: "DescribeContents",
+			Handler:    _WifiAwareNetworkSpecifierService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "Equals",
+			Handler:    _WifiAwareNetworkSpecifierService_Equals_Handler,
+		},
+		{
+			MethodName: "GetChannelFrequencyMhz",
+			Handler:    _WifiAwareNetworkSpecifierService_GetChannelFrequencyMhz_Handler,
+		},
+		{
+			MethodName: "GetWifiAwareDataPathSecurityConfig",
+			Handler:    _WifiAwareNetworkSpecifierService_GetWifiAwareDataPathSecurityConfig_Handler,
+		},
+		{
+			MethodName: "HashCode",
+			Handler:    _WifiAwareNetworkSpecifierService_HashCode_Handler,
+		},
+		{
+			MethodName: "IsChannelRequired",
+			Handler:    _WifiAwareNetworkSpecifierService_IsChannelRequired_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _WifiAwareNetworkSpecifierService_ToString_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _WifiAwareNetworkSpecifierService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/aware/aware.proto",
+}
+
+const (
+	WifiAwareNetworkSpecifierBuilderService_Build_FullMethodName                     = "/aware.WifiAwareNetworkSpecifierBuilderService/Build"
+	WifiAwareNetworkSpecifierBuilderService_SetChannelFrequencyMhz_FullMethodName    = "/aware.WifiAwareNetworkSpecifierBuilderService/SetChannelFrequencyMhz"
+	WifiAwareNetworkSpecifierBuilderService_SetDataPathSecurityConfig_FullMethodName = "/aware.WifiAwareNetworkSpecifierBuilderService/SetDataPathSecurityConfig"
+	WifiAwareNetworkSpecifierBuilderService_SetPmk_FullMethodName                    = "/aware.WifiAwareNetworkSpecifierBuilderService/SetPmk"
+	WifiAwareNetworkSpecifierBuilderService_SetPort_FullMethodName                   = "/aware.WifiAwareNetworkSpecifierBuilderService/SetPort"
+	WifiAwareNetworkSpecifierBuilderService_SetPskPassphrase_FullMethodName          = "/aware.WifiAwareNetworkSpecifierBuilderService/SetPskPassphrase"
+	WifiAwareNetworkSpecifierBuilderService_SetTransportProtocol_FullMethodName      = "/aware.WifiAwareNetworkSpecifierBuilderService/SetTransportProtocol"
+)
+
+// WifiAwareNetworkSpecifierBuilderServiceClient is the client API for WifiAwareNetworkSpecifierBuilderService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type WifiAwareNetworkSpecifierBuilderServiceClient interface {
+	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
+	SetChannelFrequencyMhz(ctx context.Context, in *SetChannelFrequencyMhzRequest, opts ...grpc.CallOption) (*SetChannelFrequencyMhzResponse, error)
+	SetDataPathSecurityConfig(ctx context.Context, in *SetDataPathSecurityConfigRequest, opts ...grpc.CallOption) (*SetDataPathSecurityConfigResponse, error)
+	SetPmk(ctx context.Context, in *SetPmkRequest, opts ...grpc.CallOption) (*SetPmkResponse, error)
+	SetPort(ctx context.Context, in *SetPortRequest, opts ...grpc.CallOption) (*SetPortResponse, error)
+	SetPskPassphrase(ctx context.Context, in *SetPskPassphraseRequest, opts ...grpc.CallOption) (*SetPskPassphraseResponse, error)
+	SetTransportProtocol(ctx context.Context, in *SetTransportProtocolRequest, opts ...grpc.CallOption) (*SetTransportProtocolResponse, error)
+}
+
+type wifiAwareNetworkSpecifierBuilderServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewWifiAwareNetworkSpecifierBuilderServiceClient(cc grpc.ClientConnInterface) WifiAwareNetworkSpecifierBuilderServiceClient {
+	return &wifiAwareNetworkSpecifierBuilderServiceClient{cc}
+}
+
+func (c *wifiAwareNetworkSpecifierBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(BuildResponse)
+	err := c.cc.Invoke(ctx, WifiAwareNetworkSpecifierBuilderService_Build_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *wifiAwareNetworkSpecifierBuilderServiceClient) SetChannelFrequencyMhz(ctx context.Context, in *SetChannelFrequencyMhzRequest, opts ...grpc.CallOption) (*SetChannelFrequencyMhzResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetChannelFrequencyMhzResponse)
+	err := c.cc.Invoke(ctx, WifiAwareNetworkSpecifierBuilderService_SetChannelFrequencyMhz_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *wifiAwareNetworkSpecifierBuilderServiceClient) SetDataPathSecurityConfig(ctx context.Context, in *SetDataPathSecurityConfigRequest, opts ...grpc.CallOption) (*SetDataPathSecurityConfigResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetDataPathSecurityConfigResponse)
+	err := c.cc.Invoke(ctx, WifiAwareNetworkSpecifierBuilderService_SetDataPathSecurityConfig_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *wifiAwareNetworkSpecifierBuilderServiceClient) SetPmk(ctx context.Context, in *SetPmkRequest, opts ...grpc.CallOption) (*SetPmkResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetPmkResponse)
+	err := c.cc.Invoke(ctx, WifiAwareNetworkSpecifierBuilderService_SetPmk_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *wifiAwareNetworkSpecifierBuilderServiceClient) SetPort(ctx context.Context, in *SetPortRequest, opts ...grpc.CallOption) (*SetPortResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetPortResponse)
+	err := c.cc.Invoke(ctx, WifiAwareNetworkSpecifierBuilderService_SetPort_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *wifiAwareNetworkSpecifierBuilderServiceClient) SetPskPassphrase(ctx context.Context, in *SetPskPassphraseRequest, opts ...grpc.CallOption) (*SetPskPassphraseResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetPskPassphraseResponse)
+	err := c.cc.Invoke(ctx, WifiAwareNetworkSpecifierBuilderService_SetPskPassphrase_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *wifiAwareNetworkSpecifierBuilderServiceClient) SetTransportProtocol(ctx context.Context, in *SetTransportProtocolRequest, opts ...grpc.CallOption) (*SetTransportProtocolResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetTransportProtocolResponse)
+	err := c.cc.Invoke(ctx, WifiAwareNetworkSpecifierBuilderService_SetTransportProtocol_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// WifiAwareNetworkSpecifierBuilderServiceServer is the server API for WifiAwareNetworkSpecifierBuilderService service.
+// All implementations must embed UnimplementedWifiAwareNetworkSpecifierBuilderServiceServer
+// for forward compatibility.
+type WifiAwareNetworkSpecifierBuilderServiceServer interface {
+	Build(context.Context, *BuildRequest) (*BuildResponse, error)
+	SetChannelFrequencyMhz(context.Context, *SetChannelFrequencyMhzRequest) (*SetChannelFrequencyMhzResponse, error)
+	SetDataPathSecurityConfig(context.Context, *SetDataPathSecurityConfigRequest) (*SetDataPathSecurityConfigResponse, error)
+	SetPmk(context.Context, *SetPmkRequest) (*SetPmkResponse, error)
+	SetPort(context.Context, *SetPortRequest) (*SetPortResponse, error)
+	SetPskPassphrase(context.Context, *SetPskPassphraseRequest) (*SetPskPassphraseResponse, error)
+	SetTransportProtocol(context.Context, *SetTransportProtocolRequest) (*SetTransportProtocolResponse, error)
+	mustEmbedUnimplementedWifiAwareNetworkSpecifierBuilderServiceServer()
+}
+
+// UnimplementedWifiAwareNetworkSpecifierBuilderServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedWifiAwareNetworkSpecifierBuilderServiceServer struct{}
+
+func (UnimplementedWifiAwareNetworkSpecifierBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
+}
+func (UnimplementedWifiAwareNetworkSpecifierBuilderServiceServer) SetChannelFrequencyMhz(context.Context, *SetChannelFrequencyMhzRequest) (*SetChannelFrequencyMhzResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetChannelFrequencyMhz not implemented")
+}
+func (UnimplementedWifiAwareNetworkSpecifierBuilderServiceServer) SetDataPathSecurityConfig(context.Context, *SetDataPathSecurityConfigRequest) (*SetDataPathSecurityConfigResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetDataPathSecurityConfig not implemented")
+}
+func (UnimplementedWifiAwareNetworkSpecifierBuilderServiceServer) SetPmk(context.Context, *SetPmkRequest) (*SetPmkResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetPmk not implemented")
+}
+func (UnimplementedWifiAwareNetworkSpecifierBuilderServiceServer) SetPort(context.Context, *SetPortRequest) (*SetPortResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetPort not implemented")
+}
+func (UnimplementedWifiAwareNetworkSpecifierBuilderServiceServer) SetPskPassphrase(context.Context, *SetPskPassphraseRequest) (*SetPskPassphraseResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetPskPassphrase not implemented")
+}
+func (UnimplementedWifiAwareNetworkSpecifierBuilderServiceServer) SetTransportProtocol(context.Context, *SetTransportProtocolRequest) (*SetTransportProtocolResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetTransportProtocol not implemented")
+}
+func (UnimplementedWifiAwareNetworkSpecifierBuilderServiceServer) mustEmbedUnimplementedWifiAwareNetworkSpecifierBuilderServiceServer() {
+}
+func (UnimplementedWifiAwareNetworkSpecifierBuilderServiceServer) testEmbeddedByValue() {}
+
+// UnsafeWifiAwareNetworkSpecifierBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to WifiAwareNetworkSpecifierBuilderServiceServer will
+// result in compilation errors.
+type UnsafeWifiAwareNetworkSpecifierBuilderServiceServer interface {
+	mustEmbedUnimplementedWifiAwareNetworkSpecifierBuilderServiceServer()
+}
+
+func RegisterWifiAwareNetworkSpecifierBuilderServiceServer(s grpc.ServiceRegistrar, srv WifiAwareNetworkSpecifierBuilderServiceServer) {
+	// If the following call panics, it indicates UnimplementedWifiAwareNetworkSpecifierBuilderServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&WifiAwareNetworkSpecifierBuilderService_ServiceDesc, srv)
+}
+
+func _WifiAwareNetworkSpecifierBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BuildRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WifiAwareNetworkSpecifierBuilderServiceServer).Build(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WifiAwareNetworkSpecifierBuilderService_Build_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WifiAwareNetworkSpecifierBuilderServiceServer).Build(ctx, req.(*BuildRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WifiAwareNetworkSpecifierBuilderService_SetChannelFrequencyMhz_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetChannelFrequencyMhzRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WifiAwareNetworkSpecifierBuilderServiceServer).SetChannelFrequencyMhz(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WifiAwareNetworkSpecifierBuilderService_SetChannelFrequencyMhz_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WifiAwareNetworkSpecifierBuilderServiceServer).SetChannelFrequencyMhz(ctx, req.(*SetChannelFrequencyMhzRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WifiAwareNetworkSpecifierBuilderService_SetDataPathSecurityConfig_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetDataPathSecurityConfigRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WifiAwareNetworkSpecifierBuilderServiceServer).SetDataPathSecurityConfig(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WifiAwareNetworkSpecifierBuilderService_SetDataPathSecurityConfig_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WifiAwareNetworkSpecifierBuilderServiceServer).SetDataPathSecurityConfig(ctx, req.(*SetDataPathSecurityConfigRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WifiAwareNetworkSpecifierBuilderService_SetPmk_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetPmkRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WifiAwareNetworkSpecifierBuilderServiceServer).SetPmk(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WifiAwareNetworkSpecifierBuilderService_SetPmk_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WifiAwareNetworkSpecifierBuilderServiceServer).SetPmk(ctx, req.(*SetPmkRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WifiAwareNetworkSpecifierBuilderService_SetPort_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetPortRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WifiAwareNetworkSpecifierBuilderServiceServer).SetPort(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WifiAwareNetworkSpecifierBuilderService_SetPort_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WifiAwareNetworkSpecifierBuilderServiceServer).SetPort(ctx, req.(*SetPortRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WifiAwareNetworkSpecifierBuilderService_SetPskPassphrase_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetPskPassphraseRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WifiAwareNetworkSpecifierBuilderServiceServer).SetPskPassphrase(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WifiAwareNetworkSpecifierBuilderService_SetPskPassphrase_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WifiAwareNetworkSpecifierBuilderServiceServer).SetPskPassphrase(ctx, req.(*SetPskPassphraseRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WifiAwareNetworkSpecifierBuilderService_SetTransportProtocol_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetTransportProtocolRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WifiAwareNetworkSpecifierBuilderServiceServer).SetTransportProtocol(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WifiAwareNetworkSpecifierBuilderService_SetTransportProtocol_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WifiAwareNetworkSpecifierBuilderServiceServer).SetTransportProtocol(ctx, req.(*SetTransportProtocolRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// WifiAwareNetworkSpecifierBuilderService_ServiceDesc is the grpc.ServiceDesc for WifiAwareNetworkSpecifierBuilderService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var WifiAwareNetworkSpecifierBuilderService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "aware.WifiAwareNetworkSpecifierBuilderService",
+	HandlerType: (*WifiAwareNetworkSpecifierBuilderServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Build",
+			Handler:    _WifiAwareNetworkSpecifierBuilderService_Build_Handler,
+		},
+		{
+			MethodName: "SetChannelFrequencyMhz",
+			Handler:    _WifiAwareNetworkSpecifierBuilderService_SetChannelFrequencyMhz_Handler,
+		},
+		{
+			MethodName: "SetDataPathSecurityConfig",
+			Handler:    _WifiAwareNetworkSpecifierBuilderService_SetDataPathSecurityConfig_Handler,
+		},
+		{
+			MethodName: "SetPmk",
+			Handler:    _WifiAwareNetworkSpecifierBuilderService_SetPmk_Handler,
+		},
+		{
+			MethodName: "SetPort",
+			Handler:    _WifiAwareNetworkSpecifierBuilderService_SetPort_Handler,
+		},
+		{
+			MethodName: "SetPskPassphrase",
+			Handler:    _WifiAwareNetworkSpecifierBuilderService_SetPskPassphrase_Handler,
+		},
+		{
+			MethodName: "SetTransportProtocol",
+			Handler:    _WifiAwareNetworkSpecifierBuilderService_SetTransportProtocol_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/aware/aware.proto",
+}
+
+const (
+	PublishConfigService_DescribeContents_FullMethodName                  = "/aware.PublishConfigService/DescribeContents"
+	PublishConfigService_Equals_FullMethodName                            = "/aware.PublishConfigService/Equals"
+	PublishConfigService_GetInstantCommunicationBand_FullMethodName       = "/aware.PublishConfigService/GetInstantCommunicationBand"
+	PublishConfigService_GetPairingConfig_FullMethodName                  = "/aware.PublishConfigService/GetPairingConfig"
+	PublishConfigService_GetSecurityConfig_FullMethodName                 = "/aware.PublishConfigService/GetSecurityConfig"
+	PublishConfigService_HashCode_FullMethodName                          = "/aware.PublishConfigService/HashCode"
+	PublishConfigService_IsInstantCommunicationModeEnabled_FullMethodName = "/aware.PublishConfigService/IsInstantCommunicationModeEnabled"
+	PublishConfigService_ToString_FullMethodName                          = "/aware.PublishConfigService/ToString"
+	PublishConfigService_WriteToParcel_FullMethodName                     = "/aware.PublishConfigService/WriteToParcel"
+)
+
+// PublishConfigServiceClient is the client API for PublishConfigService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type PublishConfigServiceClient interface {
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	GetInstantCommunicationBand(ctx context.Context, in *GetInstantCommunicationBandRequest, opts ...grpc.CallOption) (*GetInstantCommunicationBandResponse, error)
+	GetPairingConfig(ctx context.Context, in *GetPairingConfigRequest, opts ...grpc.CallOption) (*GetPairingConfigResponse, error)
+	GetSecurityConfig(ctx context.Context, in *GetSecurityConfigRequest, opts ...grpc.CallOption) (*GetSecurityConfigResponse, error)
+	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+	IsInstantCommunicationModeEnabled(ctx context.Context, in *IsInstantCommunicationModeEnabledRequest, opts ...grpc.CallOption) (*IsInstantCommunicationModeEnabledResponse, error)
+	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type publishConfigServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewPublishConfigServiceClient(cc grpc.ClientConnInterface) PublishConfigServiceClient {
+	return &publishConfigServiceClient{cc}
+}
+
+func (c *publishConfigServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, PublishConfigService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *publishConfigServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(EqualsResponse)
+	err := c.cc.Invoke(ctx, PublishConfigService_Equals_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *publishConfigServiceClient) GetInstantCommunicationBand(ctx context.Context, in *GetInstantCommunicationBandRequest, opts ...grpc.CallOption) (*GetInstantCommunicationBandResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetInstantCommunicationBandResponse)
+	err := c.cc.Invoke(ctx, PublishConfigService_GetInstantCommunicationBand_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *publishConfigServiceClient) GetPairingConfig(ctx context.Context, in *GetPairingConfigRequest, opts ...grpc.CallOption) (*GetPairingConfigResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetPairingConfigResponse)
+	err := c.cc.Invoke(ctx, PublishConfigService_GetPairingConfig_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *publishConfigServiceClient) GetSecurityConfig(ctx context.Context, in *GetSecurityConfigRequest, opts ...grpc.CallOption) (*GetSecurityConfigResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSecurityConfigResponse)
+	err := c.cc.Invoke(ctx, PublishConfigService_GetSecurityConfig_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *publishConfigServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HashCodeResponse)
+	err := c.cc.Invoke(ctx, PublishConfigService_HashCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *publishConfigServiceClient) IsInstantCommunicationModeEnabled(ctx context.Context, in *IsInstantCommunicationModeEnabledRequest, opts ...grpc.CallOption) (*IsInstantCommunicationModeEnabledResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsInstantCommunicationModeEnabledResponse)
+	err := c.cc.Invoke(ctx, PublishConfigService_IsInstantCommunicationModeEnabled_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *publishConfigServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, PublishConfigService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *publishConfigServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, PublishConfigService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// PublishConfigServiceServer is the server API for PublishConfigService service.
+// All implementations must embed UnimplementedPublishConfigServiceServer
+// for forward compatibility.
+type PublishConfigServiceServer interface {
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
+	GetInstantCommunicationBand(context.Context, *GetInstantCommunicationBandRequest) (*GetInstantCommunicationBandResponse, error)
+	GetPairingConfig(context.Context, *GetPairingConfigRequest) (*GetPairingConfigResponse, error)
+	GetSecurityConfig(context.Context, *GetSecurityConfigRequest) (*GetSecurityConfigResponse, error)
+	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
+	IsInstantCommunicationModeEnabled(context.Context, *IsInstantCommunicationModeEnabledRequest) (*IsInstantCommunicationModeEnabledResponse, error)
+	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedPublishConfigServiceServer()
+}
+
+// UnimplementedPublishConfigServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedPublishConfigServiceServer struct{}
+
+func (UnimplementedPublishConfigServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedPublishConfigServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
+}
+func (UnimplementedPublishConfigServiceServer) GetInstantCommunicationBand(context.Context, *GetInstantCommunicationBandRequest) (*GetInstantCommunicationBandResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetInstantCommunicationBand not implemented")
+}
+func (UnimplementedPublishConfigServiceServer) GetPairingConfig(context.Context, *GetPairingConfigRequest) (*GetPairingConfigResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetPairingConfig not implemented")
+}
+func (UnimplementedPublishConfigServiceServer) GetSecurityConfig(context.Context, *GetSecurityConfigRequest) (*GetSecurityConfigResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSecurityConfig not implemented")
+}
+func (UnimplementedPublishConfigServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
+}
+func (UnimplementedPublishConfigServiceServer) IsInstantCommunicationModeEnabled(context.Context, *IsInstantCommunicationModeEnabledRequest) (*IsInstantCommunicationModeEnabledResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsInstantCommunicationModeEnabled not implemented")
+}
+func (UnimplementedPublishConfigServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedPublishConfigServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedPublishConfigServiceServer) mustEmbedUnimplementedPublishConfigServiceServer() {}
+func (UnimplementedPublishConfigServiceServer) testEmbeddedByValue()                              {}
+
+// UnsafePublishConfigServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to PublishConfigServiceServer will
+// result in compilation errors.
+type UnsafePublishConfigServiceServer interface {
+	mustEmbedUnimplementedPublishConfigServiceServer()
+}
+
+func RegisterPublishConfigServiceServer(s grpc.ServiceRegistrar, srv PublishConfigServiceServer) {
+	// If the following call panics, it indicates UnimplementedPublishConfigServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&PublishConfigService_ServiceDesc, srv)
+}
+
+func _PublishConfigService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PublishConfigServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PublishConfigService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PublishConfigServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PublishConfigService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EqualsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PublishConfigServiceServer).Equals(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PublishConfigService_Equals_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PublishConfigServiceServer).Equals(ctx, req.(*EqualsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PublishConfigService_GetInstantCommunicationBand_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetInstantCommunicationBandRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PublishConfigServiceServer).GetInstantCommunicationBand(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PublishConfigService_GetInstantCommunicationBand_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PublishConfigServiceServer).GetInstantCommunicationBand(ctx, req.(*GetInstantCommunicationBandRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PublishConfigService_GetPairingConfig_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPairingConfigRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PublishConfigServiceServer).GetPairingConfig(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PublishConfigService_GetPairingConfig_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PublishConfigServiceServer).GetPairingConfig(ctx, req.(*GetPairingConfigRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PublishConfigService_GetSecurityConfig_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSecurityConfigRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PublishConfigServiceServer).GetSecurityConfig(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PublishConfigService_GetSecurityConfig_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PublishConfigServiceServer).GetSecurityConfig(ctx, req.(*GetSecurityConfigRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PublishConfigService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HashCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PublishConfigServiceServer).HashCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PublishConfigService_HashCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PublishConfigServiceServer).HashCode(ctx, req.(*HashCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PublishConfigService_IsInstantCommunicationModeEnabled_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsInstantCommunicationModeEnabledRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PublishConfigServiceServer).IsInstantCommunicationModeEnabled(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PublishConfigService_IsInstantCommunicationModeEnabled_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PublishConfigServiceServer).IsInstantCommunicationModeEnabled(ctx, req.(*IsInstantCommunicationModeEnabledRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PublishConfigService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PublishConfigServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PublishConfigService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PublishConfigServiceServer).ToString(ctx, req.(*ToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PublishConfigService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PublishConfigServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PublishConfigService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PublishConfigServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// PublishConfigService_ServiceDesc is the grpc.ServiceDesc for PublishConfigService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var PublishConfigService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "aware.PublishConfigService",
+	HandlerType: (*PublishConfigServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "DescribeContents",
+			Handler:    _PublishConfigService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "Equals",
+			Handler:    _PublishConfigService_Equals_Handler,
+		},
+		{
+			MethodName: "GetInstantCommunicationBand",
+			Handler:    _PublishConfigService_GetInstantCommunicationBand_Handler,
+		},
+		{
+			MethodName: "GetPairingConfig",
+			Handler:    _PublishConfigService_GetPairingConfig_Handler,
+		},
+		{
+			MethodName: "GetSecurityConfig",
+			Handler:    _PublishConfigService_GetSecurityConfig_Handler,
+		},
+		{
+			MethodName: "HashCode",
+			Handler:    _PublishConfigService_HashCode_Handler,
+		},
+		{
+			MethodName: "IsInstantCommunicationModeEnabled",
+			Handler:    _PublishConfigService_IsInstantCommunicationModeEnabled_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _PublishConfigService_ToString_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _PublishConfigService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/aware/aware.proto",
+}
+
+const (
+	PublishConfigBuilderService_Build_FullMethodName                              = "/aware.PublishConfigBuilderService/Build"
+	PublishConfigBuilderService_SetDataPathSecurityConfig_FullMethodName          = "/aware.PublishConfigBuilderService/SetDataPathSecurityConfig"
+	PublishConfigBuilderService_SetInstantCommunicationModeEnabled_FullMethodName = "/aware.PublishConfigBuilderService/SetInstantCommunicationModeEnabled"
+	PublishConfigBuilderService_SetPairingConfig_FullMethodName                   = "/aware.PublishConfigBuilderService/SetPairingConfig"
+	PublishConfigBuilderService_SetPublishType_FullMethodName                     = "/aware.PublishConfigBuilderService/SetPublishType"
+	PublishConfigBuilderService_SetRangingEnabled_FullMethodName                  = "/aware.PublishConfigBuilderService/SetRangingEnabled"
+	PublishConfigBuilderService_SetServiceName_FullMethodName                     = "/aware.PublishConfigBuilderService/SetServiceName"
+	PublishConfigBuilderService_SetServiceSpecificInfo_FullMethodName             = "/aware.PublishConfigBuilderService/SetServiceSpecificInfo"
+	PublishConfigBuilderService_SetTerminateNotificationEnabled_FullMethodName    = "/aware.PublishConfigBuilderService/SetTerminateNotificationEnabled"
+	PublishConfigBuilderService_SetTtlSec_FullMethodName                          = "/aware.PublishConfigBuilderService/SetTtlSec"
+)
+
+// PublishConfigBuilderServiceClient is the client API for PublishConfigBuilderService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type PublishConfigBuilderServiceClient interface {
+	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
+	SetDataPathSecurityConfig(ctx context.Context, in *SetDataPathSecurityConfigRequest, opts ...grpc.CallOption) (*SetDataPathSecurityConfigResponse, error)
+	SetInstantCommunicationModeEnabled(ctx context.Context, in *SetInstantCommunicationModeEnabledRequest, opts ...grpc.CallOption) (*SetInstantCommunicationModeEnabledResponse, error)
+	SetPairingConfig(ctx context.Context, in *SetPairingConfigRequest, opts ...grpc.CallOption) (*SetPairingConfigResponse, error)
+	SetPublishType(ctx context.Context, in *SetPublishTypeRequest, opts ...grpc.CallOption) (*SetPublishTypeResponse, error)
+	SetRangingEnabled(ctx context.Context, in *SetRangingEnabledRequest, opts ...grpc.CallOption) (*SetRangingEnabledResponse, error)
+	SetServiceName(ctx context.Context, in *SetServiceNameRequest, opts ...grpc.CallOption) (*SetServiceNameResponse, error)
+	SetServiceSpecificInfo(ctx context.Context, in *SetServiceSpecificInfoRequest, opts ...grpc.CallOption) (*SetServiceSpecificInfoResponse, error)
+	SetTerminateNotificationEnabled(ctx context.Context, in *SetTerminateNotificationEnabledRequest, opts ...grpc.CallOption) (*SetTerminateNotificationEnabledResponse, error)
+	SetTtlSec(ctx context.Context, in *SetTtlSecRequest, opts ...grpc.CallOption) (*SetTtlSecResponse, error)
+}
+
+type publishConfigBuilderServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewPublishConfigBuilderServiceClient(cc grpc.ClientConnInterface) PublishConfigBuilderServiceClient {
+	return &publishConfigBuilderServiceClient{cc}
+}
+
+func (c *publishConfigBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(BuildResponse)
+	err := c.cc.Invoke(ctx, PublishConfigBuilderService_Build_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *publishConfigBuilderServiceClient) SetDataPathSecurityConfig(ctx context.Context, in *SetDataPathSecurityConfigRequest, opts ...grpc.CallOption) (*SetDataPathSecurityConfigResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetDataPathSecurityConfigResponse)
+	err := c.cc.Invoke(ctx, PublishConfigBuilderService_SetDataPathSecurityConfig_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *publishConfigBuilderServiceClient) SetInstantCommunicationModeEnabled(ctx context.Context, in *SetInstantCommunicationModeEnabledRequest, opts ...grpc.CallOption) (*SetInstantCommunicationModeEnabledResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetInstantCommunicationModeEnabledResponse)
+	err := c.cc.Invoke(ctx, PublishConfigBuilderService_SetInstantCommunicationModeEnabled_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *publishConfigBuilderServiceClient) SetPairingConfig(ctx context.Context, in *SetPairingConfigRequest, opts ...grpc.CallOption) (*SetPairingConfigResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetPairingConfigResponse)
+	err := c.cc.Invoke(ctx, PublishConfigBuilderService_SetPairingConfig_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *publishConfigBuilderServiceClient) SetPublishType(ctx context.Context, in *SetPublishTypeRequest, opts ...grpc.CallOption) (*SetPublishTypeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetPublishTypeResponse)
+	err := c.cc.Invoke(ctx, PublishConfigBuilderService_SetPublishType_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *publishConfigBuilderServiceClient) SetRangingEnabled(ctx context.Context, in *SetRangingEnabledRequest, opts ...grpc.CallOption) (*SetRangingEnabledResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetRangingEnabledResponse)
+	err := c.cc.Invoke(ctx, PublishConfigBuilderService_SetRangingEnabled_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *publishConfigBuilderServiceClient) SetServiceName(ctx context.Context, in *SetServiceNameRequest, opts ...grpc.CallOption) (*SetServiceNameResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetServiceNameResponse)
+	err := c.cc.Invoke(ctx, PublishConfigBuilderService_SetServiceName_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *publishConfigBuilderServiceClient) SetServiceSpecificInfo(ctx context.Context, in *SetServiceSpecificInfoRequest, opts ...grpc.CallOption) (*SetServiceSpecificInfoResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetServiceSpecificInfoResponse)
+	err := c.cc.Invoke(ctx, PublishConfigBuilderService_SetServiceSpecificInfo_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *publishConfigBuilderServiceClient) SetTerminateNotificationEnabled(ctx context.Context, in *SetTerminateNotificationEnabledRequest, opts ...grpc.CallOption) (*SetTerminateNotificationEnabledResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetTerminateNotificationEnabledResponse)
+	err := c.cc.Invoke(ctx, PublishConfigBuilderService_SetTerminateNotificationEnabled_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *publishConfigBuilderServiceClient) SetTtlSec(ctx context.Context, in *SetTtlSecRequest, opts ...grpc.CallOption) (*SetTtlSecResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetTtlSecResponse)
+	err := c.cc.Invoke(ctx, PublishConfigBuilderService_SetTtlSec_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// PublishConfigBuilderServiceServer is the server API for PublishConfigBuilderService service.
+// All implementations must embed UnimplementedPublishConfigBuilderServiceServer
+// for forward compatibility.
+type PublishConfigBuilderServiceServer interface {
+	Build(context.Context, *BuildRequest) (*BuildResponse, error)
+	SetDataPathSecurityConfig(context.Context, *SetDataPathSecurityConfigRequest) (*SetDataPathSecurityConfigResponse, error)
+	SetInstantCommunicationModeEnabled(context.Context, *SetInstantCommunicationModeEnabledRequest) (*SetInstantCommunicationModeEnabledResponse, error)
+	SetPairingConfig(context.Context, *SetPairingConfigRequest) (*SetPairingConfigResponse, error)
+	SetPublishType(context.Context, *SetPublishTypeRequest) (*SetPublishTypeResponse, error)
+	SetRangingEnabled(context.Context, *SetRangingEnabledRequest) (*SetRangingEnabledResponse, error)
+	SetServiceName(context.Context, *SetServiceNameRequest) (*SetServiceNameResponse, error)
+	SetServiceSpecificInfo(context.Context, *SetServiceSpecificInfoRequest) (*SetServiceSpecificInfoResponse, error)
+	SetTerminateNotificationEnabled(context.Context, *SetTerminateNotificationEnabledRequest) (*SetTerminateNotificationEnabledResponse, error)
+	SetTtlSec(context.Context, *SetTtlSecRequest) (*SetTtlSecResponse, error)
+	mustEmbedUnimplementedPublishConfigBuilderServiceServer()
+}
+
+// UnimplementedPublishConfigBuilderServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedPublishConfigBuilderServiceServer struct{}
+
+func (UnimplementedPublishConfigBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
+}
+func (UnimplementedPublishConfigBuilderServiceServer) SetDataPathSecurityConfig(context.Context, *SetDataPathSecurityConfigRequest) (*SetDataPathSecurityConfigResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetDataPathSecurityConfig not implemented")
+}
+func (UnimplementedPublishConfigBuilderServiceServer) SetInstantCommunicationModeEnabled(context.Context, *SetInstantCommunicationModeEnabledRequest) (*SetInstantCommunicationModeEnabledResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetInstantCommunicationModeEnabled not implemented")
+}
+func (UnimplementedPublishConfigBuilderServiceServer) SetPairingConfig(context.Context, *SetPairingConfigRequest) (*SetPairingConfigResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetPairingConfig not implemented")
+}
+func (UnimplementedPublishConfigBuilderServiceServer) SetPublishType(context.Context, *SetPublishTypeRequest) (*SetPublishTypeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetPublishType not implemented")
+}
+func (UnimplementedPublishConfigBuilderServiceServer) SetRangingEnabled(context.Context, *SetRangingEnabledRequest) (*SetRangingEnabledResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetRangingEnabled not implemented")
+}
+func (UnimplementedPublishConfigBuilderServiceServer) SetServiceName(context.Context, *SetServiceNameRequest) (*SetServiceNameResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetServiceName not implemented")
+}
+func (UnimplementedPublishConfigBuilderServiceServer) SetServiceSpecificInfo(context.Context, *SetServiceSpecificInfoRequest) (*SetServiceSpecificInfoResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetServiceSpecificInfo not implemented")
+}
+func (UnimplementedPublishConfigBuilderServiceServer) SetTerminateNotificationEnabled(context.Context, *SetTerminateNotificationEnabledRequest) (*SetTerminateNotificationEnabledResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetTerminateNotificationEnabled not implemented")
+}
+func (UnimplementedPublishConfigBuilderServiceServer) SetTtlSec(context.Context, *SetTtlSecRequest) (*SetTtlSecResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetTtlSec not implemented")
+}
+func (UnimplementedPublishConfigBuilderServiceServer) mustEmbedUnimplementedPublishConfigBuilderServiceServer() {
+}
+func (UnimplementedPublishConfigBuilderServiceServer) testEmbeddedByValue() {}
+
+// UnsafePublishConfigBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to PublishConfigBuilderServiceServer will
+// result in compilation errors.
+type UnsafePublishConfigBuilderServiceServer interface {
+	mustEmbedUnimplementedPublishConfigBuilderServiceServer()
+}
+
+func RegisterPublishConfigBuilderServiceServer(s grpc.ServiceRegistrar, srv PublishConfigBuilderServiceServer) {
+	// If the following call panics, it indicates UnimplementedPublishConfigBuilderServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&PublishConfigBuilderService_ServiceDesc, srv)
+}
+
+func _PublishConfigBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BuildRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PublishConfigBuilderServiceServer).Build(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PublishConfigBuilderService_Build_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PublishConfigBuilderServiceServer).Build(ctx, req.(*BuildRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PublishConfigBuilderService_SetDataPathSecurityConfig_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetDataPathSecurityConfigRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PublishConfigBuilderServiceServer).SetDataPathSecurityConfig(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PublishConfigBuilderService_SetDataPathSecurityConfig_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PublishConfigBuilderServiceServer).SetDataPathSecurityConfig(ctx, req.(*SetDataPathSecurityConfigRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PublishConfigBuilderService_SetInstantCommunicationModeEnabled_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetInstantCommunicationModeEnabledRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PublishConfigBuilderServiceServer).SetInstantCommunicationModeEnabled(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PublishConfigBuilderService_SetInstantCommunicationModeEnabled_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PublishConfigBuilderServiceServer).SetInstantCommunicationModeEnabled(ctx, req.(*SetInstantCommunicationModeEnabledRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PublishConfigBuilderService_SetPairingConfig_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetPairingConfigRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PublishConfigBuilderServiceServer).SetPairingConfig(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PublishConfigBuilderService_SetPairingConfig_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PublishConfigBuilderServiceServer).SetPairingConfig(ctx, req.(*SetPairingConfigRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PublishConfigBuilderService_SetPublishType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetPublishTypeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PublishConfigBuilderServiceServer).SetPublishType(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PublishConfigBuilderService_SetPublishType_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PublishConfigBuilderServiceServer).SetPublishType(ctx, req.(*SetPublishTypeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PublishConfigBuilderService_SetRangingEnabled_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetRangingEnabledRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PublishConfigBuilderServiceServer).SetRangingEnabled(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PublishConfigBuilderService_SetRangingEnabled_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PublishConfigBuilderServiceServer).SetRangingEnabled(ctx, req.(*SetRangingEnabledRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PublishConfigBuilderService_SetServiceName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetServiceNameRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PublishConfigBuilderServiceServer).SetServiceName(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PublishConfigBuilderService_SetServiceName_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PublishConfigBuilderServiceServer).SetServiceName(ctx, req.(*SetServiceNameRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PublishConfigBuilderService_SetServiceSpecificInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetServiceSpecificInfoRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PublishConfigBuilderServiceServer).SetServiceSpecificInfo(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PublishConfigBuilderService_SetServiceSpecificInfo_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PublishConfigBuilderServiceServer).SetServiceSpecificInfo(ctx, req.(*SetServiceSpecificInfoRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PublishConfigBuilderService_SetTerminateNotificationEnabled_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetTerminateNotificationEnabledRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PublishConfigBuilderServiceServer).SetTerminateNotificationEnabled(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PublishConfigBuilderService_SetTerminateNotificationEnabled_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PublishConfigBuilderServiceServer).SetTerminateNotificationEnabled(ctx, req.(*SetTerminateNotificationEnabledRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PublishConfigBuilderService_SetTtlSec_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetTtlSecRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PublishConfigBuilderServiceServer).SetTtlSec(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PublishConfigBuilderService_SetTtlSec_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PublishConfigBuilderServiceServer).SetTtlSec(ctx, req.(*SetTtlSecRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// PublishConfigBuilderService_ServiceDesc is the grpc.ServiceDesc for PublishConfigBuilderService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var PublishConfigBuilderService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "aware.PublishConfigBuilderService",
+	HandlerType: (*PublishConfigBuilderServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Build",
+			Handler:    _PublishConfigBuilderService_Build_Handler,
+		},
+		{
+			MethodName: "SetDataPathSecurityConfig",
+			Handler:    _PublishConfigBuilderService_SetDataPathSecurityConfig_Handler,
+		},
+		{
+			MethodName: "SetInstantCommunicationModeEnabled",
+			Handler:    _PublishConfigBuilderService_SetInstantCommunicationModeEnabled_Handler,
+		},
+		{
+			MethodName: "SetPairingConfig",
+			Handler:    _PublishConfigBuilderService_SetPairingConfig_Handler,
+		},
+		{
+			MethodName: "SetPublishType",
+			Handler:    _PublishConfigBuilderService_SetPublishType_Handler,
+		},
+		{
+			MethodName: "SetRangingEnabled",
+			Handler:    _PublishConfigBuilderService_SetRangingEnabled_Handler,
+		},
+		{
+			MethodName: "SetServiceName",
+			Handler:    _PublishConfigBuilderService_SetServiceName_Handler,
+		},
+		{
+			MethodName: "SetServiceSpecificInfo",
+			Handler:    _PublishConfigBuilderService_SetServiceSpecificInfo_Handler,
+		},
+		{
+			MethodName: "SetTerminateNotificationEnabled",
+			Handler:    _PublishConfigBuilderService_SetTerminateNotificationEnabled_Handler,
+		},
+		{
+			MethodName: "SetTtlSec",
+			Handler:    _PublishConfigBuilderService_SetTtlSec_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/aware/aware.proto",
+}
+
+const (
+	IdentityChangedListenerService_NewIdentityChangedListener_FullMethodName = "/aware.IdentityChangedListenerService/NewIdentityChangedListener"
+	IdentityChangedListenerService_OnClusterIdChanged_FullMethodName         = "/aware.IdentityChangedListenerService/OnClusterIdChanged"
+	IdentityChangedListenerService_OnIdentityChanged_FullMethodName          = "/aware.IdentityChangedListenerService/OnIdentityChanged"
+)
+
+// IdentityChangedListenerServiceClient is the client API for IdentityChangedListenerService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type IdentityChangedListenerServiceClient interface {
+	NewIdentityChangedListener(ctx context.Context, in *NewIdentityChangedListenerRequest, opts ...grpc.CallOption) (*NewIdentityChangedListenerResponse, error)
+	OnClusterIdChanged(ctx context.Context, in *OnClusterIdChangedRequest, opts ...grpc.CallOption) (*OnClusterIdChangedResponse, error)
+	OnIdentityChanged(ctx context.Context, in *OnIdentityChangedRequest, opts ...grpc.CallOption) (*OnIdentityChangedResponse, error)
+}
+
+type identityChangedListenerServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewIdentityChangedListenerServiceClient(cc grpc.ClientConnInterface) IdentityChangedListenerServiceClient {
+	return &identityChangedListenerServiceClient{cc}
+}
+
+func (c *identityChangedListenerServiceClient) NewIdentityChangedListener(ctx context.Context, in *NewIdentityChangedListenerRequest, opts ...grpc.CallOption) (*NewIdentityChangedListenerResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewIdentityChangedListenerResponse)
+	err := c.cc.Invoke(ctx, IdentityChangedListenerService_NewIdentityChangedListener_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *identityChangedListenerServiceClient) OnClusterIdChanged(ctx context.Context, in *OnClusterIdChangedRequest, opts ...grpc.CallOption) (*OnClusterIdChangedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnClusterIdChangedResponse)
+	err := c.cc.Invoke(ctx, IdentityChangedListenerService_OnClusterIdChanged_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *identityChangedListenerServiceClient) OnIdentityChanged(ctx context.Context, in *OnIdentityChangedRequest, opts ...grpc.CallOption) (*OnIdentityChangedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnIdentityChangedResponse)
+	err := c.cc.Invoke(ctx, IdentityChangedListenerService_OnIdentityChanged_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// IdentityChangedListenerServiceServer is the server API for IdentityChangedListenerService service.
+// All implementations must embed UnimplementedIdentityChangedListenerServiceServer
+// for forward compatibility.
+type IdentityChangedListenerServiceServer interface {
+	NewIdentityChangedListener(context.Context, *NewIdentityChangedListenerRequest) (*NewIdentityChangedListenerResponse, error)
+	OnClusterIdChanged(context.Context, *OnClusterIdChangedRequest) (*OnClusterIdChangedResponse, error)
+	OnIdentityChanged(context.Context, *OnIdentityChangedRequest) (*OnIdentityChangedResponse, error)
+	mustEmbedUnimplementedIdentityChangedListenerServiceServer()
+}
+
+// UnimplementedIdentityChangedListenerServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedIdentityChangedListenerServiceServer struct{}
+
+func (UnimplementedIdentityChangedListenerServiceServer) NewIdentityChangedListener(context.Context, *NewIdentityChangedListenerRequest) (*NewIdentityChangedListenerResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewIdentityChangedListener not implemented")
+}
+func (UnimplementedIdentityChangedListenerServiceServer) OnClusterIdChanged(context.Context, *OnClusterIdChangedRequest) (*OnClusterIdChangedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnClusterIdChanged not implemented")
+}
+func (UnimplementedIdentityChangedListenerServiceServer) OnIdentityChanged(context.Context, *OnIdentityChangedRequest) (*OnIdentityChangedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnIdentityChanged not implemented")
+}
+func (UnimplementedIdentityChangedListenerServiceServer) mustEmbedUnimplementedIdentityChangedListenerServiceServer() {
+}
+func (UnimplementedIdentityChangedListenerServiceServer) testEmbeddedByValue() {}
+
+// UnsafeIdentityChangedListenerServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to IdentityChangedListenerServiceServer will
+// result in compilation errors.
+type UnsafeIdentityChangedListenerServiceServer interface {
+	mustEmbedUnimplementedIdentityChangedListenerServiceServer()
+}
+
+func RegisterIdentityChangedListenerServiceServer(s grpc.ServiceRegistrar, srv IdentityChangedListenerServiceServer) {
+	// If the following call panics, it indicates UnimplementedIdentityChangedListenerServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&IdentityChangedListenerService_ServiceDesc, srv)
+}
+
+func _IdentityChangedListenerService_NewIdentityChangedListener_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewIdentityChangedListenerRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(IdentityChangedListenerServiceServer).NewIdentityChangedListener(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: IdentityChangedListenerService_NewIdentityChangedListener_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(IdentityChangedListenerServiceServer).NewIdentityChangedListener(ctx, req.(*NewIdentityChangedListenerRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _IdentityChangedListenerService_OnClusterIdChanged_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnClusterIdChangedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(IdentityChangedListenerServiceServer).OnClusterIdChanged(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: IdentityChangedListenerService_OnClusterIdChanged_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(IdentityChangedListenerServiceServer).OnClusterIdChanged(ctx, req.(*OnClusterIdChangedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _IdentityChangedListenerService_OnIdentityChanged_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnIdentityChangedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(IdentityChangedListenerServiceServer).OnIdentityChanged(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: IdentityChangedListenerService_OnIdentityChanged_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(IdentityChangedListenerServiceServer).OnIdentityChanged(ctx, req.(*OnIdentityChangedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// IdentityChangedListenerService_ServiceDesc is the grpc.ServiceDesc for IdentityChangedListenerService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var IdentityChangedListenerService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "aware.IdentityChangedListenerService",
+	HandlerType: (*IdentityChangedListenerServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewIdentityChangedListener",
+			Handler:    _IdentityChangedListenerService_NewIdentityChangedListener_Handler,
+		},
+		{
+			MethodName: "OnClusterIdChanged",
+			Handler:    _IdentityChangedListenerService_OnClusterIdChanged_Handler,
+		},
+		{
+			MethodName: "OnIdentityChanged",
+			Handler:    _IdentityChangedListenerService_OnIdentityChanged_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/aware/aware.proto",
+}
+
+const (
+	PeerHandleService_Equals_FullMethodName   = "/aware.PeerHandleService/Equals"
+	PeerHandleService_HashCode_FullMethodName = "/aware.PeerHandleService/HashCode"
+)
+
+// PeerHandleServiceClient is the client API for PeerHandleService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type PeerHandleServiceClient interface {
+	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+}
+
+type peerHandleServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewPeerHandleServiceClient(cc grpc.ClientConnInterface) PeerHandleServiceClient {
+	return &peerHandleServiceClient{cc}
+}
+
+func (c *peerHandleServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(EqualsResponse)
+	err := c.cc.Invoke(ctx, PeerHandleService_Equals_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *peerHandleServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HashCodeResponse)
+	err := c.cc.Invoke(ctx, PeerHandleService_HashCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// PeerHandleServiceServer is the server API for PeerHandleService service.
+// All implementations must embed UnimplementedPeerHandleServiceServer
+// for forward compatibility.
+type PeerHandleServiceServer interface {
+	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
+	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
+	mustEmbedUnimplementedPeerHandleServiceServer()
+}
+
+// UnimplementedPeerHandleServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedPeerHandleServiceServer struct{}
+
+func (UnimplementedPeerHandleServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
+}
+func (UnimplementedPeerHandleServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
+}
+func (UnimplementedPeerHandleServiceServer) mustEmbedUnimplementedPeerHandleServiceServer() {}
+func (UnimplementedPeerHandleServiceServer) testEmbeddedByValue()                           {}
+
+// UnsafePeerHandleServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to PeerHandleServiceServer will
+// result in compilation errors.
+type UnsafePeerHandleServiceServer interface {
+	mustEmbedUnimplementedPeerHandleServiceServer()
+}
+
+func RegisterPeerHandleServiceServer(s grpc.ServiceRegistrar, srv PeerHandleServiceServer) {
+	// If the following call panics, it indicates UnimplementedPeerHandleServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&PeerHandleService_ServiceDesc, srv)
+}
+
+func _PeerHandleService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EqualsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PeerHandleServiceServer).Equals(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PeerHandleService_Equals_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PeerHandleServiceServer).Equals(ctx, req.(*EqualsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PeerHandleService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HashCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PeerHandleServiceServer).HashCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PeerHandleService_HashCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PeerHandleServiceServer).HashCode(ctx, req.(*HashCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// PeerHandleService_ServiceDesc is the grpc.ServiceDesc for PeerHandleService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var PeerHandleService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "aware.PeerHandleService",
+	HandlerType: (*PeerHandleServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Equals",
+			Handler:    _PeerHandleService_Equals_Handler,
+		},
+		{
+			MethodName: "HashCode",
+			Handler:    _PeerHandleService_HashCode_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/aware/aware.proto",
+}
+
+const (
+	SubscribeDiscoverySessionService_UpdateSubscribe_FullMethodName = "/aware.SubscribeDiscoverySessionService/UpdateSubscribe"
+)
+
+// SubscribeDiscoverySessionServiceClient is the client API for SubscribeDiscoverySessionService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type SubscribeDiscoverySessionServiceClient interface {
+	UpdateSubscribe(ctx context.Context, in *UpdateSubscribeRequest, opts ...grpc.CallOption) (*UpdateSubscribeResponse, error)
+}
+
+type subscribeDiscoverySessionServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewSubscribeDiscoverySessionServiceClient(cc grpc.ClientConnInterface) SubscribeDiscoverySessionServiceClient {
+	return &subscribeDiscoverySessionServiceClient{cc}
+}
+
+func (c *subscribeDiscoverySessionServiceClient) UpdateSubscribe(ctx context.Context, in *UpdateSubscribeRequest, opts ...grpc.CallOption) (*UpdateSubscribeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(UpdateSubscribeResponse)
+	err := c.cc.Invoke(ctx, SubscribeDiscoverySessionService_UpdateSubscribe_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// SubscribeDiscoverySessionServiceServer is the server API for SubscribeDiscoverySessionService service.
+// All implementations must embed UnimplementedSubscribeDiscoverySessionServiceServer
+// for forward compatibility.
+type SubscribeDiscoverySessionServiceServer interface {
+	UpdateSubscribe(context.Context, *UpdateSubscribeRequest) (*UpdateSubscribeResponse, error)
+	mustEmbedUnimplementedSubscribeDiscoverySessionServiceServer()
+}
+
+// UnimplementedSubscribeDiscoverySessionServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedSubscribeDiscoverySessionServiceServer struct{}
+
+func (UnimplementedSubscribeDiscoverySessionServiceServer) UpdateSubscribe(context.Context, *UpdateSubscribeRequest) (*UpdateSubscribeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method UpdateSubscribe not implemented")
+}
+func (UnimplementedSubscribeDiscoverySessionServiceServer) mustEmbedUnimplementedSubscribeDiscoverySessionServiceServer() {
+}
+func (UnimplementedSubscribeDiscoverySessionServiceServer) testEmbeddedByValue() {}
+
+// UnsafeSubscribeDiscoverySessionServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to SubscribeDiscoverySessionServiceServer will
+// result in compilation errors.
+type UnsafeSubscribeDiscoverySessionServiceServer interface {
+	mustEmbedUnimplementedSubscribeDiscoverySessionServiceServer()
+}
+
+func RegisterSubscribeDiscoverySessionServiceServer(s grpc.ServiceRegistrar, srv SubscribeDiscoverySessionServiceServer) {
+	// If the following call panics, it indicates UnimplementedSubscribeDiscoverySessionServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&SubscribeDiscoverySessionService_ServiceDesc, srv)
+}
+
+func _SubscribeDiscoverySessionService_UpdateSubscribe_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateSubscribeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SubscribeDiscoverySessionServiceServer).UpdateSubscribe(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SubscribeDiscoverySessionService_UpdateSubscribe_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SubscribeDiscoverySessionServiceServer).UpdateSubscribe(ctx, req.(*UpdateSubscribeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// SubscribeDiscoverySessionService_ServiceDesc is the grpc.ServiceDesc for SubscribeDiscoverySessionService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var SubscribeDiscoverySessionService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "aware.SubscribeDiscoverySessionService",
+	HandlerType: (*SubscribeDiscoverySessionServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "UpdateSubscribe",
+			Handler:    _SubscribeDiscoverySessionService_UpdateSubscribe_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/aware/aware.proto",
+}
+
+const (
+	WifiAwareDataPathSecurityConfigService_DescribeContents_FullMethodName = "/aware.WifiAwareDataPathSecurityConfigService/DescribeContents"
+	WifiAwareDataPathSecurityConfigService_Equals_FullMethodName           = "/aware.WifiAwareDataPathSecurityConfigService/Equals"
+	WifiAwareDataPathSecurityConfigService_GetCipherSuite_FullMethodName   = "/aware.WifiAwareDataPathSecurityConfigService/GetCipherSuite"
+	WifiAwareDataPathSecurityConfigService_GetPmk_FullMethodName           = "/aware.WifiAwareDataPathSecurityConfigService/GetPmk"
+	WifiAwareDataPathSecurityConfigService_GetPmkId_FullMethodName         = "/aware.WifiAwareDataPathSecurityConfigService/GetPmkId"
+	WifiAwareDataPathSecurityConfigService_GetPskPassphrase_FullMethodName = "/aware.WifiAwareDataPathSecurityConfigService/GetPskPassphrase"
+	WifiAwareDataPathSecurityConfigService_HashCode_FullMethodName         = "/aware.WifiAwareDataPathSecurityConfigService/HashCode"
+	WifiAwareDataPathSecurityConfigService_ToString_FullMethodName         = "/aware.WifiAwareDataPathSecurityConfigService/ToString"
+	WifiAwareDataPathSecurityConfigService_WriteToParcel_FullMethodName    = "/aware.WifiAwareDataPathSecurityConfigService/WriteToParcel"
+)
+
+// WifiAwareDataPathSecurityConfigServiceClient is the client API for WifiAwareDataPathSecurityConfigService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type WifiAwareDataPathSecurityConfigServiceClient interface {
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	GetCipherSuite(ctx context.Context, in *GetCipherSuiteRequest, opts ...grpc.CallOption) (*GetCipherSuiteResponse, error)
+	GetPmk(ctx context.Context, in *GetPmkRequest, opts ...grpc.CallOption) (*GetPmkResponse, error)
+	GetPmkId(ctx context.Context, in *GetPmkIdRequest, opts ...grpc.CallOption) (*GetPmkIdResponse, error)
+	GetPskPassphrase(ctx context.Context, in *GetPskPassphraseRequest, opts ...grpc.CallOption) (*GetPskPassphraseResponse, error)
+	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type wifiAwareDataPathSecurityConfigServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewWifiAwareDataPathSecurityConfigServiceClient(cc grpc.ClientConnInterface) WifiAwareDataPathSecurityConfigServiceClient {
+	return &wifiAwareDataPathSecurityConfigServiceClient{cc}
+}
+
+func (c *wifiAwareDataPathSecurityConfigServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, WifiAwareDataPathSecurityConfigService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *wifiAwareDataPathSecurityConfigServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(EqualsResponse)
+	err := c.cc.Invoke(ctx, WifiAwareDataPathSecurityConfigService_Equals_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *wifiAwareDataPathSecurityConfigServiceClient) GetCipherSuite(ctx context.Context, in *GetCipherSuiteRequest, opts ...grpc.CallOption) (*GetCipherSuiteResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetCipherSuiteResponse)
+	err := c.cc.Invoke(ctx, WifiAwareDataPathSecurityConfigService_GetCipherSuite_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *wifiAwareDataPathSecurityConfigServiceClient) GetPmk(ctx context.Context, in *GetPmkRequest, opts ...grpc.CallOption) (*GetPmkResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetPmkResponse)
+	err := c.cc.Invoke(ctx, WifiAwareDataPathSecurityConfigService_GetPmk_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *wifiAwareDataPathSecurityConfigServiceClient) GetPmkId(ctx context.Context, in *GetPmkIdRequest, opts ...grpc.CallOption) (*GetPmkIdResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetPmkIdResponse)
+	err := c.cc.Invoke(ctx, WifiAwareDataPathSecurityConfigService_GetPmkId_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *wifiAwareDataPathSecurityConfigServiceClient) GetPskPassphrase(ctx context.Context, in *GetPskPassphraseRequest, opts ...grpc.CallOption) (*GetPskPassphraseResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetPskPassphraseResponse)
+	err := c.cc.Invoke(ctx, WifiAwareDataPathSecurityConfigService_GetPskPassphrase_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *wifiAwareDataPathSecurityConfigServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HashCodeResponse)
+	err := c.cc.Invoke(ctx, WifiAwareDataPathSecurityConfigService_HashCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *wifiAwareDataPathSecurityConfigServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, WifiAwareDataPathSecurityConfigService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *wifiAwareDataPathSecurityConfigServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, WifiAwareDataPathSecurityConfigService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// WifiAwareDataPathSecurityConfigServiceServer is the server API for WifiAwareDataPathSecurityConfigService service.
+// All implementations must embed UnimplementedWifiAwareDataPathSecurityConfigServiceServer
+// for forward compatibility.
+type WifiAwareDataPathSecurityConfigServiceServer interface {
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
+	GetCipherSuite(context.Context, *GetCipherSuiteRequest) (*GetCipherSuiteResponse, error)
+	GetPmk(context.Context, *GetPmkRequest) (*GetPmkResponse, error)
+	GetPmkId(context.Context, *GetPmkIdRequest) (*GetPmkIdResponse, error)
+	GetPskPassphrase(context.Context, *GetPskPassphraseRequest) (*GetPskPassphraseResponse, error)
+	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
+	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedWifiAwareDataPathSecurityConfigServiceServer()
+}
+
+// UnimplementedWifiAwareDataPathSecurityConfigServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedWifiAwareDataPathSecurityConfigServiceServer struct{}
+
+func (UnimplementedWifiAwareDataPathSecurityConfigServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedWifiAwareDataPathSecurityConfigServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
+}
+func (UnimplementedWifiAwareDataPathSecurityConfigServiceServer) GetCipherSuite(context.Context, *GetCipherSuiteRequest) (*GetCipherSuiteResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetCipherSuite not implemented")
+}
+func (UnimplementedWifiAwareDataPathSecurityConfigServiceServer) GetPmk(context.Context, *GetPmkRequest) (*GetPmkResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetPmk not implemented")
+}
+func (UnimplementedWifiAwareDataPathSecurityConfigServiceServer) GetPmkId(context.Context, *GetPmkIdRequest) (*GetPmkIdResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetPmkId not implemented")
+}
+func (UnimplementedWifiAwareDataPathSecurityConfigServiceServer) GetPskPassphrase(context.Context, *GetPskPassphraseRequest) (*GetPskPassphraseResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetPskPassphrase not implemented")
+}
+func (UnimplementedWifiAwareDataPathSecurityConfigServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
+}
+func (UnimplementedWifiAwareDataPathSecurityConfigServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedWifiAwareDataPathSecurityConfigServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedWifiAwareDataPathSecurityConfigServiceServer) mustEmbedUnimplementedWifiAwareDataPathSecurityConfigServiceServer() {
+}
+func (UnimplementedWifiAwareDataPathSecurityConfigServiceServer) testEmbeddedByValue() {}
+
+// UnsafeWifiAwareDataPathSecurityConfigServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to WifiAwareDataPathSecurityConfigServiceServer will
+// result in compilation errors.
+type UnsafeWifiAwareDataPathSecurityConfigServiceServer interface {
+	mustEmbedUnimplementedWifiAwareDataPathSecurityConfigServiceServer()
+}
+
+func RegisterWifiAwareDataPathSecurityConfigServiceServer(s grpc.ServiceRegistrar, srv WifiAwareDataPathSecurityConfigServiceServer) {
+	// If the following call panics, it indicates UnimplementedWifiAwareDataPathSecurityConfigServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&WifiAwareDataPathSecurityConfigService_ServiceDesc, srv)
+}
+
+func _WifiAwareDataPathSecurityConfigService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WifiAwareDataPathSecurityConfigServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WifiAwareDataPathSecurityConfigService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WifiAwareDataPathSecurityConfigServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WifiAwareDataPathSecurityConfigService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EqualsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WifiAwareDataPathSecurityConfigServiceServer).Equals(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WifiAwareDataPathSecurityConfigService_Equals_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WifiAwareDataPathSecurityConfigServiceServer).Equals(ctx, req.(*EqualsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WifiAwareDataPathSecurityConfigService_GetCipherSuite_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetCipherSuiteRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WifiAwareDataPathSecurityConfigServiceServer).GetCipherSuite(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WifiAwareDataPathSecurityConfigService_GetCipherSuite_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WifiAwareDataPathSecurityConfigServiceServer).GetCipherSuite(ctx, req.(*GetCipherSuiteRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WifiAwareDataPathSecurityConfigService_GetPmk_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPmkRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WifiAwareDataPathSecurityConfigServiceServer).GetPmk(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WifiAwareDataPathSecurityConfigService_GetPmk_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WifiAwareDataPathSecurityConfigServiceServer).GetPmk(ctx, req.(*GetPmkRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WifiAwareDataPathSecurityConfigService_GetPmkId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPmkIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WifiAwareDataPathSecurityConfigServiceServer).GetPmkId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WifiAwareDataPathSecurityConfigService_GetPmkId_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WifiAwareDataPathSecurityConfigServiceServer).GetPmkId(ctx, req.(*GetPmkIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WifiAwareDataPathSecurityConfigService_GetPskPassphrase_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPskPassphraseRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WifiAwareDataPathSecurityConfigServiceServer).GetPskPassphrase(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WifiAwareDataPathSecurityConfigService_GetPskPassphrase_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WifiAwareDataPathSecurityConfigServiceServer).GetPskPassphrase(ctx, req.(*GetPskPassphraseRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WifiAwareDataPathSecurityConfigService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HashCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WifiAwareDataPathSecurityConfigServiceServer).HashCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WifiAwareDataPathSecurityConfigService_HashCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WifiAwareDataPathSecurityConfigServiceServer).HashCode(ctx, req.(*HashCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WifiAwareDataPathSecurityConfigService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WifiAwareDataPathSecurityConfigServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WifiAwareDataPathSecurityConfigService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WifiAwareDataPathSecurityConfigServiceServer).ToString(ctx, req.(*ToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WifiAwareDataPathSecurityConfigService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WifiAwareDataPathSecurityConfigServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WifiAwareDataPathSecurityConfigService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WifiAwareDataPathSecurityConfigServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// WifiAwareDataPathSecurityConfigService_ServiceDesc is the grpc.ServiceDesc for WifiAwareDataPathSecurityConfigService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var WifiAwareDataPathSecurityConfigService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "aware.WifiAwareDataPathSecurityConfigService",
+	HandlerType: (*WifiAwareDataPathSecurityConfigServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "DescribeContents",
+			Handler:    _WifiAwareDataPathSecurityConfigService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "Equals",
+			Handler:    _WifiAwareDataPathSecurityConfigService_Equals_Handler,
+		},
+		{
+			MethodName: "GetCipherSuite",
+			Handler:    _WifiAwareDataPathSecurityConfigService_GetCipherSuite_Handler,
+		},
+		{
+			MethodName: "GetPmk",
+			Handler:    _WifiAwareDataPathSecurityConfigService_GetPmk_Handler,
+		},
+		{
+			MethodName: "GetPmkId",
+			Handler:    _WifiAwareDataPathSecurityConfigService_GetPmkId_Handler,
+		},
+		{
+			MethodName: "GetPskPassphrase",
+			Handler:    _WifiAwareDataPathSecurityConfigService_GetPskPassphrase_Handler,
+		},
+		{
+			MethodName: "HashCode",
+			Handler:    _WifiAwareDataPathSecurityConfigService_HashCode_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _WifiAwareDataPathSecurityConfigService_ToString_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _WifiAwareDataPathSecurityConfigService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/aware/aware.proto",
+}
+
+const (
+	WifiAwareDataPathSecurityConfigBuilderService_Build_FullMethodName            = "/aware.WifiAwareDataPathSecurityConfigBuilderService/Build"
+	WifiAwareDataPathSecurityConfigBuilderService_SetPmk_FullMethodName           = "/aware.WifiAwareDataPathSecurityConfigBuilderService/SetPmk"
+	WifiAwareDataPathSecurityConfigBuilderService_SetPmkId_FullMethodName         = "/aware.WifiAwareDataPathSecurityConfigBuilderService/SetPmkId"
+	WifiAwareDataPathSecurityConfigBuilderService_SetPskPassphrase_FullMethodName = "/aware.WifiAwareDataPathSecurityConfigBuilderService/SetPskPassphrase"
+)
+
+// WifiAwareDataPathSecurityConfigBuilderServiceClient is the client API for WifiAwareDataPathSecurityConfigBuilderService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type WifiAwareDataPathSecurityConfigBuilderServiceClient interface {
+	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
+	SetPmk(ctx context.Context, in *SetPmkRequest, opts ...grpc.CallOption) (*SetPmkResponse, error)
+	SetPmkId(ctx context.Context, in *SetPmkIdRequest, opts ...grpc.CallOption) (*SetPmkIdResponse, error)
+	SetPskPassphrase(ctx context.Context, in *SetPskPassphraseRequest, opts ...grpc.CallOption) (*SetPskPassphraseResponse, error)
+}
+
+type wifiAwareDataPathSecurityConfigBuilderServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewWifiAwareDataPathSecurityConfigBuilderServiceClient(cc grpc.ClientConnInterface) WifiAwareDataPathSecurityConfigBuilderServiceClient {
+	return &wifiAwareDataPathSecurityConfigBuilderServiceClient{cc}
+}
+
+func (c *wifiAwareDataPathSecurityConfigBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(BuildResponse)
+	err := c.cc.Invoke(ctx, WifiAwareDataPathSecurityConfigBuilderService_Build_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *wifiAwareDataPathSecurityConfigBuilderServiceClient) SetPmk(ctx context.Context, in *SetPmkRequest, opts ...grpc.CallOption) (*SetPmkResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetPmkResponse)
+	err := c.cc.Invoke(ctx, WifiAwareDataPathSecurityConfigBuilderService_SetPmk_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *wifiAwareDataPathSecurityConfigBuilderServiceClient) SetPmkId(ctx context.Context, in *SetPmkIdRequest, opts ...grpc.CallOption) (*SetPmkIdResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetPmkIdResponse)
+	err := c.cc.Invoke(ctx, WifiAwareDataPathSecurityConfigBuilderService_SetPmkId_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *wifiAwareDataPathSecurityConfigBuilderServiceClient) SetPskPassphrase(ctx context.Context, in *SetPskPassphraseRequest, opts ...grpc.CallOption) (*SetPskPassphraseResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetPskPassphraseResponse)
+	err := c.cc.Invoke(ctx, WifiAwareDataPathSecurityConfigBuilderService_SetPskPassphrase_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// WifiAwareDataPathSecurityConfigBuilderServiceServer is the server API for WifiAwareDataPathSecurityConfigBuilderService service.
+// All implementations must embed UnimplementedWifiAwareDataPathSecurityConfigBuilderServiceServer
+// for forward compatibility.
+type WifiAwareDataPathSecurityConfigBuilderServiceServer interface {
+	Build(context.Context, *BuildRequest) (*BuildResponse, error)
+	SetPmk(context.Context, *SetPmkRequest) (*SetPmkResponse, error)
+	SetPmkId(context.Context, *SetPmkIdRequest) (*SetPmkIdResponse, error)
+	SetPskPassphrase(context.Context, *SetPskPassphraseRequest) (*SetPskPassphraseResponse, error)
+	mustEmbedUnimplementedWifiAwareDataPathSecurityConfigBuilderServiceServer()
+}
+
+// UnimplementedWifiAwareDataPathSecurityConfigBuilderServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedWifiAwareDataPathSecurityConfigBuilderServiceServer struct{}
+
+func (UnimplementedWifiAwareDataPathSecurityConfigBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
+}
+func (UnimplementedWifiAwareDataPathSecurityConfigBuilderServiceServer) SetPmk(context.Context, *SetPmkRequest) (*SetPmkResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetPmk not implemented")
+}
+func (UnimplementedWifiAwareDataPathSecurityConfigBuilderServiceServer) SetPmkId(context.Context, *SetPmkIdRequest) (*SetPmkIdResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetPmkId not implemented")
+}
+func (UnimplementedWifiAwareDataPathSecurityConfigBuilderServiceServer) SetPskPassphrase(context.Context, *SetPskPassphraseRequest) (*SetPskPassphraseResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetPskPassphrase not implemented")
+}
+func (UnimplementedWifiAwareDataPathSecurityConfigBuilderServiceServer) mustEmbedUnimplementedWifiAwareDataPathSecurityConfigBuilderServiceServer() {
+}
+func (UnimplementedWifiAwareDataPathSecurityConfigBuilderServiceServer) testEmbeddedByValue() {}
+
+// UnsafeWifiAwareDataPathSecurityConfigBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to WifiAwareDataPathSecurityConfigBuilderServiceServer will
+// result in compilation errors.
+type UnsafeWifiAwareDataPathSecurityConfigBuilderServiceServer interface {
+	mustEmbedUnimplementedWifiAwareDataPathSecurityConfigBuilderServiceServer()
+}
+
+func RegisterWifiAwareDataPathSecurityConfigBuilderServiceServer(s grpc.ServiceRegistrar, srv WifiAwareDataPathSecurityConfigBuilderServiceServer) {
+	// If the following call panics, it indicates UnimplementedWifiAwareDataPathSecurityConfigBuilderServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&WifiAwareDataPathSecurityConfigBuilderService_ServiceDesc, srv)
+}
+
+func _WifiAwareDataPathSecurityConfigBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BuildRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WifiAwareDataPathSecurityConfigBuilderServiceServer).Build(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WifiAwareDataPathSecurityConfigBuilderService_Build_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WifiAwareDataPathSecurityConfigBuilderServiceServer).Build(ctx, req.(*BuildRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WifiAwareDataPathSecurityConfigBuilderService_SetPmk_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetPmkRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WifiAwareDataPathSecurityConfigBuilderServiceServer).SetPmk(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WifiAwareDataPathSecurityConfigBuilderService_SetPmk_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WifiAwareDataPathSecurityConfigBuilderServiceServer).SetPmk(ctx, req.(*SetPmkRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WifiAwareDataPathSecurityConfigBuilderService_SetPmkId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetPmkIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WifiAwareDataPathSecurityConfigBuilderServiceServer).SetPmkId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WifiAwareDataPathSecurityConfigBuilderService_SetPmkId_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WifiAwareDataPathSecurityConfigBuilderServiceServer).SetPmkId(ctx, req.(*SetPmkIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WifiAwareDataPathSecurityConfigBuilderService_SetPskPassphrase_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetPskPassphraseRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WifiAwareDataPathSecurityConfigBuilderServiceServer).SetPskPassphrase(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WifiAwareDataPathSecurityConfigBuilderService_SetPskPassphrase_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WifiAwareDataPathSecurityConfigBuilderServiceServer).SetPskPassphrase(ctx, req.(*SetPskPassphraseRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// WifiAwareDataPathSecurityConfigBuilderService_ServiceDesc is the grpc.ServiceDesc for WifiAwareDataPathSecurityConfigBuilderService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var WifiAwareDataPathSecurityConfigBuilderService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "aware.WifiAwareDataPathSecurityConfigBuilderService",
+	HandlerType: (*WifiAwareDataPathSecurityConfigBuilderServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Build",
+			Handler:    _WifiAwareDataPathSecurityConfigBuilderService_Build_Handler,
+		},
+		{
+			MethodName: "SetPmk",
+			Handler:    _WifiAwareDataPathSecurityConfigBuilderService_SetPmk_Handler,
+		},
+		{
+			MethodName: "SetPmkId",
+			Handler:    _WifiAwareDataPathSecurityConfigBuilderService_SetPmkId_Handler,
+		},
+		{
+			MethodName: "SetPskPassphrase",
+			Handler:    _WifiAwareDataPathSecurityConfigBuilderService_SetPskPassphrase_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/aware/aware.proto",
+}
+
+const (
+	ParcelablePeerHandleService_NewParcelablePeerHandle_FullMethodName = "/aware.ParcelablePeerHandleService/NewParcelablePeerHandle"
+	ParcelablePeerHandleService_DescribeContents_FullMethodName        = "/aware.ParcelablePeerHandleService/DescribeContents"
+	ParcelablePeerHandleService_WriteToParcel_FullMethodName           = "/aware.ParcelablePeerHandleService/WriteToParcel"
+)
+
+// ParcelablePeerHandleServiceClient is the client API for ParcelablePeerHandleService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ParcelablePeerHandleServiceClient interface {
+	NewParcelablePeerHandle(ctx context.Context, in *NewParcelablePeerHandleRequest, opts ...grpc.CallOption) (*NewParcelablePeerHandleResponse, error)
+	DescribeContents(ctx context.Context, in *ParcelablePeerHandleDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	WriteToParcel(ctx context.Context, in *ParcelablePeerHandleWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type parcelablePeerHandleServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewParcelablePeerHandleServiceClient(cc grpc.ClientConnInterface) ParcelablePeerHandleServiceClient {
+	return &parcelablePeerHandleServiceClient{cc}
+}
+
+func (c *parcelablePeerHandleServiceClient) NewParcelablePeerHandle(ctx context.Context, in *NewParcelablePeerHandleRequest, opts ...grpc.CallOption) (*NewParcelablePeerHandleResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewParcelablePeerHandleResponse)
+	err := c.cc.Invoke(ctx, ParcelablePeerHandleService_NewParcelablePeerHandle_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *parcelablePeerHandleServiceClient) DescribeContents(ctx context.Context, in *ParcelablePeerHandleDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, ParcelablePeerHandleService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *parcelablePeerHandleServiceClient) WriteToParcel(ctx context.Context, in *ParcelablePeerHandleWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, ParcelablePeerHandleService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ParcelablePeerHandleServiceServer is the server API for ParcelablePeerHandleService service.
+// All implementations must embed UnimplementedParcelablePeerHandleServiceServer
+// for forward compatibility.
+type ParcelablePeerHandleServiceServer interface {
+	NewParcelablePeerHandle(context.Context, *NewParcelablePeerHandleRequest) (*NewParcelablePeerHandleResponse, error)
+	DescribeContents(context.Context, *ParcelablePeerHandleDescribeContentsRequest) (*DescribeContentsResponse, error)
+	WriteToParcel(context.Context, *ParcelablePeerHandleWriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedParcelablePeerHandleServiceServer()
+}
+
+// UnimplementedParcelablePeerHandleServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedParcelablePeerHandleServiceServer struct{}
+
+func (UnimplementedParcelablePeerHandleServiceServer) NewParcelablePeerHandle(context.Context, *NewParcelablePeerHandleRequest) (*NewParcelablePeerHandleResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewParcelablePeerHandle not implemented")
+}
+func (UnimplementedParcelablePeerHandleServiceServer) DescribeContents(context.Context, *ParcelablePeerHandleDescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedParcelablePeerHandleServiceServer) WriteToParcel(context.Context, *ParcelablePeerHandleWriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedParcelablePeerHandleServiceServer) mustEmbedUnimplementedParcelablePeerHandleServiceServer() {
+}
+func (UnimplementedParcelablePeerHandleServiceServer) testEmbeddedByValue() {}
+
+// UnsafeParcelablePeerHandleServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ParcelablePeerHandleServiceServer will
+// result in compilation errors.
+type UnsafeParcelablePeerHandleServiceServer interface {
+	mustEmbedUnimplementedParcelablePeerHandleServiceServer()
+}
+
+func RegisterParcelablePeerHandleServiceServer(s grpc.ServiceRegistrar, srv ParcelablePeerHandleServiceServer) {
+	// If the following call panics, it indicates UnimplementedParcelablePeerHandleServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&ParcelablePeerHandleService_ServiceDesc, srv)
+}
+
+func _ParcelablePeerHandleService_NewParcelablePeerHandle_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewParcelablePeerHandleRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ParcelablePeerHandleServiceServer).NewParcelablePeerHandle(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ParcelablePeerHandleService_NewParcelablePeerHandle_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ParcelablePeerHandleServiceServer).NewParcelablePeerHandle(ctx, req.(*NewParcelablePeerHandleRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ParcelablePeerHandleService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ParcelablePeerHandleDescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ParcelablePeerHandleServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ParcelablePeerHandleService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ParcelablePeerHandleServiceServer).DescribeContents(ctx, req.(*ParcelablePeerHandleDescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ParcelablePeerHandleService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ParcelablePeerHandleWriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ParcelablePeerHandleServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ParcelablePeerHandleService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ParcelablePeerHandleServiceServer).WriteToParcel(ctx, req.(*ParcelablePeerHandleWriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ParcelablePeerHandleService_ServiceDesc is the grpc.ServiceDesc for ParcelablePeerHandleService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ParcelablePeerHandleService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "aware.ParcelablePeerHandleService",
+	HandlerType: (*ParcelablePeerHandleServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewParcelablePeerHandle",
+			Handler:    _ParcelablePeerHandleService_NewParcelablePeerHandle_Handler,
+		},
+		{
+			MethodName: "DescribeContents",
+			Handler:    _ParcelablePeerHandleService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _ParcelablePeerHandleService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/aware/aware.proto",
+}
+
+const (
+	WifiAwareSessionService_Close_FullMethodName                            = "/aware.WifiAwareSessionService/Close"
+	WifiAwareSessionService_CreateNetworkSpecifierOpen_FullMethodName       = "/aware.WifiAwareSessionService/CreateNetworkSpecifierOpen"
+	WifiAwareSessionService_CreateNetworkSpecifierPassphrase_FullMethodName = "/aware.WifiAwareSessionService/CreateNetworkSpecifierPassphrase"
+)
+
+// WifiAwareSessionServiceClient is the client API for WifiAwareSessionService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type WifiAwareSessionServiceClient interface {
+	Close(ctx context.Context, in *CloseRequest, opts ...grpc.CallOption) (*CloseResponse, error)
+	CreateNetworkSpecifierOpen(ctx context.Context, in *WifiAwareSessionCreateNetworkSpecifierOpenRequest, opts ...grpc.CallOption) (*CreateNetworkSpecifierOpenResponse, error)
+	CreateNetworkSpecifierPassphrase(ctx context.Context, in *WifiAwareSessionCreateNetworkSpecifierPassphraseRequest, opts ...grpc.CallOption) (*CreateNetworkSpecifierPassphraseResponse, error)
+}
+
+type wifiAwareSessionServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewWifiAwareSessionServiceClient(cc grpc.ClientConnInterface) WifiAwareSessionServiceClient {
+	return &wifiAwareSessionServiceClient{cc}
+}
+
+func (c *wifiAwareSessionServiceClient) Close(ctx context.Context, in *CloseRequest, opts ...grpc.CallOption) (*CloseResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CloseResponse)
+	err := c.cc.Invoke(ctx, WifiAwareSessionService_Close_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *wifiAwareSessionServiceClient) CreateNetworkSpecifierOpen(ctx context.Context, in *WifiAwareSessionCreateNetworkSpecifierOpenRequest, opts ...grpc.CallOption) (*CreateNetworkSpecifierOpenResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CreateNetworkSpecifierOpenResponse)
+	err := c.cc.Invoke(ctx, WifiAwareSessionService_CreateNetworkSpecifierOpen_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *wifiAwareSessionServiceClient) CreateNetworkSpecifierPassphrase(ctx context.Context, in *WifiAwareSessionCreateNetworkSpecifierPassphraseRequest, opts ...grpc.CallOption) (*CreateNetworkSpecifierPassphraseResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CreateNetworkSpecifierPassphraseResponse)
+	err := c.cc.Invoke(ctx, WifiAwareSessionService_CreateNetworkSpecifierPassphrase_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// WifiAwareSessionServiceServer is the server API for WifiAwareSessionService service.
+// All implementations must embed UnimplementedWifiAwareSessionServiceServer
+// for forward compatibility.
+type WifiAwareSessionServiceServer interface {
+	Close(context.Context, *CloseRequest) (*CloseResponse, error)
+	CreateNetworkSpecifierOpen(context.Context, *WifiAwareSessionCreateNetworkSpecifierOpenRequest) (*CreateNetworkSpecifierOpenResponse, error)
+	CreateNetworkSpecifierPassphrase(context.Context, *WifiAwareSessionCreateNetworkSpecifierPassphraseRequest) (*CreateNetworkSpecifierPassphraseResponse, error)
+	mustEmbedUnimplementedWifiAwareSessionServiceServer()
+}
+
+// UnimplementedWifiAwareSessionServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedWifiAwareSessionServiceServer struct{}
+
+func (UnimplementedWifiAwareSessionServiceServer) Close(context.Context, *CloseRequest) (*CloseResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Close not implemented")
+}
+func (UnimplementedWifiAwareSessionServiceServer) CreateNetworkSpecifierOpen(context.Context, *WifiAwareSessionCreateNetworkSpecifierOpenRequest) (*CreateNetworkSpecifierOpenResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method CreateNetworkSpecifierOpen not implemented")
+}
+func (UnimplementedWifiAwareSessionServiceServer) CreateNetworkSpecifierPassphrase(context.Context, *WifiAwareSessionCreateNetworkSpecifierPassphraseRequest) (*CreateNetworkSpecifierPassphraseResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method CreateNetworkSpecifierPassphrase not implemented")
+}
+func (UnimplementedWifiAwareSessionServiceServer) mustEmbedUnimplementedWifiAwareSessionServiceServer() {
+}
+func (UnimplementedWifiAwareSessionServiceServer) testEmbeddedByValue() {}
+
+// UnsafeWifiAwareSessionServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to WifiAwareSessionServiceServer will
+// result in compilation errors.
+type UnsafeWifiAwareSessionServiceServer interface {
+	mustEmbedUnimplementedWifiAwareSessionServiceServer()
+}
+
+func RegisterWifiAwareSessionServiceServer(s grpc.ServiceRegistrar, srv WifiAwareSessionServiceServer) {
+	// If the following call panics, it indicates UnimplementedWifiAwareSessionServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&WifiAwareSessionService_ServiceDesc, srv)
+}
+
+func _WifiAwareSessionService_Close_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CloseRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WifiAwareSessionServiceServer).Close(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WifiAwareSessionService_Close_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WifiAwareSessionServiceServer).Close(ctx, req.(*CloseRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WifiAwareSessionService_CreateNetworkSpecifierOpen_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WifiAwareSessionCreateNetworkSpecifierOpenRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WifiAwareSessionServiceServer).CreateNetworkSpecifierOpen(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WifiAwareSessionService_CreateNetworkSpecifierOpen_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WifiAwareSessionServiceServer).CreateNetworkSpecifierOpen(ctx, req.(*WifiAwareSessionCreateNetworkSpecifierOpenRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WifiAwareSessionService_CreateNetworkSpecifierPassphrase_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WifiAwareSessionCreateNetworkSpecifierPassphraseRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WifiAwareSessionServiceServer).CreateNetworkSpecifierPassphrase(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WifiAwareSessionService_CreateNetworkSpecifierPassphrase_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WifiAwareSessionServiceServer).CreateNetworkSpecifierPassphrase(ctx, req.(*WifiAwareSessionCreateNetworkSpecifierPassphraseRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// WifiAwareSessionService_ServiceDesc is the grpc.ServiceDesc for WifiAwareSessionService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var WifiAwareSessionService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "aware.WifiAwareSessionService",
+	HandlerType: (*WifiAwareSessionServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Close",
+			Handler:    _WifiAwareSessionService_Close_Handler,
+		},
+		{
+			MethodName: "CreateNetworkSpecifierOpen",
+			Handler:    _WifiAwareSessionService_CreateNetworkSpecifierOpen_Handler,
+		},
+		{
+			MethodName: "CreateNetworkSpecifierPassphrase",
+			Handler:    _WifiAwareSessionService_CreateNetworkSpecifierPassphrase_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/aware/aware.proto",
+}
+
+const (
+	PublishDiscoverySessionService_UpdatePublish_FullMethodName = "/aware.PublishDiscoverySessionService/UpdatePublish"
+)
+
+// PublishDiscoverySessionServiceClient is the client API for PublishDiscoverySessionService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type PublishDiscoverySessionServiceClient interface {
+	UpdatePublish(ctx context.Context, in *UpdatePublishRequest, opts ...grpc.CallOption) (*UpdatePublishResponse, error)
+}
+
+type publishDiscoverySessionServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewPublishDiscoverySessionServiceClient(cc grpc.ClientConnInterface) PublishDiscoverySessionServiceClient {
+	return &publishDiscoverySessionServiceClient{cc}
+}
+
+func (c *publishDiscoverySessionServiceClient) UpdatePublish(ctx context.Context, in *UpdatePublishRequest, opts ...grpc.CallOption) (*UpdatePublishResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(UpdatePublishResponse)
+	err := c.cc.Invoke(ctx, PublishDiscoverySessionService_UpdatePublish_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// PublishDiscoverySessionServiceServer is the server API for PublishDiscoverySessionService service.
+// All implementations must embed UnimplementedPublishDiscoverySessionServiceServer
+// for forward compatibility.
+type PublishDiscoverySessionServiceServer interface {
+	UpdatePublish(context.Context, *UpdatePublishRequest) (*UpdatePublishResponse, error)
+	mustEmbedUnimplementedPublishDiscoverySessionServiceServer()
+}
+
+// UnimplementedPublishDiscoverySessionServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedPublishDiscoverySessionServiceServer struct{}
+
+func (UnimplementedPublishDiscoverySessionServiceServer) UpdatePublish(context.Context, *UpdatePublishRequest) (*UpdatePublishResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method UpdatePublish not implemented")
+}
+func (UnimplementedPublishDiscoverySessionServiceServer) mustEmbedUnimplementedPublishDiscoverySessionServiceServer() {
+}
+func (UnimplementedPublishDiscoverySessionServiceServer) testEmbeddedByValue() {}
+
+// UnsafePublishDiscoverySessionServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to PublishDiscoverySessionServiceServer will
+// result in compilation errors.
+type UnsafePublishDiscoverySessionServiceServer interface {
+	mustEmbedUnimplementedPublishDiscoverySessionServiceServer()
+}
+
+func RegisterPublishDiscoverySessionServiceServer(s grpc.ServiceRegistrar, srv PublishDiscoverySessionServiceServer) {
+	// If the following call panics, it indicates UnimplementedPublishDiscoverySessionServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&PublishDiscoverySessionService_ServiceDesc, srv)
+}
+
+func _PublishDiscoverySessionService_UpdatePublish_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdatePublishRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PublishDiscoverySessionServiceServer).UpdatePublish(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PublishDiscoverySessionService_UpdatePublish_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PublishDiscoverySessionServiceServer).UpdatePublish(ctx, req.(*UpdatePublishRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// PublishDiscoverySessionService_ServiceDesc is the grpc.ServiceDesc for PublishDiscoverySessionService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var PublishDiscoverySessionService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "aware.PublishDiscoverySessionService",
+	HandlerType: (*PublishDiscoverySessionServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "UpdatePublish",
+			Handler:    _PublishDiscoverySessionService_UpdatePublish_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/aware/aware.proto",
+}
+
+const (
+	ServiceDiscoveryInfoService_GetMatchFilters_FullMethodName        = "/aware.ServiceDiscoveryInfoService/GetMatchFilters"
+	ServiceDiscoveryInfoService_GetPairedAlias_FullMethodName         = "/aware.ServiceDiscoveryInfoService/GetPairedAlias"
+	ServiceDiscoveryInfoService_GetPairingConfig_FullMethodName       = "/aware.ServiceDiscoveryInfoService/GetPairingConfig"
+	ServiceDiscoveryInfoService_GetPeerCipherSuite_FullMethodName     = "/aware.ServiceDiscoveryInfoService/GetPeerCipherSuite"
+	ServiceDiscoveryInfoService_GetPeerHandle_FullMethodName          = "/aware.ServiceDiscoveryInfoService/GetPeerHandle"
+	ServiceDiscoveryInfoService_GetScid_FullMethodName                = "/aware.ServiceDiscoveryInfoService/GetScid"
+	ServiceDiscoveryInfoService_GetServiceSpecificInfo_FullMethodName = "/aware.ServiceDiscoveryInfoService/GetServiceSpecificInfo"
+)
+
+// ServiceDiscoveryInfoServiceClient is the client API for ServiceDiscoveryInfoService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ServiceDiscoveryInfoServiceClient interface {
+	GetMatchFilters(ctx context.Context, in *GetMatchFiltersRequest, opts ...grpc.CallOption) (*GetMatchFiltersResponse, error)
+	GetPairedAlias(ctx context.Context, in *GetPairedAliasRequest, opts ...grpc.CallOption) (*GetPairedAliasResponse, error)
+	GetPairingConfig(ctx context.Context, in *GetPairingConfigRequest, opts ...grpc.CallOption) (*GetPairingConfigResponse, error)
+	GetPeerCipherSuite(ctx context.Context, in *GetPeerCipherSuiteRequest, opts ...grpc.CallOption) (*GetPeerCipherSuiteResponse, error)
+	GetPeerHandle(ctx context.Context, in *GetPeerHandleRequest, opts ...grpc.CallOption) (*GetPeerHandleResponse, error)
+	GetScid(ctx context.Context, in *GetScidRequest, opts ...grpc.CallOption) (*GetScidResponse, error)
+	GetServiceSpecificInfo(ctx context.Context, in *GetServiceSpecificInfoRequest, opts ...grpc.CallOption) (*GetServiceSpecificInfoResponse, error)
+}
+
+type serviceDiscoveryInfoServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewServiceDiscoveryInfoServiceClient(cc grpc.ClientConnInterface) ServiceDiscoveryInfoServiceClient {
+	return &serviceDiscoveryInfoServiceClient{cc}
+}
+
+func (c *serviceDiscoveryInfoServiceClient) GetMatchFilters(ctx context.Context, in *GetMatchFiltersRequest, opts ...grpc.CallOption) (*GetMatchFiltersResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetMatchFiltersResponse)
+	err := c.cc.Invoke(ctx, ServiceDiscoveryInfoService_GetMatchFilters_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceDiscoveryInfoServiceClient) GetPairedAlias(ctx context.Context, in *GetPairedAliasRequest, opts ...grpc.CallOption) (*GetPairedAliasResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetPairedAliasResponse)
+	err := c.cc.Invoke(ctx, ServiceDiscoveryInfoService_GetPairedAlias_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceDiscoveryInfoServiceClient) GetPairingConfig(ctx context.Context, in *GetPairingConfigRequest, opts ...grpc.CallOption) (*GetPairingConfigResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetPairingConfigResponse)
+	err := c.cc.Invoke(ctx, ServiceDiscoveryInfoService_GetPairingConfig_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceDiscoveryInfoServiceClient) GetPeerCipherSuite(ctx context.Context, in *GetPeerCipherSuiteRequest, opts ...grpc.CallOption) (*GetPeerCipherSuiteResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetPeerCipherSuiteResponse)
+	err := c.cc.Invoke(ctx, ServiceDiscoveryInfoService_GetPeerCipherSuite_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceDiscoveryInfoServiceClient) GetPeerHandle(ctx context.Context, in *GetPeerHandleRequest, opts ...grpc.CallOption) (*GetPeerHandleResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetPeerHandleResponse)
+	err := c.cc.Invoke(ctx, ServiceDiscoveryInfoService_GetPeerHandle_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceDiscoveryInfoServiceClient) GetScid(ctx context.Context, in *GetScidRequest, opts ...grpc.CallOption) (*GetScidResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetScidResponse)
+	err := c.cc.Invoke(ctx, ServiceDiscoveryInfoService_GetScid_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceDiscoveryInfoServiceClient) GetServiceSpecificInfo(ctx context.Context, in *GetServiceSpecificInfoRequest, opts ...grpc.CallOption) (*GetServiceSpecificInfoResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetServiceSpecificInfoResponse)
+	err := c.cc.Invoke(ctx, ServiceDiscoveryInfoService_GetServiceSpecificInfo_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ServiceDiscoveryInfoServiceServer is the server API for ServiceDiscoveryInfoService service.
+// All implementations must embed UnimplementedServiceDiscoveryInfoServiceServer
+// for forward compatibility.
+type ServiceDiscoveryInfoServiceServer interface {
+	GetMatchFilters(context.Context, *GetMatchFiltersRequest) (*GetMatchFiltersResponse, error)
+	GetPairedAlias(context.Context, *GetPairedAliasRequest) (*GetPairedAliasResponse, error)
+	GetPairingConfig(context.Context, *GetPairingConfigRequest) (*GetPairingConfigResponse, error)
+	GetPeerCipherSuite(context.Context, *GetPeerCipherSuiteRequest) (*GetPeerCipherSuiteResponse, error)
+	GetPeerHandle(context.Context, *GetPeerHandleRequest) (*GetPeerHandleResponse, error)
+	GetScid(context.Context, *GetScidRequest) (*GetScidResponse, error)
+	GetServiceSpecificInfo(context.Context, *GetServiceSpecificInfoRequest) (*GetServiceSpecificInfoResponse, error)
+	mustEmbedUnimplementedServiceDiscoveryInfoServiceServer()
+}
+
+// UnimplementedServiceDiscoveryInfoServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedServiceDiscoveryInfoServiceServer struct{}
+
+func (UnimplementedServiceDiscoveryInfoServiceServer) GetMatchFilters(context.Context, *GetMatchFiltersRequest) (*GetMatchFiltersResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetMatchFilters not implemented")
+}
+func (UnimplementedServiceDiscoveryInfoServiceServer) GetPairedAlias(context.Context, *GetPairedAliasRequest) (*GetPairedAliasResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetPairedAlias not implemented")
+}
+func (UnimplementedServiceDiscoveryInfoServiceServer) GetPairingConfig(context.Context, *GetPairingConfigRequest) (*GetPairingConfigResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetPairingConfig not implemented")
+}
+func (UnimplementedServiceDiscoveryInfoServiceServer) GetPeerCipherSuite(context.Context, *GetPeerCipherSuiteRequest) (*GetPeerCipherSuiteResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetPeerCipherSuite not implemented")
+}
+func (UnimplementedServiceDiscoveryInfoServiceServer) GetPeerHandle(context.Context, *GetPeerHandleRequest) (*GetPeerHandleResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetPeerHandle not implemented")
+}
+func (UnimplementedServiceDiscoveryInfoServiceServer) GetScid(context.Context, *GetScidRequest) (*GetScidResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetScid not implemented")
+}
+func (UnimplementedServiceDiscoveryInfoServiceServer) GetServiceSpecificInfo(context.Context, *GetServiceSpecificInfoRequest) (*GetServiceSpecificInfoResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetServiceSpecificInfo not implemented")
+}
+func (UnimplementedServiceDiscoveryInfoServiceServer) mustEmbedUnimplementedServiceDiscoveryInfoServiceServer() {
+}
+func (UnimplementedServiceDiscoveryInfoServiceServer) testEmbeddedByValue() {}
+
+// UnsafeServiceDiscoveryInfoServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ServiceDiscoveryInfoServiceServer will
+// result in compilation errors.
+type UnsafeServiceDiscoveryInfoServiceServer interface {
+	mustEmbedUnimplementedServiceDiscoveryInfoServiceServer()
+}
+
+func RegisterServiceDiscoveryInfoServiceServer(s grpc.ServiceRegistrar, srv ServiceDiscoveryInfoServiceServer) {
+	// If the following call panics, it indicates UnimplementedServiceDiscoveryInfoServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&ServiceDiscoveryInfoService_ServiceDesc, srv)
+}
+
+func _ServiceDiscoveryInfoService_GetMatchFilters_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetMatchFiltersRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceDiscoveryInfoServiceServer).GetMatchFilters(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ServiceDiscoveryInfoService_GetMatchFilters_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceDiscoveryInfoServiceServer).GetMatchFilters(ctx, req.(*GetMatchFiltersRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ServiceDiscoveryInfoService_GetPairedAlias_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPairedAliasRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceDiscoveryInfoServiceServer).GetPairedAlias(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ServiceDiscoveryInfoService_GetPairedAlias_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceDiscoveryInfoServiceServer).GetPairedAlias(ctx, req.(*GetPairedAliasRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ServiceDiscoveryInfoService_GetPairingConfig_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPairingConfigRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceDiscoveryInfoServiceServer).GetPairingConfig(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ServiceDiscoveryInfoService_GetPairingConfig_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceDiscoveryInfoServiceServer).GetPairingConfig(ctx, req.(*GetPairingConfigRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ServiceDiscoveryInfoService_GetPeerCipherSuite_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPeerCipherSuiteRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceDiscoveryInfoServiceServer).GetPeerCipherSuite(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ServiceDiscoveryInfoService_GetPeerCipherSuite_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceDiscoveryInfoServiceServer).GetPeerCipherSuite(ctx, req.(*GetPeerCipherSuiteRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ServiceDiscoveryInfoService_GetPeerHandle_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPeerHandleRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceDiscoveryInfoServiceServer).GetPeerHandle(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ServiceDiscoveryInfoService_GetPeerHandle_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceDiscoveryInfoServiceServer).GetPeerHandle(ctx, req.(*GetPeerHandleRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ServiceDiscoveryInfoService_GetScid_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetScidRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceDiscoveryInfoServiceServer).GetScid(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ServiceDiscoveryInfoService_GetScid_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceDiscoveryInfoServiceServer).GetScid(ctx, req.(*GetScidRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ServiceDiscoveryInfoService_GetServiceSpecificInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetServiceSpecificInfoRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceDiscoveryInfoServiceServer).GetServiceSpecificInfo(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ServiceDiscoveryInfoService_GetServiceSpecificInfo_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceDiscoveryInfoServiceServer).GetServiceSpecificInfo(ctx, req.(*GetServiceSpecificInfoRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ServiceDiscoveryInfoService_ServiceDesc is the grpc.ServiceDesc for ServiceDiscoveryInfoService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ServiceDiscoveryInfoService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "aware.ServiceDiscoveryInfoService",
+	HandlerType: (*ServiceDiscoveryInfoServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "GetMatchFilters",
+			Handler:    _ServiceDiscoveryInfoService_GetMatchFilters_Handler,
+		},
+		{
+			MethodName: "GetPairedAlias",
+			Handler:    _ServiceDiscoveryInfoService_GetPairedAlias_Handler,
+		},
+		{
+			MethodName: "GetPairingConfig",
+			Handler:    _ServiceDiscoveryInfoService_GetPairingConfig_Handler,
+		},
+		{
+			MethodName: "GetPeerCipherSuite",
+			Handler:    _ServiceDiscoveryInfoService_GetPeerCipherSuite_Handler,
+		},
+		{
+			MethodName: "GetPeerHandle",
+			Handler:    _ServiceDiscoveryInfoService_GetPeerHandle_Handler,
+		},
+		{
+			MethodName: "GetScid",
+			Handler:    _ServiceDiscoveryInfoService_GetScid_Handler,
+		},
+		{
+			MethodName: "GetServiceSpecificInfo",
+			Handler:    _ServiceDiscoveryInfoService_GetServiceSpecificInfo_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/aware/aware.proto",
+}
+
+const (
 	WifiAwareNetworkInfoService_DescribeContents_FullMethodName     = "/aware.WifiAwareNetworkInfoService/DescribeContents"
 	WifiAwareNetworkInfoService_Equals_FullMethodName               = "/aware.WifiAwareNetworkInfoService/Equals"
+	WifiAwareNetworkInfoService_GetChannelInfoList_FullMethodName   = "/aware.WifiAwareNetworkInfoService/GetChannelInfoList"
 	WifiAwareNetworkInfoService_GetPeerIpv6Addr_FullMethodName      = "/aware.WifiAwareNetworkInfoService/GetPeerIpv6Addr"
 	WifiAwareNetworkInfoService_GetPort_FullMethodName              = "/aware.WifiAwareNetworkInfoService/GetPort"
 	WifiAwareNetworkInfoService_GetTransportProtocol_FullMethodName = "/aware.WifiAwareNetworkInfoService/GetTransportProtocol"
@@ -1538,14 +5053,15 @@ const (
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type WifiAwareNetworkInfoServiceClient interface {
-	DescribeContents(ctx context.Context, in *WifiAwareNetworkInfoDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
 	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	GetChannelInfoList(ctx context.Context, in *GetChannelInfoListRequest, opts ...grpc.CallOption) (*GetChannelInfoListResponse, error)
 	GetPeerIpv6Addr(ctx context.Context, in *GetPeerIpv6AddrRequest, opts ...grpc.CallOption) (*GetPeerIpv6AddrResponse, error)
 	GetPort(ctx context.Context, in *GetPortRequest, opts ...grpc.CallOption) (*GetPortResponse, error)
 	GetTransportProtocol(ctx context.Context, in *GetTransportProtocolRequest, opts ...grpc.CallOption) (*GetTransportProtocolResponse, error)
 	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
 	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
-	WriteToParcel(ctx context.Context, in *WifiAwareNetworkInfoWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
 }
 
 type wifiAwareNetworkInfoServiceClient struct {
@@ -1556,7 +5072,7 @@ func NewWifiAwareNetworkInfoServiceClient(cc grpc.ClientConnInterface) WifiAware
 	return &wifiAwareNetworkInfoServiceClient{cc}
 }
 
-func (c *wifiAwareNetworkInfoServiceClient) DescribeContents(ctx context.Context, in *WifiAwareNetworkInfoDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+func (c *wifiAwareNetworkInfoServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(DescribeContentsResponse)
 	err := c.cc.Invoke(ctx, WifiAwareNetworkInfoService_DescribeContents_FullMethodName, in, out, cOpts...)
@@ -1570,6 +5086,16 @@ func (c *wifiAwareNetworkInfoServiceClient) Equals(ctx context.Context, in *Equa
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(EqualsResponse)
 	err := c.cc.Invoke(ctx, WifiAwareNetworkInfoService_Equals_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *wifiAwareNetworkInfoServiceClient) GetChannelInfoList(ctx context.Context, in *GetChannelInfoListRequest, opts ...grpc.CallOption) (*GetChannelInfoListResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetChannelInfoListResponse)
+	err := c.cc.Invoke(ctx, WifiAwareNetworkInfoService_GetChannelInfoList_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -1626,7 +5152,7 @@ func (c *wifiAwareNetworkInfoServiceClient) ToString(ctx context.Context, in *To
 	return out, nil
 }
 
-func (c *wifiAwareNetworkInfoServiceClient) WriteToParcel(ctx context.Context, in *WifiAwareNetworkInfoWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+func (c *wifiAwareNetworkInfoServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(WriteToParcelResponse)
 	err := c.cc.Invoke(ctx, WifiAwareNetworkInfoService_WriteToParcel_FullMethodName, in, out, cOpts...)
@@ -1640,14 +5166,15 @@ func (c *wifiAwareNetworkInfoServiceClient) WriteToParcel(ctx context.Context, i
 // All implementations must embed UnimplementedWifiAwareNetworkInfoServiceServer
 // for forward compatibility.
 type WifiAwareNetworkInfoServiceServer interface {
-	DescribeContents(context.Context, *WifiAwareNetworkInfoDescribeContentsRequest) (*DescribeContentsResponse, error)
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
 	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
+	GetChannelInfoList(context.Context, *GetChannelInfoListRequest) (*GetChannelInfoListResponse, error)
 	GetPeerIpv6Addr(context.Context, *GetPeerIpv6AddrRequest) (*GetPeerIpv6AddrResponse, error)
 	GetPort(context.Context, *GetPortRequest) (*GetPortResponse, error)
 	GetTransportProtocol(context.Context, *GetTransportProtocolRequest) (*GetTransportProtocolResponse, error)
 	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
 	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
-	WriteToParcel(context.Context, *WifiAwareNetworkInfoWriteToParcelRequest) (*WriteToParcelResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
 	mustEmbedUnimplementedWifiAwareNetworkInfoServiceServer()
 }
 
@@ -1658,11 +5185,14 @@ type WifiAwareNetworkInfoServiceServer interface {
 // pointer dereference when methods are called.
 type UnimplementedWifiAwareNetworkInfoServiceServer struct{}
 
-func (UnimplementedWifiAwareNetworkInfoServiceServer) DescribeContents(context.Context, *WifiAwareNetworkInfoDescribeContentsRequest) (*DescribeContentsResponse, error) {
+func (UnimplementedWifiAwareNetworkInfoServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
 }
 func (UnimplementedWifiAwareNetworkInfoServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
+}
+func (UnimplementedWifiAwareNetworkInfoServiceServer) GetChannelInfoList(context.Context, *GetChannelInfoListRequest) (*GetChannelInfoListResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetChannelInfoList not implemented")
 }
 func (UnimplementedWifiAwareNetworkInfoServiceServer) GetPeerIpv6Addr(context.Context, *GetPeerIpv6AddrRequest) (*GetPeerIpv6AddrResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetPeerIpv6Addr not implemented")
@@ -1679,7 +5209,7 @@ func (UnimplementedWifiAwareNetworkInfoServiceServer) HashCode(context.Context, 
 func (UnimplementedWifiAwareNetworkInfoServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
 }
-func (UnimplementedWifiAwareNetworkInfoServiceServer) WriteToParcel(context.Context, *WifiAwareNetworkInfoWriteToParcelRequest) (*WriteToParcelResponse, error) {
+func (UnimplementedWifiAwareNetworkInfoServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
 }
 func (UnimplementedWifiAwareNetworkInfoServiceServer) mustEmbedUnimplementedWifiAwareNetworkInfoServiceServer() {
@@ -1705,7 +5235,7 @@ func RegisterWifiAwareNetworkInfoServiceServer(s grpc.ServiceRegistrar, srv Wifi
 }
 
 func _WifiAwareNetworkInfoService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WifiAwareNetworkInfoDescribeContentsRequest)
+	in := new(DescribeContentsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -1717,7 +5247,7 @@ func _WifiAwareNetworkInfoService_DescribeContents_Handler(srv interface{}, ctx 
 		FullMethod: WifiAwareNetworkInfoService_DescribeContents_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiAwareNetworkInfoServiceServer).DescribeContents(ctx, req.(*WifiAwareNetworkInfoDescribeContentsRequest))
+		return srv.(WifiAwareNetworkInfoServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -1736,6 +5266,24 @@ func _WifiAwareNetworkInfoService_Equals_Handler(srv interface{}, ctx context.Co
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(WifiAwareNetworkInfoServiceServer).Equals(ctx, req.(*EqualsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WifiAwareNetworkInfoService_GetChannelInfoList_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetChannelInfoListRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WifiAwareNetworkInfoServiceServer).GetChannelInfoList(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WifiAwareNetworkInfoService_GetChannelInfoList_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WifiAwareNetworkInfoServiceServer).GetChannelInfoList(ctx, req.(*GetChannelInfoListRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -1831,7 +5379,7 @@ func _WifiAwareNetworkInfoService_ToString_Handler(srv interface{}, ctx context.
 }
 
 func _WifiAwareNetworkInfoService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WifiAwareNetworkInfoWriteToParcelRequest)
+	in := new(WriteToParcelRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -1843,7 +5391,7 @@ func _WifiAwareNetworkInfoService_WriteToParcel_Handler(srv interface{}, ctx con
 		FullMethod: WifiAwareNetworkInfoService_WriteToParcel_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiAwareNetworkInfoServiceServer).WriteToParcel(ctx, req.(*WifiAwareNetworkInfoWriteToParcelRequest))
+		return srv.(WifiAwareNetworkInfoServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -1862,6 +5410,10 @@ var WifiAwareNetworkInfoService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "Equals",
 			Handler:    _WifiAwareNetworkInfoService_Equals_Handler,
+		},
+		{
+			MethodName: "GetChannelInfoList",
+			Handler:    _WifiAwareNetworkInfoService_GetChannelInfoList_Handler,
 		},
 		{
 			MethodName: "GetPeerIpv6Addr",
@@ -1893,215 +5445,291 @@ var WifiAwareNetworkInfoService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	AttachCallbackService_NewAttachCallback_FullMethodName        = "/aware.AttachCallbackService/NewAttachCallback"
-	AttachCallbackService_OnAttachFailed_FullMethodName           = "/aware.AttachCallbackService/OnAttachFailed"
-	AttachCallbackService_OnAttached_FullMethodName               = "/aware.AttachCallbackService/OnAttached"
-	AttachCallbackService_OnAwareSessionTerminated_FullMethodName = "/aware.AttachCallbackService/OnAwareSessionTerminated"
+	ResourcesService_NewResources_FullMethodName                       = "/aware.ResourcesService/NewResources"
+	ResourcesService_DescribeContents_FullMethodName                   = "/aware.ResourcesService/DescribeContents"
+	ResourcesService_GetAvailableDataPathsCount_FullMethodName         = "/aware.ResourcesService/GetAvailableDataPathsCount"
+	ResourcesService_GetAvailablePublishSessionsCount_FullMethodName   = "/aware.ResourcesService/GetAvailablePublishSessionsCount"
+	ResourcesService_GetAvailableSubscribeSessionsCount_FullMethodName = "/aware.ResourcesService/GetAvailableSubscribeSessionsCount"
+	ResourcesService_WriteToParcel_FullMethodName                      = "/aware.ResourcesService/WriteToParcel"
 )
 
-// AttachCallbackServiceClient is the client API for AttachCallbackService service.
+// ResourcesServiceClient is the client API for ResourcesService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type AttachCallbackServiceClient interface {
-	NewAttachCallback(ctx context.Context, in *NewAttachCallbackRequest, opts ...grpc.CallOption) (*NewAttachCallbackResponse, error)
-	OnAttachFailed(ctx context.Context, in *OnAttachFailedRequest, opts ...grpc.CallOption) (*OnAttachFailedResponse, error)
-	OnAttached(ctx context.Context, in *OnAttachedRequest, opts ...grpc.CallOption) (*OnAttachedResponse, error)
-	OnAwareSessionTerminated(ctx context.Context, in *OnAwareSessionTerminatedRequest, opts ...grpc.CallOption) (*OnAwareSessionTerminatedResponse, error)
+type ResourcesServiceClient interface {
+	NewResources(ctx context.Context, in *NewResourcesRequest, opts ...grpc.CallOption) (*NewResourcesResponse, error)
+	DescribeContents(ctx context.Context, in *ResourcesDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	GetAvailableDataPathsCount(ctx context.Context, in *GetAvailableDataPathsCountRequest, opts ...grpc.CallOption) (*GetAvailableDataPathsCountResponse, error)
+	GetAvailablePublishSessionsCount(ctx context.Context, in *GetAvailablePublishSessionsCountRequest, opts ...grpc.CallOption) (*GetAvailablePublishSessionsCountResponse, error)
+	GetAvailableSubscribeSessionsCount(ctx context.Context, in *GetAvailableSubscribeSessionsCountRequest, opts ...grpc.CallOption) (*GetAvailableSubscribeSessionsCountResponse, error)
+	WriteToParcel(ctx context.Context, in *ResourcesWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
 }
 
-type attachCallbackServiceClient struct {
+type resourcesServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewAttachCallbackServiceClient(cc grpc.ClientConnInterface) AttachCallbackServiceClient {
-	return &attachCallbackServiceClient{cc}
+func NewResourcesServiceClient(cc grpc.ClientConnInterface) ResourcesServiceClient {
+	return &resourcesServiceClient{cc}
 }
 
-func (c *attachCallbackServiceClient) NewAttachCallback(ctx context.Context, in *NewAttachCallbackRequest, opts ...grpc.CallOption) (*NewAttachCallbackResponse, error) {
+func (c *resourcesServiceClient) NewResources(ctx context.Context, in *NewResourcesRequest, opts ...grpc.CallOption) (*NewResourcesResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewAttachCallbackResponse)
-	err := c.cc.Invoke(ctx, AttachCallbackService_NewAttachCallback_FullMethodName, in, out, cOpts...)
+	out := new(NewResourcesResponse)
+	err := c.cc.Invoke(ctx, ResourcesService_NewResources_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *attachCallbackServiceClient) OnAttachFailed(ctx context.Context, in *OnAttachFailedRequest, opts ...grpc.CallOption) (*OnAttachFailedResponse, error) {
+func (c *resourcesServiceClient) DescribeContents(ctx context.Context, in *ResourcesDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnAttachFailedResponse)
-	err := c.cc.Invoke(ctx, AttachCallbackService_OnAttachFailed_FullMethodName, in, out, cOpts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, ResourcesService_DescribeContents_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *attachCallbackServiceClient) OnAttached(ctx context.Context, in *OnAttachedRequest, opts ...grpc.CallOption) (*OnAttachedResponse, error) {
+func (c *resourcesServiceClient) GetAvailableDataPathsCount(ctx context.Context, in *GetAvailableDataPathsCountRequest, opts ...grpc.CallOption) (*GetAvailableDataPathsCountResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnAttachedResponse)
-	err := c.cc.Invoke(ctx, AttachCallbackService_OnAttached_FullMethodName, in, out, cOpts...)
+	out := new(GetAvailableDataPathsCountResponse)
+	err := c.cc.Invoke(ctx, ResourcesService_GetAvailableDataPathsCount_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *attachCallbackServiceClient) OnAwareSessionTerminated(ctx context.Context, in *OnAwareSessionTerminatedRequest, opts ...grpc.CallOption) (*OnAwareSessionTerminatedResponse, error) {
+func (c *resourcesServiceClient) GetAvailablePublishSessionsCount(ctx context.Context, in *GetAvailablePublishSessionsCountRequest, opts ...grpc.CallOption) (*GetAvailablePublishSessionsCountResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnAwareSessionTerminatedResponse)
-	err := c.cc.Invoke(ctx, AttachCallbackService_OnAwareSessionTerminated_FullMethodName, in, out, cOpts...)
+	out := new(GetAvailablePublishSessionsCountResponse)
+	err := c.cc.Invoke(ctx, ResourcesService_GetAvailablePublishSessionsCount_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// AttachCallbackServiceServer is the server API for AttachCallbackService service.
-// All implementations must embed UnimplementedAttachCallbackServiceServer
+func (c *resourcesServiceClient) GetAvailableSubscribeSessionsCount(ctx context.Context, in *GetAvailableSubscribeSessionsCountRequest, opts ...grpc.CallOption) (*GetAvailableSubscribeSessionsCountResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetAvailableSubscribeSessionsCountResponse)
+	err := c.cc.Invoke(ctx, ResourcesService_GetAvailableSubscribeSessionsCount_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *resourcesServiceClient) WriteToParcel(ctx context.Context, in *ResourcesWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, ResourcesService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ResourcesServiceServer is the server API for ResourcesService service.
+// All implementations must embed UnimplementedResourcesServiceServer
 // for forward compatibility.
-type AttachCallbackServiceServer interface {
-	NewAttachCallback(context.Context, *NewAttachCallbackRequest) (*NewAttachCallbackResponse, error)
-	OnAttachFailed(context.Context, *OnAttachFailedRequest) (*OnAttachFailedResponse, error)
-	OnAttached(context.Context, *OnAttachedRequest) (*OnAttachedResponse, error)
-	OnAwareSessionTerminated(context.Context, *OnAwareSessionTerminatedRequest) (*OnAwareSessionTerminatedResponse, error)
-	mustEmbedUnimplementedAttachCallbackServiceServer()
+type ResourcesServiceServer interface {
+	NewResources(context.Context, *NewResourcesRequest) (*NewResourcesResponse, error)
+	DescribeContents(context.Context, *ResourcesDescribeContentsRequest) (*DescribeContentsResponse, error)
+	GetAvailableDataPathsCount(context.Context, *GetAvailableDataPathsCountRequest) (*GetAvailableDataPathsCountResponse, error)
+	GetAvailablePublishSessionsCount(context.Context, *GetAvailablePublishSessionsCountRequest) (*GetAvailablePublishSessionsCountResponse, error)
+	GetAvailableSubscribeSessionsCount(context.Context, *GetAvailableSubscribeSessionsCountRequest) (*GetAvailableSubscribeSessionsCountResponse, error)
+	WriteToParcel(context.Context, *ResourcesWriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedResourcesServiceServer()
 }
 
-// UnimplementedAttachCallbackServiceServer must be embedded to have
+// UnimplementedResourcesServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedAttachCallbackServiceServer struct{}
+type UnimplementedResourcesServiceServer struct{}
 
-func (UnimplementedAttachCallbackServiceServer) NewAttachCallback(context.Context, *NewAttachCallbackRequest) (*NewAttachCallbackResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewAttachCallback not implemented")
+func (UnimplementedResourcesServiceServer) NewResources(context.Context, *NewResourcesRequest) (*NewResourcesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewResources not implemented")
 }
-func (UnimplementedAttachCallbackServiceServer) OnAttachFailed(context.Context, *OnAttachFailedRequest) (*OnAttachFailedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnAttachFailed not implemented")
+func (UnimplementedResourcesServiceServer) DescribeContents(context.Context, *ResourcesDescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
 }
-func (UnimplementedAttachCallbackServiceServer) OnAttached(context.Context, *OnAttachedRequest) (*OnAttachedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnAttached not implemented")
+func (UnimplementedResourcesServiceServer) GetAvailableDataPathsCount(context.Context, *GetAvailableDataPathsCountRequest) (*GetAvailableDataPathsCountResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetAvailableDataPathsCount not implemented")
 }
-func (UnimplementedAttachCallbackServiceServer) OnAwareSessionTerminated(context.Context, *OnAwareSessionTerminatedRequest) (*OnAwareSessionTerminatedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnAwareSessionTerminated not implemented")
+func (UnimplementedResourcesServiceServer) GetAvailablePublishSessionsCount(context.Context, *GetAvailablePublishSessionsCountRequest) (*GetAvailablePublishSessionsCountResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetAvailablePublishSessionsCount not implemented")
 }
-func (UnimplementedAttachCallbackServiceServer) mustEmbedUnimplementedAttachCallbackServiceServer() {}
-func (UnimplementedAttachCallbackServiceServer) testEmbeddedByValue()                               {}
+func (UnimplementedResourcesServiceServer) GetAvailableSubscribeSessionsCount(context.Context, *GetAvailableSubscribeSessionsCountRequest) (*GetAvailableSubscribeSessionsCountResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetAvailableSubscribeSessionsCount not implemented")
+}
+func (UnimplementedResourcesServiceServer) WriteToParcel(context.Context, *ResourcesWriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedResourcesServiceServer) mustEmbedUnimplementedResourcesServiceServer() {}
+func (UnimplementedResourcesServiceServer) testEmbeddedByValue()                          {}
 
-// UnsafeAttachCallbackServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to AttachCallbackServiceServer will
+// UnsafeResourcesServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ResourcesServiceServer will
 // result in compilation errors.
-type UnsafeAttachCallbackServiceServer interface {
-	mustEmbedUnimplementedAttachCallbackServiceServer()
+type UnsafeResourcesServiceServer interface {
+	mustEmbedUnimplementedResourcesServiceServer()
 }
 
-func RegisterAttachCallbackServiceServer(s grpc.ServiceRegistrar, srv AttachCallbackServiceServer) {
-	// If the following call panics, it indicates UnimplementedAttachCallbackServiceServer was
+func RegisterResourcesServiceServer(s grpc.ServiceRegistrar, srv ResourcesServiceServer) {
+	// If the following call panics, it indicates UnimplementedResourcesServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&AttachCallbackService_ServiceDesc, srv)
+	s.RegisterService(&ResourcesService_ServiceDesc, srv)
 }
 
-func _AttachCallbackService_NewAttachCallback_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewAttachCallbackRequest)
+func _ResourcesService_NewResources_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewResourcesRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AttachCallbackServiceServer).NewAttachCallback(ctx, in)
+		return srv.(ResourcesServiceServer).NewResources(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: AttachCallbackService_NewAttachCallback_FullMethodName,
+		FullMethod: ResourcesService_NewResources_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AttachCallbackServiceServer).NewAttachCallback(ctx, req.(*NewAttachCallbackRequest))
+		return srv.(ResourcesServiceServer).NewResources(ctx, req.(*NewResourcesRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _AttachCallbackService_OnAttachFailed_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnAttachFailedRequest)
+func _ResourcesService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ResourcesDescribeContentsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AttachCallbackServiceServer).OnAttachFailed(ctx, in)
+		return srv.(ResourcesServiceServer).DescribeContents(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: AttachCallbackService_OnAttachFailed_FullMethodName,
+		FullMethod: ResourcesService_DescribeContents_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AttachCallbackServiceServer).OnAttachFailed(ctx, req.(*OnAttachFailedRequest))
+		return srv.(ResourcesServiceServer).DescribeContents(ctx, req.(*ResourcesDescribeContentsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _AttachCallbackService_OnAttached_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnAttachedRequest)
+func _ResourcesService_GetAvailableDataPathsCount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetAvailableDataPathsCountRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AttachCallbackServiceServer).OnAttached(ctx, in)
+		return srv.(ResourcesServiceServer).GetAvailableDataPathsCount(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: AttachCallbackService_OnAttached_FullMethodName,
+		FullMethod: ResourcesService_GetAvailableDataPathsCount_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AttachCallbackServiceServer).OnAttached(ctx, req.(*OnAttachedRequest))
+		return srv.(ResourcesServiceServer).GetAvailableDataPathsCount(ctx, req.(*GetAvailableDataPathsCountRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _AttachCallbackService_OnAwareSessionTerminated_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnAwareSessionTerminatedRequest)
+func _ResourcesService_GetAvailablePublishSessionsCount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetAvailablePublishSessionsCountRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AttachCallbackServiceServer).OnAwareSessionTerminated(ctx, in)
+		return srv.(ResourcesServiceServer).GetAvailablePublishSessionsCount(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: AttachCallbackService_OnAwareSessionTerminated_FullMethodName,
+		FullMethod: ResourcesService_GetAvailablePublishSessionsCount_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AttachCallbackServiceServer).OnAwareSessionTerminated(ctx, req.(*OnAwareSessionTerminatedRequest))
+		return srv.(ResourcesServiceServer).GetAvailablePublishSessionsCount(ctx, req.(*GetAvailablePublishSessionsCountRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// AttachCallbackService_ServiceDesc is the grpc.ServiceDesc for AttachCallbackService service.
+func _ResourcesService_GetAvailableSubscribeSessionsCount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetAvailableSubscribeSessionsCountRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ResourcesServiceServer).GetAvailableSubscribeSessionsCount(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ResourcesService_GetAvailableSubscribeSessionsCount_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ResourcesServiceServer).GetAvailableSubscribeSessionsCount(ctx, req.(*GetAvailableSubscribeSessionsCountRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ResourcesService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ResourcesWriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ResourcesServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ResourcesService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ResourcesServiceServer).WriteToParcel(ctx, req.(*ResourcesWriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ResourcesService_ServiceDesc is the grpc.ServiceDesc for ResourcesService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var AttachCallbackService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "aware.AttachCallbackService",
-	HandlerType: (*AttachCallbackServiceServer)(nil),
+var ResourcesService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "aware.ResourcesService",
+	HandlerType: (*ResourcesServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "NewAttachCallback",
-			Handler:    _AttachCallbackService_NewAttachCallback_Handler,
+			MethodName: "NewResources",
+			Handler:    _ResourcesService_NewResources_Handler,
 		},
 		{
-			MethodName: "OnAttachFailed",
-			Handler:    _AttachCallbackService_OnAttachFailed_Handler,
+			MethodName: "DescribeContents",
+			Handler:    _ResourcesService_DescribeContents_Handler,
 		},
 		{
-			MethodName: "OnAttached",
-			Handler:    _AttachCallbackService_OnAttached_Handler,
+			MethodName: "GetAvailableDataPathsCount",
+			Handler:    _ResourcesService_GetAvailableDataPathsCount_Handler,
 		},
 		{
-			MethodName: "OnAwareSessionTerminated",
-			Handler:    _AttachCallbackService_OnAwareSessionTerminated_Handler,
+			MethodName: "GetAvailablePublishSessionsCount",
+			Handler:    _ResourcesService_GetAvailablePublishSessionsCount_Handler,
+		},
+		{
+			MethodName: "GetAvailableSubscribeSessionsCount",
+			Handler:    _ResourcesService_GetAvailableSubscribeSessionsCount_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _ResourcesService_WriteToParcel_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -2896,2481 +6524,215 @@ var DiscoverySessionCallbackService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	PublishDiscoverySessionService_UpdatePublish_FullMethodName = "/aware.PublishDiscoverySessionService/UpdatePublish"
+	AttachCallbackService_NewAttachCallback_FullMethodName        = "/aware.AttachCallbackService/NewAttachCallback"
+	AttachCallbackService_OnAttachFailed_FullMethodName           = "/aware.AttachCallbackService/OnAttachFailed"
+	AttachCallbackService_OnAttached_FullMethodName               = "/aware.AttachCallbackService/OnAttached"
+	AttachCallbackService_OnAwareSessionTerminated_FullMethodName = "/aware.AttachCallbackService/OnAwareSessionTerminated"
 )
 
-// PublishDiscoverySessionServiceClient is the client API for PublishDiscoverySessionService service.
+// AttachCallbackServiceClient is the client API for AttachCallbackService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type PublishDiscoverySessionServiceClient interface {
-	UpdatePublish(ctx context.Context, in *UpdatePublishRequest, opts ...grpc.CallOption) (*UpdatePublishResponse, error)
+type AttachCallbackServiceClient interface {
+	NewAttachCallback(ctx context.Context, in *NewAttachCallbackRequest, opts ...grpc.CallOption) (*NewAttachCallbackResponse, error)
+	OnAttachFailed(ctx context.Context, in *OnAttachFailedRequest, opts ...grpc.CallOption) (*OnAttachFailedResponse, error)
+	OnAttached(ctx context.Context, in *OnAttachedRequest, opts ...grpc.CallOption) (*OnAttachedResponse, error)
+	OnAwareSessionTerminated(ctx context.Context, in *OnAwareSessionTerminatedRequest, opts ...grpc.CallOption) (*OnAwareSessionTerminatedResponse, error)
 }
 
-type publishDiscoverySessionServiceClient struct {
+type attachCallbackServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewPublishDiscoverySessionServiceClient(cc grpc.ClientConnInterface) PublishDiscoverySessionServiceClient {
-	return &publishDiscoverySessionServiceClient{cc}
+func NewAttachCallbackServiceClient(cc grpc.ClientConnInterface) AttachCallbackServiceClient {
+	return &attachCallbackServiceClient{cc}
 }
 
-func (c *publishDiscoverySessionServiceClient) UpdatePublish(ctx context.Context, in *UpdatePublishRequest, opts ...grpc.CallOption) (*UpdatePublishResponse, error) {
+func (c *attachCallbackServiceClient) NewAttachCallback(ctx context.Context, in *NewAttachCallbackRequest, opts ...grpc.CallOption) (*NewAttachCallbackResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(UpdatePublishResponse)
-	err := c.cc.Invoke(ctx, PublishDiscoverySessionService_UpdatePublish_FullMethodName, in, out, cOpts...)
+	out := new(NewAttachCallbackResponse)
+	err := c.cc.Invoke(ctx, AttachCallbackService_NewAttachCallback_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// PublishDiscoverySessionServiceServer is the server API for PublishDiscoverySessionService service.
-// All implementations must embed UnimplementedPublishDiscoverySessionServiceServer
-// for forward compatibility.
-type PublishDiscoverySessionServiceServer interface {
-	UpdatePublish(context.Context, *UpdatePublishRequest) (*UpdatePublishResponse, error)
-	mustEmbedUnimplementedPublishDiscoverySessionServiceServer()
+func (c *attachCallbackServiceClient) OnAttachFailed(ctx context.Context, in *OnAttachFailedRequest, opts ...grpc.CallOption) (*OnAttachFailedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnAttachFailedResponse)
+	err := c.cc.Invoke(ctx, AttachCallbackService_OnAttachFailed_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
 }
 
-// UnimplementedPublishDiscoverySessionServiceServer must be embedded to have
+func (c *attachCallbackServiceClient) OnAttached(ctx context.Context, in *OnAttachedRequest, opts ...grpc.CallOption) (*OnAttachedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnAttachedResponse)
+	err := c.cc.Invoke(ctx, AttachCallbackService_OnAttached_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *attachCallbackServiceClient) OnAwareSessionTerminated(ctx context.Context, in *OnAwareSessionTerminatedRequest, opts ...grpc.CallOption) (*OnAwareSessionTerminatedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnAwareSessionTerminatedResponse)
+	err := c.cc.Invoke(ctx, AttachCallbackService_OnAwareSessionTerminated_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// AttachCallbackServiceServer is the server API for AttachCallbackService service.
+// All implementations must embed UnimplementedAttachCallbackServiceServer
+// for forward compatibility.
+type AttachCallbackServiceServer interface {
+	NewAttachCallback(context.Context, *NewAttachCallbackRequest) (*NewAttachCallbackResponse, error)
+	OnAttachFailed(context.Context, *OnAttachFailedRequest) (*OnAttachFailedResponse, error)
+	OnAttached(context.Context, *OnAttachedRequest) (*OnAttachedResponse, error)
+	OnAwareSessionTerminated(context.Context, *OnAwareSessionTerminatedRequest) (*OnAwareSessionTerminatedResponse, error)
+	mustEmbedUnimplementedAttachCallbackServiceServer()
+}
+
+// UnimplementedAttachCallbackServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedPublishDiscoverySessionServiceServer struct{}
+type UnimplementedAttachCallbackServiceServer struct{}
 
-func (UnimplementedPublishDiscoverySessionServiceServer) UpdatePublish(context.Context, *UpdatePublishRequest) (*UpdatePublishResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method UpdatePublish not implemented")
+func (UnimplementedAttachCallbackServiceServer) NewAttachCallback(context.Context, *NewAttachCallbackRequest) (*NewAttachCallbackResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewAttachCallback not implemented")
 }
-func (UnimplementedPublishDiscoverySessionServiceServer) mustEmbedUnimplementedPublishDiscoverySessionServiceServer() {
+func (UnimplementedAttachCallbackServiceServer) OnAttachFailed(context.Context, *OnAttachFailedRequest) (*OnAttachFailedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnAttachFailed not implemented")
 }
-func (UnimplementedPublishDiscoverySessionServiceServer) testEmbeddedByValue() {}
+func (UnimplementedAttachCallbackServiceServer) OnAttached(context.Context, *OnAttachedRequest) (*OnAttachedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnAttached not implemented")
+}
+func (UnimplementedAttachCallbackServiceServer) OnAwareSessionTerminated(context.Context, *OnAwareSessionTerminatedRequest) (*OnAwareSessionTerminatedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnAwareSessionTerminated not implemented")
+}
+func (UnimplementedAttachCallbackServiceServer) mustEmbedUnimplementedAttachCallbackServiceServer() {}
+func (UnimplementedAttachCallbackServiceServer) testEmbeddedByValue()                               {}
 
-// UnsafePublishDiscoverySessionServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to PublishDiscoverySessionServiceServer will
+// UnsafeAttachCallbackServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to AttachCallbackServiceServer will
 // result in compilation errors.
-type UnsafePublishDiscoverySessionServiceServer interface {
-	mustEmbedUnimplementedPublishDiscoverySessionServiceServer()
+type UnsafeAttachCallbackServiceServer interface {
+	mustEmbedUnimplementedAttachCallbackServiceServer()
 }
 
-func RegisterPublishDiscoverySessionServiceServer(s grpc.ServiceRegistrar, srv PublishDiscoverySessionServiceServer) {
-	// If the following call panics, it indicates UnimplementedPublishDiscoverySessionServiceServer was
+func RegisterAttachCallbackServiceServer(s grpc.ServiceRegistrar, srv AttachCallbackServiceServer) {
+	// If the following call panics, it indicates UnimplementedAttachCallbackServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&PublishDiscoverySessionService_ServiceDesc, srv)
+	s.RegisterService(&AttachCallbackService_ServiceDesc, srv)
 }
 
-func _PublishDiscoverySessionService_UpdatePublish_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UpdatePublishRequest)
+func _AttachCallbackService_NewAttachCallback_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewAttachCallbackRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(PublishDiscoverySessionServiceServer).UpdatePublish(ctx, in)
+		return srv.(AttachCallbackServiceServer).NewAttachCallback(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: PublishDiscoverySessionService_UpdatePublish_FullMethodName,
+		FullMethod: AttachCallbackService_NewAttachCallback_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PublishDiscoverySessionServiceServer).UpdatePublish(ctx, req.(*UpdatePublishRequest))
+		return srv.(AttachCallbackServiceServer).NewAttachCallback(ctx, req.(*NewAttachCallbackRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// PublishDiscoverySessionService_ServiceDesc is the grpc.ServiceDesc for PublishDiscoverySessionService service.
+func _AttachCallbackService_OnAttachFailed_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnAttachFailedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AttachCallbackServiceServer).OnAttachFailed(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AttachCallbackService_OnAttachFailed_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AttachCallbackServiceServer).OnAttachFailed(ctx, req.(*OnAttachFailedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AttachCallbackService_OnAttached_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnAttachedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AttachCallbackServiceServer).OnAttached(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AttachCallbackService_OnAttached_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AttachCallbackServiceServer).OnAttached(ctx, req.(*OnAttachedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AttachCallbackService_OnAwareSessionTerminated_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnAwareSessionTerminatedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AttachCallbackServiceServer).OnAwareSessionTerminated(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AttachCallbackService_OnAwareSessionTerminated_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AttachCallbackServiceServer).OnAwareSessionTerminated(ctx, req.(*OnAwareSessionTerminatedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// AttachCallbackService_ServiceDesc is the grpc.ServiceDesc for AttachCallbackService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var PublishDiscoverySessionService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "aware.PublishDiscoverySessionService",
-	HandlerType: (*PublishDiscoverySessionServiceServer)(nil),
+var AttachCallbackService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "aware.AttachCallbackService",
+	HandlerType: (*AttachCallbackServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "UpdatePublish",
-			Handler:    _PublishDiscoverySessionService_UpdatePublish_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/aware/aware.proto",
-}
-
-const (
-	WifiAwareDataPathSecurityConfigService_DescribeContents_FullMethodName = "/aware.WifiAwareDataPathSecurityConfigService/DescribeContents"
-	WifiAwareDataPathSecurityConfigService_Equals_FullMethodName           = "/aware.WifiAwareDataPathSecurityConfigService/Equals"
-	WifiAwareDataPathSecurityConfigService_GetCipherSuite_FullMethodName   = "/aware.WifiAwareDataPathSecurityConfigService/GetCipherSuite"
-	WifiAwareDataPathSecurityConfigService_GetPmk_FullMethodName           = "/aware.WifiAwareDataPathSecurityConfigService/GetPmk"
-	WifiAwareDataPathSecurityConfigService_GetPmkId_FullMethodName         = "/aware.WifiAwareDataPathSecurityConfigService/GetPmkId"
-	WifiAwareDataPathSecurityConfigService_GetPskPassphrase_FullMethodName = "/aware.WifiAwareDataPathSecurityConfigService/GetPskPassphrase"
-	WifiAwareDataPathSecurityConfigService_HashCode_FullMethodName         = "/aware.WifiAwareDataPathSecurityConfigService/HashCode"
-	WifiAwareDataPathSecurityConfigService_ToString_FullMethodName         = "/aware.WifiAwareDataPathSecurityConfigService/ToString"
-	WifiAwareDataPathSecurityConfigService_WriteToParcel_FullMethodName    = "/aware.WifiAwareDataPathSecurityConfigService/WriteToParcel"
-)
-
-// WifiAwareDataPathSecurityConfigServiceClient is the client API for WifiAwareDataPathSecurityConfigService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type WifiAwareDataPathSecurityConfigServiceClient interface {
-	DescribeContents(ctx context.Context, in *WifiAwareDataPathSecurityConfigDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
-	GetCipherSuite(ctx context.Context, in *GetCipherSuiteRequest, opts ...grpc.CallOption) (*GetCipherSuiteResponse, error)
-	GetPmk(ctx context.Context, in *GetPmkRequest, opts ...grpc.CallOption) (*GetPmkResponse, error)
-	GetPmkId(ctx context.Context, in *GetPmkIdRequest, opts ...grpc.CallOption) (*GetPmkIdResponse, error)
-	GetPskPassphrase(ctx context.Context, in *GetPskPassphraseRequest, opts ...grpc.CallOption) (*GetPskPassphraseResponse, error)
-	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
-	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
-	WriteToParcel(ctx context.Context, in *WifiAwareDataPathSecurityConfigWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
-}
-
-type wifiAwareDataPathSecurityConfigServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewWifiAwareDataPathSecurityConfigServiceClient(cc grpc.ClientConnInterface) WifiAwareDataPathSecurityConfigServiceClient {
-	return &wifiAwareDataPathSecurityConfigServiceClient{cc}
-}
-
-func (c *wifiAwareDataPathSecurityConfigServiceClient) DescribeContents(ctx context.Context, in *WifiAwareDataPathSecurityConfigDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, WifiAwareDataPathSecurityConfigService_DescribeContents_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *wifiAwareDataPathSecurityConfigServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(EqualsResponse)
-	err := c.cc.Invoke(ctx, WifiAwareDataPathSecurityConfigService_Equals_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *wifiAwareDataPathSecurityConfigServiceClient) GetCipherSuite(ctx context.Context, in *GetCipherSuiteRequest, opts ...grpc.CallOption) (*GetCipherSuiteResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetCipherSuiteResponse)
-	err := c.cc.Invoke(ctx, WifiAwareDataPathSecurityConfigService_GetCipherSuite_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *wifiAwareDataPathSecurityConfigServiceClient) GetPmk(ctx context.Context, in *GetPmkRequest, opts ...grpc.CallOption) (*GetPmkResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetPmkResponse)
-	err := c.cc.Invoke(ctx, WifiAwareDataPathSecurityConfigService_GetPmk_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *wifiAwareDataPathSecurityConfigServiceClient) GetPmkId(ctx context.Context, in *GetPmkIdRequest, opts ...grpc.CallOption) (*GetPmkIdResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetPmkIdResponse)
-	err := c.cc.Invoke(ctx, WifiAwareDataPathSecurityConfigService_GetPmkId_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *wifiAwareDataPathSecurityConfigServiceClient) GetPskPassphrase(ctx context.Context, in *GetPskPassphraseRequest, opts ...grpc.CallOption) (*GetPskPassphraseResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetPskPassphraseResponse)
-	err := c.cc.Invoke(ctx, WifiAwareDataPathSecurityConfigService_GetPskPassphrase_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *wifiAwareDataPathSecurityConfigServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(HashCodeResponse)
-	err := c.cc.Invoke(ctx, WifiAwareDataPathSecurityConfigService_HashCode_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *wifiAwareDataPathSecurityConfigServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ToStringResponse)
-	err := c.cc.Invoke(ctx, WifiAwareDataPathSecurityConfigService_ToString_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *wifiAwareDataPathSecurityConfigServiceClient) WriteToParcel(ctx context.Context, in *WifiAwareDataPathSecurityConfigWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, WifiAwareDataPathSecurityConfigService_WriteToParcel_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// WifiAwareDataPathSecurityConfigServiceServer is the server API for WifiAwareDataPathSecurityConfigService service.
-// All implementations must embed UnimplementedWifiAwareDataPathSecurityConfigServiceServer
-// for forward compatibility.
-type WifiAwareDataPathSecurityConfigServiceServer interface {
-	DescribeContents(context.Context, *WifiAwareDataPathSecurityConfigDescribeContentsRequest) (*DescribeContentsResponse, error)
-	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
-	GetCipherSuite(context.Context, *GetCipherSuiteRequest) (*GetCipherSuiteResponse, error)
-	GetPmk(context.Context, *GetPmkRequest) (*GetPmkResponse, error)
-	GetPmkId(context.Context, *GetPmkIdRequest) (*GetPmkIdResponse, error)
-	GetPskPassphrase(context.Context, *GetPskPassphraseRequest) (*GetPskPassphraseResponse, error)
-	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
-	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
-	WriteToParcel(context.Context, *WifiAwareDataPathSecurityConfigWriteToParcelRequest) (*WriteToParcelResponse, error)
-	mustEmbedUnimplementedWifiAwareDataPathSecurityConfigServiceServer()
-}
-
-// UnimplementedWifiAwareDataPathSecurityConfigServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedWifiAwareDataPathSecurityConfigServiceServer struct{}
-
-func (UnimplementedWifiAwareDataPathSecurityConfigServiceServer) DescribeContents(context.Context, *WifiAwareDataPathSecurityConfigDescribeContentsRequest) (*DescribeContentsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
-}
-func (UnimplementedWifiAwareDataPathSecurityConfigServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
-}
-func (UnimplementedWifiAwareDataPathSecurityConfigServiceServer) GetCipherSuite(context.Context, *GetCipherSuiteRequest) (*GetCipherSuiteResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetCipherSuite not implemented")
-}
-func (UnimplementedWifiAwareDataPathSecurityConfigServiceServer) GetPmk(context.Context, *GetPmkRequest) (*GetPmkResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetPmk not implemented")
-}
-func (UnimplementedWifiAwareDataPathSecurityConfigServiceServer) GetPmkId(context.Context, *GetPmkIdRequest) (*GetPmkIdResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetPmkId not implemented")
-}
-func (UnimplementedWifiAwareDataPathSecurityConfigServiceServer) GetPskPassphrase(context.Context, *GetPskPassphraseRequest) (*GetPskPassphraseResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetPskPassphrase not implemented")
-}
-func (UnimplementedWifiAwareDataPathSecurityConfigServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
-}
-func (UnimplementedWifiAwareDataPathSecurityConfigServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
-}
-func (UnimplementedWifiAwareDataPathSecurityConfigServiceServer) WriteToParcel(context.Context, *WifiAwareDataPathSecurityConfigWriteToParcelRequest) (*WriteToParcelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
-}
-func (UnimplementedWifiAwareDataPathSecurityConfigServiceServer) mustEmbedUnimplementedWifiAwareDataPathSecurityConfigServiceServer() {
-}
-func (UnimplementedWifiAwareDataPathSecurityConfigServiceServer) testEmbeddedByValue() {}
-
-// UnsafeWifiAwareDataPathSecurityConfigServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to WifiAwareDataPathSecurityConfigServiceServer will
-// result in compilation errors.
-type UnsafeWifiAwareDataPathSecurityConfigServiceServer interface {
-	mustEmbedUnimplementedWifiAwareDataPathSecurityConfigServiceServer()
-}
-
-func RegisterWifiAwareDataPathSecurityConfigServiceServer(s grpc.ServiceRegistrar, srv WifiAwareDataPathSecurityConfigServiceServer) {
-	// If the following call panics, it indicates UnimplementedWifiAwareDataPathSecurityConfigServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&WifiAwareDataPathSecurityConfigService_ServiceDesc, srv)
-}
-
-func _WifiAwareDataPathSecurityConfigService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WifiAwareDataPathSecurityConfigDescribeContentsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(WifiAwareDataPathSecurityConfigServiceServer).DescribeContents(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: WifiAwareDataPathSecurityConfigService_DescribeContents_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiAwareDataPathSecurityConfigServiceServer).DescribeContents(ctx, req.(*WifiAwareDataPathSecurityConfigDescribeContentsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _WifiAwareDataPathSecurityConfigService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(EqualsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(WifiAwareDataPathSecurityConfigServiceServer).Equals(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: WifiAwareDataPathSecurityConfigService_Equals_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiAwareDataPathSecurityConfigServiceServer).Equals(ctx, req.(*EqualsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _WifiAwareDataPathSecurityConfigService_GetCipherSuite_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetCipherSuiteRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(WifiAwareDataPathSecurityConfigServiceServer).GetCipherSuite(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: WifiAwareDataPathSecurityConfigService_GetCipherSuite_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiAwareDataPathSecurityConfigServiceServer).GetCipherSuite(ctx, req.(*GetCipherSuiteRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _WifiAwareDataPathSecurityConfigService_GetPmk_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetPmkRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(WifiAwareDataPathSecurityConfigServiceServer).GetPmk(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: WifiAwareDataPathSecurityConfigService_GetPmk_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiAwareDataPathSecurityConfigServiceServer).GetPmk(ctx, req.(*GetPmkRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _WifiAwareDataPathSecurityConfigService_GetPmkId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetPmkIdRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(WifiAwareDataPathSecurityConfigServiceServer).GetPmkId(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: WifiAwareDataPathSecurityConfigService_GetPmkId_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiAwareDataPathSecurityConfigServiceServer).GetPmkId(ctx, req.(*GetPmkIdRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _WifiAwareDataPathSecurityConfigService_GetPskPassphrase_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetPskPassphraseRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(WifiAwareDataPathSecurityConfigServiceServer).GetPskPassphrase(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: WifiAwareDataPathSecurityConfigService_GetPskPassphrase_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiAwareDataPathSecurityConfigServiceServer).GetPskPassphrase(ctx, req.(*GetPskPassphraseRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _WifiAwareDataPathSecurityConfigService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(HashCodeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(WifiAwareDataPathSecurityConfigServiceServer).HashCode(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: WifiAwareDataPathSecurityConfigService_HashCode_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiAwareDataPathSecurityConfigServiceServer).HashCode(ctx, req.(*HashCodeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _WifiAwareDataPathSecurityConfigService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ToStringRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(WifiAwareDataPathSecurityConfigServiceServer).ToString(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: WifiAwareDataPathSecurityConfigService_ToString_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiAwareDataPathSecurityConfigServiceServer).ToString(ctx, req.(*ToStringRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _WifiAwareDataPathSecurityConfigService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WifiAwareDataPathSecurityConfigWriteToParcelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(WifiAwareDataPathSecurityConfigServiceServer).WriteToParcel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: WifiAwareDataPathSecurityConfigService_WriteToParcel_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiAwareDataPathSecurityConfigServiceServer).WriteToParcel(ctx, req.(*WifiAwareDataPathSecurityConfigWriteToParcelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// WifiAwareDataPathSecurityConfigService_ServiceDesc is the grpc.ServiceDesc for WifiAwareDataPathSecurityConfigService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var WifiAwareDataPathSecurityConfigService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "aware.WifiAwareDataPathSecurityConfigService",
-	HandlerType: (*WifiAwareDataPathSecurityConfigServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "DescribeContents",
-			Handler:    _WifiAwareDataPathSecurityConfigService_DescribeContents_Handler,
+			MethodName: "NewAttachCallback",
+			Handler:    _AttachCallbackService_NewAttachCallback_Handler,
 		},
 		{
-			MethodName: "Equals",
-			Handler:    _WifiAwareDataPathSecurityConfigService_Equals_Handler,
+			MethodName: "OnAttachFailed",
+			Handler:    _AttachCallbackService_OnAttachFailed_Handler,
 		},
 		{
-			MethodName: "GetCipherSuite",
-			Handler:    _WifiAwareDataPathSecurityConfigService_GetCipherSuite_Handler,
+			MethodName: "OnAttached",
+			Handler:    _AttachCallbackService_OnAttached_Handler,
 		},
 		{
-			MethodName: "GetPmk",
-			Handler:    _WifiAwareDataPathSecurityConfigService_GetPmk_Handler,
-		},
-		{
-			MethodName: "GetPmkId",
-			Handler:    _WifiAwareDataPathSecurityConfigService_GetPmkId_Handler,
-		},
-		{
-			MethodName: "GetPskPassphrase",
-			Handler:    _WifiAwareDataPathSecurityConfigService_GetPskPassphrase_Handler,
-		},
-		{
-			MethodName: "HashCode",
-			Handler:    _WifiAwareDataPathSecurityConfigService_HashCode_Handler,
-		},
-		{
-			MethodName: "ToString",
-			Handler:    _WifiAwareDataPathSecurityConfigService_ToString_Handler,
-		},
-		{
-			MethodName: "WriteToParcel",
-			Handler:    _WifiAwareDataPathSecurityConfigService_WriteToParcel_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/aware/aware.proto",
-}
-
-const (
-	WifiAwareDataPathSecurityConfigBuilderService_Build_FullMethodName            = "/aware.WifiAwareDataPathSecurityConfigBuilderService/Build"
-	WifiAwareDataPathSecurityConfigBuilderService_SetPmk_FullMethodName           = "/aware.WifiAwareDataPathSecurityConfigBuilderService/SetPmk"
-	WifiAwareDataPathSecurityConfigBuilderService_SetPmkId_FullMethodName         = "/aware.WifiAwareDataPathSecurityConfigBuilderService/SetPmkId"
-	WifiAwareDataPathSecurityConfigBuilderService_SetPskPassphrase_FullMethodName = "/aware.WifiAwareDataPathSecurityConfigBuilderService/SetPskPassphrase"
-)
-
-// WifiAwareDataPathSecurityConfigBuilderServiceClient is the client API for WifiAwareDataPathSecurityConfigBuilderService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type WifiAwareDataPathSecurityConfigBuilderServiceClient interface {
-	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
-	SetPmk(ctx context.Context, in *SetPmkRequest, opts ...grpc.CallOption) (*SetPmkResponse, error)
-	SetPmkId(ctx context.Context, in *SetPmkIdRequest, opts ...grpc.CallOption) (*SetPmkIdResponse, error)
-	SetPskPassphrase(ctx context.Context, in *SetPskPassphraseRequest, opts ...grpc.CallOption) (*SetPskPassphraseResponse, error)
-}
-
-type wifiAwareDataPathSecurityConfigBuilderServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewWifiAwareDataPathSecurityConfigBuilderServiceClient(cc grpc.ClientConnInterface) WifiAwareDataPathSecurityConfigBuilderServiceClient {
-	return &wifiAwareDataPathSecurityConfigBuilderServiceClient{cc}
-}
-
-func (c *wifiAwareDataPathSecurityConfigBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(BuildResponse)
-	err := c.cc.Invoke(ctx, WifiAwareDataPathSecurityConfigBuilderService_Build_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *wifiAwareDataPathSecurityConfigBuilderServiceClient) SetPmk(ctx context.Context, in *SetPmkRequest, opts ...grpc.CallOption) (*SetPmkResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetPmkResponse)
-	err := c.cc.Invoke(ctx, WifiAwareDataPathSecurityConfigBuilderService_SetPmk_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *wifiAwareDataPathSecurityConfigBuilderServiceClient) SetPmkId(ctx context.Context, in *SetPmkIdRequest, opts ...grpc.CallOption) (*SetPmkIdResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetPmkIdResponse)
-	err := c.cc.Invoke(ctx, WifiAwareDataPathSecurityConfigBuilderService_SetPmkId_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *wifiAwareDataPathSecurityConfigBuilderServiceClient) SetPskPassphrase(ctx context.Context, in *SetPskPassphraseRequest, opts ...grpc.CallOption) (*SetPskPassphraseResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetPskPassphraseResponse)
-	err := c.cc.Invoke(ctx, WifiAwareDataPathSecurityConfigBuilderService_SetPskPassphrase_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// WifiAwareDataPathSecurityConfigBuilderServiceServer is the server API for WifiAwareDataPathSecurityConfigBuilderService service.
-// All implementations must embed UnimplementedWifiAwareDataPathSecurityConfigBuilderServiceServer
-// for forward compatibility.
-type WifiAwareDataPathSecurityConfigBuilderServiceServer interface {
-	Build(context.Context, *BuildRequest) (*BuildResponse, error)
-	SetPmk(context.Context, *SetPmkRequest) (*SetPmkResponse, error)
-	SetPmkId(context.Context, *SetPmkIdRequest) (*SetPmkIdResponse, error)
-	SetPskPassphrase(context.Context, *SetPskPassphraseRequest) (*SetPskPassphraseResponse, error)
-	mustEmbedUnimplementedWifiAwareDataPathSecurityConfigBuilderServiceServer()
-}
-
-// UnimplementedWifiAwareDataPathSecurityConfigBuilderServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedWifiAwareDataPathSecurityConfigBuilderServiceServer struct{}
-
-func (UnimplementedWifiAwareDataPathSecurityConfigBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
-}
-func (UnimplementedWifiAwareDataPathSecurityConfigBuilderServiceServer) SetPmk(context.Context, *SetPmkRequest) (*SetPmkResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetPmk not implemented")
-}
-func (UnimplementedWifiAwareDataPathSecurityConfigBuilderServiceServer) SetPmkId(context.Context, *SetPmkIdRequest) (*SetPmkIdResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetPmkId not implemented")
-}
-func (UnimplementedWifiAwareDataPathSecurityConfigBuilderServiceServer) SetPskPassphrase(context.Context, *SetPskPassphraseRequest) (*SetPskPassphraseResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetPskPassphrase not implemented")
-}
-func (UnimplementedWifiAwareDataPathSecurityConfigBuilderServiceServer) mustEmbedUnimplementedWifiAwareDataPathSecurityConfigBuilderServiceServer() {
-}
-func (UnimplementedWifiAwareDataPathSecurityConfigBuilderServiceServer) testEmbeddedByValue() {}
-
-// UnsafeWifiAwareDataPathSecurityConfigBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to WifiAwareDataPathSecurityConfigBuilderServiceServer will
-// result in compilation errors.
-type UnsafeWifiAwareDataPathSecurityConfigBuilderServiceServer interface {
-	mustEmbedUnimplementedWifiAwareDataPathSecurityConfigBuilderServiceServer()
-}
-
-func RegisterWifiAwareDataPathSecurityConfigBuilderServiceServer(s grpc.ServiceRegistrar, srv WifiAwareDataPathSecurityConfigBuilderServiceServer) {
-	// If the following call panics, it indicates UnimplementedWifiAwareDataPathSecurityConfigBuilderServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&WifiAwareDataPathSecurityConfigBuilderService_ServiceDesc, srv)
-}
-
-func _WifiAwareDataPathSecurityConfigBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(BuildRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(WifiAwareDataPathSecurityConfigBuilderServiceServer).Build(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: WifiAwareDataPathSecurityConfigBuilderService_Build_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiAwareDataPathSecurityConfigBuilderServiceServer).Build(ctx, req.(*BuildRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _WifiAwareDataPathSecurityConfigBuilderService_SetPmk_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetPmkRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(WifiAwareDataPathSecurityConfigBuilderServiceServer).SetPmk(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: WifiAwareDataPathSecurityConfigBuilderService_SetPmk_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiAwareDataPathSecurityConfigBuilderServiceServer).SetPmk(ctx, req.(*SetPmkRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _WifiAwareDataPathSecurityConfigBuilderService_SetPmkId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetPmkIdRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(WifiAwareDataPathSecurityConfigBuilderServiceServer).SetPmkId(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: WifiAwareDataPathSecurityConfigBuilderService_SetPmkId_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiAwareDataPathSecurityConfigBuilderServiceServer).SetPmkId(ctx, req.(*SetPmkIdRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _WifiAwareDataPathSecurityConfigBuilderService_SetPskPassphrase_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetPskPassphraseRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(WifiAwareDataPathSecurityConfigBuilderServiceServer).SetPskPassphrase(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: WifiAwareDataPathSecurityConfigBuilderService_SetPskPassphrase_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiAwareDataPathSecurityConfigBuilderServiceServer).SetPskPassphrase(ctx, req.(*SetPskPassphraseRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// WifiAwareDataPathSecurityConfigBuilderService_ServiceDesc is the grpc.ServiceDesc for WifiAwareDataPathSecurityConfigBuilderService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var WifiAwareDataPathSecurityConfigBuilderService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "aware.WifiAwareDataPathSecurityConfigBuilderService",
-	HandlerType: (*WifiAwareDataPathSecurityConfigBuilderServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "Build",
-			Handler:    _WifiAwareDataPathSecurityConfigBuilderService_Build_Handler,
-		},
-		{
-			MethodName: "SetPmk",
-			Handler:    _WifiAwareDataPathSecurityConfigBuilderService_SetPmk_Handler,
-		},
-		{
-			MethodName: "SetPmkId",
-			Handler:    _WifiAwareDataPathSecurityConfigBuilderService_SetPmkId_Handler,
-		},
-		{
-			MethodName: "SetPskPassphrase",
-			Handler:    _WifiAwareDataPathSecurityConfigBuilderService_SetPskPassphrase_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/aware/aware.proto",
-}
-
-const (
-	WifiAwareSessionService_Close_FullMethodName                            = "/aware.WifiAwareSessionService/Close"
-	WifiAwareSessionService_CreateNetworkSpecifierOpen_FullMethodName       = "/aware.WifiAwareSessionService/CreateNetworkSpecifierOpen"
-	WifiAwareSessionService_CreateNetworkSpecifierPassphrase_FullMethodName = "/aware.WifiAwareSessionService/CreateNetworkSpecifierPassphrase"
-)
-
-// WifiAwareSessionServiceClient is the client API for WifiAwareSessionService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type WifiAwareSessionServiceClient interface {
-	Close(ctx context.Context, in *CloseRequest, opts ...grpc.CallOption) (*CloseResponse, error)
-	CreateNetworkSpecifierOpen(ctx context.Context, in *CreateNetworkSpecifierOpenRequest, opts ...grpc.CallOption) (*CreateNetworkSpecifierOpenResponse, error)
-	CreateNetworkSpecifierPassphrase(ctx context.Context, in *CreateNetworkSpecifierPassphraseRequest, opts ...grpc.CallOption) (*CreateNetworkSpecifierPassphraseResponse, error)
-}
-
-type wifiAwareSessionServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewWifiAwareSessionServiceClient(cc grpc.ClientConnInterface) WifiAwareSessionServiceClient {
-	return &wifiAwareSessionServiceClient{cc}
-}
-
-func (c *wifiAwareSessionServiceClient) Close(ctx context.Context, in *CloseRequest, opts ...grpc.CallOption) (*CloseResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CloseResponse)
-	err := c.cc.Invoke(ctx, WifiAwareSessionService_Close_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *wifiAwareSessionServiceClient) CreateNetworkSpecifierOpen(ctx context.Context, in *CreateNetworkSpecifierOpenRequest, opts ...grpc.CallOption) (*CreateNetworkSpecifierOpenResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CreateNetworkSpecifierOpenResponse)
-	err := c.cc.Invoke(ctx, WifiAwareSessionService_CreateNetworkSpecifierOpen_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *wifiAwareSessionServiceClient) CreateNetworkSpecifierPassphrase(ctx context.Context, in *CreateNetworkSpecifierPassphraseRequest, opts ...grpc.CallOption) (*CreateNetworkSpecifierPassphraseResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CreateNetworkSpecifierPassphraseResponse)
-	err := c.cc.Invoke(ctx, WifiAwareSessionService_CreateNetworkSpecifierPassphrase_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// WifiAwareSessionServiceServer is the server API for WifiAwareSessionService service.
-// All implementations must embed UnimplementedWifiAwareSessionServiceServer
-// for forward compatibility.
-type WifiAwareSessionServiceServer interface {
-	Close(context.Context, *CloseRequest) (*CloseResponse, error)
-	CreateNetworkSpecifierOpen(context.Context, *CreateNetworkSpecifierOpenRequest) (*CreateNetworkSpecifierOpenResponse, error)
-	CreateNetworkSpecifierPassphrase(context.Context, *CreateNetworkSpecifierPassphraseRequest) (*CreateNetworkSpecifierPassphraseResponse, error)
-	mustEmbedUnimplementedWifiAwareSessionServiceServer()
-}
-
-// UnimplementedWifiAwareSessionServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedWifiAwareSessionServiceServer struct{}
-
-func (UnimplementedWifiAwareSessionServiceServer) Close(context.Context, *CloseRequest) (*CloseResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Close not implemented")
-}
-func (UnimplementedWifiAwareSessionServiceServer) CreateNetworkSpecifierOpen(context.Context, *CreateNetworkSpecifierOpenRequest) (*CreateNetworkSpecifierOpenResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method CreateNetworkSpecifierOpen not implemented")
-}
-func (UnimplementedWifiAwareSessionServiceServer) CreateNetworkSpecifierPassphrase(context.Context, *CreateNetworkSpecifierPassphraseRequest) (*CreateNetworkSpecifierPassphraseResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method CreateNetworkSpecifierPassphrase not implemented")
-}
-func (UnimplementedWifiAwareSessionServiceServer) mustEmbedUnimplementedWifiAwareSessionServiceServer() {
-}
-func (UnimplementedWifiAwareSessionServiceServer) testEmbeddedByValue() {}
-
-// UnsafeWifiAwareSessionServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to WifiAwareSessionServiceServer will
-// result in compilation errors.
-type UnsafeWifiAwareSessionServiceServer interface {
-	mustEmbedUnimplementedWifiAwareSessionServiceServer()
-}
-
-func RegisterWifiAwareSessionServiceServer(s grpc.ServiceRegistrar, srv WifiAwareSessionServiceServer) {
-	// If the following call panics, it indicates UnimplementedWifiAwareSessionServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&WifiAwareSessionService_ServiceDesc, srv)
-}
-
-func _WifiAwareSessionService_Close_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CloseRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(WifiAwareSessionServiceServer).Close(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: WifiAwareSessionService_Close_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiAwareSessionServiceServer).Close(ctx, req.(*CloseRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _WifiAwareSessionService_CreateNetworkSpecifierOpen_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CreateNetworkSpecifierOpenRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(WifiAwareSessionServiceServer).CreateNetworkSpecifierOpen(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: WifiAwareSessionService_CreateNetworkSpecifierOpen_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiAwareSessionServiceServer).CreateNetworkSpecifierOpen(ctx, req.(*CreateNetworkSpecifierOpenRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _WifiAwareSessionService_CreateNetworkSpecifierPassphrase_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CreateNetworkSpecifierPassphraseRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(WifiAwareSessionServiceServer).CreateNetworkSpecifierPassphrase(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: WifiAwareSessionService_CreateNetworkSpecifierPassphrase_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiAwareSessionServiceServer).CreateNetworkSpecifierPassphrase(ctx, req.(*CreateNetworkSpecifierPassphraseRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// WifiAwareSessionService_ServiceDesc is the grpc.ServiceDesc for WifiAwareSessionService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var WifiAwareSessionService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "aware.WifiAwareSessionService",
-	HandlerType: (*WifiAwareSessionServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "Close",
-			Handler:    _WifiAwareSessionService_Close_Handler,
-		},
-		{
-			MethodName: "CreateNetworkSpecifierOpen",
-			Handler:    _WifiAwareSessionService_CreateNetworkSpecifierOpen_Handler,
-		},
-		{
-			MethodName: "CreateNetworkSpecifierPassphrase",
-			Handler:    _WifiAwareSessionService_CreateNetworkSpecifierPassphrase_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/aware/aware.proto",
-}
-
-const (
-	ResourcesService_NewResources_FullMethodName                       = "/aware.ResourcesService/NewResources"
-	ResourcesService_DescribeContents_FullMethodName                   = "/aware.ResourcesService/DescribeContents"
-	ResourcesService_GetAvailableDataPathsCount_FullMethodName         = "/aware.ResourcesService/GetAvailableDataPathsCount"
-	ResourcesService_GetAvailablePublishSessionsCount_FullMethodName   = "/aware.ResourcesService/GetAvailablePublishSessionsCount"
-	ResourcesService_GetAvailableSubscribeSessionsCount_FullMethodName = "/aware.ResourcesService/GetAvailableSubscribeSessionsCount"
-	ResourcesService_WriteToParcel_FullMethodName                      = "/aware.ResourcesService/WriteToParcel"
-)
-
-// ResourcesServiceClient is the client API for ResourcesService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type ResourcesServiceClient interface {
-	NewResources(ctx context.Context, in *NewResourcesRequest, opts ...grpc.CallOption) (*NewResourcesResponse, error)
-	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	GetAvailableDataPathsCount(ctx context.Context, in *GetAvailableDataPathsCountRequest, opts ...grpc.CallOption) (*GetAvailableDataPathsCountResponse, error)
-	GetAvailablePublishSessionsCount(ctx context.Context, in *GetAvailablePublishSessionsCountRequest, opts ...grpc.CallOption) (*GetAvailablePublishSessionsCountResponse, error)
-	GetAvailableSubscribeSessionsCount(ctx context.Context, in *GetAvailableSubscribeSessionsCountRequest, opts ...grpc.CallOption) (*GetAvailableSubscribeSessionsCountResponse, error)
-	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
-}
-
-type resourcesServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewResourcesServiceClient(cc grpc.ClientConnInterface) ResourcesServiceClient {
-	return &resourcesServiceClient{cc}
-}
-
-func (c *resourcesServiceClient) NewResources(ctx context.Context, in *NewResourcesRequest, opts ...grpc.CallOption) (*NewResourcesResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewResourcesResponse)
-	err := c.cc.Invoke(ctx, ResourcesService_NewResources_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *resourcesServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, ResourcesService_DescribeContents_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *resourcesServiceClient) GetAvailableDataPathsCount(ctx context.Context, in *GetAvailableDataPathsCountRequest, opts ...grpc.CallOption) (*GetAvailableDataPathsCountResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetAvailableDataPathsCountResponse)
-	err := c.cc.Invoke(ctx, ResourcesService_GetAvailableDataPathsCount_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *resourcesServiceClient) GetAvailablePublishSessionsCount(ctx context.Context, in *GetAvailablePublishSessionsCountRequest, opts ...grpc.CallOption) (*GetAvailablePublishSessionsCountResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetAvailablePublishSessionsCountResponse)
-	err := c.cc.Invoke(ctx, ResourcesService_GetAvailablePublishSessionsCount_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *resourcesServiceClient) GetAvailableSubscribeSessionsCount(ctx context.Context, in *GetAvailableSubscribeSessionsCountRequest, opts ...grpc.CallOption) (*GetAvailableSubscribeSessionsCountResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetAvailableSubscribeSessionsCountResponse)
-	err := c.cc.Invoke(ctx, ResourcesService_GetAvailableSubscribeSessionsCount_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *resourcesServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, ResourcesService_WriteToParcel_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// ResourcesServiceServer is the server API for ResourcesService service.
-// All implementations must embed UnimplementedResourcesServiceServer
-// for forward compatibility.
-type ResourcesServiceServer interface {
-	NewResources(context.Context, *NewResourcesRequest) (*NewResourcesResponse, error)
-	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
-	GetAvailableDataPathsCount(context.Context, *GetAvailableDataPathsCountRequest) (*GetAvailableDataPathsCountResponse, error)
-	GetAvailablePublishSessionsCount(context.Context, *GetAvailablePublishSessionsCountRequest) (*GetAvailablePublishSessionsCountResponse, error)
-	GetAvailableSubscribeSessionsCount(context.Context, *GetAvailableSubscribeSessionsCountRequest) (*GetAvailableSubscribeSessionsCountResponse, error)
-	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
-	mustEmbedUnimplementedResourcesServiceServer()
-}
-
-// UnimplementedResourcesServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedResourcesServiceServer struct{}
-
-func (UnimplementedResourcesServiceServer) NewResources(context.Context, *NewResourcesRequest) (*NewResourcesResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewResources not implemented")
-}
-func (UnimplementedResourcesServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
-}
-func (UnimplementedResourcesServiceServer) GetAvailableDataPathsCount(context.Context, *GetAvailableDataPathsCountRequest) (*GetAvailableDataPathsCountResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetAvailableDataPathsCount not implemented")
-}
-func (UnimplementedResourcesServiceServer) GetAvailablePublishSessionsCount(context.Context, *GetAvailablePublishSessionsCountRequest) (*GetAvailablePublishSessionsCountResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetAvailablePublishSessionsCount not implemented")
-}
-func (UnimplementedResourcesServiceServer) GetAvailableSubscribeSessionsCount(context.Context, *GetAvailableSubscribeSessionsCountRequest) (*GetAvailableSubscribeSessionsCountResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetAvailableSubscribeSessionsCount not implemented")
-}
-func (UnimplementedResourcesServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
-}
-func (UnimplementedResourcesServiceServer) mustEmbedUnimplementedResourcesServiceServer() {}
-func (UnimplementedResourcesServiceServer) testEmbeddedByValue()                          {}
-
-// UnsafeResourcesServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to ResourcesServiceServer will
-// result in compilation errors.
-type UnsafeResourcesServiceServer interface {
-	mustEmbedUnimplementedResourcesServiceServer()
-}
-
-func RegisterResourcesServiceServer(s grpc.ServiceRegistrar, srv ResourcesServiceServer) {
-	// If the following call panics, it indicates UnimplementedResourcesServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&ResourcesService_ServiceDesc, srv)
-}
-
-func _ResourcesService_NewResources_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewResourcesRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ResourcesServiceServer).NewResources(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ResourcesService_NewResources_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ResourcesServiceServer).NewResources(ctx, req.(*NewResourcesRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ResourcesService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DescribeContentsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ResourcesServiceServer).DescribeContents(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ResourcesService_DescribeContents_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ResourcesServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ResourcesService_GetAvailableDataPathsCount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetAvailableDataPathsCountRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ResourcesServiceServer).GetAvailableDataPathsCount(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ResourcesService_GetAvailableDataPathsCount_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ResourcesServiceServer).GetAvailableDataPathsCount(ctx, req.(*GetAvailableDataPathsCountRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ResourcesService_GetAvailablePublishSessionsCount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetAvailablePublishSessionsCountRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ResourcesServiceServer).GetAvailablePublishSessionsCount(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ResourcesService_GetAvailablePublishSessionsCount_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ResourcesServiceServer).GetAvailablePublishSessionsCount(ctx, req.(*GetAvailablePublishSessionsCountRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ResourcesService_GetAvailableSubscribeSessionsCount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetAvailableSubscribeSessionsCountRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ResourcesServiceServer).GetAvailableSubscribeSessionsCount(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ResourcesService_GetAvailableSubscribeSessionsCount_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ResourcesServiceServer).GetAvailableSubscribeSessionsCount(ctx, req.(*GetAvailableSubscribeSessionsCountRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ResourcesService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WriteToParcelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ResourcesServiceServer).WriteToParcel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ResourcesService_WriteToParcel_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ResourcesServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// ResourcesService_ServiceDesc is the grpc.ServiceDesc for ResourcesService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var ResourcesService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "aware.ResourcesService",
-	HandlerType: (*ResourcesServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "NewResources",
-			Handler:    _ResourcesService_NewResources_Handler,
-		},
-		{
-			MethodName: "DescribeContents",
-			Handler:    _ResourcesService_DescribeContents_Handler,
-		},
-		{
-			MethodName: "GetAvailableDataPathsCount",
-			Handler:    _ResourcesService_GetAvailableDataPathsCount_Handler,
-		},
-		{
-			MethodName: "GetAvailablePublishSessionsCount",
-			Handler:    _ResourcesService_GetAvailablePublishSessionsCount_Handler,
-		},
-		{
-			MethodName: "GetAvailableSubscribeSessionsCount",
-			Handler:    _ResourcesService_GetAvailableSubscribeSessionsCount_Handler,
-		},
-		{
-			MethodName: "WriteToParcel",
-			Handler:    _ResourcesService_WriteToParcel_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/aware/aware.proto",
-}
-
-const (
-	PublishConfigService_DescribeContents_FullMethodName                  = "/aware.PublishConfigService/DescribeContents"
-	PublishConfigService_Equals_FullMethodName                            = "/aware.PublishConfigService/Equals"
-	PublishConfigService_GetInstantCommunicationBand_FullMethodName       = "/aware.PublishConfigService/GetInstantCommunicationBand"
-	PublishConfigService_GetPairingConfig_FullMethodName                  = "/aware.PublishConfigService/GetPairingConfig"
-	PublishConfigService_GetSecurityConfig_FullMethodName                 = "/aware.PublishConfigService/GetSecurityConfig"
-	PublishConfigService_HashCode_FullMethodName                          = "/aware.PublishConfigService/HashCode"
-	PublishConfigService_IsInstantCommunicationModeEnabled_FullMethodName = "/aware.PublishConfigService/IsInstantCommunicationModeEnabled"
-	PublishConfigService_ToString_FullMethodName                          = "/aware.PublishConfigService/ToString"
-	PublishConfigService_WriteToParcel_FullMethodName                     = "/aware.PublishConfigService/WriteToParcel"
-)
-
-// PublishConfigServiceClient is the client API for PublishConfigService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type PublishConfigServiceClient interface {
-	DescribeContents(ctx context.Context, in *PublishConfigDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
-	GetInstantCommunicationBand(ctx context.Context, in *GetInstantCommunicationBandRequest, opts ...grpc.CallOption) (*GetInstantCommunicationBandResponse, error)
-	GetPairingConfig(ctx context.Context, in *GetPairingConfigRequest, opts ...grpc.CallOption) (*GetPairingConfigResponse, error)
-	GetSecurityConfig(ctx context.Context, in *GetSecurityConfigRequest, opts ...grpc.CallOption) (*GetSecurityConfigResponse, error)
-	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
-	IsInstantCommunicationModeEnabled(ctx context.Context, in *IsInstantCommunicationModeEnabledRequest, opts ...grpc.CallOption) (*IsInstantCommunicationModeEnabledResponse, error)
-	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
-	WriteToParcel(ctx context.Context, in *PublishConfigWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
-}
-
-type publishConfigServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewPublishConfigServiceClient(cc grpc.ClientConnInterface) PublishConfigServiceClient {
-	return &publishConfigServiceClient{cc}
-}
-
-func (c *publishConfigServiceClient) DescribeContents(ctx context.Context, in *PublishConfigDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, PublishConfigService_DescribeContents_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *publishConfigServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(EqualsResponse)
-	err := c.cc.Invoke(ctx, PublishConfigService_Equals_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *publishConfigServiceClient) GetInstantCommunicationBand(ctx context.Context, in *GetInstantCommunicationBandRequest, opts ...grpc.CallOption) (*GetInstantCommunicationBandResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetInstantCommunicationBandResponse)
-	err := c.cc.Invoke(ctx, PublishConfigService_GetInstantCommunicationBand_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *publishConfigServiceClient) GetPairingConfig(ctx context.Context, in *GetPairingConfigRequest, opts ...grpc.CallOption) (*GetPairingConfigResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetPairingConfigResponse)
-	err := c.cc.Invoke(ctx, PublishConfigService_GetPairingConfig_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *publishConfigServiceClient) GetSecurityConfig(ctx context.Context, in *GetSecurityConfigRequest, opts ...grpc.CallOption) (*GetSecurityConfigResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetSecurityConfigResponse)
-	err := c.cc.Invoke(ctx, PublishConfigService_GetSecurityConfig_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *publishConfigServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(HashCodeResponse)
-	err := c.cc.Invoke(ctx, PublishConfigService_HashCode_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *publishConfigServiceClient) IsInstantCommunicationModeEnabled(ctx context.Context, in *IsInstantCommunicationModeEnabledRequest, opts ...grpc.CallOption) (*IsInstantCommunicationModeEnabledResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsInstantCommunicationModeEnabledResponse)
-	err := c.cc.Invoke(ctx, PublishConfigService_IsInstantCommunicationModeEnabled_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *publishConfigServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ToStringResponse)
-	err := c.cc.Invoke(ctx, PublishConfigService_ToString_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *publishConfigServiceClient) WriteToParcel(ctx context.Context, in *PublishConfigWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, PublishConfigService_WriteToParcel_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// PublishConfigServiceServer is the server API for PublishConfigService service.
-// All implementations must embed UnimplementedPublishConfigServiceServer
-// for forward compatibility.
-type PublishConfigServiceServer interface {
-	DescribeContents(context.Context, *PublishConfigDescribeContentsRequest) (*DescribeContentsResponse, error)
-	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
-	GetInstantCommunicationBand(context.Context, *GetInstantCommunicationBandRequest) (*GetInstantCommunicationBandResponse, error)
-	GetPairingConfig(context.Context, *GetPairingConfigRequest) (*GetPairingConfigResponse, error)
-	GetSecurityConfig(context.Context, *GetSecurityConfigRequest) (*GetSecurityConfigResponse, error)
-	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
-	IsInstantCommunicationModeEnabled(context.Context, *IsInstantCommunicationModeEnabledRequest) (*IsInstantCommunicationModeEnabledResponse, error)
-	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
-	WriteToParcel(context.Context, *PublishConfigWriteToParcelRequest) (*WriteToParcelResponse, error)
-	mustEmbedUnimplementedPublishConfigServiceServer()
-}
-
-// UnimplementedPublishConfigServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedPublishConfigServiceServer struct{}
-
-func (UnimplementedPublishConfigServiceServer) DescribeContents(context.Context, *PublishConfigDescribeContentsRequest) (*DescribeContentsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
-}
-func (UnimplementedPublishConfigServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
-}
-func (UnimplementedPublishConfigServiceServer) GetInstantCommunicationBand(context.Context, *GetInstantCommunicationBandRequest) (*GetInstantCommunicationBandResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetInstantCommunicationBand not implemented")
-}
-func (UnimplementedPublishConfigServiceServer) GetPairingConfig(context.Context, *GetPairingConfigRequest) (*GetPairingConfigResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetPairingConfig not implemented")
-}
-func (UnimplementedPublishConfigServiceServer) GetSecurityConfig(context.Context, *GetSecurityConfigRequest) (*GetSecurityConfigResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetSecurityConfig not implemented")
-}
-func (UnimplementedPublishConfigServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
-}
-func (UnimplementedPublishConfigServiceServer) IsInstantCommunicationModeEnabled(context.Context, *IsInstantCommunicationModeEnabledRequest) (*IsInstantCommunicationModeEnabledResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsInstantCommunicationModeEnabled not implemented")
-}
-func (UnimplementedPublishConfigServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
-}
-func (UnimplementedPublishConfigServiceServer) WriteToParcel(context.Context, *PublishConfigWriteToParcelRequest) (*WriteToParcelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
-}
-func (UnimplementedPublishConfigServiceServer) mustEmbedUnimplementedPublishConfigServiceServer() {}
-func (UnimplementedPublishConfigServiceServer) testEmbeddedByValue()                              {}
-
-// UnsafePublishConfigServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to PublishConfigServiceServer will
-// result in compilation errors.
-type UnsafePublishConfigServiceServer interface {
-	mustEmbedUnimplementedPublishConfigServiceServer()
-}
-
-func RegisterPublishConfigServiceServer(s grpc.ServiceRegistrar, srv PublishConfigServiceServer) {
-	// If the following call panics, it indicates UnimplementedPublishConfigServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&PublishConfigService_ServiceDesc, srv)
-}
-
-func _PublishConfigService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(PublishConfigDescribeContentsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PublishConfigServiceServer).DescribeContents(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PublishConfigService_DescribeContents_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PublishConfigServiceServer).DescribeContents(ctx, req.(*PublishConfigDescribeContentsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PublishConfigService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(EqualsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PublishConfigServiceServer).Equals(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PublishConfigService_Equals_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PublishConfigServiceServer).Equals(ctx, req.(*EqualsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PublishConfigService_GetInstantCommunicationBand_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetInstantCommunicationBandRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PublishConfigServiceServer).GetInstantCommunicationBand(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PublishConfigService_GetInstantCommunicationBand_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PublishConfigServiceServer).GetInstantCommunicationBand(ctx, req.(*GetInstantCommunicationBandRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PublishConfigService_GetPairingConfig_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetPairingConfigRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PublishConfigServiceServer).GetPairingConfig(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PublishConfigService_GetPairingConfig_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PublishConfigServiceServer).GetPairingConfig(ctx, req.(*GetPairingConfigRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PublishConfigService_GetSecurityConfig_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetSecurityConfigRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PublishConfigServiceServer).GetSecurityConfig(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PublishConfigService_GetSecurityConfig_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PublishConfigServiceServer).GetSecurityConfig(ctx, req.(*GetSecurityConfigRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PublishConfigService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(HashCodeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PublishConfigServiceServer).HashCode(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PublishConfigService_HashCode_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PublishConfigServiceServer).HashCode(ctx, req.(*HashCodeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PublishConfigService_IsInstantCommunicationModeEnabled_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsInstantCommunicationModeEnabledRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PublishConfigServiceServer).IsInstantCommunicationModeEnabled(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PublishConfigService_IsInstantCommunicationModeEnabled_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PublishConfigServiceServer).IsInstantCommunicationModeEnabled(ctx, req.(*IsInstantCommunicationModeEnabledRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PublishConfigService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ToStringRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PublishConfigServiceServer).ToString(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PublishConfigService_ToString_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PublishConfigServiceServer).ToString(ctx, req.(*ToStringRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PublishConfigService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(PublishConfigWriteToParcelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PublishConfigServiceServer).WriteToParcel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PublishConfigService_WriteToParcel_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PublishConfigServiceServer).WriteToParcel(ctx, req.(*PublishConfigWriteToParcelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// PublishConfigService_ServiceDesc is the grpc.ServiceDesc for PublishConfigService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var PublishConfigService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "aware.PublishConfigService",
-	HandlerType: (*PublishConfigServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "DescribeContents",
-			Handler:    _PublishConfigService_DescribeContents_Handler,
-		},
-		{
-			MethodName: "Equals",
-			Handler:    _PublishConfigService_Equals_Handler,
-		},
-		{
-			MethodName: "GetInstantCommunicationBand",
-			Handler:    _PublishConfigService_GetInstantCommunicationBand_Handler,
-		},
-		{
-			MethodName: "GetPairingConfig",
-			Handler:    _PublishConfigService_GetPairingConfig_Handler,
-		},
-		{
-			MethodName: "GetSecurityConfig",
-			Handler:    _PublishConfigService_GetSecurityConfig_Handler,
-		},
-		{
-			MethodName: "HashCode",
-			Handler:    _PublishConfigService_HashCode_Handler,
-		},
-		{
-			MethodName: "IsInstantCommunicationModeEnabled",
-			Handler:    _PublishConfigService_IsInstantCommunicationModeEnabled_Handler,
-		},
-		{
-			MethodName: "ToString",
-			Handler:    _PublishConfigService_ToString_Handler,
-		},
-		{
-			MethodName: "WriteToParcel",
-			Handler:    _PublishConfigService_WriteToParcel_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/aware/aware.proto",
-}
-
-const (
-	PublishConfigBuilderService_Build_FullMethodName                              = "/aware.PublishConfigBuilderService/Build"
-	PublishConfigBuilderService_SetDataPathSecurityConfig_FullMethodName          = "/aware.PublishConfigBuilderService/SetDataPathSecurityConfig"
-	PublishConfigBuilderService_SetInstantCommunicationModeEnabled_FullMethodName = "/aware.PublishConfigBuilderService/SetInstantCommunicationModeEnabled"
-	PublishConfigBuilderService_SetPairingConfig_FullMethodName                   = "/aware.PublishConfigBuilderService/SetPairingConfig"
-	PublishConfigBuilderService_SetPublishType_FullMethodName                     = "/aware.PublishConfigBuilderService/SetPublishType"
-	PublishConfigBuilderService_SetRangingEnabled_FullMethodName                  = "/aware.PublishConfigBuilderService/SetRangingEnabled"
-	PublishConfigBuilderService_SetServiceName_FullMethodName                     = "/aware.PublishConfigBuilderService/SetServiceName"
-	PublishConfigBuilderService_SetServiceSpecificInfo_FullMethodName             = "/aware.PublishConfigBuilderService/SetServiceSpecificInfo"
-	PublishConfigBuilderService_SetTerminateNotificationEnabled_FullMethodName    = "/aware.PublishConfigBuilderService/SetTerminateNotificationEnabled"
-	PublishConfigBuilderService_SetTtlSec_FullMethodName                          = "/aware.PublishConfigBuilderService/SetTtlSec"
-)
-
-// PublishConfigBuilderServiceClient is the client API for PublishConfigBuilderService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type PublishConfigBuilderServiceClient interface {
-	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
-	SetDataPathSecurityConfig(ctx context.Context, in *SetDataPathSecurityConfigRequest, opts ...grpc.CallOption) (*SetDataPathSecurityConfigResponse, error)
-	SetInstantCommunicationModeEnabled(ctx context.Context, in *SetInstantCommunicationModeEnabledRequest, opts ...grpc.CallOption) (*SetInstantCommunicationModeEnabledResponse, error)
-	SetPairingConfig(ctx context.Context, in *SetPairingConfigRequest, opts ...grpc.CallOption) (*SetPairingConfigResponse, error)
-	SetPublishType(ctx context.Context, in *SetPublishTypeRequest, opts ...grpc.CallOption) (*SetPublishTypeResponse, error)
-	SetRangingEnabled(ctx context.Context, in *SetRangingEnabledRequest, opts ...grpc.CallOption) (*SetRangingEnabledResponse, error)
-	SetServiceName(ctx context.Context, in *SetServiceNameRequest, opts ...grpc.CallOption) (*SetServiceNameResponse, error)
-	SetServiceSpecificInfo(ctx context.Context, in *SetServiceSpecificInfoRequest, opts ...grpc.CallOption) (*SetServiceSpecificInfoResponse, error)
-	SetTerminateNotificationEnabled(ctx context.Context, in *SetTerminateNotificationEnabledRequest, opts ...grpc.CallOption) (*SetTerminateNotificationEnabledResponse, error)
-	SetTtlSec(ctx context.Context, in *SetTtlSecRequest, opts ...grpc.CallOption) (*SetTtlSecResponse, error)
-}
-
-type publishConfigBuilderServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewPublishConfigBuilderServiceClient(cc grpc.ClientConnInterface) PublishConfigBuilderServiceClient {
-	return &publishConfigBuilderServiceClient{cc}
-}
-
-func (c *publishConfigBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(BuildResponse)
-	err := c.cc.Invoke(ctx, PublishConfigBuilderService_Build_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *publishConfigBuilderServiceClient) SetDataPathSecurityConfig(ctx context.Context, in *SetDataPathSecurityConfigRequest, opts ...grpc.CallOption) (*SetDataPathSecurityConfigResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetDataPathSecurityConfigResponse)
-	err := c.cc.Invoke(ctx, PublishConfigBuilderService_SetDataPathSecurityConfig_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *publishConfigBuilderServiceClient) SetInstantCommunicationModeEnabled(ctx context.Context, in *SetInstantCommunicationModeEnabledRequest, opts ...grpc.CallOption) (*SetInstantCommunicationModeEnabledResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetInstantCommunicationModeEnabledResponse)
-	err := c.cc.Invoke(ctx, PublishConfigBuilderService_SetInstantCommunicationModeEnabled_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *publishConfigBuilderServiceClient) SetPairingConfig(ctx context.Context, in *SetPairingConfigRequest, opts ...grpc.CallOption) (*SetPairingConfigResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetPairingConfigResponse)
-	err := c.cc.Invoke(ctx, PublishConfigBuilderService_SetPairingConfig_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *publishConfigBuilderServiceClient) SetPublishType(ctx context.Context, in *SetPublishTypeRequest, opts ...grpc.CallOption) (*SetPublishTypeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetPublishTypeResponse)
-	err := c.cc.Invoke(ctx, PublishConfigBuilderService_SetPublishType_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *publishConfigBuilderServiceClient) SetRangingEnabled(ctx context.Context, in *SetRangingEnabledRequest, opts ...grpc.CallOption) (*SetRangingEnabledResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetRangingEnabledResponse)
-	err := c.cc.Invoke(ctx, PublishConfigBuilderService_SetRangingEnabled_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *publishConfigBuilderServiceClient) SetServiceName(ctx context.Context, in *SetServiceNameRequest, opts ...grpc.CallOption) (*SetServiceNameResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetServiceNameResponse)
-	err := c.cc.Invoke(ctx, PublishConfigBuilderService_SetServiceName_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *publishConfigBuilderServiceClient) SetServiceSpecificInfo(ctx context.Context, in *SetServiceSpecificInfoRequest, opts ...grpc.CallOption) (*SetServiceSpecificInfoResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetServiceSpecificInfoResponse)
-	err := c.cc.Invoke(ctx, PublishConfigBuilderService_SetServiceSpecificInfo_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *publishConfigBuilderServiceClient) SetTerminateNotificationEnabled(ctx context.Context, in *SetTerminateNotificationEnabledRequest, opts ...grpc.CallOption) (*SetTerminateNotificationEnabledResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetTerminateNotificationEnabledResponse)
-	err := c.cc.Invoke(ctx, PublishConfigBuilderService_SetTerminateNotificationEnabled_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *publishConfigBuilderServiceClient) SetTtlSec(ctx context.Context, in *SetTtlSecRequest, opts ...grpc.CallOption) (*SetTtlSecResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetTtlSecResponse)
-	err := c.cc.Invoke(ctx, PublishConfigBuilderService_SetTtlSec_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// PublishConfigBuilderServiceServer is the server API for PublishConfigBuilderService service.
-// All implementations must embed UnimplementedPublishConfigBuilderServiceServer
-// for forward compatibility.
-type PublishConfigBuilderServiceServer interface {
-	Build(context.Context, *BuildRequest) (*BuildResponse, error)
-	SetDataPathSecurityConfig(context.Context, *SetDataPathSecurityConfigRequest) (*SetDataPathSecurityConfigResponse, error)
-	SetInstantCommunicationModeEnabled(context.Context, *SetInstantCommunicationModeEnabledRequest) (*SetInstantCommunicationModeEnabledResponse, error)
-	SetPairingConfig(context.Context, *SetPairingConfigRequest) (*SetPairingConfigResponse, error)
-	SetPublishType(context.Context, *SetPublishTypeRequest) (*SetPublishTypeResponse, error)
-	SetRangingEnabled(context.Context, *SetRangingEnabledRequest) (*SetRangingEnabledResponse, error)
-	SetServiceName(context.Context, *SetServiceNameRequest) (*SetServiceNameResponse, error)
-	SetServiceSpecificInfo(context.Context, *SetServiceSpecificInfoRequest) (*SetServiceSpecificInfoResponse, error)
-	SetTerminateNotificationEnabled(context.Context, *SetTerminateNotificationEnabledRequest) (*SetTerminateNotificationEnabledResponse, error)
-	SetTtlSec(context.Context, *SetTtlSecRequest) (*SetTtlSecResponse, error)
-	mustEmbedUnimplementedPublishConfigBuilderServiceServer()
-}
-
-// UnimplementedPublishConfigBuilderServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedPublishConfigBuilderServiceServer struct{}
-
-func (UnimplementedPublishConfigBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
-}
-func (UnimplementedPublishConfigBuilderServiceServer) SetDataPathSecurityConfig(context.Context, *SetDataPathSecurityConfigRequest) (*SetDataPathSecurityConfigResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetDataPathSecurityConfig not implemented")
-}
-func (UnimplementedPublishConfigBuilderServiceServer) SetInstantCommunicationModeEnabled(context.Context, *SetInstantCommunicationModeEnabledRequest) (*SetInstantCommunicationModeEnabledResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetInstantCommunicationModeEnabled not implemented")
-}
-func (UnimplementedPublishConfigBuilderServiceServer) SetPairingConfig(context.Context, *SetPairingConfigRequest) (*SetPairingConfigResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetPairingConfig not implemented")
-}
-func (UnimplementedPublishConfigBuilderServiceServer) SetPublishType(context.Context, *SetPublishTypeRequest) (*SetPublishTypeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetPublishType not implemented")
-}
-func (UnimplementedPublishConfigBuilderServiceServer) SetRangingEnabled(context.Context, *SetRangingEnabledRequest) (*SetRangingEnabledResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetRangingEnabled not implemented")
-}
-func (UnimplementedPublishConfigBuilderServiceServer) SetServiceName(context.Context, *SetServiceNameRequest) (*SetServiceNameResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetServiceName not implemented")
-}
-func (UnimplementedPublishConfigBuilderServiceServer) SetServiceSpecificInfo(context.Context, *SetServiceSpecificInfoRequest) (*SetServiceSpecificInfoResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetServiceSpecificInfo not implemented")
-}
-func (UnimplementedPublishConfigBuilderServiceServer) SetTerminateNotificationEnabled(context.Context, *SetTerminateNotificationEnabledRequest) (*SetTerminateNotificationEnabledResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetTerminateNotificationEnabled not implemented")
-}
-func (UnimplementedPublishConfigBuilderServiceServer) SetTtlSec(context.Context, *SetTtlSecRequest) (*SetTtlSecResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetTtlSec not implemented")
-}
-func (UnimplementedPublishConfigBuilderServiceServer) mustEmbedUnimplementedPublishConfigBuilderServiceServer() {
-}
-func (UnimplementedPublishConfigBuilderServiceServer) testEmbeddedByValue() {}
-
-// UnsafePublishConfigBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to PublishConfigBuilderServiceServer will
-// result in compilation errors.
-type UnsafePublishConfigBuilderServiceServer interface {
-	mustEmbedUnimplementedPublishConfigBuilderServiceServer()
-}
-
-func RegisterPublishConfigBuilderServiceServer(s grpc.ServiceRegistrar, srv PublishConfigBuilderServiceServer) {
-	// If the following call panics, it indicates UnimplementedPublishConfigBuilderServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&PublishConfigBuilderService_ServiceDesc, srv)
-}
-
-func _PublishConfigBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(BuildRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PublishConfigBuilderServiceServer).Build(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PublishConfigBuilderService_Build_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PublishConfigBuilderServiceServer).Build(ctx, req.(*BuildRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PublishConfigBuilderService_SetDataPathSecurityConfig_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetDataPathSecurityConfigRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PublishConfigBuilderServiceServer).SetDataPathSecurityConfig(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PublishConfigBuilderService_SetDataPathSecurityConfig_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PublishConfigBuilderServiceServer).SetDataPathSecurityConfig(ctx, req.(*SetDataPathSecurityConfigRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PublishConfigBuilderService_SetInstantCommunicationModeEnabled_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetInstantCommunicationModeEnabledRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PublishConfigBuilderServiceServer).SetInstantCommunicationModeEnabled(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PublishConfigBuilderService_SetInstantCommunicationModeEnabled_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PublishConfigBuilderServiceServer).SetInstantCommunicationModeEnabled(ctx, req.(*SetInstantCommunicationModeEnabledRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PublishConfigBuilderService_SetPairingConfig_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetPairingConfigRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PublishConfigBuilderServiceServer).SetPairingConfig(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PublishConfigBuilderService_SetPairingConfig_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PublishConfigBuilderServiceServer).SetPairingConfig(ctx, req.(*SetPairingConfigRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PublishConfigBuilderService_SetPublishType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetPublishTypeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PublishConfigBuilderServiceServer).SetPublishType(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PublishConfigBuilderService_SetPublishType_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PublishConfigBuilderServiceServer).SetPublishType(ctx, req.(*SetPublishTypeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PublishConfigBuilderService_SetRangingEnabled_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetRangingEnabledRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PublishConfigBuilderServiceServer).SetRangingEnabled(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PublishConfigBuilderService_SetRangingEnabled_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PublishConfigBuilderServiceServer).SetRangingEnabled(ctx, req.(*SetRangingEnabledRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PublishConfigBuilderService_SetServiceName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetServiceNameRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PublishConfigBuilderServiceServer).SetServiceName(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PublishConfigBuilderService_SetServiceName_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PublishConfigBuilderServiceServer).SetServiceName(ctx, req.(*SetServiceNameRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PublishConfigBuilderService_SetServiceSpecificInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetServiceSpecificInfoRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PublishConfigBuilderServiceServer).SetServiceSpecificInfo(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PublishConfigBuilderService_SetServiceSpecificInfo_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PublishConfigBuilderServiceServer).SetServiceSpecificInfo(ctx, req.(*SetServiceSpecificInfoRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PublishConfigBuilderService_SetTerminateNotificationEnabled_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetTerminateNotificationEnabledRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PublishConfigBuilderServiceServer).SetTerminateNotificationEnabled(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PublishConfigBuilderService_SetTerminateNotificationEnabled_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PublishConfigBuilderServiceServer).SetTerminateNotificationEnabled(ctx, req.(*SetTerminateNotificationEnabledRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PublishConfigBuilderService_SetTtlSec_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetTtlSecRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PublishConfigBuilderServiceServer).SetTtlSec(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PublishConfigBuilderService_SetTtlSec_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PublishConfigBuilderServiceServer).SetTtlSec(ctx, req.(*SetTtlSecRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// PublishConfigBuilderService_ServiceDesc is the grpc.ServiceDesc for PublishConfigBuilderService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var PublishConfigBuilderService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "aware.PublishConfigBuilderService",
-	HandlerType: (*PublishConfigBuilderServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "Build",
-			Handler:    _PublishConfigBuilderService_Build_Handler,
-		},
-		{
-			MethodName: "SetDataPathSecurityConfig",
-			Handler:    _PublishConfigBuilderService_SetDataPathSecurityConfig_Handler,
-		},
-		{
-			MethodName: "SetInstantCommunicationModeEnabled",
-			Handler:    _PublishConfigBuilderService_SetInstantCommunicationModeEnabled_Handler,
-		},
-		{
-			MethodName: "SetPairingConfig",
-			Handler:    _PublishConfigBuilderService_SetPairingConfig_Handler,
-		},
-		{
-			MethodName: "SetPublishType",
-			Handler:    _PublishConfigBuilderService_SetPublishType_Handler,
-		},
-		{
-			MethodName: "SetRangingEnabled",
-			Handler:    _PublishConfigBuilderService_SetRangingEnabled_Handler,
-		},
-		{
-			MethodName: "SetServiceName",
-			Handler:    _PublishConfigBuilderService_SetServiceName_Handler,
-		},
-		{
-			MethodName: "SetServiceSpecificInfo",
-			Handler:    _PublishConfigBuilderService_SetServiceSpecificInfo_Handler,
-		},
-		{
-			MethodName: "SetTerminateNotificationEnabled",
-			Handler:    _PublishConfigBuilderService_SetTerminateNotificationEnabled_Handler,
-		},
-		{
-			MethodName: "SetTtlSec",
-			Handler:    _PublishConfigBuilderService_SetTtlSec_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/aware/aware.proto",
-}
-
-const (
-	PeerHandleService_Equals_FullMethodName   = "/aware.PeerHandleService/Equals"
-	PeerHandleService_HashCode_FullMethodName = "/aware.PeerHandleService/HashCode"
-)
-
-// PeerHandleServiceClient is the client API for PeerHandleService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type PeerHandleServiceClient interface {
-	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
-	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
-}
-
-type peerHandleServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewPeerHandleServiceClient(cc grpc.ClientConnInterface) PeerHandleServiceClient {
-	return &peerHandleServiceClient{cc}
-}
-
-func (c *peerHandleServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(EqualsResponse)
-	err := c.cc.Invoke(ctx, PeerHandleService_Equals_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *peerHandleServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(HashCodeResponse)
-	err := c.cc.Invoke(ctx, PeerHandleService_HashCode_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// PeerHandleServiceServer is the server API for PeerHandleService service.
-// All implementations must embed UnimplementedPeerHandleServiceServer
-// for forward compatibility.
-type PeerHandleServiceServer interface {
-	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
-	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
-	mustEmbedUnimplementedPeerHandleServiceServer()
-}
-
-// UnimplementedPeerHandleServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedPeerHandleServiceServer struct{}
-
-func (UnimplementedPeerHandleServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
-}
-func (UnimplementedPeerHandleServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
-}
-func (UnimplementedPeerHandleServiceServer) mustEmbedUnimplementedPeerHandleServiceServer() {}
-func (UnimplementedPeerHandleServiceServer) testEmbeddedByValue()                           {}
-
-// UnsafePeerHandleServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to PeerHandleServiceServer will
-// result in compilation errors.
-type UnsafePeerHandleServiceServer interface {
-	mustEmbedUnimplementedPeerHandleServiceServer()
-}
-
-func RegisterPeerHandleServiceServer(s grpc.ServiceRegistrar, srv PeerHandleServiceServer) {
-	// If the following call panics, it indicates UnimplementedPeerHandleServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&PeerHandleService_ServiceDesc, srv)
-}
-
-func _PeerHandleService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(EqualsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PeerHandleServiceServer).Equals(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PeerHandleService_Equals_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PeerHandleServiceServer).Equals(ctx, req.(*EqualsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PeerHandleService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(HashCodeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PeerHandleServiceServer).HashCode(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PeerHandleService_HashCode_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PeerHandleServiceServer).HashCode(ctx, req.(*HashCodeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// PeerHandleService_ServiceDesc is the grpc.ServiceDesc for PeerHandleService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var PeerHandleService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "aware.PeerHandleService",
-	HandlerType: (*PeerHandleServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "Equals",
-			Handler:    _PeerHandleService_Equals_Handler,
-		},
-		{
-			MethodName: "HashCode",
-			Handler:    _PeerHandleService_HashCode_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/aware/aware.proto",
-}
-
-const (
-	ServiceDiscoveryInfoService_GetPairedAlias_FullMethodName         = "/aware.ServiceDiscoveryInfoService/GetPairedAlias"
-	ServiceDiscoveryInfoService_GetPairingConfig_FullMethodName       = "/aware.ServiceDiscoveryInfoService/GetPairingConfig"
-	ServiceDiscoveryInfoService_GetPeerCipherSuite_FullMethodName     = "/aware.ServiceDiscoveryInfoService/GetPeerCipherSuite"
-	ServiceDiscoveryInfoService_GetPeerHandle_FullMethodName          = "/aware.ServiceDiscoveryInfoService/GetPeerHandle"
-	ServiceDiscoveryInfoService_GetScid_FullMethodName                = "/aware.ServiceDiscoveryInfoService/GetScid"
-	ServiceDiscoveryInfoService_GetServiceSpecificInfo_FullMethodName = "/aware.ServiceDiscoveryInfoService/GetServiceSpecificInfo"
-)
-
-// ServiceDiscoveryInfoServiceClient is the client API for ServiceDiscoveryInfoService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type ServiceDiscoveryInfoServiceClient interface {
-	GetPairedAlias(ctx context.Context, in *GetPairedAliasRequest, opts ...grpc.CallOption) (*GetPairedAliasResponse, error)
-	GetPairingConfig(ctx context.Context, in *GetPairingConfigRequest, opts ...grpc.CallOption) (*GetPairingConfigResponse, error)
-	GetPeerCipherSuite(ctx context.Context, in *GetPeerCipherSuiteRequest, opts ...grpc.CallOption) (*GetPeerCipherSuiteResponse, error)
-	GetPeerHandle(ctx context.Context, in *GetPeerHandleRequest, opts ...grpc.CallOption) (*GetPeerHandleResponse, error)
-	GetScid(ctx context.Context, in *GetScidRequest, opts ...grpc.CallOption) (*GetScidResponse, error)
-	GetServiceSpecificInfo(ctx context.Context, in *GetServiceSpecificInfoRequest, opts ...grpc.CallOption) (*GetServiceSpecificInfoResponse, error)
-}
-
-type serviceDiscoveryInfoServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewServiceDiscoveryInfoServiceClient(cc grpc.ClientConnInterface) ServiceDiscoveryInfoServiceClient {
-	return &serviceDiscoveryInfoServiceClient{cc}
-}
-
-func (c *serviceDiscoveryInfoServiceClient) GetPairedAlias(ctx context.Context, in *GetPairedAliasRequest, opts ...grpc.CallOption) (*GetPairedAliasResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetPairedAliasResponse)
-	err := c.cc.Invoke(ctx, ServiceDiscoveryInfoService_GetPairedAlias_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *serviceDiscoveryInfoServiceClient) GetPairingConfig(ctx context.Context, in *GetPairingConfigRequest, opts ...grpc.CallOption) (*GetPairingConfigResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetPairingConfigResponse)
-	err := c.cc.Invoke(ctx, ServiceDiscoveryInfoService_GetPairingConfig_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *serviceDiscoveryInfoServiceClient) GetPeerCipherSuite(ctx context.Context, in *GetPeerCipherSuiteRequest, opts ...grpc.CallOption) (*GetPeerCipherSuiteResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetPeerCipherSuiteResponse)
-	err := c.cc.Invoke(ctx, ServiceDiscoveryInfoService_GetPeerCipherSuite_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *serviceDiscoveryInfoServiceClient) GetPeerHandle(ctx context.Context, in *GetPeerHandleRequest, opts ...grpc.CallOption) (*GetPeerHandleResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetPeerHandleResponse)
-	err := c.cc.Invoke(ctx, ServiceDiscoveryInfoService_GetPeerHandle_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *serviceDiscoveryInfoServiceClient) GetScid(ctx context.Context, in *GetScidRequest, opts ...grpc.CallOption) (*GetScidResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetScidResponse)
-	err := c.cc.Invoke(ctx, ServiceDiscoveryInfoService_GetScid_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *serviceDiscoveryInfoServiceClient) GetServiceSpecificInfo(ctx context.Context, in *GetServiceSpecificInfoRequest, opts ...grpc.CallOption) (*GetServiceSpecificInfoResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetServiceSpecificInfoResponse)
-	err := c.cc.Invoke(ctx, ServiceDiscoveryInfoService_GetServiceSpecificInfo_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// ServiceDiscoveryInfoServiceServer is the server API for ServiceDiscoveryInfoService service.
-// All implementations must embed UnimplementedServiceDiscoveryInfoServiceServer
-// for forward compatibility.
-type ServiceDiscoveryInfoServiceServer interface {
-	GetPairedAlias(context.Context, *GetPairedAliasRequest) (*GetPairedAliasResponse, error)
-	GetPairingConfig(context.Context, *GetPairingConfigRequest) (*GetPairingConfigResponse, error)
-	GetPeerCipherSuite(context.Context, *GetPeerCipherSuiteRequest) (*GetPeerCipherSuiteResponse, error)
-	GetPeerHandle(context.Context, *GetPeerHandleRequest) (*GetPeerHandleResponse, error)
-	GetScid(context.Context, *GetScidRequest) (*GetScidResponse, error)
-	GetServiceSpecificInfo(context.Context, *GetServiceSpecificInfoRequest) (*GetServiceSpecificInfoResponse, error)
-	mustEmbedUnimplementedServiceDiscoveryInfoServiceServer()
-}
-
-// UnimplementedServiceDiscoveryInfoServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedServiceDiscoveryInfoServiceServer struct{}
-
-func (UnimplementedServiceDiscoveryInfoServiceServer) GetPairedAlias(context.Context, *GetPairedAliasRequest) (*GetPairedAliasResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetPairedAlias not implemented")
-}
-func (UnimplementedServiceDiscoveryInfoServiceServer) GetPairingConfig(context.Context, *GetPairingConfigRequest) (*GetPairingConfigResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetPairingConfig not implemented")
-}
-func (UnimplementedServiceDiscoveryInfoServiceServer) GetPeerCipherSuite(context.Context, *GetPeerCipherSuiteRequest) (*GetPeerCipherSuiteResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetPeerCipherSuite not implemented")
-}
-func (UnimplementedServiceDiscoveryInfoServiceServer) GetPeerHandle(context.Context, *GetPeerHandleRequest) (*GetPeerHandleResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetPeerHandle not implemented")
-}
-func (UnimplementedServiceDiscoveryInfoServiceServer) GetScid(context.Context, *GetScidRequest) (*GetScidResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetScid not implemented")
-}
-func (UnimplementedServiceDiscoveryInfoServiceServer) GetServiceSpecificInfo(context.Context, *GetServiceSpecificInfoRequest) (*GetServiceSpecificInfoResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetServiceSpecificInfo not implemented")
-}
-func (UnimplementedServiceDiscoveryInfoServiceServer) mustEmbedUnimplementedServiceDiscoveryInfoServiceServer() {
-}
-func (UnimplementedServiceDiscoveryInfoServiceServer) testEmbeddedByValue() {}
-
-// UnsafeServiceDiscoveryInfoServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to ServiceDiscoveryInfoServiceServer will
-// result in compilation errors.
-type UnsafeServiceDiscoveryInfoServiceServer interface {
-	mustEmbedUnimplementedServiceDiscoveryInfoServiceServer()
-}
-
-func RegisterServiceDiscoveryInfoServiceServer(s grpc.ServiceRegistrar, srv ServiceDiscoveryInfoServiceServer) {
-	// If the following call panics, it indicates UnimplementedServiceDiscoveryInfoServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&ServiceDiscoveryInfoService_ServiceDesc, srv)
-}
-
-func _ServiceDiscoveryInfoService_GetPairedAlias_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetPairedAliasRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ServiceDiscoveryInfoServiceServer).GetPairedAlias(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ServiceDiscoveryInfoService_GetPairedAlias_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ServiceDiscoveryInfoServiceServer).GetPairedAlias(ctx, req.(*GetPairedAliasRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ServiceDiscoveryInfoService_GetPairingConfig_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetPairingConfigRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ServiceDiscoveryInfoServiceServer).GetPairingConfig(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ServiceDiscoveryInfoService_GetPairingConfig_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ServiceDiscoveryInfoServiceServer).GetPairingConfig(ctx, req.(*GetPairingConfigRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ServiceDiscoveryInfoService_GetPeerCipherSuite_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetPeerCipherSuiteRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ServiceDiscoveryInfoServiceServer).GetPeerCipherSuite(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ServiceDiscoveryInfoService_GetPeerCipherSuite_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ServiceDiscoveryInfoServiceServer).GetPeerCipherSuite(ctx, req.(*GetPeerCipherSuiteRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ServiceDiscoveryInfoService_GetPeerHandle_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetPeerHandleRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ServiceDiscoveryInfoServiceServer).GetPeerHandle(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ServiceDiscoveryInfoService_GetPeerHandle_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ServiceDiscoveryInfoServiceServer).GetPeerHandle(ctx, req.(*GetPeerHandleRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ServiceDiscoveryInfoService_GetScid_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetScidRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ServiceDiscoveryInfoServiceServer).GetScid(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ServiceDiscoveryInfoService_GetScid_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ServiceDiscoveryInfoServiceServer).GetScid(ctx, req.(*GetScidRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ServiceDiscoveryInfoService_GetServiceSpecificInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetServiceSpecificInfoRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ServiceDiscoveryInfoServiceServer).GetServiceSpecificInfo(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ServiceDiscoveryInfoService_GetServiceSpecificInfo_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ServiceDiscoveryInfoServiceServer).GetServiceSpecificInfo(ctx, req.(*GetServiceSpecificInfoRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// ServiceDiscoveryInfoService_ServiceDesc is the grpc.ServiceDesc for ServiceDiscoveryInfoService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var ServiceDiscoveryInfoService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "aware.ServiceDiscoveryInfoService",
-	HandlerType: (*ServiceDiscoveryInfoServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "GetPairedAlias",
-			Handler:    _ServiceDiscoveryInfoService_GetPairedAlias_Handler,
-		},
-		{
-			MethodName: "GetPairingConfig",
-			Handler:    _ServiceDiscoveryInfoService_GetPairingConfig_Handler,
-		},
-		{
-			MethodName: "GetPeerCipherSuite",
-			Handler:    _ServiceDiscoveryInfoService_GetPeerCipherSuite_Handler,
-		},
-		{
-			MethodName: "GetPeerHandle",
-			Handler:    _ServiceDiscoveryInfoService_GetPeerHandle_Handler,
-		},
-		{
-			MethodName: "GetScid",
-			Handler:    _ServiceDiscoveryInfoService_GetScid_Handler,
-		},
-		{
-			MethodName: "GetServiceSpecificInfo",
-			Handler:    _ServiceDiscoveryInfoService_GetServiceSpecificInfo_Handler,
+			MethodName: "OnAwareSessionTerminated",
+			Handler:    _AttachCallbackService_OnAwareSessionTerminated_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -5392,14 +6754,14 @@ const (
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type WifiAwareChannelInfoServiceClient interface {
-	DescribeContents(ctx context.Context, in *WifiAwareChannelInfoDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
 	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
 	GetChannelBandwidth(ctx context.Context, in *GetChannelBandwidthRequest, opts ...grpc.CallOption) (*GetChannelBandwidthResponse, error)
 	GetChannelFrequencyMhz(ctx context.Context, in *GetChannelFrequencyMhzRequest, opts ...grpc.CallOption) (*GetChannelFrequencyMhzResponse, error)
 	GetSpatialStreamCount(ctx context.Context, in *GetSpatialStreamCountRequest, opts ...grpc.CallOption) (*GetSpatialStreamCountResponse, error)
 	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
 	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
-	WriteToParcel(ctx context.Context, in *WifiAwareChannelInfoWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
 }
 
 type wifiAwareChannelInfoServiceClient struct {
@@ -5410,7 +6772,7 @@ func NewWifiAwareChannelInfoServiceClient(cc grpc.ClientConnInterface) WifiAware
 	return &wifiAwareChannelInfoServiceClient{cc}
 }
 
-func (c *wifiAwareChannelInfoServiceClient) DescribeContents(ctx context.Context, in *WifiAwareChannelInfoDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+func (c *wifiAwareChannelInfoServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(DescribeContentsResponse)
 	err := c.cc.Invoke(ctx, WifiAwareChannelInfoService_DescribeContents_FullMethodName, in, out, cOpts...)
@@ -5480,7 +6842,7 @@ func (c *wifiAwareChannelInfoServiceClient) ToString(ctx context.Context, in *To
 	return out, nil
 }
 
-func (c *wifiAwareChannelInfoServiceClient) WriteToParcel(ctx context.Context, in *WifiAwareChannelInfoWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+func (c *wifiAwareChannelInfoServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(WriteToParcelResponse)
 	err := c.cc.Invoke(ctx, WifiAwareChannelInfoService_WriteToParcel_FullMethodName, in, out, cOpts...)
@@ -5494,14 +6856,14 @@ func (c *wifiAwareChannelInfoServiceClient) WriteToParcel(ctx context.Context, i
 // All implementations must embed UnimplementedWifiAwareChannelInfoServiceServer
 // for forward compatibility.
 type WifiAwareChannelInfoServiceServer interface {
-	DescribeContents(context.Context, *WifiAwareChannelInfoDescribeContentsRequest) (*DescribeContentsResponse, error)
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
 	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
 	GetChannelBandwidth(context.Context, *GetChannelBandwidthRequest) (*GetChannelBandwidthResponse, error)
 	GetChannelFrequencyMhz(context.Context, *GetChannelFrequencyMhzRequest) (*GetChannelFrequencyMhzResponse, error)
 	GetSpatialStreamCount(context.Context, *GetSpatialStreamCountRequest) (*GetSpatialStreamCountResponse, error)
 	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
 	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
-	WriteToParcel(context.Context, *WifiAwareChannelInfoWriteToParcelRequest) (*WriteToParcelResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
 	mustEmbedUnimplementedWifiAwareChannelInfoServiceServer()
 }
 
@@ -5512,7 +6874,7 @@ type WifiAwareChannelInfoServiceServer interface {
 // pointer dereference when methods are called.
 type UnimplementedWifiAwareChannelInfoServiceServer struct{}
 
-func (UnimplementedWifiAwareChannelInfoServiceServer) DescribeContents(context.Context, *WifiAwareChannelInfoDescribeContentsRequest) (*DescribeContentsResponse, error) {
+func (UnimplementedWifiAwareChannelInfoServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
 }
 func (UnimplementedWifiAwareChannelInfoServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
@@ -5533,7 +6895,7 @@ func (UnimplementedWifiAwareChannelInfoServiceServer) HashCode(context.Context, 
 func (UnimplementedWifiAwareChannelInfoServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
 }
-func (UnimplementedWifiAwareChannelInfoServiceServer) WriteToParcel(context.Context, *WifiAwareChannelInfoWriteToParcelRequest) (*WriteToParcelResponse, error) {
+func (UnimplementedWifiAwareChannelInfoServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
 }
 func (UnimplementedWifiAwareChannelInfoServiceServer) mustEmbedUnimplementedWifiAwareChannelInfoServiceServer() {
@@ -5559,7 +6921,7 @@ func RegisterWifiAwareChannelInfoServiceServer(s grpc.ServiceRegistrar, srv Wifi
 }
 
 func _WifiAwareChannelInfoService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WifiAwareChannelInfoDescribeContentsRequest)
+	in := new(DescribeContentsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -5571,7 +6933,7 @@ func _WifiAwareChannelInfoService_DescribeContents_Handler(srv interface{}, ctx 
 		FullMethod: WifiAwareChannelInfoService_DescribeContents_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiAwareChannelInfoServiceServer).DescribeContents(ctx, req.(*WifiAwareChannelInfoDescribeContentsRequest))
+		return srv.(WifiAwareChannelInfoServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -5685,7 +7047,7 @@ func _WifiAwareChannelInfoService_ToString_Handler(srv interface{}, ctx context.
 }
 
 func _WifiAwareChannelInfoService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WifiAwareChannelInfoWriteToParcelRequest)
+	in := new(WriteToParcelRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -5697,7 +7059,7 @@ func _WifiAwareChannelInfoService_WriteToParcel_Handler(srv interface{}, ctx con
 		FullMethod: WifiAwareChannelInfoService_WriteToParcel_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiAwareChannelInfoServiceServer).WriteToParcel(ctx, req.(*WifiAwareChannelInfoWriteToParcelRequest))
+		return srv.(WifiAwareChannelInfoServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -5747,6 +7109,603 @@ var WifiAwareChannelInfoService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
+	CharacteristicsService_DescribeContents_FullMethodName                      = "/aware.CharacteristicsService/DescribeContents"
+	CharacteristicsService_GetMaxMatchFilterLength_FullMethodName               = "/aware.CharacteristicsService/GetMaxMatchFilterLength"
+	CharacteristicsService_GetMaxServiceNameLength_FullMethodName               = "/aware.CharacteristicsService/GetMaxServiceNameLength"
+	CharacteristicsService_GetMaxServiceSpecificInfoLength_FullMethodName       = "/aware.CharacteristicsService/GetMaxServiceSpecificInfoLength"
+	CharacteristicsService_GetNumberOfSupportedDataInterfaces_FullMethodName    = "/aware.CharacteristicsService/GetNumberOfSupportedDataInterfaces"
+	CharacteristicsService_GetNumberOfSupportedDataPaths_FullMethodName         = "/aware.CharacteristicsService/GetNumberOfSupportedDataPaths"
+	CharacteristicsService_GetNumberOfSupportedPublishSessions_FullMethodName   = "/aware.CharacteristicsService/GetNumberOfSupportedPublishSessions"
+	CharacteristicsService_GetNumberOfSupportedSubscribeSessions_FullMethodName = "/aware.CharacteristicsService/GetNumberOfSupportedSubscribeSessions"
+	CharacteristicsService_GetSupportedCipherSuites_FullMethodName              = "/aware.CharacteristicsService/GetSupportedCipherSuites"
+	CharacteristicsService_GetSupportedPairingCipherSuites_FullMethodName       = "/aware.CharacteristicsService/GetSupportedPairingCipherSuites"
+	CharacteristicsService_IsAwarePairingSupported_FullMethodName               = "/aware.CharacteristicsService/IsAwarePairingSupported"
+	CharacteristicsService_IsInstantCommunicationModeSupported_FullMethodName   = "/aware.CharacteristicsService/IsInstantCommunicationModeSupported"
+	CharacteristicsService_IsSuspensionSupported_FullMethodName                 = "/aware.CharacteristicsService/IsSuspensionSupported"
+	CharacteristicsService_WriteToParcel_FullMethodName                         = "/aware.CharacteristicsService/WriteToParcel"
+)
+
+// CharacteristicsServiceClient is the client API for CharacteristicsService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type CharacteristicsServiceClient interface {
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	GetMaxMatchFilterLength(ctx context.Context, in *GetMaxMatchFilterLengthRequest, opts ...grpc.CallOption) (*GetMaxMatchFilterLengthResponse, error)
+	GetMaxServiceNameLength(ctx context.Context, in *GetMaxServiceNameLengthRequest, opts ...grpc.CallOption) (*GetMaxServiceNameLengthResponse, error)
+	GetMaxServiceSpecificInfoLength(ctx context.Context, in *GetMaxServiceSpecificInfoLengthRequest, opts ...grpc.CallOption) (*GetMaxServiceSpecificInfoLengthResponse, error)
+	GetNumberOfSupportedDataInterfaces(ctx context.Context, in *GetNumberOfSupportedDataInterfacesRequest, opts ...grpc.CallOption) (*GetNumberOfSupportedDataInterfacesResponse, error)
+	GetNumberOfSupportedDataPaths(ctx context.Context, in *GetNumberOfSupportedDataPathsRequest, opts ...grpc.CallOption) (*GetNumberOfSupportedDataPathsResponse, error)
+	GetNumberOfSupportedPublishSessions(ctx context.Context, in *GetNumberOfSupportedPublishSessionsRequest, opts ...grpc.CallOption) (*GetNumberOfSupportedPublishSessionsResponse, error)
+	GetNumberOfSupportedSubscribeSessions(ctx context.Context, in *GetNumberOfSupportedSubscribeSessionsRequest, opts ...grpc.CallOption) (*GetNumberOfSupportedSubscribeSessionsResponse, error)
+	GetSupportedCipherSuites(ctx context.Context, in *GetSupportedCipherSuitesRequest, opts ...grpc.CallOption) (*GetSupportedCipherSuitesResponse, error)
+	GetSupportedPairingCipherSuites(ctx context.Context, in *GetSupportedPairingCipherSuitesRequest, opts ...grpc.CallOption) (*GetSupportedPairingCipherSuitesResponse, error)
+	IsAwarePairingSupported(ctx context.Context, in *IsAwarePairingSupportedRequest, opts ...grpc.CallOption) (*IsAwarePairingSupportedResponse, error)
+	IsInstantCommunicationModeSupported(ctx context.Context, in *IsInstantCommunicationModeSupportedRequest, opts ...grpc.CallOption) (*IsInstantCommunicationModeSupportedResponse, error)
+	IsSuspensionSupported(ctx context.Context, in *IsSuspensionSupportedRequest, opts ...grpc.CallOption) (*IsSuspensionSupportedResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type characteristicsServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewCharacteristicsServiceClient(cc grpc.ClientConnInterface) CharacteristicsServiceClient {
+	return &characteristicsServiceClient{cc}
+}
+
+func (c *characteristicsServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, CharacteristicsService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *characteristicsServiceClient) GetMaxMatchFilterLength(ctx context.Context, in *GetMaxMatchFilterLengthRequest, opts ...grpc.CallOption) (*GetMaxMatchFilterLengthResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetMaxMatchFilterLengthResponse)
+	err := c.cc.Invoke(ctx, CharacteristicsService_GetMaxMatchFilterLength_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *characteristicsServiceClient) GetMaxServiceNameLength(ctx context.Context, in *GetMaxServiceNameLengthRequest, opts ...grpc.CallOption) (*GetMaxServiceNameLengthResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetMaxServiceNameLengthResponse)
+	err := c.cc.Invoke(ctx, CharacteristicsService_GetMaxServiceNameLength_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *characteristicsServiceClient) GetMaxServiceSpecificInfoLength(ctx context.Context, in *GetMaxServiceSpecificInfoLengthRequest, opts ...grpc.CallOption) (*GetMaxServiceSpecificInfoLengthResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetMaxServiceSpecificInfoLengthResponse)
+	err := c.cc.Invoke(ctx, CharacteristicsService_GetMaxServiceSpecificInfoLength_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *characteristicsServiceClient) GetNumberOfSupportedDataInterfaces(ctx context.Context, in *GetNumberOfSupportedDataInterfacesRequest, opts ...grpc.CallOption) (*GetNumberOfSupportedDataInterfacesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetNumberOfSupportedDataInterfacesResponse)
+	err := c.cc.Invoke(ctx, CharacteristicsService_GetNumberOfSupportedDataInterfaces_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *characteristicsServiceClient) GetNumberOfSupportedDataPaths(ctx context.Context, in *GetNumberOfSupportedDataPathsRequest, opts ...grpc.CallOption) (*GetNumberOfSupportedDataPathsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetNumberOfSupportedDataPathsResponse)
+	err := c.cc.Invoke(ctx, CharacteristicsService_GetNumberOfSupportedDataPaths_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *characteristicsServiceClient) GetNumberOfSupportedPublishSessions(ctx context.Context, in *GetNumberOfSupportedPublishSessionsRequest, opts ...grpc.CallOption) (*GetNumberOfSupportedPublishSessionsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetNumberOfSupportedPublishSessionsResponse)
+	err := c.cc.Invoke(ctx, CharacteristicsService_GetNumberOfSupportedPublishSessions_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *characteristicsServiceClient) GetNumberOfSupportedSubscribeSessions(ctx context.Context, in *GetNumberOfSupportedSubscribeSessionsRequest, opts ...grpc.CallOption) (*GetNumberOfSupportedSubscribeSessionsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetNumberOfSupportedSubscribeSessionsResponse)
+	err := c.cc.Invoke(ctx, CharacteristicsService_GetNumberOfSupportedSubscribeSessions_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *characteristicsServiceClient) GetSupportedCipherSuites(ctx context.Context, in *GetSupportedCipherSuitesRequest, opts ...grpc.CallOption) (*GetSupportedCipherSuitesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSupportedCipherSuitesResponse)
+	err := c.cc.Invoke(ctx, CharacteristicsService_GetSupportedCipherSuites_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *characteristicsServiceClient) GetSupportedPairingCipherSuites(ctx context.Context, in *GetSupportedPairingCipherSuitesRequest, opts ...grpc.CallOption) (*GetSupportedPairingCipherSuitesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSupportedPairingCipherSuitesResponse)
+	err := c.cc.Invoke(ctx, CharacteristicsService_GetSupportedPairingCipherSuites_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *characteristicsServiceClient) IsAwarePairingSupported(ctx context.Context, in *IsAwarePairingSupportedRequest, opts ...grpc.CallOption) (*IsAwarePairingSupportedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsAwarePairingSupportedResponse)
+	err := c.cc.Invoke(ctx, CharacteristicsService_IsAwarePairingSupported_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *characteristicsServiceClient) IsInstantCommunicationModeSupported(ctx context.Context, in *IsInstantCommunicationModeSupportedRequest, opts ...grpc.CallOption) (*IsInstantCommunicationModeSupportedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsInstantCommunicationModeSupportedResponse)
+	err := c.cc.Invoke(ctx, CharacteristicsService_IsInstantCommunicationModeSupported_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *characteristicsServiceClient) IsSuspensionSupported(ctx context.Context, in *IsSuspensionSupportedRequest, opts ...grpc.CallOption) (*IsSuspensionSupportedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsSuspensionSupportedResponse)
+	err := c.cc.Invoke(ctx, CharacteristicsService_IsSuspensionSupported_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *characteristicsServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, CharacteristicsService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// CharacteristicsServiceServer is the server API for CharacteristicsService service.
+// All implementations must embed UnimplementedCharacteristicsServiceServer
+// for forward compatibility.
+type CharacteristicsServiceServer interface {
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	GetMaxMatchFilterLength(context.Context, *GetMaxMatchFilterLengthRequest) (*GetMaxMatchFilterLengthResponse, error)
+	GetMaxServiceNameLength(context.Context, *GetMaxServiceNameLengthRequest) (*GetMaxServiceNameLengthResponse, error)
+	GetMaxServiceSpecificInfoLength(context.Context, *GetMaxServiceSpecificInfoLengthRequest) (*GetMaxServiceSpecificInfoLengthResponse, error)
+	GetNumberOfSupportedDataInterfaces(context.Context, *GetNumberOfSupportedDataInterfacesRequest) (*GetNumberOfSupportedDataInterfacesResponse, error)
+	GetNumberOfSupportedDataPaths(context.Context, *GetNumberOfSupportedDataPathsRequest) (*GetNumberOfSupportedDataPathsResponse, error)
+	GetNumberOfSupportedPublishSessions(context.Context, *GetNumberOfSupportedPublishSessionsRequest) (*GetNumberOfSupportedPublishSessionsResponse, error)
+	GetNumberOfSupportedSubscribeSessions(context.Context, *GetNumberOfSupportedSubscribeSessionsRequest) (*GetNumberOfSupportedSubscribeSessionsResponse, error)
+	GetSupportedCipherSuites(context.Context, *GetSupportedCipherSuitesRequest) (*GetSupportedCipherSuitesResponse, error)
+	GetSupportedPairingCipherSuites(context.Context, *GetSupportedPairingCipherSuitesRequest) (*GetSupportedPairingCipherSuitesResponse, error)
+	IsAwarePairingSupported(context.Context, *IsAwarePairingSupportedRequest) (*IsAwarePairingSupportedResponse, error)
+	IsInstantCommunicationModeSupported(context.Context, *IsInstantCommunicationModeSupportedRequest) (*IsInstantCommunicationModeSupportedResponse, error)
+	IsSuspensionSupported(context.Context, *IsSuspensionSupportedRequest) (*IsSuspensionSupportedResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedCharacteristicsServiceServer()
+}
+
+// UnimplementedCharacteristicsServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedCharacteristicsServiceServer struct{}
+
+func (UnimplementedCharacteristicsServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedCharacteristicsServiceServer) GetMaxMatchFilterLength(context.Context, *GetMaxMatchFilterLengthRequest) (*GetMaxMatchFilterLengthResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetMaxMatchFilterLength not implemented")
+}
+func (UnimplementedCharacteristicsServiceServer) GetMaxServiceNameLength(context.Context, *GetMaxServiceNameLengthRequest) (*GetMaxServiceNameLengthResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetMaxServiceNameLength not implemented")
+}
+func (UnimplementedCharacteristicsServiceServer) GetMaxServiceSpecificInfoLength(context.Context, *GetMaxServiceSpecificInfoLengthRequest) (*GetMaxServiceSpecificInfoLengthResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetMaxServiceSpecificInfoLength not implemented")
+}
+func (UnimplementedCharacteristicsServiceServer) GetNumberOfSupportedDataInterfaces(context.Context, *GetNumberOfSupportedDataInterfacesRequest) (*GetNumberOfSupportedDataInterfacesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetNumberOfSupportedDataInterfaces not implemented")
+}
+func (UnimplementedCharacteristicsServiceServer) GetNumberOfSupportedDataPaths(context.Context, *GetNumberOfSupportedDataPathsRequest) (*GetNumberOfSupportedDataPathsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetNumberOfSupportedDataPaths not implemented")
+}
+func (UnimplementedCharacteristicsServiceServer) GetNumberOfSupportedPublishSessions(context.Context, *GetNumberOfSupportedPublishSessionsRequest) (*GetNumberOfSupportedPublishSessionsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetNumberOfSupportedPublishSessions not implemented")
+}
+func (UnimplementedCharacteristicsServiceServer) GetNumberOfSupportedSubscribeSessions(context.Context, *GetNumberOfSupportedSubscribeSessionsRequest) (*GetNumberOfSupportedSubscribeSessionsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetNumberOfSupportedSubscribeSessions not implemented")
+}
+func (UnimplementedCharacteristicsServiceServer) GetSupportedCipherSuites(context.Context, *GetSupportedCipherSuitesRequest) (*GetSupportedCipherSuitesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSupportedCipherSuites not implemented")
+}
+func (UnimplementedCharacteristicsServiceServer) GetSupportedPairingCipherSuites(context.Context, *GetSupportedPairingCipherSuitesRequest) (*GetSupportedPairingCipherSuitesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSupportedPairingCipherSuites not implemented")
+}
+func (UnimplementedCharacteristicsServiceServer) IsAwarePairingSupported(context.Context, *IsAwarePairingSupportedRequest) (*IsAwarePairingSupportedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsAwarePairingSupported not implemented")
+}
+func (UnimplementedCharacteristicsServiceServer) IsInstantCommunicationModeSupported(context.Context, *IsInstantCommunicationModeSupportedRequest) (*IsInstantCommunicationModeSupportedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsInstantCommunicationModeSupported not implemented")
+}
+func (UnimplementedCharacteristicsServiceServer) IsSuspensionSupported(context.Context, *IsSuspensionSupportedRequest) (*IsSuspensionSupportedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsSuspensionSupported not implemented")
+}
+func (UnimplementedCharacteristicsServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedCharacteristicsServiceServer) mustEmbedUnimplementedCharacteristicsServiceServer() {
+}
+func (UnimplementedCharacteristicsServiceServer) testEmbeddedByValue() {}
+
+// UnsafeCharacteristicsServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to CharacteristicsServiceServer will
+// result in compilation errors.
+type UnsafeCharacteristicsServiceServer interface {
+	mustEmbedUnimplementedCharacteristicsServiceServer()
+}
+
+func RegisterCharacteristicsServiceServer(s grpc.ServiceRegistrar, srv CharacteristicsServiceServer) {
+	// If the following call panics, it indicates UnimplementedCharacteristicsServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&CharacteristicsService_ServiceDesc, srv)
+}
+
+func _CharacteristicsService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CharacteristicsServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CharacteristicsService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CharacteristicsServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CharacteristicsService_GetMaxMatchFilterLength_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetMaxMatchFilterLengthRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CharacteristicsServiceServer).GetMaxMatchFilterLength(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CharacteristicsService_GetMaxMatchFilterLength_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CharacteristicsServiceServer).GetMaxMatchFilterLength(ctx, req.(*GetMaxMatchFilterLengthRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CharacteristicsService_GetMaxServiceNameLength_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetMaxServiceNameLengthRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CharacteristicsServiceServer).GetMaxServiceNameLength(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CharacteristicsService_GetMaxServiceNameLength_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CharacteristicsServiceServer).GetMaxServiceNameLength(ctx, req.(*GetMaxServiceNameLengthRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CharacteristicsService_GetMaxServiceSpecificInfoLength_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetMaxServiceSpecificInfoLengthRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CharacteristicsServiceServer).GetMaxServiceSpecificInfoLength(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CharacteristicsService_GetMaxServiceSpecificInfoLength_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CharacteristicsServiceServer).GetMaxServiceSpecificInfoLength(ctx, req.(*GetMaxServiceSpecificInfoLengthRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CharacteristicsService_GetNumberOfSupportedDataInterfaces_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetNumberOfSupportedDataInterfacesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CharacteristicsServiceServer).GetNumberOfSupportedDataInterfaces(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CharacteristicsService_GetNumberOfSupportedDataInterfaces_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CharacteristicsServiceServer).GetNumberOfSupportedDataInterfaces(ctx, req.(*GetNumberOfSupportedDataInterfacesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CharacteristicsService_GetNumberOfSupportedDataPaths_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetNumberOfSupportedDataPathsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CharacteristicsServiceServer).GetNumberOfSupportedDataPaths(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CharacteristicsService_GetNumberOfSupportedDataPaths_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CharacteristicsServiceServer).GetNumberOfSupportedDataPaths(ctx, req.(*GetNumberOfSupportedDataPathsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CharacteristicsService_GetNumberOfSupportedPublishSessions_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetNumberOfSupportedPublishSessionsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CharacteristicsServiceServer).GetNumberOfSupportedPublishSessions(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CharacteristicsService_GetNumberOfSupportedPublishSessions_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CharacteristicsServiceServer).GetNumberOfSupportedPublishSessions(ctx, req.(*GetNumberOfSupportedPublishSessionsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CharacteristicsService_GetNumberOfSupportedSubscribeSessions_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetNumberOfSupportedSubscribeSessionsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CharacteristicsServiceServer).GetNumberOfSupportedSubscribeSessions(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CharacteristicsService_GetNumberOfSupportedSubscribeSessions_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CharacteristicsServiceServer).GetNumberOfSupportedSubscribeSessions(ctx, req.(*GetNumberOfSupportedSubscribeSessionsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CharacteristicsService_GetSupportedCipherSuites_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSupportedCipherSuitesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CharacteristicsServiceServer).GetSupportedCipherSuites(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CharacteristicsService_GetSupportedCipherSuites_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CharacteristicsServiceServer).GetSupportedCipherSuites(ctx, req.(*GetSupportedCipherSuitesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CharacteristicsService_GetSupportedPairingCipherSuites_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSupportedPairingCipherSuitesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CharacteristicsServiceServer).GetSupportedPairingCipherSuites(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CharacteristicsService_GetSupportedPairingCipherSuites_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CharacteristicsServiceServer).GetSupportedPairingCipherSuites(ctx, req.(*GetSupportedPairingCipherSuitesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CharacteristicsService_IsAwarePairingSupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsAwarePairingSupportedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CharacteristicsServiceServer).IsAwarePairingSupported(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CharacteristicsService_IsAwarePairingSupported_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CharacteristicsServiceServer).IsAwarePairingSupported(ctx, req.(*IsAwarePairingSupportedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CharacteristicsService_IsInstantCommunicationModeSupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsInstantCommunicationModeSupportedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CharacteristicsServiceServer).IsInstantCommunicationModeSupported(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CharacteristicsService_IsInstantCommunicationModeSupported_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CharacteristicsServiceServer).IsInstantCommunicationModeSupported(ctx, req.(*IsInstantCommunicationModeSupportedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CharacteristicsService_IsSuspensionSupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsSuspensionSupportedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CharacteristicsServiceServer).IsSuspensionSupported(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CharacteristicsService_IsSuspensionSupported_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CharacteristicsServiceServer).IsSuspensionSupported(ctx, req.(*IsSuspensionSupportedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CharacteristicsService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CharacteristicsServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CharacteristicsService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CharacteristicsServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// CharacteristicsService_ServiceDesc is the grpc.ServiceDesc for CharacteristicsService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var CharacteristicsService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "aware.CharacteristicsService",
+	HandlerType: (*CharacteristicsServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "DescribeContents",
+			Handler:    _CharacteristicsService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "GetMaxMatchFilterLength",
+			Handler:    _CharacteristicsService_GetMaxMatchFilterLength_Handler,
+		},
+		{
+			MethodName: "GetMaxServiceNameLength",
+			Handler:    _CharacteristicsService_GetMaxServiceNameLength_Handler,
+		},
+		{
+			MethodName: "GetMaxServiceSpecificInfoLength",
+			Handler:    _CharacteristicsService_GetMaxServiceSpecificInfoLength_Handler,
+		},
+		{
+			MethodName: "GetNumberOfSupportedDataInterfaces",
+			Handler:    _CharacteristicsService_GetNumberOfSupportedDataInterfaces_Handler,
+		},
+		{
+			MethodName: "GetNumberOfSupportedDataPaths",
+			Handler:    _CharacteristicsService_GetNumberOfSupportedDataPaths_Handler,
+		},
+		{
+			MethodName: "GetNumberOfSupportedPublishSessions",
+			Handler:    _CharacteristicsService_GetNumberOfSupportedPublishSessions_Handler,
+		},
+		{
+			MethodName: "GetNumberOfSupportedSubscribeSessions",
+			Handler:    _CharacteristicsService_GetNumberOfSupportedSubscribeSessions_Handler,
+		},
+		{
+			MethodName: "GetSupportedCipherSuites",
+			Handler:    _CharacteristicsService_GetSupportedCipherSuites_Handler,
+		},
+		{
+			MethodName: "GetSupportedPairingCipherSuites",
+			Handler:    _CharacteristicsService_GetSupportedPairingCipherSuites_Handler,
+		},
+		{
+			MethodName: "IsAwarePairingSupported",
+			Handler:    _CharacteristicsService_IsAwarePairingSupported_Handler,
+		},
+		{
+			MethodName: "IsInstantCommunicationModeSupported",
+			Handler:    _CharacteristicsService_IsInstantCommunicationModeSupported_Handler,
+		},
+		{
+			MethodName: "IsSuspensionSupported",
+			Handler:    _CharacteristicsService_IsSuspensionSupported_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _CharacteristicsService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/aware/aware.proto",
+}
+
+const (
 	PairingConfigService_DescribeContents_FullMethodName             = "/aware.PairingConfigService/DescribeContents"
 	PairingConfigService_Equals_FullMethodName                       = "/aware.PairingConfigService/Equals"
 	PairingConfigService_GetBootstrappingMethods_FullMethodName      = "/aware.PairingConfigService/GetBootstrappingMethods"
@@ -5762,7 +7721,7 @@ const (
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type PairingConfigServiceClient interface {
-	DescribeContents(ctx context.Context, in *PairingConfigDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
 	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
 	GetBootstrappingMethods(ctx context.Context, in *GetBootstrappingMethodsRequest, opts ...grpc.CallOption) (*GetBootstrappingMethodsResponse, error)
 	GetSupportedCipherSuites(ctx context.Context, in *GetSupportedCipherSuitesRequest, opts ...grpc.CallOption) (*GetSupportedCipherSuitesResponse, error)
@@ -5770,7 +7729,7 @@ type PairingConfigServiceClient interface {
 	IsPairingCacheEnabled(ctx context.Context, in *IsPairingCacheEnabledRequest, opts ...grpc.CallOption) (*IsPairingCacheEnabledResponse, error)
 	IsPairingSetupEnabled(ctx context.Context, in *IsPairingSetupEnabledRequest, opts ...grpc.CallOption) (*IsPairingSetupEnabledResponse, error)
 	IsPairingVerificationEnabled(ctx context.Context, in *IsPairingVerificationEnabledRequest, opts ...grpc.CallOption) (*IsPairingVerificationEnabledResponse, error)
-	WriteToParcel(ctx context.Context, in *PairingConfigWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
 }
 
 type pairingConfigServiceClient struct {
@@ -5781,7 +7740,7 @@ func NewPairingConfigServiceClient(cc grpc.ClientConnInterface) PairingConfigSer
 	return &pairingConfigServiceClient{cc}
 }
 
-func (c *pairingConfigServiceClient) DescribeContents(ctx context.Context, in *PairingConfigDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+func (c *pairingConfigServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(DescribeContentsResponse)
 	err := c.cc.Invoke(ctx, PairingConfigService_DescribeContents_FullMethodName, in, out, cOpts...)
@@ -5861,7 +7820,7 @@ func (c *pairingConfigServiceClient) IsPairingVerificationEnabled(ctx context.Co
 	return out, nil
 }
 
-func (c *pairingConfigServiceClient) WriteToParcel(ctx context.Context, in *PairingConfigWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+func (c *pairingConfigServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(WriteToParcelResponse)
 	err := c.cc.Invoke(ctx, PairingConfigService_WriteToParcel_FullMethodName, in, out, cOpts...)
@@ -5875,7 +7834,7 @@ func (c *pairingConfigServiceClient) WriteToParcel(ctx context.Context, in *Pair
 // All implementations must embed UnimplementedPairingConfigServiceServer
 // for forward compatibility.
 type PairingConfigServiceServer interface {
-	DescribeContents(context.Context, *PairingConfigDescribeContentsRequest) (*DescribeContentsResponse, error)
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
 	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
 	GetBootstrappingMethods(context.Context, *GetBootstrappingMethodsRequest) (*GetBootstrappingMethodsResponse, error)
 	GetSupportedCipherSuites(context.Context, *GetSupportedCipherSuitesRequest) (*GetSupportedCipherSuitesResponse, error)
@@ -5883,7 +7842,7 @@ type PairingConfigServiceServer interface {
 	IsPairingCacheEnabled(context.Context, *IsPairingCacheEnabledRequest) (*IsPairingCacheEnabledResponse, error)
 	IsPairingSetupEnabled(context.Context, *IsPairingSetupEnabledRequest) (*IsPairingSetupEnabledResponse, error)
 	IsPairingVerificationEnabled(context.Context, *IsPairingVerificationEnabledRequest) (*IsPairingVerificationEnabledResponse, error)
-	WriteToParcel(context.Context, *PairingConfigWriteToParcelRequest) (*WriteToParcelResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
 	mustEmbedUnimplementedPairingConfigServiceServer()
 }
 
@@ -5894,7 +7853,7 @@ type PairingConfigServiceServer interface {
 // pointer dereference when methods are called.
 type UnimplementedPairingConfigServiceServer struct{}
 
-func (UnimplementedPairingConfigServiceServer) DescribeContents(context.Context, *PairingConfigDescribeContentsRequest) (*DescribeContentsResponse, error) {
+func (UnimplementedPairingConfigServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
 }
 func (UnimplementedPairingConfigServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
@@ -5918,7 +7877,7 @@ func (UnimplementedPairingConfigServiceServer) IsPairingSetupEnabled(context.Con
 func (UnimplementedPairingConfigServiceServer) IsPairingVerificationEnabled(context.Context, *IsPairingVerificationEnabledRequest) (*IsPairingVerificationEnabledResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method IsPairingVerificationEnabled not implemented")
 }
-func (UnimplementedPairingConfigServiceServer) WriteToParcel(context.Context, *PairingConfigWriteToParcelRequest) (*WriteToParcelResponse, error) {
+func (UnimplementedPairingConfigServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
 }
 func (UnimplementedPairingConfigServiceServer) mustEmbedUnimplementedPairingConfigServiceServer() {}
@@ -5943,7 +7902,7 @@ func RegisterPairingConfigServiceServer(s grpc.ServiceRegistrar, srv PairingConf
 }
 
 func _PairingConfigService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(PairingConfigDescribeContentsRequest)
+	in := new(DescribeContentsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -5955,7 +7914,7 @@ func _PairingConfigService_DescribeContents_Handler(srv interface{}, ctx context
 		FullMethod: PairingConfigService_DescribeContents_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PairingConfigServiceServer).DescribeContents(ctx, req.(*PairingConfigDescribeContentsRequest))
+		return srv.(PairingConfigServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -6087,7 +8046,7 @@ func _PairingConfigService_IsPairingVerificationEnabled_Handler(srv interface{},
 }
 
 func _PairingConfigService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(PairingConfigWriteToParcelRequest)
+	in := new(WriteToParcelRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -6099,7 +8058,7 @@ func _PairingConfigService_WriteToParcel_Handler(srv interface{}, ctx context.Co
 		FullMethod: PairingConfigService_WriteToParcel_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PairingConfigServiceServer).WriteToParcel(ctx, req.(*PairingConfigWriteToParcelRequest))
+		return srv.(PairingConfigServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -6439,1889 +8398,6 @@ var PairingConfigBuilderService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "SetSupportedCipherSuites",
 			Handler:    _PairingConfigBuilderService_SetSupportedCipherSuites_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/aware/aware.proto",
-}
-
-const (
-	CharacteristicsService_DescribeContents_FullMethodName                      = "/aware.CharacteristicsService/DescribeContents"
-	CharacteristicsService_GetMaxMatchFilterLength_FullMethodName               = "/aware.CharacteristicsService/GetMaxMatchFilterLength"
-	CharacteristicsService_GetMaxServiceNameLength_FullMethodName               = "/aware.CharacteristicsService/GetMaxServiceNameLength"
-	CharacteristicsService_GetMaxServiceSpecificInfoLength_FullMethodName       = "/aware.CharacteristicsService/GetMaxServiceSpecificInfoLength"
-	CharacteristicsService_GetNumberOfSupportedDataInterfaces_FullMethodName    = "/aware.CharacteristicsService/GetNumberOfSupportedDataInterfaces"
-	CharacteristicsService_GetNumberOfSupportedDataPaths_FullMethodName         = "/aware.CharacteristicsService/GetNumberOfSupportedDataPaths"
-	CharacteristicsService_GetNumberOfSupportedPublishSessions_FullMethodName   = "/aware.CharacteristicsService/GetNumberOfSupportedPublishSessions"
-	CharacteristicsService_GetNumberOfSupportedSubscribeSessions_FullMethodName = "/aware.CharacteristicsService/GetNumberOfSupportedSubscribeSessions"
-	CharacteristicsService_GetSupportedCipherSuites_FullMethodName              = "/aware.CharacteristicsService/GetSupportedCipherSuites"
-	CharacteristicsService_GetSupportedPairingCipherSuites_FullMethodName       = "/aware.CharacteristicsService/GetSupportedPairingCipherSuites"
-	CharacteristicsService_IsAwarePairingSupported_FullMethodName               = "/aware.CharacteristicsService/IsAwarePairingSupported"
-	CharacteristicsService_IsInstantCommunicationModeSupported_FullMethodName   = "/aware.CharacteristicsService/IsInstantCommunicationModeSupported"
-	CharacteristicsService_IsSuspensionSupported_FullMethodName                 = "/aware.CharacteristicsService/IsSuspensionSupported"
-	CharacteristicsService_WriteToParcel_FullMethodName                         = "/aware.CharacteristicsService/WriteToParcel"
-)
-
-// CharacteristicsServiceClient is the client API for CharacteristicsService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type CharacteristicsServiceClient interface {
-	DescribeContents(ctx context.Context, in *CharacteristicsDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	GetMaxMatchFilterLength(ctx context.Context, in *GetMaxMatchFilterLengthRequest, opts ...grpc.CallOption) (*GetMaxMatchFilterLengthResponse, error)
-	GetMaxServiceNameLength(ctx context.Context, in *GetMaxServiceNameLengthRequest, opts ...grpc.CallOption) (*GetMaxServiceNameLengthResponse, error)
-	GetMaxServiceSpecificInfoLength(ctx context.Context, in *GetMaxServiceSpecificInfoLengthRequest, opts ...grpc.CallOption) (*GetMaxServiceSpecificInfoLengthResponse, error)
-	GetNumberOfSupportedDataInterfaces(ctx context.Context, in *GetNumberOfSupportedDataInterfacesRequest, opts ...grpc.CallOption) (*GetNumberOfSupportedDataInterfacesResponse, error)
-	GetNumberOfSupportedDataPaths(ctx context.Context, in *GetNumberOfSupportedDataPathsRequest, opts ...grpc.CallOption) (*GetNumberOfSupportedDataPathsResponse, error)
-	GetNumberOfSupportedPublishSessions(ctx context.Context, in *GetNumberOfSupportedPublishSessionsRequest, opts ...grpc.CallOption) (*GetNumberOfSupportedPublishSessionsResponse, error)
-	GetNumberOfSupportedSubscribeSessions(ctx context.Context, in *GetNumberOfSupportedSubscribeSessionsRequest, opts ...grpc.CallOption) (*GetNumberOfSupportedSubscribeSessionsResponse, error)
-	GetSupportedCipherSuites(ctx context.Context, in *GetSupportedCipherSuitesRequest, opts ...grpc.CallOption) (*GetSupportedCipherSuitesResponse, error)
-	GetSupportedPairingCipherSuites(ctx context.Context, in *GetSupportedPairingCipherSuitesRequest, opts ...grpc.CallOption) (*GetSupportedPairingCipherSuitesResponse, error)
-	IsAwarePairingSupported(ctx context.Context, in *IsAwarePairingSupportedRequest, opts ...grpc.CallOption) (*IsAwarePairingSupportedResponse, error)
-	IsInstantCommunicationModeSupported(ctx context.Context, in *IsInstantCommunicationModeSupportedRequest, opts ...grpc.CallOption) (*IsInstantCommunicationModeSupportedResponse, error)
-	IsSuspensionSupported(ctx context.Context, in *IsSuspensionSupportedRequest, opts ...grpc.CallOption) (*IsSuspensionSupportedResponse, error)
-	WriteToParcel(ctx context.Context, in *CharacteristicsWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
-}
-
-type characteristicsServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewCharacteristicsServiceClient(cc grpc.ClientConnInterface) CharacteristicsServiceClient {
-	return &characteristicsServiceClient{cc}
-}
-
-func (c *characteristicsServiceClient) DescribeContents(ctx context.Context, in *CharacteristicsDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, CharacteristicsService_DescribeContents_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *characteristicsServiceClient) GetMaxMatchFilterLength(ctx context.Context, in *GetMaxMatchFilterLengthRequest, opts ...grpc.CallOption) (*GetMaxMatchFilterLengthResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetMaxMatchFilterLengthResponse)
-	err := c.cc.Invoke(ctx, CharacteristicsService_GetMaxMatchFilterLength_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *characteristicsServiceClient) GetMaxServiceNameLength(ctx context.Context, in *GetMaxServiceNameLengthRequest, opts ...grpc.CallOption) (*GetMaxServiceNameLengthResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetMaxServiceNameLengthResponse)
-	err := c.cc.Invoke(ctx, CharacteristicsService_GetMaxServiceNameLength_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *characteristicsServiceClient) GetMaxServiceSpecificInfoLength(ctx context.Context, in *GetMaxServiceSpecificInfoLengthRequest, opts ...grpc.CallOption) (*GetMaxServiceSpecificInfoLengthResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetMaxServiceSpecificInfoLengthResponse)
-	err := c.cc.Invoke(ctx, CharacteristicsService_GetMaxServiceSpecificInfoLength_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *characteristicsServiceClient) GetNumberOfSupportedDataInterfaces(ctx context.Context, in *GetNumberOfSupportedDataInterfacesRequest, opts ...grpc.CallOption) (*GetNumberOfSupportedDataInterfacesResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetNumberOfSupportedDataInterfacesResponse)
-	err := c.cc.Invoke(ctx, CharacteristicsService_GetNumberOfSupportedDataInterfaces_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *characteristicsServiceClient) GetNumberOfSupportedDataPaths(ctx context.Context, in *GetNumberOfSupportedDataPathsRequest, opts ...grpc.CallOption) (*GetNumberOfSupportedDataPathsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetNumberOfSupportedDataPathsResponse)
-	err := c.cc.Invoke(ctx, CharacteristicsService_GetNumberOfSupportedDataPaths_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *characteristicsServiceClient) GetNumberOfSupportedPublishSessions(ctx context.Context, in *GetNumberOfSupportedPublishSessionsRequest, opts ...grpc.CallOption) (*GetNumberOfSupportedPublishSessionsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetNumberOfSupportedPublishSessionsResponse)
-	err := c.cc.Invoke(ctx, CharacteristicsService_GetNumberOfSupportedPublishSessions_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *characteristicsServiceClient) GetNumberOfSupportedSubscribeSessions(ctx context.Context, in *GetNumberOfSupportedSubscribeSessionsRequest, opts ...grpc.CallOption) (*GetNumberOfSupportedSubscribeSessionsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetNumberOfSupportedSubscribeSessionsResponse)
-	err := c.cc.Invoke(ctx, CharacteristicsService_GetNumberOfSupportedSubscribeSessions_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *characteristicsServiceClient) GetSupportedCipherSuites(ctx context.Context, in *GetSupportedCipherSuitesRequest, opts ...grpc.CallOption) (*GetSupportedCipherSuitesResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetSupportedCipherSuitesResponse)
-	err := c.cc.Invoke(ctx, CharacteristicsService_GetSupportedCipherSuites_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *characteristicsServiceClient) GetSupportedPairingCipherSuites(ctx context.Context, in *GetSupportedPairingCipherSuitesRequest, opts ...grpc.CallOption) (*GetSupportedPairingCipherSuitesResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetSupportedPairingCipherSuitesResponse)
-	err := c.cc.Invoke(ctx, CharacteristicsService_GetSupportedPairingCipherSuites_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *characteristicsServiceClient) IsAwarePairingSupported(ctx context.Context, in *IsAwarePairingSupportedRequest, opts ...grpc.CallOption) (*IsAwarePairingSupportedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsAwarePairingSupportedResponse)
-	err := c.cc.Invoke(ctx, CharacteristicsService_IsAwarePairingSupported_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *characteristicsServiceClient) IsInstantCommunicationModeSupported(ctx context.Context, in *IsInstantCommunicationModeSupportedRequest, opts ...grpc.CallOption) (*IsInstantCommunicationModeSupportedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsInstantCommunicationModeSupportedResponse)
-	err := c.cc.Invoke(ctx, CharacteristicsService_IsInstantCommunicationModeSupported_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *characteristicsServiceClient) IsSuspensionSupported(ctx context.Context, in *IsSuspensionSupportedRequest, opts ...grpc.CallOption) (*IsSuspensionSupportedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsSuspensionSupportedResponse)
-	err := c.cc.Invoke(ctx, CharacteristicsService_IsSuspensionSupported_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *characteristicsServiceClient) WriteToParcel(ctx context.Context, in *CharacteristicsWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, CharacteristicsService_WriteToParcel_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// CharacteristicsServiceServer is the server API for CharacteristicsService service.
-// All implementations must embed UnimplementedCharacteristicsServiceServer
-// for forward compatibility.
-type CharacteristicsServiceServer interface {
-	DescribeContents(context.Context, *CharacteristicsDescribeContentsRequest) (*DescribeContentsResponse, error)
-	GetMaxMatchFilterLength(context.Context, *GetMaxMatchFilterLengthRequest) (*GetMaxMatchFilterLengthResponse, error)
-	GetMaxServiceNameLength(context.Context, *GetMaxServiceNameLengthRequest) (*GetMaxServiceNameLengthResponse, error)
-	GetMaxServiceSpecificInfoLength(context.Context, *GetMaxServiceSpecificInfoLengthRequest) (*GetMaxServiceSpecificInfoLengthResponse, error)
-	GetNumberOfSupportedDataInterfaces(context.Context, *GetNumberOfSupportedDataInterfacesRequest) (*GetNumberOfSupportedDataInterfacesResponse, error)
-	GetNumberOfSupportedDataPaths(context.Context, *GetNumberOfSupportedDataPathsRequest) (*GetNumberOfSupportedDataPathsResponse, error)
-	GetNumberOfSupportedPublishSessions(context.Context, *GetNumberOfSupportedPublishSessionsRequest) (*GetNumberOfSupportedPublishSessionsResponse, error)
-	GetNumberOfSupportedSubscribeSessions(context.Context, *GetNumberOfSupportedSubscribeSessionsRequest) (*GetNumberOfSupportedSubscribeSessionsResponse, error)
-	GetSupportedCipherSuites(context.Context, *GetSupportedCipherSuitesRequest) (*GetSupportedCipherSuitesResponse, error)
-	GetSupportedPairingCipherSuites(context.Context, *GetSupportedPairingCipherSuitesRequest) (*GetSupportedPairingCipherSuitesResponse, error)
-	IsAwarePairingSupported(context.Context, *IsAwarePairingSupportedRequest) (*IsAwarePairingSupportedResponse, error)
-	IsInstantCommunicationModeSupported(context.Context, *IsInstantCommunicationModeSupportedRequest) (*IsInstantCommunicationModeSupportedResponse, error)
-	IsSuspensionSupported(context.Context, *IsSuspensionSupportedRequest) (*IsSuspensionSupportedResponse, error)
-	WriteToParcel(context.Context, *CharacteristicsWriteToParcelRequest) (*WriteToParcelResponse, error)
-	mustEmbedUnimplementedCharacteristicsServiceServer()
-}
-
-// UnimplementedCharacteristicsServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedCharacteristicsServiceServer struct{}
-
-func (UnimplementedCharacteristicsServiceServer) DescribeContents(context.Context, *CharacteristicsDescribeContentsRequest) (*DescribeContentsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
-}
-func (UnimplementedCharacteristicsServiceServer) GetMaxMatchFilterLength(context.Context, *GetMaxMatchFilterLengthRequest) (*GetMaxMatchFilterLengthResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetMaxMatchFilterLength not implemented")
-}
-func (UnimplementedCharacteristicsServiceServer) GetMaxServiceNameLength(context.Context, *GetMaxServiceNameLengthRequest) (*GetMaxServiceNameLengthResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetMaxServiceNameLength not implemented")
-}
-func (UnimplementedCharacteristicsServiceServer) GetMaxServiceSpecificInfoLength(context.Context, *GetMaxServiceSpecificInfoLengthRequest) (*GetMaxServiceSpecificInfoLengthResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetMaxServiceSpecificInfoLength not implemented")
-}
-func (UnimplementedCharacteristicsServiceServer) GetNumberOfSupportedDataInterfaces(context.Context, *GetNumberOfSupportedDataInterfacesRequest) (*GetNumberOfSupportedDataInterfacesResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetNumberOfSupportedDataInterfaces not implemented")
-}
-func (UnimplementedCharacteristicsServiceServer) GetNumberOfSupportedDataPaths(context.Context, *GetNumberOfSupportedDataPathsRequest) (*GetNumberOfSupportedDataPathsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetNumberOfSupportedDataPaths not implemented")
-}
-func (UnimplementedCharacteristicsServiceServer) GetNumberOfSupportedPublishSessions(context.Context, *GetNumberOfSupportedPublishSessionsRequest) (*GetNumberOfSupportedPublishSessionsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetNumberOfSupportedPublishSessions not implemented")
-}
-func (UnimplementedCharacteristicsServiceServer) GetNumberOfSupportedSubscribeSessions(context.Context, *GetNumberOfSupportedSubscribeSessionsRequest) (*GetNumberOfSupportedSubscribeSessionsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetNumberOfSupportedSubscribeSessions not implemented")
-}
-func (UnimplementedCharacteristicsServiceServer) GetSupportedCipherSuites(context.Context, *GetSupportedCipherSuitesRequest) (*GetSupportedCipherSuitesResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetSupportedCipherSuites not implemented")
-}
-func (UnimplementedCharacteristicsServiceServer) GetSupportedPairingCipherSuites(context.Context, *GetSupportedPairingCipherSuitesRequest) (*GetSupportedPairingCipherSuitesResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetSupportedPairingCipherSuites not implemented")
-}
-func (UnimplementedCharacteristicsServiceServer) IsAwarePairingSupported(context.Context, *IsAwarePairingSupportedRequest) (*IsAwarePairingSupportedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsAwarePairingSupported not implemented")
-}
-func (UnimplementedCharacteristicsServiceServer) IsInstantCommunicationModeSupported(context.Context, *IsInstantCommunicationModeSupportedRequest) (*IsInstantCommunicationModeSupportedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsInstantCommunicationModeSupported not implemented")
-}
-func (UnimplementedCharacteristicsServiceServer) IsSuspensionSupported(context.Context, *IsSuspensionSupportedRequest) (*IsSuspensionSupportedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsSuspensionSupported not implemented")
-}
-func (UnimplementedCharacteristicsServiceServer) WriteToParcel(context.Context, *CharacteristicsWriteToParcelRequest) (*WriteToParcelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
-}
-func (UnimplementedCharacteristicsServiceServer) mustEmbedUnimplementedCharacteristicsServiceServer() {
-}
-func (UnimplementedCharacteristicsServiceServer) testEmbeddedByValue() {}
-
-// UnsafeCharacteristicsServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to CharacteristicsServiceServer will
-// result in compilation errors.
-type UnsafeCharacteristicsServiceServer interface {
-	mustEmbedUnimplementedCharacteristicsServiceServer()
-}
-
-func RegisterCharacteristicsServiceServer(s grpc.ServiceRegistrar, srv CharacteristicsServiceServer) {
-	// If the following call panics, it indicates UnimplementedCharacteristicsServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&CharacteristicsService_ServiceDesc, srv)
-}
-
-func _CharacteristicsService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CharacteristicsDescribeContentsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CharacteristicsServiceServer).DescribeContents(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CharacteristicsService_DescribeContents_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CharacteristicsServiceServer).DescribeContents(ctx, req.(*CharacteristicsDescribeContentsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CharacteristicsService_GetMaxMatchFilterLength_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetMaxMatchFilterLengthRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CharacteristicsServiceServer).GetMaxMatchFilterLength(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CharacteristicsService_GetMaxMatchFilterLength_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CharacteristicsServiceServer).GetMaxMatchFilterLength(ctx, req.(*GetMaxMatchFilterLengthRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CharacteristicsService_GetMaxServiceNameLength_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetMaxServiceNameLengthRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CharacteristicsServiceServer).GetMaxServiceNameLength(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CharacteristicsService_GetMaxServiceNameLength_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CharacteristicsServiceServer).GetMaxServiceNameLength(ctx, req.(*GetMaxServiceNameLengthRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CharacteristicsService_GetMaxServiceSpecificInfoLength_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetMaxServiceSpecificInfoLengthRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CharacteristicsServiceServer).GetMaxServiceSpecificInfoLength(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CharacteristicsService_GetMaxServiceSpecificInfoLength_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CharacteristicsServiceServer).GetMaxServiceSpecificInfoLength(ctx, req.(*GetMaxServiceSpecificInfoLengthRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CharacteristicsService_GetNumberOfSupportedDataInterfaces_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetNumberOfSupportedDataInterfacesRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CharacteristicsServiceServer).GetNumberOfSupportedDataInterfaces(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CharacteristicsService_GetNumberOfSupportedDataInterfaces_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CharacteristicsServiceServer).GetNumberOfSupportedDataInterfaces(ctx, req.(*GetNumberOfSupportedDataInterfacesRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CharacteristicsService_GetNumberOfSupportedDataPaths_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetNumberOfSupportedDataPathsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CharacteristicsServiceServer).GetNumberOfSupportedDataPaths(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CharacteristicsService_GetNumberOfSupportedDataPaths_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CharacteristicsServiceServer).GetNumberOfSupportedDataPaths(ctx, req.(*GetNumberOfSupportedDataPathsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CharacteristicsService_GetNumberOfSupportedPublishSessions_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetNumberOfSupportedPublishSessionsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CharacteristicsServiceServer).GetNumberOfSupportedPublishSessions(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CharacteristicsService_GetNumberOfSupportedPublishSessions_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CharacteristicsServiceServer).GetNumberOfSupportedPublishSessions(ctx, req.(*GetNumberOfSupportedPublishSessionsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CharacteristicsService_GetNumberOfSupportedSubscribeSessions_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetNumberOfSupportedSubscribeSessionsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CharacteristicsServiceServer).GetNumberOfSupportedSubscribeSessions(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CharacteristicsService_GetNumberOfSupportedSubscribeSessions_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CharacteristicsServiceServer).GetNumberOfSupportedSubscribeSessions(ctx, req.(*GetNumberOfSupportedSubscribeSessionsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CharacteristicsService_GetSupportedCipherSuites_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetSupportedCipherSuitesRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CharacteristicsServiceServer).GetSupportedCipherSuites(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CharacteristicsService_GetSupportedCipherSuites_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CharacteristicsServiceServer).GetSupportedCipherSuites(ctx, req.(*GetSupportedCipherSuitesRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CharacteristicsService_GetSupportedPairingCipherSuites_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetSupportedPairingCipherSuitesRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CharacteristicsServiceServer).GetSupportedPairingCipherSuites(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CharacteristicsService_GetSupportedPairingCipherSuites_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CharacteristicsServiceServer).GetSupportedPairingCipherSuites(ctx, req.(*GetSupportedPairingCipherSuitesRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CharacteristicsService_IsAwarePairingSupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsAwarePairingSupportedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CharacteristicsServiceServer).IsAwarePairingSupported(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CharacteristicsService_IsAwarePairingSupported_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CharacteristicsServiceServer).IsAwarePairingSupported(ctx, req.(*IsAwarePairingSupportedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CharacteristicsService_IsInstantCommunicationModeSupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsInstantCommunicationModeSupportedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CharacteristicsServiceServer).IsInstantCommunicationModeSupported(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CharacteristicsService_IsInstantCommunicationModeSupported_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CharacteristicsServiceServer).IsInstantCommunicationModeSupported(ctx, req.(*IsInstantCommunicationModeSupportedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CharacteristicsService_IsSuspensionSupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsSuspensionSupportedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CharacteristicsServiceServer).IsSuspensionSupported(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CharacteristicsService_IsSuspensionSupported_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CharacteristicsServiceServer).IsSuspensionSupported(ctx, req.(*IsSuspensionSupportedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CharacteristicsService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CharacteristicsWriteToParcelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CharacteristicsServiceServer).WriteToParcel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CharacteristicsService_WriteToParcel_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CharacteristicsServiceServer).WriteToParcel(ctx, req.(*CharacteristicsWriteToParcelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// CharacteristicsService_ServiceDesc is the grpc.ServiceDesc for CharacteristicsService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var CharacteristicsService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "aware.CharacteristicsService",
-	HandlerType: (*CharacteristicsServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "DescribeContents",
-			Handler:    _CharacteristicsService_DescribeContents_Handler,
-		},
-		{
-			MethodName: "GetMaxMatchFilterLength",
-			Handler:    _CharacteristicsService_GetMaxMatchFilterLength_Handler,
-		},
-		{
-			MethodName: "GetMaxServiceNameLength",
-			Handler:    _CharacteristicsService_GetMaxServiceNameLength_Handler,
-		},
-		{
-			MethodName: "GetMaxServiceSpecificInfoLength",
-			Handler:    _CharacteristicsService_GetMaxServiceSpecificInfoLength_Handler,
-		},
-		{
-			MethodName: "GetNumberOfSupportedDataInterfaces",
-			Handler:    _CharacteristicsService_GetNumberOfSupportedDataInterfaces_Handler,
-		},
-		{
-			MethodName: "GetNumberOfSupportedDataPaths",
-			Handler:    _CharacteristicsService_GetNumberOfSupportedDataPaths_Handler,
-		},
-		{
-			MethodName: "GetNumberOfSupportedPublishSessions",
-			Handler:    _CharacteristicsService_GetNumberOfSupportedPublishSessions_Handler,
-		},
-		{
-			MethodName: "GetNumberOfSupportedSubscribeSessions",
-			Handler:    _CharacteristicsService_GetNumberOfSupportedSubscribeSessions_Handler,
-		},
-		{
-			MethodName: "GetSupportedCipherSuites",
-			Handler:    _CharacteristicsService_GetSupportedCipherSuites_Handler,
-		},
-		{
-			MethodName: "GetSupportedPairingCipherSuites",
-			Handler:    _CharacteristicsService_GetSupportedPairingCipherSuites_Handler,
-		},
-		{
-			MethodName: "IsAwarePairingSupported",
-			Handler:    _CharacteristicsService_IsAwarePairingSupported_Handler,
-		},
-		{
-			MethodName: "IsInstantCommunicationModeSupported",
-			Handler:    _CharacteristicsService_IsInstantCommunicationModeSupported_Handler,
-		},
-		{
-			MethodName: "IsSuspensionSupported",
-			Handler:    _CharacteristicsService_IsSuspensionSupported_Handler,
-		},
-		{
-			MethodName: "WriteToParcel",
-			Handler:    _CharacteristicsService_WriteToParcel_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/aware/aware.proto",
-}
-
-const (
-	SubscribeDiscoverySessionService_UpdateSubscribe_FullMethodName = "/aware.SubscribeDiscoverySessionService/UpdateSubscribe"
-)
-
-// SubscribeDiscoverySessionServiceClient is the client API for SubscribeDiscoverySessionService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type SubscribeDiscoverySessionServiceClient interface {
-	UpdateSubscribe(ctx context.Context, in *UpdateSubscribeRequest, opts ...grpc.CallOption) (*UpdateSubscribeResponse, error)
-}
-
-type subscribeDiscoverySessionServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewSubscribeDiscoverySessionServiceClient(cc grpc.ClientConnInterface) SubscribeDiscoverySessionServiceClient {
-	return &subscribeDiscoverySessionServiceClient{cc}
-}
-
-func (c *subscribeDiscoverySessionServiceClient) UpdateSubscribe(ctx context.Context, in *UpdateSubscribeRequest, opts ...grpc.CallOption) (*UpdateSubscribeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(UpdateSubscribeResponse)
-	err := c.cc.Invoke(ctx, SubscribeDiscoverySessionService_UpdateSubscribe_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// SubscribeDiscoverySessionServiceServer is the server API for SubscribeDiscoverySessionService service.
-// All implementations must embed UnimplementedSubscribeDiscoverySessionServiceServer
-// for forward compatibility.
-type SubscribeDiscoverySessionServiceServer interface {
-	UpdateSubscribe(context.Context, *UpdateSubscribeRequest) (*UpdateSubscribeResponse, error)
-	mustEmbedUnimplementedSubscribeDiscoverySessionServiceServer()
-}
-
-// UnimplementedSubscribeDiscoverySessionServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedSubscribeDiscoverySessionServiceServer struct{}
-
-func (UnimplementedSubscribeDiscoverySessionServiceServer) UpdateSubscribe(context.Context, *UpdateSubscribeRequest) (*UpdateSubscribeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method UpdateSubscribe not implemented")
-}
-func (UnimplementedSubscribeDiscoverySessionServiceServer) mustEmbedUnimplementedSubscribeDiscoverySessionServiceServer() {
-}
-func (UnimplementedSubscribeDiscoverySessionServiceServer) testEmbeddedByValue() {}
-
-// UnsafeSubscribeDiscoverySessionServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to SubscribeDiscoverySessionServiceServer will
-// result in compilation errors.
-type UnsafeSubscribeDiscoverySessionServiceServer interface {
-	mustEmbedUnimplementedSubscribeDiscoverySessionServiceServer()
-}
-
-func RegisterSubscribeDiscoverySessionServiceServer(s grpc.ServiceRegistrar, srv SubscribeDiscoverySessionServiceServer) {
-	// If the following call panics, it indicates UnimplementedSubscribeDiscoverySessionServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&SubscribeDiscoverySessionService_ServiceDesc, srv)
-}
-
-func _SubscribeDiscoverySessionService_UpdateSubscribe_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UpdateSubscribeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SubscribeDiscoverySessionServiceServer).UpdateSubscribe(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SubscribeDiscoverySessionService_UpdateSubscribe_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SubscribeDiscoverySessionServiceServer).UpdateSubscribe(ctx, req.(*UpdateSubscribeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// SubscribeDiscoverySessionService_ServiceDesc is the grpc.ServiceDesc for SubscribeDiscoverySessionService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var SubscribeDiscoverySessionService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "aware.SubscribeDiscoverySessionService",
-	HandlerType: (*SubscribeDiscoverySessionServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "UpdateSubscribe",
-			Handler:    _SubscribeDiscoverySessionService_UpdateSubscribe_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/aware/aware.proto",
-}
-
-const (
-	DiscoverySessionService_AcceptPairingRequest_FullMethodName             = "/aware.DiscoverySessionService/AcceptPairingRequest"
-	DiscoverySessionService_Close_FullMethodName                            = "/aware.DiscoverySessionService/Close"
-	DiscoverySessionService_CreateNetworkSpecifierOpen_FullMethodName       = "/aware.DiscoverySessionService/CreateNetworkSpecifierOpen"
-	DiscoverySessionService_CreateNetworkSpecifierPassphrase_FullMethodName = "/aware.DiscoverySessionService/CreateNetworkSpecifierPassphrase"
-	DiscoverySessionService_InitiateBootstrappingRequest_FullMethodName     = "/aware.DiscoverySessionService/InitiateBootstrappingRequest"
-	DiscoverySessionService_InitiatePairingRequest_FullMethodName           = "/aware.DiscoverySessionService/InitiatePairingRequest"
-	DiscoverySessionService_RejectPairingRequest_FullMethodName             = "/aware.DiscoverySessionService/RejectPairingRequest"
-	DiscoverySessionService_SendMessage_FullMethodName                      = "/aware.DiscoverySessionService/SendMessage"
-)
-
-// DiscoverySessionServiceClient is the client API for DiscoverySessionService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type DiscoverySessionServiceClient interface {
-	AcceptPairingRequest(ctx context.Context, in *AcceptPairingRequestRequest, opts ...grpc.CallOption) (*AcceptPairingRequestResponse, error)
-	Close(ctx context.Context, in *CloseRequest, opts ...grpc.CallOption) (*CloseResponse, error)
-	CreateNetworkSpecifierOpen(ctx context.Context, in *DiscoverySessionCreateNetworkSpecifierOpenRequest, opts ...grpc.CallOption) (*CreateNetworkSpecifierOpenResponse, error)
-	CreateNetworkSpecifierPassphrase(ctx context.Context, in *DiscoverySessionCreateNetworkSpecifierPassphraseRequest, opts ...grpc.CallOption) (*CreateNetworkSpecifierPassphraseResponse, error)
-	InitiateBootstrappingRequest(ctx context.Context, in *InitiateBootstrappingRequestRequest, opts ...grpc.CallOption) (*InitiateBootstrappingRequestResponse, error)
-	InitiatePairingRequest(ctx context.Context, in *InitiatePairingRequestRequest, opts ...grpc.CallOption) (*InitiatePairingRequestResponse, error)
-	RejectPairingRequest(ctx context.Context, in *RejectPairingRequestRequest, opts ...grpc.CallOption) (*RejectPairingRequestResponse, error)
-	SendMessage(ctx context.Context, in *SendMessageRequest, opts ...grpc.CallOption) (*SendMessageResponse, error)
-}
-
-type discoverySessionServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewDiscoverySessionServiceClient(cc grpc.ClientConnInterface) DiscoverySessionServiceClient {
-	return &discoverySessionServiceClient{cc}
-}
-
-func (c *discoverySessionServiceClient) AcceptPairingRequest(ctx context.Context, in *AcceptPairingRequestRequest, opts ...grpc.CallOption) (*AcceptPairingRequestResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(AcceptPairingRequestResponse)
-	err := c.cc.Invoke(ctx, DiscoverySessionService_AcceptPairingRequest_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *discoverySessionServiceClient) Close(ctx context.Context, in *CloseRequest, opts ...grpc.CallOption) (*CloseResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CloseResponse)
-	err := c.cc.Invoke(ctx, DiscoverySessionService_Close_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *discoverySessionServiceClient) CreateNetworkSpecifierOpen(ctx context.Context, in *DiscoverySessionCreateNetworkSpecifierOpenRequest, opts ...grpc.CallOption) (*CreateNetworkSpecifierOpenResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CreateNetworkSpecifierOpenResponse)
-	err := c.cc.Invoke(ctx, DiscoverySessionService_CreateNetworkSpecifierOpen_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *discoverySessionServiceClient) CreateNetworkSpecifierPassphrase(ctx context.Context, in *DiscoverySessionCreateNetworkSpecifierPassphraseRequest, opts ...grpc.CallOption) (*CreateNetworkSpecifierPassphraseResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CreateNetworkSpecifierPassphraseResponse)
-	err := c.cc.Invoke(ctx, DiscoverySessionService_CreateNetworkSpecifierPassphrase_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *discoverySessionServiceClient) InitiateBootstrappingRequest(ctx context.Context, in *InitiateBootstrappingRequestRequest, opts ...grpc.CallOption) (*InitiateBootstrappingRequestResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(InitiateBootstrappingRequestResponse)
-	err := c.cc.Invoke(ctx, DiscoverySessionService_InitiateBootstrappingRequest_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *discoverySessionServiceClient) InitiatePairingRequest(ctx context.Context, in *InitiatePairingRequestRequest, opts ...grpc.CallOption) (*InitiatePairingRequestResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(InitiatePairingRequestResponse)
-	err := c.cc.Invoke(ctx, DiscoverySessionService_InitiatePairingRequest_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *discoverySessionServiceClient) RejectPairingRequest(ctx context.Context, in *RejectPairingRequestRequest, opts ...grpc.CallOption) (*RejectPairingRequestResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(RejectPairingRequestResponse)
-	err := c.cc.Invoke(ctx, DiscoverySessionService_RejectPairingRequest_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *discoverySessionServiceClient) SendMessage(ctx context.Context, in *SendMessageRequest, opts ...grpc.CallOption) (*SendMessageResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SendMessageResponse)
-	err := c.cc.Invoke(ctx, DiscoverySessionService_SendMessage_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// DiscoverySessionServiceServer is the server API for DiscoverySessionService service.
-// All implementations must embed UnimplementedDiscoverySessionServiceServer
-// for forward compatibility.
-type DiscoverySessionServiceServer interface {
-	AcceptPairingRequest(context.Context, *AcceptPairingRequestRequest) (*AcceptPairingRequestResponse, error)
-	Close(context.Context, *CloseRequest) (*CloseResponse, error)
-	CreateNetworkSpecifierOpen(context.Context, *DiscoverySessionCreateNetworkSpecifierOpenRequest) (*CreateNetworkSpecifierOpenResponse, error)
-	CreateNetworkSpecifierPassphrase(context.Context, *DiscoverySessionCreateNetworkSpecifierPassphraseRequest) (*CreateNetworkSpecifierPassphraseResponse, error)
-	InitiateBootstrappingRequest(context.Context, *InitiateBootstrappingRequestRequest) (*InitiateBootstrappingRequestResponse, error)
-	InitiatePairingRequest(context.Context, *InitiatePairingRequestRequest) (*InitiatePairingRequestResponse, error)
-	RejectPairingRequest(context.Context, *RejectPairingRequestRequest) (*RejectPairingRequestResponse, error)
-	SendMessage(context.Context, *SendMessageRequest) (*SendMessageResponse, error)
-	mustEmbedUnimplementedDiscoverySessionServiceServer()
-}
-
-// UnimplementedDiscoverySessionServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedDiscoverySessionServiceServer struct{}
-
-func (UnimplementedDiscoverySessionServiceServer) AcceptPairingRequest(context.Context, *AcceptPairingRequestRequest) (*AcceptPairingRequestResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method AcceptPairingRequest not implemented")
-}
-func (UnimplementedDiscoverySessionServiceServer) Close(context.Context, *CloseRequest) (*CloseResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Close not implemented")
-}
-func (UnimplementedDiscoverySessionServiceServer) CreateNetworkSpecifierOpen(context.Context, *DiscoverySessionCreateNetworkSpecifierOpenRequest) (*CreateNetworkSpecifierOpenResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method CreateNetworkSpecifierOpen not implemented")
-}
-func (UnimplementedDiscoverySessionServiceServer) CreateNetworkSpecifierPassphrase(context.Context, *DiscoverySessionCreateNetworkSpecifierPassphraseRequest) (*CreateNetworkSpecifierPassphraseResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method CreateNetworkSpecifierPassphrase not implemented")
-}
-func (UnimplementedDiscoverySessionServiceServer) InitiateBootstrappingRequest(context.Context, *InitiateBootstrappingRequestRequest) (*InitiateBootstrappingRequestResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method InitiateBootstrappingRequest not implemented")
-}
-func (UnimplementedDiscoverySessionServiceServer) InitiatePairingRequest(context.Context, *InitiatePairingRequestRequest) (*InitiatePairingRequestResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method InitiatePairingRequest not implemented")
-}
-func (UnimplementedDiscoverySessionServiceServer) RejectPairingRequest(context.Context, *RejectPairingRequestRequest) (*RejectPairingRequestResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method RejectPairingRequest not implemented")
-}
-func (UnimplementedDiscoverySessionServiceServer) SendMessage(context.Context, *SendMessageRequest) (*SendMessageResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SendMessage not implemented")
-}
-func (UnimplementedDiscoverySessionServiceServer) mustEmbedUnimplementedDiscoverySessionServiceServer() {
-}
-func (UnimplementedDiscoverySessionServiceServer) testEmbeddedByValue() {}
-
-// UnsafeDiscoverySessionServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to DiscoverySessionServiceServer will
-// result in compilation errors.
-type UnsafeDiscoverySessionServiceServer interface {
-	mustEmbedUnimplementedDiscoverySessionServiceServer()
-}
-
-func RegisterDiscoverySessionServiceServer(s grpc.ServiceRegistrar, srv DiscoverySessionServiceServer) {
-	// If the following call panics, it indicates UnimplementedDiscoverySessionServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&DiscoverySessionService_ServiceDesc, srv)
-}
-
-func _DiscoverySessionService_AcceptPairingRequest_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AcceptPairingRequestRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DiscoverySessionServiceServer).AcceptPairingRequest(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DiscoverySessionService_AcceptPairingRequest_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DiscoverySessionServiceServer).AcceptPairingRequest(ctx, req.(*AcceptPairingRequestRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DiscoverySessionService_Close_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CloseRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DiscoverySessionServiceServer).Close(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DiscoverySessionService_Close_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DiscoverySessionServiceServer).Close(ctx, req.(*CloseRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DiscoverySessionService_CreateNetworkSpecifierOpen_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DiscoverySessionCreateNetworkSpecifierOpenRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DiscoverySessionServiceServer).CreateNetworkSpecifierOpen(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DiscoverySessionService_CreateNetworkSpecifierOpen_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DiscoverySessionServiceServer).CreateNetworkSpecifierOpen(ctx, req.(*DiscoverySessionCreateNetworkSpecifierOpenRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DiscoverySessionService_CreateNetworkSpecifierPassphrase_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DiscoverySessionCreateNetworkSpecifierPassphraseRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DiscoverySessionServiceServer).CreateNetworkSpecifierPassphrase(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DiscoverySessionService_CreateNetworkSpecifierPassphrase_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DiscoverySessionServiceServer).CreateNetworkSpecifierPassphrase(ctx, req.(*DiscoverySessionCreateNetworkSpecifierPassphraseRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DiscoverySessionService_InitiateBootstrappingRequest_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(InitiateBootstrappingRequestRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DiscoverySessionServiceServer).InitiateBootstrappingRequest(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DiscoverySessionService_InitiateBootstrappingRequest_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DiscoverySessionServiceServer).InitiateBootstrappingRequest(ctx, req.(*InitiateBootstrappingRequestRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DiscoverySessionService_InitiatePairingRequest_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(InitiatePairingRequestRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DiscoverySessionServiceServer).InitiatePairingRequest(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DiscoverySessionService_InitiatePairingRequest_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DiscoverySessionServiceServer).InitiatePairingRequest(ctx, req.(*InitiatePairingRequestRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DiscoverySessionService_RejectPairingRequest_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(RejectPairingRequestRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DiscoverySessionServiceServer).RejectPairingRequest(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DiscoverySessionService_RejectPairingRequest_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DiscoverySessionServiceServer).RejectPairingRequest(ctx, req.(*RejectPairingRequestRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DiscoverySessionService_SendMessage_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SendMessageRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DiscoverySessionServiceServer).SendMessage(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DiscoverySessionService_SendMessage_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DiscoverySessionServiceServer).SendMessage(ctx, req.(*SendMessageRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// DiscoverySessionService_ServiceDesc is the grpc.ServiceDesc for DiscoverySessionService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var DiscoverySessionService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "aware.DiscoverySessionService",
-	HandlerType: (*DiscoverySessionServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "AcceptPairingRequest",
-			Handler:    _DiscoverySessionService_AcceptPairingRequest_Handler,
-		},
-		{
-			MethodName: "Close",
-			Handler:    _DiscoverySessionService_Close_Handler,
-		},
-		{
-			MethodName: "CreateNetworkSpecifierOpen",
-			Handler:    _DiscoverySessionService_CreateNetworkSpecifierOpen_Handler,
-		},
-		{
-			MethodName: "CreateNetworkSpecifierPassphrase",
-			Handler:    _DiscoverySessionService_CreateNetworkSpecifierPassphrase_Handler,
-		},
-		{
-			MethodName: "InitiateBootstrappingRequest",
-			Handler:    _DiscoverySessionService_InitiateBootstrappingRequest_Handler,
-		},
-		{
-			MethodName: "InitiatePairingRequest",
-			Handler:    _DiscoverySessionService_InitiatePairingRequest_Handler,
-		},
-		{
-			MethodName: "RejectPairingRequest",
-			Handler:    _DiscoverySessionService_RejectPairingRequest_Handler,
-		},
-		{
-			MethodName: "SendMessage",
-			Handler:    _DiscoverySessionService_SendMessage_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/aware/aware.proto",
-}
-
-const (
-	SubscribeConfigService_DescribeContents_FullMethodName                  = "/aware.SubscribeConfigService/DescribeContents"
-	SubscribeConfigService_Equals_FullMethodName                            = "/aware.SubscribeConfigService/Equals"
-	SubscribeConfigService_GetInstantCommunicationBand_FullMethodName       = "/aware.SubscribeConfigService/GetInstantCommunicationBand"
-	SubscribeConfigService_GetPairingConfig_FullMethodName                  = "/aware.SubscribeConfigService/GetPairingConfig"
-	SubscribeConfigService_HashCode_FullMethodName                          = "/aware.SubscribeConfigService/HashCode"
-	SubscribeConfigService_IsInstantCommunicationModeEnabled_FullMethodName = "/aware.SubscribeConfigService/IsInstantCommunicationModeEnabled"
-	SubscribeConfigService_ToString_FullMethodName                          = "/aware.SubscribeConfigService/ToString"
-	SubscribeConfigService_WriteToParcel_FullMethodName                     = "/aware.SubscribeConfigService/WriteToParcel"
-)
-
-// SubscribeConfigServiceClient is the client API for SubscribeConfigService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type SubscribeConfigServiceClient interface {
-	DescribeContents(ctx context.Context, in *SubscribeConfigDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
-	GetInstantCommunicationBand(ctx context.Context, in *GetInstantCommunicationBandRequest, opts ...grpc.CallOption) (*GetInstantCommunicationBandResponse, error)
-	GetPairingConfig(ctx context.Context, in *GetPairingConfigRequest, opts ...grpc.CallOption) (*GetPairingConfigResponse, error)
-	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
-	IsInstantCommunicationModeEnabled(ctx context.Context, in *IsInstantCommunicationModeEnabledRequest, opts ...grpc.CallOption) (*IsInstantCommunicationModeEnabledResponse, error)
-	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
-	WriteToParcel(ctx context.Context, in *SubscribeConfigWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
-}
-
-type subscribeConfigServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewSubscribeConfigServiceClient(cc grpc.ClientConnInterface) SubscribeConfigServiceClient {
-	return &subscribeConfigServiceClient{cc}
-}
-
-func (c *subscribeConfigServiceClient) DescribeContents(ctx context.Context, in *SubscribeConfigDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, SubscribeConfigService_DescribeContents_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *subscribeConfigServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(EqualsResponse)
-	err := c.cc.Invoke(ctx, SubscribeConfigService_Equals_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *subscribeConfigServiceClient) GetInstantCommunicationBand(ctx context.Context, in *GetInstantCommunicationBandRequest, opts ...grpc.CallOption) (*GetInstantCommunicationBandResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetInstantCommunicationBandResponse)
-	err := c.cc.Invoke(ctx, SubscribeConfigService_GetInstantCommunicationBand_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *subscribeConfigServiceClient) GetPairingConfig(ctx context.Context, in *GetPairingConfigRequest, opts ...grpc.CallOption) (*GetPairingConfigResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetPairingConfigResponse)
-	err := c.cc.Invoke(ctx, SubscribeConfigService_GetPairingConfig_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *subscribeConfigServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(HashCodeResponse)
-	err := c.cc.Invoke(ctx, SubscribeConfigService_HashCode_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *subscribeConfigServiceClient) IsInstantCommunicationModeEnabled(ctx context.Context, in *IsInstantCommunicationModeEnabledRequest, opts ...grpc.CallOption) (*IsInstantCommunicationModeEnabledResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsInstantCommunicationModeEnabledResponse)
-	err := c.cc.Invoke(ctx, SubscribeConfigService_IsInstantCommunicationModeEnabled_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *subscribeConfigServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ToStringResponse)
-	err := c.cc.Invoke(ctx, SubscribeConfigService_ToString_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *subscribeConfigServiceClient) WriteToParcel(ctx context.Context, in *SubscribeConfigWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, SubscribeConfigService_WriteToParcel_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// SubscribeConfigServiceServer is the server API for SubscribeConfigService service.
-// All implementations must embed UnimplementedSubscribeConfigServiceServer
-// for forward compatibility.
-type SubscribeConfigServiceServer interface {
-	DescribeContents(context.Context, *SubscribeConfigDescribeContentsRequest) (*DescribeContentsResponse, error)
-	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
-	GetInstantCommunicationBand(context.Context, *GetInstantCommunicationBandRequest) (*GetInstantCommunicationBandResponse, error)
-	GetPairingConfig(context.Context, *GetPairingConfigRequest) (*GetPairingConfigResponse, error)
-	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
-	IsInstantCommunicationModeEnabled(context.Context, *IsInstantCommunicationModeEnabledRequest) (*IsInstantCommunicationModeEnabledResponse, error)
-	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
-	WriteToParcel(context.Context, *SubscribeConfigWriteToParcelRequest) (*WriteToParcelResponse, error)
-	mustEmbedUnimplementedSubscribeConfigServiceServer()
-}
-
-// UnimplementedSubscribeConfigServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedSubscribeConfigServiceServer struct{}
-
-func (UnimplementedSubscribeConfigServiceServer) DescribeContents(context.Context, *SubscribeConfigDescribeContentsRequest) (*DescribeContentsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
-}
-func (UnimplementedSubscribeConfigServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
-}
-func (UnimplementedSubscribeConfigServiceServer) GetInstantCommunicationBand(context.Context, *GetInstantCommunicationBandRequest) (*GetInstantCommunicationBandResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetInstantCommunicationBand not implemented")
-}
-func (UnimplementedSubscribeConfigServiceServer) GetPairingConfig(context.Context, *GetPairingConfigRequest) (*GetPairingConfigResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetPairingConfig not implemented")
-}
-func (UnimplementedSubscribeConfigServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
-}
-func (UnimplementedSubscribeConfigServiceServer) IsInstantCommunicationModeEnabled(context.Context, *IsInstantCommunicationModeEnabledRequest) (*IsInstantCommunicationModeEnabledResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsInstantCommunicationModeEnabled not implemented")
-}
-func (UnimplementedSubscribeConfigServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
-}
-func (UnimplementedSubscribeConfigServiceServer) WriteToParcel(context.Context, *SubscribeConfigWriteToParcelRequest) (*WriteToParcelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
-}
-func (UnimplementedSubscribeConfigServiceServer) mustEmbedUnimplementedSubscribeConfigServiceServer() {
-}
-func (UnimplementedSubscribeConfigServiceServer) testEmbeddedByValue() {}
-
-// UnsafeSubscribeConfigServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to SubscribeConfigServiceServer will
-// result in compilation errors.
-type UnsafeSubscribeConfigServiceServer interface {
-	mustEmbedUnimplementedSubscribeConfigServiceServer()
-}
-
-func RegisterSubscribeConfigServiceServer(s grpc.ServiceRegistrar, srv SubscribeConfigServiceServer) {
-	// If the following call panics, it indicates UnimplementedSubscribeConfigServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&SubscribeConfigService_ServiceDesc, srv)
-}
-
-func _SubscribeConfigService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SubscribeConfigDescribeContentsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SubscribeConfigServiceServer).DescribeContents(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SubscribeConfigService_DescribeContents_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SubscribeConfigServiceServer).DescribeContents(ctx, req.(*SubscribeConfigDescribeContentsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SubscribeConfigService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(EqualsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SubscribeConfigServiceServer).Equals(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SubscribeConfigService_Equals_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SubscribeConfigServiceServer).Equals(ctx, req.(*EqualsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SubscribeConfigService_GetInstantCommunicationBand_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetInstantCommunicationBandRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SubscribeConfigServiceServer).GetInstantCommunicationBand(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SubscribeConfigService_GetInstantCommunicationBand_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SubscribeConfigServiceServer).GetInstantCommunicationBand(ctx, req.(*GetInstantCommunicationBandRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SubscribeConfigService_GetPairingConfig_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetPairingConfigRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SubscribeConfigServiceServer).GetPairingConfig(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SubscribeConfigService_GetPairingConfig_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SubscribeConfigServiceServer).GetPairingConfig(ctx, req.(*GetPairingConfigRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SubscribeConfigService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(HashCodeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SubscribeConfigServiceServer).HashCode(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SubscribeConfigService_HashCode_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SubscribeConfigServiceServer).HashCode(ctx, req.(*HashCodeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SubscribeConfigService_IsInstantCommunicationModeEnabled_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsInstantCommunicationModeEnabledRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SubscribeConfigServiceServer).IsInstantCommunicationModeEnabled(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SubscribeConfigService_IsInstantCommunicationModeEnabled_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SubscribeConfigServiceServer).IsInstantCommunicationModeEnabled(ctx, req.(*IsInstantCommunicationModeEnabledRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SubscribeConfigService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ToStringRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SubscribeConfigServiceServer).ToString(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SubscribeConfigService_ToString_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SubscribeConfigServiceServer).ToString(ctx, req.(*ToStringRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SubscribeConfigService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SubscribeConfigWriteToParcelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SubscribeConfigServiceServer).WriteToParcel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SubscribeConfigService_WriteToParcel_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SubscribeConfigServiceServer).WriteToParcel(ctx, req.(*SubscribeConfigWriteToParcelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// SubscribeConfigService_ServiceDesc is the grpc.ServiceDesc for SubscribeConfigService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var SubscribeConfigService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "aware.SubscribeConfigService",
-	HandlerType: (*SubscribeConfigServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "DescribeContents",
-			Handler:    _SubscribeConfigService_DescribeContents_Handler,
-		},
-		{
-			MethodName: "Equals",
-			Handler:    _SubscribeConfigService_Equals_Handler,
-		},
-		{
-			MethodName: "GetInstantCommunicationBand",
-			Handler:    _SubscribeConfigService_GetInstantCommunicationBand_Handler,
-		},
-		{
-			MethodName: "GetPairingConfig",
-			Handler:    _SubscribeConfigService_GetPairingConfig_Handler,
-		},
-		{
-			MethodName: "HashCode",
-			Handler:    _SubscribeConfigService_HashCode_Handler,
-		},
-		{
-			MethodName: "IsInstantCommunicationModeEnabled",
-			Handler:    _SubscribeConfigService_IsInstantCommunicationModeEnabled_Handler,
-		},
-		{
-			MethodName: "ToString",
-			Handler:    _SubscribeConfigService_ToString_Handler,
-		},
-		{
-			MethodName: "WriteToParcel",
-			Handler:    _SubscribeConfigService_WriteToParcel_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/aware/aware.proto",
-}
-
-const (
-	SubscribeConfigBuilderService_Build_FullMethodName                              = "/aware.SubscribeConfigBuilderService/Build"
-	SubscribeConfigBuilderService_SetInstantCommunicationModeEnabled_FullMethodName = "/aware.SubscribeConfigBuilderService/SetInstantCommunicationModeEnabled"
-	SubscribeConfigBuilderService_SetMaxDistanceMm_FullMethodName                   = "/aware.SubscribeConfigBuilderService/SetMaxDistanceMm"
-	SubscribeConfigBuilderService_SetMinDistanceMm_FullMethodName                   = "/aware.SubscribeConfigBuilderService/SetMinDistanceMm"
-	SubscribeConfigBuilderService_SetPairingConfig_FullMethodName                   = "/aware.SubscribeConfigBuilderService/SetPairingConfig"
-	SubscribeConfigBuilderService_SetServiceName_FullMethodName                     = "/aware.SubscribeConfigBuilderService/SetServiceName"
-	SubscribeConfigBuilderService_SetServiceSpecificInfo_FullMethodName             = "/aware.SubscribeConfigBuilderService/SetServiceSpecificInfo"
-	SubscribeConfigBuilderService_SetSubscribeType_FullMethodName                   = "/aware.SubscribeConfigBuilderService/SetSubscribeType"
-	SubscribeConfigBuilderService_SetTerminateNotificationEnabled_FullMethodName    = "/aware.SubscribeConfigBuilderService/SetTerminateNotificationEnabled"
-	SubscribeConfigBuilderService_SetTtlSec_FullMethodName                          = "/aware.SubscribeConfigBuilderService/SetTtlSec"
-)
-
-// SubscribeConfigBuilderServiceClient is the client API for SubscribeConfigBuilderService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type SubscribeConfigBuilderServiceClient interface {
-	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
-	SetInstantCommunicationModeEnabled(ctx context.Context, in *SetInstantCommunicationModeEnabledRequest, opts ...grpc.CallOption) (*SetInstantCommunicationModeEnabledResponse, error)
-	SetMaxDistanceMm(ctx context.Context, in *SetMaxDistanceMmRequest, opts ...grpc.CallOption) (*SetMaxDistanceMmResponse, error)
-	SetMinDistanceMm(ctx context.Context, in *SetMinDistanceMmRequest, opts ...grpc.CallOption) (*SetMinDistanceMmResponse, error)
-	SetPairingConfig(ctx context.Context, in *SetPairingConfigRequest, opts ...grpc.CallOption) (*SetPairingConfigResponse, error)
-	SetServiceName(ctx context.Context, in *SetServiceNameRequest, opts ...grpc.CallOption) (*SetServiceNameResponse, error)
-	SetServiceSpecificInfo(ctx context.Context, in *SetServiceSpecificInfoRequest, opts ...grpc.CallOption) (*SetServiceSpecificInfoResponse, error)
-	SetSubscribeType(ctx context.Context, in *SetSubscribeTypeRequest, opts ...grpc.CallOption) (*SetSubscribeTypeResponse, error)
-	SetTerminateNotificationEnabled(ctx context.Context, in *SetTerminateNotificationEnabledRequest, opts ...grpc.CallOption) (*SetTerminateNotificationEnabledResponse, error)
-	SetTtlSec(ctx context.Context, in *SetTtlSecRequest, opts ...grpc.CallOption) (*SetTtlSecResponse, error)
-}
-
-type subscribeConfigBuilderServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewSubscribeConfigBuilderServiceClient(cc grpc.ClientConnInterface) SubscribeConfigBuilderServiceClient {
-	return &subscribeConfigBuilderServiceClient{cc}
-}
-
-func (c *subscribeConfigBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(BuildResponse)
-	err := c.cc.Invoke(ctx, SubscribeConfigBuilderService_Build_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *subscribeConfigBuilderServiceClient) SetInstantCommunicationModeEnabled(ctx context.Context, in *SetInstantCommunicationModeEnabledRequest, opts ...grpc.CallOption) (*SetInstantCommunicationModeEnabledResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetInstantCommunicationModeEnabledResponse)
-	err := c.cc.Invoke(ctx, SubscribeConfigBuilderService_SetInstantCommunicationModeEnabled_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *subscribeConfigBuilderServiceClient) SetMaxDistanceMm(ctx context.Context, in *SetMaxDistanceMmRequest, opts ...grpc.CallOption) (*SetMaxDistanceMmResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetMaxDistanceMmResponse)
-	err := c.cc.Invoke(ctx, SubscribeConfigBuilderService_SetMaxDistanceMm_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *subscribeConfigBuilderServiceClient) SetMinDistanceMm(ctx context.Context, in *SetMinDistanceMmRequest, opts ...grpc.CallOption) (*SetMinDistanceMmResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetMinDistanceMmResponse)
-	err := c.cc.Invoke(ctx, SubscribeConfigBuilderService_SetMinDistanceMm_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *subscribeConfigBuilderServiceClient) SetPairingConfig(ctx context.Context, in *SetPairingConfigRequest, opts ...grpc.CallOption) (*SetPairingConfigResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetPairingConfigResponse)
-	err := c.cc.Invoke(ctx, SubscribeConfigBuilderService_SetPairingConfig_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *subscribeConfigBuilderServiceClient) SetServiceName(ctx context.Context, in *SetServiceNameRequest, opts ...grpc.CallOption) (*SetServiceNameResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetServiceNameResponse)
-	err := c.cc.Invoke(ctx, SubscribeConfigBuilderService_SetServiceName_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *subscribeConfigBuilderServiceClient) SetServiceSpecificInfo(ctx context.Context, in *SetServiceSpecificInfoRequest, opts ...grpc.CallOption) (*SetServiceSpecificInfoResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetServiceSpecificInfoResponse)
-	err := c.cc.Invoke(ctx, SubscribeConfigBuilderService_SetServiceSpecificInfo_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *subscribeConfigBuilderServiceClient) SetSubscribeType(ctx context.Context, in *SetSubscribeTypeRequest, opts ...grpc.CallOption) (*SetSubscribeTypeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetSubscribeTypeResponse)
-	err := c.cc.Invoke(ctx, SubscribeConfigBuilderService_SetSubscribeType_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *subscribeConfigBuilderServiceClient) SetTerminateNotificationEnabled(ctx context.Context, in *SetTerminateNotificationEnabledRequest, opts ...grpc.CallOption) (*SetTerminateNotificationEnabledResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetTerminateNotificationEnabledResponse)
-	err := c.cc.Invoke(ctx, SubscribeConfigBuilderService_SetTerminateNotificationEnabled_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *subscribeConfigBuilderServiceClient) SetTtlSec(ctx context.Context, in *SetTtlSecRequest, opts ...grpc.CallOption) (*SetTtlSecResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetTtlSecResponse)
-	err := c.cc.Invoke(ctx, SubscribeConfigBuilderService_SetTtlSec_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// SubscribeConfigBuilderServiceServer is the server API for SubscribeConfigBuilderService service.
-// All implementations must embed UnimplementedSubscribeConfigBuilderServiceServer
-// for forward compatibility.
-type SubscribeConfigBuilderServiceServer interface {
-	Build(context.Context, *BuildRequest) (*BuildResponse, error)
-	SetInstantCommunicationModeEnabled(context.Context, *SetInstantCommunicationModeEnabledRequest) (*SetInstantCommunicationModeEnabledResponse, error)
-	SetMaxDistanceMm(context.Context, *SetMaxDistanceMmRequest) (*SetMaxDistanceMmResponse, error)
-	SetMinDistanceMm(context.Context, *SetMinDistanceMmRequest) (*SetMinDistanceMmResponse, error)
-	SetPairingConfig(context.Context, *SetPairingConfigRequest) (*SetPairingConfigResponse, error)
-	SetServiceName(context.Context, *SetServiceNameRequest) (*SetServiceNameResponse, error)
-	SetServiceSpecificInfo(context.Context, *SetServiceSpecificInfoRequest) (*SetServiceSpecificInfoResponse, error)
-	SetSubscribeType(context.Context, *SetSubscribeTypeRequest) (*SetSubscribeTypeResponse, error)
-	SetTerminateNotificationEnabled(context.Context, *SetTerminateNotificationEnabledRequest) (*SetTerminateNotificationEnabledResponse, error)
-	SetTtlSec(context.Context, *SetTtlSecRequest) (*SetTtlSecResponse, error)
-	mustEmbedUnimplementedSubscribeConfigBuilderServiceServer()
-}
-
-// UnimplementedSubscribeConfigBuilderServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedSubscribeConfigBuilderServiceServer struct{}
-
-func (UnimplementedSubscribeConfigBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
-}
-func (UnimplementedSubscribeConfigBuilderServiceServer) SetInstantCommunicationModeEnabled(context.Context, *SetInstantCommunicationModeEnabledRequest) (*SetInstantCommunicationModeEnabledResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetInstantCommunicationModeEnabled not implemented")
-}
-func (UnimplementedSubscribeConfigBuilderServiceServer) SetMaxDistanceMm(context.Context, *SetMaxDistanceMmRequest) (*SetMaxDistanceMmResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetMaxDistanceMm not implemented")
-}
-func (UnimplementedSubscribeConfigBuilderServiceServer) SetMinDistanceMm(context.Context, *SetMinDistanceMmRequest) (*SetMinDistanceMmResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetMinDistanceMm not implemented")
-}
-func (UnimplementedSubscribeConfigBuilderServiceServer) SetPairingConfig(context.Context, *SetPairingConfigRequest) (*SetPairingConfigResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetPairingConfig not implemented")
-}
-func (UnimplementedSubscribeConfigBuilderServiceServer) SetServiceName(context.Context, *SetServiceNameRequest) (*SetServiceNameResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetServiceName not implemented")
-}
-func (UnimplementedSubscribeConfigBuilderServiceServer) SetServiceSpecificInfo(context.Context, *SetServiceSpecificInfoRequest) (*SetServiceSpecificInfoResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetServiceSpecificInfo not implemented")
-}
-func (UnimplementedSubscribeConfigBuilderServiceServer) SetSubscribeType(context.Context, *SetSubscribeTypeRequest) (*SetSubscribeTypeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetSubscribeType not implemented")
-}
-func (UnimplementedSubscribeConfigBuilderServiceServer) SetTerminateNotificationEnabled(context.Context, *SetTerminateNotificationEnabledRequest) (*SetTerminateNotificationEnabledResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetTerminateNotificationEnabled not implemented")
-}
-func (UnimplementedSubscribeConfigBuilderServiceServer) SetTtlSec(context.Context, *SetTtlSecRequest) (*SetTtlSecResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetTtlSec not implemented")
-}
-func (UnimplementedSubscribeConfigBuilderServiceServer) mustEmbedUnimplementedSubscribeConfigBuilderServiceServer() {
-}
-func (UnimplementedSubscribeConfigBuilderServiceServer) testEmbeddedByValue() {}
-
-// UnsafeSubscribeConfigBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to SubscribeConfigBuilderServiceServer will
-// result in compilation errors.
-type UnsafeSubscribeConfigBuilderServiceServer interface {
-	mustEmbedUnimplementedSubscribeConfigBuilderServiceServer()
-}
-
-func RegisterSubscribeConfigBuilderServiceServer(s grpc.ServiceRegistrar, srv SubscribeConfigBuilderServiceServer) {
-	// If the following call panics, it indicates UnimplementedSubscribeConfigBuilderServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&SubscribeConfigBuilderService_ServiceDesc, srv)
-}
-
-func _SubscribeConfigBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(BuildRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SubscribeConfigBuilderServiceServer).Build(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SubscribeConfigBuilderService_Build_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SubscribeConfigBuilderServiceServer).Build(ctx, req.(*BuildRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SubscribeConfigBuilderService_SetInstantCommunicationModeEnabled_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetInstantCommunicationModeEnabledRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SubscribeConfigBuilderServiceServer).SetInstantCommunicationModeEnabled(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SubscribeConfigBuilderService_SetInstantCommunicationModeEnabled_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SubscribeConfigBuilderServiceServer).SetInstantCommunicationModeEnabled(ctx, req.(*SetInstantCommunicationModeEnabledRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SubscribeConfigBuilderService_SetMaxDistanceMm_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetMaxDistanceMmRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SubscribeConfigBuilderServiceServer).SetMaxDistanceMm(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SubscribeConfigBuilderService_SetMaxDistanceMm_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SubscribeConfigBuilderServiceServer).SetMaxDistanceMm(ctx, req.(*SetMaxDistanceMmRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SubscribeConfigBuilderService_SetMinDistanceMm_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetMinDistanceMmRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SubscribeConfigBuilderServiceServer).SetMinDistanceMm(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SubscribeConfigBuilderService_SetMinDistanceMm_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SubscribeConfigBuilderServiceServer).SetMinDistanceMm(ctx, req.(*SetMinDistanceMmRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SubscribeConfigBuilderService_SetPairingConfig_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetPairingConfigRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SubscribeConfigBuilderServiceServer).SetPairingConfig(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SubscribeConfigBuilderService_SetPairingConfig_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SubscribeConfigBuilderServiceServer).SetPairingConfig(ctx, req.(*SetPairingConfigRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SubscribeConfigBuilderService_SetServiceName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetServiceNameRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SubscribeConfigBuilderServiceServer).SetServiceName(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SubscribeConfigBuilderService_SetServiceName_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SubscribeConfigBuilderServiceServer).SetServiceName(ctx, req.(*SetServiceNameRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SubscribeConfigBuilderService_SetServiceSpecificInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetServiceSpecificInfoRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SubscribeConfigBuilderServiceServer).SetServiceSpecificInfo(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SubscribeConfigBuilderService_SetServiceSpecificInfo_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SubscribeConfigBuilderServiceServer).SetServiceSpecificInfo(ctx, req.(*SetServiceSpecificInfoRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SubscribeConfigBuilderService_SetSubscribeType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetSubscribeTypeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SubscribeConfigBuilderServiceServer).SetSubscribeType(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SubscribeConfigBuilderService_SetSubscribeType_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SubscribeConfigBuilderServiceServer).SetSubscribeType(ctx, req.(*SetSubscribeTypeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SubscribeConfigBuilderService_SetTerminateNotificationEnabled_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetTerminateNotificationEnabledRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SubscribeConfigBuilderServiceServer).SetTerminateNotificationEnabled(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SubscribeConfigBuilderService_SetTerminateNotificationEnabled_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SubscribeConfigBuilderServiceServer).SetTerminateNotificationEnabled(ctx, req.(*SetTerminateNotificationEnabledRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SubscribeConfigBuilderService_SetTtlSec_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetTtlSecRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SubscribeConfigBuilderServiceServer).SetTtlSec(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SubscribeConfigBuilderService_SetTtlSec_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SubscribeConfigBuilderServiceServer).SetTtlSec(ctx, req.(*SetTtlSecRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// SubscribeConfigBuilderService_ServiceDesc is the grpc.ServiceDesc for SubscribeConfigBuilderService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var SubscribeConfigBuilderService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "aware.SubscribeConfigBuilderService",
-	HandlerType: (*SubscribeConfigBuilderServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "Build",
-			Handler:    _SubscribeConfigBuilderService_Build_Handler,
-		},
-		{
-			MethodName: "SetInstantCommunicationModeEnabled",
-			Handler:    _SubscribeConfigBuilderService_SetInstantCommunicationModeEnabled_Handler,
-		},
-		{
-			MethodName: "SetMaxDistanceMm",
-			Handler:    _SubscribeConfigBuilderService_SetMaxDistanceMm_Handler,
-		},
-		{
-			MethodName: "SetMinDistanceMm",
-			Handler:    _SubscribeConfigBuilderService_SetMinDistanceMm_Handler,
-		},
-		{
-			MethodName: "SetPairingConfig",
-			Handler:    _SubscribeConfigBuilderService_SetPairingConfig_Handler,
-		},
-		{
-			MethodName: "SetServiceName",
-			Handler:    _SubscribeConfigBuilderService_SetServiceName_Handler,
-		},
-		{
-			MethodName: "SetServiceSpecificInfo",
-			Handler:    _SubscribeConfigBuilderService_SetServiceSpecificInfo_Handler,
-		},
-		{
-			MethodName: "SetSubscribeType",
-			Handler:    _SubscribeConfigBuilderService_SetSubscribeType_Handler,
-		},
-		{
-			MethodName: "SetTerminateNotificationEnabled",
-			Handler:    _SubscribeConfigBuilderService_SetTerminateNotificationEnabled_Handler,
-		},
-		{
-			MethodName: "SetTtlSec",
-			Handler:    _SubscribeConfigBuilderService_SetTtlSec_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

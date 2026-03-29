@@ -9,6 +9,36 @@ import (
 	"google.golang.org/grpc"
 )
 
+// RequestClient wraps the gRPC RequestService client.
+type RequestClient struct {
+	svc pb.RequestServiceClient
+}
+
+// NewRequestClient creates a new Request client.
+func NewRequestClient(cc grpc.ClientConnInterface) *RequestClient {
+	return &RequestClient{
+		svc: pb.NewRequestServiceClient(cc),
+	}
+}
+
+// GetLightStates calls the GetLightStates RPC.
+func (c *RequestClient) GetLightStates(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetLightStates(ctx, &pb.GetLightStatesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLights calls the GetLights RPC.
+func (c *RequestClient) GetLights(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetLights(ctx, &pb.GetLightsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // RequestBuilderClient wraps the gRPC RequestBuilderService client.
 type RequestBuilderClient struct {
 	svc pb.RequestBuilderServiceClient
@@ -283,6 +313,15 @@ func (c *ManagerClient) GetLightState(ctx context.Context, arg0 int64) (int64, e
 	resp, err := c.svc.GetLightState(ctx, &pb.GetLightStateRequest{
 		Arg0: arg0,
 	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLights calls the GetLights RPC.
+func (c *ManagerClient) GetLights(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetLights(ctx, &pb.GetLightsRequest{})
 	if err != nil {
 		return 0, err
 	}

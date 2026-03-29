@@ -12,1256 +12,6 @@ var methodCmd = &cobra.Command{
 	Short: "method service operations",
 }
 
-var methodCharacterPickerDialogCmd = &cobra.Command{
-	Use:   "character-picker-dialog",
-	Short: "CharacterPickerDialogService operations",
-}
-
-var methodCharacterPickerDialogNewCharacterPickerDialogCmd = &cobra.Command{
-	Use:   "new-character-picker-dialog",
-	Short: "NewCharacterPickerDialog RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCharacterPickerDialogServiceClient(grpcConn)
-		req := &pb.NewCharacterPickerDialogRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetString("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		if v, err := cmd.Flags().GetBool("arg4"); err == nil {
-			req.Arg4 = v
-		}
-		resp, err := client.NewCharacterPickerDialog(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var methodCharacterPickerDialogOnClickCmd = &cobra.Command{
-	Use:   "on-click",
-	Short: "OnClick RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCharacterPickerDialogServiceClient(grpcConn)
-		req := &pb.OnClickRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.OnClick(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var methodCharacterPickerDialogOnItemClickCmd = &cobra.Command{
-	Use:   "on-item-click",
-	Short: "OnItemClick RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCharacterPickerDialogServiceClient(grpcConn)
-		req := &pb.OnItemClickRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		resp, err := client.OnItemClick(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var methodNumberKeyListenerCmd = &cobra.Command{
-	Use:   "number-key-listener",
-	Short: "NumberKeyListenerService operations",
-}
-
-var methodNumberKeyListenerFilterCmd = &cobra.Command{
-	Use:   "filter",
-	Short: "Filter RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewNumberKeyListenerServiceClient(grpcConn)
-		req := &pb.FilterRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg4"); err == nil {
-			req.Arg4 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg5"); err == nil {
-			req.Arg5 = v
-		}
-		resp, err := client.Filter(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var methodNumberKeyListenerOnKeyDownCmd = &cobra.Command{
-	Use:   "on-key-down",
-	Short: "OnKeyDown RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewNumberKeyListenerServiceClient(grpcConn)
-		req := &pb.OnKeyDownRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		resp, err := client.OnKeyDown(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var methodSingleLineTransformationMethodCmd = &cobra.Command{
-	Use:   "single-line-transformation-method",
-	Short: "SingleLineTransformationMethodService operations",
-}
-
-var methodSingleLineTransformationMethodNewSingleLineTransformationMethodCmd = &cobra.Command{
-	Use:   "new-single-line-transformation-method",
-	Short: "NewSingleLineTransformationMethod RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSingleLineTransformationMethodServiceClient(grpcConn)
-		req := &pb.NewSingleLineTransformationMethodRequest{}
-		resp, err := client.NewSingleLineTransformationMethod(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var methodSingleLineTransformationMethodGetInstanceCmd = &cobra.Command{
-	Use:   "get-instance",
-	Short: "GetInstance RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSingleLineTransformationMethodServiceClient(grpcConn)
-		req := &pb.GetInstanceRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetInstance(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var methodMovementMethodCmd = &cobra.Command{
-	Use:   "movement-method",
-	Short: "MovementMethodService operations",
-}
-
-var methodMovementMethodCanSelectArbitrarilyCmd = &cobra.Command{
-	Use:   "can-select-arbitrarily",
-	Short: "CanSelectArbitrarily RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMovementMethodServiceClient(grpcConn)
-		req := &pb.CanSelectArbitrarilyRequest{}
-		resp, err := client.CanSelectArbitrarily(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var methodMovementMethodInitializeCmd = &cobra.Command{
-	Use:   "initialize",
-	Short: "Initialize RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMovementMethodServiceClient(grpcConn)
-		req := &pb.InitializeRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.Initialize(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var methodMovementMethodOnGenericMotionEventCmd = &cobra.Command{
-	Use:   "on-generic-motion-event",
-	Short: "OnGenericMotionEvent RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMovementMethodServiceClient(grpcConn)
-		req := &pb.OnGenericMotionEventRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.OnGenericMotionEvent(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var methodMovementMethodOnKeyDownCmd = &cobra.Command{
-	Use:   "on-key-down",
-	Short: "OnKeyDown RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMovementMethodServiceClient(grpcConn)
-		req := &pb.OnKeyDownRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		resp, err := client.OnKeyDown(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var methodMovementMethodOnKeyOtherCmd = &cobra.Command{
-	Use:   "on-key-other",
-	Short: "OnKeyOther RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMovementMethodServiceClient(grpcConn)
-		req := &pb.OnKeyOtherRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.OnKeyOther(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var methodMovementMethodOnKeyUpCmd = &cobra.Command{
-	Use:   "on-key-up",
-	Short: "OnKeyUp RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMovementMethodServiceClient(grpcConn)
-		req := &pb.OnKeyUpRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		resp, err := client.OnKeyUp(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var methodMovementMethodOnTakeFocusCmd = &cobra.Command{
-	Use:   "on-take-focus",
-	Short: "OnTakeFocus RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMovementMethodServiceClient(grpcConn)
-		req := &pb.OnTakeFocusRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.OnTakeFocus(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var methodMovementMethodOnTouchEventCmd = &cobra.Command{
-	Use:   "on-touch-event",
-	Short: "OnTouchEvent RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMovementMethodServiceClient(grpcConn)
-		req := &pb.OnTouchEventRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.OnTouchEvent(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var methodMovementMethodOnTrackballEventCmd = &cobra.Command{
-	Use:   "on-trackball-event",
-	Short: "OnTrackballEvent RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMovementMethodServiceClient(grpcConn)
-		req := &pb.OnTrackballEventRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.OnTrackballEvent(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var methodReplacementTransformationMethodCmd = &cobra.Command{
-	Use:   "replacement-transformation-method",
-	Short: "ReplacementTransformationMethodService operations",
-}
-
-var methodReplacementTransformationMethodGetTransformationCmd = &cobra.Command{
-	Use:   "get-transformation",
-	Short: "GetTransformation RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewReplacementTransformationMethodServiceClient(grpcConn)
-		req := &pb.GetTransformationRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.GetTransformation(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var methodReplacementTransformationMethodOnFocusChangedCmd = &cobra.Command{
-	Use:   "on-focus-changed",
-	Short: "OnFocusChanged RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewReplacementTransformationMethodServiceClient(grpcConn)
-		req := &pb.OnFocusChangedRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetString("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetBool("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg4"); err == nil {
-			req.Arg4 = v
-		}
-		resp, err := client.OnFocusChanged(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var methodTouchCmd = &cobra.Command{
-	Use:   "touch",
-	Short: "TouchService operations",
-}
-
-var methodTouchGetInitialScrollXCmd = &cobra.Command{
-	Use:   "get-initial-scroll-x",
-	Short: "GetInitialScrollX RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTouchServiceClient(grpcConn)
-		req := &pb.GetInitialScrollXRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.GetInitialScrollX(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var methodTouchGetInitialScrollYCmd = &cobra.Command{
-	Use:   "get-initial-scroll-y",
-	Short: "GetInitialScrollY RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTouchServiceClient(grpcConn)
-		req := &pb.GetInitialScrollYRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.GetInitialScrollY(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var methodTouchOnTouchEventCmd = &cobra.Command{
-	Use:   "on-touch-event",
-	Short: "OnTouchEvent RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTouchServiceClient(grpcConn)
-		req := &pb.OnTouchEventRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.OnTouchEvent(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var methodTouchScrollToCmd = &cobra.Command{
-	Use:   "scroll-to",
-	Short: "ScrollTo RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTouchServiceClient(grpcConn)
-		req := &pb.ScrollToRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		resp, err := client.ScrollTo(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var methodScrollingMovementMethodCmd = &cobra.Command{
-	Use:   "scrolling-movement-method",
-	Short: "ScrollingMovementMethodService operations",
-}
-
-var methodScrollingMovementMethodNewScrollingMovementMethodCmd = &cobra.Command{
-	Use:   "new-scrolling-movement-method",
-	Short: "NewScrollingMovementMethod RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewScrollingMovementMethodServiceClient(grpcConn)
-		req := &pb.NewScrollingMovementMethodRequest{}
-		resp, err := client.NewScrollingMovementMethod(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var methodScrollingMovementMethodOnTakeFocusCmd = &cobra.Command{
-	Use:   "on-take-focus",
-	Short: "OnTakeFocus RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewScrollingMovementMethodServiceClient(grpcConn)
-		req := &pb.ScrollingMovementMethodOnTakeFocusRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.OnTakeFocus(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var methodScrollingMovementMethodOnTouchEventCmd = &cobra.Command{
-	Use:   "on-touch-event",
-	Short: "OnTouchEvent RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewScrollingMovementMethodServiceClient(grpcConn)
-		req := &pb.ScrollingMovementMethodOnTouchEventRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.OnTouchEvent(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var methodScrollingMovementMethodGetInstanceCmd = &cobra.Command{
-	Use:   "get-instance",
-	Short: "GetInstance RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewScrollingMovementMethodServiceClient(grpcConn)
-		req := &pb.GetInstanceRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetInstance(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var methodHideReturnsTransformationMethodCmd = &cobra.Command{
-	Use:   "hide-returns-transformation-method",
-	Short: "HideReturnsTransformationMethodService operations",
-}
-
-var methodHideReturnsTransformationMethodNewHideReturnsTransformationMethodCmd = &cobra.Command{
-	Use:   "new-hide-returns-transformation-method",
-	Short: "NewHideReturnsTransformationMethod RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewHideReturnsTransformationMethodServiceClient(grpcConn)
-		req := &pb.NewHideReturnsTransformationMethodRequest{}
-		resp, err := client.NewHideReturnsTransformationMethod(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var methodHideReturnsTransformationMethodGetInstanceCmd = &cobra.Command{
-	Use:   "get-instance",
-	Short: "GetInstance RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewHideReturnsTransformationMethodServiceClient(grpcConn)
-		req := &pb.GetInstanceRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetInstance(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var methodMultiTapKeyListenerCmd = &cobra.Command{
-	Use:   "multi-tap-key-listener",
-	Short: "MultiTapKeyListenerService operations",
-}
-
-var methodMultiTapKeyListenerNewMultiTapKeyListenerCmd = &cobra.Command{
-	Use:   "new-multi-tap-key-listener",
-	Short: "NewMultiTapKeyListener RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMultiTapKeyListenerServiceClient(grpcConn)
-		req := &pb.NewMultiTapKeyListenerRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetBool("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.NewMultiTapKeyListener(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var methodMultiTapKeyListenerGetInputTypeCmd = &cobra.Command{
-	Use:   "get-input-type",
-	Short: "GetInputType RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMultiTapKeyListenerServiceClient(grpcConn)
-		req := &pb.GetInputTypeRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetInputType(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var methodMultiTapKeyListenerOnKeyDownCmd = &cobra.Command{
-	Use:   "on-key-down",
-	Short: "OnKeyDown RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMultiTapKeyListenerServiceClient(grpcConn)
-		req := &pb.MultiTapKeyListenerOnKeyDownRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		resp, err := client.OnKeyDown(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var methodMultiTapKeyListenerOnSpanAddedCmd = &cobra.Command{
-	Use:   "on-span-added",
-	Short: "OnSpanAdded RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMultiTapKeyListenerServiceClient(grpcConn)
-		req := &pb.OnSpanAddedRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		resp, err := client.OnSpanAdded(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var methodMultiTapKeyListenerOnSpanChangedCmd = &cobra.Command{
-	Use:   "on-span-changed",
-	Short: "OnSpanChanged RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMultiTapKeyListenerServiceClient(grpcConn)
-		req := &pb.OnSpanChangedRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg4"); err == nil {
-			req.Arg4 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg5"); err == nil {
-			req.Arg5 = v
-		}
-		resp, err := client.OnSpanChanged(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var methodMultiTapKeyListenerOnSpanRemovedCmd = &cobra.Command{
-	Use:   "on-span-removed",
-	Short: "OnSpanRemoved RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMultiTapKeyListenerServiceClient(grpcConn)
-		req := &pb.OnSpanRemovedRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		resp, err := client.OnSpanRemoved(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var methodMultiTapKeyListenerGetInstanceCmd = &cobra.Command{
-	Use:   "get-instance",
-	Short: "GetInstance RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMultiTapKeyListenerServiceClient(grpcConn)
-		req := &pb.MultiTapKeyListenerGetInstanceRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.GetInstance(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var methodDigitsKeyListenerCmd = &cobra.Command{
-	Use:   "digits-key-listener",
-	Short: "DigitsKeyListenerService operations",
-}
-
-var methodDigitsKeyListenerNewDigitsKeyListenerCmd = &cobra.Command{
-	Use:   "new-digits-key-listener",
-	Short: "NewDigitsKeyListener RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDigitsKeyListenerServiceClient(grpcConn)
-		req := &pb.NewDigitsKeyListenerRequest{}
-		resp, err := client.NewDigitsKeyListener(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var methodDigitsKeyListenerFilterCmd = &cobra.Command{
-	Use:   "filter",
-	Short: "Filter RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDigitsKeyListenerServiceClient(grpcConn)
-		req := &pb.DigitsKeyListenerFilterRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg4"); err == nil {
-			req.Arg4 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg5"); err == nil {
-			req.Arg5 = v
-		}
-		resp, err := client.Filter(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var methodDigitsKeyListenerGetInputTypeCmd = &cobra.Command{
-	Use:   "get-input-type",
-	Short: "GetInputType RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDigitsKeyListenerServiceClient(grpcConn)
-		req := &pb.GetInputTypeRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetInputType(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var methodDigitsKeyListenerGetInstance0Cmd = &cobra.Command{
-	Use:   "get-instance0",
-	Short: "GetInstance0 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDigitsKeyListenerServiceClient(grpcConn)
-		req := &pb.GetInstance0Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetInstance0(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var methodDigitsKeyListenerGetInstance2_1Cmd = &cobra.Command{
-	Use:   "get-instance2_1",
-	Short: "GetInstance2_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDigitsKeyListenerServiceClient(grpcConn)
-		req := &pb.GetInstance2_1Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetBool("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.GetInstance2_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var methodDigitsKeyListenerGetInstance1_2Cmd = &cobra.Command{
-	Use:   "get-instance1_2",
-	Short: "GetInstance1_2 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDigitsKeyListenerServiceClient(grpcConn)
-		req := &pb.GetInstance1_2Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetInstance1_2(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var methodDigitsKeyListenerGetInstance1_3Cmd = &cobra.Command{
-	Use:   "get-instance1_3",
-	Short: "GetInstance1_3 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDigitsKeyListenerServiceClient(grpcConn)
-		req := &pb.GetInstance1_3Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetInstance1_3(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var methodDigitsKeyListenerGetInstance3_4Cmd = &cobra.Command{
-	Use:   "get-instance3_4",
-	Short: "GetInstance3_4 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDigitsKeyListenerServiceClient(grpcConn)
-		req := &pb.GetInstance3_4Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetBool("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetBool("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.GetInstance3_4(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var methodDialerKeyListenerCmd = &cobra.Command{
-	Use:   "dialer-key-listener",
-	Short: "DialerKeyListenerService operations",
-}
-
-var methodDialerKeyListenerNewDialerKeyListenerCmd = &cobra.Command{
-	Use:   "new-dialer-key-listener",
-	Short: "NewDialerKeyListener RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDialerKeyListenerServiceClient(grpcConn)
-		req := &pb.NewDialerKeyListenerRequest{}
-		resp, err := client.NewDialerKeyListener(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var methodDialerKeyListenerGetInputTypeCmd = &cobra.Command{
-	Use:   "get-input-type",
-	Short: "GetInputType RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDialerKeyListenerServiceClient(grpcConn)
-		req := &pb.GetInputTypeRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetInputType(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var methodDialerKeyListenerGetInstanceCmd = &cobra.Command{
-	Use:   "get-instance",
-	Short: "GetInstance RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDialerKeyListenerServiceClient(grpcConn)
-		req := &pb.GetInstanceRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetInstance(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var methodTimeKeyListenerCmd = &cobra.Command{
-	Use:   "time-key-listener",
-	Short: "TimeKeyListenerService operations",
-}
-
-var methodTimeKeyListenerNewTimeKeyListenerCmd = &cobra.Command{
-	Use:   "new-time-key-listener",
-	Short: "NewTimeKeyListener RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTimeKeyListenerServiceClient(grpcConn)
-		req := &pb.NewTimeKeyListenerRequest{}
-		resp, err := client.NewTimeKeyListener(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var methodTimeKeyListenerGetInputTypeCmd = &cobra.Command{
-	Use:   "get-input-type",
-	Short: "GetInputType RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTimeKeyListenerServiceClient(grpcConn)
-		req := &pb.GetInputTypeRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetInputType(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var methodTimeKeyListenerGetInstance0Cmd = &cobra.Command{
-	Use:   "get-instance0",
-	Short: "GetInstance0 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTimeKeyListenerServiceClient(grpcConn)
-		req := &pb.GetInstance0Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetInstance0(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var methodTimeKeyListenerGetInstance1_1Cmd = &cobra.Command{
-	Use:   "get-instance1_1",
-	Short: "GetInstance1_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTimeKeyListenerServiceClient(grpcConn)
-		req := &pb.GetInstance1_1Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetInstance1_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
 var methodQwertyKeyListenerCmd = &cobra.Command{
 	Use:   "qwerty-key-listener",
 	Short: "QwertyKeyListenerService operations",
@@ -1315,7 +65,7 @@ var methodQwertyKeyListenerOnKeyDownCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewQwertyKeyListenerServiceClient(grpcConn)
-		req := &pb.QwertyKeyListenerOnKeyDownRequest{}
+		req := &pb.OnKeyDownRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
@@ -1346,7 +96,7 @@ var methodQwertyKeyListenerGetInstanceCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewQwertyKeyListenerServiceClient(grpcConn)
-		req := &pb.QwertyKeyListenerGetInstanceRequest{}
+		req := &pb.GetInstanceRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
@@ -1407,6 +157,421 @@ var methodQwertyKeyListenerMarkAsReplacedCmd = &cobra.Command{
 			req.Arg3 = v
 		}
 		resp, err := client.MarkAsReplaced(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var methodBaseMovementMethodCmd = &cobra.Command{
+	Use:   "base-movement-method",
+	Short: "BaseMovementMethodService operations",
+}
+
+var methodBaseMovementMethodNewBaseMovementMethodCmd = &cobra.Command{
+	Use:   "new-base-movement-method",
+	Short: "NewBaseMovementMethod RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBaseMovementMethodServiceClient(grpcConn)
+		req := &pb.NewBaseMovementMethodRequest{}
+		resp, err := client.NewBaseMovementMethod(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var methodBaseMovementMethodCanSelectArbitrarilyCmd = &cobra.Command{
+	Use:   "can-select-arbitrarily",
+	Short: "CanSelectArbitrarily RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBaseMovementMethodServiceClient(grpcConn)
+		req := &pb.CanSelectArbitrarilyRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.CanSelectArbitrarily(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var methodBaseMovementMethodInitializeCmd = &cobra.Command{
+	Use:   "initialize",
+	Short: "Initialize RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBaseMovementMethodServiceClient(grpcConn)
+		req := &pb.InitializeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.Initialize(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var methodBaseMovementMethodNextParagraphCmd = &cobra.Command{
+	Use:   "next-paragraph",
+	Short: "NextParagraph RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBaseMovementMethodServiceClient(grpcConn)
+		req := &pb.NextParagraphRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.NextParagraph(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var methodBaseMovementMethodOnGenericMotionEventCmd = &cobra.Command{
+	Use:   "on-generic-motion-event",
+	Short: "OnGenericMotionEvent RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBaseMovementMethodServiceClient(grpcConn)
+		req := &pb.OnGenericMotionEventRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.OnGenericMotionEvent(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var methodBaseMovementMethodOnKeyDownCmd = &cobra.Command{
+	Use:   "on-key-down",
+	Short: "OnKeyDown RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBaseMovementMethodServiceClient(grpcConn)
+		req := &pb.OnKeyDownRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.OnKeyDown(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var methodBaseMovementMethodOnKeyOtherCmd = &cobra.Command{
+	Use:   "on-key-other",
+	Short: "OnKeyOther RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBaseMovementMethodServiceClient(grpcConn)
+		req := &pb.OnKeyOtherRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.OnKeyOther(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var methodBaseMovementMethodOnKeyUpCmd = &cobra.Command{
+	Use:   "on-key-up",
+	Short: "OnKeyUp RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBaseMovementMethodServiceClient(grpcConn)
+		req := &pb.OnKeyUpRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.OnKeyUp(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var methodBaseMovementMethodOnTakeFocusCmd = &cobra.Command{
+	Use:   "on-take-focus",
+	Short: "OnTakeFocus RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBaseMovementMethodServiceClient(grpcConn)
+		req := &pb.OnTakeFocusRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.OnTakeFocus(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var methodBaseMovementMethodOnTouchEventCmd = &cobra.Command{
+	Use:   "on-touch-event",
+	Short: "OnTouchEvent RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBaseMovementMethodServiceClient(grpcConn)
+		req := &pb.OnTouchEventRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.OnTouchEvent(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var methodBaseMovementMethodOnTrackballEventCmd = &cobra.Command{
+	Use:   "on-trackball-event",
+	Short: "OnTrackballEvent RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBaseMovementMethodServiceClient(grpcConn)
+		req := &pb.OnTrackballEventRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.OnTrackballEvent(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var methodBaseMovementMethodPreviousParagraphCmd = &cobra.Command{
+	Use:   "previous-paragraph",
+	Short: "PreviousParagraph RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBaseMovementMethodServiceClient(grpcConn)
+		req := &pb.PreviousParagraphRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.PreviousParagraph(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var methodSingleLineTransformationMethodCmd = &cobra.Command{
+	Use:   "single-line-transformation-method",
+	Short: "SingleLineTransformationMethodService operations",
+}
+
+var methodSingleLineTransformationMethodNewSingleLineTransformationMethodCmd = &cobra.Command{
+	Use:   "new-single-line-transformation-method",
+	Short: "NewSingleLineTransformationMethod RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSingleLineTransformationMethodServiceClient(grpcConn)
+		req := &pb.NewSingleLineTransformationMethodRequest{}
+		resp, err := client.NewSingleLineTransformationMethod(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var methodSingleLineTransformationMethodGetInstanceCmd = &cobra.Command{
+	Use:   "get-instance",
+	Short: "GetInstance RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSingleLineTransformationMethodServiceClient(grpcConn)
+		req := &pb.SingleLineTransformationMethodGetInstanceRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetInstance(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var methodReplacementTransformationMethodCmd = &cobra.Command{
+	Use:   "replacement-transformation-method",
+	Short: "ReplacementTransformationMethodService operations",
+}
+
+var methodReplacementTransformationMethodGetTransformationCmd = &cobra.Command{
+	Use:   "get-transformation",
+	Short: "GetTransformation RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewReplacementTransformationMethodServiceClient(grpcConn)
+		req := &pb.GetTransformationRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.GetTransformation(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var methodReplacementTransformationMethodOnFocusChangedCmd = &cobra.Command{
+	Use:   "on-focus-changed",
+	Short: "OnFocusChanged RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewReplacementTransformationMethodServiceClient(grpcConn)
+		req := &pb.OnFocusChangedRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetBool("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		resp, err := client.OnFocusChanged(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1482,7 +647,7 @@ var methodBaseKeyListenerOnKeyDownCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewBaseKeyListenerServiceClient(grpcConn)
-		req := &pb.OnKeyDownRequest{}
+		req := &pb.BaseKeyListenerOnKeyDownRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
@@ -1510,7 +675,7 @@ var methodBaseKeyListenerOnKeyOtherCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewBaseKeyListenerServiceClient(grpcConn)
-		req := &pb.OnKeyOtherRequest{}
+		req := &pb.BaseKeyListenerOnKeyOtherRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
@@ -1521,6 +686,64 @@ var methodBaseKeyListenerOnKeyOtherCmd = &cobra.Command{
 			req.Arg2 = v
 		}
 		resp, err := client.OnKeyOther(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var methodTransformationMethodCmd = &cobra.Command{
+	Use:   "transformation-method",
+	Short: "TransformationMethodService operations",
+}
+
+var methodTransformationMethodGetTransformationCmd = &cobra.Command{
+	Use:   "get-transformation",
+	Short: "GetTransformation RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTransformationMethodServiceClient(grpcConn)
+		req := &pb.GetTransformationRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.GetTransformation(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var methodTransformationMethodOnFocusChangedCmd = &cobra.Command{
+	Use:   "on-focus-changed",
+	Short: "OnFocusChanged RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTransformationMethodServiceClient(grpcConn)
+		req := &pb.OnFocusChangedRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetBool("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		resp, err := client.OnFocusChanged(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1587,7 +810,7 @@ var methodMetaKeyKeyListenerOnKeyDownCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewMetaKeyKeyListenerServiceClient(grpcConn)
-		req := &pb.OnKeyDownRequest{}
+		req := &pb.MetaKeyKeyListenerOnKeyDownRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
@@ -1615,7 +838,7 @@ var methodMetaKeyKeyListenerOnKeyUpCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewMetaKeyKeyListenerServiceClient(grpcConn)
-		req := &pb.OnKeyUpRequest{}
+		req := &pb.MetaKeyKeyListenerOnKeyUpRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
@@ -1957,19 +1180,91 @@ var methodMetaKeyKeyListenerResetMetaStateCmd = &cobra.Command{
 	},
 }
 
-var methodTransformationMethodCmd = &cobra.Command{
-	Use:   "transformation-method",
-	Short: "TransformationMethodService operations",
+var methodPasswordTransformationMethodCmd = &cobra.Command{
+	Use:   "password-transformation-method",
+	Short: "PasswordTransformationMethodService operations",
 }
 
-var methodTransformationMethodGetTransformationCmd = &cobra.Command{
+var methodPasswordTransformationMethodNewPasswordTransformationMethodCmd = &cobra.Command{
+	Use:   "new-password-transformation-method",
+	Short: "NewPasswordTransformationMethod RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPasswordTransformationMethodServiceClient(grpcConn)
+		req := &pb.NewPasswordTransformationMethodRequest{}
+		resp, err := client.NewPasswordTransformationMethod(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var methodPasswordTransformationMethodAfterTextChangedCmd = &cobra.Command{
+	Use:   "after-text-changed",
+	Short: "AfterTextChanged RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPasswordTransformationMethodServiceClient(grpcConn)
+		req := &pb.AfterTextChangedRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AfterTextChanged(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var methodPasswordTransformationMethodBeforeTextChangedCmd = &cobra.Command{
+	Use:   "before-text-changed",
+	Short: "BeforeTextChanged RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPasswordTransformationMethodServiceClient(grpcConn)
+		req := &pb.BeforeTextChangedRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.BeforeTextChanged(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var methodPasswordTransformationMethodGetTransformationCmd = &cobra.Command{
 	Use:   "get-transformation",
 	Short: "GetTransformation RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewTransformationMethodServiceClient(grpcConn)
-		req := &pb.GetTransformationRequest{}
+		client := pb.NewPasswordTransformationMethodServiceClient(grpcConn)
+		req := &pb.PasswordTransformationMethodGetTransformationRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
 		if v, err := cmd.Flags().GetString("arg0"); err == nil {
 			req.Arg0 = v
 		}
@@ -1984,14 +1279,17 @@ var methodTransformationMethodGetTransformationCmd = &cobra.Command{
 	},
 }
 
-var methodTransformationMethodOnFocusChangedCmd = &cobra.Command{
+var methodPasswordTransformationMethodOnFocusChangedCmd = &cobra.Command{
 	Use:   "on-focus-changed",
 	Short: "OnFocusChanged RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewTransformationMethodServiceClient(grpcConn)
-		req := &pb.OnFocusChangedRequest{}
+		client := pb.NewPasswordTransformationMethodServiceClient(grpcConn)
+		req := &pb.PasswordTransformationMethodOnFocusChangedRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
@@ -2008,6 +1306,1011 @@ var methodTransformationMethodOnFocusChangedCmd = &cobra.Command{
 			req.Arg4 = v
 		}
 		resp, err := client.OnFocusChanged(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var methodPasswordTransformationMethodOnTextChangedCmd = &cobra.Command{
+	Use:   "on-text-changed",
+	Short: "OnTextChanged RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPasswordTransformationMethodServiceClient(grpcConn)
+		req := &pb.OnTextChangedRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.OnTextChanged(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var methodPasswordTransformationMethodGetInstanceCmd = &cobra.Command{
+	Use:   "get-instance",
+	Short: "GetInstance RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPasswordTransformationMethodServiceClient(grpcConn)
+		req := &pb.PasswordTransformationMethodGetInstanceRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetInstance(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var methodArrowKeyMovementMethodCmd = &cobra.Command{
+	Use:   "arrow-key-movement-method",
+	Short: "ArrowKeyMovementMethodService operations",
+}
+
+var methodArrowKeyMovementMethodNewArrowKeyMovementMethodCmd = &cobra.Command{
+	Use:   "new-arrow-key-movement-method",
+	Short: "NewArrowKeyMovementMethod RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewArrowKeyMovementMethodServiceClient(grpcConn)
+		req := &pb.NewArrowKeyMovementMethodRequest{}
+		resp, err := client.NewArrowKeyMovementMethod(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var methodArrowKeyMovementMethodCanSelectArbitrarilyCmd = &cobra.Command{
+	Use:   "can-select-arbitrarily",
+	Short: "CanSelectArbitrarily RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewArrowKeyMovementMethodServiceClient(grpcConn)
+		req := &pb.CanSelectArbitrarilyRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.CanSelectArbitrarily(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var methodArrowKeyMovementMethodInitializeCmd = &cobra.Command{
+	Use:   "initialize",
+	Short: "Initialize RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewArrowKeyMovementMethodServiceClient(grpcConn)
+		req := &pb.InitializeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.Initialize(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var methodArrowKeyMovementMethodNextParagraphCmd = &cobra.Command{
+	Use:   "next-paragraph",
+	Short: "NextParagraph RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewArrowKeyMovementMethodServiceClient(grpcConn)
+		req := &pb.NextParagraphRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.NextParagraph(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var methodArrowKeyMovementMethodOnTakeFocusCmd = &cobra.Command{
+	Use:   "on-take-focus",
+	Short: "OnTakeFocus RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewArrowKeyMovementMethodServiceClient(grpcConn)
+		req := &pb.OnTakeFocusRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.OnTakeFocus(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var methodArrowKeyMovementMethodOnTouchEventCmd = &cobra.Command{
+	Use:   "on-touch-event",
+	Short: "OnTouchEvent RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewArrowKeyMovementMethodServiceClient(grpcConn)
+		req := &pb.OnTouchEventRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.OnTouchEvent(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var methodArrowKeyMovementMethodPreviousParagraphCmd = &cobra.Command{
+	Use:   "previous-paragraph",
+	Short: "PreviousParagraph RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewArrowKeyMovementMethodServiceClient(grpcConn)
+		req := &pb.PreviousParagraphRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.PreviousParagraph(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var methodArrowKeyMovementMethodGetInstanceCmd = &cobra.Command{
+	Use:   "get-instance",
+	Short: "GetInstance RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewArrowKeyMovementMethodServiceClient(grpcConn)
+		req := &pb.ArrowKeyMovementMethodGetInstanceRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetInstance(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var methodDateTimeKeyListenerCmd = &cobra.Command{
+	Use:   "date-time-key-listener",
+	Short: "DateTimeKeyListenerService operations",
+}
+
+var methodDateTimeKeyListenerNewDateTimeKeyListenerCmd = &cobra.Command{
+	Use:   "new-date-time-key-listener",
+	Short: "NewDateTimeKeyListener RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDateTimeKeyListenerServiceClient(grpcConn)
+		req := &pb.NewDateTimeKeyListenerRequest{}
+		resp, err := client.NewDateTimeKeyListener(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var methodDateTimeKeyListenerGetInputTypeCmd = &cobra.Command{
+	Use:   "get-input-type",
+	Short: "GetInputType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDateTimeKeyListenerServiceClient(grpcConn)
+		req := &pb.GetInputTypeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetInputType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var methodDateTimeKeyListenerGetInstance0Cmd = &cobra.Command{
+	Use:   "get-instance0",
+	Short: "GetInstance0 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDateTimeKeyListenerServiceClient(grpcConn)
+		req := &pb.GetInstance0Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetInstance0(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var methodDateTimeKeyListenerGetInstance1_1Cmd = &cobra.Command{
+	Use:   "get-instance1_1",
+	Short: "GetInstance1_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDateTimeKeyListenerServiceClient(grpcConn)
+		req := &pb.GetInstance1_1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetInstance1_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var methodScrollingMovementMethodCmd = &cobra.Command{
+	Use:   "scrolling-movement-method",
+	Short: "ScrollingMovementMethodService operations",
+}
+
+var methodScrollingMovementMethodNewScrollingMovementMethodCmd = &cobra.Command{
+	Use:   "new-scrolling-movement-method",
+	Short: "NewScrollingMovementMethod RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewScrollingMovementMethodServiceClient(grpcConn)
+		req := &pb.NewScrollingMovementMethodRequest{}
+		resp, err := client.NewScrollingMovementMethod(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var methodScrollingMovementMethodOnTakeFocusCmd = &cobra.Command{
+	Use:   "on-take-focus",
+	Short: "OnTakeFocus RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewScrollingMovementMethodServiceClient(grpcConn)
+		req := &pb.OnTakeFocusRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.OnTakeFocus(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var methodScrollingMovementMethodOnTouchEventCmd = &cobra.Command{
+	Use:   "on-touch-event",
+	Short: "OnTouchEvent RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewScrollingMovementMethodServiceClient(grpcConn)
+		req := &pb.OnTouchEventRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.OnTouchEvent(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var methodScrollingMovementMethodGetInstanceCmd = &cobra.Command{
+	Use:   "get-instance",
+	Short: "GetInstance RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewScrollingMovementMethodServiceClient(grpcConn)
+		req := &pb.ScrollingMovementMethodGetInstanceRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetInstance(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var methodTimeKeyListenerCmd = &cobra.Command{
+	Use:   "time-key-listener",
+	Short: "TimeKeyListenerService operations",
+}
+
+var methodTimeKeyListenerNewTimeKeyListenerCmd = &cobra.Command{
+	Use:   "new-time-key-listener",
+	Short: "NewTimeKeyListener RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTimeKeyListenerServiceClient(grpcConn)
+		req := &pb.NewTimeKeyListenerRequest{}
+		resp, err := client.NewTimeKeyListener(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var methodTimeKeyListenerGetInputTypeCmd = &cobra.Command{
+	Use:   "get-input-type",
+	Short: "GetInputType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTimeKeyListenerServiceClient(grpcConn)
+		req := &pb.GetInputTypeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetInputType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var methodTimeKeyListenerGetInstance0Cmd = &cobra.Command{
+	Use:   "get-instance0",
+	Short: "GetInstance0 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTimeKeyListenerServiceClient(grpcConn)
+		req := &pb.GetInstance0Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetInstance0(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var methodTimeKeyListenerGetInstance1_1Cmd = &cobra.Command{
+	Use:   "get-instance1_1",
+	Short: "GetInstance1_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTimeKeyListenerServiceClient(grpcConn)
+		req := &pb.GetInstance1_1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetInstance1_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var methodNumberKeyListenerCmd = &cobra.Command{
+	Use:   "number-key-listener",
+	Short: "NumberKeyListenerService operations",
+}
+
+var methodNumberKeyListenerFilterCmd = &cobra.Command{
+	Use:   "filter",
+	Short: "Filter RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNumberKeyListenerServiceClient(grpcConn)
+		req := &pb.FilterRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg5"); err == nil {
+			req.Arg5 = v
+		}
+		resp, err := client.Filter(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var methodNumberKeyListenerOnKeyDownCmd = &cobra.Command{
+	Use:   "on-key-down",
+	Short: "OnKeyDown RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNumberKeyListenerServiceClient(grpcConn)
+		req := &pb.NumberKeyListenerOnKeyDownRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.OnKeyDown(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var methodMovementMethodCmd = &cobra.Command{
+	Use:   "movement-method",
+	Short: "MovementMethodService operations",
+}
+
+var methodMovementMethodCanSelectArbitrarilyCmd = &cobra.Command{
+	Use:   "can-select-arbitrarily",
+	Short: "CanSelectArbitrarily RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMovementMethodServiceClient(grpcConn)
+		req := &pb.MovementMethodCanSelectArbitrarilyRequest{}
+		resp, err := client.CanSelectArbitrarily(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var methodMovementMethodInitializeCmd = &cobra.Command{
+	Use:   "initialize",
+	Short: "Initialize RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMovementMethodServiceClient(grpcConn)
+		req := &pb.MovementMethodInitializeRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.Initialize(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var methodMovementMethodOnGenericMotionEventCmd = &cobra.Command{
+	Use:   "on-generic-motion-event",
+	Short: "OnGenericMotionEvent RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMovementMethodServiceClient(grpcConn)
+		req := &pb.MovementMethodOnGenericMotionEventRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.OnGenericMotionEvent(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var methodMovementMethodOnKeyDownCmd = &cobra.Command{
+	Use:   "on-key-down",
+	Short: "OnKeyDown RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMovementMethodServiceClient(grpcConn)
+		req := &pb.MovementMethodOnKeyDownRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.OnKeyDown(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var methodMovementMethodOnKeyOtherCmd = &cobra.Command{
+	Use:   "on-key-other",
+	Short: "OnKeyOther RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMovementMethodServiceClient(grpcConn)
+		req := &pb.MovementMethodOnKeyOtherRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.OnKeyOther(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var methodMovementMethodOnKeyUpCmd = &cobra.Command{
+	Use:   "on-key-up",
+	Short: "OnKeyUp RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMovementMethodServiceClient(grpcConn)
+		req := &pb.MovementMethodOnKeyUpRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.OnKeyUp(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var methodMovementMethodOnTakeFocusCmd = &cobra.Command{
+	Use:   "on-take-focus",
+	Short: "OnTakeFocus RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMovementMethodServiceClient(grpcConn)
+		req := &pb.MovementMethodOnTakeFocusRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.OnTakeFocus(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var methodMovementMethodOnTouchEventCmd = &cobra.Command{
+	Use:   "on-touch-event",
+	Short: "OnTouchEvent RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMovementMethodServiceClient(grpcConn)
+		req := &pb.MovementMethodOnTouchEventRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.OnTouchEvent(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var methodMovementMethodOnTrackballEventCmd = &cobra.Command{
+	Use:   "on-trackball-event",
+	Short: "OnTrackballEvent RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMovementMethodServiceClient(grpcConn)
+		req := &pb.MovementMethodOnTrackballEventRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.OnTrackballEvent(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var methodKeyListenerCmd = &cobra.Command{
+	Use:   "key-listener",
+	Short: "KeyListenerService operations",
+}
+
+var methodKeyListenerClearMetaKeyStateCmd = &cobra.Command{
+	Use:   "clear-meta-key-state",
+	Short: "ClearMetaKeyState RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewKeyListenerServiceClient(grpcConn)
+		req := &pb.ClearMetaKeyStateRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.ClearMetaKeyState(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var methodKeyListenerGetInputTypeCmd = &cobra.Command{
+	Use:   "get-input-type",
+	Short: "GetInputType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewKeyListenerServiceClient(grpcConn)
+		req := &pb.KeyListenerGetInputTypeRequest{}
+		resp, err := client.GetInputType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var methodKeyListenerOnKeyDownCmd = &cobra.Command{
+	Use:   "on-key-down",
+	Short: "OnKeyDown RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewKeyListenerServiceClient(grpcConn)
+		req := &pb.KeyListenerOnKeyDownRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.OnKeyDown(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var methodKeyListenerOnKeyOtherCmd = &cobra.Command{
+	Use:   "on-key-other",
+	Short: "OnKeyOther RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewKeyListenerServiceClient(grpcConn)
+		req := &pb.KeyListenerOnKeyOtherRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.OnKeyOther(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var methodKeyListenerOnKeyUpCmd = &cobra.Command{
+	Use:   "on-key-up",
+	Short: "OnKeyUp RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewKeyListenerServiceClient(grpcConn)
+		req := &pb.KeyListenerOnKeyUpRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.OnKeyUp(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var methodCharacterPickerDialogCmd = &cobra.Command{
+	Use:   "character-picker-dialog",
+	Short: "CharacterPickerDialogService operations",
+}
+
+var methodCharacterPickerDialogNewCharacterPickerDialogCmd = &cobra.Command{
+	Use:   "new-character-picker-dialog",
+	Short: "NewCharacterPickerDialog RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCharacterPickerDialogServiceClient(grpcConn)
+		req := &pb.NewCharacterPickerDialogRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetString("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetBool("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		resp, err := client.NewCharacterPickerDialog(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var methodCharacterPickerDialogOnClickCmd = &cobra.Command{
+	Use:   "on-click",
+	Short: "OnClick RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCharacterPickerDialogServiceClient(grpcConn)
+		req := &pb.OnClickRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnClick(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var methodCharacterPickerDialogOnItemClickCmd = &cobra.Command{
+	Use:   "on-item-click",
+	Short: "OnItemClick RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCharacterPickerDialogServiceClient(grpcConn)
+		req := &pb.OnItemClickRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.OnItemClick(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -2068,7 +2371,7 @@ var methodTextKeyListenerOnKeyDownCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewTextKeyListenerServiceClient(grpcConn)
-		req := &pb.TextKeyListenerOnKeyDownRequest{}
+		req := &pb.OnKeyDownRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
@@ -2099,7 +2402,7 @@ var methodTextKeyListenerOnKeyOtherCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewTextKeyListenerServiceClient(grpcConn)
-		req := &pb.TextKeyListenerOnKeyOtherRequest{}
+		req := &pb.OnKeyOtherRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
@@ -2127,7 +2430,7 @@ var methodTextKeyListenerOnKeyUpCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewTextKeyListenerServiceClient(grpcConn)
-		req := &pb.TextKeyListenerOnKeyUpRequest{}
+		req := &pb.OnKeyUpRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
@@ -2317,7 +2620,7 @@ var methodTextKeyListenerGetInstance2_1Cmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewTextKeyListenerServiceClient(grpcConn)
-		req := &pb.TextKeyListenerGetInstance2_1Request{}
+		req := &pb.GetInstance2_1Request{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
@@ -2396,404 +2699,6 @@ var methodTextKeyListenerCapitalizeValueOfCmd = &cobra.Command{
 			req.Arg0 = v
 		}
 		resp, err := client.ValueOf(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var methodArrowKeyMovementMethodCmd = &cobra.Command{
-	Use:   "arrow-key-movement-method",
-	Short: "ArrowKeyMovementMethodService operations",
-}
-
-var methodArrowKeyMovementMethodNewArrowKeyMovementMethodCmd = &cobra.Command{
-	Use:   "new-arrow-key-movement-method",
-	Short: "NewArrowKeyMovementMethod RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewArrowKeyMovementMethodServiceClient(grpcConn)
-		req := &pb.NewArrowKeyMovementMethodRequest{}
-		resp, err := client.NewArrowKeyMovementMethod(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var methodArrowKeyMovementMethodCanSelectArbitrarilyCmd = &cobra.Command{
-	Use:   "can-select-arbitrarily",
-	Short: "CanSelectArbitrarily RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewArrowKeyMovementMethodServiceClient(grpcConn)
-		req := &pb.ArrowKeyMovementMethodCanSelectArbitrarilyRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.CanSelectArbitrarily(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var methodArrowKeyMovementMethodInitializeCmd = &cobra.Command{
-	Use:   "initialize",
-	Short: "Initialize RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewArrowKeyMovementMethodServiceClient(grpcConn)
-		req := &pb.ArrowKeyMovementMethodInitializeRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.Initialize(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var methodArrowKeyMovementMethodNextParagraphCmd = &cobra.Command{
-	Use:   "next-paragraph",
-	Short: "NextParagraph RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewArrowKeyMovementMethodServiceClient(grpcConn)
-		req := &pb.NextParagraphRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.NextParagraph(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var methodArrowKeyMovementMethodOnTakeFocusCmd = &cobra.Command{
-	Use:   "on-take-focus",
-	Short: "OnTakeFocus RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewArrowKeyMovementMethodServiceClient(grpcConn)
-		req := &pb.ArrowKeyMovementMethodOnTakeFocusRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.OnTakeFocus(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var methodArrowKeyMovementMethodOnTouchEventCmd = &cobra.Command{
-	Use:   "on-touch-event",
-	Short: "OnTouchEvent RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewArrowKeyMovementMethodServiceClient(grpcConn)
-		req := &pb.ArrowKeyMovementMethodOnTouchEventRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.OnTouchEvent(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var methodArrowKeyMovementMethodPreviousParagraphCmd = &cobra.Command{
-	Use:   "previous-paragraph",
-	Short: "PreviousParagraph RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewArrowKeyMovementMethodServiceClient(grpcConn)
-		req := &pb.PreviousParagraphRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.PreviousParagraph(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var methodArrowKeyMovementMethodGetInstanceCmd = &cobra.Command{
-	Use:   "get-instance",
-	Short: "GetInstance RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewArrowKeyMovementMethodServiceClient(grpcConn)
-		req := &pb.GetInstanceRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetInstance(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var methodKeyListenerCmd = &cobra.Command{
-	Use:   "key-listener",
-	Short: "KeyListenerService operations",
-}
-
-var methodKeyListenerClearMetaKeyStateCmd = &cobra.Command{
-	Use:   "clear-meta-key-state",
-	Short: "ClearMetaKeyState RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewKeyListenerServiceClient(grpcConn)
-		req := &pb.ClearMetaKeyStateRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.ClearMetaKeyState(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var methodKeyListenerGetInputTypeCmd = &cobra.Command{
-	Use:   "get-input-type",
-	Short: "GetInputType RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewKeyListenerServiceClient(grpcConn)
-		req := &pb.KeyListenerGetInputTypeRequest{}
-		resp, err := client.GetInputType(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var methodKeyListenerOnKeyDownCmd = &cobra.Command{
-	Use:   "on-key-down",
-	Short: "OnKeyDown RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewKeyListenerServiceClient(grpcConn)
-		req := &pb.OnKeyDownRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		resp, err := client.OnKeyDown(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var methodKeyListenerOnKeyOtherCmd = &cobra.Command{
-	Use:   "on-key-other",
-	Short: "OnKeyOther RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewKeyListenerServiceClient(grpcConn)
-		req := &pb.OnKeyOtherRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.OnKeyOther(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var methodKeyListenerOnKeyUpCmd = &cobra.Command{
-	Use:   "on-key-up",
-	Short: "OnKeyUp RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewKeyListenerServiceClient(grpcConn)
-		req := &pb.OnKeyUpRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		resp, err := client.OnKeyUp(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var methodDateTimeKeyListenerCmd = &cobra.Command{
-	Use:   "date-time-key-listener",
-	Short: "DateTimeKeyListenerService operations",
-}
-
-var methodDateTimeKeyListenerNewDateTimeKeyListenerCmd = &cobra.Command{
-	Use:   "new-date-time-key-listener",
-	Short: "NewDateTimeKeyListener RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDateTimeKeyListenerServiceClient(grpcConn)
-		req := &pb.NewDateTimeKeyListenerRequest{}
-		resp, err := client.NewDateTimeKeyListener(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var methodDateTimeKeyListenerGetInputTypeCmd = &cobra.Command{
-	Use:   "get-input-type",
-	Short: "GetInputType RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDateTimeKeyListenerServiceClient(grpcConn)
-		req := &pb.GetInputTypeRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetInputType(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var methodDateTimeKeyListenerGetInstance0Cmd = &cobra.Command{
-	Use:   "get-instance0",
-	Short: "GetInstance0 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDateTimeKeyListenerServiceClient(grpcConn)
-		req := &pb.GetInstance0Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetInstance0(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var methodDateTimeKeyListenerGetInstance1_1Cmd = &cobra.Command{
-	Use:   "get-instance1_1",
-	Short: "GetInstance1_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDateTimeKeyListenerServiceClient(grpcConn)
-		req := &pb.GetInstance1_1Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetInstance1_1(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -2882,20 +2787,20 @@ var methodDateKeyListenerGetInstance1_1Cmd = &cobra.Command{
 	},
 }
 
-var methodPasswordTransformationMethodCmd = &cobra.Command{
-	Use:   "password-transformation-method",
-	Short: "PasswordTransformationMethodService operations",
+var methodDialerKeyListenerCmd = &cobra.Command{
+	Use:   "dialer-key-listener",
+	Short: "DialerKeyListenerService operations",
 }
 
-var methodPasswordTransformationMethodNewPasswordTransformationMethodCmd = &cobra.Command{
-	Use:   "new-password-transformation-method",
-	Short: "NewPasswordTransformationMethod RPC",
+var methodDialerKeyListenerNewDialerKeyListenerCmd = &cobra.Command{
+	Use:   "new-dialer-key-listener",
+	Short: "NewDialerKeyListener RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewPasswordTransformationMethodServiceClient(grpcConn)
-		req := &pb.NewPasswordTransformationMethodRequest{}
-		resp, err := client.NewPasswordTransformationMethod(ctx, req)
+		client := pb.NewDialerKeyListenerServiceClient(grpcConn)
+		req := &pb.NewDialerKeyListenerRequest{}
+		resp, err := client.NewDialerKeyListener(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -2903,21 +2808,18 @@ var methodPasswordTransformationMethodNewPasswordTransformationMethodCmd = &cobr
 	},
 }
 
-var methodPasswordTransformationMethodAfterTextChangedCmd = &cobra.Command{
-	Use:   "after-text-changed",
-	Short: "AfterTextChanged RPC",
+var methodDialerKeyListenerGetInputTypeCmd = &cobra.Command{
+	Use:   "get-input-type",
+	Short: "GetInputType RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewPasswordTransformationMethodServiceClient(grpcConn)
-		req := &pb.AfterTextChangedRequest{}
+		client := pb.NewDialerKeyListenerServiceClient(grpcConn)
+		req := &pb.GetInputTypeRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.AfterTextChanged(ctx, req)
+		resp, err := client.GetInputType(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -2925,139 +2827,514 @@ var methodPasswordTransformationMethodAfterTextChangedCmd = &cobra.Command{
 	},
 }
 
-var methodPasswordTransformationMethodBeforeTextChangedCmd = &cobra.Command{
-	Use:   "before-text-changed",
-	Short: "BeforeTextChanged RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPasswordTransformationMethodServiceClient(grpcConn)
-		req := &pb.BeforeTextChangedRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		resp, err := client.BeforeTextChanged(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var methodPasswordTransformationMethodGetTransformationCmd = &cobra.Command{
-	Use:   "get-transformation",
-	Short: "GetTransformation RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPasswordTransformationMethodServiceClient(grpcConn)
-		req := &pb.PasswordTransformationMethodGetTransformationRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.GetTransformation(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var methodPasswordTransformationMethodOnFocusChangedCmd = &cobra.Command{
-	Use:   "on-focus-changed",
-	Short: "OnFocusChanged RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPasswordTransformationMethodServiceClient(grpcConn)
-		req := &pb.PasswordTransformationMethodOnFocusChangedRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetString("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetBool("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg4"); err == nil {
-			req.Arg4 = v
-		}
-		resp, err := client.OnFocusChanged(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var methodPasswordTransformationMethodOnTextChangedCmd = &cobra.Command{
-	Use:   "on-text-changed",
-	Short: "OnTextChanged RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPasswordTransformationMethodServiceClient(grpcConn)
-		req := &pb.OnTextChangedRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		resp, err := client.OnTextChanged(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var methodPasswordTransformationMethodGetInstanceCmd = &cobra.Command{
+var methodDialerKeyListenerGetInstanceCmd = &cobra.Command{
 	Use:   "get-instance",
 	Short: "GetInstance RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewPasswordTransformationMethodServiceClient(grpcConn)
-		req := &pb.GetInstanceRequest{}
+		client := pb.NewDialerKeyListenerServiceClient(grpcConn)
+		req := &pb.DialerKeyListenerGetInstanceRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
 		resp, err := client.GetInstance(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var methodMultiTapKeyListenerCmd = &cobra.Command{
+	Use:   "multi-tap-key-listener",
+	Short: "MultiTapKeyListenerService operations",
+}
+
+var methodMultiTapKeyListenerNewMultiTapKeyListenerCmd = &cobra.Command{
+	Use:   "new-multi-tap-key-listener",
+	Short: "NewMultiTapKeyListener RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMultiTapKeyListenerServiceClient(grpcConn)
+		req := &pb.NewMultiTapKeyListenerRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetBool("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.NewMultiTapKeyListener(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var methodMultiTapKeyListenerGetInputTypeCmd = &cobra.Command{
+	Use:   "get-input-type",
+	Short: "GetInputType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMultiTapKeyListenerServiceClient(grpcConn)
+		req := &pb.GetInputTypeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetInputType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var methodMultiTapKeyListenerOnKeyDownCmd = &cobra.Command{
+	Use:   "on-key-down",
+	Short: "OnKeyDown RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMultiTapKeyListenerServiceClient(grpcConn)
+		req := &pb.OnKeyDownRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.OnKeyDown(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var methodMultiTapKeyListenerOnSpanAddedCmd = &cobra.Command{
+	Use:   "on-span-added",
+	Short: "OnSpanAdded RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMultiTapKeyListenerServiceClient(grpcConn)
+		req := &pb.OnSpanAddedRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.OnSpanAdded(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var methodMultiTapKeyListenerOnSpanChangedCmd = &cobra.Command{
+	Use:   "on-span-changed",
+	Short: "OnSpanChanged RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMultiTapKeyListenerServiceClient(grpcConn)
+		req := &pb.OnSpanChangedRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg5"); err == nil {
+			req.Arg5 = v
+		}
+		resp, err := client.OnSpanChanged(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var methodMultiTapKeyListenerOnSpanRemovedCmd = &cobra.Command{
+	Use:   "on-span-removed",
+	Short: "OnSpanRemoved RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMultiTapKeyListenerServiceClient(grpcConn)
+		req := &pb.OnSpanRemovedRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.OnSpanRemoved(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var methodMultiTapKeyListenerGetInstanceCmd = &cobra.Command{
+	Use:   "get-instance",
+	Short: "GetInstance RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMultiTapKeyListenerServiceClient(grpcConn)
+		req := &pb.GetInstanceRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.GetInstance(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var methodTouchCmd = &cobra.Command{
+	Use:   "touch",
+	Short: "TouchService operations",
+}
+
+var methodTouchGetInitialScrollXCmd = &cobra.Command{
+	Use:   "get-initial-scroll-x",
+	Short: "GetInitialScrollX RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTouchServiceClient(grpcConn)
+		req := &pb.GetInitialScrollXRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.GetInitialScrollX(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var methodTouchGetInitialScrollYCmd = &cobra.Command{
+	Use:   "get-initial-scroll-y",
+	Short: "GetInitialScrollY RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTouchServiceClient(grpcConn)
+		req := &pb.GetInitialScrollYRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.GetInitialScrollY(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var methodTouchOnTouchEventCmd = &cobra.Command{
+	Use:   "on-touch-event",
+	Short: "OnTouchEvent RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTouchServiceClient(grpcConn)
+		req := &pb.TouchOnTouchEventRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.OnTouchEvent(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var methodTouchScrollToCmd = &cobra.Command{
+	Use:   "scroll-to",
+	Short: "ScrollTo RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTouchServiceClient(grpcConn)
+		req := &pb.ScrollToRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.ScrollTo(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var methodDigitsKeyListenerCmd = &cobra.Command{
+	Use:   "digits-key-listener",
+	Short: "DigitsKeyListenerService operations",
+}
+
+var methodDigitsKeyListenerNewDigitsKeyListenerCmd = &cobra.Command{
+	Use:   "new-digits-key-listener",
+	Short: "NewDigitsKeyListener RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDigitsKeyListenerServiceClient(grpcConn)
+		req := &pb.NewDigitsKeyListenerRequest{}
+		resp, err := client.NewDigitsKeyListener(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var methodDigitsKeyListenerFilterCmd = &cobra.Command{
+	Use:   "filter",
+	Short: "Filter RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDigitsKeyListenerServiceClient(grpcConn)
+		req := &pb.DigitsKeyListenerFilterRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg5"); err == nil {
+			req.Arg5 = v
+		}
+		resp, err := client.Filter(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var methodDigitsKeyListenerGetInputTypeCmd = &cobra.Command{
+	Use:   "get-input-type",
+	Short: "GetInputType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDigitsKeyListenerServiceClient(grpcConn)
+		req := &pb.GetInputTypeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetInputType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var methodDigitsKeyListenerGetInstance0Cmd = &cobra.Command{
+	Use:   "get-instance0",
+	Short: "GetInstance0 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDigitsKeyListenerServiceClient(grpcConn)
+		req := &pb.GetInstance0Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetInstance0(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var methodDigitsKeyListenerGetInstance2_1Cmd = &cobra.Command{
+	Use:   "get-instance2_1",
+	Short: "GetInstance2_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDigitsKeyListenerServiceClient(grpcConn)
+		req := &pb.DigitsKeyListenerGetInstance2_1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetBool("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.GetInstance2_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var methodDigitsKeyListenerGetInstance1_2Cmd = &cobra.Command{
+	Use:   "get-instance1_2",
+	Short: "GetInstance1_2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDigitsKeyListenerServiceClient(grpcConn)
+		req := &pb.GetInstance1_2Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetInstance1_2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var methodDigitsKeyListenerGetInstance1_3Cmd = &cobra.Command{
+	Use:   "get-instance1_3",
+	Short: "GetInstance1_3 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDigitsKeyListenerServiceClient(grpcConn)
+		req := &pb.GetInstance1_3Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetInstance1_3(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var methodDigitsKeyListenerGetInstance3_4Cmd = &cobra.Command{
+	Use:   "get-instance3_4",
+	Short: "GetInstance3_4 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDigitsKeyListenerServiceClient(grpcConn)
+		req := &pb.GetInstance3_4Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetBool("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetBool("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.GetInstance3_4(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -3093,7 +3370,7 @@ var methodLinkMovementMethodCanSelectArbitrarilyCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewLinkMovementMethodServiceClient(grpcConn)
-		req := &pb.LinkMovementMethodCanSelectArbitrarilyRequest{}
+		req := &pb.CanSelectArbitrarilyRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
@@ -3112,7 +3389,7 @@ var methodLinkMovementMethodInitializeCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewLinkMovementMethodServiceClient(grpcConn)
-		req := &pb.LinkMovementMethodInitializeRequest{}
+		req := &pb.InitializeRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
@@ -3137,7 +3414,7 @@ var methodLinkMovementMethodOnTakeFocusCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewLinkMovementMethodServiceClient(grpcConn)
-		req := &pb.LinkMovementMethodOnTakeFocusRequest{}
+		req := &pb.OnTakeFocusRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
@@ -3165,7 +3442,7 @@ var methodLinkMovementMethodOnTouchEventCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewLinkMovementMethodServiceClient(grpcConn)
-		req := &pb.LinkMovementMethodOnTouchEventRequest{}
+		req := &pb.OnTouchEventRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
@@ -3193,7 +3470,7 @@ var methodLinkMovementMethodGetInstanceCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewLinkMovementMethodServiceClient(grpcConn)
-		req := &pb.GetInstanceRequest{}
+		req := &pb.LinkMovementMethodGetInstanceRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
@@ -3205,20 +3482,20 @@ var methodLinkMovementMethodGetInstanceCmd = &cobra.Command{
 	},
 }
 
-var methodBaseMovementMethodCmd = &cobra.Command{
-	Use:   "base-movement-method",
-	Short: "BaseMovementMethodService operations",
+var methodHideReturnsTransformationMethodCmd = &cobra.Command{
+	Use:   "hide-returns-transformation-method",
+	Short: "HideReturnsTransformationMethodService operations",
 }
 
-var methodBaseMovementMethodNewBaseMovementMethodCmd = &cobra.Command{
-	Use:   "new-base-movement-method",
-	Short: "NewBaseMovementMethod RPC",
+var methodHideReturnsTransformationMethodNewHideReturnsTransformationMethodCmd = &cobra.Command{
+	Use:   "new-hide-returns-transformation-method",
+	Short: "NewHideReturnsTransformationMethod RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewBaseMovementMethodServiceClient(grpcConn)
-		req := &pb.NewBaseMovementMethodRequest{}
-		resp, err := client.NewBaseMovementMethod(ctx, req)
+		client := pb.NewHideReturnsTransformationMethodServiceClient(grpcConn)
+		req := &pb.NewHideReturnsTransformationMethodRequest{}
+		resp, err := client.NewHideReturnsTransformationMethod(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -3226,295 +3503,18 @@ var methodBaseMovementMethodNewBaseMovementMethodCmd = &cobra.Command{
 	},
 }
 
-var methodBaseMovementMethodCanSelectArbitrarilyCmd = &cobra.Command{
-	Use:   "can-select-arbitrarily",
-	Short: "CanSelectArbitrarily RPC",
+var methodHideReturnsTransformationMethodGetInstanceCmd = &cobra.Command{
+	Use:   "get-instance",
+	Short: "GetInstance RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewBaseMovementMethodServiceClient(grpcConn)
-		req := &pb.BaseMovementMethodCanSelectArbitrarilyRequest{}
+		client := pb.NewHideReturnsTransformationMethodServiceClient(grpcConn)
+		req := &pb.HideReturnsTransformationMethodGetInstanceRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
-		resp, err := client.CanSelectArbitrarily(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var methodBaseMovementMethodInitializeCmd = &cobra.Command{
-	Use:   "initialize",
-	Short: "Initialize RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewBaseMovementMethodServiceClient(grpcConn)
-		req := &pb.BaseMovementMethodInitializeRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.Initialize(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var methodBaseMovementMethodNextParagraphCmd = &cobra.Command{
-	Use:   "next-paragraph",
-	Short: "NextParagraph RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewBaseMovementMethodServiceClient(grpcConn)
-		req := &pb.NextParagraphRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.NextParagraph(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var methodBaseMovementMethodOnGenericMotionEventCmd = &cobra.Command{
-	Use:   "on-generic-motion-event",
-	Short: "OnGenericMotionEvent RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewBaseMovementMethodServiceClient(grpcConn)
-		req := &pb.BaseMovementMethodOnGenericMotionEventRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.OnGenericMotionEvent(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var methodBaseMovementMethodOnKeyDownCmd = &cobra.Command{
-	Use:   "on-key-down",
-	Short: "OnKeyDown RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewBaseMovementMethodServiceClient(grpcConn)
-		req := &pb.BaseMovementMethodOnKeyDownRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		resp, err := client.OnKeyDown(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var methodBaseMovementMethodOnKeyOtherCmd = &cobra.Command{
-	Use:   "on-key-other",
-	Short: "OnKeyOther RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewBaseMovementMethodServiceClient(grpcConn)
-		req := &pb.BaseMovementMethodOnKeyOtherRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.OnKeyOther(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var methodBaseMovementMethodOnKeyUpCmd = &cobra.Command{
-	Use:   "on-key-up",
-	Short: "OnKeyUp RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewBaseMovementMethodServiceClient(grpcConn)
-		req := &pb.BaseMovementMethodOnKeyUpRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		resp, err := client.OnKeyUp(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var methodBaseMovementMethodOnTakeFocusCmd = &cobra.Command{
-	Use:   "on-take-focus",
-	Short: "OnTakeFocus RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewBaseMovementMethodServiceClient(grpcConn)
-		req := &pb.BaseMovementMethodOnTakeFocusRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.OnTakeFocus(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var methodBaseMovementMethodOnTouchEventCmd = &cobra.Command{
-	Use:   "on-touch-event",
-	Short: "OnTouchEvent RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewBaseMovementMethodServiceClient(grpcConn)
-		req := &pb.BaseMovementMethodOnTouchEventRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.OnTouchEvent(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var methodBaseMovementMethodOnTrackballEventCmd = &cobra.Command{
-	Use:   "on-trackball-event",
-	Short: "OnTrackballEvent RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewBaseMovementMethodServiceClient(grpcConn)
-		req := &pb.BaseMovementMethodOnTrackballEventRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.OnTrackballEvent(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var methodBaseMovementMethodPreviousParagraphCmd = &cobra.Command{
-	Use:   "previous-paragraph",
-	Short: "PreviousParagraph RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewBaseMovementMethodServiceClient(grpcConn)
-		req := &pb.PreviousParagraphRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.PreviousParagraph(ctx, req)
+		resp, err := client.GetInstance(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -3523,198 +3523,6 @@ var methodBaseMovementMethodPreviousParagraphCmd = &cobra.Command{
 }
 
 func init() {
-	methodCharacterPickerDialogNewCharacterPickerDialogCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	methodCharacterPickerDialogNewCharacterPickerDialogCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	methodCharacterPickerDialogNewCharacterPickerDialogCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	methodCharacterPickerDialogNewCharacterPickerDialogCmd.Flags().String("arg3", "", "arg3 (string)")
-	methodCharacterPickerDialogNewCharacterPickerDialogCmd.Flags().Bool("arg4", false, "arg4 (bool)")
-	methodCharacterPickerDialogCmd.AddCommand(methodCharacterPickerDialogNewCharacterPickerDialogCmd)
-	methodCharacterPickerDialogOnClickCmd.Flags().Int64("handle", 0, "handle (int64)")
-	methodCharacterPickerDialogOnClickCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	methodCharacterPickerDialogCmd.AddCommand(methodCharacterPickerDialogOnClickCmd)
-	methodCharacterPickerDialogOnItemClickCmd.Flags().Int64("handle", 0, "handle (int64)")
-	methodCharacterPickerDialogOnItemClickCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	methodCharacterPickerDialogOnItemClickCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	methodCharacterPickerDialogOnItemClickCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
-	methodCharacterPickerDialogOnItemClickCmd.Flags().Int64("arg3", 0, "arg3 (int64)")
-	methodCharacterPickerDialogCmd.AddCommand(methodCharacterPickerDialogOnItemClickCmd)
-	methodCmd.AddCommand(methodCharacterPickerDialogCmd)
-	methodNumberKeyListenerFilterCmd.Flags().String("arg0", "", "arg0 (string)")
-	methodNumberKeyListenerFilterCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	methodNumberKeyListenerFilterCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
-	methodNumberKeyListenerFilterCmd.Flags().Int64("arg3", 0, "arg3 (int64)")
-	methodNumberKeyListenerFilterCmd.Flags().Int32("arg4", 0, "arg4 (int32)")
-	methodNumberKeyListenerFilterCmd.Flags().Int32("arg5", 0, "arg5 (int32)")
-	methodNumberKeyListenerCmd.AddCommand(methodNumberKeyListenerFilterCmd)
-	methodNumberKeyListenerOnKeyDownCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	methodNumberKeyListenerOnKeyDownCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	methodNumberKeyListenerOnKeyDownCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
-	methodNumberKeyListenerOnKeyDownCmd.Flags().Int64("arg3", 0, "arg3 (int64)")
-	methodNumberKeyListenerCmd.AddCommand(methodNumberKeyListenerOnKeyDownCmd)
-	methodCmd.AddCommand(methodNumberKeyListenerCmd)
-	methodSingleLineTransformationMethodCmd.AddCommand(methodSingleLineTransformationMethodNewSingleLineTransformationMethodCmd)
-	methodSingleLineTransformationMethodGetInstanceCmd.Flags().Int64("handle", 0, "handle (int64)")
-	methodSingleLineTransformationMethodCmd.AddCommand(methodSingleLineTransformationMethodGetInstanceCmd)
-	methodCmd.AddCommand(methodSingleLineTransformationMethodCmd)
-	methodMovementMethodCmd.AddCommand(methodMovementMethodCanSelectArbitrarilyCmd)
-	methodMovementMethodInitializeCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	methodMovementMethodInitializeCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	methodMovementMethodCmd.AddCommand(methodMovementMethodInitializeCmd)
-	methodMovementMethodOnGenericMotionEventCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	methodMovementMethodOnGenericMotionEventCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	methodMovementMethodOnGenericMotionEventCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	methodMovementMethodCmd.AddCommand(methodMovementMethodOnGenericMotionEventCmd)
-	methodMovementMethodOnKeyDownCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	methodMovementMethodOnKeyDownCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	methodMovementMethodOnKeyDownCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
-	methodMovementMethodOnKeyDownCmd.Flags().Int64("arg3", 0, "arg3 (int64)")
-	methodMovementMethodCmd.AddCommand(methodMovementMethodOnKeyDownCmd)
-	methodMovementMethodOnKeyOtherCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	methodMovementMethodOnKeyOtherCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	methodMovementMethodOnKeyOtherCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	methodMovementMethodCmd.AddCommand(methodMovementMethodOnKeyOtherCmd)
-	methodMovementMethodOnKeyUpCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	methodMovementMethodOnKeyUpCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	methodMovementMethodOnKeyUpCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
-	methodMovementMethodOnKeyUpCmd.Flags().Int64("arg3", 0, "arg3 (int64)")
-	methodMovementMethodCmd.AddCommand(methodMovementMethodOnKeyUpCmd)
-	methodMovementMethodOnTakeFocusCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	methodMovementMethodOnTakeFocusCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	methodMovementMethodOnTakeFocusCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
-	methodMovementMethodCmd.AddCommand(methodMovementMethodOnTakeFocusCmd)
-	methodMovementMethodOnTouchEventCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	methodMovementMethodOnTouchEventCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	methodMovementMethodOnTouchEventCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	methodMovementMethodCmd.AddCommand(methodMovementMethodOnTouchEventCmd)
-	methodMovementMethodOnTrackballEventCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	methodMovementMethodOnTrackballEventCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	methodMovementMethodOnTrackballEventCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	methodMovementMethodCmd.AddCommand(methodMovementMethodOnTrackballEventCmd)
-	methodCmd.AddCommand(methodMovementMethodCmd)
-	methodReplacementTransformationMethodGetTransformationCmd.Flags().String("arg0", "", "arg0 (string)")
-	methodReplacementTransformationMethodGetTransformationCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	methodReplacementTransformationMethodCmd.AddCommand(methodReplacementTransformationMethodGetTransformationCmd)
-	methodReplacementTransformationMethodOnFocusChangedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	methodReplacementTransformationMethodOnFocusChangedCmd.Flags().String("arg1", "", "arg1 (string)")
-	methodReplacementTransformationMethodOnFocusChangedCmd.Flags().Bool("arg2", false, "arg2 (bool)")
-	methodReplacementTransformationMethodOnFocusChangedCmd.Flags().Int32("arg3", 0, "arg3 (int32)")
-	methodReplacementTransformationMethodOnFocusChangedCmd.Flags().Int64("arg4", 0, "arg4 (int64)")
-	methodReplacementTransformationMethodCmd.AddCommand(methodReplacementTransformationMethodOnFocusChangedCmd)
-	methodCmd.AddCommand(methodReplacementTransformationMethodCmd)
-	methodTouchGetInitialScrollXCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	methodTouchGetInitialScrollXCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	methodTouchCmd.AddCommand(methodTouchGetInitialScrollXCmd)
-	methodTouchGetInitialScrollYCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	methodTouchGetInitialScrollYCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	methodTouchCmd.AddCommand(methodTouchGetInitialScrollYCmd)
-	methodTouchOnTouchEventCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	methodTouchOnTouchEventCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	methodTouchOnTouchEventCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	methodTouchCmd.AddCommand(methodTouchOnTouchEventCmd)
-	methodTouchScrollToCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	methodTouchScrollToCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	methodTouchScrollToCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
-	methodTouchScrollToCmd.Flags().Int32("arg3", 0, "arg3 (int32)")
-	methodTouchCmd.AddCommand(methodTouchScrollToCmd)
-	methodCmd.AddCommand(methodTouchCmd)
-	methodScrollingMovementMethodCmd.AddCommand(methodScrollingMovementMethodNewScrollingMovementMethodCmd)
-	methodScrollingMovementMethodOnTakeFocusCmd.Flags().Int64("handle", 0, "handle (int64)")
-	methodScrollingMovementMethodOnTakeFocusCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	methodScrollingMovementMethodOnTakeFocusCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	methodScrollingMovementMethodOnTakeFocusCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
-	methodScrollingMovementMethodCmd.AddCommand(methodScrollingMovementMethodOnTakeFocusCmd)
-	methodScrollingMovementMethodOnTouchEventCmd.Flags().Int64("handle", 0, "handle (int64)")
-	methodScrollingMovementMethodOnTouchEventCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	methodScrollingMovementMethodOnTouchEventCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	methodScrollingMovementMethodOnTouchEventCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	methodScrollingMovementMethodCmd.AddCommand(methodScrollingMovementMethodOnTouchEventCmd)
-	methodScrollingMovementMethodGetInstanceCmd.Flags().Int64("handle", 0, "handle (int64)")
-	methodScrollingMovementMethodCmd.AddCommand(methodScrollingMovementMethodGetInstanceCmd)
-	methodCmd.AddCommand(methodScrollingMovementMethodCmd)
-	methodHideReturnsTransformationMethodCmd.AddCommand(methodHideReturnsTransformationMethodNewHideReturnsTransformationMethodCmd)
-	methodHideReturnsTransformationMethodGetInstanceCmd.Flags().Int64("handle", 0, "handle (int64)")
-	methodHideReturnsTransformationMethodCmd.AddCommand(methodHideReturnsTransformationMethodGetInstanceCmd)
-	methodCmd.AddCommand(methodHideReturnsTransformationMethodCmd)
-	methodMultiTapKeyListenerNewMultiTapKeyListenerCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	methodMultiTapKeyListenerNewMultiTapKeyListenerCmd.Flags().Bool("arg1", false, "arg1 (bool)")
-	methodMultiTapKeyListenerCmd.AddCommand(methodMultiTapKeyListenerNewMultiTapKeyListenerCmd)
-	methodMultiTapKeyListenerGetInputTypeCmd.Flags().Int64("handle", 0, "handle (int64)")
-	methodMultiTapKeyListenerCmd.AddCommand(methodMultiTapKeyListenerGetInputTypeCmd)
-	methodMultiTapKeyListenerOnKeyDownCmd.Flags().Int64("handle", 0, "handle (int64)")
-	methodMultiTapKeyListenerOnKeyDownCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	methodMultiTapKeyListenerOnKeyDownCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	methodMultiTapKeyListenerOnKeyDownCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
-	methodMultiTapKeyListenerOnKeyDownCmd.Flags().Int64("arg3", 0, "arg3 (int64)")
-	methodMultiTapKeyListenerCmd.AddCommand(methodMultiTapKeyListenerOnKeyDownCmd)
-	methodMultiTapKeyListenerOnSpanAddedCmd.Flags().Int64("handle", 0, "handle (int64)")
-	methodMultiTapKeyListenerOnSpanAddedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	methodMultiTapKeyListenerOnSpanAddedCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	methodMultiTapKeyListenerOnSpanAddedCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
-	methodMultiTapKeyListenerOnSpanAddedCmd.Flags().Int32("arg3", 0, "arg3 (int32)")
-	methodMultiTapKeyListenerCmd.AddCommand(methodMultiTapKeyListenerOnSpanAddedCmd)
-	methodMultiTapKeyListenerOnSpanChangedCmd.Flags().Int64("handle", 0, "handle (int64)")
-	methodMultiTapKeyListenerOnSpanChangedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	methodMultiTapKeyListenerOnSpanChangedCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	methodMultiTapKeyListenerOnSpanChangedCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
-	methodMultiTapKeyListenerOnSpanChangedCmd.Flags().Int32("arg3", 0, "arg3 (int32)")
-	methodMultiTapKeyListenerOnSpanChangedCmd.Flags().Int32("arg4", 0, "arg4 (int32)")
-	methodMultiTapKeyListenerOnSpanChangedCmd.Flags().Int32("arg5", 0, "arg5 (int32)")
-	methodMultiTapKeyListenerCmd.AddCommand(methodMultiTapKeyListenerOnSpanChangedCmd)
-	methodMultiTapKeyListenerOnSpanRemovedCmd.Flags().Int64("handle", 0, "handle (int64)")
-	methodMultiTapKeyListenerOnSpanRemovedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	methodMultiTapKeyListenerOnSpanRemovedCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	methodMultiTapKeyListenerOnSpanRemovedCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
-	methodMultiTapKeyListenerOnSpanRemovedCmd.Flags().Int32("arg3", 0, "arg3 (int32)")
-	methodMultiTapKeyListenerCmd.AddCommand(methodMultiTapKeyListenerOnSpanRemovedCmd)
-	methodMultiTapKeyListenerGetInstanceCmd.Flags().Int64("handle", 0, "handle (int64)")
-	methodMultiTapKeyListenerGetInstanceCmd.Flags().Bool("arg0", false, "arg0 (bool)")
-	methodMultiTapKeyListenerGetInstanceCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	methodMultiTapKeyListenerCmd.AddCommand(methodMultiTapKeyListenerGetInstanceCmd)
-	methodCmd.AddCommand(methodMultiTapKeyListenerCmd)
-	methodDigitsKeyListenerCmd.AddCommand(methodDigitsKeyListenerNewDigitsKeyListenerCmd)
-	methodDigitsKeyListenerFilterCmd.Flags().Int64("handle", 0, "handle (int64)")
-	methodDigitsKeyListenerFilterCmd.Flags().String("arg0", "", "arg0 (string)")
-	methodDigitsKeyListenerFilterCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	methodDigitsKeyListenerFilterCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
-	methodDigitsKeyListenerFilterCmd.Flags().Int64("arg3", 0, "arg3 (int64)")
-	methodDigitsKeyListenerFilterCmd.Flags().Int32("arg4", 0, "arg4 (int32)")
-	methodDigitsKeyListenerFilterCmd.Flags().Int32("arg5", 0, "arg5 (int32)")
-	methodDigitsKeyListenerCmd.AddCommand(methodDigitsKeyListenerFilterCmd)
-	methodDigitsKeyListenerGetInputTypeCmd.Flags().Int64("handle", 0, "handle (int64)")
-	methodDigitsKeyListenerCmd.AddCommand(methodDigitsKeyListenerGetInputTypeCmd)
-	methodDigitsKeyListenerGetInstance0Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	methodDigitsKeyListenerCmd.AddCommand(methodDigitsKeyListenerGetInstance0Cmd)
-	methodDigitsKeyListenerGetInstance2_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	methodDigitsKeyListenerGetInstance2_1Cmd.Flags().Bool("arg0", false, "arg0 (bool)")
-	methodDigitsKeyListenerGetInstance2_1Cmd.Flags().Bool("arg1", false, "arg1 (bool)")
-	methodDigitsKeyListenerCmd.AddCommand(methodDigitsKeyListenerGetInstance2_1Cmd)
-	methodDigitsKeyListenerGetInstance1_2Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	methodDigitsKeyListenerGetInstance1_2Cmd.Flags().String("arg0", "", "arg0 (string)")
-	methodDigitsKeyListenerCmd.AddCommand(methodDigitsKeyListenerGetInstance1_2Cmd)
-	methodDigitsKeyListenerGetInstance1_3Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	methodDigitsKeyListenerGetInstance1_3Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	methodDigitsKeyListenerCmd.AddCommand(methodDigitsKeyListenerGetInstance1_3Cmd)
-	methodDigitsKeyListenerGetInstance3_4Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	methodDigitsKeyListenerGetInstance3_4Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	methodDigitsKeyListenerGetInstance3_4Cmd.Flags().Bool("arg1", false, "arg1 (bool)")
-	methodDigitsKeyListenerGetInstance3_4Cmd.Flags().Bool("arg2", false, "arg2 (bool)")
-	methodDigitsKeyListenerCmd.AddCommand(methodDigitsKeyListenerGetInstance3_4Cmd)
-	methodCmd.AddCommand(methodDigitsKeyListenerCmd)
-	methodDialerKeyListenerCmd.AddCommand(methodDialerKeyListenerNewDialerKeyListenerCmd)
-	methodDialerKeyListenerGetInputTypeCmd.Flags().Int64("handle", 0, "handle (int64)")
-	methodDialerKeyListenerCmd.AddCommand(methodDialerKeyListenerGetInputTypeCmd)
-	methodDialerKeyListenerGetInstanceCmd.Flags().Int64("handle", 0, "handle (int64)")
-	methodDialerKeyListenerCmd.AddCommand(methodDialerKeyListenerGetInstanceCmd)
-	methodCmd.AddCommand(methodDialerKeyListenerCmd)
-	methodTimeKeyListenerCmd.AddCommand(methodTimeKeyListenerNewTimeKeyListenerCmd)
-	methodTimeKeyListenerGetInputTypeCmd.Flags().Int64("handle", 0, "handle (int64)")
-	methodTimeKeyListenerCmd.AddCommand(methodTimeKeyListenerGetInputTypeCmd)
-	methodTimeKeyListenerGetInstance0Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	methodTimeKeyListenerCmd.AddCommand(methodTimeKeyListenerGetInstance0Cmd)
-	methodTimeKeyListenerGetInstance1_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	methodTimeKeyListenerGetInstance1_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	methodTimeKeyListenerCmd.AddCommand(methodTimeKeyListenerGetInstance1_1Cmd)
-	methodCmd.AddCommand(methodTimeKeyListenerCmd)
 	methodQwertyKeyListenerNewQwertyKeyListenerCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	methodQwertyKeyListenerNewQwertyKeyListenerCmd.Flags().Bool("arg1", false, "arg1 (bool)")
 	methodQwertyKeyListenerCmd.AddCommand(methodQwertyKeyListenerNewQwertyKeyListenerCmd)
@@ -3739,6 +3547,73 @@ func init() {
 	methodQwertyKeyListenerMarkAsReplacedCmd.Flags().String("arg3", "", "arg3 (string)")
 	methodQwertyKeyListenerCmd.AddCommand(methodQwertyKeyListenerMarkAsReplacedCmd)
 	methodCmd.AddCommand(methodQwertyKeyListenerCmd)
+	methodBaseMovementMethodCmd.AddCommand(methodBaseMovementMethodNewBaseMovementMethodCmd)
+	methodBaseMovementMethodCanSelectArbitrarilyCmd.Flags().Int64("handle", 0, "handle (int64)")
+	methodBaseMovementMethodCmd.AddCommand(methodBaseMovementMethodCanSelectArbitrarilyCmd)
+	methodBaseMovementMethodInitializeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	methodBaseMovementMethodInitializeCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	methodBaseMovementMethodInitializeCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	methodBaseMovementMethodCmd.AddCommand(methodBaseMovementMethodInitializeCmd)
+	methodBaseMovementMethodNextParagraphCmd.Flags().Int64("handle", 0, "handle (int64)")
+	methodBaseMovementMethodNextParagraphCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	methodBaseMovementMethodNextParagraphCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	methodBaseMovementMethodCmd.AddCommand(methodBaseMovementMethodNextParagraphCmd)
+	methodBaseMovementMethodOnGenericMotionEventCmd.Flags().Int64("handle", 0, "handle (int64)")
+	methodBaseMovementMethodOnGenericMotionEventCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	methodBaseMovementMethodOnGenericMotionEventCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	methodBaseMovementMethodOnGenericMotionEventCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	methodBaseMovementMethodCmd.AddCommand(methodBaseMovementMethodOnGenericMotionEventCmd)
+	methodBaseMovementMethodOnKeyDownCmd.Flags().Int64("handle", 0, "handle (int64)")
+	methodBaseMovementMethodOnKeyDownCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	methodBaseMovementMethodOnKeyDownCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	methodBaseMovementMethodOnKeyDownCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	methodBaseMovementMethodOnKeyDownCmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	methodBaseMovementMethodCmd.AddCommand(methodBaseMovementMethodOnKeyDownCmd)
+	methodBaseMovementMethodOnKeyOtherCmd.Flags().Int64("handle", 0, "handle (int64)")
+	methodBaseMovementMethodOnKeyOtherCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	methodBaseMovementMethodOnKeyOtherCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	methodBaseMovementMethodOnKeyOtherCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	methodBaseMovementMethodCmd.AddCommand(methodBaseMovementMethodOnKeyOtherCmd)
+	methodBaseMovementMethodOnKeyUpCmd.Flags().Int64("handle", 0, "handle (int64)")
+	methodBaseMovementMethodOnKeyUpCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	methodBaseMovementMethodOnKeyUpCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	methodBaseMovementMethodOnKeyUpCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	methodBaseMovementMethodOnKeyUpCmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	methodBaseMovementMethodCmd.AddCommand(methodBaseMovementMethodOnKeyUpCmd)
+	methodBaseMovementMethodOnTakeFocusCmd.Flags().Int64("handle", 0, "handle (int64)")
+	methodBaseMovementMethodOnTakeFocusCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	methodBaseMovementMethodOnTakeFocusCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	methodBaseMovementMethodOnTakeFocusCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	methodBaseMovementMethodCmd.AddCommand(methodBaseMovementMethodOnTakeFocusCmd)
+	methodBaseMovementMethodOnTouchEventCmd.Flags().Int64("handle", 0, "handle (int64)")
+	methodBaseMovementMethodOnTouchEventCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	methodBaseMovementMethodOnTouchEventCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	methodBaseMovementMethodOnTouchEventCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	methodBaseMovementMethodCmd.AddCommand(methodBaseMovementMethodOnTouchEventCmd)
+	methodBaseMovementMethodOnTrackballEventCmd.Flags().Int64("handle", 0, "handle (int64)")
+	methodBaseMovementMethodOnTrackballEventCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	methodBaseMovementMethodOnTrackballEventCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	methodBaseMovementMethodOnTrackballEventCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	methodBaseMovementMethodCmd.AddCommand(methodBaseMovementMethodOnTrackballEventCmd)
+	methodBaseMovementMethodPreviousParagraphCmd.Flags().Int64("handle", 0, "handle (int64)")
+	methodBaseMovementMethodPreviousParagraphCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	methodBaseMovementMethodPreviousParagraphCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	methodBaseMovementMethodCmd.AddCommand(methodBaseMovementMethodPreviousParagraphCmd)
+	methodCmd.AddCommand(methodBaseMovementMethodCmd)
+	methodSingleLineTransformationMethodCmd.AddCommand(methodSingleLineTransformationMethodNewSingleLineTransformationMethodCmd)
+	methodSingleLineTransformationMethodGetInstanceCmd.Flags().Int64("handle", 0, "handle (int64)")
+	methodSingleLineTransformationMethodCmd.AddCommand(methodSingleLineTransformationMethodGetInstanceCmd)
+	methodCmd.AddCommand(methodSingleLineTransformationMethodCmd)
+	methodReplacementTransformationMethodGetTransformationCmd.Flags().String("arg0", "", "arg0 (string)")
+	methodReplacementTransformationMethodGetTransformationCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	methodReplacementTransformationMethodCmd.AddCommand(methodReplacementTransformationMethodGetTransformationCmd)
+	methodReplacementTransformationMethodOnFocusChangedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	methodReplacementTransformationMethodOnFocusChangedCmd.Flags().String("arg1", "", "arg1 (string)")
+	methodReplacementTransformationMethodOnFocusChangedCmd.Flags().Bool("arg2", false, "arg2 (bool)")
+	methodReplacementTransformationMethodOnFocusChangedCmd.Flags().Int32("arg3", 0, "arg3 (int32)")
+	methodReplacementTransformationMethodOnFocusChangedCmd.Flags().Int64("arg4", 0, "arg4 (int64)")
+	methodReplacementTransformationMethodCmd.AddCommand(methodReplacementTransformationMethodOnFocusChangedCmd)
+	methodCmd.AddCommand(methodReplacementTransformationMethodCmd)
 	methodBaseKeyListenerBackspaceCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	methodBaseKeyListenerBackspaceCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
 	methodBaseKeyListenerBackspaceCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
@@ -3759,6 +3634,16 @@ func init() {
 	methodBaseKeyListenerOnKeyOtherCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
 	methodBaseKeyListenerCmd.AddCommand(methodBaseKeyListenerOnKeyOtherCmd)
 	methodCmd.AddCommand(methodBaseKeyListenerCmd)
+	methodTransformationMethodGetTransformationCmd.Flags().String("arg0", "", "arg0 (string)")
+	methodTransformationMethodGetTransformationCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	methodTransformationMethodCmd.AddCommand(methodTransformationMethodGetTransformationCmd)
+	methodTransformationMethodOnFocusChangedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	methodTransformationMethodOnFocusChangedCmd.Flags().String("arg1", "", "arg1 (string)")
+	methodTransformationMethodOnFocusChangedCmd.Flags().Bool("arg2", false, "arg2 (bool)")
+	methodTransformationMethodOnFocusChangedCmd.Flags().Int32("arg3", 0, "arg3 (int32)")
+	methodTransformationMethodOnFocusChangedCmd.Flags().Int64("arg4", 0, "arg4 (int64)")
+	methodTransformationMethodCmd.AddCommand(methodTransformationMethodOnFocusChangedCmd)
+	methodCmd.AddCommand(methodTransformationMethodCmd)
 	methodMetaKeyKeyListenerClearMetaKeyState3_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	methodMetaKeyKeyListenerClearMetaKeyState3_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
 	methodMetaKeyKeyListenerClearMetaKeyState3_1Cmd.Flags().Int32("arg2", 0, "arg2 (int32)")
@@ -3819,16 +3704,180 @@ func init() {
 	methodMetaKeyKeyListenerResetMetaStateCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	methodMetaKeyKeyListenerCmd.AddCommand(methodMetaKeyKeyListenerResetMetaStateCmd)
 	methodCmd.AddCommand(methodMetaKeyKeyListenerCmd)
-	methodTransformationMethodGetTransformationCmd.Flags().String("arg0", "", "arg0 (string)")
-	methodTransformationMethodGetTransformationCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	methodTransformationMethodCmd.AddCommand(methodTransformationMethodGetTransformationCmd)
-	methodTransformationMethodOnFocusChangedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	methodTransformationMethodOnFocusChangedCmd.Flags().String("arg1", "", "arg1 (string)")
-	methodTransformationMethodOnFocusChangedCmd.Flags().Bool("arg2", false, "arg2 (bool)")
-	methodTransformationMethodOnFocusChangedCmd.Flags().Int32("arg3", 0, "arg3 (int32)")
-	methodTransformationMethodOnFocusChangedCmd.Flags().Int64("arg4", 0, "arg4 (int64)")
-	methodTransformationMethodCmd.AddCommand(methodTransformationMethodOnFocusChangedCmd)
-	methodCmd.AddCommand(methodTransformationMethodCmd)
+	methodPasswordTransformationMethodCmd.AddCommand(methodPasswordTransformationMethodNewPasswordTransformationMethodCmd)
+	methodPasswordTransformationMethodAfterTextChangedCmd.Flags().Int64("handle", 0, "handle (int64)")
+	methodPasswordTransformationMethodAfterTextChangedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	methodPasswordTransformationMethodCmd.AddCommand(methodPasswordTransformationMethodAfterTextChangedCmd)
+	methodPasswordTransformationMethodBeforeTextChangedCmd.Flags().Int64("handle", 0, "handle (int64)")
+	methodPasswordTransformationMethodBeforeTextChangedCmd.Flags().String("arg0", "", "arg0 (string)")
+	methodPasswordTransformationMethodBeforeTextChangedCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	methodPasswordTransformationMethodBeforeTextChangedCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	methodPasswordTransformationMethodBeforeTextChangedCmd.Flags().Int32("arg3", 0, "arg3 (int32)")
+	methodPasswordTransformationMethodCmd.AddCommand(methodPasswordTransformationMethodBeforeTextChangedCmd)
+	methodPasswordTransformationMethodGetTransformationCmd.Flags().Int64("handle", 0, "handle (int64)")
+	methodPasswordTransformationMethodGetTransformationCmd.Flags().String("arg0", "", "arg0 (string)")
+	methodPasswordTransformationMethodGetTransformationCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	methodPasswordTransformationMethodCmd.AddCommand(methodPasswordTransformationMethodGetTransformationCmd)
+	methodPasswordTransformationMethodOnFocusChangedCmd.Flags().Int64("handle", 0, "handle (int64)")
+	methodPasswordTransformationMethodOnFocusChangedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	methodPasswordTransformationMethodOnFocusChangedCmd.Flags().String("arg1", "", "arg1 (string)")
+	methodPasswordTransformationMethodOnFocusChangedCmd.Flags().Bool("arg2", false, "arg2 (bool)")
+	methodPasswordTransformationMethodOnFocusChangedCmd.Flags().Int32("arg3", 0, "arg3 (int32)")
+	methodPasswordTransformationMethodOnFocusChangedCmd.Flags().Int64("arg4", 0, "arg4 (int64)")
+	methodPasswordTransformationMethodCmd.AddCommand(methodPasswordTransformationMethodOnFocusChangedCmd)
+	methodPasswordTransformationMethodOnTextChangedCmd.Flags().Int64("handle", 0, "handle (int64)")
+	methodPasswordTransformationMethodOnTextChangedCmd.Flags().String("arg0", "", "arg0 (string)")
+	methodPasswordTransformationMethodOnTextChangedCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	methodPasswordTransformationMethodOnTextChangedCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	methodPasswordTransformationMethodOnTextChangedCmd.Flags().Int32("arg3", 0, "arg3 (int32)")
+	methodPasswordTransformationMethodCmd.AddCommand(methodPasswordTransformationMethodOnTextChangedCmd)
+	methodPasswordTransformationMethodGetInstanceCmd.Flags().Int64("handle", 0, "handle (int64)")
+	methodPasswordTransformationMethodCmd.AddCommand(methodPasswordTransformationMethodGetInstanceCmd)
+	methodCmd.AddCommand(methodPasswordTransformationMethodCmd)
+	methodArrowKeyMovementMethodCmd.AddCommand(methodArrowKeyMovementMethodNewArrowKeyMovementMethodCmd)
+	methodArrowKeyMovementMethodCanSelectArbitrarilyCmd.Flags().Int64("handle", 0, "handle (int64)")
+	methodArrowKeyMovementMethodCmd.AddCommand(methodArrowKeyMovementMethodCanSelectArbitrarilyCmd)
+	methodArrowKeyMovementMethodInitializeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	methodArrowKeyMovementMethodInitializeCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	methodArrowKeyMovementMethodInitializeCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	methodArrowKeyMovementMethodCmd.AddCommand(methodArrowKeyMovementMethodInitializeCmd)
+	methodArrowKeyMovementMethodNextParagraphCmd.Flags().Int64("handle", 0, "handle (int64)")
+	methodArrowKeyMovementMethodNextParagraphCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	methodArrowKeyMovementMethodNextParagraphCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	methodArrowKeyMovementMethodCmd.AddCommand(methodArrowKeyMovementMethodNextParagraphCmd)
+	methodArrowKeyMovementMethodOnTakeFocusCmd.Flags().Int64("handle", 0, "handle (int64)")
+	methodArrowKeyMovementMethodOnTakeFocusCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	methodArrowKeyMovementMethodOnTakeFocusCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	methodArrowKeyMovementMethodOnTakeFocusCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	methodArrowKeyMovementMethodCmd.AddCommand(methodArrowKeyMovementMethodOnTakeFocusCmd)
+	methodArrowKeyMovementMethodOnTouchEventCmd.Flags().Int64("handle", 0, "handle (int64)")
+	methodArrowKeyMovementMethodOnTouchEventCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	methodArrowKeyMovementMethodOnTouchEventCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	methodArrowKeyMovementMethodOnTouchEventCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	methodArrowKeyMovementMethodCmd.AddCommand(methodArrowKeyMovementMethodOnTouchEventCmd)
+	methodArrowKeyMovementMethodPreviousParagraphCmd.Flags().Int64("handle", 0, "handle (int64)")
+	methodArrowKeyMovementMethodPreviousParagraphCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	methodArrowKeyMovementMethodPreviousParagraphCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	methodArrowKeyMovementMethodCmd.AddCommand(methodArrowKeyMovementMethodPreviousParagraphCmd)
+	methodArrowKeyMovementMethodGetInstanceCmd.Flags().Int64("handle", 0, "handle (int64)")
+	methodArrowKeyMovementMethodCmd.AddCommand(methodArrowKeyMovementMethodGetInstanceCmd)
+	methodCmd.AddCommand(methodArrowKeyMovementMethodCmd)
+	methodDateTimeKeyListenerCmd.AddCommand(methodDateTimeKeyListenerNewDateTimeKeyListenerCmd)
+	methodDateTimeKeyListenerGetInputTypeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	methodDateTimeKeyListenerCmd.AddCommand(methodDateTimeKeyListenerGetInputTypeCmd)
+	methodDateTimeKeyListenerGetInstance0Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	methodDateTimeKeyListenerCmd.AddCommand(methodDateTimeKeyListenerGetInstance0Cmd)
+	methodDateTimeKeyListenerGetInstance1_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	methodDateTimeKeyListenerGetInstance1_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	methodDateTimeKeyListenerCmd.AddCommand(methodDateTimeKeyListenerGetInstance1_1Cmd)
+	methodCmd.AddCommand(methodDateTimeKeyListenerCmd)
+	methodScrollingMovementMethodCmd.AddCommand(methodScrollingMovementMethodNewScrollingMovementMethodCmd)
+	methodScrollingMovementMethodOnTakeFocusCmd.Flags().Int64("handle", 0, "handle (int64)")
+	methodScrollingMovementMethodOnTakeFocusCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	methodScrollingMovementMethodOnTakeFocusCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	methodScrollingMovementMethodOnTakeFocusCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	methodScrollingMovementMethodCmd.AddCommand(methodScrollingMovementMethodOnTakeFocusCmd)
+	methodScrollingMovementMethodOnTouchEventCmd.Flags().Int64("handle", 0, "handle (int64)")
+	methodScrollingMovementMethodOnTouchEventCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	methodScrollingMovementMethodOnTouchEventCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	methodScrollingMovementMethodOnTouchEventCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	methodScrollingMovementMethodCmd.AddCommand(methodScrollingMovementMethodOnTouchEventCmd)
+	methodScrollingMovementMethodGetInstanceCmd.Flags().Int64("handle", 0, "handle (int64)")
+	methodScrollingMovementMethodCmd.AddCommand(methodScrollingMovementMethodGetInstanceCmd)
+	methodCmd.AddCommand(methodScrollingMovementMethodCmd)
+	methodTimeKeyListenerCmd.AddCommand(methodTimeKeyListenerNewTimeKeyListenerCmd)
+	methodTimeKeyListenerGetInputTypeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	methodTimeKeyListenerCmd.AddCommand(methodTimeKeyListenerGetInputTypeCmd)
+	methodTimeKeyListenerGetInstance0Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	methodTimeKeyListenerCmd.AddCommand(methodTimeKeyListenerGetInstance0Cmd)
+	methodTimeKeyListenerGetInstance1_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	methodTimeKeyListenerGetInstance1_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	methodTimeKeyListenerCmd.AddCommand(methodTimeKeyListenerGetInstance1_1Cmd)
+	methodCmd.AddCommand(methodTimeKeyListenerCmd)
+	methodNumberKeyListenerFilterCmd.Flags().String("arg0", "", "arg0 (string)")
+	methodNumberKeyListenerFilterCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	methodNumberKeyListenerFilterCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	methodNumberKeyListenerFilterCmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	methodNumberKeyListenerFilterCmd.Flags().Int32("arg4", 0, "arg4 (int32)")
+	methodNumberKeyListenerFilterCmd.Flags().Int32("arg5", 0, "arg5 (int32)")
+	methodNumberKeyListenerCmd.AddCommand(methodNumberKeyListenerFilterCmd)
+	methodNumberKeyListenerOnKeyDownCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	methodNumberKeyListenerOnKeyDownCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	methodNumberKeyListenerOnKeyDownCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	methodNumberKeyListenerOnKeyDownCmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	methodNumberKeyListenerCmd.AddCommand(methodNumberKeyListenerOnKeyDownCmd)
+	methodCmd.AddCommand(methodNumberKeyListenerCmd)
+	methodMovementMethodCmd.AddCommand(methodMovementMethodCanSelectArbitrarilyCmd)
+	methodMovementMethodInitializeCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	methodMovementMethodInitializeCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	methodMovementMethodCmd.AddCommand(methodMovementMethodInitializeCmd)
+	methodMovementMethodOnGenericMotionEventCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	methodMovementMethodOnGenericMotionEventCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	methodMovementMethodOnGenericMotionEventCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	methodMovementMethodCmd.AddCommand(methodMovementMethodOnGenericMotionEventCmd)
+	methodMovementMethodOnKeyDownCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	methodMovementMethodOnKeyDownCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	methodMovementMethodOnKeyDownCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	methodMovementMethodOnKeyDownCmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	methodMovementMethodCmd.AddCommand(methodMovementMethodOnKeyDownCmd)
+	methodMovementMethodOnKeyOtherCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	methodMovementMethodOnKeyOtherCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	methodMovementMethodOnKeyOtherCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	methodMovementMethodCmd.AddCommand(methodMovementMethodOnKeyOtherCmd)
+	methodMovementMethodOnKeyUpCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	methodMovementMethodOnKeyUpCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	methodMovementMethodOnKeyUpCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	methodMovementMethodOnKeyUpCmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	methodMovementMethodCmd.AddCommand(methodMovementMethodOnKeyUpCmd)
+	methodMovementMethodOnTakeFocusCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	methodMovementMethodOnTakeFocusCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	methodMovementMethodOnTakeFocusCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	methodMovementMethodCmd.AddCommand(methodMovementMethodOnTakeFocusCmd)
+	methodMovementMethodOnTouchEventCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	methodMovementMethodOnTouchEventCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	methodMovementMethodOnTouchEventCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	methodMovementMethodCmd.AddCommand(methodMovementMethodOnTouchEventCmd)
+	methodMovementMethodOnTrackballEventCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	methodMovementMethodOnTrackballEventCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	methodMovementMethodOnTrackballEventCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	methodMovementMethodCmd.AddCommand(methodMovementMethodOnTrackballEventCmd)
+	methodCmd.AddCommand(methodMovementMethodCmd)
+	methodKeyListenerClearMetaKeyStateCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	methodKeyListenerClearMetaKeyStateCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	methodKeyListenerClearMetaKeyStateCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	methodKeyListenerCmd.AddCommand(methodKeyListenerClearMetaKeyStateCmd)
+	methodKeyListenerCmd.AddCommand(methodKeyListenerGetInputTypeCmd)
+	methodKeyListenerOnKeyDownCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	methodKeyListenerOnKeyDownCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	methodKeyListenerOnKeyDownCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	methodKeyListenerOnKeyDownCmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	methodKeyListenerCmd.AddCommand(methodKeyListenerOnKeyDownCmd)
+	methodKeyListenerOnKeyOtherCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	methodKeyListenerOnKeyOtherCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	methodKeyListenerOnKeyOtherCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	methodKeyListenerCmd.AddCommand(methodKeyListenerOnKeyOtherCmd)
+	methodKeyListenerOnKeyUpCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	methodKeyListenerOnKeyUpCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	methodKeyListenerOnKeyUpCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	methodKeyListenerOnKeyUpCmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	methodKeyListenerCmd.AddCommand(methodKeyListenerOnKeyUpCmd)
+	methodCmd.AddCommand(methodKeyListenerCmd)
+	methodCharacterPickerDialogNewCharacterPickerDialogCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	methodCharacterPickerDialogNewCharacterPickerDialogCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	methodCharacterPickerDialogNewCharacterPickerDialogCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	methodCharacterPickerDialogNewCharacterPickerDialogCmd.Flags().String("arg3", "", "arg3 (string)")
+	methodCharacterPickerDialogNewCharacterPickerDialogCmd.Flags().Bool("arg4", false, "arg4 (bool)")
+	methodCharacterPickerDialogCmd.AddCommand(methodCharacterPickerDialogNewCharacterPickerDialogCmd)
+	methodCharacterPickerDialogOnClickCmd.Flags().Int64("handle", 0, "handle (int64)")
+	methodCharacterPickerDialogOnClickCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	methodCharacterPickerDialogCmd.AddCommand(methodCharacterPickerDialogOnClickCmd)
+	methodCharacterPickerDialogOnItemClickCmd.Flags().Int64("handle", 0, "handle (int64)")
+	methodCharacterPickerDialogOnItemClickCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	methodCharacterPickerDialogOnItemClickCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	methodCharacterPickerDialogOnItemClickCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	methodCharacterPickerDialogOnItemClickCmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	methodCharacterPickerDialogCmd.AddCommand(methodCharacterPickerDialogOnItemClickCmd)
+	methodCmd.AddCommand(methodCharacterPickerDialogCmd)
 	methodTextKeyListenerNewTextKeyListenerCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	methodTextKeyListenerNewTextKeyListenerCmd.Flags().Bool("arg1", false, "arg1 (bool)")
 	methodTextKeyListenerCmd.AddCommand(methodTextKeyListenerNewTextKeyListenerCmd)
@@ -3892,63 +3941,6 @@ func init() {
 	methodTextKeyListenerCapitalizeValueOfCmd.Flags().String("arg0", "", "arg0 (string)")
 	methodTextKeyListenerCapitalizeCmd.AddCommand(methodTextKeyListenerCapitalizeValueOfCmd)
 	methodCmd.AddCommand(methodTextKeyListenerCapitalizeCmd)
-	methodArrowKeyMovementMethodCmd.AddCommand(methodArrowKeyMovementMethodNewArrowKeyMovementMethodCmd)
-	methodArrowKeyMovementMethodCanSelectArbitrarilyCmd.Flags().Int64("handle", 0, "handle (int64)")
-	methodArrowKeyMovementMethodCmd.AddCommand(methodArrowKeyMovementMethodCanSelectArbitrarilyCmd)
-	methodArrowKeyMovementMethodInitializeCmd.Flags().Int64("handle", 0, "handle (int64)")
-	methodArrowKeyMovementMethodInitializeCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	methodArrowKeyMovementMethodInitializeCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	methodArrowKeyMovementMethodCmd.AddCommand(methodArrowKeyMovementMethodInitializeCmd)
-	methodArrowKeyMovementMethodNextParagraphCmd.Flags().Int64("handle", 0, "handle (int64)")
-	methodArrowKeyMovementMethodNextParagraphCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	methodArrowKeyMovementMethodNextParagraphCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	methodArrowKeyMovementMethodCmd.AddCommand(methodArrowKeyMovementMethodNextParagraphCmd)
-	methodArrowKeyMovementMethodOnTakeFocusCmd.Flags().Int64("handle", 0, "handle (int64)")
-	methodArrowKeyMovementMethodOnTakeFocusCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	methodArrowKeyMovementMethodOnTakeFocusCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	methodArrowKeyMovementMethodOnTakeFocusCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
-	methodArrowKeyMovementMethodCmd.AddCommand(methodArrowKeyMovementMethodOnTakeFocusCmd)
-	methodArrowKeyMovementMethodOnTouchEventCmd.Flags().Int64("handle", 0, "handle (int64)")
-	methodArrowKeyMovementMethodOnTouchEventCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	methodArrowKeyMovementMethodOnTouchEventCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	methodArrowKeyMovementMethodOnTouchEventCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	methodArrowKeyMovementMethodCmd.AddCommand(methodArrowKeyMovementMethodOnTouchEventCmd)
-	methodArrowKeyMovementMethodPreviousParagraphCmd.Flags().Int64("handle", 0, "handle (int64)")
-	methodArrowKeyMovementMethodPreviousParagraphCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	methodArrowKeyMovementMethodPreviousParagraphCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	methodArrowKeyMovementMethodCmd.AddCommand(methodArrowKeyMovementMethodPreviousParagraphCmd)
-	methodArrowKeyMovementMethodGetInstanceCmd.Flags().Int64("handle", 0, "handle (int64)")
-	methodArrowKeyMovementMethodCmd.AddCommand(methodArrowKeyMovementMethodGetInstanceCmd)
-	methodCmd.AddCommand(methodArrowKeyMovementMethodCmd)
-	methodKeyListenerClearMetaKeyStateCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	methodKeyListenerClearMetaKeyStateCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	methodKeyListenerClearMetaKeyStateCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
-	methodKeyListenerCmd.AddCommand(methodKeyListenerClearMetaKeyStateCmd)
-	methodKeyListenerCmd.AddCommand(methodKeyListenerGetInputTypeCmd)
-	methodKeyListenerOnKeyDownCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	methodKeyListenerOnKeyDownCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	methodKeyListenerOnKeyDownCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
-	methodKeyListenerOnKeyDownCmd.Flags().Int64("arg3", 0, "arg3 (int64)")
-	methodKeyListenerCmd.AddCommand(methodKeyListenerOnKeyDownCmd)
-	methodKeyListenerOnKeyOtherCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	methodKeyListenerOnKeyOtherCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	methodKeyListenerOnKeyOtherCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	methodKeyListenerCmd.AddCommand(methodKeyListenerOnKeyOtherCmd)
-	methodKeyListenerOnKeyUpCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	methodKeyListenerOnKeyUpCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	methodKeyListenerOnKeyUpCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
-	methodKeyListenerOnKeyUpCmd.Flags().Int64("arg3", 0, "arg3 (int64)")
-	methodKeyListenerCmd.AddCommand(methodKeyListenerOnKeyUpCmd)
-	methodCmd.AddCommand(methodKeyListenerCmd)
-	methodDateTimeKeyListenerCmd.AddCommand(methodDateTimeKeyListenerNewDateTimeKeyListenerCmd)
-	methodDateTimeKeyListenerGetInputTypeCmd.Flags().Int64("handle", 0, "handle (int64)")
-	methodDateTimeKeyListenerCmd.AddCommand(methodDateTimeKeyListenerGetInputTypeCmd)
-	methodDateTimeKeyListenerGetInstance0Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	methodDateTimeKeyListenerCmd.AddCommand(methodDateTimeKeyListenerGetInstance0Cmd)
-	methodDateTimeKeyListenerGetInstance1_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	methodDateTimeKeyListenerGetInstance1_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	methodDateTimeKeyListenerCmd.AddCommand(methodDateTimeKeyListenerGetInstance1_1Cmd)
-	methodCmd.AddCommand(methodDateTimeKeyListenerCmd)
 	methodDateKeyListenerCmd.AddCommand(methodDateKeyListenerNewDateKeyListenerCmd)
 	methodDateKeyListenerGetInputTypeCmd.Flags().Int64("handle", 0, "handle (int64)")
 	methodDateKeyListenerCmd.AddCommand(methodDateKeyListenerGetInputTypeCmd)
@@ -3958,36 +3950,93 @@ func init() {
 	methodDateKeyListenerGetInstance1_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	methodDateKeyListenerCmd.AddCommand(methodDateKeyListenerGetInstance1_1Cmd)
 	methodCmd.AddCommand(methodDateKeyListenerCmd)
-	methodPasswordTransformationMethodCmd.AddCommand(methodPasswordTransformationMethodNewPasswordTransformationMethodCmd)
-	methodPasswordTransformationMethodAfterTextChangedCmd.Flags().Int64("handle", 0, "handle (int64)")
-	methodPasswordTransformationMethodAfterTextChangedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	methodPasswordTransformationMethodCmd.AddCommand(methodPasswordTransformationMethodAfterTextChangedCmd)
-	methodPasswordTransformationMethodBeforeTextChangedCmd.Flags().Int64("handle", 0, "handle (int64)")
-	methodPasswordTransformationMethodBeforeTextChangedCmd.Flags().String("arg0", "", "arg0 (string)")
-	methodPasswordTransformationMethodBeforeTextChangedCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	methodPasswordTransformationMethodBeforeTextChangedCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
-	methodPasswordTransformationMethodBeforeTextChangedCmd.Flags().Int32("arg3", 0, "arg3 (int32)")
-	methodPasswordTransformationMethodCmd.AddCommand(methodPasswordTransformationMethodBeforeTextChangedCmd)
-	methodPasswordTransformationMethodGetTransformationCmd.Flags().Int64("handle", 0, "handle (int64)")
-	methodPasswordTransformationMethodGetTransformationCmd.Flags().String("arg0", "", "arg0 (string)")
-	methodPasswordTransformationMethodGetTransformationCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	methodPasswordTransformationMethodCmd.AddCommand(methodPasswordTransformationMethodGetTransformationCmd)
-	methodPasswordTransformationMethodOnFocusChangedCmd.Flags().Int64("handle", 0, "handle (int64)")
-	methodPasswordTransformationMethodOnFocusChangedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	methodPasswordTransformationMethodOnFocusChangedCmd.Flags().String("arg1", "", "arg1 (string)")
-	methodPasswordTransformationMethodOnFocusChangedCmd.Flags().Bool("arg2", false, "arg2 (bool)")
-	methodPasswordTransformationMethodOnFocusChangedCmd.Flags().Int32("arg3", 0, "arg3 (int32)")
-	methodPasswordTransformationMethodOnFocusChangedCmd.Flags().Int64("arg4", 0, "arg4 (int64)")
-	methodPasswordTransformationMethodCmd.AddCommand(methodPasswordTransformationMethodOnFocusChangedCmd)
-	methodPasswordTransformationMethodOnTextChangedCmd.Flags().Int64("handle", 0, "handle (int64)")
-	methodPasswordTransformationMethodOnTextChangedCmd.Flags().String("arg0", "", "arg0 (string)")
-	methodPasswordTransformationMethodOnTextChangedCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	methodPasswordTransformationMethodOnTextChangedCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
-	methodPasswordTransformationMethodOnTextChangedCmd.Flags().Int32("arg3", 0, "arg3 (int32)")
-	methodPasswordTransformationMethodCmd.AddCommand(methodPasswordTransformationMethodOnTextChangedCmd)
-	methodPasswordTransformationMethodGetInstanceCmd.Flags().Int64("handle", 0, "handle (int64)")
-	methodPasswordTransformationMethodCmd.AddCommand(methodPasswordTransformationMethodGetInstanceCmd)
-	methodCmd.AddCommand(methodPasswordTransformationMethodCmd)
+	methodDialerKeyListenerCmd.AddCommand(methodDialerKeyListenerNewDialerKeyListenerCmd)
+	methodDialerKeyListenerGetInputTypeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	methodDialerKeyListenerCmd.AddCommand(methodDialerKeyListenerGetInputTypeCmd)
+	methodDialerKeyListenerGetInstanceCmd.Flags().Int64("handle", 0, "handle (int64)")
+	methodDialerKeyListenerCmd.AddCommand(methodDialerKeyListenerGetInstanceCmd)
+	methodCmd.AddCommand(methodDialerKeyListenerCmd)
+	methodMultiTapKeyListenerNewMultiTapKeyListenerCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	methodMultiTapKeyListenerNewMultiTapKeyListenerCmd.Flags().Bool("arg1", false, "arg1 (bool)")
+	methodMultiTapKeyListenerCmd.AddCommand(methodMultiTapKeyListenerNewMultiTapKeyListenerCmd)
+	methodMultiTapKeyListenerGetInputTypeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	methodMultiTapKeyListenerCmd.AddCommand(methodMultiTapKeyListenerGetInputTypeCmd)
+	methodMultiTapKeyListenerOnKeyDownCmd.Flags().Int64("handle", 0, "handle (int64)")
+	methodMultiTapKeyListenerOnKeyDownCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	methodMultiTapKeyListenerOnKeyDownCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	methodMultiTapKeyListenerOnKeyDownCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	methodMultiTapKeyListenerOnKeyDownCmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	methodMultiTapKeyListenerCmd.AddCommand(methodMultiTapKeyListenerOnKeyDownCmd)
+	methodMultiTapKeyListenerOnSpanAddedCmd.Flags().Int64("handle", 0, "handle (int64)")
+	methodMultiTapKeyListenerOnSpanAddedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	methodMultiTapKeyListenerOnSpanAddedCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	methodMultiTapKeyListenerOnSpanAddedCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	methodMultiTapKeyListenerOnSpanAddedCmd.Flags().Int32("arg3", 0, "arg3 (int32)")
+	methodMultiTapKeyListenerCmd.AddCommand(methodMultiTapKeyListenerOnSpanAddedCmd)
+	methodMultiTapKeyListenerOnSpanChangedCmd.Flags().Int64("handle", 0, "handle (int64)")
+	methodMultiTapKeyListenerOnSpanChangedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	methodMultiTapKeyListenerOnSpanChangedCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	methodMultiTapKeyListenerOnSpanChangedCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	methodMultiTapKeyListenerOnSpanChangedCmd.Flags().Int32("arg3", 0, "arg3 (int32)")
+	methodMultiTapKeyListenerOnSpanChangedCmd.Flags().Int32("arg4", 0, "arg4 (int32)")
+	methodMultiTapKeyListenerOnSpanChangedCmd.Flags().Int32("arg5", 0, "arg5 (int32)")
+	methodMultiTapKeyListenerCmd.AddCommand(methodMultiTapKeyListenerOnSpanChangedCmd)
+	methodMultiTapKeyListenerOnSpanRemovedCmd.Flags().Int64("handle", 0, "handle (int64)")
+	methodMultiTapKeyListenerOnSpanRemovedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	methodMultiTapKeyListenerOnSpanRemovedCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	methodMultiTapKeyListenerOnSpanRemovedCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	methodMultiTapKeyListenerOnSpanRemovedCmd.Flags().Int32("arg3", 0, "arg3 (int32)")
+	methodMultiTapKeyListenerCmd.AddCommand(methodMultiTapKeyListenerOnSpanRemovedCmd)
+	methodMultiTapKeyListenerGetInstanceCmd.Flags().Int64("handle", 0, "handle (int64)")
+	methodMultiTapKeyListenerGetInstanceCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	methodMultiTapKeyListenerGetInstanceCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	methodMultiTapKeyListenerCmd.AddCommand(methodMultiTapKeyListenerGetInstanceCmd)
+	methodCmd.AddCommand(methodMultiTapKeyListenerCmd)
+	methodTouchGetInitialScrollXCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	methodTouchGetInitialScrollXCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	methodTouchCmd.AddCommand(methodTouchGetInitialScrollXCmd)
+	methodTouchGetInitialScrollYCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	methodTouchGetInitialScrollYCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	methodTouchCmd.AddCommand(methodTouchGetInitialScrollYCmd)
+	methodTouchOnTouchEventCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	methodTouchOnTouchEventCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	methodTouchOnTouchEventCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	methodTouchCmd.AddCommand(methodTouchOnTouchEventCmd)
+	methodTouchScrollToCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	methodTouchScrollToCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	methodTouchScrollToCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	methodTouchScrollToCmd.Flags().Int32("arg3", 0, "arg3 (int32)")
+	methodTouchCmd.AddCommand(methodTouchScrollToCmd)
+	methodCmd.AddCommand(methodTouchCmd)
+	methodDigitsKeyListenerCmd.AddCommand(methodDigitsKeyListenerNewDigitsKeyListenerCmd)
+	methodDigitsKeyListenerFilterCmd.Flags().Int64("handle", 0, "handle (int64)")
+	methodDigitsKeyListenerFilterCmd.Flags().String("arg0", "", "arg0 (string)")
+	methodDigitsKeyListenerFilterCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	methodDigitsKeyListenerFilterCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	methodDigitsKeyListenerFilterCmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	methodDigitsKeyListenerFilterCmd.Flags().Int32("arg4", 0, "arg4 (int32)")
+	methodDigitsKeyListenerFilterCmd.Flags().Int32("arg5", 0, "arg5 (int32)")
+	methodDigitsKeyListenerCmd.AddCommand(methodDigitsKeyListenerFilterCmd)
+	methodDigitsKeyListenerGetInputTypeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	methodDigitsKeyListenerCmd.AddCommand(methodDigitsKeyListenerGetInputTypeCmd)
+	methodDigitsKeyListenerGetInstance0Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	methodDigitsKeyListenerCmd.AddCommand(methodDigitsKeyListenerGetInstance0Cmd)
+	methodDigitsKeyListenerGetInstance2_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	methodDigitsKeyListenerGetInstance2_1Cmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	methodDigitsKeyListenerGetInstance2_1Cmd.Flags().Bool("arg1", false, "arg1 (bool)")
+	methodDigitsKeyListenerCmd.AddCommand(methodDigitsKeyListenerGetInstance2_1Cmd)
+	methodDigitsKeyListenerGetInstance1_2Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	methodDigitsKeyListenerGetInstance1_2Cmd.Flags().String("arg0", "", "arg0 (string)")
+	methodDigitsKeyListenerCmd.AddCommand(methodDigitsKeyListenerGetInstance1_2Cmd)
+	methodDigitsKeyListenerGetInstance1_3Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	methodDigitsKeyListenerGetInstance1_3Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	methodDigitsKeyListenerCmd.AddCommand(methodDigitsKeyListenerGetInstance1_3Cmd)
+	methodDigitsKeyListenerGetInstance3_4Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	methodDigitsKeyListenerGetInstance3_4Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	methodDigitsKeyListenerGetInstance3_4Cmd.Flags().Bool("arg1", false, "arg1 (bool)")
+	methodDigitsKeyListenerGetInstance3_4Cmd.Flags().Bool("arg2", false, "arg2 (bool)")
+	methodDigitsKeyListenerCmd.AddCommand(methodDigitsKeyListenerGetInstance3_4Cmd)
+	methodCmd.AddCommand(methodDigitsKeyListenerCmd)
 	methodLinkMovementMethodCmd.AddCommand(methodLinkMovementMethodNewLinkMovementMethodCmd)
 	methodLinkMovementMethodCanSelectArbitrarilyCmd.Flags().Int64("handle", 0, "handle (int64)")
 	methodLinkMovementMethodCmd.AddCommand(methodLinkMovementMethodCanSelectArbitrarilyCmd)
@@ -4008,58 +4057,9 @@ func init() {
 	methodLinkMovementMethodGetInstanceCmd.Flags().Int64("handle", 0, "handle (int64)")
 	methodLinkMovementMethodCmd.AddCommand(methodLinkMovementMethodGetInstanceCmd)
 	methodCmd.AddCommand(methodLinkMovementMethodCmd)
-	methodBaseMovementMethodCmd.AddCommand(methodBaseMovementMethodNewBaseMovementMethodCmd)
-	methodBaseMovementMethodCanSelectArbitrarilyCmd.Flags().Int64("handle", 0, "handle (int64)")
-	methodBaseMovementMethodCmd.AddCommand(methodBaseMovementMethodCanSelectArbitrarilyCmd)
-	methodBaseMovementMethodInitializeCmd.Flags().Int64("handle", 0, "handle (int64)")
-	methodBaseMovementMethodInitializeCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	methodBaseMovementMethodInitializeCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	methodBaseMovementMethodCmd.AddCommand(methodBaseMovementMethodInitializeCmd)
-	methodBaseMovementMethodNextParagraphCmd.Flags().Int64("handle", 0, "handle (int64)")
-	methodBaseMovementMethodNextParagraphCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	methodBaseMovementMethodNextParagraphCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	methodBaseMovementMethodCmd.AddCommand(methodBaseMovementMethodNextParagraphCmd)
-	methodBaseMovementMethodOnGenericMotionEventCmd.Flags().Int64("handle", 0, "handle (int64)")
-	methodBaseMovementMethodOnGenericMotionEventCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	methodBaseMovementMethodOnGenericMotionEventCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	methodBaseMovementMethodOnGenericMotionEventCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	methodBaseMovementMethodCmd.AddCommand(methodBaseMovementMethodOnGenericMotionEventCmd)
-	methodBaseMovementMethodOnKeyDownCmd.Flags().Int64("handle", 0, "handle (int64)")
-	methodBaseMovementMethodOnKeyDownCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	methodBaseMovementMethodOnKeyDownCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	methodBaseMovementMethodOnKeyDownCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
-	methodBaseMovementMethodOnKeyDownCmd.Flags().Int64("arg3", 0, "arg3 (int64)")
-	methodBaseMovementMethodCmd.AddCommand(methodBaseMovementMethodOnKeyDownCmd)
-	methodBaseMovementMethodOnKeyOtherCmd.Flags().Int64("handle", 0, "handle (int64)")
-	methodBaseMovementMethodOnKeyOtherCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	methodBaseMovementMethodOnKeyOtherCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	methodBaseMovementMethodOnKeyOtherCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	methodBaseMovementMethodCmd.AddCommand(methodBaseMovementMethodOnKeyOtherCmd)
-	methodBaseMovementMethodOnKeyUpCmd.Flags().Int64("handle", 0, "handle (int64)")
-	methodBaseMovementMethodOnKeyUpCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	methodBaseMovementMethodOnKeyUpCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	methodBaseMovementMethodOnKeyUpCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
-	methodBaseMovementMethodOnKeyUpCmd.Flags().Int64("arg3", 0, "arg3 (int64)")
-	methodBaseMovementMethodCmd.AddCommand(methodBaseMovementMethodOnKeyUpCmd)
-	methodBaseMovementMethodOnTakeFocusCmd.Flags().Int64("handle", 0, "handle (int64)")
-	methodBaseMovementMethodOnTakeFocusCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	methodBaseMovementMethodOnTakeFocusCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	methodBaseMovementMethodOnTakeFocusCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
-	methodBaseMovementMethodCmd.AddCommand(methodBaseMovementMethodOnTakeFocusCmd)
-	methodBaseMovementMethodOnTouchEventCmd.Flags().Int64("handle", 0, "handle (int64)")
-	methodBaseMovementMethodOnTouchEventCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	methodBaseMovementMethodOnTouchEventCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	methodBaseMovementMethodOnTouchEventCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	methodBaseMovementMethodCmd.AddCommand(methodBaseMovementMethodOnTouchEventCmd)
-	methodBaseMovementMethodOnTrackballEventCmd.Flags().Int64("handle", 0, "handle (int64)")
-	methodBaseMovementMethodOnTrackballEventCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	methodBaseMovementMethodOnTrackballEventCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	methodBaseMovementMethodOnTrackballEventCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	methodBaseMovementMethodCmd.AddCommand(methodBaseMovementMethodOnTrackballEventCmd)
-	methodBaseMovementMethodPreviousParagraphCmd.Flags().Int64("handle", 0, "handle (int64)")
-	methodBaseMovementMethodPreviousParagraphCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	methodBaseMovementMethodPreviousParagraphCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	methodBaseMovementMethodCmd.AddCommand(methodBaseMovementMethodPreviousParagraphCmd)
-	methodCmd.AddCommand(methodBaseMovementMethodCmd)
+	methodHideReturnsTransformationMethodCmd.AddCommand(methodHideReturnsTransformationMethodNewHideReturnsTransformationMethodCmd)
+	methodHideReturnsTransformationMethodGetInstanceCmd.Flags().Int64("handle", 0, "handle (int64)")
+	methodHideReturnsTransformationMethodCmd.AddCommand(methodHideReturnsTransformationMethodGetInstanceCmd)
+	methodCmd.AddCommand(methodHideReturnsTransformationMethodCmd)
 	rootCmd.AddCommand(methodCmd)
 }

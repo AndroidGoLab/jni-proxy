@@ -269,6 +269,365 @@ func (c *PropertiesBuilderClient) SetPowerUsage(ctx context.Context, arg0 int32)
 	return resp.GetResult(), nil
 }
 
+// BlockedNumberContractClient wraps the gRPC BlockedNumberContractService client.
+type BlockedNumberContractClient struct {
+	svc pb.BlockedNumberContractServiceClient
+}
+
+// NewBlockedNumberContractClient creates a new BlockedNumberContract client.
+func NewBlockedNumberContractClient(cc grpc.ClientConnInterface) *BlockedNumberContractClient {
+	return &BlockedNumberContractClient{
+		svc: pb.NewBlockedNumberContractServiceClient(cc),
+	}
+}
+
+// CanCurrentUserBlockNumbers calls the CanCurrentUserBlockNumbers RPC.
+func (c *BlockedNumberContractClient) CanCurrentUserBlockNumbers(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.CanCurrentUserBlockNumbers(ctx, &pb.CanCurrentUserBlockNumbersRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsBlocked calls the IsBlocked RPC.
+func (c *BlockedNumberContractClient) IsBlocked(ctx context.Context, arg0 int64, arg1 string) (bool, error) {
+	resp, err := c.svc.IsBlocked(ctx, &pb.IsBlockedRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Unblock calls the Unblock RPC.
+func (c *BlockedNumberContractClient) Unblock(ctx context.Context, arg0 int64, arg1 string) (int32, error) {
+	resp, err := c.svc.Unblock(ctx, &pb.UnblockRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ContactsContactMethodsClient wraps the gRPC ContactsContactMethodsService client.
+type ContactsContactMethodsClient struct {
+	svc pb.ContactsContactMethodsServiceClient
+}
+
+// NewContactsContactMethodsClient creates a new ContactsContactMethods client.
+func NewContactsContactMethodsClient(cc grpc.ClientConnInterface) *ContactsContactMethodsClient {
+	return &ContactsContactMethodsClient{
+		svc: pb.NewContactsContactMethodsServiceClient(cc),
+	}
+}
+
+// AddPostalLocation calls the AddPostalLocation RPC.
+func (c *ContactsContactMethodsClient) AddPostalLocation(ctx context.Context, arg0 int64, arg1 int64, arg2 float64, arg3 float64) error {
+	_, err := c.svc.AddPostalLocation(ctx, &pb.AddPostalLocationRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	return err
+}
+
+// DecodeImProtocol calls the DecodeImProtocol RPC.
+func (c *ContactsContactMethodsClient) DecodeImProtocol(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.DecodeImProtocol(ctx, &pb.DecodeImProtocolRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// EncodeCustomImProtocol calls the EncodeCustomImProtocol RPC.
+func (c *ContactsContactMethodsClient) EncodeCustomImProtocol(ctx context.Context, arg0 string) (string, error) {
+	resp, err := c.svc.EncodeCustomImProtocol(ctx, &pb.EncodeCustomImProtocolRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// EncodePredefinedImProtocol calls the EncodePredefinedImProtocol RPC.
+func (c *ContactsContactMethodsClient) EncodePredefinedImProtocol(ctx context.Context, arg0 int32) (string, error) {
+	resp, err := c.svc.EncodePredefinedImProtocol(ctx, &pb.EncodePredefinedImProtocolRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDisplayLabel calls the GetDisplayLabel RPC.
+func (c *ContactsContactMethodsClient) GetDisplayLabel(ctx context.Context, arg0 int64, arg1 int32, arg2 int32, arg3 string) (int64, error) {
+	resp, err := c.svc.GetDisplayLabel(ctx, &pb.GetDisplayLabelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ContactsOrganizationsClient wraps the gRPC ContactsOrganizationsService client.
+type ContactsOrganizationsClient struct {
+	svc pb.ContactsOrganizationsServiceClient
+}
+
+// NewContactsOrganizationsClient creates a new ContactsOrganizations client.
+func NewContactsOrganizationsClient(cc grpc.ClientConnInterface) *ContactsOrganizationsClient {
+	return &ContactsOrganizationsClient{
+		svc: pb.NewContactsOrganizationsServiceClient(cc),
+	}
+}
+
+// GetDisplayLabel calls the GetDisplayLabel RPC.
+func (c *ContactsOrganizationsClient) GetDisplayLabel(ctx context.Context, arg0 int64, arg1 int32, arg2 string) (int64, error) {
+	resp, err := c.svc.GetDisplayLabel(ctx, &pb.ContactsOrganizationsGetDisplayLabelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ContactsPeopleClient wraps the gRPC ContactsPeopleService client.
+type ContactsPeopleClient struct {
+	svc pb.ContactsPeopleServiceClient
+}
+
+// NewContactsPeopleClient creates a new ContactsPeople client.
+func NewContactsPeopleClient(cc grpc.ClientConnInterface) *ContactsPeopleClient {
+	return &ContactsPeopleClient{
+		svc: pb.NewContactsPeopleServiceClient(cc),
+	}
+}
+
+// AddToGroup3 calls the AddToGroup3 RPC.
+func (c *ContactsPeopleClient) AddToGroup3(ctx context.Context, arg0 int64, arg1 int64, arg2 string) (int64, error) {
+	resp, err := c.svc.AddToGroup3(ctx, &pb.AddToGroup3Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AddToGroup3_1 calls the AddToGroup3_1 RPC.
+func (c *ContactsPeopleClient) AddToGroup3_1(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) (int64, error) {
+	resp, err := c.svc.AddToGroup3_1(ctx, &pb.AddToGroup3_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AddToMyContactsGroup calls the AddToMyContactsGroup RPC.
+func (c *ContactsPeopleClient) AddToMyContactsGroup(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
+	resp, err := c.svc.AddToMyContactsGroup(ctx, &pb.AddToMyContactsGroupRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CreatePersonInMyContactsGroup calls the CreatePersonInMyContactsGroup RPC.
+func (c *ContactsPeopleClient) CreatePersonInMyContactsGroup(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
+	resp, err := c.svc.CreatePersonInMyContactsGroup(ctx, &pb.CreatePersonInMyContactsGroupRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// LoadContactPhoto calls the LoadContactPhoto RPC.
+func (c *ContactsPeopleClient) LoadContactPhoto(ctx context.Context, arg0 int64, arg1 int64, arg2 int32, arg3 int64) (int64, error) {
+	resp, err := c.svc.LoadContactPhoto(ctx, &pb.LoadContactPhotoRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// MarkAsContacted calls the MarkAsContacted RPC.
+func (c *ContactsPeopleClient) MarkAsContacted(ctx context.Context, arg0 int64, arg1 int64) error {
+	_, err := c.svc.MarkAsContacted(ctx, &pb.MarkAsContactedRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// OpenContactPhotoInputStream calls the OpenContactPhotoInputStream RPC.
+func (c *ContactsPeopleClient) OpenContactPhotoInputStream(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
+	resp, err := c.svc.OpenContactPhotoInputStream(ctx, &pb.OpenContactPhotoInputStreamRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// QueryGroups calls the QueryGroups RPC.
+func (c *ContactsPeopleClient) QueryGroups(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
+	resp, err := c.svc.QueryGroups(ctx, &pb.QueryGroupsRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetPhotoData calls the SetPhotoData RPC.
+func (c *ContactsPeopleClient) SetPhotoData(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) error {
+	_, err := c.svc.SetPhotoData(ctx, &pb.SetPhotoDataRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// ContactsPhonesClient wraps the gRPC ContactsPhonesService client.
+type ContactsPhonesClient struct {
+	svc pb.ContactsPhonesServiceClient
+}
+
+// NewContactsPhonesClient creates a new ContactsPhones client.
+func NewContactsPhonesClient(cc grpc.ClientConnInterface) *ContactsPhonesClient {
+	return &ContactsPhonesClient{
+		svc: pb.NewContactsPhonesServiceClient(cc),
+	}
+}
+
+// GetDisplayLabel3 calls the GetDisplayLabel3 RPC.
+func (c *ContactsPhonesClient) GetDisplayLabel3(ctx context.Context, arg0 int64, arg1 int32, arg2 string) (int64, error) {
+	resp, err := c.svc.GetDisplayLabel3(ctx, &pb.GetDisplayLabel3Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDisplayLabel4_1 calls the GetDisplayLabel4_1 RPC.
+func (c *ContactsPhonesClient) GetDisplayLabel4_1(ctx context.Context, arg0 int64, arg1 int32, arg2 string, arg3 int64) (int64, error) {
+	resp, err := c.svc.GetDisplayLabel4_1(ctx, &pb.GetDisplayLabel4_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ContactsSettingsClient wraps the gRPC ContactsSettingsService client.
+type ContactsSettingsClient struct {
+	svc pb.ContactsSettingsServiceClient
+}
+
+// NewContactsSettingsClient creates a new ContactsSettings client.
+func NewContactsSettingsClient(cc grpc.ClientConnInterface) *ContactsSettingsClient {
+	return &ContactsSettingsClient{
+		svc: pb.NewContactsSettingsServiceClient(cc),
+	}
+}
+
+// GetSetting calls the GetSetting RPC.
+func (c *ContactsSettingsClient) GetSetting(ctx context.Context, arg0 int64, arg1 string, arg2 string) (string, error) {
+	resp, err := c.svc.GetSetting(ctx, &pb.GetSettingRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetSetting calls the SetSetting RPC.
+func (c *ContactsSettingsClient) SetSetting(ctx context.Context, arg0 int64, arg1 string, arg2 string, arg3 string) error {
+	_, err := c.svc.SetSetting(ctx, &pb.SetSettingRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	return err
+}
+
+// CallLogCallsClient wraps the gRPC CallLogCallsService client.
+type CallLogCallsClient struct {
+	svc pb.CallLogCallsServiceClient
+}
+
+// NewCallLogCallsClient creates a new CallLogCalls client.
+func NewCallLogCallsClient(cc grpc.ClientConnInterface) *CallLogCallsClient {
+	return &CallLogCallsClient{
+		svc: pb.NewCallLogCallsServiceClient(cc),
+	}
+}
+
+// GetLastOutgoingCall calls the GetLastOutgoingCall RPC.
+func (c *CallLogCallsClient) GetLastOutgoingCall(ctx context.Context, arg0 int64) (string, error) {
+	resp, err := c.svc.GetLastOutgoingCall(ctx, &pb.GetLastOutgoingCallRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
 // SyncStateContractHelpersClient wraps the gRPC SyncStateContractHelpersService client.
 type SyncStateContractHelpersClient struct {
 	svc pb.SyncStateContractHelpersServiceClient
@@ -354,22 +713,68 @@ func (c *SyncStateContractHelpersClient) Update(ctx context.Context, arg0 int64,
 	return err
 }
 
-// FontRequestClient wraps the gRPC FontRequestService client.
-type FontRequestClient struct {
-	svc pb.FontRequestServiceClient
+// CloudMediaProviderClient wraps the gRPC CloudMediaProviderService client.
+type CloudMediaProviderClient struct {
+	svc pb.CloudMediaProviderServiceClient
 }
 
-// NewFontRequestClient creates a new FontRequest client.
-func NewFontRequestClient(cc grpc.ClientConnInterface) *FontRequestClient {
-	return &FontRequestClient{
-		svc: pb.NewFontRequestServiceClient(cc),
+// NewCloudMediaProviderClient creates a new CloudMediaProvider client.
+func NewCloudMediaProviderClient(cc grpc.ClientConnInterface) *CloudMediaProviderClient {
+	return &CloudMediaProviderClient{
+		svc: pb.NewCloudMediaProviderServiceClient(cc),
 	}
 }
 
-// GetProviderAuthority calls the GetProviderAuthority RPC.
-func (c *FontRequestClient) GetProviderAuthority(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.GetProviderAuthority(ctx, &pb.GetProviderAuthorityRequest{
-		Handle: handle,
+// AttachInfo calls the AttachInfo RPC.
+func (c *CloudMediaProviderClient) AttachInfo(ctx context.Context, arg0 int64, arg1 int64) error {
+	_, err := c.svc.AttachInfo(ctx, &pb.AttachInfoRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// Call calls the Call RPC.
+func (c *CloudMediaProviderClient) Call(ctx context.Context, arg0 string, arg1 string, arg2 int64) (int64, error) {
+	resp, err := c.svc.Call(ctx, &pb.CallRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Canonicalize calls the Canonicalize RPC.
+func (c *CloudMediaProviderClient) Canonicalize(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.Canonicalize(ctx, &pb.CanonicalizeRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Delete calls the Delete RPC.
+func (c *CloudMediaProviderClient) Delete(ctx context.Context, arg0 int64, arg1 string, arg2 int64) (int32, error) {
+	resp, err := c.svc.Delete(ctx, &pb.DeleteRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetType calls the GetType RPC.
+func (c *CloudMediaProviderClient) GetType(ctx context.Context, arg0 int64) (string, error) {
+	resp, err := c.svc.GetType(ctx, &pb.GetTypeRequest{
+		Arg0: arg0,
 	})
 	if err != nil {
 		return "", err
@@ -377,10 +782,499 @@ func (c *FontRequestClient) GetProviderAuthority(ctx context.Context, handle int
 	return resp.GetResult(), nil
 }
 
-// GetProviderPackage calls the GetProviderPackage RPC.
-func (c *FontRequestClient) GetProviderPackage(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.GetProviderPackage(ctx, &pb.GetProviderPackageRequest{
-		Handle: handle,
+// Insert calls the Insert RPC.
+func (c *CloudMediaProviderClient) Insert(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
+	resp, err := c.svc.Insert(ctx, &pb.CloudMediaProviderInsertRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnCreateCloudMediaSurfaceController calls the OnCreateCloudMediaSurfaceController RPC.
+func (c *CloudMediaProviderClient) OnCreateCloudMediaSurfaceController(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
+	resp, err := c.svc.OnCreateCloudMediaSurfaceController(ctx, &pb.OnCreateCloudMediaSurfaceControllerRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnGetCapabilities calls the OnGetCapabilities RPC.
+func (c *CloudMediaProviderClient) OnGetCapabilities(ctx context.Context) (int64, error) {
+	resp, err := c.svc.OnGetCapabilities(ctx, &pb.OnGetCapabilitiesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnGetMediaCollectionInfo calls the OnGetMediaCollectionInfo RPC.
+func (c *CloudMediaProviderClient) OnGetMediaCollectionInfo(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.OnGetMediaCollectionInfo(ctx, &pb.OnGetMediaCollectionInfoRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnOpenMedia calls the OnOpenMedia RPC.
+func (c *CloudMediaProviderClient) OnOpenMedia(ctx context.Context, arg0 string, arg1 int64, arg2 int64) (int64, error) {
+	resp, err := c.svc.OnOpenMedia(ctx, &pb.OnOpenMediaRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnOpenPreview calls the OnOpenPreview RPC.
+func (c *CloudMediaProviderClient) OnOpenPreview(ctx context.Context, arg0 string, arg1 int64, arg2 int64, arg3 int64) (int64, error) {
+	resp, err := c.svc.OnOpenPreview(ctx, &pb.OnOpenPreviewRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnQueryAlbums calls the OnQueryAlbums RPC.
+func (c *CloudMediaProviderClient) OnQueryAlbums(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.OnQueryAlbums(ctx, &pb.OnQueryAlbumsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnQueryDeletedMedia calls the OnQueryDeletedMedia RPC.
+func (c *CloudMediaProviderClient) OnQueryDeletedMedia(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.OnQueryDeletedMedia(ctx, &pb.OnQueryDeletedMediaRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnQueryMedia calls the OnQueryMedia RPC.
+func (c *CloudMediaProviderClient) OnQueryMedia(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.OnQueryMedia(ctx, &pb.OnQueryMediaRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnQueryMediaCategories calls the OnQueryMediaCategories RPC.
+func (c *CloudMediaProviderClient) OnQueryMediaCategories(ctx context.Context, arg0 string, arg1 int64, arg2 int64) (int64, error) {
+	resp, err := c.svc.OnQueryMediaCategories(ctx, &pb.OnQueryMediaCategoriesRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnQueryMediaInMediaSet calls the OnQueryMediaInMediaSet RPC.
+func (c *CloudMediaProviderClient) OnQueryMediaInMediaSet(ctx context.Context, arg0 string, arg1 int64, arg2 int64) (int64, error) {
+	resp, err := c.svc.OnQueryMediaInMediaSet(ctx, &pb.OnQueryMediaInMediaSetRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnQueryMediaSets calls the OnQueryMediaSets RPC.
+func (c *CloudMediaProviderClient) OnQueryMediaSets(ctx context.Context, arg0 string, arg1 int64, arg2 int64) (int64, error) {
+	resp, err := c.svc.OnQueryMediaSets(ctx, &pb.OnQueryMediaSetsRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnQuerySearchSuggestions calls the OnQuerySearchSuggestions RPC.
+func (c *CloudMediaProviderClient) OnQuerySearchSuggestions(ctx context.Context, arg0 string, arg1 int64, arg2 int64) (int64, error) {
+	resp, err := c.svc.OnQuerySearchSuggestions(ctx, &pb.OnQuerySearchSuggestionsRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnSearchMedia3 calls the OnSearchMedia3 RPC.
+func (c *CloudMediaProviderClient) OnSearchMedia3(ctx context.Context, arg0 string, arg1 int64, arg2 int64) (int64, error) {
+	resp, err := c.svc.OnSearchMedia3(ctx, &pb.OnSearchMedia3Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnSearchMedia4_1 calls the OnSearchMedia4_1 RPC.
+func (c *CloudMediaProviderClient) OnSearchMedia4_1(ctx context.Context, arg0 string, arg1 string, arg2 int64, arg3 int64) (int64, error) {
+	resp, err := c.svc.OnSearchMedia4_1(ctx, &pb.OnSearchMedia4_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OpenFile2 calls the OpenFile2 RPC.
+func (c *CloudMediaProviderClient) OpenFile2(ctx context.Context, arg0 int64, arg1 string) (int64, error) {
+	resp, err := c.svc.OpenFile2(ctx, &pb.OpenFile2Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OpenFile3_1 calls the OpenFile3_1 RPC.
+func (c *CloudMediaProviderClient) OpenFile3_1(ctx context.Context, arg0 int64, arg1 string, arg2 int64) (int64, error) {
+	resp, err := c.svc.OpenFile3_1(ctx, &pb.OpenFile3_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OpenTypedAssetFile3 calls the OpenTypedAssetFile3 RPC.
+func (c *CloudMediaProviderClient) OpenTypedAssetFile3(ctx context.Context, arg0 int64, arg1 string, arg2 int64) (int64, error) {
+	resp, err := c.svc.OpenTypedAssetFile3(ctx, &pb.OpenTypedAssetFile3Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OpenTypedAssetFile4_1 calls the OpenTypedAssetFile4_1 RPC.
+func (c *CloudMediaProviderClient) OpenTypedAssetFile4_1(ctx context.Context, arg0 int64, arg1 string, arg2 int64, arg3 int64) (int64, error) {
+	resp, err := c.svc.OpenTypedAssetFile4_1(ctx, &pb.OpenTypedAssetFile4_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Query4 calls the Query4 RPC.
+func (c *CloudMediaProviderClient) Query4(ctx context.Context, arg0 int64, arg1 int64, arg2 int64, arg3 int64) (int64, error) {
+	resp, err := c.svc.Query4(ctx, &pb.Query4Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Query5_1 calls the Query5_1 RPC.
+func (c *CloudMediaProviderClient) Query5_1(ctx context.Context, arg0 int64, arg1 int64, arg2 string, arg3 int64, arg4 string) (int64, error) {
+	resp, err := c.svc.Query5_1(ctx, &pb.Query5_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Query6_2 calls the Query6_2 RPC.
+func (c *CloudMediaProviderClient) Query6_2(ctx context.Context, arg0 int64, arg1 int64, arg2 string, arg3 int64, arg4 string, arg5 int64) (int64, error) {
+	resp, err := c.svc.Query6_2(ctx, &pb.Query6_2Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+		Arg5: arg5,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Update calls the Update RPC.
+func (c *CloudMediaProviderClient) Update(ctx context.Context, arg0 int64, arg1 int64, arg2 string, arg3 int64) (int32, error) {
+	resp, err := c.svc.Update(ctx, &pb.CloudMediaProviderUpdateRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CloudMediaProviderCloudMediaSurfaceControllerClient wraps the gRPC CloudMediaProviderCloudMediaSurfaceControllerService client.
+type CloudMediaProviderCloudMediaSurfaceControllerClient struct {
+	svc pb.CloudMediaProviderCloudMediaSurfaceControllerServiceClient
+}
+
+// NewCloudMediaProviderCloudMediaSurfaceControllerClient creates a new CloudMediaProviderCloudMediaSurfaceController client.
+func NewCloudMediaProviderCloudMediaSurfaceControllerClient(cc grpc.ClientConnInterface) *CloudMediaProviderCloudMediaSurfaceControllerClient {
+	return &CloudMediaProviderCloudMediaSurfaceControllerClient{
+		svc: pb.NewCloudMediaProviderCloudMediaSurfaceControllerServiceClient(cc),
+	}
+}
+
+// OnConfigChange calls the OnConfigChange RPC.
+func (c *CloudMediaProviderCloudMediaSurfaceControllerClient) OnConfigChange(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnConfigChange(ctx, &pb.OnConfigChangeRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnDestroy calls the OnDestroy RPC.
+func (c *CloudMediaProviderCloudMediaSurfaceControllerClient) OnDestroy(ctx context.Context) error {
+	_, err := c.svc.OnDestroy(ctx, &pb.OnDestroyRequest{})
+	return err
+}
+
+// OnMediaPause calls the OnMediaPause RPC.
+func (c *CloudMediaProviderCloudMediaSurfaceControllerClient) OnMediaPause(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.OnMediaPause(ctx, &pb.OnMediaPauseRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnMediaPlay calls the OnMediaPlay RPC.
+func (c *CloudMediaProviderCloudMediaSurfaceControllerClient) OnMediaPlay(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.OnMediaPlay(ctx, &pb.OnMediaPlayRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnMediaSeekTo calls the OnMediaSeekTo RPC.
+func (c *CloudMediaProviderCloudMediaSurfaceControllerClient) OnMediaSeekTo(ctx context.Context, arg0 int32, arg1 int64) error {
+	_, err := c.svc.OnMediaSeekTo(ctx, &pb.OnMediaSeekToRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// OnPlayerCreate calls the OnPlayerCreate RPC.
+func (c *CloudMediaProviderCloudMediaSurfaceControllerClient) OnPlayerCreate(ctx context.Context) error {
+	_, err := c.svc.OnPlayerCreate(ctx, &pb.OnPlayerCreateRequest{})
+	return err
+}
+
+// OnPlayerRelease calls the OnPlayerRelease RPC.
+func (c *CloudMediaProviderCloudMediaSurfaceControllerClient) OnPlayerRelease(ctx context.Context) error {
+	_, err := c.svc.OnPlayerRelease(ctx, &pb.OnPlayerReleaseRequest{})
+	return err
+}
+
+// OnSurfaceChanged calls the OnSurfaceChanged RPC.
+func (c *CloudMediaProviderCloudMediaSurfaceControllerClient) OnSurfaceChanged(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int32) error {
+	_, err := c.svc.OnSurfaceChanged(ctx, &pb.OnSurfaceChangedRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	return err
+}
+
+// OnSurfaceCreated calls the OnSurfaceCreated RPC.
+func (c *CloudMediaProviderCloudMediaSurfaceControllerClient) OnSurfaceCreated(ctx context.Context, arg0 int32, arg1 int64, arg2 string) error {
+	_, err := c.svc.OnSurfaceCreated(ctx, &pb.OnSurfaceCreatedRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// OnSurfaceDestroyed calls the OnSurfaceDestroyed RPC.
+func (c *CloudMediaProviderCloudMediaSurfaceControllerClient) OnSurfaceDestroyed(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.OnSurfaceDestroyed(ctx, &pb.OnSurfaceDestroyedRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// CloudMediaProviderCloudMediaSurfaceStateChangedCallbackClient wraps the gRPC CloudMediaProviderCloudMediaSurfaceStateChangedCallbackService client.
+type CloudMediaProviderCloudMediaSurfaceStateChangedCallbackClient struct {
+	svc pb.CloudMediaProviderCloudMediaSurfaceStateChangedCallbackServiceClient
+}
+
+// NewCloudMediaProviderCloudMediaSurfaceStateChangedCallbackClient creates a new CloudMediaProviderCloudMediaSurfaceStateChangedCallback client.
+func NewCloudMediaProviderCloudMediaSurfaceStateChangedCallbackClient(cc grpc.ClientConnInterface) *CloudMediaProviderCloudMediaSurfaceStateChangedCallbackClient {
+	return &CloudMediaProviderCloudMediaSurfaceStateChangedCallbackClient{
+		svc: pb.NewCloudMediaProviderCloudMediaSurfaceStateChangedCallbackServiceClient(cc),
+	}
+}
+
+// SetPlaybackState calls the SetPlaybackState RPC.
+func (c *CloudMediaProviderCloudMediaSurfaceStateChangedCallbackClient) SetPlaybackState(ctx context.Context, arg0 int32, arg1 int32, arg2 int64) error {
+	_, err := c.svc.SetPlaybackState(ctx, &pb.SetPlaybackStateRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// TelephonyCarrierIdClient wraps the gRPC TelephonyCarrierIdService client.
+type TelephonyCarrierIdClient struct {
+	svc pb.TelephonyCarrierIdServiceClient
+}
+
+// NewTelephonyCarrierIdClient creates a new TelephonyCarrierId client.
+func NewTelephonyCarrierIdClient(cc grpc.ClientConnInterface) *TelephonyCarrierIdClient {
+	return &TelephonyCarrierIdClient{
+		svc: pb.NewTelephonyCarrierIdServiceClient(cc),
+	}
+}
+
+// GetSpecificCarrierIdUriForSubscriptionId calls the GetSpecificCarrierIdUriForSubscriptionId RPC.
+func (c *TelephonyCarrierIdClient) GetSpecificCarrierIdUriForSubscriptionId(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.GetSpecificCarrierIdUriForSubscriptionId(ctx, &pb.GetSpecificCarrierIdUriForSubscriptionIdRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetUriForSubscriptionId calls the GetUriForSubscriptionId RPC.
+func (c *TelephonyCarrierIdClient) GetUriForSubscriptionId(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.GetUriForSubscriptionId(ctx, &pb.GetUriForSubscriptionIdRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// TelephonyServiceStateTableClient wraps the gRPC TelephonyServiceStateTableService client.
+type TelephonyServiceStateTableClient struct {
+	svc pb.TelephonyServiceStateTableServiceClient
+}
+
+// NewTelephonyServiceStateTableClient creates a new TelephonyServiceStateTable client.
+func NewTelephonyServiceStateTableClient(cc grpc.ClientConnInterface) *TelephonyServiceStateTableClient {
+	return &TelephonyServiceStateTableClient{
+		svc: pb.NewTelephonyServiceStateTableServiceClient(cc),
+	}
+}
+
+// GetUriForSubscriptionId calls the GetUriForSubscriptionId RPC.
+func (c *TelephonyServiceStateTableClient) GetUriForSubscriptionId(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.GetUriForSubscriptionId(ctx, &pb.GetUriForSubscriptionIdRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetUriForSubscriptionIdAndField calls the GetUriForSubscriptionIdAndField RPC.
+func (c *TelephonyServiceStateTableClient) GetUriForSubscriptionIdAndField(ctx context.Context, arg0 int32, arg1 string) (int64, error) {
+	resp, err := c.svc.GetUriForSubscriptionIdAndField(ctx, &pb.GetUriForSubscriptionIdAndFieldRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// TelephonySmsClient wraps the gRPC TelephonySmsService client.
+type TelephonySmsClient struct {
+	svc pb.TelephonySmsServiceClient
+}
+
+// NewTelephonySmsClient creates a new TelephonySms client.
+func NewTelephonySmsClient(cc grpc.ClientConnInterface) *TelephonySmsClient {
+	return &TelephonySmsClient{
+		svc: pb.NewTelephonySmsServiceClient(cc),
+	}
+}
+
+// GetDefaultSmsPackage calls the GetDefaultSmsPackage RPC.
+func (c *TelephonySmsClient) GetDefaultSmsPackage(ctx context.Context, arg0 int64) (string, error) {
+	resp, err := c.svc.GetDefaultSmsPackage(ctx, &pb.GetDefaultSmsPackageRequest{
+		Arg0: arg0,
 	})
 	if err != nil {
 		return "", err
@@ -388,24 +1282,134 @@ func (c *FontRequestClient) GetProviderPackage(ctx context.Context, handle int64
 	return resp.GetResult(), nil
 }
 
-// GetQuery calls the GetQuery RPC.
-func (c *FontRequestClient) GetQuery(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.GetQuery(ctx, &pb.GetQueryRequest{
-		Handle: handle,
+// TelephonyThreadsClient wraps the gRPC TelephonyThreadsService client.
+type TelephonyThreadsClient struct {
+	svc pb.TelephonyThreadsServiceClient
+}
+
+// NewTelephonyThreadsClient creates a new TelephonyThreads client.
+func NewTelephonyThreadsClient(cc grpc.ClientConnInterface) *TelephonyThreadsClient {
+	return &TelephonyThreadsClient{
+		svc: pb.NewTelephonyThreadsServiceClient(cc),
+	}
+}
+
+// GetOrCreateThreadId calls the GetOrCreateThreadId RPC.
+func (c *TelephonyThreadsClient) GetOrCreateThreadId(ctx context.Context, arg0 int64, arg1 string) (int64, error) {
+	resp, err := c.svc.GetOrCreateThreadId(ctx, &pb.GetOrCreateThreadIdRequest{
+		Arg0: arg0,
+		Arg1: arg1,
 	})
 	if err != nil {
-		return "", err
+		return 0, err
 	}
 	return resp.GetResult(), nil
 }
 
-// ToString calls the ToString RPC.
-func (c *FontRequestClient) ToString(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.FontRequestToStringRequest{
-		Handle: handle,
+// UserDictionaryWordsClient wraps the gRPC UserDictionaryWordsService client.
+type UserDictionaryWordsClient struct {
+	svc pb.UserDictionaryWordsServiceClient
+}
+
+// NewUserDictionaryWordsClient creates a new UserDictionaryWords client.
+func NewUserDictionaryWordsClient(cc grpc.ClientConnInterface) *UserDictionaryWordsClient {
+	return &UserDictionaryWordsClient{
+		svc: pb.NewUserDictionaryWordsServiceClient(cc),
+	}
+}
+
+// AddWord4 calls the AddWord4 RPC.
+func (c *UserDictionaryWordsClient) AddWord4(ctx context.Context, arg0 int64, arg1 string, arg2 int32, arg3 int32) error {
+	_, err := c.svc.AddWord4(ctx, &pb.AddWord4Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	return err
+}
+
+// AddWord5_1 calls the AddWord5_1 RPC.
+func (c *UserDictionaryWordsClient) AddWord5_1(ctx context.Context, arg0 int64, arg1 string, arg2 int32, arg3 string, arg4 int64) error {
+	_, err := c.svc.AddWord5_1(ctx, &pb.AddWord5_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+	})
+	return err
+}
+
+// SimPhonebookContractElementaryFilesClient wraps the gRPC SimPhonebookContractElementaryFilesService client.
+type SimPhonebookContractElementaryFilesClient struct {
+	svc pb.SimPhonebookContractElementaryFilesServiceClient
+}
+
+// NewSimPhonebookContractElementaryFilesClient creates a new SimPhonebookContractElementaryFiles client.
+func NewSimPhonebookContractElementaryFilesClient(cc grpc.ClientConnInterface) *SimPhonebookContractElementaryFilesClient {
+	return &SimPhonebookContractElementaryFilesClient{
+		svc: pb.NewSimPhonebookContractElementaryFilesServiceClient(cc),
+	}
+}
+
+// GetItemUri calls the GetItemUri RPC.
+func (c *SimPhonebookContractElementaryFilesClient) GetItemUri(ctx context.Context, arg0 int32, arg1 int32) (int64, error) {
+	resp, err := c.svc.GetItemUri(ctx, &pb.GetItemUriRequest{
+		Arg0: arg0,
+		Arg1: arg1,
 	})
 	if err != nil {
-		return "", err
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SimPhonebookContractSimRecordsClient wraps the gRPC SimPhonebookContractSimRecordsService client.
+type SimPhonebookContractSimRecordsClient struct {
+	svc pb.SimPhonebookContractSimRecordsServiceClient
+}
+
+// NewSimPhonebookContractSimRecordsClient creates a new SimPhonebookContractSimRecords client.
+func NewSimPhonebookContractSimRecordsClient(cc grpc.ClientConnInterface) *SimPhonebookContractSimRecordsClient {
+	return &SimPhonebookContractSimRecordsClient{
+		svc: pb.NewSimPhonebookContractSimRecordsServiceClient(cc),
+	}
+}
+
+// GetContentUri calls the GetContentUri RPC.
+func (c *SimPhonebookContractSimRecordsClient) GetContentUri(ctx context.Context, arg0 int32, arg1 int32) (int64, error) {
+	resp, err := c.svc.GetContentUri(ctx, &pb.GetContentUriRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetEncodedNameLength calls the GetEncodedNameLength RPC.
+func (c *SimPhonebookContractSimRecordsClient) GetEncodedNameLength(ctx context.Context, arg0 int64, arg1 string) (int32, error) {
+	resp, err := c.svc.GetEncodedNameLength(ctx, &pb.GetEncodedNameLengthRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetItemUri calls the GetItemUri RPC.
+func (c *SimPhonebookContractSimRecordsClient) GetItemUri(ctx context.Context, arg0 int32, arg1 int32, arg2 int32) (int64, error) {
+	resp, err := c.svc.GetItemUri(ctx, &pb.SimPhonebookContractSimRecordsGetItemUriRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
 	}
 	return resp.GetResult(), nil
 }
@@ -974,375 +1978,26 @@ func (c *DocumentsProviderClient) Update(ctx context.Context, arg0 int64, arg1 i
 	return resp.GetResult(), nil
 }
 
-// ContactsContactMethodsClient wraps the gRPC ContactsContactMethodsService client.
-type ContactsContactMethodsClient struct {
-	svc pb.ContactsContactMethodsServiceClient
+// BrowserClient wraps the gRPC BrowserService client.
+type BrowserClient struct {
+	svc pb.BrowserServiceClient
 }
 
-// NewContactsContactMethodsClient creates a new ContactsContactMethods client.
-func NewContactsContactMethodsClient(cc grpc.ClientConnInterface) *ContactsContactMethodsClient {
-	return &ContactsContactMethodsClient{
-		svc: pb.NewContactsContactMethodsServiceClient(cc),
+// NewBrowserClient creates a new Browser client.
+func NewBrowserClient(cc grpc.ClientConnInterface) *BrowserClient {
+	return &BrowserClient{
+		svc: pb.NewBrowserServiceClient(cc),
 	}
 }
 
-// AddPostalLocation calls the AddPostalLocation RPC.
-func (c *ContactsContactMethodsClient) AddPostalLocation(ctx context.Context, arg0 int64, arg1 int64, arg2 float64, arg3 float64) error {
-	_, err := c.svc.AddPostalLocation(ctx, &pb.AddPostalLocationRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
+// SendString calls the SendString RPC.
+func (c *BrowserClient) SendString(ctx context.Context, handle int64, arg0 int64, arg1 string) error {
+	_, err := c.svc.SendString(ctx, &pb.SendStringRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
 	})
 	return err
-}
-
-// DecodeImProtocol calls the DecodeImProtocol RPC.
-func (c *ContactsContactMethodsClient) DecodeImProtocol(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.DecodeImProtocol(ctx, &pb.DecodeImProtocolRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// EncodeCustomImProtocol calls the EncodeCustomImProtocol RPC.
-func (c *ContactsContactMethodsClient) EncodeCustomImProtocol(ctx context.Context, arg0 string) (string, error) {
-	resp, err := c.svc.EncodeCustomImProtocol(ctx, &pb.EncodeCustomImProtocolRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// EncodePredefinedImProtocol calls the EncodePredefinedImProtocol RPC.
-func (c *ContactsContactMethodsClient) EncodePredefinedImProtocol(ctx context.Context, arg0 int32) (string, error) {
-	resp, err := c.svc.EncodePredefinedImProtocol(ctx, &pb.EncodePredefinedImProtocolRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetDisplayLabel calls the GetDisplayLabel RPC.
-func (c *ContactsContactMethodsClient) GetDisplayLabel(ctx context.Context, arg0 int64, arg1 int32, arg2 int32, arg3 string) (int64, error) {
-	resp, err := c.svc.GetDisplayLabel(ctx, &pb.GetDisplayLabelRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ContactsOrganizationsClient wraps the gRPC ContactsOrganizationsService client.
-type ContactsOrganizationsClient struct {
-	svc pb.ContactsOrganizationsServiceClient
-}
-
-// NewContactsOrganizationsClient creates a new ContactsOrganizations client.
-func NewContactsOrganizationsClient(cc grpc.ClientConnInterface) *ContactsOrganizationsClient {
-	return &ContactsOrganizationsClient{
-		svc: pb.NewContactsOrganizationsServiceClient(cc),
-	}
-}
-
-// GetDisplayLabel calls the GetDisplayLabel RPC.
-func (c *ContactsOrganizationsClient) GetDisplayLabel(ctx context.Context, arg0 int64, arg1 int32, arg2 string) (int64, error) {
-	resp, err := c.svc.GetDisplayLabel(ctx, &pb.ContactsOrganizationsGetDisplayLabelRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ContactsPeopleClient wraps the gRPC ContactsPeopleService client.
-type ContactsPeopleClient struct {
-	svc pb.ContactsPeopleServiceClient
-}
-
-// NewContactsPeopleClient creates a new ContactsPeople client.
-func NewContactsPeopleClient(cc grpc.ClientConnInterface) *ContactsPeopleClient {
-	return &ContactsPeopleClient{
-		svc: pb.NewContactsPeopleServiceClient(cc),
-	}
-}
-
-// AddToGroup3 calls the AddToGroup3 RPC.
-func (c *ContactsPeopleClient) AddToGroup3(ctx context.Context, arg0 int64, arg1 int64, arg2 string) (int64, error) {
-	resp, err := c.svc.AddToGroup3(ctx, &pb.AddToGroup3Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// AddToGroup3_1 calls the AddToGroup3_1 RPC.
-func (c *ContactsPeopleClient) AddToGroup3_1(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) (int64, error) {
-	resp, err := c.svc.AddToGroup3_1(ctx, &pb.AddToGroup3_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// AddToMyContactsGroup calls the AddToMyContactsGroup RPC.
-func (c *ContactsPeopleClient) AddToMyContactsGroup(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
-	resp, err := c.svc.AddToMyContactsGroup(ctx, &pb.AddToMyContactsGroupRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// CreatePersonInMyContactsGroup calls the CreatePersonInMyContactsGroup RPC.
-func (c *ContactsPeopleClient) CreatePersonInMyContactsGroup(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
-	resp, err := c.svc.CreatePersonInMyContactsGroup(ctx, &pb.CreatePersonInMyContactsGroupRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// LoadContactPhoto calls the LoadContactPhoto RPC.
-func (c *ContactsPeopleClient) LoadContactPhoto(ctx context.Context, arg0 int64, arg1 int64, arg2 int32, arg3 int64) (int64, error) {
-	resp, err := c.svc.LoadContactPhoto(ctx, &pb.LoadContactPhotoRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// MarkAsContacted calls the MarkAsContacted RPC.
-func (c *ContactsPeopleClient) MarkAsContacted(ctx context.Context, arg0 int64, arg1 int64) error {
-	_, err := c.svc.MarkAsContacted(ctx, &pb.MarkAsContactedRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// OpenContactPhotoInputStream calls the OpenContactPhotoInputStream RPC.
-func (c *ContactsPeopleClient) OpenContactPhotoInputStream(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
-	resp, err := c.svc.OpenContactPhotoInputStream(ctx, &pb.OpenContactPhotoInputStreamRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// QueryGroups calls the QueryGroups RPC.
-func (c *ContactsPeopleClient) QueryGroups(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
-	resp, err := c.svc.QueryGroups(ctx, &pb.QueryGroupsRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetPhotoData calls the SetPhotoData RPC.
-func (c *ContactsPeopleClient) SetPhotoData(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) error {
-	_, err := c.svc.SetPhotoData(ctx, &pb.SetPhotoDataRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	return err
-}
-
-// ContactsPhonesClient wraps the gRPC ContactsPhonesService client.
-type ContactsPhonesClient struct {
-	svc pb.ContactsPhonesServiceClient
-}
-
-// NewContactsPhonesClient creates a new ContactsPhones client.
-func NewContactsPhonesClient(cc grpc.ClientConnInterface) *ContactsPhonesClient {
-	return &ContactsPhonesClient{
-		svc: pb.NewContactsPhonesServiceClient(cc),
-	}
-}
-
-// GetDisplayLabel3 calls the GetDisplayLabel3 RPC.
-func (c *ContactsPhonesClient) GetDisplayLabel3(ctx context.Context, arg0 int64, arg1 int32, arg2 string) (int64, error) {
-	resp, err := c.svc.GetDisplayLabel3(ctx, &pb.GetDisplayLabel3Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetDisplayLabel4_1 calls the GetDisplayLabel4_1 RPC.
-func (c *ContactsPhonesClient) GetDisplayLabel4_1(ctx context.Context, arg0 int64, arg1 int32, arg2 string, arg3 int64) (int64, error) {
-	resp, err := c.svc.GetDisplayLabel4_1(ctx, &pb.GetDisplayLabel4_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ContactsSettingsClient wraps the gRPC ContactsSettingsService client.
-type ContactsSettingsClient struct {
-	svc pb.ContactsSettingsServiceClient
-}
-
-// NewContactsSettingsClient creates a new ContactsSettings client.
-func NewContactsSettingsClient(cc grpc.ClientConnInterface) *ContactsSettingsClient {
-	return &ContactsSettingsClient{
-		svc: pb.NewContactsSettingsServiceClient(cc),
-	}
-}
-
-// GetSetting calls the GetSetting RPC.
-func (c *ContactsSettingsClient) GetSetting(ctx context.Context, arg0 int64, arg1 string, arg2 string) (string, error) {
-	resp, err := c.svc.GetSetting(ctx, &pb.GetSettingRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetSetting calls the SetSetting RPC.
-func (c *ContactsSettingsClient) SetSetting(ctx context.Context, arg0 int64, arg1 string, arg2 string, arg3 string) error {
-	_, err := c.svc.SetSetting(ctx, &pb.SetSettingRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-	})
-	return err
-}
-
-// UserDictionaryWordsClient wraps the gRPC UserDictionaryWordsService client.
-type UserDictionaryWordsClient struct {
-	svc pb.UserDictionaryWordsServiceClient
-}
-
-// NewUserDictionaryWordsClient creates a new UserDictionaryWords client.
-func NewUserDictionaryWordsClient(cc grpc.ClientConnInterface) *UserDictionaryWordsClient {
-	return &UserDictionaryWordsClient{
-		svc: pb.NewUserDictionaryWordsServiceClient(cc),
-	}
-}
-
-// AddWord4 calls the AddWord4 RPC.
-func (c *UserDictionaryWordsClient) AddWord4(ctx context.Context, arg0 int64, arg1 string, arg2 int32, arg3 int32) error {
-	_, err := c.svc.AddWord4(ctx, &pb.AddWord4Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-	})
-	return err
-}
-
-// AddWord5_1 calls the AddWord5_1 RPC.
-func (c *UserDictionaryWordsClient) AddWord5_1(ctx context.Context, arg0 int64, arg1 string, arg2 int32, arg3 string, arg4 int64) error {
-	_, err := c.svc.AddWord5_1(ctx, &pb.AddWord5_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-		Arg4: arg4,
-	})
-	return err
-}
-
-// BlockedNumberContractClient wraps the gRPC BlockedNumberContractService client.
-type BlockedNumberContractClient struct {
-	svc pb.BlockedNumberContractServiceClient
-}
-
-// NewBlockedNumberContractClient creates a new BlockedNumberContract client.
-func NewBlockedNumberContractClient(cc grpc.ClientConnInterface) *BlockedNumberContractClient {
-	return &BlockedNumberContractClient{
-		svc: pb.NewBlockedNumberContractServiceClient(cc),
-	}
-}
-
-// CanCurrentUserBlockNumbers calls the CanCurrentUserBlockNumbers RPC.
-func (c *BlockedNumberContractClient) CanCurrentUserBlockNumbers(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.CanCurrentUserBlockNumbers(ctx, &pb.CanCurrentUserBlockNumbersRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsBlocked calls the IsBlocked RPC.
-func (c *BlockedNumberContractClient) IsBlocked(ctx context.Context, arg0 int64, arg1 string) (bool, error) {
-	resp, err := c.svc.IsBlocked(ctx, &pb.IsBlockedRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Unblock calls the Unblock RPC.
-func (c *BlockedNumberContractClient) Unblock(ctx context.Context, arg0 int64, arg1 string) (int32, error) {
-	resp, err := c.svc.Unblock(ctx, &pb.UnblockRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
 }
 
 // CloudMediaProviderContractCapabilitiesClient wraps the gRPC CloudMediaProviderContractCapabilitiesService client.
@@ -1386,7 +2041,7 @@ func (c *CloudMediaProviderContractCapabilitiesClient) IsSearchEnabled(ctx conte
 
 // ToString calls the ToString RPC.
 func (c *CloudMediaProviderContractCapabilitiesClient) ToString(ctx context.Context) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.CloudMediaProviderContractCapabilitiesToStringRequest{})
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
 	if err != nil {
 		return "", err
 	}
@@ -1414,6 +2069,26 @@ func NewE2eeContactKeysManagerClient(cc grpc.ClientConnInterface) *E2eeContactKe
 	}
 }
 
+// GetAllE2EeContactKeys calls the GetAllE2EeContactKeys RPC.
+func (c *E2eeContactKeysManagerClient) GetAllE2EeContactKeys(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.GetAllE2EeContactKeys(ctx, &pb.GetAllE2EeContactKeysRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAllE2EeSelfKeys calls the GetAllE2EeSelfKeys RPC.
+func (c *E2eeContactKeysManagerClient) GetAllE2EeSelfKeys(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetAllE2EeSelfKeys(ctx, &pb.GetAllE2EeSelfKeysRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // GetE2EeContactKey calls the GetE2EeContactKey RPC.
 func (c *E2eeContactKeysManagerClient) GetE2EeContactKey(ctx context.Context, arg0 string, arg1 string, arg2 string) (int64, error) {
 	resp, err := c.svc.GetE2EeContactKey(ctx, &pb.GetE2EeContactKeyRequest{
@@ -1433,6 +2108,26 @@ func (c *E2eeContactKeysManagerClient) GetE2EeSelfKey(ctx context.Context, arg0 
 		Arg0: arg0,
 		Arg1: arg1,
 	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetOwnerE2EeContactKeys calls the GetOwnerE2EeContactKeys RPC.
+func (c *E2eeContactKeysManagerClient) GetOwnerE2EeContactKeys(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.GetOwnerE2EeContactKeys(ctx, &pb.GetOwnerE2EeContactKeysRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetOwnerE2EeSelfKeys calls the GetOwnerE2EeSelfKeys RPC.
+func (c *E2eeContactKeysManagerClient) GetOwnerE2EeSelfKeys(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetOwnerE2EeSelfKeys(ctx, &pb.GetOwnerE2EeSelfKeysRequest{})
 	if err != nil {
 		return 0, err
 	}
@@ -1828,22 +2523,22 @@ func (c *VoicemailContractVoicemailsClient) BuildSourceUri(ctx context.Context, 
 	return resp.GetResult(), nil
 }
 
-// TelephonyCarrierIdClient wraps the gRPC TelephonyCarrierIdService client.
-type TelephonyCarrierIdClient struct {
-	svc pb.TelephonyCarrierIdServiceClient
+// FontRequestClient wraps the gRPC FontRequestService client.
+type FontRequestClient struct {
+	svc pb.FontRequestServiceClient
 }
 
-// NewTelephonyCarrierIdClient creates a new TelephonyCarrierId client.
-func NewTelephonyCarrierIdClient(cc grpc.ClientConnInterface) *TelephonyCarrierIdClient {
-	return &TelephonyCarrierIdClient{
-		svc: pb.NewTelephonyCarrierIdServiceClient(cc),
+// NewFontRequestClient creates a new FontRequest client.
+func NewFontRequestClient(cc grpc.ClientConnInterface) *FontRequestClient {
+	return &FontRequestClient{
+		svc: pb.NewFontRequestServiceClient(cc),
 	}
 }
 
-// GetSpecificCarrierIdUriForSubscriptionId calls the GetSpecificCarrierIdUriForSubscriptionId RPC.
-func (c *TelephonyCarrierIdClient) GetSpecificCarrierIdUriForSubscriptionId(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.GetSpecificCarrierIdUriForSubscriptionId(ctx, &pb.GetSpecificCarrierIdUriForSubscriptionIdRequest{
-		Arg0: arg0,
+// GetCertificates calls the GetCertificates RPC.
+func (c *FontRequestClient) GetCertificates(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetCertificates(ctx, &pb.GetCertificatesRequest{
+		Handle: handle,
 	})
 	if err != nil {
 		return 0, err
@@ -1851,68 +2546,10 @@ func (c *TelephonyCarrierIdClient) GetSpecificCarrierIdUriForSubscriptionId(ctx 
 	return resp.GetResult(), nil
 }
 
-// GetUriForSubscriptionId calls the GetUriForSubscriptionId RPC.
-func (c *TelephonyCarrierIdClient) GetUriForSubscriptionId(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.GetUriForSubscriptionId(ctx, &pb.GetUriForSubscriptionIdRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// TelephonyServiceStateTableClient wraps the gRPC TelephonyServiceStateTableService client.
-type TelephonyServiceStateTableClient struct {
-	svc pb.TelephonyServiceStateTableServiceClient
-}
-
-// NewTelephonyServiceStateTableClient creates a new TelephonyServiceStateTable client.
-func NewTelephonyServiceStateTableClient(cc grpc.ClientConnInterface) *TelephonyServiceStateTableClient {
-	return &TelephonyServiceStateTableClient{
-		svc: pb.NewTelephonyServiceStateTableServiceClient(cc),
-	}
-}
-
-// GetUriForSubscriptionId calls the GetUriForSubscriptionId RPC.
-func (c *TelephonyServiceStateTableClient) GetUriForSubscriptionId(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.GetUriForSubscriptionId(ctx, &pb.GetUriForSubscriptionIdRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetUriForSubscriptionIdAndField calls the GetUriForSubscriptionIdAndField RPC.
-func (c *TelephonyServiceStateTableClient) GetUriForSubscriptionIdAndField(ctx context.Context, arg0 int32, arg1 string) (int64, error) {
-	resp, err := c.svc.GetUriForSubscriptionIdAndField(ctx, &pb.GetUriForSubscriptionIdAndFieldRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// TelephonySmsClient wraps the gRPC TelephonySmsService client.
-type TelephonySmsClient struct {
-	svc pb.TelephonySmsServiceClient
-}
-
-// NewTelephonySmsClient creates a new TelephonySms client.
-func NewTelephonySmsClient(cc grpc.ClientConnInterface) *TelephonySmsClient {
-	return &TelephonySmsClient{
-		svc: pb.NewTelephonySmsServiceClient(cc),
-	}
-}
-
-// GetDefaultSmsPackage calls the GetDefaultSmsPackage RPC.
-func (c *TelephonySmsClient) GetDefaultSmsPackage(ctx context.Context, arg0 int64) (string, error) {
-	resp, err := c.svc.GetDefaultSmsPackage(ctx, &pb.GetDefaultSmsPackageRequest{
-		Arg0: arg0,
+// GetProviderAuthority calls the GetProviderAuthority RPC.
+func (c *FontRequestClient) GetProviderAuthority(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetProviderAuthority(ctx, &pb.GetProviderAuthorityRequest{
+		Handle: handle,
 	})
 	if err != nil {
 		return "", err
@@ -1920,99 +2557,35 @@ func (c *TelephonySmsClient) GetDefaultSmsPackage(ctx context.Context, arg0 int6
 	return resp.GetResult(), nil
 }
 
-// TelephonyThreadsClient wraps the gRPC TelephonyThreadsService client.
-type TelephonyThreadsClient struct {
-	svc pb.TelephonyThreadsServiceClient
-}
-
-// NewTelephonyThreadsClient creates a new TelephonyThreads client.
-func NewTelephonyThreadsClient(cc grpc.ClientConnInterface) *TelephonyThreadsClient {
-	return &TelephonyThreadsClient{
-		svc: pb.NewTelephonyThreadsServiceClient(cc),
-	}
-}
-
-// GetOrCreateThreadId calls the GetOrCreateThreadId RPC.
-func (c *TelephonyThreadsClient) GetOrCreateThreadId(ctx context.Context, arg0 int64, arg1 string) (int64, error) {
-	resp, err := c.svc.GetOrCreateThreadId(ctx, &pb.GetOrCreateThreadIdRequest{
-		Arg0: arg0,
-		Arg1: arg1,
+// GetProviderPackage calls the GetProviderPackage RPC.
+func (c *FontRequestClient) GetProviderPackage(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetProviderPackage(ctx, &pb.GetProviderPackageRequest{
+		Handle: handle,
 	})
 	if err != nil {
-		return 0, err
+		return "", err
 	}
 	return resp.GetResult(), nil
 }
 
-// SimPhonebookContractElementaryFilesClient wraps the gRPC SimPhonebookContractElementaryFilesService client.
-type SimPhonebookContractElementaryFilesClient struct {
-	svc pb.SimPhonebookContractElementaryFilesServiceClient
-}
-
-// NewSimPhonebookContractElementaryFilesClient creates a new SimPhonebookContractElementaryFiles client.
-func NewSimPhonebookContractElementaryFilesClient(cc grpc.ClientConnInterface) *SimPhonebookContractElementaryFilesClient {
-	return &SimPhonebookContractElementaryFilesClient{
-		svc: pb.NewSimPhonebookContractElementaryFilesServiceClient(cc),
-	}
-}
-
-// GetItemUri calls the GetItemUri RPC.
-func (c *SimPhonebookContractElementaryFilesClient) GetItemUri(ctx context.Context, arg0 int32, arg1 int32) (int64, error) {
-	resp, err := c.svc.GetItemUri(ctx, &pb.GetItemUriRequest{
-		Arg0: arg0,
-		Arg1: arg1,
+// GetQuery calls the GetQuery RPC.
+func (c *FontRequestClient) GetQuery(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetQuery(ctx, &pb.GetQueryRequest{
+		Handle: handle,
 	})
 	if err != nil {
-		return 0, err
+		return "", err
 	}
 	return resp.GetResult(), nil
 }
 
-// SimPhonebookContractSimRecordsClient wraps the gRPC SimPhonebookContractSimRecordsService client.
-type SimPhonebookContractSimRecordsClient struct {
-	svc pb.SimPhonebookContractSimRecordsServiceClient
-}
-
-// NewSimPhonebookContractSimRecordsClient creates a new SimPhonebookContractSimRecords client.
-func NewSimPhonebookContractSimRecordsClient(cc grpc.ClientConnInterface) *SimPhonebookContractSimRecordsClient {
-	return &SimPhonebookContractSimRecordsClient{
-		svc: pb.NewSimPhonebookContractSimRecordsServiceClient(cc),
-	}
-}
-
-// GetContentUri calls the GetContentUri RPC.
-func (c *SimPhonebookContractSimRecordsClient) GetContentUri(ctx context.Context, arg0 int32, arg1 int32) (int64, error) {
-	resp, err := c.svc.GetContentUri(ctx, &pb.GetContentUriRequest{
-		Arg0: arg0,
-		Arg1: arg1,
+// ToString calls the ToString RPC.
+func (c *FontRequestClient) ToString(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.FontRequestToStringRequest{
+		Handle: handle,
 	})
 	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetEncodedNameLength calls the GetEncodedNameLength RPC.
-func (c *SimPhonebookContractSimRecordsClient) GetEncodedNameLength(ctx context.Context, arg0 int64, arg1 string) (int32, error) {
-	resp, err := c.svc.GetEncodedNameLength(ctx, &pb.GetEncodedNameLengthRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetItemUri calls the GetItemUri RPC.
-func (c *SimPhonebookContractSimRecordsClient) GetItemUri(ctx context.Context, arg0 int32, arg1 int32, arg2 int32) (int64, error) {
-	resp, err := c.svc.GetItemUri(ctx, &pb.SimPhonebookContractSimRecordsGetItemUriRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	if err != nil {
-		return 0, err
+		return "", err
 	}
 	return resp.GetResult(), nil
 }
@@ -2175,528 +2748,6 @@ func (c *FontsContractFontRequestCallbackClient) OnTypefaceRequestFailed(ctx con
 func (c *FontsContractFontRequestCallbackClient) OnTypefaceRetrieved(ctx context.Context, arg0 int64) error {
 	_, err := c.svc.OnTypefaceRetrieved(ctx, &pb.OnTypefaceRetrievedRequest{
 		Arg0: arg0,
-	})
-	return err
-}
-
-// CallLogCallsClient wraps the gRPC CallLogCallsService client.
-type CallLogCallsClient struct {
-	svc pb.CallLogCallsServiceClient
-}
-
-// NewCallLogCallsClient creates a new CallLogCalls client.
-func NewCallLogCallsClient(cc grpc.ClientConnInterface) *CallLogCallsClient {
-	return &CallLogCallsClient{
-		svc: pb.NewCallLogCallsServiceClient(cc),
-	}
-}
-
-// GetLastOutgoingCall calls the GetLastOutgoingCall RPC.
-func (c *CallLogCallsClient) GetLastOutgoingCall(ctx context.Context, arg0 int64) (string, error) {
-	resp, err := c.svc.GetLastOutgoingCall(ctx, &pb.GetLastOutgoingCallRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// BrowserClient wraps the gRPC BrowserService client.
-type BrowserClient struct {
-	svc pb.BrowserServiceClient
-}
-
-// NewBrowserClient creates a new Browser client.
-func NewBrowserClient(cc grpc.ClientConnInterface) *BrowserClient {
-	return &BrowserClient{
-		svc: pb.NewBrowserServiceClient(cc),
-	}
-}
-
-// SendString calls the SendString RPC.
-func (c *BrowserClient) SendString(ctx context.Context, handle int64, arg0 int64, arg1 string) error {
-	_, err := c.svc.SendString(ctx, &pb.SendStringRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// CloudMediaProviderClient wraps the gRPC CloudMediaProviderService client.
-type CloudMediaProviderClient struct {
-	svc pb.CloudMediaProviderServiceClient
-}
-
-// NewCloudMediaProviderClient creates a new CloudMediaProvider client.
-func NewCloudMediaProviderClient(cc grpc.ClientConnInterface) *CloudMediaProviderClient {
-	return &CloudMediaProviderClient{
-		svc: pb.NewCloudMediaProviderServiceClient(cc),
-	}
-}
-
-// AttachInfo calls the AttachInfo RPC.
-func (c *CloudMediaProviderClient) AttachInfo(ctx context.Context, arg0 int64, arg1 int64) error {
-	_, err := c.svc.AttachInfo(ctx, &pb.AttachInfoRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// Call calls the Call RPC.
-func (c *CloudMediaProviderClient) Call(ctx context.Context, arg0 string, arg1 string, arg2 int64) (int64, error) {
-	resp, err := c.svc.Call(ctx, &pb.CallRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Canonicalize calls the Canonicalize RPC.
-func (c *CloudMediaProviderClient) Canonicalize(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.Canonicalize(ctx, &pb.CanonicalizeRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Delete calls the Delete RPC.
-func (c *CloudMediaProviderClient) Delete(ctx context.Context, arg0 int64, arg1 string, arg2 int64) (int32, error) {
-	resp, err := c.svc.Delete(ctx, &pb.DeleteRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetType calls the GetType RPC.
-func (c *CloudMediaProviderClient) GetType(ctx context.Context, arg0 int64) (string, error) {
-	resp, err := c.svc.GetType(ctx, &pb.GetTypeRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// Insert calls the Insert RPC.
-func (c *CloudMediaProviderClient) Insert(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
-	resp, err := c.svc.Insert(ctx, &pb.CloudMediaProviderInsertRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// OnCreateCloudMediaSurfaceController calls the OnCreateCloudMediaSurfaceController RPC.
-func (c *CloudMediaProviderClient) OnCreateCloudMediaSurfaceController(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
-	resp, err := c.svc.OnCreateCloudMediaSurfaceController(ctx, &pb.OnCreateCloudMediaSurfaceControllerRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// OnGetCapabilities calls the OnGetCapabilities RPC.
-func (c *CloudMediaProviderClient) OnGetCapabilities(ctx context.Context) (int64, error) {
-	resp, err := c.svc.OnGetCapabilities(ctx, &pb.OnGetCapabilitiesRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// OnGetMediaCollectionInfo calls the OnGetMediaCollectionInfo RPC.
-func (c *CloudMediaProviderClient) OnGetMediaCollectionInfo(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.OnGetMediaCollectionInfo(ctx, &pb.OnGetMediaCollectionInfoRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// OnOpenMedia calls the OnOpenMedia RPC.
-func (c *CloudMediaProviderClient) OnOpenMedia(ctx context.Context, arg0 string, arg1 int64, arg2 int64) (int64, error) {
-	resp, err := c.svc.OnOpenMedia(ctx, &pb.OnOpenMediaRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// OnOpenPreview calls the OnOpenPreview RPC.
-func (c *CloudMediaProviderClient) OnOpenPreview(ctx context.Context, arg0 string, arg1 int64, arg2 int64, arg3 int64) (int64, error) {
-	resp, err := c.svc.OnOpenPreview(ctx, &pb.OnOpenPreviewRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// OnQueryAlbums calls the OnQueryAlbums RPC.
-func (c *CloudMediaProviderClient) OnQueryAlbums(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.OnQueryAlbums(ctx, &pb.OnQueryAlbumsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// OnQueryDeletedMedia calls the OnQueryDeletedMedia RPC.
-func (c *CloudMediaProviderClient) OnQueryDeletedMedia(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.OnQueryDeletedMedia(ctx, &pb.OnQueryDeletedMediaRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// OnQueryMedia calls the OnQueryMedia RPC.
-func (c *CloudMediaProviderClient) OnQueryMedia(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.OnQueryMedia(ctx, &pb.OnQueryMediaRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// OnQueryMediaCategories calls the OnQueryMediaCategories RPC.
-func (c *CloudMediaProviderClient) OnQueryMediaCategories(ctx context.Context, arg0 string, arg1 int64, arg2 int64) (int64, error) {
-	resp, err := c.svc.OnQueryMediaCategories(ctx, &pb.OnQueryMediaCategoriesRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// OnQueryMediaInMediaSet calls the OnQueryMediaInMediaSet RPC.
-func (c *CloudMediaProviderClient) OnQueryMediaInMediaSet(ctx context.Context, arg0 string, arg1 int64, arg2 int64) (int64, error) {
-	resp, err := c.svc.OnQueryMediaInMediaSet(ctx, &pb.OnQueryMediaInMediaSetRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// OnQueryMediaSets calls the OnQueryMediaSets RPC.
-func (c *CloudMediaProviderClient) OnQueryMediaSets(ctx context.Context, arg0 string, arg1 int64, arg2 int64) (int64, error) {
-	resp, err := c.svc.OnQueryMediaSets(ctx, &pb.OnQueryMediaSetsRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// OnQuerySearchSuggestions calls the OnQuerySearchSuggestions RPC.
-func (c *CloudMediaProviderClient) OnQuerySearchSuggestions(ctx context.Context, arg0 string, arg1 int64, arg2 int64) (int64, error) {
-	resp, err := c.svc.OnQuerySearchSuggestions(ctx, &pb.OnQuerySearchSuggestionsRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// OnSearchMedia3 calls the OnSearchMedia3 RPC.
-func (c *CloudMediaProviderClient) OnSearchMedia3(ctx context.Context, arg0 string, arg1 int64, arg2 int64) (int64, error) {
-	resp, err := c.svc.OnSearchMedia3(ctx, &pb.OnSearchMedia3Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// OnSearchMedia4_1 calls the OnSearchMedia4_1 RPC.
-func (c *CloudMediaProviderClient) OnSearchMedia4_1(ctx context.Context, arg0 string, arg1 string, arg2 int64, arg3 int64) (int64, error) {
-	resp, err := c.svc.OnSearchMedia4_1(ctx, &pb.OnSearchMedia4_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// OpenFile2 calls the OpenFile2 RPC.
-func (c *CloudMediaProviderClient) OpenFile2(ctx context.Context, arg0 int64, arg1 string) (int64, error) {
-	resp, err := c.svc.OpenFile2(ctx, &pb.OpenFile2Request{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// OpenFile3_1 calls the OpenFile3_1 RPC.
-func (c *CloudMediaProviderClient) OpenFile3_1(ctx context.Context, arg0 int64, arg1 string, arg2 int64) (int64, error) {
-	resp, err := c.svc.OpenFile3_1(ctx, &pb.OpenFile3_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// OpenTypedAssetFile3 calls the OpenTypedAssetFile3 RPC.
-func (c *CloudMediaProviderClient) OpenTypedAssetFile3(ctx context.Context, arg0 int64, arg1 string, arg2 int64) (int64, error) {
-	resp, err := c.svc.OpenTypedAssetFile3(ctx, &pb.OpenTypedAssetFile3Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// OpenTypedAssetFile4_1 calls the OpenTypedAssetFile4_1 RPC.
-func (c *CloudMediaProviderClient) OpenTypedAssetFile4_1(ctx context.Context, arg0 int64, arg1 string, arg2 int64, arg3 int64) (int64, error) {
-	resp, err := c.svc.OpenTypedAssetFile4_1(ctx, &pb.OpenTypedAssetFile4_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Query4 calls the Query4 RPC.
-func (c *CloudMediaProviderClient) Query4(ctx context.Context, arg0 int64, arg1 int64, arg2 int64, arg3 int64) (int64, error) {
-	resp, err := c.svc.Query4(ctx, &pb.Query4Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Query5_1 calls the Query5_1 RPC.
-func (c *CloudMediaProviderClient) Query5_1(ctx context.Context, arg0 int64, arg1 int64, arg2 string, arg3 int64, arg4 string) (int64, error) {
-	resp, err := c.svc.Query5_1(ctx, &pb.Query5_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-		Arg4: arg4,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Query6_2 calls the Query6_2 RPC.
-func (c *CloudMediaProviderClient) Query6_2(ctx context.Context, arg0 int64, arg1 int64, arg2 string, arg3 int64, arg4 string, arg5 int64) (int64, error) {
-	resp, err := c.svc.Query6_2(ctx, &pb.Query6_2Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-		Arg4: arg4,
-		Arg5: arg5,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Update calls the Update RPC.
-func (c *CloudMediaProviderClient) Update(ctx context.Context, arg0 int64, arg1 int64, arg2 string, arg3 int64) (int32, error) {
-	resp, err := c.svc.Update(ctx, &pb.CloudMediaProviderUpdateRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// CloudMediaProviderCloudMediaSurfaceControllerClient wraps the gRPC CloudMediaProviderCloudMediaSurfaceControllerService client.
-type CloudMediaProviderCloudMediaSurfaceControllerClient struct {
-	svc pb.CloudMediaProviderCloudMediaSurfaceControllerServiceClient
-}
-
-// NewCloudMediaProviderCloudMediaSurfaceControllerClient creates a new CloudMediaProviderCloudMediaSurfaceController client.
-func NewCloudMediaProviderCloudMediaSurfaceControllerClient(cc grpc.ClientConnInterface) *CloudMediaProviderCloudMediaSurfaceControllerClient {
-	return &CloudMediaProviderCloudMediaSurfaceControllerClient{
-		svc: pb.NewCloudMediaProviderCloudMediaSurfaceControllerServiceClient(cc),
-	}
-}
-
-// OnConfigChange calls the OnConfigChange RPC.
-func (c *CloudMediaProviderCloudMediaSurfaceControllerClient) OnConfigChange(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.OnConfigChange(ctx, &pb.OnConfigChangeRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// OnDestroy calls the OnDestroy RPC.
-func (c *CloudMediaProviderCloudMediaSurfaceControllerClient) OnDestroy(ctx context.Context) error {
-	_, err := c.svc.OnDestroy(ctx, &pb.OnDestroyRequest{})
-	return err
-}
-
-// OnMediaPause calls the OnMediaPause RPC.
-func (c *CloudMediaProviderCloudMediaSurfaceControllerClient) OnMediaPause(ctx context.Context, arg0 int32) error {
-	_, err := c.svc.OnMediaPause(ctx, &pb.OnMediaPauseRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// OnMediaPlay calls the OnMediaPlay RPC.
-func (c *CloudMediaProviderCloudMediaSurfaceControllerClient) OnMediaPlay(ctx context.Context, arg0 int32) error {
-	_, err := c.svc.OnMediaPlay(ctx, &pb.OnMediaPlayRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// OnMediaSeekTo calls the OnMediaSeekTo RPC.
-func (c *CloudMediaProviderCloudMediaSurfaceControllerClient) OnMediaSeekTo(ctx context.Context, arg0 int32, arg1 int64) error {
-	_, err := c.svc.OnMediaSeekTo(ctx, &pb.OnMediaSeekToRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// OnPlayerCreate calls the OnPlayerCreate RPC.
-func (c *CloudMediaProviderCloudMediaSurfaceControllerClient) OnPlayerCreate(ctx context.Context) error {
-	_, err := c.svc.OnPlayerCreate(ctx, &pb.OnPlayerCreateRequest{})
-	return err
-}
-
-// OnPlayerRelease calls the OnPlayerRelease RPC.
-func (c *CloudMediaProviderCloudMediaSurfaceControllerClient) OnPlayerRelease(ctx context.Context) error {
-	_, err := c.svc.OnPlayerRelease(ctx, &pb.OnPlayerReleaseRequest{})
-	return err
-}
-
-// OnSurfaceChanged calls the OnSurfaceChanged RPC.
-func (c *CloudMediaProviderCloudMediaSurfaceControllerClient) OnSurfaceChanged(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int32) error {
-	_, err := c.svc.OnSurfaceChanged(ctx, &pb.OnSurfaceChangedRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-	})
-	return err
-}
-
-// OnSurfaceCreated calls the OnSurfaceCreated RPC.
-func (c *CloudMediaProviderCloudMediaSurfaceControllerClient) OnSurfaceCreated(ctx context.Context, arg0 int32, arg1 int64, arg2 string) error {
-	_, err := c.svc.OnSurfaceCreated(ctx, &pb.OnSurfaceCreatedRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	return err
-}
-
-// OnSurfaceDestroyed calls the OnSurfaceDestroyed RPC.
-func (c *CloudMediaProviderCloudMediaSurfaceControllerClient) OnSurfaceDestroyed(ctx context.Context, arg0 int32) error {
-	_, err := c.svc.OnSurfaceDestroyed(ctx, &pb.OnSurfaceDestroyedRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// CloudMediaProviderCloudMediaSurfaceStateChangedCallbackClient wraps the gRPC CloudMediaProviderCloudMediaSurfaceStateChangedCallbackService client.
-type CloudMediaProviderCloudMediaSurfaceStateChangedCallbackClient struct {
-	svc pb.CloudMediaProviderCloudMediaSurfaceStateChangedCallbackServiceClient
-}
-
-// NewCloudMediaProviderCloudMediaSurfaceStateChangedCallbackClient creates a new CloudMediaProviderCloudMediaSurfaceStateChangedCallback client.
-func NewCloudMediaProviderCloudMediaSurfaceStateChangedCallbackClient(cc grpc.ClientConnInterface) *CloudMediaProviderCloudMediaSurfaceStateChangedCallbackClient {
-	return &CloudMediaProviderCloudMediaSurfaceStateChangedCallbackClient{
-		svc: pb.NewCloudMediaProviderCloudMediaSurfaceStateChangedCallbackServiceClient(cc),
-	}
-}
-
-// SetPlaybackState calls the SetPlaybackState RPC.
-func (c *CloudMediaProviderCloudMediaSurfaceStateChangedCallbackClient) SetPlaybackState(ctx context.Context, arg0 int32, arg1 int32, arg2 int64) error {
-	_, err := c.svc.SetPlaybackState(ctx, &pb.SetPlaybackStateRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
 	})
 	return err
 }

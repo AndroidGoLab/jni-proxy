@@ -13,6 +13,147 @@ message MapPropertiesRequest {
 message MapPropertiesResponse {
 }
 
+message NewIntFlagMappingRequest {
+}
+
+message NewIntFlagMappingResponse {
+  int64 result = 1;
+}
+
+message AddRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+  string arg2 = 4;
+}
+
+message AddResponse {
+}
+
+message GetRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message GetResponse {
+  int64 result = 1;
+}
+
+message MapBooleanRequest {
+  string arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message MapBooleanResponse {
+  int32 result = 1;
+}
+
+message MapByteRequest {
+  string arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message MapByteResponse {
+  int32 result = 1;
+}
+
+message MapCharRequest {
+  string arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message MapCharResponse {
+  int32 result = 1;
+}
+
+message MapColorRequest {
+  string arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message MapColorResponse {
+  int32 result = 1;
+}
+
+message MapDoubleRequest {
+  string arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message MapDoubleResponse {
+  int32 result = 1;
+}
+
+message MapFloatRequest {
+  string arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message MapFloatResponse {
+  int32 result = 1;
+}
+
+message MapGravityRequest {
+  string arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message MapGravityResponse {
+  int32 result = 1;
+}
+
+message MapIntRequest {
+  string arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message MapIntResponse {
+  int32 result = 1;
+}
+
+message MapLongRequest {
+  string arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message MapLongResponse {
+  int32 result = 1;
+}
+
+message MapObjectRequest {
+  string arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message MapObjectResponse {
+  int32 result = 1;
+}
+
+message MapResourceIdRequest {
+  string arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message MapResourceIdResponse {
+  int32 result = 1;
+}
+
+message MapShortRequest {
+  string arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message MapShortResponse {
+  int32 result = 1;
+}
+
+message GetGlobalWindowViewsRequest {
+}
+
+message GetGlobalWindowViewsResponse {
+  int64 result = 1;
+}
+
 message ReadBooleanRequest {
   int32 arg0 = 1;
   bool arg1 = 2;
@@ -141,133 +282,33 @@ message ReadShortRequest {
 message ReadShortResponse {
 }
 
-message MapBooleanRequest {
-  string arg0 = 1;
-  int32 arg1 = 2;
-}
-
-message MapBooleanResponse {
-  int32 result = 1;
-}
-
-message MapByteRequest {
-  string arg0 = 1;
-  int32 arg1 = 2;
-}
-
-message MapByteResponse {
-  int32 result = 1;
-}
-
-message MapCharRequest {
-  string arg0 = 1;
-  int32 arg1 = 2;
-}
-
-message MapCharResponse {
-  int32 result = 1;
-}
-
-message MapColorRequest {
-  string arg0 = 1;
-  int32 arg1 = 2;
-}
-
-message MapColorResponse {
-  int32 result = 1;
-}
-
-message MapDoubleRequest {
-  string arg0 = 1;
-  int32 arg1 = 2;
-}
-
-message MapDoubleResponse {
-  int32 result = 1;
-}
-
-message MapFloatRequest {
-  string arg0 = 1;
-  int32 arg1 = 2;
-}
-
-message MapFloatResponse {
-  int32 result = 1;
-}
-
-message MapGravityRequest {
-  string arg0 = 1;
-  int32 arg1 = 2;
-}
-
-message MapGravityResponse {
-  int32 result = 1;
-}
-
-message MapIntRequest {
-  string arg0 = 1;
-  int32 arg1 = 2;
-}
-
-message MapIntResponse {
-  int32 result = 1;
-}
-
-message MapLongRequest {
-  string arg0 = 1;
-  int32 arg1 = 2;
-}
-
-message MapLongResponse {
-  int32 result = 1;
-}
-
-message MapObjectRequest {
-  string arg0 = 1;
-  int32 arg1 = 2;
-}
-
-message MapObjectResponse {
-  int32 result = 1;
-}
-
-message MapResourceIdRequest {
-  string arg0 = 1;
-  int32 arg1 = 2;
-}
-
-message MapResourceIdResponse {
-  int32 result = 1;
-}
-
-message MapShortRequest {
-  string arg0 = 1;
-  int32 arg1 = 2;
-}
-
-message MapShortResponse {
-  int32 result = 1;
-}
-
-message NewIntFlagMappingRequest {
-}
-
-message NewIntFlagMappingResponse {
-  int64 result = 1;
-}
-
-message AddRequest {
-  int64 handle = 1;
-  int32 arg0 = 2;
-  int32 arg1 = 3;
-  string arg2 = 4;
-}
-
-message AddResponse {
-}
-
 service InspectionCompanionService {
   rpc MapProperties (MapPropertiesRequest) returns (MapPropertiesResponse);
+}
+
+service IntFlagMappingService {
+  rpc NewIntFlagMapping (NewIntFlagMappingRequest) returns (NewIntFlagMappingResponse);
+  rpc Add (AddRequest) returns (AddResponse);
+  rpc Get (GetRequest) returns (GetResponse);
+}
+
+service PropertyMapperService {
+  rpc MapBoolean (MapBooleanRequest) returns (MapBooleanResponse);
+  rpc MapByte (MapByteRequest) returns (MapByteResponse);
+  rpc MapChar (MapCharRequest) returns (MapCharResponse);
+  rpc MapColor (MapColorRequest) returns (MapColorResponse);
+  rpc MapDouble (MapDoubleRequest) returns (MapDoubleResponse);
+  rpc MapFloat (MapFloatRequest) returns (MapFloatResponse);
+  rpc MapGravity (MapGravityRequest) returns (MapGravityResponse);
+  rpc MapInt (MapIntRequest) returns (MapIntResponse);
+  rpc MapLong (MapLongRequest) returns (MapLongResponse);
+  rpc MapObject (MapObjectRequest) returns (MapObjectResponse);
+  rpc MapResourceId (MapResourceIdRequest) returns (MapResourceIdResponse);
+  rpc MapShort (MapShortRequest) returns (MapShortResponse);
+}
+
+service WindowInspectorService {
+  rpc GetGlobalWindowViews (GetGlobalWindowViewsRequest) returns (GetGlobalWindowViewsResponse);
 }
 
 service PropertyReaderService {
@@ -287,24 +328,4 @@ service PropertyReaderService {
   rpc ReadObject (ReadObjectRequest) returns (ReadObjectResponse);
   rpc ReadResourceId (ReadResourceIdRequest) returns (ReadResourceIdResponse);
   rpc ReadShort (ReadShortRequest) returns (ReadShortResponse);
-}
-
-service PropertyMapperService {
-  rpc MapBoolean (MapBooleanRequest) returns (MapBooleanResponse);
-  rpc MapByte (MapByteRequest) returns (MapByteResponse);
-  rpc MapChar (MapCharRequest) returns (MapCharResponse);
-  rpc MapColor (MapColorRequest) returns (MapColorResponse);
-  rpc MapDouble (MapDoubleRequest) returns (MapDoubleResponse);
-  rpc MapFloat (MapFloatRequest) returns (MapFloatResponse);
-  rpc MapGravity (MapGravityRequest) returns (MapGravityResponse);
-  rpc MapInt (MapIntRequest) returns (MapIntResponse);
-  rpc MapLong (MapLongRequest) returns (MapLongResponse);
-  rpc MapObject (MapObjectRequest) returns (MapObjectResponse);
-  rpc MapResourceId (MapResourceIdRequest) returns (MapResourceIdResponse);
-  rpc MapShort (MapShortRequest) returns (MapShortResponse);
-}
-
-service IntFlagMappingService {
-  rpc NewIntFlagMapping (NewIntFlagMappingRequest) returns (NewIntFlagMappingResponse);
-  rpc Add (AddRequest) returns (AddResponse);
 }

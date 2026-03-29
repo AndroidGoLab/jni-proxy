@@ -9,44 +9,6 @@ import (
 	"google.golang.org/grpc"
 )
 
-// ResourcesLoaderClient wraps the gRPC ResourcesLoaderService client.
-type ResourcesLoaderClient struct {
-	svc pb.ResourcesLoaderServiceClient
-}
-
-// NewResourcesLoaderClient creates a new ResourcesLoader client.
-func NewResourcesLoaderClient(cc grpc.ClientConnInterface) *ResourcesLoaderClient {
-	return &ResourcesLoaderClient{
-		svc: pb.NewResourcesLoaderServiceClient(cc),
-	}
-}
-
-// AddProvider calls the AddProvider RPC.
-func (c *ResourcesLoaderClient) AddProvider(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.AddProvider(ctx, &pb.AddProviderRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// ClearProviders calls the ClearProviders RPC.
-func (c *ResourcesLoaderClient) ClearProviders(ctx context.Context, handle int64) error {
-	_, err := c.svc.ClearProviders(ctx, &pb.ClearProvidersRequest{
-		Handle: handle,
-	})
-	return err
-}
-
-// RemoveProvider calls the RemoveProvider RPC.
-func (c *ResourcesLoaderClient) RemoveProvider(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.RemoveProvider(ctx, &pb.RemoveProviderRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
 // ResourcesProviderClient wraps the gRPC ResourcesProviderService client.
 type ResourcesProviderClient struct {
 	svc pb.ResourcesProviderServiceClient
@@ -144,4 +106,53 @@ func (c *ResourcesProviderClient) LoadOverlay(ctx context.Context, arg0 int64) (
 		return 0, err
 	}
 	return resp.GetResult(), nil
+}
+
+// ResourcesLoaderClient wraps the gRPC ResourcesLoaderService client.
+type ResourcesLoaderClient struct {
+	svc pb.ResourcesLoaderServiceClient
+}
+
+// NewResourcesLoaderClient creates a new ResourcesLoader client.
+func NewResourcesLoaderClient(cc grpc.ClientConnInterface) *ResourcesLoaderClient {
+	return &ResourcesLoaderClient{
+		svc: pb.NewResourcesLoaderServiceClient(cc),
+	}
+}
+
+// AddProvider calls the AddProvider RPC.
+func (c *ResourcesLoaderClient) AddProvider(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.AddProvider(ctx, &pb.AddProviderRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// ClearProviders calls the ClearProviders RPC.
+func (c *ResourcesLoaderClient) ClearProviders(ctx context.Context, handle int64) error {
+	_, err := c.svc.ClearProviders(ctx, &pb.ClearProvidersRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// GetProviders calls the GetProviders RPC.
+func (c *ResourcesLoaderClient) GetProviders(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetProviders(ctx, &pb.GetProvidersRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// RemoveProvider calls the RemoveProvider RPC.
+func (c *ResourcesLoaderClient) RemoveProvider(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.RemoveProvider(ctx, &pb.RemoveProviderRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
 }

@@ -21,178 +21,764 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	EmbeddedPhotoPickerClientService_OnSelectionComplete_FullMethodName = "/photopicker.EmbeddedPhotoPickerClientService/OnSelectionComplete"
-	EmbeddedPhotoPickerClientService_OnSessionError_FullMethodName      = "/photopicker.EmbeddedPhotoPickerClientService/OnSessionError"
-	EmbeddedPhotoPickerClientService_OnSessionOpened_FullMethodName     = "/photopicker.EmbeddedPhotoPickerClientService/OnSessionOpened"
+	EmbeddedPhotoPickerProviderService_OpenSession_FullMethodName = "/photopicker.EmbeddedPhotoPickerProviderService/OpenSession"
 )
 
-// EmbeddedPhotoPickerClientServiceClient is the client API for EmbeddedPhotoPickerClientService service.
+// EmbeddedPhotoPickerProviderServiceClient is the client API for EmbeddedPhotoPickerProviderService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type EmbeddedPhotoPickerClientServiceClient interface {
-	OnSelectionComplete(ctx context.Context, in *OnSelectionCompleteRequest, opts ...grpc.CallOption) (*OnSelectionCompleteResponse, error)
-	OnSessionError(ctx context.Context, in *OnSessionErrorRequest, opts ...grpc.CallOption) (*OnSessionErrorResponse, error)
-	OnSessionOpened(ctx context.Context, in *OnSessionOpenedRequest, opts ...grpc.CallOption) (*OnSessionOpenedResponse, error)
+type EmbeddedPhotoPickerProviderServiceClient interface {
+	OpenSession(ctx context.Context, in *OpenSessionRequest, opts ...grpc.CallOption) (*OpenSessionResponse, error)
 }
 
-type embeddedPhotoPickerClientServiceClient struct {
+type embeddedPhotoPickerProviderServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewEmbeddedPhotoPickerClientServiceClient(cc grpc.ClientConnInterface) EmbeddedPhotoPickerClientServiceClient {
-	return &embeddedPhotoPickerClientServiceClient{cc}
+func NewEmbeddedPhotoPickerProviderServiceClient(cc grpc.ClientConnInterface) EmbeddedPhotoPickerProviderServiceClient {
+	return &embeddedPhotoPickerProviderServiceClient{cc}
 }
 
-func (c *embeddedPhotoPickerClientServiceClient) OnSelectionComplete(ctx context.Context, in *OnSelectionCompleteRequest, opts ...grpc.CallOption) (*OnSelectionCompleteResponse, error) {
+func (c *embeddedPhotoPickerProviderServiceClient) OpenSession(ctx context.Context, in *OpenSessionRequest, opts ...grpc.CallOption) (*OpenSessionResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnSelectionCompleteResponse)
-	err := c.cc.Invoke(ctx, EmbeddedPhotoPickerClientService_OnSelectionComplete_FullMethodName, in, out, cOpts...)
+	out := new(OpenSessionResponse)
+	err := c.cc.Invoke(ctx, EmbeddedPhotoPickerProviderService_OpenSession_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *embeddedPhotoPickerClientServiceClient) OnSessionError(ctx context.Context, in *OnSessionErrorRequest, opts ...grpc.CallOption) (*OnSessionErrorResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnSessionErrorResponse)
-	err := c.cc.Invoke(ctx, EmbeddedPhotoPickerClientService_OnSessionError_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *embeddedPhotoPickerClientServiceClient) OnSessionOpened(ctx context.Context, in *OnSessionOpenedRequest, opts ...grpc.CallOption) (*OnSessionOpenedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnSessionOpenedResponse)
-	err := c.cc.Invoke(ctx, EmbeddedPhotoPickerClientService_OnSessionOpened_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// EmbeddedPhotoPickerClientServiceServer is the server API for EmbeddedPhotoPickerClientService service.
-// All implementations must embed UnimplementedEmbeddedPhotoPickerClientServiceServer
+// EmbeddedPhotoPickerProviderServiceServer is the server API for EmbeddedPhotoPickerProviderService service.
+// All implementations must embed UnimplementedEmbeddedPhotoPickerProviderServiceServer
 // for forward compatibility.
-type EmbeddedPhotoPickerClientServiceServer interface {
-	OnSelectionComplete(context.Context, *OnSelectionCompleteRequest) (*OnSelectionCompleteResponse, error)
-	OnSessionError(context.Context, *OnSessionErrorRequest) (*OnSessionErrorResponse, error)
-	OnSessionOpened(context.Context, *OnSessionOpenedRequest) (*OnSessionOpenedResponse, error)
-	mustEmbedUnimplementedEmbeddedPhotoPickerClientServiceServer()
+type EmbeddedPhotoPickerProviderServiceServer interface {
+	OpenSession(context.Context, *OpenSessionRequest) (*OpenSessionResponse, error)
+	mustEmbedUnimplementedEmbeddedPhotoPickerProviderServiceServer()
 }
 
-// UnimplementedEmbeddedPhotoPickerClientServiceServer must be embedded to have
+// UnimplementedEmbeddedPhotoPickerProviderServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedEmbeddedPhotoPickerClientServiceServer struct{}
+type UnimplementedEmbeddedPhotoPickerProviderServiceServer struct{}
 
-func (UnimplementedEmbeddedPhotoPickerClientServiceServer) OnSelectionComplete(context.Context, *OnSelectionCompleteRequest) (*OnSelectionCompleteResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnSelectionComplete not implemented")
+func (UnimplementedEmbeddedPhotoPickerProviderServiceServer) OpenSession(context.Context, *OpenSessionRequest) (*OpenSessionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OpenSession not implemented")
 }
-func (UnimplementedEmbeddedPhotoPickerClientServiceServer) OnSessionError(context.Context, *OnSessionErrorRequest) (*OnSessionErrorResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnSessionError not implemented")
+func (UnimplementedEmbeddedPhotoPickerProviderServiceServer) mustEmbedUnimplementedEmbeddedPhotoPickerProviderServiceServer() {
 }
-func (UnimplementedEmbeddedPhotoPickerClientServiceServer) OnSessionOpened(context.Context, *OnSessionOpenedRequest) (*OnSessionOpenedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnSessionOpened not implemented")
-}
-func (UnimplementedEmbeddedPhotoPickerClientServiceServer) mustEmbedUnimplementedEmbeddedPhotoPickerClientServiceServer() {
-}
-func (UnimplementedEmbeddedPhotoPickerClientServiceServer) testEmbeddedByValue() {}
+func (UnimplementedEmbeddedPhotoPickerProviderServiceServer) testEmbeddedByValue() {}
 
-// UnsafeEmbeddedPhotoPickerClientServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to EmbeddedPhotoPickerClientServiceServer will
+// UnsafeEmbeddedPhotoPickerProviderServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to EmbeddedPhotoPickerProviderServiceServer will
 // result in compilation errors.
-type UnsafeEmbeddedPhotoPickerClientServiceServer interface {
-	mustEmbedUnimplementedEmbeddedPhotoPickerClientServiceServer()
+type UnsafeEmbeddedPhotoPickerProviderServiceServer interface {
+	mustEmbedUnimplementedEmbeddedPhotoPickerProviderServiceServer()
 }
 
-func RegisterEmbeddedPhotoPickerClientServiceServer(s grpc.ServiceRegistrar, srv EmbeddedPhotoPickerClientServiceServer) {
-	// If the following call panics, it indicates UnimplementedEmbeddedPhotoPickerClientServiceServer was
+func RegisterEmbeddedPhotoPickerProviderServiceServer(s grpc.ServiceRegistrar, srv EmbeddedPhotoPickerProviderServiceServer) {
+	// If the following call panics, it indicates UnimplementedEmbeddedPhotoPickerProviderServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&EmbeddedPhotoPickerClientService_ServiceDesc, srv)
+	s.RegisterService(&EmbeddedPhotoPickerProviderService_ServiceDesc, srv)
 }
 
-func _EmbeddedPhotoPickerClientService_OnSelectionComplete_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnSelectionCompleteRequest)
+func _EmbeddedPhotoPickerProviderService_OpenSession_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OpenSessionRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(EmbeddedPhotoPickerClientServiceServer).OnSelectionComplete(ctx, in)
+		return srv.(EmbeddedPhotoPickerProviderServiceServer).OpenSession(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: EmbeddedPhotoPickerClientService_OnSelectionComplete_FullMethodName,
+		FullMethod: EmbeddedPhotoPickerProviderService_OpenSession_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(EmbeddedPhotoPickerClientServiceServer).OnSelectionComplete(ctx, req.(*OnSelectionCompleteRequest))
+		return srv.(EmbeddedPhotoPickerProviderServiceServer).OpenSession(ctx, req.(*OpenSessionRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _EmbeddedPhotoPickerClientService_OnSessionError_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnSessionErrorRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(EmbeddedPhotoPickerClientServiceServer).OnSessionError(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: EmbeddedPhotoPickerClientService_OnSessionError_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(EmbeddedPhotoPickerClientServiceServer).OnSessionError(ctx, req.(*OnSessionErrorRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _EmbeddedPhotoPickerClientService_OnSessionOpened_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnSessionOpenedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(EmbeddedPhotoPickerClientServiceServer).OnSessionOpened(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: EmbeddedPhotoPickerClientService_OnSessionOpened_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(EmbeddedPhotoPickerClientServiceServer).OnSessionOpened(ctx, req.(*OnSessionOpenedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// EmbeddedPhotoPickerClientService_ServiceDesc is the grpc.ServiceDesc for EmbeddedPhotoPickerClientService service.
+// EmbeddedPhotoPickerProviderService_ServiceDesc is the grpc.ServiceDesc for EmbeddedPhotoPickerProviderService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var EmbeddedPhotoPickerClientService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "photopicker.EmbeddedPhotoPickerClientService",
-	HandlerType: (*EmbeddedPhotoPickerClientServiceServer)(nil),
+var EmbeddedPhotoPickerProviderService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "photopicker.EmbeddedPhotoPickerProviderService",
+	HandlerType: (*EmbeddedPhotoPickerProviderServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "OnSelectionComplete",
-			Handler:    _EmbeddedPhotoPickerClientService_OnSelectionComplete_Handler,
+			MethodName: "OpenSession",
+			Handler:    _EmbeddedPhotoPickerProviderService_OpenSession_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/photopicker/photopicker.proto",
+}
+
+const (
+	EmbeddedPhotoPickerFeatureInfoService_DescribeContents_FullMethodName     = "/photopicker.EmbeddedPhotoPickerFeatureInfoService/DescribeContents"
+	EmbeddedPhotoPickerFeatureInfoService_GetAccentColor_FullMethodName       = "/photopicker.EmbeddedPhotoPickerFeatureInfoService/GetAccentColor"
+	EmbeddedPhotoPickerFeatureInfoService_GetMaxSelectionLimit_FullMethodName = "/photopicker.EmbeddedPhotoPickerFeatureInfoService/GetMaxSelectionLimit"
+	EmbeddedPhotoPickerFeatureInfoService_GetMimeTypes_FullMethodName         = "/photopicker.EmbeddedPhotoPickerFeatureInfoService/GetMimeTypes"
+	EmbeddedPhotoPickerFeatureInfoService_GetPreSelectedUris_FullMethodName   = "/photopicker.EmbeddedPhotoPickerFeatureInfoService/GetPreSelectedUris"
+	EmbeddedPhotoPickerFeatureInfoService_GetThemeNightMode_FullMethodName    = "/photopicker.EmbeddedPhotoPickerFeatureInfoService/GetThemeNightMode"
+	EmbeddedPhotoPickerFeatureInfoService_IsOrderedSelection_FullMethodName   = "/photopicker.EmbeddedPhotoPickerFeatureInfoService/IsOrderedSelection"
+	EmbeddedPhotoPickerFeatureInfoService_ToString_FullMethodName             = "/photopicker.EmbeddedPhotoPickerFeatureInfoService/ToString"
+	EmbeddedPhotoPickerFeatureInfoService_WriteToParcel_FullMethodName        = "/photopicker.EmbeddedPhotoPickerFeatureInfoService/WriteToParcel"
+)
+
+// EmbeddedPhotoPickerFeatureInfoServiceClient is the client API for EmbeddedPhotoPickerFeatureInfoService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type EmbeddedPhotoPickerFeatureInfoServiceClient interface {
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	GetAccentColor(ctx context.Context, in *GetAccentColorRequest, opts ...grpc.CallOption) (*GetAccentColorResponse, error)
+	GetMaxSelectionLimit(ctx context.Context, in *GetMaxSelectionLimitRequest, opts ...grpc.CallOption) (*GetMaxSelectionLimitResponse, error)
+	GetMimeTypes(ctx context.Context, in *GetMimeTypesRequest, opts ...grpc.CallOption) (*GetMimeTypesResponse, error)
+	GetPreSelectedUris(ctx context.Context, in *GetPreSelectedUrisRequest, opts ...grpc.CallOption) (*GetPreSelectedUrisResponse, error)
+	GetThemeNightMode(ctx context.Context, in *GetThemeNightModeRequest, opts ...grpc.CallOption) (*GetThemeNightModeResponse, error)
+	IsOrderedSelection(ctx context.Context, in *IsOrderedSelectionRequest, opts ...grpc.CallOption) (*IsOrderedSelectionResponse, error)
+	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type embeddedPhotoPickerFeatureInfoServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewEmbeddedPhotoPickerFeatureInfoServiceClient(cc grpc.ClientConnInterface) EmbeddedPhotoPickerFeatureInfoServiceClient {
+	return &embeddedPhotoPickerFeatureInfoServiceClient{cc}
+}
+
+func (c *embeddedPhotoPickerFeatureInfoServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, EmbeddedPhotoPickerFeatureInfoService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *embeddedPhotoPickerFeatureInfoServiceClient) GetAccentColor(ctx context.Context, in *GetAccentColorRequest, opts ...grpc.CallOption) (*GetAccentColorResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetAccentColorResponse)
+	err := c.cc.Invoke(ctx, EmbeddedPhotoPickerFeatureInfoService_GetAccentColor_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *embeddedPhotoPickerFeatureInfoServiceClient) GetMaxSelectionLimit(ctx context.Context, in *GetMaxSelectionLimitRequest, opts ...grpc.CallOption) (*GetMaxSelectionLimitResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetMaxSelectionLimitResponse)
+	err := c.cc.Invoke(ctx, EmbeddedPhotoPickerFeatureInfoService_GetMaxSelectionLimit_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *embeddedPhotoPickerFeatureInfoServiceClient) GetMimeTypes(ctx context.Context, in *GetMimeTypesRequest, opts ...grpc.CallOption) (*GetMimeTypesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetMimeTypesResponse)
+	err := c.cc.Invoke(ctx, EmbeddedPhotoPickerFeatureInfoService_GetMimeTypes_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *embeddedPhotoPickerFeatureInfoServiceClient) GetPreSelectedUris(ctx context.Context, in *GetPreSelectedUrisRequest, opts ...grpc.CallOption) (*GetPreSelectedUrisResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetPreSelectedUrisResponse)
+	err := c.cc.Invoke(ctx, EmbeddedPhotoPickerFeatureInfoService_GetPreSelectedUris_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *embeddedPhotoPickerFeatureInfoServiceClient) GetThemeNightMode(ctx context.Context, in *GetThemeNightModeRequest, opts ...grpc.CallOption) (*GetThemeNightModeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetThemeNightModeResponse)
+	err := c.cc.Invoke(ctx, EmbeddedPhotoPickerFeatureInfoService_GetThemeNightMode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *embeddedPhotoPickerFeatureInfoServiceClient) IsOrderedSelection(ctx context.Context, in *IsOrderedSelectionRequest, opts ...grpc.CallOption) (*IsOrderedSelectionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsOrderedSelectionResponse)
+	err := c.cc.Invoke(ctx, EmbeddedPhotoPickerFeatureInfoService_IsOrderedSelection_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *embeddedPhotoPickerFeatureInfoServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, EmbeddedPhotoPickerFeatureInfoService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *embeddedPhotoPickerFeatureInfoServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, EmbeddedPhotoPickerFeatureInfoService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// EmbeddedPhotoPickerFeatureInfoServiceServer is the server API for EmbeddedPhotoPickerFeatureInfoService service.
+// All implementations must embed UnimplementedEmbeddedPhotoPickerFeatureInfoServiceServer
+// for forward compatibility.
+type EmbeddedPhotoPickerFeatureInfoServiceServer interface {
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	GetAccentColor(context.Context, *GetAccentColorRequest) (*GetAccentColorResponse, error)
+	GetMaxSelectionLimit(context.Context, *GetMaxSelectionLimitRequest) (*GetMaxSelectionLimitResponse, error)
+	GetMimeTypes(context.Context, *GetMimeTypesRequest) (*GetMimeTypesResponse, error)
+	GetPreSelectedUris(context.Context, *GetPreSelectedUrisRequest) (*GetPreSelectedUrisResponse, error)
+	GetThemeNightMode(context.Context, *GetThemeNightModeRequest) (*GetThemeNightModeResponse, error)
+	IsOrderedSelection(context.Context, *IsOrderedSelectionRequest) (*IsOrderedSelectionResponse, error)
+	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedEmbeddedPhotoPickerFeatureInfoServiceServer()
+}
+
+// UnimplementedEmbeddedPhotoPickerFeatureInfoServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedEmbeddedPhotoPickerFeatureInfoServiceServer struct{}
+
+func (UnimplementedEmbeddedPhotoPickerFeatureInfoServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedEmbeddedPhotoPickerFeatureInfoServiceServer) GetAccentColor(context.Context, *GetAccentColorRequest) (*GetAccentColorResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetAccentColor not implemented")
+}
+func (UnimplementedEmbeddedPhotoPickerFeatureInfoServiceServer) GetMaxSelectionLimit(context.Context, *GetMaxSelectionLimitRequest) (*GetMaxSelectionLimitResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetMaxSelectionLimit not implemented")
+}
+func (UnimplementedEmbeddedPhotoPickerFeatureInfoServiceServer) GetMimeTypes(context.Context, *GetMimeTypesRequest) (*GetMimeTypesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetMimeTypes not implemented")
+}
+func (UnimplementedEmbeddedPhotoPickerFeatureInfoServiceServer) GetPreSelectedUris(context.Context, *GetPreSelectedUrisRequest) (*GetPreSelectedUrisResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetPreSelectedUris not implemented")
+}
+func (UnimplementedEmbeddedPhotoPickerFeatureInfoServiceServer) GetThemeNightMode(context.Context, *GetThemeNightModeRequest) (*GetThemeNightModeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetThemeNightMode not implemented")
+}
+func (UnimplementedEmbeddedPhotoPickerFeatureInfoServiceServer) IsOrderedSelection(context.Context, *IsOrderedSelectionRequest) (*IsOrderedSelectionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsOrderedSelection not implemented")
+}
+func (UnimplementedEmbeddedPhotoPickerFeatureInfoServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedEmbeddedPhotoPickerFeatureInfoServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedEmbeddedPhotoPickerFeatureInfoServiceServer) mustEmbedUnimplementedEmbeddedPhotoPickerFeatureInfoServiceServer() {
+}
+func (UnimplementedEmbeddedPhotoPickerFeatureInfoServiceServer) testEmbeddedByValue() {}
+
+// UnsafeEmbeddedPhotoPickerFeatureInfoServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to EmbeddedPhotoPickerFeatureInfoServiceServer will
+// result in compilation errors.
+type UnsafeEmbeddedPhotoPickerFeatureInfoServiceServer interface {
+	mustEmbedUnimplementedEmbeddedPhotoPickerFeatureInfoServiceServer()
+}
+
+func RegisterEmbeddedPhotoPickerFeatureInfoServiceServer(s grpc.ServiceRegistrar, srv EmbeddedPhotoPickerFeatureInfoServiceServer) {
+	// If the following call panics, it indicates UnimplementedEmbeddedPhotoPickerFeatureInfoServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&EmbeddedPhotoPickerFeatureInfoService_ServiceDesc, srv)
+}
+
+func _EmbeddedPhotoPickerFeatureInfoService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EmbeddedPhotoPickerFeatureInfoServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: EmbeddedPhotoPickerFeatureInfoService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EmbeddedPhotoPickerFeatureInfoServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _EmbeddedPhotoPickerFeatureInfoService_GetAccentColor_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetAccentColorRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EmbeddedPhotoPickerFeatureInfoServiceServer).GetAccentColor(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: EmbeddedPhotoPickerFeatureInfoService_GetAccentColor_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EmbeddedPhotoPickerFeatureInfoServiceServer).GetAccentColor(ctx, req.(*GetAccentColorRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _EmbeddedPhotoPickerFeatureInfoService_GetMaxSelectionLimit_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetMaxSelectionLimitRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EmbeddedPhotoPickerFeatureInfoServiceServer).GetMaxSelectionLimit(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: EmbeddedPhotoPickerFeatureInfoService_GetMaxSelectionLimit_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EmbeddedPhotoPickerFeatureInfoServiceServer).GetMaxSelectionLimit(ctx, req.(*GetMaxSelectionLimitRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _EmbeddedPhotoPickerFeatureInfoService_GetMimeTypes_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetMimeTypesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EmbeddedPhotoPickerFeatureInfoServiceServer).GetMimeTypes(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: EmbeddedPhotoPickerFeatureInfoService_GetMimeTypes_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EmbeddedPhotoPickerFeatureInfoServiceServer).GetMimeTypes(ctx, req.(*GetMimeTypesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _EmbeddedPhotoPickerFeatureInfoService_GetPreSelectedUris_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPreSelectedUrisRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EmbeddedPhotoPickerFeatureInfoServiceServer).GetPreSelectedUris(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: EmbeddedPhotoPickerFeatureInfoService_GetPreSelectedUris_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EmbeddedPhotoPickerFeatureInfoServiceServer).GetPreSelectedUris(ctx, req.(*GetPreSelectedUrisRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _EmbeddedPhotoPickerFeatureInfoService_GetThemeNightMode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetThemeNightModeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EmbeddedPhotoPickerFeatureInfoServiceServer).GetThemeNightMode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: EmbeddedPhotoPickerFeatureInfoService_GetThemeNightMode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EmbeddedPhotoPickerFeatureInfoServiceServer).GetThemeNightMode(ctx, req.(*GetThemeNightModeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _EmbeddedPhotoPickerFeatureInfoService_IsOrderedSelection_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsOrderedSelectionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EmbeddedPhotoPickerFeatureInfoServiceServer).IsOrderedSelection(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: EmbeddedPhotoPickerFeatureInfoService_IsOrderedSelection_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EmbeddedPhotoPickerFeatureInfoServiceServer).IsOrderedSelection(ctx, req.(*IsOrderedSelectionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _EmbeddedPhotoPickerFeatureInfoService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EmbeddedPhotoPickerFeatureInfoServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: EmbeddedPhotoPickerFeatureInfoService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EmbeddedPhotoPickerFeatureInfoServiceServer).ToString(ctx, req.(*ToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _EmbeddedPhotoPickerFeatureInfoService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EmbeddedPhotoPickerFeatureInfoServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: EmbeddedPhotoPickerFeatureInfoService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EmbeddedPhotoPickerFeatureInfoServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// EmbeddedPhotoPickerFeatureInfoService_ServiceDesc is the grpc.ServiceDesc for EmbeddedPhotoPickerFeatureInfoService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var EmbeddedPhotoPickerFeatureInfoService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "photopicker.EmbeddedPhotoPickerFeatureInfoService",
+	HandlerType: (*EmbeddedPhotoPickerFeatureInfoServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "DescribeContents",
+			Handler:    _EmbeddedPhotoPickerFeatureInfoService_DescribeContents_Handler,
 		},
 		{
-			MethodName: "OnSessionError",
-			Handler:    _EmbeddedPhotoPickerClientService_OnSessionError_Handler,
+			MethodName: "GetAccentColor",
+			Handler:    _EmbeddedPhotoPickerFeatureInfoService_GetAccentColor_Handler,
 		},
 		{
-			MethodName: "OnSessionOpened",
-			Handler:    _EmbeddedPhotoPickerClientService_OnSessionOpened_Handler,
+			MethodName: "GetMaxSelectionLimit",
+			Handler:    _EmbeddedPhotoPickerFeatureInfoService_GetMaxSelectionLimit_Handler,
+		},
+		{
+			MethodName: "GetMimeTypes",
+			Handler:    _EmbeddedPhotoPickerFeatureInfoService_GetMimeTypes_Handler,
+		},
+		{
+			MethodName: "GetPreSelectedUris",
+			Handler:    _EmbeddedPhotoPickerFeatureInfoService_GetPreSelectedUris_Handler,
+		},
+		{
+			MethodName: "GetThemeNightMode",
+			Handler:    _EmbeddedPhotoPickerFeatureInfoService_GetThemeNightMode_Handler,
+		},
+		{
+			MethodName: "IsOrderedSelection",
+			Handler:    _EmbeddedPhotoPickerFeatureInfoService_IsOrderedSelection_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _EmbeddedPhotoPickerFeatureInfoService_ToString_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _EmbeddedPhotoPickerFeatureInfoService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/photopicker/photopicker.proto",
+}
+
+const (
+	EmbeddedPhotoPickerFeatureInfoBuilderService_Build_FullMethodName                = "/photopicker.EmbeddedPhotoPickerFeatureInfoBuilderService/Build"
+	EmbeddedPhotoPickerFeatureInfoBuilderService_SetAccentColor_FullMethodName       = "/photopicker.EmbeddedPhotoPickerFeatureInfoBuilderService/SetAccentColor"
+	EmbeddedPhotoPickerFeatureInfoBuilderService_SetMaxSelectionLimit_FullMethodName = "/photopicker.EmbeddedPhotoPickerFeatureInfoBuilderService/SetMaxSelectionLimit"
+	EmbeddedPhotoPickerFeatureInfoBuilderService_SetOrderedSelection_FullMethodName  = "/photopicker.EmbeddedPhotoPickerFeatureInfoBuilderService/SetOrderedSelection"
+	EmbeddedPhotoPickerFeatureInfoBuilderService_SetThemeNightMode_FullMethodName    = "/photopicker.EmbeddedPhotoPickerFeatureInfoBuilderService/SetThemeNightMode"
+)
+
+// EmbeddedPhotoPickerFeatureInfoBuilderServiceClient is the client API for EmbeddedPhotoPickerFeatureInfoBuilderService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type EmbeddedPhotoPickerFeatureInfoBuilderServiceClient interface {
+	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
+	SetAccentColor(ctx context.Context, in *SetAccentColorRequest, opts ...grpc.CallOption) (*SetAccentColorResponse, error)
+	SetMaxSelectionLimit(ctx context.Context, in *SetMaxSelectionLimitRequest, opts ...grpc.CallOption) (*SetMaxSelectionLimitResponse, error)
+	SetOrderedSelection(ctx context.Context, in *SetOrderedSelectionRequest, opts ...grpc.CallOption) (*SetOrderedSelectionResponse, error)
+	SetThemeNightMode(ctx context.Context, in *SetThemeNightModeRequest, opts ...grpc.CallOption) (*SetThemeNightModeResponse, error)
+}
+
+type embeddedPhotoPickerFeatureInfoBuilderServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewEmbeddedPhotoPickerFeatureInfoBuilderServiceClient(cc grpc.ClientConnInterface) EmbeddedPhotoPickerFeatureInfoBuilderServiceClient {
+	return &embeddedPhotoPickerFeatureInfoBuilderServiceClient{cc}
+}
+
+func (c *embeddedPhotoPickerFeatureInfoBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(BuildResponse)
+	err := c.cc.Invoke(ctx, EmbeddedPhotoPickerFeatureInfoBuilderService_Build_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *embeddedPhotoPickerFeatureInfoBuilderServiceClient) SetAccentColor(ctx context.Context, in *SetAccentColorRequest, opts ...grpc.CallOption) (*SetAccentColorResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetAccentColorResponse)
+	err := c.cc.Invoke(ctx, EmbeddedPhotoPickerFeatureInfoBuilderService_SetAccentColor_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *embeddedPhotoPickerFeatureInfoBuilderServiceClient) SetMaxSelectionLimit(ctx context.Context, in *SetMaxSelectionLimitRequest, opts ...grpc.CallOption) (*SetMaxSelectionLimitResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetMaxSelectionLimitResponse)
+	err := c.cc.Invoke(ctx, EmbeddedPhotoPickerFeatureInfoBuilderService_SetMaxSelectionLimit_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *embeddedPhotoPickerFeatureInfoBuilderServiceClient) SetOrderedSelection(ctx context.Context, in *SetOrderedSelectionRequest, opts ...grpc.CallOption) (*SetOrderedSelectionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetOrderedSelectionResponse)
+	err := c.cc.Invoke(ctx, EmbeddedPhotoPickerFeatureInfoBuilderService_SetOrderedSelection_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *embeddedPhotoPickerFeatureInfoBuilderServiceClient) SetThemeNightMode(ctx context.Context, in *SetThemeNightModeRequest, opts ...grpc.CallOption) (*SetThemeNightModeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetThemeNightModeResponse)
+	err := c.cc.Invoke(ctx, EmbeddedPhotoPickerFeatureInfoBuilderService_SetThemeNightMode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// EmbeddedPhotoPickerFeatureInfoBuilderServiceServer is the server API for EmbeddedPhotoPickerFeatureInfoBuilderService service.
+// All implementations must embed UnimplementedEmbeddedPhotoPickerFeatureInfoBuilderServiceServer
+// for forward compatibility.
+type EmbeddedPhotoPickerFeatureInfoBuilderServiceServer interface {
+	Build(context.Context, *BuildRequest) (*BuildResponse, error)
+	SetAccentColor(context.Context, *SetAccentColorRequest) (*SetAccentColorResponse, error)
+	SetMaxSelectionLimit(context.Context, *SetMaxSelectionLimitRequest) (*SetMaxSelectionLimitResponse, error)
+	SetOrderedSelection(context.Context, *SetOrderedSelectionRequest) (*SetOrderedSelectionResponse, error)
+	SetThemeNightMode(context.Context, *SetThemeNightModeRequest) (*SetThemeNightModeResponse, error)
+	mustEmbedUnimplementedEmbeddedPhotoPickerFeatureInfoBuilderServiceServer()
+}
+
+// UnimplementedEmbeddedPhotoPickerFeatureInfoBuilderServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedEmbeddedPhotoPickerFeatureInfoBuilderServiceServer struct{}
+
+func (UnimplementedEmbeddedPhotoPickerFeatureInfoBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
+}
+func (UnimplementedEmbeddedPhotoPickerFeatureInfoBuilderServiceServer) SetAccentColor(context.Context, *SetAccentColorRequest) (*SetAccentColorResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetAccentColor not implemented")
+}
+func (UnimplementedEmbeddedPhotoPickerFeatureInfoBuilderServiceServer) SetMaxSelectionLimit(context.Context, *SetMaxSelectionLimitRequest) (*SetMaxSelectionLimitResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetMaxSelectionLimit not implemented")
+}
+func (UnimplementedEmbeddedPhotoPickerFeatureInfoBuilderServiceServer) SetOrderedSelection(context.Context, *SetOrderedSelectionRequest) (*SetOrderedSelectionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetOrderedSelection not implemented")
+}
+func (UnimplementedEmbeddedPhotoPickerFeatureInfoBuilderServiceServer) SetThemeNightMode(context.Context, *SetThemeNightModeRequest) (*SetThemeNightModeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetThemeNightMode not implemented")
+}
+func (UnimplementedEmbeddedPhotoPickerFeatureInfoBuilderServiceServer) mustEmbedUnimplementedEmbeddedPhotoPickerFeatureInfoBuilderServiceServer() {
+}
+func (UnimplementedEmbeddedPhotoPickerFeatureInfoBuilderServiceServer) testEmbeddedByValue() {}
+
+// UnsafeEmbeddedPhotoPickerFeatureInfoBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to EmbeddedPhotoPickerFeatureInfoBuilderServiceServer will
+// result in compilation errors.
+type UnsafeEmbeddedPhotoPickerFeatureInfoBuilderServiceServer interface {
+	mustEmbedUnimplementedEmbeddedPhotoPickerFeatureInfoBuilderServiceServer()
+}
+
+func RegisterEmbeddedPhotoPickerFeatureInfoBuilderServiceServer(s grpc.ServiceRegistrar, srv EmbeddedPhotoPickerFeatureInfoBuilderServiceServer) {
+	// If the following call panics, it indicates UnimplementedEmbeddedPhotoPickerFeatureInfoBuilderServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&EmbeddedPhotoPickerFeatureInfoBuilderService_ServiceDesc, srv)
+}
+
+func _EmbeddedPhotoPickerFeatureInfoBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BuildRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EmbeddedPhotoPickerFeatureInfoBuilderServiceServer).Build(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: EmbeddedPhotoPickerFeatureInfoBuilderService_Build_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EmbeddedPhotoPickerFeatureInfoBuilderServiceServer).Build(ctx, req.(*BuildRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _EmbeddedPhotoPickerFeatureInfoBuilderService_SetAccentColor_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetAccentColorRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EmbeddedPhotoPickerFeatureInfoBuilderServiceServer).SetAccentColor(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: EmbeddedPhotoPickerFeatureInfoBuilderService_SetAccentColor_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EmbeddedPhotoPickerFeatureInfoBuilderServiceServer).SetAccentColor(ctx, req.(*SetAccentColorRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _EmbeddedPhotoPickerFeatureInfoBuilderService_SetMaxSelectionLimit_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetMaxSelectionLimitRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EmbeddedPhotoPickerFeatureInfoBuilderServiceServer).SetMaxSelectionLimit(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: EmbeddedPhotoPickerFeatureInfoBuilderService_SetMaxSelectionLimit_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EmbeddedPhotoPickerFeatureInfoBuilderServiceServer).SetMaxSelectionLimit(ctx, req.(*SetMaxSelectionLimitRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _EmbeddedPhotoPickerFeatureInfoBuilderService_SetOrderedSelection_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetOrderedSelectionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EmbeddedPhotoPickerFeatureInfoBuilderServiceServer).SetOrderedSelection(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: EmbeddedPhotoPickerFeatureInfoBuilderService_SetOrderedSelection_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EmbeddedPhotoPickerFeatureInfoBuilderServiceServer).SetOrderedSelection(ctx, req.(*SetOrderedSelectionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _EmbeddedPhotoPickerFeatureInfoBuilderService_SetThemeNightMode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetThemeNightModeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EmbeddedPhotoPickerFeatureInfoBuilderServiceServer).SetThemeNightMode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: EmbeddedPhotoPickerFeatureInfoBuilderService_SetThemeNightMode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EmbeddedPhotoPickerFeatureInfoBuilderServiceServer).SetThemeNightMode(ctx, req.(*SetThemeNightModeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// EmbeddedPhotoPickerFeatureInfoBuilderService_ServiceDesc is the grpc.ServiceDesc for EmbeddedPhotoPickerFeatureInfoBuilderService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var EmbeddedPhotoPickerFeatureInfoBuilderService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "photopicker.EmbeddedPhotoPickerFeatureInfoBuilderService",
+	HandlerType: (*EmbeddedPhotoPickerFeatureInfoBuilderServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Build",
+			Handler:    _EmbeddedPhotoPickerFeatureInfoBuilderService_Build_Handler,
+		},
+		{
+			MethodName: "SetAccentColor",
+			Handler:    _EmbeddedPhotoPickerFeatureInfoBuilderService_SetAccentColor_Handler,
+		},
+		{
+			MethodName: "SetMaxSelectionLimit",
+			Handler:    _EmbeddedPhotoPickerFeatureInfoBuilderService_SetMaxSelectionLimit_Handler,
+		},
+		{
+			MethodName: "SetOrderedSelection",
+			Handler:    _EmbeddedPhotoPickerFeatureInfoBuilderService_SetOrderedSelection_Handler,
+		},
+		{
+			MethodName: "SetThemeNightMode",
+			Handler:    _EmbeddedPhotoPickerFeatureInfoBuilderService_SetThemeNightMode_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -493,592 +1079,6 @@ var EmbeddedPhotoPickerSessionService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	EmbeddedPhotoPickerFeatureInfoService_DescribeContents_FullMethodName     = "/photopicker.EmbeddedPhotoPickerFeatureInfoService/DescribeContents"
-	EmbeddedPhotoPickerFeatureInfoService_GetAccentColor_FullMethodName       = "/photopicker.EmbeddedPhotoPickerFeatureInfoService/GetAccentColor"
-	EmbeddedPhotoPickerFeatureInfoService_GetMaxSelectionLimit_FullMethodName = "/photopicker.EmbeddedPhotoPickerFeatureInfoService/GetMaxSelectionLimit"
-	EmbeddedPhotoPickerFeatureInfoService_GetThemeNightMode_FullMethodName    = "/photopicker.EmbeddedPhotoPickerFeatureInfoService/GetThemeNightMode"
-	EmbeddedPhotoPickerFeatureInfoService_IsOrderedSelection_FullMethodName   = "/photopicker.EmbeddedPhotoPickerFeatureInfoService/IsOrderedSelection"
-	EmbeddedPhotoPickerFeatureInfoService_ToString_FullMethodName             = "/photopicker.EmbeddedPhotoPickerFeatureInfoService/ToString"
-	EmbeddedPhotoPickerFeatureInfoService_WriteToParcel_FullMethodName        = "/photopicker.EmbeddedPhotoPickerFeatureInfoService/WriteToParcel"
-)
-
-// EmbeddedPhotoPickerFeatureInfoServiceClient is the client API for EmbeddedPhotoPickerFeatureInfoService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type EmbeddedPhotoPickerFeatureInfoServiceClient interface {
-	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	GetAccentColor(ctx context.Context, in *GetAccentColorRequest, opts ...grpc.CallOption) (*GetAccentColorResponse, error)
-	GetMaxSelectionLimit(ctx context.Context, in *GetMaxSelectionLimitRequest, opts ...grpc.CallOption) (*GetMaxSelectionLimitResponse, error)
-	GetThemeNightMode(ctx context.Context, in *GetThemeNightModeRequest, opts ...grpc.CallOption) (*GetThemeNightModeResponse, error)
-	IsOrderedSelection(ctx context.Context, in *IsOrderedSelectionRequest, opts ...grpc.CallOption) (*IsOrderedSelectionResponse, error)
-	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
-	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
-}
-
-type embeddedPhotoPickerFeatureInfoServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewEmbeddedPhotoPickerFeatureInfoServiceClient(cc grpc.ClientConnInterface) EmbeddedPhotoPickerFeatureInfoServiceClient {
-	return &embeddedPhotoPickerFeatureInfoServiceClient{cc}
-}
-
-func (c *embeddedPhotoPickerFeatureInfoServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, EmbeddedPhotoPickerFeatureInfoService_DescribeContents_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *embeddedPhotoPickerFeatureInfoServiceClient) GetAccentColor(ctx context.Context, in *GetAccentColorRequest, opts ...grpc.CallOption) (*GetAccentColorResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetAccentColorResponse)
-	err := c.cc.Invoke(ctx, EmbeddedPhotoPickerFeatureInfoService_GetAccentColor_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *embeddedPhotoPickerFeatureInfoServiceClient) GetMaxSelectionLimit(ctx context.Context, in *GetMaxSelectionLimitRequest, opts ...grpc.CallOption) (*GetMaxSelectionLimitResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetMaxSelectionLimitResponse)
-	err := c.cc.Invoke(ctx, EmbeddedPhotoPickerFeatureInfoService_GetMaxSelectionLimit_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *embeddedPhotoPickerFeatureInfoServiceClient) GetThemeNightMode(ctx context.Context, in *GetThemeNightModeRequest, opts ...grpc.CallOption) (*GetThemeNightModeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetThemeNightModeResponse)
-	err := c.cc.Invoke(ctx, EmbeddedPhotoPickerFeatureInfoService_GetThemeNightMode_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *embeddedPhotoPickerFeatureInfoServiceClient) IsOrderedSelection(ctx context.Context, in *IsOrderedSelectionRequest, opts ...grpc.CallOption) (*IsOrderedSelectionResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsOrderedSelectionResponse)
-	err := c.cc.Invoke(ctx, EmbeddedPhotoPickerFeatureInfoService_IsOrderedSelection_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *embeddedPhotoPickerFeatureInfoServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ToStringResponse)
-	err := c.cc.Invoke(ctx, EmbeddedPhotoPickerFeatureInfoService_ToString_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *embeddedPhotoPickerFeatureInfoServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, EmbeddedPhotoPickerFeatureInfoService_WriteToParcel_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// EmbeddedPhotoPickerFeatureInfoServiceServer is the server API for EmbeddedPhotoPickerFeatureInfoService service.
-// All implementations must embed UnimplementedEmbeddedPhotoPickerFeatureInfoServiceServer
-// for forward compatibility.
-type EmbeddedPhotoPickerFeatureInfoServiceServer interface {
-	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
-	GetAccentColor(context.Context, *GetAccentColorRequest) (*GetAccentColorResponse, error)
-	GetMaxSelectionLimit(context.Context, *GetMaxSelectionLimitRequest) (*GetMaxSelectionLimitResponse, error)
-	GetThemeNightMode(context.Context, *GetThemeNightModeRequest) (*GetThemeNightModeResponse, error)
-	IsOrderedSelection(context.Context, *IsOrderedSelectionRequest) (*IsOrderedSelectionResponse, error)
-	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
-	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
-	mustEmbedUnimplementedEmbeddedPhotoPickerFeatureInfoServiceServer()
-}
-
-// UnimplementedEmbeddedPhotoPickerFeatureInfoServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedEmbeddedPhotoPickerFeatureInfoServiceServer struct{}
-
-func (UnimplementedEmbeddedPhotoPickerFeatureInfoServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
-}
-func (UnimplementedEmbeddedPhotoPickerFeatureInfoServiceServer) GetAccentColor(context.Context, *GetAccentColorRequest) (*GetAccentColorResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetAccentColor not implemented")
-}
-func (UnimplementedEmbeddedPhotoPickerFeatureInfoServiceServer) GetMaxSelectionLimit(context.Context, *GetMaxSelectionLimitRequest) (*GetMaxSelectionLimitResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetMaxSelectionLimit not implemented")
-}
-func (UnimplementedEmbeddedPhotoPickerFeatureInfoServiceServer) GetThemeNightMode(context.Context, *GetThemeNightModeRequest) (*GetThemeNightModeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetThemeNightMode not implemented")
-}
-func (UnimplementedEmbeddedPhotoPickerFeatureInfoServiceServer) IsOrderedSelection(context.Context, *IsOrderedSelectionRequest) (*IsOrderedSelectionResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsOrderedSelection not implemented")
-}
-func (UnimplementedEmbeddedPhotoPickerFeatureInfoServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
-}
-func (UnimplementedEmbeddedPhotoPickerFeatureInfoServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
-}
-func (UnimplementedEmbeddedPhotoPickerFeatureInfoServiceServer) mustEmbedUnimplementedEmbeddedPhotoPickerFeatureInfoServiceServer() {
-}
-func (UnimplementedEmbeddedPhotoPickerFeatureInfoServiceServer) testEmbeddedByValue() {}
-
-// UnsafeEmbeddedPhotoPickerFeatureInfoServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to EmbeddedPhotoPickerFeatureInfoServiceServer will
-// result in compilation errors.
-type UnsafeEmbeddedPhotoPickerFeatureInfoServiceServer interface {
-	mustEmbedUnimplementedEmbeddedPhotoPickerFeatureInfoServiceServer()
-}
-
-func RegisterEmbeddedPhotoPickerFeatureInfoServiceServer(s grpc.ServiceRegistrar, srv EmbeddedPhotoPickerFeatureInfoServiceServer) {
-	// If the following call panics, it indicates UnimplementedEmbeddedPhotoPickerFeatureInfoServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&EmbeddedPhotoPickerFeatureInfoService_ServiceDesc, srv)
-}
-
-func _EmbeddedPhotoPickerFeatureInfoService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DescribeContentsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(EmbeddedPhotoPickerFeatureInfoServiceServer).DescribeContents(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: EmbeddedPhotoPickerFeatureInfoService_DescribeContents_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(EmbeddedPhotoPickerFeatureInfoServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _EmbeddedPhotoPickerFeatureInfoService_GetAccentColor_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetAccentColorRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(EmbeddedPhotoPickerFeatureInfoServiceServer).GetAccentColor(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: EmbeddedPhotoPickerFeatureInfoService_GetAccentColor_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(EmbeddedPhotoPickerFeatureInfoServiceServer).GetAccentColor(ctx, req.(*GetAccentColorRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _EmbeddedPhotoPickerFeatureInfoService_GetMaxSelectionLimit_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetMaxSelectionLimitRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(EmbeddedPhotoPickerFeatureInfoServiceServer).GetMaxSelectionLimit(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: EmbeddedPhotoPickerFeatureInfoService_GetMaxSelectionLimit_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(EmbeddedPhotoPickerFeatureInfoServiceServer).GetMaxSelectionLimit(ctx, req.(*GetMaxSelectionLimitRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _EmbeddedPhotoPickerFeatureInfoService_GetThemeNightMode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetThemeNightModeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(EmbeddedPhotoPickerFeatureInfoServiceServer).GetThemeNightMode(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: EmbeddedPhotoPickerFeatureInfoService_GetThemeNightMode_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(EmbeddedPhotoPickerFeatureInfoServiceServer).GetThemeNightMode(ctx, req.(*GetThemeNightModeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _EmbeddedPhotoPickerFeatureInfoService_IsOrderedSelection_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsOrderedSelectionRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(EmbeddedPhotoPickerFeatureInfoServiceServer).IsOrderedSelection(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: EmbeddedPhotoPickerFeatureInfoService_IsOrderedSelection_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(EmbeddedPhotoPickerFeatureInfoServiceServer).IsOrderedSelection(ctx, req.(*IsOrderedSelectionRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _EmbeddedPhotoPickerFeatureInfoService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ToStringRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(EmbeddedPhotoPickerFeatureInfoServiceServer).ToString(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: EmbeddedPhotoPickerFeatureInfoService_ToString_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(EmbeddedPhotoPickerFeatureInfoServiceServer).ToString(ctx, req.(*ToStringRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _EmbeddedPhotoPickerFeatureInfoService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WriteToParcelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(EmbeddedPhotoPickerFeatureInfoServiceServer).WriteToParcel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: EmbeddedPhotoPickerFeatureInfoService_WriteToParcel_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(EmbeddedPhotoPickerFeatureInfoServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// EmbeddedPhotoPickerFeatureInfoService_ServiceDesc is the grpc.ServiceDesc for EmbeddedPhotoPickerFeatureInfoService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var EmbeddedPhotoPickerFeatureInfoService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "photopicker.EmbeddedPhotoPickerFeatureInfoService",
-	HandlerType: (*EmbeddedPhotoPickerFeatureInfoServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "DescribeContents",
-			Handler:    _EmbeddedPhotoPickerFeatureInfoService_DescribeContents_Handler,
-		},
-		{
-			MethodName: "GetAccentColor",
-			Handler:    _EmbeddedPhotoPickerFeatureInfoService_GetAccentColor_Handler,
-		},
-		{
-			MethodName: "GetMaxSelectionLimit",
-			Handler:    _EmbeddedPhotoPickerFeatureInfoService_GetMaxSelectionLimit_Handler,
-		},
-		{
-			MethodName: "GetThemeNightMode",
-			Handler:    _EmbeddedPhotoPickerFeatureInfoService_GetThemeNightMode_Handler,
-		},
-		{
-			MethodName: "IsOrderedSelection",
-			Handler:    _EmbeddedPhotoPickerFeatureInfoService_IsOrderedSelection_Handler,
-		},
-		{
-			MethodName: "ToString",
-			Handler:    _EmbeddedPhotoPickerFeatureInfoService_ToString_Handler,
-		},
-		{
-			MethodName: "WriteToParcel",
-			Handler:    _EmbeddedPhotoPickerFeatureInfoService_WriteToParcel_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/photopicker/photopicker.proto",
-}
-
-const (
-	EmbeddedPhotoPickerFeatureInfoBuilderService_Build_FullMethodName                = "/photopicker.EmbeddedPhotoPickerFeatureInfoBuilderService/Build"
-	EmbeddedPhotoPickerFeatureInfoBuilderService_SetAccentColor_FullMethodName       = "/photopicker.EmbeddedPhotoPickerFeatureInfoBuilderService/SetAccentColor"
-	EmbeddedPhotoPickerFeatureInfoBuilderService_SetMaxSelectionLimit_FullMethodName = "/photopicker.EmbeddedPhotoPickerFeatureInfoBuilderService/SetMaxSelectionLimit"
-	EmbeddedPhotoPickerFeatureInfoBuilderService_SetOrderedSelection_FullMethodName  = "/photopicker.EmbeddedPhotoPickerFeatureInfoBuilderService/SetOrderedSelection"
-	EmbeddedPhotoPickerFeatureInfoBuilderService_SetThemeNightMode_FullMethodName    = "/photopicker.EmbeddedPhotoPickerFeatureInfoBuilderService/SetThemeNightMode"
-)
-
-// EmbeddedPhotoPickerFeatureInfoBuilderServiceClient is the client API for EmbeddedPhotoPickerFeatureInfoBuilderService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type EmbeddedPhotoPickerFeatureInfoBuilderServiceClient interface {
-	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
-	SetAccentColor(ctx context.Context, in *SetAccentColorRequest, opts ...grpc.CallOption) (*SetAccentColorResponse, error)
-	SetMaxSelectionLimit(ctx context.Context, in *SetMaxSelectionLimitRequest, opts ...grpc.CallOption) (*SetMaxSelectionLimitResponse, error)
-	SetOrderedSelection(ctx context.Context, in *SetOrderedSelectionRequest, opts ...grpc.CallOption) (*SetOrderedSelectionResponse, error)
-	SetThemeNightMode(ctx context.Context, in *SetThemeNightModeRequest, opts ...grpc.CallOption) (*SetThemeNightModeResponse, error)
-}
-
-type embeddedPhotoPickerFeatureInfoBuilderServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewEmbeddedPhotoPickerFeatureInfoBuilderServiceClient(cc grpc.ClientConnInterface) EmbeddedPhotoPickerFeatureInfoBuilderServiceClient {
-	return &embeddedPhotoPickerFeatureInfoBuilderServiceClient{cc}
-}
-
-func (c *embeddedPhotoPickerFeatureInfoBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(BuildResponse)
-	err := c.cc.Invoke(ctx, EmbeddedPhotoPickerFeatureInfoBuilderService_Build_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *embeddedPhotoPickerFeatureInfoBuilderServiceClient) SetAccentColor(ctx context.Context, in *SetAccentColorRequest, opts ...grpc.CallOption) (*SetAccentColorResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetAccentColorResponse)
-	err := c.cc.Invoke(ctx, EmbeddedPhotoPickerFeatureInfoBuilderService_SetAccentColor_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *embeddedPhotoPickerFeatureInfoBuilderServiceClient) SetMaxSelectionLimit(ctx context.Context, in *SetMaxSelectionLimitRequest, opts ...grpc.CallOption) (*SetMaxSelectionLimitResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetMaxSelectionLimitResponse)
-	err := c.cc.Invoke(ctx, EmbeddedPhotoPickerFeatureInfoBuilderService_SetMaxSelectionLimit_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *embeddedPhotoPickerFeatureInfoBuilderServiceClient) SetOrderedSelection(ctx context.Context, in *SetOrderedSelectionRequest, opts ...grpc.CallOption) (*SetOrderedSelectionResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetOrderedSelectionResponse)
-	err := c.cc.Invoke(ctx, EmbeddedPhotoPickerFeatureInfoBuilderService_SetOrderedSelection_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *embeddedPhotoPickerFeatureInfoBuilderServiceClient) SetThemeNightMode(ctx context.Context, in *SetThemeNightModeRequest, opts ...grpc.CallOption) (*SetThemeNightModeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetThemeNightModeResponse)
-	err := c.cc.Invoke(ctx, EmbeddedPhotoPickerFeatureInfoBuilderService_SetThemeNightMode_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// EmbeddedPhotoPickerFeatureInfoBuilderServiceServer is the server API for EmbeddedPhotoPickerFeatureInfoBuilderService service.
-// All implementations must embed UnimplementedEmbeddedPhotoPickerFeatureInfoBuilderServiceServer
-// for forward compatibility.
-type EmbeddedPhotoPickerFeatureInfoBuilderServiceServer interface {
-	Build(context.Context, *BuildRequest) (*BuildResponse, error)
-	SetAccentColor(context.Context, *SetAccentColorRequest) (*SetAccentColorResponse, error)
-	SetMaxSelectionLimit(context.Context, *SetMaxSelectionLimitRequest) (*SetMaxSelectionLimitResponse, error)
-	SetOrderedSelection(context.Context, *SetOrderedSelectionRequest) (*SetOrderedSelectionResponse, error)
-	SetThemeNightMode(context.Context, *SetThemeNightModeRequest) (*SetThemeNightModeResponse, error)
-	mustEmbedUnimplementedEmbeddedPhotoPickerFeatureInfoBuilderServiceServer()
-}
-
-// UnimplementedEmbeddedPhotoPickerFeatureInfoBuilderServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedEmbeddedPhotoPickerFeatureInfoBuilderServiceServer struct{}
-
-func (UnimplementedEmbeddedPhotoPickerFeatureInfoBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
-}
-func (UnimplementedEmbeddedPhotoPickerFeatureInfoBuilderServiceServer) SetAccentColor(context.Context, *SetAccentColorRequest) (*SetAccentColorResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetAccentColor not implemented")
-}
-func (UnimplementedEmbeddedPhotoPickerFeatureInfoBuilderServiceServer) SetMaxSelectionLimit(context.Context, *SetMaxSelectionLimitRequest) (*SetMaxSelectionLimitResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetMaxSelectionLimit not implemented")
-}
-func (UnimplementedEmbeddedPhotoPickerFeatureInfoBuilderServiceServer) SetOrderedSelection(context.Context, *SetOrderedSelectionRequest) (*SetOrderedSelectionResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetOrderedSelection not implemented")
-}
-func (UnimplementedEmbeddedPhotoPickerFeatureInfoBuilderServiceServer) SetThemeNightMode(context.Context, *SetThemeNightModeRequest) (*SetThemeNightModeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetThemeNightMode not implemented")
-}
-func (UnimplementedEmbeddedPhotoPickerFeatureInfoBuilderServiceServer) mustEmbedUnimplementedEmbeddedPhotoPickerFeatureInfoBuilderServiceServer() {
-}
-func (UnimplementedEmbeddedPhotoPickerFeatureInfoBuilderServiceServer) testEmbeddedByValue() {}
-
-// UnsafeEmbeddedPhotoPickerFeatureInfoBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to EmbeddedPhotoPickerFeatureInfoBuilderServiceServer will
-// result in compilation errors.
-type UnsafeEmbeddedPhotoPickerFeatureInfoBuilderServiceServer interface {
-	mustEmbedUnimplementedEmbeddedPhotoPickerFeatureInfoBuilderServiceServer()
-}
-
-func RegisterEmbeddedPhotoPickerFeatureInfoBuilderServiceServer(s grpc.ServiceRegistrar, srv EmbeddedPhotoPickerFeatureInfoBuilderServiceServer) {
-	// If the following call panics, it indicates UnimplementedEmbeddedPhotoPickerFeatureInfoBuilderServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&EmbeddedPhotoPickerFeatureInfoBuilderService_ServiceDesc, srv)
-}
-
-func _EmbeddedPhotoPickerFeatureInfoBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(BuildRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(EmbeddedPhotoPickerFeatureInfoBuilderServiceServer).Build(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: EmbeddedPhotoPickerFeatureInfoBuilderService_Build_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(EmbeddedPhotoPickerFeatureInfoBuilderServiceServer).Build(ctx, req.(*BuildRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _EmbeddedPhotoPickerFeatureInfoBuilderService_SetAccentColor_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetAccentColorRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(EmbeddedPhotoPickerFeatureInfoBuilderServiceServer).SetAccentColor(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: EmbeddedPhotoPickerFeatureInfoBuilderService_SetAccentColor_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(EmbeddedPhotoPickerFeatureInfoBuilderServiceServer).SetAccentColor(ctx, req.(*SetAccentColorRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _EmbeddedPhotoPickerFeatureInfoBuilderService_SetMaxSelectionLimit_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetMaxSelectionLimitRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(EmbeddedPhotoPickerFeatureInfoBuilderServiceServer).SetMaxSelectionLimit(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: EmbeddedPhotoPickerFeatureInfoBuilderService_SetMaxSelectionLimit_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(EmbeddedPhotoPickerFeatureInfoBuilderServiceServer).SetMaxSelectionLimit(ctx, req.(*SetMaxSelectionLimitRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _EmbeddedPhotoPickerFeatureInfoBuilderService_SetOrderedSelection_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetOrderedSelectionRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(EmbeddedPhotoPickerFeatureInfoBuilderServiceServer).SetOrderedSelection(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: EmbeddedPhotoPickerFeatureInfoBuilderService_SetOrderedSelection_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(EmbeddedPhotoPickerFeatureInfoBuilderServiceServer).SetOrderedSelection(ctx, req.(*SetOrderedSelectionRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _EmbeddedPhotoPickerFeatureInfoBuilderService_SetThemeNightMode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetThemeNightModeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(EmbeddedPhotoPickerFeatureInfoBuilderServiceServer).SetThemeNightMode(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: EmbeddedPhotoPickerFeatureInfoBuilderService_SetThemeNightMode_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(EmbeddedPhotoPickerFeatureInfoBuilderServiceServer).SetThemeNightMode(ctx, req.(*SetThemeNightModeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// EmbeddedPhotoPickerFeatureInfoBuilderService_ServiceDesc is the grpc.ServiceDesc for EmbeddedPhotoPickerFeatureInfoBuilderService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var EmbeddedPhotoPickerFeatureInfoBuilderService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "photopicker.EmbeddedPhotoPickerFeatureInfoBuilderService",
-	HandlerType: (*EmbeddedPhotoPickerFeatureInfoBuilderServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "Build",
-			Handler:    _EmbeddedPhotoPickerFeatureInfoBuilderService_Build_Handler,
-		},
-		{
-			MethodName: "SetAccentColor",
-			Handler:    _EmbeddedPhotoPickerFeatureInfoBuilderService_SetAccentColor_Handler,
-		},
-		{
-			MethodName: "SetMaxSelectionLimit",
-			Handler:    _EmbeddedPhotoPickerFeatureInfoBuilderService_SetMaxSelectionLimit_Handler,
-		},
-		{
-			MethodName: "SetOrderedSelection",
-			Handler:    _EmbeddedPhotoPickerFeatureInfoBuilderService_SetOrderedSelection_Handler,
-		},
-		{
-			MethodName: "SetThemeNightMode",
-			Handler:    _EmbeddedPhotoPickerFeatureInfoBuilderService_SetThemeNightMode_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/photopicker/photopicker.proto",
-}
-
-const (
 	EmbeddedPhotoPickerProviderFactoryService_Create_FullMethodName = "/photopicker.EmbeddedPhotoPickerProviderFactoryService/Create"
 )
 
@@ -1182,102 +1182,178 @@ var EmbeddedPhotoPickerProviderFactoryService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	EmbeddedPhotoPickerProviderService_OpenSession_FullMethodName = "/photopicker.EmbeddedPhotoPickerProviderService/OpenSession"
+	EmbeddedPhotoPickerClientService_OnSelectionComplete_FullMethodName = "/photopicker.EmbeddedPhotoPickerClientService/OnSelectionComplete"
+	EmbeddedPhotoPickerClientService_OnSessionError_FullMethodName      = "/photopicker.EmbeddedPhotoPickerClientService/OnSessionError"
+	EmbeddedPhotoPickerClientService_OnSessionOpened_FullMethodName     = "/photopicker.EmbeddedPhotoPickerClientService/OnSessionOpened"
 )
 
-// EmbeddedPhotoPickerProviderServiceClient is the client API for EmbeddedPhotoPickerProviderService service.
+// EmbeddedPhotoPickerClientServiceClient is the client API for EmbeddedPhotoPickerClientService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type EmbeddedPhotoPickerProviderServiceClient interface {
-	OpenSession(ctx context.Context, in *OpenSessionRequest, opts ...grpc.CallOption) (*OpenSessionResponse, error)
+type EmbeddedPhotoPickerClientServiceClient interface {
+	OnSelectionComplete(ctx context.Context, in *OnSelectionCompleteRequest, opts ...grpc.CallOption) (*OnSelectionCompleteResponse, error)
+	OnSessionError(ctx context.Context, in *OnSessionErrorRequest, opts ...grpc.CallOption) (*OnSessionErrorResponse, error)
+	OnSessionOpened(ctx context.Context, in *OnSessionOpenedRequest, opts ...grpc.CallOption) (*OnSessionOpenedResponse, error)
 }
 
-type embeddedPhotoPickerProviderServiceClient struct {
+type embeddedPhotoPickerClientServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewEmbeddedPhotoPickerProviderServiceClient(cc grpc.ClientConnInterface) EmbeddedPhotoPickerProviderServiceClient {
-	return &embeddedPhotoPickerProviderServiceClient{cc}
+func NewEmbeddedPhotoPickerClientServiceClient(cc grpc.ClientConnInterface) EmbeddedPhotoPickerClientServiceClient {
+	return &embeddedPhotoPickerClientServiceClient{cc}
 }
 
-func (c *embeddedPhotoPickerProviderServiceClient) OpenSession(ctx context.Context, in *OpenSessionRequest, opts ...grpc.CallOption) (*OpenSessionResponse, error) {
+func (c *embeddedPhotoPickerClientServiceClient) OnSelectionComplete(ctx context.Context, in *OnSelectionCompleteRequest, opts ...grpc.CallOption) (*OnSelectionCompleteResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OpenSessionResponse)
-	err := c.cc.Invoke(ctx, EmbeddedPhotoPickerProviderService_OpenSession_FullMethodName, in, out, cOpts...)
+	out := new(OnSelectionCompleteResponse)
+	err := c.cc.Invoke(ctx, EmbeddedPhotoPickerClientService_OnSelectionComplete_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// EmbeddedPhotoPickerProviderServiceServer is the server API for EmbeddedPhotoPickerProviderService service.
-// All implementations must embed UnimplementedEmbeddedPhotoPickerProviderServiceServer
-// for forward compatibility.
-type EmbeddedPhotoPickerProviderServiceServer interface {
-	OpenSession(context.Context, *OpenSessionRequest) (*OpenSessionResponse, error)
-	mustEmbedUnimplementedEmbeddedPhotoPickerProviderServiceServer()
+func (c *embeddedPhotoPickerClientServiceClient) OnSessionError(ctx context.Context, in *OnSessionErrorRequest, opts ...grpc.CallOption) (*OnSessionErrorResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnSessionErrorResponse)
+	err := c.cc.Invoke(ctx, EmbeddedPhotoPickerClientService_OnSessionError_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
 }
 
-// UnimplementedEmbeddedPhotoPickerProviderServiceServer must be embedded to have
+func (c *embeddedPhotoPickerClientServiceClient) OnSessionOpened(ctx context.Context, in *OnSessionOpenedRequest, opts ...grpc.CallOption) (*OnSessionOpenedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnSessionOpenedResponse)
+	err := c.cc.Invoke(ctx, EmbeddedPhotoPickerClientService_OnSessionOpened_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// EmbeddedPhotoPickerClientServiceServer is the server API for EmbeddedPhotoPickerClientService service.
+// All implementations must embed UnimplementedEmbeddedPhotoPickerClientServiceServer
+// for forward compatibility.
+type EmbeddedPhotoPickerClientServiceServer interface {
+	OnSelectionComplete(context.Context, *OnSelectionCompleteRequest) (*OnSelectionCompleteResponse, error)
+	OnSessionError(context.Context, *OnSessionErrorRequest) (*OnSessionErrorResponse, error)
+	OnSessionOpened(context.Context, *OnSessionOpenedRequest) (*OnSessionOpenedResponse, error)
+	mustEmbedUnimplementedEmbeddedPhotoPickerClientServiceServer()
+}
+
+// UnimplementedEmbeddedPhotoPickerClientServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedEmbeddedPhotoPickerProviderServiceServer struct{}
+type UnimplementedEmbeddedPhotoPickerClientServiceServer struct{}
 
-func (UnimplementedEmbeddedPhotoPickerProviderServiceServer) OpenSession(context.Context, *OpenSessionRequest) (*OpenSessionResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OpenSession not implemented")
+func (UnimplementedEmbeddedPhotoPickerClientServiceServer) OnSelectionComplete(context.Context, *OnSelectionCompleteRequest) (*OnSelectionCompleteResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnSelectionComplete not implemented")
 }
-func (UnimplementedEmbeddedPhotoPickerProviderServiceServer) mustEmbedUnimplementedEmbeddedPhotoPickerProviderServiceServer() {
+func (UnimplementedEmbeddedPhotoPickerClientServiceServer) OnSessionError(context.Context, *OnSessionErrorRequest) (*OnSessionErrorResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnSessionError not implemented")
 }
-func (UnimplementedEmbeddedPhotoPickerProviderServiceServer) testEmbeddedByValue() {}
+func (UnimplementedEmbeddedPhotoPickerClientServiceServer) OnSessionOpened(context.Context, *OnSessionOpenedRequest) (*OnSessionOpenedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnSessionOpened not implemented")
+}
+func (UnimplementedEmbeddedPhotoPickerClientServiceServer) mustEmbedUnimplementedEmbeddedPhotoPickerClientServiceServer() {
+}
+func (UnimplementedEmbeddedPhotoPickerClientServiceServer) testEmbeddedByValue() {}
 
-// UnsafeEmbeddedPhotoPickerProviderServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to EmbeddedPhotoPickerProviderServiceServer will
+// UnsafeEmbeddedPhotoPickerClientServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to EmbeddedPhotoPickerClientServiceServer will
 // result in compilation errors.
-type UnsafeEmbeddedPhotoPickerProviderServiceServer interface {
-	mustEmbedUnimplementedEmbeddedPhotoPickerProviderServiceServer()
+type UnsafeEmbeddedPhotoPickerClientServiceServer interface {
+	mustEmbedUnimplementedEmbeddedPhotoPickerClientServiceServer()
 }
 
-func RegisterEmbeddedPhotoPickerProviderServiceServer(s grpc.ServiceRegistrar, srv EmbeddedPhotoPickerProviderServiceServer) {
-	// If the following call panics, it indicates UnimplementedEmbeddedPhotoPickerProviderServiceServer was
+func RegisterEmbeddedPhotoPickerClientServiceServer(s grpc.ServiceRegistrar, srv EmbeddedPhotoPickerClientServiceServer) {
+	// If the following call panics, it indicates UnimplementedEmbeddedPhotoPickerClientServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&EmbeddedPhotoPickerProviderService_ServiceDesc, srv)
+	s.RegisterService(&EmbeddedPhotoPickerClientService_ServiceDesc, srv)
 }
 
-func _EmbeddedPhotoPickerProviderService_OpenSession_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OpenSessionRequest)
+func _EmbeddedPhotoPickerClientService_OnSelectionComplete_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnSelectionCompleteRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(EmbeddedPhotoPickerProviderServiceServer).OpenSession(ctx, in)
+		return srv.(EmbeddedPhotoPickerClientServiceServer).OnSelectionComplete(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: EmbeddedPhotoPickerProviderService_OpenSession_FullMethodName,
+		FullMethod: EmbeddedPhotoPickerClientService_OnSelectionComplete_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(EmbeddedPhotoPickerProviderServiceServer).OpenSession(ctx, req.(*OpenSessionRequest))
+		return srv.(EmbeddedPhotoPickerClientServiceServer).OnSelectionComplete(ctx, req.(*OnSelectionCompleteRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// EmbeddedPhotoPickerProviderService_ServiceDesc is the grpc.ServiceDesc for EmbeddedPhotoPickerProviderService service.
+func _EmbeddedPhotoPickerClientService_OnSessionError_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnSessionErrorRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EmbeddedPhotoPickerClientServiceServer).OnSessionError(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: EmbeddedPhotoPickerClientService_OnSessionError_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EmbeddedPhotoPickerClientServiceServer).OnSessionError(ctx, req.(*OnSessionErrorRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _EmbeddedPhotoPickerClientService_OnSessionOpened_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnSessionOpenedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EmbeddedPhotoPickerClientServiceServer).OnSessionOpened(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: EmbeddedPhotoPickerClientService_OnSessionOpened_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EmbeddedPhotoPickerClientServiceServer).OnSessionOpened(ctx, req.(*OnSessionOpenedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// EmbeddedPhotoPickerClientService_ServiceDesc is the grpc.ServiceDesc for EmbeddedPhotoPickerClientService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var EmbeddedPhotoPickerProviderService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "photopicker.EmbeddedPhotoPickerProviderService",
-	HandlerType: (*EmbeddedPhotoPickerProviderServiceServer)(nil),
+var EmbeddedPhotoPickerClientService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "photopicker.EmbeddedPhotoPickerClientService",
+	HandlerType: (*EmbeddedPhotoPickerClientServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "OpenSession",
-			Handler:    _EmbeddedPhotoPickerProviderService_OpenSession_Handler,
+			MethodName: "OnSelectionComplete",
+			Handler:    _EmbeddedPhotoPickerClientService_OnSelectionComplete_Handler,
+		},
+		{
+			MethodName: "OnSessionError",
+			Handler:    _EmbeddedPhotoPickerClientService_OnSessionError_Handler,
+		},
+		{
+			MethodName: "OnSessionOpened",
+			Handler:    _EmbeddedPhotoPickerClientService_OnSessionOpened_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

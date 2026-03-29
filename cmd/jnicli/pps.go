@@ -150,6 +150,25 @@ var ppsHomeSpGetMatchAnyOisCmd = &cobra.Command{
 	},
 }
 
+var ppsHomeSpGetOtherHomePartnersListCmd = &cobra.Command{
+	Use:   "get-other-home-partners-list",
+	Short: "GetOtherHomePartnersList RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewHomeSpServiceClient(grpcConn)
+		req := &pb.GetOtherHomePartnersListRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetOtherHomePartnersList(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var ppsHomeSpGetRoamingConsortiumOisCmd = &cobra.Command{
 	Use:   "get-roaming-consortium-ois",
 	Short: "GetRoamingConsortiumOis RPC",
@@ -1372,6 +1391,8 @@ func init() {
 	ppsHomeSpCmd.AddCommand(ppsHomeSpGetMatchAllOisCmd)
 	ppsHomeSpGetMatchAnyOisCmd.Flags().Int64("handle", 0, "handle (int64)")
 	ppsHomeSpCmd.AddCommand(ppsHomeSpGetMatchAnyOisCmd)
+	ppsHomeSpGetOtherHomePartnersListCmd.Flags().Int64("handle", 0, "handle (int64)")
+	ppsHomeSpCmd.AddCommand(ppsHomeSpGetOtherHomePartnersListCmd)
 	ppsHomeSpGetRoamingConsortiumOisCmd.Flags().Int64("handle", 0, "handle (int64)")
 	ppsHomeSpCmd.AddCommand(ppsHomeSpGetRoamingConsortiumOisCmd)
 	ppsHomeSpHashCodeCmd.Flags().Int64("handle", 0, "handle (int64)")

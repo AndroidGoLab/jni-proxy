@@ -12,6 +12,390 @@ var paramsCmd = &cobra.Command{
 	Short: "params service operations",
 }
 
+var paramsMultiResolutionStreamInfoCmd = &cobra.Command{
+	Use:   "multi-resolution-stream-info",
+	Short: "MultiResolutionStreamInfoService operations",
+}
+
+var paramsMultiResolutionStreamInfoNewMultiResolutionStreamInfoCmd = &cobra.Command{
+	Use:   "new-multi-resolution-stream-info",
+	Short: "NewMultiResolutionStreamInfo RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMultiResolutionStreamInfoServiceClient(grpcConn)
+		req := &pb.NewMultiResolutionStreamInfoRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetString("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.NewMultiResolutionStreamInfo(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var paramsMultiResolutionStreamInfoEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMultiResolutionStreamInfoServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var paramsMultiResolutionStreamInfoGetHeightCmd = &cobra.Command{
+	Use:   "get-height",
+	Short: "GetHeight RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMultiResolutionStreamInfoServiceClient(grpcConn)
+		req := &pb.GetHeightRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetHeight(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var paramsMultiResolutionStreamInfoGetPhysicalCameraIdCmd = &cobra.Command{
+	Use:   "get-physical-camera-id",
+	Short: "GetPhysicalCameraId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMultiResolutionStreamInfoServiceClient(grpcConn)
+		req := &pb.GetPhysicalCameraIdRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetPhysicalCameraId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var paramsMultiResolutionStreamInfoGetWidthCmd = &cobra.Command{
+	Use:   "get-width",
+	Short: "GetWidth RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMultiResolutionStreamInfoServiceClient(grpcConn)
+		req := &pb.GetWidthRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetWidth(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var paramsMultiResolutionStreamInfoHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMultiResolutionStreamInfoServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var paramsMandatoryStreamCombinationCmd = &cobra.Command{
+	Use:   "mandatory-stream-combination",
+	Short: "MandatoryStreamCombinationService operations",
+}
+
+var paramsMandatoryStreamCombinationEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMandatoryStreamCombinationServiceClient(grpcConn)
+		req := &pb.MandatoryStreamCombinationEqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var paramsMandatoryStreamCombinationGetDescriptionCmd = &cobra.Command{
+	Use:   "get-description",
+	Short: "GetDescription RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMandatoryStreamCombinationServiceClient(grpcConn)
+		req := &pb.GetDescriptionRequest{}
+		resp, err := client.GetDescription(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var paramsMandatoryStreamCombinationGetStreamsInformationCmd = &cobra.Command{
+	Use:   "get-streams-information",
+	Short: "GetStreamsInformation RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMandatoryStreamCombinationServiceClient(grpcConn)
+		req := &pb.GetStreamsInformationRequest{}
+		resp, err := client.GetStreamsInformation(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var paramsMandatoryStreamCombinationHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMandatoryStreamCombinationServiceClient(grpcConn)
+		req := &pb.MandatoryStreamCombinationHashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var paramsMandatoryStreamCombinationIsReprocessableCmd = &cobra.Command{
+	Use:   "is-reprocessable",
+	Short: "IsReprocessable RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMandatoryStreamCombinationServiceClient(grpcConn)
+		req := &pb.IsReprocessableRequest{}
+		resp, err := client.IsReprocessable(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var paramsMandatoryStreamCombinationMandatoryStreamInformationCmd = &cobra.Command{
+	Use:   "mandatory-stream-combination-mandatory-stream-information",
+	Short: "MandatoryStreamCombinationMandatoryStreamInformationService operations",
+}
+
+var paramsMandatoryStreamCombinationMandatoryStreamInformationEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMandatoryStreamCombinationMandatoryStreamInformationServiceClient(grpcConn)
+		req := &pb.MandatoryStreamCombinationMandatoryStreamInformationEqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var paramsMandatoryStreamCombinationMandatoryStreamInformationGet10BitFormatCmd = &cobra.Command{
+	Use:   "get10bit-format",
+	Short: "Get10BitFormat RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMandatoryStreamCombinationMandatoryStreamInformationServiceClient(grpcConn)
+		req := &pb.Get10BitFormatRequest{}
+		resp, err := client.Get10BitFormat(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var paramsMandatoryStreamCombinationMandatoryStreamInformationGetAvailableSizesCmd = &cobra.Command{
+	Use:   "get-available-sizes",
+	Short: "GetAvailableSizes RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMandatoryStreamCombinationMandatoryStreamInformationServiceClient(grpcConn)
+		req := &pb.GetAvailableSizesRequest{}
+		resp, err := client.GetAvailableSizes(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var paramsMandatoryStreamCombinationMandatoryStreamInformationGetFormatCmd = &cobra.Command{
+	Use:   "get-format",
+	Short: "GetFormat RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMandatoryStreamCombinationMandatoryStreamInformationServiceClient(grpcConn)
+		req := &pb.GetFormatRequest{}
+		resp, err := client.GetFormat(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var paramsMandatoryStreamCombinationMandatoryStreamInformationGetStreamUseCaseCmd = &cobra.Command{
+	Use:   "get-stream-use-case",
+	Short: "GetStreamUseCase RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMandatoryStreamCombinationMandatoryStreamInformationServiceClient(grpcConn)
+		req := &pb.GetStreamUseCaseRequest{}
+		resp, err := client.GetStreamUseCase(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var paramsMandatoryStreamCombinationMandatoryStreamInformationHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMandatoryStreamCombinationMandatoryStreamInformationServiceClient(grpcConn)
+		req := &pb.MandatoryStreamCombinationMandatoryStreamInformationHashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var paramsMandatoryStreamCombinationMandatoryStreamInformationIs10BitCapableCmd = &cobra.Command{
+	Use:   "is10bit-capable",
+	Short: "Is10BitCapable RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMandatoryStreamCombinationMandatoryStreamInformationServiceClient(grpcConn)
+		req := &pb.Is10BitCapableRequest{}
+		resp, err := client.Is10BitCapable(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var paramsMandatoryStreamCombinationMandatoryStreamInformationIsInputCmd = &cobra.Command{
+	Use:   "is-input",
+	Short: "IsInput RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMandatoryStreamCombinationMandatoryStreamInformationServiceClient(grpcConn)
+		req := &pb.IsInputRequest{}
+		resp, err := client.IsInput(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var paramsMandatoryStreamCombinationMandatoryStreamInformationIsMaximumSizeCmd = &cobra.Command{
+	Use:   "is-maximum-size",
+	Short: "IsMaximumSize RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMandatoryStreamCombinationMandatoryStreamInformationServiceClient(grpcConn)
+		req := &pb.IsMaximumSizeRequest{}
+		resp, err := client.IsMaximumSize(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var paramsMandatoryStreamCombinationMandatoryStreamInformationIsUltraHighResolutionCmd = &cobra.Command{
+	Use:   "is-ultra-high-resolution",
+	Short: "IsUltraHighResolution RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMandatoryStreamCombinationMandatoryStreamInformationServiceClient(grpcConn)
+		req := &pb.IsUltraHighResolutionRequest{}
+		resp, err := client.IsUltraHighResolution(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var paramsInputConfigurationCmd = &cobra.Command{
 	Use:   "input-configuration",
 	Short: "InputConfigurationService operations",
@@ -71,7 +455,7 @@ var paramsInputConfigurationGetFormatCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewInputConfigurationServiceClient(grpcConn)
-		req := &pb.GetFormatRequest{}
+		req := &pb.InputConfigurationGetFormatRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
@@ -171,6 +555,816 @@ var paramsInputConfigurationToStringCmd = &cobra.Command{
 			req.Handle = v
 		}
 		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var paramsMeteringRectangleCmd = &cobra.Command{
+	Use:   "metering-rectangle",
+	Short: "MeteringRectangleService operations",
+}
+
+var paramsMeteringRectangleNewMeteringRectangleCmd = &cobra.Command{
+	Use:   "new-metering-rectangle",
+	Short: "NewMeteringRectangle RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMeteringRectangleServiceClient(grpcConn)
+		req := &pb.NewMeteringRectangleRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.NewMeteringRectangle(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var paramsMeteringRectangleEquals1Cmd = &cobra.Command{
+	Use:   "equals1",
+	Short: "Equals1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMeteringRectangleServiceClient(grpcConn)
+		req := &pb.Equals1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var paramsMeteringRectangleEquals1_1Cmd = &cobra.Command{
+	Use:   "equals1_1",
+	Short: "Equals1_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMeteringRectangleServiceClient(grpcConn)
+		req := &pb.Equals1_1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals1_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var paramsMeteringRectangleGetHeightCmd = &cobra.Command{
+	Use:   "get-height",
+	Short: "GetHeight RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMeteringRectangleServiceClient(grpcConn)
+		req := &pb.GetHeightRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetHeight(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var paramsMeteringRectangleGetMeteringWeightCmd = &cobra.Command{
+	Use:   "get-metering-weight",
+	Short: "GetMeteringWeight RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMeteringRectangleServiceClient(grpcConn)
+		req := &pb.GetMeteringWeightRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetMeteringWeight(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var paramsMeteringRectangleGetRectCmd = &cobra.Command{
+	Use:   "get-rect",
+	Short: "GetRect RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMeteringRectangleServiceClient(grpcConn)
+		req := &pb.GetRectRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetRect(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var paramsMeteringRectangleGetSizeCmd = &cobra.Command{
+	Use:   "get-size",
+	Short: "GetSize RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMeteringRectangleServiceClient(grpcConn)
+		req := &pb.GetSizeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetSize(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var paramsMeteringRectangleGetUpperLeftPointCmd = &cobra.Command{
+	Use:   "get-upper-left-point",
+	Short: "GetUpperLeftPoint RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMeteringRectangleServiceClient(grpcConn)
+		req := &pb.GetUpperLeftPointRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetUpperLeftPoint(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var paramsMeteringRectangleGetWidthCmd = &cobra.Command{
+	Use:   "get-width",
+	Short: "GetWidth RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMeteringRectangleServiceClient(grpcConn)
+		req := &pb.GetWidthRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetWidth(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var paramsMeteringRectangleGetXCmd = &cobra.Command{
+	Use:   "get-x",
+	Short: "GetX RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMeteringRectangleServiceClient(grpcConn)
+		req := &pb.GetXRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetX(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var paramsMeteringRectangleGetYCmd = &cobra.Command{
+	Use:   "get-y",
+	Short: "GetY RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMeteringRectangleServiceClient(grpcConn)
+		req := &pb.GetYRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetY(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var paramsMeteringRectangleHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMeteringRectangleServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var paramsMeteringRectangleToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMeteringRectangleServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var paramsDynamicRangeProfilesCmd = &cobra.Command{
+	Use:   "dynamic-range-profiles",
+	Short: "DynamicRangeProfilesService operations",
+}
+
+var paramsDynamicRangeProfilesNewDynamicRangeProfilesCmd = &cobra.Command{
+	Use:   "new-dynamic-range-profiles",
+	Short: "NewDynamicRangeProfiles RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDynamicRangeProfilesServiceClient(grpcConn)
+		req := &pb.NewDynamicRangeProfilesRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.NewDynamicRangeProfiles(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var paramsDynamicRangeProfilesGetProfileCaptureRequestConstraintsCmd = &cobra.Command{
+	Use:   "get-profile-capture-request-constraints",
+	Short: "GetProfileCaptureRequestConstraints RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDynamicRangeProfilesServiceClient(grpcConn)
+		req := &pb.GetProfileCaptureRequestConstraintsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetProfileCaptureRequestConstraints(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var paramsDynamicRangeProfilesGetSupportedProfilesCmd = &cobra.Command{
+	Use:   "get-supported-profiles",
+	Short: "GetSupportedProfiles RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDynamicRangeProfilesServiceClient(grpcConn)
+		req := &pb.GetSupportedProfilesRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetSupportedProfiles(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var paramsDynamicRangeProfilesIsExtraLatencyPresentCmd = &cobra.Command{
+	Use:   "is-extra-latency-present",
+	Short: "IsExtraLatencyPresent RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDynamicRangeProfilesServiceClient(grpcConn)
+		req := &pb.IsExtraLatencyPresentRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.IsExtraLatencyPresent(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var paramsCapabilityCmd = &cobra.Command{
+	Use:   "capability",
+	Short: "CapabilityService operations",
+}
+
+var paramsCapabilityNewCapabilityCmd = &cobra.Command{
+	Use:   "new-capability",
+	Short: "NewCapability RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCapabilityServiceClient(grpcConn)
+		req := &pb.NewCapabilityRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.NewCapability(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var paramsCapabilityEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCapabilityServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var paramsCapabilityGetMaxStreamingSizeCmd = &cobra.Command{
+	Use:   "get-max-streaming-size",
+	Short: "GetMaxStreamingSize RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCapabilityServiceClient(grpcConn)
+		req := &pb.GetMaxStreamingSizeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetMaxStreamingSize(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var paramsCapabilityGetModeCmd = &cobra.Command{
+	Use:   "get-mode",
+	Short: "GetMode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCapabilityServiceClient(grpcConn)
+		req := &pb.GetModeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetMode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var paramsCapabilityGetZoomRatioRangeCmd = &cobra.Command{
+	Use:   "get-zoom-ratio-range",
+	Short: "GetZoomRatioRange RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCapabilityServiceClient(grpcConn)
+		req := &pb.GetZoomRatioRangeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetZoomRatioRange(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var paramsCapabilityHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCapabilityServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var paramsCapabilityToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCapabilityServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var paramsExtensionSessionConfigurationCmd = &cobra.Command{
+	Use:   "extension-session-configuration",
+	Short: "ExtensionSessionConfigurationService operations",
+}
+
+var paramsExtensionSessionConfigurationNewExtensionSessionConfigurationCmd = &cobra.Command{
+	Use:   "new-extension-session-configuration",
+	Short: "NewExtensionSessionConfiguration RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewExtensionSessionConfigurationServiceClient(grpcConn)
+		req := &pb.NewExtensionSessionConfigurationRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.NewExtensionSessionConfiguration(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var paramsExtensionSessionConfigurationClearColorSpaceCmd = &cobra.Command{
+	Use:   "clear-color-space",
+	Short: "ClearColorSpace RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewExtensionSessionConfigurationServiceClient(grpcConn)
+		req := &pb.ClearColorSpaceRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.ClearColorSpace(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var paramsExtensionSessionConfigurationGetColorSpaceCmd = &cobra.Command{
+	Use:   "get-color-space",
+	Short: "GetColorSpace RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewExtensionSessionConfigurationServiceClient(grpcConn)
+		req := &pb.GetColorSpaceRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetColorSpace(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var paramsExtensionSessionConfigurationGetExecutorCmd = &cobra.Command{
+	Use:   "get-executor",
+	Short: "GetExecutor RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewExtensionSessionConfigurationServiceClient(grpcConn)
+		req := &pb.GetExecutorRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetExecutor(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var paramsExtensionSessionConfigurationGetExtensionCmd = &cobra.Command{
+	Use:   "get-extension",
+	Short: "GetExtension RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewExtensionSessionConfigurationServiceClient(grpcConn)
+		req := &pb.GetExtensionRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetExtension(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var paramsExtensionSessionConfigurationGetOutputConfigurationsCmd = &cobra.Command{
+	Use:   "get-output-configurations",
+	Short: "GetOutputConfigurations RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewExtensionSessionConfigurationServiceClient(grpcConn)
+		req := &pb.GetOutputConfigurationsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetOutputConfigurations(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var paramsExtensionSessionConfigurationGetPostviewOutputConfigurationCmd = &cobra.Command{
+	Use:   "get-postview-output-configuration",
+	Short: "GetPostviewOutputConfiguration RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewExtensionSessionConfigurationServiceClient(grpcConn)
+		req := &pb.GetPostviewOutputConfigurationRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetPostviewOutputConfiguration(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var paramsExtensionSessionConfigurationGetStateCallbackCmd = &cobra.Command{
+	Use:   "get-state-callback",
+	Short: "GetStateCallback RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewExtensionSessionConfigurationServiceClient(grpcConn)
+		req := &pb.GetStateCallbackRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetStateCallback(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var paramsExtensionSessionConfigurationSetColorSpaceCmd = &cobra.Command{
+	Use:   "set-color-space",
+	Short: "SetColorSpace RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewExtensionSessionConfigurationServiceClient(grpcConn)
+		req := &pb.SetColorSpaceRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetColorSpace(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var paramsExtensionSessionConfigurationSetPostviewOutputConfigurationCmd = &cobra.Command{
+	Use:   "set-postview-output-configuration",
+	Short: "SetPostviewOutputConfiguration RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewExtensionSessionConfigurationServiceClient(grpcConn)
+		req := &pb.SetPostviewOutputConfigurationRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetPostviewOutputConfiguration(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var paramsDeviceStateSensorOrientationMapCmd = &cobra.Command{
+	Use:   "device-state-sensor-orientation-map",
+	Short: "DeviceStateSensorOrientationMapService operations",
+}
+
+var paramsDeviceStateSensorOrientationMapEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeviceStateSensorOrientationMapServiceClient(grpcConn)
+		req := &pb.DeviceStateSensorOrientationMapEqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var paramsDeviceStateSensorOrientationMapGetSensorOrientationCmd = &cobra.Command{
+	Use:   "get-sensor-orientation",
+	Short: "GetSensorOrientation RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeviceStateSensorOrientationMapServiceClient(grpcConn)
+		req := &pb.GetSensorOrientationRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetSensorOrientation(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var paramsDeviceStateSensorOrientationMapHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeviceStateSensorOrientationMapServiceClient(grpcConn)
+		req := &pb.DeviceStateSensorOrientationMapHashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var paramsDeviceStateSensorOrientationMapBuilderCmd = &cobra.Command{
+	Use:   "device-state-sensor-orientation-map-builder",
+	Short: "DeviceStateSensorOrientationMapBuilderService operations",
+}
+
+var paramsDeviceStateSensorOrientationMapBuilderAddOrientationForStateCmd = &cobra.Command{
+	Use:   "add-orientation-for-state",
+	Short: "AddOrientationForState RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeviceStateSensorOrientationMapBuilderServiceClient(grpcConn)
+		req := &pb.AddOrientationForStateRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.AddOrientationForState(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var paramsDeviceStateSensorOrientationMapBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeviceStateSensorOrientationMapBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -325,19 +1519,44 @@ var paramsOisSampleToStringCmd = &cobra.Command{
 	},
 }
 
-var paramsMultiResolutionStreamConfigurationMapCmd = &cobra.Command{
-	Use:   "multi-resolution-stream-configuration-map",
-	Short: "MultiResolutionStreamConfigurationMapService operations",
+var paramsLensIntrinsicsSampleCmd = &cobra.Command{
+	Use:   "lens-intrinsics-sample",
+	Short: "LensIntrinsicsSampleService operations",
 }
 
-var paramsMultiResolutionStreamConfigurationMapEqualsCmd = &cobra.Command{
+var paramsLensIntrinsicsSampleNewLensIntrinsicsSampleCmd = &cobra.Command{
+	Use:   "new-lens-intrinsics-sample",
+	Short: "NewLensIntrinsicsSample RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLensIntrinsicsSampleServiceClient(grpcConn)
+		req := &pb.NewLensIntrinsicsSampleRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.NewLensIntrinsicsSample(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var paramsLensIntrinsicsSampleEqualsCmd = &cobra.Command{
 	Use:   "equals",
 	Short: "Equals RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewMultiResolutionStreamConfigurationMapServiceClient(grpcConn)
-		req := &pb.MultiResolutionStreamConfigurationMapEqualsRequest{}
+		client := pb.NewLensIntrinsicsSampleServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
@@ -349,15 +1568,18 @@ var paramsMultiResolutionStreamConfigurationMapEqualsCmd = &cobra.Command{
 	},
 }
 
-var paramsMultiResolutionStreamConfigurationMapGetInputFormatsCmd = &cobra.Command{
-	Use:   "get-input-formats",
-	Short: "GetInputFormats RPC",
+var paramsLensIntrinsicsSampleGetLensIntrinsicsCmd = &cobra.Command{
+	Use:   "get-lens-intrinsics",
+	Short: "GetLensIntrinsics RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewMultiResolutionStreamConfigurationMapServiceClient(grpcConn)
-		req := &pb.GetInputFormatsRequest{}
-		resp, err := client.GetInputFormats(ctx, req)
+		client := pb.NewLensIntrinsicsSampleServiceClient(grpcConn)
+		req := &pb.GetLensIntrinsicsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetLensIntrinsics(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -365,15 +1587,18 @@ var paramsMultiResolutionStreamConfigurationMapGetInputFormatsCmd = &cobra.Comma
 	},
 }
 
-var paramsMultiResolutionStreamConfigurationMapGetOutputFormatsCmd = &cobra.Command{
-	Use:   "get-output-formats",
-	Short: "GetOutputFormats RPC",
+var paramsLensIntrinsicsSampleGetTimestampNanosCmd = &cobra.Command{
+	Use:   "get-timestamp-nanos",
+	Short: "GetTimestampNanos RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewMultiResolutionStreamConfigurationMapServiceClient(grpcConn)
-		req := &pb.GetOutputFormatsRequest{}
-		resp, err := client.GetOutputFormats(ctx, req)
+		client := pb.NewLensIntrinsicsSampleServiceClient(grpcConn)
+		req := &pb.GetTimestampNanosRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetTimestampNanos(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -381,14 +1606,17 @@ var paramsMultiResolutionStreamConfigurationMapGetOutputFormatsCmd = &cobra.Comm
 	},
 }
 
-var paramsMultiResolutionStreamConfigurationMapHashCodeCmd = &cobra.Command{
+var paramsLensIntrinsicsSampleHashCodeCmd = &cobra.Command{
 	Use:   "hash-code",
 	Short: "HashCode RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewMultiResolutionStreamConfigurationMapServiceClient(grpcConn)
-		req := &pb.MultiResolutionStreamConfigurationMapHashCodeRequest{}
+		client := pb.NewLensIntrinsicsSampleServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
 		resp, err := client.HashCode(ctx, req)
 		if err != nil {
 			return err
@@ -397,14 +1625,17 @@ var paramsMultiResolutionStreamConfigurationMapHashCodeCmd = &cobra.Command{
 	},
 }
 
-var paramsMultiResolutionStreamConfigurationMapToStringCmd = &cobra.Command{
+var paramsLensIntrinsicsSampleToStringCmd = &cobra.Command{
 	Use:   "to-string",
 	Short: "ToString RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewMultiResolutionStreamConfigurationMapServiceClient(grpcConn)
-		req := &pb.MultiResolutionStreamConfigurationMapToStringRequest{}
+		client := pb.NewLensIntrinsicsSampleServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
 		resp, err := client.ToString(ctx, req)
 		if err != nil {
 			return err
@@ -413,19 +1644,241 @@ var paramsMultiResolutionStreamConfigurationMapToStringCmd = &cobra.Command{
 	},
 }
 
-var paramsMandatoryStreamCombinationCmd = &cobra.Command{
-	Use:   "mandatory-stream-combination",
-	Short: "MandatoryStreamCombinationService operations",
+var paramsColorSpaceProfilesCmd = &cobra.Command{
+	Use:   "color-space-profiles",
+	Short: "ColorSpaceProfilesService operations",
 }
 
-var paramsMandatoryStreamCombinationEqualsCmd = &cobra.Command{
+var paramsColorSpaceProfilesNewColorSpaceProfilesCmd = &cobra.Command{
+	Use:   "new-color-space-profiles",
+	Short: "NewColorSpaceProfiles RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewColorSpaceProfilesServiceClient(grpcConn)
+		req := &pb.NewColorSpaceProfilesRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.NewColorSpaceProfiles(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var paramsColorSpaceProfilesGetSupportedColorSpacesCmd = &cobra.Command{
+	Use:   "get-supported-color-spaces",
+	Short: "GetSupportedColorSpaces RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewColorSpaceProfilesServiceClient(grpcConn)
+		req := &pb.GetSupportedColorSpacesRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetSupportedColorSpaces(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var paramsColorSpaceProfilesGetSupportedColorSpacesForDynamicRangeCmd = &cobra.Command{
+	Use:   "get-supported-color-spaces-for-dynamic-range",
+	Short: "GetSupportedColorSpacesForDynamicRange RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewColorSpaceProfilesServiceClient(grpcConn)
+		req := &pb.GetSupportedColorSpacesForDynamicRangeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.GetSupportedColorSpacesForDynamicRange(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var paramsColorSpaceProfilesGetSupportedDynamicRangeProfilesCmd = &cobra.Command{
+	Use:   "get-supported-dynamic-range-profiles",
+	Short: "GetSupportedDynamicRangeProfiles RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewColorSpaceProfilesServiceClient(grpcConn)
+		req := &pb.GetSupportedDynamicRangeProfilesRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.GetSupportedDynamicRangeProfiles(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var paramsColorSpaceProfilesGetSupportedImageFormatsForColorSpaceCmd = &cobra.Command{
+	Use:   "get-supported-image-formats-for-color-space",
+	Short: "GetSupportedImageFormatsForColorSpace RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewColorSpaceProfilesServiceClient(grpcConn)
+		req := &pb.GetSupportedImageFormatsForColorSpaceRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetSupportedImageFormatsForColorSpace(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var paramsOutputConfigurationCmd = &cobra.Command{
+	Use:   "output-configuration",
+	Short: "OutputConfigurationService operations",
+}
+
+var paramsOutputConfigurationNewOutputConfigurationCmd = &cobra.Command{
+	Use:   "new-output-configuration",
+	Short: "NewOutputConfiguration RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewOutputConfigurationServiceClient(grpcConn)
+		req := &pb.NewOutputConfigurationRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.NewOutputConfiguration(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var paramsOutputConfigurationAddSensorPixelModeUsedCmd = &cobra.Command{
+	Use:   "add-sensor-pixel-mode-used",
+	Short: "AddSensorPixelModeUsed RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewOutputConfigurationServiceClient(grpcConn)
+		req := &pb.AddSensorPixelModeUsedRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddSensorPixelModeUsed(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var paramsOutputConfigurationAddSurfaceCmd = &cobra.Command{
+	Use:   "add-surface",
+	Short: "AddSurface RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewOutputConfigurationServiceClient(grpcConn)
+		req := &pb.AddSurfaceRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddSurface(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var paramsOutputConfigurationDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewOutputConfigurationServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var paramsOutputConfigurationEnableSurfaceSharingCmd = &cobra.Command{
+	Use:   "enable-surface-sharing",
+	Short: "EnableSurfaceSharing RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewOutputConfigurationServiceClient(grpcConn)
+		req := &pb.EnableSurfaceSharingRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.EnableSurfaceSharing(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var paramsOutputConfigurationEqualsCmd = &cobra.Command{
 	Use:   "equals",
 	Short: "Equals RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewMandatoryStreamCombinationServiceClient(grpcConn)
-		req := &pb.MandatoryStreamCombinationEqualsRequest{}
+		client := pb.NewOutputConfigurationServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
@@ -437,15 +1890,18 @@ var paramsMandatoryStreamCombinationEqualsCmd = &cobra.Command{
 	},
 }
 
-var paramsMandatoryStreamCombinationGetDescriptionCmd = &cobra.Command{
-	Use:   "get-description",
-	Short: "GetDescription RPC",
+var paramsOutputConfigurationGetDynamicRangeProfileCmd = &cobra.Command{
+	Use:   "get-dynamic-range-profile",
+	Short: "GetDynamicRangeProfile RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewMandatoryStreamCombinationServiceClient(grpcConn)
-		req := &pb.GetDescriptionRequest{}
-		resp, err := client.GetDescription(ctx, req)
+		client := pb.NewOutputConfigurationServiceClient(grpcConn)
+		req := &pb.GetDynamicRangeProfileRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetDynamicRangeProfile(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -453,15 +1909,18 @@ var paramsMandatoryStreamCombinationGetDescriptionCmd = &cobra.Command{
 	},
 }
 
-var paramsMandatoryStreamCombinationHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
+var paramsOutputConfigurationGetMaxSharedSurfaceCountCmd = &cobra.Command{
+	Use:   "get-max-shared-surface-count",
+	Short: "GetMaxSharedSurfaceCount RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewMandatoryStreamCombinationServiceClient(grpcConn)
-		req := &pb.MandatoryStreamCombinationHashCodeRequest{}
-		resp, err := client.HashCode(ctx, req)
+		client := pb.NewOutputConfigurationServiceClient(grpcConn)
+		req := &pb.GetMaxSharedSurfaceCountRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetMaxSharedSurfaceCount(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -469,15 +1928,18 @@ var paramsMandatoryStreamCombinationHashCodeCmd = &cobra.Command{
 	},
 }
 
-var paramsMandatoryStreamCombinationIsReprocessableCmd = &cobra.Command{
-	Use:   "is-reprocessable",
-	Short: "IsReprocessable RPC",
+var paramsOutputConfigurationGetMirrorMode0Cmd = &cobra.Command{
+	Use:   "get-mirror-mode0",
+	Short: "GetMirrorMode0 RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewMandatoryStreamCombinationServiceClient(grpcConn)
-		req := &pb.IsReprocessableRequest{}
-		resp, err := client.IsReprocessable(ctx, req)
+		client := pb.NewOutputConfigurationServiceClient(grpcConn)
+		req := &pb.GetMirrorMode0Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetMirrorMode0(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -485,23 +1947,21 @@ var paramsMandatoryStreamCombinationIsReprocessableCmd = &cobra.Command{
 	},
 }
 
-var paramsMandatoryStreamCombinationMandatoryStreamInformationCmd = &cobra.Command{
-	Use:   "mandatory-stream-combination-mandatory-stream-information",
-	Short: "MandatoryStreamCombinationMandatoryStreamInformationService operations",
-}
-
-var paramsMandatoryStreamCombinationMandatoryStreamInformationEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
+var paramsOutputConfigurationGetMirrorMode1_1Cmd = &cobra.Command{
+	Use:   "get-mirror-mode1_1",
+	Short: "GetMirrorMode1_1 RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewMandatoryStreamCombinationMandatoryStreamInformationServiceClient(grpcConn)
-		req := &pb.MandatoryStreamCombinationMandatoryStreamInformationEqualsRequest{}
+		client := pb.NewOutputConfigurationServiceClient(grpcConn)
+		req := &pb.GetMirrorMode1_1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		resp, err := client.Equals(ctx, req)
+		resp, err := client.GetMirrorMode1_1(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -509,46 +1969,17 @@ var paramsMandatoryStreamCombinationMandatoryStreamInformationEqualsCmd = &cobra
 	},
 }
 
-var paramsMandatoryStreamCombinationMandatoryStreamInformationGet10BitFormatCmd = &cobra.Command{
-	Use:   "get10bit-format",
-	Short: "Get10BitFormat RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMandatoryStreamCombinationMandatoryStreamInformationServiceClient(grpcConn)
-		req := &pb.Get10BitFormatRequest{}
-		resp, err := client.Get10BitFormat(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var paramsMandatoryStreamCombinationMandatoryStreamInformationGetFormatCmd = &cobra.Command{
-	Use:   "get-format",
-	Short: "GetFormat RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMandatoryStreamCombinationMandatoryStreamInformationServiceClient(grpcConn)
-		req := &pb.MandatoryStreamCombinationMandatoryStreamInformationGetFormatRequest{}
-		resp, err := client.GetFormat(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var paramsMandatoryStreamCombinationMandatoryStreamInformationGetStreamUseCaseCmd = &cobra.Command{
+var paramsOutputConfigurationGetStreamUseCaseCmd = &cobra.Command{
 	Use:   "get-stream-use-case",
 	Short: "GetStreamUseCase RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewMandatoryStreamCombinationMandatoryStreamInformationServiceClient(grpcConn)
-		req := &pb.GetStreamUseCaseRequest{}
+		client := pb.NewOutputConfigurationServiceClient(grpcConn)
+		req := &pb.OutputConfigurationGetStreamUseCaseRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
 		resp, err := client.GetStreamUseCase(ctx, req)
 		if err != nil {
 			return err
@@ -557,248 +1988,89 @@ var paramsMandatoryStreamCombinationMandatoryStreamInformationGetStreamUseCaseCm
 	},
 }
 
-var paramsMandatoryStreamCombinationMandatoryStreamInformationHashCodeCmd = &cobra.Command{
+var paramsOutputConfigurationGetSurfaceCmd = &cobra.Command{
+	Use:   "get-surface",
+	Short: "GetSurface RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewOutputConfigurationServiceClient(grpcConn)
+		req := &pb.GetSurfaceRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetSurface(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var paramsOutputConfigurationGetSurfaceGroupIdCmd = &cobra.Command{
+	Use:   "get-surface-group-id",
+	Short: "GetSurfaceGroupId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewOutputConfigurationServiceClient(grpcConn)
+		req := &pb.GetSurfaceGroupIdRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetSurfaceGroupId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var paramsOutputConfigurationGetSurfacesCmd = &cobra.Command{
+	Use:   "get-surfaces",
+	Short: "GetSurfaces RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewOutputConfigurationServiceClient(grpcConn)
+		req := &pb.GetSurfacesRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetSurfaces(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var paramsOutputConfigurationGetTimestampBaseCmd = &cobra.Command{
+	Use:   "get-timestamp-base",
+	Short: "GetTimestampBase RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewOutputConfigurationServiceClient(grpcConn)
+		req := &pb.GetTimestampBaseRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetTimestampBase(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var paramsOutputConfigurationHashCodeCmd = &cobra.Command{
 	Use:   "hash-code",
 	Short: "HashCode RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewMandatoryStreamCombinationMandatoryStreamInformationServiceClient(grpcConn)
-		req := &pb.MandatoryStreamCombinationMandatoryStreamInformationHashCodeRequest{}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var paramsMandatoryStreamCombinationMandatoryStreamInformationIs10BitCapableCmd = &cobra.Command{
-	Use:   "is10bit-capable",
-	Short: "Is10BitCapable RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMandatoryStreamCombinationMandatoryStreamInformationServiceClient(grpcConn)
-		req := &pb.Is10BitCapableRequest{}
-		resp, err := client.Is10BitCapable(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var paramsMandatoryStreamCombinationMandatoryStreamInformationIsInputCmd = &cobra.Command{
-	Use:   "is-input",
-	Short: "IsInput RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMandatoryStreamCombinationMandatoryStreamInformationServiceClient(grpcConn)
-		req := &pb.IsInputRequest{}
-		resp, err := client.IsInput(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var paramsMandatoryStreamCombinationMandatoryStreamInformationIsMaximumSizeCmd = &cobra.Command{
-	Use:   "is-maximum-size",
-	Short: "IsMaximumSize RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMandatoryStreamCombinationMandatoryStreamInformationServiceClient(grpcConn)
-		req := &pb.IsMaximumSizeRequest{}
-		resp, err := client.IsMaximumSize(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var paramsMandatoryStreamCombinationMandatoryStreamInformationIsUltraHighResolutionCmd = &cobra.Command{
-	Use:   "is-ultra-high-resolution",
-	Short: "IsUltraHighResolution RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMandatoryStreamCombinationMandatoryStreamInformationServiceClient(grpcConn)
-		req := &pb.IsUltraHighResolutionRequest{}
-		resp, err := client.IsUltraHighResolution(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var paramsDynamicRangeProfilesCmd = &cobra.Command{
-	Use:   "dynamic-range-profiles",
-	Short: "DynamicRangeProfilesService operations",
-}
-
-var paramsDynamicRangeProfilesNewDynamicRangeProfilesCmd = &cobra.Command{
-	Use:   "new-dynamic-range-profiles",
-	Short: "NewDynamicRangeProfiles RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDynamicRangeProfilesServiceClient(grpcConn)
-		req := &pb.NewDynamicRangeProfilesRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.NewDynamicRangeProfiles(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var paramsDynamicRangeProfilesIsExtraLatencyPresentCmd = &cobra.Command{
-	Use:   "is-extra-latency-present",
-	Short: "IsExtraLatencyPresent RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDynamicRangeProfilesServiceClient(grpcConn)
-		req := &pb.IsExtraLatencyPresentRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.IsExtraLatencyPresent(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var paramsMultiResolutionStreamInfoCmd = &cobra.Command{
-	Use:   "multi-resolution-stream-info",
-	Short: "MultiResolutionStreamInfoService operations",
-}
-
-var paramsMultiResolutionStreamInfoNewMultiResolutionStreamInfoCmd = &cobra.Command{
-	Use:   "new-multi-resolution-stream-info",
-	Short: "NewMultiResolutionStreamInfo RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMultiResolutionStreamInfoServiceClient(grpcConn)
-		req := &pb.NewMultiResolutionStreamInfoRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetString("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.NewMultiResolutionStreamInfo(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var paramsMultiResolutionStreamInfoEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMultiResolutionStreamInfoServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var paramsMultiResolutionStreamInfoGetHeightCmd = &cobra.Command{
-	Use:   "get-height",
-	Short: "GetHeight RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMultiResolutionStreamInfoServiceClient(grpcConn)
-		req := &pb.GetHeightRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetHeight(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var paramsMultiResolutionStreamInfoGetPhysicalCameraIdCmd = &cobra.Command{
-	Use:   "get-physical-camera-id",
-	Short: "GetPhysicalCameraId RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMultiResolutionStreamInfoServiceClient(grpcConn)
-		req := &pb.GetPhysicalCameraIdRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetPhysicalCameraId(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var paramsMultiResolutionStreamInfoGetWidthCmd = &cobra.Command{
-	Use:   "get-width",
-	Short: "GetWidth RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMultiResolutionStreamInfoServiceClient(grpcConn)
-		req := &pb.GetWidthRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetWidth(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var paramsMultiResolutionStreamInfoHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMultiResolutionStreamInfoServiceClient(grpcConn)
+		client := pb.NewOutputConfigurationServiceClient(grpcConn)
 		req := &pb.HashCodeRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
@@ -811,51 +2083,18 @@ var paramsMultiResolutionStreamInfoHashCodeCmd = &cobra.Command{
 	},
 }
 
-var paramsExtensionSessionConfigurationCmd = &cobra.Command{
-	Use:   "extension-session-configuration",
-	Short: "ExtensionSessionConfigurationService operations",
-}
-
-var paramsExtensionSessionConfigurationNewExtensionSessionConfigurationCmd = &cobra.Command{
-	Use:   "new-extension-session-configuration",
-	Short: "NewExtensionSessionConfiguration RPC",
+var paramsOutputConfigurationIsReadoutTimestampEnabledCmd = &cobra.Command{
+	Use:   "is-readout-timestamp-enabled",
+	Short: "IsReadoutTimestampEnabled RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewExtensionSessionConfigurationServiceClient(grpcConn)
-		req := &pb.NewExtensionSessionConfigurationRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		resp, err := client.NewExtensionSessionConfiguration(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var paramsExtensionSessionConfigurationClearColorSpaceCmd = &cobra.Command{
-	Use:   "clear-color-space",
-	Short: "ClearColorSpace RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewExtensionSessionConfigurationServiceClient(grpcConn)
-		req := &pb.ClearColorSpaceRequest{}
+		client := pb.NewOutputConfigurationServiceClient(grpcConn)
+		req := &pb.IsReadoutTimestampEnabledRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
-		resp, err := client.ClearColorSpace(ctx, req)
+		resp, err := client.IsReadoutTimestampEnabled(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -863,259 +2102,90 @@ var paramsExtensionSessionConfigurationClearColorSpaceCmd = &cobra.Command{
 	},
 }
 
-var paramsExtensionSessionConfigurationGetColorSpaceCmd = &cobra.Command{
-	Use:   "get-color-space",
-	Short: "GetColorSpace RPC",
+var paramsOutputConfigurationRemoveSensorPixelModeUsedCmd = &cobra.Command{
+	Use:   "remove-sensor-pixel-mode-used",
+	Short: "RemoveSensorPixelModeUsed RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewExtensionSessionConfigurationServiceClient(grpcConn)
-		req := &pb.GetColorSpaceRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetColorSpace(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var paramsExtensionSessionConfigurationGetExecutorCmd = &cobra.Command{
-	Use:   "get-executor",
-	Short: "GetExecutor RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewExtensionSessionConfigurationServiceClient(grpcConn)
-		req := &pb.GetExecutorRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetExecutor(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var paramsExtensionSessionConfigurationGetExtensionCmd = &cobra.Command{
-	Use:   "get-extension",
-	Short: "GetExtension RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewExtensionSessionConfigurationServiceClient(grpcConn)
-		req := &pb.GetExtensionRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetExtension(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var paramsExtensionSessionConfigurationGetPostviewOutputConfigurationCmd = &cobra.Command{
-	Use:   "get-postview-output-configuration",
-	Short: "GetPostviewOutputConfiguration RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewExtensionSessionConfigurationServiceClient(grpcConn)
-		req := &pb.GetPostviewOutputConfigurationRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetPostviewOutputConfiguration(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var paramsExtensionSessionConfigurationGetStateCallbackCmd = &cobra.Command{
-	Use:   "get-state-callback",
-	Short: "GetStateCallback RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewExtensionSessionConfigurationServiceClient(grpcConn)
-		req := &pb.GetStateCallbackRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetStateCallback(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var paramsExtensionSessionConfigurationSetColorSpaceCmd = &cobra.Command{
-	Use:   "set-color-space",
-	Short: "SetColorSpace RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewExtensionSessionConfigurationServiceClient(grpcConn)
-		req := &pb.SetColorSpaceRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetColorSpace(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var paramsExtensionSessionConfigurationSetPostviewOutputConfigurationCmd = &cobra.Command{
-	Use:   "set-postview-output-configuration",
-	Short: "SetPostviewOutputConfiguration RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewExtensionSessionConfigurationServiceClient(grpcConn)
-		req := &pb.SetPostviewOutputConfigurationRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetPostviewOutputConfiguration(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var paramsColorSpaceTransformCmd = &cobra.Command{
-	Use:   "color-space-transform",
-	Short: "ColorSpaceTransformService operations",
-}
-
-var paramsColorSpaceTransformNewColorSpaceTransformCmd = &cobra.Command{
-	Use:   "new-color-space-transform",
-	Short: "NewColorSpaceTransform RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewColorSpaceTransformServiceClient(grpcConn)
-		req := &pb.NewColorSpaceTransformRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.NewColorSpaceTransform(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var paramsColorSpaceTransformCopyElements2Cmd = &cobra.Command{
-	Use:   "copy-elements2",
-	Short: "CopyElements2 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewColorSpaceTransformServiceClient(grpcConn)
-		req := &pb.CopyElements2Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.CopyElements2(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var paramsColorSpaceTransformCopyElements2_1Cmd = &cobra.Command{
-	Use:   "copy-elements2_1",
-	Short: "CopyElements2_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewColorSpaceTransformServiceClient(grpcConn)
-		req := &pb.CopyElements2_1Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.CopyElements2_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var paramsColorSpaceTransformEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewColorSpaceTransformServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var paramsColorSpaceTransformGetElementCmd = &cobra.Command{
-	Use:   "get-element",
-	Short: "GetElement RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewColorSpaceTransformServiceClient(grpcConn)
-		req := &pb.GetElementRequest{}
+		client := pb.NewOutputConfigurationServiceClient(grpcConn)
+		req := &pb.RemoveSensorPixelModeUsedRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
 		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
 			req.Arg0 = v
 		}
+		resp, err := client.RemoveSensorPixelModeUsed(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var paramsOutputConfigurationRemoveSurfaceCmd = &cobra.Command{
+	Use:   "remove-surface",
+	Short: "RemoveSurface RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewOutputConfigurationServiceClient(grpcConn)
+		req := &pb.RemoveSurfaceRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.RemoveSurface(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var paramsOutputConfigurationSetDynamicRangeProfileCmd = &cobra.Command{
+	Use:   "set-dynamic-range-profile",
+	Short: "SetDynamicRangeProfile RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewOutputConfigurationServiceClient(grpcConn)
+		req := &pb.SetDynamicRangeProfileRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetDynamicRangeProfile(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var paramsOutputConfigurationSetMirrorMode2Cmd = &cobra.Command{
+	Use:   "set-mirror-mode2",
+	Short: "SetMirrorMode2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewOutputConfigurationServiceClient(grpcConn)
+		req := &pb.SetMirrorMode2Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
 		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
 			req.Arg1 = v
 		}
-		resp, err := client.GetElement(ctx, req)
+		resp, err := client.SetMirrorMode2(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1123,18 +2193,21 @@ var paramsColorSpaceTransformGetElementCmd = &cobra.Command{
 	},
 }
 
-var paramsColorSpaceTransformHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
+var paramsOutputConfigurationSetMirrorMode1_1Cmd = &cobra.Command{
+	Use:   "set-mirror-mode1_1",
+	Short: "SetMirrorMode1_1 RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewColorSpaceTransformServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
+		client := pb.NewOutputConfigurationServiceClient(grpcConn)
+		req := &pb.SetMirrorMode1_1Request{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
-		resp, err := client.HashCode(ctx, req)
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetMirrorMode1_1(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1142,18 +2215,134 @@ var paramsColorSpaceTransformHashCodeCmd = &cobra.Command{
 	},
 }
 
-var paramsColorSpaceTransformToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
+var paramsOutputConfigurationSetPhysicalCameraIdCmd = &cobra.Command{
+	Use:   "set-physical-camera-id",
+	Short: "SetPhysicalCameraId RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewColorSpaceTransformServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
+		client := pb.NewOutputConfigurationServiceClient(grpcConn)
+		req := &pb.SetPhysicalCameraIdRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
-		resp, err := client.ToString(ctx, req)
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetPhysicalCameraId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var paramsOutputConfigurationSetReadoutTimestampEnabledCmd = &cobra.Command{
+	Use:   "set-readout-timestamp-enabled",
+	Short: "SetReadoutTimestampEnabled RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewOutputConfigurationServiceClient(grpcConn)
+		req := &pb.SetReadoutTimestampEnabledRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetReadoutTimestampEnabled(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var paramsOutputConfigurationSetStreamUseCaseCmd = &cobra.Command{
+	Use:   "set-stream-use-case",
+	Short: "SetStreamUseCase RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewOutputConfigurationServiceClient(grpcConn)
+		req := &pb.SetStreamUseCaseRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetStreamUseCase(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var paramsOutputConfigurationSetTimestampBaseCmd = &cobra.Command{
+	Use:   "set-timestamp-base",
+	Short: "SetTimestampBase RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewOutputConfigurationServiceClient(grpcConn)
+		req := &pb.SetTimestampBaseRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetTimestampBase(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var paramsOutputConfigurationWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewOutputConfigurationServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var paramsOutputConfigurationCreateInstancesForMultiResolutionOutputCmd = &cobra.Command{
+	Use:   "create-instances-for-multi-resolution-output",
+	Short: "CreateInstancesForMultiResolutionOutput RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewOutputConfigurationServiceClient(grpcConn)
+		req := &pb.CreateInstancesForMultiResolutionOutputRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.CreateInstancesForMultiResolutionOutput(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1298,6 +2487,25 @@ var paramsSessionConfigurationGetInputConfigurationCmd = &cobra.Command{
 			req.Handle = v
 		}
 		resp, err := client.GetInputConfiguration(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var paramsSessionConfigurationGetOutputConfigurationsCmd = &cobra.Command{
+	Use:   "get-output-configurations",
+	Short: "GetOutputConfigurations RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSessionConfigurationServiceClient(grpcConn)
+		req := &pb.GetOutputConfigurationsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetOutputConfigurations(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1497,23 +2705,20 @@ var paramsSessionConfigurationWriteToParcelCmd = &cobra.Command{
 	},
 }
 
-var paramsDeviceStateSensorOrientationMapCmd = &cobra.Command{
-	Use:   "device-state-sensor-orientation-map",
-	Short: "DeviceStateSensorOrientationMapService operations",
+var paramsFaceCmd = &cobra.Command{
+	Use:   "face",
+	Short: "FaceService operations",
 }
 
-var paramsDeviceStateSensorOrientationMapEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
+var paramsFaceGetBoundsCmd = &cobra.Command{
+	Use:   "get-bounds",
+	Short: "GetBounds RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewDeviceStateSensorOrientationMapServiceClient(grpcConn)
-		req := &pb.DeviceStateSensorOrientationMapEqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
+		client := pb.NewFaceServiceClient(grpcConn)
+		req := &pb.GetBoundsRequest{}
+		resp, err := client.GetBounds(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1521,18 +2726,15 @@ var paramsDeviceStateSensorOrientationMapEqualsCmd = &cobra.Command{
 	},
 }
 
-var paramsDeviceStateSensorOrientationMapGetSensorOrientationCmd = &cobra.Command{
-	Use:   "get-sensor-orientation",
-	Short: "GetSensorOrientation RPC",
+var paramsFaceGetIdCmd = &cobra.Command{
+	Use:   "get-id",
+	Short: "GetId RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewDeviceStateSensorOrientationMapServiceClient(grpcConn)
-		req := &pb.GetSensorOrientationRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetSensorOrientation(ctx, req)
+		client := pb.NewFaceServiceClient(grpcConn)
+		req := &pb.GetIdRequest{}
+		resp, err := client.GetId(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1540,15 +2742,15 @@ var paramsDeviceStateSensorOrientationMapGetSensorOrientationCmd = &cobra.Comman
 	},
 }
 
-var paramsDeviceStateSensorOrientationMapHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
+var paramsFaceGetLeftEyePositionCmd = &cobra.Command{
+	Use:   "get-left-eye-position",
+	Short: "GetLeftEyePosition RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewDeviceStateSensorOrientationMapServiceClient(grpcConn)
-		req := &pb.DeviceStateSensorOrientationMapHashCodeRequest{}
-		resp, err := client.HashCode(ctx, req)
+		client := pb.NewFaceServiceClient(grpcConn)
+		req := &pb.GetLeftEyePositionRequest{}
+		resp, err := client.GetLeftEyePosition(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1556,26 +2758,15 @@ var paramsDeviceStateSensorOrientationMapHashCodeCmd = &cobra.Command{
 	},
 }
 
-var paramsDeviceStateSensorOrientationMapBuilderCmd = &cobra.Command{
-	Use:   "device-state-sensor-orientation-map-builder",
-	Short: "DeviceStateSensorOrientationMapBuilderService operations",
-}
-
-var paramsDeviceStateSensorOrientationMapBuilderAddOrientationForStateCmd = &cobra.Command{
-	Use:   "add-orientation-for-state",
-	Short: "AddOrientationForState RPC",
+var paramsFaceGetMouthPositionCmd = &cobra.Command{
+	Use:   "get-mouth-position",
+	Short: "GetMouthPosition RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewDeviceStateSensorOrientationMapBuilderServiceClient(grpcConn)
-		req := &pb.AddOrientationForStateRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.AddOrientationForState(ctx, req)
+		client := pb.NewFaceServiceClient(grpcConn)
+		req := &pb.GetMouthPositionRequest{}
+		resp, err := client.GetMouthPosition(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1583,15 +2774,182 @@ var paramsDeviceStateSensorOrientationMapBuilderAddOrientationForStateCmd = &cob
 	},
 }
 
-var paramsDeviceStateSensorOrientationMapBuilderBuildCmd = &cobra.Command{
+var paramsFaceGetRightEyePositionCmd = &cobra.Command{
+	Use:   "get-right-eye-position",
+	Short: "GetRightEyePosition RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFaceServiceClient(grpcConn)
+		req := &pb.GetRightEyePositionRequest{}
+		resp, err := client.GetRightEyePosition(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var paramsFaceGetScoreCmd = &cobra.Command{
+	Use:   "get-score",
+	Short: "GetScore RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFaceServiceClient(grpcConn)
+		req := &pb.GetScoreRequest{}
+		resp, err := client.GetScore(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var paramsFaceToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFaceServiceClient(grpcConn)
+		req := &pb.FaceToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var paramsFaceBuilderCmd = &cobra.Command{
+	Use:   "face-builder",
+	Short: "FaceBuilderService operations",
+}
+
+var paramsFaceBuilderBuildCmd = &cobra.Command{
 	Use:   "build",
 	Short: "Build RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewDeviceStateSensorOrientationMapBuilderServiceClient(grpcConn)
+		client := pb.NewFaceBuilderServiceClient(grpcConn)
 		req := &pb.BuildRequest{}
 		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var paramsFaceBuilderSetBoundsCmd = &cobra.Command{
+	Use:   "set-bounds",
+	Short: "SetBounds RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFaceBuilderServiceClient(grpcConn)
+		req := &pb.SetBoundsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetBounds(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var paramsFaceBuilderSetIdCmd = &cobra.Command{
+	Use:   "set-id",
+	Short: "SetId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFaceBuilderServiceClient(grpcConn)
+		req := &pb.SetIdRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var paramsFaceBuilderSetLeftEyePositionCmd = &cobra.Command{
+	Use:   "set-left-eye-position",
+	Short: "SetLeftEyePosition RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFaceBuilderServiceClient(grpcConn)
+		req := &pb.SetLeftEyePositionRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetLeftEyePosition(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var paramsFaceBuilderSetMouthPositionCmd = &cobra.Command{
+	Use:   "set-mouth-position",
+	Short: "SetMouthPosition RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFaceBuilderServiceClient(grpcConn)
+		req := &pb.SetMouthPositionRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetMouthPosition(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var paramsFaceBuilderSetRightEyePositionCmd = &cobra.Command{
+	Use:   "set-right-eye-position",
+	Short: "SetRightEyePosition RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFaceBuilderServiceClient(grpcConn)
+		req := &pb.SetRightEyePositionRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetRightEyePosition(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var paramsFaceBuilderSetScoreCmd = &cobra.Command{
+	Use:   "set-score",
+	Short: "SetScore RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFaceBuilderServiceClient(grpcConn)
+		req := &pb.SetScoreRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetScore(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1764,29 +3122,23 @@ var paramsTonemapCurveToStringCmd = &cobra.Command{
 	},
 }
 
-var paramsCapabilityCmd = &cobra.Command{
-	Use:   "capability",
-	Short: "CapabilityService operations",
+var paramsMultiResolutionStreamConfigurationMapCmd = &cobra.Command{
+	Use:   "multi-resolution-stream-configuration-map",
+	Short: "MultiResolutionStreamConfigurationMapService operations",
 }
 
-var paramsCapabilityNewCapabilityCmd = &cobra.Command{
-	Use:   "new-capability",
-	Short: "NewCapability RPC",
+var paramsMultiResolutionStreamConfigurationMapEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewCapabilityServiceClient(grpcConn)
-		req := &pb.NewCapabilityRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+		client := pb.NewMultiResolutionStreamConfigurationMapServiceClient(grpcConn)
+		req := &pb.MultiResolutionStreamConfigurationMapEqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.NewCapability(ctx, req)
+		resp, err := client.Equals(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1794,13 +3146,173 @@ var paramsCapabilityNewCapabilityCmd = &cobra.Command{
 	},
 }
 
-var paramsCapabilityEqualsCmd = &cobra.Command{
+var paramsMultiResolutionStreamConfigurationMapGetInputFormatsCmd = &cobra.Command{
+	Use:   "get-input-formats",
+	Short: "GetInputFormats RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMultiResolutionStreamConfigurationMapServiceClient(grpcConn)
+		req := &pb.GetInputFormatsRequest{}
+		resp, err := client.GetInputFormats(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var paramsMultiResolutionStreamConfigurationMapGetInputInfoCmd = &cobra.Command{
+	Use:   "get-input-info",
+	Short: "GetInputInfo RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMultiResolutionStreamConfigurationMapServiceClient(grpcConn)
+		req := &pb.GetInputInfoRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetInputInfo(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var paramsMultiResolutionStreamConfigurationMapGetOutputFormatsCmd = &cobra.Command{
+	Use:   "get-output-formats",
+	Short: "GetOutputFormats RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMultiResolutionStreamConfigurationMapServiceClient(grpcConn)
+		req := &pb.GetOutputFormatsRequest{}
+		resp, err := client.GetOutputFormats(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var paramsMultiResolutionStreamConfigurationMapGetOutputInfoCmd = &cobra.Command{
+	Use:   "get-output-info",
+	Short: "GetOutputInfo RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMultiResolutionStreamConfigurationMapServiceClient(grpcConn)
+		req := &pb.GetOutputInfoRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetOutputInfo(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var paramsMultiResolutionStreamConfigurationMapHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMultiResolutionStreamConfigurationMapServiceClient(grpcConn)
+		req := &pb.MultiResolutionStreamConfigurationMapHashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var paramsMultiResolutionStreamConfigurationMapToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMultiResolutionStreamConfigurationMapServiceClient(grpcConn)
+		req := &pb.MultiResolutionStreamConfigurationMapToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var paramsRggbChannelVectorCmd = &cobra.Command{
+	Use:   "rggb-channel-vector",
+	Short: "RggbChannelVectorService operations",
+}
+
+var paramsRggbChannelVectorNewRggbChannelVectorCmd = &cobra.Command{
+	Use:   "new-rggb-channel-vector",
+	Short: "NewRggbChannelVector RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRggbChannelVectorServiceClient(grpcConn)
+		req := &pb.NewRggbChannelVectorRequest{}
+		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.NewRggbChannelVector(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var paramsRggbChannelVectorCopyToCmd = &cobra.Command{
+	Use:   "copy-to",
+	Short: "CopyTo RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRggbChannelVectorServiceClient(grpcConn)
+		req := &pb.CopyToRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.CopyTo(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var paramsRggbChannelVectorEqualsCmd = &cobra.Command{
 	Use:   "equals",
 	Short: "Equals RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewCapabilityServiceClient(grpcConn)
+		client := pb.NewRggbChannelVectorServiceClient(grpcConn)
 		req := &pb.EqualsRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
@@ -1816,18 +3328,18 @@ var paramsCapabilityEqualsCmd = &cobra.Command{
 	},
 }
 
-var paramsCapabilityGetMaxStreamingSizeCmd = &cobra.Command{
-	Use:   "get-max-streaming-size",
-	Short: "GetMaxStreamingSize RPC",
+var paramsRggbChannelVectorGetBlueCmd = &cobra.Command{
+	Use:   "get-blue",
+	Short: "GetBlue RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewCapabilityServiceClient(grpcConn)
-		req := &pb.GetMaxStreamingSizeRequest{}
+		client := pb.NewRggbChannelVectorServiceClient(grpcConn)
+		req := &pb.GetBlueRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
-		resp, err := client.GetMaxStreamingSize(ctx, req)
+		resp, err := client.GetBlue(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1835,18 +3347,21 @@ var paramsCapabilityGetMaxStreamingSizeCmd = &cobra.Command{
 	},
 }
 
-var paramsCapabilityGetModeCmd = &cobra.Command{
-	Use:   "get-mode",
-	Short: "GetMode RPC",
+var paramsRggbChannelVectorGetComponentCmd = &cobra.Command{
+	Use:   "get-component",
+	Short: "GetComponent RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewCapabilityServiceClient(grpcConn)
-		req := &pb.GetModeRequest{}
+		client := pb.NewRggbChannelVectorServiceClient(grpcConn)
+		req := &pb.GetComponentRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
-		resp, err := client.GetMode(ctx, req)
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetComponent(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1854,13 +3369,70 @@ var paramsCapabilityGetModeCmd = &cobra.Command{
 	},
 }
 
-var paramsCapabilityHashCodeCmd = &cobra.Command{
+var paramsRggbChannelVectorGetGreenEvenCmd = &cobra.Command{
+	Use:   "get-green-even",
+	Short: "GetGreenEven RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRggbChannelVectorServiceClient(grpcConn)
+		req := &pb.GetGreenEvenRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetGreenEven(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var paramsRggbChannelVectorGetGreenOddCmd = &cobra.Command{
+	Use:   "get-green-odd",
+	Short: "GetGreenOdd RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRggbChannelVectorServiceClient(grpcConn)
+		req := &pb.GetGreenOddRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetGreenOdd(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var paramsRggbChannelVectorGetRedCmd = &cobra.Command{
+	Use:   "get-red",
+	Short: "GetRed RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRggbChannelVectorServiceClient(grpcConn)
+		req := &pb.GetRedRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetRed(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var paramsRggbChannelVectorHashCodeCmd = &cobra.Command{
 	Use:   "hash-code",
 	Short: "HashCode RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewCapabilityServiceClient(grpcConn)
+		client := pb.NewRggbChannelVectorServiceClient(grpcConn)
 		req := &pb.HashCodeRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
@@ -1873,18 +3445,736 @@ var paramsCapabilityHashCodeCmd = &cobra.Command{
 	},
 }
 
-var paramsCapabilityToStringCmd = &cobra.Command{
+var paramsRggbChannelVectorToStringCmd = &cobra.Command{
 	Use:   "to-string",
 	Short: "ToString RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewCapabilityServiceClient(grpcConn)
+		client := pb.NewRggbChannelVectorServiceClient(grpcConn)
 		req := &pb.ToStringRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
 		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var paramsColorSpaceTransformCmd = &cobra.Command{
+	Use:   "color-space-transform",
+	Short: "ColorSpaceTransformService operations",
+}
+
+var paramsColorSpaceTransformNewColorSpaceTransformCmd = &cobra.Command{
+	Use:   "new-color-space-transform",
+	Short: "NewColorSpaceTransform RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewColorSpaceTransformServiceClient(grpcConn)
+		req := &pb.NewColorSpaceTransformRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.NewColorSpaceTransform(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var paramsColorSpaceTransformCopyElements2Cmd = &cobra.Command{
+	Use:   "copy-elements2",
+	Short: "CopyElements2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewColorSpaceTransformServiceClient(grpcConn)
+		req := &pb.CopyElements2Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.CopyElements2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var paramsColorSpaceTransformCopyElements2_1Cmd = &cobra.Command{
+	Use:   "copy-elements2_1",
+	Short: "CopyElements2_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewColorSpaceTransformServiceClient(grpcConn)
+		req := &pb.CopyElements2_1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.CopyElements2_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var paramsColorSpaceTransformEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewColorSpaceTransformServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var paramsColorSpaceTransformGetElementCmd = &cobra.Command{
+	Use:   "get-element",
+	Short: "GetElement RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewColorSpaceTransformServiceClient(grpcConn)
+		req := &pb.GetElementRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.GetElement(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var paramsColorSpaceTransformHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewColorSpaceTransformServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var paramsColorSpaceTransformToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewColorSpaceTransformServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var paramsStreamConfigurationMapCmd = &cobra.Command{
+	Use:   "stream-configuration-map",
+	Short: "StreamConfigurationMapService operations",
+}
+
+var paramsStreamConfigurationMapEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStreamConfigurationMapServiceClient(grpcConn)
+		req := &pb.StreamConfigurationMapEqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var paramsStreamConfigurationMapGetHighResolutionOutputSizesCmd = &cobra.Command{
+	Use:   "get-high-resolution-output-sizes",
+	Short: "GetHighResolutionOutputSizes RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStreamConfigurationMapServiceClient(grpcConn)
+		req := &pb.GetHighResolutionOutputSizesRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetHighResolutionOutputSizes(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var paramsStreamConfigurationMapGetHighSpeedVideoFpsRangesCmd = &cobra.Command{
+	Use:   "get-high-speed-video-fps-ranges",
+	Short: "GetHighSpeedVideoFpsRanges RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStreamConfigurationMapServiceClient(grpcConn)
+		req := &pb.GetHighSpeedVideoFpsRangesRequest{}
+		resp, err := client.GetHighSpeedVideoFpsRanges(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var paramsStreamConfigurationMapGetHighSpeedVideoFpsRangesForCmd = &cobra.Command{
+	Use:   "get-high-speed-video-fps-ranges-for",
+	Short: "GetHighSpeedVideoFpsRangesFor RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStreamConfigurationMapServiceClient(grpcConn)
+		req := &pb.GetHighSpeedVideoFpsRangesForRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetHighSpeedVideoFpsRangesFor(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var paramsStreamConfigurationMapGetHighSpeedVideoSizesCmd = &cobra.Command{
+	Use:   "get-high-speed-video-sizes",
+	Short: "GetHighSpeedVideoSizes RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStreamConfigurationMapServiceClient(grpcConn)
+		req := &pb.GetHighSpeedVideoSizesRequest{}
+		resp, err := client.GetHighSpeedVideoSizes(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var paramsStreamConfigurationMapGetInputFormatsCmd = &cobra.Command{
+	Use:   "get-input-formats",
+	Short: "GetInputFormats RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStreamConfigurationMapServiceClient(grpcConn)
+		req := &pb.GetInputFormatsRequest{}
+		resp, err := client.GetInputFormats(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var paramsStreamConfigurationMapGetInputSizesCmd = &cobra.Command{
+	Use:   "get-input-sizes",
+	Short: "GetInputSizes RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStreamConfigurationMapServiceClient(grpcConn)
+		req := &pb.GetInputSizesRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetInputSizes(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var paramsStreamConfigurationMapGetOutputFormatsCmd = &cobra.Command{
+	Use:   "get-output-formats",
+	Short: "GetOutputFormats RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStreamConfigurationMapServiceClient(grpcConn)
+		req := &pb.GetOutputFormatsRequest{}
+		resp, err := client.GetOutputFormats(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var paramsStreamConfigurationMapGetOutputMinFrameDurationCmd = &cobra.Command{
+	Use:   "get-output-min-frame-duration",
+	Short: "GetOutputMinFrameDuration RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStreamConfigurationMapServiceClient(grpcConn)
+		req := &pb.GetOutputMinFrameDurationRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.GetOutputMinFrameDuration(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var paramsStreamConfigurationMapGetOutputSizesCmd = &cobra.Command{
+	Use:   "get-output-sizes",
+	Short: "GetOutputSizes RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStreamConfigurationMapServiceClient(grpcConn)
+		req := &pb.GetOutputSizesRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetOutputSizes(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var paramsStreamConfigurationMapGetOutputStallDurationCmd = &cobra.Command{
+	Use:   "get-output-stall-duration",
+	Short: "GetOutputStallDuration RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStreamConfigurationMapServiceClient(grpcConn)
+		req := &pb.GetOutputStallDurationRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.GetOutputStallDuration(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var paramsStreamConfigurationMapGetValidOutputFormatsForInputCmd = &cobra.Command{
+	Use:   "get-valid-output-formats-for-input",
+	Short: "GetValidOutputFormatsForInput RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStreamConfigurationMapServiceClient(grpcConn)
+		req := &pb.GetValidOutputFormatsForInputRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetValidOutputFormatsForInput(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var paramsStreamConfigurationMapHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStreamConfigurationMapServiceClient(grpcConn)
+		req := &pb.StreamConfigurationMapHashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var paramsStreamConfigurationMapIsOutputSupportedFor1Cmd = &cobra.Command{
+	Use:   "is-output-supported-for1",
+	Short: "IsOutputSupportedFor1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStreamConfigurationMapServiceClient(grpcConn)
+		req := &pb.IsOutputSupportedFor1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.IsOutputSupportedFor1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var paramsStreamConfigurationMapIsOutputSupportedFor1_1Cmd = &cobra.Command{
+	Use:   "is-output-supported-for1_1",
+	Short: "IsOutputSupportedFor1_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStreamConfigurationMapServiceClient(grpcConn)
+		req := &pb.IsOutputSupportedFor1_1Request{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.IsOutputSupportedFor1_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var paramsStreamConfigurationMapToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStreamConfigurationMapServiceClient(grpcConn)
+		req := &pb.StreamConfigurationMapToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var paramsRecommendedStreamConfigurationMapCmd = &cobra.Command{
+	Use:   "recommended-stream-configuration-map",
+	Short: "RecommendedStreamConfigurationMapService operations",
+}
+
+var paramsRecommendedStreamConfigurationMapGetHighResolutionOutputSizesCmd = &cobra.Command{
+	Use:   "get-high-resolution-output-sizes",
+	Short: "GetHighResolutionOutputSizes RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRecommendedStreamConfigurationMapServiceClient(grpcConn)
+		req := &pb.GetHighResolutionOutputSizesRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetHighResolutionOutputSizes(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var paramsRecommendedStreamConfigurationMapGetHighSpeedVideoFpsRangesCmd = &cobra.Command{
+	Use:   "get-high-speed-video-fps-ranges",
+	Short: "GetHighSpeedVideoFpsRanges RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRecommendedStreamConfigurationMapServiceClient(grpcConn)
+		req := &pb.GetHighSpeedVideoFpsRangesRequest{}
+		resp, err := client.GetHighSpeedVideoFpsRanges(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var paramsRecommendedStreamConfigurationMapGetHighSpeedVideoFpsRangesForCmd = &cobra.Command{
+	Use:   "get-high-speed-video-fps-ranges-for",
+	Short: "GetHighSpeedVideoFpsRangesFor RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRecommendedStreamConfigurationMapServiceClient(grpcConn)
+		req := &pb.GetHighSpeedVideoFpsRangesForRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetHighSpeedVideoFpsRangesFor(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var paramsRecommendedStreamConfigurationMapGetHighSpeedVideoSizesCmd = &cobra.Command{
+	Use:   "get-high-speed-video-sizes",
+	Short: "GetHighSpeedVideoSizes RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRecommendedStreamConfigurationMapServiceClient(grpcConn)
+		req := &pb.GetHighSpeedVideoSizesRequest{}
+		resp, err := client.GetHighSpeedVideoSizes(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var paramsRecommendedStreamConfigurationMapGetInputFormatsCmd = &cobra.Command{
+	Use:   "get-input-formats",
+	Short: "GetInputFormats RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRecommendedStreamConfigurationMapServiceClient(grpcConn)
+		req := &pb.GetInputFormatsRequest{}
+		resp, err := client.GetInputFormats(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var paramsRecommendedStreamConfigurationMapGetInputSizesCmd = &cobra.Command{
+	Use:   "get-input-sizes",
+	Short: "GetInputSizes RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRecommendedStreamConfigurationMapServiceClient(grpcConn)
+		req := &pb.GetInputSizesRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetInputSizes(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var paramsRecommendedStreamConfigurationMapGetOutputFormatsCmd = &cobra.Command{
+	Use:   "get-output-formats",
+	Short: "GetOutputFormats RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRecommendedStreamConfigurationMapServiceClient(grpcConn)
+		req := &pb.GetOutputFormatsRequest{}
+		resp, err := client.GetOutputFormats(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var paramsRecommendedStreamConfigurationMapGetOutputMinFrameDurationCmd = &cobra.Command{
+	Use:   "get-output-min-frame-duration",
+	Short: "GetOutputMinFrameDuration RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRecommendedStreamConfigurationMapServiceClient(grpcConn)
+		req := &pb.GetOutputMinFrameDurationRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.GetOutputMinFrameDuration(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var paramsRecommendedStreamConfigurationMapGetOutputSizesCmd = &cobra.Command{
+	Use:   "get-output-sizes",
+	Short: "GetOutputSizes RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRecommendedStreamConfigurationMapServiceClient(grpcConn)
+		req := &pb.GetOutputSizesRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetOutputSizes(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var paramsRecommendedStreamConfigurationMapGetOutputStallDurationCmd = &cobra.Command{
+	Use:   "get-output-stall-duration",
+	Short: "GetOutputStallDuration RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRecommendedStreamConfigurationMapServiceClient(grpcConn)
+		req := &pb.GetOutputStallDurationRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.GetOutputStallDuration(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var paramsRecommendedStreamConfigurationMapGetRecommendedUseCaseCmd = &cobra.Command{
+	Use:   "get-recommended-use-case",
+	Short: "GetRecommendedUseCase RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRecommendedStreamConfigurationMapServiceClient(grpcConn)
+		req := &pb.GetRecommendedUseCaseRequest{}
+		resp, err := client.GetRecommendedUseCase(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var paramsRecommendedStreamConfigurationMapGetValidOutputFormatsForInputCmd = &cobra.Command{
+	Use:   "get-valid-output-formats-for-input",
+	Short: "GetValidOutputFormatsForInput RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRecommendedStreamConfigurationMapServiceClient(grpcConn)
+		req := &pb.GetValidOutputFormatsForInputRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetValidOutputFormatsForInput(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var paramsRecommendedStreamConfigurationMapIsOutputSupportedFor1Cmd = &cobra.Command{
+	Use:   "is-output-supported-for1",
+	Short: "IsOutputSupportedFor1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRecommendedStreamConfigurationMapServiceClient(grpcConn)
+		req := &pb.IsOutputSupportedFor1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.IsOutputSupportedFor1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var paramsRecommendedStreamConfigurationMapIsOutputSupportedFor1_1Cmd = &cobra.Command{
+	Use:   "is-output-supported-for1_1",
+	Short: "IsOutputSupportedFor1_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRecommendedStreamConfigurationMapServiceClient(grpcConn)
+		req := &pb.IsOutputSupportedFor1_1Request{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.IsOutputSupportedFor1_1(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -2199,1776 +4489,42 @@ var paramsLensShadingMapToStringCmd = &cobra.Command{
 	},
 }
 
-var paramsMeteringRectangleCmd = &cobra.Command{
-	Use:   "metering-rectangle",
-	Short: "MeteringRectangleService operations",
-}
-
-var paramsMeteringRectangleNewMeteringRectangleCmd = &cobra.Command{
-	Use:   "new-metering-rectangle",
-	Short: "NewMeteringRectangle RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMeteringRectangleServiceClient(grpcConn)
-		req := &pb.NewMeteringRectangleRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.NewMeteringRectangle(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var paramsMeteringRectangleEquals1Cmd = &cobra.Command{
-	Use:   "equals1",
-	Short: "Equals1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMeteringRectangleServiceClient(grpcConn)
-		req := &pb.Equals1Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var paramsMeteringRectangleEquals1_1Cmd = &cobra.Command{
-	Use:   "equals1_1",
-	Short: "Equals1_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMeteringRectangleServiceClient(grpcConn)
-		req := &pb.Equals1_1Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals1_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var paramsMeteringRectangleGetHeightCmd = &cobra.Command{
-	Use:   "get-height",
-	Short: "GetHeight RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMeteringRectangleServiceClient(grpcConn)
-		req := &pb.GetHeightRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetHeight(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var paramsMeteringRectangleGetMeteringWeightCmd = &cobra.Command{
-	Use:   "get-metering-weight",
-	Short: "GetMeteringWeight RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMeteringRectangleServiceClient(grpcConn)
-		req := &pb.GetMeteringWeightRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetMeteringWeight(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var paramsMeteringRectangleGetRectCmd = &cobra.Command{
-	Use:   "get-rect",
-	Short: "GetRect RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMeteringRectangleServiceClient(grpcConn)
-		req := &pb.GetRectRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetRect(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var paramsMeteringRectangleGetSizeCmd = &cobra.Command{
-	Use:   "get-size",
-	Short: "GetSize RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMeteringRectangleServiceClient(grpcConn)
-		req := &pb.GetSizeRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetSize(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var paramsMeteringRectangleGetUpperLeftPointCmd = &cobra.Command{
-	Use:   "get-upper-left-point",
-	Short: "GetUpperLeftPoint RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMeteringRectangleServiceClient(grpcConn)
-		req := &pb.GetUpperLeftPointRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetUpperLeftPoint(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var paramsMeteringRectangleGetWidthCmd = &cobra.Command{
-	Use:   "get-width",
-	Short: "GetWidth RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMeteringRectangleServiceClient(grpcConn)
-		req := &pb.GetWidthRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetWidth(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var paramsMeteringRectangleGetXCmd = &cobra.Command{
-	Use:   "get-x",
-	Short: "GetX RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMeteringRectangleServiceClient(grpcConn)
-		req := &pb.GetXRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetX(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var paramsMeteringRectangleGetYCmd = &cobra.Command{
-	Use:   "get-y",
-	Short: "GetY RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMeteringRectangleServiceClient(grpcConn)
-		req := &pb.GetYRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetY(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var paramsMeteringRectangleHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMeteringRectangleServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var paramsMeteringRectangleToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMeteringRectangleServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var paramsRecommendedStreamConfigurationMapCmd = &cobra.Command{
-	Use:   "recommended-stream-configuration-map",
-	Short: "RecommendedStreamConfigurationMapService operations",
-}
-
-var paramsRecommendedStreamConfigurationMapGetOutputMinFrameDurationCmd = &cobra.Command{
-	Use:   "get-output-min-frame-duration",
-	Short: "GetOutputMinFrameDuration RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRecommendedStreamConfigurationMapServiceClient(grpcConn)
-		req := &pb.GetOutputMinFrameDurationRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.GetOutputMinFrameDuration(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var paramsRecommendedStreamConfigurationMapGetOutputStallDurationCmd = &cobra.Command{
-	Use:   "get-output-stall-duration",
-	Short: "GetOutputStallDuration RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRecommendedStreamConfigurationMapServiceClient(grpcConn)
-		req := &pb.GetOutputStallDurationRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.GetOutputStallDuration(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var paramsRecommendedStreamConfigurationMapGetRecommendedUseCaseCmd = &cobra.Command{
-	Use:   "get-recommended-use-case",
-	Short: "GetRecommendedUseCase RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRecommendedStreamConfigurationMapServiceClient(grpcConn)
-		req := &pb.GetRecommendedUseCaseRequest{}
-		resp, err := client.GetRecommendedUseCase(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var paramsRecommendedStreamConfigurationMapIsOutputSupportedFor1Cmd = &cobra.Command{
-	Use:   "is-output-supported-for1",
-	Short: "IsOutputSupportedFor1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRecommendedStreamConfigurationMapServiceClient(grpcConn)
-		req := &pb.IsOutputSupportedFor1Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.IsOutputSupportedFor1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var paramsRecommendedStreamConfigurationMapIsOutputSupportedFor1_1Cmd = &cobra.Command{
-	Use:   "is-output-supported-for1_1",
-	Short: "IsOutputSupportedFor1_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRecommendedStreamConfigurationMapServiceClient(grpcConn)
-		req := &pb.IsOutputSupportedFor1_1Request{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.IsOutputSupportedFor1_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var paramsOutputConfigurationCmd = &cobra.Command{
-	Use:   "output-configuration",
-	Short: "OutputConfigurationService operations",
-}
-
-var paramsOutputConfigurationNewOutputConfigurationCmd = &cobra.Command{
-	Use:   "new-output-configuration",
-	Short: "NewOutputConfiguration RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewOutputConfigurationServiceClient(grpcConn)
-		req := &pb.NewOutputConfigurationRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.NewOutputConfiguration(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var paramsOutputConfigurationAddSensorPixelModeUsedCmd = &cobra.Command{
-	Use:   "add-sensor-pixel-mode-used",
-	Short: "AddSensorPixelModeUsed RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewOutputConfigurationServiceClient(grpcConn)
-		req := &pb.AddSensorPixelModeUsedRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.AddSensorPixelModeUsed(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var paramsOutputConfigurationAddSurfaceCmd = &cobra.Command{
-	Use:   "add-surface",
-	Short: "AddSurface RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewOutputConfigurationServiceClient(grpcConn)
-		req := &pb.AddSurfaceRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.AddSurface(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var paramsOutputConfigurationDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewOutputConfigurationServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var paramsOutputConfigurationEnableSurfaceSharingCmd = &cobra.Command{
-	Use:   "enable-surface-sharing",
-	Short: "EnableSurfaceSharing RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewOutputConfigurationServiceClient(grpcConn)
-		req := &pb.EnableSurfaceSharingRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.EnableSurfaceSharing(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var paramsOutputConfigurationEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewOutputConfigurationServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var paramsOutputConfigurationGetDynamicRangeProfileCmd = &cobra.Command{
-	Use:   "get-dynamic-range-profile",
-	Short: "GetDynamicRangeProfile RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewOutputConfigurationServiceClient(grpcConn)
-		req := &pb.GetDynamicRangeProfileRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetDynamicRangeProfile(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var paramsOutputConfigurationGetMaxSharedSurfaceCountCmd = &cobra.Command{
-	Use:   "get-max-shared-surface-count",
-	Short: "GetMaxSharedSurfaceCount RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewOutputConfigurationServiceClient(grpcConn)
-		req := &pb.GetMaxSharedSurfaceCountRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetMaxSharedSurfaceCount(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var paramsOutputConfigurationGetMirrorMode0Cmd = &cobra.Command{
-	Use:   "get-mirror-mode0",
-	Short: "GetMirrorMode0 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewOutputConfigurationServiceClient(grpcConn)
-		req := &pb.GetMirrorMode0Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetMirrorMode0(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var paramsOutputConfigurationGetMirrorMode1_1Cmd = &cobra.Command{
-	Use:   "get-mirror-mode1_1",
-	Short: "GetMirrorMode1_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewOutputConfigurationServiceClient(grpcConn)
-		req := &pb.GetMirrorMode1_1Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetMirrorMode1_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var paramsOutputConfigurationGetStreamUseCaseCmd = &cobra.Command{
-	Use:   "get-stream-use-case",
-	Short: "GetStreamUseCase RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewOutputConfigurationServiceClient(grpcConn)
-		req := &pb.OutputConfigurationGetStreamUseCaseRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetStreamUseCase(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var paramsOutputConfigurationGetSurfaceCmd = &cobra.Command{
-	Use:   "get-surface",
-	Short: "GetSurface RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewOutputConfigurationServiceClient(grpcConn)
-		req := &pb.GetSurfaceRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetSurface(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var paramsOutputConfigurationGetSurfaceGroupIdCmd = &cobra.Command{
-	Use:   "get-surface-group-id",
-	Short: "GetSurfaceGroupId RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewOutputConfigurationServiceClient(grpcConn)
-		req := &pb.GetSurfaceGroupIdRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetSurfaceGroupId(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var paramsOutputConfigurationGetTimestampBaseCmd = &cobra.Command{
-	Use:   "get-timestamp-base",
-	Short: "GetTimestampBase RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewOutputConfigurationServiceClient(grpcConn)
-		req := &pb.GetTimestampBaseRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetTimestampBase(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var paramsOutputConfigurationHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewOutputConfigurationServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var paramsOutputConfigurationIsReadoutTimestampEnabledCmd = &cobra.Command{
-	Use:   "is-readout-timestamp-enabled",
-	Short: "IsReadoutTimestampEnabled RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewOutputConfigurationServiceClient(grpcConn)
-		req := &pb.IsReadoutTimestampEnabledRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.IsReadoutTimestampEnabled(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var paramsOutputConfigurationRemoveSensorPixelModeUsedCmd = &cobra.Command{
-	Use:   "remove-sensor-pixel-mode-used",
-	Short: "RemoveSensorPixelModeUsed RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewOutputConfigurationServiceClient(grpcConn)
-		req := &pb.RemoveSensorPixelModeUsedRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.RemoveSensorPixelModeUsed(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var paramsOutputConfigurationRemoveSurfaceCmd = &cobra.Command{
-	Use:   "remove-surface",
-	Short: "RemoveSurface RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewOutputConfigurationServiceClient(grpcConn)
-		req := &pb.RemoveSurfaceRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.RemoveSurface(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var paramsOutputConfigurationSetDynamicRangeProfileCmd = &cobra.Command{
-	Use:   "set-dynamic-range-profile",
-	Short: "SetDynamicRangeProfile RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewOutputConfigurationServiceClient(grpcConn)
-		req := &pb.SetDynamicRangeProfileRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetDynamicRangeProfile(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var paramsOutputConfigurationSetMirrorMode2Cmd = &cobra.Command{
-	Use:   "set-mirror-mode2",
-	Short: "SetMirrorMode2 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewOutputConfigurationServiceClient(grpcConn)
-		req := &pb.SetMirrorMode2Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.SetMirrorMode2(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var paramsOutputConfigurationSetMirrorMode1_1Cmd = &cobra.Command{
-	Use:   "set-mirror-mode1_1",
-	Short: "SetMirrorMode1_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewOutputConfigurationServiceClient(grpcConn)
-		req := &pb.SetMirrorMode1_1Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetMirrorMode1_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var paramsOutputConfigurationSetPhysicalCameraIdCmd = &cobra.Command{
-	Use:   "set-physical-camera-id",
-	Short: "SetPhysicalCameraId RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewOutputConfigurationServiceClient(grpcConn)
-		req := &pb.SetPhysicalCameraIdRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetPhysicalCameraId(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var paramsOutputConfigurationSetReadoutTimestampEnabledCmd = &cobra.Command{
-	Use:   "set-readout-timestamp-enabled",
-	Short: "SetReadoutTimestampEnabled RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewOutputConfigurationServiceClient(grpcConn)
-		req := &pb.SetReadoutTimestampEnabledRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetReadoutTimestampEnabled(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var paramsOutputConfigurationSetStreamUseCaseCmd = &cobra.Command{
-	Use:   "set-stream-use-case",
-	Short: "SetStreamUseCase RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewOutputConfigurationServiceClient(grpcConn)
-		req := &pb.SetStreamUseCaseRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetStreamUseCase(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var paramsOutputConfigurationSetTimestampBaseCmd = &cobra.Command{
-	Use:   "set-timestamp-base",
-	Short: "SetTimestampBase RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewOutputConfigurationServiceClient(grpcConn)
-		req := &pb.SetTimestampBaseRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetTimestampBase(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var paramsOutputConfigurationWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewOutputConfigurationServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var paramsLensIntrinsicsSampleCmd = &cobra.Command{
-	Use:   "lens-intrinsics-sample",
-	Short: "LensIntrinsicsSampleService operations",
-}
-
-var paramsLensIntrinsicsSampleNewLensIntrinsicsSampleCmd = &cobra.Command{
-	Use:   "new-lens-intrinsics-sample",
-	Short: "NewLensIntrinsicsSample RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewLensIntrinsicsSampleServiceClient(grpcConn)
-		req := &pb.NewLensIntrinsicsSampleRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.NewLensIntrinsicsSample(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var paramsLensIntrinsicsSampleEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewLensIntrinsicsSampleServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var paramsLensIntrinsicsSampleGetLensIntrinsicsCmd = &cobra.Command{
-	Use:   "get-lens-intrinsics",
-	Short: "GetLensIntrinsics RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewLensIntrinsicsSampleServiceClient(grpcConn)
-		req := &pb.GetLensIntrinsicsRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetLensIntrinsics(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var paramsLensIntrinsicsSampleGetTimestampNanosCmd = &cobra.Command{
-	Use:   "get-timestamp-nanos",
-	Short: "GetTimestampNanos RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewLensIntrinsicsSampleServiceClient(grpcConn)
-		req := &pb.GetTimestampNanosRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetTimestampNanos(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var paramsLensIntrinsicsSampleHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewLensIntrinsicsSampleServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var paramsLensIntrinsicsSampleToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewLensIntrinsicsSampleServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var paramsFaceCmd = &cobra.Command{
-	Use:   "face",
-	Short: "FaceService operations",
-}
-
-var paramsFaceGetBoundsCmd = &cobra.Command{
-	Use:   "get-bounds",
-	Short: "GetBounds RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFaceServiceClient(grpcConn)
-		req := &pb.GetBoundsRequest{}
-		resp, err := client.GetBounds(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var paramsFaceGetIdCmd = &cobra.Command{
-	Use:   "get-id",
-	Short: "GetId RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFaceServiceClient(grpcConn)
-		req := &pb.GetIdRequest{}
-		resp, err := client.GetId(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var paramsFaceGetLeftEyePositionCmd = &cobra.Command{
-	Use:   "get-left-eye-position",
-	Short: "GetLeftEyePosition RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFaceServiceClient(grpcConn)
-		req := &pb.GetLeftEyePositionRequest{}
-		resp, err := client.GetLeftEyePosition(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var paramsFaceGetMouthPositionCmd = &cobra.Command{
-	Use:   "get-mouth-position",
-	Short: "GetMouthPosition RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFaceServiceClient(grpcConn)
-		req := &pb.GetMouthPositionRequest{}
-		resp, err := client.GetMouthPosition(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var paramsFaceGetRightEyePositionCmd = &cobra.Command{
-	Use:   "get-right-eye-position",
-	Short: "GetRightEyePosition RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFaceServiceClient(grpcConn)
-		req := &pb.GetRightEyePositionRequest{}
-		resp, err := client.GetRightEyePosition(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var paramsFaceGetScoreCmd = &cobra.Command{
-	Use:   "get-score",
-	Short: "GetScore RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFaceServiceClient(grpcConn)
-		req := &pb.GetScoreRequest{}
-		resp, err := client.GetScore(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var paramsFaceToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFaceServiceClient(grpcConn)
-		req := &pb.FaceToStringRequest{}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var paramsFaceBuilderCmd = &cobra.Command{
-	Use:   "face-builder",
-	Short: "FaceBuilderService operations",
-}
-
-var paramsFaceBuilderBuildCmd = &cobra.Command{
-	Use:   "build",
-	Short: "Build RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFaceBuilderServiceClient(grpcConn)
-		req := &pb.BuildRequest{}
-		resp, err := client.Build(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var paramsFaceBuilderSetBoundsCmd = &cobra.Command{
-	Use:   "set-bounds",
-	Short: "SetBounds RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFaceBuilderServiceClient(grpcConn)
-		req := &pb.SetBoundsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetBounds(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var paramsFaceBuilderSetIdCmd = &cobra.Command{
-	Use:   "set-id",
-	Short: "SetId RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFaceBuilderServiceClient(grpcConn)
-		req := &pb.SetIdRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetId(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var paramsFaceBuilderSetLeftEyePositionCmd = &cobra.Command{
-	Use:   "set-left-eye-position",
-	Short: "SetLeftEyePosition RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFaceBuilderServiceClient(grpcConn)
-		req := &pb.SetLeftEyePositionRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetLeftEyePosition(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var paramsFaceBuilderSetMouthPositionCmd = &cobra.Command{
-	Use:   "set-mouth-position",
-	Short: "SetMouthPosition RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFaceBuilderServiceClient(grpcConn)
-		req := &pb.SetMouthPositionRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetMouthPosition(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var paramsFaceBuilderSetRightEyePositionCmd = &cobra.Command{
-	Use:   "set-right-eye-position",
-	Short: "SetRightEyePosition RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFaceBuilderServiceClient(grpcConn)
-		req := &pb.SetRightEyePositionRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetRightEyePosition(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var paramsFaceBuilderSetScoreCmd = &cobra.Command{
-	Use:   "set-score",
-	Short: "SetScore RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFaceBuilderServiceClient(grpcConn)
-		req := &pb.SetScoreRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetScore(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var paramsStreamConfigurationMapCmd = &cobra.Command{
-	Use:   "stream-configuration-map",
-	Short: "StreamConfigurationMapService operations",
-}
-
-var paramsStreamConfigurationMapEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewStreamConfigurationMapServiceClient(grpcConn)
-		req := &pb.StreamConfigurationMapEqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var paramsStreamConfigurationMapGetHighResolutionOutputSizesCmd = &cobra.Command{
-	Use:   "get-high-resolution-output-sizes",
-	Short: "GetHighResolutionOutputSizes RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewStreamConfigurationMapServiceClient(grpcConn)
-		req := &pb.GetHighResolutionOutputSizesRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetHighResolutionOutputSizes(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var paramsStreamConfigurationMapGetHighSpeedVideoSizesCmd = &cobra.Command{
-	Use:   "get-high-speed-video-sizes",
-	Short: "GetHighSpeedVideoSizes RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewStreamConfigurationMapServiceClient(grpcConn)
-		req := &pb.GetHighSpeedVideoSizesRequest{}
-		resp, err := client.GetHighSpeedVideoSizes(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var paramsStreamConfigurationMapGetInputFormatsCmd = &cobra.Command{
-	Use:   "get-input-formats",
-	Short: "GetInputFormats RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewStreamConfigurationMapServiceClient(grpcConn)
-		req := &pb.GetInputFormatsRequest{}
-		resp, err := client.GetInputFormats(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var paramsStreamConfigurationMapGetInputSizesCmd = &cobra.Command{
-	Use:   "get-input-sizes",
-	Short: "GetInputSizes RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewStreamConfigurationMapServiceClient(grpcConn)
-		req := &pb.GetInputSizesRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetInputSizes(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var paramsStreamConfigurationMapGetOutputFormatsCmd = &cobra.Command{
-	Use:   "get-output-formats",
-	Short: "GetOutputFormats RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewStreamConfigurationMapServiceClient(grpcConn)
-		req := &pb.GetOutputFormatsRequest{}
-		resp, err := client.GetOutputFormats(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var paramsStreamConfigurationMapGetOutputMinFrameDurationCmd = &cobra.Command{
-	Use:   "get-output-min-frame-duration",
-	Short: "GetOutputMinFrameDuration RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewStreamConfigurationMapServiceClient(grpcConn)
-		req := &pb.GetOutputMinFrameDurationRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.GetOutputMinFrameDuration(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var paramsStreamConfigurationMapGetOutputSizesCmd = &cobra.Command{
-	Use:   "get-output-sizes",
-	Short: "GetOutputSizes RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewStreamConfigurationMapServiceClient(grpcConn)
-		req := &pb.GetOutputSizesRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetOutputSizes(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var paramsStreamConfigurationMapGetOutputStallDurationCmd = &cobra.Command{
-	Use:   "get-output-stall-duration",
-	Short: "GetOutputStallDuration RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewStreamConfigurationMapServiceClient(grpcConn)
-		req := &pb.GetOutputStallDurationRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.GetOutputStallDuration(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var paramsStreamConfigurationMapGetValidOutputFormatsForInputCmd = &cobra.Command{
-	Use:   "get-valid-output-formats-for-input",
-	Short: "GetValidOutputFormatsForInput RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewStreamConfigurationMapServiceClient(grpcConn)
-		req := &pb.GetValidOutputFormatsForInputRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetValidOutputFormatsForInput(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var paramsStreamConfigurationMapHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewStreamConfigurationMapServiceClient(grpcConn)
-		req := &pb.StreamConfigurationMapHashCodeRequest{}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var paramsStreamConfigurationMapIsOutputSupportedFor1Cmd = &cobra.Command{
-	Use:   "is-output-supported-for1",
-	Short: "IsOutputSupportedFor1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewStreamConfigurationMapServiceClient(grpcConn)
-		req := &pb.IsOutputSupportedFor1Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.IsOutputSupportedFor1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var paramsStreamConfigurationMapIsOutputSupportedFor1_1Cmd = &cobra.Command{
-	Use:   "is-output-supported-for1_1",
-	Short: "IsOutputSupportedFor1_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewStreamConfigurationMapServiceClient(grpcConn)
-		req := &pb.IsOutputSupportedFor1_1Request{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.IsOutputSupportedFor1_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var paramsStreamConfigurationMapToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewStreamConfigurationMapServiceClient(grpcConn)
-		req := &pb.StreamConfigurationMapToStringRequest{}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var paramsRggbChannelVectorCmd = &cobra.Command{
-	Use:   "rggb-channel-vector",
-	Short: "RggbChannelVectorService operations",
-}
-
-var paramsRggbChannelVectorNewRggbChannelVectorCmd = &cobra.Command{
-	Use:   "new-rggb-channel-vector",
-	Short: "NewRggbChannelVector RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRggbChannelVectorServiceClient(grpcConn)
-		req := &pb.NewRggbChannelVectorRequest{}
-		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetFloat32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetFloat32("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetFloat32("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		resp, err := client.NewRggbChannelVector(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var paramsRggbChannelVectorCopyToCmd = &cobra.Command{
-	Use:   "copy-to",
-	Short: "CopyTo RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRggbChannelVectorServiceClient(grpcConn)
-		req := &pb.CopyToRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.CopyTo(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var paramsRggbChannelVectorEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRggbChannelVectorServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var paramsRggbChannelVectorGetBlueCmd = &cobra.Command{
-	Use:   "get-blue",
-	Short: "GetBlue RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRggbChannelVectorServiceClient(grpcConn)
-		req := &pb.GetBlueRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetBlue(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var paramsRggbChannelVectorGetComponentCmd = &cobra.Command{
-	Use:   "get-component",
-	Short: "GetComponent RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRggbChannelVectorServiceClient(grpcConn)
-		req := &pb.GetComponentRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetComponent(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var paramsRggbChannelVectorGetGreenEvenCmd = &cobra.Command{
-	Use:   "get-green-even",
-	Short: "GetGreenEven RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRggbChannelVectorServiceClient(grpcConn)
-		req := &pb.GetGreenEvenRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetGreenEven(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var paramsRggbChannelVectorGetGreenOddCmd = &cobra.Command{
-	Use:   "get-green-odd",
-	Short: "GetGreenOdd RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRggbChannelVectorServiceClient(grpcConn)
-		req := &pb.GetGreenOddRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetGreenOdd(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var paramsRggbChannelVectorGetRedCmd = &cobra.Command{
-	Use:   "get-red",
-	Short: "GetRed RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRggbChannelVectorServiceClient(grpcConn)
-		req := &pb.GetRedRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetRed(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var paramsRggbChannelVectorHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRggbChannelVectorServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var paramsRggbChannelVectorToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRggbChannelVectorServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
 func init() {
+	paramsMultiResolutionStreamInfoNewMultiResolutionStreamInfoCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	paramsMultiResolutionStreamInfoNewMultiResolutionStreamInfoCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	paramsMultiResolutionStreamInfoNewMultiResolutionStreamInfoCmd.Flags().String("arg2", "", "arg2 (string)")
+	paramsMultiResolutionStreamInfoCmd.AddCommand(paramsMultiResolutionStreamInfoNewMultiResolutionStreamInfoCmd)
+	paramsMultiResolutionStreamInfoEqualsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	paramsMultiResolutionStreamInfoEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	paramsMultiResolutionStreamInfoCmd.AddCommand(paramsMultiResolutionStreamInfoEqualsCmd)
+	paramsMultiResolutionStreamInfoGetHeightCmd.Flags().Int64("handle", 0, "handle (int64)")
+	paramsMultiResolutionStreamInfoCmd.AddCommand(paramsMultiResolutionStreamInfoGetHeightCmd)
+	paramsMultiResolutionStreamInfoGetPhysicalCameraIdCmd.Flags().Int64("handle", 0, "handle (int64)")
+	paramsMultiResolutionStreamInfoCmd.AddCommand(paramsMultiResolutionStreamInfoGetPhysicalCameraIdCmd)
+	paramsMultiResolutionStreamInfoGetWidthCmd.Flags().Int64("handle", 0, "handle (int64)")
+	paramsMultiResolutionStreamInfoCmd.AddCommand(paramsMultiResolutionStreamInfoGetWidthCmd)
+	paramsMultiResolutionStreamInfoHashCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	paramsMultiResolutionStreamInfoCmd.AddCommand(paramsMultiResolutionStreamInfoHashCodeCmd)
+	paramsCmd.AddCommand(paramsMultiResolutionStreamInfoCmd)
+	paramsMandatoryStreamCombinationEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	paramsMandatoryStreamCombinationCmd.AddCommand(paramsMandatoryStreamCombinationEqualsCmd)
+	paramsMandatoryStreamCombinationCmd.AddCommand(paramsMandatoryStreamCombinationGetDescriptionCmd)
+	paramsMandatoryStreamCombinationCmd.AddCommand(paramsMandatoryStreamCombinationGetStreamsInformationCmd)
+	paramsMandatoryStreamCombinationCmd.AddCommand(paramsMandatoryStreamCombinationHashCodeCmd)
+	paramsMandatoryStreamCombinationCmd.AddCommand(paramsMandatoryStreamCombinationIsReprocessableCmd)
+	paramsCmd.AddCommand(paramsMandatoryStreamCombinationCmd)
+	paramsMandatoryStreamCombinationMandatoryStreamInformationEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	paramsMandatoryStreamCombinationMandatoryStreamInformationCmd.AddCommand(paramsMandatoryStreamCombinationMandatoryStreamInformationEqualsCmd)
+	paramsMandatoryStreamCombinationMandatoryStreamInformationCmd.AddCommand(paramsMandatoryStreamCombinationMandatoryStreamInformationGet10BitFormatCmd)
+	paramsMandatoryStreamCombinationMandatoryStreamInformationCmd.AddCommand(paramsMandatoryStreamCombinationMandatoryStreamInformationGetAvailableSizesCmd)
+	paramsMandatoryStreamCombinationMandatoryStreamInformationCmd.AddCommand(paramsMandatoryStreamCombinationMandatoryStreamInformationGetFormatCmd)
+	paramsMandatoryStreamCombinationMandatoryStreamInformationCmd.AddCommand(paramsMandatoryStreamCombinationMandatoryStreamInformationGetStreamUseCaseCmd)
+	paramsMandatoryStreamCombinationMandatoryStreamInformationCmd.AddCommand(paramsMandatoryStreamCombinationMandatoryStreamInformationHashCodeCmd)
+	paramsMandatoryStreamCombinationMandatoryStreamInformationCmd.AddCommand(paramsMandatoryStreamCombinationMandatoryStreamInformationIs10BitCapableCmd)
+	paramsMandatoryStreamCombinationMandatoryStreamInformationCmd.AddCommand(paramsMandatoryStreamCombinationMandatoryStreamInformationIsInputCmd)
+	paramsMandatoryStreamCombinationMandatoryStreamInformationCmd.AddCommand(paramsMandatoryStreamCombinationMandatoryStreamInformationIsMaximumSizeCmd)
+	paramsMandatoryStreamCombinationMandatoryStreamInformationCmd.AddCommand(paramsMandatoryStreamCombinationMandatoryStreamInformationIsUltraHighResolutionCmd)
+	paramsCmd.AddCommand(paramsMandatoryStreamCombinationMandatoryStreamInformationCmd)
 	paramsInputConfigurationNewInputConfigurationCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
 	paramsInputConfigurationNewInputConfigurationCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
 	paramsInputConfigurationNewInputConfigurationCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
@@ -3989,245 +4545,6 @@ func init() {
 	paramsInputConfigurationToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
 	paramsInputConfigurationCmd.AddCommand(paramsInputConfigurationToStringCmd)
 	paramsCmd.AddCommand(paramsInputConfigurationCmd)
-	paramsOisSampleNewOisSampleCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	paramsOisSampleNewOisSampleCmd.Flags().Float32("arg1", 0, "arg1 (float32)")
-	paramsOisSampleNewOisSampleCmd.Flags().Float32("arg2", 0, "arg2 (float32)")
-	paramsOisSampleCmd.AddCommand(paramsOisSampleNewOisSampleCmd)
-	paramsOisSampleEqualsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	paramsOisSampleEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	paramsOisSampleCmd.AddCommand(paramsOisSampleEqualsCmd)
-	paramsOisSampleGetTimestampCmd.Flags().Int64("handle", 0, "handle (int64)")
-	paramsOisSampleCmd.AddCommand(paramsOisSampleGetTimestampCmd)
-	paramsOisSampleGetXshiftCmd.Flags().Int64("handle", 0, "handle (int64)")
-	paramsOisSampleCmd.AddCommand(paramsOisSampleGetXshiftCmd)
-	paramsOisSampleGetYshiftCmd.Flags().Int64("handle", 0, "handle (int64)")
-	paramsOisSampleCmd.AddCommand(paramsOisSampleGetYshiftCmd)
-	paramsOisSampleHashCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
-	paramsOisSampleCmd.AddCommand(paramsOisSampleHashCodeCmd)
-	paramsOisSampleToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
-	paramsOisSampleCmd.AddCommand(paramsOisSampleToStringCmd)
-	paramsCmd.AddCommand(paramsOisSampleCmd)
-	paramsMultiResolutionStreamConfigurationMapEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	paramsMultiResolutionStreamConfigurationMapCmd.AddCommand(paramsMultiResolutionStreamConfigurationMapEqualsCmd)
-	paramsMultiResolutionStreamConfigurationMapCmd.AddCommand(paramsMultiResolutionStreamConfigurationMapGetInputFormatsCmd)
-	paramsMultiResolutionStreamConfigurationMapCmd.AddCommand(paramsMultiResolutionStreamConfigurationMapGetOutputFormatsCmd)
-	paramsMultiResolutionStreamConfigurationMapCmd.AddCommand(paramsMultiResolutionStreamConfigurationMapHashCodeCmd)
-	paramsMultiResolutionStreamConfigurationMapCmd.AddCommand(paramsMultiResolutionStreamConfigurationMapToStringCmd)
-	paramsCmd.AddCommand(paramsMultiResolutionStreamConfigurationMapCmd)
-	paramsMandatoryStreamCombinationEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	paramsMandatoryStreamCombinationCmd.AddCommand(paramsMandatoryStreamCombinationEqualsCmd)
-	paramsMandatoryStreamCombinationCmd.AddCommand(paramsMandatoryStreamCombinationGetDescriptionCmd)
-	paramsMandatoryStreamCombinationCmd.AddCommand(paramsMandatoryStreamCombinationHashCodeCmd)
-	paramsMandatoryStreamCombinationCmd.AddCommand(paramsMandatoryStreamCombinationIsReprocessableCmd)
-	paramsCmd.AddCommand(paramsMandatoryStreamCombinationCmd)
-	paramsMandatoryStreamCombinationMandatoryStreamInformationEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	paramsMandatoryStreamCombinationMandatoryStreamInformationCmd.AddCommand(paramsMandatoryStreamCombinationMandatoryStreamInformationEqualsCmd)
-	paramsMandatoryStreamCombinationMandatoryStreamInformationCmd.AddCommand(paramsMandatoryStreamCombinationMandatoryStreamInformationGet10BitFormatCmd)
-	paramsMandatoryStreamCombinationMandatoryStreamInformationCmd.AddCommand(paramsMandatoryStreamCombinationMandatoryStreamInformationGetFormatCmd)
-	paramsMandatoryStreamCombinationMandatoryStreamInformationCmd.AddCommand(paramsMandatoryStreamCombinationMandatoryStreamInformationGetStreamUseCaseCmd)
-	paramsMandatoryStreamCombinationMandatoryStreamInformationCmd.AddCommand(paramsMandatoryStreamCombinationMandatoryStreamInformationHashCodeCmd)
-	paramsMandatoryStreamCombinationMandatoryStreamInformationCmd.AddCommand(paramsMandatoryStreamCombinationMandatoryStreamInformationIs10BitCapableCmd)
-	paramsMandatoryStreamCombinationMandatoryStreamInformationCmd.AddCommand(paramsMandatoryStreamCombinationMandatoryStreamInformationIsInputCmd)
-	paramsMandatoryStreamCombinationMandatoryStreamInformationCmd.AddCommand(paramsMandatoryStreamCombinationMandatoryStreamInformationIsMaximumSizeCmd)
-	paramsMandatoryStreamCombinationMandatoryStreamInformationCmd.AddCommand(paramsMandatoryStreamCombinationMandatoryStreamInformationIsUltraHighResolutionCmd)
-	paramsCmd.AddCommand(paramsMandatoryStreamCombinationMandatoryStreamInformationCmd)
-	paramsDynamicRangeProfilesNewDynamicRangeProfilesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	paramsDynamicRangeProfilesCmd.AddCommand(paramsDynamicRangeProfilesNewDynamicRangeProfilesCmd)
-	paramsDynamicRangeProfilesIsExtraLatencyPresentCmd.Flags().Int64("handle", 0, "handle (int64)")
-	paramsDynamicRangeProfilesIsExtraLatencyPresentCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	paramsDynamicRangeProfilesCmd.AddCommand(paramsDynamicRangeProfilesIsExtraLatencyPresentCmd)
-	paramsCmd.AddCommand(paramsDynamicRangeProfilesCmd)
-	paramsMultiResolutionStreamInfoNewMultiResolutionStreamInfoCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	paramsMultiResolutionStreamInfoNewMultiResolutionStreamInfoCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	paramsMultiResolutionStreamInfoNewMultiResolutionStreamInfoCmd.Flags().String("arg2", "", "arg2 (string)")
-	paramsMultiResolutionStreamInfoCmd.AddCommand(paramsMultiResolutionStreamInfoNewMultiResolutionStreamInfoCmd)
-	paramsMultiResolutionStreamInfoEqualsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	paramsMultiResolutionStreamInfoEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	paramsMultiResolutionStreamInfoCmd.AddCommand(paramsMultiResolutionStreamInfoEqualsCmd)
-	paramsMultiResolutionStreamInfoGetHeightCmd.Flags().Int64("handle", 0, "handle (int64)")
-	paramsMultiResolutionStreamInfoCmd.AddCommand(paramsMultiResolutionStreamInfoGetHeightCmd)
-	paramsMultiResolutionStreamInfoGetPhysicalCameraIdCmd.Flags().Int64("handle", 0, "handle (int64)")
-	paramsMultiResolutionStreamInfoCmd.AddCommand(paramsMultiResolutionStreamInfoGetPhysicalCameraIdCmd)
-	paramsMultiResolutionStreamInfoGetWidthCmd.Flags().Int64("handle", 0, "handle (int64)")
-	paramsMultiResolutionStreamInfoCmd.AddCommand(paramsMultiResolutionStreamInfoGetWidthCmd)
-	paramsMultiResolutionStreamInfoHashCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
-	paramsMultiResolutionStreamInfoCmd.AddCommand(paramsMultiResolutionStreamInfoHashCodeCmd)
-	paramsCmd.AddCommand(paramsMultiResolutionStreamInfoCmd)
-	paramsExtensionSessionConfigurationNewExtensionSessionConfigurationCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	paramsExtensionSessionConfigurationNewExtensionSessionConfigurationCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	paramsExtensionSessionConfigurationNewExtensionSessionConfigurationCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	paramsExtensionSessionConfigurationNewExtensionSessionConfigurationCmd.Flags().Int64("arg3", 0, "arg3 (int64)")
-	paramsExtensionSessionConfigurationCmd.AddCommand(paramsExtensionSessionConfigurationNewExtensionSessionConfigurationCmd)
-	paramsExtensionSessionConfigurationClearColorSpaceCmd.Flags().Int64("handle", 0, "handle (int64)")
-	paramsExtensionSessionConfigurationCmd.AddCommand(paramsExtensionSessionConfigurationClearColorSpaceCmd)
-	paramsExtensionSessionConfigurationGetColorSpaceCmd.Flags().Int64("handle", 0, "handle (int64)")
-	paramsExtensionSessionConfigurationCmd.AddCommand(paramsExtensionSessionConfigurationGetColorSpaceCmd)
-	paramsExtensionSessionConfigurationGetExecutorCmd.Flags().Int64("handle", 0, "handle (int64)")
-	paramsExtensionSessionConfigurationCmd.AddCommand(paramsExtensionSessionConfigurationGetExecutorCmd)
-	paramsExtensionSessionConfigurationGetExtensionCmd.Flags().Int64("handle", 0, "handle (int64)")
-	paramsExtensionSessionConfigurationCmd.AddCommand(paramsExtensionSessionConfigurationGetExtensionCmd)
-	paramsExtensionSessionConfigurationGetPostviewOutputConfigurationCmd.Flags().Int64("handle", 0, "handle (int64)")
-	paramsExtensionSessionConfigurationCmd.AddCommand(paramsExtensionSessionConfigurationGetPostviewOutputConfigurationCmd)
-	paramsExtensionSessionConfigurationGetStateCallbackCmd.Flags().Int64("handle", 0, "handle (int64)")
-	paramsExtensionSessionConfigurationCmd.AddCommand(paramsExtensionSessionConfigurationGetStateCallbackCmd)
-	paramsExtensionSessionConfigurationSetColorSpaceCmd.Flags().Int64("handle", 0, "handle (int64)")
-	paramsExtensionSessionConfigurationSetColorSpaceCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	paramsExtensionSessionConfigurationCmd.AddCommand(paramsExtensionSessionConfigurationSetColorSpaceCmd)
-	paramsExtensionSessionConfigurationSetPostviewOutputConfigurationCmd.Flags().Int64("handle", 0, "handle (int64)")
-	paramsExtensionSessionConfigurationSetPostviewOutputConfigurationCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	paramsExtensionSessionConfigurationCmd.AddCommand(paramsExtensionSessionConfigurationSetPostviewOutputConfigurationCmd)
-	paramsCmd.AddCommand(paramsExtensionSessionConfigurationCmd)
-	paramsColorSpaceTransformNewColorSpaceTransformCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	paramsColorSpaceTransformCmd.AddCommand(paramsColorSpaceTransformNewColorSpaceTransformCmd)
-	paramsColorSpaceTransformCopyElements2Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	paramsColorSpaceTransformCopyElements2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	paramsColorSpaceTransformCopyElements2Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	paramsColorSpaceTransformCmd.AddCommand(paramsColorSpaceTransformCopyElements2Cmd)
-	paramsColorSpaceTransformCopyElements2_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	paramsColorSpaceTransformCopyElements2_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	paramsColorSpaceTransformCopyElements2_1Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	paramsColorSpaceTransformCmd.AddCommand(paramsColorSpaceTransformCopyElements2_1Cmd)
-	paramsColorSpaceTransformEqualsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	paramsColorSpaceTransformEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	paramsColorSpaceTransformCmd.AddCommand(paramsColorSpaceTransformEqualsCmd)
-	paramsColorSpaceTransformGetElementCmd.Flags().Int64("handle", 0, "handle (int64)")
-	paramsColorSpaceTransformGetElementCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	paramsColorSpaceTransformGetElementCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	paramsColorSpaceTransformCmd.AddCommand(paramsColorSpaceTransformGetElementCmd)
-	paramsColorSpaceTransformHashCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
-	paramsColorSpaceTransformCmd.AddCommand(paramsColorSpaceTransformHashCodeCmd)
-	paramsColorSpaceTransformToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
-	paramsColorSpaceTransformCmd.AddCommand(paramsColorSpaceTransformToStringCmd)
-	paramsCmd.AddCommand(paramsColorSpaceTransformCmd)
-	paramsSessionConfigurationNewSessionConfigurationCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	paramsSessionConfigurationNewSessionConfigurationCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	paramsSessionConfigurationCmd.AddCommand(paramsSessionConfigurationNewSessionConfigurationCmd)
-	paramsSessionConfigurationClearColorSpaceCmd.Flags().Int64("handle", 0, "handle (int64)")
-	paramsSessionConfigurationCmd.AddCommand(paramsSessionConfigurationClearColorSpaceCmd)
-	paramsSessionConfigurationDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	paramsSessionConfigurationCmd.AddCommand(paramsSessionConfigurationDescribeContentsCmd)
-	paramsSessionConfigurationEqualsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	paramsSessionConfigurationEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	paramsSessionConfigurationCmd.AddCommand(paramsSessionConfigurationEqualsCmd)
-	paramsSessionConfigurationGetColorSpaceCmd.Flags().Int64("handle", 0, "handle (int64)")
-	paramsSessionConfigurationCmd.AddCommand(paramsSessionConfigurationGetColorSpaceCmd)
-	paramsSessionConfigurationGetExecutorCmd.Flags().Int64("handle", 0, "handle (int64)")
-	paramsSessionConfigurationCmd.AddCommand(paramsSessionConfigurationGetExecutorCmd)
-	paramsSessionConfigurationGetInputConfigurationCmd.Flags().Int64("handle", 0, "handle (int64)")
-	paramsSessionConfigurationCmd.AddCommand(paramsSessionConfigurationGetInputConfigurationCmd)
-	paramsSessionConfigurationGetSessionParametersCmd.Flags().Int64("handle", 0, "handle (int64)")
-	paramsSessionConfigurationCmd.AddCommand(paramsSessionConfigurationGetSessionParametersCmd)
-	paramsSessionConfigurationGetSessionTypeCmd.Flags().Int64("handle", 0, "handle (int64)")
-	paramsSessionConfigurationCmd.AddCommand(paramsSessionConfigurationGetSessionTypeCmd)
-	paramsSessionConfigurationGetStateCallbackCmd.Flags().Int64("handle", 0, "handle (int64)")
-	paramsSessionConfigurationCmd.AddCommand(paramsSessionConfigurationGetStateCallbackCmd)
-	paramsSessionConfigurationHashCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
-	paramsSessionConfigurationCmd.AddCommand(paramsSessionConfigurationHashCodeCmd)
-	paramsSessionConfigurationSetColorSpaceCmd.Flags().Int64("handle", 0, "handle (int64)")
-	paramsSessionConfigurationSetColorSpaceCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	paramsSessionConfigurationCmd.AddCommand(paramsSessionConfigurationSetColorSpaceCmd)
-	paramsSessionConfigurationSetInputConfigurationCmd.Flags().Int64("handle", 0, "handle (int64)")
-	paramsSessionConfigurationSetInputConfigurationCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	paramsSessionConfigurationCmd.AddCommand(paramsSessionConfigurationSetInputConfigurationCmd)
-	paramsSessionConfigurationSetSessionParametersCmd.Flags().Int64("handle", 0, "handle (int64)")
-	paramsSessionConfigurationSetSessionParametersCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	paramsSessionConfigurationCmd.AddCommand(paramsSessionConfigurationSetSessionParametersCmd)
-	paramsSessionConfigurationSetStateCallbackCmd.Flags().Int64("handle", 0, "handle (int64)")
-	paramsSessionConfigurationSetStateCallbackCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	paramsSessionConfigurationSetStateCallbackCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	paramsSessionConfigurationCmd.AddCommand(paramsSessionConfigurationSetStateCallbackCmd)
-	paramsSessionConfigurationWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
-	paramsSessionConfigurationWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	paramsSessionConfigurationWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	paramsSessionConfigurationCmd.AddCommand(paramsSessionConfigurationWriteToParcelCmd)
-	paramsCmd.AddCommand(paramsSessionConfigurationCmd)
-	paramsDeviceStateSensorOrientationMapEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	paramsDeviceStateSensorOrientationMapCmd.AddCommand(paramsDeviceStateSensorOrientationMapEqualsCmd)
-	paramsDeviceStateSensorOrientationMapGetSensorOrientationCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	paramsDeviceStateSensorOrientationMapCmd.AddCommand(paramsDeviceStateSensorOrientationMapGetSensorOrientationCmd)
-	paramsDeviceStateSensorOrientationMapCmd.AddCommand(paramsDeviceStateSensorOrientationMapHashCodeCmd)
-	paramsCmd.AddCommand(paramsDeviceStateSensorOrientationMapCmd)
-	paramsDeviceStateSensorOrientationMapBuilderAddOrientationForStateCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	paramsDeviceStateSensorOrientationMapBuilderAddOrientationForStateCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	paramsDeviceStateSensorOrientationMapBuilderCmd.AddCommand(paramsDeviceStateSensorOrientationMapBuilderAddOrientationForStateCmd)
-	paramsDeviceStateSensorOrientationMapBuilderCmd.AddCommand(paramsDeviceStateSensorOrientationMapBuilderBuildCmd)
-	paramsCmd.AddCommand(paramsDeviceStateSensorOrientationMapBuilderCmd)
-	paramsTonemapCurveNewTonemapCurveCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	paramsTonemapCurveNewTonemapCurveCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	paramsTonemapCurveNewTonemapCurveCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	paramsTonemapCurveCmd.AddCommand(paramsTonemapCurveNewTonemapCurveCmd)
-	paramsTonemapCurveCopyColorCurveCmd.Flags().Int64("handle", 0, "handle (int64)")
-	paramsTonemapCurveCopyColorCurveCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	paramsTonemapCurveCopyColorCurveCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	paramsTonemapCurveCopyColorCurveCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
-	paramsTonemapCurveCmd.AddCommand(paramsTonemapCurveCopyColorCurveCmd)
-	paramsTonemapCurveEqualsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	paramsTonemapCurveEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	paramsTonemapCurveCmd.AddCommand(paramsTonemapCurveEqualsCmd)
-	paramsTonemapCurveGetPointCmd.Flags().Int64("handle", 0, "handle (int64)")
-	paramsTonemapCurveGetPointCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	paramsTonemapCurveGetPointCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	paramsTonemapCurveCmd.AddCommand(paramsTonemapCurveGetPointCmd)
-	paramsTonemapCurveGetPointCountCmd.Flags().Int64("handle", 0, "handle (int64)")
-	paramsTonemapCurveGetPointCountCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	paramsTonemapCurveCmd.AddCommand(paramsTonemapCurveGetPointCountCmd)
-	paramsTonemapCurveHashCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
-	paramsTonemapCurveCmd.AddCommand(paramsTonemapCurveHashCodeCmd)
-	paramsTonemapCurveToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
-	paramsTonemapCurveCmd.AddCommand(paramsTonemapCurveToStringCmd)
-	paramsCmd.AddCommand(paramsTonemapCurveCmd)
-	paramsCapabilityNewCapabilityCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	paramsCapabilityNewCapabilityCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	paramsCapabilityNewCapabilityCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	paramsCapabilityCmd.AddCommand(paramsCapabilityNewCapabilityCmd)
-	paramsCapabilityEqualsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	paramsCapabilityEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	paramsCapabilityCmd.AddCommand(paramsCapabilityEqualsCmd)
-	paramsCapabilityGetMaxStreamingSizeCmd.Flags().Int64("handle", 0, "handle (int64)")
-	paramsCapabilityCmd.AddCommand(paramsCapabilityGetMaxStreamingSizeCmd)
-	paramsCapabilityGetModeCmd.Flags().Int64("handle", 0, "handle (int64)")
-	paramsCapabilityCmd.AddCommand(paramsCapabilityGetModeCmd)
-	paramsCapabilityHashCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
-	paramsCapabilityCmd.AddCommand(paramsCapabilityHashCodeCmd)
-	paramsCapabilityToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
-	paramsCapabilityCmd.AddCommand(paramsCapabilityToStringCmd)
-	paramsCmd.AddCommand(paramsCapabilityCmd)
-	paramsBlackLevelPatternNewBlackLevelPatternCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	paramsBlackLevelPatternCmd.AddCommand(paramsBlackLevelPatternNewBlackLevelPatternCmd)
-	paramsBlackLevelPatternCopyToCmd.Flags().Int64("handle", 0, "handle (int64)")
-	paramsBlackLevelPatternCopyToCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	paramsBlackLevelPatternCopyToCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	paramsBlackLevelPatternCmd.AddCommand(paramsBlackLevelPatternCopyToCmd)
-	paramsBlackLevelPatternEqualsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	paramsBlackLevelPatternEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	paramsBlackLevelPatternCmd.AddCommand(paramsBlackLevelPatternEqualsCmd)
-	paramsBlackLevelPatternGetOffsetForIndexCmd.Flags().Int64("handle", 0, "handle (int64)")
-	paramsBlackLevelPatternGetOffsetForIndexCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	paramsBlackLevelPatternGetOffsetForIndexCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	paramsBlackLevelPatternCmd.AddCommand(paramsBlackLevelPatternGetOffsetForIndexCmd)
-	paramsBlackLevelPatternHashCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
-	paramsBlackLevelPatternCmd.AddCommand(paramsBlackLevelPatternHashCodeCmd)
-	paramsBlackLevelPatternToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
-	paramsBlackLevelPatternCmd.AddCommand(paramsBlackLevelPatternToStringCmd)
-	paramsCmd.AddCommand(paramsBlackLevelPatternCmd)
-	paramsLensShadingMapCopyGainFactorsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	paramsLensShadingMapCopyGainFactorsCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	paramsLensShadingMapCmd.AddCommand(paramsLensShadingMapCopyGainFactorsCmd)
-	paramsLensShadingMapEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	paramsLensShadingMapCmd.AddCommand(paramsLensShadingMapEqualsCmd)
-	paramsLensShadingMapCmd.AddCommand(paramsLensShadingMapGetColumnCountCmd)
-	paramsLensShadingMapGetGainFactorCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	paramsLensShadingMapGetGainFactorCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	paramsLensShadingMapGetGainFactorCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
-	paramsLensShadingMapCmd.AddCommand(paramsLensShadingMapGetGainFactorCmd)
-	paramsLensShadingMapCmd.AddCommand(paramsLensShadingMapGetGainFactorCountCmd)
-	paramsLensShadingMapGetGainFactorVectorCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	paramsLensShadingMapGetGainFactorVectorCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	paramsLensShadingMapCmd.AddCommand(paramsLensShadingMapGetGainFactorVectorCmd)
-	paramsLensShadingMapCmd.AddCommand(paramsLensShadingMapGetRowCountCmd)
-	paramsLensShadingMapCmd.AddCommand(paramsLensShadingMapHashCodeCmd)
-	paramsLensShadingMapCmd.AddCommand(paramsLensShadingMapToStringCmd)
-	paramsCmd.AddCommand(paramsLensShadingMapCmd)
 	paramsMeteringRectangleNewMeteringRectangleCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	paramsMeteringRectangleNewMeteringRectangleCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
 	paramsMeteringRectangleNewMeteringRectangleCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
@@ -4259,18 +4576,122 @@ func init() {
 	paramsMeteringRectangleToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
 	paramsMeteringRectangleCmd.AddCommand(paramsMeteringRectangleToStringCmd)
 	paramsCmd.AddCommand(paramsMeteringRectangleCmd)
-	paramsRecommendedStreamConfigurationMapGetOutputMinFrameDurationCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	paramsRecommendedStreamConfigurationMapGetOutputMinFrameDurationCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	paramsRecommendedStreamConfigurationMapCmd.AddCommand(paramsRecommendedStreamConfigurationMapGetOutputMinFrameDurationCmd)
-	paramsRecommendedStreamConfigurationMapGetOutputStallDurationCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	paramsRecommendedStreamConfigurationMapGetOutputStallDurationCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	paramsRecommendedStreamConfigurationMapCmd.AddCommand(paramsRecommendedStreamConfigurationMapGetOutputStallDurationCmd)
-	paramsRecommendedStreamConfigurationMapCmd.AddCommand(paramsRecommendedStreamConfigurationMapGetRecommendedUseCaseCmd)
-	paramsRecommendedStreamConfigurationMapIsOutputSupportedFor1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	paramsRecommendedStreamConfigurationMapCmd.AddCommand(paramsRecommendedStreamConfigurationMapIsOutputSupportedFor1Cmd)
-	paramsRecommendedStreamConfigurationMapIsOutputSupportedFor1_1Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	paramsRecommendedStreamConfigurationMapCmd.AddCommand(paramsRecommendedStreamConfigurationMapIsOutputSupportedFor1_1Cmd)
-	paramsCmd.AddCommand(paramsRecommendedStreamConfigurationMapCmd)
+	paramsDynamicRangeProfilesNewDynamicRangeProfilesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	paramsDynamicRangeProfilesCmd.AddCommand(paramsDynamicRangeProfilesNewDynamicRangeProfilesCmd)
+	paramsDynamicRangeProfilesGetProfileCaptureRequestConstraintsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	paramsDynamicRangeProfilesGetProfileCaptureRequestConstraintsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	paramsDynamicRangeProfilesCmd.AddCommand(paramsDynamicRangeProfilesGetProfileCaptureRequestConstraintsCmd)
+	paramsDynamicRangeProfilesGetSupportedProfilesCmd.Flags().Int64("handle", 0, "handle (int64)")
+	paramsDynamicRangeProfilesCmd.AddCommand(paramsDynamicRangeProfilesGetSupportedProfilesCmd)
+	paramsDynamicRangeProfilesIsExtraLatencyPresentCmd.Flags().Int64("handle", 0, "handle (int64)")
+	paramsDynamicRangeProfilesIsExtraLatencyPresentCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	paramsDynamicRangeProfilesCmd.AddCommand(paramsDynamicRangeProfilesIsExtraLatencyPresentCmd)
+	paramsCmd.AddCommand(paramsDynamicRangeProfilesCmd)
+	paramsCapabilityNewCapabilityCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	paramsCapabilityNewCapabilityCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	paramsCapabilityNewCapabilityCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	paramsCapabilityCmd.AddCommand(paramsCapabilityNewCapabilityCmd)
+	paramsCapabilityEqualsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	paramsCapabilityEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	paramsCapabilityCmd.AddCommand(paramsCapabilityEqualsCmd)
+	paramsCapabilityGetMaxStreamingSizeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	paramsCapabilityCmd.AddCommand(paramsCapabilityGetMaxStreamingSizeCmd)
+	paramsCapabilityGetModeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	paramsCapabilityCmd.AddCommand(paramsCapabilityGetModeCmd)
+	paramsCapabilityGetZoomRatioRangeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	paramsCapabilityCmd.AddCommand(paramsCapabilityGetZoomRatioRangeCmd)
+	paramsCapabilityHashCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	paramsCapabilityCmd.AddCommand(paramsCapabilityHashCodeCmd)
+	paramsCapabilityToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
+	paramsCapabilityCmd.AddCommand(paramsCapabilityToStringCmd)
+	paramsCmd.AddCommand(paramsCapabilityCmd)
+	paramsExtensionSessionConfigurationNewExtensionSessionConfigurationCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	paramsExtensionSessionConfigurationNewExtensionSessionConfigurationCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	paramsExtensionSessionConfigurationNewExtensionSessionConfigurationCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	paramsExtensionSessionConfigurationNewExtensionSessionConfigurationCmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	paramsExtensionSessionConfigurationCmd.AddCommand(paramsExtensionSessionConfigurationNewExtensionSessionConfigurationCmd)
+	paramsExtensionSessionConfigurationClearColorSpaceCmd.Flags().Int64("handle", 0, "handle (int64)")
+	paramsExtensionSessionConfigurationCmd.AddCommand(paramsExtensionSessionConfigurationClearColorSpaceCmd)
+	paramsExtensionSessionConfigurationGetColorSpaceCmd.Flags().Int64("handle", 0, "handle (int64)")
+	paramsExtensionSessionConfigurationCmd.AddCommand(paramsExtensionSessionConfigurationGetColorSpaceCmd)
+	paramsExtensionSessionConfigurationGetExecutorCmd.Flags().Int64("handle", 0, "handle (int64)")
+	paramsExtensionSessionConfigurationCmd.AddCommand(paramsExtensionSessionConfigurationGetExecutorCmd)
+	paramsExtensionSessionConfigurationGetExtensionCmd.Flags().Int64("handle", 0, "handle (int64)")
+	paramsExtensionSessionConfigurationCmd.AddCommand(paramsExtensionSessionConfigurationGetExtensionCmd)
+	paramsExtensionSessionConfigurationGetOutputConfigurationsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	paramsExtensionSessionConfigurationCmd.AddCommand(paramsExtensionSessionConfigurationGetOutputConfigurationsCmd)
+	paramsExtensionSessionConfigurationGetPostviewOutputConfigurationCmd.Flags().Int64("handle", 0, "handle (int64)")
+	paramsExtensionSessionConfigurationCmd.AddCommand(paramsExtensionSessionConfigurationGetPostviewOutputConfigurationCmd)
+	paramsExtensionSessionConfigurationGetStateCallbackCmd.Flags().Int64("handle", 0, "handle (int64)")
+	paramsExtensionSessionConfigurationCmd.AddCommand(paramsExtensionSessionConfigurationGetStateCallbackCmd)
+	paramsExtensionSessionConfigurationSetColorSpaceCmd.Flags().Int64("handle", 0, "handle (int64)")
+	paramsExtensionSessionConfigurationSetColorSpaceCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	paramsExtensionSessionConfigurationCmd.AddCommand(paramsExtensionSessionConfigurationSetColorSpaceCmd)
+	paramsExtensionSessionConfigurationSetPostviewOutputConfigurationCmd.Flags().Int64("handle", 0, "handle (int64)")
+	paramsExtensionSessionConfigurationSetPostviewOutputConfigurationCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	paramsExtensionSessionConfigurationCmd.AddCommand(paramsExtensionSessionConfigurationSetPostviewOutputConfigurationCmd)
+	paramsCmd.AddCommand(paramsExtensionSessionConfigurationCmd)
+	paramsDeviceStateSensorOrientationMapEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	paramsDeviceStateSensorOrientationMapCmd.AddCommand(paramsDeviceStateSensorOrientationMapEqualsCmd)
+	paramsDeviceStateSensorOrientationMapGetSensorOrientationCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	paramsDeviceStateSensorOrientationMapCmd.AddCommand(paramsDeviceStateSensorOrientationMapGetSensorOrientationCmd)
+	paramsDeviceStateSensorOrientationMapCmd.AddCommand(paramsDeviceStateSensorOrientationMapHashCodeCmd)
+	paramsCmd.AddCommand(paramsDeviceStateSensorOrientationMapCmd)
+	paramsDeviceStateSensorOrientationMapBuilderAddOrientationForStateCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	paramsDeviceStateSensorOrientationMapBuilderAddOrientationForStateCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	paramsDeviceStateSensorOrientationMapBuilderCmd.AddCommand(paramsDeviceStateSensorOrientationMapBuilderAddOrientationForStateCmd)
+	paramsDeviceStateSensorOrientationMapBuilderCmd.AddCommand(paramsDeviceStateSensorOrientationMapBuilderBuildCmd)
+	paramsCmd.AddCommand(paramsDeviceStateSensorOrientationMapBuilderCmd)
+	paramsOisSampleNewOisSampleCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	paramsOisSampleNewOisSampleCmd.Flags().Float32("arg1", 0, "arg1 (float32)")
+	paramsOisSampleNewOisSampleCmd.Flags().Float32("arg2", 0, "arg2 (float32)")
+	paramsOisSampleCmd.AddCommand(paramsOisSampleNewOisSampleCmd)
+	paramsOisSampleEqualsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	paramsOisSampleEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	paramsOisSampleCmd.AddCommand(paramsOisSampleEqualsCmd)
+	paramsOisSampleGetTimestampCmd.Flags().Int64("handle", 0, "handle (int64)")
+	paramsOisSampleCmd.AddCommand(paramsOisSampleGetTimestampCmd)
+	paramsOisSampleGetXshiftCmd.Flags().Int64("handle", 0, "handle (int64)")
+	paramsOisSampleCmd.AddCommand(paramsOisSampleGetXshiftCmd)
+	paramsOisSampleGetYshiftCmd.Flags().Int64("handle", 0, "handle (int64)")
+	paramsOisSampleCmd.AddCommand(paramsOisSampleGetYshiftCmd)
+	paramsOisSampleHashCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	paramsOisSampleCmd.AddCommand(paramsOisSampleHashCodeCmd)
+	paramsOisSampleToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
+	paramsOisSampleCmd.AddCommand(paramsOisSampleToStringCmd)
+	paramsCmd.AddCommand(paramsOisSampleCmd)
+	paramsLensIntrinsicsSampleNewLensIntrinsicsSampleCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	paramsLensIntrinsicsSampleNewLensIntrinsicsSampleCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	paramsLensIntrinsicsSampleCmd.AddCommand(paramsLensIntrinsicsSampleNewLensIntrinsicsSampleCmd)
+	paramsLensIntrinsicsSampleEqualsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	paramsLensIntrinsicsSampleEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	paramsLensIntrinsicsSampleCmd.AddCommand(paramsLensIntrinsicsSampleEqualsCmd)
+	paramsLensIntrinsicsSampleGetLensIntrinsicsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	paramsLensIntrinsicsSampleCmd.AddCommand(paramsLensIntrinsicsSampleGetLensIntrinsicsCmd)
+	paramsLensIntrinsicsSampleGetTimestampNanosCmd.Flags().Int64("handle", 0, "handle (int64)")
+	paramsLensIntrinsicsSampleCmd.AddCommand(paramsLensIntrinsicsSampleGetTimestampNanosCmd)
+	paramsLensIntrinsicsSampleHashCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	paramsLensIntrinsicsSampleCmd.AddCommand(paramsLensIntrinsicsSampleHashCodeCmd)
+	paramsLensIntrinsicsSampleToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
+	paramsLensIntrinsicsSampleCmd.AddCommand(paramsLensIntrinsicsSampleToStringCmd)
+	paramsCmd.AddCommand(paramsLensIntrinsicsSampleCmd)
+	paramsColorSpaceProfilesNewColorSpaceProfilesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	paramsColorSpaceProfilesCmd.AddCommand(paramsColorSpaceProfilesNewColorSpaceProfilesCmd)
+	paramsColorSpaceProfilesGetSupportedColorSpacesCmd.Flags().Int64("handle", 0, "handle (int64)")
+	paramsColorSpaceProfilesGetSupportedColorSpacesCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	paramsColorSpaceProfilesCmd.AddCommand(paramsColorSpaceProfilesGetSupportedColorSpacesCmd)
+	paramsColorSpaceProfilesGetSupportedColorSpacesForDynamicRangeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	paramsColorSpaceProfilesGetSupportedColorSpacesForDynamicRangeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	paramsColorSpaceProfilesGetSupportedColorSpacesForDynamicRangeCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	paramsColorSpaceProfilesCmd.AddCommand(paramsColorSpaceProfilesGetSupportedColorSpacesForDynamicRangeCmd)
+	paramsColorSpaceProfilesGetSupportedDynamicRangeProfilesCmd.Flags().Int64("handle", 0, "handle (int64)")
+	paramsColorSpaceProfilesGetSupportedDynamicRangeProfilesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	paramsColorSpaceProfilesGetSupportedDynamicRangeProfilesCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	paramsColorSpaceProfilesCmd.AddCommand(paramsColorSpaceProfilesGetSupportedDynamicRangeProfilesCmd)
+	paramsColorSpaceProfilesGetSupportedImageFormatsForColorSpaceCmd.Flags().Int64("handle", 0, "handle (int64)")
+	paramsColorSpaceProfilesGetSupportedImageFormatsForColorSpaceCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	paramsColorSpaceProfilesCmd.AddCommand(paramsColorSpaceProfilesGetSupportedImageFormatsForColorSpaceCmd)
+	paramsCmd.AddCommand(paramsColorSpaceProfilesCmd)
 	paramsOutputConfigurationNewOutputConfigurationCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	paramsOutputConfigurationCmd.AddCommand(paramsOutputConfigurationNewOutputConfigurationCmd)
 	paramsOutputConfigurationAddSensorPixelModeUsedCmd.Flags().Int64("handle", 0, "handle (int64)")
@@ -4301,6 +4722,8 @@ func init() {
 	paramsOutputConfigurationCmd.AddCommand(paramsOutputConfigurationGetSurfaceCmd)
 	paramsOutputConfigurationGetSurfaceGroupIdCmd.Flags().Int64("handle", 0, "handle (int64)")
 	paramsOutputConfigurationCmd.AddCommand(paramsOutputConfigurationGetSurfaceGroupIdCmd)
+	paramsOutputConfigurationGetSurfacesCmd.Flags().Int64("handle", 0, "handle (int64)")
+	paramsOutputConfigurationCmd.AddCommand(paramsOutputConfigurationGetSurfacesCmd)
 	paramsOutputConfigurationGetTimestampBaseCmd.Flags().Int64("handle", 0, "handle (int64)")
 	paramsOutputConfigurationCmd.AddCommand(paramsOutputConfigurationGetTimestampBaseCmd)
 	paramsOutputConfigurationHashCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
@@ -4339,22 +4762,54 @@ func init() {
 	paramsOutputConfigurationWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	paramsOutputConfigurationWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
 	paramsOutputConfigurationCmd.AddCommand(paramsOutputConfigurationWriteToParcelCmd)
+	paramsOutputConfigurationCreateInstancesForMultiResolutionOutputCmd.Flags().Int64("handle", 0, "handle (int64)")
+	paramsOutputConfigurationCreateInstancesForMultiResolutionOutputCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	paramsOutputConfigurationCmd.AddCommand(paramsOutputConfigurationCreateInstancesForMultiResolutionOutputCmd)
 	paramsCmd.AddCommand(paramsOutputConfigurationCmd)
-	paramsLensIntrinsicsSampleNewLensIntrinsicsSampleCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	paramsLensIntrinsicsSampleNewLensIntrinsicsSampleCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	paramsLensIntrinsicsSampleCmd.AddCommand(paramsLensIntrinsicsSampleNewLensIntrinsicsSampleCmd)
-	paramsLensIntrinsicsSampleEqualsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	paramsLensIntrinsicsSampleEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	paramsLensIntrinsicsSampleCmd.AddCommand(paramsLensIntrinsicsSampleEqualsCmd)
-	paramsLensIntrinsicsSampleGetLensIntrinsicsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	paramsLensIntrinsicsSampleCmd.AddCommand(paramsLensIntrinsicsSampleGetLensIntrinsicsCmd)
-	paramsLensIntrinsicsSampleGetTimestampNanosCmd.Flags().Int64("handle", 0, "handle (int64)")
-	paramsLensIntrinsicsSampleCmd.AddCommand(paramsLensIntrinsicsSampleGetTimestampNanosCmd)
-	paramsLensIntrinsicsSampleHashCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
-	paramsLensIntrinsicsSampleCmd.AddCommand(paramsLensIntrinsicsSampleHashCodeCmd)
-	paramsLensIntrinsicsSampleToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
-	paramsLensIntrinsicsSampleCmd.AddCommand(paramsLensIntrinsicsSampleToStringCmd)
-	paramsCmd.AddCommand(paramsLensIntrinsicsSampleCmd)
+	paramsSessionConfigurationNewSessionConfigurationCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	paramsSessionConfigurationNewSessionConfigurationCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	paramsSessionConfigurationCmd.AddCommand(paramsSessionConfigurationNewSessionConfigurationCmd)
+	paramsSessionConfigurationClearColorSpaceCmd.Flags().Int64("handle", 0, "handle (int64)")
+	paramsSessionConfigurationCmd.AddCommand(paramsSessionConfigurationClearColorSpaceCmd)
+	paramsSessionConfigurationDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	paramsSessionConfigurationCmd.AddCommand(paramsSessionConfigurationDescribeContentsCmd)
+	paramsSessionConfigurationEqualsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	paramsSessionConfigurationEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	paramsSessionConfigurationCmd.AddCommand(paramsSessionConfigurationEqualsCmd)
+	paramsSessionConfigurationGetColorSpaceCmd.Flags().Int64("handle", 0, "handle (int64)")
+	paramsSessionConfigurationCmd.AddCommand(paramsSessionConfigurationGetColorSpaceCmd)
+	paramsSessionConfigurationGetExecutorCmd.Flags().Int64("handle", 0, "handle (int64)")
+	paramsSessionConfigurationCmd.AddCommand(paramsSessionConfigurationGetExecutorCmd)
+	paramsSessionConfigurationGetInputConfigurationCmd.Flags().Int64("handle", 0, "handle (int64)")
+	paramsSessionConfigurationCmd.AddCommand(paramsSessionConfigurationGetInputConfigurationCmd)
+	paramsSessionConfigurationGetOutputConfigurationsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	paramsSessionConfigurationCmd.AddCommand(paramsSessionConfigurationGetOutputConfigurationsCmd)
+	paramsSessionConfigurationGetSessionParametersCmd.Flags().Int64("handle", 0, "handle (int64)")
+	paramsSessionConfigurationCmd.AddCommand(paramsSessionConfigurationGetSessionParametersCmd)
+	paramsSessionConfigurationGetSessionTypeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	paramsSessionConfigurationCmd.AddCommand(paramsSessionConfigurationGetSessionTypeCmd)
+	paramsSessionConfigurationGetStateCallbackCmd.Flags().Int64("handle", 0, "handle (int64)")
+	paramsSessionConfigurationCmd.AddCommand(paramsSessionConfigurationGetStateCallbackCmd)
+	paramsSessionConfigurationHashCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	paramsSessionConfigurationCmd.AddCommand(paramsSessionConfigurationHashCodeCmd)
+	paramsSessionConfigurationSetColorSpaceCmd.Flags().Int64("handle", 0, "handle (int64)")
+	paramsSessionConfigurationSetColorSpaceCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	paramsSessionConfigurationCmd.AddCommand(paramsSessionConfigurationSetColorSpaceCmd)
+	paramsSessionConfigurationSetInputConfigurationCmd.Flags().Int64("handle", 0, "handle (int64)")
+	paramsSessionConfigurationSetInputConfigurationCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	paramsSessionConfigurationCmd.AddCommand(paramsSessionConfigurationSetInputConfigurationCmd)
+	paramsSessionConfigurationSetSessionParametersCmd.Flags().Int64("handle", 0, "handle (int64)")
+	paramsSessionConfigurationSetSessionParametersCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	paramsSessionConfigurationCmd.AddCommand(paramsSessionConfigurationSetSessionParametersCmd)
+	paramsSessionConfigurationSetStateCallbackCmd.Flags().Int64("handle", 0, "handle (int64)")
+	paramsSessionConfigurationSetStateCallbackCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	paramsSessionConfigurationSetStateCallbackCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	paramsSessionConfigurationCmd.AddCommand(paramsSessionConfigurationSetStateCallbackCmd)
+	paramsSessionConfigurationWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	paramsSessionConfigurationWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	paramsSessionConfigurationWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	paramsSessionConfigurationCmd.AddCommand(paramsSessionConfigurationWriteToParcelCmd)
+	paramsCmd.AddCommand(paramsSessionConfigurationCmd)
 	paramsFaceCmd.AddCommand(paramsFaceGetBoundsCmd)
 	paramsFaceCmd.AddCommand(paramsFaceGetIdCmd)
 	paramsFaceCmd.AddCommand(paramsFaceGetLeftEyePositionCmd)
@@ -4377,32 +4832,41 @@ func init() {
 	paramsFaceBuilderSetScoreCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
 	paramsFaceBuilderCmd.AddCommand(paramsFaceBuilderSetScoreCmd)
 	paramsCmd.AddCommand(paramsFaceBuilderCmd)
-	paramsStreamConfigurationMapEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	paramsStreamConfigurationMapCmd.AddCommand(paramsStreamConfigurationMapEqualsCmd)
-	paramsStreamConfigurationMapGetHighResolutionOutputSizesCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	paramsStreamConfigurationMapCmd.AddCommand(paramsStreamConfigurationMapGetHighResolutionOutputSizesCmd)
-	paramsStreamConfigurationMapCmd.AddCommand(paramsStreamConfigurationMapGetHighSpeedVideoSizesCmd)
-	paramsStreamConfigurationMapCmd.AddCommand(paramsStreamConfigurationMapGetInputFormatsCmd)
-	paramsStreamConfigurationMapGetInputSizesCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	paramsStreamConfigurationMapCmd.AddCommand(paramsStreamConfigurationMapGetInputSizesCmd)
-	paramsStreamConfigurationMapCmd.AddCommand(paramsStreamConfigurationMapGetOutputFormatsCmd)
-	paramsStreamConfigurationMapGetOutputMinFrameDurationCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	paramsStreamConfigurationMapGetOutputMinFrameDurationCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	paramsStreamConfigurationMapCmd.AddCommand(paramsStreamConfigurationMapGetOutputMinFrameDurationCmd)
-	paramsStreamConfigurationMapGetOutputSizesCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	paramsStreamConfigurationMapCmd.AddCommand(paramsStreamConfigurationMapGetOutputSizesCmd)
-	paramsStreamConfigurationMapGetOutputStallDurationCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	paramsStreamConfigurationMapGetOutputStallDurationCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	paramsStreamConfigurationMapCmd.AddCommand(paramsStreamConfigurationMapGetOutputStallDurationCmd)
-	paramsStreamConfigurationMapGetValidOutputFormatsForInputCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	paramsStreamConfigurationMapCmd.AddCommand(paramsStreamConfigurationMapGetValidOutputFormatsForInputCmd)
-	paramsStreamConfigurationMapCmd.AddCommand(paramsStreamConfigurationMapHashCodeCmd)
-	paramsStreamConfigurationMapIsOutputSupportedFor1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	paramsStreamConfigurationMapCmd.AddCommand(paramsStreamConfigurationMapIsOutputSupportedFor1Cmd)
-	paramsStreamConfigurationMapIsOutputSupportedFor1_1Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	paramsStreamConfigurationMapCmd.AddCommand(paramsStreamConfigurationMapIsOutputSupportedFor1_1Cmd)
-	paramsStreamConfigurationMapCmd.AddCommand(paramsStreamConfigurationMapToStringCmd)
-	paramsCmd.AddCommand(paramsStreamConfigurationMapCmd)
+	paramsTonemapCurveNewTonemapCurveCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	paramsTonemapCurveNewTonemapCurveCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	paramsTonemapCurveNewTonemapCurveCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	paramsTonemapCurveCmd.AddCommand(paramsTonemapCurveNewTonemapCurveCmd)
+	paramsTonemapCurveCopyColorCurveCmd.Flags().Int64("handle", 0, "handle (int64)")
+	paramsTonemapCurveCopyColorCurveCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	paramsTonemapCurveCopyColorCurveCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	paramsTonemapCurveCopyColorCurveCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	paramsTonemapCurveCmd.AddCommand(paramsTonemapCurveCopyColorCurveCmd)
+	paramsTonemapCurveEqualsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	paramsTonemapCurveEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	paramsTonemapCurveCmd.AddCommand(paramsTonemapCurveEqualsCmd)
+	paramsTonemapCurveGetPointCmd.Flags().Int64("handle", 0, "handle (int64)")
+	paramsTonemapCurveGetPointCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	paramsTonemapCurveGetPointCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	paramsTonemapCurveCmd.AddCommand(paramsTonemapCurveGetPointCmd)
+	paramsTonemapCurveGetPointCountCmd.Flags().Int64("handle", 0, "handle (int64)")
+	paramsTonemapCurveGetPointCountCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	paramsTonemapCurveCmd.AddCommand(paramsTonemapCurveGetPointCountCmd)
+	paramsTonemapCurveHashCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	paramsTonemapCurveCmd.AddCommand(paramsTonemapCurveHashCodeCmd)
+	paramsTonemapCurveToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
+	paramsTonemapCurveCmd.AddCommand(paramsTonemapCurveToStringCmd)
+	paramsCmd.AddCommand(paramsTonemapCurveCmd)
+	paramsMultiResolutionStreamConfigurationMapEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	paramsMultiResolutionStreamConfigurationMapCmd.AddCommand(paramsMultiResolutionStreamConfigurationMapEqualsCmd)
+	paramsMultiResolutionStreamConfigurationMapCmd.AddCommand(paramsMultiResolutionStreamConfigurationMapGetInputFormatsCmd)
+	paramsMultiResolutionStreamConfigurationMapGetInputInfoCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	paramsMultiResolutionStreamConfigurationMapCmd.AddCommand(paramsMultiResolutionStreamConfigurationMapGetInputInfoCmd)
+	paramsMultiResolutionStreamConfigurationMapCmd.AddCommand(paramsMultiResolutionStreamConfigurationMapGetOutputFormatsCmd)
+	paramsMultiResolutionStreamConfigurationMapGetOutputInfoCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	paramsMultiResolutionStreamConfigurationMapCmd.AddCommand(paramsMultiResolutionStreamConfigurationMapGetOutputInfoCmd)
+	paramsMultiResolutionStreamConfigurationMapCmd.AddCommand(paramsMultiResolutionStreamConfigurationMapHashCodeCmd)
+	paramsMultiResolutionStreamConfigurationMapCmd.AddCommand(paramsMultiResolutionStreamConfigurationMapToStringCmd)
+	paramsCmd.AddCommand(paramsMultiResolutionStreamConfigurationMapCmd)
 	paramsRggbChannelVectorNewRggbChannelVectorCmd.Flags().Float32("arg0", 0, "arg0 (float32)")
 	paramsRggbChannelVectorNewRggbChannelVectorCmd.Flags().Float32("arg1", 0, "arg1 (float32)")
 	paramsRggbChannelVectorNewRggbChannelVectorCmd.Flags().Float32("arg2", 0, "arg2 (float32)")
@@ -4431,5 +4895,118 @@ func init() {
 	paramsRggbChannelVectorToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
 	paramsRggbChannelVectorCmd.AddCommand(paramsRggbChannelVectorToStringCmd)
 	paramsCmd.AddCommand(paramsRggbChannelVectorCmd)
+	paramsColorSpaceTransformNewColorSpaceTransformCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	paramsColorSpaceTransformCmd.AddCommand(paramsColorSpaceTransformNewColorSpaceTransformCmd)
+	paramsColorSpaceTransformCopyElements2Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	paramsColorSpaceTransformCopyElements2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	paramsColorSpaceTransformCopyElements2Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	paramsColorSpaceTransformCmd.AddCommand(paramsColorSpaceTransformCopyElements2Cmd)
+	paramsColorSpaceTransformCopyElements2_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	paramsColorSpaceTransformCopyElements2_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	paramsColorSpaceTransformCopyElements2_1Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	paramsColorSpaceTransformCmd.AddCommand(paramsColorSpaceTransformCopyElements2_1Cmd)
+	paramsColorSpaceTransformEqualsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	paramsColorSpaceTransformEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	paramsColorSpaceTransformCmd.AddCommand(paramsColorSpaceTransformEqualsCmd)
+	paramsColorSpaceTransformGetElementCmd.Flags().Int64("handle", 0, "handle (int64)")
+	paramsColorSpaceTransformGetElementCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	paramsColorSpaceTransformGetElementCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	paramsColorSpaceTransformCmd.AddCommand(paramsColorSpaceTransformGetElementCmd)
+	paramsColorSpaceTransformHashCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	paramsColorSpaceTransformCmd.AddCommand(paramsColorSpaceTransformHashCodeCmd)
+	paramsColorSpaceTransformToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
+	paramsColorSpaceTransformCmd.AddCommand(paramsColorSpaceTransformToStringCmd)
+	paramsCmd.AddCommand(paramsColorSpaceTransformCmd)
+	paramsStreamConfigurationMapEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	paramsStreamConfigurationMapCmd.AddCommand(paramsStreamConfigurationMapEqualsCmd)
+	paramsStreamConfigurationMapGetHighResolutionOutputSizesCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	paramsStreamConfigurationMapCmd.AddCommand(paramsStreamConfigurationMapGetHighResolutionOutputSizesCmd)
+	paramsStreamConfigurationMapCmd.AddCommand(paramsStreamConfigurationMapGetHighSpeedVideoFpsRangesCmd)
+	paramsStreamConfigurationMapGetHighSpeedVideoFpsRangesForCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	paramsStreamConfigurationMapCmd.AddCommand(paramsStreamConfigurationMapGetHighSpeedVideoFpsRangesForCmd)
+	paramsStreamConfigurationMapCmd.AddCommand(paramsStreamConfigurationMapGetHighSpeedVideoSizesCmd)
+	paramsStreamConfigurationMapCmd.AddCommand(paramsStreamConfigurationMapGetInputFormatsCmd)
+	paramsStreamConfigurationMapGetInputSizesCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	paramsStreamConfigurationMapCmd.AddCommand(paramsStreamConfigurationMapGetInputSizesCmd)
+	paramsStreamConfigurationMapCmd.AddCommand(paramsStreamConfigurationMapGetOutputFormatsCmd)
+	paramsStreamConfigurationMapGetOutputMinFrameDurationCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	paramsStreamConfigurationMapGetOutputMinFrameDurationCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	paramsStreamConfigurationMapCmd.AddCommand(paramsStreamConfigurationMapGetOutputMinFrameDurationCmd)
+	paramsStreamConfigurationMapGetOutputSizesCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	paramsStreamConfigurationMapCmd.AddCommand(paramsStreamConfigurationMapGetOutputSizesCmd)
+	paramsStreamConfigurationMapGetOutputStallDurationCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	paramsStreamConfigurationMapGetOutputStallDurationCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	paramsStreamConfigurationMapCmd.AddCommand(paramsStreamConfigurationMapGetOutputStallDurationCmd)
+	paramsStreamConfigurationMapGetValidOutputFormatsForInputCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	paramsStreamConfigurationMapCmd.AddCommand(paramsStreamConfigurationMapGetValidOutputFormatsForInputCmd)
+	paramsStreamConfigurationMapCmd.AddCommand(paramsStreamConfigurationMapHashCodeCmd)
+	paramsStreamConfigurationMapIsOutputSupportedFor1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	paramsStreamConfigurationMapCmd.AddCommand(paramsStreamConfigurationMapIsOutputSupportedFor1Cmd)
+	paramsStreamConfigurationMapIsOutputSupportedFor1_1Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	paramsStreamConfigurationMapCmd.AddCommand(paramsStreamConfigurationMapIsOutputSupportedFor1_1Cmd)
+	paramsStreamConfigurationMapCmd.AddCommand(paramsStreamConfigurationMapToStringCmd)
+	paramsCmd.AddCommand(paramsStreamConfigurationMapCmd)
+	paramsRecommendedStreamConfigurationMapGetHighResolutionOutputSizesCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	paramsRecommendedStreamConfigurationMapCmd.AddCommand(paramsRecommendedStreamConfigurationMapGetHighResolutionOutputSizesCmd)
+	paramsRecommendedStreamConfigurationMapCmd.AddCommand(paramsRecommendedStreamConfigurationMapGetHighSpeedVideoFpsRangesCmd)
+	paramsRecommendedStreamConfigurationMapGetHighSpeedVideoFpsRangesForCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	paramsRecommendedStreamConfigurationMapCmd.AddCommand(paramsRecommendedStreamConfigurationMapGetHighSpeedVideoFpsRangesForCmd)
+	paramsRecommendedStreamConfigurationMapCmd.AddCommand(paramsRecommendedStreamConfigurationMapGetHighSpeedVideoSizesCmd)
+	paramsRecommendedStreamConfigurationMapCmd.AddCommand(paramsRecommendedStreamConfigurationMapGetInputFormatsCmd)
+	paramsRecommendedStreamConfigurationMapGetInputSizesCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	paramsRecommendedStreamConfigurationMapCmd.AddCommand(paramsRecommendedStreamConfigurationMapGetInputSizesCmd)
+	paramsRecommendedStreamConfigurationMapCmd.AddCommand(paramsRecommendedStreamConfigurationMapGetOutputFormatsCmd)
+	paramsRecommendedStreamConfigurationMapGetOutputMinFrameDurationCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	paramsRecommendedStreamConfigurationMapGetOutputMinFrameDurationCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	paramsRecommendedStreamConfigurationMapCmd.AddCommand(paramsRecommendedStreamConfigurationMapGetOutputMinFrameDurationCmd)
+	paramsRecommendedStreamConfigurationMapGetOutputSizesCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	paramsRecommendedStreamConfigurationMapCmd.AddCommand(paramsRecommendedStreamConfigurationMapGetOutputSizesCmd)
+	paramsRecommendedStreamConfigurationMapGetOutputStallDurationCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	paramsRecommendedStreamConfigurationMapGetOutputStallDurationCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	paramsRecommendedStreamConfigurationMapCmd.AddCommand(paramsRecommendedStreamConfigurationMapGetOutputStallDurationCmd)
+	paramsRecommendedStreamConfigurationMapCmd.AddCommand(paramsRecommendedStreamConfigurationMapGetRecommendedUseCaseCmd)
+	paramsRecommendedStreamConfigurationMapGetValidOutputFormatsForInputCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	paramsRecommendedStreamConfigurationMapCmd.AddCommand(paramsRecommendedStreamConfigurationMapGetValidOutputFormatsForInputCmd)
+	paramsRecommendedStreamConfigurationMapIsOutputSupportedFor1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	paramsRecommendedStreamConfigurationMapCmd.AddCommand(paramsRecommendedStreamConfigurationMapIsOutputSupportedFor1Cmd)
+	paramsRecommendedStreamConfigurationMapIsOutputSupportedFor1_1Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	paramsRecommendedStreamConfigurationMapCmd.AddCommand(paramsRecommendedStreamConfigurationMapIsOutputSupportedFor1_1Cmd)
+	paramsCmd.AddCommand(paramsRecommendedStreamConfigurationMapCmd)
+	paramsBlackLevelPatternNewBlackLevelPatternCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	paramsBlackLevelPatternCmd.AddCommand(paramsBlackLevelPatternNewBlackLevelPatternCmd)
+	paramsBlackLevelPatternCopyToCmd.Flags().Int64("handle", 0, "handle (int64)")
+	paramsBlackLevelPatternCopyToCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	paramsBlackLevelPatternCopyToCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	paramsBlackLevelPatternCmd.AddCommand(paramsBlackLevelPatternCopyToCmd)
+	paramsBlackLevelPatternEqualsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	paramsBlackLevelPatternEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	paramsBlackLevelPatternCmd.AddCommand(paramsBlackLevelPatternEqualsCmd)
+	paramsBlackLevelPatternGetOffsetForIndexCmd.Flags().Int64("handle", 0, "handle (int64)")
+	paramsBlackLevelPatternGetOffsetForIndexCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	paramsBlackLevelPatternGetOffsetForIndexCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	paramsBlackLevelPatternCmd.AddCommand(paramsBlackLevelPatternGetOffsetForIndexCmd)
+	paramsBlackLevelPatternHashCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	paramsBlackLevelPatternCmd.AddCommand(paramsBlackLevelPatternHashCodeCmd)
+	paramsBlackLevelPatternToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
+	paramsBlackLevelPatternCmd.AddCommand(paramsBlackLevelPatternToStringCmd)
+	paramsCmd.AddCommand(paramsBlackLevelPatternCmd)
+	paramsLensShadingMapCopyGainFactorsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	paramsLensShadingMapCopyGainFactorsCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	paramsLensShadingMapCmd.AddCommand(paramsLensShadingMapCopyGainFactorsCmd)
+	paramsLensShadingMapEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	paramsLensShadingMapCmd.AddCommand(paramsLensShadingMapEqualsCmd)
+	paramsLensShadingMapCmd.AddCommand(paramsLensShadingMapGetColumnCountCmd)
+	paramsLensShadingMapGetGainFactorCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	paramsLensShadingMapGetGainFactorCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	paramsLensShadingMapGetGainFactorCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	paramsLensShadingMapCmd.AddCommand(paramsLensShadingMapGetGainFactorCmd)
+	paramsLensShadingMapCmd.AddCommand(paramsLensShadingMapGetGainFactorCountCmd)
+	paramsLensShadingMapGetGainFactorVectorCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	paramsLensShadingMapGetGainFactorVectorCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	paramsLensShadingMapCmd.AddCommand(paramsLensShadingMapGetGainFactorVectorCmd)
+	paramsLensShadingMapCmd.AddCommand(paramsLensShadingMapGetRowCountCmd)
+	paramsLensShadingMapCmd.AddCommand(paramsLensShadingMapHashCodeCmd)
+	paramsLensShadingMapCmd.AddCommand(paramsLensShadingMapToStringCmd)
+	paramsCmd.AddCommand(paramsLensShadingMapCmd)
 	rootCmd.AddCommand(paramsCmd)
 }

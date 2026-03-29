@@ -65,6 +65,29 @@ func (s *PageSelectionServer) GetPage(_ context.Context, req *pb.GetPageRequest)
 	return &pb.GetPageResponse{Result: result}, nil
 }
 
+func (s *PageSelectionServer) GetSelectedTextContents(_ context.Context, req *pb.GetSelectedTextContentsRequest) (*pb.GetSelectedTextContentsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.PageSelection{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetSelectedTextContents()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetSelectedTextContentsResponse{Result: handle}, nil
+}
+
 func (s *PageSelectionServer) GetStart(_ context.Context, req *pb.GetStartRequest) (*pb.GetStartResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {

@@ -12,75 +12,391 @@ var renderscriptCmd = &cobra.Command{
 	Short: "renderscript service operations",
 }
 
-var renderscriptScriptGroupCmd = &cobra.Command{
-	Use:   "script-group",
-	Short: "ScriptGroupService operations",
+var renderscriptScriptIntrinsic3DLUTCmd = &cobra.Command{
+	Use:   "script-intrinsic3dlut",
+	Short: "ScriptIntrinsic3DLUTService operations",
 }
 
-var renderscriptScriptGroupDestroyCmd = &cobra.Command{
-	Use:   "destroy",
-	Short: "Destroy RPC",
+var renderscriptScriptIntrinsic3DLUTForEach2Cmd = &cobra.Command{
+	Use:   "for-each2",
+	Short: "ForEach2 RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewScriptGroupServiceClient(grpcConn)
-		req := &pb.DestroyRequest{}
-		resp, err := client.Destroy(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptScriptGroupExecute0Cmd = &cobra.Command{
-	Use:   "execute0",
-	Short: "Execute0 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewScriptGroupServiceClient(grpcConn)
-		req := &pb.Execute0Request{}
-		resp, err := client.Execute0(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptScriptGroupExecute1_1Cmd = &cobra.Command{
-	Use:   "execute1_1",
-	Short: "Execute1_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewScriptGroupServiceClient(grpcConn)
-		req := &pb.Execute1_1Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Execute1_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptScriptGroupSetInputCmd = &cobra.Command{
-	Use:   "set-input",
-	Short: "SetInput RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewScriptGroupServiceClient(grpcConn)
-		req := &pb.SetInputRequest{}
+		client := pb.NewScriptIntrinsic3DLUTServiceClient(grpcConn)
+		req := &pb.ForEach2Request{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
 		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
 			req.Arg1 = v
+		}
+		resp, err := client.ForEach2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptScriptIntrinsic3DLUTForEach3_1Cmd = &cobra.Command{
+	Use:   "for-each3_1",
+	Short: "ForEach3_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewScriptIntrinsic3DLUTServiceClient(grpcConn)
+		req := &pb.ForEach3_1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.ForEach3_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptScriptIntrinsic3DLUTGetKernelIDCmd = &cobra.Command{
+	Use:   "get-kernel-id",
+	Short: "GetKernelID RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewScriptIntrinsic3DLUTServiceClient(grpcConn)
+		req := &pb.GetKernelIDRequest{}
+		resp, err := client.GetKernelID(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptScriptIntrinsic3DLUTSetLUTCmd = &cobra.Command{
+	Use:   "set-lut",
+	Short: "SetLUT RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewScriptIntrinsic3DLUTServiceClient(grpcConn)
+		req := &pb.SetLUTRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetLUT(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptScriptIntrinsic3DLUTCreateCmd = &cobra.Command{
+	Use:   "create",
+	Short: "Create RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewScriptIntrinsic3DLUTServiceClient(grpcConn)
+		req := &pb.CreateRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.Create(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptAllocationAdapterCmd = &cobra.Command{
+	Use:   "allocation-adapter",
+	Short: "AllocationAdapterService operations",
+}
+
+var renderscriptAllocationAdapterSetFaceCmd = &cobra.Command{
+	Use:   "set-face",
+	Short: "SetFace RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAllocationAdapterServiceClient(grpcConn)
+		req := &pb.SetFaceRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetFace(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptAllocationAdapterSetLODCmd = &cobra.Command{
+	Use:   "set-lod",
+	Short: "SetLOD RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAllocationAdapterServiceClient(grpcConn)
+		req := &pb.SetLODRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetLOD(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptAllocationAdapterSetXCmd = &cobra.Command{
+	Use:   "set-x",
+	Short: "SetX RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAllocationAdapterServiceClient(grpcConn)
+		req := &pb.SetXRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetX(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptAllocationAdapterSetYCmd = &cobra.Command{
+	Use:   "set-y",
+	Short: "SetY RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAllocationAdapterServiceClient(grpcConn)
+		req := &pb.SetYRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetY(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptAllocationAdapterSetZCmd = &cobra.Command{
+	Use:   "set-z",
+	Short: "SetZ RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAllocationAdapterServiceClient(grpcConn)
+		req := &pb.SetZRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetZ(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptAllocationAdapterCreate1DCmd = &cobra.Command{
+	Use:   "create1d",
+	Short: "Create1D RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAllocationAdapterServiceClient(grpcConn)
+		req := &pb.Create1DRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.Create1D(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptAllocationAdapterCreate2DCmd = &cobra.Command{
+	Use:   "create2d",
+	Short: "Create2D RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAllocationAdapterServiceClient(grpcConn)
+		req := &pb.Create2DRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.Create2D(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptAllocationAdapterCreateTypedCmd = &cobra.Command{
+	Use:   "create-typed",
+	Short: "CreateTyped RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAllocationAdapterServiceClient(grpcConn)
+		req := &pb.CreateTypedRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.CreateTyped(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptScriptIntrinsicConvolve5x5Cmd = &cobra.Command{
+	Use:   "script-intrinsic-convolve5x5",
+	Short: "ScriptIntrinsicConvolve5x5Service operations",
+}
+
+var renderscriptScriptIntrinsicConvolve5x5ForEach1Cmd = &cobra.Command{
+	Use:   "for-each1",
+	Short: "ForEach1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewScriptIntrinsicConvolve5X5ServiceClient(grpcConn)
+		req := &pb.ForEach1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.ForEach1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptScriptIntrinsicConvolve5x5ForEach2_1Cmd = &cobra.Command{
+	Use:   "for-each2_1",
+	Short: "ForEach2_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewScriptIntrinsicConvolve5X5ServiceClient(grpcConn)
+		req := &pb.ForEach2_1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.ForEach2_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptScriptIntrinsicConvolve5x5GetFieldID_InputCmd = &cobra.Command{
+	Use:   "get-field-id_input",
+	Short: "GetFieldID_Input RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewScriptIntrinsicConvolve5X5ServiceClient(grpcConn)
+		req := &pb.GetFieldID_InputRequest{}
+		resp, err := client.GetFieldID_Input(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptScriptIntrinsicConvolve5x5GetKernelIDCmd = &cobra.Command{
+	Use:   "get-kernel-id",
+	Short: "GetKernelID RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewScriptIntrinsicConvolve5X5ServiceClient(grpcConn)
+		req := &pb.GetKernelIDRequest{}
+		resp, err := client.GetKernelID(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptScriptIntrinsicConvolve5x5SetCoefficientsCmd = &cobra.Command{
+	Use:   "set-coefficients",
+	Short: "SetCoefficients RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewScriptIntrinsicConvolve5X5ServiceClient(grpcConn)
+		req := &pb.SetCoefficientsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetCoefficients(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptScriptIntrinsicConvolve5x5SetInputCmd = &cobra.Command{
+	Use:   "set-input",
+	Short: "SetInput RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewScriptIntrinsicConvolve5X5ServiceClient(grpcConn)
+		req := &pb.SetInputRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
 		}
 		resp, err := client.SetInput(ctx, req)
 		if err != nil {
@@ -90,110 +406,20 @@ var renderscriptScriptGroupSetInputCmd = &cobra.Command{
 	},
 }
 
-var renderscriptScriptGroupSetOutputCmd = &cobra.Command{
-	Use:   "set-output",
-	Short: "SetOutput RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewScriptGroupServiceClient(grpcConn)
-		req := &pb.SetOutputRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.SetOutput(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptScriptGroupBuilderCmd = &cobra.Command{
-	Use:   "script-group-builder",
-	Short: "ScriptGroupBuilderService operations",
-}
-
-var renderscriptScriptGroupBuilderAddConnection3Cmd = &cobra.Command{
-	Use:   "add-connection3",
-	Short: "AddConnection3 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewScriptGroupBuilderServiceClient(grpcConn)
-		req := &pb.AddConnection3Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.AddConnection3(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptScriptGroupBuilderAddConnection3_1Cmd = &cobra.Command{
-	Use:   "add-connection3_1",
-	Short: "AddConnection3_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewScriptGroupBuilderServiceClient(grpcConn)
-		req := &pb.AddConnection3_1Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.AddConnection3_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptScriptGroupBuilderAddKernelCmd = &cobra.Command{
-	Use:   "add-kernel",
-	Short: "AddKernel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewScriptGroupBuilderServiceClient(grpcConn)
-		req := &pb.AddKernelRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.AddKernel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptScriptGroupBuilderCreateCmd = &cobra.Command{
+var renderscriptScriptIntrinsicConvolve5x5CreateCmd = &cobra.Command{
 	Use:   "create",
 	Short: "Create RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewScriptGroupBuilderServiceClient(grpcConn)
+		client := pb.NewScriptIntrinsicConvolve5X5ServiceClient(grpcConn)
 		req := &pb.CreateRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
 		resp, err := client.Create(ctx, req)
 		if err != nil {
 			return err
@@ -202,42 +428,26 @@ var renderscriptScriptGroupBuilderCreateCmd = &cobra.Command{
 	},
 }
 
-var renderscriptScriptGroupBuilder2Cmd = &cobra.Command{
-	Use:   "script-group-builder2",
-	Short: "ScriptGroupBuilder2Service operations",
+var renderscriptScriptIntrinsicColorMatrixCmd = &cobra.Command{
+	Use:   "script-intrinsic-color-matrix",
+	Short: "ScriptIntrinsicColorMatrixService operations",
 }
 
-var renderscriptScriptGroupBuilder2AddInputCmd = &cobra.Command{
-	Use:   "add-input",
-	Short: "AddInput RPC",
+var renderscriptScriptIntrinsicColorMatrixForEach2Cmd = &cobra.Command{
+	Use:   "for-each2",
+	Short: "ForEach2 RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewScriptGroupBuilder2ServiceClient(grpcConn)
-		req := &pb.AddInputRequest{}
-		resp, err := client.AddInput(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptScriptGroupBuilder2AddInvokeCmd = &cobra.Command{
-	Use:   "add-invoke",
-	Short: "AddInvoke RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewScriptGroupBuilder2ServiceClient(grpcConn)
-		req := &pb.AddInvokeRequest{}
+		client := pb.NewScriptIntrinsicColorMatrixServiceClient(grpcConn)
+		req := &pb.ForEach2Request{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
 		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
 			req.Arg1 = v
 		}
-		resp, err := client.AddInvoke(ctx, req)
+		resp, err := client.ForEach2(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -245,14 +455,14 @@ var renderscriptScriptGroupBuilder2AddInvokeCmd = &cobra.Command{
 	},
 }
 
-var renderscriptScriptGroupBuilder2AddKernelCmd = &cobra.Command{
-	Use:   "add-kernel",
-	Short: "AddKernel RPC",
+var renderscriptScriptIntrinsicColorMatrixForEach3_1Cmd = &cobra.Command{
+	Use:   "for-each3_1",
+	Short: "ForEach3_1 RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewScriptGroupBuilder2ServiceClient(grpcConn)
-		req := &pb.ScriptGroupBuilder2AddKernelRequest{}
+		client := pb.NewScriptIntrinsicColorMatrixServiceClient(grpcConn)
+		req := &pb.ForEach3_1Request{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
@@ -262,7 +472,7 @@ var renderscriptScriptGroupBuilder2AddKernelCmd = &cobra.Command{
 		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
 			req.Arg2 = v
 		}
-		resp, err := client.AddKernel(ctx, req)
+		resp, err := client.ForEach3_1(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -270,77 +480,189 @@ var renderscriptScriptGroupBuilder2AddKernelCmd = &cobra.Command{
 	},
 }
 
-var renderscriptScriptGroupBuilder2CreateCmd = &cobra.Command{
-	Use:   "create",
-	Short: "Create RPC",
+var renderscriptScriptIntrinsicColorMatrixGetKernelIDCmd = &cobra.Command{
+	Use:   "get-kernel-id",
+	Short: "GetKernelID RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewScriptGroupBuilder2ServiceClient(grpcConn)
-		req := &pb.ScriptGroupBuilder2CreateRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+		client := pb.NewScriptIntrinsicColorMatrixServiceClient(grpcConn)
+		req := &pb.GetKernelIDRequest{}
+		resp, err := client.GetKernelID(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptScriptIntrinsicColorMatrixSetAdd1Cmd = &cobra.Command{
+	Use:   "set-add1",
+	Short: "SetAdd1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewScriptIntrinsicColorMatrixServiceClient(grpcConn)
+		req := &pb.SetAdd1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetAdd1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptScriptIntrinsicColorMatrixSetAdd4_1Cmd = &cobra.Command{
+	Use:   "set-add4_1",
+	Short: "SetAdd4_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewScriptIntrinsicColorMatrixServiceClient(grpcConn)
+		req := &pb.SetAdd4_1Request{}
+		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.SetAdd4_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptScriptIntrinsicColorMatrixSetColorMatrix1Cmd = &cobra.Command{
+	Use:   "set-color-matrix1",
+	Short: "SetColorMatrix1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewScriptIntrinsicColorMatrixServiceClient(grpcConn)
+		req := &pb.SetColorMatrix1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetColorMatrix1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptScriptIntrinsicColorMatrixSetColorMatrix1_1Cmd = &cobra.Command{
+	Use:   "set-color-matrix1_1",
+	Short: "SetColorMatrix1_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewScriptIntrinsicColorMatrixServiceClient(grpcConn)
+		req := &pb.SetColorMatrix1_1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetColorMatrix1_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptScriptIntrinsicColorMatrixSetGreyscaleCmd = &cobra.Command{
+	Use:   "set-greyscale",
+	Short: "SetGreyscale RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewScriptIntrinsicColorMatrixServiceClient(grpcConn)
+		req := &pb.SetGreyscaleRequest{}
+		resp, err := client.SetGreyscale(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptScriptIntrinsicColorMatrixSetRGBtoYUVCmd = &cobra.Command{
+	Use:   "set-rg-bto-yuv",
+	Short: "SetRGBtoYUV RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewScriptIntrinsicColorMatrixServiceClient(grpcConn)
+		req := &pb.SetRGBtoYUVRequest{}
+		resp, err := client.SetRGBtoYUV(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptScriptIntrinsicColorMatrixSetYUVtoRGBCmd = &cobra.Command{
+	Use:   "set-yu-vto-rgb",
+	Short: "SetYUVtoRGB RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewScriptIntrinsicColorMatrixServiceClient(grpcConn)
+		req := &pb.SetYUVtoRGBRequest{}
+		resp, err := client.SetYUVtoRGB(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptScriptIntrinsicColorMatrixCreate1Cmd = &cobra.Command{
+	Use:   "create1",
+	Short: "Create1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewScriptIntrinsicColorMatrixServiceClient(grpcConn)
+		req := &pb.Create1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Create1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptScriptIntrinsicColorMatrixCreate2_1Cmd = &cobra.Command{
+	Use:   "create2_1",
+	Short: "Create2_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewScriptIntrinsicColorMatrixServiceClient(grpcConn)
+		req := &pb.Create2_1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
 		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
 			req.Arg1 = v
 		}
-		resp, err := client.Create(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptScriptGroupClosureCmd = &cobra.Command{
-	Use:   "script-group-closure",
-	Short: "ScriptGroupClosureService operations",
-}
-
-var renderscriptScriptGroupClosureDestroyCmd = &cobra.Command{
-	Use:   "destroy",
-	Short: "Destroy RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewScriptGroupClosureServiceClient(grpcConn)
-		req := &pb.DestroyRequest{}
-		resp, err := client.Destroy(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptScriptGroupClosureGetGlobalCmd = &cobra.Command{
-	Use:   "get-global",
-	Short: "GetGlobal RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewScriptGroupClosureServiceClient(grpcConn)
-		req := &pb.GetGlobalRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetGlobal(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptScriptGroupClosureGetReturnCmd = &cobra.Command{
-	Use:   "get-return",
-	Short: "GetReturn RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewScriptGroupClosureServiceClient(grpcConn)
-		req := &pb.GetReturnRequest{}
-		resp, err := client.GetReturn(ctx, req)
+		resp, err := client.Create2_1(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -616,7 +938,7 @@ var renderscriptSamplerBuilderCreateCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewSamplerBuilderServiceClient(grpcConn)
-		req := &pb.CreateRequest{}
+		req := &pb.SamplerBuilderCreateRequest{}
 		resp, err := client.Create(ctx, req)
 		if err != nil {
 			return err
@@ -914,7 +1236,7 @@ var renderscriptScriptIntrinsicHistogramSetOutputCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewScriptIntrinsicHistogramServiceClient(grpcConn)
-		req := &pb.ScriptIntrinsicHistogramSetOutputRequest{}
+		req := &pb.SetOutputRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
@@ -933,7 +1255,7 @@ var renderscriptScriptIntrinsicHistogramCreateCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewScriptIntrinsicHistogramServiceClient(grpcConn)
-		req := &pb.ScriptIntrinsicHistogramCreateRequest{}
+		req := &pb.CreateRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
@@ -948,23 +1270,20 @@ var renderscriptScriptIntrinsicHistogramCreateCmd = &cobra.Command{
 	},
 }
 
-var renderscriptScriptIntrinsicYuvToRGBCmd = &cobra.Command{
-	Use:   "script-intrinsic-yuv-to-rgb",
-	Short: "ScriptIntrinsicYuvToRGBService operations",
+var renderscriptMatrix3fCmd = &cobra.Command{
+	Use:   "matrix3f",
+	Short: "Matrix3fService operations",
 }
 
-var renderscriptScriptIntrinsicYuvToRGBForEachCmd = &cobra.Command{
-	Use:   "for-each",
-	Short: "ForEach RPC",
+var renderscriptMatrix3fNewMatrix3fCmd = &cobra.Command{
+	Use:   "new-matrix3f",
+	Short: "NewMatrix3f RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewScriptIntrinsicYuvToRGBServiceClient(grpcConn)
-		req := &pb.ForEachRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.ForEach(ctx, req)
+		client := pb.NewMatrix3FServiceClient(grpcConn)
+		req := &pb.NewMatrix3FRequest{}
+		resp, err := client.NewMatrix3F(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -972,178 +1291,24 @@ var renderscriptScriptIntrinsicYuvToRGBForEachCmd = &cobra.Command{
 	},
 }
 
-var renderscriptScriptIntrinsicYuvToRGBGetFieldID_InputCmd = &cobra.Command{
-	Use:   "get-field-id_input",
-	Short: "GetFieldID_Input RPC",
+var renderscriptMatrix3fGetCmd = &cobra.Command{
+	Use:   "get",
+	Short: "Get RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewScriptIntrinsicYuvToRGBServiceClient(grpcConn)
-		req := &pb.GetFieldID_InputRequest{}
-		resp, err := client.GetFieldID_Input(ctx, req)
-		if err != nil {
-			return err
+		client := pb.NewMatrix3FServiceClient(grpcConn)
+		req := &pb.GetRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
 		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptScriptIntrinsicYuvToRGBGetKernelIDCmd = &cobra.Command{
-	Use:   "get-kernel-id",
-	Short: "GetKernelID RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewScriptIntrinsicYuvToRGBServiceClient(grpcConn)
-		req := &pb.GetKernelIDRequest{}
-		resp, err := client.GetKernelID(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptScriptIntrinsicYuvToRGBSetInputCmd = &cobra.Command{
-	Use:   "set-input",
-	Short: "SetInput RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewScriptIntrinsicYuvToRGBServiceClient(grpcConn)
-		req := &pb.ScriptIntrinsicYuvToRGBSetInputRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetInput(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptScriptIntrinsicYuvToRGBCreateCmd = &cobra.Command{
-	Use:   "create",
-	Short: "Create RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewScriptIntrinsicYuvToRGBServiceClient(grpcConn)
-		req := &pb.ScriptIntrinsicYuvToRGBCreateRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.Create(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptScriptIntrinsicLUTCmd = &cobra.Command{
-	Use:   "script-intrinsic-lut",
-	Short: "ScriptIntrinsicLUTService operations",
-}
-
-var renderscriptScriptIntrinsicLUTDestroyCmd = &cobra.Command{
-	Use:   "destroy",
-	Short: "Destroy RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewScriptIntrinsicLUTServiceClient(grpcConn)
-		req := &pb.DestroyRequest{}
-		resp, err := client.Destroy(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptScriptIntrinsicLUTForEach2Cmd = &cobra.Command{
-	Use:   "for-each2",
-	Short: "ForEach2 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewScriptIntrinsicLUTServiceClient(grpcConn)
-		req := &pb.ForEach2Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.ForEach2(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptScriptIntrinsicLUTForEach3_1Cmd = &cobra.Command{
-	Use:   "for-each3_1",
-	Short: "ForEach3_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewScriptIntrinsicLUTServiceClient(grpcConn)
-		req := &pb.ForEach3_1Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.ForEach3_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptScriptIntrinsicLUTGetKernelIDCmd = &cobra.Command{
-	Use:   "get-kernel-id",
-	Short: "GetKernelID RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewScriptIntrinsicLUTServiceClient(grpcConn)
-		req := &pb.GetKernelIDRequest{}
-		resp, err := client.GetKernelID(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptScriptIntrinsicLUTSetAlphaCmd = &cobra.Command{
-	Use:   "set-alpha",
-	Short: "SetAlpha RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewScriptIntrinsicLUTServiceClient(grpcConn)
-		req := &pb.SetAlphaRequest{}
 		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
 			req.Arg0 = v
 		}
 		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
 			req.Arg1 = v
 		}
-		resp, err := client.SetAlpha(ctx, req)
+		resp, err := client.Get(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1151,21 +1316,40 @@ var renderscriptScriptIntrinsicLUTSetAlphaCmd = &cobra.Command{
 	},
 }
 
-var renderscriptScriptIntrinsicLUTSetBlueCmd = &cobra.Command{
-	Use:   "set-blue",
-	Short: "SetBlue RPC",
+var renderscriptMatrix3fGetArrayCmd = &cobra.Command{
+	Use:   "get-array",
+	Short: "GetArray RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewScriptIntrinsicLUTServiceClient(grpcConn)
-		req := &pb.SetBlueRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+		client := pb.NewMatrix3FServiceClient(grpcConn)
+		req := &pb.GetArrayRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetArray(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptMatrix3fLoadCmd = &cobra.Command{
+	Use:   "load",
+	Short: "Load RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMatrix3FServiceClient(grpcConn)
+		req := &pb.LoadRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.SetBlue(ctx, req)
+		resp, err := client.Load(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1173,21 +1357,18 @@ var renderscriptScriptIntrinsicLUTSetBlueCmd = &cobra.Command{
 	},
 }
 
-var renderscriptScriptIntrinsicLUTSetGreenCmd = &cobra.Command{
-	Use:   "set-green",
-	Short: "SetGreen RPC",
+var renderscriptMatrix3fLoadIdentityCmd = &cobra.Command{
+	Use:   "load-identity",
+	Short: "LoadIdentity RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewScriptIntrinsicLUTServiceClient(grpcConn)
-		req := &pb.SetGreenRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
+		client := pb.NewMatrix3FServiceClient(grpcConn)
+		req := &pb.LoadIdentityRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
 		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.SetGreen(ctx, req)
+		resp, err := client.LoadIdentity(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1195,43 +1376,24 @@ var renderscriptScriptIntrinsicLUTSetGreenCmd = &cobra.Command{
 	},
 }
 
-var renderscriptScriptIntrinsicLUTSetRedCmd = &cobra.Command{
-	Use:   "set-red",
-	Short: "SetRed RPC",
+var renderscriptMatrix3fLoadMultiplyCmd = &cobra.Command{
+	Use:   "load-multiply",
+	Short: "LoadMultiply RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewScriptIntrinsicLUTServiceClient(grpcConn)
-		req := &pb.SetRedRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
+		client := pb.NewMatrix3FServiceClient(grpcConn)
+		req := &pb.LoadMultiplyRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
 		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.SetRed(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptScriptIntrinsicLUTCreateCmd = &cobra.Command{
-	Use:   "create",
-	Short: "Create RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewScriptIntrinsicLUTServiceClient(grpcConn)
-		req := &pb.ScriptIntrinsicLUTCreateRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
 		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
 			req.Arg1 = v
 		}
-		resp, err := client.Create(ctx, req)
+		resp, err := client.LoadMultiply(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1239,26 +1401,21 @@ var renderscriptScriptIntrinsicLUTCreateCmd = &cobra.Command{
 	},
 }
 
-var renderscriptScriptIntrinsicColorMatrixCmd = &cobra.Command{
-	Use:   "script-intrinsic-color-matrix",
-	Short: "ScriptIntrinsicColorMatrixService operations",
-}
-
-var renderscriptScriptIntrinsicColorMatrixForEach2Cmd = &cobra.Command{
-	Use:   "for-each2",
-	Short: "ForEach2 RPC",
+var renderscriptMatrix3fLoadRotate1Cmd = &cobra.Command{
+	Use:   "load-rotate1",
+	Short: "LoadRotate1 RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewScriptIntrinsicColorMatrixServiceClient(grpcConn)
-		req := &pb.ForEach2Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+		client := pb.NewMatrix3FServiceClient(grpcConn)
+		req := &pb.LoadRotate1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.ForEach2(ctx, req)
+		resp, err := client.LoadRotate1(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1266,74 +1423,17 @@ var renderscriptScriptIntrinsicColorMatrixForEach2Cmd = &cobra.Command{
 	},
 }
 
-var renderscriptScriptIntrinsicColorMatrixForEach3_1Cmd = &cobra.Command{
-	Use:   "for-each3_1",
-	Short: "ForEach3_1 RPC",
+var renderscriptMatrix3fLoadRotate4_1Cmd = &cobra.Command{
+	Use:   "load-rotate4_1",
+	Short: "LoadRotate4_1 RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewScriptIntrinsicColorMatrixServiceClient(grpcConn)
-		req := &pb.ForEach3_1Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
+		client := pb.NewMatrix3FServiceClient(grpcConn)
+		req := &pb.LoadRotate4_1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
 		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.ForEach3_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptScriptIntrinsicColorMatrixGetKernelIDCmd = &cobra.Command{
-	Use:   "get-kernel-id",
-	Short: "GetKernelID RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewScriptIntrinsicColorMatrixServiceClient(grpcConn)
-		req := &pb.GetKernelIDRequest{}
-		resp, err := client.GetKernelID(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptScriptIntrinsicColorMatrixSetAdd1Cmd = &cobra.Command{
-	Use:   "set-add1",
-	Short: "SetAdd1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewScriptIntrinsicColorMatrixServiceClient(grpcConn)
-		req := &pb.SetAdd1Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetAdd1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptScriptIntrinsicColorMatrixSetAdd4_1Cmd = &cobra.Command{
-	Use:   "set-add4_1",
-	Short: "SetAdd4_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewScriptIntrinsicColorMatrixServiceClient(grpcConn)
-		req := &pb.SetAdd4_1Request{}
 		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
 			req.Arg0 = v
 		}
@@ -1346,7 +1446,7 @@ var renderscriptScriptIntrinsicColorMatrixSetAdd4_1Cmd = &cobra.Command{
 		if v, err := cmd.Flags().GetFloat32("arg3"); err == nil {
 			req.Arg3 = v
 		}
-		resp, err := client.SetAdd4_1(ctx, req)
+		resp, err := client.LoadRotate4_1(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1354,18 +1454,99 @@ var renderscriptScriptIntrinsicColorMatrixSetAdd4_1Cmd = &cobra.Command{
 	},
 }
 
-var renderscriptScriptIntrinsicColorMatrixSetColorMatrix1Cmd = &cobra.Command{
-	Use:   "set-color-matrix1",
-	Short: "SetColorMatrix1 RPC",
+var renderscriptMatrix3fLoadScale2Cmd = &cobra.Command{
+	Use:   "load-scale2",
+	Short: "LoadScale2 RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewScriptIntrinsicColorMatrixServiceClient(grpcConn)
-		req := &pb.SetColorMatrix1Request{}
+		client := pb.NewMatrix3FServiceClient(grpcConn)
+		req := &pb.LoadScale2Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.LoadScale2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptMatrix3fLoadScale3_1Cmd = &cobra.Command{
+	Use:   "load-scale3_1",
+	Short: "LoadScale3_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMatrix3FServiceClient(grpcConn)
+		req := &pb.LoadScale3_1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.LoadScale3_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptMatrix3fLoadTranslateCmd = &cobra.Command{
+	Use:   "load-translate",
+	Short: "LoadTranslate RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMatrix3FServiceClient(grpcConn)
+		req := &pb.LoadTranslateRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.LoadTranslate(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptMatrix3fMultiplyCmd = &cobra.Command{
+	Use:   "multiply",
+	Short: "Multiply RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMatrix3FServiceClient(grpcConn)
+		req := &pb.MultiplyRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		resp, err := client.SetColorMatrix1(ctx, req)
+		resp, err := client.Multiply(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1373,18 +1554,201 @@ var renderscriptScriptIntrinsicColorMatrixSetColorMatrix1Cmd = &cobra.Command{
 	},
 }
 
-var renderscriptScriptIntrinsicColorMatrixSetColorMatrix1_1Cmd = &cobra.Command{
-	Use:   "set-color-matrix1_1",
-	Short: "SetColorMatrix1_1 RPC",
+var renderscriptMatrix3fRotate1Cmd = &cobra.Command{
+	Use:   "rotate1",
+	Short: "Rotate1 RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewScriptIntrinsicColorMatrixServiceClient(grpcConn)
-		req := &pb.SetColorMatrix1_1Request{}
+		client := pb.NewMatrix3FServiceClient(grpcConn)
+		req := &pb.Rotate1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Rotate1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptMatrix3fRotate4_1Cmd = &cobra.Command{
+	Use:   "rotate4_1",
+	Short: "Rotate4_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMatrix3FServiceClient(grpcConn)
+		req := &pb.Rotate4_1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.Rotate4_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptMatrix3fScale2Cmd = &cobra.Command{
+	Use:   "scale2",
+	Short: "Scale2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMatrix3FServiceClient(grpcConn)
+		req := &pb.Scale2Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.Scale2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptMatrix3fScale3_1Cmd = &cobra.Command{
+	Use:   "scale3_1",
+	Short: "Scale3_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMatrix3FServiceClient(grpcConn)
+		req := &pb.Scale3_1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.Scale3_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptMatrix3fSetCmd = &cobra.Command{
+	Use:   "set",
+	Short: "Set RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMatrix3FServiceClient(grpcConn)
+		req := &pb.SetRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.Set(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptMatrix3fTranslateCmd = &cobra.Command{
+	Use:   "translate",
+	Short: "Translate RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMatrix3FServiceClient(grpcConn)
+		req := &pb.TranslateRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.Translate(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptMatrix3fTransposeCmd = &cobra.Command{
+	Use:   "transpose",
+	Short: "Transpose RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMatrix3FServiceClient(grpcConn)
+		req := &pb.TransposeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.Transpose(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptScriptIntrinsicResizeCmd = &cobra.Command{
+	Use:   "script-intrinsic-resize",
+	Short: "ScriptIntrinsicResizeService operations",
+}
+
+var renderscriptScriptIntrinsicResizeForEach_bicubic1Cmd = &cobra.Command{
+	Use:   "for-each_bicubic1",
+	Short: "ForEach_bicubic1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewScriptIntrinsicResizeServiceClient(grpcConn)
+		req := &pb.ForEachBicubic1Request{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		resp, err := client.SetColorMatrix1_1(ctx, req)
+		resp, err := client.ForEachBicubic1(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1392,88 +1756,5164 @@ var renderscriptScriptIntrinsicColorMatrixSetColorMatrix1_1Cmd = &cobra.Command{
 	},
 }
 
-var renderscriptScriptIntrinsicColorMatrixSetGreyscaleCmd = &cobra.Command{
-	Use:   "set-greyscale",
-	Short: "SetGreyscale RPC",
+var renderscriptScriptIntrinsicResizeForEach_bicubic2_1Cmd = &cobra.Command{
+	Use:   "for-each_bicubic2_1",
+	Short: "ForEach_bicubic2_1 RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewScriptIntrinsicColorMatrixServiceClient(grpcConn)
-		req := &pb.SetGreyscaleRequest{}
-		resp, err := client.SetGreyscale(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptScriptIntrinsicColorMatrixSetRGBtoYUVCmd = &cobra.Command{
-	Use:   "set-rg-bto-yuv",
-	Short: "SetRGBtoYUV RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewScriptIntrinsicColorMatrixServiceClient(grpcConn)
-		req := &pb.SetRGBtoYUVRequest{}
-		resp, err := client.SetRGBtoYUV(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptScriptIntrinsicColorMatrixSetYUVtoRGBCmd = &cobra.Command{
-	Use:   "set-yu-vto-rgb",
-	Short: "SetYUVtoRGB RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewScriptIntrinsicColorMatrixServiceClient(grpcConn)
-		req := &pb.SetYUVtoRGBRequest{}
-		resp, err := client.SetYUVtoRGB(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptScriptIntrinsicColorMatrixCreate1Cmd = &cobra.Command{
-	Use:   "create1",
-	Short: "Create1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewScriptIntrinsicColorMatrixServiceClient(grpcConn)
-		req := &pb.Create1Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Create1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptScriptIntrinsicColorMatrixCreate2_1Cmd = &cobra.Command{
-	Use:   "create2_1",
-	Short: "Create2_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewScriptIntrinsicColorMatrixServiceClient(grpcConn)
-		req := &pb.Create2_1Request{}
+		client := pb.NewScriptIntrinsicResizeServiceClient(grpcConn)
+		req := &pb.ForEachBicubic2_1Request{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
 		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
 			req.Arg1 = v
 		}
-		resp, err := client.Create2_1(ctx, req)
+		resp, err := client.ForEachBicubic2_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptScriptIntrinsicResizeGetFieldID_InputCmd = &cobra.Command{
+	Use:   "get-field-id_input",
+	Short: "GetFieldID_Input RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewScriptIntrinsicResizeServiceClient(grpcConn)
+		req := &pb.GetFieldID_InputRequest{}
+		resp, err := client.GetFieldID_Input(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptScriptIntrinsicResizeGetKernelID_bicubicCmd = &cobra.Command{
+	Use:   "get-kernel-id_bicubic",
+	Short: "GetKernelID_bicubic RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewScriptIntrinsicResizeServiceClient(grpcConn)
+		req := &pb.GetKernelIDBicubicRequest{}
+		resp, err := client.GetKernelIDBicubic(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptScriptIntrinsicResizeSetInputCmd = &cobra.Command{
+	Use:   "set-input",
+	Short: "SetInput RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewScriptIntrinsicResizeServiceClient(grpcConn)
+		req := &pb.SetInputRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetInput(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptScriptIntrinsicResizeCreateCmd = &cobra.Command{
+	Use:   "create",
+	Short: "Create RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewScriptIntrinsicResizeServiceClient(grpcConn)
+		req := &pb.ScriptIntrinsicResizeCreateRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Create(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptTypeCmd = &cobra.Command{
+	Use:   "type",
+	Short: "TypeService operations",
+}
+
+var renderscriptTypeGetCountCmd = &cobra.Command{
+	Use:   "get-count",
+	Short: "GetCount RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTypeServiceClient(grpcConn)
+		req := &pb.GetCountRequest{}
+		resp, err := client.GetCount(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptTypeGetElementCmd = &cobra.Command{
+	Use:   "get-element",
+	Short: "GetElement RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTypeServiceClient(grpcConn)
+		req := &pb.GetElementRequest{}
+		resp, err := client.GetElement(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptTypeGetXCmd = &cobra.Command{
+	Use:   "get-x",
+	Short: "GetX RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTypeServiceClient(grpcConn)
+		req := &pb.GetXRequest{}
+		resp, err := client.GetX(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptTypeGetYCmd = &cobra.Command{
+	Use:   "get-y",
+	Short: "GetY RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTypeServiceClient(grpcConn)
+		req := &pb.GetYRequest{}
+		resp, err := client.GetY(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptTypeGetYuvCmd = &cobra.Command{
+	Use:   "get-yuv",
+	Short: "GetYuv RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTypeServiceClient(grpcConn)
+		req := &pb.GetYuvRequest{}
+		resp, err := client.GetYuv(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptTypeGetZCmd = &cobra.Command{
+	Use:   "get-z",
+	Short: "GetZ RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTypeServiceClient(grpcConn)
+		req := &pb.GetZRequest{}
+		resp, err := client.GetZ(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptTypeHasFacesCmd = &cobra.Command{
+	Use:   "has-faces",
+	Short: "HasFaces RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTypeServiceClient(grpcConn)
+		req := &pb.HasFacesRequest{}
+		resp, err := client.HasFaces(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptTypeHasMipmapsCmd = &cobra.Command{
+	Use:   "has-mipmaps",
+	Short: "HasMipmaps RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTypeServiceClient(grpcConn)
+		req := &pb.HasMipmapsRequest{}
+		resp, err := client.HasMipmaps(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptTypeCreateXCmd = &cobra.Command{
+	Use:   "create-x",
+	Short: "CreateX RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTypeServiceClient(grpcConn)
+		req := &pb.CreateXRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.CreateX(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptTypeCreateXYCmd = &cobra.Command{
+	Use:   "create-xy",
+	Short: "CreateXY RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTypeServiceClient(grpcConn)
+		req := &pb.CreateXYRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.CreateXY(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptTypeCreateXYZCmd = &cobra.Command{
+	Use:   "create-xyz",
+	Short: "CreateXYZ RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTypeServiceClient(grpcConn)
+		req := &pb.CreateXYZRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		resp, err := client.CreateXYZ(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptTypeBuilderCmd = &cobra.Command{
+	Use:   "type-builder",
+	Short: "TypeBuilderService operations",
+}
+
+var renderscriptTypeBuilderCreateCmd = &cobra.Command{
+	Use:   "create",
+	Short: "Create RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTypeBuilderServiceClient(grpcConn)
+		req := &pb.TypeBuilderCreateRequest{}
+		resp, err := client.Create(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptTypeBuilderSetFacesCmd = &cobra.Command{
+	Use:   "set-faces",
+	Short: "SetFaces RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTypeBuilderServiceClient(grpcConn)
+		req := &pb.SetFacesRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetFaces(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptTypeBuilderSetMipmapsCmd = &cobra.Command{
+	Use:   "set-mipmaps",
+	Short: "SetMipmaps RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTypeBuilderServiceClient(grpcConn)
+		req := &pb.SetMipmapsRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetMipmaps(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptTypeBuilderSetXCmd = &cobra.Command{
+	Use:   "set-x",
+	Short: "SetX RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTypeBuilderServiceClient(grpcConn)
+		req := &pb.SetXRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetX(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptTypeBuilderSetYCmd = &cobra.Command{
+	Use:   "set-y",
+	Short: "SetY RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTypeBuilderServiceClient(grpcConn)
+		req := &pb.SetYRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetY(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptTypeBuilderSetYuvFormatCmd = &cobra.Command{
+	Use:   "set-yuv-format",
+	Short: "SetYuvFormat RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTypeBuilderServiceClient(grpcConn)
+		req := &pb.SetYuvFormatRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetYuvFormat(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptTypeBuilderSetZCmd = &cobra.Command{
+	Use:   "set-z",
+	Short: "SetZ RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTypeBuilderServiceClient(grpcConn)
+		req := &pb.SetZRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetZ(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptTypeCubemapFaceCmd = &cobra.Command{
+	Use:   "type-cubemap-face",
+	Short: "TypeCubemapFaceService operations",
+}
+
+var renderscriptTypeCubemapFaceValuesCmd = &cobra.Command{
+	Use:   "values",
+	Short: "Values RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTypeCubemapFaceServiceClient(grpcConn)
+		req := &pb.ValuesRequest{}
+		resp, err := client.Values(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptTypeCubemapFaceValueOfCmd = &cobra.Command{
+	Use:   "value-of",
+	Short: "ValueOf RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTypeCubemapFaceServiceClient(grpcConn)
+		req := &pb.ValueOfRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.ValueOf(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptBaseObjCmd = &cobra.Command{
+	Use:   "base-obj",
+	Short: "BaseObjService operations",
+}
+
+var renderscriptBaseObjDestroyCmd = &cobra.Command{
+	Use:   "destroy",
+	Short: "Destroy RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBaseObjServiceClient(grpcConn)
+		req := &pb.DestroyRequest{}
+		resp, err := client.Destroy(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptBaseObjEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBaseObjServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptBaseObjGetNameCmd = &cobra.Command{
+	Use:   "get-name",
+	Short: "GetName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBaseObjServiceClient(grpcConn)
+		req := &pb.GetNameRequest{}
+		resp, err := client.GetName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptBaseObjHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBaseObjServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptBaseObjSetNameCmd = &cobra.Command{
+	Use:   "set-name",
+	Short: "SetName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBaseObjServiceClient(grpcConn)
+		req := &pb.SetNameRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptMatrix4fCmd = &cobra.Command{
+	Use:   "matrix4f",
+	Short: "Matrix4fService operations",
+}
+
+var renderscriptMatrix4fNewMatrix4fCmd = &cobra.Command{
+	Use:   "new-matrix4f",
+	Short: "NewMatrix4f RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMatrix4FServiceClient(grpcConn)
+		req := &pb.NewMatrix4FRequest{}
+		resp, err := client.NewMatrix4F(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptMatrix4fGetCmd = &cobra.Command{
+	Use:   "get",
+	Short: "Get RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMatrix4FServiceClient(grpcConn)
+		req := &pb.GetRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.Get(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptMatrix4fGetArrayCmd = &cobra.Command{
+	Use:   "get-array",
+	Short: "GetArray RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMatrix4FServiceClient(grpcConn)
+		req := &pb.GetArrayRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetArray(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptMatrix4fInverseCmd = &cobra.Command{
+	Use:   "inverse",
+	Short: "Inverse RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMatrix4FServiceClient(grpcConn)
+		req := &pb.InverseRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.Inverse(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptMatrix4fInverseTransposeCmd = &cobra.Command{
+	Use:   "inverse-transpose",
+	Short: "InverseTranspose RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMatrix4FServiceClient(grpcConn)
+		req := &pb.InverseTransposeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.InverseTranspose(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptMatrix4fLoadCmd = &cobra.Command{
+	Use:   "load",
+	Short: "Load RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMatrix4FServiceClient(grpcConn)
+		req := &pb.LoadRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Load(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptMatrix4fLoadFrustumCmd = &cobra.Command{
+	Use:   "load-frustum",
+	Short: "LoadFrustum RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMatrix4FServiceClient(grpcConn)
+		req := &pb.LoadFrustumRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg5"); err == nil {
+			req.Arg5 = v
+		}
+		resp, err := client.LoadFrustum(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptMatrix4fLoadIdentityCmd = &cobra.Command{
+	Use:   "load-identity",
+	Short: "LoadIdentity RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMatrix4FServiceClient(grpcConn)
+		req := &pb.LoadIdentityRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.LoadIdentity(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptMatrix4fLoadMultiplyCmd = &cobra.Command{
+	Use:   "load-multiply",
+	Short: "LoadMultiply RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMatrix4FServiceClient(grpcConn)
+		req := &pb.LoadMultiplyRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.LoadMultiply(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptMatrix4fLoadOrthoCmd = &cobra.Command{
+	Use:   "load-ortho",
+	Short: "LoadOrtho RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMatrix4FServiceClient(grpcConn)
+		req := &pb.LoadOrthoRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg5"); err == nil {
+			req.Arg5 = v
+		}
+		resp, err := client.LoadOrtho(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptMatrix4fLoadOrthoWindowCmd = &cobra.Command{
+	Use:   "load-ortho-window",
+	Short: "LoadOrthoWindow RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMatrix4FServiceClient(grpcConn)
+		req := &pb.LoadOrthoWindowRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.LoadOrthoWindow(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptMatrix4fLoadPerspectiveCmd = &cobra.Command{
+	Use:   "load-perspective",
+	Short: "LoadPerspective RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMatrix4FServiceClient(grpcConn)
+		req := &pb.LoadPerspectiveRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.LoadPerspective(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptMatrix4fLoadProjectionNormalizedCmd = &cobra.Command{
+	Use:   "load-projection-normalized",
+	Short: "LoadProjectionNormalized RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMatrix4FServiceClient(grpcConn)
+		req := &pb.LoadProjectionNormalizedRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.LoadProjectionNormalized(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptMatrix4fLoadRotateCmd = &cobra.Command{
+	Use:   "load-rotate",
+	Short: "LoadRotate RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMatrix4FServiceClient(grpcConn)
+		req := &pb.LoadRotateRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.LoadRotate(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptMatrix4fLoadScaleCmd = &cobra.Command{
+	Use:   "load-scale",
+	Short: "LoadScale RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMatrix4FServiceClient(grpcConn)
+		req := &pb.LoadScaleRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.LoadScale(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptMatrix4fLoadTranslateCmd = &cobra.Command{
+	Use:   "load-translate",
+	Short: "LoadTranslate RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMatrix4FServiceClient(grpcConn)
+		req := &pb.Matrix4FLoadTranslateRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.LoadTranslate(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptMatrix4fMultiplyCmd = &cobra.Command{
+	Use:   "multiply",
+	Short: "Multiply RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMatrix4FServiceClient(grpcConn)
+		req := &pb.MultiplyRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Multiply(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptMatrix4fRotateCmd = &cobra.Command{
+	Use:   "rotate",
+	Short: "Rotate RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMatrix4FServiceClient(grpcConn)
+		req := &pb.RotateRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.Rotate(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptMatrix4fScaleCmd = &cobra.Command{
+	Use:   "scale",
+	Short: "Scale RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMatrix4FServiceClient(grpcConn)
+		req := &pb.ScaleRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.Scale(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptMatrix4fSetCmd = &cobra.Command{
+	Use:   "set",
+	Short: "Set RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMatrix4FServiceClient(grpcConn)
+		req := &pb.SetRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.Set(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptMatrix4fTranslateCmd = &cobra.Command{
+	Use:   "translate",
+	Short: "Translate RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMatrix4FServiceClient(grpcConn)
+		req := &pb.Matrix4FTranslateRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.Translate(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptMatrix4fTransposeCmd = &cobra.Command{
+	Use:   "transpose",
+	Short: "Transpose RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMatrix4FServiceClient(grpcConn)
+		req := &pb.TransposeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.Transpose(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptAllocationCmd = &cobra.Command{
+	Use:   "allocation",
+	Short: "AllocationService operations",
+}
+
+var renderscriptAllocationCopy1DRangeFrom4Cmd = &cobra.Command{
+	Use:   "copy1d-range-from4",
+	Short: "Copy1DRangeFrom4 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAllocationServiceClient(grpcConn)
+		req := &pb.Copy1DRangeFrom4Request{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.Copy1DRangeFrom4(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptAllocationCopy1DRangeFrom3_1Cmd = &cobra.Command{
+	Use:   "copy1d-range-from3_1",
+	Short: "Copy1DRangeFrom3_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAllocationServiceClient(grpcConn)
+		req := &pb.Copy1DRangeFrom3_1Request{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.Copy1DRangeFrom3_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptAllocationCopy1DRangeFrom3_2Cmd = &cobra.Command{
+	Use:   "copy1d-range-from3_2",
+	Short: "Copy1DRangeFrom3_2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAllocationServiceClient(grpcConn)
+		req := &pb.Copy1DRangeFrom3_2Request{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.Copy1DRangeFrom3_2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptAllocationCopy1DRangeFrom3_3Cmd = &cobra.Command{
+	Use:   "copy1d-range-from3_3",
+	Short: "Copy1DRangeFrom3_3 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAllocationServiceClient(grpcConn)
+		req := &pb.Copy1DRangeFrom3_3Request{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.Copy1DRangeFrom3_3(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptAllocationCopy1DRangeFrom3_4Cmd = &cobra.Command{
+	Use:   "copy1d-range-from3_4",
+	Short: "Copy1DRangeFrom3_4 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAllocationServiceClient(grpcConn)
+		req := &pb.Copy1DRangeFrom3_4Request{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.Copy1DRangeFrom3_4(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptAllocationCopy1DRangeFrom3_5Cmd = &cobra.Command{
+	Use:   "copy1d-range-from3_5",
+	Short: "Copy1DRangeFrom3_5 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAllocationServiceClient(grpcConn)
+		req := &pb.Copy1DRangeFrom3_5Request{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.Copy1DRangeFrom3_5(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptAllocationCopy1DRangeFromUnchecked3Cmd = &cobra.Command{
+	Use:   "copy1d-range-from-unchecked3",
+	Short: "Copy1DRangeFromUnchecked3 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAllocationServiceClient(grpcConn)
+		req := &pb.Copy1DRangeFromUnchecked3Request{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.Copy1DRangeFromUnchecked3(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptAllocationCopy1DRangeFromUnchecked3_1Cmd = &cobra.Command{
+	Use:   "copy1d-range-from-unchecked3_1",
+	Short: "Copy1DRangeFromUnchecked3_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAllocationServiceClient(grpcConn)
+		req := &pb.Copy1DRangeFromUnchecked3_1Request{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.Copy1DRangeFromUnchecked3_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptAllocationCopy1DRangeFromUnchecked3_2Cmd = &cobra.Command{
+	Use:   "copy1d-range-from-unchecked3_2",
+	Short: "Copy1DRangeFromUnchecked3_2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAllocationServiceClient(grpcConn)
+		req := &pb.Copy1DRangeFromUnchecked3_2Request{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.Copy1DRangeFromUnchecked3_2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptAllocationCopy1DRangeFromUnchecked3_3Cmd = &cobra.Command{
+	Use:   "copy1d-range-from-unchecked3_3",
+	Short: "Copy1DRangeFromUnchecked3_3 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAllocationServiceClient(grpcConn)
+		req := &pb.Copy1DRangeFromUnchecked3_3Request{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.Copy1DRangeFromUnchecked3_3(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptAllocationCopy1DRangeFromUnchecked3_4Cmd = &cobra.Command{
+	Use:   "copy1d-range-from-unchecked3_4",
+	Short: "Copy1DRangeFromUnchecked3_4 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAllocationServiceClient(grpcConn)
+		req := &pb.Copy1DRangeFromUnchecked3_4Request{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.Copy1DRangeFromUnchecked3_4(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptAllocationCopy1DRangeTo3Cmd = &cobra.Command{
+	Use:   "copy1d-range-to3",
+	Short: "Copy1DRangeTo3 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAllocationServiceClient(grpcConn)
+		req := &pb.Copy1DRangeTo3Request{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.Copy1DRangeTo3(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptAllocationCopy1DRangeTo3_1Cmd = &cobra.Command{
+	Use:   "copy1d-range-to3_1",
+	Short: "Copy1DRangeTo3_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAllocationServiceClient(grpcConn)
+		req := &pb.Copy1DRangeTo3_1Request{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.Copy1DRangeTo3_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptAllocationCopy1DRangeTo3_2Cmd = &cobra.Command{
+	Use:   "copy1d-range-to3_2",
+	Short: "Copy1DRangeTo3_2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAllocationServiceClient(grpcConn)
+		req := &pb.Copy1DRangeTo3_2Request{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.Copy1DRangeTo3_2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptAllocationCopy1DRangeTo3_3Cmd = &cobra.Command{
+	Use:   "copy1d-range-to3_3",
+	Short: "Copy1DRangeTo3_3 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAllocationServiceClient(grpcConn)
+		req := &pb.Copy1DRangeTo3_3Request{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.Copy1DRangeTo3_3(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptAllocationCopy1DRangeTo3_4Cmd = &cobra.Command{
+	Use:   "copy1d-range-to3_4",
+	Short: "Copy1DRangeTo3_4 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAllocationServiceClient(grpcConn)
+		req := &pb.Copy1DRangeTo3_4Request{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.Copy1DRangeTo3_4(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptAllocationCopy1DRangeToUnchecked3Cmd = &cobra.Command{
+	Use:   "copy1d-range-to-unchecked3",
+	Short: "Copy1DRangeToUnchecked3 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAllocationServiceClient(grpcConn)
+		req := &pb.Copy1DRangeToUnchecked3Request{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.Copy1DRangeToUnchecked3(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptAllocationCopy1DRangeToUnchecked3_1Cmd = &cobra.Command{
+	Use:   "copy1d-range-to-unchecked3_1",
+	Short: "Copy1DRangeToUnchecked3_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAllocationServiceClient(grpcConn)
+		req := &pb.Copy1DRangeToUnchecked3_1Request{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.Copy1DRangeToUnchecked3_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptAllocationCopy1DRangeToUnchecked3_2Cmd = &cobra.Command{
+	Use:   "copy1d-range-to-unchecked3_2",
+	Short: "Copy1DRangeToUnchecked3_2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAllocationServiceClient(grpcConn)
+		req := &pb.Copy1DRangeToUnchecked3_2Request{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.Copy1DRangeToUnchecked3_2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptAllocationCopy1DRangeToUnchecked3_3Cmd = &cobra.Command{
+	Use:   "copy1d-range-to-unchecked3_3",
+	Short: "Copy1DRangeToUnchecked3_3 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAllocationServiceClient(grpcConn)
+		req := &pb.Copy1DRangeToUnchecked3_3Request{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.Copy1DRangeToUnchecked3_3(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptAllocationCopy1DRangeToUnchecked3_4Cmd = &cobra.Command{
+	Use:   "copy1d-range-to-unchecked3_4",
+	Short: "Copy1DRangeToUnchecked3_4 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAllocationServiceClient(grpcConn)
+		req := &pb.Copy1DRangeToUnchecked3_4Request{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.Copy1DRangeToUnchecked3_4(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptAllocationCopy2DRangeFrom3Cmd = &cobra.Command{
+	Use:   "copy2d-range-from3",
+	Short: "Copy2DRangeFrom3 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAllocationServiceClient(grpcConn)
+		req := &pb.Copy2DRangeFrom3Request{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.Copy2DRangeFrom3(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptAllocationCopy2DRangeFrom7_1Cmd = &cobra.Command{
+	Use:   "copy2d-range-from7_1",
+	Short: "Copy2DRangeFrom7_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAllocationServiceClient(grpcConn)
+		req := &pb.Copy2DRangeFrom7_1Request{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg5"); err == nil {
+			req.Arg5 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg6"); err == nil {
+			req.Arg6 = v
+		}
+		resp, err := client.Copy2DRangeFrom7_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptAllocationCopy2DRangeFrom5_2Cmd = &cobra.Command{
+	Use:   "copy2d-range-from5_2",
+	Short: "Copy2DRangeFrom5_2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAllocationServiceClient(grpcConn)
+		req := &pb.Copy2DRangeFrom5_2Request{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		resp, err := client.Copy2DRangeFrom5_2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptAllocationCopy2DRangeFrom5_3Cmd = &cobra.Command{
+	Use:   "copy2d-range-from5_3",
+	Short: "Copy2DRangeFrom5_3 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAllocationServiceClient(grpcConn)
+		req := &pb.Copy2DRangeFrom5_3Request{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		resp, err := client.Copy2DRangeFrom5_3(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptAllocationCopy2DRangeFrom5_4Cmd = &cobra.Command{
+	Use:   "copy2d-range-from5_4",
+	Short: "Copy2DRangeFrom5_4 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAllocationServiceClient(grpcConn)
+		req := &pb.Copy2DRangeFrom5_4Request{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		resp, err := client.Copy2DRangeFrom5_4(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptAllocationCopy2DRangeFrom5_5Cmd = &cobra.Command{
+	Use:   "copy2d-range-from5_5",
+	Short: "Copy2DRangeFrom5_5 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAllocationServiceClient(grpcConn)
+		req := &pb.Copy2DRangeFrom5_5Request{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		resp, err := client.Copy2DRangeFrom5_5(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptAllocationCopy2DRangeFrom5_6Cmd = &cobra.Command{
+	Use:   "copy2d-range-from5_6",
+	Short: "Copy2DRangeFrom5_6 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAllocationServiceClient(grpcConn)
+		req := &pb.Copy2DRangeFrom5_6Request{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		resp, err := client.Copy2DRangeFrom5_6(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptAllocationCopy2DRangeTo5Cmd = &cobra.Command{
+	Use:   "copy2d-range-to5",
+	Short: "Copy2DRangeTo5 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAllocationServiceClient(grpcConn)
+		req := &pb.Copy2DRangeTo5Request{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		resp, err := client.Copy2DRangeTo5(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptAllocationCopy2DRangeTo5_1Cmd = &cobra.Command{
+	Use:   "copy2d-range-to5_1",
+	Short: "Copy2DRangeTo5_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAllocationServiceClient(grpcConn)
+		req := &pb.Copy2DRangeTo5_1Request{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		resp, err := client.Copy2DRangeTo5_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptAllocationCopy2DRangeTo5_2Cmd = &cobra.Command{
+	Use:   "copy2d-range-to5_2",
+	Short: "Copy2DRangeTo5_2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAllocationServiceClient(grpcConn)
+		req := &pb.Copy2DRangeTo5_2Request{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		resp, err := client.Copy2DRangeTo5_2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptAllocationCopy2DRangeTo5_3Cmd = &cobra.Command{
+	Use:   "copy2d-range-to5_3",
+	Short: "Copy2DRangeTo5_3 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAllocationServiceClient(grpcConn)
+		req := &pb.Copy2DRangeTo5_3Request{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		resp, err := client.Copy2DRangeTo5_3(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptAllocationCopy2DRangeTo5_4Cmd = &cobra.Command{
+	Use:   "copy2d-range-to5_4",
+	Short: "Copy2DRangeTo5_4 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAllocationServiceClient(grpcConn)
+		req := &pb.Copy2DRangeTo5_4Request{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		resp, err := client.Copy2DRangeTo5_4(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptAllocationCopy3DRangeFrom10Cmd = &cobra.Command{
+	Use:   "copy3d-range-from10",
+	Short: "Copy3DRangeFrom10 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAllocationServiceClient(grpcConn)
+		req := &pb.Copy3DRangeFrom10Request{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg5"); err == nil {
+			req.Arg5 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg6"); err == nil {
+			req.Arg6 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg7"); err == nil {
+			req.Arg7 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg8"); err == nil {
+			req.Arg8 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg9"); err == nil {
+			req.Arg9 = v
+		}
+		resp, err := client.Copy3DRangeFrom10(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptAllocationCopy3DRangeFrom7_1Cmd = &cobra.Command{
+	Use:   "copy3d-range-from7_1",
+	Short: "Copy3DRangeFrom7_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAllocationServiceClient(grpcConn)
+		req := &pb.Copy3DRangeFrom7_1Request{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg5"); err == nil {
+			req.Arg5 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg6"); err == nil {
+			req.Arg6 = v
+		}
+		resp, err := client.Copy3DRangeFrom7_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptAllocationCopy3DRangeToCmd = &cobra.Command{
+	Use:   "copy3d-range-to",
+	Short: "Copy3DRangeTo RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAllocationServiceClient(grpcConn)
+		req := &pb.Copy3DRangeToRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg5"); err == nil {
+			req.Arg5 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg6"); err == nil {
+			req.Arg6 = v
+		}
+		resp, err := client.Copy3DRangeTo(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptAllocationCopyFrom1Cmd = &cobra.Command{
+	Use:   "copy-from1",
+	Short: "CopyFrom1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAllocationServiceClient(grpcConn)
+		req := &pb.CopyFrom1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.CopyFrom1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptAllocationCopyFrom1_1Cmd = &cobra.Command{
+	Use:   "copy-from1_1",
+	Short: "CopyFrom1_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAllocationServiceClient(grpcConn)
+		req := &pb.CopyFrom1_1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.CopyFrom1_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptAllocationCopyFrom1_2Cmd = &cobra.Command{
+	Use:   "copy-from1_2",
+	Short: "CopyFrom1_2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAllocationServiceClient(grpcConn)
+		req := &pb.CopyFrom1_2Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.CopyFrom1_2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptAllocationCopyFrom1_3Cmd = &cobra.Command{
+	Use:   "copy-from1_3",
+	Short: "CopyFrom1_3 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAllocationServiceClient(grpcConn)
+		req := &pb.CopyFrom1_3Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.CopyFrom1_3(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptAllocationCopyFrom1_4Cmd = &cobra.Command{
+	Use:   "copy-from1_4",
+	Short: "CopyFrom1_4 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAllocationServiceClient(grpcConn)
+		req := &pb.CopyFrom1_4Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.CopyFrom1_4(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptAllocationCopyFrom1_5Cmd = &cobra.Command{
+	Use:   "copy-from1_5",
+	Short: "CopyFrom1_5 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAllocationServiceClient(grpcConn)
+		req := &pb.CopyFrom1_5Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.CopyFrom1_5(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptAllocationCopyFrom1_6Cmd = &cobra.Command{
+	Use:   "copy-from1_6",
+	Short: "CopyFrom1_6 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAllocationServiceClient(grpcConn)
+		req := &pb.CopyFrom1_6Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.CopyFrom1_6(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptAllocationCopyFrom1_7Cmd = &cobra.Command{
+	Use:   "copy-from1_7",
+	Short: "CopyFrom1_7 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAllocationServiceClient(grpcConn)
+		req := &pb.CopyFrom1_7Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.CopyFrom1_7(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptAllocationCopyFromUnchecked1Cmd = &cobra.Command{
+	Use:   "copy-from-unchecked1",
+	Short: "CopyFromUnchecked1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAllocationServiceClient(grpcConn)
+		req := &pb.CopyFromUnchecked1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.CopyFromUnchecked1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptAllocationCopyFromUnchecked1_1Cmd = &cobra.Command{
+	Use:   "copy-from-unchecked1_1",
+	Short: "CopyFromUnchecked1_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAllocationServiceClient(grpcConn)
+		req := &pb.CopyFromUnchecked1_1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.CopyFromUnchecked1_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptAllocationCopyFromUnchecked1_2Cmd = &cobra.Command{
+	Use:   "copy-from-unchecked1_2",
+	Short: "CopyFromUnchecked1_2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAllocationServiceClient(grpcConn)
+		req := &pb.CopyFromUnchecked1_2Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.CopyFromUnchecked1_2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptAllocationCopyFromUnchecked1_3Cmd = &cobra.Command{
+	Use:   "copy-from-unchecked1_3",
+	Short: "CopyFromUnchecked1_3 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAllocationServiceClient(grpcConn)
+		req := &pb.CopyFromUnchecked1_3Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.CopyFromUnchecked1_3(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptAllocationCopyFromUnchecked1_4Cmd = &cobra.Command{
+	Use:   "copy-from-unchecked1_4",
+	Short: "CopyFromUnchecked1_4 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAllocationServiceClient(grpcConn)
+		req := &pb.CopyFromUnchecked1_4Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.CopyFromUnchecked1_4(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptAllocationCopyTo1Cmd = &cobra.Command{
+	Use:   "copy-to1",
+	Short: "CopyTo1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAllocationServiceClient(grpcConn)
+		req := &pb.CopyTo1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.CopyTo1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptAllocationCopyTo1_1Cmd = &cobra.Command{
+	Use:   "copy-to1_1",
+	Short: "CopyTo1_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAllocationServiceClient(grpcConn)
+		req := &pb.CopyTo1_1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.CopyTo1_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptAllocationCopyTo1_2Cmd = &cobra.Command{
+	Use:   "copy-to1_2",
+	Short: "CopyTo1_2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAllocationServiceClient(grpcConn)
+		req := &pb.CopyTo1_2Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.CopyTo1_2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptAllocationCopyTo1_3Cmd = &cobra.Command{
+	Use:   "copy-to1_3",
+	Short: "CopyTo1_3 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAllocationServiceClient(grpcConn)
+		req := &pb.CopyTo1_3Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.CopyTo1_3(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptAllocationCopyTo1_4Cmd = &cobra.Command{
+	Use:   "copy-to1_4",
+	Short: "CopyTo1_4 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAllocationServiceClient(grpcConn)
+		req := &pb.CopyTo1_4Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.CopyTo1_4(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptAllocationCopyTo1_5Cmd = &cobra.Command{
+	Use:   "copy-to1_5",
+	Short: "CopyTo1_5 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAllocationServiceClient(grpcConn)
+		req := &pb.CopyTo1_5Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.CopyTo1_5(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptAllocationDestroyCmd = &cobra.Command{
+	Use:   "destroy",
+	Short: "Destroy RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAllocationServiceClient(grpcConn)
+		req := &pb.DestroyRequest{}
+		resp, err := client.Destroy(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptAllocationGenerateMipmapsCmd = &cobra.Command{
+	Use:   "generate-mipmaps",
+	Short: "GenerateMipmaps RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAllocationServiceClient(grpcConn)
+		req := &pb.GenerateMipmapsRequest{}
+		resp, err := client.GenerateMipmaps(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptAllocationGetByteBufferCmd = &cobra.Command{
+	Use:   "get-byte-buffer",
+	Short: "GetByteBuffer RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAllocationServiceClient(grpcConn)
+		req := &pb.GetByteBufferRequest{}
+		resp, err := client.GetByteBuffer(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptAllocationGetBytesSizeCmd = &cobra.Command{
+	Use:   "get-bytes-size",
+	Short: "GetBytesSize RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAllocationServiceClient(grpcConn)
+		req := &pb.GetBytesSizeRequest{}
+		resp, err := client.GetBytesSize(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptAllocationGetElementCmd = &cobra.Command{
+	Use:   "get-element",
+	Short: "GetElement RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAllocationServiceClient(grpcConn)
+		req := &pb.GetElementRequest{}
+		resp, err := client.GetElement(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptAllocationGetStrideCmd = &cobra.Command{
+	Use:   "get-stride",
+	Short: "GetStride RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAllocationServiceClient(grpcConn)
+		req := &pb.GetStrideRequest{}
+		resp, err := client.GetStride(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptAllocationGetSurfaceCmd = &cobra.Command{
+	Use:   "get-surface",
+	Short: "GetSurface RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAllocationServiceClient(grpcConn)
+		req := &pb.GetSurfaceRequest{}
+		resp, err := client.GetSurface(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptAllocationGetTimeStampCmd = &cobra.Command{
+	Use:   "get-time-stamp",
+	Short: "GetTimeStamp RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAllocationServiceClient(grpcConn)
+		req := &pb.GetTimeStampRequest{}
+		resp, err := client.GetTimeStamp(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptAllocationGetTypeCmd = &cobra.Command{
+	Use:   "get-type",
+	Short: "GetType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAllocationServiceClient(grpcConn)
+		req := &pb.GetTypeRequest{}
+		resp, err := client.GetType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptAllocationGetUsageCmd = &cobra.Command{
+	Use:   "get-usage",
+	Short: "GetUsage RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAllocationServiceClient(grpcConn)
+		req := &pb.GetUsageRequest{}
+		resp, err := client.GetUsage(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptAllocationIoReceiveCmd = &cobra.Command{
+	Use:   "io-receive",
+	Short: "IoReceive RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAllocationServiceClient(grpcConn)
+		req := &pb.IoReceiveRequest{}
+		resp, err := client.IoReceive(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptAllocationIoSendCmd = &cobra.Command{
+	Use:   "io-send",
+	Short: "IoSend RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAllocationServiceClient(grpcConn)
+		req := &pb.IoSendRequest{}
+		resp, err := client.IoSend(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptAllocationSetAutoPaddingCmd = &cobra.Command{
+	Use:   "set-auto-padding",
+	Short: "SetAutoPadding RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAllocationServiceClient(grpcConn)
+		req := &pb.SetAutoPaddingRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetAutoPadding(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptAllocationSetFromFieldPacker2Cmd = &cobra.Command{
+	Use:   "set-from-field-packer2",
+	Short: "SetFromFieldPacker2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAllocationServiceClient(grpcConn)
+		req := &pb.SetFromFieldPacker2Request{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.SetFromFieldPacker2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptAllocationSetFromFieldPacker3_1Cmd = &cobra.Command{
+	Use:   "set-from-field-packer3_1",
+	Short: "SetFromFieldPacker3_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAllocationServiceClient(grpcConn)
+		req := &pb.SetFromFieldPacker3_1Request{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.SetFromFieldPacker3_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptAllocationSetFromFieldPacker5_2Cmd = &cobra.Command{
+	Use:   "set-from-field-packer5_2",
+	Short: "SetFromFieldPacker5_2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAllocationServiceClient(grpcConn)
+		req := &pb.SetFromFieldPacker5_2Request{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		resp, err := client.SetFromFieldPacker5_2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptAllocationSetOnBufferAvailableListenerCmd = &cobra.Command{
+	Use:   "set-on-buffer-available-listener",
+	Short: "SetOnBufferAvailableListener RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAllocationServiceClient(grpcConn)
+		req := &pb.SetOnBufferAvailableListenerRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetOnBufferAvailableListener(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptAllocationSetSurfaceCmd = &cobra.Command{
+	Use:   "set-surface",
+	Short: "SetSurface RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAllocationServiceClient(grpcConn)
+		req := &pb.SetSurfaceRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetSurface(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptAllocationSyncAllCmd = &cobra.Command{
+	Use:   "sync-all",
+	Short: "SyncAll RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAllocationServiceClient(grpcConn)
+		req := &pb.SyncAllRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SyncAll(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptAllocationCreateAllocationsCmd = &cobra.Command{
+	Use:   "create-allocations",
+	Short: "CreateAllocations RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAllocationServiceClient(grpcConn)
+		req := &pb.CreateAllocationsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.CreateAllocations(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptAllocationCreateCubemapFromBitmap2Cmd = &cobra.Command{
+	Use:   "create-cubemap-from-bitmap2",
+	Short: "CreateCubemapFromBitmap2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAllocationServiceClient(grpcConn)
+		req := &pb.CreateCubemapFromBitmap2Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.CreateCubemapFromBitmap2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptAllocationCreateCubemapFromBitmap4_1Cmd = &cobra.Command{
+	Use:   "create-cubemap-from-bitmap4_1",
+	Short: "CreateCubemapFromBitmap4_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAllocationServiceClient(grpcConn)
+		req := &pb.CreateCubemapFromBitmap4_1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.CreateCubemapFromBitmap4_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptAllocationCreateCubemapFromCubeFaces7Cmd = &cobra.Command{
+	Use:   "create-cubemap-from-cube-faces7",
+	Short: "CreateCubemapFromCubeFaces7 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAllocationServiceClient(grpcConn)
+		req := &pb.CreateCubemapFromCubeFaces7Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg5"); err == nil {
+			req.Arg5 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg6"); err == nil {
+			req.Arg6 = v
+		}
+		resp, err := client.CreateCubemapFromCubeFaces7(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptAllocationCreateCubemapFromCubeFaces9_1Cmd = &cobra.Command{
+	Use:   "create-cubemap-from-cube-faces9_1",
+	Short: "CreateCubemapFromCubeFaces9_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAllocationServiceClient(grpcConn)
+		req := &pb.CreateCubemapFromCubeFaces9_1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg5"); err == nil {
+			req.Arg5 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg6"); err == nil {
+			req.Arg6 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg7"); err == nil {
+			req.Arg7 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg8"); err == nil {
+			req.Arg8 = v
+		}
+		resp, err := client.CreateCubemapFromCubeFaces9_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptAllocationCreateFromBitmap2Cmd = &cobra.Command{
+	Use:   "create-from-bitmap2",
+	Short: "CreateFromBitmap2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAllocationServiceClient(grpcConn)
+		req := &pb.CreateFromBitmap2Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.CreateFromBitmap2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptAllocationCreateFromBitmap4_1Cmd = &cobra.Command{
+	Use:   "create-from-bitmap4_1",
+	Short: "CreateFromBitmap4_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAllocationServiceClient(grpcConn)
+		req := &pb.CreateFromBitmap4_1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.CreateFromBitmap4_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptAllocationCreateFromBitmapResource3Cmd = &cobra.Command{
+	Use:   "create-from-bitmap-resource3",
+	Short: "CreateFromBitmapResource3 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAllocationServiceClient(grpcConn)
+		req := &pb.CreateFromBitmapResource3Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.CreateFromBitmapResource3(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptAllocationCreateFromBitmapResource5_1Cmd = &cobra.Command{
+	Use:   "create-from-bitmap-resource5_1",
+	Short: "CreateFromBitmapResource5_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAllocationServiceClient(grpcConn)
+		req := &pb.CreateFromBitmapResource5_1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		resp, err := client.CreateFromBitmapResource5_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptAllocationCreateFromStringCmd = &cobra.Command{
+	Use:   "create-from-string",
+	Short: "CreateFromString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAllocationServiceClient(grpcConn)
+		req := &pb.CreateFromStringRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.CreateFromString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptAllocationCreateSized3Cmd = &cobra.Command{
+	Use:   "create-sized3",
+	Short: "CreateSized3 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAllocationServiceClient(grpcConn)
+		req := &pb.CreateSized3Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.CreateSized3(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptAllocationCreateSized4_1Cmd = &cobra.Command{
+	Use:   "create-sized4_1",
+	Short: "CreateSized4_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAllocationServiceClient(grpcConn)
+		req := &pb.CreateSized4_1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.CreateSized4_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptAllocationCreateTyped2Cmd = &cobra.Command{
+	Use:   "create-typed2",
+	Short: "CreateTyped2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAllocationServiceClient(grpcConn)
+		req := &pb.CreateTyped2Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.CreateTyped2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptAllocationCreateTyped4_1Cmd = &cobra.Command{
+	Use:   "create-typed4_1",
+	Short: "CreateTyped4_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAllocationServiceClient(grpcConn)
+		req := &pb.CreateTyped4_1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.CreateTyped4_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptAllocationCreateTyped3_2Cmd = &cobra.Command{
+	Use:   "create-typed3_2",
+	Short: "CreateTyped3_2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAllocationServiceClient(grpcConn)
+		req := &pb.CreateTyped3_2Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.CreateTyped3_2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptAllocationMipmapControlCmd = &cobra.Command{
+	Use:   "allocation-mipmap-control",
+	Short: "AllocationMipmapControlService operations",
+}
+
+var renderscriptAllocationMipmapControlValuesCmd = &cobra.Command{
+	Use:   "values",
+	Short: "Values RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAllocationMipmapControlServiceClient(grpcConn)
+		req := &pb.ValuesRequest{}
+		resp, err := client.Values(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptAllocationMipmapControlValueOfCmd = &cobra.Command{
+	Use:   "value-of",
+	Short: "ValueOf RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAllocationMipmapControlServiceClient(grpcConn)
+		req := &pb.ValueOfRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.ValueOf(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptAllocationOnBufferAvailableListenerCmd = &cobra.Command{
+	Use:   "allocation-on-buffer-available-listener",
+	Short: "AllocationOnBufferAvailableListenerService operations",
+}
+
+var renderscriptAllocationOnBufferAvailableListenerOnBufferAvailableCmd = &cobra.Command{
+	Use:   "on-buffer-available",
+	Short: "OnBufferAvailable RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAllocationOnBufferAvailableListenerServiceClient(grpcConn)
+		req := &pb.OnBufferAvailableRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnBufferAvailable(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptScriptIntrinsicConvolve3x3Cmd = &cobra.Command{
+	Use:   "script-intrinsic-convolve3x3",
+	Short: "ScriptIntrinsicConvolve3x3Service operations",
+}
+
+var renderscriptScriptIntrinsicConvolve3x3ForEach1Cmd = &cobra.Command{
+	Use:   "for-each1",
+	Short: "ForEach1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewScriptIntrinsicConvolve3X3ServiceClient(grpcConn)
+		req := &pb.ForEach1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.ForEach1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptScriptIntrinsicConvolve3x3ForEach2_1Cmd = &cobra.Command{
+	Use:   "for-each2_1",
+	Short: "ForEach2_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewScriptIntrinsicConvolve3X3ServiceClient(grpcConn)
+		req := &pb.ForEach2_1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.ForEach2_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptScriptIntrinsicConvolve3x3GetFieldID_InputCmd = &cobra.Command{
+	Use:   "get-field-id_input",
+	Short: "GetFieldID_Input RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewScriptIntrinsicConvolve3X3ServiceClient(grpcConn)
+		req := &pb.GetFieldID_InputRequest{}
+		resp, err := client.GetFieldID_Input(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptScriptIntrinsicConvolve3x3GetKernelIDCmd = &cobra.Command{
+	Use:   "get-kernel-id",
+	Short: "GetKernelID RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewScriptIntrinsicConvolve3X3ServiceClient(grpcConn)
+		req := &pb.GetKernelIDRequest{}
+		resp, err := client.GetKernelID(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptScriptIntrinsicConvolve3x3SetCoefficientsCmd = &cobra.Command{
+	Use:   "set-coefficients",
+	Short: "SetCoefficients RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewScriptIntrinsicConvolve3X3ServiceClient(grpcConn)
+		req := &pb.SetCoefficientsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetCoefficients(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptScriptIntrinsicConvolve3x3SetInputCmd = &cobra.Command{
+	Use:   "set-input",
+	Short: "SetInput RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewScriptIntrinsicConvolve3X3ServiceClient(grpcConn)
+		req := &pb.SetInputRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetInput(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptScriptIntrinsicConvolve3x3CreateCmd = &cobra.Command{
+	Use:   "create",
+	Short: "Create RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewScriptIntrinsicConvolve3X3ServiceClient(grpcConn)
+		req := &pb.CreateRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.Create(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptFieldPackerCmd = &cobra.Command{
+	Use:   "field-packer",
+	Short: "FieldPackerService operations",
+}
+
+var renderscriptFieldPackerNewFieldPackerCmd = &cobra.Command{
+	Use:   "new-field-packer",
+	Short: "NewFieldPacker RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFieldPackerServiceClient(grpcConn)
+		req := &pb.NewFieldPackerRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.NewFieldPacker(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptFieldPackerAddBooleanCmd = &cobra.Command{
+	Use:   "add-boolean",
+	Short: "AddBoolean RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFieldPackerServiceClient(grpcConn)
+		req := &pb.AddBooleanRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddBoolean(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptFieldPackerAddF321Cmd = &cobra.Command{
+	Use:   "add-f321",
+	Short: "AddF321 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFieldPackerServiceClient(grpcConn)
+		req := &pb.AddF321Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddF321(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptFieldPackerAddF321_1Cmd = &cobra.Command{
+	Use:   "add-f321_1",
+	Short: "AddF321_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFieldPackerServiceClient(grpcConn)
+		req := &pb.AddF321_1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddF321_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptFieldPackerAddF321_2Cmd = &cobra.Command{
+	Use:   "add-f321_2",
+	Short: "AddF321_2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFieldPackerServiceClient(grpcConn)
+		req := &pb.AddF321_2Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddF321_2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptFieldPackerAddF321_3Cmd = &cobra.Command{
+	Use:   "add-f321_3",
+	Short: "AddF321_3 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFieldPackerServiceClient(grpcConn)
+		req := &pb.AddF321_3Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddF321_3(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptFieldPackerAddF641Cmd = &cobra.Command{
+	Use:   "add-f641",
+	Short: "AddF641 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFieldPackerServiceClient(grpcConn)
+		req := &pb.AddF641Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddF641(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptFieldPackerAddF641_1Cmd = &cobra.Command{
+	Use:   "add-f641_1",
+	Short: "AddF641_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFieldPackerServiceClient(grpcConn)
+		req := &pb.AddF641_1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddF641_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptFieldPackerAddF641_2Cmd = &cobra.Command{
+	Use:   "add-f641_2",
+	Short: "AddF641_2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFieldPackerServiceClient(grpcConn)
+		req := &pb.AddF641_2Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddF641_2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptFieldPackerAddF641_3Cmd = &cobra.Command{
+	Use:   "add-f641_3",
+	Short: "AddF641_3 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFieldPackerServiceClient(grpcConn)
+		req := &pb.AddF641_3Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetFloat64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddF641_3(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptFieldPackerAddI161Cmd = &cobra.Command{
+	Use:   "add-i161",
+	Short: "AddI161 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFieldPackerServiceClient(grpcConn)
+		req := &pb.AddI161Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddI161(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptFieldPackerAddI161_1Cmd = &cobra.Command{
+	Use:   "add-i161_1",
+	Short: "AddI161_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFieldPackerServiceClient(grpcConn)
+		req := &pb.AddI161_1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddI161_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptFieldPackerAddI161_2Cmd = &cobra.Command{
+	Use:   "add-i161_2",
+	Short: "AddI161_2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFieldPackerServiceClient(grpcConn)
+		req := &pb.AddI161_2Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddI161_2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptFieldPackerAddI161_3Cmd = &cobra.Command{
+	Use:   "add-i161_3",
+	Short: "AddI161_3 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFieldPackerServiceClient(grpcConn)
+		req := &pb.AddI161_3Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddI161_3(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptFieldPackerAddI321Cmd = &cobra.Command{
+	Use:   "add-i321",
+	Short: "AddI321 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFieldPackerServiceClient(grpcConn)
+		req := &pb.AddI321Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddI321(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptFieldPackerAddI321_1Cmd = &cobra.Command{
+	Use:   "add-i321_1",
+	Short: "AddI321_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFieldPackerServiceClient(grpcConn)
+		req := &pb.AddI321_1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddI321_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptFieldPackerAddI321_2Cmd = &cobra.Command{
+	Use:   "add-i321_2",
+	Short: "AddI321_2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFieldPackerServiceClient(grpcConn)
+		req := &pb.AddI321_2Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddI321_2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptFieldPackerAddI321_3Cmd = &cobra.Command{
+	Use:   "add-i321_3",
+	Short: "AddI321_3 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFieldPackerServiceClient(grpcConn)
+		req := &pb.AddI321_3Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddI321_3(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptFieldPackerAddI641Cmd = &cobra.Command{
+	Use:   "add-i641",
+	Short: "AddI641 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFieldPackerServiceClient(grpcConn)
+		req := &pb.AddI641Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddI641(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptFieldPackerAddI641_1Cmd = &cobra.Command{
+	Use:   "add-i641_1",
+	Short: "AddI641_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFieldPackerServiceClient(grpcConn)
+		req := &pb.AddI641_1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddI641_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptFieldPackerAddI641_2Cmd = &cobra.Command{
+	Use:   "add-i641_2",
+	Short: "AddI641_2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFieldPackerServiceClient(grpcConn)
+		req := &pb.AddI641_2Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddI641_2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptFieldPackerAddI641_3Cmd = &cobra.Command{
+	Use:   "add-i641_3",
+	Short: "AddI641_3 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFieldPackerServiceClient(grpcConn)
+		req := &pb.AddI641_3Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddI641_3(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptFieldPackerAddI81Cmd = &cobra.Command{
+	Use:   "add-i81",
+	Short: "AddI81 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFieldPackerServiceClient(grpcConn)
+		req := &pb.AddI81Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddI81(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptFieldPackerAddI81_1Cmd = &cobra.Command{
+	Use:   "add-i81_1",
+	Short: "AddI81_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFieldPackerServiceClient(grpcConn)
+		req := &pb.AddI81_1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddI81_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptFieldPackerAddI81_2Cmd = &cobra.Command{
+	Use:   "add-i81_2",
+	Short: "AddI81_2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFieldPackerServiceClient(grpcConn)
+		req := &pb.AddI81_2Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddI81_2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptFieldPackerAddI81_3Cmd = &cobra.Command{
+	Use:   "add-i81_3",
+	Short: "AddI81_3 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFieldPackerServiceClient(grpcConn)
+		req := &pb.AddI81_3Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddI81_3(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptFieldPackerAddMatrix1Cmd = &cobra.Command{
+	Use:   "add-matrix1",
+	Short: "AddMatrix1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFieldPackerServiceClient(grpcConn)
+		req := &pb.AddMatrix1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddMatrix1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptFieldPackerAddMatrix1_1Cmd = &cobra.Command{
+	Use:   "add-matrix1_1",
+	Short: "AddMatrix1_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFieldPackerServiceClient(grpcConn)
+		req := &pb.AddMatrix1_1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddMatrix1_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptFieldPackerAddMatrix1_2Cmd = &cobra.Command{
+	Use:   "add-matrix1_2",
+	Short: "AddMatrix1_2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFieldPackerServiceClient(grpcConn)
+		req := &pb.AddMatrix1_2Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddMatrix1_2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptFieldPackerAddObjCmd = &cobra.Command{
+	Use:   "add-obj",
+	Short: "AddObj RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFieldPackerServiceClient(grpcConn)
+		req := &pb.AddObjRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddObj(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptFieldPackerAddU161Cmd = &cobra.Command{
+	Use:   "add-u161",
+	Short: "AddU161 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFieldPackerServiceClient(grpcConn)
+		req := &pb.AddU161Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddU161(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptFieldPackerAddU161_1Cmd = &cobra.Command{
+	Use:   "add-u161_1",
+	Short: "AddU161_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFieldPackerServiceClient(grpcConn)
+		req := &pb.AddU161_1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddU161_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptFieldPackerAddU161_2Cmd = &cobra.Command{
+	Use:   "add-u161_2",
+	Short: "AddU161_2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFieldPackerServiceClient(grpcConn)
+		req := &pb.AddU161_2Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddU161_2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptFieldPackerAddU161_3Cmd = &cobra.Command{
+	Use:   "add-u161_3",
+	Short: "AddU161_3 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFieldPackerServiceClient(grpcConn)
+		req := &pb.AddU161_3Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddU161_3(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptFieldPackerAddU321Cmd = &cobra.Command{
+	Use:   "add-u321",
+	Short: "AddU321 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFieldPackerServiceClient(grpcConn)
+		req := &pb.AddU321Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddU321(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptFieldPackerAddU321_1Cmd = &cobra.Command{
+	Use:   "add-u321_1",
+	Short: "AddU321_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFieldPackerServiceClient(grpcConn)
+		req := &pb.AddU321_1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddU321_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptFieldPackerAddU321_2Cmd = &cobra.Command{
+	Use:   "add-u321_2",
+	Short: "AddU321_2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFieldPackerServiceClient(grpcConn)
+		req := &pb.AddU321_2Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddU321_2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptFieldPackerAddU321_3Cmd = &cobra.Command{
+	Use:   "add-u321_3",
+	Short: "AddU321_3 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFieldPackerServiceClient(grpcConn)
+		req := &pb.AddU321_3Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddU321_3(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptFieldPackerAddU641Cmd = &cobra.Command{
+	Use:   "add-u641",
+	Short: "AddU641 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFieldPackerServiceClient(grpcConn)
+		req := &pb.AddU641Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddU641(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptFieldPackerAddU641_1Cmd = &cobra.Command{
+	Use:   "add-u641_1",
+	Short: "AddU641_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFieldPackerServiceClient(grpcConn)
+		req := &pb.AddU641_1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddU641_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptFieldPackerAddU641_2Cmd = &cobra.Command{
+	Use:   "add-u641_2",
+	Short: "AddU641_2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFieldPackerServiceClient(grpcConn)
+		req := &pb.AddU641_2Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddU641_2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptFieldPackerAddU641_3Cmd = &cobra.Command{
+	Use:   "add-u641_3",
+	Short: "AddU641_3 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFieldPackerServiceClient(grpcConn)
+		req := &pb.AddU641_3Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddU641_3(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptFieldPackerAddU81Cmd = &cobra.Command{
+	Use:   "add-u81",
+	Short: "AddU81 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFieldPackerServiceClient(grpcConn)
+		req := &pb.AddU81Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddU81(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptFieldPackerAddU81_1Cmd = &cobra.Command{
+	Use:   "add-u81_1",
+	Short: "AddU81_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFieldPackerServiceClient(grpcConn)
+		req := &pb.AddU81_1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddU81_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptFieldPackerAddU81_2Cmd = &cobra.Command{
+	Use:   "add-u81_2",
+	Short: "AddU81_2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFieldPackerServiceClient(grpcConn)
+		req := &pb.AddU81_2Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddU81_2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptFieldPackerAddU81_3Cmd = &cobra.Command{
+	Use:   "add-u81_3",
+	Short: "AddU81_3 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFieldPackerServiceClient(grpcConn)
+		req := &pb.AddU81_3Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddU81_3(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptFieldPackerAlignCmd = &cobra.Command{
+	Use:   "align",
+	Short: "Align RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFieldPackerServiceClient(grpcConn)
+		req := &pb.AlignRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Align(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptFieldPackerGetDataCmd = &cobra.Command{
+	Use:   "get-data",
+	Short: "GetData RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFieldPackerServiceClient(grpcConn)
+		req := &pb.GetDataRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetData(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptFieldPackerReset0Cmd = &cobra.Command{
+	Use:   "reset0",
+	Short: "Reset0 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFieldPackerServiceClient(grpcConn)
+		req := &pb.Reset0Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.Reset0(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptFieldPackerReset1_1Cmd = &cobra.Command{
+	Use:   "reset1_1",
+	Short: "Reset1_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFieldPackerServiceClient(grpcConn)
+		req := &pb.Reset1_1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Reset1_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptFieldPackerSkipCmd = &cobra.Command{
+	Use:   "skip",
+	Short: "Skip RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFieldPackerServiceClient(grpcConn)
+		req := &pb.SkipRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Skip(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptFieldPackerSubBooleanCmd = &cobra.Command{
+	Use:   "sub-boolean",
+	Short: "SubBoolean RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFieldPackerServiceClient(grpcConn)
+		req := &pb.SubBooleanRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.SubBoolean(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptFieldPackerSubByte2Cmd = &cobra.Command{
+	Use:   "sub-byte2",
+	Short: "SubByte2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFieldPackerServiceClient(grpcConn)
+		req := &pb.SubByte2Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.SubByte2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptFieldPackerSubByte3Cmd = &cobra.Command{
+	Use:   "sub-byte3",
+	Short: "SubByte3 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFieldPackerServiceClient(grpcConn)
+		req := &pb.SubByte3Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.SubByte3(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptFieldPackerSubByte4Cmd = &cobra.Command{
+	Use:   "sub-byte4",
+	Short: "SubByte4 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFieldPackerServiceClient(grpcConn)
+		req := &pb.SubByte4Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.SubByte4(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptFieldPackerSubDouble2Cmd = &cobra.Command{
+	Use:   "sub-double2",
+	Short: "SubDouble2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFieldPackerServiceClient(grpcConn)
+		req := &pb.SubDouble2Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.SubDouble2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptFieldPackerSubDouble3Cmd = &cobra.Command{
+	Use:   "sub-double3",
+	Short: "SubDouble3 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFieldPackerServiceClient(grpcConn)
+		req := &pb.SubDouble3Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.SubDouble3(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptFieldPackerSubDouble4Cmd = &cobra.Command{
+	Use:   "sub-double4",
+	Short: "SubDouble4 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFieldPackerServiceClient(grpcConn)
+		req := &pb.SubDouble4Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.SubDouble4(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptFieldPackerSubF32Cmd = &cobra.Command{
+	Use:   "sub-f32",
+	Short: "SubF32 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFieldPackerServiceClient(grpcConn)
+		req := &pb.SubF32Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.SubF32(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptFieldPackerSubF64Cmd = &cobra.Command{
+	Use:   "sub-f64",
+	Short: "SubF64 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFieldPackerServiceClient(grpcConn)
+		req := &pb.SubF64Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.SubF64(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptFieldPackerSubFloat2Cmd = &cobra.Command{
+	Use:   "sub-float2",
+	Short: "SubFloat2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFieldPackerServiceClient(grpcConn)
+		req := &pb.SubFloat2Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.SubFloat2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptFieldPackerSubFloat3Cmd = &cobra.Command{
+	Use:   "sub-float3",
+	Short: "SubFloat3 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFieldPackerServiceClient(grpcConn)
+		req := &pb.SubFloat3Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.SubFloat3(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptFieldPackerSubFloat4Cmd = &cobra.Command{
+	Use:   "sub-float4",
+	Short: "SubFloat4 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFieldPackerServiceClient(grpcConn)
+		req := &pb.SubFloat4Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.SubFloat4(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptFieldPackerSubI16Cmd = &cobra.Command{
+	Use:   "sub-i16",
+	Short: "SubI16 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFieldPackerServiceClient(grpcConn)
+		req := &pb.SubI16Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.SubI16(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptFieldPackerSubI32Cmd = &cobra.Command{
+	Use:   "sub-i32",
+	Short: "SubI32 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFieldPackerServiceClient(grpcConn)
+		req := &pb.SubI32Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.SubI32(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptFieldPackerSubI64Cmd = &cobra.Command{
+	Use:   "sub-i64",
+	Short: "SubI64 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFieldPackerServiceClient(grpcConn)
+		req := &pb.SubI64Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.SubI64(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptFieldPackerSubI8Cmd = &cobra.Command{
+	Use:   "sub-i8",
+	Short: "SubI8 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFieldPackerServiceClient(grpcConn)
+		req := &pb.SubI8Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.SubI8(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptFieldPackerSubInt2Cmd = &cobra.Command{
+	Use:   "sub-int2",
+	Short: "SubInt2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFieldPackerServiceClient(grpcConn)
+		req := &pb.SubInt2Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.SubInt2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptFieldPackerSubInt3Cmd = &cobra.Command{
+	Use:   "sub-int3",
+	Short: "SubInt3 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFieldPackerServiceClient(grpcConn)
+		req := &pb.SubInt3Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.SubInt3(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptFieldPackerSubInt4Cmd = &cobra.Command{
+	Use:   "sub-int4",
+	Short: "SubInt4 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFieldPackerServiceClient(grpcConn)
+		req := &pb.SubInt4Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.SubInt4(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptFieldPackerSubLong2Cmd = &cobra.Command{
+	Use:   "sub-long2",
+	Short: "SubLong2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFieldPackerServiceClient(grpcConn)
+		req := &pb.SubLong2Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.SubLong2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptFieldPackerSubLong3Cmd = &cobra.Command{
+	Use:   "sub-long3",
+	Short: "SubLong3 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFieldPackerServiceClient(grpcConn)
+		req := &pb.SubLong3Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.SubLong3(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptFieldPackerSubLong4Cmd = &cobra.Command{
+	Use:   "sub-long4",
+	Short: "SubLong4 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFieldPackerServiceClient(grpcConn)
+		req := &pb.SubLong4Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.SubLong4(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptFieldPackerSubMatrix2fCmd = &cobra.Command{
+	Use:   "sub-matrix2f",
+	Short: "SubMatrix2f RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFieldPackerServiceClient(grpcConn)
+		req := &pb.SubMatrix2FRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.SubMatrix2F(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptFieldPackerSubMatrix3fCmd = &cobra.Command{
+	Use:   "sub-matrix3f",
+	Short: "SubMatrix3f RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFieldPackerServiceClient(grpcConn)
+		req := &pb.SubMatrix3FRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.SubMatrix3F(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptFieldPackerSubMatrix4fCmd = &cobra.Command{
+	Use:   "sub-matrix4f",
+	Short: "SubMatrix4f RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFieldPackerServiceClient(grpcConn)
+		req := &pb.SubMatrix4FRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.SubMatrix4F(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptFieldPackerSubShort2Cmd = &cobra.Command{
+	Use:   "sub-short2",
+	Short: "SubShort2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFieldPackerServiceClient(grpcConn)
+		req := &pb.SubShort2Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.SubShort2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptFieldPackerSubShort3Cmd = &cobra.Command{
+	Use:   "sub-short3",
+	Short: "SubShort3 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFieldPackerServiceClient(grpcConn)
+		req := &pb.SubShort3Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.SubShort3(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptFieldPackerSubShort4Cmd = &cobra.Command{
+	Use:   "sub-short4",
+	Short: "SubShort4 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFieldPackerServiceClient(grpcConn)
+		req := &pb.SubShort4Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.SubShort4(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptFieldPackerSubalignCmd = &cobra.Command{
+	Use:   "subalign",
+	Short: "Subalign RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFieldPackerServiceClient(grpcConn)
+		req := &pb.SubalignRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Subalign(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1864,6 +7304,2396 @@ var renderscriptRenderScriptRSMessageHandlerRunCmd = &cobra.Command{
 		client := pb.NewRenderScriptRSMessageHandlerServiceClient(grpcConn)
 		req := &pb.RunRequest{}
 		resp, err := client.Run(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptScriptIntrinsicBlurCmd = &cobra.Command{
+	Use:   "script-intrinsic-blur",
+	Short: "ScriptIntrinsicBlurService operations",
+}
+
+var renderscriptScriptIntrinsicBlurForEach1Cmd = &cobra.Command{
+	Use:   "for-each1",
+	Short: "ForEach1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewScriptIntrinsicBlurServiceClient(grpcConn)
+		req := &pb.ForEach1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.ForEach1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptScriptIntrinsicBlurForEach2_1Cmd = &cobra.Command{
+	Use:   "for-each2_1",
+	Short: "ForEach2_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewScriptIntrinsicBlurServiceClient(grpcConn)
+		req := &pb.ForEach2_1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.ForEach2_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptScriptIntrinsicBlurGetFieldID_InputCmd = &cobra.Command{
+	Use:   "get-field-id_input",
+	Short: "GetFieldID_Input RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewScriptIntrinsicBlurServiceClient(grpcConn)
+		req := &pb.GetFieldID_InputRequest{}
+		resp, err := client.GetFieldID_Input(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptScriptIntrinsicBlurGetKernelIDCmd = &cobra.Command{
+	Use:   "get-kernel-id",
+	Short: "GetKernelID RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewScriptIntrinsicBlurServiceClient(grpcConn)
+		req := &pb.GetKernelIDRequest{}
+		resp, err := client.GetKernelID(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptScriptIntrinsicBlurSetInputCmd = &cobra.Command{
+	Use:   "set-input",
+	Short: "SetInput RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewScriptIntrinsicBlurServiceClient(grpcConn)
+		req := &pb.SetInputRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetInput(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptScriptIntrinsicBlurSetRadiusCmd = &cobra.Command{
+	Use:   "set-radius",
+	Short: "SetRadius RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewScriptIntrinsicBlurServiceClient(grpcConn)
+		req := &pb.SetRadiusRequest{}
+		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetRadius(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptScriptIntrinsicBlurCreateCmd = &cobra.Command{
+	Use:   "create",
+	Short: "Create RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewScriptIntrinsicBlurServiceClient(grpcConn)
+		req := &pb.CreateRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.Create(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptScriptIntrinsicLUTCmd = &cobra.Command{
+	Use:   "script-intrinsic-lut",
+	Short: "ScriptIntrinsicLUTService operations",
+}
+
+var renderscriptScriptIntrinsicLUTDestroyCmd = &cobra.Command{
+	Use:   "destroy",
+	Short: "Destroy RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewScriptIntrinsicLUTServiceClient(grpcConn)
+		req := &pb.DestroyRequest{}
+		resp, err := client.Destroy(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptScriptIntrinsicLUTForEach2Cmd = &cobra.Command{
+	Use:   "for-each2",
+	Short: "ForEach2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewScriptIntrinsicLUTServiceClient(grpcConn)
+		req := &pb.ForEach2Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.ForEach2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptScriptIntrinsicLUTForEach3_1Cmd = &cobra.Command{
+	Use:   "for-each3_1",
+	Short: "ForEach3_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewScriptIntrinsicLUTServiceClient(grpcConn)
+		req := &pb.ForEach3_1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.ForEach3_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptScriptIntrinsicLUTGetKernelIDCmd = &cobra.Command{
+	Use:   "get-kernel-id",
+	Short: "GetKernelID RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewScriptIntrinsicLUTServiceClient(grpcConn)
+		req := &pb.GetKernelIDRequest{}
+		resp, err := client.GetKernelID(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptScriptIntrinsicLUTSetAlphaCmd = &cobra.Command{
+	Use:   "set-alpha",
+	Short: "SetAlpha RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewScriptIntrinsicLUTServiceClient(grpcConn)
+		req := &pb.SetAlphaRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.SetAlpha(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptScriptIntrinsicLUTSetBlueCmd = &cobra.Command{
+	Use:   "set-blue",
+	Short: "SetBlue RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewScriptIntrinsicLUTServiceClient(grpcConn)
+		req := &pb.SetBlueRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.SetBlue(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptScriptIntrinsicLUTSetGreenCmd = &cobra.Command{
+	Use:   "set-green",
+	Short: "SetGreen RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewScriptIntrinsicLUTServiceClient(grpcConn)
+		req := &pb.SetGreenRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.SetGreen(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptScriptIntrinsicLUTSetRedCmd = &cobra.Command{
+	Use:   "set-red",
+	Short: "SetRed RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewScriptIntrinsicLUTServiceClient(grpcConn)
+		req := &pb.SetRedRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.SetRed(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptScriptIntrinsicLUTCreateCmd = &cobra.Command{
+	Use:   "create",
+	Short: "Create RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewScriptIntrinsicLUTServiceClient(grpcConn)
+		req := &pb.CreateRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.Create(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptMatrix2fCmd = &cobra.Command{
+	Use:   "matrix2f",
+	Short: "Matrix2fService operations",
+}
+
+var renderscriptMatrix2fNewMatrix2fCmd = &cobra.Command{
+	Use:   "new-matrix2f",
+	Short: "NewMatrix2f RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMatrix2FServiceClient(grpcConn)
+		req := &pb.NewMatrix2FRequest{}
+		resp, err := client.NewMatrix2F(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptMatrix2fGetCmd = &cobra.Command{
+	Use:   "get",
+	Short: "Get RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMatrix2FServiceClient(grpcConn)
+		req := &pb.GetRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.Get(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptMatrix2fGetArrayCmd = &cobra.Command{
+	Use:   "get-array",
+	Short: "GetArray RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMatrix2FServiceClient(grpcConn)
+		req := &pb.GetArrayRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetArray(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptMatrix2fLoadCmd = &cobra.Command{
+	Use:   "load",
+	Short: "Load RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMatrix2FServiceClient(grpcConn)
+		req := &pb.LoadRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Load(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptMatrix2fLoadIdentityCmd = &cobra.Command{
+	Use:   "load-identity",
+	Short: "LoadIdentity RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMatrix2FServiceClient(grpcConn)
+		req := &pb.LoadIdentityRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.LoadIdentity(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptMatrix2fLoadMultiplyCmd = &cobra.Command{
+	Use:   "load-multiply",
+	Short: "LoadMultiply RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMatrix2FServiceClient(grpcConn)
+		req := &pb.LoadMultiplyRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.LoadMultiply(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptMatrix2fLoadRotateCmd = &cobra.Command{
+	Use:   "load-rotate",
+	Short: "LoadRotate RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMatrix2FServiceClient(grpcConn)
+		req := &pb.Matrix2FLoadRotateRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.LoadRotate(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptMatrix2fLoadScaleCmd = &cobra.Command{
+	Use:   "load-scale",
+	Short: "LoadScale RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMatrix2FServiceClient(grpcConn)
+		req := &pb.Matrix2FLoadScaleRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.LoadScale(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptMatrix2fMultiplyCmd = &cobra.Command{
+	Use:   "multiply",
+	Short: "Multiply RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMatrix2FServiceClient(grpcConn)
+		req := &pb.MultiplyRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Multiply(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptMatrix2fRotateCmd = &cobra.Command{
+	Use:   "rotate",
+	Short: "Rotate RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMatrix2FServiceClient(grpcConn)
+		req := &pb.Matrix2FRotateRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Rotate(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptMatrix2fScaleCmd = &cobra.Command{
+	Use:   "scale",
+	Short: "Scale RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMatrix2FServiceClient(grpcConn)
+		req := &pb.Matrix2FScaleRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.Scale(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptMatrix2fSetCmd = &cobra.Command{
+	Use:   "set",
+	Short: "Set RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMatrix2FServiceClient(grpcConn)
+		req := &pb.SetRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.Set(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptMatrix2fTransposeCmd = &cobra.Command{
+	Use:   "transpose",
+	Short: "Transpose RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMatrix2FServiceClient(grpcConn)
+		req := &pb.TransposeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.Transpose(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptScriptIntrinsicYuvToRGBCmd = &cobra.Command{
+	Use:   "script-intrinsic-yuv-to-rgb",
+	Short: "ScriptIntrinsicYuvToRGBService operations",
+}
+
+var renderscriptScriptIntrinsicYuvToRGBForEachCmd = &cobra.Command{
+	Use:   "for-each",
+	Short: "ForEach RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewScriptIntrinsicYuvToRGBServiceClient(grpcConn)
+		req := &pb.ForEachRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.ForEach(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptScriptIntrinsicYuvToRGBGetFieldID_InputCmd = &cobra.Command{
+	Use:   "get-field-id_input",
+	Short: "GetFieldID_Input RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewScriptIntrinsicYuvToRGBServiceClient(grpcConn)
+		req := &pb.GetFieldID_InputRequest{}
+		resp, err := client.GetFieldID_Input(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptScriptIntrinsicYuvToRGBGetKernelIDCmd = &cobra.Command{
+	Use:   "get-kernel-id",
+	Short: "GetKernelID RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewScriptIntrinsicYuvToRGBServiceClient(grpcConn)
+		req := &pb.GetKernelIDRequest{}
+		resp, err := client.GetKernelID(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptScriptIntrinsicYuvToRGBSetInputCmd = &cobra.Command{
+	Use:   "set-input",
+	Short: "SetInput RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewScriptIntrinsicYuvToRGBServiceClient(grpcConn)
+		req := &pb.SetInputRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetInput(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptScriptIntrinsicYuvToRGBCreateCmd = &cobra.Command{
+	Use:   "create",
+	Short: "Create RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewScriptIntrinsicYuvToRGBServiceClient(grpcConn)
+		req := &pb.CreateRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.Create(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptElementCmd = &cobra.Command{
+	Use:   "element",
+	Short: "ElementService operations",
+}
+
+var renderscriptElementGetBytesSizeCmd = &cobra.Command{
+	Use:   "get-bytes-size",
+	Short: "GetBytesSize RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewElementServiceClient(grpcConn)
+		req := &pb.GetBytesSizeRequest{}
+		resp, err := client.GetBytesSize(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptElementGetDataKindCmd = &cobra.Command{
+	Use:   "get-data-kind",
+	Short: "GetDataKind RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewElementServiceClient(grpcConn)
+		req := &pb.GetDataKindRequest{}
+		resp, err := client.GetDataKind(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptElementGetDataTypeCmd = &cobra.Command{
+	Use:   "get-data-type",
+	Short: "GetDataType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewElementServiceClient(grpcConn)
+		req := &pb.GetDataTypeRequest{}
+		resp, err := client.GetDataType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptElementGetSubElementCmd = &cobra.Command{
+	Use:   "get-sub-element",
+	Short: "GetSubElement RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewElementServiceClient(grpcConn)
+		req := &pb.GetSubElementRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetSubElement(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptElementGetSubElementArraySizeCmd = &cobra.Command{
+	Use:   "get-sub-element-array-size",
+	Short: "GetSubElementArraySize RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewElementServiceClient(grpcConn)
+		req := &pb.GetSubElementArraySizeRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetSubElementArraySize(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptElementGetSubElementCountCmd = &cobra.Command{
+	Use:   "get-sub-element-count",
+	Short: "GetSubElementCount RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewElementServiceClient(grpcConn)
+		req := &pb.GetSubElementCountRequest{}
+		resp, err := client.GetSubElementCount(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptElementGetSubElementNameCmd = &cobra.Command{
+	Use:   "get-sub-element-name",
+	Short: "GetSubElementName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewElementServiceClient(grpcConn)
+		req := &pb.GetSubElementNameRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetSubElementName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptElementGetSubElementOffsetBytesCmd = &cobra.Command{
+	Use:   "get-sub-element-offset-bytes",
+	Short: "GetSubElementOffsetBytes RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewElementServiceClient(grpcConn)
+		req := &pb.GetSubElementOffsetBytesRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetSubElementOffsetBytes(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptElementGetVectorSizeCmd = &cobra.Command{
+	Use:   "get-vector-size",
+	Short: "GetVectorSize RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewElementServiceClient(grpcConn)
+		req := &pb.GetVectorSizeRequest{}
+		resp, err := client.GetVectorSize(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptElementIsCompatibleCmd = &cobra.Command{
+	Use:   "is-compatible",
+	Short: "IsCompatible RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewElementServiceClient(grpcConn)
+		req := &pb.IsCompatibleRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.IsCompatible(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptElementIsComplexCmd = &cobra.Command{
+	Use:   "is-complex",
+	Short: "IsComplex RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewElementServiceClient(grpcConn)
+		req := &pb.IsComplexRequest{}
+		resp, err := client.IsComplex(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptElementALLOCATIONCmd = &cobra.Command{
+	Use:   "allocation",
+	Short: "ALLOCATION RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewElementServiceClient(grpcConn)
+		req := &pb.ALLOCATIONRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.ALLOCATION(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptElementA_8Cmd = &cobra.Command{
+	Use:   "a_8",
+	Short: "A_8 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewElementServiceClient(grpcConn)
+		req := &pb.A_8Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.A_8(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptElementBOOLEANCmd = &cobra.Command{
+	Use:   "boolean",
+	Short: "BOOLEAN RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewElementServiceClient(grpcConn)
+		req := &pb.BOOLEANRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.BOOLEAN(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptElementELEMENTCmd = &cobra.Command{
+	Use:   "element",
+	Short: "ELEMENT RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewElementServiceClient(grpcConn)
+		req := &pb.ELEMENTRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.ELEMENT(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptElementF16Cmd = &cobra.Command{
+	Use:   "f16",
+	Short: "F16 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewElementServiceClient(grpcConn)
+		req := &pb.F16Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.F16(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptElementF16_2Cmd = &cobra.Command{
+	Use:   "f16_2",
+	Short: "F16_2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewElementServiceClient(grpcConn)
+		req := &pb.F16_2Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.F16_2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptElementF16_3Cmd = &cobra.Command{
+	Use:   "f16_3",
+	Short: "F16_3 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewElementServiceClient(grpcConn)
+		req := &pb.F16_3Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.F16_3(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptElementF16_4Cmd = &cobra.Command{
+	Use:   "f16_4",
+	Short: "F16_4 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewElementServiceClient(grpcConn)
+		req := &pb.F16_4Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.F16_4(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptElementF32Cmd = &cobra.Command{
+	Use:   "f32",
+	Short: "F32 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewElementServiceClient(grpcConn)
+		req := &pb.F32Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.F32(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptElementF32_2Cmd = &cobra.Command{
+	Use:   "f32_2",
+	Short: "F32_2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewElementServiceClient(grpcConn)
+		req := &pb.F32_2Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.F32_2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptElementF32_3Cmd = &cobra.Command{
+	Use:   "f32_3",
+	Short: "F32_3 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewElementServiceClient(grpcConn)
+		req := &pb.F32_3Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.F32_3(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptElementF32_4Cmd = &cobra.Command{
+	Use:   "f32_4",
+	Short: "F32_4 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewElementServiceClient(grpcConn)
+		req := &pb.F32_4Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.F32_4(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptElementF64Cmd = &cobra.Command{
+	Use:   "f64",
+	Short: "F64 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewElementServiceClient(grpcConn)
+		req := &pb.F64Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.F64(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptElementF64_2Cmd = &cobra.Command{
+	Use:   "f64_2",
+	Short: "F64_2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewElementServiceClient(grpcConn)
+		req := &pb.F64_2Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.F64_2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptElementF64_3Cmd = &cobra.Command{
+	Use:   "f64_3",
+	Short: "F64_3 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewElementServiceClient(grpcConn)
+		req := &pb.F64_3Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.F64_3(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptElementF64_4Cmd = &cobra.Command{
+	Use:   "f64_4",
+	Short: "F64_4 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewElementServiceClient(grpcConn)
+		req := &pb.F64_4Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.F64_4(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptElementFONTCmd = &cobra.Command{
+	Use:   "font",
+	Short: "FONT RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewElementServiceClient(grpcConn)
+		req := &pb.FONTRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.FONT(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptElementI16Cmd = &cobra.Command{
+	Use:   "i16",
+	Short: "I16 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewElementServiceClient(grpcConn)
+		req := &pb.I16Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.I16(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptElementI16_2Cmd = &cobra.Command{
+	Use:   "i16_2",
+	Short: "I16_2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewElementServiceClient(grpcConn)
+		req := &pb.I16_2Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.I16_2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptElementI16_3Cmd = &cobra.Command{
+	Use:   "i16_3",
+	Short: "I16_3 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewElementServiceClient(grpcConn)
+		req := &pb.I16_3Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.I16_3(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptElementI16_4Cmd = &cobra.Command{
+	Use:   "i16_4",
+	Short: "I16_4 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewElementServiceClient(grpcConn)
+		req := &pb.I16_4Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.I16_4(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptElementI32Cmd = &cobra.Command{
+	Use:   "i32",
+	Short: "I32 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewElementServiceClient(grpcConn)
+		req := &pb.I32Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.I32(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptElementI32_2Cmd = &cobra.Command{
+	Use:   "i32_2",
+	Short: "I32_2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewElementServiceClient(grpcConn)
+		req := &pb.I32_2Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.I32_2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptElementI32_3Cmd = &cobra.Command{
+	Use:   "i32_3",
+	Short: "I32_3 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewElementServiceClient(grpcConn)
+		req := &pb.I32_3Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.I32_3(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptElementI32_4Cmd = &cobra.Command{
+	Use:   "i32_4",
+	Short: "I32_4 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewElementServiceClient(grpcConn)
+		req := &pb.I32_4Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.I32_4(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptElementI64Cmd = &cobra.Command{
+	Use:   "i64",
+	Short: "I64 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewElementServiceClient(grpcConn)
+		req := &pb.I64Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.I64(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptElementI64_2Cmd = &cobra.Command{
+	Use:   "i64_2",
+	Short: "I64_2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewElementServiceClient(grpcConn)
+		req := &pb.I64_2Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.I64_2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptElementI64_3Cmd = &cobra.Command{
+	Use:   "i64_3",
+	Short: "I64_3 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewElementServiceClient(grpcConn)
+		req := &pb.I64_3Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.I64_3(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptElementI64_4Cmd = &cobra.Command{
+	Use:   "i64_4",
+	Short: "I64_4 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewElementServiceClient(grpcConn)
+		req := &pb.I64_4Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.I64_4(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptElementI8Cmd = &cobra.Command{
+	Use:   "i8",
+	Short: "I8 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewElementServiceClient(grpcConn)
+		req := &pb.I8Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.I8(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptElementI8_2Cmd = &cobra.Command{
+	Use:   "i8_2",
+	Short: "I8_2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewElementServiceClient(grpcConn)
+		req := &pb.I8_2Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.I8_2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptElementI8_3Cmd = &cobra.Command{
+	Use:   "i8_3",
+	Short: "I8_3 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewElementServiceClient(grpcConn)
+		req := &pb.I8_3Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.I8_3(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptElementI8_4Cmd = &cobra.Command{
+	Use:   "i8_4",
+	Short: "I8_4 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewElementServiceClient(grpcConn)
+		req := &pb.I8_4Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.I8_4(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptElementMATRIX4X4Cmd = &cobra.Command{
+	Use:   "matrix4x4",
+	Short: "MATRIX4X4 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewElementServiceClient(grpcConn)
+		req := &pb.MATRIX4X4Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.MATRIX4X4(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptElementMATRIX_2X2Cmd = &cobra.Command{
+	Use:   "matrix_2x2",
+	Short: "MATRIX_2X2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewElementServiceClient(grpcConn)
+		req := &pb.MATRIX_2X2Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.MATRIX_2X2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptElementMATRIX_3X3Cmd = &cobra.Command{
+	Use:   "matrix_3x3",
+	Short: "MATRIX_3X3 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewElementServiceClient(grpcConn)
+		req := &pb.MATRIX_3X3Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.MATRIX_3X3(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptElementMATRIX_4X4Cmd = &cobra.Command{
+	Use:   "matrix_4x4",
+	Short: "MATRIX_4X4 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewElementServiceClient(grpcConn)
+		req := &pb.MATRIX_4X4Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.MATRIX_4X4(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptElementMESHCmd = &cobra.Command{
+	Use:   "mesh",
+	Short: "MESH RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewElementServiceClient(grpcConn)
+		req := &pb.MESHRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.MESH(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptElementPROGRAM_FRAGMENTCmd = &cobra.Command{
+	Use:   "program_fragment",
+	Short: "PROGRAM_FRAGMENT RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewElementServiceClient(grpcConn)
+		req := &pb.PROGRAM_FRAGMENTRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.PROGRAM_FRAGMENT(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptElementPROGRAM_RASTERCmd = &cobra.Command{
+	Use:   "program_raster",
+	Short: "PROGRAM_RASTER RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewElementServiceClient(grpcConn)
+		req := &pb.PROGRAM_RASTERRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.PROGRAM_RASTER(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptElementPROGRAM_STORECmd = &cobra.Command{
+	Use:   "program_store",
+	Short: "PROGRAM_STORE RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewElementServiceClient(grpcConn)
+		req := &pb.PROGRAM_STORERequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.PROGRAM_STORE(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptElementPROGRAM_VERTEXCmd = &cobra.Command{
+	Use:   "program_vertex",
+	Short: "PROGRAM_VERTEX RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewElementServiceClient(grpcConn)
+		req := &pb.PROGRAM_VERTEXRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.PROGRAM_VERTEX(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptElementRGBA_4444Cmd = &cobra.Command{
+	Use:   "rgba_4444",
+	Short: "RGBA_4444 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewElementServiceClient(grpcConn)
+		req := &pb.RGBA_4444Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.RGBA_4444(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptElementRGBA_5551Cmd = &cobra.Command{
+	Use:   "rgba_5551",
+	Short: "RGBA_5551 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewElementServiceClient(grpcConn)
+		req := &pb.RGBA_5551Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.RGBA_5551(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptElementRGBA_8888Cmd = &cobra.Command{
+	Use:   "rgba_8888",
+	Short: "RGBA_8888 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewElementServiceClient(grpcConn)
+		req := &pb.RGBA_8888Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.RGBA_8888(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptElementRGB_565Cmd = &cobra.Command{
+	Use:   "rgb_565",
+	Short: "RGB_565 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewElementServiceClient(grpcConn)
+		req := &pb.RGB_565Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.RGB_565(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptElementRGB_888Cmd = &cobra.Command{
+	Use:   "rgb_888",
+	Short: "RGB_888 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewElementServiceClient(grpcConn)
+		req := &pb.RGB_888Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.RGB_888(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptElementSAMPLERCmd = &cobra.Command{
+	Use:   "sampler",
+	Short: "SAMPLER RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewElementServiceClient(grpcConn)
+		req := &pb.SAMPLERRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SAMPLER(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptElementSCRIPTCmd = &cobra.Command{
+	Use:   "script",
+	Short: "SCRIPT RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewElementServiceClient(grpcConn)
+		req := &pb.SCRIPTRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SCRIPT(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptElementTYPECmd = &cobra.Command{
+	Use:   "type",
+	Short: "TYPE RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewElementServiceClient(grpcConn)
+		req := &pb.TYPERequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.TYPE(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptElementU16Cmd = &cobra.Command{
+	Use:   "u16",
+	Short: "U16 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewElementServiceClient(grpcConn)
+		req := &pb.U16Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.U16(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptElementU16_2Cmd = &cobra.Command{
+	Use:   "u16_2",
+	Short: "U16_2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewElementServiceClient(grpcConn)
+		req := &pb.U16_2Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.U16_2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptElementU16_3Cmd = &cobra.Command{
+	Use:   "u16_3",
+	Short: "U16_3 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewElementServiceClient(grpcConn)
+		req := &pb.U16_3Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.U16_3(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptElementU16_4Cmd = &cobra.Command{
+	Use:   "u16_4",
+	Short: "U16_4 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewElementServiceClient(grpcConn)
+		req := &pb.U16_4Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.U16_4(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptElementU32Cmd = &cobra.Command{
+	Use:   "u32",
+	Short: "U32 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewElementServiceClient(grpcConn)
+		req := &pb.U32Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.U32(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptElementU32_2Cmd = &cobra.Command{
+	Use:   "u32_2",
+	Short: "U32_2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewElementServiceClient(grpcConn)
+		req := &pb.U32_2Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.U32_2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptElementU32_3Cmd = &cobra.Command{
+	Use:   "u32_3",
+	Short: "U32_3 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewElementServiceClient(grpcConn)
+		req := &pb.U32_3Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.U32_3(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptElementU32_4Cmd = &cobra.Command{
+	Use:   "u32_4",
+	Short: "U32_4 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewElementServiceClient(grpcConn)
+		req := &pb.U32_4Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.U32_4(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptElementU64Cmd = &cobra.Command{
+	Use:   "u64",
+	Short: "U64 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewElementServiceClient(grpcConn)
+		req := &pb.U64Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.U64(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptElementU64_2Cmd = &cobra.Command{
+	Use:   "u64_2",
+	Short: "U64_2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewElementServiceClient(grpcConn)
+		req := &pb.U64_2Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.U64_2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptElementU64_3Cmd = &cobra.Command{
+	Use:   "u64_3",
+	Short: "U64_3 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewElementServiceClient(grpcConn)
+		req := &pb.U64_3Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.U64_3(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptElementU64_4Cmd = &cobra.Command{
+	Use:   "u64_4",
+	Short: "U64_4 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewElementServiceClient(grpcConn)
+		req := &pb.U64_4Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.U64_4(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptElementU8Cmd = &cobra.Command{
+	Use:   "u8",
+	Short: "U8 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewElementServiceClient(grpcConn)
+		req := &pb.U8Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.U8(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptElementU8_2Cmd = &cobra.Command{
+	Use:   "u8_2",
+	Short: "U8_2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewElementServiceClient(grpcConn)
+		req := &pb.U8_2Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.U8_2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptElementU8_3Cmd = &cobra.Command{
+	Use:   "u8_3",
+	Short: "U8_3 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewElementServiceClient(grpcConn)
+		req := &pb.U8_3Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.U8_3(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptElementU8_4Cmd = &cobra.Command{
+	Use:   "u8_4",
+	Short: "U8_4 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewElementServiceClient(grpcConn)
+		req := &pb.U8_4Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.U8_4(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptElementYUVCmd = &cobra.Command{
+	Use:   "yuv",
+	Short: "YUV RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewElementServiceClient(grpcConn)
+		req := &pb.YUVRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.YUV(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptElementCreatePixelCmd = &cobra.Command{
+	Use:   "create-pixel",
+	Short: "CreatePixel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewElementServiceClient(grpcConn)
+		req := &pb.CreatePixelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.CreatePixel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptElementCreateVectorCmd = &cobra.Command{
+	Use:   "create-vector",
+	Short: "CreateVector RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewElementServiceClient(grpcConn)
+		req := &pb.CreateVectorRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.CreateVector(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptElementBuilderCmd = &cobra.Command{
+	Use:   "element-builder",
+	Short: "ElementBuilderService operations",
+}
+
+var renderscriptElementBuilderAdd2Cmd = &cobra.Command{
+	Use:   "add2",
+	Short: "Add2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewElementBuilderServiceClient(grpcConn)
+		req := &pb.Add2Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.Add2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptElementBuilderAdd3_1Cmd = &cobra.Command{
+	Use:   "add3_1",
+	Short: "Add3_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewElementBuilderServiceClient(grpcConn)
+		req := &pb.Add3_1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.Add3_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptElementBuilderCreateCmd = &cobra.Command{
+	Use:   "create",
+	Short: "Create RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewElementBuilderServiceClient(grpcConn)
+		req := &pb.ElementBuilderCreateRequest{}
+		resp, err := client.Create(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptElementDataKindCmd = &cobra.Command{
+	Use:   "element-data-kind",
+	Short: "ElementDataKindService operations",
+}
+
+var renderscriptElementDataKindValuesCmd = &cobra.Command{
+	Use:   "values",
+	Short: "Values RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewElementDataKindServiceClient(grpcConn)
+		req := &pb.ValuesRequest{}
+		resp, err := client.Values(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptElementDataKindValueOfCmd = &cobra.Command{
+	Use:   "value-of",
+	Short: "ValueOf RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewElementDataKindServiceClient(grpcConn)
+		req := &pb.ValueOfRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.ValueOf(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptElementDataTypeCmd = &cobra.Command{
+	Use:   "element-data-type",
+	Short: "ElementDataTypeService operations",
+}
+
+var renderscriptElementDataTypeValuesCmd = &cobra.Command{
+	Use:   "values",
+	Short: "Values RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewElementDataTypeServiceClient(grpcConn)
+		req := &pb.ValuesRequest{}
+		resp, err := client.Values(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptElementDataTypeValueOfCmd = &cobra.Command{
+	Use:   "value-of",
+	Short: "ValueOf RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewElementDataTypeServiceClient(grpcConn)
+		req := &pb.ValueOfRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.ValueOf(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -5448,2219 +13278,6 @@ var renderscriptScriptIntrinsicBLASCreateCmd = &cobra.Command{
 	},
 }
 
-var renderscriptAllocationCmd = &cobra.Command{
-	Use:   "allocation",
-	Short: "AllocationService operations",
-}
-
-var renderscriptAllocationCopy1DRangeFrom4Cmd = &cobra.Command{
-	Use:   "copy1d-range-from4",
-	Short: "Copy1DRangeFrom4 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAllocationServiceClient(grpcConn)
-		req := &pb.Copy1DRangeFrom4Request{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		resp, err := client.Copy1DRangeFrom4(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptAllocationCopy1DRangeFrom3_1Cmd = &cobra.Command{
-	Use:   "copy1d-range-from3_1",
-	Short: "Copy1DRangeFrom3_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAllocationServiceClient(grpcConn)
-		req := &pb.Copy1DRangeFrom3_1Request{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.Copy1DRangeFrom3_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptAllocationCopy1DRangeFrom3_2Cmd = &cobra.Command{
-	Use:   "copy1d-range-from3_2",
-	Short: "Copy1DRangeFrom3_2 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAllocationServiceClient(grpcConn)
-		req := &pb.Copy1DRangeFrom3_2Request{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.Copy1DRangeFrom3_2(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptAllocationCopy1DRangeFrom3_3Cmd = &cobra.Command{
-	Use:   "copy1d-range-from3_3",
-	Short: "Copy1DRangeFrom3_3 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAllocationServiceClient(grpcConn)
-		req := &pb.Copy1DRangeFrom3_3Request{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.Copy1DRangeFrom3_3(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptAllocationCopy1DRangeFrom3_4Cmd = &cobra.Command{
-	Use:   "copy1d-range-from3_4",
-	Short: "Copy1DRangeFrom3_4 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAllocationServiceClient(grpcConn)
-		req := &pb.Copy1DRangeFrom3_4Request{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.Copy1DRangeFrom3_4(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptAllocationCopy1DRangeFrom3_5Cmd = &cobra.Command{
-	Use:   "copy1d-range-from3_5",
-	Short: "Copy1DRangeFrom3_5 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAllocationServiceClient(grpcConn)
-		req := &pb.Copy1DRangeFrom3_5Request{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.Copy1DRangeFrom3_5(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptAllocationCopy1DRangeFromUnchecked3Cmd = &cobra.Command{
-	Use:   "copy1d-range-from-unchecked3",
-	Short: "Copy1DRangeFromUnchecked3 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAllocationServiceClient(grpcConn)
-		req := &pb.Copy1DRangeFromUnchecked3Request{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.Copy1DRangeFromUnchecked3(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptAllocationCopy1DRangeFromUnchecked3_1Cmd = &cobra.Command{
-	Use:   "copy1d-range-from-unchecked3_1",
-	Short: "Copy1DRangeFromUnchecked3_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAllocationServiceClient(grpcConn)
-		req := &pb.Copy1DRangeFromUnchecked3_1Request{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.Copy1DRangeFromUnchecked3_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptAllocationCopy1DRangeFromUnchecked3_2Cmd = &cobra.Command{
-	Use:   "copy1d-range-from-unchecked3_2",
-	Short: "Copy1DRangeFromUnchecked3_2 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAllocationServiceClient(grpcConn)
-		req := &pb.Copy1DRangeFromUnchecked3_2Request{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.Copy1DRangeFromUnchecked3_2(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptAllocationCopy1DRangeFromUnchecked3_3Cmd = &cobra.Command{
-	Use:   "copy1d-range-from-unchecked3_3",
-	Short: "Copy1DRangeFromUnchecked3_3 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAllocationServiceClient(grpcConn)
-		req := &pb.Copy1DRangeFromUnchecked3_3Request{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.Copy1DRangeFromUnchecked3_3(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptAllocationCopy1DRangeFromUnchecked3_4Cmd = &cobra.Command{
-	Use:   "copy1d-range-from-unchecked3_4",
-	Short: "Copy1DRangeFromUnchecked3_4 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAllocationServiceClient(grpcConn)
-		req := &pb.Copy1DRangeFromUnchecked3_4Request{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.Copy1DRangeFromUnchecked3_4(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptAllocationCopy1DRangeTo3Cmd = &cobra.Command{
-	Use:   "copy1d-range-to3",
-	Short: "Copy1DRangeTo3 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAllocationServiceClient(grpcConn)
-		req := &pb.Copy1DRangeTo3Request{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.Copy1DRangeTo3(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptAllocationCopy1DRangeTo3_1Cmd = &cobra.Command{
-	Use:   "copy1d-range-to3_1",
-	Short: "Copy1DRangeTo3_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAllocationServiceClient(grpcConn)
-		req := &pb.Copy1DRangeTo3_1Request{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.Copy1DRangeTo3_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptAllocationCopy1DRangeTo3_2Cmd = &cobra.Command{
-	Use:   "copy1d-range-to3_2",
-	Short: "Copy1DRangeTo3_2 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAllocationServiceClient(grpcConn)
-		req := &pb.Copy1DRangeTo3_2Request{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.Copy1DRangeTo3_2(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptAllocationCopy1DRangeTo3_3Cmd = &cobra.Command{
-	Use:   "copy1d-range-to3_3",
-	Short: "Copy1DRangeTo3_3 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAllocationServiceClient(grpcConn)
-		req := &pb.Copy1DRangeTo3_3Request{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.Copy1DRangeTo3_3(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptAllocationCopy1DRangeTo3_4Cmd = &cobra.Command{
-	Use:   "copy1d-range-to3_4",
-	Short: "Copy1DRangeTo3_4 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAllocationServiceClient(grpcConn)
-		req := &pb.Copy1DRangeTo3_4Request{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.Copy1DRangeTo3_4(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptAllocationCopy1DRangeToUnchecked3Cmd = &cobra.Command{
-	Use:   "copy1d-range-to-unchecked3",
-	Short: "Copy1DRangeToUnchecked3 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAllocationServiceClient(grpcConn)
-		req := &pb.Copy1DRangeToUnchecked3Request{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.Copy1DRangeToUnchecked3(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptAllocationCopy1DRangeToUnchecked3_1Cmd = &cobra.Command{
-	Use:   "copy1d-range-to-unchecked3_1",
-	Short: "Copy1DRangeToUnchecked3_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAllocationServiceClient(grpcConn)
-		req := &pb.Copy1DRangeToUnchecked3_1Request{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.Copy1DRangeToUnchecked3_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptAllocationCopy1DRangeToUnchecked3_2Cmd = &cobra.Command{
-	Use:   "copy1d-range-to-unchecked3_2",
-	Short: "Copy1DRangeToUnchecked3_2 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAllocationServiceClient(grpcConn)
-		req := &pb.Copy1DRangeToUnchecked3_2Request{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.Copy1DRangeToUnchecked3_2(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptAllocationCopy1DRangeToUnchecked3_3Cmd = &cobra.Command{
-	Use:   "copy1d-range-to-unchecked3_3",
-	Short: "Copy1DRangeToUnchecked3_3 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAllocationServiceClient(grpcConn)
-		req := &pb.Copy1DRangeToUnchecked3_3Request{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.Copy1DRangeToUnchecked3_3(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptAllocationCopy1DRangeToUnchecked3_4Cmd = &cobra.Command{
-	Use:   "copy1d-range-to-unchecked3_4",
-	Short: "Copy1DRangeToUnchecked3_4 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAllocationServiceClient(grpcConn)
-		req := &pb.Copy1DRangeToUnchecked3_4Request{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.Copy1DRangeToUnchecked3_4(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptAllocationCopy2DRangeFrom3Cmd = &cobra.Command{
-	Use:   "copy2d-range-from3",
-	Short: "Copy2DRangeFrom3 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAllocationServiceClient(grpcConn)
-		req := &pb.Copy2DRangeFrom3Request{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.Copy2DRangeFrom3(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptAllocationCopy2DRangeFrom7_1Cmd = &cobra.Command{
-	Use:   "copy2d-range-from7_1",
-	Short: "Copy2DRangeFrom7_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAllocationServiceClient(grpcConn)
-		req := &pb.Copy2DRangeFrom7_1Request{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg4"); err == nil {
-			req.Arg4 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg5"); err == nil {
-			req.Arg5 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg6"); err == nil {
-			req.Arg6 = v
-		}
-		resp, err := client.Copy2DRangeFrom7_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptAllocationCopy2DRangeFrom5_2Cmd = &cobra.Command{
-	Use:   "copy2d-range-from5_2",
-	Short: "Copy2DRangeFrom5_2 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAllocationServiceClient(grpcConn)
-		req := &pb.Copy2DRangeFrom5_2Request{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg4"); err == nil {
-			req.Arg4 = v
-		}
-		resp, err := client.Copy2DRangeFrom5_2(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptAllocationCopy2DRangeFrom5_3Cmd = &cobra.Command{
-	Use:   "copy2d-range-from5_3",
-	Short: "Copy2DRangeFrom5_3 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAllocationServiceClient(grpcConn)
-		req := &pb.Copy2DRangeFrom5_3Request{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg4"); err == nil {
-			req.Arg4 = v
-		}
-		resp, err := client.Copy2DRangeFrom5_3(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptAllocationCopy2DRangeFrom5_4Cmd = &cobra.Command{
-	Use:   "copy2d-range-from5_4",
-	Short: "Copy2DRangeFrom5_4 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAllocationServiceClient(grpcConn)
-		req := &pb.Copy2DRangeFrom5_4Request{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg4"); err == nil {
-			req.Arg4 = v
-		}
-		resp, err := client.Copy2DRangeFrom5_4(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptAllocationCopy2DRangeFrom5_5Cmd = &cobra.Command{
-	Use:   "copy2d-range-from5_5",
-	Short: "Copy2DRangeFrom5_5 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAllocationServiceClient(grpcConn)
-		req := &pb.Copy2DRangeFrom5_5Request{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg4"); err == nil {
-			req.Arg4 = v
-		}
-		resp, err := client.Copy2DRangeFrom5_5(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptAllocationCopy2DRangeFrom5_6Cmd = &cobra.Command{
-	Use:   "copy2d-range-from5_6",
-	Short: "Copy2DRangeFrom5_6 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAllocationServiceClient(grpcConn)
-		req := &pb.Copy2DRangeFrom5_6Request{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg4"); err == nil {
-			req.Arg4 = v
-		}
-		resp, err := client.Copy2DRangeFrom5_6(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptAllocationCopy2DRangeTo5Cmd = &cobra.Command{
-	Use:   "copy2d-range-to5",
-	Short: "Copy2DRangeTo5 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAllocationServiceClient(grpcConn)
-		req := &pb.Copy2DRangeTo5Request{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg4"); err == nil {
-			req.Arg4 = v
-		}
-		resp, err := client.Copy2DRangeTo5(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptAllocationCopy2DRangeTo5_1Cmd = &cobra.Command{
-	Use:   "copy2d-range-to5_1",
-	Short: "Copy2DRangeTo5_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAllocationServiceClient(grpcConn)
-		req := &pb.Copy2DRangeTo5_1Request{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg4"); err == nil {
-			req.Arg4 = v
-		}
-		resp, err := client.Copy2DRangeTo5_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptAllocationCopy2DRangeTo5_2Cmd = &cobra.Command{
-	Use:   "copy2d-range-to5_2",
-	Short: "Copy2DRangeTo5_2 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAllocationServiceClient(grpcConn)
-		req := &pb.Copy2DRangeTo5_2Request{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg4"); err == nil {
-			req.Arg4 = v
-		}
-		resp, err := client.Copy2DRangeTo5_2(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptAllocationCopy2DRangeTo5_3Cmd = &cobra.Command{
-	Use:   "copy2d-range-to5_3",
-	Short: "Copy2DRangeTo5_3 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAllocationServiceClient(grpcConn)
-		req := &pb.Copy2DRangeTo5_3Request{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg4"); err == nil {
-			req.Arg4 = v
-		}
-		resp, err := client.Copy2DRangeTo5_3(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptAllocationCopy2DRangeTo5_4Cmd = &cobra.Command{
-	Use:   "copy2d-range-to5_4",
-	Short: "Copy2DRangeTo5_4 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAllocationServiceClient(grpcConn)
-		req := &pb.Copy2DRangeTo5_4Request{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg4"); err == nil {
-			req.Arg4 = v
-		}
-		resp, err := client.Copy2DRangeTo5_4(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptAllocationCopy3DRangeFrom10Cmd = &cobra.Command{
-	Use:   "copy3d-range-from10",
-	Short: "Copy3DRangeFrom10 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAllocationServiceClient(grpcConn)
-		req := &pb.Copy3DRangeFrom10Request{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg4"); err == nil {
-			req.Arg4 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg5"); err == nil {
-			req.Arg5 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg6"); err == nil {
-			req.Arg6 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg7"); err == nil {
-			req.Arg7 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg8"); err == nil {
-			req.Arg8 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg9"); err == nil {
-			req.Arg9 = v
-		}
-		resp, err := client.Copy3DRangeFrom10(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptAllocationCopy3DRangeFrom7_1Cmd = &cobra.Command{
-	Use:   "copy3d-range-from7_1",
-	Short: "Copy3DRangeFrom7_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAllocationServiceClient(grpcConn)
-		req := &pb.Copy3DRangeFrom7_1Request{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg4"); err == nil {
-			req.Arg4 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg5"); err == nil {
-			req.Arg5 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg6"); err == nil {
-			req.Arg6 = v
-		}
-		resp, err := client.Copy3DRangeFrom7_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptAllocationCopy3DRangeToCmd = &cobra.Command{
-	Use:   "copy3d-range-to",
-	Short: "Copy3DRangeTo RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAllocationServiceClient(grpcConn)
-		req := &pb.Copy3DRangeToRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg4"); err == nil {
-			req.Arg4 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg5"); err == nil {
-			req.Arg5 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg6"); err == nil {
-			req.Arg6 = v
-		}
-		resp, err := client.Copy3DRangeTo(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptAllocationCopyFrom1Cmd = &cobra.Command{
-	Use:   "copy-from1",
-	Short: "CopyFrom1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAllocationServiceClient(grpcConn)
-		req := &pb.CopyFrom1Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.CopyFrom1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptAllocationCopyFrom1_1Cmd = &cobra.Command{
-	Use:   "copy-from1_1",
-	Short: "CopyFrom1_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAllocationServiceClient(grpcConn)
-		req := &pb.CopyFrom1_1Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.CopyFrom1_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptAllocationCopyFrom1_2Cmd = &cobra.Command{
-	Use:   "copy-from1_2",
-	Short: "CopyFrom1_2 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAllocationServiceClient(grpcConn)
-		req := &pb.CopyFrom1_2Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.CopyFrom1_2(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptAllocationCopyFrom1_3Cmd = &cobra.Command{
-	Use:   "copy-from1_3",
-	Short: "CopyFrom1_3 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAllocationServiceClient(grpcConn)
-		req := &pb.CopyFrom1_3Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.CopyFrom1_3(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptAllocationCopyFrom1_4Cmd = &cobra.Command{
-	Use:   "copy-from1_4",
-	Short: "CopyFrom1_4 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAllocationServiceClient(grpcConn)
-		req := &pb.CopyFrom1_4Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.CopyFrom1_4(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptAllocationCopyFrom1_5Cmd = &cobra.Command{
-	Use:   "copy-from1_5",
-	Short: "CopyFrom1_5 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAllocationServiceClient(grpcConn)
-		req := &pb.CopyFrom1_5Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.CopyFrom1_5(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptAllocationCopyFrom1_6Cmd = &cobra.Command{
-	Use:   "copy-from1_6",
-	Short: "CopyFrom1_6 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAllocationServiceClient(grpcConn)
-		req := &pb.CopyFrom1_6Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.CopyFrom1_6(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptAllocationCopyFrom1_7Cmd = &cobra.Command{
-	Use:   "copy-from1_7",
-	Short: "CopyFrom1_7 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAllocationServiceClient(grpcConn)
-		req := &pb.CopyFrom1_7Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.CopyFrom1_7(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptAllocationCopyFromUnchecked1Cmd = &cobra.Command{
-	Use:   "copy-from-unchecked1",
-	Short: "CopyFromUnchecked1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAllocationServiceClient(grpcConn)
-		req := &pb.CopyFromUnchecked1Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.CopyFromUnchecked1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptAllocationCopyFromUnchecked1_1Cmd = &cobra.Command{
-	Use:   "copy-from-unchecked1_1",
-	Short: "CopyFromUnchecked1_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAllocationServiceClient(grpcConn)
-		req := &pb.CopyFromUnchecked1_1Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.CopyFromUnchecked1_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptAllocationCopyFromUnchecked1_2Cmd = &cobra.Command{
-	Use:   "copy-from-unchecked1_2",
-	Short: "CopyFromUnchecked1_2 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAllocationServiceClient(grpcConn)
-		req := &pb.CopyFromUnchecked1_2Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.CopyFromUnchecked1_2(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptAllocationCopyFromUnchecked1_3Cmd = &cobra.Command{
-	Use:   "copy-from-unchecked1_3",
-	Short: "CopyFromUnchecked1_3 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAllocationServiceClient(grpcConn)
-		req := &pb.CopyFromUnchecked1_3Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.CopyFromUnchecked1_3(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptAllocationCopyFromUnchecked1_4Cmd = &cobra.Command{
-	Use:   "copy-from-unchecked1_4",
-	Short: "CopyFromUnchecked1_4 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAllocationServiceClient(grpcConn)
-		req := &pb.CopyFromUnchecked1_4Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.CopyFromUnchecked1_4(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptAllocationCopyTo1Cmd = &cobra.Command{
-	Use:   "copy-to1",
-	Short: "CopyTo1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAllocationServiceClient(grpcConn)
-		req := &pb.CopyTo1Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.CopyTo1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptAllocationCopyTo1_1Cmd = &cobra.Command{
-	Use:   "copy-to1_1",
-	Short: "CopyTo1_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAllocationServiceClient(grpcConn)
-		req := &pb.CopyTo1_1Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.CopyTo1_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptAllocationCopyTo1_2Cmd = &cobra.Command{
-	Use:   "copy-to1_2",
-	Short: "CopyTo1_2 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAllocationServiceClient(grpcConn)
-		req := &pb.CopyTo1_2Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.CopyTo1_2(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptAllocationCopyTo1_3Cmd = &cobra.Command{
-	Use:   "copy-to1_3",
-	Short: "CopyTo1_3 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAllocationServiceClient(grpcConn)
-		req := &pb.CopyTo1_3Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.CopyTo1_3(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptAllocationCopyTo1_4Cmd = &cobra.Command{
-	Use:   "copy-to1_4",
-	Short: "CopyTo1_4 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAllocationServiceClient(grpcConn)
-		req := &pb.CopyTo1_4Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.CopyTo1_4(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptAllocationCopyTo1_5Cmd = &cobra.Command{
-	Use:   "copy-to1_5",
-	Short: "CopyTo1_5 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAllocationServiceClient(grpcConn)
-		req := &pb.CopyTo1_5Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.CopyTo1_5(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptAllocationDestroyCmd = &cobra.Command{
-	Use:   "destroy",
-	Short: "Destroy RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAllocationServiceClient(grpcConn)
-		req := &pb.DestroyRequest{}
-		resp, err := client.Destroy(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptAllocationGenerateMipmapsCmd = &cobra.Command{
-	Use:   "generate-mipmaps",
-	Short: "GenerateMipmaps RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAllocationServiceClient(grpcConn)
-		req := &pb.GenerateMipmapsRequest{}
-		resp, err := client.GenerateMipmaps(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptAllocationGetByteBufferCmd = &cobra.Command{
-	Use:   "get-byte-buffer",
-	Short: "GetByteBuffer RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAllocationServiceClient(grpcConn)
-		req := &pb.GetByteBufferRequest{}
-		resp, err := client.GetByteBuffer(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptAllocationGetBytesSizeCmd = &cobra.Command{
-	Use:   "get-bytes-size",
-	Short: "GetBytesSize RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAllocationServiceClient(grpcConn)
-		req := &pb.GetBytesSizeRequest{}
-		resp, err := client.GetBytesSize(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptAllocationGetElementCmd = &cobra.Command{
-	Use:   "get-element",
-	Short: "GetElement RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAllocationServiceClient(grpcConn)
-		req := &pb.GetElementRequest{}
-		resp, err := client.GetElement(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptAllocationGetStrideCmd = &cobra.Command{
-	Use:   "get-stride",
-	Short: "GetStride RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAllocationServiceClient(grpcConn)
-		req := &pb.GetStrideRequest{}
-		resp, err := client.GetStride(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptAllocationGetSurfaceCmd = &cobra.Command{
-	Use:   "get-surface",
-	Short: "GetSurface RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAllocationServiceClient(grpcConn)
-		req := &pb.GetSurfaceRequest{}
-		resp, err := client.GetSurface(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptAllocationGetTimeStampCmd = &cobra.Command{
-	Use:   "get-time-stamp",
-	Short: "GetTimeStamp RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAllocationServiceClient(grpcConn)
-		req := &pb.GetTimeStampRequest{}
-		resp, err := client.GetTimeStamp(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptAllocationGetTypeCmd = &cobra.Command{
-	Use:   "get-type",
-	Short: "GetType RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAllocationServiceClient(grpcConn)
-		req := &pb.GetTypeRequest{}
-		resp, err := client.GetType(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptAllocationGetUsageCmd = &cobra.Command{
-	Use:   "get-usage",
-	Short: "GetUsage RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAllocationServiceClient(grpcConn)
-		req := &pb.GetUsageRequest{}
-		resp, err := client.GetUsage(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptAllocationIoReceiveCmd = &cobra.Command{
-	Use:   "io-receive",
-	Short: "IoReceive RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAllocationServiceClient(grpcConn)
-		req := &pb.IoReceiveRequest{}
-		resp, err := client.IoReceive(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptAllocationIoSendCmd = &cobra.Command{
-	Use:   "io-send",
-	Short: "IoSend RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAllocationServiceClient(grpcConn)
-		req := &pb.IoSendRequest{}
-		resp, err := client.IoSend(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptAllocationSetAutoPaddingCmd = &cobra.Command{
-	Use:   "set-auto-padding",
-	Short: "SetAutoPadding RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAllocationServiceClient(grpcConn)
-		req := &pb.SetAutoPaddingRequest{}
-		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetAutoPadding(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptAllocationSetFromFieldPacker2Cmd = &cobra.Command{
-	Use:   "set-from-field-packer2",
-	Short: "SetFromFieldPacker2 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAllocationServiceClient(grpcConn)
-		req := &pb.SetFromFieldPacker2Request{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.SetFromFieldPacker2(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptAllocationSetFromFieldPacker3_1Cmd = &cobra.Command{
-	Use:   "set-from-field-packer3_1",
-	Short: "SetFromFieldPacker3_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAllocationServiceClient(grpcConn)
-		req := &pb.SetFromFieldPacker3_1Request{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.SetFromFieldPacker3_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptAllocationSetFromFieldPacker5_2Cmd = &cobra.Command{
-	Use:   "set-from-field-packer5_2",
-	Short: "SetFromFieldPacker5_2 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAllocationServiceClient(grpcConn)
-		req := &pb.SetFromFieldPacker5_2Request{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg4"); err == nil {
-			req.Arg4 = v
-		}
-		resp, err := client.SetFromFieldPacker5_2(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptAllocationSetOnBufferAvailableListenerCmd = &cobra.Command{
-	Use:   "set-on-buffer-available-listener",
-	Short: "SetOnBufferAvailableListener RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAllocationServiceClient(grpcConn)
-		req := &pb.SetOnBufferAvailableListenerRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetOnBufferAvailableListener(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptAllocationSetSurfaceCmd = &cobra.Command{
-	Use:   "set-surface",
-	Short: "SetSurface RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAllocationServiceClient(grpcConn)
-		req := &pb.SetSurfaceRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetSurface(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptAllocationSyncAllCmd = &cobra.Command{
-	Use:   "sync-all",
-	Short: "SyncAll RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAllocationServiceClient(grpcConn)
-		req := &pb.SyncAllRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SyncAll(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptAllocationCreateAllocationsCmd = &cobra.Command{
-	Use:   "create-allocations",
-	Short: "CreateAllocations RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAllocationServiceClient(grpcConn)
-		req := &pb.CreateAllocationsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		resp, err := client.CreateAllocations(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptAllocationCreateCubemapFromBitmap2Cmd = &cobra.Command{
-	Use:   "create-cubemap-from-bitmap2",
-	Short: "CreateCubemapFromBitmap2 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAllocationServiceClient(grpcConn)
-		req := &pb.CreateCubemapFromBitmap2Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.CreateCubemapFromBitmap2(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptAllocationCreateCubemapFromBitmap4_1Cmd = &cobra.Command{
-	Use:   "create-cubemap-from-bitmap4_1",
-	Short: "CreateCubemapFromBitmap4_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAllocationServiceClient(grpcConn)
-		req := &pb.CreateCubemapFromBitmap4_1Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		resp, err := client.CreateCubemapFromBitmap4_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptAllocationCreateCubemapFromCubeFaces7Cmd = &cobra.Command{
-	Use:   "create-cubemap-from-cube-faces7",
-	Short: "CreateCubemapFromCubeFaces7 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAllocationServiceClient(grpcConn)
-		req := &pb.CreateCubemapFromCubeFaces7Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg4"); err == nil {
-			req.Arg4 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg5"); err == nil {
-			req.Arg5 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg6"); err == nil {
-			req.Arg6 = v
-		}
-		resp, err := client.CreateCubemapFromCubeFaces7(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptAllocationCreateCubemapFromCubeFaces9_1Cmd = &cobra.Command{
-	Use:   "create-cubemap-from-cube-faces9_1",
-	Short: "CreateCubemapFromCubeFaces9_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAllocationServiceClient(grpcConn)
-		req := &pb.CreateCubemapFromCubeFaces9_1Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg4"); err == nil {
-			req.Arg4 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg5"); err == nil {
-			req.Arg5 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg6"); err == nil {
-			req.Arg6 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg7"); err == nil {
-			req.Arg7 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg8"); err == nil {
-			req.Arg8 = v
-		}
-		resp, err := client.CreateCubemapFromCubeFaces9_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptAllocationCreateFromBitmap2Cmd = &cobra.Command{
-	Use:   "create-from-bitmap2",
-	Short: "CreateFromBitmap2 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAllocationServiceClient(grpcConn)
-		req := &pb.CreateFromBitmap2Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.CreateFromBitmap2(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptAllocationCreateFromBitmap4_1Cmd = &cobra.Command{
-	Use:   "create-from-bitmap4_1",
-	Short: "CreateFromBitmap4_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAllocationServiceClient(grpcConn)
-		req := &pb.CreateFromBitmap4_1Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		resp, err := client.CreateFromBitmap4_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptAllocationCreateFromBitmapResource3Cmd = &cobra.Command{
-	Use:   "create-from-bitmap-resource3",
-	Short: "CreateFromBitmapResource3 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAllocationServiceClient(grpcConn)
-		req := &pb.CreateFromBitmapResource3Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.CreateFromBitmapResource3(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptAllocationCreateFromBitmapResource5_1Cmd = &cobra.Command{
-	Use:   "create-from-bitmap-resource5_1",
-	Short: "CreateFromBitmapResource5_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAllocationServiceClient(grpcConn)
-		req := &pb.CreateFromBitmapResource5_1Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg4"); err == nil {
-			req.Arg4 = v
-		}
-		resp, err := client.CreateFromBitmapResource5_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptAllocationCreateFromStringCmd = &cobra.Command{
-	Use:   "create-from-string",
-	Short: "CreateFromString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAllocationServiceClient(grpcConn)
-		req := &pb.CreateFromStringRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetString("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.CreateFromString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptAllocationCreateSized3Cmd = &cobra.Command{
-	Use:   "create-sized3",
-	Short: "CreateSized3 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAllocationServiceClient(grpcConn)
-		req := &pb.CreateSized3Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.CreateSized3(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptAllocationCreateSized4_1Cmd = &cobra.Command{
-	Use:   "create-sized4_1",
-	Short: "CreateSized4_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAllocationServiceClient(grpcConn)
-		req := &pb.CreateSized4_1Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		resp, err := client.CreateSized4_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptAllocationCreateTyped2Cmd = &cobra.Command{
-	Use:   "create-typed2",
-	Short: "CreateTyped2 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAllocationServiceClient(grpcConn)
-		req := &pb.CreateTyped2Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.CreateTyped2(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptAllocationCreateTyped4_1Cmd = &cobra.Command{
-	Use:   "create-typed4_1",
-	Short: "CreateTyped4_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAllocationServiceClient(grpcConn)
-		req := &pb.CreateTyped4_1Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		resp, err := client.CreateTyped4_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptAllocationCreateTyped3_2Cmd = &cobra.Command{
-	Use:   "create-typed3_2",
-	Short: "CreateTyped3_2 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAllocationServiceClient(grpcConn)
-		req := &pb.CreateTyped3_2Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.CreateTyped3_2(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptAllocationMipmapControlCmd = &cobra.Command{
-	Use:   "allocation-mipmap-control",
-	Short: "AllocationMipmapControlService operations",
-}
-
-var renderscriptAllocationMipmapControlValuesCmd = &cobra.Command{
-	Use:   "values",
-	Short: "Values RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAllocationMipmapControlServiceClient(grpcConn)
-		req := &pb.ValuesRequest{}
-		resp, err := client.Values(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptAllocationMipmapControlValueOfCmd = &cobra.Command{
-	Use:   "value-of",
-	Short: "ValueOf RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAllocationMipmapControlServiceClient(grpcConn)
-		req := &pb.ValueOfRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.ValueOf(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptAllocationOnBufferAvailableListenerCmd = &cobra.Command{
-	Use:   "allocation-on-buffer-available-listener",
-	Short: "AllocationOnBufferAvailableListenerService operations",
-}
-
-var renderscriptAllocationOnBufferAvailableListenerOnBufferAvailableCmd = &cobra.Command{
-	Use:   "on-buffer-available",
-	Short: "OnBufferAvailable RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAllocationOnBufferAvailableListenerServiceClient(grpcConn)
-		req := &pb.OnBufferAvailableRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.OnBufferAvailable(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
 var renderscriptScriptCmd = &cobra.Command{
 	Use:   "script",
 	Short: "ScriptService operations",
@@ -8183,7 +13800,7 @@ var renderscriptScriptLaunchOptionsSetXCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewScriptLaunchOptionsServiceClient(grpcConn)
-		req := &pb.SetXRequest{}
+		req := &pb.ScriptLaunchOptionsSetXRequest{}
 		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
 			req.Arg0 = v
 		}
@@ -8205,7 +13822,7 @@ var renderscriptScriptLaunchOptionsSetYCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewScriptLaunchOptionsServiceClient(grpcConn)
-		req := &pb.SetYRequest{}
+		req := &pb.ScriptLaunchOptionsSetYRequest{}
 		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
 			req.Arg0 = v
 		}
@@ -8227,7 +13844,7 @@ var renderscriptScriptLaunchOptionsSetZCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewScriptLaunchOptionsServiceClient(grpcConn)
-		req := &pb.SetZRequest{}
+		req := &pb.ScriptLaunchOptionsSetZRequest{}
 		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
 			req.Arg0 = v
 		}
@@ -8242,26 +13859,55 @@ var renderscriptScriptLaunchOptionsSetZCmd = &cobra.Command{
 	},
 }
 
-var renderscriptScriptIntrinsic3DLUTCmd = &cobra.Command{
-	Use:   "script-intrinsic3dlut",
-	Short: "ScriptIntrinsic3DLUTService operations",
+var renderscriptScriptGroupCmd = &cobra.Command{
+	Use:   "script-group",
+	Short: "ScriptGroupService operations",
 }
 
-var renderscriptScriptIntrinsic3DLUTForEach2Cmd = &cobra.Command{
-	Use:   "for-each2",
-	Short: "ForEach2 RPC",
+var renderscriptScriptGroupDestroyCmd = &cobra.Command{
+	Use:   "destroy",
+	Short: "Destroy RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewScriptIntrinsic3DLUTServiceClient(grpcConn)
-		req := &pb.ForEach2Request{}
+		client := pb.NewScriptGroupServiceClient(grpcConn)
+		req := &pb.DestroyRequest{}
+		resp, err := client.Destroy(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptScriptGroupExecute0Cmd = &cobra.Command{
+	Use:   "execute0",
+	Short: "Execute0 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewScriptGroupServiceClient(grpcConn)
+		req := &pb.Execute0Request{}
+		resp, err := client.Execute0(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptScriptGroupExecute1_1Cmd = &cobra.Command{
+	Use:   "execute1_1",
+	Short: "Execute1_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewScriptGroupServiceClient(grpcConn)
+		req := &pb.Execute1_1Request{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.ForEach2(ctx, req)
+		resp, err := client.Execute1_1(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -8269,568 +13915,19 @@ var renderscriptScriptIntrinsic3DLUTForEach2Cmd = &cobra.Command{
 	},
 }
 
-var renderscriptScriptIntrinsic3DLUTForEach3_1Cmd = &cobra.Command{
-	Use:   "for-each3_1",
-	Short: "ForEach3_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewScriptIntrinsic3DLUTServiceClient(grpcConn)
-		req := &pb.ForEach3_1Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.ForEach3_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptScriptIntrinsic3DLUTGetKernelIDCmd = &cobra.Command{
-	Use:   "get-kernel-id",
-	Short: "GetKernelID RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewScriptIntrinsic3DLUTServiceClient(grpcConn)
-		req := &pb.GetKernelIDRequest{}
-		resp, err := client.GetKernelID(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptScriptIntrinsic3DLUTSetLUTCmd = &cobra.Command{
-	Use:   "set-lut",
-	Short: "SetLUT RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewScriptIntrinsic3DLUTServiceClient(grpcConn)
-		req := &pb.SetLUTRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetLUT(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptScriptIntrinsic3DLUTCreateCmd = &cobra.Command{
-	Use:   "create",
-	Short: "Create RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewScriptIntrinsic3DLUTServiceClient(grpcConn)
-		req := &pb.ScriptIntrinsic3DLUTCreateRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.Create(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptTypeCmd = &cobra.Command{
-	Use:   "type",
-	Short: "TypeService operations",
-}
-
-var renderscriptTypeGetCountCmd = &cobra.Command{
-	Use:   "get-count",
-	Short: "GetCount RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTypeServiceClient(grpcConn)
-		req := &pb.GetCountRequest{}
-		resp, err := client.GetCount(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptTypeGetElementCmd = &cobra.Command{
-	Use:   "get-element",
-	Short: "GetElement RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTypeServiceClient(grpcConn)
-		req := &pb.GetElementRequest{}
-		resp, err := client.GetElement(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptTypeGetXCmd = &cobra.Command{
-	Use:   "get-x",
-	Short: "GetX RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTypeServiceClient(grpcConn)
-		req := &pb.GetXRequest{}
-		resp, err := client.GetX(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptTypeGetYCmd = &cobra.Command{
-	Use:   "get-y",
-	Short: "GetY RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTypeServiceClient(grpcConn)
-		req := &pb.GetYRequest{}
-		resp, err := client.GetY(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptTypeGetYuvCmd = &cobra.Command{
-	Use:   "get-yuv",
-	Short: "GetYuv RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTypeServiceClient(grpcConn)
-		req := &pb.GetYuvRequest{}
-		resp, err := client.GetYuv(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptTypeGetZCmd = &cobra.Command{
-	Use:   "get-z",
-	Short: "GetZ RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTypeServiceClient(grpcConn)
-		req := &pb.GetZRequest{}
-		resp, err := client.GetZ(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptTypeHasFacesCmd = &cobra.Command{
-	Use:   "has-faces",
-	Short: "HasFaces RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTypeServiceClient(grpcConn)
-		req := &pb.HasFacesRequest{}
-		resp, err := client.HasFaces(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptTypeHasMipmapsCmd = &cobra.Command{
-	Use:   "has-mipmaps",
-	Short: "HasMipmaps RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTypeServiceClient(grpcConn)
-		req := &pb.HasMipmapsRequest{}
-		resp, err := client.HasMipmaps(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptTypeCreateXCmd = &cobra.Command{
-	Use:   "create-x",
-	Short: "CreateX RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTypeServiceClient(grpcConn)
-		req := &pb.CreateXRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.CreateX(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptTypeCreateXYCmd = &cobra.Command{
-	Use:   "create-xy",
-	Short: "CreateXY RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTypeServiceClient(grpcConn)
-		req := &pb.CreateXYRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		resp, err := client.CreateXY(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptTypeCreateXYZCmd = &cobra.Command{
-	Use:   "create-xyz",
-	Short: "CreateXYZ RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTypeServiceClient(grpcConn)
-		req := &pb.CreateXYZRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg4"); err == nil {
-			req.Arg4 = v
-		}
-		resp, err := client.CreateXYZ(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptTypeBuilderCmd = &cobra.Command{
-	Use:   "type-builder",
-	Short: "TypeBuilderService operations",
-}
-
-var renderscriptTypeBuilderCreateCmd = &cobra.Command{
-	Use:   "create",
-	Short: "Create RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTypeBuilderServiceClient(grpcConn)
-		req := &pb.CreateRequest{}
-		resp, err := client.Create(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptTypeBuilderSetFacesCmd = &cobra.Command{
-	Use:   "set-faces",
-	Short: "SetFaces RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTypeBuilderServiceClient(grpcConn)
-		req := &pb.SetFacesRequest{}
-		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetFaces(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptTypeBuilderSetMipmapsCmd = &cobra.Command{
-	Use:   "set-mipmaps",
-	Short: "SetMipmaps RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTypeBuilderServiceClient(grpcConn)
-		req := &pb.SetMipmapsRequest{}
-		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetMipmaps(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptTypeBuilderSetXCmd = &cobra.Command{
-	Use:   "set-x",
-	Short: "SetX RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTypeBuilderServiceClient(grpcConn)
-		req := &pb.TypeBuilderSetXRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetX(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptTypeBuilderSetYCmd = &cobra.Command{
-	Use:   "set-y",
-	Short: "SetY RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTypeBuilderServiceClient(grpcConn)
-		req := &pb.TypeBuilderSetYRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetY(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptTypeBuilderSetYuvFormatCmd = &cobra.Command{
-	Use:   "set-yuv-format",
-	Short: "SetYuvFormat RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTypeBuilderServiceClient(grpcConn)
-		req := &pb.SetYuvFormatRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetYuvFormat(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptTypeBuilderSetZCmd = &cobra.Command{
-	Use:   "set-z",
-	Short: "SetZ RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTypeBuilderServiceClient(grpcConn)
-		req := &pb.TypeBuilderSetZRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetZ(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptTypeCubemapFaceCmd = &cobra.Command{
-	Use:   "type-cubemap-face",
-	Short: "TypeCubemapFaceService operations",
-}
-
-var renderscriptTypeCubemapFaceValuesCmd = &cobra.Command{
-	Use:   "values",
-	Short: "Values RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTypeCubemapFaceServiceClient(grpcConn)
-		req := &pb.ValuesRequest{}
-		resp, err := client.Values(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptTypeCubemapFaceValueOfCmd = &cobra.Command{
-	Use:   "value-of",
-	Short: "ValueOf RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTypeCubemapFaceServiceClient(grpcConn)
-		req := &pb.ValueOfRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.ValueOf(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptScriptIntrinsicBlurCmd = &cobra.Command{
-	Use:   "script-intrinsic-blur",
-	Short: "ScriptIntrinsicBlurService operations",
-}
-
-var renderscriptScriptIntrinsicBlurForEach1Cmd = &cobra.Command{
-	Use:   "for-each1",
-	Short: "ForEach1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewScriptIntrinsicBlurServiceClient(grpcConn)
-		req := &pb.ForEach1Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.ForEach1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptScriptIntrinsicBlurForEach2_1Cmd = &cobra.Command{
-	Use:   "for-each2_1",
-	Short: "ForEach2_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewScriptIntrinsicBlurServiceClient(grpcConn)
-		req := &pb.ForEach2_1Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.ForEach2_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptScriptIntrinsicBlurGetFieldID_InputCmd = &cobra.Command{
-	Use:   "get-field-id_input",
-	Short: "GetFieldID_Input RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewScriptIntrinsicBlurServiceClient(grpcConn)
-		req := &pb.GetFieldID_InputRequest{}
-		resp, err := client.GetFieldID_Input(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptScriptIntrinsicBlurGetKernelIDCmd = &cobra.Command{
-	Use:   "get-kernel-id",
-	Short: "GetKernelID RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewScriptIntrinsicBlurServiceClient(grpcConn)
-		req := &pb.GetKernelIDRequest{}
-		resp, err := client.GetKernelID(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptScriptIntrinsicBlurSetInputCmd = &cobra.Command{
+var renderscriptScriptGroupSetInputCmd = &cobra.Command{
 	Use:   "set-input",
 	Short: "SetInput RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewScriptIntrinsicBlurServiceClient(grpcConn)
-		req := &pb.ScriptIntrinsicBlurSetInputRequest{}
+		client := pb.NewScriptGroupServiceClient(grpcConn)
+		req := &pb.ScriptGroupSetInputRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
 		}
 		resp, err := client.SetInput(ctx, req)
 		if err != nil {
@@ -8840,40 +13937,21 @@ var renderscriptScriptIntrinsicBlurSetInputCmd = &cobra.Command{
 	},
 }
 
-var renderscriptScriptIntrinsicBlurSetRadiusCmd = &cobra.Command{
-	Use:   "set-radius",
-	Short: "SetRadius RPC",
+var renderscriptScriptGroupSetOutputCmd = &cobra.Command{
+	Use:   "set-output",
+	Short: "SetOutput RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewScriptIntrinsicBlurServiceClient(grpcConn)
-		req := &pb.SetRadiusRequest{}
-		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetRadius(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptScriptIntrinsicBlurCreateCmd = &cobra.Command{
-	Use:   "create",
-	Short: "Create RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewScriptIntrinsicBlurServiceClient(grpcConn)
-		req := &pb.ScriptIntrinsicBlurCreateRequest{}
+		client := pb.NewScriptGroupServiceClient(grpcConn)
+		req := &pb.ScriptGroupSetOutputRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
 		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
 			req.Arg1 = v
 		}
-		resp, err := client.Create(ctx, req)
+		resp, err := client.SetOutput(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -8881,158 +13959,19 @@ var renderscriptScriptIntrinsicBlurCreateCmd = &cobra.Command{
 	},
 }
 
-var renderscriptAllocationAdapterCmd = &cobra.Command{
-	Use:   "allocation-adapter",
-	Short: "AllocationAdapterService operations",
+var renderscriptScriptGroupBuilderCmd = &cobra.Command{
+	Use:   "script-group-builder",
+	Short: "ScriptGroupBuilderService operations",
 }
 
-var renderscriptAllocationAdapterSetFaceCmd = &cobra.Command{
-	Use:   "set-face",
-	Short: "SetFace RPC",
+var renderscriptScriptGroupBuilderAddConnection3Cmd = &cobra.Command{
+	Use:   "add-connection3",
+	Short: "AddConnection3 RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewAllocationAdapterServiceClient(grpcConn)
-		req := &pb.SetFaceRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetFace(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptAllocationAdapterSetLODCmd = &cobra.Command{
-	Use:   "set-lod",
-	Short: "SetLOD RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAllocationAdapterServiceClient(grpcConn)
-		req := &pb.SetLODRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetLOD(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptAllocationAdapterSetXCmd = &cobra.Command{
-	Use:   "set-x",
-	Short: "SetX RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAllocationAdapterServiceClient(grpcConn)
-		req := &pb.AllocationAdapterSetXRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetX(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptAllocationAdapterSetYCmd = &cobra.Command{
-	Use:   "set-y",
-	Short: "SetY RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAllocationAdapterServiceClient(grpcConn)
-		req := &pb.AllocationAdapterSetYRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetY(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptAllocationAdapterSetZCmd = &cobra.Command{
-	Use:   "set-z",
-	Short: "SetZ RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAllocationAdapterServiceClient(grpcConn)
-		req := &pb.AllocationAdapterSetZRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetZ(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptAllocationAdapterCreate1DCmd = &cobra.Command{
-	Use:   "create1d",
-	Short: "Create1D RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAllocationAdapterServiceClient(grpcConn)
-		req := &pb.Create1DRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.Create1D(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptAllocationAdapterCreate2DCmd = &cobra.Command{
-	Use:   "create2d",
-	Short: "Create2D RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAllocationAdapterServiceClient(grpcConn)
-		req := &pb.Create2DRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.Create2D(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptAllocationAdapterCreateTypedCmd = &cobra.Command{
-	Use:   "create-typed",
-	Short: "CreateTyped RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAllocationAdapterServiceClient(grpcConn)
-		req := &pb.CreateTypedRequest{}
+		client := pb.NewScriptGroupBuilderServiceClient(grpcConn)
+		req := &pb.AddConnection3Request{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
@@ -9042,7 +13981,7 @@ var renderscriptAllocationAdapterCreateTypedCmd = &cobra.Command{
 		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
 			req.Arg2 = v
 		}
-		resp, err := client.CreateTyped(ctx, req)
+		resp, err := client.AddConnection3(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -9050,1483 +13989,14 @@ var renderscriptAllocationAdapterCreateTypedCmd = &cobra.Command{
 	},
 }
 
-var renderscriptElementCmd = &cobra.Command{
-	Use:   "element",
-	Short: "ElementService operations",
-}
-
-var renderscriptElementGetBytesSizeCmd = &cobra.Command{
-	Use:   "get-bytes-size",
-	Short: "GetBytesSize RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewElementServiceClient(grpcConn)
-		req := &pb.GetBytesSizeRequest{}
-		resp, err := client.GetBytesSize(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptElementGetDataKindCmd = &cobra.Command{
-	Use:   "get-data-kind",
-	Short: "GetDataKind RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewElementServiceClient(grpcConn)
-		req := &pb.GetDataKindRequest{}
-		resp, err := client.GetDataKind(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptElementGetDataTypeCmd = &cobra.Command{
-	Use:   "get-data-type",
-	Short: "GetDataType RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewElementServiceClient(grpcConn)
-		req := &pb.GetDataTypeRequest{}
-		resp, err := client.GetDataType(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptElementGetSubElementCmd = &cobra.Command{
-	Use:   "get-sub-element",
-	Short: "GetSubElement RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewElementServiceClient(grpcConn)
-		req := &pb.GetSubElementRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetSubElement(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptElementGetSubElementArraySizeCmd = &cobra.Command{
-	Use:   "get-sub-element-array-size",
-	Short: "GetSubElementArraySize RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewElementServiceClient(grpcConn)
-		req := &pb.GetSubElementArraySizeRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetSubElementArraySize(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptElementGetSubElementCountCmd = &cobra.Command{
-	Use:   "get-sub-element-count",
-	Short: "GetSubElementCount RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewElementServiceClient(grpcConn)
-		req := &pb.GetSubElementCountRequest{}
-		resp, err := client.GetSubElementCount(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptElementGetSubElementNameCmd = &cobra.Command{
-	Use:   "get-sub-element-name",
-	Short: "GetSubElementName RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewElementServiceClient(grpcConn)
-		req := &pb.GetSubElementNameRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetSubElementName(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptElementGetSubElementOffsetBytesCmd = &cobra.Command{
-	Use:   "get-sub-element-offset-bytes",
-	Short: "GetSubElementOffsetBytes RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewElementServiceClient(grpcConn)
-		req := &pb.GetSubElementOffsetBytesRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetSubElementOffsetBytes(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptElementGetVectorSizeCmd = &cobra.Command{
-	Use:   "get-vector-size",
-	Short: "GetVectorSize RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewElementServiceClient(grpcConn)
-		req := &pb.GetVectorSizeRequest{}
-		resp, err := client.GetVectorSize(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptElementIsCompatibleCmd = &cobra.Command{
-	Use:   "is-compatible",
-	Short: "IsCompatible RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewElementServiceClient(grpcConn)
-		req := &pb.IsCompatibleRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.IsCompatible(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptElementIsComplexCmd = &cobra.Command{
-	Use:   "is-complex",
-	Short: "IsComplex RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewElementServiceClient(grpcConn)
-		req := &pb.IsComplexRequest{}
-		resp, err := client.IsComplex(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptElementALLOCATIONCmd = &cobra.Command{
-	Use:   "allocation",
-	Short: "ALLOCATION RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewElementServiceClient(grpcConn)
-		req := &pb.ALLOCATIONRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.ALLOCATION(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptElementA_8Cmd = &cobra.Command{
-	Use:   "a_8",
-	Short: "A_8 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewElementServiceClient(grpcConn)
-		req := &pb.A_8Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.A_8(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptElementBOOLEANCmd = &cobra.Command{
-	Use:   "boolean",
-	Short: "BOOLEAN RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewElementServiceClient(grpcConn)
-		req := &pb.BOOLEANRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.BOOLEAN(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptElementELEMENTCmd = &cobra.Command{
-	Use:   "element",
-	Short: "ELEMENT RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewElementServiceClient(grpcConn)
-		req := &pb.ELEMENTRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.ELEMENT(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptElementF16Cmd = &cobra.Command{
-	Use:   "f16",
-	Short: "F16 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewElementServiceClient(grpcConn)
-		req := &pb.F16Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.F16(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptElementF16_2Cmd = &cobra.Command{
-	Use:   "f16_2",
-	Short: "F16_2 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewElementServiceClient(grpcConn)
-		req := &pb.F16_2Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.F16_2(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptElementF16_3Cmd = &cobra.Command{
-	Use:   "f16_3",
-	Short: "F16_3 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewElementServiceClient(grpcConn)
-		req := &pb.F16_3Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.F16_3(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptElementF16_4Cmd = &cobra.Command{
-	Use:   "f16_4",
-	Short: "F16_4 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewElementServiceClient(grpcConn)
-		req := &pb.F16_4Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.F16_4(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptElementF32Cmd = &cobra.Command{
-	Use:   "f32",
-	Short: "F32 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewElementServiceClient(grpcConn)
-		req := &pb.F32Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.F32(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptElementF32_2Cmd = &cobra.Command{
-	Use:   "f32_2",
-	Short: "F32_2 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewElementServiceClient(grpcConn)
-		req := &pb.F32_2Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.F32_2(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptElementF32_3Cmd = &cobra.Command{
-	Use:   "f32_3",
-	Short: "F32_3 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewElementServiceClient(grpcConn)
-		req := &pb.F32_3Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.F32_3(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptElementF32_4Cmd = &cobra.Command{
-	Use:   "f32_4",
-	Short: "F32_4 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewElementServiceClient(grpcConn)
-		req := &pb.F32_4Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.F32_4(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptElementF64Cmd = &cobra.Command{
-	Use:   "f64",
-	Short: "F64 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewElementServiceClient(grpcConn)
-		req := &pb.F64Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.F64(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptElementF64_2Cmd = &cobra.Command{
-	Use:   "f64_2",
-	Short: "F64_2 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewElementServiceClient(grpcConn)
-		req := &pb.F64_2Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.F64_2(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptElementF64_3Cmd = &cobra.Command{
-	Use:   "f64_3",
-	Short: "F64_3 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewElementServiceClient(grpcConn)
-		req := &pb.F64_3Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.F64_3(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptElementF64_4Cmd = &cobra.Command{
-	Use:   "f64_4",
-	Short: "F64_4 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewElementServiceClient(grpcConn)
-		req := &pb.F64_4Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.F64_4(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptElementFONTCmd = &cobra.Command{
-	Use:   "font",
-	Short: "FONT RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewElementServiceClient(grpcConn)
-		req := &pb.FONTRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.FONT(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptElementI16Cmd = &cobra.Command{
-	Use:   "i16",
-	Short: "I16 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewElementServiceClient(grpcConn)
-		req := &pb.I16Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.I16(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptElementI16_2Cmd = &cobra.Command{
-	Use:   "i16_2",
-	Short: "I16_2 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewElementServiceClient(grpcConn)
-		req := &pb.I16_2Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.I16_2(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptElementI16_3Cmd = &cobra.Command{
-	Use:   "i16_3",
-	Short: "I16_3 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewElementServiceClient(grpcConn)
-		req := &pb.I16_3Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.I16_3(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptElementI16_4Cmd = &cobra.Command{
-	Use:   "i16_4",
-	Short: "I16_4 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewElementServiceClient(grpcConn)
-		req := &pb.I16_4Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.I16_4(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptElementI32Cmd = &cobra.Command{
-	Use:   "i32",
-	Short: "I32 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewElementServiceClient(grpcConn)
-		req := &pb.I32Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.I32(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptElementI32_2Cmd = &cobra.Command{
-	Use:   "i32_2",
-	Short: "I32_2 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewElementServiceClient(grpcConn)
-		req := &pb.I32_2Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.I32_2(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptElementI32_3Cmd = &cobra.Command{
-	Use:   "i32_3",
-	Short: "I32_3 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewElementServiceClient(grpcConn)
-		req := &pb.I32_3Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.I32_3(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptElementI32_4Cmd = &cobra.Command{
-	Use:   "i32_4",
-	Short: "I32_4 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewElementServiceClient(grpcConn)
-		req := &pb.I32_4Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.I32_4(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptElementI64Cmd = &cobra.Command{
-	Use:   "i64",
-	Short: "I64 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewElementServiceClient(grpcConn)
-		req := &pb.I64Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.I64(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptElementI64_2Cmd = &cobra.Command{
-	Use:   "i64_2",
-	Short: "I64_2 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewElementServiceClient(grpcConn)
-		req := &pb.I64_2Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.I64_2(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptElementI64_3Cmd = &cobra.Command{
-	Use:   "i64_3",
-	Short: "I64_3 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewElementServiceClient(grpcConn)
-		req := &pb.I64_3Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.I64_3(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptElementI64_4Cmd = &cobra.Command{
-	Use:   "i64_4",
-	Short: "I64_4 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewElementServiceClient(grpcConn)
-		req := &pb.I64_4Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.I64_4(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptElementI8Cmd = &cobra.Command{
-	Use:   "i8",
-	Short: "I8 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewElementServiceClient(grpcConn)
-		req := &pb.I8Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.I8(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptElementI8_2Cmd = &cobra.Command{
-	Use:   "i8_2",
-	Short: "I8_2 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewElementServiceClient(grpcConn)
-		req := &pb.I8_2Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.I8_2(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptElementI8_3Cmd = &cobra.Command{
-	Use:   "i8_3",
-	Short: "I8_3 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewElementServiceClient(grpcConn)
-		req := &pb.I8_3Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.I8_3(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptElementI8_4Cmd = &cobra.Command{
-	Use:   "i8_4",
-	Short: "I8_4 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewElementServiceClient(grpcConn)
-		req := &pb.I8_4Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.I8_4(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptElementMATRIX4X4Cmd = &cobra.Command{
-	Use:   "matrix4x4",
-	Short: "MATRIX4X4 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewElementServiceClient(grpcConn)
-		req := &pb.MATRIX4X4Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.MATRIX4X4(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptElementMATRIX_2X2Cmd = &cobra.Command{
-	Use:   "matrix_2x2",
-	Short: "MATRIX_2X2 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewElementServiceClient(grpcConn)
-		req := &pb.MATRIX_2X2Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.MATRIX_2X2(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptElementMATRIX_3X3Cmd = &cobra.Command{
-	Use:   "matrix_3x3",
-	Short: "MATRIX_3X3 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewElementServiceClient(grpcConn)
-		req := &pb.MATRIX_3X3Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.MATRIX_3X3(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptElementMATRIX_4X4Cmd = &cobra.Command{
-	Use:   "matrix_4x4",
-	Short: "MATRIX_4X4 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewElementServiceClient(grpcConn)
-		req := &pb.MATRIX_4X4Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.MATRIX_4X4(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptElementMESHCmd = &cobra.Command{
-	Use:   "mesh",
-	Short: "MESH RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewElementServiceClient(grpcConn)
-		req := &pb.MESHRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.MESH(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptElementPROGRAM_FRAGMENTCmd = &cobra.Command{
-	Use:   "program_fragment",
-	Short: "PROGRAM_FRAGMENT RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewElementServiceClient(grpcConn)
-		req := &pb.PROGRAM_FRAGMENTRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.PROGRAM_FRAGMENT(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptElementPROGRAM_RASTERCmd = &cobra.Command{
-	Use:   "program_raster",
-	Short: "PROGRAM_RASTER RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewElementServiceClient(grpcConn)
-		req := &pb.PROGRAM_RASTERRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.PROGRAM_RASTER(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptElementPROGRAM_STORECmd = &cobra.Command{
-	Use:   "program_store",
-	Short: "PROGRAM_STORE RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewElementServiceClient(grpcConn)
-		req := &pb.PROGRAM_STORERequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.PROGRAM_STORE(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptElementPROGRAM_VERTEXCmd = &cobra.Command{
-	Use:   "program_vertex",
-	Short: "PROGRAM_VERTEX RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewElementServiceClient(grpcConn)
-		req := &pb.PROGRAM_VERTEXRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.PROGRAM_VERTEX(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptElementRGBA_4444Cmd = &cobra.Command{
-	Use:   "rgba_4444",
-	Short: "RGBA_4444 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewElementServiceClient(grpcConn)
-		req := &pb.RGBA_4444Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.RGBA_4444(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptElementRGBA_5551Cmd = &cobra.Command{
-	Use:   "rgba_5551",
-	Short: "RGBA_5551 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewElementServiceClient(grpcConn)
-		req := &pb.RGBA_5551Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.RGBA_5551(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptElementRGBA_8888Cmd = &cobra.Command{
-	Use:   "rgba_8888",
-	Short: "RGBA_8888 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewElementServiceClient(grpcConn)
-		req := &pb.RGBA_8888Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.RGBA_8888(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptElementRGB_565Cmd = &cobra.Command{
-	Use:   "rgb_565",
-	Short: "RGB_565 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewElementServiceClient(grpcConn)
-		req := &pb.RGB_565Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.RGB_565(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptElementRGB_888Cmd = &cobra.Command{
-	Use:   "rgb_888",
-	Short: "RGB_888 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewElementServiceClient(grpcConn)
-		req := &pb.RGB_888Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.RGB_888(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptElementSAMPLERCmd = &cobra.Command{
-	Use:   "sampler",
-	Short: "SAMPLER RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewElementServiceClient(grpcConn)
-		req := &pb.SAMPLERRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SAMPLER(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptElementSCRIPTCmd = &cobra.Command{
-	Use:   "script",
-	Short: "SCRIPT RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewElementServiceClient(grpcConn)
-		req := &pb.SCRIPTRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SCRIPT(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptElementTYPECmd = &cobra.Command{
-	Use:   "type",
-	Short: "TYPE RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewElementServiceClient(grpcConn)
-		req := &pb.TYPERequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.TYPE(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptElementU16Cmd = &cobra.Command{
-	Use:   "u16",
-	Short: "U16 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewElementServiceClient(grpcConn)
-		req := &pb.U16Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.U16(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptElementU16_2Cmd = &cobra.Command{
-	Use:   "u16_2",
-	Short: "U16_2 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewElementServiceClient(grpcConn)
-		req := &pb.U16_2Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.U16_2(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptElementU16_3Cmd = &cobra.Command{
-	Use:   "u16_3",
-	Short: "U16_3 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewElementServiceClient(grpcConn)
-		req := &pb.U16_3Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.U16_3(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptElementU16_4Cmd = &cobra.Command{
-	Use:   "u16_4",
-	Short: "U16_4 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewElementServiceClient(grpcConn)
-		req := &pb.U16_4Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.U16_4(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptElementU32Cmd = &cobra.Command{
-	Use:   "u32",
-	Short: "U32 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewElementServiceClient(grpcConn)
-		req := &pb.U32Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.U32(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptElementU32_2Cmd = &cobra.Command{
-	Use:   "u32_2",
-	Short: "U32_2 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewElementServiceClient(grpcConn)
-		req := &pb.U32_2Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.U32_2(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptElementU32_3Cmd = &cobra.Command{
-	Use:   "u32_3",
-	Short: "U32_3 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewElementServiceClient(grpcConn)
-		req := &pb.U32_3Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.U32_3(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptElementU32_4Cmd = &cobra.Command{
-	Use:   "u32_4",
-	Short: "U32_4 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewElementServiceClient(grpcConn)
-		req := &pb.U32_4Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.U32_4(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptElementU64Cmd = &cobra.Command{
-	Use:   "u64",
-	Short: "U64 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewElementServiceClient(grpcConn)
-		req := &pb.U64Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.U64(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptElementU64_2Cmd = &cobra.Command{
-	Use:   "u64_2",
-	Short: "U64_2 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewElementServiceClient(grpcConn)
-		req := &pb.U64_2Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.U64_2(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptElementU64_3Cmd = &cobra.Command{
-	Use:   "u64_3",
-	Short: "U64_3 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewElementServiceClient(grpcConn)
-		req := &pb.U64_3Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.U64_3(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptElementU64_4Cmd = &cobra.Command{
-	Use:   "u64_4",
-	Short: "U64_4 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewElementServiceClient(grpcConn)
-		req := &pb.U64_4Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.U64_4(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptElementU8Cmd = &cobra.Command{
-	Use:   "u8",
-	Short: "U8 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewElementServiceClient(grpcConn)
-		req := &pb.U8Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.U8(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptElementU8_2Cmd = &cobra.Command{
-	Use:   "u8_2",
-	Short: "U8_2 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewElementServiceClient(grpcConn)
-		req := &pb.U8_2Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.U8_2(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptElementU8_3Cmd = &cobra.Command{
-	Use:   "u8_3",
-	Short: "U8_3 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewElementServiceClient(grpcConn)
-		req := &pb.U8_3Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.U8_3(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptElementU8_4Cmd = &cobra.Command{
-	Use:   "u8_4",
-	Short: "U8_4 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewElementServiceClient(grpcConn)
-		req := &pb.U8_4Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.U8_4(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptElementYUVCmd = &cobra.Command{
-	Use:   "yuv",
-	Short: "YUV RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewElementServiceClient(grpcConn)
-		req := &pb.YUVRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.YUV(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptElementCreatePixelCmd = &cobra.Command{
-	Use:   "create-pixel",
-	Short: "CreatePixel RPC",
+var renderscriptScriptGroupBuilderAddConnection3_1Cmd = &cobra.Command{
+	Use:   "add-connection3_1",
+	Short: "AddConnection3_1 RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewElementServiceClient(grpcConn)
-		req := &pb.CreatePixelRequest{}
+		client := pb.NewScriptGroupBuilderServiceClient(grpcConn)
+		req := &pb.AddConnection3_1Request{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
@@ -10536,7 +14006,7 @@ var renderscriptElementCreatePixelCmd = &cobra.Command{
 		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
 			req.Arg2 = v
 		}
-		resp, err := client.CreatePixel(ctx, req)
+		resp, err := client.AddConnection3_1(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -10544,24 +14014,18 @@ var renderscriptElementCreatePixelCmd = &cobra.Command{
 	},
 }
 
-var renderscriptElementCreateVectorCmd = &cobra.Command{
-	Use:   "create-vector",
-	Short: "CreateVector RPC",
+var renderscriptScriptGroupBuilderAddKernelCmd = &cobra.Command{
+	Use:   "add-kernel",
+	Short: "AddKernel RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewElementServiceClient(grpcConn)
-		req := &pb.CreateVectorRequest{}
+		client := pb.NewScriptGroupBuilderServiceClient(grpcConn)
+		req := &pb.AddKernelRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.CreateVector(ctx, req)
+		resp, err := client.AddKernel(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -10569,66 +14033,14 @@ var renderscriptElementCreateVectorCmd = &cobra.Command{
 	},
 }
 
-var renderscriptElementBuilderCmd = &cobra.Command{
-	Use:   "element-builder",
-	Short: "ElementBuilderService operations",
-}
-
-var renderscriptElementBuilderAdd2Cmd = &cobra.Command{
-	Use:   "add2",
-	Short: "Add2 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewElementBuilderServiceClient(grpcConn)
-		req := &pb.Add2Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetString("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.Add2(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptElementBuilderAdd3_1Cmd = &cobra.Command{
-	Use:   "add3_1",
-	Short: "Add3_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewElementBuilderServiceClient(grpcConn)
-		req := &pb.Add3_1Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetString("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.Add3_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptElementBuilderCreateCmd = &cobra.Command{
+var renderscriptScriptGroupBuilderCreateCmd = &cobra.Command{
 	Use:   "create",
 	Short: "Create RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewElementBuilderServiceClient(grpcConn)
-		req := &pb.CreateRequest{}
+		client := pb.NewScriptGroupBuilderServiceClient(grpcConn)
+		req := &pb.ScriptGroupBuilderCreateRequest{}
 		resp, err := client.Create(ctx, req)
 		if err != nil {
 			return err
@@ -10637,20 +14049,20 @@ var renderscriptElementBuilderCreateCmd = &cobra.Command{
 	},
 }
 
-var renderscriptElementDataKindCmd = &cobra.Command{
-	Use:   "element-data-kind",
-	Short: "ElementDataKindService operations",
+var renderscriptScriptGroupBuilder2Cmd = &cobra.Command{
+	Use:   "script-group-builder2",
+	Short: "ScriptGroupBuilder2Service operations",
 }
 
-var renderscriptElementDataKindValuesCmd = &cobra.Command{
-	Use:   "values",
-	Short: "Values RPC",
+var renderscriptScriptGroupBuilder2AddInputCmd = &cobra.Command{
+	Use:   "add-input",
+	Short: "AddInput RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewElementDataKindServiceClient(grpcConn)
-		req := &pb.ValuesRequest{}
-		resp, err := client.Values(ctx, req)
+		client := pb.NewScriptGroupBuilder2ServiceClient(grpcConn)
+		req := &pb.AddInputRequest{}
+		resp, err := client.AddInput(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -10658,189 +14070,21 @@ var renderscriptElementDataKindValuesCmd = &cobra.Command{
 	},
 }
 
-var renderscriptElementDataKindValueOfCmd = &cobra.Command{
-	Use:   "value-of",
-	Short: "ValueOf RPC",
+var renderscriptScriptGroupBuilder2AddInvokeCmd = &cobra.Command{
+	Use:   "add-invoke",
+	Short: "AddInvoke RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewElementDataKindServiceClient(grpcConn)
-		req := &pb.ValueOfRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.ValueOf(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptElementDataTypeCmd = &cobra.Command{
-	Use:   "element-data-type",
-	Short: "ElementDataTypeService operations",
-}
-
-var renderscriptElementDataTypeValuesCmd = &cobra.Command{
-	Use:   "values",
-	Short: "Values RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewElementDataTypeServiceClient(grpcConn)
-		req := &pb.ValuesRequest{}
-		resp, err := client.Values(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptElementDataTypeValueOfCmd = &cobra.Command{
-	Use:   "value-of",
-	Short: "ValueOf RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewElementDataTypeServiceClient(grpcConn)
-		req := &pb.ValueOfRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.ValueOf(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptMatrix3fCmd = &cobra.Command{
-	Use:   "matrix3f",
-	Short: "Matrix3fService operations",
-}
-
-var renderscriptMatrix3fNewMatrix3fCmd = &cobra.Command{
-	Use:   "new-matrix3f",
-	Short: "NewMatrix3f RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMatrix3FServiceClient(grpcConn)
-		req := &pb.NewMatrix3FRequest{}
-		resp, err := client.NewMatrix3F(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptMatrix3fGetCmd = &cobra.Command{
-	Use:   "get",
-	Short: "Get RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMatrix3FServiceClient(grpcConn)
-		req := &pb.GetRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.Get(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptMatrix3fGetArrayCmd = &cobra.Command{
-	Use:   "get-array",
-	Short: "GetArray RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMatrix3FServiceClient(grpcConn)
-		req := &pb.GetArrayRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetArray(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptMatrix3fLoadCmd = &cobra.Command{
-	Use:   "load",
-	Short: "Load RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMatrix3FServiceClient(grpcConn)
-		req := &pb.LoadRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Load(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptMatrix3fLoadIdentityCmd = &cobra.Command{
-	Use:   "load-identity",
-	Short: "LoadIdentity RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMatrix3FServiceClient(grpcConn)
-		req := &pb.LoadIdentityRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.LoadIdentity(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptMatrix3fLoadMultiplyCmd = &cobra.Command{
-	Use:   "load-multiply",
-	Short: "LoadMultiply RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMatrix3FServiceClient(grpcConn)
-		req := &pb.LoadMultiplyRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
+		client := pb.NewScriptGroupBuilder2ServiceClient(grpcConn)
+		req := &pb.AddInvokeRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
 		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
 			req.Arg1 = v
 		}
-		resp, err := client.LoadMultiply(ctx, req)
+		resp, err := client.AddInvoke(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -10848,376 +14092,24 @@ var renderscriptMatrix3fLoadMultiplyCmd = &cobra.Command{
 	},
 }
 
-var renderscriptMatrix3fLoadRotate1Cmd = &cobra.Command{
-	Use:   "load-rotate1",
-	Short: "LoadRotate1 RPC",
+var renderscriptScriptGroupBuilder2AddKernelCmd = &cobra.Command{
+	Use:   "add-kernel",
+	Short: "AddKernel RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewMatrix3FServiceClient(grpcConn)
-		req := &pb.LoadRotate1Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.LoadRotate1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptMatrix3fLoadRotate4_1Cmd = &cobra.Command{
-	Use:   "load-rotate4_1",
-	Short: "LoadRotate4_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMatrix3FServiceClient(grpcConn)
-		req := &pb.LoadRotate4_1Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetFloat32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetFloat32("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetFloat32("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		resp, err := client.LoadRotate4_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptMatrix3fLoadScale2Cmd = &cobra.Command{
-	Use:   "load-scale2",
-	Short: "LoadScale2 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMatrix3FServiceClient(grpcConn)
-		req := &pb.LoadScale2Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetFloat32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.LoadScale2(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptMatrix3fLoadScale3_1Cmd = &cobra.Command{
-	Use:   "load-scale3_1",
-	Short: "LoadScale3_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMatrix3FServiceClient(grpcConn)
-		req := &pb.LoadScale3_1Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetFloat32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetFloat32("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.LoadScale3_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptMatrix3fLoadTranslateCmd = &cobra.Command{
-	Use:   "load-translate",
-	Short: "LoadTranslate RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMatrix3FServiceClient(grpcConn)
-		req := &pb.LoadTranslateRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetFloat32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.LoadTranslate(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptMatrix3fMultiplyCmd = &cobra.Command{
-	Use:   "multiply",
-	Short: "Multiply RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMatrix3FServiceClient(grpcConn)
-		req := &pb.MultiplyRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Multiply(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptMatrix3fRotate1Cmd = &cobra.Command{
-	Use:   "rotate1",
-	Short: "Rotate1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMatrix3FServiceClient(grpcConn)
-		req := &pb.Rotate1Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Rotate1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptMatrix3fRotate4_1Cmd = &cobra.Command{
-	Use:   "rotate4_1",
-	Short: "Rotate4_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMatrix3FServiceClient(grpcConn)
-		req := &pb.Rotate4_1Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetFloat32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetFloat32("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetFloat32("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		resp, err := client.Rotate4_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptMatrix3fScale2Cmd = &cobra.Command{
-	Use:   "scale2",
-	Short: "Scale2 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMatrix3FServiceClient(grpcConn)
-		req := &pb.Scale2Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetFloat32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.Scale2(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptMatrix3fScale3_1Cmd = &cobra.Command{
-	Use:   "scale3_1",
-	Short: "Scale3_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMatrix3FServiceClient(grpcConn)
-		req := &pb.Scale3_1Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetFloat32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetFloat32("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.Scale3_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptMatrix3fSetCmd = &cobra.Command{
-	Use:   "set",
-	Short: "Set RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMatrix3FServiceClient(grpcConn)
-		req := &pb.SetRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetFloat32("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.Set(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptMatrix3fTranslateCmd = &cobra.Command{
-	Use:   "translate",
-	Short: "Translate RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMatrix3FServiceClient(grpcConn)
-		req := &pb.TranslateRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetFloat32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.Translate(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptMatrix3fTransposeCmd = &cobra.Command{
-	Use:   "transpose",
-	Short: "Transpose RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMatrix3FServiceClient(grpcConn)
-		req := &pb.TransposeRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.Transpose(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptScriptIntrinsicConvolve5x5Cmd = &cobra.Command{
-	Use:   "script-intrinsic-convolve5x5",
-	Short: "ScriptIntrinsicConvolve5x5Service operations",
-}
-
-var renderscriptScriptIntrinsicConvolve5x5ForEach1Cmd = &cobra.Command{
-	Use:   "for-each1",
-	Short: "ForEach1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewScriptIntrinsicConvolve5X5ServiceClient(grpcConn)
-		req := &pb.ForEach1Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.ForEach1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptScriptIntrinsicConvolve5x5ForEach2_1Cmd = &cobra.Command{
-	Use:   "for-each2_1",
-	Short: "ForEach2_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewScriptIntrinsicConvolve5X5ServiceClient(grpcConn)
-		req := &pb.ForEach2_1Request{}
+		client := pb.NewScriptGroupBuilder2ServiceClient(grpcConn)
+		req := &pb.ScriptGroupBuilder2AddKernelRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
 		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
 			req.Arg1 = v
 		}
-		resp, err := client.ForEach2_1(ctx, req)
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.AddKernel(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -11225,91 +14117,77 @@ var renderscriptScriptIntrinsicConvolve5x5ForEach2_1Cmd = &cobra.Command{
 	},
 }
 
-var renderscriptScriptIntrinsicConvolve5x5GetFieldID_InputCmd = &cobra.Command{
-	Use:   "get-field-id_input",
-	Short: "GetFieldID_Input RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewScriptIntrinsicConvolve5X5ServiceClient(grpcConn)
-		req := &pb.GetFieldID_InputRequest{}
-		resp, err := client.GetFieldID_Input(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptScriptIntrinsicConvolve5x5GetKernelIDCmd = &cobra.Command{
-	Use:   "get-kernel-id",
-	Short: "GetKernelID RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewScriptIntrinsicConvolve5X5ServiceClient(grpcConn)
-		req := &pb.GetKernelIDRequest{}
-		resp, err := client.GetKernelID(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptScriptIntrinsicConvolve5x5SetCoefficientsCmd = &cobra.Command{
-	Use:   "set-coefficients",
-	Short: "SetCoefficients RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewScriptIntrinsicConvolve5X5ServiceClient(grpcConn)
-		req := &pb.SetCoefficientsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetCoefficients(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptScriptIntrinsicConvolve5x5SetInputCmd = &cobra.Command{
-	Use:   "set-input",
-	Short: "SetInput RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewScriptIntrinsicConvolve5X5ServiceClient(grpcConn)
-		req := &pb.ScriptIntrinsicConvolve5X5SetInputRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetInput(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptScriptIntrinsicConvolve5x5CreateCmd = &cobra.Command{
+var renderscriptScriptGroupBuilder2CreateCmd = &cobra.Command{
 	Use:   "create",
 	Short: "Create RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewScriptIntrinsicConvolve5X5ServiceClient(grpcConn)
-		req := &pb.ScriptIntrinsicConvolve5X5CreateRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+		client := pb.NewScriptGroupBuilder2ServiceClient(grpcConn)
+		req := &pb.ScriptGroupBuilder2CreateRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
 			req.Arg0 = v
 		}
 		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
 			req.Arg1 = v
 		}
 		resp, err := client.Create(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptScriptGroupClosureCmd = &cobra.Command{
+	Use:   "script-group-closure",
+	Short: "ScriptGroupClosureService operations",
+}
+
+var renderscriptScriptGroupClosureDestroyCmd = &cobra.Command{
+	Use:   "destroy",
+	Short: "Destroy RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewScriptGroupClosureServiceClient(grpcConn)
+		req := &pb.DestroyRequest{}
+		resp, err := client.Destroy(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptScriptGroupClosureGetGlobalCmd = &cobra.Command{
+	Use:   "get-global",
+	Short: "GetGlobal RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewScriptGroupClosureServiceClient(grpcConn)
+		req := &pb.GetGlobalRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetGlobal(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var renderscriptScriptGroupClosureGetReturnCmd = &cobra.Command{
+	Use:   "get-return",
+	Short: "GetReturn RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewScriptGroupClosureServiceClient(grpcConn)
+		req := &pb.GetReturnRequest{}
+		resp, err := client.GetReturn(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -12274,7 +15152,7 @@ var renderscriptScriptIntrinsicBlendCreateCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewScriptIntrinsicBlendServiceClient(grpcConn)
-		req := &pb.ScriptIntrinsicBlendCreateRequest{}
+		req := &pb.CreateRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
@@ -12282,2884 +15160,6 @@ var renderscriptScriptIntrinsicBlendCreateCmd = &cobra.Command{
 			req.Arg1 = v
 		}
 		resp, err := client.Create(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptScriptIntrinsicConvolve3x3Cmd = &cobra.Command{
-	Use:   "script-intrinsic-convolve3x3",
-	Short: "ScriptIntrinsicConvolve3x3Service operations",
-}
-
-var renderscriptScriptIntrinsicConvolve3x3ForEach1Cmd = &cobra.Command{
-	Use:   "for-each1",
-	Short: "ForEach1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewScriptIntrinsicConvolve3X3ServiceClient(grpcConn)
-		req := &pb.ForEach1Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.ForEach1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptScriptIntrinsicConvolve3x3ForEach2_1Cmd = &cobra.Command{
-	Use:   "for-each2_1",
-	Short: "ForEach2_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewScriptIntrinsicConvolve3X3ServiceClient(grpcConn)
-		req := &pb.ForEach2_1Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.ForEach2_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptScriptIntrinsicConvolve3x3GetFieldID_InputCmd = &cobra.Command{
-	Use:   "get-field-id_input",
-	Short: "GetFieldID_Input RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewScriptIntrinsicConvolve3X3ServiceClient(grpcConn)
-		req := &pb.GetFieldID_InputRequest{}
-		resp, err := client.GetFieldID_Input(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptScriptIntrinsicConvolve3x3GetKernelIDCmd = &cobra.Command{
-	Use:   "get-kernel-id",
-	Short: "GetKernelID RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewScriptIntrinsicConvolve3X3ServiceClient(grpcConn)
-		req := &pb.GetKernelIDRequest{}
-		resp, err := client.GetKernelID(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptScriptIntrinsicConvolve3x3SetCoefficientsCmd = &cobra.Command{
-	Use:   "set-coefficients",
-	Short: "SetCoefficients RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewScriptIntrinsicConvolve3X3ServiceClient(grpcConn)
-		req := &pb.SetCoefficientsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetCoefficients(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptScriptIntrinsicConvolve3x3SetInputCmd = &cobra.Command{
-	Use:   "set-input",
-	Short: "SetInput RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewScriptIntrinsicConvolve3X3ServiceClient(grpcConn)
-		req := &pb.ScriptIntrinsicConvolve3X3SetInputRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetInput(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptScriptIntrinsicConvolve3x3CreateCmd = &cobra.Command{
-	Use:   "create",
-	Short: "Create RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewScriptIntrinsicConvolve3X3ServiceClient(grpcConn)
-		req := &pb.ScriptIntrinsicConvolve3X3CreateRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.Create(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptMatrix2fCmd = &cobra.Command{
-	Use:   "matrix2f",
-	Short: "Matrix2fService operations",
-}
-
-var renderscriptMatrix2fNewMatrix2fCmd = &cobra.Command{
-	Use:   "new-matrix2f",
-	Short: "NewMatrix2f RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMatrix2FServiceClient(grpcConn)
-		req := &pb.NewMatrix2FRequest{}
-		resp, err := client.NewMatrix2F(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptMatrix2fGetCmd = &cobra.Command{
-	Use:   "get",
-	Short: "Get RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMatrix2FServiceClient(grpcConn)
-		req := &pb.GetRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.Get(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptMatrix2fGetArrayCmd = &cobra.Command{
-	Use:   "get-array",
-	Short: "GetArray RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMatrix2FServiceClient(grpcConn)
-		req := &pb.GetArrayRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetArray(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptMatrix2fLoadCmd = &cobra.Command{
-	Use:   "load",
-	Short: "Load RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMatrix2FServiceClient(grpcConn)
-		req := &pb.LoadRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Load(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptMatrix2fLoadIdentityCmd = &cobra.Command{
-	Use:   "load-identity",
-	Short: "LoadIdentity RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMatrix2FServiceClient(grpcConn)
-		req := &pb.LoadIdentityRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.LoadIdentity(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptMatrix2fLoadMultiplyCmd = &cobra.Command{
-	Use:   "load-multiply",
-	Short: "LoadMultiply RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMatrix2FServiceClient(grpcConn)
-		req := &pb.LoadMultiplyRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.LoadMultiply(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptMatrix2fLoadRotateCmd = &cobra.Command{
-	Use:   "load-rotate",
-	Short: "LoadRotate RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMatrix2FServiceClient(grpcConn)
-		req := &pb.LoadRotateRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.LoadRotate(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptMatrix2fLoadScaleCmd = &cobra.Command{
-	Use:   "load-scale",
-	Short: "LoadScale RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMatrix2FServiceClient(grpcConn)
-		req := &pb.LoadScaleRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetFloat32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.LoadScale(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptMatrix2fMultiplyCmd = &cobra.Command{
-	Use:   "multiply",
-	Short: "Multiply RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMatrix2FServiceClient(grpcConn)
-		req := &pb.MultiplyRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Multiply(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptMatrix2fRotateCmd = &cobra.Command{
-	Use:   "rotate",
-	Short: "Rotate RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMatrix2FServiceClient(grpcConn)
-		req := &pb.RotateRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Rotate(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptMatrix2fScaleCmd = &cobra.Command{
-	Use:   "scale",
-	Short: "Scale RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMatrix2FServiceClient(grpcConn)
-		req := &pb.ScaleRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetFloat32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.Scale(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptMatrix2fSetCmd = &cobra.Command{
-	Use:   "set",
-	Short: "Set RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMatrix2FServiceClient(grpcConn)
-		req := &pb.SetRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetFloat32("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.Set(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptMatrix2fTransposeCmd = &cobra.Command{
-	Use:   "transpose",
-	Short: "Transpose RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMatrix2FServiceClient(grpcConn)
-		req := &pb.TransposeRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.Transpose(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptMatrix4fCmd = &cobra.Command{
-	Use:   "matrix4f",
-	Short: "Matrix4fService operations",
-}
-
-var renderscriptMatrix4fNewMatrix4fCmd = &cobra.Command{
-	Use:   "new-matrix4f",
-	Short: "NewMatrix4f RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMatrix4FServiceClient(grpcConn)
-		req := &pb.NewMatrix4FRequest{}
-		resp, err := client.NewMatrix4F(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptMatrix4fGetCmd = &cobra.Command{
-	Use:   "get",
-	Short: "Get RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMatrix4FServiceClient(grpcConn)
-		req := &pb.GetRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.Get(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptMatrix4fGetArrayCmd = &cobra.Command{
-	Use:   "get-array",
-	Short: "GetArray RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMatrix4FServiceClient(grpcConn)
-		req := &pb.GetArrayRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetArray(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptMatrix4fInverseCmd = &cobra.Command{
-	Use:   "inverse",
-	Short: "Inverse RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMatrix4FServiceClient(grpcConn)
-		req := &pb.InverseRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.Inverse(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptMatrix4fInverseTransposeCmd = &cobra.Command{
-	Use:   "inverse-transpose",
-	Short: "InverseTranspose RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMatrix4FServiceClient(grpcConn)
-		req := &pb.InverseTransposeRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.InverseTranspose(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptMatrix4fLoadCmd = &cobra.Command{
-	Use:   "load",
-	Short: "Load RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMatrix4FServiceClient(grpcConn)
-		req := &pb.LoadRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Load(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptMatrix4fLoadFrustumCmd = &cobra.Command{
-	Use:   "load-frustum",
-	Short: "LoadFrustum RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMatrix4FServiceClient(grpcConn)
-		req := &pb.LoadFrustumRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetFloat32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetFloat32("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetFloat32("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		if v, err := cmd.Flags().GetFloat32("arg4"); err == nil {
-			req.Arg4 = v
-		}
-		if v, err := cmd.Flags().GetFloat32("arg5"); err == nil {
-			req.Arg5 = v
-		}
-		resp, err := client.LoadFrustum(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptMatrix4fLoadIdentityCmd = &cobra.Command{
-	Use:   "load-identity",
-	Short: "LoadIdentity RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMatrix4FServiceClient(grpcConn)
-		req := &pb.LoadIdentityRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.LoadIdentity(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptMatrix4fLoadMultiplyCmd = &cobra.Command{
-	Use:   "load-multiply",
-	Short: "LoadMultiply RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMatrix4FServiceClient(grpcConn)
-		req := &pb.LoadMultiplyRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.LoadMultiply(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptMatrix4fLoadOrthoCmd = &cobra.Command{
-	Use:   "load-ortho",
-	Short: "LoadOrtho RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMatrix4FServiceClient(grpcConn)
-		req := &pb.LoadOrthoRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetFloat32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetFloat32("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetFloat32("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		if v, err := cmd.Flags().GetFloat32("arg4"); err == nil {
-			req.Arg4 = v
-		}
-		if v, err := cmd.Flags().GetFloat32("arg5"); err == nil {
-			req.Arg5 = v
-		}
-		resp, err := client.LoadOrtho(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptMatrix4fLoadOrthoWindowCmd = &cobra.Command{
-	Use:   "load-ortho-window",
-	Short: "LoadOrthoWindow RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMatrix4FServiceClient(grpcConn)
-		req := &pb.LoadOrthoWindowRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.LoadOrthoWindow(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptMatrix4fLoadPerspectiveCmd = &cobra.Command{
-	Use:   "load-perspective",
-	Short: "LoadPerspective RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMatrix4FServiceClient(grpcConn)
-		req := &pb.LoadPerspectiveRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetFloat32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetFloat32("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetFloat32("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		resp, err := client.LoadPerspective(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptMatrix4fLoadProjectionNormalizedCmd = &cobra.Command{
-	Use:   "load-projection-normalized",
-	Short: "LoadProjectionNormalized RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMatrix4FServiceClient(grpcConn)
-		req := &pb.LoadProjectionNormalizedRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.LoadProjectionNormalized(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptMatrix4fLoadRotateCmd = &cobra.Command{
-	Use:   "load-rotate",
-	Short: "LoadRotate RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMatrix4FServiceClient(grpcConn)
-		req := &pb.Matrix4FLoadRotateRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetFloat32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetFloat32("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetFloat32("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		resp, err := client.LoadRotate(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptMatrix4fLoadScaleCmd = &cobra.Command{
-	Use:   "load-scale",
-	Short: "LoadScale RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMatrix4FServiceClient(grpcConn)
-		req := &pb.Matrix4FLoadScaleRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetFloat32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetFloat32("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.LoadScale(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptMatrix4fLoadTranslateCmd = &cobra.Command{
-	Use:   "load-translate",
-	Short: "LoadTranslate RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMatrix4FServiceClient(grpcConn)
-		req := &pb.Matrix4FLoadTranslateRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetFloat32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetFloat32("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.LoadTranslate(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptMatrix4fMultiplyCmd = &cobra.Command{
-	Use:   "multiply",
-	Short: "Multiply RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMatrix4FServiceClient(grpcConn)
-		req := &pb.MultiplyRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Multiply(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptMatrix4fRotateCmd = &cobra.Command{
-	Use:   "rotate",
-	Short: "Rotate RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMatrix4FServiceClient(grpcConn)
-		req := &pb.Matrix4FRotateRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetFloat32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetFloat32("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetFloat32("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		resp, err := client.Rotate(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptMatrix4fScaleCmd = &cobra.Command{
-	Use:   "scale",
-	Short: "Scale RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMatrix4FServiceClient(grpcConn)
-		req := &pb.Matrix4FScaleRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetFloat32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetFloat32("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.Scale(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptMatrix4fSetCmd = &cobra.Command{
-	Use:   "set",
-	Short: "Set RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMatrix4FServiceClient(grpcConn)
-		req := &pb.SetRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetFloat32("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.Set(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptMatrix4fTranslateCmd = &cobra.Command{
-	Use:   "translate",
-	Short: "Translate RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMatrix4FServiceClient(grpcConn)
-		req := &pb.Matrix4FTranslateRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetFloat32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetFloat32("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.Translate(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptMatrix4fTransposeCmd = &cobra.Command{
-	Use:   "transpose",
-	Short: "Transpose RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMatrix4FServiceClient(grpcConn)
-		req := &pb.TransposeRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.Transpose(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptFieldPackerCmd = &cobra.Command{
-	Use:   "field-packer",
-	Short: "FieldPackerService operations",
-}
-
-var renderscriptFieldPackerNewFieldPackerCmd = &cobra.Command{
-	Use:   "new-field-packer",
-	Short: "NewFieldPacker RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFieldPackerServiceClient(grpcConn)
-		req := &pb.NewFieldPackerRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.NewFieldPacker(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptFieldPackerAddBooleanCmd = &cobra.Command{
-	Use:   "add-boolean",
-	Short: "AddBoolean RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFieldPackerServiceClient(grpcConn)
-		req := &pb.AddBooleanRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.AddBoolean(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptFieldPackerAddF321Cmd = &cobra.Command{
-	Use:   "add-f321",
-	Short: "AddF321 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFieldPackerServiceClient(grpcConn)
-		req := &pb.AddF321Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.AddF321(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptFieldPackerAddF321_1Cmd = &cobra.Command{
-	Use:   "add-f321_1",
-	Short: "AddF321_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFieldPackerServiceClient(grpcConn)
-		req := &pb.AddF321_1Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.AddF321_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptFieldPackerAddF321_2Cmd = &cobra.Command{
-	Use:   "add-f321_2",
-	Short: "AddF321_2 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFieldPackerServiceClient(grpcConn)
-		req := &pb.AddF321_2Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.AddF321_2(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptFieldPackerAddF321_3Cmd = &cobra.Command{
-	Use:   "add-f321_3",
-	Short: "AddF321_3 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFieldPackerServiceClient(grpcConn)
-		req := &pb.AddF321_3Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.AddF321_3(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptFieldPackerAddF641Cmd = &cobra.Command{
-	Use:   "add-f641",
-	Short: "AddF641 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFieldPackerServiceClient(grpcConn)
-		req := &pb.AddF641Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.AddF641(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptFieldPackerAddF641_1Cmd = &cobra.Command{
-	Use:   "add-f641_1",
-	Short: "AddF641_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFieldPackerServiceClient(grpcConn)
-		req := &pb.AddF641_1Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.AddF641_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptFieldPackerAddF641_2Cmd = &cobra.Command{
-	Use:   "add-f641_2",
-	Short: "AddF641_2 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFieldPackerServiceClient(grpcConn)
-		req := &pb.AddF641_2Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.AddF641_2(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptFieldPackerAddF641_3Cmd = &cobra.Command{
-	Use:   "add-f641_3",
-	Short: "AddF641_3 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFieldPackerServiceClient(grpcConn)
-		req := &pb.AddF641_3Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetFloat64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.AddF641_3(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptFieldPackerAddI161Cmd = &cobra.Command{
-	Use:   "add-i161",
-	Short: "AddI161 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFieldPackerServiceClient(grpcConn)
-		req := &pb.AddI161Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.AddI161(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptFieldPackerAddI161_1Cmd = &cobra.Command{
-	Use:   "add-i161_1",
-	Short: "AddI161_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFieldPackerServiceClient(grpcConn)
-		req := &pb.AddI161_1Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.AddI161_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptFieldPackerAddI161_2Cmd = &cobra.Command{
-	Use:   "add-i161_2",
-	Short: "AddI161_2 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFieldPackerServiceClient(grpcConn)
-		req := &pb.AddI161_2Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.AddI161_2(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptFieldPackerAddI161_3Cmd = &cobra.Command{
-	Use:   "add-i161_3",
-	Short: "AddI161_3 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFieldPackerServiceClient(grpcConn)
-		req := &pb.AddI161_3Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.AddI161_3(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptFieldPackerAddI321Cmd = &cobra.Command{
-	Use:   "add-i321",
-	Short: "AddI321 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFieldPackerServiceClient(grpcConn)
-		req := &pb.AddI321Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.AddI321(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptFieldPackerAddI321_1Cmd = &cobra.Command{
-	Use:   "add-i321_1",
-	Short: "AddI321_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFieldPackerServiceClient(grpcConn)
-		req := &pb.AddI321_1Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.AddI321_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptFieldPackerAddI321_2Cmd = &cobra.Command{
-	Use:   "add-i321_2",
-	Short: "AddI321_2 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFieldPackerServiceClient(grpcConn)
-		req := &pb.AddI321_2Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.AddI321_2(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptFieldPackerAddI321_3Cmd = &cobra.Command{
-	Use:   "add-i321_3",
-	Short: "AddI321_3 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFieldPackerServiceClient(grpcConn)
-		req := &pb.AddI321_3Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.AddI321_3(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptFieldPackerAddI641Cmd = &cobra.Command{
-	Use:   "add-i641",
-	Short: "AddI641 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFieldPackerServiceClient(grpcConn)
-		req := &pb.AddI641Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.AddI641(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptFieldPackerAddI641_1Cmd = &cobra.Command{
-	Use:   "add-i641_1",
-	Short: "AddI641_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFieldPackerServiceClient(grpcConn)
-		req := &pb.AddI641_1Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.AddI641_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptFieldPackerAddI641_2Cmd = &cobra.Command{
-	Use:   "add-i641_2",
-	Short: "AddI641_2 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFieldPackerServiceClient(grpcConn)
-		req := &pb.AddI641_2Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.AddI641_2(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptFieldPackerAddI641_3Cmd = &cobra.Command{
-	Use:   "add-i641_3",
-	Short: "AddI641_3 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFieldPackerServiceClient(grpcConn)
-		req := &pb.AddI641_3Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.AddI641_3(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptFieldPackerAddI81Cmd = &cobra.Command{
-	Use:   "add-i81",
-	Short: "AddI81 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFieldPackerServiceClient(grpcConn)
-		req := &pb.AddI81Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.AddI81(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptFieldPackerAddI81_1Cmd = &cobra.Command{
-	Use:   "add-i81_1",
-	Short: "AddI81_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFieldPackerServiceClient(grpcConn)
-		req := &pb.AddI81_1Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.AddI81_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptFieldPackerAddI81_2Cmd = &cobra.Command{
-	Use:   "add-i81_2",
-	Short: "AddI81_2 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFieldPackerServiceClient(grpcConn)
-		req := &pb.AddI81_2Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.AddI81_2(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptFieldPackerAddI81_3Cmd = &cobra.Command{
-	Use:   "add-i81_3",
-	Short: "AddI81_3 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFieldPackerServiceClient(grpcConn)
-		req := &pb.AddI81_3Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.AddI81_3(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptFieldPackerAddMatrix1Cmd = &cobra.Command{
-	Use:   "add-matrix1",
-	Short: "AddMatrix1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFieldPackerServiceClient(grpcConn)
-		req := &pb.AddMatrix1Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.AddMatrix1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptFieldPackerAddMatrix1_1Cmd = &cobra.Command{
-	Use:   "add-matrix1_1",
-	Short: "AddMatrix1_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFieldPackerServiceClient(grpcConn)
-		req := &pb.AddMatrix1_1Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.AddMatrix1_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptFieldPackerAddMatrix1_2Cmd = &cobra.Command{
-	Use:   "add-matrix1_2",
-	Short: "AddMatrix1_2 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFieldPackerServiceClient(grpcConn)
-		req := &pb.AddMatrix1_2Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.AddMatrix1_2(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptFieldPackerAddObjCmd = &cobra.Command{
-	Use:   "add-obj",
-	Short: "AddObj RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFieldPackerServiceClient(grpcConn)
-		req := &pb.AddObjRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.AddObj(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptFieldPackerAddU161Cmd = &cobra.Command{
-	Use:   "add-u161",
-	Short: "AddU161 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFieldPackerServiceClient(grpcConn)
-		req := &pb.AddU161Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.AddU161(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptFieldPackerAddU161_1Cmd = &cobra.Command{
-	Use:   "add-u161_1",
-	Short: "AddU161_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFieldPackerServiceClient(grpcConn)
-		req := &pb.AddU161_1Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.AddU161_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptFieldPackerAddU161_2Cmd = &cobra.Command{
-	Use:   "add-u161_2",
-	Short: "AddU161_2 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFieldPackerServiceClient(grpcConn)
-		req := &pb.AddU161_2Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.AddU161_2(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptFieldPackerAddU161_3Cmd = &cobra.Command{
-	Use:   "add-u161_3",
-	Short: "AddU161_3 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFieldPackerServiceClient(grpcConn)
-		req := &pb.AddU161_3Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.AddU161_3(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptFieldPackerAddU321Cmd = &cobra.Command{
-	Use:   "add-u321",
-	Short: "AddU321 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFieldPackerServiceClient(grpcConn)
-		req := &pb.AddU321Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.AddU321(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptFieldPackerAddU321_1Cmd = &cobra.Command{
-	Use:   "add-u321_1",
-	Short: "AddU321_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFieldPackerServiceClient(grpcConn)
-		req := &pb.AddU321_1Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.AddU321_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptFieldPackerAddU321_2Cmd = &cobra.Command{
-	Use:   "add-u321_2",
-	Short: "AddU321_2 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFieldPackerServiceClient(grpcConn)
-		req := &pb.AddU321_2Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.AddU321_2(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptFieldPackerAddU321_3Cmd = &cobra.Command{
-	Use:   "add-u321_3",
-	Short: "AddU321_3 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFieldPackerServiceClient(grpcConn)
-		req := &pb.AddU321_3Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.AddU321_3(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptFieldPackerAddU641Cmd = &cobra.Command{
-	Use:   "add-u641",
-	Short: "AddU641 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFieldPackerServiceClient(grpcConn)
-		req := &pb.AddU641Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.AddU641(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptFieldPackerAddU641_1Cmd = &cobra.Command{
-	Use:   "add-u641_1",
-	Short: "AddU641_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFieldPackerServiceClient(grpcConn)
-		req := &pb.AddU641_1Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.AddU641_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptFieldPackerAddU641_2Cmd = &cobra.Command{
-	Use:   "add-u641_2",
-	Short: "AddU641_2 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFieldPackerServiceClient(grpcConn)
-		req := &pb.AddU641_2Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.AddU641_2(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptFieldPackerAddU641_3Cmd = &cobra.Command{
-	Use:   "add-u641_3",
-	Short: "AddU641_3 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFieldPackerServiceClient(grpcConn)
-		req := &pb.AddU641_3Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.AddU641_3(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptFieldPackerAddU81Cmd = &cobra.Command{
-	Use:   "add-u81",
-	Short: "AddU81 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFieldPackerServiceClient(grpcConn)
-		req := &pb.AddU81Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.AddU81(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptFieldPackerAddU81_1Cmd = &cobra.Command{
-	Use:   "add-u81_1",
-	Short: "AddU81_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFieldPackerServiceClient(grpcConn)
-		req := &pb.AddU81_1Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.AddU81_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptFieldPackerAddU81_2Cmd = &cobra.Command{
-	Use:   "add-u81_2",
-	Short: "AddU81_2 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFieldPackerServiceClient(grpcConn)
-		req := &pb.AddU81_2Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.AddU81_2(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptFieldPackerAddU81_3Cmd = &cobra.Command{
-	Use:   "add-u81_3",
-	Short: "AddU81_3 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFieldPackerServiceClient(grpcConn)
-		req := &pb.AddU81_3Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.AddU81_3(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptFieldPackerAlignCmd = &cobra.Command{
-	Use:   "align",
-	Short: "Align RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFieldPackerServiceClient(grpcConn)
-		req := &pb.AlignRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Align(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptFieldPackerGetDataCmd = &cobra.Command{
-	Use:   "get-data",
-	Short: "GetData RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFieldPackerServiceClient(grpcConn)
-		req := &pb.GetDataRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetData(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptFieldPackerReset0Cmd = &cobra.Command{
-	Use:   "reset0",
-	Short: "Reset0 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFieldPackerServiceClient(grpcConn)
-		req := &pb.Reset0Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.Reset0(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptFieldPackerReset1_1Cmd = &cobra.Command{
-	Use:   "reset1_1",
-	Short: "Reset1_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFieldPackerServiceClient(grpcConn)
-		req := &pb.Reset1_1Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Reset1_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptFieldPackerSkipCmd = &cobra.Command{
-	Use:   "skip",
-	Short: "Skip RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFieldPackerServiceClient(grpcConn)
-		req := &pb.SkipRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Skip(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptFieldPackerSubBooleanCmd = &cobra.Command{
-	Use:   "sub-boolean",
-	Short: "SubBoolean RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFieldPackerServiceClient(grpcConn)
-		req := &pb.SubBooleanRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.SubBoolean(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptFieldPackerSubByte2Cmd = &cobra.Command{
-	Use:   "sub-byte2",
-	Short: "SubByte2 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFieldPackerServiceClient(grpcConn)
-		req := &pb.SubByte2Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.SubByte2(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptFieldPackerSubByte3Cmd = &cobra.Command{
-	Use:   "sub-byte3",
-	Short: "SubByte3 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFieldPackerServiceClient(grpcConn)
-		req := &pb.SubByte3Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.SubByte3(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptFieldPackerSubByte4Cmd = &cobra.Command{
-	Use:   "sub-byte4",
-	Short: "SubByte4 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFieldPackerServiceClient(grpcConn)
-		req := &pb.SubByte4Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.SubByte4(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptFieldPackerSubDouble2Cmd = &cobra.Command{
-	Use:   "sub-double2",
-	Short: "SubDouble2 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFieldPackerServiceClient(grpcConn)
-		req := &pb.SubDouble2Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.SubDouble2(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptFieldPackerSubDouble3Cmd = &cobra.Command{
-	Use:   "sub-double3",
-	Short: "SubDouble3 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFieldPackerServiceClient(grpcConn)
-		req := &pb.SubDouble3Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.SubDouble3(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptFieldPackerSubDouble4Cmd = &cobra.Command{
-	Use:   "sub-double4",
-	Short: "SubDouble4 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFieldPackerServiceClient(grpcConn)
-		req := &pb.SubDouble4Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.SubDouble4(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptFieldPackerSubF32Cmd = &cobra.Command{
-	Use:   "sub-f32",
-	Short: "SubF32 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFieldPackerServiceClient(grpcConn)
-		req := &pb.SubF32Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.SubF32(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptFieldPackerSubF64Cmd = &cobra.Command{
-	Use:   "sub-f64",
-	Short: "SubF64 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFieldPackerServiceClient(grpcConn)
-		req := &pb.SubF64Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.SubF64(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptFieldPackerSubFloat2Cmd = &cobra.Command{
-	Use:   "sub-float2",
-	Short: "SubFloat2 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFieldPackerServiceClient(grpcConn)
-		req := &pb.SubFloat2Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.SubFloat2(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptFieldPackerSubFloat3Cmd = &cobra.Command{
-	Use:   "sub-float3",
-	Short: "SubFloat3 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFieldPackerServiceClient(grpcConn)
-		req := &pb.SubFloat3Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.SubFloat3(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptFieldPackerSubFloat4Cmd = &cobra.Command{
-	Use:   "sub-float4",
-	Short: "SubFloat4 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFieldPackerServiceClient(grpcConn)
-		req := &pb.SubFloat4Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.SubFloat4(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptFieldPackerSubI16Cmd = &cobra.Command{
-	Use:   "sub-i16",
-	Short: "SubI16 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFieldPackerServiceClient(grpcConn)
-		req := &pb.SubI16Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.SubI16(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptFieldPackerSubI32Cmd = &cobra.Command{
-	Use:   "sub-i32",
-	Short: "SubI32 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFieldPackerServiceClient(grpcConn)
-		req := &pb.SubI32Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.SubI32(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptFieldPackerSubI64Cmd = &cobra.Command{
-	Use:   "sub-i64",
-	Short: "SubI64 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFieldPackerServiceClient(grpcConn)
-		req := &pb.SubI64Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.SubI64(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptFieldPackerSubI8Cmd = &cobra.Command{
-	Use:   "sub-i8",
-	Short: "SubI8 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFieldPackerServiceClient(grpcConn)
-		req := &pb.SubI8Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.SubI8(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptFieldPackerSubInt2Cmd = &cobra.Command{
-	Use:   "sub-int2",
-	Short: "SubInt2 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFieldPackerServiceClient(grpcConn)
-		req := &pb.SubInt2Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.SubInt2(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptFieldPackerSubInt3Cmd = &cobra.Command{
-	Use:   "sub-int3",
-	Short: "SubInt3 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFieldPackerServiceClient(grpcConn)
-		req := &pb.SubInt3Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.SubInt3(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptFieldPackerSubInt4Cmd = &cobra.Command{
-	Use:   "sub-int4",
-	Short: "SubInt4 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFieldPackerServiceClient(grpcConn)
-		req := &pb.SubInt4Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.SubInt4(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptFieldPackerSubLong2Cmd = &cobra.Command{
-	Use:   "sub-long2",
-	Short: "SubLong2 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFieldPackerServiceClient(grpcConn)
-		req := &pb.SubLong2Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.SubLong2(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptFieldPackerSubLong3Cmd = &cobra.Command{
-	Use:   "sub-long3",
-	Short: "SubLong3 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFieldPackerServiceClient(grpcConn)
-		req := &pb.SubLong3Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.SubLong3(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptFieldPackerSubLong4Cmd = &cobra.Command{
-	Use:   "sub-long4",
-	Short: "SubLong4 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFieldPackerServiceClient(grpcConn)
-		req := &pb.SubLong4Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.SubLong4(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptFieldPackerSubMatrix2fCmd = &cobra.Command{
-	Use:   "sub-matrix2f",
-	Short: "SubMatrix2f RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFieldPackerServiceClient(grpcConn)
-		req := &pb.SubMatrix2FRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.SubMatrix2F(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptFieldPackerSubMatrix3fCmd = &cobra.Command{
-	Use:   "sub-matrix3f",
-	Short: "SubMatrix3f RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFieldPackerServiceClient(grpcConn)
-		req := &pb.SubMatrix3FRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.SubMatrix3F(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptFieldPackerSubMatrix4fCmd = &cobra.Command{
-	Use:   "sub-matrix4f",
-	Short: "SubMatrix4f RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFieldPackerServiceClient(grpcConn)
-		req := &pb.SubMatrix4FRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.SubMatrix4F(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptFieldPackerSubShort2Cmd = &cobra.Command{
-	Use:   "sub-short2",
-	Short: "SubShort2 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFieldPackerServiceClient(grpcConn)
-		req := &pb.SubShort2Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.SubShort2(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptFieldPackerSubShort3Cmd = &cobra.Command{
-	Use:   "sub-short3",
-	Short: "SubShort3 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFieldPackerServiceClient(grpcConn)
-		req := &pb.SubShort3Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.SubShort3(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptFieldPackerSubShort4Cmd = &cobra.Command{
-	Use:   "sub-short4",
-	Short: "SubShort4 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFieldPackerServiceClient(grpcConn)
-		req := &pb.SubShort4Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.SubShort4(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptFieldPackerSubalignCmd = &cobra.Command{
-	Use:   "subalign",
-	Short: "Subalign RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFieldPackerServiceClient(grpcConn)
-		req := &pb.SubalignRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Subalign(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptScriptIntrinsicResizeCmd = &cobra.Command{
-	Use:   "script-intrinsic-resize",
-	Short: "ScriptIntrinsicResizeService operations",
-}
-
-var renderscriptScriptIntrinsicResizeForEach_bicubic1Cmd = &cobra.Command{
-	Use:   "for-each_bicubic1",
-	Short: "ForEach_bicubic1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewScriptIntrinsicResizeServiceClient(grpcConn)
-		req := &pb.ForEachBicubic1Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.ForEachBicubic1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptScriptIntrinsicResizeForEach_bicubic2_1Cmd = &cobra.Command{
-	Use:   "for-each_bicubic2_1",
-	Short: "ForEach_bicubic2_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewScriptIntrinsicResizeServiceClient(grpcConn)
-		req := &pb.ForEachBicubic2_1Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.ForEachBicubic2_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptScriptIntrinsicResizeGetFieldID_InputCmd = &cobra.Command{
-	Use:   "get-field-id_input",
-	Short: "GetFieldID_Input RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewScriptIntrinsicResizeServiceClient(grpcConn)
-		req := &pb.GetFieldID_InputRequest{}
-		resp, err := client.GetFieldID_Input(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptScriptIntrinsicResizeGetKernelID_bicubicCmd = &cobra.Command{
-	Use:   "get-kernel-id_bicubic",
-	Short: "GetKernelID_bicubic RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewScriptIntrinsicResizeServiceClient(grpcConn)
-		req := &pb.GetKernelIDBicubicRequest{}
-		resp, err := client.GetKernelIDBicubic(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptScriptIntrinsicResizeSetInputCmd = &cobra.Command{
-	Use:   "set-input",
-	Short: "SetInput RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewScriptIntrinsicResizeServiceClient(grpcConn)
-		req := &pb.ScriptIntrinsicResizeSetInputRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetInput(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptScriptIntrinsicResizeCreateCmd = &cobra.Command{
-	Use:   "create",
-	Short: "Create RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewScriptIntrinsicResizeServiceClient(grpcConn)
-		req := &pb.ScriptIntrinsicResizeCreateRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Create(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptBaseObjCmd = &cobra.Command{
-	Use:   "base-obj",
-	Short: "BaseObjService operations",
-}
-
-var renderscriptBaseObjDestroyCmd = &cobra.Command{
-	Use:   "destroy",
-	Short: "Destroy RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewBaseObjServiceClient(grpcConn)
-		req := &pb.DestroyRequest{}
-		resp, err := client.Destroy(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptBaseObjEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewBaseObjServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptBaseObjGetNameCmd = &cobra.Command{
-	Use:   "get-name",
-	Short: "GetName RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewBaseObjServiceClient(grpcConn)
-		req := &pb.GetNameRequest{}
-		resp, err := client.GetName(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptBaseObjHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewBaseObjServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var renderscriptBaseObjSetNameCmd = &cobra.Command{
-	Use:   "set-name",
-	Short: "SetName RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewBaseObjServiceClient(grpcConn)
-		req := &pb.SetNameRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetName(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -15168,46 +15168,84 @@ var renderscriptBaseObjSetNameCmd = &cobra.Command{
 }
 
 func init() {
-	renderscriptScriptGroupCmd.AddCommand(renderscriptScriptGroupDestroyCmd)
-	renderscriptScriptGroupCmd.AddCommand(renderscriptScriptGroupExecute0Cmd)
-	renderscriptScriptGroupExecute1_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptScriptGroupCmd.AddCommand(renderscriptScriptGroupExecute1_1Cmd)
-	renderscriptScriptGroupSetInputCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptScriptGroupSetInputCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	renderscriptScriptGroupCmd.AddCommand(renderscriptScriptGroupSetInputCmd)
-	renderscriptScriptGroupSetOutputCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptScriptGroupSetOutputCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	renderscriptScriptGroupCmd.AddCommand(renderscriptScriptGroupSetOutputCmd)
-	renderscriptCmd.AddCommand(renderscriptScriptGroupCmd)
-	renderscriptScriptGroupBuilderAddConnection3Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptScriptGroupBuilderAddConnection3Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	renderscriptScriptGroupBuilderAddConnection3Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	renderscriptScriptGroupBuilderCmd.AddCommand(renderscriptScriptGroupBuilderAddConnection3Cmd)
-	renderscriptScriptGroupBuilderAddConnection3_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptScriptGroupBuilderAddConnection3_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	renderscriptScriptGroupBuilderAddConnection3_1Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	renderscriptScriptGroupBuilderCmd.AddCommand(renderscriptScriptGroupBuilderAddConnection3_1Cmd)
-	renderscriptScriptGroupBuilderAddKernelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptScriptGroupBuilderCmd.AddCommand(renderscriptScriptGroupBuilderAddKernelCmd)
-	renderscriptScriptGroupBuilderCmd.AddCommand(renderscriptScriptGroupBuilderCreateCmd)
-	renderscriptCmd.AddCommand(renderscriptScriptGroupBuilderCmd)
-	renderscriptScriptGroupBuilder2Cmd.AddCommand(renderscriptScriptGroupBuilder2AddInputCmd)
-	renderscriptScriptGroupBuilder2AddInvokeCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptScriptGroupBuilder2AddInvokeCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	renderscriptScriptGroupBuilder2Cmd.AddCommand(renderscriptScriptGroupBuilder2AddInvokeCmd)
-	renderscriptScriptGroupBuilder2AddKernelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptScriptGroupBuilder2AddKernelCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	renderscriptScriptGroupBuilder2AddKernelCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	renderscriptScriptGroupBuilder2Cmd.AddCommand(renderscriptScriptGroupBuilder2AddKernelCmd)
-	renderscriptScriptGroupBuilder2CreateCmd.Flags().String("arg0", "", "arg0 (string)")
-	renderscriptScriptGroupBuilder2CreateCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	renderscriptScriptGroupBuilder2Cmd.AddCommand(renderscriptScriptGroupBuilder2CreateCmd)
-	renderscriptCmd.AddCommand(renderscriptScriptGroupBuilder2Cmd)
-	renderscriptScriptGroupClosureCmd.AddCommand(renderscriptScriptGroupClosureDestroyCmd)
-	renderscriptScriptGroupClosureGetGlobalCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptScriptGroupClosureCmd.AddCommand(renderscriptScriptGroupClosureGetGlobalCmd)
-	renderscriptScriptGroupClosureCmd.AddCommand(renderscriptScriptGroupClosureGetReturnCmd)
-	renderscriptCmd.AddCommand(renderscriptScriptGroupClosureCmd)
+	renderscriptScriptIntrinsic3DLUTForEach2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptScriptIntrinsic3DLUTForEach2Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	renderscriptScriptIntrinsic3DLUTCmd.AddCommand(renderscriptScriptIntrinsic3DLUTForEach2Cmd)
+	renderscriptScriptIntrinsic3DLUTForEach3_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptScriptIntrinsic3DLUTForEach3_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	renderscriptScriptIntrinsic3DLUTForEach3_1Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	renderscriptScriptIntrinsic3DLUTCmd.AddCommand(renderscriptScriptIntrinsic3DLUTForEach3_1Cmd)
+	renderscriptScriptIntrinsic3DLUTCmd.AddCommand(renderscriptScriptIntrinsic3DLUTGetKernelIDCmd)
+	renderscriptScriptIntrinsic3DLUTSetLUTCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptScriptIntrinsic3DLUTCmd.AddCommand(renderscriptScriptIntrinsic3DLUTSetLUTCmd)
+	renderscriptScriptIntrinsic3DLUTCreateCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptScriptIntrinsic3DLUTCreateCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	renderscriptScriptIntrinsic3DLUTCmd.AddCommand(renderscriptScriptIntrinsic3DLUTCreateCmd)
+	renderscriptCmd.AddCommand(renderscriptScriptIntrinsic3DLUTCmd)
+	renderscriptAllocationAdapterSetFaceCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptAllocationAdapterCmd.AddCommand(renderscriptAllocationAdapterSetFaceCmd)
+	renderscriptAllocationAdapterSetLODCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	renderscriptAllocationAdapterCmd.AddCommand(renderscriptAllocationAdapterSetLODCmd)
+	renderscriptAllocationAdapterSetXCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	renderscriptAllocationAdapterCmd.AddCommand(renderscriptAllocationAdapterSetXCmd)
+	renderscriptAllocationAdapterSetYCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	renderscriptAllocationAdapterCmd.AddCommand(renderscriptAllocationAdapterSetYCmd)
+	renderscriptAllocationAdapterSetZCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	renderscriptAllocationAdapterCmd.AddCommand(renderscriptAllocationAdapterSetZCmd)
+	renderscriptAllocationAdapterCreate1DCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptAllocationAdapterCreate1DCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	renderscriptAllocationAdapterCmd.AddCommand(renderscriptAllocationAdapterCreate1DCmd)
+	renderscriptAllocationAdapterCreate2DCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptAllocationAdapterCreate2DCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	renderscriptAllocationAdapterCmd.AddCommand(renderscriptAllocationAdapterCreate2DCmd)
+	renderscriptAllocationAdapterCreateTypedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptAllocationAdapterCreateTypedCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	renderscriptAllocationAdapterCreateTypedCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	renderscriptAllocationAdapterCmd.AddCommand(renderscriptAllocationAdapterCreateTypedCmd)
+	renderscriptCmd.AddCommand(renderscriptAllocationAdapterCmd)
+	renderscriptScriptIntrinsicConvolve5x5ForEach1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptScriptIntrinsicConvolve5x5Cmd.AddCommand(renderscriptScriptIntrinsicConvolve5x5ForEach1Cmd)
+	renderscriptScriptIntrinsicConvolve5x5ForEach2_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptScriptIntrinsicConvolve5x5ForEach2_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	renderscriptScriptIntrinsicConvolve5x5Cmd.AddCommand(renderscriptScriptIntrinsicConvolve5x5ForEach2_1Cmd)
+	renderscriptScriptIntrinsicConvolve5x5Cmd.AddCommand(renderscriptScriptIntrinsicConvolve5x5GetFieldID_InputCmd)
+	renderscriptScriptIntrinsicConvolve5x5Cmd.AddCommand(renderscriptScriptIntrinsicConvolve5x5GetKernelIDCmd)
+	renderscriptScriptIntrinsicConvolve5x5SetCoefficientsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptScriptIntrinsicConvolve5x5Cmd.AddCommand(renderscriptScriptIntrinsicConvolve5x5SetCoefficientsCmd)
+	renderscriptScriptIntrinsicConvolve5x5SetInputCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptScriptIntrinsicConvolve5x5Cmd.AddCommand(renderscriptScriptIntrinsicConvolve5x5SetInputCmd)
+	renderscriptScriptIntrinsicConvolve5x5CreateCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptScriptIntrinsicConvolve5x5CreateCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	renderscriptScriptIntrinsicConvolve5x5Cmd.AddCommand(renderscriptScriptIntrinsicConvolve5x5CreateCmd)
+	renderscriptCmd.AddCommand(renderscriptScriptIntrinsicConvolve5x5Cmd)
+	renderscriptScriptIntrinsicColorMatrixForEach2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptScriptIntrinsicColorMatrixForEach2Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	renderscriptScriptIntrinsicColorMatrixCmd.AddCommand(renderscriptScriptIntrinsicColorMatrixForEach2Cmd)
+	renderscriptScriptIntrinsicColorMatrixForEach3_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptScriptIntrinsicColorMatrixForEach3_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	renderscriptScriptIntrinsicColorMatrixForEach3_1Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	renderscriptScriptIntrinsicColorMatrixCmd.AddCommand(renderscriptScriptIntrinsicColorMatrixForEach3_1Cmd)
+	renderscriptScriptIntrinsicColorMatrixCmd.AddCommand(renderscriptScriptIntrinsicColorMatrixGetKernelIDCmd)
+	renderscriptScriptIntrinsicColorMatrixSetAdd1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptScriptIntrinsicColorMatrixCmd.AddCommand(renderscriptScriptIntrinsicColorMatrixSetAdd1Cmd)
+	renderscriptScriptIntrinsicColorMatrixSetAdd4_1Cmd.Flags().Float32("arg0", 0, "arg0 (float32)")
+	renderscriptScriptIntrinsicColorMatrixSetAdd4_1Cmd.Flags().Float32("arg1", 0, "arg1 (float32)")
+	renderscriptScriptIntrinsicColorMatrixSetAdd4_1Cmd.Flags().Float32("arg2", 0, "arg2 (float32)")
+	renderscriptScriptIntrinsicColorMatrixSetAdd4_1Cmd.Flags().Float32("arg3", 0, "arg3 (float32)")
+	renderscriptScriptIntrinsicColorMatrixCmd.AddCommand(renderscriptScriptIntrinsicColorMatrixSetAdd4_1Cmd)
+	renderscriptScriptIntrinsicColorMatrixSetColorMatrix1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptScriptIntrinsicColorMatrixCmd.AddCommand(renderscriptScriptIntrinsicColorMatrixSetColorMatrix1Cmd)
+	renderscriptScriptIntrinsicColorMatrixSetColorMatrix1_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptScriptIntrinsicColorMatrixCmd.AddCommand(renderscriptScriptIntrinsicColorMatrixSetColorMatrix1_1Cmd)
+	renderscriptScriptIntrinsicColorMatrixCmd.AddCommand(renderscriptScriptIntrinsicColorMatrixSetGreyscaleCmd)
+	renderscriptScriptIntrinsicColorMatrixCmd.AddCommand(renderscriptScriptIntrinsicColorMatrixSetRGBtoYUVCmd)
+	renderscriptScriptIntrinsicColorMatrixCmd.AddCommand(renderscriptScriptIntrinsicColorMatrixSetYUVtoRGBCmd)
+	renderscriptScriptIntrinsicColorMatrixCreate1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptScriptIntrinsicColorMatrixCmd.AddCommand(renderscriptScriptIntrinsicColorMatrixCreate1Cmd)
+	renderscriptScriptIntrinsicColorMatrixCreate2_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptScriptIntrinsicColorMatrixCreate2_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	renderscriptScriptIntrinsicColorMatrixCmd.AddCommand(renderscriptScriptIntrinsicColorMatrixCreate2_1Cmd)
+	renderscriptCmd.AddCommand(renderscriptScriptIntrinsicColorMatrixCmd)
 	renderscriptSamplerCmd.AddCommand(renderscriptSamplerGetAnisotropyCmd)
 	renderscriptSamplerCmd.AddCommand(renderscriptSamplerGetMagnificationCmd)
 	renderscriptSamplerCmd.AddCommand(renderscriptSamplerGetMinificationCmd)
@@ -15271,69 +15309,794 @@ func init() {
 	renderscriptScriptIntrinsicHistogramCreateCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
 	renderscriptScriptIntrinsicHistogramCmd.AddCommand(renderscriptScriptIntrinsicHistogramCreateCmd)
 	renderscriptCmd.AddCommand(renderscriptScriptIntrinsicHistogramCmd)
-	renderscriptScriptIntrinsicYuvToRGBForEachCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptScriptIntrinsicYuvToRGBCmd.AddCommand(renderscriptScriptIntrinsicYuvToRGBForEachCmd)
-	renderscriptScriptIntrinsicYuvToRGBCmd.AddCommand(renderscriptScriptIntrinsicYuvToRGBGetFieldID_InputCmd)
-	renderscriptScriptIntrinsicYuvToRGBCmd.AddCommand(renderscriptScriptIntrinsicYuvToRGBGetKernelIDCmd)
-	renderscriptScriptIntrinsicYuvToRGBSetInputCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptScriptIntrinsicYuvToRGBCmd.AddCommand(renderscriptScriptIntrinsicYuvToRGBSetInputCmd)
-	renderscriptScriptIntrinsicYuvToRGBCreateCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptScriptIntrinsicYuvToRGBCreateCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	renderscriptScriptIntrinsicYuvToRGBCmd.AddCommand(renderscriptScriptIntrinsicYuvToRGBCreateCmd)
-	renderscriptCmd.AddCommand(renderscriptScriptIntrinsicYuvToRGBCmd)
-	renderscriptScriptIntrinsicLUTCmd.AddCommand(renderscriptScriptIntrinsicLUTDestroyCmd)
-	renderscriptScriptIntrinsicLUTForEach2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptScriptIntrinsicLUTForEach2Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	renderscriptScriptIntrinsicLUTCmd.AddCommand(renderscriptScriptIntrinsicLUTForEach2Cmd)
-	renderscriptScriptIntrinsicLUTForEach3_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptScriptIntrinsicLUTForEach3_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	renderscriptScriptIntrinsicLUTForEach3_1Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	renderscriptScriptIntrinsicLUTCmd.AddCommand(renderscriptScriptIntrinsicLUTForEach3_1Cmd)
-	renderscriptScriptIntrinsicLUTCmd.AddCommand(renderscriptScriptIntrinsicLUTGetKernelIDCmd)
-	renderscriptScriptIntrinsicLUTSetAlphaCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	renderscriptScriptIntrinsicLUTSetAlphaCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	renderscriptScriptIntrinsicLUTCmd.AddCommand(renderscriptScriptIntrinsicLUTSetAlphaCmd)
-	renderscriptScriptIntrinsicLUTSetBlueCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	renderscriptScriptIntrinsicLUTSetBlueCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	renderscriptScriptIntrinsicLUTCmd.AddCommand(renderscriptScriptIntrinsicLUTSetBlueCmd)
-	renderscriptScriptIntrinsicLUTSetGreenCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	renderscriptScriptIntrinsicLUTSetGreenCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	renderscriptScriptIntrinsicLUTCmd.AddCommand(renderscriptScriptIntrinsicLUTSetGreenCmd)
-	renderscriptScriptIntrinsicLUTSetRedCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	renderscriptScriptIntrinsicLUTSetRedCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	renderscriptScriptIntrinsicLUTCmd.AddCommand(renderscriptScriptIntrinsicLUTSetRedCmd)
-	renderscriptScriptIntrinsicLUTCreateCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptScriptIntrinsicLUTCreateCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	renderscriptScriptIntrinsicLUTCmd.AddCommand(renderscriptScriptIntrinsicLUTCreateCmd)
-	renderscriptCmd.AddCommand(renderscriptScriptIntrinsicLUTCmd)
-	renderscriptScriptIntrinsicColorMatrixForEach2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptScriptIntrinsicColorMatrixForEach2Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	renderscriptScriptIntrinsicColorMatrixCmd.AddCommand(renderscriptScriptIntrinsicColorMatrixForEach2Cmd)
-	renderscriptScriptIntrinsicColorMatrixForEach3_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptScriptIntrinsicColorMatrixForEach3_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	renderscriptScriptIntrinsicColorMatrixForEach3_1Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	renderscriptScriptIntrinsicColorMatrixCmd.AddCommand(renderscriptScriptIntrinsicColorMatrixForEach3_1Cmd)
-	renderscriptScriptIntrinsicColorMatrixCmd.AddCommand(renderscriptScriptIntrinsicColorMatrixGetKernelIDCmd)
-	renderscriptScriptIntrinsicColorMatrixSetAdd1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptScriptIntrinsicColorMatrixCmd.AddCommand(renderscriptScriptIntrinsicColorMatrixSetAdd1Cmd)
-	renderscriptScriptIntrinsicColorMatrixSetAdd4_1Cmd.Flags().Float32("arg0", 0, "arg0 (float32)")
-	renderscriptScriptIntrinsicColorMatrixSetAdd4_1Cmd.Flags().Float32("arg1", 0, "arg1 (float32)")
-	renderscriptScriptIntrinsicColorMatrixSetAdd4_1Cmd.Flags().Float32("arg2", 0, "arg2 (float32)")
-	renderscriptScriptIntrinsicColorMatrixSetAdd4_1Cmd.Flags().Float32("arg3", 0, "arg3 (float32)")
-	renderscriptScriptIntrinsicColorMatrixCmd.AddCommand(renderscriptScriptIntrinsicColorMatrixSetAdd4_1Cmd)
-	renderscriptScriptIntrinsicColorMatrixSetColorMatrix1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptScriptIntrinsicColorMatrixCmd.AddCommand(renderscriptScriptIntrinsicColorMatrixSetColorMatrix1Cmd)
-	renderscriptScriptIntrinsicColorMatrixSetColorMatrix1_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptScriptIntrinsicColorMatrixCmd.AddCommand(renderscriptScriptIntrinsicColorMatrixSetColorMatrix1_1Cmd)
-	renderscriptScriptIntrinsicColorMatrixCmd.AddCommand(renderscriptScriptIntrinsicColorMatrixSetGreyscaleCmd)
-	renderscriptScriptIntrinsicColorMatrixCmd.AddCommand(renderscriptScriptIntrinsicColorMatrixSetRGBtoYUVCmd)
-	renderscriptScriptIntrinsicColorMatrixCmd.AddCommand(renderscriptScriptIntrinsicColorMatrixSetYUVtoRGBCmd)
-	renderscriptScriptIntrinsicColorMatrixCreate1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptScriptIntrinsicColorMatrixCmd.AddCommand(renderscriptScriptIntrinsicColorMatrixCreate1Cmd)
-	renderscriptScriptIntrinsicColorMatrixCreate2_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptScriptIntrinsicColorMatrixCreate2_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	renderscriptScriptIntrinsicColorMatrixCmd.AddCommand(renderscriptScriptIntrinsicColorMatrixCreate2_1Cmd)
-	renderscriptCmd.AddCommand(renderscriptScriptIntrinsicColorMatrixCmd)
+	renderscriptMatrix3fCmd.AddCommand(renderscriptMatrix3fNewMatrix3fCmd)
+	renderscriptMatrix3fGetCmd.Flags().Int64("handle", 0, "handle (int64)")
+	renderscriptMatrix3fGetCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	renderscriptMatrix3fGetCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	renderscriptMatrix3fCmd.AddCommand(renderscriptMatrix3fGetCmd)
+	renderscriptMatrix3fGetArrayCmd.Flags().Int64("handle", 0, "handle (int64)")
+	renderscriptMatrix3fCmd.AddCommand(renderscriptMatrix3fGetArrayCmd)
+	renderscriptMatrix3fLoadCmd.Flags().Int64("handle", 0, "handle (int64)")
+	renderscriptMatrix3fLoadCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptMatrix3fCmd.AddCommand(renderscriptMatrix3fLoadCmd)
+	renderscriptMatrix3fLoadIdentityCmd.Flags().Int64("handle", 0, "handle (int64)")
+	renderscriptMatrix3fCmd.AddCommand(renderscriptMatrix3fLoadIdentityCmd)
+	renderscriptMatrix3fLoadMultiplyCmd.Flags().Int64("handle", 0, "handle (int64)")
+	renderscriptMatrix3fLoadMultiplyCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptMatrix3fLoadMultiplyCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	renderscriptMatrix3fCmd.AddCommand(renderscriptMatrix3fLoadMultiplyCmd)
+	renderscriptMatrix3fLoadRotate1Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	renderscriptMatrix3fLoadRotate1Cmd.Flags().Float32("arg0", 0, "arg0 (float32)")
+	renderscriptMatrix3fCmd.AddCommand(renderscriptMatrix3fLoadRotate1Cmd)
+	renderscriptMatrix3fLoadRotate4_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	renderscriptMatrix3fLoadRotate4_1Cmd.Flags().Float32("arg0", 0, "arg0 (float32)")
+	renderscriptMatrix3fLoadRotate4_1Cmd.Flags().Float32("arg1", 0, "arg1 (float32)")
+	renderscriptMatrix3fLoadRotate4_1Cmd.Flags().Float32("arg2", 0, "arg2 (float32)")
+	renderscriptMatrix3fLoadRotate4_1Cmd.Flags().Float32("arg3", 0, "arg3 (float32)")
+	renderscriptMatrix3fCmd.AddCommand(renderscriptMatrix3fLoadRotate4_1Cmd)
+	renderscriptMatrix3fLoadScale2Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	renderscriptMatrix3fLoadScale2Cmd.Flags().Float32("arg0", 0, "arg0 (float32)")
+	renderscriptMatrix3fLoadScale2Cmd.Flags().Float32("arg1", 0, "arg1 (float32)")
+	renderscriptMatrix3fCmd.AddCommand(renderscriptMatrix3fLoadScale2Cmd)
+	renderscriptMatrix3fLoadScale3_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	renderscriptMatrix3fLoadScale3_1Cmd.Flags().Float32("arg0", 0, "arg0 (float32)")
+	renderscriptMatrix3fLoadScale3_1Cmd.Flags().Float32("arg1", 0, "arg1 (float32)")
+	renderscriptMatrix3fLoadScale3_1Cmd.Flags().Float32("arg2", 0, "arg2 (float32)")
+	renderscriptMatrix3fCmd.AddCommand(renderscriptMatrix3fLoadScale3_1Cmd)
+	renderscriptMatrix3fLoadTranslateCmd.Flags().Int64("handle", 0, "handle (int64)")
+	renderscriptMatrix3fLoadTranslateCmd.Flags().Float32("arg0", 0, "arg0 (float32)")
+	renderscriptMatrix3fLoadTranslateCmd.Flags().Float32("arg1", 0, "arg1 (float32)")
+	renderscriptMatrix3fCmd.AddCommand(renderscriptMatrix3fLoadTranslateCmd)
+	renderscriptMatrix3fMultiplyCmd.Flags().Int64("handle", 0, "handle (int64)")
+	renderscriptMatrix3fMultiplyCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptMatrix3fCmd.AddCommand(renderscriptMatrix3fMultiplyCmd)
+	renderscriptMatrix3fRotate1Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	renderscriptMatrix3fRotate1Cmd.Flags().Float32("arg0", 0, "arg0 (float32)")
+	renderscriptMatrix3fCmd.AddCommand(renderscriptMatrix3fRotate1Cmd)
+	renderscriptMatrix3fRotate4_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	renderscriptMatrix3fRotate4_1Cmd.Flags().Float32("arg0", 0, "arg0 (float32)")
+	renderscriptMatrix3fRotate4_1Cmd.Flags().Float32("arg1", 0, "arg1 (float32)")
+	renderscriptMatrix3fRotate4_1Cmd.Flags().Float32("arg2", 0, "arg2 (float32)")
+	renderscriptMatrix3fRotate4_1Cmd.Flags().Float32("arg3", 0, "arg3 (float32)")
+	renderscriptMatrix3fCmd.AddCommand(renderscriptMatrix3fRotate4_1Cmd)
+	renderscriptMatrix3fScale2Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	renderscriptMatrix3fScale2Cmd.Flags().Float32("arg0", 0, "arg0 (float32)")
+	renderscriptMatrix3fScale2Cmd.Flags().Float32("arg1", 0, "arg1 (float32)")
+	renderscriptMatrix3fCmd.AddCommand(renderscriptMatrix3fScale2Cmd)
+	renderscriptMatrix3fScale3_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	renderscriptMatrix3fScale3_1Cmd.Flags().Float32("arg0", 0, "arg0 (float32)")
+	renderscriptMatrix3fScale3_1Cmd.Flags().Float32("arg1", 0, "arg1 (float32)")
+	renderscriptMatrix3fScale3_1Cmd.Flags().Float32("arg2", 0, "arg2 (float32)")
+	renderscriptMatrix3fCmd.AddCommand(renderscriptMatrix3fScale3_1Cmd)
+	renderscriptMatrix3fSetCmd.Flags().Int64("handle", 0, "handle (int64)")
+	renderscriptMatrix3fSetCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	renderscriptMatrix3fSetCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	renderscriptMatrix3fSetCmd.Flags().Float32("arg2", 0, "arg2 (float32)")
+	renderscriptMatrix3fCmd.AddCommand(renderscriptMatrix3fSetCmd)
+	renderscriptMatrix3fTranslateCmd.Flags().Int64("handle", 0, "handle (int64)")
+	renderscriptMatrix3fTranslateCmd.Flags().Float32("arg0", 0, "arg0 (float32)")
+	renderscriptMatrix3fTranslateCmd.Flags().Float32("arg1", 0, "arg1 (float32)")
+	renderscriptMatrix3fCmd.AddCommand(renderscriptMatrix3fTranslateCmd)
+	renderscriptMatrix3fTransposeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	renderscriptMatrix3fCmd.AddCommand(renderscriptMatrix3fTransposeCmd)
+	renderscriptCmd.AddCommand(renderscriptMatrix3fCmd)
+	renderscriptScriptIntrinsicResizeForEach_bicubic1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptScriptIntrinsicResizeCmd.AddCommand(renderscriptScriptIntrinsicResizeForEach_bicubic1Cmd)
+	renderscriptScriptIntrinsicResizeForEach_bicubic2_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptScriptIntrinsicResizeForEach_bicubic2_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	renderscriptScriptIntrinsicResizeCmd.AddCommand(renderscriptScriptIntrinsicResizeForEach_bicubic2_1Cmd)
+	renderscriptScriptIntrinsicResizeCmd.AddCommand(renderscriptScriptIntrinsicResizeGetFieldID_InputCmd)
+	renderscriptScriptIntrinsicResizeCmd.AddCommand(renderscriptScriptIntrinsicResizeGetKernelID_bicubicCmd)
+	renderscriptScriptIntrinsicResizeSetInputCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptScriptIntrinsicResizeCmd.AddCommand(renderscriptScriptIntrinsicResizeSetInputCmd)
+	renderscriptScriptIntrinsicResizeCreateCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptScriptIntrinsicResizeCmd.AddCommand(renderscriptScriptIntrinsicResizeCreateCmd)
+	renderscriptCmd.AddCommand(renderscriptScriptIntrinsicResizeCmd)
+	renderscriptTypeCmd.AddCommand(renderscriptTypeGetCountCmd)
+	renderscriptTypeCmd.AddCommand(renderscriptTypeGetElementCmd)
+	renderscriptTypeCmd.AddCommand(renderscriptTypeGetXCmd)
+	renderscriptTypeCmd.AddCommand(renderscriptTypeGetYCmd)
+	renderscriptTypeCmd.AddCommand(renderscriptTypeGetYuvCmd)
+	renderscriptTypeCmd.AddCommand(renderscriptTypeGetZCmd)
+	renderscriptTypeCmd.AddCommand(renderscriptTypeHasFacesCmd)
+	renderscriptTypeCmd.AddCommand(renderscriptTypeHasMipmapsCmd)
+	renderscriptTypeCreateXCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptTypeCreateXCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	renderscriptTypeCreateXCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	renderscriptTypeCmd.AddCommand(renderscriptTypeCreateXCmd)
+	renderscriptTypeCreateXYCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptTypeCreateXYCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	renderscriptTypeCreateXYCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	renderscriptTypeCreateXYCmd.Flags().Int32("arg3", 0, "arg3 (int32)")
+	renderscriptTypeCmd.AddCommand(renderscriptTypeCreateXYCmd)
+	renderscriptTypeCreateXYZCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptTypeCreateXYZCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	renderscriptTypeCreateXYZCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	renderscriptTypeCreateXYZCmd.Flags().Int32("arg3", 0, "arg3 (int32)")
+	renderscriptTypeCreateXYZCmd.Flags().Int32("arg4", 0, "arg4 (int32)")
+	renderscriptTypeCmd.AddCommand(renderscriptTypeCreateXYZCmd)
+	renderscriptCmd.AddCommand(renderscriptTypeCmd)
+	renderscriptTypeBuilderCmd.AddCommand(renderscriptTypeBuilderCreateCmd)
+	renderscriptTypeBuilderSetFacesCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	renderscriptTypeBuilderCmd.AddCommand(renderscriptTypeBuilderSetFacesCmd)
+	renderscriptTypeBuilderSetMipmapsCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	renderscriptTypeBuilderCmd.AddCommand(renderscriptTypeBuilderSetMipmapsCmd)
+	renderscriptTypeBuilderSetXCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	renderscriptTypeBuilderCmd.AddCommand(renderscriptTypeBuilderSetXCmd)
+	renderscriptTypeBuilderSetYCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	renderscriptTypeBuilderCmd.AddCommand(renderscriptTypeBuilderSetYCmd)
+	renderscriptTypeBuilderSetYuvFormatCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	renderscriptTypeBuilderCmd.AddCommand(renderscriptTypeBuilderSetYuvFormatCmd)
+	renderscriptTypeBuilderSetZCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	renderscriptTypeBuilderCmd.AddCommand(renderscriptTypeBuilderSetZCmd)
+	renderscriptCmd.AddCommand(renderscriptTypeBuilderCmd)
+	renderscriptTypeCubemapFaceCmd.AddCommand(renderscriptTypeCubemapFaceValuesCmd)
+	renderscriptTypeCubemapFaceValueOfCmd.Flags().String("arg0", "", "arg0 (string)")
+	renderscriptTypeCubemapFaceCmd.AddCommand(renderscriptTypeCubemapFaceValueOfCmd)
+	renderscriptCmd.AddCommand(renderscriptTypeCubemapFaceCmd)
+	renderscriptBaseObjCmd.AddCommand(renderscriptBaseObjDestroyCmd)
+	renderscriptBaseObjEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptBaseObjCmd.AddCommand(renderscriptBaseObjEqualsCmd)
+	renderscriptBaseObjCmd.AddCommand(renderscriptBaseObjGetNameCmd)
+	renderscriptBaseObjCmd.AddCommand(renderscriptBaseObjHashCodeCmd)
+	renderscriptBaseObjSetNameCmd.Flags().String("arg0", "", "arg0 (string)")
+	renderscriptBaseObjCmd.AddCommand(renderscriptBaseObjSetNameCmd)
+	renderscriptCmd.AddCommand(renderscriptBaseObjCmd)
+	renderscriptMatrix4fCmd.AddCommand(renderscriptMatrix4fNewMatrix4fCmd)
+	renderscriptMatrix4fGetCmd.Flags().Int64("handle", 0, "handle (int64)")
+	renderscriptMatrix4fGetCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	renderscriptMatrix4fGetCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	renderscriptMatrix4fCmd.AddCommand(renderscriptMatrix4fGetCmd)
+	renderscriptMatrix4fGetArrayCmd.Flags().Int64("handle", 0, "handle (int64)")
+	renderscriptMatrix4fCmd.AddCommand(renderscriptMatrix4fGetArrayCmd)
+	renderscriptMatrix4fInverseCmd.Flags().Int64("handle", 0, "handle (int64)")
+	renderscriptMatrix4fCmd.AddCommand(renderscriptMatrix4fInverseCmd)
+	renderscriptMatrix4fInverseTransposeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	renderscriptMatrix4fCmd.AddCommand(renderscriptMatrix4fInverseTransposeCmd)
+	renderscriptMatrix4fLoadCmd.Flags().Int64("handle", 0, "handle (int64)")
+	renderscriptMatrix4fLoadCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptMatrix4fCmd.AddCommand(renderscriptMatrix4fLoadCmd)
+	renderscriptMatrix4fLoadFrustumCmd.Flags().Int64("handle", 0, "handle (int64)")
+	renderscriptMatrix4fLoadFrustumCmd.Flags().Float32("arg0", 0, "arg0 (float32)")
+	renderscriptMatrix4fLoadFrustumCmd.Flags().Float32("arg1", 0, "arg1 (float32)")
+	renderscriptMatrix4fLoadFrustumCmd.Flags().Float32("arg2", 0, "arg2 (float32)")
+	renderscriptMatrix4fLoadFrustumCmd.Flags().Float32("arg3", 0, "arg3 (float32)")
+	renderscriptMatrix4fLoadFrustumCmd.Flags().Float32("arg4", 0, "arg4 (float32)")
+	renderscriptMatrix4fLoadFrustumCmd.Flags().Float32("arg5", 0, "arg5 (float32)")
+	renderscriptMatrix4fCmd.AddCommand(renderscriptMatrix4fLoadFrustumCmd)
+	renderscriptMatrix4fLoadIdentityCmd.Flags().Int64("handle", 0, "handle (int64)")
+	renderscriptMatrix4fCmd.AddCommand(renderscriptMatrix4fLoadIdentityCmd)
+	renderscriptMatrix4fLoadMultiplyCmd.Flags().Int64("handle", 0, "handle (int64)")
+	renderscriptMatrix4fLoadMultiplyCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptMatrix4fLoadMultiplyCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	renderscriptMatrix4fCmd.AddCommand(renderscriptMatrix4fLoadMultiplyCmd)
+	renderscriptMatrix4fLoadOrthoCmd.Flags().Int64("handle", 0, "handle (int64)")
+	renderscriptMatrix4fLoadOrthoCmd.Flags().Float32("arg0", 0, "arg0 (float32)")
+	renderscriptMatrix4fLoadOrthoCmd.Flags().Float32("arg1", 0, "arg1 (float32)")
+	renderscriptMatrix4fLoadOrthoCmd.Flags().Float32("arg2", 0, "arg2 (float32)")
+	renderscriptMatrix4fLoadOrthoCmd.Flags().Float32("arg3", 0, "arg3 (float32)")
+	renderscriptMatrix4fLoadOrthoCmd.Flags().Float32("arg4", 0, "arg4 (float32)")
+	renderscriptMatrix4fLoadOrthoCmd.Flags().Float32("arg5", 0, "arg5 (float32)")
+	renderscriptMatrix4fCmd.AddCommand(renderscriptMatrix4fLoadOrthoCmd)
+	renderscriptMatrix4fLoadOrthoWindowCmd.Flags().Int64("handle", 0, "handle (int64)")
+	renderscriptMatrix4fLoadOrthoWindowCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	renderscriptMatrix4fLoadOrthoWindowCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	renderscriptMatrix4fCmd.AddCommand(renderscriptMatrix4fLoadOrthoWindowCmd)
+	renderscriptMatrix4fLoadPerspectiveCmd.Flags().Int64("handle", 0, "handle (int64)")
+	renderscriptMatrix4fLoadPerspectiveCmd.Flags().Float32("arg0", 0, "arg0 (float32)")
+	renderscriptMatrix4fLoadPerspectiveCmd.Flags().Float32("arg1", 0, "arg1 (float32)")
+	renderscriptMatrix4fLoadPerspectiveCmd.Flags().Float32("arg2", 0, "arg2 (float32)")
+	renderscriptMatrix4fLoadPerspectiveCmd.Flags().Float32("arg3", 0, "arg3 (float32)")
+	renderscriptMatrix4fCmd.AddCommand(renderscriptMatrix4fLoadPerspectiveCmd)
+	renderscriptMatrix4fLoadProjectionNormalizedCmd.Flags().Int64("handle", 0, "handle (int64)")
+	renderscriptMatrix4fLoadProjectionNormalizedCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	renderscriptMatrix4fLoadProjectionNormalizedCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	renderscriptMatrix4fCmd.AddCommand(renderscriptMatrix4fLoadProjectionNormalizedCmd)
+	renderscriptMatrix4fLoadRotateCmd.Flags().Int64("handle", 0, "handle (int64)")
+	renderscriptMatrix4fLoadRotateCmd.Flags().Float32("arg0", 0, "arg0 (float32)")
+	renderscriptMatrix4fLoadRotateCmd.Flags().Float32("arg1", 0, "arg1 (float32)")
+	renderscriptMatrix4fLoadRotateCmd.Flags().Float32("arg2", 0, "arg2 (float32)")
+	renderscriptMatrix4fLoadRotateCmd.Flags().Float32("arg3", 0, "arg3 (float32)")
+	renderscriptMatrix4fCmd.AddCommand(renderscriptMatrix4fLoadRotateCmd)
+	renderscriptMatrix4fLoadScaleCmd.Flags().Int64("handle", 0, "handle (int64)")
+	renderscriptMatrix4fLoadScaleCmd.Flags().Float32("arg0", 0, "arg0 (float32)")
+	renderscriptMatrix4fLoadScaleCmd.Flags().Float32("arg1", 0, "arg1 (float32)")
+	renderscriptMatrix4fLoadScaleCmd.Flags().Float32("arg2", 0, "arg2 (float32)")
+	renderscriptMatrix4fCmd.AddCommand(renderscriptMatrix4fLoadScaleCmd)
+	renderscriptMatrix4fLoadTranslateCmd.Flags().Int64("handle", 0, "handle (int64)")
+	renderscriptMatrix4fLoadTranslateCmd.Flags().Float32("arg0", 0, "arg0 (float32)")
+	renderscriptMatrix4fLoadTranslateCmd.Flags().Float32("arg1", 0, "arg1 (float32)")
+	renderscriptMatrix4fLoadTranslateCmd.Flags().Float32("arg2", 0, "arg2 (float32)")
+	renderscriptMatrix4fCmd.AddCommand(renderscriptMatrix4fLoadTranslateCmd)
+	renderscriptMatrix4fMultiplyCmd.Flags().Int64("handle", 0, "handle (int64)")
+	renderscriptMatrix4fMultiplyCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptMatrix4fCmd.AddCommand(renderscriptMatrix4fMultiplyCmd)
+	renderscriptMatrix4fRotateCmd.Flags().Int64("handle", 0, "handle (int64)")
+	renderscriptMatrix4fRotateCmd.Flags().Float32("arg0", 0, "arg0 (float32)")
+	renderscriptMatrix4fRotateCmd.Flags().Float32("arg1", 0, "arg1 (float32)")
+	renderscriptMatrix4fRotateCmd.Flags().Float32("arg2", 0, "arg2 (float32)")
+	renderscriptMatrix4fRotateCmd.Flags().Float32("arg3", 0, "arg3 (float32)")
+	renderscriptMatrix4fCmd.AddCommand(renderscriptMatrix4fRotateCmd)
+	renderscriptMatrix4fScaleCmd.Flags().Int64("handle", 0, "handle (int64)")
+	renderscriptMatrix4fScaleCmd.Flags().Float32("arg0", 0, "arg0 (float32)")
+	renderscriptMatrix4fScaleCmd.Flags().Float32("arg1", 0, "arg1 (float32)")
+	renderscriptMatrix4fScaleCmd.Flags().Float32("arg2", 0, "arg2 (float32)")
+	renderscriptMatrix4fCmd.AddCommand(renderscriptMatrix4fScaleCmd)
+	renderscriptMatrix4fSetCmd.Flags().Int64("handle", 0, "handle (int64)")
+	renderscriptMatrix4fSetCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	renderscriptMatrix4fSetCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	renderscriptMatrix4fSetCmd.Flags().Float32("arg2", 0, "arg2 (float32)")
+	renderscriptMatrix4fCmd.AddCommand(renderscriptMatrix4fSetCmd)
+	renderscriptMatrix4fTranslateCmd.Flags().Int64("handle", 0, "handle (int64)")
+	renderscriptMatrix4fTranslateCmd.Flags().Float32("arg0", 0, "arg0 (float32)")
+	renderscriptMatrix4fTranslateCmd.Flags().Float32("arg1", 0, "arg1 (float32)")
+	renderscriptMatrix4fTranslateCmd.Flags().Float32("arg2", 0, "arg2 (float32)")
+	renderscriptMatrix4fCmd.AddCommand(renderscriptMatrix4fTranslateCmd)
+	renderscriptMatrix4fTransposeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	renderscriptMatrix4fCmd.AddCommand(renderscriptMatrix4fTransposeCmd)
+	renderscriptCmd.AddCommand(renderscriptMatrix4fCmd)
+	renderscriptAllocationCopy1DRangeFrom4Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	renderscriptAllocationCopy1DRangeFrom4Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	renderscriptAllocationCopy1DRangeFrom4Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	renderscriptAllocationCopy1DRangeFrom4Cmd.Flags().Int32("arg3", 0, "arg3 (int32)")
+	renderscriptAllocationCmd.AddCommand(renderscriptAllocationCopy1DRangeFrom4Cmd)
+	renderscriptAllocationCopy1DRangeFrom3_1Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	renderscriptAllocationCopy1DRangeFrom3_1Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	renderscriptAllocationCopy1DRangeFrom3_1Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	renderscriptAllocationCmd.AddCommand(renderscriptAllocationCopy1DRangeFrom3_1Cmd)
+	renderscriptAllocationCopy1DRangeFrom3_2Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	renderscriptAllocationCopy1DRangeFrom3_2Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	renderscriptAllocationCopy1DRangeFrom3_2Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	renderscriptAllocationCmd.AddCommand(renderscriptAllocationCopy1DRangeFrom3_2Cmd)
+	renderscriptAllocationCopy1DRangeFrom3_3Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	renderscriptAllocationCopy1DRangeFrom3_3Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	renderscriptAllocationCopy1DRangeFrom3_3Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	renderscriptAllocationCmd.AddCommand(renderscriptAllocationCopy1DRangeFrom3_3Cmd)
+	renderscriptAllocationCopy1DRangeFrom3_4Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	renderscriptAllocationCopy1DRangeFrom3_4Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	renderscriptAllocationCopy1DRangeFrom3_4Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	renderscriptAllocationCmd.AddCommand(renderscriptAllocationCopy1DRangeFrom3_4Cmd)
+	renderscriptAllocationCopy1DRangeFrom3_5Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	renderscriptAllocationCopy1DRangeFrom3_5Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	renderscriptAllocationCopy1DRangeFrom3_5Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	renderscriptAllocationCmd.AddCommand(renderscriptAllocationCopy1DRangeFrom3_5Cmd)
+	renderscriptAllocationCopy1DRangeFromUnchecked3Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	renderscriptAllocationCopy1DRangeFromUnchecked3Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	renderscriptAllocationCopy1DRangeFromUnchecked3Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	renderscriptAllocationCmd.AddCommand(renderscriptAllocationCopy1DRangeFromUnchecked3Cmd)
+	renderscriptAllocationCopy1DRangeFromUnchecked3_1Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	renderscriptAllocationCopy1DRangeFromUnchecked3_1Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	renderscriptAllocationCopy1DRangeFromUnchecked3_1Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	renderscriptAllocationCmd.AddCommand(renderscriptAllocationCopy1DRangeFromUnchecked3_1Cmd)
+	renderscriptAllocationCopy1DRangeFromUnchecked3_2Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	renderscriptAllocationCopy1DRangeFromUnchecked3_2Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	renderscriptAllocationCopy1DRangeFromUnchecked3_2Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	renderscriptAllocationCmd.AddCommand(renderscriptAllocationCopy1DRangeFromUnchecked3_2Cmd)
+	renderscriptAllocationCopy1DRangeFromUnchecked3_3Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	renderscriptAllocationCopy1DRangeFromUnchecked3_3Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	renderscriptAllocationCopy1DRangeFromUnchecked3_3Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	renderscriptAllocationCmd.AddCommand(renderscriptAllocationCopy1DRangeFromUnchecked3_3Cmd)
+	renderscriptAllocationCopy1DRangeFromUnchecked3_4Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	renderscriptAllocationCopy1DRangeFromUnchecked3_4Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	renderscriptAllocationCopy1DRangeFromUnchecked3_4Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	renderscriptAllocationCmd.AddCommand(renderscriptAllocationCopy1DRangeFromUnchecked3_4Cmd)
+	renderscriptAllocationCopy1DRangeTo3Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	renderscriptAllocationCopy1DRangeTo3Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	renderscriptAllocationCopy1DRangeTo3Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	renderscriptAllocationCmd.AddCommand(renderscriptAllocationCopy1DRangeTo3Cmd)
+	renderscriptAllocationCopy1DRangeTo3_1Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	renderscriptAllocationCopy1DRangeTo3_1Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	renderscriptAllocationCopy1DRangeTo3_1Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	renderscriptAllocationCmd.AddCommand(renderscriptAllocationCopy1DRangeTo3_1Cmd)
+	renderscriptAllocationCopy1DRangeTo3_2Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	renderscriptAllocationCopy1DRangeTo3_2Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	renderscriptAllocationCopy1DRangeTo3_2Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	renderscriptAllocationCmd.AddCommand(renderscriptAllocationCopy1DRangeTo3_2Cmd)
+	renderscriptAllocationCopy1DRangeTo3_3Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	renderscriptAllocationCopy1DRangeTo3_3Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	renderscriptAllocationCopy1DRangeTo3_3Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	renderscriptAllocationCmd.AddCommand(renderscriptAllocationCopy1DRangeTo3_3Cmd)
+	renderscriptAllocationCopy1DRangeTo3_4Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	renderscriptAllocationCopy1DRangeTo3_4Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	renderscriptAllocationCopy1DRangeTo3_4Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	renderscriptAllocationCmd.AddCommand(renderscriptAllocationCopy1DRangeTo3_4Cmd)
+	renderscriptAllocationCopy1DRangeToUnchecked3Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	renderscriptAllocationCopy1DRangeToUnchecked3Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	renderscriptAllocationCopy1DRangeToUnchecked3Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	renderscriptAllocationCmd.AddCommand(renderscriptAllocationCopy1DRangeToUnchecked3Cmd)
+	renderscriptAllocationCopy1DRangeToUnchecked3_1Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	renderscriptAllocationCopy1DRangeToUnchecked3_1Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	renderscriptAllocationCopy1DRangeToUnchecked3_1Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	renderscriptAllocationCmd.AddCommand(renderscriptAllocationCopy1DRangeToUnchecked3_1Cmd)
+	renderscriptAllocationCopy1DRangeToUnchecked3_2Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	renderscriptAllocationCopy1DRangeToUnchecked3_2Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	renderscriptAllocationCopy1DRangeToUnchecked3_2Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	renderscriptAllocationCmd.AddCommand(renderscriptAllocationCopy1DRangeToUnchecked3_2Cmd)
+	renderscriptAllocationCopy1DRangeToUnchecked3_3Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	renderscriptAllocationCopy1DRangeToUnchecked3_3Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	renderscriptAllocationCopy1DRangeToUnchecked3_3Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	renderscriptAllocationCmd.AddCommand(renderscriptAllocationCopy1DRangeToUnchecked3_3Cmd)
+	renderscriptAllocationCopy1DRangeToUnchecked3_4Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	renderscriptAllocationCopy1DRangeToUnchecked3_4Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	renderscriptAllocationCopy1DRangeToUnchecked3_4Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	renderscriptAllocationCmd.AddCommand(renderscriptAllocationCopy1DRangeToUnchecked3_4Cmd)
+	renderscriptAllocationCopy2DRangeFrom3Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	renderscriptAllocationCopy2DRangeFrom3Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	renderscriptAllocationCopy2DRangeFrom3Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	renderscriptAllocationCmd.AddCommand(renderscriptAllocationCopy2DRangeFrom3Cmd)
+	renderscriptAllocationCopy2DRangeFrom7_1Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	renderscriptAllocationCopy2DRangeFrom7_1Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	renderscriptAllocationCopy2DRangeFrom7_1Cmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	renderscriptAllocationCopy2DRangeFrom7_1Cmd.Flags().Int32("arg3", 0, "arg3 (int32)")
+	renderscriptAllocationCopy2DRangeFrom7_1Cmd.Flags().Int64("arg4", 0, "arg4 (int64)")
+	renderscriptAllocationCopy2DRangeFrom7_1Cmd.Flags().Int32("arg5", 0, "arg5 (int32)")
+	renderscriptAllocationCopy2DRangeFrom7_1Cmd.Flags().Int32("arg6", 0, "arg6 (int32)")
+	renderscriptAllocationCmd.AddCommand(renderscriptAllocationCopy2DRangeFrom7_1Cmd)
+	renderscriptAllocationCopy2DRangeFrom5_2Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	renderscriptAllocationCopy2DRangeFrom5_2Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	renderscriptAllocationCopy2DRangeFrom5_2Cmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	renderscriptAllocationCopy2DRangeFrom5_2Cmd.Flags().Int32("arg3", 0, "arg3 (int32)")
+	renderscriptAllocationCopy2DRangeFrom5_2Cmd.Flags().Int64("arg4", 0, "arg4 (int64)")
+	renderscriptAllocationCmd.AddCommand(renderscriptAllocationCopy2DRangeFrom5_2Cmd)
+	renderscriptAllocationCopy2DRangeFrom5_3Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	renderscriptAllocationCopy2DRangeFrom5_3Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	renderscriptAllocationCopy2DRangeFrom5_3Cmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	renderscriptAllocationCopy2DRangeFrom5_3Cmd.Flags().Int32("arg3", 0, "arg3 (int32)")
+	renderscriptAllocationCopy2DRangeFrom5_3Cmd.Flags().Int64("arg4", 0, "arg4 (int64)")
+	renderscriptAllocationCmd.AddCommand(renderscriptAllocationCopy2DRangeFrom5_3Cmd)
+	renderscriptAllocationCopy2DRangeFrom5_4Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	renderscriptAllocationCopy2DRangeFrom5_4Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	renderscriptAllocationCopy2DRangeFrom5_4Cmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	renderscriptAllocationCopy2DRangeFrom5_4Cmd.Flags().Int32("arg3", 0, "arg3 (int32)")
+	renderscriptAllocationCopy2DRangeFrom5_4Cmd.Flags().Int64("arg4", 0, "arg4 (int64)")
+	renderscriptAllocationCmd.AddCommand(renderscriptAllocationCopy2DRangeFrom5_4Cmd)
+	renderscriptAllocationCopy2DRangeFrom5_5Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	renderscriptAllocationCopy2DRangeFrom5_5Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	renderscriptAllocationCopy2DRangeFrom5_5Cmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	renderscriptAllocationCopy2DRangeFrom5_5Cmd.Flags().Int32("arg3", 0, "arg3 (int32)")
+	renderscriptAllocationCopy2DRangeFrom5_5Cmd.Flags().Int64("arg4", 0, "arg4 (int64)")
+	renderscriptAllocationCmd.AddCommand(renderscriptAllocationCopy2DRangeFrom5_5Cmd)
+	renderscriptAllocationCopy2DRangeFrom5_6Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	renderscriptAllocationCopy2DRangeFrom5_6Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	renderscriptAllocationCopy2DRangeFrom5_6Cmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	renderscriptAllocationCopy2DRangeFrom5_6Cmd.Flags().Int32("arg3", 0, "arg3 (int32)")
+	renderscriptAllocationCopy2DRangeFrom5_6Cmd.Flags().Int64("arg4", 0, "arg4 (int64)")
+	renderscriptAllocationCmd.AddCommand(renderscriptAllocationCopy2DRangeFrom5_6Cmd)
+	renderscriptAllocationCopy2DRangeTo5Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	renderscriptAllocationCopy2DRangeTo5Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	renderscriptAllocationCopy2DRangeTo5Cmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	renderscriptAllocationCopy2DRangeTo5Cmd.Flags().Int32("arg3", 0, "arg3 (int32)")
+	renderscriptAllocationCopy2DRangeTo5Cmd.Flags().Int64("arg4", 0, "arg4 (int64)")
+	renderscriptAllocationCmd.AddCommand(renderscriptAllocationCopy2DRangeTo5Cmd)
+	renderscriptAllocationCopy2DRangeTo5_1Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	renderscriptAllocationCopy2DRangeTo5_1Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	renderscriptAllocationCopy2DRangeTo5_1Cmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	renderscriptAllocationCopy2DRangeTo5_1Cmd.Flags().Int32("arg3", 0, "arg3 (int32)")
+	renderscriptAllocationCopy2DRangeTo5_1Cmd.Flags().Int64("arg4", 0, "arg4 (int64)")
+	renderscriptAllocationCmd.AddCommand(renderscriptAllocationCopy2DRangeTo5_1Cmd)
+	renderscriptAllocationCopy2DRangeTo5_2Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	renderscriptAllocationCopy2DRangeTo5_2Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	renderscriptAllocationCopy2DRangeTo5_2Cmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	renderscriptAllocationCopy2DRangeTo5_2Cmd.Flags().Int32("arg3", 0, "arg3 (int32)")
+	renderscriptAllocationCopy2DRangeTo5_2Cmd.Flags().Int64("arg4", 0, "arg4 (int64)")
+	renderscriptAllocationCmd.AddCommand(renderscriptAllocationCopy2DRangeTo5_2Cmd)
+	renderscriptAllocationCopy2DRangeTo5_3Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	renderscriptAllocationCopy2DRangeTo5_3Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	renderscriptAllocationCopy2DRangeTo5_3Cmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	renderscriptAllocationCopy2DRangeTo5_3Cmd.Flags().Int32("arg3", 0, "arg3 (int32)")
+	renderscriptAllocationCopy2DRangeTo5_3Cmd.Flags().Int64("arg4", 0, "arg4 (int64)")
+	renderscriptAllocationCmd.AddCommand(renderscriptAllocationCopy2DRangeTo5_3Cmd)
+	renderscriptAllocationCopy2DRangeTo5_4Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	renderscriptAllocationCopy2DRangeTo5_4Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	renderscriptAllocationCopy2DRangeTo5_4Cmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	renderscriptAllocationCopy2DRangeTo5_4Cmd.Flags().Int32("arg3", 0, "arg3 (int32)")
+	renderscriptAllocationCopy2DRangeTo5_4Cmd.Flags().Int64("arg4", 0, "arg4 (int64)")
+	renderscriptAllocationCmd.AddCommand(renderscriptAllocationCopy2DRangeTo5_4Cmd)
+	renderscriptAllocationCopy3DRangeFrom10Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	renderscriptAllocationCopy3DRangeFrom10Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	renderscriptAllocationCopy3DRangeFrom10Cmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	renderscriptAllocationCopy3DRangeFrom10Cmd.Flags().Int32("arg3", 0, "arg3 (int32)")
+	renderscriptAllocationCopy3DRangeFrom10Cmd.Flags().Int32("arg4", 0, "arg4 (int32)")
+	renderscriptAllocationCopy3DRangeFrom10Cmd.Flags().Int32("arg5", 0, "arg5 (int32)")
+	renderscriptAllocationCopy3DRangeFrom10Cmd.Flags().Int64("arg6", 0, "arg6 (int64)")
+	renderscriptAllocationCopy3DRangeFrom10Cmd.Flags().Int32("arg7", 0, "arg7 (int32)")
+	renderscriptAllocationCopy3DRangeFrom10Cmd.Flags().Int32("arg8", 0, "arg8 (int32)")
+	renderscriptAllocationCopy3DRangeFrom10Cmd.Flags().Int32("arg9", 0, "arg9 (int32)")
+	renderscriptAllocationCmd.AddCommand(renderscriptAllocationCopy3DRangeFrom10Cmd)
+	renderscriptAllocationCopy3DRangeFrom7_1Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	renderscriptAllocationCopy3DRangeFrom7_1Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	renderscriptAllocationCopy3DRangeFrom7_1Cmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	renderscriptAllocationCopy3DRangeFrom7_1Cmd.Flags().Int32("arg3", 0, "arg3 (int32)")
+	renderscriptAllocationCopy3DRangeFrom7_1Cmd.Flags().Int32("arg4", 0, "arg4 (int32)")
+	renderscriptAllocationCopy3DRangeFrom7_1Cmd.Flags().Int32("arg5", 0, "arg5 (int32)")
+	renderscriptAllocationCopy3DRangeFrom7_1Cmd.Flags().Int64("arg6", 0, "arg6 (int64)")
+	renderscriptAllocationCmd.AddCommand(renderscriptAllocationCopy3DRangeFrom7_1Cmd)
+	renderscriptAllocationCopy3DRangeToCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	renderscriptAllocationCopy3DRangeToCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	renderscriptAllocationCopy3DRangeToCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	renderscriptAllocationCopy3DRangeToCmd.Flags().Int32("arg3", 0, "arg3 (int32)")
+	renderscriptAllocationCopy3DRangeToCmd.Flags().Int32("arg4", 0, "arg4 (int32)")
+	renderscriptAllocationCopy3DRangeToCmd.Flags().Int32("arg5", 0, "arg5 (int32)")
+	renderscriptAllocationCopy3DRangeToCmd.Flags().Int64("arg6", 0, "arg6 (int64)")
+	renderscriptAllocationCmd.AddCommand(renderscriptAllocationCopy3DRangeToCmd)
+	renderscriptAllocationCopyFrom1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptAllocationCmd.AddCommand(renderscriptAllocationCopyFrom1Cmd)
+	renderscriptAllocationCopyFrom1_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptAllocationCmd.AddCommand(renderscriptAllocationCopyFrom1_1Cmd)
+	renderscriptAllocationCopyFrom1_2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptAllocationCmd.AddCommand(renderscriptAllocationCopyFrom1_2Cmd)
+	renderscriptAllocationCopyFrom1_3Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptAllocationCmd.AddCommand(renderscriptAllocationCopyFrom1_3Cmd)
+	renderscriptAllocationCopyFrom1_4Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptAllocationCmd.AddCommand(renderscriptAllocationCopyFrom1_4Cmd)
+	renderscriptAllocationCopyFrom1_5Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptAllocationCmd.AddCommand(renderscriptAllocationCopyFrom1_5Cmd)
+	renderscriptAllocationCopyFrom1_6Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptAllocationCmd.AddCommand(renderscriptAllocationCopyFrom1_6Cmd)
+	renderscriptAllocationCopyFrom1_7Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptAllocationCmd.AddCommand(renderscriptAllocationCopyFrom1_7Cmd)
+	renderscriptAllocationCopyFromUnchecked1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptAllocationCmd.AddCommand(renderscriptAllocationCopyFromUnchecked1Cmd)
+	renderscriptAllocationCopyFromUnchecked1_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptAllocationCmd.AddCommand(renderscriptAllocationCopyFromUnchecked1_1Cmd)
+	renderscriptAllocationCopyFromUnchecked1_2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptAllocationCmd.AddCommand(renderscriptAllocationCopyFromUnchecked1_2Cmd)
+	renderscriptAllocationCopyFromUnchecked1_3Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptAllocationCmd.AddCommand(renderscriptAllocationCopyFromUnchecked1_3Cmd)
+	renderscriptAllocationCopyFromUnchecked1_4Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptAllocationCmd.AddCommand(renderscriptAllocationCopyFromUnchecked1_4Cmd)
+	renderscriptAllocationCopyTo1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptAllocationCmd.AddCommand(renderscriptAllocationCopyTo1Cmd)
+	renderscriptAllocationCopyTo1_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptAllocationCmd.AddCommand(renderscriptAllocationCopyTo1_1Cmd)
+	renderscriptAllocationCopyTo1_2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptAllocationCmd.AddCommand(renderscriptAllocationCopyTo1_2Cmd)
+	renderscriptAllocationCopyTo1_3Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptAllocationCmd.AddCommand(renderscriptAllocationCopyTo1_3Cmd)
+	renderscriptAllocationCopyTo1_4Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptAllocationCmd.AddCommand(renderscriptAllocationCopyTo1_4Cmd)
+	renderscriptAllocationCopyTo1_5Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptAllocationCmd.AddCommand(renderscriptAllocationCopyTo1_5Cmd)
+	renderscriptAllocationCmd.AddCommand(renderscriptAllocationDestroyCmd)
+	renderscriptAllocationCmd.AddCommand(renderscriptAllocationGenerateMipmapsCmd)
+	renderscriptAllocationCmd.AddCommand(renderscriptAllocationGetByteBufferCmd)
+	renderscriptAllocationCmd.AddCommand(renderscriptAllocationGetBytesSizeCmd)
+	renderscriptAllocationCmd.AddCommand(renderscriptAllocationGetElementCmd)
+	renderscriptAllocationCmd.AddCommand(renderscriptAllocationGetStrideCmd)
+	renderscriptAllocationCmd.AddCommand(renderscriptAllocationGetSurfaceCmd)
+	renderscriptAllocationCmd.AddCommand(renderscriptAllocationGetTimeStampCmd)
+	renderscriptAllocationCmd.AddCommand(renderscriptAllocationGetTypeCmd)
+	renderscriptAllocationCmd.AddCommand(renderscriptAllocationGetUsageCmd)
+	renderscriptAllocationCmd.AddCommand(renderscriptAllocationIoReceiveCmd)
+	renderscriptAllocationCmd.AddCommand(renderscriptAllocationIoSendCmd)
+	renderscriptAllocationSetAutoPaddingCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	renderscriptAllocationCmd.AddCommand(renderscriptAllocationSetAutoPaddingCmd)
+	renderscriptAllocationSetFromFieldPacker2Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	renderscriptAllocationSetFromFieldPacker2Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	renderscriptAllocationCmd.AddCommand(renderscriptAllocationSetFromFieldPacker2Cmd)
+	renderscriptAllocationSetFromFieldPacker3_1Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	renderscriptAllocationSetFromFieldPacker3_1Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	renderscriptAllocationSetFromFieldPacker3_1Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	renderscriptAllocationCmd.AddCommand(renderscriptAllocationSetFromFieldPacker3_1Cmd)
+	renderscriptAllocationSetFromFieldPacker5_2Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	renderscriptAllocationSetFromFieldPacker5_2Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	renderscriptAllocationSetFromFieldPacker5_2Cmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	renderscriptAllocationSetFromFieldPacker5_2Cmd.Flags().Int32("arg3", 0, "arg3 (int32)")
+	renderscriptAllocationSetFromFieldPacker5_2Cmd.Flags().Int64("arg4", 0, "arg4 (int64)")
+	renderscriptAllocationCmd.AddCommand(renderscriptAllocationSetFromFieldPacker5_2Cmd)
+	renderscriptAllocationSetOnBufferAvailableListenerCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptAllocationCmd.AddCommand(renderscriptAllocationSetOnBufferAvailableListenerCmd)
+	renderscriptAllocationSetSurfaceCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptAllocationCmd.AddCommand(renderscriptAllocationSetSurfaceCmd)
+	renderscriptAllocationSyncAllCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	renderscriptAllocationCmd.AddCommand(renderscriptAllocationSyncAllCmd)
+	renderscriptAllocationCreateAllocationsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptAllocationCreateAllocationsCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	renderscriptAllocationCreateAllocationsCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	renderscriptAllocationCreateAllocationsCmd.Flags().Int32("arg3", 0, "arg3 (int32)")
+	renderscriptAllocationCmd.AddCommand(renderscriptAllocationCreateAllocationsCmd)
+	renderscriptAllocationCreateCubemapFromBitmap2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptAllocationCreateCubemapFromBitmap2Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	renderscriptAllocationCmd.AddCommand(renderscriptAllocationCreateCubemapFromBitmap2Cmd)
+	renderscriptAllocationCreateCubemapFromBitmap4_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptAllocationCreateCubemapFromBitmap4_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	renderscriptAllocationCreateCubemapFromBitmap4_1Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	renderscriptAllocationCreateCubemapFromBitmap4_1Cmd.Flags().Int32("arg3", 0, "arg3 (int32)")
+	renderscriptAllocationCmd.AddCommand(renderscriptAllocationCreateCubemapFromBitmap4_1Cmd)
+	renderscriptAllocationCreateCubemapFromCubeFaces7Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptAllocationCreateCubemapFromCubeFaces7Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	renderscriptAllocationCreateCubemapFromCubeFaces7Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	renderscriptAllocationCreateCubemapFromCubeFaces7Cmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	renderscriptAllocationCreateCubemapFromCubeFaces7Cmd.Flags().Int64("arg4", 0, "arg4 (int64)")
+	renderscriptAllocationCreateCubemapFromCubeFaces7Cmd.Flags().Int64("arg5", 0, "arg5 (int64)")
+	renderscriptAllocationCreateCubemapFromCubeFaces7Cmd.Flags().Int64("arg6", 0, "arg6 (int64)")
+	renderscriptAllocationCmd.AddCommand(renderscriptAllocationCreateCubemapFromCubeFaces7Cmd)
+	renderscriptAllocationCreateCubemapFromCubeFaces9_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptAllocationCreateCubemapFromCubeFaces9_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	renderscriptAllocationCreateCubemapFromCubeFaces9_1Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	renderscriptAllocationCreateCubemapFromCubeFaces9_1Cmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	renderscriptAllocationCreateCubemapFromCubeFaces9_1Cmd.Flags().Int64("arg4", 0, "arg4 (int64)")
+	renderscriptAllocationCreateCubemapFromCubeFaces9_1Cmd.Flags().Int64("arg5", 0, "arg5 (int64)")
+	renderscriptAllocationCreateCubemapFromCubeFaces9_1Cmd.Flags().Int64("arg6", 0, "arg6 (int64)")
+	renderscriptAllocationCreateCubemapFromCubeFaces9_1Cmd.Flags().Int64("arg7", 0, "arg7 (int64)")
+	renderscriptAllocationCreateCubemapFromCubeFaces9_1Cmd.Flags().Int32("arg8", 0, "arg8 (int32)")
+	renderscriptAllocationCmd.AddCommand(renderscriptAllocationCreateCubemapFromCubeFaces9_1Cmd)
+	renderscriptAllocationCreateFromBitmap2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptAllocationCreateFromBitmap2Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	renderscriptAllocationCmd.AddCommand(renderscriptAllocationCreateFromBitmap2Cmd)
+	renderscriptAllocationCreateFromBitmap4_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptAllocationCreateFromBitmap4_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	renderscriptAllocationCreateFromBitmap4_1Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	renderscriptAllocationCreateFromBitmap4_1Cmd.Flags().Int32("arg3", 0, "arg3 (int32)")
+	renderscriptAllocationCmd.AddCommand(renderscriptAllocationCreateFromBitmap4_1Cmd)
+	renderscriptAllocationCreateFromBitmapResource3Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptAllocationCreateFromBitmapResource3Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	renderscriptAllocationCreateFromBitmapResource3Cmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	renderscriptAllocationCmd.AddCommand(renderscriptAllocationCreateFromBitmapResource3Cmd)
+	renderscriptAllocationCreateFromBitmapResource5_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptAllocationCreateFromBitmapResource5_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	renderscriptAllocationCreateFromBitmapResource5_1Cmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	renderscriptAllocationCreateFromBitmapResource5_1Cmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	renderscriptAllocationCreateFromBitmapResource5_1Cmd.Flags().Int32("arg4", 0, "arg4 (int32)")
+	renderscriptAllocationCmd.AddCommand(renderscriptAllocationCreateFromBitmapResource5_1Cmd)
+	renderscriptAllocationCreateFromStringCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptAllocationCreateFromStringCmd.Flags().String("arg1", "", "arg1 (string)")
+	renderscriptAllocationCreateFromStringCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	renderscriptAllocationCmd.AddCommand(renderscriptAllocationCreateFromStringCmd)
+	renderscriptAllocationCreateSized3Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptAllocationCreateSized3Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	renderscriptAllocationCreateSized3Cmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	renderscriptAllocationCmd.AddCommand(renderscriptAllocationCreateSized3Cmd)
+	renderscriptAllocationCreateSized4_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptAllocationCreateSized4_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	renderscriptAllocationCreateSized4_1Cmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	renderscriptAllocationCreateSized4_1Cmd.Flags().Int32("arg3", 0, "arg3 (int32)")
+	renderscriptAllocationCmd.AddCommand(renderscriptAllocationCreateSized4_1Cmd)
+	renderscriptAllocationCreateTyped2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptAllocationCreateTyped2Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	renderscriptAllocationCmd.AddCommand(renderscriptAllocationCreateTyped2Cmd)
+	renderscriptAllocationCreateTyped4_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptAllocationCreateTyped4_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	renderscriptAllocationCreateTyped4_1Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	renderscriptAllocationCreateTyped4_1Cmd.Flags().Int32("arg3", 0, "arg3 (int32)")
+	renderscriptAllocationCmd.AddCommand(renderscriptAllocationCreateTyped4_1Cmd)
+	renderscriptAllocationCreateTyped3_2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptAllocationCreateTyped3_2Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	renderscriptAllocationCreateTyped3_2Cmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	renderscriptAllocationCmd.AddCommand(renderscriptAllocationCreateTyped3_2Cmd)
+	renderscriptCmd.AddCommand(renderscriptAllocationCmd)
+	renderscriptAllocationMipmapControlCmd.AddCommand(renderscriptAllocationMipmapControlValuesCmd)
+	renderscriptAllocationMipmapControlValueOfCmd.Flags().String("arg0", "", "arg0 (string)")
+	renderscriptAllocationMipmapControlCmd.AddCommand(renderscriptAllocationMipmapControlValueOfCmd)
+	renderscriptCmd.AddCommand(renderscriptAllocationMipmapControlCmd)
+	renderscriptAllocationOnBufferAvailableListenerOnBufferAvailableCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptAllocationOnBufferAvailableListenerCmd.AddCommand(renderscriptAllocationOnBufferAvailableListenerOnBufferAvailableCmd)
+	renderscriptCmd.AddCommand(renderscriptAllocationOnBufferAvailableListenerCmd)
+	renderscriptScriptIntrinsicConvolve3x3ForEach1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptScriptIntrinsicConvolve3x3Cmd.AddCommand(renderscriptScriptIntrinsicConvolve3x3ForEach1Cmd)
+	renderscriptScriptIntrinsicConvolve3x3ForEach2_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptScriptIntrinsicConvolve3x3ForEach2_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	renderscriptScriptIntrinsicConvolve3x3Cmd.AddCommand(renderscriptScriptIntrinsicConvolve3x3ForEach2_1Cmd)
+	renderscriptScriptIntrinsicConvolve3x3Cmd.AddCommand(renderscriptScriptIntrinsicConvolve3x3GetFieldID_InputCmd)
+	renderscriptScriptIntrinsicConvolve3x3Cmd.AddCommand(renderscriptScriptIntrinsicConvolve3x3GetKernelIDCmd)
+	renderscriptScriptIntrinsicConvolve3x3SetCoefficientsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptScriptIntrinsicConvolve3x3Cmd.AddCommand(renderscriptScriptIntrinsicConvolve3x3SetCoefficientsCmd)
+	renderscriptScriptIntrinsicConvolve3x3SetInputCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptScriptIntrinsicConvolve3x3Cmd.AddCommand(renderscriptScriptIntrinsicConvolve3x3SetInputCmd)
+	renderscriptScriptIntrinsicConvolve3x3CreateCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptScriptIntrinsicConvolve3x3CreateCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	renderscriptScriptIntrinsicConvolve3x3Cmd.AddCommand(renderscriptScriptIntrinsicConvolve3x3CreateCmd)
+	renderscriptCmd.AddCommand(renderscriptScriptIntrinsicConvolve3x3Cmd)
+	renderscriptFieldPackerNewFieldPackerCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerNewFieldPackerCmd)
+	renderscriptFieldPackerAddBooleanCmd.Flags().Int64("handle", 0, "handle (int64)")
+	renderscriptFieldPackerAddBooleanCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerAddBooleanCmd)
+	renderscriptFieldPackerAddF321Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	renderscriptFieldPackerAddF321Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerAddF321Cmd)
+	renderscriptFieldPackerAddF321_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	renderscriptFieldPackerAddF321_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerAddF321_1Cmd)
+	renderscriptFieldPackerAddF321_2Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	renderscriptFieldPackerAddF321_2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerAddF321_2Cmd)
+	renderscriptFieldPackerAddF321_3Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	renderscriptFieldPackerAddF321_3Cmd.Flags().Float32("arg0", 0, "arg0 (float32)")
+	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerAddF321_3Cmd)
+	renderscriptFieldPackerAddF641Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	renderscriptFieldPackerAddF641Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerAddF641Cmd)
+	renderscriptFieldPackerAddF641_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	renderscriptFieldPackerAddF641_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerAddF641_1Cmd)
+	renderscriptFieldPackerAddF641_2Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	renderscriptFieldPackerAddF641_2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerAddF641_2Cmd)
+	renderscriptFieldPackerAddF641_3Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	renderscriptFieldPackerAddF641_3Cmd.Flags().Float64("arg0", 0, "arg0 (float64)")
+	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerAddF641_3Cmd)
+	renderscriptFieldPackerAddI161Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	renderscriptFieldPackerAddI161Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerAddI161Cmd)
+	renderscriptFieldPackerAddI161_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	renderscriptFieldPackerAddI161_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerAddI161_1Cmd)
+	renderscriptFieldPackerAddI161_2Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	renderscriptFieldPackerAddI161_2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerAddI161_2Cmd)
+	renderscriptFieldPackerAddI161_3Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	renderscriptFieldPackerAddI161_3Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerAddI161_3Cmd)
+	renderscriptFieldPackerAddI321Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	renderscriptFieldPackerAddI321Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerAddI321Cmd)
+	renderscriptFieldPackerAddI321_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	renderscriptFieldPackerAddI321_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerAddI321_1Cmd)
+	renderscriptFieldPackerAddI321_2Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	renderscriptFieldPackerAddI321_2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerAddI321_2Cmd)
+	renderscriptFieldPackerAddI321_3Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	renderscriptFieldPackerAddI321_3Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerAddI321_3Cmd)
+	renderscriptFieldPackerAddI641Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	renderscriptFieldPackerAddI641Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerAddI641Cmd)
+	renderscriptFieldPackerAddI641_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	renderscriptFieldPackerAddI641_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerAddI641_1Cmd)
+	renderscriptFieldPackerAddI641_2Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	renderscriptFieldPackerAddI641_2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerAddI641_2Cmd)
+	renderscriptFieldPackerAddI641_3Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	renderscriptFieldPackerAddI641_3Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerAddI641_3Cmd)
+	renderscriptFieldPackerAddI81Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	renderscriptFieldPackerAddI81Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerAddI81Cmd)
+	renderscriptFieldPackerAddI81_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	renderscriptFieldPackerAddI81_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerAddI81_1Cmd)
+	renderscriptFieldPackerAddI81_2Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	renderscriptFieldPackerAddI81_2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerAddI81_2Cmd)
+	renderscriptFieldPackerAddI81_3Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	renderscriptFieldPackerAddI81_3Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerAddI81_3Cmd)
+	renderscriptFieldPackerAddMatrix1Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	renderscriptFieldPackerAddMatrix1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerAddMatrix1Cmd)
+	renderscriptFieldPackerAddMatrix1_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	renderscriptFieldPackerAddMatrix1_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerAddMatrix1_1Cmd)
+	renderscriptFieldPackerAddMatrix1_2Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	renderscriptFieldPackerAddMatrix1_2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerAddMatrix1_2Cmd)
+	renderscriptFieldPackerAddObjCmd.Flags().Int64("handle", 0, "handle (int64)")
+	renderscriptFieldPackerAddObjCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerAddObjCmd)
+	renderscriptFieldPackerAddU161Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	renderscriptFieldPackerAddU161Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerAddU161Cmd)
+	renderscriptFieldPackerAddU161_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	renderscriptFieldPackerAddU161_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerAddU161_1Cmd)
+	renderscriptFieldPackerAddU161_2Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	renderscriptFieldPackerAddU161_2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerAddU161_2Cmd)
+	renderscriptFieldPackerAddU161_3Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	renderscriptFieldPackerAddU161_3Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerAddU161_3Cmd)
+	renderscriptFieldPackerAddU321Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	renderscriptFieldPackerAddU321Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerAddU321Cmd)
+	renderscriptFieldPackerAddU321_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	renderscriptFieldPackerAddU321_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerAddU321_1Cmd)
+	renderscriptFieldPackerAddU321_2Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	renderscriptFieldPackerAddU321_2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerAddU321_2Cmd)
+	renderscriptFieldPackerAddU321_3Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	renderscriptFieldPackerAddU321_3Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerAddU321_3Cmd)
+	renderscriptFieldPackerAddU641Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	renderscriptFieldPackerAddU641Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerAddU641Cmd)
+	renderscriptFieldPackerAddU641_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	renderscriptFieldPackerAddU641_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerAddU641_1Cmd)
+	renderscriptFieldPackerAddU641_2Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	renderscriptFieldPackerAddU641_2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerAddU641_2Cmd)
+	renderscriptFieldPackerAddU641_3Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	renderscriptFieldPackerAddU641_3Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerAddU641_3Cmd)
+	renderscriptFieldPackerAddU81Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	renderscriptFieldPackerAddU81Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerAddU81Cmd)
+	renderscriptFieldPackerAddU81_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	renderscriptFieldPackerAddU81_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerAddU81_1Cmd)
+	renderscriptFieldPackerAddU81_2Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	renderscriptFieldPackerAddU81_2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerAddU81_2Cmd)
+	renderscriptFieldPackerAddU81_3Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	renderscriptFieldPackerAddU81_3Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerAddU81_3Cmd)
+	renderscriptFieldPackerAlignCmd.Flags().Int64("handle", 0, "handle (int64)")
+	renderscriptFieldPackerAlignCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerAlignCmd)
+	renderscriptFieldPackerGetDataCmd.Flags().Int64("handle", 0, "handle (int64)")
+	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerGetDataCmd)
+	renderscriptFieldPackerReset0Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerReset0Cmd)
+	renderscriptFieldPackerReset1_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	renderscriptFieldPackerReset1_1Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerReset1_1Cmd)
+	renderscriptFieldPackerSkipCmd.Flags().Int64("handle", 0, "handle (int64)")
+	renderscriptFieldPackerSkipCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerSkipCmd)
+	renderscriptFieldPackerSubBooleanCmd.Flags().Int64("handle", 0, "handle (int64)")
+	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerSubBooleanCmd)
+	renderscriptFieldPackerSubByte2Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerSubByte2Cmd)
+	renderscriptFieldPackerSubByte3Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerSubByte3Cmd)
+	renderscriptFieldPackerSubByte4Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerSubByte4Cmd)
+	renderscriptFieldPackerSubDouble2Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerSubDouble2Cmd)
+	renderscriptFieldPackerSubDouble3Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerSubDouble3Cmd)
+	renderscriptFieldPackerSubDouble4Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerSubDouble4Cmd)
+	renderscriptFieldPackerSubF32Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerSubF32Cmd)
+	renderscriptFieldPackerSubF64Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerSubF64Cmd)
+	renderscriptFieldPackerSubFloat2Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerSubFloat2Cmd)
+	renderscriptFieldPackerSubFloat3Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerSubFloat3Cmd)
+	renderscriptFieldPackerSubFloat4Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerSubFloat4Cmd)
+	renderscriptFieldPackerSubI16Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerSubI16Cmd)
+	renderscriptFieldPackerSubI32Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerSubI32Cmd)
+	renderscriptFieldPackerSubI64Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerSubI64Cmd)
+	renderscriptFieldPackerSubI8Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerSubI8Cmd)
+	renderscriptFieldPackerSubInt2Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerSubInt2Cmd)
+	renderscriptFieldPackerSubInt3Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerSubInt3Cmd)
+	renderscriptFieldPackerSubInt4Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerSubInt4Cmd)
+	renderscriptFieldPackerSubLong2Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerSubLong2Cmd)
+	renderscriptFieldPackerSubLong3Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerSubLong3Cmd)
+	renderscriptFieldPackerSubLong4Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerSubLong4Cmd)
+	renderscriptFieldPackerSubMatrix2fCmd.Flags().Int64("handle", 0, "handle (int64)")
+	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerSubMatrix2fCmd)
+	renderscriptFieldPackerSubMatrix3fCmd.Flags().Int64("handle", 0, "handle (int64)")
+	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerSubMatrix3fCmd)
+	renderscriptFieldPackerSubMatrix4fCmd.Flags().Int64("handle", 0, "handle (int64)")
+	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerSubMatrix4fCmd)
+	renderscriptFieldPackerSubShort2Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerSubShort2Cmd)
+	renderscriptFieldPackerSubShort3Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerSubShort3Cmd)
+	renderscriptFieldPackerSubShort4Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerSubShort4Cmd)
+	renderscriptFieldPackerSubalignCmd.Flags().Int64("handle", 0, "handle (int64)")
+	renderscriptFieldPackerSubalignCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerSubalignCmd)
+	renderscriptCmd.AddCommand(renderscriptFieldPackerCmd)
 	renderscriptRenderScriptCmd.AddCommand(renderscriptRenderScriptContextDumpCmd)
 	renderscriptRenderScriptCmd.AddCommand(renderscriptRenderScriptDestroyCmd)
 	renderscriptRenderScriptCmd.AddCommand(renderscriptRenderScriptFinishCmd)
@@ -15374,6 +16137,273 @@ func init() {
 	renderscriptCmd.AddCommand(renderscriptRenderScriptRSErrorHandlerCmd)
 	renderscriptRenderScriptRSMessageHandlerCmd.AddCommand(renderscriptRenderScriptRSMessageHandlerRunCmd)
 	renderscriptCmd.AddCommand(renderscriptRenderScriptRSMessageHandlerCmd)
+	renderscriptScriptIntrinsicBlurForEach1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptScriptIntrinsicBlurCmd.AddCommand(renderscriptScriptIntrinsicBlurForEach1Cmd)
+	renderscriptScriptIntrinsicBlurForEach2_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptScriptIntrinsicBlurForEach2_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	renderscriptScriptIntrinsicBlurCmd.AddCommand(renderscriptScriptIntrinsicBlurForEach2_1Cmd)
+	renderscriptScriptIntrinsicBlurCmd.AddCommand(renderscriptScriptIntrinsicBlurGetFieldID_InputCmd)
+	renderscriptScriptIntrinsicBlurCmd.AddCommand(renderscriptScriptIntrinsicBlurGetKernelIDCmd)
+	renderscriptScriptIntrinsicBlurSetInputCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptScriptIntrinsicBlurCmd.AddCommand(renderscriptScriptIntrinsicBlurSetInputCmd)
+	renderscriptScriptIntrinsicBlurSetRadiusCmd.Flags().Float32("arg0", 0, "arg0 (float32)")
+	renderscriptScriptIntrinsicBlurCmd.AddCommand(renderscriptScriptIntrinsicBlurSetRadiusCmd)
+	renderscriptScriptIntrinsicBlurCreateCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptScriptIntrinsicBlurCreateCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	renderscriptScriptIntrinsicBlurCmd.AddCommand(renderscriptScriptIntrinsicBlurCreateCmd)
+	renderscriptCmd.AddCommand(renderscriptScriptIntrinsicBlurCmd)
+	renderscriptScriptIntrinsicLUTCmd.AddCommand(renderscriptScriptIntrinsicLUTDestroyCmd)
+	renderscriptScriptIntrinsicLUTForEach2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptScriptIntrinsicLUTForEach2Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	renderscriptScriptIntrinsicLUTCmd.AddCommand(renderscriptScriptIntrinsicLUTForEach2Cmd)
+	renderscriptScriptIntrinsicLUTForEach3_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptScriptIntrinsicLUTForEach3_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	renderscriptScriptIntrinsicLUTForEach3_1Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	renderscriptScriptIntrinsicLUTCmd.AddCommand(renderscriptScriptIntrinsicLUTForEach3_1Cmd)
+	renderscriptScriptIntrinsicLUTCmd.AddCommand(renderscriptScriptIntrinsicLUTGetKernelIDCmd)
+	renderscriptScriptIntrinsicLUTSetAlphaCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	renderscriptScriptIntrinsicLUTSetAlphaCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	renderscriptScriptIntrinsicLUTCmd.AddCommand(renderscriptScriptIntrinsicLUTSetAlphaCmd)
+	renderscriptScriptIntrinsicLUTSetBlueCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	renderscriptScriptIntrinsicLUTSetBlueCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	renderscriptScriptIntrinsicLUTCmd.AddCommand(renderscriptScriptIntrinsicLUTSetBlueCmd)
+	renderscriptScriptIntrinsicLUTSetGreenCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	renderscriptScriptIntrinsicLUTSetGreenCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	renderscriptScriptIntrinsicLUTCmd.AddCommand(renderscriptScriptIntrinsicLUTSetGreenCmd)
+	renderscriptScriptIntrinsicLUTSetRedCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	renderscriptScriptIntrinsicLUTSetRedCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	renderscriptScriptIntrinsicLUTCmd.AddCommand(renderscriptScriptIntrinsicLUTSetRedCmd)
+	renderscriptScriptIntrinsicLUTCreateCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptScriptIntrinsicLUTCreateCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	renderscriptScriptIntrinsicLUTCmd.AddCommand(renderscriptScriptIntrinsicLUTCreateCmd)
+	renderscriptCmd.AddCommand(renderscriptScriptIntrinsicLUTCmd)
+	renderscriptMatrix2fCmd.AddCommand(renderscriptMatrix2fNewMatrix2fCmd)
+	renderscriptMatrix2fGetCmd.Flags().Int64("handle", 0, "handle (int64)")
+	renderscriptMatrix2fGetCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	renderscriptMatrix2fGetCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	renderscriptMatrix2fCmd.AddCommand(renderscriptMatrix2fGetCmd)
+	renderscriptMatrix2fGetArrayCmd.Flags().Int64("handle", 0, "handle (int64)")
+	renderscriptMatrix2fCmd.AddCommand(renderscriptMatrix2fGetArrayCmd)
+	renderscriptMatrix2fLoadCmd.Flags().Int64("handle", 0, "handle (int64)")
+	renderscriptMatrix2fLoadCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptMatrix2fCmd.AddCommand(renderscriptMatrix2fLoadCmd)
+	renderscriptMatrix2fLoadIdentityCmd.Flags().Int64("handle", 0, "handle (int64)")
+	renderscriptMatrix2fCmd.AddCommand(renderscriptMatrix2fLoadIdentityCmd)
+	renderscriptMatrix2fLoadMultiplyCmd.Flags().Int64("handle", 0, "handle (int64)")
+	renderscriptMatrix2fLoadMultiplyCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptMatrix2fLoadMultiplyCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	renderscriptMatrix2fCmd.AddCommand(renderscriptMatrix2fLoadMultiplyCmd)
+	renderscriptMatrix2fLoadRotateCmd.Flags().Int64("handle", 0, "handle (int64)")
+	renderscriptMatrix2fLoadRotateCmd.Flags().Float32("arg0", 0, "arg0 (float32)")
+	renderscriptMatrix2fCmd.AddCommand(renderscriptMatrix2fLoadRotateCmd)
+	renderscriptMatrix2fLoadScaleCmd.Flags().Int64("handle", 0, "handle (int64)")
+	renderscriptMatrix2fLoadScaleCmd.Flags().Float32("arg0", 0, "arg0 (float32)")
+	renderscriptMatrix2fLoadScaleCmd.Flags().Float32("arg1", 0, "arg1 (float32)")
+	renderscriptMatrix2fCmd.AddCommand(renderscriptMatrix2fLoadScaleCmd)
+	renderscriptMatrix2fMultiplyCmd.Flags().Int64("handle", 0, "handle (int64)")
+	renderscriptMatrix2fMultiplyCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptMatrix2fCmd.AddCommand(renderscriptMatrix2fMultiplyCmd)
+	renderscriptMatrix2fRotateCmd.Flags().Int64("handle", 0, "handle (int64)")
+	renderscriptMatrix2fRotateCmd.Flags().Float32("arg0", 0, "arg0 (float32)")
+	renderscriptMatrix2fCmd.AddCommand(renderscriptMatrix2fRotateCmd)
+	renderscriptMatrix2fScaleCmd.Flags().Int64("handle", 0, "handle (int64)")
+	renderscriptMatrix2fScaleCmd.Flags().Float32("arg0", 0, "arg0 (float32)")
+	renderscriptMatrix2fScaleCmd.Flags().Float32("arg1", 0, "arg1 (float32)")
+	renderscriptMatrix2fCmd.AddCommand(renderscriptMatrix2fScaleCmd)
+	renderscriptMatrix2fSetCmd.Flags().Int64("handle", 0, "handle (int64)")
+	renderscriptMatrix2fSetCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	renderscriptMatrix2fSetCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	renderscriptMatrix2fSetCmd.Flags().Float32("arg2", 0, "arg2 (float32)")
+	renderscriptMatrix2fCmd.AddCommand(renderscriptMatrix2fSetCmd)
+	renderscriptMatrix2fTransposeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	renderscriptMatrix2fCmd.AddCommand(renderscriptMatrix2fTransposeCmd)
+	renderscriptCmd.AddCommand(renderscriptMatrix2fCmd)
+	renderscriptScriptIntrinsicYuvToRGBForEachCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptScriptIntrinsicYuvToRGBCmd.AddCommand(renderscriptScriptIntrinsicYuvToRGBForEachCmd)
+	renderscriptScriptIntrinsicYuvToRGBCmd.AddCommand(renderscriptScriptIntrinsicYuvToRGBGetFieldID_InputCmd)
+	renderscriptScriptIntrinsicYuvToRGBCmd.AddCommand(renderscriptScriptIntrinsicYuvToRGBGetKernelIDCmd)
+	renderscriptScriptIntrinsicYuvToRGBSetInputCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptScriptIntrinsicYuvToRGBCmd.AddCommand(renderscriptScriptIntrinsicYuvToRGBSetInputCmd)
+	renderscriptScriptIntrinsicYuvToRGBCreateCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptScriptIntrinsicYuvToRGBCreateCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	renderscriptScriptIntrinsicYuvToRGBCmd.AddCommand(renderscriptScriptIntrinsicYuvToRGBCreateCmd)
+	renderscriptCmd.AddCommand(renderscriptScriptIntrinsicYuvToRGBCmd)
+	renderscriptElementCmd.AddCommand(renderscriptElementGetBytesSizeCmd)
+	renderscriptElementCmd.AddCommand(renderscriptElementGetDataKindCmd)
+	renderscriptElementCmd.AddCommand(renderscriptElementGetDataTypeCmd)
+	renderscriptElementGetSubElementCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	renderscriptElementCmd.AddCommand(renderscriptElementGetSubElementCmd)
+	renderscriptElementGetSubElementArraySizeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	renderscriptElementCmd.AddCommand(renderscriptElementGetSubElementArraySizeCmd)
+	renderscriptElementCmd.AddCommand(renderscriptElementGetSubElementCountCmd)
+	renderscriptElementGetSubElementNameCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	renderscriptElementCmd.AddCommand(renderscriptElementGetSubElementNameCmd)
+	renderscriptElementGetSubElementOffsetBytesCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	renderscriptElementCmd.AddCommand(renderscriptElementGetSubElementOffsetBytesCmd)
+	renderscriptElementCmd.AddCommand(renderscriptElementGetVectorSizeCmd)
+	renderscriptElementIsCompatibleCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptElementCmd.AddCommand(renderscriptElementIsCompatibleCmd)
+	renderscriptElementCmd.AddCommand(renderscriptElementIsComplexCmd)
+	renderscriptElementALLOCATIONCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptElementCmd.AddCommand(renderscriptElementALLOCATIONCmd)
+	renderscriptElementA_8Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptElementCmd.AddCommand(renderscriptElementA_8Cmd)
+	renderscriptElementBOOLEANCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptElementCmd.AddCommand(renderscriptElementBOOLEANCmd)
+	renderscriptElementELEMENTCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptElementCmd.AddCommand(renderscriptElementELEMENTCmd)
+	renderscriptElementF16Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptElementCmd.AddCommand(renderscriptElementF16Cmd)
+	renderscriptElementF16_2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptElementCmd.AddCommand(renderscriptElementF16_2Cmd)
+	renderscriptElementF16_3Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptElementCmd.AddCommand(renderscriptElementF16_3Cmd)
+	renderscriptElementF16_4Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptElementCmd.AddCommand(renderscriptElementF16_4Cmd)
+	renderscriptElementF32Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptElementCmd.AddCommand(renderscriptElementF32Cmd)
+	renderscriptElementF32_2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptElementCmd.AddCommand(renderscriptElementF32_2Cmd)
+	renderscriptElementF32_3Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptElementCmd.AddCommand(renderscriptElementF32_3Cmd)
+	renderscriptElementF32_4Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptElementCmd.AddCommand(renderscriptElementF32_4Cmd)
+	renderscriptElementF64Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptElementCmd.AddCommand(renderscriptElementF64Cmd)
+	renderscriptElementF64_2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptElementCmd.AddCommand(renderscriptElementF64_2Cmd)
+	renderscriptElementF64_3Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptElementCmd.AddCommand(renderscriptElementF64_3Cmd)
+	renderscriptElementF64_4Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptElementCmd.AddCommand(renderscriptElementF64_4Cmd)
+	renderscriptElementFONTCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptElementCmd.AddCommand(renderscriptElementFONTCmd)
+	renderscriptElementI16Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptElementCmd.AddCommand(renderscriptElementI16Cmd)
+	renderscriptElementI16_2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptElementCmd.AddCommand(renderscriptElementI16_2Cmd)
+	renderscriptElementI16_3Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptElementCmd.AddCommand(renderscriptElementI16_3Cmd)
+	renderscriptElementI16_4Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptElementCmd.AddCommand(renderscriptElementI16_4Cmd)
+	renderscriptElementI32Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptElementCmd.AddCommand(renderscriptElementI32Cmd)
+	renderscriptElementI32_2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptElementCmd.AddCommand(renderscriptElementI32_2Cmd)
+	renderscriptElementI32_3Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptElementCmd.AddCommand(renderscriptElementI32_3Cmd)
+	renderscriptElementI32_4Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptElementCmd.AddCommand(renderscriptElementI32_4Cmd)
+	renderscriptElementI64Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptElementCmd.AddCommand(renderscriptElementI64Cmd)
+	renderscriptElementI64_2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptElementCmd.AddCommand(renderscriptElementI64_2Cmd)
+	renderscriptElementI64_3Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptElementCmd.AddCommand(renderscriptElementI64_3Cmd)
+	renderscriptElementI64_4Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptElementCmd.AddCommand(renderscriptElementI64_4Cmd)
+	renderscriptElementI8Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptElementCmd.AddCommand(renderscriptElementI8Cmd)
+	renderscriptElementI8_2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptElementCmd.AddCommand(renderscriptElementI8_2Cmd)
+	renderscriptElementI8_3Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptElementCmd.AddCommand(renderscriptElementI8_3Cmd)
+	renderscriptElementI8_4Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptElementCmd.AddCommand(renderscriptElementI8_4Cmd)
+	renderscriptElementMATRIX4X4Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptElementCmd.AddCommand(renderscriptElementMATRIX4X4Cmd)
+	renderscriptElementMATRIX_2X2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptElementCmd.AddCommand(renderscriptElementMATRIX_2X2Cmd)
+	renderscriptElementMATRIX_3X3Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptElementCmd.AddCommand(renderscriptElementMATRIX_3X3Cmd)
+	renderscriptElementMATRIX_4X4Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptElementCmd.AddCommand(renderscriptElementMATRIX_4X4Cmd)
+	renderscriptElementMESHCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptElementCmd.AddCommand(renderscriptElementMESHCmd)
+	renderscriptElementPROGRAM_FRAGMENTCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptElementCmd.AddCommand(renderscriptElementPROGRAM_FRAGMENTCmd)
+	renderscriptElementPROGRAM_RASTERCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptElementCmd.AddCommand(renderscriptElementPROGRAM_RASTERCmd)
+	renderscriptElementPROGRAM_STORECmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptElementCmd.AddCommand(renderscriptElementPROGRAM_STORECmd)
+	renderscriptElementPROGRAM_VERTEXCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptElementCmd.AddCommand(renderscriptElementPROGRAM_VERTEXCmd)
+	renderscriptElementRGBA_4444Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptElementCmd.AddCommand(renderscriptElementRGBA_4444Cmd)
+	renderscriptElementRGBA_5551Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptElementCmd.AddCommand(renderscriptElementRGBA_5551Cmd)
+	renderscriptElementRGBA_8888Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptElementCmd.AddCommand(renderscriptElementRGBA_8888Cmd)
+	renderscriptElementRGB_565Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptElementCmd.AddCommand(renderscriptElementRGB_565Cmd)
+	renderscriptElementRGB_888Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptElementCmd.AddCommand(renderscriptElementRGB_888Cmd)
+	renderscriptElementSAMPLERCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptElementCmd.AddCommand(renderscriptElementSAMPLERCmd)
+	renderscriptElementSCRIPTCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptElementCmd.AddCommand(renderscriptElementSCRIPTCmd)
+	renderscriptElementTYPECmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptElementCmd.AddCommand(renderscriptElementTYPECmd)
+	renderscriptElementU16Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptElementCmd.AddCommand(renderscriptElementU16Cmd)
+	renderscriptElementU16_2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptElementCmd.AddCommand(renderscriptElementU16_2Cmd)
+	renderscriptElementU16_3Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptElementCmd.AddCommand(renderscriptElementU16_3Cmd)
+	renderscriptElementU16_4Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptElementCmd.AddCommand(renderscriptElementU16_4Cmd)
+	renderscriptElementU32Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptElementCmd.AddCommand(renderscriptElementU32Cmd)
+	renderscriptElementU32_2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptElementCmd.AddCommand(renderscriptElementU32_2Cmd)
+	renderscriptElementU32_3Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptElementCmd.AddCommand(renderscriptElementU32_3Cmd)
+	renderscriptElementU32_4Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptElementCmd.AddCommand(renderscriptElementU32_4Cmd)
+	renderscriptElementU64Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptElementCmd.AddCommand(renderscriptElementU64Cmd)
+	renderscriptElementU64_2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptElementCmd.AddCommand(renderscriptElementU64_2Cmd)
+	renderscriptElementU64_3Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptElementCmd.AddCommand(renderscriptElementU64_3Cmd)
+	renderscriptElementU64_4Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptElementCmd.AddCommand(renderscriptElementU64_4Cmd)
+	renderscriptElementU8Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptElementCmd.AddCommand(renderscriptElementU8Cmd)
+	renderscriptElementU8_2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptElementCmd.AddCommand(renderscriptElementU8_2Cmd)
+	renderscriptElementU8_3Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptElementCmd.AddCommand(renderscriptElementU8_3Cmd)
+	renderscriptElementU8_4Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptElementCmd.AddCommand(renderscriptElementU8_4Cmd)
+	renderscriptElementYUVCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptElementCmd.AddCommand(renderscriptElementYUVCmd)
+	renderscriptElementCreatePixelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptElementCreatePixelCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	renderscriptElementCreatePixelCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	renderscriptElementCmd.AddCommand(renderscriptElementCreatePixelCmd)
+	renderscriptElementCreateVectorCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptElementCreateVectorCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	renderscriptElementCreateVectorCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	renderscriptElementCmd.AddCommand(renderscriptElementCreateVectorCmd)
+	renderscriptCmd.AddCommand(renderscriptElementCmd)
+	renderscriptElementBuilderAdd2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptElementBuilderAdd2Cmd.Flags().String("arg1", "", "arg1 (string)")
+	renderscriptElementBuilderCmd.AddCommand(renderscriptElementBuilderAdd2Cmd)
+	renderscriptElementBuilderAdd3_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptElementBuilderAdd3_1Cmd.Flags().String("arg1", "", "arg1 (string)")
+	renderscriptElementBuilderAdd3_1Cmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	renderscriptElementBuilderCmd.AddCommand(renderscriptElementBuilderAdd3_1Cmd)
+	renderscriptElementBuilderCmd.AddCommand(renderscriptElementBuilderCreateCmd)
+	renderscriptCmd.AddCommand(renderscriptElementBuilderCmd)
+	renderscriptElementDataKindCmd.AddCommand(renderscriptElementDataKindValuesCmd)
+	renderscriptElementDataKindValueOfCmd.Flags().String("arg0", "", "arg0 (string)")
+	renderscriptElementDataKindCmd.AddCommand(renderscriptElementDataKindValueOfCmd)
+	renderscriptCmd.AddCommand(renderscriptElementDataKindCmd)
+	renderscriptElementDataTypeCmd.AddCommand(renderscriptElementDataTypeValuesCmd)
+	renderscriptElementDataTypeValueOfCmd.Flags().String("arg0", "", "arg0 (string)")
+	renderscriptElementDataTypeCmd.AddCommand(renderscriptElementDataTypeValueOfCmd)
+	renderscriptCmd.AddCommand(renderscriptElementDataTypeCmd)
 	renderscriptScriptIntrinsicBLASBNNMCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	renderscriptScriptIntrinsicBLASBNNMCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
 	renderscriptScriptIntrinsicBLASBNNMCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
@@ -16141,343 +17171,6 @@ func init() {
 	renderscriptScriptIntrinsicBLASCreateCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	renderscriptScriptIntrinsicBLASCmd.AddCommand(renderscriptScriptIntrinsicBLASCreateCmd)
 	renderscriptCmd.AddCommand(renderscriptScriptIntrinsicBLASCmd)
-	renderscriptAllocationCopy1DRangeFrom4Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	renderscriptAllocationCopy1DRangeFrom4Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	renderscriptAllocationCopy1DRangeFrom4Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	renderscriptAllocationCopy1DRangeFrom4Cmd.Flags().Int32("arg3", 0, "arg3 (int32)")
-	renderscriptAllocationCmd.AddCommand(renderscriptAllocationCopy1DRangeFrom4Cmd)
-	renderscriptAllocationCopy1DRangeFrom3_1Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	renderscriptAllocationCopy1DRangeFrom3_1Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	renderscriptAllocationCopy1DRangeFrom3_1Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	renderscriptAllocationCmd.AddCommand(renderscriptAllocationCopy1DRangeFrom3_1Cmd)
-	renderscriptAllocationCopy1DRangeFrom3_2Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	renderscriptAllocationCopy1DRangeFrom3_2Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	renderscriptAllocationCopy1DRangeFrom3_2Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	renderscriptAllocationCmd.AddCommand(renderscriptAllocationCopy1DRangeFrom3_2Cmd)
-	renderscriptAllocationCopy1DRangeFrom3_3Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	renderscriptAllocationCopy1DRangeFrom3_3Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	renderscriptAllocationCopy1DRangeFrom3_3Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	renderscriptAllocationCmd.AddCommand(renderscriptAllocationCopy1DRangeFrom3_3Cmd)
-	renderscriptAllocationCopy1DRangeFrom3_4Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	renderscriptAllocationCopy1DRangeFrom3_4Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	renderscriptAllocationCopy1DRangeFrom3_4Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	renderscriptAllocationCmd.AddCommand(renderscriptAllocationCopy1DRangeFrom3_4Cmd)
-	renderscriptAllocationCopy1DRangeFrom3_5Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	renderscriptAllocationCopy1DRangeFrom3_5Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	renderscriptAllocationCopy1DRangeFrom3_5Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	renderscriptAllocationCmd.AddCommand(renderscriptAllocationCopy1DRangeFrom3_5Cmd)
-	renderscriptAllocationCopy1DRangeFromUnchecked3Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	renderscriptAllocationCopy1DRangeFromUnchecked3Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	renderscriptAllocationCopy1DRangeFromUnchecked3Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	renderscriptAllocationCmd.AddCommand(renderscriptAllocationCopy1DRangeFromUnchecked3Cmd)
-	renderscriptAllocationCopy1DRangeFromUnchecked3_1Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	renderscriptAllocationCopy1DRangeFromUnchecked3_1Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	renderscriptAllocationCopy1DRangeFromUnchecked3_1Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	renderscriptAllocationCmd.AddCommand(renderscriptAllocationCopy1DRangeFromUnchecked3_1Cmd)
-	renderscriptAllocationCopy1DRangeFromUnchecked3_2Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	renderscriptAllocationCopy1DRangeFromUnchecked3_2Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	renderscriptAllocationCopy1DRangeFromUnchecked3_2Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	renderscriptAllocationCmd.AddCommand(renderscriptAllocationCopy1DRangeFromUnchecked3_2Cmd)
-	renderscriptAllocationCopy1DRangeFromUnchecked3_3Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	renderscriptAllocationCopy1DRangeFromUnchecked3_3Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	renderscriptAllocationCopy1DRangeFromUnchecked3_3Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	renderscriptAllocationCmd.AddCommand(renderscriptAllocationCopy1DRangeFromUnchecked3_3Cmd)
-	renderscriptAllocationCopy1DRangeFromUnchecked3_4Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	renderscriptAllocationCopy1DRangeFromUnchecked3_4Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	renderscriptAllocationCopy1DRangeFromUnchecked3_4Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	renderscriptAllocationCmd.AddCommand(renderscriptAllocationCopy1DRangeFromUnchecked3_4Cmd)
-	renderscriptAllocationCopy1DRangeTo3Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	renderscriptAllocationCopy1DRangeTo3Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	renderscriptAllocationCopy1DRangeTo3Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	renderscriptAllocationCmd.AddCommand(renderscriptAllocationCopy1DRangeTo3Cmd)
-	renderscriptAllocationCopy1DRangeTo3_1Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	renderscriptAllocationCopy1DRangeTo3_1Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	renderscriptAllocationCopy1DRangeTo3_1Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	renderscriptAllocationCmd.AddCommand(renderscriptAllocationCopy1DRangeTo3_1Cmd)
-	renderscriptAllocationCopy1DRangeTo3_2Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	renderscriptAllocationCopy1DRangeTo3_2Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	renderscriptAllocationCopy1DRangeTo3_2Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	renderscriptAllocationCmd.AddCommand(renderscriptAllocationCopy1DRangeTo3_2Cmd)
-	renderscriptAllocationCopy1DRangeTo3_3Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	renderscriptAllocationCopy1DRangeTo3_3Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	renderscriptAllocationCopy1DRangeTo3_3Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	renderscriptAllocationCmd.AddCommand(renderscriptAllocationCopy1DRangeTo3_3Cmd)
-	renderscriptAllocationCopy1DRangeTo3_4Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	renderscriptAllocationCopy1DRangeTo3_4Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	renderscriptAllocationCopy1DRangeTo3_4Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	renderscriptAllocationCmd.AddCommand(renderscriptAllocationCopy1DRangeTo3_4Cmd)
-	renderscriptAllocationCopy1DRangeToUnchecked3Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	renderscriptAllocationCopy1DRangeToUnchecked3Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	renderscriptAllocationCopy1DRangeToUnchecked3Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	renderscriptAllocationCmd.AddCommand(renderscriptAllocationCopy1DRangeToUnchecked3Cmd)
-	renderscriptAllocationCopy1DRangeToUnchecked3_1Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	renderscriptAllocationCopy1DRangeToUnchecked3_1Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	renderscriptAllocationCopy1DRangeToUnchecked3_1Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	renderscriptAllocationCmd.AddCommand(renderscriptAllocationCopy1DRangeToUnchecked3_1Cmd)
-	renderscriptAllocationCopy1DRangeToUnchecked3_2Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	renderscriptAllocationCopy1DRangeToUnchecked3_2Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	renderscriptAllocationCopy1DRangeToUnchecked3_2Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	renderscriptAllocationCmd.AddCommand(renderscriptAllocationCopy1DRangeToUnchecked3_2Cmd)
-	renderscriptAllocationCopy1DRangeToUnchecked3_3Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	renderscriptAllocationCopy1DRangeToUnchecked3_3Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	renderscriptAllocationCopy1DRangeToUnchecked3_3Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	renderscriptAllocationCmd.AddCommand(renderscriptAllocationCopy1DRangeToUnchecked3_3Cmd)
-	renderscriptAllocationCopy1DRangeToUnchecked3_4Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	renderscriptAllocationCopy1DRangeToUnchecked3_4Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	renderscriptAllocationCopy1DRangeToUnchecked3_4Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	renderscriptAllocationCmd.AddCommand(renderscriptAllocationCopy1DRangeToUnchecked3_4Cmd)
-	renderscriptAllocationCopy2DRangeFrom3Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	renderscriptAllocationCopy2DRangeFrom3Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	renderscriptAllocationCopy2DRangeFrom3Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	renderscriptAllocationCmd.AddCommand(renderscriptAllocationCopy2DRangeFrom3Cmd)
-	renderscriptAllocationCopy2DRangeFrom7_1Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	renderscriptAllocationCopy2DRangeFrom7_1Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	renderscriptAllocationCopy2DRangeFrom7_1Cmd.Flags().Int32("arg2", 0, "arg2 (int32)")
-	renderscriptAllocationCopy2DRangeFrom7_1Cmd.Flags().Int32("arg3", 0, "arg3 (int32)")
-	renderscriptAllocationCopy2DRangeFrom7_1Cmd.Flags().Int64("arg4", 0, "arg4 (int64)")
-	renderscriptAllocationCopy2DRangeFrom7_1Cmd.Flags().Int32("arg5", 0, "arg5 (int32)")
-	renderscriptAllocationCopy2DRangeFrom7_1Cmd.Flags().Int32("arg6", 0, "arg6 (int32)")
-	renderscriptAllocationCmd.AddCommand(renderscriptAllocationCopy2DRangeFrom7_1Cmd)
-	renderscriptAllocationCopy2DRangeFrom5_2Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	renderscriptAllocationCopy2DRangeFrom5_2Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	renderscriptAllocationCopy2DRangeFrom5_2Cmd.Flags().Int32("arg2", 0, "arg2 (int32)")
-	renderscriptAllocationCopy2DRangeFrom5_2Cmd.Flags().Int32("arg3", 0, "arg3 (int32)")
-	renderscriptAllocationCopy2DRangeFrom5_2Cmd.Flags().Int64("arg4", 0, "arg4 (int64)")
-	renderscriptAllocationCmd.AddCommand(renderscriptAllocationCopy2DRangeFrom5_2Cmd)
-	renderscriptAllocationCopy2DRangeFrom5_3Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	renderscriptAllocationCopy2DRangeFrom5_3Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	renderscriptAllocationCopy2DRangeFrom5_3Cmd.Flags().Int32("arg2", 0, "arg2 (int32)")
-	renderscriptAllocationCopy2DRangeFrom5_3Cmd.Flags().Int32("arg3", 0, "arg3 (int32)")
-	renderscriptAllocationCopy2DRangeFrom5_3Cmd.Flags().Int64("arg4", 0, "arg4 (int64)")
-	renderscriptAllocationCmd.AddCommand(renderscriptAllocationCopy2DRangeFrom5_3Cmd)
-	renderscriptAllocationCopy2DRangeFrom5_4Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	renderscriptAllocationCopy2DRangeFrom5_4Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	renderscriptAllocationCopy2DRangeFrom5_4Cmd.Flags().Int32("arg2", 0, "arg2 (int32)")
-	renderscriptAllocationCopy2DRangeFrom5_4Cmd.Flags().Int32("arg3", 0, "arg3 (int32)")
-	renderscriptAllocationCopy2DRangeFrom5_4Cmd.Flags().Int64("arg4", 0, "arg4 (int64)")
-	renderscriptAllocationCmd.AddCommand(renderscriptAllocationCopy2DRangeFrom5_4Cmd)
-	renderscriptAllocationCopy2DRangeFrom5_5Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	renderscriptAllocationCopy2DRangeFrom5_5Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	renderscriptAllocationCopy2DRangeFrom5_5Cmd.Flags().Int32("arg2", 0, "arg2 (int32)")
-	renderscriptAllocationCopy2DRangeFrom5_5Cmd.Flags().Int32("arg3", 0, "arg3 (int32)")
-	renderscriptAllocationCopy2DRangeFrom5_5Cmd.Flags().Int64("arg4", 0, "arg4 (int64)")
-	renderscriptAllocationCmd.AddCommand(renderscriptAllocationCopy2DRangeFrom5_5Cmd)
-	renderscriptAllocationCopy2DRangeFrom5_6Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	renderscriptAllocationCopy2DRangeFrom5_6Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	renderscriptAllocationCopy2DRangeFrom5_6Cmd.Flags().Int32("arg2", 0, "arg2 (int32)")
-	renderscriptAllocationCopy2DRangeFrom5_6Cmd.Flags().Int32("arg3", 0, "arg3 (int32)")
-	renderscriptAllocationCopy2DRangeFrom5_6Cmd.Flags().Int64("arg4", 0, "arg4 (int64)")
-	renderscriptAllocationCmd.AddCommand(renderscriptAllocationCopy2DRangeFrom5_6Cmd)
-	renderscriptAllocationCopy2DRangeTo5Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	renderscriptAllocationCopy2DRangeTo5Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	renderscriptAllocationCopy2DRangeTo5Cmd.Flags().Int32("arg2", 0, "arg2 (int32)")
-	renderscriptAllocationCopy2DRangeTo5Cmd.Flags().Int32("arg3", 0, "arg3 (int32)")
-	renderscriptAllocationCopy2DRangeTo5Cmd.Flags().Int64("arg4", 0, "arg4 (int64)")
-	renderscriptAllocationCmd.AddCommand(renderscriptAllocationCopy2DRangeTo5Cmd)
-	renderscriptAllocationCopy2DRangeTo5_1Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	renderscriptAllocationCopy2DRangeTo5_1Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	renderscriptAllocationCopy2DRangeTo5_1Cmd.Flags().Int32("arg2", 0, "arg2 (int32)")
-	renderscriptAllocationCopy2DRangeTo5_1Cmd.Flags().Int32("arg3", 0, "arg3 (int32)")
-	renderscriptAllocationCopy2DRangeTo5_1Cmd.Flags().Int64("arg4", 0, "arg4 (int64)")
-	renderscriptAllocationCmd.AddCommand(renderscriptAllocationCopy2DRangeTo5_1Cmd)
-	renderscriptAllocationCopy2DRangeTo5_2Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	renderscriptAllocationCopy2DRangeTo5_2Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	renderscriptAllocationCopy2DRangeTo5_2Cmd.Flags().Int32("arg2", 0, "arg2 (int32)")
-	renderscriptAllocationCopy2DRangeTo5_2Cmd.Flags().Int32("arg3", 0, "arg3 (int32)")
-	renderscriptAllocationCopy2DRangeTo5_2Cmd.Flags().Int64("arg4", 0, "arg4 (int64)")
-	renderscriptAllocationCmd.AddCommand(renderscriptAllocationCopy2DRangeTo5_2Cmd)
-	renderscriptAllocationCopy2DRangeTo5_3Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	renderscriptAllocationCopy2DRangeTo5_3Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	renderscriptAllocationCopy2DRangeTo5_3Cmd.Flags().Int32("arg2", 0, "arg2 (int32)")
-	renderscriptAllocationCopy2DRangeTo5_3Cmd.Flags().Int32("arg3", 0, "arg3 (int32)")
-	renderscriptAllocationCopy2DRangeTo5_3Cmd.Flags().Int64("arg4", 0, "arg4 (int64)")
-	renderscriptAllocationCmd.AddCommand(renderscriptAllocationCopy2DRangeTo5_3Cmd)
-	renderscriptAllocationCopy2DRangeTo5_4Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	renderscriptAllocationCopy2DRangeTo5_4Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	renderscriptAllocationCopy2DRangeTo5_4Cmd.Flags().Int32("arg2", 0, "arg2 (int32)")
-	renderscriptAllocationCopy2DRangeTo5_4Cmd.Flags().Int32("arg3", 0, "arg3 (int32)")
-	renderscriptAllocationCopy2DRangeTo5_4Cmd.Flags().Int64("arg4", 0, "arg4 (int64)")
-	renderscriptAllocationCmd.AddCommand(renderscriptAllocationCopy2DRangeTo5_4Cmd)
-	renderscriptAllocationCopy3DRangeFrom10Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	renderscriptAllocationCopy3DRangeFrom10Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	renderscriptAllocationCopy3DRangeFrom10Cmd.Flags().Int32("arg2", 0, "arg2 (int32)")
-	renderscriptAllocationCopy3DRangeFrom10Cmd.Flags().Int32("arg3", 0, "arg3 (int32)")
-	renderscriptAllocationCopy3DRangeFrom10Cmd.Flags().Int32("arg4", 0, "arg4 (int32)")
-	renderscriptAllocationCopy3DRangeFrom10Cmd.Flags().Int32("arg5", 0, "arg5 (int32)")
-	renderscriptAllocationCopy3DRangeFrom10Cmd.Flags().Int64("arg6", 0, "arg6 (int64)")
-	renderscriptAllocationCopy3DRangeFrom10Cmd.Flags().Int32("arg7", 0, "arg7 (int32)")
-	renderscriptAllocationCopy3DRangeFrom10Cmd.Flags().Int32("arg8", 0, "arg8 (int32)")
-	renderscriptAllocationCopy3DRangeFrom10Cmd.Flags().Int32("arg9", 0, "arg9 (int32)")
-	renderscriptAllocationCmd.AddCommand(renderscriptAllocationCopy3DRangeFrom10Cmd)
-	renderscriptAllocationCopy3DRangeFrom7_1Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	renderscriptAllocationCopy3DRangeFrom7_1Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	renderscriptAllocationCopy3DRangeFrom7_1Cmd.Flags().Int32("arg2", 0, "arg2 (int32)")
-	renderscriptAllocationCopy3DRangeFrom7_1Cmd.Flags().Int32("arg3", 0, "arg3 (int32)")
-	renderscriptAllocationCopy3DRangeFrom7_1Cmd.Flags().Int32("arg4", 0, "arg4 (int32)")
-	renderscriptAllocationCopy3DRangeFrom7_1Cmd.Flags().Int32("arg5", 0, "arg5 (int32)")
-	renderscriptAllocationCopy3DRangeFrom7_1Cmd.Flags().Int64("arg6", 0, "arg6 (int64)")
-	renderscriptAllocationCmd.AddCommand(renderscriptAllocationCopy3DRangeFrom7_1Cmd)
-	renderscriptAllocationCopy3DRangeToCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	renderscriptAllocationCopy3DRangeToCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	renderscriptAllocationCopy3DRangeToCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
-	renderscriptAllocationCopy3DRangeToCmd.Flags().Int32("arg3", 0, "arg3 (int32)")
-	renderscriptAllocationCopy3DRangeToCmd.Flags().Int32("arg4", 0, "arg4 (int32)")
-	renderscriptAllocationCopy3DRangeToCmd.Flags().Int32("arg5", 0, "arg5 (int32)")
-	renderscriptAllocationCopy3DRangeToCmd.Flags().Int64("arg6", 0, "arg6 (int64)")
-	renderscriptAllocationCmd.AddCommand(renderscriptAllocationCopy3DRangeToCmd)
-	renderscriptAllocationCopyFrom1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptAllocationCmd.AddCommand(renderscriptAllocationCopyFrom1Cmd)
-	renderscriptAllocationCopyFrom1_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptAllocationCmd.AddCommand(renderscriptAllocationCopyFrom1_1Cmd)
-	renderscriptAllocationCopyFrom1_2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptAllocationCmd.AddCommand(renderscriptAllocationCopyFrom1_2Cmd)
-	renderscriptAllocationCopyFrom1_3Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptAllocationCmd.AddCommand(renderscriptAllocationCopyFrom1_3Cmd)
-	renderscriptAllocationCopyFrom1_4Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptAllocationCmd.AddCommand(renderscriptAllocationCopyFrom1_4Cmd)
-	renderscriptAllocationCopyFrom1_5Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptAllocationCmd.AddCommand(renderscriptAllocationCopyFrom1_5Cmd)
-	renderscriptAllocationCopyFrom1_6Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptAllocationCmd.AddCommand(renderscriptAllocationCopyFrom1_6Cmd)
-	renderscriptAllocationCopyFrom1_7Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptAllocationCmd.AddCommand(renderscriptAllocationCopyFrom1_7Cmd)
-	renderscriptAllocationCopyFromUnchecked1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptAllocationCmd.AddCommand(renderscriptAllocationCopyFromUnchecked1Cmd)
-	renderscriptAllocationCopyFromUnchecked1_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptAllocationCmd.AddCommand(renderscriptAllocationCopyFromUnchecked1_1Cmd)
-	renderscriptAllocationCopyFromUnchecked1_2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptAllocationCmd.AddCommand(renderscriptAllocationCopyFromUnchecked1_2Cmd)
-	renderscriptAllocationCopyFromUnchecked1_3Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptAllocationCmd.AddCommand(renderscriptAllocationCopyFromUnchecked1_3Cmd)
-	renderscriptAllocationCopyFromUnchecked1_4Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptAllocationCmd.AddCommand(renderscriptAllocationCopyFromUnchecked1_4Cmd)
-	renderscriptAllocationCopyTo1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptAllocationCmd.AddCommand(renderscriptAllocationCopyTo1Cmd)
-	renderscriptAllocationCopyTo1_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptAllocationCmd.AddCommand(renderscriptAllocationCopyTo1_1Cmd)
-	renderscriptAllocationCopyTo1_2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptAllocationCmd.AddCommand(renderscriptAllocationCopyTo1_2Cmd)
-	renderscriptAllocationCopyTo1_3Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptAllocationCmd.AddCommand(renderscriptAllocationCopyTo1_3Cmd)
-	renderscriptAllocationCopyTo1_4Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptAllocationCmd.AddCommand(renderscriptAllocationCopyTo1_4Cmd)
-	renderscriptAllocationCopyTo1_5Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptAllocationCmd.AddCommand(renderscriptAllocationCopyTo1_5Cmd)
-	renderscriptAllocationCmd.AddCommand(renderscriptAllocationDestroyCmd)
-	renderscriptAllocationCmd.AddCommand(renderscriptAllocationGenerateMipmapsCmd)
-	renderscriptAllocationCmd.AddCommand(renderscriptAllocationGetByteBufferCmd)
-	renderscriptAllocationCmd.AddCommand(renderscriptAllocationGetBytesSizeCmd)
-	renderscriptAllocationCmd.AddCommand(renderscriptAllocationGetElementCmd)
-	renderscriptAllocationCmd.AddCommand(renderscriptAllocationGetStrideCmd)
-	renderscriptAllocationCmd.AddCommand(renderscriptAllocationGetSurfaceCmd)
-	renderscriptAllocationCmd.AddCommand(renderscriptAllocationGetTimeStampCmd)
-	renderscriptAllocationCmd.AddCommand(renderscriptAllocationGetTypeCmd)
-	renderscriptAllocationCmd.AddCommand(renderscriptAllocationGetUsageCmd)
-	renderscriptAllocationCmd.AddCommand(renderscriptAllocationIoReceiveCmd)
-	renderscriptAllocationCmd.AddCommand(renderscriptAllocationIoSendCmd)
-	renderscriptAllocationSetAutoPaddingCmd.Flags().Bool("arg0", false, "arg0 (bool)")
-	renderscriptAllocationCmd.AddCommand(renderscriptAllocationSetAutoPaddingCmd)
-	renderscriptAllocationSetFromFieldPacker2Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	renderscriptAllocationSetFromFieldPacker2Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	renderscriptAllocationCmd.AddCommand(renderscriptAllocationSetFromFieldPacker2Cmd)
-	renderscriptAllocationSetFromFieldPacker3_1Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	renderscriptAllocationSetFromFieldPacker3_1Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	renderscriptAllocationSetFromFieldPacker3_1Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	renderscriptAllocationCmd.AddCommand(renderscriptAllocationSetFromFieldPacker3_1Cmd)
-	renderscriptAllocationSetFromFieldPacker5_2Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	renderscriptAllocationSetFromFieldPacker5_2Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	renderscriptAllocationSetFromFieldPacker5_2Cmd.Flags().Int32("arg2", 0, "arg2 (int32)")
-	renderscriptAllocationSetFromFieldPacker5_2Cmd.Flags().Int32("arg3", 0, "arg3 (int32)")
-	renderscriptAllocationSetFromFieldPacker5_2Cmd.Flags().Int64("arg4", 0, "arg4 (int64)")
-	renderscriptAllocationCmd.AddCommand(renderscriptAllocationSetFromFieldPacker5_2Cmd)
-	renderscriptAllocationSetOnBufferAvailableListenerCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptAllocationCmd.AddCommand(renderscriptAllocationSetOnBufferAvailableListenerCmd)
-	renderscriptAllocationSetSurfaceCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptAllocationCmd.AddCommand(renderscriptAllocationSetSurfaceCmd)
-	renderscriptAllocationSyncAllCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	renderscriptAllocationCmd.AddCommand(renderscriptAllocationSyncAllCmd)
-	renderscriptAllocationCreateAllocationsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptAllocationCreateAllocationsCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	renderscriptAllocationCreateAllocationsCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
-	renderscriptAllocationCreateAllocationsCmd.Flags().Int32("arg3", 0, "arg3 (int32)")
-	renderscriptAllocationCmd.AddCommand(renderscriptAllocationCreateAllocationsCmd)
-	renderscriptAllocationCreateCubemapFromBitmap2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptAllocationCreateCubemapFromBitmap2Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	renderscriptAllocationCmd.AddCommand(renderscriptAllocationCreateCubemapFromBitmap2Cmd)
-	renderscriptAllocationCreateCubemapFromBitmap4_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptAllocationCreateCubemapFromBitmap4_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	renderscriptAllocationCreateCubemapFromBitmap4_1Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	renderscriptAllocationCreateCubemapFromBitmap4_1Cmd.Flags().Int32("arg3", 0, "arg3 (int32)")
-	renderscriptAllocationCmd.AddCommand(renderscriptAllocationCreateCubemapFromBitmap4_1Cmd)
-	renderscriptAllocationCreateCubemapFromCubeFaces7Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptAllocationCreateCubemapFromCubeFaces7Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	renderscriptAllocationCreateCubemapFromCubeFaces7Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	renderscriptAllocationCreateCubemapFromCubeFaces7Cmd.Flags().Int64("arg3", 0, "arg3 (int64)")
-	renderscriptAllocationCreateCubemapFromCubeFaces7Cmd.Flags().Int64("arg4", 0, "arg4 (int64)")
-	renderscriptAllocationCreateCubemapFromCubeFaces7Cmd.Flags().Int64("arg5", 0, "arg5 (int64)")
-	renderscriptAllocationCreateCubemapFromCubeFaces7Cmd.Flags().Int64("arg6", 0, "arg6 (int64)")
-	renderscriptAllocationCmd.AddCommand(renderscriptAllocationCreateCubemapFromCubeFaces7Cmd)
-	renderscriptAllocationCreateCubemapFromCubeFaces9_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptAllocationCreateCubemapFromCubeFaces9_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	renderscriptAllocationCreateCubemapFromCubeFaces9_1Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	renderscriptAllocationCreateCubemapFromCubeFaces9_1Cmd.Flags().Int64("arg3", 0, "arg3 (int64)")
-	renderscriptAllocationCreateCubemapFromCubeFaces9_1Cmd.Flags().Int64("arg4", 0, "arg4 (int64)")
-	renderscriptAllocationCreateCubemapFromCubeFaces9_1Cmd.Flags().Int64("arg5", 0, "arg5 (int64)")
-	renderscriptAllocationCreateCubemapFromCubeFaces9_1Cmd.Flags().Int64("arg6", 0, "arg6 (int64)")
-	renderscriptAllocationCreateCubemapFromCubeFaces9_1Cmd.Flags().Int64("arg7", 0, "arg7 (int64)")
-	renderscriptAllocationCreateCubemapFromCubeFaces9_1Cmd.Flags().Int32("arg8", 0, "arg8 (int32)")
-	renderscriptAllocationCmd.AddCommand(renderscriptAllocationCreateCubemapFromCubeFaces9_1Cmd)
-	renderscriptAllocationCreateFromBitmap2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptAllocationCreateFromBitmap2Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	renderscriptAllocationCmd.AddCommand(renderscriptAllocationCreateFromBitmap2Cmd)
-	renderscriptAllocationCreateFromBitmap4_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptAllocationCreateFromBitmap4_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	renderscriptAllocationCreateFromBitmap4_1Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	renderscriptAllocationCreateFromBitmap4_1Cmd.Flags().Int32("arg3", 0, "arg3 (int32)")
-	renderscriptAllocationCmd.AddCommand(renderscriptAllocationCreateFromBitmap4_1Cmd)
-	renderscriptAllocationCreateFromBitmapResource3Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptAllocationCreateFromBitmapResource3Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	renderscriptAllocationCreateFromBitmapResource3Cmd.Flags().Int32("arg2", 0, "arg2 (int32)")
-	renderscriptAllocationCmd.AddCommand(renderscriptAllocationCreateFromBitmapResource3Cmd)
-	renderscriptAllocationCreateFromBitmapResource5_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptAllocationCreateFromBitmapResource5_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	renderscriptAllocationCreateFromBitmapResource5_1Cmd.Flags().Int32("arg2", 0, "arg2 (int32)")
-	renderscriptAllocationCreateFromBitmapResource5_1Cmd.Flags().Int64("arg3", 0, "arg3 (int64)")
-	renderscriptAllocationCreateFromBitmapResource5_1Cmd.Flags().Int32("arg4", 0, "arg4 (int32)")
-	renderscriptAllocationCmd.AddCommand(renderscriptAllocationCreateFromBitmapResource5_1Cmd)
-	renderscriptAllocationCreateFromStringCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptAllocationCreateFromStringCmd.Flags().String("arg1", "", "arg1 (string)")
-	renderscriptAllocationCreateFromStringCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
-	renderscriptAllocationCmd.AddCommand(renderscriptAllocationCreateFromStringCmd)
-	renderscriptAllocationCreateSized3Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptAllocationCreateSized3Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	renderscriptAllocationCreateSized3Cmd.Flags().Int32("arg2", 0, "arg2 (int32)")
-	renderscriptAllocationCmd.AddCommand(renderscriptAllocationCreateSized3Cmd)
-	renderscriptAllocationCreateSized4_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptAllocationCreateSized4_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	renderscriptAllocationCreateSized4_1Cmd.Flags().Int32("arg2", 0, "arg2 (int32)")
-	renderscriptAllocationCreateSized4_1Cmd.Flags().Int32("arg3", 0, "arg3 (int32)")
-	renderscriptAllocationCmd.AddCommand(renderscriptAllocationCreateSized4_1Cmd)
-	renderscriptAllocationCreateTyped2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptAllocationCreateTyped2Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	renderscriptAllocationCmd.AddCommand(renderscriptAllocationCreateTyped2Cmd)
-	renderscriptAllocationCreateTyped4_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptAllocationCreateTyped4_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	renderscriptAllocationCreateTyped4_1Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	renderscriptAllocationCreateTyped4_1Cmd.Flags().Int32("arg3", 0, "arg3 (int32)")
-	renderscriptAllocationCmd.AddCommand(renderscriptAllocationCreateTyped4_1Cmd)
-	renderscriptAllocationCreateTyped3_2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptAllocationCreateTyped3_2Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	renderscriptAllocationCreateTyped3_2Cmd.Flags().Int32("arg2", 0, "arg2 (int32)")
-	renderscriptAllocationCmd.AddCommand(renderscriptAllocationCreateTyped3_2Cmd)
-	renderscriptCmd.AddCommand(renderscriptAllocationCmd)
-	renderscriptAllocationMipmapControlCmd.AddCommand(renderscriptAllocationMipmapControlValuesCmd)
-	renderscriptAllocationMipmapControlValueOfCmd.Flags().String("arg0", "", "arg0 (string)")
-	renderscriptAllocationMipmapControlCmd.AddCommand(renderscriptAllocationMipmapControlValueOfCmd)
-	renderscriptCmd.AddCommand(renderscriptAllocationMipmapControlCmd)
-	renderscriptAllocationOnBufferAvailableListenerOnBufferAvailableCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptAllocationOnBufferAvailableListenerCmd.AddCommand(renderscriptAllocationOnBufferAvailableListenerOnBufferAvailableCmd)
-	renderscriptCmd.AddCommand(renderscriptAllocationOnBufferAvailableListenerCmd)
 	renderscriptScriptBindAllocationCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	renderscriptScriptBindAllocationCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
 	renderscriptScriptCmd.AddCommand(renderscriptScriptBindAllocationCmd)
@@ -16544,360 +17237,46 @@ func init() {
 	renderscriptScriptLaunchOptionsSetZCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
 	renderscriptScriptLaunchOptionsCmd.AddCommand(renderscriptScriptLaunchOptionsSetZCmd)
 	renderscriptCmd.AddCommand(renderscriptScriptLaunchOptionsCmd)
-	renderscriptScriptIntrinsic3DLUTForEach2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptScriptIntrinsic3DLUTForEach2Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	renderscriptScriptIntrinsic3DLUTCmd.AddCommand(renderscriptScriptIntrinsic3DLUTForEach2Cmd)
-	renderscriptScriptIntrinsic3DLUTForEach3_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptScriptIntrinsic3DLUTForEach3_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	renderscriptScriptIntrinsic3DLUTForEach3_1Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	renderscriptScriptIntrinsic3DLUTCmd.AddCommand(renderscriptScriptIntrinsic3DLUTForEach3_1Cmd)
-	renderscriptScriptIntrinsic3DLUTCmd.AddCommand(renderscriptScriptIntrinsic3DLUTGetKernelIDCmd)
-	renderscriptScriptIntrinsic3DLUTSetLUTCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptScriptIntrinsic3DLUTCmd.AddCommand(renderscriptScriptIntrinsic3DLUTSetLUTCmd)
-	renderscriptScriptIntrinsic3DLUTCreateCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptScriptIntrinsic3DLUTCreateCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	renderscriptScriptIntrinsic3DLUTCmd.AddCommand(renderscriptScriptIntrinsic3DLUTCreateCmd)
-	renderscriptCmd.AddCommand(renderscriptScriptIntrinsic3DLUTCmd)
-	renderscriptTypeCmd.AddCommand(renderscriptTypeGetCountCmd)
-	renderscriptTypeCmd.AddCommand(renderscriptTypeGetElementCmd)
-	renderscriptTypeCmd.AddCommand(renderscriptTypeGetXCmd)
-	renderscriptTypeCmd.AddCommand(renderscriptTypeGetYCmd)
-	renderscriptTypeCmd.AddCommand(renderscriptTypeGetYuvCmd)
-	renderscriptTypeCmd.AddCommand(renderscriptTypeGetZCmd)
-	renderscriptTypeCmd.AddCommand(renderscriptTypeHasFacesCmd)
-	renderscriptTypeCmd.AddCommand(renderscriptTypeHasMipmapsCmd)
-	renderscriptTypeCreateXCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptTypeCreateXCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	renderscriptTypeCreateXCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
-	renderscriptTypeCmd.AddCommand(renderscriptTypeCreateXCmd)
-	renderscriptTypeCreateXYCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptTypeCreateXYCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	renderscriptTypeCreateXYCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
-	renderscriptTypeCreateXYCmd.Flags().Int32("arg3", 0, "arg3 (int32)")
-	renderscriptTypeCmd.AddCommand(renderscriptTypeCreateXYCmd)
-	renderscriptTypeCreateXYZCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptTypeCreateXYZCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	renderscriptTypeCreateXYZCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
-	renderscriptTypeCreateXYZCmd.Flags().Int32("arg3", 0, "arg3 (int32)")
-	renderscriptTypeCreateXYZCmd.Flags().Int32("arg4", 0, "arg4 (int32)")
-	renderscriptTypeCmd.AddCommand(renderscriptTypeCreateXYZCmd)
-	renderscriptCmd.AddCommand(renderscriptTypeCmd)
-	renderscriptTypeBuilderCmd.AddCommand(renderscriptTypeBuilderCreateCmd)
-	renderscriptTypeBuilderSetFacesCmd.Flags().Bool("arg0", false, "arg0 (bool)")
-	renderscriptTypeBuilderCmd.AddCommand(renderscriptTypeBuilderSetFacesCmd)
-	renderscriptTypeBuilderSetMipmapsCmd.Flags().Bool("arg0", false, "arg0 (bool)")
-	renderscriptTypeBuilderCmd.AddCommand(renderscriptTypeBuilderSetMipmapsCmd)
-	renderscriptTypeBuilderSetXCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	renderscriptTypeBuilderCmd.AddCommand(renderscriptTypeBuilderSetXCmd)
-	renderscriptTypeBuilderSetYCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	renderscriptTypeBuilderCmd.AddCommand(renderscriptTypeBuilderSetYCmd)
-	renderscriptTypeBuilderSetYuvFormatCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	renderscriptTypeBuilderCmd.AddCommand(renderscriptTypeBuilderSetYuvFormatCmd)
-	renderscriptTypeBuilderSetZCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	renderscriptTypeBuilderCmd.AddCommand(renderscriptTypeBuilderSetZCmd)
-	renderscriptCmd.AddCommand(renderscriptTypeBuilderCmd)
-	renderscriptTypeCubemapFaceCmd.AddCommand(renderscriptTypeCubemapFaceValuesCmd)
-	renderscriptTypeCubemapFaceValueOfCmd.Flags().String("arg0", "", "arg0 (string)")
-	renderscriptTypeCubemapFaceCmd.AddCommand(renderscriptTypeCubemapFaceValueOfCmd)
-	renderscriptCmd.AddCommand(renderscriptTypeCubemapFaceCmd)
-	renderscriptScriptIntrinsicBlurForEach1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptScriptIntrinsicBlurCmd.AddCommand(renderscriptScriptIntrinsicBlurForEach1Cmd)
-	renderscriptScriptIntrinsicBlurForEach2_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptScriptIntrinsicBlurForEach2_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	renderscriptScriptIntrinsicBlurCmd.AddCommand(renderscriptScriptIntrinsicBlurForEach2_1Cmd)
-	renderscriptScriptIntrinsicBlurCmd.AddCommand(renderscriptScriptIntrinsicBlurGetFieldID_InputCmd)
-	renderscriptScriptIntrinsicBlurCmd.AddCommand(renderscriptScriptIntrinsicBlurGetKernelIDCmd)
-	renderscriptScriptIntrinsicBlurSetInputCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptScriptIntrinsicBlurCmd.AddCommand(renderscriptScriptIntrinsicBlurSetInputCmd)
-	renderscriptScriptIntrinsicBlurSetRadiusCmd.Flags().Float32("arg0", 0, "arg0 (float32)")
-	renderscriptScriptIntrinsicBlurCmd.AddCommand(renderscriptScriptIntrinsicBlurSetRadiusCmd)
-	renderscriptScriptIntrinsicBlurCreateCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptScriptIntrinsicBlurCreateCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	renderscriptScriptIntrinsicBlurCmd.AddCommand(renderscriptScriptIntrinsicBlurCreateCmd)
-	renderscriptCmd.AddCommand(renderscriptScriptIntrinsicBlurCmd)
-	renderscriptAllocationAdapterSetFaceCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptAllocationAdapterCmd.AddCommand(renderscriptAllocationAdapterSetFaceCmd)
-	renderscriptAllocationAdapterSetLODCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	renderscriptAllocationAdapterCmd.AddCommand(renderscriptAllocationAdapterSetLODCmd)
-	renderscriptAllocationAdapterSetXCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	renderscriptAllocationAdapterCmd.AddCommand(renderscriptAllocationAdapterSetXCmd)
-	renderscriptAllocationAdapterSetYCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	renderscriptAllocationAdapterCmd.AddCommand(renderscriptAllocationAdapterSetYCmd)
-	renderscriptAllocationAdapterSetZCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	renderscriptAllocationAdapterCmd.AddCommand(renderscriptAllocationAdapterSetZCmd)
-	renderscriptAllocationAdapterCreate1DCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptAllocationAdapterCreate1DCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	renderscriptAllocationAdapterCmd.AddCommand(renderscriptAllocationAdapterCreate1DCmd)
-	renderscriptAllocationAdapterCreate2DCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptAllocationAdapterCreate2DCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	renderscriptAllocationAdapterCmd.AddCommand(renderscriptAllocationAdapterCreate2DCmd)
-	renderscriptAllocationAdapterCreateTypedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptAllocationAdapterCreateTypedCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	renderscriptAllocationAdapterCreateTypedCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	renderscriptAllocationAdapterCmd.AddCommand(renderscriptAllocationAdapterCreateTypedCmd)
-	renderscriptCmd.AddCommand(renderscriptAllocationAdapterCmd)
-	renderscriptElementCmd.AddCommand(renderscriptElementGetBytesSizeCmd)
-	renderscriptElementCmd.AddCommand(renderscriptElementGetDataKindCmd)
-	renderscriptElementCmd.AddCommand(renderscriptElementGetDataTypeCmd)
-	renderscriptElementGetSubElementCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	renderscriptElementCmd.AddCommand(renderscriptElementGetSubElementCmd)
-	renderscriptElementGetSubElementArraySizeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	renderscriptElementCmd.AddCommand(renderscriptElementGetSubElementArraySizeCmd)
-	renderscriptElementCmd.AddCommand(renderscriptElementGetSubElementCountCmd)
-	renderscriptElementGetSubElementNameCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	renderscriptElementCmd.AddCommand(renderscriptElementGetSubElementNameCmd)
-	renderscriptElementGetSubElementOffsetBytesCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	renderscriptElementCmd.AddCommand(renderscriptElementGetSubElementOffsetBytesCmd)
-	renderscriptElementCmd.AddCommand(renderscriptElementGetVectorSizeCmd)
-	renderscriptElementIsCompatibleCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptElementCmd.AddCommand(renderscriptElementIsCompatibleCmd)
-	renderscriptElementCmd.AddCommand(renderscriptElementIsComplexCmd)
-	renderscriptElementALLOCATIONCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptElementCmd.AddCommand(renderscriptElementALLOCATIONCmd)
-	renderscriptElementA_8Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptElementCmd.AddCommand(renderscriptElementA_8Cmd)
-	renderscriptElementBOOLEANCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptElementCmd.AddCommand(renderscriptElementBOOLEANCmd)
-	renderscriptElementELEMENTCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptElementCmd.AddCommand(renderscriptElementELEMENTCmd)
-	renderscriptElementF16Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptElementCmd.AddCommand(renderscriptElementF16Cmd)
-	renderscriptElementF16_2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptElementCmd.AddCommand(renderscriptElementF16_2Cmd)
-	renderscriptElementF16_3Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptElementCmd.AddCommand(renderscriptElementF16_3Cmd)
-	renderscriptElementF16_4Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptElementCmd.AddCommand(renderscriptElementF16_4Cmd)
-	renderscriptElementF32Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptElementCmd.AddCommand(renderscriptElementF32Cmd)
-	renderscriptElementF32_2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptElementCmd.AddCommand(renderscriptElementF32_2Cmd)
-	renderscriptElementF32_3Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptElementCmd.AddCommand(renderscriptElementF32_3Cmd)
-	renderscriptElementF32_4Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptElementCmd.AddCommand(renderscriptElementF32_4Cmd)
-	renderscriptElementF64Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptElementCmd.AddCommand(renderscriptElementF64Cmd)
-	renderscriptElementF64_2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptElementCmd.AddCommand(renderscriptElementF64_2Cmd)
-	renderscriptElementF64_3Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptElementCmd.AddCommand(renderscriptElementF64_3Cmd)
-	renderscriptElementF64_4Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptElementCmd.AddCommand(renderscriptElementF64_4Cmd)
-	renderscriptElementFONTCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptElementCmd.AddCommand(renderscriptElementFONTCmd)
-	renderscriptElementI16Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptElementCmd.AddCommand(renderscriptElementI16Cmd)
-	renderscriptElementI16_2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptElementCmd.AddCommand(renderscriptElementI16_2Cmd)
-	renderscriptElementI16_3Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptElementCmd.AddCommand(renderscriptElementI16_3Cmd)
-	renderscriptElementI16_4Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptElementCmd.AddCommand(renderscriptElementI16_4Cmd)
-	renderscriptElementI32Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptElementCmd.AddCommand(renderscriptElementI32Cmd)
-	renderscriptElementI32_2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptElementCmd.AddCommand(renderscriptElementI32_2Cmd)
-	renderscriptElementI32_3Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptElementCmd.AddCommand(renderscriptElementI32_3Cmd)
-	renderscriptElementI32_4Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptElementCmd.AddCommand(renderscriptElementI32_4Cmd)
-	renderscriptElementI64Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptElementCmd.AddCommand(renderscriptElementI64Cmd)
-	renderscriptElementI64_2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptElementCmd.AddCommand(renderscriptElementI64_2Cmd)
-	renderscriptElementI64_3Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptElementCmd.AddCommand(renderscriptElementI64_3Cmd)
-	renderscriptElementI64_4Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptElementCmd.AddCommand(renderscriptElementI64_4Cmd)
-	renderscriptElementI8Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptElementCmd.AddCommand(renderscriptElementI8Cmd)
-	renderscriptElementI8_2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptElementCmd.AddCommand(renderscriptElementI8_2Cmd)
-	renderscriptElementI8_3Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptElementCmd.AddCommand(renderscriptElementI8_3Cmd)
-	renderscriptElementI8_4Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptElementCmd.AddCommand(renderscriptElementI8_4Cmd)
-	renderscriptElementMATRIX4X4Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptElementCmd.AddCommand(renderscriptElementMATRIX4X4Cmd)
-	renderscriptElementMATRIX_2X2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptElementCmd.AddCommand(renderscriptElementMATRIX_2X2Cmd)
-	renderscriptElementMATRIX_3X3Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptElementCmd.AddCommand(renderscriptElementMATRIX_3X3Cmd)
-	renderscriptElementMATRIX_4X4Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptElementCmd.AddCommand(renderscriptElementMATRIX_4X4Cmd)
-	renderscriptElementMESHCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptElementCmd.AddCommand(renderscriptElementMESHCmd)
-	renderscriptElementPROGRAM_FRAGMENTCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptElementCmd.AddCommand(renderscriptElementPROGRAM_FRAGMENTCmd)
-	renderscriptElementPROGRAM_RASTERCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptElementCmd.AddCommand(renderscriptElementPROGRAM_RASTERCmd)
-	renderscriptElementPROGRAM_STORECmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptElementCmd.AddCommand(renderscriptElementPROGRAM_STORECmd)
-	renderscriptElementPROGRAM_VERTEXCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptElementCmd.AddCommand(renderscriptElementPROGRAM_VERTEXCmd)
-	renderscriptElementRGBA_4444Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptElementCmd.AddCommand(renderscriptElementRGBA_4444Cmd)
-	renderscriptElementRGBA_5551Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptElementCmd.AddCommand(renderscriptElementRGBA_5551Cmd)
-	renderscriptElementRGBA_8888Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptElementCmd.AddCommand(renderscriptElementRGBA_8888Cmd)
-	renderscriptElementRGB_565Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptElementCmd.AddCommand(renderscriptElementRGB_565Cmd)
-	renderscriptElementRGB_888Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptElementCmd.AddCommand(renderscriptElementRGB_888Cmd)
-	renderscriptElementSAMPLERCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptElementCmd.AddCommand(renderscriptElementSAMPLERCmd)
-	renderscriptElementSCRIPTCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptElementCmd.AddCommand(renderscriptElementSCRIPTCmd)
-	renderscriptElementTYPECmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptElementCmd.AddCommand(renderscriptElementTYPECmd)
-	renderscriptElementU16Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptElementCmd.AddCommand(renderscriptElementU16Cmd)
-	renderscriptElementU16_2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptElementCmd.AddCommand(renderscriptElementU16_2Cmd)
-	renderscriptElementU16_3Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptElementCmd.AddCommand(renderscriptElementU16_3Cmd)
-	renderscriptElementU16_4Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptElementCmd.AddCommand(renderscriptElementU16_4Cmd)
-	renderscriptElementU32Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptElementCmd.AddCommand(renderscriptElementU32Cmd)
-	renderscriptElementU32_2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptElementCmd.AddCommand(renderscriptElementU32_2Cmd)
-	renderscriptElementU32_3Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptElementCmd.AddCommand(renderscriptElementU32_3Cmd)
-	renderscriptElementU32_4Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptElementCmd.AddCommand(renderscriptElementU32_4Cmd)
-	renderscriptElementU64Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptElementCmd.AddCommand(renderscriptElementU64Cmd)
-	renderscriptElementU64_2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptElementCmd.AddCommand(renderscriptElementU64_2Cmd)
-	renderscriptElementU64_3Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptElementCmd.AddCommand(renderscriptElementU64_3Cmd)
-	renderscriptElementU64_4Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptElementCmd.AddCommand(renderscriptElementU64_4Cmd)
-	renderscriptElementU8Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptElementCmd.AddCommand(renderscriptElementU8Cmd)
-	renderscriptElementU8_2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptElementCmd.AddCommand(renderscriptElementU8_2Cmd)
-	renderscriptElementU8_3Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptElementCmd.AddCommand(renderscriptElementU8_3Cmd)
-	renderscriptElementU8_4Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptElementCmd.AddCommand(renderscriptElementU8_4Cmd)
-	renderscriptElementYUVCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptElementCmd.AddCommand(renderscriptElementYUVCmd)
-	renderscriptElementCreatePixelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptElementCreatePixelCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	renderscriptElementCreatePixelCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	renderscriptElementCmd.AddCommand(renderscriptElementCreatePixelCmd)
-	renderscriptElementCreateVectorCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptElementCreateVectorCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	renderscriptElementCreateVectorCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
-	renderscriptElementCmd.AddCommand(renderscriptElementCreateVectorCmd)
-	renderscriptCmd.AddCommand(renderscriptElementCmd)
-	renderscriptElementBuilderAdd2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptElementBuilderAdd2Cmd.Flags().String("arg1", "", "arg1 (string)")
-	renderscriptElementBuilderCmd.AddCommand(renderscriptElementBuilderAdd2Cmd)
-	renderscriptElementBuilderAdd3_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptElementBuilderAdd3_1Cmd.Flags().String("arg1", "", "arg1 (string)")
-	renderscriptElementBuilderAdd3_1Cmd.Flags().Int32("arg2", 0, "arg2 (int32)")
-	renderscriptElementBuilderCmd.AddCommand(renderscriptElementBuilderAdd3_1Cmd)
-	renderscriptElementBuilderCmd.AddCommand(renderscriptElementBuilderCreateCmd)
-	renderscriptCmd.AddCommand(renderscriptElementBuilderCmd)
-	renderscriptElementDataKindCmd.AddCommand(renderscriptElementDataKindValuesCmd)
-	renderscriptElementDataKindValueOfCmd.Flags().String("arg0", "", "arg0 (string)")
-	renderscriptElementDataKindCmd.AddCommand(renderscriptElementDataKindValueOfCmd)
-	renderscriptCmd.AddCommand(renderscriptElementDataKindCmd)
-	renderscriptElementDataTypeCmd.AddCommand(renderscriptElementDataTypeValuesCmd)
-	renderscriptElementDataTypeValueOfCmd.Flags().String("arg0", "", "arg0 (string)")
-	renderscriptElementDataTypeCmd.AddCommand(renderscriptElementDataTypeValueOfCmd)
-	renderscriptCmd.AddCommand(renderscriptElementDataTypeCmd)
-	renderscriptMatrix3fCmd.AddCommand(renderscriptMatrix3fNewMatrix3fCmd)
-	renderscriptMatrix3fGetCmd.Flags().Int64("handle", 0, "handle (int64)")
-	renderscriptMatrix3fGetCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	renderscriptMatrix3fGetCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	renderscriptMatrix3fCmd.AddCommand(renderscriptMatrix3fGetCmd)
-	renderscriptMatrix3fGetArrayCmd.Flags().Int64("handle", 0, "handle (int64)")
-	renderscriptMatrix3fCmd.AddCommand(renderscriptMatrix3fGetArrayCmd)
-	renderscriptMatrix3fLoadCmd.Flags().Int64("handle", 0, "handle (int64)")
-	renderscriptMatrix3fLoadCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptMatrix3fCmd.AddCommand(renderscriptMatrix3fLoadCmd)
-	renderscriptMatrix3fLoadIdentityCmd.Flags().Int64("handle", 0, "handle (int64)")
-	renderscriptMatrix3fCmd.AddCommand(renderscriptMatrix3fLoadIdentityCmd)
-	renderscriptMatrix3fLoadMultiplyCmd.Flags().Int64("handle", 0, "handle (int64)")
-	renderscriptMatrix3fLoadMultiplyCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptMatrix3fLoadMultiplyCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	renderscriptMatrix3fCmd.AddCommand(renderscriptMatrix3fLoadMultiplyCmd)
-	renderscriptMatrix3fLoadRotate1Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	renderscriptMatrix3fLoadRotate1Cmd.Flags().Float32("arg0", 0, "arg0 (float32)")
-	renderscriptMatrix3fCmd.AddCommand(renderscriptMatrix3fLoadRotate1Cmd)
-	renderscriptMatrix3fLoadRotate4_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	renderscriptMatrix3fLoadRotate4_1Cmd.Flags().Float32("arg0", 0, "arg0 (float32)")
-	renderscriptMatrix3fLoadRotate4_1Cmd.Flags().Float32("arg1", 0, "arg1 (float32)")
-	renderscriptMatrix3fLoadRotate4_1Cmd.Flags().Float32("arg2", 0, "arg2 (float32)")
-	renderscriptMatrix3fLoadRotate4_1Cmd.Flags().Float32("arg3", 0, "arg3 (float32)")
-	renderscriptMatrix3fCmd.AddCommand(renderscriptMatrix3fLoadRotate4_1Cmd)
-	renderscriptMatrix3fLoadScale2Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	renderscriptMatrix3fLoadScale2Cmd.Flags().Float32("arg0", 0, "arg0 (float32)")
-	renderscriptMatrix3fLoadScale2Cmd.Flags().Float32("arg1", 0, "arg1 (float32)")
-	renderscriptMatrix3fCmd.AddCommand(renderscriptMatrix3fLoadScale2Cmd)
-	renderscriptMatrix3fLoadScale3_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	renderscriptMatrix3fLoadScale3_1Cmd.Flags().Float32("arg0", 0, "arg0 (float32)")
-	renderscriptMatrix3fLoadScale3_1Cmd.Flags().Float32("arg1", 0, "arg1 (float32)")
-	renderscriptMatrix3fLoadScale3_1Cmd.Flags().Float32("arg2", 0, "arg2 (float32)")
-	renderscriptMatrix3fCmd.AddCommand(renderscriptMatrix3fLoadScale3_1Cmd)
-	renderscriptMatrix3fLoadTranslateCmd.Flags().Int64("handle", 0, "handle (int64)")
-	renderscriptMatrix3fLoadTranslateCmd.Flags().Float32("arg0", 0, "arg0 (float32)")
-	renderscriptMatrix3fLoadTranslateCmd.Flags().Float32("arg1", 0, "arg1 (float32)")
-	renderscriptMatrix3fCmd.AddCommand(renderscriptMatrix3fLoadTranslateCmd)
-	renderscriptMatrix3fMultiplyCmd.Flags().Int64("handle", 0, "handle (int64)")
-	renderscriptMatrix3fMultiplyCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptMatrix3fCmd.AddCommand(renderscriptMatrix3fMultiplyCmd)
-	renderscriptMatrix3fRotate1Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	renderscriptMatrix3fRotate1Cmd.Flags().Float32("arg0", 0, "arg0 (float32)")
-	renderscriptMatrix3fCmd.AddCommand(renderscriptMatrix3fRotate1Cmd)
-	renderscriptMatrix3fRotate4_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	renderscriptMatrix3fRotate4_1Cmd.Flags().Float32("arg0", 0, "arg0 (float32)")
-	renderscriptMatrix3fRotate4_1Cmd.Flags().Float32("arg1", 0, "arg1 (float32)")
-	renderscriptMatrix3fRotate4_1Cmd.Flags().Float32("arg2", 0, "arg2 (float32)")
-	renderscriptMatrix3fRotate4_1Cmd.Flags().Float32("arg3", 0, "arg3 (float32)")
-	renderscriptMatrix3fCmd.AddCommand(renderscriptMatrix3fRotate4_1Cmd)
-	renderscriptMatrix3fScale2Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	renderscriptMatrix3fScale2Cmd.Flags().Float32("arg0", 0, "arg0 (float32)")
-	renderscriptMatrix3fScale2Cmd.Flags().Float32("arg1", 0, "arg1 (float32)")
-	renderscriptMatrix3fCmd.AddCommand(renderscriptMatrix3fScale2Cmd)
-	renderscriptMatrix3fScale3_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	renderscriptMatrix3fScale3_1Cmd.Flags().Float32("arg0", 0, "arg0 (float32)")
-	renderscriptMatrix3fScale3_1Cmd.Flags().Float32("arg1", 0, "arg1 (float32)")
-	renderscriptMatrix3fScale3_1Cmd.Flags().Float32("arg2", 0, "arg2 (float32)")
-	renderscriptMatrix3fCmd.AddCommand(renderscriptMatrix3fScale3_1Cmd)
-	renderscriptMatrix3fSetCmd.Flags().Int64("handle", 0, "handle (int64)")
-	renderscriptMatrix3fSetCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	renderscriptMatrix3fSetCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	renderscriptMatrix3fSetCmd.Flags().Float32("arg2", 0, "arg2 (float32)")
-	renderscriptMatrix3fCmd.AddCommand(renderscriptMatrix3fSetCmd)
-	renderscriptMatrix3fTranslateCmd.Flags().Int64("handle", 0, "handle (int64)")
-	renderscriptMatrix3fTranslateCmd.Flags().Float32("arg0", 0, "arg0 (float32)")
-	renderscriptMatrix3fTranslateCmd.Flags().Float32("arg1", 0, "arg1 (float32)")
-	renderscriptMatrix3fCmd.AddCommand(renderscriptMatrix3fTranslateCmd)
-	renderscriptMatrix3fTransposeCmd.Flags().Int64("handle", 0, "handle (int64)")
-	renderscriptMatrix3fCmd.AddCommand(renderscriptMatrix3fTransposeCmd)
-	renderscriptCmd.AddCommand(renderscriptMatrix3fCmd)
-	renderscriptScriptIntrinsicConvolve5x5ForEach1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptScriptIntrinsicConvolve5x5Cmd.AddCommand(renderscriptScriptIntrinsicConvolve5x5ForEach1Cmd)
-	renderscriptScriptIntrinsicConvolve5x5ForEach2_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptScriptIntrinsicConvolve5x5ForEach2_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	renderscriptScriptIntrinsicConvolve5x5Cmd.AddCommand(renderscriptScriptIntrinsicConvolve5x5ForEach2_1Cmd)
-	renderscriptScriptIntrinsicConvolve5x5Cmd.AddCommand(renderscriptScriptIntrinsicConvolve5x5GetFieldID_InputCmd)
-	renderscriptScriptIntrinsicConvolve5x5Cmd.AddCommand(renderscriptScriptIntrinsicConvolve5x5GetKernelIDCmd)
-	renderscriptScriptIntrinsicConvolve5x5SetCoefficientsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptScriptIntrinsicConvolve5x5Cmd.AddCommand(renderscriptScriptIntrinsicConvolve5x5SetCoefficientsCmd)
-	renderscriptScriptIntrinsicConvolve5x5SetInputCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptScriptIntrinsicConvolve5x5Cmd.AddCommand(renderscriptScriptIntrinsicConvolve5x5SetInputCmd)
-	renderscriptScriptIntrinsicConvolve5x5CreateCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptScriptIntrinsicConvolve5x5CreateCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	renderscriptScriptIntrinsicConvolve5x5Cmd.AddCommand(renderscriptScriptIntrinsicConvolve5x5CreateCmd)
-	renderscriptCmd.AddCommand(renderscriptScriptIntrinsicConvolve5x5Cmd)
+	renderscriptScriptGroupCmd.AddCommand(renderscriptScriptGroupDestroyCmd)
+	renderscriptScriptGroupCmd.AddCommand(renderscriptScriptGroupExecute0Cmd)
+	renderscriptScriptGroupExecute1_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptScriptGroupCmd.AddCommand(renderscriptScriptGroupExecute1_1Cmd)
+	renderscriptScriptGroupSetInputCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptScriptGroupSetInputCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	renderscriptScriptGroupCmd.AddCommand(renderscriptScriptGroupSetInputCmd)
+	renderscriptScriptGroupSetOutputCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptScriptGroupSetOutputCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	renderscriptScriptGroupCmd.AddCommand(renderscriptScriptGroupSetOutputCmd)
+	renderscriptCmd.AddCommand(renderscriptScriptGroupCmd)
+	renderscriptScriptGroupBuilderAddConnection3Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptScriptGroupBuilderAddConnection3Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	renderscriptScriptGroupBuilderAddConnection3Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	renderscriptScriptGroupBuilderCmd.AddCommand(renderscriptScriptGroupBuilderAddConnection3Cmd)
+	renderscriptScriptGroupBuilderAddConnection3_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptScriptGroupBuilderAddConnection3_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	renderscriptScriptGroupBuilderAddConnection3_1Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	renderscriptScriptGroupBuilderCmd.AddCommand(renderscriptScriptGroupBuilderAddConnection3_1Cmd)
+	renderscriptScriptGroupBuilderAddKernelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptScriptGroupBuilderCmd.AddCommand(renderscriptScriptGroupBuilderAddKernelCmd)
+	renderscriptScriptGroupBuilderCmd.AddCommand(renderscriptScriptGroupBuilderCreateCmd)
+	renderscriptCmd.AddCommand(renderscriptScriptGroupBuilderCmd)
+	renderscriptScriptGroupBuilder2Cmd.AddCommand(renderscriptScriptGroupBuilder2AddInputCmd)
+	renderscriptScriptGroupBuilder2AddInvokeCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptScriptGroupBuilder2AddInvokeCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	renderscriptScriptGroupBuilder2Cmd.AddCommand(renderscriptScriptGroupBuilder2AddInvokeCmd)
+	renderscriptScriptGroupBuilder2AddKernelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptScriptGroupBuilder2AddKernelCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	renderscriptScriptGroupBuilder2AddKernelCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	renderscriptScriptGroupBuilder2Cmd.AddCommand(renderscriptScriptGroupBuilder2AddKernelCmd)
+	renderscriptScriptGroupBuilder2CreateCmd.Flags().String("arg0", "", "arg0 (string)")
+	renderscriptScriptGroupBuilder2CreateCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	renderscriptScriptGroupBuilder2Cmd.AddCommand(renderscriptScriptGroupBuilder2CreateCmd)
+	renderscriptCmd.AddCommand(renderscriptScriptGroupBuilder2Cmd)
+	renderscriptScriptGroupClosureCmd.AddCommand(renderscriptScriptGroupClosureDestroyCmd)
+	renderscriptScriptGroupClosureGetGlobalCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	renderscriptScriptGroupClosureCmd.AddCommand(renderscriptScriptGroupClosureGetGlobalCmd)
+	renderscriptScriptGroupClosureCmd.AddCommand(renderscriptScriptGroupClosureGetReturnCmd)
+	renderscriptCmd.AddCommand(renderscriptScriptGroupClosureCmd)
 	renderscriptScriptIntrinsicBlendForEachAdd2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	renderscriptScriptIntrinsicBlendForEachAdd2Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
 	renderscriptScriptIntrinsicBlendCmd.AddCommand(renderscriptScriptIntrinsicBlendForEachAdd2Cmd)
@@ -17022,384 +17401,5 @@ func init() {
 	renderscriptScriptIntrinsicBlendCreateCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
 	renderscriptScriptIntrinsicBlendCmd.AddCommand(renderscriptScriptIntrinsicBlendCreateCmd)
 	renderscriptCmd.AddCommand(renderscriptScriptIntrinsicBlendCmd)
-	renderscriptScriptIntrinsicConvolve3x3ForEach1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptScriptIntrinsicConvolve3x3Cmd.AddCommand(renderscriptScriptIntrinsicConvolve3x3ForEach1Cmd)
-	renderscriptScriptIntrinsicConvolve3x3ForEach2_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptScriptIntrinsicConvolve3x3ForEach2_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	renderscriptScriptIntrinsicConvolve3x3Cmd.AddCommand(renderscriptScriptIntrinsicConvolve3x3ForEach2_1Cmd)
-	renderscriptScriptIntrinsicConvolve3x3Cmd.AddCommand(renderscriptScriptIntrinsicConvolve3x3GetFieldID_InputCmd)
-	renderscriptScriptIntrinsicConvolve3x3Cmd.AddCommand(renderscriptScriptIntrinsicConvolve3x3GetKernelIDCmd)
-	renderscriptScriptIntrinsicConvolve3x3SetCoefficientsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptScriptIntrinsicConvolve3x3Cmd.AddCommand(renderscriptScriptIntrinsicConvolve3x3SetCoefficientsCmd)
-	renderscriptScriptIntrinsicConvolve3x3SetInputCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptScriptIntrinsicConvolve3x3Cmd.AddCommand(renderscriptScriptIntrinsicConvolve3x3SetInputCmd)
-	renderscriptScriptIntrinsicConvolve3x3CreateCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptScriptIntrinsicConvolve3x3CreateCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	renderscriptScriptIntrinsicConvolve3x3Cmd.AddCommand(renderscriptScriptIntrinsicConvolve3x3CreateCmd)
-	renderscriptCmd.AddCommand(renderscriptScriptIntrinsicConvolve3x3Cmd)
-	renderscriptMatrix2fCmd.AddCommand(renderscriptMatrix2fNewMatrix2fCmd)
-	renderscriptMatrix2fGetCmd.Flags().Int64("handle", 0, "handle (int64)")
-	renderscriptMatrix2fGetCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	renderscriptMatrix2fGetCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	renderscriptMatrix2fCmd.AddCommand(renderscriptMatrix2fGetCmd)
-	renderscriptMatrix2fGetArrayCmd.Flags().Int64("handle", 0, "handle (int64)")
-	renderscriptMatrix2fCmd.AddCommand(renderscriptMatrix2fGetArrayCmd)
-	renderscriptMatrix2fLoadCmd.Flags().Int64("handle", 0, "handle (int64)")
-	renderscriptMatrix2fLoadCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptMatrix2fCmd.AddCommand(renderscriptMatrix2fLoadCmd)
-	renderscriptMatrix2fLoadIdentityCmd.Flags().Int64("handle", 0, "handle (int64)")
-	renderscriptMatrix2fCmd.AddCommand(renderscriptMatrix2fLoadIdentityCmd)
-	renderscriptMatrix2fLoadMultiplyCmd.Flags().Int64("handle", 0, "handle (int64)")
-	renderscriptMatrix2fLoadMultiplyCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptMatrix2fLoadMultiplyCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	renderscriptMatrix2fCmd.AddCommand(renderscriptMatrix2fLoadMultiplyCmd)
-	renderscriptMatrix2fLoadRotateCmd.Flags().Int64("handle", 0, "handle (int64)")
-	renderscriptMatrix2fLoadRotateCmd.Flags().Float32("arg0", 0, "arg0 (float32)")
-	renderscriptMatrix2fCmd.AddCommand(renderscriptMatrix2fLoadRotateCmd)
-	renderscriptMatrix2fLoadScaleCmd.Flags().Int64("handle", 0, "handle (int64)")
-	renderscriptMatrix2fLoadScaleCmd.Flags().Float32("arg0", 0, "arg0 (float32)")
-	renderscriptMatrix2fLoadScaleCmd.Flags().Float32("arg1", 0, "arg1 (float32)")
-	renderscriptMatrix2fCmd.AddCommand(renderscriptMatrix2fLoadScaleCmd)
-	renderscriptMatrix2fMultiplyCmd.Flags().Int64("handle", 0, "handle (int64)")
-	renderscriptMatrix2fMultiplyCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptMatrix2fCmd.AddCommand(renderscriptMatrix2fMultiplyCmd)
-	renderscriptMatrix2fRotateCmd.Flags().Int64("handle", 0, "handle (int64)")
-	renderscriptMatrix2fRotateCmd.Flags().Float32("arg0", 0, "arg0 (float32)")
-	renderscriptMatrix2fCmd.AddCommand(renderscriptMatrix2fRotateCmd)
-	renderscriptMatrix2fScaleCmd.Flags().Int64("handle", 0, "handle (int64)")
-	renderscriptMatrix2fScaleCmd.Flags().Float32("arg0", 0, "arg0 (float32)")
-	renderscriptMatrix2fScaleCmd.Flags().Float32("arg1", 0, "arg1 (float32)")
-	renderscriptMatrix2fCmd.AddCommand(renderscriptMatrix2fScaleCmd)
-	renderscriptMatrix2fSetCmd.Flags().Int64("handle", 0, "handle (int64)")
-	renderscriptMatrix2fSetCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	renderscriptMatrix2fSetCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	renderscriptMatrix2fSetCmd.Flags().Float32("arg2", 0, "arg2 (float32)")
-	renderscriptMatrix2fCmd.AddCommand(renderscriptMatrix2fSetCmd)
-	renderscriptMatrix2fTransposeCmd.Flags().Int64("handle", 0, "handle (int64)")
-	renderscriptMatrix2fCmd.AddCommand(renderscriptMatrix2fTransposeCmd)
-	renderscriptCmd.AddCommand(renderscriptMatrix2fCmd)
-	renderscriptMatrix4fCmd.AddCommand(renderscriptMatrix4fNewMatrix4fCmd)
-	renderscriptMatrix4fGetCmd.Flags().Int64("handle", 0, "handle (int64)")
-	renderscriptMatrix4fGetCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	renderscriptMatrix4fGetCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	renderscriptMatrix4fCmd.AddCommand(renderscriptMatrix4fGetCmd)
-	renderscriptMatrix4fGetArrayCmd.Flags().Int64("handle", 0, "handle (int64)")
-	renderscriptMatrix4fCmd.AddCommand(renderscriptMatrix4fGetArrayCmd)
-	renderscriptMatrix4fInverseCmd.Flags().Int64("handle", 0, "handle (int64)")
-	renderscriptMatrix4fCmd.AddCommand(renderscriptMatrix4fInverseCmd)
-	renderscriptMatrix4fInverseTransposeCmd.Flags().Int64("handle", 0, "handle (int64)")
-	renderscriptMatrix4fCmd.AddCommand(renderscriptMatrix4fInverseTransposeCmd)
-	renderscriptMatrix4fLoadCmd.Flags().Int64("handle", 0, "handle (int64)")
-	renderscriptMatrix4fLoadCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptMatrix4fCmd.AddCommand(renderscriptMatrix4fLoadCmd)
-	renderscriptMatrix4fLoadFrustumCmd.Flags().Int64("handle", 0, "handle (int64)")
-	renderscriptMatrix4fLoadFrustumCmd.Flags().Float32("arg0", 0, "arg0 (float32)")
-	renderscriptMatrix4fLoadFrustumCmd.Flags().Float32("arg1", 0, "arg1 (float32)")
-	renderscriptMatrix4fLoadFrustumCmd.Flags().Float32("arg2", 0, "arg2 (float32)")
-	renderscriptMatrix4fLoadFrustumCmd.Flags().Float32("arg3", 0, "arg3 (float32)")
-	renderscriptMatrix4fLoadFrustumCmd.Flags().Float32("arg4", 0, "arg4 (float32)")
-	renderscriptMatrix4fLoadFrustumCmd.Flags().Float32("arg5", 0, "arg5 (float32)")
-	renderscriptMatrix4fCmd.AddCommand(renderscriptMatrix4fLoadFrustumCmd)
-	renderscriptMatrix4fLoadIdentityCmd.Flags().Int64("handle", 0, "handle (int64)")
-	renderscriptMatrix4fCmd.AddCommand(renderscriptMatrix4fLoadIdentityCmd)
-	renderscriptMatrix4fLoadMultiplyCmd.Flags().Int64("handle", 0, "handle (int64)")
-	renderscriptMatrix4fLoadMultiplyCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptMatrix4fLoadMultiplyCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	renderscriptMatrix4fCmd.AddCommand(renderscriptMatrix4fLoadMultiplyCmd)
-	renderscriptMatrix4fLoadOrthoCmd.Flags().Int64("handle", 0, "handle (int64)")
-	renderscriptMatrix4fLoadOrthoCmd.Flags().Float32("arg0", 0, "arg0 (float32)")
-	renderscriptMatrix4fLoadOrthoCmd.Flags().Float32("arg1", 0, "arg1 (float32)")
-	renderscriptMatrix4fLoadOrthoCmd.Flags().Float32("arg2", 0, "arg2 (float32)")
-	renderscriptMatrix4fLoadOrthoCmd.Flags().Float32("arg3", 0, "arg3 (float32)")
-	renderscriptMatrix4fLoadOrthoCmd.Flags().Float32("arg4", 0, "arg4 (float32)")
-	renderscriptMatrix4fLoadOrthoCmd.Flags().Float32("arg5", 0, "arg5 (float32)")
-	renderscriptMatrix4fCmd.AddCommand(renderscriptMatrix4fLoadOrthoCmd)
-	renderscriptMatrix4fLoadOrthoWindowCmd.Flags().Int64("handle", 0, "handle (int64)")
-	renderscriptMatrix4fLoadOrthoWindowCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	renderscriptMatrix4fLoadOrthoWindowCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	renderscriptMatrix4fCmd.AddCommand(renderscriptMatrix4fLoadOrthoWindowCmd)
-	renderscriptMatrix4fLoadPerspectiveCmd.Flags().Int64("handle", 0, "handle (int64)")
-	renderscriptMatrix4fLoadPerspectiveCmd.Flags().Float32("arg0", 0, "arg0 (float32)")
-	renderscriptMatrix4fLoadPerspectiveCmd.Flags().Float32("arg1", 0, "arg1 (float32)")
-	renderscriptMatrix4fLoadPerspectiveCmd.Flags().Float32("arg2", 0, "arg2 (float32)")
-	renderscriptMatrix4fLoadPerspectiveCmd.Flags().Float32("arg3", 0, "arg3 (float32)")
-	renderscriptMatrix4fCmd.AddCommand(renderscriptMatrix4fLoadPerspectiveCmd)
-	renderscriptMatrix4fLoadProjectionNormalizedCmd.Flags().Int64("handle", 0, "handle (int64)")
-	renderscriptMatrix4fLoadProjectionNormalizedCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	renderscriptMatrix4fLoadProjectionNormalizedCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	renderscriptMatrix4fCmd.AddCommand(renderscriptMatrix4fLoadProjectionNormalizedCmd)
-	renderscriptMatrix4fLoadRotateCmd.Flags().Int64("handle", 0, "handle (int64)")
-	renderscriptMatrix4fLoadRotateCmd.Flags().Float32("arg0", 0, "arg0 (float32)")
-	renderscriptMatrix4fLoadRotateCmd.Flags().Float32("arg1", 0, "arg1 (float32)")
-	renderscriptMatrix4fLoadRotateCmd.Flags().Float32("arg2", 0, "arg2 (float32)")
-	renderscriptMatrix4fLoadRotateCmd.Flags().Float32("arg3", 0, "arg3 (float32)")
-	renderscriptMatrix4fCmd.AddCommand(renderscriptMatrix4fLoadRotateCmd)
-	renderscriptMatrix4fLoadScaleCmd.Flags().Int64("handle", 0, "handle (int64)")
-	renderscriptMatrix4fLoadScaleCmd.Flags().Float32("arg0", 0, "arg0 (float32)")
-	renderscriptMatrix4fLoadScaleCmd.Flags().Float32("arg1", 0, "arg1 (float32)")
-	renderscriptMatrix4fLoadScaleCmd.Flags().Float32("arg2", 0, "arg2 (float32)")
-	renderscriptMatrix4fCmd.AddCommand(renderscriptMatrix4fLoadScaleCmd)
-	renderscriptMatrix4fLoadTranslateCmd.Flags().Int64("handle", 0, "handle (int64)")
-	renderscriptMatrix4fLoadTranslateCmd.Flags().Float32("arg0", 0, "arg0 (float32)")
-	renderscriptMatrix4fLoadTranslateCmd.Flags().Float32("arg1", 0, "arg1 (float32)")
-	renderscriptMatrix4fLoadTranslateCmd.Flags().Float32("arg2", 0, "arg2 (float32)")
-	renderscriptMatrix4fCmd.AddCommand(renderscriptMatrix4fLoadTranslateCmd)
-	renderscriptMatrix4fMultiplyCmd.Flags().Int64("handle", 0, "handle (int64)")
-	renderscriptMatrix4fMultiplyCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptMatrix4fCmd.AddCommand(renderscriptMatrix4fMultiplyCmd)
-	renderscriptMatrix4fRotateCmd.Flags().Int64("handle", 0, "handle (int64)")
-	renderscriptMatrix4fRotateCmd.Flags().Float32("arg0", 0, "arg0 (float32)")
-	renderscriptMatrix4fRotateCmd.Flags().Float32("arg1", 0, "arg1 (float32)")
-	renderscriptMatrix4fRotateCmd.Flags().Float32("arg2", 0, "arg2 (float32)")
-	renderscriptMatrix4fRotateCmd.Flags().Float32("arg3", 0, "arg3 (float32)")
-	renderscriptMatrix4fCmd.AddCommand(renderscriptMatrix4fRotateCmd)
-	renderscriptMatrix4fScaleCmd.Flags().Int64("handle", 0, "handle (int64)")
-	renderscriptMatrix4fScaleCmd.Flags().Float32("arg0", 0, "arg0 (float32)")
-	renderscriptMatrix4fScaleCmd.Flags().Float32("arg1", 0, "arg1 (float32)")
-	renderscriptMatrix4fScaleCmd.Flags().Float32("arg2", 0, "arg2 (float32)")
-	renderscriptMatrix4fCmd.AddCommand(renderscriptMatrix4fScaleCmd)
-	renderscriptMatrix4fSetCmd.Flags().Int64("handle", 0, "handle (int64)")
-	renderscriptMatrix4fSetCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	renderscriptMatrix4fSetCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	renderscriptMatrix4fSetCmd.Flags().Float32("arg2", 0, "arg2 (float32)")
-	renderscriptMatrix4fCmd.AddCommand(renderscriptMatrix4fSetCmd)
-	renderscriptMatrix4fTranslateCmd.Flags().Int64("handle", 0, "handle (int64)")
-	renderscriptMatrix4fTranslateCmd.Flags().Float32("arg0", 0, "arg0 (float32)")
-	renderscriptMatrix4fTranslateCmd.Flags().Float32("arg1", 0, "arg1 (float32)")
-	renderscriptMatrix4fTranslateCmd.Flags().Float32("arg2", 0, "arg2 (float32)")
-	renderscriptMatrix4fCmd.AddCommand(renderscriptMatrix4fTranslateCmd)
-	renderscriptMatrix4fTransposeCmd.Flags().Int64("handle", 0, "handle (int64)")
-	renderscriptMatrix4fCmd.AddCommand(renderscriptMatrix4fTransposeCmd)
-	renderscriptCmd.AddCommand(renderscriptMatrix4fCmd)
-	renderscriptFieldPackerNewFieldPackerCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerNewFieldPackerCmd)
-	renderscriptFieldPackerAddBooleanCmd.Flags().Int64("handle", 0, "handle (int64)")
-	renderscriptFieldPackerAddBooleanCmd.Flags().Bool("arg0", false, "arg0 (bool)")
-	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerAddBooleanCmd)
-	renderscriptFieldPackerAddF321Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	renderscriptFieldPackerAddF321Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerAddF321Cmd)
-	renderscriptFieldPackerAddF321_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	renderscriptFieldPackerAddF321_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerAddF321_1Cmd)
-	renderscriptFieldPackerAddF321_2Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	renderscriptFieldPackerAddF321_2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerAddF321_2Cmd)
-	renderscriptFieldPackerAddF321_3Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	renderscriptFieldPackerAddF321_3Cmd.Flags().Float32("arg0", 0, "arg0 (float32)")
-	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerAddF321_3Cmd)
-	renderscriptFieldPackerAddF641Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	renderscriptFieldPackerAddF641Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerAddF641Cmd)
-	renderscriptFieldPackerAddF641_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	renderscriptFieldPackerAddF641_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerAddF641_1Cmd)
-	renderscriptFieldPackerAddF641_2Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	renderscriptFieldPackerAddF641_2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerAddF641_2Cmd)
-	renderscriptFieldPackerAddF641_3Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	renderscriptFieldPackerAddF641_3Cmd.Flags().Float64("arg0", 0, "arg0 (float64)")
-	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerAddF641_3Cmd)
-	renderscriptFieldPackerAddI161Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	renderscriptFieldPackerAddI161Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerAddI161Cmd)
-	renderscriptFieldPackerAddI161_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	renderscriptFieldPackerAddI161_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerAddI161_1Cmd)
-	renderscriptFieldPackerAddI161_2Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	renderscriptFieldPackerAddI161_2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerAddI161_2Cmd)
-	renderscriptFieldPackerAddI161_3Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	renderscriptFieldPackerAddI161_3Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerAddI161_3Cmd)
-	renderscriptFieldPackerAddI321Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	renderscriptFieldPackerAddI321Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerAddI321Cmd)
-	renderscriptFieldPackerAddI321_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	renderscriptFieldPackerAddI321_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerAddI321_1Cmd)
-	renderscriptFieldPackerAddI321_2Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	renderscriptFieldPackerAddI321_2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerAddI321_2Cmd)
-	renderscriptFieldPackerAddI321_3Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	renderscriptFieldPackerAddI321_3Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerAddI321_3Cmd)
-	renderscriptFieldPackerAddI641Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	renderscriptFieldPackerAddI641Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerAddI641Cmd)
-	renderscriptFieldPackerAddI641_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	renderscriptFieldPackerAddI641_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerAddI641_1Cmd)
-	renderscriptFieldPackerAddI641_2Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	renderscriptFieldPackerAddI641_2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerAddI641_2Cmd)
-	renderscriptFieldPackerAddI641_3Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	renderscriptFieldPackerAddI641_3Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerAddI641_3Cmd)
-	renderscriptFieldPackerAddI81Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	renderscriptFieldPackerAddI81Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerAddI81Cmd)
-	renderscriptFieldPackerAddI81_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	renderscriptFieldPackerAddI81_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerAddI81_1Cmd)
-	renderscriptFieldPackerAddI81_2Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	renderscriptFieldPackerAddI81_2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerAddI81_2Cmd)
-	renderscriptFieldPackerAddI81_3Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	renderscriptFieldPackerAddI81_3Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerAddI81_3Cmd)
-	renderscriptFieldPackerAddMatrix1Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	renderscriptFieldPackerAddMatrix1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerAddMatrix1Cmd)
-	renderscriptFieldPackerAddMatrix1_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	renderscriptFieldPackerAddMatrix1_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerAddMatrix1_1Cmd)
-	renderscriptFieldPackerAddMatrix1_2Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	renderscriptFieldPackerAddMatrix1_2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerAddMatrix1_2Cmd)
-	renderscriptFieldPackerAddObjCmd.Flags().Int64("handle", 0, "handle (int64)")
-	renderscriptFieldPackerAddObjCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerAddObjCmd)
-	renderscriptFieldPackerAddU161Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	renderscriptFieldPackerAddU161Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerAddU161Cmd)
-	renderscriptFieldPackerAddU161_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	renderscriptFieldPackerAddU161_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerAddU161_1Cmd)
-	renderscriptFieldPackerAddU161_2Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	renderscriptFieldPackerAddU161_2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerAddU161_2Cmd)
-	renderscriptFieldPackerAddU161_3Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	renderscriptFieldPackerAddU161_3Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerAddU161_3Cmd)
-	renderscriptFieldPackerAddU321Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	renderscriptFieldPackerAddU321Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerAddU321Cmd)
-	renderscriptFieldPackerAddU321_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	renderscriptFieldPackerAddU321_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerAddU321_1Cmd)
-	renderscriptFieldPackerAddU321_2Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	renderscriptFieldPackerAddU321_2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerAddU321_2Cmd)
-	renderscriptFieldPackerAddU321_3Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	renderscriptFieldPackerAddU321_3Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerAddU321_3Cmd)
-	renderscriptFieldPackerAddU641Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	renderscriptFieldPackerAddU641Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerAddU641Cmd)
-	renderscriptFieldPackerAddU641_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	renderscriptFieldPackerAddU641_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerAddU641_1Cmd)
-	renderscriptFieldPackerAddU641_2Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	renderscriptFieldPackerAddU641_2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerAddU641_2Cmd)
-	renderscriptFieldPackerAddU641_3Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	renderscriptFieldPackerAddU641_3Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerAddU641_3Cmd)
-	renderscriptFieldPackerAddU81Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	renderscriptFieldPackerAddU81Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerAddU81Cmd)
-	renderscriptFieldPackerAddU81_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	renderscriptFieldPackerAddU81_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerAddU81_1Cmd)
-	renderscriptFieldPackerAddU81_2Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	renderscriptFieldPackerAddU81_2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerAddU81_2Cmd)
-	renderscriptFieldPackerAddU81_3Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	renderscriptFieldPackerAddU81_3Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerAddU81_3Cmd)
-	renderscriptFieldPackerAlignCmd.Flags().Int64("handle", 0, "handle (int64)")
-	renderscriptFieldPackerAlignCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerAlignCmd)
-	renderscriptFieldPackerGetDataCmd.Flags().Int64("handle", 0, "handle (int64)")
-	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerGetDataCmd)
-	renderscriptFieldPackerReset0Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerReset0Cmd)
-	renderscriptFieldPackerReset1_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	renderscriptFieldPackerReset1_1Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerReset1_1Cmd)
-	renderscriptFieldPackerSkipCmd.Flags().Int64("handle", 0, "handle (int64)")
-	renderscriptFieldPackerSkipCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerSkipCmd)
-	renderscriptFieldPackerSubBooleanCmd.Flags().Int64("handle", 0, "handle (int64)")
-	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerSubBooleanCmd)
-	renderscriptFieldPackerSubByte2Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerSubByte2Cmd)
-	renderscriptFieldPackerSubByte3Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerSubByte3Cmd)
-	renderscriptFieldPackerSubByte4Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerSubByte4Cmd)
-	renderscriptFieldPackerSubDouble2Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerSubDouble2Cmd)
-	renderscriptFieldPackerSubDouble3Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerSubDouble3Cmd)
-	renderscriptFieldPackerSubDouble4Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerSubDouble4Cmd)
-	renderscriptFieldPackerSubF32Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerSubF32Cmd)
-	renderscriptFieldPackerSubF64Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerSubF64Cmd)
-	renderscriptFieldPackerSubFloat2Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerSubFloat2Cmd)
-	renderscriptFieldPackerSubFloat3Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerSubFloat3Cmd)
-	renderscriptFieldPackerSubFloat4Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerSubFloat4Cmd)
-	renderscriptFieldPackerSubI16Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerSubI16Cmd)
-	renderscriptFieldPackerSubI32Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerSubI32Cmd)
-	renderscriptFieldPackerSubI64Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerSubI64Cmd)
-	renderscriptFieldPackerSubI8Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerSubI8Cmd)
-	renderscriptFieldPackerSubInt2Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerSubInt2Cmd)
-	renderscriptFieldPackerSubInt3Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerSubInt3Cmd)
-	renderscriptFieldPackerSubInt4Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerSubInt4Cmd)
-	renderscriptFieldPackerSubLong2Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerSubLong2Cmd)
-	renderscriptFieldPackerSubLong3Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerSubLong3Cmd)
-	renderscriptFieldPackerSubLong4Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerSubLong4Cmd)
-	renderscriptFieldPackerSubMatrix2fCmd.Flags().Int64("handle", 0, "handle (int64)")
-	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerSubMatrix2fCmd)
-	renderscriptFieldPackerSubMatrix3fCmd.Flags().Int64("handle", 0, "handle (int64)")
-	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerSubMatrix3fCmd)
-	renderscriptFieldPackerSubMatrix4fCmd.Flags().Int64("handle", 0, "handle (int64)")
-	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerSubMatrix4fCmd)
-	renderscriptFieldPackerSubShort2Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerSubShort2Cmd)
-	renderscriptFieldPackerSubShort3Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerSubShort3Cmd)
-	renderscriptFieldPackerSubShort4Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerSubShort4Cmd)
-	renderscriptFieldPackerSubalignCmd.Flags().Int64("handle", 0, "handle (int64)")
-	renderscriptFieldPackerSubalignCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	renderscriptFieldPackerCmd.AddCommand(renderscriptFieldPackerSubalignCmd)
-	renderscriptCmd.AddCommand(renderscriptFieldPackerCmd)
-	renderscriptScriptIntrinsicResizeForEach_bicubic1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptScriptIntrinsicResizeCmd.AddCommand(renderscriptScriptIntrinsicResizeForEach_bicubic1Cmd)
-	renderscriptScriptIntrinsicResizeForEach_bicubic2_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptScriptIntrinsicResizeForEach_bicubic2_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	renderscriptScriptIntrinsicResizeCmd.AddCommand(renderscriptScriptIntrinsicResizeForEach_bicubic2_1Cmd)
-	renderscriptScriptIntrinsicResizeCmd.AddCommand(renderscriptScriptIntrinsicResizeGetFieldID_InputCmd)
-	renderscriptScriptIntrinsicResizeCmd.AddCommand(renderscriptScriptIntrinsicResizeGetKernelID_bicubicCmd)
-	renderscriptScriptIntrinsicResizeSetInputCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptScriptIntrinsicResizeCmd.AddCommand(renderscriptScriptIntrinsicResizeSetInputCmd)
-	renderscriptScriptIntrinsicResizeCreateCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptScriptIntrinsicResizeCmd.AddCommand(renderscriptScriptIntrinsicResizeCreateCmd)
-	renderscriptCmd.AddCommand(renderscriptScriptIntrinsicResizeCmd)
-	renderscriptBaseObjCmd.AddCommand(renderscriptBaseObjDestroyCmd)
-	renderscriptBaseObjEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	renderscriptBaseObjCmd.AddCommand(renderscriptBaseObjEqualsCmd)
-	renderscriptBaseObjCmd.AddCommand(renderscriptBaseObjGetNameCmd)
-	renderscriptBaseObjCmd.AddCommand(renderscriptBaseObjHashCodeCmd)
-	renderscriptBaseObjSetNameCmd.Flags().String("arg0", "", "arg0 (string)")
-	renderscriptBaseObjCmd.AddCommand(renderscriptBaseObjSetNameCmd)
-	renderscriptCmd.AddCommand(renderscriptBaseObjCmd)
 	rootCmd.AddCommand(renderscriptCmd)
 }

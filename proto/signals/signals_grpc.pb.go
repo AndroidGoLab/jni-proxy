@@ -21,109 +21,6 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	ProtectedSignalsManagerService_Get_FullMethodName = "/signals.ProtectedSignalsManagerService/Get"
-)
-
-// ProtectedSignalsManagerServiceClient is the client API for ProtectedSignalsManagerService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type ProtectedSignalsManagerServiceClient interface {
-	Get(ctx context.Context, in *GetRequest, opts ...grpc.CallOption) (*GetResponse, error)
-}
-
-type protectedSignalsManagerServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewProtectedSignalsManagerServiceClient(cc grpc.ClientConnInterface) ProtectedSignalsManagerServiceClient {
-	return &protectedSignalsManagerServiceClient{cc}
-}
-
-func (c *protectedSignalsManagerServiceClient) Get(ctx context.Context, in *GetRequest, opts ...grpc.CallOption) (*GetResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetResponse)
-	err := c.cc.Invoke(ctx, ProtectedSignalsManagerService_Get_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// ProtectedSignalsManagerServiceServer is the server API for ProtectedSignalsManagerService service.
-// All implementations must embed UnimplementedProtectedSignalsManagerServiceServer
-// for forward compatibility.
-type ProtectedSignalsManagerServiceServer interface {
-	Get(context.Context, *GetRequest) (*GetResponse, error)
-	mustEmbedUnimplementedProtectedSignalsManagerServiceServer()
-}
-
-// UnimplementedProtectedSignalsManagerServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedProtectedSignalsManagerServiceServer struct{}
-
-func (UnimplementedProtectedSignalsManagerServiceServer) Get(context.Context, *GetRequest) (*GetResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Get not implemented")
-}
-func (UnimplementedProtectedSignalsManagerServiceServer) mustEmbedUnimplementedProtectedSignalsManagerServiceServer() {
-}
-func (UnimplementedProtectedSignalsManagerServiceServer) testEmbeddedByValue() {}
-
-// UnsafeProtectedSignalsManagerServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to ProtectedSignalsManagerServiceServer will
-// result in compilation errors.
-type UnsafeProtectedSignalsManagerServiceServer interface {
-	mustEmbedUnimplementedProtectedSignalsManagerServiceServer()
-}
-
-func RegisterProtectedSignalsManagerServiceServer(s grpc.ServiceRegistrar, srv ProtectedSignalsManagerServiceServer) {
-	// If the following call panics, it indicates UnimplementedProtectedSignalsManagerServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&ProtectedSignalsManagerService_ServiceDesc, srv)
-}
-
-func _ProtectedSignalsManagerService_Get_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ProtectedSignalsManagerServiceServer).Get(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ProtectedSignalsManagerService_Get_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ProtectedSignalsManagerServiceServer).Get(ctx, req.(*GetRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// ProtectedSignalsManagerService_ServiceDesc is the grpc.ServiceDesc for ProtectedSignalsManagerService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var ProtectedSignalsManagerService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "signals.ProtectedSignalsManagerService",
-	HandlerType: (*ProtectedSignalsManagerServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "Get",
-			Handler:    _ProtectedSignalsManagerService_Get_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/signals/signals.proto",
-}
-
-const (
 	UpdateSignalsRequestService_Equals_FullMethodName       = "/signals.UpdateSignalsRequestService/Equals"
 	UpdateSignalsRequestService_GetUpdateUri_FullMethodName = "/signals.UpdateSignalsRequestService/GetUpdateUri"
 	UpdateSignalsRequestService_HashCode_FullMethodName     = "/signals.UpdateSignalsRequestService/HashCode"
@@ -475,6 +372,109 @@ var UpdateSignalsRequestBuilderService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "SetUpdateUri",
 			Handler:    _UpdateSignalsRequestBuilderService_SetUpdateUri_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/signals/signals.proto",
+}
+
+const (
+	ProtectedSignalsManagerService_Get_FullMethodName = "/signals.ProtectedSignalsManagerService/Get"
+)
+
+// ProtectedSignalsManagerServiceClient is the client API for ProtectedSignalsManagerService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ProtectedSignalsManagerServiceClient interface {
+	Get(ctx context.Context, in *GetRequest, opts ...grpc.CallOption) (*GetResponse, error)
+}
+
+type protectedSignalsManagerServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewProtectedSignalsManagerServiceClient(cc grpc.ClientConnInterface) ProtectedSignalsManagerServiceClient {
+	return &protectedSignalsManagerServiceClient{cc}
+}
+
+func (c *protectedSignalsManagerServiceClient) Get(ctx context.Context, in *GetRequest, opts ...grpc.CallOption) (*GetResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetResponse)
+	err := c.cc.Invoke(ctx, ProtectedSignalsManagerService_Get_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ProtectedSignalsManagerServiceServer is the server API for ProtectedSignalsManagerService service.
+// All implementations must embed UnimplementedProtectedSignalsManagerServiceServer
+// for forward compatibility.
+type ProtectedSignalsManagerServiceServer interface {
+	Get(context.Context, *GetRequest) (*GetResponse, error)
+	mustEmbedUnimplementedProtectedSignalsManagerServiceServer()
+}
+
+// UnimplementedProtectedSignalsManagerServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedProtectedSignalsManagerServiceServer struct{}
+
+func (UnimplementedProtectedSignalsManagerServiceServer) Get(context.Context, *GetRequest) (*GetResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Get not implemented")
+}
+func (UnimplementedProtectedSignalsManagerServiceServer) mustEmbedUnimplementedProtectedSignalsManagerServiceServer() {
+}
+func (UnimplementedProtectedSignalsManagerServiceServer) testEmbeddedByValue() {}
+
+// UnsafeProtectedSignalsManagerServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ProtectedSignalsManagerServiceServer will
+// result in compilation errors.
+type UnsafeProtectedSignalsManagerServiceServer interface {
+	mustEmbedUnimplementedProtectedSignalsManagerServiceServer()
+}
+
+func RegisterProtectedSignalsManagerServiceServer(s grpc.ServiceRegistrar, srv ProtectedSignalsManagerServiceServer) {
+	// If the following call panics, it indicates UnimplementedProtectedSignalsManagerServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&ProtectedSignalsManagerService_ServiceDesc, srv)
+}
+
+func _ProtectedSignalsManagerService_Get_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ProtectedSignalsManagerServiceServer).Get(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ProtectedSignalsManagerService_Get_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ProtectedSignalsManagerServiceServer).Get(ctx, req.(*GetRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ProtectedSignalsManagerService_ServiceDesc is the grpc.ServiceDesc for ProtectedSignalsManagerService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ProtectedSignalsManagerService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "signals.ProtectedSignalsManagerService",
+	HandlerType: (*ProtectedSignalsManagerServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Get",
+			Handler:    _ProtectedSignalsManagerService_Get_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

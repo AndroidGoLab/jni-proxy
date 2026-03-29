@@ -15,106 +15,6 @@ import (
 	"google.golang.org/grpc/status"
 )
 
-// AppOwnedSdkSandboxInterfaceServer implements pb.AppOwnedSdkSandboxInterfaceServiceServer.
-type AppOwnedSdkSandboxInterfaceServer struct {
-	pb.UnimplementedAppOwnedSdkSandboxInterfaceServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *AppOwnedSdkSandboxInterfaceServer) NewAppOwnedSdkSandboxInterface(_ context.Context, req *pb.NewAppOwnedSdkSandboxInterfaceRequest) (*pb.NewAppOwnedSdkSandboxInterfaceResponse, error) {
-	obj, err := jnipkg.NewAppOwnedSdkSandboxInterface(s.Ctx.VM, req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
-	}
-	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-	}
-	return &pb.NewAppOwnedSdkSandboxInterfaceResponse{Result: handle}, nil
-}
-
-func (s *AppOwnedSdkSandboxInterfaceServer) DescribeContents(_ context.Context, req *pb.DescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.AppOwnedSdkSandboxInterface{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.DescribeContents()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.DescribeContentsResponse{Result: result}, nil
-}
-
-func (s *AppOwnedSdkSandboxInterfaceServer) GetInterface(_ context.Context, req *pb.GetInterfaceRequest) (*pb.GetInterfaceResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.AppOwnedSdkSandboxInterface{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetInterface()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetInterfaceResponse{Result: handle}, nil
-}
-
-func (s *AppOwnedSdkSandboxInterfaceServer) GetName(_ context.Context, req *pb.GetNameRequest) (*pb.GetNameResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.AppOwnedSdkSandboxInterface{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetName()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetNameResponse{Result: result}, nil
-}
-
-func (s *AppOwnedSdkSandboxInterfaceServer) GetVersion(_ context.Context, req *pb.GetVersionRequest) (*pb.GetVersionResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.AppOwnedSdkSandboxInterface{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetVersion()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetVersionResponse{Result: result}, nil
-}
-
-func (s *AppOwnedSdkSandboxInterfaceServer) WriteToParcel(_ context.Context, req *pb.WriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.AppOwnedSdkSandboxInterface{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.WriteToParcel(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.WriteToParcelResponse{}, nil
-}
-
 // RequestSurfacePackageExceptionServer implements pb.RequestSurfacePackageExceptionServiceServer.
 type RequestSurfacePackageExceptionServer struct {
 	pb.UnimplementedRequestSurfacePackageExceptionServiceServer
@@ -262,6 +162,106 @@ func (s *SandboxedSdkServer) WriteToParcel(_ context.Context, req *pb.WriteToPar
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
 	mgr := &jnipkg.SandboxedSdk{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.WriteToParcel(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.WriteToParcelResponse{}, nil
+}
+
+// AppOwnedSdkSandboxInterfaceServer implements pb.AppOwnedSdkSandboxInterfaceServiceServer.
+type AppOwnedSdkSandboxInterfaceServer struct {
+	pb.UnimplementedAppOwnedSdkSandboxInterfaceServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *AppOwnedSdkSandboxInterfaceServer) NewAppOwnedSdkSandboxInterface(_ context.Context, req *pb.NewAppOwnedSdkSandboxInterfaceRequest) (*pb.NewAppOwnedSdkSandboxInterfaceResponse, error) {
+	obj, err := jnipkg.NewAppOwnedSdkSandboxInterface(s.Ctx.VM, req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewAppOwnedSdkSandboxInterfaceResponse{Result: handle}, nil
+}
+
+func (s *AppOwnedSdkSandboxInterfaceServer) DescribeContents(_ context.Context, req *pb.DescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.AppOwnedSdkSandboxInterface{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.DescribeContents()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.DescribeContentsResponse{Result: result}, nil
+}
+
+func (s *AppOwnedSdkSandboxInterfaceServer) GetInterface(_ context.Context, req *pb.GetInterfaceRequest) (*pb.GetInterfaceResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.AppOwnedSdkSandboxInterface{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetInterface()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetInterfaceResponse{Result: handle}, nil
+}
+
+func (s *AppOwnedSdkSandboxInterfaceServer) GetName(_ context.Context, req *pb.GetNameRequest) (*pb.GetNameResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.AppOwnedSdkSandboxInterface{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetName()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetNameResponse{Result: result}, nil
+}
+
+func (s *AppOwnedSdkSandboxInterfaceServer) GetVersion(_ context.Context, req *pb.GetVersionRequest) (*pb.GetVersionResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.AppOwnedSdkSandboxInterface{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetVersion()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetVersionResponse{Result: result}, nil
+}
+
+func (s *AppOwnedSdkSandboxInterfaceServer) WriteToParcel(_ context.Context, req *pb.WriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.AppOwnedSdkSandboxInterface{VM: s.Ctx.VM, Obj: rawObj}
 
 	if err := mgr.WriteToParcel(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)

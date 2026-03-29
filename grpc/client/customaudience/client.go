@@ -9,200 +9,6 @@ import (
 	"google.golang.org/grpc"
 )
 
-// FetchAndJoinCustomAudienceRequestClient wraps the gRPC FetchAndJoinCustomAudienceRequestService client.
-type FetchAndJoinCustomAudienceRequestClient struct {
-	svc pb.FetchAndJoinCustomAudienceRequestServiceClient
-}
-
-// NewFetchAndJoinCustomAudienceRequestClient creates a new FetchAndJoinCustomAudienceRequest client.
-func NewFetchAndJoinCustomAudienceRequestClient(cc grpc.ClientConnInterface) *FetchAndJoinCustomAudienceRequestClient {
-	return &FetchAndJoinCustomAudienceRequestClient{
-		svc: pb.NewFetchAndJoinCustomAudienceRequestServiceClient(cc),
-	}
-}
-
-// Equals calls the Equals RPC.
-func (c *FetchAndJoinCustomAudienceRequestClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetActivationTime calls the GetActivationTime RPC.
-func (c *FetchAndJoinCustomAudienceRequestClient) GetActivationTime(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetActivationTime(ctx, &pb.GetActivationTimeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetExpirationTime calls the GetExpirationTime RPC.
-func (c *FetchAndJoinCustomAudienceRequestClient) GetExpirationTime(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetExpirationTime(ctx, &pb.GetExpirationTimeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetFetchUri calls the GetFetchUri RPC.
-func (c *FetchAndJoinCustomAudienceRequestClient) GetFetchUri(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetFetchUri(ctx, &pb.GetFetchUriRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetName calls the GetName RPC.
-func (c *FetchAndJoinCustomAudienceRequestClient) GetName(ctx context.Context) (string, error) {
-	resp, err := c.svc.GetName(ctx, &pb.GetNameRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetUserBiddingSignals calls the GetUserBiddingSignals RPC.
-func (c *FetchAndJoinCustomAudienceRequestClient) GetUserBiddingSignals(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetUserBiddingSignals(ctx, &pb.GetUserBiddingSignalsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *FetchAndJoinCustomAudienceRequestClient) HashCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToString calls the ToString RPC.
-func (c *FetchAndJoinCustomAudienceRequestClient) ToString(ctx context.Context) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// FetchAndJoinCustomAudienceRequestBuilderClient wraps the gRPC FetchAndJoinCustomAudienceRequestBuilderService client.
-type FetchAndJoinCustomAudienceRequestBuilderClient struct {
-	svc pb.FetchAndJoinCustomAudienceRequestBuilderServiceClient
-}
-
-// NewFetchAndJoinCustomAudienceRequestBuilderClient creates a new FetchAndJoinCustomAudienceRequestBuilder client.
-func NewFetchAndJoinCustomAudienceRequestBuilderClient(cc grpc.ClientConnInterface) *FetchAndJoinCustomAudienceRequestBuilderClient {
-	return &FetchAndJoinCustomAudienceRequestBuilderClient{
-		svc: pb.NewFetchAndJoinCustomAudienceRequestBuilderServiceClient(cc),
-	}
-}
-
-// Build calls the Build RPC.
-func (c *FetchAndJoinCustomAudienceRequestBuilderClient) Build(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetActivationTime calls the SetActivationTime RPC.
-func (c *FetchAndJoinCustomAudienceRequestBuilderClient) SetActivationTime(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetActivationTime(ctx, &pb.SetActivationTimeRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetExpirationTime calls the SetExpirationTime RPC.
-func (c *FetchAndJoinCustomAudienceRequestBuilderClient) SetExpirationTime(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetExpirationTime(ctx, &pb.SetExpirationTimeRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetFetchUri calls the SetFetchUri RPC.
-func (c *FetchAndJoinCustomAudienceRequestBuilderClient) SetFetchUri(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetFetchUri(ctx, &pb.SetFetchUriRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetName calls the SetName RPC.
-func (c *FetchAndJoinCustomAudienceRequestBuilderClient) SetName(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.SetName(ctx, &pb.SetNameRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetUserBiddingSignals calls the SetUserBiddingSignals RPC.
-func (c *FetchAndJoinCustomAudienceRequestBuilderClient) SetUserBiddingSignals(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetUserBiddingSignals(ctx, &pb.SetUserBiddingSignalsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// CustomAudienceManagerClient wraps the gRPC CustomAudienceManagerService client.
-type CustomAudienceManagerClient struct {
-	svc pb.CustomAudienceManagerServiceClient
-}
-
-// NewCustomAudienceManagerClient creates a new CustomAudienceManager client.
-func NewCustomAudienceManagerClient(cc grpc.ClientConnInterface) *CustomAudienceManagerClient {
-	return &CustomAudienceManagerClient{
-		svc: pb.NewCustomAudienceManagerServiceClient(cc),
-	}
-}
-
-// GetTestCustomAudienceManager calls the GetTestCustomAudienceManager RPC.
-func (c *CustomAudienceManagerClient) GetTestCustomAudienceManager(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetTestCustomAudienceManager(ctx, &pb.GetTestCustomAudienceManagerRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Get calls the Get RPC.
-func (c *CustomAudienceManagerClient) Get(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.Get(ctx, &pb.GetRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
 // CustomAudienceClient wraps the gRPC CustomAudienceService client.
 type CustomAudienceClient struct {
 	svc pb.CustomAudienceServiceClient
@@ -244,6 +50,15 @@ func (c *CustomAudienceClient) GetActivationTime(ctx context.Context) (int64, er
 	return resp.GetResult(), nil
 }
 
+// GetAds calls the GetAds RPC.
+func (c *CustomAudienceClient) GetAds(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetAds(ctx, &pb.GetAdsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // GetAuctionServerRequestFlags calls the GetAuctionServerRequestFlags RPC.
 func (c *CustomAudienceClient) GetAuctionServerRequestFlags(ctx context.Context) (int32, error) {
 	resp, err := c.svc.GetAuctionServerRequestFlags(ctx, &pb.GetAuctionServerRequestFlagsRequest{})
@@ -265,6 +80,15 @@ func (c *CustomAudienceClient) GetBiddingLogicUri(ctx context.Context) (int64, e
 // GetBuyer calls the GetBuyer RPC.
 func (c *CustomAudienceClient) GetBuyer(ctx context.Context) (int64, error) {
 	resp, err := c.svc.GetBuyer(ctx, &pb.GetBuyerRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetComponentAds calls the GetComponentAds RPC.
+func (c *CustomAudienceClient) GetComponentAds(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetComponentAds(ctx, &pb.GetComponentAdsRequest{})
 	if err != nil {
 		return 0, err
 	}
@@ -483,43 +307,21 @@ func (c *CustomAudienceBuilderClient) SetUserBiddingSignals(ctx context.Context,
 	return resp.GetResult(), nil
 }
 
-// AddCustomAudienceOverrideRequestClient wraps the gRPC AddCustomAudienceOverrideRequestService client.
-type AddCustomAudienceOverrideRequestClient struct {
-	svc pb.AddCustomAudienceOverrideRequestServiceClient
+// RemoveCustomAudienceOverrideRequestClient wraps the gRPC RemoveCustomAudienceOverrideRequestService client.
+type RemoveCustomAudienceOverrideRequestClient struct {
+	svc pb.RemoveCustomAudienceOverrideRequestServiceClient
 }
 
-// NewAddCustomAudienceOverrideRequestClient creates a new AddCustomAudienceOverrideRequest client.
-func NewAddCustomAudienceOverrideRequestClient(cc grpc.ClientConnInterface) *AddCustomAudienceOverrideRequestClient {
-	return &AddCustomAudienceOverrideRequestClient{
-		svc: pb.NewAddCustomAudienceOverrideRequestServiceClient(cc),
+// NewRemoveCustomAudienceOverrideRequestClient creates a new RemoveCustomAudienceOverrideRequest client.
+func NewRemoveCustomAudienceOverrideRequestClient(cc grpc.ClientConnInterface) *RemoveCustomAudienceOverrideRequestClient {
+	return &RemoveCustomAudienceOverrideRequestClient{
+		svc: pb.NewRemoveCustomAudienceOverrideRequestServiceClient(cc),
 	}
-}
-
-// GetBiddingLogicJs calls the GetBiddingLogicJs RPC.
-func (c *AddCustomAudienceOverrideRequestClient) GetBiddingLogicJs(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.GetBiddingLogicJs(ctx, &pb.GetBiddingLogicJsRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetBiddingLogicJsVersion calls the GetBiddingLogicJsVersion RPC.
-func (c *AddCustomAudienceOverrideRequestClient) GetBiddingLogicJsVersion(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetBiddingLogicJsVersion(ctx, &pb.GetBiddingLogicJsVersionRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
 }
 
 // GetBuyer calls the GetBuyer RPC.
-func (c *AddCustomAudienceOverrideRequestClient) GetBuyer(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetBuyer(ctx, &pb.AddCustomAudienceOverrideRequestGetBuyerRequest{
+func (c *RemoveCustomAudienceOverrideRequestClient) GetBuyer(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetBuyer(ctx, &pb.RemoveCustomAudienceOverrideRequestGetBuyerRequest{
 		Handle: handle,
 	})
 	if err != nil {
@@ -529,8 +331,8 @@ func (c *AddCustomAudienceOverrideRequestClient) GetBuyer(ctx context.Context, h
 }
 
 // GetName calls the GetName RPC.
-func (c *AddCustomAudienceOverrideRequestClient) GetName(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.GetName(ctx, &pb.AddCustomAudienceOverrideRequestGetNameRequest{
+func (c *RemoveCustomAudienceOverrideRequestClient) GetName(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetName(ctx, &pb.RemoveCustomAudienceOverrideRequestGetNameRequest{
 		Handle: handle,
 	})
 	if err != nil {
@@ -539,31 +341,20 @@ func (c *AddCustomAudienceOverrideRequestClient) GetName(ctx context.Context, ha
 	return resp.GetResult(), nil
 }
 
-// GetTrustedBiddingSignals calls the GetTrustedBiddingSignals RPC.
-func (c *AddCustomAudienceOverrideRequestClient) GetTrustedBiddingSignals(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetTrustedBiddingSignals(ctx, &pb.GetTrustedBiddingSignalsRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
+// RemoveCustomAudienceOverrideRequestBuilderClient wraps the gRPC RemoveCustomAudienceOverrideRequestBuilderService client.
+type RemoveCustomAudienceOverrideRequestBuilderClient struct {
+	svc pb.RemoveCustomAudienceOverrideRequestBuilderServiceClient
 }
 
-// AddCustomAudienceOverrideRequestBuilderClient wraps the gRPC AddCustomAudienceOverrideRequestBuilderService client.
-type AddCustomAudienceOverrideRequestBuilderClient struct {
-	svc pb.AddCustomAudienceOverrideRequestBuilderServiceClient
-}
-
-// NewAddCustomAudienceOverrideRequestBuilderClient creates a new AddCustomAudienceOverrideRequestBuilder client.
-func NewAddCustomAudienceOverrideRequestBuilderClient(cc grpc.ClientConnInterface) *AddCustomAudienceOverrideRequestBuilderClient {
-	return &AddCustomAudienceOverrideRequestBuilderClient{
-		svc: pb.NewAddCustomAudienceOverrideRequestBuilderServiceClient(cc),
+// NewRemoveCustomAudienceOverrideRequestBuilderClient creates a new RemoveCustomAudienceOverrideRequestBuilder client.
+func NewRemoveCustomAudienceOverrideRequestBuilderClient(cc grpc.ClientConnInterface) *RemoveCustomAudienceOverrideRequestBuilderClient {
+	return &RemoveCustomAudienceOverrideRequestBuilderClient{
+		svc: pb.NewRemoveCustomAudienceOverrideRequestBuilderServiceClient(cc),
 	}
 }
 
 // Build calls the Build RPC.
-func (c *AddCustomAudienceOverrideRequestBuilderClient) Build(ctx context.Context) (int64, error) {
+func (c *RemoveCustomAudienceOverrideRequestBuilderClient) Build(ctx context.Context) (int64, error) {
 	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
 	if err != nil {
 		return 0, err
@@ -571,30 +362,8 @@ func (c *AddCustomAudienceOverrideRequestBuilderClient) Build(ctx context.Contex
 	return resp.GetResult(), nil
 }
 
-// SetBiddingLogicJs calls the SetBiddingLogicJs RPC.
-func (c *AddCustomAudienceOverrideRequestBuilderClient) SetBiddingLogicJs(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.SetBiddingLogicJs(ctx, &pb.SetBiddingLogicJsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetBiddingLogicJsVersion calls the SetBiddingLogicJsVersion RPC.
-func (c *AddCustomAudienceOverrideRequestBuilderClient) SetBiddingLogicJsVersion(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetBiddingLogicJsVersion(ctx, &pb.SetBiddingLogicJsVersionRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
 // SetBuyer calls the SetBuyer RPC.
-func (c *AddCustomAudienceOverrideRequestBuilderClient) SetBuyer(ctx context.Context, arg0 int64) (int64, error) {
+func (c *RemoveCustomAudienceOverrideRequestBuilderClient) SetBuyer(ctx context.Context, arg0 int64) (int64, error) {
 	resp, err := c.svc.SetBuyer(ctx, &pb.SetBuyerRequest{
 		Arg0: arg0,
 	})
@@ -605,307 +374,8 @@ func (c *AddCustomAudienceOverrideRequestBuilderClient) SetBuyer(ctx context.Con
 }
 
 // SetName calls the SetName RPC.
-func (c *AddCustomAudienceOverrideRequestBuilderClient) SetName(ctx context.Context, arg0 string) (int64, error) {
+func (c *RemoveCustomAudienceOverrideRequestBuilderClient) SetName(ctx context.Context, arg0 string) (int64, error) {
 	resp, err := c.svc.SetName(ctx, &pb.SetNameRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetTrustedBiddingSignals calls the SetTrustedBiddingSignals RPC.
-func (c *AddCustomAudienceOverrideRequestBuilderClient) SetTrustedBiddingSignals(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetTrustedBiddingSignals(ctx, &pb.SetTrustedBiddingSignalsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// JoinCustomAudienceRequestClient wraps the gRPC JoinCustomAudienceRequestService client.
-type JoinCustomAudienceRequestClient struct {
-	svc pb.JoinCustomAudienceRequestServiceClient
-}
-
-// NewJoinCustomAudienceRequestClient creates a new JoinCustomAudienceRequest client.
-func NewJoinCustomAudienceRequestClient(cc grpc.ClientConnInterface) *JoinCustomAudienceRequestClient {
-	return &JoinCustomAudienceRequestClient{
-		svc: pb.NewJoinCustomAudienceRequestServiceClient(cc),
-	}
-}
-
-// Equals calls the Equals RPC.
-func (c *JoinCustomAudienceRequestClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetCustomAudience calls the GetCustomAudience RPC.
-func (c *JoinCustomAudienceRequestClient) GetCustomAudience(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetCustomAudience(ctx, &pb.GetCustomAudienceRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *JoinCustomAudienceRequestClient) HashCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// JoinCustomAudienceRequestBuilderClient wraps the gRPC JoinCustomAudienceRequestBuilderService client.
-type JoinCustomAudienceRequestBuilderClient struct {
-	svc pb.JoinCustomAudienceRequestBuilderServiceClient
-}
-
-// NewJoinCustomAudienceRequestBuilderClient creates a new JoinCustomAudienceRequestBuilder client.
-func NewJoinCustomAudienceRequestBuilderClient(cc grpc.ClientConnInterface) *JoinCustomAudienceRequestBuilderClient {
-	return &JoinCustomAudienceRequestBuilderClient{
-		svc: pb.NewJoinCustomAudienceRequestBuilderServiceClient(cc),
-	}
-}
-
-// Build calls the Build RPC.
-func (c *JoinCustomAudienceRequestBuilderClient) Build(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetCustomAudience calls the SetCustomAudience RPC.
-func (c *JoinCustomAudienceRequestBuilderClient) SetCustomAudience(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetCustomAudience(ctx, &pb.SetCustomAudienceRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// LeaveCustomAudienceRequestClient wraps the gRPC LeaveCustomAudienceRequestService client.
-type LeaveCustomAudienceRequestClient struct {
-	svc pb.LeaveCustomAudienceRequestServiceClient
-}
-
-// NewLeaveCustomAudienceRequestClient creates a new LeaveCustomAudienceRequest client.
-func NewLeaveCustomAudienceRequestClient(cc grpc.ClientConnInterface) *LeaveCustomAudienceRequestClient {
-	return &LeaveCustomAudienceRequestClient{
-		svc: pb.NewLeaveCustomAudienceRequestServiceClient(cc),
-	}
-}
-
-// Equals calls the Equals RPC.
-func (c *LeaveCustomAudienceRequestClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetBuyer calls the GetBuyer RPC.
-func (c *LeaveCustomAudienceRequestClient) GetBuyer(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetBuyer(ctx, &pb.GetBuyerRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetName calls the GetName RPC.
-func (c *LeaveCustomAudienceRequestClient) GetName(ctx context.Context) (string, error) {
-	resp, err := c.svc.GetName(ctx, &pb.GetNameRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *LeaveCustomAudienceRequestClient) HashCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// LeaveCustomAudienceRequestBuilderClient wraps the gRPC LeaveCustomAudienceRequestBuilderService client.
-type LeaveCustomAudienceRequestBuilderClient struct {
-	svc pb.LeaveCustomAudienceRequestBuilderServiceClient
-}
-
-// NewLeaveCustomAudienceRequestBuilderClient creates a new LeaveCustomAudienceRequestBuilder client.
-func NewLeaveCustomAudienceRequestBuilderClient(cc grpc.ClientConnInterface) *LeaveCustomAudienceRequestBuilderClient {
-	return &LeaveCustomAudienceRequestBuilderClient{
-		svc: pb.NewLeaveCustomAudienceRequestBuilderServiceClient(cc),
-	}
-}
-
-// Build calls the Build RPC.
-func (c *LeaveCustomAudienceRequestBuilderClient) Build(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetBuyer calls the SetBuyer RPC.
-func (c *LeaveCustomAudienceRequestBuilderClient) SetBuyer(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetBuyer(ctx, &pb.SetBuyerRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetName calls the SetName RPC.
-func (c *LeaveCustomAudienceRequestBuilderClient) SetName(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.SetName(ctx, &pb.SetNameRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ScheduleCustomAudienceUpdateRequestClient wraps the gRPC ScheduleCustomAudienceUpdateRequestService client.
-type ScheduleCustomAudienceUpdateRequestClient struct {
-	svc pb.ScheduleCustomAudienceUpdateRequestServiceClient
-}
-
-// NewScheduleCustomAudienceUpdateRequestClient creates a new ScheduleCustomAudienceUpdateRequest client.
-func NewScheduleCustomAudienceUpdateRequestClient(cc grpc.ClientConnInterface) *ScheduleCustomAudienceUpdateRequestClient {
-	return &ScheduleCustomAudienceUpdateRequestClient{
-		svc: pb.NewScheduleCustomAudienceUpdateRequestServiceClient(cc),
-	}
-}
-
-// Equals calls the Equals RPC.
-func (c *ScheduleCustomAudienceUpdateRequestClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetMinDelay calls the GetMinDelay RPC.
-func (c *ScheduleCustomAudienceUpdateRequestClient) GetMinDelay(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetMinDelay(ctx, &pb.GetMinDelayRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetUpdateUri calls the GetUpdateUri RPC.
-func (c *ScheduleCustomAudienceUpdateRequestClient) GetUpdateUri(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetUpdateUri(ctx, &pb.GetUpdateUriRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *ScheduleCustomAudienceUpdateRequestClient) HashCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ShouldReplacePendingUpdates calls the ShouldReplacePendingUpdates RPC.
-func (c *ScheduleCustomAudienceUpdateRequestClient) ShouldReplacePendingUpdates(ctx context.Context) (bool, error) {
-	resp, err := c.svc.ShouldReplacePendingUpdates(ctx, &pb.ShouldReplacePendingUpdatesRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToString calls the ToString RPC.
-func (c *ScheduleCustomAudienceUpdateRequestClient) ToString(ctx context.Context) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// ScheduleCustomAudienceUpdateRequestBuilderClient wraps the gRPC ScheduleCustomAudienceUpdateRequestBuilderService client.
-type ScheduleCustomAudienceUpdateRequestBuilderClient struct {
-	svc pb.ScheduleCustomAudienceUpdateRequestBuilderServiceClient
-}
-
-// NewScheduleCustomAudienceUpdateRequestBuilderClient creates a new ScheduleCustomAudienceUpdateRequestBuilder client.
-func NewScheduleCustomAudienceUpdateRequestBuilderClient(cc grpc.ClientConnInterface) *ScheduleCustomAudienceUpdateRequestBuilderClient {
-	return &ScheduleCustomAudienceUpdateRequestBuilderClient{
-		svc: pb.NewScheduleCustomAudienceUpdateRequestBuilderServiceClient(cc),
-	}
-}
-
-// Build calls the Build RPC.
-func (c *ScheduleCustomAudienceUpdateRequestBuilderClient) Build(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetMinDelay calls the SetMinDelay RPC.
-func (c *ScheduleCustomAudienceUpdateRequestBuilderClient) SetMinDelay(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetMinDelay(ctx, &pb.SetMinDelayRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetShouldReplacePendingUpdates calls the SetShouldReplacePendingUpdates RPC.
-func (c *ScheduleCustomAudienceUpdateRequestBuilderClient) SetShouldReplacePendingUpdates(ctx context.Context, arg0 bool) (int64, error) {
-	resp, err := c.svc.SetShouldReplacePendingUpdates(ctx, &pb.SetShouldReplacePendingUpdatesRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetUpdateUri calls the SetUpdateUri RPC.
-func (c *ScheduleCustomAudienceUpdateRequestBuilderClient) SetUpdateUri(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetUpdateUri(ctx, &pb.SetUpdateUriRequest{
 		Arg0: arg0,
 	})
 	if err != nil {
@@ -1063,21 +533,336 @@ func (c *PartialCustomAudienceBuilderClient) SetUserBiddingSignals(ctx context.C
 	return resp.GetResult(), nil
 }
 
-// RemoveCustomAudienceOverrideRequestClient wraps the gRPC RemoveCustomAudienceOverrideRequestService client.
-type RemoveCustomAudienceOverrideRequestClient struct {
-	svc pb.RemoveCustomAudienceOverrideRequestServiceClient
+// ScheduleCustomAudienceUpdateRequestClient wraps the gRPC ScheduleCustomAudienceUpdateRequestService client.
+type ScheduleCustomAudienceUpdateRequestClient struct {
+	svc pb.ScheduleCustomAudienceUpdateRequestServiceClient
 }
 
-// NewRemoveCustomAudienceOverrideRequestClient creates a new RemoveCustomAudienceOverrideRequest client.
-func NewRemoveCustomAudienceOverrideRequestClient(cc grpc.ClientConnInterface) *RemoveCustomAudienceOverrideRequestClient {
-	return &RemoveCustomAudienceOverrideRequestClient{
-		svc: pb.NewRemoveCustomAudienceOverrideRequestServiceClient(cc),
+// NewScheduleCustomAudienceUpdateRequestClient creates a new ScheduleCustomAudienceUpdateRequest client.
+func NewScheduleCustomAudienceUpdateRequestClient(cc grpc.ClientConnInterface) *ScheduleCustomAudienceUpdateRequestClient {
+	return &ScheduleCustomAudienceUpdateRequestClient{
+		svc: pb.NewScheduleCustomAudienceUpdateRequestServiceClient(cc),
 	}
 }
 
+// Equals calls the Equals RPC.
+func (c *ScheduleCustomAudienceUpdateRequestClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMinDelay calls the GetMinDelay RPC.
+func (c *ScheduleCustomAudienceUpdateRequestClient) GetMinDelay(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetMinDelay(ctx, &pb.GetMinDelayRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPartialCustomAudienceList calls the GetPartialCustomAudienceList RPC.
+func (c *ScheduleCustomAudienceUpdateRequestClient) GetPartialCustomAudienceList(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetPartialCustomAudienceList(ctx, &pb.GetPartialCustomAudienceListRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetUpdateUri calls the GetUpdateUri RPC.
+func (c *ScheduleCustomAudienceUpdateRequestClient) GetUpdateUri(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetUpdateUri(ctx, &pb.GetUpdateUriRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *ScheduleCustomAudienceUpdateRequestClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ShouldReplacePendingUpdates calls the ShouldReplacePendingUpdates RPC.
+func (c *ScheduleCustomAudienceUpdateRequestClient) ShouldReplacePendingUpdates(ctx context.Context) (bool, error) {
+	resp, err := c.svc.ShouldReplacePendingUpdates(ctx, &pb.ShouldReplacePendingUpdatesRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *ScheduleCustomAudienceUpdateRequestClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// ScheduleCustomAudienceUpdateRequestBuilderClient wraps the gRPC ScheduleCustomAudienceUpdateRequestBuilderService client.
+type ScheduleCustomAudienceUpdateRequestBuilderClient struct {
+	svc pb.ScheduleCustomAudienceUpdateRequestBuilderServiceClient
+}
+
+// NewScheduleCustomAudienceUpdateRequestBuilderClient creates a new ScheduleCustomAudienceUpdateRequestBuilder client.
+func NewScheduleCustomAudienceUpdateRequestBuilderClient(cc grpc.ClientConnInterface) *ScheduleCustomAudienceUpdateRequestBuilderClient {
+	return &ScheduleCustomAudienceUpdateRequestBuilderClient{
+		svc: pb.NewScheduleCustomAudienceUpdateRequestBuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *ScheduleCustomAudienceUpdateRequestBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetMinDelay calls the SetMinDelay RPC.
+func (c *ScheduleCustomAudienceUpdateRequestBuilderClient) SetMinDelay(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetMinDelay(ctx, &pb.SetMinDelayRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetShouldReplacePendingUpdates calls the SetShouldReplacePendingUpdates RPC.
+func (c *ScheduleCustomAudienceUpdateRequestBuilderClient) SetShouldReplacePendingUpdates(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetShouldReplacePendingUpdates(ctx, &pb.SetShouldReplacePendingUpdatesRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetUpdateUri calls the SetUpdateUri RPC.
+func (c *ScheduleCustomAudienceUpdateRequestBuilderClient) SetUpdateUri(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetUpdateUri(ctx, &pb.SetUpdateUriRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// FetchAndJoinCustomAudienceRequestClient wraps the gRPC FetchAndJoinCustomAudienceRequestService client.
+type FetchAndJoinCustomAudienceRequestClient struct {
+	svc pb.FetchAndJoinCustomAudienceRequestServiceClient
+}
+
+// NewFetchAndJoinCustomAudienceRequestClient creates a new FetchAndJoinCustomAudienceRequest client.
+func NewFetchAndJoinCustomAudienceRequestClient(cc grpc.ClientConnInterface) *FetchAndJoinCustomAudienceRequestClient {
+	return &FetchAndJoinCustomAudienceRequestClient{
+		svc: pb.NewFetchAndJoinCustomAudienceRequestServiceClient(cc),
+	}
+}
+
+// Equals calls the Equals RPC.
+func (c *FetchAndJoinCustomAudienceRequestClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetActivationTime calls the GetActivationTime RPC.
+func (c *FetchAndJoinCustomAudienceRequestClient) GetActivationTime(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetActivationTime(ctx, &pb.GetActivationTimeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetExpirationTime calls the GetExpirationTime RPC.
+func (c *FetchAndJoinCustomAudienceRequestClient) GetExpirationTime(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetExpirationTime(ctx, &pb.GetExpirationTimeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetFetchUri calls the GetFetchUri RPC.
+func (c *FetchAndJoinCustomAudienceRequestClient) GetFetchUri(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetFetchUri(ctx, &pb.GetFetchUriRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetName calls the GetName RPC.
+func (c *FetchAndJoinCustomAudienceRequestClient) GetName(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetName(ctx, &pb.GetNameRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetUserBiddingSignals calls the GetUserBiddingSignals RPC.
+func (c *FetchAndJoinCustomAudienceRequestClient) GetUserBiddingSignals(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetUserBiddingSignals(ctx, &pb.GetUserBiddingSignalsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *FetchAndJoinCustomAudienceRequestClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *FetchAndJoinCustomAudienceRequestClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// FetchAndJoinCustomAudienceRequestBuilderClient wraps the gRPC FetchAndJoinCustomAudienceRequestBuilderService client.
+type FetchAndJoinCustomAudienceRequestBuilderClient struct {
+	svc pb.FetchAndJoinCustomAudienceRequestBuilderServiceClient
+}
+
+// NewFetchAndJoinCustomAudienceRequestBuilderClient creates a new FetchAndJoinCustomAudienceRequestBuilder client.
+func NewFetchAndJoinCustomAudienceRequestBuilderClient(cc grpc.ClientConnInterface) *FetchAndJoinCustomAudienceRequestBuilderClient {
+	return &FetchAndJoinCustomAudienceRequestBuilderClient{
+		svc: pb.NewFetchAndJoinCustomAudienceRequestBuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *FetchAndJoinCustomAudienceRequestBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetActivationTime calls the SetActivationTime RPC.
+func (c *FetchAndJoinCustomAudienceRequestBuilderClient) SetActivationTime(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetActivationTime(ctx, &pb.SetActivationTimeRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetExpirationTime calls the SetExpirationTime RPC.
+func (c *FetchAndJoinCustomAudienceRequestBuilderClient) SetExpirationTime(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetExpirationTime(ctx, &pb.SetExpirationTimeRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetFetchUri calls the SetFetchUri RPC.
+func (c *FetchAndJoinCustomAudienceRequestBuilderClient) SetFetchUri(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetFetchUri(ctx, &pb.SetFetchUriRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetName calls the SetName RPC.
+func (c *FetchAndJoinCustomAudienceRequestBuilderClient) SetName(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.SetName(ctx, &pb.SetNameRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetUserBiddingSignals calls the SetUserBiddingSignals RPC.
+func (c *FetchAndJoinCustomAudienceRequestBuilderClient) SetUserBiddingSignals(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetUserBiddingSignals(ctx, &pb.SetUserBiddingSignalsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AddCustomAudienceOverrideRequestClient wraps the gRPC AddCustomAudienceOverrideRequestService client.
+type AddCustomAudienceOverrideRequestClient struct {
+	svc pb.AddCustomAudienceOverrideRequestServiceClient
+}
+
+// NewAddCustomAudienceOverrideRequestClient creates a new AddCustomAudienceOverrideRequest client.
+func NewAddCustomAudienceOverrideRequestClient(cc grpc.ClientConnInterface) *AddCustomAudienceOverrideRequestClient {
+	return &AddCustomAudienceOverrideRequestClient{
+		svc: pb.NewAddCustomAudienceOverrideRequestServiceClient(cc),
+	}
+}
+
+// GetBiddingLogicJs calls the GetBiddingLogicJs RPC.
+func (c *AddCustomAudienceOverrideRequestClient) GetBiddingLogicJs(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetBiddingLogicJs(ctx, &pb.GetBiddingLogicJsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetBiddingLogicJsVersion calls the GetBiddingLogicJsVersion RPC.
+func (c *AddCustomAudienceOverrideRequestClient) GetBiddingLogicJsVersion(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetBiddingLogicJsVersion(ctx, &pb.GetBiddingLogicJsVersionRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // GetBuyer calls the GetBuyer RPC.
-func (c *RemoveCustomAudienceOverrideRequestClient) GetBuyer(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetBuyer(ctx, &pb.RemoveCustomAudienceOverrideRequestGetBuyerRequest{
+func (c *AddCustomAudienceOverrideRequestClient) GetBuyer(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetBuyer(ctx, &pb.AddCustomAudienceOverrideRequestGetBuyerRequest{
 		Handle: handle,
 	})
 	if err != nil {
@@ -1087,8 +872,8 @@ func (c *RemoveCustomAudienceOverrideRequestClient) GetBuyer(ctx context.Context
 }
 
 // GetName calls the GetName RPC.
-func (c *RemoveCustomAudienceOverrideRequestClient) GetName(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.GetName(ctx, &pb.RemoveCustomAudienceOverrideRequestGetNameRequest{
+func (c *AddCustomAudienceOverrideRequestClient) GetName(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetName(ctx, &pb.AddCustomAudienceOverrideRequestGetNameRequest{
 		Handle: handle,
 	})
 	if err != nil {
@@ -1097,20 +882,31 @@ func (c *RemoveCustomAudienceOverrideRequestClient) GetName(ctx context.Context,
 	return resp.GetResult(), nil
 }
 
-// RemoveCustomAudienceOverrideRequestBuilderClient wraps the gRPC RemoveCustomAudienceOverrideRequestBuilderService client.
-type RemoveCustomAudienceOverrideRequestBuilderClient struct {
-	svc pb.RemoveCustomAudienceOverrideRequestBuilderServiceClient
+// GetTrustedBiddingSignals calls the GetTrustedBiddingSignals RPC.
+func (c *AddCustomAudienceOverrideRequestClient) GetTrustedBiddingSignals(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetTrustedBiddingSignals(ctx, &pb.GetTrustedBiddingSignalsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
 }
 
-// NewRemoveCustomAudienceOverrideRequestBuilderClient creates a new RemoveCustomAudienceOverrideRequestBuilder client.
-func NewRemoveCustomAudienceOverrideRequestBuilderClient(cc grpc.ClientConnInterface) *RemoveCustomAudienceOverrideRequestBuilderClient {
-	return &RemoveCustomAudienceOverrideRequestBuilderClient{
-		svc: pb.NewRemoveCustomAudienceOverrideRequestBuilderServiceClient(cc),
+// AddCustomAudienceOverrideRequestBuilderClient wraps the gRPC AddCustomAudienceOverrideRequestBuilderService client.
+type AddCustomAudienceOverrideRequestBuilderClient struct {
+	svc pb.AddCustomAudienceOverrideRequestBuilderServiceClient
+}
+
+// NewAddCustomAudienceOverrideRequestBuilderClient creates a new AddCustomAudienceOverrideRequestBuilder client.
+func NewAddCustomAudienceOverrideRequestBuilderClient(cc grpc.ClientConnInterface) *AddCustomAudienceOverrideRequestBuilderClient {
+	return &AddCustomAudienceOverrideRequestBuilderClient{
+		svc: pb.NewAddCustomAudienceOverrideRequestBuilderServiceClient(cc),
 	}
 }
 
 // Build calls the Build RPC.
-func (c *RemoveCustomAudienceOverrideRequestBuilderClient) Build(ctx context.Context) (int64, error) {
+func (c *AddCustomAudienceOverrideRequestBuilderClient) Build(ctx context.Context) (int64, error) {
 	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
 	if err != nil {
 		return 0, err
@@ -1118,8 +914,30 @@ func (c *RemoveCustomAudienceOverrideRequestBuilderClient) Build(ctx context.Con
 	return resp.GetResult(), nil
 }
 
+// SetBiddingLogicJs calls the SetBiddingLogicJs RPC.
+func (c *AddCustomAudienceOverrideRequestBuilderClient) SetBiddingLogicJs(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.SetBiddingLogicJs(ctx, &pb.SetBiddingLogicJsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetBiddingLogicJsVersion calls the SetBiddingLogicJsVersion RPC.
+func (c *AddCustomAudienceOverrideRequestBuilderClient) SetBiddingLogicJsVersion(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetBiddingLogicJsVersion(ctx, &pb.SetBiddingLogicJsVersionRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // SetBuyer calls the SetBuyer RPC.
-func (c *RemoveCustomAudienceOverrideRequestBuilderClient) SetBuyer(ctx context.Context, arg0 int64) (int64, error) {
+func (c *AddCustomAudienceOverrideRequestBuilderClient) SetBuyer(ctx context.Context, arg0 int64) (int64, error) {
 	resp, err := c.svc.SetBuyer(ctx, &pb.SetBuyerRequest{
 		Arg0: arg0,
 	})
@@ -1130,8 +948,217 @@ func (c *RemoveCustomAudienceOverrideRequestBuilderClient) SetBuyer(ctx context.
 }
 
 // SetName calls the SetName RPC.
-func (c *RemoveCustomAudienceOverrideRequestBuilderClient) SetName(ctx context.Context, arg0 string) (int64, error) {
+func (c *AddCustomAudienceOverrideRequestBuilderClient) SetName(ctx context.Context, arg0 string) (int64, error) {
 	resp, err := c.svc.SetName(ctx, &pb.SetNameRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetTrustedBiddingSignals calls the SetTrustedBiddingSignals RPC.
+func (c *AddCustomAudienceOverrideRequestBuilderClient) SetTrustedBiddingSignals(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetTrustedBiddingSignals(ctx, &pb.SetTrustedBiddingSignalsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// LeaveCustomAudienceRequestClient wraps the gRPC LeaveCustomAudienceRequestService client.
+type LeaveCustomAudienceRequestClient struct {
+	svc pb.LeaveCustomAudienceRequestServiceClient
+}
+
+// NewLeaveCustomAudienceRequestClient creates a new LeaveCustomAudienceRequest client.
+func NewLeaveCustomAudienceRequestClient(cc grpc.ClientConnInterface) *LeaveCustomAudienceRequestClient {
+	return &LeaveCustomAudienceRequestClient{
+		svc: pb.NewLeaveCustomAudienceRequestServiceClient(cc),
+	}
+}
+
+// Equals calls the Equals RPC.
+func (c *LeaveCustomAudienceRequestClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetBuyer calls the GetBuyer RPC.
+func (c *LeaveCustomAudienceRequestClient) GetBuyer(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetBuyer(ctx, &pb.GetBuyerRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetName calls the GetName RPC.
+func (c *LeaveCustomAudienceRequestClient) GetName(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetName(ctx, &pb.GetNameRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *LeaveCustomAudienceRequestClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// LeaveCustomAudienceRequestBuilderClient wraps the gRPC LeaveCustomAudienceRequestBuilderService client.
+type LeaveCustomAudienceRequestBuilderClient struct {
+	svc pb.LeaveCustomAudienceRequestBuilderServiceClient
+}
+
+// NewLeaveCustomAudienceRequestBuilderClient creates a new LeaveCustomAudienceRequestBuilder client.
+func NewLeaveCustomAudienceRequestBuilderClient(cc grpc.ClientConnInterface) *LeaveCustomAudienceRequestBuilderClient {
+	return &LeaveCustomAudienceRequestBuilderClient{
+		svc: pb.NewLeaveCustomAudienceRequestBuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *LeaveCustomAudienceRequestBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetBuyer calls the SetBuyer RPC.
+func (c *LeaveCustomAudienceRequestBuilderClient) SetBuyer(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetBuyer(ctx, &pb.SetBuyerRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetName calls the SetName RPC.
+func (c *LeaveCustomAudienceRequestBuilderClient) SetName(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.SetName(ctx, &pb.SetNameRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// JoinCustomAudienceRequestClient wraps the gRPC JoinCustomAudienceRequestService client.
+type JoinCustomAudienceRequestClient struct {
+	svc pb.JoinCustomAudienceRequestServiceClient
+}
+
+// NewJoinCustomAudienceRequestClient creates a new JoinCustomAudienceRequest client.
+func NewJoinCustomAudienceRequestClient(cc grpc.ClientConnInterface) *JoinCustomAudienceRequestClient {
+	return &JoinCustomAudienceRequestClient{
+		svc: pb.NewJoinCustomAudienceRequestServiceClient(cc),
+	}
+}
+
+// Equals calls the Equals RPC.
+func (c *JoinCustomAudienceRequestClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCustomAudience calls the GetCustomAudience RPC.
+func (c *JoinCustomAudienceRequestClient) GetCustomAudience(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetCustomAudience(ctx, &pb.GetCustomAudienceRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *JoinCustomAudienceRequestClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// JoinCustomAudienceRequestBuilderClient wraps the gRPC JoinCustomAudienceRequestBuilderService client.
+type JoinCustomAudienceRequestBuilderClient struct {
+	svc pb.JoinCustomAudienceRequestBuilderServiceClient
+}
+
+// NewJoinCustomAudienceRequestBuilderClient creates a new JoinCustomAudienceRequestBuilder client.
+func NewJoinCustomAudienceRequestBuilderClient(cc grpc.ClientConnInterface) *JoinCustomAudienceRequestBuilderClient {
+	return &JoinCustomAudienceRequestBuilderClient{
+		svc: pb.NewJoinCustomAudienceRequestBuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *JoinCustomAudienceRequestBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetCustomAudience calls the SetCustomAudience RPC.
+func (c *JoinCustomAudienceRequestBuilderClient) SetCustomAudience(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetCustomAudience(ctx, &pb.SetCustomAudienceRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CustomAudienceManagerClient wraps the gRPC CustomAudienceManagerService client.
+type CustomAudienceManagerClient struct {
+	svc pb.CustomAudienceManagerServiceClient
+}
+
+// NewCustomAudienceManagerClient creates a new CustomAudienceManager client.
+func NewCustomAudienceManagerClient(cc grpc.ClientConnInterface) *CustomAudienceManagerClient {
+	return &CustomAudienceManagerClient{
+		svc: pb.NewCustomAudienceManagerServiceClient(cc),
+	}
+}
+
+// GetTestCustomAudienceManager calls the GetTestCustomAudienceManager RPC.
+func (c *CustomAudienceManagerClient) GetTestCustomAudienceManager(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetTestCustomAudienceManager(ctx, &pb.GetTestCustomAudienceManagerRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Get calls the Get RPC.
+func (c *CustomAudienceManagerClient) Get(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.Get(ctx, &pb.GetRequest{
 		Arg0: arg0,
 	})
 	if err != nil {
@@ -1168,6 +1195,15 @@ func (c *TrustedBiddingDataClient) Equals(ctx context.Context, arg0 int64) (bool
 	})
 	if err != nil {
 		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTrustedBiddingKeys calls the GetTrustedBiddingKeys RPC.
+func (c *TrustedBiddingDataClient) GetTrustedBiddingKeys(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetTrustedBiddingKeys(ctx, &pb.GetTrustedBiddingKeysRequest{})
+	if err != nil {
+		return 0, err
 	}
 	return resp.GetResult(), nil
 }

@@ -24,11 +24,13 @@ const (
 	MediaStoreService_NewMediaStore_FullMethodName                          = "/mediastore.MediaStoreService/NewMediaStore"
 	MediaStoreService_CanManageMedia_FullMethodName                         = "/mediastore.MediaStoreService/CanManageMedia"
 	MediaStoreService_GetDocumentUri_FullMethodName                         = "/mediastore.MediaStoreService/GetDocumentUri"
+	MediaStoreService_GetExternalVolumeNames_FullMethodName                 = "/mediastore.MediaStoreService/GetExternalVolumeNames"
 	MediaStoreService_GetGeneration_FullMethodName                          = "/mediastore.MediaStoreService/GetGeneration"
 	MediaStoreService_GetMediaScannerUri_FullMethodName                     = "/mediastore.MediaStoreService/GetMediaScannerUri"
 	MediaStoreService_GetMediaUri_FullMethodName                            = "/mediastore.MediaStoreService/GetMediaUri"
 	MediaStoreService_GetOriginalMediaFormatFileDescriptor_FullMethodName   = "/mediastore.MediaStoreService/GetOriginalMediaFormatFileDescriptor"
 	MediaStoreService_GetPickImagesMaxLimit_FullMethodName                  = "/mediastore.MediaStoreService/GetPickImagesMaxLimit"
+	MediaStoreService_GetRecentExternalVolumeNames_FullMethodName           = "/mediastore.MediaStoreService/GetRecentExternalVolumeNames"
 	MediaStoreService_GetRedactedUri_FullMethodName                         = "/mediastore.MediaStoreService/GetRedactedUri"
 	MediaStoreService_GetRequireOriginal_FullMethodName                     = "/mediastore.MediaStoreService/GetRequireOriginal"
 	MediaStoreService_GetVersion1_FullMethodName                            = "/mediastore.MediaStoreService/GetVersion1"
@@ -52,11 +54,13 @@ type MediaStoreServiceClient interface {
 	NewMediaStore(ctx context.Context, in *NewMediaStoreRequest, opts ...grpc.CallOption) (*NewMediaStoreResponse, error)
 	CanManageMedia(ctx context.Context, in *CanManageMediaRequest, opts ...grpc.CallOption) (*CanManageMediaResponse, error)
 	GetDocumentUri(ctx context.Context, in *GetDocumentUriRequest, opts ...grpc.CallOption) (*GetDocumentUriResponse, error)
+	GetExternalVolumeNames(ctx context.Context, in *GetExternalVolumeNamesRequest, opts ...grpc.CallOption) (*GetExternalVolumeNamesResponse, error)
 	GetGeneration(ctx context.Context, in *GetGenerationRequest, opts ...grpc.CallOption) (*GetGenerationResponse, error)
 	GetMediaScannerUri(ctx context.Context, in *GetMediaScannerUriRequest, opts ...grpc.CallOption) (*GetMediaScannerUriResponse, error)
 	GetMediaUri(ctx context.Context, in *GetMediaUriRequest, opts ...grpc.CallOption) (*GetMediaUriResponse, error)
 	GetOriginalMediaFormatFileDescriptor(ctx context.Context, in *GetOriginalMediaFormatFileDescriptorRequest, opts ...grpc.CallOption) (*GetOriginalMediaFormatFileDescriptorResponse, error)
 	GetPickImagesMaxLimit(ctx context.Context, in *GetPickImagesMaxLimitRequest, opts ...grpc.CallOption) (*GetPickImagesMaxLimitResponse, error)
+	GetRecentExternalVolumeNames(ctx context.Context, in *GetRecentExternalVolumeNamesRequest, opts ...grpc.CallOption) (*GetRecentExternalVolumeNamesResponse, error)
 	GetRedactedUri(ctx context.Context, in *GetRedactedUriRequest, opts ...grpc.CallOption) (*GetRedactedUriResponse, error)
 	GetRequireOriginal(ctx context.Context, in *GetRequireOriginalRequest, opts ...grpc.CallOption) (*GetRequireOriginalResponse, error)
 	GetVersion1(ctx context.Context, in *GetVersion1Request, opts ...grpc.CallOption) (*GetVersion1Response, error)
@@ -111,6 +115,16 @@ func (c *mediaStoreServiceClient) GetDocumentUri(ctx context.Context, in *GetDoc
 	return out, nil
 }
 
+func (c *mediaStoreServiceClient) GetExternalVolumeNames(ctx context.Context, in *GetExternalVolumeNamesRequest, opts ...grpc.CallOption) (*GetExternalVolumeNamesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetExternalVolumeNamesResponse)
+	err := c.cc.Invoke(ctx, MediaStoreService_GetExternalVolumeNames_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *mediaStoreServiceClient) GetGeneration(ctx context.Context, in *GetGenerationRequest, opts ...grpc.CallOption) (*GetGenerationResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetGenerationResponse)
@@ -155,6 +169,16 @@ func (c *mediaStoreServiceClient) GetPickImagesMaxLimit(ctx context.Context, in 
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetPickImagesMaxLimitResponse)
 	err := c.cc.Invoke(ctx, MediaStoreService_GetPickImagesMaxLimit_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *mediaStoreServiceClient) GetRecentExternalVolumeNames(ctx context.Context, in *GetRecentExternalVolumeNamesRequest, opts ...grpc.CallOption) (*GetRecentExternalVolumeNamesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetRecentExternalVolumeNamesResponse)
+	err := c.cc.Invoke(ctx, MediaStoreService_GetRecentExternalVolumeNames_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -308,11 +332,13 @@ type MediaStoreServiceServer interface {
 	NewMediaStore(context.Context, *NewMediaStoreRequest) (*NewMediaStoreResponse, error)
 	CanManageMedia(context.Context, *CanManageMediaRequest) (*CanManageMediaResponse, error)
 	GetDocumentUri(context.Context, *GetDocumentUriRequest) (*GetDocumentUriResponse, error)
+	GetExternalVolumeNames(context.Context, *GetExternalVolumeNamesRequest) (*GetExternalVolumeNamesResponse, error)
 	GetGeneration(context.Context, *GetGenerationRequest) (*GetGenerationResponse, error)
 	GetMediaScannerUri(context.Context, *GetMediaScannerUriRequest) (*GetMediaScannerUriResponse, error)
 	GetMediaUri(context.Context, *GetMediaUriRequest) (*GetMediaUriResponse, error)
 	GetOriginalMediaFormatFileDescriptor(context.Context, *GetOriginalMediaFormatFileDescriptorRequest) (*GetOriginalMediaFormatFileDescriptorResponse, error)
 	GetPickImagesMaxLimit(context.Context, *GetPickImagesMaxLimitRequest) (*GetPickImagesMaxLimitResponse, error)
+	GetRecentExternalVolumeNames(context.Context, *GetRecentExternalVolumeNamesRequest) (*GetRecentExternalVolumeNamesResponse, error)
 	GetRedactedUri(context.Context, *GetRedactedUriRequest) (*GetRedactedUriResponse, error)
 	GetRequireOriginal(context.Context, *GetRequireOriginalRequest) (*GetRequireOriginalResponse, error)
 	GetVersion1(context.Context, *GetVersion1Request) (*GetVersion1Response, error)
@@ -346,6 +372,9 @@ func (UnimplementedMediaStoreServiceServer) CanManageMedia(context.Context, *Can
 func (UnimplementedMediaStoreServiceServer) GetDocumentUri(context.Context, *GetDocumentUriRequest) (*GetDocumentUriResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetDocumentUri not implemented")
 }
+func (UnimplementedMediaStoreServiceServer) GetExternalVolumeNames(context.Context, *GetExternalVolumeNamesRequest) (*GetExternalVolumeNamesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetExternalVolumeNames not implemented")
+}
 func (UnimplementedMediaStoreServiceServer) GetGeneration(context.Context, *GetGenerationRequest) (*GetGenerationResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetGeneration not implemented")
 }
@@ -360,6 +389,9 @@ func (UnimplementedMediaStoreServiceServer) GetOriginalMediaFormatFileDescriptor
 }
 func (UnimplementedMediaStoreServiceServer) GetPickImagesMaxLimit(context.Context, *GetPickImagesMaxLimitRequest) (*GetPickImagesMaxLimitResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetPickImagesMaxLimit not implemented")
+}
+func (UnimplementedMediaStoreServiceServer) GetRecentExternalVolumeNames(context.Context, *GetRecentExternalVolumeNamesRequest) (*GetRecentExternalVolumeNamesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetRecentExternalVolumeNames not implemented")
 }
 func (UnimplementedMediaStoreServiceServer) GetRedactedUri(context.Context, *GetRedactedUriRequest) (*GetRedactedUriResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetRedactedUri not implemented")
@@ -478,6 +510,24 @@ func _MediaStoreService_GetDocumentUri_Handler(srv interface{}, ctx context.Cont
 	return interceptor(ctx, in, info, handler)
 }
 
+func _MediaStoreService_GetExternalVolumeNames_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetExternalVolumeNamesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MediaStoreServiceServer).GetExternalVolumeNames(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: MediaStoreService_GetExternalVolumeNames_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MediaStoreServiceServer).GetExternalVolumeNames(ctx, req.(*GetExternalVolumeNamesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _MediaStoreService_GetGeneration_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetGenerationRequest)
 	if err := dec(in); err != nil {
@@ -564,6 +614,24 @@ func _MediaStoreService_GetPickImagesMaxLimit_Handler(srv interface{}, ctx conte
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(MediaStoreServiceServer).GetPickImagesMaxLimit(ctx, req.(*GetPickImagesMaxLimitRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _MediaStoreService_GetRecentExternalVolumeNames_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetRecentExternalVolumeNamesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MediaStoreServiceServer).GetRecentExternalVolumeNames(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: MediaStoreService_GetRecentExternalVolumeNames_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MediaStoreServiceServer).GetRecentExternalVolumeNames(ctx, req.(*GetRecentExternalVolumeNamesRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -840,6 +908,10 @@ var MediaStoreService_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _MediaStoreService_GetDocumentUri_Handler,
 		},
 		{
+			MethodName: "GetExternalVolumeNames",
+			Handler:    _MediaStoreService_GetExternalVolumeNames_Handler,
+		},
+		{
 			MethodName: "GetGeneration",
 			Handler:    _MediaStoreService_GetGeneration_Handler,
 		},
@@ -858,6 +930,10 @@ var MediaStoreService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetPickImagesMaxLimit",
 			Handler:    _MediaStoreService_GetPickImagesMaxLimit_Handler,
+		},
+		{
+			MethodName: "GetRecentExternalVolumeNames",
+			Handler:    _MediaStoreService_GetRecentExternalVolumeNames_Handler,
 		},
 		{
 			MethodName: "GetRedactedUri",

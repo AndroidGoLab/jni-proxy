@@ -6,14 +6,6 @@ package textclassifier;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/textclassifier";
 
-message CreateTextClassificationSessionRequest {
-  int64 arg0 = 1;
-}
-
-message CreateTextClassificationSessionResponse {
-  int64 result = 1;
-}
-
 message DescribeContentsRequest {
 }
 
@@ -21,62 +13,26 @@ message DescribeContentsResponse {
   int32 result = 1;
 }
 
-message GetConfidenceScoreRequest {
-  string arg0 = 1;
+message EqualsRequest {
+  int64 arg0 = 1;
 }
 
-message GetConfidenceScoreResponse {
-  float result = 1;
+message EqualsResponse {
+  bool result = 1;
 }
 
-message GetEntityRequest {
-  int32 arg0 = 1;
+message GetValueRequest {
 }
 
-message GetEntityResponse {
+message GetValueResponse {
   string result = 1;
 }
 
-message GetEntityCountRequest {
+message HashCodeRequest {
 }
 
-message GetEntityCountResponse {
+message HashCodeResponse {
   int32 result = 1;
-}
-
-message GetExtrasRequest {
-}
-
-message GetExtrasResponse {
-  int64 result = 1;
-}
-
-message GetIdRequest {
-}
-
-message GetIdResponse {
-  string result = 1;
-}
-
-message GetSelectionEndIndexRequest {
-}
-
-message GetSelectionEndIndexResponse {
-  int32 result = 1;
-}
-
-message GetSelectionStartIndexRequest {
-}
-
-message GetSelectionStartIndexResponse {
-  int32 result = 1;
-}
-
-message GetTextClassificationRequest {
-}
-
-message GetTextClassificationResponse {
-  int64 result = 1;
 }
 
 message ToStringRequest {
@@ -94,6 +50,55 @@ message WriteToParcelRequest {
 message WriteToParcelResponse {
 }
 
+message GetHintsRequest {
+}
+
+message GetHintsResponse {
+  int64 result = 1;
+}
+
+message ShouldIncludeTypesFromTextClassifierRequest {
+}
+
+message ShouldIncludeTypesFromTextClassifierResponse {
+  bool result = 1;
+}
+
+message GetActionRequest {
+}
+
+message GetActionResponse {
+  int64 result = 1;
+}
+
+message GetConfidenceScoreRequest {
+}
+
+message GetConfidenceScoreResponse {
+  float result = 1;
+}
+
+message GetExtrasRequest {
+}
+
+message GetExtrasResponse {
+  int64 result = 1;
+}
+
+message GetTextReplyRequest {
+}
+
+message GetTextReplyResponse {
+  int64 result = 1;
+}
+
+message GetTypeRequest {
+}
+
+message GetTypeResponse {
+  string result = 1;
+}
+
 message BuildRequest {
 }
 
@@ -101,12 +106,19 @@ message BuildResponse {
   int64 result = 1;
 }
 
-message SetEntityTypeRequest {
-  string arg0 = 1;
-  float arg1 = 2;
+message SetActionRequest {
+  int64 arg0 = 1;
 }
 
-message SetEntityTypeResponse {
+message SetActionResponse {
+  int64 result = 1;
+}
+
+message SetConfidenceScoreRequest {
+  float arg0 = 1;
+}
+
+message SetConfidenceScoreResponse {
   int64 result = 1;
 }
 
@@ -118,62 +130,20 @@ message SetExtrasResponse {
   int64 result = 1;
 }
 
-message SetIdRequest {
+message SetTextReplyRequest {
   string arg0 = 1;
 }
 
-message SetIdResponse {
+message SetTextReplyResponse {
   int64 result = 1;
 }
 
-message SetTextClassificationRequest {
+message CreateTextClassificationSessionRequest {
   int64 arg0 = 1;
 }
 
-message SetTextClassificationResponse {
+message CreateTextClassificationSessionResponse {
   int64 result = 1;
-}
-
-message GetCallingPackageNameRequest {
-}
-
-message GetCallingPackageNameResponse {
-  string result = 1;
-}
-
-message GetDefaultLocalesRequest {
-}
-
-message GetDefaultLocalesResponse {
-  int64 result = 1;
-}
-
-message GetEndIndexRequest {
-}
-
-message GetEndIndexResponse {
-  int32 result = 1;
-}
-
-message GetStartIndexRequest {
-}
-
-message GetStartIndexResponse {
-  int32 result = 1;
-}
-
-message GetTextRequest {
-}
-
-message GetTextResponse {
-  int64 result = 1;
-}
-
-message ShouldIncludeTextClassificationRequest {
-}
-
-message ShouldIncludeTextClassificationResponse {
-  bool result = 1;
 }
 
 message GetPackageNameRequest {
@@ -205,83 +175,45 @@ message SetWidgetVersionResponse {
   int64 result = 1;
 }
 
-message GetIconRequest {
+message GetLinksRequest {
 }
 
-message GetIconResponse {
+message GetLinksResponse {
   int64 result = 1;
 }
 
-message GetIntentRequest {
+message GetTextRequest {
 }
 
-message GetIntentResponse {
+message GetTextResponse {
   int64 result = 1;
 }
 
-message GetLabelRequest {
+message ClearTextLinksRequest {
 }
 
-message GetLabelResponse {
+message ClearTextLinksResponse {
   int64 result = 1;
 }
 
-message GetOnClickListenerRequest {
+message GetCallingPackageNameRequest {
 }
 
-message GetOnClickListenerResponse {
-  int64 result = 1;
-}
-
-message TextClassificationGetTextResponse {
+message GetCallingPackageNameResponse {
   string result = 1;
 }
 
-message AddActionRequest {
-  int64 arg0 = 1;
+message GetDefaultLocalesRequest {
 }
 
-message AddActionResponse {
+message GetDefaultLocalesResponse {
   int64 result = 1;
 }
 
-message SetIconRequest {
-  int64 arg0 = 1;
+message GetEntityConfigRequest {
 }
 
-message SetIconResponse {
-  int64 result = 1;
-}
-
-message SetIntentRequest {
-  int64 arg0 = 1;
-}
-
-message SetIntentResponse {
-  int64 result = 1;
-}
-
-message SetLabelRequest {
-  string arg0 = 1;
-}
-
-message SetLabelResponse {
-  int64 result = 1;
-}
-
-message SetOnClickListenerRequest {
-  int64 arg0 = 1;
-}
-
-message SetOnClickListenerResponse {
-  int64 result = 1;
-}
-
-message SetTextRequest {
-  string arg0 = 1;
-}
-
-message SetTextResponse {
+message GetEntityConfigResponse {
   int64 result = 1;
 }
 
@@ -292,47 +224,51 @@ message GetReferenceTimeResponse {
   int64 result = 1;
 }
 
-message GetTextClassifierRequest {
+message TextLinksTextLinkGetConfidenceScoreRequest {
+  string arg0 = 1;
 }
 
-message GetTextClassifierResponse {
-  int64 result = 1;
+message GetEndRequest {
 }
 
-message SetTextClassificationSessionFactoryRequest {
-  int64 arg0 = 1;
+message GetEndResponse {
+  int32 result = 1;
 }
 
-message SetTextClassificationSessionFactoryResponse {
+message GetEntityRequest {
+  int32 arg0 = 1;
 }
 
-message SetTextClassifierRequest {
-  int64 arg0 = 1;
-}
-
-message SetTextClassifierResponse {
-}
-
-message EqualsRequest {
-  int64 arg0 = 1;
-}
-
-message EqualsResponse {
-  bool result = 1;
-}
-
-message GetValueRequest {
-}
-
-message GetValueResponse {
+message GetEntityResponse {
   string result = 1;
 }
 
-message HashCodeRequest {
+message GetEntityCountRequest {
 }
 
-message HashCodeResponse {
+message GetEntityCountResponse {
   int32 result = 1;
+}
+
+message GetStartRequest {
+}
+
+message GetStartResponse {
+  int32 result = 1;
+}
+
+message GetTextLinkRequest {
+}
+
+message GetTextLinkResponse {
+  int64 result = 1;
+}
+
+message OnClickRequest {
+  int64 arg0 = 1;
+}
+
+message OnClickResponse {
 }
 
 message GetActionIndicesRequest {
@@ -433,6 +369,279 @@ message GetRelativeWordStartIndexResponse {
   int32 result = 1;
 }
 
+message TextLanguageGetConfidenceScoreRequest {
+  int64 arg0 = 1;
+}
+
+message GetIdRequest {
+}
+
+message GetIdResponse {
+  string result = 1;
+}
+
+message TextLanguageGetLocaleRequest {
+  int32 arg0 = 1;
+}
+
+message GetLocaleHypothesisCountRequest {
+}
+
+message GetLocaleHypothesisCountResponse {
+  int32 result = 1;
+}
+
+message PutLocaleRequest {
+  int64 arg0 = 1;
+  float arg1 = 2;
+}
+
+message PutLocaleResponse {
+  int64 result = 1;
+}
+
+message SetIdRequest {
+  string arg0 = 1;
+}
+
+message SetIdResponse {
+  int64 result = 1;
+}
+
+message GetActionsRequest {
+}
+
+message GetActionsResponse {
+  int64 result = 1;
+}
+
+message TextClassificationGetConfidenceScoreRequest {
+  string arg0 = 1;
+}
+
+message GetIconRequest {
+}
+
+message GetIconResponse {
+  int64 result = 1;
+}
+
+message GetIntentRequest {
+}
+
+message GetIntentResponse {
+  int64 result = 1;
+}
+
+message GetLabelRequest {
+}
+
+message GetLabelResponse {
+  int64 result = 1;
+}
+
+message GetOnClickListenerRequest {
+}
+
+message GetOnClickListenerResponse {
+  int64 result = 1;
+}
+
+message TextClassificationGetTextResponse {
+  string result = 1;
+}
+
+message AddActionRequest {
+  int64 arg0 = 1;
+}
+
+message AddActionResponse {
+  int64 result = 1;
+}
+
+message SetEntityTypeRequest {
+  string arg0 = 1;
+  float arg1 = 2;
+}
+
+message SetEntityTypeResponse {
+  int64 result = 1;
+}
+
+message SetIconRequest {
+  int64 arg0 = 1;
+}
+
+message SetIconResponse {
+  int64 result = 1;
+}
+
+message SetIntentRequest {
+  int64 arg0 = 1;
+}
+
+message SetIntentResponse {
+  int64 result = 1;
+}
+
+message SetLabelRequest {
+  string arg0 = 1;
+}
+
+message SetLabelResponse {
+  int64 result = 1;
+}
+
+message SetOnClickListenerRequest {
+  int64 arg0 = 1;
+}
+
+message SetOnClickListenerResponse {
+  int64 result = 1;
+}
+
+message SetTextRequest {
+  string arg0 = 1;
+}
+
+message SetTextResponse {
+  int64 result = 1;
+}
+
+message GetEndIndexRequest {
+}
+
+message GetEndIndexResponse {
+  int32 result = 1;
+}
+
+message GetStartIndexRequest {
+}
+
+message GetStartIndexResponse {
+  int32 result = 1;
+}
+
+message GetTextClassifierRequest {
+}
+
+message GetTextClassifierResponse {
+  int64 result = 1;
+}
+
+message SetTextClassificationSessionFactoryRequest {
+  int64 arg0 = 1;
+}
+
+message SetTextClassificationSessionFactoryResponse {
+}
+
+message SetTextClassifierRequest {
+  int64 arg0 = 1;
+}
+
+message SetTextClassifierResponse {
+}
+
+message NewConversationActionsRequest {
+  int64 arg0 = 1;
+  string arg1 = 2;
+}
+
+message NewConversationActionsResponse {
+  int64 result = 1;
+}
+
+message ConversationActionsDescribeContentsRequest {
+  int64 handle = 1;
+}
+
+message GetConversationActionsRequest {
+  int64 handle = 1;
+}
+
+message GetConversationActionsResponse {
+  int64 result = 1;
+}
+
+message ConversationActionsGetIdRequest {
+  int64 handle = 1;
+}
+
+message ConversationActionsWriteToParcelRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message GetAuthorRequest {
+}
+
+message GetAuthorResponse {
+  int64 result = 1;
+}
+
+message GetConversationRequest {
+}
+
+message GetConversationResponse {
+  int64 result = 1;
+}
+
+message GetMaxSuggestionsRequest {
+}
+
+message GetMaxSuggestionsResponse {
+  int32 result = 1;
+}
+
+message GetTypeConfigRequest {
+}
+
+message GetTypeConfigResponse {
+  int64 result = 1;
+}
+
+message TextSelectionGetConfidenceScoreRequest {
+  string arg0 = 1;
+}
+
+message GetSelectionEndIndexRequest {
+}
+
+message GetSelectionEndIndexResponse {
+  int32 result = 1;
+}
+
+message GetSelectionStartIndexRequest {
+}
+
+message GetSelectionStartIndexResponse {
+  int32 result = 1;
+}
+
+message GetTextClassificationRequest {
+}
+
+message GetTextClassificationResponse {
+  int64 result = 1;
+}
+
+message SetTextClassificationRequest {
+  int64 arg0 = 1;
+}
+
+message SetTextClassificationResponse {
+  int64 result = 1;
+}
+
+message ShouldIncludeTextClassificationRequest {
+}
+
+message ShouldIncludeTextClassificationResponse {
+  bool result = 1;
+}
+
 message GetDurationSincePreviousEventRequest {
 }
 
@@ -445,13 +654,6 @@ message GetDurationSinceSessionStartRequest {
 
 message GetDurationSinceSessionStartResponse {
   int64 result = 1;
-}
-
-message GetEndRequest {
-}
-
-message GetEndResponse {
-  int32 result = 1;
 }
 
 message GetEntityTypeRequest {
@@ -493,13 +695,6 @@ message GetSmartStartRequest {
 }
 
 message GetSmartStartResponse {
-  int32 result = 1;
-}
-
-message GetStartRequest {
-}
-
-message GetStartResponse {
   int32 result = 1;
 }
 
@@ -570,193 +765,42 @@ message IsTerminalResponse {
   bool result = 1;
 }
 
-message ClearTextLinksRequest {
-}
-
-message ClearTextLinksResponse {
-  int64 result = 1;
-}
-
-message GetEntityConfigRequest {
-}
-
-message GetEntityConfigResponse {
-  int64 result = 1;
-}
-
-message GetTextLinkRequest {
-}
-
-message GetTextLinkResponse {
-  int64 result = 1;
-}
-
-message OnClickRequest {
-  int64 arg0 = 1;
-}
-
-message OnClickResponse {
-}
-
-message TextLanguageGetConfidenceScoreRequest {
-  int64 arg0 = 1;
-}
-
-message TextLanguageGetLocaleRequest {
-  int32 arg0 = 1;
-}
-
-message GetLocaleHypothesisCountRequest {
-}
-
-message GetLocaleHypothesisCountResponse {
-  int32 result = 1;
-}
-
-message PutLocaleRequest {
-  int64 arg0 = 1;
-  float arg1 = 2;
-}
-
-message PutLocaleResponse {
-  int64 result = 1;
-}
-
-message GetActionRequest {
-}
-
-message GetActionResponse {
-  int64 result = 1;
-}
-
-message ConversationActionGetConfidenceScoreRequest {
-}
-
-message GetTextReplyRequest {
-}
-
-message GetTextReplyResponse {
-  int64 result = 1;
-}
-
-message GetTypeRequest {
-}
-
-message GetTypeResponse {
-  string result = 1;
-}
-
-message SetActionRequest {
-  int64 arg0 = 1;
-}
-
-message SetActionResponse {
-  int64 result = 1;
-}
-
-message SetConfidenceScoreRequest {
-  float arg0 = 1;
-}
-
-message SetConfidenceScoreResponse {
-  int64 result = 1;
-}
-
-message SetTextReplyRequest {
-  string arg0 = 1;
-}
-
-message SetTextReplyResponse {
-  int64 result = 1;
-}
-
-message ShouldIncludeTypesFromTextClassifierRequest {
-}
-
-message ShouldIncludeTypesFromTextClassifierResponse {
-  bool result = 1;
-}
-
-message NewConversationActionsRequest {
-  int64 arg0 = 1;
-  string arg1 = 2;
-}
-
-message NewConversationActionsResponse {
-  int64 result = 1;
-}
-
-message ConversationActionsDescribeContentsRequest {
-  int64 handle = 1;
-}
-
-message ConversationActionsGetIdRequest {
-  int64 handle = 1;
-}
-
-message ConversationActionsWriteToParcelRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-  int32 arg1 = 3;
-}
-
-message GetAuthorRequest {
-}
-
-message GetAuthorResponse {
-  int64 result = 1;
-}
-
-message GetMaxSuggestionsRequest {
-}
-
-message GetMaxSuggestionsResponse {
-  int32 result = 1;
-}
-
-message GetTypeConfigRequest {
-}
-
-message GetTypeConfigResponse {
-  int64 result = 1;
-}
-
-service TextClassificationSessionFactoryService {
-  rpc CreateTextClassificationSession (CreateTextClassificationSessionRequest) returns (CreateTextClassificationSessionResponse);
-}
-
-service TextSelectionService {
+service TextClassificationSessionIdService {
   rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc GetConfidenceScore (GetConfidenceScoreRequest) returns (GetConfidenceScoreResponse);
-  rpc GetEntity (GetEntityRequest) returns (GetEntityResponse);
-  rpc GetEntityCount (GetEntityCountRequest) returns (GetEntityCountResponse);
-  rpc GetExtras (GetExtrasRequest) returns (GetExtrasResponse);
-  rpc GetId (GetIdRequest) returns (GetIdResponse);
-  rpc GetSelectionEndIndex (GetSelectionEndIndexRequest) returns (GetSelectionEndIndexResponse);
-  rpc GetSelectionStartIndex (GetSelectionStartIndexRequest) returns (GetSelectionStartIndexResponse);
-  rpc GetTextClassification (GetTextClassificationRequest) returns (GetTextClassificationResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetValue (GetValueRequest) returns (GetValueResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
   rpc ToString (ToStringRequest) returns (ToStringResponse);
   rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
 }
 
-service TextSelectionBuilderService {
-  rpc Build (BuildRequest) returns (BuildResponse);
-  rpc SetEntityType (SetEntityTypeRequest) returns (SetEntityTypeResponse);
-  rpc SetExtras (SetExtrasRequest) returns (SetExtrasResponse);
-  rpc SetId (SetIdRequest) returns (SetIdResponse);
-  rpc SetTextClassification (SetTextClassificationRequest) returns (SetTextClassificationResponse);
+service TextClassifierEntityConfigService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetHints (GetHintsRequest) returns (GetHintsResponse);
+  rpc ShouldIncludeTypesFromTextClassifier (ShouldIncludeTypesFromTextClassifierRequest) returns (ShouldIncludeTypesFromTextClassifierResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
 }
 
-service TextSelectionRequestService {
+service ConversationActionService {
   rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc GetCallingPackageName (GetCallingPackageNameRequest) returns (GetCallingPackageNameResponse);
-  rpc GetDefaultLocales (GetDefaultLocalesRequest) returns (GetDefaultLocalesResponse);
-  rpc GetEndIndex (GetEndIndexRequest) returns (GetEndIndexResponse);
+  rpc GetAction (GetActionRequest) returns (GetActionResponse);
+  rpc GetConfidenceScore (GetConfidenceScoreRequest) returns (GetConfidenceScoreResponse);
   rpc GetExtras (GetExtrasRequest) returns (GetExtrasResponse);
-  rpc GetStartIndex (GetStartIndexRequest) returns (GetStartIndexResponse);
-  rpc GetText (GetTextRequest) returns (GetTextResponse);
-  rpc ShouldIncludeTextClassification (ShouldIncludeTextClassificationRequest) returns (ShouldIncludeTextClassificationResponse);
+  rpc GetTextReply (GetTextReplyRequest) returns (GetTextReplyResponse);
+  rpc GetType (GetTypeRequest) returns (GetTypeResponse);
   rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service ConversationActionBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetAction (SetActionRequest) returns (SetActionResponse);
+  rpc SetConfidenceScore (SetConfidenceScoreRequest) returns (SetConfidenceScoreResponse);
+  rpc SetExtras (SetExtrasRequest) returns (SetExtrasResponse);
+  rpc SetTextReply (SetTextReplyRequest) returns (SetTextReplyResponse);
+}
+
+service TextClassificationSessionFactoryService {
+  rpc CreateTextClassificationSession (CreateTextClassificationSessionRequest) returns (CreateTextClassificationSessionResponse);
 }
 
 service TextClassificationContextService {
@@ -773,9 +817,104 @@ service TextClassificationContextBuilderService {
   rpc SetWidgetVersion (SetWidgetVersionRequest) returns (SetWidgetVersionResponse);
 }
 
+service TextLinksService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetExtras (GetExtrasRequest) returns (GetExtrasResponse);
+  rpc GetLinks (GetLinksRequest) returns (GetLinksResponse);
+  rpc GetText (GetTextRequest) returns (GetTextResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service TextLinksBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc ClearTextLinks (ClearTextLinksRequest) returns (ClearTextLinksResponse);
+  rpc SetExtras (SetExtrasRequest) returns (SetExtrasResponse);
+}
+
+service TextLinksRequestService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetCallingPackageName (GetCallingPackageNameRequest) returns (GetCallingPackageNameResponse);
+  rpc GetDefaultLocales (GetDefaultLocalesRequest) returns (GetDefaultLocalesResponse);
+  rpc GetEntityConfig (GetEntityConfigRequest) returns (GetEntityConfigResponse);
+  rpc GetExtras (GetExtrasRequest) returns (GetExtrasResponse);
+  rpc GetReferenceTime (GetReferenceTimeRequest) returns (GetReferenceTimeResponse);
+  rpc GetText (GetTextRequest) returns (GetTextResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service TextLinksTextLinkService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetConfidenceScore (TextLinksTextLinkGetConfidenceScoreRequest) returns (GetConfidenceScoreResponse);
+  rpc GetEnd (GetEndRequest) returns (GetEndResponse);
+  rpc GetEntity (GetEntityRequest) returns (GetEntityResponse);
+  rpc GetEntityCount (GetEntityCountRequest) returns (GetEntityCountResponse);
+  rpc GetExtras (GetExtrasRequest) returns (GetExtrasResponse);
+  rpc GetStart (GetStartRequest) returns (GetStartResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service TextLinksTextLinkSpanService {
+  rpc GetTextLink (GetTextLinkRequest) returns (GetTextLinkResponse);
+  rpc OnClick (OnClickRequest) returns (OnClickResponse);
+}
+
+service TextClassifierEventService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetActionIndices (GetActionIndicesRequest) returns (GetActionIndicesResponse);
+  rpc GetEntityTypes (GetEntityTypesRequest) returns (GetEntityTypesResponse);
+  rpc GetEventCategory (GetEventCategoryRequest) returns (GetEventCategoryResponse);
+  rpc GetEventContext (GetEventContextRequest) returns (GetEventContextResponse);
+  rpc GetEventIndex (GetEventIndexRequest) returns (GetEventIndexResponse);
+  rpc GetEventType (GetEventTypeRequest) returns (GetEventTypeResponse);
+  rpc GetExtras (GetExtrasRequest) returns (GetExtrasResponse);
+  rpc GetLocale (GetLocaleRequest) returns (GetLocaleResponse);
+  rpc GetModelName (GetModelNameRequest) returns (GetModelNameResponse);
+  rpc GetResultId (GetResultIdRequest) returns (GetResultIdResponse);
+  rpc GetScores (GetScoresRequest) returns (GetScoresResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service TextClassifierEventTextSelectionEventService {
+  rpc GetRelativeSuggestedWordEndIndex (GetRelativeSuggestedWordEndIndexRequest) returns (GetRelativeSuggestedWordEndIndexResponse);
+  rpc GetRelativeSuggestedWordStartIndex (GetRelativeSuggestedWordStartIndexRequest) returns (GetRelativeSuggestedWordStartIndexResponse);
+  rpc GetRelativeWordEndIndex (GetRelativeWordEndIndexRequest) returns (GetRelativeWordEndIndexResponse);
+  rpc GetRelativeWordStartIndex (GetRelativeWordStartIndexRequest) returns (GetRelativeWordStartIndexResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service TextLanguageService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetConfidenceScore (TextLanguageGetConfidenceScoreRequest) returns (GetConfidenceScoreResponse);
+  rpc GetExtras (GetExtrasRequest) returns (GetExtrasResponse);
+  rpc GetId (GetIdRequest) returns (GetIdResponse);
+  rpc GetLocale (TextLanguageGetLocaleRequest) returns (GetLocaleResponse);
+  rpc GetLocaleHypothesisCount (GetLocaleHypothesisCountRequest) returns (GetLocaleHypothesisCountResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service TextLanguageBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc PutLocale (PutLocaleRequest) returns (PutLocaleResponse);
+  rpc SetExtras (SetExtrasRequest) returns (SetExtrasResponse);
+  rpc SetId (SetIdRequest) returns (SetIdResponse);
+}
+
+service TextLanguageRequestService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetCallingPackageName (GetCallingPackageNameRequest) returns (GetCallingPackageNameResponse);
+  rpc GetExtras (GetExtrasRequest) returns (GetExtrasResponse);
+  rpc GetText (GetTextRequest) returns (GetTextResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
 service TextClassificationService {
   rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc GetConfidenceScore (GetConfidenceScoreRequest) returns (GetConfidenceScoreResponse);
+  rpc GetActions (GetActionsRequest) returns (GetActionsResponse);
+  rpc GetConfidenceScore (TextClassificationGetConfidenceScoreRequest) returns (GetConfidenceScoreResponse);
   rpc GetEntity (GetEntityRequest) returns (GetEntityResponse);
   rpc GetEntityCount (GetEntityCountRequest) returns (GetEntityCountResponse);
   rpc GetExtras (GetExtrasRequest) returns (GetExtrasResponse);
@@ -821,37 +960,65 @@ service TextClassificationManagerService {
   rpc SetTextClassifier (SetTextClassifierRequest) returns (SetTextClassifierResponse);
 }
 
-service TextClassificationSessionIdService {
-  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc Equals (EqualsRequest) returns (EqualsResponse);
-  rpc GetValue (GetValueRequest) returns (GetValueResponse);
-  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
-  rpc ToString (ToStringRequest) returns (ToStringResponse);
-  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+service ConversationActionsService {
+  rpc NewConversationActions (NewConversationActionsRequest) returns (NewConversationActionsResponse);
+  rpc DescribeContents (ConversationActionsDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetConversationActions (GetConversationActionsRequest) returns (GetConversationActionsResponse);
+  rpc GetId (ConversationActionsGetIdRequest) returns (GetIdResponse);
+  rpc WriteToParcel (ConversationActionsWriteToParcelRequest) returns (WriteToParcelResponse);
 }
 
-service TextClassifierEventService {
+service ConversationActionsMessageService {
   rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc GetActionIndices (GetActionIndicesRequest) returns (GetActionIndicesResponse);
-  rpc GetEntityTypes (GetEntityTypesRequest) returns (GetEntityTypesResponse);
-  rpc GetEventCategory (GetEventCategoryRequest) returns (GetEventCategoryResponse);
-  rpc GetEventContext (GetEventContextRequest) returns (GetEventContextResponse);
-  rpc GetEventIndex (GetEventIndexRequest) returns (GetEventIndexResponse);
-  rpc GetEventType (GetEventTypeRequest) returns (GetEventTypeResponse);
+  rpc GetAuthor (GetAuthorRequest) returns (GetAuthorResponse);
   rpc GetExtras (GetExtrasRequest) returns (GetExtrasResponse);
-  rpc GetLocale (GetLocaleRequest) returns (GetLocaleResponse);
-  rpc GetModelName (GetModelNameRequest) returns (GetModelNameResponse);
-  rpc GetResultId (GetResultIdRequest) returns (GetResultIdResponse);
-  rpc GetScores (GetScoresRequest) returns (GetScoresResponse);
+  rpc GetReferenceTime (GetReferenceTimeRequest) returns (GetReferenceTimeResponse);
+  rpc GetText (GetTextRequest) returns (GetTextResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service ConversationActionsRequestService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetCallingPackageName (GetCallingPackageNameRequest) returns (GetCallingPackageNameResponse);
+  rpc GetConversation (GetConversationRequest) returns (GetConversationResponse);
+  rpc GetExtras (GetExtrasRequest) returns (GetExtrasResponse);
+  rpc GetHints (GetHintsRequest) returns (GetHintsResponse);
+  rpc GetMaxSuggestions (GetMaxSuggestionsRequest) returns (GetMaxSuggestionsResponse);
+  rpc GetTypeConfig (GetTypeConfigRequest) returns (GetTypeConfigResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service TextSelectionService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetConfidenceScore (TextSelectionGetConfidenceScoreRequest) returns (GetConfidenceScoreResponse);
+  rpc GetEntity (GetEntityRequest) returns (GetEntityResponse);
+  rpc GetEntityCount (GetEntityCountRequest) returns (GetEntityCountResponse);
+  rpc GetExtras (GetExtrasRequest) returns (GetExtrasResponse);
+  rpc GetId (GetIdRequest) returns (GetIdResponse);
+  rpc GetSelectionEndIndex (GetSelectionEndIndexRequest) returns (GetSelectionEndIndexResponse);
+  rpc GetSelectionStartIndex (GetSelectionStartIndexRequest) returns (GetSelectionStartIndexResponse);
+  rpc GetTextClassification (GetTextClassificationRequest) returns (GetTextClassificationResponse);
   rpc ToString (ToStringRequest) returns (ToStringResponse);
   rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
 }
 
-service TextClassifierEventTextSelectionEventService {
-  rpc GetRelativeSuggestedWordEndIndex (GetRelativeSuggestedWordEndIndexRequest) returns (GetRelativeSuggestedWordEndIndexResponse);
-  rpc GetRelativeSuggestedWordStartIndex (GetRelativeSuggestedWordStartIndexRequest) returns (GetRelativeSuggestedWordStartIndexResponse);
-  rpc GetRelativeWordEndIndex (GetRelativeWordEndIndexRequest) returns (GetRelativeWordEndIndexResponse);
-  rpc GetRelativeWordStartIndex (GetRelativeWordStartIndexRequest) returns (GetRelativeWordStartIndexResponse);
+service TextSelectionBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetEntityType (SetEntityTypeRequest) returns (SetEntityTypeResponse);
+  rpc SetExtras (SetExtrasRequest) returns (SetExtrasResponse);
+  rpc SetId (SetIdRequest) returns (SetIdResponse);
+  rpc SetTextClassification (SetTextClassificationRequest) returns (SetTextClassificationResponse);
+}
+
+service TextSelectionRequestService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetCallingPackageName (GetCallingPackageNameRequest) returns (GetCallingPackageNameResponse);
+  rpc GetDefaultLocales (GetDefaultLocalesRequest) returns (GetDefaultLocalesResponse);
+  rpc GetEndIndex (GetEndIndexRequest) returns (GetEndIndexResponse);
+  rpc GetExtras (GetExtrasRequest) returns (GetExtrasResponse);
+  rpc GetStartIndex (GetStartIndexRequest) returns (GetStartIndexResponse);
+  rpc GetText (GetTextRequest) returns (GetTextResponse);
+  rpc ShouldIncludeTextClassification (ShouldIncludeTextClassificationRequest) returns (ShouldIncludeTextClassificationResponse);
   rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
 }
 
@@ -884,121 +1051,4 @@ service SelectionEventService {
   rpc CreateSelectionModifiedEvent3_2 (CreateSelectionModifiedEvent3_2Request) returns (CreateSelectionModifiedEvent3_2Response);
   rpc CreateSelectionStartedEvent (CreateSelectionStartedEventRequest) returns (CreateSelectionStartedEventResponse);
   rpc IsTerminal (IsTerminalRequest) returns (IsTerminalResponse);
-}
-
-service TextLinksService {
-  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc GetExtras (GetExtrasRequest) returns (GetExtrasResponse);
-  rpc GetText (GetTextRequest) returns (GetTextResponse);
-  rpc ToString (ToStringRequest) returns (ToStringResponse);
-  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
-}
-
-service TextLinksBuilderService {
-  rpc Build (BuildRequest) returns (BuildResponse);
-  rpc ClearTextLinks (ClearTextLinksRequest) returns (ClearTextLinksResponse);
-  rpc SetExtras (SetExtrasRequest) returns (SetExtrasResponse);
-}
-
-service TextLinksRequestService {
-  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc GetCallingPackageName (GetCallingPackageNameRequest) returns (GetCallingPackageNameResponse);
-  rpc GetDefaultLocales (GetDefaultLocalesRequest) returns (GetDefaultLocalesResponse);
-  rpc GetEntityConfig (GetEntityConfigRequest) returns (GetEntityConfigResponse);
-  rpc GetExtras (GetExtrasRequest) returns (GetExtrasResponse);
-  rpc GetReferenceTime (GetReferenceTimeRequest) returns (GetReferenceTimeResponse);
-  rpc GetText (GetTextRequest) returns (GetTextResponse);
-  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
-}
-
-service TextLinksTextLinkService {
-  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc GetConfidenceScore (GetConfidenceScoreRequest) returns (GetConfidenceScoreResponse);
-  rpc GetEnd (GetEndRequest) returns (GetEndResponse);
-  rpc GetEntity (GetEntityRequest) returns (GetEntityResponse);
-  rpc GetEntityCount (GetEntityCountRequest) returns (GetEntityCountResponse);
-  rpc GetExtras (GetExtrasRequest) returns (GetExtrasResponse);
-  rpc GetStart (GetStartRequest) returns (GetStartResponse);
-  rpc ToString (ToStringRequest) returns (ToStringResponse);
-  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
-}
-
-service TextLinksTextLinkSpanService {
-  rpc GetTextLink (GetTextLinkRequest) returns (GetTextLinkResponse);
-  rpc OnClick (OnClickRequest) returns (OnClickResponse);
-}
-
-service TextLanguageService {
-  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc GetConfidenceScore (TextLanguageGetConfidenceScoreRequest) returns (GetConfidenceScoreResponse);
-  rpc GetExtras (GetExtrasRequest) returns (GetExtrasResponse);
-  rpc GetId (GetIdRequest) returns (GetIdResponse);
-  rpc GetLocale (TextLanguageGetLocaleRequest) returns (GetLocaleResponse);
-  rpc GetLocaleHypothesisCount (GetLocaleHypothesisCountRequest) returns (GetLocaleHypothesisCountResponse);
-  rpc ToString (ToStringRequest) returns (ToStringResponse);
-  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
-}
-
-service TextLanguageBuilderService {
-  rpc Build (BuildRequest) returns (BuildResponse);
-  rpc PutLocale (PutLocaleRequest) returns (PutLocaleResponse);
-  rpc SetExtras (SetExtrasRequest) returns (SetExtrasResponse);
-  rpc SetId (SetIdRequest) returns (SetIdResponse);
-}
-
-service TextLanguageRequestService {
-  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc GetCallingPackageName (GetCallingPackageNameRequest) returns (GetCallingPackageNameResponse);
-  rpc GetExtras (GetExtrasRequest) returns (GetExtrasResponse);
-  rpc GetText (GetTextRequest) returns (GetTextResponse);
-  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
-}
-
-service ConversationActionService {
-  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc GetAction (GetActionRequest) returns (GetActionResponse);
-  rpc GetConfidenceScore (ConversationActionGetConfidenceScoreRequest) returns (GetConfidenceScoreResponse);
-  rpc GetExtras (GetExtrasRequest) returns (GetExtrasResponse);
-  rpc GetTextReply (GetTextReplyRequest) returns (GetTextReplyResponse);
-  rpc GetType (GetTypeRequest) returns (GetTypeResponse);
-  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
-}
-
-service ConversationActionBuilderService {
-  rpc Build (BuildRequest) returns (BuildResponse);
-  rpc SetAction (SetActionRequest) returns (SetActionResponse);
-  rpc SetConfidenceScore (SetConfidenceScoreRequest) returns (SetConfidenceScoreResponse);
-  rpc SetExtras (SetExtrasRequest) returns (SetExtrasResponse);
-  rpc SetTextReply (SetTextReplyRequest) returns (SetTextReplyResponse);
-}
-
-service TextClassifierEntityConfigService {
-  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc ShouldIncludeTypesFromTextClassifier (ShouldIncludeTypesFromTextClassifierRequest) returns (ShouldIncludeTypesFromTextClassifierResponse);
-  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
-}
-
-service ConversationActionsService {
-  rpc NewConversationActions (NewConversationActionsRequest) returns (NewConversationActionsResponse);
-  rpc DescribeContents (ConversationActionsDescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc GetId (ConversationActionsGetIdRequest) returns (GetIdResponse);
-  rpc WriteToParcel (ConversationActionsWriteToParcelRequest) returns (WriteToParcelResponse);
-}
-
-service ConversationActionsMessageService {
-  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc GetAuthor (GetAuthorRequest) returns (GetAuthorResponse);
-  rpc GetExtras (GetExtrasRequest) returns (GetExtrasResponse);
-  rpc GetReferenceTime (GetReferenceTimeRequest) returns (GetReferenceTimeResponse);
-  rpc GetText (GetTextRequest) returns (GetTextResponse);
-  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
-}
-
-service ConversationActionsRequestService {
-  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc GetCallingPackageName (GetCallingPackageNameRequest) returns (GetCallingPackageNameResponse);
-  rpc GetExtras (GetExtrasRequest) returns (GetExtrasResponse);
-  rpc GetMaxSuggestions (GetMaxSuggestionsRequest) returns (GetMaxSuggestionsResponse);
-  rpc GetTypeConfig (GetTypeConfigRequest) returns (GetTypeConfigResponse);
-  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
 }

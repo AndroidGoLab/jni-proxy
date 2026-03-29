@@ -21,329 +21,443 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	OvalShapeService_NewOvalShape_FullMethodName = "/shapes.OvalShapeService/NewOvalShape"
-	OvalShapeService_Clone0_FullMethodName       = "/shapes.OvalShapeService/Clone0"
-	OvalShapeService_Draw_FullMethodName         = "/shapes.OvalShapeService/Draw"
-	OvalShapeService_GetOutline_FullMethodName   = "/shapes.OvalShapeService/GetOutline"
-	OvalShapeService_Clone0_1_FullMethodName     = "/shapes.OvalShapeService/Clone0_1"
-	OvalShapeService_Clone0_2_FullMethodName     = "/shapes.OvalShapeService/Clone0_2"
-	OvalShapeService_Clone0_3_FullMethodName     = "/shapes.OvalShapeService/Clone0_3"
+	ShapeService_Clone0_FullMethodName     = "/shapes.ShapeService/Clone0"
+	ShapeService_Draw_FullMethodName       = "/shapes.ShapeService/Draw"
+	ShapeService_Equals_FullMethodName     = "/shapes.ShapeService/Equals"
+	ShapeService_GetHeight_FullMethodName  = "/shapes.ShapeService/GetHeight"
+	ShapeService_GetOutline_FullMethodName = "/shapes.ShapeService/GetOutline"
+	ShapeService_GetWidth_FullMethodName   = "/shapes.ShapeService/GetWidth"
+	ShapeService_HasAlpha_FullMethodName   = "/shapes.ShapeService/HasAlpha"
+	ShapeService_HashCode_FullMethodName   = "/shapes.ShapeService/HashCode"
+	ShapeService_Resize_FullMethodName     = "/shapes.ShapeService/Resize"
+	ShapeService_Clone0_1_FullMethodName   = "/shapes.ShapeService/Clone0_1"
 )
 
-// OvalShapeServiceClient is the client API for OvalShapeService service.
+// ShapeServiceClient is the client API for ShapeService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type OvalShapeServiceClient interface {
-	NewOvalShape(ctx context.Context, in *NewOvalShapeRequest, opts ...grpc.CallOption) (*NewOvalShapeResponse, error)
+type ShapeServiceClient interface {
 	Clone0(ctx context.Context, in *Clone0Request, opts ...grpc.CallOption) (*Clone0Response, error)
 	Draw(ctx context.Context, in *DrawRequest, opts ...grpc.CallOption) (*DrawResponse, error)
+	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	GetHeight(ctx context.Context, in *GetHeightRequest, opts ...grpc.CallOption) (*GetHeightResponse, error)
 	GetOutline(ctx context.Context, in *GetOutlineRequest, opts ...grpc.CallOption) (*GetOutlineResponse, error)
+	GetWidth(ctx context.Context, in *GetWidthRequest, opts ...grpc.CallOption) (*GetWidthResponse, error)
+	HasAlpha(ctx context.Context, in *HasAlphaRequest, opts ...grpc.CallOption) (*HasAlphaResponse, error)
+	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+	Resize(ctx context.Context, in *ResizeRequest, opts ...grpc.CallOption) (*ResizeResponse, error)
 	Clone0_1(ctx context.Context, in *Clone0_1Request, opts ...grpc.CallOption) (*Clone0_1Response, error)
-	Clone0_2(ctx context.Context, in *Clone0_2Request, opts ...grpc.CallOption) (*Clone0_2Response, error)
-	Clone0_3(ctx context.Context, in *Clone0_3Request, opts ...grpc.CallOption) (*Clone0_3Response, error)
 }
 
-type ovalShapeServiceClient struct {
+type shapeServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewOvalShapeServiceClient(cc grpc.ClientConnInterface) OvalShapeServiceClient {
-	return &ovalShapeServiceClient{cc}
+func NewShapeServiceClient(cc grpc.ClientConnInterface) ShapeServiceClient {
+	return &shapeServiceClient{cc}
 }
 
-func (c *ovalShapeServiceClient) NewOvalShape(ctx context.Context, in *NewOvalShapeRequest, opts ...grpc.CallOption) (*NewOvalShapeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewOvalShapeResponse)
-	err := c.cc.Invoke(ctx, OvalShapeService_NewOvalShape_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *ovalShapeServiceClient) Clone0(ctx context.Context, in *Clone0Request, opts ...grpc.CallOption) (*Clone0Response, error) {
+func (c *shapeServiceClient) Clone0(ctx context.Context, in *Clone0Request, opts ...grpc.CallOption) (*Clone0Response, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(Clone0Response)
-	err := c.cc.Invoke(ctx, OvalShapeService_Clone0_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ShapeService_Clone0_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *ovalShapeServiceClient) Draw(ctx context.Context, in *DrawRequest, opts ...grpc.CallOption) (*DrawResponse, error) {
+func (c *shapeServiceClient) Draw(ctx context.Context, in *DrawRequest, opts ...grpc.CallOption) (*DrawResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(DrawResponse)
-	err := c.cc.Invoke(ctx, OvalShapeService_Draw_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ShapeService_Draw_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *ovalShapeServiceClient) GetOutline(ctx context.Context, in *GetOutlineRequest, opts ...grpc.CallOption) (*GetOutlineResponse, error) {
+func (c *shapeServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(EqualsResponse)
+	err := c.cc.Invoke(ctx, ShapeService_Equals_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *shapeServiceClient) GetHeight(ctx context.Context, in *GetHeightRequest, opts ...grpc.CallOption) (*GetHeightResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetHeightResponse)
+	err := c.cc.Invoke(ctx, ShapeService_GetHeight_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *shapeServiceClient) GetOutline(ctx context.Context, in *GetOutlineRequest, opts ...grpc.CallOption) (*GetOutlineResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetOutlineResponse)
-	err := c.cc.Invoke(ctx, OvalShapeService_GetOutline_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ShapeService_GetOutline_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *ovalShapeServiceClient) Clone0_1(ctx context.Context, in *Clone0_1Request, opts ...grpc.CallOption) (*Clone0_1Response, error) {
+func (c *shapeServiceClient) GetWidth(ctx context.Context, in *GetWidthRequest, opts ...grpc.CallOption) (*GetWidthResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetWidthResponse)
+	err := c.cc.Invoke(ctx, ShapeService_GetWidth_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *shapeServiceClient) HasAlpha(ctx context.Context, in *HasAlphaRequest, opts ...grpc.CallOption) (*HasAlphaResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HasAlphaResponse)
+	err := c.cc.Invoke(ctx, ShapeService_HasAlpha_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *shapeServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HashCodeResponse)
+	err := c.cc.Invoke(ctx, ShapeService_HashCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *shapeServiceClient) Resize(ctx context.Context, in *ResizeRequest, opts ...grpc.CallOption) (*ResizeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ResizeResponse)
+	err := c.cc.Invoke(ctx, ShapeService_Resize_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *shapeServiceClient) Clone0_1(ctx context.Context, in *Clone0_1Request, opts ...grpc.CallOption) (*Clone0_1Response, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(Clone0_1Response)
-	err := c.cc.Invoke(ctx, OvalShapeService_Clone0_1_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ShapeService_Clone0_1_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *ovalShapeServiceClient) Clone0_2(ctx context.Context, in *Clone0_2Request, opts ...grpc.CallOption) (*Clone0_2Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(Clone0_2Response)
-	err := c.cc.Invoke(ctx, OvalShapeService_Clone0_2_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *ovalShapeServiceClient) Clone0_3(ctx context.Context, in *Clone0_3Request, opts ...grpc.CallOption) (*Clone0_3Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(Clone0_3Response)
-	err := c.cc.Invoke(ctx, OvalShapeService_Clone0_3_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// OvalShapeServiceServer is the server API for OvalShapeService service.
-// All implementations must embed UnimplementedOvalShapeServiceServer
+// ShapeServiceServer is the server API for ShapeService service.
+// All implementations must embed UnimplementedShapeServiceServer
 // for forward compatibility.
-type OvalShapeServiceServer interface {
-	NewOvalShape(context.Context, *NewOvalShapeRequest) (*NewOvalShapeResponse, error)
+type ShapeServiceServer interface {
 	Clone0(context.Context, *Clone0Request) (*Clone0Response, error)
 	Draw(context.Context, *DrawRequest) (*DrawResponse, error)
+	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
+	GetHeight(context.Context, *GetHeightRequest) (*GetHeightResponse, error)
 	GetOutline(context.Context, *GetOutlineRequest) (*GetOutlineResponse, error)
+	GetWidth(context.Context, *GetWidthRequest) (*GetWidthResponse, error)
+	HasAlpha(context.Context, *HasAlphaRequest) (*HasAlphaResponse, error)
+	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
+	Resize(context.Context, *ResizeRequest) (*ResizeResponse, error)
 	Clone0_1(context.Context, *Clone0_1Request) (*Clone0_1Response, error)
-	Clone0_2(context.Context, *Clone0_2Request) (*Clone0_2Response, error)
-	Clone0_3(context.Context, *Clone0_3Request) (*Clone0_3Response, error)
-	mustEmbedUnimplementedOvalShapeServiceServer()
+	mustEmbedUnimplementedShapeServiceServer()
 }
 
-// UnimplementedOvalShapeServiceServer must be embedded to have
+// UnimplementedShapeServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedOvalShapeServiceServer struct{}
+type UnimplementedShapeServiceServer struct{}
 
-func (UnimplementedOvalShapeServiceServer) NewOvalShape(context.Context, *NewOvalShapeRequest) (*NewOvalShapeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewOvalShape not implemented")
-}
-func (UnimplementedOvalShapeServiceServer) Clone0(context.Context, *Clone0Request) (*Clone0Response, error) {
+func (UnimplementedShapeServiceServer) Clone0(context.Context, *Clone0Request) (*Clone0Response, error) {
 	return nil, status.Error(codes.Unimplemented, "method Clone0 not implemented")
 }
-func (UnimplementedOvalShapeServiceServer) Draw(context.Context, *DrawRequest) (*DrawResponse, error) {
+func (UnimplementedShapeServiceServer) Draw(context.Context, *DrawRequest) (*DrawResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method Draw not implemented")
 }
-func (UnimplementedOvalShapeServiceServer) GetOutline(context.Context, *GetOutlineRequest) (*GetOutlineResponse, error) {
+func (UnimplementedShapeServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
+}
+func (UnimplementedShapeServiceServer) GetHeight(context.Context, *GetHeightRequest) (*GetHeightResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetHeight not implemented")
+}
+func (UnimplementedShapeServiceServer) GetOutline(context.Context, *GetOutlineRequest) (*GetOutlineResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetOutline not implemented")
 }
-func (UnimplementedOvalShapeServiceServer) Clone0_1(context.Context, *Clone0_1Request) (*Clone0_1Response, error) {
+func (UnimplementedShapeServiceServer) GetWidth(context.Context, *GetWidthRequest) (*GetWidthResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetWidth not implemented")
+}
+func (UnimplementedShapeServiceServer) HasAlpha(context.Context, *HasAlphaRequest) (*HasAlphaResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HasAlpha not implemented")
+}
+func (UnimplementedShapeServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
+}
+func (UnimplementedShapeServiceServer) Resize(context.Context, *ResizeRequest) (*ResizeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Resize not implemented")
+}
+func (UnimplementedShapeServiceServer) Clone0_1(context.Context, *Clone0_1Request) (*Clone0_1Response, error) {
 	return nil, status.Error(codes.Unimplemented, "method Clone0_1 not implemented")
 }
-func (UnimplementedOvalShapeServiceServer) Clone0_2(context.Context, *Clone0_2Request) (*Clone0_2Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method Clone0_2 not implemented")
-}
-func (UnimplementedOvalShapeServiceServer) Clone0_3(context.Context, *Clone0_3Request) (*Clone0_3Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method Clone0_3 not implemented")
-}
-func (UnimplementedOvalShapeServiceServer) mustEmbedUnimplementedOvalShapeServiceServer() {}
-func (UnimplementedOvalShapeServiceServer) testEmbeddedByValue()                          {}
+func (UnimplementedShapeServiceServer) mustEmbedUnimplementedShapeServiceServer() {}
+func (UnimplementedShapeServiceServer) testEmbeddedByValue()                      {}
 
-// UnsafeOvalShapeServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to OvalShapeServiceServer will
+// UnsafeShapeServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ShapeServiceServer will
 // result in compilation errors.
-type UnsafeOvalShapeServiceServer interface {
-	mustEmbedUnimplementedOvalShapeServiceServer()
+type UnsafeShapeServiceServer interface {
+	mustEmbedUnimplementedShapeServiceServer()
 }
 
-func RegisterOvalShapeServiceServer(s grpc.ServiceRegistrar, srv OvalShapeServiceServer) {
-	// If the following call panics, it indicates UnimplementedOvalShapeServiceServer was
+func RegisterShapeServiceServer(s grpc.ServiceRegistrar, srv ShapeServiceServer) {
+	// If the following call panics, it indicates UnimplementedShapeServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&OvalShapeService_ServiceDesc, srv)
+	s.RegisterService(&ShapeService_ServiceDesc, srv)
 }
 
-func _OvalShapeService_NewOvalShape_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewOvalShapeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(OvalShapeServiceServer).NewOvalShape(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: OvalShapeService_NewOvalShape_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(OvalShapeServiceServer).NewOvalShape(ctx, req.(*NewOvalShapeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _OvalShapeService_Clone0_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ShapeService_Clone0_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(Clone0Request)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(OvalShapeServiceServer).Clone0(ctx, in)
+		return srv.(ShapeServiceServer).Clone0(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: OvalShapeService_Clone0_FullMethodName,
+		FullMethod: ShapeService_Clone0_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(OvalShapeServiceServer).Clone0(ctx, req.(*Clone0Request))
+		return srv.(ShapeServiceServer).Clone0(ctx, req.(*Clone0Request))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _OvalShapeService_Draw_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ShapeService_Draw_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(DrawRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(OvalShapeServiceServer).Draw(ctx, in)
+		return srv.(ShapeServiceServer).Draw(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: OvalShapeService_Draw_FullMethodName,
+		FullMethod: ShapeService_Draw_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(OvalShapeServiceServer).Draw(ctx, req.(*DrawRequest))
+		return srv.(ShapeServiceServer).Draw(ctx, req.(*DrawRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _OvalShapeService_GetOutline_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ShapeService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EqualsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ShapeServiceServer).Equals(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ShapeService_Equals_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ShapeServiceServer).Equals(ctx, req.(*EqualsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ShapeService_GetHeight_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetHeightRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ShapeServiceServer).GetHeight(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ShapeService_GetHeight_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ShapeServiceServer).GetHeight(ctx, req.(*GetHeightRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ShapeService_GetOutline_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetOutlineRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(OvalShapeServiceServer).GetOutline(ctx, in)
+		return srv.(ShapeServiceServer).GetOutline(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: OvalShapeService_GetOutline_FullMethodName,
+		FullMethod: ShapeService_GetOutline_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(OvalShapeServiceServer).GetOutline(ctx, req.(*GetOutlineRequest))
+		return srv.(ShapeServiceServer).GetOutline(ctx, req.(*GetOutlineRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _OvalShapeService_Clone0_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ShapeService_GetWidth_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetWidthRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ShapeServiceServer).GetWidth(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ShapeService_GetWidth_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ShapeServiceServer).GetWidth(ctx, req.(*GetWidthRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ShapeService_HasAlpha_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HasAlphaRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ShapeServiceServer).HasAlpha(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ShapeService_HasAlpha_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ShapeServiceServer).HasAlpha(ctx, req.(*HasAlphaRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ShapeService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HashCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ShapeServiceServer).HashCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ShapeService_HashCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ShapeServiceServer).HashCode(ctx, req.(*HashCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ShapeService_Resize_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ResizeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ShapeServiceServer).Resize(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ShapeService_Resize_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ShapeServiceServer).Resize(ctx, req.(*ResizeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ShapeService_Clone0_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(Clone0_1Request)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(OvalShapeServiceServer).Clone0_1(ctx, in)
+		return srv.(ShapeServiceServer).Clone0_1(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: OvalShapeService_Clone0_1_FullMethodName,
+		FullMethod: ShapeService_Clone0_1_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(OvalShapeServiceServer).Clone0_1(ctx, req.(*Clone0_1Request))
+		return srv.(ShapeServiceServer).Clone0_1(ctx, req.(*Clone0_1Request))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _OvalShapeService_Clone0_2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(Clone0_2Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(OvalShapeServiceServer).Clone0_2(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: OvalShapeService_Clone0_2_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(OvalShapeServiceServer).Clone0_2(ctx, req.(*Clone0_2Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _OvalShapeService_Clone0_3_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(Clone0_3Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(OvalShapeServiceServer).Clone0_3(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: OvalShapeService_Clone0_3_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(OvalShapeServiceServer).Clone0_3(ctx, req.(*Clone0_3Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// OvalShapeService_ServiceDesc is the grpc.ServiceDesc for OvalShapeService service.
+// ShapeService_ServiceDesc is the grpc.ServiceDesc for ShapeService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var OvalShapeService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "shapes.OvalShapeService",
-	HandlerType: (*OvalShapeServiceServer)(nil),
+var ShapeService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "shapes.ShapeService",
+	HandlerType: (*ShapeServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "NewOvalShape",
-			Handler:    _OvalShapeService_NewOvalShape_Handler,
-		},
-		{
 			MethodName: "Clone0",
-			Handler:    _OvalShapeService_Clone0_Handler,
+			Handler:    _ShapeService_Clone0_Handler,
 		},
 		{
 			MethodName: "Draw",
-			Handler:    _OvalShapeService_Draw_Handler,
+			Handler:    _ShapeService_Draw_Handler,
+		},
+		{
+			MethodName: "Equals",
+			Handler:    _ShapeService_Equals_Handler,
+		},
+		{
+			MethodName: "GetHeight",
+			Handler:    _ShapeService_GetHeight_Handler,
 		},
 		{
 			MethodName: "GetOutline",
-			Handler:    _OvalShapeService_GetOutline_Handler,
+			Handler:    _ShapeService_GetOutline_Handler,
+		},
+		{
+			MethodName: "GetWidth",
+			Handler:    _ShapeService_GetWidth_Handler,
+		},
+		{
+			MethodName: "HasAlpha",
+			Handler:    _ShapeService_HasAlpha_Handler,
+		},
+		{
+			MethodName: "HashCode",
+			Handler:    _ShapeService_HashCode_Handler,
+		},
+		{
+			MethodName: "Resize",
+			Handler:    _ShapeService_Resize_Handler,
 		},
 		{
 			MethodName: "Clone0_1",
-			Handler:    _OvalShapeService_Clone0_1_Handler,
-		},
-		{
-			MethodName: "Clone0_2",
-			Handler:    _OvalShapeService_Clone0_2_Handler,
-		},
-		{
-			MethodName: "Clone0_3",
-			Handler:    _OvalShapeService_Clone0_3_Handler,
+			Handler:    _ShapeService_Clone0_1_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -367,12 +481,12 @@ const (
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type RoundRectShapeServiceClient interface {
 	NewRoundRectShape(ctx context.Context, in *NewRoundRectShapeRequest, opts ...grpc.CallOption) (*NewRoundRectShapeResponse, error)
-	Clone0(ctx context.Context, in *Clone0Request, opts ...grpc.CallOption) (*Clone0Response, error)
-	Draw(ctx context.Context, in *DrawRequest, opts ...grpc.CallOption) (*DrawResponse, error)
-	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
-	GetOutline(ctx context.Context, in *GetOutlineRequest, opts ...grpc.CallOption) (*GetOutlineResponse, error)
-	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
-	Clone0_1(ctx context.Context, in *Clone0_1Request, opts ...grpc.CallOption) (*Clone0_1Response, error)
+	Clone0(ctx context.Context, in *RoundRectShapeClone0Request, opts ...grpc.CallOption) (*Clone0Response, error)
+	Draw(ctx context.Context, in *RoundRectShapeDrawRequest, opts ...grpc.CallOption) (*DrawResponse, error)
+	Equals(ctx context.Context, in *RoundRectShapeEqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	GetOutline(ctx context.Context, in *RoundRectShapeGetOutlineRequest, opts ...grpc.CallOption) (*GetOutlineResponse, error)
+	HashCode(ctx context.Context, in *RoundRectShapeHashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+	Clone0_1(ctx context.Context, in *RoundRectShapeClone0_1Request, opts ...grpc.CallOption) (*Clone0_1Response, error)
 	Clone0_2(ctx context.Context, in *Clone0_2Request, opts ...grpc.CallOption) (*Clone0_2Response, error)
 	Clone0_3(ctx context.Context, in *Clone0_3Request, opts ...grpc.CallOption) (*Clone0_3Response, error)
 }
@@ -395,7 +509,7 @@ func (c *roundRectShapeServiceClient) NewRoundRectShape(ctx context.Context, in 
 	return out, nil
 }
 
-func (c *roundRectShapeServiceClient) Clone0(ctx context.Context, in *Clone0Request, opts ...grpc.CallOption) (*Clone0Response, error) {
+func (c *roundRectShapeServiceClient) Clone0(ctx context.Context, in *RoundRectShapeClone0Request, opts ...grpc.CallOption) (*Clone0Response, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(Clone0Response)
 	err := c.cc.Invoke(ctx, RoundRectShapeService_Clone0_FullMethodName, in, out, cOpts...)
@@ -405,7 +519,7 @@ func (c *roundRectShapeServiceClient) Clone0(ctx context.Context, in *Clone0Requ
 	return out, nil
 }
 
-func (c *roundRectShapeServiceClient) Draw(ctx context.Context, in *DrawRequest, opts ...grpc.CallOption) (*DrawResponse, error) {
+func (c *roundRectShapeServiceClient) Draw(ctx context.Context, in *RoundRectShapeDrawRequest, opts ...grpc.CallOption) (*DrawResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(DrawResponse)
 	err := c.cc.Invoke(ctx, RoundRectShapeService_Draw_FullMethodName, in, out, cOpts...)
@@ -415,7 +529,7 @@ func (c *roundRectShapeServiceClient) Draw(ctx context.Context, in *DrawRequest,
 	return out, nil
 }
 
-func (c *roundRectShapeServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+func (c *roundRectShapeServiceClient) Equals(ctx context.Context, in *RoundRectShapeEqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(EqualsResponse)
 	err := c.cc.Invoke(ctx, RoundRectShapeService_Equals_FullMethodName, in, out, cOpts...)
@@ -425,7 +539,7 @@ func (c *roundRectShapeServiceClient) Equals(ctx context.Context, in *EqualsRequ
 	return out, nil
 }
 
-func (c *roundRectShapeServiceClient) GetOutline(ctx context.Context, in *GetOutlineRequest, opts ...grpc.CallOption) (*GetOutlineResponse, error) {
+func (c *roundRectShapeServiceClient) GetOutline(ctx context.Context, in *RoundRectShapeGetOutlineRequest, opts ...grpc.CallOption) (*GetOutlineResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetOutlineResponse)
 	err := c.cc.Invoke(ctx, RoundRectShapeService_GetOutline_FullMethodName, in, out, cOpts...)
@@ -435,7 +549,7 @@ func (c *roundRectShapeServiceClient) GetOutline(ctx context.Context, in *GetOut
 	return out, nil
 }
 
-func (c *roundRectShapeServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+func (c *roundRectShapeServiceClient) HashCode(ctx context.Context, in *RoundRectShapeHashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(HashCodeResponse)
 	err := c.cc.Invoke(ctx, RoundRectShapeService_HashCode_FullMethodName, in, out, cOpts...)
@@ -445,7 +559,7 @@ func (c *roundRectShapeServiceClient) HashCode(ctx context.Context, in *HashCode
 	return out, nil
 }
 
-func (c *roundRectShapeServiceClient) Clone0_1(ctx context.Context, in *Clone0_1Request, opts ...grpc.CallOption) (*Clone0_1Response, error) {
+func (c *roundRectShapeServiceClient) Clone0_1(ctx context.Context, in *RoundRectShapeClone0_1Request, opts ...grpc.CallOption) (*Clone0_1Response, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(Clone0_1Response)
 	err := c.cc.Invoke(ctx, RoundRectShapeService_Clone0_1_FullMethodName, in, out, cOpts...)
@@ -480,12 +594,12 @@ func (c *roundRectShapeServiceClient) Clone0_3(ctx context.Context, in *Clone0_3
 // for forward compatibility.
 type RoundRectShapeServiceServer interface {
 	NewRoundRectShape(context.Context, *NewRoundRectShapeRequest) (*NewRoundRectShapeResponse, error)
-	Clone0(context.Context, *Clone0Request) (*Clone0Response, error)
-	Draw(context.Context, *DrawRequest) (*DrawResponse, error)
-	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
-	GetOutline(context.Context, *GetOutlineRequest) (*GetOutlineResponse, error)
-	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
-	Clone0_1(context.Context, *Clone0_1Request) (*Clone0_1Response, error)
+	Clone0(context.Context, *RoundRectShapeClone0Request) (*Clone0Response, error)
+	Draw(context.Context, *RoundRectShapeDrawRequest) (*DrawResponse, error)
+	Equals(context.Context, *RoundRectShapeEqualsRequest) (*EqualsResponse, error)
+	GetOutline(context.Context, *RoundRectShapeGetOutlineRequest) (*GetOutlineResponse, error)
+	HashCode(context.Context, *RoundRectShapeHashCodeRequest) (*HashCodeResponse, error)
+	Clone0_1(context.Context, *RoundRectShapeClone0_1Request) (*Clone0_1Response, error)
 	Clone0_2(context.Context, *Clone0_2Request) (*Clone0_2Response, error)
 	Clone0_3(context.Context, *Clone0_3Request) (*Clone0_3Response, error)
 	mustEmbedUnimplementedRoundRectShapeServiceServer()
@@ -501,22 +615,22 @@ type UnimplementedRoundRectShapeServiceServer struct{}
 func (UnimplementedRoundRectShapeServiceServer) NewRoundRectShape(context.Context, *NewRoundRectShapeRequest) (*NewRoundRectShapeResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method NewRoundRectShape not implemented")
 }
-func (UnimplementedRoundRectShapeServiceServer) Clone0(context.Context, *Clone0Request) (*Clone0Response, error) {
+func (UnimplementedRoundRectShapeServiceServer) Clone0(context.Context, *RoundRectShapeClone0Request) (*Clone0Response, error) {
 	return nil, status.Error(codes.Unimplemented, "method Clone0 not implemented")
 }
-func (UnimplementedRoundRectShapeServiceServer) Draw(context.Context, *DrawRequest) (*DrawResponse, error) {
+func (UnimplementedRoundRectShapeServiceServer) Draw(context.Context, *RoundRectShapeDrawRequest) (*DrawResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method Draw not implemented")
 }
-func (UnimplementedRoundRectShapeServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
+func (UnimplementedRoundRectShapeServiceServer) Equals(context.Context, *RoundRectShapeEqualsRequest) (*EqualsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
 }
-func (UnimplementedRoundRectShapeServiceServer) GetOutline(context.Context, *GetOutlineRequest) (*GetOutlineResponse, error) {
+func (UnimplementedRoundRectShapeServiceServer) GetOutline(context.Context, *RoundRectShapeGetOutlineRequest) (*GetOutlineResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetOutline not implemented")
 }
-func (UnimplementedRoundRectShapeServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
+func (UnimplementedRoundRectShapeServiceServer) HashCode(context.Context, *RoundRectShapeHashCodeRequest) (*HashCodeResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
 }
-func (UnimplementedRoundRectShapeServiceServer) Clone0_1(context.Context, *Clone0_1Request) (*Clone0_1Response, error) {
+func (UnimplementedRoundRectShapeServiceServer) Clone0_1(context.Context, *RoundRectShapeClone0_1Request) (*Clone0_1Response, error) {
 	return nil, status.Error(codes.Unimplemented, "method Clone0_1 not implemented")
 }
 func (UnimplementedRoundRectShapeServiceServer) Clone0_2(context.Context, *Clone0_2Request) (*Clone0_2Response, error) {
@@ -565,7 +679,7 @@ func _RoundRectShapeService_NewRoundRectShape_Handler(srv interface{}, ctx conte
 }
 
 func _RoundRectShapeService_Clone0_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(Clone0Request)
+	in := new(RoundRectShapeClone0Request)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -577,13 +691,13 @@ func _RoundRectShapeService_Clone0_Handler(srv interface{}, ctx context.Context,
 		FullMethod: RoundRectShapeService_Clone0_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RoundRectShapeServiceServer).Clone0(ctx, req.(*Clone0Request))
+		return srv.(RoundRectShapeServiceServer).Clone0(ctx, req.(*RoundRectShapeClone0Request))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _RoundRectShapeService_Draw_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DrawRequest)
+	in := new(RoundRectShapeDrawRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -595,13 +709,13 @@ func _RoundRectShapeService_Draw_Handler(srv interface{}, ctx context.Context, d
 		FullMethod: RoundRectShapeService_Draw_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RoundRectShapeServiceServer).Draw(ctx, req.(*DrawRequest))
+		return srv.(RoundRectShapeServiceServer).Draw(ctx, req.(*RoundRectShapeDrawRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _RoundRectShapeService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(EqualsRequest)
+	in := new(RoundRectShapeEqualsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -613,13 +727,13 @@ func _RoundRectShapeService_Equals_Handler(srv interface{}, ctx context.Context,
 		FullMethod: RoundRectShapeService_Equals_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RoundRectShapeServiceServer).Equals(ctx, req.(*EqualsRequest))
+		return srv.(RoundRectShapeServiceServer).Equals(ctx, req.(*RoundRectShapeEqualsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _RoundRectShapeService_GetOutline_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetOutlineRequest)
+	in := new(RoundRectShapeGetOutlineRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -631,13 +745,13 @@ func _RoundRectShapeService_GetOutline_Handler(srv interface{}, ctx context.Cont
 		FullMethod: RoundRectShapeService_GetOutline_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RoundRectShapeServiceServer).GetOutline(ctx, req.(*GetOutlineRequest))
+		return srv.(RoundRectShapeServiceServer).GetOutline(ctx, req.(*RoundRectShapeGetOutlineRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _RoundRectShapeService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(HashCodeRequest)
+	in := new(RoundRectShapeHashCodeRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -649,13 +763,13 @@ func _RoundRectShapeService_HashCode_Handler(srv interface{}, ctx context.Contex
 		FullMethod: RoundRectShapeService_HashCode_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RoundRectShapeServiceServer).HashCode(ctx, req.(*HashCodeRequest))
+		return srv.(RoundRectShapeServiceServer).HashCode(ctx, req.(*RoundRectShapeHashCodeRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _RoundRectShapeService_Clone0_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(Clone0_1Request)
+	in := new(RoundRectShapeClone0_1Request)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -667,7 +781,7 @@ func _RoundRectShapeService_Clone0_1_Handler(srv interface{}, ctx context.Contex
 		FullMethod: RoundRectShapeService_Clone0_1_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RoundRectShapeServiceServer).Clone0_1(ctx, req.(*Clone0_1Request))
+		return srv.(RoundRectShapeServiceServer).Clone0_1(ctx, req.(*RoundRectShapeClone0_1Request))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -757,780 +871,6 @@ var RoundRectShapeService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	PathShapeService_NewPathShape_FullMethodName = "/shapes.PathShapeService/NewPathShape"
-	PathShapeService_Clone0_FullMethodName       = "/shapes.PathShapeService/Clone0"
-	PathShapeService_Draw_FullMethodName         = "/shapes.PathShapeService/Draw"
-	PathShapeService_Equals_FullMethodName       = "/shapes.PathShapeService/Equals"
-	PathShapeService_HashCode_FullMethodName     = "/shapes.PathShapeService/HashCode"
-	PathShapeService_Clone0_1_FullMethodName     = "/shapes.PathShapeService/Clone0_1"
-	PathShapeService_Clone0_2_FullMethodName     = "/shapes.PathShapeService/Clone0_2"
-)
-
-// PathShapeServiceClient is the client API for PathShapeService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type PathShapeServiceClient interface {
-	NewPathShape(ctx context.Context, in *NewPathShapeRequest, opts ...grpc.CallOption) (*NewPathShapeResponse, error)
-	Clone0(ctx context.Context, in *Clone0Request, opts ...grpc.CallOption) (*Clone0Response, error)
-	Draw(ctx context.Context, in *DrawRequest, opts ...grpc.CallOption) (*DrawResponse, error)
-	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
-	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
-	Clone0_1(ctx context.Context, in *Clone0_1Request, opts ...grpc.CallOption) (*Clone0_1Response, error)
-	Clone0_2(ctx context.Context, in *Clone0_2Request, opts ...grpc.CallOption) (*Clone0_2Response, error)
-}
-
-type pathShapeServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewPathShapeServiceClient(cc grpc.ClientConnInterface) PathShapeServiceClient {
-	return &pathShapeServiceClient{cc}
-}
-
-func (c *pathShapeServiceClient) NewPathShape(ctx context.Context, in *NewPathShapeRequest, opts ...grpc.CallOption) (*NewPathShapeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewPathShapeResponse)
-	err := c.cc.Invoke(ctx, PathShapeService_NewPathShape_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *pathShapeServiceClient) Clone0(ctx context.Context, in *Clone0Request, opts ...grpc.CallOption) (*Clone0Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(Clone0Response)
-	err := c.cc.Invoke(ctx, PathShapeService_Clone0_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *pathShapeServiceClient) Draw(ctx context.Context, in *DrawRequest, opts ...grpc.CallOption) (*DrawResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DrawResponse)
-	err := c.cc.Invoke(ctx, PathShapeService_Draw_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *pathShapeServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(EqualsResponse)
-	err := c.cc.Invoke(ctx, PathShapeService_Equals_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *pathShapeServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(HashCodeResponse)
-	err := c.cc.Invoke(ctx, PathShapeService_HashCode_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *pathShapeServiceClient) Clone0_1(ctx context.Context, in *Clone0_1Request, opts ...grpc.CallOption) (*Clone0_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(Clone0_1Response)
-	err := c.cc.Invoke(ctx, PathShapeService_Clone0_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *pathShapeServiceClient) Clone0_2(ctx context.Context, in *Clone0_2Request, opts ...grpc.CallOption) (*Clone0_2Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(Clone0_2Response)
-	err := c.cc.Invoke(ctx, PathShapeService_Clone0_2_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// PathShapeServiceServer is the server API for PathShapeService service.
-// All implementations must embed UnimplementedPathShapeServiceServer
-// for forward compatibility.
-type PathShapeServiceServer interface {
-	NewPathShape(context.Context, *NewPathShapeRequest) (*NewPathShapeResponse, error)
-	Clone0(context.Context, *Clone0Request) (*Clone0Response, error)
-	Draw(context.Context, *DrawRequest) (*DrawResponse, error)
-	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
-	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
-	Clone0_1(context.Context, *Clone0_1Request) (*Clone0_1Response, error)
-	Clone0_2(context.Context, *Clone0_2Request) (*Clone0_2Response, error)
-	mustEmbedUnimplementedPathShapeServiceServer()
-}
-
-// UnimplementedPathShapeServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedPathShapeServiceServer struct{}
-
-func (UnimplementedPathShapeServiceServer) NewPathShape(context.Context, *NewPathShapeRequest) (*NewPathShapeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewPathShape not implemented")
-}
-func (UnimplementedPathShapeServiceServer) Clone0(context.Context, *Clone0Request) (*Clone0Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method Clone0 not implemented")
-}
-func (UnimplementedPathShapeServiceServer) Draw(context.Context, *DrawRequest) (*DrawResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Draw not implemented")
-}
-func (UnimplementedPathShapeServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
-}
-func (UnimplementedPathShapeServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
-}
-func (UnimplementedPathShapeServiceServer) Clone0_1(context.Context, *Clone0_1Request) (*Clone0_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method Clone0_1 not implemented")
-}
-func (UnimplementedPathShapeServiceServer) Clone0_2(context.Context, *Clone0_2Request) (*Clone0_2Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method Clone0_2 not implemented")
-}
-func (UnimplementedPathShapeServiceServer) mustEmbedUnimplementedPathShapeServiceServer() {}
-func (UnimplementedPathShapeServiceServer) testEmbeddedByValue()                          {}
-
-// UnsafePathShapeServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to PathShapeServiceServer will
-// result in compilation errors.
-type UnsafePathShapeServiceServer interface {
-	mustEmbedUnimplementedPathShapeServiceServer()
-}
-
-func RegisterPathShapeServiceServer(s grpc.ServiceRegistrar, srv PathShapeServiceServer) {
-	// If the following call panics, it indicates UnimplementedPathShapeServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&PathShapeService_ServiceDesc, srv)
-}
-
-func _PathShapeService_NewPathShape_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewPathShapeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PathShapeServiceServer).NewPathShape(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PathShapeService_NewPathShape_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PathShapeServiceServer).NewPathShape(ctx, req.(*NewPathShapeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PathShapeService_Clone0_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(Clone0Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PathShapeServiceServer).Clone0(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PathShapeService_Clone0_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PathShapeServiceServer).Clone0(ctx, req.(*Clone0Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PathShapeService_Draw_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DrawRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PathShapeServiceServer).Draw(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PathShapeService_Draw_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PathShapeServiceServer).Draw(ctx, req.(*DrawRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PathShapeService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(EqualsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PathShapeServiceServer).Equals(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PathShapeService_Equals_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PathShapeServiceServer).Equals(ctx, req.(*EqualsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PathShapeService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(HashCodeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PathShapeServiceServer).HashCode(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PathShapeService_HashCode_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PathShapeServiceServer).HashCode(ctx, req.(*HashCodeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PathShapeService_Clone0_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(Clone0_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PathShapeServiceServer).Clone0_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PathShapeService_Clone0_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PathShapeServiceServer).Clone0_1(ctx, req.(*Clone0_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PathShapeService_Clone0_2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(Clone0_2Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PathShapeServiceServer).Clone0_2(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PathShapeService_Clone0_2_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PathShapeServiceServer).Clone0_2(ctx, req.(*Clone0_2Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// PathShapeService_ServiceDesc is the grpc.ServiceDesc for PathShapeService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var PathShapeService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "shapes.PathShapeService",
-	HandlerType: (*PathShapeServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "NewPathShape",
-			Handler:    _PathShapeService_NewPathShape_Handler,
-		},
-		{
-			MethodName: "Clone0",
-			Handler:    _PathShapeService_Clone0_Handler,
-		},
-		{
-			MethodName: "Draw",
-			Handler:    _PathShapeService_Draw_Handler,
-		},
-		{
-			MethodName: "Equals",
-			Handler:    _PathShapeService_Equals_Handler,
-		},
-		{
-			MethodName: "HashCode",
-			Handler:    _PathShapeService_HashCode_Handler,
-		},
-		{
-			MethodName: "Clone0_1",
-			Handler:    _PathShapeService_Clone0_1_Handler,
-		},
-		{
-			MethodName: "Clone0_2",
-			Handler:    _PathShapeService_Clone0_2_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/shapes/shapes.proto",
-}
-
-const (
-	ShapeService_Clone0_FullMethodName     = "/shapes.ShapeService/Clone0"
-	ShapeService_Draw_FullMethodName       = "/shapes.ShapeService/Draw"
-	ShapeService_Equals_FullMethodName     = "/shapes.ShapeService/Equals"
-	ShapeService_GetHeight_FullMethodName  = "/shapes.ShapeService/GetHeight"
-	ShapeService_GetOutline_FullMethodName = "/shapes.ShapeService/GetOutline"
-	ShapeService_GetWidth_FullMethodName   = "/shapes.ShapeService/GetWidth"
-	ShapeService_HasAlpha_FullMethodName   = "/shapes.ShapeService/HasAlpha"
-	ShapeService_HashCode_FullMethodName   = "/shapes.ShapeService/HashCode"
-	ShapeService_Resize_FullMethodName     = "/shapes.ShapeService/Resize"
-	ShapeService_Clone0_1_FullMethodName   = "/shapes.ShapeService/Clone0_1"
-)
-
-// ShapeServiceClient is the client API for ShapeService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type ShapeServiceClient interface {
-	Clone0(ctx context.Context, in *ShapeClone0Request, opts ...grpc.CallOption) (*Clone0Response, error)
-	Draw(ctx context.Context, in *ShapeDrawRequest, opts ...grpc.CallOption) (*DrawResponse, error)
-	Equals(ctx context.Context, in *ShapeEqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
-	GetHeight(ctx context.Context, in *GetHeightRequest, opts ...grpc.CallOption) (*GetHeightResponse, error)
-	GetOutline(ctx context.Context, in *ShapeGetOutlineRequest, opts ...grpc.CallOption) (*GetOutlineResponse, error)
-	GetWidth(ctx context.Context, in *GetWidthRequest, opts ...grpc.CallOption) (*GetWidthResponse, error)
-	HasAlpha(ctx context.Context, in *HasAlphaRequest, opts ...grpc.CallOption) (*HasAlphaResponse, error)
-	HashCode(ctx context.Context, in *ShapeHashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
-	Resize(ctx context.Context, in *ResizeRequest, opts ...grpc.CallOption) (*ResizeResponse, error)
-	Clone0_1(ctx context.Context, in *ShapeClone0_1Request, opts ...grpc.CallOption) (*Clone0_1Response, error)
-}
-
-type shapeServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewShapeServiceClient(cc grpc.ClientConnInterface) ShapeServiceClient {
-	return &shapeServiceClient{cc}
-}
-
-func (c *shapeServiceClient) Clone0(ctx context.Context, in *ShapeClone0Request, opts ...grpc.CallOption) (*Clone0Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(Clone0Response)
-	err := c.cc.Invoke(ctx, ShapeService_Clone0_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *shapeServiceClient) Draw(ctx context.Context, in *ShapeDrawRequest, opts ...grpc.CallOption) (*DrawResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DrawResponse)
-	err := c.cc.Invoke(ctx, ShapeService_Draw_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *shapeServiceClient) Equals(ctx context.Context, in *ShapeEqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(EqualsResponse)
-	err := c.cc.Invoke(ctx, ShapeService_Equals_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *shapeServiceClient) GetHeight(ctx context.Context, in *GetHeightRequest, opts ...grpc.CallOption) (*GetHeightResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetHeightResponse)
-	err := c.cc.Invoke(ctx, ShapeService_GetHeight_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *shapeServiceClient) GetOutline(ctx context.Context, in *ShapeGetOutlineRequest, opts ...grpc.CallOption) (*GetOutlineResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetOutlineResponse)
-	err := c.cc.Invoke(ctx, ShapeService_GetOutline_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *shapeServiceClient) GetWidth(ctx context.Context, in *GetWidthRequest, opts ...grpc.CallOption) (*GetWidthResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetWidthResponse)
-	err := c.cc.Invoke(ctx, ShapeService_GetWidth_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *shapeServiceClient) HasAlpha(ctx context.Context, in *HasAlphaRequest, opts ...grpc.CallOption) (*HasAlphaResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(HasAlphaResponse)
-	err := c.cc.Invoke(ctx, ShapeService_HasAlpha_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *shapeServiceClient) HashCode(ctx context.Context, in *ShapeHashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(HashCodeResponse)
-	err := c.cc.Invoke(ctx, ShapeService_HashCode_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *shapeServiceClient) Resize(ctx context.Context, in *ResizeRequest, opts ...grpc.CallOption) (*ResizeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ResizeResponse)
-	err := c.cc.Invoke(ctx, ShapeService_Resize_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *shapeServiceClient) Clone0_1(ctx context.Context, in *ShapeClone0_1Request, opts ...grpc.CallOption) (*Clone0_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(Clone0_1Response)
-	err := c.cc.Invoke(ctx, ShapeService_Clone0_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// ShapeServiceServer is the server API for ShapeService service.
-// All implementations must embed UnimplementedShapeServiceServer
-// for forward compatibility.
-type ShapeServiceServer interface {
-	Clone0(context.Context, *ShapeClone0Request) (*Clone0Response, error)
-	Draw(context.Context, *ShapeDrawRequest) (*DrawResponse, error)
-	Equals(context.Context, *ShapeEqualsRequest) (*EqualsResponse, error)
-	GetHeight(context.Context, *GetHeightRequest) (*GetHeightResponse, error)
-	GetOutline(context.Context, *ShapeGetOutlineRequest) (*GetOutlineResponse, error)
-	GetWidth(context.Context, *GetWidthRequest) (*GetWidthResponse, error)
-	HasAlpha(context.Context, *HasAlphaRequest) (*HasAlphaResponse, error)
-	HashCode(context.Context, *ShapeHashCodeRequest) (*HashCodeResponse, error)
-	Resize(context.Context, *ResizeRequest) (*ResizeResponse, error)
-	Clone0_1(context.Context, *ShapeClone0_1Request) (*Clone0_1Response, error)
-	mustEmbedUnimplementedShapeServiceServer()
-}
-
-// UnimplementedShapeServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedShapeServiceServer struct{}
-
-func (UnimplementedShapeServiceServer) Clone0(context.Context, *ShapeClone0Request) (*Clone0Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method Clone0 not implemented")
-}
-func (UnimplementedShapeServiceServer) Draw(context.Context, *ShapeDrawRequest) (*DrawResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Draw not implemented")
-}
-func (UnimplementedShapeServiceServer) Equals(context.Context, *ShapeEqualsRequest) (*EqualsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
-}
-func (UnimplementedShapeServiceServer) GetHeight(context.Context, *GetHeightRequest) (*GetHeightResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetHeight not implemented")
-}
-func (UnimplementedShapeServiceServer) GetOutline(context.Context, *ShapeGetOutlineRequest) (*GetOutlineResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetOutline not implemented")
-}
-func (UnimplementedShapeServiceServer) GetWidth(context.Context, *GetWidthRequest) (*GetWidthResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetWidth not implemented")
-}
-func (UnimplementedShapeServiceServer) HasAlpha(context.Context, *HasAlphaRequest) (*HasAlphaResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method HasAlpha not implemented")
-}
-func (UnimplementedShapeServiceServer) HashCode(context.Context, *ShapeHashCodeRequest) (*HashCodeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
-}
-func (UnimplementedShapeServiceServer) Resize(context.Context, *ResizeRequest) (*ResizeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Resize not implemented")
-}
-func (UnimplementedShapeServiceServer) Clone0_1(context.Context, *ShapeClone0_1Request) (*Clone0_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method Clone0_1 not implemented")
-}
-func (UnimplementedShapeServiceServer) mustEmbedUnimplementedShapeServiceServer() {}
-func (UnimplementedShapeServiceServer) testEmbeddedByValue()                      {}
-
-// UnsafeShapeServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to ShapeServiceServer will
-// result in compilation errors.
-type UnsafeShapeServiceServer interface {
-	mustEmbedUnimplementedShapeServiceServer()
-}
-
-func RegisterShapeServiceServer(s grpc.ServiceRegistrar, srv ShapeServiceServer) {
-	// If the following call panics, it indicates UnimplementedShapeServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&ShapeService_ServiceDesc, srv)
-}
-
-func _ShapeService_Clone0_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ShapeClone0Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ShapeServiceServer).Clone0(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ShapeService_Clone0_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ShapeServiceServer).Clone0(ctx, req.(*ShapeClone0Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ShapeService_Draw_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ShapeDrawRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ShapeServiceServer).Draw(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ShapeService_Draw_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ShapeServiceServer).Draw(ctx, req.(*ShapeDrawRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ShapeService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ShapeEqualsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ShapeServiceServer).Equals(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ShapeService_Equals_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ShapeServiceServer).Equals(ctx, req.(*ShapeEqualsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ShapeService_GetHeight_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetHeightRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ShapeServiceServer).GetHeight(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ShapeService_GetHeight_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ShapeServiceServer).GetHeight(ctx, req.(*GetHeightRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ShapeService_GetOutline_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ShapeGetOutlineRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ShapeServiceServer).GetOutline(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ShapeService_GetOutline_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ShapeServiceServer).GetOutline(ctx, req.(*ShapeGetOutlineRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ShapeService_GetWidth_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetWidthRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ShapeServiceServer).GetWidth(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ShapeService_GetWidth_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ShapeServiceServer).GetWidth(ctx, req.(*GetWidthRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ShapeService_HasAlpha_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(HasAlphaRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ShapeServiceServer).HasAlpha(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ShapeService_HasAlpha_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ShapeServiceServer).HasAlpha(ctx, req.(*HasAlphaRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ShapeService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ShapeHashCodeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ShapeServiceServer).HashCode(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ShapeService_HashCode_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ShapeServiceServer).HashCode(ctx, req.(*ShapeHashCodeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ShapeService_Resize_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ResizeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ShapeServiceServer).Resize(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ShapeService_Resize_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ShapeServiceServer).Resize(ctx, req.(*ResizeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ShapeService_Clone0_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ShapeClone0_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ShapeServiceServer).Clone0_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ShapeService_Clone0_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ShapeServiceServer).Clone0_1(ctx, req.(*ShapeClone0_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// ShapeService_ServiceDesc is the grpc.ServiceDesc for ShapeService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var ShapeService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "shapes.ShapeService",
-	HandlerType: (*ShapeServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "Clone0",
-			Handler:    _ShapeService_Clone0_Handler,
-		},
-		{
-			MethodName: "Draw",
-			Handler:    _ShapeService_Draw_Handler,
-		},
-		{
-			MethodName: "Equals",
-			Handler:    _ShapeService_Equals_Handler,
-		},
-		{
-			MethodName: "GetHeight",
-			Handler:    _ShapeService_GetHeight_Handler,
-		},
-		{
-			MethodName: "GetOutline",
-			Handler:    _ShapeService_GetOutline_Handler,
-		},
-		{
-			MethodName: "GetWidth",
-			Handler:    _ShapeService_GetWidth_Handler,
-		},
-		{
-			MethodName: "HasAlpha",
-			Handler:    _ShapeService_HasAlpha_Handler,
-		},
-		{
-			MethodName: "HashCode",
-			Handler:    _ShapeService_HashCode_Handler,
-		},
-		{
-			MethodName: "Resize",
-			Handler:    _ShapeService_Resize_Handler,
-		},
-		{
-			MethodName: "Clone0_1",
-			Handler:    _ShapeService_Clone0_1_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/shapes/shapes.proto",
-}
-
-const (
 	RectShapeService_NewRectShape_FullMethodName = "/shapes.RectShapeService/NewRectShape"
 	RectShapeService_Clone0_FullMethodName       = "/shapes.RectShapeService/Clone0"
 	RectShapeService_Draw_FullMethodName         = "/shapes.RectShapeService/Draw"
@@ -1546,12 +886,12 @@ const (
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type RectShapeServiceClient interface {
 	NewRectShape(ctx context.Context, in *NewRectShapeRequest, opts ...grpc.CallOption) (*NewRectShapeResponse, error)
-	Clone0(ctx context.Context, in *Clone0Request, opts ...grpc.CallOption) (*Clone0Response, error)
-	Draw(ctx context.Context, in *DrawRequest, opts ...grpc.CallOption) (*DrawResponse, error)
-	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
-	GetOutline(ctx context.Context, in *GetOutlineRequest, opts ...grpc.CallOption) (*GetOutlineResponse, error)
-	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
-	Clone0_1(ctx context.Context, in *Clone0_1Request, opts ...grpc.CallOption) (*Clone0_1Response, error)
+	Clone0(ctx context.Context, in *RectShapeClone0Request, opts ...grpc.CallOption) (*Clone0Response, error)
+	Draw(ctx context.Context, in *RectShapeDrawRequest, opts ...grpc.CallOption) (*DrawResponse, error)
+	Equals(ctx context.Context, in *RectShapeEqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	GetOutline(ctx context.Context, in *RectShapeGetOutlineRequest, opts ...grpc.CallOption) (*GetOutlineResponse, error)
+	HashCode(ctx context.Context, in *RectShapeHashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+	Clone0_1(ctx context.Context, in *RectShapeClone0_1Request, opts ...grpc.CallOption) (*Clone0_1Response, error)
 	Clone0_2(ctx context.Context, in *Clone0_2Request, opts ...grpc.CallOption) (*Clone0_2Response, error)
 }
 
@@ -1573,7 +913,7 @@ func (c *rectShapeServiceClient) NewRectShape(ctx context.Context, in *NewRectSh
 	return out, nil
 }
 
-func (c *rectShapeServiceClient) Clone0(ctx context.Context, in *Clone0Request, opts ...grpc.CallOption) (*Clone0Response, error) {
+func (c *rectShapeServiceClient) Clone0(ctx context.Context, in *RectShapeClone0Request, opts ...grpc.CallOption) (*Clone0Response, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(Clone0Response)
 	err := c.cc.Invoke(ctx, RectShapeService_Clone0_FullMethodName, in, out, cOpts...)
@@ -1583,7 +923,7 @@ func (c *rectShapeServiceClient) Clone0(ctx context.Context, in *Clone0Request, 
 	return out, nil
 }
 
-func (c *rectShapeServiceClient) Draw(ctx context.Context, in *DrawRequest, opts ...grpc.CallOption) (*DrawResponse, error) {
+func (c *rectShapeServiceClient) Draw(ctx context.Context, in *RectShapeDrawRequest, opts ...grpc.CallOption) (*DrawResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(DrawResponse)
 	err := c.cc.Invoke(ctx, RectShapeService_Draw_FullMethodName, in, out, cOpts...)
@@ -1593,7 +933,7 @@ func (c *rectShapeServiceClient) Draw(ctx context.Context, in *DrawRequest, opts
 	return out, nil
 }
 
-func (c *rectShapeServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+func (c *rectShapeServiceClient) Equals(ctx context.Context, in *RectShapeEqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(EqualsResponse)
 	err := c.cc.Invoke(ctx, RectShapeService_Equals_FullMethodName, in, out, cOpts...)
@@ -1603,7 +943,7 @@ func (c *rectShapeServiceClient) Equals(ctx context.Context, in *EqualsRequest, 
 	return out, nil
 }
 
-func (c *rectShapeServiceClient) GetOutline(ctx context.Context, in *GetOutlineRequest, opts ...grpc.CallOption) (*GetOutlineResponse, error) {
+func (c *rectShapeServiceClient) GetOutline(ctx context.Context, in *RectShapeGetOutlineRequest, opts ...grpc.CallOption) (*GetOutlineResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetOutlineResponse)
 	err := c.cc.Invoke(ctx, RectShapeService_GetOutline_FullMethodName, in, out, cOpts...)
@@ -1613,7 +953,7 @@ func (c *rectShapeServiceClient) GetOutline(ctx context.Context, in *GetOutlineR
 	return out, nil
 }
 
-func (c *rectShapeServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+func (c *rectShapeServiceClient) HashCode(ctx context.Context, in *RectShapeHashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(HashCodeResponse)
 	err := c.cc.Invoke(ctx, RectShapeService_HashCode_FullMethodName, in, out, cOpts...)
@@ -1623,7 +963,7 @@ func (c *rectShapeServiceClient) HashCode(ctx context.Context, in *HashCodeReque
 	return out, nil
 }
 
-func (c *rectShapeServiceClient) Clone0_1(ctx context.Context, in *Clone0_1Request, opts ...grpc.CallOption) (*Clone0_1Response, error) {
+func (c *rectShapeServiceClient) Clone0_1(ctx context.Context, in *RectShapeClone0_1Request, opts ...grpc.CallOption) (*Clone0_1Response, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(Clone0_1Response)
 	err := c.cc.Invoke(ctx, RectShapeService_Clone0_1_FullMethodName, in, out, cOpts...)
@@ -1648,12 +988,12 @@ func (c *rectShapeServiceClient) Clone0_2(ctx context.Context, in *Clone0_2Reque
 // for forward compatibility.
 type RectShapeServiceServer interface {
 	NewRectShape(context.Context, *NewRectShapeRequest) (*NewRectShapeResponse, error)
-	Clone0(context.Context, *Clone0Request) (*Clone0Response, error)
-	Draw(context.Context, *DrawRequest) (*DrawResponse, error)
-	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
-	GetOutline(context.Context, *GetOutlineRequest) (*GetOutlineResponse, error)
-	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
-	Clone0_1(context.Context, *Clone0_1Request) (*Clone0_1Response, error)
+	Clone0(context.Context, *RectShapeClone0Request) (*Clone0Response, error)
+	Draw(context.Context, *RectShapeDrawRequest) (*DrawResponse, error)
+	Equals(context.Context, *RectShapeEqualsRequest) (*EqualsResponse, error)
+	GetOutline(context.Context, *RectShapeGetOutlineRequest) (*GetOutlineResponse, error)
+	HashCode(context.Context, *RectShapeHashCodeRequest) (*HashCodeResponse, error)
+	Clone0_1(context.Context, *RectShapeClone0_1Request) (*Clone0_1Response, error)
 	Clone0_2(context.Context, *Clone0_2Request) (*Clone0_2Response, error)
 	mustEmbedUnimplementedRectShapeServiceServer()
 }
@@ -1668,22 +1008,22 @@ type UnimplementedRectShapeServiceServer struct{}
 func (UnimplementedRectShapeServiceServer) NewRectShape(context.Context, *NewRectShapeRequest) (*NewRectShapeResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method NewRectShape not implemented")
 }
-func (UnimplementedRectShapeServiceServer) Clone0(context.Context, *Clone0Request) (*Clone0Response, error) {
+func (UnimplementedRectShapeServiceServer) Clone0(context.Context, *RectShapeClone0Request) (*Clone0Response, error) {
 	return nil, status.Error(codes.Unimplemented, "method Clone0 not implemented")
 }
-func (UnimplementedRectShapeServiceServer) Draw(context.Context, *DrawRequest) (*DrawResponse, error) {
+func (UnimplementedRectShapeServiceServer) Draw(context.Context, *RectShapeDrawRequest) (*DrawResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method Draw not implemented")
 }
-func (UnimplementedRectShapeServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
+func (UnimplementedRectShapeServiceServer) Equals(context.Context, *RectShapeEqualsRequest) (*EqualsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
 }
-func (UnimplementedRectShapeServiceServer) GetOutline(context.Context, *GetOutlineRequest) (*GetOutlineResponse, error) {
+func (UnimplementedRectShapeServiceServer) GetOutline(context.Context, *RectShapeGetOutlineRequest) (*GetOutlineResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetOutline not implemented")
 }
-func (UnimplementedRectShapeServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
+func (UnimplementedRectShapeServiceServer) HashCode(context.Context, *RectShapeHashCodeRequest) (*HashCodeResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
 }
-func (UnimplementedRectShapeServiceServer) Clone0_1(context.Context, *Clone0_1Request) (*Clone0_1Response, error) {
+func (UnimplementedRectShapeServiceServer) Clone0_1(context.Context, *RectShapeClone0_1Request) (*Clone0_1Response, error) {
 	return nil, status.Error(codes.Unimplemented, "method Clone0_1 not implemented")
 }
 func (UnimplementedRectShapeServiceServer) Clone0_2(context.Context, *Clone0_2Request) (*Clone0_2Response, error) {
@@ -1729,7 +1069,7 @@ func _RectShapeService_NewRectShape_Handler(srv interface{}, ctx context.Context
 }
 
 func _RectShapeService_Clone0_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(Clone0Request)
+	in := new(RectShapeClone0Request)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -1741,13 +1081,13 @@ func _RectShapeService_Clone0_Handler(srv interface{}, ctx context.Context, dec 
 		FullMethod: RectShapeService_Clone0_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RectShapeServiceServer).Clone0(ctx, req.(*Clone0Request))
+		return srv.(RectShapeServiceServer).Clone0(ctx, req.(*RectShapeClone0Request))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _RectShapeService_Draw_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DrawRequest)
+	in := new(RectShapeDrawRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -1759,13 +1099,13 @@ func _RectShapeService_Draw_Handler(srv interface{}, ctx context.Context, dec fu
 		FullMethod: RectShapeService_Draw_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RectShapeServiceServer).Draw(ctx, req.(*DrawRequest))
+		return srv.(RectShapeServiceServer).Draw(ctx, req.(*RectShapeDrawRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _RectShapeService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(EqualsRequest)
+	in := new(RectShapeEqualsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -1777,13 +1117,13 @@ func _RectShapeService_Equals_Handler(srv interface{}, ctx context.Context, dec 
 		FullMethod: RectShapeService_Equals_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RectShapeServiceServer).Equals(ctx, req.(*EqualsRequest))
+		return srv.(RectShapeServiceServer).Equals(ctx, req.(*RectShapeEqualsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _RectShapeService_GetOutline_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetOutlineRequest)
+	in := new(RectShapeGetOutlineRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -1795,13 +1135,13 @@ func _RectShapeService_GetOutline_Handler(srv interface{}, ctx context.Context, 
 		FullMethod: RectShapeService_GetOutline_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RectShapeServiceServer).GetOutline(ctx, req.(*GetOutlineRequest))
+		return srv.(RectShapeServiceServer).GetOutline(ctx, req.(*RectShapeGetOutlineRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _RectShapeService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(HashCodeRequest)
+	in := new(RectShapeHashCodeRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -1813,13 +1153,13 @@ func _RectShapeService_HashCode_Handler(srv interface{}, ctx context.Context, de
 		FullMethod: RectShapeService_HashCode_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RectShapeServiceServer).HashCode(ctx, req.(*HashCodeRequest))
+		return srv.(RectShapeServiceServer).HashCode(ctx, req.(*RectShapeHashCodeRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _RectShapeService_Clone0_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(Clone0_1Request)
+	in := new(RectShapeClone0_1Request)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -1831,7 +1171,7 @@ func _RectShapeService_Clone0_1_Handler(srv interface{}, ctx context.Context, de
 		FullMethod: RectShapeService_Clone0_1_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RectShapeServiceServer).Clone0_1(ctx, req.(*Clone0_1Request))
+		return srv.(RectShapeServiceServer).Clone0_1(ctx, req.(*RectShapeClone0_1Request))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -1917,14 +1257,14 @@ const (
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type ArcShapeServiceClient interface {
 	NewArcShape(ctx context.Context, in *NewArcShapeRequest, opts ...grpc.CallOption) (*NewArcShapeResponse, error)
-	Clone0(ctx context.Context, in *Clone0Request, opts ...grpc.CallOption) (*Clone0Response, error)
-	Draw(ctx context.Context, in *DrawRequest, opts ...grpc.CallOption) (*DrawResponse, error)
-	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
-	GetOutline(ctx context.Context, in *GetOutlineRequest, opts ...grpc.CallOption) (*GetOutlineResponse, error)
+	Clone0(ctx context.Context, in *ArcShapeClone0Request, opts ...grpc.CallOption) (*Clone0Response, error)
+	Draw(ctx context.Context, in *ArcShapeDrawRequest, opts ...grpc.CallOption) (*DrawResponse, error)
+	Equals(ctx context.Context, in *ArcShapeEqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	GetOutline(ctx context.Context, in *ArcShapeGetOutlineRequest, opts ...grpc.CallOption) (*GetOutlineResponse, error)
 	GetStartAngle(ctx context.Context, in *GetStartAngleRequest, opts ...grpc.CallOption) (*GetStartAngleResponse, error)
 	GetSweepAngle(ctx context.Context, in *GetSweepAngleRequest, opts ...grpc.CallOption) (*GetSweepAngleResponse, error)
-	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
-	Clone0_1(ctx context.Context, in *Clone0_1Request, opts ...grpc.CallOption) (*Clone0_1Response, error)
+	HashCode(ctx context.Context, in *ArcShapeHashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+	Clone0_1(ctx context.Context, in *ArcShapeClone0_1Request, opts ...grpc.CallOption) (*Clone0_1Response, error)
 	Clone0_2(ctx context.Context, in *Clone0_2Request, opts ...grpc.CallOption) (*Clone0_2Response, error)
 	Clone0_3(ctx context.Context, in *Clone0_3Request, opts ...grpc.CallOption) (*Clone0_3Response, error)
 }
@@ -1947,7 +1287,7 @@ func (c *arcShapeServiceClient) NewArcShape(ctx context.Context, in *NewArcShape
 	return out, nil
 }
 
-func (c *arcShapeServiceClient) Clone0(ctx context.Context, in *Clone0Request, opts ...grpc.CallOption) (*Clone0Response, error) {
+func (c *arcShapeServiceClient) Clone0(ctx context.Context, in *ArcShapeClone0Request, opts ...grpc.CallOption) (*Clone0Response, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(Clone0Response)
 	err := c.cc.Invoke(ctx, ArcShapeService_Clone0_FullMethodName, in, out, cOpts...)
@@ -1957,7 +1297,7 @@ func (c *arcShapeServiceClient) Clone0(ctx context.Context, in *Clone0Request, o
 	return out, nil
 }
 
-func (c *arcShapeServiceClient) Draw(ctx context.Context, in *DrawRequest, opts ...grpc.CallOption) (*DrawResponse, error) {
+func (c *arcShapeServiceClient) Draw(ctx context.Context, in *ArcShapeDrawRequest, opts ...grpc.CallOption) (*DrawResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(DrawResponse)
 	err := c.cc.Invoke(ctx, ArcShapeService_Draw_FullMethodName, in, out, cOpts...)
@@ -1967,7 +1307,7 @@ func (c *arcShapeServiceClient) Draw(ctx context.Context, in *DrawRequest, opts 
 	return out, nil
 }
 
-func (c *arcShapeServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+func (c *arcShapeServiceClient) Equals(ctx context.Context, in *ArcShapeEqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(EqualsResponse)
 	err := c.cc.Invoke(ctx, ArcShapeService_Equals_FullMethodName, in, out, cOpts...)
@@ -1977,7 +1317,7 @@ func (c *arcShapeServiceClient) Equals(ctx context.Context, in *EqualsRequest, o
 	return out, nil
 }
 
-func (c *arcShapeServiceClient) GetOutline(ctx context.Context, in *GetOutlineRequest, opts ...grpc.CallOption) (*GetOutlineResponse, error) {
+func (c *arcShapeServiceClient) GetOutline(ctx context.Context, in *ArcShapeGetOutlineRequest, opts ...grpc.CallOption) (*GetOutlineResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetOutlineResponse)
 	err := c.cc.Invoke(ctx, ArcShapeService_GetOutline_FullMethodName, in, out, cOpts...)
@@ -2007,7 +1347,7 @@ func (c *arcShapeServiceClient) GetSweepAngle(ctx context.Context, in *GetSweepA
 	return out, nil
 }
 
-func (c *arcShapeServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+func (c *arcShapeServiceClient) HashCode(ctx context.Context, in *ArcShapeHashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(HashCodeResponse)
 	err := c.cc.Invoke(ctx, ArcShapeService_HashCode_FullMethodName, in, out, cOpts...)
@@ -2017,7 +1357,7 @@ func (c *arcShapeServiceClient) HashCode(ctx context.Context, in *HashCodeReques
 	return out, nil
 }
 
-func (c *arcShapeServiceClient) Clone0_1(ctx context.Context, in *Clone0_1Request, opts ...grpc.CallOption) (*Clone0_1Response, error) {
+func (c *arcShapeServiceClient) Clone0_1(ctx context.Context, in *ArcShapeClone0_1Request, opts ...grpc.CallOption) (*Clone0_1Response, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(Clone0_1Response)
 	err := c.cc.Invoke(ctx, ArcShapeService_Clone0_1_FullMethodName, in, out, cOpts...)
@@ -2052,14 +1392,14 @@ func (c *arcShapeServiceClient) Clone0_3(ctx context.Context, in *Clone0_3Reques
 // for forward compatibility.
 type ArcShapeServiceServer interface {
 	NewArcShape(context.Context, *NewArcShapeRequest) (*NewArcShapeResponse, error)
-	Clone0(context.Context, *Clone0Request) (*Clone0Response, error)
-	Draw(context.Context, *DrawRequest) (*DrawResponse, error)
-	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
-	GetOutline(context.Context, *GetOutlineRequest) (*GetOutlineResponse, error)
+	Clone0(context.Context, *ArcShapeClone0Request) (*Clone0Response, error)
+	Draw(context.Context, *ArcShapeDrawRequest) (*DrawResponse, error)
+	Equals(context.Context, *ArcShapeEqualsRequest) (*EqualsResponse, error)
+	GetOutline(context.Context, *ArcShapeGetOutlineRequest) (*GetOutlineResponse, error)
 	GetStartAngle(context.Context, *GetStartAngleRequest) (*GetStartAngleResponse, error)
 	GetSweepAngle(context.Context, *GetSweepAngleRequest) (*GetSweepAngleResponse, error)
-	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
-	Clone0_1(context.Context, *Clone0_1Request) (*Clone0_1Response, error)
+	HashCode(context.Context, *ArcShapeHashCodeRequest) (*HashCodeResponse, error)
+	Clone0_1(context.Context, *ArcShapeClone0_1Request) (*Clone0_1Response, error)
 	Clone0_2(context.Context, *Clone0_2Request) (*Clone0_2Response, error)
 	Clone0_3(context.Context, *Clone0_3Request) (*Clone0_3Response, error)
 	mustEmbedUnimplementedArcShapeServiceServer()
@@ -2075,16 +1415,16 @@ type UnimplementedArcShapeServiceServer struct{}
 func (UnimplementedArcShapeServiceServer) NewArcShape(context.Context, *NewArcShapeRequest) (*NewArcShapeResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method NewArcShape not implemented")
 }
-func (UnimplementedArcShapeServiceServer) Clone0(context.Context, *Clone0Request) (*Clone0Response, error) {
+func (UnimplementedArcShapeServiceServer) Clone0(context.Context, *ArcShapeClone0Request) (*Clone0Response, error) {
 	return nil, status.Error(codes.Unimplemented, "method Clone0 not implemented")
 }
-func (UnimplementedArcShapeServiceServer) Draw(context.Context, *DrawRequest) (*DrawResponse, error) {
+func (UnimplementedArcShapeServiceServer) Draw(context.Context, *ArcShapeDrawRequest) (*DrawResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method Draw not implemented")
 }
-func (UnimplementedArcShapeServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
+func (UnimplementedArcShapeServiceServer) Equals(context.Context, *ArcShapeEqualsRequest) (*EqualsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
 }
-func (UnimplementedArcShapeServiceServer) GetOutline(context.Context, *GetOutlineRequest) (*GetOutlineResponse, error) {
+func (UnimplementedArcShapeServiceServer) GetOutline(context.Context, *ArcShapeGetOutlineRequest) (*GetOutlineResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetOutline not implemented")
 }
 func (UnimplementedArcShapeServiceServer) GetStartAngle(context.Context, *GetStartAngleRequest) (*GetStartAngleResponse, error) {
@@ -2093,10 +1433,10 @@ func (UnimplementedArcShapeServiceServer) GetStartAngle(context.Context, *GetSta
 func (UnimplementedArcShapeServiceServer) GetSweepAngle(context.Context, *GetSweepAngleRequest) (*GetSweepAngleResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetSweepAngle not implemented")
 }
-func (UnimplementedArcShapeServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
+func (UnimplementedArcShapeServiceServer) HashCode(context.Context, *ArcShapeHashCodeRequest) (*HashCodeResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
 }
-func (UnimplementedArcShapeServiceServer) Clone0_1(context.Context, *Clone0_1Request) (*Clone0_1Response, error) {
+func (UnimplementedArcShapeServiceServer) Clone0_1(context.Context, *ArcShapeClone0_1Request) (*Clone0_1Response, error) {
 	return nil, status.Error(codes.Unimplemented, "method Clone0_1 not implemented")
 }
 func (UnimplementedArcShapeServiceServer) Clone0_2(context.Context, *Clone0_2Request) (*Clone0_2Response, error) {
@@ -2145,7 +1485,7 @@ func _ArcShapeService_NewArcShape_Handler(srv interface{}, ctx context.Context, 
 }
 
 func _ArcShapeService_Clone0_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(Clone0Request)
+	in := new(ArcShapeClone0Request)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -2157,13 +1497,13 @@ func _ArcShapeService_Clone0_Handler(srv interface{}, ctx context.Context, dec f
 		FullMethod: ArcShapeService_Clone0_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ArcShapeServiceServer).Clone0(ctx, req.(*Clone0Request))
+		return srv.(ArcShapeServiceServer).Clone0(ctx, req.(*ArcShapeClone0Request))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _ArcShapeService_Draw_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DrawRequest)
+	in := new(ArcShapeDrawRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -2175,13 +1515,13 @@ func _ArcShapeService_Draw_Handler(srv interface{}, ctx context.Context, dec fun
 		FullMethod: ArcShapeService_Draw_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ArcShapeServiceServer).Draw(ctx, req.(*DrawRequest))
+		return srv.(ArcShapeServiceServer).Draw(ctx, req.(*ArcShapeDrawRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _ArcShapeService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(EqualsRequest)
+	in := new(ArcShapeEqualsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -2193,13 +1533,13 @@ func _ArcShapeService_Equals_Handler(srv interface{}, ctx context.Context, dec f
 		FullMethod: ArcShapeService_Equals_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ArcShapeServiceServer).Equals(ctx, req.(*EqualsRequest))
+		return srv.(ArcShapeServiceServer).Equals(ctx, req.(*ArcShapeEqualsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _ArcShapeService_GetOutline_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetOutlineRequest)
+	in := new(ArcShapeGetOutlineRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -2211,7 +1551,7 @@ func _ArcShapeService_GetOutline_Handler(srv interface{}, ctx context.Context, d
 		FullMethod: ArcShapeService_GetOutline_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ArcShapeServiceServer).GetOutline(ctx, req.(*GetOutlineRequest))
+		return srv.(ArcShapeServiceServer).GetOutline(ctx, req.(*ArcShapeGetOutlineRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -2253,7 +1593,7 @@ func _ArcShapeService_GetSweepAngle_Handler(srv interface{}, ctx context.Context
 }
 
 func _ArcShapeService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(HashCodeRequest)
+	in := new(ArcShapeHashCodeRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -2265,13 +1605,13 @@ func _ArcShapeService_HashCode_Handler(srv interface{}, ctx context.Context, dec
 		FullMethod: ArcShapeService_HashCode_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ArcShapeServiceServer).HashCode(ctx, req.(*HashCodeRequest))
+		return srv.(ArcShapeServiceServer).HashCode(ctx, req.(*ArcShapeHashCodeRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _ArcShapeService_Clone0_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(Clone0_1Request)
+	in := new(ArcShapeClone0_1Request)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -2283,7 +1623,7 @@ func _ArcShapeService_Clone0_1_Handler(srv interface{}, ctx context.Context, dec
 		FullMethod: ArcShapeService_Clone0_1_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ArcShapeServiceServer).Clone0_1(ctx, req.(*Clone0_1Request))
+		return srv.(ArcShapeServiceServer).Clone0_1(ctx, req.(*ArcShapeClone0_1Request))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -2374,6 +1714,666 @@ var ArcShapeService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "Clone0_3",
 			Handler:    _ArcShapeService_Clone0_3_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/shapes/shapes.proto",
+}
+
+const (
+	OvalShapeService_NewOvalShape_FullMethodName = "/shapes.OvalShapeService/NewOvalShape"
+	OvalShapeService_Clone0_FullMethodName       = "/shapes.OvalShapeService/Clone0"
+	OvalShapeService_Draw_FullMethodName         = "/shapes.OvalShapeService/Draw"
+	OvalShapeService_GetOutline_FullMethodName   = "/shapes.OvalShapeService/GetOutline"
+	OvalShapeService_Clone0_1_FullMethodName     = "/shapes.OvalShapeService/Clone0_1"
+	OvalShapeService_Clone0_2_FullMethodName     = "/shapes.OvalShapeService/Clone0_2"
+	OvalShapeService_Clone0_3_FullMethodName     = "/shapes.OvalShapeService/Clone0_3"
+)
+
+// OvalShapeServiceClient is the client API for OvalShapeService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type OvalShapeServiceClient interface {
+	NewOvalShape(ctx context.Context, in *NewOvalShapeRequest, opts ...grpc.CallOption) (*NewOvalShapeResponse, error)
+	Clone0(ctx context.Context, in *OvalShapeClone0Request, opts ...grpc.CallOption) (*Clone0Response, error)
+	Draw(ctx context.Context, in *OvalShapeDrawRequest, opts ...grpc.CallOption) (*DrawResponse, error)
+	GetOutline(ctx context.Context, in *OvalShapeGetOutlineRequest, opts ...grpc.CallOption) (*GetOutlineResponse, error)
+	Clone0_1(ctx context.Context, in *OvalShapeClone0_1Request, opts ...grpc.CallOption) (*Clone0_1Response, error)
+	Clone0_2(ctx context.Context, in *Clone0_2Request, opts ...grpc.CallOption) (*Clone0_2Response, error)
+	Clone0_3(ctx context.Context, in *Clone0_3Request, opts ...grpc.CallOption) (*Clone0_3Response, error)
+}
+
+type ovalShapeServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewOvalShapeServiceClient(cc grpc.ClientConnInterface) OvalShapeServiceClient {
+	return &ovalShapeServiceClient{cc}
+}
+
+func (c *ovalShapeServiceClient) NewOvalShape(ctx context.Context, in *NewOvalShapeRequest, opts ...grpc.CallOption) (*NewOvalShapeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewOvalShapeResponse)
+	err := c.cc.Invoke(ctx, OvalShapeService_NewOvalShape_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ovalShapeServiceClient) Clone0(ctx context.Context, in *OvalShapeClone0Request, opts ...grpc.CallOption) (*Clone0Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(Clone0Response)
+	err := c.cc.Invoke(ctx, OvalShapeService_Clone0_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ovalShapeServiceClient) Draw(ctx context.Context, in *OvalShapeDrawRequest, opts ...grpc.CallOption) (*DrawResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DrawResponse)
+	err := c.cc.Invoke(ctx, OvalShapeService_Draw_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ovalShapeServiceClient) GetOutline(ctx context.Context, in *OvalShapeGetOutlineRequest, opts ...grpc.CallOption) (*GetOutlineResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetOutlineResponse)
+	err := c.cc.Invoke(ctx, OvalShapeService_GetOutline_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ovalShapeServiceClient) Clone0_1(ctx context.Context, in *OvalShapeClone0_1Request, opts ...grpc.CallOption) (*Clone0_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(Clone0_1Response)
+	err := c.cc.Invoke(ctx, OvalShapeService_Clone0_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ovalShapeServiceClient) Clone0_2(ctx context.Context, in *Clone0_2Request, opts ...grpc.CallOption) (*Clone0_2Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(Clone0_2Response)
+	err := c.cc.Invoke(ctx, OvalShapeService_Clone0_2_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ovalShapeServiceClient) Clone0_3(ctx context.Context, in *Clone0_3Request, opts ...grpc.CallOption) (*Clone0_3Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(Clone0_3Response)
+	err := c.cc.Invoke(ctx, OvalShapeService_Clone0_3_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// OvalShapeServiceServer is the server API for OvalShapeService service.
+// All implementations must embed UnimplementedOvalShapeServiceServer
+// for forward compatibility.
+type OvalShapeServiceServer interface {
+	NewOvalShape(context.Context, *NewOvalShapeRequest) (*NewOvalShapeResponse, error)
+	Clone0(context.Context, *OvalShapeClone0Request) (*Clone0Response, error)
+	Draw(context.Context, *OvalShapeDrawRequest) (*DrawResponse, error)
+	GetOutline(context.Context, *OvalShapeGetOutlineRequest) (*GetOutlineResponse, error)
+	Clone0_1(context.Context, *OvalShapeClone0_1Request) (*Clone0_1Response, error)
+	Clone0_2(context.Context, *Clone0_2Request) (*Clone0_2Response, error)
+	Clone0_3(context.Context, *Clone0_3Request) (*Clone0_3Response, error)
+	mustEmbedUnimplementedOvalShapeServiceServer()
+}
+
+// UnimplementedOvalShapeServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedOvalShapeServiceServer struct{}
+
+func (UnimplementedOvalShapeServiceServer) NewOvalShape(context.Context, *NewOvalShapeRequest) (*NewOvalShapeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewOvalShape not implemented")
+}
+func (UnimplementedOvalShapeServiceServer) Clone0(context.Context, *OvalShapeClone0Request) (*Clone0Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method Clone0 not implemented")
+}
+func (UnimplementedOvalShapeServiceServer) Draw(context.Context, *OvalShapeDrawRequest) (*DrawResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Draw not implemented")
+}
+func (UnimplementedOvalShapeServiceServer) GetOutline(context.Context, *OvalShapeGetOutlineRequest) (*GetOutlineResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetOutline not implemented")
+}
+func (UnimplementedOvalShapeServiceServer) Clone0_1(context.Context, *OvalShapeClone0_1Request) (*Clone0_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method Clone0_1 not implemented")
+}
+func (UnimplementedOvalShapeServiceServer) Clone0_2(context.Context, *Clone0_2Request) (*Clone0_2Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method Clone0_2 not implemented")
+}
+func (UnimplementedOvalShapeServiceServer) Clone0_3(context.Context, *Clone0_3Request) (*Clone0_3Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method Clone0_3 not implemented")
+}
+func (UnimplementedOvalShapeServiceServer) mustEmbedUnimplementedOvalShapeServiceServer() {}
+func (UnimplementedOvalShapeServiceServer) testEmbeddedByValue()                          {}
+
+// UnsafeOvalShapeServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to OvalShapeServiceServer will
+// result in compilation errors.
+type UnsafeOvalShapeServiceServer interface {
+	mustEmbedUnimplementedOvalShapeServiceServer()
+}
+
+func RegisterOvalShapeServiceServer(s grpc.ServiceRegistrar, srv OvalShapeServiceServer) {
+	// If the following call panics, it indicates UnimplementedOvalShapeServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&OvalShapeService_ServiceDesc, srv)
+}
+
+func _OvalShapeService_NewOvalShape_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewOvalShapeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(OvalShapeServiceServer).NewOvalShape(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: OvalShapeService_NewOvalShape_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(OvalShapeServiceServer).NewOvalShape(ctx, req.(*NewOvalShapeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _OvalShapeService_Clone0_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OvalShapeClone0Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(OvalShapeServiceServer).Clone0(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: OvalShapeService_Clone0_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(OvalShapeServiceServer).Clone0(ctx, req.(*OvalShapeClone0Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _OvalShapeService_Draw_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OvalShapeDrawRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(OvalShapeServiceServer).Draw(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: OvalShapeService_Draw_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(OvalShapeServiceServer).Draw(ctx, req.(*OvalShapeDrawRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _OvalShapeService_GetOutline_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OvalShapeGetOutlineRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(OvalShapeServiceServer).GetOutline(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: OvalShapeService_GetOutline_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(OvalShapeServiceServer).GetOutline(ctx, req.(*OvalShapeGetOutlineRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _OvalShapeService_Clone0_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OvalShapeClone0_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(OvalShapeServiceServer).Clone0_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: OvalShapeService_Clone0_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(OvalShapeServiceServer).Clone0_1(ctx, req.(*OvalShapeClone0_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _OvalShapeService_Clone0_2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(Clone0_2Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(OvalShapeServiceServer).Clone0_2(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: OvalShapeService_Clone0_2_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(OvalShapeServiceServer).Clone0_2(ctx, req.(*Clone0_2Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _OvalShapeService_Clone0_3_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(Clone0_3Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(OvalShapeServiceServer).Clone0_3(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: OvalShapeService_Clone0_3_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(OvalShapeServiceServer).Clone0_3(ctx, req.(*Clone0_3Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// OvalShapeService_ServiceDesc is the grpc.ServiceDesc for OvalShapeService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var OvalShapeService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "shapes.OvalShapeService",
+	HandlerType: (*OvalShapeServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewOvalShape",
+			Handler:    _OvalShapeService_NewOvalShape_Handler,
+		},
+		{
+			MethodName: "Clone0",
+			Handler:    _OvalShapeService_Clone0_Handler,
+		},
+		{
+			MethodName: "Draw",
+			Handler:    _OvalShapeService_Draw_Handler,
+		},
+		{
+			MethodName: "GetOutline",
+			Handler:    _OvalShapeService_GetOutline_Handler,
+		},
+		{
+			MethodName: "Clone0_1",
+			Handler:    _OvalShapeService_Clone0_1_Handler,
+		},
+		{
+			MethodName: "Clone0_2",
+			Handler:    _OvalShapeService_Clone0_2_Handler,
+		},
+		{
+			MethodName: "Clone0_3",
+			Handler:    _OvalShapeService_Clone0_3_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/shapes/shapes.proto",
+}
+
+const (
+	PathShapeService_NewPathShape_FullMethodName = "/shapes.PathShapeService/NewPathShape"
+	PathShapeService_Clone0_FullMethodName       = "/shapes.PathShapeService/Clone0"
+	PathShapeService_Draw_FullMethodName         = "/shapes.PathShapeService/Draw"
+	PathShapeService_Equals_FullMethodName       = "/shapes.PathShapeService/Equals"
+	PathShapeService_HashCode_FullMethodName     = "/shapes.PathShapeService/HashCode"
+	PathShapeService_Clone0_1_FullMethodName     = "/shapes.PathShapeService/Clone0_1"
+	PathShapeService_Clone0_2_FullMethodName     = "/shapes.PathShapeService/Clone0_2"
+)
+
+// PathShapeServiceClient is the client API for PathShapeService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type PathShapeServiceClient interface {
+	NewPathShape(ctx context.Context, in *NewPathShapeRequest, opts ...grpc.CallOption) (*NewPathShapeResponse, error)
+	Clone0(ctx context.Context, in *PathShapeClone0Request, opts ...grpc.CallOption) (*Clone0Response, error)
+	Draw(ctx context.Context, in *PathShapeDrawRequest, opts ...grpc.CallOption) (*DrawResponse, error)
+	Equals(ctx context.Context, in *PathShapeEqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	HashCode(ctx context.Context, in *PathShapeHashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+	Clone0_1(ctx context.Context, in *PathShapeClone0_1Request, opts ...grpc.CallOption) (*Clone0_1Response, error)
+	Clone0_2(ctx context.Context, in *Clone0_2Request, opts ...grpc.CallOption) (*Clone0_2Response, error)
+}
+
+type pathShapeServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewPathShapeServiceClient(cc grpc.ClientConnInterface) PathShapeServiceClient {
+	return &pathShapeServiceClient{cc}
+}
+
+func (c *pathShapeServiceClient) NewPathShape(ctx context.Context, in *NewPathShapeRequest, opts ...grpc.CallOption) (*NewPathShapeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewPathShapeResponse)
+	err := c.cc.Invoke(ctx, PathShapeService_NewPathShape_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *pathShapeServiceClient) Clone0(ctx context.Context, in *PathShapeClone0Request, opts ...grpc.CallOption) (*Clone0Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(Clone0Response)
+	err := c.cc.Invoke(ctx, PathShapeService_Clone0_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *pathShapeServiceClient) Draw(ctx context.Context, in *PathShapeDrawRequest, opts ...grpc.CallOption) (*DrawResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DrawResponse)
+	err := c.cc.Invoke(ctx, PathShapeService_Draw_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *pathShapeServiceClient) Equals(ctx context.Context, in *PathShapeEqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(EqualsResponse)
+	err := c.cc.Invoke(ctx, PathShapeService_Equals_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *pathShapeServiceClient) HashCode(ctx context.Context, in *PathShapeHashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HashCodeResponse)
+	err := c.cc.Invoke(ctx, PathShapeService_HashCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *pathShapeServiceClient) Clone0_1(ctx context.Context, in *PathShapeClone0_1Request, opts ...grpc.CallOption) (*Clone0_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(Clone0_1Response)
+	err := c.cc.Invoke(ctx, PathShapeService_Clone0_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *pathShapeServiceClient) Clone0_2(ctx context.Context, in *Clone0_2Request, opts ...grpc.CallOption) (*Clone0_2Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(Clone0_2Response)
+	err := c.cc.Invoke(ctx, PathShapeService_Clone0_2_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// PathShapeServiceServer is the server API for PathShapeService service.
+// All implementations must embed UnimplementedPathShapeServiceServer
+// for forward compatibility.
+type PathShapeServiceServer interface {
+	NewPathShape(context.Context, *NewPathShapeRequest) (*NewPathShapeResponse, error)
+	Clone0(context.Context, *PathShapeClone0Request) (*Clone0Response, error)
+	Draw(context.Context, *PathShapeDrawRequest) (*DrawResponse, error)
+	Equals(context.Context, *PathShapeEqualsRequest) (*EqualsResponse, error)
+	HashCode(context.Context, *PathShapeHashCodeRequest) (*HashCodeResponse, error)
+	Clone0_1(context.Context, *PathShapeClone0_1Request) (*Clone0_1Response, error)
+	Clone0_2(context.Context, *Clone0_2Request) (*Clone0_2Response, error)
+	mustEmbedUnimplementedPathShapeServiceServer()
+}
+
+// UnimplementedPathShapeServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedPathShapeServiceServer struct{}
+
+func (UnimplementedPathShapeServiceServer) NewPathShape(context.Context, *NewPathShapeRequest) (*NewPathShapeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewPathShape not implemented")
+}
+func (UnimplementedPathShapeServiceServer) Clone0(context.Context, *PathShapeClone0Request) (*Clone0Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method Clone0 not implemented")
+}
+func (UnimplementedPathShapeServiceServer) Draw(context.Context, *PathShapeDrawRequest) (*DrawResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Draw not implemented")
+}
+func (UnimplementedPathShapeServiceServer) Equals(context.Context, *PathShapeEqualsRequest) (*EqualsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
+}
+func (UnimplementedPathShapeServiceServer) HashCode(context.Context, *PathShapeHashCodeRequest) (*HashCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
+}
+func (UnimplementedPathShapeServiceServer) Clone0_1(context.Context, *PathShapeClone0_1Request) (*Clone0_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method Clone0_1 not implemented")
+}
+func (UnimplementedPathShapeServiceServer) Clone0_2(context.Context, *Clone0_2Request) (*Clone0_2Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method Clone0_2 not implemented")
+}
+func (UnimplementedPathShapeServiceServer) mustEmbedUnimplementedPathShapeServiceServer() {}
+func (UnimplementedPathShapeServiceServer) testEmbeddedByValue()                          {}
+
+// UnsafePathShapeServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to PathShapeServiceServer will
+// result in compilation errors.
+type UnsafePathShapeServiceServer interface {
+	mustEmbedUnimplementedPathShapeServiceServer()
+}
+
+func RegisterPathShapeServiceServer(s grpc.ServiceRegistrar, srv PathShapeServiceServer) {
+	// If the following call panics, it indicates UnimplementedPathShapeServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&PathShapeService_ServiceDesc, srv)
+}
+
+func _PathShapeService_NewPathShape_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewPathShapeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PathShapeServiceServer).NewPathShape(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PathShapeService_NewPathShape_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PathShapeServiceServer).NewPathShape(ctx, req.(*NewPathShapeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PathShapeService_Clone0_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(PathShapeClone0Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PathShapeServiceServer).Clone0(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PathShapeService_Clone0_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PathShapeServiceServer).Clone0(ctx, req.(*PathShapeClone0Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PathShapeService_Draw_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(PathShapeDrawRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PathShapeServiceServer).Draw(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PathShapeService_Draw_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PathShapeServiceServer).Draw(ctx, req.(*PathShapeDrawRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PathShapeService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(PathShapeEqualsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PathShapeServiceServer).Equals(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PathShapeService_Equals_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PathShapeServiceServer).Equals(ctx, req.(*PathShapeEqualsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PathShapeService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(PathShapeHashCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PathShapeServiceServer).HashCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PathShapeService_HashCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PathShapeServiceServer).HashCode(ctx, req.(*PathShapeHashCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PathShapeService_Clone0_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(PathShapeClone0_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PathShapeServiceServer).Clone0_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PathShapeService_Clone0_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PathShapeServiceServer).Clone0_1(ctx, req.(*PathShapeClone0_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PathShapeService_Clone0_2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(Clone0_2Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PathShapeServiceServer).Clone0_2(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PathShapeService_Clone0_2_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PathShapeServiceServer).Clone0_2(ctx, req.(*Clone0_2Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// PathShapeService_ServiceDesc is the grpc.ServiceDesc for PathShapeService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var PathShapeService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "shapes.PathShapeService",
+	HandlerType: (*PathShapeServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewPathShape",
+			Handler:    _PathShapeService_NewPathShape_Handler,
+		},
+		{
+			MethodName: "Clone0",
+			Handler:    _PathShapeService_Clone0_Handler,
+		},
+		{
+			MethodName: "Draw",
+			Handler:    _PathShapeService_Draw_Handler,
+		},
+		{
+			MethodName: "Equals",
+			Handler:    _PathShapeService_Equals_Handler,
+		},
+		{
+			MethodName: "HashCode",
+			Handler:    _PathShapeService_HashCode_Handler,
+		},
+		{
+			MethodName: "Clone0_1",
+			Handler:    _PathShapeService_Clone0_1_Handler,
+		},
+		{
+			MethodName: "Clone0_2",
+			Handler:    _PathShapeService_Clone0_2_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

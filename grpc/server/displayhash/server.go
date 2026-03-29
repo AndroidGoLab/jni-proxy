@@ -15,36 +15,6 @@ import (
 	"google.golang.org/grpc/status"
 )
 
-// DisplayHashManagerServer implements pb.DisplayHashManagerServiceServer.
-type DisplayHashManagerServer struct {
-	pb.UnimplementedDisplayHashManagerServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *DisplayHashManagerServer) VerifyDisplayHash(_ context.Context, req *pb.VerifyDisplayHashRequest) (*pb.VerifyDisplayHashResponse, error) {
-	mgr, err := jnipkg.NewDisplayHashManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.VerifyDisplayHash(s.Handles.Get(req.GetArg0()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.VerifyDisplayHashResponse{Result: handle}, nil
-}
-
 // VerifiedDisplayHashServer implements pb.VerifiedDisplayHashServiceServer.
 type VerifiedDisplayHashServer struct {
 	pb.UnimplementedVerifiedDisplayHashServiceServer
@@ -180,4 +150,57 @@ func (s *VerifiedDisplayHashServer) WriteToParcel(_ context.Context, req *pb.Wri
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
 	return &pb.WriteToParcelResponse{}, nil
+}
+
+// DisplayHashManagerServer implements pb.DisplayHashManagerServiceServer.
+type DisplayHashManagerServer struct {
+	pb.UnimplementedDisplayHashManagerServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *DisplayHashManagerServer) GetSupportedHashAlgorithms(_ context.Context, req *pb.GetSupportedHashAlgorithmsRequest) (*pb.GetSupportedHashAlgorithmsResponse, error) {
+	mgr, err := jnipkg.NewDisplayHashManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.GetSupportedHashAlgorithms()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetSupportedHashAlgorithmsResponse{Result: handle}, nil
+}
+
+func (s *DisplayHashManagerServer) VerifyDisplayHash(_ context.Context, req *pb.VerifyDisplayHashRequest) (*pb.VerifyDisplayHashResponse, error) {
+	mgr, err := jnipkg.NewDisplayHashManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.VerifyDisplayHash(s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.VerifyDisplayHashResponse{Result: handle}, nil
 }

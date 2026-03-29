@@ -9,41 +9,45 @@ import (
 	"google.golang.org/grpc"
 )
 
-// InfoClient wraps the gRPC InfoService client.
-type InfoClient struct {
-	svc pb.InfoServiceClient
+// ScanResultClient wraps the gRPC ScanResultService client.
+type ScanResultClient struct {
+	svc pb.ScanResultServiceClient
 }
 
-// NewInfoClient creates a new Info client.
-func NewInfoClient(cc grpc.ClientConnInterface) *InfoClient {
-	return &InfoClient{
-		svc: pb.NewInfoServiceClient(cc),
+// NewScanResultClient creates a new ScanResult client.
+func NewScanResultClient(cc grpc.ClientConnInterface) *ScanResultClient {
+	return &ScanResultClient{
+		svc: pb.NewScanResultServiceClient(cc),
 	}
 }
 
 // DescribeContents calls the DescribeContents RPC.
-func (c *InfoClient) DescribeContents(ctx context.Context) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+func (c *ScanResultClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{
+		Handle: handle,
+	})
 	if err != nil {
 		return 0, err
 	}
 	return resp.GetResult(), nil
 }
 
-// Equals calls the Equals RPC.
-func (c *InfoClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
-		Arg0: arg0,
+// GetAffiliatedMloLinks calls the GetAffiliatedMloLinks RPC.
+func (c *ScanResultClient) GetAffiliatedMloLinks(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetAffiliatedMloLinks(ctx, &pb.GetAffiliatedMloLinksRequest{
+		Handle: handle,
 	})
 	if err != nil {
-		return false, err
+		return 0, err
 	}
 	return resp.GetResult(), nil
 }
 
 // GetApMldMacAddress calls the GetApMldMacAddress RPC.
-func (c *InfoClient) GetApMldMacAddress(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetApMldMacAddress(ctx, &pb.GetApMldMacAddressRequest{})
+func (c *ScanResultClient) GetApMldMacAddress(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetApMldMacAddress(ctx, &pb.GetApMldMacAddressRequest{
+		Handle: handle,
+	})
 	if err != nil {
 		return 0, err
 	}
@@ -51,188 +55,43 @@ func (c *InfoClient) GetApMldMacAddress(ctx context.Context) (int64, error) {
 }
 
 // GetApMloLinkId calls the GetApMloLinkId RPC.
-func (c *InfoClient) GetApMloLinkId(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetApMloLinkId(ctx, &pb.GetApMloLinkIdRequest{})
+func (c *ScanResultClient) GetApMloLinkId(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetApMloLinkId(ctx, &pb.GetApMloLinkIdRequest{
+		Handle: handle,
+	})
 	if err != nil {
 		return 0, err
 	}
 	return resp.GetResult(), nil
 }
 
-// GetApplicableRedactions calls the GetApplicableRedactions RPC.
-func (c *InfoClient) GetApplicableRedactions(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetApplicableRedactions(ctx, &pb.GetApplicableRedactionsRequest{})
+// GetInformationElements calls the GetInformationElements RPC.
+func (c *ScanResultClient) GetInformationElements(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetInformationElements(ctx, &pb.GetInformationElementsRequest{
+		Handle: handle,
+	})
 	if err != nil {
 		return 0, err
 	}
 	return resp.GetResult(), nil
 }
 
-// GetBSSID calls the GetBSSID RPC.
-func (c *InfoClient) GetBSSID(ctx context.Context) (string, error) {
-	resp, err := c.svc.GetBSSID(ctx, &pb.GetBSSIDRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetCurrentSecurityType calls the GetCurrentSecurityType RPC.
-func (c *InfoClient) GetCurrentSecurityType(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetCurrentSecurityType(ctx, &pb.GetCurrentSecurityTypeRequest{})
+// GetSecurityTypes calls the GetSecurityTypes RPC.
+func (c *ScanResultClient) GetSecurityTypes(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetSecurityTypes(ctx, &pb.GetSecurityTypesRequest{
+		Handle: handle,
+	})
 	if err != nil {
 		return 0, err
 	}
 	return resp.GetResult(), nil
 }
 
-// GetFrequency calls the GetFrequency RPC.
-func (c *InfoClient) GetFrequency(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetFrequency(ctx, &pb.GetFrequencyRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetHiddenSSID calls the GetHiddenSSID RPC.
-func (c *InfoClient) GetHiddenSSID(ctx context.Context) (bool, error) {
-	resp, err := c.svc.GetHiddenSSID(ctx, &pb.GetHiddenSSIDRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetIpAddress calls the GetIpAddress RPC.
-func (c *InfoClient) GetIpAddress(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetIpAddress(ctx, &pb.GetIpAddressRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetLinkSpeed calls the GetLinkSpeed RPC.
-func (c *InfoClient) GetLinkSpeed(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetLinkSpeed(ctx, &pb.GetLinkSpeedRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetMacAddress calls the GetMacAddress RPC.
-func (c *InfoClient) GetMacAddress(ctx context.Context) (string, error) {
-	resp, err := c.svc.GetMacAddress(ctx, &pb.GetMacAddressRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetMaxSupportedRxLinkSpeedMbps calls the GetMaxSupportedRxLinkSpeedMbps RPC.
-func (c *InfoClient) GetMaxSupportedRxLinkSpeedMbps(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetMaxSupportedRxLinkSpeedMbps(ctx, &pb.GetMaxSupportedRxLinkSpeedMbpsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetMaxSupportedTxLinkSpeedMbps calls the GetMaxSupportedTxLinkSpeedMbps RPC.
-func (c *InfoClient) GetMaxSupportedTxLinkSpeedMbps(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetMaxSupportedTxLinkSpeedMbps(ctx, &pb.GetMaxSupportedTxLinkSpeedMbpsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetNetworkId calls the GetNetworkId RPC.
-func (c *InfoClient) GetNetworkId(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetNetworkId(ctx, &pb.GetNetworkIdRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetPasspointFqdn calls the GetPasspointFqdn RPC.
-func (c *InfoClient) GetPasspointFqdn(ctx context.Context) (string, error) {
-	resp, err := c.svc.GetPasspointFqdn(ctx, &pb.GetPasspointFqdnRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetPasspointProviderFriendlyName calls the GetPasspointProviderFriendlyName RPC.
-func (c *InfoClient) GetPasspointProviderFriendlyName(ctx context.Context) (string, error) {
-	resp, err := c.svc.GetPasspointProviderFriendlyName(ctx, &pb.GetPasspointProviderFriendlyNameRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetPasspointUniqueId calls the GetPasspointUniqueId RPC.
-func (c *InfoClient) GetPasspointUniqueId(ctx context.Context) (string, error) {
-	resp, err := c.svc.GetPasspointUniqueId(ctx, &pb.GetPasspointUniqueIdRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetRssi calls the GetRssi RPC.
-func (c *InfoClient) GetRssi(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetRssi(ctx, &pb.GetRssiRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetRxLinkSpeedMbps calls the GetRxLinkSpeedMbps RPC.
-func (c *InfoClient) GetRxLinkSpeedMbps(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetRxLinkSpeedMbps(ctx, &pb.GetRxLinkSpeedMbpsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetSSID calls the GetSSID RPC.
-func (c *InfoClient) GetSSID(ctx context.Context) (string, error) {
-	resp, err := c.svc.GetSSID(ctx, &pb.GetSSIDRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetSubscriptionId calls the GetSubscriptionId RPC.
-func (c *InfoClient) GetSubscriptionId(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetSubscriptionId(ctx, &pb.GetSubscriptionIdRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetSupplicantState calls the GetSupplicantState RPC.
-func (c *InfoClient) GetSupplicantState(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetSupplicantState(ctx, &pb.GetSupplicantStateRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetTxLinkSpeedMbps calls the GetTxLinkSpeedMbps RPC.
-func (c *InfoClient) GetTxLinkSpeedMbps(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetTxLinkSpeedMbps(ctx, &pb.GetTxLinkSpeedMbpsRequest{})
+// GetWifiSsid calls the GetWifiSsid RPC.
+func (c *ScanResultClient) GetWifiSsid(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetWifiSsid(ctx, &pb.GetWifiSsidRequest{
+		Handle: handle,
+	})
 	if err != nil {
 		return 0, err
 	}
@@ -240,36 +99,9 @@ func (c *InfoClient) GetTxLinkSpeedMbps(ctx context.Context) (int32, error) {
 }
 
 // GetWifiStandard calls the GetWifiStandard RPC.
-func (c *InfoClient) GetWifiStandard(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetWifiStandard(ctx, &pb.GetWifiStandardRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *InfoClient) HashCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsRestricted calls the IsRestricted RPC.
-func (c *InfoClient) IsRestricted(ctx context.Context) (bool, error) {
-	resp, err := c.svc.IsRestricted(ctx, &pb.IsRestrictedRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// MakeCopy calls the MakeCopy RPC.
-func (c *InfoClient) MakeCopy(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.MakeCopy(ctx, &pb.MakeCopyRequest{
-		Arg0: arg0,
+func (c *ScanResultClient) GetWifiStandard(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetWifiStandard(ctx, &pb.GetWifiStandardRequest{
+		Handle: handle,
 	})
 	if err != nil {
 		return 0, err
@@ -277,9 +109,77 @@ func (c *InfoClient) MakeCopy(ctx context.Context, arg0 int64) (int64, error) {
 	return resp.GetResult(), nil
 }
 
+// Is80211AzNtbResponder calls the Is80211AzNtbResponder RPC.
+func (c *ScanResultClient) Is80211AzNtbResponder(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.Is80211AzNtbResponder(ctx, &pb.Is80211AzNtbResponderRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Is80211McResponder calls the Is80211McResponder RPC.
+func (c *ScanResultClient) Is80211McResponder(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.Is80211McResponder(ctx, &pb.Is80211McResponderRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsPasspointNetwork calls the IsPasspointNetwork RPC.
+func (c *ScanResultClient) IsPasspointNetwork(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsPasspointNetwork(ctx, &pb.IsPasspointNetworkRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsRangingFrameProtectionRequired calls the IsRangingFrameProtectionRequired RPC.
+func (c *ScanResultClient) IsRangingFrameProtectionRequired(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsRangingFrameProtectionRequired(ctx, &pb.IsRangingFrameProtectionRequiredRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsSecureHeLtfSupported calls the IsSecureHeLtfSupported RPC.
+func (c *ScanResultClient) IsSecureHeLtfSupported(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsSecureHeLtfSupported(ctx, &pb.IsSecureHeLtfSupportedRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsTwtResponder calls the IsTwtResponder RPC.
+func (c *ScanResultClient) IsTwtResponder(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsTwtResponder(ctx, &pb.IsTwtResponderRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
 // ToString calls the ToString RPC.
-func (c *InfoClient) ToString(ctx context.Context) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+func (c *ScanResultClient) ToString(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{
+		Handle: handle,
+	})
 	if err != nil {
 		return "", err
 	}
@@ -287,18 +187,21 @@ func (c *InfoClient) ToString(ctx context.Context) (string, error) {
 }
 
 // WriteToParcel calls the WriteToParcel RPC.
-func (c *InfoClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+func (c *ScanResultClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
 	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
-		Arg0: arg0,
-		Arg1: arg1,
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
 	})
 	return err
 }
 
-// GetDetailedStateOf calls the GetDetailedStateOf RPC.
-func (c *InfoClient) GetDetailedStateOf(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.GetDetailedStateOf(ctx, &pb.GetDetailedStateOfRequest{
-		Arg0: arg0,
+// ConvertChannelToFrequencyMhzIfSupported calls the ConvertChannelToFrequencyMhzIfSupported RPC.
+func (c *ScanResultClient) ConvertChannelToFrequencyMhzIfSupported(ctx context.Context, handle int64, arg0 int32, arg1 int32) (int32, error) {
+	resp, err := c.svc.ConvertChannelToFrequencyMhzIfSupported(ctx, &pb.ConvertChannelToFrequencyMhzIfSupportedRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
 	})
 	if err != nil {
 		return 0, err
@@ -306,31 +209,11 @@ func (c *InfoClient) GetDetailedStateOf(ctx context.Context, arg0 int64) (int64,
 	return resp.GetResult(), nil
 }
 
-// InfoBuilderClient wraps the gRPC InfoBuilderService client.
-type InfoBuilderClient struct {
-	svc pb.InfoBuilderServiceClient
-}
-
-// NewInfoBuilderClient creates a new InfoBuilder client.
-func NewInfoBuilderClient(cc grpc.ClientConnInterface) *InfoBuilderClient {
-	return &InfoBuilderClient{
-		svc: pb.NewInfoBuilderServiceClient(cc),
-	}
-}
-
-// Build calls the Build RPC.
-func (c *InfoBuilderClient) Build(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetBssid calls the SetBssid RPC.
-func (c *InfoBuilderClient) SetBssid(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.SetBssid(ctx, &pb.SetBssidRequest{
-		Arg0: arg0,
+// ConvertFrequencyMhzToChannelIfSupported calls the ConvertFrequencyMhzToChannelIfSupported RPC.
+func (c *ScanResultClient) ConvertFrequencyMhzToChannelIfSupported(ctx context.Context, handle int64, arg0 int32) (int32, error) {
+	resp, err := c.svc.ConvertFrequencyMhzToChannelIfSupported(ctx, &pb.ConvertFrequencyMhzToChannelIfSupportedRequest{
+		Handle: handle,
+		Arg0:   arg0,
 	})
 	if err != nil {
 		return 0, err
@@ -338,76 +221,21 @@ func (c *InfoBuilderClient) SetBssid(ctx context.Context, arg0 string) (int64, e
 	return resp.GetResult(), nil
 }
 
-// SetCurrentSecurityType calls the SetCurrentSecurityType RPC.
-func (c *InfoBuilderClient) SetCurrentSecurityType(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.SetCurrentSecurityType(ctx, &pb.SetCurrentSecurityTypeRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
+// ScanResultInformationElementClient wraps the gRPC ScanResultInformationElementService client.
+type ScanResultInformationElementClient struct {
+	svc pb.ScanResultInformationElementServiceClient
 }
 
-// SetNetworkId calls the SetNetworkId RPC.
-func (c *InfoBuilderClient) SetNetworkId(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.SetNetworkId(ctx, &pb.SetNetworkIdRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetRssi calls the SetRssi RPC.
-func (c *InfoBuilderClient) SetRssi(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.SetRssi(ctx, &pb.SetRssiRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetSsid calls the SetSsid RPC.
-func (c *InfoBuilderClient) SetSsid(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetSsid(ctx, &pb.SetSsidRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetSubscriptionId calls the SetSubscriptionId RPC.
-func (c *InfoBuilderClient) SetSubscriptionId(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.SetSubscriptionId(ctx, &pb.SetSubscriptionIdRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SoftApConfigurationClient wraps the gRPC SoftApConfigurationService client.
-type SoftApConfigurationClient struct {
-	svc pb.SoftApConfigurationServiceClient
-}
-
-// NewSoftApConfigurationClient creates a new SoftApConfiguration client.
-func NewSoftApConfigurationClient(cc grpc.ClientConnInterface) *SoftApConfigurationClient {
-	return &SoftApConfigurationClient{
-		svc: pb.NewSoftApConfigurationServiceClient(cc),
+// NewScanResultInformationElementClient creates a new ScanResultInformationElement client.
+func NewScanResultInformationElementClient(cc grpc.ClientConnInterface) *ScanResultInformationElementClient {
+	return &ScanResultInformationElementClient{
+		svc: pb.NewScanResultInformationElementServiceClient(cc),
 	}
 }
 
 // DescribeContents calls the DescribeContents RPC.
-func (c *SoftApConfigurationClient) DescribeContents(ctx context.Context) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+func (c *ScanResultInformationElementClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.ScanResultInformationElementDescribeContentsRequest{})
 	if err != nil {
 		return 0, err
 	}
@@ -415,7 +243,7 @@ func (c *SoftApConfigurationClient) DescribeContents(ctx context.Context) (int32
 }
 
 // Equals calls the Equals RPC.
-func (c *SoftApConfigurationClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+func (c *ScanResultInformationElementClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
 	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
 		Arg0: arg0,
 	})
@@ -425,54 +253,27 @@ func (c *SoftApConfigurationClient) Equals(ctx context.Context, arg0 int64) (boo
 	return resp.GetResult(), nil
 }
 
-// GetBssid calls the GetBssid RPC.
-func (c *SoftApConfigurationClient) GetBssid(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetBssid(ctx, &pb.GetBssidRequest{})
+// GetBytes calls the GetBytes RPC.
+func (c *ScanResultInformationElementClient) GetBytes(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetBytes(ctx, &pb.GetBytesRequest{})
 	if err != nil {
 		return 0, err
 	}
 	return resp.GetResult(), nil
 }
 
-// GetChannels calls the GetChannels RPC.
-func (c *SoftApConfigurationClient) GetChannels(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetChannels(ctx, &pb.GetChannelsRequest{})
+// GetId calls the GetId RPC.
+func (c *ScanResultInformationElementClient) GetId(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetId(ctx, &pb.GetIdRequest{})
 	if err != nil {
 		return 0, err
 	}
 	return resp.GetResult(), nil
 }
 
-// GetPassphrase calls the GetPassphrase RPC.
-func (c *SoftApConfigurationClient) GetPassphrase(ctx context.Context) (string, error) {
-	resp, err := c.svc.GetPassphrase(ctx, &pb.GetPassphraseRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetSecurityType calls the GetSecurityType RPC.
-func (c *SoftApConfigurationClient) GetSecurityType(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetSecurityType(ctx, &pb.GetSecurityTypeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetSsid calls the GetSsid RPC.
-func (c *SoftApConfigurationClient) GetSsid(ctx context.Context) (string, error) {
-	resp, err := c.svc.GetSsid(ctx, &pb.GetSsidRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetWifiSsid calls the GetWifiSsid RPC.
-func (c *SoftApConfigurationClient) GetWifiSsid(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetWifiSsid(ctx, &pb.GetWifiSsidRequest{})
+// GetIdExt calls the GetIdExt RPC.
+func (c *ScanResultInformationElementClient) GetIdExt(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetIdExt(ctx, &pb.GetIdExtRequest{})
 	if err != nil {
 		return 0, err
 	}
@@ -480,7 +281,7 @@ func (c *SoftApConfigurationClient) GetWifiSsid(ctx context.Context) (int64, err
 }
 
 // HashCode calls the HashCode RPC.
-func (c *SoftApConfigurationClient) HashCode(ctx context.Context) (int32, error) {
+func (c *ScanResultInformationElementClient) HashCode(ctx context.Context) (int32, error) {
 	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
 	if err != nil {
 		return 0, err
@@ -488,63 +289,13 @@ func (c *SoftApConfigurationClient) HashCode(ctx context.Context) (int32, error)
 	return resp.GetResult(), nil
 }
 
-// IsHiddenSsid calls the IsHiddenSsid RPC.
-func (c *SoftApConfigurationClient) IsHiddenSsid(ctx context.Context) (bool, error) {
-	resp, err := c.svc.IsHiddenSsid(ctx, &pb.IsHiddenSsidRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToString calls the ToString RPC.
-func (c *SoftApConfigurationClient) ToString(ctx context.Context) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
 // WriteToParcel calls the WriteToParcel RPC.
-func (c *SoftApConfigurationClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+func (c *ScanResultInformationElementClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.ScanResultInformationElementWriteToParcelRequest{
 		Arg0: arg0,
 		Arg1: arg1,
 	})
 	return err
-}
-
-// SoftApConfigurationBuilderClient wraps the gRPC SoftApConfigurationBuilderService client.
-type SoftApConfigurationBuilderClient struct {
-	svc pb.SoftApConfigurationBuilderServiceClient
-}
-
-// NewSoftApConfigurationBuilderClient creates a new SoftApConfigurationBuilder client.
-func NewSoftApConfigurationBuilderClient(cc grpc.ClientConnInterface) *SoftApConfigurationBuilderClient {
-	return &SoftApConfigurationBuilderClient{
-		svc: pb.NewSoftApConfigurationBuilderServiceClient(cc),
-	}
-}
-
-// Build calls the Build RPC.
-func (c *SoftApConfigurationBuilderClient) Build(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetChannels calls the SetChannels RPC.
-func (c *SoftApConfigurationBuilderClient) SetChannels(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetChannels(ctx, &pb.SetChannelsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
 }
 
 // NetworkSuggestionClient wraps the gRPC NetworkSuggestionService client.
@@ -561,7 +312,7 @@ func NewNetworkSuggestionClient(cc grpc.ClientConnInterface) *NetworkSuggestionC
 
 // DescribeContents calls the DescribeContents RPC.
 func (c *NetworkSuggestionClient) DescribeContents(ctx context.Context) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	resp, err := c.svc.DescribeContents(ctx, &pb.NetworkSuggestionDescribeContentsRequest{})
 	if err != nil {
 		return 0, err
 	}
@@ -671,7 +422,7 @@ func (c *NetworkSuggestionClient) GetSubscriptionId(ctx context.Context) (int32,
 
 // GetWifiSsid calls the GetWifiSsid RPC.
 func (c *NetworkSuggestionClient) GetWifiSsid(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetWifiSsid(ctx, &pb.GetWifiSsidRequest{})
+	resp, err := c.svc.GetWifiSsid(ctx, &pb.NetworkSuggestionGetWifiSsidRequest{})
 	if err != nil {
 		return 0, err
 	}
@@ -788,7 +539,7 @@ func (c *NetworkSuggestionClient) IsWifi7Enabled(ctx context.Context) (bool, err
 
 // ToString calls the ToString RPC.
 func (c *NetworkSuggestionClient) ToString(ctx context.Context) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	resp, err := c.svc.ToString(ctx, &pb.NetworkSuggestionToStringRequest{})
 	if err != nil {
 		return "", err
 	}
@@ -797,7 +548,7 @@ func (c *NetworkSuggestionClient) ToString(ctx context.Context) (string, error) 
 
 // WriteToParcel calls the WriteToParcel RPC.
 func (c *NetworkSuggestionClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+	_, err := c.svc.WriteToParcel(ctx, &pb.NetworkSuggestionWriteToParcelRequest{
 		Arg0: arg0,
 		Arg1: arg1,
 	})
@@ -827,7 +578,7 @@ func (c *NetworkSuggestionBuilderClient) Build(ctx context.Context) (int64, erro
 
 // SetBssid calls the SetBssid RPC.
 func (c *NetworkSuggestionBuilderClient) SetBssid(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetBssid(ctx, &pb.NetworkSuggestionBuilderSetBssidRequest{
+	resp, err := c.svc.SetBssid(ctx, &pb.SetBssidRequest{
 		Arg0: arg0,
 	})
 	if err != nil {
@@ -992,7 +743,7 @@ func (c *NetworkSuggestionBuilderClient) SetRestricted(ctx context.Context, arg0
 
 // SetSsid calls the SetSsid RPC.
 func (c *NetworkSuggestionBuilderClient) SetSsid(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.SetSsid(ctx, &pb.NetworkSuggestionBuilderSetSsidRequest{
+	resp, err := c.svc.SetSsid(ctx, &pb.SetSsidRequest{
 		Arg0: arg0,
 	})
 	if err != nil {
@@ -1136,6 +887,1857 @@ func (c *NetworkSuggestionBuilderClient) SetWpa3EnterpriseStandardModeConfig(ctx
 // SetWpa3Passphrase calls the SetWpa3Passphrase RPC.
 func (c *NetworkSuggestionBuilderClient) SetWpa3Passphrase(ctx context.Context, arg0 string) (int64, error) {
 	resp, err := c.svc.SetWpa3Passphrase(ctx, &pb.SetWpa3PassphraseRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// EnterpriseConfigClient wraps the gRPC EnterpriseConfigService client.
+type EnterpriseConfigClient struct {
+	svc pb.EnterpriseConfigServiceClient
+}
+
+// NewEnterpriseConfigClient creates a new EnterpriseConfig client.
+func NewEnterpriseConfigClient(cc grpc.ClientConnInterface) *EnterpriseConfigClient {
+	return &EnterpriseConfigClient{
+		svc: pb.NewEnterpriseConfigServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *EnterpriseConfigClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// EnableTrustOnFirstUse calls the EnableTrustOnFirstUse RPC.
+func (c *EnterpriseConfigClient) EnableTrustOnFirstUse(ctx context.Context, handle int64, arg0 bool) error {
+	_, err := c.svc.EnableTrustOnFirstUse(ctx, &pb.EnableTrustOnFirstUseRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// GetAltSubjectMatch calls the GetAltSubjectMatch RPC.
+func (c *EnterpriseConfigClient) GetAltSubjectMatch(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetAltSubjectMatch(ctx, &pb.GetAltSubjectMatchRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAnonymousIdentity calls the GetAnonymousIdentity RPC.
+func (c *EnterpriseConfigClient) GetAnonymousIdentity(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetAnonymousIdentity(ctx, &pb.GetAnonymousIdentityRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCaCertificate calls the GetCaCertificate RPC.
+func (c *EnterpriseConfigClient) GetCaCertificate(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetCaCertificate(ctx, &pb.GetCaCertificateRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCaCertificates calls the GetCaCertificates RPC.
+func (c *EnterpriseConfigClient) GetCaCertificates(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetCaCertificates(ctx, &pb.GetCaCertificatesRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetClientCertificate calls the GetClientCertificate RPC.
+func (c *EnterpriseConfigClient) GetClientCertificate(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetClientCertificate(ctx, &pb.GetClientCertificateRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetClientCertificateChain calls the GetClientCertificateChain RPC.
+func (c *EnterpriseConfigClient) GetClientCertificateChain(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetClientCertificateChain(ctx, &pb.GetClientCertificateChainRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetClientKeyPairAlias calls the GetClientKeyPairAlias RPC.
+func (c *EnterpriseConfigClient) GetClientKeyPairAlias(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetClientKeyPairAlias(ctx, &pb.GetClientKeyPairAliasRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetClientPrivateKey calls the GetClientPrivateKey RPC.
+func (c *EnterpriseConfigClient) GetClientPrivateKey(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetClientPrivateKey(ctx, &pb.GetClientPrivateKeyRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDecoratedIdentityPrefix calls the GetDecoratedIdentityPrefix RPC.
+func (c *EnterpriseConfigClient) GetDecoratedIdentityPrefix(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetDecoratedIdentityPrefix(ctx, &pb.GetDecoratedIdentityPrefixRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDomainSuffixMatch calls the GetDomainSuffixMatch RPC.
+func (c *EnterpriseConfigClient) GetDomainSuffixMatch(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetDomainSuffixMatch(ctx, &pb.GetDomainSuffixMatchRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetEapMethod calls the GetEapMethod RPC.
+func (c *EnterpriseConfigClient) GetEapMethod(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetEapMethod(ctx, &pb.GetEapMethodRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetIdentity calls the GetIdentity RPC.
+func (c *EnterpriseConfigClient) GetIdentity(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetIdentity(ctx, &pb.GetIdentityRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMinimumTlsVersion calls the GetMinimumTlsVersion RPC.
+func (c *EnterpriseConfigClient) GetMinimumTlsVersion(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetMinimumTlsVersion(ctx, &pb.GetMinimumTlsVersionRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPassword calls the GetPassword RPC.
+func (c *EnterpriseConfigClient) GetPassword(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetPassword(ctx, &pb.GetPasswordRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPhase2Method calls the GetPhase2Method RPC.
+func (c *EnterpriseConfigClient) GetPhase2Method(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetPhase2Method(ctx, &pb.GetPhase2MethodRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPlmn calls the GetPlmn RPC.
+func (c *EnterpriseConfigClient) GetPlmn(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetPlmn(ctx, &pb.GetPlmnRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetRealm calls the GetRealm RPC.
+func (c *EnterpriseConfigClient) GetRealm(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetRealm(ctx, &pb.GetRealmRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSubjectMatch calls the GetSubjectMatch RPC.
+func (c *EnterpriseConfigClient) GetSubjectMatch(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetSubjectMatch(ctx, &pb.GetSubjectMatchRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasCaCertificate calls the HasCaCertificate RPC.
+func (c *EnterpriseConfigClient) HasCaCertificate(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.HasCaCertificate(ctx, &pb.HasCaCertificateRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsAuthenticationSimBased calls the IsAuthenticationSimBased RPC.
+func (c *EnterpriseConfigClient) IsAuthenticationSimBased(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsAuthenticationSimBased(ctx, &pb.IsAuthenticationSimBasedRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsEapMethodServerCertUsed calls the IsEapMethodServerCertUsed RPC.
+func (c *EnterpriseConfigClient) IsEapMethodServerCertUsed(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsEapMethodServerCertUsed(ctx, &pb.IsEapMethodServerCertUsedRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsServerCertValidationEnabled calls the IsServerCertValidationEnabled RPC.
+func (c *EnterpriseConfigClient) IsServerCertValidationEnabled(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsServerCertValidationEnabled(ctx, &pb.IsServerCertValidationEnabledRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsTrustOnFirstUseEnabled calls the IsTrustOnFirstUseEnabled RPC.
+func (c *EnterpriseConfigClient) IsTrustOnFirstUseEnabled(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsTrustOnFirstUseEnabled(ctx, &pb.IsTrustOnFirstUseEnabledRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetAltSubjectMatch calls the SetAltSubjectMatch RPC.
+func (c *EnterpriseConfigClient) SetAltSubjectMatch(ctx context.Context, handle int64, arg0 string) error {
+	_, err := c.svc.SetAltSubjectMatch(ctx, &pb.SetAltSubjectMatchRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetAnonymousIdentity calls the SetAnonymousIdentity RPC.
+func (c *EnterpriseConfigClient) SetAnonymousIdentity(ctx context.Context, handle int64, arg0 string) error {
+	_, err := c.svc.SetAnonymousIdentity(ctx, &pb.SetAnonymousIdentityRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetCaCertificate calls the SetCaCertificate RPC.
+func (c *EnterpriseConfigClient) SetCaCertificate(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetCaCertificate(ctx, &pb.SetCaCertificateRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetCaCertificates calls the SetCaCertificates RPC.
+func (c *EnterpriseConfigClient) SetCaCertificates(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetCaCertificates(ctx, &pb.SetCaCertificatesRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetClientKeyEntry calls the SetClientKeyEntry RPC.
+func (c *EnterpriseConfigClient) SetClientKeyEntry(ctx context.Context, handle int64, arg0 int64, arg1 int64) error {
+	_, err := c.svc.SetClientKeyEntry(ctx, &pb.SetClientKeyEntryRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// SetClientKeyEntryWithCertificateChain calls the SetClientKeyEntryWithCertificateChain RPC.
+func (c *EnterpriseConfigClient) SetClientKeyEntryWithCertificateChain(ctx context.Context, handle int64, arg0 int64, arg1 int64) error {
+	_, err := c.svc.SetClientKeyEntryWithCertificateChain(ctx, &pb.SetClientKeyEntryWithCertificateChainRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// SetClientKeyPairAlias calls the SetClientKeyPairAlias RPC.
+func (c *EnterpriseConfigClient) SetClientKeyPairAlias(ctx context.Context, handle int64, arg0 string) error {
+	_, err := c.svc.SetClientKeyPairAlias(ctx, &pb.SetClientKeyPairAliasRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetDecoratedIdentityPrefix calls the SetDecoratedIdentityPrefix RPC.
+func (c *EnterpriseConfigClient) SetDecoratedIdentityPrefix(ctx context.Context, handle int64, arg0 string) error {
+	_, err := c.svc.SetDecoratedIdentityPrefix(ctx, &pb.SetDecoratedIdentityPrefixRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetDomainSuffixMatch calls the SetDomainSuffixMatch RPC.
+func (c *EnterpriseConfigClient) SetDomainSuffixMatch(ctx context.Context, handle int64, arg0 string) error {
+	_, err := c.svc.SetDomainSuffixMatch(ctx, &pb.SetDomainSuffixMatchRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetEapMethod calls the SetEapMethod RPC.
+func (c *EnterpriseConfigClient) SetEapMethod(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.SetEapMethod(ctx, &pb.SetEapMethodRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetIdentity calls the SetIdentity RPC.
+func (c *EnterpriseConfigClient) SetIdentity(ctx context.Context, handle int64, arg0 string) error {
+	_, err := c.svc.SetIdentity(ctx, &pb.SetIdentityRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetMinimumTlsVersion calls the SetMinimumTlsVersion RPC.
+func (c *EnterpriseConfigClient) SetMinimumTlsVersion(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.SetMinimumTlsVersion(ctx, &pb.SetMinimumTlsVersionRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetPassword calls the SetPassword RPC.
+func (c *EnterpriseConfigClient) SetPassword(ctx context.Context, handle int64, arg0 string) error {
+	_, err := c.svc.SetPassword(ctx, &pb.SetPasswordRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetPhase2Method calls the SetPhase2Method RPC.
+func (c *EnterpriseConfigClient) SetPhase2Method(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.SetPhase2Method(ctx, &pb.SetPhase2MethodRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetPlmn calls the SetPlmn RPC.
+func (c *EnterpriseConfigClient) SetPlmn(ctx context.Context, handle int64, arg0 string) error {
+	_, err := c.svc.SetPlmn(ctx, &pb.SetPlmnRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetRealm calls the SetRealm RPC.
+func (c *EnterpriseConfigClient) SetRealm(ctx context.Context, handle int64, arg0 string) error {
+	_, err := c.svc.SetRealm(ctx, &pb.SetRealmRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetSubjectMatch calls the SetSubjectMatch RPC.
+func (c *EnterpriseConfigClient) SetSubjectMatch(ctx context.Context, handle int64, arg0 string) error {
+	_, err := c.svc.SetSubjectMatch(ctx, &pb.SetSubjectMatchRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// ToString calls the ToString RPC.
+func (c *EnterpriseConfigClient) ToString(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *EnterpriseConfigClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// MloLinkClient wraps the gRPC MloLinkService client.
+type MloLinkClient struct {
+	svc pb.MloLinkServiceClient
+}
+
+// NewMloLinkClient creates a new MloLink client.
+func NewMloLinkClient(cc grpc.ClientConnInterface) *MloLinkClient {
+	return &MloLinkClient{
+		svc: pb.NewMloLinkServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *MloLinkClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *MloLinkClient) Equals(ctx context.Context, handle int64, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.MloLinkEqualsRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetApMacAddress calls the GetApMacAddress RPC.
+func (c *MloLinkClient) GetApMacAddress(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetApMacAddress(ctx, &pb.GetApMacAddressRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetBand calls the GetBand RPC.
+func (c *MloLinkClient) GetBand(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetBand(ctx, &pb.GetBandRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetChannel calls the GetChannel RPC.
+func (c *MloLinkClient) GetChannel(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetChannel(ctx, &pb.GetChannelRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLinkId calls the GetLinkId RPC.
+func (c *MloLinkClient) GetLinkId(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetLinkId(ctx, &pb.GetLinkIdRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetRssi calls the GetRssi RPC.
+func (c *MloLinkClient) GetRssi(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetRssi(ctx, &pb.GetRssiRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetRxLinkSpeedMbps calls the GetRxLinkSpeedMbps RPC.
+func (c *MloLinkClient) GetRxLinkSpeedMbps(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetRxLinkSpeedMbps(ctx, &pb.GetRxLinkSpeedMbpsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetStaMacAddress calls the GetStaMacAddress RPC.
+func (c *MloLinkClient) GetStaMacAddress(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetStaMacAddress(ctx, &pb.GetStaMacAddressRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetState calls the GetState RPC.
+func (c *MloLinkClient) GetState(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetState(ctx, &pb.GetStateRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTxLinkSpeedMbps calls the GetTxLinkSpeedMbps RPC.
+func (c *MloLinkClient) GetTxLinkSpeedMbps(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetTxLinkSpeedMbps(ctx, &pb.GetTxLinkSpeedMbpsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *MloLinkClient) HashCode(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.MloLinkHashCodeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *MloLinkClient) ToString(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *MloLinkClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// SsidClient wraps the gRPC SsidService client.
+type SsidClient struct {
+	svc pb.SsidServiceClient
+}
+
+// NewSsidClient creates a new Ssid client.
+func NewSsidClient(cc grpc.ClientConnInterface) *SsidClient {
+	return &SsidClient{
+		svc: pb.NewSsidServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *SsidClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.SsidDescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *SsidClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetBytes calls the GetBytes RPC.
+func (c *SsidClient) GetBytes(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetBytes(ctx, &pb.GetBytesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *SsidClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *SsidClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.SsidToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *SsidClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.SsidWriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// FromBytes calls the FromBytes RPC.
+func (c *SsidClient) FromBytes(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.FromBytes(ctx, &pb.FromBytesRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// NetworkSpecifierClient wraps the gRPC NetworkSpecifierService client.
+type NetworkSpecifierClient struct {
+	svc pb.NetworkSpecifierServiceClient
+}
+
+// NewNetworkSpecifierClient creates a new NetworkSpecifier client.
+func NewNetworkSpecifierClient(cc grpc.ClientConnInterface) *NetworkSpecifierClient {
+	return &NetworkSpecifierClient{
+		svc: pb.NewNetworkSpecifierServiceClient(cc),
+	}
+}
+
+// CanBeSatisfiedBy calls the CanBeSatisfiedBy RPC.
+func (c *NetworkSpecifierClient) CanBeSatisfiedBy(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.CanBeSatisfiedBy(ctx, &pb.CanBeSatisfiedByRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *NetworkSpecifierClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.NetworkSpecifierDescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *NetworkSpecifierClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetBand calls the GetBand RPC.
+func (c *NetworkSpecifierClient) GetBand(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetBand(ctx, &pb.NetworkSpecifierGetBandRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPreferredChannelFrequenciesMhz calls the GetPreferredChannelFrequenciesMhz RPC.
+func (c *NetworkSpecifierClient) GetPreferredChannelFrequenciesMhz(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetPreferredChannelFrequenciesMhz(ctx, &pb.GetPreferredChannelFrequenciesMhzRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *NetworkSpecifierClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Redact calls the Redact RPC.
+func (c *NetworkSpecifierClient) Redact(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Redact(ctx, &pb.RedactRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *NetworkSpecifierClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.NetworkSpecifierToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *NetworkSpecifierClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.NetworkSpecifierWriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// NetworkSpecifierBuilderClient wraps the gRPC NetworkSpecifierBuilderService client.
+type NetworkSpecifierBuilderClient struct {
+	svc pb.NetworkSpecifierBuilderServiceClient
+}
+
+// NewNetworkSpecifierBuilderClient creates a new NetworkSpecifierBuilder client.
+func NewNetworkSpecifierBuilderClient(cc grpc.ClientConnInterface) *NetworkSpecifierBuilderClient {
+	return &NetworkSpecifierBuilderClient{
+		svc: pb.NewNetworkSpecifierBuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *NetworkSpecifierBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetBand calls the SetBand RPC.
+func (c *NetworkSpecifierBuilderClient) SetBand(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetBand(ctx, &pb.SetBandRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetBssid calls the SetBssid RPC.
+func (c *NetworkSpecifierBuilderClient) SetBssid(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetBssid(ctx, &pb.SetBssidRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetBssidPattern calls the SetBssidPattern RPC.
+func (c *NetworkSpecifierBuilderClient) SetBssidPattern(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
+	resp, err := c.svc.SetBssidPattern(ctx, &pb.SetBssidPatternRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetIsEnhancedOpen calls the SetIsEnhancedOpen RPC.
+func (c *NetworkSpecifierBuilderClient) SetIsEnhancedOpen(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetIsEnhancedOpen(ctx, &pb.SetIsEnhancedOpenRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetIsHiddenSsid calls the SetIsHiddenSsid RPC.
+func (c *NetworkSpecifierBuilderClient) SetIsHiddenSsid(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetIsHiddenSsid(ctx, &pb.SetIsHiddenSsidRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetPreferredChannelsFrequenciesMhz calls the SetPreferredChannelsFrequenciesMhz RPC.
+func (c *NetworkSpecifierBuilderClient) SetPreferredChannelsFrequenciesMhz(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetPreferredChannelsFrequenciesMhz(ctx, &pb.SetPreferredChannelsFrequenciesMhzRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetSsid calls the SetSsid RPC.
+func (c *NetworkSpecifierBuilderClient) SetSsid(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.SetSsid(ctx, &pb.SetSsidRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetSsidPattern calls the SetSsidPattern RPC.
+func (c *NetworkSpecifierBuilderClient) SetSsidPattern(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetSsidPattern(ctx, &pb.SetSsidPatternRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetWpa2EnterpriseConfig calls the SetWpa2EnterpriseConfig RPC.
+func (c *NetworkSpecifierBuilderClient) SetWpa2EnterpriseConfig(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetWpa2EnterpriseConfig(ctx, &pb.SetWpa2EnterpriseConfigRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetWpa2Passphrase calls the SetWpa2Passphrase RPC.
+func (c *NetworkSpecifierBuilderClient) SetWpa2Passphrase(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.SetWpa2Passphrase(ctx, &pb.SetWpa2PassphraseRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetWpa3Enterprise192BitModeConfig calls the SetWpa3Enterprise192BitModeConfig RPC.
+func (c *NetworkSpecifierBuilderClient) SetWpa3Enterprise192BitModeConfig(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetWpa3Enterprise192BitModeConfig(ctx, &pb.SetWpa3Enterprise192BitModeConfigRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetWpa3EnterpriseConfig calls the SetWpa3EnterpriseConfig RPC.
+func (c *NetworkSpecifierBuilderClient) SetWpa3EnterpriseConfig(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetWpa3EnterpriseConfig(ctx, &pb.SetWpa3EnterpriseConfigRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetWpa3EnterpriseStandardModeConfig calls the SetWpa3EnterpriseStandardModeConfig RPC.
+func (c *NetworkSpecifierBuilderClient) SetWpa3EnterpriseStandardModeConfig(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetWpa3EnterpriseStandardModeConfig(ctx, &pb.SetWpa3EnterpriseStandardModeConfigRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetWpa3Passphrase calls the SetWpa3Passphrase RPC.
+func (c *NetworkSpecifierBuilderClient) SetWpa3Passphrase(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.SetWpa3Passphrase(ctx, &pb.SetWpa3PassphraseRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AvailableChannelClient wraps the gRPC AvailableChannelService client.
+type AvailableChannelClient struct {
+	svc pb.AvailableChannelServiceClient
+}
+
+// NewAvailableChannelClient creates a new AvailableChannel client.
+func NewAvailableChannelClient(cc grpc.ClientConnInterface) *AvailableChannelClient {
+	return &AvailableChannelClient{
+		svc: pb.NewAvailableChannelServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *AvailableChannelClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *AvailableChannelClient) Equals(ctx context.Context, handle int64, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.AvailableChannelEqualsRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetChannelWidth calls the GetChannelWidth RPC.
+func (c *AvailableChannelClient) GetChannelWidth(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetChannelWidth(ctx, &pb.GetChannelWidthRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetFrequencyMhz calls the GetFrequencyMhz RPC.
+func (c *AvailableChannelClient) GetFrequencyMhz(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetFrequencyMhz(ctx, &pb.GetFrequencyMhzRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetOperationalModes calls the GetOperationalModes RPC.
+func (c *AvailableChannelClient) GetOperationalModes(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetOperationalModes(ctx, &pb.GetOperationalModesRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *AvailableChannelClient) HashCode(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.AvailableChannelHashCodeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *AvailableChannelClient) ToString(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *AvailableChannelClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// SoftApConfigurationClient wraps the gRPC SoftApConfigurationService client.
+type SoftApConfigurationClient struct {
+	svc pb.SoftApConfigurationServiceClient
+}
+
+// NewSoftApConfigurationClient creates a new SoftApConfiguration client.
+func NewSoftApConfigurationClient(cc grpc.ClientConnInterface) *SoftApConfigurationClient {
+	return &SoftApConfigurationClient{
+		svc: pb.NewSoftApConfigurationServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *SoftApConfigurationClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.SoftApConfigurationDescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *SoftApConfigurationClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetBssid calls the GetBssid RPC.
+func (c *SoftApConfigurationClient) GetBssid(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetBssid(ctx, &pb.GetBssidRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetChannels calls the GetChannels RPC.
+func (c *SoftApConfigurationClient) GetChannels(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetChannels(ctx, &pb.GetChannelsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPassphrase calls the GetPassphrase RPC.
+func (c *SoftApConfigurationClient) GetPassphrase(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetPassphrase(ctx, &pb.GetPassphraseRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSecurityType calls the GetSecurityType RPC.
+func (c *SoftApConfigurationClient) GetSecurityType(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetSecurityType(ctx, &pb.GetSecurityTypeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSsid calls the GetSsid RPC.
+func (c *SoftApConfigurationClient) GetSsid(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetSsid(ctx, &pb.GetSsidRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetWifiSsid calls the GetWifiSsid RPC.
+func (c *SoftApConfigurationClient) GetWifiSsid(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetWifiSsid(ctx, &pb.SoftApConfigurationGetWifiSsidRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *SoftApConfigurationClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsHiddenSsid calls the IsHiddenSsid RPC.
+func (c *SoftApConfigurationClient) IsHiddenSsid(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsHiddenSsid(ctx, &pb.IsHiddenSsidRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *SoftApConfigurationClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.SoftApConfigurationToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *SoftApConfigurationClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.SoftApConfigurationWriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// SoftApConfigurationBuilderClient wraps the gRPC SoftApConfigurationBuilderService client.
+type SoftApConfigurationBuilderClient struct {
+	svc pb.SoftApConfigurationBuilderServiceClient
+}
+
+// NewSoftApConfigurationBuilderClient creates a new SoftApConfigurationBuilder client.
+func NewSoftApConfigurationBuilderClient(cc grpc.ClientConnInterface) *SoftApConfigurationBuilderClient {
+	return &SoftApConfigurationBuilderClient{
+		svc: pb.NewSoftApConfigurationBuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *SoftApConfigurationBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetChannels calls the SetChannels RPC.
+func (c *SoftApConfigurationBuilderClient) SetChannels(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetChannels(ctx, &pb.SetChannelsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ConfigurationClient wraps the gRPC ConfigurationService client.
+type ConfigurationClient struct {
+	svc pb.ConfigurationServiceClient
+}
+
+// NewConfigurationClient creates a new Configuration client.
+func NewConfigurationClient(cc grpc.ClientConnInterface) *ConfigurationClient {
+	return &ConfigurationClient{
+		svc: pb.NewConfigurationServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *ConfigurationClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetHttpProxy calls the GetHttpProxy RPC.
+func (c *ConfigurationClient) GetHttpProxy(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetHttpProxy(ctx, &pb.GetHttpProxyRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetKey calls the GetKey RPC.
+func (c *ConfigurationClient) GetKey(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetKey(ctx, &pb.GetKeyRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMacRandomizationSetting calls the GetMacRandomizationSetting RPC.
+func (c *ConfigurationClient) GetMacRandomizationSetting(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetMacRandomizationSetting(ctx, &pb.ConfigurationGetMacRandomizationSettingRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetRandomizedMacAddress calls the GetRandomizedMacAddress RPC.
+func (c *ConfigurationClient) GetRandomizedMacAddress(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetRandomizedMacAddress(ctx, &pb.GetRandomizedMacAddressRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsDppConfigurator calls the IsDppConfigurator RPC.
+func (c *ConfigurationClient) IsDppConfigurator(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsDppConfigurator(ctx, &pb.IsDppConfiguratorRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsPasspoint calls the IsPasspoint RPC.
+func (c *ConfigurationClient) IsPasspoint(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsPasspoint(ctx, &pb.IsPasspointRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetHttpProxy calls the SetHttpProxy RPC.
+func (c *ConfigurationClient) SetHttpProxy(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetHttpProxy(ctx, &pb.SetHttpProxyRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetIpConfiguration calls the SetIpConfiguration RPC.
+func (c *ConfigurationClient) SetIpConfiguration(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetIpConfiguration(ctx, &pb.SetIpConfigurationRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetMacRandomizationSetting calls the SetMacRandomizationSetting RPC.
+func (c *ConfigurationClient) SetMacRandomizationSetting(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.SetMacRandomizationSetting(ctx, &pb.ConfigurationSetMacRandomizationSettingRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetSecurityParams calls the SetSecurityParams RPC.
+func (c *ConfigurationClient) SetSecurityParams(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.SetSecurityParams(ctx, &pb.SetSecurityParamsRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// ToString calls the ToString RPC.
+func (c *ConfigurationClient) ToString(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *ConfigurationClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// SupplicantStateClient wraps the gRPC SupplicantStateService client.
+type SupplicantStateClient struct {
+	svc pb.SupplicantStateServiceClient
+}
+
+// NewSupplicantStateClient creates a new SupplicantState client.
+func NewSupplicantStateClient(cc grpc.ClientConnInterface) *SupplicantStateClient {
+	return &SupplicantStateClient{
+		svc: pb.NewSupplicantStateServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *SupplicantStateClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.SupplicantStateDescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *SupplicantStateClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.SupplicantStateWriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// Values calls the Values RPC.
+func (c *SupplicantStateClient) Values(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Values(ctx, &pb.ValuesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ValueOf calls the ValueOf RPC.
+func (c *SupplicantStateClient) ValueOf(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.ValueOf(ctx, &pb.ValueOfRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsValidState calls the IsValidState RPC.
+func (c *SupplicantStateClient) IsValidState(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.IsValidState(ctx, &pb.IsValidStateRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// InfoClient wraps the gRPC InfoService client.
+type InfoClient struct {
+	svc pb.InfoServiceClient
+}
+
+// NewInfoClient creates a new Info client.
+func NewInfoClient(cc grpc.ClientConnInterface) *InfoClient {
+	return &InfoClient{
+		svc: pb.NewInfoServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *InfoClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.InfoDescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *InfoClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAffiliatedMloLinks calls the GetAffiliatedMloLinks RPC.
+func (c *InfoClient) GetAffiliatedMloLinks(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetAffiliatedMloLinks(ctx, &pb.InfoGetAffiliatedMloLinksRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetApMldMacAddress calls the GetApMldMacAddress RPC.
+func (c *InfoClient) GetApMldMacAddress(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetApMldMacAddress(ctx, &pb.InfoGetApMldMacAddressRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetApMloLinkId calls the GetApMloLinkId RPC.
+func (c *InfoClient) GetApMloLinkId(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetApMloLinkId(ctx, &pb.InfoGetApMloLinkIdRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetApplicableRedactions calls the GetApplicableRedactions RPC.
+func (c *InfoClient) GetApplicableRedactions(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetApplicableRedactions(ctx, &pb.GetApplicableRedactionsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAssociatedMloLinks calls the GetAssociatedMloLinks RPC.
+func (c *InfoClient) GetAssociatedMloLinks(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetAssociatedMloLinks(ctx, &pb.GetAssociatedMloLinksRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetBSSID calls the GetBSSID RPC.
+func (c *InfoClient) GetBSSID(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetBSSID(ctx, &pb.GetBSSIDRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCurrentSecurityType calls the GetCurrentSecurityType RPC.
+func (c *InfoClient) GetCurrentSecurityType(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetCurrentSecurityType(ctx, &pb.GetCurrentSecurityTypeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetFrequency calls the GetFrequency RPC.
+func (c *InfoClient) GetFrequency(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetFrequency(ctx, &pb.GetFrequencyRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetHiddenSSID calls the GetHiddenSSID RPC.
+func (c *InfoClient) GetHiddenSSID(ctx context.Context) (bool, error) {
+	resp, err := c.svc.GetHiddenSSID(ctx, &pb.GetHiddenSSIDRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInformationElements calls the GetInformationElements RPC.
+func (c *InfoClient) GetInformationElements(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetInformationElements(ctx, &pb.InfoGetInformationElementsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetIpAddress calls the GetIpAddress RPC.
+func (c *InfoClient) GetIpAddress(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetIpAddress(ctx, &pb.GetIpAddressRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLinkSpeed calls the GetLinkSpeed RPC.
+func (c *InfoClient) GetLinkSpeed(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetLinkSpeed(ctx, &pb.GetLinkSpeedRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMacAddress calls the GetMacAddress RPC.
+func (c *InfoClient) GetMacAddress(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetMacAddress(ctx, &pb.GetMacAddressRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMaxSupportedRxLinkSpeedMbps calls the GetMaxSupportedRxLinkSpeedMbps RPC.
+func (c *InfoClient) GetMaxSupportedRxLinkSpeedMbps(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetMaxSupportedRxLinkSpeedMbps(ctx, &pb.GetMaxSupportedRxLinkSpeedMbpsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMaxSupportedTxLinkSpeedMbps calls the GetMaxSupportedTxLinkSpeedMbps RPC.
+func (c *InfoClient) GetMaxSupportedTxLinkSpeedMbps(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetMaxSupportedTxLinkSpeedMbps(ctx, &pb.GetMaxSupportedTxLinkSpeedMbpsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetNetworkId calls the GetNetworkId RPC.
+func (c *InfoClient) GetNetworkId(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetNetworkId(ctx, &pb.GetNetworkIdRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPasspointFqdn calls the GetPasspointFqdn RPC.
+func (c *InfoClient) GetPasspointFqdn(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetPasspointFqdn(ctx, &pb.GetPasspointFqdnRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPasspointProviderFriendlyName calls the GetPasspointProviderFriendlyName RPC.
+func (c *InfoClient) GetPasspointProviderFriendlyName(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetPasspointProviderFriendlyName(ctx, &pb.GetPasspointProviderFriendlyNameRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPasspointUniqueId calls the GetPasspointUniqueId RPC.
+func (c *InfoClient) GetPasspointUniqueId(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetPasspointUniqueId(ctx, &pb.GetPasspointUniqueIdRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetRssi calls the GetRssi RPC.
+func (c *InfoClient) GetRssi(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetRssi(ctx, &pb.InfoGetRssiRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetRxLinkSpeedMbps calls the GetRxLinkSpeedMbps RPC.
+func (c *InfoClient) GetRxLinkSpeedMbps(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetRxLinkSpeedMbps(ctx, &pb.InfoGetRxLinkSpeedMbpsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSSID calls the GetSSID RPC.
+func (c *InfoClient) GetSSID(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetSSID(ctx, &pb.GetSSIDRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSubscriptionId calls the GetSubscriptionId RPC.
+func (c *InfoClient) GetSubscriptionId(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetSubscriptionId(ctx, &pb.GetSubscriptionIdRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSupplicantState calls the GetSupplicantState RPC.
+func (c *InfoClient) GetSupplicantState(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetSupplicantState(ctx, &pb.GetSupplicantStateRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTxLinkSpeedMbps calls the GetTxLinkSpeedMbps RPC.
+func (c *InfoClient) GetTxLinkSpeedMbps(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetTxLinkSpeedMbps(ctx, &pb.InfoGetTxLinkSpeedMbpsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetWifiStandard calls the GetWifiStandard RPC.
+func (c *InfoClient) GetWifiStandard(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetWifiStandard(ctx, &pb.InfoGetWifiStandardRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *InfoClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsRestricted calls the IsRestricted RPC.
+func (c *InfoClient) IsRestricted(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsRestricted(ctx, &pb.IsRestrictedRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// MakeCopy calls the MakeCopy RPC.
+func (c *InfoClient) MakeCopy(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.MakeCopy(ctx, &pb.MakeCopyRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *InfoClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.InfoToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *InfoClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.InfoWriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// GetDetailedStateOf calls the GetDetailedStateOf RPC.
+func (c *InfoClient) GetDetailedStateOf(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.GetDetailedStateOf(ctx, &pb.GetDetailedStateOfRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// InfoBuilderClient wraps the gRPC InfoBuilderService client.
+type InfoBuilderClient struct {
+	svc pb.InfoBuilderServiceClient
+}
+
+// NewInfoBuilderClient creates a new InfoBuilder client.
+func NewInfoBuilderClient(cc grpc.ClientConnInterface) *InfoBuilderClient {
+	return &InfoBuilderClient{
+		svc: pb.NewInfoBuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *InfoBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetBssid calls the SetBssid RPC.
+func (c *InfoBuilderClient) SetBssid(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.SetBssid(ctx, &pb.InfoBuilderSetBssidRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetCurrentSecurityType calls the SetCurrentSecurityType RPC.
+func (c *InfoBuilderClient) SetCurrentSecurityType(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetCurrentSecurityType(ctx, &pb.SetCurrentSecurityTypeRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetNetworkId calls the SetNetworkId RPC.
+func (c *InfoBuilderClient) SetNetworkId(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetNetworkId(ctx, &pb.SetNetworkIdRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetRssi calls the SetRssi RPC.
+func (c *InfoBuilderClient) SetRssi(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetRssi(ctx, &pb.SetRssiRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetSsid calls the SetSsid RPC.
+func (c *InfoBuilderClient) SetSsid(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetSsid(ctx, &pb.InfoBuilderSetSsidRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetSubscriptionId calls the SetSubscriptionId RPC.
+func (c *InfoBuilderClient) SetSubscriptionId(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetSubscriptionId(ctx, &pb.SetSubscriptionIdRequest{
 		Arg0: arg0,
 	})
 	if err != nil {
@@ -1329,6 +2931,36 @@ func (c *ManagerClient) FlushPasspointAnqpCache(ctx context.Context) error {
 	return err
 }
 
+// GetAllowedChannels calls the GetAllowedChannels RPC.
+func (c *ManagerClient) GetAllowedChannels(ctx context.Context, arg0 int32, arg1 int32) (int64, error) {
+	resp, err := c.svc.GetAllowedChannels(ctx, &pb.GetAllowedChannelsRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCallerConfiguredNetworks calls the GetCallerConfiguredNetworks RPC.
+func (c *ManagerClient) GetCallerConfiguredNetworks(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetCallerConfiguredNetworks(ctx, &pb.GetCallerConfiguredNetworksRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetConfiguredNetworks calls the GetConfiguredNetworks RPC.
+func (c *ManagerClient) GetConfiguredNetworks(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetConfiguredNetworks(ctx, &pb.GetConfiguredNetworksRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // GetConnectionInfo calls the GetConnectionInfo RPC.
 func (c *ManagerClient) GetConnectionInfo(ctx context.Context) (int64, error) {
 	resp, err := c.svc.GetConnectionInfo(ctx, &pb.GetConnectionInfoRequest{})
@@ -1374,9 +3006,48 @@ func (c *ManagerClient) GetMaxSignalLevel(ctx context.Context) (int32, error) {
 	return resp.GetResult(), nil
 }
 
+// GetNetworkSuggestions calls the GetNetworkSuggestions RPC.
+func (c *ManagerClient) GetNetworkSuggestions(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetNetworkSuggestions(ctx, &pb.GetNetworkSuggestionsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPasspointConfigurations calls the GetPasspointConfigurations RPC.
+func (c *ManagerClient) GetPasspointConfigurations(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetPasspointConfigurations(ctx, &pb.GetPasspointConfigurationsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetScanResults calls the GetScanResults RPC.
+func (c *ManagerClient) GetScanResults(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetScanResults(ctx, &pb.GetScanResultsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // GetStaConcurrencyForMultiInternetMode calls the GetStaConcurrencyForMultiInternetMode RPC.
 func (c *ManagerClient) GetStaConcurrencyForMultiInternetMode(ctx context.Context) (int32, error) {
 	resp, err := c.svc.GetStaConcurrencyForMultiInternetMode(ctx, &pb.GetStaConcurrencyForMultiInternetModeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetUsableChannels calls the GetUsableChannels RPC.
+func (c *ManagerClient) GetUsableChannels(ctx context.Context, arg0 int32, arg1 int32) (int64, error) {
+	resp, err := c.svc.GetUsableChannels(ctx, &pb.GetUsableChannelsRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
 	if err != nil {
 		return 0, err
 	}
@@ -2065,7 +3736,7 @@ func NewManagerAddNetworkResultClient(cc grpc.ClientConnInterface) *ManagerAddNe
 
 // DescribeContents calls the DescribeContents RPC.
 func (c *ManagerAddNetworkResultClient) DescribeContents(ctx context.Context) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	resp, err := c.svc.DescribeContents(ctx, &pb.ManagerAddNetworkResultDescribeContentsRequest{})
 	if err != nil {
 		return 0, err
 	}
@@ -2074,7 +3745,7 @@ func (c *ManagerAddNetworkResultClient) DescribeContents(ctx context.Context) (i
 
 // WriteToParcel calls the WriteToParcel RPC.
 func (c *ManagerAddNetworkResultClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+	_, err := c.svc.WriteToParcel(ctx, &pb.ManagerAddNetworkResultWriteToParcelRequest{
 		Arg0: arg0,
 		Arg1: arg1,
 	})
@@ -2107,6 +3778,15 @@ func (c *ManagerInterfaceCreationImpactClient) Equals(ctx context.Context, arg0 
 // GetInterfaceType calls the GetInterfaceType RPC.
 func (c *ManagerInterfaceCreationImpactClient) GetInterfaceType(ctx context.Context) (int32, error) {
 	resp, err := c.svc.GetInterfaceType(ctx, &pb.GetInterfaceTypeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPackages calls the GetPackages RPC.
+func (c *ManagerInterfaceCreationImpactClient) GetPackages(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetPackages(ctx, &pb.GetPackagesRequest{})
 	if err != nil {
 		return 0, err
 	}
@@ -2256,7 +3936,7 @@ func (c *ManagerMulticastLockClient) SetReferenceCounted(ctx context.Context, ar
 
 // ToString calls the ToString RPC.
 func (c *ManagerMulticastLockClient) ToString(ctx context.Context) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	resp, err := c.svc.ToString(ctx, &pb.ManagerMulticastLockToStringRequest{})
 	if err != nil {
 		return "", err
 	}
@@ -2397,7 +4077,7 @@ func (c *ManagerWifiLockClient) SetWorkSource(ctx context.Context, arg0 int64) e
 
 // ToString calls the ToString RPC.
 func (c *ManagerWifiLockClient) ToString(ctx context.Context) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	resp, err := c.svc.ToString(ctx, &pb.ManagerWifiLockToStringRequest{})
 	if err != nil {
 		return "", err
 	}
@@ -2456,1258 +4136,6 @@ func (c *ManagerWpsCallbackClient) OnSucceeded(ctx context.Context) error {
 	return err
 }
 
-// EnterpriseConfigClient wraps the gRPC EnterpriseConfigService client.
-type EnterpriseConfigClient struct {
-	svc pb.EnterpriseConfigServiceClient
-}
-
-// NewEnterpriseConfigClient creates a new EnterpriseConfig client.
-func NewEnterpriseConfigClient(cc grpc.ClientConnInterface) *EnterpriseConfigClient {
-	return &EnterpriseConfigClient{
-		svc: pb.NewEnterpriseConfigServiceClient(cc),
-	}
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *EnterpriseConfigClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.EnterpriseConfigDescribeContentsRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// EnableTrustOnFirstUse calls the EnableTrustOnFirstUse RPC.
-func (c *EnterpriseConfigClient) EnableTrustOnFirstUse(ctx context.Context, handle int64, arg0 bool) error {
-	_, err := c.svc.EnableTrustOnFirstUse(ctx, &pb.EnableTrustOnFirstUseRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// GetAltSubjectMatch calls the GetAltSubjectMatch RPC.
-func (c *EnterpriseConfigClient) GetAltSubjectMatch(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.GetAltSubjectMatch(ctx, &pb.GetAltSubjectMatchRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetAnonymousIdentity calls the GetAnonymousIdentity RPC.
-func (c *EnterpriseConfigClient) GetAnonymousIdentity(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.GetAnonymousIdentity(ctx, &pb.GetAnonymousIdentityRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetCaCertificate calls the GetCaCertificate RPC.
-func (c *EnterpriseConfigClient) GetCaCertificate(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetCaCertificate(ctx, &pb.GetCaCertificateRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetCaCertificates calls the GetCaCertificates RPC.
-func (c *EnterpriseConfigClient) GetCaCertificates(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetCaCertificates(ctx, &pb.GetCaCertificatesRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetClientCertificate calls the GetClientCertificate RPC.
-func (c *EnterpriseConfigClient) GetClientCertificate(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetClientCertificate(ctx, &pb.GetClientCertificateRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetClientCertificateChain calls the GetClientCertificateChain RPC.
-func (c *EnterpriseConfigClient) GetClientCertificateChain(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetClientCertificateChain(ctx, &pb.GetClientCertificateChainRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetClientKeyPairAlias calls the GetClientKeyPairAlias RPC.
-func (c *EnterpriseConfigClient) GetClientKeyPairAlias(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.GetClientKeyPairAlias(ctx, &pb.GetClientKeyPairAliasRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetClientPrivateKey calls the GetClientPrivateKey RPC.
-func (c *EnterpriseConfigClient) GetClientPrivateKey(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetClientPrivateKey(ctx, &pb.GetClientPrivateKeyRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetDecoratedIdentityPrefix calls the GetDecoratedIdentityPrefix RPC.
-func (c *EnterpriseConfigClient) GetDecoratedIdentityPrefix(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.GetDecoratedIdentityPrefix(ctx, &pb.GetDecoratedIdentityPrefixRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetDomainSuffixMatch calls the GetDomainSuffixMatch RPC.
-func (c *EnterpriseConfigClient) GetDomainSuffixMatch(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.GetDomainSuffixMatch(ctx, &pb.GetDomainSuffixMatchRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetEapMethod calls the GetEapMethod RPC.
-func (c *EnterpriseConfigClient) GetEapMethod(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetEapMethod(ctx, &pb.GetEapMethodRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetIdentity calls the GetIdentity RPC.
-func (c *EnterpriseConfigClient) GetIdentity(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.GetIdentity(ctx, &pb.GetIdentityRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetMinimumTlsVersion calls the GetMinimumTlsVersion RPC.
-func (c *EnterpriseConfigClient) GetMinimumTlsVersion(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetMinimumTlsVersion(ctx, &pb.GetMinimumTlsVersionRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetPassword calls the GetPassword RPC.
-func (c *EnterpriseConfigClient) GetPassword(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.GetPassword(ctx, &pb.GetPasswordRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetPhase2Method calls the GetPhase2Method RPC.
-func (c *EnterpriseConfigClient) GetPhase2Method(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetPhase2Method(ctx, &pb.GetPhase2MethodRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetPlmn calls the GetPlmn RPC.
-func (c *EnterpriseConfigClient) GetPlmn(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.GetPlmn(ctx, &pb.GetPlmnRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetRealm calls the GetRealm RPC.
-func (c *EnterpriseConfigClient) GetRealm(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.GetRealm(ctx, &pb.GetRealmRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetSubjectMatch calls the GetSubjectMatch RPC.
-func (c *EnterpriseConfigClient) GetSubjectMatch(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.GetSubjectMatch(ctx, &pb.GetSubjectMatchRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// HasCaCertificate calls the HasCaCertificate RPC.
-func (c *EnterpriseConfigClient) HasCaCertificate(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.HasCaCertificate(ctx, &pb.HasCaCertificateRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsAuthenticationSimBased calls the IsAuthenticationSimBased RPC.
-func (c *EnterpriseConfigClient) IsAuthenticationSimBased(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.IsAuthenticationSimBased(ctx, &pb.IsAuthenticationSimBasedRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsEapMethodServerCertUsed calls the IsEapMethodServerCertUsed RPC.
-func (c *EnterpriseConfigClient) IsEapMethodServerCertUsed(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.IsEapMethodServerCertUsed(ctx, &pb.IsEapMethodServerCertUsedRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsServerCertValidationEnabled calls the IsServerCertValidationEnabled RPC.
-func (c *EnterpriseConfigClient) IsServerCertValidationEnabled(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.IsServerCertValidationEnabled(ctx, &pb.IsServerCertValidationEnabledRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsTrustOnFirstUseEnabled calls the IsTrustOnFirstUseEnabled RPC.
-func (c *EnterpriseConfigClient) IsTrustOnFirstUseEnabled(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.IsTrustOnFirstUseEnabled(ctx, &pb.IsTrustOnFirstUseEnabledRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetAltSubjectMatch calls the SetAltSubjectMatch RPC.
-func (c *EnterpriseConfigClient) SetAltSubjectMatch(ctx context.Context, handle int64, arg0 string) error {
-	_, err := c.svc.SetAltSubjectMatch(ctx, &pb.SetAltSubjectMatchRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetAnonymousIdentity calls the SetAnonymousIdentity RPC.
-func (c *EnterpriseConfigClient) SetAnonymousIdentity(ctx context.Context, handle int64, arg0 string) error {
-	_, err := c.svc.SetAnonymousIdentity(ctx, &pb.SetAnonymousIdentityRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetCaCertificate calls the SetCaCertificate RPC.
-func (c *EnterpriseConfigClient) SetCaCertificate(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.SetCaCertificate(ctx, &pb.SetCaCertificateRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetCaCertificates calls the SetCaCertificates RPC.
-func (c *EnterpriseConfigClient) SetCaCertificates(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.SetCaCertificates(ctx, &pb.SetCaCertificatesRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetClientKeyEntry calls the SetClientKeyEntry RPC.
-func (c *EnterpriseConfigClient) SetClientKeyEntry(ctx context.Context, handle int64, arg0 int64, arg1 int64) error {
-	_, err := c.svc.SetClientKeyEntry(ctx, &pb.SetClientKeyEntryRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// SetClientKeyEntryWithCertificateChain calls the SetClientKeyEntryWithCertificateChain RPC.
-func (c *EnterpriseConfigClient) SetClientKeyEntryWithCertificateChain(ctx context.Context, handle int64, arg0 int64, arg1 int64) error {
-	_, err := c.svc.SetClientKeyEntryWithCertificateChain(ctx, &pb.SetClientKeyEntryWithCertificateChainRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// SetClientKeyPairAlias calls the SetClientKeyPairAlias RPC.
-func (c *EnterpriseConfigClient) SetClientKeyPairAlias(ctx context.Context, handle int64, arg0 string) error {
-	_, err := c.svc.SetClientKeyPairAlias(ctx, &pb.SetClientKeyPairAliasRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetDecoratedIdentityPrefix calls the SetDecoratedIdentityPrefix RPC.
-func (c *EnterpriseConfigClient) SetDecoratedIdentityPrefix(ctx context.Context, handle int64, arg0 string) error {
-	_, err := c.svc.SetDecoratedIdentityPrefix(ctx, &pb.SetDecoratedIdentityPrefixRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetDomainSuffixMatch calls the SetDomainSuffixMatch RPC.
-func (c *EnterpriseConfigClient) SetDomainSuffixMatch(ctx context.Context, handle int64, arg0 string) error {
-	_, err := c.svc.SetDomainSuffixMatch(ctx, &pb.SetDomainSuffixMatchRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetEapMethod calls the SetEapMethod RPC.
-func (c *EnterpriseConfigClient) SetEapMethod(ctx context.Context, handle int64, arg0 int32) error {
-	_, err := c.svc.SetEapMethod(ctx, &pb.SetEapMethodRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetIdentity calls the SetIdentity RPC.
-func (c *EnterpriseConfigClient) SetIdentity(ctx context.Context, handle int64, arg0 string) error {
-	_, err := c.svc.SetIdentity(ctx, &pb.SetIdentityRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetMinimumTlsVersion calls the SetMinimumTlsVersion RPC.
-func (c *EnterpriseConfigClient) SetMinimumTlsVersion(ctx context.Context, handle int64, arg0 int32) error {
-	_, err := c.svc.SetMinimumTlsVersion(ctx, &pb.SetMinimumTlsVersionRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetPassword calls the SetPassword RPC.
-func (c *EnterpriseConfigClient) SetPassword(ctx context.Context, handle int64, arg0 string) error {
-	_, err := c.svc.SetPassword(ctx, &pb.SetPasswordRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetPhase2Method calls the SetPhase2Method RPC.
-func (c *EnterpriseConfigClient) SetPhase2Method(ctx context.Context, handle int64, arg0 int32) error {
-	_, err := c.svc.SetPhase2Method(ctx, &pb.SetPhase2MethodRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetPlmn calls the SetPlmn RPC.
-func (c *EnterpriseConfigClient) SetPlmn(ctx context.Context, handle int64, arg0 string) error {
-	_, err := c.svc.SetPlmn(ctx, &pb.SetPlmnRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetRealm calls the SetRealm RPC.
-func (c *EnterpriseConfigClient) SetRealm(ctx context.Context, handle int64, arg0 string) error {
-	_, err := c.svc.SetRealm(ctx, &pb.SetRealmRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetSubjectMatch calls the SetSubjectMatch RPC.
-func (c *EnterpriseConfigClient) SetSubjectMatch(ctx context.Context, handle int64, arg0 string) error {
-	_, err := c.svc.SetSubjectMatch(ctx, &pb.SetSubjectMatchRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// ToString calls the ToString RPC.
-func (c *EnterpriseConfigClient) ToString(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.EnterpriseConfigToStringRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *EnterpriseConfigClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.EnterpriseConfigWriteToParcelRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// ConfigurationClient wraps the gRPC ConfigurationService client.
-type ConfigurationClient struct {
-	svc pb.ConfigurationServiceClient
-}
-
-// NewConfigurationClient creates a new Configuration client.
-func NewConfigurationClient(cc grpc.ClientConnInterface) *ConfigurationClient {
-	return &ConfigurationClient{
-		svc: pb.NewConfigurationServiceClient(cc),
-	}
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *ConfigurationClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.ConfigurationDescribeContentsRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetHttpProxy calls the GetHttpProxy RPC.
-func (c *ConfigurationClient) GetHttpProxy(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetHttpProxy(ctx, &pb.GetHttpProxyRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetKey calls the GetKey RPC.
-func (c *ConfigurationClient) GetKey(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.GetKey(ctx, &pb.GetKeyRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetMacRandomizationSetting calls the GetMacRandomizationSetting RPC.
-func (c *ConfigurationClient) GetMacRandomizationSetting(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetMacRandomizationSetting(ctx, &pb.ConfigurationGetMacRandomizationSettingRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetRandomizedMacAddress calls the GetRandomizedMacAddress RPC.
-func (c *ConfigurationClient) GetRandomizedMacAddress(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetRandomizedMacAddress(ctx, &pb.GetRandomizedMacAddressRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsDppConfigurator calls the IsDppConfigurator RPC.
-func (c *ConfigurationClient) IsDppConfigurator(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.IsDppConfigurator(ctx, &pb.IsDppConfiguratorRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsPasspoint calls the IsPasspoint RPC.
-func (c *ConfigurationClient) IsPasspoint(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.IsPasspoint(ctx, &pb.IsPasspointRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetHttpProxy calls the SetHttpProxy RPC.
-func (c *ConfigurationClient) SetHttpProxy(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.SetHttpProxy(ctx, &pb.SetHttpProxyRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetIpConfiguration calls the SetIpConfiguration RPC.
-func (c *ConfigurationClient) SetIpConfiguration(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.SetIpConfiguration(ctx, &pb.SetIpConfigurationRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetMacRandomizationSetting calls the SetMacRandomizationSetting RPC.
-func (c *ConfigurationClient) SetMacRandomizationSetting(ctx context.Context, handle int64, arg0 int32) error {
-	_, err := c.svc.SetMacRandomizationSetting(ctx, &pb.ConfigurationSetMacRandomizationSettingRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetSecurityParams calls the SetSecurityParams RPC.
-func (c *ConfigurationClient) SetSecurityParams(ctx context.Context, handle int64, arg0 int32) error {
-	_, err := c.svc.SetSecurityParams(ctx, &pb.SetSecurityParamsRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// ToString calls the ToString RPC.
-func (c *ConfigurationClient) ToString(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ConfigurationToStringRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *ConfigurationClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.ConfigurationWriteToParcelRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// WpsInfoClient wraps the gRPC WpsInfoService client.
-type WpsInfoClient struct {
-	svc pb.WpsInfoServiceClient
-}
-
-// NewWpsInfoClient creates a new WpsInfo client.
-func NewWpsInfoClient(cc grpc.ClientConnInterface) *WpsInfoClient {
-	return &WpsInfoClient{
-		svc: pb.NewWpsInfoServiceClient(cc),
-	}
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *WpsInfoClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.WpsInfoDescribeContentsRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToString calls the ToString RPC.
-func (c *WpsInfoClient) ToString(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.WpsInfoToStringRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *WpsInfoClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.WpsInfoWriteToParcelRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// ScanResultClient wraps the gRPC ScanResultService client.
-type ScanResultClient struct {
-	svc pb.ScanResultServiceClient
-}
-
-// NewScanResultClient creates a new ScanResult client.
-func NewScanResultClient(cc grpc.ClientConnInterface) *ScanResultClient {
-	return &ScanResultClient{
-		svc: pb.NewScanResultServiceClient(cc),
-	}
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *ScanResultClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.ScanResultDescribeContentsRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetApMldMacAddress calls the GetApMldMacAddress RPC.
-func (c *ScanResultClient) GetApMldMacAddress(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetApMldMacAddress(ctx, &pb.ScanResultGetApMldMacAddressRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetApMloLinkId calls the GetApMloLinkId RPC.
-func (c *ScanResultClient) GetApMloLinkId(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetApMloLinkId(ctx, &pb.ScanResultGetApMloLinkIdRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetSecurityTypes calls the GetSecurityTypes RPC.
-func (c *ScanResultClient) GetSecurityTypes(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetSecurityTypes(ctx, &pb.GetSecurityTypesRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetWifiSsid calls the GetWifiSsid RPC.
-func (c *ScanResultClient) GetWifiSsid(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetWifiSsid(ctx, &pb.ScanResultGetWifiSsidRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetWifiStandard calls the GetWifiStandard RPC.
-func (c *ScanResultClient) GetWifiStandard(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetWifiStandard(ctx, &pb.ScanResultGetWifiStandardRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Is80211AzNtbResponder calls the Is80211AzNtbResponder RPC.
-func (c *ScanResultClient) Is80211AzNtbResponder(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.Is80211AzNtbResponder(ctx, &pb.Is80211AzNtbResponderRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Is80211McResponder calls the Is80211McResponder RPC.
-func (c *ScanResultClient) Is80211McResponder(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.Is80211McResponder(ctx, &pb.Is80211McResponderRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsPasspointNetwork calls the IsPasspointNetwork RPC.
-func (c *ScanResultClient) IsPasspointNetwork(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.IsPasspointNetwork(ctx, &pb.IsPasspointNetworkRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsRangingFrameProtectionRequired calls the IsRangingFrameProtectionRequired RPC.
-func (c *ScanResultClient) IsRangingFrameProtectionRequired(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.IsRangingFrameProtectionRequired(ctx, &pb.IsRangingFrameProtectionRequiredRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsSecureHeLtfSupported calls the IsSecureHeLtfSupported RPC.
-func (c *ScanResultClient) IsSecureHeLtfSupported(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.IsSecureHeLtfSupported(ctx, &pb.IsSecureHeLtfSupportedRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsTwtResponder calls the IsTwtResponder RPC.
-func (c *ScanResultClient) IsTwtResponder(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.IsTwtResponder(ctx, &pb.IsTwtResponderRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToString calls the ToString RPC.
-func (c *ScanResultClient) ToString(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ScanResultToStringRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *ScanResultClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.ScanResultWriteToParcelRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// ConvertChannelToFrequencyMhzIfSupported calls the ConvertChannelToFrequencyMhzIfSupported RPC.
-func (c *ScanResultClient) ConvertChannelToFrequencyMhzIfSupported(ctx context.Context, handle int64, arg0 int32, arg1 int32) (int32, error) {
-	resp, err := c.svc.ConvertChannelToFrequencyMhzIfSupported(ctx, &pb.ConvertChannelToFrequencyMhzIfSupportedRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ConvertFrequencyMhzToChannelIfSupported calls the ConvertFrequencyMhzToChannelIfSupported RPC.
-func (c *ScanResultClient) ConvertFrequencyMhzToChannelIfSupported(ctx context.Context, handle int64, arg0 int32) (int32, error) {
-	resp, err := c.svc.ConvertFrequencyMhzToChannelIfSupported(ctx, &pb.ConvertFrequencyMhzToChannelIfSupportedRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ScanResultInformationElementClient wraps the gRPC ScanResultInformationElementService client.
-type ScanResultInformationElementClient struct {
-	svc pb.ScanResultInformationElementServiceClient
-}
-
-// NewScanResultInformationElementClient creates a new ScanResultInformationElement client.
-func NewScanResultInformationElementClient(cc grpc.ClientConnInterface) *ScanResultInformationElementClient {
-	return &ScanResultInformationElementClient{
-		svc: pb.NewScanResultInformationElementServiceClient(cc),
-	}
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *ScanResultInformationElementClient) DescribeContents(ctx context.Context) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Equals calls the Equals RPC.
-func (c *ScanResultInformationElementClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetBytes calls the GetBytes RPC.
-func (c *ScanResultInformationElementClient) GetBytes(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetBytes(ctx, &pb.GetBytesRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetId calls the GetId RPC.
-func (c *ScanResultInformationElementClient) GetId(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetId(ctx, &pb.GetIdRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetIdExt calls the GetIdExt RPC.
-func (c *ScanResultInformationElementClient) GetIdExt(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetIdExt(ctx, &pb.GetIdExtRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *ScanResultInformationElementClient) HashCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *ScanResultInformationElementClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// SupplicantStateClient wraps the gRPC SupplicantStateService client.
-type SupplicantStateClient struct {
-	svc pb.SupplicantStateServiceClient
-}
-
-// NewSupplicantStateClient creates a new SupplicantState client.
-func NewSupplicantStateClient(cc grpc.ClientConnInterface) *SupplicantStateClient {
-	return &SupplicantStateClient{
-		svc: pb.NewSupplicantStateServiceClient(cc),
-	}
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *SupplicantStateClient) DescribeContents(ctx context.Context) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *SupplicantStateClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// Values calls the Values RPC.
-func (c *SupplicantStateClient) Values(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Values(ctx, &pb.ValuesRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ValueOf calls the ValueOf RPC.
-func (c *SupplicantStateClient) ValueOf(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.ValueOf(ctx, &pb.ValueOfRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsValidState calls the IsValidState RPC.
-func (c *SupplicantStateClient) IsValidState(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.IsValidState(ctx, &pb.IsValidStateRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// NetworkSpecifierClient wraps the gRPC NetworkSpecifierService client.
-type NetworkSpecifierClient struct {
-	svc pb.NetworkSpecifierServiceClient
-}
-
-// NewNetworkSpecifierClient creates a new NetworkSpecifier client.
-func NewNetworkSpecifierClient(cc grpc.ClientConnInterface) *NetworkSpecifierClient {
-	return &NetworkSpecifierClient{
-		svc: pb.NewNetworkSpecifierServiceClient(cc),
-	}
-}
-
-// CanBeSatisfiedBy calls the CanBeSatisfiedBy RPC.
-func (c *NetworkSpecifierClient) CanBeSatisfiedBy(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.CanBeSatisfiedBy(ctx, &pb.CanBeSatisfiedByRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *NetworkSpecifierClient) DescribeContents(ctx context.Context) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Equals calls the Equals RPC.
-func (c *NetworkSpecifierClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetBand calls the GetBand RPC.
-func (c *NetworkSpecifierClient) GetBand(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetBand(ctx, &pb.GetBandRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetPreferredChannelFrequenciesMhz calls the GetPreferredChannelFrequenciesMhz RPC.
-func (c *NetworkSpecifierClient) GetPreferredChannelFrequenciesMhz(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetPreferredChannelFrequenciesMhz(ctx, &pb.GetPreferredChannelFrequenciesMhzRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *NetworkSpecifierClient) HashCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Redact calls the Redact RPC.
-func (c *NetworkSpecifierClient) Redact(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Redact(ctx, &pb.RedactRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToString calls the ToString RPC.
-func (c *NetworkSpecifierClient) ToString(ctx context.Context) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *NetworkSpecifierClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// NetworkSpecifierBuilderClient wraps the gRPC NetworkSpecifierBuilderService client.
-type NetworkSpecifierBuilderClient struct {
-	svc pb.NetworkSpecifierBuilderServiceClient
-}
-
-// NewNetworkSpecifierBuilderClient creates a new NetworkSpecifierBuilder client.
-func NewNetworkSpecifierBuilderClient(cc grpc.ClientConnInterface) *NetworkSpecifierBuilderClient {
-	return &NetworkSpecifierBuilderClient{
-		svc: pb.NewNetworkSpecifierBuilderServiceClient(cc),
-	}
-}
-
-// Build calls the Build RPC.
-func (c *NetworkSpecifierBuilderClient) Build(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetBand calls the SetBand RPC.
-func (c *NetworkSpecifierBuilderClient) SetBand(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.SetBand(ctx, &pb.SetBandRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetBssid calls the SetBssid RPC.
-func (c *NetworkSpecifierBuilderClient) SetBssid(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetBssid(ctx, &pb.NetworkSpecifierBuilderSetBssidRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetBssidPattern calls the SetBssidPattern RPC.
-func (c *NetworkSpecifierBuilderClient) SetBssidPattern(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
-	resp, err := c.svc.SetBssidPattern(ctx, &pb.SetBssidPatternRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetIsEnhancedOpen calls the SetIsEnhancedOpen RPC.
-func (c *NetworkSpecifierBuilderClient) SetIsEnhancedOpen(ctx context.Context, arg0 bool) (int64, error) {
-	resp, err := c.svc.SetIsEnhancedOpen(ctx, &pb.SetIsEnhancedOpenRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetIsHiddenSsid calls the SetIsHiddenSsid RPC.
-func (c *NetworkSpecifierBuilderClient) SetIsHiddenSsid(ctx context.Context, arg0 bool) (int64, error) {
-	resp, err := c.svc.SetIsHiddenSsid(ctx, &pb.SetIsHiddenSsidRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetPreferredChannelsFrequenciesMhz calls the SetPreferredChannelsFrequenciesMhz RPC.
-func (c *NetworkSpecifierBuilderClient) SetPreferredChannelsFrequenciesMhz(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetPreferredChannelsFrequenciesMhz(ctx, &pb.SetPreferredChannelsFrequenciesMhzRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetSsid calls the SetSsid RPC.
-func (c *NetworkSpecifierBuilderClient) SetSsid(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.SetSsid(ctx, &pb.NetworkSpecifierBuilderSetSsidRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetSsidPattern calls the SetSsidPattern RPC.
-func (c *NetworkSpecifierBuilderClient) SetSsidPattern(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetSsidPattern(ctx, &pb.SetSsidPatternRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetWpa2EnterpriseConfig calls the SetWpa2EnterpriseConfig RPC.
-func (c *NetworkSpecifierBuilderClient) SetWpa2EnterpriseConfig(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetWpa2EnterpriseConfig(ctx, &pb.SetWpa2EnterpriseConfigRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetWpa2Passphrase calls the SetWpa2Passphrase RPC.
-func (c *NetworkSpecifierBuilderClient) SetWpa2Passphrase(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.SetWpa2Passphrase(ctx, &pb.SetWpa2PassphraseRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetWpa3Enterprise192BitModeConfig calls the SetWpa3Enterprise192BitModeConfig RPC.
-func (c *NetworkSpecifierBuilderClient) SetWpa3Enterprise192BitModeConfig(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetWpa3Enterprise192BitModeConfig(ctx, &pb.SetWpa3Enterprise192BitModeConfigRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetWpa3EnterpriseConfig calls the SetWpa3EnterpriseConfig RPC.
-func (c *NetworkSpecifierBuilderClient) SetWpa3EnterpriseConfig(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetWpa3EnterpriseConfig(ctx, &pb.SetWpa3EnterpriseConfigRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetWpa3EnterpriseStandardModeConfig calls the SetWpa3EnterpriseStandardModeConfig RPC.
-func (c *NetworkSpecifierBuilderClient) SetWpa3EnterpriseStandardModeConfig(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetWpa3EnterpriseStandardModeConfig(ctx, &pb.SetWpa3EnterpriseStandardModeConfigRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetWpa3Passphrase calls the SetWpa3Passphrase RPC.
-func (c *NetworkSpecifierBuilderClient) SetWpa3Passphrase(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.SetWpa3Passphrase(ctx, &pb.SetWpa3PassphraseRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
 // BlockingOptionClient wraps the gRPC BlockingOptionService client.
 type BlockingOptionClient struct {
 	svc pb.BlockingOptionServiceClient
@@ -3722,7 +4150,7 @@ func NewBlockingOptionClient(cc grpc.ClientConnInterface) *BlockingOptionClient 
 
 // DescribeContents calls the DescribeContents RPC.
 func (c *BlockingOptionClient) DescribeContents(ctx context.Context) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	resp, err := c.svc.DescribeContents(ctx, &pb.BlockingOptionDescribeContentsRequest{})
 	if err != nil {
 		return 0, err
 	}
@@ -3769,7 +4197,7 @@ func (c *BlockingOptionClient) IsBlockingBssidOnly(ctx context.Context) (bool, e
 
 // ToString calls the ToString RPC.
 func (c *BlockingOptionClient) ToString(ctx context.Context) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	resp, err := c.svc.ToString(ctx, &pb.BlockingOptionToStringRequest{})
 	if err != nil {
 		return "", err
 	}
@@ -3778,7 +4206,7 @@ func (c *BlockingOptionClient) ToString(ctx context.Context) (string, error) {
 
 // WriteToParcel calls the WriteToParcel RPC.
 func (c *BlockingOptionClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+	_, err := c.svc.WriteToParcel(ctx, &pb.BlockingOptionWriteToParcelRequest{
 		Arg0: arg0,
 		Arg1: arg1,
 	})
@@ -3817,143 +4245,21 @@ func (c *BlockingOptionBuilderClient) SetBlockingBssidOnly(ctx context.Context, 
 	return resp.GetResult(), nil
 }
 
-// MloLinkClient wraps the gRPC MloLinkService client.
-type MloLinkClient struct {
-	svc pb.MloLinkServiceClient
+// WpsInfoClient wraps the gRPC WpsInfoService client.
+type WpsInfoClient struct {
+	svc pb.WpsInfoServiceClient
 }
 
-// NewMloLinkClient creates a new MloLink client.
-func NewMloLinkClient(cc grpc.ClientConnInterface) *MloLinkClient {
-	return &MloLinkClient{
-		svc: pb.NewMloLinkServiceClient(cc),
+// NewWpsInfoClient creates a new WpsInfo client.
+func NewWpsInfoClient(cc grpc.ClientConnInterface) *WpsInfoClient {
+	return &WpsInfoClient{
+		svc: pb.NewWpsInfoServiceClient(cc),
 	}
 }
 
 // DescribeContents calls the DescribeContents RPC.
-func (c *MloLinkClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.MloLinkDescribeContentsRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Equals calls the Equals RPC.
-func (c *MloLinkClient) Equals(ctx context.Context, handle int64, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.MloLinkEqualsRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetApMacAddress calls the GetApMacAddress RPC.
-func (c *MloLinkClient) GetApMacAddress(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetApMacAddress(ctx, &pb.GetApMacAddressRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetBand calls the GetBand RPC.
-func (c *MloLinkClient) GetBand(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetBand(ctx, &pb.MloLinkGetBandRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetChannel calls the GetChannel RPC.
-func (c *MloLinkClient) GetChannel(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetChannel(ctx, &pb.GetChannelRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetLinkId calls the GetLinkId RPC.
-func (c *MloLinkClient) GetLinkId(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetLinkId(ctx, &pb.GetLinkIdRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetRssi calls the GetRssi RPC.
-func (c *MloLinkClient) GetRssi(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetRssi(ctx, &pb.MloLinkGetRssiRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetRxLinkSpeedMbps calls the GetRxLinkSpeedMbps RPC.
-func (c *MloLinkClient) GetRxLinkSpeedMbps(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetRxLinkSpeedMbps(ctx, &pb.MloLinkGetRxLinkSpeedMbpsRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetStaMacAddress calls the GetStaMacAddress RPC.
-func (c *MloLinkClient) GetStaMacAddress(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetStaMacAddress(ctx, &pb.GetStaMacAddressRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetState calls the GetState RPC.
-func (c *MloLinkClient) GetState(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetState(ctx, &pb.GetStateRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetTxLinkSpeedMbps calls the GetTxLinkSpeedMbps RPC.
-func (c *MloLinkClient) GetTxLinkSpeedMbps(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetTxLinkSpeedMbps(ctx, &pb.MloLinkGetTxLinkSpeedMbpsRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *MloLinkClient) HashCode(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.MloLinkHashCodeRequest{
+func (c *WpsInfoClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{
 		Handle: handle,
 	})
 	if err != nil {
@@ -3963,8 +4269,8 @@ func (c *MloLinkClient) HashCode(ctx context.Context, handle int64) (int32, erro
 }
 
 // ToString calls the ToString RPC.
-func (c *MloLinkClient) ToString(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.MloLinkToStringRequest{
+func (c *WpsInfoClient) ToString(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{
 		Handle: handle,
 	})
 	if err != nil {
@@ -3974,187 +4280,8 @@ func (c *MloLinkClient) ToString(ctx context.Context, handle int64) (string, err
 }
 
 // WriteToParcel calls the WriteToParcel RPC.
-func (c *MloLinkClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.MloLinkWriteToParcelRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// SsidClient wraps the gRPC SsidService client.
-type SsidClient struct {
-	svc pb.SsidServiceClient
-}
-
-// NewSsidClient creates a new Ssid client.
-func NewSsidClient(cc grpc.ClientConnInterface) *SsidClient {
-	return &SsidClient{
-		svc: pb.NewSsidServiceClient(cc),
-	}
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *SsidClient) DescribeContents(ctx context.Context) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Equals calls the Equals RPC.
-func (c *SsidClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetBytes calls the GetBytes RPC.
-func (c *SsidClient) GetBytes(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetBytes(ctx, &pb.GetBytesRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *SsidClient) HashCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToString calls the ToString RPC.
-func (c *SsidClient) ToString(ctx context.Context) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *SsidClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+func (c *WpsInfoClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
 	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// FromBytes calls the FromBytes RPC.
-func (c *SsidClient) FromBytes(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.FromBytes(ctx, &pb.FromBytesRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// AvailableChannelClient wraps the gRPC AvailableChannelService client.
-type AvailableChannelClient struct {
-	svc pb.AvailableChannelServiceClient
-}
-
-// NewAvailableChannelClient creates a new AvailableChannel client.
-func NewAvailableChannelClient(cc grpc.ClientConnInterface) *AvailableChannelClient {
-	return &AvailableChannelClient{
-		svc: pb.NewAvailableChannelServiceClient(cc),
-	}
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *AvailableChannelClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.AvailableChannelDescribeContentsRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Equals calls the Equals RPC.
-func (c *AvailableChannelClient) Equals(ctx context.Context, handle int64, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.AvailableChannelEqualsRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetChannelWidth calls the GetChannelWidth RPC.
-func (c *AvailableChannelClient) GetChannelWidth(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetChannelWidth(ctx, &pb.GetChannelWidthRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetFrequencyMhz calls the GetFrequencyMhz RPC.
-func (c *AvailableChannelClient) GetFrequencyMhz(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetFrequencyMhz(ctx, &pb.GetFrequencyMhzRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetOperationalModes calls the GetOperationalModes RPC.
-func (c *AvailableChannelClient) GetOperationalModes(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetOperationalModes(ctx, &pb.GetOperationalModesRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *AvailableChannelClient) HashCode(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.AvailableChannelHashCodeRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToString calls the ToString RPC.
-func (c *AvailableChannelClient) ToString(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.AvailableChannelToStringRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *AvailableChannelClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.AvailableChannelWriteToParcelRequest{
 		Handle: handle,
 		Arg0:   arg0,
 		Arg1:   arg1,

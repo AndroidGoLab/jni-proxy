@@ -162,147 +162,6 @@ var AppSearchExceptionService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	IkeNetworkLostExceptionService_NewIkeNetworkLostException_FullMethodName = "/exceptions.IkeNetworkLostExceptionService/NewIkeNetworkLostException"
-	IkeNetworkLostExceptionService_GetNetwork_FullMethodName                 = "/exceptions.IkeNetworkLostExceptionService/GetNetwork"
-)
-
-// IkeNetworkLostExceptionServiceClient is the client API for IkeNetworkLostExceptionService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type IkeNetworkLostExceptionServiceClient interface {
-	NewIkeNetworkLostException(ctx context.Context, in *NewIkeNetworkLostExceptionRequest, opts ...grpc.CallOption) (*NewIkeNetworkLostExceptionResponse, error)
-	GetNetwork(ctx context.Context, in *GetNetworkRequest, opts ...grpc.CallOption) (*GetNetworkResponse, error)
-}
-
-type ikeNetworkLostExceptionServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewIkeNetworkLostExceptionServiceClient(cc grpc.ClientConnInterface) IkeNetworkLostExceptionServiceClient {
-	return &ikeNetworkLostExceptionServiceClient{cc}
-}
-
-func (c *ikeNetworkLostExceptionServiceClient) NewIkeNetworkLostException(ctx context.Context, in *NewIkeNetworkLostExceptionRequest, opts ...grpc.CallOption) (*NewIkeNetworkLostExceptionResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewIkeNetworkLostExceptionResponse)
-	err := c.cc.Invoke(ctx, IkeNetworkLostExceptionService_NewIkeNetworkLostException_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *ikeNetworkLostExceptionServiceClient) GetNetwork(ctx context.Context, in *GetNetworkRequest, opts ...grpc.CallOption) (*GetNetworkResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetNetworkResponse)
-	err := c.cc.Invoke(ctx, IkeNetworkLostExceptionService_GetNetwork_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// IkeNetworkLostExceptionServiceServer is the server API for IkeNetworkLostExceptionService service.
-// All implementations must embed UnimplementedIkeNetworkLostExceptionServiceServer
-// for forward compatibility.
-type IkeNetworkLostExceptionServiceServer interface {
-	NewIkeNetworkLostException(context.Context, *NewIkeNetworkLostExceptionRequest) (*NewIkeNetworkLostExceptionResponse, error)
-	GetNetwork(context.Context, *GetNetworkRequest) (*GetNetworkResponse, error)
-	mustEmbedUnimplementedIkeNetworkLostExceptionServiceServer()
-}
-
-// UnimplementedIkeNetworkLostExceptionServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedIkeNetworkLostExceptionServiceServer struct{}
-
-func (UnimplementedIkeNetworkLostExceptionServiceServer) NewIkeNetworkLostException(context.Context, *NewIkeNetworkLostExceptionRequest) (*NewIkeNetworkLostExceptionResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewIkeNetworkLostException not implemented")
-}
-func (UnimplementedIkeNetworkLostExceptionServiceServer) GetNetwork(context.Context, *GetNetworkRequest) (*GetNetworkResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetNetwork not implemented")
-}
-func (UnimplementedIkeNetworkLostExceptionServiceServer) mustEmbedUnimplementedIkeNetworkLostExceptionServiceServer() {
-}
-func (UnimplementedIkeNetworkLostExceptionServiceServer) testEmbeddedByValue() {}
-
-// UnsafeIkeNetworkLostExceptionServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to IkeNetworkLostExceptionServiceServer will
-// result in compilation errors.
-type UnsafeIkeNetworkLostExceptionServiceServer interface {
-	mustEmbedUnimplementedIkeNetworkLostExceptionServiceServer()
-}
-
-func RegisterIkeNetworkLostExceptionServiceServer(s grpc.ServiceRegistrar, srv IkeNetworkLostExceptionServiceServer) {
-	// If the following call panics, it indicates UnimplementedIkeNetworkLostExceptionServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&IkeNetworkLostExceptionService_ServiceDesc, srv)
-}
-
-func _IkeNetworkLostExceptionService_NewIkeNetworkLostException_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewIkeNetworkLostExceptionRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(IkeNetworkLostExceptionServiceServer).NewIkeNetworkLostException(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: IkeNetworkLostExceptionService_NewIkeNetworkLostException_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(IkeNetworkLostExceptionServiceServer).NewIkeNetworkLostException(ctx, req.(*NewIkeNetworkLostExceptionRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _IkeNetworkLostExceptionService_GetNetwork_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetNetworkRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(IkeNetworkLostExceptionServiceServer).GetNetwork(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: IkeNetworkLostExceptionService_GetNetwork_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(IkeNetworkLostExceptionServiceServer).GetNetwork(ctx, req.(*GetNetworkRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// IkeNetworkLostExceptionService_ServiceDesc is the grpc.ServiceDesc for IkeNetworkLostExceptionService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var IkeNetworkLostExceptionService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "exceptions.IkeNetworkLostExceptionService",
-	HandlerType: (*IkeNetworkLostExceptionServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "NewIkeNetworkLostException",
-			Handler:    _IkeNetworkLostExceptionService_NewIkeNetworkLostException_Handler,
-		},
-		{
-			MethodName: "GetNetwork",
-			Handler:    _IkeNetworkLostExceptionService_GetNetwork_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/exceptions/exceptions.proto",
-}
-
-const (
 	IkeProtocolExceptionService_GetErrorType_FullMethodName = "/exceptions.IkeProtocolExceptionService/GetErrorType"
 )
 
@@ -399,288 +258,6 @@ var IkeProtocolExceptionService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetErrorType",
 			Handler:    _IkeProtocolExceptionService_GetErrorType_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/exceptions/exceptions.proto",
-}
-
-const (
-	InvalidKeExceptionService_NewInvalidKeException_FullMethodName = "/exceptions.InvalidKeExceptionService/NewInvalidKeException"
-	InvalidKeExceptionService_GetDhGroup_FullMethodName            = "/exceptions.InvalidKeExceptionService/GetDhGroup"
-)
-
-// InvalidKeExceptionServiceClient is the client API for InvalidKeExceptionService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type InvalidKeExceptionServiceClient interface {
-	NewInvalidKeException(ctx context.Context, in *NewInvalidKeExceptionRequest, opts ...grpc.CallOption) (*NewInvalidKeExceptionResponse, error)
-	GetDhGroup(ctx context.Context, in *GetDhGroupRequest, opts ...grpc.CallOption) (*GetDhGroupResponse, error)
-}
-
-type invalidKeExceptionServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewInvalidKeExceptionServiceClient(cc grpc.ClientConnInterface) InvalidKeExceptionServiceClient {
-	return &invalidKeExceptionServiceClient{cc}
-}
-
-func (c *invalidKeExceptionServiceClient) NewInvalidKeException(ctx context.Context, in *NewInvalidKeExceptionRequest, opts ...grpc.CallOption) (*NewInvalidKeExceptionResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewInvalidKeExceptionResponse)
-	err := c.cc.Invoke(ctx, InvalidKeExceptionService_NewInvalidKeException_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *invalidKeExceptionServiceClient) GetDhGroup(ctx context.Context, in *GetDhGroupRequest, opts ...grpc.CallOption) (*GetDhGroupResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetDhGroupResponse)
-	err := c.cc.Invoke(ctx, InvalidKeExceptionService_GetDhGroup_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// InvalidKeExceptionServiceServer is the server API for InvalidKeExceptionService service.
-// All implementations must embed UnimplementedInvalidKeExceptionServiceServer
-// for forward compatibility.
-type InvalidKeExceptionServiceServer interface {
-	NewInvalidKeException(context.Context, *NewInvalidKeExceptionRequest) (*NewInvalidKeExceptionResponse, error)
-	GetDhGroup(context.Context, *GetDhGroupRequest) (*GetDhGroupResponse, error)
-	mustEmbedUnimplementedInvalidKeExceptionServiceServer()
-}
-
-// UnimplementedInvalidKeExceptionServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedInvalidKeExceptionServiceServer struct{}
-
-func (UnimplementedInvalidKeExceptionServiceServer) NewInvalidKeException(context.Context, *NewInvalidKeExceptionRequest) (*NewInvalidKeExceptionResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewInvalidKeException not implemented")
-}
-func (UnimplementedInvalidKeExceptionServiceServer) GetDhGroup(context.Context, *GetDhGroupRequest) (*GetDhGroupResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetDhGroup not implemented")
-}
-func (UnimplementedInvalidKeExceptionServiceServer) mustEmbedUnimplementedInvalidKeExceptionServiceServer() {
-}
-func (UnimplementedInvalidKeExceptionServiceServer) testEmbeddedByValue() {}
-
-// UnsafeInvalidKeExceptionServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to InvalidKeExceptionServiceServer will
-// result in compilation errors.
-type UnsafeInvalidKeExceptionServiceServer interface {
-	mustEmbedUnimplementedInvalidKeExceptionServiceServer()
-}
-
-func RegisterInvalidKeExceptionServiceServer(s grpc.ServiceRegistrar, srv InvalidKeExceptionServiceServer) {
-	// If the following call panics, it indicates UnimplementedInvalidKeExceptionServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&InvalidKeExceptionService_ServiceDesc, srv)
-}
-
-func _InvalidKeExceptionService_NewInvalidKeException_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewInvalidKeExceptionRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(InvalidKeExceptionServiceServer).NewInvalidKeException(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: InvalidKeExceptionService_NewInvalidKeException_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(InvalidKeExceptionServiceServer).NewInvalidKeException(ctx, req.(*NewInvalidKeExceptionRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _InvalidKeExceptionService_GetDhGroup_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetDhGroupRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(InvalidKeExceptionServiceServer).GetDhGroup(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: InvalidKeExceptionService_GetDhGroup_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(InvalidKeExceptionServiceServer).GetDhGroup(ctx, req.(*GetDhGroupRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// InvalidKeExceptionService_ServiceDesc is the grpc.ServiceDesc for InvalidKeExceptionService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var InvalidKeExceptionService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "exceptions.InvalidKeExceptionService",
-	HandlerType: (*InvalidKeExceptionServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "NewInvalidKeException",
-			Handler:    _InvalidKeExceptionService_NewInvalidKeException_Handler,
-		},
-		{
-			MethodName: "GetDhGroup",
-			Handler:    _InvalidKeExceptionService_GetDhGroup_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/exceptions/exceptions.proto",
-}
-
-const (
-	InvalidMajorVersionExceptionService_NewInvalidMajorVersionException_FullMethodName = "/exceptions.InvalidMajorVersionExceptionService/NewInvalidMajorVersionException"
-	InvalidMajorVersionExceptionService_GetMajorVersion_FullMethodName                 = "/exceptions.InvalidMajorVersionExceptionService/GetMajorVersion"
-)
-
-// InvalidMajorVersionExceptionServiceClient is the client API for InvalidMajorVersionExceptionService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type InvalidMajorVersionExceptionServiceClient interface {
-	NewInvalidMajorVersionException(ctx context.Context, in *NewInvalidMajorVersionExceptionRequest, opts ...grpc.CallOption) (*NewInvalidMajorVersionExceptionResponse, error)
-	GetMajorVersion(ctx context.Context, in *GetMajorVersionRequest, opts ...grpc.CallOption) (*GetMajorVersionResponse, error)
-}
-
-type invalidMajorVersionExceptionServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewInvalidMajorVersionExceptionServiceClient(cc grpc.ClientConnInterface) InvalidMajorVersionExceptionServiceClient {
-	return &invalidMajorVersionExceptionServiceClient{cc}
-}
-
-func (c *invalidMajorVersionExceptionServiceClient) NewInvalidMajorVersionException(ctx context.Context, in *NewInvalidMajorVersionExceptionRequest, opts ...grpc.CallOption) (*NewInvalidMajorVersionExceptionResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewInvalidMajorVersionExceptionResponse)
-	err := c.cc.Invoke(ctx, InvalidMajorVersionExceptionService_NewInvalidMajorVersionException_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *invalidMajorVersionExceptionServiceClient) GetMajorVersion(ctx context.Context, in *GetMajorVersionRequest, opts ...grpc.CallOption) (*GetMajorVersionResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetMajorVersionResponse)
-	err := c.cc.Invoke(ctx, InvalidMajorVersionExceptionService_GetMajorVersion_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// InvalidMajorVersionExceptionServiceServer is the server API for InvalidMajorVersionExceptionService service.
-// All implementations must embed UnimplementedInvalidMajorVersionExceptionServiceServer
-// for forward compatibility.
-type InvalidMajorVersionExceptionServiceServer interface {
-	NewInvalidMajorVersionException(context.Context, *NewInvalidMajorVersionExceptionRequest) (*NewInvalidMajorVersionExceptionResponse, error)
-	GetMajorVersion(context.Context, *GetMajorVersionRequest) (*GetMajorVersionResponse, error)
-	mustEmbedUnimplementedInvalidMajorVersionExceptionServiceServer()
-}
-
-// UnimplementedInvalidMajorVersionExceptionServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedInvalidMajorVersionExceptionServiceServer struct{}
-
-func (UnimplementedInvalidMajorVersionExceptionServiceServer) NewInvalidMajorVersionException(context.Context, *NewInvalidMajorVersionExceptionRequest) (*NewInvalidMajorVersionExceptionResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewInvalidMajorVersionException not implemented")
-}
-func (UnimplementedInvalidMajorVersionExceptionServiceServer) GetMajorVersion(context.Context, *GetMajorVersionRequest) (*GetMajorVersionResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetMajorVersion not implemented")
-}
-func (UnimplementedInvalidMajorVersionExceptionServiceServer) mustEmbedUnimplementedInvalidMajorVersionExceptionServiceServer() {
-}
-func (UnimplementedInvalidMajorVersionExceptionServiceServer) testEmbeddedByValue() {}
-
-// UnsafeInvalidMajorVersionExceptionServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to InvalidMajorVersionExceptionServiceServer will
-// result in compilation errors.
-type UnsafeInvalidMajorVersionExceptionServiceServer interface {
-	mustEmbedUnimplementedInvalidMajorVersionExceptionServiceServer()
-}
-
-func RegisterInvalidMajorVersionExceptionServiceServer(s grpc.ServiceRegistrar, srv InvalidMajorVersionExceptionServiceServer) {
-	// If the following call panics, it indicates UnimplementedInvalidMajorVersionExceptionServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&InvalidMajorVersionExceptionService_ServiceDesc, srv)
-}
-
-func _InvalidMajorVersionExceptionService_NewInvalidMajorVersionException_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewInvalidMajorVersionExceptionRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(InvalidMajorVersionExceptionServiceServer).NewInvalidMajorVersionException(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: InvalidMajorVersionExceptionService_NewInvalidMajorVersionException_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(InvalidMajorVersionExceptionServiceServer).NewInvalidMajorVersionException(ctx, req.(*NewInvalidMajorVersionExceptionRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _InvalidMajorVersionExceptionService_GetMajorVersion_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetMajorVersionRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(InvalidMajorVersionExceptionServiceServer).GetMajorVersion(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: InvalidMajorVersionExceptionService_GetMajorVersion_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(InvalidMajorVersionExceptionServiceServer).GetMajorVersion(ctx, req.(*GetMajorVersionRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// InvalidMajorVersionExceptionService_ServiceDesc is the grpc.ServiceDesc for InvalidMajorVersionExceptionService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var InvalidMajorVersionExceptionService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "exceptions.InvalidMajorVersionExceptionService",
-	HandlerType: (*InvalidMajorVersionExceptionServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "NewInvalidMajorVersionException",
-			Handler:    _InvalidMajorVersionExceptionService_NewInvalidMajorVersionException_Handler,
-		},
-		{
-			MethodName: "GetMajorVersion",
-			Handler:    _InvalidMajorVersionExceptionService_GetMajorVersion_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -860,6 +437,429 @@ var InvalidSelectorsExceptionService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetIpSecSpi",
 			Handler:    _InvalidSelectorsExceptionService_GetIpSecSpi_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/exceptions/exceptions.proto",
+}
+
+const (
+	InvalidKeExceptionService_NewInvalidKeException_FullMethodName = "/exceptions.InvalidKeExceptionService/NewInvalidKeException"
+	InvalidKeExceptionService_GetDhGroup_FullMethodName            = "/exceptions.InvalidKeExceptionService/GetDhGroup"
+)
+
+// InvalidKeExceptionServiceClient is the client API for InvalidKeExceptionService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type InvalidKeExceptionServiceClient interface {
+	NewInvalidKeException(ctx context.Context, in *NewInvalidKeExceptionRequest, opts ...grpc.CallOption) (*NewInvalidKeExceptionResponse, error)
+	GetDhGroup(ctx context.Context, in *GetDhGroupRequest, opts ...grpc.CallOption) (*GetDhGroupResponse, error)
+}
+
+type invalidKeExceptionServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewInvalidKeExceptionServiceClient(cc grpc.ClientConnInterface) InvalidKeExceptionServiceClient {
+	return &invalidKeExceptionServiceClient{cc}
+}
+
+func (c *invalidKeExceptionServiceClient) NewInvalidKeException(ctx context.Context, in *NewInvalidKeExceptionRequest, opts ...grpc.CallOption) (*NewInvalidKeExceptionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewInvalidKeExceptionResponse)
+	err := c.cc.Invoke(ctx, InvalidKeExceptionService_NewInvalidKeException_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *invalidKeExceptionServiceClient) GetDhGroup(ctx context.Context, in *GetDhGroupRequest, opts ...grpc.CallOption) (*GetDhGroupResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetDhGroupResponse)
+	err := c.cc.Invoke(ctx, InvalidKeExceptionService_GetDhGroup_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// InvalidKeExceptionServiceServer is the server API for InvalidKeExceptionService service.
+// All implementations must embed UnimplementedInvalidKeExceptionServiceServer
+// for forward compatibility.
+type InvalidKeExceptionServiceServer interface {
+	NewInvalidKeException(context.Context, *NewInvalidKeExceptionRequest) (*NewInvalidKeExceptionResponse, error)
+	GetDhGroup(context.Context, *GetDhGroupRequest) (*GetDhGroupResponse, error)
+	mustEmbedUnimplementedInvalidKeExceptionServiceServer()
+}
+
+// UnimplementedInvalidKeExceptionServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedInvalidKeExceptionServiceServer struct{}
+
+func (UnimplementedInvalidKeExceptionServiceServer) NewInvalidKeException(context.Context, *NewInvalidKeExceptionRequest) (*NewInvalidKeExceptionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewInvalidKeException not implemented")
+}
+func (UnimplementedInvalidKeExceptionServiceServer) GetDhGroup(context.Context, *GetDhGroupRequest) (*GetDhGroupResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetDhGroup not implemented")
+}
+func (UnimplementedInvalidKeExceptionServiceServer) mustEmbedUnimplementedInvalidKeExceptionServiceServer() {
+}
+func (UnimplementedInvalidKeExceptionServiceServer) testEmbeddedByValue() {}
+
+// UnsafeInvalidKeExceptionServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to InvalidKeExceptionServiceServer will
+// result in compilation errors.
+type UnsafeInvalidKeExceptionServiceServer interface {
+	mustEmbedUnimplementedInvalidKeExceptionServiceServer()
+}
+
+func RegisterInvalidKeExceptionServiceServer(s grpc.ServiceRegistrar, srv InvalidKeExceptionServiceServer) {
+	// If the following call panics, it indicates UnimplementedInvalidKeExceptionServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&InvalidKeExceptionService_ServiceDesc, srv)
+}
+
+func _InvalidKeExceptionService_NewInvalidKeException_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewInvalidKeExceptionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InvalidKeExceptionServiceServer).NewInvalidKeException(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InvalidKeExceptionService_NewInvalidKeException_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InvalidKeExceptionServiceServer).NewInvalidKeException(ctx, req.(*NewInvalidKeExceptionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InvalidKeExceptionService_GetDhGroup_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetDhGroupRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InvalidKeExceptionServiceServer).GetDhGroup(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InvalidKeExceptionService_GetDhGroup_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InvalidKeExceptionServiceServer).GetDhGroup(ctx, req.(*GetDhGroupRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// InvalidKeExceptionService_ServiceDesc is the grpc.ServiceDesc for InvalidKeExceptionService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var InvalidKeExceptionService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "exceptions.InvalidKeExceptionService",
+	HandlerType: (*InvalidKeExceptionServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewInvalidKeException",
+			Handler:    _InvalidKeExceptionService_NewInvalidKeException_Handler,
+		},
+		{
+			MethodName: "GetDhGroup",
+			Handler:    _InvalidKeExceptionService_GetDhGroup_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/exceptions/exceptions.proto",
+}
+
+const (
+	IkeNetworkLostExceptionService_NewIkeNetworkLostException_FullMethodName = "/exceptions.IkeNetworkLostExceptionService/NewIkeNetworkLostException"
+	IkeNetworkLostExceptionService_GetNetwork_FullMethodName                 = "/exceptions.IkeNetworkLostExceptionService/GetNetwork"
+)
+
+// IkeNetworkLostExceptionServiceClient is the client API for IkeNetworkLostExceptionService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type IkeNetworkLostExceptionServiceClient interface {
+	NewIkeNetworkLostException(ctx context.Context, in *NewIkeNetworkLostExceptionRequest, opts ...grpc.CallOption) (*NewIkeNetworkLostExceptionResponse, error)
+	GetNetwork(ctx context.Context, in *GetNetworkRequest, opts ...grpc.CallOption) (*GetNetworkResponse, error)
+}
+
+type ikeNetworkLostExceptionServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewIkeNetworkLostExceptionServiceClient(cc grpc.ClientConnInterface) IkeNetworkLostExceptionServiceClient {
+	return &ikeNetworkLostExceptionServiceClient{cc}
+}
+
+func (c *ikeNetworkLostExceptionServiceClient) NewIkeNetworkLostException(ctx context.Context, in *NewIkeNetworkLostExceptionRequest, opts ...grpc.CallOption) (*NewIkeNetworkLostExceptionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewIkeNetworkLostExceptionResponse)
+	err := c.cc.Invoke(ctx, IkeNetworkLostExceptionService_NewIkeNetworkLostException_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ikeNetworkLostExceptionServiceClient) GetNetwork(ctx context.Context, in *GetNetworkRequest, opts ...grpc.CallOption) (*GetNetworkResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetNetworkResponse)
+	err := c.cc.Invoke(ctx, IkeNetworkLostExceptionService_GetNetwork_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// IkeNetworkLostExceptionServiceServer is the server API for IkeNetworkLostExceptionService service.
+// All implementations must embed UnimplementedIkeNetworkLostExceptionServiceServer
+// for forward compatibility.
+type IkeNetworkLostExceptionServiceServer interface {
+	NewIkeNetworkLostException(context.Context, *NewIkeNetworkLostExceptionRequest) (*NewIkeNetworkLostExceptionResponse, error)
+	GetNetwork(context.Context, *GetNetworkRequest) (*GetNetworkResponse, error)
+	mustEmbedUnimplementedIkeNetworkLostExceptionServiceServer()
+}
+
+// UnimplementedIkeNetworkLostExceptionServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedIkeNetworkLostExceptionServiceServer struct{}
+
+func (UnimplementedIkeNetworkLostExceptionServiceServer) NewIkeNetworkLostException(context.Context, *NewIkeNetworkLostExceptionRequest) (*NewIkeNetworkLostExceptionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewIkeNetworkLostException not implemented")
+}
+func (UnimplementedIkeNetworkLostExceptionServiceServer) GetNetwork(context.Context, *GetNetworkRequest) (*GetNetworkResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetNetwork not implemented")
+}
+func (UnimplementedIkeNetworkLostExceptionServiceServer) mustEmbedUnimplementedIkeNetworkLostExceptionServiceServer() {
+}
+func (UnimplementedIkeNetworkLostExceptionServiceServer) testEmbeddedByValue() {}
+
+// UnsafeIkeNetworkLostExceptionServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to IkeNetworkLostExceptionServiceServer will
+// result in compilation errors.
+type UnsafeIkeNetworkLostExceptionServiceServer interface {
+	mustEmbedUnimplementedIkeNetworkLostExceptionServiceServer()
+}
+
+func RegisterIkeNetworkLostExceptionServiceServer(s grpc.ServiceRegistrar, srv IkeNetworkLostExceptionServiceServer) {
+	// If the following call panics, it indicates UnimplementedIkeNetworkLostExceptionServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&IkeNetworkLostExceptionService_ServiceDesc, srv)
+}
+
+func _IkeNetworkLostExceptionService_NewIkeNetworkLostException_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewIkeNetworkLostExceptionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(IkeNetworkLostExceptionServiceServer).NewIkeNetworkLostException(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: IkeNetworkLostExceptionService_NewIkeNetworkLostException_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(IkeNetworkLostExceptionServiceServer).NewIkeNetworkLostException(ctx, req.(*NewIkeNetworkLostExceptionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _IkeNetworkLostExceptionService_GetNetwork_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetNetworkRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(IkeNetworkLostExceptionServiceServer).GetNetwork(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: IkeNetworkLostExceptionService_GetNetwork_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(IkeNetworkLostExceptionServiceServer).GetNetwork(ctx, req.(*GetNetworkRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// IkeNetworkLostExceptionService_ServiceDesc is the grpc.ServiceDesc for IkeNetworkLostExceptionService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var IkeNetworkLostExceptionService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "exceptions.IkeNetworkLostExceptionService",
+	HandlerType: (*IkeNetworkLostExceptionServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewIkeNetworkLostException",
+			Handler:    _IkeNetworkLostExceptionService_NewIkeNetworkLostException_Handler,
+		},
+		{
+			MethodName: "GetNetwork",
+			Handler:    _IkeNetworkLostExceptionService_GetNetwork_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/exceptions/exceptions.proto",
+}
+
+const (
+	InvalidMajorVersionExceptionService_NewInvalidMajorVersionException_FullMethodName = "/exceptions.InvalidMajorVersionExceptionService/NewInvalidMajorVersionException"
+	InvalidMajorVersionExceptionService_GetMajorVersion_FullMethodName                 = "/exceptions.InvalidMajorVersionExceptionService/GetMajorVersion"
+)
+
+// InvalidMajorVersionExceptionServiceClient is the client API for InvalidMajorVersionExceptionService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type InvalidMajorVersionExceptionServiceClient interface {
+	NewInvalidMajorVersionException(ctx context.Context, in *NewInvalidMajorVersionExceptionRequest, opts ...grpc.CallOption) (*NewInvalidMajorVersionExceptionResponse, error)
+	GetMajorVersion(ctx context.Context, in *GetMajorVersionRequest, opts ...grpc.CallOption) (*GetMajorVersionResponse, error)
+}
+
+type invalidMajorVersionExceptionServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewInvalidMajorVersionExceptionServiceClient(cc grpc.ClientConnInterface) InvalidMajorVersionExceptionServiceClient {
+	return &invalidMajorVersionExceptionServiceClient{cc}
+}
+
+func (c *invalidMajorVersionExceptionServiceClient) NewInvalidMajorVersionException(ctx context.Context, in *NewInvalidMajorVersionExceptionRequest, opts ...grpc.CallOption) (*NewInvalidMajorVersionExceptionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewInvalidMajorVersionExceptionResponse)
+	err := c.cc.Invoke(ctx, InvalidMajorVersionExceptionService_NewInvalidMajorVersionException_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *invalidMajorVersionExceptionServiceClient) GetMajorVersion(ctx context.Context, in *GetMajorVersionRequest, opts ...grpc.CallOption) (*GetMajorVersionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetMajorVersionResponse)
+	err := c.cc.Invoke(ctx, InvalidMajorVersionExceptionService_GetMajorVersion_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// InvalidMajorVersionExceptionServiceServer is the server API for InvalidMajorVersionExceptionService service.
+// All implementations must embed UnimplementedInvalidMajorVersionExceptionServiceServer
+// for forward compatibility.
+type InvalidMajorVersionExceptionServiceServer interface {
+	NewInvalidMajorVersionException(context.Context, *NewInvalidMajorVersionExceptionRequest) (*NewInvalidMajorVersionExceptionResponse, error)
+	GetMajorVersion(context.Context, *GetMajorVersionRequest) (*GetMajorVersionResponse, error)
+	mustEmbedUnimplementedInvalidMajorVersionExceptionServiceServer()
+}
+
+// UnimplementedInvalidMajorVersionExceptionServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedInvalidMajorVersionExceptionServiceServer struct{}
+
+func (UnimplementedInvalidMajorVersionExceptionServiceServer) NewInvalidMajorVersionException(context.Context, *NewInvalidMajorVersionExceptionRequest) (*NewInvalidMajorVersionExceptionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewInvalidMajorVersionException not implemented")
+}
+func (UnimplementedInvalidMajorVersionExceptionServiceServer) GetMajorVersion(context.Context, *GetMajorVersionRequest) (*GetMajorVersionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetMajorVersion not implemented")
+}
+func (UnimplementedInvalidMajorVersionExceptionServiceServer) mustEmbedUnimplementedInvalidMajorVersionExceptionServiceServer() {
+}
+func (UnimplementedInvalidMajorVersionExceptionServiceServer) testEmbeddedByValue() {}
+
+// UnsafeInvalidMajorVersionExceptionServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to InvalidMajorVersionExceptionServiceServer will
+// result in compilation errors.
+type UnsafeInvalidMajorVersionExceptionServiceServer interface {
+	mustEmbedUnimplementedInvalidMajorVersionExceptionServiceServer()
+}
+
+func RegisterInvalidMajorVersionExceptionServiceServer(s grpc.ServiceRegistrar, srv InvalidMajorVersionExceptionServiceServer) {
+	// If the following call panics, it indicates UnimplementedInvalidMajorVersionExceptionServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&InvalidMajorVersionExceptionService_ServiceDesc, srv)
+}
+
+func _InvalidMajorVersionExceptionService_NewInvalidMajorVersionException_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewInvalidMajorVersionExceptionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InvalidMajorVersionExceptionServiceServer).NewInvalidMajorVersionException(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InvalidMajorVersionExceptionService_NewInvalidMajorVersionException_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InvalidMajorVersionExceptionServiceServer).NewInvalidMajorVersionException(ctx, req.(*NewInvalidMajorVersionExceptionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InvalidMajorVersionExceptionService_GetMajorVersion_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetMajorVersionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InvalidMajorVersionExceptionServiceServer).GetMajorVersion(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InvalidMajorVersionExceptionService_GetMajorVersion_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InvalidMajorVersionExceptionServiceServer).GetMajorVersion(ctx, req.(*GetMajorVersionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// InvalidMajorVersionExceptionService_ServiceDesc is the grpc.ServiceDesc for InvalidMajorVersionExceptionService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var InvalidMajorVersionExceptionService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "exceptions.InvalidMajorVersionExceptionService",
+	HandlerType: (*InvalidMajorVersionExceptionServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewInvalidMajorVersionException",
+			Handler:    _InvalidMajorVersionExceptionService_NewInvalidMajorVersionException_Handler,
+		},
+		{
+			MethodName: "GetMajorVersion",
+			Handler:    _InvalidMajorVersionExceptionService_GetMajorVersion_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

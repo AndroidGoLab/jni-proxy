@@ -9,6 +9,102 @@ import (
 	"google.golang.org/grpc"
 )
 
+// CustomPrinterIconCallbackClient wraps the gRPC CustomPrinterIconCallbackService client.
+type CustomPrinterIconCallbackClient struct {
+	svc pb.CustomPrinterIconCallbackServiceClient
+}
+
+// NewCustomPrinterIconCallbackClient creates a new CustomPrinterIconCallback client.
+func NewCustomPrinterIconCallbackClient(cc grpc.ClientConnInterface) *CustomPrinterIconCallbackClient {
+	return &CustomPrinterIconCallbackClient{
+		svc: pb.NewCustomPrinterIconCallbackServiceClient(cc),
+	}
+}
+
+// OnCustomPrinterIconLoaded calls the OnCustomPrinterIconLoaded RPC.
+func (c *CustomPrinterIconCallbackClient) OnCustomPrinterIconLoaded(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.OnCustomPrinterIconLoaded(ctx, &pb.OnCustomPrinterIconLoadedRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// PrintDocumentClient wraps the gRPC PrintDocumentService client.
+type PrintDocumentClient struct {
+	svc pb.PrintDocumentServiceClient
+}
+
+// NewPrintDocumentClient creates a new PrintDocument client.
+func NewPrintDocumentClient(cc grpc.ClientConnInterface) *PrintDocumentClient {
+	return &PrintDocumentClient{
+		svc: pb.NewPrintDocumentServiceClient(cc),
+	}
+}
+
+// GetData calls the GetData RPC.
+func (c *PrintDocumentClient) GetData(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetData(ctx, &pb.GetDataRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInfo calls the GetInfo RPC.
+func (c *PrintDocumentClient) GetInfo(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetInfo(ctx, &pb.GetInfoRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// PrintServiceClient wraps the gRPC PrintServiceService client.
+type PrintServiceClient struct {
+	svc pb.PrintServiceServiceClient
+}
+
+// NewPrintServiceClient creates a new PrintService client.
+func NewPrintServiceClient(cc grpc.ClientConnInterface) *PrintServiceClient {
+	return &PrintServiceClient{
+		svc: pb.NewPrintServiceServiceClient(cc),
+	}
+}
+
+// GeneratePrinterId calls the GeneratePrinterId RPC.
+func (c *PrintServiceClient) GeneratePrinterId(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.GeneratePrinterId(ctx, &pb.GeneratePrinterIdRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetActivePrintJobs calls the GetActivePrintJobs RPC.
+func (c *PrintServiceClient) GetActivePrintJobs(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetActivePrintJobs(ctx, &pb.GetActivePrintJobsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnBind calls the OnBind RPC.
+func (c *PrintServiceClient) OnBind(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.OnBind(ctx, &pb.OnBindRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // PrintJobClient wraps the gRPC PrintJobService client.
 type PrintJobClient struct {
 	svc pb.PrintJobServiceClient
@@ -248,93 +344,6 @@ func (c *PrintJobClient) Start(ctx context.Context) (bool, error) {
 	return resp.GetResult(), nil
 }
 
-// CustomPrinterIconCallbackClient wraps the gRPC CustomPrinterIconCallbackService client.
-type CustomPrinterIconCallbackClient struct {
-	svc pb.CustomPrinterIconCallbackServiceClient
-}
-
-// NewCustomPrinterIconCallbackClient creates a new CustomPrinterIconCallback client.
-func NewCustomPrinterIconCallbackClient(cc grpc.ClientConnInterface) *CustomPrinterIconCallbackClient {
-	return &CustomPrinterIconCallbackClient{
-		svc: pb.NewCustomPrinterIconCallbackServiceClient(cc),
-	}
-}
-
-// OnCustomPrinterIconLoaded calls the OnCustomPrinterIconLoaded RPC.
-func (c *CustomPrinterIconCallbackClient) OnCustomPrinterIconLoaded(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.OnCustomPrinterIconLoaded(ctx, &pb.OnCustomPrinterIconLoadedRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// PrintDocumentClient wraps the gRPC PrintDocumentService client.
-type PrintDocumentClient struct {
-	svc pb.PrintDocumentServiceClient
-}
-
-// NewPrintDocumentClient creates a new PrintDocument client.
-func NewPrintDocumentClient(cc grpc.ClientConnInterface) *PrintDocumentClient {
-	return &PrintDocumentClient{
-		svc: pb.NewPrintDocumentServiceClient(cc),
-	}
-}
-
-// GetData calls the GetData RPC.
-func (c *PrintDocumentClient) GetData(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetData(ctx, &pb.GetDataRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetInfo calls the GetInfo RPC.
-func (c *PrintDocumentClient) GetInfo(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetInfo(ctx, &pb.GetInfoRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// PrintServiceClient wraps the gRPC PrintServiceService client.
-type PrintServiceClient struct {
-	svc pb.PrintServiceServiceClient
-}
-
-// NewPrintServiceClient creates a new PrintService client.
-func NewPrintServiceClient(cc grpc.ClientConnInterface) *PrintServiceClient {
-	return &PrintServiceClient{
-		svc: pb.NewPrintServiceServiceClient(cc),
-	}
-}
-
-// GeneratePrinterId calls the GeneratePrinterId RPC.
-func (c *PrintServiceClient) GeneratePrinterId(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.GeneratePrinterId(ctx, &pb.GeneratePrinterIdRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// OnBind calls the OnBind RPC.
-func (c *PrintServiceClient) OnBind(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.OnBind(ctx, &pb.OnBindRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
 // PrinterDiscoverySessionClient wraps the gRPC PrinterDiscoverySessionService client.
 type PrinterDiscoverySessionClient struct {
 	svc pb.PrinterDiscoverySessionServiceClient
@@ -345,6 +354,24 @@ func NewPrinterDiscoverySessionClient(cc grpc.ClientConnInterface) *PrinterDisco
 	return &PrinterDiscoverySessionClient{
 		svc: pb.NewPrinterDiscoverySessionServiceClient(cc),
 	}
+}
+
+// GetPrinters calls the GetPrinters RPC.
+func (c *PrinterDiscoverySessionClient) GetPrinters(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetPrinters(ctx, &pb.GetPrintersRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTrackedPrinters calls the GetTrackedPrinters RPC.
+func (c *PrinterDiscoverySessionClient) GetTrackedPrinters(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetTrackedPrinters(ctx, &pb.GetTrackedPrintersRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
 }
 
 // IsDestroyed calls the IsDestroyed RPC.

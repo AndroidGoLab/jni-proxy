@@ -21,367 +21,11 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	TvAdManagerService_RegisterCallback_FullMethodName   = "/ad.TvAdManagerService/RegisterCallback"
-	TvAdManagerService_SendAppLinkCommand_FullMethodName = "/ad.TvAdManagerService/SendAppLinkCommand"
-	TvAdManagerService_UnregisterCallback_FullMethodName = "/ad.TvAdManagerService/UnregisterCallback"
-)
-
-// TvAdManagerServiceClient is the client API for TvAdManagerService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type TvAdManagerServiceClient interface {
-	RegisterCallback(ctx context.Context, in *RegisterCallbackRequest, opts ...grpc.CallOption) (*RegisterCallbackResponse, error)
-	SendAppLinkCommand(ctx context.Context, in *SendAppLinkCommandRequest, opts ...grpc.CallOption) (*SendAppLinkCommandResponse, error)
-	UnregisterCallback(ctx context.Context, in *UnregisterCallbackRequest, opts ...grpc.CallOption) (*UnregisterCallbackResponse, error)
-}
-
-type tvAdManagerServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewTvAdManagerServiceClient(cc grpc.ClientConnInterface) TvAdManagerServiceClient {
-	return &tvAdManagerServiceClient{cc}
-}
-
-func (c *tvAdManagerServiceClient) RegisterCallback(ctx context.Context, in *RegisterCallbackRequest, opts ...grpc.CallOption) (*RegisterCallbackResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(RegisterCallbackResponse)
-	err := c.cc.Invoke(ctx, TvAdManagerService_RegisterCallback_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *tvAdManagerServiceClient) SendAppLinkCommand(ctx context.Context, in *SendAppLinkCommandRequest, opts ...grpc.CallOption) (*SendAppLinkCommandResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SendAppLinkCommandResponse)
-	err := c.cc.Invoke(ctx, TvAdManagerService_SendAppLinkCommand_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *tvAdManagerServiceClient) UnregisterCallback(ctx context.Context, in *UnregisterCallbackRequest, opts ...grpc.CallOption) (*UnregisterCallbackResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(UnregisterCallbackResponse)
-	err := c.cc.Invoke(ctx, TvAdManagerService_UnregisterCallback_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// TvAdManagerServiceServer is the server API for TvAdManagerService service.
-// All implementations must embed UnimplementedTvAdManagerServiceServer
-// for forward compatibility.
-type TvAdManagerServiceServer interface {
-	RegisterCallback(context.Context, *RegisterCallbackRequest) (*RegisterCallbackResponse, error)
-	SendAppLinkCommand(context.Context, *SendAppLinkCommandRequest) (*SendAppLinkCommandResponse, error)
-	UnregisterCallback(context.Context, *UnregisterCallbackRequest) (*UnregisterCallbackResponse, error)
-	mustEmbedUnimplementedTvAdManagerServiceServer()
-}
-
-// UnimplementedTvAdManagerServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedTvAdManagerServiceServer struct{}
-
-func (UnimplementedTvAdManagerServiceServer) RegisterCallback(context.Context, *RegisterCallbackRequest) (*RegisterCallbackResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method RegisterCallback not implemented")
-}
-func (UnimplementedTvAdManagerServiceServer) SendAppLinkCommand(context.Context, *SendAppLinkCommandRequest) (*SendAppLinkCommandResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SendAppLinkCommand not implemented")
-}
-func (UnimplementedTvAdManagerServiceServer) UnregisterCallback(context.Context, *UnregisterCallbackRequest) (*UnregisterCallbackResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method UnregisterCallback not implemented")
-}
-func (UnimplementedTvAdManagerServiceServer) mustEmbedUnimplementedTvAdManagerServiceServer() {}
-func (UnimplementedTvAdManagerServiceServer) testEmbeddedByValue()                            {}
-
-// UnsafeTvAdManagerServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to TvAdManagerServiceServer will
-// result in compilation errors.
-type UnsafeTvAdManagerServiceServer interface {
-	mustEmbedUnimplementedTvAdManagerServiceServer()
-}
-
-func RegisterTvAdManagerServiceServer(s grpc.ServiceRegistrar, srv TvAdManagerServiceServer) {
-	// If the following call panics, it indicates UnimplementedTvAdManagerServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&TvAdManagerService_ServiceDesc, srv)
-}
-
-func _TvAdManagerService_RegisterCallback_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(RegisterCallbackRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TvAdManagerServiceServer).RegisterCallback(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TvAdManagerService_RegisterCallback_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TvAdManagerServiceServer).RegisterCallback(ctx, req.(*RegisterCallbackRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TvAdManagerService_SendAppLinkCommand_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SendAppLinkCommandRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TvAdManagerServiceServer).SendAppLinkCommand(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TvAdManagerService_SendAppLinkCommand_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TvAdManagerServiceServer).SendAppLinkCommand(ctx, req.(*SendAppLinkCommandRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TvAdManagerService_UnregisterCallback_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UnregisterCallbackRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TvAdManagerServiceServer).UnregisterCallback(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TvAdManagerService_UnregisterCallback_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TvAdManagerServiceServer).UnregisterCallback(ctx, req.(*UnregisterCallbackRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// TvAdManagerService_ServiceDesc is the grpc.ServiceDesc for TvAdManagerService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var TvAdManagerService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "ad.TvAdManagerService",
-	HandlerType: (*TvAdManagerServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "RegisterCallback",
-			Handler:    _TvAdManagerService_RegisterCallback_Handler,
-		},
-		{
-			MethodName: "SendAppLinkCommand",
-			Handler:    _TvAdManagerService_SendAppLinkCommand_Handler,
-		},
-		{
-			MethodName: "UnregisterCallback",
-			Handler:    _TvAdManagerService_UnregisterCallback_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/ad/ad.proto",
-}
-
-const (
-	TvAdManagerTvAdServiceCallbackService_OnAdServiceAdded_FullMethodName   = "/ad.TvAdManagerTvAdServiceCallbackService/OnAdServiceAdded"
-	TvAdManagerTvAdServiceCallbackService_OnAdServiceRemoved_FullMethodName = "/ad.TvAdManagerTvAdServiceCallbackService/OnAdServiceRemoved"
-	TvAdManagerTvAdServiceCallbackService_OnAdServiceUpdated_FullMethodName = "/ad.TvAdManagerTvAdServiceCallbackService/OnAdServiceUpdated"
-)
-
-// TvAdManagerTvAdServiceCallbackServiceClient is the client API for TvAdManagerTvAdServiceCallbackService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type TvAdManagerTvAdServiceCallbackServiceClient interface {
-	OnAdServiceAdded(ctx context.Context, in *OnAdServiceAddedRequest, opts ...grpc.CallOption) (*OnAdServiceAddedResponse, error)
-	OnAdServiceRemoved(ctx context.Context, in *OnAdServiceRemovedRequest, opts ...grpc.CallOption) (*OnAdServiceRemovedResponse, error)
-	OnAdServiceUpdated(ctx context.Context, in *OnAdServiceUpdatedRequest, opts ...grpc.CallOption) (*OnAdServiceUpdatedResponse, error)
-}
-
-type tvAdManagerTvAdServiceCallbackServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewTvAdManagerTvAdServiceCallbackServiceClient(cc grpc.ClientConnInterface) TvAdManagerTvAdServiceCallbackServiceClient {
-	return &tvAdManagerTvAdServiceCallbackServiceClient{cc}
-}
-
-func (c *tvAdManagerTvAdServiceCallbackServiceClient) OnAdServiceAdded(ctx context.Context, in *OnAdServiceAddedRequest, opts ...grpc.CallOption) (*OnAdServiceAddedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnAdServiceAddedResponse)
-	err := c.cc.Invoke(ctx, TvAdManagerTvAdServiceCallbackService_OnAdServiceAdded_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *tvAdManagerTvAdServiceCallbackServiceClient) OnAdServiceRemoved(ctx context.Context, in *OnAdServiceRemovedRequest, opts ...grpc.CallOption) (*OnAdServiceRemovedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnAdServiceRemovedResponse)
-	err := c.cc.Invoke(ctx, TvAdManagerTvAdServiceCallbackService_OnAdServiceRemoved_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *tvAdManagerTvAdServiceCallbackServiceClient) OnAdServiceUpdated(ctx context.Context, in *OnAdServiceUpdatedRequest, opts ...grpc.CallOption) (*OnAdServiceUpdatedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnAdServiceUpdatedResponse)
-	err := c.cc.Invoke(ctx, TvAdManagerTvAdServiceCallbackService_OnAdServiceUpdated_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// TvAdManagerTvAdServiceCallbackServiceServer is the server API for TvAdManagerTvAdServiceCallbackService service.
-// All implementations must embed UnimplementedTvAdManagerTvAdServiceCallbackServiceServer
-// for forward compatibility.
-type TvAdManagerTvAdServiceCallbackServiceServer interface {
-	OnAdServiceAdded(context.Context, *OnAdServiceAddedRequest) (*OnAdServiceAddedResponse, error)
-	OnAdServiceRemoved(context.Context, *OnAdServiceRemovedRequest) (*OnAdServiceRemovedResponse, error)
-	OnAdServiceUpdated(context.Context, *OnAdServiceUpdatedRequest) (*OnAdServiceUpdatedResponse, error)
-	mustEmbedUnimplementedTvAdManagerTvAdServiceCallbackServiceServer()
-}
-
-// UnimplementedTvAdManagerTvAdServiceCallbackServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedTvAdManagerTvAdServiceCallbackServiceServer struct{}
-
-func (UnimplementedTvAdManagerTvAdServiceCallbackServiceServer) OnAdServiceAdded(context.Context, *OnAdServiceAddedRequest) (*OnAdServiceAddedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnAdServiceAdded not implemented")
-}
-func (UnimplementedTvAdManagerTvAdServiceCallbackServiceServer) OnAdServiceRemoved(context.Context, *OnAdServiceRemovedRequest) (*OnAdServiceRemovedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnAdServiceRemoved not implemented")
-}
-func (UnimplementedTvAdManagerTvAdServiceCallbackServiceServer) OnAdServiceUpdated(context.Context, *OnAdServiceUpdatedRequest) (*OnAdServiceUpdatedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnAdServiceUpdated not implemented")
-}
-func (UnimplementedTvAdManagerTvAdServiceCallbackServiceServer) mustEmbedUnimplementedTvAdManagerTvAdServiceCallbackServiceServer() {
-}
-func (UnimplementedTvAdManagerTvAdServiceCallbackServiceServer) testEmbeddedByValue() {}
-
-// UnsafeTvAdManagerTvAdServiceCallbackServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to TvAdManagerTvAdServiceCallbackServiceServer will
-// result in compilation errors.
-type UnsafeTvAdManagerTvAdServiceCallbackServiceServer interface {
-	mustEmbedUnimplementedTvAdManagerTvAdServiceCallbackServiceServer()
-}
-
-func RegisterTvAdManagerTvAdServiceCallbackServiceServer(s grpc.ServiceRegistrar, srv TvAdManagerTvAdServiceCallbackServiceServer) {
-	// If the following call panics, it indicates UnimplementedTvAdManagerTvAdServiceCallbackServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&TvAdManagerTvAdServiceCallbackService_ServiceDesc, srv)
-}
-
-func _TvAdManagerTvAdServiceCallbackService_OnAdServiceAdded_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnAdServiceAddedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TvAdManagerTvAdServiceCallbackServiceServer).OnAdServiceAdded(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TvAdManagerTvAdServiceCallbackService_OnAdServiceAdded_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TvAdManagerTvAdServiceCallbackServiceServer).OnAdServiceAdded(ctx, req.(*OnAdServiceAddedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TvAdManagerTvAdServiceCallbackService_OnAdServiceRemoved_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnAdServiceRemovedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TvAdManagerTvAdServiceCallbackServiceServer).OnAdServiceRemoved(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TvAdManagerTvAdServiceCallbackService_OnAdServiceRemoved_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TvAdManagerTvAdServiceCallbackServiceServer).OnAdServiceRemoved(ctx, req.(*OnAdServiceRemovedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TvAdManagerTvAdServiceCallbackService_OnAdServiceUpdated_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnAdServiceUpdatedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TvAdManagerTvAdServiceCallbackServiceServer).OnAdServiceUpdated(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TvAdManagerTvAdServiceCallbackService_OnAdServiceUpdated_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TvAdManagerTvAdServiceCallbackServiceServer).OnAdServiceUpdated(ctx, req.(*OnAdServiceUpdatedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// TvAdManagerTvAdServiceCallbackService_ServiceDesc is the grpc.ServiceDesc for TvAdManagerTvAdServiceCallbackService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var TvAdManagerTvAdServiceCallbackService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "ad.TvAdManagerTvAdServiceCallbackService",
-	HandlerType: (*TvAdManagerTvAdServiceCallbackServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "OnAdServiceAdded",
-			Handler:    _TvAdManagerTvAdServiceCallbackService_OnAdServiceAdded_Handler,
-		},
-		{
-			MethodName: "OnAdServiceRemoved",
-			Handler:    _TvAdManagerTvAdServiceCallbackService_OnAdServiceRemoved_Handler,
-		},
-		{
-			MethodName: "OnAdServiceUpdated",
-			Handler:    _TvAdManagerTvAdServiceCallbackService_OnAdServiceUpdated_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/ad/ad.proto",
-}
-
-const (
 	TvAdServiceInfoService_NewTvAdServiceInfo_FullMethodName = "/ad.TvAdServiceInfoService/NewTvAdServiceInfo"
 	TvAdServiceInfoService_DescribeContents_FullMethodName   = "/ad.TvAdServiceInfoService/DescribeContents"
 	TvAdServiceInfoService_GetId_FullMethodName              = "/ad.TvAdServiceInfoService/GetId"
 	TvAdServiceInfoService_GetServiceInfo_FullMethodName     = "/ad.TvAdServiceInfoService/GetServiceInfo"
+	TvAdServiceInfoService_GetSupportedTypes_FullMethodName  = "/ad.TvAdServiceInfoService/GetSupportedTypes"
 	TvAdServiceInfoService_WriteToParcel_FullMethodName      = "/ad.TvAdServiceInfoService/WriteToParcel"
 )
 
@@ -393,6 +37,7 @@ type TvAdServiceInfoServiceClient interface {
 	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
 	GetId(ctx context.Context, in *GetIdRequest, opts ...grpc.CallOption) (*GetIdResponse, error)
 	GetServiceInfo(ctx context.Context, in *GetServiceInfoRequest, opts ...grpc.CallOption) (*GetServiceInfoResponse, error)
+	GetSupportedTypes(ctx context.Context, in *GetSupportedTypesRequest, opts ...grpc.CallOption) (*GetSupportedTypesResponse, error)
 	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
 }
 
@@ -444,6 +89,16 @@ func (c *tvAdServiceInfoServiceClient) GetServiceInfo(ctx context.Context, in *G
 	return out, nil
 }
 
+func (c *tvAdServiceInfoServiceClient) GetSupportedTypes(ctx context.Context, in *GetSupportedTypesRequest, opts ...grpc.CallOption) (*GetSupportedTypesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSupportedTypesResponse)
+	err := c.cc.Invoke(ctx, TvAdServiceInfoService_GetSupportedTypes_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *tvAdServiceInfoServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(WriteToParcelResponse)
@@ -462,6 +117,7 @@ type TvAdServiceInfoServiceServer interface {
 	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
 	GetId(context.Context, *GetIdRequest) (*GetIdResponse, error)
 	GetServiceInfo(context.Context, *GetServiceInfoRequest) (*GetServiceInfoResponse, error)
+	GetSupportedTypes(context.Context, *GetSupportedTypesRequest) (*GetSupportedTypesResponse, error)
 	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
 	mustEmbedUnimplementedTvAdServiceInfoServiceServer()
 }
@@ -484,6 +140,9 @@ func (UnimplementedTvAdServiceInfoServiceServer) GetId(context.Context, *GetIdRe
 }
 func (UnimplementedTvAdServiceInfoServiceServer) GetServiceInfo(context.Context, *GetServiceInfoRequest) (*GetServiceInfoResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetServiceInfo not implemented")
+}
+func (UnimplementedTvAdServiceInfoServiceServer) GetSupportedTypes(context.Context, *GetSupportedTypesRequest) (*GetSupportedTypesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSupportedTypes not implemented")
 }
 func (UnimplementedTvAdServiceInfoServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
@@ -582,6 +241,24 @@ func _TvAdServiceInfoService_GetServiceInfo_Handler(srv interface{}, ctx context
 	return interceptor(ctx, in, info, handler)
 }
 
+func _TvAdServiceInfoService_GetSupportedTypes_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSupportedTypesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvAdServiceInfoServiceServer).GetSupportedTypes(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvAdServiceInfoService_GetSupportedTypes_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvAdServiceInfoServiceServer).GetSupportedTypes(ctx, req.(*GetSupportedTypesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _TvAdServiceInfoService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(WriteToParcelRequest)
 	if err := dec(in); err != nil {
@@ -622,6 +299,10 @@ var TvAdServiceInfoService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetServiceInfo",
 			Handler:    _TvAdServiceInfoService_GetServiceInfo_Handler,
+		},
+		{
+			MethodName: "GetSupportedTypes",
+			Handler:    _TvAdServiceInfoService_GetSupportedTypes_Handler,
 		},
 		{
 			MethodName: "WriteToParcel",
@@ -2150,6 +1831,401 @@ var TvAdViewTvAdCallbackService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "OnStateChanged",
 			Handler:    _TvAdViewTvAdCallbackService_OnStateChanged_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/ad/ad.proto",
+}
+
+const (
+	TvAdManagerService_GetTvAdServiceList_FullMethodName = "/ad.TvAdManagerService/GetTvAdServiceList"
+	TvAdManagerService_RegisterCallback_FullMethodName   = "/ad.TvAdManagerService/RegisterCallback"
+	TvAdManagerService_SendAppLinkCommand_FullMethodName = "/ad.TvAdManagerService/SendAppLinkCommand"
+	TvAdManagerService_UnregisterCallback_FullMethodName = "/ad.TvAdManagerService/UnregisterCallback"
+)
+
+// TvAdManagerServiceClient is the client API for TvAdManagerService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type TvAdManagerServiceClient interface {
+	GetTvAdServiceList(ctx context.Context, in *GetTvAdServiceListRequest, opts ...grpc.CallOption) (*GetTvAdServiceListResponse, error)
+	RegisterCallback(ctx context.Context, in *RegisterCallbackRequest, opts ...grpc.CallOption) (*RegisterCallbackResponse, error)
+	SendAppLinkCommand(ctx context.Context, in *SendAppLinkCommandRequest, opts ...grpc.CallOption) (*SendAppLinkCommandResponse, error)
+	UnregisterCallback(ctx context.Context, in *UnregisterCallbackRequest, opts ...grpc.CallOption) (*UnregisterCallbackResponse, error)
+}
+
+type tvAdManagerServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewTvAdManagerServiceClient(cc grpc.ClientConnInterface) TvAdManagerServiceClient {
+	return &tvAdManagerServiceClient{cc}
+}
+
+func (c *tvAdManagerServiceClient) GetTvAdServiceList(ctx context.Context, in *GetTvAdServiceListRequest, opts ...grpc.CallOption) (*GetTvAdServiceListResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTvAdServiceListResponse)
+	err := c.cc.Invoke(ctx, TvAdManagerService_GetTvAdServiceList_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tvAdManagerServiceClient) RegisterCallback(ctx context.Context, in *RegisterCallbackRequest, opts ...grpc.CallOption) (*RegisterCallbackResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(RegisterCallbackResponse)
+	err := c.cc.Invoke(ctx, TvAdManagerService_RegisterCallback_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tvAdManagerServiceClient) SendAppLinkCommand(ctx context.Context, in *SendAppLinkCommandRequest, opts ...grpc.CallOption) (*SendAppLinkCommandResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SendAppLinkCommandResponse)
+	err := c.cc.Invoke(ctx, TvAdManagerService_SendAppLinkCommand_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tvAdManagerServiceClient) UnregisterCallback(ctx context.Context, in *UnregisterCallbackRequest, opts ...grpc.CallOption) (*UnregisterCallbackResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(UnregisterCallbackResponse)
+	err := c.cc.Invoke(ctx, TvAdManagerService_UnregisterCallback_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// TvAdManagerServiceServer is the server API for TvAdManagerService service.
+// All implementations must embed UnimplementedTvAdManagerServiceServer
+// for forward compatibility.
+type TvAdManagerServiceServer interface {
+	GetTvAdServiceList(context.Context, *GetTvAdServiceListRequest) (*GetTvAdServiceListResponse, error)
+	RegisterCallback(context.Context, *RegisterCallbackRequest) (*RegisterCallbackResponse, error)
+	SendAppLinkCommand(context.Context, *SendAppLinkCommandRequest) (*SendAppLinkCommandResponse, error)
+	UnregisterCallback(context.Context, *UnregisterCallbackRequest) (*UnregisterCallbackResponse, error)
+	mustEmbedUnimplementedTvAdManagerServiceServer()
+}
+
+// UnimplementedTvAdManagerServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedTvAdManagerServiceServer struct{}
+
+func (UnimplementedTvAdManagerServiceServer) GetTvAdServiceList(context.Context, *GetTvAdServiceListRequest) (*GetTvAdServiceListResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTvAdServiceList not implemented")
+}
+func (UnimplementedTvAdManagerServiceServer) RegisterCallback(context.Context, *RegisterCallbackRequest) (*RegisterCallbackResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method RegisterCallback not implemented")
+}
+func (UnimplementedTvAdManagerServiceServer) SendAppLinkCommand(context.Context, *SendAppLinkCommandRequest) (*SendAppLinkCommandResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SendAppLinkCommand not implemented")
+}
+func (UnimplementedTvAdManagerServiceServer) UnregisterCallback(context.Context, *UnregisterCallbackRequest) (*UnregisterCallbackResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method UnregisterCallback not implemented")
+}
+func (UnimplementedTvAdManagerServiceServer) mustEmbedUnimplementedTvAdManagerServiceServer() {}
+func (UnimplementedTvAdManagerServiceServer) testEmbeddedByValue()                            {}
+
+// UnsafeTvAdManagerServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to TvAdManagerServiceServer will
+// result in compilation errors.
+type UnsafeTvAdManagerServiceServer interface {
+	mustEmbedUnimplementedTvAdManagerServiceServer()
+}
+
+func RegisterTvAdManagerServiceServer(s grpc.ServiceRegistrar, srv TvAdManagerServiceServer) {
+	// If the following call panics, it indicates UnimplementedTvAdManagerServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&TvAdManagerService_ServiceDesc, srv)
+}
+
+func _TvAdManagerService_GetTvAdServiceList_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTvAdServiceListRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvAdManagerServiceServer).GetTvAdServiceList(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvAdManagerService_GetTvAdServiceList_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvAdManagerServiceServer).GetTvAdServiceList(ctx, req.(*GetTvAdServiceListRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TvAdManagerService_RegisterCallback_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RegisterCallbackRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvAdManagerServiceServer).RegisterCallback(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvAdManagerService_RegisterCallback_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvAdManagerServiceServer).RegisterCallback(ctx, req.(*RegisterCallbackRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TvAdManagerService_SendAppLinkCommand_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SendAppLinkCommandRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvAdManagerServiceServer).SendAppLinkCommand(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvAdManagerService_SendAppLinkCommand_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvAdManagerServiceServer).SendAppLinkCommand(ctx, req.(*SendAppLinkCommandRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TvAdManagerService_UnregisterCallback_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UnregisterCallbackRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvAdManagerServiceServer).UnregisterCallback(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvAdManagerService_UnregisterCallback_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvAdManagerServiceServer).UnregisterCallback(ctx, req.(*UnregisterCallbackRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// TvAdManagerService_ServiceDesc is the grpc.ServiceDesc for TvAdManagerService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var TvAdManagerService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "ad.TvAdManagerService",
+	HandlerType: (*TvAdManagerServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "GetTvAdServiceList",
+			Handler:    _TvAdManagerService_GetTvAdServiceList_Handler,
+		},
+		{
+			MethodName: "RegisterCallback",
+			Handler:    _TvAdManagerService_RegisterCallback_Handler,
+		},
+		{
+			MethodName: "SendAppLinkCommand",
+			Handler:    _TvAdManagerService_SendAppLinkCommand_Handler,
+		},
+		{
+			MethodName: "UnregisterCallback",
+			Handler:    _TvAdManagerService_UnregisterCallback_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/ad/ad.proto",
+}
+
+const (
+	TvAdManagerTvAdServiceCallbackService_OnAdServiceAdded_FullMethodName   = "/ad.TvAdManagerTvAdServiceCallbackService/OnAdServiceAdded"
+	TvAdManagerTvAdServiceCallbackService_OnAdServiceRemoved_FullMethodName = "/ad.TvAdManagerTvAdServiceCallbackService/OnAdServiceRemoved"
+	TvAdManagerTvAdServiceCallbackService_OnAdServiceUpdated_FullMethodName = "/ad.TvAdManagerTvAdServiceCallbackService/OnAdServiceUpdated"
+)
+
+// TvAdManagerTvAdServiceCallbackServiceClient is the client API for TvAdManagerTvAdServiceCallbackService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type TvAdManagerTvAdServiceCallbackServiceClient interface {
+	OnAdServiceAdded(ctx context.Context, in *OnAdServiceAddedRequest, opts ...grpc.CallOption) (*OnAdServiceAddedResponse, error)
+	OnAdServiceRemoved(ctx context.Context, in *OnAdServiceRemovedRequest, opts ...grpc.CallOption) (*OnAdServiceRemovedResponse, error)
+	OnAdServiceUpdated(ctx context.Context, in *OnAdServiceUpdatedRequest, opts ...grpc.CallOption) (*OnAdServiceUpdatedResponse, error)
+}
+
+type tvAdManagerTvAdServiceCallbackServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewTvAdManagerTvAdServiceCallbackServiceClient(cc grpc.ClientConnInterface) TvAdManagerTvAdServiceCallbackServiceClient {
+	return &tvAdManagerTvAdServiceCallbackServiceClient{cc}
+}
+
+func (c *tvAdManagerTvAdServiceCallbackServiceClient) OnAdServiceAdded(ctx context.Context, in *OnAdServiceAddedRequest, opts ...grpc.CallOption) (*OnAdServiceAddedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnAdServiceAddedResponse)
+	err := c.cc.Invoke(ctx, TvAdManagerTvAdServiceCallbackService_OnAdServiceAdded_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tvAdManagerTvAdServiceCallbackServiceClient) OnAdServiceRemoved(ctx context.Context, in *OnAdServiceRemovedRequest, opts ...grpc.CallOption) (*OnAdServiceRemovedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnAdServiceRemovedResponse)
+	err := c.cc.Invoke(ctx, TvAdManagerTvAdServiceCallbackService_OnAdServiceRemoved_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tvAdManagerTvAdServiceCallbackServiceClient) OnAdServiceUpdated(ctx context.Context, in *OnAdServiceUpdatedRequest, opts ...grpc.CallOption) (*OnAdServiceUpdatedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnAdServiceUpdatedResponse)
+	err := c.cc.Invoke(ctx, TvAdManagerTvAdServiceCallbackService_OnAdServiceUpdated_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// TvAdManagerTvAdServiceCallbackServiceServer is the server API for TvAdManagerTvAdServiceCallbackService service.
+// All implementations must embed UnimplementedTvAdManagerTvAdServiceCallbackServiceServer
+// for forward compatibility.
+type TvAdManagerTvAdServiceCallbackServiceServer interface {
+	OnAdServiceAdded(context.Context, *OnAdServiceAddedRequest) (*OnAdServiceAddedResponse, error)
+	OnAdServiceRemoved(context.Context, *OnAdServiceRemovedRequest) (*OnAdServiceRemovedResponse, error)
+	OnAdServiceUpdated(context.Context, *OnAdServiceUpdatedRequest) (*OnAdServiceUpdatedResponse, error)
+	mustEmbedUnimplementedTvAdManagerTvAdServiceCallbackServiceServer()
+}
+
+// UnimplementedTvAdManagerTvAdServiceCallbackServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedTvAdManagerTvAdServiceCallbackServiceServer struct{}
+
+func (UnimplementedTvAdManagerTvAdServiceCallbackServiceServer) OnAdServiceAdded(context.Context, *OnAdServiceAddedRequest) (*OnAdServiceAddedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnAdServiceAdded not implemented")
+}
+func (UnimplementedTvAdManagerTvAdServiceCallbackServiceServer) OnAdServiceRemoved(context.Context, *OnAdServiceRemovedRequest) (*OnAdServiceRemovedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnAdServiceRemoved not implemented")
+}
+func (UnimplementedTvAdManagerTvAdServiceCallbackServiceServer) OnAdServiceUpdated(context.Context, *OnAdServiceUpdatedRequest) (*OnAdServiceUpdatedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnAdServiceUpdated not implemented")
+}
+func (UnimplementedTvAdManagerTvAdServiceCallbackServiceServer) mustEmbedUnimplementedTvAdManagerTvAdServiceCallbackServiceServer() {
+}
+func (UnimplementedTvAdManagerTvAdServiceCallbackServiceServer) testEmbeddedByValue() {}
+
+// UnsafeTvAdManagerTvAdServiceCallbackServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to TvAdManagerTvAdServiceCallbackServiceServer will
+// result in compilation errors.
+type UnsafeTvAdManagerTvAdServiceCallbackServiceServer interface {
+	mustEmbedUnimplementedTvAdManagerTvAdServiceCallbackServiceServer()
+}
+
+func RegisterTvAdManagerTvAdServiceCallbackServiceServer(s grpc.ServiceRegistrar, srv TvAdManagerTvAdServiceCallbackServiceServer) {
+	// If the following call panics, it indicates UnimplementedTvAdManagerTvAdServiceCallbackServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&TvAdManagerTvAdServiceCallbackService_ServiceDesc, srv)
+}
+
+func _TvAdManagerTvAdServiceCallbackService_OnAdServiceAdded_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnAdServiceAddedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvAdManagerTvAdServiceCallbackServiceServer).OnAdServiceAdded(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvAdManagerTvAdServiceCallbackService_OnAdServiceAdded_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvAdManagerTvAdServiceCallbackServiceServer).OnAdServiceAdded(ctx, req.(*OnAdServiceAddedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TvAdManagerTvAdServiceCallbackService_OnAdServiceRemoved_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnAdServiceRemovedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvAdManagerTvAdServiceCallbackServiceServer).OnAdServiceRemoved(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvAdManagerTvAdServiceCallbackService_OnAdServiceRemoved_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvAdManagerTvAdServiceCallbackServiceServer).OnAdServiceRemoved(ctx, req.(*OnAdServiceRemovedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TvAdManagerTvAdServiceCallbackService_OnAdServiceUpdated_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnAdServiceUpdatedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvAdManagerTvAdServiceCallbackServiceServer).OnAdServiceUpdated(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvAdManagerTvAdServiceCallbackService_OnAdServiceUpdated_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvAdManagerTvAdServiceCallbackServiceServer).OnAdServiceUpdated(ctx, req.(*OnAdServiceUpdatedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// TvAdManagerTvAdServiceCallbackService_ServiceDesc is the grpc.ServiceDesc for TvAdManagerTvAdServiceCallbackService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var TvAdManagerTvAdServiceCallbackService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "ad.TvAdManagerTvAdServiceCallbackService",
+	HandlerType: (*TvAdManagerTvAdServiceCallbackServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "OnAdServiceAdded",
+			Handler:    _TvAdManagerTvAdServiceCallbackService_OnAdServiceAdded_Handler,
+		},
+		{
+			MethodName: "OnAdServiceRemoved",
+			Handler:    _TvAdManagerTvAdServiceCallbackService_OnAdServiceRemoved_Handler,
+		},
+		{
+			MethodName: "OnAdServiceUpdated",
+			Handler:    _TvAdManagerTvAdServiceCallbackService_OnAdServiceUpdated_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

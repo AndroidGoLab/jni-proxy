@@ -21,1922 +21,14 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	RouteSelectionDescriptorService_DescribeContents_FullMethodName = "/data.RouteSelectionDescriptorService/DescribeContents"
-	RouteSelectionDescriptorService_Equals_FullMethodName           = "/data.RouteSelectionDescriptorService/Equals"
-	RouteSelectionDescriptorService_GetPrecedence_FullMethodName    = "/data.RouteSelectionDescriptorService/GetPrecedence"
-	RouteSelectionDescriptorService_GetSessionType_FullMethodName   = "/data.RouteSelectionDescriptorService/GetSessionType"
-	RouteSelectionDescriptorService_GetSscMode_FullMethodName       = "/data.RouteSelectionDescriptorService/GetSscMode"
-	RouteSelectionDescriptorService_HashCode_FullMethodName         = "/data.RouteSelectionDescriptorService/HashCode"
-	RouteSelectionDescriptorService_ToString_FullMethodName         = "/data.RouteSelectionDescriptorService/ToString"
-	RouteSelectionDescriptorService_WriteToParcel_FullMethodName    = "/data.RouteSelectionDescriptorService/WriteToParcel"
-)
-
-// RouteSelectionDescriptorServiceClient is the client API for RouteSelectionDescriptorService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type RouteSelectionDescriptorServiceClient interface {
-	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
-	GetPrecedence(ctx context.Context, in *GetPrecedenceRequest, opts ...grpc.CallOption) (*GetPrecedenceResponse, error)
-	GetSessionType(ctx context.Context, in *GetSessionTypeRequest, opts ...grpc.CallOption) (*GetSessionTypeResponse, error)
-	GetSscMode(ctx context.Context, in *GetSscModeRequest, opts ...grpc.CallOption) (*GetSscModeResponse, error)
-	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
-	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
-	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
-}
-
-type routeSelectionDescriptorServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewRouteSelectionDescriptorServiceClient(cc grpc.ClientConnInterface) RouteSelectionDescriptorServiceClient {
-	return &routeSelectionDescriptorServiceClient{cc}
-}
-
-func (c *routeSelectionDescriptorServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, RouteSelectionDescriptorService_DescribeContents_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *routeSelectionDescriptorServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(EqualsResponse)
-	err := c.cc.Invoke(ctx, RouteSelectionDescriptorService_Equals_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *routeSelectionDescriptorServiceClient) GetPrecedence(ctx context.Context, in *GetPrecedenceRequest, opts ...grpc.CallOption) (*GetPrecedenceResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetPrecedenceResponse)
-	err := c.cc.Invoke(ctx, RouteSelectionDescriptorService_GetPrecedence_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *routeSelectionDescriptorServiceClient) GetSessionType(ctx context.Context, in *GetSessionTypeRequest, opts ...grpc.CallOption) (*GetSessionTypeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetSessionTypeResponse)
-	err := c.cc.Invoke(ctx, RouteSelectionDescriptorService_GetSessionType_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *routeSelectionDescriptorServiceClient) GetSscMode(ctx context.Context, in *GetSscModeRequest, opts ...grpc.CallOption) (*GetSscModeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetSscModeResponse)
-	err := c.cc.Invoke(ctx, RouteSelectionDescriptorService_GetSscMode_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *routeSelectionDescriptorServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(HashCodeResponse)
-	err := c.cc.Invoke(ctx, RouteSelectionDescriptorService_HashCode_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *routeSelectionDescriptorServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ToStringResponse)
-	err := c.cc.Invoke(ctx, RouteSelectionDescriptorService_ToString_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *routeSelectionDescriptorServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, RouteSelectionDescriptorService_WriteToParcel_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// RouteSelectionDescriptorServiceServer is the server API for RouteSelectionDescriptorService service.
-// All implementations must embed UnimplementedRouteSelectionDescriptorServiceServer
-// for forward compatibility.
-type RouteSelectionDescriptorServiceServer interface {
-	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
-	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
-	GetPrecedence(context.Context, *GetPrecedenceRequest) (*GetPrecedenceResponse, error)
-	GetSessionType(context.Context, *GetSessionTypeRequest) (*GetSessionTypeResponse, error)
-	GetSscMode(context.Context, *GetSscModeRequest) (*GetSscModeResponse, error)
-	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
-	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
-	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
-	mustEmbedUnimplementedRouteSelectionDescriptorServiceServer()
-}
-
-// UnimplementedRouteSelectionDescriptorServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedRouteSelectionDescriptorServiceServer struct{}
-
-func (UnimplementedRouteSelectionDescriptorServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
-}
-func (UnimplementedRouteSelectionDescriptorServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
-}
-func (UnimplementedRouteSelectionDescriptorServiceServer) GetPrecedence(context.Context, *GetPrecedenceRequest) (*GetPrecedenceResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetPrecedence not implemented")
-}
-func (UnimplementedRouteSelectionDescriptorServiceServer) GetSessionType(context.Context, *GetSessionTypeRequest) (*GetSessionTypeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetSessionType not implemented")
-}
-func (UnimplementedRouteSelectionDescriptorServiceServer) GetSscMode(context.Context, *GetSscModeRequest) (*GetSscModeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetSscMode not implemented")
-}
-func (UnimplementedRouteSelectionDescriptorServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
-}
-func (UnimplementedRouteSelectionDescriptorServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
-}
-func (UnimplementedRouteSelectionDescriptorServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
-}
-func (UnimplementedRouteSelectionDescriptorServiceServer) mustEmbedUnimplementedRouteSelectionDescriptorServiceServer() {
-}
-func (UnimplementedRouteSelectionDescriptorServiceServer) testEmbeddedByValue() {}
-
-// UnsafeRouteSelectionDescriptorServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to RouteSelectionDescriptorServiceServer will
-// result in compilation errors.
-type UnsafeRouteSelectionDescriptorServiceServer interface {
-	mustEmbedUnimplementedRouteSelectionDescriptorServiceServer()
-}
-
-func RegisterRouteSelectionDescriptorServiceServer(s grpc.ServiceRegistrar, srv RouteSelectionDescriptorServiceServer) {
-	// If the following call panics, it indicates UnimplementedRouteSelectionDescriptorServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&RouteSelectionDescriptorService_ServiceDesc, srv)
-}
-
-func _RouteSelectionDescriptorService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DescribeContentsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(RouteSelectionDescriptorServiceServer).DescribeContents(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: RouteSelectionDescriptorService_DescribeContents_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RouteSelectionDescriptorServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _RouteSelectionDescriptorService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(EqualsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(RouteSelectionDescriptorServiceServer).Equals(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: RouteSelectionDescriptorService_Equals_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RouteSelectionDescriptorServiceServer).Equals(ctx, req.(*EqualsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _RouteSelectionDescriptorService_GetPrecedence_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetPrecedenceRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(RouteSelectionDescriptorServiceServer).GetPrecedence(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: RouteSelectionDescriptorService_GetPrecedence_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RouteSelectionDescriptorServiceServer).GetPrecedence(ctx, req.(*GetPrecedenceRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _RouteSelectionDescriptorService_GetSessionType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetSessionTypeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(RouteSelectionDescriptorServiceServer).GetSessionType(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: RouteSelectionDescriptorService_GetSessionType_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RouteSelectionDescriptorServiceServer).GetSessionType(ctx, req.(*GetSessionTypeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _RouteSelectionDescriptorService_GetSscMode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetSscModeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(RouteSelectionDescriptorServiceServer).GetSscMode(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: RouteSelectionDescriptorService_GetSscMode_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RouteSelectionDescriptorServiceServer).GetSscMode(ctx, req.(*GetSscModeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _RouteSelectionDescriptorService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(HashCodeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(RouteSelectionDescriptorServiceServer).HashCode(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: RouteSelectionDescriptorService_HashCode_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RouteSelectionDescriptorServiceServer).HashCode(ctx, req.(*HashCodeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _RouteSelectionDescriptorService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ToStringRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(RouteSelectionDescriptorServiceServer).ToString(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: RouteSelectionDescriptorService_ToString_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RouteSelectionDescriptorServiceServer).ToString(ctx, req.(*ToStringRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _RouteSelectionDescriptorService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WriteToParcelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(RouteSelectionDescriptorServiceServer).WriteToParcel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: RouteSelectionDescriptorService_WriteToParcel_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RouteSelectionDescriptorServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// RouteSelectionDescriptorService_ServiceDesc is the grpc.ServiceDesc for RouteSelectionDescriptorService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var RouteSelectionDescriptorService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "data.RouteSelectionDescriptorService",
-	HandlerType: (*RouteSelectionDescriptorServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "DescribeContents",
-			Handler:    _RouteSelectionDescriptorService_DescribeContents_Handler,
-		},
-		{
-			MethodName: "Equals",
-			Handler:    _RouteSelectionDescriptorService_Equals_Handler,
-		},
-		{
-			MethodName: "GetPrecedence",
-			Handler:    _RouteSelectionDescriptorService_GetPrecedence_Handler,
-		},
-		{
-			MethodName: "GetSessionType",
-			Handler:    _RouteSelectionDescriptorService_GetSessionType_Handler,
-		},
-		{
-			MethodName: "GetSscMode",
-			Handler:    _RouteSelectionDescriptorService_GetSscMode_Handler,
-		},
-		{
-			MethodName: "HashCode",
-			Handler:    _RouteSelectionDescriptorService_HashCode_Handler,
-		},
-		{
-			MethodName: "ToString",
-			Handler:    _RouteSelectionDescriptorService_ToString_Handler,
-		},
-		{
-			MethodName: "WriteToParcel",
-			Handler:    _RouteSelectionDescriptorService_WriteToParcel_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/data/data.proto",
-}
-
-const (
-	NetworkSlicingConfigService_NewNetworkSlicingConfig_FullMethodName = "/data.NetworkSlicingConfigService/NewNetworkSlicingConfig"
-	NetworkSlicingConfigService_DescribeContents_FullMethodName        = "/data.NetworkSlicingConfigService/DescribeContents"
-	NetworkSlicingConfigService_Equals_FullMethodName                  = "/data.NetworkSlicingConfigService/Equals"
-	NetworkSlicingConfigService_HashCode_FullMethodName                = "/data.NetworkSlicingConfigService/HashCode"
-	NetworkSlicingConfigService_ToString_FullMethodName                = "/data.NetworkSlicingConfigService/ToString"
-	NetworkSlicingConfigService_WriteToParcel_FullMethodName           = "/data.NetworkSlicingConfigService/WriteToParcel"
-)
-
-// NetworkSlicingConfigServiceClient is the client API for NetworkSlicingConfigService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type NetworkSlicingConfigServiceClient interface {
-	NewNetworkSlicingConfig(ctx context.Context, in *NewNetworkSlicingConfigRequest, opts ...grpc.CallOption) (*NewNetworkSlicingConfigResponse, error)
-	DescribeContents(ctx context.Context, in *NetworkSlicingConfigDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	Equals(ctx context.Context, in *NetworkSlicingConfigEqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
-	HashCode(ctx context.Context, in *NetworkSlicingConfigHashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
-	ToString(ctx context.Context, in *NetworkSlicingConfigToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
-	WriteToParcel(ctx context.Context, in *NetworkSlicingConfigWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
-}
-
-type networkSlicingConfigServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewNetworkSlicingConfigServiceClient(cc grpc.ClientConnInterface) NetworkSlicingConfigServiceClient {
-	return &networkSlicingConfigServiceClient{cc}
-}
-
-func (c *networkSlicingConfigServiceClient) NewNetworkSlicingConfig(ctx context.Context, in *NewNetworkSlicingConfigRequest, opts ...grpc.CallOption) (*NewNetworkSlicingConfigResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewNetworkSlicingConfigResponse)
-	err := c.cc.Invoke(ctx, NetworkSlicingConfigService_NewNetworkSlicingConfig_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *networkSlicingConfigServiceClient) DescribeContents(ctx context.Context, in *NetworkSlicingConfigDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, NetworkSlicingConfigService_DescribeContents_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *networkSlicingConfigServiceClient) Equals(ctx context.Context, in *NetworkSlicingConfigEqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(EqualsResponse)
-	err := c.cc.Invoke(ctx, NetworkSlicingConfigService_Equals_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *networkSlicingConfigServiceClient) HashCode(ctx context.Context, in *NetworkSlicingConfigHashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(HashCodeResponse)
-	err := c.cc.Invoke(ctx, NetworkSlicingConfigService_HashCode_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *networkSlicingConfigServiceClient) ToString(ctx context.Context, in *NetworkSlicingConfigToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ToStringResponse)
-	err := c.cc.Invoke(ctx, NetworkSlicingConfigService_ToString_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *networkSlicingConfigServiceClient) WriteToParcel(ctx context.Context, in *NetworkSlicingConfigWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, NetworkSlicingConfigService_WriteToParcel_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// NetworkSlicingConfigServiceServer is the server API for NetworkSlicingConfigService service.
-// All implementations must embed UnimplementedNetworkSlicingConfigServiceServer
-// for forward compatibility.
-type NetworkSlicingConfigServiceServer interface {
-	NewNetworkSlicingConfig(context.Context, *NewNetworkSlicingConfigRequest) (*NewNetworkSlicingConfigResponse, error)
-	DescribeContents(context.Context, *NetworkSlicingConfigDescribeContentsRequest) (*DescribeContentsResponse, error)
-	Equals(context.Context, *NetworkSlicingConfigEqualsRequest) (*EqualsResponse, error)
-	HashCode(context.Context, *NetworkSlicingConfigHashCodeRequest) (*HashCodeResponse, error)
-	ToString(context.Context, *NetworkSlicingConfigToStringRequest) (*ToStringResponse, error)
-	WriteToParcel(context.Context, *NetworkSlicingConfigWriteToParcelRequest) (*WriteToParcelResponse, error)
-	mustEmbedUnimplementedNetworkSlicingConfigServiceServer()
-}
-
-// UnimplementedNetworkSlicingConfigServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedNetworkSlicingConfigServiceServer struct{}
-
-func (UnimplementedNetworkSlicingConfigServiceServer) NewNetworkSlicingConfig(context.Context, *NewNetworkSlicingConfigRequest) (*NewNetworkSlicingConfigResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewNetworkSlicingConfig not implemented")
-}
-func (UnimplementedNetworkSlicingConfigServiceServer) DescribeContents(context.Context, *NetworkSlicingConfigDescribeContentsRequest) (*DescribeContentsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
-}
-func (UnimplementedNetworkSlicingConfigServiceServer) Equals(context.Context, *NetworkSlicingConfigEqualsRequest) (*EqualsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
-}
-func (UnimplementedNetworkSlicingConfigServiceServer) HashCode(context.Context, *NetworkSlicingConfigHashCodeRequest) (*HashCodeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
-}
-func (UnimplementedNetworkSlicingConfigServiceServer) ToString(context.Context, *NetworkSlicingConfigToStringRequest) (*ToStringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
-}
-func (UnimplementedNetworkSlicingConfigServiceServer) WriteToParcel(context.Context, *NetworkSlicingConfigWriteToParcelRequest) (*WriteToParcelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
-}
-func (UnimplementedNetworkSlicingConfigServiceServer) mustEmbedUnimplementedNetworkSlicingConfigServiceServer() {
-}
-func (UnimplementedNetworkSlicingConfigServiceServer) testEmbeddedByValue() {}
-
-// UnsafeNetworkSlicingConfigServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to NetworkSlicingConfigServiceServer will
-// result in compilation errors.
-type UnsafeNetworkSlicingConfigServiceServer interface {
-	mustEmbedUnimplementedNetworkSlicingConfigServiceServer()
-}
-
-func RegisterNetworkSlicingConfigServiceServer(s grpc.ServiceRegistrar, srv NetworkSlicingConfigServiceServer) {
-	// If the following call panics, it indicates UnimplementedNetworkSlicingConfigServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&NetworkSlicingConfigService_ServiceDesc, srv)
-}
-
-func _NetworkSlicingConfigService_NewNetworkSlicingConfig_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewNetworkSlicingConfigRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(NetworkSlicingConfigServiceServer).NewNetworkSlicingConfig(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: NetworkSlicingConfigService_NewNetworkSlicingConfig_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NetworkSlicingConfigServiceServer).NewNetworkSlicingConfig(ctx, req.(*NewNetworkSlicingConfigRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _NetworkSlicingConfigService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NetworkSlicingConfigDescribeContentsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(NetworkSlicingConfigServiceServer).DescribeContents(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: NetworkSlicingConfigService_DescribeContents_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NetworkSlicingConfigServiceServer).DescribeContents(ctx, req.(*NetworkSlicingConfigDescribeContentsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _NetworkSlicingConfigService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NetworkSlicingConfigEqualsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(NetworkSlicingConfigServiceServer).Equals(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: NetworkSlicingConfigService_Equals_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NetworkSlicingConfigServiceServer).Equals(ctx, req.(*NetworkSlicingConfigEqualsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _NetworkSlicingConfigService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NetworkSlicingConfigHashCodeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(NetworkSlicingConfigServiceServer).HashCode(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: NetworkSlicingConfigService_HashCode_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NetworkSlicingConfigServiceServer).HashCode(ctx, req.(*NetworkSlicingConfigHashCodeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _NetworkSlicingConfigService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NetworkSlicingConfigToStringRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(NetworkSlicingConfigServiceServer).ToString(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: NetworkSlicingConfigService_ToString_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NetworkSlicingConfigServiceServer).ToString(ctx, req.(*NetworkSlicingConfigToStringRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _NetworkSlicingConfigService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NetworkSlicingConfigWriteToParcelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(NetworkSlicingConfigServiceServer).WriteToParcel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: NetworkSlicingConfigService_WriteToParcel_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NetworkSlicingConfigServiceServer).WriteToParcel(ctx, req.(*NetworkSlicingConfigWriteToParcelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// NetworkSlicingConfigService_ServiceDesc is the grpc.ServiceDesc for NetworkSlicingConfigService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var NetworkSlicingConfigService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "data.NetworkSlicingConfigService",
-	HandlerType: (*NetworkSlicingConfigServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "NewNetworkSlicingConfig",
-			Handler:    _NetworkSlicingConfigService_NewNetworkSlicingConfig_Handler,
-		},
-		{
-			MethodName: "DescribeContents",
-			Handler:    _NetworkSlicingConfigService_DescribeContents_Handler,
-		},
-		{
-			MethodName: "Equals",
-			Handler:    _NetworkSlicingConfigService_Equals_Handler,
-		},
-		{
-			MethodName: "HashCode",
-			Handler:    _NetworkSlicingConfigService_HashCode_Handler,
-		},
-		{
-			MethodName: "ToString",
-			Handler:    _NetworkSlicingConfigService_ToString_Handler,
-		},
-		{
-			MethodName: "WriteToParcel",
-			Handler:    _NetworkSlicingConfigService_WriteToParcel_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/data/data.proto",
-}
-
-const (
-	TrafficDescriptorService_DescribeContents_FullMethodName   = "/data.TrafficDescriptorService/DescribeContents"
-	TrafficDescriptorService_Equals_FullMethodName             = "/data.TrafficDescriptorService/Equals"
-	TrafficDescriptorService_GetDataNetworkName_FullMethodName = "/data.TrafficDescriptorService/GetDataNetworkName"
-	TrafficDescriptorService_GetOsAppId_FullMethodName         = "/data.TrafficDescriptorService/GetOsAppId"
-	TrafficDescriptorService_HashCode_FullMethodName           = "/data.TrafficDescriptorService/HashCode"
-	TrafficDescriptorService_ToString_FullMethodName           = "/data.TrafficDescriptorService/ToString"
-	TrafficDescriptorService_WriteToParcel_FullMethodName      = "/data.TrafficDescriptorService/WriteToParcel"
-)
-
-// TrafficDescriptorServiceClient is the client API for TrafficDescriptorService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type TrafficDescriptorServiceClient interface {
-	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
-	GetDataNetworkName(ctx context.Context, in *GetDataNetworkNameRequest, opts ...grpc.CallOption) (*GetDataNetworkNameResponse, error)
-	GetOsAppId(ctx context.Context, in *GetOsAppIdRequest, opts ...grpc.CallOption) (*GetOsAppIdResponse, error)
-	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
-	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
-	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
-}
-
-type trafficDescriptorServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewTrafficDescriptorServiceClient(cc grpc.ClientConnInterface) TrafficDescriptorServiceClient {
-	return &trafficDescriptorServiceClient{cc}
-}
-
-func (c *trafficDescriptorServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, TrafficDescriptorService_DescribeContents_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *trafficDescriptorServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(EqualsResponse)
-	err := c.cc.Invoke(ctx, TrafficDescriptorService_Equals_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *trafficDescriptorServiceClient) GetDataNetworkName(ctx context.Context, in *GetDataNetworkNameRequest, opts ...grpc.CallOption) (*GetDataNetworkNameResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetDataNetworkNameResponse)
-	err := c.cc.Invoke(ctx, TrafficDescriptorService_GetDataNetworkName_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *trafficDescriptorServiceClient) GetOsAppId(ctx context.Context, in *GetOsAppIdRequest, opts ...grpc.CallOption) (*GetOsAppIdResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetOsAppIdResponse)
-	err := c.cc.Invoke(ctx, TrafficDescriptorService_GetOsAppId_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *trafficDescriptorServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(HashCodeResponse)
-	err := c.cc.Invoke(ctx, TrafficDescriptorService_HashCode_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *trafficDescriptorServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ToStringResponse)
-	err := c.cc.Invoke(ctx, TrafficDescriptorService_ToString_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *trafficDescriptorServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, TrafficDescriptorService_WriteToParcel_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// TrafficDescriptorServiceServer is the server API for TrafficDescriptorService service.
-// All implementations must embed UnimplementedTrafficDescriptorServiceServer
-// for forward compatibility.
-type TrafficDescriptorServiceServer interface {
-	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
-	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
-	GetDataNetworkName(context.Context, *GetDataNetworkNameRequest) (*GetDataNetworkNameResponse, error)
-	GetOsAppId(context.Context, *GetOsAppIdRequest) (*GetOsAppIdResponse, error)
-	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
-	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
-	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
-	mustEmbedUnimplementedTrafficDescriptorServiceServer()
-}
-
-// UnimplementedTrafficDescriptorServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedTrafficDescriptorServiceServer struct{}
-
-func (UnimplementedTrafficDescriptorServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
-}
-func (UnimplementedTrafficDescriptorServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
-}
-func (UnimplementedTrafficDescriptorServiceServer) GetDataNetworkName(context.Context, *GetDataNetworkNameRequest) (*GetDataNetworkNameResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetDataNetworkName not implemented")
-}
-func (UnimplementedTrafficDescriptorServiceServer) GetOsAppId(context.Context, *GetOsAppIdRequest) (*GetOsAppIdResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetOsAppId not implemented")
-}
-func (UnimplementedTrafficDescriptorServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
-}
-func (UnimplementedTrafficDescriptorServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
-}
-func (UnimplementedTrafficDescriptorServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
-}
-func (UnimplementedTrafficDescriptorServiceServer) mustEmbedUnimplementedTrafficDescriptorServiceServer() {
-}
-func (UnimplementedTrafficDescriptorServiceServer) testEmbeddedByValue() {}
-
-// UnsafeTrafficDescriptorServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to TrafficDescriptorServiceServer will
-// result in compilation errors.
-type UnsafeTrafficDescriptorServiceServer interface {
-	mustEmbedUnimplementedTrafficDescriptorServiceServer()
-}
-
-func RegisterTrafficDescriptorServiceServer(s grpc.ServiceRegistrar, srv TrafficDescriptorServiceServer) {
-	// If the following call panics, it indicates UnimplementedTrafficDescriptorServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&TrafficDescriptorService_ServiceDesc, srv)
-}
-
-func _TrafficDescriptorService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DescribeContentsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TrafficDescriptorServiceServer).DescribeContents(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TrafficDescriptorService_DescribeContents_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TrafficDescriptorServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TrafficDescriptorService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(EqualsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TrafficDescriptorServiceServer).Equals(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TrafficDescriptorService_Equals_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TrafficDescriptorServiceServer).Equals(ctx, req.(*EqualsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TrafficDescriptorService_GetDataNetworkName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetDataNetworkNameRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TrafficDescriptorServiceServer).GetDataNetworkName(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TrafficDescriptorService_GetDataNetworkName_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TrafficDescriptorServiceServer).GetDataNetworkName(ctx, req.(*GetDataNetworkNameRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TrafficDescriptorService_GetOsAppId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetOsAppIdRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TrafficDescriptorServiceServer).GetOsAppId(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TrafficDescriptorService_GetOsAppId_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TrafficDescriptorServiceServer).GetOsAppId(ctx, req.(*GetOsAppIdRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TrafficDescriptorService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(HashCodeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TrafficDescriptorServiceServer).HashCode(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TrafficDescriptorService_HashCode_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TrafficDescriptorServiceServer).HashCode(ctx, req.(*HashCodeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TrafficDescriptorService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ToStringRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TrafficDescriptorServiceServer).ToString(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TrafficDescriptorService_ToString_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TrafficDescriptorServiceServer).ToString(ctx, req.(*ToStringRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TrafficDescriptorService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WriteToParcelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TrafficDescriptorServiceServer).WriteToParcel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TrafficDescriptorService_WriteToParcel_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TrafficDescriptorServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// TrafficDescriptorService_ServiceDesc is the grpc.ServiceDesc for TrafficDescriptorService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var TrafficDescriptorService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "data.TrafficDescriptorService",
-	HandlerType: (*TrafficDescriptorServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "DescribeContents",
-			Handler:    _TrafficDescriptorService_DescribeContents_Handler,
-		},
-		{
-			MethodName: "Equals",
-			Handler:    _TrafficDescriptorService_Equals_Handler,
-		},
-		{
-			MethodName: "GetDataNetworkName",
-			Handler:    _TrafficDescriptorService_GetDataNetworkName_Handler,
-		},
-		{
-			MethodName: "GetOsAppId",
-			Handler:    _TrafficDescriptorService_GetOsAppId_Handler,
-		},
-		{
-			MethodName: "HashCode",
-			Handler:    _TrafficDescriptorService_HashCode_Handler,
-		},
-		{
-			MethodName: "ToString",
-			Handler:    _TrafficDescriptorService_ToString_Handler,
-		},
-		{
-			MethodName: "WriteToParcel",
-			Handler:    _TrafficDescriptorService_WriteToParcel_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/data/data.proto",
-}
-
-const (
-	TrafficDescriptorBuilderService_Build_FullMethodName              = "/data.TrafficDescriptorBuilderService/Build"
-	TrafficDescriptorBuilderService_SetDataNetworkName_FullMethodName = "/data.TrafficDescriptorBuilderService/SetDataNetworkName"
-	TrafficDescriptorBuilderService_SetOsAppId_FullMethodName         = "/data.TrafficDescriptorBuilderService/SetOsAppId"
-)
-
-// TrafficDescriptorBuilderServiceClient is the client API for TrafficDescriptorBuilderService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type TrafficDescriptorBuilderServiceClient interface {
-	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
-	SetDataNetworkName(ctx context.Context, in *SetDataNetworkNameRequest, opts ...grpc.CallOption) (*SetDataNetworkNameResponse, error)
-	SetOsAppId(ctx context.Context, in *SetOsAppIdRequest, opts ...grpc.CallOption) (*SetOsAppIdResponse, error)
-}
-
-type trafficDescriptorBuilderServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewTrafficDescriptorBuilderServiceClient(cc grpc.ClientConnInterface) TrafficDescriptorBuilderServiceClient {
-	return &trafficDescriptorBuilderServiceClient{cc}
-}
-
-func (c *trafficDescriptorBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(BuildResponse)
-	err := c.cc.Invoke(ctx, TrafficDescriptorBuilderService_Build_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *trafficDescriptorBuilderServiceClient) SetDataNetworkName(ctx context.Context, in *SetDataNetworkNameRequest, opts ...grpc.CallOption) (*SetDataNetworkNameResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetDataNetworkNameResponse)
-	err := c.cc.Invoke(ctx, TrafficDescriptorBuilderService_SetDataNetworkName_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *trafficDescriptorBuilderServiceClient) SetOsAppId(ctx context.Context, in *SetOsAppIdRequest, opts ...grpc.CallOption) (*SetOsAppIdResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetOsAppIdResponse)
-	err := c.cc.Invoke(ctx, TrafficDescriptorBuilderService_SetOsAppId_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// TrafficDescriptorBuilderServiceServer is the server API for TrafficDescriptorBuilderService service.
-// All implementations must embed UnimplementedTrafficDescriptorBuilderServiceServer
-// for forward compatibility.
-type TrafficDescriptorBuilderServiceServer interface {
-	Build(context.Context, *BuildRequest) (*BuildResponse, error)
-	SetDataNetworkName(context.Context, *SetDataNetworkNameRequest) (*SetDataNetworkNameResponse, error)
-	SetOsAppId(context.Context, *SetOsAppIdRequest) (*SetOsAppIdResponse, error)
-	mustEmbedUnimplementedTrafficDescriptorBuilderServiceServer()
-}
-
-// UnimplementedTrafficDescriptorBuilderServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedTrafficDescriptorBuilderServiceServer struct{}
-
-func (UnimplementedTrafficDescriptorBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
-}
-func (UnimplementedTrafficDescriptorBuilderServiceServer) SetDataNetworkName(context.Context, *SetDataNetworkNameRequest) (*SetDataNetworkNameResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetDataNetworkName not implemented")
-}
-func (UnimplementedTrafficDescriptorBuilderServiceServer) SetOsAppId(context.Context, *SetOsAppIdRequest) (*SetOsAppIdResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetOsAppId not implemented")
-}
-func (UnimplementedTrafficDescriptorBuilderServiceServer) mustEmbedUnimplementedTrafficDescriptorBuilderServiceServer() {
-}
-func (UnimplementedTrafficDescriptorBuilderServiceServer) testEmbeddedByValue() {}
-
-// UnsafeTrafficDescriptorBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to TrafficDescriptorBuilderServiceServer will
-// result in compilation errors.
-type UnsafeTrafficDescriptorBuilderServiceServer interface {
-	mustEmbedUnimplementedTrafficDescriptorBuilderServiceServer()
-}
-
-func RegisterTrafficDescriptorBuilderServiceServer(s grpc.ServiceRegistrar, srv TrafficDescriptorBuilderServiceServer) {
-	// If the following call panics, it indicates UnimplementedTrafficDescriptorBuilderServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&TrafficDescriptorBuilderService_ServiceDesc, srv)
-}
-
-func _TrafficDescriptorBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(BuildRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TrafficDescriptorBuilderServiceServer).Build(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TrafficDescriptorBuilderService_Build_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TrafficDescriptorBuilderServiceServer).Build(ctx, req.(*BuildRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TrafficDescriptorBuilderService_SetDataNetworkName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetDataNetworkNameRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TrafficDescriptorBuilderServiceServer).SetDataNetworkName(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TrafficDescriptorBuilderService_SetDataNetworkName_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TrafficDescriptorBuilderServiceServer).SetDataNetworkName(ctx, req.(*SetDataNetworkNameRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TrafficDescriptorBuilderService_SetOsAppId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetOsAppIdRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TrafficDescriptorBuilderServiceServer).SetOsAppId(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TrafficDescriptorBuilderService_SetOsAppId_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TrafficDescriptorBuilderServiceServer).SetOsAppId(ctx, req.(*SetOsAppIdRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// TrafficDescriptorBuilderService_ServiceDesc is the grpc.ServiceDesc for TrafficDescriptorBuilderService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var TrafficDescriptorBuilderService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "data.TrafficDescriptorBuilderService",
-	HandlerType: (*TrafficDescriptorBuilderServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "Build",
-			Handler:    _TrafficDescriptorBuilderService_Build_Handler,
-		},
-		{
-			MethodName: "SetDataNetworkName",
-			Handler:    _TrafficDescriptorBuilderService_SetDataNetworkName_Handler,
-		},
-		{
-			MethodName: "SetOsAppId",
-			Handler:    _TrafficDescriptorBuilderService_SetOsAppId_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/data/data.proto",
-}
-
-const (
-	NetworkSliceInfoService_DescribeContents_FullMethodName                  = "/data.NetworkSliceInfoService/DescribeContents"
-	NetworkSliceInfoService_Equals_FullMethodName                            = "/data.NetworkSliceInfoService/Equals"
-	NetworkSliceInfoService_GetMappedHplmnSliceDifferentiator_FullMethodName = "/data.NetworkSliceInfoService/GetMappedHplmnSliceDifferentiator"
-	NetworkSliceInfoService_GetMappedHplmnSliceServiceType_FullMethodName    = "/data.NetworkSliceInfoService/GetMappedHplmnSliceServiceType"
-	NetworkSliceInfoService_GetSliceDifferentiator_FullMethodName            = "/data.NetworkSliceInfoService/GetSliceDifferentiator"
-	NetworkSliceInfoService_GetSliceServiceType_FullMethodName               = "/data.NetworkSliceInfoService/GetSliceServiceType"
-	NetworkSliceInfoService_GetStatus_FullMethodName                         = "/data.NetworkSliceInfoService/GetStatus"
-	NetworkSliceInfoService_HashCode_FullMethodName                          = "/data.NetworkSliceInfoService/HashCode"
-	NetworkSliceInfoService_ToString_FullMethodName                          = "/data.NetworkSliceInfoService/ToString"
-	NetworkSliceInfoService_WriteToParcel_FullMethodName                     = "/data.NetworkSliceInfoService/WriteToParcel"
-)
-
-// NetworkSliceInfoServiceClient is the client API for NetworkSliceInfoService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type NetworkSliceInfoServiceClient interface {
-	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
-	GetMappedHplmnSliceDifferentiator(ctx context.Context, in *GetMappedHplmnSliceDifferentiatorRequest, opts ...grpc.CallOption) (*GetMappedHplmnSliceDifferentiatorResponse, error)
-	GetMappedHplmnSliceServiceType(ctx context.Context, in *GetMappedHplmnSliceServiceTypeRequest, opts ...grpc.CallOption) (*GetMappedHplmnSliceServiceTypeResponse, error)
-	GetSliceDifferentiator(ctx context.Context, in *GetSliceDifferentiatorRequest, opts ...grpc.CallOption) (*GetSliceDifferentiatorResponse, error)
-	GetSliceServiceType(ctx context.Context, in *GetSliceServiceTypeRequest, opts ...grpc.CallOption) (*GetSliceServiceTypeResponse, error)
-	GetStatus(ctx context.Context, in *GetStatusRequest, opts ...grpc.CallOption) (*GetStatusResponse, error)
-	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
-	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
-	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
-}
-
-type networkSliceInfoServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewNetworkSliceInfoServiceClient(cc grpc.ClientConnInterface) NetworkSliceInfoServiceClient {
-	return &networkSliceInfoServiceClient{cc}
-}
-
-func (c *networkSliceInfoServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, NetworkSliceInfoService_DescribeContents_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *networkSliceInfoServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(EqualsResponse)
-	err := c.cc.Invoke(ctx, NetworkSliceInfoService_Equals_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *networkSliceInfoServiceClient) GetMappedHplmnSliceDifferentiator(ctx context.Context, in *GetMappedHplmnSliceDifferentiatorRequest, opts ...grpc.CallOption) (*GetMappedHplmnSliceDifferentiatorResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetMappedHplmnSliceDifferentiatorResponse)
-	err := c.cc.Invoke(ctx, NetworkSliceInfoService_GetMappedHplmnSliceDifferentiator_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *networkSliceInfoServiceClient) GetMappedHplmnSliceServiceType(ctx context.Context, in *GetMappedHplmnSliceServiceTypeRequest, opts ...grpc.CallOption) (*GetMappedHplmnSliceServiceTypeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetMappedHplmnSliceServiceTypeResponse)
-	err := c.cc.Invoke(ctx, NetworkSliceInfoService_GetMappedHplmnSliceServiceType_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *networkSliceInfoServiceClient) GetSliceDifferentiator(ctx context.Context, in *GetSliceDifferentiatorRequest, opts ...grpc.CallOption) (*GetSliceDifferentiatorResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetSliceDifferentiatorResponse)
-	err := c.cc.Invoke(ctx, NetworkSliceInfoService_GetSliceDifferentiator_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *networkSliceInfoServiceClient) GetSliceServiceType(ctx context.Context, in *GetSliceServiceTypeRequest, opts ...grpc.CallOption) (*GetSliceServiceTypeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetSliceServiceTypeResponse)
-	err := c.cc.Invoke(ctx, NetworkSliceInfoService_GetSliceServiceType_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *networkSliceInfoServiceClient) GetStatus(ctx context.Context, in *GetStatusRequest, opts ...grpc.CallOption) (*GetStatusResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetStatusResponse)
-	err := c.cc.Invoke(ctx, NetworkSliceInfoService_GetStatus_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *networkSliceInfoServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(HashCodeResponse)
-	err := c.cc.Invoke(ctx, NetworkSliceInfoService_HashCode_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *networkSliceInfoServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ToStringResponse)
-	err := c.cc.Invoke(ctx, NetworkSliceInfoService_ToString_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *networkSliceInfoServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, NetworkSliceInfoService_WriteToParcel_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// NetworkSliceInfoServiceServer is the server API for NetworkSliceInfoService service.
-// All implementations must embed UnimplementedNetworkSliceInfoServiceServer
-// for forward compatibility.
-type NetworkSliceInfoServiceServer interface {
-	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
-	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
-	GetMappedHplmnSliceDifferentiator(context.Context, *GetMappedHplmnSliceDifferentiatorRequest) (*GetMappedHplmnSliceDifferentiatorResponse, error)
-	GetMappedHplmnSliceServiceType(context.Context, *GetMappedHplmnSliceServiceTypeRequest) (*GetMappedHplmnSliceServiceTypeResponse, error)
-	GetSliceDifferentiator(context.Context, *GetSliceDifferentiatorRequest) (*GetSliceDifferentiatorResponse, error)
-	GetSliceServiceType(context.Context, *GetSliceServiceTypeRequest) (*GetSliceServiceTypeResponse, error)
-	GetStatus(context.Context, *GetStatusRequest) (*GetStatusResponse, error)
-	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
-	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
-	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
-	mustEmbedUnimplementedNetworkSliceInfoServiceServer()
-}
-
-// UnimplementedNetworkSliceInfoServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedNetworkSliceInfoServiceServer struct{}
-
-func (UnimplementedNetworkSliceInfoServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
-}
-func (UnimplementedNetworkSliceInfoServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
-}
-func (UnimplementedNetworkSliceInfoServiceServer) GetMappedHplmnSliceDifferentiator(context.Context, *GetMappedHplmnSliceDifferentiatorRequest) (*GetMappedHplmnSliceDifferentiatorResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetMappedHplmnSliceDifferentiator not implemented")
-}
-func (UnimplementedNetworkSliceInfoServiceServer) GetMappedHplmnSliceServiceType(context.Context, *GetMappedHplmnSliceServiceTypeRequest) (*GetMappedHplmnSliceServiceTypeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetMappedHplmnSliceServiceType not implemented")
-}
-func (UnimplementedNetworkSliceInfoServiceServer) GetSliceDifferentiator(context.Context, *GetSliceDifferentiatorRequest) (*GetSliceDifferentiatorResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetSliceDifferentiator not implemented")
-}
-func (UnimplementedNetworkSliceInfoServiceServer) GetSliceServiceType(context.Context, *GetSliceServiceTypeRequest) (*GetSliceServiceTypeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetSliceServiceType not implemented")
-}
-func (UnimplementedNetworkSliceInfoServiceServer) GetStatus(context.Context, *GetStatusRequest) (*GetStatusResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetStatus not implemented")
-}
-func (UnimplementedNetworkSliceInfoServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
-}
-func (UnimplementedNetworkSliceInfoServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
-}
-func (UnimplementedNetworkSliceInfoServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
-}
-func (UnimplementedNetworkSliceInfoServiceServer) mustEmbedUnimplementedNetworkSliceInfoServiceServer() {
-}
-func (UnimplementedNetworkSliceInfoServiceServer) testEmbeddedByValue() {}
-
-// UnsafeNetworkSliceInfoServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to NetworkSliceInfoServiceServer will
-// result in compilation errors.
-type UnsafeNetworkSliceInfoServiceServer interface {
-	mustEmbedUnimplementedNetworkSliceInfoServiceServer()
-}
-
-func RegisterNetworkSliceInfoServiceServer(s grpc.ServiceRegistrar, srv NetworkSliceInfoServiceServer) {
-	// If the following call panics, it indicates UnimplementedNetworkSliceInfoServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&NetworkSliceInfoService_ServiceDesc, srv)
-}
-
-func _NetworkSliceInfoService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DescribeContentsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(NetworkSliceInfoServiceServer).DescribeContents(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: NetworkSliceInfoService_DescribeContents_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NetworkSliceInfoServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _NetworkSliceInfoService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(EqualsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(NetworkSliceInfoServiceServer).Equals(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: NetworkSliceInfoService_Equals_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NetworkSliceInfoServiceServer).Equals(ctx, req.(*EqualsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _NetworkSliceInfoService_GetMappedHplmnSliceDifferentiator_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetMappedHplmnSliceDifferentiatorRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(NetworkSliceInfoServiceServer).GetMappedHplmnSliceDifferentiator(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: NetworkSliceInfoService_GetMappedHplmnSliceDifferentiator_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NetworkSliceInfoServiceServer).GetMappedHplmnSliceDifferentiator(ctx, req.(*GetMappedHplmnSliceDifferentiatorRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _NetworkSliceInfoService_GetMappedHplmnSliceServiceType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetMappedHplmnSliceServiceTypeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(NetworkSliceInfoServiceServer).GetMappedHplmnSliceServiceType(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: NetworkSliceInfoService_GetMappedHplmnSliceServiceType_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NetworkSliceInfoServiceServer).GetMappedHplmnSliceServiceType(ctx, req.(*GetMappedHplmnSliceServiceTypeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _NetworkSliceInfoService_GetSliceDifferentiator_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetSliceDifferentiatorRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(NetworkSliceInfoServiceServer).GetSliceDifferentiator(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: NetworkSliceInfoService_GetSliceDifferentiator_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NetworkSliceInfoServiceServer).GetSliceDifferentiator(ctx, req.(*GetSliceDifferentiatorRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _NetworkSliceInfoService_GetSliceServiceType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetSliceServiceTypeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(NetworkSliceInfoServiceServer).GetSliceServiceType(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: NetworkSliceInfoService_GetSliceServiceType_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NetworkSliceInfoServiceServer).GetSliceServiceType(ctx, req.(*GetSliceServiceTypeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _NetworkSliceInfoService_GetStatus_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetStatusRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(NetworkSliceInfoServiceServer).GetStatus(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: NetworkSliceInfoService_GetStatus_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NetworkSliceInfoServiceServer).GetStatus(ctx, req.(*GetStatusRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _NetworkSliceInfoService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(HashCodeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(NetworkSliceInfoServiceServer).HashCode(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: NetworkSliceInfoService_HashCode_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NetworkSliceInfoServiceServer).HashCode(ctx, req.(*HashCodeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _NetworkSliceInfoService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ToStringRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(NetworkSliceInfoServiceServer).ToString(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: NetworkSliceInfoService_ToString_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NetworkSliceInfoServiceServer).ToString(ctx, req.(*ToStringRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _NetworkSliceInfoService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WriteToParcelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(NetworkSliceInfoServiceServer).WriteToParcel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: NetworkSliceInfoService_WriteToParcel_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NetworkSliceInfoServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// NetworkSliceInfoService_ServiceDesc is the grpc.ServiceDesc for NetworkSliceInfoService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var NetworkSliceInfoService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "data.NetworkSliceInfoService",
-	HandlerType: (*NetworkSliceInfoServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "DescribeContents",
-			Handler:    _NetworkSliceInfoService_DescribeContents_Handler,
-		},
-		{
-			MethodName: "Equals",
-			Handler:    _NetworkSliceInfoService_Equals_Handler,
-		},
-		{
-			MethodName: "GetMappedHplmnSliceDifferentiator",
-			Handler:    _NetworkSliceInfoService_GetMappedHplmnSliceDifferentiator_Handler,
-		},
-		{
-			MethodName: "GetMappedHplmnSliceServiceType",
-			Handler:    _NetworkSliceInfoService_GetMappedHplmnSliceServiceType_Handler,
-		},
-		{
-			MethodName: "GetSliceDifferentiator",
-			Handler:    _NetworkSliceInfoService_GetSliceDifferentiator_Handler,
-		},
-		{
-			MethodName: "GetSliceServiceType",
-			Handler:    _NetworkSliceInfoService_GetSliceServiceType_Handler,
-		},
-		{
-			MethodName: "GetStatus",
-			Handler:    _NetworkSliceInfoService_GetStatus_Handler,
-		},
-		{
-			MethodName: "HashCode",
-			Handler:    _NetworkSliceInfoService_HashCode_Handler,
-		},
-		{
-			MethodName: "ToString",
-			Handler:    _NetworkSliceInfoService_ToString_Handler,
-		},
-		{
-			MethodName: "WriteToParcel",
-			Handler:    _NetworkSliceInfoService_WriteToParcel_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/data/data.proto",
-}
-
-const (
-	NetworkSliceInfoBuilderService_Build_FullMethodName                             = "/data.NetworkSliceInfoBuilderService/Build"
-	NetworkSliceInfoBuilderService_SetMappedHplmnSliceDifferentiator_FullMethodName = "/data.NetworkSliceInfoBuilderService/SetMappedHplmnSliceDifferentiator"
-	NetworkSliceInfoBuilderService_SetMappedHplmnSliceServiceType_FullMethodName    = "/data.NetworkSliceInfoBuilderService/SetMappedHplmnSliceServiceType"
-	NetworkSliceInfoBuilderService_SetSliceDifferentiator_FullMethodName            = "/data.NetworkSliceInfoBuilderService/SetSliceDifferentiator"
-	NetworkSliceInfoBuilderService_SetSliceServiceType_FullMethodName               = "/data.NetworkSliceInfoBuilderService/SetSliceServiceType"
-	NetworkSliceInfoBuilderService_SetStatus_FullMethodName                         = "/data.NetworkSliceInfoBuilderService/SetStatus"
-)
-
-// NetworkSliceInfoBuilderServiceClient is the client API for NetworkSliceInfoBuilderService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type NetworkSliceInfoBuilderServiceClient interface {
-	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
-	SetMappedHplmnSliceDifferentiator(ctx context.Context, in *SetMappedHplmnSliceDifferentiatorRequest, opts ...grpc.CallOption) (*SetMappedHplmnSliceDifferentiatorResponse, error)
-	SetMappedHplmnSliceServiceType(ctx context.Context, in *SetMappedHplmnSliceServiceTypeRequest, opts ...grpc.CallOption) (*SetMappedHplmnSliceServiceTypeResponse, error)
-	SetSliceDifferentiator(ctx context.Context, in *SetSliceDifferentiatorRequest, opts ...grpc.CallOption) (*SetSliceDifferentiatorResponse, error)
-	SetSliceServiceType(ctx context.Context, in *SetSliceServiceTypeRequest, opts ...grpc.CallOption) (*SetSliceServiceTypeResponse, error)
-	SetStatus(ctx context.Context, in *SetStatusRequest, opts ...grpc.CallOption) (*SetStatusResponse, error)
-}
-
-type networkSliceInfoBuilderServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewNetworkSliceInfoBuilderServiceClient(cc grpc.ClientConnInterface) NetworkSliceInfoBuilderServiceClient {
-	return &networkSliceInfoBuilderServiceClient{cc}
-}
-
-func (c *networkSliceInfoBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(BuildResponse)
-	err := c.cc.Invoke(ctx, NetworkSliceInfoBuilderService_Build_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *networkSliceInfoBuilderServiceClient) SetMappedHplmnSliceDifferentiator(ctx context.Context, in *SetMappedHplmnSliceDifferentiatorRequest, opts ...grpc.CallOption) (*SetMappedHplmnSliceDifferentiatorResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetMappedHplmnSliceDifferentiatorResponse)
-	err := c.cc.Invoke(ctx, NetworkSliceInfoBuilderService_SetMappedHplmnSliceDifferentiator_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *networkSliceInfoBuilderServiceClient) SetMappedHplmnSliceServiceType(ctx context.Context, in *SetMappedHplmnSliceServiceTypeRequest, opts ...grpc.CallOption) (*SetMappedHplmnSliceServiceTypeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetMappedHplmnSliceServiceTypeResponse)
-	err := c.cc.Invoke(ctx, NetworkSliceInfoBuilderService_SetMappedHplmnSliceServiceType_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *networkSliceInfoBuilderServiceClient) SetSliceDifferentiator(ctx context.Context, in *SetSliceDifferentiatorRequest, opts ...grpc.CallOption) (*SetSliceDifferentiatorResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetSliceDifferentiatorResponse)
-	err := c.cc.Invoke(ctx, NetworkSliceInfoBuilderService_SetSliceDifferentiator_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *networkSliceInfoBuilderServiceClient) SetSliceServiceType(ctx context.Context, in *SetSliceServiceTypeRequest, opts ...grpc.CallOption) (*SetSliceServiceTypeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetSliceServiceTypeResponse)
-	err := c.cc.Invoke(ctx, NetworkSliceInfoBuilderService_SetSliceServiceType_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *networkSliceInfoBuilderServiceClient) SetStatus(ctx context.Context, in *SetStatusRequest, opts ...grpc.CallOption) (*SetStatusResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetStatusResponse)
-	err := c.cc.Invoke(ctx, NetworkSliceInfoBuilderService_SetStatus_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// NetworkSliceInfoBuilderServiceServer is the server API for NetworkSliceInfoBuilderService service.
-// All implementations must embed UnimplementedNetworkSliceInfoBuilderServiceServer
-// for forward compatibility.
-type NetworkSliceInfoBuilderServiceServer interface {
-	Build(context.Context, *BuildRequest) (*BuildResponse, error)
-	SetMappedHplmnSliceDifferentiator(context.Context, *SetMappedHplmnSliceDifferentiatorRequest) (*SetMappedHplmnSliceDifferentiatorResponse, error)
-	SetMappedHplmnSliceServiceType(context.Context, *SetMappedHplmnSliceServiceTypeRequest) (*SetMappedHplmnSliceServiceTypeResponse, error)
-	SetSliceDifferentiator(context.Context, *SetSliceDifferentiatorRequest) (*SetSliceDifferentiatorResponse, error)
-	SetSliceServiceType(context.Context, *SetSliceServiceTypeRequest) (*SetSliceServiceTypeResponse, error)
-	SetStatus(context.Context, *SetStatusRequest) (*SetStatusResponse, error)
-	mustEmbedUnimplementedNetworkSliceInfoBuilderServiceServer()
-}
-
-// UnimplementedNetworkSliceInfoBuilderServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedNetworkSliceInfoBuilderServiceServer struct{}
-
-func (UnimplementedNetworkSliceInfoBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
-}
-func (UnimplementedNetworkSliceInfoBuilderServiceServer) SetMappedHplmnSliceDifferentiator(context.Context, *SetMappedHplmnSliceDifferentiatorRequest) (*SetMappedHplmnSliceDifferentiatorResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetMappedHplmnSliceDifferentiator not implemented")
-}
-func (UnimplementedNetworkSliceInfoBuilderServiceServer) SetMappedHplmnSliceServiceType(context.Context, *SetMappedHplmnSliceServiceTypeRequest) (*SetMappedHplmnSliceServiceTypeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetMappedHplmnSliceServiceType not implemented")
-}
-func (UnimplementedNetworkSliceInfoBuilderServiceServer) SetSliceDifferentiator(context.Context, *SetSliceDifferentiatorRequest) (*SetSliceDifferentiatorResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetSliceDifferentiator not implemented")
-}
-func (UnimplementedNetworkSliceInfoBuilderServiceServer) SetSliceServiceType(context.Context, *SetSliceServiceTypeRequest) (*SetSliceServiceTypeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetSliceServiceType not implemented")
-}
-func (UnimplementedNetworkSliceInfoBuilderServiceServer) SetStatus(context.Context, *SetStatusRequest) (*SetStatusResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetStatus not implemented")
-}
-func (UnimplementedNetworkSliceInfoBuilderServiceServer) mustEmbedUnimplementedNetworkSliceInfoBuilderServiceServer() {
-}
-func (UnimplementedNetworkSliceInfoBuilderServiceServer) testEmbeddedByValue() {}
-
-// UnsafeNetworkSliceInfoBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to NetworkSliceInfoBuilderServiceServer will
-// result in compilation errors.
-type UnsafeNetworkSliceInfoBuilderServiceServer interface {
-	mustEmbedUnimplementedNetworkSliceInfoBuilderServiceServer()
-}
-
-func RegisterNetworkSliceInfoBuilderServiceServer(s grpc.ServiceRegistrar, srv NetworkSliceInfoBuilderServiceServer) {
-	// If the following call panics, it indicates UnimplementedNetworkSliceInfoBuilderServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&NetworkSliceInfoBuilderService_ServiceDesc, srv)
-}
-
-func _NetworkSliceInfoBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(BuildRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(NetworkSliceInfoBuilderServiceServer).Build(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: NetworkSliceInfoBuilderService_Build_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NetworkSliceInfoBuilderServiceServer).Build(ctx, req.(*BuildRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _NetworkSliceInfoBuilderService_SetMappedHplmnSliceDifferentiator_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetMappedHplmnSliceDifferentiatorRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(NetworkSliceInfoBuilderServiceServer).SetMappedHplmnSliceDifferentiator(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: NetworkSliceInfoBuilderService_SetMappedHplmnSliceDifferentiator_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NetworkSliceInfoBuilderServiceServer).SetMappedHplmnSliceDifferentiator(ctx, req.(*SetMappedHplmnSliceDifferentiatorRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _NetworkSliceInfoBuilderService_SetMappedHplmnSliceServiceType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetMappedHplmnSliceServiceTypeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(NetworkSliceInfoBuilderServiceServer).SetMappedHplmnSliceServiceType(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: NetworkSliceInfoBuilderService_SetMappedHplmnSliceServiceType_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NetworkSliceInfoBuilderServiceServer).SetMappedHplmnSliceServiceType(ctx, req.(*SetMappedHplmnSliceServiceTypeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _NetworkSliceInfoBuilderService_SetSliceDifferentiator_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetSliceDifferentiatorRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(NetworkSliceInfoBuilderServiceServer).SetSliceDifferentiator(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: NetworkSliceInfoBuilderService_SetSliceDifferentiator_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NetworkSliceInfoBuilderServiceServer).SetSliceDifferentiator(ctx, req.(*SetSliceDifferentiatorRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _NetworkSliceInfoBuilderService_SetSliceServiceType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetSliceServiceTypeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(NetworkSliceInfoBuilderServiceServer).SetSliceServiceType(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: NetworkSliceInfoBuilderService_SetSliceServiceType_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NetworkSliceInfoBuilderServiceServer).SetSliceServiceType(ctx, req.(*SetSliceServiceTypeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _NetworkSliceInfoBuilderService_SetStatus_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetStatusRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(NetworkSliceInfoBuilderServiceServer).SetStatus(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: NetworkSliceInfoBuilderService_SetStatus_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NetworkSliceInfoBuilderServiceServer).SetStatus(ctx, req.(*SetStatusRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// NetworkSliceInfoBuilderService_ServiceDesc is the grpc.ServiceDesc for NetworkSliceInfoBuilderService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var NetworkSliceInfoBuilderService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "data.NetworkSliceInfoBuilderService",
-	HandlerType: (*NetworkSliceInfoBuilderServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "Build",
-			Handler:    _NetworkSliceInfoBuilderService_Build_Handler,
-		},
-		{
-			MethodName: "SetMappedHplmnSliceDifferentiator",
-			Handler:    _NetworkSliceInfoBuilderService_SetMappedHplmnSliceDifferentiator_Handler,
-		},
-		{
-			MethodName: "SetMappedHplmnSliceServiceType",
-			Handler:    _NetworkSliceInfoBuilderService_SetMappedHplmnSliceServiceType_Handler,
-		},
-		{
-			MethodName: "SetSliceDifferentiator",
-			Handler:    _NetworkSliceInfoBuilderService_SetSliceDifferentiator_Handler,
-		},
-		{
-			MethodName: "SetSliceServiceType",
-			Handler:    _NetworkSliceInfoBuilderService_SetSliceServiceType_Handler,
-		},
-		{
-			MethodName: "SetStatus",
-			Handler:    _NetworkSliceInfoBuilderService_SetStatus_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/data/data.proto",
-}
-
-const (
-	UrspRuleService_DescribeContents_FullMethodName = "/data.UrspRuleService/DescribeContents"
-	UrspRuleService_Equals_FullMethodName           = "/data.UrspRuleService/Equals"
-	UrspRuleService_GetPrecedence_FullMethodName    = "/data.UrspRuleService/GetPrecedence"
-	UrspRuleService_HashCode_FullMethodName         = "/data.UrspRuleService/HashCode"
-	UrspRuleService_ToString_FullMethodName         = "/data.UrspRuleService/ToString"
-	UrspRuleService_WriteToParcel_FullMethodName    = "/data.UrspRuleService/WriteToParcel"
+	UrspRuleService_DescribeContents_FullMethodName            = "/data.UrspRuleService/DescribeContents"
+	UrspRuleService_Equals_FullMethodName                      = "/data.UrspRuleService/Equals"
+	UrspRuleService_GetPrecedence_FullMethodName               = "/data.UrspRuleService/GetPrecedence"
+	UrspRuleService_GetRouteSelectionDescriptor_FullMethodName = "/data.UrspRuleService/GetRouteSelectionDescriptor"
+	UrspRuleService_GetTrafficDescriptors_FullMethodName       = "/data.UrspRuleService/GetTrafficDescriptors"
+	UrspRuleService_HashCode_FullMethodName                    = "/data.UrspRuleService/HashCode"
+	UrspRuleService_ToString_FullMethodName                    = "/data.UrspRuleService/ToString"
+	UrspRuleService_WriteToParcel_FullMethodName               = "/data.UrspRuleService/WriteToParcel"
 )
 
 // UrspRuleServiceClient is the client API for UrspRuleService service.
@@ -1946,6 +38,8 @@ type UrspRuleServiceClient interface {
 	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
 	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
 	GetPrecedence(ctx context.Context, in *GetPrecedenceRequest, opts ...grpc.CallOption) (*GetPrecedenceResponse, error)
+	GetRouteSelectionDescriptor(ctx context.Context, in *GetRouteSelectionDescriptorRequest, opts ...grpc.CallOption) (*GetRouteSelectionDescriptorResponse, error)
+	GetTrafficDescriptors(ctx context.Context, in *GetTrafficDescriptorsRequest, opts ...grpc.CallOption) (*GetTrafficDescriptorsResponse, error)
 	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
 	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
 	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
@@ -1989,6 +83,26 @@ func (c *urspRuleServiceClient) GetPrecedence(ctx context.Context, in *GetPreced
 	return out, nil
 }
 
+func (c *urspRuleServiceClient) GetRouteSelectionDescriptor(ctx context.Context, in *GetRouteSelectionDescriptorRequest, opts ...grpc.CallOption) (*GetRouteSelectionDescriptorResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetRouteSelectionDescriptorResponse)
+	err := c.cc.Invoke(ctx, UrspRuleService_GetRouteSelectionDescriptor_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *urspRuleServiceClient) GetTrafficDescriptors(ctx context.Context, in *GetTrafficDescriptorsRequest, opts ...grpc.CallOption) (*GetTrafficDescriptorsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTrafficDescriptorsResponse)
+	err := c.cc.Invoke(ctx, UrspRuleService_GetTrafficDescriptors_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *urspRuleServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(HashCodeResponse)
@@ -2026,6 +140,8 @@ type UrspRuleServiceServer interface {
 	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
 	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
 	GetPrecedence(context.Context, *GetPrecedenceRequest) (*GetPrecedenceResponse, error)
+	GetRouteSelectionDescriptor(context.Context, *GetRouteSelectionDescriptorRequest) (*GetRouteSelectionDescriptorResponse, error)
+	GetTrafficDescriptors(context.Context, *GetTrafficDescriptorsRequest) (*GetTrafficDescriptorsResponse, error)
 	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
 	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
 	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
@@ -2047,6 +163,12 @@ func (UnimplementedUrspRuleServiceServer) Equals(context.Context, *EqualsRequest
 }
 func (UnimplementedUrspRuleServiceServer) GetPrecedence(context.Context, *GetPrecedenceRequest) (*GetPrecedenceResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetPrecedence not implemented")
+}
+func (UnimplementedUrspRuleServiceServer) GetRouteSelectionDescriptor(context.Context, *GetRouteSelectionDescriptorRequest) (*GetRouteSelectionDescriptorResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetRouteSelectionDescriptor not implemented")
+}
+func (UnimplementedUrspRuleServiceServer) GetTrafficDescriptors(context.Context, *GetTrafficDescriptorsRequest) (*GetTrafficDescriptorsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTrafficDescriptors not implemented")
 }
 func (UnimplementedUrspRuleServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
@@ -2132,6 +254,42 @@ func _UrspRuleService_GetPrecedence_Handler(srv interface{}, ctx context.Context
 	return interceptor(ctx, in, info, handler)
 }
 
+func _UrspRuleService_GetRouteSelectionDescriptor_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetRouteSelectionDescriptorRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(UrspRuleServiceServer).GetRouteSelectionDescriptor(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: UrspRuleService_GetRouteSelectionDescriptor_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(UrspRuleServiceServer).GetRouteSelectionDescriptor(ctx, req.(*GetRouteSelectionDescriptorRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _UrspRuleService_GetTrafficDescriptors_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTrafficDescriptorsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(UrspRuleServiceServer).GetTrafficDescriptors(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: UrspRuleService_GetTrafficDescriptors_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(UrspRuleServiceServer).GetTrafficDescriptors(ctx, req.(*GetTrafficDescriptorsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _UrspRuleService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(HashCodeRequest)
 	if err := dec(in); err != nil {
@@ -2204,6 +362,14 @@ var UrspRuleService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetPrecedence",
 			Handler:    _UrspRuleService_GetPrecedence_Handler,
+		},
+		{
+			MethodName: "GetRouteSelectionDescriptor",
+			Handler:    _UrspRuleService_GetRouteSelectionDescriptor_Handler,
+		},
+		{
+			MethodName: "GetTrafficDescriptors",
+			Handler:    _UrspRuleService_GetTrafficDescriptors_Handler,
 		},
 		{
 			MethodName: "HashCode",
@@ -4511,6 +2677,2068 @@ var ApnSettingBuilderService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "SetUser",
 			Handler:    _ApnSettingBuilderService_SetUser_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/data/data.proto",
+}
+
+const (
+	RouteSelectionDescriptorService_DescribeContents_FullMethodName   = "/data.RouteSelectionDescriptorService/DescribeContents"
+	RouteSelectionDescriptorService_Equals_FullMethodName             = "/data.RouteSelectionDescriptorService/Equals"
+	RouteSelectionDescriptorService_GetDataNetworkName_FullMethodName = "/data.RouteSelectionDescriptorService/GetDataNetworkName"
+	RouteSelectionDescriptorService_GetPrecedence_FullMethodName      = "/data.RouteSelectionDescriptorService/GetPrecedence"
+	RouteSelectionDescriptorService_GetSessionType_FullMethodName     = "/data.RouteSelectionDescriptorService/GetSessionType"
+	RouteSelectionDescriptorService_GetSliceInfo_FullMethodName       = "/data.RouteSelectionDescriptorService/GetSliceInfo"
+	RouteSelectionDescriptorService_GetSscMode_FullMethodName         = "/data.RouteSelectionDescriptorService/GetSscMode"
+	RouteSelectionDescriptorService_HashCode_FullMethodName           = "/data.RouteSelectionDescriptorService/HashCode"
+	RouteSelectionDescriptorService_ToString_FullMethodName           = "/data.RouteSelectionDescriptorService/ToString"
+	RouteSelectionDescriptorService_WriteToParcel_FullMethodName      = "/data.RouteSelectionDescriptorService/WriteToParcel"
+)
+
+// RouteSelectionDescriptorServiceClient is the client API for RouteSelectionDescriptorService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type RouteSelectionDescriptorServiceClient interface {
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	GetDataNetworkName(ctx context.Context, in *GetDataNetworkNameRequest, opts ...grpc.CallOption) (*GetDataNetworkNameResponse, error)
+	GetPrecedence(ctx context.Context, in *GetPrecedenceRequest, opts ...grpc.CallOption) (*GetPrecedenceResponse, error)
+	GetSessionType(ctx context.Context, in *GetSessionTypeRequest, opts ...grpc.CallOption) (*GetSessionTypeResponse, error)
+	GetSliceInfo(ctx context.Context, in *GetSliceInfoRequest, opts ...grpc.CallOption) (*GetSliceInfoResponse, error)
+	GetSscMode(ctx context.Context, in *GetSscModeRequest, opts ...grpc.CallOption) (*GetSscModeResponse, error)
+	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type routeSelectionDescriptorServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewRouteSelectionDescriptorServiceClient(cc grpc.ClientConnInterface) RouteSelectionDescriptorServiceClient {
+	return &routeSelectionDescriptorServiceClient{cc}
+}
+
+func (c *routeSelectionDescriptorServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, RouteSelectionDescriptorService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *routeSelectionDescriptorServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(EqualsResponse)
+	err := c.cc.Invoke(ctx, RouteSelectionDescriptorService_Equals_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *routeSelectionDescriptorServiceClient) GetDataNetworkName(ctx context.Context, in *GetDataNetworkNameRequest, opts ...grpc.CallOption) (*GetDataNetworkNameResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetDataNetworkNameResponse)
+	err := c.cc.Invoke(ctx, RouteSelectionDescriptorService_GetDataNetworkName_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *routeSelectionDescriptorServiceClient) GetPrecedence(ctx context.Context, in *GetPrecedenceRequest, opts ...grpc.CallOption) (*GetPrecedenceResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetPrecedenceResponse)
+	err := c.cc.Invoke(ctx, RouteSelectionDescriptorService_GetPrecedence_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *routeSelectionDescriptorServiceClient) GetSessionType(ctx context.Context, in *GetSessionTypeRequest, opts ...grpc.CallOption) (*GetSessionTypeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSessionTypeResponse)
+	err := c.cc.Invoke(ctx, RouteSelectionDescriptorService_GetSessionType_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *routeSelectionDescriptorServiceClient) GetSliceInfo(ctx context.Context, in *GetSliceInfoRequest, opts ...grpc.CallOption) (*GetSliceInfoResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSliceInfoResponse)
+	err := c.cc.Invoke(ctx, RouteSelectionDescriptorService_GetSliceInfo_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *routeSelectionDescriptorServiceClient) GetSscMode(ctx context.Context, in *GetSscModeRequest, opts ...grpc.CallOption) (*GetSscModeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSscModeResponse)
+	err := c.cc.Invoke(ctx, RouteSelectionDescriptorService_GetSscMode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *routeSelectionDescriptorServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HashCodeResponse)
+	err := c.cc.Invoke(ctx, RouteSelectionDescriptorService_HashCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *routeSelectionDescriptorServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, RouteSelectionDescriptorService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *routeSelectionDescriptorServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, RouteSelectionDescriptorService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// RouteSelectionDescriptorServiceServer is the server API for RouteSelectionDescriptorService service.
+// All implementations must embed UnimplementedRouteSelectionDescriptorServiceServer
+// for forward compatibility.
+type RouteSelectionDescriptorServiceServer interface {
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
+	GetDataNetworkName(context.Context, *GetDataNetworkNameRequest) (*GetDataNetworkNameResponse, error)
+	GetPrecedence(context.Context, *GetPrecedenceRequest) (*GetPrecedenceResponse, error)
+	GetSessionType(context.Context, *GetSessionTypeRequest) (*GetSessionTypeResponse, error)
+	GetSliceInfo(context.Context, *GetSliceInfoRequest) (*GetSliceInfoResponse, error)
+	GetSscMode(context.Context, *GetSscModeRequest) (*GetSscModeResponse, error)
+	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
+	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedRouteSelectionDescriptorServiceServer()
+}
+
+// UnimplementedRouteSelectionDescriptorServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedRouteSelectionDescriptorServiceServer struct{}
+
+func (UnimplementedRouteSelectionDescriptorServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedRouteSelectionDescriptorServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
+}
+func (UnimplementedRouteSelectionDescriptorServiceServer) GetDataNetworkName(context.Context, *GetDataNetworkNameRequest) (*GetDataNetworkNameResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetDataNetworkName not implemented")
+}
+func (UnimplementedRouteSelectionDescriptorServiceServer) GetPrecedence(context.Context, *GetPrecedenceRequest) (*GetPrecedenceResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetPrecedence not implemented")
+}
+func (UnimplementedRouteSelectionDescriptorServiceServer) GetSessionType(context.Context, *GetSessionTypeRequest) (*GetSessionTypeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSessionType not implemented")
+}
+func (UnimplementedRouteSelectionDescriptorServiceServer) GetSliceInfo(context.Context, *GetSliceInfoRequest) (*GetSliceInfoResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSliceInfo not implemented")
+}
+func (UnimplementedRouteSelectionDescriptorServiceServer) GetSscMode(context.Context, *GetSscModeRequest) (*GetSscModeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSscMode not implemented")
+}
+func (UnimplementedRouteSelectionDescriptorServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
+}
+func (UnimplementedRouteSelectionDescriptorServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedRouteSelectionDescriptorServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedRouteSelectionDescriptorServiceServer) mustEmbedUnimplementedRouteSelectionDescriptorServiceServer() {
+}
+func (UnimplementedRouteSelectionDescriptorServiceServer) testEmbeddedByValue() {}
+
+// UnsafeRouteSelectionDescriptorServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to RouteSelectionDescriptorServiceServer will
+// result in compilation errors.
+type UnsafeRouteSelectionDescriptorServiceServer interface {
+	mustEmbedUnimplementedRouteSelectionDescriptorServiceServer()
+}
+
+func RegisterRouteSelectionDescriptorServiceServer(s grpc.ServiceRegistrar, srv RouteSelectionDescriptorServiceServer) {
+	// If the following call panics, it indicates UnimplementedRouteSelectionDescriptorServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&RouteSelectionDescriptorService_ServiceDesc, srv)
+}
+
+func _RouteSelectionDescriptorService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RouteSelectionDescriptorServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RouteSelectionDescriptorService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RouteSelectionDescriptorServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RouteSelectionDescriptorService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EqualsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RouteSelectionDescriptorServiceServer).Equals(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RouteSelectionDescriptorService_Equals_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RouteSelectionDescriptorServiceServer).Equals(ctx, req.(*EqualsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RouteSelectionDescriptorService_GetDataNetworkName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetDataNetworkNameRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RouteSelectionDescriptorServiceServer).GetDataNetworkName(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RouteSelectionDescriptorService_GetDataNetworkName_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RouteSelectionDescriptorServiceServer).GetDataNetworkName(ctx, req.(*GetDataNetworkNameRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RouteSelectionDescriptorService_GetPrecedence_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPrecedenceRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RouteSelectionDescriptorServiceServer).GetPrecedence(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RouteSelectionDescriptorService_GetPrecedence_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RouteSelectionDescriptorServiceServer).GetPrecedence(ctx, req.(*GetPrecedenceRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RouteSelectionDescriptorService_GetSessionType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSessionTypeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RouteSelectionDescriptorServiceServer).GetSessionType(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RouteSelectionDescriptorService_GetSessionType_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RouteSelectionDescriptorServiceServer).GetSessionType(ctx, req.(*GetSessionTypeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RouteSelectionDescriptorService_GetSliceInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSliceInfoRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RouteSelectionDescriptorServiceServer).GetSliceInfo(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RouteSelectionDescriptorService_GetSliceInfo_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RouteSelectionDescriptorServiceServer).GetSliceInfo(ctx, req.(*GetSliceInfoRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RouteSelectionDescriptorService_GetSscMode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSscModeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RouteSelectionDescriptorServiceServer).GetSscMode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RouteSelectionDescriptorService_GetSscMode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RouteSelectionDescriptorServiceServer).GetSscMode(ctx, req.(*GetSscModeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RouteSelectionDescriptorService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HashCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RouteSelectionDescriptorServiceServer).HashCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RouteSelectionDescriptorService_HashCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RouteSelectionDescriptorServiceServer).HashCode(ctx, req.(*HashCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RouteSelectionDescriptorService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RouteSelectionDescriptorServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RouteSelectionDescriptorService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RouteSelectionDescriptorServiceServer).ToString(ctx, req.(*ToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RouteSelectionDescriptorService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RouteSelectionDescriptorServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RouteSelectionDescriptorService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RouteSelectionDescriptorServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// RouteSelectionDescriptorService_ServiceDesc is the grpc.ServiceDesc for RouteSelectionDescriptorService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var RouteSelectionDescriptorService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "data.RouteSelectionDescriptorService",
+	HandlerType: (*RouteSelectionDescriptorServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "DescribeContents",
+			Handler:    _RouteSelectionDescriptorService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "Equals",
+			Handler:    _RouteSelectionDescriptorService_Equals_Handler,
+		},
+		{
+			MethodName: "GetDataNetworkName",
+			Handler:    _RouteSelectionDescriptorService_GetDataNetworkName_Handler,
+		},
+		{
+			MethodName: "GetPrecedence",
+			Handler:    _RouteSelectionDescriptorService_GetPrecedence_Handler,
+		},
+		{
+			MethodName: "GetSessionType",
+			Handler:    _RouteSelectionDescriptorService_GetSessionType_Handler,
+		},
+		{
+			MethodName: "GetSliceInfo",
+			Handler:    _RouteSelectionDescriptorService_GetSliceInfo_Handler,
+		},
+		{
+			MethodName: "GetSscMode",
+			Handler:    _RouteSelectionDescriptorService_GetSscMode_Handler,
+		},
+		{
+			MethodName: "HashCode",
+			Handler:    _RouteSelectionDescriptorService_HashCode_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _RouteSelectionDescriptorService_ToString_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _RouteSelectionDescriptorService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/data/data.proto",
+}
+
+const (
+	TrafficDescriptorService_DescribeContents_FullMethodName   = "/data.TrafficDescriptorService/DescribeContents"
+	TrafficDescriptorService_Equals_FullMethodName             = "/data.TrafficDescriptorService/Equals"
+	TrafficDescriptorService_GetDataNetworkName_FullMethodName = "/data.TrafficDescriptorService/GetDataNetworkName"
+	TrafficDescriptorService_GetOsAppId_FullMethodName         = "/data.TrafficDescriptorService/GetOsAppId"
+	TrafficDescriptorService_HashCode_FullMethodName           = "/data.TrafficDescriptorService/HashCode"
+	TrafficDescriptorService_ToString_FullMethodName           = "/data.TrafficDescriptorService/ToString"
+	TrafficDescriptorService_WriteToParcel_FullMethodName      = "/data.TrafficDescriptorService/WriteToParcel"
+)
+
+// TrafficDescriptorServiceClient is the client API for TrafficDescriptorService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type TrafficDescriptorServiceClient interface {
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	GetDataNetworkName(ctx context.Context, in *GetDataNetworkNameRequest, opts ...grpc.CallOption) (*TrafficDescriptorGetDataNetworkNameResponse, error)
+	GetOsAppId(ctx context.Context, in *GetOsAppIdRequest, opts ...grpc.CallOption) (*GetOsAppIdResponse, error)
+	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type trafficDescriptorServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewTrafficDescriptorServiceClient(cc grpc.ClientConnInterface) TrafficDescriptorServiceClient {
+	return &trafficDescriptorServiceClient{cc}
+}
+
+func (c *trafficDescriptorServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, TrafficDescriptorService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *trafficDescriptorServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(EqualsResponse)
+	err := c.cc.Invoke(ctx, TrafficDescriptorService_Equals_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *trafficDescriptorServiceClient) GetDataNetworkName(ctx context.Context, in *GetDataNetworkNameRequest, opts ...grpc.CallOption) (*TrafficDescriptorGetDataNetworkNameResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(TrafficDescriptorGetDataNetworkNameResponse)
+	err := c.cc.Invoke(ctx, TrafficDescriptorService_GetDataNetworkName_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *trafficDescriptorServiceClient) GetOsAppId(ctx context.Context, in *GetOsAppIdRequest, opts ...grpc.CallOption) (*GetOsAppIdResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetOsAppIdResponse)
+	err := c.cc.Invoke(ctx, TrafficDescriptorService_GetOsAppId_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *trafficDescriptorServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HashCodeResponse)
+	err := c.cc.Invoke(ctx, TrafficDescriptorService_HashCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *trafficDescriptorServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, TrafficDescriptorService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *trafficDescriptorServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, TrafficDescriptorService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// TrafficDescriptorServiceServer is the server API for TrafficDescriptorService service.
+// All implementations must embed UnimplementedTrafficDescriptorServiceServer
+// for forward compatibility.
+type TrafficDescriptorServiceServer interface {
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
+	GetDataNetworkName(context.Context, *GetDataNetworkNameRequest) (*TrafficDescriptorGetDataNetworkNameResponse, error)
+	GetOsAppId(context.Context, *GetOsAppIdRequest) (*GetOsAppIdResponse, error)
+	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
+	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedTrafficDescriptorServiceServer()
+}
+
+// UnimplementedTrafficDescriptorServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedTrafficDescriptorServiceServer struct{}
+
+func (UnimplementedTrafficDescriptorServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedTrafficDescriptorServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
+}
+func (UnimplementedTrafficDescriptorServiceServer) GetDataNetworkName(context.Context, *GetDataNetworkNameRequest) (*TrafficDescriptorGetDataNetworkNameResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetDataNetworkName not implemented")
+}
+func (UnimplementedTrafficDescriptorServiceServer) GetOsAppId(context.Context, *GetOsAppIdRequest) (*GetOsAppIdResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetOsAppId not implemented")
+}
+func (UnimplementedTrafficDescriptorServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
+}
+func (UnimplementedTrafficDescriptorServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedTrafficDescriptorServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedTrafficDescriptorServiceServer) mustEmbedUnimplementedTrafficDescriptorServiceServer() {
+}
+func (UnimplementedTrafficDescriptorServiceServer) testEmbeddedByValue() {}
+
+// UnsafeTrafficDescriptorServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to TrafficDescriptorServiceServer will
+// result in compilation errors.
+type UnsafeTrafficDescriptorServiceServer interface {
+	mustEmbedUnimplementedTrafficDescriptorServiceServer()
+}
+
+func RegisterTrafficDescriptorServiceServer(s grpc.ServiceRegistrar, srv TrafficDescriptorServiceServer) {
+	// If the following call panics, it indicates UnimplementedTrafficDescriptorServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&TrafficDescriptorService_ServiceDesc, srv)
+}
+
+func _TrafficDescriptorService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TrafficDescriptorServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TrafficDescriptorService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TrafficDescriptorServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TrafficDescriptorService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EqualsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TrafficDescriptorServiceServer).Equals(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TrafficDescriptorService_Equals_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TrafficDescriptorServiceServer).Equals(ctx, req.(*EqualsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TrafficDescriptorService_GetDataNetworkName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetDataNetworkNameRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TrafficDescriptorServiceServer).GetDataNetworkName(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TrafficDescriptorService_GetDataNetworkName_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TrafficDescriptorServiceServer).GetDataNetworkName(ctx, req.(*GetDataNetworkNameRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TrafficDescriptorService_GetOsAppId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetOsAppIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TrafficDescriptorServiceServer).GetOsAppId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TrafficDescriptorService_GetOsAppId_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TrafficDescriptorServiceServer).GetOsAppId(ctx, req.(*GetOsAppIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TrafficDescriptorService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HashCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TrafficDescriptorServiceServer).HashCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TrafficDescriptorService_HashCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TrafficDescriptorServiceServer).HashCode(ctx, req.(*HashCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TrafficDescriptorService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TrafficDescriptorServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TrafficDescriptorService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TrafficDescriptorServiceServer).ToString(ctx, req.(*ToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TrafficDescriptorService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TrafficDescriptorServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TrafficDescriptorService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TrafficDescriptorServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// TrafficDescriptorService_ServiceDesc is the grpc.ServiceDesc for TrafficDescriptorService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var TrafficDescriptorService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "data.TrafficDescriptorService",
+	HandlerType: (*TrafficDescriptorServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "DescribeContents",
+			Handler:    _TrafficDescriptorService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "Equals",
+			Handler:    _TrafficDescriptorService_Equals_Handler,
+		},
+		{
+			MethodName: "GetDataNetworkName",
+			Handler:    _TrafficDescriptorService_GetDataNetworkName_Handler,
+		},
+		{
+			MethodName: "GetOsAppId",
+			Handler:    _TrafficDescriptorService_GetOsAppId_Handler,
+		},
+		{
+			MethodName: "HashCode",
+			Handler:    _TrafficDescriptorService_HashCode_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _TrafficDescriptorService_ToString_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _TrafficDescriptorService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/data/data.proto",
+}
+
+const (
+	TrafficDescriptorBuilderService_Build_FullMethodName              = "/data.TrafficDescriptorBuilderService/Build"
+	TrafficDescriptorBuilderService_SetDataNetworkName_FullMethodName = "/data.TrafficDescriptorBuilderService/SetDataNetworkName"
+	TrafficDescriptorBuilderService_SetOsAppId_FullMethodName         = "/data.TrafficDescriptorBuilderService/SetOsAppId"
+)
+
+// TrafficDescriptorBuilderServiceClient is the client API for TrafficDescriptorBuilderService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type TrafficDescriptorBuilderServiceClient interface {
+	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
+	SetDataNetworkName(ctx context.Context, in *SetDataNetworkNameRequest, opts ...grpc.CallOption) (*SetDataNetworkNameResponse, error)
+	SetOsAppId(ctx context.Context, in *SetOsAppIdRequest, opts ...grpc.CallOption) (*SetOsAppIdResponse, error)
+}
+
+type trafficDescriptorBuilderServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewTrafficDescriptorBuilderServiceClient(cc grpc.ClientConnInterface) TrafficDescriptorBuilderServiceClient {
+	return &trafficDescriptorBuilderServiceClient{cc}
+}
+
+func (c *trafficDescriptorBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(BuildResponse)
+	err := c.cc.Invoke(ctx, TrafficDescriptorBuilderService_Build_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *trafficDescriptorBuilderServiceClient) SetDataNetworkName(ctx context.Context, in *SetDataNetworkNameRequest, opts ...grpc.CallOption) (*SetDataNetworkNameResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetDataNetworkNameResponse)
+	err := c.cc.Invoke(ctx, TrafficDescriptorBuilderService_SetDataNetworkName_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *trafficDescriptorBuilderServiceClient) SetOsAppId(ctx context.Context, in *SetOsAppIdRequest, opts ...grpc.CallOption) (*SetOsAppIdResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetOsAppIdResponse)
+	err := c.cc.Invoke(ctx, TrafficDescriptorBuilderService_SetOsAppId_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// TrafficDescriptorBuilderServiceServer is the server API for TrafficDescriptorBuilderService service.
+// All implementations must embed UnimplementedTrafficDescriptorBuilderServiceServer
+// for forward compatibility.
+type TrafficDescriptorBuilderServiceServer interface {
+	Build(context.Context, *BuildRequest) (*BuildResponse, error)
+	SetDataNetworkName(context.Context, *SetDataNetworkNameRequest) (*SetDataNetworkNameResponse, error)
+	SetOsAppId(context.Context, *SetOsAppIdRequest) (*SetOsAppIdResponse, error)
+	mustEmbedUnimplementedTrafficDescriptorBuilderServiceServer()
+}
+
+// UnimplementedTrafficDescriptorBuilderServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedTrafficDescriptorBuilderServiceServer struct{}
+
+func (UnimplementedTrafficDescriptorBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
+}
+func (UnimplementedTrafficDescriptorBuilderServiceServer) SetDataNetworkName(context.Context, *SetDataNetworkNameRequest) (*SetDataNetworkNameResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetDataNetworkName not implemented")
+}
+func (UnimplementedTrafficDescriptorBuilderServiceServer) SetOsAppId(context.Context, *SetOsAppIdRequest) (*SetOsAppIdResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetOsAppId not implemented")
+}
+func (UnimplementedTrafficDescriptorBuilderServiceServer) mustEmbedUnimplementedTrafficDescriptorBuilderServiceServer() {
+}
+func (UnimplementedTrafficDescriptorBuilderServiceServer) testEmbeddedByValue() {}
+
+// UnsafeTrafficDescriptorBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to TrafficDescriptorBuilderServiceServer will
+// result in compilation errors.
+type UnsafeTrafficDescriptorBuilderServiceServer interface {
+	mustEmbedUnimplementedTrafficDescriptorBuilderServiceServer()
+}
+
+func RegisterTrafficDescriptorBuilderServiceServer(s grpc.ServiceRegistrar, srv TrafficDescriptorBuilderServiceServer) {
+	// If the following call panics, it indicates UnimplementedTrafficDescriptorBuilderServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&TrafficDescriptorBuilderService_ServiceDesc, srv)
+}
+
+func _TrafficDescriptorBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BuildRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TrafficDescriptorBuilderServiceServer).Build(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TrafficDescriptorBuilderService_Build_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TrafficDescriptorBuilderServiceServer).Build(ctx, req.(*BuildRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TrafficDescriptorBuilderService_SetDataNetworkName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetDataNetworkNameRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TrafficDescriptorBuilderServiceServer).SetDataNetworkName(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TrafficDescriptorBuilderService_SetDataNetworkName_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TrafficDescriptorBuilderServiceServer).SetDataNetworkName(ctx, req.(*SetDataNetworkNameRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TrafficDescriptorBuilderService_SetOsAppId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetOsAppIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TrafficDescriptorBuilderServiceServer).SetOsAppId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TrafficDescriptorBuilderService_SetOsAppId_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TrafficDescriptorBuilderServiceServer).SetOsAppId(ctx, req.(*SetOsAppIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// TrafficDescriptorBuilderService_ServiceDesc is the grpc.ServiceDesc for TrafficDescriptorBuilderService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var TrafficDescriptorBuilderService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "data.TrafficDescriptorBuilderService",
+	HandlerType: (*TrafficDescriptorBuilderServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Build",
+			Handler:    _TrafficDescriptorBuilderService_Build_Handler,
+		},
+		{
+			MethodName: "SetDataNetworkName",
+			Handler:    _TrafficDescriptorBuilderService_SetDataNetworkName_Handler,
+		},
+		{
+			MethodName: "SetOsAppId",
+			Handler:    _TrafficDescriptorBuilderService_SetOsAppId_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/data/data.proto",
+}
+
+const (
+	NetworkSliceInfoService_DescribeContents_FullMethodName                  = "/data.NetworkSliceInfoService/DescribeContents"
+	NetworkSliceInfoService_Equals_FullMethodName                            = "/data.NetworkSliceInfoService/Equals"
+	NetworkSliceInfoService_GetMappedHplmnSliceDifferentiator_FullMethodName = "/data.NetworkSliceInfoService/GetMappedHplmnSliceDifferentiator"
+	NetworkSliceInfoService_GetMappedHplmnSliceServiceType_FullMethodName    = "/data.NetworkSliceInfoService/GetMappedHplmnSliceServiceType"
+	NetworkSliceInfoService_GetSliceDifferentiator_FullMethodName            = "/data.NetworkSliceInfoService/GetSliceDifferentiator"
+	NetworkSliceInfoService_GetSliceServiceType_FullMethodName               = "/data.NetworkSliceInfoService/GetSliceServiceType"
+	NetworkSliceInfoService_GetStatus_FullMethodName                         = "/data.NetworkSliceInfoService/GetStatus"
+	NetworkSliceInfoService_HashCode_FullMethodName                          = "/data.NetworkSliceInfoService/HashCode"
+	NetworkSliceInfoService_ToString_FullMethodName                          = "/data.NetworkSliceInfoService/ToString"
+	NetworkSliceInfoService_WriteToParcel_FullMethodName                     = "/data.NetworkSliceInfoService/WriteToParcel"
+)
+
+// NetworkSliceInfoServiceClient is the client API for NetworkSliceInfoService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type NetworkSliceInfoServiceClient interface {
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	GetMappedHplmnSliceDifferentiator(ctx context.Context, in *GetMappedHplmnSliceDifferentiatorRequest, opts ...grpc.CallOption) (*GetMappedHplmnSliceDifferentiatorResponse, error)
+	GetMappedHplmnSliceServiceType(ctx context.Context, in *GetMappedHplmnSliceServiceTypeRequest, opts ...grpc.CallOption) (*GetMappedHplmnSliceServiceTypeResponse, error)
+	GetSliceDifferentiator(ctx context.Context, in *GetSliceDifferentiatorRequest, opts ...grpc.CallOption) (*GetSliceDifferentiatorResponse, error)
+	GetSliceServiceType(ctx context.Context, in *GetSliceServiceTypeRequest, opts ...grpc.CallOption) (*GetSliceServiceTypeResponse, error)
+	GetStatus(ctx context.Context, in *GetStatusRequest, opts ...grpc.CallOption) (*GetStatusResponse, error)
+	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type networkSliceInfoServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewNetworkSliceInfoServiceClient(cc grpc.ClientConnInterface) NetworkSliceInfoServiceClient {
+	return &networkSliceInfoServiceClient{cc}
+}
+
+func (c *networkSliceInfoServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, NetworkSliceInfoService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *networkSliceInfoServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(EqualsResponse)
+	err := c.cc.Invoke(ctx, NetworkSliceInfoService_Equals_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *networkSliceInfoServiceClient) GetMappedHplmnSliceDifferentiator(ctx context.Context, in *GetMappedHplmnSliceDifferentiatorRequest, opts ...grpc.CallOption) (*GetMappedHplmnSliceDifferentiatorResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetMappedHplmnSliceDifferentiatorResponse)
+	err := c.cc.Invoke(ctx, NetworkSliceInfoService_GetMappedHplmnSliceDifferentiator_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *networkSliceInfoServiceClient) GetMappedHplmnSliceServiceType(ctx context.Context, in *GetMappedHplmnSliceServiceTypeRequest, opts ...grpc.CallOption) (*GetMappedHplmnSliceServiceTypeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetMappedHplmnSliceServiceTypeResponse)
+	err := c.cc.Invoke(ctx, NetworkSliceInfoService_GetMappedHplmnSliceServiceType_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *networkSliceInfoServiceClient) GetSliceDifferentiator(ctx context.Context, in *GetSliceDifferentiatorRequest, opts ...grpc.CallOption) (*GetSliceDifferentiatorResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSliceDifferentiatorResponse)
+	err := c.cc.Invoke(ctx, NetworkSliceInfoService_GetSliceDifferentiator_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *networkSliceInfoServiceClient) GetSliceServiceType(ctx context.Context, in *GetSliceServiceTypeRequest, opts ...grpc.CallOption) (*GetSliceServiceTypeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSliceServiceTypeResponse)
+	err := c.cc.Invoke(ctx, NetworkSliceInfoService_GetSliceServiceType_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *networkSliceInfoServiceClient) GetStatus(ctx context.Context, in *GetStatusRequest, opts ...grpc.CallOption) (*GetStatusResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetStatusResponse)
+	err := c.cc.Invoke(ctx, NetworkSliceInfoService_GetStatus_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *networkSliceInfoServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HashCodeResponse)
+	err := c.cc.Invoke(ctx, NetworkSliceInfoService_HashCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *networkSliceInfoServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, NetworkSliceInfoService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *networkSliceInfoServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, NetworkSliceInfoService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// NetworkSliceInfoServiceServer is the server API for NetworkSliceInfoService service.
+// All implementations must embed UnimplementedNetworkSliceInfoServiceServer
+// for forward compatibility.
+type NetworkSliceInfoServiceServer interface {
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
+	GetMappedHplmnSliceDifferentiator(context.Context, *GetMappedHplmnSliceDifferentiatorRequest) (*GetMappedHplmnSliceDifferentiatorResponse, error)
+	GetMappedHplmnSliceServiceType(context.Context, *GetMappedHplmnSliceServiceTypeRequest) (*GetMappedHplmnSliceServiceTypeResponse, error)
+	GetSliceDifferentiator(context.Context, *GetSliceDifferentiatorRequest) (*GetSliceDifferentiatorResponse, error)
+	GetSliceServiceType(context.Context, *GetSliceServiceTypeRequest) (*GetSliceServiceTypeResponse, error)
+	GetStatus(context.Context, *GetStatusRequest) (*GetStatusResponse, error)
+	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
+	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedNetworkSliceInfoServiceServer()
+}
+
+// UnimplementedNetworkSliceInfoServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedNetworkSliceInfoServiceServer struct{}
+
+func (UnimplementedNetworkSliceInfoServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedNetworkSliceInfoServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
+}
+func (UnimplementedNetworkSliceInfoServiceServer) GetMappedHplmnSliceDifferentiator(context.Context, *GetMappedHplmnSliceDifferentiatorRequest) (*GetMappedHplmnSliceDifferentiatorResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetMappedHplmnSliceDifferentiator not implemented")
+}
+func (UnimplementedNetworkSliceInfoServiceServer) GetMappedHplmnSliceServiceType(context.Context, *GetMappedHplmnSliceServiceTypeRequest) (*GetMappedHplmnSliceServiceTypeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetMappedHplmnSliceServiceType not implemented")
+}
+func (UnimplementedNetworkSliceInfoServiceServer) GetSliceDifferentiator(context.Context, *GetSliceDifferentiatorRequest) (*GetSliceDifferentiatorResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSliceDifferentiator not implemented")
+}
+func (UnimplementedNetworkSliceInfoServiceServer) GetSliceServiceType(context.Context, *GetSliceServiceTypeRequest) (*GetSliceServiceTypeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSliceServiceType not implemented")
+}
+func (UnimplementedNetworkSliceInfoServiceServer) GetStatus(context.Context, *GetStatusRequest) (*GetStatusResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetStatus not implemented")
+}
+func (UnimplementedNetworkSliceInfoServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
+}
+func (UnimplementedNetworkSliceInfoServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedNetworkSliceInfoServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedNetworkSliceInfoServiceServer) mustEmbedUnimplementedNetworkSliceInfoServiceServer() {
+}
+func (UnimplementedNetworkSliceInfoServiceServer) testEmbeddedByValue() {}
+
+// UnsafeNetworkSliceInfoServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to NetworkSliceInfoServiceServer will
+// result in compilation errors.
+type UnsafeNetworkSliceInfoServiceServer interface {
+	mustEmbedUnimplementedNetworkSliceInfoServiceServer()
+}
+
+func RegisterNetworkSliceInfoServiceServer(s grpc.ServiceRegistrar, srv NetworkSliceInfoServiceServer) {
+	// If the following call panics, it indicates UnimplementedNetworkSliceInfoServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&NetworkSliceInfoService_ServiceDesc, srv)
+}
+
+func _NetworkSliceInfoService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NetworkSliceInfoServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NetworkSliceInfoService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NetworkSliceInfoServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NetworkSliceInfoService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EqualsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NetworkSliceInfoServiceServer).Equals(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NetworkSliceInfoService_Equals_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NetworkSliceInfoServiceServer).Equals(ctx, req.(*EqualsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NetworkSliceInfoService_GetMappedHplmnSliceDifferentiator_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetMappedHplmnSliceDifferentiatorRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NetworkSliceInfoServiceServer).GetMappedHplmnSliceDifferentiator(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NetworkSliceInfoService_GetMappedHplmnSliceDifferentiator_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NetworkSliceInfoServiceServer).GetMappedHplmnSliceDifferentiator(ctx, req.(*GetMappedHplmnSliceDifferentiatorRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NetworkSliceInfoService_GetMappedHplmnSliceServiceType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetMappedHplmnSliceServiceTypeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NetworkSliceInfoServiceServer).GetMappedHplmnSliceServiceType(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NetworkSliceInfoService_GetMappedHplmnSliceServiceType_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NetworkSliceInfoServiceServer).GetMappedHplmnSliceServiceType(ctx, req.(*GetMappedHplmnSliceServiceTypeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NetworkSliceInfoService_GetSliceDifferentiator_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSliceDifferentiatorRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NetworkSliceInfoServiceServer).GetSliceDifferentiator(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NetworkSliceInfoService_GetSliceDifferentiator_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NetworkSliceInfoServiceServer).GetSliceDifferentiator(ctx, req.(*GetSliceDifferentiatorRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NetworkSliceInfoService_GetSliceServiceType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSliceServiceTypeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NetworkSliceInfoServiceServer).GetSliceServiceType(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NetworkSliceInfoService_GetSliceServiceType_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NetworkSliceInfoServiceServer).GetSliceServiceType(ctx, req.(*GetSliceServiceTypeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NetworkSliceInfoService_GetStatus_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetStatusRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NetworkSliceInfoServiceServer).GetStatus(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NetworkSliceInfoService_GetStatus_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NetworkSliceInfoServiceServer).GetStatus(ctx, req.(*GetStatusRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NetworkSliceInfoService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HashCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NetworkSliceInfoServiceServer).HashCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NetworkSliceInfoService_HashCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NetworkSliceInfoServiceServer).HashCode(ctx, req.(*HashCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NetworkSliceInfoService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NetworkSliceInfoServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NetworkSliceInfoService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NetworkSliceInfoServiceServer).ToString(ctx, req.(*ToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NetworkSliceInfoService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NetworkSliceInfoServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NetworkSliceInfoService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NetworkSliceInfoServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// NetworkSliceInfoService_ServiceDesc is the grpc.ServiceDesc for NetworkSliceInfoService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var NetworkSliceInfoService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "data.NetworkSliceInfoService",
+	HandlerType: (*NetworkSliceInfoServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "DescribeContents",
+			Handler:    _NetworkSliceInfoService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "Equals",
+			Handler:    _NetworkSliceInfoService_Equals_Handler,
+		},
+		{
+			MethodName: "GetMappedHplmnSliceDifferentiator",
+			Handler:    _NetworkSliceInfoService_GetMappedHplmnSliceDifferentiator_Handler,
+		},
+		{
+			MethodName: "GetMappedHplmnSliceServiceType",
+			Handler:    _NetworkSliceInfoService_GetMappedHplmnSliceServiceType_Handler,
+		},
+		{
+			MethodName: "GetSliceDifferentiator",
+			Handler:    _NetworkSliceInfoService_GetSliceDifferentiator_Handler,
+		},
+		{
+			MethodName: "GetSliceServiceType",
+			Handler:    _NetworkSliceInfoService_GetSliceServiceType_Handler,
+		},
+		{
+			MethodName: "GetStatus",
+			Handler:    _NetworkSliceInfoService_GetStatus_Handler,
+		},
+		{
+			MethodName: "HashCode",
+			Handler:    _NetworkSliceInfoService_HashCode_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _NetworkSliceInfoService_ToString_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _NetworkSliceInfoService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/data/data.proto",
+}
+
+const (
+	NetworkSliceInfoBuilderService_Build_FullMethodName                             = "/data.NetworkSliceInfoBuilderService/Build"
+	NetworkSliceInfoBuilderService_SetMappedHplmnSliceDifferentiator_FullMethodName = "/data.NetworkSliceInfoBuilderService/SetMappedHplmnSliceDifferentiator"
+	NetworkSliceInfoBuilderService_SetMappedHplmnSliceServiceType_FullMethodName    = "/data.NetworkSliceInfoBuilderService/SetMappedHplmnSliceServiceType"
+	NetworkSliceInfoBuilderService_SetSliceDifferentiator_FullMethodName            = "/data.NetworkSliceInfoBuilderService/SetSliceDifferentiator"
+	NetworkSliceInfoBuilderService_SetSliceServiceType_FullMethodName               = "/data.NetworkSliceInfoBuilderService/SetSliceServiceType"
+	NetworkSliceInfoBuilderService_SetStatus_FullMethodName                         = "/data.NetworkSliceInfoBuilderService/SetStatus"
+)
+
+// NetworkSliceInfoBuilderServiceClient is the client API for NetworkSliceInfoBuilderService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type NetworkSliceInfoBuilderServiceClient interface {
+	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
+	SetMappedHplmnSliceDifferentiator(ctx context.Context, in *SetMappedHplmnSliceDifferentiatorRequest, opts ...grpc.CallOption) (*SetMappedHplmnSliceDifferentiatorResponse, error)
+	SetMappedHplmnSliceServiceType(ctx context.Context, in *SetMappedHplmnSliceServiceTypeRequest, opts ...grpc.CallOption) (*SetMappedHplmnSliceServiceTypeResponse, error)
+	SetSliceDifferentiator(ctx context.Context, in *SetSliceDifferentiatorRequest, opts ...grpc.CallOption) (*SetSliceDifferentiatorResponse, error)
+	SetSliceServiceType(ctx context.Context, in *SetSliceServiceTypeRequest, opts ...grpc.CallOption) (*SetSliceServiceTypeResponse, error)
+	SetStatus(ctx context.Context, in *SetStatusRequest, opts ...grpc.CallOption) (*SetStatusResponse, error)
+}
+
+type networkSliceInfoBuilderServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewNetworkSliceInfoBuilderServiceClient(cc grpc.ClientConnInterface) NetworkSliceInfoBuilderServiceClient {
+	return &networkSliceInfoBuilderServiceClient{cc}
+}
+
+func (c *networkSliceInfoBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(BuildResponse)
+	err := c.cc.Invoke(ctx, NetworkSliceInfoBuilderService_Build_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *networkSliceInfoBuilderServiceClient) SetMappedHplmnSliceDifferentiator(ctx context.Context, in *SetMappedHplmnSliceDifferentiatorRequest, opts ...grpc.CallOption) (*SetMappedHplmnSliceDifferentiatorResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetMappedHplmnSliceDifferentiatorResponse)
+	err := c.cc.Invoke(ctx, NetworkSliceInfoBuilderService_SetMappedHplmnSliceDifferentiator_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *networkSliceInfoBuilderServiceClient) SetMappedHplmnSliceServiceType(ctx context.Context, in *SetMappedHplmnSliceServiceTypeRequest, opts ...grpc.CallOption) (*SetMappedHplmnSliceServiceTypeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetMappedHplmnSliceServiceTypeResponse)
+	err := c.cc.Invoke(ctx, NetworkSliceInfoBuilderService_SetMappedHplmnSliceServiceType_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *networkSliceInfoBuilderServiceClient) SetSliceDifferentiator(ctx context.Context, in *SetSliceDifferentiatorRequest, opts ...grpc.CallOption) (*SetSliceDifferentiatorResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetSliceDifferentiatorResponse)
+	err := c.cc.Invoke(ctx, NetworkSliceInfoBuilderService_SetSliceDifferentiator_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *networkSliceInfoBuilderServiceClient) SetSliceServiceType(ctx context.Context, in *SetSliceServiceTypeRequest, opts ...grpc.CallOption) (*SetSliceServiceTypeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetSliceServiceTypeResponse)
+	err := c.cc.Invoke(ctx, NetworkSliceInfoBuilderService_SetSliceServiceType_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *networkSliceInfoBuilderServiceClient) SetStatus(ctx context.Context, in *SetStatusRequest, opts ...grpc.CallOption) (*SetStatusResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetStatusResponse)
+	err := c.cc.Invoke(ctx, NetworkSliceInfoBuilderService_SetStatus_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// NetworkSliceInfoBuilderServiceServer is the server API for NetworkSliceInfoBuilderService service.
+// All implementations must embed UnimplementedNetworkSliceInfoBuilderServiceServer
+// for forward compatibility.
+type NetworkSliceInfoBuilderServiceServer interface {
+	Build(context.Context, *BuildRequest) (*BuildResponse, error)
+	SetMappedHplmnSliceDifferentiator(context.Context, *SetMappedHplmnSliceDifferentiatorRequest) (*SetMappedHplmnSliceDifferentiatorResponse, error)
+	SetMappedHplmnSliceServiceType(context.Context, *SetMappedHplmnSliceServiceTypeRequest) (*SetMappedHplmnSliceServiceTypeResponse, error)
+	SetSliceDifferentiator(context.Context, *SetSliceDifferentiatorRequest) (*SetSliceDifferentiatorResponse, error)
+	SetSliceServiceType(context.Context, *SetSliceServiceTypeRequest) (*SetSliceServiceTypeResponse, error)
+	SetStatus(context.Context, *SetStatusRequest) (*SetStatusResponse, error)
+	mustEmbedUnimplementedNetworkSliceInfoBuilderServiceServer()
+}
+
+// UnimplementedNetworkSliceInfoBuilderServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedNetworkSliceInfoBuilderServiceServer struct{}
+
+func (UnimplementedNetworkSliceInfoBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
+}
+func (UnimplementedNetworkSliceInfoBuilderServiceServer) SetMappedHplmnSliceDifferentiator(context.Context, *SetMappedHplmnSliceDifferentiatorRequest) (*SetMappedHplmnSliceDifferentiatorResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetMappedHplmnSliceDifferentiator not implemented")
+}
+func (UnimplementedNetworkSliceInfoBuilderServiceServer) SetMappedHplmnSliceServiceType(context.Context, *SetMappedHplmnSliceServiceTypeRequest) (*SetMappedHplmnSliceServiceTypeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetMappedHplmnSliceServiceType not implemented")
+}
+func (UnimplementedNetworkSliceInfoBuilderServiceServer) SetSliceDifferentiator(context.Context, *SetSliceDifferentiatorRequest) (*SetSliceDifferentiatorResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetSliceDifferentiator not implemented")
+}
+func (UnimplementedNetworkSliceInfoBuilderServiceServer) SetSliceServiceType(context.Context, *SetSliceServiceTypeRequest) (*SetSliceServiceTypeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetSliceServiceType not implemented")
+}
+func (UnimplementedNetworkSliceInfoBuilderServiceServer) SetStatus(context.Context, *SetStatusRequest) (*SetStatusResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetStatus not implemented")
+}
+func (UnimplementedNetworkSliceInfoBuilderServiceServer) mustEmbedUnimplementedNetworkSliceInfoBuilderServiceServer() {
+}
+func (UnimplementedNetworkSliceInfoBuilderServiceServer) testEmbeddedByValue() {}
+
+// UnsafeNetworkSliceInfoBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to NetworkSliceInfoBuilderServiceServer will
+// result in compilation errors.
+type UnsafeNetworkSliceInfoBuilderServiceServer interface {
+	mustEmbedUnimplementedNetworkSliceInfoBuilderServiceServer()
+}
+
+func RegisterNetworkSliceInfoBuilderServiceServer(s grpc.ServiceRegistrar, srv NetworkSliceInfoBuilderServiceServer) {
+	// If the following call panics, it indicates UnimplementedNetworkSliceInfoBuilderServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&NetworkSliceInfoBuilderService_ServiceDesc, srv)
+}
+
+func _NetworkSliceInfoBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BuildRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NetworkSliceInfoBuilderServiceServer).Build(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NetworkSliceInfoBuilderService_Build_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NetworkSliceInfoBuilderServiceServer).Build(ctx, req.(*BuildRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NetworkSliceInfoBuilderService_SetMappedHplmnSliceDifferentiator_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetMappedHplmnSliceDifferentiatorRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NetworkSliceInfoBuilderServiceServer).SetMappedHplmnSliceDifferentiator(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NetworkSliceInfoBuilderService_SetMappedHplmnSliceDifferentiator_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NetworkSliceInfoBuilderServiceServer).SetMappedHplmnSliceDifferentiator(ctx, req.(*SetMappedHplmnSliceDifferentiatorRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NetworkSliceInfoBuilderService_SetMappedHplmnSliceServiceType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetMappedHplmnSliceServiceTypeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NetworkSliceInfoBuilderServiceServer).SetMappedHplmnSliceServiceType(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NetworkSliceInfoBuilderService_SetMappedHplmnSliceServiceType_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NetworkSliceInfoBuilderServiceServer).SetMappedHplmnSliceServiceType(ctx, req.(*SetMappedHplmnSliceServiceTypeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NetworkSliceInfoBuilderService_SetSliceDifferentiator_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetSliceDifferentiatorRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NetworkSliceInfoBuilderServiceServer).SetSliceDifferentiator(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NetworkSliceInfoBuilderService_SetSliceDifferentiator_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NetworkSliceInfoBuilderServiceServer).SetSliceDifferentiator(ctx, req.(*SetSliceDifferentiatorRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NetworkSliceInfoBuilderService_SetSliceServiceType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetSliceServiceTypeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NetworkSliceInfoBuilderServiceServer).SetSliceServiceType(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NetworkSliceInfoBuilderService_SetSliceServiceType_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NetworkSliceInfoBuilderServiceServer).SetSliceServiceType(ctx, req.(*SetSliceServiceTypeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NetworkSliceInfoBuilderService_SetStatus_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetStatusRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NetworkSliceInfoBuilderServiceServer).SetStatus(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NetworkSliceInfoBuilderService_SetStatus_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NetworkSliceInfoBuilderServiceServer).SetStatus(ctx, req.(*SetStatusRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// NetworkSliceInfoBuilderService_ServiceDesc is the grpc.ServiceDesc for NetworkSliceInfoBuilderService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var NetworkSliceInfoBuilderService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "data.NetworkSliceInfoBuilderService",
+	HandlerType: (*NetworkSliceInfoBuilderServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Build",
+			Handler:    _NetworkSliceInfoBuilderService_Build_Handler,
+		},
+		{
+			MethodName: "SetMappedHplmnSliceDifferentiator",
+			Handler:    _NetworkSliceInfoBuilderService_SetMappedHplmnSliceDifferentiator_Handler,
+		},
+		{
+			MethodName: "SetMappedHplmnSliceServiceType",
+			Handler:    _NetworkSliceInfoBuilderService_SetMappedHplmnSliceServiceType_Handler,
+		},
+		{
+			MethodName: "SetSliceDifferentiator",
+			Handler:    _NetworkSliceInfoBuilderService_SetSliceDifferentiator_Handler,
+		},
+		{
+			MethodName: "SetSliceServiceType",
+			Handler:    _NetworkSliceInfoBuilderService_SetSliceServiceType_Handler,
+		},
+		{
+			MethodName: "SetStatus",
+			Handler:    _NetworkSliceInfoBuilderService_SetStatus_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/data/data.proto",
+}
+
+const (
+	NetworkSlicingConfigService_NewNetworkSlicingConfig_FullMethodName = "/data.NetworkSlicingConfigService/NewNetworkSlicingConfig"
+	NetworkSlicingConfigService_DescribeContents_FullMethodName        = "/data.NetworkSlicingConfigService/DescribeContents"
+	NetworkSlicingConfigService_Equals_FullMethodName                  = "/data.NetworkSlicingConfigService/Equals"
+	NetworkSlicingConfigService_GetSliceInfo_FullMethodName            = "/data.NetworkSlicingConfigService/GetSliceInfo"
+	NetworkSlicingConfigService_GetUrspRules_FullMethodName            = "/data.NetworkSlicingConfigService/GetUrspRules"
+	NetworkSlicingConfigService_HashCode_FullMethodName                = "/data.NetworkSlicingConfigService/HashCode"
+	NetworkSlicingConfigService_ToString_FullMethodName                = "/data.NetworkSlicingConfigService/ToString"
+	NetworkSlicingConfigService_WriteToParcel_FullMethodName           = "/data.NetworkSlicingConfigService/WriteToParcel"
+)
+
+// NetworkSlicingConfigServiceClient is the client API for NetworkSlicingConfigService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type NetworkSlicingConfigServiceClient interface {
+	NewNetworkSlicingConfig(ctx context.Context, in *NewNetworkSlicingConfigRequest, opts ...grpc.CallOption) (*NewNetworkSlicingConfigResponse, error)
+	DescribeContents(ctx context.Context, in *NetworkSlicingConfigDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	Equals(ctx context.Context, in *NetworkSlicingConfigEqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	GetSliceInfo(ctx context.Context, in *NetworkSlicingConfigGetSliceInfoRequest, opts ...grpc.CallOption) (*GetSliceInfoResponse, error)
+	GetUrspRules(ctx context.Context, in *GetUrspRulesRequest, opts ...grpc.CallOption) (*GetUrspRulesResponse, error)
+	HashCode(ctx context.Context, in *NetworkSlicingConfigHashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+	ToString(ctx context.Context, in *NetworkSlicingConfigToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+	WriteToParcel(ctx context.Context, in *NetworkSlicingConfigWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type networkSlicingConfigServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewNetworkSlicingConfigServiceClient(cc grpc.ClientConnInterface) NetworkSlicingConfigServiceClient {
+	return &networkSlicingConfigServiceClient{cc}
+}
+
+func (c *networkSlicingConfigServiceClient) NewNetworkSlicingConfig(ctx context.Context, in *NewNetworkSlicingConfigRequest, opts ...grpc.CallOption) (*NewNetworkSlicingConfigResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewNetworkSlicingConfigResponse)
+	err := c.cc.Invoke(ctx, NetworkSlicingConfigService_NewNetworkSlicingConfig_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *networkSlicingConfigServiceClient) DescribeContents(ctx context.Context, in *NetworkSlicingConfigDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, NetworkSlicingConfigService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *networkSlicingConfigServiceClient) Equals(ctx context.Context, in *NetworkSlicingConfigEqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(EqualsResponse)
+	err := c.cc.Invoke(ctx, NetworkSlicingConfigService_Equals_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *networkSlicingConfigServiceClient) GetSliceInfo(ctx context.Context, in *NetworkSlicingConfigGetSliceInfoRequest, opts ...grpc.CallOption) (*GetSliceInfoResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSliceInfoResponse)
+	err := c.cc.Invoke(ctx, NetworkSlicingConfigService_GetSliceInfo_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *networkSlicingConfigServiceClient) GetUrspRules(ctx context.Context, in *GetUrspRulesRequest, opts ...grpc.CallOption) (*GetUrspRulesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetUrspRulesResponse)
+	err := c.cc.Invoke(ctx, NetworkSlicingConfigService_GetUrspRules_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *networkSlicingConfigServiceClient) HashCode(ctx context.Context, in *NetworkSlicingConfigHashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HashCodeResponse)
+	err := c.cc.Invoke(ctx, NetworkSlicingConfigService_HashCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *networkSlicingConfigServiceClient) ToString(ctx context.Context, in *NetworkSlicingConfigToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, NetworkSlicingConfigService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *networkSlicingConfigServiceClient) WriteToParcel(ctx context.Context, in *NetworkSlicingConfigWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, NetworkSlicingConfigService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// NetworkSlicingConfigServiceServer is the server API for NetworkSlicingConfigService service.
+// All implementations must embed UnimplementedNetworkSlicingConfigServiceServer
+// for forward compatibility.
+type NetworkSlicingConfigServiceServer interface {
+	NewNetworkSlicingConfig(context.Context, *NewNetworkSlicingConfigRequest) (*NewNetworkSlicingConfigResponse, error)
+	DescribeContents(context.Context, *NetworkSlicingConfigDescribeContentsRequest) (*DescribeContentsResponse, error)
+	Equals(context.Context, *NetworkSlicingConfigEqualsRequest) (*EqualsResponse, error)
+	GetSliceInfo(context.Context, *NetworkSlicingConfigGetSliceInfoRequest) (*GetSliceInfoResponse, error)
+	GetUrspRules(context.Context, *GetUrspRulesRequest) (*GetUrspRulesResponse, error)
+	HashCode(context.Context, *NetworkSlicingConfigHashCodeRequest) (*HashCodeResponse, error)
+	ToString(context.Context, *NetworkSlicingConfigToStringRequest) (*ToStringResponse, error)
+	WriteToParcel(context.Context, *NetworkSlicingConfigWriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedNetworkSlicingConfigServiceServer()
+}
+
+// UnimplementedNetworkSlicingConfigServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedNetworkSlicingConfigServiceServer struct{}
+
+func (UnimplementedNetworkSlicingConfigServiceServer) NewNetworkSlicingConfig(context.Context, *NewNetworkSlicingConfigRequest) (*NewNetworkSlicingConfigResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewNetworkSlicingConfig not implemented")
+}
+func (UnimplementedNetworkSlicingConfigServiceServer) DescribeContents(context.Context, *NetworkSlicingConfigDescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedNetworkSlicingConfigServiceServer) Equals(context.Context, *NetworkSlicingConfigEqualsRequest) (*EqualsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
+}
+func (UnimplementedNetworkSlicingConfigServiceServer) GetSliceInfo(context.Context, *NetworkSlicingConfigGetSliceInfoRequest) (*GetSliceInfoResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSliceInfo not implemented")
+}
+func (UnimplementedNetworkSlicingConfigServiceServer) GetUrspRules(context.Context, *GetUrspRulesRequest) (*GetUrspRulesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetUrspRules not implemented")
+}
+func (UnimplementedNetworkSlicingConfigServiceServer) HashCode(context.Context, *NetworkSlicingConfigHashCodeRequest) (*HashCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
+}
+func (UnimplementedNetworkSlicingConfigServiceServer) ToString(context.Context, *NetworkSlicingConfigToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedNetworkSlicingConfigServiceServer) WriteToParcel(context.Context, *NetworkSlicingConfigWriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedNetworkSlicingConfigServiceServer) mustEmbedUnimplementedNetworkSlicingConfigServiceServer() {
+}
+func (UnimplementedNetworkSlicingConfigServiceServer) testEmbeddedByValue() {}
+
+// UnsafeNetworkSlicingConfigServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to NetworkSlicingConfigServiceServer will
+// result in compilation errors.
+type UnsafeNetworkSlicingConfigServiceServer interface {
+	mustEmbedUnimplementedNetworkSlicingConfigServiceServer()
+}
+
+func RegisterNetworkSlicingConfigServiceServer(s grpc.ServiceRegistrar, srv NetworkSlicingConfigServiceServer) {
+	// If the following call panics, it indicates UnimplementedNetworkSlicingConfigServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&NetworkSlicingConfigService_ServiceDesc, srv)
+}
+
+func _NetworkSlicingConfigService_NewNetworkSlicingConfig_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewNetworkSlicingConfigRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NetworkSlicingConfigServiceServer).NewNetworkSlicingConfig(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NetworkSlicingConfigService_NewNetworkSlicingConfig_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NetworkSlicingConfigServiceServer).NewNetworkSlicingConfig(ctx, req.(*NewNetworkSlicingConfigRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NetworkSlicingConfigService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NetworkSlicingConfigDescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NetworkSlicingConfigServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NetworkSlicingConfigService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NetworkSlicingConfigServiceServer).DescribeContents(ctx, req.(*NetworkSlicingConfigDescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NetworkSlicingConfigService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NetworkSlicingConfigEqualsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NetworkSlicingConfigServiceServer).Equals(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NetworkSlicingConfigService_Equals_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NetworkSlicingConfigServiceServer).Equals(ctx, req.(*NetworkSlicingConfigEqualsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NetworkSlicingConfigService_GetSliceInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NetworkSlicingConfigGetSliceInfoRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NetworkSlicingConfigServiceServer).GetSliceInfo(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NetworkSlicingConfigService_GetSliceInfo_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NetworkSlicingConfigServiceServer).GetSliceInfo(ctx, req.(*NetworkSlicingConfigGetSliceInfoRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NetworkSlicingConfigService_GetUrspRules_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetUrspRulesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NetworkSlicingConfigServiceServer).GetUrspRules(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NetworkSlicingConfigService_GetUrspRules_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NetworkSlicingConfigServiceServer).GetUrspRules(ctx, req.(*GetUrspRulesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NetworkSlicingConfigService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NetworkSlicingConfigHashCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NetworkSlicingConfigServiceServer).HashCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NetworkSlicingConfigService_HashCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NetworkSlicingConfigServiceServer).HashCode(ctx, req.(*NetworkSlicingConfigHashCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NetworkSlicingConfigService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NetworkSlicingConfigToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NetworkSlicingConfigServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NetworkSlicingConfigService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NetworkSlicingConfigServiceServer).ToString(ctx, req.(*NetworkSlicingConfigToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NetworkSlicingConfigService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NetworkSlicingConfigWriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NetworkSlicingConfigServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NetworkSlicingConfigService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NetworkSlicingConfigServiceServer).WriteToParcel(ctx, req.(*NetworkSlicingConfigWriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// NetworkSlicingConfigService_ServiceDesc is the grpc.ServiceDesc for NetworkSlicingConfigService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var NetworkSlicingConfigService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "data.NetworkSlicingConfigService",
+	HandlerType: (*NetworkSlicingConfigServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewNetworkSlicingConfig",
+			Handler:    _NetworkSlicingConfigService_NewNetworkSlicingConfig_Handler,
+		},
+		{
+			MethodName: "DescribeContents",
+			Handler:    _NetworkSlicingConfigService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "Equals",
+			Handler:    _NetworkSlicingConfigService_Equals_Handler,
+		},
+		{
+			MethodName: "GetSliceInfo",
+			Handler:    _NetworkSlicingConfigService_GetSliceInfo_Handler,
+		},
+		{
+			MethodName: "GetUrspRules",
+			Handler:    _NetworkSlicingConfigService_GetUrspRules_Handler,
+		},
+		{
+			MethodName: "HashCode",
+			Handler:    _NetworkSlicingConfigService_HashCode_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _NetworkSlicingConfigService_ToString_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _NetworkSlicingConfigService_WriteToParcel_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

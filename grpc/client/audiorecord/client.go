@@ -21,6 +21,17 @@ func NewAudioRecordClient(cc grpc.ClientConnInterface) *AudioRecordClient {
 	}
 }
 
+// GetActiveMicrophones calls the GetActiveMicrophones RPC.
+func (c *AudioRecordClient) GetActiveMicrophones(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetActiveMicrophones(ctx, &pb.GetActiveMicrophonesRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // GetActiveRecordingConfiguration calls the GetActiveRecordingConfiguration RPC.
 func (c *AudioRecordClient) GetActiveRecordingConfiguration(ctx context.Context, handle int64) (int64, error) {
 	resp, err := c.svc.GetActiveRecordingConfiguration(ctx, &pb.GetActiveRecordingConfigurationRequest{
@@ -178,6 +189,17 @@ func (c *AudioRecordClient) GetRecordingState(ctx context.Context, handle int64)
 // GetRoutedDevice calls the GetRoutedDevice RPC.
 func (c *AudioRecordClient) GetRoutedDevice(ctx context.Context, handle int64) (int64, error) {
 	resp, err := c.svc.GetRoutedDevice(ctx, &pb.GetRoutedDeviceRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetRoutedDevices calls the GetRoutedDevices RPC.
+func (c *AudioRecordClient) GetRoutedDevices(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetRoutedDevices(ctx, &pb.GetRoutedDevicesRequest{
 		Handle: handle,
 	})
 	if err != nil {

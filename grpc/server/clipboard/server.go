@@ -15,6 +15,175 @@ import (
 	"google.golang.org/grpc/status"
 )
 
+// ManagerServer implements pb.ManagerServiceServer.
+type ManagerServer struct {
+	pb.UnimplementedManagerServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *ManagerServer) AddPrimaryClipChangedListener(_ context.Context, req *pb.AddPrimaryClipChangedListenerRequest) (*pb.AddPrimaryClipChangedListenerResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	if err := mgr.AddPrimaryClipChangedListener(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.AddPrimaryClipChangedListenerResponse{}, nil
+}
+
+func (s *ManagerServer) ClearPrimaryClip(_ context.Context, req *pb.ClearPrimaryClipRequest) (*pb.ClearPrimaryClipResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	if err := mgr.ClearPrimaryClip(); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ClearPrimaryClipResponse{}, nil
+}
+
+func (s *ManagerServer) GetPrimaryClip(_ context.Context, req *pb.GetPrimaryClipRequest) (*pb.GetPrimaryClipResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.GetPrimaryClip()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetPrimaryClipResponse{Result: handle}, nil
+}
+
+func (s *ManagerServer) GetPrimaryClipDescription(_ context.Context, req *pb.GetPrimaryClipDescriptionRequest) (*pb.GetPrimaryClipDescriptionResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.GetPrimaryClipDescription()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetPrimaryClipDescriptionResponse{Result: handle}, nil
+}
+
+func (s *ManagerServer) GetText(_ context.Context, req *pb.GetTextRequest) (*pb.GetTextResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.GetText()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetTextResponse{Result: handle}, nil
+}
+
+func (s *ManagerServer) HasPrimaryClip(_ context.Context, req *pb.HasPrimaryClipRequest) (*pb.HasPrimaryClipResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.HasPrimaryClip()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.HasPrimaryClipResponse{Result: result}, nil
+}
+
+func (s *ManagerServer) HasText(_ context.Context, req *pb.HasTextRequest) (*pb.HasTextResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.HasText()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.HasTextResponse{Result: result}, nil
+}
+
+func (s *ManagerServer) RemovePrimaryClipChangedListener(_ context.Context, req *pb.RemovePrimaryClipChangedListenerRequest) (*pb.RemovePrimaryClipChangedListenerResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	if err := mgr.RemovePrimaryClipChangedListener(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.RemovePrimaryClipChangedListenerResponse{}, nil
+}
+
+func (s *ManagerServer) SetPrimaryClip(_ context.Context, req *pb.SetPrimaryClipRequest) (*pb.SetPrimaryClipResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	if err := mgr.SetPrimaryClip(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetPrimaryClipResponse{}, nil
+}
+
+func (s *ManagerServer) SetText(_ context.Context, req *pb.SetTextRequest) (*pb.SetTextResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	if err := mgr.SetText(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetTextResponse{}, nil
+}
+
 // ClipDataServer implements pb.ClipDataServiceServer.
 type ClipDataServer struct {
 	pb.UnimplementedClipDataServiceServer
@@ -277,173 +446,4 @@ func (s *ClipDataServer) NewUri(_ context.Context, req *pb.NewUriRequest) (*pb.N
 		}
 	}
 	return &pb.NewUriResponse{Result: handle}, nil
-}
-
-// ManagerServer implements pb.ManagerServiceServer.
-type ManagerServer struct {
-	pb.UnimplementedManagerServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *ManagerServer) AddPrimaryClipChangedListener(_ context.Context, req *pb.AddPrimaryClipChangedListenerRequest) (*pb.AddPrimaryClipChangedListenerResponse, error) {
-	mgr, err := jnipkg.NewManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	if err := mgr.AddPrimaryClipChangedListener(s.Handles.Get(req.GetArg0())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.AddPrimaryClipChangedListenerResponse{}, nil
-}
-
-func (s *ManagerServer) ClearPrimaryClip(_ context.Context, req *pb.ClearPrimaryClipRequest) (*pb.ClearPrimaryClipResponse, error) {
-	mgr, err := jnipkg.NewManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	if err := mgr.ClearPrimaryClip(); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.ClearPrimaryClipResponse{}, nil
-}
-
-func (s *ManagerServer) GetPrimaryClip(_ context.Context, req *pb.GetPrimaryClipRequest) (*pb.GetPrimaryClipResponse, error) {
-	mgr, err := jnipkg.NewManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.GetPrimaryClip()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetPrimaryClipResponse{Result: handle}, nil
-}
-
-func (s *ManagerServer) GetPrimaryClipDescription(_ context.Context, req *pb.GetPrimaryClipDescriptionRequest) (*pb.GetPrimaryClipDescriptionResponse, error) {
-	mgr, err := jnipkg.NewManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.GetPrimaryClipDescription()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetPrimaryClipDescriptionResponse{Result: handle}, nil
-}
-
-func (s *ManagerServer) GetText(_ context.Context, req *pb.GetTextRequest) (*pb.GetTextResponse, error) {
-	mgr, err := jnipkg.NewManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.GetText()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetTextResponse{Result: handle}, nil
-}
-
-func (s *ManagerServer) HasPrimaryClip(_ context.Context, req *pb.HasPrimaryClipRequest) (*pb.HasPrimaryClipResponse, error) {
-	mgr, err := jnipkg.NewManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.HasPrimaryClip()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.HasPrimaryClipResponse{Result: result}, nil
-}
-
-func (s *ManagerServer) HasText(_ context.Context, req *pb.HasTextRequest) (*pb.HasTextResponse, error) {
-	mgr, err := jnipkg.NewManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.HasText()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.HasTextResponse{Result: result}, nil
-}
-
-func (s *ManagerServer) RemovePrimaryClipChangedListener(_ context.Context, req *pb.RemovePrimaryClipChangedListenerRequest) (*pb.RemovePrimaryClipChangedListenerResponse, error) {
-	mgr, err := jnipkg.NewManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	if err := mgr.RemovePrimaryClipChangedListener(s.Handles.Get(req.GetArg0())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.RemovePrimaryClipChangedListenerResponse{}, nil
-}
-
-func (s *ManagerServer) SetPrimaryClip(_ context.Context, req *pb.SetPrimaryClipRequest) (*pb.SetPrimaryClipResponse, error) {
-	mgr, err := jnipkg.NewManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	if err := mgr.SetPrimaryClip(s.Handles.Get(req.GetArg0())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SetPrimaryClipResponse{}, nil
-}
-
-func (s *ManagerServer) SetText(_ context.Context, req *pb.SetTextRequest) (*pb.SetTextResponse, error) {
-	mgr, err := jnipkg.NewManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	if err := mgr.SetText(req.GetArg0()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SetTextResponse{}, nil
 }

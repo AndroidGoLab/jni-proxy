@@ -12,18 +12,18 @@ var techCmd = &cobra.Command{
 	Short: "tech service operations",
 }
 
-var techNfcFCmd = &cobra.Command{
-	Use:   "nfc-f",
-	Short: "NfcFService operations",
+var techNfcBarcodeCmd = &cobra.Command{
+	Use:   "nfc-barcode",
+	Short: "NfcBarcodeService operations",
 }
 
-var techNfcFCloseCmd = &cobra.Command{
+var techNfcBarcodeCloseCmd = &cobra.Command{
 	Use:   "close",
 	Short: "Close RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewNfcFServiceClient(grpcConn)
+		client := pb.NewNfcBarcodeServiceClient(grpcConn)
 		req := &pb.CloseRequest{}
 		resp, err := client.Close(ctx, req)
 		if err != nil {
@@ -33,13 +33,13 @@ var techNfcFCloseCmd = &cobra.Command{
 	},
 }
 
-var techNfcFConnectCmd = &cobra.Command{
+var techNfcBarcodeConnectCmd = &cobra.Command{
 	Use:   "connect",
 	Short: "Connect RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewNfcFServiceClient(grpcConn)
+		client := pb.NewNfcBarcodeServiceClient(grpcConn)
 		req := &pb.ConnectRequest{}
 		resp, err := client.Connect(ctx, req)
 		if err != nil {
@@ -49,15 +49,15 @@ var techNfcFConnectCmd = &cobra.Command{
 	},
 }
 
-var techNfcFGetManufacturerCmd = &cobra.Command{
-	Use:   "get-manufacturer",
-	Short: "GetManufacturer RPC",
+var techNfcBarcodeGetBarcodeCmd = &cobra.Command{
+	Use:   "get-barcode",
+	Short: "GetBarcode RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewNfcFServiceClient(grpcConn)
-		req := &pb.GetManufacturerRequest{}
-		resp, err := client.GetManufacturer(ctx, req)
+		client := pb.NewNfcBarcodeServiceClient(grpcConn)
+		req := &pb.GetBarcodeRequest{}
+		resp, err := client.GetBarcode(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -65,45 +65,13 @@ var techNfcFGetManufacturerCmd = &cobra.Command{
 	},
 }
 
-var techNfcFGetMaxTransceiveLengthCmd = &cobra.Command{
-	Use:   "get-max-transceive-length",
-	Short: "GetMaxTransceiveLength RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewNfcFServiceClient(grpcConn)
-		req := &pb.GetMaxTransceiveLengthRequest{}
-		resp, err := client.GetMaxTransceiveLength(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var techNfcFGetSystemCodeCmd = &cobra.Command{
-	Use:   "get-system-code",
-	Short: "GetSystemCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewNfcFServiceClient(grpcConn)
-		req := &pb.GetSystemCodeRequest{}
-		resp, err := client.GetSystemCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var techNfcFGetTagCmd = &cobra.Command{
+var techNfcBarcodeGetTagCmd = &cobra.Command{
 	Use:   "get-tag",
 	Short: "GetTag RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewNfcFServiceClient(grpcConn)
+		client := pb.NewNfcBarcodeServiceClient(grpcConn)
 		req := &pb.GetTagRequest{}
 		resp, err := client.GetTag(ctx, req)
 		if err != nil {
@@ -113,15 +81,15 @@ var techNfcFGetTagCmd = &cobra.Command{
 	},
 }
 
-var techNfcFGetTimeoutCmd = &cobra.Command{
-	Use:   "get-timeout",
-	Short: "GetTimeout RPC",
+var techNfcBarcodeGetTypeCmd = &cobra.Command{
+	Use:   "get-type",
+	Short: "GetType RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewNfcFServiceClient(grpcConn)
-		req := &pb.GetTimeoutRequest{}
-		resp, err := client.GetTimeout(ctx, req)
+		client := pb.NewNfcBarcodeServiceClient(grpcConn)
+		req := &pb.GetTypeRequest{}
+		resp, err := client.GetType(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -129,13 +97,13 @@ var techNfcFGetTimeoutCmd = &cobra.Command{
 	},
 }
 
-var techNfcFIsConnectedCmd = &cobra.Command{
+var techNfcBarcodeIsConnectedCmd = &cobra.Command{
 	Use:   "is-connected",
 	Short: "IsConnected RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewNfcFServiceClient(grpcConn)
+		client := pb.NewNfcBarcodeServiceClient(grpcConn)
 		req := &pb.IsConnectedRequest{}
 		resp, err := client.IsConnected(ctx, req)
 		if err != nil {
@@ -145,51 +113,139 @@ var techNfcFIsConnectedCmd = &cobra.Command{
 	},
 }
 
-var techNfcFSetTimeoutCmd = &cobra.Command{
-	Use:   "set-timeout",
-	Short: "SetTimeout RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewNfcFServiceClient(grpcConn)
-		req := &pb.SetTimeoutRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetTimeout(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var techNfcFTransceiveCmd = &cobra.Command{
-	Use:   "transceive",
-	Short: "Transceive RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewNfcFServiceClient(grpcConn)
-		req := &pb.TransceiveRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Transceive(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var techNfcFGetCmd = &cobra.Command{
+var techNfcBarcodeGetCmd = &cobra.Command{
 	Use:   "get",
 	Short: "Get RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewNfcFServiceClient(grpcConn)
+		client := pb.NewNfcBarcodeServiceClient(grpcConn)
+		req := &pb.GetRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Get(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var techNdefFormatableCmd = &cobra.Command{
+	Use:   "ndef-formatable",
+	Short: "NdefFormatableService operations",
+}
+
+var techNdefFormatableCloseCmd = &cobra.Command{
+	Use:   "close",
+	Short: "Close RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNdefFormatableServiceClient(grpcConn)
+		req := &pb.CloseRequest{}
+		resp, err := client.Close(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var techNdefFormatableConnectCmd = &cobra.Command{
+	Use:   "connect",
+	Short: "Connect RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNdefFormatableServiceClient(grpcConn)
+		req := &pb.ConnectRequest{}
+		resp, err := client.Connect(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var techNdefFormatableFormatCmd = &cobra.Command{
+	Use:   "format",
+	Short: "Format RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNdefFormatableServiceClient(grpcConn)
+		req := &pb.FormatRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Format(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var techNdefFormatableFormatReadOnlyCmd = &cobra.Command{
+	Use:   "format-read-only",
+	Short: "FormatReadOnly RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNdefFormatableServiceClient(grpcConn)
+		req := &pb.FormatReadOnlyRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.FormatReadOnly(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var techNdefFormatableGetTagCmd = &cobra.Command{
+	Use:   "get-tag",
+	Short: "GetTag RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNdefFormatableServiceClient(grpcConn)
+		req := &pb.GetTagRequest{}
+		resp, err := client.GetTag(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var techNdefFormatableIsConnectedCmd = &cobra.Command{
+	Use:   "is-connected",
+	Short: "IsConnected RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNdefFormatableServiceClient(grpcConn)
+		req := &pb.IsConnectedRequest{}
+		resp, err := client.IsConnected(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var techNdefFormatableGetCmd = &cobra.Command{
+	Use:   "get",
+	Short: "Get RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNdefFormatableServiceClient(grpcConn)
 		req := &pb.GetRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -417,18 +473,18 @@ var techMifareUltralightGetCmd = &cobra.Command{
 	},
 }
 
-var techNfcBCmd = &cobra.Command{
-	Use:   "nfc-b",
-	Short: "NfcBService operations",
+var techNfcACmd = &cobra.Command{
+	Use:   "nfc-a",
+	Short: "NfcAService operations",
 }
 
-var techNfcBCloseCmd = &cobra.Command{
+var techNfcACloseCmd = &cobra.Command{
 	Use:   "close",
 	Short: "Close RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewNfcBServiceClient(grpcConn)
+		client := pb.NewNfcAServiceClient(grpcConn)
 		req := &pb.CloseRequest{}
 		resp, err := client.Close(ctx, req)
 		if err != nil {
@@ -438,13 +494,13 @@ var techNfcBCloseCmd = &cobra.Command{
 	},
 }
 
-var techNfcBConnectCmd = &cobra.Command{
+var techNfcAConnectCmd = &cobra.Command{
 	Use:   "connect",
 	Short: "Connect RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewNfcBServiceClient(grpcConn)
+		client := pb.NewNfcAServiceClient(grpcConn)
 		req := &pb.ConnectRequest{}
 		resp, err := client.Connect(ctx, req)
 		if err != nil {
@@ -454,15 +510,15 @@ var techNfcBConnectCmd = &cobra.Command{
 	},
 }
 
-var techNfcBGetApplicationDataCmd = &cobra.Command{
-	Use:   "get-application-data",
-	Short: "GetApplicationData RPC",
+var techNfcAGetAtqaCmd = &cobra.Command{
+	Use:   "get-atqa",
+	Short: "GetAtqa RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewNfcBServiceClient(grpcConn)
-		req := &pb.GetApplicationDataRequest{}
-		resp, err := client.GetApplicationData(ctx, req)
+		client := pb.NewNfcAServiceClient(grpcConn)
+		req := &pb.GetAtqaRequest{}
+		resp, err := client.GetAtqa(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -470,13 +526,13 @@ var techNfcBGetApplicationDataCmd = &cobra.Command{
 	},
 }
 
-var techNfcBGetMaxTransceiveLengthCmd = &cobra.Command{
+var techNfcAGetMaxTransceiveLengthCmd = &cobra.Command{
 	Use:   "get-max-transceive-length",
 	Short: "GetMaxTransceiveLength RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewNfcBServiceClient(grpcConn)
+		client := pb.NewNfcAServiceClient(grpcConn)
 		req := &pb.GetMaxTransceiveLengthRequest{}
 		resp, err := client.GetMaxTransceiveLength(ctx, req)
 		if err != nil {
@@ -486,15 +542,15 @@ var techNfcBGetMaxTransceiveLengthCmd = &cobra.Command{
 	},
 }
 
-var techNfcBGetProtocolInfoCmd = &cobra.Command{
-	Use:   "get-protocol-info",
-	Short: "GetProtocolInfo RPC",
+var techNfcAGetSakCmd = &cobra.Command{
+	Use:   "get-sak",
+	Short: "GetSak RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewNfcBServiceClient(grpcConn)
-		req := &pb.GetProtocolInfoRequest{}
-		resp, err := client.GetProtocolInfo(ctx, req)
+		client := pb.NewNfcAServiceClient(grpcConn)
+		req := &pb.GetSakRequest{}
+		resp, err := client.GetSak(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -502,13 +558,13 @@ var techNfcBGetProtocolInfoCmd = &cobra.Command{
 	},
 }
 
-var techNfcBGetTagCmd = &cobra.Command{
+var techNfcAGetTagCmd = &cobra.Command{
 	Use:   "get-tag",
 	Short: "GetTag RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewNfcBServiceClient(grpcConn)
+		client := pb.NewNfcAServiceClient(grpcConn)
 		req := &pb.GetTagRequest{}
 		resp, err := client.GetTag(ctx, req)
 		if err != nil {
@@ -518,13 +574,29 @@ var techNfcBGetTagCmd = &cobra.Command{
 	},
 }
 
-var techNfcBIsConnectedCmd = &cobra.Command{
+var techNfcAGetTimeoutCmd = &cobra.Command{
+	Use:   "get-timeout",
+	Short: "GetTimeout RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNfcAServiceClient(grpcConn)
+		req := &pb.GetTimeoutRequest{}
+		resp, err := client.GetTimeout(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var techNfcAIsConnectedCmd = &cobra.Command{
 	Use:   "is-connected",
 	Short: "IsConnected RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewNfcBServiceClient(grpcConn)
+		client := pb.NewNfcAServiceClient(grpcConn)
 		req := &pb.IsConnectedRequest{}
 		resp, err := client.IsConnected(ctx, req)
 		if err != nil {
@@ -534,13 +606,32 @@ var techNfcBIsConnectedCmd = &cobra.Command{
 	},
 }
 
-var techNfcBTransceiveCmd = &cobra.Command{
+var techNfcASetTimeoutCmd = &cobra.Command{
+	Use:   "set-timeout",
+	Short: "SetTimeout RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNfcAServiceClient(grpcConn)
+		req := &pb.SetTimeoutRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetTimeout(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var techNfcATransceiveCmd = &cobra.Command{
 	Use:   "transceive",
 	Short: "Transceive RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewNfcBServiceClient(grpcConn)
+		client := pb.NewNfcAServiceClient(grpcConn)
 		req := &pb.TransceiveRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -553,168 +644,13 @@ var techNfcBTransceiveCmd = &cobra.Command{
 	},
 }
 
-var techNfcBGetCmd = &cobra.Command{
+var techNfcAGetCmd = &cobra.Command{
 	Use:   "get",
 	Short: "Get RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewNfcBServiceClient(grpcConn)
-		req := &pb.GetRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Get(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var techNfcVCmd = &cobra.Command{
-	Use:   "nfc-v",
-	Short: "NfcVService operations",
-}
-
-var techNfcVCloseCmd = &cobra.Command{
-	Use:   "close",
-	Short: "Close RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewNfcVServiceClient(grpcConn)
-		req := &pb.CloseRequest{}
-		resp, err := client.Close(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var techNfcVConnectCmd = &cobra.Command{
-	Use:   "connect",
-	Short: "Connect RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewNfcVServiceClient(grpcConn)
-		req := &pb.ConnectRequest{}
-		resp, err := client.Connect(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var techNfcVGetDsfIdCmd = &cobra.Command{
-	Use:   "get-dsf-id",
-	Short: "GetDsfId RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewNfcVServiceClient(grpcConn)
-		req := &pb.GetDsfIdRequest{}
-		resp, err := client.GetDsfId(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var techNfcVGetMaxTransceiveLengthCmd = &cobra.Command{
-	Use:   "get-max-transceive-length",
-	Short: "GetMaxTransceiveLength RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewNfcVServiceClient(grpcConn)
-		req := &pb.GetMaxTransceiveLengthRequest{}
-		resp, err := client.GetMaxTransceiveLength(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var techNfcVGetResponseFlagsCmd = &cobra.Command{
-	Use:   "get-response-flags",
-	Short: "GetResponseFlags RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewNfcVServiceClient(grpcConn)
-		req := &pb.GetResponseFlagsRequest{}
-		resp, err := client.GetResponseFlags(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var techNfcVGetTagCmd = &cobra.Command{
-	Use:   "get-tag",
-	Short: "GetTag RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewNfcVServiceClient(grpcConn)
-		req := &pb.GetTagRequest{}
-		resp, err := client.GetTag(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var techNfcVIsConnectedCmd = &cobra.Command{
-	Use:   "is-connected",
-	Short: "IsConnected RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewNfcVServiceClient(grpcConn)
-		req := &pb.IsConnectedRequest{}
-		resp, err := client.IsConnected(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var techNfcVTransceiveCmd = &cobra.Command{
-	Use:   "transceive",
-	Short: "Transceive RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewNfcVServiceClient(grpcConn)
-		req := &pb.TransceiveRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Transceive(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var techNfcVGetCmd = &cobra.Command{
-	Use:   "get",
-	Short: "Get RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewNfcVServiceClient(grpcConn)
+		client := pb.NewNfcAServiceClient(grpcConn)
 		req := &pb.GetRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -1173,18 +1109,18 @@ var techMifareClassicGetCmd = &cobra.Command{
 	},
 }
 
-var techNdefFormatableCmd = &cobra.Command{
-	Use:   "ndef-formatable",
-	Short: "NdefFormatableService operations",
+var techNfcVCmd = &cobra.Command{
+	Use:   "nfc-v",
+	Short: "NfcVService operations",
 }
 
-var techNdefFormatableCloseCmd = &cobra.Command{
+var techNfcVCloseCmd = &cobra.Command{
 	Use:   "close",
 	Short: "Close RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewNdefFormatableServiceClient(grpcConn)
+		client := pb.NewNfcVServiceClient(grpcConn)
 		req := &pb.CloseRequest{}
 		resp, err := client.Close(ctx, req)
 		if err != nil {
@@ -1194,13 +1130,13 @@ var techNdefFormatableCloseCmd = &cobra.Command{
 	},
 }
 
-var techNdefFormatableConnectCmd = &cobra.Command{
+var techNfcVConnectCmd = &cobra.Command{
 	Use:   "connect",
 	Short: "Connect RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewNdefFormatableServiceClient(grpcConn)
+		client := pb.NewNfcVServiceClient(grpcConn)
 		req := &pb.ConnectRequest{}
 		resp, err := client.Connect(ctx, req)
 		if err != nil {
@@ -1210,18 +1146,15 @@ var techNdefFormatableConnectCmd = &cobra.Command{
 	},
 }
 
-var techNdefFormatableFormatCmd = &cobra.Command{
-	Use:   "format",
-	Short: "Format RPC",
+var techNfcVGetDsfIdCmd = &cobra.Command{
+	Use:   "get-dsf-id",
+	Short: "GetDsfId RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewNdefFormatableServiceClient(grpcConn)
-		req := &pb.FormatRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Format(ctx, req)
+		client := pb.NewNfcVServiceClient(grpcConn)
+		req := &pb.GetDsfIdRequest{}
+		resp, err := client.GetDsfId(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1229,136 +1162,13 @@ var techNdefFormatableFormatCmd = &cobra.Command{
 	},
 }
 
-var techNdefFormatableFormatReadOnlyCmd = &cobra.Command{
-	Use:   "format-read-only",
-	Short: "FormatReadOnly RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewNdefFormatableServiceClient(grpcConn)
-		req := &pb.FormatReadOnlyRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.FormatReadOnly(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var techNdefFormatableGetTagCmd = &cobra.Command{
-	Use:   "get-tag",
-	Short: "GetTag RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewNdefFormatableServiceClient(grpcConn)
-		req := &pb.GetTagRequest{}
-		resp, err := client.GetTag(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var techNdefFormatableIsConnectedCmd = &cobra.Command{
-	Use:   "is-connected",
-	Short: "IsConnected RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewNdefFormatableServiceClient(grpcConn)
-		req := &pb.IsConnectedRequest{}
-		resp, err := client.IsConnected(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var techNdefFormatableGetCmd = &cobra.Command{
-	Use:   "get",
-	Short: "Get RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewNdefFormatableServiceClient(grpcConn)
-		req := &pb.GetRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Get(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var techNfcACmd = &cobra.Command{
-	Use:   "nfc-a",
-	Short: "NfcAService operations",
-}
-
-var techNfcACloseCmd = &cobra.Command{
-	Use:   "close",
-	Short: "Close RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewNfcAServiceClient(grpcConn)
-		req := &pb.CloseRequest{}
-		resp, err := client.Close(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var techNfcAConnectCmd = &cobra.Command{
-	Use:   "connect",
-	Short: "Connect RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewNfcAServiceClient(grpcConn)
-		req := &pb.ConnectRequest{}
-		resp, err := client.Connect(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var techNfcAGetAtqaCmd = &cobra.Command{
-	Use:   "get-atqa",
-	Short: "GetAtqa RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewNfcAServiceClient(grpcConn)
-		req := &pb.GetAtqaRequest{}
-		resp, err := client.GetAtqa(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var techNfcAGetMaxTransceiveLengthCmd = &cobra.Command{
+var techNfcVGetMaxTransceiveLengthCmd = &cobra.Command{
 	Use:   "get-max-transceive-length",
 	Short: "GetMaxTransceiveLength RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewNfcAServiceClient(grpcConn)
+		client := pb.NewNfcVServiceClient(grpcConn)
 		req := &pb.GetMaxTransceiveLengthRequest{}
 		resp, err := client.GetMaxTransceiveLength(ctx, req)
 		if err != nil {
@@ -1368,15 +1178,15 @@ var techNfcAGetMaxTransceiveLengthCmd = &cobra.Command{
 	},
 }
 
-var techNfcAGetSakCmd = &cobra.Command{
-	Use:   "get-sak",
-	Short: "GetSak RPC",
+var techNfcVGetResponseFlagsCmd = &cobra.Command{
+	Use:   "get-response-flags",
+	Short: "GetResponseFlags RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewNfcAServiceClient(grpcConn)
-		req := &pb.GetSakRequest{}
-		resp, err := client.GetSak(ctx, req)
+		client := pb.NewNfcVServiceClient(grpcConn)
+		req := &pb.GetResponseFlagsRequest{}
+		resp, err := client.GetResponseFlags(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1384,13 +1194,13 @@ var techNfcAGetSakCmd = &cobra.Command{
 	},
 }
 
-var techNfcAGetTagCmd = &cobra.Command{
+var techNfcVGetTagCmd = &cobra.Command{
 	Use:   "get-tag",
 	Short: "GetTag RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewNfcAServiceClient(grpcConn)
+		client := pb.NewNfcVServiceClient(grpcConn)
 		req := &pb.GetTagRequest{}
 		resp, err := client.GetTag(ctx, req)
 		if err != nil {
@@ -1400,29 +1210,13 @@ var techNfcAGetTagCmd = &cobra.Command{
 	},
 }
 
-var techNfcAGetTimeoutCmd = &cobra.Command{
-	Use:   "get-timeout",
-	Short: "GetTimeout RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewNfcAServiceClient(grpcConn)
-		req := &pb.GetTimeoutRequest{}
-		resp, err := client.GetTimeout(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var techNfcAIsConnectedCmd = &cobra.Command{
+var techNfcVIsConnectedCmd = &cobra.Command{
 	Use:   "is-connected",
 	Short: "IsConnected RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewNfcAServiceClient(grpcConn)
+		client := pb.NewNfcVServiceClient(grpcConn)
 		req := &pb.IsConnectedRequest{}
 		resp, err := client.IsConnected(ctx, req)
 		if err != nil {
@@ -1432,32 +1226,13 @@ var techNfcAIsConnectedCmd = &cobra.Command{
 	},
 }
 
-var techNfcASetTimeoutCmd = &cobra.Command{
-	Use:   "set-timeout",
-	Short: "SetTimeout RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewNfcAServiceClient(grpcConn)
-		req := &pb.SetTimeoutRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetTimeout(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var techNfcATransceiveCmd = &cobra.Command{
+var techNfcVTransceiveCmd = &cobra.Command{
 	Use:   "transceive",
 	Short: "Transceive RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewNfcAServiceClient(grpcConn)
+		client := pb.NewNfcVServiceClient(grpcConn)
 		req := &pb.TransceiveRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -1470,13 +1245,13 @@ var techNfcATransceiveCmd = &cobra.Command{
 	},
 }
 
-var techNfcAGetCmd = &cobra.Command{
+var techNfcVGetCmd = &cobra.Command{
 	Use:   "get",
 	Short: "Get RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewNfcAServiceClient(grpcConn)
+		client := pb.NewNfcVServiceClient(grpcConn)
 		req := &pb.GetRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -1489,18 +1264,18 @@ var techNfcAGetCmd = &cobra.Command{
 	},
 }
 
-var techNfcBarcodeCmd = &cobra.Command{
-	Use:   "nfc-barcode",
-	Short: "NfcBarcodeService operations",
+var techNfcBCmd = &cobra.Command{
+	Use:   "nfc-b",
+	Short: "NfcBService operations",
 }
 
-var techNfcBarcodeCloseCmd = &cobra.Command{
+var techNfcBCloseCmd = &cobra.Command{
 	Use:   "close",
 	Short: "Close RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewNfcBarcodeServiceClient(grpcConn)
+		client := pb.NewNfcBServiceClient(grpcConn)
 		req := &pb.CloseRequest{}
 		resp, err := client.Close(ctx, req)
 		if err != nil {
@@ -1510,13 +1285,13 @@ var techNfcBarcodeCloseCmd = &cobra.Command{
 	},
 }
 
-var techNfcBarcodeConnectCmd = &cobra.Command{
+var techNfcBConnectCmd = &cobra.Command{
 	Use:   "connect",
 	Short: "Connect RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewNfcBarcodeServiceClient(grpcConn)
+		client := pb.NewNfcBServiceClient(grpcConn)
 		req := &pb.ConnectRequest{}
 		resp, err := client.Connect(ctx, req)
 		if err != nil {
@@ -1526,15 +1301,15 @@ var techNfcBarcodeConnectCmd = &cobra.Command{
 	},
 }
 
-var techNfcBarcodeGetBarcodeCmd = &cobra.Command{
-	Use:   "get-barcode",
-	Short: "GetBarcode RPC",
+var techNfcBGetApplicationDataCmd = &cobra.Command{
+	Use:   "get-application-data",
+	Short: "GetApplicationData RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewNfcBarcodeServiceClient(grpcConn)
-		req := &pb.GetBarcodeRequest{}
-		resp, err := client.GetBarcode(ctx, req)
+		client := pb.NewNfcBServiceClient(grpcConn)
+		req := &pb.GetApplicationDataRequest{}
+		resp, err := client.GetApplicationData(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1542,13 +1317,45 @@ var techNfcBarcodeGetBarcodeCmd = &cobra.Command{
 	},
 }
 
-var techNfcBarcodeGetTagCmd = &cobra.Command{
+var techNfcBGetMaxTransceiveLengthCmd = &cobra.Command{
+	Use:   "get-max-transceive-length",
+	Short: "GetMaxTransceiveLength RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNfcBServiceClient(grpcConn)
+		req := &pb.GetMaxTransceiveLengthRequest{}
+		resp, err := client.GetMaxTransceiveLength(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var techNfcBGetProtocolInfoCmd = &cobra.Command{
+	Use:   "get-protocol-info",
+	Short: "GetProtocolInfo RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNfcBServiceClient(grpcConn)
+		req := &pb.GetProtocolInfoRequest{}
+		resp, err := client.GetProtocolInfo(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var techNfcBGetTagCmd = &cobra.Command{
 	Use:   "get-tag",
 	Short: "GetTag RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewNfcBarcodeServiceClient(grpcConn)
+		client := pb.NewNfcBServiceClient(grpcConn)
 		req := &pb.GetTagRequest{}
 		resp, err := client.GetTag(ctx, req)
 		if err != nil {
@@ -1558,29 +1365,13 @@ var techNfcBarcodeGetTagCmd = &cobra.Command{
 	},
 }
 
-var techNfcBarcodeGetTypeCmd = &cobra.Command{
-	Use:   "get-type",
-	Short: "GetType RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewNfcBarcodeServiceClient(grpcConn)
-		req := &pb.GetTypeRequest{}
-		resp, err := client.GetType(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var techNfcBarcodeIsConnectedCmd = &cobra.Command{
+var techNfcBIsConnectedCmd = &cobra.Command{
 	Use:   "is-connected",
 	Short: "IsConnected RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewNfcBarcodeServiceClient(grpcConn)
+		client := pb.NewNfcBServiceClient(grpcConn)
 		req := &pb.IsConnectedRequest{}
 		resp, err := client.IsConnected(ctx, req)
 		if err != nil {
@@ -1590,13 +1381,32 @@ var techNfcBarcodeIsConnectedCmd = &cobra.Command{
 	},
 }
 
-var techNfcBarcodeGetCmd = &cobra.Command{
+var techNfcBTransceiveCmd = &cobra.Command{
+	Use:   "transceive",
+	Short: "Transceive RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNfcBServiceClient(grpcConn)
+		req := &pb.TransceiveRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Transceive(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var techNfcBGetCmd = &cobra.Command{
 	Use:   "get",
 	Short: "Get RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewNfcBarcodeServiceClient(grpcConn)
+		client := pb.NewNfcBServiceClient(grpcConn)
 		req := &pb.GetRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -1678,22 +1488,217 @@ var techTagTechnologyIsConnectedCmd = &cobra.Command{
 	},
 }
 
+var techNfcFCmd = &cobra.Command{
+	Use:   "nfc-f",
+	Short: "NfcFService operations",
+}
+
+var techNfcFCloseCmd = &cobra.Command{
+	Use:   "close",
+	Short: "Close RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNfcFServiceClient(grpcConn)
+		req := &pb.CloseRequest{}
+		resp, err := client.Close(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var techNfcFConnectCmd = &cobra.Command{
+	Use:   "connect",
+	Short: "Connect RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNfcFServiceClient(grpcConn)
+		req := &pb.ConnectRequest{}
+		resp, err := client.Connect(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var techNfcFGetManufacturerCmd = &cobra.Command{
+	Use:   "get-manufacturer",
+	Short: "GetManufacturer RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNfcFServiceClient(grpcConn)
+		req := &pb.GetManufacturerRequest{}
+		resp, err := client.GetManufacturer(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var techNfcFGetMaxTransceiveLengthCmd = &cobra.Command{
+	Use:   "get-max-transceive-length",
+	Short: "GetMaxTransceiveLength RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNfcFServiceClient(grpcConn)
+		req := &pb.GetMaxTransceiveLengthRequest{}
+		resp, err := client.GetMaxTransceiveLength(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var techNfcFGetSystemCodeCmd = &cobra.Command{
+	Use:   "get-system-code",
+	Short: "GetSystemCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNfcFServiceClient(grpcConn)
+		req := &pb.GetSystemCodeRequest{}
+		resp, err := client.GetSystemCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var techNfcFGetTagCmd = &cobra.Command{
+	Use:   "get-tag",
+	Short: "GetTag RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNfcFServiceClient(grpcConn)
+		req := &pb.GetTagRequest{}
+		resp, err := client.GetTag(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var techNfcFGetTimeoutCmd = &cobra.Command{
+	Use:   "get-timeout",
+	Short: "GetTimeout RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNfcFServiceClient(grpcConn)
+		req := &pb.GetTimeoutRequest{}
+		resp, err := client.GetTimeout(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var techNfcFIsConnectedCmd = &cobra.Command{
+	Use:   "is-connected",
+	Short: "IsConnected RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNfcFServiceClient(grpcConn)
+		req := &pb.IsConnectedRequest{}
+		resp, err := client.IsConnected(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var techNfcFSetTimeoutCmd = &cobra.Command{
+	Use:   "set-timeout",
+	Short: "SetTimeout RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNfcFServiceClient(grpcConn)
+		req := &pb.SetTimeoutRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetTimeout(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var techNfcFTransceiveCmd = &cobra.Command{
+	Use:   "transceive",
+	Short: "Transceive RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNfcFServiceClient(grpcConn)
+		req := &pb.TransceiveRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Transceive(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var techNfcFGetCmd = &cobra.Command{
+	Use:   "get",
+	Short: "Get RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNfcFServiceClient(grpcConn)
+		req := &pb.GetRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Get(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 func init() {
-	techNfcFCmd.AddCommand(techNfcFCloseCmd)
-	techNfcFCmd.AddCommand(techNfcFConnectCmd)
-	techNfcFCmd.AddCommand(techNfcFGetManufacturerCmd)
-	techNfcFCmd.AddCommand(techNfcFGetMaxTransceiveLengthCmd)
-	techNfcFCmd.AddCommand(techNfcFGetSystemCodeCmd)
-	techNfcFCmd.AddCommand(techNfcFGetTagCmd)
-	techNfcFCmd.AddCommand(techNfcFGetTimeoutCmd)
-	techNfcFCmd.AddCommand(techNfcFIsConnectedCmd)
-	techNfcFSetTimeoutCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	techNfcFCmd.AddCommand(techNfcFSetTimeoutCmd)
-	techNfcFTransceiveCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	techNfcFCmd.AddCommand(techNfcFTransceiveCmd)
-	techNfcFGetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	techNfcFCmd.AddCommand(techNfcFGetCmd)
-	techCmd.AddCommand(techNfcFCmd)
+	techNfcBarcodeCmd.AddCommand(techNfcBarcodeCloseCmd)
+	techNfcBarcodeCmd.AddCommand(techNfcBarcodeConnectCmd)
+	techNfcBarcodeCmd.AddCommand(techNfcBarcodeGetBarcodeCmd)
+	techNfcBarcodeCmd.AddCommand(techNfcBarcodeGetTagCmd)
+	techNfcBarcodeCmd.AddCommand(techNfcBarcodeGetTypeCmd)
+	techNfcBarcodeCmd.AddCommand(techNfcBarcodeIsConnectedCmd)
+	techNfcBarcodeGetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	techNfcBarcodeCmd.AddCommand(techNfcBarcodeGetCmd)
+	techCmd.AddCommand(techNfcBarcodeCmd)
+	techNdefFormatableCmd.AddCommand(techNdefFormatableCloseCmd)
+	techNdefFormatableCmd.AddCommand(techNdefFormatableConnectCmd)
+	techNdefFormatableFormatCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	techNdefFormatableCmd.AddCommand(techNdefFormatableFormatCmd)
+	techNdefFormatableFormatReadOnlyCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	techNdefFormatableCmd.AddCommand(techNdefFormatableFormatReadOnlyCmd)
+	techNdefFormatableCmd.AddCommand(techNdefFormatableGetTagCmd)
+	techNdefFormatableCmd.AddCommand(techNdefFormatableIsConnectedCmd)
+	techNdefFormatableGetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	techNdefFormatableCmd.AddCommand(techNdefFormatableGetCmd)
+	techCmd.AddCommand(techNdefFormatableCmd)
 	techMifareUltralightCmd.AddCommand(techMifareUltralightCloseCmd)
 	techMifareUltralightCmd.AddCommand(techMifareUltralightConnectCmd)
 	techMifareUltralightCmd.AddCommand(techMifareUltralightGetMaxTransceiveLengthCmd)
@@ -1713,30 +1718,21 @@ func init() {
 	techMifareUltralightGetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	techMifareUltralightCmd.AddCommand(techMifareUltralightGetCmd)
 	techCmd.AddCommand(techMifareUltralightCmd)
-	techNfcBCmd.AddCommand(techNfcBCloseCmd)
-	techNfcBCmd.AddCommand(techNfcBConnectCmd)
-	techNfcBCmd.AddCommand(techNfcBGetApplicationDataCmd)
-	techNfcBCmd.AddCommand(techNfcBGetMaxTransceiveLengthCmd)
-	techNfcBCmd.AddCommand(techNfcBGetProtocolInfoCmd)
-	techNfcBCmd.AddCommand(techNfcBGetTagCmd)
-	techNfcBCmd.AddCommand(techNfcBIsConnectedCmd)
-	techNfcBTransceiveCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	techNfcBCmd.AddCommand(techNfcBTransceiveCmd)
-	techNfcBGetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	techNfcBCmd.AddCommand(techNfcBGetCmd)
-	techCmd.AddCommand(techNfcBCmd)
-	techNfcVCmd.AddCommand(techNfcVCloseCmd)
-	techNfcVCmd.AddCommand(techNfcVConnectCmd)
-	techNfcVCmd.AddCommand(techNfcVGetDsfIdCmd)
-	techNfcVCmd.AddCommand(techNfcVGetMaxTransceiveLengthCmd)
-	techNfcVCmd.AddCommand(techNfcVGetResponseFlagsCmd)
-	techNfcVCmd.AddCommand(techNfcVGetTagCmd)
-	techNfcVCmd.AddCommand(techNfcVIsConnectedCmd)
-	techNfcVTransceiveCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	techNfcVCmd.AddCommand(techNfcVTransceiveCmd)
-	techNfcVGetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	techNfcVCmd.AddCommand(techNfcVGetCmd)
-	techCmd.AddCommand(techNfcVCmd)
+	techNfcACmd.AddCommand(techNfcACloseCmd)
+	techNfcACmd.AddCommand(techNfcAConnectCmd)
+	techNfcACmd.AddCommand(techNfcAGetAtqaCmd)
+	techNfcACmd.AddCommand(techNfcAGetMaxTransceiveLengthCmd)
+	techNfcACmd.AddCommand(techNfcAGetSakCmd)
+	techNfcACmd.AddCommand(techNfcAGetTagCmd)
+	techNfcACmd.AddCommand(techNfcAGetTimeoutCmd)
+	techNfcACmd.AddCommand(techNfcAIsConnectedCmd)
+	techNfcASetTimeoutCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	techNfcACmd.AddCommand(techNfcASetTimeoutCmd)
+	techNfcATransceiveCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	techNfcACmd.AddCommand(techNfcATransceiveCmd)
+	techNfcAGetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	techNfcACmd.AddCommand(techNfcAGetCmd)
+	techCmd.AddCommand(techNfcACmd)
 	techMifareClassicAuthenticateSectorWithKeyACmd.Flags().Int32("arg0", 0, "arg0 (int32)")
 	techMifareClassicAuthenticateSectorWithKeyACmd.Flags().Int64("arg1", 0, "arg1 (int64)")
 	techMifareClassicCmd.AddCommand(techMifareClassicAuthenticateSectorWithKeyACmd)
@@ -1781,45 +1777,49 @@ func init() {
 	techMifareClassicGetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	techMifareClassicCmd.AddCommand(techMifareClassicGetCmd)
 	techCmd.AddCommand(techMifareClassicCmd)
-	techNdefFormatableCmd.AddCommand(techNdefFormatableCloseCmd)
-	techNdefFormatableCmd.AddCommand(techNdefFormatableConnectCmd)
-	techNdefFormatableFormatCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	techNdefFormatableCmd.AddCommand(techNdefFormatableFormatCmd)
-	techNdefFormatableFormatReadOnlyCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	techNdefFormatableCmd.AddCommand(techNdefFormatableFormatReadOnlyCmd)
-	techNdefFormatableCmd.AddCommand(techNdefFormatableGetTagCmd)
-	techNdefFormatableCmd.AddCommand(techNdefFormatableIsConnectedCmd)
-	techNdefFormatableGetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	techNdefFormatableCmd.AddCommand(techNdefFormatableGetCmd)
-	techCmd.AddCommand(techNdefFormatableCmd)
-	techNfcACmd.AddCommand(techNfcACloseCmd)
-	techNfcACmd.AddCommand(techNfcAConnectCmd)
-	techNfcACmd.AddCommand(techNfcAGetAtqaCmd)
-	techNfcACmd.AddCommand(techNfcAGetMaxTransceiveLengthCmd)
-	techNfcACmd.AddCommand(techNfcAGetSakCmd)
-	techNfcACmd.AddCommand(techNfcAGetTagCmd)
-	techNfcACmd.AddCommand(techNfcAGetTimeoutCmd)
-	techNfcACmd.AddCommand(techNfcAIsConnectedCmd)
-	techNfcASetTimeoutCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	techNfcACmd.AddCommand(techNfcASetTimeoutCmd)
-	techNfcATransceiveCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	techNfcACmd.AddCommand(techNfcATransceiveCmd)
-	techNfcAGetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	techNfcACmd.AddCommand(techNfcAGetCmd)
-	techCmd.AddCommand(techNfcACmd)
-	techNfcBarcodeCmd.AddCommand(techNfcBarcodeCloseCmd)
-	techNfcBarcodeCmd.AddCommand(techNfcBarcodeConnectCmd)
-	techNfcBarcodeCmd.AddCommand(techNfcBarcodeGetBarcodeCmd)
-	techNfcBarcodeCmd.AddCommand(techNfcBarcodeGetTagCmd)
-	techNfcBarcodeCmd.AddCommand(techNfcBarcodeGetTypeCmd)
-	techNfcBarcodeCmd.AddCommand(techNfcBarcodeIsConnectedCmd)
-	techNfcBarcodeGetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	techNfcBarcodeCmd.AddCommand(techNfcBarcodeGetCmd)
-	techCmd.AddCommand(techNfcBarcodeCmd)
+	techNfcVCmd.AddCommand(techNfcVCloseCmd)
+	techNfcVCmd.AddCommand(techNfcVConnectCmd)
+	techNfcVCmd.AddCommand(techNfcVGetDsfIdCmd)
+	techNfcVCmd.AddCommand(techNfcVGetMaxTransceiveLengthCmd)
+	techNfcVCmd.AddCommand(techNfcVGetResponseFlagsCmd)
+	techNfcVCmd.AddCommand(techNfcVGetTagCmd)
+	techNfcVCmd.AddCommand(techNfcVIsConnectedCmd)
+	techNfcVTransceiveCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	techNfcVCmd.AddCommand(techNfcVTransceiveCmd)
+	techNfcVGetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	techNfcVCmd.AddCommand(techNfcVGetCmd)
+	techCmd.AddCommand(techNfcVCmd)
+	techNfcBCmd.AddCommand(techNfcBCloseCmd)
+	techNfcBCmd.AddCommand(techNfcBConnectCmd)
+	techNfcBCmd.AddCommand(techNfcBGetApplicationDataCmd)
+	techNfcBCmd.AddCommand(techNfcBGetMaxTransceiveLengthCmd)
+	techNfcBCmd.AddCommand(techNfcBGetProtocolInfoCmd)
+	techNfcBCmd.AddCommand(techNfcBGetTagCmd)
+	techNfcBCmd.AddCommand(techNfcBIsConnectedCmd)
+	techNfcBTransceiveCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	techNfcBCmd.AddCommand(techNfcBTransceiveCmd)
+	techNfcBGetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	techNfcBCmd.AddCommand(techNfcBGetCmd)
+	techCmd.AddCommand(techNfcBCmd)
 	techTagTechnologyCmd.AddCommand(techTagTechnologyCloseCmd)
 	techTagTechnologyCmd.AddCommand(techTagTechnologyConnectCmd)
 	techTagTechnologyCmd.AddCommand(techTagTechnologyGetTagCmd)
 	techTagTechnologyCmd.AddCommand(techTagTechnologyIsConnectedCmd)
 	techCmd.AddCommand(techTagTechnologyCmd)
+	techNfcFCmd.AddCommand(techNfcFCloseCmd)
+	techNfcFCmd.AddCommand(techNfcFConnectCmd)
+	techNfcFCmd.AddCommand(techNfcFGetManufacturerCmd)
+	techNfcFCmd.AddCommand(techNfcFGetMaxTransceiveLengthCmd)
+	techNfcFCmd.AddCommand(techNfcFGetSystemCodeCmd)
+	techNfcFCmd.AddCommand(techNfcFGetTagCmd)
+	techNfcFCmd.AddCommand(techNfcFGetTimeoutCmd)
+	techNfcFCmd.AddCommand(techNfcFIsConnectedCmd)
+	techNfcFSetTimeoutCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	techNfcFCmd.AddCommand(techNfcFSetTimeoutCmd)
+	techNfcFTransceiveCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	techNfcFCmd.AddCommand(techNfcFTransceiveCmd)
+	techNfcFGetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	techNfcFCmd.AddCommand(techNfcFGetCmd)
+	techCmd.AddCommand(techNfcFCmd)
 	rootCmd.AddCommand(techCmd)
 }

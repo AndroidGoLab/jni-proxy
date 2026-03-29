@@ -15,6 +15,171 @@ import (
 	"google.golang.org/grpc/status"
 )
 
+// TransportDiscoveryDataServer implements pb.TransportDiscoveryDataServiceServer.
+type TransportDiscoveryDataServer struct {
+	pb.UnimplementedTransportDiscoveryDataServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *TransportDiscoveryDataServer) NewTransportDiscoveryData(_ context.Context, req *pb.NewTransportDiscoveryDataRequest) (*pb.NewTransportDiscoveryDataResponse, error) {
+	obj, err := jnipkg.NewTransportDiscoveryData(s.Ctx.VM, s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewTransportDiscoveryDataResponse{Result: handle}, nil
+}
+
+func (s *TransportDiscoveryDataServer) DescribeContents(_ context.Context, req *pb.TransportDiscoveryDataDescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.TransportDiscoveryData{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.DescribeContents()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.DescribeContentsResponse{Result: result}, nil
+}
+
+func (s *TransportDiscoveryDataServer) Equals(_ context.Context, req *pb.TransportDiscoveryDataEqualsRequest) (*pb.EqualsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.TransportDiscoveryData{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.Equals(s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.EqualsResponse{Result: result}, nil
+}
+
+func (s *TransportDiscoveryDataServer) GetTransportBlocks(_ context.Context, req *pb.GetTransportBlocksRequest) (*pb.GetTransportBlocksResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.TransportDiscoveryData{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetTransportBlocks()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetTransportBlocksResponse{Result: handle}, nil
+}
+
+func (s *TransportDiscoveryDataServer) GetTransportDataType(_ context.Context, req *pb.GetTransportDataTypeRequest) (*pb.GetTransportDataTypeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.TransportDiscoveryData{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetTransportDataType()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetTransportDataTypeResponse{Result: result}, nil
+}
+
+func (s *TransportDiscoveryDataServer) HashCode(_ context.Context, req *pb.TransportDiscoveryDataHashCodeRequest) (*pb.HashCodeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.TransportDiscoveryData{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.HashCode()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.HashCodeResponse{Result: result}, nil
+}
+
+func (s *TransportDiscoveryDataServer) ToByteArray(_ context.Context, req *pb.ToByteArrayRequest) (*pb.ToByteArrayResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.TransportDiscoveryData{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.ToByteArray()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.ToByteArrayResponse{Result: handle}, nil
+}
+
+func (s *TransportDiscoveryDataServer) ToString(_ context.Context, req *pb.TransportDiscoveryDataToStringRequest) (*pb.ToStringResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.TransportDiscoveryData{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.ToString()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ToStringResponse{Result: result}, nil
+}
+
+func (s *TransportDiscoveryDataServer) TotalBytes(_ context.Context, req *pb.TotalBytesRequest) (*pb.TotalBytesResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.TransportDiscoveryData{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.TotalBytes()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.TotalBytesResponse{Result: result}, nil
+}
+
+func (s *TransportDiscoveryDataServer) WriteToParcel(_ context.Context, req *pb.TransportDiscoveryDataWriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.TransportDiscoveryData{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.WriteToParcel(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.WriteToParcelResponse{}, nil
+}
+
 // ScanResultServer implements pb.ScanResultServiceServer.
 type ScanResultServer struct {
 	pb.UnimplementedScanResultServiceServer
@@ -237,7 +402,7 @@ func (s *ScanResultServer) HashCode(_ context.Context, req *pb.ScanResultHashCod
 	return &pb.HashCodeResponse{Result: result}, nil
 }
 
-func (s *ScanResultServer) IsConnectable(_ context.Context, req *pb.ScanResultIsConnectableRequest) (*pb.IsConnectableResponse, error) {
+func (s *ScanResultServer) IsConnectable(_ context.Context, req *pb.IsConnectableRequest) (*pb.IsConnectableResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -285,148 +450,6 @@ func (s *ScanResultServer) WriteToParcel(_ context.Context, req *pb.ScanResultWr
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
 	mgr := &jnipkg.ScanResult{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.WriteToParcel(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.WriteToParcelResponse{}, nil
-}
-
-// TransportDiscoveryDataServer implements pb.TransportDiscoveryDataServiceServer.
-type TransportDiscoveryDataServer struct {
-	pb.UnimplementedTransportDiscoveryDataServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *TransportDiscoveryDataServer) NewTransportDiscoveryData(_ context.Context, req *pb.NewTransportDiscoveryDataRequest) (*pb.NewTransportDiscoveryDataResponse, error) {
-	obj, err := jnipkg.NewTransportDiscoveryData(s.Ctx.VM, s.Handles.Get(req.GetArg0()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
-	}
-	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-	}
-	return &pb.NewTransportDiscoveryDataResponse{Result: handle}, nil
-}
-
-func (s *TransportDiscoveryDataServer) DescribeContents(_ context.Context, req *pb.TransportDiscoveryDataDescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.TransportDiscoveryData{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.DescribeContents()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.DescribeContentsResponse{Result: result}, nil
-}
-
-func (s *TransportDiscoveryDataServer) Equals(_ context.Context, req *pb.TransportDiscoveryDataEqualsRequest) (*pb.EqualsResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.TransportDiscoveryData{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.Equals(s.Handles.Get(req.GetArg0()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.EqualsResponse{Result: result}, nil
-}
-
-func (s *TransportDiscoveryDataServer) GetTransportDataType(_ context.Context, req *pb.GetTransportDataTypeRequest) (*pb.GetTransportDataTypeResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.TransportDiscoveryData{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetTransportDataType()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetTransportDataTypeResponse{Result: result}, nil
-}
-
-func (s *TransportDiscoveryDataServer) HashCode(_ context.Context, req *pb.TransportDiscoveryDataHashCodeRequest) (*pb.HashCodeResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.TransportDiscoveryData{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.HashCode()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.HashCodeResponse{Result: result}, nil
-}
-
-func (s *TransportDiscoveryDataServer) ToByteArray(_ context.Context, req *pb.ToByteArrayRequest) (*pb.ToByteArrayResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.TransportDiscoveryData{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.ToByteArray()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.ToByteArrayResponse{Result: handle}, nil
-}
-
-func (s *TransportDiscoveryDataServer) ToString(_ context.Context, req *pb.TransportDiscoveryDataToStringRequest) (*pb.ToStringResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.TransportDiscoveryData{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.ToString()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.ToStringResponse{Result: result}, nil
-}
-
-func (s *TransportDiscoveryDataServer) TotalBytes(_ context.Context, req *pb.TotalBytesRequest) (*pb.TotalBytesResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.TransportDiscoveryData{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.TotalBytes()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.TotalBytesResponse{Result: result}, nil
-}
-
-func (s *TransportDiscoveryDataServer) WriteToParcel(_ context.Context, req *pb.TransportDiscoveryDataWriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.TransportDiscoveryData{VM: s.Ctx.VM, Obj: rawObj}
 
 	if err := mgr.WriteToParcel(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)

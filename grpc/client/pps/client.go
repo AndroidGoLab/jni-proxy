@@ -88,6 +88,17 @@ func (c *HomeSpClient) GetMatchAnyOis(ctx context.Context, handle int64) (int64,
 	return resp.GetResult(), nil
 }
 
+// GetOtherHomePartnersList calls the GetOtherHomePartnersList RPC.
+func (c *HomeSpClient) GetOtherHomePartnersList(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetOtherHomePartnersList(ctx, &pb.GetOtherHomePartnersListRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // GetRoamingConsortiumOis calls the GetRoamingConsortiumOis RPC.
 func (c *HomeSpClient) GetRoamingConsortiumOis(ctx context.Context, handle int64) (int64, error) {
 	resp, err := c.svc.GetRoamingConsortiumOis(ctx, &pb.GetRoamingConsortiumOisRequest{

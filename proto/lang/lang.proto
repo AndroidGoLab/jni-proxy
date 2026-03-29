@@ -14,6 +14,135 @@ message ToStringResponse {
   string result = 1;
 }
 
+message BreaksBetweenLettersRequest {
+  int32 arg0 = 1;
+}
+
+message BreaksBetweenLettersResponse {
+  bool result = 1;
+}
+
+message GetCode1Request {
+  int64 arg0 = 1;
+}
+
+message GetCode1Response {
+  int64 result = 1;
+}
+
+message GetCode1_1Request {
+  string arg0 = 1;
+}
+
+message GetCode1_1Response {
+  int64 result = 1;
+}
+
+message GetCode1_2Request {
+  int64 arg0 = 1;
+}
+
+message GetCode1_2Response {
+  int64 result = 1;
+}
+
+message GetCodeFromNameRequest {
+  string arg0 = 1;
+}
+
+message GetCodeFromNameResponse {
+  int32 result = 1;
+}
+
+message GetNameRequest {
+  int32 arg0 = 1;
+}
+
+message GetNameResponse {
+  string result = 1;
+}
+
+message GetSampleStringRequest {
+  int32 arg0 = 1;
+}
+
+message GetSampleStringResponse {
+  string result = 1;
+}
+
+message GetScriptRequest {
+  int32 arg0 = 1;
+}
+
+message GetScriptResponse {
+  int32 result = 1;
+}
+
+message GetScriptExtensionsRequest {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message GetScriptExtensionsResponse {
+  int32 result = 1;
+}
+
+message GetShortNameRequest {
+  int32 arg0 = 1;
+}
+
+message GetShortNameResponse {
+  string result = 1;
+}
+
+message GetUsageRequest {
+  int32 arg0 = 1;
+}
+
+message GetUsageResponse {
+  int64 result = 1;
+}
+
+message HasScriptRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message HasScriptResponse {
+  bool result = 1;
+}
+
+message IsCasedRequest {
+  int32 arg0 = 1;
+}
+
+message IsCasedResponse {
+  bool result = 1;
+}
+
+message IsRightToLeftRequest {
+  int32 arg0 = 1;
+}
+
+message IsRightToLeftResponse {
+  bool result = 1;
+}
+
+message ValuesRequest {
+}
+
+message ValuesResponse {
+  int64 result = 1;
+}
+
+message ValueOfRequest {
+  string arg0 = 1;
+}
+
+message ValueOfResponse {
+  int64 result = 1;
+}
+
 message CharCountRequest {
   int32 arg0 = 1;
 }
@@ -920,140 +1049,33 @@ message OfResponse {
   int64 result = 1;
 }
 
-message BreaksBetweenLettersRequest {
-  int32 arg0 = 1;
-}
-
-message BreaksBetweenLettersResponse {
-  bool result = 1;
-}
-
-message GetCode1Request {
-  int64 arg0 = 1;
-}
-
-message GetCode1Response {
-  int64 result = 1;
-}
-
-message GetCode1_1Request {
-  string arg0 = 1;
-}
-
-message GetCode1_1Response {
-  int64 result = 1;
-}
-
-message GetCode1_2Request {
-  int64 arg0 = 1;
-}
-
-message GetCode1_2Response {
-  int64 result = 1;
-}
-
-message GetCodeFromNameRequest {
-  string arg0 = 1;
-}
-
-message GetCodeFromNameResponse {
-  int32 result = 1;
-}
-
-message GetNameRequest {
-  int32 arg0 = 1;
-}
-
-message GetNameResponse {
-  string result = 1;
-}
-
-message GetSampleStringRequest {
-  int32 arg0 = 1;
-}
-
-message GetSampleStringResponse {
-  string result = 1;
-}
-
-message GetScriptRequest {
-  int32 arg0 = 1;
-}
-
-message GetScriptResponse {
-  int32 result = 1;
-}
-
-message GetScriptExtensionsRequest {
-  int32 arg0 = 1;
-  int64 arg1 = 2;
-}
-
-message GetScriptExtensionsResponse {
-  int32 result = 1;
-}
-
-message GetShortNameRequest {
-  int32 arg0 = 1;
-}
-
-message GetShortNameResponse {
-  string result = 1;
-}
-
-message GetUsageRequest {
-  int32 arg0 = 1;
-}
-
-message GetUsageResponse {
-  int64 result = 1;
-}
-
-message HasScriptRequest {
-  int32 arg0 = 1;
-  int32 arg1 = 2;
-}
-
-message HasScriptResponse {
-  bool result = 1;
-}
-
-message IsCasedRequest {
-  int32 arg0 = 1;
-}
-
-message IsCasedResponse {
-  bool result = 1;
-}
-
-message IsRightToLeftRequest {
-  int32 arg0 = 1;
-}
-
-message IsRightToLeftResponse {
-  bool result = 1;
-}
-
-message ValuesRequest {
-}
-
-message ValuesResponse {
-  int64 result = 1;
-}
-
-message ValueOfRequest {
-  string arg0 = 1;
-}
-
-message ValueOfResponse {
-  int64 result = 1;
-}
-
-service UCharacterDirectionService {
+service UCharacterCategoryService {
   rpc ToString (ToStringRequest) returns (ToStringResponse);
 }
 
-service UCharacterCategoryService {
+service UScriptService {
+  rpc BreaksBetweenLetters (BreaksBetweenLettersRequest) returns (BreaksBetweenLettersResponse);
+  rpc GetCode1 (GetCode1Request) returns (GetCode1Response);
+  rpc GetCode1_1 (GetCode1_1Request) returns (GetCode1_1Response);
+  rpc GetCode1_2 (GetCode1_2Request) returns (GetCode1_2Response);
+  rpc GetCodeFromName (GetCodeFromNameRequest) returns (GetCodeFromNameResponse);
+  rpc GetName (GetNameRequest) returns (GetNameResponse);
+  rpc GetSampleString (GetSampleStringRequest) returns (GetSampleStringResponse);
+  rpc GetScript (GetScriptRequest) returns (GetScriptResponse);
+  rpc GetScriptExtensions (GetScriptExtensionsRequest) returns (GetScriptExtensionsResponse);
+  rpc GetShortName (GetShortNameRequest) returns (GetShortNameResponse);
+  rpc GetUsage (GetUsageRequest) returns (GetUsageResponse);
+  rpc HasScript (HasScriptRequest) returns (HasScriptResponse);
+  rpc IsCased (IsCasedRequest) returns (IsCasedResponse);
+  rpc IsRightToLeft (IsRightToLeftRequest) returns (IsRightToLeftResponse);
+}
+
+service UScriptScriptUsageService {
+  rpc Values (ValuesRequest) returns (ValuesResponse);
+  rpc ValueOf (ValueOfRequest) returns (ValueOfResponse);
+}
+
+service UCharacterDirectionService {
   rpc ToString (ToStringRequest) returns (ToStringResponse);
 }
 
@@ -1169,26 +1191,4 @@ service UCharacterUnicodeBlockService {
   rpc ForName (ForNameRequest) returns (ForNameResponse);
   rpc GetInstance (GetInstanceRequest) returns (GetInstanceResponse);
   rpc Of (OfRequest) returns (OfResponse);
-}
-
-service UScriptService {
-  rpc BreaksBetweenLetters (BreaksBetweenLettersRequest) returns (BreaksBetweenLettersResponse);
-  rpc GetCode1 (GetCode1Request) returns (GetCode1Response);
-  rpc GetCode1_1 (GetCode1_1Request) returns (GetCode1_1Response);
-  rpc GetCode1_2 (GetCode1_2Request) returns (GetCode1_2Response);
-  rpc GetCodeFromName (GetCodeFromNameRequest) returns (GetCodeFromNameResponse);
-  rpc GetName (GetNameRequest) returns (GetNameResponse);
-  rpc GetSampleString (GetSampleStringRequest) returns (GetSampleStringResponse);
-  rpc GetScript (GetScriptRequest) returns (GetScriptResponse);
-  rpc GetScriptExtensions (GetScriptExtensionsRequest) returns (GetScriptExtensionsResponse);
-  rpc GetShortName (GetShortNameRequest) returns (GetShortNameResponse);
-  rpc GetUsage (GetUsageRequest) returns (GetUsageResponse);
-  rpc HasScript (HasScriptRequest) returns (HasScriptResponse);
-  rpc IsCased (IsCasedRequest) returns (IsCasedResponse);
-  rpc IsRightToLeft (IsRightToLeftRequest) returns (IsRightToLeftResponse);
-}
-
-service UScriptScriptUsageService {
-  rpc Values (ValuesRequest) returns (ValuesResponse);
-  rpc ValueOf (ValueOfRequest) returns (ValueOfResponse);
 }

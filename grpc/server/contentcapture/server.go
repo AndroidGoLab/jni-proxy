@@ -65,7 +65,7 @@ func (s *ContentCaptureConditionServer) Equals(_ context.Context, req *pb.Conten
 	return &pb.EqualsResponse{Result: result}, nil
 }
 
-func (s *ContentCaptureConditionServer) GetFlags(_ context.Context, req *pb.ContentCaptureConditionGetFlagsRequest) (*pb.GetFlagsResponse, error) {
+func (s *ContentCaptureConditionServer) GetFlags(_ context.Context, req *pb.GetFlagsRequest) (*pb.GetFlagsResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -79,7 +79,7 @@ func (s *ContentCaptureConditionServer) GetFlags(_ context.Context, req *pb.Cont
 	return &pb.GetFlagsResponse{Result: result}, nil
 }
 
-func (s *ContentCaptureConditionServer) GetLocusId(_ context.Context, req *pb.ContentCaptureConditionGetLocusIdRequest) (*pb.GetLocusIdResponse, error) {
+func (s *ContentCaptureConditionServer) GetLocusId(_ context.Context, req *pb.GetLocusIdRequest) (*pb.GetLocusIdResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -193,7 +193,7 @@ func (s *DataShareRequestServer) Equals(_ context.Context, req *pb.DataShareRequ
 	return &pb.EqualsResponse{Result: result}, nil
 }
 
-func (s *DataShareRequestServer) GetLocusId(_ context.Context, req *pb.DataShareRequestGetLocusIdRequest) (*pb.GetLocusIdResponse, error) {
+func (s *DataShareRequestServer) GetLocusId(_ context.Context, req *pb.GetLocusIdRequest) (*pb.GetLocusIdResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")

@@ -9,6 +9,80 @@ import (
 	"google.golang.org/grpc"
 )
 
+// LocalizedNumberFormatterClient wraps the gRPC LocalizedNumberFormatterService client.
+type LocalizedNumberFormatterClient struct {
+	svc pb.LocalizedNumberFormatterServiceClient
+}
+
+// NewLocalizedNumberFormatterClient creates a new LocalizedNumberFormatter client.
+func NewLocalizedNumberFormatterClient(cc grpc.ClientConnInterface) *LocalizedNumberFormatterClient {
+	return &LocalizedNumberFormatterClient{
+		svc: pb.NewLocalizedNumberFormatterServiceClient(cc),
+	}
+}
+
+// Format1 calls the Format1 RPC.
+func (c *LocalizedNumberFormatterClient) Format1(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.Format1(ctx, &pb.Format1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Format1_1 calls the Format1_1 RPC.
+func (c *LocalizedNumberFormatterClient) Format1_1(ctx context.Context, arg0 float64) (int64, error) {
+	resp, err := c.svc.Format1_1(ctx, &pb.Format1_1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Format1_2 calls the Format1_2 RPC.
+func (c *LocalizedNumberFormatterClient) Format1_2(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.Format1_2(ctx, &pb.Format1_2Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Format1_3 calls the Format1_3 RPC.
+func (c *LocalizedNumberFormatterClient) Format1_3(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.Format1_3(ctx, &pb.Format1_3Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToFormat calls the ToFormat RPC.
+func (c *LocalizedNumberFormatterClient) ToFormat(ctx context.Context) (int64, error) {
+	resp, err := c.svc.ToFormat(ctx, &pb.ToFormatRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WithoutLocale calls the WithoutLocale RPC.
+func (c *LocalizedNumberFormatterClient) WithoutLocale(ctx context.Context) (int64, error) {
+	resp, err := c.svc.WithoutLocale(ctx, &pb.WithoutLocaleRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // ScientificNotationClient wraps the gRPC ScientificNotationService client.
 type ScientificNotationClient struct {
 	svc pb.ScientificNotationServiceClient
@@ -43,21 +117,21 @@ func (c *ScientificNotationClient) WithMinExponentDigits(ctx context.Context, ar
 	return resp.GetResult(), nil
 }
 
-// ScaleClient wraps the gRPC ScaleService client.
-type ScaleClient struct {
-	svc pb.ScaleServiceClient
+// UnlocalizedNumberRangeFormatterClient wraps the gRPC UnlocalizedNumberRangeFormatterService client.
+type UnlocalizedNumberRangeFormatterClient struct {
+	svc pb.UnlocalizedNumberRangeFormatterServiceClient
 }
 
-// NewScaleClient creates a new Scale client.
-func NewScaleClient(cc grpc.ClientConnInterface) *ScaleClient {
-	return &ScaleClient{
-		svc: pb.NewScaleServiceClient(cc),
+// NewUnlocalizedNumberRangeFormatterClient creates a new UnlocalizedNumberRangeFormatter client.
+func NewUnlocalizedNumberRangeFormatterClient(cc grpc.ClientConnInterface) *UnlocalizedNumberRangeFormatterClient {
+	return &UnlocalizedNumberRangeFormatterClient{
+		svc: pb.NewUnlocalizedNumberRangeFormatterServiceClient(cc),
 	}
 }
 
-// ByBigDecimal calls the ByBigDecimal RPC.
-func (c *ScaleClient) ByBigDecimal(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.ByBigDecimal(ctx, &pb.ByBigDecimalRequest{
+// Locale1 calls the Locale1 RPC.
+func (c *UnlocalizedNumberRangeFormatterClient) Locale1(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.Locale1(ctx, &pb.Locale1Request{
 		Arg0: arg0,
 	})
 	if err != nil {
@@ -66,9 +140,9 @@ func (c *ScaleClient) ByBigDecimal(ctx context.Context, arg0 int64) (int64, erro
 	return resp.GetResult(), nil
 }
 
-// ByDouble calls the ByDouble RPC.
-func (c *ScaleClient) ByDouble(ctx context.Context, arg0 float64) (int64, error) {
-	resp, err := c.svc.ByDouble(ctx, &pb.ByDoubleRequest{
+// Locale1_1 calls the Locale1_1 RPC.
+func (c *UnlocalizedNumberRangeFormatterClient) Locale1_1(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.Locale1_1(ctx, &pb.Locale1_1Request{
 		Arg0: arg0,
 	})
 	if err != nil {
@@ -77,30 +151,21 @@ func (c *ScaleClient) ByDouble(ctx context.Context, arg0 float64) (int64, error)
 	return resp.GetResult(), nil
 }
 
-// ByDoubleAndPowerOfTen calls the ByDoubleAndPowerOfTen RPC.
-func (c *ScaleClient) ByDoubleAndPowerOfTen(ctx context.Context, arg0 float64, arg1 int32) (int64, error) {
-	resp, err := c.svc.ByDoubleAndPowerOfTen(ctx, &pb.ByDoubleAndPowerOfTenRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
+// IntegerWidthClient wraps the gRPC IntegerWidthService client.
+type IntegerWidthClient struct {
+	svc pb.IntegerWidthServiceClient
 }
 
-// None calls the None RPC.
-func (c *ScaleClient) None(ctx context.Context) (int64, error) {
-	resp, err := c.svc.None(ctx, &pb.NoneRequest{})
-	if err != nil {
-		return 0, err
+// NewIntegerWidthClient creates a new IntegerWidth client.
+func NewIntegerWidthClient(cc grpc.ClientConnInterface) *IntegerWidthClient {
+	return &IntegerWidthClient{
+		svc: pb.NewIntegerWidthServiceClient(cc),
 	}
-	return resp.GetResult(), nil
 }
 
-// PowerOfTen calls the PowerOfTen RPC.
-func (c *ScaleClient) PowerOfTen(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.PowerOfTen(ctx, &pb.PowerOfTenRequest{
+// TruncateAt calls the TruncateAt RPC.
+func (c *IntegerWidthClient) TruncateAt(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.TruncateAt(ctx, &pb.TruncateAtRequest{
 		Arg0: arg0,
 	})
 	if err != nil {
@@ -109,46 +174,10 @@ func (c *ScaleClient) PowerOfTen(ctx context.Context, arg0 int32) (int64, error)
 	return resp.GetResult(), nil
 }
 
-// FractionPrecisionClient wraps the gRPC FractionPrecisionService client.
-type FractionPrecisionClient struct {
-	svc pb.FractionPrecisionServiceClient
-}
-
-// NewFractionPrecisionClient creates a new FractionPrecision client.
-func NewFractionPrecisionClient(cc grpc.ClientConnInterface) *FractionPrecisionClient {
-	return &FractionPrecisionClient{
-		svc: pb.NewFractionPrecisionServiceClient(cc),
-	}
-}
-
-// WithMaxDigits calls the WithMaxDigits RPC.
-func (c *FractionPrecisionClient) WithMaxDigits(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.WithMaxDigits(ctx, &pb.WithMaxDigitsRequest{
+// ZeroFillTo calls the ZeroFillTo RPC.
+func (c *IntegerWidthClient) ZeroFillTo(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.ZeroFillTo(ctx, &pb.ZeroFillToRequest{
 		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// WithMinDigits calls the WithMinDigits RPC.
-func (c *FractionPrecisionClient) WithMinDigits(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.WithMinDigits(ctx, &pb.WithMinDigitsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// WithSignificantDigits calls the WithSignificantDigits RPC.
-func (c *FractionPrecisionClient) WithSignificantDigits(ctx context.Context, arg0 int32, arg1 int32, arg2 int64) (int64, error) {
-	resp, err := c.svc.WithSignificantDigits(ctx, &pb.WithSignificantDigitsRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
 	})
 	if err != nil {
 		return 0, err
@@ -309,6 +338,277 @@ func (c *PrecisionClient) Unlimited(ctx context.Context) (int64, error) {
 	return resp.GetResult(), nil
 }
 
+// FormattedNumberClient wraps the gRPC FormattedNumberService client.
+type FormattedNumberClient struct {
+	svc pb.FormattedNumberServiceClient
+}
+
+// NewFormattedNumberClient creates a new FormattedNumber client.
+func NewFormattedNumberClient(cc grpc.ClientConnInterface) *FormattedNumberClient {
+	return &FormattedNumberClient{
+		svc: pb.NewFormattedNumberServiceClient(cc),
+	}
+}
+
+// CharAt calls the CharAt RPC.
+func (c *FormattedNumberClient) CharAt(ctx context.Context, arg0 int32) (uint16, error) {
+	resp, err := c.svc.CharAt(ctx, &pb.CharAtRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return uint16(resp.GetResult()), nil
+}
+
+// GetNounClass calls the GetNounClass RPC.
+func (c *FormattedNumberClient) GetNounClass(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetNounClass(ctx, &pb.GetNounClassRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetOutputUnit calls the GetOutputUnit RPC.
+func (c *FormattedNumberClient) GetOutputUnit(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetOutputUnit(ctx, &pb.GetOutputUnitRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Length calls the Length RPC.
+func (c *FormattedNumberClient) Length(ctx context.Context) (int32, error) {
+	resp, err := c.svc.Length(ctx, &pb.LengthRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// NextPosition calls the NextPosition RPC.
+func (c *FormattedNumberClient) NextPosition(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.NextPosition(ctx, &pb.NextPositionRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SubSequence calls the SubSequence RPC.
+func (c *FormattedNumberClient) SubSequence(ctx context.Context, arg0 int32, arg1 int32) (int64, error) {
+	resp, err := c.svc.SubSequence(ctx, &pb.SubSequenceRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToBigDecimal calls the ToBigDecimal RPC.
+func (c *FormattedNumberClient) ToBigDecimal(ctx context.Context) (int64, error) {
+	resp, err := c.svc.ToBigDecimal(ctx, &pb.ToBigDecimalRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToCharacterIterator calls the ToCharacterIterator RPC.
+func (c *FormattedNumberClient) ToCharacterIterator(ctx context.Context) (int64, error) {
+	resp, err := c.svc.ToCharacterIterator(ctx, &pb.ToCharacterIteratorRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *FormattedNumberClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// RangeFormatterClient wraps the gRPC RangeFormatterService client.
+type RangeFormatterClient struct {
+	svc pb.RangeFormatterServiceClient
+}
+
+// NewRangeFormatterClient creates a new RangeFormatter client.
+func NewRangeFormatterClient(cc grpc.ClientConnInterface) *RangeFormatterClient {
+	return &RangeFormatterClient{
+		svc: pb.NewRangeFormatterServiceClient(cc),
+	}
+}
+
+// With calls the With RPC.
+func (c *RangeFormatterClient) With(ctx context.Context) (int64, error) {
+	resp, err := c.svc.With(ctx, &pb.WithRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WithLocale1 calls the WithLocale1 RPC.
+func (c *RangeFormatterClient) WithLocale1(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.WithLocale1(ctx, &pb.WithLocale1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WithLocale1_1 calls the WithLocale1_1 RPC.
+func (c *RangeFormatterClient) WithLocale1_1(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.WithLocale1_1(ctx, &pb.WithLocale1_1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// RangeFormatterRangeCollapseClient wraps the gRPC RangeFormatterRangeCollapseService client.
+type RangeFormatterRangeCollapseClient struct {
+	svc pb.RangeFormatterRangeCollapseServiceClient
+}
+
+// NewRangeFormatterRangeCollapseClient creates a new RangeFormatterRangeCollapse client.
+func NewRangeFormatterRangeCollapseClient(cc grpc.ClientConnInterface) *RangeFormatterRangeCollapseClient {
+	return &RangeFormatterRangeCollapseClient{
+		svc: pb.NewRangeFormatterRangeCollapseServiceClient(cc),
+	}
+}
+
+// Values calls the Values RPC.
+func (c *RangeFormatterRangeCollapseClient) Values(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Values(ctx, &pb.ValuesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ValueOf calls the ValueOf RPC.
+func (c *RangeFormatterRangeCollapseClient) ValueOf(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.ValueOf(ctx, &pb.ValueOfRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// RangeFormatterRangeIdentityFallbackClient wraps the gRPC RangeFormatterRangeIdentityFallbackService client.
+type RangeFormatterRangeIdentityFallbackClient struct {
+	svc pb.RangeFormatterRangeIdentityFallbackServiceClient
+}
+
+// NewRangeFormatterRangeIdentityFallbackClient creates a new RangeFormatterRangeIdentityFallback client.
+func NewRangeFormatterRangeIdentityFallbackClient(cc grpc.ClientConnInterface) *RangeFormatterRangeIdentityFallbackClient {
+	return &RangeFormatterRangeIdentityFallbackClient{
+		svc: pb.NewRangeFormatterRangeIdentityFallbackServiceClient(cc),
+	}
+}
+
+// Values calls the Values RPC.
+func (c *RangeFormatterRangeIdentityFallbackClient) Values(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Values(ctx, &pb.ValuesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ValueOf calls the ValueOf RPC.
+func (c *RangeFormatterRangeIdentityFallbackClient) ValueOf(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.ValueOf(ctx, &pb.ValueOfRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// RangeFormatterRangeIdentityResultClient wraps the gRPC RangeFormatterRangeIdentityResultService client.
+type RangeFormatterRangeIdentityResultClient struct {
+	svc pb.RangeFormatterRangeIdentityResultServiceClient
+}
+
+// NewRangeFormatterRangeIdentityResultClient creates a new RangeFormatterRangeIdentityResult client.
+func NewRangeFormatterRangeIdentityResultClient(cc grpc.ClientConnInterface) *RangeFormatterRangeIdentityResultClient {
+	return &RangeFormatterRangeIdentityResultClient{
+		svc: pb.NewRangeFormatterRangeIdentityResultServiceClient(cc),
+	}
+}
+
+// Values calls the Values RPC.
+func (c *RangeFormatterRangeIdentityResultClient) Values(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Values(ctx, &pb.ValuesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ValueOf calls the ValueOf RPC.
+func (c *RangeFormatterRangeIdentityResultClient) ValueOf(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.ValueOf(ctx, &pb.ValueOfRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// RangeFormatterSettingsClient wraps the gRPC RangeFormatterSettingsService client.
+type RangeFormatterSettingsClient struct {
+	svc pb.RangeFormatterSettingsServiceClient
+}
+
+// NewRangeFormatterSettingsClient creates a new RangeFormatterSettings client.
+func NewRangeFormatterSettingsClient(cc grpc.ClientConnInterface) *RangeFormatterSettingsClient {
+	return &RangeFormatterSettingsClient{
+		svc: pb.NewRangeFormatterSettingsServiceClient(cc),
+	}
+}
+
+// Equals calls the Equals RPC.
+func (c *RangeFormatterSettingsClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *RangeFormatterSettingsClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // LocalizedNumberRangeFormatterClient wraps the gRPC LocalizedNumberRangeFormatterService client.
 type LocalizedNumberRangeFormatterClient struct {
 	svc pb.LocalizedNumberRangeFormatterServiceClient
@@ -360,6 +660,338 @@ func (c *LocalizedNumberRangeFormatterClient) FormatRange2_2(ctx context.Context
 // WithoutLocale calls the WithoutLocale RPC.
 func (c *LocalizedNumberRangeFormatterClient) WithoutLocale(ctx context.Context) (int64, error) {
 	resp, err := c.svc.WithoutLocale(ctx, &pb.WithoutLocaleRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// FormattedNumberRangeClient wraps the gRPC FormattedNumberRangeService client.
+type FormattedNumberRangeClient struct {
+	svc pb.FormattedNumberRangeServiceClient
+}
+
+// NewFormattedNumberRangeClient creates a new FormattedNumberRange client.
+func NewFormattedNumberRangeClient(cc grpc.ClientConnInterface) *FormattedNumberRangeClient {
+	return &FormattedNumberRangeClient{
+		svc: pb.NewFormattedNumberRangeServiceClient(cc),
+	}
+}
+
+// CharAt calls the CharAt RPC.
+func (c *FormattedNumberRangeClient) CharAt(ctx context.Context, arg0 int32) (uint16, error) {
+	resp, err := c.svc.CharAt(ctx, &pb.CharAtRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return uint16(resp.GetResult()), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *FormattedNumberRangeClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetFirstBigDecimal calls the GetFirstBigDecimal RPC.
+func (c *FormattedNumberRangeClient) GetFirstBigDecimal(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetFirstBigDecimal(ctx, &pb.GetFirstBigDecimalRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetIdentityResult calls the GetIdentityResult RPC.
+func (c *FormattedNumberRangeClient) GetIdentityResult(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetIdentityResult(ctx, &pb.GetIdentityResultRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSecondBigDecimal calls the GetSecondBigDecimal RPC.
+func (c *FormattedNumberRangeClient) GetSecondBigDecimal(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetSecondBigDecimal(ctx, &pb.GetSecondBigDecimalRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *FormattedNumberRangeClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Length calls the Length RPC.
+func (c *FormattedNumberRangeClient) Length(ctx context.Context) (int32, error) {
+	resp, err := c.svc.Length(ctx, &pb.LengthRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// NextPosition calls the NextPosition RPC.
+func (c *FormattedNumberRangeClient) NextPosition(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.NextPosition(ctx, &pb.NextPositionRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SubSequence calls the SubSequence RPC.
+func (c *FormattedNumberRangeClient) SubSequence(ctx context.Context, arg0 int32, arg1 int32) (int64, error) {
+	resp, err := c.svc.SubSequence(ctx, &pb.SubSequenceRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToCharacterIterator calls the ToCharacterIterator RPC.
+func (c *FormattedNumberRangeClient) ToCharacterIterator(ctx context.Context) (int64, error) {
+	resp, err := c.svc.ToCharacterIterator(ctx, &pb.ToCharacterIteratorRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *FormattedNumberRangeClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// FormatterSettingsClient wraps the gRPC FormatterSettingsService client.
+type FormatterSettingsClient struct {
+	svc pb.FormatterSettingsServiceClient
+}
+
+// NewFormatterSettingsClient creates a new FormatterSettings client.
+func NewFormatterSettingsClient(cc grpc.ClientConnInterface) *FormatterSettingsClient {
+	return &FormatterSettingsClient{
+		svc: pb.NewFormatterSettingsServiceClient(cc),
+	}
+}
+
+// Equals calls the Equals RPC.
+func (c *FormatterSettingsClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *FormatterSettingsClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CurrencyPrecisionClient wraps the gRPC CurrencyPrecisionService client.
+type CurrencyPrecisionClient struct {
+	svc pb.CurrencyPrecisionServiceClient
+}
+
+// NewCurrencyPrecisionClient creates a new CurrencyPrecision client.
+func NewCurrencyPrecisionClient(cc grpc.ClientConnInterface) *CurrencyPrecisionClient {
+	return &CurrencyPrecisionClient{
+		svc: pb.NewCurrencyPrecisionServiceClient(cc),
+	}
+}
+
+// WithCurrency calls the WithCurrency RPC.
+func (c *CurrencyPrecisionClient) WithCurrency(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.WithCurrency(ctx, &pb.WithCurrencyRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// NotationClient wraps the gRPC NotationService client.
+type NotationClient struct {
+	svc pb.NotationServiceClient
+}
+
+// NewNotationClient creates a new Notation client.
+func NewNotationClient(cc grpc.ClientConnInterface) *NotationClient {
+	return &NotationClient{
+		svc: pb.NewNotationServiceClient(cc),
+	}
+}
+
+// CompactLong calls the CompactLong RPC.
+func (c *NotationClient) CompactLong(ctx context.Context) (int64, error) {
+	resp, err := c.svc.CompactLong(ctx, &pb.CompactLongRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CompactShort calls the CompactShort RPC.
+func (c *NotationClient) CompactShort(ctx context.Context) (int64, error) {
+	resp, err := c.svc.CompactShort(ctx, &pb.CompactShortRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Engineering calls the Engineering RPC.
+func (c *NotationClient) Engineering(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Engineering(ctx, &pb.EngineeringRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Scientific calls the Scientific RPC.
+func (c *NotationClient) Scientific(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Scientific(ctx, &pb.ScientificRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Simple calls the Simple RPC.
+func (c *NotationClient) Simple(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Simple(ctx, &pb.SimpleRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ScaleClient wraps the gRPC ScaleService client.
+type ScaleClient struct {
+	svc pb.ScaleServiceClient
+}
+
+// NewScaleClient creates a new Scale client.
+func NewScaleClient(cc grpc.ClientConnInterface) *ScaleClient {
+	return &ScaleClient{
+		svc: pb.NewScaleServiceClient(cc),
+	}
+}
+
+// ByBigDecimal calls the ByBigDecimal RPC.
+func (c *ScaleClient) ByBigDecimal(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.ByBigDecimal(ctx, &pb.ByBigDecimalRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ByDouble calls the ByDouble RPC.
+func (c *ScaleClient) ByDouble(ctx context.Context, arg0 float64) (int64, error) {
+	resp, err := c.svc.ByDouble(ctx, &pb.ByDoubleRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ByDoubleAndPowerOfTen calls the ByDoubleAndPowerOfTen RPC.
+func (c *ScaleClient) ByDoubleAndPowerOfTen(ctx context.Context, arg0 float64, arg1 int32) (int64, error) {
+	resp, err := c.svc.ByDoubleAndPowerOfTen(ctx, &pb.ByDoubleAndPowerOfTenRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// None calls the None RPC.
+func (c *ScaleClient) None(ctx context.Context) (int64, error) {
+	resp, err := c.svc.None(ctx, &pb.NoneRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// PowerOfTen calls the PowerOfTen RPC.
+func (c *ScaleClient) PowerOfTen(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.PowerOfTen(ctx, &pb.PowerOfTenRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// UnlocalizedNumberFormatterClient wraps the gRPC UnlocalizedNumberFormatterService client.
+type UnlocalizedNumberFormatterClient struct {
+	svc pb.UnlocalizedNumberFormatterServiceClient
+}
+
+// NewUnlocalizedNumberFormatterClient creates a new UnlocalizedNumberFormatter client.
+func NewUnlocalizedNumberFormatterClient(cc grpc.ClientConnInterface) *UnlocalizedNumberFormatterClient {
+	return &UnlocalizedNumberFormatterClient{
+		svc: pb.NewUnlocalizedNumberFormatterServiceClient(cc),
+	}
+}
+
+// Locale1 calls the Locale1 RPC.
+func (c *UnlocalizedNumberFormatterClient) Locale1(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.Locale1(ctx, &pb.Locale1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Locale1_1 calls the Locale1_1 RPC.
+func (c *UnlocalizedNumberFormatterClient) Locale1_1(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.Locale1_1(ctx, &pb.Locale1_1Request{
+		Arg0: arg0,
+	})
 	if err != nil {
 		return 0, err
 	}
@@ -601,21 +1233,21 @@ func (c *FormatterUnitWidthClient) ValueOf(ctx context.Context, arg0 string) (in
 	return resp.GetResult(), nil
 }
 
-// LocalizedNumberFormatterClient wraps the gRPC LocalizedNumberFormatterService client.
-type LocalizedNumberFormatterClient struct {
-	svc pb.LocalizedNumberFormatterServiceClient
+// FractionPrecisionClient wraps the gRPC FractionPrecisionService client.
+type FractionPrecisionClient struct {
+	svc pb.FractionPrecisionServiceClient
 }
 
-// NewLocalizedNumberFormatterClient creates a new LocalizedNumberFormatter client.
-func NewLocalizedNumberFormatterClient(cc grpc.ClientConnInterface) *LocalizedNumberFormatterClient {
-	return &LocalizedNumberFormatterClient{
-		svc: pb.NewLocalizedNumberFormatterServiceClient(cc),
+// NewFractionPrecisionClient creates a new FractionPrecision client.
+func NewFractionPrecisionClient(cc grpc.ClientConnInterface) *FractionPrecisionClient {
+	return &FractionPrecisionClient{
+		svc: pb.NewFractionPrecisionServiceClient(cc),
 	}
 }
 
-// Format1 calls the Format1 RPC.
-func (c *LocalizedNumberFormatterClient) Format1(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.Format1(ctx, &pb.Format1Request{
+// WithMaxDigits calls the WithMaxDigits RPC.
+func (c *FractionPrecisionClient) WithMaxDigits(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.WithMaxDigits(ctx, &pb.WithMaxDigitsRequest{
 		Arg0: arg0,
 	})
 	if err != nil {
@@ -624,9 +1256,9 @@ func (c *LocalizedNumberFormatterClient) Format1(ctx context.Context, arg0 int64
 	return resp.GetResult(), nil
 }
 
-// Format1_1 calls the Format1_1 RPC.
-func (c *LocalizedNumberFormatterClient) Format1_1(ctx context.Context, arg0 float64) (int64, error) {
-	resp, err := c.svc.Format1_1(ctx, &pb.Format1_1Request{
+// WithMinDigits calls the WithMinDigits RPC.
+func (c *FractionPrecisionClient) WithMinDigits(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.WithMinDigits(ctx, &pb.WithMinDigitsRequest{
 		Arg0: arg0,
 	})
 	if err != nil {
@@ -635,644 +1267,12 @@ func (c *LocalizedNumberFormatterClient) Format1_1(ctx context.Context, arg0 flo
 	return resp.GetResult(), nil
 }
 
-// Format1_2 calls the Format1_2 RPC.
-func (c *LocalizedNumberFormatterClient) Format1_2(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.Format1_2(ctx, &pb.Format1_2Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Format1_3 calls the Format1_3 RPC.
-func (c *LocalizedNumberFormatterClient) Format1_3(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.Format1_3(ctx, &pb.Format1_3Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToFormat calls the ToFormat RPC.
-func (c *LocalizedNumberFormatterClient) ToFormat(ctx context.Context) (int64, error) {
-	resp, err := c.svc.ToFormat(ctx, &pb.ToFormatRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// WithoutLocale calls the WithoutLocale RPC.
-func (c *LocalizedNumberFormatterClient) WithoutLocale(ctx context.Context) (int64, error) {
-	resp, err := c.svc.WithoutLocale(ctx, &pb.WithoutLocaleRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// RangeFormatterSettingsClient wraps the gRPC RangeFormatterSettingsService client.
-type RangeFormatterSettingsClient struct {
-	svc pb.RangeFormatterSettingsServiceClient
-}
-
-// NewRangeFormatterSettingsClient creates a new RangeFormatterSettings client.
-func NewRangeFormatterSettingsClient(cc grpc.ClientConnInterface) *RangeFormatterSettingsClient {
-	return &RangeFormatterSettingsClient{
-		svc: pb.NewRangeFormatterSettingsServiceClient(cc),
-	}
-}
-
-// Equals calls the Equals RPC.
-func (c *RangeFormatterSettingsClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *RangeFormatterSettingsClient) HashCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IntegerWidthClient wraps the gRPC IntegerWidthService client.
-type IntegerWidthClient struct {
-	svc pb.IntegerWidthServiceClient
-}
-
-// NewIntegerWidthClient creates a new IntegerWidth client.
-func NewIntegerWidthClient(cc grpc.ClientConnInterface) *IntegerWidthClient {
-	return &IntegerWidthClient{
-		svc: pb.NewIntegerWidthServiceClient(cc),
-	}
-}
-
-// TruncateAt calls the TruncateAt RPC.
-func (c *IntegerWidthClient) TruncateAt(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.TruncateAt(ctx, &pb.TruncateAtRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ZeroFillTo calls the ZeroFillTo RPC.
-func (c *IntegerWidthClient) ZeroFillTo(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.ZeroFillTo(ctx, &pb.ZeroFillToRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// UnlocalizedNumberFormatterClient wraps the gRPC UnlocalizedNumberFormatterService client.
-type UnlocalizedNumberFormatterClient struct {
-	svc pb.UnlocalizedNumberFormatterServiceClient
-}
-
-// NewUnlocalizedNumberFormatterClient creates a new UnlocalizedNumberFormatter client.
-func NewUnlocalizedNumberFormatterClient(cc grpc.ClientConnInterface) *UnlocalizedNumberFormatterClient {
-	return &UnlocalizedNumberFormatterClient{
-		svc: pb.NewUnlocalizedNumberFormatterServiceClient(cc),
-	}
-}
-
-// Locale1 calls the Locale1 RPC.
-func (c *UnlocalizedNumberFormatterClient) Locale1(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.Locale1(ctx, &pb.Locale1Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Locale1_1 calls the Locale1_1 RPC.
-func (c *UnlocalizedNumberFormatterClient) Locale1_1(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.Locale1_1(ctx, &pb.Locale1_1Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// NotationClient wraps the gRPC NotationService client.
-type NotationClient struct {
-	svc pb.NotationServiceClient
-}
-
-// NewNotationClient creates a new Notation client.
-func NewNotationClient(cc grpc.ClientConnInterface) *NotationClient {
-	return &NotationClient{
-		svc: pb.NewNotationServiceClient(cc),
-	}
-}
-
-// CompactLong calls the CompactLong RPC.
-func (c *NotationClient) CompactLong(ctx context.Context) (int64, error) {
-	resp, err := c.svc.CompactLong(ctx, &pb.CompactLongRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// CompactShort calls the CompactShort RPC.
-func (c *NotationClient) CompactShort(ctx context.Context) (int64, error) {
-	resp, err := c.svc.CompactShort(ctx, &pb.CompactShortRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Engineering calls the Engineering RPC.
-func (c *NotationClient) Engineering(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Engineering(ctx, &pb.EngineeringRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Scientific calls the Scientific RPC.
-func (c *NotationClient) Scientific(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Scientific(ctx, &pb.ScientificRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Simple calls the Simple RPC.
-func (c *NotationClient) Simple(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Simple(ctx, &pb.SimpleRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// FormattedNumberRangeClient wraps the gRPC FormattedNumberRangeService client.
-type FormattedNumberRangeClient struct {
-	svc pb.FormattedNumberRangeServiceClient
-}
-
-// NewFormattedNumberRangeClient creates a new FormattedNumberRange client.
-func NewFormattedNumberRangeClient(cc grpc.ClientConnInterface) *FormattedNumberRangeClient {
-	return &FormattedNumberRangeClient{
-		svc: pb.NewFormattedNumberRangeServiceClient(cc),
-	}
-}
-
-// CharAt calls the CharAt RPC.
-func (c *FormattedNumberRangeClient) CharAt(ctx context.Context, arg0 int32) (uint16, error) {
-	resp, err := c.svc.CharAt(ctx, &pb.CharAtRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return uint16(resp.GetResult()), nil
-}
-
-// Equals calls the Equals RPC.
-func (c *FormattedNumberRangeClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetFirstBigDecimal calls the GetFirstBigDecimal RPC.
-func (c *FormattedNumberRangeClient) GetFirstBigDecimal(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetFirstBigDecimal(ctx, &pb.GetFirstBigDecimalRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetIdentityResult calls the GetIdentityResult RPC.
-func (c *FormattedNumberRangeClient) GetIdentityResult(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetIdentityResult(ctx, &pb.GetIdentityResultRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetSecondBigDecimal calls the GetSecondBigDecimal RPC.
-func (c *FormattedNumberRangeClient) GetSecondBigDecimal(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetSecondBigDecimal(ctx, &pb.GetSecondBigDecimalRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *FormattedNumberRangeClient) HashCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Length calls the Length RPC.
-func (c *FormattedNumberRangeClient) Length(ctx context.Context) (int32, error) {
-	resp, err := c.svc.Length(ctx, &pb.LengthRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// NextPosition calls the NextPosition RPC.
-func (c *FormattedNumberRangeClient) NextPosition(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.NextPosition(ctx, &pb.NextPositionRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SubSequence calls the SubSequence RPC.
-func (c *FormattedNumberRangeClient) SubSequence(ctx context.Context, arg0 int32, arg1 int32) (int64, error) {
-	resp, err := c.svc.SubSequence(ctx, &pb.SubSequenceRequest{
+// WithSignificantDigits calls the WithSignificantDigits RPC.
+func (c *FractionPrecisionClient) WithSignificantDigits(ctx context.Context, arg0 int32, arg1 int32, arg2 int64) (int64, error) {
+	resp, err := c.svc.WithSignificantDigits(ctx, &pb.WithSignificantDigitsRequest{
 		Arg0: arg0,
 		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToCharacterIterator calls the ToCharacterIterator RPC.
-func (c *FormattedNumberRangeClient) ToCharacterIterator(ctx context.Context) (int64, error) {
-	resp, err := c.svc.ToCharacterIterator(ctx, &pb.ToCharacterIteratorRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToString calls the ToString RPC.
-func (c *FormattedNumberRangeClient) ToString(ctx context.Context) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// RangeFormatterClient wraps the gRPC RangeFormatterService client.
-type RangeFormatterClient struct {
-	svc pb.RangeFormatterServiceClient
-}
-
-// NewRangeFormatterClient creates a new RangeFormatter client.
-func NewRangeFormatterClient(cc grpc.ClientConnInterface) *RangeFormatterClient {
-	return &RangeFormatterClient{
-		svc: pb.NewRangeFormatterServiceClient(cc),
-	}
-}
-
-// With calls the With RPC.
-func (c *RangeFormatterClient) With(ctx context.Context) (int64, error) {
-	resp, err := c.svc.With(ctx, &pb.WithRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// WithLocale1 calls the WithLocale1 RPC.
-func (c *RangeFormatterClient) WithLocale1(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.WithLocale1(ctx, &pb.WithLocale1Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// WithLocale1_1 calls the WithLocale1_1 RPC.
-func (c *RangeFormatterClient) WithLocale1_1(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.WithLocale1_1(ctx, &pb.WithLocale1_1Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// RangeFormatterRangeCollapseClient wraps the gRPC RangeFormatterRangeCollapseService client.
-type RangeFormatterRangeCollapseClient struct {
-	svc pb.RangeFormatterRangeCollapseServiceClient
-}
-
-// NewRangeFormatterRangeCollapseClient creates a new RangeFormatterRangeCollapse client.
-func NewRangeFormatterRangeCollapseClient(cc grpc.ClientConnInterface) *RangeFormatterRangeCollapseClient {
-	return &RangeFormatterRangeCollapseClient{
-		svc: pb.NewRangeFormatterRangeCollapseServiceClient(cc),
-	}
-}
-
-// Values calls the Values RPC.
-func (c *RangeFormatterRangeCollapseClient) Values(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Values(ctx, &pb.ValuesRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ValueOf calls the ValueOf RPC.
-func (c *RangeFormatterRangeCollapseClient) ValueOf(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.ValueOf(ctx, &pb.ValueOfRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// RangeFormatterRangeIdentityFallbackClient wraps the gRPC RangeFormatterRangeIdentityFallbackService client.
-type RangeFormatterRangeIdentityFallbackClient struct {
-	svc pb.RangeFormatterRangeIdentityFallbackServiceClient
-}
-
-// NewRangeFormatterRangeIdentityFallbackClient creates a new RangeFormatterRangeIdentityFallback client.
-func NewRangeFormatterRangeIdentityFallbackClient(cc grpc.ClientConnInterface) *RangeFormatterRangeIdentityFallbackClient {
-	return &RangeFormatterRangeIdentityFallbackClient{
-		svc: pb.NewRangeFormatterRangeIdentityFallbackServiceClient(cc),
-	}
-}
-
-// Values calls the Values RPC.
-func (c *RangeFormatterRangeIdentityFallbackClient) Values(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Values(ctx, &pb.ValuesRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ValueOf calls the ValueOf RPC.
-func (c *RangeFormatterRangeIdentityFallbackClient) ValueOf(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.ValueOf(ctx, &pb.ValueOfRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// RangeFormatterRangeIdentityResultClient wraps the gRPC RangeFormatterRangeIdentityResultService client.
-type RangeFormatterRangeIdentityResultClient struct {
-	svc pb.RangeFormatterRangeIdentityResultServiceClient
-}
-
-// NewRangeFormatterRangeIdentityResultClient creates a new RangeFormatterRangeIdentityResult client.
-func NewRangeFormatterRangeIdentityResultClient(cc grpc.ClientConnInterface) *RangeFormatterRangeIdentityResultClient {
-	return &RangeFormatterRangeIdentityResultClient{
-		svc: pb.NewRangeFormatterRangeIdentityResultServiceClient(cc),
-	}
-}
-
-// Values calls the Values RPC.
-func (c *RangeFormatterRangeIdentityResultClient) Values(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Values(ctx, &pb.ValuesRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ValueOf calls the ValueOf RPC.
-func (c *RangeFormatterRangeIdentityResultClient) ValueOf(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.ValueOf(ctx, &pb.ValueOfRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// UnlocalizedNumberRangeFormatterClient wraps the gRPC UnlocalizedNumberRangeFormatterService client.
-type UnlocalizedNumberRangeFormatterClient struct {
-	svc pb.UnlocalizedNumberRangeFormatterServiceClient
-}
-
-// NewUnlocalizedNumberRangeFormatterClient creates a new UnlocalizedNumberRangeFormatter client.
-func NewUnlocalizedNumberRangeFormatterClient(cc grpc.ClientConnInterface) *UnlocalizedNumberRangeFormatterClient {
-	return &UnlocalizedNumberRangeFormatterClient{
-		svc: pb.NewUnlocalizedNumberRangeFormatterServiceClient(cc),
-	}
-}
-
-// Locale1 calls the Locale1 RPC.
-func (c *UnlocalizedNumberRangeFormatterClient) Locale1(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.Locale1(ctx, &pb.Locale1Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Locale1_1 calls the Locale1_1 RPC.
-func (c *UnlocalizedNumberRangeFormatterClient) Locale1_1(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.Locale1_1(ctx, &pb.Locale1_1Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// FormattedNumberClient wraps the gRPC FormattedNumberService client.
-type FormattedNumberClient struct {
-	svc pb.FormattedNumberServiceClient
-}
-
-// NewFormattedNumberClient creates a new FormattedNumber client.
-func NewFormattedNumberClient(cc grpc.ClientConnInterface) *FormattedNumberClient {
-	return &FormattedNumberClient{
-		svc: pb.NewFormattedNumberServiceClient(cc),
-	}
-}
-
-// CharAt calls the CharAt RPC.
-func (c *FormattedNumberClient) CharAt(ctx context.Context, arg0 int32) (uint16, error) {
-	resp, err := c.svc.CharAt(ctx, &pb.CharAtRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return uint16(resp.GetResult()), nil
-}
-
-// GetNounClass calls the GetNounClass RPC.
-func (c *FormattedNumberClient) GetNounClass(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetNounClass(ctx, &pb.GetNounClassRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetOutputUnit calls the GetOutputUnit RPC.
-func (c *FormattedNumberClient) GetOutputUnit(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetOutputUnit(ctx, &pb.GetOutputUnitRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Length calls the Length RPC.
-func (c *FormattedNumberClient) Length(ctx context.Context) (int32, error) {
-	resp, err := c.svc.Length(ctx, &pb.LengthRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// NextPosition calls the NextPosition RPC.
-func (c *FormattedNumberClient) NextPosition(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.NextPosition(ctx, &pb.NextPositionRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SubSequence calls the SubSequence RPC.
-func (c *FormattedNumberClient) SubSequence(ctx context.Context, arg0 int32, arg1 int32) (int64, error) {
-	resp, err := c.svc.SubSequence(ctx, &pb.SubSequenceRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToBigDecimal calls the ToBigDecimal RPC.
-func (c *FormattedNumberClient) ToBigDecimal(ctx context.Context) (int64, error) {
-	resp, err := c.svc.ToBigDecimal(ctx, &pb.ToBigDecimalRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToCharacterIterator calls the ToCharacterIterator RPC.
-func (c *FormattedNumberClient) ToCharacterIterator(ctx context.Context) (int64, error) {
-	resp, err := c.svc.ToCharacterIterator(ctx, &pb.ToCharacterIteratorRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToString calls the ToString RPC.
-func (c *FormattedNumberClient) ToString(ctx context.Context) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// FormatterSettingsClient wraps the gRPC FormatterSettingsService client.
-type FormatterSettingsClient struct {
-	svc pb.FormatterSettingsServiceClient
-}
-
-// NewFormatterSettingsClient creates a new FormatterSettings client.
-func NewFormatterSettingsClient(cc grpc.ClientConnInterface) *FormatterSettingsClient {
-	return &FormatterSettingsClient{
-		svc: pb.NewFormatterSettingsServiceClient(cc),
-	}
-}
-
-// Equals calls the Equals RPC.
-func (c *FormatterSettingsClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *FormatterSettingsClient) HashCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// CurrencyPrecisionClient wraps the gRPC CurrencyPrecisionService client.
-type CurrencyPrecisionClient struct {
-	svc pb.CurrencyPrecisionServiceClient
-}
-
-// NewCurrencyPrecisionClient creates a new CurrencyPrecision client.
-func NewCurrencyPrecisionClient(cc grpc.ClientConnInterface) *CurrencyPrecisionClient {
-	return &CurrencyPrecisionClient{
-		svc: pb.NewCurrencyPrecisionServiceClient(cc),
-	}
-}
-
-// WithCurrency calls the WithCurrency RPC.
-func (c *CurrencyPrecisionClient) WithCurrency(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.WithCurrency(ctx, &pb.WithCurrencyRequest{
-		Arg0: arg0,
+		Arg2: arg2,
 	})
 	if err != nil {
 		return 0, err

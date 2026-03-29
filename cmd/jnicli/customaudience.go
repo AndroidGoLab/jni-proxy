@@ -12,298 +12,6 @@ var customaudienceCmd = &cobra.Command{
 	Short: "customaudience service operations",
 }
 
-var customaudienceFetchAndJoinCustomAudienceRequestCmd = &cobra.Command{
-	Use:   "fetch-and-join-custom-audience-request",
-	Short: "FetchAndJoinCustomAudienceRequestService operations",
-}
-
-var customaudienceFetchAndJoinCustomAudienceRequestEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFetchAndJoinCustomAudienceRequestServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var customaudienceFetchAndJoinCustomAudienceRequestGetActivationTimeCmd = &cobra.Command{
-	Use:   "get-activation-time",
-	Short: "GetActivationTime RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFetchAndJoinCustomAudienceRequestServiceClient(grpcConn)
-		req := &pb.GetActivationTimeRequest{}
-		resp, err := client.GetActivationTime(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var customaudienceFetchAndJoinCustomAudienceRequestGetExpirationTimeCmd = &cobra.Command{
-	Use:   "get-expiration-time",
-	Short: "GetExpirationTime RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFetchAndJoinCustomAudienceRequestServiceClient(grpcConn)
-		req := &pb.GetExpirationTimeRequest{}
-		resp, err := client.GetExpirationTime(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var customaudienceFetchAndJoinCustomAudienceRequestGetFetchUriCmd = &cobra.Command{
-	Use:   "get-fetch-uri",
-	Short: "GetFetchUri RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFetchAndJoinCustomAudienceRequestServiceClient(grpcConn)
-		req := &pb.GetFetchUriRequest{}
-		resp, err := client.GetFetchUri(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var customaudienceFetchAndJoinCustomAudienceRequestGetNameCmd = &cobra.Command{
-	Use:   "get-name",
-	Short: "GetName RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFetchAndJoinCustomAudienceRequestServiceClient(grpcConn)
-		req := &pb.GetNameRequest{}
-		resp, err := client.GetName(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var customaudienceFetchAndJoinCustomAudienceRequestGetUserBiddingSignalsCmd = &cobra.Command{
-	Use:   "get-user-bidding-signals",
-	Short: "GetUserBiddingSignals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFetchAndJoinCustomAudienceRequestServiceClient(grpcConn)
-		req := &pb.GetUserBiddingSignalsRequest{}
-		resp, err := client.GetUserBiddingSignals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var customaudienceFetchAndJoinCustomAudienceRequestHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFetchAndJoinCustomAudienceRequestServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var customaudienceFetchAndJoinCustomAudienceRequestToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFetchAndJoinCustomAudienceRequestServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var customaudienceFetchAndJoinCustomAudienceRequestBuilderCmd = &cobra.Command{
-	Use:   "fetch-and-join-custom-audience-request-builder",
-	Short: "FetchAndJoinCustomAudienceRequestBuilderService operations",
-}
-
-var customaudienceFetchAndJoinCustomAudienceRequestBuilderBuildCmd = &cobra.Command{
-	Use:   "build",
-	Short: "Build RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFetchAndJoinCustomAudienceRequestBuilderServiceClient(grpcConn)
-		req := &pb.BuildRequest{}
-		resp, err := client.Build(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var customaudienceFetchAndJoinCustomAudienceRequestBuilderSetActivationTimeCmd = &cobra.Command{
-	Use:   "set-activation-time",
-	Short: "SetActivationTime RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFetchAndJoinCustomAudienceRequestBuilderServiceClient(grpcConn)
-		req := &pb.SetActivationTimeRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetActivationTime(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var customaudienceFetchAndJoinCustomAudienceRequestBuilderSetExpirationTimeCmd = &cobra.Command{
-	Use:   "set-expiration-time",
-	Short: "SetExpirationTime RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFetchAndJoinCustomAudienceRequestBuilderServiceClient(grpcConn)
-		req := &pb.SetExpirationTimeRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetExpirationTime(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var customaudienceFetchAndJoinCustomAudienceRequestBuilderSetFetchUriCmd = &cobra.Command{
-	Use:   "set-fetch-uri",
-	Short: "SetFetchUri RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFetchAndJoinCustomAudienceRequestBuilderServiceClient(grpcConn)
-		req := &pb.SetFetchUriRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetFetchUri(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var customaudienceFetchAndJoinCustomAudienceRequestBuilderSetNameCmd = &cobra.Command{
-	Use:   "set-name",
-	Short: "SetName RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFetchAndJoinCustomAudienceRequestBuilderServiceClient(grpcConn)
-		req := &pb.SetNameRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetName(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var customaudienceFetchAndJoinCustomAudienceRequestBuilderSetUserBiddingSignalsCmd = &cobra.Command{
-	Use:   "set-user-bidding-signals",
-	Short: "SetUserBiddingSignals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFetchAndJoinCustomAudienceRequestBuilderServiceClient(grpcConn)
-		req := &pb.SetUserBiddingSignalsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetUserBiddingSignals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var customaudienceCustomAudienceManagerCmd = &cobra.Command{
-	Use:   "custom-audience-manager",
-	Short: "CustomAudienceManagerService operations",
-}
-
-var customaudienceCustomAudienceManagerGetTestCustomAudienceManagerCmd = &cobra.Command{
-	Use:   "get-test-custom-audience-manager",
-	Short: "GetTestCustomAudienceManager RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCustomAudienceManagerServiceClient(grpcConn)
-		req := &pb.GetTestCustomAudienceManagerRequest{}
-		resp, err := client.GetTestCustomAudienceManager(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var customaudienceCustomAudienceManagerGetCmd = &cobra.Command{
-	Use:   "get",
-	Short: "Get RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCustomAudienceManagerServiceClient(grpcConn)
-		req := &pb.GetRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Get(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
 var customaudienceCustomAudienceCmd = &cobra.Command{
 	Use:   "custom-audience",
 	Short: "CustomAudienceService operations",
@@ -360,6 +68,22 @@ var customaudienceCustomAudienceGetActivationTimeCmd = &cobra.Command{
 	},
 }
 
+var customaudienceCustomAudienceGetAdsCmd = &cobra.Command{
+	Use:   "get-ads",
+	Short: "GetAds RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCustomAudienceServiceClient(grpcConn)
+		req := &pb.GetAdsRequest{}
+		resp, err := client.GetAds(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var customaudienceCustomAudienceGetAuctionServerRequestFlagsCmd = &cobra.Command{
 	Use:   "get-auction-server-request-flags",
 	Short: "GetAuctionServerRequestFlags RPC",
@@ -401,6 +125,22 @@ var customaudienceCustomAudienceGetBuyerCmd = &cobra.Command{
 		client := pb.NewCustomAudienceServiceClient(grpcConn)
 		req := &pb.GetBuyerRequest{}
 		resp, err := client.GetBuyer(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var customaudienceCustomAudienceGetComponentAdsCmd = &cobra.Command{
+	Use:   "get-component-ads",
+	Short: "GetComponentAds RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCustomAudienceServiceClient(grpcConn)
+		req := &pb.GetComponentAdsRequest{}
+		resp, err := client.GetComponentAds(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -769,6 +509,816 @@ var customaudienceCustomAudienceBuilderSetUserBiddingSignalsCmd = &cobra.Command
 	},
 }
 
+var customaudienceRemoveCustomAudienceOverrideRequestCmd = &cobra.Command{
+	Use:   "remove-custom-audience-override-request",
+	Short: "RemoveCustomAudienceOverrideRequestService operations",
+}
+
+var customaudienceRemoveCustomAudienceOverrideRequestNewRemoveCustomAudienceOverrideRequestCmd = &cobra.Command{
+	Use:   "new-remove-custom-audience-override-request",
+	Short: "NewRemoveCustomAudienceOverrideRequest RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRemoveCustomAudienceOverrideRequestServiceClient(grpcConn)
+		req := &pb.NewRemoveCustomAudienceOverrideRequestRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.NewRemoveCustomAudienceOverrideRequest(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var customaudienceRemoveCustomAudienceOverrideRequestGetBuyerCmd = &cobra.Command{
+	Use:   "get-buyer",
+	Short: "GetBuyer RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRemoveCustomAudienceOverrideRequestServiceClient(grpcConn)
+		req := &pb.RemoveCustomAudienceOverrideRequestGetBuyerRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetBuyer(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var customaudienceRemoveCustomAudienceOverrideRequestGetNameCmd = &cobra.Command{
+	Use:   "get-name",
+	Short: "GetName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRemoveCustomAudienceOverrideRequestServiceClient(grpcConn)
+		req := &pb.RemoveCustomAudienceOverrideRequestGetNameRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var customaudienceRemoveCustomAudienceOverrideRequestBuilderCmd = &cobra.Command{
+	Use:   "remove-custom-audience-override-request-builder",
+	Short: "RemoveCustomAudienceOverrideRequestBuilderService operations",
+}
+
+var customaudienceRemoveCustomAudienceOverrideRequestBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRemoveCustomAudienceOverrideRequestBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var customaudienceRemoveCustomAudienceOverrideRequestBuilderSetBuyerCmd = &cobra.Command{
+	Use:   "set-buyer",
+	Short: "SetBuyer RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRemoveCustomAudienceOverrideRequestBuilderServiceClient(grpcConn)
+		req := &pb.SetBuyerRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetBuyer(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var customaudienceRemoveCustomAudienceOverrideRequestBuilderSetNameCmd = &cobra.Command{
+	Use:   "set-name",
+	Short: "SetName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRemoveCustomAudienceOverrideRequestBuilderServiceClient(grpcConn)
+		req := &pb.SetNameRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var customaudiencePartialCustomAudienceCmd = &cobra.Command{
+	Use:   "partial-custom-audience",
+	Short: "PartialCustomAudienceService operations",
+}
+
+var customaudiencePartialCustomAudienceDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPartialCustomAudienceServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var customaudiencePartialCustomAudienceEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPartialCustomAudienceServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var customaudiencePartialCustomAudienceGetActivationTimeCmd = &cobra.Command{
+	Use:   "get-activation-time",
+	Short: "GetActivationTime RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPartialCustomAudienceServiceClient(grpcConn)
+		req := &pb.GetActivationTimeRequest{}
+		resp, err := client.GetActivationTime(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var customaudiencePartialCustomAudienceGetExpirationTimeCmd = &cobra.Command{
+	Use:   "get-expiration-time",
+	Short: "GetExpirationTime RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPartialCustomAudienceServiceClient(grpcConn)
+		req := &pb.GetExpirationTimeRequest{}
+		resp, err := client.GetExpirationTime(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var customaudiencePartialCustomAudienceGetNameCmd = &cobra.Command{
+	Use:   "get-name",
+	Short: "GetName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPartialCustomAudienceServiceClient(grpcConn)
+		req := &pb.GetNameRequest{}
+		resp, err := client.GetName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var customaudiencePartialCustomAudienceGetUserBiddingSignalsCmd = &cobra.Command{
+	Use:   "get-user-bidding-signals",
+	Short: "GetUserBiddingSignals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPartialCustomAudienceServiceClient(grpcConn)
+		req := &pb.GetUserBiddingSignalsRequest{}
+		resp, err := client.GetUserBiddingSignals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var customaudiencePartialCustomAudienceHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPartialCustomAudienceServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var customaudiencePartialCustomAudienceToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPartialCustomAudienceServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var customaudiencePartialCustomAudienceWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPartialCustomAudienceServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var customaudiencePartialCustomAudienceBuilderCmd = &cobra.Command{
+	Use:   "partial-custom-audience-builder",
+	Short: "PartialCustomAudienceBuilderService operations",
+}
+
+var customaudiencePartialCustomAudienceBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPartialCustomAudienceBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var customaudiencePartialCustomAudienceBuilderSetActivationTimeCmd = &cobra.Command{
+	Use:   "set-activation-time",
+	Short: "SetActivationTime RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPartialCustomAudienceBuilderServiceClient(grpcConn)
+		req := &pb.SetActivationTimeRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetActivationTime(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var customaudiencePartialCustomAudienceBuilderSetExpirationTimeCmd = &cobra.Command{
+	Use:   "set-expiration-time",
+	Short: "SetExpirationTime RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPartialCustomAudienceBuilderServiceClient(grpcConn)
+		req := &pb.SetExpirationTimeRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetExpirationTime(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var customaudiencePartialCustomAudienceBuilderSetUserBiddingSignalsCmd = &cobra.Command{
+	Use:   "set-user-bidding-signals",
+	Short: "SetUserBiddingSignals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPartialCustomAudienceBuilderServiceClient(grpcConn)
+		req := &pb.SetUserBiddingSignalsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetUserBiddingSignals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var customaudienceScheduleCustomAudienceUpdateRequestCmd = &cobra.Command{
+	Use:   "schedule-custom-audience-update-request",
+	Short: "ScheduleCustomAudienceUpdateRequestService operations",
+}
+
+var customaudienceScheduleCustomAudienceUpdateRequestEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewScheduleCustomAudienceUpdateRequestServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var customaudienceScheduleCustomAudienceUpdateRequestGetMinDelayCmd = &cobra.Command{
+	Use:   "get-min-delay",
+	Short: "GetMinDelay RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewScheduleCustomAudienceUpdateRequestServiceClient(grpcConn)
+		req := &pb.GetMinDelayRequest{}
+		resp, err := client.GetMinDelay(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var customaudienceScheduleCustomAudienceUpdateRequestGetPartialCustomAudienceListCmd = &cobra.Command{
+	Use:   "get-partial-custom-audience-list",
+	Short: "GetPartialCustomAudienceList RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewScheduleCustomAudienceUpdateRequestServiceClient(grpcConn)
+		req := &pb.GetPartialCustomAudienceListRequest{}
+		resp, err := client.GetPartialCustomAudienceList(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var customaudienceScheduleCustomAudienceUpdateRequestGetUpdateUriCmd = &cobra.Command{
+	Use:   "get-update-uri",
+	Short: "GetUpdateUri RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewScheduleCustomAudienceUpdateRequestServiceClient(grpcConn)
+		req := &pb.GetUpdateUriRequest{}
+		resp, err := client.GetUpdateUri(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var customaudienceScheduleCustomAudienceUpdateRequestHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewScheduleCustomAudienceUpdateRequestServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var customaudienceScheduleCustomAudienceUpdateRequestShouldReplacePendingUpdatesCmd = &cobra.Command{
+	Use:   "should-replace-pending-updates",
+	Short: "ShouldReplacePendingUpdates RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewScheduleCustomAudienceUpdateRequestServiceClient(grpcConn)
+		req := &pb.ShouldReplacePendingUpdatesRequest{}
+		resp, err := client.ShouldReplacePendingUpdates(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var customaudienceScheduleCustomAudienceUpdateRequestToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewScheduleCustomAudienceUpdateRequestServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var customaudienceScheduleCustomAudienceUpdateRequestBuilderCmd = &cobra.Command{
+	Use:   "schedule-custom-audience-update-request-builder",
+	Short: "ScheduleCustomAudienceUpdateRequestBuilderService operations",
+}
+
+var customaudienceScheduleCustomAudienceUpdateRequestBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewScheduleCustomAudienceUpdateRequestBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var customaudienceScheduleCustomAudienceUpdateRequestBuilderSetMinDelayCmd = &cobra.Command{
+	Use:   "set-min-delay",
+	Short: "SetMinDelay RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewScheduleCustomAudienceUpdateRequestBuilderServiceClient(grpcConn)
+		req := &pb.SetMinDelayRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetMinDelay(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var customaudienceScheduleCustomAudienceUpdateRequestBuilderSetShouldReplacePendingUpdatesCmd = &cobra.Command{
+	Use:   "set-should-replace-pending-updates",
+	Short: "SetShouldReplacePendingUpdates RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewScheduleCustomAudienceUpdateRequestBuilderServiceClient(grpcConn)
+		req := &pb.SetShouldReplacePendingUpdatesRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetShouldReplacePendingUpdates(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var customaudienceScheduleCustomAudienceUpdateRequestBuilderSetUpdateUriCmd = &cobra.Command{
+	Use:   "set-update-uri",
+	Short: "SetUpdateUri RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewScheduleCustomAudienceUpdateRequestBuilderServiceClient(grpcConn)
+		req := &pb.SetUpdateUriRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetUpdateUri(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var customaudienceFetchAndJoinCustomAudienceRequestCmd = &cobra.Command{
+	Use:   "fetch-and-join-custom-audience-request",
+	Short: "FetchAndJoinCustomAudienceRequestService operations",
+}
+
+var customaudienceFetchAndJoinCustomAudienceRequestEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFetchAndJoinCustomAudienceRequestServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var customaudienceFetchAndJoinCustomAudienceRequestGetActivationTimeCmd = &cobra.Command{
+	Use:   "get-activation-time",
+	Short: "GetActivationTime RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFetchAndJoinCustomAudienceRequestServiceClient(grpcConn)
+		req := &pb.GetActivationTimeRequest{}
+		resp, err := client.GetActivationTime(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var customaudienceFetchAndJoinCustomAudienceRequestGetExpirationTimeCmd = &cobra.Command{
+	Use:   "get-expiration-time",
+	Short: "GetExpirationTime RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFetchAndJoinCustomAudienceRequestServiceClient(grpcConn)
+		req := &pb.GetExpirationTimeRequest{}
+		resp, err := client.GetExpirationTime(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var customaudienceFetchAndJoinCustomAudienceRequestGetFetchUriCmd = &cobra.Command{
+	Use:   "get-fetch-uri",
+	Short: "GetFetchUri RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFetchAndJoinCustomAudienceRequestServiceClient(grpcConn)
+		req := &pb.GetFetchUriRequest{}
+		resp, err := client.GetFetchUri(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var customaudienceFetchAndJoinCustomAudienceRequestGetNameCmd = &cobra.Command{
+	Use:   "get-name",
+	Short: "GetName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFetchAndJoinCustomAudienceRequestServiceClient(grpcConn)
+		req := &pb.GetNameRequest{}
+		resp, err := client.GetName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var customaudienceFetchAndJoinCustomAudienceRequestGetUserBiddingSignalsCmd = &cobra.Command{
+	Use:   "get-user-bidding-signals",
+	Short: "GetUserBiddingSignals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFetchAndJoinCustomAudienceRequestServiceClient(grpcConn)
+		req := &pb.GetUserBiddingSignalsRequest{}
+		resp, err := client.GetUserBiddingSignals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var customaudienceFetchAndJoinCustomAudienceRequestHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFetchAndJoinCustomAudienceRequestServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var customaudienceFetchAndJoinCustomAudienceRequestToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFetchAndJoinCustomAudienceRequestServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var customaudienceFetchAndJoinCustomAudienceRequestBuilderCmd = &cobra.Command{
+	Use:   "fetch-and-join-custom-audience-request-builder",
+	Short: "FetchAndJoinCustomAudienceRequestBuilderService operations",
+}
+
+var customaudienceFetchAndJoinCustomAudienceRequestBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFetchAndJoinCustomAudienceRequestBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var customaudienceFetchAndJoinCustomAudienceRequestBuilderSetActivationTimeCmd = &cobra.Command{
+	Use:   "set-activation-time",
+	Short: "SetActivationTime RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFetchAndJoinCustomAudienceRequestBuilderServiceClient(grpcConn)
+		req := &pb.SetActivationTimeRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetActivationTime(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var customaudienceFetchAndJoinCustomAudienceRequestBuilderSetExpirationTimeCmd = &cobra.Command{
+	Use:   "set-expiration-time",
+	Short: "SetExpirationTime RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFetchAndJoinCustomAudienceRequestBuilderServiceClient(grpcConn)
+		req := &pb.SetExpirationTimeRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetExpirationTime(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var customaudienceFetchAndJoinCustomAudienceRequestBuilderSetFetchUriCmd = &cobra.Command{
+	Use:   "set-fetch-uri",
+	Short: "SetFetchUri RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFetchAndJoinCustomAudienceRequestBuilderServiceClient(grpcConn)
+		req := &pb.SetFetchUriRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetFetchUri(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var customaudienceFetchAndJoinCustomAudienceRequestBuilderSetNameCmd = &cobra.Command{
+	Use:   "set-name",
+	Short: "SetName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFetchAndJoinCustomAudienceRequestBuilderServiceClient(grpcConn)
+		req := &pb.SetNameRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var customaudienceFetchAndJoinCustomAudienceRequestBuilderSetUserBiddingSignalsCmd = &cobra.Command{
+	Use:   "set-user-bidding-signals",
+	Short: "SetUserBiddingSignals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFetchAndJoinCustomAudienceRequestBuilderServiceClient(grpcConn)
+		req := &pb.SetUserBiddingSignalsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetUserBiddingSignals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var customaudienceAddCustomAudienceOverrideRequestCmd = &cobra.Command{
 	Use:   "add-custom-audience-override-request",
 	Short: "AddCustomAudienceOverrideRequestService operations",
@@ -1013,102 +1563,6 @@ var customaudienceAddCustomAudienceOverrideRequestBuilderSetTrustedBiddingSignal
 	},
 }
 
-var customaudienceJoinCustomAudienceRequestCmd = &cobra.Command{
-	Use:   "join-custom-audience-request",
-	Short: "JoinCustomAudienceRequestService operations",
-}
-
-var customaudienceJoinCustomAudienceRequestEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewJoinCustomAudienceRequestServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var customaudienceJoinCustomAudienceRequestGetCustomAudienceCmd = &cobra.Command{
-	Use:   "get-custom-audience",
-	Short: "GetCustomAudience RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewJoinCustomAudienceRequestServiceClient(grpcConn)
-		req := &pb.GetCustomAudienceRequest{}
-		resp, err := client.GetCustomAudience(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var customaudienceJoinCustomAudienceRequestHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewJoinCustomAudienceRequestServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var customaudienceJoinCustomAudienceRequestBuilderCmd = &cobra.Command{
-	Use:   "join-custom-audience-request-builder",
-	Short: "JoinCustomAudienceRequestBuilderService operations",
-}
-
-var customaudienceJoinCustomAudienceRequestBuilderBuildCmd = &cobra.Command{
-	Use:   "build",
-	Short: "Build RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewJoinCustomAudienceRequestBuilderServiceClient(grpcConn)
-		req := &pb.BuildRequest{}
-		resp, err := client.Build(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var customaudienceJoinCustomAudienceRequestBuilderSetCustomAudienceCmd = &cobra.Command{
-	Use:   "set-custom-audience",
-	Short: "SetCustomAudience RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewJoinCustomAudienceRequestBuilderServiceClient(grpcConn)
-		req := &pb.SetCustomAudienceRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetCustomAudience(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
 var customaudienceLeaveCustomAudienceRequestCmd = &cobra.Command{
 	Use:   "leave-custom-audience-request",
 	Short: "LeaveCustomAudienceRequestService operations",
@@ -1240,18 +1694,18 @@ var customaudienceLeaveCustomAudienceRequestBuilderSetNameCmd = &cobra.Command{
 	},
 }
 
-var customaudienceScheduleCustomAudienceUpdateRequestCmd = &cobra.Command{
-	Use:   "schedule-custom-audience-update-request",
-	Short: "ScheduleCustomAudienceUpdateRequestService operations",
+var customaudienceJoinCustomAudienceRequestCmd = &cobra.Command{
+	Use:   "join-custom-audience-request",
+	Short: "JoinCustomAudienceRequestService operations",
 }
 
-var customaudienceScheduleCustomAudienceUpdateRequestEqualsCmd = &cobra.Command{
+var customaudienceJoinCustomAudienceRequestEqualsCmd = &cobra.Command{
 	Use:   "equals",
 	Short: "Equals RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewScheduleCustomAudienceUpdateRequestServiceClient(grpcConn)
+		client := pb.NewJoinCustomAudienceRequestServiceClient(grpcConn)
 		req := &pb.EqualsRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -1264,15 +1718,15 @@ var customaudienceScheduleCustomAudienceUpdateRequestEqualsCmd = &cobra.Command{
 	},
 }
 
-var customaudienceScheduleCustomAudienceUpdateRequestGetMinDelayCmd = &cobra.Command{
-	Use:   "get-min-delay",
-	Short: "GetMinDelay RPC",
+var customaudienceJoinCustomAudienceRequestGetCustomAudienceCmd = &cobra.Command{
+	Use:   "get-custom-audience",
+	Short: "GetCustomAudience RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewScheduleCustomAudienceUpdateRequestServiceClient(grpcConn)
-		req := &pb.GetMinDelayRequest{}
-		resp, err := client.GetMinDelay(ctx, req)
+		client := pb.NewJoinCustomAudienceRequestServiceClient(grpcConn)
+		req := &pb.GetCustomAudienceRequest{}
+		resp, err := client.GetCustomAudience(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1280,29 +1734,13 @@ var customaudienceScheduleCustomAudienceUpdateRequestGetMinDelayCmd = &cobra.Com
 	},
 }
 
-var customaudienceScheduleCustomAudienceUpdateRequestGetUpdateUriCmd = &cobra.Command{
-	Use:   "get-update-uri",
-	Short: "GetUpdateUri RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewScheduleCustomAudienceUpdateRequestServiceClient(grpcConn)
-		req := &pb.GetUpdateUriRequest{}
-		resp, err := client.GetUpdateUri(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var customaudienceScheduleCustomAudienceUpdateRequestHashCodeCmd = &cobra.Command{
+var customaudienceJoinCustomAudienceRequestHashCodeCmd = &cobra.Command{
 	Use:   "hash-code",
 	Short: "HashCode RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewScheduleCustomAudienceUpdateRequestServiceClient(grpcConn)
+		client := pb.NewJoinCustomAudienceRequestServiceClient(grpcConn)
 		req := &pb.HashCodeRequest{}
 		resp, err := client.HashCode(ctx, req)
 		if err != nil {
@@ -1312,50 +1750,18 @@ var customaudienceScheduleCustomAudienceUpdateRequestHashCodeCmd = &cobra.Comman
 	},
 }
 
-var customaudienceScheduleCustomAudienceUpdateRequestShouldReplacePendingUpdatesCmd = &cobra.Command{
-	Use:   "should-replace-pending-updates",
-	Short: "ShouldReplacePendingUpdates RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewScheduleCustomAudienceUpdateRequestServiceClient(grpcConn)
-		req := &pb.ShouldReplacePendingUpdatesRequest{}
-		resp, err := client.ShouldReplacePendingUpdates(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
+var customaudienceJoinCustomAudienceRequestBuilderCmd = &cobra.Command{
+	Use:   "join-custom-audience-request-builder",
+	Short: "JoinCustomAudienceRequestBuilderService operations",
 }
 
-var customaudienceScheduleCustomAudienceUpdateRequestToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewScheduleCustomAudienceUpdateRequestServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var customaudienceScheduleCustomAudienceUpdateRequestBuilderCmd = &cobra.Command{
-	Use:   "schedule-custom-audience-update-request-builder",
-	Short: "ScheduleCustomAudienceUpdateRequestBuilderService operations",
-}
-
-var customaudienceScheduleCustomAudienceUpdateRequestBuilderBuildCmd = &cobra.Command{
+var customaudienceJoinCustomAudienceRequestBuilderBuildCmd = &cobra.Command{
 	Use:   "build",
 	Short: "Build RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewScheduleCustomAudienceUpdateRequestBuilderServiceClient(grpcConn)
+		client := pb.NewJoinCustomAudienceRequestBuilderServiceClient(grpcConn)
 		req := &pb.BuildRequest{}
 		resp, err := client.Build(ctx, req)
 		if err != nil {
@@ -1365,18 +1771,18 @@ var customaudienceScheduleCustomAudienceUpdateRequestBuilderBuildCmd = &cobra.Co
 	},
 }
 
-var customaudienceScheduleCustomAudienceUpdateRequestBuilderSetMinDelayCmd = &cobra.Command{
-	Use:   "set-min-delay",
-	Short: "SetMinDelay RPC",
+var customaudienceJoinCustomAudienceRequestBuilderSetCustomAudienceCmd = &cobra.Command{
+	Use:   "set-custom-audience",
+	Short: "SetCustomAudience RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewScheduleCustomAudienceUpdateRequestBuilderServiceClient(grpcConn)
-		req := &pb.SetMinDelayRequest{}
+		client := pb.NewJoinCustomAudienceRequestBuilderServiceClient(grpcConn)
+		req := &pb.SetCustomAudienceRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		resp, err := client.SetMinDelay(ctx, req)
+		resp, err := client.SetCustomAudience(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1384,18 +1790,20 @@ var customaudienceScheduleCustomAudienceUpdateRequestBuilderSetMinDelayCmd = &co
 	},
 }
 
-var customaudienceScheduleCustomAudienceUpdateRequestBuilderSetShouldReplacePendingUpdatesCmd = &cobra.Command{
-	Use:   "set-should-replace-pending-updates",
-	Short: "SetShouldReplacePendingUpdates RPC",
+var customaudienceCustomAudienceManagerCmd = &cobra.Command{
+	Use:   "custom-audience-manager",
+	Short: "CustomAudienceManagerService operations",
+}
+
+var customaudienceCustomAudienceManagerGetTestCustomAudienceManagerCmd = &cobra.Command{
+	Use:   "get-test-custom-audience-manager",
+	Short: "GetTestCustomAudienceManager RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewScheduleCustomAudienceUpdateRequestBuilderServiceClient(grpcConn)
-		req := &pb.SetShouldReplacePendingUpdatesRequest{}
-		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetShouldReplacePendingUpdates(ctx, req)
+		client := pb.NewCustomAudienceManagerServiceClient(grpcConn)
+		req := &pb.GetTestCustomAudienceManagerRequest{}
+		resp, err := client.GetTestCustomAudienceManager(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1403,378 +1811,18 @@ var customaudienceScheduleCustomAudienceUpdateRequestBuilderSetShouldReplacePend
 	},
 }
 
-var customaudienceScheduleCustomAudienceUpdateRequestBuilderSetUpdateUriCmd = &cobra.Command{
-	Use:   "set-update-uri",
-	Short: "SetUpdateUri RPC",
+var customaudienceCustomAudienceManagerGetCmd = &cobra.Command{
+	Use:   "get",
+	Short: "Get RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewScheduleCustomAudienceUpdateRequestBuilderServiceClient(grpcConn)
-		req := &pb.SetUpdateUriRequest{}
+		client := pb.NewCustomAudienceManagerServiceClient(grpcConn)
+		req := &pb.GetRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		resp, err := client.SetUpdateUri(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var customaudiencePartialCustomAudienceCmd = &cobra.Command{
-	Use:   "partial-custom-audience",
-	Short: "PartialCustomAudienceService operations",
-}
-
-var customaudiencePartialCustomAudienceDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPartialCustomAudienceServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var customaudiencePartialCustomAudienceEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPartialCustomAudienceServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var customaudiencePartialCustomAudienceGetActivationTimeCmd = &cobra.Command{
-	Use:   "get-activation-time",
-	Short: "GetActivationTime RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPartialCustomAudienceServiceClient(grpcConn)
-		req := &pb.GetActivationTimeRequest{}
-		resp, err := client.GetActivationTime(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var customaudiencePartialCustomAudienceGetExpirationTimeCmd = &cobra.Command{
-	Use:   "get-expiration-time",
-	Short: "GetExpirationTime RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPartialCustomAudienceServiceClient(grpcConn)
-		req := &pb.GetExpirationTimeRequest{}
-		resp, err := client.GetExpirationTime(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var customaudiencePartialCustomAudienceGetNameCmd = &cobra.Command{
-	Use:   "get-name",
-	Short: "GetName RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPartialCustomAudienceServiceClient(grpcConn)
-		req := &pb.GetNameRequest{}
-		resp, err := client.GetName(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var customaudiencePartialCustomAudienceGetUserBiddingSignalsCmd = &cobra.Command{
-	Use:   "get-user-bidding-signals",
-	Short: "GetUserBiddingSignals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPartialCustomAudienceServiceClient(grpcConn)
-		req := &pb.GetUserBiddingSignalsRequest{}
-		resp, err := client.GetUserBiddingSignals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var customaudiencePartialCustomAudienceHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPartialCustomAudienceServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var customaudiencePartialCustomAudienceToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPartialCustomAudienceServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var customaudiencePartialCustomAudienceWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPartialCustomAudienceServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var customaudiencePartialCustomAudienceBuilderCmd = &cobra.Command{
-	Use:   "partial-custom-audience-builder",
-	Short: "PartialCustomAudienceBuilderService operations",
-}
-
-var customaudiencePartialCustomAudienceBuilderBuildCmd = &cobra.Command{
-	Use:   "build",
-	Short: "Build RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPartialCustomAudienceBuilderServiceClient(grpcConn)
-		req := &pb.BuildRequest{}
-		resp, err := client.Build(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var customaudiencePartialCustomAudienceBuilderSetActivationTimeCmd = &cobra.Command{
-	Use:   "set-activation-time",
-	Short: "SetActivationTime RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPartialCustomAudienceBuilderServiceClient(grpcConn)
-		req := &pb.SetActivationTimeRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetActivationTime(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var customaudiencePartialCustomAudienceBuilderSetExpirationTimeCmd = &cobra.Command{
-	Use:   "set-expiration-time",
-	Short: "SetExpirationTime RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPartialCustomAudienceBuilderServiceClient(grpcConn)
-		req := &pb.SetExpirationTimeRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetExpirationTime(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var customaudiencePartialCustomAudienceBuilderSetUserBiddingSignalsCmd = &cobra.Command{
-	Use:   "set-user-bidding-signals",
-	Short: "SetUserBiddingSignals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPartialCustomAudienceBuilderServiceClient(grpcConn)
-		req := &pb.SetUserBiddingSignalsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetUserBiddingSignals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var customaudienceRemoveCustomAudienceOverrideRequestCmd = &cobra.Command{
-	Use:   "remove-custom-audience-override-request",
-	Short: "RemoveCustomAudienceOverrideRequestService operations",
-}
-
-var customaudienceRemoveCustomAudienceOverrideRequestNewRemoveCustomAudienceOverrideRequestCmd = &cobra.Command{
-	Use:   "new-remove-custom-audience-override-request",
-	Short: "NewRemoveCustomAudienceOverrideRequest RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRemoveCustomAudienceOverrideRequestServiceClient(grpcConn)
-		req := &pb.NewRemoveCustomAudienceOverrideRequestRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetString("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.NewRemoveCustomAudienceOverrideRequest(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var customaudienceRemoveCustomAudienceOverrideRequestGetBuyerCmd = &cobra.Command{
-	Use:   "get-buyer",
-	Short: "GetBuyer RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRemoveCustomAudienceOverrideRequestServiceClient(grpcConn)
-		req := &pb.RemoveCustomAudienceOverrideRequestGetBuyerRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetBuyer(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var customaudienceRemoveCustomAudienceOverrideRequestGetNameCmd = &cobra.Command{
-	Use:   "get-name",
-	Short: "GetName RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRemoveCustomAudienceOverrideRequestServiceClient(grpcConn)
-		req := &pb.RemoveCustomAudienceOverrideRequestGetNameRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetName(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var customaudienceRemoveCustomAudienceOverrideRequestBuilderCmd = &cobra.Command{
-	Use:   "remove-custom-audience-override-request-builder",
-	Short: "RemoveCustomAudienceOverrideRequestBuilderService operations",
-}
-
-var customaudienceRemoveCustomAudienceOverrideRequestBuilderBuildCmd = &cobra.Command{
-	Use:   "build",
-	Short: "Build RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRemoveCustomAudienceOverrideRequestBuilderServiceClient(grpcConn)
-		req := &pb.BuildRequest{}
-		resp, err := client.Build(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var customaudienceRemoveCustomAudienceOverrideRequestBuilderSetBuyerCmd = &cobra.Command{
-	Use:   "set-buyer",
-	Short: "SetBuyer RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRemoveCustomAudienceOverrideRequestBuilderServiceClient(grpcConn)
-		req := &pb.SetBuyerRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetBuyer(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var customaudienceRemoveCustomAudienceOverrideRequestBuilderSetNameCmd = &cobra.Command{
-	Use:   "set-name",
-	Short: "SetName RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRemoveCustomAudienceOverrideRequestBuilderServiceClient(grpcConn)
-		req := &pb.SetNameRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetName(ctx, req)
+		resp, err := client.Get(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1815,6 +1863,22 @@ var customaudienceTrustedBiddingDataEqualsCmd = &cobra.Command{
 			req.Arg0 = v
 		}
 		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var customaudienceTrustedBiddingDataGetTrustedBiddingKeysCmd = &cobra.Command{
+	Use:   "get-trusted-bidding-keys",
+	Short: "GetTrustedBiddingKeys RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTrustedBiddingDataServiceClient(grpcConn)
+		req := &pb.GetTrustedBiddingKeysRequest{}
+		resp, err := client.GetTrustedBiddingKeys(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1917,39 +1981,15 @@ var customaudienceTrustedBiddingDataBuilderSetTrustedBiddingUriCmd = &cobra.Comm
 }
 
 func init() {
-	customaudienceFetchAndJoinCustomAudienceRequestEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	customaudienceFetchAndJoinCustomAudienceRequestCmd.AddCommand(customaudienceFetchAndJoinCustomAudienceRequestEqualsCmd)
-	customaudienceFetchAndJoinCustomAudienceRequestCmd.AddCommand(customaudienceFetchAndJoinCustomAudienceRequestGetActivationTimeCmd)
-	customaudienceFetchAndJoinCustomAudienceRequestCmd.AddCommand(customaudienceFetchAndJoinCustomAudienceRequestGetExpirationTimeCmd)
-	customaudienceFetchAndJoinCustomAudienceRequestCmd.AddCommand(customaudienceFetchAndJoinCustomAudienceRequestGetFetchUriCmd)
-	customaudienceFetchAndJoinCustomAudienceRequestCmd.AddCommand(customaudienceFetchAndJoinCustomAudienceRequestGetNameCmd)
-	customaudienceFetchAndJoinCustomAudienceRequestCmd.AddCommand(customaudienceFetchAndJoinCustomAudienceRequestGetUserBiddingSignalsCmd)
-	customaudienceFetchAndJoinCustomAudienceRequestCmd.AddCommand(customaudienceFetchAndJoinCustomAudienceRequestHashCodeCmd)
-	customaudienceFetchAndJoinCustomAudienceRequestCmd.AddCommand(customaudienceFetchAndJoinCustomAudienceRequestToStringCmd)
-	customaudienceCmd.AddCommand(customaudienceFetchAndJoinCustomAudienceRequestCmd)
-	customaudienceFetchAndJoinCustomAudienceRequestBuilderCmd.AddCommand(customaudienceFetchAndJoinCustomAudienceRequestBuilderBuildCmd)
-	customaudienceFetchAndJoinCustomAudienceRequestBuilderSetActivationTimeCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	customaudienceFetchAndJoinCustomAudienceRequestBuilderCmd.AddCommand(customaudienceFetchAndJoinCustomAudienceRequestBuilderSetActivationTimeCmd)
-	customaudienceFetchAndJoinCustomAudienceRequestBuilderSetExpirationTimeCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	customaudienceFetchAndJoinCustomAudienceRequestBuilderCmd.AddCommand(customaudienceFetchAndJoinCustomAudienceRequestBuilderSetExpirationTimeCmd)
-	customaudienceFetchAndJoinCustomAudienceRequestBuilderSetFetchUriCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	customaudienceFetchAndJoinCustomAudienceRequestBuilderCmd.AddCommand(customaudienceFetchAndJoinCustomAudienceRequestBuilderSetFetchUriCmd)
-	customaudienceFetchAndJoinCustomAudienceRequestBuilderSetNameCmd.Flags().String("arg0", "", "arg0 (string)")
-	customaudienceFetchAndJoinCustomAudienceRequestBuilderCmd.AddCommand(customaudienceFetchAndJoinCustomAudienceRequestBuilderSetNameCmd)
-	customaudienceFetchAndJoinCustomAudienceRequestBuilderSetUserBiddingSignalsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	customaudienceFetchAndJoinCustomAudienceRequestBuilderCmd.AddCommand(customaudienceFetchAndJoinCustomAudienceRequestBuilderSetUserBiddingSignalsCmd)
-	customaudienceCmd.AddCommand(customaudienceFetchAndJoinCustomAudienceRequestBuilderCmd)
-	customaudienceCustomAudienceManagerCmd.AddCommand(customaudienceCustomAudienceManagerGetTestCustomAudienceManagerCmd)
-	customaudienceCustomAudienceManagerGetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	customaudienceCustomAudienceManagerCmd.AddCommand(customaudienceCustomAudienceManagerGetCmd)
-	customaudienceCmd.AddCommand(customaudienceCustomAudienceManagerCmd)
 	customaudienceCustomAudienceCmd.AddCommand(customaudienceCustomAudienceDescribeContentsCmd)
 	customaudienceCustomAudienceEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	customaudienceCustomAudienceCmd.AddCommand(customaudienceCustomAudienceEqualsCmd)
 	customaudienceCustomAudienceCmd.AddCommand(customaudienceCustomAudienceGetActivationTimeCmd)
+	customaudienceCustomAudienceCmd.AddCommand(customaudienceCustomAudienceGetAdsCmd)
 	customaudienceCustomAudienceCmd.AddCommand(customaudienceCustomAudienceGetAuctionServerRequestFlagsCmd)
 	customaudienceCustomAudienceCmd.AddCommand(customaudienceCustomAudienceGetBiddingLogicUriCmd)
 	customaudienceCustomAudienceCmd.AddCommand(customaudienceCustomAudienceGetBuyerCmd)
+	customaudienceCustomAudienceCmd.AddCommand(customaudienceCustomAudienceGetComponentAdsCmd)
 	customaudienceCustomAudienceCmd.AddCommand(customaudienceCustomAudienceGetDailyUpdateUriCmd)
 	customaudienceCustomAudienceCmd.AddCommand(customaudienceCustomAudienceGetExpirationTimeCmd)
 	customaudienceCustomAudienceCmd.AddCommand(customaudienceCustomAudienceGetNameCmd)
@@ -1984,6 +2024,80 @@ func init() {
 	customaudienceCustomAudienceBuilderSetUserBiddingSignalsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	customaudienceCustomAudienceBuilderCmd.AddCommand(customaudienceCustomAudienceBuilderSetUserBiddingSignalsCmd)
 	customaudienceCmd.AddCommand(customaudienceCustomAudienceBuilderCmd)
+	customaudienceRemoveCustomAudienceOverrideRequestNewRemoveCustomAudienceOverrideRequestCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	customaudienceRemoveCustomAudienceOverrideRequestNewRemoveCustomAudienceOverrideRequestCmd.Flags().String("arg1", "", "arg1 (string)")
+	customaudienceRemoveCustomAudienceOverrideRequestCmd.AddCommand(customaudienceRemoveCustomAudienceOverrideRequestNewRemoveCustomAudienceOverrideRequestCmd)
+	customaudienceRemoveCustomAudienceOverrideRequestGetBuyerCmd.Flags().Int64("handle", 0, "handle (int64)")
+	customaudienceRemoveCustomAudienceOverrideRequestCmd.AddCommand(customaudienceRemoveCustomAudienceOverrideRequestGetBuyerCmd)
+	customaudienceRemoveCustomAudienceOverrideRequestGetNameCmd.Flags().Int64("handle", 0, "handle (int64)")
+	customaudienceRemoveCustomAudienceOverrideRequestCmd.AddCommand(customaudienceRemoveCustomAudienceOverrideRequestGetNameCmd)
+	customaudienceCmd.AddCommand(customaudienceRemoveCustomAudienceOverrideRequestCmd)
+	customaudienceRemoveCustomAudienceOverrideRequestBuilderCmd.AddCommand(customaudienceRemoveCustomAudienceOverrideRequestBuilderBuildCmd)
+	customaudienceRemoveCustomAudienceOverrideRequestBuilderSetBuyerCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	customaudienceRemoveCustomAudienceOverrideRequestBuilderCmd.AddCommand(customaudienceRemoveCustomAudienceOverrideRequestBuilderSetBuyerCmd)
+	customaudienceRemoveCustomAudienceOverrideRequestBuilderSetNameCmd.Flags().String("arg0", "", "arg0 (string)")
+	customaudienceRemoveCustomAudienceOverrideRequestBuilderCmd.AddCommand(customaudienceRemoveCustomAudienceOverrideRequestBuilderSetNameCmd)
+	customaudienceCmd.AddCommand(customaudienceRemoveCustomAudienceOverrideRequestBuilderCmd)
+	customaudiencePartialCustomAudienceCmd.AddCommand(customaudiencePartialCustomAudienceDescribeContentsCmd)
+	customaudiencePartialCustomAudienceEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	customaudiencePartialCustomAudienceCmd.AddCommand(customaudiencePartialCustomAudienceEqualsCmd)
+	customaudiencePartialCustomAudienceCmd.AddCommand(customaudiencePartialCustomAudienceGetActivationTimeCmd)
+	customaudiencePartialCustomAudienceCmd.AddCommand(customaudiencePartialCustomAudienceGetExpirationTimeCmd)
+	customaudiencePartialCustomAudienceCmd.AddCommand(customaudiencePartialCustomAudienceGetNameCmd)
+	customaudiencePartialCustomAudienceCmd.AddCommand(customaudiencePartialCustomAudienceGetUserBiddingSignalsCmd)
+	customaudiencePartialCustomAudienceCmd.AddCommand(customaudiencePartialCustomAudienceHashCodeCmd)
+	customaudiencePartialCustomAudienceCmd.AddCommand(customaudiencePartialCustomAudienceToStringCmd)
+	customaudiencePartialCustomAudienceWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	customaudiencePartialCustomAudienceWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	customaudiencePartialCustomAudienceCmd.AddCommand(customaudiencePartialCustomAudienceWriteToParcelCmd)
+	customaudienceCmd.AddCommand(customaudiencePartialCustomAudienceCmd)
+	customaudiencePartialCustomAudienceBuilderCmd.AddCommand(customaudiencePartialCustomAudienceBuilderBuildCmd)
+	customaudiencePartialCustomAudienceBuilderSetActivationTimeCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	customaudiencePartialCustomAudienceBuilderCmd.AddCommand(customaudiencePartialCustomAudienceBuilderSetActivationTimeCmd)
+	customaudiencePartialCustomAudienceBuilderSetExpirationTimeCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	customaudiencePartialCustomAudienceBuilderCmd.AddCommand(customaudiencePartialCustomAudienceBuilderSetExpirationTimeCmd)
+	customaudiencePartialCustomAudienceBuilderSetUserBiddingSignalsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	customaudiencePartialCustomAudienceBuilderCmd.AddCommand(customaudiencePartialCustomAudienceBuilderSetUserBiddingSignalsCmd)
+	customaudienceCmd.AddCommand(customaudiencePartialCustomAudienceBuilderCmd)
+	customaudienceScheduleCustomAudienceUpdateRequestEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	customaudienceScheduleCustomAudienceUpdateRequestCmd.AddCommand(customaudienceScheduleCustomAudienceUpdateRequestEqualsCmd)
+	customaudienceScheduleCustomAudienceUpdateRequestCmd.AddCommand(customaudienceScheduleCustomAudienceUpdateRequestGetMinDelayCmd)
+	customaudienceScheduleCustomAudienceUpdateRequestCmd.AddCommand(customaudienceScheduleCustomAudienceUpdateRequestGetPartialCustomAudienceListCmd)
+	customaudienceScheduleCustomAudienceUpdateRequestCmd.AddCommand(customaudienceScheduleCustomAudienceUpdateRequestGetUpdateUriCmd)
+	customaudienceScheduleCustomAudienceUpdateRequestCmd.AddCommand(customaudienceScheduleCustomAudienceUpdateRequestHashCodeCmd)
+	customaudienceScheduleCustomAudienceUpdateRequestCmd.AddCommand(customaudienceScheduleCustomAudienceUpdateRequestShouldReplacePendingUpdatesCmd)
+	customaudienceScheduleCustomAudienceUpdateRequestCmd.AddCommand(customaudienceScheduleCustomAudienceUpdateRequestToStringCmd)
+	customaudienceCmd.AddCommand(customaudienceScheduleCustomAudienceUpdateRequestCmd)
+	customaudienceScheduleCustomAudienceUpdateRequestBuilderCmd.AddCommand(customaudienceScheduleCustomAudienceUpdateRequestBuilderBuildCmd)
+	customaudienceScheduleCustomAudienceUpdateRequestBuilderSetMinDelayCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	customaudienceScheduleCustomAudienceUpdateRequestBuilderCmd.AddCommand(customaudienceScheduleCustomAudienceUpdateRequestBuilderSetMinDelayCmd)
+	customaudienceScheduleCustomAudienceUpdateRequestBuilderSetShouldReplacePendingUpdatesCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	customaudienceScheduleCustomAudienceUpdateRequestBuilderCmd.AddCommand(customaudienceScheduleCustomAudienceUpdateRequestBuilderSetShouldReplacePendingUpdatesCmd)
+	customaudienceScheduleCustomAudienceUpdateRequestBuilderSetUpdateUriCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	customaudienceScheduleCustomAudienceUpdateRequestBuilderCmd.AddCommand(customaudienceScheduleCustomAudienceUpdateRequestBuilderSetUpdateUriCmd)
+	customaudienceCmd.AddCommand(customaudienceScheduleCustomAudienceUpdateRequestBuilderCmd)
+	customaudienceFetchAndJoinCustomAudienceRequestEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	customaudienceFetchAndJoinCustomAudienceRequestCmd.AddCommand(customaudienceFetchAndJoinCustomAudienceRequestEqualsCmd)
+	customaudienceFetchAndJoinCustomAudienceRequestCmd.AddCommand(customaudienceFetchAndJoinCustomAudienceRequestGetActivationTimeCmd)
+	customaudienceFetchAndJoinCustomAudienceRequestCmd.AddCommand(customaudienceFetchAndJoinCustomAudienceRequestGetExpirationTimeCmd)
+	customaudienceFetchAndJoinCustomAudienceRequestCmd.AddCommand(customaudienceFetchAndJoinCustomAudienceRequestGetFetchUriCmd)
+	customaudienceFetchAndJoinCustomAudienceRequestCmd.AddCommand(customaudienceFetchAndJoinCustomAudienceRequestGetNameCmd)
+	customaudienceFetchAndJoinCustomAudienceRequestCmd.AddCommand(customaudienceFetchAndJoinCustomAudienceRequestGetUserBiddingSignalsCmd)
+	customaudienceFetchAndJoinCustomAudienceRequestCmd.AddCommand(customaudienceFetchAndJoinCustomAudienceRequestHashCodeCmd)
+	customaudienceFetchAndJoinCustomAudienceRequestCmd.AddCommand(customaudienceFetchAndJoinCustomAudienceRequestToStringCmd)
+	customaudienceCmd.AddCommand(customaudienceFetchAndJoinCustomAudienceRequestCmd)
+	customaudienceFetchAndJoinCustomAudienceRequestBuilderCmd.AddCommand(customaudienceFetchAndJoinCustomAudienceRequestBuilderBuildCmd)
+	customaudienceFetchAndJoinCustomAudienceRequestBuilderSetActivationTimeCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	customaudienceFetchAndJoinCustomAudienceRequestBuilderCmd.AddCommand(customaudienceFetchAndJoinCustomAudienceRequestBuilderSetActivationTimeCmd)
+	customaudienceFetchAndJoinCustomAudienceRequestBuilderSetExpirationTimeCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	customaudienceFetchAndJoinCustomAudienceRequestBuilderCmd.AddCommand(customaudienceFetchAndJoinCustomAudienceRequestBuilderSetExpirationTimeCmd)
+	customaudienceFetchAndJoinCustomAudienceRequestBuilderSetFetchUriCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	customaudienceFetchAndJoinCustomAudienceRequestBuilderCmd.AddCommand(customaudienceFetchAndJoinCustomAudienceRequestBuilderSetFetchUriCmd)
+	customaudienceFetchAndJoinCustomAudienceRequestBuilderSetNameCmd.Flags().String("arg0", "", "arg0 (string)")
+	customaudienceFetchAndJoinCustomAudienceRequestBuilderCmd.AddCommand(customaudienceFetchAndJoinCustomAudienceRequestBuilderSetNameCmd)
+	customaudienceFetchAndJoinCustomAudienceRequestBuilderSetUserBiddingSignalsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	customaudienceFetchAndJoinCustomAudienceRequestBuilderCmd.AddCommand(customaudienceFetchAndJoinCustomAudienceRequestBuilderSetUserBiddingSignalsCmd)
+	customaudienceCmd.AddCommand(customaudienceFetchAndJoinCustomAudienceRequestBuilderCmd)
 	customaudienceAddCustomAudienceOverrideRequestNewAddCustomAudienceOverrideRequestCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	customaudienceAddCustomAudienceOverrideRequestNewAddCustomAudienceOverrideRequestCmd.Flags().String("arg1", "", "arg1 (string)")
 	customaudienceAddCustomAudienceOverrideRequestNewAddCustomAudienceOverrideRequestCmd.Flags().String("arg2", "", "arg2 (string)")
@@ -2012,15 +2126,6 @@ func init() {
 	customaudienceAddCustomAudienceOverrideRequestBuilderSetTrustedBiddingSignalsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	customaudienceAddCustomAudienceOverrideRequestBuilderCmd.AddCommand(customaudienceAddCustomAudienceOverrideRequestBuilderSetTrustedBiddingSignalsCmd)
 	customaudienceCmd.AddCommand(customaudienceAddCustomAudienceOverrideRequestBuilderCmd)
-	customaudienceJoinCustomAudienceRequestEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	customaudienceJoinCustomAudienceRequestCmd.AddCommand(customaudienceJoinCustomAudienceRequestEqualsCmd)
-	customaudienceJoinCustomAudienceRequestCmd.AddCommand(customaudienceJoinCustomAudienceRequestGetCustomAudienceCmd)
-	customaudienceJoinCustomAudienceRequestCmd.AddCommand(customaudienceJoinCustomAudienceRequestHashCodeCmd)
-	customaudienceCmd.AddCommand(customaudienceJoinCustomAudienceRequestCmd)
-	customaudienceJoinCustomAudienceRequestBuilderCmd.AddCommand(customaudienceJoinCustomAudienceRequestBuilderBuildCmd)
-	customaudienceJoinCustomAudienceRequestBuilderSetCustomAudienceCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	customaudienceJoinCustomAudienceRequestBuilderCmd.AddCommand(customaudienceJoinCustomAudienceRequestBuilderSetCustomAudienceCmd)
-	customaudienceCmd.AddCommand(customaudienceJoinCustomAudienceRequestBuilderCmd)
 	customaudienceLeaveCustomAudienceRequestEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	customaudienceLeaveCustomAudienceRequestCmd.AddCommand(customaudienceLeaveCustomAudienceRequestEqualsCmd)
 	customaudienceLeaveCustomAudienceRequestCmd.AddCommand(customaudienceLeaveCustomAudienceRequestGetBuyerCmd)
@@ -2033,60 +2138,23 @@ func init() {
 	customaudienceLeaveCustomAudienceRequestBuilderSetNameCmd.Flags().String("arg0", "", "arg0 (string)")
 	customaudienceLeaveCustomAudienceRequestBuilderCmd.AddCommand(customaudienceLeaveCustomAudienceRequestBuilderSetNameCmd)
 	customaudienceCmd.AddCommand(customaudienceLeaveCustomAudienceRequestBuilderCmd)
-	customaudienceScheduleCustomAudienceUpdateRequestEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	customaudienceScheduleCustomAudienceUpdateRequestCmd.AddCommand(customaudienceScheduleCustomAudienceUpdateRequestEqualsCmd)
-	customaudienceScheduleCustomAudienceUpdateRequestCmd.AddCommand(customaudienceScheduleCustomAudienceUpdateRequestGetMinDelayCmd)
-	customaudienceScheduleCustomAudienceUpdateRequestCmd.AddCommand(customaudienceScheduleCustomAudienceUpdateRequestGetUpdateUriCmd)
-	customaudienceScheduleCustomAudienceUpdateRequestCmd.AddCommand(customaudienceScheduleCustomAudienceUpdateRequestHashCodeCmd)
-	customaudienceScheduleCustomAudienceUpdateRequestCmd.AddCommand(customaudienceScheduleCustomAudienceUpdateRequestShouldReplacePendingUpdatesCmd)
-	customaudienceScheduleCustomAudienceUpdateRequestCmd.AddCommand(customaudienceScheduleCustomAudienceUpdateRequestToStringCmd)
-	customaudienceCmd.AddCommand(customaudienceScheduleCustomAudienceUpdateRequestCmd)
-	customaudienceScheduleCustomAudienceUpdateRequestBuilderCmd.AddCommand(customaudienceScheduleCustomAudienceUpdateRequestBuilderBuildCmd)
-	customaudienceScheduleCustomAudienceUpdateRequestBuilderSetMinDelayCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	customaudienceScheduleCustomAudienceUpdateRequestBuilderCmd.AddCommand(customaudienceScheduleCustomAudienceUpdateRequestBuilderSetMinDelayCmd)
-	customaudienceScheduleCustomAudienceUpdateRequestBuilderSetShouldReplacePendingUpdatesCmd.Flags().Bool("arg0", false, "arg0 (bool)")
-	customaudienceScheduleCustomAudienceUpdateRequestBuilderCmd.AddCommand(customaudienceScheduleCustomAudienceUpdateRequestBuilderSetShouldReplacePendingUpdatesCmd)
-	customaudienceScheduleCustomAudienceUpdateRequestBuilderSetUpdateUriCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	customaudienceScheduleCustomAudienceUpdateRequestBuilderCmd.AddCommand(customaudienceScheduleCustomAudienceUpdateRequestBuilderSetUpdateUriCmd)
-	customaudienceCmd.AddCommand(customaudienceScheduleCustomAudienceUpdateRequestBuilderCmd)
-	customaudiencePartialCustomAudienceCmd.AddCommand(customaudiencePartialCustomAudienceDescribeContentsCmd)
-	customaudiencePartialCustomAudienceEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	customaudiencePartialCustomAudienceCmd.AddCommand(customaudiencePartialCustomAudienceEqualsCmd)
-	customaudiencePartialCustomAudienceCmd.AddCommand(customaudiencePartialCustomAudienceGetActivationTimeCmd)
-	customaudiencePartialCustomAudienceCmd.AddCommand(customaudiencePartialCustomAudienceGetExpirationTimeCmd)
-	customaudiencePartialCustomAudienceCmd.AddCommand(customaudiencePartialCustomAudienceGetNameCmd)
-	customaudiencePartialCustomAudienceCmd.AddCommand(customaudiencePartialCustomAudienceGetUserBiddingSignalsCmd)
-	customaudiencePartialCustomAudienceCmd.AddCommand(customaudiencePartialCustomAudienceHashCodeCmd)
-	customaudiencePartialCustomAudienceCmd.AddCommand(customaudiencePartialCustomAudienceToStringCmd)
-	customaudiencePartialCustomAudienceWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	customaudiencePartialCustomAudienceWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	customaudiencePartialCustomAudienceCmd.AddCommand(customaudiencePartialCustomAudienceWriteToParcelCmd)
-	customaudienceCmd.AddCommand(customaudiencePartialCustomAudienceCmd)
-	customaudiencePartialCustomAudienceBuilderCmd.AddCommand(customaudiencePartialCustomAudienceBuilderBuildCmd)
-	customaudiencePartialCustomAudienceBuilderSetActivationTimeCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	customaudiencePartialCustomAudienceBuilderCmd.AddCommand(customaudiencePartialCustomAudienceBuilderSetActivationTimeCmd)
-	customaudiencePartialCustomAudienceBuilderSetExpirationTimeCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	customaudiencePartialCustomAudienceBuilderCmd.AddCommand(customaudiencePartialCustomAudienceBuilderSetExpirationTimeCmd)
-	customaudiencePartialCustomAudienceBuilderSetUserBiddingSignalsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	customaudiencePartialCustomAudienceBuilderCmd.AddCommand(customaudiencePartialCustomAudienceBuilderSetUserBiddingSignalsCmd)
-	customaudienceCmd.AddCommand(customaudiencePartialCustomAudienceBuilderCmd)
-	customaudienceRemoveCustomAudienceOverrideRequestNewRemoveCustomAudienceOverrideRequestCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	customaudienceRemoveCustomAudienceOverrideRequestNewRemoveCustomAudienceOverrideRequestCmd.Flags().String("arg1", "", "arg1 (string)")
-	customaudienceRemoveCustomAudienceOverrideRequestCmd.AddCommand(customaudienceRemoveCustomAudienceOverrideRequestNewRemoveCustomAudienceOverrideRequestCmd)
-	customaudienceRemoveCustomAudienceOverrideRequestGetBuyerCmd.Flags().Int64("handle", 0, "handle (int64)")
-	customaudienceRemoveCustomAudienceOverrideRequestCmd.AddCommand(customaudienceRemoveCustomAudienceOverrideRequestGetBuyerCmd)
-	customaudienceRemoveCustomAudienceOverrideRequestGetNameCmd.Flags().Int64("handle", 0, "handle (int64)")
-	customaudienceRemoveCustomAudienceOverrideRequestCmd.AddCommand(customaudienceRemoveCustomAudienceOverrideRequestGetNameCmd)
-	customaudienceCmd.AddCommand(customaudienceRemoveCustomAudienceOverrideRequestCmd)
-	customaudienceRemoveCustomAudienceOverrideRequestBuilderCmd.AddCommand(customaudienceRemoveCustomAudienceOverrideRequestBuilderBuildCmd)
-	customaudienceRemoveCustomAudienceOverrideRequestBuilderSetBuyerCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	customaudienceRemoveCustomAudienceOverrideRequestBuilderCmd.AddCommand(customaudienceRemoveCustomAudienceOverrideRequestBuilderSetBuyerCmd)
-	customaudienceRemoveCustomAudienceOverrideRequestBuilderSetNameCmd.Flags().String("arg0", "", "arg0 (string)")
-	customaudienceRemoveCustomAudienceOverrideRequestBuilderCmd.AddCommand(customaudienceRemoveCustomAudienceOverrideRequestBuilderSetNameCmd)
-	customaudienceCmd.AddCommand(customaudienceRemoveCustomAudienceOverrideRequestBuilderCmd)
+	customaudienceJoinCustomAudienceRequestEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	customaudienceJoinCustomAudienceRequestCmd.AddCommand(customaudienceJoinCustomAudienceRequestEqualsCmd)
+	customaudienceJoinCustomAudienceRequestCmd.AddCommand(customaudienceJoinCustomAudienceRequestGetCustomAudienceCmd)
+	customaudienceJoinCustomAudienceRequestCmd.AddCommand(customaudienceJoinCustomAudienceRequestHashCodeCmd)
+	customaudienceCmd.AddCommand(customaudienceJoinCustomAudienceRequestCmd)
+	customaudienceJoinCustomAudienceRequestBuilderCmd.AddCommand(customaudienceJoinCustomAudienceRequestBuilderBuildCmd)
+	customaudienceJoinCustomAudienceRequestBuilderSetCustomAudienceCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	customaudienceJoinCustomAudienceRequestBuilderCmd.AddCommand(customaudienceJoinCustomAudienceRequestBuilderSetCustomAudienceCmd)
+	customaudienceCmd.AddCommand(customaudienceJoinCustomAudienceRequestBuilderCmd)
+	customaudienceCustomAudienceManagerCmd.AddCommand(customaudienceCustomAudienceManagerGetTestCustomAudienceManagerCmd)
+	customaudienceCustomAudienceManagerGetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	customaudienceCustomAudienceManagerCmd.AddCommand(customaudienceCustomAudienceManagerGetCmd)
+	customaudienceCmd.AddCommand(customaudienceCustomAudienceManagerCmd)
 	customaudienceTrustedBiddingDataCmd.AddCommand(customaudienceTrustedBiddingDataDescribeContentsCmd)
 	customaudienceTrustedBiddingDataEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	customaudienceTrustedBiddingDataCmd.AddCommand(customaudienceTrustedBiddingDataEqualsCmd)
+	customaudienceTrustedBiddingDataCmd.AddCommand(customaudienceTrustedBiddingDataGetTrustedBiddingKeysCmd)
 	customaudienceTrustedBiddingDataCmd.AddCommand(customaudienceTrustedBiddingDataGetTrustedBiddingUriCmd)
 	customaudienceTrustedBiddingDataCmd.AddCommand(customaudienceTrustedBiddingDataHashCodeCmd)
 	customaudienceTrustedBiddingDataWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")

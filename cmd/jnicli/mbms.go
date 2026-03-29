@@ -12,6 +12,49 @@ var mbmsCmd = &cobra.Command{
 	Short: "mbms service operations",
 }
 
+var mbmsStreamingServiceInfoCmd = &cobra.Command{
+	Use:   "streaming-service-info",
+	Short: "StreamingServiceInfoService operations",
+}
+
+var mbmsStreamingServiceInfoDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStreamingServiceInfoServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var mbmsStreamingServiceInfoWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStreamingServiceInfoServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var mbmsStreamingSessionCallbackCmd = &cobra.Command{
 	Use:   "streaming-session-callback",
 	Short: "StreamingSessionCallbackService operations",
@@ -70,6 +113,432 @@ var mbmsStreamingSessionCallbackOnMiddlewareReadyCmd = &cobra.Command{
 			req.Handle = v
 		}
 		resp, err := client.OnMiddlewareReady(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var mbmsDownloadProgressListenerCmd = &cobra.Command{
+	Use:   "download-progress-listener",
+	Short: "DownloadProgressListenerService operations",
+}
+
+var mbmsDownloadProgressListenerNewDownloadProgressListenerCmd = &cobra.Command{
+	Use:   "new-download-progress-listener",
+	Short: "NewDownloadProgressListener RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDownloadProgressListenerServiceClient(grpcConn)
+		req := &pb.NewDownloadProgressListenerRequest{}
+		resp, err := client.NewDownloadProgressListener(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var mbmsDownloadProgressListenerOnProgressUpdatedCmd = &cobra.Command{
+	Use:   "on-progress-updated",
+	Short: "OnProgressUpdated RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDownloadProgressListenerServiceClient(grpcConn)
+		req := &pb.OnProgressUpdatedRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg5"); err == nil {
+			req.Arg5 = v
+		}
+		resp, err := client.OnProgressUpdated(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var mbmsServiceInfoCmd = &cobra.Command{
+	Use:   "service-info",
+	Short: "ServiceInfoService operations",
+}
+
+var mbmsServiceInfoEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewServiceInfoServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var mbmsServiceInfoGetLocalesCmd = &cobra.Command{
+	Use:   "get-locales",
+	Short: "GetLocales RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewServiceInfoServiceClient(grpcConn)
+		req := &pb.GetLocalesRequest{}
+		resp, err := client.GetLocales(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var mbmsServiceInfoGetNameForLocaleCmd = &cobra.Command{
+	Use:   "get-name-for-locale",
+	Short: "GetNameForLocale RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewServiceInfoServiceClient(grpcConn)
+		req := &pb.GetNameForLocaleRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetNameForLocale(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var mbmsServiceInfoGetNamedContentLocalesCmd = &cobra.Command{
+	Use:   "get-named-content-locales",
+	Short: "GetNamedContentLocales RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewServiceInfoServiceClient(grpcConn)
+		req := &pb.GetNamedContentLocalesRequest{}
+		resp, err := client.GetNamedContentLocales(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var mbmsServiceInfoGetServiceClassNameCmd = &cobra.Command{
+	Use:   "get-service-class-name",
+	Short: "GetServiceClassName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewServiceInfoServiceClient(grpcConn)
+		req := &pb.GetServiceClassNameRequest{}
+		resp, err := client.GetServiceClassName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var mbmsServiceInfoGetServiceIdCmd = &cobra.Command{
+	Use:   "get-service-id",
+	Short: "GetServiceId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewServiceInfoServiceClient(grpcConn)
+		req := &pb.GetServiceIdRequest{}
+		resp, err := client.GetServiceId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var mbmsServiceInfoGetSessionEndTimeCmd = &cobra.Command{
+	Use:   "get-session-end-time",
+	Short: "GetSessionEndTime RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewServiceInfoServiceClient(grpcConn)
+		req := &pb.GetSessionEndTimeRequest{}
+		resp, err := client.GetSessionEndTime(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var mbmsServiceInfoGetSessionStartTimeCmd = &cobra.Command{
+	Use:   "get-session-start-time",
+	Short: "GetSessionStartTime RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewServiceInfoServiceClient(grpcConn)
+		req := &pb.GetSessionStartTimeRequest{}
+		resp, err := client.GetSessionStartTime(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var mbmsServiceInfoHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewServiceInfoServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var mbmsStreamingServiceCmd = &cobra.Command{
+	Use:   "streaming-service",
+	Short: "StreamingServiceService operations",
+}
+
+var mbmsStreamingServiceCloseCmd = &cobra.Command{
+	Use:   "close",
+	Short: "Close RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStreamingServiceServiceClient(grpcConn)
+		req := &pb.CloseRequest{}
+		resp, err := client.Close(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var mbmsStreamingServiceGetInfoCmd = &cobra.Command{
+	Use:   "get-info",
+	Short: "GetInfo RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStreamingServiceServiceClient(grpcConn)
+		req := &pb.GetInfoRequest{}
+		resp, err := client.GetInfo(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var mbmsStreamingServiceGetPlaybackUriCmd = &cobra.Command{
+	Use:   "get-playback-uri",
+	Short: "GetPlaybackUri RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStreamingServiceServiceClient(grpcConn)
+		req := &pb.GetPlaybackUriRequest{}
+		resp, err := client.GetPlaybackUri(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var mbmsDownloadReceiverCmd = &cobra.Command{
+	Use:   "download-receiver",
+	Short: "DownloadReceiverService operations",
+}
+
+var mbmsDownloadReceiverNewDownloadReceiverCmd = &cobra.Command{
+	Use:   "new-download-receiver",
+	Short: "NewDownloadReceiver RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDownloadReceiverServiceClient(grpcConn)
+		req := &pb.NewDownloadReceiverRequest{}
+		resp, err := client.NewDownloadReceiver(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var mbmsDownloadReceiverOnReceiveCmd = &cobra.Command{
+	Use:   "on-receive",
+	Short: "OnReceive RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDownloadReceiverServiceClient(grpcConn)
+		req := &pb.OnReceiveRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.OnReceive(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var mbmsDownloadSessionCallbackCmd = &cobra.Command{
+	Use:   "download-session-callback",
+	Short: "DownloadSessionCallbackService operations",
+}
+
+var mbmsDownloadSessionCallbackNewDownloadSessionCallbackCmd = &cobra.Command{
+	Use:   "new-download-session-callback",
+	Short: "NewDownloadSessionCallback RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDownloadSessionCallbackServiceClient(grpcConn)
+		req := &pb.NewDownloadSessionCallbackRequest{}
+		resp, err := client.NewDownloadSessionCallback(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var mbmsDownloadSessionCallbackOnErrorCmd = &cobra.Command{
+	Use:   "on-error",
+	Short: "OnError RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDownloadSessionCallbackServiceClient(grpcConn)
+		req := &pb.OnErrorRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.OnError(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var mbmsDownloadSessionCallbackOnMiddlewareReadyCmd = &cobra.Command{
+	Use:   "on-middleware-ready",
+	Short: "OnMiddlewareReady RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDownloadSessionCallbackServiceClient(grpcConn)
+		req := &pb.OnMiddlewareReadyRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.OnMiddlewareReady(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var mbmsDownloadStatusListenerCmd = &cobra.Command{
+	Use:   "download-status-listener",
+	Short: "DownloadStatusListenerService operations",
+}
+
+var mbmsDownloadStatusListenerNewDownloadStatusListenerCmd = &cobra.Command{
+	Use:   "new-download-status-listener",
+	Short: "NewDownloadStatusListener RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDownloadStatusListenerServiceClient(grpcConn)
+		req := &pb.NewDownloadStatusListenerRequest{}
+		resp, err := client.NewDownloadStatusListener(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var mbmsDownloadStatusListenerOnStatusUpdatedCmd = &cobra.Command{
+	Use:   "on-status-updated",
+	Short: "OnStatusUpdated RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDownloadStatusListenerServiceClient(grpcConn)
+		req := &pb.OnStatusUpdatedRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.OnStatusUpdated(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -211,18 +680,93 @@ var mbmsStreamingServiceCallbackOnStreamStateUpdatedCmd = &cobra.Command{
 	},
 }
 
-var mbmsServiceInfoCmd = &cobra.Command{
-	Use:   "service-info",
-	Short: "ServiceInfoService operations",
+var mbmsFileServiceInfoCmd = &cobra.Command{
+	Use:   "file-service-info",
+	Short: "FileServiceInfoService operations",
 }
 
-var mbmsServiceInfoEqualsCmd = &cobra.Command{
+var mbmsFileServiceInfoDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFileServiceInfoServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var mbmsFileServiceInfoGetFilesCmd = &cobra.Command{
+	Use:   "get-files",
+	Short: "GetFiles RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFileServiceInfoServiceClient(grpcConn)
+		req := &pb.GetFilesRequest{}
+		resp, err := client.GetFiles(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var mbmsFileServiceInfoWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFileServiceInfoServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var mbmsFileInfoCmd = &cobra.Command{
+	Use:   "file-info",
+	Short: "FileInfoService operations",
+}
+
+var mbmsFileInfoDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFileInfoServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var mbmsFileInfoEqualsCmd = &cobra.Command{
 	Use:   "equals",
 	Short: "Equals RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewServiceInfoServiceClient(grpcConn)
+		client := pb.NewFileInfoServiceClient(grpcConn)
 		req := &pb.EqualsRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -235,18 +779,15 @@ var mbmsServiceInfoEqualsCmd = &cobra.Command{
 	},
 }
 
-var mbmsServiceInfoGetNameForLocaleCmd = &cobra.Command{
-	Use:   "get-name-for-locale",
-	Short: "GetNameForLocale RPC",
+var mbmsFileInfoGetMimeTypeCmd = &cobra.Command{
+	Use:   "get-mime-type",
+	Short: "GetMimeType RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewServiceInfoServiceClient(grpcConn)
-		req := &pb.GetNameForLocaleRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetNameForLocale(ctx, req)
+		client := pb.NewFileInfoServiceClient(grpcConn)
+		req := &pb.GetMimeTypeRequest{}
+		resp, err := client.GetMimeType(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -254,15 +795,15 @@ var mbmsServiceInfoGetNameForLocaleCmd = &cobra.Command{
 	},
 }
 
-var mbmsServiceInfoGetServiceClassNameCmd = &cobra.Command{
-	Use:   "get-service-class-name",
-	Short: "GetServiceClassName RPC",
+var mbmsFileInfoGetUriCmd = &cobra.Command{
+	Use:   "get-uri",
+	Short: "GetUri RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewServiceInfoServiceClient(grpcConn)
-		req := &pb.GetServiceClassNameRequest{}
-		resp, err := client.GetServiceClassName(ctx, req)
+		client := pb.NewFileInfoServiceClient(grpcConn)
+		req := &pb.GetUriRequest{}
+		resp, err := client.GetUri(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -270,61 +811,13 @@ var mbmsServiceInfoGetServiceClassNameCmd = &cobra.Command{
 	},
 }
 
-var mbmsServiceInfoGetServiceIdCmd = &cobra.Command{
-	Use:   "get-service-id",
-	Short: "GetServiceId RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewServiceInfoServiceClient(grpcConn)
-		req := &pb.GetServiceIdRequest{}
-		resp, err := client.GetServiceId(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var mbmsServiceInfoGetSessionEndTimeCmd = &cobra.Command{
-	Use:   "get-session-end-time",
-	Short: "GetSessionEndTime RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewServiceInfoServiceClient(grpcConn)
-		req := &pb.GetSessionEndTimeRequest{}
-		resp, err := client.GetSessionEndTime(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var mbmsServiceInfoGetSessionStartTimeCmd = &cobra.Command{
-	Use:   "get-session-start-time",
-	Short: "GetSessionStartTime RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewServiceInfoServiceClient(grpcConn)
-		req := &pb.GetSessionStartTimeRequest{}
-		resp, err := client.GetSessionStartTime(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var mbmsServiceInfoHashCodeCmd = &cobra.Command{
+var mbmsFileInfoHashCodeCmd = &cobra.Command{
 	Use:   "hash-code",
 	Short: "HashCode RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewServiceInfoServiceClient(grpcConn)
+		client := pb.NewFileInfoServiceClient(grpcConn)
 		req := &pb.HashCodeRequest{}
 		resp, err := client.HashCode(ctx, req)
 		if err != nil {
@@ -334,64 +827,21 @@ var mbmsServiceInfoHashCodeCmd = &cobra.Command{
 	},
 }
 
-var mbmsDownloadSessionCallbackCmd = &cobra.Command{
-	Use:   "download-session-callback",
-	Short: "DownloadSessionCallbackService operations",
-}
-
-var mbmsDownloadSessionCallbackNewDownloadSessionCallbackCmd = &cobra.Command{
-	Use:   "new-download-session-callback",
-	Short: "NewDownloadSessionCallback RPC",
+var mbmsFileInfoWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewDownloadSessionCallbackServiceClient(grpcConn)
-		req := &pb.NewDownloadSessionCallbackRequest{}
-		resp, err := client.NewDownloadSessionCallback(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var mbmsDownloadSessionCallbackOnErrorCmd = &cobra.Command{
-	Use:   "on-error",
-	Short: "OnError RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDownloadSessionCallbackServiceClient(grpcConn)
-		req := &pb.OnErrorRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+		client := pb.NewFileInfoServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
 			req.Arg1 = v
 		}
-		resp, err := client.OnError(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var mbmsDownloadSessionCallbackOnMiddlewareReadyCmd = &cobra.Command{
-	Use:   "on-middleware-ready",
-	Short: "OnMiddlewareReady RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDownloadSessionCallbackServiceClient(grpcConn)
-		req := &pb.OnMiddlewareReadyRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.OnMiddlewareReady(ctx, req)
+		resp, err := client.WriteToParcel(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -742,409 +1192,12 @@ var mbmsGroupCallGetTmgiCmd = &cobra.Command{
 	},
 }
 
-var mbmsFileServiceInfoCmd = &cobra.Command{
-	Use:   "file-service-info",
-	Short: "FileServiceInfoService operations",
-}
-
-var mbmsFileServiceInfoDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFileServiceInfoServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var mbmsFileServiceInfoWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFileServiceInfoServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var mbmsDownloadProgressListenerCmd = &cobra.Command{
-	Use:   "download-progress-listener",
-	Short: "DownloadProgressListenerService operations",
-}
-
-var mbmsDownloadProgressListenerNewDownloadProgressListenerCmd = &cobra.Command{
-	Use:   "new-download-progress-listener",
-	Short: "NewDownloadProgressListener RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDownloadProgressListenerServiceClient(grpcConn)
-		req := &pb.NewDownloadProgressListenerRequest{}
-		resp, err := client.NewDownloadProgressListener(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var mbmsDownloadProgressListenerOnProgressUpdatedCmd = &cobra.Command{
-	Use:   "on-progress-updated",
-	Short: "OnProgressUpdated RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDownloadProgressListenerServiceClient(grpcConn)
-		req := &pb.OnProgressUpdatedRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg4"); err == nil {
-			req.Arg4 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg5"); err == nil {
-			req.Arg5 = v
-		}
-		resp, err := client.OnProgressUpdated(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var mbmsStreamingServiceCmd = &cobra.Command{
-	Use:   "streaming-service",
-	Short: "StreamingServiceService operations",
-}
-
-var mbmsStreamingServiceCloseCmd = &cobra.Command{
-	Use:   "close",
-	Short: "Close RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewStreamingServiceServiceClient(grpcConn)
-		req := &pb.CloseRequest{}
-		resp, err := client.Close(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var mbmsStreamingServiceGetInfoCmd = &cobra.Command{
-	Use:   "get-info",
-	Short: "GetInfo RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewStreamingServiceServiceClient(grpcConn)
-		req := &pb.GetInfoRequest{}
-		resp, err := client.GetInfo(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var mbmsStreamingServiceGetPlaybackUriCmd = &cobra.Command{
-	Use:   "get-playback-uri",
-	Short: "GetPlaybackUri RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewStreamingServiceServiceClient(grpcConn)
-		req := &pb.GetPlaybackUriRequest{}
-		resp, err := client.GetPlaybackUri(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var mbmsDownloadStatusListenerCmd = &cobra.Command{
-	Use:   "download-status-listener",
-	Short: "DownloadStatusListenerService operations",
-}
-
-var mbmsDownloadStatusListenerNewDownloadStatusListenerCmd = &cobra.Command{
-	Use:   "new-download-status-listener",
-	Short: "NewDownloadStatusListener RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDownloadStatusListenerServiceClient(grpcConn)
-		req := &pb.NewDownloadStatusListenerRequest{}
-		resp, err := client.NewDownloadStatusListener(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var mbmsDownloadStatusListenerOnStatusUpdatedCmd = &cobra.Command{
-	Use:   "on-status-updated",
-	Short: "OnStatusUpdated RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDownloadStatusListenerServiceClient(grpcConn)
-		req := &pb.OnStatusUpdatedRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.OnStatusUpdated(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var mbmsStreamingServiceInfoCmd = &cobra.Command{
-	Use:   "streaming-service-info",
-	Short: "StreamingServiceInfoService operations",
-}
-
-var mbmsStreamingServiceInfoDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewStreamingServiceInfoServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var mbmsStreamingServiceInfoWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewStreamingServiceInfoServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var mbmsDownloadReceiverCmd = &cobra.Command{
-	Use:   "download-receiver",
-	Short: "DownloadReceiverService operations",
-}
-
-var mbmsDownloadReceiverNewDownloadReceiverCmd = &cobra.Command{
-	Use:   "new-download-receiver",
-	Short: "NewDownloadReceiver RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDownloadReceiverServiceClient(grpcConn)
-		req := &pb.NewDownloadReceiverRequest{}
-		resp, err := client.NewDownloadReceiver(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var mbmsDownloadReceiverOnReceiveCmd = &cobra.Command{
-	Use:   "on-receive",
-	Short: "OnReceive RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDownloadReceiverServiceClient(grpcConn)
-		req := &pb.OnReceiveRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.OnReceive(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var mbmsFileInfoCmd = &cobra.Command{
-	Use:   "file-info",
-	Short: "FileInfoService operations",
-}
-
-var mbmsFileInfoDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFileInfoServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var mbmsFileInfoEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFileInfoServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var mbmsFileInfoGetMimeTypeCmd = &cobra.Command{
-	Use:   "get-mime-type",
-	Short: "GetMimeType RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFileInfoServiceClient(grpcConn)
-		req := &pb.GetMimeTypeRequest{}
-		resp, err := client.GetMimeType(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var mbmsFileInfoGetUriCmd = &cobra.Command{
-	Use:   "get-uri",
-	Short: "GetUri RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFileInfoServiceClient(grpcConn)
-		req := &pb.GetUriRequest{}
-		resp, err := client.GetUri(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var mbmsFileInfoHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFileInfoServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var mbmsFileInfoWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFileInfoServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
 func init() {
+	mbmsStreamingServiceInfoCmd.AddCommand(mbmsStreamingServiceInfoDescribeContentsCmd)
+	mbmsStreamingServiceInfoWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	mbmsStreamingServiceInfoWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	mbmsStreamingServiceInfoCmd.AddCommand(mbmsStreamingServiceInfoWriteToParcelCmd)
+	mbmsCmd.AddCommand(mbmsStreamingServiceInfoCmd)
 	mbmsStreamingSessionCallbackCmd.AddCommand(mbmsStreamingSessionCallbackNewStreamingSessionCallbackCmd)
 	mbmsStreamingSessionCallbackOnErrorCmd.Flags().Int64("handle", 0, "handle (int64)")
 	mbmsStreamingSessionCallbackOnErrorCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
@@ -1153,6 +1206,53 @@ func init() {
 	mbmsStreamingSessionCallbackOnMiddlewareReadyCmd.Flags().Int64("handle", 0, "handle (int64)")
 	mbmsStreamingSessionCallbackCmd.AddCommand(mbmsStreamingSessionCallbackOnMiddlewareReadyCmd)
 	mbmsCmd.AddCommand(mbmsStreamingSessionCallbackCmd)
+	mbmsDownloadProgressListenerCmd.AddCommand(mbmsDownloadProgressListenerNewDownloadProgressListenerCmd)
+	mbmsDownloadProgressListenerOnProgressUpdatedCmd.Flags().Int64("handle", 0, "handle (int64)")
+	mbmsDownloadProgressListenerOnProgressUpdatedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	mbmsDownloadProgressListenerOnProgressUpdatedCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	mbmsDownloadProgressListenerOnProgressUpdatedCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	mbmsDownloadProgressListenerOnProgressUpdatedCmd.Flags().Int32("arg3", 0, "arg3 (int32)")
+	mbmsDownloadProgressListenerOnProgressUpdatedCmd.Flags().Int32("arg4", 0, "arg4 (int32)")
+	mbmsDownloadProgressListenerOnProgressUpdatedCmd.Flags().Int32("arg5", 0, "arg5 (int32)")
+	mbmsDownloadProgressListenerCmd.AddCommand(mbmsDownloadProgressListenerOnProgressUpdatedCmd)
+	mbmsCmd.AddCommand(mbmsDownloadProgressListenerCmd)
+	mbmsServiceInfoEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	mbmsServiceInfoCmd.AddCommand(mbmsServiceInfoEqualsCmd)
+	mbmsServiceInfoCmd.AddCommand(mbmsServiceInfoGetLocalesCmd)
+	mbmsServiceInfoGetNameForLocaleCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	mbmsServiceInfoCmd.AddCommand(mbmsServiceInfoGetNameForLocaleCmd)
+	mbmsServiceInfoCmd.AddCommand(mbmsServiceInfoGetNamedContentLocalesCmd)
+	mbmsServiceInfoCmd.AddCommand(mbmsServiceInfoGetServiceClassNameCmd)
+	mbmsServiceInfoCmd.AddCommand(mbmsServiceInfoGetServiceIdCmd)
+	mbmsServiceInfoCmd.AddCommand(mbmsServiceInfoGetSessionEndTimeCmd)
+	mbmsServiceInfoCmd.AddCommand(mbmsServiceInfoGetSessionStartTimeCmd)
+	mbmsServiceInfoCmd.AddCommand(mbmsServiceInfoHashCodeCmd)
+	mbmsCmd.AddCommand(mbmsServiceInfoCmd)
+	mbmsStreamingServiceCmd.AddCommand(mbmsStreamingServiceCloseCmd)
+	mbmsStreamingServiceCmd.AddCommand(mbmsStreamingServiceGetInfoCmd)
+	mbmsStreamingServiceCmd.AddCommand(mbmsStreamingServiceGetPlaybackUriCmd)
+	mbmsCmd.AddCommand(mbmsStreamingServiceCmd)
+	mbmsDownloadReceiverCmd.AddCommand(mbmsDownloadReceiverNewDownloadReceiverCmd)
+	mbmsDownloadReceiverOnReceiveCmd.Flags().Int64("handle", 0, "handle (int64)")
+	mbmsDownloadReceiverOnReceiveCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	mbmsDownloadReceiverOnReceiveCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	mbmsDownloadReceiverCmd.AddCommand(mbmsDownloadReceiverOnReceiveCmd)
+	mbmsCmd.AddCommand(mbmsDownloadReceiverCmd)
+	mbmsDownloadSessionCallbackCmd.AddCommand(mbmsDownloadSessionCallbackNewDownloadSessionCallbackCmd)
+	mbmsDownloadSessionCallbackOnErrorCmd.Flags().Int64("handle", 0, "handle (int64)")
+	mbmsDownloadSessionCallbackOnErrorCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	mbmsDownloadSessionCallbackOnErrorCmd.Flags().String("arg1", "", "arg1 (string)")
+	mbmsDownloadSessionCallbackCmd.AddCommand(mbmsDownloadSessionCallbackOnErrorCmd)
+	mbmsDownloadSessionCallbackOnMiddlewareReadyCmd.Flags().Int64("handle", 0, "handle (int64)")
+	mbmsDownloadSessionCallbackCmd.AddCommand(mbmsDownloadSessionCallbackOnMiddlewareReadyCmd)
+	mbmsCmd.AddCommand(mbmsDownloadSessionCallbackCmd)
+	mbmsDownloadStatusListenerCmd.AddCommand(mbmsDownloadStatusListenerNewDownloadStatusListenerCmd)
+	mbmsDownloadStatusListenerOnStatusUpdatedCmd.Flags().Int64("handle", 0, "handle (int64)")
+	mbmsDownloadStatusListenerOnStatusUpdatedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	mbmsDownloadStatusListenerOnStatusUpdatedCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	mbmsDownloadStatusListenerOnStatusUpdatedCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	mbmsDownloadStatusListenerCmd.AddCommand(mbmsDownloadStatusListenerOnStatusUpdatedCmd)
+	mbmsCmd.AddCommand(mbmsDownloadStatusListenerCmd)
 	mbmsStreamingServiceCallbackCmd.AddCommand(mbmsStreamingServiceCallbackNewStreamingServiceCallbackCmd)
 	mbmsStreamingServiceCallbackOnBroadcastSignalStrengthUpdatedCmd.Flags().Int64("handle", 0, "handle (int64)")
 	mbmsStreamingServiceCallbackOnBroadcastSignalStrengthUpdatedCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
@@ -1171,24 +1271,22 @@ func init() {
 	mbmsStreamingServiceCallbackOnStreamStateUpdatedCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
 	mbmsStreamingServiceCallbackCmd.AddCommand(mbmsStreamingServiceCallbackOnStreamStateUpdatedCmd)
 	mbmsCmd.AddCommand(mbmsStreamingServiceCallbackCmd)
-	mbmsServiceInfoEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	mbmsServiceInfoCmd.AddCommand(mbmsServiceInfoEqualsCmd)
-	mbmsServiceInfoGetNameForLocaleCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	mbmsServiceInfoCmd.AddCommand(mbmsServiceInfoGetNameForLocaleCmd)
-	mbmsServiceInfoCmd.AddCommand(mbmsServiceInfoGetServiceClassNameCmd)
-	mbmsServiceInfoCmd.AddCommand(mbmsServiceInfoGetServiceIdCmd)
-	mbmsServiceInfoCmd.AddCommand(mbmsServiceInfoGetSessionEndTimeCmd)
-	mbmsServiceInfoCmd.AddCommand(mbmsServiceInfoGetSessionStartTimeCmd)
-	mbmsServiceInfoCmd.AddCommand(mbmsServiceInfoHashCodeCmd)
-	mbmsCmd.AddCommand(mbmsServiceInfoCmd)
-	mbmsDownloadSessionCallbackCmd.AddCommand(mbmsDownloadSessionCallbackNewDownloadSessionCallbackCmd)
-	mbmsDownloadSessionCallbackOnErrorCmd.Flags().Int64("handle", 0, "handle (int64)")
-	mbmsDownloadSessionCallbackOnErrorCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	mbmsDownloadSessionCallbackOnErrorCmd.Flags().String("arg1", "", "arg1 (string)")
-	mbmsDownloadSessionCallbackCmd.AddCommand(mbmsDownloadSessionCallbackOnErrorCmd)
-	mbmsDownloadSessionCallbackOnMiddlewareReadyCmd.Flags().Int64("handle", 0, "handle (int64)")
-	mbmsDownloadSessionCallbackCmd.AddCommand(mbmsDownloadSessionCallbackOnMiddlewareReadyCmd)
-	mbmsCmd.AddCommand(mbmsDownloadSessionCallbackCmd)
+	mbmsFileServiceInfoCmd.AddCommand(mbmsFileServiceInfoDescribeContentsCmd)
+	mbmsFileServiceInfoCmd.AddCommand(mbmsFileServiceInfoGetFilesCmd)
+	mbmsFileServiceInfoWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	mbmsFileServiceInfoWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	mbmsFileServiceInfoCmd.AddCommand(mbmsFileServiceInfoWriteToParcelCmd)
+	mbmsCmd.AddCommand(mbmsFileServiceInfoCmd)
+	mbmsFileInfoCmd.AddCommand(mbmsFileInfoDescribeContentsCmd)
+	mbmsFileInfoEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	mbmsFileInfoCmd.AddCommand(mbmsFileInfoEqualsCmd)
+	mbmsFileInfoCmd.AddCommand(mbmsFileInfoGetMimeTypeCmd)
+	mbmsFileInfoCmd.AddCommand(mbmsFileInfoGetUriCmd)
+	mbmsFileInfoCmd.AddCommand(mbmsFileInfoHashCodeCmd)
+	mbmsFileInfoWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	mbmsFileInfoWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	mbmsFileInfoCmd.AddCommand(mbmsFileInfoWriteToParcelCmd)
+	mbmsCmd.AddCommand(mbmsFileInfoCmd)
 	mbmsDownloadRequestCmd.AddCommand(mbmsDownloadRequestDescribeContentsCmd)
 	mbmsDownloadRequestEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	mbmsDownloadRequestCmd.AddCommand(mbmsDownloadRequestEqualsCmd)
@@ -1219,52 +1317,5 @@ func init() {
 	mbmsGroupCallCmd.AddCommand(mbmsGroupCallCloseCmd)
 	mbmsGroupCallCmd.AddCommand(mbmsGroupCallGetTmgiCmd)
 	mbmsCmd.AddCommand(mbmsGroupCallCmd)
-	mbmsFileServiceInfoCmd.AddCommand(mbmsFileServiceInfoDescribeContentsCmd)
-	mbmsFileServiceInfoWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	mbmsFileServiceInfoWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	mbmsFileServiceInfoCmd.AddCommand(mbmsFileServiceInfoWriteToParcelCmd)
-	mbmsCmd.AddCommand(mbmsFileServiceInfoCmd)
-	mbmsDownloadProgressListenerCmd.AddCommand(mbmsDownloadProgressListenerNewDownloadProgressListenerCmd)
-	mbmsDownloadProgressListenerOnProgressUpdatedCmd.Flags().Int64("handle", 0, "handle (int64)")
-	mbmsDownloadProgressListenerOnProgressUpdatedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	mbmsDownloadProgressListenerOnProgressUpdatedCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	mbmsDownloadProgressListenerOnProgressUpdatedCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
-	mbmsDownloadProgressListenerOnProgressUpdatedCmd.Flags().Int32("arg3", 0, "arg3 (int32)")
-	mbmsDownloadProgressListenerOnProgressUpdatedCmd.Flags().Int32("arg4", 0, "arg4 (int32)")
-	mbmsDownloadProgressListenerOnProgressUpdatedCmd.Flags().Int32("arg5", 0, "arg5 (int32)")
-	mbmsDownloadProgressListenerCmd.AddCommand(mbmsDownloadProgressListenerOnProgressUpdatedCmd)
-	mbmsCmd.AddCommand(mbmsDownloadProgressListenerCmd)
-	mbmsStreamingServiceCmd.AddCommand(mbmsStreamingServiceCloseCmd)
-	mbmsStreamingServiceCmd.AddCommand(mbmsStreamingServiceGetInfoCmd)
-	mbmsStreamingServiceCmd.AddCommand(mbmsStreamingServiceGetPlaybackUriCmd)
-	mbmsCmd.AddCommand(mbmsStreamingServiceCmd)
-	mbmsDownloadStatusListenerCmd.AddCommand(mbmsDownloadStatusListenerNewDownloadStatusListenerCmd)
-	mbmsDownloadStatusListenerOnStatusUpdatedCmd.Flags().Int64("handle", 0, "handle (int64)")
-	mbmsDownloadStatusListenerOnStatusUpdatedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	mbmsDownloadStatusListenerOnStatusUpdatedCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	mbmsDownloadStatusListenerOnStatusUpdatedCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
-	mbmsDownloadStatusListenerCmd.AddCommand(mbmsDownloadStatusListenerOnStatusUpdatedCmd)
-	mbmsCmd.AddCommand(mbmsDownloadStatusListenerCmd)
-	mbmsStreamingServiceInfoCmd.AddCommand(mbmsStreamingServiceInfoDescribeContentsCmd)
-	mbmsStreamingServiceInfoWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	mbmsStreamingServiceInfoWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	mbmsStreamingServiceInfoCmd.AddCommand(mbmsStreamingServiceInfoWriteToParcelCmd)
-	mbmsCmd.AddCommand(mbmsStreamingServiceInfoCmd)
-	mbmsDownloadReceiverCmd.AddCommand(mbmsDownloadReceiverNewDownloadReceiverCmd)
-	mbmsDownloadReceiverOnReceiveCmd.Flags().Int64("handle", 0, "handle (int64)")
-	mbmsDownloadReceiverOnReceiveCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	mbmsDownloadReceiverOnReceiveCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	mbmsDownloadReceiverCmd.AddCommand(mbmsDownloadReceiverOnReceiveCmd)
-	mbmsCmd.AddCommand(mbmsDownloadReceiverCmd)
-	mbmsFileInfoCmd.AddCommand(mbmsFileInfoDescribeContentsCmd)
-	mbmsFileInfoEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	mbmsFileInfoCmd.AddCommand(mbmsFileInfoEqualsCmd)
-	mbmsFileInfoCmd.AddCommand(mbmsFileInfoGetMimeTypeCmd)
-	mbmsFileInfoCmd.AddCommand(mbmsFileInfoGetUriCmd)
-	mbmsFileInfoCmd.AddCommand(mbmsFileInfoHashCodeCmd)
-	mbmsFileInfoWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	mbmsFileInfoWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	mbmsFileInfoCmd.AddCommand(mbmsFileInfoWriteToParcelCmd)
-	mbmsCmd.AddCommand(mbmsFileInfoCmd)
 	rootCmd.AddCommand(mbmsCmd)
 }

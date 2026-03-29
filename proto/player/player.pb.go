@@ -1751,6 +1751,94 @@ func (x *GetRoutedDeviceResponse) GetResult() int64 {
 	return 0
 }
 
+type GetRoutedDevicesRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetRoutedDevicesRequest) Reset() {
+	*x = GetRoutedDevicesRequest{}
+	mi := &file_proto_player_player_proto_msgTypes[38]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetRoutedDevicesRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetRoutedDevicesRequest) ProtoMessage() {}
+
+func (x *GetRoutedDevicesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[38]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetRoutedDevicesRequest.ProtoReflect.Descriptor instead.
+func (*GetRoutedDevicesRequest) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{38}
+}
+
+func (x *GetRoutedDevicesRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetRoutedDevicesResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetRoutedDevicesResponse) Reset() {
+	*x = GetRoutedDevicesResponse{}
+	mi := &file_proto_player_player_proto_msgTypes[39]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetRoutedDevicesResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetRoutedDevicesResponse) ProtoMessage() {}
+
+func (x *GetRoutedDevicesResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[39]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetRoutedDevicesResponse.ProtoReflect.Descriptor instead.
+func (*GetRoutedDevicesResponse) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{39}
+}
+
+func (x *GetRoutedDevicesResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
 type GetSelectedTrackRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
@@ -1761,7 +1849,7 @@ type GetSelectedTrackRequest struct {
 
 func (x *GetSelectedTrackRequest) Reset() {
 	*x = GetSelectedTrackRequest{}
-	mi := &file_proto_player_player_proto_msgTypes[38]
+	mi := &file_proto_player_player_proto_msgTypes[40]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1773,7 +1861,7 @@ func (x *GetSelectedTrackRequest) String() string {
 func (*GetSelectedTrackRequest) ProtoMessage() {}
 
 func (x *GetSelectedTrackRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[38]
+	mi := &file_proto_player_player_proto_msgTypes[40]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1786,7 +1874,7 @@ func (x *GetSelectedTrackRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetSelectedTrackRequest.ProtoReflect.Descriptor instead.
 func (*GetSelectedTrackRequest) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{38}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{40}
 }
 
 func (x *GetSelectedTrackRequest) GetHandle() int64 {
@@ -1812,7 +1900,7 @@ type GetSelectedTrackResponse struct {
 
 func (x *GetSelectedTrackResponse) Reset() {
 	*x = GetSelectedTrackResponse{}
-	mi := &file_proto_player_player_proto_msgTypes[39]
+	mi := &file_proto_player_player_proto_msgTypes[41]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1824,7 +1912,7 @@ func (x *GetSelectedTrackResponse) String() string {
 func (*GetSelectedTrackResponse) ProtoMessage() {}
 
 func (x *GetSelectedTrackResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[39]
+	mi := &file_proto_player_player_proto_msgTypes[41]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1837,7 +1925,7 @@ func (x *GetSelectedTrackResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetSelectedTrackResponse.ProtoReflect.Descriptor instead.
 func (*GetSelectedTrackResponse) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{39}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{41}
 }
 
 func (x *GetSelectedTrackResponse) GetResult() int32 {
@@ -1856,7 +1944,7 @@ type GetSyncParamsRequest struct {
 
 func (x *GetSyncParamsRequest) Reset() {
 	*x = GetSyncParamsRequest{}
-	mi := &file_proto_player_player_proto_msgTypes[40]
+	mi := &file_proto_player_player_proto_msgTypes[42]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1868,7 +1956,7 @@ func (x *GetSyncParamsRequest) String() string {
 func (*GetSyncParamsRequest) ProtoMessage() {}
 
 func (x *GetSyncParamsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[40]
+	mi := &file_proto_player_player_proto_msgTypes[42]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1881,7 +1969,7 @@ func (x *GetSyncParamsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetSyncParamsRequest.ProtoReflect.Descriptor instead.
 func (*GetSyncParamsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{40}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{42}
 }
 
 func (x *GetSyncParamsRequest) GetHandle() int64 {
@@ -1900,7 +1988,7 @@ type GetSyncParamsResponse struct {
 
 func (x *GetSyncParamsResponse) Reset() {
 	*x = GetSyncParamsResponse{}
-	mi := &file_proto_player_player_proto_msgTypes[41]
+	mi := &file_proto_player_player_proto_msgTypes[43]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1912,7 +2000,7 @@ func (x *GetSyncParamsResponse) String() string {
 func (*GetSyncParamsResponse) ProtoMessage() {}
 
 func (x *GetSyncParamsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[41]
+	mi := &file_proto_player_player_proto_msgTypes[43]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1925,7 +2013,7 @@ func (x *GetSyncParamsResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetSyncParamsResponse.ProtoReflect.Descriptor instead.
 func (*GetSyncParamsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{41}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{43}
 }
 
 func (x *GetSyncParamsResponse) GetResult() int64 {
@@ -1944,7 +2032,7 @@ type GetTimestampRequest struct {
 
 func (x *GetTimestampRequest) Reset() {
 	*x = GetTimestampRequest{}
-	mi := &file_proto_player_player_proto_msgTypes[42]
+	mi := &file_proto_player_player_proto_msgTypes[44]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1956,7 +2044,7 @@ func (x *GetTimestampRequest) String() string {
 func (*GetTimestampRequest) ProtoMessage() {}
 
 func (x *GetTimestampRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[42]
+	mi := &file_proto_player_player_proto_msgTypes[44]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1969,7 +2057,7 @@ func (x *GetTimestampRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetTimestampRequest.ProtoReflect.Descriptor instead.
 func (*GetTimestampRequest) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{42}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{44}
 }
 
 func (x *GetTimestampRequest) GetHandle() int64 {
@@ -1988,7 +2076,7 @@ type GetTimestampResponse struct {
 
 func (x *GetTimestampResponse) Reset() {
 	*x = GetTimestampResponse{}
-	mi := &file_proto_player_player_proto_msgTypes[43]
+	mi := &file_proto_player_player_proto_msgTypes[45]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2000,7 +2088,7 @@ func (x *GetTimestampResponse) String() string {
 func (*GetTimestampResponse) ProtoMessage() {}
 
 func (x *GetTimestampResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[43]
+	mi := &file_proto_player_player_proto_msgTypes[45]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2013,7 +2101,7 @@ func (x *GetTimestampResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetTimestampResponse.ProtoReflect.Descriptor instead.
 func (*GetTimestampResponse) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{43}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{45}
 }
 
 func (x *GetTimestampResponse) GetResult() int64 {
@@ -2032,7 +2120,7 @@ type GetTrackInfoRequest struct {
 
 func (x *GetTrackInfoRequest) Reset() {
 	*x = GetTrackInfoRequest{}
-	mi := &file_proto_player_player_proto_msgTypes[44]
+	mi := &file_proto_player_player_proto_msgTypes[46]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2044,7 +2132,7 @@ func (x *GetTrackInfoRequest) String() string {
 func (*GetTrackInfoRequest) ProtoMessage() {}
 
 func (x *GetTrackInfoRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[44]
+	mi := &file_proto_player_player_proto_msgTypes[46]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2057,7 +2145,7 @@ func (x *GetTrackInfoRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetTrackInfoRequest.ProtoReflect.Descriptor instead.
 func (*GetTrackInfoRequest) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{44}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{46}
 }
 
 func (x *GetTrackInfoRequest) GetHandle() int64 {
@@ -2076,7 +2164,7 @@ type GetTrackInfoResponse struct {
 
 func (x *GetTrackInfoResponse) Reset() {
 	*x = GetTrackInfoResponse{}
-	mi := &file_proto_player_player_proto_msgTypes[45]
+	mi := &file_proto_player_player_proto_msgTypes[47]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2088,7 +2176,7 @@ func (x *GetTrackInfoResponse) String() string {
 func (*GetTrackInfoResponse) ProtoMessage() {}
 
 func (x *GetTrackInfoResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[45]
+	mi := &file_proto_player_player_proto_msgTypes[47]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2101,7 +2189,7 @@ func (x *GetTrackInfoResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetTrackInfoResponse.ProtoReflect.Descriptor instead.
 func (*GetTrackInfoResponse) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{45}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{47}
 }
 
 func (x *GetTrackInfoResponse) GetResult() int64 {
@@ -2120,7 +2208,7 @@ type GetVideoHeightRequest struct {
 
 func (x *GetVideoHeightRequest) Reset() {
 	*x = GetVideoHeightRequest{}
-	mi := &file_proto_player_player_proto_msgTypes[46]
+	mi := &file_proto_player_player_proto_msgTypes[48]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2132,7 +2220,7 @@ func (x *GetVideoHeightRequest) String() string {
 func (*GetVideoHeightRequest) ProtoMessage() {}
 
 func (x *GetVideoHeightRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[46]
+	mi := &file_proto_player_player_proto_msgTypes[48]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2145,7 +2233,7 @@ func (x *GetVideoHeightRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetVideoHeightRequest.ProtoReflect.Descriptor instead.
 func (*GetVideoHeightRequest) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{46}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{48}
 }
 
 func (x *GetVideoHeightRequest) GetHandle() int64 {
@@ -2164,7 +2252,7 @@ type GetVideoHeightResponse struct {
 
 func (x *GetVideoHeightResponse) Reset() {
 	*x = GetVideoHeightResponse{}
-	mi := &file_proto_player_player_proto_msgTypes[47]
+	mi := &file_proto_player_player_proto_msgTypes[49]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2176,7 +2264,7 @@ func (x *GetVideoHeightResponse) String() string {
 func (*GetVideoHeightResponse) ProtoMessage() {}
 
 func (x *GetVideoHeightResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[47]
+	mi := &file_proto_player_player_proto_msgTypes[49]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2189,7 +2277,7 @@ func (x *GetVideoHeightResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetVideoHeightResponse.ProtoReflect.Descriptor instead.
 func (*GetVideoHeightResponse) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{47}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{49}
 }
 
 func (x *GetVideoHeightResponse) GetResult() int32 {
@@ -2208,7 +2296,7 @@ type GetVideoWidthRequest struct {
 
 func (x *GetVideoWidthRequest) Reset() {
 	*x = GetVideoWidthRequest{}
-	mi := &file_proto_player_player_proto_msgTypes[48]
+	mi := &file_proto_player_player_proto_msgTypes[50]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2220,7 +2308,7 @@ func (x *GetVideoWidthRequest) String() string {
 func (*GetVideoWidthRequest) ProtoMessage() {}
 
 func (x *GetVideoWidthRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[48]
+	mi := &file_proto_player_player_proto_msgTypes[50]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2233,7 +2321,7 @@ func (x *GetVideoWidthRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetVideoWidthRequest.ProtoReflect.Descriptor instead.
 func (*GetVideoWidthRequest) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{48}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{50}
 }
 
 func (x *GetVideoWidthRequest) GetHandle() int64 {
@@ -2252,7 +2340,7 @@ type GetVideoWidthResponse struct {
 
 func (x *GetVideoWidthResponse) Reset() {
 	*x = GetVideoWidthResponse{}
-	mi := &file_proto_player_player_proto_msgTypes[49]
+	mi := &file_proto_player_player_proto_msgTypes[51]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2264,7 +2352,7 @@ func (x *GetVideoWidthResponse) String() string {
 func (*GetVideoWidthResponse) ProtoMessage() {}
 
 func (x *GetVideoWidthResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[49]
+	mi := &file_proto_player_player_proto_msgTypes[51]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2277,7 +2365,7 @@ func (x *GetVideoWidthResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetVideoWidthResponse.ProtoReflect.Descriptor instead.
 func (*GetVideoWidthResponse) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{49}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{51}
 }
 
 func (x *GetVideoWidthResponse) GetResult() int32 {
@@ -2296,7 +2384,7 @@ type IsLoopingRequest struct {
 
 func (x *IsLoopingRequest) Reset() {
 	*x = IsLoopingRequest{}
-	mi := &file_proto_player_player_proto_msgTypes[50]
+	mi := &file_proto_player_player_proto_msgTypes[52]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2308,7 +2396,7 @@ func (x *IsLoopingRequest) String() string {
 func (*IsLoopingRequest) ProtoMessage() {}
 
 func (x *IsLoopingRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[50]
+	mi := &file_proto_player_player_proto_msgTypes[52]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2321,7 +2409,7 @@ func (x *IsLoopingRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsLoopingRequest.ProtoReflect.Descriptor instead.
 func (*IsLoopingRequest) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{50}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{52}
 }
 
 func (x *IsLoopingRequest) GetHandle() int64 {
@@ -2340,7 +2428,7 @@ type IsLoopingResponse struct {
 
 func (x *IsLoopingResponse) Reset() {
 	*x = IsLoopingResponse{}
-	mi := &file_proto_player_player_proto_msgTypes[51]
+	mi := &file_proto_player_player_proto_msgTypes[53]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2352,7 +2440,7 @@ func (x *IsLoopingResponse) String() string {
 func (*IsLoopingResponse) ProtoMessage() {}
 
 func (x *IsLoopingResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[51]
+	mi := &file_proto_player_player_proto_msgTypes[53]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2365,7 +2453,7 @@ func (x *IsLoopingResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsLoopingResponse.ProtoReflect.Descriptor instead.
 func (*IsLoopingResponse) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{51}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{53}
 }
 
 func (x *IsLoopingResponse) GetResult() bool {
@@ -2384,7 +2472,7 @@ type IsPlayingRequest struct {
 
 func (x *IsPlayingRequest) Reset() {
 	*x = IsPlayingRequest{}
-	mi := &file_proto_player_player_proto_msgTypes[52]
+	mi := &file_proto_player_player_proto_msgTypes[54]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2396,7 +2484,7 @@ func (x *IsPlayingRequest) String() string {
 func (*IsPlayingRequest) ProtoMessage() {}
 
 func (x *IsPlayingRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[52]
+	mi := &file_proto_player_player_proto_msgTypes[54]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2409,7 +2497,7 @@ func (x *IsPlayingRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsPlayingRequest.ProtoReflect.Descriptor instead.
 func (*IsPlayingRequest) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{52}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{54}
 }
 
 func (x *IsPlayingRequest) GetHandle() int64 {
@@ -2428,7 +2516,7 @@ type IsPlayingResponse struct {
 
 func (x *IsPlayingResponse) Reset() {
 	*x = IsPlayingResponse{}
-	mi := &file_proto_player_player_proto_msgTypes[53]
+	mi := &file_proto_player_player_proto_msgTypes[55]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2440,7 +2528,7 @@ func (x *IsPlayingResponse) String() string {
 func (*IsPlayingResponse) ProtoMessage() {}
 
 func (x *IsPlayingResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[53]
+	mi := &file_proto_player_player_proto_msgTypes[55]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2453,7 +2541,7 @@ func (x *IsPlayingResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsPlayingResponse.ProtoReflect.Descriptor instead.
 func (*IsPlayingResponse) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{53}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{55}
 }
 
 func (x *IsPlayingResponse) GetResult() bool {
@@ -2472,7 +2560,7 @@ type PauseRequest struct {
 
 func (x *PauseRequest) Reset() {
 	*x = PauseRequest{}
-	mi := &file_proto_player_player_proto_msgTypes[54]
+	mi := &file_proto_player_player_proto_msgTypes[56]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2484,7 +2572,7 @@ func (x *PauseRequest) String() string {
 func (*PauseRequest) ProtoMessage() {}
 
 func (x *PauseRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[54]
+	mi := &file_proto_player_player_proto_msgTypes[56]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2497,7 +2585,7 @@ func (x *PauseRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use PauseRequest.ProtoReflect.Descriptor instead.
 func (*PauseRequest) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{54}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{56}
 }
 
 func (x *PauseRequest) GetHandle() int64 {
@@ -2515,7 +2603,7 @@ type PauseResponse struct {
 
 func (x *PauseResponse) Reset() {
 	*x = PauseResponse{}
-	mi := &file_proto_player_player_proto_msgTypes[55]
+	mi := &file_proto_player_player_proto_msgTypes[57]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2527,7 +2615,7 @@ func (x *PauseResponse) String() string {
 func (*PauseResponse) ProtoMessage() {}
 
 func (x *PauseResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[55]
+	mi := &file_proto_player_player_proto_msgTypes[57]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2540,7 +2628,7 @@ func (x *PauseResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use PauseResponse.ProtoReflect.Descriptor instead.
 func (*PauseResponse) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{55}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{57}
 }
 
 type PrepareRequest struct {
@@ -2552,7 +2640,7 @@ type PrepareRequest struct {
 
 func (x *PrepareRequest) Reset() {
 	*x = PrepareRequest{}
-	mi := &file_proto_player_player_proto_msgTypes[56]
+	mi := &file_proto_player_player_proto_msgTypes[58]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2564,7 +2652,7 @@ func (x *PrepareRequest) String() string {
 func (*PrepareRequest) ProtoMessage() {}
 
 func (x *PrepareRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[56]
+	mi := &file_proto_player_player_proto_msgTypes[58]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2577,7 +2665,7 @@ func (x *PrepareRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use PrepareRequest.ProtoReflect.Descriptor instead.
 func (*PrepareRequest) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{56}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{58}
 }
 
 func (x *PrepareRequest) GetHandle() int64 {
@@ -2595,7 +2683,7 @@ type PrepareResponse struct {
 
 func (x *PrepareResponse) Reset() {
 	*x = PrepareResponse{}
-	mi := &file_proto_player_player_proto_msgTypes[57]
+	mi := &file_proto_player_player_proto_msgTypes[59]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2607,7 +2695,7 @@ func (x *PrepareResponse) String() string {
 func (*PrepareResponse) ProtoMessage() {}
 
 func (x *PrepareResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[57]
+	mi := &file_proto_player_player_proto_msgTypes[59]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2620,7 +2708,7 @@ func (x *PrepareResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use PrepareResponse.ProtoReflect.Descriptor instead.
 func (*PrepareResponse) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{57}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{59}
 }
 
 type PrepareAsyncRequest struct {
@@ -2632,7 +2720,7 @@ type PrepareAsyncRequest struct {
 
 func (x *PrepareAsyncRequest) Reset() {
 	*x = PrepareAsyncRequest{}
-	mi := &file_proto_player_player_proto_msgTypes[58]
+	mi := &file_proto_player_player_proto_msgTypes[60]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2644,7 +2732,7 @@ func (x *PrepareAsyncRequest) String() string {
 func (*PrepareAsyncRequest) ProtoMessage() {}
 
 func (x *PrepareAsyncRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[58]
+	mi := &file_proto_player_player_proto_msgTypes[60]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2657,7 +2745,7 @@ func (x *PrepareAsyncRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use PrepareAsyncRequest.ProtoReflect.Descriptor instead.
 func (*PrepareAsyncRequest) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{58}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{60}
 }
 
 func (x *PrepareAsyncRequest) GetHandle() int64 {
@@ -2675,7 +2763,7 @@ type PrepareAsyncResponse struct {
 
 func (x *PrepareAsyncResponse) Reset() {
 	*x = PrepareAsyncResponse{}
-	mi := &file_proto_player_player_proto_msgTypes[59]
+	mi := &file_proto_player_player_proto_msgTypes[61]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2687,7 +2775,7 @@ func (x *PrepareAsyncResponse) String() string {
 func (*PrepareAsyncResponse) ProtoMessage() {}
 
 func (x *PrepareAsyncResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[59]
+	mi := &file_proto_player_player_proto_msgTypes[61]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2700,7 +2788,7 @@ func (x *PrepareAsyncResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use PrepareAsyncResponse.ProtoReflect.Descriptor instead.
 func (*PrepareAsyncResponse) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{59}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{61}
 }
 
 type PrepareDrmRequest struct {
@@ -2713,7 +2801,7 @@ type PrepareDrmRequest struct {
 
 func (x *PrepareDrmRequest) Reset() {
 	*x = PrepareDrmRequest{}
-	mi := &file_proto_player_player_proto_msgTypes[60]
+	mi := &file_proto_player_player_proto_msgTypes[62]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2725,7 +2813,7 @@ func (x *PrepareDrmRequest) String() string {
 func (*PrepareDrmRequest) ProtoMessage() {}
 
 func (x *PrepareDrmRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[60]
+	mi := &file_proto_player_player_proto_msgTypes[62]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2738,7 +2826,7 @@ func (x *PrepareDrmRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use PrepareDrmRequest.ProtoReflect.Descriptor instead.
 func (*PrepareDrmRequest) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{60}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{62}
 }
 
 func (x *PrepareDrmRequest) GetHandle() int64 {
@@ -2763,7 +2851,7 @@ type PrepareDrmResponse struct {
 
 func (x *PrepareDrmResponse) Reset() {
 	*x = PrepareDrmResponse{}
-	mi := &file_proto_player_player_proto_msgTypes[61]
+	mi := &file_proto_player_player_proto_msgTypes[63]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2775,7 +2863,7 @@ func (x *PrepareDrmResponse) String() string {
 func (*PrepareDrmResponse) ProtoMessage() {}
 
 func (x *PrepareDrmResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[61]
+	mi := &file_proto_player_player_proto_msgTypes[63]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2788,7 +2876,7 @@ func (x *PrepareDrmResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use PrepareDrmResponse.ProtoReflect.Descriptor instead.
 func (*PrepareDrmResponse) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{61}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{63}
 }
 
 type ProvideKeyResponseRequest struct {
@@ -2802,7 +2890,7 @@ type ProvideKeyResponseRequest struct {
 
 func (x *ProvideKeyResponseRequest) Reset() {
 	*x = ProvideKeyResponseRequest{}
-	mi := &file_proto_player_player_proto_msgTypes[62]
+	mi := &file_proto_player_player_proto_msgTypes[64]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2814,7 +2902,7 @@ func (x *ProvideKeyResponseRequest) String() string {
 func (*ProvideKeyResponseRequest) ProtoMessage() {}
 
 func (x *ProvideKeyResponseRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[62]
+	mi := &file_proto_player_player_proto_msgTypes[64]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2827,7 +2915,7 @@ func (x *ProvideKeyResponseRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ProvideKeyResponseRequest.ProtoReflect.Descriptor instead.
 func (*ProvideKeyResponseRequest) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{62}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{64}
 }
 
 func (x *ProvideKeyResponseRequest) GetHandle() int64 {
@@ -2860,7 +2948,7 @@ type ProvideKeyResponseResponse struct {
 
 func (x *ProvideKeyResponseResponse) Reset() {
 	*x = ProvideKeyResponseResponse{}
-	mi := &file_proto_player_player_proto_msgTypes[63]
+	mi := &file_proto_player_player_proto_msgTypes[65]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2872,7 +2960,7 @@ func (x *ProvideKeyResponseResponse) String() string {
 func (*ProvideKeyResponseResponse) ProtoMessage() {}
 
 func (x *ProvideKeyResponseResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[63]
+	mi := &file_proto_player_player_proto_msgTypes[65]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2885,7 +2973,7 @@ func (x *ProvideKeyResponseResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ProvideKeyResponseResponse.ProtoReflect.Descriptor instead.
 func (*ProvideKeyResponseResponse) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{63}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{65}
 }
 
 func (x *ProvideKeyResponseResponse) GetResult() int64 {
@@ -2904,7 +2992,7 @@ type ReleaseRequest struct {
 
 func (x *ReleaseRequest) Reset() {
 	*x = ReleaseRequest{}
-	mi := &file_proto_player_player_proto_msgTypes[64]
+	mi := &file_proto_player_player_proto_msgTypes[66]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2916,7 +3004,7 @@ func (x *ReleaseRequest) String() string {
 func (*ReleaseRequest) ProtoMessage() {}
 
 func (x *ReleaseRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[64]
+	mi := &file_proto_player_player_proto_msgTypes[66]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2929,7 +3017,7 @@ func (x *ReleaseRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ReleaseRequest.ProtoReflect.Descriptor instead.
 func (*ReleaseRequest) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{64}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{66}
 }
 
 func (x *ReleaseRequest) GetHandle() int64 {
@@ -2947,7 +3035,7 @@ type ReleaseResponse struct {
 
 func (x *ReleaseResponse) Reset() {
 	*x = ReleaseResponse{}
-	mi := &file_proto_player_player_proto_msgTypes[65]
+	mi := &file_proto_player_player_proto_msgTypes[67]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2959,7 +3047,7 @@ func (x *ReleaseResponse) String() string {
 func (*ReleaseResponse) ProtoMessage() {}
 
 func (x *ReleaseResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[65]
+	mi := &file_proto_player_player_proto_msgTypes[67]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2972,7 +3060,7 @@ func (x *ReleaseResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ReleaseResponse.ProtoReflect.Descriptor instead.
 func (*ReleaseResponse) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{65}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{67}
 }
 
 type ReleaseDrmRequest struct {
@@ -2984,7 +3072,7 @@ type ReleaseDrmRequest struct {
 
 func (x *ReleaseDrmRequest) Reset() {
 	*x = ReleaseDrmRequest{}
-	mi := &file_proto_player_player_proto_msgTypes[66]
+	mi := &file_proto_player_player_proto_msgTypes[68]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2996,7 +3084,7 @@ func (x *ReleaseDrmRequest) String() string {
 func (*ReleaseDrmRequest) ProtoMessage() {}
 
 func (x *ReleaseDrmRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[66]
+	mi := &file_proto_player_player_proto_msgTypes[68]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3009,7 +3097,7 @@ func (x *ReleaseDrmRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ReleaseDrmRequest.ProtoReflect.Descriptor instead.
 func (*ReleaseDrmRequest) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{66}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{68}
 }
 
 func (x *ReleaseDrmRequest) GetHandle() int64 {
@@ -3027,7 +3115,7 @@ type ReleaseDrmResponse struct {
 
 func (x *ReleaseDrmResponse) Reset() {
 	*x = ReleaseDrmResponse{}
-	mi := &file_proto_player_player_proto_msgTypes[67]
+	mi := &file_proto_player_player_proto_msgTypes[69]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3039,7 +3127,7 @@ func (x *ReleaseDrmResponse) String() string {
 func (*ReleaseDrmResponse) ProtoMessage() {}
 
 func (x *ReleaseDrmResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[67]
+	mi := &file_proto_player_player_proto_msgTypes[69]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3052,7 +3140,7 @@ func (x *ReleaseDrmResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ReleaseDrmResponse.ProtoReflect.Descriptor instead.
 func (*ReleaseDrmResponse) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{67}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{69}
 }
 
 type RemoveOnRoutingChangedListenerRequest struct {
@@ -3065,7 +3153,7 @@ type RemoveOnRoutingChangedListenerRequest struct {
 
 func (x *RemoveOnRoutingChangedListenerRequest) Reset() {
 	*x = RemoveOnRoutingChangedListenerRequest{}
-	mi := &file_proto_player_player_proto_msgTypes[68]
+	mi := &file_proto_player_player_proto_msgTypes[70]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3077,7 +3165,7 @@ func (x *RemoveOnRoutingChangedListenerRequest) String() string {
 func (*RemoveOnRoutingChangedListenerRequest) ProtoMessage() {}
 
 func (x *RemoveOnRoutingChangedListenerRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[68]
+	mi := &file_proto_player_player_proto_msgTypes[70]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3090,7 +3178,7 @@ func (x *RemoveOnRoutingChangedListenerRequest) ProtoReflect() protoreflect.Mess
 
 // Deprecated: Use RemoveOnRoutingChangedListenerRequest.ProtoReflect.Descriptor instead.
 func (*RemoveOnRoutingChangedListenerRequest) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{68}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{70}
 }
 
 func (x *RemoveOnRoutingChangedListenerRequest) GetHandle() int64 {
@@ -3115,7 +3203,7 @@ type RemoveOnRoutingChangedListenerResponse struct {
 
 func (x *RemoveOnRoutingChangedListenerResponse) Reset() {
 	*x = RemoveOnRoutingChangedListenerResponse{}
-	mi := &file_proto_player_player_proto_msgTypes[69]
+	mi := &file_proto_player_player_proto_msgTypes[71]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3127,7 +3215,7 @@ func (x *RemoveOnRoutingChangedListenerResponse) String() string {
 func (*RemoveOnRoutingChangedListenerResponse) ProtoMessage() {}
 
 func (x *RemoveOnRoutingChangedListenerResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[69]
+	mi := &file_proto_player_player_proto_msgTypes[71]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3140,7 +3228,7 @@ func (x *RemoveOnRoutingChangedListenerResponse) ProtoReflect() protoreflect.Mes
 
 // Deprecated: Use RemoveOnRoutingChangedListenerResponse.ProtoReflect.Descriptor instead.
 func (*RemoveOnRoutingChangedListenerResponse) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{69}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{71}
 }
 
 type ResetRequest struct {
@@ -3152,7 +3240,7 @@ type ResetRequest struct {
 
 func (x *ResetRequest) Reset() {
 	*x = ResetRequest{}
-	mi := &file_proto_player_player_proto_msgTypes[70]
+	mi := &file_proto_player_player_proto_msgTypes[72]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3164,7 +3252,7 @@ func (x *ResetRequest) String() string {
 func (*ResetRequest) ProtoMessage() {}
 
 func (x *ResetRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[70]
+	mi := &file_proto_player_player_proto_msgTypes[72]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3177,7 +3265,7 @@ func (x *ResetRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ResetRequest.ProtoReflect.Descriptor instead.
 func (*ResetRequest) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{70}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{72}
 }
 
 func (x *ResetRequest) GetHandle() int64 {
@@ -3195,7 +3283,7 @@ type ResetResponse struct {
 
 func (x *ResetResponse) Reset() {
 	*x = ResetResponse{}
-	mi := &file_proto_player_player_proto_msgTypes[71]
+	mi := &file_proto_player_player_proto_msgTypes[73]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3207,7 +3295,7 @@ func (x *ResetResponse) String() string {
 func (*ResetResponse) ProtoMessage() {}
 
 func (x *ResetResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[71]
+	mi := &file_proto_player_player_proto_msgTypes[73]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3220,7 +3308,7 @@ func (x *ResetResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ResetResponse.ProtoReflect.Descriptor instead.
 func (*ResetResponse) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{71}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{73}
 }
 
 type RestoreKeysRequest struct {
@@ -3233,7 +3321,7 @@ type RestoreKeysRequest struct {
 
 func (x *RestoreKeysRequest) Reset() {
 	*x = RestoreKeysRequest{}
-	mi := &file_proto_player_player_proto_msgTypes[72]
+	mi := &file_proto_player_player_proto_msgTypes[74]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3245,7 +3333,7 @@ func (x *RestoreKeysRequest) String() string {
 func (*RestoreKeysRequest) ProtoMessage() {}
 
 func (x *RestoreKeysRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[72]
+	mi := &file_proto_player_player_proto_msgTypes[74]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3258,7 +3346,7 @@ func (x *RestoreKeysRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RestoreKeysRequest.ProtoReflect.Descriptor instead.
 func (*RestoreKeysRequest) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{72}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{74}
 }
 
 func (x *RestoreKeysRequest) GetHandle() int64 {
@@ -3283,7 +3371,7 @@ type RestoreKeysResponse struct {
 
 func (x *RestoreKeysResponse) Reset() {
 	*x = RestoreKeysResponse{}
-	mi := &file_proto_player_player_proto_msgTypes[73]
+	mi := &file_proto_player_player_proto_msgTypes[75]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3295,7 +3383,7 @@ func (x *RestoreKeysResponse) String() string {
 func (*RestoreKeysResponse) ProtoMessage() {}
 
 func (x *RestoreKeysResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[73]
+	mi := &file_proto_player_player_proto_msgTypes[75]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3308,7 +3396,7 @@ func (x *RestoreKeysResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RestoreKeysResponse.ProtoReflect.Descriptor instead.
 func (*RestoreKeysResponse) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{73}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{75}
 }
 
 type SeekTo1Request struct {
@@ -3321,7 +3409,7 @@ type SeekTo1Request struct {
 
 func (x *SeekTo1Request) Reset() {
 	*x = SeekTo1Request{}
-	mi := &file_proto_player_player_proto_msgTypes[74]
+	mi := &file_proto_player_player_proto_msgTypes[76]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3333,7 +3421,7 @@ func (x *SeekTo1Request) String() string {
 func (*SeekTo1Request) ProtoMessage() {}
 
 func (x *SeekTo1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[74]
+	mi := &file_proto_player_player_proto_msgTypes[76]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3346,7 +3434,7 @@ func (x *SeekTo1Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SeekTo1Request.ProtoReflect.Descriptor instead.
 func (*SeekTo1Request) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{74}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{76}
 }
 
 func (x *SeekTo1Request) GetHandle() int64 {
@@ -3371,7 +3459,7 @@ type SeekTo1Response struct {
 
 func (x *SeekTo1Response) Reset() {
 	*x = SeekTo1Response{}
-	mi := &file_proto_player_player_proto_msgTypes[75]
+	mi := &file_proto_player_player_proto_msgTypes[77]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3383,7 +3471,7 @@ func (x *SeekTo1Response) String() string {
 func (*SeekTo1Response) ProtoMessage() {}
 
 func (x *SeekTo1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[75]
+	mi := &file_proto_player_player_proto_msgTypes[77]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3396,7 +3484,7 @@ func (x *SeekTo1Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SeekTo1Response.ProtoReflect.Descriptor instead.
 func (*SeekTo1Response) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{75}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{77}
 }
 
 type SeekTo2_1Request struct {
@@ -3410,7 +3498,7 @@ type SeekTo2_1Request struct {
 
 func (x *SeekTo2_1Request) Reset() {
 	*x = SeekTo2_1Request{}
-	mi := &file_proto_player_player_proto_msgTypes[76]
+	mi := &file_proto_player_player_proto_msgTypes[78]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3422,7 +3510,7 @@ func (x *SeekTo2_1Request) String() string {
 func (*SeekTo2_1Request) ProtoMessage() {}
 
 func (x *SeekTo2_1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[76]
+	mi := &file_proto_player_player_proto_msgTypes[78]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3435,7 +3523,7 @@ func (x *SeekTo2_1Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SeekTo2_1Request.ProtoReflect.Descriptor instead.
 func (*SeekTo2_1Request) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{76}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{78}
 }
 
 func (x *SeekTo2_1Request) GetHandle() int64 {
@@ -3467,7 +3555,7 @@ type SeekTo2_1Response struct {
 
 func (x *SeekTo2_1Response) Reset() {
 	*x = SeekTo2_1Response{}
-	mi := &file_proto_player_player_proto_msgTypes[77]
+	mi := &file_proto_player_player_proto_msgTypes[79]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3479,7 +3567,7 @@ func (x *SeekTo2_1Response) String() string {
 func (*SeekTo2_1Response) ProtoMessage() {}
 
 func (x *SeekTo2_1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[77]
+	mi := &file_proto_player_player_proto_msgTypes[79]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3492,7 +3580,7 @@ func (x *SeekTo2_1Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SeekTo2_1Response.ProtoReflect.Descriptor instead.
 func (*SeekTo2_1Response) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{77}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{79}
 }
 
 type SelectTrackRequest struct {
@@ -3505,7 +3593,7 @@ type SelectTrackRequest struct {
 
 func (x *SelectTrackRequest) Reset() {
 	*x = SelectTrackRequest{}
-	mi := &file_proto_player_player_proto_msgTypes[78]
+	mi := &file_proto_player_player_proto_msgTypes[80]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3517,7 +3605,7 @@ func (x *SelectTrackRequest) String() string {
 func (*SelectTrackRequest) ProtoMessage() {}
 
 func (x *SelectTrackRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[78]
+	mi := &file_proto_player_player_proto_msgTypes[80]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3530,7 +3618,7 @@ func (x *SelectTrackRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SelectTrackRequest.ProtoReflect.Descriptor instead.
 func (*SelectTrackRequest) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{78}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{80}
 }
 
 func (x *SelectTrackRequest) GetHandle() int64 {
@@ -3555,7 +3643,7 @@ type SelectTrackResponse struct {
 
 func (x *SelectTrackResponse) Reset() {
 	*x = SelectTrackResponse{}
-	mi := &file_proto_player_player_proto_msgTypes[79]
+	mi := &file_proto_player_player_proto_msgTypes[81]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3567,7 +3655,7 @@ func (x *SelectTrackResponse) String() string {
 func (*SelectTrackResponse) ProtoMessage() {}
 
 func (x *SelectTrackResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[79]
+	mi := &file_proto_player_player_proto_msgTypes[81]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3580,7 +3668,7 @@ func (x *SelectTrackResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SelectTrackResponse.ProtoReflect.Descriptor instead.
 func (*SelectTrackResponse) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{79}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{81}
 }
 
 type SetAudioAttributesRequest struct {
@@ -3593,7 +3681,7 @@ type SetAudioAttributesRequest struct {
 
 func (x *SetAudioAttributesRequest) Reset() {
 	*x = SetAudioAttributesRequest{}
-	mi := &file_proto_player_player_proto_msgTypes[80]
+	mi := &file_proto_player_player_proto_msgTypes[82]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3605,7 +3693,7 @@ func (x *SetAudioAttributesRequest) String() string {
 func (*SetAudioAttributesRequest) ProtoMessage() {}
 
 func (x *SetAudioAttributesRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[80]
+	mi := &file_proto_player_player_proto_msgTypes[82]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3618,7 +3706,7 @@ func (x *SetAudioAttributesRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetAudioAttributesRequest.ProtoReflect.Descriptor instead.
 func (*SetAudioAttributesRequest) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{80}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{82}
 }
 
 func (x *SetAudioAttributesRequest) GetHandle() int64 {
@@ -3643,7 +3731,7 @@ type SetAudioAttributesResponse struct {
 
 func (x *SetAudioAttributesResponse) Reset() {
 	*x = SetAudioAttributesResponse{}
-	mi := &file_proto_player_player_proto_msgTypes[81]
+	mi := &file_proto_player_player_proto_msgTypes[83]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3655,7 +3743,7 @@ func (x *SetAudioAttributesResponse) String() string {
 func (*SetAudioAttributesResponse) ProtoMessage() {}
 
 func (x *SetAudioAttributesResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[81]
+	mi := &file_proto_player_player_proto_msgTypes[83]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3668,7 +3756,7 @@ func (x *SetAudioAttributesResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetAudioAttributesResponse.ProtoReflect.Descriptor instead.
 func (*SetAudioAttributesResponse) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{81}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{83}
 }
 
 type SetAudioSessionIdRequest struct {
@@ -3681,7 +3769,7 @@ type SetAudioSessionIdRequest struct {
 
 func (x *SetAudioSessionIdRequest) Reset() {
 	*x = SetAudioSessionIdRequest{}
-	mi := &file_proto_player_player_proto_msgTypes[82]
+	mi := &file_proto_player_player_proto_msgTypes[84]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3693,7 +3781,7 @@ func (x *SetAudioSessionIdRequest) String() string {
 func (*SetAudioSessionIdRequest) ProtoMessage() {}
 
 func (x *SetAudioSessionIdRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[82]
+	mi := &file_proto_player_player_proto_msgTypes[84]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3706,7 +3794,7 @@ func (x *SetAudioSessionIdRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetAudioSessionIdRequest.ProtoReflect.Descriptor instead.
 func (*SetAudioSessionIdRequest) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{82}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{84}
 }
 
 func (x *SetAudioSessionIdRequest) GetHandle() int64 {
@@ -3731,7 +3819,7 @@ type SetAudioSessionIdResponse struct {
 
 func (x *SetAudioSessionIdResponse) Reset() {
 	*x = SetAudioSessionIdResponse{}
-	mi := &file_proto_player_player_proto_msgTypes[83]
+	mi := &file_proto_player_player_proto_msgTypes[85]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3743,7 +3831,7 @@ func (x *SetAudioSessionIdResponse) String() string {
 func (*SetAudioSessionIdResponse) ProtoMessage() {}
 
 func (x *SetAudioSessionIdResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[83]
+	mi := &file_proto_player_player_proto_msgTypes[85]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3756,7 +3844,7 @@ func (x *SetAudioSessionIdResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetAudioSessionIdResponse.ProtoReflect.Descriptor instead.
 func (*SetAudioSessionIdResponse) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{83}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{85}
 }
 
 type SetAudioStreamTypeRequest struct {
@@ -3769,7 +3857,7 @@ type SetAudioStreamTypeRequest struct {
 
 func (x *SetAudioStreamTypeRequest) Reset() {
 	*x = SetAudioStreamTypeRequest{}
-	mi := &file_proto_player_player_proto_msgTypes[84]
+	mi := &file_proto_player_player_proto_msgTypes[86]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3781,7 +3869,7 @@ func (x *SetAudioStreamTypeRequest) String() string {
 func (*SetAudioStreamTypeRequest) ProtoMessage() {}
 
 func (x *SetAudioStreamTypeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[84]
+	mi := &file_proto_player_player_proto_msgTypes[86]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3794,7 +3882,7 @@ func (x *SetAudioStreamTypeRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetAudioStreamTypeRequest.ProtoReflect.Descriptor instead.
 func (*SetAudioStreamTypeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{84}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{86}
 }
 
 func (x *SetAudioStreamTypeRequest) GetHandle() int64 {
@@ -3819,7 +3907,7 @@ type SetAudioStreamTypeResponse struct {
 
 func (x *SetAudioStreamTypeResponse) Reset() {
 	*x = SetAudioStreamTypeResponse{}
-	mi := &file_proto_player_player_proto_msgTypes[85]
+	mi := &file_proto_player_player_proto_msgTypes[87]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3831,7 +3919,7 @@ func (x *SetAudioStreamTypeResponse) String() string {
 func (*SetAudioStreamTypeResponse) ProtoMessage() {}
 
 func (x *SetAudioStreamTypeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[85]
+	mi := &file_proto_player_player_proto_msgTypes[87]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3844,7 +3932,7 @@ func (x *SetAudioStreamTypeResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetAudioStreamTypeResponse.ProtoReflect.Descriptor instead.
 func (*SetAudioStreamTypeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{85}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{87}
 }
 
 type SetAuxEffectSendLevelRequest struct {
@@ -3857,7 +3945,7 @@ type SetAuxEffectSendLevelRequest struct {
 
 func (x *SetAuxEffectSendLevelRequest) Reset() {
 	*x = SetAuxEffectSendLevelRequest{}
-	mi := &file_proto_player_player_proto_msgTypes[86]
+	mi := &file_proto_player_player_proto_msgTypes[88]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3869,7 +3957,7 @@ func (x *SetAuxEffectSendLevelRequest) String() string {
 func (*SetAuxEffectSendLevelRequest) ProtoMessage() {}
 
 func (x *SetAuxEffectSendLevelRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[86]
+	mi := &file_proto_player_player_proto_msgTypes[88]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3882,7 +3970,7 @@ func (x *SetAuxEffectSendLevelRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetAuxEffectSendLevelRequest.ProtoReflect.Descriptor instead.
 func (*SetAuxEffectSendLevelRequest) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{86}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{88}
 }
 
 func (x *SetAuxEffectSendLevelRequest) GetHandle() int64 {
@@ -3907,7 +3995,7 @@ type SetAuxEffectSendLevelResponse struct {
 
 func (x *SetAuxEffectSendLevelResponse) Reset() {
 	*x = SetAuxEffectSendLevelResponse{}
-	mi := &file_proto_player_player_proto_msgTypes[87]
+	mi := &file_proto_player_player_proto_msgTypes[89]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3919,7 +4007,7 @@ func (x *SetAuxEffectSendLevelResponse) String() string {
 func (*SetAuxEffectSendLevelResponse) ProtoMessage() {}
 
 func (x *SetAuxEffectSendLevelResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[87]
+	mi := &file_proto_player_player_proto_msgTypes[89]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3932,7 +4020,7 @@ func (x *SetAuxEffectSendLevelResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetAuxEffectSendLevelResponse.ProtoReflect.Descriptor instead.
 func (*SetAuxEffectSendLevelResponse) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{87}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{89}
 }
 
 type SetDataSource2Request struct {
@@ -3946,7 +4034,7 @@ type SetDataSource2Request struct {
 
 func (x *SetDataSource2Request) Reset() {
 	*x = SetDataSource2Request{}
-	mi := &file_proto_player_player_proto_msgTypes[88]
+	mi := &file_proto_player_player_proto_msgTypes[90]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3958,7 +4046,7 @@ func (x *SetDataSource2Request) String() string {
 func (*SetDataSource2Request) ProtoMessage() {}
 
 func (x *SetDataSource2Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[88]
+	mi := &file_proto_player_player_proto_msgTypes[90]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3971,7 +4059,7 @@ func (x *SetDataSource2Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetDataSource2Request.ProtoReflect.Descriptor instead.
 func (*SetDataSource2Request) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{88}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{90}
 }
 
 func (x *SetDataSource2Request) GetHandle() int64 {
@@ -4003,7 +4091,7 @@ type SetDataSource2Response struct {
 
 func (x *SetDataSource2Response) Reset() {
 	*x = SetDataSource2Response{}
-	mi := &file_proto_player_player_proto_msgTypes[89]
+	mi := &file_proto_player_player_proto_msgTypes[91]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4015,7 +4103,7 @@ func (x *SetDataSource2Response) String() string {
 func (*SetDataSource2Response) ProtoMessage() {}
 
 func (x *SetDataSource2Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[89]
+	mi := &file_proto_player_player_proto_msgTypes[91]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4028,7 +4116,7 @@ func (x *SetDataSource2Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetDataSource2Response.ProtoReflect.Descriptor instead.
 func (*SetDataSource2Response) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{89}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{91}
 }
 
 type SetDataSource1_1Request struct {
@@ -4041,7 +4129,7 @@ type SetDataSource1_1Request struct {
 
 func (x *SetDataSource1_1Request) Reset() {
 	*x = SetDataSource1_1Request{}
-	mi := &file_proto_player_player_proto_msgTypes[90]
+	mi := &file_proto_player_player_proto_msgTypes[92]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4053,7 +4141,7 @@ func (x *SetDataSource1_1Request) String() string {
 func (*SetDataSource1_1Request) ProtoMessage() {}
 
 func (x *SetDataSource1_1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[90]
+	mi := &file_proto_player_player_proto_msgTypes[92]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4066,7 +4154,7 @@ func (x *SetDataSource1_1Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetDataSource1_1Request.ProtoReflect.Descriptor instead.
 func (*SetDataSource1_1Request) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{90}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{92}
 }
 
 func (x *SetDataSource1_1Request) GetHandle() int64 {
@@ -4091,7 +4179,7 @@ type SetDataSource1_1Response struct {
 
 func (x *SetDataSource1_1Response) Reset() {
 	*x = SetDataSource1_1Response{}
-	mi := &file_proto_player_player_proto_msgTypes[91]
+	mi := &file_proto_player_player_proto_msgTypes[93]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4103,7 +4191,7 @@ func (x *SetDataSource1_1Response) String() string {
 func (*SetDataSource1_1Response) ProtoMessage() {}
 
 func (x *SetDataSource1_1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[91]
+	mi := &file_proto_player_player_proto_msgTypes[93]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4116,7 +4204,7 @@ func (x *SetDataSource1_1Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetDataSource1_1Response.ProtoReflect.Descriptor instead.
 func (*SetDataSource1_1Response) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{91}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{93}
 }
 
 type SetDataSource1_2Request struct {
@@ -4129,7 +4217,7 @@ type SetDataSource1_2Request struct {
 
 func (x *SetDataSource1_2Request) Reset() {
 	*x = SetDataSource1_2Request{}
-	mi := &file_proto_player_player_proto_msgTypes[92]
+	mi := &file_proto_player_player_proto_msgTypes[94]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4141,7 +4229,7 @@ func (x *SetDataSource1_2Request) String() string {
 func (*SetDataSource1_2Request) ProtoMessage() {}
 
 func (x *SetDataSource1_2Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[92]
+	mi := &file_proto_player_player_proto_msgTypes[94]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4154,7 +4242,7 @@ func (x *SetDataSource1_2Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetDataSource1_2Request.ProtoReflect.Descriptor instead.
 func (*SetDataSource1_2Request) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{92}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{94}
 }
 
 func (x *SetDataSource1_2Request) GetHandle() int64 {
@@ -4179,7 +4267,7 @@ type SetDataSource1_2Response struct {
 
 func (x *SetDataSource1_2Response) Reset() {
 	*x = SetDataSource1_2Response{}
-	mi := &file_proto_player_player_proto_msgTypes[93]
+	mi := &file_proto_player_player_proto_msgTypes[95]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4191,7 +4279,7 @@ func (x *SetDataSource1_2Response) String() string {
 func (*SetDataSource1_2Response) ProtoMessage() {}
 
 func (x *SetDataSource1_2Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[93]
+	mi := &file_proto_player_player_proto_msgTypes[95]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4204,7 +4292,7 @@ func (x *SetDataSource1_2Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetDataSource1_2Response.ProtoReflect.Descriptor instead.
 func (*SetDataSource1_2Response) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{93}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{95}
 }
 
 type SetDataSource1_3Request struct {
@@ -4217,7 +4305,7 @@ type SetDataSource1_3Request struct {
 
 func (x *SetDataSource1_3Request) Reset() {
 	*x = SetDataSource1_3Request{}
-	mi := &file_proto_player_player_proto_msgTypes[94]
+	mi := &file_proto_player_player_proto_msgTypes[96]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4229,7 +4317,7 @@ func (x *SetDataSource1_3Request) String() string {
 func (*SetDataSource1_3Request) ProtoMessage() {}
 
 func (x *SetDataSource1_3Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[94]
+	mi := &file_proto_player_player_proto_msgTypes[96]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4242,7 +4330,7 @@ func (x *SetDataSource1_3Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetDataSource1_3Request.ProtoReflect.Descriptor instead.
 func (*SetDataSource1_3Request) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{94}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{96}
 }
 
 func (x *SetDataSource1_3Request) GetHandle() int64 {
@@ -4267,7 +4355,7 @@ type SetDataSource1_3Response struct {
 
 func (x *SetDataSource1_3Response) Reset() {
 	*x = SetDataSource1_3Response{}
-	mi := &file_proto_player_player_proto_msgTypes[95]
+	mi := &file_proto_player_player_proto_msgTypes[97]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4279,7 +4367,7 @@ func (x *SetDataSource1_3Response) String() string {
 func (*SetDataSource1_3Response) ProtoMessage() {}
 
 func (x *SetDataSource1_3Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[95]
+	mi := &file_proto_player_player_proto_msgTypes[97]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4292,7 +4380,7 @@ func (x *SetDataSource1_3Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetDataSource1_3Response.ProtoReflect.Descriptor instead.
 func (*SetDataSource1_3Response) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{95}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{97}
 }
 
 type SetDataSource3_4Request struct {
@@ -4307,7 +4395,7 @@ type SetDataSource3_4Request struct {
 
 func (x *SetDataSource3_4Request) Reset() {
 	*x = SetDataSource3_4Request{}
-	mi := &file_proto_player_player_proto_msgTypes[96]
+	mi := &file_proto_player_player_proto_msgTypes[98]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4319,7 +4407,7 @@ func (x *SetDataSource3_4Request) String() string {
 func (*SetDataSource3_4Request) ProtoMessage() {}
 
 func (x *SetDataSource3_4Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[96]
+	mi := &file_proto_player_player_proto_msgTypes[98]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4332,7 +4420,7 @@ func (x *SetDataSource3_4Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetDataSource3_4Request.ProtoReflect.Descriptor instead.
 func (*SetDataSource3_4Request) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{96}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{98}
 }
 
 func (x *SetDataSource3_4Request) GetHandle() int64 {
@@ -4371,7 +4459,7 @@ type SetDataSource3_4Response struct {
 
 func (x *SetDataSource3_4Response) Reset() {
 	*x = SetDataSource3_4Response{}
-	mi := &file_proto_player_player_proto_msgTypes[97]
+	mi := &file_proto_player_player_proto_msgTypes[99]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4383,7 +4471,7 @@ func (x *SetDataSource3_4Response) String() string {
 func (*SetDataSource3_4Response) ProtoMessage() {}
 
 func (x *SetDataSource3_4Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[97]
+	mi := &file_proto_player_player_proto_msgTypes[99]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4396,7 +4484,7 @@ func (x *SetDataSource3_4Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetDataSource3_4Response.ProtoReflect.Descriptor instead.
 func (*SetDataSource3_4Response) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{97}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{99}
 }
 
 type SetDataSource1_5Request struct {
@@ -4409,7 +4497,7 @@ type SetDataSource1_5Request struct {
 
 func (x *SetDataSource1_5Request) Reset() {
 	*x = SetDataSource1_5Request{}
-	mi := &file_proto_player_player_proto_msgTypes[98]
+	mi := &file_proto_player_player_proto_msgTypes[100]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4421,7 +4509,7 @@ func (x *SetDataSource1_5Request) String() string {
 func (*SetDataSource1_5Request) ProtoMessage() {}
 
 func (x *SetDataSource1_5Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[98]
+	mi := &file_proto_player_player_proto_msgTypes[100]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4434,7 +4522,7 @@ func (x *SetDataSource1_5Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetDataSource1_5Request.ProtoReflect.Descriptor instead.
 func (*SetDataSource1_5Request) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{98}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{100}
 }
 
 func (x *SetDataSource1_5Request) GetHandle() int64 {
@@ -4459,7 +4547,7 @@ type SetDataSource1_5Response struct {
 
 func (x *SetDataSource1_5Response) Reset() {
 	*x = SetDataSource1_5Response{}
-	mi := &file_proto_player_player_proto_msgTypes[99]
+	mi := &file_proto_player_player_proto_msgTypes[101]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4471,7 +4559,7 @@ func (x *SetDataSource1_5Response) String() string {
 func (*SetDataSource1_5Response) ProtoMessage() {}
 
 func (x *SetDataSource1_5Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[99]
+	mi := &file_proto_player_player_proto_msgTypes[101]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4484,7 +4572,7 @@ func (x *SetDataSource1_5Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetDataSource1_5Response.ProtoReflect.Descriptor instead.
 func (*SetDataSource1_5Response) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{99}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{101}
 }
 
 type SetDisplayRequest struct {
@@ -4497,7 +4585,7 @@ type SetDisplayRequest struct {
 
 func (x *SetDisplayRequest) Reset() {
 	*x = SetDisplayRequest{}
-	mi := &file_proto_player_player_proto_msgTypes[100]
+	mi := &file_proto_player_player_proto_msgTypes[102]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4509,7 +4597,7 @@ func (x *SetDisplayRequest) String() string {
 func (*SetDisplayRequest) ProtoMessage() {}
 
 func (x *SetDisplayRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[100]
+	mi := &file_proto_player_player_proto_msgTypes[102]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4522,7 +4610,7 @@ func (x *SetDisplayRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetDisplayRequest.ProtoReflect.Descriptor instead.
 func (*SetDisplayRequest) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{100}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{102}
 }
 
 func (x *SetDisplayRequest) GetHandle() int64 {
@@ -4547,7 +4635,7 @@ type SetDisplayResponse struct {
 
 func (x *SetDisplayResponse) Reset() {
 	*x = SetDisplayResponse{}
-	mi := &file_proto_player_player_proto_msgTypes[101]
+	mi := &file_proto_player_player_proto_msgTypes[103]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4559,7 +4647,7 @@ func (x *SetDisplayResponse) String() string {
 func (*SetDisplayResponse) ProtoMessage() {}
 
 func (x *SetDisplayResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[101]
+	mi := &file_proto_player_player_proto_msgTypes[103]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4572,7 +4660,7 @@ func (x *SetDisplayResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetDisplayResponse.ProtoReflect.Descriptor instead.
 func (*SetDisplayResponse) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{101}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{103}
 }
 
 type SetDrmPropertyStringRequest struct {
@@ -4586,7 +4674,7 @@ type SetDrmPropertyStringRequest struct {
 
 func (x *SetDrmPropertyStringRequest) Reset() {
 	*x = SetDrmPropertyStringRequest{}
-	mi := &file_proto_player_player_proto_msgTypes[102]
+	mi := &file_proto_player_player_proto_msgTypes[104]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4598,7 +4686,7 @@ func (x *SetDrmPropertyStringRequest) String() string {
 func (*SetDrmPropertyStringRequest) ProtoMessage() {}
 
 func (x *SetDrmPropertyStringRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[102]
+	mi := &file_proto_player_player_proto_msgTypes[104]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4611,7 +4699,7 @@ func (x *SetDrmPropertyStringRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetDrmPropertyStringRequest.ProtoReflect.Descriptor instead.
 func (*SetDrmPropertyStringRequest) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{102}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{104}
 }
 
 func (x *SetDrmPropertyStringRequest) GetHandle() int64 {
@@ -4643,7 +4731,7 @@ type SetDrmPropertyStringResponse struct {
 
 func (x *SetDrmPropertyStringResponse) Reset() {
 	*x = SetDrmPropertyStringResponse{}
-	mi := &file_proto_player_player_proto_msgTypes[103]
+	mi := &file_proto_player_player_proto_msgTypes[105]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4655,7 +4743,7 @@ func (x *SetDrmPropertyStringResponse) String() string {
 func (*SetDrmPropertyStringResponse) ProtoMessage() {}
 
 func (x *SetDrmPropertyStringResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[103]
+	mi := &file_proto_player_player_proto_msgTypes[105]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4668,7 +4756,7 @@ func (x *SetDrmPropertyStringResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetDrmPropertyStringResponse.ProtoReflect.Descriptor instead.
 func (*SetDrmPropertyStringResponse) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{103}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{105}
 }
 
 type SetLoopingRequest struct {
@@ -4681,7 +4769,7 @@ type SetLoopingRequest struct {
 
 func (x *SetLoopingRequest) Reset() {
 	*x = SetLoopingRequest{}
-	mi := &file_proto_player_player_proto_msgTypes[104]
+	mi := &file_proto_player_player_proto_msgTypes[106]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4693,7 +4781,7 @@ func (x *SetLoopingRequest) String() string {
 func (*SetLoopingRequest) ProtoMessage() {}
 
 func (x *SetLoopingRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[104]
+	mi := &file_proto_player_player_proto_msgTypes[106]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4706,7 +4794,7 @@ func (x *SetLoopingRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetLoopingRequest.ProtoReflect.Descriptor instead.
 func (*SetLoopingRequest) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{104}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{106}
 }
 
 func (x *SetLoopingRequest) GetHandle() int64 {
@@ -4731,7 +4819,7 @@ type SetLoopingResponse struct {
 
 func (x *SetLoopingResponse) Reset() {
 	*x = SetLoopingResponse{}
-	mi := &file_proto_player_player_proto_msgTypes[105]
+	mi := &file_proto_player_player_proto_msgTypes[107]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4743,7 +4831,7 @@ func (x *SetLoopingResponse) String() string {
 func (*SetLoopingResponse) ProtoMessage() {}
 
 func (x *SetLoopingResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[105]
+	mi := &file_proto_player_player_proto_msgTypes[107]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4756,7 +4844,7 @@ func (x *SetLoopingResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetLoopingResponse.ProtoReflect.Descriptor instead.
 func (*SetLoopingResponse) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{105}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{107}
 }
 
 type SetNextMediaPlayerRequest struct {
@@ -4769,7 +4857,7 @@ type SetNextMediaPlayerRequest struct {
 
 func (x *SetNextMediaPlayerRequest) Reset() {
 	*x = SetNextMediaPlayerRequest{}
-	mi := &file_proto_player_player_proto_msgTypes[106]
+	mi := &file_proto_player_player_proto_msgTypes[108]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4781,7 +4869,7 @@ func (x *SetNextMediaPlayerRequest) String() string {
 func (*SetNextMediaPlayerRequest) ProtoMessage() {}
 
 func (x *SetNextMediaPlayerRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[106]
+	mi := &file_proto_player_player_proto_msgTypes[108]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4794,7 +4882,7 @@ func (x *SetNextMediaPlayerRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetNextMediaPlayerRequest.ProtoReflect.Descriptor instead.
 func (*SetNextMediaPlayerRequest) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{106}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{108}
 }
 
 func (x *SetNextMediaPlayerRequest) GetHandle() int64 {
@@ -4819,7 +4907,7 @@ type SetNextMediaPlayerResponse struct {
 
 func (x *SetNextMediaPlayerResponse) Reset() {
 	*x = SetNextMediaPlayerResponse{}
-	mi := &file_proto_player_player_proto_msgTypes[107]
+	mi := &file_proto_player_player_proto_msgTypes[109]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4831,7 +4919,7 @@ func (x *SetNextMediaPlayerResponse) String() string {
 func (*SetNextMediaPlayerResponse) ProtoMessage() {}
 
 func (x *SetNextMediaPlayerResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[107]
+	mi := &file_proto_player_player_proto_msgTypes[109]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4844,7 +4932,7 @@ func (x *SetNextMediaPlayerResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetNextMediaPlayerResponse.ProtoReflect.Descriptor instead.
 func (*SetNextMediaPlayerResponse) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{107}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{109}
 }
 
 type SetOnBufferingUpdateListenerRequest struct {
@@ -4857,7 +4945,7 @@ type SetOnBufferingUpdateListenerRequest struct {
 
 func (x *SetOnBufferingUpdateListenerRequest) Reset() {
 	*x = SetOnBufferingUpdateListenerRequest{}
-	mi := &file_proto_player_player_proto_msgTypes[108]
+	mi := &file_proto_player_player_proto_msgTypes[110]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4869,7 +4957,7 @@ func (x *SetOnBufferingUpdateListenerRequest) String() string {
 func (*SetOnBufferingUpdateListenerRequest) ProtoMessage() {}
 
 func (x *SetOnBufferingUpdateListenerRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[108]
+	mi := &file_proto_player_player_proto_msgTypes[110]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4882,7 +4970,7 @@ func (x *SetOnBufferingUpdateListenerRequest) ProtoReflect() protoreflect.Messag
 
 // Deprecated: Use SetOnBufferingUpdateListenerRequest.ProtoReflect.Descriptor instead.
 func (*SetOnBufferingUpdateListenerRequest) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{108}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{110}
 }
 
 func (x *SetOnBufferingUpdateListenerRequest) GetHandle() int64 {
@@ -4907,7 +4995,7 @@ type SetOnBufferingUpdateListenerResponse struct {
 
 func (x *SetOnBufferingUpdateListenerResponse) Reset() {
 	*x = SetOnBufferingUpdateListenerResponse{}
-	mi := &file_proto_player_player_proto_msgTypes[109]
+	mi := &file_proto_player_player_proto_msgTypes[111]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4919,7 +5007,7 @@ func (x *SetOnBufferingUpdateListenerResponse) String() string {
 func (*SetOnBufferingUpdateListenerResponse) ProtoMessage() {}
 
 func (x *SetOnBufferingUpdateListenerResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[109]
+	mi := &file_proto_player_player_proto_msgTypes[111]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4932,7 +5020,7 @@ func (x *SetOnBufferingUpdateListenerResponse) ProtoReflect() protoreflect.Messa
 
 // Deprecated: Use SetOnBufferingUpdateListenerResponse.ProtoReflect.Descriptor instead.
 func (*SetOnBufferingUpdateListenerResponse) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{109}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{111}
 }
 
 type SetOnCompletionListenerRequest struct {
@@ -4945,7 +5033,7 @@ type SetOnCompletionListenerRequest struct {
 
 func (x *SetOnCompletionListenerRequest) Reset() {
 	*x = SetOnCompletionListenerRequest{}
-	mi := &file_proto_player_player_proto_msgTypes[110]
+	mi := &file_proto_player_player_proto_msgTypes[112]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4957,7 +5045,7 @@ func (x *SetOnCompletionListenerRequest) String() string {
 func (*SetOnCompletionListenerRequest) ProtoMessage() {}
 
 func (x *SetOnCompletionListenerRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[110]
+	mi := &file_proto_player_player_proto_msgTypes[112]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4970,7 +5058,7 @@ func (x *SetOnCompletionListenerRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetOnCompletionListenerRequest.ProtoReflect.Descriptor instead.
 func (*SetOnCompletionListenerRequest) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{110}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{112}
 }
 
 func (x *SetOnCompletionListenerRequest) GetHandle() int64 {
@@ -4995,7 +5083,7 @@ type SetOnCompletionListenerResponse struct {
 
 func (x *SetOnCompletionListenerResponse) Reset() {
 	*x = SetOnCompletionListenerResponse{}
-	mi := &file_proto_player_player_proto_msgTypes[111]
+	mi := &file_proto_player_player_proto_msgTypes[113]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5007,7 +5095,7 @@ func (x *SetOnCompletionListenerResponse) String() string {
 func (*SetOnCompletionListenerResponse) ProtoMessage() {}
 
 func (x *SetOnCompletionListenerResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[111]
+	mi := &file_proto_player_player_proto_msgTypes[113]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5020,7 +5108,7 @@ func (x *SetOnCompletionListenerResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetOnCompletionListenerResponse.ProtoReflect.Descriptor instead.
 func (*SetOnCompletionListenerResponse) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{111}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{113}
 }
 
 type SetOnDrmConfigHelperRequest struct {
@@ -5033,7 +5121,7 @@ type SetOnDrmConfigHelperRequest struct {
 
 func (x *SetOnDrmConfigHelperRequest) Reset() {
 	*x = SetOnDrmConfigHelperRequest{}
-	mi := &file_proto_player_player_proto_msgTypes[112]
+	mi := &file_proto_player_player_proto_msgTypes[114]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5045,7 +5133,7 @@ func (x *SetOnDrmConfigHelperRequest) String() string {
 func (*SetOnDrmConfigHelperRequest) ProtoMessage() {}
 
 func (x *SetOnDrmConfigHelperRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[112]
+	mi := &file_proto_player_player_proto_msgTypes[114]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5058,7 +5146,7 @@ func (x *SetOnDrmConfigHelperRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetOnDrmConfigHelperRequest.ProtoReflect.Descriptor instead.
 func (*SetOnDrmConfigHelperRequest) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{112}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{114}
 }
 
 func (x *SetOnDrmConfigHelperRequest) GetHandle() int64 {
@@ -5083,7 +5171,7 @@ type SetOnDrmConfigHelperResponse struct {
 
 func (x *SetOnDrmConfigHelperResponse) Reset() {
 	*x = SetOnDrmConfigHelperResponse{}
-	mi := &file_proto_player_player_proto_msgTypes[113]
+	mi := &file_proto_player_player_proto_msgTypes[115]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5095,7 +5183,7 @@ func (x *SetOnDrmConfigHelperResponse) String() string {
 func (*SetOnDrmConfigHelperResponse) ProtoMessage() {}
 
 func (x *SetOnDrmConfigHelperResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[113]
+	mi := &file_proto_player_player_proto_msgTypes[115]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5108,7 +5196,7 @@ func (x *SetOnDrmConfigHelperResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetOnDrmConfigHelperResponse.ProtoReflect.Descriptor instead.
 func (*SetOnDrmConfigHelperResponse) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{113}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{115}
 }
 
 type SetOnDrmInfoListenerRequest struct {
@@ -5121,7 +5209,7 @@ type SetOnDrmInfoListenerRequest struct {
 
 func (x *SetOnDrmInfoListenerRequest) Reset() {
 	*x = SetOnDrmInfoListenerRequest{}
-	mi := &file_proto_player_player_proto_msgTypes[114]
+	mi := &file_proto_player_player_proto_msgTypes[116]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5133,7 +5221,7 @@ func (x *SetOnDrmInfoListenerRequest) String() string {
 func (*SetOnDrmInfoListenerRequest) ProtoMessage() {}
 
 func (x *SetOnDrmInfoListenerRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[114]
+	mi := &file_proto_player_player_proto_msgTypes[116]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5146,7 +5234,7 @@ func (x *SetOnDrmInfoListenerRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetOnDrmInfoListenerRequest.ProtoReflect.Descriptor instead.
 func (*SetOnDrmInfoListenerRequest) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{114}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{116}
 }
 
 func (x *SetOnDrmInfoListenerRequest) GetHandle() int64 {
@@ -5171,7 +5259,7 @@ type SetOnDrmInfoListenerResponse struct {
 
 func (x *SetOnDrmInfoListenerResponse) Reset() {
 	*x = SetOnDrmInfoListenerResponse{}
-	mi := &file_proto_player_player_proto_msgTypes[115]
+	mi := &file_proto_player_player_proto_msgTypes[117]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5183,7 +5271,7 @@ func (x *SetOnDrmInfoListenerResponse) String() string {
 func (*SetOnDrmInfoListenerResponse) ProtoMessage() {}
 
 func (x *SetOnDrmInfoListenerResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[115]
+	mi := &file_proto_player_player_proto_msgTypes[117]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5196,7 +5284,7 @@ func (x *SetOnDrmInfoListenerResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetOnDrmInfoListenerResponse.ProtoReflect.Descriptor instead.
 func (*SetOnDrmInfoListenerResponse) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{115}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{117}
 }
 
 type SetOnDrmPreparedListenerRequest struct {
@@ -5209,7 +5297,7 @@ type SetOnDrmPreparedListenerRequest struct {
 
 func (x *SetOnDrmPreparedListenerRequest) Reset() {
 	*x = SetOnDrmPreparedListenerRequest{}
-	mi := &file_proto_player_player_proto_msgTypes[116]
+	mi := &file_proto_player_player_proto_msgTypes[118]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5221,7 +5309,7 @@ func (x *SetOnDrmPreparedListenerRequest) String() string {
 func (*SetOnDrmPreparedListenerRequest) ProtoMessage() {}
 
 func (x *SetOnDrmPreparedListenerRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[116]
+	mi := &file_proto_player_player_proto_msgTypes[118]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5234,7 +5322,7 @@ func (x *SetOnDrmPreparedListenerRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetOnDrmPreparedListenerRequest.ProtoReflect.Descriptor instead.
 func (*SetOnDrmPreparedListenerRequest) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{116}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{118}
 }
 
 func (x *SetOnDrmPreparedListenerRequest) GetHandle() int64 {
@@ -5259,7 +5347,7 @@ type SetOnDrmPreparedListenerResponse struct {
 
 func (x *SetOnDrmPreparedListenerResponse) Reset() {
 	*x = SetOnDrmPreparedListenerResponse{}
-	mi := &file_proto_player_player_proto_msgTypes[117]
+	mi := &file_proto_player_player_proto_msgTypes[119]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5271,7 +5359,7 @@ func (x *SetOnDrmPreparedListenerResponse) String() string {
 func (*SetOnDrmPreparedListenerResponse) ProtoMessage() {}
 
 func (x *SetOnDrmPreparedListenerResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[117]
+	mi := &file_proto_player_player_proto_msgTypes[119]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5284,7 +5372,7 @@ func (x *SetOnDrmPreparedListenerResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetOnDrmPreparedListenerResponse.ProtoReflect.Descriptor instead.
 func (*SetOnDrmPreparedListenerResponse) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{117}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{119}
 }
 
 type SetOnErrorListenerRequest struct {
@@ -5297,7 +5385,7 @@ type SetOnErrorListenerRequest struct {
 
 func (x *SetOnErrorListenerRequest) Reset() {
 	*x = SetOnErrorListenerRequest{}
-	mi := &file_proto_player_player_proto_msgTypes[118]
+	mi := &file_proto_player_player_proto_msgTypes[120]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5309,7 +5397,7 @@ func (x *SetOnErrorListenerRequest) String() string {
 func (*SetOnErrorListenerRequest) ProtoMessage() {}
 
 func (x *SetOnErrorListenerRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[118]
+	mi := &file_proto_player_player_proto_msgTypes[120]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5322,7 +5410,7 @@ func (x *SetOnErrorListenerRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetOnErrorListenerRequest.ProtoReflect.Descriptor instead.
 func (*SetOnErrorListenerRequest) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{118}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{120}
 }
 
 func (x *SetOnErrorListenerRequest) GetHandle() int64 {
@@ -5347,7 +5435,7 @@ type SetOnErrorListenerResponse struct {
 
 func (x *SetOnErrorListenerResponse) Reset() {
 	*x = SetOnErrorListenerResponse{}
-	mi := &file_proto_player_player_proto_msgTypes[119]
+	mi := &file_proto_player_player_proto_msgTypes[121]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5359,7 +5447,7 @@ func (x *SetOnErrorListenerResponse) String() string {
 func (*SetOnErrorListenerResponse) ProtoMessage() {}
 
 func (x *SetOnErrorListenerResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[119]
+	mi := &file_proto_player_player_proto_msgTypes[121]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5372,7 +5460,7 @@ func (x *SetOnErrorListenerResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetOnErrorListenerResponse.ProtoReflect.Descriptor instead.
 func (*SetOnErrorListenerResponse) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{119}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{121}
 }
 
 type SetOnInfoListenerRequest struct {
@@ -5385,7 +5473,7 @@ type SetOnInfoListenerRequest struct {
 
 func (x *SetOnInfoListenerRequest) Reset() {
 	*x = SetOnInfoListenerRequest{}
-	mi := &file_proto_player_player_proto_msgTypes[120]
+	mi := &file_proto_player_player_proto_msgTypes[122]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5397,7 +5485,7 @@ func (x *SetOnInfoListenerRequest) String() string {
 func (*SetOnInfoListenerRequest) ProtoMessage() {}
 
 func (x *SetOnInfoListenerRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[120]
+	mi := &file_proto_player_player_proto_msgTypes[122]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5410,7 +5498,7 @@ func (x *SetOnInfoListenerRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetOnInfoListenerRequest.ProtoReflect.Descriptor instead.
 func (*SetOnInfoListenerRequest) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{120}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{122}
 }
 
 func (x *SetOnInfoListenerRequest) GetHandle() int64 {
@@ -5435,7 +5523,7 @@ type SetOnInfoListenerResponse struct {
 
 func (x *SetOnInfoListenerResponse) Reset() {
 	*x = SetOnInfoListenerResponse{}
-	mi := &file_proto_player_player_proto_msgTypes[121]
+	mi := &file_proto_player_player_proto_msgTypes[123]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5447,7 +5535,7 @@ func (x *SetOnInfoListenerResponse) String() string {
 func (*SetOnInfoListenerResponse) ProtoMessage() {}
 
 func (x *SetOnInfoListenerResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[121]
+	mi := &file_proto_player_player_proto_msgTypes[123]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5460,7 +5548,7 @@ func (x *SetOnInfoListenerResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetOnInfoListenerResponse.ProtoReflect.Descriptor instead.
 func (*SetOnInfoListenerResponse) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{121}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{123}
 }
 
 type SetOnMediaTimeDiscontinuityListenerRequest struct {
@@ -5473,7 +5561,7 @@ type SetOnMediaTimeDiscontinuityListenerRequest struct {
 
 func (x *SetOnMediaTimeDiscontinuityListenerRequest) Reset() {
 	*x = SetOnMediaTimeDiscontinuityListenerRequest{}
-	mi := &file_proto_player_player_proto_msgTypes[122]
+	mi := &file_proto_player_player_proto_msgTypes[124]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5485,7 +5573,7 @@ func (x *SetOnMediaTimeDiscontinuityListenerRequest) String() string {
 func (*SetOnMediaTimeDiscontinuityListenerRequest) ProtoMessage() {}
 
 func (x *SetOnMediaTimeDiscontinuityListenerRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[122]
+	mi := &file_proto_player_player_proto_msgTypes[124]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5498,7 +5586,7 @@ func (x *SetOnMediaTimeDiscontinuityListenerRequest) ProtoReflect() protoreflect
 
 // Deprecated: Use SetOnMediaTimeDiscontinuityListenerRequest.ProtoReflect.Descriptor instead.
 func (*SetOnMediaTimeDiscontinuityListenerRequest) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{122}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{124}
 }
 
 func (x *SetOnMediaTimeDiscontinuityListenerRequest) GetHandle() int64 {
@@ -5523,7 +5611,7 @@ type SetOnMediaTimeDiscontinuityListenerResponse struct {
 
 func (x *SetOnMediaTimeDiscontinuityListenerResponse) Reset() {
 	*x = SetOnMediaTimeDiscontinuityListenerResponse{}
-	mi := &file_proto_player_player_proto_msgTypes[123]
+	mi := &file_proto_player_player_proto_msgTypes[125]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5535,7 +5623,7 @@ func (x *SetOnMediaTimeDiscontinuityListenerResponse) String() string {
 func (*SetOnMediaTimeDiscontinuityListenerResponse) ProtoMessage() {}
 
 func (x *SetOnMediaTimeDiscontinuityListenerResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[123]
+	mi := &file_proto_player_player_proto_msgTypes[125]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5548,7 +5636,7 @@ func (x *SetOnMediaTimeDiscontinuityListenerResponse) ProtoReflect() protoreflec
 
 // Deprecated: Use SetOnMediaTimeDiscontinuityListenerResponse.ProtoReflect.Descriptor instead.
 func (*SetOnMediaTimeDiscontinuityListenerResponse) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{123}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{125}
 }
 
 type SetOnPreparedListenerRequest struct {
@@ -5561,7 +5649,7 @@ type SetOnPreparedListenerRequest struct {
 
 func (x *SetOnPreparedListenerRequest) Reset() {
 	*x = SetOnPreparedListenerRequest{}
-	mi := &file_proto_player_player_proto_msgTypes[124]
+	mi := &file_proto_player_player_proto_msgTypes[126]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5573,7 +5661,7 @@ func (x *SetOnPreparedListenerRequest) String() string {
 func (*SetOnPreparedListenerRequest) ProtoMessage() {}
 
 func (x *SetOnPreparedListenerRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[124]
+	mi := &file_proto_player_player_proto_msgTypes[126]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5586,7 +5674,7 @@ func (x *SetOnPreparedListenerRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetOnPreparedListenerRequest.ProtoReflect.Descriptor instead.
 func (*SetOnPreparedListenerRequest) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{124}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{126}
 }
 
 func (x *SetOnPreparedListenerRequest) GetHandle() int64 {
@@ -5611,7 +5699,7 @@ type SetOnPreparedListenerResponse struct {
 
 func (x *SetOnPreparedListenerResponse) Reset() {
 	*x = SetOnPreparedListenerResponse{}
-	mi := &file_proto_player_player_proto_msgTypes[125]
+	mi := &file_proto_player_player_proto_msgTypes[127]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5623,7 +5711,7 @@ func (x *SetOnPreparedListenerResponse) String() string {
 func (*SetOnPreparedListenerResponse) ProtoMessage() {}
 
 func (x *SetOnPreparedListenerResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[125]
+	mi := &file_proto_player_player_proto_msgTypes[127]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5636,7 +5724,7 @@ func (x *SetOnPreparedListenerResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetOnPreparedListenerResponse.ProtoReflect.Descriptor instead.
 func (*SetOnPreparedListenerResponse) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{125}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{127}
 }
 
 type SetOnSeekCompleteListenerRequest struct {
@@ -5649,7 +5737,7 @@ type SetOnSeekCompleteListenerRequest struct {
 
 func (x *SetOnSeekCompleteListenerRequest) Reset() {
 	*x = SetOnSeekCompleteListenerRequest{}
-	mi := &file_proto_player_player_proto_msgTypes[126]
+	mi := &file_proto_player_player_proto_msgTypes[128]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5661,7 +5749,7 @@ func (x *SetOnSeekCompleteListenerRequest) String() string {
 func (*SetOnSeekCompleteListenerRequest) ProtoMessage() {}
 
 func (x *SetOnSeekCompleteListenerRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[126]
+	mi := &file_proto_player_player_proto_msgTypes[128]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5674,7 +5762,7 @@ func (x *SetOnSeekCompleteListenerRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetOnSeekCompleteListenerRequest.ProtoReflect.Descriptor instead.
 func (*SetOnSeekCompleteListenerRequest) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{126}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{128}
 }
 
 func (x *SetOnSeekCompleteListenerRequest) GetHandle() int64 {
@@ -5699,7 +5787,7 @@ type SetOnSeekCompleteListenerResponse struct {
 
 func (x *SetOnSeekCompleteListenerResponse) Reset() {
 	*x = SetOnSeekCompleteListenerResponse{}
-	mi := &file_proto_player_player_proto_msgTypes[127]
+	mi := &file_proto_player_player_proto_msgTypes[129]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5711,7 +5799,7 @@ func (x *SetOnSeekCompleteListenerResponse) String() string {
 func (*SetOnSeekCompleteListenerResponse) ProtoMessage() {}
 
 func (x *SetOnSeekCompleteListenerResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[127]
+	mi := &file_proto_player_player_proto_msgTypes[129]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5724,7 +5812,7 @@ func (x *SetOnSeekCompleteListenerResponse) ProtoReflect() protoreflect.Message 
 
 // Deprecated: Use SetOnSeekCompleteListenerResponse.ProtoReflect.Descriptor instead.
 func (*SetOnSeekCompleteListenerResponse) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{127}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{129}
 }
 
 type SetOnSubtitleDataListenerRequest struct {
@@ -5737,7 +5825,7 @@ type SetOnSubtitleDataListenerRequest struct {
 
 func (x *SetOnSubtitleDataListenerRequest) Reset() {
 	*x = SetOnSubtitleDataListenerRequest{}
-	mi := &file_proto_player_player_proto_msgTypes[128]
+	mi := &file_proto_player_player_proto_msgTypes[130]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5749,7 +5837,7 @@ func (x *SetOnSubtitleDataListenerRequest) String() string {
 func (*SetOnSubtitleDataListenerRequest) ProtoMessage() {}
 
 func (x *SetOnSubtitleDataListenerRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[128]
+	mi := &file_proto_player_player_proto_msgTypes[130]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5762,7 +5850,7 @@ func (x *SetOnSubtitleDataListenerRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetOnSubtitleDataListenerRequest.ProtoReflect.Descriptor instead.
 func (*SetOnSubtitleDataListenerRequest) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{128}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{130}
 }
 
 func (x *SetOnSubtitleDataListenerRequest) GetHandle() int64 {
@@ -5787,7 +5875,7 @@ type SetOnSubtitleDataListenerResponse struct {
 
 func (x *SetOnSubtitleDataListenerResponse) Reset() {
 	*x = SetOnSubtitleDataListenerResponse{}
-	mi := &file_proto_player_player_proto_msgTypes[129]
+	mi := &file_proto_player_player_proto_msgTypes[131]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5799,7 +5887,7 @@ func (x *SetOnSubtitleDataListenerResponse) String() string {
 func (*SetOnSubtitleDataListenerResponse) ProtoMessage() {}
 
 func (x *SetOnSubtitleDataListenerResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[129]
+	mi := &file_proto_player_player_proto_msgTypes[131]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5812,7 +5900,7 @@ func (x *SetOnSubtitleDataListenerResponse) ProtoReflect() protoreflect.Message 
 
 // Deprecated: Use SetOnSubtitleDataListenerResponse.ProtoReflect.Descriptor instead.
 func (*SetOnSubtitleDataListenerResponse) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{129}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{131}
 }
 
 type SetOnTimedMetaDataAvailableListenerRequest struct {
@@ -5825,7 +5913,7 @@ type SetOnTimedMetaDataAvailableListenerRequest struct {
 
 func (x *SetOnTimedMetaDataAvailableListenerRequest) Reset() {
 	*x = SetOnTimedMetaDataAvailableListenerRequest{}
-	mi := &file_proto_player_player_proto_msgTypes[130]
+	mi := &file_proto_player_player_proto_msgTypes[132]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5837,7 +5925,7 @@ func (x *SetOnTimedMetaDataAvailableListenerRequest) String() string {
 func (*SetOnTimedMetaDataAvailableListenerRequest) ProtoMessage() {}
 
 func (x *SetOnTimedMetaDataAvailableListenerRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[130]
+	mi := &file_proto_player_player_proto_msgTypes[132]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5850,7 +5938,7 @@ func (x *SetOnTimedMetaDataAvailableListenerRequest) ProtoReflect() protoreflect
 
 // Deprecated: Use SetOnTimedMetaDataAvailableListenerRequest.ProtoReflect.Descriptor instead.
 func (*SetOnTimedMetaDataAvailableListenerRequest) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{130}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{132}
 }
 
 func (x *SetOnTimedMetaDataAvailableListenerRequest) GetHandle() int64 {
@@ -5875,7 +5963,7 @@ type SetOnTimedMetaDataAvailableListenerResponse struct {
 
 func (x *SetOnTimedMetaDataAvailableListenerResponse) Reset() {
 	*x = SetOnTimedMetaDataAvailableListenerResponse{}
-	mi := &file_proto_player_player_proto_msgTypes[131]
+	mi := &file_proto_player_player_proto_msgTypes[133]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5887,7 +5975,7 @@ func (x *SetOnTimedMetaDataAvailableListenerResponse) String() string {
 func (*SetOnTimedMetaDataAvailableListenerResponse) ProtoMessage() {}
 
 func (x *SetOnTimedMetaDataAvailableListenerResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[131]
+	mi := &file_proto_player_player_proto_msgTypes[133]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5900,7 +5988,7 @@ func (x *SetOnTimedMetaDataAvailableListenerResponse) ProtoReflect() protoreflec
 
 // Deprecated: Use SetOnTimedMetaDataAvailableListenerResponse.ProtoReflect.Descriptor instead.
 func (*SetOnTimedMetaDataAvailableListenerResponse) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{131}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{133}
 }
 
 type SetOnTimedTextListenerRequest struct {
@@ -5913,7 +6001,7 @@ type SetOnTimedTextListenerRequest struct {
 
 func (x *SetOnTimedTextListenerRequest) Reset() {
 	*x = SetOnTimedTextListenerRequest{}
-	mi := &file_proto_player_player_proto_msgTypes[132]
+	mi := &file_proto_player_player_proto_msgTypes[134]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5925,7 +6013,7 @@ func (x *SetOnTimedTextListenerRequest) String() string {
 func (*SetOnTimedTextListenerRequest) ProtoMessage() {}
 
 func (x *SetOnTimedTextListenerRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[132]
+	mi := &file_proto_player_player_proto_msgTypes[134]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5938,7 +6026,7 @@ func (x *SetOnTimedTextListenerRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetOnTimedTextListenerRequest.ProtoReflect.Descriptor instead.
 func (*SetOnTimedTextListenerRequest) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{132}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{134}
 }
 
 func (x *SetOnTimedTextListenerRequest) GetHandle() int64 {
@@ -5963,7 +6051,7 @@ type SetOnTimedTextListenerResponse struct {
 
 func (x *SetOnTimedTextListenerResponse) Reset() {
 	*x = SetOnTimedTextListenerResponse{}
-	mi := &file_proto_player_player_proto_msgTypes[133]
+	mi := &file_proto_player_player_proto_msgTypes[135]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5975,7 +6063,7 @@ func (x *SetOnTimedTextListenerResponse) String() string {
 func (*SetOnTimedTextListenerResponse) ProtoMessage() {}
 
 func (x *SetOnTimedTextListenerResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[133]
+	mi := &file_proto_player_player_proto_msgTypes[135]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5988,7 +6076,7 @@ func (x *SetOnTimedTextListenerResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetOnTimedTextListenerResponse.ProtoReflect.Descriptor instead.
 func (*SetOnTimedTextListenerResponse) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{133}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{135}
 }
 
 type SetOnVideoSizeChangedListenerRequest struct {
@@ -6001,7 +6089,7 @@ type SetOnVideoSizeChangedListenerRequest struct {
 
 func (x *SetOnVideoSizeChangedListenerRequest) Reset() {
 	*x = SetOnVideoSizeChangedListenerRequest{}
-	mi := &file_proto_player_player_proto_msgTypes[134]
+	mi := &file_proto_player_player_proto_msgTypes[136]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6013,7 +6101,7 @@ func (x *SetOnVideoSizeChangedListenerRequest) String() string {
 func (*SetOnVideoSizeChangedListenerRequest) ProtoMessage() {}
 
 func (x *SetOnVideoSizeChangedListenerRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[134]
+	mi := &file_proto_player_player_proto_msgTypes[136]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6026,7 +6114,7 @@ func (x *SetOnVideoSizeChangedListenerRequest) ProtoReflect() protoreflect.Messa
 
 // Deprecated: Use SetOnVideoSizeChangedListenerRequest.ProtoReflect.Descriptor instead.
 func (*SetOnVideoSizeChangedListenerRequest) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{134}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{136}
 }
 
 func (x *SetOnVideoSizeChangedListenerRequest) GetHandle() int64 {
@@ -6051,7 +6139,7 @@ type SetOnVideoSizeChangedListenerResponse struct {
 
 func (x *SetOnVideoSizeChangedListenerResponse) Reset() {
 	*x = SetOnVideoSizeChangedListenerResponse{}
-	mi := &file_proto_player_player_proto_msgTypes[135]
+	mi := &file_proto_player_player_proto_msgTypes[137]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6063,7 +6151,7 @@ func (x *SetOnVideoSizeChangedListenerResponse) String() string {
 func (*SetOnVideoSizeChangedListenerResponse) ProtoMessage() {}
 
 func (x *SetOnVideoSizeChangedListenerResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[135]
+	mi := &file_proto_player_player_proto_msgTypes[137]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6076,7 +6164,7 @@ func (x *SetOnVideoSizeChangedListenerResponse) ProtoReflect() protoreflect.Mess
 
 // Deprecated: Use SetOnVideoSizeChangedListenerResponse.ProtoReflect.Descriptor instead.
 func (*SetOnVideoSizeChangedListenerResponse) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{135}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{137}
 }
 
 type SetPlaybackParamsRequest struct {
@@ -6089,7 +6177,7 @@ type SetPlaybackParamsRequest struct {
 
 func (x *SetPlaybackParamsRequest) Reset() {
 	*x = SetPlaybackParamsRequest{}
-	mi := &file_proto_player_player_proto_msgTypes[136]
+	mi := &file_proto_player_player_proto_msgTypes[138]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6101,7 +6189,7 @@ func (x *SetPlaybackParamsRequest) String() string {
 func (*SetPlaybackParamsRequest) ProtoMessage() {}
 
 func (x *SetPlaybackParamsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[136]
+	mi := &file_proto_player_player_proto_msgTypes[138]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6114,7 +6202,7 @@ func (x *SetPlaybackParamsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetPlaybackParamsRequest.ProtoReflect.Descriptor instead.
 func (*SetPlaybackParamsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{136}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{138}
 }
 
 func (x *SetPlaybackParamsRequest) GetHandle() int64 {
@@ -6139,7 +6227,7 @@ type SetPlaybackParamsResponse struct {
 
 func (x *SetPlaybackParamsResponse) Reset() {
 	*x = SetPlaybackParamsResponse{}
-	mi := &file_proto_player_player_proto_msgTypes[137]
+	mi := &file_proto_player_player_proto_msgTypes[139]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6151,7 +6239,7 @@ func (x *SetPlaybackParamsResponse) String() string {
 func (*SetPlaybackParamsResponse) ProtoMessage() {}
 
 func (x *SetPlaybackParamsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[137]
+	mi := &file_proto_player_player_proto_msgTypes[139]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6164,7 +6252,7 @@ func (x *SetPlaybackParamsResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetPlaybackParamsResponse.ProtoReflect.Descriptor instead.
 func (*SetPlaybackParamsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{137}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{139}
 }
 
 type SetPreferredDeviceRequest struct {
@@ -6177,7 +6265,7 @@ type SetPreferredDeviceRequest struct {
 
 func (x *SetPreferredDeviceRequest) Reset() {
 	*x = SetPreferredDeviceRequest{}
-	mi := &file_proto_player_player_proto_msgTypes[138]
+	mi := &file_proto_player_player_proto_msgTypes[140]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6189,7 +6277,7 @@ func (x *SetPreferredDeviceRequest) String() string {
 func (*SetPreferredDeviceRequest) ProtoMessage() {}
 
 func (x *SetPreferredDeviceRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[138]
+	mi := &file_proto_player_player_proto_msgTypes[140]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6202,7 +6290,7 @@ func (x *SetPreferredDeviceRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetPreferredDeviceRequest.ProtoReflect.Descriptor instead.
 func (*SetPreferredDeviceRequest) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{138}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{140}
 }
 
 func (x *SetPreferredDeviceRequest) GetHandle() int64 {
@@ -6228,7 +6316,7 @@ type SetPreferredDeviceResponse struct {
 
 func (x *SetPreferredDeviceResponse) Reset() {
 	*x = SetPreferredDeviceResponse{}
-	mi := &file_proto_player_player_proto_msgTypes[139]
+	mi := &file_proto_player_player_proto_msgTypes[141]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6240,7 +6328,7 @@ func (x *SetPreferredDeviceResponse) String() string {
 func (*SetPreferredDeviceResponse) ProtoMessage() {}
 
 func (x *SetPreferredDeviceResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[139]
+	mi := &file_proto_player_player_proto_msgTypes[141]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6253,7 +6341,7 @@ func (x *SetPreferredDeviceResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetPreferredDeviceResponse.ProtoReflect.Descriptor instead.
 func (*SetPreferredDeviceResponse) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{139}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{141}
 }
 
 func (x *SetPreferredDeviceResponse) GetResult() bool {
@@ -6273,7 +6361,7 @@ type SetScreenOnWhilePlayingRequest struct {
 
 func (x *SetScreenOnWhilePlayingRequest) Reset() {
 	*x = SetScreenOnWhilePlayingRequest{}
-	mi := &file_proto_player_player_proto_msgTypes[140]
+	mi := &file_proto_player_player_proto_msgTypes[142]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6285,7 +6373,7 @@ func (x *SetScreenOnWhilePlayingRequest) String() string {
 func (*SetScreenOnWhilePlayingRequest) ProtoMessage() {}
 
 func (x *SetScreenOnWhilePlayingRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[140]
+	mi := &file_proto_player_player_proto_msgTypes[142]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6298,7 +6386,7 @@ func (x *SetScreenOnWhilePlayingRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetScreenOnWhilePlayingRequest.ProtoReflect.Descriptor instead.
 func (*SetScreenOnWhilePlayingRequest) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{140}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{142}
 }
 
 func (x *SetScreenOnWhilePlayingRequest) GetHandle() int64 {
@@ -6323,7 +6411,7 @@ type SetScreenOnWhilePlayingResponse struct {
 
 func (x *SetScreenOnWhilePlayingResponse) Reset() {
 	*x = SetScreenOnWhilePlayingResponse{}
-	mi := &file_proto_player_player_proto_msgTypes[141]
+	mi := &file_proto_player_player_proto_msgTypes[143]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6335,7 +6423,7 @@ func (x *SetScreenOnWhilePlayingResponse) String() string {
 func (*SetScreenOnWhilePlayingResponse) ProtoMessage() {}
 
 func (x *SetScreenOnWhilePlayingResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[141]
+	mi := &file_proto_player_player_proto_msgTypes[143]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6348,7 +6436,7 @@ func (x *SetScreenOnWhilePlayingResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetScreenOnWhilePlayingResponse.ProtoReflect.Descriptor instead.
 func (*SetScreenOnWhilePlayingResponse) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{141}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{143}
 }
 
 type SetSurfaceRequest struct {
@@ -6361,7 +6449,7 @@ type SetSurfaceRequest struct {
 
 func (x *SetSurfaceRequest) Reset() {
 	*x = SetSurfaceRequest{}
-	mi := &file_proto_player_player_proto_msgTypes[142]
+	mi := &file_proto_player_player_proto_msgTypes[144]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6373,7 +6461,7 @@ func (x *SetSurfaceRequest) String() string {
 func (*SetSurfaceRequest) ProtoMessage() {}
 
 func (x *SetSurfaceRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[142]
+	mi := &file_proto_player_player_proto_msgTypes[144]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6386,7 +6474,7 @@ func (x *SetSurfaceRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetSurfaceRequest.ProtoReflect.Descriptor instead.
 func (*SetSurfaceRequest) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{142}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{144}
 }
 
 func (x *SetSurfaceRequest) GetHandle() int64 {
@@ -6411,7 +6499,7 @@ type SetSurfaceResponse struct {
 
 func (x *SetSurfaceResponse) Reset() {
 	*x = SetSurfaceResponse{}
-	mi := &file_proto_player_player_proto_msgTypes[143]
+	mi := &file_proto_player_player_proto_msgTypes[145]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6423,7 +6511,7 @@ func (x *SetSurfaceResponse) String() string {
 func (*SetSurfaceResponse) ProtoMessage() {}
 
 func (x *SetSurfaceResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[143]
+	mi := &file_proto_player_player_proto_msgTypes[145]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6436,7 +6524,7 @@ func (x *SetSurfaceResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetSurfaceResponse.ProtoReflect.Descriptor instead.
 func (*SetSurfaceResponse) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{143}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{145}
 }
 
 type SetSyncParamsRequest struct {
@@ -6449,7 +6537,7 @@ type SetSyncParamsRequest struct {
 
 func (x *SetSyncParamsRequest) Reset() {
 	*x = SetSyncParamsRequest{}
-	mi := &file_proto_player_player_proto_msgTypes[144]
+	mi := &file_proto_player_player_proto_msgTypes[146]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6461,7 +6549,7 @@ func (x *SetSyncParamsRequest) String() string {
 func (*SetSyncParamsRequest) ProtoMessage() {}
 
 func (x *SetSyncParamsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[144]
+	mi := &file_proto_player_player_proto_msgTypes[146]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6474,7 +6562,7 @@ func (x *SetSyncParamsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetSyncParamsRequest.ProtoReflect.Descriptor instead.
 func (*SetSyncParamsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{144}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{146}
 }
 
 func (x *SetSyncParamsRequest) GetHandle() int64 {
@@ -6499,7 +6587,7 @@ type SetSyncParamsResponse struct {
 
 func (x *SetSyncParamsResponse) Reset() {
 	*x = SetSyncParamsResponse{}
-	mi := &file_proto_player_player_proto_msgTypes[145]
+	mi := &file_proto_player_player_proto_msgTypes[147]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6511,7 +6599,7 @@ func (x *SetSyncParamsResponse) String() string {
 func (*SetSyncParamsResponse) ProtoMessage() {}
 
 func (x *SetSyncParamsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[145]
+	mi := &file_proto_player_player_proto_msgTypes[147]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6524,7 +6612,7 @@ func (x *SetSyncParamsResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetSyncParamsResponse.ProtoReflect.Descriptor instead.
 func (*SetSyncParamsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{145}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{147}
 }
 
 type SetVideoScalingModeRequest struct {
@@ -6537,7 +6625,7 @@ type SetVideoScalingModeRequest struct {
 
 func (x *SetVideoScalingModeRequest) Reset() {
 	*x = SetVideoScalingModeRequest{}
-	mi := &file_proto_player_player_proto_msgTypes[146]
+	mi := &file_proto_player_player_proto_msgTypes[148]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6549,7 +6637,7 @@ func (x *SetVideoScalingModeRequest) String() string {
 func (*SetVideoScalingModeRequest) ProtoMessage() {}
 
 func (x *SetVideoScalingModeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[146]
+	mi := &file_proto_player_player_proto_msgTypes[148]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6562,7 +6650,7 @@ func (x *SetVideoScalingModeRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetVideoScalingModeRequest.ProtoReflect.Descriptor instead.
 func (*SetVideoScalingModeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{146}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{148}
 }
 
 func (x *SetVideoScalingModeRequest) GetHandle() int64 {
@@ -6587,7 +6675,7 @@ type SetVideoScalingModeResponse struct {
 
 func (x *SetVideoScalingModeResponse) Reset() {
 	*x = SetVideoScalingModeResponse{}
-	mi := &file_proto_player_player_proto_msgTypes[147]
+	mi := &file_proto_player_player_proto_msgTypes[149]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6599,7 +6687,7 @@ func (x *SetVideoScalingModeResponse) String() string {
 func (*SetVideoScalingModeResponse) ProtoMessage() {}
 
 func (x *SetVideoScalingModeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[147]
+	mi := &file_proto_player_player_proto_msgTypes[149]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6612,7 +6700,7 @@ func (x *SetVideoScalingModeResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetVideoScalingModeResponse.ProtoReflect.Descriptor instead.
 func (*SetVideoScalingModeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{147}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{149}
 }
 
 type SetVolumeRequest struct {
@@ -6626,7 +6714,7 @@ type SetVolumeRequest struct {
 
 func (x *SetVolumeRequest) Reset() {
 	*x = SetVolumeRequest{}
-	mi := &file_proto_player_player_proto_msgTypes[148]
+	mi := &file_proto_player_player_proto_msgTypes[150]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6638,7 +6726,7 @@ func (x *SetVolumeRequest) String() string {
 func (*SetVolumeRequest) ProtoMessage() {}
 
 func (x *SetVolumeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[148]
+	mi := &file_proto_player_player_proto_msgTypes[150]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6651,7 +6739,7 @@ func (x *SetVolumeRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetVolumeRequest.ProtoReflect.Descriptor instead.
 func (*SetVolumeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{148}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{150}
 }
 
 func (x *SetVolumeRequest) GetHandle() int64 {
@@ -6683,7 +6771,7 @@ type SetVolumeResponse struct {
 
 func (x *SetVolumeResponse) Reset() {
 	*x = SetVolumeResponse{}
-	mi := &file_proto_player_player_proto_msgTypes[149]
+	mi := &file_proto_player_player_proto_msgTypes[151]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6695,7 +6783,7 @@ func (x *SetVolumeResponse) String() string {
 func (*SetVolumeResponse) ProtoMessage() {}
 
 func (x *SetVolumeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[149]
+	mi := &file_proto_player_player_proto_msgTypes[151]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6708,7 +6796,7 @@ func (x *SetVolumeResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetVolumeResponse.ProtoReflect.Descriptor instead.
 func (*SetVolumeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{149}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{151}
 }
 
 type SetWakeModeRequest struct {
@@ -6722,7 +6810,7 @@ type SetWakeModeRequest struct {
 
 func (x *SetWakeModeRequest) Reset() {
 	*x = SetWakeModeRequest{}
-	mi := &file_proto_player_player_proto_msgTypes[150]
+	mi := &file_proto_player_player_proto_msgTypes[152]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6734,7 +6822,7 @@ func (x *SetWakeModeRequest) String() string {
 func (*SetWakeModeRequest) ProtoMessage() {}
 
 func (x *SetWakeModeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[150]
+	mi := &file_proto_player_player_proto_msgTypes[152]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6747,7 +6835,7 @@ func (x *SetWakeModeRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetWakeModeRequest.ProtoReflect.Descriptor instead.
 func (*SetWakeModeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{150}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{152}
 }
 
 func (x *SetWakeModeRequest) GetHandle() int64 {
@@ -6779,7 +6867,7 @@ type SetWakeModeResponse struct {
 
 func (x *SetWakeModeResponse) Reset() {
 	*x = SetWakeModeResponse{}
-	mi := &file_proto_player_player_proto_msgTypes[151]
+	mi := &file_proto_player_player_proto_msgTypes[153]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6791,7 +6879,7 @@ func (x *SetWakeModeResponse) String() string {
 func (*SetWakeModeResponse) ProtoMessage() {}
 
 func (x *SetWakeModeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[151]
+	mi := &file_proto_player_player_proto_msgTypes[153]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6804,7 +6892,7 @@ func (x *SetWakeModeResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetWakeModeResponse.ProtoReflect.Descriptor instead.
 func (*SetWakeModeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{151}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{153}
 }
 
 type StartRequest struct {
@@ -6816,7 +6904,7 @@ type StartRequest struct {
 
 func (x *StartRequest) Reset() {
 	*x = StartRequest{}
-	mi := &file_proto_player_player_proto_msgTypes[152]
+	mi := &file_proto_player_player_proto_msgTypes[154]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6828,7 +6916,7 @@ func (x *StartRequest) String() string {
 func (*StartRequest) ProtoMessage() {}
 
 func (x *StartRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[152]
+	mi := &file_proto_player_player_proto_msgTypes[154]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6841,7 +6929,7 @@ func (x *StartRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use StartRequest.ProtoReflect.Descriptor instead.
 func (*StartRequest) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{152}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{154}
 }
 
 func (x *StartRequest) GetHandle() int64 {
@@ -6859,7 +6947,7 @@ type StartResponse struct {
 
 func (x *StartResponse) Reset() {
 	*x = StartResponse{}
-	mi := &file_proto_player_player_proto_msgTypes[153]
+	mi := &file_proto_player_player_proto_msgTypes[155]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6871,7 +6959,7 @@ func (x *StartResponse) String() string {
 func (*StartResponse) ProtoMessage() {}
 
 func (x *StartResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[153]
+	mi := &file_proto_player_player_proto_msgTypes[155]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6884,7 +6972,7 @@ func (x *StartResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use StartResponse.ProtoReflect.Descriptor instead.
 func (*StartResponse) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{153}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{155}
 }
 
 type StopRequest struct {
@@ -6896,7 +6984,7 @@ type StopRequest struct {
 
 func (x *StopRequest) Reset() {
 	*x = StopRequest{}
-	mi := &file_proto_player_player_proto_msgTypes[154]
+	mi := &file_proto_player_player_proto_msgTypes[156]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6908,7 +6996,7 @@ func (x *StopRequest) String() string {
 func (*StopRequest) ProtoMessage() {}
 
 func (x *StopRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[154]
+	mi := &file_proto_player_player_proto_msgTypes[156]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6921,7 +7009,7 @@ func (x *StopRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use StopRequest.ProtoReflect.Descriptor instead.
 func (*StopRequest) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{154}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{156}
 }
 
 func (x *StopRequest) GetHandle() int64 {
@@ -6939,7 +7027,7 @@ type StopResponse struct {
 
 func (x *StopResponse) Reset() {
 	*x = StopResponse{}
-	mi := &file_proto_player_player_proto_msgTypes[155]
+	mi := &file_proto_player_player_proto_msgTypes[157]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6951,7 +7039,7 @@ func (x *StopResponse) String() string {
 func (*StopResponse) ProtoMessage() {}
 
 func (x *StopResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[155]
+	mi := &file_proto_player_player_proto_msgTypes[157]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6964,7 +7052,7 @@ func (x *StopResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use StopResponse.ProtoReflect.Descriptor instead.
 func (*StopResponse) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{155}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{157}
 }
 
 type Create2Request struct {
@@ -6978,7 +7066,7 @@ type Create2Request struct {
 
 func (x *Create2Request) Reset() {
 	*x = Create2Request{}
-	mi := &file_proto_player_player_proto_msgTypes[156]
+	mi := &file_proto_player_player_proto_msgTypes[158]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6990,7 +7078,7 @@ func (x *Create2Request) String() string {
 func (*Create2Request) ProtoMessage() {}
 
 func (x *Create2Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[156]
+	mi := &file_proto_player_player_proto_msgTypes[158]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7003,7 +7091,7 @@ func (x *Create2Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Create2Request.ProtoReflect.Descriptor instead.
 func (*Create2Request) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{156}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{158}
 }
 
 func (x *Create2Request) GetHandle() int64 {
@@ -7036,7 +7124,7 @@ type Create2Response struct {
 
 func (x *Create2Response) Reset() {
 	*x = Create2Response{}
-	mi := &file_proto_player_player_proto_msgTypes[157]
+	mi := &file_proto_player_player_proto_msgTypes[159]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7048,7 +7136,7 @@ func (x *Create2Response) String() string {
 func (*Create2Response) ProtoMessage() {}
 
 func (x *Create2Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[157]
+	mi := &file_proto_player_player_proto_msgTypes[159]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7061,7 +7149,7 @@ func (x *Create2Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Create2Response.ProtoReflect.Descriptor instead.
 func (*Create2Response) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{157}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{159}
 }
 
 func (x *Create2Response) GetResult() int64 {
@@ -7083,7 +7171,7 @@ type Create3_1Request struct {
 
 func (x *Create3_1Request) Reset() {
 	*x = Create3_1Request{}
-	mi := &file_proto_player_player_proto_msgTypes[158]
+	mi := &file_proto_player_player_proto_msgTypes[160]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7095,7 +7183,7 @@ func (x *Create3_1Request) String() string {
 func (*Create3_1Request) ProtoMessage() {}
 
 func (x *Create3_1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[158]
+	mi := &file_proto_player_player_proto_msgTypes[160]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7108,7 +7196,7 @@ func (x *Create3_1Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Create3_1Request.ProtoReflect.Descriptor instead.
 func (*Create3_1Request) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{158}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{160}
 }
 
 func (x *Create3_1Request) GetHandle() int64 {
@@ -7148,7 +7236,7 @@ type Create3_1Response struct {
 
 func (x *Create3_1Response) Reset() {
 	*x = Create3_1Response{}
-	mi := &file_proto_player_player_proto_msgTypes[159]
+	mi := &file_proto_player_player_proto_msgTypes[161]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7160,7 +7248,7 @@ func (x *Create3_1Response) String() string {
 func (*Create3_1Response) ProtoMessage() {}
 
 func (x *Create3_1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[159]
+	mi := &file_proto_player_player_proto_msgTypes[161]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7173,7 +7261,7 @@ func (x *Create3_1Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Create3_1Response.ProtoReflect.Descriptor instead.
 func (*Create3_1Response) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{159}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{161}
 }
 
 func (x *Create3_1Response) GetResult() int64 {
@@ -7197,7 +7285,7 @@ type Create5_2Request struct {
 
 func (x *Create5_2Request) Reset() {
 	*x = Create5_2Request{}
-	mi := &file_proto_player_player_proto_msgTypes[160]
+	mi := &file_proto_player_player_proto_msgTypes[162]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7209,7 +7297,7 @@ func (x *Create5_2Request) String() string {
 func (*Create5_2Request) ProtoMessage() {}
 
 func (x *Create5_2Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[160]
+	mi := &file_proto_player_player_proto_msgTypes[162]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7222,7 +7310,7 @@ func (x *Create5_2Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Create5_2Request.ProtoReflect.Descriptor instead.
 func (*Create5_2Request) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{160}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{162}
 }
 
 func (x *Create5_2Request) GetHandle() int64 {
@@ -7276,7 +7364,7 @@ type Create5_2Response struct {
 
 func (x *Create5_2Response) Reset() {
 	*x = Create5_2Response{}
-	mi := &file_proto_player_player_proto_msgTypes[161]
+	mi := &file_proto_player_player_proto_msgTypes[163]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7288,7 +7376,7 @@ func (x *Create5_2Response) String() string {
 func (*Create5_2Response) ProtoMessage() {}
 
 func (x *Create5_2Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[161]
+	mi := &file_proto_player_player_proto_msgTypes[163]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7301,7 +7389,7 @@ func (x *Create5_2Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Create5_2Response.ProtoReflect.Descriptor instead.
 func (*Create5_2Response) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{161}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{163}
 }
 
 func (x *Create5_2Response) GetResult() int64 {
@@ -7322,7 +7410,7 @@ type Create2_3Request struct {
 
 func (x *Create2_3Request) Reset() {
 	*x = Create2_3Request{}
-	mi := &file_proto_player_player_proto_msgTypes[162]
+	mi := &file_proto_player_player_proto_msgTypes[164]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7334,7 +7422,7 @@ func (x *Create2_3Request) String() string {
 func (*Create2_3Request) ProtoMessage() {}
 
 func (x *Create2_3Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[162]
+	mi := &file_proto_player_player_proto_msgTypes[164]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7347,7 +7435,7 @@ func (x *Create2_3Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Create2_3Request.ProtoReflect.Descriptor instead.
 func (*Create2_3Request) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{162}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{164}
 }
 
 func (x *Create2_3Request) GetHandle() int64 {
@@ -7380,7 +7468,7 @@ type Create2_3Response struct {
 
 func (x *Create2_3Response) Reset() {
 	*x = Create2_3Response{}
-	mi := &file_proto_player_player_proto_msgTypes[163]
+	mi := &file_proto_player_player_proto_msgTypes[165]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7392,7 +7480,7 @@ func (x *Create2_3Response) String() string {
 func (*Create2_3Response) ProtoMessage() {}
 
 func (x *Create2_3Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[163]
+	mi := &file_proto_player_player_proto_msgTypes[165]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7405,7 +7493,7 @@ func (x *Create2_3Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Create2_3Response.ProtoReflect.Descriptor instead.
 func (*Create2_3Response) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{163}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{165}
 }
 
 func (x *Create2_3Response) GetResult() int64 {
@@ -7428,7 +7516,7 @@ type Create4_4Request struct {
 
 func (x *Create4_4Request) Reset() {
 	*x = Create4_4Request{}
-	mi := &file_proto_player_player_proto_msgTypes[164]
+	mi := &file_proto_player_player_proto_msgTypes[166]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7440,7 +7528,7 @@ func (x *Create4_4Request) String() string {
 func (*Create4_4Request) ProtoMessage() {}
 
 func (x *Create4_4Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[164]
+	mi := &file_proto_player_player_proto_msgTypes[166]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7453,7 +7541,7 @@ func (x *Create4_4Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Create4_4Request.ProtoReflect.Descriptor instead.
 func (*Create4_4Request) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{164}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{166}
 }
 
 func (x *Create4_4Request) GetHandle() int64 {
@@ -7500,7 +7588,7 @@ type Create4_4Response struct {
 
 func (x *Create4_4Response) Reset() {
 	*x = Create4_4Response{}
-	mi := &file_proto_player_player_proto_msgTypes[165]
+	mi := &file_proto_player_player_proto_msgTypes[167]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7512,7 +7600,7 @@ func (x *Create4_4Response) String() string {
 func (*Create4_4Response) ProtoMessage() {}
 
 func (x *Create4_4Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[165]
+	mi := &file_proto_player_player_proto_msgTypes[167]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7525,7 +7613,7 @@ func (x *Create4_4Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Create4_4Response.ProtoReflect.Descriptor instead.
 func (*Create4_4Response) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{165}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{167}
 }
 
 func (x *Create4_4Response) GetResult() int64 {
@@ -7543,7 +7631,7 @@ type GetSupportedSchemesRequest struct {
 
 func (x *GetSupportedSchemesRequest) Reset() {
 	*x = GetSupportedSchemesRequest{}
-	mi := &file_proto_player_player_proto_msgTypes[166]
+	mi := &file_proto_player_player_proto_msgTypes[168]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7555,7 +7643,7 @@ func (x *GetSupportedSchemesRequest) String() string {
 func (*GetSupportedSchemesRequest) ProtoMessage() {}
 
 func (x *GetSupportedSchemesRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[166]
+	mi := &file_proto_player_player_proto_msgTypes[168]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7568,7 +7656,7 @@ func (x *GetSupportedSchemesRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetSupportedSchemesRequest.ProtoReflect.Descriptor instead.
 func (*GetSupportedSchemesRequest) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{166}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{168}
 }
 
 type GetSupportedSchemesResponse struct {
@@ -7580,7 +7668,7 @@ type GetSupportedSchemesResponse struct {
 
 func (x *GetSupportedSchemesResponse) Reset() {
 	*x = GetSupportedSchemesResponse{}
-	mi := &file_proto_player_player_proto_msgTypes[167]
+	mi := &file_proto_player_player_proto_msgTypes[169]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7592,7 +7680,7 @@ func (x *GetSupportedSchemesResponse) String() string {
 func (*GetSupportedSchemesResponse) ProtoMessage() {}
 
 func (x *GetSupportedSchemesResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[167]
+	mi := &file_proto_player_player_proto_msgTypes[169]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7605,7 +7693,7 @@ func (x *GetSupportedSchemesResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetSupportedSchemesResponse.ProtoReflect.Descriptor instead.
 func (*GetSupportedSchemesResponse) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{167}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{169}
 }
 
 func (x *GetSupportedSchemesResponse) GetResult() int64 {
@@ -7625,7 +7713,7 @@ type OnBufferingUpdateRequest struct {
 
 func (x *OnBufferingUpdateRequest) Reset() {
 	*x = OnBufferingUpdateRequest{}
-	mi := &file_proto_player_player_proto_msgTypes[168]
+	mi := &file_proto_player_player_proto_msgTypes[170]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7637,7 +7725,7 @@ func (x *OnBufferingUpdateRequest) String() string {
 func (*OnBufferingUpdateRequest) ProtoMessage() {}
 
 func (x *OnBufferingUpdateRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[168]
+	mi := &file_proto_player_player_proto_msgTypes[170]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7650,7 +7738,7 @@ func (x *OnBufferingUpdateRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnBufferingUpdateRequest.ProtoReflect.Descriptor instead.
 func (*OnBufferingUpdateRequest) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{168}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{170}
 }
 
 func (x *OnBufferingUpdateRequest) GetArg0() int64 {
@@ -7675,7 +7763,7 @@ type OnBufferingUpdateResponse struct {
 
 func (x *OnBufferingUpdateResponse) Reset() {
 	*x = OnBufferingUpdateResponse{}
-	mi := &file_proto_player_player_proto_msgTypes[169]
+	mi := &file_proto_player_player_proto_msgTypes[171]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7687,7 +7775,7 @@ func (x *OnBufferingUpdateResponse) String() string {
 func (*OnBufferingUpdateResponse) ProtoMessage() {}
 
 func (x *OnBufferingUpdateResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[169]
+	mi := &file_proto_player_player_proto_msgTypes[171]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7700,7 +7788,7 @@ func (x *OnBufferingUpdateResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnBufferingUpdateResponse.ProtoReflect.Descriptor instead.
 func (*OnBufferingUpdateResponse) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{169}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{171}
 }
 
 type OnCompletionRequest struct {
@@ -7712,7 +7800,7 @@ type OnCompletionRequest struct {
 
 func (x *OnCompletionRequest) Reset() {
 	*x = OnCompletionRequest{}
-	mi := &file_proto_player_player_proto_msgTypes[170]
+	mi := &file_proto_player_player_proto_msgTypes[172]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7724,7 +7812,7 @@ func (x *OnCompletionRequest) String() string {
 func (*OnCompletionRequest) ProtoMessage() {}
 
 func (x *OnCompletionRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[170]
+	mi := &file_proto_player_player_proto_msgTypes[172]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7737,7 +7825,7 @@ func (x *OnCompletionRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnCompletionRequest.ProtoReflect.Descriptor instead.
 func (*OnCompletionRequest) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{170}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{172}
 }
 
 func (x *OnCompletionRequest) GetArg0() int64 {
@@ -7755,7 +7843,7 @@ type OnCompletionResponse struct {
 
 func (x *OnCompletionResponse) Reset() {
 	*x = OnCompletionResponse{}
-	mi := &file_proto_player_player_proto_msgTypes[171]
+	mi := &file_proto_player_player_proto_msgTypes[173]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7767,7 +7855,7 @@ func (x *OnCompletionResponse) String() string {
 func (*OnCompletionResponse) ProtoMessage() {}
 
 func (x *OnCompletionResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[171]
+	mi := &file_proto_player_player_proto_msgTypes[173]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7780,7 +7868,7 @@ func (x *OnCompletionResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnCompletionResponse.ProtoReflect.Descriptor instead.
 func (*OnCompletionResponse) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{171}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{173}
 }
 
 type OnDrmConfigRequest struct {
@@ -7792,7 +7880,7 @@ type OnDrmConfigRequest struct {
 
 func (x *OnDrmConfigRequest) Reset() {
 	*x = OnDrmConfigRequest{}
-	mi := &file_proto_player_player_proto_msgTypes[172]
+	mi := &file_proto_player_player_proto_msgTypes[174]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7804,7 +7892,7 @@ func (x *OnDrmConfigRequest) String() string {
 func (*OnDrmConfigRequest) ProtoMessage() {}
 
 func (x *OnDrmConfigRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[172]
+	mi := &file_proto_player_player_proto_msgTypes[174]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7817,7 +7905,7 @@ func (x *OnDrmConfigRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnDrmConfigRequest.ProtoReflect.Descriptor instead.
 func (*OnDrmConfigRequest) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{172}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{174}
 }
 
 func (x *OnDrmConfigRequest) GetArg0() int64 {
@@ -7835,7 +7923,7 @@ type OnDrmConfigResponse struct {
 
 func (x *OnDrmConfigResponse) Reset() {
 	*x = OnDrmConfigResponse{}
-	mi := &file_proto_player_player_proto_msgTypes[173]
+	mi := &file_proto_player_player_proto_msgTypes[175]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7847,7 +7935,7 @@ func (x *OnDrmConfigResponse) String() string {
 func (*OnDrmConfigResponse) ProtoMessage() {}
 
 func (x *OnDrmConfigResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[173]
+	mi := &file_proto_player_player_proto_msgTypes[175]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7860,7 +7948,7 @@ func (x *OnDrmConfigResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnDrmConfigResponse.ProtoReflect.Descriptor instead.
 func (*OnDrmConfigResponse) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{173}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{175}
 }
 
 type OnDrmInfoRequest struct {
@@ -7873,7 +7961,7 @@ type OnDrmInfoRequest struct {
 
 func (x *OnDrmInfoRequest) Reset() {
 	*x = OnDrmInfoRequest{}
-	mi := &file_proto_player_player_proto_msgTypes[174]
+	mi := &file_proto_player_player_proto_msgTypes[176]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7885,7 +7973,7 @@ func (x *OnDrmInfoRequest) String() string {
 func (*OnDrmInfoRequest) ProtoMessage() {}
 
 func (x *OnDrmInfoRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[174]
+	mi := &file_proto_player_player_proto_msgTypes[176]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7898,7 +7986,7 @@ func (x *OnDrmInfoRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnDrmInfoRequest.ProtoReflect.Descriptor instead.
 func (*OnDrmInfoRequest) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{174}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{176}
 }
 
 func (x *OnDrmInfoRequest) GetArg0() int64 {
@@ -7923,7 +8011,7 @@ type OnDrmInfoResponse struct {
 
 func (x *OnDrmInfoResponse) Reset() {
 	*x = OnDrmInfoResponse{}
-	mi := &file_proto_player_player_proto_msgTypes[175]
+	mi := &file_proto_player_player_proto_msgTypes[177]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7935,7 +8023,7 @@ func (x *OnDrmInfoResponse) String() string {
 func (*OnDrmInfoResponse) ProtoMessage() {}
 
 func (x *OnDrmInfoResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[175]
+	mi := &file_proto_player_player_proto_msgTypes[177]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7948,7 +8036,7 @@ func (x *OnDrmInfoResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnDrmInfoResponse.ProtoReflect.Descriptor instead.
 func (*OnDrmInfoResponse) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{175}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{177}
 }
 
 type OnDrmPreparedRequest struct {
@@ -7961,7 +8049,7 @@ type OnDrmPreparedRequest struct {
 
 func (x *OnDrmPreparedRequest) Reset() {
 	*x = OnDrmPreparedRequest{}
-	mi := &file_proto_player_player_proto_msgTypes[176]
+	mi := &file_proto_player_player_proto_msgTypes[178]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7973,7 +8061,7 @@ func (x *OnDrmPreparedRequest) String() string {
 func (*OnDrmPreparedRequest) ProtoMessage() {}
 
 func (x *OnDrmPreparedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[176]
+	mi := &file_proto_player_player_proto_msgTypes[178]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7986,7 +8074,7 @@ func (x *OnDrmPreparedRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnDrmPreparedRequest.ProtoReflect.Descriptor instead.
 func (*OnDrmPreparedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{176}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{178}
 }
 
 func (x *OnDrmPreparedRequest) GetArg0() int64 {
@@ -8011,7 +8099,7 @@ type OnDrmPreparedResponse struct {
 
 func (x *OnDrmPreparedResponse) Reset() {
 	*x = OnDrmPreparedResponse{}
-	mi := &file_proto_player_player_proto_msgTypes[177]
+	mi := &file_proto_player_player_proto_msgTypes[179]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8023,7 +8111,7 @@ func (x *OnDrmPreparedResponse) String() string {
 func (*OnDrmPreparedResponse) ProtoMessage() {}
 
 func (x *OnDrmPreparedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[177]
+	mi := &file_proto_player_player_proto_msgTypes[179]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8036,7 +8124,7 @@ func (x *OnDrmPreparedResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnDrmPreparedResponse.ProtoReflect.Descriptor instead.
 func (*OnDrmPreparedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{177}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{179}
 }
 
 type OnErrorRequest struct {
@@ -8050,7 +8138,7 @@ type OnErrorRequest struct {
 
 func (x *OnErrorRequest) Reset() {
 	*x = OnErrorRequest{}
-	mi := &file_proto_player_player_proto_msgTypes[178]
+	mi := &file_proto_player_player_proto_msgTypes[180]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8062,7 +8150,7 @@ func (x *OnErrorRequest) String() string {
 func (*OnErrorRequest) ProtoMessage() {}
 
 func (x *OnErrorRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[178]
+	mi := &file_proto_player_player_proto_msgTypes[180]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8075,7 +8163,7 @@ func (x *OnErrorRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnErrorRequest.ProtoReflect.Descriptor instead.
 func (*OnErrorRequest) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{178}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{180}
 }
 
 func (x *OnErrorRequest) GetArg0() int64 {
@@ -8108,7 +8196,7 @@ type OnErrorResponse struct {
 
 func (x *OnErrorResponse) Reset() {
 	*x = OnErrorResponse{}
-	mi := &file_proto_player_player_proto_msgTypes[179]
+	mi := &file_proto_player_player_proto_msgTypes[181]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8120,7 +8208,7 @@ func (x *OnErrorResponse) String() string {
 func (*OnErrorResponse) ProtoMessage() {}
 
 func (x *OnErrorResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[179]
+	mi := &file_proto_player_player_proto_msgTypes[181]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8133,7 +8221,7 @@ func (x *OnErrorResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnErrorResponse.ProtoReflect.Descriptor instead.
 func (*OnErrorResponse) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{179}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{181}
 }
 
 func (x *OnErrorResponse) GetResult() bool {
@@ -8154,7 +8242,7 @@ type OnInfoRequest struct {
 
 func (x *OnInfoRequest) Reset() {
 	*x = OnInfoRequest{}
-	mi := &file_proto_player_player_proto_msgTypes[180]
+	mi := &file_proto_player_player_proto_msgTypes[182]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8166,7 +8254,7 @@ func (x *OnInfoRequest) String() string {
 func (*OnInfoRequest) ProtoMessage() {}
 
 func (x *OnInfoRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[180]
+	mi := &file_proto_player_player_proto_msgTypes[182]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8179,7 +8267,7 @@ func (x *OnInfoRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnInfoRequest.ProtoReflect.Descriptor instead.
 func (*OnInfoRequest) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{180}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{182}
 }
 
 func (x *OnInfoRequest) GetArg0() int64 {
@@ -8212,7 +8300,7 @@ type OnInfoResponse struct {
 
 func (x *OnInfoResponse) Reset() {
 	*x = OnInfoResponse{}
-	mi := &file_proto_player_player_proto_msgTypes[181]
+	mi := &file_proto_player_player_proto_msgTypes[183]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8224,7 +8312,7 @@ func (x *OnInfoResponse) String() string {
 func (*OnInfoResponse) ProtoMessage() {}
 
 func (x *OnInfoResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[181]
+	mi := &file_proto_player_player_proto_msgTypes[183]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8237,7 +8325,7 @@ func (x *OnInfoResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnInfoResponse.ProtoReflect.Descriptor instead.
 func (*OnInfoResponse) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{181}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{183}
 }
 
 func (x *OnInfoResponse) GetResult() bool {
@@ -8257,7 +8345,7 @@ type OnMediaTimeDiscontinuityRequest struct {
 
 func (x *OnMediaTimeDiscontinuityRequest) Reset() {
 	*x = OnMediaTimeDiscontinuityRequest{}
-	mi := &file_proto_player_player_proto_msgTypes[182]
+	mi := &file_proto_player_player_proto_msgTypes[184]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8269,7 +8357,7 @@ func (x *OnMediaTimeDiscontinuityRequest) String() string {
 func (*OnMediaTimeDiscontinuityRequest) ProtoMessage() {}
 
 func (x *OnMediaTimeDiscontinuityRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[182]
+	mi := &file_proto_player_player_proto_msgTypes[184]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8282,7 +8370,7 @@ func (x *OnMediaTimeDiscontinuityRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnMediaTimeDiscontinuityRequest.ProtoReflect.Descriptor instead.
 func (*OnMediaTimeDiscontinuityRequest) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{182}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{184}
 }
 
 func (x *OnMediaTimeDiscontinuityRequest) GetArg0() int64 {
@@ -8307,7 +8395,7 @@ type OnMediaTimeDiscontinuityResponse struct {
 
 func (x *OnMediaTimeDiscontinuityResponse) Reset() {
 	*x = OnMediaTimeDiscontinuityResponse{}
-	mi := &file_proto_player_player_proto_msgTypes[183]
+	mi := &file_proto_player_player_proto_msgTypes[185]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8319,7 +8407,7 @@ func (x *OnMediaTimeDiscontinuityResponse) String() string {
 func (*OnMediaTimeDiscontinuityResponse) ProtoMessage() {}
 
 func (x *OnMediaTimeDiscontinuityResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[183]
+	mi := &file_proto_player_player_proto_msgTypes[185]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8332,7 +8420,7 @@ func (x *OnMediaTimeDiscontinuityResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnMediaTimeDiscontinuityResponse.ProtoReflect.Descriptor instead.
 func (*OnMediaTimeDiscontinuityResponse) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{183}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{185}
 }
 
 type OnPreparedRequest struct {
@@ -8344,7 +8432,7 @@ type OnPreparedRequest struct {
 
 func (x *OnPreparedRequest) Reset() {
 	*x = OnPreparedRequest{}
-	mi := &file_proto_player_player_proto_msgTypes[184]
+	mi := &file_proto_player_player_proto_msgTypes[186]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8356,7 +8444,7 @@ func (x *OnPreparedRequest) String() string {
 func (*OnPreparedRequest) ProtoMessage() {}
 
 func (x *OnPreparedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[184]
+	mi := &file_proto_player_player_proto_msgTypes[186]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8369,7 +8457,7 @@ func (x *OnPreparedRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnPreparedRequest.ProtoReflect.Descriptor instead.
 func (*OnPreparedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{184}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{186}
 }
 
 func (x *OnPreparedRequest) GetArg0() int64 {
@@ -8387,7 +8475,7 @@ type OnPreparedResponse struct {
 
 func (x *OnPreparedResponse) Reset() {
 	*x = OnPreparedResponse{}
-	mi := &file_proto_player_player_proto_msgTypes[185]
+	mi := &file_proto_player_player_proto_msgTypes[187]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8399,7 +8487,7 @@ func (x *OnPreparedResponse) String() string {
 func (*OnPreparedResponse) ProtoMessage() {}
 
 func (x *OnPreparedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[185]
+	mi := &file_proto_player_player_proto_msgTypes[187]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8412,7 +8500,7 @@ func (x *OnPreparedResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnPreparedResponse.ProtoReflect.Descriptor instead.
 func (*OnPreparedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{185}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{187}
 }
 
 type OnSeekCompleteRequest struct {
@@ -8424,7 +8512,7 @@ type OnSeekCompleteRequest struct {
 
 func (x *OnSeekCompleteRequest) Reset() {
 	*x = OnSeekCompleteRequest{}
-	mi := &file_proto_player_player_proto_msgTypes[186]
+	mi := &file_proto_player_player_proto_msgTypes[188]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8436,7 +8524,7 @@ func (x *OnSeekCompleteRequest) String() string {
 func (*OnSeekCompleteRequest) ProtoMessage() {}
 
 func (x *OnSeekCompleteRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[186]
+	mi := &file_proto_player_player_proto_msgTypes[188]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8449,7 +8537,7 @@ func (x *OnSeekCompleteRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnSeekCompleteRequest.ProtoReflect.Descriptor instead.
 func (*OnSeekCompleteRequest) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{186}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{188}
 }
 
 func (x *OnSeekCompleteRequest) GetArg0() int64 {
@@ -8467,7 +8555,7 @@ type OnSeekCompleteResponse struct {
 
 func (x *OnSeekCompleteResponse) Reset() {
 	*x = OnSeekCompleteResponse{}
-	mi := &file_proto_player_player_proto_msgTypes[187]
+	mi := &file_proto_player_player_proto_msgTypes[189]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8479,7 +8567,7 @@ func (x *OnSeekCompleteResponse) String() string {
 func (*OnSeekCompleteResponse) ProtoMessage() {}
 
 func (x *OnSeekCompleteResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[187]
+	mi := &file_proto_player_player_proto_msgTypes[189]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8492,7 +8580,7 @@ func (x *OnSeekCompleteResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnSeekCompleteResponse.ProtoReflect.Descriptor instead.
 func (*OnSeekCompleteResponse) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{187}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{189}
 }
 
 type OnSubtitleDataRequest struct {
@@ -8505,7 +8593,7 @@ type OnSubtitleDataRequest struct {
 
 func (x *OnSubtitleDataRequest) Reset() {
 	*x = OnSubtitleDataRequest{}
-	mi := &file_proto_player_player_proto_msgTypes[188]
+	mi := &file_proto_player_player_proto_msgTypes[190]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8517,7 +8605,7 @@ func (x *OnSubtitleDataRequest) String() string {
 func (*OnSubtitleDataRequest) ProtoMessage() {}
 
 func (x *OnSubtitleDataRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[188]
+	mi := &file_proto_player_player_proto_msgTypes[190]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8530,7 +8618,7 @@ func (x *OnSubtitleDataRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnSubtitleDataRequest.ProtoReflect.Descriptor instead.
 func (*OnSubtitleDataRequest) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{188}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{190}
 }
 
 func (x *OnSubtitleDataRequest) GetArg0() int64 {
@@ -8555,7 +8643,7 @@ type OnSubtitleDataResponse struct {
 
 func (x *OnSubtitleDataResponse) Reset() {
 	*x = OnSubtitleDataResponse{}
-	mi := &file_proto_player_player_proto_msgTypes[189]
+	mi := &file_proto_player_player_proto_msgTypes[191]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8567,7 +8655,7 @@ func (x *OnSubtitleDataResponse) String() string {
 func (*OnSubtitleDataResponse) ProtoMessage() {}
 
 func (x *OnSubtitleDataResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[189]
+	mi := &file_proto_player_player_proto_msgTypes[191]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8580,7 +8668,7 @@ func (x *OnSubtitleDataResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnSubtitleDataResponse.ProtoReflect.Descriptor instead.
 func (*OnSubtitleDataResponse) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{189}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{191}
 }
 
 type OnTimedMetaDataAvailableRequest struct {
@@ -8593,7 +8681,7 @@ type OnTimedMetaDataAvailableRequest struct {
 
 func (x *OnTimedMetaDataAvailableRequest) Reset() {
 	*x = OnTimedMetaDataAvailableRequest{}
-	mi := &file_proto_player_player_proto_msgTypes[190]
+	mi := &file_proto_player_player_proto_msgTypes[192]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8605,7 +8693,7 @@ func (x *OnTimedMetaDataAvailableRequest) String() string {
 func (*OnTimedMetaDataAvailableRequest) ProtoMessage() {}
 
 func (x *OnTimedMetaDataAvailableRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[190]
+	mi := &file_proto_player_player_proto_msgTypes[192]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8618,7 +8706,7 @@ func (x *OnTimedMetaDataAvailableRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnTimedMetaDataAvailableRequest.ProtoReflect.Descriptor instead.
 func (*OnTimedMetaDataAvailableRequest) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{190}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{192}
 }
 
 func (x *OnTimedMetaDataAvailableRequest) GetArg0() int64 {
@@ -8643,7 +8731,7 @@ type OnTimedMetaDataAvailableResponse struct {
 
 func (x *OnTimedMetaDataAvailableResponse) Reset() {
 	*x = OnTimedMetaDataAvailableResponse{}
-	mi := &file_proto_player_player_proto_msgTypes[191]
+	mi := &file_proto_player_player_proto_msgTypes[193]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8655,7 +8743,7 @@ func (x *OnTimedMetaDataAvailableResponse) String() string {
 func (*OnTimedMetaDataAvailableResponse) ProtoMessage() {}
 
 func (x *OnTimedMetaDataAvailableResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[191]
+	mi := &file_proto_player_player_proto_msgTypes[193]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8668,7 +8756,7 @@ func (x *OnTimedMetaDataAvailableResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnTimedMetaDataAvailableResponse.ProtoReflect.Descriptor instead.
 func (*OnTimedMetaDataAvailableResponse) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{191}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{193}
 }
 
 type OnTimedTextRequest struct {
@@ -8681,7 +8769,7 @@ type OnTimedTextRequest struct {
 
 func (x *OnTimedTextRequest) Reset() {
 	*x = OnTimedTextRequest{}
-	mi := &file_proto_player_player_proto_msgTypes[192]
+	mi := &file_proto_player_player_proto_msgTypes[194]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8693,7 +8781,7 @@ func (x *OnTimedTextRequest) String() string {
 func (*OnTimedTextRequest) ProtoMessage() {}
 
 func (x *OnTimedTextRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[192]
+	mi := &file_proto_player_player_proto_msgTypes[194]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8706,7 +8794,7 @@ func (x *OnTimedTextRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnTimedTextRequest.ProtoReflect.Descriptor instead.
 func (*OnTimedTextRequest) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{192}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{194}
 }
 
 func (x *OnTimedTextRequest) GetArg0() int64 {
@@ -8731,7 +8819,7 @@ type OnTimedTextResponse struct {
 
 func (x *OnTimedTextResponse) Reset() {
 	*x = OnTimedTextResponse{}
-	mi := &file_proto_player_player_proto_msgTypes[193]
+	mi := &file_proto_player_player_proto_msgTypes[195]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8743,7 +8831,7 @@ func (x *OnTimedTextResponse) String() string {
 func (*OnTimedTextResponse) ProtoMessage() {}
 
 func (x *OnTimedTextResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[193]
+	mi := &file_proto_player_player_proto_msgTypes[195]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8756,7 +8844,7 @@ func (x *OnTimedTextResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnTimedTextResponse.ProtoReflect.Descriptor instead.
 func (*OnTimedTextResponse) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{193}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{195}
 }
 
 type OnVideoSizeChangedRequest struct {
@@ -8770,7 +8858,7 @@ type OnVideoSizeChangedRequest struct {
 
 func (x *OnVideoSizeChangedRequest) Reset() {
 	*x = OnVideoSizeChangedRequest{}
-	mi := &file_proto_player_player_proto_msgTypes[194]
+	mi := &file_proto_player_player_proto_msgTypes[196]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8782,7 +8870,7 @@ func (x *OnVideoSizeChangedRequest) String() string {
 func (*OnVideoSizeChangedRequest) ProtoMessage() {}
 
 func (x *OnVideoSizeChangedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[194]
+	mi := &file_proto_player_player_proto_msgTypes[196]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8795,7 +8883,7 @@ func (x *OnVideoSizeChangedRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnVideoSizeChangedRequest.ProtoReflect.Descriptor instead.
 func (*OnVideoSizeChangedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{194}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{196}
 }
 
 func (x *OnVideoSizeChangedRequest) GetArg0() int64 {
@@ -8827,7 +8915,7 @@ type OnVideoSizeChangedResponse struct {
 
 func (x *OnVideoSizeChangedResponse) Reset() {
 	*x = OnVideoSizeChangedResponse{}
-	mi := &file_proto_player_player_proto_msgTypes[195]
+	mi := &file_proto_player_player_proto_msgTypes[197]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8839,7 +8927,7 @@ func (x *OnVideoSizeChangedResponse) String() string {
 func (*OnVideoSizeChangedResponse) ProtoMessage() {}
 
 func (x *OnVideoSizeChangedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[195]
+	mi := &file_proto_player_player_proto_msgTypes[197]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8852,7 +8940,7 @@ func (x *OnVideoSizeChangedResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnVideoSizeChangedResponse.ProtoReflect.Descriptor instead.
 func (*OnVideoSizeChangedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{195}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{197}
 }
 
 type DescribeContentsRequest struct {
@@ -8863,7 +8951,7 @@ type DescribeContentsRequest struct {
 
 func (x *DescribeContentsRequest) Reset() {
 	*x = DescribeContentsRequest{}
-	mi := &file_proto_player_player_proto_msgTypes[196]
+	mi := &file_proto_player_player_proto_msgTypes[198]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8875,7 +8963,7 @@ func (x *DescribeContentsRequest) String() string {
 func (*DescribeContentsRequest) ProtoMessage() {}
 
 func (x *DescribeContentsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[196]
+	mi := &file_proto_player_player_proto_msgTypes[198]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8888,7 +8976,7 @@ func (x *DescribeContentsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DescribeContentsRequest.ProtoReflect.Descriptor instead.
 func (*DescribeContentsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{196}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{198}
 }
 
 type DescribeContentsResponse struct {
@@ -8900,7 +8988,7 @@ type DescribeContentsResponse struct {
 
 func (x *DescribeContentsResponse) Reset() {
 	*x = DescribeContentsResponse{}
-	mi := &file_proto_player_player_proto_msgTypes[197]
+	mi := &file_proto_player_player_proto_msgTypes[199]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8912,7 +9000,7 @@ func (x *DescribeContentsResponse) String() string {
 func (*DescribeContentsResponse) ProtoMessage() {}
 
 func (x *DescribeContentsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[197]
+	mi := &file_proto_player_player_proto_msgTypes[199]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8925,7 +9013,7 @@ func (x *DescribeContentsResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DescribeContentsResponse.ProtoReflect.Descriptor instead.
 func (*DescribeContentsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{197}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{199}
 }
 
 func (x *DescribeContentsResponse) GetResult() int32 {
@@ -8943,7 +9031,7 @@ type GetFormatRequest struct {
 
 func (x *GetFormatRequest) Reset() {
 	*x = GetFormatRequest{}
-	mi := &file_proto_player_player_proto_msgTypes[198]
+	mi := &file_proto_player_player_proto_msgTypes[200]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8955,7 +9043,7 @@ func (x *GetFormatRequest) String() string {
 func (*GetFormatRequest) ProtoMessage() {}
 
 func (x *GetFormatRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[198]
+	mi := &file_proto_player_player_proto_msgTypes[200]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8968,7 +9056,7 @@ func (x *GetFormatRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetFormatRequest.ProtoReflect.Descriptor instead.
 func (*GetFormatRequest) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{198}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{200}
 }
 
 type GetFormatResponse struct {
@@ -8980,7 +9068,7 @@ type GetFormatResponse struct {
 
 func (x *GetFormatResponse) Reset() {
 	*x = GetFormatResponse{}
-	mi := &file_proto_player_player_proto_msgTypes[199]
+	mi := &file_proto_player_player_proto_msgTypes[201]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8992,7 +9080,7 @@ func (x *GetFormatResponse) String() string {
 func (*GetFormatResponse) ProtoMessage() {}
 
 func (x *GetFormatResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[199]
+	mi := &file_proto_player_player_proto_msgTypes[201]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9005,7 +9093,7 @@ func (x *GetFormatResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetFormatResponse.ProtoReflect.Descriptor instead.
 func (*GetFormatResponse) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{199}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{201}
 }
 
 func (x *GetFormatResponse) GetResult() int64 {
@@ -9023,7 +9111,7 @@ type GetLanguageRequest struct {
 
 func (x *GetLanguageRequest) Reset() {
 	*x = GetLanguageRequest{}
-	mi := &file_proto_player_player_proto_msgTypes[200]
+	mi := &file_proto_player_player_proto_msgTypes[202]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9035,7 +9123,7 @@ func (x *GetLanguageRequest) String() string {
 func (*GetLanguageRequest) ProtoMessage() {}
 
 func (x *GetLanguageRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[200]
+	mi := &file_proto_player_player_proto_msgTypes[202]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9048,7 +9136,7 @@ func (x *GetLanguageRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetLanguageRequest.ProtoReflect.Descriptor instead.
 func (*GetLanguageRequest) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{200}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{202}
 }
 
 type GetLanguageResponse struct {
@@ -9060,7 +9148,7 @@ type GetLanguageResponse struct {
 
 func (x *GetLanguageResponse) Reset() {
 	*x = GetLanguageResponse{}
-	mi := &file_proto_player_player_proto_msgTypes[201]
+	mi := &file_proto_player_player_proto_msgTypes[203]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9072,7 +9160,7 @@ func (x *GetLanguageResponse) String() string {
 func (*GetLanguageResponse) ProtoMessage() {}
 
 func (x *GetLanguageResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[201]
+	mi := &file_proto_player_player_proto_msgTypes[203]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9085,7 +9173,7 @@ func (x *GetLanguageResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetLanguageResponse.ProtoReflect.Descriptor instead.
 func (*GetLanguageResponse) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{201}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{203}
 }
 
 func (x *GetLanguageResponse) GetResult() string {
@@ -9103,7 +9191,7 @@ type GetTrackTypeRequest struct {
 
 func (x *GetTrackTypeRequest) Reset() {
 	*x = GetTrackTypeRequest{}
-	mi := &file_proto_player_player_proto_msgTypes[202]
+	mi := &file_proto_player_player_proto_msgTypes[204]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9115,7 +9203,7 @@ func (x *GetTrackTypeRequest) String() string {
 func (*GetTrackTypeRequest) ProtoMessage() {}
 
 func (x *GetTrackTypeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[202]
+	mi := &file_proto_player_player_proto_msgTypes[204]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9128,7 +9216,7 @@ func (x *GetTrackTypeRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetTrackTypeRequest.ProtoReflect.Descriptor instead.
 func (*GetTrackTypeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{202}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{204}
 }
 
 type GetTrackTypeResponse struct {
@@ -9140,7 +9228,7 @@ type GetTrackTypeResponse struct {
 
 func (x *GetTrackTypeResponse) Reset() {
 	*x = GetTrackTypeResponse{}
-	mi := &file_proto_player_player_proto_msgTypes[203]
+	mi := &file_proto_player_player_proto_msgTypes[205]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9152,7 +9240,7 @@ func (x *GetTrackTypeResponse) String() string {
 func (*GetTrackTypeResponse) ProtoMessage() {}
 
 func (x *GetTrackTypeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[203]
+	mi := &file_proto_player_player_proto_msgTypes[205]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9165,7 +9253,7 @@ func (x *GetTrackTypeResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetTrackTypeResponse.ProtoReflect.Descriptor instead.
 func (*GetTrackTypeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{203}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{205}
 }
 
 func (x *GetTrackTypeResponse) GetResult() int32 {
@@ -9183,7 +9271,7 @@ type ToStringRequest struct {
 
 func (x *ToStringRequest) Reset() {
 	*x = ToStringRequest{}
-	mi := &file_proto_player_player_proto_msgTypes[204]
+	mi := &file_proto_player_player_proto_msgTypes[206]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9195,7 +9283,7 @@ func (x *ToStringRequest) String() string {
 func (*ToStringRequest) ProtoMessage() {}
 
 func (x *ToStringRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[204]
+	mi := &file_proto_player_player_proto_msgTypes[206]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9208,7 +9296,7 @@ func (x *ToStringRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ToStringRequest.ProtoReflect.Descriptor instead.
 func (*ToStringRequest) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{204}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{206}
 }
 
 type ToStringResponse struct {
@@ -9220,7 +9308,7 @@ type ToStringResponse struct {
 
 func (x *ToStringResponse) Reset() {
 	*x = ToStringResponse{}
-	mi := &file_proto_player_player_proto_msgTypes[205]
+	mi := &file_proto_player_player_proto_msgTypes[207]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9232,7 +9320,7 @@ func (x *ToStringResponse) String() string {
 func (*ToStringResponse) ProtoMessage() {}
 
 func (x *ToStringResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[205]
+	mi := &file_proto_player_player_proto_msgTypes[207]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9245,7 +9333,7 @@ func (x *ToStringResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ToStringResponse.ProtoReflect.Descriptor instead.
 func (*ToStringResponse) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{205}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{207}
 }
 
 func (x *ToStringResponse) GetResult() string {
@@ -9265,7 +9353,7 @@ type WriteToParcelRequest struct {
 
 func (x *WriteToParcelRequest) Reset() {
 	*x = WriteToParcelRequest{}
-	mi := &file_proto_player_player_proto_msgTypes[206]
+	mi := &file_proto_player_player_proto_msgTypes[208]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9277,7 +9365,7 @@ func (x *WriteToParcelRequest) String() string {
 func (*WriteToParcelRequest) ProtoMessage() {}
 
 func (x *WriteToParcelRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[206]
+	mi := &file_proto_player_player_proto_msgTypes[208]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9290,7 +9378,7 @@ func (x *WriteToParcelRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use WriteToParcelRequest.ProtoReflect.Descriptor instead.
 func (*WriteToParcelRequest) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{206}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{208}
 }
 
 func (x *WriteToParcelRequest) GetArg0() int64 {
@@ -9315,7 +9403,7 @@ type WriteToParcelResponse struct {
 
 func (x *WriteToParcelResponse) Reset() {
 	*x = WriteToParcelResponse{}
-	mi := &file_proto_player_player_proto_msgTypes[207]
+	mi := &file_proto_player_player_proto_msgTypes[209]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9327,7 +9415,7 @@ func (x *WriteToParcelResponse) String() string {
 func (*WriteToParcelResponse) ProtoMessage() {}
 
 func (x *WriteToParcelResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_player_proto_msgTypes[207]
+	mi := &file_proto_player_player_proto_msgTypes[209]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9340,7 +9428,7 @@ func (x *WriteToParcelResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use WriteToParcelResponse.ProtoReflect.Descriptor instead.
 func (*WriteToParcelResponse) Descriptor() ([]byte, []int) {
-	return file_proto_player_player_proto_rawDescGZIP(), []int{207}
+	return file_proto_player_player_proto_rawDescGZIP(), []int{209}
 }
 
 var File_proto_player_player_proto protoreflect.FileDescriptor
@@ -9430,6 +9518,10 @@ const file_proto_player_player_proto_rawDesc = "" +
 	"\x16GetRoutedDeviceRequest\x12\x16\n" +
 	"\x06handle\x18\x01 \x01(\x03R\x06handle\"1\n" +
 	"\x17GetRoutedDeviceResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"1\n" +
+	"\x17GetRoutedDevicesRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"2\n" +
+	"\x18GetRoutedDevicesResponse\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\x03R\x06result\"E\n" +
 	"\x17GetSelectedTrackRequest\x12\x16\n" +
 	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
@@ -9784,7 +9876,7 @@ const file_proto_player_player_proto_rawDesc = "" +
 	"\x14WriteToParcelRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
 	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\"\x17\n" +
-	"\x15WriteToParcelResponse2\xba8\n" +
+	"\x15WriteToParcelResponse2\x919\n" +
 	"\x12MediaPlayerService\x12O\n" +
 	"\x0eNewMediaPlayer\x12\x1d.player.NewMediaPlayerRequest\x1a\x1e.player.NewMediaPlayerResponse\x12^\n" +
 	"\x13AddTimedTextSource3\x12\".player.AddTimedTextSource3Request\x1a#.player.AddTimedTextSource3Response\x12d\n" +
@@ -9807,6 +9899,7 @@ const file_proto_player_player_proto_rawDesc = "" +
 	"\x11GetPlaybackParams\x12 .player.GetPlaybackParamsRequest\x1a!.player.GetPlaybackParamsResponse\x12[\n" +
 	"\x12GetPreferredDevice\x12!.player.GetPreferredDeviceRequest\x1a\".player.GetPreferredDeviceResponse\x12R\n" +
 	"\x0fGetRoutedDevice\x12\x1e.player.GetRoutedDeviceRequest\x1a\x1f.player.GetRoutedDeviceResponse\x12U\n" +
+	"\x10GetRoutedDevices\x12\x1f.player.GetRoutedDevicesRequest\x1a .player.GetRoutedDevicesResponse\x12U\n" +
 	"\x10GetSelectedTrack\x12\x1f.player.GetSelectedTrackRequest\x1a .player.GetSelectedTrackResponse\x12L\n" +
 	"\rGetSyncParams\x12\x1c.player.GetSyncParamsRequest\x1a\x1d.player.GetSyncParamsResponse\x12I\n" +
 	"\fGetTimestamp\x12\x1b.player.GetTimestampRequest\x1a\x1c.player.GetTimestampResponse\x12I\n" +
@@ -9927,7 +10020,7 @@ func file_proto_player_player_proto_rawDescGZIP() []byte {
 	return file_proto_player_player_proto_rawDescData
 }
 
-var file_proto_player_player_proto_msgTypes = make([]protoimpl.MessageInfo, 208)
+var file_proto_player_player_proto_msgTypes = make([]protoimpl.MessageInfo, 210)
 var file_proto_player_player_proto_goTypes = []any{
 	(*NewMediaPlayerRequest)(nil),                         // 0: player.NewMediaPlayerRequest
 	(*NewMediaPlayerResponse)(nil),                        // 1: player.NewMediaPlayerResponse
@@ -9967,176 +10060,178 @@ var file_proto_player_player_proto_goTypes = []any{
 	(*GetPreferredDeviceResponse)(nil),                    // 35: player.GetPreferredDeviceResponse
 	(*GetRoutedDeviceRequest)(nil),                        // 36: player.GetRoutedDeviceRequest
 	(*GetRoutedDeviceResponse)(nil),                       // 37: player.GetRoutedDeviceResponse
-	(*GetSelectedTrackRequest)(nil),                       // 38: player.GetSelectedTrackRequest
-	(*GetSelectedTrackResponse)(nil),                      // 39: player.GetSelectedTrackResponse
-	(*GetSyncParamsRequest)(nil),                          // 40: player.GetSyncParamsRequest
-	(*GetSyncParamsResponse)(nil),                         // 41: player.GetSyncParamsResponse
-	(*GetTimestampRequest)(nil),                           // 42: player.GetTimestampRequest
-	(*GetTimestampResponse)(nil),                          // 43: player.GetTimestampResponse
-	(*GetTrackInfoRequest)(nil),                           // 44: player.GetTrackInfoRequest
-	(*GetTrackInfoResponse)(nil),                          // 45: player.GetTrackInfoResponse
-	(*GetVideoHeightRequest)(nil),                         // 46: player.GetVideoHeightRequest
-	(*GetVideoHeightResponse)(nil),                        // 47: player.GetVideoHeightResponse
-	(*GetVideoWidthRequest)(nil),                          // 48: player.GetVideoWidthRequest
-	(*GetVideoWidthResponse)(nil),                         // 49: player.GetVideoWidthResponse
-	(*IsLoopingRequest)(nil),                              // 50: player.IsLoopingRequest
-	(*IsLoopingResponse)(nil),                             // 51: player.IsLoopingResponse
-	(*IsPlayingRequest)(nil),                              // 52: player.IsPlayingRequest
-	(*IsPlayingResponse)(nil),                             // 53: player.IsPlayingResponse
-	(*PauseRequest)(nil),                                  // 54: player.PauseRequest
-	(*PauseResponse)(nil),                                 // 55: player.PauseResponse
-	(*PrepareRequest)(nil),                                // 56: player.PrepareRequest
-	(*PrepareResponse)(nil),                               // 57: player.PrepareResponse
-	(*PrepareAsyncRequest)(nil),                           // 58: player.PrepareAsyncRequest
-	(*PrepareAsyncResponse)(nil),                          // 59: player.PrepareAsyncResponse
-	(*PrepareDrmRequest)(nil),                             // 60: player.PrepareDrmRequest
-	(*PrepareDrmResponse)(nil),                            // 61: player.PrepareDrmResponse
-	(*ProvideKeyResponseRequest)(nil),                     // 62: player.ProvideKeyResponseRequest
-	(*ProvideKeyResponseResponse)(nil),                    // 63: player.ProvideKeyResponseResponse
-	(*ReleaseRequest)(nil),                                // 64: player.ReleaseRequest
-	(*ReleaseResponse)(nil),                               // 65: player.ReleaseResponse
-	(*ReleaseDrmRequest)(nil),                             // 66: player.ReleaseDrmRequest
-	(*ReleaseDrmResponse)(nil),                            // 67: player.ReleaseDrmResponse
-	(*RemoveOnRoutingChangedListenerRequest)(nil),         // 68: player.RemoveOnRoutingChangedListenerRequest
-	(*RemoveOnRoutingChangedListenerResponse)(nil),        // 69: player.RemoveOnRoutingChangedListenerResponse
-	(*ResetRequest)(nil),                                  // 70: player.ResetRequest
-	(*ResetResponse)(nil),                                 // 71: player.ResetResponse
-	(*RestoreKeysRequest)(nil),                            // 72: player.RestoreKeysRequest
-	(*RestoreKeysResponse)(nil),                           // 73: player.RestoreKeysResponse
-	(*SeekTo1Request)(nil),                                // 74: player.SeekTo1Request
-	(*SeekTo1Response)(nil),                               // 75: player.SeekTo1Response
-	(*SeekTo2_1Request)(nil),                              // 76: player.SeekTo2_1Request
-	(*SeekTo2_1Response)(nil),                             // 77: player.SeekTo2_1Response
-	(*SelectTrackRequest)(nil),                            // 78: player.SelectTrackRequest
-	(*SelectTrackResponse)(nil),                           // 79: player.SelectTrackResponse
-	(*SetAudioAttributesRequest)(nil),                     // 80: player.SetAudioAttributesRequest
-	(*SetAudioAttributesResponse)(nil),                    // 81: player.SetAudioAttributesResponse
-	(*SetAudioSessionIdRequest)(nil),                      // 82: player.SetAudioSessionIdRequest
-	(*SetAudioSessionIdResponse)(nil),                     // 83: player.SetAudioSessionIdResponse
-	(*SetAudioStreamTypeRequest)(nil),                     // 84: player.SetAudioStreamTypeRequest
-	(*SetAudioStreamTypeResponse)(nil),                    // 85: player.SetAudioStreamTypeResponse
-	(*SetAuxEffectSendLevelRequest)(nil),                  // 86: player.SetAuxEffectSendLevelRequest
-	(*SetAuxEffectSendLevelResponse)(nil),                 // 87: player.SetAuxEffectSendLevelResponse
-	(*SetDataSource2Request)(nil),                         // 88: player.SetDataSource2Request
-	(*SetDataSource2Response)(nil),                        // 89: player.SetDataSource2Response
-	(*SetDataSource1_1Request)(nil),                       // 90: player.SetDataSource1_1Request
-	(*SetDataSource1_1Response)(nil),                      // 91: player.SetDataSource1_1Response
-	(*SetDataSource1_2Request)(nil),                       // 92: player.SetDataSource1_2Request
-	(*SetDataSource1_2Response)(nil),                      // 93: player.SetDataSource1_2Response
-	(*SetDataSource1_3Request)(nil),                       // 94: player.SetDataSource1_3Request
-	(*SetDataSource1_3Response)(nil),                      // 95: player.SetDataSource1_3Response
-	(*SetDataSource3_4Request)(nil),                       // 96: player.SetDataSource3_4Request
-	(*SetDataSource3_4Response)(nil),                      // 97: player.SetDataSource3_4Response
-	(*SetDataSource1_5Request)(nil),                       // 98: player.SetDataSource1_5Request
-	(*SetDataSource1_5Response)(nil),                      // 99: player.SetDataSource1_5Response
-	(*SetDisplayRequest)(nil),                             // 100: player.SetDisplayRequest
-	(*SetDisplayResponse)(nil),                            // 101: player.SetDisplayResponse
-	(*SetDrmPropertyStringRequest)(nil),                   // 102: player.SetDrmPropertyStringRequest
-	(*SetDrmPropertyStringResponse)(nil),                  // 103: player.SetDrmPropertyStringResponse
-	(*SetLoopingRequest)(nil),                             // 104: player.SetLoopingRequest
-	(*SetLoopingResponse)(nil),                            // 105: player.SetLoopingResponse
-	(*SetNextMediaPlayerRequest)(nil),                     // 106: player.SetNextMediaPlayerRequest
-	(*SetNextMediaPlayerResponse)(nil),                    // 107: player.SetNextMediaPlayerResponse
-	(*SetOnBufferingUpdateListenerRequest)(nil),           // 108: player.SetOnBufferingUpdateListenerRequest
-	(*SetOnBufferingUpdateListenerResponse)(nil),          // 109: player.SetOnBufferingUpdateListenerResponse
-	(*SetOnCompletionListenerRequest)(nil),                // 110: player.SetOnCompletionListenerRequest
-	(*SetOnCompletionListenerResponse)(nil),               // 111: player.SetOnCompletionListenerResponse
-	(*SetOnDrmConfigHelperRequest)(nil),                   // 112: player.SetOnDrmConfigHelperRequest
-	(*SetOnDrmConfigHelperResponse)(nil),                  // 113: player.SetOnDrmConfigHelperResponse
-	(*SetOnDrmInfoListenerRequest)(nil),                   // 114: player.SetOnDrmInfoListenerRequest
-	(*SetOnDrmInfoListenerResponse)(nil),                  // 115: player.SetOnDrmInfoListenerResponse
-	(*SetOnDrmPreparedListenerRequest)(nil),               // 116: player.SetOnDrmPreparedListenerRequest
-	(*SetOnDrmPreparedListenerResponse)(nil),              // 117: player.SetOnDrmPreparedListenerResponse
-	(*SetOnErrorListenerRequest)(nil),                     // 118: player.SetOnErrorListenerRequest
-	(*SetOnErrorListenerResponse)(nil),                    // 119: player.SetOnErrorListenerResponse
-	(*SetOnInfoListenerRequest)(nil),                      // 120: player.SetOnInfoListenerRequest
-	(*SetOnInfoListenerResponse)(nil),                     // 121: player.SetOnInfoListenerResponse
-	(*SetOnMediaTimeDiscontinuityListenerRequest)(nil),    // 122: player.SetOnMediaTimeDiscontinuityListenerRequest
-	(*SetOnMediaTimeDiscontinuityListenerResponse)(nil),   // 123: player.SetOnMediaTimeDiscontinuityListenerResponse
-	(*SetOnPreparedListenerRequest)(nil),                  // 124: player.SetOnPreparedListenerRequest
-	(*SetOnPreparedListenerResponse)(nil),                 // 125: player.SetOnPreparedListenerResponse
-	(*SetOnSeekCompleteListenerRequest)(nil),              // 126: player.SetOnSeekCompleteListenerRequest
-	(*SetOnSeekCompleteListenerResponse)(nil),             // 127: player.SetOnSeekCompleteListenerResponse
-	(*SetOnSubtitleDataListenerRequest)(nil),              // 128: player.SetOnSubtitleDataListenerRequest
-	(*SetOnSubtitleDataListenerResponse)(nil),             // 129: player.SetOnSubtitleDataListenerResponse
-	(*SetOnTimedMetaDataAvailableListenerRequest)(nil),    // 130: player.SetOnTimedMetaDataAvailableListenerRequest
-	(*SetOnTimedMetaDataAvailableListenerResponse)(nil),   // 131: player.SetOnTimedMetaDataAvailableListenerResponse
-	(*SetOnTimedTextListenerRequest)(nil),                 // 132: player.SetOnTimedTextListenerRequest
-	(*SetOnTimedTextListenerResponse)(nil),                // 133: player.SetOnTimedTextListenerResponse
-	(*SetOnVideoSizeChangedListenerRequest)(nil),          // 134: player.SetOnVideoSizeChangedListenerRequest
-	(*SetOnVideoSizeChangedListenerResponse)(nil),         // 135: player.SetOnVideoSizeChangedListenerResponse
-	(*SetPlaybackParamsRequest)(nil),                      // 136: player.SetPlaybackParamsRequest
-	(*SetPlaybackParamsResponse)(nil),                     // 137: player.SetPlaybackParamsResponse
-	(*SetPreferredDeviceRequest)(nil),                     // 138: player.SetPreferredDeviceRequest
-	(*SetPreferredDeviceResponse)(nil),                    // 139: player.SetPreferredDeviceResponse
-	(*SetScreenOnWhilePlayingRequest)(nil),                // 140: player.SetScreenOnWhilePlayingRequest
-	(*SetScreenOnWhilePlayingResponse)(nil),               // 141: player.SetScreenOnWhilePlayingResponse
-	(*SetSurfaceRequest)(nil),                             // 142: player.SetSurfaceRequest
-	(*SetSurfaceResponse)(nil),                            // 143: player.SetSurfaceResponse
-	(*SetSyncParamsRequest)(nil),                          // 144: player.SetSyncParamsRequest
-	(*SetSyncParamsResponse)(nil),                         // 145: player.SetSyncParamsResponse
-	(*SetVideoScalingModeRequest)(nil),                    // 146: player.SetVideoScalingModeRequest
-	(*SetVideoScalingModeResponse)(nil),                   // 147: player.SetVideoScalingModeResponse
-	(*SetVolumeRequest)(nil),                              // 148: player.SetVolumeRequest
-	(*SetVolumeResponse)(nil),                             // 149: player.SetVolumeResponse
-	(*SetWakeModeRequest)(nil),                            // 150: player.SetWakeModeRequest
-	(*SetWakeModeResponse)(nil),                           // 151: player.SetWakeModeResponse
-	(*StartRequest)(nil),                                  // 152: player.StartRequest
-	(*StartResponse)(nil),                                 // 153: player.StartResponse
-	(*StopRequest)(nil),                                   // 154: player.StopRequest
-	(*StopResponse)(nil),                                  // 155: player.StopResponse
-	(*Create2Request)(nil),                                // 156: player.Create2Request
-	(*Create2Response)(nil),                               // 157: player.Create2Response
-	(*Create3_1Request)(nil),                              // 158: player.Create3_1Request
-	(*Create3_1Response)(nil),                             // 159: player.Create3_1Response
-	(*Create5_2Request)(nil),                              // 160: player.Create5_2Request
-	(*Create5_2Response)(nil),                             // 161: player.Create5_2Response
-	(*Create2_3Request)(nil),                              // 162: player.Create2_3Request
-	(*Create2_3Response)(nil),                             // 163: player.Create2_3Response
-	(*Create4_4Request)(nil),                              // 164: player.Create4_4Request
-	(*Create4_4Response)(nil),                             // 165: player.Create4_4Response
-	(*GetSupportedSchemesRequest)(nil),                    // 166: player.GetSupportedSchemesRequest
-	(*GetSupportedSchemesResponse)(nil),                   // 167: player.GetSupportedSchemesResponse
-	(*OnBufferingUpdateRequest)(nil),                      // 168: player.OnBufferingUpdateRequest
-	(*OnBufferingUpdateResponse)(nil),                     // 169: player.OnBufferingUpdateResponse
-	(*OnCompletionRequest)(nil),                           // 170: player.OnCompletionRequest
-	(*OnCompletionResponse)(nil),                          // 171: player.OnCompletionResponse
-	(*OnDrmConfigRequest)(nil),                            // 172: player.OnDrmConfigRequest
-	(*OnDrmConfigResponse)(nil),                           // 173: player.OnDrmConfigResponse
-	(*OnDrmInfoRequest)(nil),                              // 174: player.OnDrmInfoRequest
-	(*OnDrmInfoResponse)(nil),                             // 175: player.OnDrmInfoResponse
-	(*OnDrmPreparedRequest)(nil),                          // 176: player.OnDrmPreparedRequest
-	(*OnDrmPreparedResponse)(nil),                         // 177: player.OnDrmPreparedResponse
-	(*OnErrorRequest)(nil),                                // 178: player.OnErrorRequest
-	(*OnErrorResponse)(nil),                               // 179: player.OnErrorResponse
-	(*OnInfoRequest)(nil),                                 // 180: player.OnInfoRequest
-	(*OnInfoResponse)(nil),                                // 181: player.OnInfoResponse
-	(*OnMediaTimeDiscontinuityRequest)(nil),               // 182: player.OnMediaTimeDiscontinuityRequest
-	(*OnMediaTimeDiscontinuityResponse)(nil),              // 183: player.OnMediaTimeDiscontinuityResponse
-	(*OnPreparedRequest)(nil),                             // 184: player.OnPreparedRequest
-	(*OnPreparedResponse)(nil),                            // 185: player.OnPreparedResponse
-	(*OnSeekCompleteRequest)(nil),                         // 186: player.OnSeekCompleteRequest
-	(*OnSeekCompleteResponse)(nil),                        // 187: player.OnSeekCompleteResponse
-	(*OnSubtitleDataRequest)(nil),                         // 188: player.OnSubtitleDataRequest
-	(*OnSubtitleDataResponse)(nil),                        // 189: player.OnSubtitleDataResponse
-	(*OnTimedMetaDataAvailableRequest)(nil),               // 190: player.OnTimedMetaDataAvailableRequest
-	(*OnTimedMetaDataAvailableResponse)(nil),              // 191: player.OnTimedMetaDataAvailableResponse
-	(*OnTimedTextRequest)(nil),                            // 192: player.OnTimedTextRequest
-	(*OnTimedTextResponse)(nil),                           // 193: player.OnTimedTextResponse
-	(*OnVideoSizeChangedRequest)(nil),                     // 194: player.OnVideoSizeChangedRequest
-	(*OnVideoSizeChangedResponse)(nil),                    // 195: player.OnVideoSizeChangedResponse
-	(*DescribeContentsRequest)(nil),                       // 196: player.DescribeContentsRequest
-	(*DescribeContentsResponse)(nil),                      // 197: player.DescribeContentsResponse
-	(*GetFormatRequest)(nil),                              // 198: player.GetFormatRequest
-	(*GetFormatResponse)(nil),                             // 199: player.GetFormatResponse
-	(*GetLanguageRequest)(nil),                            // 200: player.GetLanguageRequest
-	(*GetLanguageResponse)(nil),                           // 201: player.GetLanguageResponse
-	(*GetTrackTypeRequest)(nil),                           // 202: player.GetTrackTypeRequest
-	(*GetTrackTypeResponse)(nil),                          // 203: player.GetTrackTypeResponse
-	(*ToStringRequest)(nil),                               // 204: player.ToStringRequest
-	(*ToStringResponse)(nil),                              // 205: player.ToStringResponse
-	(*WriteToParcelRequest)(nil),                          // 206: player.WriteToParcelRequest
-	(*WriteToParcelResponse)(nil),                         // 207: player.WriteToParcelResponse
+	(*GetRoutedDevicesRequest)(nil),                       // 38: player.GetRoutedDevicesRequest
+	(*GetRoutedDevicesResponse)(nil),                      // 39: player.GetRoutedDevicesResponse
+	(*GetSelectedTrackRequest)(nil),                       // 40: player.GetSelectedTrackRequest
+	(*GetSelectedTrackResponse)(nil),                      // 41: player.GetSelectedTrackResponse
+	(*GetSyncParamsRequest)(nil),                          // 42: player.GetSyncParamsRequest
+	(*GetSyncParamsResponse)(nil),                         // 43: player.GetSyncParamsResponse
+	(*GetTimestampRequest)(nil),                           // 44: player.GetTimestampRequest
+	(*GetTimestampResponse)(nil),                          // 45: player.GetTimestampResponse
+	(*GetTrackInfoRequest)(nil),                           // 46: player.GetTrackInfoRequest
+	(*GetTrackInfoResponse)(nil),                          // 47: player.GetTrackInfoResponse
+	(*GetVideoHeightRequest)(nil),                         // 48: player.GetVideoHeightRequest
+	(*GetVideoHeightResponse)(nil),                        // 49: player.GetVideoHeightResponse
+	(*GetVideoWidthRequest)(nil),                          // 50: player.GetVideoWidthRequest
+	(*GetVideoWidthResponse)(nil),                         // 51: player.GetVideoWidthResponse
+	(*IsLoopingRequest)(nil),                              // 52: player.IsLoopingRequest
+	(*IsLoopingResponse)(nil),                             // 53: player.IsLoopingResponse
+	(*IsPlayingRequest)(nil),                              // 54: player.IsPlayingRequest
+	(*IsPlayingResponse)(nil),                             // 55: player.IsPlayingResponse
+	(*PauseRequest)(nil),                                  // 56: player.PauseRequest
+	(*PauseResponse)(nil),                                 // 57: player.PauseResponse
+	(*PrepareRequest)(nil),                                // 58: player.PrepareRequest
+	(*PrepareResponse)(nil),                               // 59: player.PrepareResponse
+	(*PrepareAsyncRequest)(nil),                           // 60: player.PrepareAsyncRequest
+	(*PrepareAsyncResponse)(nil),                          // 61: player.PrepareAsyncResponse
+	(*PrepareDrmRequest)(nil),                             // 62: player.PrepareDrmRequest
+	(*PrepareDrmResponse)(nil),                            // 63: player.PrepareDrmResponse
+	(*ProvideKeyResponseRequest)(nil),                     // 64: player.ProvideKeyResponseRequest
+	(*ProvideKeyResponseResponse)(nil),                    // 65: player.ProvideKeyResponseResponse
+	(*ReleaseRequest)(nil),                                // 66: player.ReleaseRequest
+	(*ReleaseResponse)(nil),                               // 67: player.ReleaseResponse
+	(*ReleaseDrmRequest)(nil),                             // 68: player.ReleaseDrmRequest
+	(*ReleaseDrmResponse)(nil),                            // 69: player.ReleaseDrmResponse
+	(*RemoveOnRoutingChangedListenerRequest)(nil),         // 70: player.RemoveOnRoutingChangedListenerRequest
+	(*RemoveOnRoutingChangedListenerResponse)(nil),        // 71: player.RemoveOnRoutingChangedListenerResponse
+	(*ResetRequest)(nil),                                  // 72: player.ResetRequest
+	(*ResetResponse)(nil),                                 // 73: player.ResetResponse
+	(*RestoreKeysRequest)(nil),                            // 74: player.RestoreKeysRequest
+	(*RestoreKeysResponse)(nil),                           // 75: player.RestoreKeysResponse
+	(*SeekTo1Request)(nil),                                // 76: player.SeekTo1Request
+	(*SeekTo1Response)(nil),                               // 77: player.SeekTo1Response
+	(*SeekTo2_1Request)(nil),                              // 78: player.SeekTo2_1Request
+	(*SeekTo2_1Response)(nil),                             // 79: player.SeekTo2_1Response
+	(*SelectTrackRequest)(nil),                            // 80: player.SelectTrackRequest
+	(*SelectTrackResponse)(nil),                           // 81: player.SelectTrackResponse
+	(*SetAudioAttributesRequest)(nil),                     // 82: player.SetAudioAttributesRequest
+	(*SetAudioAttributesResponse)(nil),                    // 83: player.SetAudioAttributesResponse
+	(*SetAudioSessionIdRequest)(nil),                      // 84: player.SetAudioSessionIdRequest
+	(*SetAudioSessionIdResponse)(nil),                     // 85: player.SetAudioSessionIdResponse
+	(*SetAudioStreamTypeRequest)(nil),                     // 86: player.SetAudioStreamTypeRequest
+	(*SetAudioStreamTypeResponse)(nil),                    // 87: player.SetAudioStreamTypeResponse
+	(*SetAuxEffectSendLevelRequest)(nil),                  // 88: player.SetAuxEffectSendLevelRequest
+	(*SetAuxEffectSendLevelResponse)(nil),                 // 89: player.SetAuxEffectSendLevelResponse
+	(*SetDataSource2Request)(nil),                         // 90: player.SetDataSource2Request
+	(*SetDataSource2Response)(nil),                        // 91: player.SetDataSource2Response
+	(*SetDataSource1_1Request)(nil),                       // 92: player.SetDataSource1_1Request
+	(*SetDataSource1_1Response)(nil),                      // 93: player.SetDataSource1_1Response
+	(*SetDataSource1_2Request)(nil),                       // 94: player.SetDataSource1_2Request
+	(*SetDataSource1_2Response)(nil),                      // 95: player.SetDataSource1_2Response
+	(*SetDataSource1_3Request)(nil),                       // 96: player.SetDataSource1_3Request
+	(*SetDataSource1_3Response)(nil),                      // 97: player.SetDataSource1_3Response
+	(*SetDataSource3_4Request)(nil),                       // 98: player.SetDataSource3_4Request
+	(*SetDataSource3_4Response)(nil),                      // 99: player.SetDataSource3_4Response
+	(*SetDataSource1_5Request)(nil),                       // 100: player.SetDataSource1_5Request
+	(*SetDataSource1_5Response)(nil),                      // 101: player.SetDataSource1_5Response
+	(*SetDisplayRequest)(nil),                             // 102: player.SetDisplayRequest
+	(*SetDisplayResponse)(nil),                            // 103: player.SetDisplayResponse
+	(*SetDrmPropertyStringRequest)(nil),                   // 104: player.SetDrmPropertyStringRequest
+	(*SetDrmPropertyStringResponse)(nil),                  // 105: player.SetDrmPropertyStringResponse
+	(*SetLoopingRequest)(nil),                             // 106: player.SetLoopingRequest
+	(*SetLoopingResponse)(nil),                            // 107: player.SetLoopingResponse
+	(*SetNextMediaPlayerRequest)(nil),                     // 108: player.SetNextMediaPlayerRequest
+	(*SetNextMediaPlayerResponse)(nil),                    // 109: player.SetNextMediaPlayerResponse
+	(*SetOnBufferingUpdateListenerRequest)(nil),           // 110: player.SetOnBufferingUpdateListenerRequest
+	(*SetOnBufferingUpdateListenerResponse)(nil),          // 111: player.SetOnBufferingUpdateListenerResponse
+	(*SetOnCompletionListenerRequest)(nil),                // 112: player.SetOnCompletionListenerRequest
+	(*SetOnCompletionListenerResponse)(nil),               // 113: player.SetOnCompletionListenerResponse
+	(*SetOnDrmConfigHelperRequest)(nil),                   // 114: player.SetOnDrmConfigHelperRequest
+	(*SetOnDrmConfigHelperResponse)(nil),                  // 115: player.SetOnDrmConfigHelperResponse
+	(*SetOnDrmInfoListenerRequest)(nil),                   // 116: player.SetOnDrmInfoListenerRequest
+	(*SetOnDrmInfoListenerResponse)(nil),                  // 117: player.SetOnDrmInfoListenerResponse
+	(*SetOnDrmPreparedListenerRequest)(nil),               // 118: player.SetOnDrmPreparedListenerRequest
+	(*SetOnDrmPreparedListenerResponse)(nil),              // 119: player.SetOnDrmPreparedListenerResponse
+	(*SetOnErrorListenerRequest)(nil),                     // 120: player.SetOnErrorListenerRequest
+	(*SetOnErrorListenerResponse)(nil),                    // 121: player.SetOnErrorListenerResponse
+	(*SetOnInfoListenerRequest)(nil),                      // 122: player.SetOnInfoListenerRequest
+	(*SetOnInfoListenerResponse)(nil),                     // 123: player.SetOnInfoListenerResponse
+	(*SetOnMediaTimeDiscontinuityListenerRequest)(nil),    // 124: player.SetOnMediaTimeDiscontinuityListenerRequest
+	(*SetOnMediaTimeDiscontinuityListenerResponse)(nil),   // 125: player.SetOnMediaTimeDiscontinuityListenerResponse
+	(*SetOnPreparedListenerRequest)(nil),                  // 126: player.SetOnPreparedListenerRequest
+	(*SetOnPreparedListenerResponse)(nil),                 // 127: player.SetOnPreparedListenerResponse
+	(*SetOnSeekCompleteListenerRequest)(nil),              // 128: player.SetOnSeekCompleteListenerRequest
+	(*SetOnSeekCompleteListenerResponse)(nil),             // 129: player.SetOnSeekCompleteListenerResponse
+	(*SetOnSubtitleDataListenerRequest)(nil),              // 130: player.SetOnSubtitleDataListenerRequest
+	(*SetOnSubtitleDataListenerResponse)(nil),             // 131: player.SetOnSubtitleDataListenerResponse
+	(*SetOnTimedMetaDataAvailableListenerRequest)(nil),    // 132: player.SetOnTimedMetaDataAvailableListenerRequest
+	(*SetOnTimedMetaDataAvailableListenerResponse)(nil),   // 133: player.SetOnTimedMetaDataAvailableListenerResponse
+	(*SetOnTimedTextListenerRequest)(nil),                 // 134: player.SetOnTimedTextListenerRequest
+	(*SetOnTimedTextListenerResponse)(nil),                // 135: player.SetOnTimedTextListenerResponse
+	(*SetOnVideoSizeChangedListenerRequest)(nil),          // 136: player.SetOnVideoSizeChangedListenerRequest
+	(*SetOnVideoSizeChangedListenerResponse)(nil),         // 137: player.SetOnVideoSizeChangedListenerResponse
+	(*SetPlaybackParamsRequest)(nil),                      // 138: player.SetPlaybackParamsRequest
+	(*SetPlaybackParamsResponse)(nil),                     // 139: player.SetPlaybackParamsResponse
+	(*SetPreferredDeviceRequest)(nil),                     // 140: player.SetPreferredDeviceRequest
+	(*SetPreferredDeviceResponse)(nil),                    // 141: player.SetPreferredDeviceResponse
+	(*SetScreenOnWhilePlayingRequest)(nil),                // 142: player.SetScreenOnWhilePlayingRequest
+	(*SetScreenOnWhilePlayingResponse)(nil),               // 143: player.SetScreenOnWhilePlayingResponse
+	(*SetSurfaceRequest)(nil),                             // 144: player.SetSurfaceRequest
+	(*SetSurfaceResponse)(nil),                            // 145: player.SetSurfaceResponse
+	(*SetSyncParamsRequest)(nil),                          // 146: player.SetSyncParamsRequest
+	(*SetSyncParamsResponse)(nil),                         // 147: player.SetSyncParamsResponse
+	(*SetVideoScalingModeRequest)(nil),                    // 148: player.SetVideoScalingModeRequest
+	(*SetVideoScalingModeResponse)(nil),                   // 149: player.SetVideoScalingModeResponse
+	(*SetVolumeRequest)(nil),                              // 150: player.SetVolumeRequest
+	(*SetVolumeResponse)(nil),                             // 151: player.SetVolumeResponse
+	(*SetWakeModeRequest)(nil),                            // 152: player.SetWakeModeRequest
+	(*SetWakeModeResponse)(nil),                           // 153: player.SetWakeModeResponse
+	(*StartRequest)(nil),                                  // 154: player.StartRequest
+	(*StartResponse)(nil),                                 // 155: player.StartResponse
+	(*StopRequest)(nil),                                   // 156: player.StopRequest
+	(*StopResponse)(nil),                                  // 157: player.StopResponse
+	(*Create2Request)(nil),                                // 158: player.Create2Request
+	(*Create2Response)(nil),                               // 159: player.Create2Response
+	(*Create3_1Request)(nil),                              // 160: player.Create3_1Request
+	(*Create3_1Response)(nil),                             // 161: player.Create3_1Response
+	(*Create5_2Request)(nil),                              // 162: player.Create5_2Request
+	(*Create5_2Response)(nil),                             // 163: player.Create5_2Response
+	(*Create2_3Request)(nil),                              // 164: player.Create2_3Request
+	(*Create2_3Response)(nil),                             // 165: player.Create2_3Response
+	(*Create4_4Request)(nil),                              // 166: player.Create4_4Request
+	(*Create4_4Response)(nil),                             // 167: player.Create4_4Response
+	(*GetSupportedSchemesRequest)(nil),                    // 168: player.GetSupportedSchemesRequest
+	(*GetSupportedSchemesResponse)(nil),                   // 169: player.GetSupportedSchemesResponse
+	(*OnBufferingUpdateRequest)(nil),                      // 170: player.OnBufferingUpdateRequest
+	(*OnBufferingUpdateResponse)(nil),                     // 171: player.OnBufferingUpdateResponse
+	(*OnCompletionRequest)(nil),                           // 172: player.OnCompletionRequest
+	(*OnCompletionResponse)(nil),                          // 173: player.OnCompletionResponse
+	(*OnDrmConfigRequest)(nil),                            // 174: player.OnDrmConfigRequest
+	(*OnDrmConfigResponse)(nil),                           // 175: player.OnDrmConfigResponse
+	(*OnDrmInfoRequest)(nil),                              // 176: player.OnDrmInfoRequest
+	(*OnDrmInfoResponse)(nil),                             // 177: player.OnDrmInfoResponse
+	(*OnDrmPreparedRequest)(nil),                          // 178: player.OnDrmPreparedRequest
+	(*OnDrmPreparedResponse)(nil),                         // 179: player.OnDrmPreparedResponse
+	(*OnErrorRequest)(nil),                                // 180: player.OnErrorRequest
+	(*OnErrorResponse)(nil),                               // 181: player.OnErrorResponse
+	(*OnInfoRequest)(nil),                                 // 182: player.OnInfoRequest
+	(*OnInfoResponse)(nil),                                // 183: player.OnInfoResponse
+	(*OnMediaTimeDiscontinuityRequest)(nil),               // 184: player.OnMediaTimeDiscontinuityRequest
+	(*OnMediaTimeDiscontinuityResponse)(nil),              // 185: player.OnMediaTimeDiscontinuityResponse
+	(*OnPreparedRequest)(nil),                             // 186: player.OnPreparedRequest
+	(*OnPreparedResponse)(nil),                            // 187: player.OnPreparedResponse
+	(*OnSeekCompleteRequest)(nil),                         // 188: player.OnSeekCompleteRequest
+	(*OnSeekCompleteResponse)(nil),                        // 189: player.OnSeekCompleteResponse
+	(*OnSubtitleDataRequest)(nil),                         // 190: player.OnSubtitleDataRequest
+	(*OnSubtitleDataResponse)(nil),                        // 191: player.OnSubtitleDataResponse
+	(*OnTimedMetaDataAvailableRequest)(nil),               // 192: player.OnTimedMetaDataAvailableRequest
+	(*OnTimedMetaDataAvailableResponse)(nil),              // 193: player.OnTimedMetaDataAvailableResponse
+	(*OnTimedTextRequest)(nil),                            // 194: player.OnTimedTextRequest
+	(*OnTimedTextResponse)(nil),                           // 195: player.OnTimedTextResponse
+	(*OnVideoSizeChangedRequest)(nil),                     // 196: player.OnVideoSizeChangedRequest
+	(*OnVideoSizeChangedResponse)(nil),                    // 197: player.OnVideoSizeChangedResponse
+	(*DescribeContentsRequest)(nil),                       // 198: player.DescribeContentsRequest
+	(*DescribeContentsResponse)(nil),                      // 199: player.DescribeContentsResponse
+	(*GetFormatRequest)(nil),                              // 200: player.GetFormatRequest
+	(*GetFormatResponse)(nil),                             // 201: player.GetFormatResponse
+	(*GetLanguageRequest)(nil),                            // 202: player.GetLanguageRequest
+	(*GetLanguageResponse)(nil),                           // 203: player.GetLanguageResponse
+	(*GetTrackTypeRequest)(nil),                           // 204: player.GetTrackTypeRequest
+	(*GetTrackTypeResponse)(nil),                          // 205: player.GetTrackTypeResponse
+	(*ToStringRequest)(nil),                               // 206: player.ToStringRequest
+	(*ToStringResponse)(nil),                              // 207: player.ToStringResponse
+	(*WriteToParcelRequest)(nil),                          // 208: player.WriteToParcelRequest
+	(*WriteToParcelResponse)(nil),                         // 209: player.WriteToParcelResponse
 }
 var file_proto_player_player_proto_depIdxs = []int32{
 	0,   // 0: player.MediaPlayerService.NewMediaPlayer:input_type -> player.NewMediaPlayerRequest
@@ -10158,197 +10253,199 @@ var file_proto_player_player_proto_depIdxs = []int32{
 	32,  // 16: player.MediaPlayerService.GetPlaybackParams:input_type -> player.GetPlaybackParamsRequest
 	34,  // 17: player.MediaPlayerService.GetPreferredDevice:input_type -> player.GetPreferredDeviceRequest
 	36,  // 18: player.MediaPlayerService.GetRoutedDevice:input_type -> player.GetRoutedDeviceRequest
-	38,  // 19: player.MediaPlayerService.GetSelectedTrack:input_type -> player.GetSelectedTrackRequest
-	40,  // 20: player.MediaPlayerService.GetSyncParams:input_type -> player.GetSyncParamsRequest
-	42,  // 21: player.MediaPlayerService.GetTimestamp:input_type -> player.GetTimestampRequest
-	44,  // 22: player.MediaPlayerService.GetTrackInfo:input_type -> player.GetTrackInfoRequest
-	46,  // 23: player.MediaPlayerService.GetVideoHeight:input_type -> player.GetVideoHeightRequest
-	48,  // 24: player.MediaPlayerService.GetVideoWidth:input_type -> player.GetVideoWidthRequest
-	50,  // 25: player.MediaPlayerService.IsLooping:input_type -> player.IsLoopingRequest
-	52,  // 26: player.MediaPlayerService.IsPlaying:input_type -> player.IsPlayingRequest
-	54,  // 27: player.MediaPlayerService.Pause:input_type -> player.PauseRequest
-	56,  // 28: player.MediaPlayerService.Prepare:input_type -> player.PrepareRequest
-	58,  // 29: player.MediaPlayerService.PrepareAsync:input_type -> player.PrepareAsyncRequest
-	60,  // 30: player.MediaPlayerService.PrepareDrm:input_type -> player.PrepareDrmRequest
-	62,  // 31: player.MediaPlayerService.ProvideKeyResponse:input_type -> player.ProvideKeyResponseRequest
-	64,  // 32: player.MediaPlayerService.Release:input_type -> player.ReleaseRequest
-	66,  // 33: player.MediaPlayerService.ReleaseDrm:input_type -> player.ReleaseDrmRequest
-	68,  // 34: player.MediaPlayerService.RemoveOnRoutingChangedListener:input_type -> player.RemoveOnRoutingChangedListenerRequest
-	70,  // 35: player.MediaPlayerService.Reset:input_type -> player.ResetRequest
-	72,  // 36: player.MediaPlayerService.RestoreKeys:input_type -> player.RestoreKeysRequest
-	74,  // 37: player.MediaPlayerService.SeekTo1:input_type -> player.SeekTo1Request
-	76,  // 38: player.MediaPlayerService.SeekTo2_1:input_type -> player.SeekTo2_1Request
-	78,  // 39: player.MediaPlayerService.SelectTrack:input_type -> player.SelectTrackRequest
-	80,  // 40: player.MediaPlayerService.SetAudioAttributes:input_type -> player.SetAudioAttributesRequest
-	82,  // 41: player.MediaPlayerService.SetAudioSessionId:input_type -> player.SetAudioSessionIdRequest
-	84,  // 42: player.MediaPlayerService.SetAudioStreamType:input_type -> player.SetAudioStreamTypeRequest
-	86,  // 43: player.MediaPlayerService.SetAuxEffectSendLevel:input_type -> player.SetAuxEffectSendLevelRequest
-	88,  // 44: player.MediaPlayerService.SetDataSource2:input_type -> player.SetDataSource2Request
-	90,  // 45: player.MediaPlayerService.SetDataSource1_1:input_type -> player.SetDataSource1_1Request
-	92,  // 46: player.MediaPlayerService.SetDataSource1_2:input_type -> player.SetDataSource1_2Request
-	94,  // 47: player.MediaPlayerService.SetDataSource1_3:input_type -> player.SetDataSource1_3Request
-	96,  // 48: player.MediaPlayerService.SetDataSource3_4:input_type -> player.SetDataSource3_4Request
-	98,  // 49: player.MediaPlayerService.SetDataSource1_5:input_type -> player.SetDataSource1_5Request
-	100, // 50: player.MediaPlayerService.SetDisplay:input_type -> player.SetDisplayRequest
-	102, // 51: player.MediaPlayerService.SetDrmPropertyString:input_type -> player.SetDrmPropertyStringRequest
-	104, // 52: player.MediaPlayerService.SetLooping:input_type -> player.SetLoopingRequest
-	106, // 53: player.MediaPlayerService.SetNextMediaPlayer:input_type -> player.SetNextMediaPlayerRequest
-	108, // 54: player.MediaPlayerService.SetOnBufferingUpdateListener:input_type -> player.SetOnBufferingUpdateListenerRequest
-	110, // 55: player.MediaPlayerService.SetOnCompletionListener:input_type -> player.SetOnCompletionListenerRequest
-	112, // 56: player.MediaPlayerService.SetOnDrmConfigHelper:input_type -> player.SetOnDrmConfigHelperRequest
-	114, // 57: player.MediaPlayerService.SetOnDrmInfoListener:input_type -> player.SetOnDrmInfoListenerRequest
-	116, // 58: player.MediaPlayerService.SetOnDrmPreparedListener:input_type -> player.SetOnDrmPreparedListenerRequest
-	118, // 59: player.MediaPlayerService.SetOnErrorListener:input_type -> player.SetOnErrorListenerRequest
-	120, // 60: player.MediaPlayerService.SetOnInfoListener:input_type -> player.SetOnInfoListenerRequest
-	122, // 61: player.MediaPlayerService.SetOnMediaTimeDiscontinuityListener:input_type -> player.SetOnMediaTimeDiscontinuityListenerRequest
-	124, // 62: player.MediaPlayerService.SetOnPreparedListener:input_type -> player.SetOnPreparedListenerRequest
-	126, // 63: player.MediaPlayerService.SetOnSeekCompleteListener:input_type -> player.SetOnSeekCompleteListenerRequest
-	128, // 64: player.MediaPlayerService.SetOnSubtitleDataListener:input_type -> player.SetOnSubtitleDataListenerRequest
-	130, // 65: player.MediaPlayerService.SetOnTimedMetaDataAvailableListener:input_type -> player.SetOnTimedMetaDataAvailableListenerRequest
-	132, // 66: player.MediaPlayerService.SetOnTimedTextListener:input_type -> player.SetOnTimedTextListenerRequest
-	134, // 67: player.MediaPlayerService.SetOnVideoSizeChangedListener:input_type -> player.SetOnVideoSizeChangedListenerRequest
-	136, // 68: player.MediaPlayerService.SetPlaybackParams:input_type -> player.SetPlaybackParamsRequest
-	138, // 69: player.MediaPlayerService.SetPreferredDevice:input_type -> player.SetPreferredDeviceRequest
-	140, // 70: player.MediaPlayerService.SetScreenOnWhilePlaying:input_type -> player.SetScreenOnWhilePlayingRequest
-	142, // 71: player.MediaPlayerService.SetSurface:input_type -> player.SetSurfaceRequest
-	144, // 72: player.MediaPlayerService.SetSyncParams:input_type -> player.SetSyncParamsRequest
-	146, // 73: player.MediaPlayerService.SetVideoScalingMode:input_type -> player.SetVideoScalingModeRequest
-	148, // 74: player.MediaPlayerService.SetVolume:input_type -> player.SetVolumeRequest
-	150, // 75: player.MediaPlayerService.SetWakeMode:input_type -> player.SetWakeModeRequest
-	152, // 76: player.MediaPlayerService.Start:input_type -> player.StartRequest
-	154, // 77: player.MediaPlayerService.Stop:input_type -> player.StopRequest
-	156, // 78: player.MediaPlayerService.Create2:input_type -> player.Create2Request
-	158, // 79: player.MediaPlayerService.Create3_1:input_type -> player.Create3_1Request
-	160, // 80: player.MediaPlayerService.Create5_2:input_type -> player.Create5_2Request
-	162, // 81: player.MediaPlayerService.Create2_3:input_type -> player.Create2_3Request
-	164, // 82: player.MediaPlayerService.Create4_4:input_type -> player.Create4_4Request
-	166, // 83: player.MediaPlayerDrmInfoService.GetSupportedSchemes:input_type -> player.GetSupportedSchemesRequest
-	168, // 84: player.MediaPlayerOnBufferingUpdateListenerService.OnBufferingUpdate:input_type -> player.OnBufferingUpdateRequest
-	170, // 85: player.MediaPlayerOnCompletionListenerService.OnCompletion:input_type -> player.OnCompletionRequest
-	172, // 86: player.MediaPlayerOnDrmConfigHelperService.OnDrmConfig:input_type -> player.OnDrmConfigRequest
-	174, // 87: player.MediaPlayerOnDrmInfoListenerService.OnDrmInfo:input_type -> player.OnDrmInfoRequest
-	176, // 88: player.MediaPlayerOnDrmPreparedListenerService.OnDrmPrepared:input_type -> player.OnDrmPreparedRequest
-	178, // 89: player.MediaPlayerOnErrorListenerService.OnError:input_type -> player.OnErrorRequest
-	180, // 90: player.MediaPlayerOnInfoListenerService.OnInfo:input_type -> player.OnInfoRequest
-	182, // 91: player.MediaPlayerOnMediaTimeDiscontinuityListenerService.OnMediaTimeDiscontinuity:input_type -> player.OnMediaTimeDiscontinuityRequest
-	184, // 92: player.MediaPlayerOnPreparedListenerService.OnPrepared:input_type -> player.OnPreparedRequest
-	186, // 93: player.MediaPlayerOnSeekCompleteListenerService.OnSeekComplete:input_type -> player.OnSeekCompleteRequest
-	188, // 94: player.MediaPlayerOnSubtitleDataListenerService.OnSubtitleData:input_type -> player.OnSubtitleDataRequest
-	190, // 95: player.MediaPlayerOnTimedMetaDataAvailableListenerService.OnTimedMetaDataAvailable:input_type -> player.OnTimedMetaDataAvailableRequest
-	192, // 96: player.MediaPlayerOnTimedTextListenerService.OnTimedText:input_type -> player.OnTimedTextRequest
-	194, // 97: player.MediaPlayerOnVideoSizeChangedListenerService.OnVideoSizeChanged:input_type -> player.OnVideoSizeChangedRequest
-	196, // 98: player.MediaPlayerTrackInfoService.DescribeContents:input_type -> player.DescribeContentsRequest
-	198, // 99: player.MediaPlayerTrackInfoService.GetFormat:input_type -> player.GetFormatRequest
-	200, // 100: player.MediaPlayerTrackInfoService.GetLanguage:input_type -> player.GetLanguageRequest
-	202, // 101: player.MediaPlayerTrackInfoService.GetTrackType:input_type -> player.GetTrackTypeRequest
-	204, // 102: player.MediaPlayerTrackInfoService.ToString:input_type -> player.ToStringRequest
-	206, // 103: player.MediaPlayerTrackInfoService.WriteToParcel:input_type -> player.WriteToParcelRequest
-	1,   // 104: player.MediaPlayerService.NewMediaPlayer:output_type -> player.NewMediaPlayerResponse
-	3,   // 105: player.MediaPlayerService.AddTimedTextSource3:output_type -> player.AddTimedTextSource3Response
-	5,   // 106: player.MediaPlayerService.AddTimedTextSource2_1:output_type -> player.AddTimedTextSource2_1Response
-	7,   // 107: player.MediaPlayerService.AddTimedTextSource4_2:output_type -> player.AddTimedTextSource4_2Response
-	9,   // 108: player.MediaPlayerService.AddTimedTextSource2_3:output_type -> player.AddTimedTextSource2_3Response
-	11,  // 109: player.MediaPlayerService.AttachAuxEffect:output_type -> player.AttachAuxEffectResponse
-	13,  // 110: player.MediaPlayerService.ClearOnMediaTimeDiscontinuityListener:output_type -> player.ClearOnMediaTimeDiscontinuityListenerResponse
-	15,  // 111: player.MediaPlayerService.ClearOnSubtitleDataListener:output_type -> player.ClearOnSubtitleDataListenerResponse
-	17,  // 112: player.MediaPlayerService.CreateVolumeShaper:output_type -> player.CreateVolumeShaperResponse
-	19,  // 113: player.MediaPlayerService.DeselectTrack:output_type -> player.DeselectTrackResponse
-	21,  // 114: player.MediaPlayerService.GetAudioSessionId:output_type -> player.GetAudioSessionIdResponse
-	23,  // 115: player.MediaPlayerService.GetCurrentPosition:output_type -> player.GetCurrentPositionResponse
-	25,  // 116: player.MediaPlayerService.GetDrmInfo:output_type -> player.GetDrmInfoResponse
-	27,  // 117: player.MediaPlayerService.GetDrmPropertyString:output_type -> player.GetDrmPropertyStringResponse
-	29,  // 118: player.MediaPlayerService.GetDuration:output_type -> player.GetDurationResponse
-	31,  // 119: player.MediaPlayerService.GetMetrics:output_type -> player.GetMetricsResponse
-	33,  // 120: player.MediaPlayerService.GetPlaybackParams:output_type -> player.GetPlaybackParamsResponse
-	35,  // 121: player.MediaPlayerService.GetPreferredDevice:output_type -> player.GetPreferredDeviceResponse
-	37,  // 122: player.MediaPlayerService.GetRoutedDevice:output_type -> player.GetRoutedDeviceResponse
-	39,  // 123: player.MediaPlayerService.GetSelectedTrack:output_type -> player.GetSelectedTrackResponse
-	41,  // 124: player.MediaPlayerService.GetSyncParams:output_type -> player.GetSyncParamsResponse
-	43,  // 125: player.MediaPlayerService.GetTimestamp:output_type -> player.GetTimestampResponse
-	45,  // 126: player.MediaPlayerService.GetTrackInfo:output_type -> player.GetTrackInfoResponse
-	47,  // 127: player.MediaPlayerService.GetVideoHeight:output_type -> player.GetVideoHeightResponse
-	49,  // 128: player.MediaPlayerService.GetVideoWidth:output_type -> player.GetVideoWidthResponse
-	51,  // 129: player.MediaPlayerService.IsLooping:output_type -> player.IsLoopingResponse
-	53,  // 130: player.MediaPlayerService.IsPlaying:output_type -> player.IsPlayingResponse
-	55,  // 131: player.MediaPlayerService.Pause:output_type -> player.PauseResponse
-	57,  // 132: player.MediaPlayerService.Prepare:output_type -> player.PrepareResponse
-	59,  // 133: player.MediaPlayerService.PrepareAsync:output_type -> player.PrepareAsyncResponse
-	61,  // 134: player.MediaPlayerService.PrepareDrm:output_type -> player.PrepareDrmResponse
-	63,  // 135: player.MediaPlayerService.ProvideKeyResponse:output_type -> player.ProvideKeyResponseResponse
-	65,  // 136: player.MediaPlayerService.Release:output_type -> player.ReleaseResponse
-	67,  // 137: player.MediaPlayerService.ReleaseDrm:output_type -> player.ReleaseDrmResponse
-	69,  // 138: player.MediaPlayerService.RemoveOnRoutingChangedListener:output_type -> player.RemoveOnRoutingChangedListenerResponse
-	71,  // 139: player.MediaPlayerService.Reset:output_type -> player.ResetResponse
-	73,  // 140: player.MediaPlayerService.RestoreKeys:output_type -> player.RestoreKeysResponse
-	75,  // 141: player.MediaPlayerService.SeekTo1:output_type -> player.SeekTo1Response
-	77,  // 142: player.MediaPlayerService.SeekTo2_1:output_type -> player.SeekTo2_1Response
-	79,  // 143: player.MediaPlayerService.SelectTrack:output_type -> player.SelectTrackResponse
-	81,  // 144: player.MediaPlayerService.SetAudioAttributes:output_type -> player.SetAudioAttributesResponse
-	83,  // 145: player.MediaPlayerService.SetAudioSessionId:output_type -> player.SetAudioSessionIdResponse
-	85,  // 146: player.MediaPlayerService.SetAudioStreamType:output_type -> player.SetAudioStreamTypeResponse
-	87,  // 147: player.MediaPlayerService.SetAuxEffectSendLevel:output_type -> player.SetAuxEffectSendLevelResponse
-	89,  // 148: player.MediaPlayerService.SetDataSource2:output_type -> player.SetDataSource2Response
-	91,  // 149: player.MediaPlayerService.SetDataSource1_1:output_type -> player.SetDataSource1_1Response
-	93,  // 150: player.MediaPlayerService.SetDataSource1_2:output_type -> player.SetDataSource1_2Response
-	95,  // 151: player.MediaPlayerService.SetDataSource1_3:output_type -> player.SetDataSource1_3Response
-	97,  // 152: player.MediaPlayerService.SetDataSource3_4:output_type -> player.SetDataSource3_4Response
-	99,  // 153: player.MediaPlayerService.SetDataSource1_5:output_type -> player.SetDataSource1_5Response
-	101, // 154: player.MediaPlayerService.SetDisplay:output_type -> player.SetDisplayResponse
-	103, // 155: player.MediaPlayerService.SetDrmPropertyString:output_type -> player.SetDrmPropertyStringResponse
-	105, // 156: player.MediaPlayerService.SetLooping:output_type -> player.SetLoopingResponse
-	107, // 157: player.MediaPlayerService.SetNextMediaPlayer:output_type -> player.SetNextMediaPlayerResponse
-	109, // 158: player.MediaPlayerService.SetOnBufferingUpdateListener:output_type -> player.SetOnBufferingUpdateListenerResponse
-	111, // 159: player.MediaPlayerService.SetOnCompletionListener:output_type -> player.SetOnCompletionListenerResponse
-	113, // 160: player.MediaPlayerService.SetOnDrmConfigHelper:output_type -> player.SetOnDrmConfigHelperResponse
-	115, // 161: player.MediaPlayerService.SetOnDrmInfoListener:output_type -> player.SetOnDrmInfoListenerResponse
-	117, // 162: player.MediaPlayerService.SetOnDrmPreparedListener:output_type -> player.SetOnDrmPreparedListenerResponse
-	119, // 163: player.MediaPlayerService.SetOnErrorListener:output_type -> player.SetOnErrorListenerResponse
-	121, // 164: player.MediaPlayerService.SetOnInfoListener:output_type -> player.SetOnInfoListenerResponse
-	123, // 165: player.MediaPlayerService.SetOnMediaTimeDiscontinuityListener:output_type -> player.SetOnMediaTimeDiscontinuityListenerResponse
-	125, // 166: player.MediaPlayerService.SetOnPreparedListener:output_type -> player.SetOnPreparedListenerResponse
-	127, // 167: player.MediaPlayerService.SetOnSeekCompleteListener:output_type -> player.SetOnSeekCompleteListenerResponse
-	129, // 168: player.MediaPlayerService.SetOnSubtitleDataListener:output_type -> player.SetOnSubtitleDataListenerResponse
-	131, // 169: player.MediaPlayerService.SetOnTimedMetaDataAvailableListener:output_type -> player.SetOnTimedMetaDataAvailableListenerResponse
-	133, // 170: player.MediaPlayerService.SetOnTimedTextListener:output_type -> player.SetOnTimedTextListenerResponse
-	135, // 171: player.MediaPlayerService.SetOnVideoSizeChangedListener:output_type -> player.SetOnVideoSizeChangedListenerResponse
-	137, // 172: player.MediaPlayerService.SetPlaybackParams:output_type -> player.SetPlaybackParamsResponse
-	139, // 173: player.MediaPlayerService.SetPreferredDevice:output_type -> player.SetPreferredDeviceResponse
-	141, // 174: player.MediaPlayerService.SetScreenOnWhilePlaying:output_type -> player.SetScreenOnWhilePlayingResponse
-	143, // 175: player.MediaPlayerService.SetSurface:output_type -> player.SetSurfaceResponse
-	145, // 176: player.MediaPlayerService.SetSyncParams:output_type -> player.SetSyncParamsResponse
-	147, // 177: player.MediaPlayerService.SetVideoScalingMode:output_type -> player.SetVideoScalingModeResponse
-	149, // 178: player.MediaPlayerService.SetVolume:output_type -> player.SetVolumeResponse
-	151, // 179: player.MediaPlayerService.SetWakeMode:output_type -> player.SetWakeModeResponse
-	153, // 180: player.MediaPlayerService.Start:output_type -> player.StartResponse
-	155, // 181: player.MediaPlayerService.Stop:output_type -> player.StopResponse
-	157, // 182: player.MediaPlayerService.Create2:output_type -> player.Create2Response
-	159, // 183: player.MediaPlayerService.Create3_1:output_type -> player.Create3_1Response
-	161, // 184: player.MediaPlayerService.Create5_2:output_type -> player.Create5_2Response
-	163, // 185: player.MediaPlayerService.Create2_3:output_type -> player.Create2_3Response
-	165, // 186: player.MediaPlayerService.Create4_4:output_type -> player.Create4_4Response
-	167, // 187: player.MediaPlayerDrmInfoService.GetSupportedSchemes:output_type -> player.GetSupportedSchemesResponse
-	169, // 188: player.MediaPlayerOnBufferingUpdateListenerService.OnBufferingUpdate:output_type -> player.OnBufferingUpdateResponse
-	171, // 189: player.MediaPlayerOnCompletionListenerService.OnCompletion:output_type -> player.OnCompletionResponse
-	173, // 190: player.MediaPlayerOnDrmConfigHelperService.OnDrmConfig:output_type -> player.OnDrmConfigResponse
-	175, // 191: player.MediaPlayerOnDrmInfoListenerService.OnDrmInfo:output_type -> player.OnDrmInfoResponse
-	177, // 192: player.MediaPlayerOnDrmPreparedListenerService.OnDrmPrepared:output_type -> player.OnDrmPreparedResponse
-	179, // 193: player.MediaPlayerOnErrorListenerService.OnError:output_type -> player.OnErrorResponse
-	181, // 194: player.MediaPlayerOnInfoListenerService.OnInfo:output_type -> player.OnInfoResponse
-	183, // 195: player.MediaPlayerOnMediaTimeDiscontinuityListenerService.OnMediaTimeDiscontinuity:output_type -> player.OnMediaTimeDiscontinuityResponse
-	185, // 196: player.MediaPlayerOnPreparedListenerService.OnPrepared:output_type -> player.OnPreparedResponse
-	187, // 197: player.MediaPlayerOnSeekCompleteListenerService.OnSeekComplete:output_type -> player.OnSeekCompleteResponse
-	189, // 198: player.MediaPlayerOnSubtitleDataListenerService.OnSubtitleData:output_type -> player.OnSubtitleDataResponse
-	191, // 199: player.MediaPlayerOnTimedMetaDataAvailableListenerService.OnTimedMetaDataAvailable:output_type -> player.OnTimedMetaDataAvailableResponse
-	193, // 200: player.MediaPlayerOnTimedTextListenerService.OnTimedText:output_type -> player.OnTimedTextResponse
-	195, // 201: player.MediaPlayerOnVideoSizeChangedListenerService.OnVideoSizeChanged:output_type -> player.OnVideoSizeChangedResponse
-	197, // 202: player.MediaPlayerTrackInfoService.DescribeContents:output_type -> player.DescribeContentsResponse
-	199, // 203: player.MediaPlayerTrackInfoService.GetFormat:output_type -> player.GetFormatResponse
-	201, // 204: player.MediaPlayerTrackInfoService.GetLanguage:output_type -> player.GetLanguageResponse
-	203, // 205: player.MediaPlayerTrackInfoService.GetTrackType:output_type -> player.GetTrackTypeResponse
-	205, // 206: player.MediaPlayerTrackInfoService.ToString:output_type -> player.ToStringResponse
-	207, // 207: player.MediaPlayerTrackInfoService.WriteToParcel:output_type -> player.WriteToParcelResponse
-	104, // [104:208] is the sub-list for method output_type
-	0,   // [0:104] is the sub-list for method input_type
+	38,  // 19: player.MediaPlayerService.GetRoutedDevices:input_type -> player.GetRoutedDevicesRequest
+	40,  // 20: player.MediaPlayerService.GetSelectedTrack:input_type -> player.GetSelectedTrackRequest
+	42,  // 21: player.MediaPlayerService.GetSyncParams:input_type -> player.GetSyncParamsRequest
+	44,  // 22: player.MediaPlayerService.GetTimestamp:input_type -> player.GetTimestampRequest
+	46,  // 23: player.MediaPlayerService.GetTrackInfo:input_type -> player.GetTrackInfoRequest
+	48,  // 24: player.MediaPlayerService.GetVideoHeight:input_type -> player.GetVideoHeightRequest
+	50,  // 25: player.MediaPlayerService.GetVideoWidth:input_type -> player.GetVideoWidthRequest
+	52,  // 26: player.MediaPlayerService.IsLooping:input_type -> player.IsLoopingRequest
+	54,  // 27: player.MediaPlayerService.IsPlaying:input_type -> player.IsPlayingRequest
+	56,  // 28: player.MediaPlayerService.Pause:input_type -> player.PauseRequest
+	58,  // 29: player.MediaPlayerService.Prepare:input_type -> player.PrepareRequest
+	60,  // 30: player.MediaPlayerService.PrepareAsync:input_type -> player.PrepareAsyncRequest
+	62,  // 31: player.MediaPlayerService.PrepareDrm:input_type -> player.PrepareDrmRequest
+	64,  // 32: player.MediaPlayerService.ProvideKeyResponse:input_type -> player.ProvideKeyResponseRequest
+	66,  // 33: player.MediaPlayerService.Release:input_type -> player.ReleaseRequest
+	68,  // 34: player.MediaPlayerService.ReleaseDrm:input_type -> player.ReleaseDrmRequest
+	70,  // 35: player.MediaPlayerService.RemoveOnRoutingChangedListener:input_type -> player.RemoveOnRoutingChangedListenerRequest
+	72,  // 36: player.MediaPlayerService.Reset:input_type -> player.ResetRequest
+	74,  // 37: player.MediaPlayerService.RestoreKeys:input_type -> player.RestoreKeysRequest
+	76,  // 38: player.MediaPlayerService.SeekTo1:input_type -> player.SeekTo1Request
+	78,  // 39: player.MediaPlayerService.SeekTo2_1:input_type -> player.SeekTo2_1Request
+	80,  // 40: player.MediaPlayerService.SelectTrack:input_type -> player.SelectTrackRequest
+	82,  // 41: player.MediaPlayerService.SetAudioAttributes:input_type -> player.SetAudioAttributesRequest
+	84,  // 42: player.MediaPlayerService.SetAudioSessionId:input_type -> player.SetAudioSessionIdRequest
+	86,  // 43: player.MediaPlayerService.SetAudioStreamType:input_type -> player.SetAudioStreamTypeRequest
+	88,  // 44: player.MediaPlayerService.SetAuxEffectSendLevel:input_type -> player.SetAuxEffectSendLevelRequest
+	90,  // 45: player.MediaPlayerService.SetDataSource2:input_type -> player.SetDataSource2Request
+	92,  // 46: player.MediaPlayerService.SetDataSource1_1:input_type -> player.SetDataSource1_1Request
+	94,  // 47: player.MediaPlayerService.SetDataSource1_2:input_type -> player.SetDataSource1_2Request
+	96,  // 48: player.MediaPlayerService.SetDataSource1_3:input_type -> player.SetDataSource1_3Request
+	98,  // 49: player.MediaPlayerService.SetDataSource3_4:input_type -> player.SetDataSource3_4Request
+	100, // 50: player.MediaPlayerService.SetDataSource1_5:input_type -> player.SetDataSource1_5Request
+	102, // 51: player.MediaPlayerService.SetDisplay:input_type -> player.SetDisplayRequest
+	104, // 52: player.MediaPlayerService.SetDrmPropertyString:input_type -> player.SetDrmPropertyStringRequest
+	106, // 53: player.MediaPlayerService.SetLooping:input_type -> player.SetLoopingRequest
+	108, // 54: player.MediaPlayerService.SetNextMediaPlayer:input_type -> player.SetNextMediaPlayerRequest
+	110, // 55: player.MediaPlayerService.SetOnBufferingUpdateListener:input_type -> player.SetOnBufferingUpdateListenerRequest
+	112, // 56: player.MediaPlayerService.SetOnCompletionListener:input_type -> player.SetOnCompletionListenerRequest
+	114, // 57: player.MediaPlayerService.SetOnDrmConfigHelper:input_type -> player.SetOnDrmConfigHelperRequest
+	116, // 58: player.MediaPlayerService.SetOnDrmInfoListener:input_type -> player.SetOnDrmInfoListenerRequest
+	118, // 59: player.MediaPlayerService.SetOnDrmPreparedListener:input_type -> player.SetOnDrmPreparedListenerRequest
+	120, // 60: player.MediaPlayerService.SetOnErrorListener:input_type -> player.SetOnErrorListenerRequest
+	122, // 61: player.MediaPlayerService.SetOnInfoListener:input_type -> player.SetOnInfoListenerRequest
+	124, // 62: player.MediaPlayerService.SetOnMediaTimeDiscontinuityListener:input_type -> player.SetOnMediaTimeDiscontinuityListenerRequest
+	126, // 63: player.MediaPlayerService.SetOnPreparedListener:input_type -> player.SetOnPreparedListenerRequest
+	128, // 64: player.MediaPlayerService.SetOnSeekCompleteListener:input_type -> player.SetOnSeekCompleteListenerRequest
+	130, // 65: player.MediaPlayerService.SetOnSubtitleDataListener:input_type -> player.SetOnSubtitleDataListenerRequest
+	132, // 66: player.MediaPlayerService.SetOnTimedMetaDataAvailableListener:input_type -> player.SetOnTimedMetaDataAvailableListenerRequest
+	134, // 67: player.MediaPlayerService.SetOnTimedTextListener:input_type -> player.SetOnTimedTextListenerRequest
+	136, // 68: player.MediaPlayerService.SetOnVideoSizeChangedListener:input_type -> player.SetOnVideoSizeChangedListenerRequest
+	138, // 69: player.MediaPlayerService.SetPlaybackParams:input_type -> player.SetPlaybackParamsRequest
+	140, // 70: player.MediaPlayerService.SetPreferredDevice:input_type -> player.SetPreferredDeviceRequest
+	142, // 71: player.MediaPlayerService.SetScreenOnWhilePlaying:input_type -> player.SetScreenOnWhilePlayingRequest
+	144, // 72: player.MediaPlayerService.SetSurface:input_type -> player.SetSurfaceRequest
+	146, // 73: player.MediaPlayerService.SetSyncParams:input_type -> player.SetSyncParamsRequest
+	148, // 74: player.MediaPlayerService.SetVideoScalingMode:input_type -> player.SetVideoScalingModeRequest
+	150, // 75: player.MediaPlayerService.SetVolume:input_type -> player.SetVolumeRequest
+	152, // 76: player.MediaPlayerService.SetWakeMode:input_type -> player.SetWakeModeRequest
+	154, // 77: player.MediaPlayerService.Start:input_type -> player.StartRequest
+	156, // 78: player.MediaPlayerService.Stop:input_type -> player.StopRequest
+	158, // 79: player.MediaPlayerService.Create2:input_type -> player.Create2Request
+	160, // 80: player.MediaPlayerService.Create3_1:input_type -> player.Create3_1Request
+	162, // 81: player.MediaPlayerService.Create5_2:input_type -> player.Create5_2Request
+	164, // 82: player.MediaPlayerService.Create2_3:input_type -> player.Create2_3Request
+	166, // 83: player.MediaPlayerService.Create4_4:input_type -> player.Create4_4Request
+	168, // 84: player.MediaPlayerDrmInfoService.GetSupportedSchemes:input_type -> player.GetSupportedSchemesRequest
+	170, // 85: player.MediaPlayerOnBufferingUpdateListenerService.OnBufferingUpdate:input_type -> player.OnBufferingUpdateRequest
+	172, // 86: player.MediaPlayerOnCompletionListenerService.OnCompletion:input_type -> player.OnCompletionRequest
+	174, // 87: player.MediaPlayerOnDrmConfigHelperService.OnDrmConfig:input_type -> player.OnDrmConfigRequest
+	176, // 88: player.MediaPlayerOnDrmInfoListenerService.OnDrmInfo:input_type -> player.OnDrmInfoRequest
+	178, // 89: player.MediaPlayerOnDrmPreparedListenerService.OnDrmPrepared:input_type -> player.OnDrmPreparedRequest
+	180, // 90: player.MediaPlayerOnErrorListenerService.OnError:input_type -> player.OnErrorRequest
+	182, // 91: player.MediaPlayerOnInfoListenerService.OnInfo:input_type -> player.OnInfoRequest
+	184, // 92: player.MediaPlayerOnMediaTimeDiscontinuityListenerService.OnMediaTimeDiscontinuity:input_type -> player.OnMediaTimeDiscontinuityRequest
+	186, // 93: player.MediaPlayerOnPreparedListenerService.OnPrepared:input_type -> player.OnPreparedRequest
+	188, // 94: player.MediaPlayerOnSeekCompleteListenerService.OnSeekComplete:input_type -> player.OnSeekCompleteRequest
+	190, // 95: player.MediaPlayerOnSubtitleDataListenerService.OnSubtitleData:input_type -> player.OnSubtitleDataRequest
+	192, // 96: player.MediaPlayerOnTimedMetaDataAvailableListenerService.OnTimedMetaDataAvailable:input_type -> player.OnTimedMetaDataAvailableRequest
+	194, // 97: player.MediaPlayerOnTimedTextListenerService.OnTimedText:input_type -> player.OnTimedTextRequest
+	196, // 98: player.MediaPlayerOnVideoSizeChangedListenerService.OnVideoSizeChanged:input_type -> player.OnVideoSizeChangedRequest
+	198, // 99: player.MediaPlayerTrackInfoService.DescribeContents:input_type -> player.DescribeContentsRequest
+	200, // 100: player.MediaPlayerTrackInfoService.GetFormat:input_type -> player.GetFormatRequest
+	202, // 101: player.MediaPlayerTrackInfoService.GetLanguage:input_type -> player.GetLanguageRequest
+	204, // 102: player.MediaPlayerTrackInfoService.GetTrackType:input_type -> player.GetTrackTypeRequest
+	206, // 103: player.MediaPlayerTrackInfoService.ToString:input_type -> player.ToStringRequest
+	208, // 104: player.MediaPlayerTrackInfoService.WriteToParcel:input_type -> player.WriteToParcelRequest
+	1,   // 105: player.MediaPlayerService.NewMediaPlayer:output_type -> player.NewMediaPlayerResponse
+	3,   // 106: player.MediaPlayerService.AddTimedTextSource3:output_type -> player.AddTimedTextSource3Response
+	5,   // 107: player.MediaPlayerService.AddTimedTextSource2_1:output_type -> player.AddTimedTextSource2_1Response
+	7,   // 108: player.MediaPlayerService.AddTimedTextSource4_2:output_type -> player.AddTimedTextSource4_2Response
+	9,   // 109: player.MediaPlayerService.AddTimedTextSource2_3:output_type -> player.AddTimedTextSource2_3Response
+	11,  // 110: player.MediaPlayerService.AttachAuxEffect:output_type -> player.AttachAuxEffectResponse
+	13,  // 111: player.MediaPlayerService.ClearOnMediaTimeDiscontinuityListener:output_type -> player.ClearOnMediaTimeDiscontinuityListenerResponse
+	15,  // 112: player.MediaPlayerService.ClearOnSubtitleDataListener:output_type -> player.ClearOnSubtitleDataListenerResponse
+	17,  // 113: player.MediaPlayerService.CreateVolumeShaper:output_type -> player.CreateVolumeShaperResponse
+	19,  // 114: player.MediaPlayerService.DeselectTrack:output_type -> player.DeselectTrackResponse
+	21,  // 115: player.MediaPlayerService.GetAudioSessionId:output_type -> player.GetAudioSessionIdResponse
+	23,  // 116: player.MediaPlayerService.GetCurrentPosition:output_type -> player.GetCurrentPositionResponse
+	25,  // 117: player.MediaPlayerService.GetDrmInfo:output_type -> player.GetDrmInfoResponse
+	27,  // 118: player.MediaPlayerService.GetDrmPropertyString:output_type -> player.GetDrmPropertyStringResponse
+	29,  // 119: player.MediaPlayerService.GetDuration:output_type -> player.GetDurationResponse
+	31,  // 120: player.MediaPlayerService.GetMetrics:output_type -> player.GetMetricsResponse
+	33,  // 121: player.MediaPlayerService.GetPlaybackParams:output_type -> player.GetPlaybackParamsResponse
+	35,  // 122: player.MediaPlayerService.GetPreferredDevice:output_type -> player.GetPreferredDeviceResponse
+	37,  // 123: player.MediaPlayerService.GetRoutedDevice:output_type -> player.GetRoutedDeviceResponse
+	39,  // 124: player.MediaPlayerService.GetRoutedDevices:output_type -> player.GetRoutedDevicesResponse
+	41,  // 125: player.MediaPlayerService.GetSelectedTrack:output_type -> player.GetSelectedTrackResponse
+	43,  // 126: player.MediaPlayerService.GetSyncParams:output_type -> player.GetSyncParamsResponse
+	45,  // 127: player.MediaPlayerService.GetTimestamp:output_type -> player.GetTimestampResponse
+	47,  // 128: player.MediaPlayerService.GetTrackInfo:output_type -> player.GetTrackInfoResponse
+	49,  // 129: player.MediaPlayerService.GetVideoHeight:output_type -> player.GetVideoHeightResponse
+	51,  // 130: player.MediaPlayerService.GetVideoWidth:output_type -> player.GetVideoWidthResponse
+	53,  // 131: player.MediaPlayerService.IsLooping:output_type -> player.IsLoopingResponse
+	55,  // 132: player.MediaPlayerService.IsPlaying:output_type -> player.IsPlayingResponse
+	57,  // 133: player.MediaPlayerService.Pause:output_type -> player.PauseResponse
+	59,  // 134: player.MediaPlayerService.Prepare:output_type -> player.PrepareResponse
+	61,  // 135: player.MediaPlayerService.PrepareAsync:output_type -> player.PrepareAsyncResponse
+	63,  // 136: player.MediaPlayerService.PrepareDrm:output_type -> player.PrepareDrmResponse
+	65,  // 137: player.MediaPlayerService.ProvideKeyResponse:output_type -> player.ProvideKeyResponseResponse
+	67,  // 138: player.MediaPlayerService.Release:output_type -> player.ReleaseResponse
+	69,  // 139: player.MediaPlayerService.ReleaseDrm:output_type -> player.ReleaseDrmResponse
+	71,  // 140: player.MediaPlayerService.RemoveOnRoutingChangedListener:output_type -> player.RemoveOnRoutingChangedListenerResponse
+	73,  // 141: player.MediaPlayerService.Reset:output_type -> player.ResetResponse
+	75,  // 142: player.MediaPlayerService.RestoreKeys:output_type -> player.RestoreKeysResponse
+	77,  // 143: player.MediaPlayerService.SeekTo1:output_type -> player.SeekTo1Response
+	79,  // 144: player.MediaPlayerService.SeekTo2_1:output_type -> player.SeekTo2_1Response
+	81,  // 145: player.MediaPlayerService.SelectTrack:output_type -> player.SelectTrackResponse
+	83,  // 146: player.MediaPlayerService.SetAudioAttributes:output_type -> player.SetAudioAttributesResponse
+	85,  // 147: player.MediaPlayerService.SetAudioSessionId:output_type -> player.SetAudioSessionIdResponse
+	87,  // 148: player.MediaPlayerService.SetAudioStreamType:output_type -> player.SetAudioStreamTypeResponse
+	89,  // 149: player.MediaPlayerService.SetAuxEffectSendLevel:output_type -> player.SetAuxEffectSendLevelResponse
+	91,  // 150: player.MediaPlayerService.SetDataSource2:output_type -> player.SetDataSource2Response
+	93,  // 151: player.MediaPlayerService.SetDataSource1_1:output_type -> player.SetDataSource1_1Response
+	95,  // 152: player.MediaPlayerService.SetDataSource1_2:output_type -> player.SetDataSource1_2Response
+	97,  // 153: player.MediaPlayerService.SetDataSource1_3:output_type -> player.SetDataSource1_3Response
+	99,  // 154: player.MediaPlayerService.SetDataSource3_4:output_type -> player.SetDataSource3_4Response
+	101, // 155: player.MediaPlayerService.SetDataSource1_5:output_type -> player.SetDataSource1_5Response
+	103, // 156: player.MediaPlayerService.SetDisplay:output_type -> player.SetDisplayResponse
+	105, // 157: player.MediaPlayerService.SetDrmPropertyString:output_type -> player.SetDrmPropertyStringResponse
+	107, // 158: player.MediaPlayerService.SetLooping:output_type -> player.SetLoopingResponse
+	109, // 159: player.MediaPlayerService.SetNextMediaPlayer:output_type -> player.SetNextMediaPlayerResponse
+	111, // 160: player.MediaPlayerService.SetOnBufferingUpdateListener:output_type -> player.SetOnBufferingUpdateListenerResponse
+	113, // 161: player.MediaPlayerService.SetOnCompletionListener:output_type -> player.SetOnCompletionListenerResponse
+	115, // 162: player.MediaPlayerService.SetOnDrmConfigHelper:output_type -> player.SetOnDrmConfigHelperResponse
+	117, // 163: player.MediaPlayerService.SetOnDrmInfoListener:output_type -> player.SetOnDrmInfoListenerResponse
+	119, // 164: player.MediaPlayerService.SetOnDrmPreparedListener:output_type -> player.SetOnDrmPreparedListenerResponse
+	121, // 165: player.MediaPlayerService.SetOnErrorListener:output_type -> player.SetOnErrorListenerResponse
+	123, // 166: player.MediaPlayerService.SetOnInfoListener:output_type -> player.SetOnInfoListenerResponse
+	125, // 167: player.MediaPlayerService.SetOnMediaTimeDiscontinuityListener:output_type -> player.SetOnMediaTimeDiscontinuityListenerResponse
+	127, // 168: player.MediaPlayerService.SetOnPreparedListener:output_type -> player.SetOnPreparedListenerResponse
+	129, // 169: player.MediaPlayerService.SetOnSeekCompleteListener:output_type -> player.SetOnSeekCompleteListenerResponse
+	131, // 170: player.MediaPlayerService.SetOnSubtitleDataListener:output_type -> player.SetOnSubtitleDataListenerResponse
+	133, // 171: player.MediaPlayerService.SetOnTimedMetaDataAvailableListener:output_type -> player.SetOnTimedMetaDataAvailableListenerResponse
+	135, // 172: player.MediaPlayerService.SetOnTimedTextListener:output_type -> player.SetOnTimedTextListenerResponse
+	137, // 173: player.MediaPlayerService.SetOnVideoSizeChangedListener:output_type -> player.SetOnVideoSizeChangedListenerResponse
+	139, // 174: player.MediaPlayerService.SetPlaybackParams:output_type -> player.SetPlaybackParamsResponse
+	141, // 175: player.MediaPlayerService.SetPreferredDevice:output_type -> player.SetPreferredDeviceResponse
+	143, // 176: player.MediaPlayerService.SetScreenOnWhilePlaying:output_type -> player.SetScreenOnWhilePlayingResponse
+	145, // 177: player.MediaPlayerService.SetSurface:output_type -> player.SetSurfaceResponse
+	147, // 178: player.MediaPlayerService.SetSyncParams:output_type -> player.SetSyncParamsResponse
+	149, // 179: player.MediaPlayerService.SetVideoScalingMode:output_type -> player.SetVideoScalingModeResponse
+	151, // 180: player.MediaPlayerService.SetVolume:output_type -> player.SetVolumeResponse
+	153, // 181: player.MediaPlayerService.SetWakeMode:output_type -> player.SetWakeModeResponse
+	155, // 182: player.MediaPlayerService.Start:output_type -> player.StartResponse
+	157, // 183: player.MediaPlayerService.Stop:output_type -> player.StopResponse
+	159, // 184: player.MediaPlayerService.Create2:output_type -> player.Create2Response
+	161, // 185: player.MediaPlayerService.Create3_1:output_type -> player.Create3_1Response
+	163, // 186: player.MediaPlayerService.Create5_2:output_type -> player.Create5_2Response
+	165, // 187: player.MediaPlayerService.Create2_3:output_type -> player.Create2_3Response
+	167, // 188: player.MediaPlayerService.Create4_4:output_type -> player.Create4_4Response
+	169, // 189: player.MediaPlayerDrmInfoService.GetSupportedSchemes:output_type -> player.GetSupportedSchemesResponse
+	171, // 190: player.MediaPlayerOnBufferingUpdateListenerService.OnBufferingUpdate:output_type -> player.OnBufferingUpdateResponse
+	173, // 191: player.MediaPlayerOnCompletionListenerService.OnCompletion:output_type -> player.OnCompletionResponse
+	175, // 192: player.MediaPlayerOnDrmConfigHelperService.OnDrmConfig:output_type -> player.OnDrmConfigResponse
+	177, // 193: player.MediaPlayerOnDrmInfoListenerService.OnDrmInfo:output_type -> player.OnDrmInfoResponse
+	179, // 194: player.MediaPlayerOnDrmPreparedListenerService.OnDrmPrepared:output_type -> player.OnDrmPreparedResponse
+	181, // 195: player.MediaPlayerOnErrorListenerService.OnError:output_type -> player.OnErrorResponse
+	183, // 196: player.MediaPlayerOnInfoListenerService.OnInfo:output_type -> player.OnInfoResponse
+	185, // 197: player.MediaPlayerOnMediaTimeDiscontinuityListenerService.OnMediaTimeDiscontinuity:output_type -> player.OnMediaTimeDiscontinuityResponse
+	187, // 198: player.MediaPlayerOnPreparedListenerService.OnPrepared:output_type -> player.OnPreparedResponse
+	189, // 199: player.MediaPlayerOnSeekCompleteListenerService.OnSeekComplete:output_type -> player.OnSeekCompleteResponse
+	191, // 200: player.MediaPlayerOnSubtitleDataListenerService.OnSubtitleData:output_type -> player.OnSubtitleDataResponse
+	193, // 201: player.MediaPlayerOnTimedMetaDataAvailableListenerService.OnTimedMetaDataAvailable:output_type -> player.OnTimedMetaDataAvailableResponse
+	195, // 202: player.MediaPlayerOnTimedTextListenerService.OnTimedText:output_type -> player.OnTimedTextResponse
+	197, // 203: player.MediaPlayerOnVideoSizeChangedListenerService.OnVideoSizeChanged:output_type -> player.OnVideoSizeChangedResponse
+	199, // 204: player.MediaPlayerTrackInfoService.DescribeContents:output_type -> player.DescribeContentsResponse
+	201, // 205: player.MediaPlayerTrackInfoService.GetFormat:output_type -> player.GetFormatResponse
+	203, // 206: player.MediaPlayerTrackInfoService.GetLanguage:output_type -> player.GetLanguageResponse
+	205, // 207: player.MediaPlayerTrackInfoService.GetTrackType:output_type -> player.GetTrackTypeResponse
+	207, // 208: player.MediaPlayerTrackInfoService.ToString:output_type -> player.ToStringResponse
+	209, // 209: player.MediaPlayerTrackInfoService.WriteToParcel:output_type -> player.WriteToParcelResponse
+	105, // [105:210] is the sub-list for method output_type
+	0,   // [0:105] is the sub-list for method input_type
 	0,   // [0:0] is the sub-list for extension type_name
 	0,   // [0:0] is the sub-list for extension extendee
 	0,   // [0:0] is the sub-list for field type_name
@@ -10365,7 +10462,7 @@ func file_proto_player_player_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_proto_player_player_proto_rawDesc), len(file_proto_player_player_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   208,
+			NumMessages:   210,
 			NumExtensions: 0,
 			NumServices:   17,
 		},

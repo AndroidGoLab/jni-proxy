@@ -22,59 +22,11 @@ message GetResultCodeResponse {
   int32 result = 1;
 }
 
-message NewIkeNetworkLostExceptionRequest {
-  int64 arg0 = 1;
-}
-
-message NewIkeNetworkLostExceptionResponse {
-  int64 result = 1;
-}
-
-message GetNetworkRequest {
-  int64 handle = 1;
-}
-
-message GetNetworkResponse {
-  int64 result = 1;
-}
-
 message GetErrorTypeRequest {
 }
 
 message GetErrorTypeResponse {
   int32 result = 1;
-}
-
-message NewInvalidKeExceptionRequest {
-  int32 arg0 = 1;
-}
-
-message NewInvalidKeExceptionResponse {
-  int64 result = 1;
-}
-
-message GetDhGroupRequest {
-  int64 handle = 1;
-}
-
-message GetDhGroupResponse {
-  int32 result = 1;
-}
-
-message NewInvalidMajorVersionExceptionRequest {
-  int64 arg0 = 1;
-}
-
-message NewInvalidMajorVersionExceptionResponse {
-  int64 result = 1;
-}
-
-message GetMajorVersionRequest {
-  int64 handle = 1;
-}
-
-message GetMajorVersionResponse {
-  uint32 result = 1;
 }
 
 message NewInvalidSelectorsExceptionRequest {
@@ -100,6 +52,54 @@ message GetIpSecSpiRequest {
 
 message GetIpSecSpiResponse {
   int32 result = 1;
+}
+
+message NewInvalidKeExceptionRequest {
+  int32 arg0 = 1;
+}
+
+message NewInvalidKeExceptionResponse {
+  int64 result = 1;
+}
+
+message GetDhGroupRequest {
+  int64 handle = 1;
+}
+
+message GetDhGroupResponse {
+  int32 result = 1;
+}
+
+message NewIkeNetworkLostExceptionRequest {
+  int64 arg0 = 1;
+}
+
+message NewIkeNetworkLostExceptionResponse {
+  int64 result = 1;
+}
+
+message GetNetworkRequest {
+  int64 handle = 1;
+}
+
+message GetNetworkResponse {
+  int64 result = 1;
+}
+
+message NewInvalidMajorVersionExceptionRequest {
+  int64 arg0 = 1;
+}
+
+message NewInvalidMajorVersionExceptionResponse {
+  int64 result = 1;
+}
+
+message GetMajorVersionRequest {
+  int64 handle = 1;
+}
+
+message GetMajorVersionResponse {
+  uint32 result = 1;
 }
 
 message NewIkeIOExceptionRequest {
@@ -131,13 +131,14 @@ service AppSearchExceptionService {
   rpc GetResultCode (GetResultCodeRequest) returns (GetResultCodeResponse);
 }
 
-service IkeNetworkLostExceptionService {
-  rpc NewIkeNetworkLostException (NewIkeNetworkLostExceptionRequest) returns (NewIkeNetworkLostExceptionResponse);
-  rpc GetNetwork (GetNetworkRequest) returns (GetNetworkResponse);
-}
-
 service IkeProtocolExceptionService {
   rpc GetErrorType (GetErrorTypeRequest) returns (GetErrorTypeResponse);
+}
+
+service InvalidSelectorsExceptionService {
+  rpc NewInvalidSelectorsException (NewInvalidSelectorsExceptionRequest) returns (NewInvalidSelectorsExceptionResponse);
+  rpc GetIpSecPacketInfo (GetIpSecPacketInfoRequest) returns (GetIpSecPacketInfoResponse);
+  rpc GetIpSecSpi (GetIpSecSpiRequest) returns (GetIpSecSpiResponse);
 }
 
 service InvalidKeExceptionService {
@@ -145,15 +146,14 @@ service InvalidKeExceptionService {
   rpc GetDhGroup (GetDhGroupRequest) returns (GetDhGroupResponse);
 }
 
+service IkeNetworkLostExceptionService {
+  rpc NewIkeNetworkLostException (NewIkeNetworkLostExceptionRequest) returns (NewIkeNetworkLostExceptionResponse);
+  rpc GetNetwork (GetNetworkRequest) returns (GetNetworkResponse);
+}
+
 service InvalidMajorVersionExceptionService {
   rpc NewInvalidMajorVersionException (NewInvalidMajorVersionExceptionRequest) returns (NewInvalidMajorVersionExceptionResponse);
   rpc GetMajorVersion (GetMajorVersionRequest) returns (GetMajorVersionResponse);
-}
-
-service InvalidSelectorsExceptionService {
-  rpc NewInvalidSelectorsException (NewInvalidSelectorsExceptionRequest) returns (NewInvalidSelectorsExceptionResponse);
-  rpc GetIpSecPacketInfo (GetIpSecPacketInfoRequest) returns (GetIpSecPacketInfoResponse);
-  rpc GetIpSecSpi (GetIpSecSpiRequest) returns (GetIpSecSpiResponse);
 }
 
 service IkeIOExceptionService {

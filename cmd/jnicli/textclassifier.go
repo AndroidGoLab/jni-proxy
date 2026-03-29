@@ -12,6 +12,411 @@ var textclassifierCmd = &cobra.Command{
 	Short: "textclassifier service operations",
 }
 
+var textclassifierTextClassificationSessionIdCmd = &cobra.Command{
+	Use:   "text-classification-session-id",
+	Short: "TextClassificationSessionIdService operations",
+}
+
+var textclassifierTextClassificationSessionIdDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextClassificationSessionIdServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textclassifierTextClassificationSessionIdEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextClassificationSessionIdServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textclassifierTextClassificationSessionIdGetValueCmd = &cobra.Command{
+	Use:   "get-value",
+	Short: "GetValue RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextClassificationSessionIdServiceClient(grpcConn)
+		req := &pb.GetValueRequest{}
+		resp, err := client.GetValue(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textclassifierTextClassificationSessionIdHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextClassificationSessionIdServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textclassifierTextClassificationSessionIdToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextClassificationSessionIdServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textclassifierTextClassificationSessionIdWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextClassificationSessionIdServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textclassifierTextClassifierEntityConfigCmd = &cobra.Command{
+	Use:   "text-classifier-entity-config",
+	Short: "TextClassifierEntityConfigService operations",
+}
+
+var textclassifierTextClassifierEntityConfigDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextClassifierEntityConfigServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textclassifierTextClassifierEntityConfigGetHintsCmd = &cobra.Command{
+	Use:   "get-hints",
+	Short: "GetHints RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextClassifierEntityConfigServiceClient(grpcConn)
+		req := &pb.GetHintsRequest{}
+		resp, err := client.GetHints(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textclassifierTextClassifierEntityConfigShouldIncludeTypesFromTextClassifierCmd = &cobra.Command{
+	Use:   "should-include-types-from-text-classifier",
+	Short: "ShouldIncludeTypesFromTextClassifier RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextClassifierEntityConfigServiceClient(grpcConn)
+		req := &pb.ShouldIncludeTypesFromTextClassifierRequest{}
+		resp, err := client.ShouldIncludeTypesFromTextClassifier(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textclassifierTextClassifierEntityConfigWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextClassifierEntityConfigServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textclassifierConversationActionCmd = &cobra.Command{
+	Use:   "conversation-action",
+	Short: "ConversationActionService operations",
+}
+
+var textclassifierConversationActionDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConversationActionServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textclassifierConversationActionGetActionCmd = &cobra.Command{
+	Use:   "get-action",
+	Short: "GetAction RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConversationActionServiceClient(grpcConn)
+		req := &pb.GetActionRequest{}
+		resp, err := client.GetAction(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textclassifierConversationActionGetConfidenceScoreCmd = &cobra.Command{
+	Use:   "get-confidence-score",
+	Short: "GetConfidenceScore RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConversationActionServiceClient(grpcConn)
+		req := &pb.GetConfidenceScoreRequest{}
+		resp, err := client.GetConfidenceScore(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textclassifierConversationActionGetExtrasCmd = &cobra.Command{
+	Use:   "get-extras",
+	Short: "GetExtras RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConversationActionServiceClient(grpcConn)
+		req := &pb.GetExtrasRequest{}
+		resp, err := client.GetExtras(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textclassifierConversationActionGetTextReplyCmd = &cobra.Command{
+	Use:   "get-text-reply",
+	Short: "GetTextReply RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConversationActionServiceClient(grpcConn)
+		req := &pb.GetTextReplyRequest{}
+		resp, err := client.GetTextReply(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textclassifierConversationActionGetTypeCmd = &cobra.Command{
+	Use:   "get-type",
+	Short: "GetType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConversationActionServiceClient(grpcConn)
+		req := &pb.GetTypeRequest{}
+		resp, err := client.GetType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textclassifierConversationActionWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConversationActionServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textclassifierConversationActionBuilderCmd = &cobra.Command{
+	Use:   "conversation-action-builder",
+	Short: "ConversationActionBuilderService operations",
+}
+
+var textclassifierConversationActionBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConversationActionBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textclassifierConversationActionBuilderSetActionCmd = &cobra.Command{
+	Use:   "set-action",
+	Short: "SetAction RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConversationActionBuilderServiceClient(grpcConn)
+		req := &pb.SetActionRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetAction(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textclassifierConversationActionBuilderSetConfidenceScoreCmd = &cobra.Command{
+	Use:   "set-confidence-score",
+	Short: "SetConfidenceScore RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConversationActionBuilderServiceClient(grpcConn)
+		req := &pb.SetConfidenceScoreRequest{}
+		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetConfidenceScore(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textclassifierConversationActionBuilderSetExtrasCmd = &cobra.Command{
+	Use:   "set-extras",
+	Short: "SetExtras RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConversationActionBuilderServiceClient(grpcConn)
+		req := &pb.SetExtrasRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetExtras(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textclassifierConversationActionBuilderSetTextReplyCmd = &cobra.Command{
+	Use:   "set-text-reply",
+	Short: "SetTextReply RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConversationActionBuilderServiceClient(grpcConn)
+		req := &pb.SetTextReplyRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetTextReply(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var textclassifierTextClassificationSessionFactoryCmd = &cobra.Command{
 	Use:   "text-classification-session-factory",
 	Short: "TextClassificationSessionFactoryService operations",
@@ -29,454 +434,6 @@ var textclassifierTextClassificationSessionFactoryCreateTextClassificationSessio
 			req.Arg0 = v
 		}
 		resp, err := client.CreateTextClassificationSession(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var textclassifierTextSelectionCmd = &cobra.Command{
-	Use:   "text-selection",
-	Short: "TextSelectionService operations",
-}
-
-var textclassifierTextSelectionDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTextSelectionServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var textclassifierTextSelectionGetConfidenceScoreCmd = &cobra.Command{
-	Use:   "get-confidence-score",
-	Short: "GetConfidenceScore RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTextSelectionServiceClient(grpcConn)
-		req := &pb.GetConfidenceScoreRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetConfidenceScore(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var textclassifierTextSelectionGetEntityCmd = &cobra.Command{
-	Use:   "get-entity",
-	Short: "GetEntity RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTextSelectionServiceClient(grpcConn)
-		req := &pb.GetEntityRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetEntity(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var textclassifierTextSelectionGetEntityCountCmd = &cobra.Command{
-	Use:   "get-entity-count",
-	Short: "GetEntityCount RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTextSelectionServiceClient(grpcConn)
-		req := &pb.GetEntityCountRequest{}
-		resp, err := client.GetEntityCount(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var textclassifierTextSelectionGetExtrasCmd = &cobra.Command{
-	Use:   "get-extras",
-	Short: "GetExtras RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTextSelectionServiceClient(grpcConn)
-		req := &pb.GetExtrasRequest{}
-		resp, err := client.GetExtras(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var textclassifierTextSelectionGetIdCmd = &cobra.Command{
-	Use:   "get-id",
-	Short: "GetId RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTextSelectionServiceClient(grpcConn)
-		req := &pb.GetIdRequest{}
-		resp, err := client.GetId(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var textclassifierTextSelectionGetSelectionEndIndexCmd = &cobra.Command{
-	Use:   "get-selection-end-index",
-	Short: "GetSelectionEndIndex RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTextSelectionServiceClient(grpcConn)
-		req := &pb.GetSelectionEndIndexRequest{}
-		resp, err := client.GetSelectionEndIndex(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var textclassifierTextSelectionGetSelectionStartIndexCmd = &cobra.Command{
-	Use:   "get-selection-start-index",
-	Short: "GetSelectionStartIndex RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTextSelectionServiceClient(grpcConn)
-		req := &pb.GetSelectionStartIndexRequest{}
-		resp, err := client.GetSelectionStartIndex(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var textclassifierTextSelectionGetTextClassificationCmd = &cobra.Command{
-	Use:   "get-text-classification",
-	Short: "GetTextClassification RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTextSelectionServiceClient(grpcConn)
-		req := &pb.GetTextClassificationRequest{}
-		resp, err := client.GetTextClassification(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var textclassifierTextSelectionToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTextSelectionServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var textclassifierTextSelectionWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTextSelectionServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var textclassifierTextSelectionBuilderCmd = &cobra.Command{
-	Use:   "text-selection-builder",
-	Short: "TextSelectionBuilderService operations",
-}
-
-var textclassifierTextSelectionBuilderBuildCmd = &cobra.Command{
-	Use:   "build",
-	Short: "Build RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTextSelectionBuilderServiceClient(grpcConn)
-		req := &pb.BuildRequest{}
-		resp, err := client.Build(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var textclassifierTextSelectionBuilderSetEntityTypeCmd = &cobra.Command{
-	Use:   "set-entity-type",
-	Short: "SetEntityType RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTextSelectionBuilderServiceClient(grpcConn)
-		req := &pb.SetEntityTypeRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetFloat32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.SetEntityType(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var textclassifierTextSelectionBuilderSetExtrasCmd = &cobra.Command{
-	Use:   "set-extras",
-	Short: "SetExtras RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTextSelectionBuilderServiceClient(grpcConn)
-		req := &pb.SetExtrasRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetExtras(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var textclassifierTextSelectionBuilderSetIdCmd = &cobra.Command{
-	Use:   "set-id",
-	Short: "SetId RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTextSelectionBuilderServiceClient(grpcConn)
-		req := &pb.SetIdRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetId(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var textclassifierTextSelectionBuilderSetTextClassificationCmd = &cobra.Command{
-	Use:   "set-text-classification",
-	Short: "SetTextClassification RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTextSelectionBuilderServiceClient(grpcConn)
-		req := &pb.SetTextClassificationRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetTextClassification(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var textclassifierTextSelectionRequestCmd = &cobra.Command{
-	Use:   "text-selection-request",
-	Short: "TextSelectionRequestService operations",
-}
-
-var textclassifierTextSelectionRequestDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTextSelectionRequestServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var textclassifierTextSelectionRequestGetCallingPackageNameCmd = &cobra.Command{
-	Use:   "get-calling-package-name",
-	Short: "GetCallingPackageName RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTextSelectionRequestServiceClient(grpcConn)
-		req := &pb.GetCallingPackageNameRequest{}
-		resp, err := client.GetCallingPackageName(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var textclassifierTextSelectionRequestGetDefaultLocalesCmd = &cobra.Command{
-	Use:   "get-default-locales",
-	Short: "GetDefaultLocales RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTextSelectionRequestServiceClient(grpcConn)
-		req := &pb.GetDefaultLocalesRequest{}
-		resp, err := client.GetDefaultLocales(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var textclassifierTextSelectionRequestGetEndIndexCmd = &cobra.Command{
-	Use:   "get-end-index",
-	Short: "GetEndIndex RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTextSelectionRequestServiceClient(grpcConn)
-		req := &pb.GetEndIndexRequest{}
-		resp, err := client.GetEndIndex(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var textclassifierTextSelectionRequestGetExtrasCmd = &cobra.Command{
-	Use:   "get-extras",
-	Short: "GetExtras RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTextSelectionRequestServiceClient(grpcConn)
-		req := &pb.GetExtrasRequest{}
-		resp, err := client.GetExtras(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var textclassifierTextSelectionRequestGetStartIndexCmd = &cobra.Command{
-	Use:   "get-start-index",
-	Short: "GetStartIndex RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTextSelectionRequestServiceClient(grpcConn)
-		req := &pb.GetStartIndexRequest{}
-		resp, err := client.GetStartIndex(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var textclassifierTextSelectionRequestGetTextCmd = &cobra.Command{
-	Use:   "get-text",
-	Short: "GetText RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTextSelectionRequestServiceClient(grpcConn)
-		req := &pb.GetTextRequest{}
-		resp, err := client.GetText(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var textclassifierTextSelectionRequestShouldIncludeTextClassificationCmd = &cobra.Command{
-	Use:   "should-include-text-classification",
-	Short: "ShouldIncludeTextClassification RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTextSelectionRequestServiceClient(grpcConn)
-		req := &pb.ShouldIncludeTextClassificationRequest{}
-		resp, err := client.ShouldIncludeTextClassification(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var textclassifierTextSelectionRequestWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTextSelectionRequestServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -631,6 +588,1152 @@ var textclassifierTextClassificationContextBuilderSetWidgetVersionCmd = &cobra.C
 	},
 }
 
+var textclassifierTextLinksCmd = &cobra.Command{
+	Use:   "text-links",
+	Short: "TextLinksService operations",
+}
+
+var textclassifierTextLinksDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextLinksServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textclassifierTextLinksGetExtrasCmd = &cobra.Command{
+	Use:   "get-extras",
+	Short: "GetExtras RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextLinksServiceClient(grpcConn)
+		req := &pb.GetExtrasRequest{}
+		resp, err := client.GetExtras(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textclassifierTextLinksGetLinksCmd = &cobra.Command{
+	Use:   "get-links",
+	Short: "GetLinks RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextLinksServiceClient(grpcConn)
+		req := &pb.GetLinksRequest{}
+		resp, err := client.GetLinks(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textclassifierTextLinksGetTextCmd = &cobra.Command{
+	Use:   "get-text",
+	Short: "GetText RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextLinksServiceClient(grpcConn)
+		req := &pb.GetTextRequest{}
+		resp, err := client.GetText(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textclassifierTextLinksToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextLinksServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textclassifierTextLinksWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextLinksServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textclassifierTextLinksBuilderCmd = &cobra.Command{
+	Use:   "text-links-builder",
+	Short: "TextLinksBuilderService operations",
+}
+
+var textclassifierTextLinksBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextLinksBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textclassifierTextLinksBuilderClearTextLinksCmd = &cobra.Command{
+	Use:   "clear-text-links",
+	Short: "ClearTextLinks RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextLinksBuilderServiceClient(grpcConn)
+		req := &pb.ClearTextLinksRequest{}
+		resp, err := client.ClearTextLinks(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textclassifierTextLinksBuilderSetExtrasCmd = &cobra.Command{
+	Use:   "set-extras",
+	Short: "SetExtras RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextLinksBuilderServiceClient(grpcConn)
+		req := &pb.SetExtrasRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetExtras(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textclassifierTextLinksRequestCmd = &cobra.Command{
+	Use:   "text-links-request",
+	Short: "TextLinksRequestService operations",
+}
+
+var textclassifierTextLinksRequestDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextLinksRequestServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textclassifierTextLinksRequestGetCallingPackageNameCmd = &cobra.Command{
+	Use:   "get-calling-package-name",
+	Short: "GetCallingPackageName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextLinksRequestServiceClient(grpcConn)
+		req := &pb.GetCallingPackageNameRequest{}
+		resp, err := client.GetCallingPackageName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textclassifierTextLinksRequestGetDefaultLocalesCmd = &cobra.Command{
+	Use:   "get-default-locales",
+	Short: "GetDefaultLocales RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextLinksRequestServiceClient(grpcConn)
+		req := &pb.GetDefaultLocalesRequest{}
+		resp, err := client.GetDefaultLocales(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textclassifierTextLinksRequestGetEntityConfigCmd = &cobra.Command{
+	Use:   "get-entity-config",
+	Short: "GetEntityConfig RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextLinksRequestServiceClient(grpcConn)
+		req := &pb.GetEntityConfigRequest{}
+		resp, err := client.GetEntityConfig(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textclassifierTextLinksRequestGetExtrasCmd = &cobra.Command{
+	Use:   "get-extras",
+	Short: "GetExtras RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextLinksRequestServiceClient(grpcConn)
+		req := &pb.GetExtrasRequest{}
+		resp, err := client.GetExtras(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textclassifierTextLinksRequestGetReferenceTimeCmd = &cobra.Command{
+	Use:   "get-reference-time",
+	Short: "GetReferenceTime RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextLinksRequestServiceClient(grpcConn)
+		req := &pb.GetReferenceTimeRequest{}
+		resp, err := client.GetReferenceTime(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textclassifierTextLinksRequestGetTextCmd = &cobra.Command{
+	Use:   "get-text",
+	Short: "GetText RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextLinksRequestServiceClient(grpcConn)
+		req := &pb.GetTextRequest{}
+		resp, err := client.GetText(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textclassifierTextLinksRequestWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextLinksRequestServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textclassifierTextLinksTextLinkCmd = &cobra.Command{
+	Use:   "text-links-text-link",
+	Short: "TextLinksTextLinkService operations",
+}
+
+var textclassifierTextLinksTextLinkDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextLinksTextLinkServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textclassifierTextLinksTextLinkGetConfidenceScoreCmd = &cobra.Command{
+	Use:   "get-confidence-score",
+	Short: "GetConfidenceScore RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextLinksTextLinkServiceClient(grpcConn)
+		req := &pb.TextLinksTextLinkGetConfidenceScoreRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetConfidenceScore(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textclassifierTextLinksTextLinkGetEndCmd = &cobra.Command{
+	Use:   "get-end",
+	Short: "GetEnd RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextLinksTextLinkServiceClient(grpcConn)
+		req := &pb.GetEndRequest{}
+		resp, err := client.GetEnd(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textclassifierTextLinksTextLinkGetEntityCmd = &cobra.Command{
+	Use:   "get-entity",
+	Short: "GetEntity RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextLinksTextLinkServiceClient(grpcConn)
+		req := &pb.GetEntityRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetEntity(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textclassifierTextLinksTextLinkGetEntityCountCmd = &cobra.Command{
+	Use:   "get-entity-count",
+	Short: "GetEntityCount RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextLinksTextLinkServiceClient(grpcConn)
+		req := &pb.GetEntityCountRequest{}
+		resp, err := client.GetEntityCount(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textclassifierTextLinksTextLinkGetExtrasCmd = &cobra.Command{
+	Use:   "get-extras",
+	Short: "GetExtras RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextLinksTextLinkServiceClient(grpcConn)
+		req := &pb.GetExtrasRequest{}
+		resp, err := client.GetExtras(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textclassifierTextLinksTextLinkGetStartCmd = &cobra.Command{
+	Use:   "get-start",
+	Short: "GetStart RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextLinksTextLinkServiceClient(grpcConn)
+		req := &pb.GetStartRequest{}
+		resp, err := client.GetStart(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textclassifierTextLinksTextLinkToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextLinksTextLinkServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textclassifierTextLinksTextLinkWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextLinksTextLinkServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textclassifierTextLinksTextLinkSpanCmd = &cobra.Command{
+	Use:   "text-links-text-link-span",
+	Short: "TextLinksTextLinkSpanService operations",
+}
+
+var textclassifierTextLinksTextLinkSpanGetTextLinkCmd = &cobra.Command{
+	Use:   "get-text-link",
+	Short: "GetTextLink RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextLinksTextLinkSpanServiceClient(grpcConn)
+		req := &pb.GetTextLinkRequest{}
+		resp, err := client.GetTextLink(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textclassifierTextLinksTextLinkSpanOnClickCmd = &cobra.Command{
+	Use:   "on-click",
+	Short: "OnClick RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextLinksTextLinkSpanServiceClient(grpcConn)
+		req := &pb.OnClickRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnClick(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textclassifierTextClassifierEventCmd = &cobra.Command{
+	Use:   "text-classifier-event",
+	Short: "TextClassifierEventService operations",
+}
+
+var textclassifierTextClassifierEventDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextClassifierEventServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textclassifierTextClassifierEventGetActionIndicesCmd = &cobra.Command{
+	Use:   "get-action-indices",
+	Short: "GetActionIndices RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextClassifierEventServiceClient(grpcConn)
+		req := &pb.GetActionIndicesRequest{}
+		resp, err := client.GetActionIndices(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textclassifierTextClassifierEventGetEntityTypesCmd = &cobra.Command{
+	Use:   "get-entity-types",
+	Short: "GetEntityTypes RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextClassifierEventServiceClient(grpcConn)
+		req := &pb.GetEntityTypesRequest{}
+		resp, err := client.GetEntityTypes(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textclassifierTextClassifierEventGetEventCategoryCmd = &cobra.Command{
+	Use:   "get-event-category",
+	Short: "GetEventCategory RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextClassifierEventServiceClient(grpcConn)
+		req := &pb.GetEventCategoryRequest{}
+		resp, err := client.GetEventCategory(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textclassifierTextClassifierEventGetEventContextCmd = &cobra.Command{
+	Use:   "get-event-context",
+	Short: "GetEventContext RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextClassifierEventServiceClient(grpcConn)
+		req := &pb.GetEventContextRequest{}
+		resp, err := client.GetEventContext(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textclassifierTextClassifierEventGetEventIndexCmd = &cobra.Command{
+	Use:   "get-event-index",
+	Short: "GetEventIndex RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextClassifierEventServiceClient(grpcConn)
+		req := &pb.GetEventIndexRequest{}
+		resp, err := client.GetEventIndex(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textclassifierTextClassifierEventGetEventTypeCmd = &cobra.Command{
+	Use:   "get-event-type",
+	Short: "GetEventType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextClassifierEventServiceClient(grpcConn)
+		req := &pb.GetEventTypeRequest{}
+		resp, err := client.GetEventType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textclassifierTextClassifierEventGetExtrasCmd = &cobra.Command{
+	Use:   "get-extras",
+	Short: "GetExtras RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextClassifierEventServiceClient(grpcConn)
+		req := &pb.GetExtrasRequest{}
+		resp, err := client.GetExtras(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textclassifierTextClassifierEventGetLocaleCmd = &cobra.Command{
+	Use:   "get-locale",
+	Short: "GetLocale RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextClassifierEventServiceClient(grpcConn)
+		req := &pb.GetLocaleRequest{}
+		resp, err := client.GetLocale(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textclassifierTextClassifierEventGetModelNameCmd = &cobra.Command{
+	Use:   "get-model-name",
+	Short: "GetModelName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextClassifierEventServiceClient(grpcConn)
+		req := &pb.GetModelNameRequest{}
+		resp, err := client.GetModelName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textclassifierTextClassifierEventGetResultIdCmd = &cobra.Command{
+	Use:   "get-result-id",
+	Short: "GetResultId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextClassifierEventServiceClient(grpcConn)
+		req := &pb.GetResultIdRequest{}
+		resp, err := client.GetResultId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textclassifierTextClassifierEventGetScoresCmd = &cobra.Command{
+	Use:   "get-scores",
+	Short: "GetScores RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextClassifierEventServiceClient(grpcConn)
+		req := &pb.GetScoresRequest{}
+		resp, err := client.GetScores(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textclassifierTextClassifierEventToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextClassifierEventServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textclassifierTextClassifierEventWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextClassifierEventServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textclassifierTextClassifierEventTextSelectionEventCmd = &cobra.Command{
+	Use:   "text-classifier-event-text-selection-event",
+	Short: "TextClassifierEventTextSelectionEventService operations",
+}
+
+var textclassifierTextClassifierEventTextSelectionEventGetRelativeSuggestedWordEndIndexCmd = &cobra.Command{
+	Use:   "get-relative-suggested-word-end-index",
+	Short: "GetRelativeSuggestedWordEndIndex RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextClassifierEventTextSelectionEventServiceClient(grpcConn)
+		req := &pb.GetRelativeSuggestedWordEndIndexRequest{}
+		resp, err := client.GetRelativeSuggestedWordEndIndex(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textclassifierTextClassifierEventTextSelectionEventGetRelativeSuggestedWordStartIndexCmd = &cobra.Command{
+	Use:   "get-relative-suggested-word-start-index",
+	Short: "GetRelativeSuggestedWordStartIndex RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextClassifierEventTextSelectionEventServiceClient(grpcConn)
+		req := &pb.GetRelativeSuggestedWordStartIndexRequest{}
+		resp, err := client.GetRelativeSuggestedWordStartIndex(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textclassifierTextClassifierEventTextSelectionEventGetRelativeWordEndIndexCmd = &cobra.Command{
+	Use:   "get-relative-word-end-index",
+	Short: "GetRelativeWordEndIndex RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextClassifierEventTextSelectionEventServiceClient(grpcConn)
+		req := &pb.GetRelativeWordEndIndexRequest{}
+		resp, err := client.GetRelativeWordEndIndex(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textclassifierTextClassifierEventTextSelectionEventGetRelativeWordStartIndexCmd = &cobra.Command{
+	Use:   "get-relative-word-start-index",
+	Short: "GetRelativeWordStartIndex RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextClassifierEventTextSelectionEventServiceClient(grpcConn)
+		req := &pb.GetRelativeWordStartIndexRequest{}
+		resp, err := client.GetRelativeWordStartIndex(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textclassifierTextClassifierEventTextSelectionEventWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextClassifierEventTextSelectionEventServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textclassifierTextLanguageCmd = &cobra.Command{
+	Use:   "text-language",
+	Short: "TextLanguageService operations",
+}
+
+var textclassifierTextLanguageDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextLanguageServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textclassifierTextLanguageGetConfidenceScoreCmd = &cobra.Command{
+	Use:   "get-confidence-score",
+	Short: "GetConfidenceScore RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextLanguageServiceClient(grpcConn)
+		req := &pb.TextLanguageGetConfidenceScoreRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetConfidenceScore(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textclassifierTextLanguageGetExtrasCmd = &cobra.Command{
+	Use:   "get-extras",
+	Short: "GetExtras RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextLanguageServiceClient(grpcConn)
+		req := &pb.GetExtrasRequest{}
+		resp, err := client.GetExtras(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textclassifierTextLanguageGetIdCmd = &cobra.Command{
+	Use:   "get-id",
+	Short: "GetId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextLanguageServiceClient(grpcConn)
+		req := &pb.GetIdRequest{}
+		resp, err := client.GetId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textclassifierTextLanguageGetLocaleCmd = &cobra.Command{
+	Use:   "get-locale",
+	Short: "GetLocale RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextLanguageServiceClient(grpcConn)
+		req := &pb.TextLanguageGetLocaleRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetLocale(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textclassifierTextLanguageGetLocaleHypothesisCountCmd = &cobra.Command{
+	Use:   "get-locale-hypothesis-count",
+	Short: "GetLocaleHypothesisCount RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextLanguageServiceClient(grpcConn)
+		req := &pb.GetLocaleHypothesisCountRequest{}
+		resp, err := client.GetLocaleHypothesisCount(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textclassifierTextLanguageToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextLanguageServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textclassifierTextLanguageWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextLanguageServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textclassifierTextLanguageBuilderCmd = &cobra.Command{
+	Use:   "text-language-builder",
+	Short: "TextLanguageBuilderService operations",
+}
+
+var textclassifierTextLanguageBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextLanguageBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textclassifierTextLanguageBuilderPutLocaleCmd = &cobra.Command{
+	Use:   "put-locale",
+	Short: "PutLocale RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextLanguageBuilderServiceClient(grpcConn)
+		req := &pb.PutLocaleRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.PutLocale(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textclassifierTextLanguageBuilderSetExtrasCmd = &cobra.Command{
+	Use:   "set-extras",
+	Short: "SetExtras RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextLanguageBuilderServiceClient(grpcConn)
+		req := &pb.SetExtrasRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetExtras(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textclassifierTextLanguageBuilderSetIdCmd = &cobra.Command{
+	Use:   "set-id",
+	Short: "SetId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextLanguageBuilderServiceClient(grpcConn)
+		req := &pb.SetIdRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textclassifierTextLanguageRequestCmd = &cobra.Command{
+	Use:   "text-language-request",
+	Short: "TextLanguageRequestService operations",
+}
+
+var textclassifierTextLanguageRequestDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextLanguageRequestServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textclassifierTextLanguageRequestGetCallingPackageNameCmd = &cobra.Command{
+	Use:   "get-calling-package-name",
+	Short: "GetCallingPackageName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextLanguageRequestServiceClient(grpcConn)
+		req := &pb.GetCallingPackageNameRequest{}
+		resp, err := client.GetCallingPackageName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textclassifierTextLanguageRequestGetExtrasCmd = &cobra.Command{
+	Use:   "get-extras",
+	Short: "GetExtras RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextLanguageRequestServiceClient(grpcConn)
+		req := &pb.GetExtrasRequest{}
+		resp, err := client.GetExtras(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textclassifierTextLanguageRequestGetTextCmd = &cobra.Command{
+	Use:   "get-text",
+	Short: "GetText RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextLanguageRequestServiceClient(grpcConn)
+		req := &pb.GetTextRequest{}
+		resp, err := client.GetText(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textclassifierTextLanguageRequestWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextLanguageRequestServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var textclassifierTextClassificationCmd = &cobra.Command{
 	Use:   "text-classification",
 	Short: "TextClassificationService operations",
@@ -652,6 +1755,22 @@ var textclassifierTextClassificationDescribeContentsCmd = &cobra.Command{
 	},
 }
 
+var textclassifierTextClassificationGetActionsCmd = &cobra.Command{
+	Use:   "get-actions",
+	Short: "GetActions RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextClassificationServiceClient(grpcConn)
+		req := &pb.GetActionsRequest{}
+		resp, err := client.GetActions(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var textclassifierTextClassificationGetConfidenceScoreCmd = &cobra.Command{
 	Use:   "get-confidence-score",
 	Short: "GetConfidenceScore RPC",
@@ -659,7 +1778,7 @@ var textclassifierTextClassificationGetConfidenceScoreCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewTextClassificationServiceClient(grpcConn)
-		req := &pb.GetConfidenceScoreRequest{}
+		req := &pb.TextClassificationGetConfidenceScoreRequest{}
 		if v, err := cmd.Flags().GetString("arg0"); err == nil {
 			req.Arg0 = v
 		}
@@ -1284,19 +2403,44 @@ var textclassifierTextClassificationManagerSetTextClassifierCmd = &cobra.Command
 	},
 }
 
-var textclassifierTextClassificationSessionIdCmd = &cobra.Command{
-	Use:   "text-classification-session-id",
-	Short: "TextClassificationSessionIdService operations",
+var textclassifierConversationActionsCmd = &cobra.Command{
+	Use:   "conversation-actions",
+	Short: "ConversationActionsService operations",
 }
 
-var textclassifierTextClassificationSessionIdDescribeContentsCmd = &cobra.Command{
+var textclassifierConversationActionsNewConversationActionsCmd = &cobra.Command{
+	Use:   "new-conversation-actions",
+	Short: "NewConversationActions RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConversationActionsServiceClient(grpcConn)
+		req := &pb.NewConversationActionsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.NewConversationActions(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textclassifierConversationActionsDescribeContentsCmd = &cobra.Command{
 	Use:   "describe-contents",
 	Short: "DescribeContents RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewTextClassificationSessionIdServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
+		client := pb.NewConversationActionsServiceClient(grpcConn)
+		req := &pb.ConversationActionsDescribeContentsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
 		resp, err := client.DescribeContents(ctx, req)
 		if err != nil {
 			return err
@@ -1305,18 +2449,18 @@ var textclassifierTextClassificationSessionIdDescribeContentsCmd = &cobra.Comman
 	},
 }
 
-var textclassifierTextClassificationSessionIdEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
+var textclassifierConversationActionsGetConversationActionsCmd = &cobra.Command{
+	Use:   "get-conversation-actions",
+	Short: "GetConversationActions RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewTextClassificationSessionIdServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
+		client := pb.NewConversationActionsServiceClient(grpcConn)
+		req := &pb.GetConversationActionsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
 		}
-		resp, err := client.Equals(ctx, req)
+		resp, err := client.GetConversationActions(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1324,15 +2468,18 @@ var textclassifierTextClassificationSessionIdEqualsCmd = &cobra.Command{
 	},
 }
 
-var textclassifierTextClassificationSessionIdGetValueCmd = &cobra.Command{
-	Use:   "get-value",
-	Short: "GetValue RPC",
+var textclassifierConversationActionsGetIdCmd = &cobra.Command{
+	Use:   "get-id",
+	Short: "GetId RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewTextClassificationSessionIdServiceClient(grpcConn)
-		req := &pb.GetValueRequest{}
-		resp, err := client.GetValue(ctx, req)
+		client := pb.NewConversationActionsServiceClient(grpcConn)
+		req := &pb.ConversationActionsGetIdRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetId(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1340,46 +2487,17 @@ var textclassifierTextClassificationSessionIdGetValueCmd = &cobra.Command{
 	},
 }
 
-var textclassifierTextClassificationSessionIdHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTextClassificationSessionIdServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var textclassifierTextClassificationSessionIdToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTextClassificationSessionIdServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var textclassifierTextClassificationSessionIdWriteToParcelCmd = &cobra.Command{
+var textclassifierConversationActionsWriteToParcelCmd = &cobra.Command{
 	Use:   "write-to-parcel",
 	Short: "WriteToParcel RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewTextClassificationSessionIdServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
+		client := pb.NewConversationActionsServiceClient(grpcConn)
+		req := &pb.ConversationActionsWriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
@@ -1394,18 +2512,18 @@ var textclassifierTextClassificationSessionIdWriteToParcelCmd = &cobra.Command{
 	},
 }
 
-var textclassifierTextClassifierEventCmd = &cobra.Command{
-	Use:   "text-classifier-event",
-	Short: "TextClassifierEventService operations",
+var textclassifierConversationActionsMessageCmd = &cobra.Command{
+	Use:   "conversation-actions-message",
+	Short: "ConversationActionsMessageService operations",
 }
 
-var textclassifierTextClassifierEventDescribeContentsCmd = &cobra.Command{
+var textclassifierConversationActionsMessageDescribeContentsCmd = &cobra.Command{
 	Use:   "describe-contents",
 	Short: "DescribeContents RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewTextClassifierEventServiceClient(grpcConn)
+		client := pb.NewConversationActionsMessageServiceClient(grpcConn)
 		req := &pb.DescribeContentsRequest{}
 		resp, err := client.DescribeContents(ctx, req)
 		if err != nil {
@@ -1415,15 +2533,15 @@ var textclassifierTextClassifierEventDescribeContentsCmd = &cobra.Command{
 	},
 }
 
-var textclassifierTextClassifierEventGetActionIndicesCmd = &cobra.Command{
-	Use:   "get-action-indices",
-	Short: "GetActionIndices RPC",
+var textclassifierConversationActionsMessageGetAuthorCmd = &cobra.Command{
+	Use:   "get-author",
+	Short: "GetAuthor RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewTextClassifierEventServiceClient(grpcConn)
-		req := &pb.GetActionIndicesRequest{}
-		resp, err := client.GetActionIndices(ctx, req)
+		client := pb.NewConversationActionsMessageServiceClient(grpcConn)
+		req := &pb.GetAuthorRequest{}
+		resp, err := client.GetAuthor(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1431,93 +2549,13 @@ var textclassifierTextClassifierEventGetActionIndicesCmd = &cobra.Command{
 	},
 }
 
-var textclassifierTextClassifierEventGetEntityTypesCmd = &cobra.Command{
-	Use:   "get-entity-types",
-	Short: "GetEntityTypes RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTextClassifierEventServiceClient(grpcConn)
-		req := &pb.GetEntityTypesRequest{}
-		resp, err := client.GetEntityTypes(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var textclassifierTextClassifierEventGetEventCategoryCmd = &cobra.Command{
-	Use:   "get-event-category",
-	Short: "GetEventCategory RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTextClassifierEventServiceClient(grpcConn)
-		req := &pb.GetEventCategoryRequest{}
-		resp, err := client.GetEventCategory(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var textclassifierTextClassifierEventGetEventContextCmd = &cobra.Command{
-	Use:   "get-event-context",
-	Short: "GetEventContext RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTextClassifierEventServiceClient(grpcConn)
-		req := &pb.GetEventContextRequest{}
-		resp, err := client.GetEventContext(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var textclassifierTextClassifierEventGetEventIndexCmd = &cobra.Command{
-	Use:   "get-event-index",
-	Short: "GetEventIndex RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTextClassifierEventServiceClient(grpcConn)
-		req := &pb.GetEventIndexRequest{}
-		resp, err := client.GetEventIndex(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var textclassifierTextClassifierEventGetEventTypeCmd = &cobra.Command{
-	Use:   "get-event-type",
-	Short: "GetEventType RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTextClassifierEventServiceClient(grpcConn)
-		req := &pb.GetEventTypeRequest{}
-		resp, err := client.GetEventType(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var textclassifierTextClassifierEventGetExtrasCmd = &cobra.Command{
+var textclassifierConversationActionsMessageGetExtrasCmd = &cobra.Command{
 	Use:   "get-extras",
 	Short: "GetExtras RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewTextClassifierEventServiceClient(grpcConn)
+		client := pb.NewConversationActionsMessageServiceClient(grpcConn)
 		req := &pb.GetExtrasRequest{}
 		resp, err := client.GetExtras(ctx, req)
 		if err != nil {
@@ -1527,15 +2565,15 @@ var textclassifierTextClassifierEventGetExtrasCmd = &cobra.Command{
 	},
 }
 
-var textclassifierTextClassifierEventGetLocaleCmd = &cobra.Command{
-	Use:   "get-locale",
-	Short: "GetLocale RPC",
+var textclassifierConversationActionsMessageGetReferenceTimeCmd = &cobra.Command{
+	Use:   "get-reference-time",
+	Short: "GetReferenceTime RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewTextClassifierEventServiceClient(grpcConn)
-		req := &pb.GetLocaleRequest{}
-		resp, err := client.GetLocale(ctx, req)
+		client := pb.NewConversationActionsMessageServiceClient(grpcConn)
+		req := &pb.GetReferenceTimeRequest{}
+		resp, err := client.GetReferenceTime(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1543,15 +2581,15 @@ var textclassifierTextClassifierEventGetLocaleCmd = &cobra.Command{
 	},
 }
 
-var textclassifierTextClassifierEventGetModelNameCmd = &cobra.Command{
-	Use:   "get-model-name",
-	Short: "GetModelName RPC",
+var textclassifierConversationActionsMessageGetTextCmd = &cobra.Command{
+	Use:   "get-text",
+	Short: "GetText RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewTextClassifierEventServiceClient(grpcConn)
-		req := &pb.GetModelNameRequest{}
-		resp, err := client.GetModelName(ctx, req)
+		client := pb.NewConversationActionsMessageServiceClient(grpcConn)
+		req := &pb.GetTextRequest{}
+		resp, err := client.GetText(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1559,61 +2597,13 @@ var textclassifierTextClassifierEventGetModelNameCmd = &cobra.Command{
 	},
 }
 
-var textclassifierTextClassifierEventGetResultIdCmd = &cobra.Command{
-	Use:   "get-result-id",
-	Short: "GetResultId RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTextClassifierEventServiceClient(grpcConn)
-		req := &pb.GetResultIdRequest{}
-		resp, err := client.GetResultId(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var textclassifierTextClassifierEventGetScoresCmd = &cobra.Command{
-	Use:   "get-scores",
-	Short: "GetScores RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTextClassifierEventServiceClient(grpcConn)
-		req := &pb.GetScoresRequest{}
-		resp, err := client.GetScores(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var textclassifierTextClassifierEventToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTextClassifierEventServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var textclassifierTextClassifierEventWriteToParcelCmd = &cobra.Command{
+var textclassifierConversationActionsMessageWriteToParcelCmd = &cobra.Command{
 	Use:   "write-to-parcel",
 	Short: "WriteToParcel RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewTextClassifierEventServiceClient(grpcConn)
+		client := pb.NewConversationActionsMessageServiceClient(grpcConn)
 		req := &pb.WriteToParcelRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -1629,20 +2619,20 @@ var textclassifierTextClassifierEventWriteToParcelCmd = &cobra.Command{
 	},
 }
 
-var textclassifierTextClassifierEventTextSelectionEventCmd = &cobra.Command{
-	Use:   "text-classifier-event-text-selection-event",
-	Short: "TextClassifierEventTextSelectionEventService operations",
+var textclassifierConversationActionsRequestCmd = &cobra.Command{
+	Use:   "conversation-actions-request",
+	Short: "ConversationActionsRequestService operations",
 }
 
-var textclassifierTextClassifierEventTextSelectionEventGetRelativeSuggestedWordEndIndexCmd = &cobra.Command{
-	Use:   "get-relative-suggested-word-end-index",
-	Short: "GetRelativeSuggestedWordEndIndex RPC",
+var textclassifierConversationActionsRequestDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewTextClassifierEventTextSelectionEventServiceClient(grpcConn)
-		req := &pb.GetRelativeSuggestedWordEndIndexRequest{}
-		resp, err := client.GetRelativeSuggestedWordEndIndex(ctx, req)
+		client := pb.NewConversationActionsRequestServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1650,15 +2640,15 @@ var textclassifierTextClassifierEventTextSelectionEventGetRelativeSuggestedWordE
 	},
 }
 
-var textclassifierTextClassifierEventTextSelectionEventGetRelativeSuggestedWordStartIndexCmd = &cobra.Command{
-	Use:   "get-relative-suggested-word-start-index",
-	Short: "GetRelativeSuggestedWordStartIndex RPC",
+var textclassifierConversationActionsRequestGetCallingPackageNameCmd = &cobra.Command{
+	Use:   "get-calling-package-name",
+	Short: "GetCallingPackageName RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewTextClassifierEventTextSelectionEventServiceClient(grpcConn)
-		req := &pb.GetRelativeSuggestedWordStartIndexRequest{}
-		resp, err := client.GetRelativeSuggestedWordStartIndex(ctx, req)
+		client := pb.NewConversationActionsRequestServiceClient(grpcConn)
+		req := &pb.GetCallingPackageNameRequest{}
+		resp, err := client.GetCallingPackageName(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1666,15 +2656,15 @@ var textclassifierTextClassifierEventTextSelectionEventGetRelativeSuggestedWordS
 	},
 }
 
-var textclassifierTextClassifierEventTextSelectionEventGetRelativeWordEndIndexCmd = &cobra.Command{
-	Use:   "get-relative-word-end-index",
-	Short: "GetRelativeWordEndIndex RPC",
+var textclassifierConversationActionsRequestGetConversationCmd = &cobra.Command{
+	Use:   "get-conversation",
+	Short: "GetConversation RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewTextClassifierEventTextSelectionEventServiceClient(grpcConn)
-		req := &pb.GetRelativeWordEndIndexRequest{}
-		resp, err := client.GetRelativeWordEndIndex(ctx, req)
+		client := pb.NewConversationActionsRequestServiceClient(grpcConn)
+		req := &pb.GetConversationRequest{}
+		resp, err := client.GetConversation(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1682,15 +2672,15 @@ var textclassifierTextClassifierEventTextSelectionEventGetRelativeWordEndIndexCm
 	},
 }
 
-var textclassifierTextClassifierEventTextSelectionEventGetRelativeWordStartIndexCmd = &cobra.Command{
-	Use:   "get-relative-word-start-index",
-	Short: "GetRelativeWordStartIndex RPC",
+var textclassifierConversationActionsRequestGetExtrasCmd = &cobra.Command{
+	Use:   "get-extras",
+	Short: "GetExtras RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewTextClassifierEventTextSelectionEventServiceClient(grpcConn)
-		req := &pb.GetRelativeWordStartIndexRequest{}
-		resp, err := client.GetRelativeWordStartIndex(ctx, req)
+		client := pb.NewConversationActionsRequestServiceClient(grpcConn)
+		req := &pb.GetExtrasRequest{}
+		resp, err := client.GetExtras(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1698,13 +2688,509 @@ var textclassifierTextClassifierEventTextSelectionEventGetRelativeWordStartIndex
 	},
 }
 
-var textclassifierTextClassifierEventTextSelectionEventWriteToParcelCmd = &cobra.Command{
+var textclassifierConversationActionsRequestGetHintsCmd = &cobra.Command{
+	Use:   "get-hints",
+	Short: "GetHints RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConversationActionsRequestServiceClient(grpcConn)
+		req := &pb.GetHintsRequest{}
+		resp, err := client.GetHints(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textclassifierConversationActionsRequestGetMaxSuggestionsCmd = &cobra.Command{
+	Use:   "get-max-suggestions",
+	Short: "GetMaxSuggestions RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConversationActionsRequestServiceClient(grpcConn)
+		req := &pb.GetMaxSuggestionsRequest{}
+		resp, err := client.GetMaxSuggestions(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textclassifierConversationActionsRequestGetTypeConfigCmd = &cobra.Command{
+	Use:   "get-type-config",
+	Short: "GetTypeConfig RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConversationActionsRequestServiceClient(grpcConn)
+		req := &pb.GetTypeConfigRequest{}
+		resp, err := client.GetTypeConfig(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textclassifierConversationActionsRequestWriteToParcelCmd = &cobra.Command{
 	Use:   "write-to-parcel",
 	Short: "WriteToParcel RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewTextClassifierEventTextSelectionEventServiceClient(grpcConn)
+		client := pb.NewConversationActionsRequestServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textclassifierTextSelectionCmd = &cobra.Command{
+	Use:   "text-selection",
+	Short: "TextSelectionService operations",
+}
+
+var textclassifierTextSelectionDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextSelectionServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textclassifierTextSelectionGetConfidenceScoreCmd = &cobra.Command{
+	Use:   "get-confidence-score",
+	Short: "GetConfidenceScore RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextSelectionServiceClient(grpcConn)
+		req := &pb.TextSelectionGetConfidenceScoreRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetConfidenceScore(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textclassifierTextSelectionGetEntityCmd = &cobra.Command{
+	Use:   "get-entity",
+	Short: "GetEntity RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextSelectionServiceClient(grpcConn)
+		req := &pb.GetEntityRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetEntity(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textclassifierTextSelectionGetEntityCountCmd = &cobra.Command{
+	Use:   "get-entity-count",
+	Short: "GetEntityCount RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextSelectionServiceClient(grpcConn)
+		req := &pb.GetEntityCountRequest{}
+		resp, err := client.GetEntityCount(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textclassifierTextSelectionGetExtrasCmd = &cobra.Command{
+	Use:   "get-extras",
+	Short: "GetExtras RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextSelectionServiceClient(grpcConn)
+		req := &pb.GetExtrasRequest{}
+		resp, err := client.GetExtras(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textclassifierTextSelectionGetIdCmd = &cobra.Command{
+	Use:   "get-id",
+	Short: "GetId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextSelectionServiceClient(grpcConn)
+		req := &pb.GetIdRequest{}
+		resp, err := client.GetId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textclassifierTextSelectionGetSelectionEndIndexCmd = &cobra.Command{
+	Use:   "get-selection-end-index",
+	Short: "GetSelectionEndIndex RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextSelectionServiceClient(grpcConn)
+		req := &pb.GetSelectionEndIndexRequest{}
+		resp, err := client.GetSelectionEndIndex(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textclassifierTextSelectionGetSelectionStartIndexCmd = &cobra.Command{
+	Use:   "get-selection-start-index",
+	Short: "GetSelectionStartIndex RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextSelectionServiceClient(grpcConn)
+		req := &pb.GetSelectionStartIndexRequest{}
+		resp, err := client.GetSelectionStartIndex(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textclassifierTextSelectionGetTextClassificationCmd = &cobra.Command{
+	Use:   "get-text-classification",
+	Short: "GetTextClassification RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextSelectionServiceClient(grpcConn)
+		req := &pb.GetTextClassificationRequest{}
+		resp, err := client.GetTextClassification(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textclassifierTextSelectionToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextSelectionServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textclassifierTextSelectionWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextSelectionServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textclassifierTextSelectionBuilderCmd = &cobra.Command{
+	Use:   "text-selection-builder",
+	Short: "TextSelectionBuilderService operations",
+}
+
+var textclassifierTextSelectionBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextSelectionBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textclassifierTextSelectionBuilderSetEntityTypeCmd = &cobra.Command{
+	Use:   "set-entity-type",
+	Short: "SetEntityType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextSelectionBuilderServiceClient(grpcConn)
+		req := &pb.SetEntityTypeRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.SetEntityType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textclassifierTextSelectionBuilderSetExtrasCmd = &cobra.Command{
+	Use:   "set-extras",
+	Short: "SetExtras RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextSelectionBuilderServiceClient(grpcConn)
+		req := &pb.SetExtrasRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetExtras(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textclassifierTextSelectionBuilderSetIdCmd = &cobra.Command{
+	Use:   "set-id",
+	Short: "SetId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextSelectionBuilderServiceClient(grpcConn)
+		req := &pb.SetIdRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textclassifierTextSelectionBuilderSetTextClassificationCmd = &cobra.Command{
+	Use:   "set-text-classification",
+	Short: "SetTextClassification RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextSelectionBuilderServiceClient(grpcConn)
+		req := &pb.SetTextClassificationRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetTextClassification(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textclassifierTextSelectionRequestCmd = &cobra.Command{
+	Use:   "text-selection-request",
+	Short: "TextSelectionRequestService operations",
+}
+
+var textclassifierTextSelectionRequestDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextSelectionRequestServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textclassifierTextSelectionRequestGetCallingPackageNameCmd = &cobra.Command{
+	Use:   "get-calling-package-name",
+	Short: "GetCallingPackageName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextSelectionRequestServiceClient(grpcConn)
+		req := &pb.GetCallingPackageNameRequest{}
+		resp, err := client.GetCallingPackageName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textclassifierTextSelectionRequestGetDefaultLocalesCmd = &cobra.Command{
+	Use:   "get-default-locales",
+	Short: "GetDefaultLocales RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextSelectionRequestServiceClient(grpcConn)
+		req := &pb.GetDefaultLocalesRequest{}
+		resp, err := client.GetDefaultLocales(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textclassifierTextSelectionRequestGetEndIndexCmd = &cobra.Command{
+	Use:   "get-end-index",
+	Short: "GetEndIndex RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextSelectionRequestServiceClient(grpcConn)
+		req := &pb.GetEndIndexRequest{}
+		resp, err := client.GetEndIndex(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textclassifierTextSelectionRequestGetExtrasCmd = &cobra.Command{
+	Use:   "get-extras",
+	Short: "GetExtras RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextSelectionRequestServiceClient(grpcConn)
+		req := &pb.GetExtrasRequest{}
+		resp, err := client.GetExtras(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textclassifierTextSelectionRequestGetStartIndexCmd = &cobra.Command{
+	Use:   "get-start-index",
+	Short: "GetStartIndex RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextSelectionRequestServiceClient(grpcConn)
+		req := &pb.GetStartIndexRequest{}
+		resp, err := client.GetStartIndex(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textclassifierTextSelectionRequestGetTextCmd = &cobra.Command{
+	Use:   "get-text",
+	Short: "GetText RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextSelectionRequestServiceClient(grpcConn)
+		req := &pb.GetTextRequest{}
+		resp, err := client.GetText(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textclassifierTextSelectionRequestShouldIncludeTextClassificationCmd = &cobra.Command{
+	Use:   "should-include-text-classification",
+	Short: "ShouldIncludeTextClassification RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextSelectionRequestServiceClient(grpcConn)
+		req := &pb.ShouldIncludeTextClassificationRequest{}
+		resp, err := client.ShouldIncludeTextClassification(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textclassifierTextSelectionRequestWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextSelectionRequestServiceClient(grpcConn)
 		req := &pb.WriteToParcelRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -2236,1436 +3722,47 @@ var textclassifierSelectionEventIsTerminalCmd = &cobra.Command{
 	},
 }
 
-var textclassifierTextLinksCmd = &cobra.Command{
-	Use:   "text-links",
-	Short: "TextLinksService operations",
-}
-
-var textclassifierTextLinksDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTextLinksServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var textclassifierTextLinksGetExtrasCmd = &cobra.Command{
-	Use:   "get-extras",
-	Short: "GetExtras RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTextLinksServiceClient(grpcConn)
-		req := &pb.GetExtrasRequest{}
-		resp, err := client.GetExtras(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var textclassifierTextLinksGetTextCmd = &cobra.Command{
-	Use:   "get-text",
-	Short: "GetText RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTextLinksServiceClient(grpcConn)
-		req := &pb.GetTextRequest{}
-		resp, err := client.GetText(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var textclassifierTextLinksToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTextLinksServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var textclassifierTextLinksWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTextLinksServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var textclassifierTextLinksBuilderCmd = &cobra.Command{
-	Use:   "text-links-builder",
-	Short: "TextLinksBuilderService operations",
-}
-
-var textclassifierTextLinksBuilderBuildCmd = &cobra.Command{
-	Use:   "build",
-	Short: "Build RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTextLinksBuilderServiceClient(grpcConn)
-		req := &pb.BuildRequest{}
-		resp, err := client.Build(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var textclassifierTextLinksBuilderClearTextLinksCmd = &cobra.Command{
-	Use:   "clear-text-links",
-	Short: "ClearTextLinks RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTextLinksBuilderServiceClient(grpcConn)
-		req := &pb.ClearTextLinksRequest{}
-		resp, err := client.ClearTextLinks(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var textclassifierTextLinksBuilderSetExtrasCmd = &cobra.Command{
-	Use:   "set-extras",
-	Short: "SetExtras RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTextLinksBuilderServiceClient(grpcConn)
-		req := &pb.SetExtrasRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetExtras(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var textclassifierTextLinksRequestCmd = &cobra.Command{
-	Use:   "text-links-request",
-	Short: "TextLinksRequestService operations",
-}
-
-var textclassifierTextLinksRequestDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTextLinksRequestServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var textclassifierTextLinksRequestGetCallingPackageNameCmd = &cobra.Command{
-	Use:   "get-calling-package-name",
-	Short: "GetCallingPackageName RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTextLinksRequestServiceClient(grpcConn)
-		req := &pb.GetCallingPackageNameRequest{}
-		resp, err := client.GetCallingPackageName(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var textclassifierTextLinksRequestGetDefaultLocalesCmd = &cobra.Command{
-	Use:   "get-default-locales",
-	Short: "GetDefaultLocales RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTextLinksRequestServiceClient(grpcConn)
-		req := &pb.GetDefaultLocalesRequest{}
-		resp, err := client.GetDefaultLocales(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var textclassifierTextLinksRequestGetEntityConfigCmd = &cobra.Command{
-	Use:   "get-entity-config",
-	Short: "GetEntityConfig RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTextLinksRequestServiceClient(grpcConn)
-		req := &pb.GetEntityConfigRequest{}
-		resp, err := client.GetEntityConfig(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var textclassifierTextLinksRequestGetExtrasCmd = &cobra.Command{
-	Use:   "get-extras",
-	Short: "GetExtras RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTextLinksRequestServiceClient(grpcConn)
-		req := &pb.GetExtrasRequest{}
-		resp, err := client.GetExtras(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var textclassifierTextLinksRequestGetReferenceTimeCmd = &cobra.Command{
-	Use:   "get-reference-time",
-	Short: "GetReferenceTime RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTextLinksRequestServiceClient(grpcConn)
-		req := &pb.GetReferenceTimeRequest{}
-		resp, err := client.GetReferenceTime(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var textclassifierTextLinksRequestGetTextCmd = &cobra.Command{
-	Use:   "get-text",
-	Short: "GetText RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTextLinksRequestServiceClient(grpcConn)
-		req := &pb.GetTextRequest{}
-		resp, err := client.GetText(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var textclassifierTextLinksRequestWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTextLinksRequestServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var textclassifierTextLinksTextLinkCmd = &cobra.Command{
-	Use:   "text-links-text-link",
-	Short: "TextLinksTextLinkService operations",
-}
-
-var textclassifierTextLinksTextLinkDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTextLinksTextLinkServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var textclassifierTextLinksTextLinkGetConfidenceScoreCmd = &cobra.Command{
-	Use:   "get-confidence-score",
-	Short: "GetConfidenceScore RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTextLinksTextLinkServiceClient(grpcConn)
-		req := &pb.GetConfidenceScoreRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetConfidenceScore(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var textclassifierTextLinksTextLinkGetEndCmd = &cobra.Command{
-	Use:   "get-end",
-	Short: "GetEnd RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTextLinksTextLinkServiceClient(grpcConn)
-		req := &pb.GetEndRequest{}
-		resp, err := client.GetEnd(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var textclassifierTextLinksTextLinkGetEntityCmd = &cobra.Command{
-	Use:   "get-entity",
-	Short: "GetEntity RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTextLinksTextLinkServiceClient(grpcConn)
-		req := &pb.GetEntityRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetEntity(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var textclassifierTextLinksTextLinkGetEntityCountCmd = &cobra.Command{
-	Use:   "get-entity-count",
-	Short: "GetEntityCount RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTextLinksTextLinkServiceClient(grpcConn)
-		req := &pb.GetEntityCountRequest{}
-		resp, err := client.GetEntityCount(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var textclassifierTextLinksTextLinkGetExtrasCmd = &cobra.Command{
-	Use:   "get-extras",
-	Short: "GetExtras RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTextLinksTextLinkServiceClient(grpcConn)
-		req := &pb.GetExtrasRequest{}
-		resp, err := client.GetExtras(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var textclassifierTextLinksTextLinkGetStartCmd = &cobra.Command{
-	Use:   "get-start",
-	Short: "GetStart RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTextLinksTextLinkServiceClient(grpcConn)
-		req := &pb.GetStartRequest{}
-		resp, err := client.GetStart(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var textclassifierTextLinksTextLinkToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTextLinksTextLinkServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var textclassifierTextLinksTextLinkWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTextLinksTextLinkServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var textclassifierTextLinksTextLinkSpanCmd = &cobra.Command{
-	Use:   "text-links-text-link-span",
-	Short: "TextLinksTextLinkSpanService operations",
-}
-
-var textclassifierTextLinksTextLinkSpanGetTextLinkCmd = &cobra.Command{
-	Use:   "get-text-link",
-	Short: "GetTextLink RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTextLinksTextLinkSpanServiceClient(grpcConn)
-		req := &pb.GetTextLinkRequest{}
-		resp, err := client.GetTextLink(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var textclassifierTextLinksTextLinkSpanOnClickCmd = &cobra.Command{
-	Use:   "on-click",
-	Short: "OnClick RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTextLinksTextLinkSpanServiceClient(grpcConn)
-		req := &pb.OnClickRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.OnClick(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var textclassifierTextLanguageCmd = &cobra.Command{
-	Use:   "text-language",
-	Short: "TextLanguageService operations",
-}
-
-var textclassifierTextLanguageDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTextLanguageServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var textclassifierTextLanguageGetConfidenceScoreCmd = &cobra.Command{
-	Use:   "get-confidence-score",
-	Short: "GetConfidenceScore RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTextLanguageServiceClient(grpcConn)
-		req := &pb.TextLanguageGetConfidenceScoreRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetConfidenceScore(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var textclassifierTextLanguageGetExtrasCmd = &cobra.Command{
-	Use:   "get-extras",
-	Short: "GetExtras RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTextLanguageServiceClient(grpcConn)
-		req := &pb.GetExtrasRequest{}
-		resp, err := client.GetExtras(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var textclassifierTextLanguageGetIdCmd = &cobra.Command{
-	Use:   "get-id",
-	Short: "GetId RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTextLanguageServiceClient(grpcConn)
-		req := &pb.GetIdRequest{}
-		resp, err := client.GetId(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var textclassifierTextLanguageGetLocaleCmd = &cobra.Command{
-	Use:   "get-locale",
-	Short: "GetLocale RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTextLanguageServiceClient(grpcConn)
-		req := &pb.TextLanguageGetLocaleRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetLocale(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var textclassifierTextLanguageGetLocaleHypothesisCountCmd = &cobra.Command{
-	Use:   "get-locale-hypothesis-count",
-	Short: "GetLocaleHypothesisCount RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTextLanguageServiceClient(grpcConn)
-		req := &pb.GetLocaleHypothesisCountRequest{}
-		resp, err := client.GetLocaleHypothesisCount(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var textclassifierTextLanguageToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTextLanguageServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var textclassifierTextLanguageWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTextLanguageServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var textclassifierTextLanguageBuilderCmd = &cobra.Command{
-	Use:   "text-language-builder",
-	Short: "TextLanguageBuilderService operations",
-}
-
-var textclassifierTextLanguageBuilderBuildCmd = &cobra.Command{
-	Use:   "build",
-	Short: "Build RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTextLanguageBuilderServiceClient(grpcConn)
-		req := &pb.BuildRequest{}
-		resp, err := client.Build(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var textclassifierTextLanguageBuilderPutLocaleCmd = &cobra.Command{
-	Use:   "put-locale",
-	Short: "PutLocale RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTextLanguageBuilderServiceClient(grpcConn)
-		req := &pb.PutLocaleRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetFloat32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.PutLocale(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var textclassifierTextLanguageBuilderSetExtrasCmd = &cobra.Command{
-	Use:   "set-extras",
-	Short: "SetExtras RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTextLanguageBuilderServiceClient(grpcConn)
-		req := &pb.SetExtrasRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetExtras(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var textclassifierTextLanguageBuilderSetIdCmd = &cobra.Command{
-	Use:   "set-id",
-	Short: "SetId RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTextLanguageBuilderServiceClient(grpcConn)
-		req := &pb.SetIdRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetId(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var textclassifierTextLanguageRequestCmd = &cobra.Command{
-	Use:   "text-language-request",
-	Short: "TextLanguageRequestService operations",
-}
-
-var textclassifierTextLanguageRequestDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTextLanguageRequestServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var textclassifierTextLanguageRequestGetCallingPackageNameCmd = &cobra.Command{
-	Use:   "get-calling-package-name",
-	Short: "GetCallingPackageName RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTextLanguageRequestServiceClient(grpcConn)
-		req := &pb.GetCallingPackageNameRequest{}
-		resp, err := client.GetCallingPackageName(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var textclassifierTextLanguageRequestGetExtrasCmd = &cobra.Command{
-	Use:   "get-extras",
-	Short: "GetExtras RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTextLanguageRequestServiceClient(grpcConn)
-		req := &pb.GetExtrasRequest{}
-		resp, err := client.GetExtras(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var textclassifierTextLanguageRequestGetTextCmd = &cobra.Command{
-	Use:   "get-text",
-	Short: "GetText RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTextLanguageRequestServiceClient(grpcConn)
-		req := &pb.GetTextRequest{}
-		resp, err := client.GetText(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var textclassifierTextLanguageRequestWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTextLanguageRequestServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var textclassifierConversationActionCmd = &cobra.Command{
-	Use:   "conversation-action",
-	Short: "ConversationActionService operations",
-}
-
-var textclassifierConversationActionDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewConversationActionServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var textclassifierConversationActionGetActionCmd = &cobra.Command{
-	Use:   "get-action",
-	Short: "GetAction RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewConversationActionServiceClient(grpcConn)
-		req := &pb.GetActionRequest{}
-		resp, err := client.GetAction(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var textclassifierConversationActionGetConfidenceScoreCmd = &cobra.Command{
-	Use:   "get-confidence-score",
-	Short: "GetConfidenceScore RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewConversationActionServiceClient(grpcConn)
-		req := &pb.ConversationActionGetConfidenceScoreRequest{}
-		resp, err := client.GetConfidenceScore(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var textclassifierConversationActionGetExtrasCmd = &cobra.Command{
-	Use:   "get-extras",
-	Short: "GetExtras RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewConversationActionServiceClient(grpcConn)
-		req := &pb.GetExtrasRequest{}
-		resp, err := client.GetExtras(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var textclassifierConversationActionGetTextReplyCmd = &cobra.Command{
-	Use:   "get-text-reply",
-	Short: "GetTextReply RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewConversationActionServiceClient(grpcConn)
-		req := &pb.GetTextReplyRequest{}
-		resp, err := client.GetTextReply(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var textclassifierConversationActionGetTypeCmd = &cobra.Command{
-	Use:   "get-type",
-	Short: "GetType RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewConversationActionServiceClient(grpcConn)
-		req := &pb.GetTypeRequest{}
-		resp, err := client.GetType(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var textclassifierConversationActionWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewConversationActionServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var textclassifierConversationActionBuilderCmd = &cobra.Command{
-	Use:   "conversation-action-builder",
-	Short: "ConversationActionBuilderService operations",
-}
-
-var textclassifierConversationActionBuilderBuildCmd = &cobra.Command{
-	Use:   "build",
-	Short: "Build RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewConversationActionBuilderServiceClient(grpcConn)
-		req := &pb.BuildRequest{}
-		resp, err := client.Build(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var textclassifierConversationActionBuilderSetActionCmd = &cobra.Command{
-	Use:   "set-action",
-	Short: "SetAction RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewConversationActionBuilderServiceClient(grpcConn)
-		req := &pb.SetActionRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetAction(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var textclassifierConversationActionBuilderSetConfidenceScoreCmd = &cobra.Command{
-	Use:   "set-confidence-score",
-	Short: "SetConfidenceScore RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewConversationActionBuilderServiceClient(grpcConn)
-		req := &pb.SetConfidenceScoreRequest{}
-		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetConfidenceScore(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var textclassifierConversationActionBuilderSetExtrasCmd = &cobra.Command{
-	Use:   "set-extras",
-	Short: "SetExtras RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewConversationActionBuilderServiceClient(grpcConn)
-		req := &pb.SetExtrasRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetExtras(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var textclassifierConversationActionBuilderSetTextReplyCmd = &cobra.Command{
-	Use:   "set-text-reply",
-	Short: "SetTextReply RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewConversationActionBuilderServiceClient(grpcConn)
-		req := &pb.SetTextReplyRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetTextReply(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var textclassifierTextClassifierEntityConfigCmd = &cobra.Command{
-	Use:   "text-classifier-entity-config",
-	Short: "TextClassifierEntityConfigService operations",
-}
-
-var textclassifierTextClassifierEntityConfigDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTextClassifierEntityConfigServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var textclassifierTextClassifierEntityConfigShouldIncludeTypesFromTextClassifierCmd = &cobra.Command{
-	Use:   "should-include-types-from-text-classifier",
-	Short: "ShouldIncludeTypesFromTextClassifier RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTextClassifierEntityConfigServiceClient(grpcConn)
-		req := &pb.ShouldIncludeTypesFromTextClassifierRequest{}
-		resp, err := client.ShouldIncludeTypesFromTextClassifier(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var textclassifierTextClassifierEntityConfigWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTextClassifierEntityConfigServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var textclassifierConversationActionsCmd = &cobra.Command{
-	Use:   "conversation-actions",
-	Short: "ConversationActionsService operations",
-}
-
-var textclassifierConversationActionsNewConversationActionsCmd = &cobra.Command{
-	Use:   "new-conversation-actions",
-	Short: "NewConversationActions RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewConversationActionsServiceClient(grpcConn)
-		req := &pb.NewConversationActionsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetString("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.NewConversationActions(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var textclassifierConversationActionsDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewConversationActionsServiceClient(grpcConn)
-		req := &pb.ConversationActionsDescribeContentsRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var textclassifierConversationActionsGetIdCmd = &cobra.Command{
-	Use:   "get-id",
-	Short: "GetId RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewConversationActionsServiceClient(grpcConn)
-		req := &pb.ConversationActionsGetIdRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetId(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var textclassifierConversationActionsWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewConversationActionsServiceClient(grpcConn)
-		req := &pb.ConversationActionsWriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var textclassifierConversationActionsMessageCmd = &cobra.Command{
-	Use:   "conversation-actions-message",
-	Short: "ConversationActionsMessageService operations",
-}
-
-var textclassifierConversationActionsMessageDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewConversationActionsMessageServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var textclassifierConversationActionsMessageGetAuthorCmd = &cobra.Command{
-	Use:   "get-author",
-	Short: "GetAuthor RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewConversationActionsMessageServiceClient(grpcConn)
-		req := &pb.GetAuthorRequest{}
-		resp, err := client.GetAuthor(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var textclassifierConversationActionsMessageGetExtrasCmd = &cobra.Command{
-	Use:   "get-extras",
-	Short: "GetExtras RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewConversationActionsMessageServiceClient(grpcConn)
-		req := &pb.GetExtrasRequest{}
-		resp, err := client.GetExtras(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var textclassifierConversationActionsMessageGetReferenceTimeCmd = &cobra.Command{
-	Use:   "get-reference-time",
-	Short: "GetReferenceTime RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewConversationActionsMessageServiceClient(grpcConn)
-		req := &pb.GetReferenceTimeRequest{}
-		resp, err := client.GetReferenceTime(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var textclassifierConversationActionsMessageGetTextCmd = &cobra.Command{
-	Use:   "get-text",
-	Short: "GetText RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewConversationActionsMessageServiceClient(grpcConn)
-		req := &pb.GetTextRequest{}
-		resp, err := client.GetText(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var textclassifierConversationActionsMessageWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewConversationActionsMessageServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var textclassifierConversationActionsRequestCmd = &cobra.Command{
-	Use:   "conversation-actions-request",
-	Short: "ConversationActionsRequestService operations",
-}
-
-var textclassifierConversationActionsRequestDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewConversationActionsRequestServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var textclassifierConversationActionsRequestGetCallingPackageNameCmd = &cobra.Command{
-	Use:   "get-calling-package-name",
-	Short: "GetCallingPackageName RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewConversationActionsRequestServiceClient(grpcConn)
-		req := &pb.GetCallingPackageNameRequest{}
-		resp, err := client.GetCallingPackageName(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var textclassifierConversationActionsRequestGetExtrasCmd = &cobra.Command{
-	Use:   "get-extras",
-	Short: "GetExtras RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewConversationActionsRequestServiceClient(grpcConn)
-		req := &pb.GetExtrasRequest{}
-		resp, err := client.GetExtras(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var textclassifierConversationActionsRequestGetMaxSuggestionsCmd = &cobra.Command{
-	Use:   "get-max-suggestions",
-	Short: "GetMaxSuggestions RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewConversationActionsRequestServiceClient(grpcConn)
-		req := &pb.GetMaxSuggestionsRequest{}
-		resp, err := client.GetMaxSuggestions(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var textclassifierConversationActionsRequestGetTypeConfigCmd = &cobra.Command{
-	Use:   "get-type-config",
-	Short: "GetTypeConfig RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewConversationActionsRequestServiceClient(grpcConn)
-		req := &pb.GetTypeConfigRequest{}
-		resp, err := client.GetTypeConfig(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var textclassifierConversationActionsRequestWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewConversationActionsRequestServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
 func init() {
+	textclassifierTextClassificationSessionIdCmd.AddCommand(textclassifierTextClassificationSessionIdDescribeContentsCmd)
+	textclassifierTextClassificationSessionIdEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	textclassifierTextClassificationSessionIdCmd.AddCommand(textclassifierTextClassificationSessionIdEqualsCmd)
+	textclassifierTextClassificationSessionIdCmd.AddCommand(textclassifierTextClassificationSessionIdGetValueCmd)
+	textclassifierTextClassificationSessionIdCmd.AddCommand(textclassifierTextClassificationSessionIdHashCodeCmd)
+	textclassifierTextClassificationSessionIdCmd.AddCommand(textclassifierTextClassificationSessionIdToStringCmd)
+	textclassifierTextClassificationSessionIdWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	textclassifierTextClassificationSessionIdWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	textclassifierTextClassificationSessionIdCmd.AddCommand(textclassifierTextClassificationSessionIdWriteToParcelCmd)
+	textclassifierCmd.AddCommand(textclassifierTextClassificationSessionIdCmd)
+	textclassifierTextClassifierEntityConfigCmd.AddCommand(textclassifierTextClassifierEntityConfigDescribeContentsCmd)
+	textclassifierTextClassifierEntityConfigCmd.AddCommand(textclassifierTextClassifierEntityConfigGetHintsCmd)
+	textclassifierTextClassifierEntityConfigCmd.AddCommand(textclassifierTextClassifierEntityConfigShouldIncludeTypesFromTextClassifierCmd)
+	textclassifierTextClassifierEntityConfigWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	textclassifierTextClassifierEntityConfigWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	textclassifierTextClassifierEntityConfigCmd.AddCommand(textclassifierTextClassifierEntityConfigWriteToParcelCmd)
+	textclassifierCmd.AddCommand(textclassifierTextClassifierEntityConfigCmd)
+	textclassifierConversationActionCmd.AddCommand(textclassifierConversationActionDescribeContentsCmd)
+	textclassifierConversationActionCmd.AddCommand(textclassifierConversationActionGetActionCmd)
+	textclassifierConversationActionCmd.AddCommand(textclassifierConversationActionGetConfidenceScoreCmd)
+	textclassifierConversationActionCmd.AddCommand(textclassifierConversationActionGetExtrasCmd)
+	textclassifierConversationActionCmd.AddCommand(textclassifierConversationActionGetTextReplyCmd)
+	textclassifierConversationActionCmd.AddCommand(textclassifierConversationActionGetTypeCmd)
+	textclassifierConversationActionWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	textclassifierConversationActionWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	textclassifierConversationActionCmd.AddCommand(textclassifierConversationActionWriteToParcelCmd)
+	textclassifierCmd.AddCommand(textclassifierConversationActionCmd)
+	textclassifierConversationActionBuilderCmd.AddCommand(textclassifierConversationActionBuilderBuildCmd)
+	textclassifierConversationActionBuilderSetActionCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	textclassifierConversationActionBuilderCmd.AddCommand(textclassifierConversationActionBuilderSetActionCmd)
+	textclassifierConversationActionBuilderSetConfidenceScoreCmd.Flags().Float32("arg0", 0, "arg0 (float32)")
+	textclassifierConversationActionBuilderCmd.AddCommand(textclassifierConversationActionBuilderSetConfidenceScoreCmd)
+	textclassifierConversationActionBuilderSetExtrasCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	textclassifierConversationActionBuilderCmd.AddCommand(textclassifierConversationActionBuilderSetExtrasCmd)
+	textclassifierConversationActionBuilderSetTextReplyCmd.Flags().String("arg0", "", "arg0 (string)")
+	textclassifierConversationActionBuilderCmd.AddCommand(textclassifierConversationActionBuilderSetTextReplyCmd)
+	textclassifierCmd.AddCommand(textclassifierConversationActionBuilderCmd)
 	textclassifierTextClassificationSessionFactoryCreateTextClassificationSessionCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	textclassifierTextClassificationSessionFactoryCmd.AddCommand(textclassifierTextClassificationSessionFactoryCreateTextClassificationSessionCmd)
 	textclassifierCmd.AddCommand(textclassifierTextClassificationSessionFactoryCmd)
-	textclassifierTextSelectionCmd.AddCommand(textclassifierTextSelectionDescribeContentsCmd)
-	textclassifierTextSelectionGetConfidenceScoreCmd.Flags().String("arg0", "", "arg0 (string)")
-	textclassifierTextSelectionCmd.AddCommand(textclassifierTextSelectionGetConfidenceScoreCmd)
-	textclassifierTextSelectionGetEntityCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	textclassifierTextSelectionCmd.AddCommand(textclassifierTextSelectionGetEntityCmd)
-	textclassifierTextSelectionCmd.AddCommand(textclassifierTextSelectionGetEntityCountCmd)
-	textclassifierTextSelectionCmd.AddCommand(textclassifierTextSelectionGetExtrasCmd)
-	textclassifierTextSelectionCmd.AddCommand(textclassifierTextSelectionGetIdCmd)
-	textclassifierTextSelectionCmd.AddCommand(textclassifierTextSelectionGetSelectionEndIndexCmd)
-	textclassifierTextSelectionCmd.AddCommand(textclassifierTextSelectionGetSelectionStartIndexCmd)
-	textclassifierTextSelectionCmd.AddCommand(textclassifierTextSelectionGetTextClassificationCmd)
-	textclassifierTextSelectionCmd.AddCommand(textclassifierTextSelectionToStringCmd)
-	textclassifierTextSelectionWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	textclassifierTextSelectionWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	textclassifierTextSelectionCmd.AddCommand(textclassifierTextSelectionWriteToParcelCmd)
-	textclassifierCmd.AddCommand(textclassifierTextSelectionCmd)
-	textclassifierTextSelectionBuilderCmd.AddCommand(textclassifierTextSelectionBuilderBuildCmd)
-	textclassifierTextSelectionBuilderSetEntityTypeCmd.Flags().String("arg0", "", "arg0 (string)")
-	textclassifierTextSelectionBuilderSetEntityTypeCmd.Flags().Float32("arg1", 0, "arg1 (float32)")
-	textclassifierTextSelectionBuilderCmd.AddCommand(textclassifierTextSelectionBuilderSetEntityTypeCmd)
-	textclassifierTextSelectionBuilderSetExtrasCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	textclassifierTextSelectionBuilderCmd.AddCommand(textclassifierTextSelectionBuilderSetExtrasCmd)
-	textclassifierTextSelectionBuilderSetIdCmd.Flags().String("arg0", "", "arg0 (string)")
-	textclassifierTextSelectionBuilderCmd.AddCommand(textclassifierTextSelectionBuilderSetIdCmd)
-	textclassifierTextSelectionBuilderSetTextClassificationCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	textclassifierTextSelectionBuilderCmd.AddCommand(textclassifierTextSelectionBuilderSetTextClassificationCmd)
-	textclassifierCmd.AddCommand(textclassifierTextSelectionBuilderCmd)
-	textclassifierTextSelectionRequestCmd.AddCommand(textclassifierTextSelectionRequestDescribeContentsCmd)
-	textclassifierTextSelectionRequestCmd.AddCommand(textclassifierTextSelectionRequestGetCallingPackageNameCmd)
-	textclassifierTextSelectionRequestCmd.AddCommand(textclassifierTextSelectionRequestGetDefaultLocalesCmd)
-	textclassifierTextSelectionRequestCmd.AddCommand(textclassifierTextSelectionRequestGetEndIndexCmd)
-	textclassifierTextSelectionRequestCmd.AddCommand(textclassifierTextSelectionRequestGetExtrasCmd)
-	textclassifierTextSelectionRequestCmd.AddCommand(textclassifierTextSelectionRequestGetStartIndexCmd)
-	textclassifierTextSelectionRequestCmd.AddCommand(textclassifierTextSelectionRequestGetTextCmd)
-	textclassifierTextSelectionRequestCmd.AddCommand(textclassifierTextSelectionRequestShouldIncludeTextClassificationCmd)
-	textclassifierTextSelectionRequestWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	textclassifierTextSelectionRequestWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	textclassifierTextSelectionRequestCmd.AddCommand(textclassifierTextSelectionRequestWriteToParcelCmd)
-	textclassifierCmd.AddCommand(textclassifierTextSelectionRequestCmd)
 	textclassifierTextClassificationContextCmd.AddCommand(textclassifierTextClassificationContextDescribeContentsCmd)
 	textclassifierTextClassificationContextCmd.AddCommand(textclassifierTextClassificationContextGetPackageNameCmd)
 	textclassifierTextClassificationContextCmd.AddCommand(textclassifierTextClassificationContextGetWidgetTypeCmd)
@@ -3679,7 +3776,106 @@ func init() {
 	textclassifierTextClassificationContextBuilderSetWidgetVersionCmd.Flags().String("arg0", "", "arg0 (string)")
 	textclassifierTextClassificationContextBuilderCmd.AddCommand(textclassifierTextClassificationContextBuilderSetWidgetVersionCmd)
 	textclassifierCmd.AddCommand(textclassifierTextClassificationContextBuilderCmd)
+	textclassifierTextLinksCmd.AddCommand(textclassifierTextLinksDescribeContentsCmd)
+	textclassifierTextLinksCmd.AddCommand(textclassifierTextLinksGetExtrasCmd)
+	textclassifierTextLinksCmd.AddCommand(textclassifierTextLinksGetLinksCmd)
+	textclassifierTextLinksCmd.AddCommand(textclassifierTextLinksGetTextCmd)
+	textclassifierTextLinksCmd.AddCommand(textclassifierTextLinksToStringCmd)
+	textclassifierTextLinksWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	textclassifierTextLinksWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	textclassifierTextLinksCmd.AddCommand(textclassifierTextLinksWriteToParcelCmd)
+	textclassifierCmd.AddCommand(textclassifierTextLinksCmd)
+	textclassifierTextLinksBuilderCmd.AddCommand(textclassifierTextLinksBuilderBuildCmd)
+	textclassifierTextLinksBuilderCmd.AddCommand(textclassifierTextLinksBuilderClearTextLinksCmd)
+	textclassifierTextLinksBuilderSetExtrasCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	textclassifierTextLinksBuilderCmd.AddCommand(textclassifierTextLinksBuilderSetExtrasCmd)
+	textclassifierCmd.AddCommand(textclassifierTextLinksBuilderCmd)
+	textclassifierTextLinksRequestCmd.AddCommand(textclassifierTextLinksRequestDescribeContentsCmd)
+	textclassifierTextLinksRequestCmd.AddCommand(textclassifierTextLinksRequestGetCallingPackageNameCmd)
+	textclassifierTextLinksRequestCmd.AddCommand(textclassifierTextLinksRequestGetDefaultLocalesCmd)
+	textclassifierTextLinksRequestCmd.AddCommand(textclassifierTextLinksRequestGetEntityConfigCmd)
+	textclassifierTextLinksRequestCmd.AddCommand(textclassifierTextLinksRequestGetExtrasCmd)
+	textclassifierTextLinksRequestCmd.AddCommand(textclassifierTextLinksRequestGetReferenceTimeCmd)
+	textclassifierTextLinksRequestCmd.AddCommand(textclassifierTextLinksRequestGetTextCmd)
+	textclassifierTextLinksRequestWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	textclassifierTextLinksRequestWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	textclassifierTextLinksRequestCmd.AddCommand(textclassifierTextLinksRequestWriteToParcelCmd)
+	textclassifierCmd.AddCommand(textclassifierTextLinksRequestCmd)
+	textclassifierTextLinksTextLinkCmd.AddCommand(textclassifierTextLinksTextLinkDescribeContentsCmd)
+	textclassifierTextLinksTextLinkGetConfidenceScoreCmd.Flags().String("arg0", "", "arg0 (string)")
+	textclassifierTextLinksTextLinkCmd.AddCommand(textclassifierTextLinksTextLinkGetConfidenceScoreCmd)
+	textclassifierTextLinksTextLinkCmd.AddCommand(textclassifierTextLinksTextLinkGetEndCmd)
+	textclassifierTextLinksTextLinkGetEntityCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	textclassifierTextLinksTextLinkCmd.AddCommand(textclassifierTextLinksTextLinkGetEntityCmd)
+	textclassifierTextLinksTextLinkCmd.AddCommand(textclassifierTextLinksTextLinkGetEntityCountCmd)
+	textclassifierTextLinksTextLinkCmd.AddCommand(textclassifierTextLinksTextLinkGetExtrasCmd)
+	textclassifierTextLinksTextLinkCmd.AddCommand(textclassifierTextLinksTextLinkGetStartCmd)
+	textclassifierTextLinksTextLinkCmd.AddCommand(textclassifierTextLinksTextLinkToStringCmd)
+	textclassifierTextLinksTextLinkWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	textclassifierTextLinksTextLinkWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	textclassifierTextLinksTextLinkCmd.AddCommand(textclassifierTextLinksTextLinkWriteToParcelCmd)
+	textclassifierCmd.AddCommand(textclassifierTextLinksTextLinkCmd)
+	textclassifierTextLinksTextLinkSpanCmd.AddCommand(textclassifierTextLinksTextLinkSpanGetTextLinkCmd)
+	textclassifierTextLinksTextLinkSpanOnClickCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	textclassifierTextLinksTextLinkSpanCmd.AddCommand(textclassifierTextLinksTextLinkSpanOnClickCmd)
+	textclassifierCmd.AddCommand(textclassifierTextLinksTextLinkSpanCmd)
+	textclassifierTextClassifierEventCmd.AddCommand(textclassifierTextClassifierEventDescribeContentsCmd)
+	textclassifierTextClassifierEventCmd.AddCommand(textclassifierTextClassifierEventGetActionIndicesCmd)
+	textclassifierTextClassifierEventCmd.AddCommand(textclassifierTextClassifierEventGetEntityTypesCmd)
+	textclassifierTextClassifierEventCmd.AddCommand(textclassifierTextClassifierEventGetEventCategoryCmd)
+	textclassifierTextClassifierEventCmd.AddCommand(textclassifierTextClassifierEventGetEventContextCmd)
+	textclassifierTextClassifierEventCmd.AddCommand(textclassifierTextClassifierEventGetEventIndexCmd)
+	textclassifierTextClassifierEventCmd.AddCommand(textclassifierTextClassifierEventGetEventTypeCmd)
+	textclassifierTextClassifierEventCmd.AddCommand(textclassifierTextClassifierEventGetExtrasCmd)
+	textclassifierTextClassifierEventCmd.AddCommand(textclassifierTextClassifierEventGetLocaleCmd)
+	textclassifierTextClassifierEventCmd.AddCommand(textclassifierTextClassifierEventGetModelNameCmd)
+	textclassifierTextClassifierEventCmd.AddCommand(textclassifierTextClassifierEventGetResultIdCmd)
+	textclassifierTextClassifierEventCmd.AddCommand(textclassifierTextClassifierEventGetScoresCmd)
+	textclassifierTextClassifierEventCmd.AddCommand(textclassifierTextClassifierEventToStringCmd)
+	textclassifierTextClassifierEventWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	textclassifierTextClassifierEventWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	textclassifierTextClassifierEventCmd.AddCommand(textclassifierTextClassifierEventWriteToParcelCmd)
+	textclassifierCmd.AddCommand(textclassifierTextClassifierEventCmd)
+	textclassifierTextClassifierEventTextSelectionEventCmd.AddCommand(textclassifierTextClassifierEventTextSelectionEventGetRelativeSuggestedWordEndIndexCmd)
+	textclassifierTextClassifierEventTextSelectionEventCmd.AddCommand(textclassifierTextClassifierEventTextSelectionEventGetRelativeSuggestedWordStartIndexCmd)
+	textclassifierTextClassifierEventTextSelectionEventCmd.AddCommand(textclassifierTextClassifierEventTextSelectionEventGetRelativeWordEndIndexCmd)
+	textclassifierTextClassifierEventTextSelectionEventCmd.AddCommand(textclassifierTextClassifierEventTextSelectionEventGetRelativeWordStartIndexCmd)
+	textclassifierTextClassifierEventTextSelectionEventWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	textclassifierTextClassifierEventTextSelectionEventWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	textclassifierTextClassifierEventTextSelectionEventCmd.AddCommand(textclassifierTextClassifierEventTextSelectionEventWriteToParcelCmd)
+	textclassifierCmd.AddCommand(textclassifierTextClassifierEventTextSelectionEventCmd)
+	textclassifierTextLanguageCmd.AddCommand(textclassifierTextLanguageDescribeContentsCmd)
+	textclassifierTextLanguageGetConfidenceScoreCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	textclassifierTextLanguageCmd.AddCommand(textclassifierTextLanguageGetConfidenceScoreCmd)
+	textclassifierTextLanguageCmd.AddCommand(textclassifierTextLanguageGetExtrasCmd)
+	textclassifierTextLanguageCmd.AddCommand(textclassifierTextLanguageGetIdCmd)
+	textclassifierTextLanguageGetLocaleCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	textclassifierTextLanguageCmd.AddCommand(textclassifierTextLanguageGetLocaleCmd)
+	textclassifierTextLanguageCmd.AddCommand(textclassifierTextLanguageGetLocaleHypothesisCountCmd)
+	textclassifierTextLanguageCmd.AddCommand(textclassifierTextLanguageToStringCmd)
+	textclassifierTextLanguageWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	textclassifierTextLanguageWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	textclassifierTextLanguageCmd.AddCommand(textclassifierTextLanguageWriteToParcelCmd)
+	textclassifierCmd.AddCommand(textclassifierTextLanguageCmd)
+	textclassifierTextLanguageBuilderCmd.AddCommand(textclassifierTextLanguageBuilderBuildCmd)
+	textclassifierTextLanguageBuilderPutLocaleCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	textclassifierTextLanguageBuilderPutLocaleCmd.Flags().Float32("arg1", 0, "arg1 (float32)")
+	textclassifierTextLanguageBuilderCmd.AddCommand(textclassifierTextLanguageBuilderPutLocaleCmd)
+	textclassifierTextLanguageBuilderSetExtrasCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	textclassifierTextLanguageBuilderCmd.AddCommand(textclassifierTextLanguageBuilderSetExtrasCmd)
+	textclassifierTextLanguageBuilderSetIdCmd.Flags().String("arg0", "", "arg0 (string)")
+	textclassifierTextLanguageBuilderCmd.AddCommand(textclassifierTextLanguageBuilderSetIdCmd)
+	textclassifierCmd.AddCommand(textclassifierTextLanguageBuilderCmd)
+	textclassifierTextLanguageRequestCmd.AddCommand(textclassifierTextLanguageRequestDescribeContentsCmd)
+	textclassifierTextLanguageRequestCmd.AddCommand(textclassifierTextLanguageRequestGetCallingPackageNameCmd)
+	textclassifierTextLanguageRequestCmd.AddCommand(textclassifierTextLanguageRequestGetExtrasCmd)
+	textclassifierTextLanguageRequestCmd.AddCommand(textclassifierTextLanguageRequestGetTextCmd)
+	textclassifierTextLanguageRequestWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	textclassifierTextLanguageRequestWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	textclassifierTextLanguageRequestCmd.AddCommand(textclassifierTextLanguageRequestWriteToParcelCmd)
+	textclassifierCmd.AddCommand(textclassifierTextLanguageRequestCmd)
 	textclassifierTextClassificationCmd.AddCommand(textclassifierTextClassificationDescribeContentsCmd)
+	textclassifierTextClassificationCmd.AddCommand(textclassifierTextClassificationGetActionsCmd)
 	textclassifierTextClassificationGetConfidenceScoreCmd.Flags().String("arg0", "", "arg0 (string)")
 	textclassifierTextClassificationCmd.AddCommand(textclassifierTextClassificationGetConfidenceScoreCmd)
 	textclassifierTextClassificationGetEntityCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
@@ -3738,41 +3934,79 @@ func init() {
 	textclassifierTextClassificationManagerSetTextClassifierCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	textclassifierTextClassificationManagerCmd.AddCommand(textclassifierTextClassificationManagerSetTextClassifierCmd)
 	textclassifierCmd.AddCommand(textclassifierTextClassificationManagerCmd)
-	textclassifierTextClassificationSessionIdCmd.AddCommand(textclassifierTextClassificationSessionIdDescribeContentsCmd)
-	textclassifierTextClassificationSessionIdEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	textclassifierTextClassificationSessionIdCmd.AddCommand(textclassifierTextClassificationSessionIdEqualsCmd)
-	textclassifierTextClassificationSessionIdCmd.AddCommand(textclassifierTextClassificationSessionIdGetValueCmd)
-	textclassifierTextClassificationSessionIdCmd.AddCommand(textclassifierTextClassificationSessionIdHashCodeCmd)
-	textclassifierTextClassificationSessionIdCmd.AddCommand(textclassifierTextClassificationSessionIdToStringCmd)
-	textclassifierTextClassificationSessionIdWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	textclassifierTextClassificationSessionIdWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	textclassifierTextClassificationSessionIdCmd.AddCommand(textclassifierTextClassificationSessionIdWriteToParcelCmd)
-	textclassifierCmd.AddCommand(textclassifierTextClassificationSessionIdCmd)
-	textclassifierTextClassifierEventCmd.AddCommand(textclassifierTextClassifierEventDescribeContentsCmd)
-	textclassifierTextClassifierEventCmd.AddCommand(textclassifierTextClassifierEventGetActionIndicesCmd)
-	textclassifierTextClassifierEventCmd.AddCommand(textclassifierTextClassifierEventGetEntityTypesCmd)
-	textclassifierTextClassifierEventCmd.AddCommand(textclassifierTextClassifierEventGetEventCategoryCmd)
-	textclassifierTextClassifierEventCmd.AddCommand(textclassifierTextClassifierEventGetEventContextCmd)
-	textclassifierTextClassifierEventCmd.AddCommand(textclassifierTextClassifierEventGetEventIndexCmd)
-	textclassifierTextClassifierEventCmd.AddCommand(textclassifierTextClassifierEventGetEventTypeCmd)
-	textclassifierTextClassifierEventCmd.AddCommand(textclassifierTextClassifierEventGetExtrasCmd)
-	textclassifierTextClassifierEventCmd.AddCommand(textclassifierTextClassifierEventGetLocaleCmd)
-	textclassifierTextClassifierEventCmd.AddCommand(textclassifierTextClassifierEventGetModelNameCmd)
-	textclassifierTextClassifierEventCmd.AddCommand(textclassifierTextClassifierEventGetResultIdCmd)
-	textclassifierTextClassifierEventCmd.AddCommand(textclassifierTextClassifierEventGetScoresCmd)
-	textclassifierTextClassifierEventCmd.AddCommand(textclassifierTextClassifierEventToStringCmd)
-	textclassifierTextClassifierEventWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	textclassifierTextClassifierEventWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	textclassifierTextClassifierEventCmd.AddCommand(textclassifierTextClassifierEventWriteToParcelCmd)
-	textclassifierCmd.AddCommand(textclassifierTextClassifierEventCmd)
-	textclassifierTextClassifierEventTextSelectionEventCmd.AddCommand(textclassifierTextClassifierEventTextSelectionEventGetRelativeSuggestedWordEndIndexCmd)
-	textclassifierTextClassifierEventTextSelectionEventCmd.AddCommand(textclassifierTextClassifierEventTextSelectionEventGetRelativeSuggestedWordStartIndexCmd)
-	textclassifierTextClassifierEventTextSelectionEventCmd.AddCommand(textclassifierTextClassifierEventTextSelectionEventGetRelativeWordEndIndexCmd)
-	textclassifierTextClassifierEventTextSelectionEventCmd.AddCommand(textclassifierTextClassifierEventTextSelectionEventGetRelativeWordStartIndexCmd)
-	textclassifierTextClassifierEventTextSelectionEventWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	textclassifierTextClassifierEventTextSelectionEventWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	textclassifierTextClassifierEventTextSelectionEventCmd.AddCommand(textclassifierTextClassifierEventTextSelectionEventWriteToParcelCmd)
-	textclassifierCmd.AddCommand(textclassifierTextClassifierEventTextSelectionEventCmd)
+	textclassifierConversationActionsNewConversationActionsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	textclassifierConversationActionsNewConversationActionsCmd.Flags().String("arg1", "", "arg1 (string)")
+	textclassifierConversationActionsCmd.AddCommand(textclassifierConversationActionsNewConversationActionsCmd)
+	textclassifierConversationActionsDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	textclassifierConversationActionsCmd.AddCommand(textclassifierConversationActionsDescribeContentsCmd)
+	textclassifierConversationActionsGetConversationActionsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	textclassifierConversationActionsCmd.AddCommand(textclassifierConversationActionsGetConversationActionsCmd)
+	textclassifierConversationActionsGetIdCmd.Flags().Int64("handle", 0, "handle (int64)")
+	textclassifierConversationActionsCmd.AddCommand(textclassifierConversationActionsGetIdCmd)
+	textclassifierConversationActionsWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	textclassifierConversationActionsWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	textclassifierConversationActionsWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	textclassifierConversationActionsCmd.AddCommand(textclassifierConversationActionsWriteToParcelCmd)
+	textclassifierCmd.AddCommand(textclassifierConversationActionsCmd)
+	textclassifierConversationActionsMessageCmd.AddCommand(textclassifierConversationActionsMessageDescribeContentsCmd)
+	textclassifierConversationActionsMessageCmd.AddCommand(textclassifierConversationActionsMessageGetAuthorCmd)
+	textclassifierConversationActionsMessageCmd.AddCommand(textclassifierConversationActionsMessageGetExtrasCmd)
+	textclassifierConversationActionsMessageCmd.AddCommand(textclassifierConversationActionsMessageGetReferenceTimeCmd)
+	textclassifierConversationActionsMessageCmd.AddCommand(textclassifierConversationActionsMessageGetTextCmd)
+	textclassifierConversationActionsMessageWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	textclassifierConversationActionsMessageWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	textclassifierConversationActionsMessageCmd.AddCommand(textclassifierConversationActionsMessageWriteToParcelCmd)
+	textclassifierCmd.AddCommand(textclassifierConversationActionsMessageCmd)
+	textclassifierConversationActionsRequestCmd.AddCommand(textclassifierConversationActionsRequestDescribeContentsCmd)
+	textclassifierConversationActionsRequestCmd.AddCommand(textclassifierConversationActionsRequestGetCallingPackageNameCmd)
+	textclassifierConversationActionsRequestCmd.AddCommand(textclassifierConversationActionsRequestGetConversationCmd)
+	textclassifierConversationActionsRequestCmd.AddCommand(textclassifierConversationActionsRequestGetExtrasCmd)
+	textclassifierConversationActionsRequestCmd.AddCommand(textclassifierConversationActionsRequestGetHintsCmd)
+	textclassifierConversationActionsRequestCmd.AddCommand(textclassifierConversationActionsRequestGetMaxSuggestionsCmd)
+	textclassifierConversationActionsRequestCmd.AddCommand(textclassifierConversationActionsRequestGetTypeConfigCmd)
+	textclassifierConversationActionsRequestWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	textclassifierConversationActionsRequestWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	textclassifierConversationActionsRequestCmd.AddCommand(textclassifierConversationActionsRequestWriteToParcelCmd)
+	textclassifierCmd.AddCommand(textclassifierConversationActionsRequestCmd)
+	textclassifierTextSelectionCmd.AddCommand(textclassifierTextSelectionDescribeContentsCmd)
+	textclassifierTextSelectionGetConfidenceScoreCmd.Flags().String("arg0", "", "arg0 (string)")
+	textclassifierTextSelectionCmd.AddCommand(textclassifierTextSelectionGetConfidenceScoreCmd)
+	textclassifierTextSelectionGetEntityCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	textclassifierTextSelectionCmd.AddCommand(textclassifierTextSelectionGetEntityCmd)
+	textclassifierTextSelectionCmd.AddCommand(textclassifierTextSelectionGetEntityCountCmd)
+	textclassifierTextSelectionCmd.AddCommand(textclassifierTextSelectionGetExtrasCmd)
+	textclassifierTextSelectionCmd.AddCommand(textclassifierTextSelectionGetIdCmd)
+	textclassifierTextSelectionCmd.AddCommand(textclassifierTextSelectionGetSelectionEndIndexCmd)
+	textclassifierTextSelectionCmd.AddCommand(textclassifierTextSelectionGetSelectionStartIndexCmd)
+	textclassifierTextSelectionCmd.AddCommand(textclassifierTextSelectionGetTextClassificationCmd)
+	textclassifierTextSelectionCmd.AddCommand(textclassifierTextSelectionToStringCmd)
+	textclassifierTextSelectionWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	textclassifierTextSelectionWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	textclassifierTextSelectionCmd.AddCommand(textclassifierTextSelectionWriteToParcelCmd)
+	textclassifierCmd.AddCommand(textclassifierTextSelectionCmd)
+	textclassifierTextSelectionBuilderCmd.AddCommand(textclassifierTextSelectionBuilderBuildCmd)
+	textclassifierTextSelectionBuilderSetEntityTypeCmd.Flags().String("arg0", "", "arg0 (string)")
+	textclassifierTextSelectionBuilderSetEntityTypeCmd.Flags().Float32("arg1", 0, "arg1 (float32)")
+	textclassifierTextSelectionBuilderCmd.AddCommand(textclassifierTextSelectionBuilderSetEntityTypeCmd)
+	textclassifierTextSelectionBuilderSetExtrasCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	textclassifierTextSelectionBuilderCmd.AddCommand(textclassifierTextSelectionBuilderSetExtrasCmd)
+	textclassifierTextSelectionBuilderSetIdCmd.Flags().String("arg0", "", "arg0 (string)")
+	textclassifierTextSelectionBuilderCmd.AddCommand(textclassifierTextSelectionBuilderSetIdCmd)
+	textclassifierTextSelectionBuilderSetTextClassificationCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	textclassifierTextSelectionBuilderCmd.AddCommand(textclassifierTextSelectionBuilderSetTextClassificationCmd)
+	textclassifierCmd.AddCommand(textclassifierTextSelectionBuilderCmd)
+	textclassifierTextSelectionRequestCmd.AddCommand(textclassifierTextSelectionRequestDescribeContentsCmd)
+	textclassifierTextSelectionRequestCmd.AddCommand(textclassifierTextSelectionRequestGetCallingPackageNameCmd)
+	textclassifierTextSelectionRequestCmd.AddCommand(textclassifierTextSelectionRequestGetDefaultLocalesCmd)
+	textclassifierTextSelectionRequestCmd.AddCommand(textclassifierTextSelectionRequestGetEndIndexCmd)
+	textclassifierTextSelectionRequestCmd.AddCommand(textclassifierTextSelectionRequestGetExtrasCmd)
+	textclassifierTextSelectionRequestCmd.AddCommand(textclassifierTextSelectionRequestGetStartIndexCmd)
+	textclassifierTextSelectionRequestCmd.AddCommand(textclassifierTextSelectionRequestGetTextCmd)
+	textclassifierTextSelectionRequestCmd.AddCommand(textclassifierTextSelectionRequestShouldIncludeTextClassificationCmd)
+	textclassifierTextSelectionRequestWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	textclassifierTextSelectionRequestWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	textclassifierTextSelectionRequestCmd.AddCommand(textclassifierTextSelectionRequestWriteToParcelCmd)
+	textclassifierCmd.AddCommand(textclassifierTextSelectionRequestCmd)
 	textclassifierSelectionEventCmd.AddCommand(textclassifierSelectionEventDescribeContentsCmd)
 	textclassifierSelectionEventEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	textclassifierSelectionEventCmd.AddCommand(textclassifierSelectionEventEqualsCmd)
@@ -3823,133 +4057,5 @@ func init() {
 	textclassifierSelectionEventIsTerminalCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
 	textclassifierSelectionEventCmd.AddCommand(textclassifierSelectionEventIsTerminalCmd)
 	textclassifierCmd.AddCommand(textclassifierSelectionEventCmd)
-	textclassifierTextLinksCmd.AddCommand(textclassifierTextLinksDescribeContentsCmd)
-	textclassifierTextLinksCmd.AddCommand(textclassifierTextLinksGetExtrasCmd)
-	textclassifierTextLinksCmd.AddCommand(textclassifierTextLinksGetTextCmd)
-	textclassifierTextLinksCmd.AddCommand(textclassifierTextLinksToStringCmd)
-	textclassifierTextLinksWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	textclassifierTextLinksWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	textclassifierTextLinksCmd.AddCommand(textclassifierTextLinksWriteToParcelCmd)
-	textclassifierCmd.AddCommand(textclassifierTextLinksCmd)
-	textclassifierTextLinksBuilderCmd.AddCommand(textclassifierTextLinksBuilderBuildCmd)
-	textclassifierTextLinksBuilderCmd.AddCommand(textclassifierTextLinksBuilderClearTextLinksCmd)
-	textclassifierTextLinksBuilderSetExtrasCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	textclassifierTextLinksBuilderCmd.AddCommand(textclassifierTextLinksBuilderSetExtrasCmd)
-	textclassifierCmd.AddCommand(textclassifierTextLinksBuilderCmd)
-	textclassifierTextLinksRequestCmd.AddCommand(textclassifierTextLinksRequestDescribeContentsCmd)
-	textclassifierTextLinksRequestCmd.AddCommand(textclassifierTextLinksRequestGetCallingPackageNameCmd)
-	textclassifierTextLinksRequestCmd.AddCommand(textclassifierTextLinksRequestGetDefaultLocalesCmd)
-	textclassifierTextLinksRequestCmd.AddCommand(textclassifierTextLinksRequestGetEntityConfigCmd)
-	textclassifierTextLinksRequestCmd.AddCommand(textclassifierTextLinksRequestGetExtrasCmd)
-	textclassifierTextLinksRequestCmd.AddCommand(textclassifierTextLinksRequestGetReferenceTimeCmd)
-	textclassifierTextLinksRequestCmd.AddCommand(textclassifierTextLinksRequestGetTextCmd)
-	textclassifierTextLinksRequestWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	textclassifierTextLinksRequestWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	textclassifierTextLinksRequestCmd.AddCommand(textclassifierTextLinksRequestWriteToParcelCmd)
-	textclassifierCmd.AddCommand(textclassifierTextLinksRequestCmd)
-	textclassifierTextLinksTextLinkCmd.AddCommand(textclassifierTextLinksTextLinkDescribeContentsCmd)
-	textclassifierTextLinksTextLinkGetConfidenceScoreCmd.Flags().String("arg0", "", "arg0 (string)")
-	textclassifierTextLinksTextLinkCmd.AddCommand(textclassifierTextLinksTextLinkGetConfidenceScoreCmd)
-	textclassifierTextLinksTextLinkCmd.AddCommand(textclassifierTextLinksTextLinkGetEndCmd)
-	textclassifierTextLinksTextLinkGetEntityCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	textclassifierTextLinksTextLinkCmd.AddCommand(textclassifierTextLinksTextLinkGetEntityCmd)
-	textclassifierTextLinksTextLinkCmd.AddCommand(textclassifierTextLinksTextLinkGetEntityCountCmd)
-	textclassifierTextLinksTextLinkCmd.AddCommand(textclassifierTextLinksTextLinkGetExtrasCmd)
-	textclassifierTextLinksTextLinkCmd.AddCommand(textclassifierTextLinksTextLinkGetStartCmd)
-	textclassifierTextLinksTextLinkCmd.AddCommand(textclassifierTextLinksTextLinkToStringCmd)
-	textclassifierTextLinksTextLinkWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	textclassifierTextLinksTextLinkWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	textclassifierTextLinksTextLinkCmd.AddCommand(textclassifierTextLinksTextLinkWriteToParcelCmd)
-	textclassifierCmd.AddCommand(textclassifierTextLinksTextLinkCmd)
-	textclassifierTextLinksTextLinkSpanCmd.AddCommand(textclassifierTextLinksTextLinkSpanGetTextLinkCmd)
-	textclassifierTextLinksTextLinkSpanOnClickCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	textclassifierTextLinksTextLinkSpanCmd.AddCommand(textclassifierTextLinksTextLinkSpanOnClickCmd)
-	textclassifierCmd.AddCommand(textclassifierTextLinksTextLinkSpanCmd)
-	textclassifierTextLanguageCmd.AddCommand(textclassifierTextLanguageDescribeContentsCmd)
-	textclassifierTextLanguageGetConfidenceScoreCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	textclassifierTextLanguageCmd.AddCommand(textclassifierTextLanguageGetConfidenceScoreCmd)
-	textclassifierTextLanguageCmd.AddCommand(textclassifierTextLanguageGetExtrasCmd)
-	textclassifierTextLanguageCmd.AddCommand(textclassifierTextLanguageGetIdCmd)
-	textclassifierTextLanguageGetLocaleCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	textclassifierTextLanguageCmd.AddCommand(textclassifierTextLanguageGetLocaleCmd)
-	textclassifierTextLanguageCmd.AddCommand(textclassifierTextLanguageGetLocaleHypothesisCountCmd)
-	textclassifierTextLanguageCmd.AddCommand(textclassifierTextLanguageToStringCmd)
-	textclassifierTextLanguageWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	textclassifierTextLanguageWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	textclassifierTextLanguageCmd.AddCommand(textclassifierTextLanguageWriteToParcelCmd)
-	textclassifierCmd.AddCommand(textclassifierTextLanguageCmd)
-	textclassifierTextLanguageBuilderCmd.AddCommand(textclassifierTextLanguageBuilderBuildCmd)
-	textclassifierTextLanguageBuilderPutLocaleCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	textclassifierTextLanguageBuilderPutLocaleCmd.Flags().Float32("arg1", 0, "arg1 (float32)")
-	textclassifierTextLanguageBuilderCmd.AddCommand(textclassifierTextLanguageBuilderPutLocaleCmd)
-	textclassifierTextLanguageBuilderSetExtrasCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	textclassifierTextLanguageBuilderCmd.AddCommand(textclassifierTextLanguageBuilderSetExtrasCmd)
-	textclassifierTextLanguageBuilderSetIdCmd.Flags().String("arg0", "", "arg0 (string)")
-	textclassifierTextLanguageBuilderCmd.AddCommand(textclassifierTextLanguageBuilderSetIdCmd)
-	textclassifierCmd.AddCommand(textclassifierTextLanguageBuilderCmd)
-	textclassifierTextLanguageRequestCmd.AddCommand(textclassifierTextLanguageRequestDescribeContentsCmd)
-	textclassifierTextLanguageRequestCmd.AddCommand(textclassifierTextLanguageRequestGetCallingPackageNameCmd)
-	textclassifierTextLanguageRequestCmd.AddCommand(textclassifierTextLanguageRequestGetExtrasCmd)
-	textclassifierTextLanguageRequestCmd.AddCommand(textclassifierTextLanguageRequestGetTextCmd)
-	textclassifierTextLanguageRequestWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	textclassifierTextLanguageRequestWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	textclassifierTextLanguageRequestCmd.AddCommand(textclassifierTextLanguageRequestWriteToParcelCmd)
-	textclassifierCmd.AddCommand(textclassifierTextLanguageRequestCmd)
-	textclassifierConversationActionCmd.AddCommand(textclassifierConversationActionDescribeContentsCmd)
-	textclassifierConversationActionCmd.AddCommand(textclassifierConversationActionGetActionCmd)
-	textclassifierConversationActionCmd.AddCommand(textclassifierConversationActionGetConfidenceScoreCmd)
-	textclassifierConversationActionCmd.AddCommand(textclassifierConversationActionGetExtrasCmd)
-	textclassifierConversationActionCmd.AddCommand(textclassifierConversationActionGetTextReplyCmd)
-	textclassifierConversationActionCmd.AddCommand(textclassifierConversationActionGetTypeCmd)
-	textclassifierConversationActionWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	textclassifierConversationActionWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	textclassifierConversationActionCmd.AddCommand(textclassifierConversationActionWriteToParcelCmd)
-	textclassifierCmd.AddCommand(textclassifierConversationActionCmd)
-	textclassifierConversationActionBuilderCmd.AddCommand(textclassifierConversationActionBuilderBuildCmd)
-	textclassifierConversationActionBuilderSetActionCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	textclassifierConversationActionBuilderCmd.AddCommand(textclassifierConversationActionBuilderSetActionCmd)
-	textclassifierConversationActionBuilderSetConfidenceScoreCmd.Flags().Float32("arg0", 0, "arg0 (float32)")
-	textclassifierConversationActionBuilderCmd.AddCommand(textclassifierConversationActionBuilderSetConfidenceScoreCmd)
-	textclassifierConversationActionBuilderSetExtrasCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	textclassifierConversationActionBuilderCmd.AddCommand(textclassifierConversationActionBuilderSetExtrasCmd)
-	textclassifierConversationActionBuilderSetTextReplyCmd.Flags().String("arg0", "", "arg0 (string)")
-	textclassifierConversationActionBuilderCmd.AddCommand(textclassifierConversationActionBuilderSetTextReplyCmd)
-	textclassifierCmd.AddCommand(textclassifierConversationActionBuilderCmd)
-	textclassifierTextClassifierEntityConfigCmd.AddCommand(textclassifierTextClassifierEntityConfigDescribeContentsCmd)
-	textclassifierTextClassifierEntityConfigCmd.AddCommand(textclassifierTextClassifierEntityConfigShouldIncludeTypesFromTextClassifierCmd)
-	textclassifierTextClassifierEntityConfigWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	textclassifierTextClassifierEntityConfigWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	textclassifierTextClassifierEntityConfigCmd.AddCommand(textclassifierTextClassifierEntityConfigWriteToParcelCmd)
-	textclassifierCmd.AddCommand(textclassifierTextClassifierEntityConfigCmd)
-	textclassifierConversationActionsNewConversationActionsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	textclassifierConversationActionsNewConversationActionsCmd.Flags().String("arg1", "", "arg1 (string)")
-	textclassifierConversationActionsCmd.AddCommand(textclassifierConversationActionsNewConversationActionsCmd)
-	textclassifierConversationActionsDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	textclassifierConversationActionsCmd.AddCommand(textclassifierConversationActionsDescribeContentsCmd)
-	textclassifierConversationActionsGetIdCmd.Flags().Int64("handle", 0, "handle (int64)")
-	textclassifierConversationActionsCmd.AddCommand(textclassifierConversationActionsGetIdCmd)
-	textclassifierConversationActionsWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
-	textclassifierConversationActionsWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	textclassifierConversationActionsWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	textclassifierConversationActionsCmd.AddCommand(textclassifierConversationActionsWriteToParcelCmd)
-	textclassifierCmd.AddCommand(textclassifierConversationActionsCmd)
-	textclassifierConversationActionsMessageCmd.AddCommand(textclassifierConversationActionsMessageDescribeContentsCmd)
-	textclassifierConversationActionsMessageCmd.AddCommand(textclassifierConversationActionsMessageGetAuthorCmd)
-	textclassifierConversationActionsMessageCmd.AddCommand(textclassifierConversationActionsMessageGetExtrasCmd)
-	textclassifierConversationActionsMessageCmd.AddCommand(textclassifierConversationActionsMessageGetReferenceTimeCmd)
-	textclassifierConversationActionsMessageCmd.AddCommand(textclassifierConversationActionsMessageGetTextCmd)
-	textclassifierConversationActionsMessageWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	textclassifierConversationActionsMessageWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	textclassifierConversationActionsMessageCmd.AddCommand(textclassifierConversationActionsMessageWriteToParcelCmd)
-	textclassifierCmd.AddCommand(textclassifierConversationActionsMessageCmd)
-	textclassifierConversationActionsRequestCmd.AddCommand(textclassifierConversationActionsRequestDescribeContentsCmd)
-	textclassifierConversationActionsRequestCmd.AddCommand(textclassifierConversationActionsRequestGetCallingPackageNameCmd)
-	textclassifierConversationActionsRequestCmd.AddCommand(textclassifierConversationActionsRequestGetExtrasCmd)
-	textclassifierConversationActionsRequestCmd.AddCommand(textclassifierConversationActionsRequestGetMaxSuggestionsCmd)
-	textclassifierConversationActionsRequestCmd.AddCommand(textclassifierConversationActionsRequestGetTypeConfigCmd)
-	textclassifierConversationActionsRequestWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	textclassifierConversationActionsRequestWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	textclassifierConversationActionsRequestCmd.AddCommand(textclassifierConversationActionsRequestWriteToParcelCmd)
-	textclassifierCmd.AddCommand(textclassifierConversationActionsRequestCmd)
 	rootCmd.AddCommand(textclassifierCmd)
 }

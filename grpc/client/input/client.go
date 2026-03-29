@@ -9,83 +9,6 @@ import (
 	"google.golang.org/grpc"
 )
 
-// HostUsiVersionClient wraps the gRPC HostUsiVersionService client.
-type HostUsiVersionClient struct {
-	svc pb.HostUsiVersionServiceClient
-}
-
-// NewHostUsiVersionClient creates a new HostUsiVersion client.
-func NewHostUsiVersionClient(cc grpc.ClientConnInterface) *HostUsiVersionClient {
-	return &HostUsiVersionClient{
-		svc: pb.NewHostUsiVersionServiceClient(cc),
-	}
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *HostUsiVersionClient) DescribeContents(ctx context.Context) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Equals calls the Equals RPC.
-func (c *HostUsiVersionClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetMajorVersion calls the GetMajorVersion RPC.
-func (c *HostUsiVersionClient) GetMajorVersion(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetMajorVersion(ctx, &pb.GetMajorVersionRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetMinorVersion calls the GetMinorVersion RPC.
-func (c *HostUsiVersionClient) GetMinorVersion(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetMinorVersion(ctx, &pb.GetMinorVersionRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *HostUsiVersionClient) HashCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToString calls the ToString RPC.
-func (c *HostUsiVersionClient) ToString(ctx context.Context) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *HostUsiVersionClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
 // ManagerClient wraps the gRPC ManagerService client.
 type ManagerClient struct {
 	svc pb.ManagerServiceClient
@@ -209,6 +132,83 @@ func (c *ManagerInputDeviceListenerClient) OnInputDeviceChanged(ctx context.Cont
 func (c *ManagerInputDeviceListenerClient) OnInputDeviceRemoved(ctx context.Context, arg0 int32) error {
 	_, err := c.svc.OnInputDeviceRemoved(ctx, &pb.OnInputDeviceRemovedRequest{
 		Arg0: arg0,
+	})
+	return err
+}
+
+// HostUsiVersionClient wraps the gRPC HostUsiVersionService client.
+type HostUsiVersionClient struct {
+	svc pb.HostUsiVersionServiceClient
+}
+
+// NewHostUsiVersionClient creates a new HostUsiVersion client.
+func NewHostUsiVersionClient(cc grpc.ClientConnInterface) *HostUsiVersionClient {
+	return &HostUsiVersionClient{
+		svc: pb.NewHostUsiVersionServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *HostUsiVersionClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *HostUsiVersionClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMajorVersion calls the GetMajorVersion RPC.
+func (c *HostUsiVersionClient) GetMajorVersion(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetMajorVersion(ctx, &pb.GetMajorVersionRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMinorVersion calls the GetMinorVersion RPC.
+func (c *HostUsiVersionClient) GetMinorVersion(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetMinorVersion(ctx, &pb.GetMinorVersionRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *HostUsiVersionClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *HostUsiVersionClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *HostUsiVersionClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
 	})
 	return err
 }

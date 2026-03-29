@@ -12,20 +12,23 @@ var databaseCmd = &cobra.Command{
 	Short: "database service operations",
 }
 
-var databaseDataSetObservableCmd = &cobra.Command{
-	Use:   "data-set-observable",
-	Short: "DataSetObservableService operations",
+var databaseMatrixCursorCmd = &cobra.Command{
+	Use:   "matrix-cursor",
+	Short: "MatrixCursorService operations",
 }
 
-var databaseDataSetObservableNewDataSetObservableCmd = &cobra.Command{
-	Use:   "new-data-set-observable",
-	Short: "NewDataSetObservable RPC",
+var databaseMatrixCursorNewMatrixCursorCmd = &cobra.Command{
+	Use:   "new-matrix-cursor",
+	Short: "NewMatrixCursor RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewDataSetObservableServiceClient(grpcConn)
-		req := &pb.NewDataSetObservableRequest{}
-		resp, err := client.NewDataSetObservable(ctx, req)
+		client := pb.NewMatrixCursorServiceClient(grpcConn)
+		req := &pb.NewMatrixCursorRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.NewMatrixCursor(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -33,18 +36,21 @@ var databaseDataSetObservableNewDataSetObservableCmd = &cobra.Command{
 	},
 }
 
-var databaseDataSetObservableNotifyChangedCmd = &cobra.Command{
-	Use:   "notify-changed",
-	Short: "NotifyChanged RPC",
+var databaseMatrixCursorAddRowCmd = &cobra.Command{
+	Use:   "add-row",
+	Short: "AddRow RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewDataSetObservableServiceClient(grpcConn)
-		req := &pb.NotifyChangedRequest{}
+		client := pb.NewMatrixCursorServiceClient(grpcConn)
+		req := &pb.AddRowRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
-		resp, err := client.NotifyChanged(ctx, req)
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddRow(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -52,18 +58,727 @@ var databaseDataSetObservableNotifyChangedCmd = &cobra.Command{
 	},
 }
 
-var databaseDataSetObservableNotifyInvalidatedCmd = &cobra.Command{
-	Use:   "notify-invalidated",
-	Short: "NotifyInvalidated RPC",
+var databaseMatrixCursorGetBlobCmd = &cobra.Command{
+	Use:   "get-blob",
+	Short: "GetBlob RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewDataSetObservableServiceClient(grpcConn)
-		req := &pb.NotifyInvalidatedRequest{}
+		client := pb.NewMatrixCursorServiceClient(grpcConn)
+		req := &pb.GetBlobRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
-		resp, err := client.NotifyInvalidated(ctx, req)
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetBlob(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var databaseMatrixCursorGetColumnNamesCmd = &cobra.Command{
+	Use:   "get-column-names",
+	Short: "GetColumnNames RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMatrixCursorServiceClient(grpcConn)
+		req := &pb.GetColumnNamesRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetColumnNames(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var databaseMatrixCursorGetCountCmd = &cobra.Command{
+	Use:   "get-count",
+	Short: "GetCount RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMatrixCursorServiceClient(grpcConn)
+		req := &pb.GetCountRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetCount(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var databaseMatrixCursorGetDoubleCmd = &cobra.Command{
+	Use:   "get-double",
+	Short: "GetDouble RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMatrixCursorServiceClient(grpcConn)
+		req := &pb.GetDoubleRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetDouble(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var databaseMatrixCursorGetFloatCmd = &cobra.Command{
+	Use:   "get-float",
+	Short: "GetFloat RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMatrixCursorServiceClient(grpcConn)
+		req := &pb.GetFloatRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetFloat(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var databaseMatrixCursorGetIntCmd = &cobra.Command{
+	Use:   "get-int",
+	Short: "GetInt RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMatrixCursorServiceClient(grpcConn)
+		req := &pb.GetIntRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetInt(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var databaseMatrixCursorGetLongCmd = &cobra.Command{
+	Use:   "get-long",
+	Short: "GetLong RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMatrixCursorServiceClient(grpcConn)
+		req := &pb.GetLongRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetLong(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var databaseMatrixCursorGetShortCmd = &cobra.Command{
+	Use:   "get-short",
+	Short: "GetShort RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMatrixCursorServiceClient(grpcConn)
+		req := &pb.GetShortRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetShort(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var databaseMatrixCursorGetStringCmd = &cobra.Command{
+	Use:   "get-string",
+	Short: "GetString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMatrixCursorServiceClient(grpcConn)
+		req := &pb.GetStringRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var databaseMatrixCursorGetTypeCmd = &cobra.Command{
+	Use:   "get-type",
+	Short: "GetType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMatrixCursorServiceClient(grpcConn)
+		req := &pb.GetTypeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var databaseMatrixCursorIsNullCmd = &cobra.Command{
+	Use:   "is-null",
+	Short: "IsNull RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMatrixCursorServiceClient(grpcConn)
+		req := &pb.IsNullRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.IsNull(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var databaseMatrixCursorNewRowCmd = &cobra.Command{
+	Use:   "new-row",
+	Short: "NewRow RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMatrixCursorServiceClient(grpcConn)
+		req := &pb.NewRowRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.NewRow(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var databaseMatrixCursorRowBuilderCmd = &cobra.Command{
+	Use:   "matrix-cursor-row-builder",
+	Short: "MatrixCursorRowBuilderService operations",
+}
+
+var databaseMatrixCursorRowBuilderAdd1Cmd = &cobra.Command{
+	Use:   "add1",
+	Short: "Add1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMatrixCursorRowBuilderServiceClient(grpcConn)
+		req := &pb.Add1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Add1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var databaseMatrixCursorRowBuilderAdd2_1Cmd = &cobra.Command{
+	Use:   "add2_1",
+	Short: "Add2_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMatrixCursorRowBuilderServiceClient(grpcConn)
+		req := &pb.Add2_1Request{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.Add2_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var databaseAbstractWindowedCursorCmd = &cobra.Command{
+	Use:   "abstract-windowed-cursor",
+	Short: "AbstractWindowedCursorService operations",
+}
+
+var databaseAbstractWindowedCursorCopyStringToBufferCmd = &cobra.Command{
+	Use:   "copy-string-to-buffer",
+	Short: "CopyStringToBuffer RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAbstractWindowedCursorServiceClient(grpcConn)
+		req := &pb.CopyStringToBufferRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.CopyStringToBuffer(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var databaseAbstractWindowedCursorGetBlobCmd = &cobra.Command{
+	Use:   "get-blob",
+	Short: "GetBlob RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAbstractWindowedCursorServiceClient(grpcConn)
+		req := &pb.AbstractWindowedCursorGetBlobRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetBlob(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var databaseAbstractWindowedCursorGetDoubleCmd = &cobra.Command{
+	Use:   "get-double",
+	Short: "GetDouble RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAbstractWindowedCursorServiceClient(grpcConn)
+		req := &pb.AbstractWindowedCursorGetDoubleRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetDouble(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var databaseAbstractWindowedCursorGetFloatCmd = &cobra.Command{
+	Use:   "get-float",
+	Short: "GetFloat RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAbstractWindowedCursorServiceClient(grpcConn)
+		req := &pb.AbstractWindowedCursorGetFloatRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetFloat(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var databaseAbstractWindowedCursorGetIntCmd = &cobra.Command{
+	Use:   "get-int",
+	Short: "GetInt RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAbstractWindowedCursorServiceClient(grpcConn)
+		req := &pb.AbstractWindowedCursorGetIntRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetInt(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var databaseAbstractWindowedCursorGetLongCmd = &cobra.Command{
+	Use:   "get-long",
+	Short: "GetLong RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAbstractWindowedCursorServiceClient(grpcConn)
+		req := &pb.AbstractWindowedCursorGetLongRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetLong(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var databaseAbstractWindowedCursorGetShortCmd = &cobra.Command{
+	Use:   "get-short",
+	Short: "GetShort RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAbstractWindowedCursorServiceClient(grpcConn)
+		req := &pb.AbstractWindowedCursorGetShortRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetShort(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var databaseAbstractWindowedCursorGetStringCmd = &cobra.Command{
+	Use:   "get-string",
+	Short: "GetString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAbstractWindowedCursorServiceClient(grpcConn)
+		req := &pb.AbstractWindowedCursorGetStringRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var databaseAbstractWindowedCursorGetTypeCmd = &cobra.Command{
+	Use:   "get-type",
+	Short: "GetType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAbstractWindowedCursorServiceClient(grpcConn)
+		req := &pb.AbstractWindowedCursorGetTypeRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var databaseAbstractWindowedCursorGetWindowCmd = &cobra.Command{
+	Use:   "get-window",
+	Short: "GetWindow RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAbstractWindowedCursorServiceClient(grpcConn)
+		req := &pb.GetWindowRequest{}
+		resp, err := client.GetWindow(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var databaseAbstractWindowedCursorHasWindowCmd = &cobra.Command{
+	Use:   "has-window",
+	Short: "HasWindow RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAbstractWindowedCursorServiceClient(grpcConn)
+		req := &pb.HasWindowRequest{}
+		resp, err := client.HasWindow(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var databaseAbstractWindowedCursorIsBlobCmd = &cobra.Command{
+	Use:   "is-blob",
+	Short: "IsBlob RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAbstractWindowedCursorServiceClient(grpcConn)
+		req := &pb.IsBlobRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.IsBlob(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var databaseAbstractWindowedCursorIsFloatCmd = &cobra.Command{
+	Use:   "is-float",
+	Short: "IsFloat RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAbstractWindowedCursorServiceClient(grpcConn)
+		req := &pb.IsFloatRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.IsFloat(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var databaseAbstractWindowedCursorIsLongCmd = &cobra.Command{
+	Use:   "is-long",
+	Short: "IsLong RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAbstractWindowedCursorServiceClient(grpcConn)
+		req := &pb.IsLongRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.IsLong(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var databaseAbstractWindowedCursorIsNullCmd = &cobra.Command{
+	Use:   "is-null",
+	Short: "IsNull RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAbstractWindowedCursorServiceClient(grpcConn)
+		req := &pb.AbstractWindowedCursorIsNullRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.IsNull(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var databaseAbstractWindowedCursorIsStringCmd = &cobra.Command{
+	Use:   "is-string",
+	Short: "IsString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAbstractWindowedCursorServiceClient(grpcConn)
+		req := &pb.IsStringRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.IsString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var databaseAbstractWindowedCursorSetWindowCmd = &cobra.Command{
+	Use:   "set-window",
+	Short: "SetWindow RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAbstractWindowedCursorServiceClient(grpcConn)
+		req := &pb.SetWindowRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetWindow(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var databaseCrossProcessCursorCmd = &cobra.Command{
+	Use:   "cross-process-cursor",
+	Short: "CrossProcessCursorService operations",
+}
+
+var databaseCrossProcessCursorFillWindowCmd = &cobra.Command{
+	Use:   "fill-window",
+	Short: "FillWindow RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCrossProcessCursorServiceClient(grpcConn)
+		req := &pb.FillWindowRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.FillWindow(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var databaseCrossProcessCursorGetWindowCmd = &cobra.Command{
+	Use:   "get-window",
+	Short: "GetWindow RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCrossProcessCursorServiceClient(grpcConn)
+		req := &pb.GetWindowRequest{}
+		resp, err := client.GetWindow(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var databaseCrossProcessCursorOnMoveCmd = &cobra.Command{
+	Use:   "on-move",
+	Short: "OnMove RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCrossProcessCursorServiceClient(grpcConn)
+		req := &pb.OnMoveRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.OnMove(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var databaseDataSetObserverCmd = &cobra.Command{
+	Use:   "data-set-observer",
+	Short: "DataSetObserverService operations",
+}
+
+var databaseDataSetObserverOnChangedCmd = &cobra.Command{
+	Use:   "on-changed",
+	Short: "OnChanged RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDataSetObserverServiceClient(grpcConn)
+		req := &pb.OnChangedRequest{}
+		resp, err := client.OnChanged(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var databaseDataSetObserverOnInvalidatedCmd = &cobra.Command{
+	Use:   "on-invalidated",
+	Short: "OnInvalidated RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDataSetObserverServiceClient(grpcConn)
+		req := &pb.OnInvalidatedRequest{}
+		resp, err := client.OnInvalidated(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1620,23 +2335,23 @@ var databaseUtilsInsertHelperReplaceCmd = &cobra.Command{
 	},
 }
 
-var databaseMatrixCursorCmd = &cobra.Command{
-	Use:   "matrix-cursor",
-	Short: "MatrixCursorService operations",
+var databaseCrossProcessCursorWrapperCmd = &cobra.Command{
+	Use:   "cross-process-cursor-wrapper",
+	Short: "CrossProcessCursorWrapperService operations",
 }
 
-var databaseMatrixCursorNewMatrixCursorCmd = &cobra.Command{
-	Use:   "new-matrix-cursor",
-	Short: "NewMatrixCursor RPC",
+var databaseCrossProcessCursorWrapperNewCrossProcessCursorWrapperCmd = &cobra.Command{
+	Use:   "new-cross-process-cursor-wrapper",
+	Short: "NewCrossProcessCursorWrapper RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewMatrixCursorServiceClient(grpcConn)
-		req := &pb.NewMatrixCursorRequest{}
+		client := pb.NewCrossProcessCursorWrapperServiceClient(grpcConn)
+		req := &pb.NewCrossProcessCursorWrapperRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		resp, err := client.NewMatrixCursor(ctx, req)
+		resp, err := client.NewCrossProcessCursorWrapper(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1644,322 +2359,68 @@ var databaseMatrixCursorNewMatrixCursorCmd = &cobra.Command{
 	},
 }
 
-var databaseMatrixCursorAddRowCmd = &cobra.Command{
-	Use:   "add-row",
-	Short: "AddRow RPC",
+var databaseCrossProcessCursorWrapperFillWindowCmd = &cobra.Command{
+	Use:   "fill-window",
+	Short: "FillWindow RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewMatrixCursorServiceClient(grpcConn)
-		req := &pb.AddRowRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.AddRow(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var databaseMatrixCursorGetBlobCmd = &cobra.Command{
-	Use:   "get-blob",
-	Short: "GetBlob RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMatrixCursorServiceClient(grpcConn)
-		req := &pb.GetBlobRequest{}
+		client := pb.NewCrossProcessCursorWrapperServiceClient(grpcConn)
+		req := &pb.CrossProcessCursorWrapperFillWindowRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
 		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetBlob(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var databaseMatrixCursorGetColumnNamesCmd = &cobra.Command{
-	Use:   "get-column-names",
-	Short: "GetColumnNames RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMatrixCursorServiceClient(grpcConn)
-		req := &pb.GetColumnNamesRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetColumnNames(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var databaseMatrixCursorGetCountCmd = &cobra.Command{
-	Use:   "get-count",
-	Short: "GetCount RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMatrixCursorServiceClient(grpcConn)
-		req := &pb.GetCountRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetCount(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var databaseMatrixCursorGetDoubleCmd = &cobra.Command{
-	Use:   "get-double",
-	Short: "GetDouble RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMatrixCursorServiceClient(grpcConn)
-		req := &pb.GetDoubleRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetDouble(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var databaseMatrixCursorGetFloatCmd = &cobra.Command{
-	Use:   "get-float",
-	Short: "GetFloat RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMatrixCursorServiceClient(grpcConn)
-		req := &pb.GetFloatRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetFloat(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var databaseMatrixCursorGetIntCmd = &cobra.Command{
-	Use:   "get-int",
-	Short: "GetInt RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMatrixCursorServiceClient(grpcConn)
-		req := &pb.GetIntRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetInt(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var databaseMatrixCursorGetLongCmd = &cobra.Command{
-	Use:   "get-long",
-	Short: "GetLong RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMatrixCursorServiceClient(grpcConn)
-		req := &pb.GetLongRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetLong(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var databaseMatrixCursorGetShortCmd = &cobra.Command{
-	Use:   "get-short",
-	Short: "GetShort RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMatrixCursorServiceClient(grpcConn)
-		req := &pb.GetShortRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetShort(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var databaseMatrixCursorGetStringCmd = &cobra.Command{
-	Use:   "get-string",
-	Short: "GetString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMatrixCursorServiceClient(grpcConn)
-		req := &pb.GetStringRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var databaseMatrixCursorGetTypeCmd = &cobra.Command{
-	Use:   "get-type",
-	Short: "GetType RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMatrixCursorServiceClient(grpcConn)
-		req := &pb.GetTypeRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetType(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var databaseMatrixCursorIsNullCmd = &cobra.Command{
-	Use:   "is-null",
-	Short: "IsNull RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMatrixCursorServiceClient(grpcConn)
-		req := &pb.IsNullRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.IsNull(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var databaseMatrixCursorNewRowCmd = &cobra.Command{
-	Use:   "new-row",
-	Short: "NewRow RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMatrixCursorServiceClient(grpcConn)
-		req := &pb.NewRowRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.NewRow(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var databaseMatrixCursorRowBuilderCmd = &cobra.Command{
-	Use:   "matrix-cursor-row-builder",
-	Short: "MatrixCursorRowBuilderService operations",
-}
-
-var databaseMatrixCursorRowBuilderAdd1Cmd = &cobra.Command{
-	Use:   "add1",
-	Short: "Add1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMatrixCursorRowBuilderServiceClient(grpcConn)
-		req := &pb.Add1Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Add1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var databaseMatrixCursorRowBuilderAdd2_1Cmd = &cobra.Command{
-	Use:   "add2_1",
-	Short: "Add2_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMatrixCursorRowBuilderServiceClient(grpcConn)
-		req := &pb.Add2_1Request{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
 			req.Arg0 = v
 		}
 		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
 			req.Arg1 = v
 		}
-		resp, err := client.Add2_1(ctx, req)
+		resp, err := client.FillWindow(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var databaseCrossProcessCursorWrapperGetWindowCmd = &cobra.Command{
+	Use:   "get-window",
+	Short: "GetWindow RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCrossProcessCursorWrapperServiceClient(grpcConn)
+		req := &pb.CrossProcessCursorWrapperGetWindowRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetWindow(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var databaseCrossProcessCursorWrapperOnMoveCmd = &cobra.Command{
+	Use:   "on-move",
+	Short: "OnMove RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCrossProcessCursorWrapperServiceClient(grpcConn)
+		req := &pb.CrossProcessCursorWrapperOnMoveRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.OnMove(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -2163,23 +2624,42 @@ var databaseDefaultDatabaseErrorHandlerOnCorruptionCmd = &cobra.Command{
 	},
 }
 
-var databaseCursorWrapperCmd = &cobra.Command{
-	Use:   "cursor-wrapper",
-	Short: "CursorWrapperService operations",
+var databaseContentObservableCmd = &cobra.Command{
+	Use:   "content-observable",
+	Short: "ContentObservableService operations",
 }
 
-var databaseCursorWrapperNewCursorWrapperCmd = &cobra.Command{
-	Use:   "new-cursor-wrapper",
-	Short: "NewCursorWrapper RPC",
+var databaseContentObservableNewContentObservableCmd = &cobra.Command{
+	Use:   "new-content-observable",
+	Short: "NewContentObservable RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewCursorWrapperServiceClient(grpcConn)
-		req := &pb.NewCursorWrapperRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+		client := pb.NewContentObservableServiceClient(grpcConn)
+		req := &pb.NewContentObservableRequest{}
+		resp, err := client.NewContentObservable(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var databaseContentObservableDispatchChange1Cmd = &cobra.Command{
+	Use:   "dispatch-change1",
+	Short: "DispatchChange1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContentObservableServiceClient(grpcConn)
+		req := &pb.ContentObservableDispatchChange1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		resp, err := client.NewCursorWrapper(ctx, req)
+		resp, err := client.DispatchChange1(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -2187,825 +2667,24 @@ var databaseCursorWrapperNewCursorWrapperCmd = &cobra.Command{
 	},
 }
 
-var databaseCursorWrapperCloseCmd = &cobra.Command{
-	Use:   "close",
-	Short: "Close RPC",
+var databaseContentObservableDispatchChange2_1Cmd = &cobra.Command{
+	Use:   "dispatch-change2_1",
+	Short: "DispatchChange2_1 RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewCursorWrapperServiceClient(grpcConn)
-		req := &pb.CursorWrapperCloseRequest{}
+		client := pb.NewContentObservableServiceClient(grpcConn)
+		req := &pb.ContentObservableDispatchChange2_1Request{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
-		resp, err := client.Close(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var databaseCursorWrapperCopyStringToBufferCmd = &cobra.Command{
-	Use:   "copy-string-to-buffer",
-	Short: "CopyStringToBuffer RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCursorWrapperServiceClient(grpcConn)
-		req := &pb.CopyStringToBufferRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.CopyStringToBuffer(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var databaseCursorWrapperDeactivateCmd = &cobra.Command{
-	Use:   "deactivate",
-	Short: "Deactivate RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCursorWrapperServiceClient(grpcConn)
-		req := &pb.DeactivateRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.Deactivate(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var databaseCursorWrapperGetBlobCmd = &cobra.Command{
-	Use:   "get-blob",
-	Short: "GetBlob RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCursorWrapperServiceClient(grpcConn)
-		req := &pb.GetBlobRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetBlob(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var databaseCursorWrapperGetColumnCountCmd = &cobra.Command{
-	Use:   "get-column-count",
-	Short: "GetColumnCount RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCursorWrapperServiceClient(grpcConn)
-		req := &pb.GetColumnCountRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetColumnCount(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var databaseCursorWrapperGetColumnIndexCmd = &cobra.Command{
-	Use:   "get-column-index",
-	Short: "GetColumnIndex RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCursorWrapperServiceClient(grpcConn)
-		req := &pb.CursorWrapperGetColumnIndexRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetColumnIndex(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var databaseCursorWrapperGetColumnIndexOrThrowCmd = &cobra.Command{
-	Use:   "get-column-index-or-throw",
-	Short: "GetColumnIndexOrThrow RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCursorWrapperServiceClient(grpcConn)
-		req := &pb.GetColumnIndexOrThrowRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetColumnIndexOrThrow(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var databaseCursorWrapperGetColumnNameCmd = &cobra.Command{
-	Use:   "get-column-name",
-	Short: "GetColumnName RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCursorWrapperServiceClient(grpcConn)
-		req := &pb.GetColumnNameRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetColumnName(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var databaseCursorWrapperGetColumnNamesCmd = &cobra.Command{
-	Use:   "get-column-names",
-	Short: "GetColumnNames RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCursorWrapperServiceClient(grpcConn)
-		req := &pb.GetColumnNamesRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetColumnNames(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var databaseCursorWrapperGetCountCmd = &cobra.Command{
-	Use:   "get-count",
-	Short: "GetCount RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCursorWrapperServiceClient(grpcConn)
-		req := &pb.GetCountRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetCount(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var databaseCursorWrapperGetDoubleCmd = &cobra.Command{
-	Use:   "get-double",
-	Short: "GetDouble RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCursorWrapperServiceClient(grpcConn)
-		req := &pb.GetDoubleRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetDouble(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var databaseCursorWrapperGetExtrasCmd = &cobra.Command{
-	Use:   "get-extras",
-	Short: "GetExtras RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCursorWrapperServiceClient(grpcConn)
-		req := &pb.GetExtrasRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetExtras(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var databaseCursorWrapperGetFloatCmd = &cobra.Command{
-	Use:   "get-float",
-	Short: "GetFloat RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCursorWrapperServiceClient(grpcConn)
-		req := &pb.GetFloatRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetFloat(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var databaseCursorWrapperGetIntCmd = &cobra.Command{
-	Use:   "get-int",
-	Short: "GetInt RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCursorWrapperServiceClient(grpcConn)
-		req := &pb.GetIntRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetInt(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var databaseCursorWrapperGetLongCmd = &cobra.Command{
-	Use:   "get-long",
-	Short: "GetLong RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCursorWrapperServiceClient(grpcConn)
-		req := &pb.GetLongRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetLong(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var databaseCursorWrapperGetNotificationUriCmd = &cobra.Command{
-	Use:   "get-notification-uri",
-	Short: "GetNotificationUri RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCursorWrapperServiceClient(grpcConn)
-		req := &pb.GetNotificationUriRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetNotificationUri(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var databaseCursorWrapperGetPositionCmd = &cobra.Command{
-	Use:   "get-position",
-	Short: "GetPosition RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCursorWrapperServiceClient(grpcConn)
-		req := &pb.GetPositionRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetPosition(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var databaseCursorWrapperGetShortCmd = &cobra.Command{
-	Use:   "get-short",
-	Short: "GetShort RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCursorWrapperServiceClient(grpcConn)
-		req := &pb.GetShortRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetShort(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var databaseCursorWrapperGetStringCmd = &cobra.Command{
-	Use:   "get-string",
-	Short: "GetString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCursorWrapperServiceClient(grpcConn)
-		req := &pb.GetStringRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var databaseCursorWrapperGetTypeCmd = &cobra.Command{
-	Use:   "get-type",
-	Short: "GetType RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCursorWrapperServiceClient(grpcConn)
-		req := &pb.GetTypeRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetType(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var databaseCursorWrapperGetWantsAllOnMoveCallsCmd = &cobra.Command{
-	Use:   "get-wants-all-on-move-calls",
-	Short: "GetWantsAllOnMoveCalls RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCursorWrapperServiceClient(grpcConn)
-		req := &pb.GetWantsAllOnMoveCallsRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetWantsAllOnMoveCalls(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var databaseCursorWrapperGetWrappedCursorCmd = &cobra.Command{
-	Use:   "get-wrapped-cursor",
-	Short: "GetWrappedCursor RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCursorWrapperServiceClient(grpcConn)
-		req := &pb.GetWrappedCursorRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetWrappedCursor(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var databaseCursorWrapperIsAfterLastCmd = &cobra.Command{
-	Use:   "is-after-last",
-	Short: "IsAfterLast RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCursorWrapperServiceClient(grpcConn)
-		req := &pb.IsAfterLastRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.IsAfterLast(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var databaseCursorWrapperIsBeforeFirstCmd = &cobra.Command{
-	Use:   "is-before-first",
-	Short: "IsBeforeFirst RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCursorWrapperServiceClient(grpcConn)
-		req := &pb.IsBeforeFirstRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.IsBeforeFirst(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var databaseCursorWrapperIsClosedCmd = &cobra.Command{
-	Use:   "is-closed",
-	Short: "IsClosed RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCursorWrapperServiceClient(grpcConn)
-		req := &pb.IsClosedRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.IsClosed(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var databaseCursorWrapperIsFirstCmd = &cobra.Command{
-	Use:   "is-first",
-	Short: "IsFirst RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCursorWrapperServiceClient(grpcConn)
-		req := &pb.IsFirstRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.IsFirst(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var databaseCursorWrapperIsLastCmd = &cobra.Command{
-	Use:   "is-last",
-	Short: "IsLast RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCursorWrapperServiceClient(grpcConn)
-		req := &pb.IsLastRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.IsLast(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var databaseCursorWrapperIsNullCmd = &cobra.Command{
-	Use:   "is-null",
-	Short: "IsNull RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCursorWrapperServiceClient(grpcConn)
-		req := &pb.IsNullRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.IsNull(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var databaseCursorWrapperMoveCmd = &cobra.Command{
-	Use:   "move",
-	Short: "Move RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCursorWrapperServiceClient(grpcConn)
-		req := &pb.MoveRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Move(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var databaseCursorWrapperMoveToFirstCmd = &cobra.Command{
-	Use:   "move-to-first",
-	Short: "MoveToFirst RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCursorWrapperServiceClient(grpcConn)
-		req := &pb.MoveToFirstRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.MoveToFirst(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var databaseCursorWrapperMoveToLastCmd = &cobra.Command{
-	Use:   "move-to-last",
-	Short: "MoveToLast RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCursorWrapperServiceClient(grpcConn)
-		req := &pb.MoveToLastRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.MoveToLast(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var databaseCursorWrapperMoveToNextCmd = &cobra.Command{
-	Use:   "move-to-next",
-	Short: "MoveToNext RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCursorWrapperServiceClient(grpcConn)
-		req := &pb.MoveToNextRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.MoveToNext(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var databaseCursorWrapperMoveToPositionCmd = &cobra.Command{
-	Use:   "move-to-position",
-	Short: "MoveToPosition RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCursorWrapperServiceClient(grpcConn)
-		req := &pb.MoveToPositionRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.MoveToPosition(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var databaseCursorWrapperMoveToPreviousCmd = &cobra.Command{
-	Use:   "move-to-previous",
-	Short: "MoveToPrevious RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCursorWrapperServiceClient(grpcConn)
-		req := &pb.MoveToPreviousRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.MoveToPrevious(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var databaseCursorWrapperRegisterContentObserverCmd = &cobra.Command{
-	Use:   "register-content-observer",
-	Short: "RegisterContentObserver RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCursorWrapperServiceClient(grpcConn)
-		req := &pb.RegisterContentObserverRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.RegisterContentObserver(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var databaseCursorWrapperRegisterDataSetObserverCmd = &cobra.Command{
-	Use:   "register-data-set-observer",
-	Short: "RegisterDataSetObserver RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCursorWrapperServiceClient(grpcConn)
-		req := &pb.RegisterDataSetObserverRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.RegisterDataSetObserver(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var databaseCursorWrapperRequeryCmd = &cobra.Command{
-	Use:   "requery",
-	Short: "Requery RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCursorWrapperServiceClient(grpcConn)
-		req := &pb.RequeryRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.Requery(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var databaseCursorWrapperRespondCmd = &cobra.Command{
-	Use:   "respond",
-	Short: "Respond RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCursorWrapperServiceClient(grpcConn)
-		req := &pb.RespondRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Respond(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var databaseCursorWrapperSetExtrasCmd = &cobra.Command{
-	Use:   "set-extras",
-	Short: "SetExtras RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCursorWrapperServiceClient(grpcConn)
-		req := &pb.SetExtrasRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetExtras(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var databaseCursorWrapperSetNotificationUriCmd = &cobra.Command{
-	Use:   "set-notification-uri",
-	Short: "SetNotificationUri RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCursorWrapperServiceClient(grpcConn)
-		req := &pb.SetNotificationUriRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
 			req.Arg0 = v
 		}
 		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
 			req.Arg1 = v
 		}
-		resp, err := client.SetNotificationUri(ctx, req)
+		resp, err := client.DispatchChange2_1(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -3013,21 +2692,43 @@ var databaseCursorWrapperSetNotificationUriCmd = &cobra.Command{
 	},
 }
 
-var databaseCursorWrapperUnregisterContentObserverCmd = &cobra.Command{
-	Use:   "unregister-content-observer",
-	Short: "UnregisterContentObserver RPC",
+var databaseContentObservableNotifyChangeCmd = &cobra.Command{
+	Use:   "notify-change",
+	Short: "NotifyChange RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewCursorWrapperServiceClient(grpcConn)
-		req := &pb.UnregisterContentObserverRequest{}
+		client := pb.NewContentObservableServiceClient(grpcConn)
+		req := &pb.NotifyChangeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.NotifyChange(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var databaseContentObservableRegisterObserver1Cmd = &cobra.Command{
+	Use:   "register-observer1",
+	Short: "RegisterObserver1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContentObservableServiceClient(grpcConn)
+		req := &pb.RegisterObserver1Request{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		resp, err := client.UnregisterContentObserver(ctx, req)
+		resp, err := client.RegisterObserver1(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -3035,386 +2736,21 @@ var databaseCursorWrapperUnregisterContentObserverCmd = &cobra.Command{
 	},
 }
 
-var databaseCursorWrapperUnregisterDataSetObserverCmd = &cobra.Command{
-	Use:   "unregister-data-set-observer",
-	Short: "UnregisterDataSetObserver RPC",
+var databaseContentObservableRegisterObserver1_1Cmd = &cobra.Command{
+	Use:   "register-observer1_1",
+	Short: "RegisterObserver1_1 RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewCursorWrapperServiceClient(grpcConn)
-		req := &pb.UnregisterDataSetObserverRequest{}
+		client := pb.NewContentObservableServiceClient(grpcConn)
+		req := &pb.RegisterObserver1_1Request{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		resp, err := client.UnregisterDataSetObserver(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var databaseObservableCmd = &cobra.Command{
-	Use:   "observable",
-	Short: "ObservableService operations",
-}
-
-var databaseObservableUnregisterAllCmd = &cobra.Command{
-	Use:   "unregister-all",
-	Short: "UnregisterAll RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewObservableServiceClient(grpcConn)
-		req := &pb.UnregisterAllRequest{}
-		resp, err := client.UnregisterAll(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var databaseCrossProcessCursorWrapperCmd = &cobra.Command{
-	Use:   "cross-process-cursor-wrapper",
-	Short: "CrossProcessCursorWrapperService operations",
-}
-
-var databaseCrossProcessCursorWrapperNewCrossProcessCursorWrapperCmd = &cobra.Command{
-	Use:   "new-cross-process-cursor-wrapper",
-	Short: "NewCrossProcessCursorWrapper RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCrossProcessCursorWrapperServiceClient(grpcConn)
-		req := &pb.NewCrossProcessCursorWrapperRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.NewCrossProcessCursorWrapper(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var databaseCrossProcessCursorWrapperFillWindowCmd = &cobra.Command{
-	Use:   "fill-window",
-	Short: "FillWindow RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCrossProcessCursorWrapperServiceClient(grpcConn)
-		req := &pb.FillWindowRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.FillWindow(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var databaseCrossProcessCursorWrapperGetWindowCmd = &cobra.Command{
-	Use:   "get-window",
-	Short: "GetWindow RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCrossProcessCursorWrapperServiceClient(grpcConn)
-		req := &pb.GetWindowRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetWindow(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var databaseCrossProcessCursorWrapperOnMoveCmd = &cobra.Command{
-	Use:   "on-move",
-	Short: "OnMove RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCrossProcessCursorWrapperServiceClient(grpcConn)
-		req := &pb.OnMoveRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.OnMove(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var databaseDataSetObserverCmd = &cobra.Command{
-	Use:   "data-set-observer",
-	Short: "DataSetObserverService operations",
-}
-
-var databaseDataSetObserverOnChangedCmd = &cobra.Command{
-	Use:   "on-changed",
-	Short: "OnChanged RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDataSetObserverServiceClient(grpcConn)
-		req := &pb.OnChangedRequest{}
-		resp, err := client.OnChanged(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var databaseDataSetObserverOnInvalidatedCmd = &cobra.Command{
-	Use:   "on-invalidated",
-	Short: "OnInvalidated RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDataSetObserverServiceClient(grpcConn)
-		req := &pb.OnInvalidatedRequest{}
-		resp, err := client.OnInvalidated(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var databaseCursorJoinerCmd = &cobra.Command{
-	Use:   "cursor-joiner",
-	Short: "CursorJoinerService operations",
-}
-
-var databaseCursorJoinerNewCursorJoinerCmd = &cobra.Command{
-	Use:   "new-cursor-joiner",
-	Short: "NewCursorJoiner RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCursorJoinerServiceClient(grpcConn)
-		req := &pb.NewCursorJoinerRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		resp, err := client.NewCursorJoiner(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var databaseCursorJoinerHasNextCmd = &cobra.Command{
-	Use:   "has-next",
-	Short: "HasNext RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCursorJoinerServiceClient(grpcConn)
-		req := &pb.HasNextRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.HasNext(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var databaseCursorJoinerNext0Cmd = &cobra.Command{
-	Use:   "next0",
-	Short: "Next0 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCursorJoinerServiceClient(grpcConn)
-		req := &pb.Next0Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.Next0(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var databaseCursorJoinerRemoveCmd = &cobra.Command{
-	Use:   "remove",
-	Short: "Remove RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCursorJoinerServiceClient(grpcConn)
-		req := &pb.RemoveRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.Remove(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var databaseCursorJoinerNext0_1Cmd = &cobra.Command{
-	Use:   "next0_1",
-	Short: "Next0_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCursorJoinerServiceClient(grpcConn)
-		req := &pb.Next0_1Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.Next0_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var databaseCursorJoinerResultCmd = &cobra.Command{
-	Use:   "cursor-joiner-result",
-	Short: "CursorJoinerResultService operations",
-}
-
-var databaseCursorJoinerResultValuesCmd = &cobra.Command{
-	Use:   "values",
-	Short: "Values RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCursorJoinerResultServiceClient(grpcConn)
-		req := &pb.ValuesRequest{}
-		resp, err := client.Values(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var databaseCursorJoinerResultValueOfCmd = &cobra.Command{
-	Use:   "value-of",
-	Short: "ValueOf RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCursorJoinerResultServiceClient(grpcConn)
-		req := &pb.ValueOfRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.ValueOf(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var databaseCrossProcessCursorCmd = &cobra.Command{
-	Use:   "cross-process-cursor",
-	Short: "CrossProcessCursorService operations",
-}
-
-var databaseCrossProcessCursorFillWindowCmd = &cobra.Command{
-	Use:   "fill-window",
-	Short: "FillWindow RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCrossProcessCursorServiceClient(grpcConn)
-		req := &pb.CrossProcessCursorFillWindowRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.FillWindow(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var databaseCrossProcessCursorGetWindowCmd = &cobra.Command{
-	Use:   "get-window",
-	Short: "GetWindow RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCrossProcessCursorServiceClient(grpcConn)
-		req := &pb.CrossProcessCursorGetWindowRequest{}
-		resp, err := client.GetWindow(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var databaseCrossProcessCursorOnMoveCmd = &cobra.Command{
-	Use:   "on-move",
-	Short: "OnMove RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCrossProcessCursorServiceClient(grpcConn)
-		req := &pb.CrossProcessCursorOnMoveRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.OnMove(ctx, req)
+		resp, err := client.RegisterObserver1_1(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -3795,7 +3131,7 @@ var databaseCursorWindowIsBlobCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewCursorWindowServiceClient(grpcConn)
-		req := &pb.IsBlobRequest{}
+		req := &pb.CursorWindowIsBlobRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
@@ -3820,7 +3156,7 @@ var databaseCursorWindowIsFloatCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewCursorWindowServiceClient(grpcConn)
-		req := &pb.IsFloatRequest{}
+		req := &pb.CursorWindowIsFloatRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
@@ -3845,7 +3181,7 @@ var databaseCursorWindowIsLongCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewCursorWindowServiceClient(grpcConn)
-		req := &pb.IsLongRequest{}
+		req := &pb.CursorWindowIsLongRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
@@ -3895,7 +3231,7 @@ var databaseCursorWindowIsStringCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewCursorWindowServiceClient(grpcConn)
-		req := &pb.IsStringRequest{}
+		req := &pb.CursorWindowIsStringRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
@@ -4160,111 +3496,23 @@ var databaseCursorWindowNewFromParcelCmd = &cobra.Command{
 	},
 }
 
-var databaseContentObservableCmd = &cobra.Command{
-	Use:   "content-observable",
-	Short: "ContentObservableService operations",
+var databaseErrorHandlerCmd = &cobra.Command{
+	Use:   "error-handler",
+	Short: "ErrorHandlerService operations",
 }
 
-var databaseContentObservableNewContentObservableCmd = &cobra.Command{
-	Use:   "new-content-observable",
-	Short: "NewContentObservable RPC",
+var databaseErrorHandlerOnCorruptionCmd = &cobra.Command{
+	Use:   "on-corruption",
+	Short: "OnCorruption RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewContentObservableServiceClient(grpcConn)
-		req := &pb.NewContentObservableRequest{}
-		resp, err := client.NewContentObservable(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var databaseContentObservableDispatchChange1Cmd = &cobra.Command{
-	Use:   "dispatch-change1",
-	Short: "DispatchChange1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewContentObservableServiceClient(grpcConn)
-		req := &pb.ContentObservableDispatchChange1Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.DispatchChange1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var databaseContentObservableDispatchChange2_1Cmd = &cobra.Command{
-	Use:   "dispatch-change2_1",
-	Short: "DispatchChange2_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewContentObservableServiceClient(grpcConn)
-		req := &pb.ContentObservableDispatchChange2_1Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.DispatchChange2_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var databaseContentObservableNotifyChangeCmd = &cobra.Command{
-	Use:   "notify-change",
-	Short: "NotifyChange RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewContentObservableServiceClient(grpcConn)
-		req := &pb.NotifyChangeRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.NotifyChange(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var databaseContentObservableRegisterObserver1Cmd = &cobra.Command{
-	Use:   "register-observer1",
-	Short: "RegisterObserver1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewContentObservableServiceClient(grpcConn)
-		req := &pb.RegisterObserver1Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
+		client := pb.NewErrorHandlerServiceClient(grpcConn)
+		req := &pb.ErrorHandlerOnCorruptionRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		resp, err := client.RegisterObserver1(ctx, req)
+		resp, err := client.OnCorruption(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -4272,21 +3520,20 @@ var databaseContentObservableRegisterObserver1Cmd = &cobra.Command{
 	},
 }
 
-var databaseContentObservableRegisterObserver1_1Cmd = &cobra.Command{
-	Use:   "register-observer1_1",
-	Short: "RegisterObserver1_1 RPC",
+var databaseObservableCmd = &cobra.Command{
+	Use:   "observable",
+	Short: "ObservableService operations",
+}
+
+var databaseObservableUnregisterAllCmd = &cobra.Command{
+	Use:   "unregister-all",
+	Short: "UnregisterAll RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewContentObservableServiceClient(grpcConn)
-		req := &pb.RegisterObserver1_1Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.RegisterObserver1_1(ctx, req)
+		client := pb.NewObservableServiceClient(grpcConn)
+		req := &pb.UnregisterAllRequest{}
+		resp, err := client.UnregisterAll(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -4599,7 +3846,7 @@ var databaseMergeCursorOnMoveCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewMergeCursorServiceClient(grpcConn)
-		req := &pb.OnMoveRequest{}
+		req := &pb.MergeCursorOnMoveRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
@@ -4724,355 +3971,6 @@ var databaseMergeCursorUnregisterDataSetObserverCmd = &cobra.Command{
 	},
 }
 
-var databaseAbstractWindowedCursorCmd = &cobra.Command{
-	Use:   "abstract-windowed-cursor",
-	Short: "AbstractWindowedCursorService operations",
-}
-
-var databaseAbstractWindowedCursorCopyStringToBufferCmd = &cobra.Command{
-	Use:   "copy-string-to-buffer",
-	Short: "CopyStringToBuffer RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAbstractWindowedCursorServiceClient(grpcConn)
-		req := &pb.AbstractWindowedCursorCopyStringToBufferRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.CopyStringToBuffer(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var databaseAbstractWindowedCursorGetBlobCmd = &cobra.Command{
-	Use:   "get-blob",
-	Short: "GetBlob RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAbstractWindowedCursorServiceClient(grpcConn)
-		req := &pb.AbstractWindowedCursorGetBlobRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetBlob(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var databaseAbstractWindowedCursorGetDoubleCmd = &cobra.Command{
-	Use:   "get-double",
-	Short: "GetDouble RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAbstractWindowedCursorServiceClient(grpcConn)
-		req := &pb.AbstractWindowedCursorGetDoubleRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetDouble(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var databaseAbstractWindowedCursorGetFloatCmd = &cobra.Command{
-	Use:   "get-float",
-	Short: "GetFloat RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAbstractWindowedCursorServiceClient(grpcConn)
-		req := &pb.AbstractWindowedCursorGetFloatRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetFloat(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var databaseAbstractWindowedCursorGetIntCmd = &cobra.Command{
-	Use:   "get-int",
-	Short: "GetInt RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAbstractWindowedCursorServiceClient(grpcConn)
-		req := &pb.AbstractWindowedCursorGetIntRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetInt(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var databaseAbstractWindowedCursorGetLongCmd = &cobra.Command{
-	Use:   "get-long",
-	Short: "GetLong RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAbstractWindowedCursorServiceClient(grpcConn)
-		req := &pb.AbstractWindowedCursorGetLongRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetLong(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var databaseAbstractWindowedCursorGetShortCmd = &cobra.Command{
-	Use:   "get-short",
-	Short: "GetShort RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAbstractWindowedCursorServiceClient(grpcConn)
-		req := &pb.AbstractWindowedCursorGetShortRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetShort(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var databaseAbstractWindowedCursorGetStringCmd = &cobra.Command{
-	Use:   "get-string",
-	Short: "GetString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAbstractWindowedCursorServiceClient(grpcConn)
-		req := &pb.AbstractWindowedCursorGetStringRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var databaseAbstractWindowedCursorGetTypeCmd = &cobra.Command{
-	Use:   "get-type",
-	Short: "GetType RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAbstractWindowedCursorServiceClient(grpcConn)
-		req := &pb.AbstractWindowedCursorGetTypeRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetType(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var databaseAbstractWindowedCursorGetWindowCmd = &cobra.Command{
-	Use:   "get-window",
-	Short: "GetWindow RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAbstractWindowedCursorServiceClient(grpcConn)
-		req := &pb.AbstractWindowedCursorGetWindowRequest{}
-		resp, err := client.GetWindow(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var databaseAbstractWindowedCursorHasWindowCmd = &cobra.Command{
-	Use:   "has-window",
-	Short: "HasWindow RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAbstractWindowedCursorServiceClient(grpcConn)
-		req := &pb.HasWindowRequest{}
-		resp, err := client.HasWindow(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var databaseAbstractWindowedCursorIsBlobCmd = &cobra.Command{
-	Use:   "is-blob",
-	Short: "IsBlob RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAbstractWindowedCursorServiceClient(grpcConn)
-		req := &pb.AbstractWindowedCursorIsBlobRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.IsBlob(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var databaseAbstractWindowedCursorIsFloatCmd = &cobra.Command{
-	Use:   "is-float",
-	Short: "IsFloat RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAbstractWindowedCursorServiceClient(grpcConn)
-		req := &pb.AbstractWindowedCursorIsFloatRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.IsFloat(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var databaseAbstractWindowedCursorIsLongCmd = &cobra.Command{
-	Use:   "is-long",
-	Short: "IsLong RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAbstractWindowedCursorServiceClient(grpcConn)
-		req := &pb.AbstractWindowedCursorIsLongRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.IsLong(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var databaseAbstractWindowedCursorIsNullCmd = &cobra.Command{
-	Use:   "is-null",
-	Short: "IsNull RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAbstractWindowedCursorServiceClient(grpcConn)
-		req := &pb.AbstractWindowedCursorIsNullRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.IsNull(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var databaseAbstractWindowedCursorIsStringCmd = &cobra.Command{
-	Use:   "is-string",
-	Short: "IsString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAbstractWindowedCursorServiceClient(grpcConn)
-		req := &pb.AbstractWindowedCursorIsStringRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.IsString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var databaseAbstractWindowedCursorSetWindowCmd = &cobra.Command{
-	Use:   "set-window",
-	Short: "SetWindow RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAbstractWindowedCursorServiceClient(grpcConn)
-		req := &pb.SetWindowRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetWindow(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var databaseErrorHandlerCmd = &cobra.Command{
-	Use:   "error-handler",
-	Short: "ErrorHandlerService operations",
-}
-
-var databaseErrorHandlerOnCorruptionCmd = &cobra.Command{
-	Use:   "on-corruption",
-	Short: "OnCorruption RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewErrorHandlerServiceClient(grpcConn)
-		req := &pb.ErrorHandlerOnCorruptionRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.OnCorruption(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
 var databaseAbstractCursorCmd = &cobra.Command{
 	Use:   "abstract-cursor",
 	Short: "AbstractCursorService operations",
@@ -5101,7 +3999,7 @@ var databaseAbstractCursorCopyStringToBufferCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewAbstractCursorServiceClient(grpcConn)
-		req := &pb.AbstractCursorCopyStringToBufferRequest{}
+		req := &pb.CopyStringToBufferRequest{}
 		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
 			req.Arg0 = v
 		}
@@ -5139,7 +4037,7 @@ var databaseAbstractCursorFillWindowCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewAbstractCursorServiceClient(grpcConn)
-		req := &pb.AbstractCursorFillWindowRequest{}
+		req := &pb.FillWindowRequest{}
 		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
 			req.Arg0 = v
 		}
@@ -5180,7 +4078,7 @@ var databaseAbstractCursorGetColumnCountCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewAbstractCursorServiceClient(grpcConn)
-		req := &pb.AbstractCursorGetColumnCountRequest{}
+		req := &pb.GetColumnCountRequest{}
 		resp, err := client.GetColumnCount(ctx, req)
 		if err != nil {
 			return err
@@ -5215,7 +4113,7 @@ var databaseAbstractCursorGetColumnIndexOrThrowCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewAbstractCursorServiceClient(grpcConn)
-		req := &pb.AbstractCursorGetColumnIndexOrThrowRequest{}
+		req := &pb.GetColumnIndexOrThrowRequest{}
 		if v, err := cmd.Flags().GetString("arg0"); err == nil {
 			req.Arg0 = v
 		}
@@ -5234,7 +4132,7 @@ var databaseAbstractCursorGetColumnNameCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewAbstractCursorServiceClient(grpcConn)
-		req := &pb.AbstractCursorGetColumnNameRequest{}
+		req := &pb.GetColumnNameRequest{}
 		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
 			req.Arg0 = v
 		}
@@ -5304,7 +4202,7 @@ var databaseAbstractCursorGetExtrasCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewAbstractCursorServiceClient(grpcConn)
-		req := &pb.AbstractCursorGetExtrasRequest{}
+		req := &pb.GetExtrasRequest{}
 		resp, err := client.GetExtras(ctx, req)
 		if err != nil {
 			return err
@@ -5377,8 +4275,24 @@ var databaseAbstractCursorGetNotificationUriCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewAbstractCursorServiceClient(grpcConn)
-		req := &pb.AbstractCursorGetNotificationUriRequest{}
+		req := &pb.GetNotificationUriRequest{}
 		resp, err := client.GetNotificationUri(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var databaseAbstractCursorGetNotificationUrisCmd = &cobra.Command{
+	Use:   "get-notification-uris",
+	Short: "GetNotificationUris RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAbstractCursorServiceClient(grpcConn)
+		req := &pb.GetNotificationUrisRequest{}
+		resp, err := client.GetNotificationUris(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -5393,7 +4307,7 @@ var databaseAbstractCursorGetPositionCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewAbstractCursorServiceClient(grpcConn)
-		req := &pb.AbstractCursorGetPositionRequest{}
+		req := &pb.GetPositionRequest{}
 		resp, err := client.GetPosition(ctx, req)
 		if err != nil {
 			return err
@@ -5466,7 +4380,7 @@ var databaseAbstractCursorGetWantsAllOnMoveCallsCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewAbstractCursorServiceClient(grpcConn)
-		req := &pb.AbstractCursorGetWantsAllOnMoveCallsRequest{}
+		req := &pb.GetWantsAllOnMoveCallsRequest{}
 		resp, err := client.GetWantsAllOnMoveCalls(ctx, req)
 		if err != nil {
 			return err
@@ -5482,7 +4396,7 @@ var databaseAbstractCursorGetWindowCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewAbstractCursorServiceClient(grpcConn)
-		req := &pb.AbstractCursorGetWindowRequest{}
+		req := &pb.GetWindowRequest{}
 		resp, err := client.GetWindow(ctx, req)
 		if err != nil {
 			return err
@@ -5498,7 +4412,7 @@ var databaseAbstractCursorIsAfterLastCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewAbstractCursorServiceClient(grpcConn)
-		req := &pb.AbstractCursorIsAfterLastRequest{}
+		req := &pb.IsAfterLastRequest{}
 		resp, err := client.IsAfterLast(ctx, req)
 		if err != nil {
 			return err
@@ -5514,7 +4428,7 @@ var databaseAbstractCursorIsBeforeFirstCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewAbstractCursorServiceClient(grpcConn)
-		req := &pb.AbstractCursorIsBeforeFirstRequest{}
+		req := &pb.IsBeforeFirstRequest{}
 		resp, err := client.IsBeforeFirst(ctx, req)
 		if err != nil {
 			return err
@@ -5530,7 +4444,7 @@ var databaseAbstractCursorIsClosedCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewAbstractCursorServiceClient(grpcConn)
-		req := &pb.AbstractCursorIsClosedRequest{}
+		req := &pb.IsClosedRequest{}
 		resp, err := client.IsClosed(ctx, req)
 		if err != nil {
 			return err
@@ -5546,7 +4460,7 @@ var databaseAbstractCursorIsFirstCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewAbstractCursorServiceClient(grpcConn)
-		req := &pb.AbstractCursorIsFirstRequest{}
+		req := &pb.IsFirstRequest{}
 		resp, err := client.IsFirst(ctx, req)
 		if err != nil {
 			return err
@@ -5562,7 +4476,7 @@ var databaseAbstractCursorIsLastCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewAbstractCursorServiceClient(grpcConn)
-		req := &pb.AbstractCursorIsLastRequest{}
+		req := &pb.IsLastRequest{}
 		resp, err := client.IsLast(ctx, req)
 		if err != nil {
 			return err
@@ -5597,7 +4511,7 @@ var databaseAbstractCursorMoveCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewAbstractCursorServiceClient(grpcConn)
-		req := &pb.AbstractCursorMoveRequest{}
+		req := &pb.MoveRequest{}
 		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
 			req.Arg0 = v
 		}
@@ -5616,7 +4530,7 @@ var databaseAbstractCursorMoveToFirstCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewAbstractCursorServiceClient(grpcConn)
-		req := &pb.AbstractCursorMoveToFirstRequest{}
+		req := &pb.MoveToFirstRequest{}
 		resp, err := client.MoveToFirst(ctx, req)
 		if err != nil {
 			return err
@@ -5632,7 +4546,7 @@ var databaseAbstractCursorMoveToLastCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewAbstractCursorServiceClient(grpcConn)
-		req := &pb.AbstractCursorMoveToLastRequest{}
+		req := &pb.MoveToLastRequest{}
 		resp, err := client.MoveToLast(ctx, req)
 		if err != nil {
 			return err
@@ -5648,7 +4562,7 @@ var databaseAbstractCursorMoveToNextCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewAbstractCursorServiceClient(grpcConn)
-		req := &pb.AbstractCursorMoveToNextRequest{}
+		req := &pb.MoveToNextRequest{}
 		resp, err := client.MoveToNext(ctx, req)
 		if err != nil {
 			return err
@@ -5664,7 +4578,7 @@ var databaseAbstractCursorMoveToPositionCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewAbstractCursorServiceClient(grpcConn)
-		req := &pb.AbstractCursorMoveToPositionRequest{}
+		req := &pb.MoveToPositionRequest{}
 		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
 			req.Arg0 = v
 		}
@@ -5683,7 +4597,7 @@ var databaseAbstractCursorMoveToPreviousCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewAbstractCursorServiceClient(grpcConn)
-		req := &pb.AbstractCursorMoveToPreviousRequest{}
+		req := &pb.MoveToPreviousRequest{}
 		resp, err := client.MoveToPrevious(ctx, req)
 		if err != nil {
 			return err
@@ -5699,7 +4613,7 @@ var databaseAbstractCursorOnMoveCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewAbstractCursorServiceClient(grpcConn)
-		req := &pb.AbstractCursorOnMoveRequest{}
+		req := &pb.OnMoveRequest{}
 		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
 			req.Arg0 = v
 		}
@@ -5775,7 +4689,7 @@ var databaseAbstractCursorRespondCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewAbstractCursorServiceClient(grpcConn)
-		req := &pb.AbstractCursorRespondRequest{}
+		req := &pb.RespondRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
@@ -5794,7 +4708,7 @@ var databaseAbstractCursorSetExtrasCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewAbstractCursorServiceClient(grpcConn)
-		req := &pb.AbstractCursorSetExtrasRequest{}
+		req := &pb.SetExtrasRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
@@ -5813,7 +4727,7 @@ var databaseAbstractCursorSetNotificationUriCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewAbstractCursorServiceClient(grpcConn)
-		req := &pb.AbstractCursorSetNotificationUriRequest{}
+		req := &pb.SetNotificationUriRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
@@ -5906,13 +4820,1237 @@ var databaseAbstractCursorSelfContentObserverOnChangeCmd = &cobra.Command{
 	},
 }
 
+var databaseCursorJoinerCmd = &cobra.Command{
+	Use:   "cursor-joiner",
+	Short: "CursorJoinerService operations",
+}
+
+var databaseCursorJoinerNewCursorJoinerCmd = &cobra.Command{
+	Use:   "new-cursor-joiner",
+	Short: "NewCursorJoiner RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCursorJoinerServiceClient(grpcConn)
+		req := &pb.NewCursorJoinerRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.NewCursorJoiner(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var databaseCursorJoinerHasNextCmd = &cobra.Command{
+	Use:   "has-next",
+	Short: "HasNext RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCursorJoinerServiceClient(grpcConn)
+		req := &pb.HasNextRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.HasNext(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var databaseCursorJoinerIteratorCmd = &cobra.Command{
+	Use:   "iterator",
+	Short: "Iterator RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCursorJoinerServiceClient(grpcConn)
+		req := &pb.IteratorRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.Iterator(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var databaseCursorJoinerNext0Cmd = &cobra.Command{
+	Use:   "next0",
+	Short: "Next0 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCursorJoinerServiceClient(grpcConn)
+		req := &pb.Next0Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.Next0(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var databaseCursorJoinerRemoveCmd = &cobra.Command{
+	Use:   "remove",
+	Short: "Remove RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCursorJoinerServiceClient(grpcConn)
+		req := &pb.RemoveRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.Remove(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var databaseCursorJoinerNext0_1Cmd = &cobra.Command{
+	Use:   "next0_1",
+	Short: "Next0_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCursorJoinerServiceClient(grpcConn)
+		req := &pb.Next0_1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.Next0_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var databaseCursorJoinerResultCmd = &cobra.Command{
+	Use:   "cursor-joiner-result",
+	Short: "CursorJoinerResultService operations",
+}
+
+var databaseCursorJoinerResultValuesCmd = &cobra.Command{
+	Use:   "values",
+	Short: "Values RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCursorJoinerResultServiceClient(grpcConn)
+		req := &pb.ValuesRequest{}
+		resp, err := client.Values(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var databaseCursorJoinerResultValueOfCmd = &cobra.Command{
+	Use:   "value-of",
+	Short: "ValueOf RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCursorJoinerResultServiceClient(grpcConn)
+		req := &pb.ValueOfRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.ValueOf(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var databaseCursorWrapperCmd = &cobra.Command{
+	Use:   "cursor-wrapper",
+	Short: "CursorWrapperService operations",
+}
+
+var databaseCursorWrapperNewCursorWrapperCmd = &cobra.Command{
+	Use:   "new-cursor-wrapper",
+	Short: "NewCursorWrapper RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCursorWrapperServiceClient(grpcConn)
+		req := &pb.NewCursorWrapperRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.NewCursorWrapper(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var databaseCursorWrapperCloseCmd = &cobra.Command{
+	Use:   "close",
+	Short: "Close RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCursorWrapperServiceClient(grpcConn)
+		req := &pb.CursorWrapperCloseRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.Close(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var databaseCursorWrapperCopyStringToBufferCmd = &cobra.Command{
+	Use:   "copy-string-to-buffer",
+	Short: "CopyStringToBuffer RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCursorWrapperServiceClient(grpcConn)
+		req := &pb.CursorWrapperCopyStringToBufferRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.CopyStringToBuffer(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var databaseCursorWrapperDeactivateCmd = &cobra.Command{
+	Use:   "deactivate",
+	Short: "Deactivate RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCursorWrapperServiceClient(grpcConn)
+		req := &pb.DeactivateRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.Deactivate(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var databaseCursorWrapperGetBlobCmd = &cobra.Command{
+	Use:   "get-blob",
+	Short: "GetBlob RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCursorWrapperServiceClient(grpcConn)
+		req := &pb.GetBlobRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetBlob(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var databaseCursorWrapperGetColumnCountCmd = &cobra.Command{
+	Use:   "get-column-count",
+	Short: "GetColumnCount RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCursorWrapperServiceClient(grpcConn)
+		req := &pb.CursorWrapperGetColumnCountRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetColumnCount(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var databaseCursorWrapperGetColumnIndexCmd = &cobra.Command{
+	Use:   "get-column-index",
+	Short: "GetColumnIndex RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCursorWrapperServiceClient(grpcConn)
+		req := &pb.CursorWrapperGetColumnIndexRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetColumnIndex(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var databaseCursorWrapperGetColumnIndexOrThrowCmd = &cobra.Command{
+	Use:   "get-column-index-or-throw",
+	Short: "GetColumnIndexOrThrow RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCursorWrapperServiceClient(grpcConn)
+		req := &pb.CursorWrapperGetColumnIndexOrThrowRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetColumnIndexOrThrow(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var databaseCursorWrapperGetColumnNameCmd = &cobra.Command{
+	Use:   "get-column-name",
+	Short: "GetColumnName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCursorWrapperServiceClient(grpcConn)
+		req := &pb.CursorWrapperGetColumnNameRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetColumnName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var databaseCursorWrapperGetColumnNamesCmd = &cobra.Command{
+	Use:   "get-column-names",
+	Short: "GetColumnNames RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCursorWrapperServiceClient(grpcConn)
+		req := &pb.GetColumnNamesRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetColumnNames(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var databaseCursorWrapperGetCountCmd = &cobra.Command{
+	Use:   "get-count",
+	Short: "GetCount RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCursorWrapperServiceClient(grpcConn)
+		req := &pb.GetCountRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetCount(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var databaseCursorWrapperGetDoubleCmd = &cobra.Command{
+	Use:   "get-double",
+	Short: "GetDouble RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCursorWrapperServiceClient(grpcConn)
+		req := &pb.GetDoubleRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetDouble(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var databaseCursorWrapperGetExtrasCmd = &cobra.Command{
+	Use:   "get-extras",
+	Short: "GetExtras RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCursorWrapperServiceClient(grpcConn)
+		req := &pb.CursorWrapperGetExtrasRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetExtras(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var databaseCursorWrapperGetFloatCmd = &cobra.Command{
+	Use:   "get-float",
+	Short: "GetFloat RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCursorWrapperServiceClient(grpcConn)
+		req := &pb.GetFloatRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetFloat(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var databaseCursorWrapperGetIntCmd = &cobra.Command{
+	Use:   "get-int",
+	Short: "GetInt RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCursorWrapperServiceClient(grpcConn)
+		req := &pb.GetIntRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetInt(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var databaseCursorWrapperGetLongCmd = &cobra.Command{
+	Use:   "get-long",
+	Short: "GetLong RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCursorWrapperServiceClient(grpcConn)
+		req := &pb.GetLongRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetLong(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var databaseCursorWrapperGetNotificationUriCmd = &cobra.Command{
+	Use:   "get-notification-uri",
+	Short: "GetNotificationUri RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCursorWrapperServiceClient(grpcConn)
+		req := &pb.CursorWrapperGetNotificationUriRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetNotificationUri(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var databaseCursorWrapperGetNotificationUrisCmd = &cobra.Command{
+	Use:   "get-notification-uris",
+	Short: "GetNotificationUris RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCursorWrapperServiceClient(grpcConn)
+		req := &pb.CursorWrapperGetNotificationUrisRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetNotificationUris(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var databaseCursorWrapperGetPositionCmd = &cobra.Command{
+	Use:   "get-position",
+	Short: "GetPosition RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCursorWrapperServiceClient(grpcConn)
+		req := &pb.CursorWrapperGetPositionRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetPosition(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var databaseCursorWrapperGetShortCmd = &cobra.Command{
+	Use:   "get-short",
+	Short: "GetShort RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCursorWrapperServiceClient(grpcConn)
+		req := &pb.GetShortRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetShort(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var databaseCursorWrapperGetStringCmd = &cobra.Command{
+	Use:   "get-string",
+	Short: "GetString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCursorWrapperServiceClient(grpcConn)
+		req := &pb.GetStringRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var databaseCursorWrapperGetTypeCmd = &cobra.Command{
+	Use:   "get-type",
+	Short: "GetType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCursorWrapperServiceClient(grpcConn)
+		req := &pb.GetTypeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var databaseCursorWrapperGetWantsAllOnMoveCallsCmd = &cobra.Command{
+	Use:   "get-wants-all-on-move-calls",
+	Short: "GetWantsAllOnMoveCalls RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCursorWrapperServiceClient(grpcConn)
+		req := &pb.CursorWrapperGetWantsAllOnMoveCallsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetWantsAllOnMoveCalls(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var databaseCursorWrapperGetWrappedCursorCmd = &cobra.Command{
+	Use:   "get-wrapped-cursor",
+	Short: "GetWrappedCursor RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCursorWrapperServiceClient(grpcConn)
+		req := &pb.GetWrappedCursorRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetWrappedCursor(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var databaseCursorWrapperIsAfterLastCmd = &cobra.Command{
+	Use:   "is-after-last",
+	Short: "IsAfterLast RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCursorWrapperServiceClient(grpcConn)
+		req := &pb.CursorWrapperIsAfterLastRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.IsAfterLast(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var databaseCursorWrapperIsBeforeFirstCmd = &cobra.Command{
+	Use:   "is-before-first",
+	Short: "IsBeforeFirst RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCursorWrapperServiceClient(grpcConn)
+		req := &pb.CursorWrapperIsBeforeFirstRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.IsBeforeFirst(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var databaseCursorWrapperIsClosedCmd = &cobra.Command{
+	Use:   "is-closed",
+	Short: "IsClosed RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCursorWrapperServiceClient(grpcConn)
+		req := &pb.CursorWrapperIsClosedRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.IsClosed(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var databaseCursorWrapperIsFirstCmd = &cobra.Command{
+	Use:   "is-first",
+	Short: "IsFirst RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCursorWrapperServiceClient(grpcConn)
+		req := &pb.CursorWrapperIsFirstRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.IsFirst(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var databaseCursorWrapperIsLastCmd = &cobra.Command{
+	Use:   "is-last",
+	Short: "IsLast RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCursorWrapperServiceClient(grpcConn)
+		req := &pb.CursorWrapperIsLastRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.IsLast(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var databaseCursorWrapperIsNullCmd = &cobra.Command{
+	Use:   "is-null",
+	Short: "IsNull RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCursorWrapperServiceClient(grpcConn)
+		req := &pb.IsNullRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.IsNull(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var databaseCursorWrapperMoveCmd = &cobra.Command{
+	Use:   "move",
+	Short: "Move RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCursorWrapperServiceClient(grpcConn)
+		req := &pb.CursorWrapperMoveRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Move(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var databaseCursorWrapperMoveToFirstCmd = &cobra.Command{
+	Use:   "move-to-first",
+	Short: "MoveToFirst RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCursorWrapperServiceClient(grpcConn)
+		req := &pb.CursorWrapperMoveToFirstRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.MoveToFirst(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var databaseCursorWrapperMoveToLastCmd = &cobra.Command{
+	Use:   "move-to-last",
+	Short: "MoveToLast RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCursorWrapperServiceClient(grpcConn)
+		req := &pb.CursorWrapperMoveToLastRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.MoveToLast(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var databaseCursorWrapperMoveToNextCmd = &cobra.Command{
+	Use:   "move-to-next",
+	Short: "MoveToNext RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCursorWrapperServiceClient(grpcConn)
+		req := &pb.CursorWrapperMoveToNextRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.MoveToNext(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var databaseCursorWrapperMoveToPositionCmd = &cobra.Command{
+	Use:   "move-to-position",
+	Short: "MoveToPosition RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCursorWrapperServiceClient(grpcConn)
+		req := &pb.CursorWrapperMoveToPositionRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.MoveToPosition(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var databaseCursorWrapperMoveToPreviousCmd = &cobra.Command{
+	Use:   "move-to-previous",
+	Short: "MoveToPrevious RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCursorWrapperServiceClient(grpcConn)
+		req := &pb.CursorWrapperMoveToPreviousRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.MoveToPrevious(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var databaseCursorWrapperRegisterContentObserverCmd = &cobra.Command{
+	Use:   "register-content-observer",
+	Short: "RegisterContentObserver RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCursorWrapperServiceClient(grpcConn)
+		req := &pb.RegisterContentObserverRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.RegisterContentObserver(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var databaseCursorWrapperRegisterDataSetObserverCmd = &cobra.Command{
+	Use:   "register-data-set-observer",
+	Short: "RegisterDataSetObserver RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCursorWrapperServiceClient(grpcConn)
+		req := &pb.RegisterDataSetObserverRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.RegisterDataSetObserver(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var databaseCursorWrapperRequeryCmd = &cobra.Command{
+	Use:   "requery",
+	Short: "Requery RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCursorWrapperServiceClient(grpcConn)
+		req := &pb.RequeryRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.Requery(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var databaseCursorWrapperRespondCmd = &cobra.Command{
+	Use:   "respond",
+	Short: "Respond RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCursorWrapperServiceClient(grpcConn)
+		req := &pb.CursorWrapperRespondRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Respond(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var databaseCursorWrapperSetExtrasCmd = &cobra.Command{
+	Use:   "set-extras",
+	Short: "SetExtras RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCursorWrapperServiceClient(grpcConn)
+		req := &pb.CursorWrapperSetExtrasRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetExtras(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var databaseCursorWrapperSetNotificationUriCmd = &cobra.Command{
+	Use:   "set-notification-uri",
+	Short: "SetNotificationUri RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCursorWrapperServiceClient(grpcConn)
+		req := &pb.CursorWrapperSetNotificationUriRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.SetNotificationUri(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var databaseCursorWrapperUnregisterContentObserverCmd = &cobra.Command{
+	Use:   "unregister-content-observer",
+	Short: "UnregisterContentObserver RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCursorWrapperServiceClient(grpcConn)
+		req := &pb.UnregisterContentObserverRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.UnregisterContentObserver(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var databaseCursorWrapperUnregisterDataSetObserverCmd = &cobra.Command{
+	Use:   "unregister-data-set-observer",
+	Short: "UnregisterDataSetObserver RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCursorWrapperServiceClient(grpcConn)
+		req := &pb.UnregisterDataSetObserverRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.UnregisterDataSetObserver(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var databaseDataSetObservableCmd = &cobra.Command{
+	Use:   "data-set-observable",
+	Short: "DataSetObservableService operations",
+}
+
+var databaseDataSetObservableNewDataSetObservableCmd = &cobra.Command{
+	Use:   "new-data-set-observable",
+	Short: "NewDataSetObservable RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDataSetObservableServiceClient(grpcConn)
+		req := &pb.NewDataSetObservableRequest{}
+		resp, err := client.NewDataSetObservable(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var databaseDataSetObservableNotifyChangedCmd = &cobra.Command{
+	Use:   "notify-changed",
+	Short: "NotifyChanged RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDataSetObservableServiceClient(grpcConn)
+		req := &pb.NotifyChangedRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.NotifyChanged(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var databaseDataSetObservableNotifyInvalidatedCmd = &cobra.Command{
+	Use:   "notify-invalidated",
+	Short: "NotifyInvalidated RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDataSetObservableServiceClient(grpcConn)
+		req := &pb.NotifyInvalidatedRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.NotifyInvalidated(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 func init() {
-	databaseDataSetObservableCmd.AddCommand(databaseDataSetObservableNewDataSetObservableCmd)
-	databaseDataSetObservableNotifyChangedCmd.Flags().Int64("handle", 0, "handle (int64)")
-	databaseDataSetObservableCmd.AddCommand(databaseDataSetObservableNotifyChangedCmd)
-	databaseDataSetObservableNotifyInvalidatedCmd.Flags().Int64("handle", 0, "handle (int64)")
-	databaseDataSetObservableCmd.AddCommand(databaseDataSetObservableNotifyInvalidatedCmd)
-	databaseCmd.AddCommand(databaseDataSetObservableCmd)
+	databaseMatrixCursorNewMatrixCursorCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	databaseMatrixCursorCmd.AddCommand(databaseMatrixCursorNewMatrixCursorCmd)
+	databaseMatrixCursorAddRowCmd.Flags().Int64("handle", 0, "handle (int64)")
+	databaseMatrixCursorAddRowCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	databaseMatrixCursorCmd.AddCommand(databaseMatrixCursorAddRowCmd)
+	databaseMatrixCursorGetBlobCmd.Flags().Int64("handle", 0, "handle (int64)")
+	databaseMatrixCursorGetBlobCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	databaseMatrixCursorCmd.AddCommand(databaseMatrixCursorGetBlobCmd)
+	databaseMatrixCursorGetColumnNamesCmd.Flags().Int64("handle", 0, "handle (int64)")
+	databaseMatrixCursorCmd.AddCommand(databaseMatrixCursorGetColumnNamesCmd)
+	databaseMatrixCursorGetCountCmd.Flags().Int64("handle", 0, "handle (int64)")
+	databaseMatrixCursorCmd.AddCommand(databaseMatrixCursorGetCountCmd)
+	databaseMatrixCursorGetDoubleCmd.Flags().Int64("handle", 0, "handle (int64)")
+	databaseMatrixCursorGetDoubleCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	databaseMatrixCursorCmd.AddCommand(databaseMatrixCursorGetDoubleCmd)
+	databaseMatrixCursorGetFloatCmd.Flags().Int64("handle", 0, "handle (int64)")
+	databaseMatrixCursorGetFloatCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	databaseMatrixCursorCmd.AddCommand(databaseMatrixCursorGetFloatCmd)
+	databaseMatrixCursorGetIntCmd.Flags().Int64("handle", 0, "handle (int64)")
+	databaseMatrixCursorGetIntCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	databaseMatrixCursorCmd.AddCommand(databaseMatrixCursorGetIntCmd)
+	databaseMatrixCursorGetLongCmd.Flags().Int64("handle", 0, "handle (int64)")
+	databaseMatrixCursorGetLongCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	databaseMatrixCursorCmd.AddCommand(databaseMatrixCursorGetLongCmd)
+	databaseMatrixCursorGetShortCmd.Flags().Int64("handle", 0, "handle (int64)")
+	databaseMatrixCursorGetShortCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	databaseMatrixCursorCmd.AddCommand(databaseMatrixCursorGetShortCmd)
+	databaseMatrixCursorGetStringCmd.Flags().Int64("handle", 0, "handle (int64)")
+	databaseMatrixCursorGetStringCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	databaseMatrixCursorCmd.AddCommand(databaseMatrixCursorGetStringCmd)
+	databaseMatrixCursorGetTypeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	databaseMatrixCursorGetTypeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	databaseMatrixCursorCmd.AddCommand(databaseMatrixCursorGetTypeCmd)
+	databaseMatrixCursorIsNullCmd.Flags().Int64("handle", 0, "handle (int64)")
+	databaseMatrixCursorIsNullCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	databaseMatrixCursorCmd.AddCommand(databaseMatrixCursorIsNullCmd)
+	databaseMatrixCursorNewRowCmd.Flags().Int64("handle", 0, "handle (int64)")
+	databaseMatrixCursorCmd.AddCommand(databaseMatrixCursorNewRowCmd)
+	databaseCmd.AddCommand(databaseMatrixCursorCmd)
+	databaseMatrixCursorRowBuilderAdd1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	databaseMatrixCursorRowBuilderCmd.AddCommand(databaseMatrixCursorRowBuilderAdd1Cmd)
+	databaseMatrixCursorRowBuilderAdd2_1Cmd.Flags().String("arg0", "", "arg0 (string)")
+	databaseMatrixCursorRowBuilderAdd2_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	databaseMatrixCursorRowBuilderCmd.AddCommand(databaseMatrixCursorRowBuilderAdd2_1Cmd)
+	databaseCmd.AddCommand(databaseMatrixCursorRowBuilderCmd)
+	databaseAbstractWindowedCursorCopyStringToBufferCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	databaseAbstractWindowedCursorCopyStringToBufferCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	databaseAbstractWindowedCursorCmd.AddCommand(databaseAbstractWindowedCursorCopyStringToBufferCmd)
+	databaseAbstractWindowedCursorGetBlobCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	databaseAbstractWindowedCursorCmd.AddCommand(databaseAbstractWindowedCursorGetBlobCmd)
+	databaseAbstractWindowedCursorGetDoubleCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	databaseAbstractWindowedCursorCmd.AddCommand(databaseAbstractWindowedCursorGetDoubleCmd)
+	databaseAbstractWindowedCursorGetFloatCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	databaseAbstractWindowedCursorCmd.AddCommand(databaseAbstractWindowedCursorGetFloatCmd)
+	databaseAbstractWindowedCursorGetIntCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	databaseAbstractWindowedCursorCmd.AddCommand(databaseAbstractWindowedCursorGetIntCmd)
+	databaseAbstractWindowedCursorGetLongCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	databaseAbstractWindowedCursorCmd.AddCommand(databaseAbstractWindowedCursorGetLongCmd)
+	databaseAbstractWindowedCursorGetShortCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	databaseAbstractWindowedCursorCmd.AddCommand(databaseAbstractWindowedCursorGetShortCmd)
+	databaseAbstractWindowedCursorGetStringCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	databaseAbstractWindowedCursorCmd.AddCommand(databaseAbstractWindowedCursorGetStringCmd)
+	databaseAbstractWindowedCursorGetTypeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	databaseAbstractWindowedCursorCmd.AddCommand(databaseAbstractWindowedCursorGetTypeCmd)
+	databaseAbstractWindowedCursorCmd.AddCommand(databaseAbstractWindowedCursorGetWindowCmd)
+	databaseAbstractWindowedCursorCmd.AddCommand(databaseAbstractWindowedCursorHasWindowCmd)
+	databaseAbstractWindowedCursorIsBlobCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	databaseAbstractWindowedCursorCmd.AddCommand(databaseAbstractWindowedCursorIsBlobCmd)
+	databaseAbstractWindowedCursorIsFloatCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	databaseAbstractWindowedCursorCmd.AddCommand(databaseAbstractWindowedCursorIsFloatCmd)
+	databaseAbstractWindowedCursorIsLongCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	databaseAbstractWindowedCursorCmd.AddCommand(databaseAbstractWindowedCursorIsLongCmd)
+	databaseAbstractWindowedCursorIsNullCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	databaseAbstractWindowedCursorCmd.AddCommand(databaseAbstractWindowedCursorIsNullCmd)
+	databaseAbstractWindowedCursorIsStringCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	databaseAbstractWindowedCursorCmd.AddCommand(databaseAbstractWindowedCursorIsStringCmd)
+	databaseAbstractWindowedCursorSetWindowCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	databaseAbstractWindowedCursorCmd.AddCommand(databaseAbstractWindowedCursorSetWindowCmd)
+	databaseCmd.AddCommand(databaseAbstractWindowedCursorCmd)
+	databaseCrossProcessCursorFillWindowCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	databaseCrossProcessCursorFillWindowCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	databaseCrossProcessCursorCmd.AddCommand(databaseCrossProcessCursorFillWindowCmd)
+	databaseCrossProcessCursorCmd.AddCommand(databaseCrossProcessCursorGetWindowCmd)
+	databaseCrossProcessCursorOnMoveCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	databaseCrossProcessCursorOnMoveCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	databaseCrossProcessCursorCmd.AddCommand(databaseCrossProcessCursorOnMoveCmd)
+	databaseCmd.AddCommand(databaseCrossProcessCursorCmd)
+	databaseDataSetObserverCmd.AddCommand(databaseDataSetObserverOnChangedCmd)
+	databaseDataSetObserverCmd.AddCommand(databaseDataSetObserverOnInvalidatedCmd)
+	databaseCmd.AddCommand(databaseDataSetObserverCmd)
 	databaseUtilsCmd.AddCommand(databaseUtilsNewUtilsCmd)
 	databaseUtilsAppendEscapedSQLStringCmd.Flags().Int64("handle", 0, "handle (int64)")
 	databaseUtilsAppendEscapedSQLStringCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
@@ -6155,51 +6293,19 @@ func init() {
 	databaseUtilsInsertHelperReplaceCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	databaseUtilsInsertHelperCmd.AddCommand(databaseUtilsInsertHelperReplaceCmd)
 	databaseCmd.AddCommand(databaseUtilsInsertHelperCmd)
-	databaseMatrixCursorNewMatrixCursorCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	databaseMatrixCursorCmd.AddCommand(databaseMatrixCursorNewMatrixCursorCmd)
-	databaseMatrixCursorAddRowCmd.Flags().Int64("handle", 0, "handle (int64)")
-	databaseMatrixCursorAddRowCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	databaseMatrixCursorCmd.AddCommand(databaseMatrixCursorAddRowCmd)
-	databaseMatrixCursorGetBlobCmd.Flags().Int64("handle", 0, "handle (int64)")
-	databaseMatrixCursorGetBlobCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	databaseMatrixCursorCmd.AddCommand(databaseMatrixCursorGetBlobCmd)
-	databaseMatrixCursorGetColumnNamesCmd.Flags().Int64("handle", 0, "handle (int64)")
-	databaseMatrixCursorCmd.AddCommand(databaseMatrixCursorGetColumnNamesCmd)
-	databaseMatrixCursorGetCountCmd.Flags().Int64("handle", 0, "handle (int64)")
-	databaseMatrixCursorCmd.AddCommand(databaseMatrixCursorGetCountCmd)
-	databaseMatrixCursorGetDoubleCmd.Flags().Int64("handle", 0, "handle (int64)")
-	databaseMatrixCursorGetDoubleCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	databaseMatrixCursorCmd.AddCommand(databaseMatrixCursorGetDoubleCmd)
-	databaseMatrixCursorGetFloatCmd.Flags().Int64("handle", 0, "handle (int64)")
-	databaseMatrixCursorGetFloatCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	databaseMatrixCursorCmd.AddCommand(databaseMatrixCursorGetFloatCmd)
-	databaseMatrixCursorGetIntCmd.Flags().Int64("handle", 0, "handle (int64)")
-	databaseMatrixCursorGetIntCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	databaseMatrixCursorCmd.AddCommand(databaseMatrixCursorGetIntCmd)
-	databaseMatrixCursorGetLongCmd.Flags().Int64("handle", 0, "handle (int64)")
-	databaseMatrixCursorGetLongCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	databaseMatrixCursorCmd.AddCommand(databaseMatrixCursorGetLongCmd)
-	databaseMatrixCursorGetShortCmd.Flags().Int64("handle", 0, "handle (int64)")
-	databaseMatrixCursorGetShortCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	databaseMatrixCursorCmd.AddCommand(databaseMatrixCursorGetShortCmd)
-	databaseMatrixCursorGetStringCmd.Flags().Int64("handle", 0, "handle (int64)")
-	databaseMatrixCursorGetStringCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	databaseMatrixCursorCmd.AddCommand(databaseMatrixCursorGetStringCmd)
-	databaseMatrixCursorGetTypeCmd.Flags().Int64("handle", 0, "handle (int64)")
-	databaseMatrixCursorGetTypeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	databaseMatrixCursorCmd.AddCommand(databaseMatrixCursorGetTypeCmd)
-	databaseMatrixCursorIsNullCmd.Flags().Int64("handle", 0, "handle (int64)")
-	databaseMatrixCursorIsNullCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	databaseMatrixCursorCmd.AddCommand(databaseMatrixCursorIsNullCmd)
-	databaseMatrixCursorNewRowCmd.Flags().Int64("handle", 0, "handle (int64)")
-	databaseMatrixCursorCmd.AddCommand(databaseMatrixCursorNewRowCmd)
-	databaseCmd.AddCommand(databaseMatrixCursorCmd)
-	databaseMatrixCursorRowBuilderAdd1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	databaseMatrixCursorRowBuilderCmd.AddCommand(databaseMatrixCursorRowBuilderAdd1Cmd)
-	databaseMatrixCursorRowBuilderAdd2_1Cmd.Flags().String("arg0", "", "arg0 (string)")
-	databaseMatrixCursorRowBuilderAdd2_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	databaseMatrixCursorRowBuilderCmd.AddCommand(databaseMatrixCursorRowBuilderAdd2_1Cmd)
-	databaseCmd.AddCommand(databaseMatrixCursorRowBuilderCmd)
+	databaseCrossProcessCursorWrapperNewCrossProcessCursorWrapperCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	databaseCrossProcessCursorWrapperCmd.AddCommand(databaseCrossProcessCursorWrapperNewCrossProcessCursorWrapperCmd)
+	databaseCrossProcessCursorWrapperFillWindowCmd.Flags().Int64("handle", 0, "handle (int64)")
+	databaseCrossProcessCursorWrapperFillWindowCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	databaseCrossProcessCursorWrapperFillWindowCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	databaseCrossProcessCursorWrapperCmd.AddCommand(databaseCrossProcessCursorWrapperFillWindowCmd)
+	databaseCrossProcessCursorWrapperGetWindowCmd.Flags().Int64("handle", 0, "handle (int64)")
+	databaseCrossProcessCursorWrapperCmd.AddCommand(databaseCrossProcessCursorWrapperGetWindowCmd)
+	databaseCrossProcessCursorWrapperOnMoveCmd.Flags().Int64("handle", 0, "handle (int64)")
+	databaseCrossProcessCursorWrapperOnMoveCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	databaseCrossProcessCursorWrapperOnMoveCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	databaseCrossProcessCursorWrapperCmd.AddCommand(databaseCrossProcessCursorWrapperOnMoveCmd)
+	databaseCmd.AddCommand(databaseCrossProcessCursorWrapperCmd)
 	databaseContentObserverCmd.AddCommand(databaseContentObserverDeliverSelfNotificationsCmd)
 	databaseContentObserverDispatchChange1Cmd.Flags().Bool("arg0", false, "arg0 (bool)")
 	databaseContentObserverCmd.AddCommand(databaseContentObserverDispatchChange1Cmd)
@@ -6225,161 +6331,24 @@ func init() {
 	databaseDefaultDatabaseErrorHandlerOnCorruptionCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	databaseDefaultDatabaseErrorHandlerCmd.AddCommand(databaseDefaultDatabaseErrorHandlerOnCorruptionCmd)
 	databaseCmd.AddCommand(databaseDefaultDatabaseErrorHandlerCmd)
-	databaseCursorWrapperNewCursorWrapperCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	databaseCursorWrapperCmd.AddCommand(databaseCursorWrapperNewCursorWrapperCmd)
-	databaseCursorWrapperCloseCmd.Flags().Int64("handle", 0, "handle (int64)")
-	databaseCursorWrapperCmd.AddCommand(databaseCursorWrapperCloseCmd)
-	databaseCursorWrapperCopyStringToBufferCmd.Flags().Int64("handle", 0, "handle (int64)")
-	databaseCursorWrapperCopyStringToBufferCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	databaseCursorWrapperCopyStringToBufferCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	databaseCursorWrapperCmd.AddCommand(databaseCursorWrapperCopyStringToBufferCmd)
-	databaseCursorWrapperDeactivateCmd.Flags().Int64("handle", 0, "handle (int64)")
-	databaseCursorWrapperCmd.AddCommand(databaseCursorWrapperDeactivateCmd)
-	databaseCursorWrapperGetBlobCmd.Flags().Int64("handle", 0, "handle (int64)")
-	databaseCursorWrapperGetBlobCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	databaseCursorWrapperCmd.AddCommand(databaseCursorWrapperGetBlobCmd)
-	databaseCursorWrapperGetColumnCountCmd.Flags().Int64("handle", 0, "handle (int64)")
-	databaseCursorWrapperCmd.AddCommand(databaseCursorWrapperGetColumnCountCmd)
-	databaseCursorWrapperGetColumnIndexCmd.Flags().Int64("handle", 0, "handle (int64)")
-	databaseCursorWrapperGetColumnIndexCmd.Flags().String("arg0", "", "arg0 (string)")
-	databaseCursorWrapperCmd.AddCommand(databaseCursorWrapperGetColumnIndexCmd)
-	databaseCursorWrapperGetColumnIndexOrThrowCmd.Flags().Int64("handle", 0, "handle (int64)")
-	databaseCursorWrapperGetColumnIndexOrThrowCmd.Flags().String("arg0", "", "arg0 (string)")
-	databaseCursorWrapperCmd.AddCommand(databaseCursorWrapperGetColumnIndexOrThrowCmd)
-	databaseCursorWrapperGetColumnNameCmd.Flags().Int64("handle", 0, "handle (int64)")
-	databaseCursorWrapperGetColumnNameCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	databaseCursorWrapperCmd.AddCommand(databaseCursorWrapperGetColumnNameCmd)
-	databaseCursorWrapperGetColumnNamesCmd.Flags().Int64("handle", 0, "handle (int64)")
-	databaseCursorWrapperCmd.AddCommand(databaseCursorWrapperGetColumnNamesCmd)
-	databaseCursorWrapperGetCountCmd.Flags().Int64("handle", 0, "handle (int64)")
-	databaseCursorWrapperCmd.AddCommand(databaseCursorWrapperGetCountCmd)
-	databaseCursorWrapperGetDoubleCmd.Flags().Int64("handle", 0, "handle (int64)")
-	databaseCursorWrapperGetDoubleCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	databaseCursorWrapperCmd.AddCommand(databaseCursorWrapperGetDoubleCmd)
-	databaseCursorWrapperGetExtrasCmd.Flags().Int64("handle", 0, "handle (int64)")
-	databaseCursorWrapperCmd.AddCommand(databaseCursorWrapperGetExtrasCmd)
-	databaseCursorWrapperGetFloatCmd.Flags().Int64("handle", 0, "handle (int64)")
-	databaseCursorWrapperGetFloatCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	databaseCursorWrapperCmd.AddCommand(databaseCursorWrapperGetFloatCmd)
-	databaseCursorWrapperGetIntCmd.Flags().Int64("handle", 0, "handle (int64)")
-	databaseCursorWrapperGetIntCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	databaseCursorWrapperCmd.AddCommand(databaseCursorWrapperGetIntCmd)
-	databaseCursorWrapperGetLongCmd.Flags().Int64("handle", 0, "handle (int64)")
-	databaseCursorWrapperGetLongCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	databaseCursorWrapperCmd.AddCommand(databaseCursorWrapperGetLongCmd)
-	databaseCursorWrapperGetNotificationUriCmd.Flags().Int64("handle", 0, "handle (int64)")
-	databaseCursorWrapperCmd.AddCommand(databaseCursorWrapperGetNotificationUriCmd)
-	databaseCursorWrapperGetPositionCmd.Flags().Int64("handle", 0, "handle (int64)")
-	databaseCursorWrapperCmd.AddCommand(databaseCursorWrapperGetPositionCmd)
-	databaseCursorWrapperGetShortCmd.Flags().Int64("handle", 0, "handle (int64)")
-	databaseCursorWrapperGetShortCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	databaseCursorWrapperCmd.AddCommand(databaseCursorWrapperGetShortCmd)
-	databaseCursorWrapperGetStringCmd.Flags().Int64("handle", 0, "handle (int64)")
-	databaseCursorWrapperGetStringCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	databaseCursorWrapperCmd.AddCommand(databaseCursorWrapperGetStringCmd)
-	databaseCursorWrapperGetTypeCmd.Flags().Int64("handle", 0, "handle (int64)")
-	databaseCursorWrapperGetTypeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	databaseCursorWrapperCmd.AddCommand(databaseCursorWrapperGetTypeCmd)
-	databaseCursorWrapperGetWantsAllOnMoveCallsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	databaseCursorWrapperCmd.AddCommand(databaseCursorWrapperGetWantsAllOnMoveCallsCmd)
-	databaseCursorWrapperGetWrappedCursorCmd.Flags().Int64("handle", 0, "handle (int64)")
-	databaseCursorWrapperCmd.AddCommand(databaseCursorWrapperGetWrappedCursorCmd)
-	databaseCursorWrapperIsAfterLastCmd.Flags().Int64("handle", 0, "handle (int64)")
-	databaseCursorWrapperCmd.AddCommand(databaseCursorWrapperIsAfterLastCmd)
-	databaseCursorWrapperIsBeforeFirstCmd.Flags().Int64("handle", 0, "handle (int64)")
-	databaseCursorWrapperCmd.AddCommand(databaseCursorWrapperIsBeforeFirstCmd)
-	databaseCursorWrapperIsClosedCmd.Flags().Int64("handle", 0, "handle (int64)")
-	databaseCursorWrapperCmd.AddCommand(databaseCursorWrapperIsClosedCmd)
-	databaseCursorWrapperIsFirstCmd.Flags().Int64("handle", 0, "handle (int64)")
-	databaseCursorWrapperCmd.AddCommand(databaseCursorWrapperIsFirstCmd)
-	databaseCursorWrapperIsLastCmd.Flags().Int64("handle", 0, "handle (int64)")
-	databaseCursorWrapperCmd.AddCommand(databaseCursorWrapperIsLastCmd)
-	databaseCursorWrapperIsNullCmd.Flags().Int64("handle", 0, "handle (int64)")
-	databaseCursorWrapperIsNullCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	databaseCursorWrapperCmd.AddCommand(databaseCursorWrapperIsNullCmd)
-	databaseCursorWrapperMoveCmd.Flags().Int64("handle", 0, "handle (int64)")
-	databaseCursorWrapperMoveCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	databaseCursorWrapperCmd.AddCommand(databaseCursorWrapperMoveCmd)
-	databaseCursorWrapperMoveToFirstCmd.Flags().Int64("handle", 0, "handle (int64)")
-	databaseCursorWrapperCmd.AddCommand(databaseCursorWrapperMoveToFirstCmd)
-	databaseCursorWrapperMoveToLastCmd.Flags().Int64("handle", 0, "handle (int64)")
-	databaseCursorWrapperCmd.AddCommand(databaseCursorWrapperMoveToLastCmd)
-	databaseCursorWrapperMoveToNextCmd.Flags().Int64("handle", 0, "handle (int64)")
-	databaseCursorWrapperCmd.AddCommand(databaseCursorWrapperMoveToNextCmd)
-	databaseCursorWrapperMoveToPositionCmd.Flags().Int64("handle", 0, "handle (int64)")
-	databaseCursorWrapperMoveToPositionCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	databaseCursorWrapperCmd.AddCommand(databaseCursorWrapperMoveToPositionCmd)
-	databaseCursorWrapperMoveToPreviousCmd.Flags().Int64("handle", 0, "handle (int64)")
-	databaseCursorWrapperCmd.AddCommand(databaseCursorWrapperMoveToPreviousCmd)
-	databaseCursorWrapperRegisterContentObserverCmd.Flags().Int64("handle", 0, "handle (int64)")
-	databaseCursorWrapperRegisterContentObserverCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	databaseCursorWrapperCmd.AddCommand(databaseCursorWrapperRegisterContentObserverCmd)
-	databaseCursorWrapperRegisterDataSetObserverCmd.Flags().Int64("handle", 0, "handle (int64)")
-	databaseCursorWrapperRegisterDataSetObserverCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	databaseCursorWrapperCmd.AddCommand(databaseCursorWrapperRegisterDataSetObserverCmd)
-	databaseCursorWrapperRequeryCmd.Flags().Int64("handle", 0, "handle (int64)")
-	databaseCursorWrapperCmd.AddCommand(databaseCursorWrapperRequeryCmd)
-	databaseCursorWrapperRespondCmd.Flags().Int64("handle", 0, "handle (int64)")
-	databaseCursorWrapperRespondCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	databaseCursorWrapperCmd.AddCommand(databaseCursorWrapperRespondCmd)
-	databaseCursorWrapperSetExtrasCmd.Flags().Int64("handle", 0, "handle (int64)")
-	databaseCursorWrapperSetExtrasCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	databaseCursorWrapperCmd.AddCommand(databaseCursorWrapperSetExtrasCmd)
-	databaseCursorWrapperSetNotificationUriCmd.Flags().Int64("handle", 0, "handle (int64)")
-	databaseCursorWrapperSetNotificationUriCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	databaseCursorWrapperSetNotificationUriCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	databaseCursorWrapperCmd.AddCommand(databaseCursorWrapperSetNotificationUriCmd)
-	databaseCursorWrapperUnregisterContentObserverCmd.Flags().Int64("handle", 0, "handle (int64)")
-	databaseCursorWrapperUnregisterContentObserverCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	databaseCursorWrapperCmd.AddCommand(databaseCursorWrapperUnregisterContentObserverCmd)
-	databaseCursorWrapperUnregisterDataSetObserverCmd.Flags().Int64("handle", 0, "handle (int64)")
-	databaseCursorWrapperUnregisterDataSetObserverCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	databaseCursorWrapperCmd.AddCommand(databaseCursorWrapperUnregisterDataSetObserverCmd)
-	databaseCmd.AddCommand(databaseCursorWrapperCmd)
-	databaseObservableCmd.AddCommand(databaseObservableUnregisterAllCmd)
-	databaseCmd.AddCommand(databaseObservableCmd)
-	databaseCrossProcessCursorWrapperNewCrossProcessCursorWrapperCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	databaseCrossProcessCursorWrapperCmd.AddCommand(databaseCrossProcessCursorWrapperNewCrossProcessCursorWrapperCmd)
-	databaseCrossProcessCursorWrapperFillWindowCmd.Flags().Int64("handle", 0, "handle (int64)")
-	databaseCrossProcessCursorWrapperFillWindowCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	databaseCrossProcessCursorWrapperFillWindowCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	databaseCrossProcessCursorWrapperCmd.AddCommand(databaseCrossProcessCursorWrapperFillWindowCmd)
-	databaseCrossProcessCursorWrapperGetWindowCmd.Flags().Int64("handle", 0, "handle (int64)")
-	databaseCrossProcessCursorWrapperCmd.AddCommand(databaseCrossProcessCursorWrapperGetWindowCmd)
-	databaseCrossProcessCursorWrapperOnMoveCmd.Flags().Int64("handle", 0, "handle (int64)")
-	databaseCrossProcessCursorWrapperOnMoveCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	databaseCrossProcessCursorWrapperOnMoveCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	databaseCrossProcessCursorWrapperCmd.AddCommand(databaseCrossProcessCursorWrapperOnMoveCmd)
-	databaseCmd.AddCommand(databaseCrossProcessCursorWrapperCmd)
-	databaseDataSetObserverCmd.AddCommand(databaseDataSetObserverOnChangedCmd)
-	databaseDataSetObserverCmd.AddCommand(databaseDataSetObserverOnInvalidatedCmd)
-	databaseCmd.AddCommand(databaseDataSetObserverCmd)
-	databaseCursorJoinerNewCursorJoinerCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	databaseCursorJoinerNewCursorJoinerCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	databaseCursorJoinerNewCursorJoinerCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	databaseCursorJoinerNewCursorJoinerCmd.Flags().Int64("arg3", 0, "arg3 (int64)")
-	databaseCursorJoinerCmd.AddCommand(databaseCursorJoinerNewCursorJoinerCmd)
-	databaseCursorJoinerHasNextCmd.Flags().Int64("handle", 0, "handle (int64)")
-	databaseCursorJoinerCmd.AddCommand(databaseCursorJoinerHasNextCmd)
-	databaseCursorJoinerNext0Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	databaseCursorJoinerCmd.AddCommand(databaseCursorJoinerNext0Cmd)
-	databaseCursorJoinerRemoveCmd.Flags().Int64("handle", 0, "handle (int64)")
-	databaseCursorJoinerCmd.AddCommand(databaseCursorJoinerRemoveCmd)
-	databaseCursorJoinerNext0_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	databaseCursorJoinerCmd.AddCommand(databaseCursorJoinerNext0_1Cmd)
-	databaseCmd.AddCommand(databaseCursorJoinerCmd)
-	databaseCursorJoinerResultCmd.AddCommand(databaseCursorJoinerResultValuesCmd)
-	databaseCursorJoinerResultValueOfCmd.Flags().String("arg0", "", "arg0 (string)")
-	databaseCursorJoinerResultCmd.AddCommand(databaseCursorJoinerResultValueOfCmd)
-	databaseCmd.AddCommand(databaseCursorJoinerResultCmd)
-	databaseCrossProcessCursorFillWindowCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	databaseCrossProcessCursorFillWindowCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	databaseCrossProcessCursorCmd.AddCommand(databaseCrossProcessCursorFillWindowCmd)
-	databaseCrossProcessCursorCmd.AddCommand(databaseCrossProcessCursorGetWindowCmd)
-	databaseCrossProcessCursorOnMoveCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	databaseCrossProcessCursorOnMoveCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	databaseCrossProcessCursorCmd.AddCommand(databaseCrossProcessCursorOnMoveCmd)
-	databaseCmd.AddCommand(databaseCrossProcessCursorCmd)
+	databaseContentObservableCmd.AddCommand(databaseContentObservableNewContentObservableCmd)
+	databaseContentObservableDispatchChange1Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	databaseContentObservableDispatchChange1Cmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	databaseContentObservableCmd.AddCommand(databaseContentObservableDispatchChange1Cmd)
+	databaseContentObservableDispatchChange2_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	databaseContentObservableDispatchChange2_1Cmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	databaseContentObservableDispatchChange2_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	databaseContentObservableCmd.AddCommand(databaseContentObservableDispatchChange2_1Cmd)
+	databaseContentObservableNotifyChangeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	databaseContentObservableNotifyChangeCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	databaseContentObservableCmd.AddCommand(databaseContentObservableNotifyChangeCmd)
+	databaseContentObservableRegisterObserver1Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	databaseContentObservableRegisterObserver1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	databaseContentObservableCmd.AddCommand(databaseContentObservableRegisterObserver1Cmd)
+	databaseContentObservableRegisterObserver1_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	databaseContentObservableRegisterObserver1_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	databaseContentObservableCmd.AddCommand(databaseContentObservableRegisterObserver1_1Cmd)
+	databaseCmd.AddCommand(databaseContentObservableCmd)
 	databaseCursorWindowNewCursorWindowCmd.Flags().Bool("arg0", false, "arg0 (bool)")
 	databaseCursorWindowCmd.AddCommand(databaseCursorWindowNewCursorWindowCmd)
 	databaseCursorWindowAllocRowCmd.Flags().Int64("handle", 0, "handle (int64)")
@@ -6491,24 +6460,11 @@ func init() {
 	databaseCursorWindowNewFromParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	databaseCursorWindowCmd.AddCommand(databaseCursorWindowNewFromParcelCmd)
 	databaseCmd.AddCommand(databaseCursorWindowCmd)
-	databaseContentObservableCmd.AddCommand(databaseContentObservableNewContentObservableCmd)
-	databaseContentObservableDispatchChange1Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	databaseContentObservableDispatchChange1Cmd.Flags().Bool("arg0", false, "arg0 (bool)")
-	databaseContentObservableCmd.AddCommand(databaseContentObservableDispatchChange1Cmd)
-	databaseContentObservableDispatchChange2_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	databaseContentObservableDispatchChange2_1Cmd.Flags().Bool("arg0", false, "arg0 (bool)")
-	databaseContentObservableDispatchChange2_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	databaseContentObservableCmd.AddCommand(databaseContentObservableDispatchChange2_1Cmd)
-	databaseContentObservableNotifyChangeCmd.Flags().Int64("handle", 0, "handle (int64)")
-	databaseContentObservableNotifyChangeCmd.Flags().Bool("arg0", false, "arg0 (bool)")
-	databaseContentObservableCmd.AddCommand(databaseContentObservableNotifyChangeCmd)
-	databaseContentObservableRegisterObserver1Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	databaseContentObservableRegisterObserver1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	databaseContentObservableCmd.AddCommand(databaseContentObservableRegisterObserver1Cmd)
-	databaseContentObservableRegisterObserver1_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	databaseContentObservableRegisterObserver1_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	databaseContentObservableCmd.AddCommand(databaseContentObservableRegisterObserver1_1Cmd)
-	databaseCmd.AddCommand(databaseContentObservableCmd)
+	databaseErrorHandlerOnCorruptionCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	databaseErrorHandlerCmd.AddCommand(databaseErrorHandlerOnCorruptionCmd)
+	databaseCmd.AddCommand(databaseErrorHandlerCmd)
+	databaseObservableCmd.AddCommand(databaseObservableUnregisterAllCmd)
+	databaseCmd.AddCommand(databaseObservableCmd)
 	databaseMergeCursorNewMergeCursorCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	databaseMergeCursorCmd.AddCommand(databaseMergeCursorNewMergeCursorCmd)
 	databaseMergeCursorCloseCmd.Flags().Int64("handle", 0, "handle (int64)")
@@ -6565,43 +6521,6 @@ func init() {
 	databaseMergeCursorUnregisterDataSetObserverCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	databaseMergeCursorCmd.AddCommand(databaseMergeCursorUnregisterDataSetObserverCmd)
 	databaseCmd.AddCommand(databaseMergeCursorCmd)
-	databaseAbstractWindowedCursorCopyStringToBufferCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	databaseAbstractWindowedCursorCopyStringToBufferCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	databaseAbstractWindowedCursorCmd.AddCommand(databaseAbstractWindowedCursorCopyStringToBufferCmd)
-	databaseAbstractWindowedCursorGetBlobCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	databaseAbstractWindowedCursorCmd.AddCommand(databaseAbstractWindowedCursorGetBlobCmd)
-	databaseAbstractWindowedCursorGetDoubleCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	databaseAbstractWindowedCursorCmd.AddCommand(databaseAbstractWindowedCursorGetDoubleCmd)
-	databaseAbstractWindowedCursorGetFloatCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	databaseAbstractWindowedCursorCmd.AddCommand(databaseAbstractWindowedCursorGetFloatCmd)
-	databaseAbstractWindowedCursorGetIntCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	databaseAbstractWindowedCursorCmd.AddCommand(databaseAbstractWindowedCursorGetIntCmd)
-	databaseAbstractWindowedCursorGetLongCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	databaseAbstractWindowedCursorCmd.AddCommand(databaseAbstractWindowedCursorGetLongCmd)
-	databaseAbstractWindowedCursorGetShortCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	databaseAbstractWindowedCursorCmd.AddCommand(databaseAbstractWindowedCursorGetShortCmd)
-	databaseAbstractWindowedCursorGetStringCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	databaseAbstractWindowedCursorCmd.AddCommand(databaseAbstractWindowedCursorGetStringCmd)
-	databaseAbstractWindowedCursorGetTypeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	databaseAbstractWindowedCursorCmd.AddCommand(databaseAbstractWindowedCursorGetTypeCmd)
-	databaseAbstractWindowedCursorCmd.AddCommand(databaseAbstractWindowedCursorGetWindowCmd)
-	databaseAbstractWindowedCursorCmd.AddCommand(databaseAbstractWindowedCursorHasWindowCmd)
-	databaseAbstractWindowedCursorIsBlobCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	databaseAbstractWindowedCursorCmd.AddCommand(databaseAbstractWindowedCursorIsBlobCmd)
-	databaseAbstractWindowedCursorIsFloatCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	databaseAbstractWindowedCursorCmd.AddCommand(databaseAbstractWindowedCursorIsFloatCmd)
-	databaseAbstractWindowedCursorIsLongCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	databaseAbstractWindowedCursorCmd.AddCommand(databaseAbstractWindowedCursorIsLongCmd)
-	databaseAbstractWindowedCursorIsNullCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	databaseAbstractWindowedCursorCmd.AddCommand(databaseAbstractWindowedCursorIsNullCmd)
-	databaseAbstractWindowedCursorIsStringCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	databaseAbstractWindowedCursorCmd.AddCommand(databaseAbstractWindowedCursorIsStringCmd)
-	databaseAbstractWindowedCursorSetWindowCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	databaseAbstractWindowedCursorCmd.AddCommand(databaseAbstractWindowedCursorSetWindowCmd)
-	databaseCmd.AddCommand(databaseAbstractWindowedCursorCmd)
-	databaseErrorHandlerOnCorruptionCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	databaseErrorHandlerCmd.AddCommand(databaseErrorHandlerOnCorruptionCmd)
-	databaseCmd.AddCommand(databaseErrorHandlerCmd)
 	databaseAbstractCursorCmd.AddCommand(databaseAbstractCursorCloseCmd)
 	databaseAbstractCursorCopyStringToBufferCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
 	databaseAbstractCursorCopyStringToBufferCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
@@ -6631,6 +6550,7 @@ func init() {
 	databaseAbstractCursorGetLongCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
 	databaseAbstractCursorCmd.AddCommand(databaseAbstractCursorGetLongCmd)
 	databaseAbstractCursorCmd.AddCommand(databaseAbstractCursorGetNotificationUriCmd)
+	databaseAbstractCursorCmd.AddCommand(databaseAbstractCursorGetNotificationUrisCmd)
 	databaseAbstractCursorCmd.AddCommand(databaseAbstractCursorGetPositionCmd)
 	databaseAbstractCursorGetShortCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
 	databaseAbstractCursorCmd.AddCommand(databaseAbstractCursorGetShortCmd)
@@ -6679,5 +6599,144 @@ func init() {
 	databaseAbstractCursorSelfContentObserverOnChangeCmd.Flags().Bool("arg0", false, "arg0 (bool)")
 	databaseAbstractCursorSelfContentObserverCmd.AddCommand(databaseAbstractCursorSelfContentObserverOnChangeCmd)
 	databaseCmd.AddCommand(databaseAbstractCursorSelfContentObserverCmd)
+	databaseCursorJoinerNewCursorJoinerCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	databaseCursorJoinerNewCursorJoinerCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	databaseCursorJoinerNewCursorJoinerCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	databaseCursorJoinerNewCursorJoinerCmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	databaseCursorJoinerCmd.AddCommand(databaseCursorJoinerNewCursorJoinerCmd)
+	databaseCursorJoinerHasNextCmd.Flags().Int64("handle", 0, "handle (int64)")
+	databaseCursorJoinerCmd.AddCommand(databaseCursorJoinerHasNextCmd)
+	databaseCursorJoinerIteratorCmd.Flags().Int64("handle", 0, "handle (int64)")
+	databaseCursorJoinerCmd.AddCommand(databaseCursorJoinerIteratorCmd)
+	databaseCursorJoinerNext0Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	databaseCursorJoinerCmd.AddCommand(databaseCursorJoinerNext0Cmd)
+	databaseCursorJoinerRemoveCmd.Flags().Int64("handle", 0, "handle (int64)")
+	databaseCursorJoinerCmd.AddCommand(databaseCursorJoinerRemoveCmd)
+	databaseCursorJoinerNext0_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	databaseCursorJoinerCmd.AddCommand(databaseCursorJoinerNext0_1Cmd)
+	databaseCmd.AddCommand(databaseCursorJoinerCmd)
+	databaseCursorJoinerResultCmd.AddCommand(databaseCursorJoinerResultValuesCmd)
+	databaseCursorJoinerResultValueOfCmd.Flags().String("arg0", "", "arg0 (string)")
+	databaseCursorJoinerResultCmd.AddCommand(databaseCursorJoinerResultValueOfCmd)
+	databaseCmd.AddCommand(databaseCursorJoinerResultCmd)
+	databaseCursorWrapperNewCursorWrapperCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	databaseCursorWrapperCmd.AddCommand(databaseCursorWrapperNewCursorWrapperCmd)
+	databaseCursorWrapperCloseCmd.Flags().Int64("handle", 0, "handle (int64)")
+	databaseCursorWrapperCmd.AddCommand(databaseCursorWrapperCloseCmd)
+	databaseCursorWrapperCopyStringToBufferCmd.Flags().Int64("handle", 0, "handle (int64)")
+	databaseCursorWrapperCopyStringToBufferCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	databaseCursorWrapperCopyStringToBufferCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	databaseCursorWrapperCmd.AddCommand(databaseCursorWrapperCopyStringToBufferCmd)
+	databaseCursorWrapperDeactivateCmd.Flags().Int64("handle", 0, "handle (int64)")
+	databaseCursorWrapperCmd.AddCommand(databaseCursorWrapperDeactivateCmd)
+	databaseCursorWrapperGetBlobCmd.Flags().Int64("handle", 0, "handle (int64)")
+	databaseCursorWrapperGetBlobCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	databaseCursorWrapperCmd.AddCommand(databaseCursorWrapperGetBlobCmd)
+	databaseCursorWrapperGetColumnCountCmd.Flags().Int64("handle", 0, "handle (int64)")
+	databaseCursorWrapperCmd.AddCommand(databaseCursorWrapperGetColumnCountCmd)
+	databaseCursorWrapperGetColumnIndexCmd.Flags().Int64("handle", 0, "handle (int64)")
+	databaseCursorWrapperGetColumnIndexCmd.Flags().String("arg0", "", "arg0 (string)")
+	databaseCursorWrapperCmd.AddCommand(databaseCursorWrapperGetColumnIndexCmd)
+	databaseCursorWrapperGetColumnIndexOrThrowCmd.Flags().Int64("handle", 0, "handle (int64)")
+	databaseCursorWrapperGetColumnIndexOrThrowCmd.Flags().String("arg0", "", "arg0 (string)")
+	databaseCursorWrapperCmd.AddCommand(databaseCursorWrapperGetColumnIndexOrThrowCmd)
+	databaseCursorWrapperGetColumnNameCmd.Flags().Int64("handle", 0, "handle (int64)")
+	databaseCursorWrapperGetColumnNameCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	databaseCursorWrapperCmd.AddCommand(databaseCursorWrapperGetColumnNameCmd)
+	databaseCursorWrapperGetColumnNamesCmd.Flags().Int64("handle", 0, "handle (int64)")
+	databaseCursorWrapperCmd.AddCommand(databaseCursorWrapperGetColumnNamesCmd)
+	databaseCursorWrapperGetCountCmd.Flags().Int64("handle", 0, "handle (int64)")
+	databaseCursorWrapperCmd.AddCommand(databaseCursorWrapperGetCountCmd)
+	databaseCursorWrapperGetDoubleCmd.Flags().Int64("handle", 0, "handle (int64)")
+	databaseCursorWrapperGetDoubleCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	databaseCursorWrapperCmd.AddCommand(databaseCursorWrapperGetDoubleCmd)
+	databaseCursorWrapperGetExtrasCmd.Flags().Int64("handle", 0, "handle (int64)")
+	databaseCursorWrapperCmd.AddCommand(databaseCursorWrapperGetExtrasCmd)
+	databaseCursorWrapperGetFloatCmd.Flags().Int64("handle", 0, "handle (int64)")
+	databaseCursorWrapperGetFloatCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	databaseCursorWrapperCmd.AddCommand(databaseCursorWrapperGetFloatCmd)
+	databaseCursorWrapperGetIntCmd.Flags().Int64("handle", 0, "handle (int64)")
+	databaseCursorWrapperGetIntCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	databaseCursorWrapperCmd.AddCommand(databaseCursorWrapperGetIntCmd)
+	databaseCursorWrapperGetLongCmd.Flags().Int64("handle", 0, "handle (int64)")
+	databaseCursorWrapperGetLongCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	databaseCursorWrapperCmd.AddCommand(databaseCursorWrapperGetLongCmd)
+	databaseCursorWrapperGetNotificationUriCmd.Flags().Int64("handle", 0, "handle (int64)")
+	databaseCursorWrapperCmd.AddCommand(databaseCursorWrapperGetNotificationUriCmd)
+	databaseCursorWrapperGetNotificationUrisCmd.Flags().Int64("handle", 0, "handle (int64)")
+	databaseCursorWrapperCmd.AddCommand(databaseCursorWrapperGetNotificationUrisCmd)
+	databaseCursorWrapperGetPositionCmd.Flags().Int64("handle", 0, "handle (int64)")
+	databaseCursorWrapperCmd.AddCommand(databaseCursorWrapperGetPositionCmd)
+	databaseCursorWrapperGetShortCmd.Flags().Int64("handle", 0, "handle (int64)")
+	databaseCursorWrapperGetShortCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	databaseCursorWrapperCmd.AddCommand(databaseCursorWrapperGetShortCmd)
+	databaseCursorWrapperGetStringCmd.Flags().Int64("handle", 0, "handle (int64)")
+	databaseCursorWrapperGetStringCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	databaseCursorWrapperCmd.AddCommand(databaseCursorWrapperGetStringCmd)
+	databaseCursorWrapperGetTypeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	databaseCursorWrapperGetTypeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	databaseCursorWrapperCmd.AddCommand(databaseCursorWrapperGetTypeCmd)
+	databaseCursorWrapperGetWantsAllOnMoveCallsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	databaseCursorWrapperCmd.AddCommand(databaseCursorWrapperGetWantsAllOnMoveCallsCmd)
+	databaseCursorWrapperGetWrappedCursorCmd.Flags().Int64("handle", 0, "handle (int64)")
+	databaseCursorWrapperCmd.AddCommand(databaseCursorWrapperGetWrappedCursorCmd)
+	databaseCursorWrapperIsAfterLastCmd.Flags().Int64("handle", 0, "handle (int64)")
+	databaseCursorWrapperCmd.AddCommand(databaseCursorWrapperIsAfterLastCmd)
+	databaseCursorWrapperIsBeforeFirstCmd.Flags().Int64("handle", 0, "handle (int64)")
+	databaseCursorWrapperCmd.AddCommand(databaseCursorWrapperIsBeforeFirstCmd)
+	databaseCursorWrapperIsClosedCmd.Flags().Int64("handle", 0, "handle (int64)")
+	databaseCursorWrapperCmd.AddCommand(databaseCursorWrapperIsClosedCmd)
+	databaseCursorWrapperIsFirstCmd.Flags().Int64("handle", 0, "handle (int64)")
+	databaseCursorWrapperCmd.AddCommand(databaseCursorWrapperIsFirstCmd)
+	databaseCursorWrapperIsLastCmd.Flags().Int64("handle", 0, "handle (int64)")
+	databaseCursorWrapperCmd.AddCommand(databaseCursorWrapperIsLastCmd)
+	databaseCursorWrapperIsNullCmd.Flags().Int64("handle", 0, "handle (int64)")
+	databaseCursorWrapperIsNullCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	databaseCursorWrapperCmd.AddCommand(databaseCursorWrapperIsNullCmd)
+	databaseCursorWrapperMoveCmd.Flags().Int64("handle", 0, "handle (int64)")
+	databaseCursorWrapperMoveCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	databaseCursorWrapperCmd.AddCommand(databaseCursorWrapperMoveCmd)
+	databaseCursorWrapperMoveToFirstCmd.Flags().Int64("handle", 0, "handle (int64)")
+	databaseCursorWrapperCmd.AddCommand(databaseCursorWrapperMoveToFirstCmd)
+	databaseCursorWrapperMoveToLastCmd.Flags().Int64("handle", 0, "handle (int64)")
+	databaseCursorWrapperCmd.AddCommand(databaseCursorWrapperMoveToLastCmd)
+	databaseCursorWrapperMoveToNextCmd.Flags().Int64("handle", 0, "handle (int64)")
+	databaseCursorWrapperCmd.AddCommand(databaseCursorWrapperMoveToNextCmd)
+	databaseCursorWrapperMoveToPositionCmd.Flags().Int64("handle", 0, "handle (int64)")
+	databaseCursorWrapperMoveToPositionCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	databaseCursorWrapperCmd.AddCommand(databaseCursorWrapperMoveToPositionCmd)
+	databaseCursorWrapperMoveToPreviousCmd.Flags().Int64("handle", 0, "handle (int64)")
+	databaseCursorWrapperCmd.AddCommand(databaseCursorWrapperMoveToPreviousCmd)
+	databaseCursorWrapperRegisterContentObserverCmd.Flags().Int64("handle", 0, "handle (int64)")
+	databaseCursorWrapperRegisterContentObserverCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	databaseCursorWrapperCmd.AddCommand(databaseCursorWrapperRegisterContentObserverCmd)
+	databaseCursorWrapperRegisterDataSetObserverCmd.Flags().Int64("handle", 0, "handle (int64)")
+	databaseCursorWrapperRegisterDataSetObserverCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	databaseCursorWrapperCmd.AddCommand(databaseCursorWrapperRegisterDataSetObserverCmd)
+	databaseCursorWrapperRequeryCmd.Flags().Int64("handle", 0, "handle (int64)")
+	databaseCursorWrapperCmd.AddCommand(databaseCursorWrapperRequeryCmd)
+	databaseCursorWrapperRespondCmd.Flags().Int64("handle", 0, "handle (int64)")
+	databaseCursorWrapperRespondCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	databaseCursorWrapperCmd.AddCommand(databaseCursorWrapperRespondCmd)
+	databaseCursorWrapperSetExtrasCmd.Flags().Int64("handle", 0, "handle (int64)")
+	databaseCursorWrapperSetExtrasCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	databaseCursorWrapperCmd.AddCommand(databaseCursorWrapperSetExtrasCmd)
+	databaseCursorWrapperSetNotificationUriCmd.Flags().Int64("handle", 0, "handle (int64)")
+	databaseCursorWrapperSetNotificationUriCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	databaseCursorWrapperSetNotificationUriCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	databaseCursorWrapperCmd.AddCommand(databaseCursorWrapperSetNotificationUriCmd)
+	databaseCursorWrapperUnregisterContentObserverCmd.Flags().Int64("handle", 0, "handle (int64)")
+	databaseCursorWrapperUnregisterContentObserverCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	databaseCursorWrapperCmd.AddCommand(databaseCursorWrapperUnregisterContentObserverCmd)
+	databaseCursorWrapperUnregisterDataSetObserverCmd.Flags().Int64("handle", 0, "handle (int64)")
+	databaseCursorWrapperUnregisterDataSetObserverCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	databaseCursorWrapperCmd.AddCommand(databaseCursorWrapperUnregisterDataSetObserverCmd)
+	databaseCmd.AddCommand(databaseCursorWrapperCmd)
+	databaseDataSetObservableCmd.AddCommand(databaseDataSetObservableNewDataSetObservableCmd)
+	databaseDataSetObservableNotifyChangedCmd.Flags().Int64("handle", 0, "handle (int64)")
+	databaseDataSetObservableCmd.AddCommand(databaseDataSetObservableNotifyChangedCmd)
+	databaseDataSetObservableNotifyInvalidatedCmd.Flags().Int64("handle", 0, "handle (int64)")
+	databaseDataSetObservableCmd.AddCommand(databaseDataSetObservableNotifyInvalidatedCmd)
+	databaseCmd.AddCommand(databaseDataSetObservableCmd)
 	rootCmd.AddCommand(databaseCmd)
 }

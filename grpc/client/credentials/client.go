@@ -39,6 +39,15 @@ func (c *GetCredentialRequestClient) DescribeContents(ctx context.Context) (int3
 	return resp.GetResult(), nil
 }
 
+// GetCredentialOptions calls the GetCredentialOptions RPC.
+func (c *GetCredentialRequestClient) GetCredentialOptions(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetCredentialOptions(ctx, &pb.GetCredentialOptionsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // GetData calls the GetData RPC.
 func (c *GetCredentialRequestClient) GetData(ctx context.Context) (int64, error) {
 	resp, err := c.svc.GetData(ctx, &pb.GetDataRequest{})
@@ -129,6 +138,183 @@ func (c *GetCredentialRequestBuilderClient) SetOrigin(ctx context.Context, arg0 
 	return resp.GetResult(), nil
 }
 
+// ClearCredentialStateExceptionClient wraps the gRPC ClearCredentialStateExceptionService client.
+type ClearCredentialStateExceptionClient struct {
+	svc pb.ClearCredentialStateExceptionServiceClient
+}
+
+// NewClearCredentialStateExceptionClient creates a new ClearCredentialStateException client.
+func NewClearCredentialStateExceptionClient(cc grpc.ClientConnInterface) *ClearCredentialStateExceptionClient {
+	return &ClearCredentialStateExceptionClient{
+		svc: pb.NewClearCredentialStateExceptionServiceClient(cc),
+	}
+}
+
+// GetType calls the GetType RPC.
+func (c *ClearCredentialStateExceptionClient) GetType(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetType(ctx, &pb.GetTypeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCredentialResponseClient wraps the gRPC GetCredentialResponseService client.
+type GetCredentialResponseClient struct {
+	svc pb.GetCredentialResponseServiceClient
+}
+
+// NewGetCredentialResponseClient creates a new GetCredentialResponse client.
+func NewGetCredentialResponseClient(cc grpc.ClientConnInterface) *GetCredentialResponseClient {
+	return &GetCredentialResponseClient{
+		svc: pb.NewGetCredentialResponseServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *GetCredentialResponseClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.GetCredentialResponseDescribeContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCredential calls the GetCredential RPC.
+func (c *GetCredentialResponseClient) GetCredential(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetCredential(ctx, &pb.GetCredentialRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *GetCredentialResponseClient) ToString(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.GetCredentialResponseToStringRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *GetCredentialResponseClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.GetCredentialResponseWriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// UnregisterCredentialDescriptionRequestClient wraps the gRPC UnregisterCredentialDescriptionRequestService client.
+type UnregisterCredentialDescriptionRequestClient struct {
+	svc pb.UnregisterCredentialDescriptionRequestServiceClient
+}
+
+// NewUnregisterCredentialDescriptionRequestClient creates a new UnregisterCredentialDescriptionRequest client.
+func NewUnregisterCredentialDescriptionRequestClient(cc grpc.ClientConnInterface) *UnregisterCredentialDescriptionRequestClient {
+	return &UnregisterCredentialDescriptionRequestClient{
+		svc: pb.NewUnregisterCredentialDescriptionRequestServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *UnregisterCredentialDescriptionRequestClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.UnregisterCredentialDescriptionRequestDescribeContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCredentialDescriptions calls the GetCredentialDescriptions RPC.
+func (c *UnregisterCredentialDescriptionRequestClient) GetCredentialDescriptions(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetCredentialDescriptions(ctx, &pb.GetCredentialDescriptionsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *UnregisterCredentialDescriptionRequestClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.UnregisterCredentialDescriptionRequestWriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// ClearCredentialStateRequestClient wraps the gRPC ClearCredentialStateRequestService client.
+type ClearCredentialStateRequestClient struct {
+	svc pb.ClearCredentialStateRequestServiceClient
+}
+
+// NewClearCredentialStateRequestClient creates a new ClearCredentialStateRequest client.
+func NewClearCredentialStateRequestClient(cc grpc.ClientConnInterface) *ClearCredentialStateRequestClient {
+	return &ClearCredentialStateRequestClient{
+		svc: pb.NewClearCredentialStateRequestServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *ClearCredentialStateRequestClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.ClearCredentialStateRequestDescribeContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetData calls the GetData RPC.
+func (c *ClearCredentialStateRequestClient) GetData(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetData(ctx, &pb.ClearCredentialStateRequestGetDataRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *ClearCredentialStateRequestClient) ToString(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ClearCredentialStateRequestToStringRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *ClearCredentialStateRequestClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.ClearCredentialStateRequestWriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
 // CredentialClient wraps the gRPC CredentialService client.
 type CredentialClient struct {
 	svc pb.CredentialServiceClient
@@ -188,6 +374,89 @@ func (c *CredentialClient) ToString(ctx context.Context, handle int64) (string, 
 // WriteToParcel calls the WriteToParcel RPC.
 func (c *CredentialClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
 	_, err := c.svc.WriteToParcel(ctx, &pb.CredentialWriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// CredentialManagerClient wraps the gRPC CredentialManagerService client.
+type CredentialManagerClient struct {
+	svc pb.CredentialManagerServiceClient
+}
+
+// NewCredentialManagerClient creates a new CredentialManager client.
+func NewCredentialManagerClient(cc grpc.ClientConnInterface) *CredentialManagerClient {
+	return &CredentialManagerClient{
+		svc: pb.NewCredentialManagerServiceClient(cc),
+	}
+}
+
+// IsEnabledCredentialProviderService calls the IsEnabledCredentialProviderService RPC.
+func (c *CredentialManagerClient) IsEnabledCredentialProviderService(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.IsEnabledCredentialProviderService(ctx, &pb.IsEnabledCredentialProviderServiceRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// RegisterCredentialDescription calls the RegisterCredentialDescription RPC.
+func (c *CredentialManagerClient) RegisterCredentialDescription(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.RegisterCredentialDescription(ctx, &pb.RegisterCredentialDescriptionRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// UnregisterCredentialDescription calls the UnregisterCredentialDescription RPC.
+func (c *CredentialManagerClient) UnregisterCredentialDescription(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.UnregisterCredentialDescription(ctx, &pb.UnregisterCredentialDescriptionRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// RegisterCredentialDescriptionRequestClient wraps the gRPC RegisterCredentialDescriptionRequestService client.
+type RegisterCredentialDescriptionRequestClient struct {
+	svc pb.RegisterCredentialDescriptionRequestServiceClient
+}
+
+// NewRegisterCredentialDescriptionRequestClient creates a new RegisterCredentialDescriptionRequest client.
+func NewRegisterCredentialDescriptionRequestClient(cc grpc.ClientConnInterface) *RegisterCredentialDescriptionRequestClient {
+	return &RegisterCredentialDescriptionRequestClient{
+		svc: pb.NewRegisterCredentialDescriptionRequestServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *RegisterCredentialDescriptionRequestClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.RegisterCredentialDescriptionRequestDescribeContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCredentialDescriptions calls the GetCredentialDescriptions RPC.
+func (c *RegisterCredentialDescriptionRequestClient) GetCredentialDescriptions(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetCredentialDescriptions(ctx, &pb.GetCredentialDescriptionsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *RegisterCredentialDescriptionRequestClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.RegisterCredentialDescriptionRequestWriteToParcelRequest{
 		Handle: handle,
 		Arg0:   arg0,
 		Arg1:   arg1,
@@ -342,6 +611,29 @@ func (c *CreateCredentialRequestBuilderClient) SetOrigin(ctx context.Context, ar
 	return resp.GetResult(), nil
 }
 
+// CreateCredentialExceptionClient wraps the gRPC CreateCredentialExceptionService client.
+type CreateCredentialExceptionClient struct {
+	svc pb.CreateCredentialExceptionServiceClient
+}
+
+// NewCreateCredentialExceptionClient creates a new CreateCredentialException client.
+func NewCreateCredentialExceptionClient(cc grpc.ClientConnInterface) *CreateCredentialExceptionClient {
+	return &CreateCredentialExceptionClient{
+		svc: pb.NewCreateCredentialExceptionServiceClient(cc),
+	}
+}
+
+// GetType calls the GetType RPC.
+func (c *CreateCredentialExceptionClient) GetType(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetType(ctx, &pb.GetTypeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
 // CredentialDescriptionClient wraps the gRPC CredentialDescriptionService client.
 type CredentialDescriptionClient struct {
 	svc pb.CredentialDescriptionServiceClient
@@ -373,6 +665,28 @@ func (c *CredentialDescriptionClient) Equals(ctx context.Context, handle int64, 
 	})
 	if err != nil {
 		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCredentialEntries calls the GetCredentialEntries RPC.
+func (c *CredentialDescriptionClient) GetCredentialEntries(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetCredentialEntries(ctx, &pb.GetCredentialEntriesRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSupportedElementKeys calls the GetSupportedElementKeys RPC.
+func (c *CredentialDescriptionClient) GetSupportedElementKeys(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetSupportedElementKeys(ctx, &pb.GetSupportedElementKeysRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
 	}
 	return resp.GetResult(), nil
 }
@@ -409,21 +723,43 @@ func (c *CredentialDescriptionClient) WriteToParcel(ctx context.Context, handle 
 	return err
 }
 
-// CreateCredentialExceptionClient wraps the gRPC CreateCredentialExceptionService client.
-type CreateCredentialExceptionClient struct {
-	svc pb.CreateCredentialExceptionServiceClient
+// CreateCredentialResponseClient wraps the gRPC CreateCredentialResponseService client.
+type CreateCredentialResponseClient struct {
+	svc pb.CreateCredentialResponseServiceClient
 }
 
-// NewCreateCredentialExceptionClient creates a new CreateCredentialException client.
-func NewCreateCredentialExceptionClient(cc grpc.ClientConnInterface) *CreateCredentialExceptionClient {
-	return &CreateCredentialExceptionClient{
-		svc: pb.NewCreateCredentialExceptionServiceClient(cc),
+// NewCreateCredentialResponseClient creates a new CreateCredentialResponse client.
+func NewCreateCredentialResponseClient(cc grpc.ClientConnInterface) *CreateCredentialResponseClient {
+	return &CreateCredentialResponseClient{
+		svc: pb.NewCreateCredentialResponseServiceClient(cc),
 	}
 }
 
-// GetType calls the GetType RPC.
-func (c *CreateCredentialExceptionClient) GetType(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.GetType(ctx, &pb.GetTypeRequest{
+// DescribeContents calls the DescribeContents RPC.
+func (c *CreateCredentialResponseClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.CreateCredentialResponseDescribeContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetData calls the GetData RPC.
+func (c *CreateCredentialResponseClient) GetData(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetData(ctx, &pb.CreateCredentialResponseGetDataRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *CreateCredentialResponseClient) ToString(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.CreateCredentialResponseToStringRequest{
 		Handle: handle,
 	})
 	if err != nil {
@@ -432,20 +768,30 @@ func (c *CreateCredentialExceptionClient) GetType(ctx context.Context, handle in
 	return resp.GetResult(), nil
 }
 
-// ClearCredentialStateExceptionClient wraps the gRPC ClearCredentialStateExceptionService client.
-type ClearCredentialStateExceptionClient struct {
-	svc pb.ClearCredentialStateExceptionServiceClient
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *CreateCredentialResponseClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.CreateCredentialResponseWriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
 }
 
-// NewClearCredentialStateExceptionClient creates a new ClearCredentialStateException client.
-func NewClearCredentialStateExceptionClient(cc grpc.ClientConnInterface) *ClearCredentialStateExceptionClient {
-	return &ClearCredentialStateExceptionClient{
-		svc: pb.NewClearCredentialStateExceptionServiceClient(cc),
+// GetCredentialExceptionClient wraps the gRPC GetCredentialExceptionService client.
+type GetCredentialExceptionClient struct {
+	svc pb.GetCredentialExceptionServiceClient
+}
+
+// NewGetCredentialExceptionClient creates a new GetCredentialException client.
+func NewGetCredentialExceptionClient(cc grpc.ClientConnInterface) *GetCredentialExceptionClient {
+	return &GetCredentialExceptionClient{
+		svc: pb.NewGetCredentialExceptionServiceClient(cc),
 	}
 }
 
 // GetType calls the GetType RPC.
-func (c *ClearCredentialStateExceptionClient) GetType(ctx context.Context, handle int64) (string, error) {
+func (c *GetCredentialExceptionClient) GetType(ctx context.Context, handle int64) (string, error) {
 	resp, err := c.svc.GetType(ctx, &pb.GetTypeRequest{
 		Handle: handle,
 	})
@@ -505,188 +851,6 @@ func (c *PrepareGetCredentialResponseClient) HasRemoteResults(ctx context.Contex
 	return resp.GetResult(), nil
 }
 
-// ClearCredentialStateRequestClient wraps the gRPC ClearCredentialStateRequestService client.
-type ClearCredentialStateRequestClient struct {
-	svc pb.ClearCredentialStateRequestServiceClient
-}
-
-// NewClearCredentialStateRequestClient creates a new ClearCredentialStateRequest client.
-func NewClearCredentialStateRequestClient(cc grpc.ClientConnInterface) *ClearCredentialStateRequestClient {
-	return &ClearCredentialStateRequestClient{
-		svc: pb.NewClearCredentialStateRequestServiceClient(cc),
-	}
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *ClearCredentialStateRequestClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.ClearCredentialStateRequestDescribeContentsRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetData calls the GetData RPC.
-func (c *ClearCredentialStateRequestClient) GetData(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetData(ctx, &pb.ClearCredentialStateRequestGetDataRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToString calls the ToString RPC.
-func (c *ClearCredentialStateRequestClient) ToString(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ClearCredentialStateRequestToStringRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *ClearCredentialStateRequestClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.ClearCredentialStateRequestWriteToParcelRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// RegisterCredentialDescriptionRequestClient wraps the gRPC RegisterCredentialDescriptionRequestService client.
-type RegisterCredentialDescriptionRequestClient struct {
-	svc pb.RegisterCredentialDescriptionRequestServiceClient
-}
-
-// NewRegisterCredentialDescriptionRequestClient creates a new RegisterCredentialDescriptionRequest client.
-func NewRegisterCredentialDescriptionRequestClient(cc grpc.ClientConnInterface) *RegisterCredentialDescriptionRequestClient {
-	return &RegisterCredentialDescriptionRequestClient{
-		svc: pb.NewRegisterCredentialDescriptionRequestServiceClient(cc),
-	}
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *RegisterCredentialDescriptionRequestClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.RegisterCredentialDescriptionRequestDescribeContentsRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *RegisterCredentialDescriptionRequestClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.RegisterCredentialDescriptionRequestWriteToParcelRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// CredentialManagerClient wraps the gRPC CredentialManagerService client.
-type CredentialManagerClient struct {
-	svc pb.CredentialManagerServiceClient
-}
-
-// NewCredentialManagerClient creates a new CredentialManager client.
-func NewCredentialManagerClient(cc grpc.ClientConnInterface) *CredentialManagerClient {
-	return &CredentialManagerClient{
-		svc: pb.NewCredentialManagerServiceClient(cc),
-	}
-}
-
-// IsEnabledCredentialProviderService calls the IsEnabledCredentialProviderService RPC.
-func (c *CredentialManagerClient) IsEnabledCredentialProviderService(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.IsEnabledCredentialProviderService(ctx, &pb.IsEnabledCredentialProviderServiceRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// RegisterCredentialDescription calls the RegisterCredentialDescription RPC.
-func (c *CredentialManagerClient) RegisterCredentialDescription(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.RegisterCredentialDescription(ctx, &pb.RegisterCredentialDescriptionRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// UnregisterCredentialDescription calls the UnregisterCredentialDescription RPC.
-func (c *CredentialManagerClient) UnregisterCredentialDescription(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.UnregisterCredentialDescription(ctx, &pb.UnregisterCredentialDescriptionRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// GetCredentialResponseClient wraps the gRPC GetCredentialResponseService client.
-type GetCredentialResponseClient struct {
-	svc pb.GetCredentialResponseServiceClient
-}
-
-// NewGetCredentialResponseClient creates a new GetCredentialResponse client.
-func NewGetCredentialResponseClient(cc grpc.ClientConnInterface) *GetCredentialResponseClient {
-	return &GetCredentialResponseClient{
-		svc: pb.NewGetCredentialResponseServiceClient(cc),
-	}
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *GetCredentialResponseClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.GetCredentialResponseDescribeContentsRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetCredential calls the GetCredential RPC.
-func (c *GetCredentialResponseClient) GetCredential(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetCredential(ctx, &pb.GetCredentialRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToString calls the ToString RPC.
-func (c *GetCredentialResponseClient) ToString(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.GetCredentialResponseToStringRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *GetCredentialResponseClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.GetCredentialResponseWriteToParcelRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
 // CredentialOptionClient wraps the gRPC CredentialOptionService client.
 type CredentialOptionClient struct {
 	svc pb.CredentialOptionServiceClient
@@ -702,6 +866,15 @@ func NewCredentialOptionClient(cc grpc.ClientConnInterface) *CredentialOptionCli
 // DescribeContents calls the DescribeContents RPC.
 func (c *CredentialOptionClient) DescribeContents(ctx context.Context) (int32, error) {
 	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAllowedProviders calls the GetAllowedProviders RPC.
+func (c *CredentialOptionClient) GetAllowedProviders(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetAllowedProviders(ctx, &pb.GetAllowedProvidersRequest{})
 	if err != nil {
 		return 0, err
 	}
@@ -805,410 +978,6 @@ func (c *CredentialOptionBuilderClient) SetIsSystemProviderRequired(ctx context.
 	return resp.GetResult(), nil
 }
 
-// UnregisterCredentialDescriptionRequestClient wraps the gRPC UnregisterCredentialDescriptionRequestService client.
-type UnregisterCredentialDescriptionRequestClient struct {
-	svc pb.UnregisterCredentialDescriptionRequestServiceClient
-}
-
-// NewUnregisterCredentialDescriptionRequestClient creates a new UnregisterCredentialDescriptionRequest client.
-func NewUnregisterCredentialDescriptionRequestClient(cc grpc.ClientConnInterface) *UnregisterCredentialDescriptionRequestClient {
-	return &UnregisterCredentialDescriptionRequestClient{
-		svc: pb.NewUnregisterCredentialDescriptionRequestServiceClient(cc),
-	}
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *UnregisterCredentialDescriptionRequestClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.UnregisterCredentialDescriptionRequestDescribeContentsRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *UnregisterCredentialDescriptionRequestClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.UnregisterCredentialDescriptionRequestWriteToParcelRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// CreateCredentialResponseClient wraps the gRPC CreateCredentialResponseService client.
-type CreateCredentialResponseClient struct {
-	svc pb.CreateCredentialResponseServiceClient
-}
-
-// NewCreateCredentialResponseClient creates a new CreateCredentialResponse client.
-func NewCreateCredentialResponseClient(cc grpc.ClientConnInterface) *CreateCredentialResponseClient {
-	return &CreateCredentialResponseClient{
-		svc: pb.NewCreateCredentialResponseServiceClient(cc),
-	}
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *CreateCredentialResponseClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.CreateCredentialResponseDescribeContentsRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetData calls the GetData RPC.
-func (c *CreateCredentialResponseClient) GetData(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetData(ctx, &pb.CreateCredentialResponseGetDataRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToString calls the ToString RPC.
-func (c *CreateCredentialResponseClient) ToString(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.CreateCredentialResponseToStringRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *CreateCredentialResponseClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.CreateCredentialResponseWriteToParcelRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// GetCredentialExceptionClient wraps the gRPC GetCredentialExceptionService client.
-type GetCredentialExceptionClient struct {
-	svc pb.GetCredentialExceptionServiceClient
-}
-
-// NewGetCredentialExceptionClient creates a new GetCredentialException client.
-func NewGetCredentialExceptionClient(cc grpc.ClientConnInterface) *GetCredentialExceptionClient {
-	return &GetCredentialExceptionClient{
-		svc: pb.NewGetCredentialExceptionServiceClient(cc),
-	}
-}
-
-// GetType calls the GetType RPC.
-func (c *GetCredentialExceptionClient) GetType(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.GetType(ctx, &pb.GetTypeRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// BeginGetCredentialOptionClient wraps the gRPC BeginGetCredentialOptionService client.
-type BeginGetCredentialOptionClient struct {
-	svc pb.BeginGetCredentialOptionServiceClient
-}
-
-// NewBeginGetCredentialOptionClient creates a new BeginGetCredentialOption client.
-func NewBeginGetCredentialOptionClient(cc grpc.ClientConnInterface) *BeginGetCredentialOptionClient {
-	return &BeginGetCredentialOptionClient{
-		svc: pb.NewBeginGetCredentialOptionServiceClient(cc),
-	}
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *BeginGetCredentialOptionClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.CreateCredentialRequestDescribeContentsRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetCandidateQueryData calls the GetCandidateQueryData RPC.
-func (c *BeginGetCredentialOptionClient) GetCandidateQueryData(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetCandidateQueryData(ctx, &pb.BeginGetCredentialOptionGetCandidateQueryDataRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetId calls the GetId RPC.
-func (c *BeginGetCredentialOptionClient) GetId(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.GetId(ctx, &pb.GetIdRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetType calls the GetType RPC.
-func (c *BeginGetCredentialOptionClient) GetType(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.GetType(ctx, &pb.GetTypeRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToString calls the ToString RPC.
-func (c *BeginGetCredentialOptionClient) ToString(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.BeginGetCredentialOptionToStringRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *BeginGetCredentialOptionClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.CreateCredentialRequestWriteToParcelRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// CredentialProviderServiceClient wraps the gRPC CredentialProviderServiceService client.
-type CredentialProviderServiceClient struct {
-	svc pb.CredentialProviderServiceServiceClient
-}
-
-// NewCredentialProviderServiceClient creates a new CredentialProviderService client.
-func NewCredentialProviderServiceClient(cc grpc.ClientConnInterface) *CredentialProviderServiceClient {
-	return &CredentialProviderServiceClient{
-		svc: pb.NewCredentialProviderServiceServiceClient(cc),
-	}
-}
-
-// OnBind calls the OnBind RPC.
-func (c *CredentialProviderServiceClient) OnBind(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.OnBind(ctx, &pb.OnBindRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// OnCreate calls the OnCreate RPC.
-func (c *CredentialProviderServiceClient) OnCreate(ctx context.Context) error {
-	_, err := c.svc.OnCreate(ctx, &pb.OnCreateRequest{})
-	return err
-}
-
-// CreateEntryClient wraps the gRPC CreateEntryService client.
-type CreateEntryClient struct {
-	svc pb.CreateEntryServiceClient
-}
-
-// NewCreateEntryClient creates a new CreateEntry client.
-func NewCreateEntryClient(cc grpc.ClientConnInterface) *CreateEntryClient {
-	return &CreateEntryClient{
-		svc: pb.NewCreateEntryServiceClient(cc),
-	}
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *CreateEntryClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.CreateCredentialRequestDescribeContentsRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetSlice calls the GetSlice RPC.
-func (c *CreateEntryClient) GetSlice(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetSlice(ctx, &pb.GetSliceRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *CreateEntryClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.CreateCredentialRequestWriteToParcelRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// BeginCreateCredentialRequestClient wraps the gRPC BeginCreateCredentialRequestService client.
-type BeginCreateCredentialRequestClient struct {
-	svc pb.BeginCreateCredentialRequestServiceClient
-}
-
-// NewBeginCreateCredentialRequestClient creates a new BeginCreateCredentialRequest client.
-func NewBeginCreateCredentialRequestClient(cc grpc.ClientConnInterface) *BeginCreateCredentialRequestClient {
-	return &BeginCreateCredentialRequestClient{
-		svc: pb.NewBeginCreateCredentialRequestServiceClient(cc),
-	}
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *BeginCreateCredentialRequestClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.CreateCredentialRequestDescribeContentsRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetCallingAppInfo calls the GetCallingAppInfo RPC.
-func (c *BeginCreateCredentialRequestClient) GetCallingAppInfo(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetCallingAppInfo(ctx, &pb.GetCallingAppInfoRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetData calls the GetData RPC.
-func (c *BeginCreateCredentialRequestClient) GetData(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetData(ctx, &pb.CreateCredentialRequestGetDataRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetType calls the GetType RPC.
-func (c *BeginCreateCredentialRequestClient) GetType(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.GetType(ctx, &pb.GetTypeRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *BeginCreateCredentialRequestClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.CreateCredentialRequestWriteToParcelRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// CallingAppInfoClient wraps the gRPC CallingAppInfoService client.
-type CallingAppInfoClient struct {
-	svc pb.CallingAppInfoServiceClient
-}
-
-// NewCallingAppInfoClient creates a new CallingAppInfo client.
-func NewCallingAppInfoClient(cc grpc.ClientConnInterface) *CallingAppInfoClient {
-	return &CallingAppInfoClient{
-		svc: pb.NewCallingAppInfoServiceClient(cc),
-	}
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *CallingAppInfoClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.CreateCredentialRequestDescribeContentsRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetOrigin calls the GetOrigin RPC.
-func (c *CallingAppInfoClient) GetOrigin(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.GetOrigin(ctx, &pb.CallingAppInfoGetOriginRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetPackageName calls the GetPackageName RPC.
-func (c *CallingAppInfoClient) GetPackageName(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.GetPackageName(ctx, &pb.GetPackageNameRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetSigningInfo calls the GetSigningInfo RPC.
-func (c *CallingAppInfoClient) GetSigningInfo(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetSigningInfo(ctx, &pb.GetSigningInfoRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToString calls the ToString RPC.
-func (c *CallingAppInfoClient) ToString(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.BeginGetCredentialOptionToStringRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *CallingAppInfoClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.CreateCredentialRequestWriteToParcelRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
 // BeginGetCredentialResponseClient wraps the gRPC BeginGetCredentialResponseService client.
 type BeginGetCredentialResponseClient struct {
 	svc pb.BeginGetCredentialResponseServiceClient
@@ -1223,7 +992,40 @@ func NewBeginGetCredentialResponseClient(cc grpc.ClientConnInterface) *BeginGetC
 
 // DescribeContents calls the DescribeContents RPC.
 func (c *BeginGetCredentialResponseClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.CreateCredentialRequestDescribeContentsRequest{
+	resp, err := c.svc.DescribeContents(ctx, &pb.BeginGetCredentialResponseDescribeContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetActions calls the GetActions RPC.
+func (c *BeginGetCredentialResponseClient) GetActions(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetActions(ctx, &pb.GetActionsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAuthenticationActions calls the GetAuthenticationActions RPC.
+func (c *BeginGetCredentialResponseClient) GetAuthenticationActions(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetAuthenticationActions(ctx, &pb.GetAuthenticationActionsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCredentialEntries calls the GetCredentialEntries RPC.
+func (c *BeginGetCredentialResponseClient) GetCredentialEntries(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetCredentialEntries(ctx, &pb.GetCredentialEntriesRequest{
 		Handle: handle,
 	})
 	if err != nil {
@@ -1245,7 +1047,7 @@ func (c *BeginGetCredentialResponseClient) GetRemoteCredentialEntry(ctx context.
 
 // WriteToParcel calls the WriteToParcel RPC.
 func (c *BeginGetCredentialResponseClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.CreateCredentialRequestWriteToParcelRequest{
+	_, err := c.svc.WriteToParcel(ctx, &pb.BeginGetCredentialResponseWriteToParcelRequest{
 		Handle: handle,
 		Arg0:   arg0,
 		Arg1:   arg1,
@@ -1318,6 +1120,193 @@ func (c *BeginGetCredentialResponseBuilderClient) SetRemoteCredentialEntry(ctx c
 	return resp.GetResult(), nil
 }
 
+// CallingAppInfoClient wraps the gRPC CallingAppInfoService client.
+type CallingAppInfoClient struct {
+	svc pb.CallingAppInfoServiceClient
+}
+
+// NewCallingAppInfoClient creates a new CallingAppInfo client.
+func NewCallingAppInfoClient(cc grpc.ClientConnInterface) *CallingAppInfoClient {
+	return &CallingAppInfoClient{
+		svc: pb.NewCallingAppInfoServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *CallingAppInfoClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.BeginGetCredentialResponseDescribeContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetOrigin calls the GetOrigin RPC.
+func (c *CallingAppInfoClient) GetOrigin(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetOrigin(ctx, &pb.CallingAppInfoGetOriginRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPackageName calls the GetPackageName RPC.
+func (c *CallingAppInfoClient) GetPackageName(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetPackageName(ctx, &pb.GetPackageNameRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSigningInfo calls the GetSigningInfo RPC.
+func (c *CallingAppInfoClient) GetSigningInfo(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetSigningInfo(ctx, &pb.GetSigningInfoRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *CallingAppInfoClient) ToString(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.CallingAppInfoToStringRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *CallingAppInfoClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.BeginGetCredentialResponseWriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// ActionClient wraps the gRPC ActionService client.
+type ActionClient struct {
+	svc pb.ActionServiceClient
+}
+
+// NewActionClient creates a new Action client.
+func NewActionClient(cc grpc.ClientConnInterface) *ActionClient {
+	return &ActionClient{
+		svc: pb.NewActionServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *ActionClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.BeginGetCredentialResponseDescribeContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSlice calls the GetSlice RPC.
+func (c *ActionClient) GetSlice(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetSlice(ctx, &pb.GetSliceRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *ActionClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.BeginGetCredentialResponseWriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// CredentialEntryClient wraps the gRPC CredentialEntryService client.
+type CredentialEntryClient struct {
+	svc pb.CredentialEntryServiceClient
+}
+
+// NewCredentialEntryClient creates a new CredentialEntry client.
+func NewCredentialEntryClient(cc grpc.ClientConnInterface) *CredentialEntryClient {
+	return &CredentialEntryClient{
+		svc: pb.NewCredentialEntryServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *CredentialEntryClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.BeginGetCredentialResponseDescribeContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetBeginGetCredentialOptionId calls the GetBeginGetCredentialOptionId RPC.
+func (c *CredentialEntryClient) GetBeginGetCredentialOptionId(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetBeginGetCredentialOptionId(ctx, &pb.GetBeginGetCredentialOptionIdRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSlice calls the GetSlice RPC.
+func (c *CredentialEntryClient) GetSlice(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetSlice(ctx, &pb.GetSliceRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetType calls the GetType RPC.
+func (c *CredentialEntryClient) GetType(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetType(ctx, &pb.GetTypeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *CredentialEntryClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.BeginGetCredentialResponseWriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
 // BeginCreateCredentialResponseClient wraps the gRPC BeginCreateCredentialResponseService client.
 type BeginCreateCredentialResponseClient struct {
 	svc pb.BeginCreateCredentialResponseServiceClient
@@ -1332,7 +1321,18 @@ func NewBeginCreateCredentialResponseClient(cc grpc.ClientConnInterface) *BeginC
 
 // DescribeContents calls the DescribeContents RPC.
 func (c *BeginCreateCredentialResponseClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.CreateCredentialRequestDescribeContentsRequest{
+	resp, err := c.svc.DescribeContents(ctx, &pb.BeginGetCredentialResponseDescribeContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCreateEntries calls the GetCreateEntries RPC.
+func (c *BeginCreateCredentialResponseClient) GetCreateEntries(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetCreateEntries(ctx, &pb.GetCreateEntriesRequest{
 		Handle: handle,
 	})
 	if err != nil {
@@ -1354,7 +1354,7 @@ func (c *BeginCreateCredentialResponseClient) GetRemoteCreateEntry(ctx context.C
 
 // WriteToParcel calls the WriteToParcel RPC.
 func (c *BeginCreateCredentialResponseClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.CreateCredentialRequestWriteToParcelRequest{
+	_, err := c.svc.WriteToParcel(ctx, &pb.BeginGetCredentialResponseWriteToParcelRequest{
 		Handle: handle,
 		Arg0:   arg0,
 		Arg1:   arg1,
@@ -1405,21 +1405,21 @@ func (c *BeginCreateCredentialResponseBuilderClient) SetRemoteCreateEntry(ctx co
 	return resp.GetResult(), nil
 }
 
-// CredentialEntryClient wraps the gRPC CredentialEntryService client.
-type CredentialEntryClient struct {
-	svc pb.CredentialEntryServiceClient
+// CreateEntryClient wraps the gRPC CreateEntryService client.
+type CreateEntryClient struct {
+	svc pb.CreateEntryServiceClient
 }
 
-// NewCredentialEntryClient creates a new CredentialEntry client.
-func NewCredentialEntryClient(cc grpc.ClientConnInterface) *CredentialEntryClient {
-	return &CredentialEntryClient{
-		svc: pb.NewCredentialEntryServiceClient(cc),
+// NewCreateEntryClient creates a new CreateEntry client.
+func NewCreateEntryClient(cc grpc.ClientConnInterface) *CreateEntryClient {
+	return &CreateEntryClient{
+		svc: pb.NewCreateEntryServiceClient(cc),
 	}
 }
 
 // DescribeContents calls the DescribeContents RPC.
-func (c *CredentialEntryClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.CreateCredentialRequestDescribeContentsRequest{
+func (c *CreateEntryClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.BeginGetCredentialResponseDescribeContentsRequest{
 		Handle: handle,
 	})
 	if err != nil {
@@ -1428,19 +1428,8 @@ func (c *CredentialEntryClient) DescribeContents(ctx context.Context, handle int
 	return resp.GetResult(), nil
 }
 
-// GetBeginGetCredentialOptionId calls the GetBeginGetCredentialOptionId RPC.
-func (c *CredentialEntryClient) GetBeginGetCredentialOptionId(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.GetBeginGetCredentialOptionId(ctx, &pb.GetBeginGetCredentialOptionIdRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
 // GetSlice calls the GetSlice RPC.
-func (c *CredentialEntryClient) GetSlice(ctx context.Context, handle int64) (int64, error) {
+func (c *CreateEntryClient) GetSlice(ctx context.Context, handle int64) (int64, error) {
 	resp, err := c.svc.GetSlice(ctx, &pb.GetSliceRequest{
 		Handle: handle,
 	})
@@ -1450,8 +1439,63 @@ func (c *CredentialEntryClient) GetSlice(ctx context.Context, handle int64) (int
 	return resp.GetResult(), nil
 }
 
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *CreateEntryClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.BeginGetCredentialResponseWriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// BeginCreateCredentialRequestClient wraps the gRPC BeginCreateCredentialRequestService client.
+type BeginCreateCredentialRequestClient struct {
+	svc pb.BeginCreateCredentialRequestServiceClient
+}
+
+// NewBeginCreateCredentialRequestClient creates a new BeginCreateCredentialRequest client.
+func NewBeginCreateCredentialRequestClient(cc grpc.ClientConnInterface) *BeginCreateCredentialRequestClient {
+	return &BeginCreateCredentialRequestClient{
+		svc: pb.NewBeginCreateCredentialRequestServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *BeginCreateCredentialRequestClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.BeginGetCredentialResponseDescribeContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCallingAppInfo calls the GetCallingAppInfo RPC.
+func (c *BeginCreateCredentialRequestClient) GetCallingAppInfo(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetCallingAppInfo(ctx, &pb.GetCallingAppInfoRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetData calls the GetData RPC.
+func (c *BeginCreateCredentialRequestClient) GetData(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetData(ctx, &pb.BeginCreateCredentialRequestGetDataRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // GetType calls the GetType RPC.
-func (c *CredentialEntryClient) GetType(ctx context.Context, handle int64) (string, error) {
+func (c *BeginCreateCredentialRequestClient) GetType(ctx context.Context, handle int64) (string, error) {
 	resp, err := c.svc.GetType(ctx, &pb.GetTypeRequest{
 		Handle: handle,
 	})
@@ -1462,8 +1506,81 @@ func (c *CredentialEntryClient) GetType(ctx context.Context, handle int64) (stri
 }
 
 // WriteToParcel calls the WriteToParcel RPC.
-func (c *CredentialEntryClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.CreateCredentialRequestWriteToParcelRequest{
+func (c *BeginCreateCredentialRequestClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.BeginGetCredentialResponseWriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// CredentialProviderServiceClient wraps the gRPC CredentialProviderServiceService client.
+type CredentialProviderServiceClient struct {
+	svc pb.CredentialProviderServiceServiceClient
+}
+
+// NewCredentialProviderServiceClient creates a new CredentialProviderService client.
+func NewCredentialProviderServiceClient(cc grpc.ClientConnInterface) *CredentialProviderServiceClient {
+	return &CredentialProviderServiceClient{
+		svc: pb.NewCredentialProviderServiceServiceClient(cc),
+	}
+}
+
+// OnBind calls the OnBind RPC.
+func (c *CredentialProviderServiceClient) OnBind(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.OnBind(ctx, &pb.OnBindRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnCreate calls the OnCreate RPC.
+func (c *CredentialProviderServiceClient) OnCreate(ctx context.Context) error {
+	_, err := c.svc.OnCreate(ctx, &pb.OnCreateRequest{})
+	return err
+}
+
+// RemoteEntryClient wraps the gRPC RemoteEntryService client.
+type RemoteEntryClient struct {
+	svc pb.RemoteEntryServiceClient
+}
+
+// NewRemoteEntryClient creates a new RemoteEntry client.
+func NewRemoteEntryClient(cc grpc.ClientConnInterface) *RemoteEntryClient {
+	return &RemoteEntryClient{
+		svc: pb.NewRemoteEntryServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *RemoteEntryClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.BeginGetCredentialResponseDescribeContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSlice calls the GetSlice RPC.
+func (c *RemoteEntryClient) GetSlice(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetSlice(ctx, &pb.GetSliceRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *RemoteEntryClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.BeginGetCredentialResponseWriteToParcelRequest{
 		Handle: handle,
 		Arg0:   arg0,
 		Arg1:   arg1,
@@ -1486,6 +1603,15 @@ func NewBeginGetCredentialRequestClient(cc grpc.ClientConnInterface) *BeginGetCr
 // DescribeContents calls the DescribeContents RPC.
 func (c *BeginGetCredentialRequestClient) DescribeContents(ctx context.Context) (int32, error) {
 	resp, err := c.svc.DescribeContents(ctx, &pb.BeginGetCredentialRequestDescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetBeginGetCredentialOptions calls the GetBeginGetCredentialOptions RPC.
+func (c *BeginGetCredentialRequestClient) GetBeginGetCredentialOptions(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetBeginGetCredentialOptions(ctx, &pb.GetBeginGetCredentialOptionsRequest{})
 	if err != nil {
 		return 0, err
 	}
@@ -1553,21 +1679,21 @@ func (c *BeginGetCredentialRequestBuilderClient) SetCallingAppInfo(ctx context.C
 	return resp.GetResult(), nil
 }
 
-// RemoteEntryClient wraps the gRPC RemoteEntryService client.
-type RemoteEntryClient struct {
-	svc pb.RemoteEntryServiceClient
+// BeginGetCredentialOptionClient wraps the gRPC BeginGetCredentialOptionService client.
+type BeginGetCredentialOptionClient struct {
+	svc pb.BeginGetCredentialOptionServiceClient
 }
 
-// NewRemoteEntryClient creates a new RemoteEntry client.
-func NewRemoteEntryClient(cc grpc.ClientConnInterface) *RemoteEntryClient {
-	return &RemoteEntryClient{
-		svc: pb.NewRemoteEntryServiceClient(cc),
+// NewBeginGetCredentialOptionClient creates a new BeginGetCredentialOption client.
+func NewBeginGetCredentialOptionClient(cc grpc.ClientConnInterface) *BeginGetCredentialOptionClient {
+	return &BeginGetCredentialOptionClient{
+		svc: pb.NewBeginGetCredentialOptionServiceClient(cc),
 	}
 }
 
 // DescribeContents calls the DescribeContents RPC.
-func (c *RemoteEntryClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.CreateCredentialRequestDescribeContentsRequest{
+func (c *BeginGetCredentialOptionClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.BeginGetCredentialResponseDescribeContentsRequest{
 		Handle: handle,
 	})
 	if err != nil {
@@ -1576,64 +1702,53 @@ func (c *RemoteEntryClient) DescribeContents(ctx context.Context, handle int64) 
 	return resp.GetResult(), nil
 }
 
-// GetSlice calls the GetSlice RPC.
-func (c *RemoteEntryClient) GetSlice(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetSlice(ctx, &pb.GetSliceRequest{
+// GetCandidateQueryData calls the GetCandidateQueryData RPC.
+func (c *BeginGetCredentialOptionClient) GetCandidateQueryData(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetCandidateQueryData(ctx, &pb.BeginGetCredentialOptionGetCandidateQueryDataRequest{
 		Handle: handle,
 	})
 	if err != nil {
 		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetId calls the GetId RPC.
+func (c *BeginGetCredentialOptionClient) GetId(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetId(ctx, &pb.GetIdRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetType calls the GetType RPC.
+func (c *BeginGetCredentialOptionClient) GetType(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetType(ctx, &pb.GetTypeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *BeginGetCredentialOptionClient) ToString(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.CallingAppInfoToStringRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
 	}
 	return resp.GetResult(), nil
 }
 
 // WriteToParcel calls the WriteToParcel RPC.
-func (c *RemoteEntryClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.CreateCredentialRequestWriteToParcelRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// ActionClient wraps the gRPC ActionService client.
-type ActionClient struct {
-	svc pb.ActionServiceClient
-}
-
-// NewActionClient creates a new Action client.
-func NewActionClient(cc grpc.ClientConnInterface) *ActionClient {
-	return &ActionClient{
-		svc: pb.NewActionServiceClient(cc),
-	}
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *ActionClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.CreateCredentialRequestDescribeContentsRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetSlice calls the GetSlice RPC.
-func (c *ActionClient) GetSlice(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetSlice(ctx, &pb.GetSliceRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *ActionClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.CreateCredentialRequestWriteToParcelRequest{
+func (c *BeginGetCredentialOptionClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.BeginGetCredentialResponseWriteToParcelRequest{
 		Handle: handle,
 		Arg0:   arg0,
 		Arg1:   arg1,

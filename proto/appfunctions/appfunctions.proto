@@ -6,11 +6,20 @@ package appfunctions;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/appfunctions";
 
-message NewExecuteAppFunctionResponseRequest {
+message OnBindRequest {
   int64 arg0 = 1;
 }
 
-message NewExecuteAppFunctionResponseResponse {
+message OnBindResponse {
+  int64 result = 1;
+}
+
+message NewAppFunctionExceptionRequest {
+  int32 arg0 = 1;
+  string arg1 = 2;
+}
+
+message NewAppFunctionExceptionResponse {
   int64 result = 1;
 }
 
@@ -22,19 +31,35 @@ message DescribeContentsResponse {
   int32 result = 1;
 }
 
+message GetErrorCategoryRequest {
+  int64 handle = 1;
+}
+
+message GetErrorCategoryResponse {
+  int32 result = 1;
+}
+
+message GetErrorCodeRequest {
+  int64 handle = 1;
+}
+
+message GetErrorCodeResponse {
+  int32 result = 1;
+}
+
+message GetErrorMessageRequest {
+  int64 handle = 1;
+}
+
+message GetErrorMessageResponse {
+  string result = 1;
+}
+
 message GetExtrasRequest {
   int64 handle = 1;
 }
 
 message GetExtrasResponse {
-  int64 result = 1;
-}
-
-message GetResultDocumentRequest {
-  int64 handle = 1;
-}
-
-message GetResultDocumentResponse {
   int64 result = 1;
 }
 
@@ -102,52 +127,33 @@ message SetParametersResponse {
   int64 result = 1;
 }
 
-message OnBindRequest {
+message NewExecuteAppFunctionResponseRequest {
   int64 arg0 = 1;
 }
 
-message OnBindResponse {
+message NewExecuteAppFunctionResponseResponse {
   int64 result = 1;
 }
 
-message NewAppFunctionExceptionRequest {
-  int32 arg0 = 1;
-  string arg1 = 2;
+message GetResultDocumentRequest {
+  int64 handle = 1;
 }
 
-message NewAppFunctionExceptionResponse {
+message GetResultDocumentResponse {
   int64 result = 1;
 }
 
-message GetErrorCategoryRequest {
-  int64 handle = 1;
+service AppFunctionServiceService {
+  rpc OnBind (OnBindRequest) returns (OnBindResponse);
 }
 
-message GetErrorCategoryResponse {
-  int32 result = 1;
-}
-
-message GetErrorCodeRequest {
-  int64 handle = 1;
-}
-
-message GetErrorCodeResponse {
-  int32 result = 1;
-}
-
-message GetErrorMessageRequest {
-  int64 handle = 1;
-}
-
-message GetErrorMessageResponse {
-  string result = 1;
-}
-
-service ExecuteAppFunctionResponseService {
-  rpc NewExecuteAppFunctionResponse (NewExecuteAppFunctionResponseRequest) returns (NewExecuteAppFunctionResponseResponse);
+service AppFunctionExceptionService {
+  rpc NewAppFunctionException (NewAppFunctionExceptionRequest) returns (NewAppFunctionExceptionResponse);
   rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetErrorCategory (GetErrorCategoryRequest) returns (GetErrorCategoryResponse);
+  rpc GetErrorCode (GetErrorCodeRequest) returns (GetErrorCodeResponse);
+  rpc GetErrorMessage (GetErrorMessageRequest) returns (GetErrorMessageResponse);
   rpc GetExtras (GetExtrasRequest) returns (GetExtrasResponse);
-  rpc GetResultDocument (GetResultDocumentRequest) returns (GetResultDocumentResponse);
   rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
 }
 
@@ -166,16 +172,10 @@ service ExecuteAppFunctionRequestBuilderService {
   rpc SetParameters (SetParametersRequest) returns (SetParametersResponse);
 }
 
-service AppFunctionServiceService {
-  rpc OnBind (OnBindRequest) returns (OnBindResponse);
-}
-
-service AppFunctionExceptionService {
-  rpc NewAppFunctionException (NewAppFunctionExceptionRequest) returns (NewAppFunctionExceptionResponse);
+service ExecuteAppFunctionResponseService {
+  rpc NewExecuteAppFunctionResponse (NewExecuteAppFunctionResponseRequest) returns (NewExecuteAppFunctionResponseResponse);
   rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc GetErrorCategory (GetErrorCategoryRequest) returns (GetErrorCategoryResponse);
-  rpc GetErrorCode (GetErrorCodeRequest) returns (GetErrorCodeResponse);
-  rpc GetErrorMessage (GetErrorMessageRequest) returns (GetErrorMessageResponse);
   rpc GetExtras (GetExtrasRequest) returns (GetExtrasResponse);
+  rpc GetResultDocument (GetResultDocumentRequest) returns (GetResultDocumentResponse);
   rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
 }

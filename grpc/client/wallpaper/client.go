@@ -77,6 +77,15 @@ func (c *DescriptionClient) GetContextUri(ctx context.Context) (int64, error) {
 	return resp.GetResult(), nil
 }
 
+// GetDescription calls the GetDescription RPC.
+func (c *DescriptionClient) GetDescription(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetDescription(ctx, &pb.GetDescriptionRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // GetId calls the GetId RPC.
 func (c *DescriptionClient) GetId(ctx context.Context) (string, error) {
 	resp, err := c.svc.GetId(ctx, &pb.GetIdRequest{})
@@ -264,7 +273,7 @@ func (c *InstanceClient) Equals(ctx context.Context, handle int64, arg0 int64) (
 
 // GetDescription calls the GetDescription RPC.
 func (c *InstanceClient) GetDescription(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetDescription(ctx, &pb.GetDescriptionRequest{
+	resp, err := c.svc.GetDescription(ctx, &pb.InstanceGetDescriptionRequest{
 		Handle: handle,
 	})
 	if err != nil {

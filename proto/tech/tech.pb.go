@@ -167,26 +167,26 @@ func (*ConnectResponse) Descriptor() ([]byte, []int) {
 	return file_proto_tech_tech_proto_rawDescGZIP(), []int{3}
 }
 
-type GetManufacturerRequest struct {
+type GetBarcodeRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetManufacturerRequest) Reset() {
-	*x = GetManufacturerRequest{}
+func (x *GetBarcodeRequest) Reset() {
+	*x = GetBarcodeRequest{}
 	mi := &file_proto_tech_tech_proto_msgTypes[4]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetManufacturerRequest) String() string {
+func (x *GetBarcodeRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetManufacturerRequest) ProtoMessage() {}
+func (*GetBarcodeRequest) ProtoMessage() {}
 
-func (x *GetManufacturerRequest) ProtoReflect() protoreflect.Message {
+func (x *GetBarcodeRequest) ProtoReflect() protoreflect.Message {
 	mi := &file_proto_tech_tech_proto_msgTypes[4]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -198,32 +198,32 @@ func (x *GetManufacturerRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetManufacturerRequest.ProtoReflect.Descriptor instead.
-func (*GetManufacturerRequest) Descriptor() ([]byte, []int) {
+// Deprecated: Use GetBarcodeRequest.ProtoReflect.Descriptor instead.
+func (*GetBarcodeRequest) Descriptor() ([]byte, []int) {
 	return file_proto_tech_tech_proto_rawDescGZIP(), []int{4}
 }
 
-type GetManufacturerResponse struct {
+type GetBarcodeResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetManufacturerResponse) Reset() {
-	*x = GetManufacturerResponse{}
+func (x *GetBarcodeResponse) Reset() {
+	*x = GetBarcodeResponse{}
 	mi := &file_proto_tech_tech_proto_msgTypes[5]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetManufacturerResponse) String() string {
+func (x *GetBarcodeResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetManufacturerResponse) ProtoMessage() {}
+func (*GetBarcodeResponse) ProtoMessage() {}
 
-func (x *GetManufacturerResponse) ProtoReflect() protoreflect.Message {
+func (x *GetBarcodeResponse) ProtoReflect() protoreflect.Message {
 	mi := &file_proto_tech_tech_proto_msgTypes[5]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -235,172 +235,12 @@ func (x *GetManufacturerResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetManufacturerResponse.ProtoReflect.Descriptor instead.
-func (*GetManufacturerResponse) Descriptor() ([]byte, []int) {
+// Deprecated: Use GetBarcodeResponse.ProtoReflect.Descriptor instead.
+func (*GetBarcodeResponse) Descriptor() ([]byte, []int) {
 	return file_proto_tech_tech_proto_rawDescGZIP(), []int{5}
 }
 
-func (x *GetManufacturerResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetMaxTransceiveLengthRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetMaxTransceiveLengthRequest) Reset() {
-	*x = GetMaxTransceiveLengthRequest{}
-	mi := &file_proto_tech_tech_proto_msgTypes[6]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetMaxTransceiveLengthRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetMaxTransceiveLengthRequest) ProtoMessage() {}
-
-func (x *GetMaxTransceiveLengthRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_tech_tech_proto_msgTypes[6]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetMaxTransceiveLengthRequest.ProtoReflect.Descriptor instead.
-func (*GetMaxTransceiveLengthRequest) Descriptor() ([]byte, []int) {
-	return file_proto_tech_tech_proto_rawDescGZIP(), []int{6}
-}
-
-type GetMaxTransceiveLengthResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetMaxTransceiveLengthResponse) Reset() {
-	*x = GetMaxTransceiveLengthResponse{}
-	mi := &file_proto_tech_tech_proto_msgTypes[7]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetMaxTransceiveLengthResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetMaxTransceiveLengthResponse) ProtoMessage() {}
-
-func (x *GetMaxTransceiveLengthResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_tech_tech_proto_msgTypes[7]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetMaxTransceiveLengthResponse.ProtoReflect.Descriptor instead.
-func (*GetMaxTransceiveLengthResponse) Descriptor() ([]byte, []int) {
-	return file_proto_tech_tech_proto_rawDescGZIP(), []int{7}
-}
-
-func (x *GetMaxTransceiveLengthResponse) GetResult() int32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetSystemCodeRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetSystemCodeRequest) Reset() {
-	*x = GetSystemCodeRequest{}
-	mi := &file_proto_tech_tech_proto_msgTypes[8]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetSystemCodeRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetSystemCodeRequest) ProtoMessage() {}
-
-func (x *GetSystemCodeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_tech_tech_proto_msgTypes[8]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetSystemCodeRequest.ProtoReflect.Descriptor instead.
-func (*GetSystemCodeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_tech_tech_proto_rawDescGZIP(), []int{8}
-}
-
-type GetSystemCodeResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetSystemCodeResponse) Reset() {
-	*x = GetSystemCodeResponse{}
-	mi := &file_proto_tech_tech_proto_msgTypes[9]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetSystemCodeResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetSystemCodeResponse) ProtoMessage() {}
-
-func (x *GetSystemCodeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_tech_tech_proto_msgTypes[9]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetSystemCodeResponse.ProtoReflect.Descriptor instead.
-func (*GetSystemCodeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_tech_tech_proto_rawDescGZIP(), []int{9}
-}
-
-func (x *GetSystemCodeResponse) GetResult() int64 {
+func (x *GetBarcodeResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
@@ -415,7 +255,7 @@ type GetTagRequest struct {
 
 func (x *GetTagRequest) Reset() {
 	*x = GetTagRequest{}
-	mi := &file_proto_tech_tech_proto_msgTypes[10]
+	mi := &file_proto_tech_tech_proto_msgTypes[6]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -427,7 +267,7 @@ func (x *GetTagRequest) String() string {
 func (*GetTagRequest) ProtoMessage() {}
 
 func (x *GetTagRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_tech_tech_proto_msgTypes[10]
+	mi := &file_proto_tech_tech_proto_msgTypes[6]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -440,7 +280,7 @@ func (x *GetTagRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetTagRequest.ProtoReflect.Descriptor instead.
 func (*GetTagRequest) Descriptor() ([]byte, []int) {
-	return file_proto_tech_tech_proto_rawDescGZIP(), []int{10}
+	return file_proto_tech_tech_proto_rawDescGZIP(), []int{6}
 }
 
 type GetTagResponse struct {
@@ -452,7 +292,7 @@ type GetTagResponse struct {
 
 func (x *GetTagResponse) Reset() {
 	*x = GetTagResponse{}
-	mi := &file_proto_tech_tech_proto_msgTypes[11]
+	mi := &file_proto_tech_tech_proto_msgTypes[7]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -464,7 +304,7 @@ func (x *GetTagResponse) String() string {
 func (*GetTagResponse) ProtoMessage() {}
 
 func (x *GetTagResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_tech_tech_proto_msgTypes[11]
+	mi := &file_proto_tech_tech_proto_msgTypes[7]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -477,7 +317,7 @@ func (x *GetTagResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetTagResponse.ProtoReflect.Descriptor instead.
 func (*GetTagResponse) Descriptor() ([]byte, []int) {
-	return file_proto_tech_tech_proto_rawDescGZIP(), []int{11}
+	return file_proto_tech_tech_proto_rawDescGZIP(), []int{7}
 }
 
 func (x *GetTagResponse) GetResult() int64 {
@@ -487,27 +327,27 @@ func (x *GetTagResponse) GetResult() int64 {
 	return 0
 }
 
-type GetTimeoutRequest struct {
+type GetTypeRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetTimeoutRequest) Reset() {
-	*x = GetTimeoutRequest{}
-	mi := &file_proto_tech_tech_proto_msgTypes[12]
+func (x *GetTypeRequest) Reset() {
+	*x = GetTypeRequest{}
+	mi := &file_proto_tech_tech_proto_msgTypes[8]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetTimeoutRequest) String() string {
+func (x *GetTypeRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetTimeoutRequest) ProtoMessage() {}
+func (*GetTypeRequest) ProtoMessage() {}
 
-func (x *GetTimeoutRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_tech_tech_proto_msgTypes[12]
+func (x *GetTypeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_tech_tech_proto_msgTypes[8]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -518,33 +358,33 @@ func (x *GetTimeoutRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetTimeoutRequest.ProtoReflect.Descriptor instead.
-func (*GetTimeoutRequest) Descriptor() ([]byte, []int) {
-	return file_proto_tech_tech_proto_rawDescGZIP(), []int{12}
+// Deprecated: Use GetTypeRequest.ProtoReflect.Descriptor instead.
+func (*GetTypeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_tech_tech_proto_rawDescGZIP(), []int{8}
 }
 
-type GetTimeoutResponse struct {
+type GetTypeResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetTimeoutResponse) Reset() {
-	*x = GetTimeoutResponse{}
-	mi := &file_proto_tech_tech_proto_msgTypes[13]
+func (x *GetTypeResponse) Reset() {
+	*x = GetTypeResponse{}
+	mi := &file_proto_tech_tech_proto_msgTypes[9]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetTimeoutResponse) String() string {
+func (x *GetTypeResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetTimeoutResponse) ProtoMessage() {}
+func (*GetTypeResponse) ProtoMessage() {}
 
-func (x *GetTimeoutResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_tech_tech_proto_msgTypes[13]
+func (x *GetTypeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_tech_tech_proto_msgTypes[9]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -555,12 +395,12 @@ func (x *GetTimeoutResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetTimeoutResponse.ProtoReflect.Descriptor instead.
-func (*GetTimeoutResponse) Descriptor() ([]byte, []int) {
-	return file_proto_tech_tech_proto_rawDescGZIP(), []int{13}
+// Deprecated: Use GetTypeResponse.ProtoReflect.Descriptor instead.
+func (*GetTypeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_tech_tech_proto_rawDescGZIP(), []int{9}
 }
 
-func (x *GetTimeoutResponse) GetResult() int32 {
+func (x *GetTypeResponse) GetResult() int32 {
 	if x != nil {
 		return x.Result
 	}
@@ -575,7 +415,7 @@ type IsConnectedRequest struct {
 
 func (x *IsConnectedRequest) Reset() {
 	*x = IsConnectedRequest{}
-	mi := &file_proto_tech_tech_proto_msgTypes[14]
+	mi := &file_proto_tech_tech_proto_msgTypes[10]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -587,7 +427,7 @@ func (x *IsConnectedRequest) String() string {
 func (*IsConnectedRequest) ProtoMessage() {}
 
 func (x *IsConnectedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_tech_tech_proto_msgTypes[14]
+	mi := &file_proto_tech_tech_proto_msgTypes[10]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -600,7 +440,7 @@ func (x *IsConnectedRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsConnectedRequest.ProtoReflect.Descriptor instead.
 func (*IsConnectedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_tech_tech_proto_rawDescGZIP(), []int{14}
+	return file_proto_tech_tech_proto_rawDescGZIP(), []int{10}
 }
 
 type IsConnectedResponse struct {
@@ -612,7 +452,7 @@ type IsConnectedResponse struct {
 
 func (x *IsConnectedResponse) Reset() {
 	*x = IsConnectedResponse{}
-	mi := &file_proto_tech_tech_proto_msgTypes[15]
+	mi := &file_proto_tech_tech_proto_msgTypes[11]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -624,7 +464,7 @@ func (x *IsConnectedResponse) String() string {
 func (*IsConnectedResponse) ProtoMessage() {}
 
 func (x *IsConnectedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_tech_tech_proto_msgTypes[15]
+	mi := &file_proto_tech_tech_proto_msgTypes[11]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -637,7 +477,7 @@ func (x *IsConnectedResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsConnectedResponse.ProtoReflect.Descriptor instead.
 func (*IsConnectedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_tech_tech_proto_rawDescGZIP(), []int{15}
+	return file_proto_tech_tech_proto_rawDescGZIP(), []int{11}
 }
 
 func (x *IsConnectedResponse) GetResult() bool {
@@ -645,174 +485,6 @@ func (x *IsConnectedResponse) GetResult() bool {
 		return x.Result
 	}
 	return false
-}
-
-type SetTimeoutRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetTimeoutRequest) Reset() {
-	*x = SetTimeoutRequest{}
-	mi := &file_proto_tech_tech_proto_msgTypes[16]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetTimeoutRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetTimeoutRequest) ProtoMessage() {}
-
-func (x *SetTimeoutRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_tech_tech_proto_msgTypes[16]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetTimeoutRequest.ProtoReflect.Descriptor instead.
-func (*SetTimeoutRequest) Descriptor() ([]byte, []int) {
-	return file_proto_tech_tech_proto_rawDescGZIP(), []int{16}
-}
-
-func (x *SetTimeoutRequest) GetArg0() int32 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type SetTimeoutResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetTimeoutResponse) Reset() {
-	*x = SetTimeoutResponse{}
-	mi := &file_proto_tech_tech_proto_msgTypes[17]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetTimeoutResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetTimeoutResponse) ProtoMessage() {}
-
-func (x *SetTimeoutResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_tech_tech_proto_msgTypes[17]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetTimeoutResponse.ProtoReflect.Descriptor instead.
-func (*SetTimeoutResponse) Descriptor() ([]byte, []int) {
-	return file_proto_tech_tech_proto_rawDescGZIP(), []int{17}
-}
-
-type TransceiveRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *TransceiveRequest) Reset() {
-	*x = TransceiveRequest{}
-	mi := &file_proto_tech_tech_proto_msgTypes[18]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *TransceiveRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*TransceiveRequest) ProtoMessage() {}
-
-func (x *TransceiveRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_tech_tech_proto_msgTypes[18]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use TransceiveRequest.ProtoReflect.Descriptor instead.
-func (*TransceiveRequest) Descriptor() ([]byte, []int) {
-	return file_proto_tech_tech_proto_rawDescGZIP(), []int{18}
-}
-
-func (x *TransceiveRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type TransceiveResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *TransceiveResponse) Reset() {
-	*x = TransceiveResponse{}
-	mi := &file_proto_tech_tech_proto_msgTypes[19]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *TransceiveResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*TransceiveResponse) ProtoMessage() {}
-
-func (x *TransceiveResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_tech_tech_proto_msgTypes[19]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use TransceiveResponse.ProtoReflect.Descriptor instead.
-func (*TransceiveResponse) Descriptor() ([]byte, []int) {
-	return file_proto_tech_tech_proto_rawDescGZIP(), []int{19}
-}
-
-func (x *TransceiveResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
 }
 
 type GetRequest struct {
@@ -824,7 +496,7 @@ type GetRequest struct {
 
 func (x *GetRequest) Reset() {
 	*x = GetRequest{}
-	mi := &file_proto_tech_tech_proto_msgTypes[20]
+	mi := &file_proto_tech_tech_proto_msgTypes[12]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -836,7 +508,7 @@ func (x *GetRequest) String() string {
 func (*GetRequest) ProtoMessage() {}
 
 func (x *GetRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_tech_tech_proto_msgTypes[20]
+	mi := &file_proto_tech_tech_proto_msgTypes[12]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -849,7 +521,7 @@ func (x *GetRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetRequest.ProtoReflect.Descriptor instead.
 func (*GetRequest) Descriptor() ([]byte, []int) {
-	return file_proto_tech_tech_proto_rawDescGZIP(), []int{20}
+	return file_proto_tech_tech_proto_rawDescGZIP(), []int{12}
 }
 
 func (x *GetRequest) GetArg0() int64 {
@@ -868,7 +540,7 @@ type GetResponse struct {
 
 func (x *GetResponse) Reset() {
 	*x = GetResponse{}
-	mi := &file_proto_tech_tech_proto_msgTypes[21]
+	mi := &file_proto_tech_tech_proto_msgTypes[13]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -880,7 +552,7 @@ func (x *GetResponse) String() string {
 func (*GetResponse) ProtoMessage() {}
 
 func (x *GetResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_tech_tech_proto_msgTypes[21]
+	mi := &file_proto_tech_tech_proto_msgTypes[13]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -893,7 +565,7 @@ func (x *GetResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetResponse.ProtoReflect.Descriptor instead.
 func (*GetResponse) Descriptor() ([]byte, []int) {
-	return file_proto_tech_tech_proto_rawDescGZIP(), []int{21}
+	return file_proto_tech_tech_proto_rawDescGZIP(), []int{13}
 }
 
 func (x *GetResponse) GetResult() int64 {
@@ -903,27 +575,28 @@ func (x *GetResponse) GetResult() int64 {
 	return 0
 }
 
-type GetTypeRequest struct {
+type FormatRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetTypeRequest) Reset() {
-	*x = GetTypeRequest{}
-	mi := &file_proto_tech_tech_proto_msgTypes[22]
+func (x *FormatRequest) Reset() {
+	*x = FormatRequest{}
+	mi := &file_proto_tech_tech_proto_msgTypes[14]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetTypeRequest) String() string {
+func (x *FormatRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetTypeRequest) ProtoMessage() {}
+func (*FormatRequest) ProtoMessage() {}
 
-func (x *GetTypeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_tech_tech_proto_msgTypes[22]
+func (x *FormatRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_tech_tech_proto_msgTypes[14]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -934,33 +607,192 @@ func (x *GetTypeRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetTypeRequest.ProtoReflect.Descriptor instead.
-func (*GetTypeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_tech_tech_proto_rawDescGZIP(), []int{22}
+// Deprecated: Use FormatRequest.ProtoReflect.Descriptor instead.
+func (*FormatRequest) Descriptor() ([]byte, []int) {
+	return file_proto_tech_tech_proto_rawDescGZIP(), []int{14}
 }
 
-type GetTypeResponse struct {
+func (x *FormatRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type FormatResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *FormatResponse) Reset() {
+	*x = FormatResponse{}
+	mi := &file_proto_tech_tech_proto_msgTypes[15]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *FormatResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*FormatResponse) ProtoMessage() {}
+
+func (x *FormatResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_tech_tech_proto_msgTypes[15]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use FormatResponse.ProtoReflect.Descriptor instead.
+func (*FormatResponse) Descriptor() ([]byte, []int) {
+	return file_proto_tech_tech_proto_rawDescGZIP(), []int{15}
+}
+
+type FormatReadOnlyRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *FormatReadOnlyRequest) Reset() {
+	*x = FormatReadOnlyRequest{}
+	mi := &file_proto_tech_tech_proto_msgTypes[16]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *FormatReadOnlyRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*FormatReadOnlyRequest) ProtoMessage() {}
+
+func (x *FormatReadOnlyRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_tech_tech_proto_msgTypes[16]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use FormatReadOnlyRequest.ProtoReflect.Descriptor instead.
+func (*FormatReadOnlyRequest) Descriptor() ([]byte, []int) {
+	return file_proto_tech_tech_proto_rawDescGZIP(), []int{16}
+}
+
+func (x *FormatReadOnlyRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type FormatReadOnlyResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *FormatReadOnlyResponse) Reset() {
+	*x = FormatReadOnlyResponse{}
+	mi := &file_proto_tech_tech_proto_msgTypes[17]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *FormatReadOnlyResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*FormatReadOnlyResponse) ProtoMessage() {}
+
+func (x *FormatReadOnlyResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_tech_tech_proto_msgTypes[17]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use FormatReadOnlyResponse.ProtoReflect.Descriptor instead.
+func (*FormatReadOnlyResponse) Descriptor() ([]byte, []int) {
+	return file_proto_tech_tech_proto_rawDescGZIP(), []int{17}
+}
+
+type GetMaxTransceiveLengthRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMaxTransceiveLengthRequest) Reset() {
+	*x = GetMaxTransceiveLengthRequest{}
+	mi := &file_proto_tech_tech_proto_msgTypes[18]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMaxTransceiveLengthRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMaxTransceiveLengthRequest) ProtoMessage() {}
+
+func (x *GetMaxTransceiveLengthRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_tech_tech_proto_msgTypes[18]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMaxTransceiveLengthRequest.ProtoReflect.Descriptor instead.
+func (*GetMaxTransceiveLengthRequest) Descriptor() ([]byte, []int) {
+	return file_proto_tech_tech_proto_rawDescGZIP(), []int{18}
+}
+
+type GetMaxTransceiveLengthResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetTypeResponse) Reset() {
-	*x = GetTypeResponse{}
-	mi := &file_proto_tech_tech_proto_msgTypes[23]
+func (x *GetMaxTransceiveLengthResponse) Reset() {
+	*x = GetMaxTransceiveLengthResponse{}
+	mi := &file_proto_tech_tech_proto_msgTypes[19]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetTypeResponse) String() string {
+func (x *GetMaxTransceiveLengthResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetTypeResponse) ProtoMessage() {}
+func (*GetMaxTransceiveLengthResponse) ProtoMessage() {}
 
-func (x *GetTypeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_tech_tech_proto_msgTypes[23]
+func (x *GetMaxTransceiveLengthResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_tech_tech_proto_msgTypes[19]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -971,12 +803,92 @@ func (x *GetTypeResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetTypeResponse.ProtoReflect.Descriptor instead.
-func (*GetTypeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_tech_tech_proto_rawDescGZIP(), []int{23}
+// Deprecated: Use GetMaxTransceiveLengthResponse.ProtoReflect.Descriptor instead.
+func (*GetMaxTransceiveLengthResponse) Descriptor() ([]byte, []int) {
+	return file_proto_tech_tech_proto_rawDescGZIP(), []int{19}
 }
 
-func (x *GetTypeResponse) GetResult() int32 {
+func (x *GetMaxTransceiveLengthResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetTimeoutRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTimeoutRequest) Reset() {
+	*x = GetTimeoutRequest{}
+	mi := &file_proto_tech_tech_proto_msgTypes[20]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTimeoutRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTimeoutRequest) ProtoMessage() {}
+
+func (x *GetTimeoutRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_tech_tech_proto_msgTypes[20]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTimeoutRequest.ProtoReflect.Descriptor instead.
+func (*GetTimeoutRequest) Descriptor() ([]byte, []int) {
+	return file_proto_tech_tech_proto_rawDescGZIP(), []int{20}
+}
+
+type GetTimeoutResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTimeoutResponse) Reset() {
+	*x = GetTimeoutResponse{}
+	mi := &file_proto_tech_tech_proto_msgTypes[21]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTimeoutResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTimeoutResponse) ProtoMessage() {}
+
+func (x *GetTimeoutResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_tech_tech_proto_msgTypes[21]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTimeoutResponse.ProtoReflect.Descriptor instead.
+func (*GetTimeoutResponse) Descriptor() ([]byte, []int) {
+	return file_proto_tech_tech_proto_rawDescGZIP(), []int{21}
+}
+
+func (x *GetTimeoutResponse) GetResult() int32 {
 	if x != nil {
 		return x.Result
 	}
@@ -992,7 +904,7 @@ type ReadPagesRequest struct {
 
 func (x *ReadPagesRequest) Reset() {
 	*x = ReadPagesRequest{}
-	mi := &file_proto_tech_tech_proto_msgTypes[24]
+	mi := &file_proto_tech_tech_proto_msgTypes[22]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1004,7 +916,7 @@ func (x *ReadPagesRequest) String() string {
 func (*ReadPagesRequest) ProtoMessage() {}
 
 func (x *ReadPagesRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_tech_tech_proto_msgTypes[24]
+	mi := &file_proto_tech_tech_proto_msgTypes[22]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1017,7 +929,7 @@ func (x *ReadPagesRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ReadPagesRequest.ProtoReflect.Descriptor instead.
 func (*ReadPagesRequest) Descriptor() ([]byte, []int) {
-	return file_proto_tech_tech_proto_rawDescGZIP(), []int{24}
+	return file_proto_tech_tech_proto_rawDescGZIP(), []int{22}
 }
 
 func (x *ReadPagesRequest) GetArg0() int32 {
@@ -1036,7 +948,7 @@ type ReadPagesResponse struct {
 
 func (x *ReadPagesResponse) Reset() {
 	*x = ReadPagesResponse{}
-	mi := &file_proto_tech_tech_proto_msgTypes[25]
+	mi := &file_proto_tech_tech_proto_msgTypes[23]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1048,7 +960,7 @@ func (x *ReadPagesResponse) String() string {
 func (*ReadPagesResponse) ProtoMessage() {}
 
 func (x *ReadPagesResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_tech_tech_proto_msgTypes[25]
+	mi := &file_proto_tech_tech_proto_msgTypes[23]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1061,10 +973,178 @@ func (x *ReadPagesResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ReadPagesResponse.ProtoReflect.Descriptor instead.
 func (*ReadPagesResponse) Descriptor() ([]byte, []int) {
-	return file_proto_tech_tech_proto_rawDescGZIP(), []int{25}
+	return file_proto_tech_tech_proto_rawDescGZIP(), []int{23}
 }
 
 func (x *ReadPagesResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetTimeoutRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetTimeoutRequest) Reset() {
+	*x = SetTimeoutRequest{}
+	mi := &file_proto_tech_tech_proto_msgTypes[24]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetTimeoutRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetTimeoutRequest) ProtoMessage() {}
+
+func (x *SetTimeoutRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_tech_tech_proto_msgTypes[24]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetTimeoutRequest.ProtoReflect.Descriptor instead.
+func (*SetTimeoutRequest) Descriptor() ([]byte, []int) {
+	return file_proto_tech_tech_proto_rawDescGZIP(), []int{24}
+}
+
+func (x *SetTimeoutRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetTimeoutResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetTimeoutResponse) Reset() {
+	*x = SetTimeoutResponse{}
+	mi := &file_proto_tech_tech_proto_msgTypes[25]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetTimeoutResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetTimeoutResponse) ProtoMessage() {}
+
+func (x *SetTimeoutResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_tech_tech_proto_msgTypes[25]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetTimeoutResponse.ProtoReflect.Descriptor instead.
+func (*SetTimeoutResponse) Descriptor() ([]byte, []int) {
+	return file_proto_tech_tech_proto_rawDescGZIP(), []int{25}
+}
+
+type TransceiveRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *TransceiveRequest) Reset() {
+	*x = TransceiveRequest{}
+	mi := &file_proto_tech_tech_proto_msgTypes[26]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *TransceiveRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*TransceiveRequest) ProtoMessage() {}
+
+func (x *TransceiveRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_tech_tech_proto_msgTypes[26]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use TransceiveRequest.ProtoReflect.Descriptor instead.
+func (*TransceiveRequest) Descriptor() ([]byte, []int) {
+	return file_proto_tech_tech_proto_rawDescGZIP(), []int{26}
+}
+
+func (x *TransceiveRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type TransceiveResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *TransceiveResponse) Reset() {
+	*x = TransceiveResponse{}
+	mi := &file_proto_tech_tech_proto_msgTypes[27]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *TransceiveResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*TransceiveResponse) ProtoMessage() {}
+
+func (x *TransceiveResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_tech_tech_proto_msgTypes[27]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use TransceiveResponse.ProtoReflect.Descriptor instead.
+func (*TransceiveResponse) Descriptor() ([]byte, []int) {
+	return file_proto_tech_tech_proto_rawDescGZIP(), []int{27}
+}
+
+func (x *TransceiveResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
@@ -1081,7 +1161,7 @@ type WritePageRequest struct {
 
 func (x *WritePageRequest) Reset() {
 	*x = WritePageRequest{}
-	mi := &file_proto_tech_tech_proto_msgTypes[26]
+	mi := &file_proto_tech_tech_proto_msgTypes[28]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1093,7 +1173,7 @@ func (x *WritePageRequest) String() string {
 func (*WritePageRequest) ProtoMessage() {}
 
 func (x *WritePageRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_tech_tech_proto_msgTypes[26]
+	mi := &file_proto_tech_tech_proto_msgTypes[28]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1106,7 +1186,7 @@ func (x *WritePageRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use WritePageRequest.ProtoReflect.Descriptor instead.
 func (*WritePageRequest) Descriptor() ([]byte, []int) {
-	return file_proto_tech_tech_proto_rawDescGZIP(), []int{26}
+	return file_proto_tech_tech_proto_rawDescGZIP(), []int{28}
 }
 
 func (x *WritePageRequest) GetArg0() int32 {
@@ -1131,7 +1211,7 @@ type WritePageResponse struct {
 
 func (x *WritePageResponse) Reset() {
 	*x = WritePageResponse{}
-	mi := &file_proto_tech_tech_proto_msgTypes[27]
+	mi := &file_proto_tech_tech_proto_msgTypes[29]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1143,7 +1223,7 @@ func (x *WritePageResponse) String() string {
 func (*WritePageResponse) ProtoMessage() {}
 
 func (x *WritePageResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_tech_tech_proto_msgTypes[27]
+	mi := &file_proto_tech_tech_proto_msgTypes[29]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1156,109 +1236,29 @@ func (x *WritePageResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use WritePageResponse.ProtoReflect.Descriptor instead.
 func (*WritePageResponse) Descriptor() ([]byte, []int) {
-	return file_proto_tech_tech_proto_rawDescGZIP(), []int{27}
-}
-
-type GetApplicationDataRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetApplicationDataRequest) Reset() {
-	*x = GetApplicationDataRequest{}
-	mi := &file_proto_tech_tech_proto_msgTypes[28]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetApplicationDataRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetApplicationDataRequest) ProtoMessage() {}
-
-func (x *GetApplicationDataRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_tech_tech_proto_msgTypes[28]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetApplicationDataRequest.ProtoReflect.Descriptor instead.
-func (*GetApplicationDataRequest) Descriptor() ([]byte, []int) {
-	return file_proto_tech_tech_proto_rawDescGZIP(), []int{28}
-}
-
-type GetApplicationDataResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetApplicationDataResponse) Reset() {
-	*x = GetApplicationDataResponse{}
-	mi := &file_proto_tech_tech_proto_msgTypes[29]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetApplicationDataResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetApplicationDataResponse) ProtoMessage() {}
-
-func (x *GetApplicationDataResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_tech_tech_proto_msgTypes[29]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetApplicationDataResponse.ProtoReflect.Descriptor instead.
-func (*GetApplicationDataResponse) Descriptor() ([]byte, []int) {
 	return file_proto_tech_tech_proto_rawDescGZIP(), []int{29}
 }
 
-func (x *GetApplicationDataResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetProtocolInfoRequest struct {
+type GetAtqaRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetProtocolInfoRequest) Reset() {
-	*x = GetProtocolInfoRequest{}
+func (x *GetAtqaRequest) Reset() {
+	*x = GetAtqaRequest{}
 	mi := &file_proto_tech_tech_proto_msgTypes[30]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetProtocolInfoRequest) String() string {
+func (x *GetAtqaRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetProtocolInfoRequest) ProtoMessage() {}
+func (*GetAtqaRequest) ProtoMessage() {}
 
-func (x *GetProtocolInfoRequest) ProtoReflect() protoreflect.Message {
+func (x *GetAtqaRequest) ProtoReflect() protoreflect.Message {
 	mi := &file_proto_tech_tech_proto_msgTypes[30]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -1270,32 +1270,32 @@ func (x *GetProtocolInfoRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetProtocolInfoRequest.ProtoReflect.Descriptor instead.
-func (*GetProtocolInfoRequest) Descriptor() ([]byte, []int) {
+// Deprecated: Use GetAtqaRequest.ProtoReflect.Descriptor instead.
+func (*GetAtqaRequest) Descriptor() ([]byte, []int) {
 	return file_proto_tech_tech_proto_rawDescGZIP(), []int{30}
 }
 
-type GetProtocolInfoResponse struct {
+type GetAtqaResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetProtocolInfoResponse) Reset() {
-	*x = GetProtocolInfoResponse{}
+func (x *GetAtqaResponse) Reset() {
+	*x = GetAtqaResponse{}
 	mi := &file_proto_tech_tech_proto_msgTypes[31]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetProtocolInfoResponse) String() string {
+func (x *GetAtqaResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetProtocolInfoResponse) ProtoMessage() {}
+func (*GetAtqaResponse) ProtoMessage() {}
 
-func (x *GetProtocolInfoResponse) ProtoReflect() protoreflect.Message {
+func (x *GetAtqaResponse) ProtoReflect() protoreflect.Message {
 	mi := &file_proto_tech_tech_proto_msgTypes[31]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -1307,38 +1307,38 @@ func (x *GetProtocolInfoResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetProtocolInfoResponse.ProtoReflect.Descriptor instead.
-func (*GetProtocolInfoResponse) Descriptor() ([]byte, []int) {
+// Deprecated: Use GetAtqaResponse.ProtoReflect.Descriptor instead.
+func (*GetAtqaResponse) Descriptor() ([]byte, []int) {
 	return file_proto_tech_tech_proto_rawDescGZIP(), []int{31}
 }
 
-func (x *GetProtocolInfoResponse) GetResult() int64 {
+func (x *GetAtqaResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
 	return 0
 }
 
-type GetDsfIdRequest struct {
+type GetSakRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetDsfIdRequest) Reset() {
-	*x = GetDsfIdRequest{}
+func (x *GetSakRequest) Reset() {
+	*x = GetSakRequest{}
 	mi := &file_proto_tech_tech_proto_msgTypes[32]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetDsfIdRequest) String() string {
+func (x *GetSakRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetDsfIdRequest) ProtoMessage() {}
+func (*GetSakRequest) ProtoMessage() {}
 
-func (x *GetDsfIdRequest) ProtoReflect() protoreflect.Message {
+func (x *GetSakRequest) ProtoReflect() protoreflect.Message {
 	mi := &file_proto_tech_tech_proto_msgTypes[32]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -1350,32 +1350,32 @@ func (x *GetDsfIdRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetDsfIdRequest.ProtoReflect.Descriptor instead.
-func (*GetDsfIdRequest) Descriptor() ([]byte, []int) {
+// Deprecated: Use GetSakRequest.ProtoReflect.Descriptor instead.
+func (*GetSakRequest) Descriptor() ([]byte, []int) {
 	return file_proto_tech_tech_proto_rawDescGZIP(), []int{32}
 }
 
-type GetDsfIdResponse struct {
+type GetSakResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        uint32                 `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetDsfIdResponse) Reset() {
-	*x = GetDsfIdResponse{}
+func (x *GetSakResponse) Reset() {
+	*x = GetSakResponse{}
 	mi := &file_proto_tech_tech_proto_msgTypes[33]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetDsfIdResponse) String() string {
+func (x *GetSakResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetDsfIdResponse) ProtoMessage() {}
+func (*GetSakResponse) ProtoMessage() {}
 
-func (x *GetDsfIdResponse) ProtoReflect() protoreflect.Message {
+func (x *GetSakResponse) ProtoReflect() protoreflect.Message {
 	mi := &file_proto_tech_tech_proto_msgTypes[33]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -1387,92 +1387,12 @@ func (x *GetDsfIdResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetDsfIdResponse.ProtoReflect.Descriptor instead.
-func (*GetDsfIdResponse) Descriptor() ([]byte, []int) {
+// Deprecated: Use GetSakResponse.ProtoReflect.Descriptor instead.
+func (*GetSakResponse) Descriptor() ([]byte, []int) {
 	return file_proto_tech_tech_proto_rawDescGZIP(), []int{33}
 }
 
-func (x *GetDsfIdResponse) GetResult() uint32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetResponseFlagsRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetResponseFlagsRequest) Reset() {
-	*x = GetResponseFlagsRequest{}
-	mi := &file_proto_tech_tech_proto_msgTypes[34]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetResponseFlagsRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetResponseFlagsRequest) ProtoMessage() {}
-
-func (x *GetResponseFlagsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_tech_tech_proto_msgTypes[34]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetResponseFlagsRequest.ProtoReflect.Descriptor instead.
-func (*GetResponseFlagsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_tech_tech_proto_rawDescGZIP(), []int{34}
-}
-
-type GetResponseFlagsResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        uint32                 `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetResponseFlagsResponse) Reset() {
-	*x = GetResponseFlagsResponse{}
-	mi := &file_proto_tech_tech_proto_msgTypes[35]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetResponseFlagsResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetResponseFlagsResponse) ProtoMessage() {}
-
-func (x *GetResponseFlagsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_tech_tech_proto_msgTypes[35]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetResponseFlagsResponse.ProtoReflect.Descriptor instead.
-func (*GetResponseFlagsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_tech_tech_proto_rawDescGZIP(), []int{35}
-}
-
-func (x *GetResponseFlagsResponse) GetResult() uint32 {
+func (x *GetSakResponse) GetResult() int32 {
 	if x != nil {
 		return x.Result
 	}
@@ -1489,7 +1409,7 @@ type AuthenticateSectorWithKeyARequest struct {
 
 func (x *AuthenticateSectorWithKeyARequest) Reset() {
 	*x = AuthenticateSectorWithKeyARequest{}
-	mi := &file_proto_tech_tech_proto_msgTypes[36]
+	mi := &file_proto_tech_tech_proto_msgTypes[34]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1501,7 +1421,7 @@ func (x *AuthenticateSectorWithKeyARequest) String() string {
 func (*AuthenticateSectorWithKeyARequest) ProtoMessage() {}
 
 func (x *AuthenticateSectorWithKeyARequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_tech_tech_proto_msgTypes[36]
+	mi := &file_proto_tech_tech_proto_msgTypes[34]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1514,7 +1434,7 @@ func (x *AuthenticateSectorWithKeyARequest) ProtoReflect() protoreflect.Message 
 
 // Deprecated: Use AuthenticateSectorWithKeyARequest.ProtoReflect.Descriptor instead.
 func (*AuthenticateSectorWithKeyARequest) Descriptor() ([]byte, []int) {
-	return file_proto_tech_tech_proto_rawDescGZIP(), []int{36}
+	return file_proto_tech_tech_proto_rawDescGZIP(), []int{34}
 }
 
 func (x *AuthenticateSectorWithKeyARequest) GetArg0() int32 {
@@ -1540,7 +1460,7 @@ type AuthenticateSectorWithKeyAResponse struct {
 
 func (x *AuthenticateSectorWithKeyAResponse) Reset() {
 	*x = AuthenticateSectorWithKeyAResponse{}
-	mi := &file_proto_tech_tech_proto_msgTypes[37]
+	mi := &file_proto_tech_tech_proto_msgTypes[35]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1552,7 +1472,7 @@ func (x *AuthenticateSectorWithKeyAResponse) String() string {
 func (*AuthenticateSectorWithKeyAResponse) ProtoMessage() {}
 
 func (x *AuthenticateSectorWithKeyAResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_tech_tech_proto_msgTypes[37]
+	mi := &file_proto_tech_tech_proto_msgTypes[35]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1565,7 +1485,7 @@ func (x *AuthenticateSectorWithKeyAResponse) ProtoReflect() protoreflect.Message
 
 // Deprecated: Use AuthenticateSectorWithKeyAResponse.ProtoReflect.Descriptor instead.
 func (*AuthenticateSectorWithKeyAResponse) Descriptor() ([]byte, []int) {
-	return file_proto_tech_tech_proto_rawDescGZIP(), []int{37}
+	return file_proto_tech_tech_proto_rawDescGZIP(), []int{35}
 }
 
 func (x *AuthenticateSectorWithKeyAResponse) GetResult() bool {
@@ -1585,7 +1505,7 @@ type AuthenticateSectorWithKeyBRequest struct {
 
 func (x *AuthenticateSectorWithKeyBRequest) Reset() {
 	*x = AuthenticateSectorWithKeyBRequest{}
-	mi := &file_proto_tech_tech_proto_msgTypes[38]
+	mi := &file_proto_tech_tech_proto_msgTypes[36]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1597,7 +1517,7 @@ func (x *AuthenticateSectorWithKeyBRequest) String() string {
 func (*AuthenticateSectorWithKeyBRequest) ProtoMessage() {}
 
 func (x *AuthenticateSectorWithKeyBRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_tech_tech_proto_msgTypes[38]
+	mi := &file_proto_tech_tech_proto_msgTypes[36]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1610,7 +1530,7 @@ func (x *AuthenticateSectorWithKeyBRequest) ProtoReflect() protoreflect.Message 
 
 // Deprecated: Use AuthenticateSectorWithKeyBRequest.ProtoReflect.Descriptor instead.
 func (*AuthenticateSectorWithKeyBRequest) Descriptor() ([]byte, []int) {
-	return file_proto_tech_tech_proto_rawDescGZIP(), []int{38}
+	return file_proto_tech_tech_proto_rawDescGZIP(), []int{36}
 }
 
 func (x *AuthenticateSectorWithKeyBRequest) GetArg0() int32 {
@@ -1636,7 +1556,7 @@ type AuthenticateSectorWithKeyBResponse struct {
 
 func (x *AuthenticateSectorWithKeyBResponse) Reset() {
 	*x = AuthenticateSectorWithKeyBResponse{}
-	mi := &file_proto_tech_tech_proto_msgTypes[39]
+	mi := &file_proto_tech_tech_proto_msgTypes[37]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1648,7 +1568,7 @@ func (x *AuthenticateSectorWithKeyBResponse) String() string {
 func (*AuthenticateSectorWithKeyBResponse) ProtoMessage() {}
 
 func (x *AuthenticateSectorWithKeyBResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_tech_tech_proto_msgTypes[39]
+	mi := &file_proto_tech_tech_proto_msgTypes[37]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1661,7 +1581,7 @@ func (x *AuthenticateSectorWithKeyBResponse) ProtoReflect() protoreflect.Message
 
 // Deprecated: Use AuthenticateSectorWithKeyBResponse.ProtoReflect.Descriptor instead.
 func (*AuthenticateSectorWithKeyBResponse) Descriptor() ([]byte, []int) {
-	return file_proto_tech_tech_proto_rawDescGZIP(), []int{39}
+	return file_proto_tech_tech_proto_rawDescGZIP(), []int{37}
 }
 
 func (x *AuthenticateSectorWithKeyBResponse) GetResult() bool {
@@ -1680,7 +1600,7 @@ type BlockToSectorRequest struct {
 
 func (x *BlockToSectorRequest) Reset() {
 	*x = BlockToSectorRequest{}
-	mi := &file_proto_tech_tech_proto_msgTypes[40]
+	mi := &file_proto_tech_tech_proto_msgTypes[38]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1692,7 +1612,7 @@ func (x *BlockToSectorRequest) String() string {
 func (*BlockToSectorRequest) ProtoMessage() {}
 
 func (x *BlockToSectorRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_tech_tech_proto_msgTypes[40]
+	mi := &file_proto_tech_tech_proto_msgTypes[38]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1705,7 +1625,7 @@ func (x *BlockToSectorRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use BlockToSectorRequest.ProtoReflect.Descriptor instead.
 func (*BlockToSectorRequest) Descriptor() ([]byte, []int) {
-	return file_proto_tech_tech_proto_rawDescGZIP(), []int{40}
+	return file_proto_tech_tech_proto_rawDescGZIP(), []int{38}
 }
 
 func (x *BlockToSectorRequest) GetArg0() int32 {
@@ -1724,7 +1644,7 @@ type BlockToSectorResponse struct {
 
 func (x *BlockToSectorResponse) Reset() {
 	*x = BlockToSectorResponse{}
-	mi := &file_proto_tech_tech_proto_msgTypes[41]
+	mi := &file_proto_tech_tech_proto_msgTypes[39]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1736,7 +1656,7 @@ func (x *BlockToSectorResponse) String() string {
 func (*BlockToSectorResponse) ProtoMessage() {}
 
 func (x *BlockToSectorResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_tech_tech_proto_msgTypes[41]
+	mi := &file_proto_tech_tech_proto_msgTypes[39]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1749,7 +1669,7 @@ func (x *BlockToSectorResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use BlockToSectorResponse.ProtoReflect.Descriptor instead.
 func (*BlockToSectorResponse) Descriptor() ([]byte, []int) {
-	return file_proto_tech_tech_proto_rawDescGZIP(), []int{41}
+	return file_proto_tech_tech_proto_rawDescGZIP(), []int{39}
 }
 
 func (x *BlockToSectorResponse) GetResult() int32 {
@@ -1769,7 +1689,7 @@ type DecrementRequest struct {
 
 func (x *DecrementRequest) Reset() {
 	*x = DecrementRequest{}
-	mi := &file_proto_tech_tech_proto_msgTypes[42]
+	mi := &file_proto_tech_tech_proto_msgTypes[40]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1781,7 +1701,7 @@ func (x *DecrementRequest) String() string {
 func (*DecrementRequest) ProtoMessage() {}
 
 func (x *DecrementRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_tech_tech_proto_msgTypes[42]
+	mi := &file_proto_tech_tech_proto_msgTypes[40]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1794,7 +1714,7 @@ func (x *DecrementRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DecrementRequest.ProtoReflect.Descriptor instead.
 func (*DecrementRequest) Descriptor() ([]byte, []int) {
-	return file_proto_tech_tech_proto_rawDescGZIP(), []int{42}
+	return file_proto_tech_tech_proto_rawDescGZIP(), []int{40}
 }
 
 func (x *DecrementRequest) GetArg0() int32 {
@@ -1819,7 +1739,7 @@ type DecrementResponse struct {
 
 func (x *DecrementResponse) Reset() {
 	*x = DecrementResponse{}
-	mi := &file_proto_tech_tech_proto_msgTypes[43]
+	mi := &file_proto_tech_tech_proto_msgTypes[41]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1831,7 +1751,7 @@ func (x *DecrementResponse) String() string {
 func (*DecrementResponse) ProtoMessage() {}
 
 func (x *DecrementResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_tech_tech_proto_msgTypes[43]
+	mi := &file_proto_tech_tech_proto_msgTypes[41]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1844,7 +1764,7 @@ func (x *DecrementResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DecrementResponse.ProtoReflect.Descriptor instead.
 func (*DecrementResponse) Descriptor() ([]byte, []int) {
-	return file_proto_tech_tech_proto_rawDescGZIP(), []int{43}
+	return file_proto_tech_tech_proto_rawDescGZIP(), []int{41}
 }
 
 type GetBlockCountRequest struct {
@@ -1855,7 +1775,7 @@ type GetBlockCountRequest struct {
 
 func (x *GetBlockCountRequest) Reset() {
 	*x = GetBlockCountRequest{}
-	mi := &file_proto_tech_tech_proto_msgTypes[44]
+	mi := &file_proto_tech_tech_proto_msgTypes[42]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1867,7 +1787,7 @@ func (x *GetBlockCountRequest) String() string {
 func (*GetBlockCountRequest) ProtoMessage() {}
 
 func (x *GetBlockCountRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_tech_tech_proto_msgTypes[44]
+	mi := &file_proto_tech_tech_proto_msgTypes[42]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1880,7 +1800,7 @@ func (x *GetBlockCountRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetBlockCountRequest.ProtoReflect.Descriptor instead.
 func (*GetBlockCountRequest) Descriptor() ([]byte, []int) {
-	return file_proto_tech_tech_proto_rawDescGZIP(), []int{44}
+	return file_proto_tech_tech_proto_rawDescGZIP(), []int{42}
 }
 
 type GetBlockCountResponse struct {
@@ -1892,7 +1812,7 @@ type GetBlockCountResponse struct {
 
 func (x *GetBlockCountResponse) Reset() {
 	*x = GetBlockCountResponse{}
-	mi := &file_proto_tech_tech_proto_msgTypes[45]
+	mi := &file_proto_tech_tech_proto_msgTypes[43]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1904,7 +1824,7 @@ func (x *GetBlockCountResponse) String() string {
 func (*GetBlockCountResponse) ProtoMessage() {}
 
 func (x *GetBlockCountResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_tech_tech_proto_msgTypes[45]
+	mi := &file_proto_tech_tech_proto_msgTypes[43]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1917,7 +1837,7 @@ func (x *GetBlockCountResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetBlockCountResponse.ProtoReflect.Descriptor instead.
 func (*GetBlockCountResponse) Descriptor() ([]byte, []int) {
-	return file_proto_tech_tech_proto_rawDescGZIP(), []int{45}
+	return file_proto_tech_tech_proto_rawDescGZIP(), []int{43}
 }
 
 func (x *GetBlockCountResponse) GetResult() int32 {
@@ -1936,7 +1856,7 @@ type GetBlockCountInSectorRequest struct {
 
 func (x *GetBlockCountInSectorRequest) Reset() {
 	*x = GetBlockCountInSectorRequest{}
-	mi := &file_proto_tech_tech_proto_msgTypes[46]
+	mi := &file_proto_tech_tech_proto_msgTypes[44]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1948,7 +1868,7 @@ func (x *GetBlockCountInSectorRequest) String() string {
 func (*GetBlockCountInSectorRequest) ProtoMessage() {}
 
 func (x *GetBlockCountInSectorRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_tech_tech_proto_msgTypes[46]
+	mi := &file_proto_tech_tech_proto_msgTypes[44]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1961,7 +1881,7 @@ func (x *GetBlockCountInSectorRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetBlockCountInSectorRequest.ProtoReflect.Descriptor instead.
 func (*GetBlockCountInSectorRequest) Descriptor() ([]byte, []int) {
-	return file_proto_tech_tech_proto_rawDescGZIP(), []int{46}
+	return file_proto_tech_tech_proto_rawDescGZIP(), []int{44}
 }
 
 func (x *GetBlockCountInSectorRequest) GetArg0() int32 {
@@ -1980,7 +1900,7 @@ type GetBlockCountInSectorResponse struct {
 
 func (x *GetBlockCountInSectorResponse) Reset() {
 	*x = GetBlockCountInSectorResponse{}
-	mi := &file_proto_tech_tech_proto_msgTypes[47]
+	mi := &file_proto_tech_tech_proto_msgTypes[45]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1992,7 +1912,7 @@ func (x *GetBlockCountInSectorResponse) String() string {
 func (*GetBlockCountInSectorResponse) ProtoMessage() {}
 
 func (x *GetBlockCountInSectorResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_tech_tech_proto_msgTypes[47]
+	mi := &file_proto_tech_tech_proto_msgTypes[45]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2005,7 +1925,7 @@ func (x *GetBlockCountInSectorResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetBlockCountInSectorResponse.ProtoReflect.Descriptor instead.
 func (*GetBlockCountInSectorResponse) Descriptor() ([]byte, []int) {
-	return file_proto_tech_tech_proto_rawDescGZIP(), []int{47}
+	return file_proto_tech_tech_proto_rawDescGZIP(), []int{45}
 }
 
 func (x *GetBlockCountInSectorResponse) GetResult() int32 {
@@ -2023,7 +1943,7 @@ type GetSectorCountRequest struct {
 
 func (x *GetSectorCountRequest) Reset() {
 	*x = GetSectorCountRequest{}
-	mi := &file_proto_tech_tech_proto_msgTypes[48]
+	mi := &file_proto_tech_tech_proto_msgTypes[46]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2035,7 +1955,7 @@ func (x *GetSectorCountRequest) String() string {
 func (*GetSectorCountRequest) ProtoMessage() {}
 
 func (x *GetSectorCountRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_tech_tech_proto_msgTypes[48]
+	mi := &file_proto_tech_tech_proto_msgTypes[46]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2048,7 +1968,7 @@ func (x *GetSectorCountRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetSectorCountRequest.ProtoReflect.Descriptor instead.
 func (*GetSectorCountRequest) Descriptor() ([]byte, []int) {
-	return file_proto_tech_tech_proto_rawDescGZIP(), []int{48}
+	return file_proto_tech_tech_proto_rawDescGZIP(), []int{46}
 }
 
 type GetSectorCountResponse struct {
@@ -2060,7 +1980,7 @@ type GetSectorCountResponse struct {
 
 func (x *GetSectorCountResponse) Reset() {
 	*x = GetSectorCountResponse{}
-	mi := &file_proto_tech_tech_proto_msgTypes[49]
+	mi := &file_proto_tech_tech_proto_msgTypes[47]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2072,7 +1992,7 @@ func (x *GetSectorCountResponse) String() string {
 func (*GetSectorCountResponse) ProtoMessage() {}
 
 func (x *GetSectorCountResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_tech_tech_proto_msgTypes[49]
+	mi := &file_proto_tech_tech_proto_msgTypes[47]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2085,7 +2005,7 @@ func (x *GetSectorCountResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetSectorCountResponse.ProtoReflect.Descriptor instead.
 func (*GetSectorCountResponse) Descriptor() ([]byte, []int) {
-	return file_proto_tech_tech_proto_rawDescGZIP(), []int{49}
+	return file_proto_tech_tech_proto_rawDescGZIP(), []int{47}
 }
 
 func (x *GetSectorCountResponse) GetResult() int32 {
@@ -2103,7 +2023,7 @@ type GetSizeRequest struct {
 
 func (x *GetSizeRequest) Reset() {
 	*x = GetSizeRequest{}
-	mi := &file_proto_tech_tech_proto_msgTypes[50]
+	mi := &file_proto_tech_tech_proto_msgTypes[48]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2115,7 +2035,7 @@ func (x *GetSizeRequest) String() string {
 func (*GetSizeRequest) ProtoMessage() {}
 
 func (x *GetSizeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_tech_tech_proto_msgTypes[50]
+	mi := &file_proto_tech_tech_proto_msgTypes[48]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2128,7 +2048,7 @@ func (x *GetSizeRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetSizeRequest.ProtoReflect.Descriptor instead.
 func (*GetSizeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_tech_tech_proto_rawDescGZIP(), []int{50}
+	return file_proto_tech_tech_proto_rawDescGZIP(), []int{48}
 }
 
 type GetSizeResponse struct {
@@ -2140,7 +2060,7 @@ type GetSizeResponse struct {
 
 func (x *GetSizeResponse) Reset() {
 	*x = GetSizeResponse{}
-	mi := &file_proto_tech_tech_proto_msgTypes[51]
+	mi := &file_proto_tech_tech_proto_msgTypes[49]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2152,7 +2072,7 @@ func (x *GetSizeResponse) String() string {
 func (*GetSizeResponse) ProtoMessage() {}
 
 func (x *GetSizeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_tech_tech_proto_msgTypes[51]
+	mi := &file_proto_tech_tech_proto_msgTypes[49]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2165,7 +2085,7 @@ func (x *GetSizeResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetSizeResponse.ProtoReflect.Descriptor instead.
 func (*GetSizeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_tech_tech_proto_rawDescGZIP(), []int{51}
+	return file_proto_tech_tech_proto_rawDescGZIP(), []int{49}
 }
 
 func (x *GetSizeResponse) GetResult() int32 {
@@ -2185,7 +2105,7 @@ type IncrementRequest struct {
 
 func (x *IncrementRequest) Reset() {
 	*x = IncrementRequest{}
-	mi := &file_proto_tech_tech_proto_msgTypes[52]
+	mi := &file_proto_tech_tech_proto_msgTypes[50]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2197,7 +2117,7 @@ func (x *IncrementRequest) String() string {
 func (*IncrementRequest) ProtoMessage() {}
 
 func (x *IncrementRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_tech_tech_proto_msgTypes[52]
+	mi := &file_proto_tech_tech_proto_msgTypes[50]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2210,7 +2130,7 @@ func (x *IncrementRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IncrementRequest.ProtoReflect.Descriptor instead.
 func (*IncrementRequest) Descriptor() ([]byte, []int) {
-	return file_proto_tech_tech_proto_rawDescGZIP(), []int{52}
+	return file_proto_tech_tech_proto_rawDescGZIP(), []int{50}
 }
 
 func (x *IncrementRequest) GetArg0() int32 {
@@ -2235,7 +2155,7 @@ type IncrementResponse struct {
 
 func (x *IncrementResponse) Reset() {
 	*x = IncrementResponse{}
-	mi := &file_proto_tech_tech_proto_msgTypes[53]
+	mi := &file_proto_tech_tech_proto_msgTypes[51]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2247,7 +2167,7 @@ func (x *IncrementResponse) String() string {
 func (*IncrementResponse) ProtoMessage() {}
 
 func (x *IncrementResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_tech_tech_proto_msgTypes[53]
+	mi := &file_proto_tech_tech_proto_msgTypes[51]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2260,7 +2180,7 @@ func (x *IncrementResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IncrementResponse.ProtoReflect.Descriptor instead.
 func (*IncrementResponse) Descriptor() ([]byte, []int) {
-	return file_proto_tech_tech_proto_rawDescGZIP(), []int{53}
+	return file_proto_tech_tech_proto_rawDescGZIP(), []int{51}
 }
 
 type ReadBlockRequest struct {
@@ -2272,7 +2192,7 @@ type ReadBlockRequest struct {
 
 func (x *ReadBlockRequest) Reset() {
 	*x = ReadBlockRequest{}
-	mi := &file_proto_tech_tech_proto_msgTypes[54]
+	mi := &file_proto_tech_tech_proto_msgTypes[52]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2284,7 +2204,7 @@ func (x *ReadBlockRequest) String() string {
 func (*ReadBlockRequest) ProtoMessage() {}
 
 func (x *ReadBlockRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_tech_tech_proto_msgTypes[54]
+	mi := &file_proto_tech_tech_proto_msgTypes[52]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2297,7 +2217,7 @@ func (x *ReadBlockRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ReadBlockRequest.ProtoReflect.Descriptor instead.
 func (*ReadBlockRequest) Descriptor() ([]byte, []int) {
-	return file_proto_tech_tech_proto_rawDescGZIP(), []int{54}
+	return file_proto_tech_tech_proto_rawDescGZIP(), []int{52}
 }
 
 func (x *ReadBlockRequest) GetArg0() int32 {
@@ -2316,7 +2236,7 @@ type ReadBlockResponse struct {
 
 func (x *ReadBlockResponse) Reset() {
 	*x = ReadBlockResponse{}
-	mi := &file_proto_tech_tech_proto_msgTypes[55]
+	mi := &file_proto_tech_tech_proto_msgTypes[53]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2328,7 +2248,7 @@ func (x *ReadBlockResponse) String() string {
 func (*ReadBlockResponse) ProtoMessage() {}
 
 func (x *ReadBlockResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_tech_tech_proto_msgTypes[55]
+	mi := &file_proto_tech_tech_proto_msgTypes[53]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2341,7 +2261,7 @@ func (x *ReadBlockResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ReadBlockResponse.ProtoReflect.Descriptor instead.
 func (*ReadBlockResponse) Descriptor() ([]byte, []int) {
-	return file_proto_tech_tech_proto_rawDescGZIP(), []int{55}
+	return file_proto_tech_tech_proto_rawDescGZIP(), []int{53}
 }
 
 func (x *ReadBlockResponse) GetResult() int64 {
@@ -2360,7 +2280,7 @@ type RestoreRequest struct {
 
 func (x *RestoreRequest) Reset() {
 	*x = RestoreRequest{}
-	mi := &file_proto_tech_tech_proto_msgTypes[56]
+	mi := &file_proto_tech_tech_proto_msgTypes[54]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2372,7 +2292,7 @@ func (x *RestoreRequest) String() string {
 func (*RestoreRequest) ProtoMessage() {}
 
 func (x *RestoreRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_tech_tech_proto_msgTypes[56]
+	mi := &file_proto_tech_tech_proto_msgTypes[54]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2385,7 +2305,7 @@ func (x *RestoreRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RestoreRequest.ProtoReflect.Descriptor instead.
 func (*RestoreRequest) Descriptor() ([]byte, []int) {
-	return file_proto_tech_tech_proto_rawDescGZIP(), []int{56}
+	return file_proto_tech_tech_proto_rawDescGZIP(), []int{54}
 }
 
 func (x *RestoreRequest) GetArg0() int32 {
@@ -2403,7 +2323,7 @@ type RestoreResponse struct {
 
 func (x *RestoreResponse) Reset() {
 	*x = RestoreResponse{}
-	mi := &file_proto_tech_tech_proto_msgTypes[57]
+	mi := &file_proto_tech_tech_proto_msgTypes[55]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2415,7 +2335,7 @@ func (x *RestoreResponse) String() string {
 func (*RestoreResponse) ProtoMessage() {}
 
 func (x *RestoreResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_tech_tech_proto_msgTypes[57]
+	mi := &file_proto_tech_tech_proto_msgTypes[55]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2428,7 +2348,7 @@ func (x *RestoreResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RestoreResponse.ProtoReflect.Descriptor instead.
 func (*RestoreResponse) Descriptor() ([]byte, []int) {
-	return file_proto_tech_tech_proto_rawDescGZIP(), []int{57}
+	return file_proto_tech_tech_proto_rawDescGZIP(), []int{55}
 }
 
 type SectorToBlockRequest struct {
@@ -2440,7 +2360,7 @@ type SectorToBlockRequest struct {
 
 func (x *SectorToBlockRequest) Reset() {
 	*x = SectorToBlockRequest{}
-	mi := &file_proto_tech_tech_proto_msgTypes[58]
+	mi := &file_proto_tech_tech_proto_msgTypes[56]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2452,7 +2372,7 @@ func (x *SectorToBlockRequest) String() string {
 func (*SectorToBlockRequest) ProtoMessage() {}
 
 func (x *SectorToBlockRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_tech_tech_proto_msgTypes[58]
+	mi := &file_proto_tech_tech_proto_msgTypes[56]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2465,7 +2385,7 @@ func (x *SectorToBlockRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SectorToBlockRequest.ProtoReflect.Descriptor instead.
 func (*SectorToBlockRequest) Descriptor() ([]byte, []int) {
-	return file_proto_tech_tech_proto_rawDescGZIP(), []int{58}
+	return file_proto_tech_tech_proto_rawDescGZIP(), []int{56}
 }
 
 func (x *SectorToBlockRequest) GetArg0() int32 {
@@ -2484,7 +2404,7 @@ type SectorToBlockResponse struct {
 
 func (x *SectorToBlockResponse) Reset() {
 	*x = SectorToBlockResponse{}
-	mi := &file_proto_tech_tech_proto_msgTypes[59]
+	mi := &file_proto_tech_tech_proto_msgTypes[57]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2496,7 +2416,7 @@ func (x *SectorToBlockResponse) String() string {
 func (*SectorToBlockResponse) ProtoMessage() {}
 
 func (x *SectorToBlockResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_tech_tech_proto_msgTypes[59]
+	mi := &file_proto_tech_tech_proto_msgTypes[57]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2509,7 +2429,7 @@ func (x *SectorToBlockResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SectorToBlockResponse.ProtoReflect.Descriptor instead.
 func (*SectorToBlockResponse) Descriptor() ([]byte, []int) {
-	return file_proto_tech_tech_proto_rawDescGZIP(), []int{59}
+	return file_proto_tech_tech_proto_rawDescGZIP(), []int{57}
 }
 
 func (x *SectorToBlockResponse) GetResult() int32 {
@@ -2528,7 +2448,7 @@ type TransferRequest struct {
 
 func (x *TransferRequest) Reset() {
 	*x = TransferRequest{}
-	mi := &file_proto_tech_tech_proto_msgTypes[60]
+	mi := &file_proto_tech_tech_proto_msgTypes[58]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2540,7 +2460,7 @@ func (x *TransferRequest) String() string {
 func (*TransferRequest) ProtoMessage() {}
 
 func (x *TransferRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_tech_tech_proto_msgTypes[60]
+	mi := &file_proto_tech_tech_proto_msgTypes[58]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2553,7 +2473,7 @@ func (x *TransferRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use TransferRequest.ProtoReflect.Descriptor instead.
 func (*TransferRequest) Descriptor() ([]byte, []int) {
-	return file_proto_tech_tech_proto_rawDescGZIP(), []int{60}
+	return file_proto_tech_tech_proto_rawDescGZIP(), []int{58}
 }
 
 func (x *TransferRequest) GetArg0() int32 {
@@ -2571,7 +2491,7 @@ type TransferResponse struct {
 
 func (x *TransferResponse) Reset() {
 	*x = TransferResponse{}
-	mi := &file_proto_tech_tech_proto_msgTypes[61]
+	mi := &file_proto_tech_tech_proto_msgTypes[59]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2583,7 +2503,7 @@ func (x *TransferResponse) String() string {
 func (*TransferResponse) ProtoMessage() {}
 
 func (x *TransferResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_tech_tech_proto_msgTypes[61]
+	mi := &file_proto_tech_tech_proto_msgTypes[59]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2596,7 +2516,7 @@ func (x *TransferResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use TransferResponse.ProtoReflect.Descriptor instead.
 func (*TransferResponse) Descriptor() ([]byte, []int) {
-	return file_proto_tech_tech_proto_rawDescGZIP(), []int{61}
+	return file_proto_tech_tech_proto_rawDescGZIP(), []int{59}
 }
 
 type WriteBlockRequest struct {
@@ -2609,7 +2529,7 @@ type WriteBlockRequest struct {
 
 func (x *WriteBlockRequest) Reset() {
 	*x = WriteBlockRequest{}
-	mi := &file_proto_tech_tech_proto_msgTypes[62]
+	mi := &file_proto_tech_tech_proto_msgTypes[60]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2621,7 +2541,7 @@ func (x *WriteBlockRequest) String() string {
 func (*WriteBlockRequest) ProtoMessage() {}
 
 func (x *WriteBlockRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_tech_tech_proto_msgTypes[62]
+	mi := &file_proto_tech_tech_proto_msgTypes[60]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2634,7 +2554,7 @@ func (x *WriteBlockRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use WriteBlockRequest.ProtoReflect.Descriptor instead.
 func (*WriteBlockRequest) Descriptor() ([]byte, []int) {
-	return file_proto_tech_tech_proto_rawDescGZIP(), []int{62}
+	return file_proto_tech_tech_proto_rawDescGZIP(), []int{60}
 }
 
 func (x *WriteBlockRequest) GetArg0() int32 {
@@ -2659,7 +2579,7 @@ type WriteBlockResponse struct {
 
 func (x *WriteBlockResponse) Reset() {
 	*x = WriteBlockResponse{}
-	mi := &file_proto_tech_tech_proto_msgTypes[63]
+	mi := &file_proto_tech_tech_proto_msgTypes[61]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2671,7 +2591,7 @@ func (x *WriteBlockResponse) String() string {
 func (*WriteBlockResponse) ProtoMessage() {}
 
 func (x *WriteBlockResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_tech_tech_proto_msgTypes[63]
+	mi := &file_proto_tech_tech_proto_msgTypes[61]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2684,30 +2604,109 @@ func (x *WriteBlockResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use WriteBlockResponse.ProtoReflect.Descriptor instead.
 func (*WriteBlockResponse) Descriptor() ([]byte, []int) {
+	return file_proto_tech_tech_proto_rawDescGZIP(), []int{61}
+}
+
+type GetDsfIdRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetDsfIdRequest) Reset() {
+	*x = GetDsfIdRequest{}
+	mi := &file_proto_tech_tech_proto_msgTypes[62]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetDsfIdRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetDsfIdRequest) ProtoMessage() {}
+
+func (x *GetDsfIdRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_tech_tech_proto_msgTypes[62]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetDsfIdRequest.ProtoReflect.Descriptor instead.
+func (*GetDsfIdRequest) Descriptor() ([]byte, []int) {
+	return file_proto_tech_tech_proto_rawDescGZIP(), []int{62}
+}
+
+type GetDsfIdResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        uint32                 `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetDsfIdResponse) Reset() {
+	*x = GetDsfIdResponse{}
+	mi := &file_proto_tech_tech_proto_msgTypes[63]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetDsfIdResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetDsfIdResponse) ProtoMessage() {}
+
+func (x *GetDsfIdResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_tech_tech_proto_msgTypes[63]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetDsfIdResponse.ProtoReflect.Descriptor instead.
+func (*GetDsfIdResponse) Descriptor() ([]byte, []int) {
 	return file_proto_tech_tech_proto_rawDescGZIP(), []int{63}
 }
 
-type FormatRequest struct {
+func (x *GetDsfIdResponse) GetResult() uint32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetResponseFlagsRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *FormatRequest) Reset() {
-	*x = FormatRequest{}
+func (x *GetResponseFlagsRequest) Reset() {
+	*x = GetResponseFlagsRequest{}
 	mi := &file_proto_tech_tech_proto_msgTypes[64]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *FormatRequest) String() string {
+func (x *GetResponseFlagsRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*FormatRequest) ProtoMessage() {}
+func (*GetResponseFlagsRequest) ProtoMessage() {}
 
-func (x *FormatRequest) ProtoReflect() protoreflect.Message {
+func (x *GetResponseFlagsRequest) ProtoReflect() protoreflect.Message {
 	mi := &file_proto_tech_tech_proto_msgTypes[64]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -2719,38 +2718,32 @@ func (x *FormatRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use FormatRequest.ProtoReflect.Descriptor instead.
-func (*FormatRequest) Descriptor() ([]byte, []int) {
+// Deprecated: Use GetResponseFlagsRequest.ProtoReflect.Descriptor instead.
+func (*GetResponseFlagsRequest) Descriptor() ([]byte, []int) {
 	return file_proto_tech_tech_proto_rawDescGZIP(), []int{64}
 }
 
-func (x *FormatRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type FormatResponse struct {
+type GetResponseFlagsResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        uint32                 `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *FormatResponse) Reset() {
-	*x = FormatResponse{}
+func (x *GetResponseFlagsResponse) Reset() {
+	*x = GetResponseFlagsResponse{}
 	mi := &file_proto_tech_tech_proto_msgTypes[65]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *FormatResponse) String() string {
+func (x *GetResponseFlagsResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*FormatResponse) ProtoMessage() {}
+func (*GetResponseFlagsResponse) ProtoMessage() {}
 
-func (x *FormatResponse) ProtoReflect() protoreflect.Message {
+func (x *GetResponseFlagsResponse) ProtoReflect() protoreflect.Message {
 	mi := &file_proto_tech_tech_proto_msgTypes[65]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -2762,32 +2755,38 @@ func (x *FormatResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use FormatResponse.ProtoReflect.Descriptor instead.
-func (*FormatResponse) Descriptor() ([]byte, []int) {
+// Deprecated: Use GetResponseFlagsResponse.ProtoReflect.Descriptor instead.
+func (*GetResponseFlagsResponse) Descriptor() ([]byte, []int) {
 	return file_proto_tech_tech_proto_rawDescGZIP(), []int{65}
 }
 
-type FormatReadOnlyRequest struct {
+func (x *GetResponseFlagsResponse) GetResult() uint32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetApplicationDataRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *FormatReadOnlyRequest) Reset() {
-	*x = FormatReadOnlyRequest{}
+func (x *GetApplicationDataRequest) Reset() {
+	*x = GetApplicationDataRequest{}
 	mi := &file_proto_tech_tech_proto_msgTypes[66]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *FormatReadOnlyRequest) String() string {
+func (x *GetApplicationDataRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*FormatReadOnlyRequest) ProtoMessage() {}
+func (*GetApplicationDataRequest) ProtoMessage() {}
 
-func (x *FormatReadOnlyRequest) ProtoReflect() protoreflect.Message {
+func (x *GetApplicationDataRequest) ProtoReflect() protoreflect.Message {
 	mi := &file_proto_tech_tech_proto_msgTypes[66]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -2799,38 +2798,32 @@ func (x *FormatReadOnlyRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use FormatReadOnlyRequest.ProtoReflect.Descriptor instead.
-func (*FormatReadOnlyRequest) Descriptor() ([]byte, []int) {
+// Deprecated: Use GetApplicationDataRequest.ProtoReflect.Descriptor instead.
+func (*GetApplicationDataRequest) Descriptor() ([]byte, []int) {
 	return file_proto_tech_tech_proto_rawDescGZIP(), []int{66}
 }
 
-func (x *FormatReadOnlyRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type FormatReadOnlyResponse struct {
+type GetApplicationDataResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *FormatReadOnlyResponse) Reset() {
-	*x = FormatReadOnlyResponse{}
+func (x *GetApplicationDataResponse) Reset() {
+	*x = GetApplicationDataResponse{}
 	mi := &file_proto_tech_tech_proto_msgTypes[67]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *FormatReadOnlyResponse) String() string {
+func (x *GetApplicationDataResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*FormatReadOnlyResponse) ProtoMessage() {}
+func (*GetApplicationDataResponse) ProtoMessage() {}
 
-func (x *FormatReadOnlyResponse) ProtoReflect() protoreflect.Message {
+func (x *GetApplicationDataResponse) ProtoReflect() protoreflect.Message {
 	mi := &file_proto_tech_tech_proto_msgTypes[67]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -2842,31 +2835,38 @@ func (x *FormatReadOnlyResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use FormatReadOnlyResponse.ProtoReflect.Descriptor instead.
-func (*FormatReadOnlyResponse) Descriptor() ([]byte, []int) {
+// Deprecated: Use GetApplicationDataResponse.ProtoReflect.Descriptor instead.
+func (*GetApplicationDataResponse) Descriptor() ([]byte, []int) {
 	return file_proto_tech_tech_proto_rawDescGZIP(), []int{67}
 }
 
-type GetAtqaRequest struct {
+func (x *GetApplicationDataResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetProtocolInfoRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetAtqaRequest) Reset() {
-	*x = GetAtqaRequest{}
+func (x *GetProtocolInfoRequest) Reset() {
+	*x = GetProtocolInfoRequest{}
 	mi := &file_proto_tech_tech_proto_msgTypes[68]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetAtqaRequest) String() string {
+func (x *GetProtocolInfoRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetAtqaRequest) ProtoMessage() {}
+func (*GetProtocolInfoRequest) ProtoMessage() {}
 
-func (x *GetAtqaRequest) ProtoReflect() protoreflect.Message {
+func (x *GetProtocolInfoRequest) ProtoReflect() protoreflect.Message {
 	mi := &file_proto_tech_tech_proto_msgTypes[68]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -2878,32 +2878,32 @@ func (x *GetAtqaRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetAtqaRequest.ProtoReflect.Descriptor instead.
-func (*GetAtqaRequest) Descriptor() ([]byte, []int) {
+// Deprecated: Use GetProtocolInfoRequest.ProtoReflect.Descriptor instead.
+func (*GetProtocolInfoRequest) Descriptor() ([]byte, []int) {
 	return file_proto_tech_tech_proto_rawDescGZIP(), []int{68}
 }
 
-type GetAtqaResponse struct {
+type GetProtocolInfoResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetAtqaResponse) Reset() {
-	*x = GetAtqaResponse{}
+func (x *GetProtocolInfoResponse) Reset() {
+	*x = GetProtocolInfoResponse{}
 	mi := &file_proto_tech_tech_proto_msgTypes[69]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetAtqaResponse) String() string {
+func (x *GetProtocolInfoResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetAtqaResponse) ProtoMessage() {}
+func (*GetProtocolInfoResponse) ProtoMessage() {}
 
-func (x *GetAtqaResponse) ProtoReflect() protoreflect.Message {
+func (x *GetProtocolInfoResponse) ProtoReflect() protoreflect.Message {
 	mi := &file_proto_tech_tech_proto_msgTypes[69]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -2915,38 +2915,38 @@ func (x *GetAtqaResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetAtqaResponse.ProtoReflect.Descriptor instead.
-func (*GetAtqaResponse) Descriptor() ([]byte, []int) {
+// Deprecated: Use GetProtocolInfoResponse.ProtoReflect.Descriptor instead.
+func (*GetProtocolInfoResponse) Descriptor() ([]byte, []int) {
 	return file_proto_tech_tech_proto_rawDescGZIP(), []int{69}
 }
 
-func (x *GetAtqaResponse) GetResult() int64 {
+func (x *GetProtocolInfoResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
 	return 0
 }
 
-type GetSakRequest struct {
+type GetManufacturerRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetSakRequest) Reset() {
-	*x = GetSakRequest{}
+func (x *GetManufacturerRequest) Reset() {
+	*x = GetManufacturerRequest{}
 	mi := &file_proto_tech_tech_proto_msgTypes[70]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetSakRequest) String() string {
+func (x *GetManufacturerRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetSakRequest) ProtoMessage() {}
+func (*GetManufacturerRequest) ProtoMessage() {}
 
-func (x *GetSakRequest) ProtoReflect() protoreflect.Message {
+func (x *GetManufacturerRequest) ProtoReflect() protoreflect.Message {
 	mi := &file_proto_tech_tech_proto_msgTypes[70]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -2958,112 +2958,112 @@ func (x *GetSakRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetSakRequest.ProtoReflect.Descriptor instead.
-func (*GetSakRequest) Descriptor() ([]byte, []int) {
+// Deprecated: Use GetManufacturerRequest.ProtoReflect.Descriptor instead.
+func (*GetManufacturerRequest) Descriptor() ([]byte, []int) {
 	return file_proto_tech_tech_proto_rawDescGZIP(), []int{70}
 }
 
-type GetSakResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetSakResponse) Reset() {
-	*x = GetSakResponse{}
-	mi := &file_proto_tech_tech_proto_msgTypes[71]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetSakResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetSakResponse) ProtoMessage() {}
-
-func (x *GetSakResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_tech_tech_proto_msgTypes[71]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetSakResponse.ProtoReflect.Descriptor instead.
-func (*GetSakResponse) Descriptor() ([]byte, []int) {
-	return file_proto_tech_tech_proto_rawDescGZIP(), []int{71}
-}
-
-func (x *GetSakResponse) GetResult() int32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetBarcodeRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetBarcodeRequest) Reset() {
-	*x = GetBarcodeRequest{}
-	mi := &file_proto_tech_tech_proto_msgTypes[72]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetBarcodeRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetBarcodeRequest) ProtoMessage() {}
-
-func (x *GetBarcodeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_tech_tech_proto_msgTypes[72]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetBarcodeRequest.ProtoReflect.Descriptor instead.
-func (*GetBarcodeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_tech_tech_proto_rawDescGZIP(), []int{72}
-}
-
-type GetBarcodeResponse struct {
+type GetManufacturerResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetBarcodeResponse) Reset() {
-	*x = GetBarcodeResponse{}
+func (x *GetManufacturerResponse) Reset() {
+	*x = GetManufacturerResponse{}
+	mi := &file_proto_tech_tech_proto_msgTypes[71]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetManufacturerResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetManufacturerResponse) ProtoMessage() {}
+
+func (x *GetManufacturerResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_tech_tech_proto_msgTypes[71]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetManufacturerResponse.ProtoReflect.Descriptor instead.
+func (*GetManufacturerResponse) Descriptor() ([]byte, []int) {
+	return file_proto_tech_tech_proto_rawDescGZIP(), []int{71}
+}
+
+func (x *GetManufacturerResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetSystemCodeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSystemCodeRequest) Reset() {
+	*x = GetSystemCodeRequest{}
+	mi := &file_proto_tech_tech_proto_msgTypes[72]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSystemCodeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSystemCodeRequest) ProtoMessage() {}
+
+func (x *GetSystemCodeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_tech_tech_proto_msgTypes[72]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSystemCodeRequest.ProtoReflect.Descriptor instead.
+func (*GetSystemCodeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_tech_tech_proto_rawDescGZIP(), []int{72}
+}
+
+type GetSystemCodeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSystemCodeResponse) Reset() {
+	*x = GetSystemCodeResponse{}
 	mi := &file_proto_tech_tech_proto_msgTypes[73]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetBarcodeResponse) String() string {
+func (x *GetSystemCodeResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetBarcodeResponse) ProtoMessage() {}
+func (*GetSystemCodeResponse) ProtoMessage() {}
 
-func (x *GetBarcodeResponse) ProtoReflect() protoreflect.Message {
+func (x *GetSystemCodeResponse) ProtoReflect() protoreflect.Message {
 	mi := &file_proto_tech_tech_proto_msgTypes[73]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -3075,12 +3075,12 @@ func (x *GetBarcodeResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetBarcodeResponse.ProtoReflect.Descriptor instead.
-func (*GetBarcodeResponse) Descriptor() ([]byte, []int) {
+// Deprecated: Use GetSystemCodeResponse.ProtoReflect.Descriptor instead.
+func (*GetSystemCodeResponse) Descriptor() ([]byte, []int) {
 	return file_proto_tech_tech_proto_rawDescGZIP(), []int{73}
 }
 
-func (x *GetBarcodeResponse) GetResult() int64 {
+func (x *GetSystemCodeResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
@@ -3095,60 +3095,57 @@ const file_proto_tech_tech_proto_rawDesc = "" +
 	"\fCloseRequest\"\x0f\n" +
 	"\rCloseResponse\"\x10\n" +
 	"\x0eConnectRequest\"\x11\n" +
-	"\x0fConnectResponse\"\x18\n" +
-	"\x16GetManufacturerRequest\"1\n" +
-	"\x17GetManufacturerResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1f\n" +
-	"\x1dGetMaxTransceiveLengthRequest\"8\n" +
-	"\x1eGetMaxTransceiveLengthResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\"\x16\n" +
-	"\x14GetSystemCodeRequest\"/\n" +
-	"\x15GetSystemCodeResponse\x12\x16\n" +
+	"\x0fConnectResponse\"\x13\n" +
+	"\x11GetBarcodeRequest\",\n" +
+	"\x12GetBarcodeResponse\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\x03R\x06result\"\x0f\n" +
 	"\rGetTagRequest\"(\n" +
 	"\x0eGetTagResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\x13\n" +
-	"\x11GetTimeoutRequest\",\n" +
-	"\x12GetTimeoutResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x10\n" +
+	"\x0eGetTypeRequest\")\n" +
+	"\x0fGetTypeResponse\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\x05R\x06result\"\x14\n" +
 	"\x12IsConnectedRequest\"-\n" +
 	"\x13IsConnectedResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\bR\x06result\"'\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\" \n" +
+	"\n" +
+	"GetRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"%\n" +
+	"\vGetResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"#\n" +
+	"\rFormatRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x10\n" +
+	"\x0eFormatResponse\"+\n" +
+	"\x15FormatReadOnlyRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x18\n" +
+	"\x16FormatReadOnlyResponse\"\x1f\n" +
+	"\x1dGetMaxTransceiveLengthRequest\"8\n" +
+	"\x1eGetMaxTransceiveLengthResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x13\n" +
+	"\x11GetTimeoutRequest\",\n" +
+	"\x12GetTimeoutResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"&\n" +
+	"\x10ReadPagesRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"+\n" +
+	"\x11ReadPagesResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"'\n" +
 	"\x11SetTimeoutRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"\x14\n" +
 	"\x12SetTimeoutResponse\"'\n" +
 	"\x11TransceiveRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\",\n" +
 	"\x12TransceiveResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\" \n" +
-	"\n" +
-	"GetRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"%\n" +
-	"\vGetResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\x10\n" +
-	"\x0eGetTypeRequest\")\n" +
-	"\x0fGetTypeResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\"&\n" +
-	"\x10ReadPagesRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"+\n" +
-	"\x11ReadPagesResponse\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\x03R\x06result\":\n" +
 	"\x10WritePageRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\x12\x12\n" +
 	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"\x13\n" +
-	"\x11WritePageResponse\"\x1b\n" +
-	"\x19GetApplicationDataRequest\"4\n" +
-	"\x1aGetApplicationDataResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\x18\n" +
-	"\x16GetProtocolInfoRequest\"1\n" +
-	"\x17GetProtocolInfoResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\x11\n" +
-	"\x0fGetDsfIdRequest\"*\n" +
-	"\x10GetDsfIdResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\rR\x06result\"\x19\n" +
-	"\x17GetResponseFlagsRequest\"2\n" +
-	"\x18GetResponseFlagsResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\rR\x06result\"K\n" +
+	"\x11WritePageResponse\"\x10\n" +
+	"\x0eGetAtqaRequest\")\n" +
+	"\x0fGetAtqaResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x0f\n" +
+	"\rGetSakRequest\"(\n" +
+	"\x0eGetSakResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"K\n" +
 	"!AuthenticateSectorWithKeyARequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\x12\x12\n" +
 	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"<\n" +
@@ -3201,36 +3198,41 @@ const file_proto_tech_tech_proto_rawDesc = "" +
 	"\x11WriteBlockRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\x12\x12\n" +
 	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"\x14\n" +
-	"\x12WriteBlockResponse\"#\n" +
-	"\rFormatRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x10\n" +
-	"\x0eFormatResponse\"+\n" +
-	"\x15FormatReadOnlyRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x18\n" +
-	"\x16FormatReadOnlyResponse\"\x10\n" +
-	"\x0eGetAtqaRequest\")\n" +
-	"\x0fGetAtqaResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\x0f\n" +
-	"\rGetSakRequest\"(\n" +
-	"\x0eGetSakResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\"\x13\n" +
-	"\x11GetBarcodeRequest\",\n" +
-	"\x12GetBarcodeResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result2\xde\x05\n" +
-	"\vNfcFService\x120\n" +
+	"\x12WriteBlockResponse\"\x11\n" +
+	"\x0fGetDsfIdRequest\"*\n" +
+	"\x10GetDsfIdResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\rR\x06result\"\x19\n" +
+	"\x17GetResponseFlagsRequest\"2\n" +
+	"\x18GetResponseFlagsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\rR\x06result\"\x1b\n" +
+	"\x19GetApplicationDataRequest\"4\n" +
+	"\x1aGetApplicationDataResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x18\n" +
+	"\x16GetProtocolInfoRequest\"1\n" +
+	"\x17GetProtocolInfoResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x18\n" +
+	"\x16GetManufacturerRequest\"1\n" +
+	"\x17GetManufacturerResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x16\n" +
+	"\x14GetSystemCodeRequest\"/\n" +
+	"\x15GetSystemCodeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result2\x9b\x03\n" +
+	"\x11NfcBarcodeService\x120\n" +
 	"\x05Close\x12\x12.tech.CloseRequest\x1a\x13.tech.CloseResponse\x126\n" +
-	"\aConnect\x12\x14.tech.ConnectRequest\x1a\x15.tech.ConnectResponse\x12N\n" +
-	"\x0fGetManufacturer\x12\x1c.tech.GetManufacturerRequest\x1a\x1d.tech.GetManufacturerResponse\x12c\n" +
-	"\x16GetMaxTransceiveLength\x12#.tech.GetMaxTransceiveLengthRequest\x1a$.tech.GetMaxTransceiveLengthResponse\x12H\n" +
-	"\rGetSystemCode\x12\x1a.tech.GetSystemCodeRequest\x1a\x1b.tech.GetSystemCodeResponse\x123\n" +
-	"\x06GetTag\x12\x13.tech.GetTagRequest\x1a\x14.tech.GetTagResponse\x12?\n" +
+	"\aConnect\x12\x14.tech.ConnectRequest\x1a\x15.tech.ConnectResponse\x12?\n" +
 	"\n" +
-	"GetTimeout\x12\x17.tech.GetTimeoutRequest\x1a\x18.tech.GetTimeoutResponse\x12B\n" +
-	"\vIsConnected\x12\x18.tech.IsConnectedRequest\x1a\x19.tech.IsConnectedResponse\x12?\n" +
-	"\n" +
-	"SetTimeout\x12\x17.tech.SetTimeoutRequest\x1a\x18.tech.SetTimeoutResponse\x12?\n" +
-	"\n" +
-	"Transceive\x12\x17.tech.TransceiveRequest\x1a\x18.tech.TransceiveResponse\x12*\n" +
+	"GetBarcode\x12\x17.tech.GetBarcodeRequest\x1a\x18.tech.GetBarcodeResponse\x123\n" +
+	"\x06GetTag\x12\x13.tech.GetTagRequest\x1a\x14.tech.GetTagResponse\x126\n" +
+	"\aGetType\x12\x14.tech.GetTypeRequest\x1a\x15.tech.GetTypeResponse\x12B\n" +
+	"\vIsConnected\x12\x18.tech.IsConnectedRequest\x1a\x19.tech.IsConnectedResponse\x12*\n" +
+	"\x03Get\x12\x10.tech.GetRequest\x1a\x11.tech.GetResponse2\xa8\x03\n" +
+	"\x15NdefFormatableService\x120\n" +
+	"\x05Close\x12\x12.tech.CloseRequest\x1a\x13.tech.CloseResponse\x126\n" +
+	"\aConnect\x12\x14.tech.ConnectRequest\x1a\x15.tech.ConnectResponse\x123\n" +
+	"\x06Format\x12\x13.tech.FormatRequest\x1a\x14.tech.FormatResponse\x12K\n" +
+	"\x0eFormatReadOnly\x12\x1b.tech.FormatReadOnlyRequest\x1a\x1c.tech.FormatReadOnlyResponse\x123\n" +
+	"\x06GetTag\x12\x13.tech.GetTagRequest\x1a\x14.tech.GetTagResponse\x12B\n" +
+	"\vIsConnected\x12\x18.tech.IsConnectedRequest\x1a\x19.tech.IsConnectedResponse\x12*\n" +
 	"\x03Get\x12\x10.tech.GetRequest\x1a\x11.tech.GetResponse2\x84\x06\n" +
 	"\x17MifareUltralightService\x120\n" +
 	"\x05Close\x12\x12.tech.CloseRequest\x1a\x13.tech.CloseResponse\x126\n" +
@@ -3247,26 +3249,19 @@ const file_proto_tech_tech_proto_rawDesc = "" +
 	"\n" +
 	"Transceive\x12\x17.tech.TransceiveRequest\x1a\x18.tech.TransceiveResponse\x12<\n" +
 	"\tWritePage\x12\x16.tech.WritePageRequest\x1a\x17.tech.WritePageResponse\x12*\n" +
-	"\x03Get\x12\x10.tech.GetRequest\x1a\x11.tech.GetResponse2\xeb\x04\n" +
-	"\vNfcBService\x120\n" +
+	"\x03Get\x12\x10.tech.GetRequest\x1a\x11.tech.GetResponse2\xb1\x05\n" +
+	"\vNfcAService\x120\n" +
 	"\x05Close\x12\x12.tech.CloseRequest\x1a\x13.tech.CloseResponse\x126\n" +
-	"\aConnect\x12\x14.tech.ConnectRequest\x1a\x15.tech.ConnectResponse\x12W\n" +
-	"\x12GetApplicationData\x12\x1f.tech.GetApplicationDataRequest\x1a .tech.GetApplicationDataResponse\x12c\n" +
-	"\x16GetMaxTransceiveLength\x12#.tech.GetMaxTransceiveLengthRequest\x1a$.tech.GetMaxTransceiveLengthResponse\x12N\n" +
-	"\x0fGetProtocolInfo\x12\x1c.tech.GetProtocolInfoRequest\x1a\x1d.tech.GetProtocolInfoResponse\x123\n" +
-	"\x06GetTag\x12\x13.tech.GetTagRequest\x1a\x14.tech.GetTagResponse\x12B\n" +
+	"\aConnect\x12\x14.tech.ConnectRequest\x1a\x15.tech.ConnectResponse\x126\n" +
+	"\aGetAtqa\x12\x14.tech.GetAtqaRequest\x1a\x15.tech.GetAtqaResponse\x12c\n" +
+	"\x16GetMaxTransceiveLength\x12#.tech.GetMaxTransceiveLengthRequest\x1a$.tech.GetMaxTransceiveLengthResponse\x123\n" +
+	"\x06GetSak\x12\x13.tech.GetSakRequest\x1a\x14.tech.GetSakResponse\x123\n" +
+	"\x06GetTag\x12\x13.tech.GetTagRequest\x1a\x14.tech.GetTagResponse\x12?\n" +
+	"\n" +
+	"GetTimeout\x12\x17.tech.GetTimeoutRequest\x1a\x18.tech.GetTimeoutResponse\x12B\n" +
 	"\vIsConnected\x12\x18.tech.IsConnectedRequest\x1a\x19.tech.IsConnectedResponse\x12?\n" +
 	"\n" +
-	"Transceive\x12\x17.tech.TransceiveRequest\x1a\x18.tech.TransceiveResponse\x12*\n" +
-	"\x03Get\x12\x10.tech.GetRequest\x1a\x11.tech.GetResponse2\xd0\x04\n" +
-	"\vNfcVService\x120\n" +
-	"\x05Close\x12\x12.tech.CloseRequest\x1a\x13.tech.CloseResponse\x126\n" +
-	"\aConnect\x12\x14.tech.ConnectRequest\x1a\x15.tech.ConnectResponse\x129\n" +
-	"\bGetDsfId\x12\x15.tech.GetDsfIdRequest\x1a\x16.tech.GetDsfIdResponse\x12c\n" +
-	"\x16GetMaxTransceiveLength\x12#.tech.GetMaxTransceiveLengthRequest\x1a$.tech.GetMaxTransceiveLengthResponse\x12Q\n" +
-	"\x10GetResponseFlags\x12\x1d.tech.GetResponseFlagsRequest\x1a\x1e.tech.GetResponseFlagsResponse\x123\n" +
-	"\x06GetTag\x12\x13.tech.GetTagRequest\x1a\x14.tech.GetTagResponse\x12B\n" +
-	"\vIsConnected\x12\x18.tech.IsConnectedRequest\x1a\x19.tech.IsConnectedResponse\x12?\n" +
+	"SetTimeout\x12\x17.tech.SetTimeoutRequest\x1a\x18.tech.SetTimeoutResponse\x12?\n" +
 	"\n" +
 	"Transceive\x12\x17.tech.TransceiveRequest\x1a\x18.tech.TransceiveResponse\x12*\n" +
 	"\x03Get\x12\x10.tech.GetRequest\x1a\x11.tech.GetResponse2\x9a\r\n" +
@@ -3298,21 +3293,40 @@ const file_proto_tech_tech_proto_rawDesc = "" +
 	"\bTransfer\x12\x15.tech.TransferRequest\x1a\x16.tech.TransferResponse\x12?\n" +
 	"\n" +
 	"WriteBlock\x12\x17.tech.WriteBlockRequest\x1a\x18.tech.WriteBlockResponse\x12*\n" +
-	"\x03Get\x12\x10.tech.GetRequest\x1a\x11.tech.GetResponse2\xa8\x03\n" +
-	"\x15NdefFormatableService\x120\n" +
+	"\x03Get\x12\x10.tech.GetRequest\x1a\x11.tech.GetResponse2\xd0\x04\n" +
+	"\vNfcVService\x120\n" +
+	"\x05Close\x12\x12.tech.CloseRequest\x1a\x13.tech.CloseResponse\x126\n" +
+	"\aConnect\x12\x14.tech.ConnectRequest\x1a\x15.tech.ConnectResponse\x129\n" +
+	"\bGetDsfId\x12\x15.tech.GetDsfIdRequest\x1a\x16.tech.GetDsfIdResponse\x12c\n" +
+	"\x16GetMaxTransceiveLength\x12#.tech.GetMaxTransceiveLengthRequest\x1a$.tech.GetMaxTransceiveLengthResponse\x12Q\n" +
+	"\x10GetResponseFlags\x12\x1d.tech.GetResponseFlagsRequest\x1a\x1e.tech.GetResponseFlagsResponse\x123\n" +
+	"\x06GetTag\x12\x13.tech.GetTagRequest\x1a\x14.tech.GetTagResponse\x12B\n" +
+	"\vIsConnected\x12\x18.tech.IsConnectedRequest\x1a\x19.tech.IsConnectedResponse\x12?\n" +
+	"\n" +
+	"Transceive\x12\x17.tech.TransceiveRequest\x1a\x18.tech.TransceiveResponse\x12*\n" +
+	"\x03Get\x12\x10.tech.GetRequest\x1a\x11.tech.GetResponse2\xeb\x04\n" +
+	"\vNfcBService\x120\n" +
+	"\x05Close\x12\x12.tech.CloseRequest\x1a\x13.tech.CloseResponse\x126\n" +
+	"\aConnect\x12\x14.tech.ConnectRequest\x1a\x15.tech.ConnectResponse\x12W\n" +
+	"\x12GetApplicationData\x12\x1f.tech.GetApplicationDataRequest\x1a .tech.GetApplicationDataResponse\x12c\n" +
+	"\x16GetMaxTransceiveLength\x12#.tech.GetMaxTransceiveLengthRequest\x1a$.tech.GetMaxTransceiveLengthResponse\x12N\n" +
+	"\x0fGetProtocolInfo\x12\x1c.tech.GetProtocolInfoRequest\x1a\x1d.tech.GetProtocolInfoResponse\x123\n" +
+	"\x06GetTag\x12\x13.tech.GetTagRequest\x1a\x14.tech.GetTagResponse\x12B\n" +
+	"\vIsConnected\x12\x18.tech.IsConnectedRequest\x1a\x19.tech.IsConnectedResponse\x12?\n" +
+	"\n" +
+	"Transceive\x12\x17.tech.TransceiveRequest\x1a\x18.tech.TransceiveResponse\x12*\n" +
+	"\x03Get\x12\x10.tech.GetRequest\x1a\x11.tech.GetResponse2\xf9\x01\n" +
+	"\x14TagTechnologyService\x120\n" +
 	"\x05Close\x12\x12.tech.CloseRequest\x1a\x13.tech.CloseResponse\x126\n" +
 	"\aConnect\x12\x14.tech.ConnectRequest\x1a\x15.tech.ConnectResponse\x123\n" +
-	"\x06Format\x12\x13.tech.FormatRequest\x1a\x14.tech.FormatResponse\x12K\n" +
-	"\x0eFormatReadOnly\x12\x1b.tech.FormatReadOnlyRequest\x1a\x1c.tech.FormatReadOnlyResponse\x123\n" +
 	"\x06GetTag\x12\x13.tech.GetTagRequest\x1a\x14.tech.GetTagResponse\x12B\n" +
-	"\vIsConnected\x12\x18.tech.IsConnectedRequest\x1a\x19.tech.IsConnectedResponse\x12*\n" +
-	"\x03Get\x12\x10.tech.GetRequest\x1a\x11.tech.GetResponse2\xb1\x05\n" +
-	"\vNfcAService\x120\n" +
+	"\vIsConnected\x12\x18.tech.IsConnectedRequest\x1a\x19.tech.IsConnectedResponse2\xde\x05\n" +
+	"\vNfcFService\x120\n" +
 	"\x05Close\x12\x12.tech.CloseRequest\x1a\x13.tech.CloseResponse\x126\n" +
-	"\aConnect\x12\x14.tech.ConnectRequest\x1a\x15.tech.ConnectResponse\x126\n" +
-	"\aGetAtqa\x12\x14.tech.GetAtqaRequest\x1a\x15.tech.GetAtqaResponse\x12c\n" +
-	"\x16GetMaxTransceiveLength\x12#.tech.GetMaxTransceiveLengthRequest\x1a$.tech.GetMaxTransceiveLengthResponse\x123\n" +
-	"\x06GetSak\x12\x13.tech.GetSakRequest\x1a\x14.tech.GetSakResponse\x123\n" +
+	"\aConnect\x12\x14.tech.ConnectRequest\x1a\x15.tech.ConnectResponse\x12N\n" +
+	"\x0fGetManufacturer\x12\x1c.tech.GetManufacturerRequest\x1a\x1d.tech.GetManufacturerResponse\x12c\n" +
+	"\x16GetMaxTransceiveLength\x12#.tech.GetMaxTransceiveLengthRequest\x1a$.tech.GetMaxTransceiveLengthResponse\x12H\n" +
+	"\rGetSystemCode\x12\x1a.tech.GetSystemCodeRequest\x1a\x1b.tech.GetSystemCodeResponse\x123\n" +
 	"\x06GetTag\x12\x13.tech.GetTagRequest\x1a\x14.tech.GetTagResponse\x12?\n" +
 	"\n" +
 	"GetTimeout\x12\x17.tech.GetTimeoutRequest\x1a\x18.tech.GetTimeoutResponse\x12B\n" +
@@ -3321,21 +3335,7 @@ const file_proto_tech_tech_proto_rawDesc = "" +
 	"SetTimeout\x12\x17.tech.SetTimeoutRequest\x1a\x18.tech.SetTimeoutResponse\x12?\n" +
 	"\n" +
 	"Transceive\x12\x17.tech.TransceiveRequest\x1a\x18.tech.TransceiveResponse\x12*\n" +
-	"\x03Get\x12\x10.tech.GetRequest\x1a\x11.tech.GetResponse2\x9b\x03\n" +
-	"\x11NfcBarcodeService\x120\n" +
-	"\x05Close\x12\x12.tech.CloseRequest\x1a\x13.tech.CloseResponse\x126\n" +
-	"\aConnect\x12\x14.tech.ConnectRequest\x1a\x15.tech.ConnectResponse\x12?\n" +
-	"\n" +
-	"GetBarcode\x12\x17.tech.GetBarcodeRequest\x1a\x18.tech.GetBarcodeResponse\x123\n" +
-	"\x06GetTag\x12\x13.tech.GetTagRequest\x1a\x14.tech.GetTagResponse\x126\n" +
-	"\aGetType\x12\x14.tech.GetTypeRequest\x1a\x15.tech.GetTypeResponse\x12B\n" +
-	"\vIsConnected\x12\x18.tech.IsConnectedRequest\x1a\x19.tech.IsConnectedResponse\x12*\n" +
-	"\x03Get\x12\x10.tech.GetRequest\x1a\x11.tech.GetResponse2\xf9\x01\n" +
-	"\x14TagTechnologyService\x120\n" +
-	"\x05Close\x12\x12.tech.CloseRequest\x1a\x13.tech.CloseResponse\x126\n" +
-	"\aConnect\x12\x14.tech.ConnectRequest\x1a\x15.tech.ConnectResponse\x123\n" +
-	"\x06GetTag\x12\x13.tech.GetTagRequest\x1a\x14.tech.GetTagResponse\x12B\n" +
-	"\vIsConnected\x12\x18.tech.IsConnectedRequest\x1a\x19.tech.IsConnectedResponseB.Z,github.com/AndroidGoLab/jni-proxy/proto/techb\x06proto3"
+	"\x03Get\x12\x10.tech.GetRequest\x1a\x11.tech.GetResponseB.Z,github.com/AndroidGoLab/jni-proxy/proto/techb\x06proto3"
 
 var (
 	file_proto_tech_tech_proto_rawDescOnce sync.Once
@@ -3355,266 +3355,266 @@ var file_proto_tech_tech_proto_goTypes = []any{
 	(*CloseResponse)(nil),                      // 1: tech.CloseResponse
 	(*ConnectRequest)(nil),                     // 2: tech.ConnectRequest
 	(*ConnectResponse)(nil),                    // 3: tech.ConnectResponse
-	(*GetManufacturerRequest)(nil),             // 4: tech.GetManufacturerRequest
-	(*GetManufacturerResponse)(nil),            // 5: tech.GetManufacturerResponse
-	(*GetMaxTransceiveLengthRequest)(nil),      // 6: tech.GetMaxTransceiveLengthRequest
-	(*GetMaxTransceiveLengthResponse)(nil),     // 7: tech.GetMaxTransceiveLengthResponse
-	(*GetSystemCodeRequest)(nil),               // 8: tech.GetSystemCodeRequest
-	(*GetSystemCodeResponse)(nil),              // 9: tech.GetSystemCodeResponse
-	(*GetTagRequest)(nil),                      // 10: tech.GetTagRequest
-	(*GetTagResponse)(nil),                     // 11: tech.GetTagResponse
-	(*GetTimeoutRequest)(nil),                  // 12: tech.GetTimeoutRequest
-	(*GetTimeoutResponse)(nil),                 // 13: tech.GetTimeoutResponse
-	(*IsConnectedRequest)(nil),                 // 14: tech.IsConnectedRequest
-	(*IsConnectedResponse)(nil),                // 15: tech.IsConnectedResponse
-	(*SetTimeoutRequest)(nil),                  // 16: tech.SetTimeoutRequest
-	(*SetTimeoutResponse)(nil),                 // 17: tech.SetTimeoutResponse
-	(*TransceiveRequest)(nil),                  // 18: tech.TransceiveRequest
-	(*TransceiveResponse)(nil),                 // 19: tech.TransceiveResponse
-	(*GetRequest)(nil),                         // 20: tech.GetRequest
-	(*GetResponse)(nil),                        // 21: tech.GetResponse
-	(*GetTypeRequest)(nil),                     // 22: tech.GetTypeRequest
-	(*GetTypeResponse)(nil),                    // 23: tech.GetTypeResponse
-	(*ReadPagesRequest)(nil),                   // 24: tech.ReadPagesRequest
-	(*ReadPagesResponse)(nil),                  // 25: tech.ReadPagesResponse
-	(*WritePageRequest)(nil),                   // 26: tech.WritePageRequest
-	(*WritePageResponse)(nil),                  // 27: tech.WritePageResponse
-	(*GetApplicationDataRequest)(nil),          // 28: tech.GetApplicationDataRequest
-	(*GetApplicationDataResponse)(nil),         // 29: tech.GetApplicationDataResponse
-	(*GetProtocolInfoRequest)(nil),             // 30: tech.GetProtocolInfoRequest
-	(*GetProtocolInfoResponse)(nil),            // 31: tech.GetProtocolInfoResponse
-	(*GetDsfIdRequest)(nil),                    // 32: tech.GetDsfIdRequest
-	(*GetDsfIdResponse)(nil),                   // 33: tech.GetDsfIdResponse
-	(*GetResponseFlagsRequest)(nil),            // 34: tech.GetResponseFlagsRequest
-	(*GetResponseFlagsResponse)(nil),           // 35: tech.GetResponseFlagsResponse
-	(*AuthenticateSectorWithKeyARequest)(nil),  // 36: tech.AuthenticateSectorWithKeyARequest
-	(*AuthenticateSectorWithKeyAResponse)(nil), // 37: tech.AuthenticateSectorWithKeyAResponse
-	(*AuthenticateSectorWithKeyBRequest)(nil),  // 38: tech.AuthenticateSectorWithKeyBRequest
-	(*AuthenticateSectorWithKeyBResponse)(nil), // 39: tech.AuthenticateSectorWithKeyBResponse
-	(*BlockToSectorRequest)(nil),               // 40: tech.BlockToSectorRequest
-	(*BlockToSectorResponse)(nil),              // 41: tech.BlockToSectorResponse
-	(*DecrementRequest)(nil),                   // 42: tech.DecrementRequest
-	(*DecrementResponse)(nil),                  // 43: tech.DecrementResponse
-	(*GetBlockCountRequest)(nil),               // 44: tech.GetBlockCountRequest
-	(*GetBlockCountResponse)(nil),              // 45: tech.GetBlockCountResponse
-	(*GetBlockCountInSectorRequest)(nil),       // 46: tech.GetBlockCountInSectorRequest
-	(*GetBlockCountInSectorResponse)(nil),      // 47: tech.GetBlockCountInSectorResponse
-	(*GetSectorCountRequest)(nil),              // 48: tech.GetSectorCountRequest
-	(*GetSectorCountResponse)(nil),             // 49: tech.GetSectorCountResponse
-	(*GetSizeRequest)(nil),                     // 50: tech.GetSizeRequest
-	(*GetSizeResponse)(nil),                    // 51: tech.GetSizeResponse
-	(*IncrementRequest)(nil),                   // 52: tech.IncrementRequest
-	(*IncrementResponse)(nil),                  // 53: tech.IncrementResponse
-	(*ReadBlockRequest)(nil),                   // 54: tech.ReadBlockRequest
-	(*ReadBlockResponse)(nil),                  // 55: tech.ReadBlockResponse
-	(*RestoreRequest)(nil),                     // 56: tech.RestoreRequest
-	(*RestoreResponse)(nil),                    // 57: tech.RestoreResponse
-	(*SectorToBlockRequest)(nil),               // 58: tech.SectorToBlockRequest
-	(*SectorToBlockResponse)(nil),              // 59: tech.SectorToBlockResponse
-	(*TransferRequest)(nil),                    // 60: tech.TransferRequest
-	(*TransferResponse)(nil),                   // 61: tech.TransferResponse
-	(*WriteBlockRequest)(nil),                  // 62: tech.WriteBlockRequest
-	(*WriteBlockResponse)(nil),                 // 63: tech.WriteBlockResponse
-	(*FormatRequest)(nil),                      // 64: tech.FormatRequest
-	(*FormatResponse)(nil),                     // 65: tech.FormatResponse
-	(*FormatReadOnlyRequest)(nil),              // 66: tech.FormatReadOnlyRequest
-	(*FormatReadOnlyResponse)(nil),             // 67: tech.FormatReadOnlyResponse
-	(*GetAtqaRequest)(nil),                     // 68: tech.GetAtqaRequest
-	(*GetAtqaResponse)(nil),                    // 69: tech.GetAtqaResponse
-	(*GetSakRequest)(nil),                      // 70: tech.GetSakRequest
-	(*GetSakResponse)(nil),                     // 71: tech.GetSakResponse
-	(*GetBarcodeRequest)(nil),                  // 72: tech.GetBarcodeRequest
-	(*GetBarcodeResponse)(nil),                 // 73: tech.GetBarcodeResponse
+	(*GetBarcodeRequest)(nil),                  // 4: tech.GetBarcodeRequest
+	(*GetBarcodeResponse)(nil),                 // 5: tech.GetBarcodeResponse
+	(*GetTagRequest)(nil),                      // 6: tech.GetTagRequest
+	(*GetTagResponse)(nil),                     // 7: tech.GetTagResponse
+	(*GetTypeRequest)(nil),                     // 8: tech.GetTypeRequest
+	(*GetTypeResponse)(nil),                    // 9: tech.GetTypeResponse
+	(*IsConnectedRequest)(nil),                 // 10: tech.IsConnectedRequest
+	(*IsConnectedResponse)(nil),                // 11: tech.IsConnectedResponse
+	(*GetRequest)(nil),                         // 12: tech.GetRequest
+	(*GetResponse)(nil),                        // 13: tech.GetResponse
+	(*FormatRequest)(nil),                      // 14: tech.FormatRequest
+	(*FormatResponse)(nil),                     // 15: tech.FormatResponse
+	(*FormatReadOnlyRequest)(nil),              // 16: tech.FormatReadOnlyRequest
+	(*FormatReadOnlyResponse)(nil),             // 17: tech.FormatReadOnlyResponse
+	(*GetMaxTransceiveLengthRequest)(nil),      // 18: tech.GetMaxTransceiveLengthRequest
+	(*GetMaxTransceiveLengthResponse)(nil),     // 19: tech.GetMaxTransceiveLengthResponse
+	(*GetTimeoutRequest)(nil),                  // 20: tech.GetTimeoutRequest
+	(*GetTimeoutResponse)(nil),                 // 21: tech.GetTimeoutResponse
+	(*ReadPagesRequest)(nil),                   // 22: tech.ReadPagesRequest
+	(*ReadPagesResponse)(nil),                  // 23: tech.ReadPagesResponse
+	(*SetTimeoutRequest)(nil),                  // 24: tech.SetTimeoutRequest
+	(*SetTimeoutResponse)(nil),                 // 25: tech.SetTimeoutResponse
+	(*TransceiveRequest)(nil),                  // 26: tech.TransceiveRequest
+	(*TransceiveResponse)(nil),                 // 27: tech.TransceiveResponse
+	(*WritePageRequest)(nil),                   // 28: tech.WritePageRequest
+	(*WritePageResponse)(nil),                  // 29: tech.WritePageResponse
+	(*GetAtqaRequest)(nil),                     // 30: tech.GetAtqaRequest
+	(*GetAtqaResponse)(nil),                    // 31: tech.GetAtqaResponse
+	(*GetSakRequest)(nil),                      // 32: tech.GetSakRequest
+	(*GetSakResponse)(nil),                     // 33: tech.GetSakResponse
+	(*AuthenticateSectorWithKeyARequest)(nil),  // 34: tech.AuthenticateSectorWithKeyARequest
+	(*AuthenticateSectorWithKeyAResponse)(nil), // 35: tech.AuthenticateSectorWithKeyAResponse
+	(*AuthenticateSectorWithKeyBRequest)(nil),  // 36: tech.AuthenticateSectorWithKeyBRequest
+	(*AuthenticateSectorWithKeyBResponse)(nil), // 37: tech.AuthenticateSectorWithKeyBResponse
+	(*BlockToSectorRequest)(nil),               // 38: tech.BlockToSectorRequest
+	(*BlockToSectorResponse)(nil),              // 39: tech.BlockToSectorResponse
+	(*DecrementRequest)(nil),                   // 40: tech.DecrementRequest
+	(*DecrementResponse)(nil),                  // 41: tech.DecrementResponse
+	(*GetBlockCountRequest)(nil),               // 42: tech.GetBlockCountRequest
+	(*GetBlockCountResponse)(nil),              // 43: tech.GetBlockCountResponse
+	(*GetBlockCountInSectorRequest)(nil),       // 44: tech.GetBlockCountInSectorRequest
+	(*GetBlockCountInSectorResponse)(nil),      // 45: tech.GetBlockCountInSectorResponse
+	(*GetSectorCountRequest)(nil),              // 46: tech.GetSectorCountRequest
+	(*GetSectorCountResponse)(nil),             // 47: tech.GetSectorCountResponse
+	(*GetSizeRequest)(nil),                     // 48: tech.GetSizeRequest
+	(*GetSizeResponse)(nil),                    // 49: tech.GetSizeResponse
+	(*IncrementRequest)(nil),                   // 50: tech.IncrementRequest
+	(*IncrementResponse)(nil),                  // 51: tech.IncrementResponse
+	(*ReadBlockRequest)(nil),                   // 52: tech.ReadBlockRequest
+	(*ReadBlockResponse)(nil),                  // 53: tech.ReadBlockResponse
+	(*RestoreRequest)(nil),                     // 54: tech.RestoreRequest
+	(*RestoreResponse)(nil),                    // 55: tech.RestoreResponse
+	(*SectorToBlockRequest)(nil),               // 56: tech.SectorToBlockRequest
+	(*SectorToBlockResponse)(nil),              // 57: tech.SectorToBlockResponse
+	(*TransferRequest)(nil),                    // 58: tech.TransferRequest
+	(*TransferResponse)(nil),                   // 59: tech.TransferResponse
+	(*WriteBlockRequest)(nil),                  // 60: tech.WriteBlockRequest
+	(*WriteBlockResponse)(nil),                 // 61: tech.WriteBlockResponse
+	(*GetDsfIdRequest)(nil),                    // 62: tech.GetDsfIdRequest
+	(*GetDsfIdResponse)(nil),                   // 63: tech.GetDsfIdResponse
+	(*GetResponseFlagsRequest)(nil),            // 64: tech.GetResponseFlagsRequest
+	(*GetResponseFlagsResponse)(nil),           // 65: tech.GetResponseFlagsResponse
+	(*GetApplicationDataRequest)(nil),          // 66: tech.GetApplicationDataRequest
+	(*GetApplicationDataResponse)(nil),         // 67: tech.GetApplicationDataResponse
+	(*GetProtocolInfoRequest)(nil),             // 68: tech.GetProtocolInfoRequest
+	(*GetProtocolInfoResponse)(nil),            // 69: tech.GetProtocolInfoResponse
+	(*GetManufacturerRequest)(nil),             // 70: tech.GetManufacturerRequest
+	(*GetManufacturerResponse)(nil),            // 71: tech.GetManufacturerResponse
+	(*GetSystemCodeRequest)(nil),               // 72: tech.GetSystemCodeRequest
+	(*GetSystemCodeResponse)(nil),              // 73: tech.GetSystemCodeResponse
 }
 var file_proto_tech_tech_proto_depIdxs = []int32{
-	0,  // 0: tech.NfcFService.Close:input_type -> tech.CloseRequest
-	2,  // 1: tech.NfcFService.Connect:input_type -> tech.ConnectRequest
-	4,  // 2: tech.NfcFService.GetManufacturer:input_type -> tech.GetManufacturerRequest
-	6,  // 3: tech.NfcFService.GetMaxTransceiveLength:input_type -> tech.GetMaxTransceiveLengthRequest
-	8,  // 4: tech.NfcFService.GetSystemCode:input_type -> tech.GetSystemCodeRequest
-	10, // 5: tech.NfcFService.GetTag:input_type -> tech.GetTagRequest
-	12, // 6: tech.NfcFService.GetTimeout:input_type -> tech.GetTimeoutRequest
-	14, // 7: tech.NfcFService.IsConnected:input_type -> tech.IsConnectedRequest
-	16, // 8: tech.NfcFService.SetTimeout:input_type -> tech.SetTimeoutRequest
-	18, // 9: tech.NfcFService.Transceive:input_type -> tech.TransceiveRequest
-	20, // 10: tech.NfcFService.Get:input_type -> tech.GetRequest
-	0,  // 11: tech.MifareUltralightService.Close:input_type -> tech.CloseRequest
-	2,  // 12: tech.MifareUltralightService.Connect:input_type -> tech.ConnectRequest
-	6,  // 13: tech.MifareUltralightService.GetMaxTransceiveLength:input_type -> tech.GetMaxTransceiveLengthRequest
-	10, // 14: tech.MifareUltralightService.GetTag:input_type -> tech.GetTagRequest
-	12, // 15: tech.MifareUltralightService.GetTimeout:input_type -> tech.GetTimeoutRequest
-	22, // 16: tech.MifareUltralightService.GetType:input_type -> tech.GetTypeRequest
-	14, // 17: tech.MifareUltralightService.IsConnected:input_type -> tech.IsConnectedRequest
-	24, // 18: tech.MifareUltralightService.ReadPages:input_type -> tech.ReadPagesRequest
-	16, // 19: tech.MifareUltralightService.SetTimeout:input_type -> tech.SetTimeoutRequest
-	18, // 20: tech.MifareUltralightService.Transceive:input_type -> tech.TransceiveRequest
-	26, // 21: tech.MifareUltralightService.WritePage:input_type -> tech.WritePageRequest
-	20, // 22: tech.MifareUltralightService.Get:input_type -> tech.GetRequest
-	0,  // 23: tech.NfcBService.Close:input_type -> tech.CloseRequest
-	2,  // 24: tech.NfcBService.Connect:input_type -> tech.ConnectRequest
-	28, // 25: tech.NfcBService.GetApplicationData:input_type -> tech.GetApplicationDataRequest
-	6,  // 26: tech.NfcBService.GetMaxTransceiveLength:input_type -> tech.GetMaxTransceiveLengthRequest
-	30, // 27: tech.NfcBService.GetProtocolInfo:input_type -> tech.GetProtocolInfoRequest
-	10, // 28: tech.NfcBService.GetTag:input_type -> tech.GetTagRequest
-	14, // 29: tech.NfcBService.IsConnected:input_type -> tech.IsConnectedRequest
-	18, // 30: tech.NfcBService.Transceive:input_type -> tech.TransceiveRequest
-	20, // 31: tech.NfcBService.Get:input_type -> tech.GetRequest
-	0,  // 32: tech.NfcVService.Close:input_type -> tech.CloseRequest
-	2,  // 33: tech.NfcVService.Connect:input_type -> tech.ConnectRequest
-	32, // 34: tech.NfcVService.GetDsfId:input_type -> tech.GetDsfIdRequest
-	6,  // 35: tech.NfcVService.GetMaxTransceiveLength:input_type -> tech.GetMaxTransceiveLengthRequest
-	34, // 36: tech.NfcVService.GetResponseFlags:input_type -> tech.GetResponseFlagsRequest
-	10, // 37: tech.NfcVService.GetTag:input_type -> tech.GetTagRequest
-	14, // 38: tech.NfcVService.IsConnected:input_type -> tech.IsConnectedRequest
-	18, // 39: tech.NfcVService.Transceive:input_type -> tech.TransceiveRequest
-	20, // 40: tech.NfcVService.Get:input_type -> tech.GetRequest
-	36, // 41: tech.MifareClassicService.AuthenticateSectorWithKeyA:input_type -> tech.AuthenticateSectorWithKeyARequest
-	38, // 42: tech.MifareClassicService.AuthenticateSectorWithKeyB:input_type -> tech.AuthenticateSectorWithKeyBRequest
-	40, // 43: tech.MifareClassicService.BlockToSector:input_type -> tech.BlockToSectorRequest
-	0,  // 44: tech.MifareClassicService.Close:input_type -> tech.CloseRequest
-	2,  // 45: tech.MifareClassicService.Connect:input_type -> tech.ConnectRequest
-	42, // 46: tech.MifareClassicService.Decrement:input_type -> tech.DecrementRequest
-	44, // 47: tech.MifareClassicService.GetBlockCount:input_type -> tech.GetBlockCountRequest
-	46, // 48: tech.MifareClassicService.GetBlockCountInSector:input_type -> tech.GetBlockCountInSectorRequest
-	6,  // 49: tech.MifareClassicService.GetMaxTransceiveLength:input_type -> tech.GetMaxTransceiveLengthRequest
-	48, // 50: tech.MifareClassicService.GetSectorCount:input_type -> tech.GetSectorCountRequest
-	50, // 51: tech.MifareClassicService.GetSize:input_type -> tech.GetSizeRequest
-	10, // 52: tech.MifareClassicService.GetTag:input_type -> tech.GetTagRequest
-	12, // 53: tech.MifareClassicService.GetTimeout:input_type -> tech.GetTimeoutRequest
-	22, // 54: tech.MifareClassicService.GetType:input_type -> tech.GetTypeRequest
-	52, // 55: tech.MifareClassicService.Increment:input_type -> tech.IncrementRequest
-	14, // 56: tech.MifareClassicService.IsConnected:input_type -> tech.IsConnectedRequest
-	54, // 57: tech.MifareClassicService.ReadBlock:input_type -> tech.ReadBlockRequest
-	56, // 58: tech.MifareClassicService.Restore:input_type -> tech.RestoreRequest
-	58, // 59: tech.MifareClassicService.SectorToBlock:input_type -> tech.SectorToBlockRequest
-	16, // 60: tech.MifareClassicService.SetTimeout:input_type -> tech.SetTimeoutRequest
-	18, // 61: tech.MifareClassicService.Transceive:input_type -> tech.TransceiveRequest
-	60, // 62: tech.MifareClassicService.Transfer:input_type -> tech.TransferRequest
-	62, // 63: tech.MifareClassicService.WriteBlock:input_type -> tech.WriteBlockRequest
-	20, // 64: tech.MifareClassicService.Get:input_type -> tech.GetRequest
-	0,  // 65: tech.NdefFormatableService.Close:input_type -> tech.CloseRequest
-	2,  // 66: tech.NdefFormatableService.Connect:input_type -> tech.ConnectRequest
-	64, // 67: tech.NdefFormatableService.Format:input_type -> tech.FormatRequest
-	66, // 68: tech.NdefFormatableService.FormatReadOnly:input_type -> tech.FormatReadOnlyRequest
-	10, // 69: tech.NdefFormatableService.GetTag:input_type -> tech.GetTagRequest
-	14, // 70: tech.NdefFormatableService.IsConnected:input_type -> tech.IsConnectedRequest
-	20, // 71: tech.NdefFormatableService.Get:input_type -> tech.GetRequest
-	0,  // 72: tech.NfcAService.Close:input_type -> tech.CloseRequest
-	2,  // 73: tech.NfcAService.Connect:input_type -> tech.ConnectRequest
-	68, // 74: tech.NfcAService.GetAtqa:input_type -> tech.GetAtqaRequest
-	6,  // 75: tech.NfcAService.GetMaxTransceiveLength:input_type -> tech.GetMaxTransceiveLengthRequest
-	70, // 76: tech.NfcAService.GetSak:input_type -> tech.GetSakRequest
-	10, // 77: tech.NfcAService.GetTag:input_type -> tech.GetTagRequest
-	12, // 78: tech.NfcAService.GetTimeout:input_type -> tech.GetTimeoutRequest
-	14, // 79: tech.NfcAService.IsConnected:input_type -> tech.IsConnectedRequest
-	16, // 80: tech.NfcAService.SetTimeout:input_type -> tech.SetTimeoutRequest
-	18, // 81: tech.NfcAService.Transceive:input_type -> tech.TransceiveRequest
-	20, // 82: tech.NfcAService.Get:input_type -> tech.GetRequest
-	0,  // 83: tech.NfcBarcodeService.Close:input_type -> tech.CloseRequest
-	2,  // 84: tech.NfcBarcodeService.Connect:input_type -> tech.ConnectRequest
-	72, // 85: tech.NfcBarcodeService.GetBarcode:input_type -> tech.GetBarcodeRequest
-	10, // 86: tech.NfcBarcodeService.GetTag:input_type -> tech.GetTagRequest
-	22, // 87: tech.NfcBarcodeService.GetType:input_type -> tech.GetTypeRequest
-	14, // 88: tech.NfcBarcodeService.IsConnected:input_type -> tech.IsConnectedRequest
-	20, // 89: tech.NfcBarcodeService.Get:input_type -> tech.GetRequest
-	0,  // 90: tech.TagTechnologyService.Close:input_type -> tech.CloseRequest
-	2,  // 91: tech.TagTechnologyService.Connect:input_type -> tech.ConnectRequest
-	10, // 92: tech.TagTechnologyService.GetTag:input_type -> tech.GetTagRequest
-	14, // 93: tech.TagTechnologyService.IsConnected:input_type -> tech.IsConnectedRequest
-	1,  // 94: tech.NfcFService.Close:output_type -> tech.CloseResponse
-	3,  // 95: tech.NfcFService.Connect:output_type -> tech.ConnectResponse
-	5,  // 96: tech.NfcFService.GetManufacturer:output_type -> tech.GetManufacturerResponse
-	7,  // 97: tech.NfcFService.GetMaxTransceiveLength:output_type -> tech.GetMaxTransceiveLengthResponse
-	9,  // 98: tech.NfcFService.GetSystemCode:output_type -> tech.GetSystemCodeResponse
-	11, // 99: tech.NfcFService.GetTag:output_type -> tech.GetTagResponse
-	13, // 100: tech.NfcFService.GetTimeout:output_type -> tech.GetTimeoutResponse
-	15, // 101: tech.NfcFService.IsConnected:output_type -> tech.IsConnectedResponse
-	17, // 102: tech.NfcFService.SetTimeout:output_type -> tech.SetTimeoutResponse
-	19, // 103: tech.NfcFService.Transceive:output_type -> tech.TransceiveResponse
-	21, // 104: tech.NfcFService.Get:output_type -> tech.GetResponse
-	1,  // 105: tech.MifareUltralightService.Close:output_type -> tech.CloseResponse
-	3,  // 106: tech.MifareUltralightService.Connect:output_type -> tech.ConnectResponse
-	7,  // 107: tech.MifareUltralightService.GetMaxTransceiveLength:output_type -> tech.GetMaxTransceiveLengthResponse
-	11, // 108: tech.MifareUltralightService.GetTag:output_type -> tech.GetTagResponse
-	13, // 109: tech.MifareUltralightService.GetTimeout:output_type -> tech.GetTimeoutResponse
-	23, // 110: tech.MifareUltralightService.GetType:output_type -> tech.GetTypeResponse
-	15, // 111: tech.MifareUltralightService.IsConnected:output_type -> tech.IsConnectedResponse
-	25, // 112: tech.MifareUltralightService.ReadPages:output_type -> tech.ReadPagesResponse
-	17, // 113: tech.MifareUltralightService.SetTimeout:output_type -> tech.SetTimeoutResponse
-	19, // 114: tech.MifareUltralightService.Transceive:output_type -> tech.TransceiveResponse
-	27, // 115: tech.MifareUltralightService.WritePage:output_type -> tech.WritePageResponse
-	21, // 116: tech.MifareUltralightService.Get:output_type -> tech.GetResponse
-	1,  // 117: tech.NfcBService.Close:output_type -> tech.CloseResponse
-	3,  // 118: tech.NfcBService.Connect:output_type -> tech.ConnectResponse
-	29, // 119: tech.NfcBService.GetApplicationData:output_type -> tech.GetApplicationDataResponse
-	7,  // 120: tech.NfcBService.GetMaxTransceiveLength:output_type -> tech.GetMaxTransceiveLengthResponse
-	31, // 121: tech.NfcBService.GetProtocolInfo:output_type -> tech.GetProtocolInfoResponse
-	11, // 122: tech.NfcBService.GetTag:output_type -> tech.GetTagResponse
-	15, // 123: tech.NfcBService.IsConnected:output_type -> tech.IsConnectedResponse
-	19, // 124: tech.NfcBService.Transceive:output_type -> tech.TransceiveResponse
-	21, // 125: tech.NfcBService.Get:output_type -> tech.GetResponse
-	1,  // 126: tech.NfcVService.Close:output_type -> tech.CloseResponse
-	3,  // 127: tech.NfcVService.Connect:output_type -> tech.ConnectResponse
-	33, // 128: tech.NfcVService.GetDsfId:output_type -> tech.GetDsfIdResponse
-	7,  // 129: tech.NfcVService.GetMaxTransceiveLength:output_type -> tech.GetMaxTransceiveLengthResponse
-	35, // 130: tech.NfcVService.GetResponseFlags:output_type -> tech.GetResponseFlagsResponse
-	11, // 131: tech.NfcVService.GetTag:output_type -> tech.GetTagResponse
-	15, // 132: tech.NfcVService.IsConnected:output_type -> tech.IsConnectedResponse
-	19, // 133: tech.NfcVService.Transceive:output_type -> tech.TransceiveResponse
-	21, // 134: tech.NfcVService.Get:output_type -> tech.GetResponse
-	37, // 135: tech.MifareClassicService.AuthenticateSectorWithKeyA:output_type -> tech.AuthenticateSectorWithKeyAResponse
-	39, // 136: tech.MifareClassicService.AuthenticateSectorWithKeyB:output_type -> tech.AuthenticateSectorWithKeyBResponse
-	41, // 137: tech.MifareClassicService.BlockToSector:output_type -> tech.BlockToSectorResponse
-	1,  // 138: tech.MifareClassicService.Close:output_type -> tech.CloseResponse
-	3,  // 139: tech.MifareClassicService.Connect:output_type -> tech.ConnectResponse
-	43, // 140: tech.MifareClassicService.Decrement:output_type -> tech.DecrementResponse
-	45, // 141: tech.MifareClassicService.GetBlockCount:output_type -> tech.GetBlockCountResponse
-	47, // 142: tech.MifareClassicService.GetBlockCountInSector:output_type -> tech.GetBlockCountInSectorResponse
-	7,  // 143: tech.MifareClassicService.GetMaxTransceiveLength:output_type -> tech.GetMaxTransceiveLengthResponse
-	49, // 144: tech.MifareClassicService.GetSectorCount:output_type -> tech.GetSectorCountResponse
-	51, // 145: tech.MifareClassicService.GetSize:output_type -> tech.GetSizeResponse
-	11, // 146: tech.MifareClassicService.GetTag:output_type -> tech.GetTagResponse
-	13, // 147: tech.MifareClassicService.GetTimeout:output_type -> tech.GetTimeoutResponse
-	23, // 148: tech.MifareClassicService.GetType:output_type -> tech.GetTypeResponse
-	53, // 149: tech.MifareClassicService.Increment:output_type -> tech.IncrementResponse
-	15, // 150: tech.MifareClassicService.IsConnected:output_type -> tech.IsConnectedResponse
-	55, // 151: tech.MifareClassicService.ReadBlock:output_type -> tech.ReadBlockResponse
-	57, // 152: tech.MifareClassicService.Restore:output_type -> tech.RestoreResponse
-	59, // 153: tech.MifareClassicService.SectorToBlock:output_type -> tech.SectorToBlockResponse
-	17, // 154: tech.MifareClassicService.SetTimeout:output_type -> tech.SetTimeoutResponse
-	19, // 155: tech.MifareClassicService.Transceive:output_type -> tech.TransceiveResponse
-	61, // 156: tech.MifareClassicService.Transfer:output_type -> tech.TransferResponse
-	63, // 157: tech.MifareClassicService.WriteBlock:output_type -> tech.WriteBlockResponse
-	21, // 158: tech.MifareClassicService.Get:output_type -> tech.GetResponse
-	1,  // 159: tech.NdefFormatableService.Close:output_type -> tech.CloseResponse
-	3,  // 160: tech.NdefFormatableService.Connect:output_type -> tech.ConnectResponse
-	65, // 161: tech.NdefFormatableService.Format:output_type -> tech.FormatResponse
-	67, // 162: tech.NdefFormatableService.FormatReadOnly:output_type -> tech.FormatReadOnlyResponse
-	11, // 163: tech.NdefFormatableService.GetTag:output_type -> tech.GetTagResponse
-	15, // 164: tech.NdefFormatableService.IsConnected:output_type -> tech.IsConnectedResponse
-	21, // 165: tech.NdefFormatableService.Get:output_type -> tech.GetResponse
-	1,  // 166: tech.NfcAService.Close:output_type -> tech.CloseResponse
-	3,  // 167: tech.NfcAService.Connect:output_type -> tech.ConnectResponse
-	69, // 168: tech.NfcAService.GetAtqa:output_type -> tech.GetAtqaResponse
-	7,  // 169: tech.NfcAService.GetMaxTransceiveLength:output_type -> tech.GetMaxTransceiveLengthResponse
-	71, // 170: tech.NfcAService.GetSak:output_type -> tech.GetSakResponse
-	11, // 171: tech.NfcAService.GetTag:output_type -> tech.GetTagResponse
-	13, // 172: tech.NfcAService.GetTimeout:output_type -> tech.GetTimeoutResponse
-	15, // 173: tech.NfcAService.IsConnected:output_type -> tech.IsConnectedResponse
-	17, // 174: tech.NfcAService.SetTimeout:output_type -> tech.SetTimeoutResponse
-	19, // 175: tech.NfcAService.Transceive:output_type -> tech.TransceiveResponse
-	21, // 176: tech.NfcAService.Get:output_type -> tech.GetResponse
-	1,  // 177: tech.NfcBarcodeService.Close:output_type -> tech.CloseResponse
-	3,  // 178: tech.NfcBarcodeService.Connect:output_type -> tech.ConnectResponse
-	73, // 179: tech.NfcBarcodeService.GetBarcode:output_type -> tech.GetBarcodeResponse
-	11, // 180: tech.NfcBarcodeService.GetTag:output_type -> tech.GetTagResponse
-	23, // 181: tech.NfcBarcodeService.GetType:output_type -> tech.GetTypeResponse
-	15, // 182: tech.NfcBarcodeService.IsConnected:output_type -> tech.IsConnectedResponse
-	21, // 183: tech.NfcBarcodeService.Get:output_type -> tech.GetResponse
-	1,  // 184: tech.TagTechnologyService.Close:output_type -> tech.CloseResponse
-	3,  // 185: tech.TagTechnologyService.Connect:output_type -> tech.ConnectResponse
-	11, // 186: tech.TagTechnologyService.GetTag:output_type -> tech.GetTagResponse
-	15, // 187: tech.TagTechnologyService.IsConnected:output_type -> tech.IsConnectedResponse
+	0,  // 0: tech.NfcBarcodeService.Close:input_type -> tech.CloseRequest
+	2,  // 1: tech.NfcBarcodeService.Connect:input_type -> tech.ConnectRequest
+	4,  // 2: tech.NfcBarcodeService.GetBarcode:input_type -> tech.GetBarcodeRequest
+	6,  // 3: tech.NfcBarcodeService.GetTag:input_type -> tech.GetTagRequest
+	8,  // 4: tech.NfcBarcodeService.GetType:input_type -> tech.GetTypeRequest
+	10, // 5: tech.NfcBarcodeService.IsConnected:input_type -> tech.IsConnectedRequest
+	12, // 6: tech.NfcBarcodeService.Get:input_type -> tech.GetRequest
+	0,  // 7: tech.NdefFormatableService.Close:input_type -> tech.CloseRequest
+	2,  // 8: tech.NdefFormatableService.Connect:input_type -> tech.ConnectRequest
+	14, // 9: tech.NdefFormatableService.Format:input_type -> tech.FormatRequest
+	16, // 10: tech.NdefFormatableService.FormatReadOnly:input_type -> tech.FormatReadOnlyRequest
+	6,  // 11: tech.NdefFormatableService.GetTag:input_type -> tech.GetTagRequest
+	10, // 12: tech.NdefFormatableService.IsConnected:input_type -> tech.IsConnectedRequest
+	12, // 13: tech.NdefFormatableService.Get:input_type -> tech.GetRequest
+	0,  // 14: tech.MifareUltralightService.Close:input_type -> tech.CloseRequest
+	2,  // 15: tech.MifareUltralightService.Connect:input_type -> tech.ConnectRequest
+	18, // 16: tech.MifareUltralightService.GetMaxTransceiveLength:input_type -> tech.GetMaxTransceiveLengthRequest
+	6,  // 17: tech.MifareUltralightService.GetTag:input_type -> tech.GetTagRequest
+	20, // 18: tech.MifareUltralightService.GetTimeout:input_type -> tech.GetTimeoutRequest
+	8,  // 19: tech.MifareUltralightService.GetType:input_type -> tech.GetTypeRequest
+	10, // 20: tech.MifareUltralightService.IsConnected:input_type -> tech.IsConnectedRequest
+	22, // 21: tech.MifareUltralightService.ReadPages:input_type -> tech.ReadPagesRequest
+	24, // 22: tech.MifareUltralightService.SetTimeout:input_type -> tech.SetTimeoutRequest
+	26, // 23: tech.MifareUltralightService.Transceive:input_type -> tech.TransceiveRequest
+	28, // 24: tech.MifareUltralightService.WritePage:input_type -> tech.WritePageRequest
+	12, // 25: tech.MifareUltralightService.Get:input_type -> tech.GetRequest
+	0,  // 26: tech.NfcAService.Close:input_type -> tech.CloseRequest
+	2,  // 27: tech.NfcAService.Connect:input_type -> tech.ConnectRequest
+	30, // 28: tech.NfcAService.GetAtqa:input_type -> tech.GetAtqaRequest
+	18, // 29: tech.NfcAService.GetMaxTransceiveLength:input_type -> tech.GetMaxTransceiveLengthRequest
+	32, // 30: tech.NfcAService.GetSak:input_type -> tech.GetSakRequest
+	6,  // 31: tech.NfcAService.GetTag:input_type -> tech.GetTagRequest
+	20, // 32: tech.NfcAService.GetTimeout:input_type -> tech.GetTimeoutRequest
+	10, // 33: tech.NfcAService.IsConnected:input_type -> tech.IsConnectedRequest
+	24, // 34: tech.NfcAService.SetTimeout:input_type -> tech.SetTimeoutRequest
+	26, // 35: tech.NfcAService.Transceive:input_type -> tech.TransceiveRequest
+	12, // 36: tech.NfcAService.Get:input_type -> tech.GetRequest
+	34, // 37: tech.MifareClassicService.AuthenticateSectorWithKeyA:input_type -> tech.AuthenticateSectorWithKeyARequest
+	36, // 38: tech.MifareClassicService.AuthenticateSectorWithKeyB:input_type -> tech.AuthenticateSectorWithKeyBRequest
+	38, // 39: tech.MifareClassicService.BlockToSector:input_type -> tech.BlockToSectorRequest
+	0,  // 40: tech.MifareClassicService.Close:input_type -> tech.CloseRequest
+	2,  // 41: tech.MifareClassicService.Connect:input_type -> tech.ConnectRequest
+	40, // 42: tech.MifareClassicService.Decrement:input_type -> tech.DecrementRequest
+	42, // 43: tech.MifareClassicService.GetBlockCount:input_type -> tech.GetBlockCountRequest
+	44, // 44: tech.MifareClassicService.GetBlockCountInSector:input_type -> tech.GetBlockCountInSectorRequest
+	18, // 45: tech.MifareClassicService.GetMaxTransceiveLength:input_type -> tech.GetMaxTransceiveLengthRequest
+	46, // 46: tech.MifareClassicService.GetSectorCount:input_type -> tech.GetSectorCountRequest
+	48, // 47: tech.MifareClassicService.GetSize:input_type -> tech.GetSizeRequest
+	6,  // 48: tech.MifareClassicService.GetTag:input_type -> tech.GetTagRequest
+	20, // 49: tech.MifareClassicService.GetTimeout:input_type -> tech.GetTimeoutRequest
+	8,  // 50: tech.MifareClassicService.GetType:input_type -> tech.GetTypeRequest
+	50, // 51: tech.MifareClassicService.Increment:input_type -> tech.IncrementRequest
+	10, // 52: tech.MifareClassicService.IsConnected:input_type -> tech.IsConnectedRequest
+	52, // 53: tech.MifareClassicService.ReadBlock:input_type -> tech.ReadBlockRequest
+	54, // 54: tech.MifareClassicService.Restore:input_type -> tech.RestoreRequest
+	56, // 55: tech.MifareClassicService.SectorToBlock:input_type -> tech.SectorToBlockRequest
+	24, // 56: tech.MifareClassicService.SetTimeout:input_type -> tech.SetTimeoutRequest
+	26, // 57: tech.MifareClassicService.Transceive:input_type -> tech.TransceiveRequest
+	58, // 58: tech.MifareClassicService.Transfer:input_type -> tech.TransferRequest
+	60, // 59: tech.MifareClassicService.WriteBlock:input_type -> tech.WriteBlockRequest
+	12, // 60: tech.MifareClassicService.Get:input_type -> tech.GetRequest
+	0,  // 61: tech.NfcVService.Close:input_type -> tech.CloseRequest
+	2,  // 62: tech.NfcVService.Connect:input_type -> tech.ConnectRequest
+	62, // 63: tech.NfcVService.GetDsfId:input_type -> tech.GetDsfIdRequest
+	18, // 64: tech.NfcVService.GetMaxTransceiveLength:input_type -> tech.GetMaxTransceiveLengthRequest
+	64, // 65: tech.NfcVService.GetResponseFlags:input_type -> tech.GetResponseFlagsRequest
+	6,  // 66: tech.NfcVService.GetTag:input_type -> tech.GetTagRequest
+	10, // 67: tech.NfcVService.IsConnected:input_type -> tech.IsConnectedRequest
+	26, // 68: tech.NfcVService.Transceive:input_type -> tech.TransceiveRequest
+	12, // 69: tech.NfcVService.Get:input_type -> tech.GetRequest
+	0,  // 70: tech.NfcBService.Close:input_type -> tech.CloseRequest
+	2,  // 71: tech.NfcBService.Connect:input_type -> tech.ConnectRequest
+	66, // 72: tech.NfcBService.GetApplicationData:input_type -> tech.GetApplicationDataRequest
+	18, // 73: tech.NfcBService.GetMaxTransceiveLength:input_type -> tech.GetMaxTransceiveLengthRequest
+	68, // 74: tech.NfcBService.GetProtocolInfo:input_type -> tech.GetProtocolInfoRequest
+	6,  // 75: tech.NfcBService.GetTag:input_type -> tech.GetTagRequest
+	10, // 76: tech.NfcBService.IsConnected:input_type -> tech.IsConnectedRequest
+	26, // 77: tech.NfcBService.Transceive:input_type -> tech.TransceiveRequest
+	12, // 78: tech.NfcBService.Get:input_type -> tech.GetRequest
+	0,  // 79: tech.TagTechnologyService.Close:input_type -> tech.CloseRequest
+	2,  // 80: tech.TagTechnologyService.Connect:input_type -> tech.ConnectRequest
+	6,  // 81: tech.TagTechnologyService.GetTag:input_type -> tech.GetTagRequest
+	10, // 82: tech.TagTechnologyService.IsConnected:input_type -> tech.IsConnectedRequest
+	0,  // 83: tech.NfcFService.Close:input_type -> tech.CloseRequest
+	2,  // 84: tech.NfcFService.Connect:input_type -> tech.ConnectRequest
+	70, // 85: tech.NfcFService.GetManufacturer:input_type -> tech.GetManufacturerRequest
+	18, // 86: tech.NfcFService.GetMaxTransceiveLength:input_type -> tech.GetMaxTransceiveLengthRequest
+	72, // 87: tech.NfcFService.GetSystemCode:input_type -> tech.GetSystemCodeRequest
+	6,  // 88: tech.NfcFService.GetTag:input_type -> tech.GetTagRequest
+	20, // 89: tech.NfcFService.GetTimeout:input_type -> tech.GetTimeoutRequest
+	10, // 90: tech.NfcFService.IsConnected:input_type -> tech.IsConnectedRequest
+	24, // 91: tech.NfcFService.SetTimeout:input_type -> tech.SetTimeoutRequest
+	26, // 92: tech.NfcFService.Transceive:input_type -> tech.TransceiveRequest
+	12, // 93: tech.NfcFService.Get:input_type -> tech.GetRequest
+	1,  // 94: tech.NfcBarcodeService.Close:output_type -> tech.CloseResponse
+	3,  // 95: tech.NfcBarcodeService.Connect:output_type -> tech.ConnectResponse
+	5,  // 96: tech.NfcBarcodeService.GetBarcode:output_type -> tech.GetBarcodeResponse
+	7,  // 97: tech.NfcBarcodeService.GetTag:output_type -> tech.GetTagResponse
+	9,  // 98: tech.NfcBarcodeService.GetType:output_type -> tech.GetTypeResponse
+	11, // 99: tech.NfcBarcodeService.IsConnected:output_type -> tech.IsConnectedResponse
+	13, // 100: tech.NfcBarcodeService.Get:output_type -> tech.GetResponse
+	1,  // 101: tech.NdefFormatableService.Close:output_type -> tech.CloseResponse
+	3,  // 102: tech.NdefFormatableService.Connect:output_type -> tech.ConnectResponse
+	15, // 103: tech.NdefFormatableService.Format:output_type -> tech.FormatResponse
+	17, // 104: tech.NdefFormatableService.FormatReadOnly:output_type -> tech.FormatReadOnlyResponse
+	7,  // 105: tech.NdefFormatableService.GetTag:output_type -> tech.GetTagResponse
+	11, // 106: tech.NdefFormatableService.IsConnected:output_type -> tech.IsConnectedResponse
+	13, // 107: tech.NdefFormatableService.Get:output_type -> tech.GetResponse
+	1,  // 108: tech.MifareUltralightService.Close:output_type -> tech.CloseResponse
+	3,  // 109: tech.MifareUltralightService.Connect:output_type -> tech.ConnectResponse
+	19, // 110: tech.MifareUltralightService.GetMaxTransceiveLength:output_type -> tech.GetMaxTransceiveLengthResponse
+	7,  // 111: tech.MifareUltralightService.GetTag:output_type -> tech.GetTagResponse
+	21, // 112: tech.MifareUltralightService.GetTimeout:output_type -> tech.GetTimeoutResponse
+	9,  // 113: tech.MifareUltralightService.GetType:output_type -> tech.GetTypeResponse
+	11, // 114: tech.MifareUltralightService.IsConnected:output_type -> tech.IsConnectedResponse
+	23, // 115: tech.MifareUltralightService.ReadPages:output_type -> tech.ReadPagesResponse
+	25, // 116: tech.MifareUltralightService.SetTimeout:output_type -> tech.SetTimeoutResponse
+	27, // 117: tech.MifareUltralightService.Transceive:output_type -> tech.TransceiveResponse
+	29, // 118: tech.MifareUltralightService.WritePage:output_type -> tech.WritePageResponse
+	13, // 119: tech.MifareUltralightService.Get:output_type -> tech.GetResponse
+	1,  // 120: tech.NfcAService.Close:output_type -> tech.CloseResponse
+	3,  // 121: tech.NfcAService.Connect:output_type -> tech.ConnectResponse
+	31, // 122: tech.NfcAService.GetAtqa:output_type -> tech.GetAtqaResponse
+	19, // 123: tech.NfcAService.GetMaxTransceiveLength:output_type -> tech.GetMaxTransceiveLengthResponse
+	33, // 124: tech.NfcAService.GetSak:output_type -> tech.GetSakResponse
+	7,  // 125: tech.NfcAService.GetTag:output_type -> tech.GetTagResponse
+	21, // 126: tech.NfcAService.GetTimeout:output_type -> tech.GetTimeoutResponse
+	11, // 127: tech.NfcAService.IsConnected:output_type -> tech.IsConnectedResponse
+	25, // 128: tech.NfcAService.SetTimeout:output_type -> tech.SetTimeoutResponse
+	27, // 129: tech.NfcAService.Transceive:output_type -> tech.TransceiveResponse
+	13, // 130: tech.NfcAService.Get:output_type -> tech.GetResponse
+	35, // 131: tech.MifareClassicService.AuthenticateSectorWithKeyA:output_type -> tech.AuthenticateSectorWithKeyAResponse
+	37, // 132: tech.MifareClassicService.AuthenticateSectorWithKeyB:output_type -> tech.AuthenticateSectorWithKeyBResponse
+	39, // 133: tech.MifareClassicService.BlockToSector:output_type -> tech.BlockToSectorResponse
+	1,  // 134: tech.MifareClassicService.Close:output_type -> tech.CloseResponse
+	3,  // 135: tech.MifareClassicService.Connect:output_type -> tech.ConnectResponse
+	41, // 136: tech.MifareClassicService.Decrement:output_type -> tech.DecrementResponse
+	43, // 137: tech.MifareClassicService.GetBlockCount:output_type -> tech.GetBlockCountResponse
+	45, // 138: tech.MifareClassicService.GetBlockCountInSector:output_type -> tech.GetBlockCountInSectorResponse
+	19, // 139: tech.MifareClassicService.GetMaxTransceiveLength:output_type -> tech.GetMaxTransceiveLengthResponse
+	47, // 140: tech.MifareClassicService.GetSectorCount:output_type -> tech.GetSectorCountResponse
+	49, // 141: tech.MifareClassicService.GetSize:output_type -> tech.GetSizeResponse
+	7,  // 142: tech.MifareClassicService.GetTag:output_type -> tech.GetTagResponse
+	21, // 143: tech.MifareClassicService.GetTimeout:output_type -> tech.GetTimeoutResponse
+	9,  // 144: tech.MifareClassicService.GetType:output_type -> tech.GetTypeResponse
+	51, // 145: tech.MifareClassicService.Increment:output_type -> tech.IncrementResponse
+	11, // 146: tech.MifareClassicService.IsConnected:output_type -> tech.IsConnectedResponse
+	53, // 147: tech.MifareClassicService.ReadBlock:output_type -> tech.ReadBlockResponse
+	55, // 148: tech.MifareClassicService.Restore:output_type -> tech.RestoreResponse
+	57, // 149: tech.MifareClassicService.SectorToBlock:output_type -> tech.SectorToBlockResponse
+	25, // 150: tech.MifareClassicService.SetTimeout:output_type -> tech.SetTimeoutResponse
+	27, // 151: tech.MifareClassicService.Transceive:output_type -> tech.TransceiveResponse
+	59, // 152: tech.MifareClassicService.Transfer:output_type -> tech.TransferResponse
+	61, // 153: tech.MifareClassicService.WriteBlock:output_type -> tech.WriteBlockResponse
+	13, // 154: tech.MifareClassicService.Get:output_type -> tech.GetResponse
+	1,  // 155: tech.NfcVService.Close:output_type -> tech.CloseResponse
+	3,  // 156: tech.NfcVService.Connect:output_type -> tech.ConnectResponse
+	63, // 157: tech.NfcVService.GetDsfId:output_type -> tech.GetDsfIdResponse
+	19, // 158: tech.NfcVService.GetMaxTransceiveLength:output_type -> tech.GetMaxTransceiveLengthResponse
+	65, // 159: tech.NfcVService.GetResponseFlags:output_type -> tech.GetResponseFlagsResponse
+	7,  // 160: tech.NfcVService.GetTag:output_type -> tech.GetTagResponse
+	11, // 161: tech.NfcVService.IsConnected:output_type -> tech.IsConnectedResponse
+	27, // 162: tech.NfcVService.Transceive:output_type -> tech.TransceiveResponse
+	13, // 163: tech.NfcVService.Get:output_type -> tech.GetResponse
+	1,  // 164: tech.NfcBService.Close:output_type -> tech.CloseResponse
+	3,  // 165: tech.NfcBService.Connect:output_type -> tech.ConnectResponse
+	67, // 166: tech.NfcBService.GetApplicationData:output_type -> tech.GetApplicationDataResponse
+	19, // 167: tech.NfcBService.GetMaxTransceiveLength:output_type -> tech.GetMaxTransceiveLengthResponse
+	69, // 168: tech.NfcBService.GetProtocolInfo:output_type -> tech.GetProtocolInfoResponse
+	7,  // 169: tech.NfcBService.GetTag:output_type -> tech.GetTagResponse
+	11, // 170: tech.NfcBService.IsConnected:output_type -> tech.IsConnectedResponse
+	27, // 171: tech.NfcBService.Transceive:output_type -> tech.TransceiveResponse
+	13, // 172: tech.NfcBService.Get:output_type -> tech.GetResponse
+	1,  // 173: tech.TagTechnologyService.Close:output_type -> tech.CloseResponse
+	3,  // 174: tech.TagTechnologyService.Connect:output_type -> tech.ConnectResponse
+	7,  // 175: tech.TagTechnologyService.GetTag:output_type -> tech.GetTagResponse
+	11, // 176: tech.TagTechnologyService.IsConnected:output_type -> tech.IsConnectedResponse
+	1,  // 177: tech.NfcFService.Close:output_type -> tech.CloseResponse
+	3,  // 178: tech.NfcFService.Connect:output_type -> tech.ConnectResponse
+	71, // 179: tech.NfcFService.GetManufacturer:output_type -> tech.GetManufacturerResponse
+	19, // 180: tech.NfcFService.GetMaxTransceiveLength:output_type -> tech.GetMaxTransceiveLengthResponse
+	73, // 181: tech.NfcFService.GetSystemCode:output_type -> tech.GetSystemCodeResponse
+	7,  // 182: tech.NfcFService.GetTag:output_type -> tech.GetTagResponse
+	21, // 183: tech.NfcFService.GetTimeout:output_type -> tech.GetTimeoutResponse
+	11, // 184: tech.NfcFService.IsConnected:output_type -> tech.IsConnectedResponse
+	25, // 185: tech.NfcFService.SetTimeout:output_type -> tech.SetTimeoutResponse
+	27, // 186: tech.NfcFService.Transceive:output_type -> tech.TransceiveResponse
+	13, // 187: tech.NfcFService.Get:output_type -> tech.GetResponse
 	94, // [94:188] is the sub-list for method output_type
 	0,  // [0:94] is the sub-list for method input_type
 	0,  // [0:0] is the sub-list for extension type_name

@@ -9,29 +9,6 @@ import (
 	"google.golang.org/grpc"
 )
 
-// UCharacterDirectionClient wraps the gRPC UCharacterDirectionService client.
-type UCharacterDirectionClient struct {
-	svc pb.UCharacterDirectionServiceClient
-}
-
-// NewUCharacterDirectionClient creates a new UCharacterDirection client.
-func NewUCharacterDirectionClient(cc grpc.ClientConnInterface) *UCharacterDirectionClient {
-	return &UCharacterDirectionClient{
-		svc: pb.NewUCharacterDirectionServiceClient(cc),
-	}
-}
-
-// ToString calls the ToString RPC.
-func (c *UCharacterDirectionClient) ToString(ctx context.Context, arg0 int32) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
 // UCharacterCategoryClient wraps the gRPC UCharacterCategoryService client.
 type UCharacterCategoryClient struct {
 	svc pb.UCharacterCategoryServiceClient
@@ -46,6 +23,229 @@ func NewUCharacterCategoryClient(cc grpc.ClientConnInterface) *UCharacterCategor
 
 // ToString calls the ToString RPC.
 func (c *UCharacterCategoryClient) ToString(ctx context.Context, arg0 int32) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// UScriptClient wraps the gRPC UScriptService client.
+type UScriptClient struct {
+	svc pb.UScriptServiceClient
+}
+
+// NewUScriptClient creates a new UScript client.
+func NewUScriptClient(cc grpc.ClientConnInterface) *UScriptClient {
+	return &UScriptClient{
+		svc: pb.NewUScriptServiceClient(cc),
+	}
+}
+
+// BreaksBetweenLetters calls the BreaksBetweenLetters RPC.
+func (c *UScriptClient) BreaksBetweenLetters(ctx context.Context, arg0 int32) (bool, error) {
+	resp, err := c.svc.BreaksBetweenLetters(ctx, &pb.BreaksBetweenLettersRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCode1 calls the GetCode1 RPC.
+func (c *UScriptClient) GetCode1(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.GetCode1(ctx, &pb.GetCode1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCode1_1 calls the GetCode1_1 RPC.
+func (c *UScriptClient) GetCode1_1(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.GetCode1_1(ctx, &pb.GetCode1_1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCode1_2 calls the GetCode1_2 RPC.
+func (c *UScriptClient) GetCode1_2(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.GetCode1_2(ctx, &pb.GetCode1_2Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCodeFromName calls the GetCodeFromName RPC.
+func (c *UScriptClient) GetCodeFromName(ctx context.Context, arg0 string) (int32, error) {
+	resp, err := c.svc.GetCodeFromName(ctx, &pb.GetCodeFromNameRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetName calls the GetName RPC.
+func (c *UScriptClient) GetName(ctx context.Context, arg0 int32) (string, error) {
+	resp, err := c.svc.GetName(ctx, &pb.GetNameRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSampleString calls the GetSampleString RPC.
+func (c *UScriptClient) GetSampleString(ctx context.Context, arg0 int32) (string, error) {
+	resp, err := c.svc.GetSampleString(ctx, &pb.GetSampleStringRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetScript calls the GetScript RPC.
+func (c *UScriptClient) GetScript(ctx context.Context, arg0 int32) (int32, error) {
+	resp, err := c.svc.GetScript(ctx, &pb.GetScriptRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetScriptExtensions calls the GetScriptExtensions RPC.
+func (c *UScriptClient) GetScriptExtensions(ctx context.Context, arg0 int32, arg1 int64) (int32, error) {
+	resp, err := c.svc.GetScriptExtensions(ctx, &pb.GetScriptExtensionsRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetShortName calls the GetShortName RPC.
+func (c *UScriptClient) GetShortName(ctx context.Context, arg0 int32) (string, error) {
+	resp, err := c.svc.GetShortName(ctx, &pb.GetShortNameRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetUsage calls the GetUsage RPC.
+func (c *UScriptClient) GetUsage(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.GetUsage(ctx, &pb.GetUsageRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasScript calls the HasScript RPC.
+func (c *UScriptClient) HasScript(ctx context.Context, arg0 int32, arg1 int32) (bool, error) {
+	resp, err := c.svc.HasScript(ctx, &pb.HasScriptRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsCased calls the IsCased RPC.
+func (c *UScriptClient) IsCased(ctx context.Context, arg0 int32) (bool, error) {
+	resp, err := c.svc.IsCased(ctx, &pb.IsCasedRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsRightToLeft calls the IsRightToLeft RPC.
+func (c *UScriptClient) IsRightToLeft(ctx context.Context, arg0 int32) (bool, error) {
+	resp, err := c.svc.IsRightToLeft(ctx, &pb.IsRightToLeftRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// UScriptScriptUsageClient wraps the gRPC UScriptScriptUsageService client.
+type UScriptScriptUsageClient struct {
+	svc pb.UScriptScriptUsageServiceClient
+}
+
+// NewUScriptScriptUsageClient creates a new UScriptScriptUsage client.
+func NewUScriptScriptUsageClient(cc grpc.ClientConnInterface) *UScriptScriptUsageClient {
+	return &UScriptScriptUsageClient{
+		svc: pb.NewUScriptScriptUsageServiceClient(cc),
+	}
+}
+
+// Values calls the Values RPC.
+func (c *UScriptScriptUsageClient) Values(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Values(ctx, &pb.ValuesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ValueOf calls the ValueOf RPC.
+func (c *UScriptScriptUsageClient) ValueOf(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.ValueOf(ctx, &pb.ValueOfRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// UCharacterDirectionClient wraps the gRPC UCharacterDirectionService client.
+type UCharacterDirectionClient struct {
+	svc pb.UCharacterDirectionServiceClient
+}
+
+// NewUCharacterDirectionClient creates a new UCharacterDirection client.
+func NewUCharacterDirectionClient(cc grpc.ClientConnInterface) *UCharacterDirectionClient {
+	return &UCharacterDirectionClient{
+		svc: pb.NewUCharacterDirectionServiceClient(cc),
+	}
+}
+
+// ToString calls the ToString RPC.
+func (c *UCharacterDirectionClient) ToString(ctx context.Context, arg0 int32) (string, error) {
 	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{
 		Arg0: arg0,
 	})
@@ -1304,206 +1504,6 @@ func (c *UCharacterUnicodeBlockClient) GetInstance(ctx context.Context, arg0 int
 // Of calls the Of RPC.
 func (c *UCharacterUnicodeBlockClient) Of(ctx context.Context, arg0 int32) (int64, error) {
 	resp, err := c.svc.Of(ctx, &pb.OfRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// UScriptClient wraps the gRPC UScriptService client.
-type UScriptClient struct {
-	svc pb.UScriptServiceClient
-}
-
-// NewUScriptClient creates a new UScript client.
-func NewUScriptClient(cc grpc.ClientConnInterface) *UScriptClient {
-	return &UScriptClient{
-		svc: pb.NewUScriptServiceClient(cc),
-	}
-}
-
-// BreaksBetweenLetters calls the BreaksBetweenLetters RPC.
-func (c *UScriptClient) BreaksBetweenLetters(ctx context.Context, arg0 int32) (bool, error) {
-	resp, err := c.svc.BreaksBetweenLetters(ctx, &pb.BreaksBetweenLettersRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetCode1 calls the GetCode1 RPC.
-func (c *UScriptClient) GetCode1(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.GetCode1(ctx, &pb.GetCode1Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetCode1_1 calls the GetCode1_1 RPC.
-func (c *UScriptClient) GetCode1_1(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.GetCode1_1(ctx, &pb.GetCode1_1Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetCode1_2 calls the GetCode1_2 RPC.
-func (c *UScriptClient) GetCode1_2(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.GetCode1_2(ctx, &pb.GetCode1_2Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetCodeFromName calls the GetCodeFromName RPC.
-func (c *UScriptClient) GetCodeFromName(ctx context.Context, arg0 string) (int32, error) {
-	resp, err := c.svc.GetCodeFromName(ctx, &pb.GetCodeFromNameRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetName calls the GetName RPC.
-func (c *UScriptClient) GetName(ctx context.Context, arg0 int32) (string, error) {
-	resp, err := c.svc.GetName(ctx, &pb.GetNameRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetSampleString calls the GetSampleString RPC.
-func (c *UScriptClient) GetSampleString(ctx context.Context, arg0 int32) (string, error) {
-	resp, err := c.svc.GetSampleString(ctx, &pb.GetSampleStringRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetScript calls the GetScript RPC.
-func (c *UScriptClient) GetScript(ctx context.Context, arg0 int32) (int32, error) {
-	resp, err := c.svc.GetScript(ctx, &pb.GetScriptRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetScriptExtensions calls the GetScriptExtensions RPC.
-func (c *UScriptClient) GetScriptExtensions(ctx context.Context, arg0 int32, arg1 int64) (int32, error) {
-	resp, err := c.svc.GetScriptExtensions(ctx, &pb.GetScriptExtensionsRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetShortName calls the GetShortName RPC.
-func (c *UScriptClient) GetShortName(ctx context.Context, arg0 int32) (string, error) {
-	resp, err := c.svc.GetShortName(ctx, &pb.GetShortNameRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetUsage calls the GetUsage RPC.
-func (c *UScriptClient) GetUsage(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.GetUsage(ctx, &pb.GetUsageRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HasScript calls the HasScript RPC.
-func (c *UScriptClient) HasScript(ctx context.Context, arg0 int32, arg1 int32) (bool, error) {
-	resp, err := c.svc.HasScript(ctx, &pb.HasScriptRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsCased calls the IsCased RPC.
-func (c *UScriptClient) IsCased(ctx context.Context, arg0 int32) (bool, error) {
-	resp, err := c.svc.IsCased(ctx, &pb.IsCasedRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsRightToLeft calls the IsRightToLeft RPC.
-func (c *UScriptClient) IsRightToLeft(ctx context.Context, arg0 int32) (bool, error) {
-	resp, err := c.svc.IsRightToLeft(ctx, &pb.IsRightToLeftRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// UScriptScriptUsageClient wraps the gRPC UScriptScriptUsageService client.
-type UScriptScriptUsageClient struct {
-	svc pb.UScriptScriptUsageServiceClient
-}
-
-// NewUScriptScriptUsageClient creates a new UScriptScriptUsage client.
-func NewUScriptScriptUsageClient(cc grpc.ClientConnInterface) *UScriptScriptUsageClient {
-	return &UScriptScriptUsageClient{
-		svc: pb.NewUScriptScriptUsageServiceClient(cc),
-	}
-}
-
-// Values calls the Values RPC.
-func (c *UScriptScriptUsageClient) Values(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Values(ctx, &pb.ValuesRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ValueOf calls the ValueOf RPC.
-func (c *UScriptScriptUsageClient) ValueOf(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.ValueOf(ctx, &pb.ValueOfRequest{
 		Arg0: arg0,
 	})
 	if err != nil {

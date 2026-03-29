@@ -9,6 +9,364 @@ import (
 	"google.golang.org/grpc"
 )
 
+// TimeClient wraps the gRPC TimeService client.
+type TimeClient struct {
+	svc pb.TimeServiceClient
+}
+
+// NewTimeClient creates a new Time client.
+func NewTimeClient(cc grpc.ClientConnInterface) *TimeClient {
+	return &TimeClient{
+		svc: pb.NewTimeServiceClient(cc),
+	}
+}
+
+// After calls the After RPC.
+func (c *TimeClient) After(ctx context.Context, handle int64, arg0 int64) (bool, error) {
+	resp, err := c.svc.After(ctx, &pb.AfterRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Before calls the Before RPC.
+func (c *TimeClient) Before(ctx context.Context, handle int64, arg0 int64) (bool, error) {
+	resp, err := c.svc.Before(ctx, &pb.BeforeRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Clear calls the Clear RPC.
+func (c *TimeClient) Clear(ctx context.Context, handle int64, arg0 string) error {
+	_, err := c.svc.Clear(ctx, &pb.ClearRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// Format calls the Format RPC.
+func (c *TimeClient) Format(ctx context.Context, handle int64, arg0 string) (string, error) {
+	resp, err := c.svc.Format(ctx, &pb.FormatRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// Format2445 calls the Format2445 RPC.
+func (c *TimeClient) Format2445(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.Format2445(ctx, &pb.Format2445Request{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// Format3339 calls the Format3339 RPC.
+func (c *TimeClient) Format3339(ctx context.Context, handle int64, arg0 bool) (string, error) {
+	resp, err := c.svc.Format3339(ctx, &pb.Format3339Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetActualMaximum calls the GetActualMaximum RPC.
+func (c *TimeClient) GetActualMaximum(ctx context.Context, handle int64, arg0 int32) (int32, error) {
+	resp, err := c.svc.GetActualMaximum(ctx, &pb.GetActualMaximumRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetWeekNumber calls the GetWeekNumber RPC.
+func (c *TimeClient) GetWeekNumber(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetWeekNumber(ctx, &pb.GetWeekNumberRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Normalize calls the Normalize RPC.
+func (c *TimeClient) Normalize(ctx context.Context, handle int64, arg0 bool) (int64, error) {
+	resp, err := c.svc.Normalize(ctx, &pb.NormalizeRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Parse calls the Parse RPC.
+func (c *TimeClient) Parse(ctx context.Context, handle int64, arg0 string) (bool, error) {
+	resp, err := c.svc.Parse(ctx, &pb.ParseRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Parse3339 calls the Parse3339 RPC.
+func (c *TimeClient) Parse3339(ctx context.Context, handle int64, arg0 string) (bool, error) {
+	resp, err := c.svc.Parse3339(ctx, &pb.Parse3339Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Set1 calls the Set1 RPC.
+func (c *TimeClient) Set1(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.Set1(ctx, &pb.Set1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// Set3_1 calls the Set3_1 RPC.
+func (c *TimeClient) Set3_1(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32) error {
+	_, err := c.svc.Set3_1(ctx, &pb.Set3_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	return err
+}
+
+// Set6_2 calls the Set6_2 RPC.
+func (c *TimeClient) Set6_2(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32, arg3 int32, arg4 int32, arg5 int32) error {
+	_, err := c.svc.Set6_2(ctx, &pb.Set6_2Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+		Arg4:   arg4,
+		Arg5:   arg5,
+	})
+	return err
+}
+
+// Set1_3 calls the Set1_3 RPC.
+func (c *TimeClient) Set1_3(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.Set1_3(ctx, &pb.Set1_3Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetJulianDay calls the SetJulianDay RPC.
+func (c *TimeClient) SetJulianDay(ctx context.Context, handle int64, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetJulianDay(ctx, &pb.SetJulianDayRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetToNow calls the SetToNow RPC.
+func (c *TimeClient) SetToNow(ctx context.Context, handle int64) error {
+	_, err := c.svc.SetToNow(ctx, &pb.SetToNowRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// SwitchTimezone calls the SwitchTimezone RPC.
+func (c *TimeClient) SwitchTimezone(ctx context.Context, handle int64, arg0 string) error {
+	_, err := c.svc.SwitchTimezone(ctx, &pb.SwitchTimezoneRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// ToMillis calls the ToMillis RPC.
+func (c *TimeClient) ToMillis(ctx context.Context, handle int64, arg0 bool) (int64, error) {
+	resp, err := c.svc.ToMillis(ctx, &pb.ToMillisRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *TimeClient) ToString(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// Compare calls the Compare RPC.
+func (c *TimeClient) Compare(ctx context.Context, handle int64, arg0 int64, arg1 int64) (int32, error) {
+	resp, err := c.svc.Compare(ctx, &pb.CompareRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCurrentTimezone calls the GetCurrentTimezone RPC.
+func (c *TimeClient) GetCurrentTimezone(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetCurrentTimezone(ctx, &pb.GetCurrentTimezoneRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetJulianDay calls the GetJulianDay RPC.
+func (c *TimeClient) GetJulianDay(ctx context.Context, handle int64, arg0 int64, arg1 int64) (int32, error) {
+	resp, err := c.svc.GetJulianDay(ctx, &pb.GetJulianDayRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetJulianMondayFromWeeksSinceEpoch calls the GetJulianMondayFromWeeksSinceEpoch RPC.
+func (c *TimeClient) GetJulianMondayFromWeeksSinceEpoch(ctx context.Context, handle int64, arg0 int32) (int32, error) {
+	resp, err := c.svc.GetJulianMondayFromWeeksSinceEpoch(ctx, &pb.GetJulianMondayFromWeeksSinceEpochRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetWeeksSinceEpochFromJulianDay calls the GetWeeksSinceEpochFromJulianDay RPC.
+func (c *TimeClient) GetWeeksSinceEpochFromJulianDay(ctx context.Context, handle int64, arg0 int32, arg1 int32) (int32, error) {
+	resp, err := c.svc.GetWeeksSinceEpochFromJulianDay(ctx, &pb.GetWeeksSinceEpochFromJulianDayRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsEpoch calls the IsEpoch RPC.
+func (c *TimeClient) IsEpoch(ctx context.Context, handle int64, arg0 int64) (bool, error) {
+	resp, err := c.svc.IsEpoch(ctx, &pb.IsEpochRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// TerClient wraps the gRPC TerService client.
+type TerClient struct {
+	svc pb.TerServiceClient
+}
+
+// NewTerClient creates a new ter client.
+func NewTerClient(cc grpc.ClientConnInterface) *TerClient {
+	return &TerClient{
+		svc: pb.NewTerServiceClient(cc),
+	}
+}
+
+// FormatFileSize calls the FormatFileSize RPC.
+func (c *TerClient) FormatFileSize(ctx context.Context, handle int64, arg0 int64, arg1 int64) (string, error) {
+	resp, err := c.svc.FormatFileSize(ctx, &pb.FormatFileSizeRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// FormatIpAddress calls the FormatIpAddress RPC.
+func (c *TerClient) FormatIpAddress(ctx context.Context, handle int64, arg0 int32) (string, error) {
+	resp, err := c.svc.FormatIpAddress(ctx, &pb.FormatIpAddressRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// FormatShortFileSize calls the FormatShortFileSize RPC.
+func (c *TerClient) FormatShortFileSize(ctx context.Context, handle int64, arg0 int64, arg1 int64) (string, error) {
+	resp, err := c.svc.FormatShortFileSize(ctx, &pb.FormatShortFileSizeRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
 // DateFormatClient wraps the gRPC DateFormatService client.
 type DateFormatClient struct {
 	svc pb.DateFormatServiceClient
@@ -389,364 +747,6 @@ func (c *DateUtilsClient) IsToday(ctx context.Context, handle int64, arg0 int64)
 	})
 	if err != nil {
 		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// TimeClient wraps the gRPC TimeService client.
-type TimeClient struct {
-	svc pb.TimeServiceClient
-}
-
-// NewTimeClient creates a new Time client.
-func NewTimeClient(cc grpc.ClientConnInterface) *TimeClient {
-	return &TimeClient{
-		svc: pb.NewTimeServiceClient(cc),
-	}
-}
-
-// After calls the After RPC.
-func (c *TimeClient) After(ctx context.Context, handle int64, arg0 int64) (bool, error) {
-	resp, err := c.svc.After(ctx, &pb.AfterRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Before calls the Before RPC.
-func (c *TimeClient) Before(ctx context.Context, handle int64, arg0 int64) (bool, error) {
-	resp, err := c.svc.Before(ctx, &pb.BeforeRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Clear calls the Clear RPC.
-func (c *TimeClient) Clear(ctx context.Context, handle int64, arg0 string) error {
-	_, err := c.svc.Clear(ctx, &pb.ClearRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// Format calls the Format RPC.
-func (c *TimeClient) Format(ctx context.Context, handle int64, arg0 string) (string, error) {
-	resp, err := c.svc.Format(ctx, &pb.FormatRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// Format2445 calls the Format2445 RPC.
-func (c *TimeClient) Format2445(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.Format2445(ctx, &pb.Format2445Request{
-		Handle: handle,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// Format3339 calls the Format3339 RPC.
-func (c *TimeClient) Format3339(ctx context.Context, handle int64, arg0 bool) (string, error) {
-	resp, err := c.svc.Format3339(ctx, &pb.Format3339Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetActualMaximum calls the GetActualMaximum RPC.
-func (c *TimeClient) GetActualMaximum(ctx context.Context, handle int64, arg0 int32) (int32, error) {
-	resp, err := c.svc.GetActualMaximum(ctx, &pb.GetActualMaximumRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetWeekNumber calls the GetWeekNumber RPC.
-func (c *TimeClient) GetWeekNumber(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetWeekNumber(ctx, &pb.GetWeekNumberRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Normalize calls the Normalize RPC.
-func (c *TimeClient) Normalize(ctx context.Context, handle int64, arg0 bool) (int64, error) {
-	resp, err := c.svc.Normalize(ctx, &pb.NormalizeRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Parse calls the Parse RPC.
-func (c *TimeClient) Parse(ctx context.Context, handle int64, arg0 string) (bool, error) {
-	resp, err := c.svc.Parse(ctx, &pb.ParseRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Parse3339 calls the Parse3339 RPC.
-func (c *TimeClient) Parse3339(ctx context.Context, handle int64, arg0 string) (bool, error) {
-	resp, err := c.svc.Parse3339(ctx, &pb.Parse3339Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Set1 calls the Set1 RPC.
-func (c *TimeClient) Set1(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.Set1(ctx, &pb.Set1Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// Set3_1 calls the Set3_1 RPC.
-func (c *TimeClient) Set3_1(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32) error {
-	_, err := c.svc.Set3_1(ctx, &pb.Set3_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	return err
-}
-
-// Set6_2 calls the Set6_2 RPC.
-func (c *TimeClient) Set6_2(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32, arg3 int32, arg4 int32, arg5 int32) error {
-	_, err := c.svc.Set6_2(ctx, &pb.Set6_2Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-		Arg4:   arg4,
-		Arg5:   arg5,
-	})
-	return err
-}
-
-// Set1_3 calls the Set1_3 RPC.
-func (c *TimeClient) Set1_3(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.Set1_3(ctx, &pb.Set1_3Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetJulianDay calls the SetJulianDay RPC.
-func (c *TimeClient) SetJulianDay(ctx context.Context, handle int64, arg0 int32) (int64, error) {
-	resp, err := c.svc.SetJulianDay(ctx, &pb.SetJulianDayRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetToNow calls the SetToNow RPC.
-func (c *TimeClient) SetToNow(ctx context.Context, handle int64) error {
-	_, err := c.svc.SetToNow(ctx, &pb.SetToNowRequest{
-		Handle: handle,
-	})
-	return err
-}
-
-// SwitchTimezone calls the SwitchTimezone RPC.
-func (c *TimeClient) SwitchTimezone(ctx context.Context, handle int64, arg0 string) error {
-	_, err := c.svc.SwitchTimezone(ctx, &pb.SwitchTimezoneRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// ToMillis calls the ToMillis RPC.
-func (c *TimeClient) ToMillis(ctx context.Context, handle int64, arg0 bool) (int64, error) {
-	resp, err := c.svc.ToMillis(ctx, &pb.ToMillisRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToString calls the ToString RPC.
-func (c *TimeClient) ToString(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// Compare calls the Compare RPC.
-func (c *TimeClient) Compare(ctx context.Context, handle int64, arg0 int64, arg1 int64) (int32, error) {
-	resp, err := c.svc.Compare(ctx, &pb.CompareRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetCurrentTimezone calls the GetCurrentTimezone RPC.
-func (c *TimeClient) GetCurrentTimezone(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.GetCurrentTimezone(ctx, &pb.GetCurrentTimezoneRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetJulianDay calls the GetJulianDay RPC.
-func (c *TimeClient) GetJulianDay(ctx context.Context, handle int64, arg0 int64, arg1 int64) (int32, error) {
-	resp, err := c.svc.GetJulianDay(ctx, &pb.GetJulianDayRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetJulianMondayFromWeeksSinceEpoch calls the GetJulianMondayFromWeeksSinceEpoch RPC.
-func (c *TimeClient) GetJulianMondayFromWeeksSinceEpoch(ctx context.Context, handle int64, arg0 int32) (int32, error) {
-	resp, err := c.svc.GetJulianMondayFromWeeksSinceEpoch(ctx, &pb.GetJulianMondayFromWeeksSinceEpochRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetWeeksSinceEpochFromJulianDay calls the GetWeeksSinceEpochFromJulianDay RPC.
-func (c *TimeClient) GetWeeksSinceEpochFromJulianDay(ctx context.Context, handle int64, arg0 int32, arg1 int32) (int32, error) {
-	resp, err := c.svc.GetWeeksSinceEpochFromJulianDay(ctx, &pb.GetWeeksSinceEpochFromJulianDayRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsEpoch calls the IsEpoch RPC.
-func (c *TimeClient) IsEpoch(ctx context.Context, handle int64, arg0 int64) (bool, error) {
-	resp, err := c.svc.IsEpoch(ctx, &pb.IsEpochRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// TerClient wraps the gRPC TerService client.
-type TerClient struct {
-	svc pb.TerServiceClient
-}
-
-// NewTerClient creates a new ter client.
-func NewTerClient(cc grpc.ClientConnInterface) *TerClient {
-	return &TerClient{
-		svc: pb.NewTerServiceClient(cc),
-	}
-}
-
-// FormatFileSize calls the FormatFileSize RPC.
-func (c *TerClient) FormatFileSize(ctx context.Context, handle int64, arg0 int64, arg1 int64) (string, error) {
-	resp, err := c.svc.FormatFileSize(ctx, &pb.FormatFileSizeRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// FormatIpAddress calls the FormatIpAddress RPC.
-func (c *TerClient) FormatIpAddress(ctx context.Context, handle int64, arg0 int32) (string, error) {
-	resp, err := c.svc.FormatIpAddress(ctx, &pb.FormatIpAddressRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// FormatShortFileSize calls the FormatShortFileSize RPC.
-func (c *TerClient) FormatShortFileSize(ctx context.Context, handle int64, arg0 int64, arg1 int64) (string, error) {
-	resp, err := c.svc.FormatShortFileSize(ctx, &pb.FormatShortFileSizeRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	if err != nil {
-		return "", err
 	}
 	return resp.GetResult(), nil
 }

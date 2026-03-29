@@ -9,6 +9,29 @@ import (
 	"google.golang.org/grpc"
 )
 
+// AppSetIdManagerClient wraps the gRPC AppSetIdManagerService client.
+type AppSetIdManagerClient struct {
+	svc pb.AppSetIdManagerServiceClient
+}
+
+// NewAppSetIdManagerClient creates a new AppSetIdManager client.
+func NewAppSetIdManagerClient(cc grpc.ClientConnInterface) *AppSetIdManagerClient {
+	return &AppSetIdManagerClient{
+		svc: pb.NewAppSetIdManagerServiceClient(cc),
+	}
+}
+
+// Get calls the Get RPC.
+func (c *AppSetIdManagerClient) Get(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.Get(ctx, &pb.GetRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // AppSetIdClient wraps the gRPC AppSetIdService client.
 type AppSetIdClient struct {
 	svc pb.AppSetIdServiceClient
@@ -59,29 +82,6 @@ func (c *AppSetIdClient) GetScope(ctx context.Context, handle int64) (int32, err
 func (c *AppSetIdClient) HashCode(ctx context.Context, handle int64) (int32, error) {
 	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{
 		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// AppSetIdManagerClient wraps the gRPC AppSetIdManagerService client.
-type AppSetIdManagerClient struct {
-	svc pb.AppSetIdManagerServiceClient
-}
-
-// NewAppSetIdManagerClient creates a new AppSetIdManager client.
-func NewAppSetIdManagerClient(cc grpc.ClientConnInterface) *AppSetIdManagerClient {
-	return &AppSetIdManagerClient{
-		svc: pb.NewAppSetIdManagerServiceClient(cc),
-	}
-}
-
-// Get calls the Get RPC.
-func (c *AppSetIdManagerClient) Get(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.Get(ctx, &pb.GetRequest{
-		Arg0: arg0,
 	})
 	if err != nil {
 		return 0, err

@@ -32,29 +32,6 @@ func (c *AppSearchExceptionClient) GetResultCode(ctx context.Context, handle int
 	return resp.GetResult(), nil
 }
 
-// IkeNetworkLostExceptionClient wraps the gRPC IkeNetworkLostExceptionService client.
-type IkeNetworkLostExceptionClient struct {
-	svc pb.IkeNetworkLostExceptionServiceClient
-}
-
-// NewIkeNetworkLostExceptionClient creates a new IkeNetworkLostException client.
-func NewIkeNetworkLostExceptionClient(cc grpc.ClientConnInterface) *IkeNetworkLostExceptionClient {
-	return &IkeNetworkLostExceptionClient{
-		svc: pb.NewIkeNetworkLostExceptionServiceClient(cc),
-	}
-}
-
-// GetNetwork calls the GetNetwork RPC.
-func (c *IkeNetworkLostExceptionClient) GetNetwork(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetNetwork(ctx, &pb.GetNetworkRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
 // IkeProtocolExceptionClient wraps the gRPC IkeProtocolExceptionService client.
 type IkeProtocolExceptionClient struct {
 	svc pb.IkeProtocolExceptionServiceClient
@@ -74,52 +51,6 @@ func (c *IkeProtocolExceptionClient) GetErrorType(ctx context.Context) (int32, e
 		return 0, err
 	}
 	return resp.GetResult(), nil
-}
-
-// InvalidKeExceptionClient wraps the gRPC InvalidKeExceptionService client.
-type InvalidKeExceptionClient struct {
-	svc pb.InvalidKeExceptionServiceClient
-}
-
-// NewInvalidKeExceptionClient creates a new InvalidKeException client.
-func NewInvalidKeExceptionClient(cc grpc.ClientConnInterface) *InvalidKeExceptionClient {
-	return &InvalidKeExceptionClient{
-		svc: pb.NewInvalidKeExceptionServiceClient(cc),
-	}
-}
-
-// GetDhGroup calls the GetDhGroup RPC.
-func (c *InvalidKeExceptionClient) GetDhGroup(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetDhGroup(ctx, &pb.GetDhGroupRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// InvalidMajorVersionExceptionClient wraps the gRPC InvalidMajorVersionExceptionService client.
-type InvalidMajorVersionExceptionClient struct {
-	svc pb.InvalidMajorVersionExceptionServiceClient
-}
-
-// NewInvalidMajorVersionExceptionClient creates a new InvalidMajorVersionException client.
-func NewInvalidMajorVersionExceptionClient(cc grpc.ClientConnInterface) *InvalidMajorVersionExceptionClient {
-	return &InvalidMajorVersionExceptionClient{
-		svc: pb.NewInvalidMajorVersionExceptionServiceClient(cc),
-	}
-}
-
-// GetMajorVersion calls the GetMajorVersion RPC.
-func (c *InvalidMajorVersionExceptionClient) GetMajorVersion(ctx context.Context, handle int64) (int8, error) {
-	resp, err := c.svc.GetMajorVersion(ctx, &pb.GetMajorVersionRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return int8(resp.GetResult()), nil
 }
 
 // InvalidSelectorsExceptionClient wraps the gRPC InvalidSelectorsExceptionService client.
@@ -154,6 +85,75 @@ func (c *InvalidSelectorsExceptionClient) GetIpSecSpi(ctx context.Context, handl
 		return 0, err
 	}
 	return resp.GetResult(), nil
+}
+
+// InvalidKeExceptionClient wraps the gRPC InvalidKeExceptionService client.
+type InvalidKeExceptionClient struct {
+	svc pb.InvalidKeExceptionServiceClient
+}
+
+// NewInvalidKeExceptionClient creates a new InvalidKeException client.
+func NewInvalidKeExceptionClient(cc grpc.ClientConnInterface) *InvalidKeExceptionClient {
+	return &InvalidKeExceptionClient{
+		svc: pb.NewInvalidKeExceptionServiceClient(cc),
+	}
+}
+
+// GetDhGroup calls the GetDhGroup RPC.
+func (c *InvalidKeExceptionClient) GetDhGroup(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetDhGroup(ctx, &pb.GetDhGroupRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IkeNetworkLostExceptionClient wraps the gRPC IkeNetworkLostExceptionService client.
+type IkeNetworkLostExceptionClient struct {
+	svc pb.IkeNetworkLostExceptionServiceClient
+}
+
+// NewIkeNetworkLostExceptionClient creates a new IkeNetworkLostException client.
+func NewIkeNetworkLostExceptionClient(cc grpc.ClientConnInterface) *IkeNetworkLostExceptionClient {
+	return &IkeNetworkLostExceptionClient{
+		svc: pb.NewIkeNetworkLostExceptionServiceClient(cc),
+	}
+}
+
+// GetNetwork calls the GetNetwork RPC.
+func (c *IkeNetworkLostExceptionClient) GetNetwork(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetNetwork(ctx, &pb.GetNetworkRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// InvalidMajorVersionExceptionClient wraps the gRPC InvalidMajorVersionExceptionService client.
+type InvalidMajorVersionExceptionClient struct {
+	svc pb.InvalidMajorVersionExceptionServiceClient
+}
+
+// NewInvalidMajorVersionExceptionClient creates a new InvalidMajorVersionException client.
+func NewInvalidMajorVersionExceptionClient(cc grpc.ClientConnInterface) *InvalidMajorVersionExceptionClient {
+	return &InvalidMajorVersionExceptionClient{
+		svc: pb.NewInvalidMajorVersionExceptionServiceClient(cc),
+	}
+}
+
+// GetMajorVersion calls the GetMajorVersion RPC.
+func (c *InvalidMajorVersionExceptionClient) GetMajorVersion(ctx context.Context, handle int64) (int8, error) {
+	resp, err := c.svc.GetMajorVersion(ctx, &pb.GetMajorVersionRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return int8(resp.GetResult()), nil
 }
 
 // IkeIOExceptionClient wraps the gRPC IkeIOExceptionService client.

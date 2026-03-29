@@ -116,6 +116,22 @@ var wallpaperDescriptionGetContextUriCmd = &cobra.Command{
 	},
 }
 
+var wallpaperDescriptionGetDescriptionCmd = &cobra.Command{
+	Use:   "get-description",
+	Short: "GetDescription RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDescriptionServiceClient(grpcConn)
+		req := &pb.GetDescriptionRequest{}
+		resp, err := client.GetDescription(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var wallpaperDescriptionGetIdCmd = &cobra.Command{
 	Use:   "get-id",
 	Short: "GetId RPC",
@@ -444,7 +460,7 @@ var wallpaperInstanceGetDescriptionCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewInstanceServiceClient(grpcConn)
-		req := &pb.GetDescriptionRequest{}
+		req := &pb.InstanceGetDescriptionRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
@@ -1148,6 +1164,7 @@ func init() {
 	wallpaperDescriptionCmd.AddCommand(wallpaperDescriptionGetContentCmd)
 	wallpaperDescriptionCmd.AddCommand(wallpaperDescriptionGetContextDescriptionCmd)
 	wallpaperDescriptionCmd.AddCommand(wallpaperDescriptionGetContextUriCmd)
+	wallpaperDescriptionCmd.AddCommand(wallpaperDescriptionGetDescriptionCmd)
 	wallpaperDescriptionCmd.AddCommand(wallpaperDescriptionGetIdCmd)
 	wallpaperDescriptionCmd.AddCommand(wallpaperDescriptionGetThumbnailCmd)
 	wallpaperDescriptionCmd.AddCommand(wallpaperDescriptionGetTitleCmd)

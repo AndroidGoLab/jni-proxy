@@ -9,6 +9,166 @@ import (
 	"google.golang.org/grpc"
 )
 
+// ResponderRangingConfigClient wraps the gRPC ResponderRangingConfigService client.
+type ResponderRangingConfigClient struct {
+	svc pb.ResponderRangingConfigServiceClient
+}
+
+// NewResponderRangingConfigClient creates a new ResponderRangingConfig client.
+func NewResponderRangingConfigClient(cc grpc.ClientConnInterface) *ResponderRangingConfigClient {
+	return &ResponderRangingConfigClient{
+		svc: pb.NewResponderRangingConfigServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *ResponderRangingConfigClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetRawRangingDevice calls the GetRawRangingDevice RPC.
+func (c *ResponderRangingConfigClient) GetRawRangingDevice(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetRawRangingDevice(ctx, &pb.GetRawRangingDeviceRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *ResponderRangingConfigClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *ResponderRangingConfigClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// ResponderRangingConfigBuilderClient wraps the gRPC ResponderRangingConfigBuilderService client.
+type ResponderRangingConfigBuilderClient struct {
+	svc pb.ResponderRangingConfigBuilderServiceClient
+}
+
+// NewResponderRangingConfigBuilderClient creates a new ResponderRangingConfigBuilder client.
+func NewResponderRangingConfigBuilderClient(cc grpc.ClientConnInterface) *ResponderRangingConfigBuilderClient {
+	return &ResponderRangingConfigBuilderClient{
+		svc: pb.NewResponderRangingConfigBuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *ResponderRangingConfigBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetRawRangingDevice calls the SetRawRangingDevice RPC.
+func (c *ResponderRangingConfigBuilderClient) SetRawRangingDevice(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetRawRangingDevice(ctx, &pb.SetRawRangingDeviceRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// InitiatorRangingConfigClient wraps the gRPC InitiatorRangingConfigService client.
+type InitiatorRangingConfigClient struct {
+	svc pb.InitiatorRangingConfigServiceClient
+}
+
+// NewInitiatorRangingConfigClient creates a new InitiatorRangingConfig client.
+func NewInitiatorRangingConfigClient(cc grpc.ClientConnInterface) *InitiatorRangingConfigClient {
+	return &InitiatorRangingConfigClient{
+		svc: pb.NewInitiatorRangingConfigServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *InitiatorRangingConfigClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetRawRangingDevices calls the GetRawRangingDevices RPC.
+func (c *InitiatorRangingConfigClient) GetRawRangingDevices(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetRawRangingDevices(ctx, &pb.GetRawRangingDevicesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *InitiatorRangingConfigClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *InitiatorRangingConfigClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// InitiatorRangingConfigBuilderClient wraps the gRPC InitiatorRangingConfigBuilderService client.
+type InitiatorRangingConfigBuilderClient struct {
+	svc pb.InitiatorRangingConfigBuilderServiceClient
+}
+
+// NewInitiatorRangingConfigBuilderClient creates a new InitiatorRangingConfigBuilder client.
+func NewInitiatorRangingConfigBuilderClient(cc grpc.ClientConnInterface) *InitiatorRangingConfigBuilderClient {
+	return &InitiatorRangingConfigBuilderClient{
+		svc: pb.NewInitiatorRangingConfigBuilderServiceClient(cc),
+	}
+}
+
+// AddRawRangingDevice calls the AddRawRangingDevice RPC.
+func (c *InitiatorRangingConfigBuilderClient) AddRawRangingDevice(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.AddRawRangingDevice(ctx, &pb.AddRawRangingDeviceRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Build calls the Build RPC.
+func (c *InitiatorRangingConfigBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // RangingDeviceClient wraps the gRPC RangingDeviceService client.
 type RangingDeviceClient struct {
 	svc pb.RangingDeviceServiceClient
@@ -163,157 +323,6 @@ func (c *RangingDeviceBuilderClient) SetUwbRangingParams(ctx context.Context, ar
 	resp, err := c.svc.SetUwbRangingParams(ctx, &pb.SetUwbRangingParamsRequest{
 		Arg0: arg0,
 	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ResponderRangingConfigClient wraps the gRPC ResponderRangingConfigService client.
-type ResponderRangingConfigClient struct {
-	svc pb.ResponderRangingConfigServiceClient
-}
-
-// NewResponderRangingConfigClient creates a new ResponderRangingConfig client.
-func NewResponderRangingConfigClient(cc grpc.ClientConnInterface) *ResponderRangingConfigClient {
-	return &ResponderRangingConfigClient{
-		svc: pb.NewResponderRangingConfigServiceClient(cc),
-	}
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *ResponderRangingConfigClient) DescribeContents(ctx context.Context) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetRawRangingDevice calls the GetRawRangingDevice RPC.
-func (c *ResponderRangingConfigClient) GetRawRangingDevice(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetRawRangingDevice(ctx, &pb.GetRawRangingDeviceRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToString calls the ToString RPC.
-func (c *ResponderRangingConfigClient) ToString(ctx context.Context) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *ResponderRangingConfigClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// ResponderRangingConfigBuilderClient wraps the gRPC ResponderRangingConfigBuilderService client.
-type ResponderRangingConfigBuilderClient struct {
-	svc pb.ResponderRangingConfigBuilderServiceClient
-}
-
-// NewResponderRangingConfigBuilderClient creates a new ResponderRangingConfigBuilder client.
-func NewResponderRangingConfigBuilderClient(cc grpc.ClientConnInterface) *ResponderRangingConfigBuilderClient {
-	return &ResponderRangingConfigBuilderClient{
-		svc: pb.NewResponderRangingConfigBuilderServiceClient(cc),
-	}
-}
-
-// Build calls the Build RPC.
-func (c *ResponderRangingConfigBuilderClient) Build(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetRawRangingDevice calls the SetRawRangingDevice RPC.
-func (c *ResponderRangingConfigBuilderClient) SetRawRangingDevice(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetRawRangingDevice(ctx, &pb.SetRawRangingDeviceRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// InitiatorRangingConfigClient wraps the gRPC InitiatorRangingConfigService client.
-type InitiatorRangingConfigClient struct {
-	svc pb.InitiatorRangingConfigServiceClient
-}
-
-// NewInitiatorRangingConfigClient creates a new InitiatorRangingConfig client.
-func NewInitiatorRangingConfigClient(cc grpc.ClientConnInterface) *InitiatorRangingConfigClient {
-	return &InitiatorRangingConfigClient{
-		svc: pb.NewInitiatorRangingConfigServiceClient(cc),
-	}
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *InitiatorRangingConfigClient) DescribeContents(ctx context.Context) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToString calls the ToString RPC.
-func (c *InitiatorRangingConfigClient) ToString(ctx context.Context) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *InitiatorRangingConfigClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// InitiatorRangingConfigBuilderClient wraps the gRPC InitiatorRangingConfigBuilderService client.
-type InitiatorRangingConfigBuilderClient struct {
-	svc pb.InitiatorRangingConfigBuilderServiceClient
-}
-
-// NewInitiatorRangingConfigBuilderClient creates a new InitiatorRangingConfigBuilder client.
-func NewInitiatorRangingConfigBuilderClient(cc grpc.ClientConnInterface) *InitiatorRangingConfigBuilderClient {
-	return &InitiatorRangingConfigBuilderClient{
-		svc: pb.NewInitiatorRangingConfigBuilderServiceClient(cc),
-	}
-}
-
-// AddRawRangingDevice calls the AddRawRangingDevice RPC.
-func (c *InitiatorRangingConfigBuilderClient) AddRawRangingDevice(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.AddRawRangingDevice(ctx, &pb.AddRawRangingDeviceRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Build calls the Build RPC.
-func (c *InitiatorRangingConfigBuilderClient) Build(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
 	if err != nil {
 		return 0, err
 	}

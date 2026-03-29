@@ -12,87 +12,6 @@ var jankCmd = &cobra.Command{
 	Short: "jank service operations",
 }
 
-var jankRelativeFrameTimeHistogramCmd = &cobra.Command{
-	Use:   "relative-frame-time-histogram",
-	Short: "RelativeFrameTimeHistogramService operations",
-}
-
-var jankRelativeFrameTimeHistogramNewRelativeFrameTimeHistogramCmd = &cobra.Command{
-	Use:   "new-relative-frame-time-histogram",
-	Short: "NewRelativeFrameTimeHistogram RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRelativeFrameTimeHistogramServiceClient(grpcConn)
-		req := &pb.NewRelativeFrameTimeHistogramRequest{}
-		resp, err := client.NewRelativeFrameTimeHistogram(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var jankRelativeFrameTimeHistogramAddRelativeFrameTimeMillisCmd = &cobra.Command{
-	Use:   "add-relative-frame-time-millis",
-	Short: "AddRelativeFrameTimeMillis RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRelativeFrameTimeHistogramServiceClient(grpcConn)
-		req := &pb.AddRelativeFrameTimeMillisRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.AddRelativeFrameTimeMillis(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var jankRelativeFrameTimeHistogramGetBucketCountersCmd = &cobra.Command{
-	Use:   "get-bucket-counters",
-	Short: "GetBucketCounters RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRelativeFrameTimeHistogramServiceClient(grpcConn)
-		req := &pb.GetBucketCountersRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetBucketCounters(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var jankRelativeFrameTimeHistogramGetBucketEndpointsMillisCmd = &cobra.Command{
-	Use:   "get-bucket-endpoints-millis",
-	Short: "GetBucketEndpointsMillis RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRelativeFrameTimeHistogramServiceClient(grpcConn)
-		req := &pb.GetBucketEndpointsMillisRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetBucketEndpointsMillis(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
 var jankAppJankStatsCmd = &cobra.Command{
 	Use:   "app-jank-stats",
 	Short: "AppJankStatsService operations",
@@ -290,16 +209,88 @@ var jankAppJankStatsGetWidgetStateCmd = &cobra.Command{
 	},
 }
 
+var jankRelativeFrameTimeHistogramCmd = &cobra.Command{
+	Use:   "relative-frame-time-histogram",
+	Short: "RelativeFrameTimeHistogramService operations",
+}
+
+var jankRelativeFrameTimeHistogramNewRelativeFrameTimeHistogramCmd = &cobra.Command{
+	Use:   "new-relative-frame-time-histogram",
+	Short: "NewRelativeFrameTimeHistogram RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRelativeFrameTimeHistogramServiceClient(grpcConn)
+		req := &pb.NewRelativeFrameTimeHistogramRequest{}
+		resp, err := client.NewRelativeFrameTimeHistogram(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var jankRelativeFrameTimeHistogramAddRelativeFrameTimeMillisCmd = &cobra.Command{
+	Use:   "add-relative-frame-time-millis",
+	Short: "AddRelativeFrameTimeMillis RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRelativeFrameTimeHistogramServiceClient(grpcConn)
+		req := &pb.AddRelativeFrameTimeMillisRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddRelativeFrameTimeMillis(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var jankRelativeFrameTimeHistogramGetBucketCountersCmd = &cobra.Command{
+	Use:   "get-bucket-counters",
+	Short: "GetBucketCounters RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRelativeFrameTimeHistogramServiceClient(grpcConn)
+		req := &pb.GetBucketCountersRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetBucketCounters(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var jankRelativeFrameTimeHistogramGetBucketEndpointsMillisCmd = &cobra.Command{
+	Use:   "get-bucket-endpoints-millis",
+	Short: "GetBucketEndpointsMillis RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRelativeFrameTimeHistogramServiceClient(grpcConn)
+		req := &pb.GetBucketEndpointsMillisRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetBucketEndpointsMillis(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 func init() {
-	jankRelativeFrameTimeHistogramCmd.AddCommand(jankRelativeFrameTimeHistogramNewRelativeFrameTimeHistogramCmd)
-	jankRelativeFrameTimeHistogramAddRelativeFrameTimeMillisCmd.Flags().Int64("handle", 0, "handle (int64)")
-	jankRelativeFrameTimeHistogramAddRelativeFrameTimeMillisCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	jankRelativeFrameTimeHistogramCmd.AddCommand(jankRelativeFrameTimeHistogramAddRelativeFrameTimeMillisCmd)
-	jankRelativeFrameTimeHistogramGetBucketCountersCmd.Flags().Int64("handle", 0, "handle (int64)")
-	jankRelativeFrameTimeHistogramCmd.AddCommand(jankRelativeFrameTimeHistogramGetBucketCountersCmd)
-	jankRelativeFrameTimeHistogramGetBucketEndpointsMillisCmd.Flags().Int64("handle", 0, "handle (int64)")
-	jankRelativeFrameTimeHistogramCmd.AddCommand(jankRelativeFrameTimeHistogramGetBucketEndpointsMillisCmd)
-	jankCmd.AddCommand(jankRelativeFrameTimeHistogramCmd)
 	jankAppJankStatsNewAppJankStatsCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
 	jankAppJankStatsNewAppJankStatsCmd.Flags().String("arg1", "", "arg1 (string)")
 	jankAppJankStatsNewAppJankStatsCmd.Flags().String("arg2", "", "arg2 (string)")
@@ -326,5 +317,14 @@ func init() {
 	jankAppJankStatsGetWidgetStateCmd.Flags().Int64("handle", 0, "handle (int64)")
 	jankAppJankStatsCmd.AddCommand(jankAppJankStatsGetWidgetStateCmd)
 	jankCmd.AddCommand(jankAppJankStatsCmd)
+	jankRelativeFrameTimeHistogramCmd.AddCommand(jankRelativeFrameTimeHistogramNewRelativeFrameTimeHistogramCmd)
+	jankRelativeFrameTimeHistogramAddRelativeFrameTimeMillisCmd.Flags().Int64("handle", 0, "handle (int64)")
+	jankRelativeFrameTimeHistogramAddRelativeFrameTimeMillisCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	jankRelativeFrameTimeHistogramCmd.AddCommand(jankRelativeFrameTimeHistogramAddRelativeFrameTimeMillisCmd)
+	jankRelativeFrameTimeHistogramGetBucketCountersCmd.Flags().Int64("handle", 0, "handle (int64)")
+	jankRelativeFrameTimeHistogramCmd.AddCommand(jankRelativeFrameTimeHistogramGetBucketCountersCmd)
+	jankRelativeFrameTimeHistogramGetBucketEndpointsMillisCmd.Flags().Int64("handle", 0, "handle (int64)")
+	jankRelativeFrameTimeHistogramCmd.AddCommand(jankRelativeFrameTimeHistogramGetBucketEndpointsMillisCmd)
+	jankCmd.AddCommand(jankRelativeFrameTimeHistogramCmd)
 	rootCmd.AddCommand(jankCmd)
 }

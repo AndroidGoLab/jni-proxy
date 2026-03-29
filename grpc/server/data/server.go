@@ -65,6 +65,52 @@ func (s *NetworkSlicingConfigServer) Equals(_ context.Context, req *pb.NetworkSl
 	return &pb.EqualsResponse{Result: result}, nil
 }
 
+func (s *NetworkSlicingConfigServer) GetSliceInfo(_ context.Context, req *pb.NetworkSlicingConfigGetSliceInfoRequest) (*pb.GetSliceInfoResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.NetworkSlicingConfig{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetSliceInfo()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetSliceInfoResponse{Result: handle}, nil
+}
+
+func (s *NetworkSlicingConfigServer) GetUrspRules(_ context.Context, req *pb.GetUrspRulesRequest) (*pb.GetUrspRulesResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.NetworkSlicingConfig{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetUrspRules()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetUrspRulesResponse{Result: handle}, nil
+}
+
 func (s *NetworkSlicingConfigServer) HashCode(_ context.Context, req *pb.NetworkSlicingConfigHashCodeRequest) (*pb.HashCodeResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {

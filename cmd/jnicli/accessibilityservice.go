@@ -12,20 +12,20 @@ var accessibilityserviceCmd = &cobra.Command{
 	Short: "accessibilityservice service operations",
 }
 
-var accessibilityserviceTouchInteractionControllerCmd = &cobra.Command{
-	Use:   "touch-interaction-controller",
-	Short: "TouchInteractionControllerService operations",
+var accessibilityserviceAccessibilityServiceInfoCmd = &cobra.Command{
+	Use:   "accessibility-service-info",
+	Short: "AccessibilityServiceInfoService operations",
 }
 
-var accessibilityserviceTouchInteractionControllerGetDisplayIdCmd = &cobra.Command{
-	Use:   "get-display-id",
-	Short: "GetDisplayId RPC",
+var accessibilityserviceAccessibilityServiceInfoNewAccessibilityServiceInfoCmd = &cobra.Command{
+	Use:   "new-accessibility-service-info",
+	Short: "NewAccessibilityServiceInfo RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewTouchInteractionControllerServiceClient(grpcConn)
-		req := &pb.GetDisplayIdRequest{}
-		resp, err := client.GetDisplayId(ctx, req)
+		client := pb.NewAccessibilityServiceInfoServiceClient(grpcConn)
+		req := &pb.NewAccessibilityServiceInfoRequest{}
+		resp, err := client.NewAccessibilityServiceInfo(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -33,15 +33,18 @@ var accessibilityserviceTouchInteractionControllerGetDisplayIdCmd = &cobra.Comma
 	},
 }
 
-var accessibilityserviceTouchInteractionControllerGetMaxPointerCountCmd = &cobra.Command{
-	Use:   "get-max-pointer-count",
-	Short: "GetMaxPointerCount RPC",
+var accessibilityserviceAccessibilityServiceInfoDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewTouchInteractionControllerServiceClient(grpcConn)
-		req := &pb.GetMaxPointerCountRequest{}
-		resp, err := client.GetMaxPointerCount(ctx, req)
+		client := pb.NewAccessibilityServiceInfoServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.DescribeContents(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -49,69 +52,425 @@ var accessibilityserviceTouchInteractionControllerGetMaxPointerCountCmd = &cobra
 	},
 }
 
-var accessibilityserviceTouchInteractionControllerGetStateCmd = &cobra.Command{
-	Use:   "get-state",
-	Short: "GetState RPC",
+var accessibilityserviceAccessibilityServiceInfoEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewTouchInteractionControllerServiceClient(grpcConn)
-		req := &pb.GetStateRequest{}
-		resp, err := client.GetState(ctx, req)
-		if err != nil {
-			return err
+		client := pb.NewAccessibilityServiceInfoServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
 		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accessibilityserviceTouchInteractionControllerPerformClickCmd = &cobra.Command{
-	Use:   "perform-click",
-	Short: "PerformClick RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTouchInteractionControllerServiceClient(grpcConn)
-		req := &pb.PerformClickRequest{}
-		resp, err := client.PerformClick(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accessibilityserviceTouchInteractionControllerPerformLongClickAndStartDragCmd = &cobra.Command{
-	Use:   "perform-long-click-and-start-drag",
-	Short: "PerformLongClickAndStartDrag RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTouchInteractionControllerServiceClient(grpcConn)
-		req := &pb.PerformLongClickAndStartDragRequest{}
-		resp, err := client.PerformLongClickAndStartDrag(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accessibilityserviceTouchInteractionControllerRegisterCallbackCmd = &cobra.Command{
-	Use:   "register-callback",
-	Short: "RegisterCallback RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTouchInteractionControllerServiceClient(grpcConn)
-		req := &pb.RegisterCallbackRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accessibilityserviceAccessibilityServiceInfoGetCanRetrieveWindowContentCmd = &cobra.Command{
+	Use:   "get-can-retrieve-window-content",
+	Short: "GetCanRetrieveWindowContent RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAccessibilityServiceInfoServiceClient(grpcConn)
+		req := &pb.GetCanRetrieveWindowContentRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetCanRetrieveWindowContent(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accessibilityserviceAccessibilityServiceInfoGetCapabilitiesCmd = &cobra.Command{
+	Use:   "get-capabilities",
+	Short: "GetCapabilities RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAccessibilityServiceInfoServiceClient(grpcConn)
+		req := &pb.GetCapabilitiesRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetCapabilities(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accessibilityserviceAccessibilityServiceInfoGetDescriptionCmd = &cobra.Command{
+	Use:   "get-description",
+	Short: "GetDescription RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAccessibilityServiceInfoServiceClient(grpcConn)
+		req := &pb.GetDescriptionRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetDescription(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accessibilityserviceAccessibilityServiceInfoGetIdCmd = &cobra.Command{
+	Use:   "get-id",
+	Short: "GetId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAccessibilityServiceInfoServiceClient(grpcConn)
+		req := &pb.GetIdRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accessibilityserviceAccessibilityServiceInfoGetInteractiveUiTimeoutMillisCmd = &cobra.Command{
+	Use:   "get-interactive-ui-timeout-millis",
+	Short: "GetInteractiveUiTimeoutMillis RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAccessibilityServiceInfoServiceClient(grpcConn)
+		req := &pb.GetInteractiveUiTimeoutMillisRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetInteractiveUiTimeoutMillis(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accessibilityserviceAccessibilityServiceInfoGetMotionEventSourcesCmd = &cobra.Command{
+	Use:   "get-motion-event-sources",
+	Short: "GetMotionEventSources RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAccessibilityServiceInfoServiceClient(grpcConn)
+		req := &pb.GetMotionEventSourcesRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetMotionEventSources(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accessibilityserviceAccessibilityServiceInfoGetNonInteractiveUiTimeoutMillisCmd = &cobra.Command{
+	Use:   "get-non-interactive-ui-timeout-millis",
+	Short: "GetNonInteractiveUiTimeoutMillis RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAccessibilityServiceInfoServiceClient(grpcConn)
+		req := &pb.GetNonInteractiveUiTimeoutMillisRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetNonInteractiveUiTimeoutMillis(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accessibilityserviceAccessibilityServiceInfoGetResolveInfoCmd = &cobra.Command{
+	Use:   "get-resolve-info",
+	Short: "GetResolveInfo RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAccessibilityServiceInfoServiceClient(grpcConn)
+		req := &pb.GetResolveInfoRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetResolveInfo(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accessibilityserviceAccessibilityServiceInfoGetSettingsActivityNameCmd = &cobra.Command{
+	Use:   "get-settings-activity-name",
+	Short: "GetSettingsActivityName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAccessibilityServiceInfoServiceClient(grpcConn)
+		req := &pb.GetSettingsActivityNameRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetSettingsActivityName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accessibilityserviceAccessibilityServiceInfoGetTileServiceNameCmd = &cobra.Command{
+	Use:   "get-tile-service-name",
+	Short: "GetTileServiceName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAccessibilityServiceInfoServiceClient(grpcConn)
+		req := &pb.GetTileServiceNameRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetTileServiceName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accessibilityserviceAccessibilityServiceInfoHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAccessibilityServiceInfoServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accessibilityserviceAccessibilityServiceInfoIsAccessibilityToolCmd = &cobra.Command{
+	Use:   "is-accessibility-tool",
+	Short: "IsAccessibilityTool RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAccessibilityServiceInfoServiceClient(grpcConn)
+		req := &pb.IsAccessibilityToolRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.IsAccessibilityTool(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accessibilityserviceAccessibilityServiceInfoLoadDescriptionCmd = &cobra.Command{
+	Use:   "load-description",
+	Short: "LoadDescription RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAccessibilityServiceInfoServiceClient(grpcConn)
+		req := &pb.LoadDescriptionRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.LoadDescription(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accessibilityserviceAccessibilityServiceInfoLoadIntroCmd = &cobra.Command{
+	Use:   "load-intro",
+	Short: "LoadIntro RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAccessibilityServiceInfoServiceClient(grpcConn)
+		req := &pb.LoadIntroRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.LoadIntro(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accessibilityserviceAccessibilityServiceInfoLoadSummaryCmd = &cobra.Command{
+	Use:   "load-summary",
+	Short: "LoadSummary RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAccessibilityServiceInfoServiceClient(grpcConn)
+		req := &pb.LoadSummaryRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.LoadSummary(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accessibilityserviceAccessibilityServiceInfoSetInteractiveUiTimeoutMillisCmd = &cobra.Command{
+	Use:   "set-interactive-ui-timeout-millis",
+	Short: "SetInteractiveUiTimeoutMillis RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAccessibilityServiceInfoServiceClient(grpcConn)
+		req := &pb.SetInteractiveUiTimeoutMillisRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetInteractiveUiTimeoutMillis(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accessibilityserviceAccessibilityServiceInfoSetMotionEventSourcesCmd = &cobra.Command{
+	Use:   "set-motion-event-sources",
+	Short: "SetMotionEventSources RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAccessibilityServiceInfoServiceClient(grpcConn)
+		req := &pb.SetMotionEventSourcesRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetMotionEventSources(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accessibilityserviceAccessibilityServiceInfoSetNonInteractiveUiTimeoutMillisCmd = &cobra.Command{
+	Use:   "set-non-interactive-ui-timeout-millis",
+	Short: "SetNonInteractiveUiTimeoutMillis RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAccessibilityServiceInfoServiceClient(grpcConn)
+		req := &pb.SetNonInteractiveUiTimeoutMillisRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetNonInteractiveUiTimeoutMillis(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accessibilityserviceAccessibilityServiceInfoToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAccessibilityServiceInfoServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accessibilityserviceAccessibilityServiceInfoWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAccessibilityServiceInfoServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
 			req.Arg1 = v
 		}
-		resp, err := client.RegisterCallback(ctx, req)
+		resp, err := client.WriteToParcel(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -119,34 +478,21 @@ var accessibilityserviceTouchInteractionControllerRegisterCallbackCmd = &cobra.C
 	},
 }
 
-var accessibilityserviceTouchInteractionControllerRequestDelegatingCmd = &cobra.Command{
-	Use:   "request-delegating",
-	Short: "RequestDelegating RPC",
+var accessibilityserviceAccessibilityServiceInfoCapabilityToStringCmd = &cobra.Command{
+	Use:   "capability-to-string",
+	Short: "CapabilityToString RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewTouchInteractionControllerServiceClient(grpcConn)
-		req := &pb.RequestDelegatingRequest{}
-		resp, err := client.RequestDelegating(ctx, req)
-		if err != nil {
-			return err
+		client := pb.NewAccessibilityServiceInfoServiceClient(grpcConn)
+		req := &pb.CapabilityToStringRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
 		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accessibilityserviceTouchInteractionControllerRequestDraggingCmd = &cobra.Command{
-	Use:   "request-dragging",
-	Short: "RequestDragging RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTouchInteractionControllerServiceClient(grpcConn)
-		req := &pb.RequestDraggingRequest{}
 		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		resp, err := client.RequestDragging(ctx, req)
+		resp, err := client.CapabilityToString(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -154,69 +500,21 @@ var accessibilityserviceTouchInteractionControllerRequestDraggingCmd = &cobra.Co
 	},
 }
 
-var accessibilityserviceTouchInteractionControllerRequestTouchExplorationCmd = &cobra.Command{
-	Use:   "request-touch-exploration",
-	Short: "RequestTouchExploration RPC",
+var accessibilityserviceAccessibilityServiceInfoFeedbackTypeToStringCmd = &cobra.Command{
+	Use:   "feedback-type-to-string",
+	Short: "FeedbackTypeToString RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewTouchInteractionControllerServiceClient(grpcConn)
-		req := &pb.RequestTouchExplorationRequest{}
-		resp, err := client.RequestTouchExploration(ctx, req)
-		if err != nil {
-			return err
+		client := pb.NewAccessibilityServiceInfoServiceClient(grpcConn)
+		req := &pb.FeedbackTypeToStringRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
 		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accessibilityserviceTouchInteractionControllerUnregisterAllCallbacksCmd = &cobra.Command{
-	Use:   "unregister-all-callbacks",
-	Short: "UnregisterAllCallbacks RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTouchInteractionControllerServiceClient(grpcConn)
-		req := &pb.UnregisterAllCallbacksRequest{}
-		resp, err := client.UnregisterAllCallbacks(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accessibilityserviceTouchInteractionControllerUnregisterCallbackCmd = &cobra.Command{
-	Use:   "unregister-callback",
-	Short: "UnregisterCallback RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTouchInteractionControllerServiceClient(grpcConn)
-		req := &pb.UnregisterCallbackRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.UnregisterCallback(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accessibilityserviceTouchInteractionControllerStateToStringCmd = &cobra.Command{
-	Use:   "state-to-string",
-	Short: "StateToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTouchInteractionControllerServiceClient(grpcConn)
-		req := &pb.StateToStringRequest{}
 		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		resp, err := client.StateToString(ctx, req)
+		resp, err := client.FeedbackTypeToString(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -224,42 +522,21 @@ var accessibilityserviceTouchInteractionControllerStateToStringCmd = &cobra.Comm
 	},
 }
 
-var accessibilityserviceTouchInteractionControllerCallbackCmd = &cobra.Command{
-	Use:   "touch-interaction-controller-callback",
-	Short: "TouchInteractionControllerCallbackService operations",
-}
-
-var accessibilityserviceTouchInteractionControllerCallbackOnMotionEventCmd = &cobra.Command{
-	Use:   "on-motion-event",
-	Short: "OnMotionEvent RPC",
+var accessibilityserviceAccessibilityServiceInfoFlagToStringCmd = &cobra.Command{
+	Use:   "flag-to-string",
+	Short: "FlagToString RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewTouchInteractionControllerCallbackServiceClient(grpcConn)
-		req := &pb.OnMotionEventRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
+		client := pb.NewAccessibilityServiceInfoServiceClient(grpcConn)
+		req := &pb.FlagToStringRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
 		}
-		resp, err := client.OnMotionEvent(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accessibilityserviceTouchInteractionControllerCallbackOnStateChangedCmd = &cobra.Command{
-	Use:   "on-state-changed",
-	Short: "OnStateChanged RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTouchInteractionControllerCallbackServiceClient(grpcConn)
-		req := &pb.OnStateChangedRequest{}
 		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		resp, err := client.OnStateChanged(ctx, req)
+		resp, err := client.FlagToString(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -267,26 +544,85 @@ var accessibilityserviceTouchInteractionControllerCallbackOnStateChangedCmd = &c
 	},
 }
 
-var accessibilityserviceBrailleDisplayControllerCmd = &cobra.Command{
-	Use:   "braille-display-controller",
-	Short: "BrailleDisplayControllerService operations",
+var accessibilityserviceAccessibilityButtonControllerCmd = &cobra.Command{
+	Use:   "accessibility-button-controller",
+	Short: "AccessibilityButtonControllerService operations",
 }
 
-var accessibilityserviceBrailleDisplayControllerConnect2Cmd = &cobra.Command{
-	Use:   "connect2",
-	Short: "Connect2 RPC",
+var accessibilityserviceAccessibilityButtonControllerIsAccessibilityButtonAvailableCmd = &cobra.Command{
+	Use:   "is-accessibility-button-available",
+	Short: "IsAccessibilityButtonAvailable RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewBrailleDisplayControllerServiceClient(grpcConn)
-		req := &pb.Connect2Request{}
+		client := pb.NewAccessibilityButtonControllerServiceClient(grpcConn)
+		req := &pb.IsAccessibilityButtonAvailableRequest{}
+		resp, err := client.IsAccessibilityButtonAvailable(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accessibilityserviceAccessibilityButtonControllerRegisterAccessibilityButtonCallbackCmd = &cobra.Command{
+	Use:   "register-accessibility-button-callback",
+	Short: "RegisterAccessibilityButtonCallback RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAccessibilityButtonControllerServiceClient(grpcConn)
+		req := &pb.RegisterAccessibilityButtonCallbackRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+		resp, err := client.RegisterAccessibilityButtonCallback(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accessibilityserviceAccessibilityButtonControllerUnregisterAccessibilityButtonCallbackCmd = &cobra.Command{
+	Use:   "unregister-accessibility-button-callback",
+	Short: "UnregisterAccessibilityButtonCallback RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAccessibilityButtonControllerServiceClient(grpcConn)
+		req := &pb.UnregisterAccessibilityButtonCallbackRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.UnregisterAccessibilityButtonCallback(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accessibilityserviceAccessibilityButtonControllerAccessibilityButtonCallbackCmd = &cobra.Command{
+	Use:   "accessibility-button-controller-accessibility-button-callback",
+	Short: "AccessibilityButtonControllerAccessibilityButtonCallbackService operations",
+}
+
+var accessibilityserviceAccessibilityButtonControllerAccessibilityButtonCallbackOnAvailabilityChangedCmd = &cobra.Command{
+	Use:   "on-availability-changed",
+	Short: "OnAvailabilityChanged RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAccessibilityButtonControllerAccessibilityButtonCallbackServiceClient(grpcConn)
+		req := &pb.OnAvailabilityChangedRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetBool("arg1"); err == nil {
 			req.Arg1 = v
 		}
-		resp, err := client.Connect2(ctx, req)
+		resp, err := client.OnAvailabilityChanged(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -294,24 +630,229 @@ var accessibilityserviceBrailleDisplayControllerConnect2Cmd = &cobra.Command{
 	},
 }
 
-var accessibilityserviceBrailleDisplayControllerConnect3_1Cmd = &cobra.Command{
-	Use:   "connect3_1",
-	Short: "Connect3_1 RPC",
+var accessibilityserviceAccessibilityButtonControllerAccessibilityButtonCallbackOnClickedCmd = &cobra.Command{
+	Use:   "on-clicked",
+	Short: "OnClicked RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewBrailleDisplayControllerServiceClient(grpcConn)
-		req := &pb.Connect3_1Request{}
+		client := pb.NewAccessibilityButtonControllerAccessibilityButtonCallbackServiceClient(grpcConn)
+		req := &pb.OnClickedRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+		resp, err := client.OnClicked(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accessibilityserviceInputMethodCmd = &cobra.Command{
+	Use:   "input-method",
+	Short: "InputMethodService operations",
+}
+
+var accessibilityserviceInputMethodNewInputMethodCmd = &cobra.Command{
+	Use:   "new-input-method",
+	Short: "NewInputMethod RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputMethodServiceClient(grpcConn)
+		req := &pb.NewInputMethodRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.NewInputMethod(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accessibilityserviceInputMethodGetCurrentInputConnectionCmd = &cobra.Command{
+	Use:   "get-current-input-connection",
+	Short: "GetCurrentInputConnection RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputMethodServiceClient(grpcConn)
+		req := &pb.GetCurrentInputConnectionRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetCurrentInputConnection(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accessibilityserviceInputMethodGetCurrentInputEditorInfoCmd = &cobra.Command{
+	Use:   "get-current-input-editor-info",
+	Short: "GetCurrentInputEditorInfo RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputMethodServiceClient(grpcConn)
+		req := &pb.GetCurrentInputEditorInfoRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetCurrentInputEditorInfo(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accessibilityserviceInputMethodGetCurrentInputStartedCmd = &cobra.Command{
+	Use:   "get-current-input-started",
+	Short: "GetCurrentInputStarted RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputMethodServiceClient(grpcConn)
+		req := &pb.GetCurrentInputStartedRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetCurrentInputStarted(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accessibilityserviceInputMethodOnFinishInputCmd = &cobra.Command{
+	Use:   "on-finish-input",
+	Short: "OnFinishInput RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputMethodServiceClient(grpcConn)
+		req := &pb.OnFinishInputRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.OnFinishInput(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accessibilityserviceInputMethodOnStartInputCmd = &cobra.Command{
+	Use:   "on-start-input",
+	Short: "OnStartInput RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputMethodServiceClient(grpcConn)
+		req := &pb.OnStartInputRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetBool("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.OnStartInput(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accessibilityserviceInputMethodOnUpdateSelectionCmd = &cobra.Command{
+	Use:   "on-update-selection",
+	Short: "OnUpdateSelection RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputMethodServiceClient(grpcConn)
+		req := &pb.OnUpdateSelectionRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg5"); err == nil {
+			req.Arg5 = v
+		}
+		resp, err := client.OnUpdateSelection(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accessibilityserviceInputMethodAccessibilityInputConnectionCmd = &cobra.Command{
+	Use:   "input-method-accessibility-input-connection",
+	Short: "InputMethodAccessibilityInputConnectionService operations",
+}
+
+var accessibilityserviceInputMethodAccessibilityInputConnectionClearMetaKeyStatesCmd = &cobra.Command{
+	Use:   "clear-meta-key-states",
+	Short: "ClearMetaKeyStates RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputMethodAccessibilityInputConnectionServiceClient(grpcConn)
+		req := &pb.ClearMetaKeyStatesRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.ClearMetaKeyStates(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accessibilityserviceInputMethodAccessibilityInputConnectionCommitTextCmd = &cobra.Command{
+	Use:   "commit-text",
+	Short: "CommitText RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputMethodAccessibilityInputConnectionServiceClient(grpcConn)
+		req := &pb.CommitTextRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
 			req.Arg1 = v
 		}
 		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
 			req.Arg2 = v
 		}
-		resp, err := client.Connect3_1(ctx, req)
+		resp, err := client.CommitText(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -319,21 +860,21 @@ var accessibilityserviceBrailleDisplayControllerConnect3_1Cmd = &cobra.Command{
 	},
 }
 
-var accessibilityserviceBrailleDisplayControllerConnect2_2Cmd = &cobra.Command{
-	Use:   "connect2_2",
-	Short: "Connect2_2 RPC",
+var accessibilityserviceInputMethodAccessibilityInputConnectionDeleteSurroundingTextCmd = &cobra.Command{
+	Use:   "delete-surrounding-text",
+	Short: "DeleteSurroundingText RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewBrailleDisplayControllerServiceClient(grpcConn)
-		req := &pb.Connect2_2Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+		client := pb.NewInputMethodAccessibilityInputConnectionServiceClient(grpcConn)
+		req := &pb.DeleteSurroundingTextRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
 			req.Arg1 = v
 		}
-		resp, err := client.Connect2_2(ctx, req)
+		resp, err := client.DeleteSurroundingText(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -341,24 +882,43 @@ var accessibilityserviceBrailleDisplayControllerConnect2_2Cmd = &cobra.Command{
 	},
 }
 
-var accessibilityserviceBrailleDisplayControllerConnect3_3Cmd = &cobra.Command{
-	Use:   "connect3_3",
-	Short: "Connect3_3 RPC",
+var accessibilityserviceInputMethodAccessibilityInputConnectionGetCursorCapsModeCmd = &cobra.Command{
+	Use:   "get-cursor-caps-mode",
+	Short: "GetCursorCapsMode RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewBrailleDisplayControllerServiceClient(grpcConn)
-		req := &pb.Connect3_3Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+		client := pb.NewInputMethodAccessibilityInputConnectionServiceClient(grpcConn)
+		req := &pb.GetCursorCapsModeRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+		resp, err := client.GetCursorCapsMode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accessibilityserviceInputMethodAccessibilityInputConnectionGetSurroundingTextCmd = &cobra.Command{
+	Use:   "get-surrounding-text",
+	Short: "GetSurroundingText RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputMethodAccessibilityInputConnectionServiceClient(grpcConn)
+		req := &pb.GetSurroundingTextRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
 			req.Arg1 = v
 		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
 			req.Arg2 = v
 		}
-		resp, err := client.Connect3_3(ctx, req)
+		resp, err := client.GetSurroundingText(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -366,93 +926,18 @@ var accessibilityserviceBrailleDisplayControllerConnect3_3Cmd = &cobra.Command{
 	},
 }
 
-var accessibilityserviceBrailleDisplayControllerDisconnectCmd = &cobra.Command{
-	Use:   "disconnect",
-	Short: "Disconnect RPC",
+var accessibilityserviceInputMethodAccessibilityInputConnectionPerformContextMenuActionCmd = &cobra.Command{
+	Use:   "perform-context-menu-action",
+	Short: "PerformContextMenuAction RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewBrailleDisplayControllerServiceClient(grpcConn)
-		req := &pb.DisconnectRequest{}
-		resp, err := client.Disconnect(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accessibilityserviceBrailleDisplayControllerIsConnectedCmd = &cobra.Command{
-	Use:   "is-connected",
-	Short: "IsConnected RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewBrailleDisplayControllerServiceClient(grpcConn)
-		req := &pb.IsConnectedRequest{}
-		resp, err := client.IsConnected(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accessibilityserviceBrailleDisplayControllerWriteCmd = &cobra.Command{
-	Use:   "write",
-	Short: "Write RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewBrailleDisplayControllerServiceClient(grpcConn)
-		req := &pb.WriteRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Write(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accessibilityserviceBrailleDisplayControllerBrailleDisplayCallbackCmd = &cobra.Command{
-	Use:   "braille-display-controller-braille-display-callback",
-	Short: "BrailleDisplayControllerBrailleDisplayCallbackService operations",
-}
-
-var accessibilityserviceBrailleDisplayControllerBrailleDisplayCallbackOnConnectedCmd = &cobra.Command{
-	Use:   "on-connected",
-	Short: "OnConnected RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewBrailleDisplayControllerBrailleDisplayCallbackServiceClient(grpcConn)
-		req := &pb.OnConnectedRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.OnConnected(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accessibilityserviceBrailleDisplayControllerBrailleDisplayCallbackOnConnectionFailedCmd = &cobra.Command{
-	Use:   "on-connection-failed",
-	Short: "OnConnectionFailed RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewBrailleDisplayControllerBrailleDisplayCallbackServiceClient(grpcConn)
-		req := &pb.OnConnectionFailedRequest{}
+		client := pb.NewInputMethodAccessibilityInputConnectionServiceClient(grpcConn)
+		req := &pb.PerformContextMenuActionRequest{}
 		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		resp, err := client.OnConnectionFailed(ctx, req)
+		resp, err := client.PerformContextMenuAction(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -460,98 +945,18 @@ var accessibilityserviceBrailleDisplayControllerBrailleDisplayCallbackOnConnecti
 	},
 }
 
-var accessibilityserviceBrailleDisplayControllerBrailleDisplayCallbackOnDisconnectedCmd = &cobra.Command{
-	Use:   "on-disconnected",
-	Short: "OnDisconnected RPC",
+var accessibilityserviceInputMethodAccessibilityInputConnectionPerformEditorActionCmd = &cobra.Command{
+	Use:   "perform-editor-action",
+	Short: "PerformEditorAction RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewBrailleDisplayControllerBrailleDisplayCallbackServiceClient(grpcConn)
-		req := &pb.OnDisconnectedRequest{}
-		resp, err := client.OnDisconnected(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accessibilityserviceBrailleDisplayControllerBrailleDisplayCallbackOnInputCmd = &cobra.Command{
-	Use:   "on-input",
-	Short: "OnInput RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewBrailleDisplayControllerBrailleDisplayCallbackServiceClient(grpcConn)
-		req := &pb.OnInputRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.OnInput(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accessibilityserviceFingerprintGestureControllerCmd = &cobra.Command{
-	Use:   "fingerprint-gesture-controller",
-	Short: "FingerprintGestureControllerService operations",
-}
-
-var accessibilityserviceFingerprintGestureControllerIsGestureDetectionAvailableCmd = &cobra.Command{
-	Use:   "is-gesture-detection-available",
-	Short: "IsGestureDetectionAvailable RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFingerprintGestureControllerServiceClient(grpcConn)
-		req := &pb.IsGestureDetectionAvailableRequest{}
-		resp, err := client.IsGestureDetectionAvailable(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accessibilityserviceFingerprintGestureControllerUnregisterFingerprintGestureCallbackCmd = &cobra.Command{
-	Use:   "unregister-fingerprint-gesture-callback",
-	Short: "UnregisterFingerprintGestureCallback RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFingerprintGestureControllerServiceClient(grpcConn)
-		req := &pb.UnregisterFingerprintGestureCallbackRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.UnregisterFingerprintGestureCallback(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accessibilityserviceFingerprintGestureControllerFingerprintGestureCallbackCmd = &cobra.Command{
-	Use:   "fingerprint-gesture-controller-fingerprint-gesture-callback",
-	Short: "FingerprintGestureControllerFingerprintGestureCallbackService operations",
-}
-
-var accessibilityserviceFingerprintGestureControllerFingerprintGestureCallbackOnGestureDetectedCmd = &cobra.Command{
-	Use:   "on-gesture-detected",
-	Short: "OnGestureDetected RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFingerprintGestureControllerFingerprintGestureCallbackServiceClient(grpcConn)
-		req := &pb.OnGestureDetectedRequest{}
+		client := pb.NewInputMethodAccessibilityInputConnectionServiceClient(grpcConn)
+		req := &pb.PerformEditorActionRequest{}
 		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		resp, err := client.OnGestureDetected(ctx, req)
+		resp, err := client.PerformEditorAction(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -559,18 +964,40 @@ var accessibilityserviceFingerprintGestureControllerFingerprintGestureCallbackOn
 	},
 }
 
-var accessibilityserviceFingerprintGestureControllerFingerprintGestureCallbackOnGestureDetectionAvailabilityChangedCmd = &cobra.Command{
-	Use:   "on-gesture-detection-availability-changed",
-	Short: "OnGestureDetectionAvailabilityChanged RPC",
+var accessibilityserviceInputMethodAccessibilityInputConnectionSendKeyEventCmd = &cobra.Command{
+	Use:   "send-key-event",
+	Short: "SendKeyEvent RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewFingerprintGestureControllerFingerprintGestureCallbackServiceClient(grpcConn)
-		req := &pb.OnGestureDetectionAvailabilityChangedRequest{}
-		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+		client := pb.NewInputMethodAccessibilityInputConnectionServiceClient(grpcConn)
+		req := &pb.SendKeyEventRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		resp, err := client.OnGestureDetectionAvailabilityChanged(ctx, req)
+		resp, err := client.SendKeyEvent(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accessibilityserviceInputMethodAccessibilityInputConnectionSetSelectionCmd = &cobra.Command{
+	Use:   "set-selection",
+	Short: "SetSelection RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputMethodAccessibilityInputConnectionServiceClient(grpcConn)
+		req := &pb.SetSelectionRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.SetSelection(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -929,6 +1356,22 @@ var accessibilityserviceAccessibilityServiceGetSoftKeyboardControllerCmd = &cobr
 	},
 }
 
+var accessibilityserviceAccessibilityServiceGetSystemActionsCmd = &cobra.Command{
+	Use:   "get-system-actions",
+	Short: "GetSystemActions RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAccessibilityServiceServiceClient(grpcConn)
+		req := &pb.GetSystemActionsRequest{}
+		resp, err := client.GetSystemActions(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var accessibilityserviceAccessibilityServiceGetSystemServiceCmd = &cobra.Command{
 	Use:   "get-system-service",
 	Short: "GetSystemService RPC",
@@ -960,6 +1403,38 @@ var accessibilityserviceAccessibilityServiceGetTouchInteractionControllerCmd = &
 			req.Arg0 = v
 		}
 		resp, err := client.GetTouchInteractionController(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accessibilityserviceAccessibilityServiceGetWindowsCmd = &cobra.Command{
+	Use:   "get-windows",
+	Short: "GetWindows RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAccessibilityServiceServiceClient(grpcConn)
+		req := &pb.GetWindowsRequest{}
+		resp, err := client.GetWindows(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accessibilityserviceAccessibilityServiceGetWindowsOnAllDisplaysCmd = &cobra.Command{
+	Use:   "get-windows-on-all-displays",
+	Short: "GetWindowsOnAllDisplays RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAccessibilityServiceServiceClient(grpcConn)
+		req := &pb.GetWindowsOnAllDisplaysRequest{}
+		resp, err := client.GetWindowsOnAllDisplays(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1822,20 +2297,20 @@ var accessibilityserviceAccessibilityServiceTakeScreenshotCallbackOnSuccessCmd =
 	},
 }
 
-var accessibilityserviceAccessibilityButtonControllerCmd = &cobra.Command{
-	Use:   "accessibility-button-controller",
-	Short: "AccessibilityButtonControllerService operations",
+var accessibilityserviceFingerprintGestureControllerCmd = &cobra.Command{
+	Use:   "fingerprint-gesture-controller",
+	Short: "FingerprintGestureControllerService operations",
 }
 
-var accessibilityserviceAccessibilityButtonControllerIsAccessibilityButtonAvailableCmd = &cobra.Command{
-	Use:   "is-accessibility-button-available",
-	Short: "IsAccessibilityButtonAvailable RPC",
+var accessibilityserviceFingerprintGestureControllerIsGestureDetectionAvailableCmd = &cobra.Command{
+	Use:   "is-gesture-detection-available",
+	Short: "IsGestureDetectionAvailable RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewAccessibilityButtonControllerServiceClient(grpcConn)
-		req := &pb.IsAccessibilityButtonAvailableRequest{}
-		resp, err := client.IsAccessibilityButtonAvailable(ctx, req)
+		client := pb.NewFingerprintGestureControllerServiceClient(grpcConn)
+		req := &pb.IsGestureDetectionAvailableRequest{}
+		resp, err := client.IsGestureDetectionAvailable(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1843,18 +2318,18 @@ var accessibilityserviceAccessibilityButtonControllerIsAccessibilityButtonAvaila
 	},
 }
 
-var accessibilityserviceAccessibilityButtonControllerRegisterAccessibilityButtonCallbackCmd = &cobra.Command{
-	Use:   "register-accessibility-button-callback",
-	Short: "RegisterAccessibilityButtonCallback RPC",
+var accessibilityserviceFingerprintGestureControllerUnregisterFingerprintGestureCallbackCmd = &cobra.Command{
+	Use:   "unregister-fingerprint-gesture-callback",
+	Short: "UnregisterFingerprintGestureCallback RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewAccessibilityButtonControllerServiceClient(grpcConn)
-		req := &pb.RegisterAccessibilityButtonCallbackRequest{}
+		client := pb.NewFingerprintGestureControllerServiceClient(grpcConn)
+		req := &pb.UnregisterFingerprintGestureCallbackRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		resp, err := client.RegisterAccessibilityButtonCallback(ctx, req)
+		resp, err := client.UnregisterFingerprintGestureCallback(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1862,94 +2337,23 @@ var accessibilityserviceAccessibilityButtonControllerRegisterAccessibilityButton
 	},
 }
 
-var accessibilityserviceAccessibilityButtonControllerUnregisterAccessibilityButtonCallbackCmd = &cobra.Command{
-	Use:   "unregister-accessibility-button-callback",
-	Short: "UnregisterAccessibilityButtonCallback RPC",
+var accessibilityserviceFingerprintGestureControllerFingerprintGestureCallbackCmd = &cobra.Command{
+	Use:   "fingerprint-gesture-controller-fingerprint-gesture-callback",
+	Short: "FingerprintGestureControllerFingerprintGestureCallbackService operations",
+}
+
+var accessibilityserviceFingerprintGestureControllerFingerprintGestureCallbackOnGestureDetectedCmd = &cobra.Command{
+	Use:   "on-gesture-detected",
+	Short: "OnGestureDetected RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewAccessibilityButtonControllerServiceClient(grpcConn)
-		req := &pb.UnregisterAccessibilityButtonCallbackRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.UnregisterAccessibilityButtonCallback(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accessibilityserviceAccessibilityButtonControllerAccessibilityButtonCallbackCmd = &cobra.Command{
-	Use:   "accessibility-button-controller-accessibility-button-callback",
-	Short: "AccessibilityButtonControllerAccessibilityButtonCallbackService operations",
-}
-
-var accessibilityserviceAccessibilityButtonControllerAccessibilityButtonCallbackOnAvailabilityChangedCmd = &cobra.Command{
-	Use:   "on-availability-changed",
-	Short: "OnAvailabilityChanged RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAccessibilityButtonControllerAccessibilityButtonCallbackServiceClient(grpcConn)
-		req := &pb.OnAvailabilityChangedRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetBool("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.OnAvailabilityChanged(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accessibilityserviceAccessibilityButtonControllerAccessibilityButtonCallbackOnClickedCmd = &cobra.Command{
-	Use:   "on-clicked",
-	Short: "OnClicked RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAccessibilityButtonControllerAccessibilityButtonCallbackServiceClient(grpcConn)
-		req := &pb.OnClickedRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.OnClicked(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accessibilityserviceAccessibilityGestureEventCmd = &cobra.Command{
-	Use:   "accessibility-gesture-event",
-	Short: "AccessibilityGestureEventService operations",
-}
-
-var accessibilityserviceAccessibilityGestureEventNewAccessibilityGestureEventCmd = &cobra.Command{
-	Use:   "new-accessibility-gesture-event",
-	Short: "NewAccessibilityGestureEvent RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAccessibilityGestureEventServiceClient(grpcConn)
-		req := &pb.NewAccessibilityGestureEventRequest{}
+		client := pb.NewFingerprintGestureControllerFingerprintGestureCallbackServiceClient(grpcConn)
+		req := &pb.OnGestureDetectedRequest{}
 		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.NewAccessibilityGestureEvent(ctx, req)
+		resp, err := client.OnGestureDetected(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1957,898 +2361,18 @@ var accessibilityserviceAccessibilityGestureEventNewAccessibilityGestureEventCmd
 	},
 }
 
-var accessibilityserviceAccessibilityGestureEventDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
+var accessibilityserviceFingerprintGestureControllerFingerprintGestureCallbackOnGestureDetectionAvailabilityChangedCmd = &cobra.Command{
+	Use:   "on-gesture-detection-availability-changed",
+	Short: "OnGestureDetectionAvailabilityChanged RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewAccessibilityGestureEventServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accessibilityserviceAccessibilityGestureEventGetDisplayIdCmd = &cobra.Command{
-	Use:   "get-display-id",
-	Short: "GetDisplayId RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAccessibilityGestureEventServiceClient(grpcConn)
-		req := &pb.AccessibilityGestureEventGetDisplayIdRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetDisplayId(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accessibilityserviceAccessibilityGestureEventGetGestureIdCmd = &cobra.Command{
-	Use:   "get-gesture-id",
-	Short: "GetGestureId RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAccessibilityGestureEventServiceClient(grpcConn)
-		req := &pb.GetGestureIdRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetGestureId(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accessibilityserviceAccessibilityGestureEventToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAccessibilityGestureEventServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accessibilityserviceAccessibilityGestureEventWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAccessibilityGestureEventServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+		client := pb.NewFingerprintGestureControllerFingerprintGestureCallbackServiceClient(grpcConn)
+		req := &pb.OnGestureDetectionAvailabilityChangedRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accessibilityserviceAccessibilityGestureEventGestureIdToStringCmd = &cobra.Command{
-	Use:   "gesture-id-to-string",
-	Short: "GestureIdToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAccessibilityGestureEventServiceClient(grpcConn)
-		req := &pb.GestureIdToStringRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GestureIdToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accessibilityserviceAccessibilityServiceInfoCmd = &cobra.Command{
-	Use:   "accessibility-service-info",
-	Short: "AccessibilityServiceInfoService operations",
-}
-
-var accessibilityserviceAccessibilityServiceInfoNewAccessibilityServiceInfoCmd = &cobra.Command{
-	Use:   "new-accessibility-service-info",
-	Short: "NewAccessibilityServiceInfo RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAccessibilityServiceInfoServiceClient(grpcConn)
-		req := &pb.NewAccessibilityServiceInfoRequest{}
-		resp, err := client.NewAccessibilityServiceInfo(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accessibilityserviceAccessibilityServiceInfoDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAccessibilityServiceInfoServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accessibilityserviceAccessibilityServiceInfoEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAccessibilityServiceInfoServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accessibilityserviceAccessibilityServiceInfoGetCanRetrieveWindowContentCmd = &cobra.Command{
-	Use:   "get-can-retrieve-window-content",
-	Short: "GetCanRetrieveWindowContent RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAccessibilityServiceInfoServiceClient(grpcConn)
-		req := &pb.GetCanRetrieveWindowContentRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetCanRetrieveWindowContent(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accessibilityserviceAccessibilityServiceInfoGetCapabilitiesCmd = &cobra.Command{
-	Use:   "get-capabilities",
-	Short: "GetCapabilities RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAccessibilityServiceInfoServiceClient(grpcConn)
-		req := &pb.GetCapabilitiesRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetCapabilities(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accessibilityserviceAccessibilityServiceInfoGetDescriptionCmd = &cobra.Command{
-	Use:   "get-description",
-	Short: "GetDescription RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAccessibilityServiceInfoServiceClient(grpcConn)
-		req := &pb.GetDescriptionRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetDescription(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accessibilityserviceAccessibilityServiceInfoGetIdCmd = &cobra.Command{
-	Use:   "get-id",
-	Short: "GetId RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAccessibilityServiceInfoServiceClient(grpcConn)
-		req := &pb.GetIdRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetId(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accessibilityserviceAccessibilityServiceInfoGetInteractiveUiTimeoutMillisCmd = &cobra.Command{
-	Use:   "get-interactive-ui-timeout-millis",
-	Short: "GetInteractiveUiTimeoutMillis RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAccessibilityServiceInfoServiceClient(grpcConn)
-		req := &pb.GetInteractiveUiTimeoutMillisRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetInteractiveUiTimeoutMillis(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accessibilityserviceAccessibilityServiceInfoGetMotionEventSourcesCmd = &cobra.Command{
-	Use:   "get-motion-event-sources",
-	Short: "GetMotionEventSources RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAccessibilityServiceInfoServiceClient(grpcConn)
-		req := &pb.GetMotionEventSourcesRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetMotionEventSources(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accessibilityserviceAccessibilityServiceInfoGetNonInteractiveUiTimeoutMillisCmd = &cobra.Command{
-	Use:   "get-non-interactive-ui-timeout-millis",
-	Short: "GetNonInteractiveUiTimeoutMillis RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAccessibilityServiceInfoServiceClient(grpcConn)
-		req := &pb.GetNonInteractiveUiTimeoutMillisRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetNonInteractiveUiTimeoutMillis(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accessibilityserviceAccessibilityServiceInfoGetResolveInfoCmd = &cobra.Command{
-	Use:   "get-resolve-info",
-	Short: "GetResolveInfo RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAccessibilityServiceInfoServiceClient(grpcConn)
-		req := &pb.GetResolveInfoRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetResolveInfo(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accessibilityserviceAccessibilityServiceInfoGetSettingsActivityNameCmd = &cobra.Command{
-	Use:   "get-settings-activity-name",
-	Short: "GetSettingsActivityName RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAccessibilityServiceInfoServiceClient(grpcConn)
-		req := &pb.GetSettingsActivityNameRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetSettingsActivityName(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accessibilityserviceAccessibilityServiceInfoGetTileServiceNameCmd = &cobra.Command{
-	Use:   "get-tile-service-name",
-	Short: "GetTileServiceName RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAccessibilityServiceInfoServiceClient(grpcConn)
-		req := &pb.GetTileServiceNameRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetTileServiceName(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accessibilityserviceAccessibilityServiceInfoHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAccessibilityServiceInfoServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accessibilityserviceAccessibilityServiceInfoIsAccessibilityToolCmd = &cobra.Command{
-	Use:   "is-accessibility-tool",
-	Short: "IsAccessibilityTool RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAccessibilityServiceInfoServiceClient(grpcConn)
-		req := &pb.IsAccessibilityToolRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.IsAccessibilityTool(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accessibilityserviceAccessibilityServiceInfoLoadDescriptionCmd = &cobra.Command{
-	Use:   "load-description",
-	Short: "LoadDescription RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAccessibilityServiceInfoServiceClient(grpcConn)
-		req := &pb.LoadDescriptionRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.LoadDescription(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accessibilityserviceAccessibilityServiceInfoLoadIntroCmd = &cobra.Command{
-	Use:   "load-intro",
-	Short: "LoadIntro RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAccessibilityServiceInfoServiceClient(grpcConn)
-		req := &pb.LoadIntroRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.LoadIntro(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accessibilityserviceAccessibilityServiceInfoLoadSummaryCmd = &cobra.Command{
-	Use:   "load-summary",
-	Short: "LoadSummary RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAccessibilityServiceInfoServiceClient(grpcConn)
-		req := &pb.LoadSummaryRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.LoadSummary(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accessibilityserviceAccessibilityServiceInfoSetInteractiveUiTimeoutMillisCmd = &cobra.Command{
-	Use:   "set-interactive-ui-timeout-millis",
-	Short: "SetInteractiveUiTimeoutMillis RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAccessibilityServiceInfoServiceClient(grpcConn)
-		req := &pb.SetInteractiveUiTimeoutMillisRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetInteractiveUiTimeoutMillis(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accessibilityserviceAccessibilityServiceInfoSetMotionEventSourcesCmd = &cobra.Command{
-	Use:   "set-motion-event-sources",
-	Short: "SetMotionEventSources RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAccessibilityServiceInfoServiceClient(grpcConn)
-		req := &pb.SetMotionEventSourcesRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetMotionEventSources(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accessibilityserviceAccessibilityServiceInfoSetNonInteractiveUiTimeoutMillisCmd = &cobra.Command{
-	Use:   "set-non-interactive-ui-timeout-millis",
-	Short: "SetNonInteractiveUiTimeoutMillis RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAccessibilityServiceInfoServiceClient(grpcConn)
-		req := &pb.SetNonInteractiveUiTimeoutMillisRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetNonInteractiveUiTimeoutMillis(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accessibilityserviceAccessibilityServiceInfoToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAccessibilityServiceInfoServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accessibilityserviceAccessibilityServiceInfoWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAccessibilityServiceInfoServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accessibilityserviceAccessibilityServiceInfoCapabilityToStringCmd = &cobra.Command{
-	Use:   "capability-to-string",
-	Short: "CapabilityToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAccessibilityServiceInfoServiceClient(grpcConn)
-		req := &pb.CapabilityToStringRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.CapabilityToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accessibilityserviceAccessibilityServiceInfoFeedbackTypeToStringCmd = &cobra.Command{
-	Use:   "feedback-type-to-string",
-	Short: "FeedbackTypeToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAccessibilityServiceInfoServiceClient(grpcConn)
-		req := &pb.FeedbackTypeToStringRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.FeedbackTypeToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accessibilityserviceAccessibilityServiceInfoFlagToStringCmd = &cobra.Command{
-	Use:   "flag-to-string",
-	Short: "FlagToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAccessibilityServiceInfoServiceClient(grpcConn)
-		req := &pb.FlagToStringRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.FlagToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accessibilityserviceGestureDescriptionCmd = &cobra.Command{
-	Use:   "gesture-description",
-	Short: "GestureDescriptionService operations",
-}
-
-var accessibilityserviceGestureDescriptionGetDisplayIdCmd = &cobra.Command{
-	Use:   "get-display-id",
-	Short: "GetDisplayId RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewGestureDescriptionServiceClient(grpcConn)
-		req := &pb.GetDisplayIdRequest{}
-		resp, err := client.GetDisplayId(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accessibilityserviceGestureDescriptionGetStrokeCmd = &cobra.Command{
-	Use:   "get-stroke",
-	Short: "GetStroke RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewGestureDescriptionServiceClient(grpcConn)
-		req := &pb.GetStrokeRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetStroke(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accessibilityserviceGestureDescriptionGetStrokeCountCmd = &cobra.Command{
-	Use:   "get-stroke-count",
-	Short: "GetStrokeCount RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewGestureDescriptionServiceClient(grpcConn)
-		req := &pb.GetStrokeCountRequest{}
-		resp, err := client.GetStrokeCount(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accessibilityserviceGestureDescriptionGetMaxGestureDurationCmd = &cobra.Command{
-	Use:   "get-max-gesture-duration",
-	Short: "GetMaxGestureDuration RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewGestureDescriptionServiceClient(grpcConn)
-		req := &pb.GetMaxGestureDurationRequest{}
-		resp, err := client.GetMaxGestureDuration(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accessibilityserviceGestureDescriptionGetMaxStrokeCountCmd = &cobra.Command{
-	Use:   "get-max-stroke-count",
-	Short: "GetMaxStrokeCount RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewGestureDescriptionServiceClient(grpcConn)
-		req := &pb.GetMaxStrokeCountRequest{}
-		resp, err := client.GetMaxStrokeCount(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accessibilityserviceGestureDescriptionBuilderCmd = &cobra.Command{
-	Use:   "gesture-description-builder",
-	Short: "GestureDescriptionBuilderService operations",
-}
-
-var accessibilityserviceGestureDescriptionBuilderAddStrokeCmd = &cobra.Command{
-	Use:   "add-stroke",
-	Short: "AddStroke RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewGestureDescriptionBuilderServiceClient(grpcConn)
-		req := &pb.AddStrokeRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.AddStroke(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accessibilityserviceGestureDescriptionBuilderBuildCmd = &cobra.Command{
-	Use:   "build",
-	Short: "Build RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewGestureDescriptionBuilderServiceClient(grpcConn)
-		req := &pb.BuildRequest{}
-		resp, err := client.Build(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accessibilityserviceGestureDescriptionBuilderSetDisplayIdCmd = &cobra.Command{
-	Use:   "set-display-id",
-	Short: "SetDisplayId RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewGestureDescriptionBuilderServiceClient(grpcConn)
-		req := &pb.SetDisplayIdRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetDisplayId(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accessibilityserviceGestureDescriptionStrokeDescriptionCmd = &cobra.Command{
-	Use:   "gesture-description-stroke-description",
-	Short: "GestureDescriptionStrokeDescriptionService operations",
-}
-
-var accessibilityserviceGestureDescriptionStrokeDescriptionContinueStrokeCmd = &cobra.Command{
-	Use:   "continue-stroke",
-	Short: "ContinueStroke RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewGestureDescriptionStrokeDescriptionServiceClient(grpcConn)
-		req := &pb.ContinueStrokeRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetBool("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		resp, err := client.ContinueStroke(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accessibilityserviceGestureDescriptionStrokeDescriptionGetDurationCmd = &cobra.Command{
-	Use:   "get-duration",
-	Short: "GetDuration RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewGestureDescriptionStrokeDescriptionServiceClient(grpcConn)
-		req := &pb.GetDurationRequest{}
-		resp, err := client.GetDuration(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accessibilityserviceGestureDescriptionStrokeDescriptionGetPathCmd = &cobra.Command{
-	Use:   "get-path",
-	Short: "GetPath RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewGestureDescriptionStrokeDescriptionServiceClient(grpcConn)
-		req := &pb.GetPathRequest{}
-		resp, err := client.GetPath(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accessibilityserviceGestureDescriptionStrokeDescriptionGetStartTimeCmd = &cobra.Command{
-	Use:   "get-start-time",
-	Short: "GetStartTime RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewGestureDescriptionStrokeDescriptionServiceClient(grpcConn)
-		req := &pb.GetStartTimeRequest{}
-		resp, err := client.GetStartTime(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accessibilityserviceGestureDescriptionStrokeDescriptionWillContinueCmd = &cobra.Command{
-	Use:   "will-continue",
-	Short: "WillContinue RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewGestureDescriptionStrokeDescriptionServiceClient(grpcConn)
-		req := &pb.WillContinueRequest{}
-		resp, err := client.WillContinue(ctx, req)
+		resp, err := client.OnGestureDetectionAvailabilityChanged(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -3111,23 +2635,20 @@ var accessibilityserviceMagnificationConfigBuilderSetScaleCmd = &cobra.Command{
 	},
 }
 
-var accessibilityserviceInputMethodCmd = &cobra.Command{
-	Use:   "input-method",
-	Short: "InputMethodService operations",
+var accessibilityserviceGestureDescriptionCmd = &cobra.Command{
+	Use:   "gesture-description",
+	Short: "GestureDescriptionService operations",
 }
 
-var accessibilityserviceInputMethodNewInputMethodCmd = &cobra.Command{
-	Use:   "new-input-method",
-	Short: "NewInputMethod RPC",
+var accessibilityserviceGestureDescriptionGetDisplayIdCmd = &cobra.Command{
+	Use:   "get-display-id",
+	Short: "GetDisplayId RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewInputMethodServiceClient(grpcConn)
-		req := &pb.NewInputMethodRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.NewInputMethod(ctx, req)
+		client := pb.NewGestureDescriptionServiceClient(grpcConn)
+		req := &pb.GetDisplayIdRequest{}
+		resp, err := client.GetDisplayId(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -3135,137 +2656,158 @@ var accessibilityserviceInputMethodNewInputMethodCmd = &cobra.Command{
 	},
 }
 
-var accessibilityserviceInputMethodGetCurrentInputConnectionCmd = &cobra.Command{
-	Use:   "get-current-input-connection",
-	Short: "GetCurrentInputConnection RPC",
+var accessibilityserviceGestureDescriptionGetStrokeCmd = &cobra.Command{
+	Use:   "get-stroke",
+	Short: "GetStroke RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewInputMethodServiceClient(grpcConn)
-		req := &pb.GetCurrentInputConnectionRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetCurrentInputConnection(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accessibilityserviceInputMethodGetCurrentInputEditorInfoCmd = &cobra.Command{
-	Use:   "get-current-input-editor-info",
-	Short: "GetCurrentInputEditorInfo RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewInputMethodServiceClient(grpcConn)
-		req := &pb.GetCurrentInputEditorInfoRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetCurrentInputEditorInfo(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accessibilityserviceInputMethodGetCurrentInputStartedCmd = &cobra.Command{
-	Use:   "get-current-input-started",
-	Short: "GetCurrentInputStarted RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewInputMethodServiceClient(grpcConn)
-		req := &pb.GetCurrentInputStartedRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetCurrentInputStarted(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accessibilityserviceInputMethodOnFinishInputCmd = &cobra.Command{
-	Use:   "on-finish-input",
-	Short: "OnFinishInput RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewInputMethodServiceClient(grpcConn)
-		req := &pb.OnFinishInputRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.OnFinishInput(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accessibilityserviceInputMethodOnStartInputCmd = &cobra.Command{
-	Use:   "on-start-input",
-	Short: "OnStartInput RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewInputMethodServiceClient(grpcConn)
-		req := &pb.OnStartInputRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetBool("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.OnStartInput(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accessibilityserviceInputMethodOnUpdateSelectionCmd = &cobra.Command{
-	Use:   "on-update-selection",
-	Short: "OnUpdateSelection RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewInputMethodServiceClient(grpcConn)
-		req := &pb.OnUpdateSelectionRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
+		client := pb.NewGestureDescriptionServiceClient(grpcConn)
+		req := &pb.GetStrokeRequest{}
 		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+		resp, err := client.GetStroke(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accessibilityserviceGestureDescriptionGetStrokeCountCmd = &cobra.Command{
+	Use:   "get-stroke-count",
+	Short: "GetStrokeCount RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGestureDescriptionServiceClient(grpcConn)
+		req := &pb.GetStrokeCountRequest{}
+		resp, err := client.GetStrokeCount(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accessibilityserviceGestureDescriptionGetMaxGestureDurationCmd = &cobra.Command{
+	Use:   "get-max-gesture-duration",
+	Short: "GetMaxGestureDuration RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGestureDescriptionServiceClient(grpcConn)
+		req := &pb.GetMaxGestureDurationRequest{}
+		resp, err := client.GetMaxGestureDuration(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accessibilityserviceGestureDescriptionGetMaxStrokeCountCmd = &cobra.Command{
+	Use:   "get-max-stroke-count",
+	Short: "GetMaxStrokeCount RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGestureDescriptionServiceClient(grpcConn)
+		req := &pb.GetMaxStrokeCountRequest{}
+		resp, err := client.GetMaxStrokeCount(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accessibilityserviceGestureDescriptionBuilderCmd = &cobra.Command{
+	Use:   "gesture-description-builder",
+	Short: "GestureDescriptionBuilderService operations",
+}
+
+var accessibilityserviceGestureDescriptionBuilderAddStrokeCmd = &cobra.Command{
+	Use:   "add-stroke",
+	Short: "AddStroke RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGestureDescriptionBuilderServiceClient(grpcConn)
+		req := &pb.AddStrokeRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddStroke(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accessibilityserviceGestureDescriptionBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGestureDescriptionBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accessibilityserviceGestureDescriptionBuilderSetDisplayIdCmd = &cobra.Command{
+	Use:   "set-display-id",
+	Short: "SetDisplayId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGestureDescriptionBuilderServiceClient(grpcConn)
+		req := &pb.SetDisplayIdRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetDisplayId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accessibilityserviceGestureDescriptionStrokeDescriptionCmd = &cobra.Command{
+	Use:   "gesture-description-stroke-description",
+	Short: "GestureDescriptionStrokeDescriptionService operations",
+}
+
+var accessibilityserviceGestureDescriptionStrokeDescriptionContinueStrokeCmd = &cobra.Command{
+	Use:   "continue-stroke",
+	Short: "ContinueStroke RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGestureDescriptionStrokeDescriptionServiceClient(grpcConn)
+		req := &pb.ContinueStrokeRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
 			req.Arg1 = v
 		}
-		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
 			req.Arg2 = v
 		}
-		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
+		if v, err := cmd.Flags().GetBool("arg3"); err == nil {
 			req.Arg3 = v
 		}
-		if v, err := cmd.Flags().GetInt32("arg4"); err == nil {
-			req.Arg4 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg5"); err == nil {
-			req.Arg5 = v
-		}
-		resp, err := client.OnUpdateSelection(ctx, req)
+		resp, err := client.ContinueStroke(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -3273,39 +2815,84 @@ var accessibilityserviceInputMethodOnUpdateSelectionCmd = &cobra.Command{
 	},
 }
 
-var accessibilityserviceInputMethodAccessibilityInputConnectionCmd = &cobra.Command{
-	Use:   "input-method-accessibility-input-connection",
-	Short: "InputMethodAccessibilityInputConnectionService operations",
-}
-
-var accessibilityserviceInputMethodAccessibilityInputConnectionClearMetaKeyStatesCmd = &cobra.Command{
-	Use:   "clear-meta-key-states",
-	Short: "ClearMetaKeyStates RPC",
+var accessibilityserviceGestureDescriptionStrokeDescriptionGetDurationCmd = &cobra.Command{
+	Use:   "get-duration",
+	Short: "GetDuration RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewInputMethodAccessibilityInputConnectionServiceClient(grpcConn)
-		req := &pb.ClearMetaKeyStatesRequest{}
+		client := pb.NewGestureDescriptionStrokeDescriptionServiceClient(grpcConn)
+		req := &pb.GetDurationRequest{}
+		resp, err := client.GetDuration(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accessibilityserviceGestureDescriptionStrokeDescriptionGetPathCmd = &cobra.Command{
+	Use:   "get-path",
+	Short: "GetPath RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGestureDescriptionStrokeDescriptionServiceClient(grpcConn)
+		req := &pb.GetPathRequest{}
+		resp, err := client.GetPath(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accessibilityserviceGestureDescriptionStrokeDescriptionGetStartTimeCmd = &cobra.Command{
+	Use:   "get-start-time",
+	Short: "GetStartTime RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGestureDescriptionStrokeDescriptionServiceClient(grpcConn)
+		req := &pb.GetStartTimeRequest{}
+		resp, err := client.GetStartTime(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accessibilityserviceGestureDescriptionStrokeDescriptionWillContinueCmd = &cobra.Command{
+	Use:   "will-continue",
+	Short: "WillContinue RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGestureDescriptionStrokeDescriptionServiceClient(grpcConn)
+		req := &pb.WillContinueRequest{}
+		resp, err := client.WillContinue(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accessibilityserviceAccessibilityGestureEventCmd = &cobra.Command{
+	Use:   "accessibility-gesture-event",
+	Short: "AccessibilityGestureEventService operations",
+}
+
+var accessibilityserviceAccessibilityGestureEventNewAccessibilityGestureEventCmd = &cobra.Command{
+	Use:   "new-accessibility-gesture-event",
+	Short: "NewAccessibilityGestureEvent RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAccessibilityGestureEventServiceClient(grpcConn)
+		req := &pb.NewAccessibilityGestureEventRequest{}
 		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.ClearMetaKeyStates(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accessibilityserviceInputMethodAccessibilityInputConnectionCommitTextCmd = &cobra.Command{
-	Use:   "commit-text",
-	Short: "CommitText RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewInputMethodAccessibilityInputConnectionServiceClient(grpcConn)
-		req := &pb.CommitTextRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
 			req.Arg0 = v
 		}
 		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
@@ -3314,7 +2901,7 @@ var accessibilityserviceInputMethodAccessibilityInputConnectionCommitTextCmd = &
 		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
 			req.Arg2 = v
 		}
-		resp, err := client.CommitText(ctx, req)
+		resp, err := client.NewAccessibilityGestureEvent(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -3322,21 +2909,18 @@ var accessibilityserviceInputMethodAccessibilityInputConnectionCommitTextCmd = &
 	},
 }
 
-var accessibilityserviceInputMethodAccessibilityInputConnectionDeleteSurroundingTextCmd = &cobra.Command{
-	Use:   "delete-surrounding-text",
-	Short: "DeleteSurroundingText RPC",
+var accessibilityserviceAccessibilityGestureEventDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewInputMethodAccessibilityInputConnectionServiceClient(grpcConn)
-		req := &pb.DeleteSurroundingTextRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
+		client := pb.NewAccessibilityGestureEventServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
 		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.DeleteSurroundingText(ctx, req)
+		resp, err := client.DescribeContents(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -3344,18 +2928,18 @@ var accessibilityserviceInputMethodAccessibilityInputConnectionDeleteSurrounding
 	},
 }
 
-var accessibilityserviceInputMethodAccessibilityInputConnectionGetCursorCapsModeCmd = &cobra.Command{
-	Use:   "get-cursor-caps-mode",
-	Short: "GetCursorCapsMode RPC",
+var accessibilityserviceAccessibilityGestureEventGetDisplayIdCmd = &cobra.Command{
+	Use:   "get-display-id",
+	Short: "GetDisplayId RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewInputMethodAccessibilityInputConnectionServiceClient(grpcConn)
-		req := &pb.GetCursorCapsModeRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
+		client := pb.NewAccessibilityGestureEventServiceClient(grpcConn)
+		req := &pb.AccessibilityGestureEventGetDisplayIdRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
 		}
-		resp, err := client.GetCursorCapsMode(ctx, req)
+		resp, err := client.GetDisplayId(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -3363,24 +2947,18 @@ var accessibilityserviceInputMethodAccessibilityInputConnectionGetCursorCapsMode
 	},
 }
 
-var accessibilityserviceInputMethodAccessibilityInputConnectionGetSurroundingTextCmd = &cobra.Command{
-	Use:   "get-surrounding-text",
-	Short: "GetSurroundingText RPC",
+var accessibilityserviceAccessibilityGestureEventGetGestureIdCmd = &cobra.Command{
+	Use:   "get-gesture-id",
+	Short: "GetGestureId RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewInputMethodAccessibilityInputConnectionServiceClient(grpcConn)
-		req := &pb.GetSurroundingTextRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
+		client := pb.NewAccessibilityGestureEventServiceClient(grpcConn)
+		req := &pb.GetGestureIdRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
 		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.GetSurroundingText(ctx, req)
+		resp, err := client.GetGestureId(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -3388,18 +2966,18 @@ var accessibilityserviceInputMethodAccessibilityInputConnectionGetSurroundingTex
 	},
 }
 
-var accessibilityserviceInputMethodAccessibilityInputConnectionPerformContextMenuActionCmd = &cobra.Command{
-	Use:   "perform-context-menu-action",
-	Short: "PerformContextMenuAction RPC",
+var accessibilityserviceAccessibilityGestureEventGetMotionEventsCmd = &cobra.Command{
+	Use:   "get-motion-events",
+	Short: "GetMotionEvents RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewInputMethodAccessibilityInputConnectionServiceClient(grpcConn)
-		req := &pb.PerformContextMenuActionRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
+		client := pb.NewAccessibilityGestureEventServiceClient(grpcConn)
+		req := &pb.GetMotionEventsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
 		}
-		resp, err := client.PerformContextMenuAction(ctx, req)
+		resp, err := client.GetMotionEvents(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -3407,18 +2985,18 @@ var accessibilityserviceInputMethodAccessibilityInputConnectionPerformContextMen
 	},
 }
 
-var accessibilityserviceInputMethodAccessibilityInputConnectionPerformEditorActionCmd = &cobra.Command{
-	Use:   "perform-editor-action",
-	Short: "PerformEditorAction RPC",
+var accessibilityserviceAccessibilityGestureEventToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewInputMethodAccessibilityInputConnectionServiceClient(grpcConn)
-		req := &pb.PerformEditorActionRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
+		client := pb.NewAccessibilityGestureEventServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
 		}
-		resp, err := client.PerformEditorAction(ctx, req)
+		resp, err := client.ToString(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -3426,18 +3004,24 @@ var accessibilityserviceInputMethodAccessibilityInputConnectionPerformEditorActi
 	},
 }
 
-var accessibilityserviceInputMethodAccessibilityInputConnectionSendKeyEventCmd = &cobra.Command{
-	Use:   "send-key-event",
-	Short: "SendKeyEvent RPC",
+var accessibilityserviceAccessibilityGestureEventWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewInputMethodAccessibilityInputConnectionServiceClient(grpcConn)
-		req := &pb.SendKeyEventRequest{}
+		client := pb.NewAccessibilityGestureEventServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		resp, err := client.SendKeyEvent(ctx, req)
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -3445,21 +3029,504 @@ var accessibilityserviceInputMethodAccessibilityInputConnectionSendKeyEventCmd =
 	},
 }
 
-var accessibilityserviceInputMethodAccessibilityInputConnectionSetSelectionCmd = &cobra.Command{
-	Use:   "set-selection",
-	Short: "SetSelection RPC",
+var accessibilityserviceAccessibilityGestureEventGestureIdToStringCmd = &cobra.Command{
+	Use:   "gesture-id-to-string",
+	Short: "GestureIdToString RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewInputMethodAccessibilityInputConnectionServiceClient(grpcConn)
-		req := &pb.SetSelectionRequest{}
+		client := pb.NewAccessibilityGestureEventServiceClient(grpcConn)
+		req := &pb.GestureIdToStringRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
 		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+		resp, err := client.GestureIdToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accessibilityserviceBrailleDisplayControllerCmd = &cobra.Command{
+	Use:   "braille-display-controller",
+	Short: "BrailleDisplayControllerService operations",
+}
+
+var accessibilityserviceBrailleDisplayControllerConnect2Cmd = &cobra.Command{
+	Use:   "connect2",
+	Short: "Connect2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBrailleDisplayControllerServiceClient(grpcConn)
+		req := &pb.Connect2Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
 			req.Arg1 = v
 		}
-		resp, err := client.SetSelection(ctx, req)
+		resp, err := client.Connect2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accessibilityserviceBrailleDisplayControllerConnect3_1Cmd = &cobra.Command{
+	Use:   "connect3_1",
+	Short: "Connect3_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBrailleDisplayControllerServiceClient(grpcConn)
+		req := &pb.Connect3_1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.Connect3_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accessibilityserviceBrailleDisplayControllerConnect2_2Cmd = &cobra.Command{
+	Use:   "connect2_2",
+	Short: "Connect2_2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBrailleDisplayControllerServiceClient(grpcConn)
+		req := &pb.Connect2_2Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.Connect2_2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accessibilityserviceBrailleDisplayControllerConnect3_3Cmd = &cobra.Command{
+	Use:   "connect3_3",
+	Short: "Connect3_3 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBrailleDisplayControllerServiceClient(grpcConn)
+		req := &pb.Connect3_3Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.Connect3_3(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accessibilityserviceBrailleDisplayControllerDisconnectCmd = &cobra.Command{
+	Use:   "disconnect",
+	Short: "Disconnect RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBrailleDisplayControllerServiceClient(grpcConn)
+		req := &pb.DisconnectRequest{}
+		resp, err := client.Disconnect(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accessibilityserviceBrailleDisplayControllerIsConnectedCmd = &cobra.Command{
+	Use:   "is-connected",
+	Short: "IsConnected RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBrailleDisplayControllerServiceClient(grpcConn)
+		req := &pb.IsConnectedRequest{}
+		resp, err := client.IsConnected(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accessibilityserviceBrailleDisplayControllerWriteCmd = &cobra.Command{
+	Use:   "write",
+	Short: "Write RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBrailleDisplayControllerServiceClient(grpcConn)
+		req := &pb.WriteRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Write(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accessibilityserviceBrailleDisplayControllerBrailleDisplayCallbackCmd = &cobra.Command{
+	Use:   "braille-display-controller-braille-display-callback",
+	Short: "BrailleDisplayControllerBrailleDisplayCallbackService operations",
+}
+
+var accessibilityserviceBrailleDisplayControllerBrailleDisplayCallbackOnConnectedCmd = &cobra.Command{
+	Use:   "on-connected",
+	Short: "OnConnected RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBrailleDisplayControllerBrailleDisplayCallbackServiceClient(grpcConn)
+		req := &pb.OnConnectedRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnConnected(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accessibilityserviceBrailleDisplayControllerBrailleDisplayCallbackOnConnectionFailedCmd = &cobra.Command{
+	Use:   "on-connection-failed",
+	Short: "OnConnectionFailed RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBrailleDisplayControllerBrailleDisplayCallbackServiceClient(grpcConn)
+		req := &pb.OnConnectionFailedRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnConnectionFailed(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accessibilityserviceBrailleDisplayControllerBrailleDisplayCallbackOnDisconnectedCmd = &cobra.Command{
+	Use:   "on-disconnected",
+	Short: "OnDisconnected RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBrailleDisplayControllerBrailleDisplayCallbackServiceClient(grpcConn)
+		req := &pb.OnDisconnectedRequest{}
+		resp, err := client.OnDisconnected(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accessibilityserviceBrailleDisplayControllerBrailleDisplayCallbackOnInputCmd = &cobra.Command{
+	Use:   "on-input",
+	Short: "OnInput RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBrailleDisplayControllerBrailleDisplayCallbackServiceClient(grpcConn)
+		req := &pb.OnInputRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnInput(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accessibilityserviceTouchInteractionControllerCmd = &cobra.Command{
+	Use:   "touch-interaction-controller",
+	Short: "TouchInteractionControllerService operations",
+}
+
+var accessibilityserviceTouchInteractionControllerGetDisplayIdCmd = &cobra.Command{
+	Use:   "get-display-id",
+	Short: "GetDisplayId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTouchInteractionControllerServiceClient(grpcConn)
+		req := &pb.GetDisplayIdRequest{}
+		resp, err := client.GetDisplayId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accessibilityserviceTouchInteractionControllerGetMaxPointerCountCmd = &cobra.Command{
+	Use:   "get-max-pointer-count",
+	Short: "GetMaxPointerCount RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTouchInteractionControllerServiceClient(grpcConn)
+		req := &pb.GetMaxPointerCountRequest{}
+		resp, err := client.GetMaxPointerCount(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accessibilityserviceTouchInteractionControllerGetStateCmd = &cobra.Command{
+	Use:   "get-state",
+	Short: "GetState RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTouchInteractionControllerServiceClient(grpcConn)
+		req := &pb.GetStateRequest{}
+		resp, err := client.GetState(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accessibilityserviceTouchInteractionControllerPerformClickCmd = &cobra.Command{
+	Use:   "perform-click",
+	Short: "PerformClick RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTouchInteractionControllerServiceClient(grpcConn)
+		req := &pb.PerformClickRequest{}
+		resp, err := client.PerformClick(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accessibilityserviceTouchInteractionControllerPerformLongClickAndStartDragCmd = &cobra.Command{
+	Use:   "perform-long-click-and-start-drag",
+	Short: "PerformLongClickAndStartDrag RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTouchInteractionControllerServiceClient(grpcConn)
+		req := &pb.PerformLongClickAndStartDragRequest{}
+		resp, err := client.PerformLongClickAndStartDrag(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accessibilityserviceTouchInteractionControllerRegisterCallbackCmd = &cobra.Command{
+	Use:   "register-callback",
+	Short: "RegisterCallback RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTouchInteractionControllerServiceClient(grpcConn)
+		req := &pb.RegisterCallbackRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.RegisterCallback(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accessibilityserviceTouchInteractionControllerRequestDelegatingCmd = &cobra.Command{
+	Use:   "request-delegating",
+	Short: "RequestDelegating RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTouchInteractionControllerServiceClient(grpcConn)
+		req := &pb.RequestDelegatingRequest{}
+		resp, err := client.RequestDelegating(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accessibilityserviceTouchInteractionControllerRequestDraggingCmd = &cobra.Command{
+	Use:   "request-dragging",
+	Short: "RequestDragging RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTouchInteractionControllerServiceClient(grpcConn)
+		req := &pb.RequestDraggingRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.RequestDragging(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accessibilityserviceTouchInteractionControllerRequestTouchExplorationCmd = &cobra.Command{
+	Use:   "request-touch-exploration",
+	Short: "RequestTouchExploration RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTouchInteractionControllerServiceClient(grpcConn)
+		req := &pb.RequestTouchExplorationRequest{}
+		resp, err := client.RequestTouchExploration(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accessibilityserviceTouchInteractionControllerUnregisterAllCallbacksCmd = &cobra.Command{
+	Use:   "unregister-all-callbacks",
+	Short: "UnregisterAllCallbacks RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTouchInteractionControllerServiceClient(grpcConn)
+		req := &pb.UnregisterAllCallbacksRequest{}
+		resp, err := client.UnregisterAllCallbacks(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accessibilityserviceTouchInteractionControllerUnregisterCallbackCmd = &cobra.Command{
+	Use:   "unregister-callback",
+	Short: "UnregisterCallback RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTouchInteractionControllerServiceClient(grpcConn)
+		req := &pb.UnregisterCallbackRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.UnregisterCallback(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accessibilityserviceTouchInteractionControllerStateToStringCmd = &cobra.Command{
+	Use:   "state-to-string",
+	Short: "StateToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTouchInteractionControllerServiceClient(grpcConn)
+		req := &pb.StateToStringRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.StateToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accessibilityserviceTouchInteractionControllerCallbackCmd = &cobra.Command{
+	Use:   "touch-interaction-controller-callback",
+	Short: "TouchInteractionControllerCallbackService operations",
+}
+
+var accessibilityserviceTouchInteractionControllerCallbackOnMotionEventCmd = &cobra.Command{
+	Use:   "on-motion-event",
+	Short: "OnMotionEvent RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTouchInteractionControllerCallbackServiceClient(grpcConn)
+		req := &pb.OnMotionEventRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnMotionEvent(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accessibilityserviceTouchInteractionControllerCallbackOnStateChangedCmd = &cobra.Command{
+	Use:   "on-state-changed",
+	Short: "OnStateChanged RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTouchInteractionControllerCallbackServiceClient(grpcConn)
+		req := &pb.OnStateChangedRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnStateChanged(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -3468,65 +3535,130 @@ var accessibilityserviceInputMethodAccessibilityInputConnectionSetSelectionCmd =
 }
 
 func init() {
-	accessibilityserviceTouchInteractionControllerCmd.AddCommand(accessibilityserviceTouchInteractionControllerGetDisplayIdCmd)
-	accessibilityserviceTouchInteractionControllerCmd.AddCommand(accessibilityserviceTouchInteractionControllerGetMaxPointerCountCmd)
-	accessibilityserviceTouchInteractionControllerCmd.AddCommand(accessibilityserviceTouchInteractionControllerGetStateCmd)
-	accessibilityserviceTouchInteractionControllerCmd.AddCommand(accessibilityserviceTouchInteractionControllerPerformClickCmd)
-	accessibilityserviceTouchInteractionControllerCmd.AddCommand(accessibilityserviceTouchInteractionControllerPerformLongClickAndStartDragCmd)
-	accessibilityserviceTouchInteractionControllerRegisterCallbackCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	accessibilityserviceTouchInteractionControllerRegisterCallbackCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	accessibilityserviceTouchInteractionControllerCmd.AddCommand(accessibilityserviceTouchInteractionControllerRegisterCallbackCmd)
-	accessibilityserviceTouchInteractionControllerCmd.AddCommand(accessibilityserviceTouchInteractionControllerRequestDelegatingCmd)
-	accessibilityserviceTouchInteractionControllerRequestDraggingCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	accessibilityserviceTouchInteractionControllerCmd.AddCommand(accessibilityserviceTouchInteractionControllerRequestDraggingCmd)
-	accessibilityserviceTouchInteractionControllerCmd.AddCommand(accessibilityserviceTouchInteractionControllerRequestTouchExplorationCmd)
-	accessibilityserviceTouchInteractionControllerCmd.AddCommand(accessibilityserviceTouchInteractionControllerUnregisterAllCallbacksCmd)
-	accessibilityserviceTouchInteractionControllerUnregisterCallbackCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	accessibilityserviceTouchInteractionControllerCmd.AddCommand(accessibilityserviceTouchInteractionControllerUnregisterCallbackCmd)
-	accessibilityserviceTouchInteractionControllerStateToStringCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	accessibilityserviceTouchInteractionControllerCmd.AddCommand(accessibilityserviceTouchInteractionControllerStateToStringCmd)
-	accessibilityserviceCmd.AddCommand(accessibilityserviceTouchInteractionControllerCmd)
-	accessibilityserviceTouchInteractionControllerCallbackOnMotionEventCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	accessibilityserviceTouchInteractionControllerCallbackCmd.AddCommand(accessibilityserviceTouchInteractionControllerCallbackOnMotionEventCmd)
-	accessibilityserviceTouchInteractionControllerCallbackOnStateChangedCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	accessibilityserviceTouchInteractionControllerCallbackCmd.AddCommand(accessibilityserviceTouchInteractionControllerCallbackOnStateChangedCmd)
-	accessibilityserviceCmd.AddCommand(accessibilityserviceTouchInteractionControllerCallbackCmd)
-	accessibilityserviceBrailleDisplayControllerConnect2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	accessibilityserviceBrailleDisplayControllerConnect2Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	accessibilityserviceBrailleDisplayControllerCmd.AddCommand(accessibilityserviceBrailleDisplayControllerConnect2Cmd)
-	accessibilityserviceBrailleDisplayControllerConnect3_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	accessibilityserviceBrailleDisplayControllerConnect3_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	accessibilityserviceBrailleDisplayControllerConnect3_1Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	accessibilityserviceBrailleDisplayControllerCmd.AddCommand(accessibilityserviceBrailleDisplayControllerConnect3_1Cmd)
-	accessibilityserviceBrailleDisplayControllerConnect2_2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	accessibilityserviceBrailleDisplayControllerConnect2_2Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	accessibilityserviceBrailleDisplayControllerCmd.AddCommand(accessibilityserviceBrailleDisplayControllerConnect2_2Cmd)
-	accessibilityserviceBrailleDisplayControllerConnect3_3Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	accessibilityserviceBrailleDisplayControllerConnect3_3Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	accessibilityserviceBrailleDisplayControllerConnect3_3Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	accessibilityserviceBrailleDisplayControllerCmd.AddCommand(accessibilityserviceBrailleDisplayControllerConnect3_3Cmd)
-	accessibilityserviceBrailleDisplayControllerCmd.AddCommand(accessibilityserviceBrailleDisplayControllerDisconnectCmd)
-	accessibilityserviceBrailleDisplayControllerCmd.AddCommand(accessibilityserviceBrailleDisplayControllerIsConnectedCmd)
-	accessibilityserviceBrailleDisplayControllerWriteCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	accessibilityserviceBrailleDisplayControllerCmd.AddCommand(accessibilityserviceBrailleDisplayControllerWriteCmd)
-	accessibilityserviceCmd.AddCommand(accessibilityserviceBrailleDisplayControllerCmd)
-	accessibilityserviceBrailleDisplayControllerBrailleDisplayCallbackOnConnectedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	accessibilityserviceBrailleDisplayControllerBrailleDisplayCallbackCmd.AddCommand(accessibilityserviceBrailleDisplayControllerBrailleDisplayCallbackOnConnectedCmd)
-	accessibilityserviceBrailleDisplayControllerBrailleDisplayCallbackOnConnectionFailedCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	accessibilityserviceBrailleDisplayControllerBrailleDisplayCallbackCmd.AddCommand(accessibilityserviceBrailleDisplayControllerBrailleDisplayCallbackOnConnectionFailedCmd)
-	accessibilityserviceBrailleDisplayControllerBrailleDisplayCallbackCmd.AddCommand(accessibilityserviceBrailleDisplayControllerBrailleDisplayCallbackOnDisconnectedCmd)
-	accessibilityserviceBrailleDisplayControllerBrailleDisplayCallbackOnInputCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	accessibilityserviceBrailleDisplayControllerBrailleDisplayCallbackCmd.AddCommand(accessibilityserviceBrailleDisplayControllerBrailleDisplayCallbackOnInputCmd)
-	accessibilityserviceCmd.AddCommand(accessibilityserviceBrailleDisplayControllerBrailleDisplayCallbackCmd)
-	accessibilityserviceFingerprintGestureControllerCmd.AddCommand(accessibilityserviceFingerprintGestureControllerIsGestureDetectionAvailableCmd)
-	accessibilityserviceFingerprintGestureControllerUnregisterFingerprintGestureCallbackCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	accessibilityserviceFingerprintGestureControllerCmd.AddCommand(accessibilityserviceFingerprintGestureControllerUnregisterFingerprintGestureCallbackCmd)
-	accessibilityserviceCmd.AddCommand(accessibilityserviceFingerprintGestureControllerCmd)
-	accessibilityserviceFingerprintGestureControllerFingerprintGestureCallbackOnGestureDetectedCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	accessibilityserviceFingerprintGestureControllerFingerprintGestureCallbackCmd.AddCommand(accessibilityserviceFingerprintGestureControllerFingerprintGestureCallbackOnGestureDetectedCmd)
-	accessibilityserviceFingerprintGestureControllerFingerprintGestureCallbackOnGestureDetectionAvailabilityChangedCmd.Flags().Bool("arg0", false, "arg0 (bool)")
-	accessibilityserviceFingerprintGestureControllerFingerprintGestureCallbackCmd.AddCommand(accessibilityserviceFingerprintGestureControllerFingerprintGestureCallbackOnGestureDetectionAvailabilityChangedCmd)
-	accessibilityserviceCmd.AddCommand(accessibilityserviceFingerprintGestureControllerFingerprintGestureCallbackCmd)
+	accessibilityserviceAccessibilityServiceInfoCmd.AddCommand(accessibilityserviceAccessibilityServiceInfoNewAccessibilityServiceInfoCmd)
+	accessibilityserviceAccessibilityServiceInfoDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	accessibilityserviceAccessibilityServiceInfoCmd.AddCommand(accessibilityserviceAccessibilityServiceInfoDescribeContentsCmd)
+	accessibilityserviceAccessibilityServiceInfoEqualsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	accessibilityserviceAccessibilityServiceInfoEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	accessibilityserviceAccessibilityServiceInfoCmd.AddCommand(accessibilityserviceAccessibilityServiceInfoEqualsCmd)
+	accessibilityserviceAccessibilityServiceInfoGetCanRetrieveWindowContentCmd.Flags().Int64("handle", 0, "handle (int64)")
+	accessibilityserviceAccessibilityServiceInfoCmd.AddCommand(accessibilityserviceAccessibilityServiceInfoGetCanRetrieveWindowContentCmd)
+	accessibilityserviceAccessibilityServiceInfoGetCapabilitiesCmd.Flags().Int64("handle", 0, "handle (int64)")
+	accessibilityserviceAccessibilityServiceInfoCmd.AddCommand(accessibilityserviceAccessibilityServiceInfoGetCapabilitiesCmd)
+	accessibilityserviceAccessibilityServiceInfoGetDescriptionCmd.Flags().Int64("handle", 0, "handle (int64)")
+	accessibilityserviceAccessibilityServiceInfoCmd.AddCommand(accessibilityserviceAccessibilityServiceInfoGetDescriptionCmd)
+	accessibilityserviceAccessibilityServiceInfoGetIdCmd.Flags().Int64("handle", 0, "handle (int64)")
+	accessibilityserviceAccessibilityServiceInfoCmd.AddCommand(accessibilityserviceAccessibilityServiceInfoGetIdCmd)
+	accessibilityserviceAccessibilityServiceInfoGetInteractiveUiTimeoutMillisCmd.Flags().Int64("handle", 0, "handle (int64)")
+	accessibilityserviceAccessibilityServiceInfoCmd.AddCommand(accessibilityserviceAccessibilityServiceInfoGetInteractiveUiTimeoutMillisCmd)
+	accessibilityserviceAccessibilityServiceInfoGetMotionEventSourcesCmd.Flags().Int64("handle", 0, "handle (int64)")
+	accessibilityserviceAccessibilityServiceInfoCmd.AddCommand(accessibilityserviceAccessibilityServiceInfoGetMotionEventSourcesCmd)
+	accessibilityserviceAccessibilityServiceInfoGetNonInteractiveUiTimeoutMillisCmd.Flags().Int64("handle", 0, "handle (int64)")
+	accessibilityserviceAccessibilityServiceInfoCmd.AddCommand(accessibilityserviceAccessibilityServiceInfoGetNonInteractiveUiTimeoutMillisCmd)
+	accessibilityserviceAccessibilityServiceInfoGetResolveInfoCmd.Flags().Int64("handle", 0, "handle (int64)")
+	accessibilityserviceAccessibilityServiceInfoCmd.AddCommand(accessibilityserviceAccessibilityServiceInfoGetResolveInfoCmd)
+	accessibilityserviceAccessibilityServiceInfoGetSettingsActivityNameCmd.Flags().Int64("handle", 0, "handle (int64)")
+	accessibilityserviceAccessibilityServiceInfoCmd.AddCommand(accessibilityserviceAccessibilityServiceInfoGetSettingsActivityNameCmd)
+	accessibilityserviceAccessibilityServiceInfoGetTileServiceNameCmd.Flags().Int64("handle", 0, "handle (int64)")
+	accessibilityserviceAccessibilityServiceInfoCmd.AddCommand(accessibilityserviceAccessibilityServiceInfoGetTileServiceNameCmd)
+	accessibilityserviceAccessibilityServiceInfoHashCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	accessibilityserviceAccessibilityServiceInfoCmd.AddCommand(accessibilityserviceAccessibilityServiceInfoHashCodeCmd)
+	accessibilityserviceAccessibilityServiceInfoIsAccessibilityToolCmd.Flags().Int64("handle", 0, "handle (int64)")
+	accessibilityserviceAccessibilityServiceInfoCmd.AddCommand(accessibilityserviceAccessibilityServiceInfoIsAccessibilityToolCmd)
+	accessibilityserviceAccessibilityServiceInfoLoadDescriptionCmd.Flags().Int64("handle", 0, "handle (int64)")
+	accessibilityserviceAccessibilityServiceInfoLoadDescriptionCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	accessibilityserviceAccessibilityServiceInfoCmd.AddCommand(accessibilityserviceAccessibilityServiceInfoLoadDescriptionCmd)
+	accessibilityserviceAccessibilityServiceInfoLoadIntroCmd.Flags().Int64("handle", 0, "handle (int64)")
+	accessibilityserviceAccessibilityServiceInfoLoadIntroCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	accessibilityserviceAccessibilityServiceInfoCmd.AddCommand(accessibilityserviceAccessibilityServiceInfoLoadIntroCmd)
+	accessibilityserviceAccessibilityServiceInfoLoadSummaryCmd.Flags().Int64("handle", 0, "handle (int64)")
+	accessibilityserviceAccessibilityServiceInfoLoadSummaryCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	accessibilityserviceAccessibilityServiceInfoCmd.AddCommand(accessibilityserviceAccessibilityServiceInfoLoadSummaryCmd)
+	accessibilityserviceAccessibilityServiceInfoSetInteractiveUiTimeoutMillisCmd.Flags().Int64("handle", 0, "handle (int64)")
+	accessibilityserviceAccessibilityServiceInfoSetInteractiveUiTimeoutMillisCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	accessibilityserviceAccessibilityServiceInfoCmd.AddCommand(accessibilityserviceAccessibilityServiceInfoSetInteractiveUiTimeoutMillisCmd)
+	accessibilityserviceAccessibilityServiceInfoSetMotionEventSourcesCmd.Flags().Int64("handle", 0, "handle (int64)")
+	accessibilityserviceAccessibilityServiceInfoSetMotionEventSourcesCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	accessibilityserviceAccessibilityServiceInfoCmd.AddCommand(accessibilityserviceAccessibilityServiceInfoSetMotionEventSourcesCmd)
+	accessibilityserviceAccessibilityServiceInfoSetNonInteractiveUiTimeoutMillisCmd.Flags().Int64("handle", 0, "handle (int64)")
+	accessibilityserviceAccessibilityServiceInfoSetNonInteractiveUiTimeoutMillisCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	accessibilityserviceAccessibilityServiceInfoCmd.AddCommand(accessibilityserviceAccessibilityServiceInfoSetNonInteractiveUiTimeoutMillisCmd)
+	accessibilityserviceAccessibilityServiceInfoToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
+	accessibilityserviceAccessibilityServiceInfoCmd.AddCommand(accessibilityserviceAccessibilityServiceInfoToStringCmd)
+	accessibilityserviceAccessibilityServiceInfoWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	accessibilityserviceAccessibilityServiceInfoWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	accessibilityserviceAccessibilityServiceInfoWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	accessibilityserviceAccessibilityServiceInfoCmd.AddCommand(accessibilityserviceAccessibilityServiceInfoWriteToParcelCmd)
+	accessibilityserviceAccessibilityServiceInfoCapabilityToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
+	accessibilityserviceAccessibilityServiceInfoCapabilityToStringCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	accessibilityserviceAccessibilityServiceInfoCmd.AddCommand(accessibilityserviceAccessibilityServiceInfoCapabilityToStringCmd)
+	accessibilityserviceAccessibilityServiceInfoFeedbackTypeToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
+	accessibilityserviceAccessibilityServiceInfoFeedbackTypeToStringCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	accessibilityserviceAccessibilityServiceInfoCmd.AddCommand(accessibilityserviceAccessibilityServiceInfoFeedbackTypeToStringCmd)
+	accessibilityserviceAccessibilityServiceInfoFlagToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
+	accessibilityserviceAccessibilityServiceInfoFlagToStringCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	accessibilityserviceAccessibilityServiceInfoCmd.AddCommand(accessibilityserviceAccessibilityServiceInfoFlagToStringCmd)
+	accessibilityserviceCmd.AddCommand(accessibilityserviceAccessibilityServiceInfoCmd)
+	accessibilityserviceAccessibilityButtonControllerCmd.AddCommand(accessibilityserviceAccessibilityButtonControllerIsAccessibilityButtonAvailableCmd)
+	accessibilityserviceAccessibilityButtonControllerRegisterAccessibilityButtonCallbackCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	accessibilityserviceAccessibilityButtonControllerCmd.AddCommand(accessibilityserviceAccessibilityButtonControllerRegisterAccessibilityButtonCallbackCmd)
+	accessibilityserviceAccessibilityButtonControllerUnregisterAccessibilityButtonCallbackCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	accessibilityserviceAccessibilityButtonControllerCmd.AddCommand(accessibilityserviceAccessibilityButtonControllerUnregisterAccessibilityButtonCallbackCmd)
+	accessibilityserviceCmd.AddCommand(accessibilityserviceAccessibilityButtonControllerCmd)
+	accessibilityserviceAccessibilityButtonControllerAccessibilityButtonCallbackOnAvailabilityChangedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	accessibilityserviceAccessibilityButtonControllerAccessibilityButtonCallbackOnAvailabilityChangedCmd.Flags().Bool("arg1", false, "arg1 (bool)")
+	accessibilityserviceAccessibilityButtonControllerAccessibilityButtonCallbackCmd.AddCommand(accessibilityserviceAccessibilityButtonControllerAccessibilityButtonCallbackOnAvailabilityChangedCmd)
+	accessibilityserviceAccessibilityButtonControllerAccessibilityButtonCallbackOnClickedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	accessibilityserviceAccessibilityButtonControllerAccessibilityButtonCallbackCmd.AddCommand(accessibilityserviceAccessibilityButtonControllerAccessibilityButtonCallbackOnClickedCmd)
+	accessibilityserviceCmd.AddCommand(accessibilityserviceAccessibilityButtonControllerAccessibilityButtonCallbackCmd)
+	accessibilityserviceInputMethodNewInputMethodCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	accessibilityserviceInputMethodCmd.AddCommand(accessibilityserviceInputMethodNewInputMethodCmd)
+	accessibilityserviceInputMethodGetCurrentInputConnectionCmd.Flags().Int64("handle", 0, "handle (int64)")
+	accessibilityserviceInputMethodCmd.AddCommand(accessibilityserviceInputMethodGetCurrentInputConnectionCmd)
+	accessibilityserviceInputMethodGetCurrentInputEditorInfoCmd.Flags().Int64("handle", 0, "handle (int64)")
+	accessibilityserviceInputMethodCmd.AddCommand(accessibilityserviceInputMethodGetCurrentInputEditorInfoCmd)
+	accessibilityserviceInputMethodGetCurrentInputStartedCmd.Flags().Int64("handle", 0, "handle (int64)")
+	accessibilityserviceInputMethodCmd.AddCommand(accessibilityserviceInputMethodGetCurrentInputStartedCmd)
+	accessibilityserviceInputMethodOnFinishInputCmd.Flags().Int64("handle", 0, "handle (int64)")
+	accessibilityserviceInputMethodCmd.AddCommand(accessibilityserviceInputMethodOnFinishInputCmd)
+	accessibilityserviceInputMethodOnStartInputCmd.Flags().Int64("handle", 0, "handle (int64)")
+	accessibilityserviceInputMethodOnStartInputCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	accessibilityserviceInputMethodOnStartInputCmd.Flags().Bool("arg1", false, "arg1 (bool)")
+	accessibilityserviceInputMethodCmd.AddCommand(accessibilityserviceInputMethodOnStartInputCmd)
+	accessibilityserviceInputMethodOnUpdateSelectionCmd.Flags().Int64("handle", 0, "handle (int64)")
+	accessibilityserviceInputMethodOnUpdateSelectionCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	accessibilityserviceInputMethodOnUpdateSelectionCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	accessibilityserviceInputMethodOnUpdateSelectionCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	accessibilityserviceInputMethodOnUpdateSelectionCmd.Flags().Int32("arg3", 0, "arg3 (int32)")
+	accessibilityserviceInputMethodOnUpdateSelectionCmd.Flags().Int32("arg4", 0, "arg4 (int32)")
+	accessibilityserviceInputMethodOnUpdateSelectionCmd.Flags().Int32("arg5", 0, "arg5 (int32)")
+	accessibilityserviceInputMethodCmd.AddCommand(accessibilityserviceInputMethodOnUpdateSelectionCmd)
+	accessibilityserviceCmd.AddCommand(accessibilityserviceInputMethodCmd)
+	accessibilityserviceInputMethodAccessibilityInputConnectionClearMetaKeyStatesCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	accessibilityserviceInputMethodAccessibilityInputConnectionCmd.AddCommand(accessibilityserviceInputMethodAccessibilityInputConnectionClearMetaKeyStatesCmd)
+	accessibilityserviceInputMethodAccessibilityInputConnectionCommitTextCmd.Flags().String("arg0", "", "arg0 (string)")
+	accessibilityserviceInputMethodAccessibilityInputConnectionCommitTextCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	accessibilityserviceInputMethodAccessibilityInputConnectionCommitTextCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	accessibilityserviceInputMethodAccessibilityInputConnectionCmd.AddCommand(accessibilityserviceInputMethodAccessibilityInputConnectionCommitTextCmd)
+	accessibilityserviceInputMethodAccessibilityInputConnectionDeleteSurroundingTextCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	accessibilityserviceInputMethodAccessibilityInputConnectionDeleteSurroundingTextCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	accessibilityserviceInputMethodAccessibilityInputConnectionCmd.AddCommand(accessibilityserviceInputMethodAccessibilityInputConnectionDeleteSurroundingTextCmd)
+	accessibilityserviceInputMethodAccessibilityInputConnectionGetCursorCapsModeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	accessibilityserviceInputMethodAccessibilityInputConnectionCmd.AddCommand(accessibilityserviceInputMethodAccessibilityInputConnectionGetCursorCapsModeCmd)
+	accessibilityserviceInputMethodAccessibilityInputConnectionGetSurroundingTextCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	accessibilityserviceInputMethodAccessibilityInputConnectionGetSurroundingTextCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	accessibilityserviceInputMethodAccessibilityInputConnectionGetSurroundingTextCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	accessibilityserviceInputMethodAccessibilityInputConnectionCmd.AddCommand(accessibilityserviceInputMethodAccessibilityInputConnectionGetSurroundingTextCmd)
+	accessibilityserviceInputMethodAccessibilityInputConnectionPerformContextMenuActionCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	accessibilityserviceInputMethodAccessibilityInputConnectionCmd.AddCommand(accessibilityserviceInputMethodAccessibilityInputConnectionPerformContextMenuActionCmd)
+	accessibilityserviceInputMethodAccessibilityInputConnectionPerformEditorActionCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	accessibilityserviceInputMethodAccessibilityInputConnectionCmd.AddCommand(accessibilityserviceInputMethodAccessibilityInputConnectionPerformEditorActionCmd)
+	accessibilityserviceInputMethodAccessibilityInputConnectionSendKeyEventCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	accessibilityserviceInputMethodAccessibilityInputConnectionCmd.AddCommand(accessibilityserviceInputMethodAccessibilityInputConnectionSendKeyEventCmd)
+	accessibilityserviceInputMethodAccessibilityInputConnectionSetSelectionCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	accessibilityserviceInputMethodAccessibilityInputConnectionSetSelectionCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	accessibilityserviceInputMethodAccessibilityInputConnectionCmd.AddCommand(accessibilityserviceInputMethodAccessibilityInputConnectionSetSelectionCmd)
+	accessibilityserviceCmd.AddCommand(accessibilityserviceInputMethodAccessibilityInputConnectionCmd)
 	accessibilityserviceAccessibilityServiceAttachAccessibilityOverlayToDisplayCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
 	accessibilityserviceAccessibilityServiceAttachAccessibilityOverlayToDisplayCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
 	accessibilityserviceAccessibilityServiceCmd.AddCommand(accessibilityserviceAccessibilityServiceAttachAccessibilityOverlayToDisplayCmd)
@@ -3560,10 +3692,13 @@ func init() {
 	accessibilityserviceAccessibilityServiceCmd.AddCommand(accessibilityserviceAccessibilityServiceGetRootInActiveWindow1_1Cmd)
 	accessibilityserviceAccessibilityServiceCmd.AddCommand(accessibilityserviceAccessibilityServiceGetServiceInfoCmd)
 	accessibilityserviceAccessibilityServiceCmd.AddCommand(accessibilityserviceAccessibilityServiceGetSoftKeyboardControllerCmd)
+	accessibilityserviceAccessibilityServiceCmd.AddCommand(accessibilityserviceAccessibilityServiceGetSystemActionsCmd)
 	accessibilityserviceAccessibilityServiceGetSystemServiceCmd.Flags().String("arg0", "", "arg0 (string)")
 	accessibilityserviceAccessibilityServiceCmd.AddCommand(accessibilityserviceAccessibilityServiceGetSystemServiceCmd)
 	accessibilityserviceAccessibilityServiceGetTouchInteractionControllerCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
 	accessibilityserviceAccessibilityServiceCmd.AddCommand(accessibilityserviceAccessibilityServiceGetTouchInteractionControllerCmd)
+	accessibilityserviceAccessibilityServiceCmd.AddCommand(accessibilityserviceAccessibilityServiceGetWindowsCmd)
+	accessibilityserviceAccessibilityServiceCmd.AddCommand(accessibilityserviceAccessibilityServiceGetWindowsOnAllDisplaysCmd)
 	accessibilityserviceAccessibilityServiceCmd.AddCommand(accessibilityserviceAccessibilityServiceIsCacheEnabledCmd)
 	accessibilityserviceAccessibilityServiceIsNodeInCacheCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	accessibilityserviceAccessibilityServiceCmd.AddCommand(accessibilityserviceAccessibilityServiceIsNodeInCacheCmd)
@@ -3656,125 +3791,15 @@ func init() {
 	accessibilityserviceAccessibilityServiceTakeScreenshotCallbackOnSuccessCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	accessibilityserviceAccessibilityServiceTakeScreenshotCallbackCmd.AddCommand(accessibilityserviceAccessibilityServiceTakeScreenshotCallbackOnSuccessCmd)
 	accessibilityserviceCmd.AddCommand(accessibilityserviceAccessibilityServiceTakeScreenshotCallbackCmd)
-	accessibilityserviceAccessibilityButtonControllerCmd.AddCommand(accessibilityserviceAccessibilityButtonControllerIsAccessibilityButtonAvailableCmd)
-	accessibilityserviceAccessibilityButtonControllerRegisterAccessibilityButtonCallbackCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	accessibilityserviceAccessibilityButtonControllerCmd.AddCommand(accessibilityserviceAccessibilityButtonControllerRegisterAccessibilityButtonCallbackCmd)
-	accessibilityserviceAccessibilityButtonControllerUnregisterAccessibilityButtonCallbackCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	accessibilityserviceAccessibilityButtonControllerCmd.AddCommand(accessibilityserviceAccessibilityButtonControllerUnregisterAccessibilityButtonCallbackCmd)
-	accessibilityserviceCmd.AddCommand(accessibilityserviceAccessibilityButtonControllerCmd)
-	accessibilityserviceAccessibilityButtonControllerAccessibilityButtonCallbackOnAvailabilityChangedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	accessibilityserviceAccessibilityButtonControllerAccessibilityButtonCallbackOnAvailabilityChangedCmd.Flags().Bool("arg1", false, "arg1 (bool)")
-	accessibilityserviceAccessibilityButtonControllerAccessibilityButtonCallbackCmd.AddCommand(accessibilityserviceAccessibilityButtonControllerAccessibilityButtonCallbackOnAvailabilityChangedCmd)
-	accessibilityserviceAccessibilityButtonControllerAccessibilityButtonCallbackOnClickedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	accessibilityserviceAccessibilityButtonControllerAccessibilityButtonCallbackCmd.AddCommand(accessibilityserviceAccessibilityButtonControllerAccessibilityButtonCallbackOnClickedCmd)
-	accessibilityserviceCmd.AddCommand(accessibilityserviceAccessibilityButtonControllerAccessibilityButtonCallbackCmd)
-	accessibilityserviceAccessibilityGestureEventNewAccessibilityGestureEventCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	accessibilityserviceAccessibilityGestureEventNewAccessibilityGestureEventCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	accessibilityserviceAccessibilityGestureEventNewAccessibilityGestureEventCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	accessibilityserviceAccessibilityGestureEventCmd.AddCommand(accessibilityserviceAccessibilityGestureEventNewAccessibilityGestureEventCmd)
-	accessibilityserviceAccessibilityGestureEventDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	accessibilityserviceAccessibilityGestureEventCmd.AddCommand(accessibilityserviceAccessibilityGestureEventDescribeContentsCmd)
-	accessibilityserviceAccessibilityGestureEventGetDisplayIdCmd.Flags().Int64("handle", 0, "handle (int64)")
-	accessibilityserviceAccessibilityGestureEventCmd.AddCommand(accessibilityserviceAccessibilityGestureEventGetDisplayIdCmd)
-	accessibilityserviceAccessibilityGestureEventGetGestureIdCmd.Flags().Int64("handle", 0, "handle (int64)")
-	accessibilityserviceAccessibilityGestureEventCmd.AddCommand(accessibilityserviceAccessibilityGestureEventGetGestureIdCmd)
-	accessibilityserviceAccessibilityGestureEventToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
-	accessibilityserviceAccessibilityGestureEventCmd.AddCommand(accessibilityserviceAccessibilityGestureEventToStringCmd)
-	accessibilityserviceAccessibilityGestureEventWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
-	accessibilityserviceAccessibilityGestureEventWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	accessibilityserviceAccessibilityGestureEventWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	accessibilityserviceAccessibilityGestureEventCmd.AddCommand(accessibilityserviceAccessibilityGestureEventWriteToParcelCmd)
-	accessibilityserviceAccessibilityGestureEventGestureIdToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
-	accessibilityserviceAccessibilityGestureEventGestureIdToStringCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	accessibilityserviceAccessibilityGestureEventCmd.AddCommand(accessibilityserviceAccessibilityGestureEventGestureIdToStringCmd)
-	accessibilityserviceCmd.AddCommand(accessibilityserviceAccessibilityGestureEventCmd)
-	accessibilityserviceAccessibilityServiceInfoCmd.AddCommand(accessibilityserviceAccessibilityServiceInfoNewAccessibilityServiceInfoCmd)
-	accessibilityserviceAccessibilityServiceInfoDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	accessibilityserviceAccessibilityServiceInfoCmd.AddCommand(accessibilityserviceAccessibilityServiceInfoDescribeContentsCmd)
-	accessibilityserviceAccessibilityServiceInfoEqualsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	accessibilityserviceAccessibilityServiceInfoEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	accessibilityserviceAccessibilityServiceInfoCmd.AddCommand(accessibilityserviceAccessibilityServiceInfoEqualsCmd)
-	accessibilityserviceAccessibilityServiceInfoGetCanRetrieveWindowContentCmd.Flags().Int64("handle", 0, "handle (int64)")
-	accessibilityserviceAccessibilityServiceInfoCmd.AddCommand(accessibilityserviceAccessibilityServiceInfoGetCanRetrieveWindowContentCmd)
-	accessibilityserviceAccessibilityServiceInfoGetCapabilitiesCmd.Flags().Int64("handle", 0, "handle (int64)")
-	accessibilityserviceAccessibilityServiceInfoCmd.AddCommand(accessibilityserviceAccessibilityServiceInfoGetCapabilitiesCmd)
-	accessibilityserviceAccessibilityServiceInfoGetDescriptionCmd.Flags().Int64("handle", 0, "handle (int64)")
-	accessibilityserviceAccessibilityServiceInfoCmd.AddCommand(accessibilityserviceAccessibilityServiceInfoGetDescriptionCmd)
-	accessibilityserviceAccessibilityServiceInfoGetIdCmd.Flags().Int64("handle", 0, "handle (int64)")
-	accessibilityserviceAccessibilityServiceInfoCmd.AddCommand(accessibilityserviceAccessibilityServiceInfoGetIdCmd)
-	accessibilityserviceAccessibilityServiceInfoGetInteractiveUiTimeoutMillisCmd.Flags().Int64("handle", 0, "handle (int64)")
-	accessibilityserviceAccessibilityServiceInfoCmd.AddCommand(accessibilityserviceAccessibilityServiceInfoGetInteractiveUiTimeoutMillisCmd)
-	accessibilityserviceAccessibilityServiceInfoGetMotionEventSourcesCmd.Flags().Int64("handle", 0, "handle (int64)")
-	accessibilityserviceAccessibilityServiceInfoCmd.AddCommand(accessibilityserviceAccessibilityServiceInfoGetMotionEventSourcesCmd)
-	accessibilityserviceAccessibilityServiceInfoGetNonInteractiveUiTimeoutMillisCmd.Flags().Int64("handle", 0, "handle (int64)")
-	accessibilityserviceAccessibilityServiceInfoCmd.AddCommand(accessibilityserviceAccessibilityServiceInfoGetNonInteractiveUiTimeoutMillisCmd)
-	accessibilityserviceAccessibilityServiceInfoGetResolveInfoCmd.Flags().Int64("handle", 0, "handle (int64)")
-	accessibilityserviceAccessibilityServiceInfoCmd.AddCommand(accessibilityserviceAccessibilityServiceInfoGetResolveInfoCmd)
-	accessibilityserviceAccessibilityServiceInfoGetSettingsActivityNameCmd.Flags().Int64("handle", 0, "handle (int64)")
-	accessibilityserviceAccessibilityServiceInfoCmd.AddCommand(accessibilityserviceAccessibilityServiceInfoGetSettingsActivityNameCmd)
-	accessibilityserviceAccessibilityServiceInfoGetTileServiceNameCmd.Flags().Int64("handle", 0, "handle (int64)")
-	accessibilityserviceAccessibilityServiceInfoCmd.AddCommand(accessibilityserviceAccessibilityServiceInfoGetTileServiceNameCmd)
-	accessibilityserviceAccessibilityServiceInfoHashCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
-	accessibilityserviceAccessibilityServiceInfoCmd.AddCommand(accessibilityserviceAccessibilityServiceInfoHashCodeCmd)
-	accessibilityserviceAccessibilityServiceInfoIsAccessibilityToolCmd.Flags().Int64("handle", 0, "handle (int64)")
-	accessibilityserviceAccessibilityServiceInfoCmd.AddCommand(accessibilityserviceAccessibilityServiceInfoIsAccessibilityToolCmd)
-	accessibilityserviceAccessibilityServiceInfoLoadDescriptionCmd.Flags().Int64("handle", 0, "handle (int64)")
-	accessibilityserviceAccessibilityServiceInfoLoadDescriptionCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	accessibilityserviceAccessibilityServiceInfoCmd.AddCommand(accessibilityserviceAccessibilityServiceInfoLoadDescriptionCmd)
-	accessibilityserviceAccessibilityServiceInfoLoadIntroCmd.Flags().Int64("handle", 0, "handle (int64)")
-	accessibilityserviceAccessibilityServiceInfoLoadIntroCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	accessibilityserviceAccessibilityServiceInfoCmd.AddCommand(accessibilityserviceAccessibilityServiceInfoLoadIntroCmd)
-	accessibilityserviceAccessibilityServiceInfoLoadSummaryCmd.Flags().Int64("handle", 0, "handle (int64)")
-	accessibilityserviceAccessibilityServiceInfoLoadSummaryCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	accessibilityserviceAccessibilityServiceInfoCmd.AddCommand(accessibilityserviceAccessibilityServiceInfoLoadSummaryCmd)
-	accessibilityserviceAccessibilityServiceInfoSetInteractiveUiTimeoutMillisCmd.Flags().Int64("handle", 0, "handle (int64)")
-	accessibilityserviceAccessibilityServiceInfoSetInteractiveUiTimeoutMillisCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	accessibilityserviceAccessibilityServiceInfoCmd.AddCommand(accessibilityserviceAccessibilityServiceInfoSetInteractiveUiTimeoutMillisCmd)
-	accessibilityserviceAccessibilityServiceInfoSetMotionEventSourcesCmd.Flags().Int64("handle", 0, "handle (int64)")
-	accessibilityserviceAccessibilityServiceInfoSetMotionEventSourcesCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	accessibilityserviceAccessibilityServiceInfoCmd.AddCommand(accessibilityserviceAccessibilityServiceInfoSetMotionEventSourcesCmd)
-	accessibilityserviceAccessibilityServiceInfoSetNonInteractiveUiTimeoutMillisCmd.Flags().Int64("handle", 0, "handle (int64)")
-	accessibilityserviceAccessibilityServiceInfoSetNonInteractiveUiTimeoutMillisCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	accessibilityserviceAccessibilityServiceInfoCmd.AddCommand(accessibilityserviceAccessibilityServiceInfoSetNonInteractiveUiTimeoutMillisCmd)
-	accessibilityserviceAccessibilityServiceInfoToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
-	accessibilityserviceAccessibilityServiceInfoCmd.AddCommand(accessibilityserviceAccessibilityServiceInfoToStringCmd)
-	accessibilityserviceAccessibilityServiceInfoWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
-	accessibilityserviceAccessibilityServiceInfoWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	accessibilityserviceAccessibilityServiceInfoWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	accessibilityserviceAccessibilityServiceInfoCmd.AddCommand(accessibilityserviceAccessibilityServiceInfoWriteToParcelCmd)
-	accessibilityserviceAccessibilityServiceInfoCapabilityToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
-	accessibilityserviceAccessibilityServiceInfoCapabilityToStringCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	accessibilityserviceAccessibilityServiceInfoCmd.AddCommand(accessibilityserviceAccessibilityServiceInfoCapabilityToStringCmd)
-	accessibilityserviceAccessibilityServiceInfoFeedbackTypeToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
-	accessibilityserviceAccessibilityServiceInfoFeedbackTypeToStringCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	accessibilityserviceAccessibilityServiceInfoCmd.AddCommand(accessibilityserviceAccessibilityServiceInfoFeedbackTypeToStringCmd)
-	accessibilityserviceAccessibilityServiceInfoFlagToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
-	accessibilityserviceAccessibilityServiceInfoFlagToStringCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	accessibilityserviceAccessibilityServiceInfoCmd.AddCommand(accessibilityserviceAccessibilityServiceInfoFlagToStringCmd)
-	accessibilityserviceCmd.AddCommand(accessibilityserviceAccessibilityServiceInfoCmd)
-	accessibilityserviceGestureDescriptionCmd.AddCommand(accessibilityserviceGestureDescriptionGetDisplayIdCmd)
-	accessibilityserviceGestureDescriptionGetStrokeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	accessibilityserviceGestureDescriptionCmd.AddCommand(accessibilityserviceGestureDescriptionGetStrokeCmd)
-	accessibilityserviceGestureDescriptionCmd.AddCommand(accessibilityserviceGestureDescriptionGetStrokeCountCmd)
-	accessibilityserviceGestureDescriptionCmd.AddCommand(accessibilityserviceGestureDescriptionGetMaxGestureDurationCmd)
-	accessibilityserviceGestureDescriptionCmd.AddCommand(accessibilityserviceGestureDescriptionGetMaxStrokeCountCmd)
-	accessibilityserviceCmd.AddCommand(accessibilityserviceGestureDescriptionCmd)
-	accessibilityserviceGestureDescriptionBuilderAddStrokeCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	accessibilityserviceGestureDescriptionBuilderCmd.AddCommand(accessibilityserviceGestureDescriptionBuilderAddStrokeCmd)
-	accessibilityserviceGestureDescriptionBuilderCmd.AddCommand(accessibilityserviceGestureDescriptionBuilderBuildCmd)
-	accessibilityserviceGestureDescriptionBuilderSetDisplayIdCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	accessibilityserviceGestureDescriptionBuilderCmd.AddCommand(accessibilityserviceGestureDescriptionBuilderSetDisplayIdCmd)
-	accessibilityserviceCmd.AddCommand(accessibilityserviceGestureDescriptionBuilderCmd)
-	accessibilityserviceGestureDescriptionStrokeDescriptionContinueStrokeCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	accessibilityserviceGestureDescriptionStrokeDescriptionContinueStrokeCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	accessibilityserviceGestureDescriptionStrokeDescriptionContinueStrokeCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	accessibilityserviceGestureDescriptionStrokeDescriptionContinueStrokeCmd.Flags().Bool("arg3", false, "arg3 (bool)")
-	accessibilityserviceGestureDescriptionStrokeDescriptionCmd.AddCommand(accessibilityserviceGestureDescriptionStrokeDescriptionContinueStrokeCmd)
-	accessibilityserviceGestureDescriptionStrokeDescriptionCmd.AddCommand(accessibilityserviceGestureDescriptionStrokeDescriptionGetDurationCmd)
-	accessibilityserviceGestureDescriptionStrokeDescriptionCmd.AddCommand(accessibilityserviceGestureDescriptionStrokeDescriptionGetPathCmd)
-	accessibilityserviceGestureDescriptionStrokeDescriptionCmd.AddCommand(accessibilityserviceGestureDescriptionStrokeDescriptionGetStartTimeCmd)
-	accessibilityserviceGestureDescriptionStrokeDescriptionCmd.AddCommand(accessibilityserviceGestureDescriptionStrokeDescriptionWillContinueCmd)
-	accessibilityserviceCmd.AddCommand(accessibilityserviceGestureDescriptionStrokeDescriptionCmd)
+	accessibilityserviceFingerprintGestureControllerCmd.AddCommand(accessibilityserviceFingerprintGestureControllerIsGestureDetectionAvailableCmd)
+	accessibilityserviceFingerprintGestureControllerUnregisterFingerprintGestureCallbackCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	accessibilityserviceFingerprintGestureControllerCmd.AddCommand(accessibilityserviceFingerprintGestureControllerUnregisterFingerprintGestureCallbackCmd)
+	accessibilityserviceCmd.AddCommand(accessibilityserviceFingerprintGestureControllerCmd)
+	accessibilityserviceFingerprintGestureControllerFingerprintGestureCallbackOnGestureDetectedCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	accessibilityserviceFingerprintGestureControllerFingerprintGestureCallbackCmd.AddCommand(accessibilityserviceFingerprintGestureControllerFingerprintGestureCallbackOnGestureDetectedCmd)
+	accessibilityserviceFingerprintGestureControllerFingerprintGestureCallbackOnGestureDetectionAvailabilityChangedCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	accessibilityserviceFingerprintGestureControllerFingerprintGestureCallbackCmd.AddCommand(accessibilityserviceFingerprintGestureControllerFingerprintGestureCallbackOnGestureDetectionAvailabilityChangedCmd)
+	accessibilityserviceCmd.AddCommand(accessibilityserviceFingerprintGestureControllerFingerprintGestureCallbackCmd)
 	accessibilityserviceMagnificationConfigCmd.AddCommand(accessibilityserviceMagnificationConfigDescribeContentsCmd)
 	accessibilityserviceMagnificationConfigCmd.AddCommand(accessibilityserviceMagnificationConfigGetCenterXCmd)
 	accessibilityserviceMagnificationConfigCmd.AddCommand(accessibilityserviceMagnificationConfigGetCenterYCmd)
@@ -3798,53 +3823,100 @@ func init() {
 	accessibilityserviceMagnificationConfigBuilderSetScaleCmd.Flags().Float32("arg0", 0, "arg0 (float32)")
 	accessibilityserviceMagnificationConfigBuilderCmd.AddCommand(accessibilityserviceMagnificationConfigBuilderSetScaleCmd)
 	accessibilityserviceCmd.AddCommand(accessibilityserviceMagnificationConfigBuilderCmd)
-	accessibilityserviceInputMethodNewInputMethodCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	accessibilityserviceInputMethodCmd.AddCommand(accessibilityserviceInputMethodNewInputMethodCmd)
-	accessibilityserviceInputMethodGetCurrentInputConnectionCmd.Flags().Int64("handle", 0, "handle (int64)")
-	accessibilityserviceInputMethodCmd.AddCommand(accessibilityserviceInputMethodGetCurrentInputConnectionCmd)
-	accessibilityserviceInputMethodGetCurrentInputEditorInfoCmd.Flags().Int64("handle", 0, "handle (int64)")
-	accessibilityserviceInputMethodCmd.AddCommand(accessibilityserviceInputMethodGetCurrentInputEditorInfoCmd)
-	accessibilityserviceInputMethodGetCurrentInputStartedCmd.Flags().Int64("handle", 0, "handle (int64)")
-	accessibilityserviceInputMethodCmd.AddCommand(accessibilityserviceInputMethodGetCurrentInputStartedCmd)
-	accessibilityserviceInputMethodOnFinishInputCmd.Flags().Int64("handle", 0, "handle (int64)")
-	accessibilityserviceInputMethodCmd.AddCommand(accessibilityserviceInputMethodOnFinishInputCmd)
-	accessibilityserviceInputMethodOnStartInputCmd.Flags().Int64("handle", 0, "handle (int64)")
-	accessibilityserviceInputMethodOnStartInputCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	accessibilityserviceInputMethodOnStartInputCmd.Flags().Bool("arg1", false, "arg1 (bool)")
-	accessibilityserviceInputMethodCmd.AddCommand(accessibilityserviceInputMethodOnStartInputCmd)
-	accessibilityserviceInputMethodOnUpdateSelectionCmd.Flags().Int64("handle", 0, "handle (int64)")
-	accessibilityserviceInputMethodOnUpdateSelectionCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	accessibilityserviceInputMethodOnUpdateSelectionCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	accessibilityserviceInputMethodOnUpdateSelectionCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
-	accessibilityserviceInputMethodOnUpdateSelectionCmd.Flags().Int32("arg3", 0, "arg3 (int32)")
-	accessibilityserviceInputMethodOnUpdateSelectionCmd.Flags().Int32("arg4", 0, "arg4 (int32)")
-	accessibilityserviceInputMethodOnUpdateSelectionCmd.Flags().Int32("arg5", 0, "arg5 (int32)")
-	accessibilityserviceInputMethodCmd.AddCommand(accessibilityserviceInputMethodOnUpdateSelectionCmd)
-	accessibilityserviceCmd.AddCommand(accessibilityserviceInputMethodCmd)
-	accessibilityserviceInputMethodAccessibilityInputConnectionClearMetaKeyStatesCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	accessibilityserviceInputMethodAccessibilityInputConnectionCmd.AddCommand(accessibilityserviceInputMethodAccessibilityInputConnectionClearMetaKeyStatesCmd)
-	accessibilityserviceInputMethodAccessibilityInputConnectionCommitTextCmd.Flags().String("arg0", "", "arg0 (string)")
-	accessibilityserviceInputMethodAccessibilityInputConnectionCommitTextCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	accessibilityserviceInputMethodAccessibilityInputConnectionCommitTextCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	accessibilityserviceInputMethodAccessibilityInputConnectionCmd.AddCommand(accessibilityserviceInputMethodAccessibilityInputConnectionCommitTextCmd)
-	accessibilityserviceInputMethodAccessibilityInputConnectionDeleteSurroundingTextCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	accessibilityserviceInputMethodAccessibilityInputConnectionDeleteSurroundingTextCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	accessibilityserviceInputMethodAccessibilityInputConnectionCmd.AddCommand(accessibilityserviceInputMethodAccessibilityInputConnectionDeleteSurroundingTextCmd)
-	accessibilityserviceInputMethodAccessibilityInputConnectionGetCursorCapsModeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	accessibilityserviceInputMethodAccessibilityInputConnectionCmd.AddCommand(accessibilityserviceInputMethodAccessibilityInputConnectionGetCursorCapsModeCmd)
-	accessibilityserviceInputMethodAccessibilityInputConnectionGetSurroundingTextCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	accessibilityserviceInputMethodAccessibilityInputConnectionGetSurroundingTextCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	accessibilityserviceInputMethodAccessibilityInputConnectionGetSurroundingTextCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
-	accessibilityserviceInputMethodAccessibilityInputConnectionCmd.AddCommand(accessibilityserviceInputMethodAccessibilityInputConnectionGetSurroundingTextCmd)
-	accessibilityserviceInputMethodAccessibilityInputConnectionPerformContextMenuActionCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	accessibilityserviceInputMethodAccessibilityInputConnectionCmd.AddCommand(accessibilityserviceInputMethodAccessibilityInputConnectionPerformContextMenuActionCmd)
-	accessibilityserviceInputMethodAccessibilityInputConnectionPerformEditorActionCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	accessibilityserviceInputMethodAccessibilityInputConnectionCmd.AddCommand(accessibilityserviceInputMethodAccessibilityInputConnectionPerformEditorActionCmd)
-	accessibilityserviceInputMethodAccessibilityInputConnectionSendKeyEventCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	accessibilityserviceInputMethodAccessibilityInputConnectionCmd.AddCommand(accessibilityserviceInputMethodAccessibilityInputConnectionSendKeyEventCmd)
-	accessibilityserviceInputMethodAccessibilityInputConnectionSetSelectionCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	accessibilityserviceInputMethodAccessibilityInputConnectionSetSelectionCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	accessibilityserviceInputMethodAccessibilityInputConnectionCmd.AddCommand(accessibilityserviceInputMethodAccessibilityInputConnectionSetSelectionCmd)
-	accessibilityserviceCmd.AddCommand(accessibilityserviceInputMethodAccessibilityInputConnectionCmd)
+	accessibilityserviceGestureDescriptionCmd.AddCommand(accessibilityserviceGestureDescriptionGetDisplayIdCmd)
+	accessibilityserviceGestureDescriptionGetStrokeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	accessibilityserviceGestureDescriptionCmd.AddCommand(accessibilityserviceGestureDescriptionGetStrokeCmd)
+	accessibilityserviceGestureDescriptionCmd.AddCommand(accessibilityserviceGestureDescriptionGetStrokeCountCmd)
+	accessibilityserviceGestureDescriptionCmd.AddCommand(accessibilityserviceGestureDescriptionGetMaxGestureDurationCmd)
+	accessibilityserviceGestureDescriptionCmd.AddCommand(accessibilityserviceGestureDescriptionGetMaxStrokeCountCmd)
+	accessibilityserviceCmd.AddCommand(accessibilityserviceGestureDescriptionCmd)
+	accessibilityserviceGestureDescriptionBuilderAddStrokeCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	accessibilityserviceGestureDescriptionBuilderCmd.AddCommand(accessibilityserviceGestureDescriptionBuilderAddStrokeCmd)
+	accessibilityserviceGestureDescriptionBuilderCmd.AddCommand(accessibilityserviceGestureDescriptionBuilderBuildCmd)
+	accessibilityserviceGestureDescriptionBuilderSetDisplayIdCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	accessibilityserviceGestureDescriptionBuilderCmd.AddCommand(accessibilityserviceGestureDescriptionBuilderSetDisplayIdCmd)
+	accessibilityserviceCmd.AddCommand(accessibilityserviceGestureDescriptionBuilderCmd)
+	accessibilityserviceGestureDescriptionStrokeDescriptionContinueStrokeCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	accessibilityserviceGestureDescriptionStrokeDescriptionContinueStrokeCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	accessibilityserviceGestureDescriptionStrokeDescriptionContinueStrokeCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	accessibilityserviceGestureDescriptionStrokeDescriptionContinueStrokeCmd.Flags().Bool("arg3", false, "arg3 (bool)")
+	accessibilityserviceGestureDescriptionStrokeDescriptionCmd.AddCommand(accessibilityserviceGestureDescriptionStrokeDescriptionContinueStrokeCmd)
+	accessibilityserviceGestureDescriptionStrokeDescriptionCmd.AddCommand(accessibilityserviceGestureDescriptionStrokeDescriptionGetDurationCmd)
+	accessibilityserviceGestureDescriptionStrokeDescriptionCmd.AddCommand(accessibilityserviceGestureDescriptionStrokeDescriptionGetPathCmd)
+	accessibilityserviceGestureDescriptionStrokeDescriptionCmd.AddCommand(accessibilityserviceGestureDescriptionStrokeDescriptionGetStartTimeCmd)
+	accessibilityserviceGestureDescriptionStrokeDescriptionCmd.AddCommand(accessibilityserviceGestureDescriptionStrokeDescriptionWillContinueCmd)
+	accessibilityserviceCmd.AddCommand(accessibilityserviceGestureDescriptionStrokeDescriptionCmd)
+	accessibilityserviceAccessibilityGestureEventNewAccessibilityGestureEventCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	accessibilityserviceAccessibilityGestureEventNewAccessibilityGestureEventCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	accessibilityserviceAccessibilityGestureEventNewAccessibilityGestureEventCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	accessibilityserviceAccessibilityGestureEventCmd.AddCommand(accessibilityserviceAccessibilityGestureEventNewAccessibilityGestureEventCmd)
+	accessibilityserviceAccessibilityGestureEventDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	accessibilityserviceAccessibilityGestureEventCmd.AddCommand(accessibilityserviceAccessibilityGestureEventDescribeContentsCmd)
+	accessibilityserviceAccessibilityGestureEventGetDisplayIdCmd.Flags().Int64("handle", 0, "handle (int64)")
+	accessibilityserviceAccessibilityGestureEventCmd.AddCommand(accessibilityserviceAccessibilityGestureEventGetDisplayIdCmd)
+	accessibilityserviceAccessibilityGestureEventGetGestureIdCmd.Flags().Int64("handle", 0, "handle (int64)")
+	accessibilityserviceAccessibilityGestureEventCmd.AddCommand(accessibilityserviceAccessibilityGestureEventGetGestureIdCmd)
+	accessibilityserviceAccessibilityGestureEventGetMotionEventsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	accessibilityserviceAccessibilityGestureEventCmd.AddCommand(accessibilityserviceAccessibilityGestureEventGetMotionEventsCmd)
+	accessibilityserviceAccessibilityGestureEventToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
+	accessibilityserviceAccessibilityGestureEventCmd.AddCommand(accessibilityserviceAccessibilityGestureEventToStringCmd)
+	accessibilityserviceAccessibilityGestureEventWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	accessibilityserviceAccessibilityGestureEventWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	accessibilityserviceAccessibilityGestureEventWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	accessibilityserviceAccessibilityGestureEventCmd.AddCommand(accessibilityserviceAccessibilityGestureEventWriteToParcelCmd)
+	accessibilityserviceAccessibilityGestureEventGestureIdToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
+	accessibilityserviceAccessibilityGestureEventGestureIdToStringCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	accessibilityserviceAccessibilityGestureEventCmd.AddCommand(accessibilityserviceAccessibilityGestureEventGestureIdToStringCmd)
+	accessibilityserviceCmd.AddCommand(accessibilityserviceAccessibilityGestureEventCmd)
+	accessibilityserviceBrailleDisplayControllerConnect2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	accessibilityserviceBrailleDisplayControllerConnect2Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	accessibilityserviceBrailleDisplayControllerCmd.AddCommand(accessibilityserviceBrailleDisplayControllerConnect2Cmd)
+	accessibilityserviceBrailleDisplayControllerConnect3_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	accessibilityserviceBrailleDisplayControllerConnect3_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	accessibilityserviceBrailleDisplayControllerConnect3_1Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	accessibilityserviceBrailleDisplayControllerCmd.AddCommand(accessibilityserviceBrailleDisplayControllerConnect3_1Cmd)
+	accessibilityserviceBrailleDisplayControllerConnect2_2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	accessibilityserviceBrailleDisplayControllerConnect2_2Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	accessibilityserviceBrailleDisplayControllerCmd.AddCommand(accessibilityserviceBrailleDisplayControllerConnect2_2Cmd)
+	accessibilityserviceBrailleDisplayControllerConnect3_3Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	accessibilityserviceBrailleDisplayControllerConnect3_3Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	accessibilityserviceBrailleDisplayControllerConnect3_3Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	accessibilityserviceBrailleDisplayControllerCmd.AddCommand(accessibilityserviceBrailleDisplayControllerConnect3_3Cmd)
+	accessibilityserviceBrailleDisplayControllerCmd.AddCommand(accessibilityserviceBrailleDisplayControllerDisconnectCmd)
+	accessibilityserviceBrailleDisplayControllerCmd.AddCommand(accessibilityserviceBrailleDisplayControllerIsConnectedCmd)
+	accessibilityserviceBrailleDisplayControllerWriteCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	accessibilityserviceBrailleDisplayControllerCmd.AddCommand(accessibilityserviceBrailleDisplayControllerWriteCmd)
+	accessibilityserviceCmd.AddCommand(accessibilityserviceBrailleDisplayControllerCmd)
+	accessibilityserviceBrailleDisplayControllerBrailleDisplayCallbackOnConnectedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	accessibilityserviceBrailleDisplayControllerBrailleDisplayCallbackCmd.AddCommand(accessibilityserviceBrailleDisplayControllerBrailleDisplayCallbackOnConnectedCmd)
+	accessibilityserviceBrailleDisplayControllerBrailleDisplayCallbackOnConnectionFailedCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	accessibilityserviceBrailleDisplayControllerBrailleDisplayCallbackCmd.AddCommand(accessibilityserviceBrailleDisplayControllerBrailleDisplayCallbackOnConnectionFailedCmd)
+	accessibilityserviceBrailleDisplayControllerBrailleDisplayCallbackCmd.AddCommand(accessibilityserviceBrailleDisplayControllerBrailleDisplayCallbackOnDisconnectedCmd)
+	accessibilityserviceBrailleDisplayControllerBrailleDisplayCallbackOnInputCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	accessibilityserviceBrailleDisplayControllerBrailleDisplayCallbackCmd.AddCommand(accessibilityserviceBrailleDisplayControllerBrailleDisplayCallbackOnInputCmd)
+	accessibilityserviceCmd.AddCommand(accessibilityserviceBrailleDisplayControllerBrailleDisplayCallbackCmd)
+	accessibilityserviceTouchInteractionControllerCmd.AddCommand(accessibilityserviceTouchInteractionControllerGetDisplayIdCmd)
+	accessibilityserviceTouchInteractionControllerCmd.AddCommand(accessibilityserviceTouchInteractionControllerGetMaxPointerCountCmd)
+	accessibilityserviceTouchInteractionControllerCmd.AddCommand(accessibilityserviceTouchInteractionControllerGetStateCmd)
+	accessibilityserviceTouchInteractionControllerCmd.AddCommand(accessibilityserviceTouchInteractionControllerPerformClickCmd)
+	accessibilityserviceTouchInteractionControllerCmd.AddCommand(accessibilityserviceTouchInteractionControllerPerformLongClickAndStartDragCmd)
+	accessibilityserviceTouchInteractionControllerRegisterCallbackCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	accessibilityserviceTouchInteractionControllerRegisterCallbackCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	accessibilityserviceTouchInteractionControllerCmd.AddCommand(accessibilityserviceTouchInteractionControllerRegisterCallbackCmd)
+	accessibilityserviceTouchInteractionControllerCmd.AddCommand(accessibilityserviceTouchInteractionControllerRequestDelegatingCmd)
+	accessibilityserviceTouchInteractionControllerRequestDraggingCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	accessibilityserviceTouchInteractionControllerCmd.AddCommand(accessibilityserviceTouchInteractionControllerRequestDraggingCmd)
+	accessibilityserviceTouchInteractionControllerCmd.AddCommand(accessibilityserviceTouchInteractionControllerRequestTouchExplorationCmd)
+	accessibilityserviceTouchInteractionControllerCmd.AddCommand(accessibilityserviceTouchInteractionControllerUnregisterAllCallbacksCmd)
+	accessibilityserviceTouchInteractionControllerUnregisterCallbackCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	accessibilityserviceTouchInteractionControllerCmd.AddCommand(accessibilityserviceTouchInteractionControllerUnregisterCallbackCmd)
+	accessibilityserviceTouchInteractionControllerStateToStringCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	accessibilityserviceTouchInteractionControllerCmd.AddCommand(accessibilityserviceTouchInteractionControllerStateToStringCmd)
+	accessibilityserviceCmd.AddCommand(accessibilityserviceTouchInteractionControllerCmd)
+	accessibilityserviceTouchInteractionControllerCallbackOnMotionEventCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	accessibilityserviceTouchInteractionControllerCallbackCmd.AddCommand(accessibilityserviceTouchInteractionControllerCallbackOnMotionEventCmd)
+	accessibilityserviceTouchInteractionControllerCallbackOnStateChangedCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	accessibilityserviceTouchInteractionControllerCallbackCmd.AddCommand(accessibilityserviceTouchInteractionControllerCallbackOnStateChangedCmd)
+	accessibilityserviceCmd.AddCommand(accessibilityserviceTouchInteractionControllerCallbackCmd)
 	rootCmd.AddCommand(accessibilityserviceCmd)
 }

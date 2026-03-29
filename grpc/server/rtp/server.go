@@ -15,6 +15,104 @@ import (
 	"google.golang.org/grpc/status"
 )
 
+// AudioGroupServer implements pb.AudioGroupServiceServer.
+type AudioGroupServer struct {
+	pb.UnimplementedAudioGroupServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *AudioGroupServer) NewAudioGroup(_ context.Context, req *pb.NewAudioGroupRequest) (*pb.NewAudioGroupResponse, error) {
+	obj, err := jnipkg.NewAudioGroup(s.Ctx.VM, s.Ctx.Obj)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewAudioGroupResponse{Result: handle}, nil
+}
+
+func (s *AudioGroupServer) Clear(_ context.Context, req *pb.ClearRequest) (*pb.ClearResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.AudioGroup{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.Clear(); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ClearResponse{}, nil
+}
+
+func (s *AudioGroupServer) GetMode(_ context.Context, req *pb.GetModeRequest) (*pb.GetModeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.AudioGroup{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetMode()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetModeResponse{Result: result}, nil
+}
+
+func (s *AudioGroupServer) GetStreams(_ context.Context, req *pb.GetStreamsRequest) (*pb.GetStreamsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.AudioGroup{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetStreams()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetStreamsResponse{Result: handle}, nil
+}
+
+func (s *AudioGroupServer) SendDtmf(_ context.Context, req *pb.SendDtmfRequest) (*pb.SendDtmfResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.AudioGroup{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SendDtmf(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SendDtmfResponse{}, nil
+}
+
+func (s *AudioGroupServer) SetMode(_ context.Context, req *pb.SetModeRequest) (*pb.SetModeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.AudioGroup{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetMode(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetModeResponse{}, nil
+}
+
 // AudioStreamServer implements pb.AudioStreamServiceServer.
 type AudioStreamServer struct {
 	pb.UnimplementedAudioStreamServiceServer
@@ -37,7 +135,7 @@ func (s *AudioStreamServer) NewAudioStream(_ context.Context, req *pb.NewAudioSt
 	return &pb.NewAudioStreamResponse{Result: handle}, nil
 }
 
-func (s *AudioStreamServer) GetCodec(_ context.Context, req *pb.GetCodecRequest) (*pb.GetCodecResponse, error) {
+func (s *AudioStreamServer) GetCodec(_ context.Context, req *pb.AudioStreamGetCodecRequest) (*pb.GetCodecResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -148,102 +246,4 @@ func (s *AudioStreamServer) SetDtmfType(_ context.Context, req *pb.SetDtmfTypeRe
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
 	return &pb.SetDtmfTypeResponse{}, nil
-}
-
-// AudioGroupServer implements pb.AudioGroupServiceServer.
-type AudioGroupServer struct {
-	pb.UnimplementedAudioGroupServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *AudioGroupServer) NewAudioGroup(_ context.Context, req *pb.NewAudioGroupRequest) (*pb.NewAudioGroupResponse, error) {
-	obj, err := jnipkg.NewAudioGroup(s.Ctx.VM, s.Ctx.Obj)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
-	}
-	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-	}
-	return &pb.NewAudioGroupResponse{Result: handle}, nil
-}
-
-func (s *AudioGroupServer) Clear(_ context.Context, req *pb.ClearRequest) (*pb.ClearResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.AudioGroup{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.Clear(); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.ClearResponse{}, nil
-}
-
-func (s *AudioGroupServer) GetMode(_ context.Context, req *pb.AudioGroupGetModeRequest) (*pb.GetModeResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.AudioGroup{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetMode()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetModeResponse{Result: result}, nil
-}
-
-func (s *AudioGroupServer) GetStreams(_ context.Context, req *pb.GetStreamsRequest) (*pb.GetStreamsResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.AudioGroup{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetStreams()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetStreamsResponse{Result: handle}, nil
-}
-
-func (s *AudioGroupServer) SendDtmf(_ context.Context, req *pb.SendDtmfRequest) (*pb.SendDtmfResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.AudioGroup{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.SendDtmf(req.GetArg0()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SendDtmfResponse{}, nil
-}
-
-func (s *AudioGroupServer) SetMode(_ context.Context, req *pb.AudioGroupSetModeRequest) (*pb.SetModeResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.AudioGroup{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.SetMode(req.GetArg0()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SetModeResponse{}, nil
 }

@@ -184,7 +184,7 @@ func (s *DeviceServer) GetObjectInfo(_ context.Context, req *pb.GetObjectInfoReq
 	return &pb.GetObjectInfoResponse{Result: handle}, nil
 }
 
-func (s *DeviceServer) GetParent(_ context.Context, req *pb.GetParentRequest) (*pb.GetParentResponse, error) {
+func (s *DeviceServer) GetParent(_ context.Context, req *pb.DeviceGetParentRequest) (*pb.DeviceGetParentResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -195,7 +195,7 @@ func (s *DeviceServer) GetParent(_ context.Context, req *pb.GetParentRequest) (*
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.GetParentResponse{Result: result}, nil
+	return &pb.DeviceGetParentResponse{Result: result}, nil
 }
 
 func (s *DeviceServer) GetPartialObject(_ context.Context, req *pb.GetPartialObjectRequest) (*pb.GetPartialObjectResponse, error) {

@@ -124,352 +124,6 @@ var EndElementListenerService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	EndTextElementListenerService_End_FullMethodName = "/sax.EndTextElementListenerService/End"
-)
-
-// EndTextElementListenerServiceClient is the client API for EndTextElementListenerService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type EndTextElementListenerServiceClient interface {
-	End(ctx context.Context, in *EndTextElementListenerEndRequest, opts ...grpc.CallOption) (*EndResponse, error)
-}
-
-type endTextElementListenerServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewEndTextElementListenerServiceClient(cc grpc.ClientConnInterface) EndTextElementListenerServiceClient {
-	return &endTextElementListenerServiceClient{cc}
-}
-
-func (c *endTextElementListenerServiceClient) End(ctx context.Context, in *EndTextElementListenerEndRequest, opts ...grpc.CallOption) (*EndResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(EndResponse)
-	err := c.cc.Invoke(ctx, EndTextElementListenerService_End_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// EndTextElementListenerServiceServer is the server API for EndTextElementListenerService service.
-// All implementations must embed UnimplementedEndTextElementListenerServiceServer
-// for forward compatibility.
-type EndTextElementListenerServiceServer interface {
-	End(context.Context, *EndTextElementListenerEndRequest) (*EndResponse, error)
-	mustEmbedUnimplementedEndTextElementListenerServiceServer()
-}
-
-// UnimplementedEndTextElementListenerServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedEndTextElementListenerServiceServer struct{}
-
-func (UnimplementedEndTextElementListenerServiceServer) End(context.Context, *EndTextElementListenerEndRequest) (*EndResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method End not implemented")
-}
-func (UnimplementedEndTextElementListenerServiceServer) mustEmbedUnimplementedEndTextElementListenerServiceServer() {
-}
-func (UnimplementedEndTextElementListenerServiceServer) testEmbeddedByValue() {}
-
-// UnsafeEndTextElementListenerServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to EndTextElementListenerServiceServer will
-// result in compilation errors.
-type UnsafeEndTextElementListenerServiceServer interface {
-	mustEmbedUnimplementedEndTextElementListenerServiceServer()
-}
-
-func RegisterEndTextElementListenerServiceServer(s grpc.ServiceRegistrar, srv EndTextElementListenerServiceServer) {
-	// If the following call panics, it indicates UnimplementedEndTextElementListenerServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&EndTextElementListenerService_ServiceDesc, srv)
-}
-
-func _EndTextElementListenerService_End_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(EndTextElementListenerEndRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(EndTextElementListenerServiceServer).End(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: EndTextElementListenerService_End_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(EndTextElementListenerServiceServer).End(ctx, req.(*EndTextElementListenerEndRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// EndTextElementListenerService_ServiceDesc is the grpc.ServiceDesc for EndTextElementListenerService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var EndTextElementListenerService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "sax.EndTextElementListenerService",
-	HandlerType: (*EndTextElementListenerServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "End",
-			Handler:    _EndTextElementListenerService_End_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/sax/sax.proto",
-}
-
-const (
-	StartElementListenerService_Start_FullMethodName = "/sax.StartElementListenerService/Start"
-)
-
-// StartElementListenerServiceClient is the client API for StartElementListenerService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type StartElementListenerServiceClient interface {
-	Start(ctx context.Context, in *StartRequest, opts ...grpc.CallOption) (*StartResponse, error)
-}
-
-type startElementListenerServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewStartElementListenerServiceClient(cc grpc.ClientConnInterface) StartElementListenerServiceClient {
-	return &startElementListenerServiceClient{cc}
-}
-
-func (c *startElementListenerServiceClient) Start(ctx context.Context, in *StartRequest, opts ...grpc.CallOption) (*StartResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(StartResponse)
-	err := c.cc.Invoke(ctx, StartElementListenerService_Start_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// StartElementListenerServiceServer is the server API for StartElementListenerService service.
-// All implementations must embed UnimplementedStartElementListenerServiceServer
-// for forward compatibility.
-type StartElementListenerServiceServer interface {
-	Start(context.Context, *StartRequest) (*StartResponse, error)
-	mustEmbedUnimplementedStartElementListenerServiceServer()
-}
-
-// UnimplementedStartElementListenerServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedStartElementListenerServiceServer struct{}
-
-func (UnimplementedStartElementListenerServiceServer) Start(context.Context, *StartRequest) (*StartResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Start not implemented")
-}
-func (UnimplementedStartElementListenerServiceServer) mustEmbedUnimplementedStartElementListenerServiceServer() {
-}
-func (UnimplementedStartElementListenerServiceServer) testEmbeddedByValue() {}
-
-// UnsafeStartElementListenerServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to StartElementListenerServiceServer will
-// result in compilation errors.
-type UnsafeStartElementListenerServiceServer interface {
-	mustEmbedUnimplementedStartElementListenerServiceServer()
-}
-
-func RegisterStartElementListenerServiceServer(s grpc.ServiceRegistrar, srv StartElementListenerServiceServer) {
-	// If the following call panics, it indicates UnimplementedStartElementListenerServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&StartElementListenerService_ServiceDesc, srv)
-}
-
-func _StartElementListenerService_Start_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(StartRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(StartElementListenerServiceServer).Start(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: StartElementListenerService_Start_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(StartElementListenerServiceServer).Start(ctx, req.(*StartRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// StartElementListenerService_ServiceDesc is the grpc.ServiceDesc for StartElementListenerService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var StartElementListenerService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "sax.StartElementListenerService",
-	HandlerType: (*StartElementListenerServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "Start",
-			Handler:    _StartElementListenerService_Start_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/sax/sax.proto",
-}
-
-const (
-	RootElementService_NewRootElement_FullMethodName    = "/sax.RootElementService/NewRootElement"
-	RootElementService_GetContentHandler_FullMethodName = "/sax.RootElementService/GetContentHandler"
-)
-
-// RootElementServiceClient is the client API for RootElementService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type RootElementServiceClient interface {
-	NewRootElement(ctx context.Context, in *NewRootElementRequest, opts ...grpc.CallOption) (*NewRootElementResponse, error)
-	GetContentHandler(ctx context.Context, in *GetContentHandlerRequest, opts ...grpc.CallOption) (*GetContentHandlerResponse, error)
-}
-
-type rootElementServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewRootElementServiceClient(cc grpc.ClientConnInterface) RootElementServiceClient {
-	return &rootElementServiceClient{cc}
-}
-
-func (c *rootElementServiceClient) NewRootElement(ctx context.Context, in *NewRootElementRequest, opts ...grpc.CallOption) (*NewRootElementResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewRootElementResponse)
-	err := c.cc.Invoke(ctx, RootElementService_NewRootElement_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *rootElementServiceClient) GetContentHandler(ctx context.Context, in *GetContentHandlerRequest, opts ...grpc.CallOption) (*GetContentHandlerResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetContentHandlerResponse)
-	err := c.cc.Invoke(ctx, RootElementService_GetContentHandler_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// RootElementServiceServer is the server API for RootElementService service.
-// All implementations must embed UnimplementedRootElementServiceServer
-// for forward compatibility.
-type RootElementServiceServer interface {
-	NewRootElement(context.Context, *NewRootElementRequest) (*NewRootElementResponse, error)
-	GetContentHandler(context.Context, *GetContentHandlerRequest) (*GetContentHandlerResponse, error)
-	mustEmbedUnimplementedRootElementServiceServer()
-}
-
-// UnimplementedRootElementServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedRootElementServiceServer struct{}
-
-func (UnimplementedRootElementServiceServer) NewRootElement(context.Context, *NewRootElementRequest) (*NewRootElementResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewRootElement not implemented")
-}
-func (UnimplementedRootElementServiceServer) GetContentHandler(context.Context, *GetContentHandlerRequest) (*GetContentHandlerResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetContentHandler not implemented")
-}
-func (UnimplementedRootElementServiceServer) mustEmbedUnimplementedRootElementServiceServer() {}
-func (UnimplementedRootElementServiceServer) testEmbeddedByValue()                            {}
-
-// UnsafeRootElementServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to RootElementServiceServer will
-// result in compilation errors.
-type UnsafeRootElementServiceServer interface {
-	mustEmbedUnimplementedRootElementServiceServer()
-}
-
-func RegisterRootElementServiceServer(s grpc.ServiceRegistrar, srv RootElementServiceServer) {
-	// If the following call panics, it indicates UnimplementedRootElementServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&RootElementService_ServiceDesc, srv)
-}
-
-func _RootElementService_NewRootElement_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewRootElementRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(RootElementServiceServer).NewRootElement(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: RootElementService_NewRootElement_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RootElementServiceServer).NewRootElement(ctx, req.(*NewRootElementRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _RootElementService_GetContentHandler_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetContentHandlerRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(RootElementServiceServer).GetContentHandler(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: RootElementService_GetContentHandler_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RootElementServiceServer).GetContentHandler(ctx, req.(*GetContentHandlerRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// RootElementService_ServiceDesc is the grpc.ServiceDesc for RootElementService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var RootElementService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "sax.RootElementService",
-	HandlerType: (*RootElementServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "NewRootElement",
-			Handler:    _RootElementService_NewRootElement_Handler,
-		},
-		{
-			MethodName: "GetContentHandler",
-			Handler:    _RootElementService_GetContentHandler_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/sax/sax.proto",
-}
-
-const (
 	ElementService_GetChild1_FullMethodName                 = "/sax.ElementService/GetChild1"
 	ElementService_GetChild2_1_FullMethodName               = "/sax.ElementService/GetChild2_1"
 	ElementService_RequireChild1_FullMethodName             = "/sax.ElementService/RequireChild1"
@@ -907,6 +561,352 @@ var ElementService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "ToString",
 			Handler:    _ElementService_ToString_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/sax/sax.proto",
+}
+
+const (
+	StartElementListenerService_Start_FullMethodName = "/sax.StartElementListenerService/Start"
+)
+
+// StartElementListenerServiceClient is the client API for StartElementListenerService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type StartElementListenerServiceClient interface {
+	Start(ctx context.Context, in *StartRequest, opts ...grpc.CallOption) (*StartResponse, error)
+}
+
+type startElementListenerServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewStartElementListenerServiceClient(cc grpc.ClientConnInterface) StartElementListenerServiceClient {
+	return &startElementListenerServiceClient{cc}
+}
+
+func (c *startElementListenerServiceClient) Start(ctx context.Context, in *StartRequest, opts ...grpc.CallOption) (*StartResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(StartResponse)
+	err := c.cc.Invoke(ctx, StartElementListenerService_Start_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// StartElementListenerServiceServer is the server API for StartElementListenerService service.
+// All implementations must embed UnimplementedStartElementListenerServiceServer
+// for forward compatibility.
+type StartElementListenerServiceServer interface {
+	Start(context.Context, *StartRequest) (*StartResponse, error)
+	mustEmbedUnimplementedStartElementListenerServiceServer()
+}
+
+// UnimplementedStartElementListenerServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedStartElementListenerServiceServer struct{}
+
+func (UnimplementedStartElementListenerServiceServer) Start(context.Context, *StartRequest) (*StartResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Start not implemented")
+}
+func (UnimplementedStartElementListenerServiceServer) mustEmbedUnimplementedStartElementListenerServiceServer() {
+}
+func (UnimplementedStartElementListenerServiceServer) testEmbeddedByValue() {}
+
+// UnsafeStartElementListenerServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to StartElementListenerServiceServer will
+// result in compilation errors.
+type UnsafeStartElementListenerServiceServer interface {
+	mustEmbedUnimplementedStartElementListenerServiceServer()
+}
+
+func RegisterStartElementListenerServiceServer(s grpc.ServiceRegistrar, srv StartElementListenerServiceServer) {
+	// If the following call panics, it indicates UnimplementedStartElementListenerServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&StartElementListenerService_ServiceDesc, srv)
+}
+
+func _StartElementListenerService_Start_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(StartRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(StartElementListenerServiceServer).Start(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: StartElementListenerService_Start_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(StartElementListenerServiceServer).Start(ctx, req.(*StartRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// StartElementListenerService_ServiceDesc is the grpc.ServiceDesc for StartElementListenerService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var StartElementListenerService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "sax.StartElementListenerService",
+	HandlerType: (*StartElementListenerServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Start",
+			Handler:    _StartElementListenerService_Start_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/sax/sax.proto",
+}
+
+const (
+	EndTextElementListenerService_End_FullMethodName = "/sax.EndTextElementListenerService/End"
+)
+
+// EndTextElementListenerServiceClient is the client API for EndTextElementListenerService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type EndTextElementListenerServiceClient interface {
+	End(ctx context.Context, in *EndTextElementListenerEndRequest, opts ...grpc.CallOption) (*EndResponse, error)
+}
+
+type endTextElementListenerServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewEndTextElementListenerServiceClient(cc grpc.ClientConnInterface) EndTextElementListenerServiceClient {
+	return &endTextElementListenerServiceClient{cc}
+}
+
+func (c *endTextElementListenerServiceClient) End(ctx context.Context, in *EndTextElementListenerEndRequest, opts ...grpc.CallOption) (*EndResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(EndResponse)
+	err := c.cc.Invoke(ctx, EndTextElementListenerService_End_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// EndTextElementListenerServiceServer is the server API for EndTextElementListenerService service.
+// All implementations must embed UnimplementedEndTextElementListenerServiceServer
+// for forward compatibility.
+type EndTextElementListenerServiceServer interface {
+	End(context.Context, *EndTextElementListenerEndRequest) (*EndResponse, error)
+	mustEmbedUnimplementedEndTextElementListenerServiceServer()
+}
+
+// UnimplementedEndTextElementListenerServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedEndTextElementListenerServiceServer struct{}
+
+func (UnimplementedEndTextElementListenerServiceServer) End(context.Context, *EndTextElementListenerEndRequest) (*EndResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method End not implemented")
+}
+func (UnimplementedEndTextElementListenerServiceServer) mustEmbedUnimplementedEndTextElementListenerServiceServer() {
+}
+func (UnimplementedEndTextElementListenerServiceServer) testEmbeddedByValue() {}
+
+// UnsafeEndTextElementListenerServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to EndTextElementListenerServiceServer will
+// result in compilation errors.
+type UnsafeEndTextElementListenerServiceServer interface {
+	mustEmbedUnimplementedEndTextElementListenerServiceServer()
+}
+
+func RegisterEndTextElementListenerServiceServer(s grpc.ServiceRegistrar, srv EndTextElementListenerServiceServer) {
+	// If the following call panics, it indicates UnimplementedEndTextElementListenerServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&EndTextElementListenerService_ServiceDesc, srv)
+}
+
+func _EndTextElementListenerService_End_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EndTextElementListenerEndRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EndTextElementListenerServiceServer).End(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: EndTextElementListenerService_End_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EndTextElementListenerServiceServer).End(ctx, req.(*EndTextElementListenerEndRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// EndTextElementListenerService_ServiceDesc is the grpc.ServiceDesc for EndTextElementListenerService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var EndTextElementListenerService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "sax.EndTextElementListenerService",
+	HandlerType: (*EndTextElementListenerServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "End",
+			Handler:    _EndTextElementListenerService_End_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/sax/sax.proto",
+}
+
+const (
+	RootElementService_NewRootElement_FullMethodName    = "/sax.RootElementService/NewRootElement"
+	RootElementService_GetContentHandler_FullMethodName = "/sax.RootElementService/GetContentHandler"
+)
+
+// RootElementServiceClient is the client API for RootElementService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type RootElementServiceClient interface {
+	NewRootElement(ctx context.Context, in *NewRootElementRequest, opts ...grpc.CallOption) (*NewRootElementResponse, error)
+	GetContentHandler(ctx context.Context, in *GetContentHandlerRequest, opts ...grpc.CallOption) (*GetContentHandlerResponse, error)
+}
+
+type rootElementServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewRootElementServiceClient(cc grpc.ClientConnInterface) RootElementServiceClient {
+	return &rootElementServiceClient{cc}
+}
+
+func (c *rootElementServiceClient) NewRootElement(ctx context.Context, in *NewRootElementRequest, opts ...grpc.CallOption) (*NewRootElementResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewRootElementResponse)
+	err := c.cc.Invoke(ctx, RootElementService_NewRootElement_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *rootElementServiceClient) GetContentHandler(ctx context.Context, in *GetContentHandlerRequest, opts ...grpc.CallOption) (*GetContentHandlerResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetContentHandlerResponse)
+	err := c.cc.Invoke(ctx, RootElementService_GetContentHandler_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// RootElementServiceServer is the server API for RootElementService service.
+// All implementations must embed UnimplementedRootElementServiceServer
+// for forward compatibility.
+type RootElementServiceServer interface {
+	NewRootElement(context.Context, *NewRootElementRequest) (*NewRootElementResponse, error)
+	GetContentHandler(context.Context, *GetContentHandlerRequest) (*GetContentHandlerResponse, error)
+	mustEmbedUnimplementedRootElementServiceServer()
+}
+
+// UnimplementedRootElementServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedRootElementServiceServer struct{}
+
+func (UnimplementedRootElementServiceServer) NewRootElement(context.Context, *NewRootElementRequest) (*NewRootElementResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewRootElement not implemented")
+}
+func (UnimplementedRootElementServiceServer) GetContentHandler(context.Context, *GetContentHandlerRequest) (*GetContentHandlerResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetContentHandler not implemented")
+}
+func (UnimplementedRootElementServiceServer) mustEmbedUnimplementedRootElementServiceServer() {}
+func (UnimplementedRootElementServiceServer) testEmbeddedByValue()                            {}
+
+// UnsafeRootElementServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to RootElementServiceServer will
+// result in compilation errors.
+type UnsafeRootElementServiceServer interface {
+	mustEmbedUnimplementedRootElementServiceServer()
+}
+
+func RegisterRootElementServiceServer(s grpc.ServiceRegistrar, srv RootElementServiceServer) {
+	// If the following call panics, it indicates UnimplementedRootElementServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&RootElementService_ServiceDesc, srv)
+}
+
+func _RootElementService_NewRootElement_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewRootElementRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RootElementServiceServer).NewRootElement(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RootElementService_NewRootElement_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RootElementServiceServer).NewRootElement(ctx, req.(*NewRootElementRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RootElementService_GetContentHandler_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetContentHandlerRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RootElementServiceServer).GetContentHandler(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RootElementService_GetContentHandler_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RootElementServiceServer).GetContentHandler(ctx, req.(*GetContentHandlerRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// RootElementService_ServiceDesc is the grpc.ServiceDesc for RootElementService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var RootElementService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "sax.RootElementService",
+	HandlerType: (*RootElementServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewRootElement",
+			Handler:    _RootElementService_NewRootElement_Handler,
+		},
+		{
+			MethodName: "GetContentHandler",
+			Handler:    _RootElementService_GetContentHandler_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

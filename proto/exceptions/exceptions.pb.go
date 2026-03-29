@@ -199,182 +199,6 @@ func (x *GetResultCodeResponse) GetResult() int32 {
 	return 0
 }
 
-type NewIkeNetworkLostExceptionRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *NewIkeNetworkLostExceptionRequest) Reset() {
-	*x = NewIkeNetworkLostExceptionRequest{}
-	mi := &file_proto_exceptions_exceptions_proto_msgTypes[4]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *NewIkeNetworkLostExceptionRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*NewIkeNetworkLostExceptionRequest) ProtoMessage() {}
-
-func (x *NewIkeNetworkLostExceptionRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_exceptions_exceptions_proto_msgTypes[4]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use NewIkeNetworkLostExceptionRequest.ProtoReflect.Descriptor instead.
-func (*NewIkeNetworkLostExceptionRequest) Descriptor() ([]byte, []int) {
-	return file_proto_exceptions_exceptions_proto_rawDescGZIP(), []int{4}
-}
-
-func (x *NewIkeNetworkLostExceptionRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type NewIkeNetworkLostExceptionResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *NewIkeNetworkLostExceptionResponse) Reset() {
-	*x = NewIkeNetworkLostExceptionResponse{}
-	mi := &file_proto_exceptions_exceptions_proto_msgTypes[5]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *NewIkeNetworkLostExceptionResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*NewIkeNetworkLostExceptionResponse) ProtoMessage() {}
-
-func (x *NewIkeNetworkLostExceptionResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_exceptions_exceptions_proto_msgTypes[5]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use NewIkeNetworkLostExceptionResponse.ProtoReflect.Descriptor instead.
-func (*NewIkeNetworkLostExceptionResponse) Descriptor() ([]byte, []int) {
-	return file_proto_exceptions_exceptions_proto_rawDescGZIP(), []int{5}
-}
-
-func (x *NewIkeNetworkLostExceptionResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetNetworkRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetNetworkRequest) Reset() {
-	*x = GetNetworkRequest{}
-	mi := &file_proto_exceptions_exceptions_proto_msgTypes[6]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetNetworkRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetNetworkRequest) ProtoMessage() {}
-
-func (x *GetNetworkRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_exceptions_exceptions_proto_msgTypes[6]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetNetworkRequest.ProtoReflect.Descriptor instead.
-func (*GetNetworkRequest) Descriptor() ([]byte, []int) {
-	return file_proto_exceptions_exceptions_proto_rawDescGZIP(), []int{6}
-}
-
-func (x *GetNetworkRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-type GetNetworkResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetNetworkResponse) Reset() {
-	*x = GetNetworkResponse{}
-	mi := &file_proto_exceptions_exceptions_proto_msgTypes[7]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetNetworkResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetNetworkResponse) ProtoMessage() {}
-
-func (x *GetNetworkResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_exceptions_exceptions_proto_msgTypes[7]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetNetworkResponse.ProtoReflect.Descriptor instead.
-func (*GetNetworkResponse) Descriptor() ([]byte, []int) {
-	return file_proto_exceptions_exceptions_proto_rawDescGZIP(), []int{7}
-}
-
-func (x *GetNetworkResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
 type GetErrorTypeRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	unknownFields protoimpl.UnknownFields
@@ -383,7 +207,7 @@ type GetErrorTypeRequest struct {
 
 func (x *GetErrorTypeRequest) Reset() {
 	*x = GetErrorTypeRequest{}
-	mi := &file_proto_exceptions_exceptions_proto_msgTypes[8]
+	mi := &file_proto_exceptions_exceptions_proto_msgTypes[4]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -395,7 +219,7 @@ func (x *GetErrorTypeRequest) String() string {
 func (*GetErrorTypeRequest) ProtoMessage() {}
 
 func (x *GetErrorTypeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_exceptions_exceptions_proto_msgTypes[8]
+	mi := &file_proto_exceptions_exceptions_proto_msgTypes[4]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -408,7 +232,7 @@ func (x *GetErrorTypeRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetErrorTypeRequest.ProtoReflect.Descriptor instead.
 func (*GetErrorTypeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_exceptions_exceptions_proto_rawDescGZIP(), []int{8}
+	return file_proto_exceptions_exceptions_proto_rawDescGZIP(), []int{4}
 }
 
 type GetErrorTypeResponse struct {
@@ -420,7 +244,7 @@ type GetErrorTypeResponse struct {
 
 func (x *GetErrorTypeResponse) Reset() {
 	*x = GetErrorTypeResponse{}
-	mi := &file_proto_exceptions_exceptions_proto_msgTypes[9]
+	mi := &file_proto_exceptions_exceptions_proto_msgTypes[5]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -432,7 +256,7 @@ func (x *GetErrorTypeResponse) String() string {
 func (*GetErrorTypeResponse) ProtoMessage() {}
 
 func (x *GetErrorTypeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_exceptions_exceptions_proto_msgTypes[9]
+	mi := &file_proto_exceptions_exceptions_proto_msgTypes[5]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -445,362 +269,10 @@ func (x *GetErrorTypeResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetErrorTypeResponse.ProtoReflect.Descriptor instead.
 func (*GetErrorTypeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_exceptions_exceptions_proto_rawDescGZIP(), []int{9}
+	return file_proto_exceptions_exceptions_proto_rawDescGZIP(), []int{5}
 }
 
 func (x *GetErrorTypeResponse) GetResult() int32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type NewInvalidKeExceptionRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *NewInvalidKeExceptionRequest) Reset() {
-	*x = NewInvalidKeExceptionRequest{}
-	mi := &file_proto_exceptions_exceptions_proto_msgTypes[10]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *NewInvalidKeExceptionRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*NewInvalidKeExceptionRequest) ProtoMessage() {}
-
-func (x *NewInvalidKeExceptionRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_exceptions_exceptions_proto_msgTypes[10]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use NewInvalidKeExceptionRequest.ProtoReflect.Descriptor instead.
-func (*NewInvalidKeExceptionRequest) Descriptor() ([]byte, []int) {
-	return file_proto_exceptions_exceptions_proto_rawDescGZIP(), []int{10}
-}
-
-func (x *NewInvalidKeExceptionRequest) GetArg0() int32 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type NewInvalidKeExceptionResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *NewInvalidKeExceptionResponse) Reset() {
-	*x = NewInvalidKeExceptionResponse{}
-	mi := &file_proto_exceptions_exceptions_proto_msgTypes[11]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *NewInvalidKeExceptionResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*NewInvalidKeExceptionResponse) ProtoMessage() {}
-
-func (x *NewInvalidKeExceptionResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_exceptions_exceptions_proto_msgTypes[11]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use NewInvalidKeExceptionResponse.ProtoReflect.Descriptor instead.
-func (*NewInvalidKeExceptionResponse) Descriptor() ([]byte, []int) {
-	return file_proto_exceptions_exceptions_proto_rawDescGZIP(), []int{11}
-}
-
-func (x *NewInvalidKeExceptionResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetDhGroupRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetDhGroupRequest) Reset() {
-	*x = GetDhGroupRequest{}
-	mi := &file_proto_exceptions_exceptions_proto_msgTypes[12]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetDhGroupRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetDhGroupRequest) ProtoMessage() {}
-
-func (x *GetDhGroupRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_exceptions_exceptions_proto_msgTypes[12]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetDhGroupRequest.ProtoReflect.Descriptor instead.
-func (*GetDhGroupRequest) Descriptor() ([]byte, []int) {
-	return file_proto_exceptions_exceptions_proto_rawDescGZIP(), []int{12}
-}
-
-func (x *GetDhGroupRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-type GetDhGroupResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetDhGroupResponse) Reset() {
-	*x = GetDhGroupResponse{}
-	mi := &file_proto_exceptions_exceptions_proto_msgTypes[13]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetDhGroupResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetDhGroupResponse) ProtoMessage() {}
-
-func (x *GetDhGroupResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_exceptions_exceptions_proto_msgTypes[13]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetDhGroupResponse.ProtoReflect.Descriptor instead.
-func (*GetDhGroupResponse) Descriptor() ([]byte, []int) {
-	return file_proto_exceptions_exceptions_proto_rawDescGZIP(), []int{13}
-}
-
-func (x *GetDhGroupResponse) GetResult() int32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type NewInvalidMajorVersionExceptionRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *NewInvalidMajorVersionExceptionRequest) Reset() {
-	*x = NewInvalidMajorVersionExceptionRequest{}
-	mi := &file_proto_exceptions_exceptions_proto_msgTypes[14]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *NewInvalidMajorVersionExceptionRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*NewInvalidMajorVersionExceptionRequest) ProtoMessage() {}
-
-func (x *NewInvalidMajorVersionExceptionRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_exceptions_exceptions_proto_msgTypes[14]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use NewInvalidMajorVersionExceptionRequest.ProtoReflect.Descriptor instead.
-func (*NewInvalidMajorVersionExceptionRequest) Descriptor() ([]byte, []int) {
-	return file_proto_exceptions_exceptions_proto_rawDescGZIP(), []int{14}
-}
-
-func (x *NewInvalidMajorVersionExceptionRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type NewInvalidMajorVersionExceptionResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *NewInvalidMajorVersionExceptionResponse) Reset() {
-	*x = NewInvalidMajorVersionExceptionResponse{}
-	mi := &file_proto_exceptions_exceptions_proto_msgTypes[15]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *NewInvalidMajorVersionExceptionResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*NewInvalidMajorVersionExceptionResponse) ProtoMessage() {}
-
-func (x *NewInvalidMajorVersionExceptionResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_exceptions_exceptions_proto_msgTypes[15]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use NewInvalidMajorVersionExceptionResponse.ProtoReflect.Descriptor instead.
-func (*NewInvalidMajorVersionExceptionResponse) Descriptor() ([]byte, []int) {
-	return file_proto_exceptions_exceptions_proto_rawDescGZIP(), []int{15}
-}
-
-func (x *NewInvalidMajorVersionExceptionResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetMajorVersionRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetMajorVersionRequest) Reset() {
-	*x = GetMajorVersionRequest{}
-	mi := &file_proto_exceptions_exceptions_proto_msgTypes[16]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetMajorVersionRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetMajorVersionRequest) ProtoMessage() {}
-
-func (x *GetMajorVersionRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_exceptions_exceptions_proto_msgTypes[16]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetMajorVersionRequest.ProtoReflect.Descriptor instead.
-func (*GetMajorVersionRequest) Descriptor() ([]byte, []int) {
-	return file_proto_exceptions_exceptions_proto_rawDescGZIP(), []int{16}
-}
-
-func (x *GetMajorVersionRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-type GetMajorVersionResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        uint32                 `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetMajorVersionResponse) Reset() {
-	*x = GetMajorVersionResponse{}
-	mi := &file_proto_exceptions_exceptions_proto_msgTypes[17]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetMajorVersionResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetMajorVersionResponse) ProtoMessage() {}
-
-func (x *GetMajorVersionResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_exceptions_exceptions_proto_msgTypes[17]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetMajorVersionResponse.ProtoReflect.Descriptor instead.
-func (*GetMajorVersionResponse) Descriptor() ([]byte, []int) {
-	return file_proto_exceptions_exceptions_proto_rawDescGZIP(), []int{17}
-}
-
-func (x *GetMajorVersionResponse) GetResult() uint32 {
 	if x != nil {
 		return x.Result
 	}
@@ -817,7 +289,7 @@ type NewInvalidSelectorsExceptionRequest struct {
 
 func (x *NewInvalidSelectorsExceptionRequest) Reset() {
 	*x = NewInvalidSelectorsExceptionRequest{}
-	mi := &file_proto_exceptions_exceptions_proto_msgTypes[18]
+	mi := &file_proto_exceptions_exceptions_proto_msgTypes[6]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -829,7 +301,7 @@ func (x *NewInvalidSelectorsExceptionRequest) String() string {
 func (*NewInvalidSelectorsExceptionRequest) ProtoMessage() {}
 
 func (x *NewInvalidSelectorsExceptionRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_exceptions_exceptions_proto_msgTypes[18]
+	mi := &file_proto_exceptions_exceptions_proto_msgTypes[6]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -842,7 +314,7 @@ func (x *NewInvalidSelectorsExceptionRequest) ProtoReflect() protoreflect.Messag
 
 // Deprecated: Use NewInvalidSelectorsExceptionRequest.ProtoReflect.Descriptor instead.
 func (*NewInvalidSelectorsExceptionRequest) Descriptor() ([]byte, []int) {
-	return file_proto_exceptions_exceptions_proto_rawDescGZIP(), []int{18}
+	return file_proto_exceptions_exceptions_proto_rawDescGZIP(), []int{6}
 }
 
 func (x *NewInvalidSelectorsExceptionRequest) GetArg0() int32 {
@@ -868,7 +340,7 @@ type NewInvalidSelectorsExceptionResponse struct {
 
 func (x *NewInvalidSelectorsExceptionResponse) Reset() {
 	*x = NewInvalidSelectorsExceptionResponse{}
-	mi := &file_proto_exceptions_exceptions_proto_msgTypes[19]
+	mi := &file_proto_exceptions_exceptions_proto_msgTypes[7]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -880,7 +352,7 @@ func (x *NewInvalidSelectorsExceptionResponse) String() string {
 func (*NewInvalidSelectorsExceptionResponse) ProtoMessage() {}
 
 func (x *NewInvalidSelectorsExceptionResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_exceptions_exceptions_proto_msgTypes[19]
+	mi := &file_proto_exceptions_exceptions_proto_msgTypes[7]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -893,7 +365,7 @@ func (x *NewInvalidSelectorsExceptionResponse) ProtoReflect() protoreflect.Messa
 
 // Deprecated: Use NewInvalidSelectorsExceptionResponse.ProtoReflect.Descriptor instead.
 func (*NewInvalidSelectorsExceptionResponse) Descriptor() ([]byte, []int) {
-	return file_proto_exceptions_exceptions_proto_rawDescGZIP(), []int{19}
+	return file_proto_exceptions_exceptions_proto_rawDescGZIP(), []int{7}
 }
 
 func (x *NewInvalidSelectorsExceptionResponse) GetResult() int64 {
@@ -912,7 +384,7 @@ type GetIpSecPacketInfoRequest struct {
 
 func (x *GetIpSecPacketInfoRequest) Reset() {
 	*x = GetIpSecPacketInfoRequest{}
-	mi := &file_proto_exceptions_exceptions_proto_msgTypes[20]
+	mi := &file_proto_exceptions_exceptions_proto_msgTypes[8]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -924,7 +396,7 @@ func (x *GetIpSecPacketInfoRequest) String() string {
 func (*GetIpSecPacketInfoRequest) ProtoMessage() {}
 
 func (x *GetIpSecPacketInfoRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_exceptions_exceptions_proto_msgTypes[20]
+	mi := &file_proto_exceptions_exceptions_proto_msgTypes[8]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -937,7 +409,7 @@ func (x *GetIpSecPacketInfoRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetIpSecPacketInfoRequest.ProtoReflect.Descriptor instead.
 func (*GetIpSecPacketInfoRequest) Descriptor() ([]byte, []int) {
-	return file_proto_exceptions_exceptions_proto_rawDescGZIP(), []int{20}
+	return file_proto_exceptions_exceptions_proto_rawDescGZIP(), []int{8}
 }
 
 func (x *GetIpSecPacketInfoRequest) GetHandle() int64 {
@@ -956,7 +428,7 @@ type GetIpSecPacketInfoResponse struct {
 
 func (x *GetIpSecPacketInfoResponse) Reset() {
 	*x = GetIpSecPacketInfoResponse{}
-	mi := &file_proto_exceptions_exceptions_proto_msgTypes[21]
+	mi := &file_proto_exceptions_exceptions_proto_msgTypes[9]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -968,7 +440,7 @@ func (x *GetIpSecPacketInfoResponse) String() string {
 func (*GetIpSecPacketInfoResponse) ProtoMessage() {}
 
 func (x *GetIpSecPacketInfoResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_exceptions_exceptions_proto_msgTypes[21]
+	mi := &file_proto_exceptions_exceptions_proto_msgTypes[9]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -981,7 +453,7 @@ func (x *GetIpSecPacketInfoResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetIpSecPacketInfoResponse.ProtoReflect.Descriptor instead.
 func (*GetIpSecPacketInfoResponse) Descriptor() ([]byte, []int) {
-	return file_proto_exceptions_exceptions_proto_rawDescGZIP(), []int{21}
+	return file_proto_exceptions_exceptions_proto_rawDescGZIP(), []int{9}
 }
 
 func (x *GetIpSecPacketInfoResponse) GetResult() int64 {
@@ -1000,7 +472,7 @@ type GetIpSecSpiRequest struct {
 
 func (x *GetIpSecSpiRequest) Reset() {
 	*x = GetIpSecSpiRequest{}
-	mi := &file_proto_exceptions_exceptions_proto_msgTypes[22]
+	mi := &file_proto_exceptions_exceptions_proto_msgTypes[10]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1012,7 +484,7 @@ func (x *GetIpSecSpiRequest) String() string {
 func (*GetIpSecSpiRequest) ProtoMessage() {}
 
 func (x *GetIpSecSpiRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_exceptions_exceptions_proto_msgTypes[22]
+	mi := &file_proto_exceptions_exceptions_proto_msgTypes[10]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1025,7 +497,7 @@ func (x *GetIpSecSpiRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetIpSecSpiRequest.ProtoReflect.Descriptor instead.
 func (*GetIpSecSpiRequest) Descriptor() ([]byte, []int) {
-	return file_proto_exceptions_exceptions_proto_rawDescGZIP(), []int{22}
+	return file_proto_exceptions_exceptions_proto_rawDescGZIP(), []int{10}
 }
 
 func (x *GetIpSecSpiRequest) GetHandle() int64 {
@@ -1044,7 +516,7 @@ type GetIpSecSpiResponse struct {
 
 func (x *GetIpSecSpiResponse) Reset() {
 	*x = GetIpSecSpiResponse{}
-	mi := &file_proto_exceptions_exceptions_proto_msgTypes[23]
+	mi := &file_proto_exceptions_exceptions_proto_msgTypes[11]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1056,7 +528,7 @@ func (x *GetIpSecSpiResponse) String() string {
 func (*GetIpSecSpiResponse) ProtoMessage() {}
 
 func (x *GetIpSecSpiResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_exceptions_exceptions_proto_msgTypes[23]
+	mi := &file_proto_exceptions_exceptions_proto_msgTypes[11]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1069,10 +541,538 @@ func (x *GetIpSecSpiResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetIpSecSpiResponse.ProtoReflect.Descriptor instead.
 func (*GetIpSecSpiResponse) Descriptor() ([]byte, []int) {
-	return file_proto_exceptions_exceptions_proto_rawDescGZIP(), []int{23}
+	return file_proto_exceptions_exceptions_proto_rawDescGZIP(), []int{11}
 }
 
 func (x *GetIpSecSpiResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type NewInvalidKeExceptionRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewInvalidKeExceptionRequest) Reset() {
+	*x = NewInvalidKeExceptionRequest{}
+	mi := &file_proto_exceptions_exceptions_proto_msgTypes[12]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewInvalidKeExceptionRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewInvalidKeExceptionRequest) ProtoMessage() {}
+
+func (x *NewInvalidKeExceptionRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_exceptions_exceptions_proto_msgTypes[12]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewInvalidKeExceptionRequest.ProtoReflect.Descriptor instead.
+func (*NewInvalidKeExceptionRequest) Descriptor() ([]byte, []int) {
+	return file_proto_exceptions_exceptions_proto_rawDescGZIP(), []int{12}
+}
+
+func (x *NewInvalidKeExceptionRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type NewInvalidKeExceptionResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewInvalidKeExceptionResponse) Reset() {
+	*x = NewInvalidKeExceptionResponse{}
+	mi := &file_proto_exceptions_exceptions_proto_msgTypes[13]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewInvalidKeExceptionResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewInvalidKeExceptionResponse) ProtoMessage() {}
+
+func (x *NewInvalidKeExceptionResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_exceptions_exceptions_proto_msgTypes[13]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewInvalidKeExceptionResponse.ProtoReflect.Descriptor instead.
+func (*NewInvalidKeExceptionResponse) Descriptor() ([]byte, []int) {
+	return file_proto_exceptions_exceptions_proto_rawDescGZIP(), []int{13}
+}
+
+func (x *NewInvalidKeExceptionResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetDhGroupRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetDhGroupRequest) Reset() {
+	*x = GetDhGroupRequest{}
+	mi := &file_proto_exceptions_exceptions_proto_msgTypes[14]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetDhGroupRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetDhGroupRequest) ProtoMessage() {}
+
+func (x *GetDhGroupRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_exceptions_exceptions_proto_msgTypes[14]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetDhGroupRequest.ProtoReflect.Descriptor instead.
+func (*GetDhGroupRequest) Descriptor() ([]byte, []int) {
+	return file_proto_exceptions_exceptions_proto_rawDescGZIP(), []int{14}
+}
+
+func (x *GetDhGroupRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetDhGroupResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetDhGroupResponse) Reset() {
+	*x = GetDhGroupResponse{}
+	mi := &file_proto_exceptions_exceptions_proto_msgTypes[15]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetDhGroupResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetDhGroupResponse) ProtoMessage() {}
+
+func (x *GetDhGroupResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_exceptions_exceptions_proto_msgTypes[15]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetDhGroupResponse.ProtoReflect.Descriptor instead.
+func (*GetDhGroupResponse) Descriptor() ([]byte, []int) {
+	return file_proto_exceptions_exceptions_proto_rawDescGZIP(), []int{15}
+}
+
+func (x *GetDhGroupResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type NewIkeNetworkLostExceptionRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewIkeNetworkLostExceptionRequest) Reset() {
+	*x = NewIkeNetworkLostExceptionRequest{}
+	mi := &file_proto_exceptions_exceptions_proto_msgTypes[16]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewIkeNetworkLostExceptionRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewIkeNetworkLostExceptionRequest) ProtoMessage() {}
+
+func (x *NewIkeNetworkLostExceptionRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_exceptions_exceptions_proto_msgTypes[16]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewIkeNetworkLostExceptionRequest.ProtoReflect.Descriptor instead.
+func (*NewIkeNetworkLostExceptionRequest) Descriptor() ([]byte, []int) {
+	return file_proto_exceptions_exceptions_proto_rawDescGZIP(), []int{16}
+}
+
+func (x *NewIkeNetworkLostExceptionRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type NewIkeNetworkLostExceptionResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewIkeNetworkLostExceptionResponse) Reset() {
+	*x = NewIkeNetworkLostExceptionResponse{}
+	mi := &file_proto_exceptions_exceptions_proto_msgTypes[17]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewIkeNetworkLostExceptionResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewIkeNetworkLostExceptionResponse) ProtoMessage() {}
+
+func (x *NewIkeNetworkLostExceptionResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_exceptions_exceptions_proto_msgTypes[17]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewIkeNetworkLostExceptionResponse.ProtoReflect.Descriptor instead.
+func (*NewIkeNetworkLostExceptionResponse) Descriptor() ([]byte, []int) {
+	return file_proto_exceptions_exceptions_proto_rawDescGZIP(), []int{17}
+}
+
+func (x *NewIkeNetworkLostExceptionResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetNetworkRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetNetworkRequest) Reset() {
+	*x = GetNetworkRequest{}
+	mi := &file_proto_exceptions_exceptions_proto_msgTypes[18]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetNetworkRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetNetworkRequest) ProtoMessage() {}
+
+func (x *GetNetworkRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_exceptions_exceptions_proto_msgTypes[18]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetNetworkRequest.ProtoReflect.Descriptor instead.
+func (*GetNetworkRequest) Descriptor() ([]byte, []int) {
+	return file_proto_exceptions_exceptions_proto_rawDescGZIP(), []int{18}
+}
+
+func (x *GetNetworkRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetNetworkResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetNetworkResponse) Reset() {
+	*x = GetNetworkResponse{}
+	mi := &file_proto_exceptions_exceptions_proto_msgTypes[19]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetNetworkResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetNetworkResponse) ProtoMessage() {}
+
+func (x *GetNetworkResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_exceptions_exceptions_proto_msgTypes[19]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetNetworkResponse.ProtoReflect.Descriptor instead.
+func (*GetNetworkResponse) Descriptor() ([]byte, []int) {
+	return file_proto_exceptions_exceptions_proto_rawDescGZIP(), []int{19}
+}
+
+func (x *GetNetworkResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type NewInvalidMajorVersionExceptionRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewInvalidMajorVersionExceptionRequest) Reset() {
+	*x = NewInvalidMajorVersionExceptionRequest{}
+	mi := &file_proto_exceptions_exceptions_proto_msgTypes[20]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewInvalidMajorVersionExceptionRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewInvalidMajorVersionExceptionRequest) ProtoMessage() {}
+
+func (x *NewInvalidMajorVersionExceptionRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_exceptions_exceptions_proto_msgTypes[20]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewInvalidMajorVersionExceptionRequest.ProtoReflect.Descriptor instead.
+func (*NewInvalidMajorVersionExceptionRequest) Descriptor() ([]byte, []int) {
+	return file_proto_exceptions_exceptions_proto_rawDescGZIP(), []int{20}
+}
+
+func (x *NewInvalidMajorVersionExceptionRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type NewInvalidMajorVersionExceptionResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewInvalidMajorVersionExceptionResponse) Reset() {
+	*x = NewInvalidMajorVersionExceptionResponse{}
+	mi := &file_proto_exceptions_exceptions_proto_msgTypes[21]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewInvalidMajorVersionExceptionResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewInvalidMajorVersionExceptionResponse) ProtoMessage() {}
+
+func (x *NewInvalidMajorVersionExceptionResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_exceptions_exceptions_proto_msgTypes[21]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewInvalidMajorVersionExceptionResponse.ProtoReflect.Descriptor instead.
+func (*NewInvalidMajorVersionExceptionResponse) Descriptor() ([]byte, []int) {
+	return file_proto_exceptions_exceptions_proto_rawDescGZIP(), []int{21}
+}
+
+func (x *NewInvalidMajorVersionExceptionResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetMajorVersionRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMajorVersionRequest) Reset() {
+	*x = GetMajorVersionRequest{}
+	mi := &file_proto_exceptions_exceptions_proto_msgTypes[22]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMajorVersionRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMajorVersionRequest) ProtoMessage() {}
+
+func (x *GetMajorVersionRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_exceptions_exceptions_proto_msgTypes[22]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMajorVersionRequest.ProtoReflect.Descriptor instead.
+func (*GetMajorVersionRequest) Descriptor() ([]byte, []int) {
+	return file_proto_exceptions_exceptions_proto_rawDescGZIP(), []int{22}
+}
+
+func (x *GetMajorVersionRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetMajorVersionResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        uint32                 `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMajorVersionResponse) Reset() {
+	*x = GetMajorVersionResponse{}
+	mi := &file_proto_exceptions_exceptions_proto_msgTypes[23]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMajorVersionResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMajorVersionResponse) ProtoMessage() {}
+
+func (x *GetMajorVersionResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_exceptions_exceptions_proto_msgTypes[23]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMajorVersionResponse.ProtoReflect.Descriptor instead.
+func (*GetMajorVersionResponse) Descriptor() ([]byte, []int) {
+	return file_proto_exceptions_exceptions_proto_rawDescGZIP(), []int{23}
+}
+
+func (x *GetMajorVersionResponse) GetResult() uint32 {
 	if x != nil {
 		return x.Result
 	}
@@ -1356,34 +1356,10 @@ const file_proto_exceptions_exceptions_proto_rawDesc = "" +
 	"\x14GetResultCodeRequest\x12\x16\n" +
 	"\x06handle\x18\x01 \x01(\x03R\x06handle\"/\n" +
 	"\x15GetResultCodeResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\"7\n" +
-	"!NewIkeNetworkLostExceptionRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"<\n" +
-	"\"NewIkeNetworkLostExceptionResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"+\n" +
-	"\x11GetNetworkRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\",\n" +
-	"\x12GetNetworkResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\x15\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x15\n" +
 	"\x13GetErrorTypeRequest\".\n" +
 	"\x14GetErrorTypeResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\"2\n" +
-	"\x1cNewInvalidKeExceptionRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"7\n" +
-	"\x1dNewInvalidKeExceptionResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"+\n" +
-	"\x11GetDhGroupRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\",\n" +
-	"\x12GetDhGroupResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\"<\n" +
-	"&NewInvalidMajorVersionExceptionRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"A\n" +
-	"'NewInvalidMajorVersionExceptionResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"0\n" +
-	"\x16GetMajorVersionRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\"1\n" +
-	"\x17GetMajorVersionResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\rR\x06result\"M\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"M\n" +
 	"#NewInvalidSelectorsExceptionRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\x12\x12\n" +
 	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\">\n" +
@@ -1396,7 +1372,31 @@ const file_proto_exceptions_exceptions_proto_rawDesc = "" +
 	"\x12GetIpSecSpiRequest\x12\x16\n" +
 	"\x06handle\x18\x01 \x01(\x03R\x06handle\"-\n" +
 	"\x13GetIpSecSpiResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\".\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"2\n" +
+	"\x1cNewInvalidKeExceptionRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"7\n" +
+	"\x1dNewInvalidKeExceptionResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"+\n" +
+	"\x11GetDhGroupRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\",\n" +
+	"\x12GetDhGroupResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"7\n" +
+	"!NewIkeNetworkLostExceptionRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"<\n" +
+	"\"NewIkeNetworkLostExceptionResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"+\n" +
+	"\x11GetNetworkRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\",\n" +
+	"\x12GetNetworkResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"<\n" +
+	"&NewInvalidMajorVersionExceptionRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"A\n" +
+	"'NewInvalidMajorVersionExceptionResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"0\n" +
+	"\x16GetMajorVersionRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"1\n" +
+	"\x17GetMajorVersionResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\rR\x06result\".\n" +
 	"\x18NewIkeIOExceptionRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"3\n" +
 	"\x19NewIkeIOExceptionResponse\x12\x16\n" +
@@ -1411,24 +1411,24 @@ const file_proto_exceptions_exceptions_proto_rawDesc = "" +
 	"\x06result\x18\x01 \x01(\x03R\x06result2\xdf\x01\n" +
 	"\x19AppSearchExceptionService\x12l\n" +
 	"\x15NewAppSearchException\x12(.exceptions.NewAppSearchExceptionRequest\x1a).exceptions.NewAppSearchExceptionResponse\x12T\n" +
-	"\rGetResultCode\x12 .exceptions.GetResultCodeRequest\x1a!.exceptions.GetResultCodeResponse2\xea\x01\n" +
-	"\x1eIkeNetworkLostExceptionService\x12{\n" +
-	"\x1aNewIkeNetworkLostException\x12-.exceptions.NewIkeNetworkLostExceptionRequest\x1a..exceptions.NewIkeNetworkLostExceptionResponse\x12K\n" +
-	"\n" +
-	"GetNetwork\x12\x1d.exceptions.GetNetworkRequest\x1a\x1e.exceptions.GetNetworkResponse2p\n" +
+	"\rGetResultCode\x12 .exceptions.GetResultCodeRequest\x1a!.exceptions.GetResultCodeResponse2p\n" +
 	"\x1bIkeProtocolExceptionService\x12Q\n" +
-	"\fGetErrorType\x12\x1f.exceptions.GetErrorTypeRequest\x1a .exceptions.GetErrorTypeResponse2\xd6\x01\n" +
-	"\x19InvalidKeExceptionService\x12l\n" +
-	"\x15NewInvalidKeException\x12(.exceptions.NewInvalidKeExceptionRequest\x1a).exceptions.NewInvalidKeExceptionResponse\x12K\n" +
-	"\n" +
-	"GetDhGroup\x12\x1d.exceptions.GetDhGroupRequest\x1a\x1e.exceptions.GetDhGroupResponse2\x8e\x02\n" +
-	"#InvalidMajorVersionExceptionService\x12\x8a\x01\n" +
-	"\x1fNewInvalidMajorVersionException\x122.exceptions.NewInvalidMajorVersionExceptionRequest\x1a3.exceptions.NewInvalidMajorVersionExceptionResponse\x12Z\n" +
-	"\x0fGetMajorVersion\x12\".exceptions.GetMajorVersionRequest\x1a#.exceptions.GetMajorVersionResponse2\xdb\x02\n" +
+	"\fGetErrorType\x12\x1f.exceptions.GetErrorTypeRequest\x1a .exceptions.GetErrorTypeResponse2\xdb\x02\n" +
 	" InvalidSelectorsExceptionService\x12\x81\x01\n" +
 	"\x1cNewInvalidSelectorsException\x12/.exceptions.NewInvalidSelectorsExceptionRequest\x1a0.exceptions.NewInvalidSelectorsExceptionResponse\x12c\n" +
 	"\x12GetIpSecPacketInfo\x12%.exceptions.GetIpSecPacketInfoRequest\x1a&.exceptions.GetIpSecPacketInfoResponse\x12N\n" +
-	"\vGetIpSecSpi\x12\x1e.exceptions.GetIpSecSpiRequest\x1a\x1f.exceptions.GetIpSecSpiResponse2\x93\x02\n" +
+	"\vGetIpSecSpi\x12\x1e.exceptions.GetIpSecSpiRequest\x1a\x1f.exceptions.GetIpSecSpiResponse2\xd6\x01\n" +
+	"\x19InvalidKeExceptionService\x12l\n" +
+	"\x15NewInvalidKeException\x12(.exceptions.NewInvalidKeExceptionRequest\x1a).exceptions.NewInvalidKeExceptionResponse\x12K\n" +
+	"\n" +
+	"GetDhGroup\x12\x1d.exceptions.GetDhGroupRequest\x1a\x1e.exceptions.GetDhGroupResponse2\xea\x01\n" +
+	"\x1eIkeNetworkLostExceptionService\x12{\n" +
+	"\x1aNewIkeNetworkLostException\x12-.exceptions.NewIkeNetworkLostExceptionRequest\x1a..exceptions.NewIkeNetworkLostExceptionResponse\x12K\n" +
+	"\n" +
+	"GetNetwork\x12\x1d.exceptions.GetNetworkRequest\x1a\x1e.exceptions.GetNetworkResponse2\x8e\x02\n" +
+	"#InvalidMajorVersionExceptionService\x12\x8a\x01\n" +
+	"\x1fNewInvalidMajorVersionException\x122.exceptions.NewInvalidMajorVersionExceptionRequest\x1a3.exceptions.NewInvalidMajorVersionExceptionResponse\x12Z\n" +
+	"\x0fGetMajorVersion\x12\".exceptions.GetMajorVersionRequest\x1a#.exceptions.GetMajorVersionResponse2\x93\x02\n" +
 	"\x15IkeIOExceptionService\x12`\n" +
 	"\x11NewIkeIOException\x12$.exceptions.NewIkeIOExceptionRequest\x1a%.exceptions.NewIkeIOExceptionResponse\x12H\n" +
 	"\tGetCause0\x12\x1c.exceptions.GetCause0Request\x1a\x1d.exceptions.GetCause0Response\x12N\n" +
@@ -1452,26 +1452,26 @@ var file_proto_exceptions_exceptions_proto_goTypes = []any{
 	(*NewAppSearchExceptionResponse)(nil),           // 1: exceptions.NewAppSearchExceptionResponse
 	(*GetResultCodeRequest)(nil),                    // 2: exceptions.GetResultCodeRequest
 	(*GetResultCodeResponse)(nil),                   // 3: exceptions.GetResultCodeResponse
-	(*NewIkeNetworkLostExceptionRequest)(nil),       // 4: exceptions.NewIkeNetworkLostExceptionRequest
-	(*NewIkeNetworkLostExceptionResponse)(nil),      // 5: exceptions.NewIkeNetworkLostExceptionResponse
-	(*GetNetworkRequest)(nil),                       // 6: exceptions.GetNetworkRequest
-	(*GetNetworkResponse)(nil),                      // 7: exceptions.GetNetworkResponse
-	(*GetErrorTypeRequest)(nil),                     // 8: exceptions.GetErrorTypeRequest
-	(*GetErrorTypeResponse)(nil),                    // 9: exceptions.GetErrorTypeResponse
-	(*NewInvalidKeExceptionRequest)(nil),            // 10: exceptions.NewInvalidKeExceptionRequest
-	(*NewInvalidKeExceptionResponse)(nil),           // 11: exceptions.NewInvalidKeExceptionResponse
-	(*GetDhGroupRequest)(nil),                       // 12: exceptions.GetDhGroupRequest
-	(*GetDhGroupResponse)(nil),                      // 13: exceptions.GetDhGroupResponse
-	(*NewInvalidMajorVersionExceptionRequest)(nil),  // 14: exceptions.NewInvalidMajorVersionExceptionRequest
-	(*NewInvalidMajorVersionExceptionResponse)(nil), // 15: exceptions.NewInvalidMajorVersionExceptionResponse
-	(*GetMajorVersionRequest)(nil),                  // 16: exceptions.GetMajorVersionRequest
-	(*GetMajorVersionResponse)(nil),                 // 17: exceptions.GetMajorVersionResponse
-	(*NewInvalidSelectorsExceptionRequest)(nil),     // 18: exceptions.NewInvalidSelectorsExceptionRequest
-	(*NewInvalidSelectorsExceptionResponse)(nil),    // 19: exceptions.NewInvalidSelectorsExceptionResponse
-	(*GetIpSecPacketInfoRequest)(nil),               // 20: exceptions.GetIpSecPacketInfoRequest
-	(*GetIpSecPacketInfoResponse)(nil),              // 21: exceptions.GetIpSecPacketInfoResponse
-	(*GetIpSecSpiRequest)(nil),                      // 22: exceptions.GetIpSecSpiRequest
-	(*GetIpSecSpiResponse)(nil),                     // 23: exceptions.GetIpSecSpiResponse
+	(*GetErrorTypeRequest)(nil),                     // 4: exceptions.GetErrorTypeRequest
+	(*GetErrorTypeResponse)(nil),                    // 5: exceptions.GetErrorTypeResponse
+	(*NewInvalidSelectorsExceptionRequest)(nil),     // 6: exceptions.NewInvalidSelectorsExceptionRequest
+	(*NewInvalidSelectorsExceptionResponse)(nil),    // 7: exceptions.NewInvalidSelectorsExceptionResponse
+	(*GetIpSecPacketInfoRequest)(nil),               // 8: exceptions.GetIpSecPacketInfoRequest
+	(*GetIpSecPacketInfoResponse)(nil),              // 9: exceptions.GetIpSecPacketInfoResponse
+	(*GetIpSecSpiRequest)(nil),                      // 10: exceptions.GetIpSecSpiRequest
+	(*GetIpSecSpiResponse)(nil),                     // 11: exceptions.GetIpSecSpiResponse
+	(*NewInvalidKeExceptionRequest)(nil),            // 12: exceptions.NewInvalidKeExceptionRequest
+	(*NewInvalidKeExceptionResponse)(nil),           // 13: exceptions.NewInvalidKeExceptionResponse
+	(*GetDhGroupRequest)(nil),                       // 14: exceptions.GetDhGroupRequest
+	(*GetDhGroupResponse)(nil),                      // 15: exceptions.GetDhGroupResponse
+	(*NewIkeNetworkLostExceptionRequest)(nil),       // 16: exceptions.NewIkeNetworkLostExceptionRequest
+	(*NewIkeNetworkLostExceptionResponse)(nil),      // 17: exceptions.NewIkeNetworkLostExceptionResponse
+	(*GetNetworkRequest)(nil),                       // 18: exceptions.GetNetworkRequest
+	(*GetNetworkResponse)(nil),                      // 19: exceptions.GetNetworkResponse
+	(*NewInvalidMajorVersionExceptionRequest)(nil),  // 20: exceptions.NewInvalidMajorVersionExceptionRequest
+	(*NewInvalidMajorVersionExceptionResponse)(nil), // 21: exceptions.NewInvalidMajorVersionExceptionResponse
+	(*GetMajorVersionRequest)(nil),                  // 22: exceptions.GetMajorVersionRequest
+	(*GetMajorVersionResponse)(nil),                 // 23: exceptions.GetMajorVersionResponse
 	(*NewIkeIOExceptionRequest)(nil),                // 24: exceptions.NewIkeIOExceptionRequest
 	(*NewIkeIOExceptionResponse)(nil),               // 25: exceptions.NewIkeIOExceptionResponse
 	(*GetCause0Request)(nil),                        // 26: exceptions.GetCause0Request
@@ -1482,31 +1482,31 @@ var file_proto_exceptions_exceptions_proto_goTypes = []any{
 var file_proto_exceptions_exceptions_proto_depIdxs = []int32{
 	0,  // 0: exceptions.AppSearchExceptionService.NewAppSearchException:input_type -> exceptions.NewAppSearchExceptionRequest
 	2,  // 1: exceptions.AppSearchExceptionService.GetResultCode:input_type -> exceptions.GetResultCodeRequest
-	4,  // 2: exceptions.IkeNetworkLostExceptionService.NewIkeNetworkLostException:input_type -> exceptions.NewIkeNetworkLostExceptionRequest
-	6,  // 3: exceptions.IkeNetworkLostExceptionService.GetNetwork:input_type -> exceptions.GetNetworkRequest
-	8,  // 4: exceptions.IkeProtocolExceptionService.GetErrorType:input_type -> exceptions.GetErrorTypeRequest
-	10, // 5: exceptions.InvalidKeExceptionService.NewInvalidKeException:input_type -> exceptions.NewInvalidKeExceptionRequest
-	12, // 6: exceptions.InvalidKeExceptionService.GetDhGroup:input_type -> exceptions.GetDhGroupRequest
-	14, // 7: exceptions.InvalidMajorVersionExceptionService.NewInvalidMajorVersionException:input_type -> exceptions.NewInvalidMajorVersionExceptionRequest
-	16, // 8: exceptions.InvalidMajorVersionExceptionService.GetMajorVersion:input_type -> exceptions.GetMajorVersionRequest
-	18, // 9: exceptions.InvalidSelectorsExceptionService.NewInvalidSelectorsException:input_type -> exceptions.NewInvalidSelectorsExceptionRequest
-	20, // 10: exceptions.InvalidSelectorsExceptionService.GetIpSecPacketInfo:input_type -> exceptions.GetIpSecPacketInfoRequest
-	22, // 11: exceptions.InvalidSelectorsExceptionService.GetIpSecSpi:input_type -> exceptions.GetIpSecSpiRequest
+	4,  // 2: exceptions.IkeProtocolExceptionService.GetErrorType:input_type -> exceptions.GetErrorTypeRequest
+	6,  // 3: exceptions.InvalidSelectorsExceptionService.NewInvalidSelectorsException:input_type -> exceptions.NewInvalidSelectorsExceptionRequest
+	8,  // 4: exceptions.InvalidSelectorsExceptionService.GetIpSecPacketInfo:input_type -> exceptions.GetIpSecPacketInfoRequest
+	10, // 5: exceptions.InvalidSelectorsExceptionService.GetIpSecSpi:input_type -> exceptions.GetIpSecSpiRequest
+	12, // 6: exceptions.InvalidKeExceptionService.NewInvalidKeException:input_type -> exceptions.NewInvalidKeExceptionRequest
+	14, // 7: exceptions.InvalidKeExceptionService.GetDhGroup:input_type -> exceptions.GetDhGroupRequest
+	16, // 8: exceptions.IkeNetworkLostExceptionService.NewIkeNetworkLostException:input_type -> exceptions.NewIkeNetworkLostExceptionRequest
+	18, // 9: exceptions.IkeNetworkLostExceptionService.GetNetwork:input_type -> exceptions.GetNetworkRequest
+	20, // 10: exceptions.InvalidMajorVersionExceptionService.NewInvalidMajorVersionException:input_type -> exceptions.NewInvalidMajorVersionExceptionRequest
+	22, // 11: exceptions.InvalidMajorVersionExceptionService.GetMajorVersion:input_type -> exceptions.GetMajorVersionRequest
 	24, // 12: exceptions.IkeIOExceptionService.NewIkeIOException:input_type -> exceptions.NewIkeIOExceptionRequest
 	26, // 13: exceptions.IkeIOExceptionService.GetCause0:input_type -> exceptions.GetCause0Request
 	28, // 14: exceptions.IkeIOExceptionService.GetCause0_1:input_type -> exceptions.GetCause0_1Request
 	1,  // 15: exceptions.AppSearchExceptionService.NewAppSearchException:output_type -> exceptions.NewAppSearchExceptionResponse
 	3,  // 16: exceptions.AppSearchExceptionService.GetResultCode:output_type -> exceptions.GetResultCodeResponse
-	5,  // 17: exceptions.IkeNetworkLostExceptionService.NewIkeNetworkLostException:output_type -> exceptions.NewIkeNetworkLostExceptionResponse
-	7,  // 18: exceptions.IkeNetworkLostExceptionService.GetNetwork:output_type -> exceptions.GetNetworkResponse
-	9,  // 19: exceptions.IkeProtocolExceptionService.GetErrorType:output_type -> exceptions.GetErrorTypeResponse
-	11, // 20: exceptions.InvalidKeExceptionService.NewInvalidKeException:output_type -> exceptions.NewInvalidKeExceptionResponse
-	13, // 21: exceptions.InvalidKeExceptionService.GetDhGroup:output_type -> exceptions.GetDhGroupResponse
-	15, // 22: exceptions.InvalidMajorVersionExceptionService.NewInvalidMajorVersionException:output_type -> exceptions.NewInvalidMajorVersionExceptionResponse
-	17, // 23: exceptions.InvalidMajorVersionExceptionService.GetMajorVersion:output_type -> exceptions.GetMajorVersionResponse
-	19, // 24: exceptions.InvalidSelectorsExceptionService.NewInvalidSelectorsException:output_type -> exceptions.NewInvalidSelectorsExceptionResponse
-	21, // 25: exceptions.InvalidSelectorsExceptionService.GetIpSecPacketInfo:output_type -> exceptions.GetIpSecPacketInfoResponse
-	23, // 26: exceptions.InvalidSelectorsExceptionService.GetIpSecSpi:output_type -> exceptions.GetIpSecSpiResponse
+	5,  // 17: exceptions.IkeProtocolExceptionService.GetErrorType:output_type -> exceptions.GetErrorTypeResponse
+	7,  // 18: exceptions.InvalidSelectorsExceptionService.NewInvalidSelectorsException:output_type -> exceptions.NewInvalidSelectorsExceptionResponse
+	9,  // 19: exceptions.InvalidSelectorsExceptionService.GetIpSecPacketInfo:output_type -> exceptions.GetIpSecPacketInfoResponse
+	11, // 20: exceptions.InvalidSelectorsExceptionService.GetIpSecSpi:output_type -> exceptions.GetIpSecSpiResponse
+	13, // 21: exceptions.InvalidKeExceptionService.NewInvalidKeException:output_type -> exceptions.NewInvalidKeExceptionResponse
+	15, // 22: exceptions.InvalidKeExceptionService.GetDhGroup:output_type -> exceptions.GetDhGroupResponse
+	17, // 23: exceptions.IkeNetworkLostExceptionService.NewIkeNetworkLostException:output_type -> exceptions.NewIkeNetworkLostExceptionResponse
+	19, // 24: exceptions.IkeNetworkLostExceptionService.GetNetwork:output_type -> exceptions.GetNetworkResponse
+	21, // 25: exceptions.InvalidMajorVersionExceptionService.NewInvalidMajorVersionException:output_type -> exceptions.NewInvalidMajorVersionExceptionResponse
+	23, // 26: exceptions.InvalidMajorVersionExceptionService.GetMajorVersion:output_type -> exceptions.GetMajorVersionResponse
 	25, // 27: exceptions.IkeIOExceptionService.NewIkeIOException:output_type -> exceptions.NewIkeIOExceptionResponse
 	27, // 28: exceptions.IkeIOExceptionService.GetCause0:output_type -> exceptions.GetCause0Response
 	29, // 29: exceptions.IkeIOExceptionService.GetCause0_1:output_type -> exceptions.GetCause0_1Response

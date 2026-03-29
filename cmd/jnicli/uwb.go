@@ -12,6 +12,191 @@ var uwbCmd = &cobra.Command{
 	Short: "uwb service operations",
 }
 
+var uwbComplexChannelCmd = &cobra.Command{
+	Use:   "complex-channel",
+	Short: "ComplexChannelService operations",
+}
+
+var uwbComplexChannelDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewComplexChannelServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var uwbComplexChannelEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewComplexChannelServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var uwbComplexChannelGetChannelCmd = &cobra.Command{
+	Use:   "get-channel",
+	Short: "GetChannel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewComplexChannelServiceClient(grpcConn)
+		req := &pb.GetChannelRequest{}
+		resp, err := client.GetChannel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var uwbComplexChannelGetPreambleIndexCmd = &cobra.Command{
+	Use:   "get-preamble-index",
+	Short: "GetPreambleIndex RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewComplexChannelServiceClient(grpcConn)
+		req := &pb.GetPreambleIndexRequest{}
+		resp, err := client.GetPreambleIndex(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var uwbComplexChannelHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewComplexChannelServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var uwbComplexChannelToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewComplexChannelServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var uwbComplexChannelWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewComplexChannelServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var uwbComplexChannelBuilderCmd = &cobra.Command{
+	Use:   "complex-channel-builder",
+	Short: "ComplexChannelBuilderService operations",
+}
+
+var uwbComplexChannelBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewComplexChannelBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var uwbComplexChannelBuilderSetChannelCmd = &cobra.Command{
+	Use:   "set-channel",
+	Short: "SetChannel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewComplexChannelBuilderServiceClient(grpcConn)
+		req := &pb.SetChannelRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetChannel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var uwbComplexChannelBuilderSetPreambleIndexCmd = &cobra.Command{
+	Use:   "set-preamble-index",
+	Short: "SetPreambleIndex RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewComplexChannelBuilderServiceClient(grpcConn)
+		req := &pb.SetPreambleIndexRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetPreambleIndex(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var uwbAddressCmd = &cobra.Command{
 	Use:   "address",
 	Short: "AddressService operations",
@@ -546,191 +731,6 @@ var uwbRangingParamsBuilderSetSubSessionKeyInfoCmd = &cobra.Command{
 	},
 }
 
-var uwbComplexChannelCmd = &cobra.Command{
-	Use:   "complex-channel",
-	Short: "ComplexChannelService operations",
-}
-
-var uwbComplexChannelDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewComplexChannelServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var uwbComplexChannelEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewComplexChannelServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var uwbComplexChannelGetChannelCmd = &cobra.Command{
-	Use:   "get-channel",
-	Short: "GetChannel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewComplexChannelServiceClient(grpcConn)
-		req := &pb.GetChannelRequest{}
-		resp, err := client.GetChannel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var uwbComplexChannelGetPreambleIndexCmd = &cobra.Command{
-	Use:   "get-preamble-index",
-	Short: "GetPreambleIndex RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewComplexChannelServiceClient(grpcConn)
-		req := &pb.GetPreambleIndexRequest{}
-		resp, err := client.GetPreambleIndex(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var uwbComplexChannelHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewComplexChannelServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var uwbComplexChannelToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewComplexChannelServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var uwbComplexChannelWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewComplexChannelServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var uwbComplexChannelBuilderCmd = &cobra.Command{
-	Use:   "complex-channel-builder",
-	Short: "ComplexChannelBuilderService operations",
-}
-
-var uwbComplexChannelBuilderBuildCmd = &cobra.Command{
-	Use:   "build",
-	Short: "Build RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewComplexChannelBuilderServiceClient(grpcConn)
-		req := &pb.BuildRequest{}
-		resp, err := client.Build(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var uwbComplexChannelBuilderSetChannelCmd = &cobra.Command{
-	Use:   "set-channel",
-	Short: "SetChannel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewComplexChannelBuilderServiceClient(grpcConn)
-		req := &pb.SetChannelRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetChannel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var uwbComplexChannelBuilderSetPreambleIndexCmd = &cobra.Command{
-	Use:   "set-preamble-index",
-	Short: "SetPreambleIndex RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewComplexChannelBuilderServiceClient(grpcConn)
-		req := &pb.SetPreambleIndexRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetPreambleIndex(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
 var uwbRangingCapabilitiesCmd = &cobra.Command{
 	Use:   "ranging-capabilities",
 	Short: "RangingCapabilitiesService operations",
@@ -761,6 +761,102 @@ var uwbRangingCapabilitiesGetMinimumRangingIntervalCmd = &cobra.Command{
 		client := pb.NewRangingCapabilitiesServiceClient(grpcConn)
 		req := &pb.GetMinimumRangingIntervalRequest{}
 		resp, err := client.GetMinimumRangingInterval(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var uwbRangingCapabilitiesGetSupportedChannelsCmd = &cobra.Command{
+	Use:   "get-supported-channels",
+	Short: "GetSupportedChannels RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRangingCapabilitiesServiceClient(grpcConn)
+		req := &pb.GetSupportedChannelsRequest{}
+		resp, err := client.GetSupportedChannels(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var uwbRangingCapabilitiesGetSupportedConfigIdsCmd = &cobra.Command{
+	Use:   "get-supported-config-ids",
+	Short: "GetSupportedConfigIds RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRangingCapabilitiesServiceClient(grpcConn)
+		req := &pb.GetSupportedConfigIdsRequest{}
+		resp, err := client.GetSupportedConfigIds(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var uwbRangingCapabilitiesGetSupportedNotificationConfigurationsCmd = &cobra.Command{
+	Use:   "get-supported-notification-configurations",
+	Short: "GetSupportedNotificationConfigurations RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRangingCapabilitiesServiceClient(grpcConn)
+		req := &pb.GetSupportedNotificationConfigurationsRequest{}
+		resp, err := client.GetSupportedNotificationConfigurations(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var uwbRangingCapabilitiesGetSupportedPreambleIndexesCmd = &cobra.Command{
+	Use:   "get-supported-preamble-indexes",
+	Short: "GetSupportedPreambleIndexes RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRangingCapabilitiesServiceClient(grpcConn)
+		req := &pb.GetSupportedPreambleIndexesRequest{}
+		resp, err := client.GetSupportedPreambleIndexes(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var uwbRangingCapabilitiesGetSupportedRangingUpdateRatesCmd = &cobra.Command{
+	Use:   "get-supported-ranging-update-rates",
+	Short: "GetSupportedRangingUpdateRates RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRangingCapabilitiesServiceClient(grpcConn)
+		req := &pb.GetSupportedRangingUpdateRatesRequest{}
+		resp, err := client.GetSupportedRangingUpdateRates(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var uwbRangingCapabilitiesGetSupportedSlotDurationsCmd = &cobra.Command{
+	Use:   "get-supported-slot-durations",
+	Short: "GetSupportedSlotDurations RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRangingCapabilitiesServiceClient(grpcConn)
+		req := &pb.GetSupportedSlotDurationsRequest{}
+		resp, err := client.GetSupportedSlotDurations(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -887,6 +983,23 @@ var uwbRangingCapabilitiesWriteToParcelCmd = &cobra.Command{
 }
 
 func init() {
+	uwbComplexChannelCmd.AddCommand(uwbComplexChannelDescribeContentsCmd)
+	uwbComplexChannelEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	uwbComplexChannelCmd.AddCommand(uwbComplexChannelEqualsCmd)
+	uwbComplexChannelCmd.AddCommand(uwbComplexChannelGetChannelCmd)
+	uwbComplexChannelCmd.AddCommand(uwbComplexChannelGetPreambleIndexCmd)
+	uwbComplexChannelCmd.AddCommand(uwbComplexChannelHashCodeCmd)
+	uwbComplexChannelCmd.AddCommand(uwbComplexChannelToStringCmd)
+	uwbComplexChannelWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	uwbComplexChannelWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	uwbComplexChannelCmd.AddCommand(uwbComplexChannelWriteToParcelCmd)
+	uwbCmd.AddCommand(uwbComplexChannelCmd)
+	uwbComplexChannelBuilderCmd.AddCommand(uwbComplexChannelBuilderBuildCmd)
+	uwbComplexChannelBuilderSetChannelCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	uwbComplexChannelBuilderCmd.AddCommand(uwbComplexChannelBuilderSetChannelCmd)
+	uwbComplexChannelBuilderSetPreambleIndexCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	uwbComplexChannelBuilderCmd.AddCommand(uwbComplexChannelBuilderSetPreambleIndexCmd)
+	uwbCmd.AddCommand(uwbComplexChannelBuilderCmd)
 	uwbAddressCmd.AddCommand(uwbAddressDescribeContentsCmd)
 	uwbAddressEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	uwbAddressCmd.AddCommand(uwbAddressEqualsCmd)
@@ -933,25 +1046,14 @@ func init() {
 	uwbRangingParamsBuilderSetSubSessionKeyInfoCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	uwbRangingParamsBuilderCmd.AddCommand(uwbRangingParamsBuilderSetSubSessionKeyInfoCmd)
 	uwbCmd.AddCommand(uwbRangingParamsBuilderCmd)
-	uwbComplexChannelCmd.AddCommand(uwbComplexChannelDescribeContentsCmd)
-	uwbComplexChannelEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	uwbComplexChannelCmd.AddCommand(uwbComplexChannelEqualsCmd)
-	uwbComplexChannelCmd.AddCommand(uwbComplexChannelGetChannelCmd)
-	uwbComplexChannelCmd.AddCommand(uwbComplexChannelGetPreambleIndexCmd)
-	uwbComplexChannelCmd.AddCommand(uwbComplexChannelHashCodeCmd)
-	uwbComplexChannelCmd.AddCommand(uwbComplexChannelToStringCmd)
-	uwbComplexChannelWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	uwbComplexChannelWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	uwbComplexChannelCmd.AddCommand(uwbComplexChannelWriteToParcelCmd)
-	uwbCmd.AddCommand(uwbComplexChannelCmd)
-	uwbComplexChannelBuilderCmd.AddCommand(uwbComplexChannelBuilderBuildCmd)
-	uwbComplexChannelBuilderSetChannelCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	uwbComplexChannelBuilderCmd.AddCommand(uwbComplexChannelBuilderSetChannelCmd)
-	uwbComplexChannelBuilderSetPreambleIndexCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	uwbComplexChannelBuilderCmd.AddCommand(uwbComplexChannelBuilderSetPreambleIndexCmd)
-	uwbCmd.AddCommand(uwbComplexChannelBuilderCmd)
 	uwbRangingCapabilitiesCmd.AddCommand(uwbRangingCapabilitiesDescribeContentsCmd)
 	uwbRangingCapabilitiesCmd.AddCommand(uwbRangingCapabilitiesGetMinimumRangingIntervalCmd)
+	uwbRangingCapabilitiesCmd.AddCommand(uwbRangingCapabilitiesGetSupportedChannelsCmd)
+	uwbRangingCapabilitiesCmd.AddCommand(uwbRangingCapabilitiesGetSupportedConfigIdsCmd)
+	uwbRangingCapabilitiesCmd.AddCommand(uwbRangingCapabilitiesGetSupportedNotificationConfigurationsCmd)
+	uwbRangingCapabilitiesCmd.AddCommand(uwbRangingCapabilitiesGetSupportedPreambleIndexesCmd)
+	uwbRangingCapabilitiesCmd.AddCommand(uwbRangingCapabilitiesGetSupportedRangingUpdateRatesCmd)
+	uwbRangingCapabilitiesCmd.AddCommand(uwbRangingCapabilitiesGetSupportedSlotDurationsCmd)
 	uwbRangingCapabilitiesCmd.AddCommand(uwbRangingCapabilitiesIsAzimuthalAngleSupportedCmd)
 	uwbRangingCapabilitiesCmd.AddCommand(uwbRangingCapabilitiesIsBackgroundRangingSupportedCmd)
 	uwbRangingCapabilitiesCmd.AddCommand(uwbRangingCapabilitiesIsDistanceMeasurementSupportedCmd)

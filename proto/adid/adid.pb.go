@@ -23,6 +23,94 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+type GetRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetRequest) Reset() {
+	*x = GetRequest{}
+	mi := &file_proto_adid_adid_proto_msgTypes[0]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetRequest) ProtoMessage() {}
+
+func (x *GetRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_adid_adid_proto_msgTypes[0]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetRequest.ProtoReflect.Descriptor instead.
+func (*GetRequest) Descriptor() ([]byte, []int) {
+	return file_proto_adid_adid_proto_rawDescGZIP(), []int{0}
+}
+
+func (x *GetRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type GetResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetResponse) Reset() {
+	*x = GetResponse{}
+	mi := &file_proto_adid_adid_proto_msgTypes[1]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetResponse) ProtoMessage() {}
+
+func (x *GetResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_adid_adid_proto_msgTypes[1]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetResponse.ProtoReflect.Descriptor instead.
+func (*GetResponse) Descriptor() ([]byte, []int) {
+	return file_proto_adid_adid_proto_rawDescGZIP(), []int{1}
+}
+
+func (x *GetResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
 type NewAdIdRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
@@ -33,7 +121,7 @@ type NewAdIdRequest struct {
 
 func (x *NewAdIdRequest) Reset() {
 	*x = NewAdIdRequest{}
-	mi := &file_proto_adid_adid_proto_msgTypes[0]
+	mi := &file_proto_adid_adid_proto_msgTypes[2]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -45,7 +133,7 @@ func (x *NewAdIdRequest) String() string {
 func (*NewAdIdRequest) ProtoMessage() {}
 
 func (x *NewAdIdRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adid_adid_proto_msgTypes[0]
+	mi := &file_proto_adid_adid_proto_msgTypes[2]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -58,7 +146,7 @@ func (x *NewAdIdRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NewAdIdRequest.ProtoReflect.Descriptor instead.
 func (*NewAdIdRequest) Descriptor() ([]byte, []int) {
-	return file_proto_adid_adid_proto_rawDescGZIP(), []int{0}
+	return file_proto_adid_adid_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *NewAdIdRequest) GetArg0() string {
@@ -84,7 +172,7 @@ type NewAdIdResponse struct {
 
 func (x *NewAdIdResponse) Reset() {
 	*x = NewAdIdResponse{}
-	mi := &file_proto_adid_adid_proto_msgTypes[1]
+	mi := &file_proto_adid_adid_proto_msgTypes[3]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -96,7 +184,7 @@ func (x *NewAdIdResponse) String() string {
 func (*NewAdIdResponse) ProtoMessage() {}
 
 func (x *NewAdIdResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adid_adid_proto_msgTypes[1]
+	mi := &file_proto_adid_adid_proto_msgTypes[3]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -109,7 +197,7 @@ func (x *NewAdIdResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NewAdIdResponse.ProtoReflect.Descriptor instead.
 func (*NewAdIdResponse) Descriptor() ([]byte, []int) {
-	return file_proto_adid_adid_proto_rawDescGZIP(), []int{1}
+	return file_proto_adid_adid_proto_rawDescGZIP(), []int{3}
 }
 
 func (x *NewAdIdResponse) GetResult() int64 {
@@ -129,7 +217,7 @@ type EqualsRequest struct {
 
 func (x *EqualsRequest) Reset() {
 	*x = EqualsRequest{}
-	mi := &file_proto_adid_adid_proto_msgTypes[2]
+	mi := &file_proto_adid_adid_proto_msgTypes[4]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -141,7 +229,7 @@ func (x *EqualsRequest) String() string {
 func (*EqualsRequest) ProtoMessage() {}
 
 func (x *EqualsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adid_adid_proto_msgTypes[2]
+	mi := &file_proto_adid_adid_proto_msgTypes[4]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -154,7 +242,7 @@ func (x *EqualsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use EqualsRequest.ProtoReflect.Descriptor instead.
 func (*EqualsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_adid_adid_proto_rawDescGZIP(), []int{2}
+	return file_proto_adid_adid_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *EqualsRequest) GetHandle() int64 {
@@ -180,7 +268,7 @@ type EqualsResponse struct {
 
 func (x *EqualsResponse) Reset() {
 	*x = EqualsResponse{}
-	mi := &file_proto_adid_adid_proto_msgTypes[3]
+	mi := &file_proto_adid_adid_proto_msgTypes[5]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -192,7 +280,7 @@ func (x *EqualsResponse) String() string {
 func (*EqualsResponse) ProtoMessage() {}
 
 func (x *EqualsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adid_adid_proto_msgTypes[3]
+	mi := &file_proto_adid_adid_proto_msgTypes[5]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -205,7 +293,7 @@ func (x *EqualsResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use EqualsResponse.ProtoReflect.Descriptor instead.
 func (*EqualsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_adid_adid_proto_rawDescGZIP(), []int{3}
+	return file_proto_adid_adid_proto_rawDescGZIP(), []int{5}
 }
 
 func (x *EqualsResponse) GetResult() bool {
@@ -224,7 +312,7 @@ type GetAdIdRequest struct {
 
 func (x *GetAdIdRequest) Reset() {
 	*x = GetAdIdRequest{}
-	mi := &file_proto_adid_adid_proto_msgTypes[4]
+	mi := &file_proto_adid_adid_proto_msgTypes[6]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -236,7 +324,7 @@ func (x *GetAdIdRequest) String() string {
 func (*GetAdIdRequest) ProtoMessage() {}
 
 func (x *GetAdIdRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adid_adid_proto_msgTypes[4]
+	mi := &file_proto_adid_adid_proto_msgTypes[6]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -249,7 +337,7 @@ func (x *GetAdIdRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetAdIdRequest.ProtoReflect.Descriptor instead.
 func (*GetAdIdRequest) Descriptor() ([]byte, []int) {
-	return file_proto_adid_adid_proto_rawDescGZIP(), []int{4}
+	return file_proto_adid_adid_proto_rawDescGZIP(), []int{6}
 }
 
 func (x *GetAdIdRequest) GetHandle() int64 {
@@ -268,7 +356,7 @@ type GetAdIdResponse struct {
 
 func (x *GetAdIdResponse) Reset() {
 	*x = GetAdIdResponse{}
-	mi := &file_proto_adid_adid_proto_msgTypes[5]
+	mi := &file_proto_adid_adid_proto_msgTypes[7]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -280,7 +368,7 @@ func (x *GetAdIdResponse) String() string {
 func (*GetAdIdResponse) ProtoMessage() {}
 
 func (x *GetAdIdResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adid_adid_proto_msgTypes[5]
+	mi := &file_proto_adid_adid_proto_msgTypes[7]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -293,7 +381,7 @@ func (x *GetAdIdResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetAdIdResponse.ProtoReflect.Descriptor instead.
 func (*GetAdIdResponse) Descriptor() ([]byte, []int) {
-	return file_proto_adid_adid_proto_rawDescGZIP(), []int{5}
+	return file_proto_adid_adid_proto_rawDescGZIP(), []int{7}
 }
 
 func (x *GetAdIdResponse) GetResult() string {
@@ -312,7 +400,7 @@ type HashCodeRequest struct {
 
 func (x *HashCodeRequest) Reset() {
 	*x = HashCodeRequest{}
-	mi := &file_proto_adid_adid_proto_msgTypes[6]
+	mi := &file_proto_adid_adid_proto_msgTypes[8]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -324,7 +412,7 @@ func (x *HashCodeRequest) String() string {
 func (*HashCodeRequest) ProtoMessage() {}
 
 func (x *HashCodeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adid_adid_proto_msgTypes[6]
+	mi := &file_proto_adid_adid_proto_msgTypes[8]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -337,7 +425,7 @@ func (x *HashCodeRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use HashCodeRequest.ProtoReflect.Descriptor instead.
 func (*HashCodeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_adid_adid_proto_rawDescGZIP(), []int{6}
+	return file_proto_adid_adid_proto_rawDescGZIP(), []int{8}
 }
 
 func (x *HashCodeRequest) GetHandle() int64 {
@@ -356,7 +444,7 @@ type HashCodeResponse struct {
 
 func (x *HashCodeResponse) Reset() {
 	*x = HashCodeResponse{}
-	mi := &file_proto_adid_adid_proto_msgTypes[7]
+	mi := &file_proto_adid_adid_proto_msgTypes[9]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -368,7 +456,7 @@ func (x *HashCodeResponse) String() string {
 func (*HashCodeResponse) ProtoMessage() {}
 
 func (x *HashCodeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adid_adid_proto_msgTypes[7]
+	mi := &file_proto_adid_adid_proto_msgTypes[9]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -381,7 +469,7 @@ func (x *HashCodeResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use HashCodeResponse.ProtoReflect.Descriptor instead.
 func (*HashCodeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_adid_adid_proto_rawDescGZIP(), []int{7}
+	return file_proto_adid_adid_proto_rawDescGZIP(), []int{9}
 }
 
 func (x *HashCodeResponse) GetResult() int32 {
@@ -400,7 +488,7 @@ type IsLimitAdTrackingEnabledRequest struct {
 
 func (x *IsLimitAdTrackingEnabledRequest) Reset() {
 	*x = IsLimitAdTrackingEnabledRequest{}
-	mi := &file_proto_adid_adid_proto_msgTypes[8]
+	mi := &file_proto_adid_adid_proto_msgTypes[10]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -412,7 +500,7 @@ func (x *IsLimitAdTrackingEnabledRequest) String() string {
 func (*IsLimitAdTrackingEnabledRequest) ProtoMessage() {}
 
 func (x *IsLimitAdTrackingEnabledRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adid_adid_proto_msgTypes[8]
+	mi := &file_proto_adid_adid_proto_msgTypes[10]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -425,7 +513,7 @@ func (x *IsLimitAdTrackingEnabledRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsLimitAdTrackingEnabledRequest.ProtoReflect.Descriptor instead.
 func (*IsLimitAdTrackingEnabledRequest) Descriptor() ([]byte, []int) {
-	return file_proto_adid_adid_proto_rawDescGZIP(), []int{8}
+	return file_proto_adid_adid_proto_rawDescGZIP(), []int{10}
 }
 
 func (x *IsLimitAdTrackingEnabledRequest) GetHandle() int64 {
@@ -444,7 +532,7 @@ type IsLimitAdTrackingEnabledResponse struct {
 
 func (x *IsLimitAdTrackingEnabledResponse) Reset() {
 	*x = IsLimitAdTrackingEnabledResponse{}
-	mi := &file_proto_adid_adid_proto_msgTypes[9]
+	mi := &file_proto_adid_adid_proto_msgTypes[11]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -456,7 +544,7 @@ func (x *IsLimitAdTrackingEnabledResponse) String() string {
 func (*IsLimitAdTrackingEnabledResponse) ProtoMessage() {}
 
 func (x *IsLimitAdTrackingEnabledResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adid_adid_proto_msgTypes[9]
+	mi := &file_proto_adid_adid_proto_msgTypes[11]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -469,7 +557,7 @@ func (x *IsLimitAdTrackingEnabledResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsLimitAdTrackingEnabledResponse.ProtoReflect.Descriptor instead.
 func (*IsLimitAdTrackingEnabledResponse) Descriptor() ([]byte, []int) {
-	return file_proto_adid_adid_proto_rawDescGZIP(), []int{9}
+	return file_proto_adid_adid_proto_rawDescGZIP(), []int{11}
 }
 
 func (x *IsLimitAdTrackingEnabledResponse) GetResult() bool {
@@ -488,7 +576,7 @@ type ToStringRequest struct {
 
 func (x *ToStringRequest) Reset() {
 	*x = ToStringRequest{}
-	mi := &file_proto_adid_adid_proto_msgTypes[10]
+	mi := &file_proto_adid_adid_proto_msgTypes[12]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -500,7 +588,7 @@ func (x *ToStringRequest) String() string {
 func (*ToStringRequest) ProtoMessage() {}
 
 func (x *ToStringRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adid_adid_proto_msgTypes[10]
+	mi := &file_proto_adid_adid_proto_msgTypes[12]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -513,7 +601,7 @@ func (x *ToStringRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ToStringRequest.ProtoReflect.Descriptor instead.
 func (*ToStringRequest) Descriptor() ([]byte, []int) {
-	return file_proto_adid_adid_proto_rawDescGZIP(), []int{10}
+	return file_proto_adid_adid_proto_rawDescGZIP(), []int{12}
 }
 
 func (x *ToStringRequest) GetHandle() int64 {
@@ -532,7 +620,7 @@ type ToStringResponse struct {
 
 func (x *ToStringResponse) Reset() {
 	*x = ToStringResponse{}
-	mi := &file_proto_adid_adid_proto_msgTypes[11]
+	mi := &file_proto_adid_adid_proto_msgTypes[13]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -544,7 +632,7 @@ func (x *ToStringResponse) String() string {
 func (*ToStringResponse) ProtoMessage() {}
 
 func (x *ToStringResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adid_adid_proto_msgTypes[11]
+	mi := &file_proto_adid_adid_proto_msgTypes[13]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -557,7 +645,7 @@ func (x *ToStringResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ToStringResponse.ProtoReflect.Descriptor instead.
 func (*ToStringResponse) Descriptor() ([]byte, []int) {
-	return file_proto_adid_adid_proto_rawDescGZIP(), []int{11}
+	return file_proto_adid_adid_proto_rawDescGZIP(), []int{13}
 }
 
 func (x *ToStringResponse) GetResult() string {
@@ -567,99 +655,16 @@ func (x *ToStringResponse) GetResult() string {
 	return ""
 }
 
-type GetRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetRequest) Reset() {
-	*x = GetRequest{}
-	mi := &file_proto_adid_adid_proto_msgTypes[12]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetRequest) ProtoMessage() {}
-
-func (x *GetRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adid_adid_proto_msgTypes[12]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetRequest.ProtoReflect.Descriptor instead.
-func (*GetRequest) Descriptor() ([]byte, []int) {
-	return file_proto_adid_adid_proto_rawDescGZIP(), []int{12}
-}
-
-func (x *GetRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type GetResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetResponse) Reset() {
-	*x = GetResponse{}
-	mi := &file_proto_adid_adid_proto_msgTypes[13]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetResponse) ProtoMessage() {}
-
-func (x *GetResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adid_adid_proto_msgTypes[13]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetResponse.ProtoReflect.Descriptor instead.
-func (*GetResponse) Descriptor() ([]byte, []int) {
-	return file_proto_adid_adid_proto_rawDescGZIP(), []int{13}
-}
-
-func (x *GetResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
 var File_proto_adid_adid_proto protoreflect.FileDescriptor
 
 const file_proto_adid_adid_proto_rawDesc = "" +
 	"\n" +
-	"\x15proto/adid/adid.proto\x12\x04adid\"8\n" +
+	"\x15proto/adid/adid.proto\x12\x04adid\" \n" +
+	"\n" +
+	"GetRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"%\n" +
+	"\vGetResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"8\n" +
 	"\x0eNewAdIdRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
 	"\x04arg1\x18\x02 \x01(\bR\x04arg1\")\n" +
@@ -685,21 +690,16 @@ const file_proto_adid_adid_proto_rawDesc = "" +
 	"\x0fToStringRequest\x12\x16\n" +
 	"\x06handle\x18\x01 \x01(\x03R\x06handle\"*\n" +
 	"\x10ToStringResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\tR\x06result\" \n" +
-	"\n" +
-	"GetRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"%\n" +
-	"\vGetResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result2\x93\x03\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result2@\n" +
+	"\x12AdIdManagerService\x12*\n" +
+	"\x03Get\x12\x10.adid.GetRequest\x1a\x11.adid.GetResponse2\x93\x03\n" +
 	"\vAdIdService\x126\n" +
 	"\aNewAdId\x12\x14.adid.NewAdIdRequest\x1a\x15.adid.NewAdIdResponse\x123\n" +
 	"\x06Equals\x12\x13.adid.EqualsRequest\x1a\x14.adid.EqualsResponse\x126\n" +
 	"\aGetAdId\x12\x14.adid.GetAdIdRequest\x1a\x15.adid.GetAdIdResponse\x129\n" +
 	"\bHashCode\x12\x15.adid.HashCodeRequest\x1a\x16.adid.HashCodeResponse\x12i\n" +
 	"\x18IsLimitAdTrackingEnabled\x12%.adid.IsLimitAdTrackingEnabledRequest\x1a&.adid.IsLimitAdTrackingEnabledResponse\x129\n" +
-	"\bToString\x12\x15.adid.ToStringRequest\x1a\x16.adid.ToStringResponse2@\n" +
-	"\x12AdIdManagerService\x12*\n" +
-	"\x03Get\x12\x10.adid.GetRequest\x1a\x11.adid.GetResponseB.Z,github.com/AndroidGoLab/jni-proxy/proto/adidb\x06proto3"
+	"\bToString\x12\x15.adid.ToStringRequest\x1a\x16.adid.ToStringResponseB.Z,github.com/AndroidGoLab/jni-proxy/proto/adidb\x06proto3"
 
 var (
 	file_proto_adid_adid_proto_rawDescOnce sync.Once
@@ -715,36 +715,36 @@ func file_proto_adid_adid_proto_rawDescGZIP() []byte {
 
 var file_proto_adid_adid_proto_msgTypes = make([]protoimpl.MessageInfo, 14)
 var file_proto_adid_adid_proto_goTypes = []any{
-	(*NewAdIdRequest)(nil),                   // 0: adid.NewAdIdRequest
-	(*NewAdIdResponse)(nil),                  // 1: adid.NewAdIdResponse
-	(*EqualsRequest)(nil),                    // 2: adid.EqualsRequest
-	(*EqualsResponse)(nil),                   // 3: adid.EqualsResponse
-	(*GetAdIdRequest)(nil),                   // 4: adid.GetAdIdRequest
-	(*GetAdIdResponse)(nil),                  // 5: adid.GetAdIdResponse
-	(*HashCodeRequest)(nil),                  // 6: adid.HashCodeRequest
-	(*HashCodeResponse)(nil),                 // 7: adid.HashCodeResponse
-	(*IsLimitAdTrackingEnabledRequest)(nil),  // 8: adid.IsLimitAdTrackingEnabledRequest
-	(*IsLimitAdTrackingEnabledResponse)(nil), // 9: adid.IsLimitAdTrackingEnabledResponse
-	(*ToStringRequest)(nil),                  // 10: adid.ToStringRequest
-	(*ToStringResponse)(nil),                 // 11: adid.ToStringResponse
-	(*GetRequest)(nil),                       // 12: adid.GetRequest
-	(*GetResponse)(nil),                      // 13: adid.GetResponse
+	(*GetRequest)(nil),                       // 0: adid.GetRequest
+	(*GetResponse)(nil),                      // 1: adid.GetResponse
+	(*NewAdIdRequest)(nil),                   // 2: adid.NewAdIdRequest
+	(*NewAdIdResponse)(nil),                  // 3: adid.NewAdIdResponse
+	(*EqualsRequest)(nil),                    // 4: adid.EqualsRequest
+	(*EqualsResponse)(nil),                   // 5: adid.EqualsResponse
+	(*GetAdIdRequest)(nil),                   // 6: adid.GetAdIdRequest
+	(*GetAdIdResponse)(nil),                  // 7: adid.GetAdIdResponse
+	(*HashCodeRequest)(nil),                  // 8: adid.HashCodeRequest
+	(*HashCodeResponse)(nil),                 // 9: adid.HashCodeResponse
+	(*IsLimitAdTrackingEnabledRequest)(nil),  // 10: adid.IsLimitAdTrackingEnabledRequest
+	(*IsLimitAdTrackingEnabledResponse)(nil), // 11: adid.IsLimitAdTrackingEnabledResponse
+	(*ToStringRequest)(nil),                  // 12: adid.ToStringRequest
+	(*ToStringResponse)(nil),                 // 13: adid.ToStringResponse
 }
 var file_proto_adid_adid_proto_depIdxs = []int32{
-	0,  // 0: adid.AdIdService.NewAdId:input_type -> adid.NewAdIdRequest
-	2,  // 1: adid.AdIdService.Equals:input_type -> adid.EqualsRequest
-	4,  // 2: adid.AdIdService.GetAdId:input_type -> adid.GetAdIdRequest
-	6,  // 3: adid.AdIdService.HashCode:input_type -> adid.HashCodeRequest
-	8,  // 4: adid.AdIdService.IsLimitAdTrackingEnabled:input_type -> adid.IsLimitAdTrackingEnabledRequest
-	10, // 5: adid.AdIdService.ToString:input_type -> adid.ToStringRequest
-	12, // 6: adid.AdIdManagerService.Get:input_type -> adid.GetRequest
-	1,  // 7: adid.AdIdService.NewAdId:output_type -> adid.NewAdIdResponse
-	3,  // 8: adid.AdIdService.Equals:output_type -> adid.EqualsResponse
-	5,  // 9: adid.AdIdService.GetAdId:output_type -> adid.GetAdIdResponse
-	7,  // 10: adid.AdIdService.HashCode:output_type -> adid.HashCodeResponse
-	9,  // 11: adid.AdIdService.IsLimitAdTrackingEnabled:output_type -> adid.IsLimitAdTrackingEnabledResponse
-	11, // 12: adid.AdIdService.ToString:output_type -> adid.ToStringResponse
-	13, // 13: adid.AdIdManagerService.Get:output_type -> adid.GetResponse
+	0,  // 0: adid.AdIdManagerService.Get:input_type -> adid.GetRequest
+	2,  // 1: adid.AdIdService.NewAdId:input_type -> adid.NewAdIdRequest
+	4,  // 2: adid.AdIdService.Equals:input_type -> adid.EqualsRequest
+	6,  // 3: adid.AdIdService.GetAdId:input_type -> adid.GetAdIdRequest
+	8,  // 4: adid.AdIdService.HashCode:input_type -> adid.HashCodeRequest
+	10, // 5: adid.AdIdService.IsLimitAdTrackingEnabled:input_type -> adid.IsLimitAdTrackingEnabledRequest
+	12, // 6: adid.AdIdService.ToString:input_type -> adid.ToStringRequest
+	1,  // 7: adid.AdIdManagerService.Get:output_type -> adid.GetResponse
+	3,  // 8: adid.AdIdService.NewAdId:output_type -> adid.NewAdIdResponse
+	5,  // 9: adid.AdIdService.Equals:output_type -> adid.EqualsResponse
+	7,  // 10: adid.AdIdService.GetAdId:output_type -> adid.GetAdIdResponse
+	9,  // 11: adid.AdIdService.HashCode:output_type -> adid.HashCodeResponse
+	11, // 12: adid.AdIdService.IsLimitAdTrackingEnabled:output_type -> adid.IsLimitAdTrackingEnabledResponse
+	13, // 13: adid.AdIdService.ToString:output_type -> adid.ToStringResponse
 	7,  // [7:14] is the sub-list for method output_type
 	0,  // [0:7] is the sub-list for method input_type
 	0,  // [0:0] is the sub-list for extension type_name

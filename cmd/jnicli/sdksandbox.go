@@ -12,6 +12,71 @@ var sdksandboxCmd = &cobra.Command{
 	Short: "sdksandbox service operations",
 }
 
+var sdksandboxRequestSurfacePackageExceptionCmd = &cobra.Command{
+	Use:   "request-surface-package-exception",
+	Short: "RequestSurfacePackageExceptionService operations",
+}
+
+var sdksandboxRequestSurfacePackageExceptionNewRequestSurfacePackageExceptionCmd = &cobra.Command{
+	Use:   "new-request-surface-package-exception",
+	Short: "NewRequestSurfacePackageException RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRequestSurfacePackageExceptionServiceClient(grpcConn)
+		req := &pb.NewRequestSurfacePackageExceptionRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.NewRequestSurfacePackageException(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sdksandboxRequestSurfacePackageExceptionGetExtraErrorInformationCmd = &cobra.Command{
+	Use:   "get-extra-error-information",
+	Short: "GetExtraErrorInformation RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRequestSurfacePackageExceptionServiceClient(grpcConn)
+		req := &pb.GetExtraErrorInformationRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetExtraErrorInformation(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sdksandboxRequestSurfacePackageExceptionGetRequestSurfacePackageErrorCodeCmd = &cobra.Command{
+	Use:   "get-request-surface-package-error-code",
+	Short: "GetRequestSurfacePackageErrorCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRequestSurfacePackageExceptionServiceClient(grpcConn)
+		req := &pb.GetRequestSurfacePackageErrorCodeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetRequestSurfacePackageErrorCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var sdksandboxSandboxedSdkProviderCmd = &cobra.Command{
 	Use:   "sandboxed-sdk-provider",
 	Short: "SandboxedSdkProviderService operations",
@@ -135,6 +200,54 @@ var sdksandboxSdkSandboxManagerAddSdkSandboxProcessDeathCallbackCmd = &cobra.Com
 			req.Arg1 = v
 		}
 		resp, err := client.AddSdkSandboxProcessDeathCallback(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sdksandboxSdkSandboxManagerGetAppOwnedSdkSandboxInterfacesCmd = &cobra.Command{
+	Use:   "get-app-owned-sdk-sandbox-interfaces",
+	Short: "GetAppOwnedSdkSandboxInterfaces RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSdkSandboxManagerServiceClient(grpcConn)
+		req := &pb.GetAppOwnedSdkSandboxInterfacesRequest{}
+		resp, err := client.GetAppOwnedSdkSandboxInterfaces(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sdksandboxSdkSandboxManagerGetSandboxedSdksCmd = &cobra.Command{
+	Use:   "get-sandboxed-sdks",
+	Short: "GetSandboxedSdks RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSdkSandboxManagerServiceClient(grpcConn)
+		req := &pb.GetSandboxedSdksRequest{}
+		resp, err := client.GetSandboxedSdks(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sdksandboxSdkSandboxManagerGetSyncedSharedPreferencesKeysCmd = &cobra.Command{
+	Use:   "get-synced-shared-preferences-keys",
+	Short: "GetSyncedSharedPreferencesKeys RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSdkSandboxManagerServiceClient(grpcConn)
+		req := &pb.GetSyncedSharedPreferencesKeysRequest{}
+		resp, err := client.GetSyncedSharedPreferencesKeys(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -277,6 +390,112 @@ var sdksandboxSdkSandboxManagerSdkSandboxProcessDeathCallbackOnSdkSandboxDiedCmd
 	},
 }
 
+var sdksandboxSandboxedSdkCmd = &cobra.Command{
+	Use:   "sandboxed-sdk",
+	Short: "SandboxedSdkService operations",
+}
+
+var sdksandboxSandboxedSdkNewSandboxedSdkCmd = &cobra.Command{
+	Use:   "new-sandboxed-sdk",
+	Short: "NewSandboxedSdk RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSandboxedSdkServiceClient(grpcConn)
+		req := &pb.NewSandboxedSdkRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.NewSandboxedSdk(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sdksandboxSandboxedSdkDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSandboxedSdkServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sdksandboxSandboxedSdkGetInterfaceCmd = &cobra.Command{
+	Use:   "get-interface",
+	Short: "GetInterface RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSandboxedSdkServiceClient(grpcConn)
+		req := &pb.GetInterfaceRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetInterface(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sdksandboxSandboxedSdkGetSharedLibraryInfoCmd = &cobra.Command{
+	Use:   "get-shared-library-info",
+	Short: "GetSharedLibraryInfo RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSandboxedSdkServiceClient(grpcConn)
+		req := &pb.GetSharedLibraryInfoRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetSharedLibraryInfo(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sdksandboxSandboxedSdkWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSandboxedSdkServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var sdksandboxAppOwnedSdkSandboxInterfaceCmd = &cobra.Command{
 	Use:   "app-owned-sdk-sandbox-interface",
 	Short: "AppOwnedSdkSandboxInterfaceService operations",
@@ -408,177 +627,6 @@ var sdksandboxAppOwnedSdkSandboxInterfaceWriteToParcelCmd = &cobra.Command{
 	},
 }
 
-var sdksandboxRequestSurfacePackageExceptionCmd = &cobra.Command{
-	Use:   "request-surface-package-exception",
-	Short: "RequestSurfacePackageExceptionService operations",
-}
-
-var sdksandboxRequestSurfacePackageExceptionNewRequestSurfacePackageExceptionCmd = &cobra.Command{
-	Use:   "new-request-surface-package-exception",
-	Short: "NewRequestSurfacePackageException RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRequestSurfacePackageExceptionServiceClient(grpcConn)
-		req := &pb.NewRequestSurfacePackageExceptionRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetString("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.NewRequestSurfacePackageException(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sdksandboxRequestSurfacePackageExceptionGetExtraErrorInformationCmd = &cobra.Command{
-	Use:   "get-extra-error-information",
-	Short: "GetExtraErrorInformation RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRequestSurfacePackageExceptionServiceClient(grpcConn)
-		req := &pb.GetExtraErrorInformationRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetExtraErrorInformation(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sdksandboxRequestSurfacePackageExceptionGetRequestSurfacePackageErrorCodeCmd = &cobra.Command{
-	Use:   "get-request-surface-package-error-code",
-	Short: "GetRequestSurfacePackageErrorCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRequestSurfacePackageExceptionServiceClient(grpcConn)
-		req := &pb.GetRequestSurfacePackageErrorCodeRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetRequestSurfacePackageErrorCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sdksandboxSandboxedSdkCmd = &cobra.Command{
-	Use:   "sandboxed-sdk",
-	Short: "SandboxedSdkService operations",
-}
-
-var sdksandboxSandboxedSdkNewSandboxedSdkCmd = &cobra.Command{
-	Use:   "new-sandboxed-sdk",
-	Short: "NewSandboxedSdk RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSandboxedSdkServiceClient(grpcConn)
-		req := &pb.NewSandboxedSdkRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.NewSandboxedSdk(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sdksandboxSandboxedSdkDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSandboxedSdkServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sdksandboxSandboxedSdkGetInterfaceCmd = &cobra.Command{
-	Use:   "get-interface",
-	Short: "GetInterface RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSandboxedSdkServiceClient(grpcConn)
-		req := &pb.GetInterfaceRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetInterface(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sdksandboxSandboxedSdkGetSharedLibraryInfoCmd = &cobra.Command{
-	Use:   "get-shared-library-info",
-	Short: "GetSharedLibraryInfo RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSandboxedSdkServiceClient(grpcConn)
-		req := &pb.GetSharedLibraryInfoRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetSharedLibraryInfo(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sdksandboxSandboxedSdkWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSandboxedSdkServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
 var sdksandboxLoadSdkExceptionCmd = &cobra.Command{
 	Use:   "load-sdk-exception",
 	Short: "LoadSdkExceptionService operations",
@@ -689,6 +737,14 @@ var sdksandboxLoadSdkExceptionWriteToParcelCmd = &cobra.Command{
 }
 
 func init() {
+	sdksandboxRequestSurfacePackageExceptionNewRequestSurfacePackageExceptionCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	sdksandboxRequestSurfacePackageExceptionNewRequestSurfacePackageExceptionCmd.Flags().String("arg1", "", "arg1 (string)")
+	sdksandboxRequestSurfacePackageExceptionCmd.AddCommand(sdksandboxRequestSurfacePackageExceptionNewRequestSurfacePackageExceptionCmd)
+	sdksandboxRequestSurfacePackageExceptionGetExtraErrorInformationCmd.Flags().Int64("handle", 0, "handle (int64)")
+	sdksandboxRequestSurfacePackageExceptionCmd.AddCommand(sdksandboxRequestSurfacePackageExceptionGetExtraErrorInformationCmd)
+	sdksandboxRequestSurfacePackageExceptionGetRequestSurfacePackageErrorCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	sdksandboxRequestSurfacePackageExceptionCmd.AddCommand(sdksandboxRequestSurfacePackageExceptionGetRequestSurfacePackageErrorCodeCmd)
+	sdksandboxCmd.AddCommand(sdksandboxRequestSurfacePackageExceptionCmd)
 	sdksandboxSandboxedSdkProviderAttachContextCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	sdksandboxSandboxedSdkProviderCmd.AddCommand(sdksandboxSandboxedSdkProviderAttachContextCmd)
 	sdksandboxSandboxedSdkProviderCmd.AddCommand(sdksandboxSandboxedSdkProviderBeforeUnloadSdkCmd)
@@ -704,6 +760,9 @@ func init() {
 	sdksandboxSdkSandboxManagerAddSdkSandboxProcessDeathCallbackCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	sdksandboxSdkSandboxManagerAddSdkSandboxProcessDeathCallbackCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
 	sdksandboxSdkSandboxManagerCmd.AddCommand(sdksandboxSdkSandboxManagerAddSdkSandboxProcessDeathCallbackCmd)
+	sdksandboxSdkSandboxManagerCmd.AddCommand(sdksandboxSdkSandboxManagerGetAppOwnedSdkSandboxInterfacesCmd)
+	sdksandboxSdkSandboxManagerCmd.AddCommand(sdksandboxSdkSandboxManagerGetSandboxedSdksCmd)
+	sdksandboxSdkSandboxManagerCmd.AddCommand(sdksandboxSdkSandboxManagerGetSyncedSharedPreferencesKeysCmd)
 	sdksandboxSdkSandboxManagerRegisterAppOwnedSdkSandboxInterfaceCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	sdksandboxSdkSandboxManagerCmd.AddCommand(sdksandboxSdkSandboxManagerRegisterAppOwnedSdkSandboxInterfaceCmd)
 	sdksandboxSdkSandboxManagerRemoveSdkSandboxProcessDeathCallbackCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
@@ -719,6 +778,19 @@ func init() {
 	sdksandboxCmd.AddCommand(sdksandboxSdkSandboxManagerCmd)
 	sdksandboxSdkSandboxManagerSdkSandboxProcessDeathCallbackCmd.AddCommand(sdksandboxSdkSandboxManagerSdkSandboxProcessDeathCallbackOnSdkSandboxDiedCmd)
 	sdksandboxCmd.AddCommand(sdksandboxSdkSandboxManagerSdkSandboxProcessDeathCallbackCmd)
+	sdksandboxSandboxedSdkNewSandboxedSdkCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	sdksandboxSandboxedSdkCmd.AddCommand(sdksandboxSandboxedSdkNewSandboxedSdkCmd)
+	sdksandboxSandboxedSdkDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	sdksandboxSandboxedSdkCmd.AddCommand(sdksandboxSandboxedSdkDescribeContentsCmd)
+	sdksandboxSandboxedSdkGetInterfaceCmd.Flags().Int64("handle", 0, "handle (int64)")
+	sdksandboxSandboxedSdkCmd.AddCommand(sdksandboxSandboxedSdkGetInterfaceCmd)
+	sdksandboxSandboxedSdkGetSharedLibraryInfoCmd.Flags().Int64("handle", 0, "handle (int64)")
+	sdksandboxSandboxedSdkCmd.AddCommand(sdksandboxSandboxedSdkGetSharedLibraryInfoCmd)
+	sdksandboxSandboxedSdkWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	sdksandboxSandboxedSdkWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	sdksandboxSandboxedSdkWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	sdksandboxSandboxedSdkCmd.AddCommand(sdksandboxSandboxedSdkWriteToParcelCmd)
+	sdksandboxCmd.AddCommand(sdksandboxSandboxedSdkCmd)
 	sdksandboxAppOwnedSdkSandboxInterfaceNewAppOwnedSdkSandboxInterfaceCmd.Flags().String("arg0", "", "arg0 (string)")
 	sdksandboxAppOwnedSdkSandboxInterfaceNewAppOwnedSdkSandboxInterfaceCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
 	sdksandboxAppOwnedSdkSandboxInterfaceNewAppOwnedSdkSandboxInterfaceCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
@@ -736,27 +808,6 @@ func init() {
 	sdksandboxAppOwnedSdkSandboxInterfaceWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
 	sdksandboxAppOwnedSdkSandboxInterfaceCmd.AddCommand(sdksandboxAppOwnedSdkSandboxInterfaceWriteToParcelCmd)
 	sdksandboxCmd.AddCommand(sdksandboxAppOwnedSdkSandboxInterfaceCmd)
-	sdksandboxRequestSurfacePackageExceptionNewRequestSurfacePackageExceptionCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	sdksandboxRequestSurfacePackageExceptionNewRequestSurfacePackageExceptionCmd.Flags().String("arg1", "", "arg1 (string)")
-	sdksandboxRequestSurfacePackageExceptionCmd.AddCommand(sdksandboxRequestSurfacePackageExceptionNewRequestSurfacePackageExceptionCmd)
-	sdksandboxRequestSurfacePackageExceptionGetExtraErrorInformationCmd.Flags().Int64("handle", 0, "handle (int64)")
-	sdksandboxRequestSurfacePackageExceptionCmd.AddCommand(sdksandboxRequestSurfacePackageExceptionGetExtraErrorInformationCmd)
-	sdksandboxRequestSurfacePackageExceptionGetRequestSurfacePackageErrorCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
-	sdksandboxRequestSurfacePackageExceptionCmd.AddCommand(sdksandboxRequestSurfacePackageExceptionGetRequestSurfacePackageErrorCodeCmd)
-	sdksandboxCmd.AddCommand(sdksandboxRequestSurfacePackageExceptionCmd)
-	sdksandboxSandboxedSdkNewSandboxedSdkCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	sdksandboxSandboxedSdkCmd.AddCommand(sdksandboxSandboxedSdkNewSandboxedSdkCmd)
-	sdksandboxSandboxedSdkDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	sdksandboxSandboxedSdkCmd.AddCommand(sdksandboxSandboxedSdkDescribeContentsCmd)
-	sdksandboxSandboxedSdkGetInterfaceCmd.Flags().Int64("handle", 0, "handle (int64)")
-	sdksandboxSandboxedSdkCmd.AddCommand(sdksandboxSandboxedSdkGetInterfaceCmd)
-	sdksandboxSandboxedSdkGetSharedLibraryInfoCmd.Flags().Int64("handle", 0, "handle (int64)")
-	sdksandboxSandboxedSdkCmd.AddCommand(sdksandboxSandboxedSdkGetSharedLibraryInfoCmd)
-	sdksandboxSandboxedSdkWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
-	sdksandboxSandboxedSdkWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	sdksandboxSandboxedSdkWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	sdksandboxSandboxedSdkCmd.AddCommand(sdksandboxSandboxedSdkWriteToParcelCmd)
-	sdksandboxCmd.AddCommand(sdksandboxSandboxedSdkCmd)
 	sdksandboxLoadSdkExceptionNewLoadSdkExceptionCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	sdksandboxLoadSdkExceptionNewLoadSdkExceptionCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
 	sdksandboxLoadSdkExceptionCmd.AddCommand(sdksandboxLoadSdkExceptionNewLoadSdkExceptionCmd)

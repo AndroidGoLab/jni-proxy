@@ -9,1904 +9,6 @@ import (
 	"google.golang.org/grpc"
 )
 
-// PaintClient wraps the gRPC PaintService client.
-type PaintClient struct {
-	svc pb.PaintServiceClient
-}
-
-// NewPaintClient creates a new Paint client.
-func NewPaintClient(cc grpc.ClientConnInterface) *PaintClient {
-	return &PaintClient{
-		svc: pb.NewPaintServiceClient(cc),
-	}
-}
-
-// Ascent calls the Ascent RPC.
-func (c *PaintClient) Ascent(ctx context.Context, handle int64) (float32, error) {
-	resp, err := c.svc.Ascent(ctx, &pb.AscentRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// BreakText5 calls the BreakText5 RPC.
-func (c *PaintClient) BreakText5(ctx context.Context, handle int64, arg0 int64, arg1 int32, arg2 int32, arg3 float32, arg4 int64) (int32, error) {
-	resp, err := c.svc.BreakText5(ctx, &pb.BreakText5Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-		Arg4:   arg4,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// BreakText6_1 calls the BreakText6_1 RPC.
-func (c *PaintClient) BreakText6_1(ctx context.Context, handle int64, arg0 string, arg1 int32, arg2 int32, arg3 bool, arg4 float32, arg5 int64) (int32, error) {
-	resp, err := c.svc.BreakText6_1(ctx, &pb.BreakText6_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-		Arg4:   arg4,
-		Arg5:   arg5,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// BreakText4_2 calls the BreakText4_2 RPC.
-func (c *PaintClient) BreakText4_2(ctx context.Context, handle int64, arg0 string, arg1 bool, arg2 float32, arg3 int64) (int32, error) {
-	resp, err := c.svc.BreakText4_2(ctx, &pb.BreakText4_2Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ClearShadowLayer calls the ClearShadowLayer RPC.
-func (c *PaintClient) ClearShadowLayer(ctx context.Context, handle int64) error {
-	_, err := c.svc.ClearShadowLayer(ctx, &pb.ClearShadowLayerRequest{
-		Handle: handle,
-	})
-	return err
-}
-
-// Descent calls the Descent RPC.
-func (c *PaintClient) Descent(ctx context.Context, handle int64) (float32, error) {
-	resp, err := c.svc.Descent(ctx, &pb.DescentRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// EqualsForTextMeasurement calls the EqualsForTextMeasurement RPC.
-func (c *PaintClient) EqualsForTextMeasurement(ctx context.Context, handle int64, arg0 int64) (bool, error) {
-	resp, err := c.svc.EqualsForTextMeasurement(ctx, &pb.EqualsForTextMeasurementRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetAlpha calls the GetAlpha RPC.
-func (c *PaintClient) GetAlpha(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetAlpha(ctx, &pb.GetAlphaRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetBlendMode calls the GetBlendMode RPC.
-func (c *PaintClient) GetBlendMode(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetBlendMode(ctx, &pb.GetBlendModeRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetColor calls the GetColor RPC.
-func (c *PaintClient) GetColor(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetColor(ctx, &pb.GetColorRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetColorFilter calls the GetColorFilter RPC.
-func (c *PaintClient) GetColorFilter(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetColorFilter(ctx, &pb.GetColorFilterRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetColorLong calls the GetColorLong RPC.
-func (c *PaintClient) GetColorLong(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetColorLong(ctx, &pb.GetColorLongRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetEndHyphenEdit calls the GetEndHyphenEdit RPC.
-func (c *PaintClient) GetEndHyphenEdit(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetEndHyphenEdit(ctx, &pb.GetEndHyphenEditRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetFillPath calls the GetFillPath RPC.
-func (c *PaintClient) GetFillPath(ctx context.Context, handle int64, arg0 int64, arg1 int64) (bool, error) {
-	resp, err := c.svc.GetFillPath(ctx, &pb.GetFillPathRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetFlags calls the GetFlags RPC.
-func (c *PaintClient) GetFlags(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetFlags(ctx, &pb.GetFlagsRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetFontFeatureSettings calls the GetFontFeatureSettings RPC.
-func (c *PaintClient) GetFontFeatureSettings(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.GetFontFeatureSettings(ctx, &pb.GetFontFeatureSettingsRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetFontMetrics0 calls the GetFontMetrics0 RPC.
-func (c *PaintClient) GetFontMetrics0(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetFontMetrics0(ctx, &pb.GetFontMetrics0Request{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetFontMetrics1_1 calls the GetFontMetrics1_1 RPC.
-func (c *PaintClient) GetFontMetrics1_1(ctx context.Context, handle int64, arg0 int64) (float32, error) {
-	resp, err := c.svc.GetFontMetrics1_1(ctx, &pb.GetFontMetrics1_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetFontMetricsForLocale calls the GetFontMetricsForLocale RPC.
-func (c *PaintClient) GetFontMetricsForLocale(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.GetFontMetricsForLocale(ctx, &pb.GetFontMetricsForLocaleRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// GetFontMetricsInt0 calls the GetFontMetricsInt0 RPC.
-func (c *PaintClient) GetFontMetricsInt0(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetFontMetricsInt0(ctx, &pb.GetFontMetricsInt0Request{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetFontMetricsInt1_1 calls the GetFontMetricsInt1_1 RPC.
-func (c *PaintClient) GetFontMetricsInt1_1(ctx context.Context, handle int64, arg0 int64) (int32, error) {
-	resp, err := c.svc.GetFontMetricsInt1_1(ctx, &pb.GetFontMetricsInt1_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetFontMetricsInt7_2 calls the GetFontMetricsInt7_2 RPC.
-func (c *PaintClient) GetFontMetricsInt7_2(ctx context.Context, handle int64, arg0 int64, arg1 int32, arg2 int32, arg3 int32, arg4 int32, arg5 bool, arg6 int64) error {
-	_, err := c.svc.GetFontMetricsInt7_2(ctx, &pb.GetFontMetricsInt7_2Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-		Arg4:   arg4,
-		Arg5:   arg5,
-		Arg6:   arg6,
-	})
-	return err
-}
-
-// GetFontMetricsInt7_3 calls the GetFontMetricsInt7_3 RPC.
-func (c *PaintClient) GetFontMetricsInt7_3(ctx context.Context, handle int64, arg0 string, arg1 int32, arg2 int32, arg3 int32, arg4 int32, arg5 bool, arg6 int64) error {
-	_, err := c.svc.GetFontMetricsInt7_3(ctx, &pb.GetFontMetricsInt7_3Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-		Arg4:   arg4,
-		Arg5:   arg5,
-		Arg6:   arg6,
-	})
-	return err
-}
-
-// GetFontMetricsIntForLocale calls the GetFontMetricsIntForLocale RPC.
-func (c *PaintClient) GetFontMetricsIntForLocale(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.GetFontMetricsIntForLocale(ctx, &pb.GetFontMetricsIntForLocaleRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// GetFontSpacing calls the GetFontSpacing RPC.
-func (c *PaintClient) GetFontSpacing(ctx context.Context, handle int64) (float32, error) {
-	resp, err := c.svc.GetFontSpacing(ctx, &pb.GetFontSpacingRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetFontVariationSettings calls the GetFontVariationSettings RPC.
-func (c *PaintClient) GetFontVariationSettings(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.GetFontVariationSettings(ctx, &pb.GetFontVariationSettingsRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetHinting calls the GetHinting RPC.
-func (c *PaintClient) GetHinting(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetHinting(ctx, &pb.GetHintingRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetLetterSpacing calls the GetLetterSpacing RPC.
-func (c *PaintClient) GetLetterSpacing(ctx context.Context, handle int64) (float32, error) {
-	resp, err := c.svc.GetLetterSpacing(ctx, &pb.GetLetterSpacingRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetMaskFilter calls the GetMaskFilter RPC.
-func (c *PaintClient) GetMaskFilter(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetMaskFilter(ctx, &pb.GetMaskFilterRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetOffsetForAdvance7 calls the GetOffsetForAdvance7 RPC.
-func (c *PaintClient) GetOffsetForAdvance7(ctx context.Context, handle int64, arg0 int64, arg1 int32, arg2 int32, arg3 int32, arg4 int32, arg5 bool, arg6 float32) (int32, error) {
-	resp, err := c.svc.GetOffsetForAdvance7(ctx, &pb.GetOffsetForAdvance7Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-		Arg4:   arg4,
-		Arg5:   arg5,
-		Arg6:   arg6,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetOffsetForAdvance7_1 calls the GetOffsetForAdvance7_1 RPC.
-func (c *PaintClient) GetOffsetForAdvance7_1(ctx context.Context, handle int64, arg0 string, arg1 int32, arg2 int32, arg3 int32, arg4 int32, arg5 bool, arg6 float32) (int32, error) {
-	resp, err := c.svc.GetOffsetForAdvance7_1(ctx, &pb.GetOffsetForAdvance7_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-		Arg4:   arg4,
-		Arg5:   arg5,
-		Arg6:   arg6,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetPathEffect calls the GetPathEffect RPC.
-func (c *PaintClient) GetPathEffect(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetPathEffect(ctx, &pb.GetPathEffectRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetRunAdvance7 calls the GetRunAdvance7 RPC.
-func (c *PaintClient) GetRunAdvance7(ctx context.Context, handle int64, arg0 int64, arg1 int32, arg2 int32, arg3 int32, arg4 int32, arg5 bool, arg6 int32) (float32, error) {
-	resp, err := c.svc.GetRunAdvance7(ctx, &pb.GetRunAdvance7Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-		Arg4:   arg4,
-		Arg5:   arg5,
-		Arg6:   arg6,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetRunAdvance7_1 calls the GetRunAdvance7_1 RPC.
-func (c *PaintClient) GetRunAdvance7_1(ctx context.Context, handle int64, arg0 string, arg1 int32, arg2 int32, arg3 int32, arg4 int32, arg5 bool, arg6 int32) (float32, error) {
-	resp, err := c.svc.GetRunAdvance7_1(ctx, &pb.GetRunAdvance7_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-		Arg4:   arg4,
-		Arg5:   arg5,
-		Arg6:   arg6,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetRunCharacterAdvance9 calls the GetRunCharacterAdvance9 RPC.
-func (c *PaintClient) GetRunCharacterAdvance9(ctx context.Context, handle int64, arg0 int64, arg1 int32, arg2 int32, arg3 int32, arg4 int32, arg5 bool, arg6 int32, arg7 int64, arg8 int32) (float32, error) {
-	resp, err := c.svc.GetRunCharacterAdvance9(ctx, &pb.GetRunCharacterAdvance9Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-		Arg4:   arg4,
-		Arg5:   arg5,
-		Arg6:   arg6,
-		Arg7:   arg7,
-		Arg8:   arg8,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetRunCharacterAdvance9_1 calls the GetRunCharacterAdvance9_1 RPC.
-func (c *PaintClient) GetRunCharacterAdvance9_1(ctx context.Context, handle int64, arg0 string, arg1 int32, arg2 int32, arg3 int32, arg4 int32, arg5 bool, arg6 int32, arg7 int64, arg8 int32) (float32, error) {
-	resp, err := c.svc.GetRunCharacterAdvance9_1(ctx, &pb.GetRunCharacterAdvance9_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-		Arg4:   arg4,
-		Arg5:   arg5,
-		Arg6:   arg6,
-		Arg7:   arg7,
-		Arg8:   arg8,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetShader calls the GetShader RPC.
-func (c *PaintClient) GetShader(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetShader(ctx, &pb.GetShaderRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetShadowLayerColor calls the GetShadowLayerColor RPC.
-func (c *PaintClient) GetShadowLayerColor(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetShadowLayerColor(ctx, &pb.GetShadowLayerColorRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetShadowLayerColorLong calls the GetShadowLayerColorLong RPC.
-func (c *PaintClient) GetShadowLayerColorLong(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetShadowLayerColorLong(ctx, &pb.GetShadowLayerColorLongRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetShadowLayerDx calls the GetShadowLayerDx RPC.
-func (c *PaintClient) GetShadowLayerDx(ctx context.Context, handle int64) (float32, error) {
-	resp, err := c.svc.GetShadowLayerDx(ctx, &pb.GetShadowLayerDxRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetShadowLayerDy calls the GetShadowLayerDy RPC.
-func (c *PaintClient) GetShadowLayerDy(ctx context.Context, handle int64) (float32, error) {
-	resp, err := c.svc.GetShadowLayerDy(ctx, &pb.GetShadowLayerDyRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetShadowLayerRadius calls the GetShadowLayerRadius RPC.
-func (c *PaintClient) GetShadowLayerRadius(ctx context.Context, handle int64) (float32, error) {
-	resp, err := c.svc.GetShadowLayerRadius(ctx, &pb.GetShadowLayerRadiusRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetStartHyphenEdit calls the GetStartHyphenEdit RPC.
-func (c *PaintClient) GetStartHyphenEdit(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetStartHyphenEdit(ctx, &pb.GetStartHyphenEditRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetStrikeThruPosition calls the GetStrikeThruPosition RPC.
-func (c *PaintClient) GetStrikeThruPosition(ctx context.Context, handle int64) (float32, error) {
-	resp, err := c.svc.GetStrikeThruPosition(ctx, &pb.GetStrikeThruPositionRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetStrikeThruThickness calls the GetStrikeThruThickness RPC.
-func (c *PaintClient) GetStrikeThruThickness(ctx context.Context, handle int64) (float32, error) {
-	resp, err := c.svc.GetStrikeThruThickness(ctx, &pb.GetStrikeThruThicknessRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetStrokeCap calls the GetStrokeCap RPC.
-func (c *PaintClient) GetStrokeCap(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetStrokeCap(ctx, &pb.GetStrokeCapRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetStrokeJoin calls the GetStrokeJoin RPC.
-func (c *PaintClient) GetStrokeJoin(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetStrokeJoin(ctx, &pb.GetStrokeJoinRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetStrokeMiter calls the GetStrokeMiter RPC.
-func (c *PaintClient) GetStrokeMiter(ctx context.Context, handle int64) (float32, error) {
-	resp, err := c.svc.GetStrokeMiter(ctx, &pb.GetStrokeMiterRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetStrokeWidth calls the GetStrokeWidth RPC.
-func (c *PaintClient) GetStrokeWidth(ctx context.Context, handle int64) (float32, error) {
-	resp, err := c.svc.GetStrokeWidth(ctx, &pb.GetStrokeWidthRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetStyle calls the GetStyle RPC.
-func (c *PaintClient) GetStyle(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetStyle(ctx, &pb.GetStyleRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetTextAlign calls the GetTextAlign RPC.
-func (c *PaintClient) GetTextAlign(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetTextAlign(ctx, &pb.GetTextAlignRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetTextBounds4 calls the GetTextBounds4 RPC.
-func (c *PaintClient) GetTextBounds4(ctx context.Context, handle int64, arg0 int64, arg1 int32, arg2 int32, arg3 int64) error {
-	_, err := c.svc.GetTextBounds4(ctx, &pb.GetTextBounds4Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-	})
-	return err
-}
-
-// GetTextBounds4_1 calls the GetTextBounds4_1 RPC.
-func (c *PaintClient) GetTextBounds4_1(ctx context.Context, handle int64, arg0 string, arg1 int32, arg2 int32, arg3 int64) error {
-	_, err := c.svc.GetTextBounds4_1(ctx, &pb.GetTextBounds4_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-	})
-	return err
-}
-
-// GetTextBounds4_2 calls the GetTextBounds4_2 RPC.
-func (c *PaintClient) GetTextBounds4_2(ctx context.Context, handle int64, arg0 string, arg1 int32, arg2 int32, arg3 int64) error {
-	_, err := c.svc.GetTextBounds4_2(ctx, &pb.GetTextBounds4_2Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-	})
-	return err
-}
-
-// GetTextLocale calls the GetTextLocale RPC.
-func (c *PaintClient) GetTextLocale(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetTextLocale(ctx, &pb.GetTextLocaleRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetTextLocales calls the GetTextLocales RPC.
-func (c *PaintClient) GetTextLocales(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetTextLocales(ctx, &pb.GetTextLocalesRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetTextPath6 calls the GetTextPath6 RPC.
-func (c *PaintClient) GetTextPath6(ctx context.Context, handle int64, arg0 int64, arg1 int32, arg2 int32, arg3 float32, arg4 float32, arg5 int64) error {
-	_, err := c.svc.GetTextPath6(ctx, &pb.GetTextPath6Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-		Arg4:   arg4,
-		Arg5:   arg5,
-	})
-	return err
-}
-
-// GetTextPath6_1 calls the GetTextPath6_1 RPC.
-func (c *PaintClient) GetTextPath6_1(ctx context.Context, handle int64, arg0 string, arg1 int32, arg2 int32, arg3 float32, arg4 float32, arg5 int64) error {
-	_, err := c.svc.GetTextPath6_1(ctx, &pb.GetTextPath6_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-		Arg4:   arg4,
-		Arg5:   arg5,
-	})
-	return err
-}
-
-// GetTextRunAdvances calls the GetTextRunAdvances RPC.
-func (c *PaintClient) GetTextRunAdvances(ctx context.Context, handle int64, arg0 int64, arg1 int32, arg2 int32, arg3 int32, arg4 int32, arg5 bool, arg6 int64, arg7 int32) (float32, error) {
-	resp, err := c.svc.GetTextRunAdvances(ctx, &pb.GetTextRunAdvancesRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-		Arg4:   arg4,
-		Arg5:   arg5,
-		Arg6:   arg6,
-		Arg7:   arg7,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetTextRunCursor6 calls the GetTextRunCursor6 RPC.
-func (c *PaintClient) GetTextRunCursor6(ctx context.Context, handle int64, arg0 int64, arg1 int32, arg2 int32, arg3 bool, arg4 int32, arg5 int32) (int32, error) {
-	resp, err := c.svc.GetTextRunCursor6(ctx, &pb.GetTextRunCursor6Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-		Arg4:   arg4,
-		Arg5:   arg5,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetTextRunCursor6_1 calls the GetTextRunCursor6_1 RPC.
-func (c *PaintClient) GetTextRunCursor6_1(ctx context.Context, handle int64, arg0 string, arg1 int32, arg2 int32, arg3 bool, arg4 int32, arg5 int32) (int32, error) {
-	resp, err := c.svc.GetTextRunCursor6_1(ctx, &pb.GetTextRunCursor6_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-		Arg4:   arg4,
-		Arg5:   arg5,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetTextScaleX calls the GetTextScaleX RPC.
-func (c *PaintClient) GetTextScaleX(ctx context.Context, handle int64) (float32, error) {
-	resp, err := c.svc.GetTextScaleX(ctx, &pb.GetTextScaleXRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetTextSize calls the GetTextSize RPC.
-func (c *PaintClient) GetTextSize(ctx context.Context, handle int64) (float32, error) {
-	resp, err := c.svc.GetTextSize(ctx, &pb.GetTextSizeRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetTextSkewX calls the GetTextSkewX RPC.
-func (c *PaintClient) GetTextSkewX(ctx context.Context, handle int64) (float32, error) {
-	resp, err := c.svc.GetTextSkewX(ctx, &pb.GetTextSkewXRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetTextWidths4 calls the GetTextWidths4 RPC.
-func (c *PaintClient) GetTextWidths4(ctx context.Context, handle int64, arg0 int64, arg1 int32, arg2 int32, arg3 int64) (int32, error) {
-	resp, err := c.svc.GetTextWidths4(ctx, &pb.GetTextWidths4Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetTextWidths4_1 calls the GetTextWidths4_1 RPC.
-func (c *PaintClient) GetTextWidths4_1(ctx context.Context, handle int64, arg0 string, arg1 int32, arg2 int32, arg3 int64) (int32, error) {
-	resp, err := c.svc.GetTextWidths4_1(ctx, &pb.GetTextWidths4_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetTextWidths2_2 calls the GetTextWidths2_2 RPC.
-func (c *PaintClient) GetTextWidths2_2(ctx context.Context, handle int64, arg0 string, arg1 int64) (int32, error) {
-	resp, err := c.svc.GetTextWidths2_2(ctx, &pb.GetTextWidths2_2Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetTextWidths4_3 calls the GetTextWidths4_3 RPC.
-func (c *PaintClient) GetTextWidths4_3(ctx context.Context, handle int64, arg0 string, arg1 int32, arg2 int32, arg3 int64) (int32, error) {
-	resp, err := c.svc.GetTextWidths4_3(ctx, &pb.GetTextWidths4_3Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetTypeface calls the GetTypeface RPC.
-func (c *PaintClient) GetTypeface(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetTypeface(ctx, &pb.GetTypefaceRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetUnderlinePosition calls the GetUnderlinePosition RPC.
-func (c *PaintClient) GetUnderlinePosition(ctx context.Context, handle int64) (float32, error) {
-	resp, err := c.svc.GetUnderlinePosition(ctx, &pb.GetUnderlinePositionRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetUnderlineThickness calls the GetUnderlineThickness RPC.
-func (c *PaintClient) GetUnderlineThickness(ctx context.Context, handle int64) (float32, error) {
-	resp, err := c.svc.GetUnderlineThickness(ctx, &pb.GetUnderlineThicknessRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetWordSpacing calls the GetWordSpacing RPC.
-func (c *PaintClient) GetWordSpacing(ctx context.Context, handle int64) (float32, error) {
-	resp, err := c.svc.GetWordSpacing(ctx, &pb.GetWordSpacingRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetXfermode calls the GetXfermode RPC.
-func (c *PaintClient) GetXfermode(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetXfermode(ctx, &pb.GetXfermodeRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HasGlyph calls the HasGlyph RPC.
-func (c *PaintClient) HasGlyph(ctx context.Context, handle int64, arg0 string) (bool, error) {
-	resp, err := c.svc.HasGlyph(ctx, &pb.HasGlyphRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsAntiAlias calls the IsAntiAlias RPC.
-func (c *PaintClient) IsAntiAlias(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.IsAntiAlias(ctx, &pb.IsAntiAliasRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsDither calls the IsDither RPC.
-func (c *PaintClient) IsDither(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.IsDither(ctx, &pb.IsDitherRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsElegantTextHeight calls the IsElegantTextHeight RPC.
-func (c *PaintClient) IsElegantTextHeight(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.IsElegantTextHeight(ctx, &pb.IsElegantTextHeightRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsFakeBoldText calls the IsFakeBoldText RPC.
-func (c *PaintClient) IsFakeBoldText(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.IsFakeBoldText(ctx, &pb.IsFakeBoldTextRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsFilterBitmap calls the IsFilterBitmap RPC.
-func (c *PaintClient) IsFilterBitmap(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.IsFilterBitmap(ctx, &pb.IsFilterBitmapRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsLinearText calls the IsLinearText RPC.
-func (c *PaintClient) IsLinearText(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.IsLinearText(ctx, &pb.IsLinearTextRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsStrikeThruText calls the IsStrikeThruText RPC.
-func (c *PaintClient) IsStrikeThruText(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.IsStrikeThruText(ctx, &pb.IsStrikeThruTextRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsSubpixelText calls the IsSubpixelText RPC.
-func (c *PaintClient) IsSubpixelText(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.IsSubpixelText(ctx, &pb.IsSubpixelTextRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsUnderlineText calls the IsUnderlineText RPC.
-func (c *PaintClient) IsUnderlineText(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.IsUnderlineText(ctx, &pb.IsUnderlineTextRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// MeasureText3 calls the MeasureText3 RPC.
-func (c *PaintClient) MeasureText3(ctx context.Context, handle int64, arg0 int64, arg1 int32, arg2 int32) (float32, error) {
-	resp, err := c.svc.MeasureText3(ctx, &pb.MeasureText3Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// MeasureText3_1 calls the MeasureText3_1 RPC.
-func (c *PaintClient) MeasureText3_1(ctx context.Context, handle int64, arg0 string, arg1 int32, arg2 int32) (float32, error) {
-	resp, err := c.svc.MeasureText3_1(ctx, &pb.MeasureText3_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// MeasureText1_2 calls the MeasureText1_2 RPC.
-func (c *PaintClient) MeasureText1_2(ctx context.Context, handle int64, arg0 string) (float32, error) {
-	resp, err := c.svc.MeasureText1_2(ctx, &pb.MeasureText1_2Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// MeasureText3_3 calls the MeasureText3_3 RPC.
-func (c *PaintClient) MeasureText3_3(ctx context.Context, handle int64, arg0 string, arg1 int32, arg2 int32) (float32, error) {
-	resp, err := c.svc.MeasureText3_3(ctx, &pb.MeasureText3_3Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Reset calls the Reset RPC.
-func (c *PaintClient) Reset(ctx context.Context, handle int64) error {
-	_, err := c.svc.Reset(ctx, &pb.ResetRequest{
-		Handle: handle,
-	})
-	return err
-}
-
-// Set calls the Set RPC.
-func (c *PaintClient) Set(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.Set(ctx, &pb.SetRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetARGB calls the SetARGB RPC.
-func (c *PaintClient) SetARGB(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32, arg3 int32) error {
-	_, err := c.svc.SetARGB(ctx, &pb.SetARGBRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-	})
-	return err
-}
-
-// SetAlpha calls the SetAlpha RPC.
-func (c *PaintClient) SetAlpha(ctx context.Context, handle int64, arg0 int32) error {
-	_, err := c.svc.SetAlpha(ctx, &pb.SetAlphaRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetAntiAlias calls the SetAntiAlias RPC.
-func (c *PaintClient) SetAntiAlias(ctx context.Context, handle int64, arg0 bool) error {
-	_, err := c.svc.SetAntiAlias(ctx, &pb.SetAntiAliasRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetBlendMode calls the SetBlendMode RPC.
-func (c *PaintClient) SetBlendMode(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.SetBlendMode(ctx, &pb.SetBlendModeRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetColor1 calls the SetColor1 RPC.
-func (c *PaintClient) SetColor1(ctx context.Context, handle int64, arg0 int32) error {
-	_, err := c.svc.SetColor1(ctx, &pb.SetColor1Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetColor1_1 calls the SetColor1_1 RPC.
-func (c *PaintClient) SetColor1_1(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.SetColor1_1(ctx, &pb.SetColor1_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetColorFilter calls the SetColorFilter RPC.
-func (c *PaintClient) SetColorFilter(ctx context.Context, handle int64, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetColorFilter(ctx, &pb.SetColorFilterRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetDither calls the SetDither RPC.
-func (c *PaintClient) SetDither(ctx context.Context, handle int64, arg0 bool) error {
-	_, err := c.svc.SetDither(ctx, &pb.SetDitherRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetElegantTextHeight calls the SetElegantTextHeight RPC.
-func (c *PaintClient) SetElegantTextHeight(ctx context.Context, handle int64, arg0 bool) error {
-	_, err := c.svc.SetElegantTextHeight(ctx, &pb.SetElegantTextHeightRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetEndHyphenEdit calls the SetEndHyphenEdit RPC.
-func (c *PaintClient) SetEndHyphenEdit(ctx context.Context, handle int64, arg0 int32) error {
-	_, err := c.svc.SetEndHyphenEdit(ctx, &pb.SetEndHyphenEditRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetFakeBoldText calls the SetFakeBoldText RPC.
-func (c *PaintClient) SetFakeBoldText(ctx context.Context, handle int64, arg0 bool) error {
-	_, err := c.svc.SetFakeBoldText(ctx, &pb.SetFakeBoldTextRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetFilterBitmap calls the SetFilterBitmap RPC.
-func (c *PaintClient) SetFilterBitmap(ctx context.Context, handle int64, arg0 bool) error {
-	_, err := c.svc.SetFilterBitmap(ctx, &pb.SetFilterBitmapRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetFlags calls the SetFlags RPC.
-func (c *PaintClient) SetFlags(ctx context.Context, handle int64, arg0 int32) error {
-	_, err := c.svc.SetFlags(ctx, &pb.SetFlagsRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetFontFeatureSettings calls the SetFontFeatureSettings RPC.
-func (c *PaintClient) SetFontFeatureSettings(ctx context.Context, handle int64, arg0 string) error {
-	_, err := c.svc.SetFontFeatureSettings(ctx, &pb.SetFontFeatureSettingsRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetFontVariationSettings calls the SetFontVariationSettings RPC.
-func (c *PaintClient) SetFontVariationSettings(ctx context.Context, handle int64, arg0 string) (bool, error) {
-	resp, err := c.svc.SetFontVariationSettings(ctx, &pb.SetFontVariationSettingsRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetHinting calls the SetHinting RPC.
-func (c *PaintClient) SetHinting(ctx context.Context, handle int64, arg0 int32) error {
-	_, err := c.svc.SetHinting(ctx, &pb.SetHintingRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetLetterSpacing calls the SetLetterSpacing RPC.
-func (c *PaintClient) SetLetterSpacing(ctx context.Context, handle int64, arg0 float32) error {
-	_, err := c.svc.SetLetterSpacing(ctx, &pb.SetLetterSpacingRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetLinearText calls the SetLinearText RPC.
-func (c *PaintClient) SetLinearText(ctx context.Context, handle int64, arg0 bool) error {
-	_, err := c.svc.SetLinearText(ctx, &pb.SetLinearTextRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetMaskFilter calls the SetMaskFilter RPC.
-func (c *PaintClient) SetMaskFilter(ctx context.Context, handle int64, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetMaskFilter(ctx, &pb.SetMaskFilterRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetPathEffect calls the SetPathEffect RPC.
-func (c *PaintClient) SetPathEffect(ctx context.Context, handle int64, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetPathEffect(ctx, &pb.SetPathEffectRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetShader calls the SetShader RPC.
-func (c *PaintClient) SetShader(ctx context.Context, handle int64, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetShader(ctx, &pb.SetShaderRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetShadowLayer4 calls the SetShadowLayer4 RPC.
-func (c *PaintClient) SetShadowLayer4(ctx context.Context, handle int64, arg0 float32, arg1 float32, arg2 float32, arg3 int32) error {
-	_, err := c.svc.SetShadowLayer4(ctx, &pb.SetShadowLayer4Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-	})
-	return err
-}
-
-// SetShadowLayer4_1 calls the SetShadowLayer4_1 RPC.
-func (c *PaintClient) SetShadowLayer4_1(ctx context.Context, handle int64, arg0 float32, arg1 float32, arg2 float32, arg3 int64) error {
-	_, err := c.svc.SetShadowLayer4_1(ctx, &pb.SetShadowLayer4_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-	})
-	return err
-}
-
-// SetStartHyphenEdit calls the SetStartHyphenEdit RPC.
-func (c *PaintClient) SetStartHyphenEdit(ctx context.Context, handle int64, arg0 int32) error {
-	_, err := c.svc.SetStartHyphenEdit(ctx, &pb.SetStartHyphenEditRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetStrikeThruText calls the SetStrikeThruText RPC.
-func (c *PaintClient) SetStrikeThruText(ctx context.Context, handle int64, arg0 bool) error {
-	_, err := c.svc.SetStrikeThruText(ctx, &pb.SetStrikeThruTextRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetStrokeCap calls the SetStrokeCap RPC.
-func (c *PaintClient) SetStrokeCap(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.SetStrokeCap(ctx, &pb.SetStrokeCapRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetStrokeJoin calls the SetStrokeJoin RPC.
-func (c *PaintClient) SetStrokeJoin(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.SetStrokeJoin(ctx, &pb.SetStrokeJoinRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetStrokeMiter calls the SetStrokeMiter RPC.
-func (c *PaintClient) SetStrokeMiter(ctx context.Context, handle int64, arg0 float32) error {
-	_, err := c.svc.SetStrokeMiter(ctx, &pb.SetStrokeMiterRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetStrokeWidth calls the SetStrokeWidth RPC.
-func (c *PaintClient) SetStrokeWidth(ctx context.Context, handle int64, arg0 float32) error {
-	_, err := c.svc.SetStrokeWidth(ctx, &pb.SetStrokeWidthRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetStyle calls the SetStyle RPC.
-func (c *PaintClient) SetStyle(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.SetStyle(ctx, &pb.SetStyleRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetSubpixelText calls the SetSubpixelText RPC.
-func (c *PaintClient) SetSubpixelText(ctx context.Context, handle int64, arg0 bool) error {
-	_, err := c.svc.SetSubpixelText(ctx, &pb.SetSubpixelTextRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetTextAlign calls the SetTextAlign RPC.
-func (c *PaintClient) SetTextAlign(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.SetTextAlign(ctx, &pb.SetTextAlignRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetTextLocale calls the SetTextLocale RPC.
-func (c *PaintClient) SetTextLocale(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.SetTextLocale(ctx, &pb.SetTextLocaleRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetTextLocales calls the SetTextLocales RPC.
-func (c *PaintClient) SetTextLocales(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.SetTextLocales(ctx, &pb.SetTextLocalesRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetTextScaleX calls the SetTextScaleX RPC.
-func (c *PaintClient) SetTextScaleX(ctx context.Context, handle int64, arg0 float32) error {
-	_, err := c.svc.SetTextScaleX(ctx, &pb.SetTextScaleXRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetTextSize calls the SetTextSize RPC.
-func (c *PaintClient) SetTextSize(ctx context.Context, handle int64, arg0 float32) error {
-	_, err := c.svc.SetTextSize(ctx, &pb.SetTextSizeRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetTextSkewX calls the SetTextSkewX RPC.
-func (c *PaintClient) SetTextSkewX(ctx context.Context, handle int64, arg0 float32) error {
-	_, err := c.svc.SetTextSkewX(ctx, &pb.SetTextSkewXRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetTypeface calls the SetTypeface RPC.
-func (c *PaintClient) SetTypeface(ctx context.Context, handle int64, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetTypeface(ctx, &pb.SetTypefaceRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetUnderlineText calls the SetUnderlineText RPC.
-func (c *PaintClient) SetUnderlineText(ctx context.Context, handle int64, arg0 bool) error {
-	_, err := c.svc.SetUnderlineText(ctx, &pb.SetUnderlineTextRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetWordSpacing calls the SetWordSpacing RPC.
-func (c *PaintClient) SetWordSpacing(ctx context.Context, handle int64, arg0 float32) error {
-	_, err := c.svc.SetWordSpacing(ctx, &pb.SetWordSpacingRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetXfermode calls the SetXfermode RPC.
-func (c *PaintClient) SetXfermode(ctx context.Context, handle int64, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetXfermode(ctx, &pb.SetXfermodeRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// PaintAlignClient wraps the gRPC PaintAlignService client.
-type PaintAlignClient struct {
-	svc pb.PaintAlignServiceClient
-}
-
-// NewPaintAlignClient creates a new PaintAlign client.
-func NewPaintAlignClient(cc grpc.ClientConnInterface) *PaintAlignClient {
-	return &PaintAlignClient{
-		svc: pb.NewPaintAlignServiceClient(cc),
-	}
-}
-
-// Values calls the Values RPC.
-func (c *PaintAlignClient) Values(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Values(ctx, &pb.ValuesRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ValueOf calls the ValueOf RPC.
-func (c *PaintAlignClient) ValueOf(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.ValueOf(ctx, &pb.ValueOfRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// PaintCapClient wraps the gRPC PaintCapService client.
-type PaintCapClient struct {
-	svc pb.PaintCapServiceClient
-}
-
-// NewPaintCapClient creates a new PaintCap client.
-func NewPaintCapClient(cc grpc.ClientConnInterface) *PaintCapClient {
-	return &PaintCapClient{
-		svc: pb.NewPaintCapServiceClient(cc),
-	}
-}
-
-// Values calls the Values RPC.
-func (c *PaintCapClient) Values(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Values(ctx, &pb.ValuesRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ValueOf calls the ValueOf RPC.
-func (c *PaintCapClient) ValueOf(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.ValueOf(ctx, &pb.ValueOfRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// PaintFontMetricsClient wraps the gRPC PaintFontMetricsService client.
-type PaintFontMetricsClient struct {
-	svc pb.PaintFontMetricsServiceClient
-}
-
-// NewPaintFontMetricsClient creates a new PaintFontMetrics client.
-func NewPaintFontMetricsClient(cc grpc.ClientConnInterface) *PaintFontMetricsClient {
-	return &PaintFontMetricsClient{
-		svc: pb.NewPaintFontMetricsServiceClient(cc),
-	}
-}
-
-// Equals calls the Equals RPC.
-func (c *PaintFontMetricsClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *PaintFontMetricsClient) HashCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToString calls the ToString RPC.
-func (c *PaintFontMetricsClient) ToString(ctx context.Context) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// PaintFontMetricsIntClient wraps the gRPC PaintFontMetricsIntService client.
-type PaintFontMetricsIntClient struct {
-	svc pb.PaintFontMetricsIntServiceClient
-}
-
-// NewPaintFontMetricsIntClient creates a new PaintFontMetricsInt client.
-func NewPaintFontMetricsIntClient(cc grpc.ClientConnInterface) *PaintFontMetricsIntClient {
-	return &PaintFontMetricsIntClient{
-		svc: pb.NewPaintFontMetricsIntServiceClient(cc),
-	}
-}
-
-// Equals calls the Equals RPC.
-func (c *PaintFontMetricsIntClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *PaintFontMetricsIntClient) HashCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Set1 calls the Set1 RPC.
-func (c *PaintFontMetricsIntClient) Set1(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.Set1(ctx, &pb.Set1Request{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// Set1_1 calls the Set1_1 RPC.
-func (c *PaintFontMetricsIntClient) Set1_1(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.Set1_1(ctx, &pb.Set1_1Request{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// ToString calls the ToString RPC.
-func (c *PaintFontMetricsIntClient) ToString(ctx context.Context) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// PaintJoinClient wraps the gRPC PaintJoinService client.
-type PaintJoinClient struct {
-	svc pb.PaintJoinServiceClient
-}
-
-// NewPaintJoinClient creates a new PaintJoin client.
-func NewPaintJoinClient(cc grpc.ClientConnInterface) *PaintJoinClient {
-	return &PaintJoinClient{
-		svc: pb.NewPaintJoinServiceClient(cc),
-	}
-}
-
-// Values calls the Values RPC.
-func (c *PaintJoinClient) Values(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Values(ctx, &pb.ValuesRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ValueOf calls the ValueOf RPC.
-func (c *PaintJoinClient) ValueOf(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.ValueOf(ctx, &pb.ValueOfRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// PaintStyleClient wraps the gRPC PaintStyleService client.
-type PaintStyleClient struct {
-	svc pb.PaintStyleServiceClient
-}
-
-// NewPaintStyleClient creates a new PaintStyle client.
-func NewPaintStyleClient(cc grpc.ClientConnInterface) *PaintStyleClient {
-	return &PaintStyleClient{
-		svc: pb.NewPaintStyleServiceClient(cc),
-	}
-}
-
-// Values calls the Values RPC.
-func (c *PaintStyleClient) Values(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Values(ctx, &pb.ValuesRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ValueOf calls the ValueOf RPC.
-func (c *PaintStyleClient) ValueOf(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.ValueOf(ctx, &pb.ValueOfRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// RendererPreVClient wraps the gRPC RendererPreVService client.
-type RendererPreVClient struct {
-	svc pb.RendererPreVServiceClient
-}
-
-// NewRendererPreVClient creates a new RendererPreV client.
-func NewRendererPreVClient(cc grpc.ClientConnInterface) *RendererPreVClient {
-	return &RendererPreVClient{
-		svc: pb.NewRendererPreVServiceClient(cc),
-	}
-}
-
-// Close calls the Close RPC.
-func (c *RendererPreVClient) Close(ctx context.Context, handle int64) error {
-	_, err := c.svc.Close(ctx, &pb.CloseRequest{
-		Handle: handle,
-	})
-	return err
-}
-
-// GetDocumentLinearizationType calls the GetDocumentLinearizationType RPC.
-func (c *RendererPreVClient) GetDocumentLinearizationType(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetDocumentLinearizationType(ctx, &pb.GetDocumentLinearizationTypeRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetPageCount calls the GetPageCount RPC.
-func (c *RendererPreVClient) GetPageCount(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetPageCount(ctx, &pb.GetPageCountRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetPdfFormType calls the GetPdfFormType RPC.
-func (c *RendererPreVClient) GetPdfFormType(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetPdfFormType(ctx, &pb.GetPdfFormTypeRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// OpenPage calls the OpenPage RPC.
-func (c *RendererPreVClient) OpenPage(ctx context.Context, handle int64, arg0 int32) (int64, error) {
-	resp, err := c.svc.OpenPage(ctx, &pb.OpenPageRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Write calls the Write RPC.
-func (c *RendererPreVClient) Write(ctx context.Context, handle int64, arg0 int64, arg1 bool) error {
-	_, err := c.svc.Write(ctx, &pb.WriteRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// RendererPreVPageClient wraps the gRPC RendererPreVPageService client.
-type RendererPreVPageClient struct {
-	svc pb.RendererPreVPageServiceClient
-}
-
-// NewRendererPreVPageClient creates a new RendererPreVPage client.
-func NewRendererPreVPageClient(cc grpc.ClientConnInterface) *RendererPreVPageClient {
-	return &RendererPreVPageClient{
-		svc: pb.NewRendererPreVPageServiceClient(cc),
-	}
-}
-
-// Close calls the Close RPC.
-func (c *RendererPreVPageClient) Close(ctx context.Context) error {
-	_, err := c.svc.Close(ctx, &pb.RendererPreVPageCloseRequest{})
-	return err
-}
-
-// GetFormWidgetInfoAtIndex calls the GetFormWidgetInfoAtIndex RPC.
-func (c *RendererPreVPageClient) GetFormWidgetInfoAtIndex(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.GetFormWidgetInfoAtIndex(ctx, &pb.GetFormWidgetInfoAtIndexRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetFormWidgetInfoAtPosition calls the GetFormWidgetInfoAtPosition RPC.
-func (c *RendererPreVPageClient) GetFormWidgetInfoAtPosition(ctx context.Context, arg0 int32, arg1 int32) (int64, error) {
-	resp, err := c.svc.GetFormWidgetInfoAtPosition(ctx, &pb.GetFormWidgetInfoAtPositionRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetHeight calls the GetHeight RPC.
-func (c *RendererPreVPageClient) GetHeight(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetHeight(ctx, &pb.GetHeightRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetIndex calls the GetIndex RPC.
-func (c *RendererPreVPageClient) GetIndex(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetIndex(ctx, &pb.GetIndexRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetWidth calls the GetWidth RPC.
-func (c *RendererPreVPageClient) GetWidth(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetWidth(ctx, &pb.GetWidthRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Render calls the Render RPC.
-func (c *RendererPreVPageClient) Render(ctx context.Context, arg0 int64, arg1 int64, arg2 int64, arg3 int64) error {
-	_, err := c.svc.Render(ctx, &pb.RenderRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-	})
-	return err
-}
-
-// SelectContent calls the SelectContent RPC.
-func (c *RendererPreVPageClient) SelectContent(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
-	resp, err := c.svc.SelectContent(ctx, &pb.SelectContentRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
 // TypefaceClient wraps the gRPC TypefaceService client.
 type TypefaceClient struct {
 	svc pb.TypefaceServiceClient
@@ -1932,7 +34,7 @@ func (c *TypefaceClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
 
 // GetStyle calls the GetStyle RPC.
 func (c *TypefaceClient) GetStyle(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetStyle(ctx, &pb.TypefaceGetStyleRequest{})
+	resp, err := c.svc.GetStyle(ctx, &pb.GetStyleRequest{})
 	if err != nil {
 		return 0, err
 	}
@@ -2187,7 +289,7 @@ func (c *TypefaceCustomFallbackBuilderClient) Build(ctx context.Context) (int64,
 
 // SetStyle calls the SetStyle RPC.
 func (c *TypefaceCustomFallbackBuilderClient) SetStyle(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetStyle(ctx, &pb.TypefaceCustomFallbackBuilderSetStyleRequest{
+	resp, err := c.svc.SetStyle(ctx, &pb.SetStyleRequest{
 		Arg0: arg0,
 	})
 	if err != nil {
@@ -2210,6 +312,145 @@ func (c *TypefaceCustomFallbackBuilderClient) SetSystemFallback(ctx context.Cont
 // GetMaxCustomFallbackCount calls the GetMaxCustomFallbackCount RPC.
 func (c *TypefaceCustomFallbackBuilderClient) GetMaxCustomFallbackCount(ctx context.Context) (int32, error) {
 	resp, err := c.svc.GetMaxCustomFallbackCount(ctx, &pb.GetMaxCustomFallbackCountRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// DocumentClient wraps the gRPC DocumentService client.
+type DocumentClient struct {
+	svc pb.DocumentServiceClient
+}
+
+// NewDocumentClient creates a new Document client.
+func NewDocumentClient(cc grpc.ClientConnInterface) *DocumentClient {
+	return &DocumentClient{
+		svc: pb.NewDocumentServiceClient(cc),
+	}
+}
+
+// Close calls the Close RPC.
+func (c *DocumentClient) Close(ctx context.Context, handle int64) error {
+	_, err := c.svc.Close(ctx, &pb.CloseRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// FinishPage calls the FinishPage RPC.
+func (c *DocumentClient) FinishPage(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.FinishPage(ctx, &pb.FinishPageRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// GetPages calls the GetPages RPC.
+func (c *DocumentClient) GetPages(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetPages(ctx, &pb.GetPagesRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// StartPage calls the StartPage RPC.
+func (c *DocumentClient) StartPage(ctx context.Context, handle int64, arg0 int64) (int64, error) {
+	resp, err := c.svc.StartPage(ctx, &pb.StartPageRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteTo calls the WriteTo RPC.
+func (c *DocumentClient) WriteTo(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.WriteTo(ctx, &pb.WriteToRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// DocumentPageClient wraps the gRPC DocumentPageService client.
+type DocumentPageClient struct {
+	svc pb.DocumentPageServiceClient
+}
+
+// NewDocumentPageClient creates a new DocumentPage client.
+func NewDocumentPageClient(cc grpc.ClientConnInterface) *DocumentPageClient {
+	return &DocumentPageClient{
+		svc: pb.NewDocumentPageServiceClient(cc),
+	}
+}
+
+// GetCanvas calls the GetCanvas RPC.
+func (c *DocumentPageClient) GetCanvas(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetCanvas(ctx, &pb.GetCanvasRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInfo calls the GetInfo RPC.
+func (c *DocumentPageClient) GetInfo(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetInfo(ctx, &pb.GetInfoRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// DocumentPageInfoClient wraps the gRPC DocumentPageInfoService client.
+type DocumentPageInfoClient struct {
+	svc pb.DocumentPageInfoServiceClient
+}
+
+// NewDocumentPageInfoClient creates a new DocumentPageInfo client.
+func NewDocumentPageInfoClient(cc grpc.ClientConnInterface) *DocumentPageInfoClient {
+	return &DocumentPageInfoClient{
+		svc: pb.NewDocumentPageInfoServiceClient(cc),
+	}
+}
+
+// GetContentRect calls the GetContentRect RPC.
+func (c *DocumentPageInfoClient) GetContentRect(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetContentRect(ctx, &pb.GetContentRectRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPageHeight calls the GetPageHeight RPC.
+func (c *DocumentPageInfoClient) GetPageHeight(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetPageHeight(ctx, &pb.GetPageHeightRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPageNumber calls the GetPageNumber RPC.
+func (c *DocumentPageInfoClient) GetPageNumber(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetPageNumber(ctx, &pb.GetPageNumberRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPageWidth calls the GetPageWidth RPC.
+func (c *DocumentPageInfoClient) GetPageWidth(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetPageWidth(ctx, &pb.GetPageWidthRequest{})
 	if err != nil {
 		return 0, err
 	}
@@ -3194,7 +1435,7 @@ func (c *CanvasClient) GetDrawFilter(ctx context.Context, handle int64) (int64, 
 
 // GetHeight calls the GetHeight RPC.
 func (c *CanvasClient) GetHeight(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetHeight(ctx, &pb.CanvasGetHeightRequest{
+	resp, err := c.svc.GetHeight(ctx, &pb.GetHeightRequest{
 		Handle: handle,
 	})
 	if err != nil {
@@ -3258,7 +1499,7 @@ func (c *CanvasClient) GetSaveCount(ctx context.Context, handle int64) (int32, e
 
 // GetWidth calls the GetWidth RPC.
 func (c *CanvasClient) GetWidth(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetWidth(ctx, &pb.CanvasGetWidthRequest{
+	resp, err := c.svc.GetWidth(ctx, &pb.GetWidthRequest{
 		Handle: handle,
 	})
 	if err != nil {
@@ -3680,241 +1921,96 @@ func (c *CanvasVertexModeClient) ValueOf(ctx context.Context, arg0 string) (int6
 	return resp.GetResult(), nil
 }
 
-// LoadParamsClient wraps the gRPC LoadParamsService client.
-type LoadParamsClient struct {
-	svc pb.LoadParamsServiceClient
+// RendererPreVClient wraps the gRPC RendererPreVService client.
+type RendererPreVClient struct {
+	svc pb.RendererPreVServiceClient
 }
 
-// NewLoadParamsClient creates a new LoadParams client.
-func NewLoadParamsClient(cc grpc.ClientConnInterface) *LoadParamsClient {
-	return &LoadParamsClient{
-		svc: pb.NewLoadParamsServiceClient(cc),
-	}
-}
-
-// GetPassword calls the GetPassword RPC.
-func (c *LoadParamsClient) GetPassword(ctx context.Context) (string, error) {
-	resp, err := c.svc.GetPassword(ctx, &pb.GetPasswordRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// LoadParamsBuilderClient wraps the gRPC LoadParamsBuilderService client.
-type LoadParamsBuilderClient struct {
-	svc pb.LoadParamsBuilderServiceClient
-}
-
-// NewLoadParamsBuilderClient creates a new LoadParamsBuilder client.
-func NewLoadParamsBuilderClient(cc grpc.ClientConnInterface) *LoadParamsBuilderClient {
-	return &LoadParamsBuilderClient{
-		svc: pb.NewLoadParamsBuilderServiceClient(cc),
-	}
-}
-
-// Build calls the Build RPC.
-func (c *LoadParamsBuilderClient) Build(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetPassword calls the SetPassword RPC.
-func (c *LoadParamsBuilderClient) SetPassword(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.SetPassword(ctx, &pb.SetPasswordRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// DocumentClient wraps the gRPC DocumentService client.
-type DocumentClient struct {
-	svc pb.DocumentServiceClient
-}
-
-// NewDocumentClient creates a new Document client.
-func NewDocumentClient(cc grpc.ClientConnInterface) *DocumentClient {
-	return &DocumentClient{
-		svc: pb.NewDocumentServiceClient(cc),
+// NewRendererPreVClient creates a new RendererPreV client.
+func NewRendererPreVClient(cc grpc.ClientConnInterface) *RendererPreVClient {
+	return &RendererPreVClient{
+		svc: pb.NewRendererPreVServiceClient(cc),
 	}
 }
 
 // Close calls the Close RPC.
-func (c *DocumentClient) Close(ctx context.Context, handle int64) error {
+func (c *RendererPreVClient) Close(ctx context.Context, handle int64) error {
 	_, err := c.svc.Close(ctx, &pb.CloseRequest{
 		Handle: handle,
 	})
 	return err
 }
 
-// FinishPage calls the FinishPage RPC.
-func (c *DocumentClient) FinishPage(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.FinishPage(ctx, &pb.FinishPageRequest{
+// GetDocumentLinearizationType calls the GetDocumentLinearizationType RPC.
+func (c *RendererPreVClient) GetDocumentLinearizationType(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetDocumentLinearizationType(ctx, &pb.GetDocumentLinearizationTypeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPageCount calls the GetPageCount RPC.
+func (c *RendererPreVClient) GetPageCount(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetPageCount(ctx, &pb.GetPageCountRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPdfFormType calls the GetPdfFormType RPC.
+func (c *RendererPreVClient) GetPdfFormType(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetPdfFormType(ctx, &pb.GetPdfFormTypeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OpenPage calls the OpenPage RPC.
+func (c *RendererPreVClient) OpenPage(ctx context.Context, handle int64, arg0 int32) (int64, error) {
+	resp, err := c.svc.OpenPage(ctx, &pb.OpenPageRequest{
 		Handle: handle,
 		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Write calls the Write RPC.
+func (c *RendererPreVClient) Write(ctx context.Context, handle int64, arg0 int64, arg1 bool) error {
+	_, err := c.svc.Write(ctx, &pb.WriteRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
 	})
 	return err
 }
 
-// StartPage calls the StartPage RPC.
-func (c *DocumentClient) StartPage(ctx context.Context, handle int64, arg0 int64) (int64, error) {
-	resp, err := c.svc.StartPage(ctx, &pb.StartPageRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
+// RendererPreVPageClient wraps the gRPC RendererPreVPageService client.
+type RendererPreVPageClient struct {
+	svc pb.RendererPreVPageServiceClient
 }
 
-// WriteTo calls the WriteTo RPC.
-func (c *DocumentClient) WriteTo(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.WriteTo(ctx, &pb.WriteToRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// DocumentPageClient wraps the gRPC DocumentPageService client.
-type DocumentPageClient struct {
-	svc pb.DocumentPageServiceClient
-}
-
-// NewDocumentPageClient creates a new DocumentPage client.
-func NewDocumentPageClient(cc grpc.ClientConnInterface) *DocumentPageClient {
-	return &DocumentPageClient{
-		svc: pb.NewDocumentPageServiceClient(cc),
+// NewRendererPreVPageClient creates a new RendererPreVPage client.
+func NewRendererPreVPageClient(cc grpc.ClientConnInterface) *RendererPreVPageClient {
+	return &RendererPreVPageClient{
+		svc: pb.NewRendererPreVPageServiceClient(cc),
 	}
 }
 
-// GetCanvas calls the GetCanvas RPC.
-func (c *DocumentPageClient) GetCanvas(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetCanvas(ctx, &pb.GetCanvasRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetInfo calls the GetInfo RPC.
-func (c *DocumentPageClient) GetInfo(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetInfo(ctx, &pb.GetInfoRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// DocumentPageInfoClient wraps the gRPC DocumentPageInfoService client.
-type DocumentPageInfoClient struct {
-	svc pb.DocumentPageInfoServiceClient
-}
-
-// NewDocumentPageInfoClient creates a new DocumentPageInfo client.
-func NewDocumentPageInfoClient(cc grpc.ClientConnInterface) *DocumentPageInfoClient {
-	return &DocumentPageInfoClient{
-		svc: pb.NewDocumentPageInfoServiceClient(cc),
-	}
-}
-
-// GetContentRect calls the GetContentRect RPC.
-func (c *DocumentPageInfoClient) GetContentRect(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetContentRect(ctx, &pb.GetContentRectRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetPageHeight calls the GetPageHeight RPC.
-func (c *DocumentPageInfoClient) GetPageHeight(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetPageHeight(ctx, &pb.GetPageHeightRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetPageNumber calls the GetPageNumber RPC.
-func (c *DocumentPageInfoClient) GetPageNumber(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetPageNumber(ctx, &pb.GetPageNumberRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetPageWidth calls the GetPageWidth RPC.
-func (c *DocumentPageInfoClient) GetPageWidth(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetPageWidth(ctx, &pb.GetPageWidthRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// RenderParamsClient wraps the gRPC RenderParamsService client.
-type RenderParamsClient struct {
-	svc pb.RenderParamsServiceClient
-}
-
-// NewRenderParamsClient creates a new RenderParams client.
-func NewRenderParamsClient(cc grpc.ClientConnInterface) *RenderParamsClient {
-	return &RenderParamsClient{
-		svc: pb.NewRenderParamsServiceClient(cc),
-	}
-}
-
-// GetRenderFlags calls the GetRenderFlags RPC.
-func (c *RenderParamsClient) GetRenderFlags(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetRenderFlags(ctx, &pb.GetRenderFlagsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetRenderMode calls the GetRenderMode RPC.
-func (c *RenderParamsClient) GetRenderMode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetRenderMode(ctx, &pb.GetRenderModeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// RenderParamsBuilderClient wraps the gRPC RenderParamsBuilderService client.
-type RenderParamsBuilderClient struct {
-	svc pb.RenderParamsBuilderServiceClient
-}
-
-// NewRenderParamsBuilderClient creates a new RenderParamsBuilder client.
-func NewRenderParamsBuilderClient(cc grpc.ClientConnInterface) *RenderParamsBuilderClient {
-	return &RenderParamsBuilderClient{
-		svc: pb.NewRenderParamsBuilderServiceClient(cc),
-	}
-}
-
-// Build calls the Build RPC.
-func (c *RenderParamsBuilderClient) Build(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetRenderFlags1 calls the SetRenderFlags1 RPC.
-func (c *RenderParamsBuilderClient) SetRenderFlags1(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.SetRenderFlags1(ctx, &pb.SetRenderFlags1Request{
+// ApplyEdit calls the ApplyEdit RPC.
+func (c *RendererPreVPageClient) ApplyEdit(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.ApplyEdit(ctx, &pb.ApplyEditRequest{
 		Arg0: arg0,
 	})
 	if err != nil {
@@ -3923,9 +2019,143 @@ func (c *RenderParamsBuilderClient) SetRenderFlags1(ctx context.Context, arg0 in
 	return resp.GetResult(), nil
 }
 
-// SetRenderFlags2_1 calls the SetRenderFlags2_1 RPC.
-func (c *RenderParamsBuilderClient) SetRenderFlags2_1(ctx context.Context, arg0 int32, arg1 int32) (int64, error) {
-	resp, err := c.svc.SetRenderFlags2_1(ctx, &pb.SetRenderFlags2_1Request{
+// Close calls the Close RPC.
+func (c *RendererPreVPageClient) Close(ctx context.Context) error {
+	_, err := c.svc.Close(ctx, &pb.RendererPreVPageCloseRequest{})
+	return err
+}
+
+// GetFormWidgetInfoAtIndex calls the GetFormWidgetInfoAtIndex RPC.
+func (c *RendererPreVPageClient) GetFormWidgetInfoAtIndex(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.GetFormWidgetInfoAtIndex(ctx, &pb.GetFormWidgetInfoAtIndexRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetFormWidgetInfoAtPosition calls the GetFormWidgetInfoAtPosition RPC.
+func (c *RendererPreVPageClient) GetFormWidgetInfoAtPosition(ctx context.Context, arg0 int32, arg1 int32) (int64, error) {
+	resp, err := c.svc.GetFormWidgetInfoAtPosition(ctx, &pb.GetFormWidgetInfoAtPositionRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetFormWidgetInfos0 calls the GetFormWidgetInfos0 RPC.
+func (c *RendererPreVPageClient) GetFormWidgetInfos0(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetFormWidgetInfos0(ctx, &pb.GetFormWidgetInfos0Request{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetFormWidgetInfos1_1 calls the GetFormWidgetInfos1_1 RPC.
+func (c *RendererPreVPageClient) GetFormWidgetInfos1_1(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.GetFormWidgetInfos1_1(ctx, &pb.GetFormWidgetInfos1_1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetGotoLinks calls the GetGotoLinks RPC.
+func (c *RendererPreVPageClient) GetGotoLinks(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetGotoLinks(ctx, &pb.GetGotoLinksRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetHeight calls the GetHeight RPC.
+func (c *RendererPreVPageClient) GetHeight(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetHeight(ctx, &pb.RendererPreVPageGetHeightRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetImageContents calls the GetImageContents RPC.
+func (c *RendererPreVPageClient) GetImageContents(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetImageContents(ctx, &pb.GetImageContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetIndex calls the GetIndex RPC.
+func (c *RendererPreVPageClient) GetIndex(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetIndex(ctx, &pb.GetIndexRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLinkContents calls the GetLinkContents RPC.
+func (c *RendererPreVPageClient) GetLinkContents(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetLinkContents(ctx, &pb.GetLinkContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTextContents calls the GetTextContents RPC.
+func (c *RendererPreVPageClient) GetTextContents(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetTextContents(ctx, &pb.GetTextContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetWidth calls the GetWidth RPC.
+func (c *RendererPreVPageClient) GetWidth(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetWidth(ctx, &pb.RendererPreVPageGetWidthRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Render calls the Render RPC.
+func (c *RendererPreVPageClient) Render(ctx context.Context, arg0 int64, arg1 int64, arg2 int64, arg3 int64) error {
+	_, err := c.svc.Render(ctx, &pb.RenderRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	return err
+}
+
+// SearchText calls the SearchText RPC.
+func (c *RendererPreVPageClient) SearchText(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.SearchText(ctx, &pb.SearchTextRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SelectContent calls the SelectContent RPC.
+func (c *RendererPreVPageClient) SelectContent(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
+	resp, err := c.svc.SelectContent(ctx, &pb.SelectContentRequest{
 		Arg0: arg0,
 		Arg1: arg1,
 	})
@@ -4063,7 +2293,7 @@ func (c *BitmapClient) GetByteCount(ctx context.Context) (int32, error) {
 
 // GetColor calls the GetColor RPC.
 func (c *BitmapClient) GetColor(ctx context.Context, arg0 int32, arg1 int32) (int64, error) {
-	resp, err := c.svc.GetColor(ctx, &pb.BitmapGetColorRequest{
+	resp, err := c.svc.GetColor(ctx, &pb.GetColorRequest{
 		Arg0: arg0,
 		Arg1: arg1,
 	})
@@ -4129,7 +2359,7 @@ func (c *BitmapClient) GetHardwareBuffer(ctx context.Context) (int64, error) {
 
 // GetHeight calls the GetHeight RPC.
 func (c *BitmapClient) GetHeight(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetHeight(ctx, &pb.GetHeightRequest{})
+	resp, err := c.svc.GetHeight(ctx, &pb.BitmapGetHeightRequest{})
 	if err != nil {
 		return 0, err
 	}
@@ -4248,7 +2478,7 @@ func (c *BitmapClient) GetScaledWidth1_2(ctx context.Context, arg0 int32) (int32
 
 // GetWidth calls the GetWidth RPC.
 func (c *BitmapClient) GetWidth(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetWidth(ctx, &pb.GetWidthRequest{})
+	resp, err := c.svc.GetWidth(ctx, &pb.BitmapGetWidthRequest{})
 	if err != nil {
 		return 0, err
 	}
@@ -4754,6 +2984,59 @@ func (c *BitmapConfigClient) ValueOf(ctx context.Context, arg0 string) (int64, e
 	return resp.GetResult(), nil
 }
 
+// LoadParamsClient wraps the gRPC LoadParamsService client.
+type LoadParamsClient struct {
+	svc pb.LoadParamsServiceClient
+}
+
+// NewLoadParamsClient creates a new LoadParams client.
+func NewLoadParamsClient(cc grpc.ClientConnInterface) *LoadParamsClient {
+	return &LoadParamsClient{
+		svc: pb.NewLoadParamsServiceClient(cc),
+	}
+}
+
+// GetPassword calls the GetPassword RPC.
+func (c *LoadParamsClient) GetPassword(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetPassword(ctx, &pb.GetPasswordRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// LoadParamsBuilderClient wraps the gRPC LoadParamsBuilderService client.
+type LoadParamsBuilderClient struct {
+	svc pb.LoadParamsBuilderServiceClient
+}
+
+// NewLoadParamsBuilderClient creates a new LoadParamsBuilder client.
+func NewLoadParamsBuilderClient(cc grpc.ClientConnInterface) *LoadParamsBuilderClient {
+	return &LoadParamsBuilderClient{
+		svc: pb.NewLoadParamsBuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *LoadParamsBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetPassword calls the SetPassword RPC.
+func (c *LoadParamsBuilderClient) SetPassword(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.SetPassword(ctx, &pb.SetPasswordRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // RendererClient wraps the gRPC RendererService client.
 type RendererClient struct {
 	svc pb.RendererServiceClient
@@ -4852,6 +3135,17 @@ func NewRendererPageClient(cc grpc.ClientConnInterface) *RendererPageClient {
 	}
 }
 
+// ApplyEdit calls the ApplyEdit RPC.
+func (c *RendererPageClient) ApplyEdit(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.ApplyEdit(ctx, &pb.ApplyEditRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // Close calls the Close RPC.
 func (c *RendererPageClient) Close(ctx context.Context) error {
 	_, err := c.svc.Close(ctx, &pb.RendererPageCloseRequest{})
@@ -4881,9 +3175,47 @@ func (c *RendererPageClient) GetFormWidgetInfoAtPosition(ctx context.Context, ar
 	return resp.GetResult(), nil
 }
 
+// GetFormWidgetInfos0 calls the GetFormWidgetInfos0 RPC.
+func (c *RendererPageClient) GetFormWidgetInfos0(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetFormWidgetInfos0(ctx, &pb.GetFormWidgetInfos0Request{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetFormWidgetInfos1_1 calls the GetFormWidgetInfos1_1 RPC.
+func (c *RendererPageClient) GetFormWidgetInfos1_1(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.GetFormWidgetInfos1_1(ctx, &pb.GetFormWidgetInfos1_1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetGotoLinks calls the GetGotoLinks RPC.
+func (c *RendererPageClient) GetGotoLinks(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetGotoLinks(ctx, &pb.GetGotoLinksRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // GetHeight calls the GetHeight RPC.
 func (c *RendererPageClient) GetHeight(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetHeight(ctx, &pb.GetHeightRequest{})
+	resp, err := c.svc.GetHeight(ctx, &pb.RendererPageGetHeightRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetImageContents calls the GetImageContents RPC.
+func (c *RendererPageClient) GetImageContents(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetImageContents(ctx, &pb.GetImageContentsRequest{})
 	if err != nil {
 		return 0, err
 	}
@@ -4899,9 +3231,27 @@ func (c *RendererPageClient) GetIndex(ctx context.Context) (int32, error) {
 	return resp.GetResult(), nil
 }
 
+// GetLinkContents calls the GetLinkContents RPC.
+func (c *RendererPageClient) GetLinkContents(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetLinkContents(ctx, &pb.GetLinkContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTextContents calls the GetTextContents RPC.
+func (c *RendererPageClient) GetTextContents(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetTextContents(ctx, &pb.GetTextContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // GetWidth calls the GetWidth RPC.
 func (c *RendererPageClient) GetWidth(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetWidth(ctx, &pb.GetWidthRequest{})
+	resp, err := c.svc.GetWidth(ctx, &pb.RendererPageGetWidthRequest{})
 	if err != nil {
 		return 0, err
 	}
@@ -4928,6 +3278,17 @@ func (c *RendererPageClient) Render4_1(ctx context.Context, arg0 int64, arg1 int
 		Arg3: arg3,
 	})
 	return err
+}
+
+// SearchText calls the SearchText RPC.
+func (c *RendererPageClient) SearchText(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.SearchText(ctx, &pb.SearchTextRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
 }
 
 // SelectContent calls the SelectContent RPC.
@@ -5058,7 +3419,7 @@ func (c *ParcelFileDescriptorClient) GetStatSize(ctx context.Context, handle int
 
 // ToString calls the ToString RPC.
 func (c *ParcelFileDescriptorClient) ToString(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ParcelFileDescriptorToStringRequest{
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{
 		Handle: handle,
 	})
 	if err != nil {
@@ -5293,6 +3654,1812 @@ func (c *ParcelFileDescriptorOnCloseListenerClient) OnClose(ctx context.Context,
 		Arg0: arg0,
 	})
 	return err
+}
+
+// RenderParamsClient wraps the gRPC RenderParamsService client.
+type RenderParamsClient struct {
+	svc pb.RenderParamsServiceClient
+}
+
+// NewRenderParamsClient creates a new RenderParams client.
+func NewRenderParamsClient(cc grpc.ClientConnInterface) *RenderParamsClient {
+	return &RenderParamsClient{
+		svc: pb.NewRenderParamsServiceClient(cc),
+	}
+}
+
+// GetRenderFlags calls the GetRenderFlags RPC.
+func (c *RenderParamsClient) GetRenderFlags(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetRenderFlags(ctx, &pb.GetRenderFlagsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetRenderMode calls the GetRenderMode RPC.
+func (c *RenderParamsClient) GetRenderMode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetRenderMode(ctx, &pb.GetRenderModeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// RenderParamsBuilderClient wraps the gRPC RenderParamsBuilderService client.
+type RenderParamsBuilderClient struct {
+	svc pb.RenderParamsBuilderServiceClient
+}
+
+// NewRenderParamsBuilderClient creates a new RenderParamsBuilder client.
+func NewRenderParamsBuilderClient(cc grpc.ClientConnInterface) *RenderParamsBuilderClient {
+	return &RenderParamsBuilderClient{
+		svc: pb.NewRenderParamsBuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *RenderParamsBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetRenderFlags1 calls the SetRenderFlags1 RPC.
+func (c *RenderParamsBuilderClient) SetRenderFlags1(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetRenderFlags1(ctx, &pb.SetRenderFlags1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetRenderFlags2_1 calls the SetRenderFlags2_1 RPC.
+func (c *RenderParamsBuilderClient) SetRenderFlags2_1(ctx context.Context, arg0 int32, arg1 int32) (int64, error) {
+	resp, err := c.svc.SetRenderFlags2_1(ctx, &pb.SetRenderFlags2_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// PaintClient wraps the gRPC PaintService client.
+type PaintClient struct {
+	svc pb.PaintServiceClient
+}
+
+// NewPaintClient creates a new Paint client.
+func NewPaintClient(cc grpc.ClientConnInterface) *PaintClient {
+	return &PaintClient{
+		svc: pb.NewPaintServiceClient(cc),
+	}
+}
+
+// Ascent calls the Ascent RPC.
+func (c *PaintClient) Ascent(ctx context.Context, handle int64) (float32, error) {
+	resp, err := c.svc.Ascent(ctx, &pb.AscentRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// BreakText5 calls the BreakText5 RPC.
+func (c *PaintClient) BreakText5(ctx context.Context, handle int64, arg0 int64, arg1 int32, arg2 int32, arg3 float32, arg4 int64) (int32, error) {
+	resp, err := c.svc.BreakText5(ctx, &pb.BreakText5Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+		Arg4:   arg4,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// BreakText6_1 calls the BreakText6_1 RPC.
+func (c *PaintClient) BreakText6_1(ctx context.Context, handle int64, arg0 string, arg1 int32, arg2 int32, arg3 bool, arg4 float32, arg5 int64) (int32, error) {
+	resp, err := c.svc.BreakText6_1(ctx, &pb.BreakText6_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+		Arg4:   arg4,
+		Arg5:   arg5,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// BreakText4_2 calls the BreakText4_2 RPC.
+func (c *PaintClient) BreakText4_2(ctx context.Context, handle int64, arg0 string, arg1 bool, arg2 float32, arg3 int64) (int32, error) {
+	resp, err := c.svc.BreakText4_2(ctx, &pb.BreakText4_2Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ClearShadowLayer calls the ClearShadowLayer RPC.
+func (c *PaintClient) ClearShadowLayer(ctx context.Context, handle int64) error {
+	_, err := c.svc.ClearShadowLayer(ctx, &pb.ClearShadowLayerRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// Descent calls the Descent RPC.
+func (c *PaintClient) Descent(ctx context.Context, handle int64) (float32, error) {
+	resp, err := c.svc.Descent(ctx, &pb.DescentRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// EqualsForTextMeasurement calls the EqualsForTextMeasurement RPC.
+func (c *PaintClient) EqualsForTextMeasurement(ctx context.Context, handle int64, arg0 int64) (bool, error) {
+	resp, err := c.svc.EqualsForTextMeasurement(ctx, &pb.EqualsForTextMeasurementRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAlpha calls the GetAlpha RPC.
+func (c *PaintClient) GetAlpha(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetAlpha(ctx, &pb.GetAlphaRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetBlendMode calls the GetBlendMode RPC.
+func (c *PaintClient) GetBlendMode(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetBlendMode(ctx, &pb.GetBlendModeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetColor calls the GetColor RPC.
+func (c *PaintClient) GetColor(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetColor(ctx, &pb.PaintGetColorRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetColorFilter calls the GetColorFilter RPC.
+func (c *PaintClient) GetColorFilter(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetColorFilter(ctx, &pb.GetColorFilterRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetColorLong calls the GetColorLong RPC.
+func (c *PaintClient) GetColorLong(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetColorLong(ctx, &pb.GetColorLongRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetEndHyphenEdit calls the GetEndHyphenEdit RPC.
+func (c *PaintClient) GetEndHyphenEdit(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetEndHyphenEdit(ctx, &pb.GetEndHyphenEditRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetFillPath calls the GetFillPath RPC.
+func (c *PaintClient) GetFillPath(ctx context.Context, handle int64, arg0 int64, arg1 int64) (bool, error) {
+	resp, err := c.svc.GetFillPath(ctx, &pb.GetFillPathRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetFlags calls the GetFlags RPC.
+func (c *PaintClient) GetFlags(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetFlags(ctx, &pb.GetFlagsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetFontFeatureSettings calls the GetFontFeatureSettings RPC.
+func (c *PaintClient) GetFontFeatureSettings(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetFontFeatureSettings(ctx, &pb.GetFontFeatureSettingsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetFontMetrics0 calls the GetFontMetrics0 RPC.
+func (c *PaintClient) GetFontMetrics0(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetFontMetrics0(ctx, &pb.GetFontMetrics0Request{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetFontMetrics1_1 calls the GetFontMetrics1_1 RPC.
+func (c *PaintClient) GetFontMetrics1_1(ctx context.Context, handle int64, arg0 int64) (float32, error) {
+	resp, err := c.svc.GetFontMetrics1_1(ctx, &pb.GetFontMetrics1_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetFontMetricsForLocale calls the GetFontMetricsForLocale RPC.
+func (c *PaintClient) GetFontMetricsForLocale(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.GetFontMetricsForLocale(ctx, &pb.GetFontMetricsForLocaleRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// GetFontMetricsInt0 calls the GetFontMetricsInt0 RPC.
+func (c *PaintClient) GetFontMetricsInt0(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetFontMetricsInt0(ctx, &pb.GetFontMetricsInt0Request{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetFontMetricsInt1_1 calls the GetFontMetricsInt1_1 RPC.
+func (c *PaintClient) GetFontMetricsInt1_1(ctx context.Context, handle int64, arg0 int64) (int32, error) {
+	resp, err := c.svc.GetFontMetricsInt1_1(ctx, &pb.GetFontMetricsInt1_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetFontMetricsInt7_2 calls the GetFontMetricsInt7_2 RPC.
+func (c *PaintClient) GetFontMetricsInt7_2(ctx context.Context, handle int64, arg0 int64, arg1 int32, arg2 int32, arg3 int32, arg4 int32, arg5 bool, arg6 int64) error {
+	_, err := c.svc.GetFontMetricsInt7_2(ctx, &pb.GetFontMetricsInt7_2Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+		Arg4:   arg4,
+		Arg5:   arg5,
+		Arg6:   arg6,
+	})
+	return err
+}
+
+// GetFontMetricsInt7_3 calls the GetFontMetricsInt7_3 RPC.
+func (c *PaintClient) GetFontMetricsInt7_3(ctx context.Context, handle int64, arg0 string, arg1 int32, arg2 int32, arg3 int32, arg4 int32, arg5 bool, arg6 int64) error {
+	_, err := c.svc.GetFontMetricsInt7_3(ctx, &pb.GetFontMetricsInt7_3Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+		Arg4:   arg4,
+		Arg5:   arg5,
+		Arg6:   arg6,
+	})
+	return err
+}
+
+// GetFontMetricsIntForLocale calls the GetFontMetricsIntForLocale RPC.
+func (c *PaintClient) GetFontMetricsIntForLocale(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.GetFontMetricsIntForLocale(ctx, &pb.GetFontMetricsIntForLocaleRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// GetFontSpacing calls the GetFontSpacing RPC.
+func (c *PaintClient) GetFontSpacing(ctx context.Context, handle int64) (float32, error) {
+	resp, err := c.svc.GetFontSpacing(ctx, &pb.GetFontSpacingRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetFontVariationSettings calls the GetFontVariationSettings RPC.
+func (c *PaintClient) GetFontVariationSettings(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetFontVariationSettings(ctx, &pb.GetFontVariationSettingsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetHinting calls the GetHinting RPC.
+func (c *PaintClient) GetHinting(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetHinting(ctx, &pb.GetHintingRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLetterSpacing calls the GetLetterSpacing RPC.
+func (c *PaintClient) GetLetterSpacing(ctx context.Context, handle int64) (float32, error) {
+	resp, err := c.svc.GetLetterSpacing(ctx, &pb.GetLetterSpacingRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMaskFilter calls the GetMaskFilter RPC.
+func (c *PaintClient) GetMaskFilter(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetMaskFilter(ctx, &pb.GetMaskFilterRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetOffsetForAdvance7 calls the GetOffsetForAdvance7 RPC.
+func (c *PaintClient) GetOffsetForAdvance7(ctx context.Context, handle int64, arg0 int64, arg1 int32, arg2 int32, arg3 int32, arg4 int32, arg5 bool, arg6 float32) (int32, error) {
+	resp, err := c.svc.GetOffsetForAdvance7(ctx, &pb.GetOffsetForAdvance7Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+		Arg4:   arg4,
+		Arg5:   arg5,
+		Arg6:   arg6,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetOffsetForAdvance7_1 calls the GetOffsetForAdvance7_1 RPC.
+func (c *PaintClient) GetOffsetForAdvance7_1(ctx context.Context, handle int64, arg0 string, arg1 int32, arg2 int32, arg3 int32, arg4 int32, arg5 bool, arg6 float32) (int32, error) {
+	resp, err := c.svc.GetOffsetForAdvance7_1(ctx, &pb.GetOffsetForAdvance7_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+		Arg4:   arg4,
+		Arg5:   arg5,
+		Arg6:   arg6,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPathEffect calls the GetPathEffect RPC.
+func (c *PaintClient) GetPathEffect(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetPathEffect(ctx, &pb.GetPathEffectRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetRunAdvance7 calls the GetRunAdvance7 RPC.
+func (c *PaintClient) GetRunAdvance7(ctx context.Context, handle int64, arg0 int64, arg1 int32, arg2 int32, arg3 int32, arg4 int32, arg5 bool, arg6 int32) (float32, error) {
+	resp, err := c.svc.GetRunAdvance7(ctx, &pb.GetRunAdvance7Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+		Arg4:   arg4,
+		Arg5:   arg5,
+		Arg6:   arg6,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetRunAdvance7_1 calls the GetRunAdvance7_1 RPC.
+func (c *PaintClient) GetRunAdvance7_1(ctx context.Context, handle int64, arg0 string, arg1 int32, arg2 int32, arg3 int32, arg4 int32, arg5 bool, arg6 int32) (float32, error) {
+	resp, err := c.svc.GetRunAdvance7_1(ctx, &pb.GetRunAdvance7_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+		Arg4:   arg4,
+		Arg5:   arg5,
+		Arg6:   arg6,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetRunCharacterAdvance9 calls the GetRunCharacterAdvance9 RPC.
+func (c *PaintClient) GetRunCharacterAdvance9(ctx context.Context, handle int64, arg0 int64, arg1 int32, arg2 int32, arg3 int32, arg4 int32, arg5 bool, arg6 int32, arg7 int64, arg8 int32) (float32, error) {
+	resp, err := c.svc.GetRunCharacterAdvance9(ctx, &pb.GetRunCharacterAdvance9Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+		Arg4:   arg4,
+		Arg5:   arg5,
+		Arg6:   arg6,
+		Arg7:   arg7,
+		Arg8:   arg8,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetRunCharacterAdvance9_1 calls the GetRunCharacterAdvance9_1 RPC.
+func (c *PaintClient) GetRunCharacterAdvance9_1(ctx context.Context, handle int64, arg0 string, arg1 int32, arg2 int32, arg3 int32, arg4 int32, arg5 bool, arg6 int32, arg7 int64, arg8 int32) (float32, error) {
+	resp, err := c.svc.GetRunCharacterAdvance9_1(ctx, &pb.GetRunCharacterAdvance9_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+		Arg4:   arg4,
+		Arg5:   arg5,
+		Arg6:   arg6,
+		Arg7:   arg7,
+		Arg8:   arg8,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetShader calls the GetShader RPC.
+func (c *PaintClient) GetShader(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetShader(ctx, &pb.GetShaderRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetShadowLayerColor calls the GetShadowLayerColor RPC.
+func (c *PaintClient) GetShadowLayerColor(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetShadowLayerColor(ctx, &pb.GetShadowLayerColorRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetShadowLayerColorLong calls the GetShadowLayerColorLong RPC.
+func (c *PaintClient) GetShadowLayerColorLong(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetShadowLayerColorLong(ctx, &pb.GetShadowLayerColorLongRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetShadowLayerDx calls the GetShadowLayerDx RPC.
+func (c *PaintClient) GetShadowLayerDx(ctx context.Context, handle int64) (float32, error) {
+	resp, err := c.svc.GetShadowLayerDx(ctx, &pb.GetShadowLayerDxRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetShadowLayerDy calls the GetShadowLayerDy RPC.
+func (c *PaintClient) GetShadowLayerDy(ctx context.Context, handle int64) (float32, error) {
+	resp, err := c.svc.GetShadowLayerDy(ctx, &pb.GetShadowLayerDyRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetShadowLayerRadius calls the GetShadowLayerRadius RPC.
+func (c *PaintClient) GetShadowLayerRadius(ctx context.Context, handle int64) (float32, error) {
+	resp, err := c.svc.GetShadowLayerRadius(ctx, &pb.GetShadowLayerRadiusRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetStartHyphenEdit calls the GetStartHyphenEdit RPC.
+func (c *PaintClient) GetStartHyphenEdit(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetStartHyphenEdit(ctx, &pb.GetStartHyphenEditRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetStrikeThruPosition calls the GetStrikeThruPosition RPC.
+func (c *PaintClient) GetStrikeThruPosition(ctx context.Context, handle int64) (float32, error) {
+	resp, err := c.svc.GetStrikeThruPosition(ctx, &pb.GetStrikeThruPositionRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetStrikeThruThickness calls the GetStrikeThruThickness RPC.
+func (c *PaintClient) GetStrikeThruThickness(ctx context.Context, handle int64) (float32, error) {
+	resp, err := c.svc.GetStrikeThruThickness(ctx, &pb.GetStrikeThruThicknessRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetStrokeCap calls the GetStrokeCap RPC.
+func (c *PaintClient) GetStrokeCap(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetStrokeCap(ctx, &pb.GetStrokeCapRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetStrokeJoin calls the GetStrokeJoin RPC.
+func (c *PaintClient) GetStrokeJoin(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetStrokeJoin(ctx, &pb.GetStrokeJoinRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetStrokeMiter calls the GetStrokeMiter RPC.
+func (c *PaintClient) GetStrokeMiter(ctx context.Context, handle int64) (float32, error) {
+	resp, err := c.svc.GetStrokeMiter(ctx, &pb.GetStrokeMiterRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetStrokeWidth calls the GetStrokeWidth RPC.
+func (c *PaintClient) GetStrokeWidth(ctx context.Context, handle int64) (float32, error) {
+	resp, err := c.svc.GetStrokeWidth(ctx, &pb.GetStrokeWidthRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetStyle calls the GetStyle RPC.
+func (c *PaintClient) GetStyle(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetStyle(ctx, &pb.PaintGetStyleRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTextAlign calls the GetTextAlign RPC.
+func (c *PaintClient) GetTextAlign(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetTextAlign(ctx, &pb.GetTextAlignRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTextBounds4 calls the GetTextBounds4 RPC.
+func (c *PaintClient) GetTextBounds4(ctx context.Context, handle int64, arg0 int64, arg1 int32, arg2 int32, arg3 int64) error {
+	_, err := c.svc.GetTextBounds4(ctx, &pb.GetTextBounds4Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+	})
+	return err
+}
+
+// GetTextBounds4_1 calls the GetTextBounds4_1 RPC.
+func (c *PaintClient) GetTextBounds4_1(ctx context.Context, handle int64, arg0 string, arg1 int32, arg2 int32, arg3 int64) error {
+	_, err := c.svc.GetTextBounds4_1(ctx, &pb.GetTextBounds4_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+	})
+	return err
+}
+
+// GetTextBounds4_2 calls the GetTextBounds4_2 RPC.
+func (c *PaintClient) GetTextBounds4_2(ctx context.Context, handle int64, arg0 string, arg1 int32, arg2 int32, arg3 int64) error {
+	_, err := c.svc.GetTextBounds4_2(ctx, &pb.GetTextBounds4_2Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+	})
+	return err
+}
+
+// GetTextLocale calls the GetTextLocale RPC.
+func (c *PaintClient) GetTextLocale(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetTextLocale(ctx, &pb.GetTextLocaleRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTextLocales calls the GetTextLocales RPC.
+func (c *PaintClient) GetTextLocales(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetTextLocales(ctx, &pb.GetTextLocalesRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTextPath6 calls the GetTextPath6 RPC.
+func (c *PaintClient) GetTextPath6(ctx context.Context, handle int64, arg0 int64, arg1 int32, arg2 int32, arg3 float32, arg4 float32, arg5 int64) error {
+	_, err := c.svc.GetTextPath6(ctx, &pb.GetTextPath6Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+		Arg4:   arg4,
+		Arg5:   arg5,
+	})
+	return err
+}
+
+// GetTextPath6_1 calls the GetTextPath6_1 RPC.
+func (c *PaintClient) GetTextPath6_1(ctx context.Context, handle int64, arg0 string, arg1 int32, arg2 int32, arg3 float32, arg4 float32, arg5 int64) error {
+	_, err := c.svc.GetTextPath6_1(ctx, &pb.GetTextPath6_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+		Arg4:   arg4,
+		Arg5:   arg5,
+	})
+	return err
+}
+
+// GetTextRunAdvances calls the GetTextRunAdvances RPC.
+func (c *PaintClient) GetTextRunAdvances(ctx context.Context, handle int64, arg0 int64, arg1 int32, arg2 int32, arg3 int32, arg4 int32, arg5 bool, arg6 int64, arg7 int32) (float32, error) {
+	resp, err := c.svc.GetTextRunAdvances(ctx, &pb.GetTextRunAdvancesRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+		Arg4:   arg4,
+		Arg5:   arg5,
+		Arg6:   arg6,
+		Arg7:   arg7,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTextRunCursor6 calls the GetTextRunCursor6 RPC.
+func (c *PaintClient) GetTextRunCursor6(ctx context.Context, handle int64, arg0 int64, arg1 int32, arg2 int32, arg3 bool, arg4 int32, arg5 int32) (int32, error) {
+	resp, err := c.svc.GetTextRunCursor6(ctx, &pb.GetTextRunCursor6Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+		Arg4:   arg4,
+		Arg5:   arg5,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTextRunCursor6_1 calls the GetTextRunCursor6_1 RPC.
+func (c *PaintClient) GetTextRunCursor6_1(ctx context.Context, handle int64, arg0 string, arg1 int32, arg2 int32, arg3 bool, arg4 int32, arg5 int32) (int32, error) {
+	resp, err := c.svc.GetTextRunCursor6_1(ctx, &pb.GetTextRunCursor6_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+		Arg4:   arg4,
+		Arg5:   arg5,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTextScaleX calls the GetTextScaleX RPC.
+func (c *PaintClient) GetTextScaleX(ctx context.Context, handle int64) (float32, error) {
+	resp, err := c.svc.GetTextScaleX(ctx, &pb.GetTextScaleXRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTextSize calls the GetTextSize RPC.
+func (c *PaintClient) GetTextSize(ctx context.Context, handle int64) (float32, error) {
+	resp, err := c.svc.GetTextSize(ctx, &pb.GetTextSizeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTextSkewX calls the GetTextSkewX RPC.
+func (c *PaintClient) GetTextSkewX(ctx context.Context, handle int64) (float32, error) {
+	resp, err := c.svc.GetTextSkewX(ctx, &pb.GetTextSkewXRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTextWidths4 calls the GetTextWidths4 RPC.
+func (c *PaintClient) GetTextWidths4(ctx context.Context, handle int64, arg0 int64, arg1 int32, arg2 int32, arg3 int64) (int32, error) {
+	resp, err := c.svc.GetTextWidths4(ctx, &pb.GetTextWidths4Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTextWidths4_1 calls the GetTextWidths4_1 RPC.
+func (c *PaintClient) GetTextWidths4_1(ctx context.Context, handle int64, arg0 string, arg1 int32, arg2 int32, arg3 int64) (int32, error) {
+	resp, err := c.svc.GetTextWidths4_1(ctx, &pb.GetTextWidths4_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTextWidths2_2 calls the GetTextWidths2_2 RPC.
+func (c *PaintClient) GetTextWidths2_2(ctx context.Context, handle int64, arg0 string, arg1 int64) (int32, error) {
+	resp, err := c.svc.GetTextWidths2_2(ctx, &pb.GetTextWidths2_2Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTextWidths4_3 calls the GetTextWidths4_3 RPC.
+func (c *PaintClient) GetTextWidths4_3(ctx context.Context, handle int64, arg0 string, arg1 int32, arg2 int32, arg3 int64) (int32, error) {
+	resp, err := c.svc.GetTextWidths4_3(ctx, &pb.GetTextWidths4_3Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTypeface calls the GetTypeface RPC.
+func (c *PaintClient) GetTypeface(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetTypeface(ctx, &pb.GetTypefaceRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetUnderlinePosition calls the GetUnderlinePosition RPC.
+func (c *PaintClient) GetUnderlinePosition(ctx context.Context, handle int64) (float32, error) {
+	resp, err := c.svc.GetUnderlinePosition(ctx, &pb.GetUnderlinePositionRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetUnderlineThickness calls the GetUnderlineThickness RPC.
+func (c *PaintClient) GetUnderlineThickness(ctx context.Context, handle int64) (float32, error) {
+	resp, err := c.svc.GetUnderlineThickness(ctx, &pb.GetUnderlineThicknessRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetWordSpacing calls the GetWordSpacing RPC.
+func (c *PaintClient) GetWordSpacing(ctx context.Context, handle int64) (float32, error) {
+	resp, err := c.svc.GetWordSpacing(ctx, &pb.GetWordSpacingRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetXfermode calls the GetXfermode RPC.
+func (c *PaintClient) GetXfermode(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetXfermode(ctx, &pb.GetXfermodeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasGlyph calls the HasGlyph RPC.
+func (c *PaintClient) HasGlyph(ctx context.Context, handle int64, arg0 string) (bool, error) {
+	resp, err := c.svc.HasGlyph(ctx, &pb.HasGlyphRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsAntiAlias calls the IsAntiAlias RPC.
+func (c *PaintClient) IsAntiAlias(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsAntiAlias(ctx, &pb.IsAntiAliasRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsDither calls the IsDither RPC.
+func (c *PaintClient) IsDither(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsDither(ctx, &pb.IsDitherRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsElegantTextHeight calls the IsElegantTextHeight RPC.
+func (c *PaintClient) IsElegantTextHeight(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsElegantTextHeight(ctx, &pb.IsElegantTextHeightRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsFakeBoldText calls the IsFakeBoldText RPC.
+func (c *PaintClient) IsFakeBoldText(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsFakeBoldText(ctx, &pb.IsFakeBoldTextRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsFilterBitmap calls the IsFilterBitmap RPC.
+func (c *PaintClient) IsFilterBitmap(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsFilterBitmap(ctx, &pb.IsFilterBitmapRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsLinearText calls the IsLinearText RPC.
+func (c *PaintClient) IsLinearText(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsLinearText(ctx, &pb.IsLinearTextRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsStrikeThruText calls the IsStrikeThruText RPC.
+func (c *PaintClient) IsStrikeThruText(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsStrikeThruText(ctx, &pb.IsStrikeThruTextRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsSubpixelText calls the IsSubpixelText RPC.
+func (c *PaintClient) IsSubpixelText(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsSubpixelText(ctx, &pb.IsSubpixelTextRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsUnderlineText calls the IsUnderlineText RPC.
+func (c *PaintClient) IsUnderlineText(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsUnderlineText(ctx, &pb.IsUnderlineTextRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// MeasureText3 calls the MeasureText3 RPC.
+func (c *PaintClient) MeasureText3(ctx context.Context, handle int64, arg0 int64, arg1 int32, arg2 int32) (float32, error) {
+	resp, err := c.svc.MeasureText3(ctx, &pb.MeasureText3Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// MeasureText3_1 calls the MeasureText3_1 RPC.
+func (c *PaintClient) MeasureText3_1(ctx context.Context, handle int64, arg0 string, arg1 int32, arg2 int32) (float32, error) {
+	resp, err := c.svc.MeasureText3_1(ctx, &pb.MeasureText3_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// MeasureText1_2 calls the MeasureText1_2 RPC.
+func (c *PaintClient) MeasureText1_2(ctx context.Context, handle int64, arg0 string) (float32, error) {
+	resp, err := c.svc.MeasureText1_2(ctx, &pb.MeasureText1_2Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// MeasureText3_3 calls the MeasureText3_3 RPC.
+func (c *PaintClient) MeasureText3_3(ctx context.Context, handle int64, arg0 string, arg1 int32, arg2 int32) (float32, error) {
+	resp, err := c.svc.MeasureText3_3(ctx, &pb.MeasureText3_3Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Reset calls the Reset RPC.
+func (c *PaintClient) Reset(ctx context.Context, handle int64) error {
+	_, err := c.svc.Reset(ctx, &pb.ResetRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// Set calls the Set RPC.
+func (c *PaintClient) Set(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.Set(ctx, &pb.SetRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetARGB calls the SetARGB RPC.
+func (c *PaintClient) SetARGB(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32, arg3 int32) error {
+	_, err := c.svc.SetARGB(ctx, &pb.SetARGBRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+	})
+	return err
+}
+
+// SetAlpha calls the SetAlpha RPC.
+func (c *PaintClient) SetAlpha(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.SetAlpha(ctx, &pb.SetAlphaRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetAntiAlias calls the SetAntiAlias RPC.
+func (c *PaintClient) SetAntiAlias(ctx context.Context, handle int64, arg0 bool) error {
+	_, err := c.svc.SetAntiAlias(ctx, &pb.SetAntiAliasRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetBlendMode calls the SetBlendMode RPC.
+func (c *PaintClient) SetBlendMode(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetBlendMode(ctx, &pb.SetBlendModeRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetColor1 calls the SetColor1 RPC.
+func (c *PaintClient) SetColor1(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.SetColor1(ctx, &pb.SetColor1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetColor1_1 calls the SetColor1_1 RPC.
+func (c *PaintClient) SetColor1_1(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetColor1_1(ctx, &pb.SetColor1_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetColorFilter calls the SetColorFilter RPC.
+func (c *PaintClient) SetColorFilter(ctx context.Context, handle int64, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetColorFilter(ctx, &pb.SetColorFilterRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetDither calls the SetDither RPC.
+func (c *PaintClient) SetDither(ctx context.Context, handle int64, arg0 bool) error {
+	_, err := c.svc.SetDither(ctx, &pb.SetDitherRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetElegantTextHeight calls the SetElegantTextHeight RPC.
+func (c *PaintClient) SetElegantTextHeight(ctx context.Context, handle int64, arg0 bool) error {
+	_, err := c.svc.SetElegantTextHeight(ctx, &pb.SetElegantTextHeightRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetEndHyphenEdit calls the SetEndHyphenEdit RPC.
+func (c *PaintClient) SetEndHyphenEdit(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.SetEndHyphenEdit(ctx, &pb.SetEndHyphenEditRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetFakeBoldText calls the SetFakeBoldText RPC.
+func (c *PaintClient) SetFakeBoldText(ctx context.Context, handle int64, arg0 bool) error {
+	_, err := c.svc.SetFakeBoldText(ctx, &pb.SetFakeBoldTextRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetFilterBitmap calls the SetFilterBitmap RPC.
+func (c *PaintClient) SetFilterBitmap(ctx context.Context, handle int64, arg0 bool) error {
+	_, err := c.svc.SetFilterBitmap(ctx, &pb.SetFilterBitmapRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetFlags calls the SetFlags RPC.
+func (c *PaintClient) SetFlags(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.SetFlags(ctx, &pb.SetFlagsRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetFontFeatureSettings calls the SetFontFeatureSettings RPC.
+func (c *PaintClient) SetFontFeatureSettings(ctx context.Context, handle int64, arg0 string) error {
+	_, err := c.svc.SetFontFeatureSettings(ctx, &pb.SetFontFeatureSettingsRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetFontVariationSettings calls the SetFontVariationSettings RPC.
+func (c *PaintClient) SetFontVariationSettings(ctx context.Context, handle int64, arg0 string) (bool, error) {
+	resp, err := c.svc.SetFontVariationSettings(ctx, &pb.SetFontVariationSettingsRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetHinting calls the SetHinting RPC.
+func (c *PaintClient) SetHinting(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.SetHinting(ctx, &pb.SetHintingRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetLetterSpacing calls the SetLetterSpacing RPC.
+func (c *PaintClient) SetLetterSpacing(ctx context.Context, handle int64, arg0 float32) error {
+	_, err := c.svc.SetLetterSpacing(ctx, &pb.SetLetterSpacingRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetLinearText calls the SetLinearText RPC.
+func (c *PaintClient) SetLinearText(ctx context.Context, handle int64, arg0 bool) error {
+	_, err := c.svc.SetLinearText(ctx, &pb.SetLinearTextRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetMaskFilter calls the SetMaskFilter RPC.
+func (c *PaintClient) SetMaskFilter(ctx context.Context, handle int64, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetMaskFilter(ctx, &pb.SetMaskFilterRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetPathEffect calls the SetPathEffect RPC.
+func (c *PaintClient) SetPathEffect(ctx context.Context, handle int64, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetPathEffect(ctx, &pb.SetPathEffectRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetShader calls the SetShader RPC.
+func (c *PaintClient) SetShader(ctx context.Context, handle int64, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetShader(ctx, &pb.SetShaderRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetShadowLayer4 calls the SetShadowLayer4 RPC.
+func (c *PaintClient) SetShadowLayer4(ctx context.Context, handle int64, arg0 float32, arg1 float32, arg2 float32, arg3 int32) error {
+	_, err := c.svc.SetShadowLayer4(ctx, &pb.SetShadowLayer4Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+	})
+	return err
+}
+
+// SetShadowLayer4_1 calls the SetShadowLayer4_1 RPC.
+func (c *PaintClient) SetShadowLayer4_1(ctx context.Context, handle int64, arg0 float32, arg1 float32, arg2 float32, arg3 int64) error {
+	_, err := c.svc.SetShadowLayer4_1(ctx, &pb.SetShadowLayer4_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+	})
+	return err
+}
+
+// SetStartHyphenEdit calls the SetStartHyphenEdit RPC.
+func (c *PaintClient) SetStartHyphenEdit(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.SetStartHyphenEdit(ctx, &pb.SetStartHyphenEditRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetStrikeThruText calls the SetStrikeThruText RPC.
+func (c *PaintClient) SetStrikeThruText(ctx context.Context, handle int64, arg0 bool) error {
+	_, err := c.svc.SetStrikeThruText(ctx, &pb.SetStrikeThruTextRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetStrokeCap calls the SetStrokeCap RPC.
+func (c *PaintClient) SetStrokeCap(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetStrokeCap(ctx, &pb.SetStrokeCapRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetStrokeJoin calls the SetStrokeJoin RPC.
+func (c *PaintClient) SetStrokeJoin(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetStrokeJoin(ctx, &pb.SetStrokeJoinRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetStrokeMiter calls the SetStrokeMiter RPC.
+func (c *PaintClient) SetStrokeMiter(ctx context.Context, handle int64, arg0 float32) error {
+	_, err := c.svc.SetStrokeMiter(ctx, &pb.SetStrokeMiterRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetStrokeWidth calls the SetStrokeWidth RPC.
+func (c *PaintClient) SetStrokeWidth(ctx context.Context, handle int64, arg0 float32) error {
+	_, err := c.svc.SetStrokeWidth(ctx, &pb.SetStrokeWidthRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetStyle calls the SetStyle RPC.
+func (c *PaintClient) SetStyle(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetStyle(ctx, &pb.PaintSetStyleRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetSubpixelText calls the SetSubpixelText RPC.
+func (c *PaintClient) SetSubpixelText(ctx context.Context, handle int64, arg0 bool) error {
+	_, err := c.svc.SetSubpixelText(ctx, &pb.SetSubpixelTextRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetTextAlign calls the SetTextAlign RPC.
+func (c *PaintClient) SetTextAlign(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetTextAlign(ctx, &pb.SetTextAlignRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetTextLocale calls the SetTextLocale RPC.
+func (c *PaintClient) SetTextLocale(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetTextLocale(ctx, &pb.SetTextLocaleRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetTextLocales calls the SetTextLocales RPC.
+func (c *PaintClient) SetTextLocales(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetTextLocales(ctx, &pb.SetTextLocalesRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetTextScaleX calls the SetTextScaleX RPC.
+func (c *PaintClient) SetTextScaleX(ctx context.Context, handle int64, arg0 float32) error {
+	_, err := c.svc.SetTextScaleX(ctx, &pb.SetTextScaleXRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetTextSize calls the SetTextSize RPC.
+func (c *PaintClient) SetTextSize(ctx context.Context, handle int64, arg0 float32) error {
+	_, err := c.svc.SetTextSize(ctx, &pb.SetTextSizeRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetTextSkewX calls the SetTextSkewX RPC.
+func (c *PaintClient) SetTextSkewX(ctx context.Context, handle int64, arg0 float32) error {
+	_, err := c.svc.SetTextSkewX(ctx, &pb.SetTextSkewXRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetTypeface calls the SetTypeface RPC.
+func (c *PaintClient) SetTypeface(ctx context.Context, handle int64, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetTypeface(ctx, &pb.SetTypefaceRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetUnderlineText calls the SetUnderlineText RPC.
+func (c *PaintClient) SetUnderlineText(ctx context.Context, handle int64, arg0 bool) error {
+	_, err := c.svc.SetUnderlineText(ctx, &pb.SetUnderlineTextRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetWordSpacing calls the SetWordSpacing RPC.
+func (c *PaintClient) SetWordSpacing(ctx context.Context, handle int64, arg0 float32) error {
+	_, err := c.svc.SetWordSpacing(ctx, &pb.SetWordSpacingRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetXfermode calls the SetXfermode RPC.
+func (c *PaintClient) SetXfermode(ctx context.Context, handle int64, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetXfermode(ctx, &pb.SetXfermodeRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// PaintAlignClient wraps the gRPC PaintAlignService client.
+type PaintAlignClient struct {
+	svc pb.PaintAlignServiceClient
+}
+
+// NewPaintAlignClient creates a new PaintAlign client.
+func NewPaintAlignClient(cc grpc.ClientConnInterface) *PaintAlignClient {
+	return &PaintAlignClient{
+		svc: pb.NewPaintAlignServiceClient(cc),
+	}
+}
+
+// Values calls the Values RPC.
+func (c *PaintAlignClient) Values(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Values(ctx, &pb.ValuesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ValueOf calls the ValueOf RPC.
+func (c *PaintAlignClient) ValueOf(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.ValueOf(ctx, &pb.ValueOfRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// PaintCapClient wraps the gRPC PaintCapService client.
+type PaintCapClient struct {
+	svc pb.PaintCapServiceClient
+}
+
+// NewPaintCapClient creates a new PaintCap client.
+func NewPaintCapClient(cc grpc.ClientConnInterface) *PaintCapClient {
+	return &PaintCapClient{
+		svc: pb.NewPaintCapServiceClient(cc),
+	}
+}
+
+// Values calls the Values RPC.
+func (c *PaintCapClient) Values(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Values(ctx, &pb.ValuesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ValueOf calls the ValueOf RPC.
+func (c *PaintCapClient) ValueOf(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.ValueOf(ctx, &pb.ValueOfRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// PaintFontMetricsClient wraps the gRPC PaintFontMetricsService client.
+type PaintFontMetricsClient struct {
+	svc pb.PaintFontMetricsServiceClient
+}
+
+// NewPaintFontMetricsClient creates a new PaintFontMetrics client.
+func NewPaintFontMetricsClient(cc grpc.ClientConnInterface) *PaintFontMetricsClient {
+	return &PaintFontMetricsClient{
+		svc: pb.NewPaintFontMetricsServiceClient(cc),
+	}
+}
+
+// Equals calls the Equals RPC.
+func (c *PaintFontMetricsClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *PaintFontMetricsClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *PaintFontMetricsClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.PaintFontMetricsToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// PaintFontMetricsIntClient wraps the gRPC PaintFontMetricsIntService client.
+type PaintFontMetricsIntClient struct {
+	svc pb.PaintFontMetricsIntServiceClient
+}
+
+// NewPaintFontMetricsIntClient creates a new PaintFontMetricsInt client.
+func NewPaintFontMetricsIntClient(cc grpc.ClientConnInterface) *PaintFontMetricsIntClient {
+	return &PaintFontMetricsIntClient{
+		svc: pb.NewPaintFontMetricsIntServiceClient(cc),
+	}
+}
+
+// Equals calls the Equals RPC.
+func (c *PaintFontMetricsIntClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *PaintFontMetricsIntClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Set1 calls the Set1 RPC.
+func (c *PaintFontMetricsIntClient) Set1(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.Set1(ctx, &pb.Set1Request{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// Set1_1 calls the Set1_1 RPC.
+func (c *PaintFontMetricsIntClient) Set1_1(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.Set1_1(ctx, &pb.Set1_1Request{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// ToString calls the ToString RPC.
+func (c *PaintFontMetricsIntClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.PaintFontMetricsIntToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// PaintJoinClient wraps the gRPC PaintJoinService client.
+type PaintJoinClient struct {
+	svc pb.PaintJoinServiceClient
+}
+
+// NewPaintJoinClient creates a new PaintJoin client.
+func NewPaintJoinClient(cc grpc.ClientConnInterface) *PaintJoinClient {
+	return &PaintJoinClient{
+		svc: pb.NewPaintJoinServiceClient(cc),
+	}
+}
+
+// Values calls the Values RPC.
+func (c *PaintJoinClient) Values(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Values(ctx, &pb.ValuesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ValueOf calls the ValueOf RPC.
+func (c *PaintJoinClient) ValueOf(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.ValueOf(ctx, &pb.ValueOfRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// PaintStyleClient wraps the gRPC PaintStyleService client.
+type PaintStyleClient struct {
+	svc pb.PaintStyleServiceClient
+}
+
+// NewPaintStyleClient creates a new PaintStyle client.
+func NewPaintStyleClient(cc grpc.ClientConnInterface) *PaintStyleClient {
+	return &PaintStyleClient{
+		svc: pb.NewPaintStyleServiceClient(cc),
+	}
+}
+
+// Values calls the Values RPC.
+func (c *PaintStyleClient) Values(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Values(ctx, &pb.ValuesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ValueOf calls the ValueOf RPC.
+func (c *PaintStyleClient) ValueOf(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.ValueOf(ctx, &pb.ValueOfRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
 }
 
 // PrintedPdfDocumentClient wraps the gRPC PrintedPdfDocumentService client.

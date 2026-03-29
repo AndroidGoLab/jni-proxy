@@ -37,7 +37,7 @@ func (s *AudioCallServer) NewAudioCall(_ context.Context, req *pb.NewAudioCallRe
 	return &pb.NewAudioCallResponse{Result: handle}, nil
 }
 
-func (s *AudioCallServer) AnswerCall(_ context.Context, req *pb.AudioCallAnswerCallRequest) (*pb.AnswerCallResponse, error) {
+func (s *AudioCallServer) AnswerCall(_ context.Context, req *pb.AnswerCallRequest) (*pb.AnswerCallResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -63,7 +63,7 @@ func (s *AudioCallServer) AttachCall(_ context.Context, req *pb.AttachCallReques
 	return &pb.AttachCallResponse{}, nil
 }
 
-func (s *AudioCallServer) Close(_ context.Context, req *pb.AudioCallCloseRequest) (*pb.CloseResponse, error) {
+func (s *AudioCallServer) Close(_ context.Context, req *pb.CloseRequest) (*pb.CloseResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -89,7 +89,7 @@ func (s *AudioCallServer) ContinueCall(_ context.Context, req *pb.ContinueCallRe
 	return &pb.ContinueCallResponse{}, nil
 }
 
-func (s *AudioCallServer) EndCall(_ context.Context, req *pb.AudioCallEndCallRequest) (*pb.EndCallResponse, error) {
+func (s *AudioCallServer) EndCall(_ context.Context, req *pb.EndCallRequest) (*pb.EndCallResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -102,7 +102,7 @@ func (s *AudioCallServer) EndCall(_ context.Context, req *pb.AudioCallEndCallReq
 	return &pb.EndCallResponse{}, nil
 }
 
-func (s *AudioCallServer) GetLocalProfile(_ context.Context, req *pb.AudioCallGetLocalProfileRequest) (*pb.GetLocalProfileResponse, error) {
+func (s *AudioCallServer) GetLocalProfile(_ context.Context, req *pb.GetLocalProfileRequest) (*pb.GetLocalProfileResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -125,7 +125,7 @@ func (s *AudioCallServer) GetLocalProfile(_ context.Context, req *pb.AudioCallGe
 	return &pb.GetLocalProfileResponse{Result: handle}, nil
 }
 
-func (s *AudioCallServer) GetPeerProfile(_ context.Context, req *pb.AudioCallGetPeerProfileRequest) (*pb.GetPeerProfileResponse, error) {
+func (s *AudioCallServer) GetPeerProfile(_ context.Context, req *pb.GetPeerProfileRequest) (*pb.GetPeerProfileResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -148,7 +148,7 @@ func (s *AudioCallServer) GetPeerProfile(_ context.Context, req *pb.AudioCallGet
 	return &pb.GetPeerProfileResponse{Result: handle}, nil
 }
 
-func (s *AudioCallServer) GetState(_ context.Context, req *pb.AudioCallGetStateRequest) (*pb.GetStateResponse, error) {
+func (s *AudioCallServer) GetState(_ context.Context, req *pb.GetStateRequest) (*pb.GetStateResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -175,7 +175,7 @@ func (s *AudioCallServer) HoldCall(_ context.Context, req *pb.HoldCallRequest) (
 	return &pb.HoldCallResponse{}, nil
 }
 
-func (s *AudioCallServer) IsInCall(_ context.Context, req *pb.AudioCallIsInCallRequest) (*pb.IsInCallResponse, error) {
+func (s *AudioCallServer) IsInCall(_ context.Context, req *pb.IsInCallRequest) (*pb.IsInCallResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -217,7 +217,7 @@ func (s *AudioCallServer) IsOnHold(_ context.Context, req *pb.IsOnHoldRequest) (
 	return &pb.IsOnHoldResponse{Result: result}, nil
 }
 
-func (s *AudioCallServer) MakeCall(_ context.Context, req *pb.AudioCallMakeCallRequest) (*pb.MakeCallResponse, error) {
+func (s *AudioCallServer) MakeCall(_ context.Context, req *pb.MakeCallRequest) (*pb.MakeCallResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")

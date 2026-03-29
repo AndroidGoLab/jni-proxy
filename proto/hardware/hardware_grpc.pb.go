@@ -21,1738 +21,102 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	SensorManagerService_CancelTriggerSensor_FullMethodName               = "/hardware.SensorManagerService/CancelTriggerSensor"
-	SensorManagerService_CreateDirectChannel1_FullMethodName              = "/hardware.SensorManagerService/CreateDirectChannel1"
-	SensorManagerService_CreateDirectChannel1_1_FullMethodName            = "/hardware.SensorManagerService/CreateDirectChannel1_1"
-	SensorManagerService_Flush_FullMethodName                             = "/hardware.SensorManagerService/Flush"
-	SensorManagerService_GetDefaultSensor1_FullMethodName                 = "/hardware.SensorManagerService/GetDefaultSensor1"
-	SensorManagerService_GetDefaultSensor2_1_FullMethodName               = "/hardware.SensorManagerService/GetDefaultSensor2_1"
-	SensorManagerService_GetSensors_FullMethodName                        = "/hardware.SensorManagerService/GetSensors"
-	SensorManagerService_IsDynamicSensorDiscoverySupported_FullMethodName = "/hardware.SensorManagerService/IsDynamicSensorDiscoverySupported"
-	SensorManagerService_RegisterDynamicSensorCallback_FullMethodName     = "/hardware.SensorManagerService/RegisterDynamicSensorCallback"
-	SensorManagerService_RegisterListener3_FullMethodName                 = "/hardware.SensorManagerService/RegisterListener3"
-	SensorManagerService_RegisterListener4_1_FullMethodName               = "/hardware.SensorManagerService/RegisterListener4_1"
-	SensorManagerService_RegisterListener2_2_FullMethodName               = "/hardware.SensorManagerService/RegisterListener2_2"
-	SensorManagerService_RegisterListener3_3_FullMethodName               = "/hardware.SensorManagerService/RegisterListener3_3"
-	SensorManagerService_RequestTriggerSensor_FullMethodName              = "/hardware.SensorManagerService/RequestTriggerSensor"
-	SensorManagerService_UnregisterDynamicSensorCallback_FullMethodName   = "/hardware.SensorManagerService/UnregisterDynamicSensorCallback"
-	SensorManagerService_UnregisterListener1_FullMethodName               = "/hardware.SensorManagerService/UnregisterListener1"
-	SensorManagerService_UnregisterListener2_1_FullMethodName             = "/hardware.SensorManagerService/UnregisterListener2_1"
-	SensorManagerService_UnregisterListener1_2_FullMethodName             = "/hardware.SensorManagerService/UnregisterListener1_2"
-	SensorManagerService_UnregisterListener2_3_FullMethodName             = "/hardware.SensorManagerService/UnregisterListener2_3"
-	SensorManagerService_GetAltitude_FullMethodName                       = "/hardware.SensorManagerService/GetAltitude"
-	SensorManagerService_GetAngleChange_FullMethodName                    = "/hardware.SensorManagerService/GetAngleChange"
-	SensorManagerService_GetInclination_FullMethodName                    = "/hardware.SensorManagerService/GetInclination"
-	SensorManagerService_GetOrientation_FullMethodName                    = "/hardware.SensorManagerService/GetOrientation"
-	SensorManagerService_GetQuaternionFromVector_FullMethodName           = "/hardware.SensorManagerService/GetQuaternionFromVector"
-	SensorManagerService_GetRotationMatrix_FullMethodName                 = "/hardware.SensorManagerService/GetRotationMatrix"
-	SensorManagerService_GetRotationMatrixFromVector_FullMethodName       = "/hardware.SensorManagerService/GetRotationMatrixFromVector"
-	SensorManagerService_RemapCoordinateSystem_FullMethodName             = "/hardware.SensorManagerService/RemapCoordinateSystem"
+	SensorEventListener2Service_OnFlushCompleted_FullMethodName = "/hardware.SensorEventListener2Service/OnFlushCompleted"
 )
 
-// SensorManagerServiceClient is the client API for SensorManagerService service.
+// SensorEventListener2ServiceClient is the client API for SensorEventListener2Service service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type SensorManagerServiceClient interface {
-	CancelTriggerSensor(ctx context.Context, in *CancelTriggerSensorRequest, opts ...grpc.CallOption) (*CancelTriggerSensorResponse, error)
-	CreateDirectChannel1(ctx context.Context, in *CreateDirectChannel1Request, opts ...grpc.CallOption) (*CreateDirectChannel1Response, error)
-	CreateDirectChannel1_1(ctx context.Context, in *CreateDirectChannel1_1Request, opts ...grpc.CallOption) (*CreateDirectChannel1_1Response, error)
-	Flush(ctx context.Context, in *FlushRequest, opts ...grpc.CallOption) (*FlushResponse, error)
-	GetDefaultSensor1(ctx context.Context, in *GetDefaultSensor1Request, opts ...grpc.CallOption) (*GetDefaultSensor1Response, error)
-	GetDefaultSensor2_1(ctx context.Context, in *GetDefaultSensor2_1Request, opts ...grpc.CallOption) (*GetDefaultSensor2_1Response, error)
-	GetSensors(ctx context.Context, in *GetSensorsRequest, opts ...grpc.CallOption) (*GetSensorsResponse, error)
-	IsDynamicSensorDiscoverySupported(ctx context.Context, in *IsDynamicSensorDiscoverySupportedRequest, opts ...grpc.CallOption) (*IsDynamicSensorDiscoverySupportedResponse, error)
-	RegisterDynamicSensorCallback(ctx context.Context, in *RegisterDynamicSensorCallbackRequest, opts ...grpc.CallOption) (*RegisterDynamicSensorCallbackResponse, error)
-	RegisterListener3(ctx context.Context, in *RegisterListener3Request, opts ...grpc.CallOption) (*RegisterListener3Response, error)
-	RegisterListener4_1(ctx context.Context, in *RegisterListener4_1Request, opts ...grpc.CallOption) (*RegisterListener4_1Response, error)
-	RegisterListener2_2(ctx context.Context, in *RegisterListener2_2Request, opts ...grpc.CallOption) (*RegisterListener2_2Response, error)
-	RegisterListener3_3(ctx context.Context, in *RegisterListener3_3Request, opts ...grpc.CallOption) (*RegisterListener3_3Response, error)
-	RequestTriggerSensor(ctx context.Context, in *RequestTriggerSensorRequest, opts ...grpc.CallOption) (*RequestTriggerSensorResponse, error)
-	UnregisterDynamicSensorCallback(ctx context.Context, in *UnregisterDynamicSensorCallbackRequest, opts ...grpc.CallOption) (*UnregisterDynamicSensorCallbackResponse, error)
-	UnregisterListener1(ctx context.Context, in *UnregisterListener1Request, opts ...grpc.CallOption) (*UnregisterListener1Response, error)
-	UnregisterListener2_1(ctx context.Context, in *UnregisterListener2_1Request, opts ...grpc.CallOption) (*UnregisterListener2_1Response, error)
-	UnregisterListener1_2(ctx context.Context, in *UnregisterListener1_2Request, opts ...grpc.CallOption) (*UnregisterListener1_2Response, error)
-	UnregisterListener2_3(ctx context.Context, in *UnregisterListener2_3Request, opts ...grpc.CallOption) (*UnregisterListener2_3Response, error)
-	GetAltitude(ctx context.Context, in *GetAltitudeRequest, opts ...grpc.CallOption) (*GetAltitudeResponse, error)
-	GetAngleChange(ctx context.Context, in *GetAngleChangeRequest, opts ...grpc.CallOption) (*GetAngleChangeResponse, error)
-	GetInclination(ctx context.Context, in *GetInclinationRequest, opts ...grpc.CallOption) (*GetInclinationResponse, error)
-	GetOrientation(ctx context.Context, in *GetOrientationRequest, opts ...grpc.CallOption) (*GetOrientationResponse, error)
-	GetQuaternionFromVector(ctx context.Context, in *GetQuaternionFromVectorRequest, opts ...grpc.CallOption) (*GetQuaternionFromVectorResponse, error)
-	GetRotationMatrix(ctx context.Context, in *GetRotationMatrixRequest, opts ...grpc.CallOption) (*GetRotationMatrixResponse, error)
-	GetRotationMatrixFromVector(ctx context.Context, in *GetRotationMatrixFromVectorRequest, opts ...grpc.CallOption) (*GetRotationMatrixFromVectorResponse, error)
-	RemapCoordinateSystem(ctx context.Context, in *RemapCoordinateSystemRequest, opts ...grpc.CallOption) (*RemapCoordinateSystemResponse, error)
+type SensorEventListener2ServiceClient interface {
+	OnFlushCompleted(ctx context.Context, in *OnFlushCompletedRequest, opts ...grpc.CallOption) (*OnFlushCompletedResponse, error)
 }
 
-type sensorManagerServiceClient struct {
+type sensorEventListener2ServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewSensorManagerServiceClient(cc grpc.ClientConnInterface) SensorManagerServiceClient {
-	return &sensorManagerServiceClient{cc}
+func NewSensorEventListener2ServiceClient(cc grpc.ClientConnInterface) SensorEventListener2ServiceClient {
+	return &sensorEventListener2ServiceClient{cc}
 }
 
-func (c *sensorManagerServiceClient) CancelTriggerSensor(ctx context.Context, in *CancelTriggerSensorRequest, opts ...grpc.CallOption) (*CancelTriggerSensorResponse, error) {
+func (c *sensorEventListener2ServiceClient) OnFlushCompleted(ctx context.Context, in *OnFlushCompletedRequest, opts ...grpc.CallOption) (*OnFlushCompletedResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CancelTriggerSensorResponse)
-	err := c.cc.Invoke(ctx, SensorManagerService_CancelTriggerSensor_FullMethodName, in, out, cOpts...)
+	out := new(OnFlushCompletedResponse)
+	err := c.cc.Invoke(ctx, SensorEventListener2Service_OnFlushCompleted_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *sensorManagerServiceClient) CreateDirectChannel1(ctx context.Context, in *CreateDirectChannel1Request, opts ...grpc.CallOption) (*CreateDirectChannel1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CreateDirectChannel1Response)
-	err := c.cc.Invoke(ctx, SensorManagerService_CreateDirectChannel1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sensorManagerServiceClient) CreateDirectChannel1_1(ctx context.Context, in *CreateDirectChannel1_1Request, opts ...grpc.CallOption) (*CreateDirectChannel1_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CreateDirectChannel1_1Response)
-	err := c.cc.Invoke(ctx, SensorManagerService_CreateDirectChannel1_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sensorManagerServiceClient) Flush(ctx context.Context, in *FlushRequest, opts ...grpc.CallOption) (*FlushResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(FlushResponse)
-	err := c.cc.Invoke(ctx, SensorManagerService_Flush_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sensorManagerServiceClient) GetDefaultSensor1(ctx context.Context, in *GetDefaultSensor1Request, opts ...grpc.CallOption) (*GetDefaultSensor1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetDefaultSensor1Response)
-	err := c.cc.Invoke(ctx, SensorManagerService_GetDefaultSensor1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sensorManagerServiceClient) GetDefaultSensor2_1(ctx context.Context, in *GetDefaultSensor2_1Request, opts ...grpc.CallOption) (*GetDefaultSensor2_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetDefaultSensor2_1Response)
-	err := c.cc.Invoke(ctx, SensorManagerService_GetDefaultSensor2_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sensorManagerServiceClient) GetSensors(ctx context.Context, in *GetSensorsRequest, opts ...grpc.CallOption) (*GetSensorsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetSensorsResponse)
-	err := c.cc.Invoke(ctx, SensorManagerService_GetSensors_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sensorManagerServiceClient) IsDynamicSensorDiscoverySupported(ctx context.Context, in *IsDynamicSensorDiscoverySupportedRequest, opts ...grpc.CallOption) (*IsDynamicSensorDiscoverySupportedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsDynamicSensorDiscoverySupportedResponse)
-	err := c.cc.Invoke(ctx, SensorManagerService_IsDynamicSensorDiscoverySupported_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sensorManagerServiceClient) RegisterDynamicSensorCallback(ctx context.Context, in *RegisterDynamicSensorCallbackRequest, opts ...grpc.CallOption) (*RegisterDynamicSensorCallbackResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(RegisterDynamicSensorCallbackResponse)
-	err := c.cc.Invoke(ctx, SensorManagerService_RegisterDynamicSensorCallback_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sensorManagerServiceClient) RegisterListener3(ctx context.Context, in *RegisterListener3Request, opts ...grpc.CallOption) (*RegisterListener3Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(RegisterListener3Response)
-	err := c.cc.Invoke(ctx, SensorManagerService_RegisterListener3_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sensorManagerServiceClient) RegisterListener4_1(ctx context.Context, in *RegisterListener4_1Request, opts ...grpc.CallOption) (*RegisterListener4_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(RegisterListener4_1Response)
-	err := c.cc.Invoke(ctx, SensorManagerService_RegisterListener4_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sensorManagerServiceClient) RegisterListener2_2(ctx context.Context, in *RegisterListener2_2Request, opts ...grpc.CallOption) (*RegisterListener2_2Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(RegisterListener2_2Response)
-	err := c.cc.Invoke(ctx, SensorManagerService_RegisterListener2_2_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sensorManagerServiceClient) RegisterListener3_3(ctx context.Context, in *RegisterListener3_3Request, opts ...grpc.CallOption) (*RegisterListener3_3Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(RegisterListener3_3Response)
-	err := c.cc.Invoke(ctx, SensorManagerService_RegisterListener3_3_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sensorManagerServiceClient) RequestTriggerSensor(ctx context.Context, in *RequestTriggerSensorRequest, opts ...grpc.CallOption) (*RequestTriggerSensorResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(RequestTriggerSensorResponse)
-	err := c.cc.Invoke(ctx, SensorManagerService_RequestTriggerSensor_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sensorManagerServiceClient) UnregisterDynamicSensorCallback(ctx context.Context, in *UnregisterDynamicSensorCallbackRequest, opts ...grpc.CallOption) (*UnregisterDynamicSensorCallbackResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(UnregisterDynamicSensorCallbackResponse)
-	err := c.cc.Invoke(ctx, SensorManagerService_UnregisterDynamicSensorCallback_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sensorManagerServiceClient) UnregisterListener1(ctx context.Context, in *UnregisterListener1Request, opts ...grpc.CallOption) (*UnregisterListener1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(UnregisterListener1Response)
-	err := c.cc.Invoke(ctx, SensorManagerService_UnregisterListener1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sensorManagerServiceClient) UnregisterListener2_1(ctx context.Context, in *UnregisterListener2_1Request, opts ...grpc.CallOption) (*UnregisterListener2_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(UnregisterListener2_1Response)
-	err := c.cc.Invoke(ctx, SensorManagerService_UnregisterListener2_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sensorManagerServiceClient) UnregisterListener1_2(ctx context.Context, in *UnregisterListener1_2Request, opts ...grpc.CallOption) (*UnregisterListener1_2Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(UnregisterListener1_2Response)
-	err := c.cc.Invoke(ctx, SensorManagerService_UnregisterListener1_2_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sensorManagerServiceClient) UnregisterListener2_3(ctx context.Context, in *UnregisterListener2_3Request, opts ...grpc.CallOption) (*UnregisterListener2_3Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(UnregisterListener2_3Response)
-	err := c.cc.Invoke(ctx, SensorManagerService_UnregisterListener2_3_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sensorManagerServiceClient) GetAltitude(ctx context.Context, in *GetAltitudeRequest, opts ...grpc.CallOption) (*GetAltitudeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetAltitudeResponse)
-	err := c.cc.Invoke(ctx, SensorManagerService_GetAltitude_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sensorManagerServiceClient) GetAngleChange(ctx context.Context, in *GetAngleChangeRequest, opts ...grpc.CallOption) (*GetAngleChangeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetAngleChangeResponse)
-	err := c.cc.Invoke(ctx, SensorManagerService_GetAngleChange_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sensorManagerServiceClient) GetInclination(ctx context.Context, in *GetInclinationRequest, opts ...grpc.CallOption) (*GetInclinationResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetInclinationResponse)
-	err := c.cc.Invoke(ctx, SensorManagerService_GetInclination_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sensorManagerServiceClient) GetOrientation(ctx context.Context, in *GetOrientationRequest, opts ...grpc.CallOption) (*GetOrientationResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetOrientationResponse)
-	err := c.cc.Invoke(ctx, SensorManagerService_GetOrientation_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sensorManagerServiceClient) GetQuaternionFromVector(ctx context.Context, in *GetQuaternionFromVectorRequest, opts ...grpc.CallOption) (*GetQuaternionFromVectorResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetQuaternionFromVectorResponse)
-	err := c.cc.Invoke(ctx, SensorManagerService_GetQuaternionFromVector_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sensorManagerServiceClient) GetRotationMatrix(ctx context.Context, in *GetRotationMatrixRequest, opts ...grpc.CallOption) (*GetRotationMatrixResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetRotationMatrixResponse)
-	err := c.cc.Invoke(ctx, SensorManagerService_GetRotationMatrix_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sensorManagerServiceClient) GetRotationMatrixFromVector(ctx context.Context, in *GetRotationMatrixFromVectorRequest, opts ...grpc.CallOption) (*GetRotationMatrixFromVectorResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetRotationMatrixFromVectorResponse)
-	err := c.cc.Invoke(ctx, SensorManagerService_GetRotationMatrixFromVector_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sensorManagerServiceClient) RemapCoordinateSystem(ctx context.Context, in *RemapCoordinateSystemRequest, opts ...grpc.CallOption) (*RemapCoordinateSystemResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(RemapCoordinateSystemResponse)
-	err := c.cc.Invoke(ctx, SensorManagerService_RemapCoordinateSystem_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// SensorManagerServiceServer is the server API for SensorManagerService service.
-// All implementations must embed UnimplementedSensorManagerServiceServer
+// SensorEventListener2ServiceServer is the server API for SensorEventListener2Service service.
+// All implementations must embed UnimplementedSensorEventListener2ServiceServer
 // for forward compatibility.
-type SensorManagerServiceServer interface {
-	CancelTriggerSensor(context.Context, *CancelTriggerSensorRequest) (*CancelTriggerSensorResponse, error)
-	CreateDirectChannel1(context.Context, *CreateDirectChannel1Request) (*CreateDirectChannel1Response, error)
-	CreateDirectChannel1_1(context.Context, *CreateDirectChannel1_1Request) (*CreateDirectChannel1_1Response, error)
-	Flush(context.Context, *FlushRequest) (*FlushResponse, error)
-	GetDefaultSensor1(context.Context, *GetDefaultSensor1Request) (*GetDefaultSensor1Response, error)
-	GetDefaultSensor2_1(context.Context, *GetDefaultSensor2_1Request) (*GetDefaultSensor2_1Response, error)
-	GetSensors(context.Context, *GetSensorsRequest) (*GetSensorsResponse, error)
-	IsDynamicSensorDiscoverySupported(context.Context, *IsDynamicSensorDiscoverySupportedRequest) (*IsDynamicSensorDiscoverySupportedResponse, error)
-	RegisterDynamicSensorCallback(context.Context, *RegisterDynamicSensorCallbackRequest) (*RegisterDynamicSensorCallbackResponse, error)
-	RegisterListener3(context.Context, *RegisterListener3Request) (*RegisterListener3Response, error)
-	RegisterListener4_1(context.Context, *RegisterListener4_1Request) (*RegisterListener4_1Response, error)
-	RegisterListener2_2(context.Context, *RegisterListener2_2Request) (*RegisterListener2_2Response, error)
-	RegisterListener3_3(context.Context, *RegisterListener3_3Request) (*RegisterListener3_3Response, error)
-	RequestTriggerSensor(context.Context, *RequestTriggerSensorRequest) (*RequestTriggerSensorResponse, error)
-	UnregisterDynamicSensorCallback(context.Context, *UnregisterDynamicSensorCallbackRequest) (*UnregisterDynamicSensorCallbackResponse, error)
-	UnregisterListener1(context.Context, *UnregisterListener1Request) (*UnregisterListener1Response, error)
-	UnregisterListener2_1(context.Context, *UnregisterListener2_1Request) (*UnregisterListener2_1Response, error)
-	UnregisterListener1_2(context.Context, *UnregisterListener1_2Request) (*UnregisterListener1_2Response, error)
-	UnregisterListener2_3(context.Context, *UnregisterListener2_3Request) (*UnregisterListener2_3Response, error)
-	GetAltitude(context.Context, *GetAltitudeRequest) (*GetAltitudeResponse, error)
-	GetAngleChange(context.Context, *GetAngleChangeRequest) (*GetAngleChangeResponse, error)
-	GetInclination(context.Context, *GetInclinationRequest) (*GetInclinationResponse, error)
-	GetOrientation(context.Context, *GetOrientationRequest) (*GetOrientationResponse, error)
-	GetQuaternionFromVector(context.Context, *GetQuaternionFromVectorRequest) (*GetQuaternionFromVectorResponse, error)
-	GetRotationMatrix(context.Context, *GetRotationMatrixRequest) (*GetRotationMatrixResponse, error)
-	GetRotationMatrixFromVector(context.Context, *GetRotationMatrixFromVectorRequest) (*GetRotationMatrixFromVectorResponse, error)
-	RemapCoordinateSystem(context.Context, *RemapCoordinateSystemRequest) (*RemapCoordinateSystemResponse, error)
-	mustEmbedUnimplementedSensorManagerServiceServer()
+type SensorEventListener2ServiceServer interface {
+	OnFlushCompleted(context.Context, *OnFlushCompletedRequest) (*OnFlushCompletedResponse, error)
+	mustEmbedUnimplementedSensorEventListener2ServiceServer()
 }
 
-// UnimplementedSensorManagerServiceServer must be embedded to have
+// UnimplementedSensorEventListener2ServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedSensorManagerServiceServer struct{}
+type UnimplementedSensorEventListener2ServiceServer struct{}
 
-func (UnimplementedSensorManagerServiceServer) CancelTriggerSensor(context.Context, *CancelTriggerSensorRequest) (*CancelTriggerSensorResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method CancelTriggerSensor not implemented")
+func (UnimplementedSensorEventListener2ServiceServer) OnFlushCompleted(context.Context, *OnFlushCompletedRequest) (*OnFlushCompletedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnFlushCompleted not implemented")
 }
-func (UnimplementedSensorManagerServiceServer) CreateDirectChannel1(context.Context, *CreateDirectChannel1Request) (*CreateDirectChannel1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method CreateDirectChannel1 not implemented")
+func (UnimplementedSensorEventListener2ServiceServer) mustEmbedUnimplementedSensorEventListener2ServiceServer() {
 }
-func (UnimplementedSensorManagerServiceServer) CreateDirectChannel1_1(context.Context, *CreateDirectChannel1_1Request) (*CreateDirectChannel1_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method CreateDirectChannel1_1 not implemented")
-}
-func (UnimplementedSensorManagerServiceServer) Flush(context.Context, *FlushRequest) (*FlushResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Flush not implemented")
-}
-func (UnimplementedSensorManagerServiceServer) GetDefaultSensor1(context.Context, *GetDefaultSensor1Request) (*GetDefaultSensor1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetDefaultSensor1 not implemented")
-}
-func (UnimplementedSensorManagerServiceServer) GetDefaultSensor2_1(context.Context, *GetDefaultSensor2_1Request) (*GetDefaultSensor2_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetDefaultSensor2_1 not implemented")
-}
-func (UnimplementedSensorManagerServiceServer) GetSensors(context.Context, *GetSensorsRequest) (*GetSensorsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetSensors not implemented")
-}
-func (UnimplementedSensorManagerServiceServer) IsDynamicSensorDiscoverySupported(context.Context, *IsDynamicSensorDiscoverySupportedRequest) (*IsDynamicSensorDiscoverySupportedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsDynamicSensorDiscoverySupported not implemented")
-}
-func (UnimplementedSensorManagerServiceServer) RegisterDynamicSensorCallback(context.Context, *RegisterDynamicSensorCallbackRequest) (*RegisterDynamicSensorCallbackResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method RegisterDynamicSensorCallback not implemented")
-}
-func (UnimplementedSensorManagerServiceServer) RegisterListener3(context.Context, *RegisterListener3Request) (*RegisterListener3Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method RegisterListener3 not implemented")
-}
-func (UnimplementedSensorManagerServiceServer) RegisterListener4_1(context.Context, *RegisterListener4_1Request) (*RegisterListener4_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method RegisterListener4_1 not implemented")
-}
-func (UnimplementedSensorManagerServiceServer) RegisterListener2_2(context.Context, *RegisterListener2_2Request) (*RegisterListener2_2Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method RegisterListener2_2 not implemented")
-}
-func (UnimplementedSensorManagerServiceServer) RegisterListener3_3(context.Context, *RegisterListener3_3Request) (*RegisterListener3_3Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method RegisterListener3_3 not implemented")
-}
-func (UnimplementedSensorManagerServiceServer) RequestTriggerSensor(context.Context, *RequestTriggerSensorRequest) (*RequestTriggerSensorResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method RequestTriggerSensor not implemented")
-}
-func (UnimplementedSensorManagerServiceServer) UnregisterDynamicSensorCallback(context.Context, *UnregisterDynamicSensorCallbackRequest) (*UnregisterDynamicSensorCallbackResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method UnregisterDynamicSensorCallback not implemented")
-}
-func (UnimplementedSensorManagerServiceServer) UnregisterListener1(context.Context, *UnregisterListener1Request) (*UnregisterListener1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method UnregisterListener1 not implemented")
-}
-func (UnimplementedSensorManagerServiceServer) UnregisterListener2_1(context.Context, *UnregisterListener2_1Request) (*UnregisterListener2_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method UnregisterListener2_1 not implemented")
-}
-func (UnimplementedSensorManagerServiceServer) UnregisterListener1_2(context.Context, *UnregisterListener1_2Request) (*UnregisterListener1_2Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method UnregisterListener1_2 not implemented")
-}
-func (UnimplementedSensorManagerServiceServer) UnregisterListener2_3(context.Context, *UnregisterListener2_3Request) (*UnregisterListener2_3Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method UnregisterListener2_3 not implemented")
-}
-func (UnimplementedSensorManagerServiceServer) GetAltitude(context.Context, *GetAltitudeRequest) (*GetAltitudeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetAltitude not implemented")
-}
-func (UnimplementedSensorManagerServiceServer) GetAngleChange(context.Context, *GetAngleChangeRequest) (*GetAngleChangeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetAngleChange not implemented")
-}
-func (UnimplementedSensorManagerServiceServer) GetInclination(context.Context, *GetInclinationRequest) (*GetInclinationResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetInclination not implemented")
-}
-func (UnimplementedSensorManagerServiceServer) GetOrientation(context.Context, *GetOrientationRequest) (*GetOrientationResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetOrientation not implemented")
-}
-func (UnimplementedSensorManagerServiceServer) GetQuaternionFromVector(context.Context, *GetQuaternionFromVectorRequest) (*GetQuaternionFromVectorResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetQuaternionFromVector not implemented")
-}
-func (UnimplementedSensorManagerServiceServer) GetRotationMatrix(context.Context, *GetRotationMatrixRequest) (*GetRotationMatrixResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetRotationMatrix not implemented")
-}
-func (UnimplementedSensorManagerServiceServer) GetRotationMatrixFromVector(context.Context, *GetRotationMatrixFromVectorRequest) (*GetRotationMatrixFromVectorResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetRotationMatrixFromVector not implemented")
-}
-func (UnimplementedSensorManagerServiceServer) RemapCoordinateSystem(context.Context, *RemapCoordinateSystemRequest) (*RemapCoordinateSystemResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method RemapCoordinateSystem not implemented")
-}
-func (UnimplementedSensorManagerServiceServer) mustEmbedUnimplementedSensorManagerServiceServer() {}
-func (UnimplementedSensorManagerServiceServer) testEmbeddedByValue()                              {}
+func (UnimplementedSensorEventListener2ServiceServer) testEmbeddedByValue() {}
 
-// UnsafeSensorManagerServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to SensorManagerServiceServer will
+// UnsafeSensorEventListener2ServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to SensorEventListener2ServiceServer will
 // result in compilation errors.
-type UnsafeSensorManagerServiceServer interface {
-	mustEmbedUnimplementedSensorManagerServiceServer()
+type UnsafeSensorEventListener2ServiceServer interface {
+	mustEmbedUnimplementedSensorEventListener2ServiceServer()
 }
 
-func RegisterSensorManagerServiceServer(s grpc.ServiceRegistrar, srv SensorManagerServiceServer) {
-	// If the following call panics, it indicates UnimplementedSensorManagerServiceServer was
+func RegisterSensorEventListener2ServiceServer(s grpc.ServiceRegistrar, srv SensorEventListener2ServiceServer) {
+	// If the following call panics, it indicates UnimplementedSensorEventListener2ServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&SensorManagerService_ServiceDesc, srv)
+	s.RegisterService(&SensorEventListener2Service_ServiceDesc, srv)
 }
 
-func _SensorManagerService_CancelTriggerSensor_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CancelTriggerSensorRequest)
+func _SensorEventListener2Service_OnFlushCompleted_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnFlushCompletedRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(SensorManagerServiceServer).CancelTriggerSensor(ctx, in)
+		return srv.(SensorEventListener2ServiceServer).OnFlushCompleted(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: SensorManagerService_CancelTriggerSensor_FullMethodName,
+		FullMethod: SensorEventListener2Service_OnFlushCompleted_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SensorManagerServiceServer).CancelTriggerSensor(ctx, req.(*CancelTriggerSensorRequest))
+		return srv.(SensorEventListener2ServiceServer).OnFlushCompleted(ctx, req.(*OnFlushCompletedRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _SensorManagerService_CreateDirectChannel1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CreateDirectChannel1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SensorManagerServiceServer).CreateDirectChannel1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SensorManagerService_CreateDirectChannel1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SensorManagerServiceServer).CreateDirectChannel1(ctx, req.(*CreateDirectChannel1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SensorManagerService_CreateDirectChannel1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CreateDirectChannel1_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SensorManagerServiceServer).CreateDirectChannel1_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SensorManagerService_CreateDirectChannel1_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SensorManagerServiceServer).CreateDirectChannel1_1(ctx, req.(*CreateDirectChannel1_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SensorManagerService_Flush_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(FlushRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SensorManagerServiceServer).Flush(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SensorManagerService_Flush_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SensorManagerServiceServer).Flush(ctx, req.(*FlushRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SensorManagerService_GetDefaultSensor1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetDefaultSensor1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SensorManagerServiceServer).GetDefaultSensor1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SensorManagerService_GetDefaultSensor1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SensorManagerServiceServer).GetDefaultSensor1(ctx, req.(*GetDefaultSensor1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SensorManagerService_GetDefaultSensor2_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetDefaultSensor2_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SensorManagerServiceServer).GetDefaultSensor2_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SensorManagerService_GetDefaultSensor2_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SensorManagerServiceServer).GetDefaultSensor2_1(ctx, req.(*GetDefaultSensor2_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SensorManagerService_GetSensors_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetSensorsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SensorManagerServiceServer).GetSensors(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SensorManagerService_GetSensors_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SensorManagerServiceServer).GetSensors(ctx, req.(*GetSensorsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SensorManagerService_IsDynamicSensorDiscoverySupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsDynamicSensorDiscoverySupportedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SensorManagerServiceServer).IsDynamicSensorDiscoverySupported(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SensorManagerService_IsDynamicSensorDiscoverySupported_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SensorManagerServiceServer).IsDynamicSensorDiscoverySupported(ctx, req.(*IsDynamicSensorDiscoverySupportedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SensorManagerService_RegisterDynamicSensorCallback_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(RegisterDynamicSensorCallbackRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SensorManagerServiceServer).RegisterDynamicSensorCallback(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SensorManagerService_RegisterDynamicSensorCallback_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SensorManagerServiceServer).RegisterDynamicSensorCallback(ctx, req.(*RegisterDynamicSensorCallbackRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SensorManagerService_RegisterListener3_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(RegisterListener3Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SensorManagerServiceServer).RegisterListener3(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SensorManagerService_RegisterListener3_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SensorManagerServiceServer).RegisterListener3(ctx, req.(*RegisterListener3Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SensorManagerService_RegisterListener4_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(RegisterListener4_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SensorManagerServiceServer).RegisterListener4_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SensorManagerService_RegisterListener4_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SensorManagerServiceServer).RegisterListener4_1(ctx, req.(*RegisterListener4_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SensorManagerService_RegisterListener2_2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(RegisterListener2_2Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SensorManagerServiceServer).RegisterListener2_2(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SensorManagerService_RegisterListener2_2_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SensorManagerServiceServer).RegisterListener2_2(ctx, req.(*RegisterListener2_2Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SensorManagerService_RegisterListener3_3_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(RegisterListener3_3Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SensorManagerServiceServer).RegisterListener3_3(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SensorManagerService_RegisterListener3_3_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SensorManagerServiceServer).RegisterListener3_3(ctx, req.(*RegisterListener3_3Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SensorManagerService_RequestTriggerSensor_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(RequestTriggerSensorRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SensorManagerServiceServer).RequestTriggerSensor(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SensorManagerService_RequestTriggerSensor_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SensorManagerServiceServer).RequestTriggerSensor(ctx, req.(*RequestTriggerSensorRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SensorManagerService_UnregisterDynamicSensorCallback_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UnregisterDynamicSensorCallbackRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SensorManagerServiceServer).UnregisterDynamicSensorCallback(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SensorManagerService_UnregisterDynamicSensorCallback_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SensorManagerServiceServer).UnregisterDynamicSensorCallback(ctx, req.(*UnregisterDynamicSensorCallbackRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SensorManagerService_UnregisterListener1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UnregisterListener1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SensorManagerServiceServer).UnregisterListener1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SensorManagerService_UnregisterListener1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SensorManagerServiceServer).UnregisterListener1(ctx, req.(*UnregisterListener1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SensorManagerService_UnregisterListener2_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UnregisterListener2_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SensorManagerServiceServer).UnregisterListener2_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SensorManagerService_UnregisterListener2_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SensorManagerServiceServer).UnregisterListener2_1(ctx, req.(*UnregisterListener2_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SensorManagerService_UnregisterListener1_2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UnregisterListener1_2Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SensorManagerServiceServer).UnregisterListener1_2(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SensorManagerService_UnregisterListener1_2_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SensorManagerServiceServer).UnregisterListener1_2(ctx, req.(*UnregisterListener1_2Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SensorManagerService_UnregisterListener2_3_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UnregisterListener2_3Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SensorManagerServiceServer).UnregisterListener2_3(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SensorManagerService_UnregisterListener2_3_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SensorManagerServiceServer).UnregisterListener2_3(ctx, req.(*UnregisterListener2_3Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SensorManagerService_GetAltitude_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetAltitudeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SensorManagerServiceServer).GetAltitude(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SensorManagerService_GetAltitude_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SensorManagerServiceServer).GetAltitude(ctx, req.(*GetAltitudeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SensorManagerService_GetAngleChange_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetAngleChangeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SensorManagerServiceServer).GetAngleChange(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SensorManagerService_GetAngleChange_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SensorManagerServiceServer).GetAngleChange(ctx, req.(*GetAngleChangeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SensorManagerService_GetInclination_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetInclinationRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SensorManagerServiceServer).GetInclination(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SensorManagerService_GetInclination_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SensorManagerServiceServer).GetInclination(ctx, req.(*GetInclinationRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SensorManagerService_GetOrientation_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetOrientationRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SensorManagerServiceServer).GetOrientation(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SensorManagerService_GetOrientation_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SensorManagerServiceServer).GetOrientation(ctx, req.(*GetOrientationRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SensorManagerService_GetQuaternionFromVector_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetQuaternionFromVectorRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SensorManagerServiceServer).GetQuaternionFromVector(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SensorManagerService_GetQuaternionFromVector_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SensorManagerServiceServer).GetQuaternionFromVector(ctx, req.(*GetQuaternionFromVectorRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SensorManagerService_GetRotationMatrix_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetRotationMatrixRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SensorManagerServiceServer).GetRotationMatrix(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SensorManagerService_GetRotationMatrix_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SensorManagerServiceServer).GetRotationMatrix(ctx, req.(*GetRotationMatrixRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SensorManagerService_GetRotationMatrixFromVector_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetRotationMatrixFromVectorRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SensorManagerServiceServer).GetRotationMatrixFromVector(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SensorManagerService_GetRotationMatrixFromVector_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SensorManagerServiceServer).GetRotationMatrixFromVector(ctx, req.(*GetRotationMatrixFromVectorRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SensorManagerService_RemapCoordinateSystem_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(RemapCoordinateSystemRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SensorManagerServiceServer).RemapCoordinateSystem(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SensorManagerService_RemapCoordinateSystem_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SensorManagerServiceServer).RemapCoordinateSystem(ctx, req.(*RemapCoordinateSystemRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// SensorManagerService_ServiceDesc is the grpc.ServiceDesc for SensorManagerService service.
+// SensorEventListener2Service_ServiceDesc is the grpc.ServiceDesc for SensorEventListener2Service service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var SensorManagerService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "hardware.SensorManagerService",
-	HandlerType: (*SensorManagerServiceServer)(nil),
+var SensorEventListener2Service_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "hardware.SensorEventListener2Service",
+	HandlerType: (*SensorEventListener2ServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "CancelTriggerSensor",
-			Handler:    _SensorManagerService_CancelTriggerSensor_Handler,
-		},
-		{
-			MethodName: "CreateDirectChannel1",
-			Handler:    _SensorManagerService_CreateDirectChannel1_Handler,
-		},
-		{
-			MethodName: "CreateDirectChannel1_1",
-			Handler:    _SensorManagerService_CreateDirectChannel1_1_Handler,
-		},
-		{
-			MethodName: "Flush",
-			Handler:    _SensorManagerService_Flush_Handler,
-		},
-		{
-			MethodName: "GetDefaultSensor1",
-			Handler:    _SensorManagerService_GetDefaultSensor1_Handler,
-		},
-		{
-			MethodName: "GetDefaultSensor2_1",
-			Handler:    _SensorManagerService_GetDefaultSensor2_1_Handler,
-		},
-		{
-			MethodName: "GetSensors",
-			Handler:    _SensorManagerService_GetSensors_Handler,
-		},
-		{
-			MethodName: "IsDynamicSensorDiscoverySupported",
-			Handler:    _SensorManagerService_IsDynamicSensorDiscoverySupported_Handler,
-		},
-		{
-			MethodName: "RegisterDynamicSensorCallback",
-			Handler:    _SensorManagerService_RegisterDynamicSensorCallback_Handler,
-		},
-		{
-			MethodName: "RegisterListener3",
-			Handler:    _SensorManagerService_RegisterListener3_Handler,
-		},
-		{
-			MethodName: "RegisterListener4_1",
-			Handler:    _SensorManagerService_RegisterListener4_1_Handler,
-		},
-		{
-			MethodName: "RegisterListener2_2",
-			Handler:    _SensorManagerService_RegisterListener2_2_Handler,
-		},
-		{
-			MethodName: "RegisterListener3_3",
-			Handler:    _SensorManagerService_RegisterListener3_3_Handler,
-		},
-		{
-			MethodName: "RequestTriggerSensor",
-			Handler:    _SensorManagerService_RequestTriggerSensor_Handler,
-		},
-		{
-			MethodName: "UnregisterDynamicSensorCallback",
-			Handler:    _SensorManagerService_UnregisterDynamicSensorCallback_Handler,
-		},
-		{
-			MethodName: "UnregisterListener1",
-			Handler:    _SensorManagerService_UnregisterListener1_Handler,
-		},
-		{
-			MethodName: "UnregisterListener2_1",
-			Handler:    _SensorManagerService_UnregisterListener2_1_Handler,
-		},
-		{
-			MethodName: "UnregisterListener1_2",
-			Handler:    _SensorManagerService_UnregisterListener1_2_Handler,
-		},
-		{
-			MethodName: "UnregisterListener2_3",
-			Handler:    _SensorManagerService_UnregisterListener2_3_Handler,
-		},
-		{
-			MethodName: "GetAltitude",
-			Handler:    _SensorManagerService_GetAltitude_Handler,
-		},
-		{
-			MethodName: "GetAngleChange",
-			Handler:    _SensorManagerService_GetAngleChange_Handler,
-		},
-		{
-			MethodName: "GetInclination",
-			Handler:    _SensorManagerService_GetInclination_Handler,
-		},
-		{
-			MethodName: "GetOrientation",
-			Handler:    _SensorManagerService_GetOrientation_Handler,
-		},
-		{
-			MethodName: "GetQuaternionFromVector",
-			Handler:    _SensorManagerService_GetQuaternionFromVector_Handler,
-		},
-		{
-			MethodName: "GetRotationMatrix",
-			Handler:    _SensorManagerService_GetRotationMatrix_Handler,
-		},
-		{
-			MethodName: "GetRotationMatrixFromVector",
-			Handler:    _SensorManagerService_GetRotationMatrixFromVector_Handler,
-		},
-		{
-			MethodName: "RemapCoordinateSystem",
-			Handler:    _SensorManagerService_RemapCoordinateSystem_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/hardware/hardware.proto",
-}
-
-const (
-	SensorManagerDynamicSensorCallbackService_OnDynamicSensorConnected_FullMethodName    = "/hardware.SensorManagerDynamicSensorCallbackService/OnDynamicSensorConnected"
-	SensorManagerDynamicSensorCallbackService_OnDynamicSensorDisconnected_FullMethodName = "/hardware.SensorManagerDynamicSensorCallbackService/OnDynamicSensorDisconnected"
-)
-
-// SensorManagerDynamicSensorCallbackServiceClient is the client API for SensorManagerDynamicSensorCallbackService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type SensorManagerDynamicSensorCallbackServiceClient interface {
-	OnDynamicSensorConnected(ctx context.Context, in *OnDynamicSensorConnectedRequest, opts ...grpc.CallOption) (*OnDynamicSensorConnectedResponse, error)
-	OnDynamicSensorDisconnected(ctx context.Context, in *OnDynamicSensorDisconnectedRequest, opts ...grpc.CallOption) (*OnDynamicSensorDisconnectedResponse, error)
-}
-
-type sensorManagerDynamicSensorCallbackServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewSensorManagerDynamicSensorCallbackServiceClient(cc grpc.ClientConnInterface) SensorManagerDynamicSensorCallbackServiceClient {
-	return &sensorManagerDynamicSensorCallbackServiceClient{cc}
-}
-
-func (c *sensorManagerDynamicSensorCallbackServiceClient) OnDynamicSensorConnected(ctx context.Context, in *OnDynamicSensorConnectedRequest, opts ...grpc.CallOption) (*OnDynamicSensorConnectedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnDynamicSensorConnectedResponse)
-	err := c.cc.Invoke(ctx, SensorManagerDynamicSensorCallbackService_OnDynamicSensorConnected_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sensorManagerDynamicSensorCallbackServiceClient) OnDynamicSensorDisconnected(ctx context.Context, in *OnDynamicSensorDisconnectedRequest, opts ...grpc.CallOption) (*OnDynamicSensorDisconnectedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnDynamicSensorDisconnectedResponse)
-	err := c.cc.Invoke(ctx, SensorManagerDynamicSensorCallbackService_OnDynamicSensorDisconnected_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// SensorManagerDynamicSensorCallbackServiceServer is the server API for SensorManagerDynamicSensorCallbackService service.
-// All implementations must embed UnimplementedSensorManagerDynamicSensorCallbackServiceServer
-// for forward compatibility.
-type SensorManagerDynamicSensorCallbackServiceServer interface {
-	OnDynamicSensorConnected(context.Context, *OnDynamicSensorConnectedRequest) (*OnDynamicSensorConnectedResponse, error)
-	OnDynamicSensorDisconnected(context.Context, *OnDynamicSensorDisconnectedRequest) (*OnDynamicSensorDisconnectedResponse, error)
-	mustEmbedUnimplementedSensorManagerDynamicSensorCallbackServiceServer()
-}
-
-// UnimplementedSensorManagerDynamicSensorCallbackServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedSensorManagerDynamicSensorCallbackServiceServer struct{}
-
-func (UnimplementedSensorManagerDynamicSensorCallbackServiceServer) OnDynamicSensorConnected(context.Context, *OnDynamicSensorConnectedRequest) (*OnDynamicSensorConnectedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnDynamicSensorConnected not implemented")
-}
-func (UnimplementedSensorManagerDynamicSensorCallbackServiceServer) OnDynamicSensorDisconnected(context.Context, *OnDynamicSensorDisconnectedRequest) (*OnDynamicSensorDisconnectedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnDynamicSensorDisconnected not implemented")
-}
-func (UnimplementedSensorManagerDynamicSensorCallbackServiceServer) mustEmbedUnimplementedSensorManagerDynamicSensorCallbackServiceServer() {
-}
-func (UnimplementedSensorManagerDynamicSensorCallbackServiceServer) testEmbeddedByValue() {}
-
-// UnsafeSensorManagerDynamicSensorCallbackServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to SensorManagerDynamicSensorCallbackServiceServer will
-// result in compilation errors.
-type UnsafeSensorManagerDynamicSensorCallbackServiceServer interface {
-	mustEmbedUnimplementedSensorManagerDynamicSensorCallbackServiceServer()
-}
-
-func RegisterSensorManagerDynamicSensorCallbackServiceServer(s grpc.ServiceRegistrar, srv SensorManagerDynamicSensorCallbackServiceServer) {
-	// If the following call panics, it indicates UnimplementedSensorManagerDynamicSensorCallbackServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&SensorManagerDynamicSensorCallbackService_ServiceDesc, srv)
-}
-
-func _SensorManagerDynamicSensorCallbackService_OnDynamicSensorConnected_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnDynamicSensorConnectedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SensorManagerDynamicSensorCallbackServiceServer).OnDynamicSensorConnected(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SensorManagerDynamicSensorCallbackService_OnDynamicSensorConnected_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SensorManagerDynamicSensorCallbackServiceServer).OnDynamicSensorConnected(ctx, req.(*OnDynamicSensorConnectedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SensorManagerDynamicSensorCallbackService_OnDynamicSensorDisconnected_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnDynamicSensorDisconnectedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SensorManagerDynamicSensorCallbackServiceServer).OnDynamicSensorDisconnected(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SensorManagerDynamicSensorCallbackService_OnDynamicSensorDisconnected_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SensorManagerDynamicSensorCallbackServiceServer).OnDynamicSensorDisconnected(ctx, req.(*OnDynamicSensorDisconnectedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// SensorManagerDynamicSensorCallbackService_ServiceDesc is the grpc.ServiceDesc for SensorManagerDynamicSensorCallbackService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var SensorManagerDynamicSensorCallbackService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "hardware.SensorManagerDynamicSensorCallbackService",
-	HandlerType: (*SensorManagerDynamicSensorCallbackServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "OnDynamicSensorConnected",
-			Handler:    _SensorManagerDynamicSensorCallbackService_OnDynamicSensorConnected_Handler,
-		},
-		{
-			MethodName: "OnDynamicSensorDisconnected",
-			Handler:    _SensorManagerDynamicSensorCallbackService_OnDynamicSensorDisconnected_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/hardware/hardware.proto",
-}
-
-const (
-	SyncFenceService_NewSyncFence_FullMethodName     = "/hardware.SyncFenceService/NewSyncFence"
-	SyncFenceService_Await_FullMethodName            = "/hardware.SyncFenceService/Await"
-	SyncFenceService_AwaitForever_FullMethodName     = "/hardware.SyncFenceService/AwaitForever"
-	SyncFenceService_Close_FullMethodName            = "/hardware.SyncFenceService/Close"
-	SyncFenceService_DescribeContents_FullMethodName = "/hardware.SyncFenceService/DescribeContents"
-	SyncFenceService_GetSignalTime_FullMethodName    = "/hardware.SyncFenceService/GetSignalTime"
-	SyncFenceService_IsValid_FullMethodName          = "/hardware.SyncFenceService/IsValid"
-	SyncFenceService_WriteToParcel_FullMethodName    = "/hardware.SyncFenceService/WriteToParcel"
-)
-
-// SyncFenceServiceClient is the client API for SyncFenceService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type SyncFenceServiceClient interface {
-	NewSyncFence(ctx context.Context, in *NewSyncFenceRequest, opts ...grpc.CallOption) (*NewSyncFenceResponse, error)
-	Await(ctx context.Context, in *AwaitRequest, opts ...grpc.CallOption) (*AwaitResponse, error)
-	AwaitForever(ctx context.Context, in *AwaitForeverRequest, opts ...grpc.CallOption) (*AwaitForeverResponse, error)
-	Close(ctx context.Context, in *CloseRequest, opts ...grpc.CallOption) (*CloseResponse, error)
-	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	GetSignalTime(ctx context.Context, in *GetSignalTimeRequest, opts ...grpc.CallOption) (*GetSignalTimeResponse, error)
-	IsValid(ctx context.Context, in *IsValidRequest, opts ...grpc.CallOption) (*IsValidResponse, error)
-	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
-}
-
-type syncFenceServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewSyncFenceServiceClient(cc grpc.ClientConnInterface) SyncFenceServiceClient {
-	return &syncFenceServiceClient{cc}
-}
-
-func (c *syncFenceServiceClient) NewSyncFence(ctx context.Context, in *NewSyncFenceRequest, opts ...grpc.CallOption) (*NewSyncFenceResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewSyncFenceResponse)
-	err := c.cc.Invoke(ctx, SyncFenceService_NewSyncFence_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *syncFenceServiceClient) Await(ctx context.Context, in *AwaitRequest, opts ...grpc.CallOption) (*AwaitResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(AwaitResponse)
-	err := c.cc.Invoke(ctx, SyncFenceService_Await_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *syncFenceServiceClient) AwaitForever(ctx context.Context, in *AwaitForeverRequest, opts ...grpc.CallOption) (*AwaitForeverResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(AwaitForeverResponse)
-	err := c.cc.Invoke(ctx, SyncFenceService_AwaitForever_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *syncFenceServiceClient) Close(ctx context.Context, in *CloseRequest, opts ...grpc.CallOption) (*CloseResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CloseResponse)
-	err := c.cc.Invoke(ctx, SyncFenceService_Close_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *syncFenceServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, SyncFenceService_DescribeContents_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *syncFenceServiceClient) GetSignalTime(ctx context.Context, in *GetSignalTimeRequest, opts ...grpc.CallOption) (*GetSignalTimeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetSignalTimeResponse)
-	err := c.cc.Invoke(ctx, SyncFenceService_GetSignalTime_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *syncFenceServiceClient) IsValid(ctx context.Context, in *IsValidRequest, opts ...grpc.CallOption) (*IsValidResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsValidResponse)
-	err := c.cc.Invoke(ctx, SyncFenceService_IsValid_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *syncFenceServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, SyncFenceService_WriteToParcel_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// SyncFenceServiceServer is the server API for SyncFenceService service.
-// All implementations must embed UnimplementedSyncFenceServiceServer
-// for forward compatibility.
-type SyncFenceServiceServer interface {
-	NewSyncFence(context.Context, *NewSyncFenceRequest) (*NewSyncFenceResponse, error)
-	Await(context.Context, *AwaitRequest) (*AwaitResponse, error)
-	AwaitForever(context.Context, *AwaitForeverRequest) (*AwaitForeverResponse, error)
-	Close(context.Context, *CloseRequest) (*CloseResponse, error)
-	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
-	GetSignalTime(context.Context, *GetSignalTimeRequest) (*GetSignalTimeResponse, error)
-	IsValid(context.Context, *IsValidRequest) (*IsValidResponse, error)
-	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
-	mustEmbedUnimplementedSyncFenceServiceServer()
-}
-
-// UnimplementedSyncFenceServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedSyncFenceServiceServer struct{}
-
-func (UnimplementedSyncFenceServiceServer) NewSyncFence(context.Context, *NewSyncFenceRequest) (*NewSyncFenceResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewSyncFence not implemented")
-}
-func (UnimplementedSyncFenceServiceServer) Await(context.Context, *AwaitRequest) (*AwaitResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Await not implemented")
-}
-func (UnimplementedSyncFenceServiceServer) AwaitForever(context.Context, *AwaitForeverRequest) (*AwaitForeverResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method AwaitForever not implemented")
-}
-func (UnimplementedSyncFenceServiceServer) Close(context.Context, *CloseRequest) (*CloseResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Close not implemented")
-}
-func (UnimplementedSyncFenceServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
-}
-func (UnimplementedSyncFenceServiceServer) GetSignalTime(context.Context, *GetSignalTimeRequest) (*GetSignalTimeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetSignalTime not implemented")
-}
-func (UnimplementedSyncFenceServiceServer) IsValid(context.Context, *IsValidRequest) (*IsValidResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsValid not implemented")
-}
-func (UnimplementedSyncFenceServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
-}
-func (UnimplementedSyncFenceServiceServer) mustEmbedUnimplementedSyncFenceServiceServer() {}
-func (UnimplementedSyncFenceServiceServer) testEmbeddedByValue()                          {}
-
-// UnsafeSyncFenceServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to SyncFenceServiceServer will
-// result in compilation errors.
-type UnsafeSyncFenceServiceServer interface {
-	mustEmbedUnimplementedSyncFenceServiceServer()
-}
-
-func RegisterSyncFenceServiceServer(s grpc.ServiceRegistrar, srv SyncFenceServiceServer) {
-	// If the following call panics, it indicates UnimplementedSyncFenceServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&SyncFenceService_ServiceDesc, srv)
-}
-
-func _SyncFenceService_NewSyncFence_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewSyncFenceRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SyncFenceServiceServer).NewSyncFence(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SyncFenceService_NewSyncFence_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SyncFenceServiceServer).NewSyncFence(ctx, req.(*NewSyncFenceRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SyncFenceService_Await_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AwaitRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SyncFenceServiceServer).Await(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SyncFenceService_Await_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SyncFenceServiceServer).Await(ctx, req.(*AwaitRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SyncFenceService_AwaitForever_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AwaitForeverRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SyncFenceServiceServer).AwaitForever(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SyncFenceService_AwaitForever_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SyncFenceServiceServer).AwaitForever(ctx, req.(*AwaitForeverRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SyncFenceService_Close_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CloseRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SyncFenceServiceServer).Close(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SyncFenceService_Close_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SyncFenceServiceServer).Close(ctx, req.(*CloseRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SyncFenceService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DescribeContentsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SyncFenceServiceServer).DescribeContents(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SyncFenceService_DescribeContents_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SyncFenceServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SyncFenceService_GetSignalTime_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetSignalTimeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SyncFenceServiceServer).GetSignalTime(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SyncFenceService_GetSignalTime_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SyncFenceServiceServer).GetSignalTime(ctx, req.(*GetSignalTimeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SyncFenceService_IsValid_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsValidRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SyncFenceServiceServer).IsValid(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SyncFenceService_IsValid_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SyncFenceServiceServer).IsValid(ctx, req.(*IsValidRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SyncFenceService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WriteToParcelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SyncFenceServiceServer).WriteToParcel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SyncFenceService_WriteToParcel_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SyncFenceServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// SyncFenceService_ServiceDesc is the grpc.ServiceDesc for SyncFenceService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var SyncFenceService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "hardware.SyncFenceService",
-	HandlerType: (*SyncFenceServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "NewSyncFence",
-			Handler:    _SyncFenceService_NewSyncFence_Handler,
-		},
-		{
-			MethodName: "Await",
-			Handler:    _SyncFenceService_Await_Handler,
-		},
-		{
-			MethodName: "AwaitForever",
-			Handler:    _SyncFenceService_AwaitForever_Handler,
-		},
-		{
-			MethodName: "Close",
-			Handler:    _SyncFenceService_Close_Handler,
-		},
-		{
-			MethodName: "DescribeContents",
-			Handler:    _SyncFenceService_DescribeContents_Handler,
-		},
-		{
-			MethodName: "GetSignalTime",
-			Handler:    _SyncFenceService_GetSignalTime_Handler,
-		},
-		{
-			MethodName: "IsValid",
-			Handler:    _SyncFenceService_IsValid_Handler,
-		},
-		{
-			MethodName: "WriteToParcel",
-			Handler:    _SyncFenceService_WriteToParcel_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/hardware/hardware.proto",
-}
-
-const (
-	SensorListenerService_OnAccuracyChanged_FullMethodName = "/hardware.SensorListenerService/OnAccuracyChanged"
-	SensorListenerService_OnSensorChanged_FullMethodName   = "/hardware.SensorListenerService/OnSensorChanged"
-)
-
-// SensorListenerServiceClient is the client API for SensorListenerService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type SensorListenerServiceClient interface {
-	OnAccuracyChanged(ctx context.Context, in *OnAccuracyChangedRequest, opts ...grpc.CallOption) (*OnAccuracyChangedResponse, error)
-	OnSensorChanged(ctx context.Context, in *OnSensorChangedRequest, opts ...grpc.CallOption) (*OnSensorChangedResponse, error)
-}
-
-type sensorListenerServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewSensorListenerServiceClient(cc grpc.ClientConnInterface) SensorListenerServiceClient {
-	return &sensorListenerServiceClient{cc}
-}
-
-func (c *sensorListenerServiceClient) OnAccuracyChanged(ctx context.Context, in *OnAccuracyChangedRequest, opts ...grpc.CallOption) (*OnAccuracyChangedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnAccuracyChangedResponse)
-	err := c.cc.Invoke(ctx, SensorListenerService_OnAccuracyChanged_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sensorListenerServiceClient) OnSensorChanged(ctx context.Context, in *OnSensorChangedRequest, opts ...grpc.CallOption) (*OnSensorChangedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnSensorChangedResponse)
-	err := c.cc.Invoke(ctx, SensorListenerService_OnSensorChanged_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// SensorListenerServiceServer is the server API for SensorListenerService service.
-// All implementations must embed UnimplementedSensorListenerServiceServer
-// for forward compatibility.
-type SensorListenerServiceServer interface {
-	OnAccuracyChanged(context.Context, *OnAccuracyChangedRequest) (*OnAccuracyChangedResponse, error)
-	OnSensorChanged(context.Context, *OnSensorChangedRequest) (*OnSensorChangedResponse, error)
-	mustEmbedUnimplementedSensorListenerServiceServer()
-}
-
-// UnimplementedSensorListenerServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedSensorListenerServiceServer struct{}
-
-func (UnimplementedSensorListenerServiceServer) OnAccuracyChanged(context.Context, *OnAccuracyChangedRequest) (*OnAccuracyChangedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnAccuracyChanged not implemented")
-}
-func (UnimplementedSensorListenerServiceServer) OnSensorChanged(context.Context, *OnSensorChangedRequest) (*OnSensorChangedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnSensorChanged not implemented")
-}
-func (UnimplementedSensorListenerServiceServer) mustEmbedUnimplementedSensorListenerServiceServer() {}
-func (UnimplementedSensorListenerServiceServer) testEmbeddedByValue()                               {}
-
-// UnsafeSensorListenerServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to SensorListenerServiceServer will
-// result in compilation errors.
-type UnsafeSensorListenerServiceServer interface {
-	mustEmbedUnimplementedSensorListenerServiceServer()
-}
-
-func RegisterSensorListenerServiceServer(s grpc.ServiceRegistrar, srv SensorListenerServiceServer) {
-	// If the following call panics, it indicates UnimplementedSensorListenerServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&SensorListenerService_ServiceDesc, srv)
-}
-
-func _SensorListenerService_OnAccuracyChanged_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnAccuracyChangedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SensorListenerServiceServer).OnAccuracyChanged(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SensorListenerService_OnAccuracyChanged_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SensorListenerServiceServer).OnAccuracyChanged(ctx, req.(*OnAccuracyChangedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SensorListenerService_OnSensorChanged_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnSensorChangedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SensorListenerServiceServer).OnSensorChanged(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SensorListenerService_OnSensorChanged_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SensorListenerServiceServer).OnSensorChanged(ctx, req.(*OnSensorChangedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// SensorListenerService_ServiceDesc is the grpc.ServiceDesc for SensorListenerService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var SensorListenerService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "hardware.SensorListenerService",
-	HandlerType: (*SensorListenerServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "OnAccuracyChanged",
-			Handler:    _SensorListenerService_OnAccuracyChanged_Handler,
-		},
-		{
-			MethodName: "OnSensorChanged",
-			Handler:    _SensorListenerService_OnSensorChanged_Handler,
+			MethodName: "OnFlushCompleted",
+			Handler:    _SensorEventListener2Service_OnFlushCompleted_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -2186,6 +550,3186 @@ var DisplayLutsEntryService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "ToString",
 			Handler:    _DisplayLutsEntryService_ToString_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/hardware/hardware.proto",
+}
+
+const (
+	SensorEventCallbackService_OnAccuracyChanged_FullMethodName      = "/hardware.SensorEventCallbackService/OnAccuracyChanged"
+	SensorEventCallbackService_OnFlushCompleted_FullMethodName       = "/hardware.SensorEventCallbackService/OnFlushCompleted"
+	SensorEventCallbackService_OnSensorAdditionalInfo_FullMethodName = "/hardware.SensorEventCallbackService/OnSensorAdditionalInfo"
+	SensorEventCallbackService_OnSensorChanged_FullMethodName        = "/hardware.SensorEventCallbackService/OnSensorChanged"
+)
+
+// SensorEventCallbackServiceClient is the client API for SensorEventCallbackService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type SensorEventCallbackServiceClient interface {
+	OnAccuracyChanged(ctx context.Context, in *OnAccuracyChangedRequest, opts ...grpc.CallOption) (*OnAccuracyChangedResponse, error)
+	OnFlushCompleted(ctx context.Context, in *OnFlushCompletedRequest, opts ...grpc.CallOption) (*OnFlushCompletedResponse, error)
+	OnSensorAdditionalInfo(ctx context.Context, in *OnSensorAdditionalInfoRequest, opts ...grpc.CallOption) (*OnSensorAdditionalInfoResponse, error)
+	OnSensorChanged(ctx context.Context, in *OnSensorChangedRequest, opts ...grpc.CallOption) (*OnSensorChangedResponse, error)
+}
+
+type sensorEventCallbackServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewSensorEventCallbackServiceClient(cc grpc.ClientConnInterface) SensorEventCallbackServiceClient {
+	return &sensorEventCallbackServiceClient{cc}
+}
+
+func (c *sensorEventCallbackServiceClient) OnAccuracyChanged(ctx context.Context, in *OnAccuracyChangedRequest, opts ...grpc.CallOption) (*OnAccuracyChangedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnAccuracyChangedResponse)
+	err := c.cc.Invoke(ctx, SensorEventCallbackService_OnAccuracyChanged_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sensorEventCallbackServiceClient) OnFlushCompleted(ctx context.Context, in *OnFlushCompletedRequest, opts ...grpc.CallOption) (*OnFlushCompletedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnFlushCompletedResponse)
+	err := c.cc.Invoke(ctx, SensorEventCallbackService_OnFlushCompleted_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sensorEventCallbackServiceClient) OnSensorAdditionalInfo(ctx context.Context, in *OnSensorAdditionalInfoRequest, opts ...grpc.CallOption) (*OnSensorAdditionalInfoResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnSensorAdditionalInfoResponse)
+	err := c.cc.Invoke(ctx, SensorEventCallbackService_OnSensorAdditionalInfo_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sensorEventCallbackServiceClient) OnSensorChanged(ctx context.Context, in *OnSensorChangedRequest, opts ...grpc.CallOption) (*OnSensorChangedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnSensorChangedResponse)
+	err := c.cc.Invoke(ctx, SensorEventCallbackService_OnSensorChanged_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// SensorEventCallbackServiceServer is the server API for SensorEventCallbackService service.
+// All implementations must embed UnimplementedSensorEventCallbackServiceServer
+// for forward compatibility.
+type SensorEventCallbackServiceServer interface {
+	OnAccuracyChanged(context.Context, *OnAccuracyChangedRequest) (*OnAccuracyChangedResponse, error)
+	OnFlushCompleted(context.Context, *OnFlushCompletedRequest) (*OnFlushCompletedResponse, error)
+	OnSensorAdditionalInfo(context.Context, *OnSensorAdditionalInfoRequest) (*OnSensorAdditionalInfoResponse, error)
+	OnSensorChanged(context.Context, *OnSensorChangedRequest) (*OnSensorChangedResponse, error)
+	mustEmbedUnimplementedSensorEventCallbackServiceServer()
+}
+
+// UnimplementedSensorEventCallbackServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedSensorEventCallbackServiceServer struct{}
+
+func (UnimplementedSensorEventCallbackServiceServer) OnAccuracyChanged(context.Context, *OnAccuracyChangedRequest) (*OnAccuracyChangedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnAccuracyChanged not implemented")
+}
+func (UnimplementedSensorEventCallbackServiceServer) OnFlushCompleted(context.Context, *OnFlushCompletedRequest) (*OnFlushCompletedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnFlushCompleted not implemented")
+}
+func (UnimplementedSensorEventCallbackServiceServer) OnSensorAdditionalInfo(context.Context, *OnSensorAdditionalInfoRequest) (*OnSensorAdditionalInfoResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnSensorAdditionalInfo not implemented")
+}
+func (UnimplementedSensorEventCallbackServiceServer) OnSensorChanged(context.Context, *OnSensorChangedRequest) (*OnSensorChangedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnSensorChanged not implemented")
+}
+func (UnimplementedSensorEventCallbackServiceServer) mustEmbedUnimplementedSensorEventCallbackServiceServer() {
+}
+func (UnimplementedSensorEventCallbackServiceServer) testEmbeddedByValue() {}
+
+// UnsafeSensorEventCallbackServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to SensorEventCallbackServiceServer will
+// result in compilation errors.
+type UnsafeSensorEventCallbackServiceServer interface {
+	mustEmbedUnimplementedSensorEventCallbackServiceServer()
+}
+
+func RegisterSensorEventCallbackServiceServer(s grpc.ServiceRegistrar, srv SensorEventCallbackServiceServer) {
+	// If the following call panics, it indicates UnimplementedSensorEventCallbackServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&SensorEventCallbackService_ServiceDesc, srv)
+}
+
+func _SensorEventCallbackService_OnAccuracyChanged_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnAccuracyChangedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SensorEventCallbackServiceServer).OnAccuracyChanged(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SensorEventCallbackService_OnAccuracyChanged_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SensorEventCallbackServiceServer).OnAccuracyChanged(ctx, req.(*OnAccuracyChangedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SensorEventCallbackService_OnFlushCompleted_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnFlushCompletedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SensorEventCallbackServiceServer).OnFlushCompleted(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SensorEventCallbackService_OnFlushCompleted_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SensorEventCallbackServiceServer).OnFlushCompleted(ctx, req.(*OnFlushCompletedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SensorEventCallbackService_OnSensorAdditionalInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnSensorAdditionalInfoRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SensorEventCallbackServiceServer).OnSensorAdditionalInfo(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SensorEventCallbackService_OnSensorAdditionalInfo_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SensorEventCallbackServiceServer).OnSensorAdditionalInfo(ctx, req.(*OnSensorAdditionalInfoRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SensorEventCallbackService_OnSensorChanged_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnSensorChangedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SensorEventCallbackServiceServer).OnSensorChanged(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SensorEventCallbackService_OnSensorChanged_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SensorEventCallbackServiceServer).OnSensorChanged(ctx, req.(*OnSensorChangedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// SensorEventCallbackService_ServiceDesc is the grpc.ServiceDesc for SensorEventCallbackService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var SensorEventCallbackService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "hardware.SensorEventCallbackService",
+	HandlerType: (*SensorEventCallbackServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "OnAccuracyChanged",
+			Handler:    _SensorEventCallbackService_OnAccuracyChanged_Handler,
+		},
+		{
+			MethodName: "OnFlushCompleted",
+			Handler:    _SensorEventCallbackService_OnFlushCompleted_Handler,
+		},
+		{
+			MethodName: "OnSensorAdditionalInfo",
+			Handler:    _SensorEventCallbackService_OnSensorAdditionalInfo_Handler,
+		},
+		{
+			MethodName: "OnSensorChanged",
+			Handler:    _SensorEventCallbackService_OnSensorChanged_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/hardware/hardware.proto",
+}
+
+const (
+	DataSpaceService_GetRange_FullMethodName    = "/hardware.DataSpaceService/GetRange"
+	DataSpaceService_GetStandard_FullMethodName = "/hardware.DataSpaceService/GetStandard"
+	DataSpaceService_GetTransfer_FullMethodName = "/hardware.DataSpaceService/GetTransfer"
+	DataSpaceService_Pack_FullMethodName        = "/hardware.DataSpaceService/Pack"
+)
+
+// DataSpaceServiceClient is the client API for DataSpaceService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type DataSpaceServiceClient interface {
+	GetRange(ctx context.Context, in *GetRangeRequest, opts ...grpc.CallOption) (*GetRangeResponse, error)
+	GetStandard(ctx context.Context, in *GetStandardRequest, opts ...grpc.CallOption) (*GetStandardResponse, error)
+	GetTransfer(ctx context.Context, in *GetTransferRequest, opts ...grpc.CallOption) (*GetTransferResponse, error)
+	Pack(ctx context.Context, in *PackRequest, opts ...grpc.CallOption) (*PackResponse, error)
+}
+
+type dataSpaceServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewDataSpaceServiceClient(cc grpc.ClientConnInterface) DataSpaceServiceClient {
+	return &dataSpaceServiceClient{cc}
+}
+
+func (c *dataSpaceServiceClient) GetRange(ctx context.Context, in *GetRangeRequest, opts ...grpc.CallOption) (*GetRangeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetRangeResponse)
+	err := c.cc.Invoke(ctx, DataSpaceService_GetRange_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *dataSpaceServiceClient) GetStandard(ctx context.Context, in *GetStandardRequest, opts ...grpc.CallOption) (*GetStandardResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetStandardResponse)
+	err := c.cc.Invoke(ctx, DataSpaceService_GetStandard_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *dataSpaceServiceClient) GetTransfer(ctx context.Context, in *GetTransferRequest, opts ...grpc.CallOption) (*GetTransferResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTransferResponse)
+	err := c.cc.Invoke(ctx, DataSpaceService_GetTransfer_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *dataSpaceServiceClient) Pack(ctx context.Context, in *PackRequest, opts ...grpc.CallOption) (*PackResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(PackResponse)
+	err := c.cc.Invoke(ctx, DataSpaceService_Pack_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// DataSpaceServiceServer is the server API for DataSpaceService service.
+// All implementations must embed UnimplementedDataSpaceServiceServer
+// for forward compatibility.
+type DataSpaceServiceServer interface {
+	GetRange(context.Context, *GetRangeRequest) (*GetRangeResponse, error)
+	GetStandard(context.Context, *GetStandardRequest) (*GetStandardResponse, error)
+	GetTransfer(context.Context, *GetTransferRequest) (*GetTransferResponse, error)
+	Pack(context.Context, *PackRequest) (*PackResponse, error)
+	mustEmbedUnimplementedDataSpaceServiceServer()
+}
+
+// UnimplementedDataSpaceServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedDataSpaceServiceServer struct{}
+
+func (UnimplementedDataSpaceServiceServer) GetRange(context.Context, *GetRangeRequest) (*GetRangeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetRange not implemented")
+}
+func (UnimplementedDataSpaceServiceServer) GetStandard(context.Context, *GetStandardRequest) (*GetStandardResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetStandard not implemented")
+}
+func (UnimplementedDataSpaceServiceServer) GetTransfer(context.Context, *GetTransferRequest) (*GetTransferResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTransfer not implemented")
+}
+func (UnimplementedDataSpaceServiceServer) Pack(context.Context, *PackRequest) (*PackResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Pack not implemented")
+}
+func (UnimplementedDataSpaceServiceServer) mustEmbedUnimplementedDataSpaceServiceServer() {}
+func (UnimplementedDataSpaceServiceServer) testEmbeddedByValue()                          {}
+
+// UnsafeDataSpaceServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to DataSpaceServiceServer will
+// result in compilation errors.
+type UnsafeDataSpaceServiceServer interface {
+	mustEmbedUnimplementedDataSpaceServiceServer()
+}
+
+func RegisterDataSpaceServiceServer(s grpc.ServiceRegistrar, srv DataSpaceServiceServer) {
+	// If the following call panics, it indicates UnimplementedDataSpaceServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&DataSpaceService_ServiceDesc, srv)
+}
+
+func _DataSpaceService_GetRange_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetRangeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DataSpaceServiceServer).GetRange(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DataSpaceService_GetRange_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DataSpaceServiceServer).GetRange(ctx, req.(*GetRangeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DataSpaceService_GetStandard_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetStandardRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DataSpaceServiceServer).GetStandard(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DataSpaceService_GetStandard_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DataSpaceServiceServer).GetStandard(ctx, req.(*GetStandardRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DataSpaceService_GetTransfer_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTransferRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DataSpaceServiceServer).GetTransfer(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DataSpaceService_GetTransfer_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DataSpaceServiceServer).GetTransfer(ctx, req.(*GetTransferRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DataSpaceService_Pack_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(PackRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DataSpaceServiceServer).Pack(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DataSpaceService_Pack_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DataSpaceServiceServer).Pack(ctx, req.(*PackRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// DataSpaceService_ServiceDesc is the grpc.ServiceDesc for DataSpaceService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var DataSpaceService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "hardware.DataSpaceService",
+	HandlerType: (*DataSpaceServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "GetRange",
+			Handler:    _DataSpaceService_GetRange_Handler,
+		},
+		{
+			MethodName: "GetStandard",
+			Handler:    _DataSpaceService_GetStandard_Handler,
+		},
+		{
+			MethodName: "GetTransfer",
+			Handler:    _DataSpaceService_GetTransfer_Handler,
+		},
+		{
+			MethodName: "Pack",
+			Handler:    _DataSpaceService_Pack_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/hardware/hardware.proto",
+}
+
+const (
+	SensorEventListenerService_OnAccuracyChanged_FullMethodName = "/hardware.SensorEventListenerService/OnAccuracyChanged"
+	SensorEventListenerService_OnSensorChanged_FullMethodName   = "/hardware.SensorEventListenerService/OnSensorChanged"
+)
+
+// SensorEventListenerServiceClient is the client API for SensorEventListenerService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type SensorEventListenerServiceClient interface {
+	OnAccuracyChanged(ctx context.Context, in *OnAccuracyChangedRequest, opts ...grpc.CallOption) (*OnAccuracyChangedResponse, error)
+	OnSensorChanged(ctx context.Context, in *OnSensorChangedRequest, opts ...grpc.CallOption) (*OnSensorChangedResponse, error)
+}
+
+type sensorEventListenerServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewSensorEventListenerServiceClient(cc grpc.ClientConnInterface) SensorEventListenerServiceClient {
+	return &sensorEventListenerServiceClient{cc}
+}
+
+func (c *sensorEventListenerServiceClient) OnAccuracyChanged(ctx context.Context, in *OnAccuracyChangedRequest, opts ...grpc.CallOption) (*OnAccuracyChangedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnAccuracyChangedResponse)
+	err := c.cc.Invoke(ctx, SensorEventListenerService_OnAccuracyChanged_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sensorEventListenerServiceClient) OnSensorChanged(ctx context.Context, in *OnSensorChangedRequest, opts ...grpc.CallOption) (*OnSensorChangedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnSensorChangedResponse)
+	err := c.cc.Invoke(ctx, SensorEventListenerService_OnSensorChanged_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// SensorEventListenerServiceServer is the server API for SensorEventListenerService service.
+// All implementations must embed UnimplementedSensorEventListenerServiceServer
+// for forward compatibility.
+type SensorEventListenerServiceServer interface {
+	OnAccuracyChanged(context.Context, *OnAccuracyChangedRequest) (*OnAccuracyChangedResponse, error)
+	OnSensorChanged(context.Context, *OnSensorChangedRequest) (*OnSensorChangedResponse, error)
+	mustEmbedUnimplementedSensorEventListenerServiceServer()
+}
+
+// UnimplementedSensorEventListenerServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedSensorEventListenerServiceServer struct{}
+
+func (UnimplementedSensorEventListenerServiceServer) OnAccuracyChanged(context.Context, *OnAccuracyChangedRequest) (*OnAccuracyChangedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnAccuracyChanged not implemented")
+}
+func (UnimplementedSensorEventListenerServiceServer) OnSensorChanged(context.Context, *OnSensorChangedRequest) (*OnSensorChangedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnSensorChanged not implemented")
+}
+func (UnimplementedSensorEventListenerServiceServer) mustEmbedUnimplementedSensorEventListenerServiceServer() {
+}
+func (UnimplementedSensorEventListenerServiceServer) testEmbeddedByValue() {}
+
+// UnsafeSensorEventListenerServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to SensorEventListenerServiceServer will
+// result in compilation errors.
+type UnsafeSensorEventListenerServiceServer interface {
+	mustEmbedUnimplementedSensorEventListenerServiceServer()
+}
+
+func RegisterSensorEventListenerServiceServer(s grpc.ServiceRegistrar, srv SensorEventListenerServiceServer) {
+	// If the following call panics, it indicates UnimplementedSensorEventListenerServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&SensorEventListenerService_ServiceDesc, srv)
+}
+
+func _SensorEventListenerService_OnAccuracyChanged_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnAccuracyChangedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SensorEventListenerServiceServer).OnAccuracyChanged(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SensorEventListenerService_OnAccuracyChanged_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SensorEventListenerServiceServer).OnAccuracyChanged(ctx, req.(*OnAccuracyChangedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SensorEventListenerService_OnSensorChanged_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnSensorChangedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SensorEventListenerServiceServer).OnSensorChanged(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SensorEventListenerService_OnSensorChanged_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SensorEventListenerServiceServer).OnSensorChanged(ctx, req.(*OnSensorChangedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// SensorEventListenerService_ServiceDesc is the grpc.ServiceDesc for SensorEventListenerService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var SensorEventListenerService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "hardware.SensorEventListenerService",
+	HandlerType: (*SensorEventListenerServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "OnAccuracyChanged",
+			Handler:    _SensorEventListenerService_OnAccuracyChanged_Handler,
+		},
+		{
+			MethodName: "OnSensorChanged",
+			Handler:    _SensorEventListenerService_OnSensorChanged_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/hardware/hardware.proto",
+}
+
+const (
+	SensorPrivacyManagerService_SupportsSensorToggle1_FullMethodName   = "/hardware.SensorPrivacyManagerService/SupportsSensorToggle1"
+	SensorPrivacyManagerService_SupportsSensorToggle2_1_FullMethodName = "/hardware.SensorPrivacyManagerService/SupportsSensorToggle2_1"
+)
+
+// SensorPrivacyManagerServiceClient is the client API for SensorPrivacyManagerService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type SensorPrivacyManagerServiceClient interface {
+	SupportsSensorToggle1(ctx context.Context, in *SupportsSensorToggle1Request, opts ...grpc.CallOption) (*SupportsSensorToggle1Response, error)
+	SupportsSensorToggle2_1(ctx context.Context, in *SupportsSensorToggle2_1Request, opts ...grpc.CallOption) (*SupportsSensorToggle2_1Response, error)
+}
+
+type sensorPrivacyManagerServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewSensorPrivacyManagerServiceClient(cc grpc.ClientConnInterface) SensorPrivacyManagerServiceClient {
+	return &sensorPrivacyManagerServiceClient{cc}
+}
+
+func (c *sensorPrivacyManagerServiceClient) SupportsSensorToggle1(ctx context.Context, in *SupportsSensorToggle1Request, opts ...grpc.CallOption) (*SupportsSensorToggle1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SupportsSensorToggle1Response)
+	err := c.cc.Invoke(ctx, SensorPrivacyManagerService_SupportsSensorToggle1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sensorPrivacyManagerServiceClient) SupportsSensorToggle2_1(ctx context.Context, in *SupportsSensorToggle2_1Request, opts ...grpc.CallOption) (*SupportsSensorToggle2_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SupportsSensorToggle2_1Response)
+	err := c.cc.Invoke(ctx, SensorPrivacyManagerService_SupportsSensorToggle2_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// SensorPrivacyManagerServiceServer is the server API for SensorPrivacyManagerService service.
+// All implementations must embed UnimplementedSensorPrivacyManagerServiceServer
+// for forward compatibility.
+type SensorPrivacyManagerServiceServer interface {
+	SupportsSensorToggle1(context.Context, *SupportsSensorToggle1Request) (*SupportsSensorToggle1Response, error)
+	SupportsSensorToggle2_1(context.Context, *SupportsSensorToggle2_1Request) (*SupportsSensorToggle2_1Response, error)
+	mustEmbedUnimplementedSensorPrivacyManagerServiceServer()
+}
+
+// UnimplementedSensorPrivacyManagerServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedSensorPrivacyManagerServiceServer struct{}
+
+func (UnimplementedSensorPrivacyManagerServiceServer) SupportsSensorToggle1(context.Context, *SupportsSensorToggle1Request) (*SupportsSensorToggle1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method SupportsSensorToggle1 not implemented")
+}
+func (UnimplementedSensorPrivacyManagerServiceServer) SupportsSensorToggle2_1(context.Context, *SupportsSensorToggle2_1Request) (*SupportsSensorToggle2_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method SupportsSensorToggle2_1 not implemented")
+}
+func (UnimplementedSensorPrivacyManagerServiceServer) mustEmbedUnimplementedSensorPrivacyManagerServiceServer() {
+}
+func (UnimplementedSensorPrivacyManagerServiceServer) testEmbeddedByValue() {}
+
+// UnsafeSensorPrivacyManagerServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to SensorPrivacyManagerServiceServer will
+// result in compilation errors.
+type UnsafeSensorPrivacyManagerServiceServer interface {
+	mustEmbedUnimplementedSensorPrivacyManagerServiceServer()
+}
+
+func RegisterSensorPrivacyManagerServiceServer(s grpc.ServiceRegistrar, srv SensorPrivacyManagerServiceServer) {
+	// If the following call panics, it indicates UnimplementedSensorPrivacyManagerServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&SensorPrivacyManagerService_ServiceDesc, srv)
+}
+
+func _SensorPrivacyManagerService_SupportsSensorToggle1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SupportsSensorToggle1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SensorPrivacyManagerServiceServer).SupportsSensorToggle1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SensorPrivacyManagerService_SupportsSensorToggle1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SensorPrivacyManagerServiceServer).SupportsSensorToggle1(ctx, req.(*SupportsSensorToggle1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SensorPrivacyManagerService_SupportsSensorToggle2_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SupportsSensorToggle2_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SensorPrivacyManagerServiceServer).SupportsSensorToggle2_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SensorPrivacyManagerService_SupportsSensorToggle2_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SensorPrivacyManagerServiceServer).SupportsSensorToggle2_1(ctx, req.(*SupportsSensorToggle2_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// SensorPrivacyManagerService_ServiceDesc is the grpc.ServiceDesc for SensorPrivacyManagerService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var SensorPrivacyManagerService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "hardware.SensorPrivacyManagerService",
+	HandlerType: (*SensorPrivacyManagerServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "SupportsSensorToggle1",
+			Handler:    _SensorPrivacyManagerService_SupportsSensorToggle1_Handler,
+		},
+		{
+			MethodName: "SupportsSensorToggle2_1",
+			Handler:    _SensorPrivacyManagerService_SupportsSensorToggle2_1_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/hardware/hardware.proto",
+}
+
+const (
+	SensorListenerService_OnAccuracyChanged_FullMethodName = "/hardware.SensorListenerService/OnAccuracyChanged"
+	SensorListenerService_OnSensorChanged_FullMethodName   = "/hardware.SensorListenerService/OnSensorChanged"
+)
+
+// SensorListenerServiceClient is the client API for SensorListenerService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type SensorListenerServiceClient interface {
+	OnAccuracyChanged(ctx context.Context, in *SensorListenerOnAccuracyChangedRequest, opts ...grpc.CallOption) (*OnAccuracyChangedResponse, error)
+	OnSensorChanged(ctx context.Context, in *SensorListenerOnSensorChangedRequest, opts ...grpc.CallOption) (*OnSensorChangedResponse, error)
+}
+
+type sensorListenerServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewSensorListenerServiceClient(cc grpc.ClientConnInterface) SensorListenerServiceClient {
+	return &sensorListenerServiceClient{cc}
+}
+
+func (c *sensorListenerServiceClient) OnAccuracyChanged(ctx context.Context, in *SensorListenerOnAccuracyChangedRequest, opts ...grpc.CallOption) (*OnAccuracyChangedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnAccuracyChangedResponse)
+	err := c.cc.Invoke(ctx, SensorListenerService_OnAccuracyChanged_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sensorListenerServiceClient) OnSensorChanged(ctx context.Context, in *SensorListenerOnSensorChangedRequest, opts ...grpc.CallOption) (*OnSensorChangedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnSensorChangedResponse)
+	err := c.cc.Invoke(ctx, SensorListenerService_OnSensorChanged_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// SensorListenerServiceServer is the server API for SensorListenerService service.
+// All implementations must embed UnimplementedSensorListenerServiceServer
+// for forward compatibility.
+type SensorListenerServiceServer interface {
+	OnAccuracyChanged(context.Context, *SensorListenerOnAccuracyChangedRequest) (*OnAccuracyChangedResponse, error)
+	OnSensorChanged(context.Context, *SensorListenerOnSensorChangedRequest) (*OnSensorChangedResponse, error)
+	mustEmbedUnimplementedSensorListenerServiceServer()
+}
+
+// UnimplementedSensorListenerServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedSensorListenerServiceServer struct{}
+
+func (UnimplementedSensorListenerServiceServer) OnAccuracyChanged(context.Context, *SensorListenerOnAccuracyChangedRequest) (*OnAccuracyChangedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnAccuracyChanged not implemented")
+}
+func (UnimplementedSensorListenerServiceServer) OnSensorChanged(context.Context, *SensorListenerOnSensorChangedRequest) (*OnSensorChangedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnSensorChanged not implemented")
+}
+func (UnimplementedSensorListenerServiceServer) mustEmbedUnimplementedSensorListenerServiceServer() {}
+func (UnimplementedSensorListenerServiceServer) testEmbeddedByValue()                               {}
+
+// UnsafeSensorListenerServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to SensorListenerServiceServer will
+// result in compilation errors.
+type UnsafeSensorListenerServiceServer interface {
+	mustEmbedUnimplementedSensorListenerServiceServer()
+}
+
+func RegisterSensorListenerServiceServer(s grpc.ServiceRegistrar, srv SensorListenerServiceServer) {
+	// If the following call panics, it indicates UnimplementedSensorListenerServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&SensorListenerService_ServiceDesc, srv)
+}
+
+func _SensorListenerService_OnAccuracyChanged_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SensorListenerOnAccuracyChangedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SensorListenerServiceServer).OnAccuracyChanged(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SensorListenerService_OnAccuracyChanged_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SensorListenerServiceServer).OnAccuracyChanged(ctx, req.(*SensorListenerOnAccuracyChangedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SensorListenerService_OnSensorChanged_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SensorListenerOnSensorChangedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SensorListenerServiceServer).OnSensorChanged(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SensorListenerService_OnSensorChanged_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SensorListenerServiceServer).OnSensorChanged(ctx, req.(*SensorListenerOnSensorChangedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// SensorListenerService_ServiceDesc is the grpc.ServiceDesc for SensorListenerService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var SensorListenerService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "hardware.SensorListenerService",
+	HandlerType: (*SensorListenerServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "OnAccuracyChanged",
+			Handler:    _SensorListenerService_OnAccuracyChanged_Handler,
+		},
+		{
+			MethodName: "OnSensorChanged",
+			Handler:    _SensorListenerService_OnSensorChanged_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/hardware/hardware.proto",
+}
+
+const (
+	SyncFenceService_NewSyncFence_FullMethodName     = "/hardware.SyncFenceService/NewSyncFence"
+	SyncFenceService_Await_FullMethodName            = "/hardware.SyncFenceService/Await"
+	SyncFenceService_AwaitForever_FullMethodName     = "/hardware.SyncFenceService/AwaitForever"
+	SyncFenceService_Close_FullMethodName            = "/hardware.SyncFenceService/Close"
+	SyncFenceService_DescribeContents_FullMethodName = "/hardware.SyncFenceService/DescribeContents"
+	SyncFenceService_GetSignalTime_FullMethodName    = "/hardware.SyncFenceService/GetSignalTime"
+	SyncFenceService_IsValid_FullMethodName          = "/hardware.SyncFenceService/IsValid"
+	SyncFenceService_WriteToParcel_FullMethodName    = "/hardware.SyncFenceService/WriteToParcel"
+)
+
+// SyncFenceServiceClient is the client API for SyncFenceService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type SyncFenceServiceClient interface {
+	NewSyncFence(ctx context.Context, in *NewSyncFenceRequest, opts ...grpc.CallOption) (*NewSyncFenceResponse, error)
+	Await(ctx context.Context, in *AwaitRequest, opts ...grpc.CallOption) (*AwaitResponse, error)
+	AwaitForever(ctx context.Context, in *AwaitForeverRequest, opts ...grpc.CallOption) (*AwaitForeverResponse, error)
+	Close(ctx context.Context, in *CloseRequest, opts ...grpc.CallOption) (*CloseResponse, error)
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	GetSignalTime(ctx context.Context, in *GetSignalTimeRequest, opts ...grpc.CallOption) (*GetSignalTimeResponse, error)
+	IsValid(ctx context.Context, in *IsValidRequest, opts ...grpc.CallOption) (*IsValidResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type syncFenceServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewSyncFenceServiceClient(cc grpc.ClientConnInterface) SyncFenceServiceClient {
+	return &syncFenceServiceClient{cc}
+}
+
+func (c *syncFenceServiceClient) NewSyncFence(ctx context.Context, in *NewSyncFenceRequest, opts ...grpc.CallOption) (*NewSyncFenceResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewSyncFenceResponse)
+	err := c.cc.Invoke(ctx, SyncFenceService_NewSyncFence_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *syncFenceServiceClient) Await(ctx context.Context, in *AwaitRequest, opts ...grpc.CallOption) (*AwaitResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(AwaitResponse)
+	err := c.cc.Invoke(ctx, SyncFenceService_Await_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *syncFenceServiceClient) AwaitForever(ctx context.Context, in *AwaitForeverRequest, opts ...grpc.CallOption) (*AwaitForeverResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(AwaitForeverResponse)
+	err := c.cc.Invoke(ctx, SyncFenceService_AwaitForever_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *syncFenceServiceClient) Close(ctx context.Context, in *CloseRequest, opts ...grpc.CallOption) (*CloseResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CloseResponse)
+	err := c.cc.Invoke(ctx, SyncFenceService_Close_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *syncFenceServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, SyncFenceService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *syncFenceServiceClient) GetSignalTime(ctx context.Context, in *GetSignalTimeRequest, opts ...grpc.CallOption) (*GetSignalTimeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSignalTimeResponse)
+	err := c.cc.Invoke(ctx, SyncFenceService_GetSignalTime_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *syncFenceServiceClient) IsValid(ctx context.Context, in *IsValidRequest, opts ...grpc.CallOption) (*IsValidResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsValidResponse)
+	err := c.cc.Invoke(ctx, SyncFenceService_IsValid_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *syncFenceServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, SyncFenceService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// SyncFenceServiceServer is the server API for SyncFenceService service.
+// All implementations must embed UnimplementedSyncFenceServiceServer
+// for forward compatibility.
+type SyncFenceServiceServer interface {
+	NewSyncFence(context.Context, *NewSyncFenceRequest) (*NewSyncFenceResponse, error)
+	Await(context.Context, *AwaitRequest) (*AwaitResponse, error)
+	AwaitForever(context.Context, *AwaitForeverRequest) (*AwaitForeverResponse, error)
+	Close(context.Context, *CloseRequest) (*CloseResponse, error)
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	GetSignalTime(context.Context, *GetSignalTimeRequest) (*GetSignalTimeResponse, error)
+	IsValid(context.Context, *IsValidRequest) (*IsValidResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedSyncFenceServiceServer()
+}
+
+// UnimplementedSyncFenceServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedSyncFenceServiceServer struct{}
+
+func (UnimplementedSyncFenceServiceServer) NewSyncFence(context.Context, *NewSyncFenceRequest) (*NewSyncFenceResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewSyncFence not implemented")
+}
+func (UnimplementedSyncFenceServiceServer) Await(context.Context, *AwaitRequest) (*AwaitResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Await not implemented")
+}
+func (UnimplementedSyncFenceServiceServer) AwaitForever(context.Context, *AwaitForeverRequest) (*AwaitForeverResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method AwaitForever not implemented")
+}
+func (UnimplementedSyncFenceServiceServer) Close(context.Context, *CloseRequest) (*CloseResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Close not implemented")
+}
+func (UnimplementedSyncFenceServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedSyncFenceServiceServer) GetSignalTime(context.Context, *GetSignalTimeRequest) (*GetSignalTimeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSignalTime not implemented")
+}
+func (UnimplementedSyncFenceServiceServer) IsValid(context.Context, *IsValidRequest) (*IsValidResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsValid not implemented")
+}
+func (UnimplementedSyncFenceServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedSyncFenceServiceServer) mustEmbedUnimplementedSyncFenceServiceServer() {}
+func (UnimplementedSyncFenceServiceServer) testEmbeddedByValue()                          {}
+
+// UnsafeSyncFenceServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to SyncFenceServiceServer will
+// result in compilation errors.
+type UnsafeSyncFenceServiceServer interface {
+	mustEmbedUnimplementedSyncFenceServiceServer()
+}
+
+func RegisterSyncFenceServiceServer(s grpc.ServiceRegistrar, srv SyncFenceServiceServer) {
+	// If the following call panics, it indicates UnimplementedSyncFenceServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&SyncFenceService_ServiceDesc, srv)
+}
+
+func _SyncFenceService_NewSyncFence_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewSyncFenceRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SyncFenceServiceServer).NewSyncFence(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SyncFenceService_NewSyncFence_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SyncFenceServiceServer).NewSyncFence(ctx, req.(*NewSyncFenceRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SyncFenceService_Await_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AwaitRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SyncFenceServiceServer).Await(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SyncFenceService_Await_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SyncFenceServiceServer).Await(ctx, req.(*AwaitRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SyncFenceService_AwaitForever_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AwaitForeverRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SyncFenceServiceServer).AwaitForever(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SyncFenceService_AwaitForever_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SyncFenceServiceServer).AwaitForever(ctx, req.(*AwaitForeverRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SyncFenceService_Close_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CloseRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SyncFenceServiceServer).Close(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SyncFenceService_Close_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SyncFenceServiceServer).Close(ctx, req.(*CloseRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SyncFenceService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SyncFenceServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SyncFenceService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SyncFenceServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SyncFenceService_GetSignalTime_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSignalTimeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SyncFenceServiceServer).GetSignalTime(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SyncFenceService_GetSignalTime_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SyncFenceServiceServer).GetSignalTime(ctx, req.(*GetSignalTimeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SyncFenceService_IsValid_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsValidRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SyncFenceServiceServer).IsValid(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SyncFenceService_IsValid_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SyncFenceServiceServer).IsValid(ctx, req.(*IsValidRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SyncFenceService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SyncFenceServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SyncFenceService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SyncFenceServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// SyncFenceService_ServiceDesc is the grpc.ServiceDesc for SyncFenceService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var SyncFenceService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "hardware.SyncFenceService",
+	HandlerType: (*SyncFenceServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewSyncFence",
+			Handler:    _SyncFenceService_NewSyncFence_Handler,
+		},
+		{
+			MethodName: "Await",
+			Handler:    _SyncFenceService_Await_Handler,
+		},
+		{
+			MethodName: "AwaitForever",
+			Handler:    _SyncFenceService_AwaitForever_Handler,
+		},
+		{
+			MethodName: "Close",
+			Handler:    _SyncFenceService_Close_Handler,
+		},
+		{
+			MethodName: "DescribeContents",
+			Handler:    _SyncFenceService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "GetSignalTime",
+			Handler:    _SyncFenceService_GetSignalTime_Handler,
+		},
+		{
+			MethodName: "IsValid",
+			Handler:    _SyncFenceService_IsValid_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _SyncFenceService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/hardware/hardware.proto",
+}
+
+const (
+	GeomagneticFieldService_NewGeomagneticField_FullMethodName   = "/hardware.GeomagneticFieldService/NewGeomagneticField"
+	GeomagneticFieldService_GetDeclination_FullMethodName        = "/hardware.GeomagneticFieldService/GetDeclination"
+	GeomagneticFieldService_GetFieldStrength_FullMethodName      = "/hardware.GeomagneticFieldService/GetFieldStrength"
+	GeomagneticFieldService_GetHorizontalStrength_FullMethodName = "/hardware.GeomagneticFieldService/GetHorizontalStrength"
+	GeomagneticFieldService_GetInclination_FullMethodName        = "/hardware.GeomagneticFieldService/GetInclination"
+	GeomagneticFieldService_GetX_FullMethodName                  = "/hardware.GeomagneticFieldService/GetX"
+	GeomagneticFieldService_GetY_FullMethodName                  = "/hardware.GeomagneticFieldService/GetY"
+	GeomagneticFieldService_GetZ_FullMethodName                  = "/hardware.GeomagneticFieldService/GetZ"
+)
+
+// GeomagneticFieldServiceClient is the client API for GeomagneticFieldService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type GeomagneticFieldServiceClient interface {
+	NewGeomagneticField(ctx context.Context, in *NewGeomagneticFieldRequest, opts ...grpc.CallOption) (*NewGeomagneticFieldResponse, error)
+	GetDeclination(ctx context.Context, in *GetDeclinationRequest, opts ...grpc.CallOption) (*GetDeclinationResponse, error)
+	GetFieldStrength(ctx context.Context, in *GetFieldStrengthRequest, opts ...grpc.CallOption) (*GetFieldStrengthResponse, error)
+	GetHorizontalStrength(ctx context.Context, in *GetHorizontalStrengthRequest, opts ...grpc.CallOption) (*GetHorizontalStrengthResponse, error)
+	GetInclination(ctx context.Context, in *GetInclinationRequest, opts ...grpc.CallOption) (*GetInclinationResponse, error)
+	GetX(ctx context.Context, in *GetXRequest, opts ...grpc.CallOption) (*GetXResponse, error)
+	GetY(ctx context.Context, in *GetYRequest, opts ...grpc.CallOption) (*GetYResponse, error)
+	GetZ(ctx context.Context, in *GetZRequest, opts ...grpc.CallOption) (*GetZResponse, error)
+}
+
+type geomagneticFieldServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewGeomagneticFieldServiceClient(cc grpc.ClientConnInterface) GeomagneticFieldServiceClient {
+	return &geomagneticFieldServiceClient{cc}
+}
+
+func (c *geomagneticFieldServiceClient) NewGeomagneticField(ctx context.Context, in *NewGeomagneticFieldRequest, opts ...grpc.CallOption) (*NewGeomagneticFieldResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewGeomagneticFieldResponse)
+	err := c.cc.Invoke(ctx, GeomagneticFieldService_NewGeomagneticField_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *geomagneticFieldServiceClient) GetDeclination(ctx context.Context, in *GetDeclinationRequest, opts ...grpc.CallOption) (*GetDeclinationResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetDeclinationResponse)
+	err := c.cc.Invoke(ctx, GeomagneticFieldService_GetDeclination_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *geomagneticFieldServiceClient) GetFieldStrength(ctx context.Context, in *GetFieldStrengthRequest, opts ...grpc.CallOption) (*GetFieldStrengthResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetFieldStrengthResponse)
+	err := c.cc.Invoke(ctx, GeomagneticFieldService_GetFieldStrength_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *geomagneticFieldServiceClient) GetHorizontalStrength(ctx context.Context, in *GetHorizontalStrengthRequest, opts ...grpc.CallOption) (*GetHorizontalStrengthResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetHorizontalStrengthResponse)
+	err := c.cc.Invoke(ctx, GeomagneticFieldService_GetHorizontalStrength_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *geomagneticFieldServiceClient) GetInclination(ctx context.Context, in *GetInclinationRequest, opts ...grpc.CallOption) (*GetInclinationResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetInclinationResponse)
+	err := c.cc.Invoke(ctx, GeomagneticFieldService_GetInclination_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *geomagneticFieldServiceClient) GetX(ctx context.Context, in *GetXRequest, opts ...grpc.CallOption) (*GetXResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetXResponse)
+	err := c.cc.Invoke(ctx, GeomagneticFieldService_GetX_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *geomagneticFieldServiceClient) GetY(ctx context.Context, in *GetYRequest, opts ...grpc.CallOption) (*GetYResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetYResponse)
+	err := c.cc.Invoke(ctx, GeomagneticFieldService_GetY_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *geomagneticFieldServiceClient) GetZ(ctx context.Context, in *GetZRequest, opts ...grpc.CallOption) (*GetZResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetZResponse)
+	err := c.cc.Invoke(ctx, GeomagneticFieldService_GetZ_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// GeomagneticFieldServiceServer is the server API for GeomagneticFieldService service.
+// All implementations must embed UnimplementedGeomagneticFieldServiceServer
+// for forward compatibility.
+type GeomagneticFieldServiceServer interface {
+	NewGeomagneticField(context.Context, *NewGeomagneticFieldRequest) (*NewGeomagneticFieldResponse, error)
+	GetDeclination(context.Context, *GetDeclinationRequest) (*GetDeclinationResponse, error)
+	GetFieldStrength(context.Context, *GetFieldStrengthRequest) (*GetFieldStrengthResponse, error)
+	GetHorizontalStrength(context.Context, *GetHorizontalStrengthRequest) (*GetHorizontalStrengthResponse, error)
+	GetInclination(context.Context, *GetInclinationRequest) (*GetInclinationResponse, error)
+	GetX(context.Context, *GetXRequest) (*GetXResponse, error)
+	GetY(context.Context, *GetYRequest) (*GetYResponse, error)
+	GetZ(context.Context, *GetZRequest) (*GetZResponse, error)
+	mustEmbedUnimplementedGeomagneticFieldServiceServer()
+}
+
+// UnimplementedGeomagneticFieldServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedGeomagneticFieldServiceServer struct{}
+
+func (UnimplementedGeomagneticFieldServiceServer) NewGeomagneticField(context.Context, *NewGeomagneticFieldRequest) (*NewGeomagneticFieldResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewGeomagneticField not implemented")
+}
+func (UnimplementedGeomagneticFieldServiceServer) GetDeclination(context.Context, *GetDeclinationRequest) (*GetDeclinationResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetDeclination not implemented")
+}
+func (UnimplementedGeomagneticFieldServiceServer) GetFieldStrength(context.Context, *GetFieldStrengthRequest) (*GetFieldStrengthResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetFieldStrength not implemented")
+}
+func (UnimplementedGeomagneticFieldServiceServer) GetHorizontalStrength(context.Context, *GetHorizontalStrengthRequest) (*GetHorizontalStrengthResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetHorizontalStrength not implemented")
+}
+func (UnimplementedGeomagneticFieldServiceServer) GetInclination(context.Context, *GetInclinationRequest) (*GetInclinationResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetInclination not implemented")
+}
+func (UnimplementedGeomagneticFieldServiceServer) GetX(context.Context, *GetXRequest) (*GetXResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetX not implemented")
+}
+func (UnimplementedGeomagneticFieldServiceServer) GetY(context.Context, *GetYRequest) (*GetYResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetY not implemented")
+}
+func (UnimplementedGeomagneticFieldServiceServer) GetZ(context.Context, *GetZRequest) (*GetZResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetZ not implemented")
+}
+func (UnimplementedGeomagneticFieldServiceServer) mustEmbedUnimplementedGeomagneticFieldServiceServer() {
+}
+func (UnimplementedGeomagneticFieldServiceServer) testEmbeddedByValue() {}
+
+// UnsafeGeomagneticFieldServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to GeomagneticFieldServiceServer will
+// result in compilation errors.
+type UnsafeGeomagneticFieldServiceServer interface {
+	mustEmbedUnimplementedGeomagneticFieldServiceServer()
+}
+
+func RegisterGeomagneticFieldServiceServer(s grpc.ServiceRegistrar, srv GeomagneticFieldServiceServer) {
+	// If the following call panics, it indicates UnimplementedGeomagneticFieldServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&GeomagneticFieldService_ServiceDesc, srv)
+}
+
+func _GeomagneticFieldService_NewGeomagneticField_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewGeomagneticFieldRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GeomagneticFieldServiceServer).NewGeomagneticField(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: GeomagneticFieldService_NewGeomagneticField_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GeomagneticFieldServiceServer).NewGeomagneticField(ctx, req.(*NewGeomagneticFieldRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _GeomagneticFieldService_GetDeclination_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetDeclinationRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GeomagneticFieldServiceServer).GetDeclination(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: GeomagneticFieldService_GetDeclination_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GeomagneticFieldServiceServer).GetDeclination(ctx, req.(*GetDeclinationRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _GeomagneticFieldService_GetFieldStrength_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetFieldStrengthRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GeomagneticFieldServiceServer).GetFieldStrength(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: GeomagneticFieldService_GetFieldStrength_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GeomagneticFieldServiceServer).GetFieldStrength(ctx, req.(*GetFieldStrengthRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _GeomagneticFieldService_GetHorizontalStrength_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetHorizontalStrengthRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GeomagneticFieldServiceServer).GetHorizontalStrength(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: GeomagneticFieldService_GetHorizontalStrength_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GeomagneticFieldServiceServer).GetHorizontalStrength(ctx, req.(*GetHorizontalStrengthRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _GeomagneticFieldService_GetInclination_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetInclinationRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GeomagneticFieldServiceServer).GetInclination(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: GeomagneticFieldService_GetInclination_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GeomagneticFieldServiceServer).GetInclination(ctx, req.(*GetInclinationRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _GeomagneticFieldService_GetX_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetXRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GeomagneticFieldServiceServer).GetX(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: GeomagneticFieldService_GetX_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GeomagneticFieldServiceServer).GetX(ctx, req.(*GetXRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _GeomagneticFieldService_GetY_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetYRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GeomagneticFieldServiceServer).GetY(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: GeomagneticFieldService_GetY_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GeomagneticFieldServiceServer).GetY(ctx, req.(*GetYRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _GeomagneticFieldService_GetZ_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetZRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GeomagneticFieldServiceServer).GetZ(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: GeomagneticFieldService_GetZ_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GeomagneticFieldServiceServer).GetZ(ctx, req.(*GetZRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// GeomagneticFieldService_ServiceDesc is the grpc.ServiceDesc for GeomagneticFieldService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var GeomagneticFieldService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "hardware.GeomagneticFieldService",
+	HandlerType: (*GeomagneticFieldServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewGeomagneticField",
+			Handler:    _GeomagneticFieldService_NewGeomagneticField_Handler,
+		},
+		{
+			MethodName: "GetDeclination",
+			Handler:    _GeomagneticFieldService_GetDeclination_Handler,
+		},
+		{
+			MethodName: "GetFieldStrength",
+			Handler:    _GeomagneticFieldService_GetFieldStrength_Handler,
+		},
+		{
+			MethodName: "GetHorizontalStrength",
+			Handler:    _GeomagneticFieldService_GetHorizontalStrength_Handler,
+		},
+		{
+			MethodName: "GetInclination",
+			Handler:    _GeomagneticFieldService_GetInclination_Handler,
+		},
+		{
+			MethodName: "GetX",
+			Handler:    _GeomagneticFieldService_GetX_Handler,
+		},
+		{
+			MethodName: "GetY",
+			Handler:    _GeomagneticFieldService_GetY_Handler,
+		},
+		{
+			MethodName: "GetZ",
+			Handler:    _GeomagneticFieldService_GetZ_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/hardware/hardware.proto",
+}
+
+const (
+	SensorManagerService_CancelTriggerSensor_FullMethodName               = "/hardware.SensorManagerService/CancelTriggerSensor"
+	SensorManagerService_CreateDirectChannel1_FullMethodName              = "/hardware.SensorManagerService/CreateDirectChannel1"
+	SensorManagerService_CreateDirectChannel1_1_FullMethodName            = "/hardware.SensorManagerService/CreateDirectChannel1_1"
+	SensorManagerService_Flush_FullMethodName                             = "/hardware.SensorManagerService/Flush"
+	SensorManagerService_GetDefaultSensor1_FullMethodName                 = "/hardware.SensorManagerService/GetDefaultSensor1"
+	SensorManagerService_GetDefaultSensor2_1_FullMethodName               = "/hardware.SensorManagerService/GetDefaultSensor2_1"
+	SensorManagerService_GetDynamicSensorList_FullMethodName              = "/hardware.SensorManagerService/GetDynamicSensorList"
+	SensorManagerService_GetSensorList_FullMethodName                     = "/hardware.SensorManagerService/GetSensorList"
+	SensorManagerService_GetSensors_FullMethodName                        = "/hardware.SensorManagerService/GetSensors"
+	SensorManagerService_IsDynamicSensorDiscoverySupported_FullMethodName = "/hardware.SensorManagerService/IsDynamicSensorDiscoverySupported"
+	SensorManagerService_RegisterDynamicSensorCallback_FullMethodName     = "/hardware.SensorManagerService/RegisterDynamicSensorCallback"
+	SensorManagerService_RegisterListener3_FullMethodName                 = "/hardware.SensorManagerService/RegisterListener3"
+	SensorManagerService_RegisterListener4_1_FullMethodName               = "/hardware.SensorManagerService/RegisterListener4_1"
+	SensorManagerService_RegisterListener2_2_FullMethodName               = "/hardware.SensorManagerService/RegisterListener2_2"
+	SensorManagerService_RegisterListener3_3_FullMethodName               = "/hardware.SensorManagerService/RegisterListener3_3"
+	SensorManagerService_RequestTriggerSensor_FullMethodName              = "/hardware.SensorManagerService/RequestTriggerSensor"
+	SensorManagerService_UnregisterDynamicSensorCallback_FullMethodName   = "/hardware.SensorManagerService/UnregisterDynamicSensorCallback"
+	SensorManagerService_UnregisterListener1_FullMethodName               = "/hardware.SensorManagerService/UnregisterListener1"
+	SensorManagerService_UnregisterListener2_1_FullMethodName             = "/hardware.SensorManagerService/UnregisterListener2_1"
+	SensorManagerService_UnregisterListener1_2_FullMethodName             = "/hardware.SensorManagerService/UnregisterListener1_2"
+	SensorManagerService_UnregisterListener2_3_FullMethodName             = "/hardware.SensorManagerService/UnregisterListener2_3"
+	SensorManagerService_GetAltitude_FullMethodName                       = "/hardware.SensorManagerService/GetAltitude"
+	SensorManagerService_GetAngleChange_FullMethodName                    = "/hardware.SensorManagerService/GetAngleChange"
+	SensorManagerService_GetInclination_FullMethodName                    = "/hardware.SensorManagerService/GetInclination"
+	SensorManagerService_GetOrientation_FullMethodName                    = "/hardware.SensorManagerService/GetOrientation"
+	SensorManagerService_GetQuaternionFromVector_FullMethodName           = "/hardware.SensorManagerService/GetQuaternionFromVector"
+	SensorManagerService_GetRotationMatrix_FullMethodName                 = "/hardware.SensorManagerService/GetRotationMatrix"
+	SensorManagerService_GetRotationMatrixFromVector_FullMethodName       = "/hardware.SensorManagerService/GetRotationMatrixFromVector"
+	SensorManagerService_RemapCoordinateSystem_FullMethodName             = "/hardware.SensorManagerService/RemapCoordinateSystem"
+)
+
+// SensorManagerServiceClient is the client API for SensorManagerService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type SensorManagerServiceClient interface {
+	CancelTriggerSensor(ctx context.Context, in *CancelTriggerSensorRequest, opts ...grpc.CallOption) (*CancelTriggerSensorResponse, error)
+	CreateDirectChannel1(ctx context.Context, in *CreateDirectChannel1Request, opts ...grpc.CallOption) (*CreateDirectChannel1Response, error)
+	CreateDirectChannel1_1(ctx context.Context, in *CreateDirectChannel1_1Request, opts ...grpc.CallOption) (*CreateDirectChannel1_1Response, error)
+	Flush(ctx context.Context, in *FlushRequest, opts ...grpc.CallOption) (*FlushResponse, error)
+	GetDefaultSensor1(ctx context.Context, in *GetDefaultSensor1Request, opts ...grpc.CallOption) (*GetDefaultSensor1Response, error)
+	GetDefaultSensor2_1(ctx context.Context, in *GetDefaultSensor2_1Request, opts ...grpc.CallOption) (*GetDefaultSensor2_1Response, error)
+	GetDynamicSensorList(ctx context.Context, in *GetDynamicSensorListRequest, opts ...grpc.CallOption) (*GetDynamicSensorListResponse, error)
+	GetSensorList(ctx context.Context, in *GetSensorListRequest, opts ...grpc.CallOption) (*GetSensorListResponse, error)
+	GetSensors(ctx context.Context, in *GetSensorsRequest, opts ...grpc.CallOption) (*GetSensorsResponse, error)
+	IsDynamicSensorDiscoverySupported(ctx context.Context, in *IsDynamicSensorDiscoverySupportedRequest, opts ...grpc.CallOption) (*IsDynamicSensorDiscoverySupportedResponse, error)
+	RegisterDynamicSensorCallback(ctx context.Context, in *RegisterDynamicSensorCallbackRequest, opts ...grpc.CallOption) (*RegisterDynamicSensorCallbackResponse, error)
+	RegisterListener3(ctx context.Context, in *RegisterListener3Request, opts ...grpc.CallOption) (*RegisterListener3Response, error)
+	RegisterListener4_1(ctx context.Context, in *RegisterListener4_1Request, opts ...grpc.CallOption) (*RegisterListener4_1Response, error)
+	RegisterListener2_2(ctx context.Context, in *RegisterListener2_2Request, opts ...grpc.CallOption) (*RegisterListener2_2Response, error)
+	RegisterListener3_3(ctx context.Context, in *RegisterListener3_3Request, opts ...grpc.CallOption) (*RegisterListener3_3Response, error)
+	RequestTriggerSensor(ctx context.Context, in *RequestTriggerSensorRequest, opts ...grpc.CallOption) (*RequestTriggerSensorResponse, error)
+	UnregisterDynamicSensorCallback(ctx context.Context, in *UnregisterDynamicSensorCallbackRequest, opts ...grpc.CallOption) (*UnregisterDynamicSensorCallbackResponse, error)
+	UnregisterListener1(ctx context.Context, in *UnregisterListener1Request, opts ...grpc.CallOption) (*UnregisterListener1Response, error)
+	UnregisterListener2_1(ctx context.Context, in *UnregisterListener2_1Request, opts ...grpc.CallOption) (*UnregisterListener2_1Response, error)
+	UnregisterListener1_2(ctx context.Context, in *UnregisterListener1_2Request, opts ...grpc.CallOption) (*UnregisterListener1_2Response, error)
+	UnregisterListener2_3(ctx context.Context, in *UnregisterListener2_3Request, opts ...grpc.CallOption) (*UnregisterListener2_3Response, error)
+	GetAltitude(ctx context.Context, in *GetAltitudeRequest, opts ...grpc.CallOption) (*GetAltitudeResponse, error)
+	GetAngleChange(ctx context.Context, in *GetAngleChangeRequest, opts ...grpc.CallOption) (*GetAngleChangeResponse, error)
+	GetInclination(ctx context.Context, in *SensorManagerGetInclinationRequest, opts ...grpc.CallOption) (*GetInclinationResponse, error)
+	GetOrientation(ctx context.Context, in *GetOrientationRequest, opts ...grpc.CallOption) (*GetOrientationResponse, error)
+	GetQuaternionFromVector(ctx context.Context, in *GetQuaternionFromVectorRequest, opts ...grpc.CallOption) (*GetQuaternionFromVectorResponse, error)
+	GetRotationMatrix(ctx context.Context, in *GetRotationMatrixRequest, opts ...grpc.CallOption) (*GetRotationMatrixResponse, error)
+	GetRotationMatrixFromVector(ctx context.Context, in *GetRotationMatrixFromVectorRequest, opts ...grpc.CallOption) (*GetRotationMatrixFromVectorResponse, error)
+	RemapCoordinateSystem(ctx context.Context, in *RemapCoordinateSystemRequest, opts ...grpc.CallOption) (*RemapCoordinateSystemResponse, error)
+}
+
+type sensorManagerServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewSensorManagerServiceClient(cc grpc.ClientConnInterface) SensorManagerServiceClient {
+	return &sensorManagerServiceClient{cc}
+}
+
+func (c *sensorManagerServiceClient) CancelTriggerSensor(ctx context.Context, in *CancelTriggerSensorRequest, opts ...grpc.CallOption) (*CancelTriggerSensorResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CancelTriggerSensorResponse)
+	err := c.cc.Invoke(ctx, SensorManagerService_CancelTriggerSensor_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sensorManagerServiceClient) CreateDirectChannel1(ctx context.Context, in *CreateDirectChannel1Request, opts ...grpc.CallOption) (*CreateDirectChannel1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CreateDirectChannel1Response)
+	err := c.cc.Invoke(ctx, SensorManagerService_CreateDirectChannel1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sensorManagerServiceClient) CreateDirectChannel1_1(ctx context.Context, in *CreateDirectChannel1_1Request, opts ...grpc.CallOption) (*CreateDirectChannel1_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CreateDirectChannel1_1Response)
+	err := c.cc.Invoke(ctx, SensorManagerService_CreateDirectChannel1_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sensorManagerServiceClient) Flush(ctx context.Context, in *FlushRequest, opts ...grpc.CallOption) (*FlushResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(FlushResponse)
+	err := c.cc.Invoke(ctx, SensorManagerService_Flush_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sensorManagerServiceClient) GetDefaultSensor1(ctx context.Context, in *GetDefaultSensor1Request, opts ...grpc.CallOption) (*GetDefaultSensor1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetDefaultSensor1Response)
+	err := c.cc.Invoke(ctx, SensorManagerService_GetDefaultSensor1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sensorManagerServiceClient) GetDefaultSensor2_1(ctx context.Context, in *GetDefaultSensor2_1Request, opts ...grpc.CallOption) (*GetDefaultSensor2_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetDefaultSensor2_1Response)
+	err := c.cc.Invoke(ctx, SensorManagerService_GetDefaultSensor2_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sensorManagerServiceClient) GetDynamicSensorList(ctx context.Context, in *GetDynamicSensorListRequest, opts ...grpc.CallOption) (*GetDynamicSensorListResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetDynamicSensorListResponse)
+	err := c.cc.Invoke(ctx, SensorManagerService_GetDynamicSensorList_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sensorManagerServiceClient) GetSensorList(ctx context.Context, in *GetSensorListRequest, opts ...grpc.CallOption) (*GetSensorListResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSensorListResponse)
+	err := c.cc.Invoke(ctx, SensorManagerService_GetSensorList_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sensorManagerServiceClient) GetSensors(ctx context.Context, in *GetSensorsRequest, opts ...grpc.CallOption) (*GetSensorsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSensorsResponse)
+	err := c.cc.Invoke(ctx, SensorManagerService_GetSensors_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sensorManagerServiceClient) IsDynamicSensorDiscoverySupported(ctx context.Context, in *IsDynamicSensorDiscoverySupportedRequest, opts ...grpc.CallOption) (*IsDynamicSensorDiscoverySupportedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsDynamicSensorDiscoverySupportedResponse)
+	err := c.cc.Invoke(ctx, SensorManagerService_IsDynamicSensorDiscoverySupported_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sensorManagerServiceClient) RegisterDynamicSensorCallback(ctx context.Context, in *RegisterDynamicSensorCallbackRequest, opts ...grpc.CallOption) (*RegisterDynamicSensorCallbackResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(RegisterDynamicSensorCallbackResponse)
+	err := c.cc.Invoke(ctx, SensorManagerService_RegisterDynamicSensorCallback_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sensorManagerServiceClient) RegisterListener3(ctx context.Context, in *RegisterListener3Request, opts ...grpc.CallOption) (*RegisterListener3Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(RegisterListener3Response)
+	err := c.cc.Invoke(ctx, SensorManagerService_RegisterListener3_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sensorManagerServiceClient) RegisterListener4_1(ctx context.Context, in *RegisterListener4_1Request, opts ...grpc.CallOption) (*RegisterListener4_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(RegisterListener4_1Response)
+	err := c.cc.Invoke(ctx, SensorManagerService_RegisterListener4_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sensorManagerServiceClient) RegisterListener2_2(ctx context.Context, in *RegisterListener2_2Request, opts ...grpc.CallOption) (*RegisterListener2_2Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(RegisterListener2_2Response)
+	err := c.cc.Invoke(ctx, SensorManagerService_RegisterListener2_2_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sensorManagerServiceClient) RegisterListener3_3(ctx context.Context, in *RegisterListener3_3Request, opts ...grpc.CallOption) (*RegisterListener3_3Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(RegisterListener3_3Response)
+	err := c.cc.Invoke(ctx, SensorManagerService_RegisterListener3_3_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sensorManagerServiceClient) RequestTriggerSensor(ctx context.Context, in *RequestTriggerSensorRequest, opts ...grpc.CallOption) (*RequestTriggerSensorResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(RequestTriggerSensorResponse)
+	err := c.cc.Invoke(ctx, SensorManagerService_RequestTriggerSensor_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sensorManagerServiceClient) UnregisterDynamicSensorCallback(ctx context.Context, in *UnregisterDynamicSensorCallbackRequest, opts ...grpc.CallOption) (*UnregisterDynamicSensorCallbackResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(UnregisterDynamicSensorCallbackResponse)
+	err := c.cc.Invoke(ctx, SensorManagerService_UnregisterDynamicSensorCallback_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sensorManagerServiceClient) UnregisterListener1(ctx context.Context, in *UnregisterListener1Request, opts ...grpc.CallOption) (*UnregisterListener1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(UnregisterListener1Response)
+	err := c.cc.Invoke(ctx, SensorManagerService_UnregisterListener1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sensorManagerServiceClient) UnregisterListener2_1(ctx context.Context, in *UnregisterListener2_1Request, opts ...grpc.CallOption) (*UnregisterListener2_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(UnregisterListener2_1Response)
+	err := c.cc.Invoke(ctx, SensorManagerService_UnregisterListener2_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sensorManagerServiceClient) UnregisterListener1_2(ctx context.Context, in *UnregisterListener1_2Request, opts ...grpc.CallOption) (*UnregisterListener1_2Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(UnregisterListener1_2Response)
+	err := c.cc.Invoke(ctx, SensorManagerService_UnregisterListener1_2_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sensorManagerServiceClient) UnregisterListener2_3(ctx context.Context, in *UnregisterListener2_3Request, opts ...grpc.CallOption) (*UnregisterListener2_3Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(UnregisterListener2_3Response)
+	err := c.cc.Invoke(ctx, SensorManagerService_UnregisterListener2_3_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sensorManagerServiceClient) GetAltitude(ctx context.Context, in *GetAltitudeRequest, opts ...grpc.CallOption) (*GetAltitudeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetAltitudeResponse)
+	err := c.cc.Invoke(ctx, SensorManagerService_GetAltitude_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sensorManagerServiceClient) GetAngleChange(ctx context.Context, in *GetAngleChangeRequest, opts ...grpc.CallOption) (*GetAngleChangeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetAngleChangeResponse)
+	err := c.cc.Invoke(ctx, SensorManagerService_GetAngleChange_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sensorManagerServiceClient) GetInclination(ctx context.Context, in *SensorManagerGetInclinationRequest, opts ...grpc.CallOption) (*GetInclinationResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetInclinationResponse)
+	err := c.cc.Invoke(ctx, SensorManagerService_GetInclination_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sensorManagerServiceClient) GetOrientation(ctx context.Context, in *GetOrientationRequest, opts ...grpc.CallOption) (*GetOrientationResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetOrientationResponse)
+	err := c.cc.Invoke(ctx, SensorManagerService_GetOrientation_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sensorManagerServiceClient) GetQuaternionFromVector(ctx context.Context, in *GetQuaternionFromVectorRequest, opts ...grpc.CallOption) (*GetQuaternionFromVectorResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetQuaternionFromVectorResponse)
+	err := c.cc.Invoke(ctx, SensorManagerService_GetQuaternionFromVector_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sensorManagerServiceClient) GetRotationMatrix(ctx context.Context, in *GetRotationMatrixRequest, opts ...grpc.CallOption) (*GetRotationMatrixResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetRotationMatrixResponse)
+	err := c.cc.Invoke(ctx, SensorManagerService_GetRotationMatrix_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sensorManagerServiceClient) GetRotationMatrixFromVector(ctx context.Context, in *GetRotationMatrixFromVectorRequest, opts ...grpc.CallOption) (*GetRotationMatrixFromVectorResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetRotationMatrixFromVectorResponse)
+	err := c.cc.Invoke(ctx, SensorManagerService_GetRotationMatrixFromVector_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sensorManagerServiceClient) RemapCoordinateSystem(ctx context.Context, in *RemapCoordinateSystemRequest, opts ...grpc.CallOption) (*RemapCoordinateSystemResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(RemapCoordinateSystemResponse)
+	err := c.cc.Invoke(ctx, SensorManagerService_RemapCoordinateSystem_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// SensorManagerServiceServer is the server API for SensorManagerService service.
+// All implementations must embed UnimplementedSensorManagerServiceServer
+// for forward compatibility.
+type SensorManagerServiceServer interface {
+	CancelTriggerSensor(context.Context, *CancelTriggerSensorRequest) (*CancelTriggerSensorResponse, error)
+	CreateDirectChannel1(context.Context, *CreateDirectChannel1Request) (*CreateDirectChannel1Response, error)
+	CreateDirectChannel1_1(context.Context, *CreateDirectChannel1_1Request) (*CreateDirectChannel1_1Response, error)
+	Flush(context.Context, *FlushRequest) (*FlushResponse, error)
+	GetDefaultSensor1(context.Context, *GetDefaultSensor1Request) (*GetDefaultSensor1Response, error)
+	GetDefaultSensor2_1(context.Context, *GetDefaultSensor2_1Request) (*GetDefaultSensor2_1Response, error)
+	GetDynamicSensorList(context.Context, *GetDynamicSensorListRequest) (*GetDynamicSensorListResponse, error)
+	GetSensorList(context.Context, *GetSensorListRequest) (*GetSensorListResponse, error)
+	GetSensors(context.Context, *GetSensorsRequest) (*GetSensorsResponse, error)
+	IsDynamicSensorDiscoverySupported(context.Context, *IsDynamicSensorDiscoverySupportedRequest) (*IsDynamicSensorDiscoverySupportedResponse, error)
+	RegisterDynamicSensorCallback(context.Context, *RegisterDynamicSensorCallbackRequest) (*RegisterDynamicSensorCallbackResponse, error)
+	RegisterListener3(context.Context, *RegisterListener3Request) (*RegisterListener3Response, error)
+	RegisterListener4_1(context.Context, *RegisterListener4_1Request) (*RegisterListener4_1Response, error)
+	RegisterListener2_2(context.Context, *RegisterListener2_2Request) (*RegisterListener2_2Response, error)
+	RegisterListener3_3(context.Context, *RegisterListener3_3Request) (*RegisterListener3_3Response, error)
+	RequestTriggerSensor(context.Context, *RequestTriggerSensorRequest) (*RequestTriggerSensorResponse, error)
+	UnregisterDynamicSensorCallback(context.Context, *UnregisterDynamicSensorCallbackRequest) (*UnregisterDynamicSensorCallbackResponse, error)
+	UnregisterListener1(context.Context, *UnregisterListener1Request) (*UnregisterListener1Response, error)
+	UnregisterListener2_1(context.Context, *UnregisterListener2_1Request) (*UnregisterListener2_1Response, error)
+	UnregisterListener1_2(context.Context, *UnregisterListener1_2Request) (*UnregisterListener1_2Response, error)
+	UnregisterListener2_3(context.Context, *UnregisterListener2_3Request) (*UnregisterListener2_3Response, error)
+	GetAltitude(context.Context, *GetAltitudeRequest) (*GetAltitudeResponse, error)
+	GetAngleChange(context.Context, *GetAngleChangeRequest) (*GetAngleChangeResponse, error)
+	GetInclination(context.Context, *SensorManagerGetInclinationRequest) (*GetInclinationResponse, error)
+	GetOrientation(context.Context, *GetOrientationRequest) (*GetOrientationResponse, error)
+	GetQuaternionFromVector(context.Context, *GetQuaternionFromVectorRequest) (*GetQuaternionFromVectorResponse, error)
+	GetRotationMatrix(context.Context, *GetRotationMatrixRequest) (*GetRotationMatrixResponse, error)
+	GetRotationMatrixFromVector(context.Context, *GetRotationMatrixFromVectorRequest) (*GetRotationMatrixFromVectorResponse, error)
+	RemapCoordinateSystem(context.Context, *RemapCoordinateSystemRequest) (*RemapCoordinateSystemResponse, error)
+	mustEmbedUnimplementedSensorManagerServiceServer()
+}
+
+// UnimplementedSensorManagerServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedSensorManagerServiceServer struct{}
+
+func (UnimplementedSensorManagerServiceServer) CancelTriggerSensor(context.Context, *CancelTriggerSensorRequest) (*CancelTriggerSensorResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method CancelTriggerSensor not implemented")
+}
+func (UnimplementedSensorManagerServiceServer) CreateDirectChannel1(context.Context, *CreateDirectChannel1Request) (*CreateDirectChannel1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method CreateDirectChannel1 not implemented")
+}
+func (UnimplementedSensorManagerServiceServer) CreateDirectChannel1_1(context.Context, *CreateDirectChannel1_1Request) (*CreateDirectChannel1_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method CreateDirectChannel1_1 not implemented")
+}
+func (UnimplementedSensorManagerServiceServer) Flush(context.Context, *FlushRequest) (*FlushResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Flush not implemented")
+}
+func (UnimplementedSensorManagerServiceServer) GetDefaultSensor1(context.Context, *GetDefaultSensor1Request) (*GetDefaultSensor1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetDefaultSensor1 not implemented")
+}
+func (UnimplementedSensorManagerServiceServer) GetDefaultSensor2_1(context.Context, *GetDefaultSensor2_1Request) (*GetDefaultSensor2_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetDefaultSensor2_1 not implemented")
+}
+func (UnimplementedSensorManagerServiceServer) GetDynamicSensorList(context.Context, *GetDynamicSensorListRequest) (*GetDynamicSensorListResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetDynamicSensorList not implemented")
+}
+func (UnimplementedSensorManagerServiceServer) GetSensorList(context.Context, *GetSensorListRequest) (*GetSensorListResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSensorList not implemented")
+}
+func (UnimplementedSensorManagerServiceServer) GetSensors(context.Context, *GetSensorsRequest) (*GetSensorsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSensors not implemented")
+}
+func (UnimplementedSensorManagerServiceServer) IsDynamicSensorDiscoverySupported(context.Context, *IsDynamicSensorDiscoverySupportedRequest) (*IsDynamicSensorDiscoverySupportedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsDynamicSensorDiscoverySupported not implemented")
+}
+func (UnimplementedSensorManagerServiceServer) RegisterDynamicSensorCallback(context.Context, *RegisterDynamicSensorCallbackRequest) (*RegisterDynamicSensorCallbackResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method RegisterDynamicSensorCallback not implemented")
+}
+func (UnimplementedSensorManagerServiceServer) RegisterListener3(context.Context, *RegisterListener3Request) (*RegisterListener3Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method RegisterListener3 not implemented")
+}
+func (UnimplementedSensorManagerServiceServer) RegisterListener4_1(context.Context, *RegisterListener4_1Request) (*RegisterListener4_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method RegisterListener4_1 not implemented")
+}
+func (UnimplementedSensorManagerServiceServer) RegisterListener2_2(context.Context, *RegisterListener2_2Request) (*RegisterListener2_2Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method RegisterListener2_2 not implemented")
+}
+func (UnimplementedSensorManagerServiceServer) RegisterListener3_3(context.Context, *RegisterListener3_3Request) (*RegisterListener3_3Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method RegisterListener3_3 not implemented")
+}
+func (UnimplementedSensorManagerServiceServer) RequestTriggerSensor(context.Context, *RequestTriggerSensorRequest) (*RequestTriggerSensorResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method RequestTriggerSensor not implemented")
+}
+func (UnimplementedSensorManagerServiceServer) UnregisterDynamicSensorCallback(context.Context, *UnregisterDynamicSensorCallbackRequest) (*UnregisterDynamicSensorCallbackResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method UnregisterDynamicSensorCallback not implemented")
+}
+func (UnimplementedSensorManagerServiceServer) UnregisterListener1(context.Context, *UnregisterListener1Request) (*UnregisterListener1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method UnregisterListener1 not implemented")
+}
+func (UnimplementedSensorManagerServiceServer) UnregisterListener2_1(context.Context, *UnregisterListener2_1Request) (*UnregisterListener2_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method UnregisterListener2_1 not implemented")
+}
+func (UnimplementedSensorManagerServiceServer) UnregisterListener1_2(context.Context, *UnregisterListener1_2Request) (*UnregisterListener1_2Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method UnregisterListener1_2 not implemented")
+}
+func (UnimplementedSensorManagerServiceServer) UnregisterListener2_3(context.Context, *UnregisterListener2_3Request) (*UnregisterListener2_3Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method UnregisterListener2_3 not implemented")
+}
+func (UnimplementedSensorManagerServiceServer) GetAltitude(context.Context, *GetAltitudeRequest) (*GetAltitudeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetAltitude not implemented")
+}
+func (UnimplementedSensorManagerServiceServer) GetAngleChange(context.Context, *GetAngleChangeRequest) (*GetAngleChangeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetAngleChange not implemented")
+}
+func (UnimplementedSensorManagerServiceServer) GetInclination(context.Context, *SensorManagerGetInclinationRequest) (*GetInclinationResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetInclination not implemented")
+}
+func (UnimplementedSensorManagerServiceServer) GetOrientation(context.Context, *GetOrientationRequest) (*GetOrientationResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetOrientation not implemented")
+}
+func (UnimplementedSensorManagerServiceServer) GetQuaternionFromVector(context.Context, *GetQuaternionFromVectorRequest) (*GetQuaternionFromVectorResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetQuaternionFromVector not implemented")
+}
+func (UnimplementedSensorManagerServiceServer) GetRotationMatrix(context.Context, *GetRotationMatrixRequest) (*GetRotationMatrixResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetRotationMatrix not implemented")
+}
+func (UnimplementedSensorManagerServiceServer) GetRotationMatrixFromVector(context.Context, *GetRotationMatrixFromVectorRequest) (*GetRotationMatrixFromVectorResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetRotationMatrixFromVector not implemented")
+}
+func (UnimplementedSensorManagerServiceServer) RemapCoordinateSystem(context.Context, *RemapCoordinateSystemRequest) (*RemapCoordinateSystemResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method RemapCoordinateSystem not implemented")
+}
+func (UnimplementedSensorManagerServiceServer) mustEmbedUnimplementedSensorManagerServiceServer() {}
+func (UnimplementedSensorManagerServiceServer) testEmbeddedByValue()                              {}
+
+// UnsafeSensorManagerServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to SensorManagerServiceServer will
+// result in compilation errors.
+type UnsafeSensorManagerServiceServer interface {
+	mustEmbedUnimplementedSensorManagerServiceServer()
+}
+
+func RegisterSensorManagerServiceServer(s grpc.ServiceRegistrar, srv SensorManagerServiceServer) {
+	// If the following call panics, it indicates UnimplementedSensorManagerServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&SensorManagerService_ServiceDesc, srv)
+}
+
+func _SensorManagerService_CancelTriggerSensor_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CancelTriggerSensorRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SensorManagerServiceServer).CancelTriggerSensor(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SensorManagerService_CancelTriggerSensor_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SensorManagerServiceServer).CancelTriggerSensor(ctx, req.(*CancelTriggerSensorRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SensorManagerService_CreateDirectChannel1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreateDirectChannel1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SensorManagerServiceServer).CreateDirectChannel1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SensorManagerService_CreateDirectChannel1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SensorManagerServiceServer).CreateDirectChannel1(ctx, req.(*CreateDirectChannel1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SensorManagerService_CreateDirectChannel1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreateDirectChannel1_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SensorManagerServiceServer).CreateDirectChannel1_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SensorManagerService_CreateDirectChannel1_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SensorManagerServiceServer).CreateDirectChannel1_1(ctx, req.(*CreateDirectChannel1_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SensorManagerService_Flush_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(FlushRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SensorManagerServiceServer).Flush(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SensorManagerService_Flush_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SensorManagerServiceServer).Flush(ctx, req.(*FlushRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SensorManagerService_GetDefaultSensor1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetDefaultSensor1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SensorManagerServiceServer).GetDefaultSensor1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SensorManagerService_GetDefaultSensor1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SensorManagerServiceServer).GetDefaultSensor1(ctx, req.(*GetDefaultSensor1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SensorManagerService_GetDefaultSensor2_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetDefaultSensor2_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SensorManagerServiceServer).GetDefaultSensor2_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SensorManagerService_GetDefaultSensor2_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SensorManagerServiceServer).GetDefaultSensor2_1(ctx, req.(*GetDefaultSensor2_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SensorManagerService_GetDynamicSensorList_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetDynamicSensorListRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SensorManagerServiceServer).GetDynamicSensorList(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SensorManagerService_GetDynamicSensorList_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SensorManagerServiceServer).GetDynamicSensorList(ctx, req.(*GetDynamicSensorListRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SensorManagerService_GetSensorList_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSensorListRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SensorManagerServiceServer).GetSensorList(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SensorManagerService_GetSensorList_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SensorManagerServiceServer).GetSensorList(ctx, req.(*GetSensorListRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SensorManagerService_GetSensors_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSensorsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SensorManagerServiceServer).GetSensors(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SensorManagerService_GetSensors_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SensorManagerServiceServer).GetSensors(ctx, req.(*GetSensorsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SensorManagerService_IsDynamicSensorDiscoverySupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsDynamicSensorDiscoverySupportedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SensorManagerServiceServer).IsDynamicSensorDiscoverySupported(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SensorManagerService_IsDynamicSensorDiscoverySupported_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SensorManagerServiceServer).IsDynamicSensorDiscoverySupported(ctx, req.(*IsDynamicSensorDiscoverySupportedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SensorManagerService_RegisterDynamicSensorCallback_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RegisterDynamicSensorCallbackRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SensorManagerServiceServer).RegisterDynamicSensorCallback(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SensorManagerService_RegisterDynamicSensorCallback_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SensorManagerServiceServer).RegisterDynamicSensorCallback(ctx, req.(*RegisterDynamicSensorCallbackRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SensorManagerService_RegisterListener3_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RegisterListener3Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SensorManagerServiceServer).RegisterListener3(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SensorManagerService_RegisterListener3_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SensorManagerServiceServer).RegisterListener3(ctx, req.(*RegisterListener3Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SensorManagerService_RegisterListener4_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RegisterListener4_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SensorManagerServiceServer).RegisterListener4_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SensorManagerService_RegisterListener4_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SensorManagerServiceServer).RegisterListener4_1(ctx, req.(*RegisterListener4_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SensorManagerService_RegisterListener2_2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RegisterListener2_2Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SensorManagerServiceServer).RegisterListener2_2(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SensorManagerService_RegisterListener2_2_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SensorManagerServiceServer).RegisterListener2_2(ctx, req.(*RegisterListener2_2Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SensorManagerService_RegisterListener3_3_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RegisterListener3_3Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SensorManagerServiceServer).RegisterListener3_3(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SensorManagerService_RegisterListener3_3_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SensorManagerServiceServer).RegisterListener3_3(ctx, req.(*RegisterListener3_3Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SensorManagerService_RequestTriggerSensor_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RequestTriggerSensorRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SensorManagerServiceServer).RequestTriggerSensor(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SensorManagerService_RequestTriggerSensor_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SensorManagerServiceServer).RequestTriggerSensor(ctx, req.(*RequestTriggerSensorRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SensorManagerService_UnregisterDynamicSensorCallback_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UnregisterDynamicSensorCallbackRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SensorManagerServiceServer).UnregisterDynamicSensorCallback(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SensorManagerService_UnregisterDynamicSensorCallback_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SensorManagerServiceServer).UnregisterDynamicSensorCallback(ctx, req.(*UnregisterDynamicSensorCallbackRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SensorManagerService_UnregisterListener1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UnregisterListener1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SensorManagerServiceServer).UnregisterListener1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SensorManagerService_UnregisterListener1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SensorManagerServiceServer).UnregisterListener1(ctx, req.(*UnregisterListener1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SensorManagerService_UnregisterListener2_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UnregisterListener2_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SensorManagerServiceServer).UnregisterListener2_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SensorManagerService_UnregisterListener2_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SensorManagerServiceServer).UnregisterListener2_1(ctx, req.(*UnregisterListener2_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SensorManagerService_UnregisterListener1_2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UnregisterListener1_2Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SensorManagerServiceServer).UnregisterListener1_2(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SensorManagerService_UnregisterListener1_2_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SensorManagerServiceServer).UnregisterListener1_2(ctx, req.(*UnregisterListener1_2Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SensorManagerService_UnregisterListener2_3_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UnregisterListener2_3Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SensorManagerServiceServer).UnregisterListener2_3(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SensorManagerService_UnregisterListener2_3_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SensorManagerServiceServer).UnregisterListener2_3(ctx, req.(*UnregisterListener2_3Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SensorManagerService_GetAltitude_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetAltitudeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SensorManagerServiceServer).GetAltitude(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SensorManagerService_GetAltitude_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SensorManagerServiceServer).GetAltitude(ctx, req.(*GetAltitudeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SensorManagerService_GetAngleChange_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetAngleChangeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SensorManagerServiceServer).GetAngleChange(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SensorManagerService_GetAngleChange_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SensorManagerServiceServer).GetAngleChange(ctx, req.(*GetAngleChangeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SensorManagerService_GetInclination_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SensorManagerGetInclinationRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SensorManagerServiceServer).GetInclination(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SensorManagerService_GetInclination_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SensorManagerServiceServer).GetInclination(ctx, req.(*SensorManagerGetInclinationRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SensorManagerService_GetOrientation_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetOrientationRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SensorManagerServiceServer).GetOrientation(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SensorManagerService_GetOrientation_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SensorManagerServiceServer).GetOrientation(ctx, req.(*GetOrientationRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SensorManagerService_GetQuaternionFromVector_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetQuaternionFromVectorRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SensorManagerServiceServer).GetQuaternionFromVector(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SensorManagerService_GetQuaternionFromVector_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SensorManagerServiceServer).GetQuaternionFromVector(ctx, req.(*GetQuaternionFromVectorRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SensorManagerService_GetRotationMatrix_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetRotationMatrixRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SensorManagerServiceServer).GetRotationMatrix(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SensorManagerService_GetRotationMatrix_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SensorManagerServiceServer).GetRotationMatrix(ctx, req.(*GetRotationMatrixRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SensorManagerService_GetRotationMatrixFromVector_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetRotationMatrixFromVectorRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SensorManagerServiceServer).GetRotationMatrixFromVector(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SensorManagerService_GetRotationMatrixFromVector_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SensorManagerServiceServer).GetRotationMatrixFromVector(ctx, req.(*GetRotationMatrixFromVectorRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SensorManagerService_RemapCoordinateSystem_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RemapCoordinateSystemRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SensorManagerServiceServer).RemapCoordinateSystem(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SensorManagerService_RemapCoordinateSystem_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SensorManagerServiceServer).RemapCoordinateSystem(ctx, req.(*RemapCoordinateSystemRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// SensorManagerService_ServiceDesc is the grpc.ServiceDesc for SensorManagerService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var SensorManagerService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "hardware.SensorManagerService",
+	HandlerType: (*SensorManagerServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "CancelTriggerSensor",
+			Handler:    _SensorManagerService_CancelTriggerSensor_Handler,
+		},
+		{
+			MethodName: "CreateDirectChannel1",
+			Handler:    _SensorManagerService_CreateDirectChannel1_Handler,
+		},
+		{
+			MethodName: "CreateDirectChannel1_1",
+			Handler:    _SensorManagerService_CreateDirectChannel1_1_Handler,
+		},
+		{
+			MethodName: "Flush",
+			Handler:    _SensorManagerService_Flush_Handler,
+		},
+		{
+			MethodName: "GetDefaultSensor1",
+			Handler:    _SensorManagerService_GetDefaultSensor1_Handler,
+		},
+		{
+			MethodName: "GetDefaultSensor2_1",
+			Handler:    _SensorManagerService_GetDefaultSensor2_1_Handler,
+		},
+		{
+			MethodName: "GetDynamicSensorList",
+			Handler:    _SensorManagerService_GetDynamicSensorList_Handler,
+		},
+		{
+			MethodName: "GetSensorList",
+			Handler:    _SensorManagerService_GetSensorList_Handler,
+		},
+		{
+			MethodName: "GetSensors",
+			Handler:    _SensorManagerService_GetSensors_Handler,
+		},
+		{
+			MethodName: "IsDynamicSensorDiscoverySupported",
+			Handler:    _SensorManagerService_IsDynamicSensorDiscoverySupported_Handler,
+		},
+		{
+			MethodName: "RegisterDynamicSensorCallback",
+			Handler:    _SensorManagerService_RegisterDynamicSensorCallback_Handler,
+		},
+		{
+			MethodName: "RegisterListener3",
+			Handler:    _SensorManagerService_RegisterListener3_Handler,
+		},
+		{
+			MethodName: "RegisterListener4_1",
+			Handler:    _SensorManagerService_RegisterListener4_1_Handler,
+		},
+		{
+			MethodName: "RegisterListener2_2",
+			Handler:    _SensorManagerService_RegisterListener2_2_Handler,
+		},
+		{
+			MethodName: "RegisterListener3_3",
+			Handler:    _SensorManagerService_RegisterListener3_3_Handler,
+		},
+		{
+			MethodName: "RequestTriggerSensor",
+			Handler:    _SensorManagerService_RequestTriggerSensor_Handler,
+		},
+		{
+			MethodName: "UnregisterDynamicSensorCallback",
+			Handler:    _SensorManagerService_UnregisterDynamicSensorCallback_Handler,
+		},
+		{
+			MethodName: "UnregisterListener1",
+			Handler:    _SensorManagerService_UnregisterListener1_Handler,
+		},
+		{
+			MethodName: "UnregisterListener2_1",
+			Handler:    _SensorManagerService_UnregisterListener2_1_Handler,
+		},
+		{
+			MethodName: "UnregisterListener1_2",
+			Handler:    _SensorManagerService_UnregisterListener1_2_Handler,
+		},
+		{
+			MethodName: "UnregisterListener2_3",
+			Handler:    _SensorManagerService_UnregisterListener2_3_Handler,
+		},
+		{
+			MethodName: "GetAltitude",
+			Handler:    _SensorManagerService_GetAltitude_Handler,
+		},
+		{
+			MethodName: "GetAngleChange",
+			Handler:    _SensorManagerService_GetAngleChange_Handler,
+		},
+		{
+			MethodName: "GetInclination",
+			Handler:    _SensorManagerService_GetInclination_Handler,
+		},
+		{
+			MethodName: "GetOrientation",
+			Handler:    _SensorManagerService_GetOrientation_Handler,
+		},
+		{
+			MethodName: "GetQuaternionFromVector",
+			Handler:    _SensorManagerService_GetQuaternionFromVector_Handler,
+		},
+		{
+			MethodName: "GetRotationMatrix",
+			Handler:    _SensorManagerService_GetRotationMatrix_Handler,
+		},
+		{
+			MethodName: "GetRotationMatrixFromVector",
+			Handler:    _SensorManagerService_GetRotationMatrixFromVector_Handler,
+		},
+		{
+			MethodName: "RemapCoordinateSystem",
+			Handler:    _SensorManagerService_RemapCoordinateSystem_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/hardware/hardware.proto",
+}
+
+const (
+	SensorManagerDynamicSensorCallbackService_OnDynamicSensorConnected_FullMethodName    = "/hardware.SensorManagerDynamicSensorCallbackService/OnDynamicSensorConnected"
+	SensorManagerDynamicSensorCallbackService_OnDynamicSensorDisconnected_FullMethodName = "/hardware.SensorManagerDynamicSensorCallbackService/OnDynamicSensorDisconnected"
+)
+
+// SensorManagerDynamicSensorCallbackServiceClient is the client API for SensorManagerDynamicSensorCallbackService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type SensorManagerDynamicSensorCallbackServiceClient interface {
+	OnDynamicSensorConnected(ctx context.Context, in *OnDynamicSensorConnectedRequest, opts ...grpc.CallOption) (*OnDynamicSensorConnectedResponse, error)
+	OnDynamicSensorDisconnected(ctx context.Context, in *OnDynamicSensorDisconnectedRequest, opts ...grpc.CallOption) (*OnDynamicSensorDisconnectedResponse, error)
+}
+
+type sensorManagerDynamicSensorCallbackServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewSensorManagerDynamicSensorCallbackServiceClient(cc grpc.ClientConnInterface) SensorManagerDynamicSensorCallbackServiceClient {
+	return &sensorManagerDynamicSensorCallbackServiceClient{cc}
+}
+
+func (c *sensorManagerDynamicSensorCallbackServiceClient) OnDynamicSensorConnected(ctx context.Context, in *OnDynamicSensorConnectedRequest, opts ...grpc.CallOption) (*OnDynamicSensorConnectedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnDynamicSensorConnectedResponse)
+	err := c.cc.Invoke(ctx, SensorManagerDynamicSensorCallbackService_OnDynamicSensorConnected_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sensorManagerDynamicSensorCallbackServiceClient) OnDynamicSensorDisconnected(ctx context.Context, in *OnDynamicSensorDisconnectedRequest, opts ...grpc.CallOption) (*OnDynamicSensorDisconnectedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnDynamicSensorDisconnectedResponse)
+	err := c.cc.Invoke(ctx, SensorManagerDynamicSensorCallbackService_OnDynamicSensorDisconnected_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// SensorManagerDynamicSensorCallbackServiceServer is the server API for SensorManagerDynamicSensorCallbackService service.
+// All implementations must embed UnimplementedSensorManagerDynamicSensorCallbackServiceServer
+// for forward compatibility.
+type SensorManagerDynamicSensorCallbackServiceServer interface {
+	OnDynamicSensorConnected(context.Context, *OnDynamicSensorConnectedRequest) (*OnDynamicSensorConnectedResponse, error)
+	OnDynamicSensorDisconnected(context.Context, *OnDynamicSensorDisconnectedRequest) (*OnDynamicSensorDisconnectedResponse, error)
+	mustEmbedUnimplementedSensorManagerDynamicSensorCallbackServiceServer()
+}
+
+// UnimplementedSensorManagerDynamicSensorCallbackServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedSensorManagerDynamicSensorCallbackServiceServer struct{}
+
+func (UnimplementedSensorManagerDynamicSensorCallbackServiceServer) OnDynamicSensorConnected(context.Context, *OnDynamicSensorConnectedRequest) (*OnDynamicSensorConnectedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnDynamicSensorConnected not implemented")
+}
+func (UnimplementedSensorManagerDynamicSensorCallbackServiceServer) OnDynamicSensorDisconnected(context.Context, *OnDynamicSensorDisconnectedRequest) (*OnDynamicSensorDisconnectedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnDynamicSensorDisconnected not implemented")
+}
+func (UnimplementedSensorManagerDynamicSensorCallbackServiceServer) mustEmbedUnimplementedSensorManagerDynamicSensorCallbackServiceServer() {
+}
+func (UnimplementedSensorManagerDynamicSensorCallbackServiceServer) testEmbeddedByValue() {}
+
+// UnsafeSensorManagerDynamicSensorCallbackServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to SensorManagerDynamicSensorCallbackServiceServer will
+// result in compilation errors.
+type UnsafeSensorManagerDynamicSensorCallbackServiceServer interface {
+	mustEmbedUnimplementedSensorManagerDynamicSensorCallbackServiceServer()
+}
+
+func RegisterSensorManagerDynamicSensorCallbackServiceServer(s grpc.ServiceRegistrar, srv SensorManagerDynamicSensorCallbackServiceServer) {
+	// If the following call panics, it indicates UnimplementedSensorManagerDynamicSensorCallbackServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&SensorManagerDynamicSensorCallbackService_ServiceDesc, srv)
+}
+
+func _SensorManagerDynamicSensorCallbackService_OnDynamicSensorConnected_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnDynamicSensorConnectedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SensorManagerDynamicSensorCallbackServiceServer).OnDynamicSensorConnected(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SensorManagerDynamicSensorCallbackService_OnDynamicSensorConnected_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SensorManagerDynamicSensorCallbackServiceServer).OnDynamicSensorConnected(ctx, req.(*OnDynamicSensorConnectedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SensorManagerDynamicSensorCallbackService_OnDynamicSensorDisconnected_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnDynamicSensorDisconnectedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SensorManagerDynamicSensorCallbackServiceServer).OnDynamicSensorDisconnected(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SensorManagerDynamicSensorCallbackService_OnDynamicSensorDisconnected_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SensorManagerDynamicSensorCallbackServiceServer).OnDynamicSensorDisconnected(ctx, req.(*OnDynamicSensorDisconnectedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// SensorManagerDynamicSensorCallbackService_ServiceDesc is the grpc.ServiceDesc for SensorManagerDynamicSensorCallbackService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var SensorManagerDynamicSensorCallbackService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "hardware.SensorManagerDynamicSensorCallbackService",
+	HandlerType: (*SensorManagerDynamicSensorCallbackServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "OnDynamicSensorConnected",
+			Handler:    _SensorManagerDynamicSensorCallbackService_OnDynamicSensorConnected_Handler,
+		},
+		{
+			MethodName: "OnDynamicSensorDisconnected",
+			Handler:    _SensorManagerDynamicSensorCallbackService_OnDynamicSensorDisconnected_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/hardware/hardware.proto",
+}
+
+const (
+	BatteryStateService_GetCapacity_FullMethodName = "/hardware.BatteryStateService/GetCapacity"
+	BatteryStateService_GetStatus_FullMethodName   = "/hardware.BatteryStateService/GetStatus"
+	BatteryStateService_IsPresent_FullMethodName   = "/hardware.BatteryStateService/IsPresent"
+)
+
+// BatteryStateServiceClient is the client API for BatteryStateService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type BatteryStateServiceClient interface {
+	GetCapacity(ctx context.Context, in *GetCapacityRequest, opts ...grpc.CallOption) (*GetCapacityResponse, error)
+	GetStatus(ctx context.Context, in *GetStatusRequest, opts ...grpc.CallOption) (*GetStatusResponse, error)
+	IsPresent(ctx context.Context, in *IsPresentRequest, opts ...grpc.CallOption) (*IsPresentResponse, error)
+}
+
+type batteryStateServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewBatteryStateServiceClient(cc grpc.ClientConnInterface) BatteryStateServiceClient {
+	return &batteryStateServiceClient{cc}
+}
+
+func (c *batteryStateServiceClient) GetCapacity(ctx context.Context, in *GetCapacityRequest, opts ...grpc.CallOption) (*GetCapacityResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetCapacityResponse)
+	err := c.cc.Invoke(ctx, BatteryStateService_GetCapacity_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *batteryStateServiceClient) GetStatus(ctx context.Context, in *GetStatusRequest, opts ...grpc.CallOption) (*GetStatusResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetStatusResponse)
+	err := c.cc.Invoke(ctx, BatteryStateService_GetStatus_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *batteryStateServiceClient) IsPresent(ctx context.Context, in *IsPresentRequest, opts ...grpc.CallOption) (*IsPresentResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsPresentResponse)
+	err := c.cc.Invoke(ctx, BatteryStateService_IsPresent_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// BatteryStateServiceServer is the server API for BatteryStateService service.
+// All implementations must embed UnimplementedBatteryStateServiceServer
+// for forward compatibility.
+type BatteryStateServiceServer interface {
+	GetCapacity(context.Context, *GetCapacityRequest) (*GetCapacityResponse, error)
+	GetStatus(context.Context, *GetStatusRequest) (*GetStatusResponse, error)
+	IsPresent(context.Context, *IsPresentRequest) (*IsPresentResponse, error)
+	mustEmbedUnimplementedBatteryStateServiceServer()
+}
+
+// UnimplementedBatteryStateServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedBatteryStateServiceServer struct{}
+
+func (UnimplementedBatteryStateServiceServer) GetCapacity(context.Context, *GetCapacityRequest) (*GetCapacityResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetCapacity not implemented")
+}
+func (UnimplementedBatteryStateServiceServer) GetStatus(context.Context, *GetStatusRequest) (*GetStatusResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetStatus not implemented")
+}
+func (UnimplementedBatteryStateServiceServer) IsPresent(context.Context, *IsPresentRequest) (*IsPresentResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsPresent not implemented")
+}
+func (UnimplementedBatteryStateServiceServer) mustEmbedUnimplementedBatteryStateServiceServer() {}
+func (UnimplementedBatteryStateServiceServer) testEmbeddedByValue()                             {}
+
+// UnsafeBatteryStateServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to BatteryStateServiceServer will
+// result in compilation errors.
+type UnsafeBatteryStateServiceServer interface {
+	mustEmbedUnimplementedBatteryStateServiceServer()
+}
+
+func RegisterBatteryStateServiceServer(s grpc.ServiceRegistrar, srv BatteryStateServiceServer) {
+	// If the following call panics, it indicates UnimplementedBatteryStateServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&BatteryStateService_ServiceDesc, srv)
+}
+
+func _BatteryStateService_GetCapacity_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetCapacityRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(BatteryStateServiceServer).GetCapacity(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: BatteryStateService_GetCapacity_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(BatteryStateServiceServer).GetCapacity(ctx, req.(*GetCapacityRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _BatteryStateService_GetStatus_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetStatusRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(BatteryStateServiceServer).GetStatus(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: BatteryStateService_GetStatus_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(BatteryStateServiceServer).GetStatus(ctx, req.(*GetStatusRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _BatteryStateService_IsPresent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsPresentRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(BatteryStateServiceServer).IsPresent(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: BatteryStateService_IsPresent_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(BatteryStateServiceServer).IsPresent(ctx, req.(*IsPresentRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// BatteryStateService_ServiceDesc is the grpc.ServiceDesc for BatteryStateService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var BatteryStateService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "hardware.BatteryStateService",
+	HandlerType: (*BatteryStateServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "GetCapacity",
+			Handler:    _BatteryStateService_GetCapacity_Handler,
+		},
+		{
+			MethodName: "GetStatus",
+			Handler:    _BatteryStateService_GetStatus_Handler,
+		},
+		{
+			MethodName: "IsPresent",
+			Handler:    _BatteryStateService_IsPresent_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/hardware/hardware.proto",
+}
+
+const (
+	TriggerEventListenerService_OnTrigger_FullMethodName = "/hardware.TriggerEventListenerService/OnTrigger"
+)
+
+// TriggerEventListenerServiceClient is the client API for TriggerEventListenerService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type TriggerEventListenerServiceClient interface {
+	OnTrigger(ctx context.Context, in *OnTriggerRequest, opts ...grpc.CallOption) (*OnTriggerResponse, error)
+}
+
+type triggerEventListenerServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewTriggerEventListenerServiceClient(cc grpc.ClientConnInterface) TriggerEventListenerServiceClient {
+	return &triggerEventListenerServiceClient{cc}
+}
+
+func (c *triggerEventListenerServiceClient) OnTrigger(ctx context.Context, in *OnTriggerRequest, opts ...grpc.CallOption) (*OnTriggerResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnTriggerResponse)
+	err := c.cc.Invoke(ctx, TriggerEventListenerService_OnTrigger_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// TriggerEventListenerServiceServer is the server API for TriggerEventListenerService service.
+// All implementations must embed UnimplementedTriggerEventListenerServiceServer
+// for forward compatibility.
+type TriggerEventListenerServiceServer interface {
+	OnTrigger(context.Context, *OnTriggerRequest) (*OnTriggerResponse, error)
+	mustEmbedUnimplementedTriggerEventListenerServiceServer()
+}
+
+// UnimplementedTriggerEventListenerServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedTriggerEventListenerServiceServer struct{}
+
+func (UnimplementedTriggerEventListenerServiceServer) OnTrigger(context.Context, *OnTriggerRequest) (*OnTriggerResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnTrigger not implemented")
+}
+func (UnimplementedTriggerEventListenerServiceServer) mustEmbedUnimplementedTriggerEventListenerServiceServer() {
+}
+func (UnimplementedTriggerEventListenerServiceServer) testEmbeddedByValue() {}
+
+// UnsafeTriggerEventListenerServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to TriggerEventListenerServiceServer will
+// result in compilation errors.
+type UnsafeTriggerEventListenerServiceServer interface {
+	mustEmbedUnimplementedTriggerEventListenerServiceServer()
+}
+
+func RegisterTriggerEventListenerServiceServer(s grpc.ServiceRegistrar, srv TriggerEventListenerServiceServer) {
+	// If the following call panics, it indicates UnimplementedTriggerEventListenerServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&TriggerEventListenerService_ServiceDesc, srv)
+}
+
+func _TriggerEventListenerService_OnTrigger_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnTriggerRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TriggerEventListenerServiceServer).OnTrigger(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TriggerEventListenerService_OnTrigger_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TriggerEventListenerServiceServer).OnTrigger(ctx, req.(*OnTriggerRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// TriggerEventListenerService_ServiceDesc is the grpc.ServiceDesc for TriggerEventListenerService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var TriggerEventListenerService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "hardware.TriggerEventListenerService",
+	HandlerType: (*TriggerEventListenerServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "OnTrigger",
+			Handler:    _TriggerEventListenerService_OnTrigger_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -3017,102 +4561,254 @@ var SensorService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	TriggerEventListenerService_OnTrigger_FullMethodName = "/hardware.TriggerEventListenerService/OnTrigger"
+	OverlayPropertiesService_DescribeContents_FullMethodName            = "/hardware.OverlayPropertiesService/DescribeContents"
+	OverlayPropertiesService_GetLutProperties_FullMethodName            = "/hardware.OverlayPropertiesService/GetLutProperties"
+	OverlayPropertiesService_IsCombinationSupported_FullMethodName      = "/hardware.OverlayPropertiesService/IsCombinationSupported"
+	OverlayPropertiesService_IsMixedColorSpacesSupported_FullMethodName = "/hardware.OverlayPropertiesService/IsMixedColorSpacesSupported"
+	OverlayPropertiesService_WriteToParcel_FullMethodName               = "/hardware.OverlayPropertiesService/WriteToParcel"
 )
 
-// TriggerEventListenerServiceClient is the client API for TriggerEventListenerService service.
+// OverlayPropertiesServiceClient is the client API for OverlayPropertiesService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type TriggerEventListenerServiceClient interface {
-	OnTrigger(ctx context.Context, in *OnTriggerRequest, opts ...grpc.CallOption) (*OnTriggerResponse, error)
+type OverlayPropertiesServiceClient interface {
+	DescribeContents(ctx context.Context, in *OverlayPropertiesDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	GetLutProperties(ctx context.Context, in *GetLutPropertiesRequest, opts ...grpc.CallOption) (*GetLutPropertiesResponse, error)
+	IsCombinationSupported(ctx context.Context, in *IsCombinationSupportedRequest, opts ...grpc.CallOption) (*IsCombinationSupportedResponse, error)
+	IsMixedColorSpacesSupported(ctx context.Context, in *IsMixedColorSpacesSupportedRequest, opts ...grpc.CallOption) (*IsMixedColorSpacesSupportedResponse, error)
+	WriteToParcel(ctx context.Context, in *OverlayPropertiesWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
 }
 
-type triggerEventListenerServiceClient struct {
+type overlayPropertiesServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewTriggerEventListenerServiceClient(cc grpc.ClientConnInterface) TriggerEventListenerServiceClient {
-	return &triggerEventListenerServiceClient{cc}
+func NewOverlayPropertiesServiceClient(cc grpc.ClientConnInterface) OverlayPropertiesServiceClient {
+	return &overlayPropertiesServiceClient{cc}
 }
 
-func (c *triggerEventListenerServiceClient) OnTrigger(ctx context.Context, in *OnTriggerRequest, opts ...grpc.CallOption) (*OnTriggerResponse, error) {
+func (c *overlayPropertiesServiceClient) DescribeContents(ctx context.Context, in *OverlayPropertiesDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnTriggerResponse)
-	err := c.cc.Invoke(ctx, TriggerEventListenerService_OnTrigger_FullMethodName, in, out, cOpts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, OverlayPropertiesService_DescribeContents_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// TriggerEventListenerServiceServer is the server API for TriggerEventListenerService service.
-// All implementations must embed UnimplementedTriggerEventListenerServiceServer
-// for forward compatibility.
-type TriggerEventListenerServiceServer interface {
-	OnTrigger(context.Context, *OnTriggerRequest) (*OnTriggerResponse, error)
-	mustEmbedUnimplementedTriggerEventListenerServiceServer()
+func (c *overlayPropertiesServiceClient) GetLutProperties(ctx context.Context, in *GetLutPropertiesRequest, opts ...grpc.CallOption) (*GetLutPropertiesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetLutPropertiesResponse)
+	err := c.cc.Invoke(ctx, OverlayPropertiesService_GetLutProperties_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
 }
 
-// UnimplementedTriggerEventListenerServiceServer must be embedded to have
+func (c *overlayPropertiesServiceClient) IsCombinationSupported(ctx context.Context, in *IsCombinationSupportedRequest, opts ...grpc.CallOption) (*IsCombinationSupportedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsCombinationSupportedResponse)
+	err := c.cc.Invoke(ctx, OverlayPropertiesService_IsCombinationSupported_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *overlayPropertiesServiceClient) IsMixedColorSpacesSupported(ctx context.Context, in *IsMixedColorSpacesSupportedRequest, opts ...grpc.CallOption) (*IsMixedColorSpacesSupportedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsMixedColorSpacesSupportedResponse)
+	err := c.cc.Invoke(ctx, OverlayPropertiesService_IsMixedColorSpacesSupported_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *overlayPropertiesServiceClient) WriteToParcel(ctx context.Context, in *OverlayPropertiesWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, OverlayPropertiesService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// OverlayPropertiesServiceServer is the server API for OverlayPropertiesService service.
+// All implementations must embed UnimplementedOverlayPropertiesServiceServer
+// for forward compatibility.
+type OverlayPropertiesServiceServer interface {
+	DescribeContents(context.Context, *OverlayPropertiesDescribeContentsRequest) (*DescribeContentsResponse, error)
+	GetLutProperties(context.Context, *GetLutPropertiesRequest) (*GetLutPropertiesResponse, error)
+	IsCombinationSupported(context.Context, *IsCombinationSupportedRequest) (*IsCombinationSupportedResponse, error)
+	IsMixedColorSpacesSupported(context.Context, *IsMixedColorSpacesSupportedRequest) (*IsMixedColorSpacesSupportedResponse, error)
+	WriteToParcel(context.Context, *OverlayPropertiesWriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedOverlayPropertiesServiceServer()
+}
+
+// UnimplementedOverlayPropertiesServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedTriggerEventListenerServiceServer struct{}
+type UnimplementedOverlayPropertiesServiceServer struct{}
 
-func (UnimplementedTriggerEventListenerServiceServer) OnTrigger(context.Context, *OnTriggerRequest) (*OnTriggerResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnTrigger not implemented")
+func (UnimplementedOverlayPropertiesServiceServer) DescribeContents(context.Context, *OverlayPropertiesDescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
 }
-func (UnimplementedTriggerEventListenerServiceServer) mustEmbedUnimplementedTriggerEventListenerServiceServer() {
+func (UnimplementedOverlayPropertiesServiceServer) GetLutProperties(context.Context, *GetLutPropertiesRequest) (*GetLutPropertiesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetLutProperties not implemented")
 }
-func (UnimplementedTriggerEventListenerServiceServer) testEmbeddedByValue() {}
+func (UnimplementedOverlayPropertiesServiceServer) IsCombinationSupported(context.Context, *IsCombinationSupportedRequest) (*IsCombinationSupportedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsCombinationSupported not implemented")
+}
+func (UnimplementedOverlayPropertiesServiceServer) IsMixedColorSpacesSupported(context.Context, *IsMixedColorSpacesSupportedRequest) (*IsMixedColorSpacesSupportedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsMixedColorSpacesSupported not implemented")
+}
+func (UnimplementedOverlayPropertiesServiceServer) WriteToParcel(context.Context, *OverlayPropertiesWriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedOverlayPropertiesServiceServer) mustEmbedUnimplementedOverlayPropertiesServiceServer() {
+}
+func (UnimplementedOverlayPropertiesServiceServer) testEmbeddedByValue() {}
 
-// UnsafeTriggerEventListenerServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to TriggerEventListenerServiceServer will
+// UnsafeOverlayPropertiesServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to OverlayPropertiesServiceServer will
 // result in compilation errors.
-type UnsafeTriggerEventListenerServiceServer interface {
-	mustEmbedUnimplementedTriggerEventListenerServiceServer()
+type UnsafeOverlayPropertiesServiceServer interface {
+	mustEmbedUnimplementedOverlayPropertiesServiceServer()
 }
 
-func RegisterTriggerEventListenerServiceServer(s grpc.ServiceRegistrar, srv TriggerEventListenerServiceServer) {
-	// If the following call panics, it indicates UnimplementedTriggerEventListenerServiceServer was
+func RegisterOverlayPropertiesServiceServer(s grpc.ServiceRegistrar, srv OverlayPropertiesServiceServer) {
+	// If the following call panics, it indicates UnimplementedOverlayPropertiesServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&TriggerEventListenerService_ServiceDesc, srv)
+	s.RegisterService(&OverlayPropertiesService_ServiceDesc, srv)
 }
 
-func _TriggerEventListenerService_OnTrigger_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnTriggerRequest)
+func _OverlayPropertiesService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OverlayPropertiesDescribeContentsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(TriggerEventListenerServiceServer).OnTrigger(ctx, in)
+		return srv.(OverlayPropertiesServiceServer).DescribeContents(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: TriggerEventListenerService_OnTrigger_FullMethodName,
+		FullMethod: OverlayPropertiesService_DescribeContents_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TriggerEventListenerServiceServer).OnTrigger(ctx, req.(*OnTriggerRequest))
+		return srv.(OverlayPropertiesServiceServer).DescribeContents(ctx, req.(*OverlayPropertiesDescribeContentsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// TriggerEventListenerService_ServiceDesc is the grpc.ServiceDesc for TriggerEventListenerService service.
+func _OverlayPropertiesService_GetLutProperties_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetLutPropertiesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(OverlayPropertiesServiceServer).GetLutProperties(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: OverlayPropertiesService_GetLutProperties_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(OverlayPropertiesServiceServer).GetLutProperties(ctx, req.(*GetLutPropertiesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _OverlayPropertiesService_IsCombinationSupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsCombinationSupportedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(OverlayPropertiesServiceServer).IsCombinationSupported(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: OverlayPropertiesService_IsCombinationSupported_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(OverlayPropertiesServiceServer).IsCombinationSupported(ctx, req.(*IsCombinationSupportedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _OverlayPropertiesService_IsMixedColorSpacesSupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsMixedColorSpacesSupportedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(OverlayPropertiesServiceServer).IsMixedColorSpacesSupported(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: OverlayPropertiesService_IsMixedColorSpacesSupported_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(OverlayPropertiesServiceServer).IsMixedColorSpacesSupported(ctx, req.(*IsMixedColorSpacesSupportedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _OverlayPropertiesService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OverlayPropertiesWriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(OverlayPropertiesServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: OverlayPropertiesService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(OverlayPropertiesServiceServer).WriteToParcel(ctx, req.(*OverlayPropertiesWriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// OverlayPropertiesService_ServiceDesc is the grpc.ServiceDesc for OverlayPropertiesService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var TriggerEventListenerService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "hardware.TriggerEventListenerService",
-	HandlerType: (*TriggerEventListenerServiceServer)(nil),
+var OverlayPropertiesService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "hardware.OverlayPropertiesService",
+	HandlerType: (*OverlayPropertiesServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "OnTrigger",
-			Handler:    _TriggerEventListenerService_OnTrigger_Handler,
+			MethodName: "DescribeContents",
+			Handler:    _OverlayPropertiesService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "GetLutProperties",
+			Handler:    _OverlayPropertiesService_GetLutProperties_Handler,
+		},
+		{
+			MethodName: "IsCombinationSupported",
+			Handler:    _OverlayPropertiesService_IsCombinationSupported_Handler,
+		},
+		{
+			MethodName: "IsMixedColorSpacesSupported",
+			Handler:    _OverlayPropertiesService_IsMixedColorSpacesSupported_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _OverlayPropertiesService_WriteToParcel_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -3120,368 +4816,178 @@ var TriggerEventListenerService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	GeomagneticFieldService_NewGeomagneticField_FullMethodName   = "/hardware.GeomagneticFieldService/NewGeomagneticField"
-	GeomagneticFieldService_GetDeclination_FullMethodName        = "/hardware.GeomagneticFieldService/GetDeclination"
-	GeomagneticFieldService_GetFieldStrength_FullMethodName      = "/hardware.GeomagneticFieldService/GetFieldStrength"
-	GeomagneticFieldService_GetHorizontalStrength_FullMethodName = "/hardware.GeomagneticFieldService/GetHorizontalStrength"
-	GeomagneticFieldService_GetInclination_FullMethodName        = "/hardware.GeomagneticFieldService/GetInclination"
-	GeomagneticFieldService_GetX_FullMethodName                  = "/hardware.GeomagneticFieldService/GetX"
-	GeomagneticFieldService_GetY_FullMethodName                  = "/hardware.GeomagneticFieldService/GetY"
-	GeomagneticFieldService_GetZ_FullMethodName                  = "/hardware.GeomagneticFieldService/GetZ"
+	SensorDirectChannelService_Close_FullMethodName     = "/hardware.SensorDirectChannelService/Close"
+	SensorDirectChannelService_Configure_FullMethodName = "/hardware.SensorDirectChannelService/Configure"
+	SensorDirectChannelService_IsOpen_FullMethodName    = "/hardware.SensorDirectChannelService/IsOpen"
 )
 
-// GeomagneticFieldServiceClient is the client API for GeomagneticFieldService service.
+// SensorDirectChannelServiceClient is the client API for SensorDirectChannelService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type GeomagneticFieldServiceClient interface {
-	NewGeomagneticField(ctx context.Context, in *NewGeomagneticFieldRequest, opts ...grpc.CallOption) (*NewGeomagneticFieldResponse, error)
-	GetDeclination(ctx context.Context, in *GetDeclinationRequest, opts ...grpc.CallOption) (*GetDeclinationResponse, error)
-	GetFieldStrength(ctx context.Context, in *GetFieldStrengthRequest, opts ...grpc.CallOption) (*GetFieldStrengthResponse, error)
-	GetHorizontalStrength(ctx context.Context, in *GetHorizontalStrengthRequest, opts ...grpc.CallOption) (*GetHorizontalStrengthResponse, error)
-	GetInclination(ctx context.Context, in *GeomagneticFieldGetInclinationRequest, opts ...grpc.CallOption) (*GetInclinationResponse, error)
-	GetX(ctx context.Context, in *GetXRequest, opts ...grpc.CallOption) (*GetXResponse, error)
-	GetY(ctx context.Context, in *GetYRequest, opts ...grpc.CallOption) (*GetYResponse, error)
-	GetZ(ctx context.Context, in *GetZRequest, opts ...grpc.CallOption) (*GetZResponse, error)
+type SensorDirectChannelServiceClient interface {
+	Close(ctx context.Context, in *SensorDirectChannelCloseRequest, opts ...grpc.CallOption) (*CloseResponse, error)
+	Configure(ctx context.Context, in *ConfigureRequest, opts ...grpc.CallOption) (*ConfigureResponse, error)
+	IsOpen(ctx context.Context, in *IsOpenRequest, opts ...grpc.CallOption) (*IsOpenResponse, error)
 }
 
-type geomagneticFieldServiceClient struct {
+type sensorDirectChannelServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewGeomagneticFieldServiceClient(cc grpc.ClientConnInterface) GeomagneticFieldServiceClient {
-	return &geomagneticFieldServiceClient{cc}
+func NewSensorDirectChannelServiceClient(cc grpc.ClientConnInterface) SensorDirectChannelServiceClient {
+	return &sensorDirectChannelServiceClient{cc}
 }
 
-func (c *geomagneticFieldServiceClient) NewGeomagneticField(ctx context.Context, in *NewGeomagneticFieldRequest, opts ...grpc.CallOption) (*NewGeomagneticFieldResponse, error) {
+func (c *sensorDirectChannelServiceClient) Close(ctx context.Context, in *SensorDirectChannelCloseRequest, opts ...grpc.CallOption) (*CloseResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewGeomagneticFieldResponse)
-	err := c.cc.Invoke(ctx, GeomagneticFieldService_NewGeomagneticField_FullMethodName, in, out, cOpts...)
+	out := new(CloseResponse)
+	err := c.cc.Invoke(ctx, SensorDirectChannelService_Close_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *geomagneticFieldServiceClient) GetDeclination(ctx context.Context, in *GetDeclinationRequest, opts ...grpc.CallOption) (*GetDeclinationResponse, error) {
+func (c *sensorDirectChannelServiceClient) Configure(ctx context.Context, in *ConfigureRequest, opts ...grpc.CallOption) (*ConfigureResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetDeclinationResponse)
-	err := c.cc.Invoke(ctx, GeomagneticFieldService_GetDeclination_FullMethodName, in, out, cOpts...)
+	out := new(ConfigureResponse)
+	err := c.cc.Invoke(ctx, SensorDirectChannelService_Configure_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *geomagneticFieldServiceClient) GetFieldStrength(ctx context.Context, in *GetFieldStrengthRequest, opts ...grpc.CallOption) (*GetFieldStrengthResponse, error) {
+func (c *sensorDirectChannelServiceClient) IsOpen(ctx context.Context, in *IsOpenRequest, opts ...grpc.CallOption) (*IsOpenResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetFieldStrengthResponse)
-	err := c.cc.Invoke(ctx, GeomagneticFieldService_GetFieldStrength_FullMethodName, in, out, cOpts...)
+	out := new(IsOpenResponse)
+	err := c.cc.Invoke(ctx, SensorDirectChannelService_IsOpen_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *geomagneticFieldServiceClient) GetHorizontalStrength(ctx context.Context, in *GetHorizontalStrengthRequest, opts ...grpc.CallOption) (*GetHorizontalStrengthResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetHorizontalStrengthResponse)
-	err := c.cc.Invoke(ctx, GeomagneticFieldService_GetHorizontalStrength_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *geomagneticFieldServiceClient) GetInclination(ctx context.Context, in *GeomagneticFieldGetInclinationRequest, opts ...grpc.CallOption) (*GetInclinationResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetInclinationResponse)
-	err := c.cc.Invoke(ctx, GeomagneticFieldService_GetInclination_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *geomagneticFieldServiceClient) GetX(ctx context.Context, in *GetXRequest, opts ...grpc.CallOption) (*GetXResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetXResponse)
-	err := c.cc.Invoke(ctx, GeomagneticFieldService_GetX_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *geomagneticFieldServiceClient) GetY(ctx context.Context, in *GetYRequest, opts ...grpc.CallOption) (*GetYResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetYResponse)
-	err := c.cc.Invoke(ctx, GeomagneticFieldService_GetY_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *geomagneticFieldServiceClient) GetZ(ctx context.Context, in *GetZRequest, opts ...grpc.CallOption) (*GetZResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetZResponse)
-	err := c.cc.Invoke(ctx, GeomagneticFieldService_GetZ_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// GeomagneticFieldServiceServer is the server API for GeomagneticFieldService service.
-// All implementations must embed UnimplementedGeomagneticFieldServiceServer
+// SensorDirectChannelServiceServer is the server API for SensorDirectChannelService service.
+// All implementations must embed UnimplementedSensorDirectChannelServiceServer
 // for forward compatibility.
-type GeomagneticFieldServiceServer interface {
-	NewGeomagneticField(context.Context, *NewGeomagneticFieldRequest) (*NewGeomagneticFieldResponse, error)
-	GetDeclination(context.Context, *GetDeclinationRequest) (*GetDeclinationResponse, error)
-	GetFieldStrength(context.Context, *GetFieldStrengthRequest) (*GetFieldStrengthResponse, error)
-	GetHorizontalStrength(context.Context, *GetHorizontalStrengthRequest) (*GetHorizontalStrengthResponse, error)
-	GetInclination(context.Context, *GeomagneticFieldGetInclinationRequest) (*GetInclinationResponse, error)
-	GetX(context.Context, *GetXRequest) (*GetXResponse, error)
-	GetY(context.Context, *GetYRequest) (*GetYResponse, error)
-	GetZ(context.Context, *GetZRequest) (*GetZResponse, error)
-	mustEmbedUnimplementedGeomagneticFieldServiceServer()
+type SensorDirectChannelServiceServer interface {
+	Close(context.Context, *SensorDirectChannelCloseRequest) (*CloseResponse, error)
+	Configure(context.Context, *ConfigureRequest) (*ConfigureResponse, error)
+	IsOpen(context.Context, *IsOpenRequest) (*IsOpenResponse, error)
+	mustEmbedUnimplementedSensorDirectChannelServiceServer()
 }
 
-// UnimplementedGeomagneticFieldServiceServer must be embedded to have
+// UnimplementedSensorDirectChannelServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedGeomagneticFieldServiceServer struct{}
+type UnimplementedSensorDirectChannelServiceServer struct{}
 
-func (UnimplementedGeomagneticFieldServiceServer) NewGeomagneticField(context.Context, *NewGeomagneticFieldRequest) (*NewGeomagneticFieldResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewGeomagneticField not implemented")
+func (UnimplementedSensorDirectChannelServiceServer) Close(context.Context, *SensorDirectChannelCloseRequest) (*CloseResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Close not implemented")
 }
-func (UnimplementedGeomagneticFieldServiceServer) GetDeclination(context.Context, *GetDeclinationRequest) (*GetDeclinationResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetDeclination not implemented")
+func (UnimplementedSensorDirectChannelServiceServer) Configure(context.Context, *ConfigureRequest) (*ConfigureResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Configure not implemented")
 }
-func (UnimplementedGeomagneticFieldServiceServer) GetFieldStrength(context.Context, *GetFieldStrengthRequest) (*GetFieldStrengthResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetFieldStrength not implemented")
+func (UnimplementedSensorDirectChannelServiceServer) IsOpen(context.Context, *IsOpenRequest) (*IsOpenResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsOpen not implemented")
 }
-func (UnimplementedGeomagneticFieldServiceServer) GetHorizontalStrength(context.Context, *GetHorizontalStrengthRequest) (*GetHorizontalStrengthResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetHorizontalStrength not implemented")
+func (UnimplementedSensorDirectChannelServiceServer) mustEmbedUnimplementedSensorDirectChannelServiceServer() {
 }
-func (UnimplementedGeomagneticFieldServiceServer) GetInclination(context.Context, *GeomagneticFieldGetInclinationRequest) (*GetInclinationResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetInclination not implemented")
-}
-func (UnimplementedGeomagneticFieldServiceServer) GetX(context.Context, *GetXRequest) (*GetXResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetX not implemented")
-}
-func (UnimplementedGeomagneticFieldServiceServer) GetY(context.Context, *GetYRequest) (*GetYResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetY not implemented")
-}
-func (UnimplementedGeomagneticFieldServiceServer) GetZ(context.Context, *GetZRequest) (*GetZResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetZ not implemented")
-}
-func (UnimplementedGeomagneticFieldServiceServer) mustEmbedUnimplementedGeomagneticFieldServiceServer() {
-}
-func (UnimplementedGeomagneticFieldServiceServer) testEmbeddedByValue() {}
+func (UnimplementedSensorDirectChannelServiceServer) testEmbeddedByValue() {}
 
-// UnsafeGeomagneticFieldServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to GeomagneticFieldServiceServer will
+// UnsafeSensorDirectChannelServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to SensorDirectChannelServiceServer will
 // result in compilation errors.
-type UnsafeGeomagneticFieldServiceServer interface {
-	mustEmbedUnimplementedGeomagneticFieldServiceServer()
+type UnsafeSensorDirectChannelServiceServer interface {
+	mustEmbedUnimplementedSensorDirectChannelServiceServer()
 }
 
-func RegisterGeomagneticFieldServiceServer(s grpc.ServiceRegistrar, srv GeomagneticFieldServiceServer) {
-	// If the following call panics, it indicates UnimplementedGeomagneticFieldServiceServer was
+func RegisterSensorDirectChannelServiceServer(s grpc.ServiceRegistrar, srv SensorDirectChannelServiceServer) {
+	// If the following call panics, it indicates UnimplementedSensorDirectChannelServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&GeomagneticFieldService_ServiceDesc, srv)
+	s.RegisterService(&SensorDirectChannelService_ServiceDesc, srv)
 }
 
-func _GeomagneticFieldService_NewGeomagneticField_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewGeomagneticFieldRequest)
+func _SensorDirectChannelService_Close_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SensorDirectChannelCloseRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(GeomagneticFieldServiceServer).NewGeomagneticField(ctx, in)
+		return srv.(SensorDirectChannelServiceServer).Close(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: GeomagneticFieldService_NewGeomagneticField_FullMethodName,
+		FullMethod: SensorDirectChannelService_Close_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(GeomagneticFieldServiceServer).NewGeomagneticField(ctx, req.(*NewGeomagneticFieldRequest))
+		return srv.(SensorDirectChannelServiceServer).Close(ctx, req.(*SensorDirectChannelCloseRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _GeomagneticFieldService_GetDeclination_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetDeclinationRequest)
+func _SensorDirectChannelService_Configure_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ConfigureRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(GeomagneticFieldServiceServer).GetDeclination(ctx, in)
+		return srv.(SensorDirectChannelServiceServer).Configure(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: GeomagneticFieldService_GetDeclination_FullMethodName,
+		FullMethod: SensorDirectChannelService_Configure_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(GeomagneticFieldServiceServer).GetDeclination(ctx, req.(*GetDeclinationRequest))
+		return srv.(SensorDirectChannelServiceServer).Configure(ctx, req.(*ConfigureRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _GeomagneticFieldService_GetFieldStrength_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetFieldStrengthRequest)
+func _SensorDirectChannelService_IsOpen_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsOpenRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(GeomagneticFieldServiceServer).GetFieldStrength(ctx, in)
+		return srv.(SensorDirectChannelServiceServer).IsOpen(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: GeomagneticFieldService_GetFieldStrength_FullMethodName,
+		FullMethod: SensorDirectChannelService_IsOpen_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(GeomagneticFieldServiceServer).GetFieldStrength(ctx, req.(*GetFieldStrengthRequest))
+		return srv.(SensorDirectChannelServiceServer).IsOpen(ctx, req.(*IsOpenRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _GeomagneticFieldService_GetHorizontalStrength_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetHorizontalStrengthRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(GeomagneticFieldServiceServer).GetHorizontalStrength(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: GeomagneticFieldService_GetHorizontalStrength_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(GeomagneticFieldServiceServer).GetHorizontalStrength(ctx, req.(*GetHorizontalStrengthRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _GeomagneticFieldService_GetInclination_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GeomagneticFieldGetInclinationRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(GeomagneticFieldServiceServer).GetInclination(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: GeomagneticFieldService_GetInclination_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(GeomagneticFieldServiceServer).GetInclination(ctx, req.(*GeomagneticFieldGetInclinationRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _GeomagneticFieldService_GetX_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetXRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(GeomagneticFieldServiceServer).GetX(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: GeomagneticFieldService_GetX_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(GeomagneticFieldServiceServer).GetX(ctx, req.(*GetXRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _GeomagneticFieldService_GetY_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetYRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(GeomagneticFieldServiceServer).GetY(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: GeomagneticFieldService_GetY_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(GeomagneticFieldServiceServer).GetY(ctx, req.(*GetYRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _GeomagneticFieldService_GetZ_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetZRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(GeomagneticFieldServiceServer).GetZ(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: GeomagneticFieldService_GetZ_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(GeomagneticFieldServiceServer).GetZ(ctx, req.(*GetZRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// GeomagneticFieldService_ServiceDesc is the grpc.ServiceDesc for GeomagneticFieldService service.
+// SensorDirectChannelService_ServiceDesc is the grpc.ServiceDesc for SensorDirectChannelService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var GeomagneticFieldService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "hardware.GeomagneticFieldService",
-	HandlerType: (*GeomagneticFieldServiceServer)(nil),
+var SensorDirectChannelService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "hardware.SensorDirectChannelService",
+	HandlerType: (*SensorDirectChannelServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "NewGeomagneticField",
-			Handler:    _GeomagneticFieldService_NewGeomagneticField_Handler,
+			MethodName: "Close",
+			Handler:    _SensorDirectChannelService_Close_Handler,
 		},
 		{
-			MethodName: "GetDeclination",
-			Handler:    _GeomagneticFieldService_GetDeclination_Handler,
+			MethodName: "Configure",
+			Handler:    _SensorDirectChannelService_Configure_Handler,
 		},
 		{
-			MethodName: "GetFieldStrength",
-			Handler:    _GeomagneticFieldService_GetFieldStrength_Handler,
-		},
-		{
-			MethodName: "GetHorizontalStrength",
-			Handler:    _GeomagneticFieldService_GetHorizontalStrength_Handler,
-		},
-		{
-			MethodName: "GetInclination",
-			Handler:    _GeomagneticFieldService_GetInclination_Handler,
-		},
-		{
-			MethodName: "GetX",
-			Handler:    _GeomagneticFieldService_GetX_Handler,
-		},
-		{
-			MethodName: "GetY",
-			Handler:    _GeomagneticFieldService_GetY_Handler,
-		},
-		{
-			MethodName: "GetZ",
-			Handler:    _GeomagneticFieldService_GetZ_Handler,
+			MethodName: "IsOpen",
+			Handler:    _SensorDirectChannelService_IsOpen_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -4002,720 +5508,6 @@ var BufferService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "IsSupported",
 			Handler:    _BufferService_IsSupported_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/hardware/hardware.proto",
-}
-
-const (
-	SensorEventListenerService_OnAccuracyChanged_FullMethodName = "/hardware.SensorEventListenerService/OnAccuracyChanged"
-	SensorEventListenerService_OnSensorChanged_FullMethodName   = "/hardware.SensorEventListenerService/OnSensorChanged"
-)
-
-// SensorEventListenerServiceClient is the client API for SensorEventListenerService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type SensorEventListenerServiceClient interface {
-	OnAccuracyChanged(ctx context.Context, in *SensorEventListenerOnAccuracyChangedRequest, opts ...grpc.CallOption) (*OnAccuracyChangedResponse, error)
-	OnSensorChanged(ctx context.Context, in *SensorEventListenerOnSensorChangedRequest, opts ...grpc.CallOption) (*OnSensorChangedResponse, error)
-}
-
-type sensorEventListenerServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewSensorEventListenerServiceClient(cc grpc.ClientConnInterface) SensorEventListenerServiceClient {
-	return &sensorEventListenerServiceClient{cc}
-}
-
-func (c *sensorEventListenerServiceClient) OnAccuracyChanged(ctx context.Context, in *SensorEventListenerOnAccuracyChangedRequest, opts ...grpc.CallOption) (*OnAccuracyChangedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnAccuracyChangedResponse)
-	err := c.cc.Invoke(ctx, SensorEventListenerService_OnAccuracyChanged_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sensorEventListenerServiceClient) OnSensorChanged(ctx context.Context, in *SensorEventListenerOnSensorChangedRequest, opts ...grpc.CallOption) (*OnSensorChangedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnSensorChangedResponse)
-	err := c.cc.Invoke(ctx, SensorEventListenerService_OnSensorChanged_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// SensorEventListenerServiceServer is the server API for SensorEventListenerService service.
-// All implementations must embed UnimplementedSensorEventListenerServiceServer
-// for forward compatibility.
-type SensorEventListenerServiceServer interface {
-	OnAccuracyChanged(context.Context, *SensorEventListenerOnAccuracyChangedRequest) (*OnAccuracyChangedResponse, error)
-	OnSensorChanged(context.Context, *SensorEventListenerOnSensorChangedRequest) (*OnSensorChangedResponse, error)
-	mustEmbedUnimplementedSensorEventListenerServiceServer()
-}
-
-// UnimplementedSensorEventListenerServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedSensorEventListenerServiceServer struct{}
-
-func (UnimplementedSensorEventListenerServiceServer) OnAccuracyChanged(context.Context, *SensorEventListenerOnAccuracyChangedRequest) (*OnAccuracyChangedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnAccuracyChanged not implemented")
-}
-func (UnimplementedSensorEventListenerServiceServer) OnSensorChanged(context.Context, *SensorEventListenerOnSensorChangedRequest) (*OnSensorChangedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnSensorChanged not implemented")
-}
-func (UnimplementedSensorEventListenerServiceServer) mustEmbedUnimplementedSensorEventListenerServiceServer() {
-}
-func (UnimplementedSensorEventListenerServiceServer) testEmbeddedByValue() {}
-
-// UnsafeSensorEventListenerServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to SensorEventListenerServiceServer will
-// result in compilation errors.
-type UnsafeSensorEventListenerServiceServer interface {
-	mustEmbedUnimplementedSensorEventListenerServiceServer()
-}
-
-func RegisterSensorEventListenerServiceServer(s grpc.ServiceRegistrar, srv SensorEventListenerServiceServer) {
-	// If the following call panics, it indicates UnimplementedSensorEventListenerServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&SensorEventListenerService_ServiceDesc, srv)
-}
-
-func _SensorEventListenerService_OnAccuracyChanged_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SensorEventListenerOnAccuracyChangedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SensorEventListenerServiceServer).OnAccuracyChanged(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SensorEventListenerService_OnAccuracyChanged_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SensorEventListenerServiceServer).OnAccuracyChanged(ctx, req.(*SensorEventListenerOnAccuracyChangedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SensorEventListenerService_OnSensorChanged_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SensorEventListenerOnSensorChangedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SensorEventListenerServiceServer).OnSensorChanged(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SensorEventListenerService_OnSensorChanged_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SensorEventListenerServiceServer).OnSensorChanged(ctx, req.(*SensorEventListenerOnSensorChangedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// SensorEventListenerService_ServiceDesc is the grpc.ServiceDesc for SensorEventListenerService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var SensorEventListenerService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "hardware.SensorEventListenerService",
-	HandlerType: (*SensorEventListenerServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "OnAccuracyChanged",
-			Handler:    _SensorEventListenerService_OnAccuracyChanged_Handler,
-		},
-		{
-			MethodName: "OnSensorChanged",
-			Handler:    _SensorEventListenerService_OnSensorChanged_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/hardware/hardware.proto",
-}
-
-const (
-	SensorDirectChannelService_Close_FullMethodName     = "/hardware.SensorDirectChannelService/Close"
-	SensorDirectChannelService_Configure_FullMethodName = "/hardware.SensorDirectChannelService/Configure"
-	SensorDirectChannelService_IsOpen_FullMethodName    = "/hardware.SensorDirectChannelService/IsOpen"
-)
-
-// SensorDirectChannelServiceClient is the client API for SensorDirectChannelService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type SensorDirectChannelServiceClient interface {
-	Close(ctx context.Context, in *SensorDirectChannelCloseRequest, opts ...grpc.CallOption) (*CloseResponse, error)
-	Configure(ctx context.Context, in *ConfigureRequest, opts ...grpc.CallOption) (*ConfigureResponse, error)
-	IsOpen(ctx context.Context, in *IsOpenRequest, opts ...grpc.CallOption) (*IsOpenResponse, error)
-}
-
-type sensorDirectChannelServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewSensorDirectChannelServiceClient(cc grpc.ClientConnInterface) SensorDirectChannelServiceClient {
-	return &sensorDirectChannelServiceClient{cc}
-}
-
-func (c *sensorDirectChannelServiceClient) Close(ctx context.Context, in *SensorDirectChannelCloseRequest, opts ...grpc.CallOption) (*CloseResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CloseResponse)
-	err := c.cc.Invoke(ctx, SensorDirectChannelService_Close_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sensorDirectChannelServiceClient) Configure(ctx context.Context, in *ConfigureRequest, opts ...grpc.CallOption) (*ConfigureResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ConfigureResponse)
-	err := c.cc.Invoke(ctx, SensorDirectChannelService_Configure_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sensorDirectChannelServiceClient) IsOpen(ctx context.Context, in *IsOpenRequest, opts ...grpc.CallOption) (*IsOpenResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsOpenResponse)
-	err := c.cc.Invoke(ctx, SensorDirectChannelService_IsOpen_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// SensorDirectChannelServiceServer is the server API for SensorDirectChannelService service.
-// All implementations must embed UnimplementedSensorDirectChannelServiceServer
-// for forward compatibility.
-type SensorDirectChannelServiceServer interface {
-	Close(context.Context, *SensorDirectChannelCloseRequest) (*CloseResponse, error)
-	Configure(context.Context, *ConfigureRequest) (*ConfigureResponse, error)
-	IsOpen(context.Context, *IsOpenRequest) (*IsOpenResponse, error)
-	mustEmbedUnimplementedSensorDirectChannelServiceServer()
-}
-
-// UnimplementedSensorDirectChannelServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedSensorDirectChannelServiceServer struct{}
-
-func (UnimplementedSensorDirectChannelServiceServer) Close(context.Context, *SensorDirectChannelCloseRequest) (*CloseResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Close not implemented")
-}
-func (UnimplementedSensorDirectChannelServiceServer) Configure(context.Context, *ConfigureRequest) (*ConfigureResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Configure not implemented")
-}
-func (UnimplementedSensorDirectChannelServiceServer) IsOpen(context.Context, *IsOpenRequest) (*IsOpenResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsOpen not implemented")
-}
-func (UnimplementedSensorDirectChannelServiceServer) mustEmbedUnimplementedSensorDirectChannelServiceServer() {
-}
-func (UnimplementedSensorDirectChannelServiceServer) testEmbeddedByValue() {}
-
-// UnsafeSensorDirectChannelServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to SensorDirectChannelServiceServer will
-// result in compilation errors.
-type UnsafeSensorDirectChannelServiceServer interface {
-	mustEmbedUnimplementedSensorDirectChannelServiceServer()
-}
-
-func RegisterSensorDirectChannelServiceServer(s grpc.ServiceRegistrar, srv SensorDirectChannelServiceServer) {
-	// If the following call panics, it indicates UnimplementedSensorDirectChannelServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&SensorDirectChannelService_ServiceDesc, srv)
-}
-
-func _SensorDirectChannelService_Close_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SensorDirectChannelCloseRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SensorDirectChannelServiceServer).Close(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SensorDirectChannelService_Close_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SensorDirectChannelServiceServer).Close(ctx, req.(*SensorDirectChannelCloseRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SensorDirectChannelService_Configure_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ConfigureRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SensorDirectChannelServiceServer).Configure(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SensorDirectChannelService_Configure_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SensorDirectChannelServiceServer).Configure(ctx, req.(*ConfigureRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SensorDirectChannelService_IsOpen_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsOpenRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SensorDirectChannelServiceServer).IsOpen(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SensorDirectChannelService_IsOpen_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SensorDirectChannelServiceServer).IsOpen(ctx, req.(*IsOpenRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// SensorDirectChannelService_ServiceDesc is the grpc.ServiceDesc for SensorDirectChannelService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var SensorDirectChannelService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "hardware.SensorDirectChannelService",
-	HandlerType: (*SensorDirectChannelServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "Close",
-			Handler:    _SensorDirectChannelService_Close_Handler,
-		},
-		{
-			MethodName: "Configure",
-			Handler:    _SensorDirectChannelService_Configure_Handler,
-		},
-		{
-			MethodName: "IsOpen",
-			Handler:    _SensorDirectChannelService_IsOpen_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/hardware/hardware.proto",
-}
-
-const (
-	LutPropertiesService_GetDimension_FullMethodName    = "/hardware.LutPropertiesService/GetDimension"
-	LutPropertiesService_GetSamplingKeys_FullMethodName = "/hardware.LutPropertiesService/GetSamplingKeys"
-	LutPropertiesService_GetSize_FullMethodName         = "/hardware.LutPropertiesService/GetSize"
-)
-
-// LutPropertiesServiceClient is the client API for LutPropertiesService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type LutPropertiesServiceClient interface {
-	GetDimension(ctx context.Context, in *GetDimensionRequest, opts ...grpc.CallOption) (*GetDimensionResponse, error)
-	GetSamplingKeys(ctx context.Context, in *GetSamplingKeysRequest, opts ...grpc.CallOption) (*GetSamplingKeysResponse, error)
-	GetSize(ctx context.Context, in *GetSizeRequest, opts ...grpc.CallOption) (*GetSizeResponse, error)
-}
-
-type lutPropertiesServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewLutPropertiesServiceClient(cc grpc.ClientConnInterface) LutPropertiesServiceClient {
-	return &lutPropertiesServiceClient{cc}
-}
-
-func (c *lutPropertiesServiceClient) GetDimension(ctx context.Context, in *GetDimensionRequest, opts ...grpc.CallOption) (*GetDimensionResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetDimensionResponse)
-	err := c.cc.Invoke(ctx, LutPropertiesService_GetDimension_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *lutPropertiesServiceClient) GetSamplingKeys(ctx context.Context, in *GetSamplingKeysRequest, opts ...grpc.CallOption) (*GetSamplingKeysResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetSamplingKeysResponse)
-	err := c.cc.Invoke(ctx, LutPropertiesService_GetSamplingKeys_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *lutPropertiesServiceClient) GetSize(ctx context.Context, in *GetSizeRequest, opts ...grpc.CallOption) (*GetSizeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetSizeResponse)
-	err := c.cc.Invoke(ctx, LutPropertiesService_GetSize_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// LutPropertiesServiceServer is the server API for LutPropertiesService service.
-// All implementations must embed UnimplementedLutPropertiesServiceServer
-// for forward compatibility.
-type LutPropertiesServiceServer interface {
-	GetDimension(context.Context, *GetDimensionRequest) (*GetDimensionResponse, error)
-	GetSamplingKeys(context.Context, *GetSamplingKeysRequest) (*GetSamplingKeysResponse, error)
-	GetSize(context.Context, *GetSizeRequest) (*GetSizeResponse, error)
-	mustEmbedUnimplementedLutPropertiesServiceServer()
-}
-
-// UnimplementedLutPropertiesServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedLutPropertiesServiceServer struct{}
-
-func (UnimplementedLutPropertiesServiceServer) GetDimension(context.Context, *GetDimensionRequest) (*GetDimensionResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetDimension not implemented")
-}
-func (UnimplementedLutPropertiesServiceServer) GetSamplingKeys(context.Context, *GetSamplingKeysRequest) (*GetSamplingKeysResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetSamplingKeys not implemented")
-}
-func (UnimplementedLutPropertiesServiceServer) GetSize(context.Context, *GetSizeRequest) (*GetSizeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetSize not implemented")
-}
-func (UnimplementedLutPropertiesServiceServer) mustEmbedUnimplementedLutPropertiesServiceServer() {}
-func (UnimplementedLutPropertiesServiceServer) testEmbeddedByValue()                              {}
-
-// UnsafeLutPropertiesServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to LutPropertiesServiceServer will
-// result in compilation errors.
-type UnsafeLutPropertiesServiceServer interface {
-	mustEmbedUnimplementedLutPropertiesServiceServer()
-}
-
-func RegisterLutPropertiesServiceServer(s grpc.ServiceRegistrar, srv LutPropertiesServiceServer) {
-	// If the following call panics, it indicates UnimplementedLutPropertiesServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&LutPropertiesService_ServiceDesc, srv)
-}
-
-func _LutPropertiesService_GetDimension_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetDimensionRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(LutPropertiesServiceServer).GetDimension(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: LutPropertiesService_GetDimension_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(LutPropertiesServiceServer).GetDimension(ctx, req.(*GetDimensionRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _LutPropertiesService_GetSamplingKeys_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetSamplingKeysRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(LutPropertiesServiceServer).GetSamplingKeys(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: LutPropertiesService_GetSamplingKeys_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(LutPropertiesServiceServer).GetSamplingKeys(ctx, req.(*GetSamplingKeysRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _LutPropertiesService_GetSize_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetSizeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(LutPropertiesServiceServer).GetSize(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: LutPropertiesService_GetSize_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(LutPropertiesServiceServer).GetSize(ctx, req.(*GetSizeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// LutPropertiesService_ServiceDesc is the grpc.ServiceDesc for LutPropertiesService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var LutPropertiesService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "hardware.LutPropertiesService",
-	HandlerType: (*LutPropertiesServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "GetDimension",
-			Handler:    _LutPropertiesService_GetDimension_Handler,
-		},
-		{
-			MethodName: "GetSamplingKeys",
-			Handler:    _LutPropertiesService_GetSamplingKeys_Handler,
-		},
-		{
-			MethodName: "GetSize",
-			Handler:    _LutPropertiesService_GetSize_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/hardware/hardware.proto",
-}
-
-const (
-	DataSpaceService_GetRange_FullMethodName    = "/hardware.DataSpaceService/GetRange"
-	DataSpaceService_GetStandard_FullMethodName = "/hardware.DataSpaceService/GetStandard"
-	DataSpaceService_GetTransfer_FullMethodName = "/hardware.DataSpaceService/GetTransfer"
-	DataSpaceService_Pack_FullMethodName        = "/hardware.DataSpaceService/Pack"
-)
-
-// DataSpaceServiceClient is the client API for DataSpaceService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type DataSpaceServiceClient interface {
-	GetRange(ctx context.Context, in *GetRangeRequest, opts ...grpc.CallOption) (*GetRangeResponse, error)
-	GetStandard(ctx context.Context, in *GetStandardRequest, opts ...grpc.CallOption) (*GetStandardResponse, error)
-	GetTransfer(ctx context.Context, in *GetTransferRequest, opts ...grpc.CallOption) (*GetTransferResponse, error)
-	Pack(ctx context.Context, in *PackRequest, opts ...grpc.CallOption) (*PackResponse, error)
-}
-
-type dataSpaceServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewDataSpaceServiceClient(cc grpc.ClientConnInterface) DataSpaceServiceClient {
-	return &dataSpaceServiceClient{cc}
-}
-
-func (c *dataSpaceServiceClient) GetRange(ctx context.Context, in *GetRangeRequest, opts ...grpc.CallOption) (*GetRangeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetRangeResponse)
-	err := c.cc.Invoke(ctx, DataSpaceService_GetRange_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *dataSpaceServiceClient) GetStandard(ctx context.Context, in *GetStandardRequest, opts ...grpc.CallOption) (*GetStandardResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetStandardResponse)
-	err := c.cc.Invoke(ctx, DataSpaceService_GetStandard_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *dataSpaceServiceClient) GetTransfer(ctx context.Context, in *GetTransferRequest, opts ...grpc.CallOption) (*GetTransferResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetTransferResponse)
-	err := c.cc.Invoke(ctx, DataSpaceService_GetTransfer_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *dataSpaceServiceClient) Pack(ctx context.Context, in *PackRequest, opts ...grpc.CallOption) (*PackResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(PackResponse)
-	err := c.cc.Invoke(ctx, DataSpaceService_Pack_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// DataSpaceServiceServer is the server API for DataSpaceService service.
-// All implementations must embed UnimplementedDataSpaceServiceServer
-// for forward compatibility.
-type DataSpaceServiceServer interface {
-	GetRange(context.Context, *GetRangeRequest) (*GetRangeResponse, error)
-	GetStandard(context.Context, *GetStandardRequest) (*GetStandardResponse, error)
-	GetTransfer(context.Context, *GetTransferRequest) (*GetTransferResponse, error)
-	Pack(context.Context, *PackRequest) (*PackResponse, error)
-	mustEmbedUnimplementedDataSpaceServiceServer()
-}
-
-// UnimplementedDataSpaceServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedDataSpaceServiceServer struct{}
-
-func (UnimplementedDataSpaceServiceServer) GetRange(context.Context, *GetRangeRequest) (*GetRangeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetRange not implemented")
-}
-func (UnimplementedDataSpaceServiceServer) GetStandard(context.Context, *GetStandardRequest) (*GetStandardResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetStandard not implemented")
-}
-func (UnimplementedDataSpaceServiceServer) GetTransfer(context.Context, *GetTransferRequest) (*GetTransferResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetTransfer not implemented")
-}
-func (UnimplementedDataSpaceServiceServer) Pack(context.Context, *PackRequest) (*PackResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Pack not implemented")
-}
-func (UnimplementedDataSpaceServiceServer) mustEmbedUnimplementedDataSpaceServiceServer() {}
-func (UnimplementedDataSpaceServiceServer) testEmbeddedByValue()                          {}
-
-// UnsafeDataSpaceServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to DataSpaceServiceServer will
-// result in compilation errors.
-type UnsafeDataSpaceServiceServer interface {
-	mustEmbedUnimplementedDataSpaceServiceServer()
-}
-
-func RegisterDataSpaceServiceServer(s grpc.ServiceRegistrar, srv DataSpaceServiceServer) {
-	// If the following call panics, it indicates UnimplementedDataSpaceServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&DataSpaceService_ServiceDesc, srv)
-}
-
-func _DataSpaceService_GetRange_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetRangeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DataSpaceServiceServer).GetRange(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DataSpaceService_GetRange_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DataSpaceServiceServer).GetRange(ctx, req.(*GetRangeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DataSpaceService_GetStandard_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetStandardRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DataSpaceServiceServer).GetStandard(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DataSpaceService_GetStandard_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DataSpaceServiceServer).GetStandard(ctx, req.(*GetStandardRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DataSpaceService_GetTransfer_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetTransferRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DataSpaceServiceServer).GetTransfer(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DataSpaceService_GetTransfer_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DataSpaceServiceServer).GetTransfer(ctx, req.(*GetTransferRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DataSpaceService_Pack_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(PackRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DataSpaceServiceServer).Pack(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DataSpaceService_Pack_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DataSpaceServiceServer).Pack(ctx, req.(*PackRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// DataSpaceService_ServiceDesc is the grpc.ServiceDesc for DataSpaceService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var DataSpaceService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "hardware.DataSpaceService",
-	HandlerType: (*DataSpaceServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "GetRange",
-			Handler:    _DataSpaceService_GetRange_Handler,
-		},
-		{
-			MethodName: "GetStandard",
-			Handler:    _DataSpaceService_GetStandard_Handler,
-		},
-		{
-			MethodName: "GetTransfer",
-			Handler:    _DataSpaceService_GetTransfer_Handler,
-		},
-		{
-			MethodName: "Pack",
-			Handler:    _DataSpaceService_Pack_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -6630,6 +7422,7 @@ const (
 	CameraParametersService_GetExposureCompensationStep_FullMethodName     = "/hardware.CameraParametersService/GetExposureCompensationStep"
 	CameraParametersService_GetFlashMode_FullMethodName                    = "/hardware.CameraParametersService/GetFlashMode"
 	CameraParametersService_GetFocalLength_FullMethodName                  = "/hardware.CameraParametersService/GetFocalLength"
+	CameraParametersService_GetFocusAreas_FullMethodName                   = "/hardware.CameraParametersService/GetFocusAreas"
 	CameraParametersService_GetFocusDistances_FullMethodName               = "/hardware.CameraParametersService/GetFocusDistances"
 	CameraParametersService_GetFocusMode_FullMethodName                    = "/hardware.CameraParametersService/GetFocusMode"
 	CameraParametersService_GetHorizontalViewAngle_FullMethodName          = "/hardware.CameraParametersService/GetHorizontalViewAngle"
@@ -6642,6 +7435,7 @@ const (
 	CameraParametersService_GetMaxNumFocusAreas_FullMethodName             = "/hardware.CameraParametersService/GetMaxNumFocusAreas"
 	CameraParametersService_GetMaxNumMeteringAreas_FullMethodName          = "/hardware.CameraParametersService/GetMaxNumMeteringAreas"
 	CameraParametersService_GetMaxZoom_FullMethodName                      = "/hardware.CameraParametersService/GetMaxZoom"
+	CameraParametersService_GetMeteringAreas_FullMethodName                = "/hardware.CameraParametersService/GetMeteringAreas"
 	CameraParametersService_GetMinExposureCompensation_FullMethodName      = "/hardware.CameraParametersService/GetMinExposureCompensation"
 	CameraParametersService_GetPictureFormat_FullMethodName                = "/hardware.CameraParametersService/GetPictureFormat"
 	CameraParametersService_GetPictureSize_FullMethodName                  = "/hardware.CameraParametersService/GetPictureSize"
@@ -6651,10 +7445,25 @@ const (
 	CameraParametersService_GetPreviewFrameRate_FullMethodName             = "/hardware.CameraParametersService/GetPreviewFrameRate"
 	CameraParametersService_GetPreviewSize_FullMethodName                  = "/hardware.CameraParametersService/GetPreviewSize"
 	CameraParametersService_GetSceneMode_FullMethodName                    = "/hardware.CameraParametersService/GetSceneMode"
+	CameraParametersService_GetSupportedAntibanding_FullMethodName         = "/hardware.CameraParametersService/GetSupportedAntibanding"
+	CameraParametersService_GetSupportedColorEffects_FullMethodName        = "/hardware.CameraParametersService/GetSupportedColorEffects"
+	CameraParametersService_GetSupportedFlashModes_FullMethodName          = "/hardware.CameraParametersService/GetSupportedFlashModes"
+	CameraParametersService_GetSupportedFocusModes_FullMethodName          = "/hardware.CameraParametersService/GetSupportedFocusModes"
+	CameraParametersService_GetSupportedJpegThumbnailSizes_FullMethodName  = "/hardware.CameraParametersService/GetSupportedJpegThumbnailSizes"
+	CameraParametersService_GetSupportedPictureFormats_FullMethodName      = "/hardware.CameraParametersService/GetSupportedPictureFormats"
+	CameraParametersService_GetSupportedPictureSizes_FullMethodName        = "/hardware.CameraParametersService/GetSupportedPictureSizes"
+	CameraParametersService_GetSupportedPreviewFormats_FullMethodName      = "/hardware.CameraParametersService/GetSupportedPreviewFormats"
+	CameraParametersService_GetSupportedPreviewFpsRange_FullMethodName     = "/hardware.CameraParametersService/GetSupportedPreviewFpsRange"
+	CameraParametersService_GetSupportedPreviewFrameRates_FullMethodName   = "/hardware.CameraParametersService/GetSupportedPreviewFrameRates"
+	CameraParametersService_GetSupportedPreviewSizes_FullMethodName        = "/hardware.CameraParametersService/GetSupportedPreviewSizes"
+	CameraParametersService_GetSupportedSceneModes_FullMethodName          = "/hardware.CameraParametersService/GetSupportedSceneModes"
+	CameraParametersService_GetSupportedVideoSizes_FullMethodName          = "/hardware.CameraParametersService/GetSupportedVideoSizes"
+	CameraParametersService_GetSupportedWhiteBalance_FullMethodName        = "/hardware.CameraParametersService/GetSupportedWhiteBalance"
 	CameraParametersService_GetVerticalViewAngle_FullMethodName            = "/hardware.CameraParametersService/GetVerticalViewAngle"
 	CameraParametersService_GetVideoStabilization_FullMethodName           = "/hardware.CameraParametersService/GetVideoStabilization"
 	CameraParametersService_GetWhiteBalance_FullMethodName                 = "/hardware.CameraParametersService/GetWhiteBalance"
 	CameraParametersService_GetZoom_FullMethodName                         = "/hardware.CameraParametersService/GetZoom"
+	CameraParametersService_GetZoomRatios_FullMethodName                   = "/hardware.CameraParametersService/GetZoomRatios"
 	CameraParametersService_IsAutoExposureLockSupported_FullMethodName     = "/hardware.CameraParametersService/IsAutoExposureLockSupported"
 	CameraParametersService_IsAutoWhiteBalanceLockSupported_FullMethodName = "/hardware.CameraParametersService/IsAutoWhiteBalanceLockSupported"
 	CameraParametersService_IsSmoothZoomSupported_FullMethodName           = "/hardware.CameraParametersService/IsSmoothZoomSupported"
@@ -6709,6 +7518,7 @@ type CameraParametersServiceClient interface {
 	GetExposureCompensationStep(ctx context.Context, in *GetExposureCompensationStepRequest, opts ...grpc.CallOption) (*GetExposureCompensationStepResponse, error)
 	GetFlashMode(ctx context.Context, in *GetFlashModeRequest, opts ...grpc.CallOption) (*GetFlashModeResponse, error)
 	GetFocalLength(ctx context.Context, in *GetFocalLengthRequest, opts ...grpc.CallOption) (*GetFocalLengthResponse, error)
+	GetFocusAreas(ctx context.Context, in *GetFocusAreasRequest, opts ...grpc.CallOption) (*GetFocusAreasResponse, error)
 	GetFocusDistances(ctx context.Context, in *GetFocusDistancesRequest, opts ...grpc.CallOption) (*GetFocusDistancesResponse, error)
 	GetFocusMode(ctx context.Context, in *GetFocusModeRequest, opts ...grpc.CallOption) (*GetFocusModeResponse, error)
 	GetHorizontalViewAngle(ctx context.Context, in *GetHorizontalViewAngleRequest, opts ...grpc.CallOption) (*GetHorizontalViewAngleResponse, error)
@@ -6721,6 +7531,7 @@ type CameraParametersServiceClient interface {
 	GetMaxNumFocusAreas(ctx context.Context, in *GetMaxNumFocusAreasRequest, opts ...grpc.CallOption) (*GetMaxNumFocusAreasResponse, error)
 	GetMaxNumMeteringAreas(ctx context.Context, in *GetMaxNumMeteringAreasRequest, opts ...grpc.CallOption) (*GetMaxNumMeteringAreasResponse, error)
 	GetMaxZoom(ctx context.Context, in *GetMaxZoomRequest, opts ...grpc.CallOption) (*GetMaxZoomResponse, error)
+	GetMeteringAreas(ctx context.Context, in *GetMeteringAreasRequest, opts ...grpc.CallOption) (*GetMeteringAreasResponse, error)
 	GetMinExposureCompensation(ctx context.Context, in *GetMinExposureCompensationRequest, opts ...grpc.CallOption) (*GetMinExposureCompensationResponse, error)
 	GetPictureFormat(ctx context.Context, in *GetPictureFormatRequest, opts ...grpc.CallOption) (*GetPictureFormatResponse, error)
 	GetPictureSize(ctx context.Context, in *GetPictureSizeRequest, opts ...grpc.CallOption) (*GetPictureSizeResponse, error)
@@ -6730,10 +7541,25 @@ type CameraParametersServiceClient interface {
 	GetPreviewFrameRate(ctx context.Context, in *GetPreviewFrameRateRequest, opts ...grpc.CallOption) (*GetPreviewFrameRateResponse, error)
 	GetPreviewSize(ctx context.Context, in *GetPreviewSizeRequest, opts ...grpc.CallOption) (*GetPreviewSizeResponse, error)
 	GetSceneMode(ctx context.Context, in *GetSceneModeRequest, opts ...grpc.CallOption) (*GetSceneModeResponse, error)
+	GetSupportedAntibanding(ctx context.Context, in *GetSupportedAntibandingRequest, opts ...grpc.CallOption) (*GetSupportedAntibandingResponse, error)
+	GetSupportedColorEffects(ctx context.Context, in *GetSupportedColorEffectsRequest, opts ...grpc.CallOption) (*GetSupportedColorEffectsResponse, error)
+	GetSupportedFlashModes(ctx context.Context, in *GetSupportedFlashModesRequest, opts ...grpc.CallOption) (*GetSupportedFlashModesResponse, error)
+	GetSupportedFocusModes(ctx context.Context, in *GetSupportedFocusModesRequest, opts ...grpc.CallOption) (*GetSupportedFocusModesResponse, error)
+	GetSupportedJpegThumbnailSizes(ctx context.Context, in *GetSupportedJpegThumbnailSizesRequest, opts ...grpc.CallOption) (*GetSupportedJpegThumbnailSizesResponse, error)
+	GetSupportedPictureFormats(ctx context.Context, in *GetSupportedPictureFormatsRequest, opts ...grpc.CallOption) (*GetSupportedPictureFormatsResponse, error)
+	GetSupportedPictureSizes(ctx context.Context, in *GetSupportedPictureSizesRequest, opts ...grpc.CallOption) (*GetSupportedPictureSizesResponse, error)
+	GetSupportedPreviewFormats(ctx context.Context, in *GetSupportedPreviewFormatsRequest, opts ...grpc.CallOption) (*GetSupportedPreviewFormatsResponse, error)
+	GetSupportedPreviewFpsRange(ctx context.Context, in *GetSupportedPreviewFpsRangeRequest, opts ...grpc.CallOption) (*GetSupportedPreviewFpsRangeResponse, error)
+	GetSupportedPreviewFrameRates(ctx context.Context, in *GetSupportedPreviewFrameRatesRequest, opts ...grpc.CallOption) (*GetSupportedPreviewFrameRatesResponse, error)
+	GetSupportedPreviewSizes(ctx context.Context, in *GetSupportedPreviewSizesRequest, opts ...grpc.CallOption) (*GetSupportedPreviewSizesResponse, error)
+	GetSupportedSceneModes(ctx context.Context, in *GetSupportedSceneModesRequest, opts ...grpc.CallOption) (*GetSupportedSceneModesResponse, error)
+	GetSupportedVideoSizes(ctx context.Context, in *GetSupportedVideoSizesRequest, opts ...grpc.CallOption) (*GetSupportedVideoSizesResponse, error)
+	GetSupportedWhiteBalance(ctx context.Context, in *GetSupportedWhiteBalanceRequest, opts ...grpc.CallOption) (*GetSupportedWhiteBalanceResponse, error)
 	GetVerticalViewAngle(ctx context.Context, in *GetVerticalViewAngleRequest, opts ...grpc.CallOption) (*GetVerticalViewAngleResponse, error)
 	GetVideoStabilization(ctx context.Context, in *GetVideoStabilizationRequest, opts ...grpc.CallOption) (*GetVideoStabilizationResponse, error)
 	GetWhiteBalance(ctx context.Context, in *GetWhiteBalanceRequest, opts ...grpc.CallOption) (*GetWhiteBalanceResponse, error)
 	GetZoom(ctx context.Context, in *GetZoomRequest, opts ...grpc.CallOption) (*GetZoomResponse, error)
+	GetZoomRatios(ctx context.Context, in *GetZoomRatiosRequest, opts ...grpc.CallOption) (*GetZoomRatiosResponse, error)
 	IsAutoExposureLockSupported(ctx context.Context, in *IsAutoExposureLockSupportedRequest, opts ...grpc.CallOption) (*IsAutoExposureLockSupportedResponse, error)
 	IsAutoWhiteBalanceLockSupported(ctx context.Context, in *IsAutoWhiteBalanceLockSupportedRequest, opts ...grpc.CallOption) (*IsAutoWhiteBalanceLockSupportedResponse, error)
 	IsSmoothZoomSupported(ctx context.Context, in *IsSmoothZoomSupportedRequest, opts ...grpc.CallOption) (*IsSmoothZoomSupportedResponse, error)
@@ -6882,6 +7708,16 @@ func (c *cameraParametersServiceClient) GetFocalLength(ctx context.Context, in *
 	return out, nil
 }
 
+func (c *cameraParametersServiceClient) GetFocusAreas(ctx context.Context, in *GetFocusAreasRequest, opts ...grpc.CallOption) (*GetFocusAreasResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetFocusAreasResponse)
+	err := c.cc.Invoke(ctx, CameraParametersService_GetFocusAreas_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *cameraParametersServiceClient) GetFocusDistances(ctx context.Context, in *GetFocusDistancesRequest, opts ...grpc.CallOption) (*GetFocusDistancesResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetFocusDistancesResponse)
@@ -7002,6 +7838,16 @@ func (c *cameraParametersServiceClient) GetMaxZoom(ctx context.Context, in *GetM
 	return out, nil
 }
 
+func (c *cameraParametersServiceClient) GetMeteringAreas(ctx context.Context, in *GetMeteringAreasRequest, opts ...grpc.CallOption) (*GetMeteringAreasResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetMeteringAreasResponse)
+	err := c.cc.Invoke(ctx, CameraParametersService_GetMeteringAreas_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *cameraParametersServiceClient) GetMinExposureCompensation(ctx context.Context, in *GetMinExposureCompensationRequest, opts ...grpc.CallOption) (*GetMinExposureCompensationResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetMinExposureCompensationResponse)
@@ -7092,6 +7938,146 @@ func (c *cameraParametersServiceClient) GetSceneMode(ctx context.Context, in *Ge
 	return out, nil
 }
 
+func (c *cameraParametersServiceClient) GetSupportedAntibanding(ctx context.Context, in *GetSupportedAntibandingRequest, opts ...grpc.CallOption) (*GetSupportedAntibandingResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSupportedAntibandingResponse)
+	err := c.cc.Invoke(ctx, CameraParametersService_GetSupportedAntibanding_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraParametersServiceClient) GetSupportedColorEffects(ctx context.Context, in *GetSupportedColorEffectsRequest, opts ...grpc.CallOption) (*GetSupportedColorEffectsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSupportedColorEffectsResponse)
+	err := c.cc.Invoke(ctx, CameraParametersService_GetSupportedColorEffects_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraParametersServiceClient) GetSupportedFlashModes(ctx context.Context, in *GetSupportedFlashModesRequest, opts ...grpc.CallOption) (*GetSupportedFlashModesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSupportedFlashModesResponse)
+	err := c.cc.Invoke(ctx, CameraParametersService_GetSupportedFlashModes_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraParametersServiceClient) GetSupportedFocusModes(ctx context.Context, in *GetSupportedFocusModesRequest, opts ...grpc.CallOption) (*GetSupportedFocusModesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSupportedFocusModesResponse)
+	err := c.cc.Invoke(ctx, CameraParametersService_GetSupportedFocusModes_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraParametersServiceClient) GetSupportedJpegThumbnailSizes(ctx context.Context, in *GetSupportedJpegThumbnailSizesRequest, opts ...grpc.CallOption) (*GetSupportedJpegThumbnailSizesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSupportedJpegThumbnailSizesResponse)
+	err := c.cc.Invoke(ctx, CameraParametersService_GetSupportedJpegThumbnailSizes_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraParametersServiceClient) GetSupportedPictureFormats(ctx context.Context, in *GetSupportedPictureFormatsRequest, opts ...grpc.CallOption) (*GetSupportedPictureFormatsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSupportedPictureFormatsResponse)
+	err := c.cc.Invoke(ctx, CameraParametersService_GetSupportedPictureFormats_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraParametersServiceClient) GetSupportedPictureSizes(ctx context.Context, in *GetSupportedPictureSizesRequest, opts ...grpc.CallOption) (*GetSupportedPictureSizesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSupportedPictureSizesResponse)
+	err := c.cc.Invoke(ctx, CameraParametersService_GetSupportedPictureSizes_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraParametersServiceClient) GetSupportedPreviewFormats(ctx context.Context, in *GetSupportedPreviewFormatsRequest, opts ...grpc.CallOption) (*GetSupportedPreviewFormatsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSupportedPreviewFormatsResponse)
+	err := c.cc.Invoke(ctx, CameraParametersService_GetSupportedPreviewFormats_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraParametersServiceClient) GetSupportedPreviewFpsRange(ctx context.Context, in *GetSupportedPreviewFpsRangeRequest, opts ...grpc.CallOption) (*GetSupportedPreviewFpsRangeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSupportedPreviewFpsRangeResponse)
+	err := c.cc.Invoke(ctx, CameraParametersService_GetSupportedPreviewFpsRange_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraParametersServiceClient) GetSupportedPreviewFrameRates(ctx context.Context, in *GetSupportedPreviewFrameRatesRequest, opts ...grpc.CallOption) (*GetSupportedPreviewFrameRatesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSupportedPreviewFrameRatesResponse)
+	err := c.cc.Invoke(ctx, CameraParametersService_GetSupportedPreviewFrameRates_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraParametersServiceClient) GetSupportedPreviewSizes(ctx context.Context, in *GetSupportedPreviewSizesRequest, opts ...grpc.CallOption) (*GetSupportedPreviewSizesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSupportedPreviewSizesResponse)
+	err := c.cc.Invoke(ctx, CameraParametersService_GetSupportedPreviewSizes_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraParametersServiceClient) GetSupportedSceneModes(ctx context.Context, in *GetSupportedSceneModesRequest, opts ...grpc.CallOption) (*GetSupportedSceneModesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSupportedSceneModesResponse)
+	err := c.cc.Invoke(ctx, CameraParametersService_GetSupportedSceneModes_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraParametersServiceClient) GetSupportedVideoSizes(ctx context.Context, in *GetSupportedVideoSizesRequest, opts ...grpc.CallOption) (*GetSupportedVideoSizesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSupportedVideoSizesResponse)
+	err := c.cc.Invoke(ctx, CameraParametersService_GetSupportedVideoSizes_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraParametersServiceClient) GetSupportedWhiteBalance(ctx context.Context, in *GetSupportedWhiteBalanceRequest, opts ...grpc.CallOption) (*GetSupportedWhiteBalanceResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSupportedWhiteBalanceResponse)
+	err := c.cc.Invoke(ctx, CameraParametersService_GetSupportedWhiteBalance_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *cameraParametersServiceClient) GetVerticalViewAngle(ctx context.Context, in *GetVerticalViewAngleRequest, opts ...grpc.CallOption) (*GetVerticalViewAngleResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetVerticalViewAngleResponse)
@@ -7126,6 +8112,16 @@ func (c *cameraParametersServiceClient) GetZoom(ctx context.Context, in *GetZoom
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetZoomResponse)
 	err := c.cc.Invoke(ctx, CameraParametersService_GetZoom_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraParametersServiceClient) GetZoomRatios(ctx context.Context, in *GetZoomRatiosRequest, opts ...grpc.CallOption) (*GetZoomRatiosResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetZoomRatiosResponse)
+	err := c.cc.Invoke(ctx, CameraParametersService_GetZoomRatios_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -7526,6 +8522,7 @@ type CameraParametersServiceServer interface {
 	GetExposureCompensationStep(context.Context, *GetExposureCompensationStepRequest) (*GetExposureCompensationStepResponse, error)
 	GetFlashMode(context.Context, *GetFlashModeRequest) (*GetFlashModeResponse, error)
 	GetFocalLength(context.Context, *GetFocalLengthRequest) (*GetFocalLengthResponse, error)
+	GetFocusAreas(context.Context, *GetFocusAreasRequest) (*GetFocusAreasResponse, error)
 	GetFocusDistances(context.Context, *GetFocusDistancesRequest) (*GetFocusDistancesResponse, error)
 	GetFocusMode(context.Context, *GetFocusModeRequest) (*GetFocusModeResponse, error)
 	GetHorizontalViewAngle(context.Context, *GetHorizontalViewAngleRequest) (*GetHorizontalViewAngleResponse, error)
@@ -7538,6 +8535,7 @@ type CameraParametersServiceServer interface {
 	GetMaxNumFocusAreas(context.Context, *GetMaxNumFocusAreasRequest) (*GetMaxNumFocusAreasResponse, error)
 	GetMaxNumMeteringAreas(context.Context, *GetMaxNumMeteringAreasRequest) (*GetMaxNumMeteringAreasResponse, error)
 	GetMaxZoom(context.Context, *GetMaxZoomRequest) (*GetMaxZoomResponse, error)
+	GetMeteringAreas(context.Context, *GetMeteringAreasRequest) (*GetMeteringAreasResponse, error)
 	GetMinExposureCompensation(context.Context, *GetMinExposureCompensationRequest) (*GetMinExposureCompensationResponse, error)
 	GetPictureFormat(context.Context, *GetPictureFormatRequest) (*GetPictureFormatResponse, error)
 	GetPictureSize(context.Context, *GetPictureSizeRequest) (*GetPictureSizeResponse, error)
@@ -7547,10 +8545,25 @@ type CameraParametersServiceServer interface {
 	GetPreviewFrameRate(context.Context, *GetPreviewFrameRateRequest) (*GetPreviewFrameRateResponse, error)
 	GetPreviewSize(context.Context, *GetPreviewSizeRequest) (*GetPreviewSizeResponse, error)
 	GetSceneMode(context.Context, *GetSceneModeRequest) (*GetSceneModeResponse, error)
+	GetSupportedAntibanding(context.Context, *GetSupportedAntibandingRequest) (*GetSupportedAntibandingResponse, error)
+	GetSupportedColorEffects(context.Context, *GetSupportedColorEffectsRequest) (*GetSupportedColorEffectsResponse, error)
+	GetSupportedFlashModes(context.Context, *GetSupportedFlashModesRequest) (*GetSupportedFlashModesResponse, error)
+	GetSupportedFocusModes(context.Context, *GetSupportedFocusModesRequest) (*GetSupportedFocusModesResponse, error)
+	GetSupportedJpegThumbnailSizes(context.Context, *GetSupportedJpegThumbnailSizesRequest) (*GetSupportedJpegThumbnailSizesResponse, error)
+	GetSupportedPictureFormats(context.Context, *GetSupportedPictureFormatsRequest) (*GetSupportedPictureFormatsResponse, error)
+	GetSupportedPictureSizes(context.Context, *GetSupportedPictureSizesRequest) (*GetSupportedPictureSizesResponse, error)
+	GetSupportedPreviewFormats(context.Context, *GetSupportedPreviewFormatsRequest) (*GetSupportedPreviewFormatsResponse, error)
+	GetSupportedPreviewFpsRange(context.Context, *GetSupportedPreviewFpsRangeRequest) (*GetSupportedPreviewFpsRangeResponse, error)
+	GetSupportedPreviewFrameRates(context.Context, *GetSupportedPreviewFrameRatesRequest) (*GetSupportedPreviewFrameRatesResponse, error)
+	GetSupportedPreviewSizes(context.Context, *GetSupportedPreviewSizesRequest) (*GetSupportedPreviewSizesResponse, error)
+	GetSupportedSceneModes(context.Context, *GetSupportedSceneModesRequest) (*GetSupportedSceneModesResponse, error)
+	GetSupportedVideoSizes(context.Context, *GetSupportedVideoSizesRequest) (*GetSupportedVideoSizesResponse, error)
+	GetSupportedWhiteBalance(context.Context, *GetSupportedWhiteBalanceRequest) (*GetSupportedWhiteBalanceResponse, error)
 	GetVerticalViewAngle(context.Context, *GetVerticalViewAngleRequest) (*GetVerticalViewAngleResponse, error)
 	GetVideoStabilization(context.Context, *GetVideoStabilizationRequest) (*GetVideoStabilizationResponse, error)
 	GetWhiteBalance(context.Context, *GetWhiteBalanceRequest) (*GetWhiteBalanceResponse, error)
 	GetZoom(context.Context, *GetZoomRequest) (*GetZoomResponse, error)
+	GetZoomRatios(context.Context, *GetZoomRatiosRequest) (*GetZoomRatiosResponse, error)
 	IsAutoExposureLockSupported(context.Context, *IsAutoExposureLockSupportedRequest) (*IsAutoExposureLockSupportedResponse, error)
 	IsAutoWhiteBalanceLockSupported(context.Context, *IsAutoWhiteBalanceLockSupportedRequest) (*IsAutoWhiteBalanceLockSupportedResponse, error)
 	IsSmoothZoomSupported(context.Context, *IsSmoothZoomSupportedRequest) (*IsSmoothZoomSupportedResponse, error)
@@ -7629,6 +8642,9 @@ func (UnimplementedCameraParametersServiceServer) GetFlashMode(context.Context, 
 func (UnimplementedCameraParametersServiceServer) GetFocalLength(context.Context, *GetFocalLengthRequest) (*GetFocalLengthResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetFocalLength not implemented")
 }
+func (UnimplementedCameraParametersServiceServer) GetFocusAreas(context.Context, *GetFocusAreasRequest) (*GetFocusAreasResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetFocusAreas not implemented")
+}
 func (UnimplementedCameraParametersServiceServer) GetFocusDistances(context.Context, *GetFocusDistancesRequest) (*GetFocusDistancesResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetFocusDistances not implemented")
 }
@@ -7665,6 +8681,9 @@ func (UnimplementedCameraParametersServiceServer) GetMaxNumMeteringAreas(context
 func (UnimplementedCameraParametersServiceServer) GetMaxZoom(context.Context, *GetMaxZoomRequest) (*GetMaxZoomResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetMaxZoom not implemented")
 }
+func (UnimplementedCameraParametersServiceServer) GetMeteringAreas(context.Context, *GetMeteringAreasRequest) (*GetMeteringAreasResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetMeteringAreas not implemented")
+}
 func (UnimplementedCameraParametersServiceServer) GetMinExposureCompensation(context.Context, *GetMinExposureCompensationRequest) (*GetMinExposureCompensationResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetMinExposureCompensation not implemented")
 }
@@ -7692,6 +8711,48 @@ func (UnimplementedCameraParametersServiceServer) GetPreviewSize(context.Context
 func (UnimplementedCameraParametersServiceServer) GetSceneMode(context.Context, *GetSceneModeRequest) (*GetSceneModeResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetSceneMode not implemented")
 }
+func (UnimplementedCameraParametersServiceServer) GetSupportedAntibanding(context.Context, *GetSupportedAntibandingRequest) (*GetSupportedAntibandingResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSupportedAntibanding not implemented")
+}
+func (UnimplementedCameraParametersServiceServer) GetSupportedColorEffects(context.Context, *GetSupportedColorEffectsRequest) (*GetSupportedColorEffectsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSupportedColorEffects not implemented")
+}
+func (UnimplementedCameraParametersServiceServer) GetSupportedFlashModes(context.Context, *GetSupportedFlashModesRequest) (*GetSupportedFlashModesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSupportedFlashModes not implemented")
+}
+func (UnimplementedCameraParametersServiceServer) GetSupportedFocusModes(context.Context, *GetSupportedFocusModesRequest) (*GetSupportedFocusModesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSupportedFocusModes not implemented")
+}
+func (UnimplementedCameraParametersServiceServer) GetSupportedJpegThumbnailSizes(context.Context, *GetSupportedJpegThumbnailSizesRequest) (*GetSupportedJpegThumbnailSizesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSupportedJpegThumbnailSizes not implemented")
+}
+func (UnimplementedCameraParametersServiceServer) GetSupportedPictureFormats(context.Context, *GetSupportedPictureFormatsRequest) (*GetSupportedPictureFormatsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSupportedPictureFormats not implemented")
+}
+func (UnimplementedCameraParametersServiceServer) GetSupportedPictureSizes(context.Context, *GetSupportedPictureSizesRequest) (*GetSupportedPictureSizesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSupportedPictureSizes not implemented")
+}
+func (UnimplementedCameraParametersServiceServer) GetSupportedPreviewFormats(context.Context, *GetSupportedPreviewFormatsRequest) (*GetSupportedPreviewFormatsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSupportedPreviewFormats not implemented")
+}
+func (UnimplementedCameraParametersServiceServer) GetSupportedPreviewFpsRange(context.Context, *GetSupportedPreviewFpsRangeRequest) (*GetSupportedPreviewFpsRangeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSupportedPreviewFpsRange not implemented")
+}
+func (UnimplementedCameraParametersServiceServer) GetSupportedPreviewFrameRates(context.Context, *GetSupportedPreviewFrameRatesRequest) (*GetSupportedPreviewFrameRatesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSupportedPreviewFrameRates not implemented")
+}
+func (UnimplementedCameraParametersServiceServer) GetSupportedPreviewSizes(context.Context, *GetSupportedPreviewSizesRequest) (*GetSupportedPreviewSizesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSupportedPreviewSizes not implemented")
+}
+func (UnimplementedCameraParametersServiceServer) GetSupportedSceneModes(context.Context, *GetSupportedSceneModesRequest) (*GetSupportedSceneModesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSupportedSceneModes not implemented")
+}
+func (UnimplementedCameraParametersServiceServer) GetSupportedVideoSizes(context.Context, *GetSupportedVideoSizesRequest) (*GetSupportedVideoSizesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSupportedVideoSizes not implemented")
+}
+func (UnimplementedCameraParametersServiceServer) GetSupportedWhiteBalance(context.Context, *GetSupportedWhiteBalanceRequest) (*GetSupportedWhiteBalanceResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSupportedWhiteBalance not implemented")
+}
 func (UnimplementedCameraParametersServiceServer) GetVerticalViewAngle(context.Context, *GetVerticalViewAngleRequest) (*GetVerticalViewAngleResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetVerticalViewAngle not implemented")
 }
@@ -7703,6 +8764,9 @@ func (UnimplementedCameraParametersServiceServer) GetWhiteBalance(context.Contex
 }
 func (UnimplementedCameraParametersServiceServer) GetZoom(context.Context, *GetZoomRequest) (*GetZoomResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetZoom not implemented")
+}
+func (UnimplementedCameraParametersServiceServer) GetZoomRatios(context.Context, *GetZoomRatiosRequest) (*GetZoomRatiosResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetZoomRatios not implemented")
 }
 func (UnimplementedCameraParametersServiceServer) IsAutoExposureLockSupported(context.Context, *IsAutoExposureLockSupportedRequest) (*IsAutoExposureLockSupportedResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method IsAutoExposureLockSupported not implemented")
@@ -8020,6 +9084,24 @@ func _CameraParametersService_GetFocalLength_Handler(srv interface{}, ctx contex
 	return interceptor(ctx, in, info, handler)
 }
 
+func _CameraParametersService_GetFocusAreas_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetFocusAreasRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraParametersServiceServer).GetFocusAreas(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraParametersService_GetFocusAreas_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraParametersServiceServer).GetFocusAreas(ctx, req.(*GetFocusAreasRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _CameraParametersService_GetFocusDistances_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetFocusDistancesRequest)
 	if err := dec(in); err != nil {
@@ -8236,6 +9318,24 @@ func _CameraParametersService_GetMaxZoom_Handler(srv interface{}, ctx context.Co
 	return interceptor(ctx, in, info, handler)
 }
 
+func _CameraParametersService_GetMeteringAreas_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetMeteringAreasRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraParametersServiceServer).GetMeteringAreas(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraParametersService_GetMeteringAreas_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraParametersServiceServer).GetMeteringAreas(ctx, req.(*GetMeteringAreasRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _CameraParametersService_GetMinExposureCompensation_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetMinExposureCompensationRequest)
 	if err := dec(in); err != nil {
@@ -8398,6 +9498,258 @@ func _CameraParametersService_GetSceneMode_Handler(srv interface{}, ctx context.
 	return interceptor(ctx, in, info, handler)
 }
 
+func _CameraParametersService_GetSupportedAntibanding_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSupportedAntibandingRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraParametersServiceServer).GetSupportedAntibanding(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraParametersService_GetSupportedAntibanding_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraParametersServiceServer).GetSupportedAntibanding(ctx, req.(*GetSupportedAntibandingRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraParametersService_GetSupportedColorEffects_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSupportedColorEffectsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraParametersServiceServer).GetSupportedColorEffects(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraParametersService_GetSupportedColorEffects_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraParametersServiceServer).GetSupportedColorEffects(ctx, req.(*GetSupportedColorEffectsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraParametersService_GetSupportedFlashModes_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSupportedFlashModesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraParametersServiceServer).GetSupportedFlashModes(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraParametersService_GetSupportedFlashModes_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraParametersServiceServer).GetSupportedFlashModes(ctx, req.(*GetSupportedFlashModesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraParametersService_GetSupportedFocusModes_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSupportedFocusModesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraParametersServiceServer).GetSupportedFocusModes(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraParametersService_GetSupportedFocusModes_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraParametersServiceServer).GetSupportedFocusModes(ctx, req.(*GetSupportedFocusModesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraParametersService_GetSupportedJpegThumbnailSizes_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSupportedJpegThumbnailSizesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraParametersServiceServer).GetSupportedJpegThumbnailSizes(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraParametersService_GetSupportedJpegThumbnailSizes_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraParametersServiceServer).GetSupportedJpegThumbnailSizes(ctx, req.(*GetSupportedJpegThumbnailSizesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraParametersService_GetSupportedPictureFormats_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSupportedPictureFormatsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraParametersServiceServer).GetSupportedPictureFormats(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraParametersService_GetSupportedPictureFormats_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraParametersServiceServer).GetSupportedPictureFormats(ctx, req.(*GetSupportedPictureFormatsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraParametersService_GetSupportedPictureSizes_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSupportedPictureSizesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraParametersServiceServer).GetSupportedPictureSizes(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraParametersService_GetSupportedPictureSizes_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraParametersServiceServer).GetSupportedPictureSizes(ctx, req.(*GetSupportedPictureSizesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraParametersService_GetSupportedPreviewFormats_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSupportedPreviewFormatsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraParametersServiceServer).GetSupportedPreviewFormats(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraParametersService_GetSupportedPreviewFormats_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraParametersServiceServer).GetSupportedPreviewFormats(ctx, req.(*GetSupportedPreviewFormatsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraParametersService_GetSupportedPreviewFpsRange_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSupportedPreviewFpsRangeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraParametersServiceServer).GetSupportedPreviewFpsRange(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraParametersService_GetSupportedPreviewFpsRange_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraParametersServiceServer).GetSupportedPreviewFpsRange(ctx, req.(*GetSupportedPreviewFpsRangeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraParametersService_GetSupportedPreviewFrameRates_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSupportedPreviewFrameRatesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraParametersServiceServer).GetSupportedPreviewFrameRates(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraParametersService_GetSupportedPreviewFrameRates_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraParametersServiceServer).GetSupportedPreviewFrameRates(ctx, req.(*GetSupportedPreviewFrameRatesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraParametersService_GetSupportedPreviewSizes_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSupportedPreviewSizesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraParametersServiceServer).GetSupportedPreviewSizes(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraParametersService_GetSupportedPreviewSizes_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraParametersServiceServer).GetSupportedPreviewSizes(ctx, req.(*GetSupportedPreviewSizesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraParametersService_GetSupportedSceneModes_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSupportedSceneModesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraParametersServiceServer).GetSupportedSceneModes(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraParametersService_GetSupportedSceneModes_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraParametersServiceServer).GetSupportedSceneModes(ctx, req.(*GetSupportedSceneModesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraParametersService_GetSupportedVideoSizes_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSupportedVideoSizesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraParametersServiceServer).GetSupportedVideoSizes(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraParametersService_GetSupportedVideoSizes_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraParametersServiceServer).GetSupportedVideoSizes(ctx, req.(*GetSupportedVideoSizesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraParametersService_GetSupportedWhiteBalance_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSupportedWhiteBalanceRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraParametersServiceServer).GetSupportedWhiteBalance(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraParametersService_GetSupportedWhiteBalance_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraParametersServiceServer).GetSupportedWhiteBalance(ctx, req.(*GetSupportedWhiteBalanceRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _CameraParametersService_GetVerticalViewAngle_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetVerticalViewAngleRequest)
 	if err := dec(in); err != nil {
@@ -8466,6 +9818,24 @@ func _CameraParametersService_GetZoom_Handler(srv interface{}, ctx context.Conte
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(CameraParametersServiceServer).GetZoom(ctx, req.(*GetZoomRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraParametersService_GetZoomRatios_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetZoomRatiosRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraParametersServiceServer).GetZoomRatios(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraParametersService_GetZoomRatios_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraParametersServiceServer).GetZoomRatios(ctx, req.(*GetZoomRatiosRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -9202,6 +10572,10 @@ var CameraParametersService_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _CameraParametersService_GetFocalLength_Handler,
 		},
 		{
+			MethodName: "GetFocusAreas",
+			Handler:    _CameraParametersService_GetFocusAreas_Handler,
+		},
+		{
 			MethodName: "GetFocusDistances",
 			Handler:    _CameraParametersService_GetFocusDistances_Handler,
 		},
@@ -9250,6 +10624,10 @@ var CameraParametersService_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _CameraParametersService_GetMaxZoom_Handler,
 		},
 		{
+			MethodName: "GetMeteringAreas",
+			Handler:    _CameraParametersService_GetMeteringAreas_Handler,
+		},
+		{
 			MethodName: "GetMinExposureCompensation",
 			Handler:    _CameraParametersService_GetMinExposureCompensation_Handler,
 		},
@@ -9286,6 +10664,62 @@ var CameraParametersService_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _CameraParametersService_GetSceneMode_Handler,
 		},
 		{
+			MethodName: "GetSupportedAntibanding",
+			Handler:    _CameraParametersService_GetSupportedAntibanding_Handler,
+		},
+		{
+			MethodName: "GetSupportedColorEffects",
+			Handler:    _CameraParametersService_GetSupportedColorEffects_Handler,
+		},
+		{
+			MethodName: "GetSupportedFlashModes",
+			Handler:    _CameraParametersService_GetSupportedFlashModes_Handler,
+		},
+		{
+			MethodName: "GetSupportedFocusModes",
+			Handler:    _CameraParametersService_GetSupportedFocusModes_Handler,
+		},
+		{
+			MethodName: "GetSupportedJpegThumbnailSizes",
+			Handler:    _CameraParametersService_GetSupportedJpegThumbnailSizes_Handler,
+		},
+		{
+			MethodName: "GetSupportedPictureFormats",
+			Handler:    _CameraParametersService_GetSupportedPictureFormats_Handler,
+		},
+		{
+			MethodName: "GetSupportedPictureSizes",
+			Handler:    _CameraParametersService_GetSupportedPictureSizes_Handler,
+		},
+		{
+			MethodName: "GetSupportedPreviewFormats",
+			Handler:    _CameraParametersService_GetSupportedPreviewFormats_Handler,
+		},
+		{
+			MethodName: "GetSupportedPreviewFpsRange",
+			Handler:    _CameraParametersService_GetSupportedPreviewFpsRange_Handler,
+		},
+		{
+			MethodName: "GetSupportedPreviewFrameRates",
+			Handler:    _CameraParametersService_GetSupportedPreviewFrameRates_Handler,
+		},
+		{
+			MethodName: "GetSupportedPreviewSizes",
+			Handler:    _CameraParametersService_GetSupportedPreviewSizes_Handler,
+		},
+		{
+			MethodName: "GetSupportedSceneModes",
+			Handler:    _CameraParametersService_GetSupportedSceneModes_Handler,
+		},
+		{
+			MethodName: "GetSupportedVideoSizes",
+			Handler:    _CameraParametersService_GetSupportedVideoSizes_Handler,
+		},
+		{
+			MethodName: "GetSupportedWhiteBalance",
+			Handler:    _CameraParametersService_GetSupportedWhiteBalance_Handler,
+		},
+		{
 			MethodName: "GetVerticalViewAngle",
 			Handler:    _CameraParametersService_GetVerticalViewAngle_Handler,
 		},
@@ -9300,6 +10734,10 @@ var CameraParametersService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetZoom",
 			Handler:    _CameraParametersService_GetZoom_Handler,
+		},
+		{
+			MethodName: "GetZoomRatios",
+			Handler:    _CameraParametersService_GetZoomRatios_Handler,
 		},
 		{
 			MethodName: "IsAutoExposureLockSupported",
@@ -9908,893 +11346,177 @@ var CameraSizeService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	BatteryStateService_GetCapacity_FullMethodName = "/hardware.BatteryStateService/GetCapacity"
-	BatteryStateService_GetStatus_FullMethodName   = "/hardware.BatteryStateService/GetStatus"
-	BatteryStateService_IsPresent_FullMethodName   = "/hardware.BatteryStateService/IsPresent"
+	LutPropertiesService_GetDimension_FullMethodName    = "/hardware.LutPropertiesService/GetDimension"
+	LutPropertiesService_GetSamplingKeys_FullMethodName = "/hardware.LutPropertiesService/GetSamplingKeys"
+	LutPropertiesService_GetSize_FullMethodName         = "/hardware.LutPropertiesService/GetSize"
 )
 
-// BatteryStateServiceClient is the client API for BatteryStateService service.
+// LutPropertiesServiceClient is the client API for LutPropertiesService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type BatteryStateServiceClient interface {
-	GetCapacity(ctx context.Context, in *GetCapacityRequest, opts ...grpc.CallOption) (*GetCapacityResponse, error)
-	GetStatus(ctx context.Context, in *GetStatusRequest, opts ...grpc.CallOption) (*GetStatusResponse, error)
-	IsPresent(ctx context.Context, in *IsPresentRequest, opts ...grpc.CallOption) (*IsPresentResponse, error)
+type LutPropertiesServiceClient interface {
+	GetDimension(ctx context.Context, in *GetDimensionRequest, opts ...grpc.CallOption) (*GetDimensionResponse, error)
+	GetSamplingKeys(ctx context.Context, in *GetSamplingKeysRequest, opts ...grpc.CallOption) (*GetSamplingKeysResponse, error)
+	GetSize(ctx context.Context, in *GetSizeRequest, opts ...grpc.CallOption) (*GetSizeResponse, error)
 }
 
-type batteryStateServiceClient struct {
+type lutPropertiesServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewBatteryStateServiceClient(cc grpc.ClientConnInterface) BatteryStateServiceClient {
-	return &batteryStateServiceClient{cc}
+func NewLutPropertiesServiceClient(cc grpc.ClientConnInterface) LutPropertiesServiceClient {
+	return &lutPropertiesServiceClient{cc}
 }
 
-func (c *batteryStateServiceClient) GetCapacity(ctx context.Context, in *GetCapacityRequest, opts ...grpc.CallOption) (*GetCapacityResponse, error) {
+func (c *lutPropertiesServiceClient) GetDimension(ctx context.Context, in *GetDimensionRequest, opts ...grpc.CallOption) (*GetDimensionResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetCapacityResponse)
-	err := c.cc.Invoke(ctx, BatteryStateService_GetCapacity_FullMethodName, in, out, cOpts...)
+	out := new(GetDimensionResponse)
+	err := c.cc.Invoke(ctx, LutPropertiesService_GetDimension_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *batteryStateServiceClient) GetStatus(ctx context.Context, in *GetStatusRequest, opts ...grpc.CallOption) (*GetStatusResponse, error) {
+func (c *lutPropertiesServiceClient) GetSamplingKeys(ctx context.Context, in *GetSamplingKeysRequest, opts ...grpc.CallOption) (*GetSamplingKeysResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetStatusResponse)
-	err := c.cc.Invoke(ctx, BatteryStateService_GetStatus_FullMethodName, in, out, cOpts...)
+	out := new(GetSamplingKeysResponse)
+	err := c.cc.Invoke(ctx, LutPropertiesService_GetSamplingKeys_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *batteryStateServiceClient) IsPresent(ctx context.Context, in *IsPresentRequest, opts ...grpc.CallOption) (*IsPresentResponse, error) {
+func (c *lutPropertiesServiceClient) GetSize(ctx context.Context, in *GetSizeRequest, opts ...grpc.CallOption) (*GetSizeResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsPresentResponse)
-	err := c.cc.Invoke(ctx, BatteryStateService_IsPresent_FullMethodName, in, out, cOpts...)
+	out := new(GetSizeResponse)
+	err := c.cc.Invoke(ctx, LutPropertiesService_GetSize_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// BatteryStateServiceServer is the server API for BatteryStateService service.
-// All implementations must embed UnimplementedBatteryStateServiceServer
+// LutPropertiesServiceServer is the server API for LutPropertiesService service.
+// All implementations must embed UnimplementedLutPropertiesServiceServer
 // for forward compatibility.
-type BatteryStateServiceServer interface {
-	GetCapacity(context.Context, *GetCapacityRequest) (*GetCapacityResponse, error)
-	GetStatus(context.Context, *GetStatusRequest) (*GetStatusResponse, error)
-	IsPresent(context.Context, *IsPresentRequest) (*IsPresentResponse, error)
-	mustEmbedUnimplementedBatteryStateServiceServer()
+type LutPropertiesServiceServer interface {
+	GetDimension(context.Context, *GetDimensionRequest) (*GetDimensionResponse, error)
+	GetSamplingKeys(context.Context, *GetSamplingKeysRequest) (*GetSamplingKeysResponse, error)
+	GetSize(context.Context, *GetSizeRequest) (*GetSizeResponse, error)
+	mustEmbedUnimplementedLutPropertiesServiceServer()
 }
 
-// UnimplementedBatteryStateServiceServer must be embedded to have
+// UnimplementedLutPropertiesServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedBatteryStateServiceServer struct{}
+type UnimplementedLutPropertiesServiceServer struct{}
 
-func (UnimplementedBatteryStateServiceServer) GetCapacity(context.Context, *GetCapacityRequest) (*GetCapacityResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetCapacity not implemented")
+func (UnimplementedLutPropertiesServiceServer) GetDimension(context.Context, *GetDimensionRequest) (*GetDimensionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetDimension not implemented")
 }
-func (UnimplementedBatteryStateServiceServer) GetStatus(context.Context, *GetStatusRequest) (*GetStatusResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetStatus not implemented")
+func (UnimplementedLutPropertiesServiceServer) GetSamplingKeys(context.Context, *GetSamplingKeysRequest) (*GetSamplingKeysResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSamplingKeys not implemented")
 }
-func (UnimplementedBatteryStateServiceServer) IsPresent(context.Context, *IsPresentRequest) (*IsPresentResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsPresent not implemented")
+func (UnimplementedLutPropertiesServiceServer) GetSize(context.Context, *GetSizeRequest) (*GetSizeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSize not implemented")
 }
-func (UnimplementedBatteryStateServiceServer) mustEmbedUnimplementedBatteryStateServiceServer() {}
-func (UnimplementedBatteryStateServiceServer) testEmbeddedByValue()                             {}
+func (UnimplementedLutPropertiesServiceServer) mustEmbedUnimplementedLutPropertiesServiceServer() {}
+func (UnimplementedLutPropertiesServiceServer) testEmbeddedByValue()                              {}
 
-// UnsafeBatteryStateServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to BatteryStateServiceServer will
+// UnsafeLutPropertiesServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to LutPropertiesServiceServer will
 // result in compilation errors.
-type UnsafeBatteryStateServiceServer interface {
-	mustEmbedUnimplementedBatteryStateServiceServer()
+type UnsafeLutPropertiesServiceServer interface {
+	mustEmbedUnimplementedLutPropertiesServiceServer()
 }
 
-func RegisterBatteryStateServiceServer(s grpc.ServiceRegistrar, srv BatteryStateServiceServer) {
-	// If the following call panics, it indicates UnimplementedBatteryStateServiceServer was
+func RegisterLutPropertiesServiceServer(s grpc.ServiceRegistrar, srv LutPropertiesServiceServer) {
+	// If the following call panics, it indicates UnimplementedLutPropertiesServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&BatteryStateService_ServiceDesc, srv)
+	s.RegisterService(&LutPropertiesService_ServiceDesc, srv)
 }
 
-func _BatteryStateService_GetCapacity_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetCapacityRequest)
+func _LutPropertiesService_GetDimension_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetDimensionRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(BatteryStateServiceServer).GetCapacity(ctx, in)
+		return srv.(LutPropertiesServiceServer).GetDimension(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: BatteryStateService_GetCapacity_FullMethodName,
+		FullMethod: LutPropertiesService_GetDimension_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BatteryStateServiceServer).GetCapacity(ctx, req.(*GetCapacityRequest))
+		return srv.(LutPropertiesServiceServer).GetDimension(ctx, req.(*GetDimensionRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _BatteryStateService_GetStatus_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetStatusRequest)
+func _LutPropertiesService_GetSamplingKeys_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSamplingKeysRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(BatteryStateServiceServer).GetStatus(ctx, in)
+		return srv.(LutPropertiesServiceServer).GetSamplingKeys(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: BatteryStateService_GetStatus_FullMethodName,
+		FullMethod: LutPropertiesService_GetSamplingKeys_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BatteryStateServiceServer).GetStatus(ctx, req.(*GetStatusRequest))
+		return srv.(LutPropertiesServiceServer).GetSamplingKeys(ctx, req.(*GetSamplingKeysRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _BatteryStateService_IsPresent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsPresentRequest)
+func _LutPropertiesService_GetSize_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSizeRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(BatteryStateServiceServer).IsPresent(ctx, in)
+		return srv.(LutPropertiesServiceServer).GetSize(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: BatteryStateService_IsPresent_FullMethodName,
+		FullMethod: LutPropertiesService_GetSize_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BatteryStateServiceServer).IsPresent(ctx, req.(*IsPresentRequest))
+		return srv.(LutPropertiesServiceServer).GetSize(ctx, req.(*GetSizeRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// BatteryStateService_ServiceDesc is the grpc.ServiceDesc for BatteryStateService service.
+// LutPropertiesService_ServiceDesc is the grpc.ServiceDesc for LutPropertiesService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var BatteryStateService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "hardware.BatteryStateService",
-	HandlerType: (*BatteryStateServiceServer)(nil),
+var LutPropertiesService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "hardware.LutPropertiesService",
+	HandlerType: (*LutPropertiesServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "GetCapacity",
-			Handler:    _BatteryStateService_GetCapacity_Handler,
+			MethodName: "GetDimension",
+			Handler:    _LutPropertiesService_GetDimension_Handler,
 		},
 		{
-			MethodName: "GetStatus",
-			Handler:    _BatteryStateService_GetStatus_Handler,
+			MethodName: "GetSamplingKeys",
+			Handler:    _LutPropertiesService_GetSamplingKeys_Handler,
 		},
 		{
-			MethodName: "IsPresent",
-			Handler:    _BatteryStateService_IsPresent_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/hardware/hardware.proto",
-}
-
-const (
-	OverlayPropertiesService_DescribeContents_FullMethodName            = "/hardware.OverlayPropertiesService/DescribeContents"
-	OverlayPropertiesService_GetLutProperties_FullMethodName            = "/hardware.OverlayPropertiesService/GetLutProperties"
-	OverlayPropertiesService_IsCombinationSupported_FullMethodName      = "/hardware.OverlayPropertiesService/IsCombinationSupported"
-	OverlayPropertiesService_IsMixedColorSpacesSupported_FullMethodName = "/hardware.OverlayPropertiesService/IsMixedColorSpacesSupported"
-	OverlayPropertiesService_WriteToParcel_FullMethodName               = "/hardware.OverlayPropertiesService/WriteToParcel"
-)
-
-// OverlayPropertiesServiceClient is the client API for OverlayPropertiesService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type OverlayPropertiesServiceClient interface {
-	DescribeContents(ctx context.Context, in *OverlayPropertiesDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	GetLutProperties(ctx context.Context, in *GetLutPropertiesRequest, opts ...grpc.CallOption) (*GetLutPropertiesResponse, error)
-	IsCombinationSupported(ctx context.Context, in *IsCombinationSupportedRequest, opts ...grpc.CallOption) (*IsCombinationSupportedResponse, error)
-	IsMixedColorSpacesSupported(ctx context.Context, in *IsMixedColorSpacesSupportedRequest, opts ...grpc.CallOption) (*IsMixedColorSpacesSupportedResponse, error)
-	WriteToParcel(ctx context.Context, in *OverlayPropertiesWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
-}
-
-type overlayPropertiesServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewOverlayPropertiesServiceClient(cc grpc.ClientConnInterface) OverlayPropertiesServiceClient {
-	return &overlayPropertiesServiceClient{cc}
-}
-
-func (c *overlayPropertiesServiceClient) DescribeContents(ctx context.Context, in *OverlayPropertiesDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, OverlayPropertiesService_DescribeContents_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *overlayPropertiesServiceClient) GetLutProperties(ctx context.Context, in *GetLutPropertiesRequest, opts ...grpc.CallOption) (*GetLutPropertiesResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetLutPropertiesResponse)
-	err := c.cc.Invoke(ctx, OverlayPropertiesService_GetLutProperties_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *overlayPropertiesServiceClient) IsCombinationSupported(ctx context.Context, in *IsCombinationSupportedRequest, opts ...grpc.CallOption) (*IsCombinationSupportedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsCombinationSupportedResponse)
-	err := c.cc.Invoke(ctx, OverlayPropertiesService_IsCombinationSupported_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *overlayPropertiesServiceClient) IsMixedColorSpacesSupported(ctx context.Context, in *IsMixedColorSpacesSupportedRequest, opts ...grpc.CallOption) (*IsMixedColorSpacesSupportedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsMixedColorSpacesSupportedResponse)
-	err := c.cc.Invoke(ctx, OverlayPropertiesService_IsMixedColorSpacesSupported_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *overlayPropertiesServiceClient) WriteToParcel(ctx context.Context, in *OverlayPropertiesWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, OverlayPropertiesService_WriteToParcel_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// OverlayPropertiesServiceServer is the server API for OverlayPropertiesService service.
-// All implementations must embed UnimplementedOverlayPropertiesServiceServer
-// for forward compatibility.
-type OverlayPropertiesServiceServer interface {
-	DescribeContents(context.Context, *OverlayPropertiesDescribeContentsRequest) (*DescribeContentsResponse, error)
-	GetLutProperties(context.Context, *GetLutPropertiesRequest) (*GetLutPropertiesResponse, error)
-	IsCombinationSupported(context.Context, *IsCombinationSupportedRequest) (*IsCombinationSupportedResponse, error)
-	IsMixedColorSpacesSupported(context.Context, *IsMixedColorSpacesSupportedRequest) (*IsMixedColorSpacesSupportedResponse, error)
-	WriteToParcel(context.Context, *OverlayPropertiesWriteToParcelRequest) (*WriteToParcelResponse, error)
-	mustEmbedUnimplementedOverlayPropertiesServiceServer()
-}
-
-// UnimplementedOverlayPropertiesServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedOverlayPropertiesServiceServer struct{}
-
-func (UnimplementedOverlayPropertiesServiceServer) DescribeContents(context.Context, *OverlayPropertiesDescribeContentsRequest) (*DescribeContentsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
-}
-func (UnimplementedOverlayPropertiesServiceServer) GetLutProperties(context.Context, *GetLutPropertiesRequest) (*GetLutPropertiesResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetLutProperties not implemented")
-}
-func (UnimplementedOverlayPropertiesServiceServer) IsCombinationSupported(context.Context, *IsCombinationSupportedRequest) (*IsCombinationSupportedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsCombinationSupported not implemented")
-}
-func (UnimplementedOverlayPropertiesServiceServer) IsMixedColorSpacesSupported(context.Context, *IsMixedColorSpacesSupportedRequest) (*IsMixedColorSpacesSupportedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsMixedColorSpacesSupported not implemented")
-}
-func (UnimplementedOverlayPropertiesServiceServer) WriteToParcel(context.Context, *OverlayPropertiesWriteToParcelRequest) (*WriteToParcelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
-}
-func (UnimplementedOverlayPropertiesServiceServer) mustEmbedUnimplementedOverlayPropertiesServiceServer() {
-}
-func (UnimplementedOverlayPropertiesServiceServer) testEmbeddedByValue() {}
-
-// UnsafeOverlayPropertiesServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to OverlayPropertiesServiceServer will
-// result in compilation errors.
-type UnsafeOverlayPropertiesServiceServer interface {
-	mustEmbedUnimplementedOverlayPropertiesServiceServer()
-}
-
-func RegisterOverlayPropertiesServiceServer(s grpc.ServiceRegistrar, srv OverlayPropertiesServiceServer) {
-	// If the following call panics, it indicates UnimplementedOverlayPropertiesServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&OverlayPropertiesService_ServiceDesc, srv)
-}
-
-func _OverlayPropertiesService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OverlayPropertiesDescribeContentsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(OverlayPropertiesServiceServer).DescribeContents(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: OverlayPropertiesService_DescribeContents_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(OverlayPropertiesServiceServer).DescribeContents(ctx, req.(*OverlayPropertiesDescribeContentsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _OverlayPropertiesService_GetLutProperties_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetLutPropertiesRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(OverlayPropertiesServiceServer).GetLutProperties(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: OverlayPropertiesService_GetLutProperties_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(OverlayPropertiesServiceServer).GetLutProperties(ctx, req.(*GetLutPropertiesRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _OverlayPropertiesService_IsCombinationSupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsCombinationSupportedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(OverlayPropertiesServiceServer).IsCombinationSupported(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: OverlayPropertiesService_IsCombinationSupported_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(OverlayPropertiesServiceServer).IsCombinationSupported(ctx, req.(*IsCombinationSupportedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _OverlayPropertiesService_IsMixedColorSpacesSupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsMixedColorSpacesSupportedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(OverlayPropertiesServiceServer).IsMixedColorSpacesSupported(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: OverlayPropertiesService_IsMixedColorSpacesSupported_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(OverlayPropertiesServiceServer).IsMixedColorSpacesSupported(ctx, req.(*IsMixedColorSpacesSupportedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _OverlayPropertiesService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OverlayPropertiesWriteToParcelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(OverlayPropertiesServiceServer).WriteToParcel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: OverlayPropertiesService_WriteToParcel_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(OverlayPropertiesServiceServer).WriteToParcel(ctx, req.(*OverlayPropertiesWriteToParcelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// OverlayPropertiesService_ServiceDesc is the grpc.ServiceDesc for OverlayPropertiesService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var OverlayPropertiesService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "hardware.OverlayPropertiesService",
-	HandlerType: (*OverlayPropertiesServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "DescribeContents",
-			Handler:    _OverlayPropertiesService_DescribeContents_Handler,
-		},
-		{
-			MethodName: "GetLutProperties",
-			Handler:    _OverlayPropertiesService_GetLutProperties_Handler,
-		},
-		{
-			MethodName: "IsCombinationSupported",
-			Handler:    _OverlayPropertiesService_IsCombinationSupported_Handler,
-		},
-		{
-			MethodName: "IsMixedColorSpacesSupported",
-			Handler:    _OverlayPropertiesService_IsMixedColorSpacesSupported_Handler,
-		},
-		{
-			MethodName: "WriteToParcel",
-			Handler:    _OverlayPropertiesService_WriteToParcel_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/hardware/hardware.proto",
-}
-
-const (
-	SensorEventCallbackService_OnAccuracyChanged_FullMethodName      = "/hardware.SensorEventCallbackService/OnAccuracyChanged"
-	SensorEventCallbackService_OnFlushCompleted_FullMethodName       = "/hardware.SensorEventCallbackService/OnFlushCompleted"
-	SensorEventCallbackService_OnSensorAdditionalInfo_FullMethodName = "/hardware.SensorEventCallbackService/OnSensorAdditionalInfo"
-	SensorEventCallbackService_OnSensorChanged_FullMethodName        = "/hardware.SensorEventCallbackService/OnSensorChanged"
-)
-
-// SensorEventCallbackServiceClient is the client API for SensorEventCallbackService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type SensorEventCallbackServiceClient interface {
-	OnAccuracyChanged(ctx context.Context, in *SensorEventCallbackOnAccuracyChangedRequest, opts ...grpc.CallOption) (*OnAccuracyChangedResponse, error)
-	OnFlushCompleted(ctx context.Context, in *OnFlushCompletedRequest, opts ...grpc.CallOption) (*OnFlushCompletedResponse, error)
-	OnSensorAdditionalInfo(ctx context.Context, in *OnSensorAdditionalInfoRequest, opts ...grpc.CallOption) (*OnSensorAdditionalInfoResponse, error)
-	OnSensorChanged(ctx context.Context, in *SensorEventCallbackOnSensorChangedRequest, opts ...grpc.CallOption) (*OnSensorChangedResponse, error)
-}
-
-type sensorEventCallbackServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewSensorEventCallbackServiceClient(cc grpc.ClientConnInterface) SensorEventCallbackServiceClient {
-	return &sensorEventCallbackServiceClient{cc}
-}
-
-func (c *sensorEventCallbackServiceClient) OnAccuracyChanged(ctx context.Context, in *SensorEventCallbackOnAccuracyChangedRequest, opts ...grpc.CallOption) (*OnAccuracyChangedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnAccuracyChangedResponse)
-	err := c.cc.Invoke(ctx, SensorEventCallbackService_OnAccuracyChanged_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sensorEventCallbackServiceClient) OnFlushCompleted(ctx context.Context, in *OnFlushCompletedRequest, opts ...grpc.CallOption) (*OnFlushCompletedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnFlushCompletedResponse)
-	err := c.cc.Invoke(ctx, SensorEventCallbackService_OnFlushCompleted_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sensorEventCallbackServiceClient) OnSensorAdditionalInfo(ctx context.Context, in *OnSensorAdditionalInfoRequest, opts ...grpc.CallOption) (*OnSensorAdditionalInfoResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnSensorAdditionalInfoResponse)
-	err := c.cc.Invoke(ctx, SensorEventCallbackService_OnSensorAdditionalInfo_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sensorEventCallbackServiceClient) OnSensorChanged(ctx context.Context, in *SensorEventCallbackOnSensorChangedRequest, opts ...grpc.CallOption) (*OnSensorChangedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnSensorChangedResponse)
-	err := c.cc.Invoke(ctx, SensorEventCallbackService_OnSensorChanged_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// SensorEventCallbackServiceServer is the server API for SensorEventCallbackService service.
-// All implementations must embed UnimplementedSensorEventCallbackServiceServer
-// for forward compatibility.
-type SensorEventCallbackServiceServer interface {
-	OnAccuracyChanged(context.Context, *SensorEventCallbackOnAccuracyChangedRequest) (*OnAccuracyChangedResponse, error)
-	OnFlushCompleted(context.Context, *OnFlushCompletedRequest) (*OnFlushCompletedResponse, error)
-	OnSensorAdditionalInfo(context.Context, *OnSensorAdditionalInfoRequest) (*OnSensorAdditionalInfoResponse, error)
-	OnSensorChanged(context.Context, *SensorEventCallbackOnSensorChangedRequest) (*OnSensorChangedResponse, error)
-	mustEmbedUnimplementedSensorEventCallbackServiceServer()
-}
-
-// UnimplementedSensorEventCallbackServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedSensorEventCallbackServiceServer struct{}
-
-func (UnimplementedSensorEventCallbackServiceServer) OnAccuracyChanged(context.Context, *SensorEventCallbackOnAccuracyChangedRequest) (*OnAccuracyChangedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnAccuracyChanged not implemented")
-}
-func (UnimplementedSensorEventCallbackServiceServer) OnFlushCompleted(context.Context, *OnFlushCompletedRequest) (*OnFlushCompletedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnFlushCompleted not implemented")
-}
-func (UnimplementedSensorEventCallbackServiceServer) OnSensorAdditionalInfo(context.Context, *OnSensorAdditionalInfoRequest) (*OnSensorAdditionalInfoResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnSensorAdditionalInfo not implemented")
-}
-func (UnimplementedSensorEventCallbackServiceServer) OnSensorChanged(context.Context, *SensorEventCallbackOnSensorChangedRequest) (*OnSensorChangedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnSensorChanged not implemented")
-}
-func (UnimplementedSensorEventCallbackServiceServer) mustEmbedUnimplementedSensorEventCallbackServiceServer() {
-}
-func (UnimplementedSensorEventCallbackServiceServer) testEmbeddedByValue() {}
-
-// UnsafeSensorEventCallbackServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to SensorEventCallbackServiceServer will
-// result in compilation errors.
-type UnsafeSensorEventCallbackServiceServer interface {
-	mustEmbedUnimplementedSensorEventCallbackServiceServer()
-}
-
-func RegisterSensorEventCallbackServiceServer(s grpc.ServiceRegistrar, srv SensorEventCallbackServiceServer) {
-	// If the following call panics, it indicates UnimplementedSensorEventCallbackServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&SensorEventCallbackService_ServiceDesc, srv)
-}
-
-func _SensorEventCallbackService_OnAccuracyChanged_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SensorEventCallbackOnAccuracyChangedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SensorEventCallbackServiceServer).OnAccuracyChanged(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SensorEventCallbackService_OnAccuracyChanged_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SensorEventCallbackServiceServer).OnAccuracyChanged(ctx, req.(*SensorEventCallbackOnAccuracyChangedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SensorEventCallbackService_OnFlushCompleted_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnFlushCompletedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SensorEventCallbackServiceServer).OnFlushCompleted(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SensorEventCallbackService_OnFlushCompleted_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SensorEventCallbackServiceServer).OnFlushCompleted(ctx, req.(*OnFlushCompletedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SensorEventCallbackService_OnSensorAdditionalInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnSensorAdditionalInfoRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SensorEventCallbackServiceServer).OnSensorAdditionalInfo(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SensorEventCallbackService_OnSensorAdditionalInfo_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SensorEventCallbackServiceServer).OnSensorAdditionalInfo(ctx, req.(*OnSensorAdditionalInfoRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SensorEventCallbackService_OnSensorChanged_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SensorEventCallbackOnSensorChangedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SensorEventCallbackServiceServer).OnSensorChanged(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SensorEventCallbackService_OnSensorChanged_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SensorEventCallbackServiceServer).OnSensorChanged(ctx, req.(*SensorEventCallbackOnSensorChangedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// SensorEventCallbackService_ServiceDesc is the grpc.ServiceDesc for SensorEventCallbackService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var SensorEventCallbackService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "hardware.SensorEventCallbackService",
-	HandlerType: (*SensorEventCallbackServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "OnAccuracyChanged",
-			Handler:    _SensorEventCallbackService_OnAccuracyChanged_Handler,
-		},
-		{
-			MethodName: "OnFlushCompleted",
-			Handler:    _SensorEventCallbackService_OnFlushCompleted_Handler,
-		},
-		{
-			MethodName: "OnSensorAdditionalInfo",
-			Handler:    _SensorEventCallbackService_OnSensorAdditionalInfo_Handler,
-		},
-		{
-			MethodName: "OnSensorChanged",
-			Handler:    _SensorEventCallbackService_OnSensorChanged_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/hardware/hardware.proto",
-}
-
-const (
-	SensorPrivacyManagerService_SupportsSensorToggle1_FullMethodName   = "/hardware.SensorPrivacyManagerService/SupportsSensorToggle1"
-	SensorPrivacyManagerService_SupportsSensorToggle2_1_FullMethodName = "/hardware.SensorPrivacyManagerService/SupportsSensorToggle2_1"
-)
-
-// SensorPrivacyManagerServiceClient is the client API for SensorPrivacyManagerService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type SensorPrivacyManagerServiceClient interface {
-	SupportsSensorToggle1(ctx context.Context, in *SupportsSensorToggle1Request, opts ...grpc.CallOption) (*SupportsSensorToggle1Response, error)
-	SupportsSensorToggle2_1(ctx context.Context, in *SupportsSensorToggle2_1Request, opts ...grpc.CallOption) (*SupportsSensorToggle2_1Response, error)
-}
-
-type sensorPrivacyManagerServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewSensorPrivacyManagerServiceClient(cc grpc.ClientConnInterface) SensorPrivacyManagerServiceClient {
-	return &sensorPrivacyManagerServiceClient{cc}
-}
-
-func (c *sensorPrivacyManagerServiceClient) SupportsSensorToggle1(ctx context.Context, in *SupportsSensorToggle1Request, opts ...grpc.CallOption) (*SupportsSensorToggle1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SupportsSensorToggle1Response)
-	err := c.cc.Invoke(ctx, SensorPrivacyManagerService_SupportsSensorToggle1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sensorPrivacyManagerServiceClient) SupportsSensorToggle2_1(ctx context.Context, in *SupportsSensorToggle2_1Request, opts ...grpc.CallOption) (*SupportsSensorToggle2_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SupportsSensorToggle2_1Response)
-	err := c.cc.Invoke(ctx, SensorPrivacyManagerService_SupportsSensorToggle2_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// SensorPrivacyManagerServiceServer is the server API for SensorPrivacyManagerService service.
-// All implementations must embed UnimplementedSensorPrivacyManagerServiceServer
-// for forward compatibility.
-type SensorPrivacyManagerServiceServer interface {
-	SupportsSensorToggle1(context.Context, *SupportsSensorToggle1Request) (*SupportsSensorToggle1Response, error)
-	SupportsSensorToggle2_1(context.Context, *SupportsSensorToggle2_1Request) (*SupportsSensorToggle2_1Response, error)
-	mustEmbedUnimplementedSensorPrivacyManagerServiceServer()
-}
-
-// UnimplementedSensorPrivacyManagerServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedSensorPrivacyManagerServiceServer struct{}
-
-func (UnimplementedSensorPrivacyManagerServiceServer) SupportsSensorToggle1(context.Context, *SupportsSensorToggle1Request) (*SupportsSensorToggle1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method SupportsSensorToggle1 not implemented")
-}
-func (UnimplementedSensorPrivacyManagerServiceServer) SupportsSensorToggle2_1(context.Context, *SupportsSensorToggle2_1Request) (*SupportsSensorToggle2_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method SupportsSensorToggle2_1 not implemented")
-}
-func (UnimplementedSensorPrivacyManagerServiceServer) mustEmbedUnimplementedSensorPrivacyManagerServiceServer() {
-}
-func (UnimplementedSensorPrivacyManagerServiceServer) testEmbeddedByValue() {}
-
-// UnsafeSensorPrivacyManagerServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to SensorPrivacyManagerServiceServer will
-// result in compilation errors.
-type UnsafeSensorPrivacyManagerServiceServer interface {
-	mustEmbedUnimplementedSensorPrivacyManagerServiceServer()
-}
-
-func RegisterSensorPrivacyManagerServiceServer(s grpc.ServiceRegistrar, srv SensorPrivacyManagerServiceServer) {
-	// If the following call panics, it indicates UnimplementedSensorPrivacyManagerServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&SensorPrivacyManagerService_ServiceDesc, srv)
-}
-
-func _SensorPrivacyManagerService_SupportsSensorToggle1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SupportsSensorToggle1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SensorPrivacyManagerServiceServer).SupportsSensorToggle1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SensorPrivacyManagerService_SupportsSensorToggle1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SensorPrivacyManagerServiceServer).SupportsSensorToggle1(ctx, req.(*SupportsSensorToggle1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SensorPrivacyManagerService_SupportsSensorToggle2_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SupportsSensorToggle2_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SensorPrivacyManagerServiceServer).SupportsSensorToggle2_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SensorPrivacyManagerService_SupportsSensorToggle2_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SensorPrivacyManagerServiceServer).SupportsSensorToggle2_1(ctx, req.(*SupportsSensorToggle2_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// SensorPrivacyManagerService_ServiceDesc is the grpc.ServiceDesc for SensorPrivacyManagerService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var SensorPrivacyManagerService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "hardware.SensorPrivacyManagerService",
-	HandlerType: (*SensorPrivacyManagerServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "SupportsSensorToggle1",
-			Handler:    _SensorPrivacyManagerService_SupportsSensorToggle1_Handler,
-		},
-		{
-			MethodName: "SupportsSensorToggle2_1",
-			Handler:    _SensorPrivacyManagerService_SupportsSensorToggle2_1_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/hardware/hardware.proto",
-}
-
-const (
-	SensorEventListener2Service_OnFlushCompleted_FullMethodName = "/hardware.SensorEventListener2Service/OnFlushCompleted"
-)
-
-// SensorEventListener2ServiceClient is the client API for SensorEventListener2Service service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type SensorEventListener2ServiceClient interface {
-	OnFlushCompleted(ctx context.Context, in *OnFlushCompletedRequest, opts ...grpc.CallOption) (*OnFlushCompletedResponse, error)
-}
-
-type sensorEventListener2ServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewSensorEventListener2ServiceClient(cc grpc.ClientConnInterface) SensorEventListener2ServiceClient {
-	return &sensorEventListener2ServiceClient{cc}
-}
-
-func (c *sensorEventListener2ServiceClient) OnFlushCompleted(ctx context.Context, in *OnFlushCompletedRequest, opts ...grpc.CallOption) (*OnFlushCompletedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnFlushCompletedResponse)
-	err := c.cc.Invoke(ctx, SensorEventListener2Service_OnFlushCompleted_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// SensorEventListener2ServiceServer is the server API for SensorEventListener2Service service.
-// All implementations must embed UnimplementedSensorEventListener2ServiceServer
-// for forward compatibility.
-type SensorEventListener2ServiceServer interface {
-	OnFlushCompleted(context.Context, *OnFlushCompletedRequest) (*OnFlushCompletedResponse, error)
-	mustEmbedUnimplementedSensorEventListener2ServiceServer()
-}
-
-// UnimplementedSensorEventListener2ServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedSensorEventListener2ServiceServer struct{}
-
-func (UnimplementedSensorEventListener2ServiceServer) OnFlushCompleted(context.Context, *OnFlushCompletedRequest) (*OnFlushCompletedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnFlushCompleted not implemented")
-}
-func (UnimplementedSensorEventListener2ServiceServer) mustEmbedUnimplementedSensorEventListener2ServiceServer() {
-}
-func (UnimplementedSensorEventListener2ServiceServer) testEmbeddedByValue() {}
-
-// UnsafeSensorEventListener2ServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to SensorEventListener2ServiceServer will
-// result in compilation errors.
-type UnsafeSensorEventListener2ServiceServer interface {
-	mustEmbedUnimplementedSensorEventListener2ServiceServer()
-}
-
-func RegisterSensorEventListener2ServiceServer(s grpc.ServiceRegistrar, srv SensorEventListener2ServiceServer) {
-	// If the following call panics, it indicates UnimplementedSensorEventListener2ServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&SensorEventListener2Service_ServiceDesc, srv)
-}
-
-func _SensorEventListener2Service_OnFlushCompleted_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnFlushCompletedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SensorEventListener2ServiceServer).OnFlushCompleted(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SensorEventListener2Service_OnFlushCompleted_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SensorEventListener2ServiceServer).OnFlushCompleted(ctx, req.(*OnFlushCompletedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// SensorEventListener2Service_ServiceDesc is the grpc.ServiceDesc for SensorEventListener2Service service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var SensorEventListener2Service_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "hardware.SensorEventListener2Service",
-	HandlerType: (*SensorEventListener2ServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "OnFlushCompleted",
-			Handler:    _SensorEventListener2Service_OnFlushCompleted_Handler,
+			MethodName: "GetSize",
+			Handler:    _LutPropertiesService_GetSize_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

@@ -9,29 +9,231 @@ import (
 	"google.golang.org/grpc"
 )
 
-// GestureClient wraps the gRPC GestureService client.
-type GestureClient struct {
-	svc pb.GestureServiceClient
+// UtilsClient wraps the gRPC UtilsService client.
+type UtilsClient struct {
+	svc pb.UtilsServiceClient
 }
 
-// NewGestureClient creates a new Gesture client.
-func NewGestureClient(cc grpc.ClientConnInterface) *GestureClient {
-	return &GestureClient{
-		svc: pb.NewGestureServiceClient(cc),
+// NewUtilsClient creates a new Utils client.
+func NewUtilsClient(cc grpc.ClientConnInterface) *UtilsClient {
+	return &UtilsClient{
+		svc: pb.NewUtilsServiceClient(cc),
 	}
 }
 
-// AddStroke calls the AddStroke RPC.
-func (c *GestureClient) AddStroke(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.AddStroke(ctx, &pb.AddStrokeRequest{
-		Handle: handle,
-		Arg0:   arg0,
+// ComputeOrientedBoundingBox calls the ComputeOrientedBoundingBox RPC.
+func (c *UtilsClient) ComputeOrientedBoundingBox(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.ComputeOrientedBoundingBox(ctx, &pb.ComputeOrientedBoundingBoxRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SpatialSampling2 calls the SpatialSampling2 RPC.
+func (c *UtilsClient) SpatialSampling2(ctx context.Context, arg0 int64, arg1 int32) (int64, error) {
+	resp, err := c.svc.SpatialSampling2(ctx, &pb.SpatialSampling2Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SpatialSampling3_1 calls the SpatialSampling3_1 RPC.
+func (c *UtilsClient) SpatialSampling3_1(ctx context.Context, arg0 int64, arg1 int32, arg2 bool) (int64, error) {
+	resp, err := c.svc.SpatialSampling3_1(ctx, &pb.SpatialSampling3_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// TemporalSampling calls the TemporalSampling RPC.
+func (c *UtilsClient) TemporalSampling(ctx context.Context, arg0 int64, arg1 int32) (int64, error) {
+	resp, err := c.svc.TemporalSampling(ctx, &pb.TemporalSamplingRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// LibraryClient wraps the gRPC LibraryService client.
+type LibraryClient struct {
+	svc pb.LibraryServiceClient
+}
+
+// NewLibraryClient creates a new Library client.
+func NewLibraryClient(cc grpc.ClientConnInterface) *LibraryClient {
+	return &LibraryClient{
+		svc: pb.NewLibraryServiceClient(cc),
+	}
+}
+
+// AddGesture calls the AddGesture RPC.
+func (c *LibraryClient) AddGesture(ctx context.Context, arg0 string, arg1 int64) error {
+	_, err := c.svc.AddGesture(ctx, &pb.AddGestureRequest{
+		Arg0: arg0,
+		Arg1: arg1,
 	})
 	return err
 }
 
+// GetGestureEntries calls the GetGestureEntries RPC.
+func (c *LibraryClient) GetGestureEntries(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetGestureEntries(ctx, &pb.GetGestureEntriesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetGestures calls the GetGestures RPC.
+func (c *LibraryClient) GetGestures(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.GetGestures(ctx, &pb.GetGesturesRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetOrientationStyle calls the GetOrientationStyle RPC.
+func (c *LibraryClient) GetOrientationStyle(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetOrientationStyle(ctx, &pb.GetOrientationStyleRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSequenceType calls the GetSequenceType RPC.
+func (c *LibraryClient) GetSequenceType(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetSequenceType(ctx, &pb.GetSequenceTypeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsReadOnly calls the IsReadOnly RPC.
+func (c *LibraryClient) IsReadOnly(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsReadOnly(ctx, &pb.IsReadOnlyRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Load calls the Load RPC.
+func (c *LibraryClient) Load(ctx context.Context) (bool, error) {
+	resp, err := c.svc.Load(ctx, &pb.LoadRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Recognize calls the Recognize RPC.
+func (c *LibraryClient) Recognize(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.Recognize(ctx, &pb.RecognizeRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// RemoveEntry calls the RemoveEntry RPC.
+func (c *LibraryClient) RemoveEntry(ctx context.Context, arg0 string) error {
+	_, err := c.svc.RemoveEntry(ctx, &pb.RemoveEntryRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// RemoveGesture calls the RemoveGesture RPC.
+func (c *LibraryClient) RemoveGesture(ctx context.Context, arg0 string, arg1 int64) error {
+	_, err := c.svc.RemoveGesture(ctx, &pb.RemoveGestureRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// Save calls the Save RPC.
+func (c *LibraryClient) Save(ctx context.Context) (bool, error) {
+	resp, err := c.svc.Save(ctx, &pb.SaveRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetOrientationStyle calls the SetOrientationStyle RPC.
+func (c *LibraryClient) SetOrientationStyle(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.SetOrientationStyle(ctx, &pb.SetOrientationStyleRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetSequenceType calls the SetSequenceType RPC.
+func (c *LibraryClient) SetSequenceType(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.SetSequenceType(ctx, &pb.SetSequenceTypeRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// PredictionClient wraps the gRPC PredictionService client.
+type PredictionClient struct {
+	svc pb.PredictionServiceClient
+}
+
+// NewPredictionClient creates a new Prediction client.
+func NewPredictionClient(cc grpc.ClientConnInterface) *PredictionClient {
+	return &PredictionClient{
+		svc: pb.NewPredictionServiceClient(cc),
+	}
+}
+
+// ToString calls the ToString RPC.
+func (c *PredictionClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// PointClient wraps the gRPC PointService client.
+type PointClient struct {
+	svc pb.PointServiceClient
+}
+
+// NewPointClient creates a new Point client.
+func NewPointClient(cc grpc.ClientConnInterface) *PointClient {
+	return &PointClient{
+		svc: pb.NewPointServiceClient(cc),
+	}
+}
+
 // Clone calls the Clone RPC.
-func (c *GestureClient) Clone(ctx context.Context, handle int64) (int64, error) {
+func (c *PointClient) Clone(ctx context.Context, handle int64) (int64, error) {
 	resp, err := c.svc.Clone(ctx, &pb.CloneRequest{
 		Handle: handle,
 	})
@@ -41,9 +243,29 @@ func (c *GestureClient) Clone(ctx context.Context, handle int64) (int64, error) 
 	return resp.GetResult(), nil
 }
 
-// DescribeContents calls the DescribeContents RPC.
-func (c *GestureClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{
+// StrokeClient wraps the gRPC StrokeService client.
+type StrokeClient struct {
+	svc pb.StrokeServiceClient
+}
+
+// NewStrokeClient creates a new Stroke client.
+func NewStrokeClient(cc grpc.ClientConnInterface) *StrokeClient {
+	return &StrokeClient{
+		svc: pb.NewStrokeServiceClient(cc),
+	}
+}
+
+// ClearPath calls the ClearPath RPC.
+func (c *StrokeClient) ClearPath(ctx context.Context, handle int64) error {
+	_, err := c.svc.ClearPath(ctx, &pb.ClearPathRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// Clone calls the Clone RPC.
+func (c *StrokeClient) Clone(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.Clone(ctx, &pb.CloneRequest{
 		Handle: handle,
 	})
 	if err != nil {
@@ -52,9 +274,9 @@ func (c *GestureClient) DescribeContents(ctx context.Context, handle int64) (int
 	return resp.GetResult(), nil
 }
 
-// GetBoundingBox calls the GetBoundingBox RPC.
-func (c *GestureClient) GetBoundingBox(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetBoundingBox(ctx, &pb.GetBoundingBoxRequest{
+// ComputeOrientedBoundingBox calls the ComputeOrientedBoundingBox RPC.
+func (c *StrokeClient) ComputeOrientedBoundingBox(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.ComputeOrientedBoundingBox(ctx, &pb.StrokeComputeOrientedBoundingBoxRequest{
 		Handle: handle,
 	})
 	if err != nil {
@@ -63,9 +285,9 @@ func (c *GestureClient) GetBoundingBox(ctx context.Context, handle int64) (int64
 	return resp.GetResult(), nil
 }
 
-// GetID calls the GetID RPC.
-func (c *GestureClient) GetID(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetID(ctx, &pb.GetIDRequest{
+// GetPath calls the GetPath RPC.
+func (c *StrokeClient) GetPath(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetPath(ctx, &pb.GetPathRequest{
 		Handle: handle,
 	})
 	if err != nil {
@@ -74,36 +296,13 @@ func (c *GestureClient) GetID(ctx context.Context, handle int64) (int64, error) 
 	return resp.GetResult(), nil
 }
 
-// GetLength calls the GetLength RPC.
-func (c *GestureClient) GetLength(ctx context.Context, handle int64) (float32, error) {
-	resp, err := c.svc.GetLength(ctx, &pb.GetLengthRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetStrokesCount calls the GetStrokesCount RPC.
-func (c *GestureClient) GetStrokesCount(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetStrokesCount(ctx, &pb.GetStrokesCountRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToBitmap4 calls the ToBitmap4 RPC.
-func (c *GestureClient) ToBitmap4(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32, arg3 int32) (int64, error) {
-	resp, err := c.svc.ToBitmap4(ctx, &pb.ToBitmap4Request{
+// ToPath calls the ToPath RPC.
+func (c *StrokeClient) ToPath(ctx context.Context, handle int64, arg0 float32, arg1 float32, arg2 int32) (int64, error) {
+	resp, err := c.svc.ToPath(ctx, &pb.ToPathRequest{
 		Handle: handle,
 		Arg0:   arg0,
 		Arg1:   arg1,
 		Arg2:   arg2,
-		Arg3:   arg3,
 	})
 	if err != nil {
 		return 0, err
@@ -111,15 +310,22 @@ func (c *GestureClient) ToBitmap4(ctx context.Context, handle int64, arg0 int32,
 	return resp.GetResult(), nil
 }
 
-// ToBitmap5_1 calls the ToBitmap5_1 RPC.
-func (c *GestureClient) ToBitmap5_1(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32, arg3 int32, arg4 int32) (int64, error) {
-	resp, err := c.svc.ToBitmap5_1(ctx, &pb.ToBitmap5_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-		Arg4:   arg4,
+// LibrariesClient wraps the gRPC LibrariesService client.
+type LibrariesClient struct {
+	svc pb.LibrariesServiceClient
+}
+
+// NewLibrariesClient creates a new Libraries client.
+func NewLibrariesClient(cc grpc.ClientConnInterface) *LibrariesClient {
+	return &LibrariesClient{
+		svc: pb.NewLibrariesServiceClient(cc),
+	}
+}
+
+// FromFile1 calls the FromFile1 RPC.
+func (c *LibrariesClient) FromFile1(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.FromFile1(ctx, &pb.FromFile1Request{
+		Arg0: arg0,
 	})
 	if err != nil {
 		return 0, err
@@ -127,10 +333,10 @@ func (c *GestureClient) ToBitmap5_1(ctx context.Context, handle int64, arg0 int3
 	return resp.GetResult(), nil
 }
 
-// ToPath0 calls the ToPath0 RPC.
-func (c *GestureClient) ToPath0(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.ToPath0(ctx, &pb.ToPath0Request{
-		Handle: handle,
+// FromFile1_1 calls the FromFile1_1 RPC.
+func (c *LibrariesClient) FromFile1_1(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.FromFile1_1(ctx, &pb.FromFile1_1Request{
+		Arg0: arg0,
 	})
 	if err != nil {
 		return 0, err
@@ -138,11 +344,10 @@ func (c *GestureClient) ToPath0(ctx context.Context, handle int64) (int64, error
 	return resp.GetResult(), nil
 }
 
-// ToPath1_1 calls the ToPath1_1 RPC.
-func (c *GestureClient) ToPath1_1(ctx context.Context, handle int64, arg0 int64) (int64, error) {
-	resp, err := c.svc.ToPath1_1(ctx, &pb.ToPath1_1Request{
-		Handle: handle,
-		Arg0:   arg0,
+// FromFileDescriptor calls the FromFileDescriptor RPC.
+func (c *LibrariesClient) FromFileDescriptor(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.FromFileDescriptor(ctx, &pb.FromFileDescriptorRequest{
+		Arg0: arg0,
 	})
 	if err != nil {
 		return 0, err
@@ -150,15 +355,11 @@ func (c *GestureClient) ToPath1_1(ctx context.Context, handle int64, arg0 int64)
 	return resp.GetResult(), nil
 }
 
-// ToPath5_2 calls the ToPath5_2 RPC.
-func (c *GestureClient) ToPath5_2(ctx context.Context, handle int64, arg0 int64, arg1 int32, arg2 int32, arg3 int32, arg4 int32) (int64, error) {
-	resp, err := c.svc.ToPath5_2(ctx, &pb.ToPath5_2Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-		Arg4:   arg4,
+// FromPrivateFile calls the FromPrivateFile RPC.
+func (c *LibrariesClient) FromPrivateFile(ctx context.Context, arg0 int64, arg1 string) (int64, error) {
+	resp, err := c.svc.FromPrivateFile(ctx, &pb.FromPrivateFileRequest{
+		Arg0: arg0,
+		Arg1: arg1,
 	})
 	if err != nil {
 		return 0, err
@@ -166,159 +367,16 @@ func (c *GestureClient) ToPath5_2(ctx context.Context, handle int64, arg0 int64,
 	return resp.GetResult(), nil
 }
 
-// ToPath4_3 calls the ToPath4_3 RPC.
-func (c *GestureClient) ToPath4_3(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32, arg3 int32) (int64, error) {
-	resp, err := c.svc.ToPath4_3(ctx, &pb.ToPath4_3Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
+// FromRawResource calls the FromRawResource RPC.
+func (c *LibrariesClient) FromRawResource(ctx context.Context, arg0 int64, arg1 int32) (int64, error) {
+	resp, err := c.svc.FromRawResource(ctx, &pb.FromRawResourceRequest{
+		Arg0: arg0,
+		Arg1: arg1,
 	})
 	if err != nil {
 		return 0, err
 	}
 	return resp.GetResult(), nil
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *GestureClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// StoreClient wraps the gRPC StoreService client.
-type StoreClient struct {
-	svc pb.StoreServiceClient
-}
-
-// NewStoreClient creates a new Store client.
-func NewStoreClient(cc grpc.ClientConnInterface) *StoreClient {
-	return &StoreClient{
-		svc: pb.NewStoreServiceClient(cc),
-	}
-}
-
-// AddGesture calls the AddGesture RPC.
-func (c *StoreClient) AddGesture(ctx context.Context, handle int64, arg0 string, arg1 int64) error {
-	_, err := c.svc.AddGesture(ctx, &pb.AddGestureRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// GetOrientationStyle calls the GetOrientationStyle RPC.
-func (c *StoreClient) GetOrientationStyle(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetOrientationStyle(ctx, &pb.GetOrientationStyleRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetSequenceType calls the GetSequenceType RPC.
-func (c *StoreClient) GetSequenceType(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetSequenceType(ctx, &pb.GetSequenceTypeRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HasChanged calls the HasChanged RPC.
-func (c *StoreClient) HasChanged(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.HasChanged(ctx, &pb.HasChangedRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Load1 calls the Load1 RPC.
-func (c *StoreClient) Load1(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.Load1(ctx, &pb.Load1Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// Load2_1 calls the Load2_1 RPC.
-func (c *StoreClient) Load2_1(ctx context.Context, handle int64, arg0 int64, arg1 bool) error {
-	_, err := c.svc.Load2_1(ctx, &pb.Load2_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// RemoveEntry calls the RemoveEntry RPC.
-func (c *StoreClient) RemoveEntry(ctx context.Context, handle int64, arg0 string) error {
-	_, err := c.svc.RemoveEntry(ctx, &pb.RemoveEntryRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// RemoveGesture calls the RemoveGesture RPC.
-func (c *StoreClient) RemoveGesture(ctx context.Context, handle int64, arg0 string, arg1 int64) error {
-	_, err := c.svc.RemoveGesture(ctx, &pb.RemoveGestureRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// Save1 calls the Save1 RPC.
-func (c *StoreClient) Save1(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.Save1(ctx, &pb.Save1Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// Save2_1 calls the Save2_1 RPC.
-func (c *StoreClient) Save2_1(ctx context.Context, handle int64, arg0 int64, arg1 bool) error {
-	_, err := c.svc.Save2_1(ctx, &pb.Save2_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// SetOrientationStyle calls the SetOrientationStyle RPC.
-func (c *StoreClient) SetOrientationStyle(ctx context.Context, handle int64, arg0 int32) error {
-	_, err := c.svc.SetOrientationStyle(ctx, &pb.SetOrientationStyleRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetSequenceType calls the SetSequenceType RPC.
-func (c *StoreClient) SetSequenceType(ctx context.Context, handle int64, arg0 int32) error {
-	_, err := c.svc.SetSequenceType(ctx, &pb.SetSequenceTypeRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
 }
 
 // OverlayViewClient wraps the gRPC OverlayViewService client.
@@ -404,6 +462,17 @@ func (c *OverlayViewClient) Draw(ctx context.Context, handle int64, arg0 int64) 
 		Arg0:   arg0,
 	})
 	return err
+}
+
+// GetCurrentStroke calls the GetCurrentStroke RPC.
+func (c *OverlayViewClient) GetCurrentStroke(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetCurrentStroke(ctx, &pb.GetCurrentStrokeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
 }
 
 // GetFadeOffset calls the GetFadeOffset RPC.
@@ -848,30 +917,56 @@ func (c *OverlayViewOnGesturingListenerClient) OnGesturingStarted(ctx context.Co
 	return err
 }
 
-// LibraryClient wraps the gRPC LibraryService client.
-type LibraryClient struct {
-	svc pb.LibraryServiceClient
+// StoreClient wraps the gRPC StoreService client.
+type StoreClient struct {
+	svc pb.StoreServiceClient
 }
 
-// NewLibraryClient creates a new Library client.
-func NewLibraryClient(cc grpc.ClientConnInterface) *LibraryClient {
-	return &LibraryClient{
-		svc: pb.NewLibraryServiceClient(cc),
+// NewStoreClient creates a new Store client.
+func NewStoreClient(cc grpc.ClientConnInterface) *StoreClient {
+	return &StoreClient{
+		svc: pb.NewStoreServiceClient(cc),
 	}
 }
 
 // AddGesture calls the AddGesture RPC.
-func (c *LibraryClient) AddGesture(ctx context.Context, arg0 string, arg1 int64) error {
-	_, err := c.svc.AddGesture(ctx, &pb.LibraryAddGestureRequest{
-		Arg0: arg0,
-		Arg1: arg1,
+func (c *StoreClient) AddGesture(ctx context.Context, handle int64, arg0 string, arg1 int64) error {
+	_, err := c.svc.AddGesture(ctx, &pb.StoreAddGestureRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
 	})
 	return err
 }
 
+// GetGestureEntries calls the GetGestureEntries RPC.
+func (c *StoreClient) GetGestureEntries(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetGestureEntries(ctx, &pb.StoreGetGestureEntriesRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetGestures calls the GetGestures RPC.
+func (c *StoreClient) GetGestures(ctx context.Context, handle int64, arg0 string) (int64, error) {
+	resp, err := c.svc.GetGestures(ctx, &pb.StoreGetGesturesRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // GetOrientationStyle calls the GetOrientationStyle RPC.
-func (c *LibraryClient) GetOrientationStyle(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetOrientationStyle(ctx, &pb.LibraryGetOrientationStyleRequest{})
+func (c *StoreClient) GetOrientationStyle(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetOrientationStyle(ctx, &pb.StoreGetOrientationStyleRequest{
+		Handle: handle,
+	})
 	if err != nil {
 		return 0, err
 	}
@@ -879,117 +974,137 @@ func (c *LibraryClient) GetOrientationStyle(ctx context.Context) (int32, error) 
 }
 
 // GetSequenceType calls the GetSequenceType RPC.
-func (c *LibraryClient) GetSequenceType(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetSequenceType(ctx, &pb.LibraryGetSequenceTypeRequest{})
+func (c *StoreClient) GetSequenceType(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetSequenceType(ctx, &pb.StoreGetSequenceTypeRequest{
+		Handle: handle,
+	})
 	if err != nil {
 		return 0, err
 	}
 	return resp.GetResult(), nil
 }
 
-// IsReadOnly calls the IsReadOnly RPC.
-func (c *LibraryClient) IsReadOnly(ctx context.Context) (bool, error) {
-	resp, err := c.svc.IsReadOnly(ctx, &pb.IsReadOnlyRequest{})
+// HasChanged calls the HasChanged RPC.
+func (c *StoreClient) HasChanged(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.HasChanged(ctx, &pb.HasChangedRequest{
+		Handle: handle,
+	})
 	if err != nil {
 		return false, err
 	}
 	return resp.GetResult(), nil
 }
 
-// Load calls the Load RPC.
-func (c *LibraryClient) Load(ctx context.Context) (bool, error) {
-	resp, err := c.svc.Load(ctx, &pb.LoadRequest{})
+// Load1 calls the Load1 RPC.
+func (c *StoreClient) Load1(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.Load1(ctx, &pb.Load1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// Load2_1 calls the Load2_1 RPC.
+func (c *StoreClient) Load2_1(ctx context.Context, handle int64, arg0 int64, arg1 bool) error {
+	_, err := c.svc.Load2_1(ctx, &pb.Load2_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// Recognize calls the Recognize RPC.
+func (c *StoreClient) Recognize(ctx context.Context, handle int64, arg0 int64) (int64, error) {
+	resp, err := c.svc.Recognize(ctx, &pb.StoreRecognizeRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
 	if err != nil {
-		return false, err
+		return 0, err
 	}
 	return resp.GetResult(), nil
 }
 
 // RemoveEntry calls the RemoveEntry RPC.
-func (c *LibraryClient) RemoveEntry(ctx context.Context, arg0 string) error {
-	_, err := c.svc.RemoveEntry(ctx, &pb.LibraryRemoveEntryRequest{
-		Arg0: arg0,
+func (c *StoreClient) RemoveEntry(ctx context.Context, handle int64, arg0 string) error {
+	_, err := c.svc.RemoveEntry(ctx, &pb.StoreRemoveEntryRequest{
+		Handle: handle,
+		Arg0:   arg0,
 	})
 	return err
 }
 
 // RemoveGesture calls the RemoveGesture RPC.
-func (c *LibraryClient) RemoveGesture(ctx context.Context, arg0 string, arg1 int64) error {
-	_, err := c.svc.RemoveGesture(ctx, &pb.LibraryRemoveGestureRequest{
-		Arg0: arg0,
-		Arg1: arg1,
+func (c *StoreClient) RemoveGesture(ctx context.Context, handle int64, arg0 string, arg1 int64) error {
+	_, err := c.svc.RemoveGesture(ctx, &pb.StoreRemoveGestureRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
 	})
 	return err
 }
 
-// Save calls the Save RPC.
-func (c *LibraryClient) Save(ctx context.Context) (bool, error) {
-	resp, err := c.svc.Save(ctx, &pb.SaveRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
+// Save1 calls the Save1 RPC.
+func (c *StoreClient) Save1(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.Save1(ctx, &pb.Save1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// Save2_1 calls the Save2_1 RPC.
+func (c *StoreClient) Save2_1(ctx context.Context, handle int64, arg0 int64, arg1 bool) error {
+	_, err := c.svc.Save2_1(ctx, &pb.Save2_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
 }
 
 // SetOrientationStyle calls the SetOrientationStyle RPC.
-func (c *LibraryClient) SetOrientationStyle(ctx context.Context, arg0 int32) error {
-	_, err := c.svc.SetOrientationStyle(ctx, &pb.LibrarySetOrientationStyleRequest{
-		Arg0: arg0,
+func (c *StoreClient) SetOrientationStyle(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.SetOrientationStyle(ctx, &pb.StoreSetOrientationStyleRequest{
+		Handle: handle,
+		Arg0:   arg0,
 	})
 	return err
 }
 
 // SetSequenceType calls the SetSequenceType RPC.
-func (c *LibraryClient) SetSequenceType(ctx context.Context, arg0 int32) error {
-	_, err := c.svc.SetSequenceType(ctx, &pb.LibrarySetSequenceTypeRequest{
-		Arg0: arg0,
+func (c *StoreClient) SetSequenceType(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.SetSequenceType(ctx, &pb.StoreSetSequenceTypeRequest{
+		Handle: handle,
+		Arg0:   arg0,
 	})
 	return err
 }
 
-// PredictionClient wraps the gRPC PredictionService client.
-type PredictionClient struct {
-	svc pb.PredictionServiceClient
+// GestureClient wraps the gRPC GestureService client.
+type GestureClient struct {
+	svc pb.GestureServiceClient
 }
 
-// NewPredictionClient creates a new Prediction client.
-func NewPredictionClient(cc grpc.ClientConnInterface) *PredictionClient {
-	return &PredictionClient{
-		svc: pb.NewPredictionServiceClient(cc),
+// NewGestureClient creates a new Gesture client.
+func NewGestureClient(cc grpc.ClientConnInterface) *GestureClient {
+	return &GestureClient{
+		svc: pb.NewGestureServiceClient(cc),
 	}
 }
 
-// ToString calls the ToString RPC.
-func (c *PredictionClient) ToString(ctx context.Context) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// StrokeClient wraps the gRPC StrokeService client.
-type StrokeClient struct {
-	svc pb.StrokeServiceClient
-}
-
-// NewStrokeClient creates a new Stroke client.
-func NewStrokeClient(cc grpc.ClientConnInterface) *StrokeClient {
-	return &StrokeClient{
-		svc: pb.NewStrokeServiceClient(cc),
-	}
-}
-
-// ClearPath calls the ClearPath RPC.
-func (c *StrokeClient) ClearPath(ctx context.Context, handle int64) error {
-	_, err := c.svc.ClearPath(ctx, &pb.ClearPathRequest{
+// AddStroke calls the AddStroke RPC.
+func (c *GestureClient) AddStroke(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.AddStroke(ctx, &pb.AddStrokeRequest{
 		Handle: handle,
+		Arg0:   arg0,
 	})
 	return err
 }
 
 // Clone calls the Clone RPC.
-func (c *StrokeClient) Clone(ctx context.Context, handle int64) (int64, error) {
+func (c *GestureClient) Clone(ctx context.Context, handle int64) (int64, error) {
 	resp, err := c.svc.Clone(ctx, &pb.CloneRequest{
 		Handle: handle,
 	})
@@ -999,9 +1114,9 @@ func (c *StrokeClient) Clone(ctx context.Context, handle int64) (int64, error) {
 	return resp.GetResult(), nil
 }
 
-// ComputeOrientedBoundingBox calls the ComputeOrientedBoundingBox RPC.
-func (c *StrokeClient) ComputeOrientedBoundingBox(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.ComputeOrientedBoundingBox(ctx, &pb.ComputeOrientedBoundingBoxRequest{
+// DescribeContents calls the DescribeContents RPC.
+func (c *GestureClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{
 		Handle: handle,
 	})
 	if err != nil {
@@ -1010,9 +1125,9 @@ func (c *StrokeClient) ComputeOrientedBoundingBox(ctx context.Context, handle in
 	return resp.GetResult(), nil
 }
 
-// GetPath calls the GetPath RPC.
-func (c *StrokeClient) GetPath(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetPath(ctx, &pb.GetPathRequest{
+// GetBoundingBox calls the GetBoundingBox RPC.
+func (c *GestureClient) GetBoundingBox(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetBoundingBox(ctx, &pb.GetBoundingBoxRequest{
 		Handle: handle,
 	})
 	if err != nil {
@@ -1021,13 +1136,58 @@ func (c *StrokeClient) GetPath(ctx context.Context, handle int64) (int64, error)
 	return resp.GetResult(), nil
 }
 
-// ToPath calls the ToPath RPC.
-func (c *StrokeClient) ToPath(ctx context.Context, handle int64, arg0 float32, arg1 float32, arg2 int32) (int64, error) {
-	resp, err := c.svc.ToPath(ctx, &pb.ToPathRequest{
+// GetID calls the GetID RPC.
+func (c *GestureClient) GetID(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetID(ctx, &pb.GetIDRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLength calls the GetLength RPC.
+func (c *GestureClient) GetLength(ctx context.Context, handle int64) (float32, error) {
+	resp, err := c.svc.GetLength(ctx, &pb.GetLengthRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetStrokes calls the GetStrokes RPC.
+func (c *GestureClient) GetStrokes(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetStrokes(ctx, &pb.GetStrokesRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetStrokesCount calls the GetStrokesCount RPC.
+func (c *GestureClient) GetStrokesCount(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetStrokesCount(ctx, &pb.GetStrokesCountRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToBitmap4 calls the ToBitmap4 RPC.
+func (c *GestureClient) ToBitmap4(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32, arg3 int32) (int64, error) {
+	resp, err := c.svc.ToBitmap4(ctx, &pb.ToBitmap4Request{
 		Handle: handle,
 		Arg0:   arg0,
 		Arg1:   arg1,
 		Arg2:   arg2,
+		Arg3:   arg3,
 	})
 	if err != nil {
 		return 0, err
@@ -1035,21 +1195,25 @@ func (c *StrokeClient) ToPath(ctx context.Context, handle int64, arg0 float32, a
 	return resp.GetResult(), nil
 }
 
-// PointClient wraps the gRPC PointService client.
-type PointClient struct {
-	svc pb.PointServiceClient
-}
-
-// NewPointClient creates a new Point client.
-func NewPointClient(cc grpc.ClientConnInterface) *PointClient {
-	return &PointClient{
-		svc: pb.NewPointServiceClient(cc),
+// ToBitmap5_1 calls the ToBitmap5_1 RPC.
+func (c *GestureClient) ToBitmap5_1(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32, arg3 int32, arg4 int32) (int64, error) {
+	resp, err := c.svc.ToBitmap5_1(ctx, &pb.ToBitmap5_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+		Arg4:   arg4,
+	})
+	if err != nil {
+		return 0, err
 	}
+	return resp.GetResult(), nil
 }
 
-// Clone calls the Clone RPC.
-func (c *PointClient) Clone(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.Clone(ctx, &pb.CloneRequest{
+// ToPath0 calls the ToPath0 RPC.
+func (c *GestureClient) ToPath0(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.ToPath0(ctx, &pb.ToPath0Request{
 		Handle: handle,
 	})
 	if err != nil {
@@ -1058,22 +1222,11 @@ func (c *PointClient) Clone(ctx context.Context, handle int64) (int64, error) {
 	return resp.GetResult(), nil
 }
 
-// UtilsClient wraps the gRPC UtilsService client.
-type UtilsClient struct {
-	svc pb.UtilsServiceClient
-}
-
-// NewUtilsClient creates a new Utils client.
-func NewUtilsClient(cc grpc.ClientConnInterface) *UtilsClient {
-	return &UtilsClient{
-		svc: pb.NewUtilsServiceClient(cc),
-	}
-}
-
-// ComputeOrientedBoundingBox calls the ComputeOrientedBoundingBox RPC.
-func (c *UtilsClient) ComputeOrientedBoundingBox(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.ComputeOrientedBoundingBox(ctx, &pb.UtilsComputeOrientedBoundingBoxRequest{
-		Arg0: arg0,
+// ToPath1_1 calls the ToPath1_1 RPC.
+func (c *GestureClient) ToPath1_1(ctx context.Context, handle int64, arg0 int64) (int64, error) {
+	resp, err := c.svc.ToPath1_1(ctx, &pb.ToPath1_1Request{
+		Handle: handle,
+		Arg0:   arg0,
 	})
 	if err != nil {
 		return 0, err
@@ -1081,11 +1234,15 @@ func (c *UtilsClient) ComputeOrientedBoundingBox(ctx context.Context, arg0 int64
 	return resp.GetResult(), nil
 }
 
-// SpatialSampling2 calls the SpatialSampling2 RPC.
-func (c *UtilsClient) SpatialSampling2(ctx context.Context, arg0 int64, arg1 int32) (int64, error) {
-	resp, err := c.svc.SpatialSampling2(ctx, &pb.SpatialSampling2Request{
-		Arg0: arg0,
-		Arg1: arg1,
+// ToPath5_2 calls the ToPath5_2 RPC.
+func (c *GestureClient) ToPath5_2(ctx context.Context, handle int64, arg0 int64, arg1 int32, arg2 int32, arg3 int32, arg4 int32) (int64, error) {
+	resp, err := c.svc.ToPath5_2(ctx, &pb.ToPath5_2Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+		Arg4:   arg4,
 	})
 	if err != nil {
 		return 0, err
@@ -1093,12 +1250,14 @@ func (c *UtilsClient) SpatialSampling2(ctx context.Context, arg0 int64, arg1 int
 	return resp.GetResult(), nil
 }
 
-// SpatialSampling3_1 calls the SpatialSampling3_1 RPC.
-func (c *UtilsClient) SpatialSampling3_1(ctx context.Context, arg0 int64, arg1 int32, arg2 bool) (int64, error) {
-	resp, err := c.svc.SpatialSampling3_1(ctx, &pb.SpatialSampling3_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
+// ToPath4_3 calls the ToPath4_3 RPC.
+func (c *GestureClient) ToPath4_3(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32, arg3 int32) (int64, error) {
+	resp, err := c.svc.ToPath4_3(ctx, &pb.ToPath4_3Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
 	})
 	if err != nil {
 		return 0, err
@@ -1106,83 +1265,12 @@ func (c *UtilsClient) SpatialSampling3_1(ctx context.Context, arg0 int64, arg1 i
 	return resp.GetResult(), nil
 }
 
-// TemporalSampling calls the TemporalSampling RPC.
-func (c *UtilsClient) TemporalSampling(ctx context.Context, arg0 int64, arg1 int32) (int64, error) {
-	resp, err := c.svc.TemporalSampling(ctx, &pb.TemporalSamplingRequest{
-		Arg0: arg0,
-		Arg1: arg1,
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *GestureClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
 	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// LibrariesClient wraps the gRPC LibrariesService client.
-type LibrariesClient struct {
-	svc pb.LibrariesServiceClient
-}
-
-// NewLibrariesClient creates a new Libraries client.
-func NewLibrariesClient(cc grpc.ClientConnInterface) *LibrariesClient {
-	return &LibrariesClient{
-		svc: pb.NewLibrariesServiceClient(cc),
-	}
-}
-
-// FromFile1 calls the FromFile1 RPC.
-func (c *LibrariesClient) FromFile1(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.FromFile1(ctx, &pb.FromFile1Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// FromFile1_1 calls the FromFile1_1 RPC.
-func (c *LibrariesClient) FromFile1_1(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.FromFile1_1(ctx, &pb.FromFile1_1Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// FromFileDescriptor calls the FromFileDescriptor RPC.
-func (c *LibrariesClient) FromFileDescriptor(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.FromFileDescriptor(ctx, &pb.FromFileDescriptorRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// FromPrivateFile calls the FromPrivateFile RPC.
-func (c *LibrariesClient) FromPrivateFile(ctx context.Context, arg0 int64, arg1 string) (int64, error) {
-	resp, err := c.svc.FromPrivateFile(ctx, &pb.FromPrivateFileRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// FromRawResource calls the FromRawResource RPC.
-func (c *LibrariesClient) FromRawResource(ctx context.Context, arg0 int64, arg1 int32) (int64, error) {
-	resp, err := c.svc.FromRawResource(ctx, &pb.FromRawResourceRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
+	return err
 }

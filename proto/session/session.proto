@@ -6,6 +6,138 @@ package session;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/session";
 
+message AddOnActiveSessionsChangedListenerRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message AddOnActiveSessionsChangedListenerResponse {
+}
+
+message AddOnMediaKeyEventSessionChangedListenerRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message AddOnMediaKeyEventSessionChangedListenerResponse {
+}
+
+message AddOnSession2TokensChangedListenerRequest {
+  int64 arg0 = 1;
+}
+
+message AddOnSession2TokensChangedListenerResponse {
+}
+
+message GetActiveSessionsRequest {
+  int64 arg0 = 1;
+}
+
+message GetActiveSessionsResponse {
+  int64 result = 1;
+}
+
+message GetMediaKeyEventSessionRequest {
+}
+
+message GetMediaKeyEventSessionResponse {
+  int64 result = 1;
+}
+
+message GetMediaKeyEventSessionPackageNameRequest {
+}
+
+message GetMediaKeyEventSessionPackageNameResponse {
+  string result = 1;
+}
+
+message GetSession2TokensRequest {
+}
+
+message GetSession2TokensResponse {
+  int64 result = 1;
+}
+
+message IsTrustedForMediaControlRequest {
+  int64 arg0 = 1;
+}
+
+message IsTrustedForMediaControlResponse {
+  bool result = 1;
+}
+
+message NotifySession2CreatedRequest {
+  int64 arg0 = 1;
+}
+
+message NotifySession2CreatedResponse {
+}
+
+message RemoveOnActiveSessionsChangedListenerRequest {
+  int64 arg0 = 1;
+}
+
+message RemoveOnActiveSessionsChangedListenerResponse {
+}
+
+message RemoveOnMediaKeyEventSessionChangedListenerRequest {
+  int64 arg0 = 1;
+}
+
+message RemoveOnMediaKeyEventSessionChangedListenerResponse {
+}
+
+message RemoveOnSession2TokensChangedListenerRequest {
+  int64 arg0 = 1;
+}
+
+message RemoveOnSession2TokensChangedListenerResponse {
+}
+
+message OnMediaKeyEventSessionChangedRequest {
+  string arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message OnMediaKeyEventSessionChangedResponse {
+}
+
+message EqualsRequest {
+  int64 arg0 = 1;
+}
+
+message EqualsResponse {
+  bool result = 1;
+}
+
+message GetPackageNameRequest {
+}
+
+message GetPackageNameResponse {
+  string result = 1;
+}
+
+message GetPidRequest {
+}
+
+message GetPidResponse {
+  int32 result = 1;
+}
+
+message GetUidRequest {
+}
+
+message GetUidResponse {
+  int32 result = 1;
+}
+
+message HashCodeRequest {
+}
+
+message HashCodeResponse {
+  int32 result = 1;
+}
+
 message NewMediaSessionRequest {
   int64 arg0 = 1;
   string arg1 = 2;
@@ -323,14 +455,6 @@ message DescribeContentsResponse {
   int32 result = 1;
 }
 
-message EqualsRequest {
-  int64 arg0 = 1;
-}
-
-message EqualsResponse {
-  bool result = 1;
-}
-
 message GetDescriptionRequest {
 }
 
@@ -360,13 +484,6 @@ message WriteToParcelRequest {
 message WriteToParcelResponse {
 }
 
-message HashCodeRequest {
-}
-
-message HashCodeResponse {
-  int32 result = 1;
-}
-
 message GetActionsRequest {
 }
 
@@ -385,6 +502,13 @@ message GetBufferedPositionRequest {
 }
 
 message GetBufferedPositionResponse {
+  int64 result = 1;
+}
+
+message GetCustomActionsRequest {
+}
+
+message GetCustomActionsResponse {
   int64 result = 1;
 }
 
@@ -587,12 +711,8 @@ message GetMetadataResponse {
   int64 result = 1;
 }
 
-message GetPackageNameRequest {
+message MediaControllerGetPackageNameRequest {
   int64 handle = 1;
-}
-
-message GetPackageNameResponse {
-  string result = 1;
 }
 
 message GetPlaybackInfoRequest {
@@ -608,6 +728,14 @@ message GetPlaybackStateRequest {
 }
 
 message GetPlaybackStateResponse {
+  int64 result = 1;
+}
+
+message GetQueueRequest {
+  int64 handle = 1;
+}
+
+message GetQueueResponse {
   int64 result = 1;
 }
 
@@ -925,102 +1053,31 @@ message StopRequest {
 message StopResponse {
 }
 
-message AddOnActiveSessionsChangedListenerRequest {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
+service MediaSessionManagerService {
+  rpc AddOnActiveSessionsChangedListener (AddOnActiveSessionsChangedListenerRequest) returns (AddOnActiveSessionsChangedListenerResponse);
+  rpc AddOnMediaKeyEventSessionChangedListener (AddOnMediaKeyEventSessionChangedListenerRequest) returns (AddOnMediaKeyEventSessionChangedListenerResponse);
+  rpc AddOnSession2TokensChangedListener (AddOnSession2TokensChangedListenerRequest) returns (AddOnSession2TokensChangedListenerResponse);
+  rpc GetActiveSessions (GetActiveSessionsRequest) returns (GetActiveSessionsResponse);
+  rpc GetMediaKeyEventSession (GetMediaKeyEventSessionRequest) returns (GetMediaKeyEventSessionResponse);
+  rpc GetMediaKeyEventSessionPackageName (GetMediaKeyEventSessionPackageNameRequest) returns (GetMediaKeyEventSessionPackageNameResponse);
+  rpc GetSession2Tokens (GetSession2TokensRequest) returns (GetSession2TokensResponse);
+  rpc IsTrustedForMediaControl (IsTrustedForMediaControlRequest) returns (IsTrustedForMediaControlResponse);
+  rpc NotifySession2Created (NotifySession2CreatedRequest) returns (NotifySession2CreatedResponse);
+  rpc RemoveOnActiveSessionsChangedListener (RemoveOnActiveSessionsChangedListenerRequest) returns (RemoveOnActiveSessionsChangedListenerResponse);
+  rpc RemoveOnMediaKeyEventSessionChangedListener (RemoveOnMediaKeyEventSessionChangedListenerRequest) returns (RemoveOnMediaKeyEventSessionChangedListenerResponse);
+  rpc RemoveOnSession2TokensChangedListener (RemoveOnSession2TokensChangedListenerRequest) returns (RemoveOnSession2TokensChangedListenerResponse);
 }
 
-message AddOnActiveSessionsChangedListenerResponse {
+service MediaSessionManagerOnMediaKeyEventSessionChangedListenerService {
+  rpc OnMediaKeyEventSessionChanged (OnMediaKeyEventSessionChangedRequest) returns (OnMediaKeyEventSessionChangedResponse);
 }
 
-message AddOnMediaKeyEventSessionChangedListenerRequest {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-}
-
-message AddOnMediaKeyEventSessionChangedListenerResponse {
-}
-
-message AddOnSession2TokensChangedListenerRequest {
-  int64 arg0 = 1;
-}
-
-message AddOnSession2TokensChangedListenerResponse {
-}
-
-message GetMediaKeyEventSessionRequest {
-}
-
-message GetMediaKeyEventSessionResponse {
-  int64 result = 1;
-}
-
-message GetMediaKeyEventSessionPackageNameRequest {
-}
-
-message GetMediaKeyEventSessionPackageNameResponse {
-  string result = 1;
-}
-
-message IsTrustedForMediaControlRequest {
-  int64 arg0 = 1;
-}
-
-message IsTrustedForMediaControlResponse {
-  bool result = 1;
-}
-
-message NotifySession2CreatedRequest {
-  int64 arg0 = 1;
-}
-
-message NotifySession2CreatedResponse {
-}
-
-message RemoveOnActiveSessionsChangedListenerRequest {
-  int64 arg0 = 1;
-}
-
-message RemoveOnActiveSessionsChangedListenerResponse {
-}
-
-message RemoveOnMediaKeyEventSessionChangedListenerRequest {
-  int64 arg0 = 1;
-}
-
-message RemoveOnMediaKeyEventSessionChangedListenerResponse {
-}
-
-message RemoveOnSession2TokensChangedListenerRequest {
-  int64 arg0 = 1;
-}
-
-message RemoveOnSession2TokensChangedListenerResponse {
-}
-
-message OnMediaKeyEventSessionChangedRequest {
-  string arg0 = 1;
-  int64 arg1 = 2;
-}
-
-message OnMediaKeyEventSessionChangedResponse {
-}
-
-message MediaSessionManagerRemoteUserInfoGetPackageNameRequest {
-}
-
-message GetPidRequest {
-}
-
-message GetPidResponse {
-  int32 result = 1;
-}
-
-message GetUidRequest {
-}
-
-message GetUidResponse {
-  int32 result = 1;
+service MediaSessionManagerRemoteUserInfoService {
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetPackageName (GetPackageNameRequest) returns (GetPackageNameResponse);
+  rpc GetPid (GetPidRequest) returns (GetPidResponse);
+  rpc GetUid (GetUidRequest) returns (GetUidResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
 }
 
 service MediaSessionService {
@@ -1091,6 +1148,7 @@ service PlaybackStateService {
   rpc GetActions (GetActionsRequest) returns (GetActionsResponse);
   rpc GetActiveQueueItemId (GetActiveQueueItemIdRequest) returns (GetActiveQueueItemIdResponse);
   rpc GetBufferedPosition (GetBufferedPositionRequest) returns (GetBufferedPositionResponse);
+  rpc GetCustomActions (GetCustomActionsRequest) returns (GetCustomActionsResponse);
   rpc GetErrorMessage (GetErrorMessageRequest) returns (GetErrorMessageResponse);
   rpc GetExtras (GetExtrasRequest) returns (GetExtrasResponse);
   rpc GetLastPositionUpdateTime (GetLastPositionUpdateTimeRequest) returns (GetLastPositionUpdateTimeResponse);
@@ -1132,9 +1190,10 @@ service MediaControllerService {
   rpc GetExtras (MediaControllerGetExtrasRequest) returns (GetExtrasResponse);
   rpc GetFlags (GetFlagsRequest) returns (GetFlagsResponse);
   rpc GetMetadata (GetMetadataRequest) returns (GetMetadataResponse);
-  rpc GetPackageName (GetPackageNameRequest) returns (GetPackageNameResponse);
+  rpc GetPackageName (MediaControllerGetPackageNameRequest) returns (GetPackageNameResponse);
   rpc GetPlaybackInfo (GetPlaybackInfoRequest) returns (GetPlaybackInfoResponse);
   rpc GetPlaybackState (GetPlaybackStateRequest) returns (GetPlaybackStateResponse);
+  rpc GetQueue (GetQueueRequest) returns (GetQueueResponse);
   rpc GetQueueTitle (GetQueueTitleRequest) returns (GetQueueTitleResponse);
   rpc GetRatingType (GetRatingTypeRequest) returns (GetRatingTypeResponse);
   rpc GetSessionActivity (GetSessionActivityRequest) returns (GetSessionActivityResponse);
@@ -1191,29 +1250,4 @@ service MediaControllerTransportControlsService {
   rpc SkipToPrevious (SkipToPreviousRequest) returns (SkipToPreviousResponse);
   rpc SkipToQueueItem (SkipToQueueItemRequest) returns (SkipToQueueItemResponse);
   rpc Stop (StopRequest) returns (StopResponse);
-}
-
-service MediaSessionManagerService {
-  rpc AddOnActiveSessionsChangedListener (AddOnActiveSessionsChangedListenerRequest) returns (AddOnActiveSessionsChangedListenerResponse);
-  rpc AddOnMediaKeyEventSessionChangedListener (AddOnMediaKeyEventSessionChangedListenerRequest) returns (AddOnMediaKeyEventSessionChangedListenerResponse);
-  rpc AddOnSession2TokensChangedListener (AddOnSession2TokensChangedListenerRequest) returns (AddOnSession2TokensChangedListenerResponse);
-  rpc GetMediaKeyEventSession (GetMediaKeyEventSessionRequest) returns (GetMediaKeyEventSessionResponse);
-  rpc GetMediaKeyEventSessionPackageName (GetMediaKeyEventSessionPackageNameRequest) returns (GetMediaKeyEventSessionPackageNameResponse);
-  rpc IsTrustedForMediaControl (IsTrustedForMediaControlRequest) returns (IsTrustedForMediaControlResponse);
-  rpc NotifySession2Created (NotifySession2CreatedRequest) returns (NotifySession2CreatedResponse);
-  rpc RemoveOnActiveSessionsChangedListener (RemoveOnActiveSessionsChangedListenerRequest) returns (RemoveOnActiveSessionsChangedListenerResponse);
-  rpc RemoveOnMediaKeyEventSessionChangedListener (RemoveOnMediaKeyEventSessionChangedListenerRequest) returns (RemoveOnMediaKeyEventSessionChangedListenerResponse);
-  rpc RemoveOnSession2TokensChangedListener (RemoveOnSession2TokensChangedListenerRequest) returns (RemoveOnSession2TokensChangedListenerResponse);
-}
-
-service MediaSessionManagerOnMediaKeyEventSessionChangedListenerService {
-  rpc OnMediaKeyEventSessionChanged (OnMediaKeyEventSessionChangedRequest) returns (OnMediaKeyEventSessionChangedResponse);
-}
-
-service MediaSessionManagerRemoteUserInfoService {
-  rpc Equals (EqualsRequest) returns (EqualsResponse);
-  rpc GetPackageName (MediaSessionManagerRemoteUserInfoGetPackageNameRequest) returns (GetPackageNameResponse);
-  rpc GetPid (GetPidRequest) returns (GetPidResponse);
-  rpc GetUid (GetUidRequest) returns (GetUidResponse);
-  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
 }

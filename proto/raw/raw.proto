@@ -13,6 +13,58 @@ message DescribeContentsResponse {
   int32 result = 1;
 }
 
+message GetRawRangingDeviceRequest {
+}
+
+message GetRawRangingDeviceResponse {
+  int64 result = 1;
+}
+
+message ToStringRequest {
+}
+
+message ToStringResponse {
+  string result = 1;
+}
+
+message WriteToParcelRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message WriteToParcelResponse {
+}
+
+message BuildRequest {
+}
+
+message BuildResponse {
+  int64 result = 1;
+}
+
+message SetRawRangingDeviceRequest {
+  int64 arg0 = 1;
+}
+
+message SetRawRangingDeviceResponse {
+  int64 result = 1;
+}
+
+message GetRawRangingDevicesRequest {
+}
+
+message GetRawRangingDevicesResponse {
+  int64 result = 1;
+}
+
+message AddRawRangingDeviceRequest {
+  int64 arg0 = 1;
+}
+
+message AddRawRangingDeviceResponse {
+  int64 result = 1;
+}
+
 message GetBleRssiRangingParamsRequest {
 }
 
@@ -45,28 +97,6 @@ message GetUwbRangingParamsRequest {
 }
 
 message GetUwbRangingParamsResponse {
-  int64 result = 1;
-}
-
-message ToStringRequest {
-}
-
-message ToStringResponse {
-  string result = 1;
-}
-
-message WriteToParcelRequest {
-  int64 arg0 = 1;
-  int32 arg1 = 2;
-}
-
-message WriteToParcelResponse {
-}
-
-message BuildRequest {
-}
-
-message BuildResponse {
   int64 result = 1;
 }
 
@@ -110,27 +140,28 @@ message SetUwbRangingParamsResponse {
   int64 result = 1;
 }
 
-message GetRawRangingDeviceRequest {
+service ResponderRangingConfigService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetRawRangingDevice (GetRawRangingDeviceRequest) returns (GetRawRangingDeviceResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
 }
 
-message GetRawRangingDeviceResponse {
-  int64 result = 1;
+service ResponderRangingConfigBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetRawRangingDevice (SetRawRangingDeviceRequest) returns (SetRawRangingDeviceResponse);
 }
 
-message SetRawRangingDeviceRequest {
-  int64 arg0 = 1;
+service InitiatorRangingConfigService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetRawRangingDevices (GetRawRangingDevicesRequest) returns (GetRawRangingDevicesResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
 }
 
-message SetRawRangingDeviceResponse {
-  int64 result = 1;
-}
-
-message AddRawRangingDeviceRequest {
-  int64 arg0 = 1;
-}
-
-message AddRawRangingDeviceResponse {
-  int64 result = 1;
+service InitiatorRangingConfigBuilderService {
+  rpc AddRawRangingDevice (AddRawRangingDeviceRequest) returns (AddRawRangingDeviceResponse);
+  rpc Build (BuildRequest) returns (BuildResponse);
 }
 
 service RangingDeviceService {
@@ -151,27 +182,4 @@ service RangingDeviceBuilderService {
   rpc SetRangingDevice (SetRangingDeviceRequest) returns (SetRangingDeviceResponse);
   rpc SetRttRangingParams (SetRttRangingParamsRequest) returns (SetRttRangingParamsResponse);
   rpc SetUwbRangingParams (SetUwbRangingParamsRequest) returns (SetUwbRangingParamsResponse);
-}
-
-service ResponderRangingConfigService {
-  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc GetRawRangingDevice (GetRawRangingDeviceRequest) returns (GetRawRangingDeviceResponse);
-  rpc ToString (ToStringRequest) returns (ToStringResponse);
-  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
-}
-
-service ResponderRangingConfigBuilderService {
-  rpc Build (BuildRequest) returns (BuildResponse);
-  rpc SetRawRangingDevice (SetRawRangingDeviceRequest) returns (SetRawRangingDeviceResponse);
-}
-
-service InitiatorRangingConfigService {
-  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc ToString (ToStringRequest) returns (ToStringResponse);
-  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
-}
-
-service InitiatorRangingConfigBuilderService {
-  rpc AddRawRangingDevice (AddRawRangingDeviceRequest) returns (AddRawRangingDeviceResponse);
-  rpc Build (BuildRequest) returns (BuildResponse);
 }

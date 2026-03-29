@@ -15,15 +15,15 @@ import (
 	"google.golang.org/grpc/status"
 )
 
-// DataSetObservableServer implements pb.DataSetObservableServiceServer.
-type DataSetObservableServer struct {
-	pb.UnimplementedDataSetObservableServiceServer
+// MatrixCursorServer implements pb.MatrixCursorServiceServer.
+type MatrixCursorServer struct {
+	pb.UnimplementedMatrixCursorServiceServer
 	Ctx     *app.Context
 	Handles *handlestore.HandleStore
 }
 
-func (s *DataSetObservableServer) NewDataSetObservable(_ context.Context, req *pb.NewDataSetObservableRequest) (*pb.NewDataSetObservableResponse, error) {
-	obj, err := jnipkg.NewDataSetObservable(s.Ctx.VM)
+func (s *MatrixCursorServer) NewMatrixCursor(_ context.Context, req *pb.NewMatrixCursorRequest) (*pb.NewMatrixCursorResponse, error) {
+	obj, err := jnipkg.NewMatrixCursor(s.Ctx.VM, s.Handles.Get(req.GetArg0()))
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create object: %v", err)
 	}
@@ -34,33 +34,215 @@ func (s *DataSetObservableServer) NewDataSetObservable(_ context.Context, req *p
 	}); doErr != nil {
 		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
 	}
-	return &pb.NewDataSetObservableResponse{Result: handle}, nil
+	return &pb.NewMatrixCursorResponse{Result: handle}, nil
 }
 
-func (s *DataSetObservableServer) NotifyChanged(_ context.Context, req *pb.NotifyChangedRequest) (*pb.NotifyChangedResponse, error) {
+func (s *MatrixCursorServer) AddRow(_ context.Context, req *pb.AddRowRequest) (*pb.AddRowResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.DataSetObservable{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.MatrixCursor{VM: s.Ctx.VM, Obj: rawObj}
 
-	if err := mgr.NotifyChanged(); err != nil {
+	if err := mgr.AddRow(s.Handles.Get(req.GetArg0())); err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.NotifyChangedResponse{}, nil
+	return &pb.AddRowResponse{}, nil
 }
 
-func (s *DataSetObservableServer) NotifyInvalidated(_ context.Context, req *pb.NotifyInvalidatedRequest) (*pb.NotifyInvalidatedResponse, error) {
+func (s *MatrixCursorServer) GetBlob(_ context.Context, req *pb.GetBlobRequest) (*pb.GetBlobResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.DataSetObservable{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.MatrixCursor{VM: s.Ctx.VM, Obj: rawObj}
 
-	if err := mgr.NotifyInvalidated(); err != nil {
+	result, err := mgr.GetBlob(req.GetArg0())
+	if err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.NotifyInvalidatedResponse{}, nil
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetBlobResponse{Result: handle}, nil
+}
+
+func (s *MatrixCursorServer) GetColumnNames(_ context.Context, req *pb.GetColumnNamesRequest) (*pb.GetColumnNamesResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.MatrixCursor{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetColumnNames()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetColumnNamesResponse{Result: handle}, nil
+}
+
+func (s *MatrixCursorServer) GetCount(_ context.Context, req *pb.GetCountRequest) (*pb.GetCountResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.MatrixCursor{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetCount()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetCountResponse{Result: result}, nil
+}
+
+func (s *MatrixCursorServer) GetDouble(_ context.Context, req *pb.GetDoubleRequest) (*pb.GetDoubleResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.MatrixCursor{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetDouble(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetDoubleResponse{Result: result}, nil
+}
+
+func (s *MatrixCursorServer) GetFloat(_ context.Context, req *pb.GetFloatRequest) (*pb.GetFloatResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.MatrixCursor{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetFloat(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetFloatResponse{Result: result}, nil
+}
+
+func (s *MatrixCursorServer) GetInt(_ context.Context, req *pb.GetIntRequest) (*pb.GetIntResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.MatrixCursor{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetInt(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetIntResponse{Result: result}, nil
+}
+
+func (s *MatrixCursorServer) GetLong(_ context.Context, req *pb.GetLongRequest) (*pb.GetLongResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.MatrixCursor{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetLong(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetLongResponse{Result: result}, nil
+}
+
+func (s *MatrixCursorServer) GetShort(_ context.Context, req *pb.GetShortRequest) (*pb.GetShortResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.MatrixCursor{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetShort(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetShortResponse{Result: int32(result)}, nil
+}
+
+func (s *MatrixCursorServer) GetString(_ context.Context, req *pb.GetStringRequest) (*pb.GetStringResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.MatrixCursor{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetString(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetStringResponse{Result: result}, nil
+}
+
+func (s *MatrixCursorServer) GetType(_ context.Context, req *pb.GetTypeRequest) (*pb.GetTypeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.MatrixCursor{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetType(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetTypeResponse{Result: result}, nil
+}
+
+func (s *MatrixCursorServer) IsNull(_ context.Context, req *pb.IsNullRequest) (*pb.IsNullResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.MatrixCursor{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.IsNull(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.IsNullResponse{Result: result}, nil
+}
+
+func (s *MatrixCursorServer) NewRow(_ context.Context, req *pb.NewRowRequest) (*pb.NewRowResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.MatrixCursor{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.NewRow()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.NewRowResponse{Result: handle}, nil
 }
 
 // UtilsServer implements pb.UtilsServiceServer.
@@ -740,15 +922,15 @@ func (s *UtilsServer) WriteExceptionToParcel(_ context.Context, req *pb.WriteExc
 	return &pb.WriteExceptionToParcelResponse{}, nil
 }
 
-// MatrixCursorServer implements pb.MatrixCursorServiceServer.
-type MatrixCursorServer struct {
-	pb.UnimplementedMatrixCursorServiceServer
+// CrossProcessCursorWrapperServer implements pb.CrossProcessCursorWrapperServiceServer.
+type CrossProcessCursorWrapperServer struct {
+	pb.UnimplementedCrossProcessCursorWrapperServiceServer
 	Ctx     *app.Context
 	Handles *handlestore.HandleStore
 }
 
-func (s *MatrixCursorServer) NewMatrixCursor(_ context.Context, req *pb.NewMatrixCursorRequest) (*pb.NewMatrixCursorResponse, error) {
-	obj, err := jnipkg.NewMatrixCursor(s.Ctx.VM, s.Handles.Get(req.GetArg0()))
+func (s *CrossProcessCursorWrapperServer) NewCrossProcessCursorWrapper(_ context.Context, req *pb.NewCrossProcessCursorWrapperRequest) (*pb.NewCrossProcessCursorWrapperResponse, error) {
+	obj, err := jnipkg.NewCrossProcessCursorWrapper(s.Ctx.VM, s.Handles.Get(req.GetArg0()))
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create object: %v", err)
 	}
@@ -759,30 +941,30 @@ func (s *MatrixCursorServer) NewMatrixCursor(_ context.Context, req *pb.NewMatri
 	}); doErr != nil {
 		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
 	}
-	return &pb.NewMatrixCursorResponse{Result: handle}, nil
+	return &pb.NewCrossProcessCursorWrapperResponse{Result: handle}, nil
 }
 
-func (s *MatrixCursorServer) AddRow(_ context.Context, req *pb.AddRowRequest) (*pb.AddRowResponse, error) {
+func (s *CrossProcessCursorWrapperServer) FillWindow(_ context.Context, req *pb.CrossProcessCursorWrapperFillWindowRequest) (*pb.FillWindowResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.MatrixCursor{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.CrossProcessCursorWrapper{VM: s.Ctx.VM, Obj: rawObj}
 
-	if err := mgr.AddRow(s.Handles.Get(req.GetArg0())); err != nil {
+	if err := mgr.FillWindow(req.GetArg0(), s.Handles.Get(req.GetArg1())); err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.AddRowResponse{}, nil
+	return &pb.FillWindowResponse{}, nil
 }
 
-func (s *MatrixCursorServer) GetBlob(_ context.Context, req *pb.GetBlobRequest) (*pb.GetBlobResponse, error) {
+func (s *CrossProcessCursorWrapperServer) GetWindow(_ context.Context, req *pb.CrossProcessCursorWrapperGetWindowRequest) (*pb.GetWindowResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.MatrixCursor{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.CrossProcessCursorWrapper{VM: s.Ctx.VM, Obj: rawObj}
 
-	result, err := mgr.GetBlob(req.GetArg0())
+	result, err := mgr.GetWindow()
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
@@ -795,179 +977,21 @@ func (s *MatrixCursorServer) GetBlob(_ context.Context, req *pb.GetBlobRequest) 
 			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
 		}
 	}
-	return &pb.GetBlobResponse{Result: handle}, nil
+	return &pb.GetWindowResponse{Result: handle}, nil
 }
 
-func (s *MatrixCursorServer) GetColumnNames(_ context.Context, req *pb.GetColumnNamesRequest) (*pb.GetColumnNamesResponse, error) {
+func (s *CrossProcessCursorWrapperServer) OnMove(_ context.Context, req *pb.CrossProcessCursorWrapperOnMoveRequest) (*pb.OnMoveResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.MatrixCursor{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.CrossProcessCursorWrapper{VM: s.Ctx.VM, Obj: rawObj}
 
-	result, err := mgr.GetColumnNames()
+	result, err := mgr.OnMove(req.GetArg0(), req.GetArg1())
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetColumnNamesResponse{Result: handle}, nil
-}
-
-func (s *MatrixCursorServer) GetCount(_ context.Context, req *pb.GetCountRequest) (*pb.GetCountResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.MatrixCursor{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetCount()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetCountResponse{Result: result}, nil
-}
-
-func (s *MatrixCursorServer) GetDouble(_ context.Context, req *pb.GetDoubleRequest) (*pb.GetDoubleResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.MatrixCursor{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetDouble(req.GetArg0())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetDoubleResponse{Result: result}, nil
-}
-
-func (s *MatrixCursorServer) GetFloat(_ context.Context, req *pb.GetFloatRequest) (*pb.GetFloatResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.MatrixCursor{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetFloat(req.GetArg0())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetFloatResponse{Result: result}, nil
-}
-
-func (s *MatrixCursorServer) GetInt(_ context.Context, req *pb.GetIntRequest) (*pb.GetIntResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.MatrixCursor{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetInt(req.GetArg0())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetIntResponse{Result: result}, nil
-}
-
-func (s *MatrixCursorServer) GetLong(_ context.Context, req *pb.GetLongRequest) (*pb.GetLongResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.MatrixCursor{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetLong(req.GetArg0())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetLongResponse{Result: result}, nil
-}
-
-func (s *MatrixCursorServer) GetShort(_ context.Context, req *pb.GetShortRequest) (*pb.GetShortResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.MatrixCursor{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetShort(req.GetArg0())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetShortResponse{Result: int32(result)}, nil
-}
-
-func (s *MatrixCursorServer) GetString(_ context.Context, req *pb.GetStringRequest) (*pb.GetStringResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.MatrixCursor{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetString(req.GetArg0())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetStringResponse{Result: result}, nil
-}
-
-func (s *MatrixCursorServer) GetType(_ context.Context, req *pb.GetTypeRequest) (*pb.GetTypeResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.MatrixCursor{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetType(req.GetArg0())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetTypeResponse{Result: result}, nil
-}
-
-func (s *MatrixCursorServer) IsNull(_ context.Context, req *pb.IsNullRequest) (*pb.IsNullResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.MatrixCursor{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.IsNull(req.GetArg0())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.IsNullResponse{Result: result}, nil
-}
-
-func (s *MatrixCursorServer) NewRow(_ context.Context, req *pb.NewRowRequest) (*pb.NewRowResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.MatrixCursor{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.NewRow()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.NewRowResponse{Result: handle}, nil
+	return &pb.OnMoveResponse{Result: result}, nil
 }
 
 // DefaultDatabaseErrorHandlerServer implements pb.DefaultDatabaseErrorHandlerServiceServer.
@@ -1005,15 +1029,15 @@ func (s *DefaultDatabaseErrorHandlerServer) OnCorruption(_ context.Context, req 
 	return &pb.OnCorruptionResponse{}, nil
 }
 
-// CursorWrapperServer implements pb.CursorWrapperServiceServer.
-type CursorWrapperServer struct {
-	pb.UnimplementedCursorWrapperServiceServer
+// ContentObservableServer implements pb.ContentObservableServiceServer.
+type ContentObservableServer struct {
+	pb.UnimplementedContentObservableServiceServer
 	Ctx     *app.Context
 	Handles *handlestore.HandleStore
 }
 
-func (s *CursorWrapperServer) NewCursorWrapper(_ context.Context, req *pb.NewCursorWrapperRequest) (*pb.NewCursorWrapperResponse, error) {
-	obj, err := jnipkg.NewCursorWrapper(s.Ctx.VM, s.Handles.Get(req.GetArg0()))
+func (s *ContentObservableServer) NewContentObservable(_ context.Context, req *pb.NewContentObservableRequest) (*pb.NewContentObservableResponse, error) {
+	obj, err := jnipkg.NewContentObservable(s.Ctx.VM)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create object: %v", err)
 	}
@@ -1024,807 +1048,72 @@ func (s *CursorWrapperServer) NewCursorWrapper(_ context.Context, req *pb.NewCur
 	}); doErr != nil {
 		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
 	}
-	return &pb.NewCursorWrapperResponse{Result: handle}, nil
+	return &pb.NewContentObservableResponse{Result: handle}, nil
 }
 
-func (s *CursorWrapperServer) Close(_ context.Context, req *pb.CursorWrapperCloseRequest) (*pb.CloseResponse, error) {
+func (s *ContentObservableServer) DispatchChange1(_ context.Context, req *pb.ContentObservableDispatchChange1Request) (*pb.DispatchChange1Response, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.CursorWrapper{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.ContentObservable{VM: s.Ctx.VM, Obj: rawObj}
 
-	if err := mgr.Close(); err != nil {
+	if err := mgr.DispatchChange1(req.GetArg0()); err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.CloseResponse{}, nil
+	return &pb.DispatchChange1Response{}, nil
 }
 
-func (s *CursorWrapperServer) CopyStringToBuffer(_ context.Context, req *pb.CopyStringToBufferRequest) (*pb.CopyStringToBufferResponse, error) {
+func (s *ContentObservableServer) DispatchChange2_1(_ context.Context, req *pb.ContentObservableDispatchChange2_1Request) (*pb.DispatchChange2_1Response, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.CursorWrapper{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.ContentObservable{VM: s.Ctx.VM, Obj: rawObj}
 
-	if err := mgr.CopyStringToBuffer(req.GetArg0(), s.Handles.Get(req.GetArg1())); err != nil {
+	if err := mgr.DispatchChange2_1(req.GetArg0(), s.Handles.Get(req.GetArg1())); err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.CopyStringToBufferResponse{}, nil
+	return &pb.DispatchChange2_1Response{}, nil
 }
 
-func (s *CursorWrapperServer) Deactivate(_ context.Context, req *pb.DeactivateRequest) (*pb.DeactivateResponse, error) {
+func (s *ContentObservableServer) NotifyChange(_ context.Context, req *pb.NotifyChangeRequest) (*pb.NotifyChangeResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.CursorWrapper{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.ContentObservable{VM: s.Ctx.VM, Obj: rawObj}
 
-	if err := mgr.Deactivate(); err != nil {
+	if err := mgr.NotifyChange(req.GetArg0()); err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.DeactivateResponse{}, nil
+	return &pb.NotifyChangeResponse{}, nil
 }
 
-func (s *CursorWrapperServer) GetBlob(_ context.Context, req *pb.GetBlobRequest) (*pb.GetBlobResponse, error) {
+func (s *ContentObservableServer) RegisterObserver1(_ context.Context, req *pb.RegisterObserver1Request) (*pb.RegisterObserver1Response, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.CursorWrapper{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.ContentObservable{VM: s.Ctx.VM, Obj: rawObj}
 
-	result, err := mgr.GetBlob(req.GetArg0())
-	if err != nil {
+	if err := mgr.RegisterObserver1(s.Handles.Get(req.GetArg0())); err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetBlobResponse{Result: handle}, nil
+	return &pb.RegisterObserver1Response{}, nil
 }
 
-func (s *CursorWrapperServer) GetColumnCount(_ context.Context, req *pb.GetColumnCountRequest) (*pb.GetColumnCountResponse, error) {
+func (s *ContentObservableServer) RegisterObserver1_1(_ context.Context, req *pb.RegisterObserver1_1Request) (*pb.RegisterObserver1_1Response, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.CursorWrapper{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.ContentObservable{VM: s.Ctx.VM, Obj: rawObj}
 
-	result, err := mgr.GetColumnCount()
-	if err != nil {
+	if err := mgr.RegisterObserver1_1(s.Handles.Get(req.GetArg0())); err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.GetColumnCountResponse{Result: result}, nil
-}
-
-func (s *CursorWrapperServer) GetColumnIndex(_ context.Context, req *pb.CursorWrapperGetColumnIndexRequest) (*pb.GetColumnIndexResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.CursorWrapper{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetColumnIndex(req.GetArg0())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetColumnIndexResponse{Result: result}, nil
-}
-
-func (s *CursorWrapperServer) GetColumnIndexOrThrow(_ context.Context, req *pb.GetColumnIndexOrThrowRequest) (*pb.GetColumnIndexOrThrowResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.CursorWrapper{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetColumnIndexOrThrow(req.GetArg0())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetColumnIndexOrThrowResponse{Result: result}, nil
-}
-
-func (s *CursorWrapperServer) GetColumnName(_ context.Context, req *pb.GetColumnNameRequest) (*pb.GetColumnNameResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.CursorWrapper{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetColumnName(req.GetArg0())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetColumnNameResponse{Result: result}, nil
-}
-
-func (s *CursorWrapperServer) GetColumnNames(_ context.Context, req *pb.GetColumnNamesRequest) (*pb.GetColumnNamesResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.CursorWrapper{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetColumnNames()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetColumnNamesResponse{Result: handle}, nil
-}
-
-func (s *CursorWrapperServer) GetCount(_ context.Context, req *pb.GetCountRequest) (*pb.GetCountResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.CursorWrapper{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetCount()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetCountResponse{Result: result}, nil
-}
-
-func (s *CursorWrapperServer) GetDouble(_ context.Context, req *pb.GetDoubleRequest) (*pb.GetDoubleResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.CursorWrapper{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetDouble(req.GetArg0())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetDoubleResponse{Result: result}, nil
-}
-
-func (s *CursorWrapperServer) GetExtras(_ context.Context, req *pb.GetExtrasRequest) (*pb.GetExtrasResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.CursorWrapper{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetExtras()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetExtrasResponse{Result: handle}, nil
-}
-
-func (s *CursorWrapperServer) GetFloat(_ context.Context, req *pb.GetFloatRequest) (*pb.GetFloatResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.CursorWrapper{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetFloat(req.GetArg0())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetFloatResponse{Result: result}, nil
-}
-
-func (s *CursorWrapperServer) GetInt(_ context.Context, req *pb.GetIntRequest) (*pb.GetIntResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.CursorWrapper{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetInt(req.GetArg0())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetIntResponse{Result: result}, nil
-}
-
-func (s *CursorWrapperServer) GetLong(_ context.Context, req *pb.GetLongRequest) (*pb.GetLongResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.CursorWrapper{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetLong(req.GetArg0())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetLongResponse{Result: result}, nil
-}
-
-func (s *CursorWrapperServer) GetNotificationUri(_ context.Context, req *pb.GetNotificationUriRequest) (*pb.GetNotificationUriResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.CursorWrapper{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetNotificationUri()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetNotificationUriResponse{Result: handle}, nil
-}
-
-func (s *CursorWrapperServer) GetPosition(_ context.Context, req *pb.GetPositionRequest) (*pb.GetPositionResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.CursorWrapper{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetPosition()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetPositionResponse{Result: result}, nil
-}
-
-func (s *CursorWrapperServer) GetShort(_ context.Context, req *pb.GetShortRequest) (*pb.GetShortResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.CursorWrapper{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetShort(req.GetArg0())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetShortResponse{Result: int32(result)}, nil
-}
-
-func (s *CursorWrapperServer) GetString(_ context.Context, req *pb.GetStringRequest) (*pb.GetStringResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.CursorWrapper{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetString(req.GetArg0())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetStringResponse{Result: result}, nil
-}
-
-func (s *CursorWrapperServer) GetType(_ context.Context, req *pb.GetTypeRequest) (*pb.GetTypeResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.CursorWrapper{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetType(req.GetArg0())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetTypeResponse{Result: result}, nil
-}
-
-func (s *CursorWrapperServer) GetWantsAllOnMoveCalls(_ context.Context, req *pb.GetWantsAllOnMoveCallsRequest) (*pb.GetWantsAllOnMoveCallsResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.CursorWrapper{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetWantsAllOnMoveCalls()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetWantsAllOnMoveCallsResponse{Result: result}, nil
-}
-
-func (s *CursorWrapperServer) GetWrappedCursor(_ context.Context, req *pb.GetWrappedCursorRequest) (*pb.GetWrappedCursorResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.CursorWrapper{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetWrappedCursor()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetWrappedCursorResponse{Result: handle}, nil
-}
-
-func (s *CursorWrapperServer) IsAfterLast(_ context.Context, req *pb.IsAfterLastRequest) (*pb.IsAfterLastResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.CursorWrapper{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.IsAfterLast()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.IsAfterLastResponse{Result: result}, nil
-}
-
-func (s *CursorWrapperServer) IsBeforeFirst(_ context.Context, req *pb.IsBeforeFirstRequest) (*pb.IsBeforeFirstResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.CursorWrapper{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.IsBeforeFirst()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.IsBeforeFirstResponse{Result: result}, nil
-}
-
-func (s *CursorWrapperServer) IsClosed(_ context.Context, req *pb.IsClosedRequest) (*pb.IsClosedResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.CursorWrapper{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.IsClosed()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.IsClosedResponse{Result: result}, nil
-}
-
-func (s *CursorWrapperServer) IsFirst(_ context.Context, req *pb.IsFirstRequest) (*pb.IsFirstResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.CursorWrapper{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.IsFirst()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.IsFirstResponse{Result: result}, nil
-}
-
-func (s *CursorWrapperServer) IsLast(_ context.Context, req *pb.IsLastRequest) (*pb.IsLastResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.CursorWrapper{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.IsLast()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.IsLastResponse{Result: result}, nil
-}
-
-func (s *CursorWrapperServer) IsNull(_ context.Context, req *pb.IsNullRequest) (*pb.IsNullResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.CursorWrapper{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.IsNull(req.GetArg0())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.IsNullResponse{Result: result}, nil
-}
-
-func (s *CursorWrapperServer) Move(_ context.Context, req *pb.MoveRequest) (*pb.MoveResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.CursorWrapper{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.Move(req.GetArg0())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.MoveResponse{Result: result}, nil
-}
-
-func (s *CursorWrapperServer) MoveToFirst(_ context.Context, req *pb.MoveToFirstRequest) (*pb.MoveToFirstResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.CursorWrapper{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.MoveToFirst()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.MoveToFirstResponse{Result: result}, nil
-}
-
-func (s *CursorWrapperServer) MoveToLast(_ context.Context, req *pb.MoveToLastRequest) (*pb.MoveToLastResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.CursorWrapper{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.MoveToLast()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.MoveToLastResponse{Result: result}, nil
-}
-
-func (s *CursorWrapperServer) MoveToNext(_ context.Context, req *pb.MoveToNextRequest) (*pb.MoveToNextResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.CursorWrapper{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.MoveToNext()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.MoveToNextResponse{Result: result}, nil
-}
-
-func (s *CursorWrapperServer) MoveToPosition(_ context.Context, req *pb.MoveToPositionRequest) (*pb.MoveToPositionResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.CursorWrapper{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.MoveToPosition(req.GetArg0())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.MoveToPositionResponse{Result: result}, nil
-}
-
-func (s *CursorWrapperServer) MoveToPrevious(_ context.Context, req *pb.MoveToPreviousRequest) (*pb.MoveToPreviousResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.CursorWrapper{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.MoveToPrevious()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.MoveToPreviousResponse{Result: result}, nil
-}
-
-func (s *CursorWrapperServer) RegisterContentObserver(_ context.Context, req *pb.RegisterContentObserverRequest) (*pb.RegisterContentObserverResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.CursorWrapper{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.RegisterContentObserver(s.Handles.Get(req.GetArg0())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.RegisterContentObserverResponse{}, nil
-}
-
-func (s *CursorWrapperServer) RegisterDataSetObserver(_ context.Context, req *pb.RegisterDataSetObserverRequest) (*pb.RegisterDataSetObserverResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.CursorWrapper{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.RegisterDataSetObserver(s.Handles.Get(req.GetArg0())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.RegisterDataSetObserverResponse{}, nil
-}
-
-func (s *CursorWrapperServer) Requery(_ context.Context, req *pb.RequeryRequest) (*pb.RequeryResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.CursorWrapper{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.Requery()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.RequeryResponse{Result: result}, nil
-}
-
-func (s *CursorWrapperServer) Respond(_ context.Context, req *pb.RespondRequest) (*pb.RespondResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.CursorWrapper{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.Respond(s.Handles.Get(req.GetArg0()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.RespondResponse{Result: handle}, nil
-}
-
-func (s *CursorWrapperServer) SetExtras(_ context.Context, req *pb.SetExtrasRequest) (*pb.SetExtrasResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.CursorWrapper{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.SetExtras(s.Handles.Get(req.GetArg0())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SetExtrasResponse{}, nil
-}
-
-func (s *CursorWrapperServer) SetNotificationUri(_ context.Context, req *pb.SetNotificationUriRequest) (*pb.SetNotificationUriResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.CursorWrapper{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.SetNotificationUri(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SetNotificationUriResponse{}, nil
-}
-
-func (s *CursorWrapperServer) UnregisterContentObserver(_ context.Context, req *pb.UnregisterContentObserverRequest) (*pb.UnregisterContentObserverResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.CursorWrapper{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.UnregisterContentObserver(s.Handles.Get(req.GetArg0())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.UnregisterContentObserverResponse{}, nil
-}
-
-func (s *CursorWrapperServer) UnregisterDataSetObserver(_ context.Context, req *pb.UnregisterDataSetObserverRequest) (*pb.UnregisterDataSetObserverResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.CursorWrapper{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.UnregisterDataSetObserver(s.Handles.Get(req.GetArg0())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.UnregisterDataSetObserverResponse{}, nil
-}
-
-// CrossProcessCursorWrapperServer implements pb.CrossProcessCursorWrapperServiceServer.
-type CrossProcessCursorWrapperServer struct {
-	pb.UnimplementedCrossProcessCursorWrapperServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *CrossProcessCursorWrapperServer) NewCrossProcessCursorWrapper(_ context.Context, req *pb.NewCrossProcessCursorWrapperRequest) (*pb.NewCrossProcessCursorWrapperResponse, error) {
-	obj, err := jnipkg.NewCrossProcessCursorWrapper(s.Ctx.VM, s.Handles.Get(req.GetArg0()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
-	}
-	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-	}
-	return &pb.NewCrossProcessCursorWrapperResponse{Result: handle}, nil
-}
-
-func (s *CrossProcessCursorWrapperServer) FillWindow(_ context.Context, req *pb.FillWindowRequest) (*pb.FillWindowResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.CrossProcessCursorWrapper{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.FillWindow(req.GetArg0(), s.Handles.Get(req.GetArg1())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.FillWindowResponse{}, nil
-}
-
-func (s *CrossProcessCursorWrapperServer) GetWindow(_ context.Context, req *pb.GetWindowRequest) (*pb.GetWindowResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.CrossProcessCursorWrapper{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetWindow()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetWindowResponse{Result: handle}, nil
-}
-
-func (s *CrossProcessCursorWrapperServer) OnMove(_ context.Context, req *pb.OnMoveRequest) (*pb.OnMoveResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.CrossProcessCursorWrapper{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.OnMove(req.GetArg0(), req.GetArg1())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.OnMoveResponse{Result: result}, nil
-}
-
-// CursorJoinerServer implements pb.CursorJoinerServiceServer.
-type CursorJoinerServer struct {
-	pb.UnimplementedCursorJoinerServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *CursorJoinerServer) NewCursorJoiner(_ context.Context, req *pb.NewCursorJoinerRequest) (*pb.NewCursorJoinerResponse, error) {
-	obj, err := jnipkg.NewCursorJoiner(s.Ctx.VM, s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()), s.Handles.Get(req.GetArg2()), s.Handles.Get(req.GetArg3()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
-	}
-	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-	}
-	return &pb.NewCursorJoinerResponse{Result: handle}, nil
-}
-
-func (s *CursorJoinerServer) HasNext(_ context.Context, req *pb.HasNextRequest) (*pb.HasNextResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.CursorJoiner{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.HasNext()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.HasNextResponse{Result: result}, nil
-}
-
-func (s *CursorJoinerServer) Next0(_ context.Context, req *pb.Next0Request) (*pb.Next0Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.CursorJoiner{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.Next0()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.Next0Response{Result: handle}, nil
-}
-
-func (s *CursorJoinerServer) Remove(_ context.Context, req *pb.RemoveRequest) (*pb.RemoveResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.CursorJoiner{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.Remove(); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.RemoveResponse{}, nil
-}
-
-func (s *CursorJoinerServer) Next0_1(_ context.Context, req *pb.Next0_1Request) (*pb.Next0_1Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.CursorJoiner{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.Next0_1()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.Next0_1Response{Result: handle}, nil
+	return &pb.RegisterObserver1_1Response{}, nil
 }
 
 // CursorWindowServer implements pb.CursorWindowServiceServer.
@@ -2065,7 +1354,7 @@ func (s *CursorWindowServer) GetType(_ context.Context, req *pb.CursorWindowGetT
 	return &pb.GetTypeResponse{Result: result}, nil
 }
 
-func (s *CursorWindowServer) IsBlob(_ context.Context, req *pb.IsBlobRequest) (*pb.IsBlobResponse, error) {
+func (s *CursorWindowServer) IsBlob(_ context.Context, req *pb.CursorWindowIsBlobRequest) (*pb.IsBlobResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -2079,7 +1368,7 @@ func (s *CursorWindowServer) IsBlob(_ context.Context, req *pb.IsBlobRequest) (*
 	return &pb.IsBlobResponse{Result: result}, nil
 }
 
-func (s *CursorWindowServer) IsFloat(_ context.Context, req *pb.IsFloatRequest) (*pb.IsFloatResponse, error) {
+func (s *CursorWindowServer) IsFloat(_ context.Context, req *pb.CursorWindowIsFloatRequest) (*pb.IsFloatResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -2093,7 +1382,7 @@ func (s *CursorWindowServer) IsFloat(_ context.Context, req *pb.IsFloatRequest) 
 	return &pb.IsFloatResponse{Result: result}, nil
 }
 
-func (s *CursorWindowServer) IsLong(_ context.Context, req *pb.IsLongRequest) (*pb.IsLongResponse, error) {
+func (s *CursorWindowServer) IsLong(_ context.Context, req *pb.CursorWindowIsLongRequest) (*pb.IsLongResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -2121,7 +1410,7 @@ func (s *CursorWindowServer) IsNull(_ context.Context, req *pb.CursorWindowIsNul
 	return &pb.IsNullResponse{Result: result}, nil
 }
 
-func (s *CursorWindowServer) IsString(_ context.Context, req *pb.IsStringRequest) (*pb.IsStringResponse, error) {
+func (s *CursorWindowServer) IsString(_ context.Context, req *pb.CursorWindowIsStringRequest) (*pb.IsStringResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -2280,93 +1569,6 @@ func (s *CursorWindowServer) NewFromParcel(_ context.Context, req *pb.NewFromPar
 		}
 	}
 	return &pb.NewFromParcelResponse{Result: handle}, nil
-}
-
-// ContentObservableServer implements pb.ContentObservableServiceServer.
-type ContentObservableServer struct {
-	pb.UnimplementedContentObservableServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *ContentObservableServer) NewContentObservable(_ context.Context, req *pb.NewContentObservableRequest) (*pb.NewContentObservableResponse, error) {
-	obj, err := jnipkg.NewContentObservable(s.Ctx.VM)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
-	}
-	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-	}
-	return &pb.NewContentObservableResponse{Result: handle}, nil
-}
-
-func (s *ContentObservableServer) DispatchChange1(_ context.Context, req *pb.ContentObservableDispatchChange1Request) (*pb.DispatchChange1Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.ContentObservable{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.DispatchChange1(req.GetArg0()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.DispatchChange1Response{}, nil
-}
-
-func (s *ContentObservableServer) DispatchChange2_1(_ context.Context, req *pb.ContentObservableDispatchChange2_1Request) (*pb.DispatchChange2_1Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.ContentObservable{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.DispatchChange2_1(req.GetArg0(), s.Handles.Get(req.GetArg1())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.DispatchChange2_1Response{}, nil
-}
-
-func (s *ContentObservableServer) NotifyChange(_ context.Context, req *pb.NotifyChangeRequest) (*pb.NotifyChangeResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.ContentObservable{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.NotifyChange(req.GetArg0()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.NotifyChangeResponse{}, nil
-}
-
-func (s *ContentObservableServer) RegisterObserver1(_ context.Context, req *pb.RegisterObserver1Request) (*pb.RegisterObserver1Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.ContentObservable{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.RegisterObserver1(s.Handles.Get(req.GetArg0())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.RegisterObserver1Response{}, nil
-}
-
-func (s *ContentObservableServer) RegisterObserver1_1(_ context.Context, req *pb.RegisterObserver1_1Request) (*pb.RegisterObserver1_1Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.ContentObservable{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.RegisterObserver1_1(s.Handles.Get(req.GetArg0())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.RegisterObserver1_1Response{}, nil
 }
 
 // MergeCursorServer implements pb.MergeCursorServiceServer.
@@ -2589,7 +1791,7 @@ func (s *MergeCursorServer) IsNull(_ context.Context, req *pb.IsNullRequest) (*p
 	return &pb.IsNullResponse{Result: result}, nil
 }
 
-func (s *MergeCursorServer) OnMove(_ context.Context, req *pb.OnMoveRequest) (*pb.OnMoveResponse, error) {
+func (s *MergeCursorServer) OnMove(_ context.Context, req *pb.MergeCursorOnMoveRequest) (*pb.OnMoveResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -2667,4 +1869,848 @@ func (s *MergeCursorServer) UnregisterDataSetObserver(_ context.Context, req *pb
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
 	return &pb.UnregisterDataSetObserverResponse{}, nil
+}
+
+// CursorJoinerServer implements pb.CursorJoinerServiceServer.
+type CursorJoinerServer struct {
+	pb.UnimplementedCursorJoinerServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *CursorJoinerServer) NewCursorJoiner(_ context.Context, req *pb.NewCursorJoinerRequest) (*pb.NewCursorJoinerResponse, error) {
+	obj, err := jnipkg.NewCursorJoiner(s.Ctx.VM, s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()), s.Handles.Get(req.GetArg2()), s.Handles.Get(req.GetArg3()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewCursorJoinerResponse{Result: handle}, nil
+}
+
+func (s *CursorJoinerServer) HasNext(_ context.Context, req *pb.HasNextRequest) (*pb.HasNextResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.CursorJoiner{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.HasNext()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.HasNextResponse{Result: result}, nil
+}
+
+func (s *CursorJoinerServer) Iterator(_ context.Context, req *pb.IteratorRequest) (*pb.IteratorResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.CursorJoiner{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.Iterator()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.IteratorResponse{Result: handle}, nil
+}
+
+func (s *CursorJoinerServer) Next0(_ context.Context, req *pb.Next0Request) (*pb.Next0Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.CursorJoiner{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.Next0()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.Next0Response{Result: handle}, nil
+}
+
+func (s *CursorJoinerServer) Remove(_ context.Context, req *pb.RemoveRequest) (*pb.RemoveResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.CursorJoiner{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.Remove(); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.RemoveResponse{}, nil
+}
+
+func (s *CursorJoinerServer) Next0_1(_ context.Context, req *pb.Next0_1Request) (*pb.Next0_1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.CursorJoiner{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.Next0_1()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.Next0_1Response{Result: handle}, nil
+}
+
+// CursorWrapperServer implements pb.CursorWrapperServiceServer.
+type CursorWrapperServer struct {
+	pb.UnimplementedCursorWrapperServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *CursorWrapperServer) NewCursorWrapper(_ context.Context, req *pb.NewCursorWrapperRequest) (*pb.NewCursorWrapperResponse, error) {
+	obj, err := jnipkg.NewCursorWrapper(s.Ctx.VM, s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewCursorWrapperResponse{Result: handle}, nil
+}
+
+func (s *CursorWrapperServer) Close(_ context.Context, req *pb.CursorWrapperCloseRequest) (*pb.CloseResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.CursorWrapper{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.Close(); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.CloseResponse{}, nil
+}
+
+func (s *CursorWrapperServer) CopyStringToBuffer(_ context.Context, req *pb.CursorWrapperCopyStringToBufferRequest) (*pb.CopyStringToBufferResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.CursorWrapper{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.CopyStringToBuffer(req.GetArg0(), s.Handles.Get(req.GetArg1())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.CopyStringToBufferResponse{}, nil
+}
+
+func (s *CursorWrapperServer) Deactivate(_ context.Context, req *pb.DeactivateRequest) (*pb.DeactivateResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.CursorWrapper{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.Deactivate(); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.DeactivateResponse{}, nil
+}
+
+func (s *CursorWrapperServer) GetBlob(_ context.Context, req *pb.GetBlobRequest) (*pb.GetBlobResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.CursorWrapper{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetBlob(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetBlobResponse{Result: handle}, nil
+}
+
+func (s *CursorWrapperServer) GetColumnCount(_ context.Context, req *pb.CursorWrapperGetColumnCountRequest) (*pb.GetColumnCountResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.CursorWrapper{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetColumnCount()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetColumnCountResponse{Result: result}, nil
+}
+
+func (s *CursorWrapperServer) GetColumnIndex(_ context.Context, req *pb.CursorWrapperGetColumnIndexRequest) (*pb.GetColumnIndexResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.CursorWrapper{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetColumnIndex(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetColumnIndexResponse{Result: result}, nil
+}
+
+func (s *CursorWrapperServer) GetColumnIndexOrThrow(_ context.Context, req *pb.CursorWrapperGetColumnIndexOrThrowRequest) (*pb.GetColumnIndexOrThrowResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.CursorWrapper{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetColumnIndexOrThrow(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetColumnIndexOrThrowResponse{Result: result}, nil
+}
+
+func (s *CursorWrapperServer) GetColumnName(_ context.Context, req *pb.CursorWrapperGetColumnNameRequest) (*pb.GetColumnNameResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.CursorWrapper{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetColumnName(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetColumnNameResponse{Result: result}, nil
+}
+
+func (s *CursorWrapperServer) GetColumnNames(_ context.Context, req *pb.GetColumnNamesRequest) (*pb.GetColumnNamesResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.CursorWrapper{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetColumnNames()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetColumnNamesResponse{Result: handle}, nil
+}
+
+func (s *CursorWrapperServer) GetCount(_ context.Context, req *pb.GetCountRequest) (*pb.GetCountResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.CursorWrapper{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetCount()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetCountResponse{Result: result}, nil
+}
+
+func (s *CursorWrapperServer) GetDouble(_ context.Context, req *pb.GetDoubleRequest) (*pb.GetDoubleResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.CursorWrapper{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetDouble(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetDoubleResponse{Result: result}, nil
+}
+
+func (s *CursorWrapperServer) GetExtras(_ context.Context, req *pb.CursorWrapperGetExtrasRequest) (*pb.GetExtrasResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.CursorWrapper{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetExtras()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetExtrasResponse{Result: handle}, nil
+}
+
+func (s *CursorWrapperServer) GetFloat(_ context.Context, req *pb.GetFloatRequest) (*pb.GetFloatResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.CursorWrapper{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetFloat(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetFloatResponse{Result: result}, nil
+}
+
+func (s *CursorWrapperServer) GetInt(_ context.Context, req *pb.GetIntRequest) (*pb.GetIntResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.CursorWrapper{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetInt(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetIntResponse{Result: result}, nil
+}
+
+func (s *CursorWrapperServer) GetLong(_ context.Context, req *pb.GetLongRequest) (*pb.GetLongResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.CursorWrapper{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetLong(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetLongResponse{Result: result}, nil
+}
+
+func (s *CursorWrapperServer) GetNotificationUri(_ context.Context, req *pb.CursorWrapperGetNotificationUriRequest) (*pb.GetNotificationUriResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.CursorWrapper{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetNotificationUri()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetNotificationUriResponse{Result: handle}, nil
+}
+
+func (s *CursorWrapperServer) GetNotificationUris(_ context.Context, req *pb.CursorWrapperGetNotificationUrisRequest) (*pb.GetNotificationUrisResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.CursorWrapper{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetNotificationUris()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetNotificationUrisResponse{Result: handle}, nil
+}
+
+func (s *CursorWrapperServer) GetPosition(_ context.Context, req *pb.CursorWrapperGetPositionRequest) (*pb.GetPositionResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.CursorWrapper{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetPosition()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetPositionResponse{Result: result}, nil
+}
+
+func (s *CursorWrapperServer) GetShort(_ context.Context, req *pb.GetShortRequest) (*pb.GetShortResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.CursorWrapper{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetShort(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetShortResponse{Result: int32(result)}, nil
+}
+
+func (s *CursorWrapperServer) GetString(_ context.Context, req *pb.GetStringRequest) (*pb.GetStringResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.CursorWrapper{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetString(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetStringResponse{Result: result}, nil
+}
+
+func (s *CursorWrapperServer) GetType(_ context.Context, req *pb.GetTypeRequest) (*pb.GetTypeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.CursorWrapper{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetType(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetTypeResponse{Result: result}, nil
+}
+
+func (s *CursorWrapperServer) GetWantsAllOnMoveCalls(_ context.Context, req *pb.CursorWrapperGetWantsAllOnMoveCallsRequest) (*pb.GetWantsAllOnMoveCallsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.CursorWrapper{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetWantsAllOnMoveCalls()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetWantsAllOnMoveCallsResponse{Result: result}, nil
+}
+
+func (s *CursorWrapperServer) GetWrappedCursor(_ context.Context, req *pb.GetWrappedCursorRequest) (*pb.GetWrappedCursorResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.CursorWrapper{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetWrappedCursor()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetWrappedCursorResponse{Result: handle}, nil
+}
+
+func (s *CursorWrapperServer) IsAfterLast(_ context.Context, req *pb.CursorWrapperIsAfterLastRequest) (*pb.IsAfterLastResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.CursorWrapper{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.IsAfterLast()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.IsAfterLastResponse{Result: result}, nil
+}
+
+func (s *CursorWrapperServer) IsBeforeFirst(_ context.Context, req *pb.CursorWrapperIsBeforeFirstRequest) (*pb.IsBeforeFirstResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.CursorWrapper{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.IsBeforeFirst()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.IsBeforeFirstResponse{Result: result}, nil
+}
+
+func (s *CursorWrapperServer) IsClosed(_ context.Context, req *pb.CursorWrapperIsClosedRequest) (*pb.IsClosedResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.CursorWrapper{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.IsClosed()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.IsClosedResponse{Result: result}, nil
+}
+
+func (s *CursorWrapperServer) IsFirst(_ context.Context, req *pb.CursorWrapperIsFirstRequest) (*pb.IsFirstResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.CursorWrapper{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.IsFirst()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.IsFirstResponse{Result: result}, nil
+}
+
+func (s *CursorWrapperServer) IsLast(_ context.Context, req *pb.CursorWrapperIsLastRequest) (*pb.IsLastResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.CursorWrapper{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.IsLast()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.IsLastResponse{Result: result}, nil
+}
+
+func (s *CursorWrapperServer) IsNull(_ context.Context, req *pb.IsNullRequest) (*pb.IsNullResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.CursorWrapper{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.IsNull(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.IsNullResponse{Result: result}, nil
+}
+
+func (s *CursorWrapperServer) Move(_ context.Context, req *pb.CursorWrapperMoveRequest) (*pb.MoveResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.CursorWrapper{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.Move(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.MoveResponse{Result: result}, nil
+}
+
+func (s *CursorWrapperServer) MoveToFirst(_ context.Context, req *pb.CursorWrapperMoveToFirstRequest) (*pb.MoveToFirstResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.CursorWrapper{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.MoveToFirst()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.MoveToFirstResponse{Result: result}, nil
+}
+
+func (s *CursorWrapperServer) MoveToLast(_ context.Context, req *pb.CursorWrapperMoveToLastRequest) (*pb.MoveToLastResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.CursorWrapper{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.MoveToLast()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.MoveToLastResponse{Result: result}, nil
+}
+
+func (s *CursorWrapperServer) MoveToNext(_ context.Context, req *pb.CursorWrapperMoveToNextRequest) (*pb.MoveToNextResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.CursorWrapper{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.MoveToNext()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.MoveToNextResponse{Result: result}, nil
+}
+
+func (s *CursorWrapperServer) MoveToPosition(_ context.Context, req *pb.CursorWrapperMoveToPositionRequest) (*pb.MoveToPositionResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.CursorWrapper{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.MoveToPosition(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.MoveToPositionResponse{Result: result}, nil
+}
+
+func (s *CursorWrapperServer) MoveToPrevious(_ context.Context, req *pb.CursorWrapperMoveToPreviousRequest) (*pb.MoveToPreviousResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.CursorWrapper{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.MoveToPrevious()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.MoveToPreviousResponse{Result: result}, nil
+}
+
+func (s *CursorWrapperServer) RegisterContentObserver(_ context.Context, req *pb.RegisterContentObserverRequest) (*pb.RegisterContentObserverResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.CursorWrapper{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.RegisterContentObserver(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.RegisterContentObserverResponse{}, nil
+}
+
+func (s *CursorWrapperServer) RegisterDataSetObserver(_ context.Context, req *pb.RegisterDataSetObserverRequest) (*pb.RegisterDataSetObserverResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.CursorWrapper{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.RegisterDataSetObserver(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.RegisterDataSetObserverResponse{}, nil
+}
+
+func (s *CursorWrapperServer) Requery(_ context.Context, req *pb.RequeryRequest) (*pb.RequeryResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.CursorWrapper{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.Requery()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.RequeryResponse{Result: result}, nil
+}
+
+func (s *CursorWrapperServer) Respond(_ context.Context, req *pb.CursorWrapperRespondRequest) (*pb.RespondResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.CursorWrapper{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.Respond(s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.RespondResponse{Result: handle}, nil
+}
+
+func (s *CursorWrapperServer) SetExtras(_ context.Context, req *pb.CursorWrapperSetExtrasRequest) (*pb.SetExtrasResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.CursorWrapper{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetExtras(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetExtrasResponse{}, nil
+}
+
+func (s *CursorWrapperServer) SetNotificationUri(_ context.Context, req *pb.CursorWrapperSetNotificationUriRequest) (*pb.SetNotificationUriResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.CursorWrapper{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetNotificationUri(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetNotificationUriResponse{}, nil
+}
+
+func (s *CursorWrapperServer) UnregisterContentObserver(_ context.Context, req *pb.UnregisterContentObserverRequest) (*pb.UnregisterContentObserverResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.CursorWrapper{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.UnregisterContentObserver(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.UnregisterContentObserverResponse{}, nil
+}
+
+func (s *CursorWrapperServer) UnregisterDataSetObserver(_ context.Context, req *pb.UnregisterDataSetObserverRequest) (*pb.UnregisterDataSetObserverResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.CursorWrapper{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.UnregisterDataSetObserver(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.UnregisterDataSetObserverResponse{}, nil
+}
+
+// DataSetObservableServer implements pb.DataSetObservableServiceServer.
+type DataSetObservableServer struct {
+	pb.UnimplementedDataSetObservableServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *DataSetObservableServer) NewDataSetObservable(_ context.Context, req *pb.NewDataSetObservableRequest) (*pb.NewDataSetObservableResponse, error) {
+	obj, err := jnipkg.NewDataSetObservable(s.Ctx.VM)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewDataSetObservableResponse{Result: handle}, nil
+}
+
+func (s *DataSetObservableServer) NotifyChanged(_ context.Context, req *pb.NotifyChangedRequest) (*pb.NotifyChangedResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.DataSetObservable{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.NotifyChanged(); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.NotifyChangedResponse{}, nil
+}
+
+func (s *DataSetObservableServer) NotifyInvalidated(_ context.Context, req *pb.NotifyInvalidatedRequest) (*pb.NotifyInvalidatedResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.DataSetObservable{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.NotifyInvalidated(); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.NotifyInvalidatedResponse{}, nil
 }

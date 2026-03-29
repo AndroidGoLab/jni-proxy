@@ -149,20 +149,20 @@ func (c *KeyedFrequencyCapBuilderClient) SetMaxCount(ctx context.Context, arg0 i
 	return resp.GetResult(), nil
 }
 
-// AdFiltersClient wraps the gRPC AdFiltersService client.
-type AdFiltersClient struct {
-	svc pb.AdFiltersServiceClient
+// AdSelectionSignalsClient wraps the gRPC AdSelectionSignalsService client.
+type AdSelectionSignalsClient struct {
+	svc pb.AdSelectionSignalsServiceClient
 }
 
-// NewAdFiltersClient creates a new AdFilters client.
-func NewAdFiltersClient(cc grpc.ClientConnInterface) *AdFiltersClient {
-	return &AdFiltersClient{
-		svc: pb.NewAdFiltersServiceClient(cc),
+// NewAdSelectionSignalsClient creates a new AdSelectionSignals client.
+func NewAdSelectionSignalsClient(cc grpc.ClientConnInterface) *AdSelectionSignalsClient {
+	return &AdSelectionSignalsClient{
+		svc: pb.NewAdSelectionSignalsServiceClient(cc),
 	}
 }
 
 // DescribeContents calls the DescribeContents RPC.
-func (c *AdFiltersClient) DescribeContents(ctx context.Context) (int32, error) {
+func (c *AdSelectionSignalsClient) DescribeContents(ctx context.Context) (int32, error) {
 	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
 	if err != nil {
 		return 0, err
@@ -171,7 +171,7 @@ func (c *AdFiltersClient) DescribeContents(ctx context.Context) (int32, error) {
 }
 
 // Equals calls the Equals RPC.
-func (c *AdFiltersClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+func (c *AdSelectionSignalsClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
 	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
 		Arg0: arg0,
 	})
@@ -181,26 +181,8 @@ func (c *AdFiltersClient) Equals(ctx context.Context, arg0 int64) (bool, error) 
 	return resp.GetResult(), nil
 }
 
-// GetAppInstallFilters calls the GetAppInstallFilters RPC.
-func (c *AdFiltersClient) GetAppInstallFilters(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetAppInstallFilters(ctx, &pb.GetAppInstallFiltersRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetFrequencyCapFilters calls the GetFrequencyCapFilters RPC.
-func (c *AdFiltersClient) GetFrequencyCapFilters(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetFrequencyCapFilters(ctx, &pb.GetFrequencyCapFiltersRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
 // HashCode calls the HashCode RPC.
-func (c *AdFiltersClient) HashCode(ctx context.Context) (int32, error) {
+func (c *AdSelectionSignalsClient) HashCode(ctx context.Context) (int32, error) {
 	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
 	if err != nil {
 		return 0, err
@@ -209,7 +191,7 @@ func (c *AdFiltersClient) HashCode(ctx context.Context) (int32, error) {
 }
 
 // ToString calls the ToString RPC.
-func (c *AdFiltersClient) ToString(ctx context.Context) (string, error) {
+func (c *AdSelectionSignalsClient) ToString(ctx context.Context) (string, error) {
 	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
 	if err != nil {
 		return "", err
@@ -218,7 +200,7 @@ func (c *AdFiltersClient) ToString(ctx context.Context) (string, error) {
 }
 
 // WriteToParcel calls the WriteToParcel RPC.
-func (c *AdFiltersClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+func (c *AdSelectionSignalsClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
 	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -226,43 +208,127 @@ func (c *AdFiltersClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 in
 	return err
 }
 
-// AdFiltersBuilderClient wraps the gRPC AdFiltersBuilderService client.
-type AdFiltersBuilderClient struct {
-	svc pb.AdFiltersBuilderServiceClient
+// FromString calls the FromString RPC.
+func (c *AdSelectionSignalsClient) FromString(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.FromString(ctx, &pb.FromStringRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
 }
 
-// NewAdFiltersBuilderClient creates a new AdFiltersBuilder client.
-func NewAdFiltersBuilderClient(cc grpc.ClientConnInterface) *AdFiltersBuilderClient {
-	return &AdFiltersBuilderClient{
-		svc: pb.NewAdFiltersBuilderServiceClient(cc),
+// FrequencyCapFiltersClient wraps the gRPC FrequencyCapFiltersService client.
+type FrequencyCapFiltersClient struct {
+	svc pb.FrequencyCapFiltersServiceClient
+}
+
+// NewFrequencyCapFiltersClient creates a new FrequencyCapFilters client.
+func NewFrequencyCapFiltersClient(cc grpc.ClientConnInterface) *FrequencyCapFiltersClient {
+	return &FrequencyCapFiltersClient{
+		svc: pb.NewFrequencyCapFiltersServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *FrequencyCapFiltersClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *FrequencyCapFiltersClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetKeyedFrequencyCapsForClickEvents calls the GetKeyedFrequencyCapsForClickEvents RPC.
+func (c *FrequencyCapFiltersClient) GetKeyedFrequencyCapsForClickEvents(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetKeyedFrequencyCapsForClickEvents(ctx, &pb.GetKeyedFrequencyCapsForClickEventsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetKeyedFrequencyCapsForImpressionEvents calls the GetKeyedFrequencyCapsForImpressionEvents RPC.
+func (c *FrequencyCapFiltersClient) GetKeyedFrequencyCapsForImpressionEvents(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetKeyedFrequencyCapsForImpressionEvents(ctx, &pb.GetKeyedFrequencyCapsForImpressionEventsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetKeyedFrequencyCapsForViewEvents calls the GetKeyedFrequencyCapsForViewEvents RPC.
+func (c *FrequencyCapFiltersClient) GetKeyedFrequencyCapsForViewEvents(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetKeyedFrequencyCapsForViewEvents(ctx, &pb.GetKeyedFrequencyCapsForViewEventsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetKeyedFrequencyCapsForWinEvents calls the GetKeyedFrequencyCapsForWinEvents RPC.
+func (c *FrequencyCapFiltersClient) GetKeyedFrequencyCapsForWinEvents(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetKeyedFrequencyCapsForWinEvents(ctx, &pb.GetKeyedFrequencyCapsForWinEventsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *FrequencyCapFiltersClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *FrequencyCapFiltersClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *FrequencyCapFiltersClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// FrequencyCapFiltersBuilderClient wraps the gRPC FrequencyCapFiltersBuilderService client.
+type FrequencyCapFiltersBuilderClient struct {
+	svc pb.FrequencyCapFiltersBuilderServiceClient
+}
+
+// NewFrequencyCapFiltersBuilderClient creates a new FrequencyCapFiltersBuilder client.
+func NewFrequencyCapFiltersBuilderClient(cc grpc.ClientConnInterface) *FrequencyCapFiltersBuilderClient {
+	return &FrequencyCapFiltersBuilderClient{
+		svc: pb.NewFrequencyCapFiltersBuilderServiceClient(cc),
 	}
 }
 
 // Build calls the Build RPC.
-func (c *AdFiltersBuilderClient) Build(ctx context.Context) (int64, error) {
+func (c *FrequencyCapFiltersBuilderClient) Build(ctx context.Context) (int64, error) {
 	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetAppInstallFilters calls the SetAppInstallFilters RPC.
-func (c *AdFiltersBuilderClient) SetAppInstallFilters(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetAppInstallFilters(ctx, &pb.SetAppInstallFiltersRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetFrequencyCapFilters calls the SetFrequencyCapFilters RPC.
-func (c *AdFiltersBuilderClient) SetFrequencyCapFilters(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetFrequencyCapFilters(ctx, &pb.SetFrequencyCapFiltersRequest{
-		Arg0: arg0,
-	})
 	if err != nil {
 		return 0, err
 	}
@@ -428,166 +494,6 @@ func (c *AdTechIdentifierClient) FromString(ctx context.Context, arg0 string) (i
 	return resp.GetResult(), nil
 }
 
-// AppInstallFiltersClient wraps the gRPC AppInstallFiltersService client.
-type AppInstallFiltersClient struct {
-	svc pb.AppInstallFiltersServiceClient
-}
-
-// NewAppInstallFiltersClient creates a new AppInstallFilters client.
-func NewAppInstallFiltersClient(cc grpc.ClientConnInterface) *AppInstallFiltersClient {
-	return &AppInstallFiltersClient{
-		svc: pb.NewAppInstallFiltersServiceClient(cc),
-	}
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *AppInstallFiltersClient) DescribeContents(ctx context.Context) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Equals calls the Equals RPC.
-func (c *AppInstallFiltersClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *AppInstallFiltersClient) HashCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToString calls the ToString RPC.
-func (c *AppInstallFiltersClient) ToString(ctx context.Context) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *AppInstallFiltersClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// AppInstallFiltersBuilderClient wraps the gRPC AppInstallFiltersBuilderService client.
-type AppInstallFiltersBuilderClient struct {
-	svc pb.AppInstallFiltersBuilderServiceClient
-}
-
-// NewAppInstallFiltersBuilderClient creates a new AppInstallFiltersBuilder client.
-func NewAppInstallFiltersBuilderClient(cc grpc.ClientConnInterface) *AppInstallFiltersBuilderClient {
-	return &AppInstallFiltersBuilderClient{
-		svc: pb.NewAppInstallFiltersBuilderServiceClient(cc),
-	}
-}
-
-// Build calls the Build RPC.
-func (c *AppInstallFiltersBuilderClient) Build(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// FrequencyCapFiltersClient wraps the gRPC FrequencyCapFiltersService client.
-type FrequencyCapFiltersClient struct {
-	svc pb.FrequencyCapFiltersServiceClient
-}
-
-// NewFrequencyCapFiltersClient creates a new FrequencyCapFilters client.
-func NewFrequencyCapFiltersClient(cc grpc.ClientConnInterface) *FrequencyCapFiltersClient {
-	return &FrequencyCapFiltersClient{
-		svc: pb.NewFrequencyCapFiltersServiceClient(cc),
-	}
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *FrequencyCapFiltersClient) DescribeContents(ctx context.Context) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Equals calls the Equals RPC.
-func (c *FrequencyCapFiltersClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *FrequencyCapFiltersClient) HashCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToString calls the ToString RPC.
-func (c *FrequencyCapFiltersClient) ToString(ctx context.Context) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *FrequencyCapFiltersClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// FrequencyCapFiltersBuilderClient wraps the gRPC FrequencyCapFiltersBuilderService client.
-type FrequencyCapFiltersBuilderClient struct {
-	svc pb.FrequencyCapFiltersBuilderServiceClient
-}
-
-// NewFrequencyCapFiltersBuilderClient creates a new FrequencyCapFiltersBuilder client.
-func NewFrequencyCapFiltersBuilderClient(cc grpc.ClientConnInterface) *FrequencyCapFiltersBuilderClient {
-	return &FrequencyCapFiltersBuilderClient{
-		svc: pb.NewFrequencyCapFiltersBuilderServiceClient(cc),
-	}
-}
-
-// Build calls the Build RPC.
-func (c *FrequencyCapFiltersBuilderClient) Build(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
 // AdDataClient wraps the gRPC AdDataService client.
 type AdDataClient struct {
 	svc pb.AdDataServiceClient
@@ -616,6 +522,15 @@ func (c *AdDataClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
 	})
 	if err != nil {
 		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAdCounterKeys calls the GetAdCounterKeys RPC.
+func (c *AdDataClient) GetAdCounterKeys(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetAdCounterKeys(ctx, &pb.GetAdCounterKeysRequest{})
+	if err != nil {
+		return 0, err
 	}
 	return resp.GetResult(), nil
 }
@@ -748,20 +663,20 @@ func (c *AdDataBuilderClient) SetRenderUri(ctx context.Context, arg0 int64) (int
 	return resp.GetResult(), nil
 }
 
-// AdSelectionSignalsClient wraps the gRPC AdSelectionSignalsService client.
-type AdSelectionSignalsClient struct {
-	svc pb.AdSelectionSignalsServiceClient
+// AdFiltersClient wraps the gRPC AdFiltersService client.
+type AdFiltersClient struct {
+	svc pb.AdFiltersServiceClient
 }
 
-// NewAdSelectionSignalsClient creates a new AdSelectionSignals client.
-func NewAdSelectionSignalsClient(cc grpc.ClientConnInterface) *AdSelectionSignalsClient {
-	return &AdSelectionSignalsClient{
-		svc: pb.NewAdSelectionSignalsServiceClient(cc),
+// NewAdFiltersClient creates a new AdFilters client.
+func NewAdFiltersClient(cc grpc.ClientConnInterface) *AdFiltersClient {
+	return &AdFiltersClient{
+		svc: pb.NewAdFiltersServiceClient(cc),
 	}
 }
 
 // DescribeContents calls the DescribeContents RPC.
-func (c *AdSelectionSignalsClient) DescribeContents(ctx context.Context) (int32, error) {
+func (c *AdFiltersClient) DescribeContents(ctx context.Context) (int32, error) {
 	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
 	if err != nil {
 		return 0, err
@@ -770,7 +685,7 @@ func (c *AdSelectionSignalsClient) DescribeContents(ctx context.Context) (int32,
 }
 
 // Equals calls the Equals RPC.
-func (c *AdSelectionSignalsClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+func (c *AdFiltersClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
 	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
 		Arg0: arg0,
 	})
@@ -780,8 +695,26 @@ func (c *AdSelectionSignalsClient) Equals(ctx context.Context, arg0 int64) (bool
 	return resp.GetResult(), nil
 }
 
+// GetAppInstallFilters calls the GetAppInstallFilters RPC.
+func (c *AdFiltersClient) GetAppInstallFilters(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetAppInstallFilters(ctx, &pb.GetAppInstallFiltersRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetFrequencyCapFilters calls the GetFrequencyCapFilters RPC.
+func (c *AdFiltersClient) GetFrequencyCapFilters(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetFrequencyCapFilters(ctx, &pb.GetFrequencyCapFiltersRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // HashCode calls the HashCode RPC.
-func (c *AdSelectionSignalsClient) HashCode(ctx context.Context) (int32, error) {
+func (c *AdFiltersClient) HashCode(ctx context.Context) (int32, error) {
 	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
 	if err != nil {
 		return 0, err
@@ -790,7 +723,7 @@ func (c *AdSelectionSignalsClient) HashCode(ctx context.Context) (int32, error) 
 }
 
 // ToString calls the ToString RPC.
-func (c *AdSelectionSignalsClient) ToString(ctx context.Context) (string, error) {
+func (c *AdFiltersClient) ToString(ctx context.Context) (string, error) {
 	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
 	if err != nil {
 		return "", err
@@ -799,7 +732,7 @@ func (c *AdSelectionSignalsClient) ToString(ctx context.Context) (string, error)
 }
 
 // WriteToParcel calls the WriteToParcel RPC.
-func (c *AdSelectionSignalsClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+func (c *AdFiltersClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
 	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -807,11 +740,132 @@ func (c *AdSelectionSignalsClient) WriteToParcel(ctx context.Context, arg0 int64
 	return err
 }
 
-// FromString calls the FromString RPC.
-func (c *AdSelectionSignalsClient) FromString(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.FromString(ctx, &pb.FromStringRequest{
+// AdFiltersBuilderClient wraps the gRPC AdFiltersBuilderService client.
+type AdFiltersBuilderClient struct {
+	svc pb.AdFiltersBuilderServiceClient
+}
+
+// NewAdFiltersBuilderClient creates a new AdFiltersBuilder client.
+func NewAdFiltersBuilderClient(cc grpc.ClientConnInterface) *AdFiltersBuilderClient {
+	return &AdFiltersBuilderClient{
+		svc: pb.NewAdFiltersBuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *AdFiltersBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetAppInstallFilters calls the SetAppInstallFilters RPC.
+func (c *AdFiltersBuilderClient) SetAppInstallFilters(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetAppInstallFilters(ctx, &pb.SetAppInstallFiltersRequest{
 		Arg0: arg0,
 	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetFrequencyCapFilters calls the SetFrequencyCapFilters RPC.
+func (c *AdFiltersBuilderClient) SetFrequencyCapFilters(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetFrequencyCapFilters(ctx, &pb.SetFrequencyCapFiltersRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AppInstallFiltersClient wraps the gRPC AppInstallFiltersService client.
+type AppInstallFiltersClient struct {
+	svc pb.AppInstallFiltersServiceClient
+}
+
+// NewAppInstallFiltersClient creates a new AppInstallFilters client.
+func NewAppInstallFiltersClient(cc grpc.ClientConnInterface) *AppInstallFiltersClient {
+	return &AppInstallFiltersClient{
+		svc: pb.NewAppInstallFiltersServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *AppInstallFiltersClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *AppInstallFiltersClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPackageNames calls the GetPackageNames RPC.
+func (c *AppInstallFiltersClient) GetPackageNames(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetPackageNames(ctx, &pb.GetPackageNamesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *AppInstallFiltersClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *AppInstallFiltersClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *AppInstallFiltersClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// AppInstallFiltersBuilderClient wraps the gRPC AppInstallFiltersBuilderService client.
+type AppInstallFiltersBuilderClient struct {
+	svc pb.AppInstallFiltersBuilderServiceClient
+}
+
+// NewAppInstallFiltersBuilderClient creates a new AppInstallFiltersBuilder client.
+func NewAppInstallFiltersBuilderClient(cc grpc.ClientConnInterface) *AppInstallFiltersBuilderClient {
+	return &AppInstallFiltersBuilderClient{
+		svc: pb.NewAppInstallFiltersBuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *AppInstallFiltersBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
 	if err != nil {
 		return 0, err
 	}

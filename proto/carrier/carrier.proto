@@ -6,29 +6,19 @@ package carrier;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/carrier";
 
-message NewMessagePduRequest {
-  int64 arg0 = 1;
+message NotifyCarrierNetworkChange1Request {
+  bool arg0 = 1;
 }
 
-message NewMessagePduResponse {
-  int64 result = 1;
+message NotifyCarrierNetworkChange1Response {
 }
 
-message DescribeContentsRequest {
-  int64 handle = 1;
+message NotifyCarrierNetworkChange2_1Request {
+  int32 arg0 = 1;
+  bool arg1 = 2;
 }
 
-message DescribeContentsResponse {
-  int32 result = 1;
-}
-
-message WriteToParcelRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-  int32 arg1 = 3;
-}
-
-message WriteToParcelResponse {
+message NotifyCarrierNetworkChange2_1Response {
 }
 
 message OnBindRequest {
@@ -36,6 +26,23 @@ message OnBindRequest {
 }
 
 message OnBindResponse {
+  int64 result = 1;
+}
+
+message OnLoadConfig1Request {
+  int64 arg0 = 1;
+}
+
+message OnLoadConfig1Response {
+  int64 result = 1;
+}
+
+message OnLoadConfig2_1Request {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message OnLoadConfig2_1Response {
   int64 result = 1;
 }
 
@@ -67,18 +74,6 @@ message GetMessageRefResponse {
   int32 result = 1;
 }
 
-message NewMessagingClientServiceRequest {
-}
-
-message NewMessagingClientServiceResponse {
-  int64 result = 1;
-}
-
-message MessagingClientServiceOnBindRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-}
-
 message NewIdentifierRequest {
   int64 arg0 = 1;
   string arg1 = 2;
@@ -87,6 +82,14 @@ message NewIdentifierRequest {
 
 message NewIdentifierResponse {
   int64 result = 1;
+}
+
+message DescribeContentsRequest {
+  int64 handle = 1;
+}
+
+message DescribeContentsResponse {
+  int32 result = 1;
 }
 
 message EqualsRequest {
@@ -178,42 +181,49 @@ message ToStringResponse {
   string result = 1;
 }
 
-message NotifyCarrierNetworkChange1Request {
-  bool arg0 = 1;
+message WriteToParcelRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
 }
 
-message NotifyCarrierNetworkChange1Response {
+message WriteToParcelResponse {
 }
 
-message NotifyCarrierNetworkChange2_1Request {
-  int32 arg0 = 1;
-  bool arg1 = 2;
+message NewMessagingClientServiceRequest {
 }
 
-message NotifyCarrierNetworkChange2_1Response {
+message NewMessagingClientServiceResponse {
+  int64 result = 1;
 }
 
-message OnLoadConfig1Request {
+message MessagingClientServiceOnBindRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message NewMessagePduRequest {
   int64 arg0 = 1;
 }
 
-message OnLoadConfig1Response {
+message NewMessagePduResponse {
   int64 result = 1;
 }
 
-message OnLoadConfig2_1Request {
-  int32 arg0 = 1;
-  int64 arg1 = 2;
+message GetPdusRequest {
+  int64 handle = 1;
 }
 
-message OnLoadConfig2_1Response {
+message GetPdusResponse {
   int64 result = 1;
 }
 
-service MessagePduService {
-  rpc NewMessagePdu (NewMessagePduRequest) returns (NewMessagePduResponse);
-  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+service ServiceService {
+  rpc NotifyCarrierNetworkChange1 (NotifyCarrierNetworkChange1Request) returns (NotifyCarrierNetworkChange1Response);
+  rpc NotifyCarrierNetworkChange2_1 (NotifyCarrierNetworkChange2_1Request) returns (NotifyCarrierNetworkChange2_1Response);
+  rpc OnBind (OnBindRequest) returns (OnBindResponse);
+  rpc OnLoadConfig1 (OnLoadConfig1Request) returns (OnLoadConfig1Response);
+  rpc OnLoadConfig2_1 (OnLoadConfig2_1Request) returns (OnLoadConfig2_1Response);
 }
 
 service MessagingServiceService {
@@ -235,11 +245,6 @@ service MessagingServiceSendSmsResultService {
   rpc GetSendStatus (GetSendStatusRequest) returns (GetSendStatusResponse);
 }
 
-service MessagingClientServiceService {
-  rpc NewMessagingClientService (NewMessagingClientServiceRequest) returns (NewMessagingClientServiceResponse);
-  rpc OnBind (MessagingClientServiceOnBindRequest) returns (OnBindResponse);
-}
-
 service IdentifierService {
   rpc NewIdentifier (NewIdentifierRequest) returns (NewIdentifierResponse);
   rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
@@ -257,10 +262,14 @@ service IdentifierService {
   rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
 }
 
-service ServiceService {
-  rpc NotifyCarrierNetworkChange1 (NotifyCarrierNetworkChange1Request) returns (NotifyCarrierNetworkChange1Response);
-  rpc NotifyCarrierNetworkChange2_1 (NotifyCarrierNetworkChange2_1Request) returns (NotifyCarrierNetworkChange2_1Response);
-  rpc OnBind (OnBindRequest) returns (OnBindResponse);
-  rpc OnLoadConfig1 (OnLoadConfig1Request) returns (OnLoadConfig1Response);
-  rpc OnLoadConfig2_1 (OnLoadConfig2_1Request) returns (OnLoadConfig2_1Response);
+service MessagingClientServiceService {
+  rpc NewMessagingClientService (NewMessagingClientServiceRequest) returns (NewMessagingClientServiceResponse);
+  rpc OnBind (MessagingClientServiceOnBindRequest) returns (OnBindResponse);
+}
+
+service MessagePduService {
+  rpc NewMessagePdu (NewMessagePduRequest) returns (NewMessagePduResponse);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetPdus (GetPdusRequest) returns (GetPdusResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
 }

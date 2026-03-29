@@ -9,6 +9,55 @@ import (
 	"google.golang.org/grpc"
 )
 
+// ManagerClient wraps the gRPC ManagerService client.
+type ManagerClient struct {
+	svc pb.ManagerServiceClient
+}
+
+// NewManagerClient creates a new Manager client.
+func NewManagerClient(cc grpc.ClientConnInterface) *ManagerClient {
+	return &ManagerClient{
+		svc: pb.NewManagerServiceClient(cc),
+	}
+}
+
+// AddOrUpdateStatus calls the AddOrUpdateStatus RPC.
+func (c *ManagerClient) AddOrUpdateStatus(ctx context.Context, arg0 string, arg1 int64) error {
+	_, err := c.svc.AddOrUpdateStatus(ctx, &pb.AddOrUpdateStatusRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// ClearStatus calls the ClearStatus RPC.
+func (c *ManagerClient) ClearStatus(ctx context.Context, arg0 string, arg1 string) error {
+	_, err := c.svc.ClearStatus(ctx, &pb.ClearStatusRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// ClearStatuses calls the ClearStatuses RPC.
+func (c *ManagerClient) ClearStatuses(ctx context.Context, arg0 string) error {
+	_, err := c.svc.ClearStatuses(ctx, &pb.ClearStatusesRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// GetStatuses calls the GetStatuses RPC.
+func (c *ManagerClient) GetStatuses(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.GetStatuses(ctx, &pb.GetStatusesRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // ConversationStatusClient wraps the gRPC ConversationStatusService client.
 type ConversationStatusClient struct {
 	svc pb.ConversationStatusServiceClient
@@ -205,42 +254,4 @@ func (c *ConversationStatusBuilderClient) SetStartTimeMillis(ctx context.Context
 		return 0, err
 	}
 	return resp.GetResult(), nil
-}
-
-// ManagerClient wraps the gRPC ManagerService client.
-type ManagerClient struct {
-	svc pb.ManagerServiceClient
-}
-
-// NewManagerClient creates a new Manager client.
-func NewManagerClient(cc grpc.ClientConnInterface) *ManagerClient {
-	return &ManagerClient{
-		svc: pb.NewManagerServiceClient(cc),
-	}
-}
-
-// AddOrUpdateStatus calls the AddOrUpdateStatus RPC.
-func (c *ManagerClient) AddOrUpdateStatus(ctx context.Context, arg0 string, arg1 int64) error {
-	_, err := c.svc.AddOrUpdateStatus(ctx, &pb.AddOrUpdateStatusRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// ClearStatus calls the ClearStatus RPC.
-func (c *ManagerClient) ClearStatus(ctx context.Context, arg0 string, arg1 string) error {
-	_, err := c.svc.ClearStatus(ctx, &pb.ClearStatusRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// ClearStatuses calls the ClearStatuses RPC.
-func (c *ManagerClient) ClearStatuses(ctx context.Context, arg0 string) error {
-	_, err := c.svc.ClearStatuses(ctx, &pb.ClearStatusesRequest{
-		Arg0: arg0,
-	})
-	return err
 }

@@ -13,630 +13,12 @@ message DescribeContentsResponse {
   int32 result = 1;
 }
 
-message GetModeRequest {
-}
-
-message GetModeResponse {
-  int32 result = 1;
-}
-
-message GetTimeoutRequest {
-}
-
-message GetTimeoutResponse {
-  int32 result = 1;
-}
-
-message GetTxPowerLevelRequest {
-}
-
-message GetTxPowerLevelResponse {
-  int32 result = 1;
-}
-
-message IsConnectableRequest {
-}
-
-message IsConnectableResponse {
-  bool result = 1;
-}
-
-message IsDiscoverableRequest {
-}
-
-message IsDiscoverableResponse {
-  bool result = 1;
-}
-
-message ToStringRequest {
-}
-
-message ToStringResponse {
-  string result = 1;
-}
-
-message WriteToParcelRequest {
-  int64 arg0 = 1;
-  int32 arg1 = 2;
-}
-
-message WriteToParcelResponse {
-}
-
-message BuildRequest {
-}
-
-message BuildResponse {
-  int64 result = 1;
-}
-
-message SetAdvertiseModeRequest {
-  int32 arg0 = 1;
-}
-
-message SetAdvertiseModeResponse {
-  int64 result = 1;
-}
-
-message SetConnectableRequest {
-  bool arg0 = 1;
-}
-
-message SetConnectableResponse {
-  int64 result = 1;
-}
-
-message SetDiscoverableRequest {
-  bool arg0 = 1;
-}
-
-message SetDiscoverableResponse {
-  int64 result = 1;
-}
-
-message SetTimeoutRequest {
-  int32 arg0 = 1;
-}
-
-message SetTimeoutResponse {
-  int64 result = 1;
-}
-
-message SetTxPowerLevelRequest {
-  int32 arg0 = 1;
-}
-
-message SetTxPowerLevelResponse {
-  int64 result = 1;
-}
-
-message OnScanFailedRequest {
-  int32 arg0 = 1;
-}
-
-message OnScanFailedResponse {
-}
-
-message OnScanResultRequest {
-  int32 arg0 = 1;
-  int64 arg1 = 2;
-}
-
-message OnScanResultResponse {
-}
-
 message EqualsRequest {
   int64 arg0 = 1;
 }
 
 message EqualsResponse {
   bool result = 1;
-}
-
-message GetIncludeDeviceNameRequest {
-}
-
-message GetIncludeDeviceNameResponse {
-  bool result = 1;
-}
-
-message GetIncludeTxPowerLevelRequest {
-}
-
-message GetIncludeTxPowerLevelResponse {
-  bool result = 1;
-}
-
-message HashCodeRequest {
-}
-
-message HashCodeResponse {
-  int32 result = 1;
-}
-
-message AddManufacturerDataRequest {
-  int32 arg0 = 1;
-  int64 arg1 = 2;
-}
-
-message AddManufacturerDataResponse {
-  int64 result = 1;
-}
-
-message AddServiceDataRequest {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-}
-
-message AddServiceDataResponse {
-  int64 result = 1;
-}
-
-message AddServiceSolicitationUuidRequest {
-  int64 arg0 = 1;
-}
-
-message AddServiceSolicitationUuidResponse {
-  int64 result = 1;
-}
-
-message AddServiceUuidRequest {
-  int64 arg0 = 1;
-}
-
-message AddServiceUuidResponse {
-  int64 result = 1;
-}
-
-message AddTransportDiscoveryDataRequest {
-  int64 arg0 = 1;
-}
-
-message AddTransportDiscoveryDataResponse {
-  int64 result = 1;
-}
-
-message SetIncludeDeviceNameRequest {
-  bool arg0 = 1;
-}
-
-message SetIncludeDeviceNameResponse {
-  int64 result = 1;
-}
-
-message SetIncludeTxPowerLevelRequest {
-  bool arg0 = 1;
-}
-
-message SetIncludeTxPowerLevelResponse {
-  int64 result = 1;
-}
-
-message NewScanResultRequest {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-  int32 arg2 = 3;
-  int64 arg3 = 4;
-}
-
-message NewScanResultResponse {
-  int64 result = 1;
-}
-
-message ScanResultDescribeContentsRequest {
-  int64 handle = 1;
-}
-
-message ScanResultEqualsRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-}
-
-message GetAdvertisingSidRequest {
-  int64 handle = 1;
-}
-
-message GetAdvertisingSidResponse {
-  int32 result = 1;
-}
-
-message GetDataStatusRequest {
-  int64 handle = 1;
-}
-
-message GetDataStatusResponse {
-  int32 result = 1;
-}
-
-message GetDeviceRequest {
-  int64 handle = 1;
-}
-
-message GetDeviceResponse {
-  int64 result = 1;
-}
-
-message GetPeriodicAdvertisingIntervalRequest {
-  int64 handle = 1;
-}
-
-message GetPeriodicAdvertisingIntervalResponse {
-  int32 result = 1;
-}
-
-message GetPrimaryPhyRequest {
-  int64 handle = 1;
-}
-
-message GetPrimaryPhyResponse {
-  int32 result = 1;
-}
-
-message GetRssiRequest {
-  int64 handle = 1;
-}
-
-message GetRssiResponse {
-  int32 result = 1;
-}
-
-message GetScanRecordRequest {
-  int64 handle = 1;
-}
-
-message GetScanRecordResponse {
-  int64 result = 1;
-}
-
-message GetSecondaryPhyRequest {
-  int64 handle = 1;
-}
-
-message GetSecondaryPhyResponse {
-  int32 result = 1;
-}
-
-message GetTimestampNanosRequest {
-  int64 handle = 1;
-}
-
-message GetTimestampNanosResponse {
-  int64 result = 1;
-}
-
-message GetTxPowerRequest {
-  int64 handle = 1;
-}
-
-message GetTxPowerResponse {
-  int32 result = 1;
-}
-
-message ScanResultHashCodeRequest {
-  int64 handle = 1;
-}
-
-message ScanResultIsConnectableRequest {
-  int64 handle = 1;
-}
-
-message IsLegacyRequest {
-  int64 handle = 1;
-}
-
-message IsLegacyResponse {
-  bool result = 1;
-}
-
-message ScanResultToStringRequest {
-  int64 handle = 1;
-}
-
-message ScanResultWriteToParcelRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-  int32 arg1 = 3;
-}
-
-message GetCallbackTypeRequest {
-}
-
-message GetCallbackTypeResponse {
-  int32 result = 1;
-}
-
-message GetLegacyRequest {
-}
-
-message GetLegacyResponse {
-  bool result = 1;
-}
-
-message GetPhyRequest {
-}
-
-message GetPhyResponse {
-  int32 result = 1;
-}
-
-message GetReportDelayMillisRequest {
-}
-
-message GetReportDelayMillisResponse {
-  int64 result = 1;
-}
-
-message GetScanModeRequest {
-}
-
-message GetScanModeResponse {
-  int32 result = 1;
-}
-
-message GetScanResultTypeRequest {
-}
-
-message GetScanResultTypeResponse {
-  int32 result = 1;
-}
-
-message SetCallbackTypeRequest {
-  int32 arg0 = 1;
-}
-
-message SetCallbackTypeResponse {
-  int64 result = 1;
-}
-
-message SetLegacyRequest {
-  bool arg0 = 1;
-}
-
-message SetLegacyResponse {
-  int64 result = 1;
-}
-
-message SetMatchModeRequest {
-  int32 arg0 = 1;
-}
-
-message SetMatchModeResponse {
-  int64 result = 1;
-}
-
-message SetNumOfMatchesRequest {
-  int32 arg0 = 1;
-}
-
-message SetNumOfMatchesResponse {
-  int64 result = 1;
-}
-
-message SetPhyRequest {
-  int32 arg0 = 1;
-}
-
-message SetPhyResponse {
-  int64 result = 1;
-}
-
-message SetReportDelayRequest {
-  int64 arg0 = 1;
-}
-
-message SetReportDelayResponse {
-  int64 result = 1;
-}
-
-message SetScanModeRequest {
-  int32 arg0 = 1;
-}
-
-message SetScanModeResponse {
-  int64 result = 1;
-}
-
-message GetIntervalRequest {
-}
-
-message GetIntervalResponse {
-  int32 result = 1;
-}
-
-message AdvertisingSetParametersGetPrimaryPhyRequest {
-}
-
-message AdvertisingSetParametersGetSecondaryPhyRequest {
-}
-
-message IncludeTxPowerRequest {
-}
-
-message IncludeTxPowerResponse {
-  bool result = 1;
-}
-
-message IsAnonymousRequest {
-}
-
-message IsAnonymousResponse {
-  bool result = 1;
-}
-
-message AdvertisingSetParametersIsLegacyRequest {
-}
-
-message IsScannableRequest {
-}
-
-message IsScannableResponse {
-  bool result = 1;
-}
-
-message SetAnonymousRequest {
-  bool arg0 = 1;
-}
-
-message SetAnonymousResponse {
-  int64 result = 1;
-}
-
-message SetIncludeTxPowerRequest {
-  bool arg0 = 1;
-}
-
-message SetIncludeTxPowerResponse {
-  int64 result = 1;
-}
-
-message SetIntervalRequest {
-  int32 arg0 = 1;
-}
-
-message SetIntervalResponse {
-  int64 result = 1;
-}
-
-message SetLegacyModeRequest {
-  bool arg0 = 1;
-}
-
-message SetLegacyModeResponse {
-  int64 result = 1;
-}
-
-message SetPrimaryPhyRequest {
-  int32 arg0 = 1;
-}
-
-message SetPrimaryPhyResponse {
-  int64 result = 1;
-}
-
-message SetScannableRequest {
-  bool arg0 = 1;
-}
-
-message SetScannableResponse {
-  int64 result = 1;
-}
-
-message SetSecondaryPhyRequest {
-  int32 arg0 = 1;
-}
-
-message SetSecondaryPhyResponse {
-  int64 result = 1;
-}
-
-message StartAdvertising3Request {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-  int64 arg2 = 3;
-}
-
-message StartAdvertising3Response {
-}
-
-message StartAdvertising4_1Request {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-  int64 arg2 = 3;
-  int64 arg3 = 4;
-}
-
-message StartAdvertising4_1Response {
-}
-
-message StartAdvertisingSet6Request {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-  int64 arg2 = 3;
-  int64 arg3 = 4;
-  int64 arg4 = 5;
-  int64 arg5 = 6;
-}
-
-message StartAdvertisingSet6Response {
-}
-
-message StartAdvertisingSet8_1Request {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-  int64 arg2 = 3;
-  int64 arg3 = 4;
-  int64 arg4 = 5;
-  int32 arg5 = 6;
-  int32 arg6 = 7;
-  int64 arg7 = 8;
-}
-
-message StartAdvertisingSet8_1Response {
-}
-
-message StopAdvertisingRequest {
-  int64 arg0 = 1;
-}
-
-message StopAdvertisingResponse {
-}
-
-message StopAdvertisingSetRequest {
-  int64 arg0 = 1;
-}
-
-message StopAdvertisingSetResponse {
-}
-
-message EnableAdvertisingRequest {
-  bool arg0 = 1;
-  int32 arg1 = 2;
-  int32 arg2 = 3;
-}
-
-message EnableAdvertisingResponse {
-}
-
-message SetAdvertisingDataRequest {
-  int64 arg0 = 1;
-}
-
-message SetAdvertisingDataResponse {
-}
-
-message SetAdvertisingParametersRequest {
-  int64 arg0 = 1;
-}
-
-message SetAdvertisingParametersResponse {
-}
-
-message SetPeriodicAdvertisingDataRequest {
-  int64 arg0 = 1;
-}
-
-message SetPeriodicAdvertisingDataResponse {
-}
-
-message SetPeriodicAdvertisingEnabledRequest {
-  bool arg0 = 1;
-}
-
-message SetPeriodicAdvertisingEnabledResponse {
-}
-
-message SetPeriodicAdvertisingParametersRequest {
-  int64 arg0 = 1;
-}
-
-message SetPeriodicAdvertisingParametersResponse {
-}
-
-message SetScanResponseDataRequest {
-  int64 arg0 = 1;
-}
-
-message SetScanResponseDataResponse {
 }
 
 message GetAdvertisingDataRequest {
@@ -744,12 +126,41 @@ message GetServiceUuidMaskResponse {
   int64 result = 1;
 }
 
+message HashCodeRequest {
+}
+
+message HashCodeResponse {
+  int32 result = 1;
+}
+
 message MatchesRequest {
   int64 arg0 = 1;
 }
 
 message MatchesResponse {
   bool result = 1;
+}
+
+message ToStringRequest {
+}
+
+message ToStringResponse {
+  string result = 1;
+}
+
+message WriteToParcelRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message WriteToParcelResponse {
+}
+
+message BuildRequest {
+}
+
+message BuildResponse {
+  int64 result = 1;
 }
 
 message SetAdvertisingDataTypeRequest {
@@ -858,6 +269,34 @@ message SetServiceUuid2_1Response {
   int64 result = 1;
 }
 
+message FlushPendingScanResultsRequest {
+  int64 arg0 = 1;
+}
+
+message FlushPendingScanResultsResponse {
+}
+
+message StartScanRequest {
+  int64 arg0 = 1;
+}
+
+message StartScanResponse {
+}
+
+message StopScan1Request {
+  int64 arg0 = 1;
+}
+
+message StopScan1Response {
+}
+
+message StopScan1_1Request {
+  int64 arg0 = 1;
+}
+
+message StopScan1_1Response {
+}
+
 message OnStartFailureRequest {
   int32 arg0 = 1;
 }
@@ -870,6 +309,123 @@ message OnStartSuccessRequest {
 }
 
 message OnStartSuccessResponse {
+}
+
+message NewTransportDiscoveryDataRequest {
+  int64 arg0 = 1;
+}
+
+message NewTransportDiscoveryDataResponse {
+  int64 result = 1;
+}
+
+message TransportDiscoveryDataDescribeContentsRequest {
+  int64 handle = 1;
+}
+
+message TransportDiscoveryDataEqualsRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message GetTransportBlocksRequest {
+  int64 handle = 1;
+}
+
+message GetTransportBlocksResponse {
+  int64 result = 1;
+}
+
+message GetTransportDataTypeRequest {
+  int64 handle = 1;
+}
+
+message GetTransportDataTypeResponse {
+  int32 result = 1;
+}
+
+message TransportDiscoveryDataHashCodeRequest {
+  int64 handle = 1;
+}
+
+message ToByteArrayRequest {
+  int64 handle = 1;
+}
+
+message ToByteArrayResponse {
+  int64 result = 1;
+}
+
+message TransportDiscoveryDataToStringRequest {
+  int64 handle = 1;
+}
+
+message TotalBytesRequest {
+  int64 handle = 1;
+}
+
+message TotalBytesResponse {
+  int32 result = 1;
+}
+
+message TransportDiscoveryDataWriteToParcelRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message GetAdvertiseFlagsRequest {
+}
+
+message GetAdvertiseFlagsResponse {
+  int32 result = 1;
+}
+
+message GetBytesRequest {
+}
+
+message GetBytesResponse {
+  int64 result = 1;
+}
+
+message GetManufacturerSpecificData0Request {
+}
+
+message GetManufacturerSpecificData0Response {
+  int64 result = 1;
+}
+
+message GetManufacturerSpecificData1_1Request {
+  int32 arg0 = 1;
+}
+
+message GetManufacturerSpecificData1_1Response {
+  int64 result = 1;
+}
+
+message ScanRecordGetServiceDataRequest {
+  int64 arg0 = 1;
+}
+
+message GetServiceSolicitationUuidsRequest {
+}
+
+message GetServiceSolicitationUuidsResponse {
+  int64 result = 1;
+}
+
+message GetServiceUuidsRequest {
+}
+
+message GetServiceUuidsResponse {
+  int64 result = 1;
+}
+
+message GetTxPowerLevelRequest {
+}
+
+message GetTxPowerLevelResponse {
+  int32 result = 1;
 }
 
 message OnAdvertisingDataSetRequest {
@@ -947,6 +503,296 @@ message OnScanResponseDataSetRequest {
 message OnScanResponseDataSetResponse {
 }
 
+message NewScanResultRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int32 arg2 = 3;
+  int64 arg3 = 4;
+}
+
+message NewScanResultResponse {
+  int64 result = 1;
+}
+
+message ScanResultDescribeContentsRequest {
+  int64 handle = 1;
+}
+
+message ScanResultEqualsRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message GetAdvertisingSidRequest {
+  int64 handle = 1;
+}
+
+message GetAdvertisingSidResponse {
+  int32 result = 1;
+}
+
+message GetDataStatusRequest {
+  int64 handle = 1;
+}
+
+message GetDataStatusResponse {
+  int32 result = 1;
+}
+
+message GetDeviceRequest {
+  int64 handle = 1;
+}
+
+message GetDeviceResponse {
+  int64 result = 1;
+}
+
+message GetPeriodicAdvertisingIntervalRequest {
+  int64 handle = 1;
+}
+
+message GetPeriodicAdvertisingIntervalResponse {
+  int32 result = 1;
+}
+
+message GetPrimaryPhyRequest {
+  int64 handle = 1;
+}
+
+message GetPrimaryPhyResponse {
+  int32 result = 1;
+}
+
+message GetRssiRequest {
+  int64 handle = 1;
+}
+
+message GetRssiResponse {
+  int32 result = 1;
+}
+
+message GetScanRecordRequest {
+  int64 handle = 1;
+}
+
+message GetScanRecordResponse {
+  int64 result = 1;
+}
+
+message GetSecondaryPhyRequest {
+  int64 handle = 1;
+}
+
+message GetSecondaryPhyResponse {
+  int32 result = 1;
+}
+
+message GetTimestampNanosRequest {
+  int64 handle = 1;
+}
+
+message GetTimestampNanosResponse {
+  int64 result = 1;
+}
+
+message GetTxPowerRequest {
+  int64 handle = 1;
+}
+
+message GetTxPowerResponse {
+  int32 result = 1;
+}
+
+message ScanResultHashCodeRequest {
+  int64 handle = 1;
+}
+
+message IsConnectableRequest {
+  int64 handle = 1;
+}
+
+message IsConnectableResponse {
+  bool result = 1;
+}
+
+message IsLegacyRequest {
+  int64 handle = 1;
+}
+
+message IsLegacyResponse {
+  bool result = 1;
+}
+
+message ScanResultToStringRequest {
+  int64 handle = 1;
+}
+
+message ScanResultWriteToParcelRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message StartAdvertising3Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message StartAdvertising3Response {
+}
+
+message StartAdvertising4_1Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+  int64 arg3 = 4;
+}
+
+message StartAdvertising4_1Response {
+}
+
+message StartAdvertisingSet6Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+  int64 arg3 = 4;
+  int64 arg4 = 5;
+  int64 arg5 = 6;
+}
+
+message StartAdvertisingSet6Response {
+}
+
+message StartAdvertisingSet8_1Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+  int64 arg3 = 4;
+  int64 arg4 = 5;
+  int32 arg5 = 6;
+  int32 arg6 = 7;
+  int64 arg7 = 8;
+}
+
+message StartAdvertisingSet8_1Response {
+}
+
+message StopAdvertisingRequest {
+  int64 arg0 = 1;
+}
+
+message StopAdvertisingResponse {
+}
+
+message StopAdvertisingSetRequest {
+  int64 arg0 = 1;
+}
+
+message StopAdvertisingSetResponse {
+}
+
+message GetIncludeDeviceNameRequest {
+}
+
+message GetIncludeDeviceNameResponse {
+  bool result = 1;
+}
+
+message GetIncludeTxPowerLevelRequest {
+}
+
+message GetIncludeTxPowerLevelResponse {
+  bool result = 1;
+}
+
+message GetManufacturerSpecificDataRequest {
+}
+
+message GetManufacturerSpecificDataResponse {
+  int64 result = 1;
+}
+
+message GetTransportDiscoveryDataRequest {
+}
+
+message GetTransportDiscoveryDataResponse {
+  int64 result = 1;
+}
+
+message AddManufacturerDataRequest {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message AddManufacturerDataResponse {
+  int64 result = 1;
+}
+
+message AddServiceDataRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message AddServiceDataResponse {
+  int64 result = 1;
+}
+
+message AddServiceSolicitationUuidRequest {
+  int64 arg0 = 1;
+}
+
+message AddServiceSolicitationUuidResponse {
+  int64 result = 1;
+}
+
+message AddServiceUuidRequest {
+  int64 arg0 = 1;
+}
+
+message AddServiceUuidResponse {
+  int64 result = 1;
+}
+
+message AddTransportDiscoveryDataRequest {
+  int64 arg0 = 1;
+}
+
+message AddTransportDiscoveryDataResponse {
+  int64 result = 1;
+}
+
+message SetIncludeDeviceNameRequest {
+  bool arg0 = 1;
+}
+
+message SetIncludeDeviceNameResponse {
+  int64 result = 1;
+}
+
+message SetIncludeTxPowerLevelRequest {
+  bool arg0 = 1;
+}
+
+message SetIncludeTxPowerLevelResponse {
+  int64 result = 1;
+}
+
+message OnScanFailedRequest {
+  int32 arg0 = 1;
+}
+
+message OnScanFailedResponse {
+}
+
+message OnScanResultRequest {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message OnScanResultResponse {
+}
+
 message GetIncludeTxPowerRequest {
 }
 
@@ -954,85 +800,27 @@ message GetIncludeTxPowerResponse {
   bool result = 1;
 }
 
-message NewTransportDiscoveryDataRequest {
-  int64 arg0 = 1;
+message GetIntervalRequest {
 }
 
-message NewTransportDiscoveryDataResponse {
-  int64 result = 1;
-}
-
-message TransportDiscoveryDataDescribeContentsRequest {
-  int64 handle = 1;
-}
-
-message TransportDiscoveryDataEqualsRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-}
-
-message GetTransportDataTypeRequest {
-  int64 handle = 1;
-}
-
-message GetTransportDataTypeResponse {
+message GetIntervalResponse {
   int32 result = 1;
 }
 
-message TransportDiscoveryDataHashCodeRequest {
-  int64 handle = 1;
+message SetIncludeTxPowerRequest {
+  bool arg0 = 1;
 }
 
-message ToByteArrayRequest {
-  int64 handle = 1;
-}
-
-message ToByteArrayResponse {
+message SetIncludeTxPowerResponse {
   int64 result = 1;
 }
 
-message TransportDiscoveryDataToStringRequest {
-  int64 handle = 1;
-}
-
-message TotalBytesRequest {
-  int64 handle = 1;
-}
-
-message TotalBytesResponse {
-  int32 result = 1;
-}
-
-message TransportDiscoveryDataWriteToParcelRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-  int32 arg1 = 3;
-}
-
-message GetAdvertiseFlagsRequest {
-}
-
-message GetAdvertiseFlagsResponse {
-  int32 result = 1;
-}
-
-message GetBytesRequest {
-}
-
-message GetBytesResponse {
-  int64 result = 1;
-}
-
-message GetManufacturerSpecificDataRequest {
+message SetIntervalRequest {
   int32 arg0 = 1;
 }
 
-message GetManufacturerSpecificDataResponse {
+message SetIntervalResponse {
   int64 result = 1;
-}
-
-message ScanRecordGetServiceDataRequest {
-  int64 arg0 = 1;
 }
 
 message NewTransportBlockRequest {
@@ -1097,170 +885,290 @@ message TransportBlockWriteToParcelRequest {
   int32 arg1 = 3;
 }
 
-message FlushPendingScanResultsRequest {
+message EnableAdvertisingRequest {
+  bool arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+}
+
+message EnableAdvertisingResponse {
+}
+
+message SetAdvertisingDataRequest {
   int64 arg0 = 1;
 }
 
-message FlushPendingScanResultsResponse {
+message SetAdvertisingDataResponse {
 }
 
-message StartScanRequest {
+message SetAdvertisingParametersRequest {
   int64 arg0 = 1;
 }
 
-message StartScanResponse {
+message SetAdvertisingParametersResponse {
 }
 
-message StopScan1Request {
+message SetPeriodicAdvertisingDataRequest {
   int64 arg0 = 1;
 }
 
-message StopScan1Response {
+message SetPeriodicAdvertisingDataResponse {
 }
 
-message StopScan1_1Request {
+message SetPeriodicAdvertisingEnabledRequest {
+  bool arg0 = 1;
+}
+
+message SetPeriodicAdvertisingEnabledResponse {
+}
+
+message SetPeriodicAdvertisingParametersRequest {
   int64 arg0 = 1;
 }
 
-message StopScan1_1Response {
+message SetPeriodicAdvertisingParametersResponse {
 }
 
-service AdvertiseSettingsService {
-  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc GetMode (GetModeRequest) returns (GetModeResponse);
-  rpc GetTimeout (GetTimeoutRequest) returns (GetTimeoutResponse);
-  rpc GetTxPowerLevel (GetTxPowerLevelRequest) returns (GetTxPowerLevelResponse);
-  rpc IsConnectable (IsConnectableRequest) returns (IsConnectableResponse);
-  rpc IsDiscoverable (IsDiscoverableRequest) returns (IsDiscoverableResponse);
-  rpc ToString (ToStringRequest) returns (ToStringResponse);
-  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+message SetScanResponseDataRequest {
+  int64 arg0 = 1;
 }
 
-service AdvertiseSettingsBuilderService {
-  rpc Build (BuildRequest) returns (BuildResponse);
-  rpc SetAdvertiseMode (SetAdvertiseModeRequest) returns (SetAdvertiseModeResponse);
-  rpc SetConnectable (SetConnectableRequest) returns (SetConnectableResponse);
-  rpc SetDiscoverable (SetDiscoverableRequest) returns (SetDiscoverableResponse);
-  rpc SetTimeout (SetTimeoutRequest) returns (SetTimeoutResponse);
-  rpc SetTxPowerLevel (SetTxPowerLevelRequest) returns (SetTxPowerLevelResponse);
+message SetScanResponseDataResponse {
 }
 
-service ScanCallbackService {
-  rpc OnScanFailed (OnScanFailedRequest) returns (OnScanFailedResponse);
-  rpc OnScanResult (OnScanResultRequest) returns (OnScanResultResponse);
+message GetModeRequest {
 }
 
-service AdvertiseDataService {
-  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc Equals (EqualsRequest) returns (EqualsResponse);
-  rpc GetIncludeDeviceName (GetIncludeDeviceNameRequest) returns (GetIncludeDeviceNameResponse);
-  rpc GetIncludeTxPowerLevel (GetIncludeTxPowerLevelRequest) returns (GetIncludeTxPowerLevelResponse);
-  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
-  rpc ToString (ToStringRequest) returns (ToStringResponse);
-  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+message GetModeResponse {
+  int32 result = 1;
 }
 
-service AdvertiseDataBuilderService {
-  rpc AddManufacturerData (AddManufacturerDataRequest) returns (AddManufacturerDataResponse);
-  rpc AddServiceData (AddServiceDataRequest) returns (AddServiceDataResponse);
-  rpc AddServiceSolicitationUuid (AddServiceSolicitationUuidRequest) returns (AddServiceSolicitationUuidResponse);
-  rpc AddServiceUuid (AddServiceUuidRequest) returns (AddServiceUuidResponse);
-  rpc AddTransportDiscoveryData (AddTransportDiscoveryDataRequest) returns (AddTransportDiscoveryDataResponse);
-  rpc Build (BuildRequest) returns (BuildResponse);
-  rpc SetIncludeDeviceName (SetIncludeDeviceNameRequest) returns (SetIncludeDeviceNameResponse);
-  rpc SetIncludeTxPowerLevel (SetIncludeTxPowerLevelRequest) returns (SetIncludeTxPowerLevelResponse);
+message GetTimeoutRequest {
 }
 
-service ScanResultService {
-  rpc NewScanResult (NewScanResultRequest) returns (NewScanResultResponse);
-  rpc DescribeContents (ScanResultDescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc Equals (ScanResultEqualsRequest) returns (EqualsResponse);
-  rpc GetAdvertisingSid (GetAdvertisingSidRequest) returns (GetAdvertisingSidResponse);
-  rpc GetDataStatus (GetDataStatusRequest) returns (GetDataStatusResponse);
-  rpc GetDevice (GetDeviceRequest) returns (GetDeviceResponse);
-  rpc GetPeriodicAdvertisingInterval (GetPeriodicAdvertisingIntervalRequest) returns (GetPeriodicAdvertisingIntervalResponse);
-  rpc GetPrimaryPhy (GetPrimaryPhyRequest) returns (GetPrimaryPhyResponse);
-  rpc GetRssi (GetRssiRequest) returns (GetRssiResponse);
-  rpc GetScanRecord (GetScanRecordRequest) returns (GetScanRecordResponse);
-  rpc GetSecondaryPhy (GetSecondaryPhyRequest) returns (GetSecondaryPhyResponse);
-  rpc GetTimestampNanos (GetTimestampNanosRequest) returns (GetTimestampNanosResponse);
-  rpc GetTxPower (GetTxPowerRequest) returns (GetTxPowerResponse);
-  rpc HashCode (ScanResultHashCodeRequest) returns (HashCodeResponse);
-  rpc IsConnectable (ScanResultIsConnectableRequest) returns (IsConnectableResponse);
-  rpc IsLegacy (IsLegacyRequest) returns (IsLegacyResponse);
-  rpc ToString (ScanResultToStringRequest) returns (ToStringResponse);
-  rpc WriteToParcel (ScanResultWriteToParcelRequest) returns (WriteToParcelResponse);
+message GetTimeoutResponse {
+  int32 result = 1;
 }
 
-service ScanSettingsService {
-  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc GetCallbackType (GetCallbackTypeRequest) returns (GetCallbackTypeResponse);
-  rpc GetLegacy (GetLegacyRequest) returns (GetLegacyResponse);
-  rpc GetPhy (GetPhyRequest) returns (GetPhyResponse);
-  rpc GetReportDelayMillis (GetReportDelayMillisRequest) returns (GetReportDelayMillisResponse);
-  rpc GetScanMode (GetScanModeRequest) returns (GetScanModeResponse);
-  rpc GetScanResultType (GetScanResultTypeRequest) returns (GetScanResultTypeResponse);
-  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+message AdvertiseSettingsIsConnectableRequest {
 }
 
-service ScanSettingsBuilderService {
-  rpc Build (BuildRequest) returns (BuildResponse);
-  rpc SetCallbackType (SetCallbackTypeRequest) returns (SetCallbackTypeResponse);
-  rpc SetLegacy (SetLegacyRequest) returns (SetLegacyResponse);
-  rpc SetMatchMode (SetMatchModeRequest) returns (SetMatchModeResponse);
-  rpc SetNumOfMatches (SetNumOfMatchesRequest) returns (SetNumOfMatchesResponse);
-  rpc SetPhy (SetPhyRequest) returns (SetPhyResponse);
-  rpc SetReportDelay (SetReportDelayRequest) returns (SetReportDelayResponse);
-  rpc SetScanMode (SetScanModeRequest) returns (SetScanModeResponse);
+message IsDiscoverableRequest {
 }
 
-service AdvertisingSetParametersService {
-  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc GetInterval (GetIntervalRequest) returns (GetIntervalResponse);
-  rpc GetPrimaryPhy (AdvertisingSetParametersGetPrimaryPhyRequest) returns (GetPrimaryPhyResponse);
-  rpc GetSecondaryPhy (AdvertisingSetParametersGetSecondaryPhyRequest) returns (GetSecondaryPhyResponse);
-  rpc GetTxPowerLevel (GetTxPowerLevelRequest) returns (GetTxPowerLevelResponse);
-  rpc IncludeTxPower (IncludeTxPowerRequest) returns (IncludeTxPowerResponse);
-  rpc IsAnonymous (IsAnonymousRequest) returns (IsAnonymousResponse);
-  rpc IsConnectable (IsConnectableRequest) returns (IsConnectableResponse);
-  rpc IsDiscoverable (IsDiscoverableRequest) returns (IsDiscoverableResponse);
-  rpc IsLegacy (AdvertisingSetParametersIsLegacyRequest) returns (IsLegacyResponse);
-  rpc IsScannable (IsScannableRequest) returns (IsScannableResponse);
-  rpc ToString (ToStringRequest) returns (ToStringResponse);
-  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+message IsDiscoverableResponse {
+  bool result = 1;
 }
 
-service AdvertisingSetParametersBuilderService {
-  rpc Build (BuildRequest) returns (BuildResponse);
-  rpc SetAnonymous (SetAnonymousRequest) returns (SetAnonymousResponse);
-  rpc SetConnectable (SetConnectableRequest) returns (SetConnectableResponse);
-  rpc SetDiscoverable (SetDiscoverableRequest) returns (SetDiscoverableResponse);
-  rpc SetIncludeTxPower (SetIncludeTxPowerRequest) returns (SetIncludeTxPowerResponse);
-  rpc SetInterval (SetIntervalRequest) returns (SetIntervalResponse);
-  rpc SetLegacyMode (SetLegacyModeRequest) returns (SetLegacyModeResponse);
-  rpc SetPrimaryPhy (SetPrimaryPhyRequest) returns (SetPrimaryPhyResponse);
-  rpc SetScannable (SetScannableRequest) returns (SetScannableResponse);
-  rpc SetSecondaryPhy (SetSecondaryPhyRequest) returns (SetSecondaryPhyResponse);
-  rpc SetTxPowerLevel (SetTxPowerLevelRequest) returns (SetTxPowerLevelResponse);
+message SetAdvertiseModeRequest {
+  int32 arg0 = 1;
 }
 
-service BluetoothLeAdvertiserService {
-  rpc StartAdvertising3 (StartAdvertising3Request) returns (StartAdvertising3Response);
-  rpc StartAdvertising4_1 (StartAdvertising4_1Request) returns (StartAdvertising4_1Response);
-  rpc StartAdvertisingSet6 (StartAdvertisingSet6Request) returns (StartAdvertisingSet6Response);
-  rpc StartAdvertisingSet8_1 (StartAdvertisingSet8_1Request) returns (StartAdvertisingSet8_1Response);
-  rpc StopAdvertising (StopAdvertisingRequest) returns (StopAdvertisingResponse);
-  rpc StopAdvertisingSet (StopAdvertisingSetRequest) returns (StopAdvertisingSetResponse);
+message SetAdvertiseModeResponse {
+  int64 result = 1;
 }
 
-service AdvertisingSetService {
-  rpc EnableAdvertising (EnableAdvertisingRequest) returns (EnableAdvertisingResponse);
-  rpc SetAdvertisingData (SetAdvertisingDataRequest) returns (SetAdvertisingDataResponse);
-  rpc SetAdvertisingParameters (SetAdvertisingParametersRequest) returns (SetAdvertisingParametersResponse);
-  rpc SetPeriodicAdvertisingData (SetPeriodicAdvertisingDataRequest) returns (SetPeriodicAdvertisingDataResponse);
-  rpc SetPeriodicAdvertisingEnabled (SetPeriodicAdvertisingEnabledRequest) returns (SetPeriodicAdvertisingEnabledResponse);
-  rpc SetPeriodicAdvertisingParameters (SetPeriodicAdvertisingParametersRequest) returns (SetPeriodicAdvertisingParametersResponse);
-  rpc SetScanResponseData (SetScanResponseDataRequest) returns (SetScanResponseDataResponse);
+message SetConnectableRequest {
+  bool arg0 = 1;
+}
+
+message SetConnectableResponse {
+  int64 result = 1;
+}
+
+message SetDiscoverableRequest {
+  bool arg0 = 1;
+}
+
+message SetDiscoverableResponse {
+  int64 result = 1;
+}
+
+message SetTimeoutRequest {
+  int32 arg0 = 1;
+}
+
+message SetTimeoutResponse {
+  int64 result = 1;
+}
+
+message SetTxPowerLevelRequest {
+  int32 arg0 = 1;
+}
+
+message SetTxPowerLevelResponse {
+  int64 result = 1;
+}
+
+message GetCallbackTypeRequest {
+}
+
+message GetCallbackTypeResponse {
+  int32 result = 1;
+}
+
+message GetLegacyRequest {
+}
+
+message GetLegacyResponse {
+  bool result = 1;
+}
+
+message GetPhyRequest {
+}
+
+message GetPhyResponse {
+  int32 result = 1;
+}
+
+message GetReportDelayMillisRequest {
+}
+
+message GetReportDelayMillisResponse {
+  int64 result = 1;
+}
+
+message GetScanModeRequest {
+}
+
+message GetScanModeResponse {
+  int32 result = 1;
+}
+
+message GetScanResultTypeRequest {
+}
+
+message GetScanResultTypeResponse {
+  int32 result = 1;
+}
+
+message SetCallbackTypeRequest {
+  int32 arg0 = 1;
+}
+
+message SetCallbackTypeResponse {
+  int64 result = 1;
+}
+
+message SetLegacyRequest {
+  bool arg0 = 1;
+}
+
+message SetLegacyResponse {
+  int64 result = 1;
+}
+
+message SetMatchModeRequest {
+  int32 arg0 = 1;
+}
+
+message SetMatchModeResponse {
+  int64 result = 1;
+}
+
+message SetNumOfMatchesRequest {
+  int32 arg0 = 1;
+}
+
+message SetNumOfMatchesResponse {
+  int64 result = 1;
+}
+
+message SetPhyRequest {
+  int32 arg0 = 1;
+}
+
+message SetPhyResponse {
+  int64 result = 1;
+}
+
+message SetReportDelayRequest {
+  int64 arg0 = 1;
+}
+
+message SetReportDelayResponse {
+  int64 result = 1;
+}
+
+message SetScanModeRequest {
+  int32 arg0 = 1;
+}
+
+message SetScanModeResponse {
+  int64 result = 1;
+}
+
+message AdvertisingSetParametersGetPrimaryPhyRequest {
+}
+
+message AdvertisingSetParametersGetSecondaryPhyRequest {
+}
+
+message IncludeTxPowerRequest {
+}
+
+message IncludeTxPowerResponse {
+  bool result = 1;
+}
+
+message IsAnonymousRequest {
+}
+
+message IsAnonymousResponse {
+  bool result = 1;
+}
+
+message AdvertisingSetParametersIsConnectableRequest {
+}
+
+message AdvertisingSetParametersIsLegacyRequest {
+}
+
+message IsScannableRequest {
+}
+
+message IsScannableResponse {
+  bool result = 1;
+}
+
+message SetAnonymousRequest {
+  bool arg0 = 1;
+}
+
+message SetAnonymousResponse {
+  int64 result = 1;
+}
+
+message SetLegacyModeRequest {
+  bool arg0 = 1;
+}
+
+message SetLegacyModeResponse {
+  int64 result = 1;
+}
+
+message SetPrimaryPhyRequest {
+  int32 arg0 = 1;
+}
+
+message SetPrimaryPhyResponse {
+  int64 result = 1;
+}
+
+message SetScannableRequest {
+  bool arg0 = 1;
+}
+
+message SetScannableResponse {
+  int64 result = 1;
+}
+
+message SetSecondaryPhyRequest {
+  int32 arg0 = 1;
+}
+
+message SetSecondaryPhyResponse {
+  int64 result = 1;
 }
 
 service ScanFilterService {
@@ -1303,9 +1211,42 @@ service ScanFilterBuilderService {
   rpc SetServiceUuid2_1 (SetServiceUuid2_1Request) returns (SetServiceUuid2_1Response);
 }
 
+service BluetoothLeScannerService {
+  rpc FlushPendingScanResults (FlushPendingScanResultsRequest) returns (FlushPendingScanResultsResponse);
+  rpc StartScan (StartScanRequest) returns (StartScanResponse);
+  rpc StopScan1 (StopScan1Request) returns (StopScan1Response);
+  rpc StopScan1_1 (StopScan1_1Request) returns (StopScan1_1Response);
+}
+
 service AdvertiseCallbackService {
   rpc OnStartFailure (OnStartFailureRequest) returns (OnStartFailureResponse);
   rpc OnStartSuccess (OnStartSuccessRequest) returns (OnStartSuccessResponse);
+}
+
+service TransportDiscoveryDataService {
+  rpc NewTransportDiscoveryData (NewTransportDiscoveryDataRequest) returns (NewTransportDiscoveryDataResponse);
+  rpc DescribeContents (TransportDiscoveryDataDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (TransportDiscoveryDataEqualsRequest) returns (EqualsResponse);
+  rpc GetTransportBlocks (GetTransportBlocksRequest) returns (GetTransportBlocksResponse);
+  rpc GetTransportDataType (GetTransportDataTypeRequest) returns (GetTransportDataTypeResponse);
+  rpc HashCode (TransportDiscoveryDataHashCodeRequest) returns (HashCodeResponse);
+  rpc ToByteArray (ToByteArrayRequest) returns (ToByteArrayResponse);
+  rpc ToString (TransportDiscoveryDataToStringRequest) returns (ToStringResponse);
+  rpc TotalBytes (TotalBytesRequest) returns (TotalBytesResponse);
+  rpc WriteToParcel (TransportDiscoveryDataWriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service ScanRecordService {
+  rpc GetAdvertiseFlags (GetAdvertiseFlagsRequest) returns (GetAdvertiseFlagsResponse);
+  rpc GetBytes (GetBytesRequest) returns (GetBytesResponse);
+  rpc GetDeviceName (GetDeviceNameRequest) returns (GetDeviceNameResponse);
+  rpc GetManufacturerSpecificData0 (GetManufacturerSpecificData0Request) returns (GetManufacturerSpecificData0Response);
+  rpc GetManufacturerSpecificData1_1 (GetManufacturerSpecificData1_1Request) returns (GetManufacturerSpecificData1_1Response);
+  rpc GetServiceData (ScanRecordGetServiceDataRequest) returns (GetServiceDataResponse);
+  rpc GetServiceSolicitationUuids (GetServiceSolicitationUuidsRequest) returns (GetServiceSolicitationUuidsResponse);
+  rpc GetServiceUuids (GetServiceUuidsRequest) returns (GetServiceUuidsResponse);
+  rpc GetTxPowerLevel (GetTxPowerLevelRequest) returns (GetTxPowerLevelResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
 }
 
 service AdvertisingSetCallbackService {
@@ -1320,6 +1261,66 @@ service AdvertisingSetCallbackService {
   rpc OnScanResponseDataSet (OnScanResponseDataSetRequest) returns (OnScanResponseDataSetResponse);
 }
 
+service ScanResultService {
+  rpc NewScanResult (NewScanResultRequest) returns (NewScanResultResponse);
+  rpc DescribeContents (ScanResultDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (ScanResultEqualsRequest) returns (EqualsResponse);
+  rpc GetAdvertisingSid (GetAdvertisingSidRequest) returns (GetAdvertisingSidResponse);
+  rpc GetDataStatus (GetDataStatusRequest) returns (GetDataStatusResponse);
+  rpc GetDevice (GetDeviceRequest) returns (GetDeviceResponse);
+  rpc GetPeriodicAdvertisingInterval (GetPeriodicAdvertisingIntervalRequest) returns (GetPeriodicAdvertisingIntervalResponse);
+  rpc GetPrimaryPhy (GetPrimaryPhyRequest) returns (GetPrimaryPhyResponse);
+  rpc GetRssi (GetRssiRequest) returns (GetRssiResponse);
+  rpc GetScanRecord (GetScanRecordRequest) returns (GetScanRecordResponse);
+  rpc GetSecondaryPhy (GetSecondaryPhyRequest) returns (GetSecondaryPhyResponse);
+  rpc GetTimestampNanos (GetTimestampNanosRequest) returns (GetTimestampNanosResponse);
+  rpc GetTxPower (GetTxPowerRequest) returns (GetTxPowerResponse);
+  rpc HashCode (ScanResultHashCodeRequest) returns (HashCodeResponse);
+  rpc IsConnectable (IsConnectableRequest) returns (IsConnectableResponse);
+  rpc IsLegacy (IsLegacyRequest) returns (IsLegacyResponse);
+  rpc ToString (ScanResultToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (ScanResultWriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service BluetoothLeAdvertiserService {
+  rpc StartAdvertising3 (StartAdvertising3Request) returns (StartAdvertising3Response);
+  rpc StartAdvertising4_1 (StartAdvertising4_1Request) returns (StartAdvertising4_1Response);
+  rpc StartAdvertisingSet6 (StartAdvertisingSet6Request) returns (StartAdvertisingSet6Response);
+  rpc StartAdvertisingSet8_1 (StartAdvertisingSet8_1Request) returns (StartAdvertisingSet8_1Response);
+  rpc StopAdvertising (StopAdvertisingRequest) returns (StopAdvertisingResponse);
+  rpc StopAdvertisingSet (StopAdvertisingSetRequest) returns (StopAdvertisingSetResponse);
+}
+
+service AdvertiseDataService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetIncludeDeviceName (GetIncludeDeviceNameRequest) returns (GetIncludeDeviceNameResponse);
+  rpc GetIncludeTxPowerLevel (GetIncludeTxPowerLevelRequest) returns (GetIncludeTxPowerLevelResponse);
+  rpc GetManufacturerSpecificData (GetManufacturerSpecificDataRequest) returns (GetManufacturerSpecificDataResponse);
+  rpc GetServiceSolicitationUuids (GetServiceSolicitationUuidsRequest) returns (GetServiceSolicitationUuidsResponse);
+  rpc GetServiceUuids (GetServiceUuidsRequest) returns (GetServiceUuidsResponse);
+  rpc GetTransportDiscoveryData (GetTransportDiscoveryDataRequest) returns (GetTransportDiscoveryDataResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service AdvertiseDataBuilderService {
+  rpc AddManufacturerData (AddManufacturerDataRequest) returns (AddManufacturerDataResponse);
+  rpc AddServiceData (AddServiceDataRequest) returns (AddServiceDataResponse);
+  rpc AddServiceSolicitationUuid (AddServiceSolicitationUuidRequest) returns (AddServiceSolicitationUuidResponse);
+  rpc AddServiceUuid (AddServiceUuidRequest) returns (AddServiceUuidResponse);
+  rpc AddTransportDiscoveryData (AddTransportDiscoveryDataRequest) returns (AddTransportDiscoveryDataResponse);
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetIncludeDeviceName (SetIncludeDeviceNameRequest) returns (SetIncludeDeviceNameResponse);
+  rpc SetIncludeTxPowerLevel (SetIncludeTxPowerLevelRequest) returns (SetIncludeTxPowerLevelResponse);
+}
+
+service ScanCallbackService {
+  rpc OnScanFailed (OnScanFailedRequest) returns (OnScanFailedResponse);
+  rpc OnScanResult (OnScanResultRequest) returns (OnScanResultResponse);
+}
+
 service PeriodicAdvertisingParametersService {
   rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
   rpc GetIncludeTxPower (GetIncludeTxPowerRequest) returns (GetIncludeTxPowerResponse);
@@ -1331,28 +1332,6 @@ service PeriodicAdvertisingParametersBuilderService {
   rpc Build (BuildRequest) returns (BuildResponse);
   rpc SetIncludeTxPower (SetIncludeTxPowerRequest) returns (SetIncludeTxPowerResponse);
   rpc SetInterval (SetIntervalRequest) returns (SetIntervalResponse);
-}
-
-service TransportDiscoveryDataService {
-  rpc NewTransportDiscoveryData (NewTransportDiscoveryDataRequest) returns (NewTransportDiscoveryDataResponse);
-  rpc DescribeContents (TransportDiscoveryDataDescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc Equals (TransportDiscoveryDataEqualsRequest) returns (EqualsResponse);
-  rpc GetTransportDataType (GetTransportDataTypeRequest) returns (GetTransportDataTypeResponse);
-  rpc HashCode (TransportDiscoveryDataHashCodeRequest) returns (HashCodeResponse);
-  rpc ToByteArray (ToByteArrayRequest) returns (ToByteArrayResponse);
-  rpc ToString (TransportDiscoveryDataToStringRequest) returns (ToStringResponse);
-  rpc TotalBytes (TotalBytesRequest) returns (TotalBytesResponse);
-  rpc WriteToParcel (TransportDiscoveryDataWriteToParcelRequest) returns (WriteToParcelResponse);
-}
-
-service ScanRecordService {
-  rpc GetAdvertiseFlags (GetAdvertiseFlagsRequest) returns (GetAdvertiseFlagsResponse);
-  rpc GetBytes (GetBytesRequest) returns (GetBytesResponse);
-  rpc GetDeviceName (GetDeviceNameRequest) returns (GetDeviceNameResponse);
-  rpc GetManufacturerSpecificData (GetManufacturerSpecificDataRequest) returns (GetManufacturerSpecificDataResponse);
-  rpc GetServiceData (ScanRecordGetServiceDataRequest) returns (GetServiceDataResponse);
-  rpc GetTxPowerLevel (GetTxPowerLevelRequest) returns (GetTxPowerLevelResponse);
-  rpc ToString (ToStringRequest) returns (ToStringResponse);
 }
 
 service TransportBlockService {
@@ -1369,9 +1348,84 @@ service TransportBlockService {
   rpc WriteToParcel (TransportBlockWriteToParcelRequest) returns (WriteToParcelResponse);
 }
 
-service BluetoothLeScannerService {
-  rpc FlushPendingScanResults (FlushPendingScanResultsRequest) returns (FlushPendingScanResultsResponse);
-  rpc StartScan (StartScanRequest) returns (StartScanResponse);
-  rpc StopScan1 (StopScan1Request) returns (StopScan1Response);
-  rpc StopScan1_1 (StopScan1_1Request) returns (StopScan1_1Response);
+service AdvertisingSetService {
+  rpc EnableAdvertising (EnableAdvertisingRequest) returns (EnableAdvertisingResponse);
+  rpc SetAdvertisingData (SetAdvertisingDataRequest) returns (SetAdvertisingDataResponse);
+  rpc SetAdvertisingParameters (SetAdvertisingParametersRequest) returns (SetAdvertisingParametersResponse);
+  rpc SetPeriodicAdvertisingData (SetPeriodicAdvertisingDataRequest) returns (SetPeriodicAdvertisingDataResponse);
+  rpc SetPeriodicAdvertisingEnabled (SetPeriodicAdvertisingEnabledRequest) returns (SetPeriodicAdvertisingEnabledResponse);
+  rpc SetPeriodicAdvertisingParameters (SetPeriodicAdvertisingParametersRequest) returns (SetPeriodicAdvertisingParametersResponse);
+  rpc SetScanResponseData (SetScanResponseDataRequest) returns (SetScanResponseDataResponse);
+}
+
+service AdvertiseSettingsService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetMode (GetModeRequest) returns (GetModeResponse);
+  rpc GetTimeout (GetTimeoutRequest) returns (GetTimeoutResponse);
+  rpc GetTxPowerLevel (GetTxPowerLevelRequest) returns (GetTxPowerLevelResponse);
+  rpc IsConnectable (AdvertiseSettingsIsConnectableRequest) returns (IsConnectableResponse);
+  rpc IsDiscoverable (IsDiscoverableRequest) returns (IsDiscoverableResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service AdvertiseSettingsBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetAdvertiseMode (SetAdvertiseModeRequest) returns (SetAdvertiseModeResponse);
+  rpc SetConnectable (SetConnectableRequest) returns (SetConnectableResponse);
+  rpc SetDiscoverable (SetDiscoverableRequest) returns (SetDiscoverableResponse);
+  rpc SetTimeout (SetTimeoutRequest) returns (SetTimeoutResponse);
+  rpc SetTxPowerLevel (SetTxPowerLevelRequest) returns (SetTxPowerLevelResponse);
+}
+
+service ScanSettingsService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetCallbackType (GetCallbackTypeRequest) returns (GetCallbackTypeResponse);
+  rpc GetLegacy (GetLegacyRequest) returns (GetLegacyResponse);
+  rpc GetPhy (GetPhyRequest) returns (GetPhyResponse);
+  rpc GetReportDelayMillis (GetReportDelayMillisRequest) returns (GetReportDelayMillisResponse);
+  rpc GetScanMode (GetScanModeRequest) returns (GetScanModeResponse);
+  rpc GetScanResultType (GetScanResultTypeRequest) returns (GetScanResultTypeResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service ScanSettingsBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetCallbackType (SetCallbackTypeRequest) returns (SetCallbackTypeResponse);
+  rpc SetLegacy (SetLegacyRequest) returns (SetLegacyResponse);
+  rpc SetMatchMode (SetMatchModeRequest) returns (SetMatchModeResponse);
+  rpc SetNumOfMatches (SetNumOfMatchesRequest) returns (SetNumOfMatchesResponse);
+  rpc SetPhy (SetPhyRequest) returns (SetPhyResponse);
+  rpc SetReportDelay (SetReportDelayRequest) returns (SetReportDelayResponse);
+  rpc SetScanMode (SetScanModeRequest) returns (SetScanModeResponse);
+}
+
+service AdvertisingSetParametersService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetInterval (GetIntervalRequest) returns (GetIntervalResponse);
+  rpc GetPrimaryPhy (AdvertisingSetParametersGetPrimaryPhyRequest) returns (GetPrimaryPhyResponse);
+  rpc GetSecondaryPhy (AdvertisingSetParametersGetSecondaryPhyRequest) returns (GetSecondaryPhyResponse);
+  rpc GetTxPowerLevel (GetTxPowerLevelRequest) returns (GetTxPowerLevelResponse);
+  rpc IncludeTxPower (IncludeTxPowerRequest) returns (IncludeTxPowerResponse);
+  rpc IsAnonymous (IsAnonymousRequest) returns (IsAnonymousResponse);
+  rpc IsConnectable (AdvertisingSetParametersIsConnectableRequest) returns (IsConnectableResponse);
+  rpc IsDiscoverable (IsDiscoverableRequest) returns (IsDiscoverableResponse);
+  rpc IsLegacy (AdvertisingSetParametersIsLegacyRequest) returns (IsLegacyResponse);
+  rpc IsScannable (IsScannableRequest) returns (IsScannableResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service AdvertisingSetParametersBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetAnonymous (SetAnonymousRequest) returns (SetAnonymousResponse);
+  rpc SetConnectable (SetConnectableRequest) returns (SetConnectableResponse);
+  rpc SetDiscoverable (SetDiscoverableRequest) returns (SetDiscoverableResponse);
+  rpc SetIncludeTxPower (SetIncludeTxPowerRequest) returns (SetIncludeTxPowerResponse);
+  rpc SetInterval (SetIntervalRequest) returns (SetIntervalResponse);
+  rpc SetLegacyMode (SetLegacyModeRequest) returns (SetLegacyModeResponse);
+  rpc SetPrimaryPhy (SetPrimaryPhyRequest) returns (SetPrimaryPhyResponse);
+  rpc SetScannable (SetScannableRequest) returns (SetScannableResponse);
+  rpc SetSecondaryPhy (SetSecondaryPhyRequest) returns (SetSecondaryPhyResponse);
+  rpc SetTxPowerLevel (SetTxPowerLevelRequest) returns (SetTxPowerLevelResponse);
 }

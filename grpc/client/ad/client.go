@@ -9,80 +9,6 @@ import (
 	"google.golang.org/grpc"
 )
 
-// TvAdManagerClient wraps the gRPC TvAdManagerService client.
-type TvAdManagerClient struct {
-	svc pb.TvAdManagerServiceClient
-}
-
-// NewTvAdManagerClient creates a new TvAdManager client.
-func NewTvAdManagerClient(cc grpc.ClientConnInterface) *TvAdManagerClient {
-	return &TvAdManagerClient{
-		svc: pb.NewTvAdManagerServiceClient(cc),
-	}
-}
-
-// RegisterCallback calls the RegisterCallback RPC.
-func (c *TvAdManagerClient) RegisterCallback(ctx context.Context, arg0 int64, arg1 int64) error {
-	_, err := c.svc.RegisterCallback(ctx, &pb.RegisterCallbackRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// SendAppLinkCommand calls the SendAppLinkCommand RPC.
-func (c *TvAdManagerClient) SendAppLinkCommand(ctx context.Context, arg0 string, arg1 int64) error {
-	_, err := c.svc.SendAppLinkCommand(ctx, &pb.SendAppLinkCommandRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// UnregisterCallback calls the UnregisterCallback RPC.
-func (c *TvAdManagerClient) UnregisterCallback(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.UnregisterCallback(ctx, &pb.UnregisterCallbackRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// TvAdManagerTvAdServiceCallbackClient wraps the gRPC TvAdManagerTvAdServiceCallbackService client.
-type TvAdManagerTvAdServiceCallbackClient struct {
-	svc pb.TvAdManagerTvAdServiceCallbackServiceClient
-}
-
-// NewTvAdManagerTvAdServiceCallbackClient creates a new TvAdManagerTvAdServiceCallback client.
-func NewTvAdManagerTvAdServiceCallbackClient(cc grpc.ClientConnInterface) *TvAdManagerTvAdServiceCallbackClient {
-	return &TvAdManagerTvAdServiceCallbackClient{
-		svc: pb.NewTvAdManagerTvAdServiceCallbackServiceClient(cc),
-	}
-}
-
-// OnAdServiceAdded calls the OnAdServiceAdded RPC.
-func (c *TvAdManagerTvAdServiceCallbackClient) OnAdServiceAdded(ctx context.Context, arg0 string) error {
-	_, err := c.svc.OnAdServiceAdded(ctx, &pb.OnAdServiceAddedRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// OnAdServiceRemoved calls the OnAdServiceRemoved RPC.
-func (c *TvAdManagerTvAdServiceCallbackClient) OnAdServiceRemoved(ctx context.Context, arg0 string) error {
-	_, err := c.svc.OnAdServiceRemoved(ctx, &pb.OnAdServiceRemovedRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// OnAdServiceUpdated calls the OnAdServiceUpdated RPC.
-func (c *TvAdManagerTvAdServiceCallbackClient) OnAdServiceUpdated(ctx context.Context, arg0 string) error {
-	_, err := c.svc.OnAdServiceUpdated(ctx, &pb.OnAdServiceUpdatedRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
 // TvAdServiceInfoClient wraps the gRPC TvAdServiceInfoService client.
 type TvAdServiceInfoClient struct {
 	svc pb.TvAdServiceInfoServiceClient
@@ -120,6 +46,17 @@ func (c *TvAdServiceInfoClient) GetId(ctx context.Context, handle int64) (string
 // GetServiceInfo calls the GetServiceInfo RPC.
 func (c *TvAdServiceInfoClient) GetServiceInfo(ctx context.Context, handle int64) (int64, error) {
 	resp, err := c.svc.GetServiceInfo(ctx, &pb.GetServiceInfoRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSupportedTypes calls the GetSupportedTypes RPC.
+func (c *TvAdServiceInfoClient) GetSupportedTypes(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetSupportedTypes(ctx, &pb.GetSupportedTypesRequest{
 		Handle: handle,
 	})
 	if err != nil {
@@ -495,6 +432,89 @@ func (c *TvAdViewTvAdCallbackClient) OnStateChanged(ctx context.Context, arg0 st
 		Arg0: arg0,
 		Arg1: arg1,
 		Arg2: arg2,
+	})
+	return err
+}
+
+// TvAdManagerClient wraps the gRPC TvAdManagerService client.
+type TvAdManagerClient struct {
+	svc pb.TvAdManagerServiceClient
+}
+
+// NewTvAdManagerClient creates a new TvAdManager client.
+func NewTvAdManagerClient(cc grpc.ClientConnInterface) *TvAdManagerClient {
+	return &TvAdManagerClient{
+		svc: pb.NewTvAdManagerServiceClient(cc),
+	}
+}
+
+// GetTvAdServiceList calls the GetTvAdServiceList RPC.
+func (c *TvAdManagerClient) GetTvAdServiceList(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetTvAdServiceList(ctx, &pb.GetTvAdServiceListRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// RegisterCallback calls the RegisterCallback RPC.
+func (c *TvAdManagerClient) RegisterCallback(ctx context.Context, arg0 int64, arg1 int64) error {
+	_, err := c.svc.RegisterCallback(ctx, &pb.RegisterCallbackRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// SendAppLinkCommand calls the SendAppLinkCommand RPC.
+func (c *TvAdManagerClient) SendAppLinkCommand(ctx context.Context, arg0 string, arg1 int64) error {
+	_, err := c.svc.SendAppLinkCommand(ctx, &pb.SendAppLinkCommandRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// UnregisterCallback calls the UnregisterCallback RPC.
+func (c *TvAdManagerClient) UnregisterCallback(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.UnregisterCallback(ctx, &pb.UnregisterCallbackRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// TvAdManagerTvAdServiceCallbackClient wraps the gRPC TvAdManagerTvAdServiceCallbackService client.
+type TvAdManagerTvAdServiceCallbackClient struct {
+	svc pb.TvAdManagerTvAdServiceCallbackServiceClient
+}
+
+// NewTvAdManagerTvAdServiceCallbackClient creates a new TvAdManagerTvAdServiceCallback client.
+func NewTvAdManagerTvAdServiceCallbackClient(cc grpc.ClientConnInterface) *TvAdManagerTvAdServiceCallbackClient {
+	return &TvAdManagerTvAdServiceCallbackClient{
+		svc: pb.NewTvAdManagerTvAdServiceCallbackServiceClient(cc),
+	}
+}
+
+// OnAdServiceAdded calls the OnAdServiceAdded RPC.
+func (c *TvAdManagerTvAdServiceCallbackClient) OnAdServiceAdded(ctx context.Context, arg0 string) error {
+	_, err := c.svc.OnAdServiceAdded(ctx, &pb.OnAdServiceAddedRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnAdServiceRemoved calls the OnAdServiceRemoved RPC.
+func (c *TvAdManagerTvAdServiceCallbackClient) OnAdServiceRemoved(ctx context.Context, arg0 string) error {
+	_, err := c.svc.OnAdServiceRemoved(ctx, &pb.OnAdServiceRemovedRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnAdServiceUpdated calls the OnAdServiceUpdated RPC.
+func (c *TvAdManagerTvAdServiceCallbackClient) OnAdServiceUpdated(ctx context.Context, arg0 string) error {
+	_, err := c.svc.OnAdServiceUpdated(ctx, &pb.OnAdServiceUpdatedRequest{
+		Arg0: arg0,
 	})
 	return err
 }

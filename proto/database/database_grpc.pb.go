@@ -21,178 +21,1767 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	DataSetObservableService_NewDataSetObservable_FullMethodName = "/database.DataSetObservableService/NewDataSetObservable"
-	DataSetObservableService_NotifyChanged_FullMethodName        = "/database.DataSetObservableService/NotifyChanged"
-	DataSetObservableService_NotifyInvalidated_FullMethodName    = "/database.DataSetObservableService/NotifyInvalidated"
+	MatrixCursorService_NewMatrixCursor_FullMethodName = "/database.MatrixCursorService/NewMatrixCursor"
+	MatrixCursorService_AddRow_FullMethodName          = "/database.MatrixCursorService/AddRow"
+	MatrixCursorService_GetBlob_FullMethodName         = "/database.MatrixCursorService/GetBlob"
+	MatrixCursorService_GetColumnNames_FullMethodName  = "/database.MatrixCursorService/GetColumnNames"
+	MatrixCursorService_GetCount_FullMethodName        = "/database.MatrixCursorService/GetCount"
+	MatrixCursorService_GetDouble_FullMethodName       = "/database.MatrixCursorService/GetDouble"
+	MatrixCursorService_GetFloat_FullMethodName        = "/database.MatrixCursorService/GetFloat"
+	MatrixCursorService_GetInt_FullMethodName          = "/database.MatrixCursorService/GetInt"
+	MatrixCursorService_GetLong_FullMethodName         = "/database.MatrixCursorService/GetLong"
+	MatrixCursorService_GetShort_FullMethodName        = "/database.MatrixCursorService/GetShort"
+	MatrixCursorService_GetString_FullMethodName       = "/database.MatrixCursorService/GetString"
+	MatrixCursorService_GetType_FullMethodName         = "/database.MatrixCursorService/GetType"
+	MatrixCursorService_IsNull_FullMethodName          = "/database.MatrixCursorService/IsNull"
+	MatrixCursorService_NewRow_FullMethodName          = "/database.MatrixCursorService/NewRow"
 )
 
-// DataSetObservableServiceClient is the client API for DataSetObservableService service.
+// MatrixCursorServiceClient is the client API for MatrixCursorService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type DataSetObservableServiceClient interface {
-	NewDataSetObservable(ctx context.Context, in *NewDataSetObservableRequest, opts ...grpc.CallOption) (*NewDataSetObservableResponse, error)
-	NotifyChanged(ctx context.Context, in *NotifyChangedRequest, opts ...grpc.CallOption) (*NotifyChangedResponse, error)
-	NotifyInvalidated(ctx context.Context, in *NotifyInvalidatedRequest, opts ...grpc.CallOption) (*NotifyInvalidatedResponse, error)
+type MatrixCursorServiceClient interface {
+	NewMatrixCursor(ctx context.Context, in *NewMatrixCursorRequest, opts ...grpc.CallOption) (*NewMatrixCursorResponse, error)
+	AddRow(ctx context.Context, in *AddRowRequest, opts ...grpc.CallOption) (*AddRowResponse, error)
+	GetBlob(ctx context.Context, in *GetBlobRequest, opts ...grpc.CallOption) (*GetBlobResponse, error)
+	GetColumnNames(ctx context.Context, in *GetColumnNamesRequest, opts ...grpc.CallOption) (*GetColumnNamesResponse, error)
+	GetCount(ctx context.Context, in *GetCountRequest, opts ...grpc.CallOption) (*GetCountResponse, error)
+	GetDouble(ctx context.Context, in *GetDoubleRequest, opts ...grpc.CallOption) (*GetDoubleResponse, error)
+	GetFloat(ctx context.Context, in *GetFloatRequest, opts ...grpc.CallOption) (*GetFloatResponse, error)
+	GetInt(ctx context.Context, in *GetIntRequest, opts ...grpc.CallOption) (*GetIntResponse, error)
+	GetLong(ctx context.Context, in *GetLongRequest, opts ...grpc.CallOption) (*GetLongResponse, error)
+	GetShort(ctx context.Context, in *GetShortRequest, opts ...grpc.CallOption) (*GetShortResponse, error)
+	GetString(ctx context.Context, in *GetStringRequest, opts ...grpc.CallOption) (*GetStringResponse, error)
+	GetType(ctx context.Context, in *GetTypeRequest, opts ...grpc.CallOption) (*GetTypeResponse, error)
+	IsNull(ctx context.Context, in *IsNullRequest, opts ...grpc.CallOption) (*IsNullResponse, error)
+	NewRow(ctx context.Context, in *NewRowRequest, opts ...grpc.CallOption) (*NewRowResponse, error)
 }
 
-type dataSetObservableServiceClient struct {
+type matrixCursorServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewDataSetObservableServiceClient(cc grpc.ClientConnInterface) DataSetObservableServiceClient {
-	return &dataSetObservableServiceClient{cc}
+func NewMatrixCursorServiceClient(cc grpc.ClientConnInterface) MatrixCursorServiceClient {
+	return &matrixCursorServiceClient{cc}
 }
 
-func (c *dataSetObservableServiceClient) NewDataSetObservable(ctx context.Context, in *NewDataSetObservableRequest, opts ...grpc.CallOption) (*NewDataSetObservableResponse, error) {
+func (c *matrixCursorServiceClient) NewMatrixCursor(ctx context.Context, in *NewMatrixCursorRequest, opts ...grpc.CallOption) (*NewMatrixCursorResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewDataSetObservableResponse)
-	err := c.cc.Invoke(ctx, DataSetObservableService_NewDataSetObservable_FullMethodName, in, out, cOpts...)
+	out := new(NewMatrixCursorResponse)
+	err := c.cc.Invoke(ctx, MatrixCursorService_NewMatrixCursor_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *dataSetObservableServiceClient) NotifyChanged(ctx context.Context, in *NotifyChangedRequest, opts ...grpc.CallOption) (*NotifyChangedResponse, error) {
+func (c *matrixCursorServiceClient) AddRow(ctx context.Context, in *AddRowRequest, opts ...grpc.CallOption) (*AddRowResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NotifyChangedResponse)
-	err := c.cc.Invoke(ctx, DataSetObservableService_NotifyChanged_FullMethodName, in, out, cOpts...)
+	out := new(AddRowResponse)
+	err := c.cc.Invoke(ctx, MatrixCursorService_AddRow_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *dataSetObservableServiceClient) NotifyInvalidated(ctx context.Context, in *NotifyInvalidatedRequest, opts ...grpc.CallOption) (*NotifyInvalidatedResponse, error) {
+func (c *matrixCursorServiceClient) GetBlob(ctx context.Context, in *GetBlobRequest, opts ...grpc.CallOption) (*GetBlobResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NotifyInvalidatedResponse)
-	err := c.cc.Invoke(ctx, DataSetObservableService_NotifyInvalidated_FullMethodName, in, out, cOpts...)
+	out := new(GetBlobResponse)
+	err := c.cc.Invoke(ctx, MatrixCursorService_GetBlob_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// DataSetObservableServiceServer is the server API for DataSetObservableService service.
-// All implementations must embed UnimplementedDataSetObservableServiceServer
+func (c *matrixCursorServiceClient) GetColumnNames(ctx context.Context, in *GetColumnNamesRequest, opts ...grpc.CallOption) (*GetColumnNamesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetColumnNamesResponse)
+	err := c.cc.Invoke(ctx, MatrixCursorService_GetColumnNames_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *matrixCursorServiceClient) GetCount(ctx context.Context, in *GetCountRequest, opts ...grpc.CallOption) (*GetCountResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetCountResponse)
+	err := c.cc.Invoke(ctx, MatrixCursorService_GetCount_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *matrixCursorServiceClient) GetDouble(ctx context.Context, in *GetDoubleRequest, opts ...grpc.CallOption) (*GetDoubleResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetDoubleResponse)
+	err := c.cc.Invoke(ctx, MatrixCursorService_GetDouble_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *matrixCursorServiceClient) GetFloat(ctx context.Context, in *GetFloatRequest, opts ...grpc.CallOption) (*GetFloatResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetFloatResponse)
+	err := c.cc.Invoke(ctx, MatrixCursorService_GetFloat_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *matrixCursorServiceClient) GetInt(ctx context.Context, in *GetIntRequest, opts ...grpc.CallOption) (*GetIntResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetIntResponse)
+	err := c.cc.Invoke(ctx, MatrixCursorService_GetInt_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *matrixCursorServiceClient) GetLong(ctx context.Context, in *GetLongRequest, opts ...grpc.CallOption) (*GetLongResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetLongResponse)
+	err := c.cc.Invoke(ctx, MatrixCursorService_GetLong_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *matrixCursorServiceClient) GetShort(ctx context.Context, in *GetShortRequest, opts ...grpc.CallOption) (*GetShortResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetShortResponse)
+	err := c.cc.Invoke(ctx, MatrixCursorService_GetShort_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *matrixCursorServiceClient) GetString(ctx context.Context, in *GetStringRequest, opts ...grpc.CallOption) (*GetStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetStringResponse)
+	err := c.cc.Invoke(ctx, MatrixCursorService_GetString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *matrixCursorServiceClient) GetType(ctx context.Context, in *GetTypeRequest, opts ...grpc.CallOption) (*GetTypeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTypeResponse)
+	err := c.cc.Invoke(ctx, MatrixCursorService_GetType_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *matrixCursorServiceClient) IsNull(ctx context.Context, in *IsNullRequest, opts ...grpc.CallOption) (*IsNullResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsNullResponse)
+	err := c.cc.Invoke(ctx, MatrixCursorService_IsNull_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *matrixCursorServiceClient) NewRow(ctx context.Context, in *NewRowRequest, opts ...grpc.CallOption) (*NewRowResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewRowResponse)
+	err := c.cc.Invoke(ctx, MatrixCursorService_NewRow_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// MatrixCursorServiceServer is the server API for MatrixCursorService service.
+// All implementations must embed UnimplementedMatrixCursorServiceServer
 // for forward compatibility.
-type DataSetObservableServiceServer interface {
-	NewDataSetObservable(context.Context, *NewDataSetObservableRequest) (*NewDataSetObservableResponse, error)
-	NotifyChanged(context.Context, *NotifyChangedRequest) (*NotifyChangedResponse, error)
-	NotifyInvalidated(context.Context, *NotifyInvalidatedRequest) (*NotifyInvalidatedResponse, error)
-	mustEmbedUnimplementedDataSetObservableServiceServer()
+type MatrixCursorServiceServer interface {
+	NewMatrixCursor(context.Context, *NewMatrixCursorRequest) (*NewMatrixCursorResponse, error)
+	AddRow(context.Context, *AddRowRequest) (*AddRowResponse, error)
+	GetBlob(context.Context, *GetBlobRequest) (*GetBlobResponse, error)
+	GetColumnNames(context.Context, *GetColumnNamesRequest) (*GetColumnNamesResponse, error)
+	GetCount(context.Context, *GetCountRequest) (*GetCountResponse, error)
+	GetDouble(context.Context, *GetDoubleRequest) (*GetDoubleResponse, error)
+	GetFloat(context.Context, *GetFloatRequest) (*GetFloatResponse, error)
+	GetInt(context.Context, *GetIntRequest) (*GetIntResponse, error)
+	GetLong(context.Context, *GetLongRequest) (*GetLongResponse, error)
+	GetShort(context.Context, *GetShortRequest) (*GetShortResponse, error)
+	GetString(context.Context, *GetStringRequest) (*GetStringResponse, error)
+	GetType(context.Context, *GetTypeRequest) (*GetTypeResponse, error)
+	IsNull(context.Context, *IsNullRequest) (*IsNullResponse, error)
+	NewRow(context.Context, *NewRowRequest) (*NewRowResponse, error)
+	mustEmbedUnimplementedMatrixCursorServiceServer()
 }
 
-// UnimplementedDataSetObservableServiceServer must be embedded to have
+// UnimplementedMatrixCursorServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedDataSetObservableServiceServer struct{}
+type UnimplementedMatrixCursorServiceServer struct{}
 
-func (UnimplementedDataSetObservableServiceServer) NewDataSetObservable(context.Context, *NewDataSetObservableRequest) (*NewDataSetObservableResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewDataSetObservable not implemented")
+func (UnimplementedMatrixCursorServiceServer) NewMatrixCursor(context.Context, *NewMatrixCursorRequest) (*NewMatrixCursorResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewMatrixCursor not implemented")
 }
-func (UnimplementedDataSetObservableServiceServer) NotifyChanged(context.Context, *NotifyChangedRequest) (*NotifyChangedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NotifyChanged not implemented")
+func (UnimplementedMatrixCursorServiceServer) AddRow(context.Context, *AddRowRequest) (*AddRowResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method AddRow not implemented")
 }
-func (UnimplementedDataSetObservableServiceServer) NotifyInvalidated(context.Context, *NotifyInvalidatedRequest) (*NotifyInvalidatedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NotifyInvalidated not implemented")
+func (UnimplementedMatrixCursorServiceServer) GetBlob(context.Context, *GetBlobRequest) (*GetBlobResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetBlob not implemented")
 }
-func (UnimplementedDataSetObservableServiceServer) mustEmbedUnimplementedDataSetObservableServiceServer() {
+func (UnimplementedMatrixCursorServiceServer) GetColumnNames(context.Context, *GetColumnNamesRequest) (*GetColumnNamesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetColumnNames not implemented")
 }
-func (UnimplementedDataSetObservableServiceServer) testEmbeddedByValue() {}
+func (UnimplementedMatrixCursorServiceServer) GetCount(context.Context, *GetCountRequest) (*GetCountResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetCount not implemented")
+}
+func (UnimplementedMatrixCursorServiceServer) GetDouble(context.Context, *GetDoubleRequest) (*GetDoubleResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetDouble not implemented")
+}
+func (UnimplementedMatrixCursorServiceServer) GetFloat(context.Context, *GetFloatRequest) (*GetFloatResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetFloat not implemented")
+}
+func (UnimplementedMatrixCursorServiceServer) GetInt(context.Context, *GetIntRequest) (*GetIntResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetInt not implemented")
+}
+func (UnimplementedMatrixCursorServiceServer) GetLong(context.Context, *GetLongRequest) (*GetLongResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetLong not implemented")
+}
+func (UnimplementedMatrixCursorServiceServer) GetShort(context.Context, *GetShortRequest) (*GetShortResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetShort not implemented")
+}
+func (UnimplementedMatrixCursorServiceServer) GetString(context.Context, *GetStringRequest) (*GetStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetString not implemented")
+}
+func (UnimplementedMatrixCursorServiceServer) GetType(context.Context, *GetTypeRequest) (*GetTypeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetType not implemented")
+}
+func (UnimplementedMatrixCursorServiceServer) IsNull(context.Context, *IsNullRequest) (*IsNullResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsNull not implemented")
+}
+func (UnimplementedMatrixCursorServiceServer) NewRow(context.Context, *NewRowRequest) (*NewRowResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewRow not implemented")
+}
+func (UnimplementedMatrixCursorServiceServer) mustEmbedUnimplementedMatrixCursorServiceServer() {}
+func (UnimplementedMatrixCursorServiceServer) testEmbeddedByValue()                             {}
 
-// UnsafeDataSetObservableServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to DataSetObservableServiceServer will
+// UnsafeMatrixCursorServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to MatrixCursorServiceServer will
 // result in compilation errors.
-type UnsafeDataSetObservableServiceServer interface {
-	mustEmbedUnimplementedDataSetObservableServiceServer()
+type UnsafeMatrixCursorServiceServer interface {
+	mustEmbedUnimplementedMatrixCursorServiceServer()
 }
 
-func RegisterDataSetObservableServiceServer(s grpc.ServiceRegistrar, srv DataSetObservableServiceServer) {
-	// If the following call panics, it indicates UnimplementedDataSetObservableServiceServer was
+func RegisterMatrixCursorServiceServer(s grpc.ServiceRegistrar, srv MatrixCursorServiceServer) {
+	// If the following call panics, it indicates UnimplementedMatrixCursorServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&DataSetObservableService_ServiceDesc, srv)
+	s.RegisterService(&MatrixCursorService_ServiceDesc, srv)
 }
 
-func _DataSetObservableService_NewDataSetObservable_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewDataSetObservableRequest)
+func _MatrixCursorService_NewMatrixCursor_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewMatrixCursorRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(DataSetObservableServiceServer).NewDataSetObservable(ctx, in)
+		return srv.(MatrixCursorServiceServer).NewMatrixCursor(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: DataSetObservableService_NewDataSetObservable_FullMethodName,
+		FullMethod: MatrixCursorService_NewMatrixCursor_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DataSetObservableServiceServer).NewDataSetObservable(ctx, req.(*NewDataSetObservableRequest))
+		return srv.(MatrixCursorServiceServer).NewMatrixCursor(ctx, req.(*NewMatrixCursorRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _DataSetObservableService_NotifyChanged_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NotifyChangedRequest)
+func _MatrixCursorService_AddRow_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AddRowRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(DataSetObservableServiceServer).NotifyChanged(ctx, in)
+		return srv.(MatrixCursorServiceServer).AddRow(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: DataSetObservableService_NotifyChanged_FullMethodName,
+		FullMethod: MatrixCursorService_AddRow_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DataSetObservableServiceServer).NotifyChanged(ctx, req.(*NotifyChangedRequest))
+		return srv.(MatrixCursorServiceServer).AddRow(ctx, req.(*AddRowRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _DataSetObservableService_NotifyInvalidated_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NotifyInvalidatedRequest)
+func _MatrixCursorService_GetBlob_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetBlobRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(DataSetObservableServiceServer).NotifyInvalidated(ctx, in)
+		return srv.(MatrixCursorServiceServer).GetBlob(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: DataSetObservableService_NotifyInvalidated_FullMethodName,
+		FullMethod: MatrixCursorService_GetBlob_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DataSetObservableServiceServer).NotifyInvalidated(ctx, req.(*NotifyInvalidatedRequest))
+		return srv.(MatrixCursorServiceServer).GetBlob(ctx, req.(*GetBlobRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// DataSetObservableService_ServiceDesc is the grpc.ServiceDesc for DataSetObservableService service.
+func _MatrixCursorService_GetColumnNames_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetColumnNamesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MatrixCursorServiceServer).GetColumnNames(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: MatrixCursorService_GetColumnNames_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MatrixCursorServiceServer).GetColumnNames(ctx, req.(*GetColumnNamesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _MatrixCursorService_GetCount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetCountRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MatrixCursorServiceServer).GetCount(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: MatrixCursorService_GetCount_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MatrixCursorServiceServer).GetCount(ctx, req.(*GetCountRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _MatrixCursorService_GetDouble_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetDoubleRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MatrixCursorServiceServer).GetDouble(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: MatrixCursorService_GetDouble_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MatrixCursorServiceServer).GetDouble(ctx, req.(*GetDoubleRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _MatrixCursorService_GetFloat_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetFloatRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MatrixCursorServiceServer).GetFloat(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: MatrixCursorService_GetFloat_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MatrixCursorServiceServer).GetFloat(ctx, req.(*GetFloatRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _MatrixCursorService_GetInt_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetIntRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MatrixCursorServiceServer).GetInt(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: MatrixCursorService_GetInt_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MatrixCursorServiceServer).GetInt(ctx, req.(*GetIntRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _MatrixCursorService_GetLong_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetLongRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MatrixCursorServiceServer).GetLong(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: MatrixCursorService_GetLong_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MatrixCursorServiceServer).GetLong(ctx, req.(*GetLongRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _MatrixCursorService_GetShort_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetShortRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MatrixCursorServiceServer).GetShort(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: MatrixCursorService_GetShort_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MatrixCursorServiceServer).GetShort(ctx, req.(*GetShortRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _MatrixCursorService_GetString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MatrixCursorServiceServer).GetString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: MatrixCursorService_GetString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MatrixCursorServiceServer).GetString(ctx, req.(*GetStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _MatrixCursorService_GetType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTypeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MatrixCursorServiceServer).GetType(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: MatrixCursorService_GetType_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MatrixCursorServiceServer).GetType(ctx, req.(*GetTypeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _MatrixCursorService_IsNull_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsNullRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MatrixCursorServiceServer).IsNull(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: MatrixCursorService_IsNull_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MatrixCursorServiceServer).IsNull(ctx, req.(*IsNullRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _MatrixCursorService_NewRow_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewRowRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MatrixCursorServiceServer).NewRow(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: MatrixCursorService_NewRow_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MatrixCursorServiceServer).NewRow(ctx, req.(*NewRowRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// MatrixCursorService_ServiceDesc is the grpc.ServiceDesc for MatrixCursorService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var DataSetObservableService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "database.DataSetObservableService",
-	HandlerType: (*DataSetObservableServiceServer)(nil),
+var MatrixCursorService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "database.MatrixCursorService",
+	HandlerType: (*MatrixCursorServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "NewDataSetObservable",
-			Handler:    _DataSetObservableService_NewDataSetObservable_Handler,
+			MethodName: "NewMatrixCursor",
+			Handler:    _MatrixCursorService_NewMatrixCursor_Handler,
 		},
 		{
-			MethodName: "NotifyChanged",
-			Handler:    _DataSetObservableService_NotifyChanged_Handler,
+			MethodName: "AddRow",
+			Handler:    _MatrixCursorService_AddRow_Handler,
 		},
 		{
-			MethodName: "NotifyInvalidated",
-			Handler:    _DataSetObservableService_NotifyInvalidated_Handler,
+			MethodName: "GetBlob",
+			Handler:    _MatrixCursorService_GetBlob_Handler,
+		},
+		{
+			MethodName: "GetColumnNames",
+			Handler:    _MatrixCursorService_GetColumnNames_Handler,
+		},
+		{
+			MethodName: "GetCount",
+			Handler:    _MatrixCursorService_GetCount_Handler,
+		},
+		{
+			MethodName: "GetDouble",
+			Handler:    _MatrixCursorService_GetDouble_Handler,
+		},
+		{
+			MethodName: "GetFloat",
+			Handler:    _MatrixCursorService_GetFloat_Handler,
+		},
+		{
+			MethodName: "GetInt",
+			Handler:    _MatrixCursorService_GetInt_Handler,
+		},
+		{
+			MethodName: "GetLong",
+			Handler:    _MatrixCursorService_GetLong_Handler,
+		},
+		{
+			MethodName: "GetShort",
+			Handler:    _MatrixCursorService_GetShort_Handler,
+		},
+		{
+			MethodName: "GetString",
+			Handler:    _MatrixCursorService_GetString_Handler,
+		},
+		{
+			MethodName: "GetType",
+			Handler:    _MatrixCursorService_GetType_Handler,
+		},
+		{
+			MethodName: "IsNull",
+			Handler:    _MatrixCursorService_IsNull_Handler,
+		},
+		{
+			MethodName: "NewRow",
+			Handler:    _MatrixCursorService_NewRow_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/database/database.proto",
+}
+
+const (
+	MatrixCursorRowBuilderService_Add1_FullMethodName   = "/database.MatrixCursorRowBuilderService/Add1"
+	MatrixCursorRowBuilderService_Add2_1_FullMethodName = "/database.MatrixCursorRowBuilderService/Add2_1"
+)
+
+// MatrixCursorRowBuilderServiceClient is the client API for MatrixCursorRowBuilderService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type MatrixCursorRowBuilderServiceClient interface {
+	Add1(ctx context.Context, in *Add1Request, opts ...grpc.CallOption) (*Add1Response, error)
+	Add2_1(ctx context.Context, in *Add2_1Request, opts ...grpc.CallOption) (*Add2_1Response, error)
+}
+
+type matrixCursorRowBuilderServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewMatrixCursorRowBuilderServiceClient(cc grpc.ClientConnInterface) MatrixCursorRowBuilderServiceClient {
+	return &matrixCursorRowBuilderServiceClient{cc}
+}
+
+func (c *matrixCursorRowBuilderServiceClient) Add1(ctx context.Context, in *Add1Request, opts ...grpc.CallOption) (*Add1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(Add1Response)
+	err := c.cc.Invoke(ctx, MatrixCursorRowBuilderService_Add1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *matrixCursorRowBuilderServiceClient) Add2_1(ctx context.Context, in *Add2_1Request, opts ...grpc.CallOption) (*Add2_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(Add2_1Response)
+	err := c.cc.Invoke(ctx, MatrixCursorRowBuilderService_Add2_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// MatrixCursorRowBuilderServiceServer is the server API for MatrixCursorRowBuilderService service.
+// All implementations must embed UnimplementedMatrixCursorRowBuilderServiceServer
+// for forward compatibility.
+type MatrixCursorRowBuilderServiceServer interface {
+	Add1(context.Context, *Add1Request) (*Add1Response, error)
+	Add2_1(context.Context, *Add2_1Request) (*Add2_1Response, error)
+	mustEmbedUnimplementedMatrixCursorRowBuilderServiceServer()
+}
+
+// UnimplementedMatrixCursorRowBuilderServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedMatrixCursorRowBuilderServiceServer struct{}
+
+func (UnimplementedMatrixCursorRowBuilderServiceServer) Add1(context.Context, *Add1Request) (*Add1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method Add1 not implemented")
+}
+func (UnimplementedMatrixCursorRowBuilderServiceServer) Add2_1(context.Context, *Add2_1Request) (*Add2_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method Add2_1 not implemented")
+}
+func (UnimplementedMatrixCursorRowBuilderServiceServer) mustEmbedUnimplementedMatrixCursorRowBuilderServiceServer() {
+}
+func (UnimplementedMatrixCursorRowBuilderServiceServer) testEmbeddedByValue() {}
+
+// UnsafeMatrixCursorRowBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to MatrixCursorRowBuilderServiceServer will
+// result in compilation errors.
+type UnsafeMatrixCursorRowBuilderServiceServer interface {
+	mustEmbedUnimplementedMatrixCursorRowBuilderServiceServer()
+}
+
+func RegisterMatrixCursorRowBuilderServiceServer(s grpc.ServiceRegistrar, srv MatrixCursorRowBuilderServiceServer) {
+	// If the following call panics, it indicates UnimplementedMatrixCursorRowBuilderServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&MatrixCursorRowBuilderService_ServiceDesc, srv)
+}
+
+func _MatrixCursorRowBuilderService_Add1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(Add1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MatrixCursorRowBuilderServiceServer).Add1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: MatrixCursorRowBuilderService_Add1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MatrixCursorRowBuilderServiceServer).Add1(ctx, req.(*Add1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _MatrixCursorRowBuilderService_Add2_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(Add2_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MatrixCursorRowBuilderServiceServer).Add2_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: MatrixCursorRowBuilderService_Add2_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MatrixCursorRowBuilderServiceServer).Add2_1(ctx, req.(*Add2_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// MatrixCursorRowBuilderService_ServiceDesc is the grpc.ServiceDesc for MatrixCursorRowBuilderService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var MatrixCursorRowBuilderService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "database.MatrixCursorRowBuilderService",
+	HandlerType: (*MatrixCursorRowBuilderServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Add1",
+			Handler:    _MatrixCursorRowBuilderService_Add1_Handler,
+		},
+		{
+			MethodName: "Add2_1",
+			Handler:    _MatrixCursorRowBuilderService_Add2_1_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/database/database.proto",
+}
+
+const (
+	AbstractWindowedCursorService_CopyStringToBuffer_FullMethodName = "/database.AbstractWindowedCursorService/CopyStringToBuffer"
+	AbstractWindowedCursorService_GetBlob_FullMethodName            = "/database.AbstractWindowedCursorService/GetBlob"
+	AbstractWindowedCursorService_GetDouble_FullMethodName          = "/database.AbstractWindowedCursorService/GetDouble"
+	AbstractWindowedCursorService_GetFloat_FullMethodName           = "/database.AbstractWindowedCursorService/GetFloat"
+	AbstractWindowedCursorService_GetInt_FullMethodName             = "/database.AbstractWindowedCursorService/GetInt"
+	AbstractWindowedCursorService_GetLong_FullMethodName            = "/database.AbstractWindowedCursorService/GetLong"
+	AbstractWindowedCursorService_GetShort_FullMethodName           = "/database.AbstractWindowedCursorService/GetShort"
+	AbstractWindowedCursorService_GetString_FullMethodName          = "/database.AbstractWindowedCursorService/GetString"
+	AbstractWindowedCursorService_GetType_FullMethodName            = "/database.AbstractWindowedCursorService/GetType"
+	AbstractWindowedCursorService_GetWindow_FullMethodName          = "/database.AbstractWindowedCursorService/GetWindow"
+	AbstractWindowedCursorService_HasWindow_FullMethodName          = "/database.AbstractWindowedCursorService/HasWindow"
+	AbstractWindowedCursorService_IsBlob_FullMethodName             = "/database.AbstractWindowedCursorService/IsBlob"
+	AbstractWindowedCursorService_IsFloat_FullMethodName            = "/database.AbstractWindowedCursorService/IsFloat"
+	AbstractWindowedCursorService_IsLong_FullMethodName             = "/database.AbstractWindowedCursorService/IsLong"
+	AbstractWindowedCursorService_IsNull_FullMethodName             = "/database.AbstractWindowedCursorService/IsNull"
+	AbstractWindowedCursorService_IsString_FullMethodName           = "/database.AbstractWindowedCursorService/IsString"
+	AbstractWindowedCursorService_SetWindow_FullMethodName          = "/database.AbstractWindowedCursorService/SetWindow"
+)
+
+// AbstractWindowedCursorServiceClient is the client API for AbstractWindowedCursorService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type AbstractWindowedCursorServiceClient interface {
+	CopyStringToBuffer(ctx context.Context, in *CopyStringToBufferRequest, opts ...grpc.CallOption) (*CopyStringToBufferResponse, error)
+	GetBlob(ctx context.Context, in *AbstractWindowedCursorGetBlobRequest, opts ...grpc.CallOption) (*GetBlobResponse, error)
+	GetDouble(ctx context.Context, in *AbstractWindowedCursorGetDoubleRequest, opts ...grpc.CallOption) (*GetDoubleResponse, error)
+	GetFloat(ctx context.Context, in *AbstractWindowedCursorGetFloatRequest, opts ...grpc.CallOption) (*GetFloatResponse, error)
+	GetInt(ctx context.Context, in *AbstractWindowedCursorGetIntRequest, opts ...grpc.CallOption) (*GetIntResponse, error)
+	GetLong(ctx context.Context, in *AbstractWindowedCursorGetLongRequest, opts ...grpc.CallOption) (*GetLongResponse, error)
+	GetShort(ctx context.Context, in *AbstractWindowedCursorGetShortRequest, opts ...grpc.CallOption) (*GetShortResponse, error)
+	GetString(ctx context.Context, in *AbstractWindowedCursorGetStringRequest, opts ...grpc.CallOption) (*GetStringResponse, error)
+	GetType(ctx context.Context, in *AbstractWindowedCursorGetTypeRequest, opts ...grpc.CallOption) (*GetTypeResponse, error)
+	GetWindow(ctx context.Context, in *GetWindowRequest, opts ...grpc.CallOption) (*GetWindowResponse, error)
+	HasWindow(ctx context.Context, in *HasWindowRequest, opts ...grpc.CallOption) (*HasWindowResponse, error)
+	IsBlob(ctx context.Context, in *IsBlobRequest, opts ...grpc.CallOption) (*IsBlobResponse, error)
+	IsFloat(ctx context.Context, in *IsFloatRequest, opts ...grpc.CallOption) (*IsFloatResponse, error)
+	IsLong(ctx context.Context, in *IsLongRequest, opts ...grpc.CallOption) (*IsLongResponse, error)
+	IsNull(ctx context.Context, in *AbstractWindowedCursorIsNullRequest, opts ...grpc.CallOption) (*IsNullResponse, error)
+	IsString(ctx context.Context, in *IsStringRequest, opts ...grpc.CallOption) (*IsStringResponse, error)
+	SetWindow(ctx context.Context, in *SetWindowRequest, opts ...grpc.CallOption) (*SetWindowResponse, error)
+}
+
+type abstractWindowedCursorServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewAbstractWindowedCursorServiceClient(cc grpc.ClientConnInterface) AbstractWindowedCursorServiceClient {
+	return &abstractWindowedCursorServiceClient{cc}
+}
+
+func (c *abstractWindowedCursorServiceClient) CopyStringToBuffer(ctx context.Context, in *CopyStringToBufferRequest, opts ...grpc.CallOption) (*CopyStringToBufferResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CopyStringToBufferResponse)
+	err := c.cc.Invoke(ctx, AbstractWindowedCursorService_CopyStringToBuffer_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *abstractWindowedCursorServiceClient) GetBlob(ctx context.Context, in *AbstractWindowedCursorGetBlobRequest, opts ...grpc.CallOption) (*GetBlobResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetBlobResponse)
+	err := c.cc.Invoke(ctx, AbstractWindowedCursorService_GetBlob_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *abstractWindowedCursorServiceClient) GetDouble(ctx context.Context, in *AbstractWindowedCursorGetDoubleRequest, opts ...grpc.CallOption) (*GetDoubleResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetDoubleResponse)
+	err := c.cc.Invoke(ctx, AbstractWindowedCursorService_GetDouble_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *abstractWindowedCursorServiceClient) GetFloat(ctx context.Context, in *AbstractWindowedCursorGetFloatRequest, opts ...grpc.CallOption) (*GetFloatResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetFloatResponse)
+	err := c.cc.Invoke(ctx, AbstractWindowedCursorService_GetFloat_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *abstractWindowedCursorServiceClient) GetInt(ctx context.Context, in *AbstractWindowedCursorGetIntRequest, opts ...grpc.CallOption) (*GetIntResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetIntResponse)
+	err := c.cc.Invoke(ctx, AbstractWindowedCursorService_GetInt_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *abstractWindowedCursorServiceClient) GetLong(ctx context.Context, in *AbstractWindowedCursorGetLongRequest, opts ...grpc.CallOption) (*GetLongResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetLongResponse)
+	err := c.cc.Invoke(ctx, AbstractWindowedCursorService_GetLong_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *abstractWindowedCursorServiceClient) GetShort(ctx context.Context, in *AbstractWindowedCursorGetShortRequest, opts ...grpc.CallOption) (*GetShortResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetShortResponse)
+	err := c.cc.Invoke(ctx, AbstractWindowedCursorService_GetShort_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *abstractWindowedCursorServiceClient) GetString(ctx context.Context, in *AbstractWindowedCursorGetStringRequest, opts ...grpc.CallOption) (*GetStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetStringResponse)
+	err := c.cc.Invoke(ctx, AbstractWindowedCursorService_GetString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *abstractWindowedCursorServiceClient) GetType(ctx context.Context, in *AbstractWindowedCursorGetTypeRequest, opts ...grpc.CallOption) (*GetTypeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTypeResponse)
+	err := c.cc.Invoke(ctx, AbstractWindowedCursorService_GetType_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *abstractWindowedCursorServiceClient) GetWindow(ctx context.Context, in *GetWindowRequest, opts ...grpc.CallOption) (*GetWindowResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetWindowResponse)
+	err := c.cc.Invoke(ctx, AbstractWindowedCursorService_GetWindow_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *abstractWindowedCursorServiceClient) HasWindow(ctx context.Context, in *HasWindowRequest, opts ...grpc.CallOption) (*HasWindowResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HasWindowResponse)
+	err := c.cc.Invoke(ctx, AbstractWindowedCursorService_HasWindow_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *abstractWindowedCursorServiceClient) IsBlob(ctx context.Context, in *IsBlobRequest, opts ...grpc.CallOption) (*IsBlobResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsBlobResponse)
+	err := c.cc.Invoke(ctx, AbstractWindowedCursorService_IsBlob_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *abstractWindowedCursorServiceClient) IsFloat(ctx context.Context, in *IsFloatRequest, opts ...grpc.CallOption) (*IsFloatResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsFloatResponse)
+	err := c.cc.Invoke(ctx, AbstractWindowedCursorService_IsFloat_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *abstractWindowedCursorServiceClient) IsLong(ctx context.Context, in *IsLongRequest, opts ...grpc.CallOption) (*IsLongResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsLongResponse)
+	err := c.cc.Invoke(ctx, AbstractWindowedCursorService_IsLong_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *abstractWindowedCursorServiceClient) IsNull(ctx context.Context, in *AbstractWindowedCursorIsNullRequest, opts ...grpc.CallOption) (*IsNullResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsNullResponse)
+	err := c.cc.Invoke(ctx, AbstractWindowedCursorService_IsNull_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *abstractWindowedCursorServiceClient) IsString(ctx context.Context, in *IsStringRequest, opts ...grpc.CallOption) (*IsStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsStringResponse)
+	err := c.cc.Invoke(ctx, AbstractWindowedCursorService_IsString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *abstractWindowedCursorServiceClient) SetWindow(ctx context.Context, in *SetWindowRequest, opts ...grpc.CallOption) (*SetWindowResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetWindowResponse)
+	err := c.cc.Invoke(ctx, AbstractWindowedCursorService_SetWindow_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// AbstractWindowedCursorServiceServer is the server API for AbstractWindowedCursorService service.
+// All implementations must embed UnimplementedAbstractWindowedCursorServiceServer
+// for forward compatibility.
+type AbstractWindowedCursorServiceServer interface {
+	CopyStringToBuffer(context.Context, *CopyStringToBufferRequest) (*CopyStringToBufferResponse, error)
+	GetBlob(context.Context, *AbstractWindowedCursorGetBlobRequest) (*GetBlobResponse, error)
+	GetDouble(context.Context, *AbstractWindowedCursorGetDoubleRequest) (*GetDoubleResponse, error)
+	GetFloat(context.Context, *AbstractWindowedCursorGetFloatRequest) (*GetFloatResponse, error)
+	GetInt(context.Context, *AbstractWindowedCursorGetIntRequest) (*GetIntResponse, error)
+	GetLong(context.Context, *AbstractWindowedCursorGetLongRequest) (*GetLongResponse, error)
+	GetShort(context.Context, *AbstractWindowedCursorGetShortRequest) (*GetShortResponse, error)
+	GetString(context.Context, *AbstractWindowedCursorGetStringRequest) (*GetStringResponse, error)
+	GetType(context.Context, *AbstractWindowedCursorGetTypeRequest) (*GetTypeResponse, error)
+	GetWindow(context.Context, *GetWindowRequest) (*GetWindowResponse, error)
+	HasWindow(context.Context, *HasWindowRequest) (*HasWindowResponse, error)
+	IsBlob(context.Context, *IsBlobRequest) (*IsBlobResponse, error)
+	IsFloat(context.Context, *IsFloatRequest) (*IsFloatResponse, error)
+	IsLong(context.Context, *IsLongRequest) (*IsLongResponse, error)
+	IsNull(context.Context, *AbstractWindowedCursorIsNullRequest) (*IsNullResponse, error)
+	IsString(context.Context, *IsStringRequest) (*IsStringResponse, error)
+	SetWindow(context.Context, *SetWindowRequest) (*SetWindowResponse, error)
+	mustEmbedUnimplementedAbstractWindowedCursorServiceServer()
+}
+
+// UnimplementedAbstractWindowedCursorServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedAbstractWindowedCursorServiceServer struct{}
+
+func (UnimplementedAbstractWindowedCursorServiceServer) CopyStringToBuffer(context.Context, *CopyStringToBufferRequest) (*CopyStringToBufferResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method CopyStringToBuffer not implemented")
+}
+func (UnimplementedAbstractWindowedCursorServiceServer) GetBlob(context.Context, *AbstractWindowedCursorGetBlobRequest) (*GetBlobResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetBlob not implemented")
+}
+func (UnimplementedAbstractWindowedCursorServiceServer) GetDouble(context.Context, *AbstractWindowedCursorGetDoubleRequest) (*GetDoubleResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetDouble not implemented")
+}
+func (UnimplementedAbstractWindowedCursorServiceServer) GetFloat(context.Context, *AbstractWindowedCursorGetFloatRequest) (*GetFloatResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetFloat not implemented")
+}
+func (UnimplementedAbstractWindowedCursorServiceServer) GetInt(context.Context, *AbstractWindowedCursorGetIntRequest) (*GetIntResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetInt not implemented")
+}
+func (UnimplementedAbstractWindowedCursorServiceServer) GetLong(context.Context, *AbstractWindowedCursorGetLongRequest) (*GetLongResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetLong not implemented")
+}
+func (UnimplementedAbstractWindowedCursorServiceServer) GetShort(context.Context, *AbstractWindowedCursorGetShortRequest) (*GetShortResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetShort not implemented")
+}
+func (UnimplementedAbstractWindowedCursorServiceServer) GetString(context.Context, *AbstractWindowedCursorGetStringRequest) (*GetStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetString not implemented")
+}
+func (UnimplementedAbstractWindowedCursorServiceServer) GetType(context.Context, *AbstractWindowedCursorGetTypeRequest) (*GetTypeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetType not implemented")
+}
+func (UnimplementedAbstractWindowedCursorServiceServer) GetWindow(context.Context, *GetWindowRequest) (*GetWindowResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetWindow not implemented")
+}
+func (UnimplementedAbstractWindowedCursorServiceServer) HasWindow(context.Context, *HasWindowRequest) (*HasWindowResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HasWindow not implemented")
+}
+func (UnimplementedAbstractWindowedCursorServiceServer) IsBlob(context.Context, *IsBlobRequest) (*IsBlobResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsBlob not implemented")
+}
+func (UnimplementedAbstractWindowedCursorServiceServer) IsFloat(context.Context, *IsFloatRequest) (*IsFloatResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsFloat not implemented")
+}
+func (UnimplementedAbstractWindowedCursorServiceServer) IsLong(context.Context, *IsLongRequest) (*IsLongResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsLong not implemented")
+}
+func (UnimplementedAbstractWindowedCursorServiceServer) IsNull(context.Context, *AbstractWindowedCursorIsNullRequest) (*IsNullResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsNull not implemented")
+}
+func (UnimplementedAbstractWindowedCursorServiceServer) IsString(context.Context, *IsStringRequest) (*IsStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsString not implemented")
+}
+func (UnimplementedAbstractWindowedCursorServiceServer) SetWindow(context.Context, *SetWindowRequest) (*SetWindowResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetWindow not implemented")
+}
+func (UnimplementedAbstractWindowedCursorServiceServer) mustEmbedUnimplementedAbstractWindowedCursorServiceServer() {
+}
+func (UnimplementedAbstractWindowedCursorServiceServer) testEmbeddedByValue() {}
+
+// UnsafeAbstractWindowedCursorServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to AbstractWindowedCursorServiceServer will
+// result in compilation errors.
+type UnsafeAbstractWindowedCursorServiceServer interface {
+	mustEmbedUnimplementedAbstractWindowedCursorServiceServer()
+}
+
+func RegisterAbstractWindowedCursorServiceServer(s grpc.ServiceRegistrar, srv AbstractWindowedCursorServiceServer) {
+	// If the following call panics, it indicates UnimplementedAbstractWindowedCursorServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&AbstractWindowedCursorService_ServiceDesc, srv)
+}
+
+func _AbstractWindowedCursorService_CopyStringToBuffer_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CopyStringToBufferRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AbstractWindowedCursorServiceServer).CopyStringToBuffer(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AbstractWindowedCursorService_CopyStringToBuffer_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AbstractWindowedCursorServiceServer).CopyStringToBuffer(ctx, req.(*CopyStringToBufferRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AbstractWindowedCursorService_GetBlob_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AbstractWindowedCursorGetBlobRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AbstractWindowedCursorServiceServer).GetBlob(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AbstractWindowedCursorService_GetBlob_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AbstractWindowedCursorServiceServer).GetBlob(ctx, req.(*AbstractWindowedCursorGetBlobRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AbstractWindowedCursorService_GetDouble_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AbstractWindowedCursorGetDoubleRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AbstractWindowedCursorServiceServer).GetDouble(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AbstractWindowedCursorService_GetDouble_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AbstractWindowedCursorServiceServer).GetDouble(ctx, req.(*AbstractWindowedCursorGetDoubleRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AbstractWindowedCursorService_GetFloat_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AbstractWindowedCursorGetFloatRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AbstractWindowedCursorServiceServer).GetFloat(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AbstractWindowedCursorService_GetFloat_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AbstractWindowedCursorServiceServer).GetFloat(ctx, req.(*AbstractWindowedCursorGetFloatRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AbstractWindowedCursorService_GetInt_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AbstractWindowedCursorGetIntRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AbstractWindowedCursorServiceServer).GetInt(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AbstractWindowedCursorService_GetInt_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AbstractWindowedCursorServiceServer).GetInt(ctx, req.(*AbstractWindowedCursorGetIntRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AbstractWindowedCursorService_GetLong_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AbstractWindowedCursorGetLongRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AbstractWindowedCursorServiceServer).GetLong(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AbstractWindowedCursorService_GetLong_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AbstractWindowedCursorServiceServer).GetLong(ctx, req.(*AbstractWindowedCursorGetLongRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AbstractWindowedCursorService_GetShort_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AbstractWindowedCursorGetShortRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AbstractWindowedCursorServiceServer).GetShort(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AbstractWindowedCursorService_GetShort_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AbstractWindowedCursorServiceServer).GetShort(ctx, req.(*AbstractWindowedCursorGetShortRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AbstractWindowedCursorService_GetString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AbstractWindowedCursorGetStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AbstractWindowedCursorServiceServer).GetString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AbstractWindowedCursorService_GetString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AbstractWindowedCursorServiceServer).GetString(ctx, req.(*AbstractWindowedCursorGetStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AbstractWindowedCursorService_GetType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AbstractWindowedCursorGetTypeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AbstractWindowedCursorServiceServer).GetType(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AbstractWindowedCursorService_GetType_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AbstractWindowedCursorServiceServer).GetType(ctx, req.(*AbstractWindowedCursorGetTypeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AbstractWindowedCursorService_GetWindow_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetWindowRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AbstractWindowedCursorServiceServer).GetWindow(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AbstractWindowedCursorService_GetWindow_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AbstractWindowedCursorServiceServer).GetWindow(ctx, req.(*GetWindowRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AbstractWindowedCursorService_HasWindow_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HasWindowRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AbstractWindowedCursorServiceServer).HasWindow(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AbstractWindowedCursorService_HasWindow_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AbstractWindowedCursorServiceServer).HasWindow(ctx, req.(*HasWindowRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AbstractWindowedCursorService_IsBlob_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsBlobRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AbstractWindowedCursorServiceServer).IsBlob(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AbstractWindowedCursorService_IsBlob_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AbstractWindowedCursorServiceServer).IsBlob(ctx, req.(*IsBlobRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AbstractWindowedCursorService_IsFloat_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsFloatRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AbstractWindowedCursorServiceServer).IsFloat(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AbstractWindowedCursorService_IsFloat_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AbstractWindowedCursorServiceServer).IsFloat(ctx, req.(*IsFloatRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AbstractWindowedCursorService_IsLong_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsLongRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AbstractWindowedCursorServiceServer).IsLong(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AbstractWindowedCursorService_IsLong_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AbstractWindowedCursorServiceServer).IsLong(ctx, req.(*IsLongRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AbstractWindowedCursorService_IsNull_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AbstractWindowedCursorIsNullRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AbstractWindowedCursorServiceServer).IsNull(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AbstractWindowedCursorService_IsNull_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AbstractWindowedCursorServiceServer).IsNull(ctx, req.(*AbstractWindowedCursorIsNullRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AbstractWindowedCursorService_IsString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AbstractWindowedCursorServiceServer).IsString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AbstractWindowedCursorService_IsString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AbstractWindowedCursorServiceServer).IsString(ctx, req.(*IsStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AbstractWindowedCursorService_SetWindow_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetWindowRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AbstractWindowedCursorServiceServer).SetWindow(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AbstractWindowedCursorService_SetWindow_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AbstractWindowedCursorServiceServer).SetWindow(ctx, req.(*SetWindowRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// AbstractWindowedCursorService_ServiceDesc is the grpc.ServiceDesc for AbstractWindowedCursorService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var AbstractWindowedCursorService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "database.AbstractWindowedCursorService",
+	HandlerType: (*AbstractWindowedCursorServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "CopyStringToBuffer",
+			Handler:    _AbstractWindowedCursorService_CopyStringToBuffer_Handler,
+		},
+		{
+			MethodName: "GetBlob",
+			Handler:    _AbstractWindowedCursorService_GetBlob_Handler,
+		},
+		{
+			MethodName: "GetDouble",
+			Handler:    _AbstractWindowedCursorService_GetDouble_Handler,
+		},
+		{
+			MethodName: "GetFloat",
+			Handler:    _AbstractWindowedCursorService_GetFloat_Handler,
+		},
+		{
+			MethodName: "GetInt",
+			Handler:    _AbstractWindowedCursorService_GetInt_Handler,
+		},
+		{
+			MethodName: "GetLong",
+			Handler:    _AbstractWindowedCursorService_GetLong_Handler,
+		},
+		{
+			MethodName: "GetShort",
+			Handler:    _AbstractWindowedCursorService_GetShort_Handler,
+		},
+		{
+			MethodName: "GetString",
+			Handler:    _AbstractWindowedCursorService_GetString_Handler,
+		},
+		{
+			MethodName: "GetType",
+			Handler:    _AbstractWindowedCursorService_GetType_Handler,
+		},
+		{
+			MethodName: "GetWindow",
+			Handler:    _AbstractWindowedCursorService_GetWindow_Handler,
+		},
+		{
+			MethodName: "HasWindow",
+			Handler:    _AbstractWindowedCursorService_HasWindow_Handler,
+		},
+		{
+			MethodName: "IsBlob",
+			Handler:    _AbstractWindowedCursorService_IsBlob_Handler,
+		},
+		{
+			MethodName: "IsFloat",
+			Handler:    _AbstractWindowedCursorService_IsFloat_Handler,
+		},
+		{
+			MethodName: "IsLong",
+			Handler:    _AbstractWindowedCursorService_IsLong_Handler,
+		},
+		{
+			MethodName: "IsNull",
+			Handler:    _AbstractWindowedCursorService_IsNull_Handler,
+		},
+		{
+			MethodName: "IsString",
+			Handler:    _AbstractWindowedCursorService_IsString_Handler,
+		},
+		{
+			MethodName: "SetWindow",
+			Handler:    _AbstractWindowedCursorService_SetWindow_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/database/database.proto",
+}
+
+const (
+	CrossProcessCursorService_FillWindow_FullMethodName = "/database.CrossProcessCursorService/FillWindow"
+	CrossProcessCursorService_GetWindow_FullMethodName  = "/database.CrossProcessCursorService/GetWindow"
+	CrossProcessCursorService_OnMove_FullMethodName     = "/database.CrossProcessCursorService/OnMove"
+)
+
+// CrossProcessCursorServiceClient is the client API for CrossProcessCursorService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type CrossProcessCursorServiceClient interface {
+	FillWindow(ctx context.Context, in *FillWindowRequest, opts ...grpc.CallOption) (*FillWindowResponse, error)
+	GetWindow(ctx context.Context, in *GetWindowRequest, opts ...grpc.CallOption) (*GetWindowResponse, error)
+	OnMove(ctx context.Context, in *OnMoveRequest, opts ...grpc.CallOption) (*OnMoveResponse, error)
+}
+
+type crossProcessCursorServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewCrossProcessCursorServiceClient(cc grpc.ClientConnInterface) CrossProcessCursorServiceClient {
+	return &crossProcessCursorServiceClient{cc}
+}
+
+func (c *crossProcessCursorServiceClient) FillWindow(ctx context.Context, in *FillWindowRequest, opts ...grpc.CallOption) (*FillWindowResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(FillWindowResponse)
+	err := c.cc.Invoke(ctx, CrossProcessCursorService_FillWindow_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *crossProcessCursorServiceClient) GetWindow(ctx context.Context, in *GetWindowRequest, opts ...grpc.CallOption) (*GetWindowResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetWindowResponse)
+	err := c.cc.Invoke(ctx, CrossProcessCursorService_GetWindow_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *crossProcessCursorServiceClient) OnMove(ctx context.Context, in *OnMoveRequest, opts ...grpc.CallOption) (*OnMoveResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnMoveResponse)
+	err := c.cc.Invoke(ctx, CrossProcessCursorService_OnMove_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// CrossProcessCursorServiceServer is the server API for CrossProcessCursorService service.
+// All implementations must embed UnimplementedCrossProcessCursorServiceServer
+// for forward compatibility.
+type CrossProcessCursorServiceServer interface {
+	FillWindow(context.Context, *FillWindowRequest) (*FillWindowResponse, error)
+	GetWindow(context.Context, *GetWindowRequest) (*GetWindowResponse, error)
+	OnMove(context.Context, *OnMoveRequest) (*OnMoveResponse, error)
+	mustEmbedUnimplementedCrossProcessCursorServiceServer()
+}
+
+// UnimplementedCrossProcessCursorServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedCrossProcessCursorServiceServer struct{}
+
+func (UnimplementedCrossProcessCursorServiceServer) FillWindow(context.Context, *FillWindowRequest) (*FillWindowResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method FillWindow not implemented")
+}
+func (UnimplementedCrossProcessCursorServiceServer) GetWindow(context.Context, *GetWindowRequest) (*GetWindowResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetWindow not implemented")
+}
+func (UnimplementedCrossProcessCursorServiceServer) OnMove(context.Context, *OnMoveRequest) (*OnMoveResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnMove not implemented")
+}
+func (UnimplementedCrossProcessCursorServiceServer) mustEmbedUnimplementedCrossProcessCursorServiceServer() {
+}
+func (UnimplementedCrossProcessCursorServiceServer) testEmbeddedByValue() {}
+
+// UnsafeCrossProcessCursorServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to CrossProcessCursorServiceServer will
+// result in compilation errors.
+type UnsafeCrossProcessCursorServiceServer interface {
+	mustEmbedUnimplementedCrossProcessCursorServiceServer()
+}
+
+func RegisterCrossProcessCursorServiceServer(s grpc.ServiceRegistrar, srv CrossProcessCursorServiceServer) {
+	// If the following call panics, it indicates UnimplementedCrossProcessCursorServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&CrossProcessCursorService_ServiceDesc, srv)
+}
+
+func _CrossProcessCursorService_FillWindow_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(FillWindowRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CrossProcessCursorServiceServer).FillWindow(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CrossProcessCursorService_FillWindow_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CrossProcessCursorServiceServer).FillWindow(ctx, req.(*FillWindowRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CrossProcessCursorService_GetWindow_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetWindowRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CrossProcessCursorServiceServer).GetWindow(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CrossProcessCursorService_GetWindow_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CrossProcessCursorServiceServer).GetWindow(ctx, req.(*GetWindowRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CrossProcessCursorService_OnMove_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnMoveRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CrossProcessCursorServiceServer).OnMove(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CrossProcessCursorService_OnMove_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CrossProcessCursorServiceServer).OnMove(ctx, req.(*OnMoveRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// CrossProcessCursorService_ServiceDesc is the grpc.ServiceDesc for CrossProcessCursorService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var CrossProcessCursorService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "database.CrossProcessCursorService",
+	HandlerType: (*CrossProcessCursorServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "FillWindow",
+			Handler:    _CrossProcessCursorService_FillWindow_Handler,
+		},
+		{
+			MethodName: "GetWindow",
+			Handler:    _CrossProcessCursorService_GetWindow_Handler,
+		},
+		{
+			MethodName: "OnMove",
+			Handler:    _CrossProcessCursorService_OnMove_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/database/database.proto",
+}
+
+const (
+	DataSetObserverService_OnChanged_FullMethodName     = "/database.DataSetObserverService/OnChanged"
+	DataSetObserverService_OnInvalidated_FullMethodName = "/database.DataSetObserverService/OnInvalidated"
+)
+
+// DataSetObserverServiceClient is the client API for DataSetObserverService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type DataSetObserverServiceClient interface {
+	OnChanged(ctx context.Context, in *OnChangedRequest, opts ...grpc.CallOption) (*OnChangedResponse, error)
+	OnInvalidated(ctx context.Context, in *OnInvalidatedRequest, opts ...grpc.CallOption) (*OnInvalidatedResponse, error)
+}
+
+type dataSetObserverServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewDataSetObserverServiceClient(cc grpc.ClientConnInterface) DataSetObserverServiceClient {
+	return &dataSetObserverServiceClient{cc}
+}
+
+func (c *dataSetObserverServiceClient) OnChanged(ctx context.Context, in *OnChangedRequest, opts ...grpc.CallOption) (*OnChangedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnChangedResponse)
+	err := c.cc.Invoke(ctx, DataSetObserverService_OnChanged_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *dataSetObserverServiceClient) OnInvalidated(ctx context.Context, in *OnInvalidatedRequest, opts ...grpc.CallOption) (*OnInvalidatedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnInvalidatedResponse)
+	err := c.cc.Invoke(ctx, DataSetObserverService_OnInvalidated_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// DataSetObserverServiceServer is the server API for DataSetObserverService service.
+// All implementations must embed UnimplementedDataSetObserverServiceServer
+// for forward compatibility.
+type DataSetObserverServiceServer interface {
+	OnChanged(context.Context, *OnChangedRequest) (*OnChangedResponse, error)
+	OnInvalidated(context.Context, *OnInvalidatedRequest) (*OnInvalidatedResponse, error)
+	mustEmbedUnimplementedDataSetObserverServiceServer()
+}
+
+// UnimplementedDataSetObserverServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedDataSetObserverServiceServer struct{}
+
+func (UnimplementedDataSetObserverServiceServer) OnChanged(context.Context, *OnChangedRequest) (*OnChangedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnChanged not implemented")
+}
+func (UnimplementedDataSetObserverServiceServer) OnInvalidated(context.Context, *OnInvalidatedRequest) (*OnInvalidatedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnInvalidated not implemented")
+}
+func (UnimplementedDataSetObserverServiceServer) mustEmbedUnimplementedDataSetObserverServiceServer() {
+}
+func (UnimplementedDataSetObserverServiceServer) testEmbeddedByValue() {}
+
+// UnsafeDataSetObserverServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to DataSetObserverServiceServer will
+// result in compilation errors.
+type UnsafeDataSetObserverServiceServer interface {
+	mustEmbedUnimplementedDataSetObserverServiceServer()
+}
+
+func RegisterDataSetObserverServiceServer(s grpc.ServiceRegistrar, srv DataSetObserverServiceServer) {
+	// If the following call panics, it indicates UnimplementedDataSetObserverServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&DataSetObserverService_ServiceDesc, srv)
+}
+
+func _DataSetObserverService_OnChanged_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnChangedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DataSetObserverServiceServer).OnChanged(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DataSetObserverService_OnChanged_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DataSetObserverServiceServer).OnChanged(ctx, req.(*OnChangedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DataSetObserverService_OnInvalidated_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnInvalidatedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DataSetObserverServiceServer).OnInvalidated(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DataSetObserverService_OnInvalidated_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DataSetObserverServiceServer).OnInvalidated(ctx, req.(*OnInvalidatedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// DataSetObserverService_ServiceDesc is the grpc.ServiceDesc for DataSetObserverService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var DataSetObserverService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "database.DataSetObserverService",
+	HandlerType: (*DataSetObserverServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "OnChanged",
+			Handler:    _DataSetObserverService_OnChanged_Handler,
+		},
+		{
+			MethodName: "OnInvalidated",
+			Handler:    _DataSetObserverService_OnInvalidated_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -2723,736 +4312,216 @@ var UtilsInsertHelperService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	MatrixCursorService_NewMatrixCursor_FullMethodName = "/database.MatrixCursorService/NewMatrixCursor"
-	MatrixCursorService_AddRow_FullMethodName          = "/database.MatrixCursorService/AddRow"
-	MatrixCursorService_GetBlob_FullMethodName         = "/database.MatrixCursorService/GetBlob"
-	MatrixCursorService_GetColumnNames_FullMethodName  = "/database.MatrixCursorService/GetColumnNames"
-	MatrixCursorService_GetCount_FullMethodName        = "/database.MatrixCursorService/GetCount"
-	MatrixCursorService_GetDouble_FullMethodName       = "/database.MatrixCursorService/GetDouble"
-	MatrixCursorService_GetFloat_FullMethodName        = "/database.MatrixCursorService/GetFloat"
-	MatrixCursorService_GetInt_FullMethodName          = "/database.MatrixCursorService/GetInt"
-	MatrixCursorService_GetLong_FullMethodName         = "/database.MatrixCursorService/GetLong"
-	MatrixCursorService_GetShort_FullMethodName        = "/database.MatrixCursorService/GetShort"
-	MatrixCursorService_GetString_FullMethodName       = "/database.MatrixCursorService/GetString"
-	MatrixCursorService_GetType_FullMethodName         = "/database.MatrixCursorService/GetType"
-	MatrixCursorService_IsNull_FullMethodName          = "/database.MatrixCursorService/IsNull"
-	MatrixCursorService_NewRow_FullMethodName          = "/database.MatrixCursorService/NewRow"
+	CrossProcessCursorWrapperService_NewCrossProcessCursorWrapper_FullMethodName = "/database.CrossProcessCursorWrapperService/NewCrossProcessCursorWrapper"
+	CrossProcessCursorWrapperService_FillWindow_FullMethodName                   = "/database.CrossProcessCursorWrapperService/FillWindow"
+	CrossProcessCursorWrapperService_GetWindow_FullMethodName                    = "/database.CrossProcessCursorWrapperService/GetWindow"
+	CrossProcessCursorWrapperService_OnMove_FullMethodName                       = "/database.CrossProcessCursorWrapperService/OnMove"
 )
 
-// MatrixCursorServiceClient is the client API for MatrixCursorService service.
+// CrossProcessCursorWrapperServiceClient is the client API for CrossProcessCursorWrapperService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type MatrixCursorServiceClient interface {
-	NewMatrixCursor(ctx context.Context, in *NewMatrixCursorRequest, opts ...grpc.CallOption) (*NewMatrixCursorResponse, error)
-	AddRow(ctx context.Context, in *AddRowRequest, opts ...grpc.CallOption) (*AddRowResponse, error)
-	GetBlob(ctx context.Context, in *GetBlobRequest, opts ...grpc.CallOption) (*GetBlobResponse, error)
-	GetColumnNames(ctx context.Context, in *GetColumnNamesRequest, opts ...grpc.CallOption) (*GetColumnNamesResponse, error)
-	GetCount(ctx context.Context, in *GetCountRequest, opts ...grpc.CallOption) (*GetCountResponse, error)
-	GetDouble(ctx context.Context, in *GetDoubleRequest, opts ...grpc.CallOption) (*GetDoubleResponse, error)
-	GetFloat(ctx context.Context, in *GetFloatRequest, opts ...grpc.CallOption) (*GetFloatResponse, error)
-	GetInt(ctx context.Context, in *GetIntRequest, opts ...grpc.CallOption) (*GetIntResponse, error)
-	GetLong(ctx context.Context, in *GetLongRequest, opts ...grpc.CallOption) (*GetLongResponse, error)
-	GetShort(ctx context.Context, in *GetShortRequest, opts ...grpc.CallOption) (*GetShortResponse, error)
-	GetString(ctx context.Context, in *GetStringRequest, opts ...grpc.CallOption) (*GetStringResponse, error)
-	GetType(ctx context.Context, in *GetTypeRequest, opts ...grpc.CallOption) (*GetTypeResponse, error)
-	IsNull(ctx context.Context, in *IsNullRequest, opts ...grpc.CallOption) (*IsNullResponse, error)
-	NewRow(ctx context.Context, in *NewRowRequest, opts ...grpc.CallOption) (*NewRowResponse, error)
+type CrossProcessCursorWrapperServiceClient interface {
+	NewCrossProcessCursorWrapper(ctx context.Context, in *NewCrossProcessCursorWrapperRequest, opts ...grpc.CallOption) (*NewCrossProcessCursorWrapperResponse, error)
+	FillWindow(ctx context.Context, in *CrossProcessCursorWrapperFillWindowRequest, opts ...grpc.CallOption) (*FillWindowResponse, error)
+	GetWindow(ctx context.Context, in *CrossProcessCursorWrapperGetWindowRequest, opts ...grpc.CallOption) (*GetWindowResponse, error)
+	OnMove(ctx context.Context, in *CrossProcessCursorWrapperOnMoveRequest, opts ...grpc.CallOption) (*OnMoveResponse, error)
 }
 
-type matrixCursorServiceClient struct {
+type crossProcessCursorWrapperServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewMatrixCursorServiceClient(cc grpc.ClientConnInterface) MatrixCursorServiceClient {
-	return &matrixCursorServiceClient{cc}
+func NewCrossProcessCursorWrapperServiceClient(cc grpc.ClientConnInterface) CrossProcessCursorWrapperServiceClient {
+	return &crossProcessCursorWrapperServiceClient{cc}
 }
 
-func (c *matrixCursorServiceClient) NewMatrixCursor(ctx context.Context, in *NewMatrixCursorRequest, opts ...grpc.CallOption) (*NewMatrixCursorResponse, error) {
+func (c *crossProcessCursorWrapperServiceClient) NewCrossProcessCursorWrapper(ctx context.Context, in *NewCrossProcessCursorWrapperRequest, opts ...grpc.CallOption) (*NewCrossProcessCursorWrapperResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewMatrixCursorResponse)
-	err := c.cc.Invoke(ctx, MatrixCursorService_NewMatrixCursor_FullMethodName, in, out, cOpts...)
+	out := new(NewCrossProcessCursorWrapperResponse)
+	err := c.cc.Invoke(ctx, CrossProcessCursorWrapperService_NewCrossProcessCursorWrapper_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *matrixCursorServiceClient) AddRow(ctx context.Context, in *AddRowRequest, opts ...grpc.CallOption) (*AddRowResponse, error) {
+func (c *crossProcessCursorWrapperServiceClient) FillWindow(ctx context.Context, in *CrossProcessCursorWrapperFillWindowRequest, opts ...grpc.CallOption) (*FillWindowResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(AddRowResponse)
-	err := c.cc.Invoke(ctx, MatrixCursorService_AddRow_FullMethodName, in, out, cOpts...)
+	out := new(FillWindowResponse)
+	err := c.cc.Invoke(ctx, CrossProcessCursorWrapperService_FillWindow_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *matrixCursorServiceClient) GetBlob(ctx context.Context, in *GetBlobRequest, opts ...grpc.CallOption) (*GetBlobResponse, error) {
+func (c *crossProcessCursorWrapperServiceClient) GetWindow(ctx context.Context, in *CrossProcessCursorWrapperGetWindowRequest, opts ...grpc.CallOption) (*GetWindowResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetBlobResponse)
-	err := c.cc.Invoke(ctx, MatrixCursorService_GetBlob_FullMethodName, in, out, cOpts...)
+	out := new(GetWindowResponse)
+	err := c.cc.Invoke(ctx, CrossProcessCursorWrapperService_GetWindow_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *matrixCursorServiceClient) GetColumnNames(ctx context.Context, in *GetColumnNamesRequest, opts ...grpc.CallOption) (*GetColumnNamesResponse, error) {
+func (c *crossProcessCursorWrapperServiceClient) OnMove(ctx context.Context, in *CrossProcessCursorWrapperOnMoveRequest, opts ...grpc.CallOption) (*OnMoveResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetColumnNamesResponse)
-	err := c.cc.Invoke(ctx, MatrixCursorService_GetColumnNames_FullMethodName, in, out, cOpts...)
+	out := new(OnMoveResponse)
+	err := c.cc.Invoke(ctx, CrossProcessCursorWrapperService_OnMove_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *matrixCursorServiceClient) GetCount(ctx context.Context, in *GetCountRequest, opts ...grpc.CallOption) (*GetCountResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetCountResponse)
-	err := c.cc.Invoke(ctx, MatrixCursorService_GetCount_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *matrixCursorServiceClient) GetDouble(ctx context.Context, in *GetDoubleRequest, opts ...grpc.CallOption) (*GetDoubleResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetDoubleResponse)
-	err := c.cc.Invoke(ctx, MatrixCursorService_GetDouble_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *matrixCursorServiceClient) GetFloat(ctx context.Context, in *GetFloatRequest, opts ...grpc.CallOption) (*GetFloatResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetFloatResponse)
-	err := c.cc.Invoke(ctx, MatrixCursorService_GetFloat_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *matrixCursorServiceClient) GetInt(ctx context.Context, in *GetIntRequest, opts ...grpc.CallOption) (*GetIntResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetIntResponse)
-	err := c.cc.Invoke(ctx, MatrixCursorService_GetInt_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *matrixCursorServiceClient) GetLong(ctx context.Context, in *GetLongRequest, opts ...grpc.CallOption) (*GetLongResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetLongResponse)
-	err := c.cc.Invoke(ctx, MatrixCursorService_GetLong_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *matrixCursorServiceClient) GetShort(ctx context.Context, in *GetShortRequest, opts ...grpc.CallOption) (*GetShortResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetShortResponse)
-	err := c.cc.Invoke(ctx, MatrixCursorService_GetShort_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *matrixCursorServiceClient) GetString(ctx context.Context, in *GetStringRequest, opts ...grpc.CallOption) (*GetStringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetStringResponse)
-	err := c.cc.Invoke(ctx, MatrixCursorService_GetString_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *matrixCursorServiceClient) GetType(ctx context.Context, in *GetTypeRequest, opts ...grpc.CallOption) (*GetTypeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetTypeResponse)
-	err := c.cc.Invoke(ctx, MatrixCursorService_GetType_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *matrixCursorServiceClient) IsNull(ctx context.Context, in *IsNullRequest, opts ...grpc.CallOption) (*IsNullResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsNullResponse)
-	err := c.cc.Invoke(ctx, MatrixCursorService_IsNull_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *matrixCursorServiceClient) NewRow(ctx context.Context, in *NewRowRequest, opts ...grpc.CallOption) (*NewRowResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewRowResponse)
-	err := c.cc.Invoke(ctx, MatrixCursorService_NewRow_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// MatrixCursorServiceServer is the server API for MatrixCursorService service.
-// All implementations must embed UnimplementedMatrixCursorServiceServer
+// CrossProcessCursorWrapperServiceServer is the server API for CrossProcessCursorWrapperService service.
+// All implementations must embed UnimplementedCrossProcessCursorWrapperServiceServer
 // for forward compatibility.
-type MatrixCursorServiceServer interface {
-	NewMatrixCursor(context.Context, *NewMatrixCursorRequest) (*NewMatrixCursorResponse, error)
-	AddRow(context.Context, *AddRowRequest) (*AddRowResponse, error)
-	GetBlob(context.Context, *GetBlobRequest) (*GetBlobResponse, error)
-	GetColumnNames(context.Context, *GetColumnNamesRequest) (*GetColumnNamesResponse, error)
-	GetCount(context.Context, *GetCountRequest) (*GetCountResponse, error)
-	GetDouble(context.Context, *GetDoubleRequest) (*GetDoubleResponse, error)
-	GetFloat(context.Context, *GetFloatRequest) (*GetFloatResponse, error)
-	GetInt(context.Context, *GetIntRequest) (*GetIntResponse, error)
-	GetLong(context.Context, *GetLongRequest) (*GetLongResponse, error)
-	GetShort(context.Context, *GetShortRequest) (*GetShortResponse, error)
-	GetString(context.Context, *GetStringRequest) (*GetStringResponse, error)
-	GetType(context.Context, *GetTypeRequest) (*GetTypeResponse, error)
-	IsNull(context.Context, *IsNullRequest) (*IsNullResponse, error)
-	NewRow(context.Context, *NewRowRequest) (*NewRowResponse, error)
-	mustEmbedUnimplementedMatrixCursorServiceServer()
+type CrossProcessCursorWrapperServiceServer interface {
+	NewCrossProcessCursorWrapper(context.Context, *NewCrossProcessCursorWrapperRequest) (*NewCrossProcessCursorWrapperResponse, error)
+	FillWindow(context.Context, *CrossProcessCursorWrapperFillWindowRequest) (*FillWindowResponse, error)
+	GetWindow(context.Context, *CrossProcessCursorWrapperGetWindowRequest) (*GetWindowResponse, error)
+	OnMove(context.Context, *CrossProcessCursorWrapperOnMoveRequest) (*OnMoveResponse, error)
+	mustEmbedUnimplementedCrossProcessCursorWrapperServiceServer()
 }
 
-// UnimplementedMatrixCursorServiceServer must be embedded to have
+// UnimplementedCrossProcessCursorWrapperServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedMatrixCursorServiceServer struct{}
+type UnimplementedCrossProcessCursorWrapperServiceServer struct{}
 
-func (UnimplementedMatrixCursorServiceServer) NewMatrixCursor(context.Context, *NewMatrixCursorRequest) (*NewMatrixCursorResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewMatrixCursor not implemented")
+func (UnimplementedCrossProcessCursorWrapperServiceServer) NewCrossProcessCursorWrapper(context.Context, *NewCrossProcessCursorWrapperRequest) (*NewCrossProcessCursorWrapperResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewCrossProcessCursorWrapper not implemented")
 }
-func (UnimplementedMatrixCursorServiceServer) AddRow(context.Context, *AddRowRequest) (*AddRowResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method AddRow not implemented")
+func (UnimplementedCrossProcessCursorWrapperServiceServer) FillWindow(context.Context, *CrossProcessCursorWrapperFillWindowRequest) (*FillWindowResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method FillWindow not implemented")
 }
-func (UnimplementedMatrixCursorServiceServer) GetBlob(context.Context, *GetBlobRequest) (*GetBlobResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetBlob not implemented")
+func (UnimplementedCrossProcessCursorWrapperServiceServer) GetWindow(context.Context, *CrossProcessCursorWrapperGetWindowRequest) (*GetWindowResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetWindow not implemented")
 }
-func (UnimplementedMatrixCursorServiceServer) GetColumnNames(context.Context, *GetColumnNamesRequest) (*GetColumnNamesResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetColumnNames not implemented")
+func (UnimplementedCrossProcessCursorWrapperServiceServer) OnMove(context.Context, *CrossProcessCursorWrapperOnMoveRequest) (*OnMoveResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnMove not implemented")
 }
-func (UnimplementedMatrixCursorServiceServer) GetCount(context.Context, *GetCountRequest) (*GetCountResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetCount not implemented")
+func (UnimplementedCrossProcessCursorWrapperServiceServer) mustEmbedUnimplementedCrossProcessCursorWrapperServiceServer() {
 }
-func (UnimplementedMatrixCursorServiceServer) GetDouble(context.Context, *GetDoubleRequest) (*GetDoubleResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetDouble not implemented")
-}
-func (UnimplementedMatrixCursorServiceServer) GetFloat(context.Context, *GetFloatRequest) (*GetFloatResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetFloat not implemented")
-}
-func (UnimplementedMatrixCursorServiceServer) GetInt(context.Context, *GetIntRequest) (*GetIntResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetInt not implemented")
-}
-func (UnimplementedMatrixCursorServiceServer) GetLong(context.Context, *GetLongRequest) (*GetLongResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetLong not implemented")
-}
-func (UnimplementedMatrixCursorServiceServer) GetShort(context.Context, *GetShortRequest) (*GetShortResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetShort not implemented")
-}
-func (UnimplementedMatrixCursorServiceServer) GetString(context.Context, *GetStringRequest) (*GetStringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetString not implemented")
-}
-func (UnimplementedMatrixCursorServiceServer) GetType(context.Context, *GetTypeRequest) (*GetTypeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetType not implemented")
-}
-func (UnimplementedMatrixCursorServiceServer) IsNull(context.Context, *IsNullRequest) (*IsNullResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsNull not implemented")
-}
-func (UnimplementedMatrixCursorServiceServer) NewRow(context.Context, *NewRowRequest) (*NewRowResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewRow not implemented")
-}
-func (UnimplementedMatrixCursorServiceServer) mustEmbedUnimplementedMatrixCursorServiceServer() {}
-func (UnimplementedMatrixCursorServiceServer) testEmbeddedByValue()                             {}
+func (UnimplementedCrossProcessCursorWrapperServiceServer) testEmbeddedByValue() {}
 
-// UnsafeMatrixCursorServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to MatrixCursorServiceServer will
+// UnsafeCrossProcessCursorWrapperServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to CrossProcessCursorWrapperServiceServer will
 // result in compilation errors.
-type UnsafeMatrixCursorServiceServer interface {
-	mustEmbedUnimplementedMatrixCursorServiceServer()
+type UnsafeCrossProcessCursorWrapperServiceServer interface {
+	mustEmbedUnimplementedCrossProcessCursorWrapperServiceServer()
 }
 
-func RegisterMatrixCursorServiceServer(s grpc.ServiceRegistrar, srv MatrixCursorServiceServer) {
-	// If the following call panics, it indicates UnimplementedMatrixCursorServiceServer was
+func RegisterCrossProcessCursorWrapperServiceServer(s grpc.ServiceRegistrar, srv CrossProcessCursorWrapperServiceServer) {
+	// If the following call panics, it indicates UnimplementedCrossProcessCursorWrapperServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&MatrixCursorService_ServiceDesc, srv)
+	s.RegisterService(&CrossProcessCursorWrapperService_ServiceDesc, srv)
 }
 
-func _MatrixCursorService_NewMatrixCursor_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewMatrixCursorRequest)
+func _CrossProcessCursorWrapperService_NewCrossProcessCursorWrapper_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewCrossProcessCursorWrapperRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(MatrixCursorServiceServer).NewMatrixCursor(ctx, in)
+		return srv.(CrossProcessCursorWrapperServiceServer).NewCrossProcessCursorWrapper(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: MatrixCursorService_NewMatrixCursor_FullMethodName,
+		FullMethod: CrossProcessCursorWrapperService_NewCrossProcessCursorWrapper_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MatrixCursorServiceServer).NewMatrixCursor(ctx, req.(*NewMatrixCursorRequest))
+		return srv.(CrossProcessCursorWrapperServiceServer).NewCrossProcessCursorWrapper(ctx, req.(*NewCrossProcessCursorWrapperRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _MatrixCursorService_AddRow_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AddRowRequest)
+func _CrossProcessCursorWrapperService_FillWindow_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CrossProcessCursorWrapperFillWindowRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(MatrixCursorServiceServer).AddRow(ctx, in)
+		return srv.(CrossProcessCursorWrapperServiceServer).FillWindow(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: MatrixCursorService_AddRow_FullMethodName,
+		FullMethod: CrossProcessCursorWrapperService_FillWindow_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MatrixCursorServiceServer).AddRow(ctx, req.(*AddRowRequest))
+		return srv.(CrossProcessCursorWrapperServiceServer).FillWindow(ctx, req.(*CrossProcessCursorWrapperFillWindowRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _MatrixCursorService_GetBlob_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetBlobRequest)
+func _CrossProcessCursorWrapperService_GetWindow_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CrossProcessCursorWrapperGetWindowRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(MatrixCursorServiceServer).GetBlob(ctx, in)
+		return srv.(CrossProcessCursorWrapperServiceServer).GetWindow(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: MatrixCursorService_GetBlob_FullMethodName,
+		FullMethod: CrossProcessCursorWrapperService_GetWindow_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MatrixCursorServiceServer).GetBlob(ctx, req.(*GetBlobRequest))
+		return srv.(CrossProcessCursorWrapperServiceServer).GetWindow(ctx, req.(*CrossProcessCursorWrapperGetWindowRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _MatrixCursorService_GetColumnNames_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetColumnNamesRequest)
+func _CrossProcessCursorWrapperService_OnMove_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CrossProcessCursorWrapperOnMoveRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(MatrixCursorServiceServer).GetColumnNames(ctx, in)
+		return srv.(CrossProcessCursorWrapperServiceServer).OnMove(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: MatrixCursorService_GetColumnNames_FullMethodName,
+		FullMethod: CrossProcessCursorWrapperService_OnMove_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MatrixCursorServiceServer).GetColumnNames(ctx, req.(*GetColumnNamesRequest))
+		return srv.(CrossProcessCursorWrapperServiceServer).OnMove(ctx, req.(*CrossProcessCursorWrapperOnMoveRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _MatrixCursorService_GetCount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetCountRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(MatrixCursorServiceServer).GetCount(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: MatrixCursorService_GetCount_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MatrixCursorServiceServer).GetCount(ctx, req.(*GetCountRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _MatrixCursorService_GetDouble_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetDoubleRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(MatrixCursorServiceServer).GetDouble(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: MatrixCursorService_GetDouble_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MatrixCursorServiceServer).GetDouble(ctx, req.(*GetDoubleRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _MatrixCursorService_GetFloat_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetFloatRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(MatrixCursorServiceServer).GetFloat(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: MatrixCursorService_GetFloat_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MatrixCursorServiceServer).GetFloat(ctx, req.(*GetFloatRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _MatrixCursorService_GetInt_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetIntRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(MatrixCursorServiceServer).GetInt(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: MatrixCursorService_GetInt_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MatrixCursorServiceServer).GetInt(ctx, req.(*GetIntRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _MatrixCursorService_GetLong_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetLongRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(MatrixCursorServiceServer).GetLong(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: MatrixCursorService_GetLong_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MatrixCursorServiceServer).GetLong(ctx, req.(*GetLongRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _MatrixCursorService_GetShort_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetShortRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(MatrixCursorServiceServer).GetShort(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: MatrixCursorService_GetShort_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MatrixCursorServiceServer).GetShort(ctx, req.(*GetShortRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _MatrixCursorService_GetString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetStringRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(MatrixCursorServiceServer).GetString(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: MatrixCursorService_GetString_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MatrixCursorServiceServer).GetString(ctx, req.(*GetStringRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _MatrixCursorService_GetType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetTypeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(MatrixCursorServiceServer).GetType(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: MatrixCursorService_GetType_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MatrixCursorServiceServer).GetType(ctx, req.(*GetTypeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _MatrixCursorService_IsNull_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsNullRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(MatrixCursorServiceServer).IsNull(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: MatrixCursorService_IsNull_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MatrixCursorServiceServer).IsNull(ctx, req.(*IsNullRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _MatrixCursorService_NewRow_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewRowRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(MatrixCursorServiceServer).NewRow(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: MatrixCursorService_NewRow_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MatrixCursorServiceServer).NewRow(ctx, req.(*NewRowRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// MatrixCursorService_ServiceDesc is the grpc.ServiceDesc for MatrixCursorService service.
+// CrossProcessCursorWrapperService_ServiceDesc is the grpc.ServiceDesc for CrossProcessCursorWrapperService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var MatrixCursorService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "database.MatrixCursorService",
-	HandlerType: (*MatrixCursorServiceServer)(nil),
+var CrossProcessCursorWrapperService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "database.CrossProcessCursorWrapperService",
+	HandlerType: (*CrossProcessCursorWrapperServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "NewMatrixCursor",
-			Handler:    _MatrixCursorService_NewMatrixCursor_Handler,
+			MethodName: "NewCrossProcessCursorWrapper",
+			Handler:    _CrossProcessCursorWrapperService_NewCrossProcessCursorWrapper_Handler,
 		},
 		{
-			MethodName: "AddRow",
-			Handler:    _MatrixCursorService_AddRow_Handler,
+			MethodName: "FillWindow",
+			Handler:    _CrossProcessCursorWrapperService_FillWindow_Handler,
 		},
 		{
-			MethodName: "GetBlob",
-			Handler:    _MatrixCursorService_GetBlob_Handler,
+			MethodName: "GetWindow",
+			Handler:    _CrossProcessCursorWrapperService_GetWindow_Handler,
 		},
 		{
-			MethodName: "GetColumnNames",
-			Handler:    _MatrixCursorService_GetColumnNames_Handler,
-		},
-		{
-			MethodName: "GetCount",
-			Handler:    _MatrixCursorService_GetCount_Handler,
-		},
-		{
-			MethodName: "GetDouble",
-			Handler:    _MatrixCursorService_GetDouble_Handler,
-		},
-		{
-			MethodName: "GetFloat",
-			Handler:    _MatrixCursorService_GetFloat_Handler,
-		},
-		{
-			MethodName: "GetInt",
-			Handler:    _MatrixCursorService_GetInt_Handler,
-		},
-		{
-			MethodName: "GetLong",
-			Handler:    _MatrixCursorService_GetLong_Handler,
-		},
-		{
-			MethodName: "GetShort",
-			Handler:    _MatrixCursorService_GetShort_Handler,
-		},
-		{
-			MethodName: "GetString",
-			Handler:    _MatrixCursorService_GetString_Handler,
-		},
-		{
-			MethodName: "GetType",
-			Handler:    _MatrixCursorService_GetType_Handler,
-		},
-		{
-			MethodName: "IsNull",
-			Handler:    _MatrixCursorService_IsNull_Handler,
-		},
-		{
-			MethodName: "NewRow",
-			Handler:    _MatrixCursorService_NewRow_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/database/database.proto",
-}
-
-const (
-	MatrixCursorRowBuilderService_Add1_FullMethodName   = "/database.MatrixCursorRowBuilderService/Add1"
-	MatrixCursorRowBuilderService_Add2_1_FullMethodName = "/database.MatrixCursorRowBuilderService/Add2_1"
-)
-
-// MatrixCursorRowBuilderServiceClient is the client API for MatrixCursorRowBuilderService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type MatrixCursorRowBuilderServiceClient interface {
-	Add1(ctx context.Context, in *Add1Request, opts ...grpc.CallOption) (*Add1Response, error)
-	Add2_1(ctx context.Context, in *Add2_1Request, opts ...grpc.CallOption) (*Add2_1Response, error)
-}
-
-type matrixCursorRowBuilderServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewMatrixCursorRowBuilderServiceClient(cc grpc.ClientConnInterface) MatrixCursorRowBuilderServiceClient {
-	return &matrixCursorRowBuilderServiceClient{cc}
-}
-
-func (c *matrixCursorRowBuilderServiceClient) Add1(ctx context.Context, in *Add1Request, opts ...grpc.CallOption) (*Add1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(Add1Response)
-	err := c.cc.Invoke(ctx, MatrixCursorRowBuilderService_Add1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *matrixCursorRowBuilderServiceClient) Add2_1(ctx context.Context, in *Add2_1Request, opts ...grpc.CallOption) (*Add2_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(Add2_1Response)
-	err := c.cc.Invoke(ctx, MatrixCursorRowBuilderService_Add2_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// MatrixCursorRowBuilderServiceServer is the server API for MatrixCursorRowBuilderService service.
-// All implementations must embed UnimplementedMatrixCursorRowBuilderServiceServer
-// for forward compatibility.
-type MatrixCursorRowBuilderServiceServer interface {
-	Add1(context.Context, *Add1Request) (*Add1Response, error)
-	Add2_1(context.Context, *Add2_1Request) (*Add2_1Response, error)
-	mustEmbedUnimplementedMatrixCursorRowBuilderServiceServer()
-}
-
-// UnimplementedMatrixCursorRowBuilderServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedMatrixCursorRowBuilderServiceServer struct{}
-
-func (UnimplementedMatrixCursorRowBuilderServiceServer) Add1(context.Context, *Add1Request) (*Add1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method Add1 not implemented")
-}
-func (UnimplementedMatrixCursorRowBuilderServiceServer) Add2_1(context.Context, *Add2_1Request) (*Add2_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method Add2_1 not implemented")
-}
-func (UnimplementedMatrixCursorRowBuilderServiceServer) mustEmbedUnimplementedMatrixCursorRowBuilderServiceServer() {
-}
-func (UnimplementedMatrixCursorRowBuilderServiceServer) testEmbeddedByValue() {}
-
-// UnsafeMatrixCursorRowBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to MatrixCursorRowBuilderServiceServer will
-// result in compilation errors.
-type UnsafeMatrixCursorRowBuilderServiceServer interface {
-	mustEmbedUnimplementedMatrixCursorRowBuilderServiceServer()
-}
-
-func RegisterMatrixCursorRowBuilderServiceServer(s grpc.ServiceRegistrar, srv MatrixCursorRowBuilderServiceServer) {
-	// If the following call panics, it indicates UnimplementedMatrixCursorRowBuilderServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&MatrixCursorRowBuilderService_ServiceDesc, srv)
-}
-
-func _MatrixCursorRowBuilderService_Add1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(Add1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(MatrixCursorRowBuilderServiceServer).Add1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: MatrixCursorRowBuilderService_Add1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MatrixCursorRowBuilderServiceServer).Add1(ctx, req.(*Add1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _MatrixCursorRowBuilderService_Add2_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(Add2_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(MatrixCursorRowBuilderServiceServer).Add2_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: MatrixCursorRowBuilderService_Add2_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MatrixCursorRowBuilderServiceServer).Add2_1(ctx, req.(*Add2_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// MatrixCursorRowBuilderService_ServiceDesc is the grpc.ServiceDesc for MatrixCursorRowBuilderService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var MatrixCursorRowBuilderService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "database.MatrixCursorRowBuilderService",
-	HandlerType: (*MatrixCursorRowBuilderServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "Add1",
-			Handler:    _MatrixCursorRowBuilderService_Add1_Handler,
-		},
-		{
-			MethodName: "Add2_1",
-			Handler:    _MatrixCursorRowBuilderService_Add2_1_Handler,
+			MethodName: "OnMove",
+			Handler:    _CrossProcessCursorWrapperService_OnMove_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -3932,2731 +5001,292 @@ var DefaultDatabaseErrorHandlerService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	CursorWrapperService_NewCursorWrapper_FullMethodName          = "/database.CursorWrapperService/NewCursorWrapper"
-	CursorWrapperService_Close_FullMethodName                     = "/database.CursorWrapperService/Close"
-	CursorWrapperService_CopyStringToBuffer_FullMethodName        = "/database.CursorWrapperService/CopyStringToBuffer"
-	CursorWrapperService_Deactivate_FullMethodName                = "/database.CursorWrapperService/Deactivate"
-	CursorWrapperService_GetBlob_FullMethodName                   = "/database.CursorWrapperService/GetBlob"
-	CursorWrapperService_GetColumnCount_FullMethodName            = "/database.CursorWrapperService/GetColumnCount"
-	CursorWrapperService_GetColumnIndex_FullMethodName            = "/database.CursorWrapperService/GetColumnIndex"
-	CursorWrapperService_GetColumnIndexOrThrow_FullMethodName     = "/database.CursorWrapperService/GetColumnIndexOrThrow"
-	CursorWrapperService_GetColumnName_FullMethodName             = "/database.CursorWrapperService/GetColumnName"
-	CursorWrapperService_GetColumnNames_FullMethodName            = "/database.CursorWrapperService/GetColumnNames"
-	CursorWrapperService_GetCount_FullMethodName                  = "/database.CursorWrapperService/GetCount"
-	CursorWrapperService_GetDouble_FullMethodName                 = "/database.CursorWrapperService/GetDouble"
-	CursorWrapperService_GetExtras_FullMethodName                 = "/database.CursorWrapperService/GetExtras"
-	CursorWrapperService_GetFloat_FullMethodName                  = "/database.CursorWrapperService/GetFloat"
-	CursorWrapperService_GetInt_FullMethodName                    = "/database.CursorWrapperService/GetInt"
-	CursorWrapperService_GetLong_FullMethodName                   = "/database.CursorWrapperService/GetLong"
-	CursorWrapperService_GetNotificationUri_FullMethodName        = "/database.CursorWrapperService/GetNotificationUri"
-	CursorWrapperService_GetPosition_FullMethodName               = "/database.CursorWrapperService/GetPosition"
-	CursorWrapperService_GetShort_FullMethodName                  = "/database.CursorWrapperService/GetShort"
-	CursorWrapperService_GetString_FullMethodName                 = "/database.CursorWrapperService/GetString"
-	CursorWrapperService_GetType_FullMethodName                   = "/database.CursorWrapperService/GetType"
-	CursorWrapperService_GetWantsAllOnMoveCalls_FullMethodName    = "/database.CursorWrapperService/GetWantsAllOnMoveCalls"
-	CursorWrapperService_GetWrappedCursor_FullMethodName          = "/database.CursorWrapperService/GetWrappedCursor"
-	CursorWrapperService_IsAfterLast_FullMethodName               = "/database.CursorWrapperService/IsAfterLast"
-	CursorWrapperService_IsBeforeFirst_FullMethodName             = "/database.CursorWrapperService/IsBeforeFirst"
-	CursorWrapperService_IsClosed_FullMethodName                  = "/database.CursorWrapperService/IsClosed"
-	CursorWrapperService_IsFirst_FullMethodName                   = "/database.CursorWrapperService/IsFirst"
-	CursorWrapperService_IsLast_FullMethodName                    = "/database.CursorWrapperService/IsLast"
-	CursorWrapperService_IsNull_FullMethodName                    = "/database.CursorWrapperService/IsNull"
-	CursorWrapperService_Move_FullMethodName                      = "/database.CursorWrapperService/Move"
-	CursorWrapperService_MoveToFirst_FullMethodName               = "/database.CursorWrapperService/MoveToFirst"
-	CursorWrapperService_MoveToLast_FullMethodName                = "/database.CursorWrapperService/MoveToLast"
-	CursorWrapperService_MoveToNext_FullMethodName                = "/database.CursorWrapperService/MoveToNext"
-	CursorWrapperService_MoveToPosition_FullMethodName            = "/database.CursorWrapperService/MoveToPosition"
-	CursorWrapperService_MoveToPrevious_FullMethodName            = "/database.CursorWrapperService/MoveToPrevious"
-	CursorWrapperService_RegisterContentObserver_FullMethodName   = "/database.CursorWrapperService/RegisterContentObserver"
-	CursorWrapperService_RegisterDataSetObserver_FullMethodName   = "/database.CursorWrapperService/RegisterDataSetObserver"
-	CursorWrapperService_Requery_FullMethodName                   = "/database.CursorWrapperService/Requery"
-	CursorWrapperService_Respond_FullMethodName                   = "/database.CursorWrapperService/Respond"
-	CursorWrapperService_SetExtras_FullMethodName                 = "/database.CursorWrapperService/SetExtras"
-	CursorWrapperService_SetNotificationUri_FullMethodName        = "/database.CursorWrapperService/SetNotificationUri"
-	CursorWrapperService_UnregisterContentObserver_FullMethodName = "/database.CursorWrapperService/UnregisterContentObserver"
-	CursorWrapperService_UnregisterDataSetObserver_FullMethodName = "/database.CursorWrapperService/UnregisterDataSetObserver"
+	ContentObservableService_NewContentObservable_FullMethodName = "/database.ContentObservableService/NewContentObservable"
+	ContentObservableService_DispatchChange1_FullMethodName      = "/database.ContentObservableService/DispatchChange1"
+	ContentObservableService_DispatchChange2_1_FullMethodName    = "/database.ContentObservableService/DispatchChange2_1"
+	ContentObservableService_NotifyChange_FullMethodName         = "/database.ContentObservableService/NotifyChange"
+	ContentObservableService_RegisterObserver1_FullMethodName    = "/database.ContentObservableService/RegisterObserver1"
+	ContentObservableService_RegisterObserver1_1_FullMethodName  = "/database.ContentObservableService/RegisterObserver1_1"
 )
 
-// CursorWrapperServiceClient is the client API for CursorWrapperService service.
+// ContentObservableServiceClient is the client API for ContentObservableService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type CursorWrapperServiceClient interface {
-	NewCursorWrapper(ctx context.Context, in *NewCursorWrapperRequest, opts ...grpc.CallOption) (*NewCursorWrapperResponse, error)
-	Close(ctx context.Context, in *CursorWrapperCloseRequest, opts ...grpc.CallOption) (*CloseResponse, error)
-	CopyStringToBuffer(ctx context.Context, in *CopyStringToBufferRequest, opts ...grpc.CallOption) (*CopyStringToBufferResponse, error)
-	Deactivate(ctx context.Context, in *DeactivateRequest, opts ...grpc.CallOption) (*DeactivateResponse, error)
-	GetBlob(ctx context.Context, in *GetBlobRequest, opts ...grpc.CallOption) (*GetBlobResponse, error)
-	GetColumnCount(ctx context.Context, in *GetColumnCountRequest, opts ...grpc.CallOption) (*GetColumnCountResponse, error)
-	GetColumnIndex(ctx context.Context, in *CursorWrapperGetColumnIndexRequest, opts ...grpc.CallOption) (*GetColumnIndexResponse, error)
-	GetColumnIndexOrThrow(ctx context.Context, in *GetColumnIndexOrThrowRequest, opts ...grpc.CallOption) (*GetColumnIndexOrThrowResponse, error)
-	GetColumnName(ctx context.Context, in *GetColumnNameRequest, opts ...grpc.CallOption) (*GetColumnNameResponse, error)
-	GetColumnNames(ctx context.Context, in *GetColumnNamesRequest, opts ...grpc.CallOption) (*GetColumnNamesResponse, error)
-	GetCount(ctx context.Context, in *GetCountRequest, opts ...grpc.CallOption) (*GetCountResponse, error)
-	GetDouble(ctx context.Context, in *GetDoubleRequest, opts ...grpc.CallOption) (*GetDoubleResponse, error)
-	GetExtras(ctx context.Context, in *GetExtrasRequest, opts ...grpc.CallOption) (*GetExtrasResponse, error)
-	GetFloat(ctx context.Context, in *GetFloatRequest, opts ...grpc.CallOption) (*GetFloatResponse, error)
-	GetInt(ctx context.Context, in *GetIntRequest, opts ...grpc.CallOption) (*GetIntResponse, error)
-	GetLong(ctx context.Context, in *GetLongRequest, opts ...grpc.CallOption) (*GetLongResponse, error)
-	GetNotificationUri(ctx context.Context, in *GetNotificationUriRequest, opts ...grpc.CallOption) (*GetNotificationUriResponse, error)
-	GetPosition(ctx context.Context, in *GetPositionRequest, opts ...grpc.CallOption) (*GetPositionResponse, error)
-	GetShort(ctx context.Context, in *GetShortRequest, opts ...grpc.CallOption) (*GetShortResponse, error)
-	GetString(ctx context.Context, in *GetStringRequest, opts ...grpc.CallOption) (*GetStringResponse, error)
-	GetType(ctx context.Context, in *GetTypeRequest, opts ...grpc.CallOption) (*GetTypeResponse, error)
-	GetWantsAllOnMoveCalls(ctx context.Context, in *GetWantsAllOnMoveCallsRequest, opts ...grpc.CallOption) (*GetWantsAllOnMoveCallsResponse, error)
-	GetWrappedCursor(ctx context.Context, in *GetWrappedCursorRequest, opts ...grpc.CallOption) (*GetWrappedCursorResponse, error)
-	IsAfterLast(ctx context.Context, in *IsAfterLastRequest, opts ...grpc.CallOption) (*IsAfterLastResponse, error)
-	IsBeforeFirst(ctx context.Context, in *IsBeforeFirstRequest, opts ...grpc.CallOption) (*IsBeforeFirstResponse, error)
-	IsClosed(ctx context.Context, in *IsClosedRequest, opts ...grpc.CallOption) (*IsClosedResponse, error)
-	IsFirst(ctx context.Context, in *IsFirstRequest, opts ...grpc.CallOption) (*IsFirstResponse, error)
-	IsLast(ctx context.Context, in *IsLastRequest, opts ...grpc.CallOption) (*IsLastResponse, error)
-	IsNull(ctx context.Context, in *IsNullRequest, opts ...grpc.CallOption) (*IsNullResponse, error)
-	Move(ctx context.Context, in *MoveRequest, opts ...grpc.CallOption) (*MoveResponse, error)
-	MoveToFirst(ctx context.Context, in *MoveToFirstRequest, opts ...grpc.CallOption) (*MoveToFirstResponse, error)
-	MoveToLast(ctx context.Context, in *MoveToLastRequest, opts ...grpc.CallOption) (*MoveToLastResponse, error)
-	MoveToNext(ctx context.Context, in *MoveToNextRequest, opts ...grpc.CallOption) (*MoveToNextResponse, error)
-	MoveToPosition(ctx context.Context, in *MoveToPositionRequest, opts ...grpc.CallOption) (*MoveToPositionResponse, error)
-	MoveToPrevious(ctx context.Context, in *MoveToPreviousRequest, opts ...grpc.CallOption) (*MoveToPreviousResponse, error)
-	RegisterContentObserver(ctx context.Context, in *RegisterContentObserverRequest, opts ...grpc.CallOption) (*RegisterContentObserverResponse, error)
-	RegisterDataSetObserver(ctx context.Context, in *RegisterDataSetObserverRequest, opts ...grpc.CallOption) (*RegisterDataSetObserverResponse, error)
-	Requery(ctx context.Context, in *RequeryRequest, opts ...grpc.CallOption) (*RequeryResponse, error)
-	Respond(ctx context.Context, in *RespondRequest, opts ...grpc.CallOption) (*RespondResponse, error)
-	SetExtras(ctx context.Context, in *SetExtrasRequest, opts ...grpc.CallOption) (*SetExtrasResponse, error)
-	SetNotificationUri(ctx context.Context, in *SetNotificationUriRequest, opts ...grpc.CallOption) (*SetNotificationUriResponse, error)
-	UnregisterContentObserver(ctx context.Context, in *UnregisterContentObserverRequest, opts ...grpc.CallOption) (*UnregisterContentObserverResponse, error)
-	UnregisterDataSetObserver(ctx context.Context, in *UnregisterDataSetObserverRequest, opts ...grpc.CallOption) (*UnregisterDataSetObserverResponse, error)
+type ContentObservableServiceClient interface {
+	NewContentObservable(ctx context.Context, in *NewContentObservableRequest, opts ...grpc.CallOption) (*NewContentObservableResponse, error)
+	DispatchChange1(ctx context.Context, in *ContentObservableDispatchChange1Request, opts ...grpc.CallOption) (*DispatchChange1Response, error)
+	DispatchChange2_1(ctx context.Context, in *ContentObservableDispatchChange2_1Request, opts ...grpc.CallOption) (*DispatchChange2_1Response, error)
+	NotifyChange(ctx context.Context, in *NotifyChangeRequest, opts ...grpc.CallOption) (*NotifyChangeResponse, error)
+	RegisterObserver1(ctx context.Context, in *RegisterObserver1Request, opts ...grpc.CallOption) (*RegisterObserver1Response, error)
+	RegisterObserver1_1(ctx context.Context, in *RegisterObserver1_1Request, opts ...grpc.CallOption) (*RegisterObserver1_1Response, error)
 }
 
-type cursorWrapperServiceClient struct {
+type contentObservableServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewCursorWrapperServiceClient(cc grpc.ClientConnInterface) CursorWrapperServiceClient {
-	return &cursorWrapperServiceClient{cc}
+func NewContentObservableServiceClient(cc grpc.ClientConnInterface) ContentObservableServiceClient {
+	return &contentObservableServiceClient{cc}
 }
 
-func (c *cursorWrapperServiceClient) NewCursorWrapper(ctx context.Context, in *NewCursorWrapperRequest, opts ...grpc.CallOption) (*NewCursorWrapperResponse, error) {
+func (c *contentObservableServiceClient) NewContentObservable(ctx context.Context, in *NewContentObservableRequest, opts ...grpc.CallOption) (*NewContentObservableResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewCursorWrapperResponse)
-	err := c.cc.Invoke(ctx, CursorWrapperService_NewCursorWrapper_FullMethodName, in, out, cOpts...)
+	out := new(NewContentObservableResponse)
+	err := c.cc.Invoke(ctx, ContentObservableService_NewContentObservable_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *cursorWrapperServiceClient) Close(ctx context.Context, in *CursorWrapperCloseRequest, opts ...grpc.CallOption) (*CloseResponse, error) {
+func (c *contentObservableServiceClient) DispatchChange1(ctx context.Context, in *ContentObservableDispatchChange1Request, opts ...grpc.CallOption) (*DispatchChange1Response, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CloseResponse)
-	err := c.cc.Invoke(ctx, CursorWrapperService_Close_FullMethodName, in, out, cOpts...)
+	out := new(DispatchChange1Response)
+	err := c.cc.Invoke(ctx, ContentObservableService_DispatchChange1_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *cursorWrapperServiceClient) CopyStringToBuffer(ctx context.Context, in *CopyStringToBufferRequest, opts ...grpc.CallOption) (*CopyStringToBufferResponse, error) {
+func (c *contentObservableServiceClient) DispatchChange2_1(ctx context.Context, in *ContentObservableDispatchChange2_1Request, opts ...grpc.CallOption) (*DispatchChange2_1Response, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CopyStringToBufferResponse)
-	err := c.cc.Invoke(ctx, CursorWrapperService_CopyStringToBuffer_FullMethodName, in, out, cOpts...)
+	out := new(DispatchChange2_1Response)
+	err := c.cc.Invoke(ctx, ContentObservableService_DispatchChange2_1_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *cursorWrapperServiceClient) Deactivate(ctx context.Context, in *DeactivateRequest, opts ...grpc.CallOption) (*DeactivateResponse, error) {
+func (c *contentObservableServiceClient) NotifyChange(ctx context.Context, in *NotifyChangeRequest, opts ...grpc.CallOption) (*NotifyChangeResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DeactivateResponse)
-	err := c.cc.Invoke(ctx, CursorWrapperService_Deactivate_FullMethodName, in, out, cOpts...)
+	out := new(NotifyChangeResponse)
+	err := c.cc.Invoke(ctx, ContentObservableService_NotifyChange_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *cursorWrapperServiceClient) GetBlob(ctx context.Context, in *GetBlobRequest, opts ...grpc.CallOption) (*GetBlobResponse, error) {
+func (c *contentObservableServiceClient) RegisterObserver1(ctx context.Context, in *RegisterObserver1Request, opts ...grpc.CallOption) (*RegisterObserver1Response, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetBlobResponse)
-	err := c.cc.Invoke(ctx, CursorWrapperService_GetBlob_FullMethodName, in, out, cOpts...)
+	out := new(RegisterObserver1Response)
+	err := c.cc.Invoke(ctx, ContentObservableService_RegisterObserver1_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *cursorWrapperServiceClient) GetColumnCount(ctx context.Context, in *GetColumnCountRequest, opts ...grpc.CallOption) (*GetColumnCountResponse, error) {
+func (c *contentObservableServiceClient) RegisterObserver1_1(ctx context.Context, in *RegisterObserver1_1Request, opts ...grpc.CallOption) (*RegisterObserver1_1Response, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetColumnCountResponse)
-	err := c.cc.Invoke(ctx, CursorWrapperService_GetColumnCount_FullMethodName, in, out, cOpts...)
+	out := new(RegisterObserver1_1Response)
+	err := c.cc.Invoke(ctx, ContentObservableService_RegisterObserver1_1_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *cursorWrapperServiceClient) GetColumnIndex(ctx context.Context, in *CursorWrapperGetColumnIndexRequest, opts ...grpc.CallOption) (*GetColumnIndexResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetColumnIndexResponse)
-	err := c.cc.Invoke(ctx, CursorWrapperService_GetColumnIndex_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *cursorWrapperServiceClient) GetColumnIndexOrThrow(ctx context.Context, in *GetColumnIndexOrThrowRequest, opts ...grpc.CallOption) (*GetColumnIndexOrThrowResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetColumnIndexOrThrowResponse)
-	err := c.cc.Invoke(ctx, CursorWrapperService_GetColumnIndexOrThrow_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *cursorWrapperServiceClient) GetColumnName(ctx context.Context, in *GetColumnNameRequest, opts ...grpc.CallOption) (*GetColumnNameResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetColumnNameResponse)
-	err := c.cc.Invoke(ctx, CursorWrapperService_GetColumnName_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *cursorWrapperServiceClient) GetColumnNames(ctx context.Context, in *GetColumnNamesRequest, opts ...grpc.CallOption) (*GetColumnNamesResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetColumnNamesResponse)
-	err := c.cc.Invoke(ctx, CursorWrapperService_GetColumnNames_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *cursorWrapperServiceClient) GetCount(ctx context.Context, in *GetCountRequest, opts ...grpc.CallOption) (*GetCountResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetCountResponse)
-	err := c.cc.Invoke(ctx, CursorWrapperService_GetCount_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *cursorWrapperServiceClient) GetDouble(ctx context.Context, in *GetDoubleRequest, opts ...grpc.CallOption) (*GetDoubleResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetDoubleResponse)
-	err := c.cc.Invoke(ctx, CursorWrapperService_GetDouble_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *cursorWrapperServiceClient) GetExtras(ctx context.Context, in *GetExtrasRequest, opts ...grpc.CallOption) (*GetExtrasResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetExtrasResponse)
-	err := c.cc.Invoke(ctx, CursorWrapperService_GetExtras_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *cursorWrapperServiceClient) GetFloat(ctx context.Context, in *GetFloatRequest, opts ...grpc.CallOption) (*GetFloatResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetFloatResponse)
-	err := c.cc.Invoke(ctx, CursorWrapperService_GetFloat_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *cursorWrapperServiceClient) GetInt(ctx context.Context, in *GetIntRequest, opts ...grpc.CallOption) (*GetIntResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetIntResponse)
-	err := c.cc.Invoke(ctx, CursorWrapperService_GetInt_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *cursorWrapperServiceClient) GetLong(ctx context.Context, in *GetLongRequest, opts ...grpc.CallOption) (*GetLongResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetLongResponse)
-	err := c.cc.Invoke(ctx, CursorWrapperService_GetLong_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *cursorWrapperServiceClient) GetNotificationUri(ctx context.Context, in *GetNotificationUriRequest, opts ...grpc.CallOption) (*GetNotificationUriResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetNotificationUriResponse)
-	err := c.cc.Invoke(ctx, CursorWrapperService_GetNotificationUri_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *cursorWrapperServiceClient) GetPosition(ctx context.Context, in *GetPositionRequest, opts ...grpc.CallOption) (*GetPositionResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetPositionResponse)
-	err := c.cc.Invoke(ctx, CursorWrapperService_GetPosition_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *cursorWrapperServiceClient) GetShort(ctx context.Context, in *GetShortRequest, opts ...grpc.CallOption) (*GetShortResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetShortResponse)
-	err := c.cc.Invoke(ctx, CursorWrapperService_GetShort_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *cursorWrapperServiceClient) GetString(ctx context.Context, in *GetStringRequest, opts ...grpc.CallOption) (*GetStringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetStringResponse)
-	err := c.cc.Invoke(ctx, CursorWrapperService_GetString_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *cursorWrapperServiceClient) GetType(ctx context.Context, in *GetTypeRequest, opts ...grpc.CallOption) (*GetTypeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetTypeResponse)
-	err := c.cc.Invoke(ctx, CursorWrapperService_GetType_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *cursorWrapperServiceClient) GetWantsAllOnMoveCalls(ctx context.Context, in *GetWantsAllOnMoveCallsRequest, opts ...grpc.CallOption) (*GetWantsAllOnMoveCallsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetWantsAllOnMoveCallsResponse)
-	err := c.cc.Invoke(ctx, CursorWrapperService_GetWantsAllOnMoveCalls_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *cursorWrapperServiceClient) GetWrappedCursor(ctx context.Context, in *GetWrappedCursorRequest, opts ...grpc.CallOption) (*GetWrappedCursorResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetWrappedCursorResponse)
-	err := c.cc.Invoke(ctx, CursorWrapperService_GetWrappedCursor_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *cursorWrapperServiceClient) IsAfterLast(ctx context.Context, in *IsAfterLastRequest, opts ...grpc.CallOption) (*IsAfterLastResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsAfterLastResponse)
-	err := c.cc.Invoke(ctx, CursorWrapperService_IsAfterLast_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *cursorWrapperServiceClient) IsBeforeFirst(ctx context.Context, in *IsBeforeFirstRequest, opts ...grpc.CallOption) (*IsBeforeFirstResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsBeforeFirstResponse)
-	err := c.cc.Invoke(ctx, CursorWrapperService_IsBeforeFirst_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *cursorWrapperServiceClient) IsClosed(ctx context.Context, in *IsClosedRequest, opts ...grpc.CallOption) (*IsClosedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsClosedResponse)
-	err := c.cc.Invoke(ctx, CursorWrapperService_IsClosed_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *cursorWrapperServiceClient) IsFirst(ctx context.Context, in *IsFirstRequest, opts ...grpc.CallOption) (*IsFirstResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsFirstResponse)
-	err := c.cc.Invoke(ctx, CursorWrapperService_IsFirst_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *cursorWrapperServiceClient) IsLast(ctx context.Context, in *IsLastRequest, opts ...grpc.CallOption) (*IsLastResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsLastResponse)
-	err := c.cc.Invoke(ctx, CursorWrapperService_IsLast_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *cursorWrapperServiceClient) IsNull(ctx context.Context, in *IsNullRequest, opts ...grpc.CallOption) (*IsNullResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsNullResponse)
-	err := c.cc.Invoke(ctx, CursorWrapperService_IsNull_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *cursorWrapperServiceClient) Move(ctx context.Context, in *MoveRequest, opts ...grpc.CallOption) (*MoveResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(MoveResponse)
-	err := c.cc.Invoke(ctx, CursorWrapperService_Move_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *cursorWrapperServiceClient) MoveToFirst(ctx context.Context, in *MoveToFirstRequest, opts ...grpc.CallOption) (*MoveToFirstResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(MoveToFirstResponse)
-	err := c.cc.Invoke(ctx, CursorWrapperService_MoveToFirst_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *cursorWrapperServiceClient) MoveToLast(ctx context.Context, in *MoveToLastRequest, opts ...grpc.CallOption) (*MoveToLastResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(MoveToLastResponse)
-	err := c.cc.Invoke(ctx, CursorWrapperService_MoveToLast_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *cursorWrapperServiceClient) MoveToNext(ctx context.Context, in *MoveToNextRequest, opts ...grpc.CallOption) (*MoveToNextResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(MoveToNextResponse)
-	err := c.cc.Invoke(ctx, CursorWrapperService_MoveToNext_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *cursorWrapperServiceClient) MoveToPosition(ctx context.Context, in *MoveToPositionRequest, opts ...grpc.CallOption) (*MoveToPositionResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(MoveToPositionResponse)
-	err := c.cc.Invoke(ctx, CursorWrapperService_MoveToPosition_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *cursorWrapperServiceClient) MoveToPrevious(ctx context.Context, in *MoveToPreviousRequest, opts ...grpc.CallOption) (*MoveToPreviousResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(MoveToPreviousResponse)
-	err := c.cc.Invoke(ctx, CursorWrapperService_MoveToPrevious_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *cursorWrapperServiceClient) RegisterContentObserver(ctx context.Context, in *RegisterContentObserverRequest, opts ...grpc.CallOption) (*RegisterContentObserverResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(RegisterContentObserverResponse)
-	err := c.cc.Invoke(ctx, CursorWrapperService_RegisterContentObserver_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *cursorWrapperServiceClient) RegisterDataSetObserver(ctx context.Context, in *RegisterDataSetObserverRequest, opts ...grpc.CallOption) (*RegisterDataSetObserverResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(RegisterDataSetObserverResponse)
-	err := c.cc.Invoke(ctx, CursorWrapperService_RegisterDataSetObserver_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *cursorWrapperServiceClient) Requery(ctx context.Context, in *RequeryRequest, opts ...grpc.CallOption) (*RequeryResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(RequeryResponse)
-	err := c.cc.Invoke(ctx, CursorWrapperService_Requery_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *cursorWrapperServiceClient) Respond(ctx context.Context, in *RespondRequest, opts ...grpc.CallOption) (*RespondResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(RespondResponse)
-	err := c.cc.Invoke(ctx, CursorWrapperService_Respond_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *cursorWrapperServiceClient) SetExtras(ctx context.Context, in *SetExtrasRequest, opts ...grpc.CallOption) (*SetExtrasResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetExtrasResponse)
-	err := c.cc.Invoke(ctx, CursorWrapperService_SetExtras_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *cursorWrapperServiceClient) SetNotificationUri(ctx context.Context, in *SetNotificationUriRequest, opts ...grpc.CallOption) (*SetNotificationUriResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetNotificationUriResponse)
-	err := c.cc.Invoke(ctx, CursorWrapperService_SetNotificationUri_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *cursorWrapperServiceClient) UnregisterContentObserver(ctx context.Context, in *UnregisterContentObserverRequest, opts ...grpc.CallOption) (*UnregisterContentObserverResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(UnregisterContentObserverResponse)
-	err := c.cc.Invoke(ctx, CursorWrapperService_UnregisterContentObserver_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *cursorWrapperServiceClient) UnregisterDataSetObserver(ctx context.Context, in *UnregisterDataSetObserverRequest, opts ...grpc.CallOption) (*UnregisterDataSetObserverResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(UnregisterDataSetObserverResponse)
-	err := c.cc.Invoke(ctx, CursorWrapperService_UnregisterDataSetObserver_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// CursorWrapperServiceServer is the server API for CursorWrapperService service.
-// All implementations must embed UnimplementedCursorWrapperServiceServer
+// ContentObservableServiceServer is the server API for ContentObservableService service.
+// All implementations must embed UnimplementedContentObservableServiceServer
 // for forward compatibility.
-type CursorWrapperServiceServer interface {
-	NewCursorWrapper(context.Context, *NewCursorWrapperRequest) (*NewCursorWrapperResponse, error)
-	Close(context.Context, *CursorWrapperCloseRequest) (*CloseResponse, error)
-	CopyStringToBuffer(context.Context, *CopyStringToBufferRequest) (*CopyStringToBufferResponse, error)
-	Deactivate(context.Context, *DeactivateRequest) (*DeactivateResponse, error)
-	GetBlob(context.Context, *GetBlobRequest) (*GetBlobResponse, error)
-	GetColumnCount(context.Context, *GetColumnCountRequest) (*GetColumnCountResponse, error)
-	GetColumnIndex(context.Context, *CursorWrapperGetColumnIndexRequest) (*GetColumnIndexResponse, error)
-	GetColumnIndexOrThrow(context.Context, *GetColumnIndexOrThrowRequest) (*GetColumnIndexOrThrowResponse, error)
-	GetColumnName(context.Context, *GetColumnNameRequest) (*GetColumnNameResponse, error)
-	GetColumnNames(context.Context, *GetColumnNamesRequest) (*GetColumnNamesResponse, error)
-	GetCount(context.Context, *GetCountRequest) (*GetCountResponse, error)
-	GetDouble(context.Context, *GetDoubleRequest) (*GetDoubleResponse, error)
-	GetExtras(context.Context, *GetExtrasRequest) (*GetExtrasResponse, error)
-	GetFloat(context.Context, *GetFloatRequest) (*GetFloatResponse, error)
-	GetInt(context.Context, *GetIntRequest) (*GetIntResponse, error)
-	GetLong(context.Context, *GetLongRequest) (*GetLongResponse, error)
-	GetNotificationUri(context.Context, *GetNotificationUriRequest) (*GetNotificationUriResponse, error)
-	GetPosition(context.Context, *GetPositionRequest) (*GetPositionResponse, error)
-	GetShort(context.Context, *GetShortRequest) (*GetShortResponse, error)
-	GetString(context.Context, *GetStringRequest) (*GetStringResponse, error)
-	GetType(context.Context, *GetTypeRequest) (*GetTypeResponse, error)
-	GetWantsAllOnMoveCalls(context.Context, *GetWantsAllOnMoveCallsRequest) (*GetWantsAllOnMoveCallsResponse, error)
-	GetWrappedCursor(context.Context, *GetWrappedCursorRequest) (*GetWrappedCursorResponse, error)
-	IsAfterLast(context.Context, *IsAfterLastRequest) (*IsAfterLastResponse, error)
-	IsBeforeFirst(context.Context, *IsBeforeFirstRequest) (*IsBeforeFirstResponse, error)
-	IsClosed(context.Context, *IsClosedRequest) (*IsClosedResponse, error)
-	IsFirst(context.Context, *IsFirstRequest) (*IsFirstResponse, error)
-	IsLast(context.Context, *IsLastRequest) (*IsLastResponse, error)
-	IsNull(context.Context, *IsNullRequest) (*IsNullResponse, error)
-	Move(context.Context, *MoveRequest) (*MoveResponse, error)
-	MoveToFirst(context.Context, *MoveToFirstRequest) (*MoveToFirstResponse, error)
-	MoveToLast(context.Context, *MoveToLastRequest) (*MoveToLastResponse, error)
-	MoveToNext(context.Context, *MoveToNextRequest) (*MoveToNextResponse, error)
-	MoveToPosition(context.Context, *MoveToPositionRequest) (*MoveToPositionResponse, error)
-	MoveToPrevious(context.Context, *MoveToPreviousRequest) (*MoveToPreviousResponse, error)
-	RegisterContentObserver(context.Context, *RegisterContentObserverRequest) (*RegisterContentObserverResponse, error)
-	RegisterDataSetObserver(context.Context, *RegisterDataSetObserverRequest) (*RegisterDataSetObserverResponse, error)
-	Requery(context.Context, *RequeryRequest) (*RequeryResponse, error)
-	Respond(context.Context, *RespondRequest) (*RespondResponse, error)
-	SetExtras(context.Context, *SetExtrasRequest) (*SetExtrasResponse, error)
-	SetNotificationUri(context.Context, *SetNotificationUriRequest) (*SetNotificationUriResponse, error)
-	UnregisterContentObserver(context.Context, *UnregisterContentObserverRequest) (*UnregisterContentObserverResponse, error)
-	UnregisterDataSetObserver(context.Context, *UnregisterDataSetObserverRequest) (*UnregisterDataSetObserverResponse, error)
-	mustEmbedUnimplementedCursorWrapperServiceServer()
+type ContentObservableServiceServer interface {
+	NewContentObservable(context.Context, *NewContentObservableRequest) (*NewContentObservableResponse, error)
+	DispatchChange1(context.Context, *ContentObservableDispatchChange1Request) (*DispatchChange1Response, error)
+	DispatchChange2_1(context.Context, *ContentObservableDispatchChange2_1Request) (*DispatchChange2_1Response, error)
+	NotifyChange(context.Context, *NotifyChangeRequest) (*NotifyChangeResponse, error)
+	RegisterObserver1(context.Context, *RegisterObserver1Request) (*RegisterObserver1Response, error)
+	RegisterObserver1_1(context.Context, *RegisterObserver1_1Request) (*RegisterObserver1_1Response, error)
+	mustEmbedUnimplementedContentObservableServiceServer()
 }
 
-// UnimplementedCursorWrapperServiceServer must be embedded to have
+// UnimplementedContentObservableServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedCursorWrapperServiceServer struct{}
+type UnimplementedContentObservableServiceServer struct{}
 
-func (UnimplementedCursorWrapperServiceServer) NewCursorWrapper(context.Context, *NewCursorWrapperRequest) (*NewCursorWrapperResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewCursorWrapper not implemented")
+func (UnimplementedContentObservableServiceServer) NewContentObservable(context.Context, *NewContentObservableRequest) (*NewContentObservableResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewContentObservable not implemented")
 }
-func (UnimplementedCursorWrapperServiceServer) Close(context.Context, *CursorWrapperCloseRequest) (*CloseResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Close not implemented")
+func (UnimplementedContentObservableServiceServer) DispatchChange1(context.Context, *ContentObservableDispatchChange1Request) (*DispatchChange1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method DispatchChange1 not implemented")
 }
-func (UnimplementedCursorWrapperServiceServer) CopyStringToBuffer(context.Context, *CopyStringToBufferRequest) (*CopyStringToBufferResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method CopyStringToBuffer not implemented")
+func (UnimplementedContentObservableServiceServer) DispatchChange2_1(context.Context, *ContentObservableDispatchChange2_1Request) (*DispatchChange2_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method DispatchChange2_1 not implemented")
 }
-func (UnimplementedCursorWrapperServiceServer) Deactivate(context.Context, *DeactivateRequest) (*DeactivateResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Deactivate not implemented")
+func (UnimplementedContentObservableServiceServer) NotifyChange(context.Context, *NotifyChangeRequest) (*NotifyChangeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NotifyChange not implemented")
 }
-func (UnimplementedCursorWrapperServiceServer) GetBlob(context.Context, *GetBlobRequest) (*GetBlobResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetBlob not implemented")
+func (UnimplementedContentObservableServiceServer) RegisterObserver1(context.Context, *RegisterObserver1Request) (*RegisterObserver1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method RegisterObserver1 not implemented")
 }
-func (UnimplementedCursorWrapperServiceServer) GetColumnCount(context.Context, *GetColumnCountRequest) (*GetColumnCountResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetColumnCount not implemented")
+func (UnimplementedContentObservableServiceServer) RegisterObserver1_1(context.Context, *RegisterObserver1_1Request) (*RegisterObserver1_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method RegisterObserver1_1 not implemented")
 }
-func (UnimplementedCursorWrapperServiceServer) GetColumnIndex(context.Context, *CursorWrapperGetColumnIndexRequest) (*GetColumnIndexResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetColumnIndex not implemented")
+func (UnimplementedContentObservableServiceServer) mustEmbedUnimplementedContentObservableServiceServer() {
 }
-func (UnimplementedCursorWrapperServiceServer) GetColumnIndexOrThrow(context.Context, *GetColumnIndexOrThrowRequest) (*GetColumnIndexOrThrowResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetColumnIndexOrThrow not implemented")
-}
-func (UnimplementedCursorWrapperServiceServer) GetColumnName(context.Context, *GetColumnNameRequest) (*GetColumnNameResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetColumnName not implemented")
-}
-func (UnimplementedCursorWrapperServiceServer) GetColumnNames(context.Context, *GetColumnNamesRequest) (*GetColumnNamesResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetColumnNames not implemented")
-}
-func (UnimplementedCursorWrapperServiceServer) GetCount(context.Context, *GetCountRequest) (*GetCountResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetCount not implemented")
-}
-func (UnimplementedCursorWrapperServiceServer) GetDouble(context.Context, *GetDoubleRequest) (*GetDoubleResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetDouble not implemented")
-}
-func (UnimplementedCursorWrapperServiceServer) GetExtras(context.Context, *GetExtrasRequest) (*GetExtrasResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetExtras not implemented")
-}
-func (UnimplementedCursorWrapperServiceServer) GetFloat(context.Context, *GetFloatRequest) (*GetFloatResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetFloat not implemented")
-}
-func (UnimplementedCursorWrapperServiceServer) GetInt(context.Context, *GetIntRequest) (*GetIntResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetInt not implemented")
-}
-func (UnimplementedCursorWrapperServiceServer) GetLong(context.Context, *GetLongRequest) (*GetLongResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetLong not implemented")
-}
-func (UnimplementedCursorWrapperServiceServer) GetNotificationUri(context.Context, *GetNotificationUriRequest) (*GetNotificationUriResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetNotificationUri not implemented")
-}
-func (UnimplementedCursorWrapperServiceServer) GetPosition(context.Context, *GetPositionRequest) (*GetPositionResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetPosition not implemented")
-}
-func (UnimplementedCursorWrapperServiceServer) GetShort(context.Context, *GetShortRequest) (*GetShortResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetShort not implemented")
-}
-func (UnimplementedCursorWrapperServiceServer) GetString(context.Context, *GetStringRequest) (*GetStringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetString not implemented")
-}
-func (UnimplementedCursorWrapperServiceServer) GetType(context.Context, *GetTypeRequest) (*GetTypeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetType not implemented")
-}
-func (UnimplementedCursorWrapperServiceServer) GetWantsAllOnMoveCalls(context.Context, *GetWantsAllOnMoveCallsRequest) (*GetWantsAllOnMoveCallsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetWantsAllOnMoveCalls not implemented")
-}
-func (UnimplementedCursorWrapperServiceServer) GetWrappedCursor(context.Context, *GetWrappedCursorRequest) (*GetWrappedCursorResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetWrappedCursor not implemented")
-}
-func (UnimplementedCursorWrapperServiceServer) IsAfterLast(context.Context, *IsAfterLastRequest) (*IsAfterLastResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsAfterLast not implemented")
-}
-func (UnimplementedCursorWrapperServiceServer) IsBeforeFirst(context.Context, *IsBeforeFirstRequest) (*IsBeforeFirstResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsBeforeFirst not implemented")
-}
-func (UnimplementedCursorWrapperServiceServer) IsClosed(context.Context, *IsClosedRequest) (*IsClosedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsClosed not implemented")
-}
-func (UnimplementedCursorWrapperServiceServer) IsFirst(context.Context, *IsFirstRequest) (*IsFirstResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsFirst not implemented")
-}
-func (UnimplementedCursorWrapperServiceServer) IsLast(context.Context, *IsLastRequest) (*IsLastResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsLast not implemented")
-}
-func (UnimplementedCursorWrapperServiceServer) IsNull(context.Context, *IsNullRequest) (*IsNullResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsNull not implemented")
-}
-func (UnimplementedCursorWrapperServiceServer) Move(context.Context, *MoveRequest) (*MoveResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Move not implemented")
-}
-func (UnimplementedCursorWrapperServiceServer) MoveToFirst(context.Context, *MoveToFirstRequest) (*MoveToFirstResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method MoveToFirst not implemented")
-}
-func (UnimplementedCursorWrapperServiceServer) MoveToLast(context.Context, *MoveToLastRequest) (*MoveToLastResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method MoveToLast not implemented")
-}
-func (UnimplementedCursorWrapperServiceServer) MoveToNext(context.Context, *MoveToNextRequest) (*MoveToNextResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method MoveToNext not implemented")
-}
-func (UnimplementedCursorWrapperServiceServer) MoveToPosition(context.Context, *MoveToPositionRequest) (*MoveToPositionResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method MoveToPosition not implemented")
-}
-func (UnimplementedCursorWrapperServiceServer) MoveToPrevious(context.Context, *MoveToPreviousRequest) (*MoveToPreviousResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method MoveToPrevious not implemented")
-}
-func (UnimplementedCursorWrapperServiceServer) RegisterContentObserver(context.Context, *RegisterContentObserverRequest) (*RegisterContentObserverResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method RegisterContentObserver not implemented")
-}
-func (UnimplementedCursorWrapperServiceServer) RegisterDataSetObserver(context.Context, *RegisterDataSetObserverRequest) (*RegisterDataSetObserverResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method RegisterDataSetObserver not implemented")
-}
-func (UnimplementedCursorWrapperServiceServer) Requery(context.Context, *RequeryRequest) (*RequeryResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Requery not implemented")
-}
-func (UnimplementedCursorWrapperServiceServer) Respond(context.Context, *RespondRequest) (*RespondResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Respond not implemented")
-}
-func (UnimplementedCursorWrapperServiceServer) SetExtras(context.Context, *SetExtrasRequest) (*SetExtrasResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetExtras not implemented")
-}
-func (UnimplementedCursorWrapperServiceServer) SetNotificationUri(context.Context, *SetNotificationUriRequest) (*SetNotificationUriResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetNotificationUri not implemented")
-}
-func (UnimplementedCursorWrapperServiceServer) UnregisterContentObserver(context.Context, *UnregisterContentObserverRequest) (*UnregisterContentObserverResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method UnregisterContentObserver not implemented")
-}
-func (UnimplementedCursorWrapperServiceServer) UnregisterDataSetObserver(context.Context, *UnregisterDataSetObserverRequest) (*UnregisterDataSetObserverResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method UnregisterDataSetObserver not implemented")
-}
-func (UnimplementedCursorWrapperServiceServer) mustEmbedUnimplementedCursorWrapperServiceServer() {}
-func (UnimplementedCursorWrapperServiceServer) testEmbeddedByValue()                              {}
+func (UnimplementedContentObservableServiceServer) testEmbeddedByValue() {}
 
-// UnsafeCursorWrapperServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to CursorWrapperServiceServer will
+// UnsafeContentObservableServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ContentObservableServiceServer will
 // result in compilation errors.
-type UnsafeCursorWrapperServiceServer interface {
-	mustEmbedUnimplementedCursorWrapperServiceServer()
+type UnsafeContentObservableServiceServer interface {
+	mustEmbedUnimplementedContentObservableServiceServer()
 }
 
-func RegisterCursorWrapperServiceServer(s grpc.ServiceRegistrar, srv CursorWrapperServiceServer) {
-	// If the following call panics, it indicates UnimplementedCursorWrapperServiceServer was
+func RegisterContentObservableServiceServer(s grpc.ServiceRegistrar, srv ContentObservableServiceServer) {
+	// If the following call panics, it indicates UnimplementedContentObservableServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&CursorWrapperService_ServiceDesc, srv)
+	s.RegisterService(&ContentObservableService_ServiceDesc, srv)
 }
 
-func _CursorWrapperService_NewCursorWrapper_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewCursorWrapperRequest)
+func _ContentObservableService_NewContentObservable_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewContentObservableRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(CursorWrapperServiceServer).NewCursorWrapper(ctx, in)
+		return srv.(ContentObservableServiceServer).NewContentObservable(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: CursorWrapperService_NewCursorWrapper_FullMethodName,
+		FullMethod: ContentObservableService_NewContentObservable_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CursorWrapperServiceServer).NewCursorWrapper(ctx, req.(*NewCursorWrapperRequest))
+		return srv.(ContentObservableServiceServer).NewContentObservable(ctx, req.(*NewContentObservableRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _CursorWrapperService_Close_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CursorWrapperCloseRequest)
+func _ContentObservableService_DispatchChange1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ContentObservableDispatchChange1Request)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(CursorWrapperServiceServer).Close(ctx, in)
+		return srv.(ContentObservableServiceServer).DispatchChange1(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: CursorWrapperService_Close_FullMethodName,
+		FullMethod: ContentObservableService_DispatchChange1_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CursorWrapperServiceServer).Close(ctx, req.(*CursorWrapperCloseRequest))
+		return srv.(ContentObservableServiceServer).DispatchChange1(ctx, req.(*ContentObservableDispatchChange1Request))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _CursorWrapperService_CopyStringToBuffer_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CopyStringToBufferRequest)
+func _ContentObservableService_DispatchChange2_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ContentObservableDispatchChange2_1Request)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(CursorWrapperServiceServer).CopyStringToBuffer(ctx, in)
+		return srv.(ContentObservableServiceServer).DispatchChange2_1(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: CursorWrapperService_CopyStringToBuffer_FullMethodName,
+		FullMethod: ContentObservableService_DispatchChange2_1_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CursorWrapperServiceServer).CopyStringToBuffer(ctx, req.(*CopyStringToBufferRequest))
+		return srv.(ContentObservableServiceServer).DispatchChange2_1(ctx, req.(*ContentObservableDispatchChange2_1Request))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _CursorWrapperService_Deactivate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DeactivateRequest)
+func _ContentObservableService_NotifyChange_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NotifyChangeRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(CursorWrapperServiceServer).Deactivate(ctx, in)
+		return srv.(ContentObservableServiceServer).NotifyChange(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: CursorWrapperService_Deactivate_FullMethodName,
+		FullMethod: ContentObservableService_NotifyChange_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CursorWrapperServiceServer).Deactivate(ctx, req.(*DeactivateRequest))
+		return srv.(ContentObservableServiceServer).NotifyChange(ctx, req.(*NotifyChangeRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _CursorWrapperService_GetBlob_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetBlobRequest)
+func _ContentObservableService_RegisterObserver1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RegisterObserver1Request)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(CursorWrapperServiceServer).GetBlob(ctx, in)
+		return srv.(ContentObservableServiceServer).RegisterObserver1(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: CursorWrapperService_GetBlob_FullMethodName,
+		FullMethod: ContentObservableService_RegisterObserver1_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CursorWrapperServiceServer).GetBlob(ctx, req.(*GetBlobRequest))
+		return srv.(ContentObservableServiceServer).RegisterObserver1(ctx, req.(*RegisterObserver1Request))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _CursorWrapperService_GetColumnCount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetColumnCountRequest)
+func _ContentObservableService_RegisterObserver1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RegisterObserver1_1Request)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(CursorWrapperServiceServer).GetColumnCount(ctx, in)
+		return srv.(ContentObservableServiceServer).RegisterObserver1_1(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: CursorWrapperService_GetColumnCount_FullMethodName,
+		FullMethod: ContentObservableService_RegisterObserver1_1_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CursorWrapperServiceServer).GetColumnCount(ctx, req.(*GetColumnCountRequest))
+		return srv.(ContentObservableServiceServer).RegisterObserver1_1(ctx, req.(*RegisterObserver1_1Request))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _CursorWrapperService_GetColumnIndex_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CursorWrapperGetColumnIndexRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CursorWrapperServiceServer).GetColumnIndex(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CursorWrapperService_GetColumnIndex_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CursorWrapperServiceServer).GetColumnIndex(ctx, req.(*CursorWrapperGetColumnIndexRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CursorWrapperService_GetColumnIndexOrThrow_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetColumnIndexOrThrowRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CursorWrapperServiceServer).GetColumnIndexOrThrow(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CursorWrapperService_GetColumnIndexOrThrow_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CursorWrapperServiceServer).GetColumnIndexOrThrow(ctx, req.(*GetColumnIndexOrThrowRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CursorWrapperService_GetColumnName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetColumnNameRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CursorWrapperServiceServer).GetColumnName(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CursorWrapperService_GetColumnName_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CursorWrapperServiceServer).GetColumnName(ctx, req.(*GetColumnNameRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CursorWrapperService_GetColumnNames_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetColumnNamesRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CursorWrapperServiceServer).GetColumnNames(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CursorWrapperService_GetColumnNames_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CursorWrapperServiceServer).GetColumnNames(ctx, req.(*GetColumnNamesRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CursorWrapperService_GetCount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetCountRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CursorWrapperServiceServer).GetCount(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CursorWrapperService_GetCount_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CursorWrapperServiceServer).GetCount(ctx, req.(*GetCountRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CursorWrapperService_GetDouble_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetDoubleRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CursorWrapperServiceServer).GetDouble(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CursorWrapperService_GetDouble_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CursorWrapperServiceServer).GetDouble(ctx, req.(*GetDoubleRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CursorWrapperService_GetExtras_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetExtrasRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CursorWrapperServiceServer).GetExtras(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CursorWrapperService_GetExtras_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CursorWrapperServiceServer).GetExtras(ctx, req.(*GetExtrasRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CursorWrapperService_GetFloat_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetFloatRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CursorWrapperServiceServer).GetFloat(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CursorWrapperService_GetFloat_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CursorWrapperServiceServer).GetFloat(ctx, req.(*GetFloatRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CursorWrapperService_GetInt_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetIntRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CursorWrapperServiceServer).GetInt(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CursorWrapperService_GetInt_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CursorWrapperServiceServer).GetInt(ctx, req.(*GetIntRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CursorWrapperService_GetLong_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetLongRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CursorWrapperServiceServer).GetLong(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CursorWrapperService_GetLong_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CursorWrapperServiceServer).GetLong(ctx, req.(*GetLongRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CursorWrapperService_GetNotificationUri_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetNotificationUriRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CursorWrapperServiceServer).GetNotificationUri(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CursorWrapperService_GetNotificationUri_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CursorWrapperServiceServer).GetNotificationUri(ctx, req.(*GetNotificationUriRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CursorWrapperService_GetPosition_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetPositionRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CursorWrapperServiceServer).GetPosition(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CursorWrapperService_GetPosition_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CursorWrapperServiceServer).GetPosition(ctx, req.(*GetPositionRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CursorWrapperService_GetShort_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetShortRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CursorWrapperServiceServer).GetShort(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CursorWrapperService_GetShort_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CursorWrapperServiceServer).GetShort(ctx, req.(*GetShortRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CursorWrapperService_GetString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetStringRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CursorWrapperServiceServer).GetString(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CursorWrapperService_GetString_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CursorWrapperServiceServer).GetString(ctx, req.(*GetStringRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CursorWrapperService_GetType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetTypeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CursorWrapperServiceServer).GetType(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CursorWrapperService_GetType_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CursorWrapperServiceServer).GetType(ctx, req.(*GetTypeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CursorWrapperService_GetWantsAllOnMoveCalls_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetWantsAllOnMoveCallsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CursorWrapperServiceServer).GetWantsAllOnMoveCalls(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CursorWrapperService_GetWantsAllOnMoveCalls_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CursorWrapperServiceServer).GetWantsAllOnMoveCalls(ctx, req.(*GetWantsAllOnMoveCallsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CursorWrapperService_GetWrappedCursor_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetWrappedCursorRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CursorWrapperServiceServer).GetWrappedCursor(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CursorWrapperService_GetWrappedCursor_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CursorWrapperServiceServer).GetWrappedCursor(ctx, req.(*GetWrappedCursorRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CursorWrapperService_IsAfterLast_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsAfterLastRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CursorWrapperServiceServer).IsAfterLast(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CursorWrapperService_IsAfterLast_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CursorWrapperServiceServer).IsAfterLast(ctx, req.(*IsAfterLastRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CursorWrapperService_IsBeforeFirst_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsBeforeFirstRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CursorWrapperServiceServer).IsBeforeFirst(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CursorWrapperService_IsBeforeFirst_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CursorWrapperServiceServer).IsBeforeFirst(ctx, req.(*IsBeforeFirstRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CursorWrapperService_IsClosed_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsClosedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CursorWrapperServiceServer).IsClosed(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CursorWrapperService_IsClosed_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CursorWrapperServiceServer).IsClosed(ctx, req.(*IsClosedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CursorWrapperService_IsFirst_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsFirstRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CursorWrapperServiceServer).IsFirst(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CursorWrapperService_IsFirst_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CursorWrapperServiceServer).IsFirst(ctx, req.(*IsFirstRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CursorWrapperService_IsLast_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsLastRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CursorWrapperServiceServer).IsLast(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CursorWrapperService_IsLast_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CursorWrapperServiceServer).IsLast(ctx, req.(*IsLastRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CursorWrapperService_IsNull_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsNullRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CursorWrapperServiceServer).IsNull(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CursorWrapperService_IsNull_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CursorWrapperServiceServer).IsNull(ctx, req.(*IsNullRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CursorWrapperService_Move_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(MoveRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CursorWrapperServiceServer).Move(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CursorWrapperService_Move_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CursorWrapperServiceServer).Move(ctx, req.(*MoveRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CursorWrapperService_MoveToFirst_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(MoveToFirstRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CursorWrapperServiceServer).MoveToFirst(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CursorWrapperService_MoveToFirst_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CursorWrapperServiceServer).MoveToFirst(ctx, req.(*MoveToFirstRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CursorWrapperService_MoveToLast_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(MoveToLastRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CursorWrapperServiceServer).MoveToLast(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CursorWrapperService_MoveToLast_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CursorWrapperServiceServer).MoveToLast(ctx, req.(*MoveToLastRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CursorWrapperService_MoveToNext_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(MoveToNextRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CursorWrapperServiceServer).MoveToNext(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CursorWrapperService_MoveToNext_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CursorWrapperServiceServer).MoveToNext(ctx, req.(*MoveToNextRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CursorWrapperService_MoveToPosition_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(MoveToPositionRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CursorWrapperServiceServer).MoveToPosition(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CursorWrapperService_MoveToPosition_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CursorWrapperServiceServer).MoveToPosition(ctx, req.(*MoveToPositionRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CursorWrapperService_MoveToPrevious_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(MoveToPreviousRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CursorWrapperServiceServer).MoveToPrevious(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CursorWrapperService_MoveToPrevious_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CursorWrapperServiceServer).MoveToPrevious(ctx, req.(*MoveToPreviousRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CursorWrapperService_RegisterContentObserver_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(RegisterContentObserverRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CursorWrapperServiceServer).RegisterContentObserver(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CursorWrapperService_RegisterContentObserver_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CursorWrapperServiceServer).RegisterContentObserver(ctx, req.(*RegisterContentObserverRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CursorWrapperService_RegisterDataSetObserver_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(RegisterDataSetObserverRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CursorWrapperServiceServer).RegisterDataSetObserver(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CursorWrapperService_RegisterDataSetObserver_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CursorWrapperServiceServer).RegisterDataSetObserver(ctx, req.(*RegisterDataSetObserverRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CursorWrapperService_Requery_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(RequeryRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CursorWrapperServiceServer).Requery(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CursorWrapperService_Requery_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CursorWrapperServiceServer).Requery(ctx, req.(*RequeryRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CursorWrapperService_Respond_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(RespondRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CursorWrapperServiceServer).Respond(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CursorWrapperService_Respond_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CursorWrapperServiceServer).Respond(ctx, req.(*RespondRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CursorWrapperService_SetExtras_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetExtrasRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CursorWrapperServiceServer).SetExtras(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CursorWrapperService_SetExtras_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CursorWrapperServiceServer).SetExtras(ctx, req.(*SetExtrasRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CursorWrapperService_SetNotificationUri_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetNotificationUriRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CursorWrapperServiceServer).SetNotificationUri(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CursorWrapperService_SetNotificationUri_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CursorWrapperServiceServer).SetNotificationUri(ctx, req.(*SetNotificationUriRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CursorWrapperService_UnregisterContentObserver_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UnregisterContentObserverRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CursorWrapperServiceServer).UnregisterContentObserver(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CursorWrapperService_UnregisterContentObserver_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CursorWrapperServiceServer).UnregisterContentObserver(ctx, req.(*UnregisterContentObserverRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CursorWrapperService_UnregisterDataSetObserver_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UnregisterDataSetObserverRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CursorWrapperServiceServer).UnregisterDataSetObserver(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CursorWrapperService_UnregisterDataSetObserver_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CursorWrapperServiceServer).UnregisterDataSetObserver(ctx, req.(*UnregisterDataSetObserverRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// CursorWrapperService_ServiceDesc is the grpc.ServiceDesc for CursorWrapperService service.
+// ContentObservableService_ServiceDesc is the grpc.ServiceDesc for ContentObservableService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var CursorWrapperService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "database.CursorWrapperService",
-	HandlerType: (*CursorWrapperServiceServer)(nil),
+var ContentObservableService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "database.ContentObservableService",
+	HandlerType: (*ContentObservableServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "NewCursorWrapper",
-			Handler:    _CursorWrapperService_NewCursorWrapper_Handler,
+			MethodName: "NewContentObservable",
+			Handler:    _ContentObservableService_NewContentObservable_Handler,
 		},
 		{
-			MethodName: "Close",
-			Handler:    _CursorWrapperService_Close_Handler,
+			MethodName: "DispatchChange1",
+			Handler:    _ContentObservableService_DispatchChange1_Handler,
 		},
 		{
-			MethodName: "CopyStringToBuffer",
-			Handler:    _CursorWrapperService_CopyStringToBuffer_Handler,
+			MethodName: "DispatchChange2_1",
+			Handler:    _ContentObservableService_DispatchChange2_1_Handler,
 		},
 		{
-			MethodName: "Deactivate",
-			Handler:    _CursorWrapperService_Deactivate_Handler,
+			MethodName: "NotifyChange",
+			Handler:    _ContentObservableService_NotifyChange_Handler,
 		},
 		{
-			MethodName: "GetBlob",
-			Handler:    _CursorWrapperService_GetBlob_Handler,
+			MethodName: "RegisterObserver1",
+			Handler:    _ContentObservableService_RegisterObserver1_Handler,
 		},
 		{
-			MethodName: "GetColumnCount",
-			Handler:    _CursorWrapperService_GetColumnCount_Handler,
-		},
-		{
-			MethodName: "GetColumnIndex",
-			Handler:    _CursorWrapperService_GetColumnIndex_Handler,
-		},
-		{
-			MethodName: "GetColumnIndexOrThrow",
-			Handler:    _CursorWrapperService_GetColumnIndexOrThrow_Handler,
-		},
-		{
-			MethodName: "GetColumnName",
-			Handler:    _CursorWrapperService_GetColumnName_Handler,
-		},
-		{
-			MethodName: "GetColumnNames",
-			Handler:    _CursorWrapperService_GetColumnNames_Handler,
-		},
-		{
-			MethodName: "GetCount",
-			Handler:    _CursorWrapperService_GetCount_Handler,
-		},
-		{
-			MethodName: "GetDouble",
-			Handler:    _CursorWrapperService_GetDouble_Handler,
-		},
-		{
-			MethodName: "GetExtras",
-			Handler:    _CursorWrapperService_GetExtras_Handler,
-		},
-		{
-			MethodName: "GetFloat",
-			Handler:    _CursorWrapperService_GetFloat_Handler,
-		},
-		{
-			MethodName: "GetInt",
-			Handler:    _CursorWrapperService_GetInt_Handler,
-		},
-		{
-			MethodName: "GetLong",
-			Handler:    _CursorWrapperService_GetLong_Handler,
-		},
-		{
-			MethodName: "GetNotificationUri",
-			Handler:    _CursorWrapperService_GetNotificationUri_Handler,
-		},
-		{
-			MethodName: "GetPosition",
-			Handler:    _CursorWrapperService_GetPosition_Handler,
-		},
-		{
-			MethodName: "GetShort",
-			Handler:    _CursorWrapperService_GetShort_Handler,
-		},
-		{
-			MethodName: "GetString",
-			Handler:    _CursorWrapperService_GetString_Handler,
-		},
-		{
-			MethodName: "GetType",
-			Handler:    _CursorWrapperService_GetType_Handler,
-		},
-		{
-			MethodName: "GetWantsAllOnMoveCalls",
-			Handler:    _CursorWrapperService_GetWantsAllOnMoveCalls_Handler,
-		},
-		{
-			MethodName: "GetWrappedCursor",
-			Handler:    _CursorWrapperService_GetWrappedCursor_Handler,
-		},
-		{
-			MethodName: "IsAfterLast",
-			Handler:    _CursorWrapperService_IsAfterLast_Handler,
-		},
-		{
-			MethodName: "IsBeforeFirst",
-			Handler:    _CursorWrapperService_IsBeforeFirst_Handler,
-		},
-		{
-			MethodName: "IsClosed",
-			Handler:    _CursorWrapperService_IsClosed_Handler,
-		},
-		{
-			MethodName: "IsFirst",
-			Handler:    _CursorWrapperService_IsFirst_Handler,
-		},
-		{
-			MethodName: "IsLast",
-			Handler:    _CursorWrapperService_IsLast_Handler,
-		},
-		{
-			MethodName: "IsNull",
-			Handler:    _CursorWrapperService_IsNull_Handler,
-		},
-		{
-			MethodName: "Move",
-			Handler:    _CursorWrapperService_Move_Handler,
-		},
-		{
-			MethodName: "MoveToFirst",
-			Handler:    _CursorWrapperService_MoveToFirst_Handler,
-		},
-		{
-			MethodName: "MoveToLast",
-			Handler:    _CursorWrapperService_MoveToLast_Handler,
-		},
-		{
-			MethodName: "MoveToNext",
-			Handler:    _CursorWrapperService_MoveToNext_Handler,
-		},
-		{
-			MethodName: "MoveToPosition",
-			Handler:    _CursorWrapperService_MoveToPosition_Handler,
-		},
-		{
-			MethodName: "MoveToPrevious",
-			Handler:    _CursorWrapperService_MoveToPrevious_Handler,
-		},
-		{
-			MethodName: "RegisterContentObserver",
-			Handler:    _CursorWrapperService_RegisterContentObserver_Handler,
-		},
-		{
-			MethodName: "RegisterDataSetObserver",
-			Handler:    _CursorWrapperService_RegisterDataSetObserver_Handler,
-		},
-		{
-			MethodName: "Requery",
-			Handler:    _CursorWrapperService_Requery_Handler,
-		},
-		{
-			MethodName: "Respond",
-			Handler:    _CursorWrapperService_Respond_Handler,
-		},
-		{
-			MethodName: "SetExtras",
-			Handler:    _CursorWrapperService_SetExtras_Handler,
-		},
-		{
-			MethodName: "SetNotificationUri",
-			Handler:    _CursorWrapperService_SetNotificationUri_Handler,
-		},
-		{
-			MethodName: "UnregisterContentObserver",
-			Handler:    _CursorWrapperService_UnregisterContentObserver_Handler,
-		},
-		{
-			MethodName: "UnregisterDataSetObserver",
-			Handler:    _CursorWrapperService_UnregisterDataSetObserver_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/database/database.proto",
-}
-
-const (
-	ObservableService_UnregisterAll_FullMethodName = "/database.ObservableService/UnregisterAll"
-)
-
-// ObservableServiceClient is the client API for ObservableService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type ObservableServiceClient interface {
-	UnregisterAll(ctx context.Context, in *UnregisterAllRequest, opts ...grpc.CallOption) (*UnregisterAllResponse, error)
-}
-
-type observableServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewObservableServiceClient(cc grpc.ClientConnInterface) ObservableServiceClient {
-	return &observableServiceClient{cc}
-}
-
-func (c *observableServiceClient) UnregisterAll(ctx context.Context, in *UnregisterAllRequest, opts ...grpc.CallOption) (*UnregisterAllResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(UnregisterAllResponse)
-	err := c.cc.Invoke(ctx, ObservableService_UnregisterAll_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// ObservableServiceServer is the server API for ObservableService service.
-// All implementations must embed UnimplementedObservableServiceServer
-// for forward compatibility.
-type ObservableServiceServer interface {
-	UnregisterAll(context.Context, *UnregisterAllRequest) (*UnregisterAllResponse, error)
-	mustEmbedUnimplementedObservableServiceServer()
-}
-
-// UnimplementedObservableServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedObservableServiceServer struct{}
-
-func (UnimplementedObservableServiceServer) UnregisterAll(context.Context, *UnregisterAllRequest) (*UnregisterAllResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method UnregisterAll not implemented")
-}
-func (UnimplementedObservableServiceServer) mustEmbedUnimplementedObservableServiceServer() {}
-func (UnimplementedObservableServiceServer) testEmbeddedByValue()                           {}
-
-// UnsafeObservableServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to ObservableServiceServer will
-// result in compilation errors.
-type UnsafeObservableServiceServer interface {
-	mustEmbedUnimplementedObservableServiceServer()
-}
-
-func RegisterObservableServiceServer(s grpc.ServiceRegistrar, srv ObservableServiceServer) {
-	// If the following call panics, it indicates UnimplementedObservableServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&ObservableService_ServiceDesc, srv)
-}
-
-func _ObservableService_UnregisterAll_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UnregisterAllRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ObservableServiceServer).UnregisterAll(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ObservableService_UnregisterAll_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ObservableServiceServer).UnregisterAll(ctx, req.(*UnregisterAllRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// ObservableService_ServiceDesc is the grpc.ServiceDesc for ObservableService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var ObservableService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "database.ObservableService",
-	HandlerType: (*ObservableServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "UnregisterAll",
-			Handler:    _ObservableService_UnregisterAll_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/database/database.proto",
-}
-
-const (
-	CrossProcessCursorWrapperService_NewCrossProcessCursorWrapper_FullMethodName = "/database.CrossProcessCursorWrapperService/NewCrossProcessCursorWrapper"
-	CrossProcessCursorWrapperService_FillWindow_FullMethodName                   = "/database.CrossProcessCursorWrapperService/FillWindow"
-	CrossProcessCursorWrapperService_GetWindow_FullMethodName                    = "/database.CrossProcessCursorWrapperService/GetWindow"
-	CrossProcessCursorWrapperService_OnMove_FullMethodName                       = "/database.CrossProcessCursorWrapperService/OnMove"
-)
-
-// CrossProcessCursorWrapperServiceClient is the client API for CrossProcessCursorWrapperService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type CrossProcessCursorWrapperServiceClient interface {
-	NewCrossProcessCursorWrapper(ctx context.Context, in *NewCrossProcessCursorWrapperRequest, opts ...grpc.CallOption) (*NewCrossProcessCursorWrapperResponse, error)
-	FillWindow(ctx context.Context, in *FillWindowRequest, opts ...grpc.CallOption) (*FillWindowResponse, error)
-	GetWindow(ctx context.Context, in *GetWindowRequest, opts ...grpc.CallOption) (*GetWindowResponse, error)
-	OnMove(ctx context.Context, in *OnMoveRequest, opts ...grpc.CallOption) (*OnMoveResponse, error)
-}
-
-type crossProcessCursorWrapperServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewCrossProcessCursorWrapperServiceClient(cc grpc.ClientConnInterface) CrossProcessCursorWrapperServiceClient {
-	return &crossProcessCursorWrapperServiceClient{cc}
-}
-
-func (c *crossProcessCursorWrapperServiceClient) NewCrossProcessCursorWrapper(ctx context.Context, in *NewCrossProcessCursorWrapperRequest, opts ...grpc.CallOption) (*NewCrossProcessCursorWrapperResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewCrossProcessCursorWrapperResponse)
-	err := c.cc.Invoke(ctx, CrossProcessCursorWrapperService_NewCrossProcessCursorWrapper_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *crossProcessCursorWrapperServiceClient) FillWindow(ctx context.Context, in *FillWindowRequest, opts ...grpc.CallOption) (*FillWindowResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(FillWindowResponse)
-	err := c.cc.Invoke(ctx, CrossProcessCursorWrapperService_FillWindow_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *crossProcessCursorWrapperServiceClient) GetWindow(ctx context.Context, in *GetWindowRequest, opts ...grpc.CallOption) (*GetWindowResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetWindowResponse)
-	err := c.cc.Invoke(ctx, CrossProcessCursorWrapperService_GetWindow_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *crossProcessCursorWrapperServiceClient) OnMove(ctx context.Context, in *OnMoveRequest, opts ...grpc.CallOption) (*OnMoveResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnMoveResponse)
-	err := c.cc.Invoke(ctx, CrossProcessCursorWrapperService_OnMove_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// CrossProcessCursorWrapperServiceServer is the server API for CrossProcessCursorWrapperService service.
-// All implementations must embed UnimplementedCrossProcessCursorWrapperServiceServer
-// for forward compatibility.
-type CrossProcessCursorWrapperServiceServer interface {
-	NewCrossProcessCursorWrapper(context.Context, *NewCrossProcessCursorWrapperRequest) (*NewCrossProcessCursorWrapperResponse, error)
-	FillWindow(context.Context, *FillWindowRequest) (*FillWindowResponse, error)
-	GetWindow(context.Context, *GetWindowRequest) (*GetWindowResponse, error)
-	OnMove(context.Context, *OnMoveRequest) (*OnMoveResponse, error)
-	mustEmbedUnimplementedCrossProcessCursorWrapperServiceServer()
-}
-
-// UnimplementedCrossProcessCursorWrapperServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedCrossProcessCursorWrapperServiceServer struct{}
-
-func (UnimplementedCrossProcessCursorWrapperServiceServer) NewCrossProcessCursorWrapper(context.Context, *NewCrossProcessCursorWrapperRequest) (*NewCrossProcessCursorWrapperResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewCrossProcessCursorWrapper not implemented")
-}
-func (UnimplementedCrossProcessCursorWrapperServiceServer) FillWindow(context.Context, *FillWindowRequest) (*FillWindowResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method FillWindow not implemented")
-}
-func (UnimplementedCrossProcessCursorWrapperServiceServer) GetWindow(context.Context, *GetWindowRequest) (*GetWindowResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetWindow not implemented")
-}
-func (UnimplementedCrossProcessCursorWrapperServiceServer) OnMove(context.Context, *OnMoveRequest) (*OnMoveResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnMove not implemented")
-}
-func (UnimplementedCrossProcessCursorWrapperServiceServer) mustEmbedUnimplementedCrossProcessCursorWrapperServiceServer() {
-}
-func (UnimplementedCrossProcessCursorWrapperServiceServer) testEmbeddedByValue() {}
-
-// UnsafeCrossProcessCursorWrapperServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to CrossProcessCursorWrapperServiceServer will
-// result in compilation errors.
-type UnsafeCrossProcessCursorWrapperServiceServer interface {
-	mustEmbedUnimplementedCrossProcessCursorWrapperServiceServer()
-}
-
-func RegisterCrossProcessCursorWrapperServiceServer(s grpc.ServiceRegistrar, srv CrossProcessCursorWrapperServiceServer) {
-	// If the following call panics, it indicates UnimplementedCrossProcessCursorWrapperServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&CrossProcessCursorWrapperService_ServiceDesc, srv)
-}
-
-func _CrossProcessCursorWrapperService_NewCrossProcessCursorWrapper_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewCrossProcessCursorWrapperRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CrossProcessCursorWrapperServiceServer).NewCrossProcessCursorWrapper(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CrossProcessCursorWrapperService_NewCrossProcessCursorWrapper_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CrossProcessCursorWrapperServiceServer).NewCrossProcessCursorWrapper(ctx, req.(*NewCrossProcessCursorWrapperRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CrossProcessCursorWrapperService_FillWindow_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(FillWindowRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CrossProcessCursorWrapperServiceServer).FillWindow(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CrossProcessCursorWrapperService_FillWindow_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CrossProcessCursorWrapperServiceServer).FillWindow(ctx, req.(*FillWindowRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CrossProcessCursorWrapperService_GetWindow_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetWindowRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CrossProcessCursorWrapperServiceServer).GetWindow(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CrossProcessCursorWrapperService_GetWindow_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CrossProcessCursorWrapperServiceServer).GetWindow(ctx, req.(*GetWindowRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CrossProcessCursorWrapperService_OnMove_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnMoveRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CrossProcessCursorWrapperServiceServer).OnMove(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CrossProcessCursorWrapperService_OnMove_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CrossProcessCursorWrapperServiceServer).OnMove(ctx, req.(*OnMoveRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// CrossProcessCursorWrapperService_ServiceDesc is the grpc.ServiceDesc for CrossProcessCursorWrapperService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var CrossProcessCursorWrapperService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "database.CrossProcessCursorWrapperService",
-	HandlerType: (*CrossProcessCursorWrapperServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "NewCrossProcessCursorWrapper",
-			Handler:    _CrossProcessCursorWrapperService_NewCrossProcessCursorWrapper_Handler,
-		},
-		{
-			MethodName: "FillWindow",
-			Handler:    _CrossProcessCursorWrapperService_FillWindow_Handler,
-		},
-		{
-			MethodName: "GetWindow",
-			Handler:    _CrossProcessCursorWrapperService_GetWindow_Handler,
-		},
-		{
-			MethodName: "OnMove",
-			Handler:    _CrossProcessCursorWrapperService_OnMove_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/database/database.proto",
-}
-
-const (
-	DataSetObserverService_OnChanged_FullMethodName     = "/database.DataSetObserverService/OnChanged"
-	DataSetObserverService_OnInvalidated_FullMethodName = "/database.DataSetObserverService/OnInvalidated"
-)
-
-// DataSetObserverServiceClient is the client API for DataSetObserverService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type DataSetObserverServiceClient interface {
-	OnChanged(ctx context.Context, in *OnChangedRequest, opts ...grpc.CallOption) (*OnChangedResponse, error)
-	OnInvalidated(ctx context.Context, in *OnInvalidatedRequest, opts ...grpc.CallOption) (*OnInvalidatedResponse, error)
-}
-
-type dataSetObserverServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewDataSetObserverServiceClient(cc grpc.ClientConnInterface) DataSetObserverServiceClient {
-	return &dataSetObserverServiceClient{cc}
-}
-
-func (c *dataSetObserverServiceClient) OnChanged(ctx context.Context, in *OnChangedRequest, opts ...grpc.CallOption) (*OnChangedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnChangedResponse)
-	err := c.cc.Invoke(ctx, DataSetObserverService_OnChanged_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *dataSetObserverServiceClient) OnInvalidated(ctx context.Context, in *OnInvalidatedRequest, opts ...grpc.CallOption) (*OnInvalidatedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnInvalidatedResponse)
-	err := c.cc.Invoke(ctx, DataSetObserverService_OnInvalidated_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// DataSetObserverServiceServer is the server API for DataSetObserverService service.
-// All implementations must embed UnimplementedDataSetObserverServiceServer
-// for forward compatibility.
-type DataSetObserverServiceServer interface {
-	OnChanged(context.Context, *OnChangedRequest) (*OnChangedResponse, error)
-	OnInvalidated(context.Context, *OnInvalidatedRequest) (*OnInvalidatedResponse, error)
-	mustEmbedUnimplementedDataSetObserverServiceServer()
-}
-
-// UnimplementedDataSetObserverServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedDataSetObserverServiceServer struct{}
-
-func (UnimplementedDataSetObserverServiceServer) OnChanged(context.Context, *OnChangedRequest) (*OnChangedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnChanged not implemented")
-}
-func (UnimplementedDataSetObserverServiceServer) OnInvalidated(context.Context, *OnInvalidatedRequest) (*OnInvalidatedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnInvalidated not implemented")
-}
-func (UnimplementedDataSetObserverServiceServer) mustEmbedUnimplementedDataSetObserverServiceServer() {
-}
-func (UnimplementedDataSetObserverServiceServer) testEmbeddedByValue() {}
-
-// UnsafeDataSetObserverServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to DataSetObserverServiceServer will
-// result in compilation errors.
-type UnsafeDataSetObserverServiceServer interface {
-	mustEmbedUnimplementedDataSetObserverServiceServer()
-}
-
-func RegisterDataSetObserverServiceServer(s grpc.ServiceRegistrar, srv DataSetObserverServiceServer) {
-	// If the following call panics, it indicates UnimplementedDataSetObserverServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&DataSetObserverService_ServiceDesc, srv)
-}
-
-func _DataSetObserverService_OnChanged_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnChangedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DataSetObserverServiceServer).OnChanged(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DataSetObserverService_OnChanged_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DataSetObserverServiceServer).OnChanged(ctx, req.(*OnChangedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DataSetObserverService_OnInvalidated_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnInvalidatedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DataSetObserverServiceServer).OnInvalidated(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DataSetObserverService_OnInvalidated_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DataSetObserverServiceServer).OnInvalidated(ctx, req.(*OnInvalidatedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// DataSetObserverService_ServiceDesc is the grpc.ServiceDesc for DataSetObserverService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var DataSetObserverService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "database.DataSetObserverService",
-	HandlerType: (*DataSetObserverServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "OnChanged",
-			Handler:    _DataSetObserverService_OnChanged_Handler,
-		},
-		{
-			MethodName: "OnInvalidated",
-			Handler:    _DataSetObserverService_OnInvalidated_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/database/database.proto",
-}
-
-const (
-	CursorJoinerService_NewCursorJoiner_FullMethodName = "/database.CursorJoinerService/NewCursorJoiner"
-	CursorJoinerService_HasNext_FullMethodName         = "/database.CursorJoinerService/HasNext"
-	CursorJoinerService_Next0_FullMethodName           = "/database.CursorJoinerService/Next0"
-	CursorJoinerService_Remove_FullMethodName          = "/database.CursorJoinerService/Remove"
-	CursorJoinerService_Next0_1_FullMethodName         = "/database.CursorJoinerService/Next0_1"
-)
-
-// CursorJoinerServiceClient is the client API for CursorJoinerService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type CursorJoinerServiceClient interface {
-	NewCursorJoiner(ctx context.Context, in *NewCursorJoinerRequest, opts ...grpc.CallOption) (*NewCursorJoinerResponse, error)
-	HasNext(ctx context.Context, in *HasNextRequest, opts ...grpc.CallOption) (*HasNextResponse, error)
-	Next0(ctx context.Context, in *Next0Request, opts ...grpc.CallOption) (*Next0Response, error)
-	Remove(ctx context.Context, in *RemoveRequest, opts ...grpc.CallOption) (*RemoveResponse, error)
-	Next0_1(ctx context.Context, in *Next0_1Request, opts ...grpc.CallOption) (*Next0_1Response, error)
-}
-
-type cursorJoinerServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewCursorJoinerServiceClient(cc grpc.ClientConnInterface) CursorJoinerServiceClient {
-	return &cursorJoinerServiceClient{cc}
-}
-
-func (c *cursorJoinerServiceClient) NewCursorJoiner(ctx context.Context, in *NewCursorJoinerRequest, opts ...grpc.CallOption) (*NewCursorJoinerResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewCursorJoinerResponse)
-	err := c.cc.Invoke(ctx, CursorJoinerService_NewCursorJoiner_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *cursorJoinerServiceClient) HasNext(ctx context.Context, in *HasNextRequest, opts ...grpc.CallOption) (*HasNextResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(HasNextResponse)
-	err := c.cc.Invoke(ctx, CursorJoinerService_HasNext_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *cursorJoinerServiceClient) Next0(ctx context.Context, in *Next0Request, opts ...grpc.CallOption) (*Next0Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(Next0Response)
-	err := c.cc.Invoke(ctx, CursorJoinerService_Next0_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *cursorJoinerServiceClient) Remove(ctx context.Context, in *RemoveRequest, opts ...grpc.CallOption) (*RemoveResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(RemoveResponse)
-	err := c.cc.Invoke(ctx, CursorJoinerService_Remove_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *cursorJoinerServiceClient) Next0_1(ctx context.Context, in *Next0_1Request, opts ...grpc.CallOption) (*Next0_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(Next0_1Response)
-	err := c.cc.Invoke(ctx, CursorJoinerService_Next0_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// CursorJoinerServiceServer is the server API for CursorJoinerService service.
-// All implementations must embed UnimplementedCursorJoinerServiceServer
-// for forward compatibility.
-type CursorJoinerServiceServer interface {
-	NewCursorJoiner(context.Context, *NewCursorJoinerRequest) (*NewCursorJoinerResponse, error)
-	HasNext(context.Context, *HasNextRequest) (*HasNextResponse, error)
-	Next0(context.Context, *Next0Request) (*Next0Response, error)
-	Remove(context.Context, *RemoveRequest) (*RemoveResponse, error)
-	Next0_1(context.Context, *Next0_1Request) (*Next0_1Response, error)
-	mustEmbedUnimplementedCursorJoinerServiceServer()
-}
-
-// UnimplementedCursorJoinerServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedCursorJoinerServiceServer struct{}
-
-func (UnimplementedCursorJoinerServiceServer) NewCursorJoiner(context.Context, *NewCursorJoinerRequest) (*NewCursorJoinerResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewCursorJoiner not implemented")
-}
-func (UnimplementedCursorJoinerServiceServer) HasNext(context.Context, *HasNextRequest) (*HasNextResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method HasNext not implemented")
-}
-func (UnimplementedCursorJoinerServiceServer) Next0(context.Context, *Next0Request) (*Next0Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method Next0 not implemented")
-}
-func (UnimplementedCursorJoinerServiceServer) Remove(context.Context, *RemoveRequest) (*RemoveResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Remove not implemented")
-}
-func (UnimplementedCursorJoinerServiceServer) Next0_1(context.Context, *Next0_1Request) (*Next0_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method Next0_1 not implemented")
-}
-func (UnimplementedCursorJoinerServiceServer) mustEmbedUnimplementedCursorJoinerServiceServer() {}
-func (UnimplementedCursorJoinerServiceServer) testEmbeddedByValue()                             {}
-
-// UnsafeCursorJoinerServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to CursorJoinerServiceServer will
-// result in compilation errors.
-type UnsafeCursorJoinerServiceServer interface {
-	mustEmbedUnimplementedCursorJoinerServiceServer()
-}
-
-func RegisterCursorJoinerServiceServer(s grpc.ServiceRegistrar, srv CursorJoinerServiceServer) {
-	// If the following call panics, it indicates UnimplementedCursorJoinerServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&CursorJoinerService_ServiceDesc, srv)
-}
-
-func _CursorJoinerService_NewCursorJoiner_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewCursorJoinerRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CursorJoinerServiceServer).NewCursorJoiner(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CursorJoinerService_NewCursorJoiner_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CursorJoinerServiceServer).NewCursorJoiner(ctx, req.(*NewCursorJoinerRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CursorJoinerService_HasNext_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(HasNextRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CursorJoinerServiceServer).HasNext(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CursorJoinerService_HasNext_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CursorJoinerServiceServer).HasNext(ctx, req.(*HasNextRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CursorJoinerService_Next0_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(Next0Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CursorJoinerServiceServer).Next0(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CursorJoinerService_Next0_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CursorJoinerServiceServer).Next0(ctx, req.(*Next0Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CursorJoinerService_Remove_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(RemoveRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CursorJoinerServiceServer).Remove(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CursorJoinerService_Remove_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CursorJoinerServiceServer).Remove(ctx, req.(*RemoveRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CursorJoinerService_Next0_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(Next0_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CursorJoinerServiceServer).Next0_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CursorJoinerService_Next0_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CursorJoinerServiceServer).Next0_1(ctx, req.(*Next0_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// CursorJoinerService_ServiceDesc is the grpc.ServiceDesc for CursorJoinerService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var CursorJoinerService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "database.CursorJoinerService",
-	HandlerType: (*CursorJoinerServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "NewCursorJoiner",
-			Handler:    _CursorJoinerService_NewCursorJoiner_Handler,
-		},
-		{
-			MethodName: "HasNext",
-			Handler:    _CursorJoinerService_HasNext_Handler,
-		},
-		{
-			MethodName: "Next0",
-			Handler:    _CursorJoinerService_Next0_Handler,
-		},
-		{
-			MethodName: "Remove",
-			Handler:    _CursorJoinerService_Remove_Handler,
-		},
-		{
-			MethodName: "Next0_1",
-			Handler:    _CursorJoinerService_Next0_1_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/database/database.proto",
-}
-
-const (
-	CursorJoinerResultService_Values_FullMethodName  = "/database.CursorJoinerResultService/Values"
-	CursorJoinerResultService_ValueOf_FullMethodName = "/database.CursorJoinerResultService/ValueOf"
-)
-
-// CursorJoinerResultServiceClient is the client API for CursorJoinerResultService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type CursorJoinerResultServiceClient interface {
-	Values(ctx context.Context, in *ValuesRequest, opts ...grpc.CallOption) (*ValuesResponse, error)
-	ValueOf(ctx context.Context, in *ValueOfRequest, opts ...grpc.CallOption) (*ValueOfResponse, error)
-}
-
-type cursorJoinerResultServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewCursorJoinerResultServiceClient(cc grpc.ClientConnInterface) CursorJoinerResultServiceClient {
-	return &cursorJoinerResultServiceClient{cc}
-}
-
-func (c *cursorJoinerResultServiceClient) Values(ctx context.Context, in *ValuesRequest, opts ...grpc.CallOption) (*ValuesResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ValuesResponse)
-	err := c.cc.Invoke(ctx, CursorJoinerResultService_Values_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *cursorJoinerResultServiceClient) ValueOf(ctx context.Context, in *ValueOfRequest, opts ...grpc.CallOption) (*ValueOfResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ValueOfResponse)
-	err := c.cc.Invoke(ctx, CursorJoinerResultService_ValueOf_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// CursorJoinerResultServiceServer is the server API for CursorJoinerResultService service.
-// All implementations must embed UnimplementedCursorJoinerResultServiceServer
-// for forward compatibility.
-type CursorJoinerResultServiceServer interface {
-	Values(context.Context, *ValuesRequest) (*ValuesResponse, error)
-	ValueOf(context.Context, *ValueOfRequest) (*ValueOfResponse, error)
-	mustEmbedUnimplementedCursorJoinerResultServiceServer()
-}
-
-// UnimplementedCursorJoinerResultServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedCursorJoinerResultServiceServer struct{}
-
-func (UnimplementedCursorJoinerResultServiceServer) Values(context.Context, *ValuesRequest) (*ValuesResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Values not implemented")
-}
-func (UnimplementedCursorJoinerResultServiceServer) ValueOf(context.Context, *ValueOfRequest) (*ValueOfResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ValueOf not implemented")
-}
-func (UnimplementedCursorJoinerResultServiceServer) mustEmbedUnimplementedCursorJoinerResultServiceServer() {
-}
-func (UnimplementedCursorJoinerResultServiceServer) testEmbeddedByValue() {}
-
-// UnsafeCursorJoinerResultServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to CursorJoinerResultServiceServer will
-// result in compilation errors.
-type UnsafeCursorJoinerResultServiceServer interface {
-	mustEmbedUnimplementedCursorJoinerResultServiceServer()
-}
-
-func RegisterCursorJoinerResultServiceServer(s grpc.ServiceRegistrar, srv CursorJoinerResultServiceServer) {
-	// If the following call panics, it indicates UnimplementedCursorJoinerResultServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&CursorJoinerResultService_ServiceDesc, srv)
-}
-
-func _CursorJoinerResultService_Values_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ValuesRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CursorJoinerResultServiceServer).Values(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CursorJoinerResultService_Values_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CursorJoinerResultServiceServer).Values(ctx, req.(*ValuesRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CursorJoinerResultService_ValueOf_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ValueOfRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CursorJoinerResultServiceServer).ValueOf(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CursorJoinerResultService_ValueOf_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CursorJoinerResultServiceServer).ValueOf(ctx, req.(*ValueOfRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// CursorJoinerResultService_ServiceDesc is the grpc.ServiceDesc for CursorJoinerResultService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var CursorJoinerResultService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "database.CursorJoinerResultService",
-	HandlerType: (*CursorJoinerResultServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "Values",
-			Handler:    _CursorJoinerResultService_Values_Handler,
-		},
-		{
-			MethodName: "ValueOf",
-			Handler:    _CursorJoinerResultService_ValueOf_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/database/database.proto",
-}
-
-const (
-	CrossProcessCursorService_FillWindow_FullMethodName = "/database.CrossProcessCursorService/FillWindow"
-	CrossProcessCursorService_GetWindow_FullMethodName  = "/database.CrossProcessCursorService/GetWindow"
-	CrossProcessCursorService_OnMove_FullMethodName     = "/database.CrossProcessCursorService/OnMove"
-)
-
-// CrossProcessCursorServiceClient is the client API for CrossProcessCursorService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type CrossProcessCursorServiceClient interface {
-	FillWindow(ctx context.Context, in *CrossProcessCursorFillWindowRequest, opts ...grpc.CallOption) (*FillWindowResponse, error)
-	GetWindow(ctx context.Context, in *CrossProcessCursorGetWindowRequest, opts ...grpc.CallOption) (*GetWindowResponse, error)
-	OnMove(ctx context.Context, in *CrossProcessCursorOnMoveRequest, opts ...grpc.CallOption) (*OnMoveResponse, error)
-}
-
-type crossProcessCursorServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewCrossProcessCursorServiceClient(cc grpc.ClientConnInterface) CrossProcessCursorServiceClient {
-	return &crossProcessCursorServiceClient{cc}
-}
-
-func (c *crossProcessCursorServiceClient) FillWindow(ctx context.Context, in *CrossProcessCursorFillWindowRequest, opts ...grpc.CallOption) (*FillWindowResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(FillWindowResponse)
-	err := c.cc.Invoke(ctx, CrossProcessCursorService_FillWindow_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *crossProcessCursorServiceClient) GetWindow(ctx context.Context, in *CrossProcessCursorGetWindowRequest, opts ...grpc.CallOption) (*GetWindowResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetWindowResponse)
-	err := c.cc.Invoke(ctx, CrossProcessCursorService_GetWindow_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *crossProcessCursorServiceClient) OnMove(ctx context.Context, in *CrossProcessCursorOnMoveRequest, opts ...grpc.CallOption) (*OnMoveResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnMoveResponse)
-	err := c.cc.Invoke(ctx, CrossProcessCursorService_OnMove_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// CrossProcessCursorServiceServer is the server API for CrossProcessCursorService service.
-// All implementations must embed UnimplementedCrossProcessCursorServiceServer
-// for forward compatibility.
-type CrossProcessCursorServiceServer interface {
-	FillWindow(context.Context, *CrossProcessCursorFillWindowRequest) (*FillWindowResponse, error)
-	GetWindow(context.Context, *CrossProcessCursorGetWindowRequest) (*GetWindowResponse, error)
-	OnMove(context.Context, *CrossProcessCursorOnMoveRequest) (*OnMoveResponse, error)
-	mustEmbedUnimplementedCrossProcessCursorServiceServer()
-}
-
-// UnimplementedCrossProcessCursorServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedCrossProcessCursorServiceServer struct{}
-
-func (UnimplementedCrossProcessCursorServiceServer) FillWindow(context.Context, *CrossProcessCursorFillWindowRequest) (*FillWindowResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method FillWindow not implemented")
-}
-func (UnimplementedCrossProcessCursorServiceServer) GetWindow(context.Context, *CrossProcessCursorGetWindowRequest) (*GetWindowResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetWindow not implemented")
-}
-func (UnimplementedCrossProcessCursorServiceServer) OnMove(context.Context, *CrossProcessCursorOnMoveRequest) (*OnMoveResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnMove not implemented")
-}
-func (UnimplementedCrossProcessCursorServiceServer) mustEmbedUnimplementedCrossProcessCursorServiceServer() {
-}
-func (UnimplementedCrossProcessCursorServiceServer) testEmbeddedByValue() {}
-
-// UnsafeCrossProcessCursorServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to CrossProcessCursorServiceServer will
-// result in compilation errors.
-type UnsafeCrossProcessCursorServiceServer interface {
-	mustEmbedUnimplementedCrossProcessCursorServiceServer()
-}
-
-func RegisterCrossProcessCursorServiceServer(s grpc.ServiceRegistrar, srv CrossProcessCursorServiceServer) {
-	// If the following call panics, it indicates UnimplementedCrossProcessCursorServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&CrossProcessCursorService_ServiceDesc, srv)
-}
-
-func _CrossProcessCursorService_FillWindow_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CrossProcessCursorFillWindowRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CrossProcessCursorServiceServer).FillWindow(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CrossProcessCursorService_FillWindow_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CrossProcessCursorServiceServer).FillWindow(ctx, req.(*CrossProcessCursorFillWindowRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CrossProcessCursorService_GetWindow_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CrossProcessCursorGetWindowRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CrossProcessCursorServiceServer).GetWindow(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CrossProcessCursorService_GetWindow_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CrossProcessCursorServiceServer).GetWindow(ctx, req.(*CrossProcessCursorGetWindowRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CrossProcessCursorService_OnMove_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CrossProcessCursorOnMoveRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CrossProcessCursorServiceServer).OnMove(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CrossProcessCursorService_OnMove_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CrossProcessCursorServiceServer).OnMove(ctx, req.(*CrossProcessCursorOnMoveRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// CrossProcessCursorService_ServiceDesc is the grpc.ServiceDesc for CrossProcessCursorService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var CrossProcessCursorService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "database.CrossProcessCursorService",
-	HandlerType: (*CrossProcessCursorServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "FillWindow",
-			Handler:    _CrossProcessCursorService_FillWindow_Handler,
-		},
-		{
-			MethodName: "GetWindow",
-			Handler:    _CrossProcessCursorService_GetWindow_Handler,
-		},
-		{
-			MethodName: "OnMove",
-			Handler:    _CrossProcessCursorService_OnMove_Handler,
+			MethodName: "RegisterObserver1_1",
+			Handler:    _ContentObservableService_RegisterObserver1_1_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -6717,11 +5347,11 @@ type CursorWindowServiceClient interface {
 	GetStartPosition(ctx context.Context, in *GetStartPositionRequest, opts ...grpc.CallOption) (*GetStartPositionResponse, error)
 	GetString(ctx context.Context, in *CursorWindowGetStringRequest, opts ...grpc.CallOption) (*GetStringResponse, error)
 	GetType(ctx context.Context, in *CursorWindowGetTypeRequest, opts ...grpc.CallOption) (*GetTypeResponse, error)
-	IsBlob(ctx context.Context, in *IsBlobRequest, opts ...grpc.CallOption) (*IsBlobResponse, error)
-	IsFloat(ctx context.Context, in *IsFloatRequest, opts ...grpc.CallOption) (*IsFloatResponse, error)
-	IsLong(ctx context.Context, in *IsLongRequest, opts ...grpc.CallOption) (*IsLongResponse, error)
+	IsBlob(ctx context.Context, in *CursorWindowIsBlobRequest, opts ...grpc.CallOption) (*IsBlobResponse, error)
+	IsFloat(ctx context.Context, in *CursorWindowIsFloatRequest, opts ...grpc.CallOption) (*IsFloatResponse, error)
+	IsLong(ctx context.Context, in *CursorWindowIsLongRequest, opts ...grpc.CallOption) (*IsLongResponse, error)
 	IsNull(ctx context.Context, in *CursorWindowIsNullRequest, opts ...grpc.CallOption) (*IsNullResponse, error)
-	IsString(ctx context.Context, in *IsStringRequest, opts ...grpc.CallOption) (*IsStringResponse, error)
+	IsString(ctx context.Context, in *CursorWindowIsStringRequest, opts ...grpc.CallOption) (*IsStringResponse, error)
 	PutBlob(ctx context.Context, in *PutBlobRequest, opts ...grpc.CallOption) (*PutBlobResponse, error)
 	PutDouble(ctx context.Context, in *PutDoubleRequest, opts ...grpc.CallOption) (*PutDoubleResponse, error)
 	PutLong(ctx context.Context, in *PutLongRequest, opts ...grpc.CallOption) (*PutLongResponse, error)
@@ -6902,7 +5532,7 @@ func (c *cursorWindowServiceClient) GetType(ctx context.Context, in *CursorWindo
 	return out, nil
 }
 
-func (c *cursorWindowServiceClient) IsBlob(ctx context.Context, in *IsBlobRequest, opts ...grpc.CallOption) (*IsBlobResponse, error) {
+func (c *cursorWindowServiceClient) IsBlob(ctx context.Context, in *CursorWindowIsBlobRequest, opts ...grpc.CallOption) (*IsBlobResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(IsBlobResponse)
 	err := c.cc.Invoke(ctx, CursorWindowService_IsBlob_FullMethodName, in, out, cOpts...)
@@ -6912,7 +5542,7 @@ func (c *cursorWindowServiceClient) IsBlob(ctx context.Context, in *IsBlobReques
 	return out, nil
 }
 
-func (c *cursorWindowServiceClient) IsFloat(ctx context.Context, in *IsFloatRequest, opts ...grpc.CallOption) (*IsFloatResponse, error) {
+func (c *cursorWindowServiceClient) IsFloat(ctx context.Context, in *CursorWindowIsFloatRequest, opts ...grpc.CallOption) (*IsFloatResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(IsFloatResponse)
 	err := c.cc.Invoke(ctx, CursorWindowService_IsFloat_FullMethodName, in, out, cOpts...)
@@ -6922,7 +5552,7 @@ func (c *cursorWindowServiceClient) IsFloat(ctx context.Context, in *IsFloatRequ
 	return out, nil
 }
 
-func (c *cursorWindowServiceClient) IsLong(ctx context.Context, in *IsLongRequest, opts ...grpc.CallOption) (*IsLongResponse, error) {
+func (c *cursorWindowServiceClient) IsLong(ctx context.Context, in *CursorWindowIsLongRequest, opts ...grpc.CallOption) (*IsLongResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(IsLongResponse)
 	err := c.cc.Invoke(ctx, CursorWindowService_IsLong_FullMethodName, in, out, cOpts...)
@@ -6942,7 +5572,7 @@ func (c *cursorWindowServiceClient) IsNull(ctx context.Context, in *CursorWindow
 	return out, nil
 }
 
-func (c *cursorWindowServiceClient) IsString(ctx context.Context, in *IsStringRequest, opts ...grpc.CallOption) (*IsStringResponse, error) {
+func (c *cursorWindowServiceClient) IsString(ctx context.Context, in *CursorWindowIsStringRequest, opts ...grpc.CallOption) (*IsStringResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(IsStringResponse)
 	err := c.cc.Invoke(ctx, CursorWindowService_IsString_FullMethodName, in, out, cOpts...)
@@ -7072,11 +5702,11 @@ type CursorWindowServiceServer interface {
 	GetStartPosition(context.Context, *GetStartPositionRequest) (*GetStartPositionResponse, error)
 	GetString(context.Context, *CursorWindowGetStringRequest) (*GetStringResponse, error)
 	GetType(context.Context, *CursorWindowGetTypeRequest) (*GetTypeResponse, error)
-	IsBlob(context.Context, *IsBlobRequest) (*IsBlobResponse, error)
-	IsFloat(context.Context, *IsFloatRequest) (*IsFloatResponse, error)
-	IsLong(context.Context, *IsLongRequest) (*IsLongResponse, error)
+	IsBlob(context.Context, *CursorWindowIsBlobRequest) (*IsBlobResponse, error)
+	IsFloat(context.Context, *CursorWindowIsFloatRequest) (*IsFloatResponse, error)
+	IsLong(context.Context, *CursorWindowIsLongRequest) (*IsLongResponse, error)
 	IsNull(context.Context, *CursorWindowIsNullRequest) (*IsNullResponse, error)
-	IsString(context.Context, *IsStringRequest) (*IsStringResponse, error)
+	IsString(context.Context, *CursorWindowIsStringRequest) (*IsStringResponse, error)
 	PutBlob(context.Context, *PutBlobRequest) (*PutBlobResponse, error)
 	PutDouble(context.Context, *PutDoubleRequest) (*PutDoubleResponse, error)
 	PutLong(context.Context, *PutLongRequest) (*PutLongResponse, error)
@@ -7145,19 +5775,19 @@ func (UnimplementedCursorWindowServiceServer) GetString(context.Context, *Cursor
 func (UnimplementedCursorWindowServiceServer) GetType(context.Context, *CursorWindowGetTypeRequest) (*GetTypeResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetType not implemented")
 }
-func (UnimplementedCursorWindowServiceServer) IsBlob(context.Context, *IsBlobRequest) (*IsBlobResponse, error) {
+func (UnimplementedCursorWindowServiceServer) IsBlob(context.Context, *CursorWindowIsBlobRequest) (*IsBlobResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method IsBlob not implemented")
 }
-func (UnimplementedCursorWindowServiceServer) IsFloat(context.Context, *IsFloatRequest) (*IsFloatResponse, error) {
+func (UnimplementedCursorWindowServiceServer) IsFloat(context.Context, *CursorWindowIsFloatRequest) (*IsFloatResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method IsFloat not implemented")
 }
-func (UnimplementedCursorWindowServiceServer) IsLong(context.Context, *IsLongRequest) (*IsLongResponse, error) {
+func (UnimplementedCursorWindowServiceServer) IsLong(context.Context, *CursorWindowIsLongRequest) (*IsLongResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method IsLong not implemented")
 }
 func (UnimplementedCursorWindowServiceServer) IsNull(context.Context, *CursorWindowIsNullRequest) (*IsNullResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method IsNull not implemented")
 }
-func (UnimplementedCursorWindowServiceServer) IsString(context.Context, *IsStringRequest) (*IsStringResponse, error) {
+func (UnimplementedCursorWindowServiceServer) IsString(context.Context, *CursorWindowIsStringRequest) (*IsStringResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method IsString not implemented")
 }
 func (UnimplementedCursorWindowServiceServer) PutBlob(context.Context, *PutBlobRequest) (*PutBlobResponse, error) {
@@ -7500,7 +6130,7 @@ func _CursorWindowService_GetType_Handler(srv interface{}, ctx context.Context, 
 }
 
 func _CursorWindowService_IsBlob_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsBlobRequest)
+	in := new(CursorWindowIsBlobRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -7512,13 +6142,13 @@ func _CursorWindowService_IsBlob_Handler(srv interface{}, ctx context.Context, d
 		FullMethod: CursorWindowService_IsBlob_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CursorWindowServiceServer).IsBlob(ctx, req.(*IsBlobRequest))
+		return srv.(CursorWindowServiceServer).IsBlob(ctx, req.(*CursorWindowIsBlobRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _CursorWindowService_IsFloat_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsFloatRequest)
+	in := new(CursorWindowIsFloatRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -7530,13 +6160,13 @@ func _CursorWindowService_IsFloat_Handler(srv interface{}, ctx context.Context, 
 		FullMethod: CursorWindowService_IsFloat_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CursorWindowServiceServer).IsFloat(ctx, req.(*IsFloatRequest))
+		return srv.(CursorWindowServiceServer).IsFloat(ctx, req.(*CursorWindowIsFloatRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _CursorWindowService_IsLong_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsLongRequest)
+	in := new(CursorWindowIsLongRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -7548,7 +6178,7 @@ func _CursorWindowService_IsLong_Handler(srv interface{}, ctx context.Context, d
 		FullMethod: CursorWindowService_IsLong_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CursorWindowServiceServer).IsLong(ctx, req.(*IsLongRequest))
+		return srv.(CursorWindowServiceServer).IsLong(ctx, req.(*CursorWindowIsLongRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -7572,7 +6202,7 @@ func _CursorWindowService_IsNull_Handler(srv interface{}, ctx context.Context, d
 }
 
 func _CursorWindowService_IsString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsStringRequest)
+	in := new(CursorWindowIsStringRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -7584,7 +6214,7 @@ func _CursorWindowService_IsString_Handler(srv interface{}, ctx context.Context,
 		FullMethod: CursorWindowService_IsString_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CursorWindowServiceServer).IsString(ctx, req.(*IsStringRequest))
+		return srv.(CursorWindowServiceServer).IsString(ctx, req.(*CursorWindowIsStringRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -7906,292 +6536,203 @@ var CursorWindowService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	ContentObservableService_NewContentObservable_FullMethodName = "/database.ContentObservableService/NewContentObservable"
-	ContentObservableService_DispatchChange1_FullMethodName      = "/database.ContentObservableService/DispatchChange1"
-	ContentObservableService_DispatchChange2_1_FullMethodName    = "/database.ContentObservableService/DispatchChange2_1"
-	ContentObservableService_NotifyChange_FullMethodName         = "/database.ContentObservableService/NotifyChange"
-	ContentObservableService_RegisterObserver1_FullMethodName    = "/database.ContentObservableService/RegisterObserver1"
-	ContentObservableService_RegisterObserver1_1_FullMethodName  = "/database.ContentObservableService/RegisterObserver1_1"
+	ErrorHandlerService_OnCorruption_FullMethodName = "/database.ErrorHandlerService/OnCorruption"
 )
 
-// ContentObservableServiceClient is the client API for ContentObservableService service.
+// ErrorHandlerServiceClient is the client API for ErrorHandlerService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type ContentObservableServiceClient interface {
-	NewContentObservable(ctx context.Context, in *NewContentObservableRequest, opts ...grpc.CallOption) (*NewContentObservableResponse, error)
-	DispatchChange1(ctx context.Context, in *ContentObservableDispatchChange1Request, opts ...grpc.CallOption) (*DispatchChange1Response, error)
-	DispatchChange2_1(ctx context.Context, in *ContentObservableDispatchChange2_1Request, opts ...grpc.CallOption) (*DispatchChange2_1Response, error)
-	NotifyChange(ctx context.Context, in *NotifyChangeRequest, opts ...grpc.CallOption) (*NotifyChangeResponse, error)
-	RegisterObserver1(ctx context.Context, in *RegisterObserver1Request, opts ...grpc.CallOption) (*RegisterObserver1Response, error)
-	RegisterObserver1_1(ctx context.Context, in *RegisterObserver1_1Request, opts ...grpc.CallOption) (*RegisterObserver1_1Response, error)
+type ErrorHandlerServiceClient interface {
+	OnCorruption(ctx context.Context, in *ErrorHandlerOnCorruptionRequest, opts ...grpc.CallOption) (*OnCorruptionResponse, error)
 }
 
-type contentObservableServiceClient struct {
+type errorHandlerServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewContentObservableServiceClient(cc grpc.ClientConnInterface) ContentObservableServiceClient {
-	return &contentObservableServiceClient{cc}
+func NewErrorHandlerServiceClient(cc grpc.ClientConnInterface) ErrorHandlerServiceClient {
+	return &errorHandlerServiceClient{cc}
 }
 
-func (c *contentObservableServiceClient) NewContentObservable(ctx context.Context, in *NewContentObservableRequest, opts ...grpc.CallOption) (*NewContentObservableResponse, error) {
+func (c *errorHandlerServiceClient) OnCorruption(ctx context.Context, in *ErrorHandlerOnCorruptionRequest, opts ...grpc.CallOption) (*OnCorruptionResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewContentObservableResponse)
-	err := c.cc.Invoke(ctx, ContentObservableService_NewContentObservable_FullMethodName, in, out, cOpts...)
+	out := new(OnCorruptionResponse)
+	err := c.cc.Invoke(ctx, ErrorHandlerService_OnCorruption_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *contentObservableServiceClient) DispatchChange1(ctx context.Context, in *ContentObservableDispatchChange1Request, opts ...grpc.CallOption) (*DispatchChange1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DispatchChange1Response)
-	err := c.cc.Invoke(ctx, ContentObservableService_DispatchChange1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *contentObservableServiceClient) DispatchChange2_1(ctx context.Context, in *ContentObservableDispatchChange2_1Request, opts ...grpc.CallOption) (*DispatchChange2_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DispatchChange2_1Response)
-	err := c.cc.Invoke(ctx, ContentObservableService_DispatchChange2_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *contentObservableServiceClient) NotifyChange(ctx context.Context, in *NotifyChangeRequest, opts ...grpc.CallOption) (*NotifyChangeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NotifyChangeResponse)
-	err := c.cc.Invoke(ctx, ContentObservableService_NotifyChange_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *contentObservableServiceClient) RegisterObserver1(ctx context.Context, in *RegisterObserver1Request, opts ...grpc.CallOption) (*RegisterObserver1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(RegisterObserver1Response)
-	err := c.cc.Invoke(ctx, ContentObservableService_RegisterObserver1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *contentObservableServiceClient) RegisterObserver1_1(ctx context.Context, in *RegisterObserver1_1Request, opts ...grpc.CallOption) (*RegisterObserver1_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(RegisterObserver1_1Response)
-	err := c.cc.Invoke(ctx, ContentObservableService_RegisterObserver1_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// ContentObservableServiceServer is the server API for ContentObservableService service.
-// All implementations must embed UnimplementedContentObservableServiceServer
+// ErrorHandlerServiceServer is the server API for ErrorHandlerService service.
+// All implementations must embed UnimplementedErrorHandlerServiceServer
 // for forward compatibility.
-type ContentObservableServiceServer interface {
-	NewContentObservable(context.Context, *NewContentObservableRequest) (*NewContentObservableResponse, error)
-	DispatchChange1(context.Context, *ContentObservableDispatchChange1Request) (*DispatchChange1Response, error)
-	DispatchChange2_1(context.Context, *ContentObservableDispatchChange2_1Request) (*DispatchChange2_1Response, error)
-	NotifyChange(context.Context, *NotifyChangeRequest) (*NotifyChangeResponse, error)
-	RegisterObserver1(context.Context, *RegisterObserver1Request) (*RegisterObserver1Response, error)
-	RegisterObserver1_1(context.Context, *RegisterObserver1_1Request) (*RegisterObserver1_1Response, error)
-	mustEmbedUnimplementedContentObservableServiceServer()
+type ErrorHandlerServiceServer interface {
+	OnCorruption(context.Context, *ErrorHandlerOnCorruptionRequest) (*OnCorruptionResponse, error)
+	mustEmbedUnimplementedErrorHandlerServiceServer()
 }
 
-// UnimplementedContentObservableServiceServer must be embedded to have
+// UnimplementedErrorHandlerServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedContentObservableServiceServer struct{}
+type UnimplementedErrorHandlerServiceServer struct{}
 
-func (UnimplementedContentObservableServiceServer) NewContentObservable(context.Context, *NewContentObservableRequest) (*NewContentObservableResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewContentObservable not implemented")
+func (UnimplementedErrorHandlerServiceServer) OnCorruption(context.Context, *ErrorHandlerOnCorruptionRequest) (*OnCorruptionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnCorruption not implemented")
 }
-func (UnimplementedContentObservableServiceServer) DispatchChange1(context.Context, *ContentObservableDispatchChange1Request) (*DispatchChange1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method DispatchChange1 not implemented")
-}
-func (UnimplementedContentObservableServiceServer) DispatchChange2_1(context.Context, *ContentObservableDispatchChange2_1Request) (*DispatchChange2_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method DispatchChange2_1 not implemented")
-}
-func (UnimplementedContentObservableServiceServer) NotifyChange(context.Context, *NotifyChangeRequest) (*NotifyChangeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NotifyChange not implemented")
-}
-func (UnimplementedContentObservableServiceServer) RegisterObserver1(context.Context, *RegisterObserver1Request) (*RegisterObserver1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method RegisterObserver1 not implemented")
-}
-func (UnimplementedContentObservableServiceServer) RegisterObserver1_1(context.Context, *RegisterObserver1_1Request) (*RegisterObserver1_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method RegisterObserver1_1 not implemented")
-}
-func (UnimplementedContentObservableServiceServer) mustEmbedUnimplementedContentObservableServiceServer() {
-}
-func (UnimplementedContentObservableServiceServer) testEmbeddedByValue() {}
+func (UnimplementedErrorHandlerServiceServer) mustEmbedUnimplementedErrorHandlerServiceServer() {}
+func (UnimplementedErrorHandlerServiceServer) testEmbeddedByValue()                             {}
 
-// UnsafeContentObservableServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to ContentObservableServiceServer will
+// UnsafeErrorHandlerServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ErrorHandlerServiceServer will
 // result in compilation errors.
-type UnsafeContentObservableServiceServer interface {
-	mustEmbedUnimplementedContentObservableServiceServer()
+type UnsafeErrorHandlerServiceServer interface {
+	mustEmbedUnimplementedErrorHandlerServiceServer()
 }
 
-func RegisterContentObservableServiceServer(s grpc.ServiceRegistrar, srv ContentObservableServiceServer) {
-	// If the following call panics, it indicates UnimplementedContentObservableServiceServer was
+func RegisterErrorHandlerServiceServer(s grpc.ServiceRegistrar, srv ErrorHandlerServiceServer) {
+	// If the following call panics, it indicates UnimplementedErrorHandlerServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&ContentObservableService_ServiceDesc, srv)
+	s.RegisterService(&ErrorHandlerService_ServiceDesc, srv)
 }
 
-func _ContentObservableService_NewContentObservable_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewContentObservableRequest)
+func _ErrorHandlerService_OnCorruption_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ErrorHandlerOnCorruptionRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ContentObservableServiceServer).NewContentObservable(ctx, in)
+		return srv.(ErrorHandlerServiceServer).OnCorruption(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: ContentObservableService_NewContentObservable_FullMethodName,
+		FullMethod: ErrorHandlerService_OnCorruption_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ContentObservableServiceServer).NewContentObservable(ctx, req.(*NewContentObservableRequest))
+		return srv.(ErrorHandlerServiceServer).OnCorruption(ctx, req.(*ErrorHandlerOnCorruptionRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ContentObservableService_DispatchChange1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ContentObservableDispatchChange1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ContentObservableServiceServer).DispatchChange1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ContentObservableService_DispatchChange1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ContentObservableServiceServer).DispatchChange1(ctx, req.(*ContentObservableDispatchChange1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ContentObservableService_DispatchChange2_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ContentObservableDispatchChange2_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ContentObservableServiceServer).DispatchChange2_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ContentObservableService_DispatchChange2_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ContentObservableServiceServer).DispatchChange2_1(ctx, req.(*ContentObservableDispatchChange2_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ContentObservableService_NotifyChange_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NotifyChangeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ContentObservableServiceServer).NotifyChange(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ContentObservableService_NotifyChange_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ContentObservableServiceServer).NotifyChange(ctx, req.(*NotifyChangeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ContentObservableService_RegisterObserver1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(RegisterObserver1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ContentObservableServiceServer).RegisterObserver1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ContentObservableService_RegisterObserver1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ContentObservableServiceServer).RegisterObserver1(ctx, req.(*RegisterObserver1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ContentObservableService_RegisterObserver1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(RegisterObserver1_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ContentObservableServiceServer).RegisterObserver1_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ContentObservableService_RegisterObserver1_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ContentObservableServiceServer).RegisterObserver1_1(ctx, req.(*RegisterObserver1_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// ContentObservableService_ServiceDesc is the grpc.ServiceDesc for ContentObservableService service.
+// ErrorHandlerService_ServiceDesc is the grpc.ServiceDesc for ErrorHandlerService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var ContentObservableService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "database.ContentObservableService",
-	HandlerType: (*ContentObservableServiceServer)(nil),
+var ErrorHandlerService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "database.ErrorHandlerService",
+	HandlerType: (*ErrorHandlerServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "NewContentObservable",
-			Handler:    _ContentObservableService_NewContentObservable_Handler,
+			MethodName: "OnCorruption",
+			Handler:    _ErrorHandlerService_OnCorruption_Handler,
 		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/database/database.proto",
+}
+
+const (
+	ObservableService_UnregisterAll_FullMethodName = "/database.ObservableService/UnregisterAll"
+)
+
+// ObservableServiceClient is the client API for ObservableService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ObservableServiceClient interface {
+	UnregisterAll(ctx context.Context, in *UnregisterAllRequest, opts ...grpc.CallOption) (*UnregisterAllResponse, error)
+}
+
+type observableServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewObservableServiceClient(cc grpc.ClientConnInterface) ObservableServiceClient {
+	return &observableServiceClient{cc}
+}
+
+func (c *observableServiceClient) UnregisterAll(ctx context.Context, in *UnregisterAllRequest, opts ...grpc.CallOption) (*UnregisterAllResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(UnregisterAllResponse)
+	err := c.cc.Invoke(ctx, ObservableService_UnregisterAll_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ObservableServiceServer is the server API for ObservableService service.
+// All implementations must embed UnimplementedObservableServiceServer
+// for forward compatibility.
+type ObservableServiceServer interface {
+	UnregisterAll(context.Context, *UnregisterAllRequest) (*UnregisterAllResponse, error)
+	mustEmbedUnimplementedObservableServiceServer()
+}
+
+// UnimplementedObservableServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedObservableServiceServer struct{}
+
+func (UnimplementedObservableServiceServer) UnregisterAll(context.Context, *UnregisterAllRequest) (*UnregisterAllResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method UnregisterAll not implemented")
+}
+func (UnimplementedObservableServiceServer) mustEmbedUnimplementedObservableServiceServer() {}
+func (UnimplementedObservableServiceServer) testEmbeddedByValue()                           {}
+
+// UnsafeObservableServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ObservableServiceServer will
+// result in compilation errors.
+type UnsafeObservableServiceServer interface {
+	mustEmbedUnimplementedObservableServiceServer()
+}
+
+func RegisterObservableServiceServer(s grpc.ServiceRegistrar, srv ObservableServiceServer) {
+	// If the following call panics, it indicates UnimplementedObservableServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&ObservableService_ServiceDesc, srv)
+}
+
+func _ObservableService_UnregisterAll_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UnregisterAllRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ObservableServiceServer).UnregisterAll(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ObservableService_UnregisterAll_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ObservableServiceServer).UnregisterAll(ctx, req.(*UnregisterAllRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ObservableService_ServiceDesc is the grpc.ServiceDesc for ObservableService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ObservableService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "database.ObservableService",
+	HandlerType: (*ObservableServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "DispatchChange1",
-			Handler:    _ContentObservableService_DispatchChange1_Handler,
-		},
-		{
-			MethodName: "DispatchChange2_1",
-			Handler:    _ContentObservableService_DispatchChange2_1_Handler,
-		},
-		{
-			MethodName: "NotifyChange",
-			Handler:    _ContentObservableService_NotifyChange_Handler,
-		},
-		{
-			MethodName: "RegisterObserver1",
-			Handler:    _ContentObservableService_RegisterObserver1_Handler,
-		},
-		{
-			MethodName: "RegisterObserver1_1",
-			Handler:    _ContentObservableService_RegisterObserver1_1_Handler,
+			MethodName: "UnregisterAll",
+			Handler:    _ObservableService_UnregisterAll_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -8239,7 +6780,7 @@ type MergeCursorServiceClient interface {
 	GetString(ctx context.Context, in *GetStringRequest, opts ...grpc.CallOption) (*GetStringResponse, error)
 	GetType(ctx context.Context, in *GetTypeRequest, opts ...grpc.CallOption) (*GetTypeResponse, error)
 	IsNull(ctx context.Context, in *IsNullRequest, opts ...grpc.CallOption) (*IsNullResponse, error)
-	OnMove(ctx context.Context, in *OnMoveRequest, opts ...grpc.CallOption) (*OnMoveResponse, error)
+	OnMove(ctx context.Context, in *MergeCursorOnMoveRequest, opts ...grpc.CallOption) (*OnMoveResponse, error)
 	RegisterContentObserver(ctx context.Context, in *RegisterContentObserverRequest, opts ...grpc.CallOption) (*RegisterContentObserverResponse, error)
 	RegisterDataSetObserver(ctx context.Context, in *RegisterDataSetObserverRequest, opts ...grpc.CallOption) (*RegisterDataSetObserverResponse, error)
 	Requery(ctx context.Context, in *RequeryRequest, opts ...grpc.CallOption) (*RequeryResponse, error)
@@ -8395,7 +6936,7 @@ func (c *mergeCursorServiceClient) IsNull(ctx context.Context, in *IsNullRequest
 	return out, nil
 }
 
-func (c *mergeCursorServiceClient) OnMove(ctx context.Context, in *OnMoveRequest, opts ...grpc.CallOption) (*OnMoveResponse, error) {
+func (c *mergeCursorServiceClient) OnMove(ctx context.Context, in *MergeCursorOnMoveRequest, opts ...grpc.CallOption) (*OnMoveResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(OnMoveResponse)
 	err := c.cc.Invoke(ctx, MergeCursorService_OnMove_FullMethodName, in, out, cOpts...)
@@ -8473,7 +7014,7 @@ type MergeCursorServiceServer interface {
 	GetString(context.Context, *GetStringRequest) (*GetStringResponse, error)
 	GetType(context.Context, *GetTypeRequest) (*GetTypeResponse, error)
 	IsNull(context.Context, *IsNullRequest) (*IsNullResponse, error)
-	OnMove(context.Context, *OnMoveRequest) (*OnMoveResponse, error)
+	OnMove(context.Context, *MergeCursorOnMoveRequest) (*OnMoveResponse, error)
 	RegisterContentObserver(context.Context, *RegisterContentObserverRequest) (*RegisterContentObserverResponse, error)
 	RegisterDataSetObserver(context.Context, *RegisterDataSetObserverRequest) (*RegisterDataSetObserverResponse, error)
 	Requery(context.Context, *RequeryRequest) (*RequeryResponse, error)
@@ -8531,7 +7072,7 @@ func (UnimplementedMergeCursorServiceServer) GetType(context.Context, *GetTypeRe
 func (UnimplementedMergeCursorServiceServer) IsNull(context.Context, *IsNullRequest) (*IsNullResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method IsNull not implemented")
 }
-func (UnimplementedMergeCursorServiceServer) OnMove(context.Context, *OnMoveRequest) (*OnMoveResponse, error) {
+func (UnimplementedMergeCursorServiceServer) OnMove(context.Context, *MergeCursorOnMoveRequest) (*OnMoveResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method OnMove not implemented")
 }
 func (UnimplementedMergeCursorServiceServer) RegisterContentObserver(context.Context, *RegisterContentObserverRequest) (*RegisterContentObserverResponse, error) {
@@ -8823,7 +7364,7 @@ func _MergeCursorService_IsNull_Handler(srv interface{}, ctx context.Context, de
 }
 
 func _MergeCursorService_OnMove_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnMoveRequest)
+	in := new(MergeCursorOnMoveRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -8835,7 +7376,7 @@ func _MergeCursorService_OnMove_Handler(srv interface{}, ctx context.Context, de
 		FullMethod: MergeCursorService_OnMove_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MergeCursorServiceServer).OnMove(ctx, req.(*OnMoveRequest))
+		return srv.(MergeCursorServiceServer).OnMove(ctx, req.(*MergeCursorOnMoveRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -9023,819 +7564,6 @@ var MergeCursorService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	AbstractWindowedCursorService_CopyStringToBuffer_FullMethodName = "/database.AbstractWindowedCursorService/CopyStringToBuffer"
-	AbstractWindowedCursorService_GetBlob_FullMethodName            = "/database.AbstractWindowedCursorService/GetBlob"
-	AbstractWindowedCursorService_GetDouble_FullMethodName          = "/database.AbstractWindowedCursorService/GetDouble"
-	AbstractWindowedCursorService_GetFloat_FullMethodName           = "/database.AbstractWindowedCursorService/GetFloat"
-	AbstractWindowedCursorService_GetInt_FullMethodName             = "/database.AbstractWindowedCursorService/GetInt"
-	AbstractWindowedCursorService_GetLong_FullMethodName            = "/database.AbstractWindowedCursorService/GetLong"
-	AbstractWindowedCursorService_GetShort_FullMethodName           = "/database.AbstractWindowedCursorService/GetShort"
-	AbstractWindowedCursorService_GetString_FullMethodName          = "/database.AbstractWindowedCursorService/GetString"
-	AbstractWindowedCursorService_GetType_FullMethodName            = "/database.AbstractWindowedCursorService/GetType"
-	AbstractWindowedCursorService_GetWindow_FullMethodName          = "/database.AbstractWindowedCursorService/GetWindow"
-	AbstractWindowedCursorService_HasWindow_FullMethodName          = "/database.AbstractWindowedCursorService/HasWindow"
-	AbstractWindowedCursorService_IsBlob_FullMethodName             = "/database.AbstractWindowedCursorService/IsBlob"
-	AbstractWindowedCursorService_IsFloat_FullMethodName            = "/database.AbstractWindowedCursorService/IsFloat"
-	AbstractWindowedCursorService_IsLong_FullMethodName             = "/database.AbstractWindowedCursorService/IsLong"
-	AbstractWindowedCursorService_IsNull_FullMethodName             = "/database.AbstractWindowedCursorService/IsNull"
-	AbstractWindowedCursorService_IsString_FullMethodName           = "/database.AbstractWindowedCursorService/IsString"
-	AbstractWindowedCursorService_SetWindow_FullMethodName          = "/database.AbstractWindowedCursorService/SetWindow"
-)
-
-// AbstractWindowedCursorServiceClient is the client API for AbstractWindowedCursorService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type AbstractWindowedCursorServiceClient interface {
-	CopyStringToBuffer(ctx context.Context, in *AbstractWindowedCursorCopyStringToBufferRequest, opts ...grpc.CallOption) (*CopyStringToBufferResponse, error)
-	GetBlob(ctx context.Context, in *AbstractWindowedCursorGetBlobRequest, opts ...grpc.CallOption) (*GetBlobResponse, error)
-	GetDouble(ctx context.Context, in *AbstractWindowedCursorGetDoubleRequest, opts ...grpc.CallOption) (*GetDoubleResponse, error)
-	GetFloat(ctx context.Context, in *AbstractWindowedCursorGetFloatRequest, opts ...grpc.CallOption) (*GetFloatResponse, error)
-	GetInt(ctx context.Context, in *AbstractWindowedCursorGetIntRequest, opts ...grpc.CallOption) (*GetIntResponse, error)
-	GetLong(ctx context.Context, in *AbstractWindowedCursorGetLongRequest, opts ...grpc.CallOption) (*GetLongResponse, error)
-	GetShort(ctx context.Context, in *AbstractWindowedCursorGetShortRequest, opts ...grpc.CallOption) (*GetShortResponse, error)
-	GetString(ctx context.Context, in *AbstractWindowedCursorGetStringRequest, opts ...grpc.CallOption) (*GetStringResponse, error)
-	GetType(ctx context.Context, in *AbstractWindowedCursorGetTypeRequest, opts ...grpc.CallOption) (*GetTypeResponse, error)
-	GetWindow(ctx context.Context, in *AbstractWindowedCursorGetWindowRequest, opts ...grpc.CallOption) (*GetWindowResponse, error)
-	HasWindow(ctx context.Context, in *HasWindowRequest, opts ...grpc.CallOption) (*HasWindowResponse, error)
-	IsBlob(ctx context.Context, in *AbstractWindowedCursorIsBlobRequest, opts ...grpc.CallOption) (*IsBlobResponse, error)
-	IsFloat(ctx context.Context, in *AbstractWindowedCursorIsFloatRequest, opts ...grpc.CallOption) (*IsFloatResponse, error)
-	IsLong(ctx context.Context, in *AbstractWindowedCursorIsLongRequest, opts ...grpc.CallOption) (*IsLongResponse, error)
-	IsNull(ctx context.Context, in *AbstractWindowedCursorIsNullRequest, opts ...grpc.CallOption) (*IsNullResponse, error)
-	IsString(ctx context.Context, in *AbstractWindowedCursorIsStringRequest, opts ...grpc.CallOption) (*IsStringResponse, error)
-	SetWindow(ctx context.Context, in *SetWindowRequest, opts ...grpc.CallOption) (*SetWindowResponse, error)
-}
-
-type abstractWindowedCursorServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewAbstractWindowedCursorServiceClient(cc grpc.ClientConnInterface) AbstractWindowedCursorServiceClient {
-	return &abstractWindowedCursorServiceClient{cc}
-}
-
-func (c *abstractWindowedCursorServiceClient) CopyStringToBuffer(ctx context.Context, in *AbstractWindowedCursorCopyStringToBufferRequest, opts ...grpc.CallOption) (*CopyStringToBufferResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CopyStringToBufferResponse)
-	err := c.cc.Invoke(ctx, AbstractWindowedCursorService_CopyStringToBuffer_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *abstractWindowedCursorServiceClient) GetBlob(ctx context.Context, in *AbstractWindowedCursorGetBlobRequest, opts ...grpc.CallOption) (*GetBlobResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetBlobResponse)
-	err := c.cc.Invoke(ctx, AbstractWindowedCursorService_GetBlob_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *abstractWindowedCursorServiceClient) GetDouble(ctx context.Context, in *AbstractWindowedCursorGetDoubleRequest, opts ...grpc.CallOption) (*GetDoubleResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetDoubleResponse)
-	err := c.cc.Invoke(ctx, AbstractWindowedCursorService_GetDouble_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *abstractWindowedCursorServiceClient) GetFloat(ctx context.Context, in *AbstractWindowedCursorGetFloatRequest, opts ...grpc.CallOption) (*GetFloatResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetFloatResponse)
-	err := c.cc.Invoke(ctx, AbstractWindowedCursorService_GetFloat_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *abstractWindowedCursorServiceClient) GetInt(ctx context.Context, in *AbstractWindowedCursorGetIntRequest, opts ...grpc.CallOption) (*GetIntResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetIntResponse)
-	err := c.cc.Invoke(ctx, AbstractWindowedCursorService_GetInt_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *abstractWindowedCursorServiceClient) GetLong(ctx context.Context, in *AbstractWindowedCursorGetLongRequest, opts ...grpc.CallOption) (*GetLongResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetLongResponse)
-	err := c.cc.Invoke(ctx, AbstractWindowedCursorService_GetLong_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *abstractWindowedCursorServiceClient) GetShort(ctx context.Context, in *AbstractWindowedCursorGetShortRequest, opts ...grpc.CallOption) (*GetShortResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetShortResponse)
-	err := c.cc.Invoke(ctx, AbstractWindowedCursorService_GetShort_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *abstractWindowedCursorServiceClient) GetString(ctx context.Context, in *AbstractWindowedCursorGetStringRequest, opts ...grpc.CallOption) (*GetStringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetStringResponse)
-	err := c.cc.Invoke(ctx, AbstractWindowedCursorService_GetString_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *abstractWindowedCursorServiceClient) GetType(ctx context.Context, in *AbstractWindowedCursorGetTypeRequest, opts ...grpc.CallOption) (*GetTypeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetTypeResponse)
-	err := c.cc.Invoke(ctx, AbstractWindowedCursorService_GetType_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *abstractWindowedCursorServiceClient) GetWindow(ctx context.Context, in *AbstractWindowedCursorGetWindowRequest, opts ...grpc.CallOption) (*GetWindowResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetWindowResponse)
-	err := c.cc.Invoke(ctx, AbstractWindowedCursorService_GetWindow_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *abstractWindowedCursorServiceClient) HasWindow(ctx context.Context, in *HasWindowRequest, opts ...grpc.CallOption) (*HasWindowResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(HasWindowResponse)
-	err := c.cc.Invoke(ctx, AbstractWindowedCursorService_HasWindow_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *abstractWindowedCursorServiceClient) IsBlob(ctx context.Context, in *AbstractWindowedCursorIsBlobRequest, opts ...grpc.CallOption) (*IsBlobResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsBlobResponse)
-	err := c.cc.Invoke(ctx, AbstractWindowedCursorService_IsBlob_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *abstractWindowedCursorServiceClient) IsFloat(ctx context.Context, in *AbstractWindowedCursorIsFloatRequest, opts ...grpc.CallOption) (*IsFloatResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsFloatResponse)
-	err := c.cc.Invoke(ctx, AbstractWindowedCursorService_IsFloat_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *abstractWindowedCursorServiceClient) IsLong(ctx context.Context, in *AbstractWindowedCursorIsLongRequest, opts ...grpc.CallOption) (*IsLongResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsLongResponse)
-	err := c.cc.Invoke(ctx, AbstractWindowedCursorService_IsLong_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *abstractWindowedCursorServiceClient) IsNull(ctx context.Context, in *AbstractWindowedCursorIsNullRequest, opts ...grpc.CallOption) (*IsNullResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsNullResponse)
-	err := c.cc.Invoke(ctx, AbstractWindowedCursorService_IsNull_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *abstractWindowedCursorServiceClient) IsString(ctx context.Context, in *AbstractWindowedCursorIsStringRequest, opts ...grpc.CallOption) (*IsStringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsStringResponse)
-	err := c.cc.Invoke(ctx, AbstractWindowedCursorService_IsString_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *abstractWindowedCursorServiceClient) SetWindow(ctx context.Context, in *SetWindowRequest, opts ...grpc.CallOption) (*SetWindowResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetWindowResponse)
-	err := c.cc.Invoke(ctx, AbstractWindowedCursorService_SetWindow_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// AbstractWindowedCursorServiceServer is the server API for AbstractWindowedCursorService service.
-// All implementations must embed UnimplementedAbstractWindowedCursorServiceServer
-// for forward compatibility.
-type AbstractWindowedCursorServiceServer interface {
-	CopyStringToBuffer(context.Context, *AbstractWindowedCursorCopyStringToBufferRequest) (*CopyStringToBufferResponse, error)
-	GetBlob(context.Context, *AbstractWindowedCursorGetBlobRequest) (*GetBlobResponse, error)
-	GetDouble(context.Context, *AbstractWindowedCursorGetDoubleRequest) (*GetDoubleResponse, error)
-	GetFloat(context.Context, *AbstractWindowedCursorGetFloatRequest) (*GetFloatResponse, error)
-	GetInt(context.Context, *AbstractWindowedCursorGetIntRequest) (*GetIntResponse, error)
-	GetLong(context.Context, *AbstractWindowedCursorGetLongRequest) (*GetLongResponse, error)
-	GetShort(context.Context, *AbstractWindowedCursorGetShortRequest) (*GetShortResponse, error)
-	GetString(context.Context, *AbstractWindowedCursorGetStringRequest) (*GetStringResponse, error)
-	GetType(context.Context, *AbstractWindowedCursorGetTypeRequest) (*GetTypeResponse, error)
-	GetWindow(context.Context, *AbstractWindowedCursorGetWindowRequest) (*GetWindowResponse, error)
-	HasWindow(context.Context, *HasWindowRequest) (*HasWindowResponse, error)
-	IsBlob(context.Context, *AbstractWindowedCursorIsBlobRequest) (*IsBlobResponse, error)
-	IsFloat(context.Context, *AbstractWindowedCursorIsFloatRequest) (*IsFloatResponse, error)
-	IsLong(context.Context, *AbstractWindowedCursorIsLongRequest) (*IsLongResponse, error)
-	IsNull(context.Context, *AbstractWindowedCursorIsNullRequest) (*IsNullResponse, error)
-	IsString(context.Context, *AbstractWindowedCursorIsStringRequest) (*IsStringResponse, error)
-	SetWindow(context.Context, *SetWindowRequest) (*SetWindowResponse, error)
-	mustEmbedUnimplementedAbstractWindowedCursorServiceServer()
-}
-
-// UnimplementedAbstractWindowedCursorServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedAbstractWindowedCursorServiceServer struct{}
-
-func (UnimplementedAbstractWindowedCursorServiceServer) CopyStringToBuffer(context.Context, *AbstractWindowedCursorCopyStringToBufferRequest) (*CopyStringToBufferResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method CopyStringToBuffer not implemented")
-}
-func (UnimplementedAbstractWindowedCursorServiceServer) GetBlob(context.Context, *AbstractWindowedCursorGetBlobRequest) (*GetBlobResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetBlob not implemented")
-}
-func (UnimplementedAbstractWindowedCursorServiceServer) GetDouble(context.Context, *AbstractWindowedCursorGetDoubleRequest) (*GetDoubleResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetDouble not implemented")
-}
-func (UnimplementedAbstractWindowedCursorServiceServer) GetFloat(context.Context, *AbstractWindowedCursorGetFloatRequest) (*GetFloatResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetFloat not implemented")
-}
-func (UnimplementedAbstractWindowedCursorServiceServer) GetInt(context.Context, *AbstractWindowedCursorGetIntRequest) (*GetIntResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetInt not implemented")
-}
-func (UnimplementedAbstractWindowedCursorServiceServer) GetLong(context.Context, *AbstractWindowedCursorGetLongRequest) (*GetLongResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetLong not implemented")
-}
-func (UnimplementedAbstractWindowedCursorServiceServer) GetShort(context.Context, *AbstractWindowedCursorGetShortRequest) (*GetShortResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetShort not implemented")
-}
-func (UnimplementedAbstractWindowedCursorServiceServer) GetString(context.Context, *AbstractWindowedCursorGetStringRequest) (*GetStringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetString not implemented")
-}
-func (UnimplementedAbstractWindowedCursorServiceServer) GetType(context.Context, *AbstractWindowedCursorGetTypeRequest) (*GetTypeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetType not implemented")
-}
-func (UnimplementedAbstractWindowedCursorServiceServer) GetWindow(context.Context, *AbstractWindowedCursorGetWindowRequest) (*GetWindowResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetWindow not implemented")
-}
-func (UnimplementedAbstractWindowedCursorServiceServer) HasWindow(context.Context, *HasWindowRequest) (*HasWindowResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method HasWindow not implemented")
-}
-func (UnimplementedAbstractWindowedCursorServiceServer) IsBlob(context.Context, *AbstractWindowedCursorIsBlobRequest) (*IsBlobResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsBlob not implemented")
-}
-func (UnimplementedAbstractWindowedCursorServiceServer) IsFloat(context.Context, *AbstractWindowedCursorIsFloatRequest) (*IsFloatResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsFloat not implemented")
-}
-func (UnimplementedAbstractWindowedCursorServiceServer) IsLong(context.Context, *AbstractWindowedCursorIsLongRequest) (*IsLongResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsLong not implemented")
-}
-func (UnimplementedAbstractWindowedCursorServiceServer) IsNull(context.Context, *AbstractWindowedCursorIsNullRequest) (*IsNullResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsNull not implemented")
-}
-func (UnimplementedAbstractWindowedCursorServiceServer) IsString(context.Context, *AbstractWindowedCursorIsStringRequest) (*IsStringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsString not implemented")
-}
-func (UnimplementedAbstractWindowedCursorServiceServer) SetWindow(context.Context, *SetWindowRequest) (*SetWindowResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetWindow not implemented")
-}
-func (UnimplementedAbstractWindowedCursorServiceServer) mustEmbedUnimplementedAbstractWindowedCursorServiceServer() {
-}
-func (UnimplementedAbstractWindowedCursorServiceServer) testEmbeddedByValue() {}
-
-// UnsafeAbstractWindowedCursorServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to AbstractWindowedCursorServiceServer will
-// result in compilation errors.
-type UnsafeAbstractWindowedCursorServiceServer interface {
-	mustEmbedUnimplementedAbstractWindowedCursorServiceServer()
-}
-
-func RegisterAbstractWindowedCursorServiceServer(s grpc.ServiceRegistrar, srv AbstractWindowedCursorServiceServer) {
-	// If the following call panics, it indicates UnimplementedAbstractWindowedCursorServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&AbstractWindowedCursorService_ServiceDesc, srv)
-}
-
-func _AbstractWindowedCursorService_CopyStringToBuffer_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AbstractWindowedCursorCopyStringToBufferRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AbstractWindowedCursorServiceServer).CopyStringToBuffer(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AbstractWindowedCursorService_CopyStringToBuffer_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AbstractWindowedCursorServiceServer).CopyStringToBuffer(ctx, req.(*AbstractWindowedCursorCopyStringToBufferRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AbstractWindowedCursorService_GetBlob_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AbstractWindowedCursorGetBlobRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AbstractWindowedCursorServiceServer).GetBlob(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AbstractWindowedCursorService_GetBlob_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AbstractWindowedCursorServiceServer).GetBlob(ctx, req.(*AbstractWindowedCursorGetBlobRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AbstractWindowedCursorService_GetDouble_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AbstractWindowedCursorGetDoubleRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AbstractWindowedCursorServiceServer).GetDouble(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AbstractWindowedCursorService_GetDouble_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AbstractWindowedCursorServiceServer).GetDouble(ctx, req.(*AbstractWindowedCursorGetDoubleRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AbstractWindowedCursorService_GetFloat_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AbstractWindowedCursorGetFloatRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AbstractWindowedCursorServiceServer).GetFloat(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AbstractWindowedCursorService_GetFloat_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AbstractWindowedCursorServiceServer).GetFloat(ctx, req.(*AbstractWindowedCursorGetFloatRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AbstractWindowedCursorService_GetInt_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AbstractWindowedCursorGetIntRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AbstractWindowedCursorServiceServer).GetInt(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AbstractWindowedCursorService_GetInt_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AbstractWindowedCursorServiceServer).GetInt(ctx, req.(*AbstractWindowedCursorGetIntRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AbstractWindowedCursorService_GetLong_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AbstractWindowedCursorGetLongRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AbstractWindowedCursorServiceServer).GetLong(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AbstractWindowedCursorService_GetLong_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AbstractWindowedCursorServiceServer).GetLong(ctx, req.(*AbstractWindowedCursorGetLongRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AbstractWindowedCursorService_GetShort_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AbstractWindowedCursorGetShortRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AbstractWindowedCursorServiceServer).GetShort(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AbstractWindowedCursorService_GetShort_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AbstractWindowedCursorServiceServer).GetShort(ctx, req.(*AbstractWindowedCursorGetShortRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AbstractWindowedCursorService_GetString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AbstractWindowedCursorGetStringRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AbstractWindowedCursorServiceServer).GetString(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AbstractWindowedCursorService_GetString_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AbstractWindowedCursorServiceServer).GetString(ctx, req.(*AbstractWindowedCursorGetStringRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AbstractWindowedCursorService_GetType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AbstractWindowedCursorGetTypeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AbstractWindowedCursorServiceServer).GetType(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AbstractWindowedCursorService_GetType_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AbstractWindowedCursorServiceServer).GetType(ctx, req.(*AbstractWindowedCursorGetTypeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AbstractWindowedCursorService_GetWindow_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AbstractWindowedCursorGetWindowRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AbstractWindowedCursorServiceServer).GetWindow(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AbstractWindowedCursorService_GetWindow_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AbstractWindowedCursorServiceServer).GetWindow(ctx, req.(*AbstractWindowedCursorGetWindowRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AbstractWindowedCursorService_HasWindow_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(HasWindowRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AbstractWindowedCursorServiceServer).HasWindow(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AbstractWindowedCursorService_HasWindow_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AbstractWindowedCursorServiceServer).HasWindow(ctx, req.(*HasWindowRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AbstractWindowedCursorService_IsBlob_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AbstractWindowedCursorIsBlobRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AbstractWindowedCursorServiceServer).IsBlob(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AbstractWindowedCursorService_IsBlob_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AbstractWindowedCursorServiceServer).IsBlob(ctx, req.(*AbstractWindowedCursorIsBlobRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AbstractWindowedCursorService_IsFloat_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AbstractWindowedCursorIsFloatRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AbstractWindowedCursorServiceServer).IsFloat(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AbstractWindowedCursorService_IsFloat_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AbstractWindowedCursorServiceServer).IsFloat(ctx, req.(*AbstractWindowedCursorIsFloatRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AbstractWindowedCursorService_IsLong_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AbstractWindowedCursorIsLongRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AbstractWindowedCursorServiceServer).IsLong(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AbstractWindowedCursorService_IsLong_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AbstractWindowedCursorServiceServer).IsLong(ctx, req.(*AbstractWindowedCursorIsLongRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AbstractWindowedCursorService_IsNull_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AbstractWindowedCursorIsNullRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AbstractWindowedCursorServiceServer).IsNull(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AbstractWindowedCursorService_IsNull_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AbstractWindowedCursorServiceServer).IsNull(ctx, req.(*AbstractWindowedCursorIsNullRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AbstractWindowedCursorService_IsString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AbstractWindowedCursorIsStringRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AbstractWindowedCursorServiceServer).IsString(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AbstractWindowedCursorService_IsString_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AbstractWindowedCursorServiceServer).IsString(ctx, req.(*AbstractWindowedCursorIsStringRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AbstractWindowedCursorService_SetWindow_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetWindowRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AbstractWindowedCursorServiceServer).SetWindow(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AbstractWindowedCursorService_SetWindow_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AbstractWindowedCursorServiceServer).SetWindow(ctx, req.(*SetWindowRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// AbstractWindowedCursorService_ServiceDesc is the grpc.ServiceDesc for AbstractWindowedCursorService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var AbstractWindowedCursorService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "database.AbstractWindowedCursorService",
-	HandlerType: (*AbstractWindowedCursorServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "CopyStringToBuffer",
-			Handler:    _AbstractWindowedCursorService_CopyStringToBuffer_Handler,
-		},
-		{
-			MethodName: "GetBlob",
-			Handler:    _AbstractWindowedCursorService_GetBlob_Handler,
-		},
-		{
-			MethodName: "GetDouble",
-			Handler:    _AbstractWindowedCursorService_GetDouble_Handler,
-		},
-		{
-			MethodName: "GetFloat",
-			Handler:    _AbstractWindowedCursorService_GetFloat_Handler,
-		},
-		{
-			MethodName: "GetInt",
-			Handler:    _AbstractWindowedCursorService_GetInt_Handler,
-		},
-		{
-			MethodName: "GetLong",
-			Handler:    _AbstractWindowedCursorService_GetLong_Handler,
-		},
-		{
-			MethodName: "GetShort",
-			Handler:    _AbstractWindowedCursorService_GetShort_Handler,
-		},
-		{
-			MethodName: "GetString",
-			Handler:    _AbstractWindowedCursorService_GetString_Handler,
-		},
-		{
-			MethodName: "GetType",
-			Handler:    _AbstractWindowedCursorService_GetType_Handler,
-		},
-		{
-			MethodName: "GetWindow",
-			Handler:    _AbstractWindowedCursorService_GetWindow_Handler,
-		},
-		{
-			MethodName: "HasWindow",
-			Handler:    _AbstractWindowedCursorService_HasWindow_Handler,
-		},
-		{
-			MethodName: "IsBlob",
-			Handler:    _AbstractWindowedCursorService_IsBlob_Handler,
-		},
-		{
-			MethodName: "IsFloat",
-			Handler:    _AbstractWindowedCursorService_IsFloat_Handler,
-		},
-		{
-			MethodName: "IsLong",
-			Handler:    _AbstractWindowedCursorService_IsLong_Handler,
-		},
-		{
-			MethodName: "IsNull",
-			Handler:    _AbstractWindowedCursorService_IsNull_Handler,
-		},
-		{
-			MethodName: "IsString",
-			Handler:    _AbstractWindowedCursorService_IsString_Handler,
-		},
-		{
-			MethodName: "SetWindow",
-			Handler:    _AbstractWindowedCursorService_SetWindow_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/database/database.proto",
-}
-
-const (
-	ErrorHandlerService_OnCorruption_FullMethodName = "/database.ErrorHandlerService/OnCorruption"
-)
-
-// ErrorHandlerServiceClient is the client API for ErrorHandlerService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type ErrorHandlerServiceClient interface {
-	OnCorruption(ctx context.Context, in *ErrorHandlerOnCorruptionRequest, opts ...grpc.CallOption) (*OnCorruptionResponse, error)
-}
-
-type errorHandlerServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewErrorHandlerServiceClient(cc grpc.ClientConnInterface) ErrorHandlerServiceClient {
-	return &errorHandlerServiceClient{cc}
-}
-
-func (c *errorHandlerServiceClient) OnCorruption(ctx context.Context, in *ErrorHandlerOnCorruptionRequest, opts ...grpc.CallOption) (*OnCorruptionResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnCorruptionResponse)
-	err := c.cc.Invoke(ctx, ErrorHandlerService_OnCorruption_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// ErrorHandlerServiceServer is the server API for ErrorHandlerService service.
-// All implementations must embed UnimplementedErrorHandlerServiceServer
-// for forward compatibility.
-type ErrorHandlerServiceServer interface {
-	OnCorruption(context.Context, *ErrorHandlerOnCorruptionRequest) (*OnCorruptionResponse, error)
-	mustEmbedUnimplementedErrorHandlerServiceServer()
-}
-
-// UnimplementedErrorHandlerServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedErrorHandlerServiceServer struct{}
-
-func (UnimplementedErrorHandlerServiceServer) OnCorruption(context.Context, *ErrorHandlerOnCorruptionRequest) (*OnCorruptionResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnCorruption not implemented")
-}
-func (UnimplementedErrorHandlerServiceServer) mustEmbedUnimplementedErrorHandlerServiceServer() {}
-func (UnimplementedErrorHandlerServiceServer) testEmbeddedByValue()                             {}
-
-// UnsafeErrorHandlerServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to ErrorHandlerServiceServer will
-// result in compilation errors.
-type UnsafeErrorHandlerServiceServer interface {
-	mustEmbedUnimplementedErrorHandlerServiceServer()
-}
-
-func RegisterErrorHandlerServiceServer(s grpc.ServiceRegistrar, srv ErrorHandlerServiceServer) {
-	// If the following call panics, it indicates UnimplementedErrorHandlerServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&ErrorHandlerService_ServiceDesc, srv)
-}
-
-func _ErrorHandlerService_OnCorruption_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ErrorHandlerOnCorruptionRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ErrorHandlerServiceServer).OnCorruption(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ErrorHandlerService_OnCorruption_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ErrorHandlerServiceServer).OnCorruption(ctx, req.(*ErrorHandlerOnCorruptionRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// ErrorHandlerService_ServiceDesc is the grpc.ServiceDesc for ErrorHandlerService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var ErrorHandlerService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "database.ErrorHandlerService",
-	HandlerType: (*ErrorHandlerServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "OnCorruption",
-			Handler:    _ErrorHandlerService_OnCorruption_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/database/database.proto",
-}
-
-const (
 	AbstractCursorService_Close_FullMethodName                     = "/database.AbstractCursorService/Close"
 	AbstractCursorService_CopyStringToBuffer_FullMethodName        = "/database.AbstractCursorService/CopyStringToBuffer"
 	AbstractCursorService_Deactivate_FullMethodName                = "/database.AbstractCursorService/Deactivate"
@@ -9853,6 +7581,7 @@ const (
 	AbstractCursorService_GetInt_FullMethodName                    = "/database.AbstractCursorService/GetInt"
 	AbstractCursorService_GetLong_FullMethodName                   = "/database.AbstractCursorService/GetLong"
 	AbstractCursorService_GetNotificationUri_FullMethodName        = "/database.AbstractCursorService/GetNotificationUri"
+	AbstractCursorService_GetNotificationUris_FullMethodName       = "/database.AbstractCursorService/GetNotificationUris"
 	AbstractCursorService_GetPosition_FullMethodName               = "/database.AbstractCursorService/GetPosition"
 	AbstractCursorService_GetShort_FullMethodName                  = "/database.AbstractCursorService/GetShort"
 	AbstractCursorService_GetString_FullMethodName                 = "/database.AbstractCursorService/GetString"
@@ -9887,47 +7616,48 @@ const (
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type AbstractCursorServiceClient interface {
 	Close(ctx context.Context, in *CloseRequest, opts ...grpc.CallOption) (*CloseResponse, error)
-	CopyStringToBuffer(ctx context.Context, in *AbstractCursorCopyStringToBufferRequest, opts ...grpc.CallOption) (*CopyStringToBufferResponse, error)
+	CopyStringToBuffer(ctx context.Context, in *CopyStringToBufferRequest, opts ...grpc.CallOption) (*CopyStringToBufferResponse, error)
 	Deactivate(ctx context.Context, in *AbstractCursorDeactivateRequest, opts ...grpc.CallOption) (*DeactivateResponse, error)
-	FillWindow(ctx context.Context, in *AbstractCursorFillWindowRequest, opts ...grpc.CallOption) (*FillWindowResponse, error)
+	FillWindow(ctx context.Context, in *FillWindowRequest, opts ...grpc.CallOption) (*FillWindowResponse, error)
 	GetBlob(ctx context.Context, in *AbstractCursorGetBlobRequest, opts ...grpc.CallOption) (*GetBlobResponse, error)
-	GetColumnCount(ctx context.Context, in *AbstractCursorGetColumnCountRequest, opts ...grpc.CallOption) (*GetColumnCountResponse, error)
+	GetColumnCount(ctx context.Context, in *GetColumnCountRequest, opts ...grpc.CallOption) (*GetColumnCountResponse, error)
 	GetColumnIndex(ctx context.Context, in *GetColumnIndexRequest, opts ...grpc.CallOption) (*GetColumnIndexResponse, error)
-	GetColumnIndexOrThrow(ctx context.Context, in *AbstractCursorGetColumnIndexOrThrowRequest, opts ...grpc.CallOption) (*GetColumnIndexOrThrowResponse, error)
-	GetColumnName(ctx context.Context, in *AbstractCursorGetColumnNameRequest, opts ...grpc.CallOption) (*GetColumnNameResponse, error)
+	GetColumnIndexOrThrow(ctx context.Context, in *GetColumnIndexOrThrowRequest, opts ...grpc.CallOption) (*GetColumnIndexOrThrowResponse, error)
+	GetColumnName(ctx context.Context, in *GetColumnNameRequest, opts ...grpc.CallOption) (*GetColumnNameResponse, error)
 	GetColumnNames(ctx context.Context, in *AbstractCursorGetColumnNamesRequest, opts ...grpc.CallOption) (*GetColumnNamesResponse, error)
 	GetCount(ctx context.Context, in *AbstractCursorGetCountRequest, opts ...grpc.CallOption) (*GetCountResponse, error)
 	GetDouble(ctx context.Context, in *AbstractCursorGetDoubleRequest, opts ...grpc.CallOption) (*GetDoubleResponse, error)
-	GetExtras(ctx context.Context, in *AbstractCursorGetExtrasRequest, opts ...grpc.CallOption) (*GetExtrasResponse, error)
+	GetExtras(ctx context.Context, in *GetExtrasRequest, opts ...grpc.CallOption) (*GetExtrasResponse, error)
 	GetFloat(ctx context.Context, in *AbstractCursorGetFloatRequest, opts ...grpc.CallOption) (*GetFloatResponse, error)
 	GetInt(ctx context.Context, in *AbstractCursorGetIntRequest, opts ...grpc.CallOption) (*GetIntResponse, error)
 	GetLong(ctx context.Context, in *AbstractCursorGetLongRequest, opts ...grpc.CallOption) (*GetLongResponse, error)
-	GetNotificationUri(ctx context.Context, in *AbstractCursorGetNotificationUriRequest, opts ...grpc.CallOption) (*GetNotificationUriResponse, error)
-	GetPosition(ctx context.Context, in *AbstractCursorGetPositionRequest, opts ...grpc.CallOption) (*GetPositionResponse, error)
+	GetNotificationUri(ctx context.Context, in *GetNotificationUriRequest, opts ...grpc.CallOption) (*GetNotificationUriResponse, error)
+	GetNotificationUris(ctx context.Context, in *GetNotificationUrisRequest, opts ...grpc.CallOption) (*GetNotificationUrisResponse, error)
+	GetPosition(ctx context.Context, in *GetPositionRequest, opts ...grpc.CallOption) (*GetPositionResponse, error)
 	GetShort(ctx context.Context, in *AbstractCursorGetShortRequest, opts ...grpc.CallOption) (*GetShortResponse, error)
 	GetString(ctx context.Context, in *AbstractCursorGetStringRequest, opts ...grpc.CallOption) (*GetStringResponse, error)
 	GetType(ctx context.Context, in *AbstractCursorGetTypeRequest, opts ...grpc.CallOption) (*GetTypeResponse, error)
-	GetWantsAllOnMoveCalls(ctx context.Context, in *AbstractCursorGetWantsAllOnMoveCallsRequest, opts ...grpc.CallOption) (*GetWantsAllOnMoveCallsResponse, error)
-	GetWindow(ctx context.Context, in *AbstractCursorGetWindowRequest, opts ...grpc.CallOption) (*GetWindowResponse, error)
-	IsAfterLast(ctx context.Context, in *AbstractCursorIsAfterLastRequest, opts ...grpc.CallOption) (*IsAfterLastResponse, error)
-	IsBeforeFirst(ctx context.Context, in *AbstractCursorIsBeforeFirstRequest, opts ...grpc.CallOption) (*IsBeforeFirstResponse, error)
-	IsClosed(ctx context.Context, in *AbstractCursorIsClosedRequest, opts ...grpc.CallOption) (*IsClosedResponse, error)
-	IsFirst(ctx context.Context, in *AbstractCursorIsFirstRequest, opts ...grpc.CallOption) (*IsFirstResponse, error)
-	IsLast(ctx context.Context, in *AbstractCursorIsLastRequest, opts ...grpc.CallOption) (*IsLastResponse, error)
+	GetWantsAllOnMoveCalls(ctx context.Context, in *GetWantsAllOnMoveCallsRequest, opts ...grpc.CallOption) (*GetWantsAllOnMoveCallsResponse, error)
+	GetWindow(ctx context.Context, in *GetWindowRequest, opts ...grpc.CallOption) (*GetWindowResponse, error)
+	IsAfterLast(ctx context.Context, in *IsAfterLastRequest, opts ...grpc.CallOption) (*IsAfterLastResponse, error)
+	IsBeforeFirst(ctx context.Context, in *IsBeforeFirstRequest, opts ...grpc.CallOption) (*IsBeforeFirstResponse, error)
+	IsClosed(ctx context.Context, in *IsClosedRequest, opts ...grpc.CallOption) (*IsClosedResponse, error)
+	IsFirst(ctx context.Context, in *IsFirstRequest, opts ...grpc.CallOption) (*IsFirstResponse, error)
+	IsLast(ctx context.Context, in *IsLastRequest, opts ...grpc.CallOption) (*IsLastResponse, error)
 	IsNull(ctx context.Context, in *AbstractCursorIsNullRequest, opts ...grpc.CallOption) (*IsNullResponse, error)
-	Move(ctx context.Context, in *AbstractCursorMoveRequest, opts ...grpc.CallOption) (*MoveResponse, error)
-	MoveToFirst(ctx context.Context, in *AbstractCursorMoveToFirstRequest, opts ...grpc.CallOption) (*MoveToFirstResponse, error)
-	MoveToLast(ctx context.Context, in *AbstractCursorMoveToLastRequest, opts ...grpc.CallOption) (*MoveToLastResponse, error)
-	MoveToNext(ctx context.Context, in *AbstractCursorMoveToNextRequest, opts ...grpc.CallOption) (*MoveToNextResponse, error)
-	MoveToPosition(ctx context.Context, in *AbstractCursorMoveToPositionRequest, opts ...grpc.CallOption) (*MoveToPositionResponse, error)
-	MoveToPrevious(ctx context.Context, in *AbstractCursorMoveToPreviousRequest, opts ...grpc.CallOption) (*MoveToPreviousResponse, error)
-	OnMove(ctx context.Context, in *AbstractCursorOnMoveRequest, opts ...grpc.CallOption) (*OnMoveResponse, error)
+	Move(ctx context.Context, in *MoveRequest, opts ...grpc.CallOption) (*MoveResponse, error)
+	MoveToFirst(ctx context.Context, in *MoveToFirstRequest, opts ...grpc.CallOption) (*MoveToFirstResponse, error)
+	MoveToLast(ctx context.Context, in *MoveToLastRequest, opts ...grpc.CallOption) (*MoveToLastResponse, error)
+	MoveToNext(ctx context.Context, in *MoveToNextRequest, opts ...grpc.CallOption) (*MoveToNextResponse, error)
+	MoveToPosition(ctx context.Context, in *MoveToPositionRequest, opts ...grpc.CallOption) (*MoveToPositionResponse, error)
+	MoveToPrevious(ctx context.Context, in *MoveToPreviousRequest, opts ...grpc.CallOption) (*MoveToPreviousResponse, error)
+	OnMove(ctx context.Context, in *OnMoveRequest, opts ...grpc.CallOption) (*OnMoveResponse, error)
 	RegisterContentObserver(ctx context.Context, in *AbstractCursorRegisterContentObserverRequest, opts ...grpc.CallOption) (*RegisterContentObserverResponse, error)
 	RegisterDataSetObserver(ctx context.Context, in *AbstractCursorRegisterDataSetObserverRequest, opts ...grpc.CallOption) (*RegisterDataSetObserverResponse, error)
 	Requery(ctx context.Context, in *AbstractCursorRequeryRequest, opts ...grpc.CallOption) (*RequeryResponse, error)
-	Respond(ctx context.Context, in *AbstractCursorRespondRequest, opts ...grpc.CallOption) (*RespondResponse, error)
-	SetExtras(ctx context.Context, in *AbstractCursorSetExtrasRequest, opts ...grpc.CallOption) (*SetExtrasResponse, error)
-	SetNotificationUri(ctx context.Context, in *AbstractCursorSetNotificationUriRequest, opts ...grpc.CallOption) (*SetNotificationUriResponse, error)
+	Respond(ctx context.Context, in *RespondRequest, opts ...grpc.CallOption) (*RespondResponse, error)
+	SetExtras(ctx context.Context, in *SetExtrasRequest, opts ...grpc.CallOption) (*SetExtrasResponse, error)
+	SetNotificationUri(ctx context.Context, in *SetNotificationUriRequest, opts ...grpc.CallOption) (*SetNotificationUriResponse, error)
 	UnregisterContentObserver(ctx context.Context, in *AbstractCursorUnregisterContentObserverRequest, opts ...grpc.CallOption) (*UnregisterContentObserverResponse, error)
 	UnregisterDataSetObserver(ctx context.Context, in *AbstractCursorUnregisterDataSetObserverRequest, opts ...grpc.CallOption) (*UnregisterDataSetObserverResponse, error)
 }
@@ -9950,7 +7680,7 @@ func (c *abstractCursorServiceClient) Close(ctx context.Context, in *CloseReques
 	return out, nil
 }
 
-func (c *abstractCursorServiceClient) CopyStringToBuffer(ctx context.Context, in *AbstractCursorCopyStringToBufferRequest, opts ...grpc.CallOption) (*CopyStringToBufferResponse, error) {
+func (c *abstractCursorServiceClient) CopyStringToBuffer(ctx context.Context, in *CopyStringToBufferRequest, opts ...grpc.CallOption) (*CopyStringToBufferResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(CopyStringToBufferResponse)
 	err := c.cc.Invoke(ctx, AbstractCursorService_CopyStringToBuffer_FullMethodName, in, out, cOpts...)
@@ -9970,7 +7700,7 @@ func (c *abstractCursorServiceClient) Deactivate(ctx context.Context, in *Abstra
 	return out, nil
 }
 
-func (c *abstractCursorServiceClient) FillWindow(ctx context.Context, in *AbstractCursorFillWindowRequest, opts ...grpc.CallOption) (*FillWindowResponse, error) {
+func (c *abstractCursorServiceClient) FillWindow(ctx context.Context, in *FillWindowRequest, opts ...grpc.CallOption) (*FillWindowResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(FillWindowResponse)
 	err := c.cc.Invoke(ctx, AbstractCursorService_FillWindow_FullMethodName, in, out, cOpts...)
@@ -9990,7 +7720,7 @@ func (c *abstractCursorServiceClient) GetBlob(ctx context.Context, in *AbstractC
 	return out, nil
 }
 
-func (c *abstractCursorServiceClient) GetColumnCount(ctx context.Context, in *AbstractCursorGetColumnCountRequest, opts ...grpc.CallOption) (*GetColumnCountResponse, error) {
+func (c *abstractCursorServiceClient) GetColumnCount(ctx context.Context, in *GetColumnCountRequest, opts ...grpc.CallOption) (*GetColumnCountResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetColumnCountResponse)
 	err := c.cc.Invoke(ctx, AbstractCursorService_GetColumnCount_FullMethodName, in, out, cOpts...)
@@ -10010,7 +7740,7 @@ func (c *abstractCursorServiceClient) GetColumnIndex(ctx context.Context, in *Ge
 	return out, nil
 }
 
-func (c *abstractCursorServiceClient) GetColumnIndexOrThrow(ctx context.Context, in *AbstractCursorGetColumnIndexOrThrowRequest, opts ...grpc.CallOption) (*GetColumnIndexOrThrowResponse, error) {
+func (c *abstractCursorServiceClient) GetColumnIndexOrThrow(ctx context.Context, in *GetColumnIndexOrThrowRequest, opts ...grpc.CallOption) (*GetColumnIndexOrThrowResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetColumnIndexOrThrowResponse)
 	err := c.cc.Invoke(ctx, AbstractCursorService_GetColumnIndexOrThrow_FullMethodName, in, out, cOpts...)
@@ -10020,7 +7750,7 @@ func (c *abstractCursorServiceClient) GetColumnIndexOrThrow(ctx context.Context,
 	return out, nil
 }
 
-func (c *abstractCursorServiceClient) GetColumnName(ctx context.Context, in *AbstractCursorGetColumnNameRequest, opts ...grpc.CallOption) (*GetColumnNameResponse, error) {
+func (c *abstractCursorServiceClient) GetColumnName(ctx context.Context, in *GetColumnNameRequest, opts ...grpc.CallOption) (*GetColumnNameResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetColumnNameResponse)
 	err := c.cc.Invoke(ctx, AbstractCursorService_GetColumnName_FullMethodName, in, out, cOpts...)
@@ -10060,7 +7790,7 @@ func (c *abstractCursorServiceClient) GetDouble(ctx context.Context, in *Abstrac
 	return out, nil
 }
 
-func (c *abstractCursorServiceClient) GetExtras(ctx context.Context, in *AbstractCursorGetExtrasRequest, opts ...grpc.CallOption) (*GetExtrasResponse, error) {
+func (c *abstractCursorServiceClient) GetExtras(ctx context.Context, in *GetExtrasRequest, opts ...grpc.CallOption) (*GetExtrasResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetExtrasResponse)
 	err := c.cc.Invoke(ctx, AbstractCursorService_GetExtras_FullMethodName, in, out, cOpts...)
@@ -10100,7 +7830,7 @@ func (c *abstractCursorServiceClient) GetLong(ctx context.Context, in *AbstractC
 	return out, nil
 }
 
-func (c *abstractCursorServiceClient) GetNotificationUri(ctx context.Context, in *AbstractCursorGetNotificationUriRequest, opts ...grpc.CallOption) (*GetNotificationUriResponse, error) {
+func (c *abstractCursorServiceClient) GetNotificationUri(ctx context.Context, in *GetNotificationUriRequest, opts ...grpc.CallOption) (*GetNotificationUriResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetNotificationUriResponse)
 	err := c.cc.Invoke(ctx, AbstractCursorService_GetNotificationUri_FullMethodName, in, out, cOpts...)
@@ -10110,7 +7840,17 @@ func (c *abstractCursorServiceClient) GetNotificationUri(ctx context.Context, in
 	return out, nil
 }
 
-func (c *abstractCursorServiceClient) GetPosition(ctx context.Context, in *AbstractCursorGetPositionRequest, opts ...grpc.CallOption) (*GetPositionResponse, error) {
+func (c *abstractCursorServiceClient) GetNotificationUris(ctx context.Context, in *GetNotificationUrisRequest, opts ...grpc.CallOption) (*GetNotificationUrisResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetNotificationUrisResponse)
+	err := c.cc.Invoke(ctx, AbstractCursorService_GetNotificationUris_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *abstractCursorServiceClient) GetPosition(ctx context.Context, in *GetPositionRequest, opts ...grpc.CallOption) (*GetPositionResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetPositionResponse)
 	err := c.cc.Invoke(ctx, AbstractCursorService_GetPosition_FullMethodName, in, out, cOpts...)
@@ -10150,7 +7890,7 @@ func (c *abstractCursorServiceClient) GetType(ctx context.Context, in *AbstractC
 	return out, nil
 }
 
-func (c *abstractCursorServiceClient) GetWantsAllOnMoveCalls(ctx context.Context, in *AbstractCursorGetWantsAllOnMoveCallsRequest, opts ...grpc.CallOption) (*GetWantsAllOnMoveCallsResponse, error) {
+func (c *abstractCursorServiceClient) GetWantsAllOnMoveCalls(ctx context.Context, in *GetWantsAllOnMoveCallsRequest, opts ...grpc.CallOption) (*GetWantsAllOnMoveCallsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetWantsAllOnMoveCallsResponse)
 	err := c.cc.Invoke(ctx, AbstractCursorService_GetWantsAllOnMoveCalls_FullMethodName, in, out, cOpts...)
@@ -10160,7 +7900,7 @@ func (c *abstractCursorServiceClient) GetWantsAllOnMoveCalls(ctx context.Context
 	return out, nil
 }
 
-func (c *abstractCursorServiceClient) GetWindow(ctx context.Context, in *AbstractCursorGetWindowRequest, opts ...grpc.CallOption) (*GetWindowResponse, error) {
+func (c *abstractCursorServiceClient) GetWindow(ctx context.Context, in *GetWindowRequest, opts ...grpc.CallOption) (*GetWindowResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetWindowResponse)
 	err := c.cc.Invoke(ctx, AbstractCursorService_GetWindow_FullMethodName, in, out, cOpts...)
@@ -10170,7 +7910,7 @@ func (c *abstractCursorServiceClient) GetWindow(ctx context.Context, in *Abstrac
 	return out, nil
 }
 
-func (c *abstractCursorServiceClient) IsAfterLast(ctx context.Context, in *AbstractCursorIsAfterLastRequest, opts ...grpc.CallOption) (*IsAfterLastResponse, error) {
+func (c *abstractCursorServiceClient) IsAfterLast(ctx context.Context, in *IsAfterLastRequest, opts ...grpc.CallOption) (*IsAfterLastResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(IsAfterLastResponse)
 	err := c.cc.Invoke(ctx, AbstractCursorService_IsAfterLast_FullMethodName, in, out, cOpts...)
@@ -10180,7 +7920,7 @@ func (c *abstractCursorServiceClient) IsAfterLast(ctx context.Context, in *Abstr
 	return out, nil
 }
 
-func (c *abstractCursorServiceClient) IsBeforeFirst(ctx context.Context, in *AbstractCursorIsBeforeFirstRequest, opts ...grpc.CallOption) (*IsBeforeFirstResponse, error) {
+func (c *abstractCursorServiceClient) IsBeforeFirst(ctx context.Context, in *IsBeforeFirstRequest, opts ...grpc.CallOption) (*IsBeforeFirstResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(IsBeforeFirstResponse)
 	err := c.cc.Invoke(ctx, AbstractCursorService_IsBeforeFirst_FullMethodName, in, out, cOpts...)
@@ -10190,7 +7930,7 @@ func (c *abstractCursorServiceClient) IsBeforeFirst(ctx context.Context, in *Abs
 	return out, nil
 }
 
-func (c *abstractCursorServiceClient) IsClosed(ctx context.Context, in *AbstractCursorIsClosedRequest, opts ...grpc.CallOption) (*IsClosedResponse, error) {
+func (c *abstractCursorServiceClient) IsClosed(ctx context.Context, in *IsClosedRequest, opts ...grpc.CallOption) (*IsClosedResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(IsClosedResponse)
 	err := c.cc.Invoke(ctx, AbstractCursorService_IsClosed_FullMethodName, in, out, cOpts...)
@@ -10200,7 +7940,7 @@ func (c *abstractCursorServiceClient) IsClosed(ctx context.Context, in *Abstract
 	return out, nil
 }
 
-func (c *abstractCursorServiceClient) IsFirst(ctx context.Context, in *AbstractCursorIsFirstRequest, opts ...grpc.CallOption) (*IsFirstResponse, error) {
+func (c *abstractCursorServiceClient) IsFirst(ctx context.Context, in *IsFirstRequest, opts ...grpc.CallOption) (*IsFirstResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(IsFirstResponse)
 	err := c.cc.Invoke(ctx, AbstractCursorService_IsFirst_FullMethodName, in, out, cOpts...)
@@ -10210,7 +7950,7 @@ func (c *abstractCursorServiceClient) IsFirst(ctx context.Context, in *AbstractC
 	return out, nil
 }
 
-func (c *abstractCursorServiceClient) IsLast(ctx context.Context, in *AbstractCursorIsLastRequest, opts ...grpc.CallOption) (*IsLastResponse, error) {
+func (c *abstractCursorServiceClient) IsLast(ctx context.Context, in *IsLastRequest, opts ...grpc.CallOption) (*IsLastResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(IsLastResponse)
 	err := c.cc.Invoke(ctx, AbstractCursorService_IsLast_FullMethodName, in, out, cOpts...)
@@ -10230,7 +7970,7 @@ func (c *abstractCursorServiceClient) IsNull(ctx context.Context, in *AbstractCu
 	return out, nil
 }
 
-func (c *abstractCursorServiceClient) Move(ctx context.Context, in *AbstractCursorMoveRequest, opts ...grpc.CallOption) (*MoveResponse, error) {
+func (c *abstractCursorServiceClient) Move(ctx context.Context, in *MoveRequest, opts ...grpc.CallOption) (*MoveResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(MoveResponse)
 	err := c.cc.Invoke(ctx, AbstractCursorService_Move_FullMethodName, in, out, cOpts...)
@@ -10240,7 +7980,7 @@ func (c *abstractCursorServiceClient) Move(ctx context.Context, in *AbstractCurs
 	return out, nil
 }
 
-func (c *abstractCursorServiceClient) MoveToFirst(ctx context.Context, in *AbstractCursorMoveToFirstRequest, opts ...grpc.CallOption) (*MoveToFirstResponse, error) {
+func (c *abstractCursorServiceClient) MoveToFirst(ctx context.Context, in *MoveToFirstRequest, opts ...grpc.CallOption) (*MoveToFirstResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(MoveToFirstResponse)
 	err := c.cc.Invoke(ctx, AbstractCursorService_MoveToFirst_FullMethodName, in, out, cOpts...)
@@ -10250,7 +7990,7 @@ func (c *abstractCursorServiceClient) MoveToFirst(ctx context.Context, in *Abstr
 	return out, nil
 }
 
-func (c *abstractCursorServiceClient) MoveToLast(ctx context.Context, in *AbstractCursorMoveToLastRequest, opts ...grpc.CallOption) (*MoveToLastResponse, error) {
+func (c *abstractCursorServiceClient) MoveToLast(ctx context.Context, in *MoveToLastRequest, opts ...grpc.CallOption) (*MoveToLastResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(MoveToLastResponse)
 	err := c.cc.Invoke(ctx, AbstractCursorService_MoveToLast_FullMethodName, in, out, cOpts...)
@@ -10260,7 +8000,7 @@ func (c *abstractCursorServiceClient) MoveToLast(ctx context.Context, in *Abstra
 	return out, nil
 }
 
-func (c *abstractCursorServiceClient) MoveToNext(ctx context.Context, in *AbstractCursorMoveToNextRequest, opts ...grpc.CallOption) (*MoveToNextResponse, error) {
+func (c *abstractCursorServiceClient) MoveToNext(ctx context.Context, in *MoveToNextRequest, opts ...grpc.CallOption) (*MoveToNextResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(MoveToNextResponse)
 	err := c.cc.Invoke(ctx, AbstractCursorService_MoveToNext_FullMethodName, in, out, cOpts...)
@@ -10270,7 +8010,7 @@ func (c *abstractCursorServiceClient) MoveToNext(ctx context.Context, in *Abstra
 	return out, nil
 }
 
-func (c *abstractCursorServiceClient) MoveToPosition(ctx context.Context, in *AbstractCursorMoveToPositionRequest, opts ...grpc.CallOption) (*MoveToPositionResponse, error) {
+func (c *abstractCursorServiceClient) MoveToPosition(ctx context.Context, in *MoveToPositionRequest, opts ...grpc.CallOption) (*MoveToPositionResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(MoveToPositionResponse)
 	err := c.cc.Invoke(ctx, AbstractCursorService_MoveToPosition_FullMethodName, in, out, cOpts...)
@@ -10280,7 +8020,7 @@ func (c *abstractCursorServiceClient) MoveToPosition(ctx context.Context, in *Ab
 	return out, nil
 }
 
-func (c *abstractCursorServiceClient) MoveToPrevious(ctx context.Context, in *AbstractCursorMoveToPreviousRequest, opts ...grpc.CallOption) (*MoveToPreviousResponse, error) {
+func (c *abstractCursorServiceClient) MoveToPrevious(ctx context.Context, in *MoveToPreviousRequest, opts ...grpc.CallOption) (*MoveToPreviousResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(MoveToPreviousResponse)
 	err := c.cc.Invoke(ctx, AbstractCursorService_MoveToPrevious_FullMethodName, in, out, cOpts...)
@@ -10290,7 +8030,7 @@ func (c *abstractCursorServiceClient) MoveToPrevious(ctx context.Context, in *Ab
 	return out, nil
 }
 
-func (c *abstractCursorServiceClient) OnMove(ctx context.Context, in *AbstractCursorOnMoveRequest, opts ...grpc.CallOption) (*OnMoveResponse, error) {
+func (c *abstractCursorServiceClient) OnMove(ctx context.Context, in *OnMoveRequest, opts ...grpc.CallOption) (*OnMoveResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(OnMoveResponse)
 	err := c.cc.Invoke(ctx, AbstractCursorService_OnMove_FullMethodName, in, out, cOpts...)
@@ -10330,7 +8070,7 @@ func (c *abstractCursorServiceClient) Requery(ctx context.Context, in *AbstractC
 	return out, nil
 }
 
-func (c *abstractCursorServiceClient) Respond(ctx context.Context, in *AbstractCursorRespondRequest, opts ...grpc.CallOption) (*RespondResponse, error) {
+func (c *abstractCursorServiceClient) Respond(ctx context.Context, in *RespondRequest, opts ...grpc.CallOption) (*RespondResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(RespondResponse)
 	err := c.cc.Invoke(ctx, AbstractCursorService_Respond_FullMethodName, in, out, cOpts...)
@@ -10340,7 +8080,7 @@ func (c *abstractCursorServiceClient) Respond(ctx context.Context, in *AbstractC
 	return out, nil
 }
 
-func (c *abstractCursorServiceClient) SetExtras(ctx context.Context, in *AbstractCursorSetExtrasRequest, opts ...grpc.CallOption) (*SetExtrasResponse, error) {
+func (c *abstractCursorServiceClient) SetExtras(ctx context.Context, in *SetExtrasRequest, opts ...grpc.CallOption) (*SetExtrasResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(SetExtrasResponse)
 	err := c.cc.Invoke(ctx, AbstractCursorService_SetExtras_FullMethodName, in, out, cOpts...)
@@ -10350,7 +8090,7 @@ func (c *abstractCursorServiceClient) SetExtras(ctx context.Context, in *Abstrac
 	return out, nil
 }
 
-func (c *abstractCursorServiceClient) SetNotificationUri(ctx context.Context, in *AbstractCursorSetNotificationUriRequest, opts ...grpc.CallOption) (*SetNotificationUriResponse, error) {
+func (c *abstractCursorServiceClient) SetNotificationUri(ctx context.Context, in *SetNotificationUriRequest, opts ...grpc.CallOption) (*SetNotificationUriResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(SetNotificationUriResponse)
 	err := c.cc.Invoke(ctx, AbstractCursorService_SetNotificationUri_FullMethodName, in, out, cOpts...)
@@ -10385,47 +8125,48 @@ func (c *abstractCursorServiceClient) UnregisterDataSetObserver(ctx context.Cont
 // for forward compatibility.
 type AbstractCursorServiceServer interface {
 	Close(context.Context, *CloseRequest) (*CloseResponse, error)
-	CopyStringToBuffer(context.Context, *AbstractCursorCopyStringToBufferRequest) (*CopyStringToBufferResponse, error)
+	CopyStringToBuffer(context.Context, *CopyStringToBufferRequest) (*CopyStringToBufferResponse, error)
 	Deactivate(context.Context, *AbstractCursorDeactivateRequest) (*DeactivateResponse, error)
-	FillWindow(context.Context, *AbstractCursorFillWindowRequest) (*FillWindowResponse, error)
+	FillWindow(context.Context, *FillWindowRequest) (*FillWindowResponse, error)
 	GetBlob(context.Context, *AbstractCursorGetBlobRequest) (*GetBlobResponse, error)
-	GetColumnCount(context.Context, *AbstractCursorGetColumnCountRequest) (*GetColumnCountResponse, error)
+	GetColumnCount(context.Context, *GetColumnCountRequest) (*GetColumnCountResponse, error)
 	GetColumnIndex(context.Context, *GetColumnIndexRequest) (*GetColumnIndexResponse, error)
-	GetColumnIndexOrThrow(context.Context, *AbstractCursorGetColumnIndexOrThrowRequest) (*GetColumnIndexOrThrowResponse, error)
-	GetColumnName(context.Context, *AbstractCursorGetColumnNameRequest) (*GetColumnNameResponse, error)
+	GetColumnIndexOrThrow(context.Context, *GetColumnIndexOrThrowRequest) (*GetColumnIndexOrThrowResponse, error)
+	GetColumnName(context.Context, *GetColumnNameRequest) (*GetColumnNameResponse, error)
 	GetColumnNames(context.Context, *AbstractCursorGetColumnNamesRequest) (*GetColumnNamesResponse, error)
 	GetCount(context.Context, *AbstractCursorGetCountRequest) (*GetCountResponse, error)
 	GetDouble(context.Context, *AbstractCursorGetDoubleRequest) (*GetDoubleResponse, error)
-	GetExtras(context.Context, *AbstractCursorGetExtrasRequest) (*GetExtrasResponse, error)
+	GetExtras(context.Context, *GetExtrasRequest) (*GetExtrasResponse, error)
 	GetFloat(context.Context, *AbstractCursorGetFloatRequest) (*GetFloatResponse, error)
 	GetInt(context.Context, *AbstractCursorGetIntRequest) (*GetIntResponse, error)
 	GetLong(context.Context, *AbstractCursorGetLongRequest) (*GetLongResponse, error)
-	GetNotificationUri(context.Context, *AbstractCursorGetNotificationUriRequest) (*GetNotificationUriResponse, error)
-	GetPosition(context.Context, *AbstractCursorGetPositionRequest) (*GetPositionResponse, error)
+	GetNotificationUri(context.Context, *GetNotificationUriRequest) (*GetNotificationUriResponse, error)
+	GetNotificationUris(context.Context, *GetNotificationUrisRequest) (*GetNotificationUrisResponse, error)
+	GetPosition(context.Context, *GetPositionRequest) (*GetPositionResponse, error)
 	GetShort(context.Context, *AbstractCursorGetShortRequest) (*GetShortResponse, error)
 	GetString(context.Context, *AbstractCursorGetStringRequest) (*GetStringResponse, error)
 	GetType(context.Context, *AbstractCursorGetTypeRequest) (*GetTypeResponse, error)
-	GetWantsAllOnMoveCalls(context.Context, *AbstractCursorGetWantsAllOnMoveCallsRequest) (*GetWantsAllOnMoveCallsResponse, error)
-	GetWindow(context.Context, *AbstractCursorGetWindowRequest) (*GetWindowResponse, error)
-	IsAfterLast(context.Context, *AbstractCursorIsAfterLastRequest) (*IsAfterLastResponse, error)
-	IsBeforeFirst(context.Context, *AbstractCursorIsBeforeFirstRequest) (*IsBeforeFirstResponse, error)
-	IsClosed(context.Context, *AbstractCursorIsClosedRequest) (*IsClosedResponse, error)
-	IsFirst(context.Context, *AbstractCursorIsFirstRequest) (*IsFirstResponse, error)
-	IsLast(context.Context, *AbstractCursorIsLastRequest) (*IsLastResponse, error)
+	GetWantsAllOnMoveCalls(context.Context, *GetWantsAllOnMoveCallsRequest) (*GetWantsAllOnMoveCallsResponse, error)
+	GetWindow(context.Context, *GetWindowRequest) (*GetWindowResponse, error)
+	IsAfterLast(context.Context, *IsAfterLastRequest) (*IsAfterLastResponse, error)
+	IsBeforeFirst(context.Context, *IsBeforeFirstRequest) (*IsBeforeFirstResponse, error)
+	IsClosed(context.Context, *IsClosedRequest) (*IsClosedResponse, error)
+	IsFirst(context.Context, *IsFirstRequest) (*IsFirstResponse, error)
+	IsLast(context.Context, *IsLastRequest) (*IsLastResponse, error)
 	IsNull(context.Context, *AbstractCursorIsNullRequest) (*IsNullResponse, error)
-	Move(context.Context, *AbstractCursorMoveRequest) (*MoveResponse, error)
-	MoveToFirst(context.Context, *AbstractCursorMoveToFirstRequest) (*MoveToFirstResponse, error)
-	MoveToLast(context.Context, *AbstractCursorMoveToLastRequest) (*MoveToLastResponse, error)
-	MoveToNext(context.Context, *AbstractCursorMoveToNextRequest) (*MoveToNextResponse, error)
-	MoveToPosition(context.Context, *AbstractCursorMoveToPositionRequest) (*MoveToPositionResponse, error)
-	MoveToPrevious(context.Context, *AbstractCursorMoveToPreviousRequest) (*MoveToPreviousResponse, error)
-	OnMove(context.Context, *AbstractCursorOnMoveRequest) (*OnMoveResponse, error)
+	Move(context.Context, *MoveRequest) (*MoveResponse, error)
+	MoveToFirst(context.Context, *MoveToFirstRequest) (*MoveToFirstResponse, error)
+	MoveToLast(context.Context, *MoveToLastRequest) (*MoveToLastResponse, error)
+	MoveToNext(context.Context, *MoveToNextRequest) (*MoveToNextResponse, error)
+	MoveToPosition(context.Context, *MoveToPositionRequest) (*MoveToPositionResponse, error)
+	MoveToPrevious(context.Context, *MoveToPreviousRequest) (*MoveToPreviousResponse, error)
+	OnMove(context.Context, *OnMoveRequest) (*OnMoveResponse, error)
 	RegisterContentObserver(context.Context, *AbstractCursorRegisterContentObserverRequest) (*RegisterContentObserverResponse, error)
 	RegisterDataSetObserver(context.Context, *AbstractCursorRegisterDataSetObserverRequest) (*RegisterDataSetObserverResponse, error)
 	Requery(context.Context, *AbstractCursorRequeryRequest) (*RequeryResponse, error)
-	Respond(context.Context, *AbstractCursorRespondRequest) (*RespondResponse, error)
-	SetExtras(context.Context, *AbstractCursorSetExtrasRequest) (*SetExtrasResponse, error)
-	SetNotificationUri(context.Context, *AbstractCursorSetNotificationUriRequest) (*SetNotificationUriResponse, error)
+	Respond(context.Context, *RespondRequest) (*RespondResponse, error)
+	SetExtras(context.Context, *SetExtrasRequest) (*SetExtrasResponse, error)
+	SetNotificationUri(context.Context, *SetNotificationUriRequest) (*SetNotificationUriResponse, error)
 	UnregisterContentObserver(context.Context, *AbstractCursorUnregisterContentObserverRequest) (*UnregisterContentObserverResponse, error)
 	UnregisterDataSetObserver(context.Context, *AbstractCursorUnregisterDataSetObserverRequest) (*UnregisterDataSetObserverResponse, error)
 	mustEmbedUnimplementedAbstractCursorServiceServer()
@@ -10441,28 +8182,28 @@ type UnimplementedAbstractCursorServiceServer struct{}
 func (UnimplementedAbstractCursorServiceServer) Close(context.Context, *CloseRequest) (*CloseResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method Close not implemented")
 }
-func (UnimplementedAbstractCursorServiceServer) CopyStringToBuffer(context.Context, *AbstractCursorCopyStringToBufferRequest) (*CopyStringToBufferResponse, error) {
+func (UnimplementedAbstractCursorServiceServer) CopyStringToBuffer(context.Context, *CopyStringToBufferRequest) (*CopyStringToBufferResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method CopyStringToBuffer not implemented")
 }
 func (UnimplementedAbstractCursorServiceServer) Deactivate(context.Context, *AbstractCursorDeactivateRequest) (*DeactivateResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method Deactivate not implemented")
 }
-func (UnimplementedAbstractCursorServiceServer) FillWindow(context.Context, *AbstractCursorFillWindowRequest) (*FillWindowResponse, error) {
+func (UnimplementedAbstractCursorServiceServer) FillWindow(context.Context, *FillWindowRequest) (*FillWindowResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method FillWindow not implemented")
 }
 func (UnimplementedAbstractCursorServiceServer) GetBlob(context.Context, *AbstractCursorGetBlobRequest) (*GetBlobResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetBlob not implemented")
 }
-func (UnimplementedAbstractCursorServiceServer) GetColumnCount(context.Context, *AbstractCursorGetColumnCountRequest) (*GetColumnCountResponse, error) {
+func (UnimplementedAbstractCursorServiceServer) GetColumnCount(context.Context, *GetColumnCountRequest) (*GetColumnCountResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetColumnCount not implemented")
 }
 func (UnimplementedAbstractCursorServiceServer) GetColumnIndex(context.Context, *GetColumnIndexRequest) (*GetColumnIndexResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetColumnIndex not implemented")
 }
-func (UnimplementedAbstractCursorServiceServer) GetColumnIndexOrThrow(context.Context, *AbstractCursorGetColumnIndexOrThrowRequest) (*GetColumnIndexOrThrowResponse, error) {
+func (UnimplementedAbstractCursorServiceServer) GetColumnIndexOrThrow(context.Context, *GetColumnIndexOrThrowRequest) (*GetColumnIndexOrThrowResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetColumnIndexOrThrow not implemented")
 }
-func (UnimplementedAbstractCursorServiceServer) GetColumnName(context.Context, *AbstractCursorGetColumnNameRequest) (*GetColumnNameResponse, error) {
+func (UnimplementedAbstractCursorServiceServer) GetColumnName(context.Context, *GetColumnNameRequest) (*GetColumnNameResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetColumnName not implemented")
 }
 func (UnimplementedAbstractCursorServiceServer) GetColumnNames(context.Context, *AbstractCursorGetColumnNamesRequest) (*GetColumnNamesResponse, error) {
@@ -10474,7 +8215,7 @@ func (UnimplementedAbstractCursorServiceServer) GetCount(context.Context, *Abstr
 func (UnimplementedAbstractCursorServiceServer) GetDouble(context.Context, *AbstractCursorGetDoubleRequest) (*GetDoubleResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetDouble not implemented")
 }
-func (UnimplementedAbstractCursorServiceServer) GetExtras(context.Context, *AbstractCursorGetExtrasRequest) (*GetExtrasResponse, error) {
+func (UnimplementedAbstractCursorServiceServer) GetExtras(context.Context, *GetExtrasRequest) (*GetExtrasResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetExtras not implemented")
 }
 func (UnimplementedAbstractCursorServiceServer) GetFloat(context.Context, *AbstractCursorGetFloatRequest) (*GetFloatResponse, error) {
@@ -10486,10 +8227,13 @@ func (UnimplementedAbstractCursorServiceServer) GetInt(context.Context, *Abstrac
 func (UnimplementedAbstractCursorServiceServer) GetLong(context.Context, *AbstractCursorGetLongRequest) (*GetLongResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetLong not implemented")
 }
-func (UnimplementedAbstractCursorServiceServer) GetNotificationUri(context.Context, *AbstractCursorGetNotificationUriRequest) (*GetNotificationUriResponse, error) {
+func (UnimplementedAbstractCursorServiceServer) GetNotificationUri(context.Context, *GetNotificationUriRequest) (*GetNotificationUriResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetNotificationUri not implemented")
 }
-func (UnimplementedAbstractCursorServiceServer) GetPosition(context.Context, *AbstractCursorGetPositionRequest) (*GetPositionResponse, error) {
+func (UnimplementedAbstractCursorServiceServer) GetNotificationUris(context.Context, *GetNotificationUrisRequest) (*GetNotificationUrisResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetNotificationUris not implemented")
+}
+func (UnimplementedAbstractCursorServiceServer) GetPosition(context.Context, *GetPositionRequest) (*GetPositionResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetPosition not implemented")
 }
 func (UnimplementedAbstractCursorServiceServer) GetShort(context.Context, *AbstractCursorGetShortRequest) (*GetShortResponse, error) {
@@ -10501,49 +8245,49 @@ func (UnimplementedAbstractCursorServiceServer) GetString(context.Context, *Abst
 func (UnimplementedAbstractCursorServiceServer) GetType(context.Context, *AbstractCursorGetTypeRequest) (*GetTypeResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetType not implemented")
 }
-func (UnimplementedAbstractCursorServiceServer) GetWantsAllOnMoveCalls(context.Context, *AbstractCursorGetWantsAllOnMoveCallsRequest) (*GetWantsAllOnMoveCallsResponse, error) {
+func (UnimplementedAbstractCursorServiceServer) GetWantsAllOnMoveCalls(context.Context, *GetWantsAllOnMoveCallsRequest) (*GetWantsAllOnMoveCallsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetWantsAllOnMoveCalls not implemented")
 }
-func (UnimplementedAbstractCursorServiceServer) GetWindow(context.Context, *AbstractCursorGetWindowRequest) (*GetWindowResponse, error) {
+func (UnimplementedAbstractCursorServiceServer) GetWindow(context.Context, *GetWindowRequest) (*GetWindowResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetWindow not implemented")
 }
-func (UnimplementedAbstractCursorServiceServer) IsAfterLast(context.Context, *AbstractCursorIsAfterLastRequest) (*IsAfterLastResponse, error) {
+func (UnimplementedAbstractCursorServiceServer) IsAfterLast(context.Context, *IsAfterLastRequest) (*IsAfterLastResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method IsAfterLast not implemented")
 }
-func (UnimplementedAbstractCursorServiceServer) IsBeforeFirst(context.Context, *AbstractCursorIsBeforeFirstRequest) (*IsBeforeFirstResponse, error) {
+func (UnimplementedAbstractCursorServiceServer) IsBeforeFirst(context.Context, *IsBeforeFirstRequest) (*IsBeforeFirstResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method IsBeforeFirst not implemented")
 }
-func (UnimplementedAbstractCursorServiceServer) IsClosed(context.Context, *AbstractCursorIsClosedRequest) (*IsClosedResponse, error) {
+func (UnimplementedAbstractCursorServiceServer) IsClosed(context.Context, *IsClosedRequest) (*IsClosedResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method IsClosed not implemented")
 }
-func (UnimplementedAbstractCursorServiceServer) IsFirst(context.Context, *AbstractCursorIsFirstRequest) (*IsFirstResponse, error) {
+func (UnimplementedAbstractCursorServiceServer) IsFirst(context.Context, *IsFirstRequest) (*IsFirstResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method IsFirst not implemented")
 }
-func (UnimplementedAbstractCursorServiceServer) IsLast(context.Context, *AbstractCursorIsLastRequest) (*IsLastResponse, error) {
+func (UnimplementedAbstractCursorServiceServer) IsLast(context.Context, *IsLastRequest) (*IsLastResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method IsLast not implemented")
 }
 func (UnimplementedAbstractCursorServiceServer) IsNull(context.Context, *AbstractCursorIsNullRequest) (*IsNullResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method IsNull not implemented")
 }
-func (UnimplementedAbstractCursorServiceServer) Move(context.Context, *AbstractCursorMoveRequest) (*MoveResponse, error) {
+func (UnimplementedAbstractCursorServiceServer) Move(context.Context, *MoveRequest) (*MoveResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method Move not implemented")
 }
-func (UnimplementedAbstractCursorServiceServer) MoveToFirst(context.Context, *AbstractCursorMoveToFirstRequest) (*MoveToFirstResponse, error) {
+func (UnimplementedAbstractCursorServiceServer) MoveToFirst(context.Context, *MoveToFirstRequest) (*MoveToFirstResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method MoveToFirst not implemented")
 }
-func (UnimplementedAbstractCursorServiceServer) MoveToLast(context.Context, *AbstractCursorMoveToLastRequest) (*MoveToLastResponse, error) {
+func (UnimplementedAbstractCursorServiceServer) MoveToLast(context.Context, *MoveToLastRequest) (*MoveToLastResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method MoveToLast not implemented")
 }
-func (UnimplementedAbstractCursorServiceServer) MoveToNext(context.Context, *AbstractCursorMoveToNextRequest) (*MoveToNextResponse, error) {
+func (UnimplementedAbstractCursorServiceServer) MoveToNext(context.Context, *MoveToNextRequest) (*MoveToNextResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method MoveToNext not implemented")
 }
-func (UnimplementedAbstractCursorServiceServer) MoveToPosition(context.Context, *AbstractCursorMoveToPositionRequest) (*MoveToPositionResponse, error) {
+func (UnimplementedAbstractCursorServiceServer) MoveToPosition(context.Context, *MoveToPositionRequest) (*MoveToPositionResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method MoveToPosition not implemented")
 }
-func (UnimplementedAbstractCursorServiceServer) MoveToPrevious(context.Context, *AbstractCursorMoveToPreviousRequest) (*MoveToPreviousResponse, error) {
+func (UnimplementedAbstractCursorServiceServer) MoveToPrevious(context.Context, *MoveToPreviousRequest) (*MoveToPreviousResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method MoveToPrevious not implemented")
 }
-func (UnimplementedAbstractCursorServiceServer) OnMove(context.Context, *AbstractCursorOnMoveRequest) (*OnMoveResponse, error) {
+func (UnimplementedAbstractCursorServiceServer) OnMove(context.Context, *OnMoveRequest) (*OnMoveResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method OnMove not implemented")
 }
 func (UnimplementedAbstractCursorServiceServer) RegisterContentObserver(context.Context, *AbstractCursorRegisterContentObserverRequest) (*RegisterContentObserverResponse, error) {
@@ -10555,13 +8299,13 @@ func (UnimplementedAbstractCursorServiceServer) RegisterDataSetObserver(context.
 func (UnimplementedAbstractCursorServiceServer) Requery(context.Context, *AbstractCursorRequeryRequest) (*RequeryResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method Requery not implemented")
 }
-func (UnimplementedAbstractCursorServiceServer) Respond(context.Context, *AbstractCursorRespondRequest) (*RespondResponse, error) {
+func (UnimplementedAbstractCursorServiceServer) Respond(context.Context, *RespondRequest) (*RespondResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method Respond not implemented")
 }
-func (UnimplementedAbstractCursorServiceServer) SetExtras(context.Context, *AbstractCursorSetExtrasRequest) (*SetExtrasResponse, error) {
+func (UnimplementedAbstractCursorServiceServer) SetExtras(context.Context, *SetExtrasRequest) (*SetExtrasResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method SetExtras not implemented")
 }
-func (UnimplementedAbstractCursorServiceServer) SetNotificationUri(context.Context, *AbstractCursorSetNotificationUriRequest) (*SetNotificationUriResponse, error) {
+func (UnimplementedAbstractCursorServiceServer) SetNotificationUri(context.Context, *SetNotificationUriRequest) (*SetNotificationUriResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method SetNotificationUri not implemented")
 }
 func (UnimplementedAbstractCursorServiceServer) UnregisterContentObserver(context.Context, *AbstractCursorUnregisterContentObserverRequest) (*UnregisterContentObserverResponse, error) {
@@ -10610,7 +8354,7 @@ func _AbstractCursorService_Close_Handler(srv interface{}, ctx context.Context, 
 }
 
 func _AbstractCursorService_CopyStringToBuffer_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AbstractCursorCopyStringToBufferRequest)
+	in := new(CopyStringToBufferRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -10622,7 +8366,7 @@ func _AbstractCursorService_CopyStringToBuffer_Handler(srv interface{}, ctx cont
 		FullMethod: AbstractCursorService_CopyStringToBuffer_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AbstractCursorServiceServer).CopyStringToBuffer(ctx, req.(*AbstractCursorCopyStringToBufferRequest))
+		return srv.(AbstractCursorServiceServer).CopyStringToBuffer(ctx, req.(*CopyStringToBufferRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -10646,7 +8390,7 @@ func _AbstractCursorService_Deactivate_Handler(srv interface{}, ctx context.Cont
 }
 
 func _AbstractCursorService_FillWindow_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AbstractCursorFillWindowRequest)
+	in := new(FillWindowRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -10658,7 +8402,7 @@ func _AbstractCursorService_FillWindow_Handler(srv interface{}, ctx context.Cont
 		FullMethod: AbstractCursorService_FillWindow_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AbstractCursorServiceServer).FillWindow(ctx, req.(*AbstractCursorFillWindowRequest))
+		return srv.(AbstractCursorServiceServer).FillWindow(ctx, req.(*FillWindowRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -10682,7 +8426,7 @@ func _AbstractCursorService_GetBlob_Handler(srv interface{}, ctx context.Context
 }
 
 func _AbstractCursorService_GetColumnCount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AbstractCursorGetColumnCountRequest)
+	in := new(GetColumnCountRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -10694,7 +8438,7 @@ func _AbstractCursorService_GetColumnCount_Handler(srv interface{}, ctx context.
 		FullMethod: AbstractCursorService_GetColumnCount_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AbstractCursorServiceServer).GetColumnCount(ctx, req.(*AbstractCursorGetColumnCountRequest))
+		return srv.(AbstractCursorServiceServer).GetColumnCount(ctx, req.(*GetColumnCountRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -10718,7 +8462,7 @@ func _AbstractCursorService_GetColumnIndex_Handler(srv interface{}, ctx context.
 }
 
 func _AbstractCursorService_GetColumnIndexOrThrow_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AbstractCursorGetColumnIndexOrThrowRequest)
+	in := new(GetColumnIndexOrThrowRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -10730,13 +8474,13 @@ func _AbstractCursorService_GetColumnIndexOrThrow_Handler(srv interface{}, ctx c
 		FullMethod: AbstractCursorService_GetColumnIndexOrThrow_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AbstractCursorServiceServer).GetColumnIndexOrThrow(ctx, req.(*AbstractCursorGetColumnIndexOrThrowRequest))
+		return srv.(AbstractCursorServiceServer).GetColumnIndexOrThrow(ctx, req.(*GetColumnIndexOrThrowRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _AbstractCursorService_GetColumnName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AbstractCursorGetColumnNameRequest)
+	in := new(GetColumnNameRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -10748,7 +8492,7 @@ func _AbstractCursorService_GetColumnName_Handler(srv interface{}, ctx context.C
 		FullMethod: AbstractCursorService_GetColumnName_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AbstractCursorServiceServer).GetColumnName(ctx, req.(*AbstractCursorGetColumnNameRequest))
+		return srv.(AbstractCursorServiceServer).GetColumnName(ctx, req.(*GetColumnNameRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -10808,7 +8552,7 @@ func _AbstractCursorService_GetDouble_Handler(srv interface{}, ctx context.Conte
 }
 
 func _AbstractCursorService_GetExtras_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AbstractCursorGetExtrasRequest)
+	in := new(GetExtrasRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -10820,7 +8564,7 @@ func _AbstractCursorService_GetExtras_Handler(srv interface{}, ctx context.Conte
 		FullMethod: AbstractCursorService_GetExtras_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AbstractCursorServiceServer).GetExtras(ctx, req.(*AbstractCursorGetExtrasRequest))
+		return srv.(AbstractCursorServiceServer).GetExtras(ctx, req.(*GetExtrasRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -10880,7 +8624,7 @@ func _AbstractCursorService_GetLong_Handler(srv interface{}, ctx context.Context
 }
 
 func _AbstractCursorService_GetNotificationUri_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AbstractCursorGetNotificationUriRequest)
+	in := new(GetNotificationUriRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -10892,13 +8636,31 @@ func _AbstractCursorService_GetNotificationUri_Handler(srv interface{}, ctx cont
 		FullMethod: AbstractCursorService_GetNotificationUri_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AbstractCursorServiceServer).GetNotificationUri(ctx, req.(*AbstractCursorGetNotificationUriRequest))
+		return srv.(AbstractCursorServiceServer).GetNotificationUri(ctx, req.(*GetNotificationUriRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AbstractCursorService_GetNotificationUris_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetNotificationUrisRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AbstractCursorServiceServer).GetNotificationUris(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AbstractCursorService_GetNotificationUris_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AbstractCursorServiceServer).GetNotificationUris(ctx, req.(*GetNotificationUrisRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _AbstractCursorService_GetPosition_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AbstractCursorGetPositionRequest)
+	in := new(GetPositionRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -10910,7 +8672,7 @@ func _AbstractCursorService_GetPosition_Handler(srv interface{}, ctx context.Con
 		FullMethod: AbstractCursorService_GetPosition_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AbstractCursorServiceServer).GetPosition(ctx, req.(*AbstractCursorGetPositionRequest))
+		return srv.(AbstractCursorServiceServer).GetPosition(ctx, req.(*GetPositionRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -10970,7 +8732,7 @@ func _AbstractCursorService_GetType_Handler(srv interface{}, ctx context.Context
 }
 
 func _AbstractCursorService_GetWantsAllOnMoveCalls_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AbstractCursorGetWantsAllOnMoveCallsRequest)
+	in := new(GetWantsAllOnMoveCallsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -10982,13 +8744,13 @@ func _AbstractCursorService_GetWantsAllOnMoveCalls_Handler(srv interface{}, ctx 
 		FullMethod: AbstractCursorService_GetWantsAllOnMoveCalls_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AbstractCursorServiceServer).GetWantsAllOnMoveCalls(ctx, req.(*AbstractCursorGetWantsAllOnMoveCallsRequest))
+		return srv.(AbstractCursorServiceServer).GetWantsAllOnMoveCalls(ctx, req.(*GetWantsAllOnMoveCallsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _AbstractCursorService_GetWindow_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AbstractCursorGetWindowRequest)
+	in := new(GetWindowRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -11000,13 +8762,13 @@ func _AbstractCursorService_GetWindow_Handler(srv interface{}, ctx context.Conte
 		FullMethod: AbstractCursorService_GetWindow_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AbstractCursorServiceServer).GetWindow(ctx, req.(*AbstractCursorGetWindowRequest))
+		return srv.(AbstractCursorServiceServer).GetWindow(ctx, req.(*GetWindowRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _AbstractCursorService_IsAfterLast_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AbstractCursorIsAfterLastRequest)
+	in := new(IsAfterLastRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -11018,13 +8780,13 @@ func _AbstractCursorService_IsAfterLast_Handler(srv interface{}, ctx context.Con
 		FullMethod: AbstractCursorService_IsAfterLast_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AbstractCursorServiceServer).IsAfterLast(ctx, req.(*AbstractCursorIsAfterLastRequest))
+		return srv.(AbstractCursorServiceServer).IsAfterLast(ctx, req.(*IsAfterLastRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _AbstractCursorService_IsBeforeFirst_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AbstractCursorIsBeforeFirstRequest)
+	in := new(IsBeforeFirstRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -11036,13 +8798,13 @@ func _AbstractCursorService_IsBeforeFirst_Handler(srv interface{}, ctx context.C
 		FullMethod: AbstractCursorService_IsBeforeFirst_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AbstractCursorServiceServer).IsBeforeFirst(ctx, req.(*AbstractCursorIsBeforeFirstRequest))
+		return srv.(AbstractCursorServiceServer).IsBeforeFirst(ctx, req.(*IsBeforeFirstRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _AbstractCursorService_IsClosed_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AbstractCursorIsClosedRequest)
+	in := new(IsClosedRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -11054,13 +8816,13 @@ func _AbstractCursorService_IsClosed_Handler(srv interface{}, ctx context.Contex
 		FullMethod: AbstractCursorService_IsClosed_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AbstractCursorServiceServer).IsClosed(ctx, req.(*AbstractCursorIsClosedRequest))
+		return srv.(AbstractCursorServiceServer).IsClosed(ctx, req.(*IsClosedRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _AbstractCursorService_IsFirst_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AbstractCursorIsFirstRequest)
+	in := new(IsFirstRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -11072,13 +8834,13 @@ func _AbstractCursorService_IsFirst_Handler(srv interface{}, ctx context.Context
 		FullMethod: AbstractCursorService_IsFirst_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AbstractCursorServiceServer).IsFirst(ctx, req.(*AbstractCursorIsFirstRequest))
+		return srv.(AbstractCursorServiceServer).IsFirst(ctx, req.(*IsFirstRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _AbstractCursorService_IsLast_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AbstractCursorIsLastRequest)
+	in := new(IsLastRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -11090,7 +8852,7 @@ func _AbstractCursorService_IsLast_Handler(srv interface{}, ctx context.Context,
 		FullMethod: AbstractCursorService_IsLast_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AbstractCursorServiceServer).IsLast(ctx, req.(*AbstractCursorIsLastRequest))
+		return srv.(AbstractCursorServiceServer).IsLast(ctx, req.(*IsLastRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -11114,7 +8876,7 @@ func _AbstractCursorService_IsNull_Handler(srv interface{}, ctx context.Context,
 }
 
 func _AbstractCursorService_Move_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AbstractCursorMoveRequest)
+	in := new(MoveRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -11126,13 +8888,13 @@ func _AbstractCursorService_Move_Handler(srv interface{}, ctx context.Context, d
 		FullMethod: AbstractCursorService_Move_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AbstractCursorServiceServer).Move(ctx, req.(*AbstractCursorMoveRequest))
+		return srv.(AbstractCursorServiceServer).Move(ctx, req.(*MoveRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _AbstractCursorService_MoveToFirst_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AbstractCursorMoveToFirstRequest)
+	in := new(MoveToFirstRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -11144,13 +8906,13 @@ func _AbstractCursorService_MoveToFirst_Handler(srv interface{}, ctx context.Con
 		FullMethod: AbstractCursorService_MoveToFirst_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AbstractCursorServiceServer).MoveToFirst(ctx, req.(*AbstractCursorMoveToFirstRequest))
+		return srv.(AbstractCursorServiceServer).MoveToFirst(ctx, req.(*MoveToFirstRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _AbstractCursorService_MoveToLast_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AbstractCursorMoveToLastRequest)
+	in := new(MoveToLastRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -11162,13 +8924,13 @@ func _AbstractCursorService_MoveToLast_Handler(srv interface{}, ctx context.Cont
 		FullMethod: AbstractCursorService_MoveToLast_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AbstractCursorServiceServer).MoveToLast(ctx, req.(*AbstractCursorMoveToLastRequest))
+		return srv.(AbstractCursorServiceServer).MoveToLast(ctx, req.(*MoveToLastRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _AbstractCursorService_MoveToNext_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AbstractCursorMoveToNextRequest)
+	in := new(MoveToNextRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -11180,13 +8942,13 @@ func _AbstractCursorService_MoveToNext_Handler(srv interface{}, ctx context.Cont
 		FullMethod: AbstractCursorService_MoveToNext_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AbstractCursorServiceServer).MoveToNext(ctx, req.(*AbstractCursorMoveToNextRequest))
+		return srv.(AbstractCursorServiceServer).MoveToNext(ctx, req.(*MoveToNextRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _AbstractCursorService_MoveToPosition_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AbstractCursorMoveToPositionRequest)
+	in := new(MoveToPositionRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -11198,13 +8960,13 @@ func _AbstractCursorService_MoveToPosition_Handler(srv interface{}, ctx context.
 		FullMethod: AbstractCursorService_MoveToPosition_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AbstractCursorServiceServer).MoveToPosition(ctx, req.(*AbstractCursorMoveToPositionRequest))
+		return srv.(AbstractCursorServiceServer).MoveToPosition(ctx, req.(*MoveToPositionRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _AbstractCursorService_MoveToPrevious_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AbstractCursorMoveToPreviousRequest)
+	in := new(MoveToPreviousRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -11216,13 +8978,13 @@ func _AbstractCursorService_MoveToPrevious_Handler(srv interface{}, ctx context.
 		FullMethod: AbstractCursorService_MoveToPrevious_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AbstractCursorServiceServer).MoveToPrevious(ctx, req.(*AbstractCursorMoveToPreviousRequest))
+		return srv.(AbstractCursorServiceServer).MoveToPrevious(ctx, req.(*MoveToPreviousRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _AbstractCursorService_OnMove_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AbstractCursorOnMoveRequest)
+	in := new(OnMoveRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -11234,7 +8996,7 @@ func _AbstractCursorService_OnMove_Handler(srv interface{}, ctx context.Context,
 		FullMethod: AbstractCursorService_OnMove_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AbstractCursorServiceServer).OnMove(ctx, req.(*AbstractCursorOnMoveRequest))
+		return srv.(AbstractCursorServiceServer).OnMove(ctx, req.(*OnMoveRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -11294,7 +9056,7 @@ func _AbstractCursorService_Requery_Handler(srv interface{}, ctx context.Context
 }
 
 func _AbstractCursorService_Respond_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AbstractCursorRespondRequest)
+	in := new(RespondRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -11306,13 +9068,13 @@ func _AbstractCursorService_Respond_Handler(srv interface{}, ctx context.Context
 		FullMethod: AbstractCursorService_Respond_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AbstractCursorServiceServer).Respond(ctx, req.(*AbstractCursorRespondRequest))
+		return srv.(AbstractCursorServiceServer).Respond(ctx, req.(*RespondRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _AbstractCursorService_SetExtras_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AbstractCursorSetExtrasRequest)
+	in := new(SetExtrasRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -11324,13 +9086,13 @@ func _AbstractCursorService_SetExtras_Handler(srv interface{}, ctx context.Conte
 		FullMethod: AbstractCursorService_SetExtras_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AbstractCursorServiceServer).SetExtras(ctx, req.(*AbstractCursorSetExtrasRequest))
+		return srv.(AbstractCursorServiceServer).SetExtras(ctx, req.(*SetExtrasRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _AbstractCursorService_SetNotificationUri_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AbstractCursorSetNotificationUriRequest)
+	in := new(SetNotificationUriRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -11342,7 +9104,7 @@ func _AbstractCursorService_SetNotificationUri_Handler(srv interface{}, ctx cont
 		FullMethod: AbstractCursorService_SetNotificationUri_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AbstractCursorServiceServer).SetNotificationUri(ctx, req.(*AbstractCursorSetNotificationUriRequest))
+		return srv.(AbstractCursorServiceServer).SetNotificationUri(ctx, req.(*SetNotificationUriRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -11457,6 +9219,10 @@ var AbstractCursorService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetNotificationUri",
 			Handler:    _AbstractCursorService_GetNotificationUri_Handler,
+		},
+		{
+			MethodName: "GetNotificationUris",
+			Handler:    _AbstractCursorService_GetNotificationUris_Handler,
 		},
 		{
 			MethodName: "GetPosition",
@@ -11706,6 +9472,2354 @@ var AbstractCursorSelfContentObserverService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "OnChange",
 			Handler:    _AbstractCursorSelfContentObserverService_OnChange_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/database/database.proto",
+}
+
+const (
+	CursorJoinerService_NewCursorJoiner_FullMethodName = "/database.CursorJoinerService/NewCursorJoiner"
+	CursorJoinerService_HasNext_FullMethodName         = "/database.CursorJoinerService/HasNext"
+	CursorJoinerService_Iterator_FullMethodName        = "/database.CursorJoinerService/Iterator"
+	CursorJoinerService_Next0_FullMethodName           = "/database.CursorJoinerService/Next0"
+	CursorJoinerService_Remove_FullMethodName          = "/database.CursorJoinerService/Remove"
+	CursorJoinerService_Next0_1_FullMethodName         = "/database.CursorJoinerService/Next0_1"
+)
+
+// CursorJoinerServiceClient is the client API for CursorJoinerService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type CursorJoinerServiceClient interface {
+	NewCursorJoiner(ctx context.Context, in *NewCursorJoinerRequest, opts ...grpc.CallOption) (*NewCursorJoinerResponse, error)
+	HasNext(ctx context.Context, in *HasNextRequest, opts ...grpc.CallOption) (*HasNextResponse, error)
+	Iterator(ctx context.Context, in *IteratorRequest, opts ...grpc.CallOption) (*IteratorResponse, error)
+	Next0(ctx context.Context, in *Next0Request, opts ...grpc.CallOption) (*Next0Response, error)
+	Remove(ctx context.Context, in *RemoveRequest, opts ...grpc.CallOption) (*RemoveResponse, error)
+	Next0_1(ctx context.Context, in *Next0_1Request, opts ...grpc.CallOption) (*Next0_1Response, error)
+}
+
+type cursorJoinerServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewCursorJoinerServiceClient(cc grpc.ClientConnInterface) CursorJoinerServiceClient {
+	return &cursorJoinerServiceClient{cc}
+}
+
+func (c *cursorJoinerServiceClient) NewCursorJoiner(ctx context.Context, in *NewCursorJoinerRequest, opts ...grpc.CallOption) (*NewCursorJoinerResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewCursorJoinerResponse)
+	err := c.cc.Invoke(ctx, CursorJoinerService_NewCursorJoiner_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cursorJoinerServiceClient) HasNext(ctx context.Context, in *HasNextRequest, opts ...grpc.CallOption) (*HasNextResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HasNextResponse)
+	err := c.cc.Invoke(ctx, CursorJoinerService_HasNext_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cursorJoinerServiceClient) Iterator(ctx context.Context, in *IteratorRequest, opts ...grpc.CallOption) (*IteratorResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IteratorResponse)
+	err := c.cc.Invoke(ctx, CursorJoinerService_Iterator_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cursorJoinerServiceClient) Next0(ctx context.Context, in *Next0Request, opts ...grpc.CallOption) (*Next0Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(Next0Response)
+	err := c.cc.Invoke(ctx, CursorJoinerService_Next0_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cursorJoinerServiceClient) Remove(ctx context.Context, in *RemoveRequest, opts ...grpc.CallOption) (*RemoveResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(RemoveResponse)
+	err := c.cc.Invoke(ctx, CursorJoinerService_Remove_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cursorJoinerServiceClient) Next0_1(ctx context.Context, in *Next0_1Request, opts ...grpc.CallOption) (*Next0_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(Next0_1Response)
+	err := c.cc.Invoke(ctx, CursorJoinerService_Next0_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// CursorJoinerServiceServer is the server API for CursorJoinerService service.
+// All implementations must embed UnimplementedCursorJoinerServiceServer
+// for forward compatibility.
+type CursorJoinerServiceServer interface {
+	NewCursorJoiner(context.Context, *NewCursorJoinerRequest) (*NewCursorJoinerResponse, error)
+	HasNext(context.Context, *HasNextRequest) (*HasNextResponse, error)
+	Iterator(context.Context, *IteratorRequest) (*IteratorResponse, error)
+	Next0(context.Context, *Next0Request) (*Next0Response, error)
+	Remove(context.Context, *RemoveRequest) (*RemoveResponse, error)
+	Next0_1(context.Context, *Next0_1Request) (*Next0_1Response, error)
+	mustEmbedUnimplementedCursorJoinerServiceServer()
+}
+
+// UnimplementedCursorJoinerServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedCursorJoinerServiceServer struct{}
+
+func (UnimplementedCursorJoinerServiceServer) NewCursorJoiner(context.Context, *NewCursorJoinerRequest) (*NewCursorJoinerResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewCursorJoiner not implemented")
+}
+func (UnimplementedCursorJoinerServiceServer) HasNext(context.Context, *HasNextRequest) (*HasNextResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HasNext not implemented")
+}
+func (UnimplementedCursorJoinerServiceServer) Iterator(context.Context, *IteratorRequest) (*IteratorResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Iterator not implemented")
+}
+func (UnimplementedCursorJoinerServiceServer) Next0(context.Context, *Next0Request) (*Next0Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method Next0 not implemented")
+}
+func (UnimplementedCursorJoinerServiceServer) Remove(context.Context, *RemoveRequest) (*RemoveResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Remove not implemented")
+}
+func (UnimplementedCursorJoinerServiceServer) Next0_1(context.Context, *Next0_1Request) (*Next0_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method Next0_1 not implemented")
+}
+func (UnimplementedCursorJoinerServiceServer) mustEmbedUnimplementedCursorJoinerServiceServer() {}
+func (UnimplementedCursorJoinerServiceServer) testEmbeddedByValue()                             {}
+
+// UnsafeCursorJoinerServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to CursorJoinerServiceServer will
+// result in compilation errors.
+type UnsafeCursorJoinerServiceServer interface {
+	mustEmbedUnimplementedCursorJoinerServiceServer()
+}
+
+func RegisterCursorJoinerServiceServer(s grpc.ServiceRegistrar, srv CursorJoinerServiceServer) {
+	// If the following call panics, it indicates UnimplementedCursorJoinerServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&CursorJoinerService_ServiceDesc, srv)
+}
+
+func _CursorJoinerService_NewCursorJoiner_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewCursorJoinerRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CursorJoinerServiceServer).NewCursorJoiner(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CursorJoinerService_NewCursorJoiner_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CursorJoinerServiceServer).NewCursorJoiner(ctx, req.(*NewCursorJoinerRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CursorJoinerService_HasNext_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HasNextRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CursorJoinerServiceServer).HasNext(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CursorJoinerService_HasNext_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CursorJoinerServiceServer).HasNext(ctx, req.(*HasNextRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CursorJoinerService_Iterator_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IteratorRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CursorJoinerServiceServer).Iterator(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CursorJoinerService_Iterator_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CursorJoinerServiceServer).Iterator(ctx, req.(*IteratorRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CursorJoinerService_Next0_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(Next0Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CursorJoinerServiceServer).Next0(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CursorJoinerService_Next0_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CursorJoinerServiceServer).Next0(ctx, req.(*Next0Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CursorJoinerService_Remove_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RemoveRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CursorJoinerServiceServer).Remove(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CursorJoinerService_Remove_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CursorJoinerServiceServer).Remove(ctx, req.(*RemoveRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CursorJoinerService_Next0_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(Next0_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CursorJoinerServiceServer).Next0_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CursorJoinerService_Next0_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CursorJoinerServiceServer).Next0_1(ctx, req.(*Next0_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// CursorJoinerService_ServiceDesc is the grpc.ServiceDesc for CursorJoinerService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var CursorJoinerService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "database.CursorJoinerService",
+	HandlerType: (*CursorJoinerServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewCursorJoiner",
+			Handler:    _CursorJoinerService_NewCursorJoiner_Handler,
+		},
+		{
+			MethodName: "HasNext",
+			Handler:    _CursorJoinerService_HasNext_Handler,
+		},
+		{
+			MethodName: "Iterator",
+			Handler:    _CursorJoinerService_Iterator_Handler,
+		},
+		{
+			MethodName: "Next0",
+			Handler:    _CursorJoinerService_Next0_Handler,
+		},
+		{
+			MethodName: "Remove",
+			Handler:    _CursorJoinerService_Remove_Handler,
+		},
+		{
+			MethodName: "Next0_1",
+			Handler:    _CursorJoinerService_Next0_1_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/database/database.proto",
+}
+
+const (
+	CursorJoinerResultService_Values_FullMethodName  = "/database.CursorJoinerResultService/Values"
+	CursorJoinerResultService_ValueOf_FullMethodName = "/database.CursorJoinerResultService/ValueOf"
+)
+
+// CursorJoinerResultServiceClient is the client API for CursorJoinerResultService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type CursorJoinerResultServiceClient interface {
+	Values(ctx context.Context, in *ValuesRequest, opts ...grpc.CallOption) (*ValuesResponse, error)
+	ValueOf(ctx context.Context, in *ValueOfRequest, opts ...grpc.CallOption) (*ValueOfResponse, error)
+}
+
+type cursorJoinerResultServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewCursorJoinerResultServiceClient(cc grpc.ClientConnInterface) CursorJoinerResultServiceClient {
+	return &cursorJoinerResultServiceClient{cc}
+}
+
+func (c *cursorJoinerResultServiceClient) Values(ctx context.Context, in *ValuesRequest, opts ...grpc.CallOption) (*ValuesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ValuesResponse)
+	err := c.cc.Invoke(ctx, CursorJoinerResultService_Values_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cursorJoinerResultServiceClient) ValueOf(ctx context.Context, in *ValueOfRequest, opts ...grpc.CallOption) (*ValueOfResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ValueOfResponse)
+	err := c.cc.Invoke(ctx, CursorJoinerResultService_ValueOf_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// CursorJoinerResultServiceServer is the server API for CursorJoinerResultService service.
+// All implementations must embed UnimplementedCursorJoinerResultServiceServer
+// for forward compatibility.
+type CursorJoinerResultServiceServer interface {
+	Values(context.Context, *ValuesRequest) (*ValuesResponse, error)
+	ValueOf(context.Context, *ValueOfRequest) (*ValueOfResponse, error)
+	mustEmbedUnimplementedCursorJoinerResultServiceServer()
+}
+
+// UnimplementedCursorJoinerResultServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedCursorJoinerResultServiceServer struct{}
+
+func (UnimplementedCursorJoinerResultServiceServer) Values(context.Context, *ValuesRequest) (*ValuesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Values not implemented")
+}
+func (UnimplementedCursorJoinerResultServiceServer) ValueOf(context.Context, *ValueOfRequest) (*ValueOfResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ValueOf not implemented")
+}
+func (UnimplementedCursorJoinerResultServiceServer) mustEmbedUnimplementedCursorJoinerResultServiceServer() {
+}
+func (UnimplementedCursorJoinerResultServiceServer) testEmbeddedByValue() {}
+
+// UnsafeCursorJoinerResultServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to CursorJoinerResultServiceServer will
+// result in compilation errors.
+type UnsafeCursorJoinerResultServiceServer interface {
+	mustEmbedUnimplementedCursorJoinerResultServiceServer()
+}
+
+func RegisterCursorJoinerResultServiceServer(s grpc.ServiceRegistrar, srv CursorJoinerResultServiceServer) {
+	// If the following call panics, it indicates UnimplementedCursorJoinerResultServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&CursorJoinerResultService_ServiceDesc, srv)
+}
+
+func _CursorJoinerResultService_Values_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ValuesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CursorJoinerResultServiceServer).Values(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CursorJoinerResultService_Values_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CursorJoinerResultServiceServer).Values(ctx, req.(*ValuesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CursorJoinerResultService_ValueOf_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ValueOfRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CursorJoinerResultServiceServer).ValueOf(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CursorJoinerResultService_ValueOf_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CursorJoinerResultServiceServer).ValueOf(ctx, req.(*ValueOfRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// CursorJoinerResultService_ServiceDesc is the grpc.ServiceDesc for CursorJoinerResultService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var CursorJoinerResultService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "database.CursorJoinerResultService",
+	HandlerType: (*CursorJoinerResultServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Values",
+			Handler:    _CursorJoinerResultService_Values_Handler,
+		},
+		{
+			MethodName: "ValueOf",
+			Handler:    _CursorJoinerResultService_ValueOf_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/database/database.proto",
+}
+
+const (
+	CursorWrapperService_NewCursorWrapper_FullMethodName          = "/database.CursorWrapperService/NewCursorWrapper"
+	CursorWrapperService_Close_FullMethodName                     = "/database.CursorWrapperService/Close"
+	CursorWrapperService_CopyStringToBuffer_FullMethodName        = "/database.CursorWrapperService/CopyStringToBuffer"
+	CursorWrapperService_Deactivate_FullMethodName                = "/database.CursorWrapperService/Deactivate"
+	CursorWrapperService_GetBlob_FullMethodName                   = "/database.CursorWrapperService/GetBlob"
+	CursorWrapperService_GetColumnCount_FullMethodName            = "/database.CursorWrapperService/GetColumnCount"
+	CursorWrapperService_GetColumnIndex_FullMethodName            = "/database.CursorWrapperService/GetColumnIndex"
+	CursorWrapperService_GetColumnIndexOrThrow_FullMethodName     = "/database.CursorWrapperService/GetColumnIndexOrThrow"
+	CursorWrapperService_GetColumnName_FullMethodName             = "/database.CursorWrapperService/GetColumnName"
+	CursorWrapperService_GetColumnNames_FullMethodName            = "/database.CursorWrapperService/GetColumnNames"
+	CursorWrapperService_GetCount_FullMethodName                  = "/database.CursorWrapperService/GetCount"
+	CursorWrapperService_GetDouble_FullMethodName                 = "/database.CursorWrapperService/GetDouble"
+	CursorWrapperService_GetExtras_FullMethodName                 = "/database.CursorWrapperService/GetExtras"
+	CursorWrapperService_GetFloat_FullMethodName                  = "/database.CursorWrapperService/GetFloat"
+	CursorWrapperService_GetInt_FullMethodName                    = "/database.CursorWrapperService/GetInt"
+	CursorWrapperService_GetLong_FullMethodName                   = "/database.CursorWrapperService/GetLong"
+	CursorWrapperService_GetNotificationUri_FullMethodName        = "/database.CursorWrapperService/GetNotificationUri"
+	CursorWrapperService_GetNotificationUris_FullMethodName       = "/database.CursorWrapperService/GetNotificationUris"
+	CursorWrapperService_GetPosition_FullMethodName               = "/database.CursorWrapperService/GetPosition"
+	CursorWrapperService_GetShort_FullMethodName                  = "/database.CursorWrapperService/GetShort"
+	CursorWrapperService_GetString_FullMethodName                 = "/database.CursorWrapperService/GetString"
+	CursorWrapperService_GetType_FullMethodName                   = "/database.CursorWrapperService/GetType"
+	CursorWrapperService_GetWantsAllOnMoveCalls_FullMethodName    = "/database.CursorWrapperService/GetWantsAllOnMoveCalls"
+	CursorWrapperService_GetWrappedCursor_FullMethodName          = "/database.CursorWrapperService/GetWrappedCursor"
+	CursorWrapperService_IsAfterLast_FullMethodName               = "/database.CursorWrapperService/IsAfterLast"
+	CursorWrapperService_IsBeforeFirst_FullMethodName             = "/database.CursorWrapperService/IsBeforeFirst"
+	CursorWrapperService_IsClosed_FullMethodName                  = "/database.CursorWrapperService/IsClosed"
+	CursorWrapperService_IsFirst_FullMethodName                   = "/database.CursorWrapperService/IsFirst"
+	CursorWrapperService_IsLast_FullMethodName                    = "/database.CursorWrapperService/IsLast"
+	CursorWrapperService_IsNull_FullMethodName                    = "/database.CursorWrapperService/IsNull"
+	CursorWrapperService_Move_FullMethodName                      = "/database.CursorWrapperService/Move"
+	CursorWrapperService_MoveToFirst_FullMethodName               = "/database.CursorWrapperService/MoveToFirst"
+	CursorWrapperService_MoveToLast_FullMethodName                = "/database.CursorWrapperService/MoveToLast"
+	CursorWrapperService_MoveToNext_FullMethodName                = "/database.CursorWrapperService/MoveToNext"
+	CursorWrapperService_MoveToPosition_FullMethodName            = "/database.CursorWrapperService/MoveToPosition"
+	CursorWrapperService_MoveToPrevious_FullMethodName            = "/database.CursorWrapperService/MoveToPrevious"
+	CursorWrapperService_RegisterContentObserver_FullMethodName   = "/database.CursorWrapperService/RegisterContentObserver"
+	CursorWrapperService_RegisterDataSetObserver_FullMethodName   = "/database.CursorWrapperService/RegisterDataSetObserver"
+	CursorWrapperService_Requery_FullMethodName                   = "/database.CursorWrapperService/Requery"
+	CursorWrapperService_Respond_FullMethodName                   = "/database.CursorWrapperService/Respond"
+	CursorWrapperService_SetExtras_FullMethodName                 = "/database.CursorWrapperService/SetExtras"
+	CursorWrapperService_SetNotificationUri_FullMethodName        = "/database.CursorWrapperService/SetNotificationUri"
+	CursorWrapperService_UnregisterContentObserver_FullMethodName = "/database.CursorWrapperService/UnregisterContentObserver"
+	CursorWrapperService_UnregisterDataSetObserver_FullMethodName = "/database.CursorWrapperService/UnregisterDataSetObserver"
+)
+
+// CursorWrapperServiceClient is the client API for CursorWrapperService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type CursorWrapperServiceClient interface {
+	NewCursorWrapper(ctx context.Context, in *NewCursorWrapperRequest, opts ...grpc.CallOption) (*NewCursorWrapperResponse, error)
+	Close(ctx context.Context, in *CursorWrapperCloseRequest, opts ...grpc.CallOption) (*CloseResponse, error)
+	CopyStringToBuffer(ctx context.Context, in *CursorWrapperCopyStringToBufferRequest, opts ...grpc.CallOption) (*CopyStringToBufferResponse, error)
+	Deactivate(ctx context.Context, in *DeactivateRequest, opts ...grpc.CallOption) (*DeactivateResponse, error)
+	GetBlob(ctx context.Context, in *GetBlobRequest, opts ...grpc.CallOption) (*GetBlobResponse, error)
+	GetColumnCount(ctx context.Context, in *CursorWrapperGetColumnCountRequest, opts ...grpc.CallOption) (*GetColumnCountResponse, error)
+	GetColumnIndex(ctx context.Context, in *CursorWrapperGetColumnIndexRequest, opts ...grpc.CallOption) (*GetColumnIndexResponse, error)
+	GetColumnIndexOrThrow(ctx context.Context, in *CursorWrapperGetColumnIndexOrThrowRequest, opts ...grpc.CallOption) (*GetColumnIndexOrThrowResponse, error)
+	GetColumnName(ctx context.Context, in *CursorWrapperGetColumnNameRequest, opts ...grpc.CallOption) (*GetColumnNameResponse, error)
+	GetColumnNames(ctx context.Context, in *GetColumnNamesRequest, opts ...grpc.CallOption) (*GetColumnNamesResponse, error)
+	GetCount(ctx context.Context, in *GetCountRequest, opts ...grpc.CallOption) (*GetCountResponse, error)
+	GetDouble(ctx context.Context, in *GetDoubleRequest, opts ...grpc.CallOption) (*GetDoubleResponse, error)
+	GetExtras(ctx context.Context, in *CursorWrapperGetExtrasRequest, opts ...grpc.CallOption) (*GetExtrasResponse, error)
+	GetFloat(ctx context.Context, in *GetFloatRequest, opts ...grpc.CallOption) (*GetFloatResponse, error)
+	GetInt(ctx context.Context, in *GetIntRequest, opts ...grpc.CallOption) (*GetIntResponse, error)
+	GetLong(ctx context.Context, in *GetLongRequest, opts ...grpc.CallOption) (*GetLongResponse, error)
+	GetNotificationUri(ctx context.Context, in *CursorWrapperGetNotificationUriRequest, opts ...grpc.CallOption) (*GetNotificationUriResponse, error)
+	GetNotificationUris(ctx context.Context, in *CursorWrapperGetNotificationUrisRequest, opts ...grpc.CallOption) (*GetNotificationUrisResponse, error)
+	GetPosition(ctx context.Context, in *CursorWrapperGetPositionRequest, opts ...grpc.CallOption) (*GetPositionResponse, error)
+	GetShort(ctx context.Context, in *GetShortRequest, opts ...grpc.CallOption) (*GetShortResponse, error)
+	GetString(ctx context.Context, in *GetStringRequest, opts ...grpc.CallOption) (*GetStringResponse, error)
+	GetType(ctx context.Context, in *GetTypeRequest, opts ...grpc.CallOption) (*GetTypeResponse, error)
+	GetWantsAllOnMoveCalls(ctx context.Context, in *CursorWrapperGetWantsAllOnMoveCallsRequest, opts ...grpc.CallOption) (*GetWantsAllOnMoveCallsResponse, error)
+	GetWrappedCursor(ctx context.Context, in *GetWrappedCursorRequest, opts ...grpc.CallOption) (*GetWrappedCursorResponse, error)
+	IsAfterLast(ctx context.Context, in *CursorWrapperIsAfterLastRequest, opts ...grpc.CallOption) (*IsAfterLastResponse, error)
+	IsBeforeFirst(ctx context.Context, in *CursorWrapperIsBeforeFirstRequest, opts ...grpc.CallOption) (*IsBeforeFirstResponse, error)
+	IsClosed(ctx context.Context, in *CursorWrapperIsClosedRequest, opts ...grpc.CallOption) (*IsClosedResponse, error)
+	IsFirst(ctx context.Context, in *CursorWrapperIsFirstRequest, opts ...grpc.CallOption) (*IsFirstResponse, error)
+	IsLast(ctx context.Context, in *CursorWrapperIsLastRequest, opts ...grpc.CallOption) (*IsLastResponse, error)
+	IsNull(ctx context.Context, in *IsNullRequest, opts ...grpc.CallOption) (*IsNullResponse, error)
+	Move(ctx context.Context, in *CursorWrapperMoveRequest, opts ...grpc.CallOption) (*MoveResponse, error)
+	MoveToFirst(ctx context.Context, in *CursorWrapperMoveToFirstRequest, opts ...grpc.CallOption) (*MoveToFirstResponse, error)
+	MoveToLast(ctx context.Context, in *CursorWrapperMoveToLastRequest, opts ...grpc.CallOption) (*MoveToLastResponse, error)
+	MoveToNext(ctx context.Context, in *CursorWrapperMoveToNextRequest, opts ...grpc.CallOption) (*MoveToNextResponse, error)
+	MoveToPosition(ctx context.Context, in *CursorWrapperMoveToPositionRequest, opts ...grpc.CallOption) (*MoveToPositionResponse, error)
+	MoveToPrevious(ctx context.Context, in *CursorWrapperMoveToPreviousRequest, opts ...grpc.CallOption) (*MoveToPreviousResponse, error)
+	RegisterContentObserver(ctx context.Context, in *RegisterContentObserverRequest, opts ...grpc.CallOption) (*RegisterContentObserverResponse, error)
+	RegisterDataSetObserver(ctx context.Context, in *RegisterDataSetObserverRequest, opts ...grpc.CallOption) (*RegisterDataSetObserverResponse, error)
+	Requery(ctx context.Context, in *RequeryRequest, opts ...grpc.CallOption) (*RequeryResponse, error)
+	Respond(ctx context.Context, in *CursorWrapperRespondRequest, opts ...grpc.CallOption) (*RespondResponse, error)
+	SetExtras(ctx context.Context, in *CursorWrapperSetExtrasRequest, opts ...grpc.CallOption) (*SetExtrasResponse, error)
+	SetNotificationUri(ctx context.Context, in *CursorWrapperSetNotificationUriRequest, opts ...grpc.CallOption) (*SetNotificationUriResponse, error)
+	UnregisterContentObserver(ctx context.Context, in *UnregisterContentObserverRequest, opts ...grpc.CallOption) (*UnregisterContentObserverResponse, error)
+	UnregisterDataSetObserver(ctx context.Context, in *UnregisterDataSetObserverRequest, opts ...grpc.CallOption) (*UnregisterDataSetObserverResponse, error)
+}
+
+type cursorWrapperServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewCursorWrapperServiceClient(cc grpc.ClientConnInterface) CursorWrapperServiceClient {
+	return &cursorWrapperServiceClient{cc}
+}
+
+func (c *cursorWrapperServiceClient) NewCursorWrapper(ctx context.Context, in *NewCursorWrapperRequest, opts ...grpc.CallOption) (*NewCursorWrapperResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewCursorWrapperResponse)
+	err := c.cc.Invoke(ctx, CursorWrapperService_NewCursorWrapper_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cursorWrapperServiceClient) Close(ctx context.Context, in *CursorWrapperCloseRequest, opts ...grpc.CallOption) (*CloseResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CloseResponse)
+	err := c.cc.Invoke(ctx, CursorWrapperService_Close_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cursorWrapperServiceClient) CopyStringToBuffer(ctx context.Context, in *CursorWrapperCopyStringToBufferRequest, opts ...grpc.CallOption) (*CopyStringToBufferResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CopyStringToBufferResponse)
+	err := c.cc.Invoke(ctx, CursorWrapperService_CopyStringToBuffer_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cursorWrapperServiceClient) Deactivate(ctx context.Context, in *DeactivateRequest, opts ...grpc.CallOption) (*DeactivateResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DeactivateResponse)
+	err := c.cc.Invoke(ctx, CursorWrapperService_Deactivate_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cursorWrapperServiceClient) GetBlob(ctx context.Context, in *GetBlobRequest, opts ...grpc.CallOption) (*GetBlobResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetBlobResponse)
+	err := c.cc.Invoke(ctx, CursorWrapperService_GetBlob_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cursorWrapperServiceClient) GetColumnCount(ctx context.Context, in *CursorWrapperGetColumnCountRequest, opts ...grpc.CallOption) (*GetColumnCountResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetColumnCountResponse)
+	err := c.cc.Invoke(ctx, CursorWrapperService_GetColumnCount_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cursorWrapperServiceClient) GetColumnIndex(ctx context.Context, in *CursorWrapperGetColumnIndexRequest, opts ...grpc.CallOption) (*GetColumnIndexResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetColumnIndexResponse)
+	err := c.cc.Invoke(ctx, CursorWrapperService_GetColumnIndex_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cursorWrapperServiceClient) GetColumnIndexOrThrow(ctx context.Context, in *CursorWrapperGetColumnIndexOrThrowRequest, opts ...grpc.CallOption) (*GetColumnIndexOrThrowResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetColumnIndexOrThrowResponse)
+	err := c.cc.Invoke(ctx, CursorWrapperService_GetColumnIndexOrThrow_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cursorWrapperServiceClient) GetColumnName(ctx context.Context, in *CursorWrapperGetColumnNameRequest, opts ...grpc.CallOption) (*GetColumnNameResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetColumnNameResponse)
+	err := c.cc.Invoke(ctx, CursorWrapperService_GetColumnName_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cursorWrapperServiceClient) GetColumnNames(ctx context.Context, in *GetColumnNamesRequest, opts ...grpc.CallOption) (*GetColumnNamesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetColumnNamesResponse)
+	err := c.cc.Invoke(ctx, CursorWrapperService_GetColumnNames_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cursorWrapperServiceClient) GetCount(ctx context.Context, in *GetCountRequest, opts ...grpc.CallOption) (*GetCountResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetCountResponse)
+	err := c.cc.Invoke(ctx, CursorWrapperService_GetCount_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cursorWrapperServiceClient) GetDouble(ctx context.Context, in *GetDoubleRequest, opts ...grpc.CallOption) (*GetDoubleResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetDoubleResponse)
+	err := c.cc.Invoke(ctx, CursorWrapperService_GetDouble_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cursorWrapperServiceClient) GetExtras(ctx context.Context, in *CursorWrapperGetExtrasRequest, opts ...grpc.CallOption) (*GetExtrasResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetExtrasResponse)
+	err := c.cc.Invoke(ctx, CursorWrapperService_GetExtras_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cursorWrapperServiceClient) GetFloat(ctx context.Context, in *GetFloatRequest, opts ...grpc.CallOption) (*GetFloatResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetFloatResponse)
+	err := c.cc.Invoke(ctx, CursorWrapperService_GetFloat_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cursorWrapperServiceClient) GetInt(ctx context.Context, in *GetIntRequest, opts ...grpc.CallOption) (*GetIntResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetIntResponse)
+	err := c.cc.Invoke(ctx, CursorWrapperService_GetInt_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cursorWrapperServiceClient) GetLong(ctx context.Context, in *GetLongRequest, opts ...grpc.CallOption) (*GetLongResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetLongResponse)
+	err := c.cc.Invoke(ctx, CursorWrapperService_GetLong_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cursorWrapperServiceClient) GetNotificationUri(ctx context.Context, in *CursorWrapperGetNotificationUriRequest, opts ...grpc.CallOption) (*GetNotificationUriResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetNotificationUriResponse)
+	err := c.cc.Invoke(ctx, CursorWrapperService_GetNotificationUri_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cursorWrapperServiceClient) GetNotificationUris(ctx context.Context, in *CursorWrapperGetNotificationUrisRequest, opts ...grpc.CallOption) (*GetNotificationUrisResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetNotificationUrisResponse)
+	err := c.cc.Invoke(ctx, CursorWrapperService_GetNotificationUris_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cursorWrapperServiceClient) GetPosition(ctx context.Context, in *CursorWrapperGetPositionRequest, opts ...grpc.CallOption) (*GetPositionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetPositionResponse)
+	err := c.cc.Invoke(ctx, CursorWrapperService_GetPosition_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cursorWrapperServiceClient) GetShort(ctx context.Context, in *GetShortRequest, opts ...grpc.CallOption) (*GetShortResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetShortResponse)
+	err := c.cc.Invoke(ctx, CursorWrapperService_GetShort_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cursorWrapperServiceClient) GetString(ctx context.Context, in *GetStringRequest, opts ...grpc.CallOption) (*GetStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetStringResponse)
+	err := c.cc.Invoke(ctx, CursorWrapperService_GetString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cursorWrapperServiceClient) GetType(ctx context.Context, in *GetTypeRequest, opts ...grpc.CallOption) (*GetTypeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTypeResponse)
+	err := c.cc.Invoke(ctx, CursorWrapperService_GetType_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cursorWrapperServiceClient) GetWantsAllOnMoveCalls(ctx context.Context, in *CursorWrapperGetWantsAllOnMoveCallsRequest, opts ...grpc.CallOption) (*GetWantsAllOnMoveCallsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetWantsAllOnMoveCallsResponse)
+	err := c.cc.Invoke(ctx, CursorWrapperService_GetWantsAllOnMoveCalls_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cursorWrapperServiceClient) GetWrappedCursor(ctx context.Context, in *GetWrappedCursorRequest, opts ...grpc.CallOption) (*GetWrappedCursorResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetWrappedCursorResponse)
+	err := c.cc.Invoke(ctx, CursorWrapperService_GetWrappedCursor_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cursorWrapperServiceClient) IsAfterLast(ctx context.Context, in *CursorWrapperIsAfterLastRequest, opts ...grpc.CallOption) (*IsAfterLastResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsAfterLastResponse)
+	err := c.cc.Invoke(ctx, CursorWrapperService_IsAfterLast_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cursorWrapperServiceClient) IsBeforeFirst(ctx context.Context, in *CursorWrapperIsBeforeFirstRequest, opts ...grpc.CallOption) (*IsBeforeFirstResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsBeforeFirstResponse)
+	err := c.cc.Invoke(ctx, CursorWrapperService_IsBeforeFirst_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cursorWrapperServiceClient) IsClosed(ctx context.Context, in *CursorWrapperIsClosedRequest, opts ...grpc.CallOption) (*IsClosedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsClosedResponse)
+	err := c.cc.Invoke(ctx, CursorWrapperService_IsClosed_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cursorWrapperServiceClient) IsFirst(ctx context.Context, in *CursorWrapperIsFirstRequest, opts ...grpc.CallOption) (*IsFirstResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsFirstResponse)
+	err := c.cc.Invoke(ctx, CursorWrapperService_IsFirst_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cursorWrapperServiceClient) IsLast(ctx context.Context, in *CursorWrapperIsLastRequest, opts ...grpc.CallOption) (*IsLastResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsLastResponse)
+	err := c.cc.Invoke(ctx, CursorWrapperService_IsLast_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cursorWrapperServiceClient) IsNull(ctx context.Context, in *IsNullRequest, opts ...grpc.CallOption) (*IsNullResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsNullResponse)
+	err := c.cc.Invoke(ctx, CursorWrapperService_IsNull_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cursorWrapperServiceClient) Move(ctx context.Context, in *CursorWrapperMoveRequest, opts ...grpc.CallOption) (*MoveResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(MoveResponse)
+	err := c.cc.Invoke(ctx, CursorWrapperService_Move_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cursorWrapperServiceClient) MoveToFirst(ctx context.Context, in *CursorWrapperMoveToFirstRequest, opts ...grpc.CallOption) (*MoveToFirstResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(MoveToFirstResponse)
+	err := c.cc.Invoke(ctx, CursorWrapperService_MoveToFirst_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cursorWrapperServiceClient) MoveToLast(ctx context.Context, in *CursorWrapperMoveToLastRequest, opts ...grpc.CallOption) (*MoveToLastResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(MoveToLastResponse)
+	err := c.cc.Invoke(ctx, CursorWrapperService_MoveToLast_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cursorWrapperServiceClient) MoveToNext(ctx context.Context, in *CursorWrapperMoveToNextRequest, opts ...grpc.CallOption) (*MoveToNextResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(MoveToNextResponse)
+	err := c.cc.Invoke(ctx, CursorWrapperService_MoveToNext_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cursorWrapperServiceClient) MoveToPosition(ctx context.Context, in *CursorWrapperMoveToPositionRequest, opts ...grpc.CallOption) (*MoveToPositionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(MoveToPositionResponse)
+	err := c.cc.Invoke(ctx, CursorWrapperService_MoveToPosition_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cursorWrapperServiceClient) MoveToPrevious(ctx context.Context, in *CursorWrapperMoveToPreviousRequest, opts ...grpc.CallOption) (*MoveToPreviousResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(MoveToPreviousResponse)
+	err := c.cc.Invoke(ctx, CursorWrapperService_MoveToPrevious_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cursorWrapperServiceClient) RegisterContentObserver(ctx context.Context, in *RegisterContentObserverRequest, opts ...grpc.CallOption) (*RegisterContentObserverResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(RegisterContentObserverResponse)
+	err := c.cc.Invoke(ctx, CursorWrapperService_RegisterContentObserver_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cursorWrapperServiceClient) RegisterDataSetObserver(ctx context.Context, in *RegisterDataSetObserverRequest, opts ...grpc.CallOption) (*RegisterDataSetObserverResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(RegisterDataSetObserverResponse)
+	err := c.cc.Invoke(ctx, CursorWrapperService_RegisterDataSetObserver_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cursorWrapperServiceClient) Requery(ctx context.Context, in *RequeryRequest, opts ...grpc.CallOption) (*RequeryResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(RequeryResponse)
+	err := c.cc.Invoke(ctx, CursorWrapperService_Requery_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cursorWrapperServiceClient) Respond(ctx context.Context, in *CursorWrapperRespondRequest, opts ...grpc.CallOption) (*RespondResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(RespondResponse)
+	err := c.cc.Invoke(ctx, CursorWrapperService_Respond_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cursorWrapperServiceClient) SetExtras(ctx context.Context, in *CursorWrapperSetExtrasRequest, opts ...grpc.CallOption) (*SetExtrasResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetExtrasResponse)
+	err := c.cc.Invoke(ctx, CursorWrapperService_SetExtras_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cursorWrapperServiceClient) SetNotificationUri(ctx context.Context, in *CursorWrapperSetNotificationUriRequest, opts ...grpc.CallOption) (*SetNotificationUriResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetNotificationUriResponse)
+	err := c.cc.Invoke(ctx, CursorWrapperService_SetNotificationUri_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cursorWrapperServiceClient) UnregisterContentObserver(ctx context.Context, in *UnregisterContentObserverRequest, opts ...grpc.CallOption) (*UnregisterContentObserverResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(UnregisterContentObserverResponse)
+	err := c.cc.Invoke(ctx, CursorWrapperService_UnregisterContentObserver_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cursorWrapperServiceClient) UnregisterDataSetObserver(ctx context.Context, in *UnregisterDataSetObserverRequest, opts ...grpc.CallOption) (*UnregisterDataSetObserverResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(UnregisterDataSetObserverResponse)
+	err := c.cc.Invoke(ctx, CursorWrapperService_UnregisterDataSetObserver_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// CursorWrapperServiceServer is the server API for CursorWrapperService service.
+// All implementations must embed UnimplementedCursorWrapperServiceServer
+// for forward compatibility.
+type CursorWrapperServiceServer interface {
+	NewCursorWrapper(context.Context, *NewCursorWrapperRequest) (*NewCursorWrapperResponse, error)
+	Close(context.Context, *CursorWrapperCloseRequest) (*CloseResponse, error)
+	CopyStringToBuffer(context.Context, *CursorWrapperCopyStringToBufferRequest) (*CopyStringToBufferResponse, error)
+	Deactivate(context.Context, *DeactivateRequest) (*DeactivateResponse, error)
+	GetBlob(context.Context, *GetBlobRequest) (*GetBlobResponse, error)
+	GetColumnCount(context.Context, *CursorWrapperGetColumnCountRequest) (*GetColumnCountResponse, error)
+	GetColumnIndex(context.Context, *CursorWrapperGetColumnIndexRequest) (*GetColumnIndexResponse, error)
+	GetColumnIndexOrThrow(context.Context, *CursorWrapperGetColumnIndexOrThrowRequest) (*GetColumnIndexOrThrowResponse, error)
+	GetColumnName(context.Context, *CursorWrapperGetColumnNameRequest) (*GetColumnNameResponse, error)
+	GetColumnNames(context.Context, *GetColumnNamesRequest) (*GetColumnNamesResponse, error)
+	GetCount(context.Context, *GetCountRequest) (*GetCountResponse, error)
+	GetDouble(context.Context, *GetDoubleRequest) (*GetDoubleResponse, error)
+	GetExtras(context.Context, *CursorWrapperGetExtrasRequest) (*GetExtrasResponse, error)
+	GetFloat(context.Context, *GetFloatRequest) (*GetFloatResponse, error)
+	GetInt(context.Context, *GetIntRequest) (*GetIntResponse, error)
+	GetLong(context.Context, *GetLongRequest) (*GetLongResponse, error)
+	GetNotificationUri(context.Context, *CursorWrapperGetNotificationUriRequest) (*GetNotificationUriResponse, error)
+	GetNotificationUris(context.Context, *CursorWrapperGetNotificationUrisRequest) (*GetNotificationUrisResponse, error)
+	GetPosition(context.Context, *CursorWrapperGetPositionRequest) (*GetPositionResponse, error)
+	GetShort(context.Context, *GetShortRequest) (*GetShortResponse, error)
+	GetString(context.Context, *GetStringRequest) (*GetStringResponse, error)
+	GetType(context.Context, *GetTypeRequest) (*GetTypeResponse, error)
+	GetWantsAllOnMoveCalls(context.Context, *CursorWrapperGetWantsAllOnMoveCallsRequest) (*GetWantsAllOnMoveCallsResponse, error)
+	GetWrappedCursor(context.Context, *GetWrappedCursorRequest) (*GetWrappedCursorResponse, error)
+	IsAfterLast(context.Context, *CursorWrapperIsAfterLastRequest) (*IsAfterLastResponse, error)
+	IsBeforeFirst(context.Context, *CursorWrapperIsBeforeFirstRequest) (*IsBeforeFirstResponse, error)
+	IsClosed(context.Context, *CursorWrapperIsClosedRequest) (*IsClosedResponse, error)
+	IsFirst(context.Context, *CursorWrapperIsFirstRequest) (*IsFirstResponse, error)
+	IsLast(context.Context, *CursorWrapperIsLastRequest) (*IsLastResponse, error)
+	IsNull(context.Context, *IsNullRequest) (*IsNullResponse, error)
+	Move(context.Context, *CursorWrapperMoveRequest) (*MoveResponse, error)
+	MoveToFirst(context.Context, *CursorWrapperMoveToFirstRequest) (*MoveToFirstResponse, error)
+	MoveToLast(context.Context, *CursorWrapperMoveToLastRequest) (*MoveToLastResponse, error)
+	MoveToNext(context.Context, *CursorWrapperMoveToNextRequest) (*MoveToNextResponse, error)
+	MoveToPosition(context.Context, *CursorWrapperMoveToPositionRequest) (*MoveToPositionResponse, error)
+	MoveToPrevious(context.Context, *CursorWrapperMoveToPreviousRequest) (*MoveToPreviousResponse, error)
+	RegisterContentObserver(context.Context, *RegisterContentObserverRequest) (*RegisterContentObserverResponse, error)
+	RegisterDataSetObserver(context.Context, *RegisterDataSetObserverRequest) (*RegisterDataSetObserverResponse, error)
+	Requery(context.Context, *RequeryRequest) (*RequeryResponse, error)
+	Respond(context.Context, *CursorWrapperRespondRequest) (*RespondResponse, error)
+	SetExtras(context.Context, *CursorWrapperSetExtrasRequest) (*SetExtrasResponse, error)
+	SetNotificationUri(context.Context, *CursorWrapperSetNotificationUriRequest) (*SetNotificationUriResponse, error)
+	UnregisterContentObserver(context.Context, *UnregisterContentObserverRequest) (*UnregisterContentObserverResponse, error)
+	UnregisterDataSetObserver(context.Context, *UnregisterDataSetObserverRequest) (*UnregisterDataSetObserverResponse, error)
+	mustEmbedUnimplementedCursorWrapperServiceServer()
+}
+
+// UnimplementedCursorWrapperServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedCursorWrapperServiceServer struct{}
+
+func (UnimplementedCursorWrapperServiceServer) NewCursorWrapper(context.Context, *NewCursorWrapperRequest) (*NewCursorWrapperResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewCursorWrapper not implemented")
+}
+func (UnimplementedCursorWrapperServiceServer) Close(context.Context, *CursorWrapperCloseRequest) (*CloseResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Close not implemented")
+}
+func (UnimplementedCursorWrapperServiceServer) CopyStringToBuffer(context.Context, *CursorWrapperCopyStringToBufferRequest) (*CopyStringToBufferResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method CopyStringToBuffer not implemented")
+}
+func (UnimplementedCursorWrapperServiceServer) Deactivate(context.Context, *DeactivateRequest) (*DeactivateResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Deactivate not implemented")
+}
+func (UnimplementedCursorWrapperServiceServer) GetBlob(context.Context, *GetBlobRequest) (*GetBlobResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetBlob not implemented")
+}
+func (UnimplementedCursorWrapperServiceServer) GetColumnCount(context.Context, *CursorWrapperGetColumnCountRequest) (*GetColumnCountResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetColumnCount not implemented")
+}
+func (UnimplementedCursorWrapperServiceServer) GetColumnIndex(context.Context, *CursorWrapperGetColumnIndexRequest) (*GetColumnIndexResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetColumnIndex not implemented")
+}
+func (UnimplementedCursorWrapperServiceServer) GetColumnIndexOrThrow(context.Context, *CursorWrapperGetColumnIndexOrThrowRequest) (*GetColumnIndexOrThrowResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetColumnIndexOrThrow not implemented")
+}
+func (UnimplementedCursorWrapperServiceServer) GetColumnName(context.Context, *CursorWrapperGetColumnNameRequest) (*GetColumnNameResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetColumnName not implemented")
+}
+func (UnimplementedCursorWrapperServiceServer) GetColumnNames(context.Context, *GetColumnNamesRequest) (*GetColumnNamesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetColumnNames not implemented")
+}
+func (UnimplementedCursorWrapperServiceServer) GetCount(context.Context, *GetCountRequest) (*GetCountResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetCount not implemented")
+}
+func (UnimplementedCursorWrapperServiceServer) GetDouble(context.Context, *GetDoubleRequest) (*GetDoubleResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetDouble not implemented")
+}
+func (UnimplementedCursorWrapperServiceServer) GetExtras(context.Context, *CursorWrapperGetExtrasRequest) (*GetExtrasResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetExtras not implemented")
+}
+func (UnimplementedCursorWrapperServiceServer) GetFloat(context.Context, *GetFloatRequest) (*GetFloatResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetFloat not implemented")
+}
+func (UnimplementedCursorWrapperServiceServer) GetInt(context.Context, *GetIntRequest) (*GetIntResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetInt not implemented")
+}
+func (UnimplementedCursorWrapperServiceServer) GetLong(context.Context, *GetLongRequest) (*GetLongResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetLong not implemented")
+}
+func (UnimplementedCursorWrapperServiceServer) GetNotificationUri(context.Context, *CursorWrapperGetNotificationUriRequest) (*GetNotificationUriResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetNotificationUri not implemented")
+}
+func (UnimplementedCursorWrapperServiceServer) GetNotificationUris(context.Context, *CursorWrapperGetNotificationUrisRequest) (*GetNotificationUrisResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetNotificationUris not implemented")
+}
+func (UnimplementedCursorWrapperServiceServer) GetPosition(context.Context, *CursorWrapperGetPositionRequest) (*GetPositionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetPosition not implemented")
+}
+func (UnimplementedCursorWrapperServiceServer) GetShort(context.Context, *GetShortRequest) (*GetShortResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetShort not implemented")
+}
+func (UnimplementedCursorWrapperServiceServer) GetString(context.Context, *GetStringRequest) (*GetStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetString not implemented")
+}
+func (UnimplementedCursorWrapperServiceServer) GetType(context.Context, *GetTypeRequest) (*GetTypeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetType not implemented")
+}
+func (UnimplementedCursorWrapperServiceServer) GetWantsAllOnMoveCalls(context.Context, *CursorWrapperGetWantsAllOnMoveCallsRequest) (*GetWantsAllOnMoveCallsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetWantsAllOnMoveCalls not implemented")
+}
+func (UnimplementedCursorWrapperServiceServer) GetWrappedCursor(context.Context, *GetWrappedCursorRequest) (*GetWrappedCursorResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetWrappedCursor not implemented")
+}
+func (UnimplementedCursorWrapperServiceServer) IsAfterLast(context.Context, *CursorWrapperIsAfterLastRequest) (*IsAfterLastResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsAfterLast not implemented")
+}
+func (UnimplementedCursorWrapperServiceServer) IsBeforeFirst(context.Context, *CursorWrapperIsBeforeFirstRequest) (*IsBeforeFirstResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsBeforeFirst not implemented")
+}
+func (UnimplementedCursorWrapperServiceServer) IsClosed(context.Context, *CursorWrapperIsClosedRequest) (*IsClosedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsClosed not implemented")
+}
+func (UnimplementedCursorWrapperServiceServer) IsFirst(context.Context, *CursorWrapperIsFirstRequest) (*IsFirstResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsFirst not implemented")
+}
+func (UnimplementedCursorWrapperServiceServer) IsLast(context.Context, *CursorWrapperIsLastRequest) (*IsLastResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsLast not implemented")
+}
+func (UnimplementedCursorWrapperServiceServer) IsNull(context.Context, *IsNullRequest) (*IsNullResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsNull not implemented")
+}
+func (UnimplementedCursorWrapperServiceServer) Move(context.Context, *CursorWrapperMoveRequest) (*MoveResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Move not implemented")
+}
+func (UnimplementedCursorWrapperServiceServer) MoveToFirst(context.Context, *CursorWrapperMoveToFirstRequest) (*MoveToFirstResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method MoveToFirst not implemented")
+}
+func (UnimplementedCursorWrapperServiceServer) MoveToLast(context.Context, *CursorWrapperMoveToLastRequest) (*MoveToLastResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method MoveToLast not implemented")
+}
+func (UnimplementedCursorWrapperServiceServer) MoveToNext(context.Context, *CursorWrapperMoveToNextRequest) (*MoveToNextResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method MoveToNext not implemented")
+}
+func (UnimplementedCursorWrapperServiceServer) MoveToPosition(context.Context, *CursorWrapperMoveToPositionRequest) (*MoveToPositionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method MoveToPosition not implemented")
+}
+func (UnimplementedCursorWrapperServiceServer) MoveToPrevious(context.Context, *CursorWrapperMoveToPreviousRequest) (*MoveToPreviousResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method MoveToPrevious not implemented")
+}
+func (UnimplementedCursorWrapperServiceServer) RegisterContentObserver(context.Context, *RegisterContentObserverRequest) (*RegisterContentObserverResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method RegisterContentObserver not implemented")
+}
+func (UnimplementedCursorWrapperServiceServer) RegisterDataSetObserver(context.Context, *RegisterDataSetObserverRequest) (*RegisterDataSetObserverResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method RegisterDataSetObserver not implemented")
+}
+func (UnimplementedCursorWrapperServiceServer) Requery(context.Context, *RequeryRequest) (*RequeryResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Requery not implemented")
+}
+func (UnimplementedCursorWrapperServiceServer) Respond(context.Context, *CursorWrapperRespondRequest) (*RespondResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Respond not implemented")
+}
+func (UnimplementedCursorWrapperServiceServer) SetExtras(context.Context, *CursorWrapperSetExtrasRequest) (*SetExtrasResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetExtras not implemented")
+}
+func (UnimplementedCursorWrapperServiceServer) SetNotificationUri(context.Context, *CursorWrapperSetNotificationUriRequest) (*SetNotificationUriResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetNotificationUri not implemented")
+}
+func (UnimplementedCursorWrapperServiceServer) UnregisterContentObserver(context.Context, *UnregisterContentObserverRequest) (*UnregisterContentObserverResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method UnregisterContentObserver not implemented")
+}
+func (UnimplementedCursorWrapperServiceServer) UnregisterDataSetObserver(context.Context, *UnregisterDataSetObserverRequest) (*UnregisterDataSetObserverResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method UnregisterDataSetObserver not implemented")
+}
+func (UnimplementedCursorWrapperServiceServer) mustEmbedUnimplementedCursorWrapperServiceServer() {}
+func (UnimplementedCursorWrapperServiceServer) testEmbeddedByValue()                              {}
+
+// UnsafeCursorWrapperServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to CursorWrapperServiceServer will
+// result in compilation errors.
+type UnsafeCursorWrapperServiceServer interface {
+	mustEmbedUnimplementedCursorWrapperServiceServer()
+}
+
+func RegisterCursorWrapperServiceServer(s grpc.ServiceRegistrar, srv CursorWrapperServiceServer) {
+	// If the following call panics, it indicates UnimplementedCursorWrapperServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&CursorWrapperService_ServiceDesc, srv)
+}
+
+func _CursorWrapperService_NewCursorWrapper_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewCursorWrapperRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CursorWrapperServiceServer).NewCursorWrapper(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CursorWrapperService_NewCursorWrapper_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CursorWrapperServiceServer).NewCursorWrapper(ctx, req.(*NewCursorWrapperRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CursorWrapperService_Close_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CursorWrapperCloseRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CursorWrapperServiceServer).Close(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CursorWrapperService_Close_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CursorWrapperServiceServer).Close(ctx, req.(*CursorWrapperCloseRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CursorWrapperService_CopyStringToBuffer_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CursorWrapperCopyStringToBufferRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CursorWrapperServiceServer).CopyStringToBuffer(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CursorWrapperService_CopyStringToBuffer_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CursorWrapperServiceServer).CopyStringToBuffer(ctx, req.(*CursorWrapperCopyStringToBufferRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CursorWrapperService_Deactivate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DeactivateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CursorWrapperServiceServer).Deactivate(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CursorWrapperService_Deactivate_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CursorWrapperServiceServer).Deactivate(ctx, req.(*DeactivateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CursorWrapperService_GetBlob_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetBlobRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CursorWrapperServiceServer).GetBlob(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CursorWrapperService_GetBlob_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CursorWrapperServiceServer).GetBlob(ctx, req.(*GetBlobRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CursorWrapperService_GetColumnCount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CursorWrapperGetColumnCountRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CursorWrapperServiceServer).GetColumnCount(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CursorWrapperService_GetColumnCount_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CursorWrapperServiceServer).GetColumnCount(ctx, req.(*CursorWrapperGetColumnCountRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CursorWrapperService_GetColumnIndex_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CursorWrapperGetColumnIndexRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CursorWrapperServiceServer).GetColumnIndex(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CursorWrapperService_GetColumnIndex_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CursorWrapperServiceServer).GetColumnIndex(ctx, req.(*CursorWrapperGetColumnIndexRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CursorWrapperService_GetColumnIndexOrThrow_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CursorWrapperGetColumnIndexOrThrowRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CursorWrapperServiceServer).GetColumnIndexOrThrow(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CursorWrapperService_GetColumnIndexOrThrow_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CursorWrapperServiceServer).GetColumnIndexOrThrow(ctx, req.(*CursorWrapperGetColumnIndexOrThrowRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CursorWrapperService_GetColumnName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CursorWrapperGetColumnNameRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CursorWrapperServiceServer).GetColumnName(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CursorWrapperService_GetColumnName_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CursorWrapperServiceServer).GetColumnName(ctx, req.(*CursorWrapperGetColumnNameRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CursorWrapperService_GetColumnNames_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetColumnNamesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CursorWrapperServiceServer).GetColumnNames(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CursorWrapperService_GetColumnNames_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CursorWrapperServiceServer).GetColumnNames(ctx, req.(*GetColumnNamesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CursorWrapperService_GetCount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetCountRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CursorWrapperServiceServer).GetCount(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CursorWrapperService_GetCount_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CursorWrapperServiceServer).GetCount(ctx, req.(*GetCountRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CursorWrapperService_GetDouble_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetDoubleRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CursorWrapperServiceServer).GetDouble(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CursorWrapperService_GetDouble_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CursorWrapperServiceServer).GetDouble(ctx, req.(*GetDoubleRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CursorWrapperService_GetExtras_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CursorWrapperGetExtrasRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CursorWrapperServiceServer).GetExtras(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CursorWrapperService_GetExtras_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CursorWrapperServiceServer).GetExtras(ctx, req.(*CursorWrapperGetExtrasRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CursorWrapperService_GetFloat_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetFloatRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CursorWrapperServiceServer).GetFloat(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CursorWrapperService_GetFloat_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CursorWrapperServiceServer).GetFloat(ctx, req.(*GetFloatRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CursorWrapperService_GetInt_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetIntRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CursorWrapperServiceServer).GetInt(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CursorWrapperService_GetInt_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CursorWrapperServiceServer).GetInt(ctx, req.(*GetIntRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CursorWrapperService_GetLong_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetLongRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CursorWrapperServiceServer).GetLong(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CursorWrapperService_GetLong_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CursorWrapperServiceServer).GetLong(ctx, req.(*GetLongRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CursorWrapperService_GetNotificationUri_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CursorWrapperGetNotificationUriRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CursorWrapperServiceServer).GetNotificationUri(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CursorWrapperService_GetNotificationUri_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CursorWrapperServiceServer).GetNotificationUri(ctx, req.(*CursorWrapperGetNotificationUriRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CursorWrapperService_GetNotificationUris_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CursorWrapperGetNotificationUrisRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CursorWrapperServiceServer).GetNotificationUris(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CursorWrapperService_GetNotificationUris_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CursorWrapperServiceServer).GetNotificationUris(ctx, req.(*CursorWrapperGetNotificationUrisRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CursorWrapperService_GetPosition_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CursorWrapperGetPositionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CursorWrapperServiceServer).GetPosition(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CursorWrapperService_GetPosition_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CursorWrapperServiceServer).GetPosition(ctx, req.(*CursorWrapperGetPositionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CursorWrapperService_GetShort_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetShortRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CursorWrapperServiceServer).GetShort(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CursorWrapperService_GetShort_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CursorWrapperServiceServer).GetShort(ctx, req.(*GetShortRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CursorWrapperService_GetString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CursorWrapperServiceServer).GetString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CursorWrapperService_GetString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CursorWrapperServiceServer).GetString(ctx, req.(*GetStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CursorWrapperService_GetType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTypeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CursorWrapperServiceServer).GetType(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CursorWrapperService_GetType_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CursorWrapperServiceServer).GetType(ctx, req.(*GetTypeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CursorWrapperService_GetWantsAllOnMoveCalls_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CursorWrapperGetWantsAllOnMoveCallsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CursorWrapperServiceServer).GetWantsAllOnMoveCalls(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CursorWrapperService_GetWantsAllOnMoveCalls_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CursorWrapperServiceServer).GetWantsAllOnMoveCalls(ctx, req.(*CursorWrapperGetWantsAllOnMoveCallsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CursorWrapperService_GetWrappedCursor_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetWrappedCursorRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CursorWrapperServiceServer).GetWrappedCursor(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CursorWrapperService_GetWrappedCursor_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CursorWrapperServiceServer).GetWrappedCursor(ctx, req.(*GetWrappedCursorRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CursorWrapperService_IsAfterLast_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CursorWrapperIsAfterLastRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CursorWrapperServiceServer).IsAfterLast(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CursorWrapperService_IsAfterLast_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CursorWrapperServiceServer).IsAfterLast(ctx, req.(*CursorWrapperIsAfterLastRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CursorWrapperService_IsBeforeFirst_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CursorWrapperIsBeforeFirstRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CursorWrapperServiceServer).IsBeforeFirst(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CursorWrapperService_IsBeforeFirst_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CursorWrapperServiceServer).IsBeforeFirst(ctx, req.(*CursorWrapperIsBeforeFirstRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CursorWrapperService_IsClosed_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CursorWrapperIsClosedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CursorWrapperServiceServer).IsClosed(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CursorWrapperService_IsClosed_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CursorWrapperServiceServer).IsClosed(ctx, req.(*CursorWrapperIsClosedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CursorWrapperService_IsFirst_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CursorWrapperIsFirstRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CursorWrapperServiceServer).IsFirst(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CursorWrapperService_IsFirst_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CursorWrapperServiceServer).IsFirst(ctx, req.(*CursorWrapperIsFirstRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CursorWrapperService_IsLast_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CursorWrapperIsLastRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CursorWrapperServiceServer).IsLast(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CursorWrapperService_IsLast_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CursorWrapperServiceServer).IsLast(ctx, req.(*CursorWrapperIsLastRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CursorWrapperService_IsNull_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsNullRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CursorWrapperServiceServer).IsNull(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CursorWrapperService_IsNull_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CursorWrapperServiceServer).IsNull(ctx, req.(*IsNullRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CursorWrapperService_Move_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CursorWrapperMoveRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CursorWrapperServiceServer).Move(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CursorWrapperService_Move_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CursorWrapperServiceServer).Move(ctx, req.(*CursorWrapperMoveRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CursorWrapperService_MoveToFirst_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CursorWrapperMoveToFirstRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CursorWrapperServiceServer).MoveToFirst(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CursorWrapperService_MoveToFirst_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CursorWrapperServiceServer).MoveToFirst(ctx, req.(*CursorWrapperMoveToFirstRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CursorWrapperService_MoveToLast_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CursorWrapperMoveToLastRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CursorWrapperServiceServer).MoveToLast(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CursorWrapperService_MoveToLast_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CursorWrapperServiceServer).MoveToLast(ctx, req.(*CursorWrapperMoveToLastRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CursorWrapperService_MoveToNext_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CursorWrapperMoveToNextRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CursorWrapperServiceServer).MoveToNext(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CursorWrapperService_MoveToNext_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CursorWrapperServiceServer).MoveToNext(ctx, req.(*CursorWrapperMoveToNextRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CursorWrapperService_MoveToPosition_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CursorWrapperMoveToPositionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CursorWrapperServiceServer).MoveToPosition(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CursorWrapperService_MoveToPosition_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CursorWrapperServiceServer).MoveToPosition(ctx, req.(*CursorWrapperMoveToPositionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CursorWrapperService_MoveToPrevious_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CursorWrapperMoveToPreviousRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CursorWrapperServiceServer).MoveToPrevious(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CursorWrapperService_MoveToPrevious_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CursorWrapperServiceServer).MoveToPrevious(ctx, req.(*CursorWrapperMoveToPreviousRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CursorWrapperService_RegisterContentObserver_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RegisterContentObserverRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CursorWrapperServiceServer).RegisterContentObserver(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CursorWrapperService_RegisterContentObserver_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CursorWrapperServiceServer).RegisterContentObserver(ctx, req.(*RegisterContentObserverRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CursorWrapperService_RegisterDataSetObserver_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RegisterDataSetObserverRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CursorWrapperServiceServer).RegisterDataSetObserver(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CursorWrapperService_RegisterDataSetObserver_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CursorWrapperServiceServer).RegisterDataSetObserver(ctx, req.(*RegisterDataSetObserverRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CursorWrapperService_Requery_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RequeryRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CursorWrapperServiceServer).Requery(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CursorWrapperService_Requery_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CursorWrapperServiceServer).Requery(ctx, req.(*RequeryRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CursorWrapperService_Respond_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CursorWrapperRespondRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CursorWrapperServiceServer).Respond(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CursorWrapperService_Respond_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CursorWrapperServiceServer).Respond(ctx, req.(*CursorWrapperRespondRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CursorWrapperService_SetExtras_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CursorWrapperSetExtrasRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CursorWrapperServiceServer).SetExtras(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CursorWrapperService_SetExtras_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CursorWrapperServiceServer).SetExtras(ctx, req.(*CursorWrapperSetExtrasRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CursorWrapperService_SetNotificationUri_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CursorWrapperSetNotificationUriRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CursorWrapperServiceServer).SetNotificationUri(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CursorWrapperService_SetNotificationUri_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CursorWrapperServiceServer).SetNotificationUri(ctx, req.(*CursorWrapperSetNotificationUriRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CursorWrapperService_UnregisterContentObserver_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UnregisterContentObserverRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CursorWrapperServiceServer).UnregisterContentObserver(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CursorWrapperService_UnregisterContentObserver_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CursorWrapperServiceServer).UnregisterContentObserver(ctx, req.(*UnregisterContentObserverRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CursorWrapperService_UnregisterDataSetObserver_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UnregisterDataSetObserverRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CursorWrapperServiceServer).UnregisterDataSetObserver(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CursorWrapperService_UnregisterDataSetObserver_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CursorWrapperServiceServer).UnregisterDataSetObserver(ctx, req.(*UnregisterDataSetObserverRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// CursorWrapperService_ServiceDesc is the grpc.ServiceDesc for CursorWrapperService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var CursorWrapperService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "database.CursorWrapperService",
+	HandlerType: (*CursorWrapperServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewCursorWrapper",
+			Handler:    _CursorWrapperService_NewCursorWrapper_Handler,
+		},
+		{
+			MethodName: "Close",
+			Handler:    _CursorWrapperService_Close_Handler,
+		},
+		{
+			MethodName: "CopyStringToBuffer",
+			Handler:    _CursorWrapperService_CopyStringToBuffer_Handler,
+		},
+		{
+			MethodName: "Deactivate",
+			Handler:    _CursorWrapperService_Deactivate_Handler,
+		},
+		{
+			MethodName: "GetBlob",
+			Handler:    _CursorWrapperService_GetBlob_Handler,
+		},
+		{
+			MethodName: "GetColumnCount",
+			Handler:    _CursorWrapperService_GetColumnCount_Handler,
+		},
+		{
+			MethodName: "GetColumnIndex",
+			Handler:    _CursorWrapperService_GetColumnIndex_Handler,
+		},
+		{
+			MethodName: "GetColumnIndexOrThrow",
+			Handler:    _CursorWrapperService_GetColumnIndexOrThrow_Handler,
+		},
+		{
+			MethodName: "GetColumnName",
+			Handler:    _CursorWrapperService_GetColumnName_Handler,
+		},
+		{
+			MethodName: "GetColumnNames",
+			Handler:    _CursorWrapperService_GetColumnNames_Handler,
+		},
+		{
+			MethodName: "GetCount",
+			Handler:    _CursorWrapperService_GetCount_Handler,
+		},
+		{
+			MethodName: "GetDouble",
+			Handler:    _CursorWrapperService_GetDouble_Handler,
+		},
+		{
+			MethodName: "GetExtras",
+			Handler:    _CursorWrapperService_GetExtras_Handler,
+		},
+		{
+			MethodName: "GetFloat",
+			Handler:    _CursorWrapperService_GetFloat_Handler,
+		},
+		{
+			MethodName: "GetInt",
+			Handler:    _CursorWrapperService_GetInt_Handler,
+		},
+		{
+			MethodName: "GetLong",
+			Handler:    _CursorWrapperService_GetLong_Handler,
+		},
+		{
+			MethodName: "GetNotificationUri",
+			Handler:    _CursorWrapperService_GetNotificationUri_Handler,
+		},
+		{
+			MethodName: "GetNotificationUris",
+			Handler:    _CursorWrapperService_GetNotificationUris_Handler,
+		},
+		{
+			MethodName: "GetPosition",
+			Handler:    _CursorWrapperService_GetPosition_Handler,
+		},
+		{
+			MethodName: "GetShort",
+			Handler:    _CursorWrapperService_GetShort_Handler,
+		},
+		{
+			MethodName: "GetString",
+			Handler:    _CursorWrapperService_GetString_Handler,
+		},
+		{
+			MethodName: "GetType",
+			Handler:    _CursorWrapperService_GetType_Handler,
+		},
+		{
+			MethodName: "GetWantsAllOnMoveCalls",
+			Handler:    _CursorWrapperService_GetWantsAllOnMoveCalls_Handler,
+		},
+		{
+			MethodName: "GetWrappedCursor",
+			Handler:    _CursorWrapperService_GetWrappedCursor_Handler,
+		},
+		{
+			MethodName: "IsAfterLast",
+			Handler:    _CursorWrapperService_IsAfterLast_Handler,
+		},
+		{
+			MethodName: "IsBeforeFirst",
+			Handler:    _CursorWrapperService_IsBeforeFirst_Handler,
+		},
+		{
+			MethodName: "IsClosed",
+			Handler:    _CursorWrapperService_IsClosed_Handler,
+		},
+		{
+			MethodName: "IsFirst",
+			Handler:    _CursorWrapperService_IsFirst_Handler,
+		},
+		{
+			MethodName: "IsLast",
+			Handler:    _CursorWrapperService_IsLast_Handler,
+		},
+		{
+			MethodName: "IsNull",
+			Handler:    _CursorWrapperService_IsNull_Handler,
+		},
+		{
+			MethodName: "Move",
+			Handler:    _CursorWrapperService_Move_Handler,
+		},
+		{
+			MethodName: "MoveToFirst",
+			Handler:    _CursorWrapperService_MoveToFirst_Handler,
+		},
+		{
+			MethodName: "MoveToLast",
+			Handler:    _CursorWrapperService_MoveToLast_Handler,
+		},
+		{
+			MethodName: "MoveToNext",
+			Handler:    _CursorWrapperService_MoveToNext_Handler,
+		},
+		{
+			MethodName: "MoveToPosition",
+			Handler:    _CursorWrapperService_MoveToPosition_Handler,
+		},
+		{
+			MethodName: "MoveToPrevious",
+			Handler:    _CursorWrapperService_MoveToPrevious_Handler,
+		},
+		{
+			MethodName: "RegisterContentObserver",
+			Handler:    _CursorWrapperService_RegisterContentObserver_Handler,
+		},
+		{
+			MethodName: "RegisterDataSetObserver",
+			Handler:    _CursorWrapperService_RegisterDataSetObserver_Handler,
+		},
+		{
+			MethodName: "Requery",
+			Handler:    _CursorWrapperService_Requery_Handler,
+		},
+		{
+			MethodName: "Respond",
+			Handler:    _CursorWrapperService_Respond_Handler,
+		},
+		{
+			MethodName: "SetExtras",
+			Handler:    _CursorWrapperService_SetExtras_Handler,
+		},
+		{
+			MethodName: "SetNotificationUri",
+			Handler:    _CursorWrapperService_SetNotificationUri_Handler,
+		},
+		{
+			MethodName: "UnregisterContentObserver",
+			Handler:    _CursorWrapperService_UnregisterContentObserver_Handler,
+		},
+		{
+			MethodName: "UnregisterDataSetObserver",
+			Handler:    _CursorWrapperService_UnregisterDataSetObserver_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/database/database.proto",
+}
+
+const (
+	DataSetObservableService_NewDataSetObservable_FullMethodName = "/database.DataSetObservableService/NewDataSetObservable"
+	DataSetObservableService_NotifyChanged_FullMethodName        = "/database.DataSetObservableService/NotifyChanged"
+	DataSetObservableService_NotifyInvalidated_FullMethodName    = "/database.DataSetObservableService/NotifyInvalidated"
+)
+
+// DataSetObservableServiceClient is the client API for DataSetObservableService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type DataSetObservableServiceClient interface {
+	NewDataSetObservable(ctx context.Context, in *NewDataSetObservableRequest, opts ...grpc.CallOption) (*NewDataSetObservableResponse, error)
+	NotifyChanged(ctx context.Context, in *NotifyChangedRequest, opts ...grpc.CallOption) (*NotifyChangedResponse, error)
+	NotifyInvalidated(ctx context.Context, in *NotifyInvalidatedRequest, opts ...grpc.CallOption) (*NotifyInvalidatedResponse, error)
+}
+
+type dataSetObservableServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewDataSetObservableServiceClient(cc grpc.ClientConnInterface) DataSetObservableServiceClient {
+	return &dataSetObservableServiceClient{cc}
+}
+
+func (c *dataSetObservableServiceClient) NewDataSetObservable(ctx context.Context, in *NewDataSetObservableRequest, opts ...grpc.CallOption) (*NewDataSetObservableResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewDataSetObservableResponse)
+	err := c.cc.Invoke(ctx, DataSetObservableService_NewDataSetObservable_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *dataSetObservableServiceClient) NotifyChanged(ctx context.Context, in *NotifyChangedRequest, opts ...grpc.CallOption) (*NotifyChangedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NotifyChangedResponse)
+	err := c.cc.Invoke(ctx, DataSetObservableService_NotifyChanged_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *dataSetObservableServiceClient) NotifyInvalidated(ctx context.Context, in *NotifyInvalidatedRequest, opts ...grpc.CallOption) (*NotifyInvalidatedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NotifyInvalidatedResponse)
+	err := c.cc.Invoke(ctx, DataSetObservableService_NotifyInvalidated_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// DataSetObservableServiceServer is the server API for DataSetObservableService service.
+// All implementations must embed UnimplementedDataSetObservableServiceServer
+// for forward compatibility.
+type DataSetObservableServiceServer interface {
+	NewDataSetObservable(context.Context, *NewDataSetObservableRequest) (*NewDataSetObservableResponse, error)
+	NotifyChanged(context.Context, *NotifyChangedRequest) (*NotifyChangedResponse, error)
+	NotifyInvalidated(context.Context, *NotifyInvalidatedRequest) (*NotifyInvalidatedResponse, error)
+	mustEmbedUnimplementedDataSetObservableServiceServer()
+}
+
+// UnimplementedDataSetObservableServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedDataSetObservableServiceServer struct{}
+
+func (UnimplementedDataSetObservableServiceServer) NewDataSetObservable(context.Context, *NewDataSetObservableRequest) (*NewDataSetObservableResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewDataSetObservable not implemented")
+}
+func (UnimplementedDataSetObservableServiceServer) NotifyChanged(context.Context, *NotifyChangedRequest) (*NotifyChangedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NotifyChanged not implemented")
+}
+func (UnimplementedDataSetObservableServiceServer) NotifyInvalidated(context.Context, *NotifyInvalidatedRequest) (*NotifyInvalidatedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NotifyInvalidated not implemented")
+}
+func (UnimplementedDataSetObservableServiceServer) mustEmbedUnimplementedDataSetObservableServiceServer() {
+}
+func (UnimplementedDataSetObservableServiceServer) testEmbeddedByValue() {}
+
+// UnsafeDataSetObservableServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to DataSetObservableServiceServer will
+// result in compilation errors.
+type UnsafeDataSetObservableServiceServer interface {
+	mustEmbedUnimplementedDataSetObservableServiceServer()
+}
+
+func RegisterDataSetObservableServiceServer(s grpc.ServiceRegistrar, srv DataSetObservableServiceServer) {
+	// If the following call panics, it indicates UnimplementedDataSetObservableServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&DataSetObservableService_ServiceDesc, srv)
+}
+
+func _DataSetObservableService_NewDataSetObservable_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewDataSetObservableRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DataSetObservableServiceServer).NewDataSetObservable(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DataSetObservableService_NewDataSetObservable_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DataSetObservableServiceServer).NewDataSetObservable(ctx, req.(*NewDataSetObservableRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DataSetObservableService_NotifyChanged_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NotifyChangedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DataSetObservableServiceServer).NotifyChanged(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DataSetObservableService_NotifyChanged_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DataSetObservableServiceServer).NotifyChanged(ctx, req.(*NotifyChangedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DataSetObservableService_NotifyInvalidated_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NotifyInvalidatedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DataSetObservableServiceServer).NotifyInvalidated(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DataSetObservableService_NotifyInvalidated_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DataSetObservableServiceServer).NotifyInvalidated(ctx, req.(*NotifyInvalidatedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// DataSetObservableService_ServiceDesc is the grpc.ServiceDesc for DataSetObservableService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var DataSetObservableService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "database.DataSetObservableService",
+	HandlerType: (*DataSetObservableServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewDataSetObservable",
+			Handler:    _DataSetObservableService_NewDataSetObservable_Handler,
+		},
+		{
+			MethodName: "NotifyChanged",
+			Handler:    _DataSetObservableService_NotifyChanged_Handler,
+		},
+		{
+			MethodName: "NotifyInvalidated",
+			Handler:    _DataSetObservableService_NotifyInvalidated_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

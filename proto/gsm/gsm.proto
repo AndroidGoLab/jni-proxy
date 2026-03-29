@@ -290,6 +290,14 @@ message ToStringResponse {
   string result = 1;
 }
 
+message DivideMessageRequest {
+  string arg0 = 1;
+}
+
+message DivideMessageResponse {
+  int64 result = 1;
+}
+
 message SendDataMessageRequest {
   string arg0 = 1;
   string arg1 = 2;
@@ -440,6 +448,7 @@ service SmsMessageSubmitPduService {
 }
 
 service SmsManagerService {
+  rpc DivideMessage (DivideMessageRequest) returns (DivideMessageResponse);
   rpc SendDataMessage (SendDataMessageRequest) returns (SendDataMessageResponse);
   rpc SendTextMessage (SendTextMessageRequest) returns (SendTextMessageResponse);
   rpc GetDefault (GetDefaultRequest) returns (GetDefaultResponse);

@@ -51,7 +51,7 @@ func (s *ReasonInfoServer) DescribeContents(_ context.Context, req *pb.ReasonInf
 	return &pb.DescribeContentsResponse{Result: result}, nil
 }
 
-func (s *ReasonInfoServer) GetCode(_ context.Context, req *pb.GetCodeRequest) (*pb.GetCodeResponse, error) {
+func (s *ReasonInfoServer) GetCode(_ context.Context, req *pb.ReasonInfoGetCodeRequest) (*pb.GetCodeResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")

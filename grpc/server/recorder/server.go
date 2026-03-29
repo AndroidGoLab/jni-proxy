@@ -37,6 +37,29 @@ func (s *MediaRecorderServer) NewMediaRecorder(_ context.Context, req *pb.NewMed
 	return &pb.NewMediaRecorderResponse{Result: handle}, nil
 }
 
+func (s *MediaRecorderServer) GetActiveMicrophones(_ context.Context, req *pb.GetActiveMicrophonesRequest) (*pb.GetActiveMicrophonesResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.MediaRecorder{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetActiveMicrophones()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetActiveMicrophonesResponse{Result: handle}, nil
+}
+
 func (s *MediaRecorderServer) GetActiveRecordingConfiguration(_ context.Context, req *pb.GetActiveRecordingConfigurationRequest) (*pb.GetActiveRecordingConfigurationResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
@@ -164,6 +187,29 @@ func (s *MediaRecorderServer) GetRoutedDevice(_ context.Context, req *pb.GetRout
 		}
 	}
 	return &pb.GetRoutedDeviceResponse{Result: handle}, nil
+}
+
+func (s *MediaRecorderServer) GetRoutedDevices(_ context.Context, req *pb.GetRoutedDevicesRequest) (*pb.GetRoutedDevicesResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.MediaRecorder{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetRoutedDevices()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetRoutedDevicesResponse{Result: handle}, nil
 }
 
 func (s *MediaRecorderServer) GetSurface(_ context.Context, req *pb.GetSurfaceRequest) (*pb.GetSurfaceResponse, error) {

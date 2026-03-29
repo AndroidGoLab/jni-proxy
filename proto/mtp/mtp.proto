@@ -6,6 +6,64 @@ package mtp;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/mtp";
 
+message GetEventsSupportedRequest {
+}
+
+message GetEventsSupportedResponse {
+  int64 result = 1;
+}
+
+message GetManufacturerRequest {
+}
+
+message GetManufacturerResponse {
+  string result = 1;
+}
+
+message GetModelRequest {
+}
+
+message GetModelResponse {
+  string result = 1;
+}
+
+message GetOperationsSupportedRequest {
+}
+
+message GetOperationsSupportedResponse {
+  int64 result = 1;
+}
+
+message GetSerialNumberRequest {
+}
+
+message GetSerialNumberResponse {
+  string result = 1;
+}
+
+message GetVersionRequest {
+}
+
+message GetVersionResponse {
+  string result = 1;
+}
+
+message IsEventSupportedRequest {
+  int32 arg0 = 1;
+}
+
+message IsEventSupportedResponse {
+  bool result = 1;
+}
+
+message IsOperationSupportedRequest {
+  int32 arg0 = 1;
+}
+
+message IsOperationSupportedResponse {
+  bool result = 1;
+}
+
 message GetDevicePropCodeRequest {
 }
 
@@ -74,218 +132,6 @@ message GetTransactionIdRequest {
 
 message GetTransactionIdResponse {
   int32 result = 1;
-}
-
-message NewDeviceRequest {
-  int64 arg0 = 1;
-}
-
-message NewDeviceResponse {
-  int64 result = 1;
-}
-
-message CloseRequest {
-  int64 handle = 1;
-}
-
-message CloseResponse {
-}
-
-message DeleteObjectRequest {
-  int64 handle = 1;
-  int32 arg0 = 2;
-}
-
-message DeleteObjectResponse {
-  bool result = 1;
-}
-
-message GetDeviceIdRequest {
-  int64 handle = 1;
-}
-
-message GetDeviceIdResponse {
-  int32 result = 1;
-}
-
-message GetDeviceInfoRequest {
-  int64 handle = 1;
-}
-
-message GetDeviceInfoResponse {
-  int64 result = 1;
-}
-
-message GetDeviceNameRequest {
-  int64 handle = 1;
-}
-
-message GetDeviceNameResponse {
-  string result = 1;
-}
-
-message GetObjectRequest {
-  int64 handle = 1;
-  int32 arg0 = 2;
-  int32 arg1 = 3;
-}
-
-message GetObjectResponse {
-  int64 result = 1;
-}
-
-message GetObjectHandlesRequest {
-  int64 handle = 1;
-  int32 arg0 = 2;
-  int32 arg1 = 3;
-  int32 arg2 = 4;
-}
-
-message GetObjectHandlesResponse {
-  int64 result = 1;
-}
-
-message GetObjectInfoRequest {
-  int64 handle = 1;
-  int32 arg0 = 2;
-}
-
-message GetObjectInfoResponse {
-  int64 result = 1;
-}
-
-message GetParentRequest {
-  int64 handle = 1;
-  int32 arg0 = 2;
-}
-
-message GetParentResponse {
-  int64 result = 1;
-}
-
-message GetPartialObjectRequest {
-  int64 handle = 1;
-  int32 arg0 = 2;
-  int64 arg1 = 3;
-  int64 arg2 = 4;
-  int64 arg3 = 5;
-}
-
-message GetPartialObjectResponse {
-  int64 result = 1;
-}
-
-message GetPartialObject64Request {
-  int64 handle = 1;
-  int32 arg0 = 2;
-  int64 arg1 = 3;
-  int64 arg2 = 4;
-  int64 arg3 = 5;
-}
-
-message GetPartialObject64Response {
-  int64 result = 1;
-}
-
-message DeviceGetStorageIdRequest {
-  int64 handle = 1;
-  int32 arg0 = 2;
-}
-
-message DeviceGetStorageIdResponse {
-  int64 result = 1;
-}
-
-message GetStorageIdsRequest {
-  int64 handle = 1;
-}
-
-message GetStorageIdsResponse {
-  int64 result = 1;
-}
-
-message GetStorageInfoRequest {
-  int64 handle = 1;
-  int32 arg0 = 2;
-}
-
-message GetStorageInfoResponse {
-  int64 result = 1;
-}
-
-message GetThumbnailRequest {
-  int64 handle = 1;
-  int32 arg0 = 2;
-}
-
-message GetThumbnailResponse {
-  int64 result = 1;
-}
-
-message ImportFile2Request {
-  int64 handle = 1;
-  int32 arg0 = 2;
-  int64 arg1 = 3;
-}
-
-message ImportFile2Response {
-  bool result = 1;
-}
-
-message ImportFile2_1Request {
-  int64 handle = 1;
-  int32 arg0 = 2;
-  string arg1 = 3;
-}
-
-message ImportFile2_1Response {
-  bool result = 1;
-}
-
-message OpenRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-}
-
-message OpenResponse {
-  bool result = 1;
-}
-
-message ReadEventRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-}
-
-message ReadEventResponse {
-  int64 result = 1;
-}
-
-message SendObjectRequest {
-  int64 handle = 1;
-  int32 arg0 = 2;
-  int64 arg1 = 3;
-  int64 arg2 = 4;
-}
-
-message SendObjectResponse {
-  bool result = 1;
-}
-
-message SendObjectInfoRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-}
-
-message SendObjectInfoResponse {
-  int64 result = 1;
-}
-
-message ToStringRequest {
-  int64 handle = 1;
-}
-
-message ToStringResponse {
-  string result = 1;
 }
 
 message GetAssociationDescRequest {
@@ -393,10 +239,10 @@ message GetNameResponse {
   string result = 1;
 }
 
-message ObjectInfoGetParentRequest {
+message GetParentRequest {
 }
 
-message ObjectInfoGetParentResponse {
+message GetParentResponse {
   int32 result = 1;
 }
 
@@ -665,62 +511,216 @@ message GetVolumeIdentifierResponse {
   string result = 1;
 }
 
-message GetEventsSupportedRequest {
+message NewDeviceRequest {
+  int64 arg0 = 1;
 }
 
-message GetEventsSupportedResponse {
+message NewDeviceResponse {
   int64 result = 1;
 }
 
-message GetManufacturerRequest {
+message CloseRequest {
+  int64 handle = 1;
 }
 
-message GetManufacturerResponse {
-  string result = 1;
+message CloseResponse {
 }
 
-message GetModelRequest {
+message DeleteObjectRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
 }
 
-message GetModelResponse {
-  string result = 1;
+message DeleteObjectResponse {
+  bool result = 1;
 }
 
-message GetOperationsSupportedRequest {
+message GetDeviceIdRequest {
+  int64 handle = 1;
 }
 
-message GetOperationsSupportedResponse {
+message GetDeviceIdResponse {
+  int32 result = 1;
+}
+
+message GetDeviceInfoRequest {
+  int64 handle = 1;
+}
+
+message GetDeviceInfoResponse {
   int64 result = 1;
 }
 
-message GetSerialNumberRequest {
+message GetDeviceNameRequest {
+  int64 handle = 1;
 }
 
-message GetSerialNumberResponse {
+message GetDeviceNameResponse {
   string result = 1;
 }
 
-message GetVersionRequest {
+message GetObjectRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
 }
 
-message GetVersionResponse {
+message GetObjectResponse {
+  int64 result = 1;
+}
+
+message GetObjectHandlesRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+  int32 arg2 = 4;
+}
+
+message GetObjectHandlesResponse {
+  int64 result = 1;
+}
+
+message GetObjectInfoRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message GetObjectInfoResponse {
+  int64 result = 1;
+}
+
+message DeviceGetParentRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message DeviceGetParentResponse {
+  int64 result = 1;
+}
+
+message GetPartialObjectRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int64 arg1 = 3;
+  int64 arg2 = 4;
+  int64 arg3 = 5;
+}
+
+message GetPartialObjectResponse {
+  int64 result = 1;
+}
+
+message GetPartialObject64Request {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int64 arg1 = 3;
+  int64 arg2 = 4;
+  int64 arg3 = 5;
+}
+
+message GetPartialObject64Response {
+  int64 result = 1;
+}
+
+message DeviceGetStorageIdRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message DeviceGetStorageIdResponse {
+  int64 result = 1;
+}
+
+message GetStorageIdsRequest {
+  int64 handle = 1;
+}
+
+message GetStorageIdsResponse {
+  int64 result = 1;
+}
+
+message GetStorageInfoRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message GetStorageInfoResponse {
+  int64 result = 1;
+}
+
+message GetThumbnailRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message GetThumbnailResponse {
+  int64 result = 1;
+}
+
+message ImportFile2Request {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message ImportFile2Response {
+  bool result = 1;
+}
+
+message ImportFile2_1Request {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  string arg1 = 3;
+}
+
+message ImportFile2_1Response {
+  bool result = 1;
+}
+
+message OpenRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message OpenResponse {
+  bool result = 1;
+}
+
+message ReadEventRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message ReadEventResponse {
+  int64 result = 1;
+}
+
+message SendObjectRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int64 arg1 = 3;
+  int64 arg2 = 4;
+}
+
+message SendObjectResponse {
+  bool result = 1;
+}
+
+message SendObjectInfoRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SendObjectInfoResponse {
+  int64 result = 1;
+}
+
+message ToStringRequest {
+  int64 handle = 1;
+}
+
+message ToStringResponse {
   string result = 1;
-}
-
-message IsEventSupportedRequest {
-  int32 arg0 = 1;
-}
-
-message IsEventSupportedResponse {
-  bool result = 1;
-}
-
-message IsOperationSupportedRequest {
-  int32 arg0 = 1;
-}
-
-message IsOperationSupportedResponse {
-  bool result = 1;
 }
 
 message NewConstantsRequest {
@@ -739,6 +739,17 @@ message IsAbstractObjectResponse {
   bool result = 1;
 }
 
+service DeviceInfoService {
+  rpc GetEventsSupported (GetEventsSupportedRequest) returns (GetEventsSupportedResponse);
+  rpc GetManufacturer (GetManufacturerRequest) returns (GetManufacturerResponse);
+  rpc GetModel (GetModelRequest) returns (GetModelResponse);
+  rpc GetOperationsSupported (GetOperationsSupportedRequest) returns (GetOperationsSupportedResponse);
+  rpc GetSerialNumber (GetSerialNumberRequest) returns (GetSerialNumberResponse);
+  rpc GetVersion (GetVersionRequest) returns (GetVersionResponse);
+  rpc IsEventSupported (IsEventSupportedRequest) returns (IsEventSupportedResponse);
+  rpc IsOperationSupported (IsOperationSupportedRequest) returns (IsOperationSupportedResponse);
+}
+
 service EventService {
   rpc GetDevicePropCode (GetDevicePropCodeRequest) returns (GetDevicePropCodeResponse);
   rpc GetEventCode (GetEventCodeRequest) returns (GetEventCodeResponse);
@@ -750,32 +761,6 @@ service EventService {
   rpc GetParameter3 (GetParameter3Request) returns (GetParameter3Response);
   rpc GetStorageId (GetStorageIdRequest) returns (GetStorageIdResponse);
   rpc GetTransactionId (GetTransactionIdRequest) returns (GetTransactionIdResponse);
-}
-
-service DeviceService {
-  rpc NewDevice (NewDeviceRequest) returns (NewDeviceResponse);
-  rpc Close (CloseRequest) returns (CloseResponse);
-  rpc DeleteObject (DeleteObjectRequest) returns (DeleteObjectResponse);
-  rpc GetDeviceId (GetDeviceIdRequest) returns (GetDeviceIdResponse);
-  rpc GetDeviceInfo (GetDeviceInfoRequest) returns (GetDeviceInfoResponse);
-  rpc GetDeviceName (GetDeviceNameRequest) returns (GetDeviceNameResponse);
-  rpc GetObject (GetObjectRequest) returns (GetObjectResponse);
-  rpc GetObjectHandles (GetObjectHandlesRequest) returns (GetObjectHandlesResponse);
-  rpc GetObjectInfo (GetObjectInfoRequest) returns (GetObjectInfoResponse);
-  rpc GetParent (GetParentRequest) returns (GetParentResponse);
-  rpc GetPartialObject (GetPartialObjectRequest) returns (GetPartialObjectResponse);
-  rpc GetPartialObject64 (GetPartialObject64Request) returns (GetPartialObject64Response);
-  rpc GetStorageId (DeviceGetStorageIdRequest) returns (DeviceGetStorageIdResponse);
-  rpc GetStorageIds (GetStorageIdsRequest) returns (GetStorageIdsResponse);
-  rpc GetStorageInfo (GetStorageInfoRequest) returns (GetStorageInfoResponse);
-  rpc GetThumbnail (GetThumbnailRequest) returns (GetThumbnailResponse);
-  rpc ImportFile2 (ImportFile2Request) returns (ImportFile2Response);
-  rpc ImportFile2_1 (ImportFile2_1Request) returns (ImportFile2_1Response);
-  rpc Open (OpenRequest) returns (OpenResponse);
-  rpc ReadEvent (ReadEventRequest) returns (ReadEventResponse);
-  rpc SendObject (SendObjectRequest) returns (SendObjectResponse);
-  rpc SendObjectInfo (SendObjectInfoRequest) returns (SendObjectInfoResponse);
-  rpc ToString (ToStringRequest) returns (ToStringResponse);
 }
 
 service ObjectInfoService {
@@ -795,7 +780,7 @@ service ObjectInfoService {
   rpc GetKeywords (GetKeywordsRequest) returns (GetKeywordsResponse);
   rpc GetName (GetNameRequest) returns (GetNameResponse);
   rpc GetObjectHandle (GetObjectHandleRequest) returns (GetObjectHandleResponse);
-  rpc GetParent (ObjectInfoGetParentRequest) returns (ObjectInfoGetParentResponse);
+  rpc GetParent (GetParentRequest) returns (GetParentResponse);
   rpc GetProtectionStatus (GetProtectionStatusRequest) returns (GetProtectionStatusResponse);
   rpc GetSequenceNumber (GetSequenceNumberRequest) returns (GetSequenceNumberResponse);
   rpc GetSequenceNumberLong (GetSequenceNumberLongRequest) returns (GetSequenceNumberLongResponse);
@@ -841,15 +826,30 @@ service StorageInfoService {
   rpc GetVolumeIdentifier (GetVolumeIdentifierRequest) returns (GetVolumeIdentifierResponse);
 }
 
-service DeviceInfoService {
-  rpc GetEventsSupported (GetEventsSupportedRequest) returns (GetEventsSupportedResponse);
-  rpc GetManufacturer (GetManufacturerRequest) returns (GetManufacturerResponse);
-  rpc GetModel (GetModelRequest) returns (GetModelResponse);
-  rpc GetOperationsSupported (GetOperationsSupportedRequest) returns (GetOperationsSupportedResponse);
-  rpc GetSerialNumber (GetSerialNumberRequest) returns (GetSerialNumberResponse);
-  rpc GetVersion (GetVersionRequest) returns (GetVersionResponse);
-  rpc IsEventSupported (IsEventSupportedRequest) returns (IsEventSupportedResponse);
-  rpc IsOperationSupported (IsOperationSupportedRequest) returns (IsOperationSupportedResponse);
+service DeviceService {
+  rpc NewDevice (NewDeviceRequest) returns (NewDeviceResponse);
+  rpc Close (CloseRequest) returns (CloseResponse);
+  rpc DeleteObject (DeleteObjectRequest) returns (DeleteObjectResponse);
+  rpc GetDeviceId (GetDeviceIdRequest) returns (GetDeviceIdResponse);
+  rpc GetDeviceInfo (GetDeviceInfoRequest) returns (GetDeviceInfoResponse);
+  rpc GetDeviceName (GetDeviceNameRequest) returns (GetDeviceNameResponse);
+  rpc GetObject (GetObjectRequest) returns (GetObjectResponse);
+  rpc GetObjectHandles (GetObjectHandlesRequest) returns (GetObjectHandlesResponse);
+  rpc GetObjectInfo (GetObjectInfoRequest) returns (GetObjectInfoResponse);
+  rpc GetParent (DeviceGetParentRequest) returns (DeviceGetParentResponse);
+  rpc GetPartialObject (GetPartialObjectRequest) returns (GetPartialObjectResponse);
+  rpc GetPartialObject64 (GetPartialObject64Request) returns (GetPartialObject64Response);
+  rpc GetStorageId (DeviceGetStorageIdRequest) returns (DeviceGetStorageIdResponse);
+  rpc GetStorageIds (GetStorageIdsRequest) returns (GetStorageIdsResponse);
+  rpc GetStorageInfo (GetStorageInfoRequest) returns (GetStorageInfoResponse);
+  rpc GetThumbnail (GetThumbnailRequest) returns (GetThumbnailResponse);
+  rpc ImportFile2 (ImportFile2Request) returns (ImportFile2Response);
+  rpc ImportFile2_1 (ImportFile2_1Request) returns (ImportFile2_1Response);
+  rpc Open (OpenRequest) returns (OpenResponse);
+  rpc ReadEvent (ReadEventRequest) returns (ReadEventResponse);
+  rpc SendObject (SendObjectRequest) returns (SendObjectResponse);
+  rpc SendObjectInfo (SendObjectInfoRequest) returns (SendObjectInfoResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
 }
 
 service ConstantsService {

@@ -52,123 +52,6 @@ func (s *AppSearchExceptionServer) GetResultCode(_ context.Context, req *pb.GetR
 	return &pb.GetResultCodeResponse{Result: result}, nil
 }
 
-// IkeNetworkLostExceptionServer implements pb.IkeNetworkLostExceptionServiceServer.
-type IkeNetworkLostExceptionServer struct {
-	pb.UnimplementedIkeNetworkLostExceptionServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *IkeNetworkLostExceptionServer) NewIkeNetworkLostException(_ context.Context, req *pb.NewIkeNetworkLostExceptionRequest) (*pb.NewIkeNetworkLostExceptionResponse, error) {
-	obj, err := jnipkg2.NewIkeNetworkLostException(s.Ctx.VM, s.Handles.Get(req.GetArg0()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
-	}
-	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-	}
-	return &pb.NewIkeNetworkLostExceptionResponse{Result: handle}, nil
-}
-
-func (s *IkeNetworkLostExceptionServer) GetNetwork(_ context.Context, req *pb.GetNetworkRequest) (*pb.GetNetworkResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg2.IkeNetworkLostException{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetNetwork()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetNetworkResponse{Result: handle}, nil
-}
-
-// InvalidKeExceptionServer implements pb.InvalidKeExceptionServiceServer.
-type InvalidKeExceptionServer struct {
-	pb.UnimplementedInvalidKeExceptionServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *InvalidKeExceptionServer) NewInvalidKeException(_ context.Context, req *pb.NewInvalidKeExceptionRequest) (*pb.NewInvalidKeExceptionResponse, error) {
-	obj, err := jnipkg2.NewInvalidKeException(s.Ctx.VM, req.GetArg0())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
-	}
-	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-	}
-	return &pb.NewInvalidKeExceptionResponse{Result: handle}, nil
-}
-
-func (s *InvalidKeExceptionServer) GetDhGroup(_ context.Context, req *pb.GetDhGroupRequest) (*pb.GetDhGroupResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg2.InvalidKeException{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetDhGroup()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetDhGroupResponse{Result: result}, nil
-}
-
-// InvalidMajorVersionExceptionServer implements pb.InvalidMajorVersionExceptionServiceServer.
-type InvalidMajorVersionExceptionServer struct {
-	pb.UnimplementedInvalidMajorVersionExceptionServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *InvalidMajorVersionExceptionServer) NewInvalidMajorVersionException(_ context.Context, req *pb.NewInvalidMajorVersionExceptionRequest) (*pb.NewInvalidMajorVersionExceptionResponse, error) {
-	obj, err := jnipkg2.NewInvalidMajorVersionException(s.Ctx.VM, int8(req.GetArg0()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
-	}
-	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-	}
-	return &pb.NewInvalidMajorVersionExceptionResponse{Result: handle}, nil
-}
-
-func (s *InvalidMajorVersionExceptionServer) GetMajorVersion(_ context.Context, req *pb.GetMajorVersionRequest) (*pb.GetMajorVersionResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg2.InvalidMajorVersionException{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetMajorVersion()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetMajorVersionResponse{Result: uint32(result)}, nil
-}
-
 // InvalidSelectorsExceptionServer implements pb.InvalidSelectorsExceptionServiceServer.
 type InvalidSelectorsExceptionServer struct {
 	pb.UnimplementedInvalidSelectorsExceptionServiceServer
@@ -226,6 +109,123 @@ func (s *InvalidSelectorsExceptionServer) GetIpSecSpi(_ context.Context, req *pb
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
 	return &pb.GetIpSecSpiResponse{Result: result}, nil
+}
+
+// InvalidKeExceptionServer implements pb.InvalidKeExceptionServiceServer.
+type InvalidKeExceptionServer struct {
+	pb.UnimplementedInvalidKeExceptionServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *InvalidKeExceptionServer) NewInvalidKeException(_ context.Context, req *pb.NewInvalidKeExceptionRequest) (*pb.NewInvalidKeExceptionResponse, error) {
+	obj, err := jnipkg2.NewInvalidKeException(s.Ctx.VM, req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewInvalidKeExceptionResponse{Result: handle}, nil
+}
+
+func (s *InvalidKeExceptionServer) GetDhGroup(_ context.Context, req *pb.GetDhGroupRequest) (*pb.GetDhGroupResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg2.InvalidKeException{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetDhGroup()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetDhGroupResponse{Result: result}, nil
+}
+
+// IkeNetworkLostExceptionServer implements pb.IkeNetworkLostExceptionServiceServer.
+type IkeNetworkLostExceptionServer struct {
+	pb.UnimplementedIkeNetworkLostExceptionServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *IkeNetworkLostExceptionServer) NewIkeNetworkLostException(_ context.Context, req *pb.NewIkeNetworkLostExceptionRequest) (*pb.NewIkeNetworkLostExceptionResponse, error) {
+	obj, err := jnipkg2.NewIkeNetworkLostException(s.Ctx.VM, s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewIkeNetworkLostExceptionResponse{Result: handle}, nil
+}
+
+func (s *IkeNetworkLostExceptionServer) GetNetwork(_ context.Context, req *pb.GetNetworkRequest) (*pb.GetNetworkResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg2.IkeNetworkLostException{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetNetwork()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetNetworkResponse{Result: handle}, nil
+}
+
+// InvalidMajorVersionExceptionServer implements pb.InvalidMajorVersionExceptionServiceServer.
+type InvalidMajorVersionExceptionServer struct {
+	pb.UnimplementedInvalidMajorVersionExceptionServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *InvalidMajorVersionExceptionServer) NewInvalidMajorVersionException(_ context.Context, req *pb.NewInvalidMajorVersionExceptionRequest) (*pb.NewInvalidMajorVersionExceptionResponse, error) {
+	obj, err := jnipkg2.NewInvalidMajorVersionException(s.Ctx.VM, int8(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewInvalidMajorVersionExceptionResponse{Result: handle}, nil
+}
+
+func (s *InvalidMajorVersionExceptionServer) GetMajorVersion(_ context.Context, req *pb.GetMajorVersionRequest) (*pb.GetMajorVersionResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg2.InvalidMajorVersionException{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetMajorVersion()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetMajorVersionResponse{Result: uint32(result)}, nil
 }
 
 // IkeIOExceptionServer implements pb.IkeIOExceptionServiceServer.

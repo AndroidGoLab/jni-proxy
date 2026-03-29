@@ -74,6 +74,29 @@ func (s *MediaStoreServer) GetDocumentUri(_ context.Context, req *pb.GetDocument
 	return &pb.GetDocumentUriResponse{Result: handle}, nil
 }
 
+func (s *MediaStoreServer) GetExternalVolumeNames(_ context.Context, req *pb.GetExternalVolumeNamesRequest) (*pb.GetExternalVolumeNamesResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.MediaStore{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetExternalVolumeNames(s.Ctx.Obj)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetExternalVolumeNamesResponse{Result: handle}, nil
+}
+
 func (s *MediaStoreServer) GetGeneration(_ context.Context, req *pb.GetGenerationRequest) (*pb.GetGenerationResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
@@ -169,6 +192,29 @@ func (s *MediaStoreServer) GetPickImagesMaxLimit(_ context.Context, req *pb.GetP
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
 	return &pb.GetPickImagesMaxLimitResponse{Result: result}, nil
+}
+
+func (s *MediaStoreServer) GetRecentExternalVolumeNames(_ context.Context, req *pb.GetRecentExternalVolumeNamesRequest) (*pb.GetRecentExternalVolumeNamesResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.MediaStore{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetRecentExternalVolumeNames(s.Ctx.Obj)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetRecentExternalVolumeNamesResponse{Result: handle}, nil
 }
 
 func (s *MediaStoreServer) GetRedactedUri(_ context.Context, req *pb.GetRedactedUriRequest) (*pb.GetRedactedUriResponse, error) {

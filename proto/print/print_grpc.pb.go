@@ -596,6 +596,1060 @@ var DocumentAdapterWriteResultCallbackService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
+	PageRangeService_NewPageRange_FullMethodName     = "/print.PageRangeService/NewPageRange"
+	PageRangeService_DescribeContents_FullMethodName = "/print.PageRangeService/DescribeContents"
+	PageRangeService_Equals_FullMethodName           = "/print.PageRangeService/Equals"
+	PageRangeService_GetEnd_FullMethodName           = "/print.PageRangeService/GetEnd"
+	PageRangeService_GetStart_FullMethodName         = "/print.PageRangeService/GetStart"
+	PageRangeService_HashCode_FullMethodName         = "/print.PageRangeService/HashCode"
+	PageRangeService_ToString_FullMethodName         = "/print.PageRangeService/ToString"
+	PageRangeService_WriteToParcel_FullMethodName    = "/print.PageRangeService/WriteToParcel"
+)
+
+// PageRangeServiceClient is the client API for PageRangeService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type PageRangeServiceClient interface {
+	NewPageRange(ctx context.Context, in *NewPageRangeRequest, opts ...grpc.CallOption) (*NewPageRangeResponse, error)
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	GetEnd(ctx context.Context, in *GetEndRequest, opts ...grpc.CallOption) (*GetEndResponse, error)
+	GetStart(ctx context.Context, in *GetStartRequest, opts ...grpc.CallOption) (*GetStartResponse, error)
+	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type pageRangeServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewPageRangeServiceClient(cc grpc.ClientConnInterface) PageRangeServiceClient {
+	return &pageRangeServiceClient{cc}
+}
+
+func (c *pageRangeServiceClient) NewPageRange(ctx context.Context, in *NewPageRangeRequest, opts ...grpc.CallOption) (*NewPageRangeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewPageRangeResponse)
+	err := c.cc.Invoke(ctx, PageRangeService_NewPageRange_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *pageRangeServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, PageRangeService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *pageRangeServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(EqualsResponse)
+	err := c.cc.Invoke(ctx, PageRangeService_Equals_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *pageRangeServiceClient) GetEnd(ctx context.Context, in *GetEndRequest, opts ...grpc.CallOption) (*GetEndResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetEndResponse)
+	err := c.cc.Invoke(ctx, PageRangeService_GetEnd_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *pageRangeServiceClient) GetStart(ctx context.Context, in *GetStartRequest, opts ...grpc.CallOption) (*GetStartResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetStartResponse)
+	err := c.cc.Invoke(ctx, PageRangeService_GetStart_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *pageRangeServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HashCodeResponse)
+	err := c.cc.Invoke(ctx, PageRangeService_HashCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *pageRangeServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, PageRangeService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *pageRangeServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, PageRangeService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// PageRangeServiceServer is the server API for PageRangeService service.
+// All implementations must embed UnimplementedPageRangeServiceServer
+// for forward compatibility.
+type PageRangeServiceServer interface {
+	NewPageRange(context.Context, *NewPageRangeRequest) (*NewPageRangeResponse, error)
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
+	GetEnd(context.Context, *GetEndRequest) (*GetEndResponse, error)
+	GetStart(context.Context, *GetStartRequest) (*GetStartResponse, error)
+	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
+	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedPageRangeServiceServer()
+}
+
+// UnimplementedPageRangeServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedPageRangeServiceServer struct{}
+
+func (UnimplementedPageRangeServiceServer) NewPageRange(context.Context, *NewPageRangeRequest) (*NewPageRangeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewPageRange not implemented")
+}
+func (UnimplementedPageRangeServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedPageRangeServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
+}
+func (UnimplementedPageRangeServiceServer) GetEnd(context.Context, *GetEndRequest) (*GetEndResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetEnd not implemented")
+}
+func (UnimplementedPageRangeServiceServer) GetStart(context.Context, *GetStartRequest) (*GetStartResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetStart not implemented")
+}
+func (UnimplementedPageRangeServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
+}
+func (UnimplementedPageRangeServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedPageRangeServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedPageRangeServiceServer) mustEmbedUnimplementedPageRangeServiceServer() {}
+func (UnimplementedPageRangeServiceServer) testEmbeddedByValue()                          {}
+
+// UnsafePageRangeServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to PageRangeServiceServer will
+// result in compilation errors.
+type UnsafePageRangeServiceServer interface {
+	mustEmbedUnimplementedPageRangeServiceServer()
+}
+
+func RegisterPageRangeServiceServer(s grpc.ServiceRegistrar, srv PageRangeServiceServer) {
+	// If the following call panics, it indicates UnimplementedPageRangeServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&PageRangeService_ServiceDesc, srv)
+}
+
+func _PageRangeService_NewPageRange_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewPageRangeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PageRangeServiceServer).NewPageRange(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PageRangeService_NewPageRange_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PageRangeServiceServer).NewPageRange(ctx, req.(*NewPageRangeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PageRangeService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PageRangeServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PageRangeService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PageRangeServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PageRangeService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EqualsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PageRangeServiceServer).Equals(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PageRangeService_Equals_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PageRangeServiceServer).Equals(ctx, req.(*EqualsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PageRangeService_GetEnd_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetEndRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PageRangeServiceServer).GetEnd(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PageRangeService_GetEnd_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PageRangeServiceServer).GetEnd(ctx, req.(*GetEndRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PageRangeService_GetStart_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetStartRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PageRangeServiceServer).GetStart(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PageRangeService_GetStart_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PageRangeServiceServer).GetStart(ctx, req.(*GetStartRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PageRangeService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HashCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PageRangeServiceServer).HashCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PageRangeService_HashCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PageRangeServiceServer).HashCode(ctx, req.(*HashCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PageRangeService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PageRangeServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PageRangeService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PageRangeServiceServer).ToString(ctx, req.(*ToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PageRangeService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PageRangeServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PageRangeService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PageRangeServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// PageRangeService_ServiceDesc is the grpc.ServiceDesc for PageRangeService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var PageRangeService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "print.PageRangeService",
+	HandlerType: (*PageRangeServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewPageRange",
+			Handler:    _PageRangeService_NewPageRange_Handler,
+		},
+		{
+			MethodName: "DescribeContents",
+			Handler:    _PageRangeService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "Equals",
+			Handler:    _PageRangeService_Equals_Handler,
+		},
+		{
+			MethodName: "GetEnd",
+			Handler:    _PageRangeService_GetEnd_Handler,
+		},
+		{
+			MethodName: "GetStart",
+			Handler:    _PageRangeService_GetStart_Handler,
+		},
+		{
+			MethodName: "HashCode",
+			Handler:    _PageRangeService_HashCode_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _PageRangeService_ToString_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _PageRangeService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/print/print.proto",
+}
+
+const (
+	ErIdService_DescribeContents_FullMethodName = "/print.ErIdService/DescribeContents"
+	ErIdService_Equals_FullMethodName           = "/print.ErIdService/Equals"
+	ErIdService_GetLocalId_FullMethodName       = "/print.ErIdService/GetLocalId"
+	ErIdService_HashCode_FullMethodName         = "/print.ErIdService/HashCode"
+	ErIdService_ToString_FullMethodName         = "/print.ErIdService/ToString"
+	ErIdService_WriteToParcel_FullMethodName    = "/print.ErIdService/WriteToParcel"
+)
+
+// ErIdServiceClient is the client API for ErIdService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ErIdServiceClient interface {
+	DescribeContents(ctx context.Context, in *ErIdDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	Equals(ctx context.Context, in *ErIdEqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	GetLocalId(ctx context.Context, in *GetLocalIdRequest, opts ...grpc.CallOption) (*GetLocalIdResponse, error)
+	HashCode(ctx context.Context, in *ErIdHashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+	ToString(ctx context.Context, in *ErIdToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+	WriteToParcel(ctx context.Context, in *ErIdWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type erIdServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewErIdServiceClient(cc grpc.ClientConnInterface) ErIdServiceClient {
+	return &erIdServiceClient{cc}
+}
+
+func (c *erIdServiceClient) DescribeContents(ctx context.Context, in *ErIdDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, ErIdService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *erIdServiceClient) Equals(ctx context.Context, in *ErIdEqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(EqualsResponse)
+	err := c.cc.Invoke(ctx, ErIdService_Equals_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *erIdServiceClient) GetLocalId(ctx context.Context, in *GetLocalIdRequest, opts ...grpc.CallOption) (*GetLocalIdResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetLocalIdResponse)
+	err := c.cc.Invoke(ctx, ErIdService_GetLocalId_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *erIdServiceClient) HashCode(ctx context.Context, in *ErIdHashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HashCodeResponse)
+	err := c.cc.Invoke(ctx, ErIdService_HashCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *erIdServiceClient) ToString(ctx context.Context, in *ErIdToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, ErIdService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *erIdServiceClient) WriteToParcel(ctx context.Context, in *ErIdWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, ErIdService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ErIdServiceServer is the server API for ErIdService service.
+// All implementations must embed UnimplementedErIdServiceServer
+// for forward compatibility.
+type ErIdServiceServer interface {
+	DescribeContents(context.Context, *ErIdDescribeContentsRequest) (*DescribeContentsResponse, error)
+	Equals(context.Context, *ErIdEqualsRequest) (*EqualsResponse, error)
+	GetLocalId(context.Context, *GetLocalIdRequest) (*GetLocalIdResponse, error)
+	HashCode(context.Context, *ErIdHashCodeRequest) (*HashCodeResponse, error)
+	ToString(context.Context, *ErIdToStringRequest) (*ToStringResponse, error)
+	WriteToParcel(context.Context, *ErIdWriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedErIdServiceServer()
+}
+
+// UnimplementedErIdServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedErIdServiceServer struct{}
+
+func (UnimplementedErIdServiceServer) DescribeContents(context.Context, *ErIdDescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedErIdServiceServer) Equals(context.Context, *ErIdEqualsRequest) (*EqualsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
+}
+func (UnimplementedErIdServiceServer) GetLocalId(context.Context, *GetLocalIdRequest) (*GetLocalIdResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetLocalId not implemented")
+}
+func (UnimplementedErIdServiceServer) HashCode(context.Context, *ErIdHashCodeRequest) (*HashCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
+}
+func (UnimplementedErIdServiceServer) ToString(context.Context, *ErIdToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedErIdServiceServer) WriteToParcel(context.Context, *ErIdWriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedErIdServiceServer) mustEmbedUnimplementedErIdServiceServer() {}
+func (UnimplementedErIdServiceServer) testEmbeddedByValue()                     {}
+
+// UnsafeErIdServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ErIdServiceServer will
+// result in compilation errors.
+type UnsafeErIdServiceServer interface {
+	mustEmbedUnimplementedErIdServiceServer()
+}
+
+func RegisterErIdServiceServer(s grpc.ServiceRegistrar, srv ErIdServiceServer) {
+	// If the following call panics, it indicates UnimplementedErIdServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&ErIdService_ServiceDesc, srv)
+}
+
+func _ErIdService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ErIdDescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ErIdServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ErIdService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ErIdServiceServer).DescribeContents(ctx, req.(*ErIdDescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ErIdService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ErIdEqualsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ErIdServiceServer).Equals(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ErIdService_Equals_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ErIdServiceServer).Equals(ctx, req.(*ErIdEqualsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ErIdService_GetLocalId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetLocalIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ErIdServiceServer).GetLocalId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ErIdService_GetLocalId_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ErIdServiceServer).GetLocalId(ctx, req.(*GetLocalIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ErIdService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ErIdHashCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ErIdServiceServer).HashCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ErIdService_HashCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ErIdServiceServer).HashCode(ctx, req.(*ErIdHashCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ErIdService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ErIdToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ErIdServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ErIdService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ErIdServiceServer).ToString(ctx, req.(*ErIdToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ErIdService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ErIdWriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ErIdServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ErIdService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ErIdServiceServer).WriteToParcel(ctx, req.(*ErIdWriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ErIdService_ServiceDesc is the grpc.ServiceDesc for ErIdService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ErIdService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "print.ErIdService",
+	HandlerType: (*ErIdServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "DescribeContents",
+			Handler:    _ErIdService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "Equals",
+			Handler:    _ErIdService_Equals_Handler,
+		},
+		{
+			MethodName: "GetLocalId",
+			Handler:    _ErIdService_GetLocalId_Handler,
+		},
+		{
+			MethodName: "HashCode",
+			Handler:    _ErIdService_HashCode_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _ErIdService_ToString_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _ErIdService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/print/print.proto",
+}
+
+const (
+	ManagerService_GetPrintJobs_FullMethodName          = "/print.ManagerService/GetPrintJobs"
+	ManagerService_IsPrintServiceEnabled_FullMethodName = "/print.ManagerService/IsPrintServiceEnabled"
+	ManagerService_Print_FullMethodName                 = "/print.ManagerService/Print"
+)
+
+// ManagerServiceClient is the client API for ManagerService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ManagerServiceClient interface {
+	GetPrintJobs(ctx context.Context, in *GetPrintJobsRequest, opts ...grpc.CallOption) (*GetPrintJobsResponse, error)
+	IsPrintServiceEnabled(ctx context.Context, in *IsPrintServiceEnabledRequest, opts ...grpc.CallOption) (*IsPrintServiceEnabledResponse, error)
+	Print(ctx context.Context, in *PrintRequest, opts ...grpc.CallOption) (*PrintResponse, error)
+}
+
+type managerServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewManagerServiceClient(cc grpc.ClientConnInterface) ManagerServiceClient {
+	return &managerServiceClient{cc}
+}
+
+func (c *managerServiceClient) GetPrintJobs(ctx context.Context, in *GetPrintJobsRequest, opts ...grpc.CallOption) (*GetPrintJobsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetPrintJobsResponse)
+	err := c.cc.Invoke(ctx, ManagerService_GetPrintJobs_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *managerServiceClient) IsPrintServiceEnabled(ctx context.Context, in *IsPrintServiceEnabledRequest, opts ...grpc.CallOption) (*IsPrintServiceEnabledResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsPrintServiceEnabledResponse)
+	err := c.cc.Invoke(ctx, ManagerService_IsPrintServiceEnabled_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *managerServiceClient) Print(ctx context.Context, in *PrintRequest, opts ...grpc.CallOption) (*PrintResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(PrintResponse)
+	err := c.cc.Invoke(ctx, ManagerService_Print_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ManagerServiceServer is the server API for ManagerService service.
+// All implementations must embed UnimplementedManagerServiceServer
+// for forward compatibility.
+type ManagerServiceServer interface {
+	GetPrintJobs(context.Context, *GetPrintJobsRequest) (*GetPrintJobsResponse, error)
+	IsPrintServiceEnabled(context.Context, *IsPrintServiceEnabledRequest) (*IsPrintServiceEnabledResponse, error)
+	Print(context.Context, *PrintRequest) (*PrintResponse, error)
+	mustEmbedUnimplementedManagerServiceServer()
+}
+
+// UnimplementedManagerServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedManagerServiceServer struct{}
+
+func (UnimplementedManagerServiceServer) GetPrintJobs(context.Context, *GetPrintJobsRequest) (*GetPrintJobsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetPrintJobs not implemented")
+}
+func (UnimplementedManagerServiceServer) IsPrintServiceEnabled(context.Context, *IsPrintServiceEnabledRequest) (*IsPrintServiceEnabledResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsPrintServiceEnabled not implemented")
+}
+func (UnimplementedManagerServiceServer) Print(context.Context, *PrintRequest) (*PrintResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Print not implemented")
+}
+func (UnimplementedManagerServiceServer) mustEmbedUnimplementedManagerServiceServer() {}
+func (UnimplementedManagerServiceServer) testEmbeddedByValue()                        {}
+
+// UnsafeManagerServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ManagerServiceServer will
+// result in compilation errors.
+type UnsafeManagerServiceServer interface {
+	mustEmbedUnimplementedManagerServiceServer()
+}
+
+func RegisterManagerServiceServer(s grpc.ServiceRegistrar, srv ManagerServiceServer) {
+	// If the following call panics, it indicates UnimplementedManagerServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&ManagerService_ServiceDesc, srv)
+}
+
+func _ManagerService_GetPrintJobs_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPrintJobsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerServiceServer).GetPrintJobs(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerService_GetPrintJobs_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerServiceServer).GetPrintJobs(ctx, req.(*GetPrintJobsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ManagerService_IsPrintServiceEnabled_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsPrintServiceEnabledRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerServiceServer).IsPrintServiceEnabled(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerService_IsPrintServiceEnabled_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerServiceServer).IsPrintServiceEnabled(ctx, req.(*IsPrintServiceEnabledRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ManagerService_Print_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(PrintRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerServiceServer).Print(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerService_Print_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerServiceServer).Print(ctx, req.(*PrintRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ManagerService_ServiceDesc is the grpc.ServiceDesc for ManagerService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ManagerService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "print.ManagerService",
+	HandlerType: (*ManagerServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "GetPrintJobs",
+			Handler:    _ManagerService_GetPrintJobs_Handler,
+		},
+		{
+			MethodName: "IsPrintServiceEnabled",
+			Handler:    _ManagerService_IsPrintServiceEnabled_Handler,
+		},
+		{
+			MethodName: "Print",
+			Handler:    _ManagerService_Print_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/print/print.proto",
+}
+
+const (
+	JobIdService_DescribeContents_FullMethodName = "/print.JobIdService/DescribeContents"
+	JobIdService_Equals_FullMethodName           = "/print.JobIdService/Equals"
+	JobIdService_HashCode_FullMethodName         = "/print.JobIdService/HashCode"
+	JobIdService_WriteToParcel_FullMethodName    = "/print.JobIdService/WriteToParcel"
+)
+
+// JobIdServiceClient is the client API for JobIdService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type JobIdServiceClient interface {
+	DescribeContents(ctx context.Context, in *JobIdDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	Equals(ctx context.Context, in *JobIdEqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	HashCode(ctx context.Context, in *JobIdHashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+	WriteToParcel(ctx context.Context, in *JobIdWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type jobIdServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewJobIdServiceClient(cc grpc.ClientConnInterface) JobIdServiceClient {
+	return &jobIdServiceClient{cc}
+}
+
+func (c *jobIdServiceClient) DescribeContents(ctx context.Context, in *JobIdDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, JobIdService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *jobIdServiceClient) Equals(ctx context.Context, in *JobIdEqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(EqualsResponse)
+	err := c.cc.Invoke(ctx, JobIdService_Equals_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *jobIdServiceClient) HashCode(ctx context.Context, in *JobIdHashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HashCodeResponse)
+	err := c.cc.Invoke(ctx, JobIdService_HashCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *jobIdServiceClient) WriteToParcel(ctx context.Context, in *JobIdWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, JobIdService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// JobIdServiceServer is the server API for JobIdService service.
+// All implementations must embed UnimplementedJobIdServiceServer
+// for forward compatibility.
+type JobIdServiceServer interface {
+	DescribeContents(context.Context, *JobIdDescribeContentsRequest) (*DescribeContentsResponse, error)
+	Equals(context.Context, *JobIdEqualsRequest) (*EqualsResponse, error)
+	HashCode(context.Context, *JobIdHashCodeRequest) (*HashCodeResponse, error)
+	WriteToParcel(context.Context, *JobIdWriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedJobIdServiceServer()
+}
+
+// UnimplementedJobIdServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedJobIdServiceServer struct{}
+
+func (UnimplementedJobIdServiceServer) DescribeContents(context.Context, *JobIdDescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedJobIdServiceServer) Equals(context.Context, *JobIdEqualsRequest) (*EqualsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
+}
+func (UnimplementedJobIdServiceServer) HashCode(context.Context, *JobIdHashCodeRequest) (*HashCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
+}
+func (UnimplementedJobIdServiceServer) WriteToParcel(context.Context, *JobIdWriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedJobIdServiceServer) mustEmbedUnimplementedJobIdServiceServer() {}
+func (UnimplementedJobIdServiceServer) testEmbeddedByValue()                      {}
+
+// UnsafeJobIdServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to JobIdServiceServer will
+// result in compilation errors.
+type UnsafeJobIdServiceServer interface {
+	mustEmbedUnimplementedJobIdServiceServer()
+}
+
+func RegisterJobIdServiceServer(s grpc.ServiceRegistrar, srv JobIdServiceServer) {
+	// If the following call panics, it indicates UnimplementedJobIdServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&JobIdService_ServiceDesc, srv)
+}
+
+func _JobIdService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(JobIdDescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(JobIdServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: JobIdService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(JobIdServiceServer).DescribeContents(ctx, req.(*JobIdDescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _JobIdService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(JobIdEqualsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(JobIdServiceServer).Equals(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: JobIdService_Equals_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(JobIdServiceServer).Equals(ctx, req.(*JobIdEqualsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _JobIdService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(JobIdHashCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(JobIdServiceServer).HashCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: JobIdService_HashCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(JobIdServiceServer).HashCode(ctx, req.(*JobIdHashCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _JobIdService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(JobIdWriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(JobIdServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: JobIdService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(JobIdServiceServer).WriteToParcel(ctx, req.(*JobIdWriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// JobIdService_ServiceDesc is the grpc.ServiceDesc for JobIdService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var JobIdService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "print.JobIdService",
+	HandlerType: (*JobIdServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "DescribeContents",
+			Handler:    _JobIdService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "Equals",
+			Handler:    _JobIdService_Equals_Handler,
+		},
+		{
+			MethodName: "HashCode",
+			Handler:    _JobIdService_HashCode_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _JobIdService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/print/print.proto",
+}
+
+const (
 	JobService_Cancel_FullMethodName      = "/print.JobService/Cancel"
 	JobService_Equals_FullMethodName      = "/print.JobService/Equals"
 	JobService_GetId_FullMethodName       = "/print.JobService/GetId"
@@ -615,10 +1669,10 @@ const (
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type JobServiceClient interface {
 	Cancel(ctx context.Context, in *CancelRequest, opts ...grpc.CallOption) (*CancelResponse, error)
-	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	Equals(ctx context.Context, in *JobEqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
 	GetId(ctx context.Context, in *GetIdRequest, opts ...grpc.CallOption) (*GetIdResponse, error)
 	GetInfo(ctx context.Context, in *GetInfoRequest, opts ...grpc.CallOption) (*GetInfoResponse, error)
-	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+	HashCode(ctx context.Context, in *JobHashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
 	IsBlocked(ctx context.Context, in *IsBlockedRequest, opts ...grpc.CallOption) (*IsBlockedResponse, error)
 	IsCancelled(ctx context.Context, in *IsCancelledRequest, opts ...grpc.CallOption) (*IsCancelledResponse, error)
 	IsCompleted(ctx context.Context, in *IsCompletedRequest, opts ...grpc.CallOption) (*IsCompletedResponse, error)
@@ -646,7 +1700,7 @@ func (c *jobServiceClient) Cancel(ctx context.Context, in *CancelRequest, opts .
 	return out, nil
 }
 
-func (c *jobServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+func (c *jobServiceClient) Equals(ctx context.Context, in *JobEqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(EqualsResponse)
 	err := c.cc.Invoke(ctx, JobService_Equals_FullMethodName, in, out, cOpts...)
@@ -676,7 +1730,7 @@ func (c *jobServiceClient) GetInfo(ctx context.Context, in *GetInfoRequest, opts
 	return out, nil
 }
 
-func (c *jobServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+func (c *jobServiceClient) HashCode(ctx context.Context, in *JobHashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(HashCodeResponse)
 	err := c.cc.Invoke(ctx, JobService_HashCode_FullMethodName, in, out, cOpts...)
@@ -761,10 +1815,10 @@ func (c *jobServiceClient) Restart(ctx context.Context, in *RestartRequest, opts
 // for forward compatibility.
 type JobServiceServer interface {
 	Cancel(context.Context, *CancelRequest) (*CancelResponse, error)
-	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
+	Equals(context.Context, *JobEqualsRequest) (*EqualsResponse, error)
 	GetId(context.Context, *GetIdRequest) (*GetIdResponse, error)
 	GetInfo(context.Context, *GetInfoRequest) (*GetInfoResponse, error)
-	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
+	HashCode(context.Context, *JobHashCodeRequest) (*HashCodeResponse, error)
 	IsBlocked(context.Context, *IsBlockedRequest) (*IsBlockedResponse, error)
 	IsCancelled(context.Context, *IsCancelledRequest) (*IsCancelledResponse, error)
 	IsCompleted(context.Context, *IsCompletedRequest) (*IsCompletedResponse, error)
@@ -785,7 +1839,7 @@ type UnimplementedJobServiceServer struct{}
 func (UnimplementedJobServiceServer) Cancel(context.Context, *CancelRequest) (*CancelResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method Cancel not implemented")
 }
-func (UnimplementedJobServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
+func (UnimplementedJobServiceServer) Equals(context.Context, *JobEqualsRequest) (*EqualsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
 }
 func (UnimplementedJobServiceServer) GetId(context.Context, *GetIdRequest) (*GetIdResponse, error) {
@@ -794,7 +1848,7 @@ func (UnimplementedJobServiceServer) GetId(context.Context, *GetIdRequest) (*Get
 func (UnimplementedJobServiceServer) GetInfo(context.Context, *GetInfoRequest) (*GetInfoResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetInfo not implemented")
 }
-func (UnimplementedJobServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
+func (UnimplementedJobServiceServer) HashCode(context.Context, *JobHashCodeRequest) (*HashCodeResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
 }
 func (UnimplementedJobServiceServer) IsBlocked(context.Context, *IsBlockedRequest) (*IsBlockedResponse, error) {
@@ -858,7 +1912,7 @@ func _JobService_Cancel_Handler(srv interface{}, ctx context.Context, dec func(i
 }
 
 func _JobService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(EqualsRequest)
+	in := new(JobEqualsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -870,7 +1924,7 @@ func _JobService_Equals_Handler(srv interface{}, ctx context.Context, dec func(i
 		FullMethod: JobService_Equals_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(JobServiceServer).Equals(ctx, req.(*EqualsRequest))
+		return srv.(JobServiceServer).Equals(ctx, req.(*JobEqualsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -912,7 +1966,7 @@ func _JobService_GetInfo_Handler(srv interface{}, ctx context.Context, dec func(
 }
 
 func _JobService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(HashCodeRequest)
+	in := new(JobHashCodeRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -924,7 +1978,7 @@ func _JobService_HashCode_Handler(srv interface{}, ctx context.Context, dec func
 		FullMethod: JobService_HashCode_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(JobServiceServer).HashCode(ctx, req.(*HashCodeRequest))
+		return srv.(JobServiceServer).HashCode(ctx, req.(*JobHashCodeRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -1116,723 +2170,405 @@ var JobService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	ManagerService_IsPrintServiceEnabled_FullMethodName = "/print.ManagerService/IsPrintServiceEnabled"
-	ManagerService_Print_FullMethodName                 = "/print.ManagerService/Print"
+	DocumentInfoService_DescribeContents_FullMethodName = "/print.DocumentInfoService/DescribeContents"
+	DocumentInfoService_Equals_FullMethodName           = "/print.DocumentInfoService/Equals"
+	DocumentInfoService_GetContentType_FullMethodName   = "/print.DocumentInfoService/GetContentType"
+	DocumentInfoService_GetDataSize_FullMethodName      = "/print.DocumentInfoService/GetDataSize"
+	DocumentInfoService_GetName_FullMethodName          = "/print.DocumentInfoService/GetName"
+	DocumentInfoService_GetPageCount_FullMethodName     = "/print.DocumentInfoService/GetPageCount"
+	DocumentInfoService_HashCode_FullMethodName         = "/print.DocumentInfoService/HashCode"
+	DocumentInfoService_ToString_FullMethodName         = "/print.DocumentInfoService/ToString"
+	DocumentInfoService_WriteToParcel_FullMethodName    = "/print.DocumentInfoService/WriteToParcel"
 )
 
-// ManagerServiceClient is the client API for ManagerService service.
+// DocumentInfoServiceClient is the client API for DocumentInfoService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type ManagerServiceClient interface {
-	IsPrintServiceEnabled(ctx context.Context, in *IsPrintServiceEnabledRequest, opts ...grpc.CallOption) (*IsPrintServiceEnabledResponse, error)
-	Print(ctx context.Context, in *PrintRequest, opts ...grpc.CallOption) (*PrintResponse, error)
+type DocumentInfoServiceClient interface {
+	DescribeContents(ctx context.Context, in *DocumentInfoDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	Equals(ctx context.Context, in *DocumentInfoEqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	GetContentType(ctx context.Context, in *GetContentTypeRequest, opts ...grpc.CallOption) (*GetContentTypeResponse, error)
+	GetDataSize(ctx context.Context, in *GetDataSizeRequest, opts ...grpc.CallOption) (*GetDataSizeResponse, error)
+	GetName(ctx context.Context, in *GetNameRequest, opts ...grpc.CallOption) (*GetNameResponse, error)
+	GetPageCount(ctx context.Context, in *GetPageCountRequest, opts ...grpc.CallOption) (*GetPageCountResponse, error)
+	HashCode(ctx context.Context, in *DocumentInfoHashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+	ToString(ctx context.Context, in *DocumentInfoToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+	WriteToParcel(ctx context.Context, in *DocumentInfoWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
 }
 
-type managerServiceClient struct {
+type documentInfoServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewManagerServiceClient(cc grpc.ClientConnInterface) ManagerServiceClient {
-	return &managerServiceClient{cc}
+func NewDocumentInfoServiceClient(cc grpc.ClientConnInterface) DocumentInfoServiceClient {
+	return &documentInfoServiceClient{cc}
 }
 
-func (c *managerServiceClient) IsPrintServiceEnabled(ctx context.Context, in *IsPrintServiceEnabledRequest, opts ...grpc.CallOption) (*IsPrintServiceEnabledResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsPrintServiceEnabledResponse)
-	err := c.cc.Invoke(ctx, ManagerService_IsPrintServiceEnabled_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *managerServiceClient) Print(ctx context.Context, in *PrintRequest, opts ...grpc.CallOption) (*PrintResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(PrintResponse)
-	err := c.cc.Invoke(ctx, ManagerService_Print_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// ManagerServiceServer is the server API for ManagerService service.
-// All implementations must embed UnimplementedManagerServiceServer
-// for forward compatibility.
-type ManagerServiceServer interface {
-	IsPrintServiceEnabled(context.Context, *IsPrintServiceEnabledRequest) (*IsPrintServiceEnabledResponse, error)
-	Print(context.Context, *PrintRequest) (*PrintResponse, error)
-	mustEmbedUnimplementedManagerServiceServer()
-}
-
-// UnimplementedManagerServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedManagerServiceServer struct{}
-
-func (UnimplementedManagerServiceServer) IsPrintServiceEnabled(context.Context, *IsPrintServiceEnabledRequest) (*IsPrintServiceEnabledResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsPrintServiceEnabled not implemented")
-}
-func (UnimplementedManagerServiceServer) Print(context.Context, *PrintRequest) (*PrintResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Print not implemented")
-}
-func (UnimplementedManagerServiceServer) mustEmbedUnimplementedManagerServiceServer() {}
-func (UnimplementedManagerServiceServer) testEmbeddedByValue()                        {}
-
-// UnsafeManagerServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to ManagerServiceServer will
-// result in compilation errors.
-type UnsafeManagerServiceServer interface {
-	mustEmbedUnimplementedManagerServiceServer()
-}
-
-func RegisterManagerServiceServer(s grpc.ServiceRegistrar, srv ManagerServiceServer) {
-	// If the following call panics, it indicates UnimplementedManagerServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&ManagerService_ServiceDesc, srv)
-}
-
-func _ManagerService_IsPrintServiceEnabled_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsPrintServiceEnabledRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerServiceServer).IsPrintServiceEnabled(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerService_IsPrintServiceEnabled_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).IsPrintServiceEnabled(ctx, req.(*IsPrintServiceEnabledRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ManagerService_Print_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(PrintRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerServiceServer).Print(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerService_Print_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).Print(ctx, req.(*PrintRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// ManagerService_ServiceDesc is the grpc.ServiceDesc for ManagerService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var ManagerService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "print.ManagerService",
-	HandlerType: (*ManagerServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "IsPrintServiceEnabled",
-			Handler:    _ManagerService_IsPrintServiceEnabled_Handler,
-		},
-		{
-			MethodName: "Print",
-			Handler:    _ManagerService_Print_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/print/print.proto",
-}
-
-const (
-	JobIdService_DescribeContents_FullMethodName = "/print.JobIdService/DescribeContents"
-	JobIdService_Equals_FullMethodName           = "/print.JobIdService/Equals"
-	JobIdService_HashCode_FullMethodName         = "/print.JobIdService/HashCode"
-	JobIdService_WriteToParcel_FullMethodName    = "/print.JobIdService/WriteToParcel"
-)
-
-// JobIdServiceClient is the client API for JobIdService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type JobIdServiceClient interface {
-	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
-	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
-	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
-}
-
-type jobIdServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewJobIdServiceClient(cc grpc.ClientConnInterface) JobIdServiceClient {
-	return &jobIdServiceClient{cc}
-}
-
-func (c *jobIdServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+func (c *documentInfoServiceClient) DescribeContents(ctx context.Context, in *DocumentInfoDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, JobIdService_DescribeContents_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, DocumentInfoService_DescribeContents_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *jobIdServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+func (c *documentInfoServiceClient) Equals(ctx context.Context, in *DocumentInfoEqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(EqualsResponse)
-	err := c.cc.Invoke(ctx, JobIdService_Equals_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, DocumentInfoService_Equals_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *jobIdServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+func (c *documentInfoServiceClient) GetContentType(ctx context.Context, in *GetContentTypeRequest, opts ...grpc.CallOption) (*GetContentTypeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetContentTypeResponse)
+	err := c.cc.Invoke(ctx, DocumentInfoService_GetContentType_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *documentInfoServiceClient) GetDataSize(ctx context.Context, in *GetDataSizeRequest, opts ...grpc.CallOption) (*GetDataSizeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetDataSizeResponse)
+	err := c.cc.Invoke(ctx, DocumentInfoService_GetDataSize_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *documentInfoServiceClient) GetName(ctx context.Context, in *GetNameRequest, opts ...grpc.CallOption) (*GetNameResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetNameResponse)
+	err := c.cc.Invoke(ctx, DocumentInfoService_GetName_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *documentInfoServiceClient) GetPageCount(ctx context.Context, in *GetPageCountRequest, opts ...grpc.CallOption) (*GetPageCountResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetPageCountResponse)
+	err := c.cc.Invoke(ctx, DocumentInfoService_GetPageCount_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *documentInfoServiceClient) HashCode(ctx context.Context, in *DocumentInfoHashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(HashCodeResponse)
-	err := c.cc.Invoke(ctx, JobIdService_HashCode_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, DocumentInfoService_HashCode_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *jobIdServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, JobIdService_WriteToParcel_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// JobIdServiceServer is the server API for JobIdService service.
-// All implementations must embed UnimplementedJobIdServiceServer
-// for forward compatibility.
-type JobIdServiceServer interface {
-	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
-	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
-	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
-	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
-	mustEmbedUnimplementedJobIdServiceServer()
-}
-
-// UnimplementedJobIdServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedJobIdServiceServer struct{}
-
-func (UnimplementedJobIdServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
-}
-func (UnimplementedJobIdServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
-}
-func (UnimplementedJobIdServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
-}
-func (UnimplementedJobIdServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
-}
-func (UnimplementedJobIdServiceServer) mustEmbedUnimplementedJobIdServiceServer() {}
-func (UnimplementedJobIdServiceServer) testEmbeddedByValue()                      {}
-
-// UnsafeJobIdServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to JobIdServiceServer will
-// result in compilation errors.
-type UnsafeJobIdServiceServer interface {
-	mustEmbedUnimplementedJobIdServiceServer()
-}
-
-func RegisterJobIdServiceServer(s grpc.ServiceRegistrar, srv JobIdServiceServer) {
-	// If the following call panics, it indicates UnimplementedJobIdServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&JobIdService_ServiceDesc, srv)
-}
-
-func _JobIdService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DescribeContentsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(JobIdServiceServer).DescribeContents(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: JobIdService_DescribeContents_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(JobIdServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _JobIdService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(EqualsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(JobIdServiceServer).Equals(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: JobIdService_Equals_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(JobIdServiceServer).Equals(ctx, req.(*EqualsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _JobIdService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(HashCodeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(JobIdServiceServer).HashCode(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: JobIdService_HashCode_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(JobIdServiceServer).HashCode(ctx, req.(*HashCodeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _JobIdService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WriteToParcelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(JobIdServiceServer).WriteToParcel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: JobIdService_WriteToParcel_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(JobIdServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// JobIdService_ServiceDesc is the grpc.ServiceDesc for JobIdService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var JobIdService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "print.JobIdService",
-	HandlerType: (*JobIdServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "DescribeContents",
-			Handler:    _JobIdService_DescribeContents_Handler,
-		},
-		{
-			MethodName: "Equals",
-			Handler:    _JobIdService_Equals_Handler,
-		},
-		{
-			MethodName: "HashCode",
-			Handler:    _JobIdService_HashCode_Handler,
-		},
-		{
-			MethodName: "WriteToParcel",
-			Handler:    _JobIdService_WriteToParcel_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/print/print.proto",
-}
-
-const (
-	PageRangeService_NewPageRange_FullMethodName     = "/print.PageRangeService/NewPageRange"
-	PageRangeService_DescribeContents_FullMethodName = "/print.PageRangeService/DescribeContents"
-	PageRangeService_Equals_FullMethodName           = "/print.PageRangeService/Equals"
-	PageRangeService_GetEnd_FullMethodName           = "/print.PageRangeService/GetEnd"
-	PageRangeService_GetStart_FullMethodName         = "/print.PageRangeService/GetStart"
-	PageRangeService_HashCode_FullMethodName         = "/print.PageRangeService/HashCode"
-	PageRangeService_ToString_FullMethodName         = "/print.PageRangeService/ToString"
-	PageRangeService_WriteToParcel_FullMethodName    = "/print.PageRangeService/WriteToParcel"
-)
-
-// PageRangeServiceClient is the client API for PageRangeService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type PageRangeServiceClient interface {
-	NewPageRange(ctx context.Context, in *NewPageRangeRequest, opts ...grpc.CallOption) (*NewPageRangeResponse, error)
-	DescribeContents(ctx context.Context, in *PageRangeDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	Equals(ctx context.Context, in *PageRangeEqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
-	GetEnd(ctx context.Context, in *GetEndRequest, opts ...grpc.CallOption) (*GetEndResponse, error)
-	GetStart(ctx context.Context, in *GetStartRequest, opts ...grpc.CallOption) (*GetStartResponse, error)
-	HashCode(ctx context.Context, in *PageRangeHashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
-	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
-	WriteToParcel(ctx context.Context, in *PageRangeWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
-}
-
-type pageRangeServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewPageRangeServiceClient(cc grpc.ClientConnInterface) PageRangeServiceClient {
-	return &pageRangeServiceClient{cc}
-}
-
-func (c *pageRangeServiceClient) NewPageRange(ctx context.Context, in *NewPageRangeRequest, opts ...grpc.CallOption) (*NewPageRangeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewPageRangeResponse)
-	err := c.cc.Invoke(ctx, PageRangeService_NewPageRange_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *pageRangeServiceClient) DescribeContents(ctx context.Context, in *PageRangeDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, PageRangeService_DescribeContents_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *pageRangeServiceClient) Equals(ctx context.Context, in *PageRangeEqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(EqualsResponse)
-	err := c.cc.Invoke(ctx, PageRangeService_Equals_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *pageRangeServiceClient) GetEnd(ctx context.Context, in *GetEndRequest, opts ...grpc.CallOption) (*GetEndResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetEndResponse)
-	err := c.cc.Invoke(ctx, PageRangeService_GetEnd_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *pageRangeServiceClient) GetStart(ctx context.Context, in *GetStartRequest, opts ...grpc.CallOption) (*GetStartResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetStartResponse)
-	err := c.cc.Invoke(ctx, PageRangeService_GetStart_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *pageRangeServiceClient) HashCode(ctx context.Context, in *PageRangeHashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(HashCodeResponse)
-	err := c.cc.Invoke(ctx, PageRangeService_HashCode_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *pageRangeServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+func (c *documentInfoServiceClient) ToString(ctx context.Context, in *DocumentInfoToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(ToStringResponse)
-	err := c.cc.Invoke(ctx, PageRangeService_ToString_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, DocumentInfoService_ToString_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *pageRangeServiceClient) WriteToParcel(ctx context.Context, in *PageRangeWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+func (c *documentInfoServiceClient) WriteToParcel(ctx context.Context, in *DocumentInfoWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, PageRangeService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, DocumentInfoService_WriteToParcel_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// PageRangeServiceServer is the server API for PageRangeService service.
-// All implementations must embed UnimplementedPageRangeServiceServer
+// DocumentInfoServiceServer is the server API for DocumentInfoService service.
+// All implementations must embed UnimplementedDocumentInfoServiceServer
 // for forward compatibility.
-type PageRangeServiceServer interface {
-	NewPageRange(context.Context, *NewPageRangeRequest) (*NewPageRangeResponse, error)
-	DescribeContents(context.Context, *PageRangeDescribeContentsRequest) (*DescribeContentsResponse, error)
-	Equals(context.Context, *PageRangeEqualsRequest) (*EqualsResponse, error)
-	GetEnd(context.Context, *GetEndRequest) (*GetEndResponse, error)
-	GetStart(context.Context, *GetStartRequest) (*GetStartResponse, error)
-	HashCode(context.Context, *PageRangeHashCodeRequest) (*HashCodeResponse, error)
-	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
-	WriteToParcel(context.Context, *PageRangeWriteToParcelRequest) (*WriteToParcelResponse, error)
-	mustEmbedUnimplementedPageRangeServiceServer()
+type DocumentInfoServiceServer interface {
+	DescribeContents(context.Context, *DocumentInfoDescribeContentsRequest) (*DescribeContentsResponse, error)
+	Equals(context.Context, *DocumentInfoEqualsRequest) (*EqualsResponse, error)
+	GetContentType(context.Context, *GetContentTypeRequest) (*GetContentTypeResponse, error)
+	GetDataSize(context.Context, *GetDataSizeRequest) (*GetDataSizeResponse, error)
+	GetName(context.Context, *GetNameRequest) (*GetNameResponse, error)
+	GetPageCount(context.Context, *GetPageCountRequest) (*GetPageCountResponse, error)
+	HashCode(context.Context, *DocumentInfoHashCodeRequest) (*HashCodeResponse, error)
+	ToString(context.Context, *DocumentInfoToStringRequest) (*ToStringResponse, error)
+	WriteToParcel(context.Context, *DocumentInfoWriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedDocumentInfoServiceServer()
 }
 
-// UnimplementedPageRangeServiceServer must be embedded to have
+// UnimplementedDocumentInfoServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedPageRangeServiceServer struct{}
+type UnimplementedDocumentInfoServiceServer struct{}
 
-func (UnimplementedPageRangeServiceServer) NewPageRange(context.Context, *NewPageRangeRequest) (*NewPageRangeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewPageRange not implemented")
-}
-func (UnimplementedPageRangeServiceServer) DescribeContents(context.Context, *PageRangeDescribeContentsRequest) (*DescribeContentsResponse, error) {
+func (UnimplementedDocumentInfoServiceServer) DescribeContents(context.Context, *DocumentInfoDescribeContentsRequest) (*DescribeContentsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
 }
-func (UnimplementedPageRangeServiceServer) Equals(context.Context, *PageRangeEqualsRequest) (*EqualsResponse, error) {
+func (UnimplementedDocumentInfoServiceServer) Equals(context.Context, *DocumentInfoEqualsRequest) (*EqualsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
 }
-func (UnimplementedPageRangeServiceServer) GetEnd(context.Context, *GetEndRequest) (*GetEndResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetEnd not implemented")
+func (UnimplementedDocumentInfoServiceServer) GetContentType(context.Context, *GetContentTypeRequest) (*GetContentTypeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetContentType not implemented")
 }
-func (UnimplementedPageRangeServiceServer) GetStart(context.Context, *GetStartRequest) (*GetStartResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetStart not implemented")
+func (UnimplementedDocumentInfoServiceServer) GetDataSize(context.Context, *GetDataSizeRequest) (*GetDataSizeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetDataSize not implemented")
 }
-func (UnimplementedPageRangeServiceServer) HashCode(context.Context, *PageRangeHashCodeRequest) (*HashCodeResponse, error) {
+func (UnimplementedDocumentInfoServiceServer) GetName(context.Context, *GetNameRequest) (*GetNameResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetName not implemented")
+}
+func (UnimplementedDocumentInfoServiceServer) GetPageCount(context.Context, *GetPageCountRequest) (*GetPageCountResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetPageCount not implemented")
+}
+func (UnimplementedDocumentInfoServiceServer) HashCode(context.Context, *DocumentInfoHashCodeRequest) (*HashCodeResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
 }
-func (UnimplementedPageRangeServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
+func (UnimplementedDocumentInfoServiceServer) ToString(context.Context, *DocumentInfoToStringRequest) (*ToStringResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
 }
-func (UnimplementedPageRangeServiceServer) WriteToParcel(context.Context, *PageRangeWriteToParcelRequest) (*WriteToParcelResponse, error) {
+func (UnimplementedDocumentInfoServiceServer) WriteToParcel(context.Context, *DocumentInfoWriteToParcelRequest) (*WriteToParcelResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
 }
-func (UnimplementedPageRangeServiceServer) mustEmbedUnimplementedPageRangeServiceServer() {}
-func (UnimplementedPageRangeServiceServer) testEmbeddedByValue()                          {}
+func (UnimplementedDocumentInfoServiceServer) mustEmbedUnimplementedDocumentInfoServiceServer() {}
+func (UnimplementedDocumentInfoServiceServer) testEmbeddedByValue()                             {}
 
-// UnsafePageRangeServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to PageRangeServiceServer will
+// UnsafeDocumentInfoServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to DocumentInfoServiceServer will
 // result in compilation errors.
-type UnsafePageRangeServiceServer interface {
-	mustEmbedUnimplementedPageRangeServiceServer()
+type UnsafeDocumentInfoServiceServer interface {
+	mustEmbedUnimplementedDocumentInfoServiceServer()
 }
 
-func RegisterPageRangeServiceServer(s grpc.ServiceRegistrar, srv PageRangeServiceServer) {
-	// If the following call panics, it indicates UnimplementedPageRangeServiceServer was
+func RegisterDocumentInfoServiceServer(s grpc.ServiceRegistrar, srv DocumentInfoServiceServer) {
+	// If the following call panics, it indicates UnimplementedDocumentInfoServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&PageRangeService_ServiceDesc, srv)
+	s.RegisterService(&DocumentInfoService_ServiceDesc, srv)
 }
 
-func _PageRangeService_NewPageRange_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewPageRangeRequest)
+func _DocumentInfoService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DocumentInfoDescribeContentsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(PageRangeServiceServer).NewPageRange(ctx, in)
+		return srv.(DocumentInfoServiceServer).DescribeContents(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: PageRangeService_NewPageRange_FullMethodName,
+		FullMethod: DocumentInfoService_DescribeContents_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PageRangeServiceServer).NewPageRange(ctx, req.(*NewPageRangeRequest))
+		return srv.(DocumentInfoServiceServer).DescribeContents(ctx, req.(*DocumentInfoDescribeContentsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _PageRangeService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(PageRangeDescribeContentsRequest)
+func _DocumentInfoService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DocumentInfoEqualsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(PageRangeServiceServer).DescribeContents(ctx, in)
+		return srv.(DocumentInfoServiceServer).Equals(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: PageRangeService_DescribeContents_FullMethodName,
+		FullMethod: DocumentInfoService_Equals_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PageRangeServiceServer).DescribeContents(ctx, req.(*PageRangeDescribeContentsRequest))
+		return srv.(DocumentInfoServiceServer).Equals(ctx, req.(*DocumentInfoEqualsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _PageRangeService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(PageRangeEqualsRequest)
+func _DocumentInfoService_GetContentType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetContentTypeRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(PageRangeServiceServer).Equals(ctx, in)
+		return srv.(DocumentInfoServiceServer).GetContentType(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: PageRangeService_Equals_FullMethodName,
+		FullMethod: DocumentInfoService_GetContentType_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PageRangeServiceServer).Equals(ctx, req.(*PageRangeEqualsRequest))
+		return srv.(DocumentInfoServiceServer).GetContentType(ctx, req.(*GetContentTypeRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _PageRangeService_GetEnd_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetEndRequest)
+func _DocumentInfoService_GetDataSize_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetDataSizeRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(PageRangeServiceServer).GetEnd(ctx, in)
+		return srv.(DocumentInfoServiceServer).GetDataSize(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: PageRangeService_GetEnd_FullMethodName,
+		FullMethod: DocumentInfoService_GetDataSize_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PageRangeServiceServer).GetEnd(ctx, req.(*GetEndRequest))
+		return srv.(DocumentInfoServiceServer).GetDataSize(ctx, req.(*GetDataSizeRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _PageRangeService_GetStart_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetStartRequest)
+func _DocumentInfoService_GetName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetNameRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(PageRangeServiceServer).GetStart(ctx, in)
+		return srv.(DocumentInfoServiceServer).GetName(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: PageRangeService_GetStart_FullMethodName,
+		FullMethod: DocumentInfoService_GetName_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PageRangeServiceServer).GetStart(ctx, req.(*GetStartRequest))
+		return srv.(DocumentInfoServiceServer).GetName(ctx, req.(*GetNameRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _PageRangeService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(PageRangeHashCodeRequest)
+func _DocumentInfoService_GetPageCount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPageCountRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(PageRangeServiceServer).HashCode(ctx, in)
+		return srv.(DocumentInfoServiceServer).GetPageCount(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: PageRangeService_HashCode_FullMethodName,
+		FullMethod: DocumentInfoService_GetPageCount_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PageRangeServiceServer).HashCode(ctx, req.(*PageRangeHashCodeRequest))
+		return srv.(DocumentInfoServiceServer).GetPageCount(ctx, req.(*GetPageCountRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _PageRangeService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ToStringRequest)
+func _DocumentInfoService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DocumentInfoHashCodeRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(PageRangeServiceServer).ToString(ctx, in)
+		return srv.(DocumentInfoServiceServer).HashCode(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: PageRangeService_ToString_FullMethodName,
+		FullMethod: DocumentInfoService_HashCode_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PageRangeServiceServer).ToString(ctx, req.(*ToStringRequest))
+		return srv.(DocumentInfoServiceServer).HashCode(ctx, req.(*DocumentInfoHashCodeRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _PageRangeService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(PageRangeWriteToParcelRequest)
+func _DocumentInfoService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DocumentInfoToStringRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(PageRangeServiceServer).WriteToParcel(ctx, in)
+		return srv.(DocumentInfoServiceServer).ToString(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: PageRangeService_WriteToParcel_FullMethodName,
+		FullMethod: DocumentInfoService_ToString_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PageRangeServiceServer).WriteToParcel(ctx, req.(*PageRangeWriteToParcelRequest))
+		return srv.(DocumentInfoServiceServer).ToString(ctx, req.(*DocumentInfoToStringRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// PageRangeService_ServiceDesc is the grpc.ServiceDesc for PageRangeService service.
+func _DocumentInfoService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DocumentInfoWriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DocumentInfoServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DocumentInfoService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DocumentInfoServiceServer).WriteToParcel(ctx, req.(*DocumentInfoWriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// DocumentInfoService_ServiceDesc is the grpc.ServiceDesc for DocumentInfoService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var PageRangeService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "print.PageRangeService",
-	HandlerType: (*PageRangeServiceServer)(nil),
+var DocumentInfoService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "print.DocumentInfoService",
+	HandlerType: (*DocumentInfoServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "NewPageRange",
-			Handler:    _PageRangeService_NewPageRange_Handler,
-		},
-		{
 			MethodName: "DescribeContents",
-			Handler:    _PageRangeService_DescribeContents_Handler,
+			Handler:    _DocumentInfoService_DescribeContents_Handler,
 		},
 		{
 			MethodName: "Equals",
-			Handler:    _PageRangeService_Equals_Handler,
+			Handler:    _DocumentInfoService_Equals_Handler,
 		},
 		{
-			MethodName: "GetEnd",
-			Handler:    _PageRangeService_GetEnd_Handler,
+			MethodName: "GetContentType",
+			Handler:    _DocumentInfoService_GetContentType_Handler,
 		},
 		{
-			MethodName: "GetStart",
-			Handler:    _PageRangeService_GetStart_Handler,
+			MethodName: "GetDataSize",
+			Handler:    _DocumentInfoService_GetDataSize_Handler,
+		},
+		{
+			MethodName: "GetName",
+			Handler:    _DocumentInfoService_GetName_Handler,
+		},
+		{
+			MethodName: "GetPageCount",
+			Handler:    _DocumentInfoService_GetPageCount_Handler,
 		},
 		{
 			MethodName: "HashCode",
-			Handler:    _PageRangeService_HashCode_Handler,
+			Handler:    _DocumentInfoService_HashCode_Handler,
 		},
 		{
 			MethodName: "ToString",
-			Handler:    _PageRangeService_ToString_Handler,
+			Handler:    _DocumentInfoService_ToString_Handler,
 		},
 		{
 			MethodName: "WriteToParcel",
-			Handler:    _PageRangeService_WriteToParcel_Handler,
+			Handler:    _DocumentInfoService_WriteToParcel_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -1840,291 +2576,2798 @@ var PageRangeService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	ErIdService_DescribeContents_FullMethodName = "/print.ErIdService/DescribeContents"
-	ErIdService_Equals_FullMethodName           = "/print.ErIdService/Equals"
-	ErIdService_GetLocalId_FullMethodName       = "/print.ErIdService/GetLocalId"
-	ErIdService_HashCode_FullMethodName         = "/print.ErIdService/HashCode"
-	ErIdService_ToString_FullMethodName         = "/print.ErIdService/ToString"
-	ErIdService_WriteToParcel_FullMethodName    = "/print.ErIdService/WriteToParcel"
+	DocumentInfoBuilderService_Build_FullMethodName          = "/print.DocumentInfoBuilderService/Build"
+	DocumentInfoBuilderService_SetContentType_FullMethodName = "/print.DocumentInfoBuilderService/SetContentType"
+	DocumentInfoBuilderService_SetPageCount_FullMethodName   = "/print.DocumentInfoBuilderService/SetPageCount"
 )
 
-// ErIdServiceClient is the client API for ErIdService service.
+// DocumentInfoBuilderServiceClient is the client API for DocumentInfoBuilderService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type ErIdServiceClient interface {
-	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
-	GetLocalId(ctx context.Context, in *GetLocalIdRequest, opts ...grpc.CallOption) (*GetLocalIdResponse, error)
-	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
-	ToString(ctx context.Context, in *ErIdToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
-	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+type DocumentInfoBuilderServiceClient interface {
+	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
+	SetContentType(ctx context.Context, in *SetContentTypeRequest, opts ...grpc.CallOption) (*SetContentTypeResponse, error)
+	SetPageCount(ctx context.Context, in *SetPageCountRequest, opts ...grpc.CallOption) (*SetPageCountResponse, error)
 }
 
-type erIdServiceClient struct {
+type documentInfoBuilderServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewErIdServiceClient(cc grpc.ClientConnInterface) ErIdServiceClient {
-	return &erIdServiceClient{cc}
+func NewDocumentInfoBuilderServiceClient(cc grpc.ClientConnInterface) DocumentInfoBuilderServiceClient {
+	return &documentInfoBuilderServiceClient{cc}
 }
 
-func (c *erIdServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+func (c *documentInfoBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, ErIdService_DescribeContents_FullMethodName, in, out, cOpts...)
+	out := new(BuildResponse)
+	err := c.cc.Invoke(ctx, DocumentInfoBuilderService_Build_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *erIdServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+func (c *documentInfoBuilderServiceClient) SetContentType(ctx context.Context, in *SetContentTypeRequest, opts ...grpc.CallOption) (*SetContentTypeResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(EqualsResponse)
-	err := c.cc.Invoke(ctx, ErIdService_Equals_FullMethodName, in, out, cOpts...)
+	out := new(SetContentTypeResponse)
+	err := c.cc.Invoke(ctx, DocumentInfoBuilderService_SetContentType_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *erIdServiceClient) GetLocalId(ctx context.Context, in *GetLocalIdRequest, opts ...grpc.CallOption) (*GetLocalIdResponse, error) {
+func (c *documentInfoBuilderServiceClient) SetPageCount(ctx context.Context, in *SetPageCountRequest, opts ...grpc.CallOption) (*SetPageCountResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetLocalIdResponse)
-	err := c.cc.Invoke(ctx, ErIdService_GetLocalId_FullMethodName, in, out, cOpts...)
+	out := new(SetPageCountResponse)
+	err := c.cc.Invoke(ctx, DocumentInfoBuilderService_SetPageCount_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *erIdServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(HashCodeResponse)
-	err := c.cc.Invoke(ctx, ErIdService_HashCode_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *erIdServiceClient) ToString(ctx context.Context, in *ErIdToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ToStringResponse)
-	err := c.cc.Invoke(ctx, ErIdService_ToString_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *erIdServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, ErIdService_WriteToParcel_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// ErIdServiceServer is the server API for ErIdService service.
-// All implementations must embed UnimplementedErIdServiceServer
+// DocumentInfoBuilderServiceServer is the server API for DocumentInfoBuilderService service.
+// All implementations must embed UnimplementedDocumentInfoBuilderServiceServer
 // for forward compatibility.
-type ErIdServiceServer interface {
-	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
-	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
-	GetLocalId(context.Context, *GetLocalIdRequest) (*GetLocalIdResponse, error)
-	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
-	ToString(context.Context, *ErIdToStringRequest) (*ToStringResponse, error)
-	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
-	mustEmbedUnimplementedErIdServiceServer()
+type DocumentInfoBuilderServiceServer interface {
+	Build(context.Context, *BuildRequest) (*BuildResponse, error)
+	SetContentType(context.Context, *SetContentTypeRequest) (*SetContentTypeResponse, error)
+	SetPageCount(context.Context, *SetPageCountRequest) (*SetPageCountResponse, error)
+	mustEmbedUnimplementedDocumentInfoBuilderServiceServer()
 }
 
-// UnimplementedErIdServiceServer must be embedded to have
+// UnimplementedDocumentInfoBuilderServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedErIdServiceServer struct{}
+type UnimplementedDocumentInfoBuilderServiceServer struct{}
 
-func (UnimplementedErIdServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+func (UnimplementedDocumentInfoBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
 }
-func (UnimplementedErIdServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
+func (UnimplementedDocumentInfoBuilderServiceServer) SetContentType(context.Context, *SetContentTypeRequest) (*SetContentTypeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetContentType not implemented")
 }
-func (UnimplementedErIdServiceServer) GetLocalId(context.Context, *GetLocalIdRequest) (*GetLocalIdResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetLocalId not implemented")
+func (UnimplementedDocumentInfoBuilderServiceServer) SetPageCount(context.Context, *SetPageCountRequest) (*SetPageCountResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetPageCount not implemented")
 }
-func (UnimplementedErIdServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
+func (UnimplementedDocumentInfoBuilderServiceServer) mustEmbedUnimplementedDocumentInfoBuilderServiceServer() {
 }
-func (UnimplementedErIdServiceServer) ToString(context.Context, *ErIdToStringRequest) (*ToStringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
-}
-func (UnimplementedErIdServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
-}
-func (UnimplementedErIdServiceServer) mustEmbedUnimplementedErIdServiceServer() {}
-func (UnimplementedErIdServiceServer) testEmbeddedByValue()                     {}
+func (UnimplementedDocumentInfoBuilderServiceServer) testEmbeddedByValue() {}
 
-// UnsafeErIdServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to ErIdServiceServer will
+// UnsafeDocumentInfoBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to DocumentInfoBuilderServiceServer will
 // result in compilation errors.
-type UnsafeErIdServiceServer interface {
-	mustEmbedUnimplementedErIdServiceServer()
+type UnsafeDocumentInfoBuilderServiceServer interface {
+	mustEmbedUnimplementedDocumentInfoBuilderServiceServer()
 }
 
-func RegisterErIdServiceServer(s grpc.ServiceRegistrar, srv ErIdServiceServer) {
-	// If the following call panics, it indicates UnimplementedErIdServiceServer was
+func RegisterDocumentInfoBuilderServiceServer(s grpc.ServiceRegistrar, srv DocumentInfoBuilderServiceServer) {
+	// If the following call panics, it indicates UnimplementedDocumentInfoBuilderServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&ErIdService_ServiceDesc, srv)
+	s.RegisterService(&DocumentInfoBuilderService_ServiceDesc, srv)
 }
 
-func _ErIdService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DescribeContentsRequest)
+func _DocumentInfoBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BuildRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ErIdServiceServer).DescribeContents(ctx, in)
+		return srv.(DocumentInfoBuilderServiceServer).Build(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: ErIdService_DescribeContents_FullMethodName,
+		FullMethod: DocumentInfoBuilderService_Build_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ErIdServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+		return srv.(DocumentInfoBuilderServiceServer).Build(ctx, req.(*BuildRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ErIdService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(EqualsRequest)
+func _DocumentInfoBuilderService_SetContentType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetContentTypeRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ErIdServiceServer).Equals(ctx, in)
+		return srv.(DocumentInfoBuilderServiceServer).SetContentType(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: ErIdService_Equals_FullMethodName,
+		FullMethod: DocumentInfoBuilderService_SetContentType_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ErIdServiceServer).Equals(ctx, req.(*EqualsRequest))
+		return srv.(DocumentInfoBuilderServiceServer).SetContentType(ctx, req.(*SetContentTypeRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ErIdService_GetLocalId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetLocalIdRequest)
+func _DocumentInfoBuilderService_SetPageCount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetPageCountRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ErIdServiceServer).GetLocalId(ctx, in)
+		return srv.(DocumentInfoBuilderServiceServer).SetPageCount(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: ErIdService_GetLocalId_FullMethodName,
+		FullMethod: DocumentInfoBuilderService_SetPageCount_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ErIdServiceServer).GetLocalId(ctx, req.(*GetLocalIdRequest))
+		return srv.(DocumentInfoBuilderServiceServer).SetPageCount(ctx, req.(*SetPageCountRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ErIdService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(HashCodeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ErIdServiceServer).HashCode(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ErIdService_HashCode_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ErIdServiceServer).HashCode(ctx, req.(*HashCodeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ErIdService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ErIdToStringRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ErIdServiceServer).ToString(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ErIdService_ToString_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ErIdServiceServer).ToString(ctx, req.(*ErIdToStringRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ErIdService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WriteToParcelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ErIdServiceServer).WriteToParcel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ErIdService_WriteToParcel_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ErIdServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// ErIdService_ServiceDesc is the grpc.ServiceDesc for ErIdService service.
+// DocumentInfoBuilderService_ServiceDesc is the grpc.ServiceDesc for DocumentInfoBuilderService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var ErIdService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "print.ErIdService",
-	HandlerType: (*ErIdServiceServer)(nil),
+var DocumentInfoBuilderService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "print.DocumentInfoBuilderService",
+	HandlerType: (*DocumentInfoBuilderServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Build",
+			Handler:    _DocumentInfoBuilderService_Build_Handler,
+		},
+		{
+			MethodName: "SetContentType",
+			Handler:    _DocumentInfoBuilderService_SetContentType_Handler,
+		},
+		{
+			MethodName: "SetPageCount",
+			Handler:    _DocumentInfoBuilderService_SetPageCount_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/print/print.proto",
+}
+
+const (
+	ErCapabilitiesInfoService_DescribeContents_FullMethodName = "/print.ErCapabilitiesInfoService/DescribeContents"
+	ErCapabilitiesInfoService_Equals_FullMethodName           = "/print.ErCapabilitiesInfoService/Equals"
+	ErCapabilitiesInfoService_GetColorModes_FullMethodName    = "/print.ErCapabilitiesInfoService/GetColorModes"
+	ErCapabilitiesInfoService_GetDefaults_FullMethodName      = "/print.ErCapabilitiesInfoService/GetDefaults"
+	ErCapabilitiesInfoService_GetDuplexModes_FullMethodName   = "/print.ErCapabilitiesInfoService/GetDuplexModes"
+	ErCapabilitiesInfoService_GetMediaSizes_FullMethodName    = "/print.ErCapabilitiesInfoService/GetMediaSizes"
+	ErCapabilitiesInfoService_GetMinMargins_FullMethodName    = "/print.ErCapabilitiesInfoService/GetMinMargins"
+	ErCapabilitiesInfoService_GetResolutions_FullMethodName   = "/print.ErCapabilitiesInfoService/GetResolutions"
+	ErCapabilitiesInfoService_HashCode_FullMethodName         = "/print.ErCapabilitiesInfoService/HashCode"
+	ErCapabilitiesInfoService_ToString_FullMethodName         = "/print.ErCapabilitiesInfoService/ToString"
+	ErCapabilitiesInfoService_WriteToParcel_FullMethodName    = "/print.ErCapabilitiesInfoService/WriteToParcel"
+)
+
+// ErCapabilitiesInfoServiceClient is the client API for ErCapabilitiesInfoService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ErCapabilitiesInfoServiceClient interface {
+	DescribeContents(ctx context.Context, in *ErCapabilitiesInfoDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	Equals(ctx context.Context, in *ErCapabilitiesInfoEqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	GetColorModes(ctx context.Context, in *GetColorModesRequest, opts ...grpc.CallOption) (*GetColorModesResponse, error)
+	GetDefaults(ctx context.Context, in *GetDefaultsRequest, opts ...grpc.CallOption) (*GetDefaultsResponse, error)
+	GetDuplexModes(ctx context.Context, in *GetDuplexModesRequest, opts ...grpc.CallOption) (*GetDuplexModesResponse, error)
+	GetMediaSizes(ctx context.Context, in *GetMediaSizesRequest, opts ...grpc.CallOption) (*GetMediaSizesResponse, error)
+	GetMinMargins(ctx context.Context, in *GetMinMarginsRequest, opts ...grpc.CallOption) (*GetMinMarginsResponse, error)
+	GetResolutions(ctx context.Context, in *GetResolutionsRequest, opts ...grpc.CallOption) (*GetResolutionsResponse, error)
+	HashCode(ctx context.Context, in *ErCapabilitiesInfoHashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+	ToString(ctx context.Context, in *ErCapabilitiesInfoToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+	WriteToParcel(ctx context.Context, in *ErCapabilitiesInfoWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type erCapabilitiesInfoServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewErCapabilitiesInfoServiceClient(cc grpc.ClientConnInterface) ErCapabilitiesInfoServiceClient {
+	return &erCapabilitiesInfoServiceClient{cc}
+}
+
+func (c *erCapabilitiesInfoServiceClient) DescribeContents(ctx context.Context, in *ErCapabilitiesInfoDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, ErCapabilitiesInfoService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *erCapabilitiesInfoServiceClient) Equals(ctx context.Context, in *ErCapabilitiesInfoEqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(EqualsResponse)
+	err := c.cc.Invoke(ctx, ErCapabilitiesInfoService_Equals_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *erCapabilitiesInfoServiceClient) GetColorModes(ctx context.Context, in *GetColorModesRequest, opts ...grpc.CallOption) (*GetColorModesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetColorModesResponse)
+	err := c.cc.Invoke(ctx, ErCapabilitiesInfoService_GetColorModes_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *erCapabilitiesInfoServiceClient) GetDefaults(ctx context.Context, in *GetDefaultsRequest, opts ...grpc.CallOption) (*GetDefaultsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetDefaultsResponse)
+	err := c.cc.Invoke(ctx, ErCapabilitiesInfoService_GetDefaults_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *erCapabilitiesInfoServiceClient) GetDuplexModes(ctx context.Context, in *GetDuplexModesRequest, opts ...grpc.CallOption) (*GetDuplexModesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetDuplexModesResponse)
+	err := c.cc.Invoke(ctx, ErCapabilitiesInfoService_GetDuplexModes_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *erCapabilitiesInfoServiceClient) GetMediaSizes(ctx context.Context, in *GetMediaSizesRequest, opts ...grpc.CallOption) (*GetMediaSizesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetMediaSizesResponse)
+	err := c.cc.Invoke(ctx, ErCapabilitiesInfoService_GetMediaSizes_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *erCapabilitiesInfoServiceClient) GetMinMargins(ctx context.Context, in *GetMinMarginsRequest, opts ...grpc.CallOption) (*GetMinMarginsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetMinMarginsResponse)
+	err := c.cc.Invoke(ctx, ErCapabilitiesInfoService_GetMinMargins_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *erCapabilitiesInfoServiceClient) GetResolutions(ctx context.Context, in *GetResolutionsRequest, opts ...grpc.CallOption) (*GetResolutionsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetResolutionsResponse)
+	err := c.cc.Invoke(ctx, ErCapabilitiesInfoService_GetResolutions_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *erCapabilitiesInfoServiceClient) HashCode(ctx context.Context, in *ErCapabilitiesInfoHashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HashCodeResponse)
+	err := c.cc.Invoke(ctx, ErCapabilitiesInfoService_HashCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *erCapabilitiesInfoServiceClient) ToString(ctx context.Context, in *ErCapabilitiesInfoToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, ErCapabilitiesInfoService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *erCapabilitiesInfoServiceClient) WriteToParcel(ctx context.Context, in *ErCapabilitiesInfoWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, ErCapabilitiesInfoService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ErCapabilitiesInfoServiceServer is the server API for ErCapabilitiesInfoService service.
+// All implementations must embed UnimplementedErCapabilitiesInfoServiceServer
+// for forward compatibility.
+type ErCapabilitiesInfoServiceServer interface {
+	DescribeContents(context.Context, *ErCapabilitiesInfoDescribeContentsRequest) (*DescribeContentsResponse, error)
+	Equals(context.Context, *ErCapabilitiesInfoEqualsRequest) (*EqualsResponse, error)
+	GetColorModes(context.Context, *GetColorModesRequest) (*GetColorModesResponse, error)
+	GetDefaults(context.Context, *GetDefaultsRequest) (*GetDefaultsResponse, error)
+	GetDuplexModes(context.Context, *GetDuplexModesRequest) (*GetDuplexModesResponse, error)
+	GetMediaSizes(context.Context, *GetMediaSizesRequest) (*GetMediaSizesResponse, error)
+	GetMinMargins(context.Context, *GetMinMarginsRequest) (*GetMinMarginsResponse, error)
+	GetResolutions(context.Context, *GetResolutionsRequest) (*GetResolutionsResponse, error)
+	HashCode(context.Context, *ErCapabilitiesInfoHashCodeRequest) (*HashCodeResponse, error)
+	ToString(context.Context, *ErCapabilitiesInfoToStringRequest) (*ToStringResponse, error)
+	WriteToParcel(context.Context, *ErCapabilitiesInfoWriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedErCapabilitiesInfoServiceServer()
+}
+
+// UnimplementedErCapabilitiesInfoServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedErCapabilitiesInfoServiceServer struct{}
+
+func (UnimplementedErCapabilitiesInfoServiceServer) DescribeContents(context.Context, *ErCapabilitiesInfoDescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedErCapabilitiesInfoServiceServer) Equals(context.Context, *ErCapabilitiesInfoEqualsRequest) (*EqualsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
+}
+func (UnimplementedErCapabilitiesInfoServiceServer) GetColorModes(context.Context, *GetColorModesRequest) (*GetColorModesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetColorModes not implemented")
+}
+func (UnimplementedErCapabilitiesInfoServiceServer) GetDefaults(context.Context, *GetDefaultsRequest) (*GetDefaultsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetDefaults not implemented")
+}
+func (UnimplementedErCapabilitiesInfoServiceServer) GetDuplexModes(context.Context, *GetDuplexModesRequest) (*GetDuplexModesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetDuplexModes not implemented")
+}
+func (UnimplementedErCapabilitiesInfoServiceServer) GetMediaSizes(context.Context, *GetMediaSizesRequest) (*GetMediaSizesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetMediaSizes not implemented")
+}
+func (UnimplementedErCapabilitiesInfoServiceServer) GetMinMargins(context.Context, *GetMinMarginsRequest) (*GetMinMarginsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetMinMargins not implemented")
+}
+func (UnimplementedErCapabilitiesInfoServiceServer) GetResolutions(context.Context, *GetResolutionsRequest) (*GetResolutionsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetResolutions not implemented")
+}
+func (UnimplementedErCapabilitiesInfoServiceServer) HashCode(context.Context, *ErCapabilitiesInfoHashCodeRequest) (*HashCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
+}
+func (UnimplementedErCapabilitiesInfoServiceServer) ToString(context.Context, *ErCapabilitiesInfoToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedErCapabilitiesInfoServiceServer) WriteToParcel(context.Context, *ErCapabilitiesInfoWriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedErCapabilitiesInfoServiceServer) mustEmbedUnimplementedErCapabilitiesInfoServiceServer() {
+}
+func (UnimplementedErCapabilitiesInfoServiceServer) testEmbeddedByValue() {}
+
+// UnsafeErCapabilitiesInfoServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ErCapabilitiesInfoServiceServer will
+// result in compilation errors.
+type UnsafeErCapabilitiesInfoServiceServer interface {
+	mustEmbedUnimplementedErCapabilitiesInfoServiceServer()
+}
+
+func RegisterErCapabilitiesInfoServiceServer(s grpc.ServiceRegistrar, srv ErCapabilitiesInfoServiceServer) {
+	// If the following call panics, it indicates UnimplementedErCapabilitiesInfoServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&ErCapabilitiesInfoService_ServiceDesc, srv)
+}
+
+func _ErCapabilitiesInfoService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ErCapabilitiesInfoDescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ErCapabilitiesInfoServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ErCapabilitiesInfoService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ErCapabilitiesInfoServiceServer).DescribeContents(ctx, req.(*ErCapabilitiesInfoDescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ErCapabilitiesInfoService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ErCapabilitiesInfoEqualsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ErCapabilitiesInfoServiceServer).Equals(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ErCapabilitiesInfoService_Equals_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ErCapabilitiesInfoServiceServer).Equals(ctx, req.(*ErCapabilitiesInfoEqualsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ErCapabilitiesInfoService_GetColorModes_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetColorModesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ErCapabilitiesInfoServiceServer).GetColorModes(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ErCapabilitiesInfoService_GetColorModes_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ErCapabilitiesInfoServiceServer).GetColorModes(ctx, req.(*GetColorModesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ErCapabilitiesInfoService_GetDefaults_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetDefaultsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ErCapabilitiesInfoServiceServer).GetDefaults(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ErCapabilitiesInfoService_GetDefaults_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ErCapabilitiesInfoServiceServer).GetDefaults(ctx, req.(*GetDefaultsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ErCapabilitiesInfoService_GetDuplexModes_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetDuplexModesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ErCapabilitiesInfoServiceServer).GetDuplexModes(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ErCapabilitiesInfoService_GetDuplexModes_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ErCapabilitiesInfoServiceServer).GetDuplexModes(ctx, req.(*GetDuplexModesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ErCapabilitiesInfoService_GetMediaSizes_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetMediaSizesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ErCapabilitiesInfoServiceServer).GetMediaSizes(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ErCapabilitiesInfoService_GetMediaSizes_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ErCapabilitiesInfoServiceServer).GetMediaSizes(ctx, req.(*GetMediaSizesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ErCapabilitiesInfoService_GetMinMargins_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetMinMarginsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ErCapabilitiesInfoServiceServer).GetMinMargins(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ErCapabilitiesInfoService_GetMinMargins_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ErCapabilitiesInfoServiceServer).GetMinMargins(ctx, req.(*GetMinMarginsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ErCapabilitiesInfoService_GetResolutions_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetResolutionsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ErCapabilitiesInfoServiceServer).GetResolutions(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ErCapabilitiesInfoService_GetResolutions_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ErCapabilitiesInfoServiceServer).GetResolutions(ctx, req.(*GetResolutionsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ErCapabilitiesInfoService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ErCapabilitiesInfoHashCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ErCapabilitiesInfoServiceServer).HashCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ErCapabilitiesInfoService_HashCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ErCapabilitiesInfoServiceServer).HashCode(ctx, req.(*ErCapabilitiesInfoHashCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ErCapabilitiesInfoService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ErCapabilitiesInfoToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ErCapabilitiesInfoServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ErCapabilitiesInfoService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ErCapabilitiesInfoServiceServer).ToString(ctx, req.(*ErCapabilitiesInfoToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ErCapabilitiesInfoService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ErCapabilitiesInfoWriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ErCapabilitiesInfoServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ErCapabilitiesInfoService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ErCapabilitiesInfoServiceServer).WriteToParcel(ctx, req.(*ErCapabilitiesInfoWriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ErCapabilitiesInfoService_ServiceDesc is the grpc.ServiceDesc for ErCapabilitiesInfoService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ErCapabilitiesInfoService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "print.ErCapabilitiesInfoService",
+	HandlerType: (*ErCapabilitiesInfoServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
 			MethodName: "DescribeContents",
-			Handler:    _ErIdService_DescribeContents_Handler,
+			Handler:    _ErCapabilitiesInfoService_DescribeContents_Handler,
 		},
 		{
 			MethodName: "Equals",
-			Handler:    _ErIdService_Equals_Handler,
+			Handler:    _ErCapabilitiesInfoService_Equals_Handler,
 		},
 		{
-			MethodName: "GetLocalId",
-			Handler:    _ErIdService_GetLocalId_Handler,
+			MethodName: "GetColorModes",
+			Handler:    _ErCapabilitiesInfoService_GetColorModes_Handler,
+		},
+		{
+			MethodName: "GetDefaults",
+			Handler:    _ErCapabilitiesInfoService_GetDefaults_Handler,
+		},
+		{
+			MethodName: "GetDuplexModes",
+			Handler:    _ErCapabilitiesInfoService_GetDuplexModes_Handler,
+		},
+		{
+			MethodName: "GetMediaSizes",
+			Handler:    _ErCapabilitiesInfoService_GetMediaSizes_Handler,
+		},
+		{
+			MethodName: "GetMinMargins",
+			Handler:    _ErCapabilitiesInfoService_GetMinMargins_Handler,
+		},
+		{
+			MethodName: "GetResolutions",
+			Handler:    _ErCapabilitiesInfoService_GetResolutions_Handler,
 		},
 		{
 			MethodName: "HashCode",
-			Handler:    _ErIdService_HashCode_Handler,
+			Handler:    _ErCapabilitiesInfoService_HashCode_Handler,
 		},
 		{
 			MethodName: "ToString",
-			Handler:    _ErIdService_ToString_Handler,
+			Handler:    _ErCapabilitiesInfoService_ToString_Handler,
 		},
 		{
 			MethodName: "WriteToParcel",
-			Handler:    _ErIdService_WriteToParcel_Handler,
+			Handler:    _ErCapabilitiesInfoService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/print/print.proto",
+}
+
+const (
+	ErCapabilitiesInfoBuilderService_AddMediaSize_FullMethodName   = "/print.ErCapabilitiesInfoBuilderService/AddMediaSize"
+	ErCapabilitiesInfoBuilderService_AddResolution_FullMethodName  = "/print.ErCapabilitiesInfoBuilderService/AddResolution"
+	ErCapabilitiesInfoBuilderService_Build_FullMethodName          = "/print.ErCapabilitiesInfoBuilderService/Build"
+	ErCapabilitiesInfoBuilderService_SetColorModes_FullMethodName  = "/print.ErCapabilitiesInfoBuilderService/SetColorModes"
+	ErCapabilitiesInfoBuilderService_SetDuplexModes_FullMethodName = "/print.ErCapabilitiesInfoBuilderService/SetDuplexModes"
+	ErCapabilitiesInfoBuilderService_SetMinMargins_FullMethodName  = "/print.ErCapabilitiesInfoBuilderService/SetMinMargins"
+)
+
+// ErCapabilitiesInfoBuilderServiceClient is the client API for ErCapabilitiesInfoBuilderService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ErCapabilitiesInfoBuilderServiceClient interface {
+	AddMediaSize(ctx context.Context, in *AddMediaSizeRequest, opts ...grpc.CallOption) (*AddMediaSizeResponse, error)
+	AddResolution(ctx context.Context, in *AddResolutionRequest, opts ...grpc.CallOption) (*AddResolutionResponse, error)
+	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
+	SetColorModes(ctx context.Context, in *SetColorModesRequest, opts ...grpc.CallOption) (*SetColorModesResponse, error)
+	SetDuplexModes(ctx context.Context, in *SetDuplexModesRequest, opts ...grpc.CallOption) (*SetDuplexModesResponse, error)
+	SetMinMargins(ctx context.Context, in *SetMinMarginsRequest, opts ...grpc.CallOption) (*SetMinMarginsResponse, error)
+}
+
+type erCapabilitiesInfoBuilderServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewErCapabilitiesInfoBuilderServiceClient(cc grpc.ClientConnInterface) ErCapabilitiesInfoBuilderServiceClient {
+	return &erCapabilitiesInfoBuilderServiceClient{cc}
+}
+
+func (c *erCapabilitiesInfoBuilderServiceClient) AddMediaSize(ctx context.Context, in *AddMediaSizeRequest, opts ...grpc.CallOption) (*AddMediaSizeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(AddMediaSizeResponse)
+	err := c.cc.Invoke(ctx, ErCapabilitiesInfoBuilderService_AddMediaSize_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *erCapabilitiesInfoBuilderServiceClient) AddResolution(ctx context.Context, in *AddResolutionRequest, opts ...grpc.CallOption) (*AddResolutionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(AddResolutionResponse)
+	err := c.cc.Invoke(ctx, ErCapabilitiesInfoBuilderService_AddResolution_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *erCapabilitiesInfoBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(BuildResponse)
+	err := c.cc.Invoke(ctx, ErCapabilitiesInfoBuilderService_Build_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *erCapabilitiesInfoBuilderServiceClient) SetColorModes(ctx context.Context, in *SetColorModesRequest, opts ...grpc.CallOption) (*SetColorModesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetColorModesResponse)
+	err := c.cc.Invoke(ctx, ErCapabilitiesInfoBuilderService_SetColorModes_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *erCapabilitiesInfoBuilderServiceClient) SetDuplexModes(ctx context.Context, in *SetDuplexModesRequest, opts ...grpc.CallOption) (*SetDuplexModesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetDuplexModesResponse)
+	err := c.cc.Invoke(ctx, ErCapabilitiesInfoBuilderService_SetDuplexModes_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *erCapabilitiesInfoBuilderServiceClient) SetMinMargins(ctx context.Context, in *SetMinMarginsRequest, opts ...grpc.CallOption) (*SetMinMarginsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetMinMarginsResponse)
+	err := c.cc.Invoke(ctx, ErCapabilitiesInfoBuilderService_SetMinMargins_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ErCapabilitiesInfoBuilderServiceServer is the server API for ErCapabilitiesInfoBuilderService service.
+// All implementations must embed UnimplementedErCapabilitiesInfoBuilderServiceServer
+// for forward compatibility.
+type ErCapabilitiesInfoBuilderServiceServer interface {
+	AddMediaSize(context.Context, *AddMediaSizeRequest) (*AddMediaSizeResponse, error)
+	AddResolution(context.Context, *AddResolutionRequest) (*AddResolutionResponse, error)
+	Build(context.Context, *BuildRequest) (*BuildResponse, error)
+	SetColorModes(context.Context, *SetColorModesRequest) (*SetColorModesResponse, error)
+	SetDuplexModes(context.Context, *SetDuplexModesRequest) (*SetDuplexModesResponse, error)
+	SetMinMargins(context.Context, *SetMinMarginsRequest) (*SetMinMarginsResponse, error)
+	mustEmbedUnimplementedErCapabilitiesInfoBuilderServiceServer()
+}
+
+// UnimplementedErCapabilitiesInfoBuilderServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedErCapabilitiesInfoBuilderServiceServer struct{}
+
+func (UnimplementedErCapabilitiesInfoBuilderServiceServer) AddMediaSize(context.Context, *AddMediaSizeRequest) (*AddMediaSizeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method AddMediaSize not implemented")
+}
+func (UnimplementedErCapabilitiesInfoBuilderServiceServer) AddResolution(context.Context, *AddResolutionRequest) (*AddResolutionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method AddResolution not implemented")
+}
+func (UnimplementedErCapabilitiesInfoBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
+}
+func (UnimplementedErCapabilitiesInfoBuilderServiceServer) SetColorModes(context.Context, *SetColorModesRequest) (*SetColorModesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetColorModes not implemented")
+}
+func (UnimplementedErCapabilitiesInfoBuilderServiceServer) SetDuplexModes(context.Context, *SetDuplexModesRequest) (*SetDuplexModesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetDuplexModes not implemented")
+}
+func (UnimplementedErCapabilitiesInfoBuilderServiceServer) SetMinMargins(context.Context, *SetMinMarginsRequest) (*SetMinMarginsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetMinMargins not implemented")
+}
+func (UnimplementedErCapabilitiesInfoBuilderServiceServer) mustEmbedUnimplementedErCapabilitiesInfoBuilderServiceServer() {
+}
+func (UnimplementedErCapabilitiesInfoBuilderServiceServer) testEmbeddedByValue() {}
+
+// UnsafeErCapabilitiesInfoBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ErCapabilitiesInfoBuilderServiceServer will
+// result in compilation errors.
+type UnsafeErCapabilitiesInfoBuilderServiceServer interface {
+	mustEmbedUnimplementedErCapabilitiesInfoBuilderServiceServer()
+}
+
+func RegisterErCapabilitiesInfoBuilderServiceServer(s grpc.ServiceRegistrar, srv ErCapabilitiesInfoBuilderServiceServer) {
+	// If the following call panics, it indicates UnimplementedErCapabilitiesInfoBuilderServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&ErCapabilitiesInfoBuilderService_ServiceDesc, srv)
+}
+
+func _ErCapabilitiesInfoBuilderService_AddMediaSize_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AddMediaSizeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ErCapabilitiesInfoBuilderServiceServer).AddMediaSize(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ErCapabilitiesInfoBuilderService_AddMediaSize_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ErCapabilitiesInfoBuilderServiceServer).AddMediaSize(ctx, req.(*AddMediaSizeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ErCapabilitiesInfoBuilderService_AddResolution_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AddResolutionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ErCapabilitiesInfoBuilderServiceServer).AddResolution(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ErCapabilitiesInfoBuilderService_AddResolution_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ErCapabilitiesInfoBuilderServiceServer).AddResolution(ctx, req.(*AddResolutionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ErCapabilitiesInfoBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BuildRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ErCapabilitiesInfoBuilderServiceServer).Build(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ErCapabilitiesInfoBuilderService_Build_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ErCapabilitiesInfoBuilderServiceServer).Build(ctx, req.(*BuildRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ErCapabilitiesInfoBuilderService_SetColorModes_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetColorModesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ErCapabilitiesInfoBuilderServiceServer).SetColorModes(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ErCapabilitiesInfoBuilderService_SetColorModes_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ErCapabilitiesInfoBuilderServiceServer).SetColorModes(ctx, req.(*SetColorModesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ErCapabilitiesInfoBuilderService_SetDuplexModes_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetDuplexModesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ErCapabilitiesInfoBuilderServiceServer).SetDuplexModes(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ErCapabilitiesInfoBuilderService_SetDuplexModes_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ErCapabilitiesInfoBuilderServiceServer).SetDuplexModes(ctx, req.(*SetDuplexModesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ErCapabilitiesInfoBuilderService_SetMinMargins_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetMinMarginsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ErCapabilitiesInfoBuilderServiceServer).SetMinMargins(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ErCapabilitiesInfoBuilderService_SetMinMargins_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ErCapabilitiesInfoBuilderServiceServer).SetMinMargins(ctx, req.(*SetMinMarginsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ErCapabilitiesInfoBuilderService_ServiceDesc is the grpc.ServiceDesc for ErCapabilitiesInfoBuilderService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ErCapabilitiesInfoBuilderService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "print.ErCapabilitiesInfoBuilderService",
+	HandlerType: (*ErCapabilitiesInfoBuilderServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "AddMediaSize",
+			Handler:    _ErCapabilitiesInfoBuilderService_AddMediaSize_Handler,
+		},
+		{
+			MethodName: "AddResolution",
+			Handler:    _ErCapabilitiesInfoBuilderService_AddResolution_Handler,
+		},
+		{
+			MethodName: "Build",
+			Handler:    _ErCapabilitiesInfoBuilderService_Build_Handler,
+		},
+		{
+			MethodName: "SetColorModes",
+			Handler:    _ErCapabilitiesInfoBuilderService_SetColorModes_Handler,
+		},
+		{
+			MethodName: "SetDuplexModes",
+			Handler:    _ErCapabilitiesInfoBuilderService_SetDuplexModes_Handler,
+		},
+		{
+			MethodName: "SetMinMargins",
+			Handler:    _ErCapabilitiesInfoBuilderService_SetMinMargins_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/print/print.proto",
+}
+
+const (
+	AttributesService_DescribeContents_FullMethodName = "/print.AttributesService/DescribeContents"
+	AttributesService_Equals_FullMethodName           = "/print.AttributesService/Equals"
+	AttributesService_GetColorMode_FullMethodName     = "/print.AttributesService/GetColorMode"
+	AttributesService_GetDuplexMode_FullMethodName    = "/print.AttributesService/GetDuplexMode"
+	AttributesService_GetMediaSize_FullMethodName     = "/print.AttributesService/GetMediaSize"
+	AttributesService_GetMinMargins_FullMethodName    = "/print.AttributesService/GetMinMargins"
+	AttributesService_GetResolution_FullMethodName    = "/print.AttributesService/GetResolution"
+	AttributesService_HashCode_FullMethodName         = "/print.AttributesService/HashCode"
+	AttributesService_ToString_FullMethodName         = "/print.AttributesService/ToString"
+	AttributesService_WriteToParcel_FullMethodName    = "/print.AttributesService/WriteToParcel"
+)
+
+// AttributesServiceClient is the client API for AttributesService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type AttributesServiceClient interface {
+	DescribeContents(ctx context.Context, in *AttributesDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	Equals(ctx context.Context, in *AttributesEqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	GetColorMode(ctx context.Context, in *GetColorModeRequest, opts ...grpc.CallOption) (*GetColorModeResponse, error)
+	GetDuplexMode(ctx context.Context, in *GetDuplexModeRequest, opts ...grpc.CallOption) (*GetDuplexModeResponse, error)
+	GetMediaSize(ctx context.Context, in *GetMediaSizeRequest, opts ...grpc.CallOption) (*GetMediaSizeResponse, error)
+	GetMinMargins(ctx context.Context, in *GetMinMarginsRequest, opts ...grpc.CallOption) (*GetMinMarginsResponse, error)
+	GetResolution(ctx context.Context, in *GetResolutionRequest, opts ...grpc.CallOption) (*GetResolutionResponse, error)
+	HashCode(ctx context.Context, in *AttributesHashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+	ToString(ctx context.Context, in *AttributesToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+	WriteToParcel(ctx context.Context, in *AttributesWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type attributesServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewAttributesServiceClient(cc grpc.ClientConnInterface) AttributesServiceClient {
+	return &attributesServiceClient{cc}
+}
+
+func (c *attributesServiceClient) DescribeContents(ctx context.Context, in *AttributesDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, AttributesService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *attributesServiceClient) Equals(ctx context.Context, in *AttributesEqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(EqualsResponse)
+	err := c.cc.Invoke(ctx, AttributesService_Equals_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *attributesServiceClient) GetColorMode(ctx context.Context, in *GetColorModeRequest, opts ...grpc.CallOption) (*GetColorModeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetColorModeResponse)
+	err := c.cc.Invoke(ctx, AttributesService_GetColorMode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *attributesServiceClient) GetDuplexMode(ctx context.Context, in *GetDuplexModeRequest, opts ...grpc.CallOption) (*GetDuplexModeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetDuplexModeResponse)
+	err := c.cc.Invoke(ctx, AttributesService_GetDuplexMode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *attributesServiceClient) GetMediaSize(ctx context.Context, in *GetMediaSizeRequest, opts ...grpc.CallOption) (*GetMediaSizeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetMediaSizeResponse)
+	err := c.cc.Invoke(ctx, AttributesService_GetMediaSize_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *attributesServiceClient) GetMinMargins(ctx context.Context, in *GetMinMarginsRequest, opts ...grpc.CallOption) (*GetMinMarginsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetMinMarginsResponse)
+	err := c.cc.Invoke(ctx, AttributesService_GetMinMargins_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *attributesServiceClient) GetResolution(ctx context.Context, in *GetResolutionRequest, opts ...grpc.CallOption) (*GetResolutionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetResolutionResponse)
+	err := c.cc.Invoke(ctx, AttributesService_GetResolution_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *attributesServiceClient) HashCode(ctx context.Context, in *AttributesHashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HashCodeResponse)
+	err := c.cc.Invoke(ctx, AttributesService_HashCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *attributesServiceClient) ToString(ctx context.Context, in *AttributesToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, AttributesService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *attributesServiceClient) WriteToParcel(ctx context.Context, in *AttributesWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, AttributesService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// AttributesServiceServer is the server API for AttributesService service.
+// All implementations must embed UnimplementedAttributesServiceServer
+// for forward compatibility.
+type AttributesServiceServer interface {
+	DescribeContents(context.Context, *AttributesDescribeContentsRequest) (*DescribeContentsResponse, error)
+	Equals(context.Context, *AttributesEqualsRequest) (*EqualsResponse, error)
+	GetColorMode(context.Context, *GetColorModeRequest) (*GetColorModeResponse, error)
+	GetDuplexMode(context.Context, *GetDuplexModeRequest) (*GetDuplexModeResponse, error)
+	GetMediaSize(context.Context, *GetMediaSizeRequest) (*GetMediaSizeResponse, error)
+	GetMinMargins(context.Context, *GetMinMarginsRequest) (*GetMinMarginsResponse, error)
+	GetResolution(context.Context, *GetResolutionRequest) (*GetResolutionResponse, error)
+	HashCode(context.Context, *AttributesHashCodeRequest) (*HashCodeResponse, error)
+	ToString(context.Context, *AttributesToStringRequest) (*ToStringResponse, error)
+	WriteToParcel(context.Context, *AttributesWriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedAttributesServiceServer()
+}
+
+// UnimplementedAttributesServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedAttributesServiceServer struct{}
+
+func (UnimplementedAttributesServiceServer) DescribeContents(context.Context, *AttributesDescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedAttributesServiceServer) Equals(context.Context, *AttributesEqualsRequest) (*EqualsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
+}
+func (UnimplementedAttributesServiceServer) GetColorMode(context.Context, *GetColorModeRequest) (*GetColorModeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetColorMode not implemented")
+}
+func (UnimplementedAttributesServiceServer) GetDuplexMode(context.Context, *GetDuplexModeRequest) (*GetDuplexModeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetDuplexMode not implemented")
+}
+func (UnimplementedAttributesServiceServer) GetMediaSize(context.Context, *GetMediaSizeRequest) (*GetMediaSizeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetMediaSize not implemented")
+}
+func (UnimplementedAttributesServiceServer) GetMinMargins(context.Context, *GetMinMarginsRequest) (*GetMinMarginsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetMinMargins not implemented")
+}
+func (UnimplementedAttributesServiceServer) GetResolution(context.Context, *GetResolutionRequest) (*GetResolutionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetResolution not implemented")
+}
+func (UnimplementedAttributesServiceServer) HashCode(context.Context, *AttributesHashCodeRequest) (*HashCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
+}
+func (UnimplementedAttributesServiceServer) ToString(context.Context, *AttributesToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedAttributesServiceServer) WriteToParcel(context.Context, *AttributesWriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedAttributesServiceServer) mustEmbedUnimplementedAttributesServiceServer() {}
+func (UnimplementedAttributesServiceServer) testEmbeddedByValue()                           {}
+
+// UnsafeAttributesServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to AttributesServiceServer will
+// result in compilation errors.
+type UnsafeAttributesServiceServer interface {
+	mustEmbedUnimplementedAttributesServiceServer()
+}
+
+func RegisterAttributesServiceServer(s grpc.ServiceRegistrar, srv AttributesServiceServer) {
+	// If the following call panics, it indicates UnimplementedAttributesServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&AttributesService_ServiceDesc, srv)
+}
+
+func _AttributesService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AttributesDescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AttributesServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AttributesService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AttributesServiceServer).DescribeContents(ctx, req.(*AttributesDescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AttributesService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AttributesEqualsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AttributesServiceServer).Equals(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AttributesService_Equals_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AttributesServiceServer).Equals(ctx, req.(*AttributesEqualsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AttributesService_GetColorMode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetColorModeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AttributesServiceServer).GetColorMode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AttributesService_GetColorMode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AttributesServiceServer).GetColorMode(ctx, req.(*GetColorModeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AttributesService_GetDuplexMode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetDuplexModeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AttributesServiceServer).GetDuplexMode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AttributesService_GetDuplexMode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AttributesServiceServer).GetDuplexMode(ctx, req.(*GetDuplexModeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AttributesService_GetMediaSize_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetMediaSizeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AttributesServiceServer).GetMediaSize(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AttributesService_GetMediaSize_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AttributesServiceServer).GetMediaSize(ctx, req.(*GetMediaSizeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AttributesService_GetMinMargins_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetMinMarginsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AttributesServiceServer).GetMinMargins(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AttributesService_GetMinMargins_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AttributesServiceServer).GetMinMargins(ctx, req.(*GetMinMarginsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AttributesService_GetResolution_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetResolutionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AttributesServiceServer).GetResolution(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AttributesService_GetResolution_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AttributesServiceServer).GetResolution(ctx, req.(*GetResolutionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AttributesService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AttributesHashCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AttributesServiceServer).HashCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AttributesService_HashCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AttributesServiceServer).HashCode(ctx, req.(*AttributesHashCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AttributesService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AttributesToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AttributesServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AttributesService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AttributesServiceServer).ToString(ctx, req.(*AttributesToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AttributesService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AttributesWriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AttributesServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AttributesService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AttributesServiceServer).WriteToParcel(ctx, req.(*AttributesWriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// AttributesService_ServiceDesc is the grpc.ServiceDesc for AttributesService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var AttributesService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "print.AttributesService",
+	HandlerType: (*AttributesServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "DescribeContents",
+			Handler:    _AttributesService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "Equals",
+			Handler:    _AttributesService_Equals_Handler,
+		},
+		{
+			MethodName: "GetColorMode",
+			Handler:    _AttributesService_GetColorMode_Handler,
+		},
+		{
+			MethodName: "GetDuplexMode",
+			Handler:    _AttributesService_GetDuplexMode_Handler,
+		},
+		{
+			MethodName: "GetMediaSize",
+			Handler:    _AttributesService_GetMediaSize_Handler,
+		},
+		{
+			MethodName: "GetMinMargins",
+			Handler:    _AttributesService_GetMinMargins_Handler,
+		},
+		{
+			MethodName: "GetResolution",
+			Handler:    _AttributesService_GetResolution_Handler,
+		},
+		{
+			MethodName: "HashCode",
+			Handler:    _AttributesService_HashCode_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _AttributesService_ToString_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _AttributesService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/print/print.proto",
+}
+
+const (
+	AttributesBuilderService_Build_FullMethodName         = "/print.AttributesBuilderService/Build"
+	AttributesBuilderService_SetColorMode_FullMethodName  = "/print.AttributesBuilderService/SetColorMode"
+	AttributesBuilderService_SetDuplexMode_FullMethodName = "/print.AttributesBuilderService/SetDuplexMode"
+	AttributesBuilderService_SetMediaSize_FullMethodName  = "/print.AttributesBuilderService/SetMediaSize"
+	AttributesBuilderService_SetMinMargins_FullMethodName = "/print.AttributesBuilderService/SetMinMargins"
+	AttributesBuilderService_SetResolution_FullMethodName = "/print.AttributesBuilderService/SetResolution"
+)
+
+// AttributesBuilderServiceClient is the client API for AttributesBuilderService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type AttributesBuilderServiceClient interface {
+	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
+	SetColorMode(ctx context.Context, in *SetColorModeRequest, opts ...grpc.CallOption) (*SetColorModeResponse, error)
+	SetDuplexMode(ctx context.Context, in *SetDuplexModeRequest, opts ...grpc.CallOption) (*SetDuplexModeResponse, error)
+	SetMediaSize(ctx context.Context, in *SetMediaSizeRequest, opts ...grpc.CallOption) (*SetMediaSizeResponse, error)
+	SetMinMargins(ctx context.Context, in *SetMinMarginsRequest, opts ...grpc.CallOption) (*SetMinMarginsResponse, error)
+	SetResolution(ctx context.Context, in *SetResolutionRequest, opts ...grpc.CallOption) (*SetResolutionResponse, error)
+}
+
+type attributesBuilderServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewAttributesBuilderServiceClient(cc grpc.ClientConnInterface) AttributesBuilderServiceClient {
+	return &attributesBuilderServiceClient{cc}
+}
+
+func (c *attributesBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(BuildResponse)
+	err := c.cc.Invoke(ctx, AttributesBuilderService_Build_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *attributesBuilderServiceClient) SetColorMode(ctx context.Context, in *SetColorModeRequest, opts ...grpc.CallOption) (*SetColorModeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetColorModeResponse)
+	err := c.cc.Invoke(ctx, AttributesBuilderService_SetColorMode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *attributesBuilderServiceClient) SetDuplexMode(ctx context.Context, in *SetDuplexModeRequest, opts ...grpc.CallOption) (*SetDuplexModeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetDuplexModeResponse)
+	err := c.cc.Invoke(ctx, AttributesBuilderService_SetDuplexMode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *attributesBuilderServiceClient) SetMediaSize(ctx context.Context, in *SetMediaSizeRequest, opts ...grpc.CallOption) (*SetMediaSizeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetMediaSizeResponse)
+	err := c.cc.Invoke(ctx, AttributesBuilderService_SetMediaSize_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *attributesBuilderServiceClient) SetMinMargins(ctx context.Context, in *SetMinMarginsRequest, opts ...grpc.CallOption) (*SetMinMarginsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetMinMarginsResponse)
+	err := c.cc.Invoke(ctx, AttributesBuilderService_SetMinMargins_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *attributesBuilderServiceClient) SetResolution(ctx context.Context, in *SetResolutionRequest, opts ...grpc.CallOption) (*SetResolutionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetResolutionResponse)
+	err := c.cc.Invoke(ctx, AttributesBuilderService_SetResolution_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// AttributesBuilderServiceServer is the server API for AttributesBuilderService service.
+// All implementations must embed UnimplementedAttributesBuilderServiceServer
+// for forward compatibility.
+type AttributesBuilderServiceServer interface {
+	Build(context.Context, *BuildRequest) (*BuildResponse, error)
+	SetColorMode(context.Context, *SetColorModeRequest) (*SetColorModeResponse, error)
+	SetDuplexMode(context.Context, *SetDuplexModeRequest) (*SetDuplexModeResponse, error)
+	SetMediaSize(context.Context, *SetMediaSizeRequest) (*SetMediaSizeResponse, error)
+	SetMinMargins(context.Context, *SetMinMarginsRequest) (*SetMinMarginsResponse, error)
+	SetResolution(context.Context, *SetResolutionRequest) (*SetResolutionResponse, error)
+	mustEmbedUnimplementedAttributesBuilderServiceServer()
+}
+
+// UnimplementedAttributesBuilderServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedAttributesBuilderServiceServer struct{}
+
+func (UnimplementedAttributesBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
+}
+func (UnimplementedAttributesBuilderServiceServer) SetColorMode(context.Context, *SetColorModeRequest) (*SetColorModeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetColorMode not implemented")
+}
+func (UnimplementedAttributesBuilderServiceServer) SetDuplexMode(context.Context, *SetDuplexModeRequest) (*SetDuplexModeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetDuplexMode not implemented")
+}
+func (UnimplementedAttributesBuilderServiceServer) SetMediaSize(context.Context, *SetMediaSizeRequest) (*SetMediaSizeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetMediaSize not implemented")
+}
+func (UnimplementedAttributesBuilderServiceServer) SetMinMargins(context.Context, *SetMinMarginsRequest) (*SetMinMarginsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetMinMargins not implemented")
+}
+func (UnimplementedAttributesBuilderServiceServer) SetResolution(context.Context, *SetResolutionRequest) (*SetResolutionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetResolution not implemented")
+}
+func (UnimplementedAttributesBuilderServiceServer) mustEmbedUnimplementedAttributesBuilderServiceServer() {
+}
+func (UnimplementedAttributesBuilderServiceServer) testEmbeddedByValue() {}
+
+// UnsafeAttributesBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to AttributesBuilderServiceServer will
+// result in compilation errors.
+type UnsafeAttributesBuilderServiceServer interface {
+	mustEmbedUnimplementedAttributesBuilderServiceServer()
+}
+
+func RegisterAttributesBuilderServiceServer(s grpc.ServiceRegistrar, srv AttributesBuilderServiceServer) {
+	// If the following call panics, it indicates UnimplementedAttributesBuilderServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&AttributesBuilderService_ServiceDesc, srv)
+}
+
+func _AttributesBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BuildRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AttributesBuilderServiceServer).Build(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AttributesBuilderService_Build_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AttributesBuilderServiceServer).Build(ctx, req.(*BuildRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AttributesBuilderService_SetColorMode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetColorModeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AttributesBuilderServiceServer).SetColorMode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AttributesBuilderService_SetColorMode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AttributesBuilderServiceServer).SetColorMode(ctx, req.(*SetColorModeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AttributesBuilderService_SetDuplexMode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetDuplexModeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AttributesBuilderServiceServer).SetDuplexMode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AttributesBuilderService_SetDuplexMode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AttributesBuilderServiceServer).SetDuplexMode(ctx, req.(*SetDuplexModeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AttributesBuilderService_SetMediaSize_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetMediaSizeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AttributesBuilderServiceServer).SetMediaSize(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AttributesBuilderService_SetMediaSize_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AttributesBuilderServiceServer).SetMediaSize(ctx, req.(*SetMediaSizeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AttributesBuilderService_SetMinMargins_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetMinMarginsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AttributesBuilderServiceServer).SetMinMargins(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AttributesBuilderService_SetMinMargins_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AttributesBuilderServiceServer).SetMinMargins(ctx, req.(*SetMinMarginsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AttributesBuilderService_SetResolution_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetResolutionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AttributesBuilderServiceServer).SetResolution(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AttributesBuilderService_SetResolution_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AttributesBuilderServiceServer).SetResolution(ctx, req.(*SetResolutionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// AttributesBuilderService_ServiceDesc is the grpc.ServiceDesc for AttributesBuilderService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var AttributesBuilderService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "print.AttributesBuilderService",
+	HandlerType: (*AttributesBuilderServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Build",
+			Handler:    _AttributesBuilderService_Build_Handler,
+		},
+		{
+			MethodName: "SetColorMode",
+			Handler:    _AttributesBuilderService_SetColorMode_Handler,
+		},
+		{
+			MethodName: "SetDuplexMode",
+			Handler:    _AttributesBuilderService_SetDuplexMode_Handler,
+		},
+		{
+			MethodName: "SetMediaSize",
+			Handler:    _AttributesBuilderService_SetMediaSize_Handler,
+		},
+		{
+			MethodName: "SetMinMargins",
+			Handler:    _AttributesBuilderService_SetMinMargins_Handler,
+		},
+		{
+			MethodName: "SetResolution",
+			Handler:    _AttributesBuilderService_SetResolution_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/print/print.proto",
+}
+
+const (
+	AttributesMarginsService_Equals_FullMethodName        = "/print.AttributesMarginsService/Equals"
+	AttributesMarginsService_GetBottomMils_FullMethodName = "/print.AttributesMarginsService/GetBottomMils"
+	AttributesMarginsService_GetLeftMils_FullMethodName   = "/print.AttributesMarginsService/GetLeftMils"
+	AttributesMarginsService_GetRightMils_FullMethodName  = "/print.AttributesMarginsService/GetRightMils"
+	AttributesMarginsService_GetTopMils_FullMethodName    = "/print.AttributesMarginsService/GetTopMils"
+	AttributesMarginsService_HashCode_FullMethodName      = "/print.AttributesMarginsService/HashCode"
+	AttributesMarginsService_ToString_FullMethodName      = "/print.AttributesMarginsService/ToString"
+)
+
+// AttributesMarginsServiceClient is the client API for AttributesMarginsService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type AttributesMarginsServiceClient interface {
+	Equals(ctx context.Context, in *AttributesMarginsEqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	GetBottomMils(ctx context.Context, in *GetBottomMilsRequest, opts ...grpc.CallOption) (*GetBottomMilsResponse, error)
+	GetLeftMils(ctx context.Context, in *GetLeftMilsRequest, opts ...grpc.CallOption) (*GetLeftMilsResponse, error)
+	GetRightMils(ctx context.Context, in *GetRightMilsRequest, opts ...grpc.CallOption) (*GetRightMilsResponse, error)
+	GetTopMils(ctx context.Context, in *GetTopMilsRequest, opts ...grpc.CallOption) (*GetTopMilsResponse, error)
+	HashCode(ctx context.Context, in *AttributesMarginsHashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+	ToString(ctx context.Context, in *AttributesMarginsToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+}
+
+type attributesMarginsServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewAttributesMarginsServiceClient(cc grpc.ClientConnInterface) AttributesMarginsServiceClient {
+	return &attributesMarginsServiceClient{cc}
+}
+
+func (c *attributesMarginsServiceClient) Equals(ctx context.Context, in *AttributesMarginsEqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(EqualsResponse)
+	err := c.cc.Invoke(ctx, AttributesMarginsService_Equals_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *attributesMarginsServiceClient) GetBottomMils(ctx context.Context, in *GetBottomMilsRequest, opts ...grpc.CallOption) (*GetBottomMilsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetBottomMilsResponse)
+	err := c.cc.Invoke(ctx, AttributesMarginsService_GetBottomMils_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *attributesMarginsServiceClient) GetLeftMils(ctx context.Context, in *GetLeftMilsRequest, opts ...grpc.CallOption) (*GetLeftMilsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetLeftMilsResponse)
+	err := c.cc.Invoke(ctx, AttributesMarginsService_GetLeftMils_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *attributesMarginsServiceClient) GetRightMils(ctx context.Context, in *GetRightMilsRequest, opts ...grpc.CallOption) (*GetRightMilsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetRightMilsResponse)
+	err := c.cc.Invoke(ctx, AttributesMarginsService_GetRightMils_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *attributesMarginsServiceClient) GetTopMils(ctx context.Context, in *GetTopMilsRequest, opts ...grpc.CallOption) (*GetTopMilsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTopMilsResponse)
+	err := c.cc.Invoke(ctx, AttributesMarginsService_GetTopMils_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *attributesMarginsServiceClient) HashCode(ctx context.Context, in *AttributesMarginsHashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HashCodeResponse)
+	err := c.cc.Invoke(ctx, AttributesMarginsService_HashCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *attributesMarginsServiceClient) ToString(ctx context.Context, in *AttributesMarginsToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, AttributesMarginsService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// AttributesMarginsServiceServer is the server API for AttributesMarginsService service.
+// All implementations must embed UnimplementedAttributesMarginsServiceServer
+// for forward compatibility.
+type AttributesMarginsServiceServer interface {
+	Equals(context.Context, *AttributesMarginsEqualsRequest) (*EqualsResponse, error)
+	GetBottomMils(context.Context, *GetBottomMilsRequest) (*GetBottomMilsResponse, error)
+	GetLeftMils(context.Context, *GetLeftMilsRequest) (*GetLeftMilsResponse, error)
+	GetRightMils(context.Context, *GetRightMilsRequest) (*GetRightMilsResponse, error)
+	GetTopMils(context.Context, *GetTopMilsRequest) (*GetTopMilsResponse, error)
+	HashCode(context.Context, *AttributesMarginsHashCodeRequest) (*HashCodeResponse, error)
+	ToString(context.Context, *AttributesMarginsToStringRequest) (*ToStringResponse, error)
+	mustEmbedUnimplementedAttributesMarginsServiceServer()
+}
+
+// UnimplementedAttributesMarginsServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedAttributesMarginsServiceServer struct{}
+
+func (UnimplementedAttributesMarginsServiceServer) Equals(context.Context, *AttributesMarginsEqualsRequest) (*EqualsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
+}
+func (UnimplementedAttributesMarginsServiceServer) GetBottomMils(context.Context, *GetBottomMilsRequest) (*GetBottomMilsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetBottomMils not implemented")
+}
+func (UnimplementedAttributesMarginsServiceServer) GetLeftMils(context.Context, *GetLeftMilsRequest) (*GetLeftMilsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetLeftMils not implemented")
+}
+func (UnimplementedAttributesMarginsServiceServer) GetRightMils(context.Context, *GetRightMilsRequest) (*GetRightMilsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetRightMils not implemented")
+}
+func (UnimplementedAttributesMarginsServiceServer) GetTopMils(context.Context, *GetTopMilsRequest) (*GetTopMilsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTopMils not implemented")
+}
+func (UnimplementedAttributesMarginsServiceServer) HashCode(context.Context, *AttributesMarginsHashCodeRequest) (*HashCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
+}
+func (UnimplementedAttributesMarginsServiceServer) ToString(context.Context, *AttributesMarginsToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedAttributesMarginsServiceServer) mustEmbedUnimplementedAttributesMarginsServiceServer() {
+}
+func (UnimplementedAttributesMarginsServiceServer) testEmbeddedByValue() {}
+
+// UnsafeAttributesMarginsServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to AttributesMarginsServiceServer will
+// result in compilation errors.
+type UnsafeAttributesMarginsServiceServer interface {
+	mustEmbedUnimplementedAttributesMarginsServiceServer()
+}
+
+func RegisterAttributesMarginsServiceServer(s grpc.ServiceRegistrar, srv AttributesMarginsServiceServer) {
+	// If the following call panics, it indicates UnimplementedAttributesMarginsServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&AttributesMarginsService_ServiceDesc, srv)
+}
+
+func _AttributesMarginsService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AttributesMarginsEqualsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AttributesMarginsServiceServer).Equals(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AttributesMarginsService_Equals_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AttributesMarginsServiceServer).Equals(ctx, req.(*AttributesMarginsEqualsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AttributesMarginsService_GetBottomMils_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetBottomMilsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AttributesMarginsServiceServer).GetBottomMils(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AttributesMarginsService_GetBottomMils_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AttributesMarginsServiceServer).GetBottomMils(ctx, req.(*GetBottomMilsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AttributesMarginsService_GetLeftMils_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetLeftMilsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AttributesMarginsServiceServer).GetLeftMils(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AttributesMarginsService_GetLeftMils_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AttributesMarginsServiceServer).GetLeftMils(ctx, req.(*GetLeftMilsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AttributesMarginsService_GetRightMils_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetRightMilsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AttributesMarginsServiceServer).GetRightMils(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AttributesMarginsService_GetRightMils_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AttributesMarginsServiceServer).GetRightMils(ctx, req.(*GetRightMilsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AttributesMarginsService_GetTopMils_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTopMilsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AttributesMarginsServiceServer).GetTopMils(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AttributesMarginsService_GetTopMils_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AttributesMarginsServiceServer).GetTopMils(ctx, req.(*GetTopMilsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AttributesMarginsService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AttributesMarginsHashCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AttributesMarginsServiceServer).HashCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AttributesMarginsService_HashCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AttributesMarginsServiceServer).HashCode(ctx, req.(*AttributesMarginsHashCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AttributesMarginsService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AttributesMarginsToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AttributesMarginsServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AttributesMarginsService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AttributesMarginsServiceServer).ToString(ctx, req.(*AttributesMarginsToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// AttributesMarginsService_ServiceDesc is the grpc.ServiceDesc for AttributesMarginsService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var AttributesMarginsService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "print.AttributesMarginsService",
+	HandlerType: (*AttributesMarginsServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Equals",
+			Handler:    _AttributesMarginsService_Equals_Handler,
+		},
+		{
+			MethodName: "GetBottomMils",
+			Handler:    _AttributesMarginsService_GetBottomMils_Handler,
+		},
+		{
+			MethodName: "GetLeftMils",
+			Handler:    _AttributesMarginsService_GetLeftMils_Handler,
+		},
+		{
+			MethodName: "GetRightMils",
+			Handler:    _AttributesMarginsService_GetRightMils_Handler,
+		},
+		{
+			MethodName: "GetTopMils",
+			Handler:    _AttributesMarginsService_GetTopMils_Handler,
+		},
+		{
+			MethodName: "HashCode",
+			Handler:    _AttributesMarginsService_HashCode_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _AttributesMarginsService_ToString_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/print/print.proto",
+}
+
+const (
+	AttributesMediaSizeService_AsLandscape_FullMethodName   = "/print.AttributesMediaSizeService/AsLandscape"
+	AttributesMediaSizeService_AsPortrait_FullMethodName    = "/print.AttributesMediaSizeService/AsPortrait"
+	AttributesMediaSizeService_Equals_FullMethodName        = "/print.AttributesMediaSizeService/Equals"
+	AttributesMediaSizeService_GetHeightMils_FullMethodName = "/print.AttributesMediaSizeService/GetHeightMils"
+	AttributesMediaSizeService_GetId_FullMethodName         = "/print.AttributesMediaSizeService/GetId"
+	AttributesMediaSizeService_GetLabel_FullMethodName      = "/print.AttributesMediaSizeService/GetLabel"
+	AttributesMediaSizeService_GetWidthMils_FullMethodName  = "/print.AttributesMediaSizeService/GetWidthMils"
+	AttributesMediaSizeService_HashCode_FullMethodName      = "/print.AttributesMediaSizeService/HashCode"
+	AttributesMediaSizeService_IsPortrait_FullMethodName    = "/print.AttributesMediaSizeService/IsPortrait"
+	AttributesMediaSizeService_ToString_FullMethodName      = "/print.AttributesMediaSizeService/ToString"
+)
+
+// AttributesMediaSizeServiceClient is the client API for AttributesMediaSizeService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type AttributesMediaSizeServiceClient interface {
+	AsLandscape(ctx context.Context, in *AsLandscapeRequest, opts ...grpc.CallOption) (*AsLandscapeResponse, error)
+	AsPortrait(ctx context.Context, in *AsPortraitRequest, opts ...grpc.CallOption) (*AsPortraitResponse, error)
+	Equals(ctx context.Context, in *AttributesMediaSizeEqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	GetHeightMils(ctx context.Context, in *GetHeightMilsRequest, opts ...grpc.CallOption) (*GetHeightMilsResponse, error)
+	GetId(ctx context.Context, in *GetIdRequest, opts ...grpc.CallOption) (*AttributesMediaSizeGetIdResponse, error)
+	GetLabel(ctx context.Context, in *GetLabelRequest, opts ...grpc.CallOption) (*GetLabelResponse, error)
+	GetWidthMils(ctx context.Context, in *GetWidthMilsRequest, opts ...grpc.CallOption) (*GetWidthMilsResponse, error)
+	HashCode(ctx context.Context, in *AttributesMediaSizeHashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+	IsPortrait(ctx context.Context, in *IsPortraitRequest, opts ...grpc.CallOption) (*IsPortraitResponse, error)
+	ToString(ctx context.Context, in *AttributesMediaSizeToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+}
+
+type attributesMediaSizeServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewAttributesMediaSizeServiceClient(cc grpc.ClientConnInterface) AttributesMediaSizeServiceClient {
+	return &attributesMediaSizeServiceClient{cc}
+}
+
+func (c *attributesMediaSizeServiceClient) AsLandscape(ctx context.Context, in *AsLandscapeRequest, opts ...grpc.CallOption) (*AsLandscapeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(AsLandscapeResponse)
+	err := c.cc.Invoke(ctx, AttributesMediaSizeService_AsLandscape_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *attributesMediaSizeServiceClient) AsPortrait(ctx context.Context, in *AsPortraitRequest, opts ...grpc.CallOption) (*AsPortraitResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(AsPortraitResponse)
+	err := c.cc.Invoke(ctx, AttributesMediaSizeService_AsPortrait_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *attributesMediaSizeServiceClient) Equals(ctx context.Context, in *AttributesMediaSizeEqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(EqualsResponse)
+	err := c.cc.Invoke(ctx, AttributesMediaSizeService_Equals_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *attributesMediaSizeServiceClient) GetHeightMils(ctx context.Context, in *GetHeightMilsRequest, opts ...grpc.CallOption) (*GetHeightMilsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetHeightMilsResponse)
+	err := c.cc.Invoke(ctx, AttributesMediaSizeService_GetHeightMils_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *attributesMediaSizeServiceClient) GetId(ctx context.Context, in *GetIdRequest, opts ...grpc.CallOption) (*AttributesMediaSizeGetIdResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(AttributesMediaSizeGetIdResponse)
+	err := c.cc.Invoke(ctx, AttributesMediaSizeService_GetId_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *attributesMediaSizeServiceClient) GetLabel(ctx context.Context, in *GetLabelRequest, opts ...grpc.CallOption) (*GetLabelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetLabelResponse)
+	err := c.cc.Invoke(ctx, AttributesMediaSizeService_GetLabel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *attributesMediaSizeServiceClient) GetWidthMils(ctx context.Context, in *GetWidthMilsRequest, opts ...grpc.CallOption) (*GetWidthMilsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetWidthMilsResponse)
+	err := c.cc.Invoke(ctx, AttributesMediaSizeService_GetWidthMils_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *attributesMediaSizeServiceClient) HashCode(ctx context.Context, in *AttributesMediaSizeHashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HashCodeResponse)
+	err := c.cc.Invoke(ctx, AttributesMediaSizeService_HashCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *attributesMediaSizeServiceClient) IsPortrait(ctx context.Context, in *IsPortraitRequest, opts ...grpc.CallOption) (*IsPortraitResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsPortraitResponse)
+	err := c.cc.Invoke(ctx, AttributesMediaSizeService_IsPortrait_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *attributesMediaSizeServiceClient) ToString(ctx context.Context, in *AttributesMediaSizeToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, AttributesMediaSizeService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// AttributesMediaSizeServiceServer is the server API for AttributesMediaSizeService service.
+// All implementations must embed UnimplementedAttributesMediaSizeServiceServer
+// for forward compatibility.
+type AttributesMediaSizeServiceServer interface {
+	AsLandscape(context.Context, *AsLandscapeRequest) (*AsLandscapeResponse, error)
+	AsPortrait(context.Context, *AsPortraitRequest) (*AsPortraitResponse, error)
+	Equals(context.Context, *AttributesMediaSizeEqualsRequest) (*EqualsResponse, error)
+	GetHeightMils(context.Context, *GetHeightMilsRequest) (*GetHeightMilsResponse, error)
+	GetId(context.Context, *GetIdRequest) (*AttributesMediaSizeGetIdResponse, error)
+	GetLabel(context.Context, *GetLabelRequest) (*GetLabelResponse, error)
+	GetWidthMils(context.Context, *GetWidthMilsRequest) (*GetWidthMilsResponse, error)
+	HashCode(context.Context, *AttributesMediaSizeHashCodeRequest) (*HashCodeResponse, error)
+	IsPortrait(context.Context, *IsPortraitRequest) (*IsPortraitResponse, error)
+	ToString(context.Context, *AttributesMediaSizeToStringRequest) (*ToStringResponse, error)
+	mustEmbedUnimplementedAttributesMediaSizeServiceServer()
+}
+
+// UnimplementedAttributesMediaSizeServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedAttributesMediaSizeServiceServer struct{}
+
+func (UnimplementedAttributesMediaSizeServiceServer) AsLandscape(context.Context, *AsLandscapeRequest) (*AsLandscapeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method AsLandscape not implemented")
+}
+func (UnimplementedAttributesMediaSizeServiceServer) AsPortrait(context.Context, *AsPortraitRequest) (*AsPortraitResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method AsPortrait not implemented")
+}
+func (UnimplementedAttributesMediaSizeServiceServer) Equals(context.Context, *AttributesMediaSizeEqualsRequest) (*EqualsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
+}
+func (UnimplementedAttributesMediaSizeServiceServer) GetHeightMils(context.Context, *GetHeightMilsRequest) (*GetHeightMilsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetHeightMils not implemented")
+}
+func (UnimplementedAttributesMediaSizeServiceServer) GetId(context.Context, *GetIdRequest) (*AttributesMediaSizeGetIdResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetId not implemented")
+}
+func (UnimplementedAttributesMediaSizeServiceServer) GetLabel(context.Context, *GetLabelRequest) (*GetLabelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetLabel not implemented")
+}
+func (UnimplementedAttributesMediaSizeServiceServer) GetWidthMils(context.Context, *GetWidthMilsRequest) (*GetWidthMilsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetWidthMils not implemented")
+}
+func (UnimplementedAttributesMediaSizeServiceServer) HashCode(context.Context, *AttributesMediaSizeHashCodeRequest) (*HashCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
+}
+func (UnimplementedAttributesMediaSizeServiceServer) IsPortrait(context.Context, *IsPortraitRequest) (*IsPortraitResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsPortrait not implemented")
+}
+func (UnimplementedAttributesMediaSizeServiceServer) ToString(context.Context, *AttributesMediaSizeToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedAttributesMediaSizeServiceServer) mustEmbedUnimplementedAttributesMediaSizeServiceServer() {
+}
+func (UnimplementedAttributesMediaSizeServiceServer) testEmbeddedByValue() {}
+
+// UnsafeAttributesMediaSizeServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to AttributesMediaSizeServiceServer will
+// result in compilation errors.
+type UnsafeAttributesMediaSizeServiceServer interface {
+	mustEmbedUnimplementedAttributesMediaSizeServiceServer()
+}
+
+func RegisterAttributesMediaSizeServiceServer(s grpc.ServiceRegistrar, srv AttributesMediaSizeServiceServer) {
+	// If the following call panics, it indicates UnimplementedAttributesMediaSizeServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&AttributesMediaSizeService_ServiceDesc, srv)
+}
+
+func _AttributesMediaSizeService_AsLandscape_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AsLandscapeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AttributesMediaSizeServiceServer).AsLandscape(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AttributesMediaSizeService_AsLandscape_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AttributesMediaSizeServiceServer).AsLandscape(ctx, req.(*AsLandscapeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AttributesMediaSizeService_AsPortrait_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AsPortraitRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AttributesMediaSizeServiceServer).AsPortrait(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AttributesMediaSizeService_AsPortrait_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AttributesMediaSizeServiceServer).AsPortrait(ctx, req.(*AsPortraitRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AttributesMediaSizeService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AttributesMediaSizeEqualsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AttributesMediaSizeServiceServer).Equals(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AttributesMediaSizeService_Equals_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AttributesMediaSizeServiceServer).Equals(ctx, req.(*AttributesMediaSizeEqualsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AttributesMediaSizeService_GetHeightMils_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetHeightMilsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AttributesMediaSizeServiceServer).GetHeightMils(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AttributesMediaSizeService_GetHeightMils_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AttributesMediaSizeServiceServer).GetHeightMils(ctx, req.(*GetHeightMilsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AttributesMediaSizeService_GetId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AttributesMediaSizeServiceServer).GetId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AttributesMediaSizeService_GetId_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AttributesMediaSizeServiceServer).GetId(ctx, req.(*GetIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AttributesMediaSizeService_GetLabel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetLabelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AttributesMediaSizeServiceServer).GetLabel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AttributesMediaSizeService_GetLabel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AttributesMediaSizeServiceServer).GetLabel(ctx, req.(*GetLabelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AttributesMediaSizeService_GetWidthMils_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetWidthMilsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AttributesMediaSizeServiceServer).GetWidthMils(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AttributesMediaSizeService_GetWidthMils_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AttributesMediaSizeServiceServer).GetWidthMils(ctx, req.(*GetWidthMilsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AttributesMediaSizeService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AttributesMediaSizeHashCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AttributesMediaSizeServiceServer).HashCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AttributesMediaSizeService_HashCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AttributesMediaSizeServiceServer).HashCode(ctx, req.(*AttributesMediaSizeHashCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AttributesMediaSizeService_IsPortrait_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsPortraitRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AttributesMediaSizeServiceServer).IsPortrait(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AttributesMediaSizeService_IsPortrait_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AttributesMediaSizeServiceServer).IsPortrait(ctx, req.(*IsPortraitRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AttributesMediaSizeService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AttributesMediaSizeToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AttributesMediaSizeServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AttributesMediaSizeService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AttributesMediaSizeServiceServer).ToString(ctx, req.(*AttributesMediaSizeToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// AttributesMediaSizeService_ServiceDesc is the grpc.ServiceDesc for AttributesMediaSizeService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var AttributesMediaSizeService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "print.AttributesMediaSizeService",
+	HandlerType: (*AttributesMediaSizeServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "AsLandscape",
+			Handler:    _AttributesMediaSizeService_AsLandscape_Handler,
+		},
+		{
+			MethodName: "AsPortrait",
+			Handler:    _AttributesMediaSizeService_AsPortrait_Handler,
+		},
+		{
+			MethodName: "Equals",
+			Handler:    _AttributesMediaSizeService_Equals_Handler,
+		},
+		{
+			MethodName: "GetHeightMils",
+			Handler:    _AttributesMediaSizeService_GetHeightMils_Handler,
+		},
+		{
+			MethodName: "GetId",
+			Handler:    _AttributesMediaSizeService_GetId_Handler,
+		},
+		{
+			MethodName: "GetLabel",
+			Handler:    _AttributesMediaSizeService_GetLabel_Handler,
+		},
+		{
+			MethodName: "GetWidthMils",
+			Handler:    _AttributesMediaSizeService_GetWidthMils_Handler,
+		},
+		{
+			MethodName: "HashCode",
+			Handler:    _AttributesMediaSizeService_HashCode_Handler,
+		},
+		{
+			MethodName: "IsPortrait",
+			Handler:    _AttributesMediaSizeService_IsPortrait_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _AttributesMediaSizeService_ToString_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/print/print.proto",
+}
+
+const (
+	AttributesResolutionService_Equals_FullMethodName           = "/print.AttributesResolutionService/Equals"
+	AttributesResolutionService_GetHorizontalDpi_FullMethodName = "/print.AttributesResolutionService/GetHorizontalDpi"
+	AttributesResolutionService_GetId_FullMethodName            = "/print.AttributesResolutionService/GetId"
+	AttributesResolutionService_GetLabel_FullMethodName         = "/print.AttributesResolutionService/GetLabel"
+	AttributesResolutionService_GetVerticalDpi_FullMethodName   = "/print.AttributesResolutionService/GetVerticalDpi"
+	AttributesResolutionService_HashCode_FullMethodName         = "/print.AttributesResolutionService/HashCode"
+	AttributesResolutionService_ToString_FullMethodName         = "/print.AttributesResolutionService/ToString"
+)
+
+// AttributesResolutionServiceClient is the client API for AttributesResolutionService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type AttributesResolutionServiceClient interface {
+	Equals(ctx context.Context, in *AttributesResolutionEqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	GetHorizontalDpi(ctx context.Context, in *GetHorizontalDpiRequest, opts ...grpc.CallOption) (*GetHorizontalDpiResponse, error)
+	GetId(ctx context.Context, in *GetIdRequest, opts ...grpc.CallOption) (*AttributesResolutionGetIdResponse, error)
+	GetLabel(ctx context.Context, in *AttributesResolutionGetLabelRequest, opts ...grpc.CallOption) (*GetLabelResponse, error)
+	GetVerticalDpi(ctx context.Context, in *GetVerticalDpiRequest, opts ...grpc.CallOption) (*GetVerticalDpiResponse, error)
+	HashCode(ctx context.Context, in *AttributesResolutionHashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+	ToString(ctx context.Context, in *AttributesResolutionToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+}
+
+type attributesResolutionServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewAttributesResolutionServiceClient(cc grpc.ClientConnInterface) AttributesResolutionServiceClient {
+	return &attributesResolutionServiceClient{cc}
+}
+
+func (c *attributesResolutionServiceClient) Equals(ctx context.Context, in *AttributesResolutionEqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(EqualsResponse)
+	err := c.cc.Invoke(ctx, AttributesResolutionService_Equals_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *attributesResolutionServiceClient) GetHorizontalDpi(ctx context.Context, in *GetHorizontalDpiRequest, opts ...grpc.CallOption) (*GetHorizontalDpiResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetHorizontalDpiResponse)
+	err := c.cc.Invoke(ctx, AttributesResolutionService_GetHorizontalDpi_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *attributesResolutionServiceClient) GetId(ctx context.Context, in *GetIdRequest, opts ...grpc.CallOption) (*AttributesResolutionGetIdResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(AttributesResolutionGetIdResponse)
+	err := c.cc.Invoke(ctx, AttributesResolutionService_GetId_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *attributesResolutionServiceClient) GetLabel(ctx context.Context, in *AttributesResolutionGetLabelRequest, opts ...grpc.CallOption) (*GetLabelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetLabelResponse)
+	err := c.cc.Invoke(ctx, AttributesResolutionService_GetLabel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *attributesResolutionServiceClient) GetVerticalDpi(ctx context.Context, in *GetVerticalDpiRequest, opts ...grpc.CallOption) (*GetVerticalDpiResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetVerticalDpiResponse)
+	err := c.cc.Invoke(ctx, AttributesResolutionService_GetVerticalDpi_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *attributesResolutionServiceClient) HashCode(ctx context.Context, in *AttributesResolutionHashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HashCodeResponse)
+	err := c.cc.Invoke(ctx, AttributesResolutionService_HashCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *attributesResolutionServiceClient) ToString(ctx context.Context, in *AttributesResolutionToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, AttributesResolutionService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// AttributesResolutionServiceServer is the server API for AttributesResolutionService service.
+// All implementations must embed UnimplementedAttributesResolutionServiceServer
+// for forward compatibility.
+type AttributesResolutionServiceServer interface {
+	Equals(context.Context, *AttributesResolutionEqualsRequest) (*EqualsResponse, error)
+	GetHorizontalDpi(context.Context, *GetHorizontalDpiRequest) (*GetHorizontalDpiResponse, error)
+	GetId(context.Context, *GetIdRequest) (*AttributesResolutionGetIdResponse, error)
+	GetLabel(context.Context, *AttributesResolutionGetLabelRequest) (*GetLabelResponse, error)
+	GetVerticalDpi(context.Context, *GetVerticalDpiRequest) (*GetVerticalDpiResponse, error)
+	HashCode(context.Context, *AttributesResolutionHashCodeRequest) (*HashCodeResponse, error)
+	ToString(context.Context, *AttributesResolutionToStringRequest) (*ToStringResponse, error)
+	mustEmbedUnimplementedAttributesResolutionServiceServer()
+}
+
+// UnimplementedAttributesResolutionServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedAttributesResolutionServiceServer struct{}
+
+func (UnimplementedAttributesResolutionServiceServer) Equals(context.Context, *AttributesResolutionEqualsRequest) (*EqualsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
+}
+func (UnimplementedAttributesResolutionServiceServer) GetHorizontalDpi(context.Context, *GetHorizontalDpiRequest) (*GetHorizontalDpiResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetHorizontalDpi not implemented")
+}
+func (UnimplementedAttributesResolutionServiceServer) GetId(context.Context, *GetIdRequest) (*AttributesResolutionGetIdResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetId not implemented")
+}
+func (UnimplementedAttributesResolutionServiceServer) GetLabel(context.Context, *AttributesResolutionGetLabelRequest) (*GetLabelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetLabel not implemented")
+}
+func (UnimplementedAttributesResolutionServiceServer) GetVerticalDpi(context.Context, *GetVerticalDpiRequest) (*GetVerticalDpiResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetVerticalDpi not implemented")
+}
+func (UnimplementedAttributesResolutionServiceServer) HashCode(context.Context, *AttributesResolutionHashCodeRequest) (*HashCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
+}
+func (UnimplementedAttributesResolutionServiceServer) ToString(context.Context, *AttributesResolutionToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedAttributesResolutionServiceServer) mustEmbedUnimplementedAttributesResolutionServiceServer() {
+}
+func (UnimplementedAttributesResolutionServiceServer) testEmbeddedByValue() {}
+
+// UnsafeAttributesResolutionServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to AttributesResolutionServiceServer will
+// result in compilation errors.
+type UnsafeAttributesResolutionServiceServer interface {
+	mustEmbedUnimplementedAttributesResolutionServiceServer()
+}
+
+func RegisterAttributesResolutionServiceServer(s grpc.ServiceRegistrar, srv AttributesResolutionServiceServer) {
+	// If the following call panics, it indicates UnimplementedAttributesResolutionServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&AttributesResolutionService_ServiceDesc, srv)
+}
+
+func _AttributesResolutionService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AttributesResolutionEqualsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AttributesResolutionServiceServer).Equals(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AttributesResolutionService_Equals_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AttributesResolutionServiceServer).Equals(ctx, req.(*AttributesResolutionEqualsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AttributesResolutionService_GetHorizontalDpi_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetHorizontalDpiRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AttributesResolutionServiceServer).GetHorizontalDpi(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AttributesResolutionService_GetHorizontalDpi_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AttributesResolutionServiceServer).GetHorizontalDpi(ctx, req.(*GetHorizontalDpiRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AttributesResolutionService_GetId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AttributesResolutionServiceServer).GetId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AttributesResolutionService_GetId_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AttributesResolutionServiceServer).GetId(ctx, req.(*GetIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AttributesResolutionService_GetLabel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AttributesResolutionGetLabelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AttributesResolutionServiceServer).GetLabel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AttributesResolutionService_GetLabel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AttributesResolutionServiceServer).GetLabel(ctx, req.(*AttributesResolutionGetLabelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AttributesResolutionService_GetVerticalDpi_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetVerticalDpiRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AttributesResolutionServiceServer).GetVerticalDpi(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AttributesResolutionService_GetVerticalDpi_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AttributesResolutionServiceServer).GetVerticalDpi(ctx, req.(*GetVerticalDpiRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AttributesResolutionService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AttributesResolutionHashCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AttributesResolutionServiceServer).HashCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AttributesResolutionService_HashCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AttributesResolutionServiceServer).HashCode(ctx, req.(*AttributesResolutionHashCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AttributesResolutionService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AttributesResolutionToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AttributesResolutionServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AttributesResolutionService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AttributesResolutionServiceServer).ToString(ctx, req.(*AttributesResolutionToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// AttributesResolutionService_ServiceDesc is the grpc.ServiceDesc for AttributesResolutionService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var AttributesResolutionService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "print.AttributesResolutionService",
+	HandlerType: (*AttributesResolutionServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Equals",
+			Handler:    _AttributesResolutionService_Equals_Handler,
+		},
+		{
+			MethodName: "GetHorizontalDpi",
+			Handler:    _AttributesResolutionService_GetHorizontalDpi_Handler,
+		},
+		{
+			MethodName: "GetId",
+			Handler:    _AttributesResolutionService_GetId_Handler,
+		},
+		{
+			MethodName: "GetLabel",
+			Handler:    _AttributesResolutionService_GetLabel_Handler,
+		},
+		{
+			MethodName: "GetVerticalDpi",
+			Handler:    _AttributesResolutionService_GetVerticalDpi_Handler,
+		},
+		{
+			MethodName: "HashCode",
+			Handler:    _AttributesResolutionService_HashCode_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _AttributesResolutionService_ToString_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -2152,20 +5395,20 @@ const (
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type JobInfoServiceClient interface {
-	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	DescribeContents(ctx context.Context, in *JobInfoDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
 	GetAdvancedIntOption(ctx context.Context, in *GetAdvancedIntOptionRequest, opts ...grpc.CallOption) (*GetAdvancedIntOptionResponse, error)
 	GetAdvancedStringOption(ctx context.Context, in *GetAdvancedStringOptionRequest, opts ...grpc.CallOption) (*GetAdvancedStringOptionResponse, error)
 	GetAttributes(ctx context.Context, in *GetAttributesRequest, opts ...grpc.CallOption) (*GetAttributesResponse, error)
 	GetCopies(ctx context.Context, in *GetCopiesRequest, opts ...grpc.CallOption) (*GetCopiesResponse, error)
 	GetCreationTime(ctx context.Context, in *GetCreationTimeRequest, opts ...grpc.CallOption) (*GetCreationTimeResponse, error)
 	GetId(ctx context.Context, in *GetIdRequest, opts ...grpc.CallOption) (*GetIdResponse, error)
-	GetLabel(ctx context.Context, in *GetLabelRequest, opts ...grpc.CallOption) (*GetLabelResponse, error)
+	GetLabel(ctx context.Context, in *JobInfoGetLabelRequest, opts ...grpc.CallOption) (*GetLabelResponse, error)
 	GetPages(ctx context.Context, in *GetPagesRequest, opts ...grpc.CallOption) (*GetPagesResponse, error)
 	GetPrinterId(ctx context.Context, in *GetPrinterIdRequest, opts ...grpc.CallOption) (*GetPrinterIdResponse, error)
 	GetState(ctx context.Context, in *GetStateRequest, opts ...grpc.CallOption) (*GetStateResponse, error)
 	HasAdvancedOption(ctx context.Context, in *HasAdvancedOptionRequest, opts ...grpc.CallOption) (*HasAdvancedOptionResponse, error)
 	ToString(ctx context.Context, in *JobInfoToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
-	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+	WriteToParcel(ctx context.Context, in *JobInfoWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
 }
 
 type jobInfoServiceClient struct {
@@ -2176,7 +5419,7 @@ func NewJobInfoServiceClient(cc grpc.ClientConnInterface) JobInfoServiceClient {
 	return &jobInfoServiceClient{cc}
 }
 
-func (c *jobInfoServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+func (c *jobInfoServiceClient) DescribeContents(ctx context.Context, in *JobInfoDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(DescribeContentsResponse)
 	err := c.cc.Invoke(ctx, JobInfoService_DescribeContents_FullMethodName, in, out, cOpts...)
@@ -2246,7 +5489,7 @@ func (c *jobInfoServiceClient) GetId(ctx context.Context, in *GetIdRequest, opts
 	return out, nil
 }
 
-func (c *jobInfoServiceClient) GetLabel(ctx context.Context, in *GetLabelRequest, opts ...grpc.CallOption) (*GetLabelResponse, error) {
+func (c *jobInfoServiceClient) GetLabel(ctx context.Context, in *JobInfoGetLabelRequest, opts ...grpc.CallOption) (*GetLabelResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetLabelResponse)
 	err := c.cc.Invoke(ctx, JobInfoService_GetLabel_FullMethodName, in, out, cOpts...)
@@ -2306,7 +5549,7 @@ func (c *jobInfoServiceClient) ToString(ctx context.Context, in *JobInfoToString
 	return out, nil
 }
 
-func (c *jobInfoServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+func (c *jobInfoServiceClient) WriteToParcel(ctx context.Context, in *JobInfoWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(WriteToParcelResponse)
 	err := c.cc.Invoke(ctx, JobInfoService_WriteToParcel_FullMethodName, in, out, cOpts...)
@@ -2320,20 +5563,20 @@ func (c *jobInfoServiceClient) WriteToParcel(ctx context.Context, in *WriteToPar
 // All implementations must embed UnimplementedJobInfoServiceServer
 // for forward compatibility.
 type JobInfoServiceServer interface {
-	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	DescribeContents(context.Context, *JobInfoDescribeContentsRequest) (*DescribeContentsResponse, error)
 	GetAdvancedIntOption(context.Context, *GetAdvancedIntOptionRequest) (*GetAdvancedIntOptionResponse, error)
 	GetAdvancedStringOption(context.Context, *GetAdvancedStringOptionRequest) (*GetAdvancedStringOptionResponse, error)
 	GetAttributes(context.Context, *GetAttributesRequest) (*GetAttributesResponse, error)
 	GetCopies(context.Context, *GetCopiesRequest) (*GetCopiesResponse, error)
 	GetCreationTime(context.Context, *GetCreationTimeRequest) (*GetCreationTimeResponse, error)
 	GetId(context.Context, *GetIdRequest) (*GetIdResponse, error)
-	GetLabel(context.Context, *GetLabelRequest) (*GetLabelResponse, error)
+	GetLabel(context.Context, *JobInfoGetLabelRequest) (*GetLabelResponse, error)
 	GetPages(context.Context, *GetPagesRequest) (*GetPagesResponse, error)
 	GetPrinterId(context.Context, *GetPrinterIdRequest) (*GetPrinterIdResponse, error)
 	GetState(context.Context, *GetStateRequest) (*GetStateResponse, error)
 	HasAdvancedOption(context.Context, *HasAdvancedOptionRequest) (*HasAdvancedOptionResponse, error)
 	ToString(context.Context, *JobInfoToStringRequest) (*ToStringResponse, error)
-	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	WriteToParcel(context.Context, *JobInfoWriteToParcelRequest) (*WriteToParcelResponse, error)
 	mustEmbedUnimplementedJobInfoServiceServer()
 }
 
@@ -2344,7 +5587,7 @@ type JobInfoServiceServer interface {
 // pointer dereference when methods are called.
 type UnimplementedJobInfoServiceServer struct{}
 
-func (UnimplementedJobInfoServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+func (UnimplementedJobInfoServiceServer) DescribeContents(context.Context, *JobInfoDescribeContentsRequest) (*DescribeContentsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
 }
 func (UnimplementedJobInfoServiceServer) GetAdvancedIntOption(context.Context, *GetAdvancedIntOptionRequest) (*GetAdvancedIntOptionResponse, error) {
@@ -2365,7 +5608,7 @@ func (UnimplementedJobInfoServiceServer) GetCreationTime(context.Context, *GetCr
 func (UnimplementedJobInfoServiceServer) GetId(context.Context, *GetIdRequest) (*GetIdResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetId not implemented")
 }
-func (UnimplementedJobInfoServiceServer) GetLabel(context.Context, *GetLabelRequest) (*GetLabelResponse, error) {
+func (UnimplementedJobInfoServiceServer) GetLabel(context.Context, *JobInfoGetLabelRequest) (*GetLabelResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetLabel not implemented")
 }
 func (UnimplementedJobInfoServiceServer) GetPages(context.Context, *GetPagesRequest) (*GetPagesResponse, error) {
@@ -2383,7 +5626,7 @@ func (UnimplementedJobInfoServiceServer) HasAdvancedOption(context.Context, *Has
 func (UnimplementedJobInfoServiceServer) ToString(context.Context, *JobInfoToStringRequest) (*ToStringResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
 }
-func (UnimplementedJobInfoServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+func (UnimplementedJobInfoServiceServer) WriteToParcel(context.Context, *JobInfoWriteToParcelRequest) (*WriteToParcelResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
 }
 func (UnimplementedJobInfoServiceServer) mustEmbedUnimplementedJobInfoServiceServer() {}
@@ -2408,7 +5651,7 @@ func RegisterJobInfoServiceServer(s grpc.ServiceRegistrar, srv JobInfoServiceSer
 }
 
 func _JobInfoService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DescribeContentsRequest)
+	in := new(JobInfoDescribeContentsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -2420,7 +5663,7 @@ func _JobInfoService_DescribeContents_Handler(srv interface{}, ctx context.Conte
 		FullMethod: JobInfoService_DescribeContents_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(JobInfoServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+		return srv.(JobInfoServiceServer).DescribeContents(ctx, req.(*JobInfoDescribeContentsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -2534,7 +5777,7 @@ func _JobInfoService_GetId_Handler(srv interface{}, ctx context.Context, dec fun
 }
 
 func _JobInfoService_GetLabel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetLabelRequest)
+	in := new(JobInfoGetLabelRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -2546,7 +5789,7 @@ func _JobInfoService_GetLabel_Handler(srv interface{}, ctx context.Context, dec 
 		FullMethod: JobInfoService_GetLabel_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(JobInfoServiceServer).GetLabel(ctx, req.(*GetLabelRequest))
+		return srv.(JobInfoServiceServer).GetLabel(ctx, req.(*JobInfoGetLabelRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -2642,7 +5885,7 @@ func _JobInfoService_ToString_Handler(srv interface{}, ctx context.Context, dec 
 }
 
 func _JobInfoService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WriteToParcelRequest)
+	in := new(JobInfoWriteToParcelRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -2654,7 +5897,7 @@ func _JobInfoService_WriteToParcel_Handler(srv interface{}, ctx context.Context,
 		FullMethod: JobInfoService_WriteToParcel_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(JobInfoServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+		return srv.(JobInfoServiceServer).WriteToParcel(ctx, req.(*JobInfoWriteToParcelRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -3020,1850 +6263,6 @@ var JobInfoBuilderService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	AttributesService_DescribeContents_FullMethodName = "/print.AttributesService/DescribeContents"
-	AttributesService_Equals_FullMethodName           = "/print.AttributesService/Equals"
-	AttributesService_GetColorMode_FullMethodName     = "/print.AttributesService/GetColorMode"
-	AttributesService_GetDuplexMode_FullMethodName    = "/print.AttributesService/GetDuplexMode"
-	AttributesService_GetMediaSize_FullMethodName     = "/print.AttributesService/GetMediaSize"
-	AttributesService_GetMinMargins_FullMethodName    = "/print.AttributesService/GetMinMargins"
-	AttributesService_GetResolution_FullMethodName    = "/print.AttributesService/GetResolution"
-	AttributesService_HashCode_FullMethodName         = "/print.AttributesService/HashCode"
-	AttributesService_ToString_FullMethodName         = "/print.AttributesService/ToString"
-	AttributesService_WriteToParcel_FullMethodName    = "/print.AttributesService/WriteToParcel"
-)
-
-// AttributesServiceClient is the client API for AttributesService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type AttributesServiceClient interface {
-	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
-	GetColorMode(ctx context.Context, in *GetColorModeRequest, opts ...grpc.CallOption) (*GetColorModeResponse, error)
-	GetDuplexMode(ctx context.Context, in *GetDuplexModeRequest, opts ...grpc.CallOption) (*GetDuplexModeResponse, error)
-	GetMediaSize(ctx context.Context, in *GetMediaSizeRequest, opts ...grpc.CallOption) (*GetMediaSizeResponse, error)
-	GetMinMargins(ctx context.Context, in *GetMinMarginsRequest, opts ...grpc.CallOption) (*GetMinMarginsResponse, error)
-	GetResolution(ctx context.Context, in *GetResolutionRequest, opts ...grpc.CallOption) (*GetResolutionResponse, error)
-	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
-	ToString(ctx context.Context, in *AttributesToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
-	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
-}
-
-type attributesServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewAttributesServiceClient(cc grpc.ClientConnInterface) AttributesServiceClient {
-	return &attributesServiceClient{cc}
-}
-
-func (c *attributesServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, AttributesService_DescribeContents_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *attributesServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(EqualsResponse)
-	err := c.cc.Invoke(ctx, AttributesService_Equals_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *attributesServiceClient) GetColorMode(ctx context.Context, in *GetColorModeRequest, opts ...grpc.CallOption) (*GetColorModeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetColorModeResponse)
-	err := c.cc.Invoke(ctx, AttributesService_GetColorMode_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *attributesServiceClient) GetDuplexMode(ctx context.Context, in *GetDuplexModeRequest, opts ...grpc.CallOption) (*GetDuplexModeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetDuplexModeResponse)
-	err := c.cc.Invoke(ctx, AttributesService_GetDuplexMode_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *attributesServiceClient) GetMediaSize(ctx context.Context, in *GetMediaSizeRequest, opts ...grpc.CallOption) (*GetMediaSizeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetMediaSizeResponse)
-	err := c.cc.Invoke(ctx, AttributesService_GetMediaSize_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *attributesServiceClient) GetMinMargins(ctx context.Context, in *GetMinMarginsRequest, opts ...grpc.CallOption) (*GetMinMarginsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetMinMarginsResponse)
-	err := c.cc.Invoke(ctx, AttributesService_GetMinMargins_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *attributesServiceClient) GetResolution(ctx context.Context, in *GetResolutionRequest, opts ...grpc.CallOption) (*GetResolutionResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetResolutionResponse)
-	err := c.cc.Invoke(ctx, AttributesService_GetResolution_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *attributesServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(HashCodeResponse)
-	err := c.cc.Invoke(ctx, AttributesService_HashCode_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *attributesServiceClient) ToString(ctx context.Context, in *AttributesToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ToStringResponse)
-	err := c.cc.Invoke(ctx, AttributesService_ToString_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *attributesServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, AttributesService_WriteToParcel_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// AttributesServiceServer is the server API for AttributesService service.
-// All implementations must embed UnimplementedAttributesServiceServer
-// for forward compatibility.
-type AttributesServiceServer interface {
-	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
-	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
-	GetColorMode(context.Context, *GetColorModeRequest) (*GetColorModeResponse, error)
-	GetDuplexMode(context.Context, *GetDuplexModeRequest) (*GetDuplexModeResponse, error)
-	GetMediaSize(context.Context, *GetMediaSizeRequest) (*GetMediaSizeResponse, error)
-	GetMinMargins(context.Context, *GetMinMarginsRequest) (*GetMinMarginsResponse, error)
-	GetResolution(context.Context, *GetResolutionRequest) (*GetResolutionResponse, error)
-	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
-	ToString(context.Context, *AttributesToStringRequest) (*ToStringResponse, error)
-	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
-	mustEmbedUnimplementedAttributesServiceServer()
-}
-
-// UnimplementedAttributesServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedAttributesServiceServer struct{}
-
-func (UnimplementedAttributesServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
-}
-func (UnimplementedAttributesServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
-}
-func (UnimplementedAttributesServiceServer) GetColorMode(context.Context, *GetColorModeRequest) (*GetColorModeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetColorMode not implemented")
-}
-func (UnimplementedAttributesServiceServer) GetDuplexMode(context.Context, *GetDuplexModeRequest) (*GetDuplexModeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetDuplexMode not implemented")
-}
-func (UnimplementedAttributesServiceServer) GetMediaSize(context.Context, *GetMediaSizeRequest) (*GetMediaSizeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetMediaSize not implemented")
-}
-func (UnimplementedAttributesServiceServer) GetMinMargins(context.Context, *GetMinMarginsRequest) (*GetMinMarginsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetMinMargins not implemented")
-}
-func (UnimplementedAttributesServiceServer) GetResolution(context.Context, *GetResolutionRequest) (*GetResolutionResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetResolution not implemented")
-}
-func (UnimplementedAttributesServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
-}
-func (UnimplementedAttributesServiceServer) ToString(context.Context, *AttributesToStringRequest) (*ToStringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
-}
-func (UnimplementedAttributesServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
-}
-func (UnimplementedAttributesServiceServer) mustEmbedUnimplementedAttributesServiceServer() {}
-func (UnimplementedAttributesServiceServer) testEmbeddedByValue()                           {}
-
-// UnsafeAttributesServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to AttributesServiceServer will
-// result in compilation errors.
-type UnsafeAttributesServiceServer interface {
-	mustEmbedUnimplementedAttributesServiceServer()
-}
-
-func RegisterAttributesServiceServer(s grpc.ServiceRegistrar, srv AttributesServiceServer) {
-	// If the following call panics, it indicates UnimplementedAttributesServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&AttributesService_ServiceDesc, srv)
-}
-
-func _AttributesService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DescribeContentsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AttributesServiceServer).DescribeContents(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AttributesService_DescribeContents_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AttributesServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AttributesService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(EqualsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AttributesServiceServer).Equals(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AttributesService_Equals_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AttributesServiceServer).Equals(ctx, req.(*EqualsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AttributesService_GetColorMode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetColorModeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AttributesServiceServer).GetColorMode(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AttributesService_GetColorMode_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AttributesServiceServer).GetColorMode(ctx, req.(*GetColorModeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AttributesService_GetDuplexMode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetDuplexModeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AttributesServiceServer).GetDuplexMode(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AttributesService_GetDuplexMode_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AttributesServiceServer).GetDuplexMode(ctx, req.(*GetDuplexModeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AttributesService_GetMediaSize_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetMediaSizeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AttributesServiceServer).GetMediaSize(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AttributesService_GetMediaSize_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AttributesServiceServer).GetMediaSize(ctx, req.(*GetMediaSizeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AttributesService_GetMinMargins_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetMinMarginsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AttributesServiceServer).GetMinMargins(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AttributesService_GetMinMargins_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AttributesServiceServer).GetMinMargins(ctx, req.(*GetMinMarginsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AttributesService_GetResolution_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetResolutionRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AttributesServiceServer).GetResolution(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AttributesService_GetResolution_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AttributesServiceServer).GetResolution(ctx, req.(*GetResolutionRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AttributesService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(HashCodeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AttributesServiceServer).HashCode(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AttributesService_HashCode_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AttributesServiceServer).HashCode(ctx, req.(*HashCodeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AttributesService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AttributesToStringRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AttributesServiceServer).ToString(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AttributesService_ToString_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AttributesServiceServer).ToString(ctx, req.(*AttributesToStringRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AttributesService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WriteToParcelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AttributesServiceServer).WriteToParcel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AttributesService_WriteToParcel_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AttributesServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// AttributesService_ServiceDesc is the grpc.ServiceDesc for AttributesService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var AttributesService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "print.AttributesService",
-	HandlerType: (*AttributesServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "DescribeContents",
-			Handler:    _AttributesService_DescribeContents_Handler,
-		},
-		{
-			MethodName: "Equals",
-			Handler:    _AttributesService_Equals_Handler,
-		},
-		{
-			MethodName: "GetColorMode",
-			Handler:    _AttributesService_GetColorMode_Handler,
-		},
-		{
-			MethodName: "GetDuplexMode",
-			Handler:    _AttributesService_GetDuplexMode_Handler,
-		},
-		{
-			MethodName: "GetMediaSize",
-			Handler:    _AttributesService_GetMediaSize_Handler,
-		},
-		{
-			MethodName: "GetMinMargins",
-			Handler:    _AttributesService_GetMinMargins_Handler,
-		},
-		{
-			MethodName: "GetResolution",
-			Handler:    _AttributesService_GetResolution_Handler,
-		},
-		{
-			MethodName: "HashCode",
-			Handler:    _AttributesService_HashCode_Handler,
-		},
-		{
-			MethodName: "ToString",
-			Handler:    _AttributesService_ToString_Handler,
-		},
-		{
-			MethodName: "WriteToParcel",
-			Handler:    _AttributesService_WriteToParcel_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/print/print.proto",
-}
-
-const (
-	AttributesBuilderService_Build_FullMethodName         = "/print.AttributesBuilderService/Build"
-	AttributesBuilderService_SetColorMode_FullMethodName  = "/print.AttributesBuilderService/SetColorMode"
-	AttributesBuilderService_SetDuplexMode_FullMethodName = "/print.AttributesBuilderService/SetDuplexMode"
-	AttributesBuilderService_SetMediaSize_FullMethodName  = "/print.AttributesBuilderService/SetMediaSize"
-	AttributesBuilderService_SetMinMargins_FullMethodName = "/print.AttributesBuilderService/SetMinMargins"
-	AttributesBuilderService_SetResolution_FullMethodName = "/print.AttributesBuilderService/SetResolution"
-)
-
-// AttributesBuilderServiceClient is the client API for AttributesBuilderService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type AttributesBuilderServiceClient interface {
-	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
-	SetColorMode(ctx context.Context, in *SetColorModeRequest, opts ...grpc.CallOption) (*SetColorModeResponse, error)
-	SetDuplexMode(ctx context.Context, in *SetDuplexModeRequest, opts ...grpc.CallOption) (*SetDuplexModeResponse, error)
-	SetMediaSize(ctx context.Context, in *SetMediaSizeRequest, opts ...grpc.CallOption) (*SetMediaSizeResponse, error)
-	SetMinMargins(ctx context.Context, in *SetMinMarginsRequest, opts ...grpc.CallOption) (*SetMinMarginsResponse, error)
-	SetResolution(ctx context.Context, in *SetResolutionRequest, opts ...grpc.CallOption) (*SetResolutionResponse, error)
-}
-
-type attributesBuilderServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewAttributesBuilderServiceClient(cc grpc.ClientConnInterface) AttributesBuilderServiceClient {
-	return &attributesBuilderServiceClient{cc}
-}
-
-func (c *attributesBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(BuildResponse)
-	err := c.cc.Invoke(ctx, AttributesBuilderService_Build_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *attributesBuilderServiceClient) SetColorMode(ctx context.Context, in *SetColorModeRequest, opts ...grpc.CallOption) (*SetColorModeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetColorModeResponse)
-	err := c.cc.Invoke(ctx, AttributesBuilderService_SetColorMode_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *attributesBuilderServiceClient) SetDuplexMode(ctx context.Context, in *SetDuplexModeRequest, opts ...grpc.CallOption) (*SetDuplexModeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetDuplexModeResponse)
-	err := c.cc.Invoke(ctx, AttributesBuilderService_SetDuplexMode_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *attributesBuilderServiceClient) SetMediaSize(ctx context.Context, in *SetMediaSizeRequest, opts ...grpc.CallOption) (*SetMediaSizeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetMediaSizeResponse)
-	err := c.cc.Invoke(ctx, AttributesBuilderService_SetMediaSize_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *attributesBuilderServiceClient) SetMinMargins(ctx context.Context, in *SetMinMarginsRequest, opts ...grpc.CallOption) (*SetMinMarginsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetMinMarginsResponse)
-	err := c.cc.Invoke(ctx, AttributesBuilderService_SetMinMargins_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *attributesBuilderServiceClient) SetResolution(ctx context.Context, in *SetResolutionRequest, opts ...grpc.CallOption) (*SetResolutionResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetResolutionResponse)
-	err := c.cc.Invoke(ctx, AttributesBuilderService_SetResolution_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// AttributesBuilderServiceServer is the server API for AttributesBuilderService service.
-// All implementations must embed UnimplementedAttributesBuilderServiceServer
-// for forward compatibility.
-type AttributesBuilderServiceServer interface {
-	Build(context.Context, *BuildRequest) (*BuildResponse, error)
-	SetColorMode(context.Context, *SetColorModeRequest) (*SetColorModeResponse, error)
-	SetDuplexMode(context.Context, *SetDuplexModeRequest) (*SetDuplexModeResponse, error)
-	SetMediaSize(context.Context, *SetMediaSizeRequest) (*SetMediaSizeResponse, error)
-	SetMinMargins(context.Context, *SetMinMarginsRequest) (*SetMinMarginsResponse, error)
-	SetResolution(context.Context, *SetResolutionRequest) (*SetResolutionResponse, error)
-	mustEmbedUnimplementedAttributesBuilderServiceServer()
-}
-
-// UnimplementedAttributesBuilderServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedAttributesBuilderServiceServer struct{}
-
-func (UnimplementedAttributesBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
-}
-func (UnimplementedAttributesBuilderServiceServer) SetColorMode(context.Context, *SetColorModeRequest) (*SetColorModeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetColorMode not implemented")
-}
-func (UnimplementedAttributesBuilderServiceServer) SetDuplexMode(context.Context, *SetDuplexModeRequest) (*SetDuplexModeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetDuplexMode not implemented")
-}
-func (UnimplementedAttributesBuilderServiceServer) SetMediaSize(context.Context, *SetMediaSizeRequest) (*SetMediaSizeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetMediaSize not implemented")
-}
-func (UnimplementedAttributesBuilderServiceServer) SetMinMargins(context.Context, *SetMinMarginsRequest) (*SetMinMarginsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetMinMargins not implemented")
-}
-func (UnimplementedAttributesBuilderServiceServer) SetResolution(context.Context, *SetResolutionRequest) (*SetResolutionResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetResolution not implemented")
-}
-func (UnimplementedAttributesBuilderServiceServer) mustEmbedUnimplementedAttributesBuilderServiceServer() {
-}
-func (UnimplementedAttributesBuilderServiceServer) testEmbeddedByValue() {}
-
-// UnsafeAttributesBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to AttributesBuilderServiceServer will
-// result in compilation errors.
-type UnsafeAttributesBuilderServiceServer interface {
-	mustEmbedUnimplementedAttributesBuilderServiceServer()
-}
-
-func RegisterAttributesBuilderServiceServer(s grpc.ServiceRegistrar, srv AttributesBuilderServiceServer) {
-	// If the following call panics, it indicates UnimplementedAttributesBuilderServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&AttributesBuilderService_ServiceDesc, srv)
-}
-
-func _AttributesBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(BuildRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AttributesBuilderServiceServer).Build(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AttributesBuilderService_Build_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AttributesBuilderServiceServer).Build(ctx, req.(*BuildRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AttributesBuilderService_SetColorMode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetColorModeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AttributesBuilderServiceServer).SetColorMode(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AttributesBuilderService_SetColorMode_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AttributesBuilderServiceServer).SetColorMode(ctx, req.(*SetColorModeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AttributesBuilderService_SetDuplexMode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetDuplexModeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AttributesBuilderServiceServer).SetDuplexMode(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AttributesBuilderService_SetDuplexMode_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AttributesBuilderServiceServer).SetDuplexMode(ctx, req.(*SetDuplexModeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AttributesBuilderService_SetMediaSize_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetMediaSizeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AttributesBuilderServiceServer).SetMediaSize(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AttributesBuilderService_SetMediaSize_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AttributesBuilderServiceServer).SetMediaSize(ctx, req.(*SetMediaSizeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AttributesBuilderService_SetMinMargins_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetMinMarginsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AttributesBuilderServiceServer).SetMinMargins(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AttributesBuilderService_SetMinMargins_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AttributesBuilderServiceServer).SetMinMargins(ctx, req.(*SetMinMarginsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AttributesBuilderService_SetResolution_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetResolutionRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AttributesBuilderServiceServer).SetResolution(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AttributesBuilderService_SetResolution_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AttributesBuilderServiceServer).SetResolution(ctx, req.(*SetResolutionRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// AttributesBuilderService_ServiceDesc is the grpc.ServiceDesc for AttributesBuilderService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var AttributesBuilderService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "print.AttributesBuilderService",
-	HandlerType: (*AttributesBuilderServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "Build",
-			Handler:    _AttributesBuilderService_Build_Handler,
-		},
-		{
-			MethodName: "SetColorMode",
-			Handler:    _AttributesBuilderService_SetColorMode_Handler,
-		},
-		{
-			MethodName: "SetDuplexMode",
-			Handler:    _AttributesBuilderService_SetDuplexMode_Handler,
-		},
-		{
-			MethodName: "SetMediaSize",
-			Handler:    _AttributesBuilderService_SetMediaSize_Handler,
-		},
-		{
-			MethodName: "SetMinMargins",
-			Handler:    _AttributesBuilderService_SetMinMargins_Handler,
-		},
-		{
-			MethodName: "SetResolution",
-			Handler:    _AttributesBuilderService_SetResolution_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/print/print.proto",
-}
-
-const (
-	AttributesMarginsService_Equals_FullMethodName        = "/print.AttributesMarginsService/Equals"
-	AttributesMarginsService_GetBottomMils_FullMethodName = "/print.AttributesMarginsService/GetBottomMils"
-	AttributesMarginsService_GetLeftMils_FullMethodName   = "/print.AttributesMarginsService/GetLeftMils"
-	AttributesMarginsService_GetRightMils_FullMethodName  = "/print.AttributesMarginsService/GetRightMils"
-	AttributesMarginsService_GetTopMils_FullMethodName    = "/print.AttributesMarginsService/GetTopMils"
-	AttributesMarginsService_HashCode_FullMethodName      = "/print.AttributesMarginsService/HashCode"
-	AttributesMarginsService_ToString_FullMethodName      = "/print.AttributesMarginsService/ToString"
-)
-
-// AttributesMarginsServiceClient is the client API for AttributesMarginsService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type AttributesMarginsServiceClient interface {
-	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
-	GetBottomMils(ctx context.Context, in *GetBottomMilsRequest, opts ...grpc.CallOption) (*GetBottomMilsResponse, error)
-	GetLeftMils(ctx context.Context, in *GetLeftMilsRequest, opts ...grpc.CallOption) (*GetLeftMilsResponse, error)
-	GetRightMils(ctx context.Context, in *GetRightMilsRequest, opts ...grpc.CallOption) (*GetRightMilsResponse, error)
-	GetTopMils(ctx context.Context, in *GetTopMilsRequest, opts ...grpc.CallOption) (*GetTopMilsResponse, error)
-	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
-	ToString(ctx context.Context, in *AttributesMarginsToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
-}
-
-type attributesMarginsServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewAttributesMarginsServiceClient(cc grpc.ClientConnInterface) AttributesMarginsServiceClient {
-	return &attributesMarginsServiceClient{cc}
-}
-
-func (c *attributesMarginsServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(EqualsResponse)
-	err := c.cc.Invoke(ctx, AttributesMarginsService_Equals_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *attributesMarginsServiceClient) GetBottomMils(ctx context.Context, in *GetBottomMilsRequest, opts ...grpc.CallOption) (*GetBottomMilsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetBottomMilsResponse)
-	err := c.cc.Invoke(ctx, AttributesMarginsService_GetBottomMils_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *attributesMarginsServiceClient) GetLeftMils(ctx context.Context, in *GetLeftMilsRequest, opts ...grpc.CallOption) (*GetLeftMilsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetLeftMilsResponse)
-	err := c.cc.Invoke(ctx, AttributesMarginsService_GetLeftMils_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *attributesMarginsServiceClient) GetRightMils(ctx context.Context, in *GetRightMilsRequest, opts ...grpc.CallOption) (*GetRightMilsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetRightMilsResponse)
-	err := c.cc.Invoke(ctx, AttributesMarginsService_GetRightMils_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *attributesMarginsServiceClient) GetTopMils(ctx context.Context, in *GetTopMilsRequest, opts ...grpc.CallOption) (*GetTopMilsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetTopMilsResponse)
-	err := c.cc.Invoke(ctx, AttributesMarginsService_GetTopMils_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *attributesMarginsServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(HashCodeResponse)
-	err := c.cc.Invoke(ctx, AttributesMarginsService_HashCode_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *attributesMarginsServiceClient) ToString(ctx context.Context, in *AttributesMarginsToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ToStringResponse)
-	err := c.cc.Invoke(ctx, AttributesMarginsService_ToString_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// AttributesMarginsServiceServer is the server API for AttributesMarginsService service.
-// All implementations must embed UnimplementedAttributesMarginsServiceServer
-// for forward compatibility.
-type AttributesMarginsServiceServer interface {
-	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
-	GetBottomMils(context.Context, *GetBottomMilsRequest) (*GetBottomMilsResponse, error)
-	GetLeftMils(context.Context, *GetLeftMilsRequest) (*GetLeftMilsResponse, error)
-	GetRightMils(context.Context, *GetRightMilsRequest) (*GetRightMilsResponse, error)
-	GetTopMils(context.Context, *GetTopMilsRequest) (*GetTopMilsResponse, error)
-	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
-	ToString(context.Context, *AttributesMarginsToStringRequest) (*ToStringResponse, error)
-	mustEmbedUnimplementedAttributesMarginsServiceServer()
-}
-
-// UnimplementedAttributesMarginsServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedAttributesMarginsServiceServer struct{}
-
-func (UnimplementedAttributesMarginsServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
-}
-func (UnimplementedAttributesMarginsServiceServer) GetBottomMils(context.Context, *GetBottomMilsRequest) (*GetBottomMilsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetBottomMils not implemented")
-}
-func (UnimplementedAttributesMarginsServiceServer) GetLeftMils(context.Context, *GetLeftMilsRequest) (*GetLeftMilsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetLeftMils not implemented")
-}
-func (UnimplementedAttributesMarginsServiceServer) GetRightMils(context.Context, *GetRightMilsRequest) (*GetRightMilsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetRightMils not implemented")
-}
-func (UnimplementedAttributesMarginsServiceServer) GetTopMils(context.Context, *GetTopMilsRequest) (*GetTopMilsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetTopMils not implemented")
-}
-func (UnimplementedAttributesMarginsServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
-}
-func (UnimplementedAttributesMarginsServiceServer) ToString(context.Context, *AttributesMarginsToStringRequest) (*ToStringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
-}
-func (UnimplementedAttributesMarginsServiceServer) mustEmbedUnimplementedAttributesMarginsServiceServer() {
-}
-func (UnimplementedAttributesMarginsServiceServer) testEmbeddedByValue() {}
-
-// UnsafeAttributesMarginsServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to AttributesMarginsServiceServer will
-// result in compilation errors.
-type UnsafeAttributesMarginsServiceServer interface {
-	mustEmbedUnimplementedAttributesMarginsServiceServer()
-}
-
-func RegisterAttributesMarginsServiceServer(s grpc.ServiceRegistrar, srv AttributesMarginsServiceServer) {
-	// If the following call panics, it indicates UnimplementedAttributesMarginsServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&AttributesMarginsService_ServiceDesc, srv)
-}
-
-func _AttributesMarginsService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(EqualsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AttributesMarginsServiceServer).Equals(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AttributesMarginsService_Equals_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AttributesMarginsServiceServer).Equals(ctx, req.(*EqualsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AttributesMarginsService_GetBottomMils_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetBottomMilsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AttributesMarginsServiceServer).GetBottomMils(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AttributesMarginsService_GetBottomMils_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AttributesMarginsServiceServer).GetBottomMils(ctx, req.(*GetBottomMilsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AttributesMarginsService_GetLeftMils_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetLeftMilsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AttributesMarginsServiceServer).GetLeftMils(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AttributesMarginsService_GetLeftMils_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AttributesMarginsServiceServer).GetLeftMils(ctx, req.(*GetLeftMilsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AttributesMarginsService_GetRightMils_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetRightMilsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AttributesMarginsServiceServer).GetRightMils(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AttributesMarginsService_GetRightMils_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AttributesMarginsServiceServer).GetRightMils(ctx, req.(*GetRightMilsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AttributesMarginsService_GetTopMils_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetTopMilsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AttributesMarginsServiceServer).GetTopMils(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AttributesMarginsService_GetTopMils_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AttributesMarginsServiceServer).GetTopMils(ctx, req.(*GetTopMilsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AttributesMarginsService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(HashCodeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AttributesMarginsServiceServer).HashCode(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AttributesMarginsService_HashCode_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AttributesMarginsServiceServer).HashCode(ctx, req.(*HashCodeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AttributesMarginsService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AttributesMarginsToStringRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AttributesMarginsServiceServer).ToString(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AttributesMarginsService_ToString_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AttributesMarginsServiceServer).ToString(ctx, req.(*AttributesMarginsToStringRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// AttributesMarginsService_ServiceDesc is the grpc.ServiceDesc for AttributesMarginsService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var AttributesMarginsService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "print.AttributesMarginsService",
-	HandlerType: (*AttributesMarginsServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "Equals",
-			Handler:    _AttributesMarginsService_Equals_Handler,
-		},
-		{
-			MethodName: "GetBottomMils",
-			Handler:    _AttributesMarginsService_GetBottomMils_Handler,
-		},
-		{
-			MethodName: "GetLeftMils",
-			Handler:    _AttributesMarginsService_GetLeftMils_Handler,
-		},
-		{
-			MethodName: "GetRightMils",
-			Handler:    _AttributesMarginsService_GetRightMils_Handler,
-		},
-		{
-			MethodName: "GetTopMils",
-			Handler:    _AttributesMarginsService_GetTopMils_Handler,
-		},
-		{
-			MethodName: "HashCode",
-			Handler:    _AttributesMarginsService_HashCode_Handler,
-		},
-		{
-			MethodName: "ToString",
-			Handler:    _AttributesMarginsService_ToString_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/print/print.proto",
-}
-
-const (
-	AttributesMediaSizeService_AsLandscape_FullMethodName   = "/print.AttributesMediaSizeService/AsLandscape"
-	AttributesMediaSizeService_AsPortrait_FullMethodName    = "/print.AttributesMediaSizeService/AsPortrait"
-	AttributesMediaSizeService_Equals_FullMethodName        = "/print.AttributesMediaSizeService/Equals"
-	AttributesMediaSizeService_GetHeightMils_FullMethodName = "/print.AttributesMediaSizeService/GetHeightMils"
-	AttributesMediaSizeService_GetId_FullMethodName         = "/print.AttributesMediaSizeService/GetId"
-	AttributesMediaSizeService_GetLabel_FullMethodName      = "/print.AttributesMediaSizeService/GetLabel"
-	AttributesMediaSizeService_GetWidthMils_FullMethodName  = "/print.AttributesMediaSizeService/GetWidthMils"
-	AttributesMediaSizeService_HashCode_FullMethodName      = "/print.AttributesMediaSizeService/HashCode"
-	AttributesMediaSizeService_IsPortrait_FullMethodName    = "/print.AttributesMediaSizeService/IsPortrait"
-	AttributesMediaSizeService_ToString_FullMethodName      = "/print.AttributesMediaSizeService/ToString"
-)
-
-// AttributesMediaSizeServiceClient is the client API for AttributesMediaSizeService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type AttributesMediaSizeServiceClient interface {
-	AsLandscape(ctx context.Context, in *AsLandscapeRequest, opts ...grpc.CallOption) (*AsLandscapeResponse, error)
-	AsPortrait(ctx context.Context, in *AsPortraitRequest, opts ...grpc.CallOption) (*AsPortraitResponse, error)
-	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
-	GetHeightMils(ctx context.Context, in *GetHeightMilsRequest, opts ...grpc.CallOption) (*GetHeightMilsResponse, error)
-	GetId(ctx context.Context, in *GetIdRequest, opts ...grpc.CallOption) (*AttributesMediaSizeGetIdResponse, error)
-	GetLabel(ctx context.Context, in *AttributesMediaSizeGetLabelRequest, opts ...grpc.CallOption) (*GetLabelResponse, error)
-	GetWidthMils(ctx context.Context, in *GetWidthMilsRequest, opts ...grpc.CallOption) (*GetWidthMilsResponse, error)
-	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
-	IsPortrait(ctx context.Context, in *IsPortraitRequest, opts ...grpc.CallOption) (*IsPortraitResponse, error)
-	ToString(ctx context.Context, in *AttributesMediaSizeToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
-}
-
-type attributesMediaSizeServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewAttributesMediaSizeServiceClient(cc grpc.ClientConnInterface) AttributesMediaSizeServiceClient {
-	return &attributesMediaSizeServiceClient{cc}
-}
-
-func (c *attributesMediaSizeServiceClient) AsLandscape(ctx context.Context, in *AsLandscapeRequest, opts ...grpc.CallOption) (*AsLandscapeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(AsLandscapeResponse)
-	err := c.cc.Invoke(ctx, AttributesMediaSizeService_AsLandscape_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *attributesMediaSizeServiceClient) AsPortrait(ctx context.Context, in *AsPortraitRequest, opts ...grpc.CallOption) (*AsPortraitResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(AsPortraitResponse)
-	err := c.cc.Invoke(ctx, AttributesMediaSizeService_AsPortrait_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *attributesMediaSizeServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(EqualsResponse)
-	err := c.cc.Invoke(ctx, AttributesMediaSizeService_Equals_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *attributesMediaSizeServiceClient) GetHeightMils(ctx context.Context, in *GetHeightMilsRequest, opts ...grpc.CallOption) (*GetHeightMilsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetHeightMilsResponse)
-	err := c.cc.Invoke(ctx, AttributesMediaSizeService_GetHeightMils_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *attributesMediaSizeServiceClient) GetId(ctx context.Context, in *GetIdRequest, opts ...grpc.CallOption) (*AttributesMediaSizeGetIdResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(AttributesMediaSizeGetIdResponse)
-	err := c.cc.Invoke(ctx, AttributesMediaSizeService_GetId_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *attributesMediaSizeServiceClient) GetLabel(ctx context.Context, in *AttributesMediaSizeGetLabelRequest, opts ...grpc.CallOption) (*GetLabelResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetLabelResponse)
-	err := c.cc.Invoke(ctx, AttributesMediaSizeService_GetLabel_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *attributesMediaSizeServiceClient) GetWidthMils(ctx context.Context, in *GetWidthMilsRequest, opts ...grpc.CallOption) (*GetWidthMilsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetWidthMilsResponse)
-	err := c.cc.Invoke(ctx, AttributesMediaSizeService_GetWidthMils_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *attributesMediaSizeServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(HashCodeResponse)
-	err := c.cc.Invoke(ctx, AttributesMediaSizeService_HashCode_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *attributesMediaSizeServiceClient) IsPortrait(ctx context.Context, in *IsPortraitRequest, opts ...grpc.CallOption) (*IsPortraitResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsPortraitResponse)
-	err := c.cc.Invoke(ctx, AttributesMediaSizeService_IsPortrait_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *attributesMediaSizeServiceClient) ToString(ctx context.Context, in *AttributesMediaSizeToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ToStringResponse)
-	err := c.cc.Invoke(ctx, AttributesMediaSizeService_ToString_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// AttributesMediaSizeServiceServer is the server API for AttributesMediaSizeService service.
-// All implementations must embed UnimplementedAttributesMediaSizeServiceServer
-// for forward compatibility.
-type AttributesMediaSizeServiceServer interface {
-	AsLandscape(context.Context, *AsLandscapeRequest) (*AsLandscapeResponse, error)
-	AsPortrait(context.Context, *AsPortraitRequest) (*AsPortraitResponse, error)
-	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
-	GetHeightMils(context.Context, *GetHeightMilsRequest) (*GetHeightMilsResponse, error)
-	GetId(context.Context, *GetIdRequest) (*AttributesMediaSizeGetIdResponse, error)
-	GetLabel(context.Context, *AttributesMediaSizeGetLabelRequest) (*GetLabelResponse, error)
-	GetWidthMils(context.Context, *GetWidthMilsRequest) (*GetWidthMilsResponse, error)
-	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
-	IsPortrait(context.Context, *IsPortraitRequest) (*IsPortraitResponse, error)
-	ToString(context.Context, *AttributesMediaSizeToStringRequest) (*ToStringResponse, error)
-	mustEmbedUnimplementedAttributesMediaSizeServiceServer()
-}
-
-// UnimplementedAttributesMediaSizeServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedAttributesMediaSizeServiceServer struct{}
-
-func (UnimplementedAttributesMediaSizeServiceServer) AsLandscape(context.Context, *AsLandscapeRequest) (*AsLandscapeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method AsLandscape not implemented")
-}
-func (UnimplementedAttributesMediaSizeServiceServer) AsPortrait(context.Context, *AsPortraitRequest) (*AsPortraitResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method AsPortrait not implemented")
-}
-func (UnimplementedAttributesMediaSizeServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
-}
-func (UnimplementedAttributesMediaSizeServiceServer) GetHeightMils(context.Context, *GetHeightMilsRequest) (*GetHeightMilsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetHeightMils not implemented")
-}
-func (UnimplementedAttributesMediaSizeServiceServer) GetId(context.Context, *GetIdRequest) (*AttributesMediaSizeGetIdResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetId not implemented")
-}
-func (UnimplementedAttributesMediaSizeServiceServer) GetLabel(context.Context, *AttributesMediaSizeGetLabelRequest) (*GetLabelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetLabel not implemented")
-}
-func (UnimplementedAttributesMediaSizeServiceServer) GetWidthMils(context.Context, *GetWidthMilsRequest) (*GetWidthMilsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetWidthMils not implemented")
-}
-func (UnimplementedAttributesMediaSizeServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
-}
-func (UnimplementedAttributesMediaSizeServiceServer) IsPortrait(context.Context, *IsPortraitRequest) (*IsPortraitResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsPortrait not implemented")
-}
-func (UnimplementedAttributesMediaSizeServiceServer) ToString(context.Context, *AttributesMediaSizeToStringRequest) (*ToStringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
-}
-func (UnimplementedAttributesMediaSizeServiceServer) mustEmbedUnimplementedAttributesMediaSizeServiceServer() {
-}
-func (UnimplementedAttributesMediaSizeServiceServer) testEmbeddedByValue() {}
-
-// UnsafeAttributesMediaSizeServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to AttributesMediaSizeServiceServer will
-// result in compilation errors.
-type UnsafeAttributesMediaSizeServiceServer interface {
-	mustEmbedUnimplementedAttributesMediaSizeServiceServer()
-}
-
-func RegisterAttributesMediaSizeServiceServer(s grpc.ServiceRegistrar, srv AttributesMediaSizeServiceServer) {
-	// If the following call panics, it indicates UnimplementedAttributesMediaSizeServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&AttributesMediaSizeService_ServiceDesc, srv)
-}
-
-func _AttributesMediaSizeService_AsLandscape_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AsLandscapeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AttributesMediaSizeServiceServer).AsLandscape(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AttributesMediaSizeService_AsLandscape_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AttributesMediaSizeServiceServer).AsLandscape(ctx, req.(*AsLandscapeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AttributesMediaSizeService_AsPortrait_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AsPortraitRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AttributesMediaSizeServiceServer).AsPortrait(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AttributesMediaSizeService_AsPortrait_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AttributesMediaSizeServiceServer).AsPortrait(ctx, req.(*AsPortraitRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AttributesMediaSizeService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(EqualsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AttributesMediaSizeServiceServer).Equals(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AttributesMediaSizeService_Equals_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AttributesMediaSizeServiceServer).Equals(ctx, req.(*EqualsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AttributesMediaSizeService_GetHeightMils_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetHeightMilsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AttributesMediaSizeServiceServer).GetHeightMils(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AttributesMediaSizeService_GetHeightMils_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AttributesMediaSizeServiceServer).GetHeightMils(ctx, req.(*GetHeightMilsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AttributesMediaSizeService_GetId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetIdRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AttributesMediaSizeServiceServer).GetId(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AttributesMediaSizeService_GetId_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AttributesMediaSizeServiceServer).GetId(ctx, req.(*GetIdRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AttributesMediaSizeService_GetLabel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AttributesMediaSizeGetLabelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AttributesMediaSizeServiceServer).GetLabel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AttributesMediaSizeService_GetLabel_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AttributesMediaSizeServiceServer).GetLabel(ctx, req.(*AttributesMediaSizeGetLabelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AttributesMediaSizeService_GetWidthMils_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetWidthMilsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AttributesMediaSizeServiceServer).GetWidthMils(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AttributesMediaSizeService_GetWidthMils_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AttributesMediaSizeServiceServer).GetWidthMils(ctx, req.(*GetWidthMilsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AttributesMediaSizeService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(HashCodeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AttributesMediaSizeServiceServer).HashCode(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AttributesMediaSizeService_HashCode_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AttributesMediaSizeServiceServer).HashCode(ctx, req.(*HashCodeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AttributesMediaSizeService_IsPortrait_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsPortraitRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AttributesMediaSizeServiceServer).IsPortrait(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AttributesMediaSizeService_IsPortrait_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AttributesMediaSizeServiceServer).IsPortrait(ctx, req.(*IsPortraitRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AttributesMediaSizeService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AttributesMediaSizeToStringRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AttributesMediaSizeServiceServer).ToString(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AttributesMediaSizeService_ToString_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AttributesMediaSizeServiceServer).ToString(ctx, req.(*AttributesMediaSizeToStringRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// AttributesMediaSizeService_ServiceDesc is the grpc.ServiceDesc for AttributesMediaSizeService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var AttributesMediaSizeService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "print.AttributesMediaSizeService",
-	HandlerType: (*AttributesMediaSizeServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "AsLandscape",
-			Handler:    _AttributesMediaSizeService_AsLandscape_Handler,
-		},
-		{
-			MethodName: "AsPortrait",
-			Handler:    _AttributesMediaSizeService_AsPortrait_Handler,
-		},
-		{
-			MethodName: "Equals",
-			Handler:    _AttributesMediaSizeService_Equals_Handler,
-		},
-		{
-			MethodName: "GetHeightMils",
-			Handler:    _AttributesMediaSizeService_GetHeightMils_Handler,
-		},
-		{
-			MethodName: "GetId",
-			Handler:    _AttributesMediaSizeService_GetId_Handler,
-		},
-		{
-			MethodName: "GetLabel",
-			Handler:    _AttributesMediaSizeService_GetLabel_Handler,
-		},
-		{
-			MethodName: "GetWidthMils",
-			Handler:    _AttributesMediaSizeService_GetWidthMils_Handler,
-		},
-		{
-			MethodName: "HashCode",
-			Handler:    _AttributesMediaSizeService_HashCode_Handler,
-		},
-		{
-			MethodName: "IsPortrait",
-			Handler:    _AttributesMediaSizeService_IsPortrait_Handler,
-		},
-		{
-			MethodName: "ToString",
-			Handler:    _AttributesMediaSizeService_ToString_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/print/print.proto",
-}
-
-const (
-	AttributesResolutionService_Equals_FullMethodName           = "/print.AttributesResolutionService/Equals"
-	AttributesResolutionService_GetHorizontalDpi_FullMethodName = "/print.AttributesResolutionService/GetHorizontalDpi"
-	AttributesResolutionService_GetId_FullMethodName            = "/print.AttributesResolutionService/GetId"
-	AttributesResolutionService_GetLabel_FullMethodName         = "/print.AttributesResolutionService/GetLabel"
-	AttributesResolutionService_GetVerticalDpi_FullMethodName   = "/print.AttributesResolutionService/GetVerticalDpi"
-	AttributesResolutionService_HashCode_FullMethodName         = "/print.AttributesResolutionService/HashCode"
-	AttributesResolutionService_ToString_FullMethodName         = "/print.AttributesResolutionService/ToString"
-)
-
-// AttributesResolutionServiceClient is the client API for AttributesResolutionService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type AttributesResolutionServiceClient interface {
-	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
-	GetHorizontalDpi(ctx context.Context, in *GetHorizontalDpiRequest, opts ...grpc.CallOption) (*GetHorizontalDpiResponse, error)
-	GetId(ctx context.Context, in *GetIdRequest, opts ...grpc.CallOption) (*AttributesResolutionGetIdResponse, error)
-	GetLabel(ctx context.Context, in *GetLabelRequest, opts ...grpc.CallOption) (*GetLabelResponse, error)
-	GetVerticalDpi(ctx context.Context, in *GetVerticalDpiRequest, opts ...grpc.CallOption) (*GetVerticalDpiResponse, error)
-	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
-	ToString(ctx context.Context, in *AttributesResolutionToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
-}
-
-type attributesResolutionServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewAttributesResolutionServiceClient(cc grpc.ClientConnInterface) AttributesResolutionServiceClient {
-	return &attributesResolutionServiceClient{cc}
-}
-
-func (c *attributesResolutionServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(EqualsResponse)
-	err := c.cc.Invoke(ctx, AttributesResolutionService_Equals_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *attributesResolutionServiceClient) GetHorizontalDpi(ctx context.Context, in *GetHorizontalDpiRequest, opts ...grpc.CallOption) (*GetHorizontalDpiResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetHorizontalDpiResponse)
-	err := c.cc.Invoke(ctx, AttributesResolutionService_GetHorizontalDpi_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *attributesResolutionServiceClient) GetId(ctx context.Context, in *GetIdRequest, opts ...grpc.CallOption) (*AttributesResolutionGetIdResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(AttributesResolutionGetIdResponse)
-	err := c.cc.Invoke(ctx, AttributesResolutionService_GetId_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *attributesResolutionServiceClient) GetLabel(ctx context.Context, in *GetLabelRequest, opts ...grpc.CallOption) (*GetLabelResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetLabelResponse)
-	err := c.cc.Invoke(ctx, AttributesResolutionService_GetLabel_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *attributesResolutionServiceClient) GetVerticalDpi(ctx context.Context, in *GetVerticalDpiRequest, opts ...grpc.CallOption) (*GetVerticalDpiResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetVerticalDpiResponse)
-	err := c.cc.Invoke(ctx, AttributesResolutionService_GetVerticalDpi_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *attributesResolutionServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(HashCodeResponse)
-	err := c.cc.Invoke(ctx, AttributesResolutionService_HashCode_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *attributesResolutionServiceClient) ToString(ctx context.Context, in *AttributesResolutionToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ToStringResponse)
-	err := c.cc.Invoke(ctx, AttributesResolutionService_ToString_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// AttributesResolutionServiceServer is the server API for AttributesResolutionService service.
-// All implementations must embed UnimplementedAttributesResolutionServiceServer
-// for forward compatibility.
-type AttributesResolutionServiceServer interface {
-	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
-	GetHorizontalDpi(context.Context, *GetHorizontalDpiRequest) (*GetHorizontalDpiResponse, error)
-	GetId(context.Context, *GetIdRequest) (*AttributesResolutionGetIdResponse, error)
-	GetLabel(context.Context, *GetLabelRequest) (*GetLabelResponse, error)
-	GetVerticalDpi(context.Context, *GetVerticalDpiRequest) (*GetVerticalDpiResponse, error)
-	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
-	ToString(context.Context, *AttributesResolutionToStringRequest) (*ToStringResponse, error)
-	mustEmbedUnimplementedAttributesResolutionServiceServer()
-}
-
-// UnimplementedAttributesResolutionServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedAttributesResolutionServiceServer struct{}
-
-func (UnimplementedAttributesResolutionServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
-}
-func (UnimplementedAttributesResolutionServiceServer) GetHorizontalDpi(context.Context, *GetHorizontalDpiRequest) (*GetHorizontalDpiResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetHorizontalDpi not implemented")
-}
-func (UnimplementedAttributesResolutionServiceServer) GetId(context.Context, *GetIdRequest) (*AttributesResolutionGetIdResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetId not implemented")
-}
-func (UnimplementedAttributesResolutionServiceServer) GetLabel(context.Context, *GetLabelRequest) (*GetLabelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetLabel not implemented")
-}
-func (UnimplementedAttributesResolutionServiceServer) GetVerticalDpi(context.Context, *GetVerticalDpiRequest) (*GetVerticalDpiResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetVerticalDpi not implemented")
-}
-func (UnimplementedAttributesResolutionServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
-}
-func (UnimplementedAttributesResolutionServiceServer) ToString(context.Context, *AttributesResolutionToStringRequest) (*ToStringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
-}
-func (UnimplementedAttributesResolutionServiceServer) mustEmbedUnimplementedAttributesResolutionServiceServer() {
-}
-func (UnimplementedAttributesResolutionServiceServer) testEmbeddedByValue() {}
-
-// UnsafeAttributesResolutionServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to AttributesResolutionServiceServer will
-// result in compilation errors.
-type UnsafeAttributesResolutionServiceServer interface {
-	mustEmbedUnimplementedAttributesResolutionServiceServer()
-}
-
-func RegisterAttributesResolutionServiceServer(s grpc.ServiceRegistrar, srv AttributesResolutionServiceServer) {
-	// If the following call panics, it indicates UnimplementedAttributesResolutionServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&AttributesResolutionService_ServiceDesc, srv)
-}
-
-func _AttributesResolutionService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(EqualsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AttributesResolutionServiceServer).Equals(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AttributesResolutionService_Equals_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AttributesResolutionServiceServer).Equals(ctx, req.(*EqualsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AttributesResolutionService_GetHorizontalDpi_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetHorizontalDpiRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AttributesResolutionServiceServer).GetHorizontalDpi(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AttributesResolutionService_GetHorizontalDpi_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AttributesResolutionServiceServer).GetHorizontalDpi(ctx, req.(*GetHorizontalDpiRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AttributesResolutionService_GetId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetIdRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AttributesResolutionServiceServer).GetId(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AttributesResolutionService_GetId_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AttributesResolutionServiceServer).GetId(ctx, req.(*GetIdRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AttributesResolutionService_GetLabel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetLabelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AttributesResolutionServiceServer).GetLabel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AttributesResolutionService_GetLabel_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AttributesResolutionServiceServer).GetLabel(ctx, req.(*GetLabelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AttributesResolutionService_GetVerticalDpi_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetVerticalDpiRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AttributesResolutionServiceServer).GetVerticalDpi(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AttributesResolutionService_GetVerticalDpi_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AttributesResolutionServiceServer).GetVerticalDpi(ctx, req.(*GetVerticalDpiRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AttributesResolutionService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(HashCodeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AttributesResolutionServiceServer).HashCode(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AttributesResolutionService_HashCode_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AttributesResolutionServiceServer).HashCode(ctx, req.(*HashCodeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AttributesResolutionService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AttributesResolutionToStringRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AttributesResolutionServiceServer).ToString(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AttributesResolutionService_ToString_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AttributesResolutionServiceServer).ToString(ctx, req.(*AttributesResolutionToStringRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// AttributesResolutionService_ServiceDesc is the grpc.ServiceDesc for AttributesResolutionService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var AttributesResolutionService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "print.AttributesResolutionService",
-	HandlerType: (*AttributesResolutionServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "Equals",
-			Handler:    _AttributesResolutionService_Equals_Handler,
-		},
-		{
-			MethodName: "GetHorizontalDpi",
-			Handler:    _AttributesResolutionService_GetHorizontalDpi_Handler,
-		},
-		{
-			MethodName: "GetId",
-			Handler:    _AttributesResolutionService_GetId_Handler,
-		},
-		{
-			MethodName: "GetLabel",
-			Handler:    _AttributesResolutionService_GetLabel_Handler,
-		},
-		{
-			MethodName: "GetVerticalDpi",
-			Handler:    _AttributesResolutionService_GetVerticalDpi_Handler,
-		},
-		{
-			MethodName: "HashCode",
-			Handler:    _AttributesResolutionService_HashCode_Handler,
-		},
-		{
-			MethodName: "ToString",
-			Handler:    _AttributesResolutionService_ToString_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/print/print.proto",
-}
-
-const (
 	ErInfoService_DescribeContents_FullMethodName = "/print.ErInfoService/DescribeContents"
 	ErInfoService_Equals_FullMethodName           = "/print.ErInfoService/Equals"
 	ErInfoService_GetCapabilities_FullMethodName  = "/print.ErInfoService/GetCapabilities"
@@ -4880,16 +6279,16 @@ const (
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type ErInfoServiceClient interface {
-	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	DescribeContents(ctx context.Context, in *ErInfoDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	Equals(ctx context.Context, in *ErInfoEqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
 	GetCapabilities(ctx context.Context, in *GetCapabilitiesRequest, opts ...grpc.CallOption) (*GetCapabilitiesResponse, error)
 	GetDescription(ctx context.Context, in *GetDescriptionRequest, opts ...grpc.CallOption) (*GetDescriptionResponse, error)
 	GetId(ctx context.Context, in *GetIdRequest, opts ...grpc.CallOption) (*GetIdResponse, error)
 	GetName(ctx context.Context, in *GetNameRequest, opts ...grpc.CallOption) (*GetNameResponse, error)
 	GetStatus(ctx context.Context, in *GetStatusRequest, opts ...grpc.CallOption) (*GetStatusResponse, error)
-	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+	HashCode(ctx context.Context, in *ErInfoHashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
 	ToString(ctx context.Context, in *ErInfoToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
-	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+	WriteToParcel(ctx context.Context, in *ErInfoWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
 }
 
 type erInfoServiceClient struct {
@@ -4900,7 +6299,7 @@ func NewErInfoServiceClient(cc grpc.ClientConnInterface) ErInfoServiceClient {
 	return &erInfoServiceClient{cc}
 }
 
-func (c *erInfoServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+func (c *erInfoServiceClient) DescribeContents(ctx context.Context, in *ErInfoDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(DescribeContentsResponse)
 	err := c.cc.Invoke(ctx, ErInfoService_DescribeContents_FullMethodName, in, out, cOpts...)
@@ -4910,7 +6309,7 @@ func (c *erInfoServiceClient) DescribeContents(ctx context.Context, in *Describe
 	return out, nil
 }
 
-func (c *erInfoServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+func (c *erInfoServiceClient) Equals(ctx context.Context, in *ErInfoEqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(EqualsResponse)
 	err := c.cc.Invoke(ctx, ErInfoService_Equals_FullMethodName, in, out, cOpts...)
@@ -4970,7 +6369,7 @@ func (c *erInfoServiceClient) GetStatus(ctx context.Context, in *GetStatusReques
 	return out, nil
 }
 
-func (c *erInfoServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+func (c *erInfoServiceClient) HashCode(ctx context.Context, in *ErInfoHashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(HashCodeResponse)
 	err := c.cc.Invoke(ctx, ErInfoService_HashCode_FullMethodName, in, out, cOpts...)
@@ -4990,7 +6389,7 @@ func (c *erInfoServiceClient) ToString(ctx context.Context, in *ErInfoToStringRe
 	return out, nil
 }
 
-func (c *erInfoServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+func (c *erInfoServiceClient) WriteToParcel(ctx context.Context, in *ErInfoWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(WriteToParcelResponse)
 	err := c.cc.Invoke(ctx, ErInfoService_WriteToParcel_FullMethodName, in, out, cOpts...)
@@ -5004,16 +6403,16 @@ func (c *erInfoServiceClient) WriteToParcel(ctx context.Context, in *WriteToParc
 // All implementations must embed UnimplementedErInfoServiceServer
 // for forward compatibility.
 type ErInfoServiceServer interface {
-	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
-	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
+	DescribeContents(context.Context, *ErInfoDescribeContentsRequest) (*DescribeContentsResponse, error)
+	Equals(context.Context, *ErInfoEqualsRequest) (*EqualsResponse, error)
 	GetCapabilities(context.Context, *GetCapabilitiesRequest) (*GetCapabilitiesResponse, error)
 	GetDescription(context.Context, *GetDescriptionRequest) (*GetDescriptionResponse, error)
 	GetId(context.Context, *GetIdRequest) (*GetIdResponse, error)
 	GetName(context.Context, *GetNameRequest) (*GetNameResponse, error)
 	GetStatus(context.Context, *GetStatusRequest) (*GetStatusResponse, error)
-	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
+	HashCode(context.Context, *ErInfoHashCodeRequest) (*HashCodeResponse, error)
 	ToString(context.Context, *ErInfoToStringRequest) (*ToStringResponse, error)
-	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	WriteToParcel(context.Context, *ErInfoWriteToParcelRequest) (*WriteToParcelResponse, error)
 	mustEmbedUnimplementedErInfoServiceServer()
 }
 
@@ -5024,10 +6423,10 @@ type ErInfoServiceServer interface {
 // pointer dereference when methods are called.
 type UnimplementedErInfoServiceServer struct{}
 
-func (UnimplementedErInfoServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+func (UnimplementedErInfoServiceServer) DescribeContents(context.Context, *ErInfoDescribeContentsRequest) (*DescribeContentsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
 }
-func (UnimplementedErInfoServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
+func (UnimplementedErInfoServiceServer) Equals(context.Context, *ErInfoEqualsRequest) (*EqualsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
 }
 func (UnimplementedErInfoServiceServer) GetCapabilities(context.Context, *GetCapabilitiesRequest) (*GetCapabilitiesResponse, error) {
@@ -5045,13 +6444,13 @@ func (UnimplementedErInfoServiceServer) GetName(context.Context, *GetNameRequest
 func (UnimplementedErInfoServiceServer) GetStatus(context.Context, *GetStatusRequest) (*GetStatusResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetStatus not implemented")
 }
-func (UnimplementedErInfoServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
+func (UnimplementedErInfoServiceServer) HashCode(context.Context, *ErInfoHashCodeRequest) (*HashCodeResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
 }
 func (UnimplementedErInfoServiceServer) ToString(context.Context, *ErInfoToStringRequest) (*ToStringResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
 }
-func (UnimplementedErInfoServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+func (UnimplementedErInfoServiceServer) WriteToParcel(context.Context, *ErInfoWriteToParcelRequest) (*WriteToParcelResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
 }
 func (UnimplementedErInfoServiceServer) mustEmbedUnimplementedErInfoServiceServer() {}
@@ -5076,7 +6475,7 @@ func RegisterErInfoServiceServer(s grpc.ServiceRegistrar, srv ErInfoServiceServe
 }
 
 func _ErInfoService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DescribeContentsRequest)
+	in := new(ErInfoDescribeContentsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -5088,13 +6487,13 @@ func _ErInfoService_DescribeContents_Handler(srv interface{}, ctx context.Contex
 		FullMethod: ErInfoService_DescribeContents_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ErInfoServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+		return srv.(ErInfoServiceServer).DescribeContents(ctx, req.(*ErInfoDescribeContentsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _ErInfoService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(EqualsRequest)
+	in := new(ErInfoEqualsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -5106,7 +6505,7 @@ func _ErInfoService_Equals_Handler(srv interface{}, ctx context.Context, dec fun
 		FullMethod: ErInfoService_Equals_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ErInfoServiceServer).Equals(ctx, req.(*EqualsRequest))
+		return srv.(ErInfoServiceServer).Equals(ctx, req.(*ErInfoEqualsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -5202,7 +6601,7 @@ func _ErInfoService_GetStatus_Handler(srv interface{}, ctx context.Context, dec 
 }
 
 func _ErInfoService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(HashCodeRequest)
+	in := new(ErInfoHashCodeRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -5214,7 +6613,7 @@ func _ErInfoService_HashCode_Handler(srv interface{}, ctx context.Context, dec f
 		FullMethod: ErInfoService_HashCode_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ErInfoServiceServer).HashCode(ctx, req.(*HashCodeRequest))
+		return srv.(ErInfoServiceServer).HashCode(ctx, req.(*ErInfoHashCodeRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -5238,7 +6637,7 @@ func _ErInfoService_ToString_Handler(srv interface{}, ctx context.Context, dec f
 }
 
 func _ErInfoService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WriteToParcelRequest)
+	in := new(ErInfoWriteToParcelRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -5250,7 +6649,7 @@ func _ErInfoService_WriteToParcel_Handler(srv interface{}, ctx context.Context, 
 		FullMethod: ErInfoService_WriteToParcel_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ErInfoServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+		return srv.(ErInfoServiceServer).WriteToParcel(ctx, req.(*ErInfoWriteToParcelRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -5669,1291 +7068,6 @@ var ErInfoBuilderService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "SetStatus",
 			Handler:    _ErInfoBuilderService_SetStatus_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/print/print.proto",
-}
-
-const (
-	DocumentInfoService_DescribeContents_FullMethodName = "/print.DocumentInfoService/DescribeContents"
-	DocumentInfoService_Equals_FullMethodName           = "/print.DocumentInfoService/Equals"
-	DocumentInfoService_GetContentType_FullMethodName   = "/print.DocumentInfoService/GetContentType"
-	DocumentInfoService_GetDataSize_FullMethodName      = "/print.DocumentInfoService/GetDataSize"
-	DocumentInfoService_GetName_FullMethodName          = "/print.DocumentInfoService/GetName"
-	DocumentInfoService_GetPageCount_FullMethodName     = "/print.DocumentInfoService/GetPageCount"
-	DocumentInfoService_HashCode_FullMethodName         = "/print.DocumentInfoService/HashCode"
-	DocumentInfoService_ToString_FullMethodName         = "/print.DocumentInfoService/ToString"
-	DocumentInfoService_WriteToParcel_FullMethodName    = "/print.DocumentInfoService/WriteToParcel"
-)
-
-// DocumentInfoServiceClient is the client API for DocumentInfoService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type DocumentInfoServiceClient interface {
-	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
-	GetContentType(ctx context.Context, in *GetContentTypeRequest, opts ...grpc.CallOption) (*GetContentTypeResponse, error)
-	GetDataSize(ctx context.Context, in *GetDataSizeRequest, opts ...grpc.CallOption) (*GetDataSizeResponse, error)
-	GetName(ctx context.Context, in *GetNameRequest, opts ...grpc.CallOption) (*GetNameResponse, error)
-	GetPageCount(ctx context.Context, in *GetPageCountRequest, opts ...grpc.CallOption) (*GetPageCountResponse, error)
-	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
-	ToString(ctx context.Context, in *DocumentInfoToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
-	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
-}
-
-type documentInfoServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewDocumentInfoServiceClient(cc grpc.ClientConnInterface) DocumentInfoServiceClient {
-	return &documentInfoServiceClient{cc}
-}
-
-func (c *documentInfoServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, DocumentInfoService_DescribeContents_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *documentInfoServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(EqualsResponse)
-	err := c.cc.Invoke(ctx, DocumentInfoService_Equals_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *documentInfoServiceClient) GetContentType(ctx context.Context, in *GetContentTypeRequest, opts ...grpc.CallOption) (*GetContentTypeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetContentTypeResponse)
-	err := c.cc.Invoke(ctx, DocumentInfoService_GetContentType_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *documentInfoServiceClient) GetDataSize(ctx context.Context, in *GetDataSizeRequest, opts ...grpc.CallOption) (*GetDataSizeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetDataSizeResponse)
-	err := c.cc.Invoke(ctx, DocumentInfoService_GetDataSize_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *documentInfoServiceClient) GetName(ctx context.Context, in *GetNameRequest, opts ...grpc.CallOption) (*GetNameResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetNameResponse)
-	err := c.cc.Invoke(ctx, DocumentInfoService_GetName_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *documentInfoServiceClient) GetPageCount(ctx context.Context, in *GetPageCountRequest, opts ...grpc.CallOption) (*GetPageCountResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetPageCountResponse)
-	err := c.cc.Invoke(ctx, DocumentInfoService_GetPageCount_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *documentInfoServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(HashCodeResponse)
-	err := c.cc.Invoke(ctx, DocumentInfoService_HashCode_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *documentInfoServiceClient) ToString(ctx context.Context, in *DocumentInfoToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ToStringResponse)
-	err := c.cc.Invoke(ctx, DocumentInfoService_ToString_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *documentInfoServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, DocumentInfoService_WriteToParcel_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// DocumentInfoServiceServer is the server API for DocumentInfoService service.
-// All implementations must embed UnimplementedDocumentInfoServiceServer
-// for forward compatibility.
-type DocumentInfoServiceServer interface {
-	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
-	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
-	GetContentType(context.Context, *GetContentTypeRequest) (*GetContentTypeResponse, error)
-	GetDataSize(context.Context, *GetDataSizeRequest) (*GetDataSizeResponse, error)
-	GetName(context.Context, *GetNameRequest) (*GetNameResponse, error)
-	GetPageCount(context.Context, *GetPageCountRequest) (*GetPageCountResponse, error)
-	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
-	ToString(context.Context, *DocumentInfoToStringRequest) (*ToStringResponse, error)
-	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
-	mustEmbedUnimplementedDocumentInfoServiceServer()
-}
-
-// UnimplementedDocumentInfoServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedDocumentInfoServiceServer struct{}
-
-func (UnimplementedDocumentInfoServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
-}
-func (UnimplementedDocumentInfoServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
-}
-func (UnimplementedDocumentInfoServiceServer) GetContentType(context.Context, *GetContentTypeRequest) (*GetContentTypeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetContentType not implemented")
-}
-func (UnimplementedDocumentInfoServiceServer) GetDataSize(context.Context, *GetDataSizeRequest) (*GetDataSizeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetDataSize not implemented")
-}
-func (UnimplementedDocumentInfoServiceServer) GetName(context.Context, *GetNameRequest) (*GetNameResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetName not implemented")
-}
-func (UnimplementedDocumentInfoServiceServer) GetPageCount(context.Context, *GetPageCountRequest) (*GetPageCountResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetPageCount not implemented")
-}
-func (UnimplementedDocumentInfoServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
-}
-func (UnimplementedDocumentInfoServiceServer) ToString(context.Context, *DocumentInfoToStringRequest) (*ToStringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
-}
-func (UnimplementedDocumentInfoServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
-}
-func (UnimplementedDocumentInfoServiceServer) mustEmbedUnimplementedDocumentInfoServiceServer() {}
-func (UnimplementedDocumentInfoServiceServer) testEmbeddedByValue()                             {}
-
-// UnsafeDocumentInfoServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to DocumentInfoServiceServer will
-// result in compilation errors.
-type UnsafeDocumentInfoServiceServer interface {
-	mustEmbedUnimplementedDocumentInfoServiceServer()
-}
-
-func RegisterDocumentInfoServiceServer(s grpc.ServiceRegistrar, srv DocumentInfoServiceServer) {
-	// If the following call panics, it indicates UnimplementedDocumentInfoServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&DocumentInfoService_ServiceDesc, srv)
-}
-
-func _DocumentInfoService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DescribeContentsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DocumentInfoServiceServer).DescribeContents(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DocumentInfoService_DescribeContents_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DocumentInfoServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DocumentInfoService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(EqualsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DocumentInfoServiceServer).Equals(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DocumentInfoService_Equals_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DocumentInfoServiceServer).Equals(ctx, req.(*EqualsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DocumentInfoService_GetContentType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetContentTypeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DocumentInfoServiceServer).GetContentType(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DocumentInfoService_GetContentType_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DocumentInfoServiceServer).GetContentType(ctx, req.(*GetContentTypeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DocumentInfoService_GetDataSize_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetDataSizeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DocumentInfoServiceServer).GetDataSize(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DocumentInfoService_GetDataSize_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DocumentInfoServiceServer).GetDataSize(ctx, req.(*GetDataSizeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DocumentInfoService_GetName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetNameRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DocumentInfoServiceServer).GetName(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DocumentInfoService_GetName_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DocumentInfoServiceServer).GetName(ctx, req.(*GetNameRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DocumentInfoService_GetPageCount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetPageCountRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DocumentInfoServiceServer).GetPageCount(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DocumentInfoService_GetPageCount_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DocumentInfoServiceServer).GetPageCount(ctx, req.(*GetPageCountRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DocumentInfoService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(HashCodeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DocumentInfoServiceServer).HashCode(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DocumentInfoService_HashCode_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DocumentInfoServiceServer).HashCode(ctx, req.(*HashCodeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DocumentInfoService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DocumentInfoToStringRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DocumentInfoServiceServer).ToString(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DocumentInfoService_ToString_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DocumentInfoServiceServer).ToString(ctx, req.(*DocumentInfoToStringRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DocumentInfoService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WriteToParcelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DocumentInfoServiceServer).WriteToParcel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DocumentInfoService_WriteToParcel_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DocumentInfoServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// DocumentInfoService_ServiceDesc is the grpc.ServiceDesc for DocumentInfoService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var DocumentInfoService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "print.DocumentInfoService",
-	HandlerType: (*DocumentInfoServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "DescribeContents",
-			Handler:    _DocumentInfoService_DescribeContents_Handler,
-		},
-		{
-			MethodName: "Equals",
-			Handler:    _DocumentInfoService_Equals_Handler,
-		},
-		{
-			MethodName: "GetContentType",
-			Handler:    _DocumentInfoService_GetContentType_Handler,
-		},
-		{
-			MethodName: "GetDataSize",
-			Handler:    _DocumentInfoService_GetDataSize_Handler,
-		},
-		{
-			MethodName: "GetName",
-			Handler:    _DocumentInfoService_GetName_Handler,
-		},
-		{
-			MethodName: "GetPageCount",
-			Handler:    _DocumentInfoService_GetPageCount_Handler,
-		},
-		{
-			MethodName: "HashCode",
-			Handler:    _DocumentInfoService_HashCode_Handler,
-		},
-		{
-			MethodName: "ToString",
-			Handler:    _DocumentInfoService_ToString_Handler,
-		},
-		{
-			MethodName: "WriteToParcel",
-			Handler:    _DocumentInfoService_WriteToParcel_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/print/print.proto",
-}
-
-const (
-	DocumentInfoBuilderService_Build_FullMethodName          = "/print.DocumentInfoBuilderService/Build"
-	DocumentInfoBuilderService_SetContentType_FullMethodName = "/print.DocumentInfoBuilderService/SetContentType"
-	DocumentInfoBuilderService_SetPageCount_FullMethodName   = "/print.DocumentInfoBuilderService/SetPageCount"
-)
-
-// DocumentInfoBuilderServiceClient is the client API for DocumentInfoBuilderService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type DocumentInfoBuilderServiceClient interface {
-	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
-	SetContentType(ctx context.Context, in *SetContentTypeRequest, opts ...grpc.CallOption) (*SetContentTypeResponse, error)
-	SetPageCount(ctx context.Context, in *SetPageCountRequest, opts ...grpc.CallOption) (*SetPageCountResponse, error)
-}
-
-type documentInfoBuilderServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewDocumentInfoBuilderServiceClient(cc grpc.ClientConnInterface) DocumentInfoBuilderServiceClient {
-	return &documentInfoBuilderServiceClient{cc}
-}
-
-func (c *documentInfoBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(BuildResponse)
-	err := c.cc.Invoke(ctx, DocumentInfoBuilderService_Build_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *documentInfoBuilderServiceClient) SetContentType(ctx context.Context, in *SetContentTypeRequest, opts ...grpc.CallOption) (*SetContentTypeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetContentTypeResponse)
-	err := c.cc.Invoke(ctx, DocumentInfoBuilderService_SetContentType_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *documentInfoBuilderServiceClient) SetPageCount(ctx context.Context, in *SetPageCountRequest, opts ...grpc.CallOption) (*SetPageCountResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetPageCountResponse)
-	err := c.cc.Invoke(ctx, DocumentInfoBuilderService_SetPageCount_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// DocumentInfoBuilderServiceServer is the server API for DocumentInfoBuilderService service.
-// All implementations must embed UnimplementedDocumentInfoBuilderServiceServer
-// for forward compatibility.
-type DocumentInfoBuilderServiceServer interface {
-	Build(context.Context, *BuildRequest) (*BuildResponse, error)
-	SetContentType(context.Context, *SetContentTypeRequest) (*SetContentTypeResponse, error)
-	SetPageCount(context.Context, *SetPageCountRequest) (*SetPageCountResponse, error)
-	mustEmbedUnimplementedDocumentInfoBuilderServiceServer()
-}
-
-// UnimplementedDocumentInfoBuilderServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedDocumentInfoBuilderServiceServer struct{}
-
-func (UnimplementedDocumentInfoBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
-}
-func (UnimplementedDocumentInfoBuilderServiceServer) SetContentType(context.Context, *SetContentTypeRequest) (*SetContentTypeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetContentType not implemented")
-}
-func (UnimplementedDocumentInfoBuilderServiceServer) SetPageCount(context.Context, *SetPageCountRequest) (*SetPageCountResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetPageCount not implemented")
-}
-func (UnimplementedDocumentInfoBuilderServiceServer) mustEmbedUnimplementedDocumentInfoBuilderServiceServer() {
-}
-func (UnimplementedDocumentInfoBuilderServiceServer) testEmbeddedByValue() {}
-
-// UnsafeDocumentInfoBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to DocumentInfoBuilderServiceServer will
-// result in compilation errors.
-type UnsafeDocumentInfoBuilderServiceServer interface {
-	mustEmbedUnimplementedDocumentInfoBuilderServiceServer()
-}
-
-func RegisterDocumentInfoBuilderServiceServer(s grpc.ServiceRegistrar, srv DocumentInfoBuilderServiceServer) {
-	// If the following call panics, it indicates UnimplementedDocumentInfoBuilderServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&DocumentInfoBuilderService_ServiceDesc, srv)
-}
-
-func _DocumentInfoBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(BuildRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DocumentInfoBuilderServiceServer).Build(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DocumentInfoBuilderService_Build_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DocumentInfoBuilderServiceServer).Build(ctx, req.(*BuildRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DocumentInfoBuilderService_SetContentType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetContentTypeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DocumentInfoBuilderServiceServer).SetContentType(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DocumentInfoBuilderService_SetContentType_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DocumentInfoBuilderServiceServer).SetContentType(ctx, req.(*SetContentTypeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DocumentInfoBuilderService_SetPageCount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetPageCountRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DocumentInfoBuilderServiceServer).SetPageCount(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DocumentInfoBuilderService_SetPageCount_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DocumentInfoBuilderServiceServer).SetPageCount(ctx, req.(*SetPageCountRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// DocumentInfoBuilderService_ServiceDesc is the grpc.ServiceDesc for DocumentInfoBuilderService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var DocumentInfoBuilderService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "print.DocumentInfoBuilderService",
-	HandlerType: (*DocumentInfoBuilderServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "Build",
-			Handler:    _DocumentInfoBuilderService_Build_Handler,
-		},
-		{
-			MethodName: "SetContentType",
-			Handler:    _DocumentInfoBuilderService_SetContentType_Handler,
-		},
-		{
-			MethodName: "SetPageCount",
-			Handler:    _DocumentInfoBuilderService_SetPageCount_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/print/print.proto",
-}
-
-const (
-	ErCapabilitiesInfoService_DescribeContents_FullMethodName = "/print.ErCapabilitiesInfoService/DescribeContents"
-	ErCapabilitiesInfoService_Equals_FullMethodName           = "/print.ErCapabilitiesInfoService/Equals"
-	ErCapabilitiesInfoService_GetColorModes_FullMethodName    = "/print.ErCapabilitiesInfoService/GetColorModes"
-	ErCapabilitiesInfoService_GetDefaults_FullMethodName      = "/print.ErCapabilitiesInfoService/GetDefaults"
-	ErCapabilitiesInfoService_GetDuplexModes_FullMethodName   = "/print.ErCapabilitiesInfoService/GetDuplexModes"
-	ErCapabilitiesInfoService_GetMinMargins_FullMethodName    = "/print.ErCapabilitiesInfoService/GetMinMargins"
-	ErCapabilitiesInfoService_HashCode_FullMethodName         = "/print.ErCapabilitiesInfoService/HashCode"
-	ErCapabilitiesInfoService_ToString_FullMethodName         = "/print.ErCapabilitiesInfoService/ToString"
-	ErCapabilitiesInfoService_WriteToParcel_FullMethodName    = "/print.ErCapabilitiesInfoService/WriteToParcel"
-)
-
-// ErCapabilitiesInfoServiceClient is the client API for ErCapabilitiesInfoService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type ErCapabilitiesInfoServiceClient interface {
-	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
-	GetColorModes(ctx context.Context, in *GetColorModesRequest, opts ...grpc.CallOption) (*GetColorModesResponse, error)
-	GetDefaults(ctx context.Context, in *GetDefaultsRequest, opts ...grpc.CallOption) (*GetDefaultsResponse, error)
-	GetDuplexModes(ctx context.Context, in *GetDuplexModesRequest, opts ...grpc.CallOption) (*GetDuplexModesResponse, error)
-	GetMinMargins(ctx context.Context, in *GetMinMarginsRequest, opts ...grpc.CallOption) (*GetMinMarginsResponse, error)
-	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
-	ToString(ctx context.Context, in *ErCapabilitiesInfoToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
-	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
-}
-
-type erCapabilitiesInfoServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewErCapabilitiesInfoServiceClient(cc grpc.ClientConnInterface) ErCapabilitiesInfoServiceClient {
-	return &erCapabilitiesInfoServiceClient{cc}
-}
-
-func (c *erCapabilitiesInfoServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, ErCapabilitiesInfoService_DescribeContents_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *erCapabilitiesInfoServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(EqualsResponse)
-	err := c.cc.Invoke(ctx, ErCapabilitiesInfoService_Equals_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *erCapabilitiesInfoServiceClient) GetColorModes(ctx context.Context, in *GetColorModesRequest, opts ...grpc.CallOption) (*GetColorModesResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetColorModesResponse)
-	err := c.cc.Invoke(ctx, ErCapabilitiesInfoService_GetColorModes_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *erCapabilitiesInfoServiceClient) GetDefaults(ctx context.Context, in *GetDefaultsRequest, opts ...grpc.CallOption) (*GetDefaultsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetDefaultsResponse)
-	err := c.cc.Invoke(ctx, ErCapabilitiesInfoService_GetDefaults_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *erCapabilitiesInfoServiceClient) GetDuplexModes(ctx context.Context, in *GetDuplexModesRequest, opts ...grpc.CallOption) (*GetDuplexModesResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetDuplexModesResponse)
-	err := c.cc.Invoke(ctx, ErCapabilitiesInfoService_GetDuplexModes_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *erCapabilitiesInfoServiceClient) GetMinMargins(ctx context.Context, in *GetMinMarginsRequest, opts ...grpc.CallOption) (*GetMinMarginsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetMinMarginsResponse)
-	err := c.cc.Invoke(ctx, ErCapabilitiesInfoService_GetMinMargins_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *erCapabilitiesInfoServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(HashCodeResponse)
-	err := c.cc.Invoke(ctx, ErCapabilitiesInfoService_HashCode_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *erCapabilitiesInfoServiceClient) ToString(ctx context.Context, in *ErCapabilitiesInfoToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ToStringResponse)
-	err := c.cc.Invoke(ctx, ErCapabilitiesInfoService_ToString_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *erCapabilitiesInfoServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, ErCapabilitiesInfoService_WriteToParcel_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// ErCapabilitiesInfoServiceServer is the server API for ErCapabilitiesInfoService service.
-// All implementations must embed UnimplementedErCapabilitiesInfoServiceServer
-// for forward compatibility.
-type ErCapabilitiesInfoServiceServer interface {
-	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
-	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
-	GetColorModes(context.Context, *GetColorModesRequest) (*GetColorModesResponse, error)
-	GetDefaults(context.Context, *GetDefaultsRequest) (*GetDefaultsResponse, error)
-	GetDuplexModes(context.Context, *GetDuplexModesRequest) (*GetDuplexModesResponse, error)
-	GetMinMargins(context.Context, *GetMinMarginsRequest) (*GetMinMarginsResponse, error)
-	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
-	ToString(context.Context, *ErCapabilitiesInfoToStringRequest) (*ToStringResponse, error)
-	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
-	mustEmbedUnimplementedErCapabilitiesInfoServiceServer()
-}
-
-// UnimplementedErCapabilitiesInfoServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedErCapabilitiesInfoServiceServer struct{}
-
-func (UnimplementedErCapabilitiesInfoServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
-}
-func (UnimplementedErCapabilitiesInfoServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
-}
-func (UnimplementedErCapabilitiesInfoServiceServer) GetColorModes(context.Context, *GetColorModesRequest) (*GetColorModesResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetColorModes not implemented")
-}
-func (UnimplementedErCapabilitiesInfoServiceServer) GetDefaults(context.Context, *GetDefaultsRequest) (*GetDefaultsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetDefaults not implemented")
-}
-func (UnimplementedErCapabilitiesInfoServiceServer) GetDuplexModes(context.Context, *GetDuplexModesRequest) (*GetDuplexModesResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetDuplexModes not implemented")
-}
-func (UnimplementedErCapabilitiesInfoServiceServer) GetMinMargins(context.Context, *GetMinMarginsRequest) (*GetMinMarginsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetMinMargins not implemented")
-}
-func (UnimplementedErCapabilitiesInfoServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
-}
-func (UnimplementedErCapabilitiesInfoServiceServer) ToString(context.Context, *ErCapabilitiesInfoToStringRequest) (*ToStringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
-}
-func (UnimplementedErCapabilitiesInfoServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
-}
-func (UnimplementedErCapabilitiesInfoServiceServer) mustEmbedUnimplementedErCapabilitiesInfoServiceServer() {
-}
-func (UnimplementedErCapabilitiesInfoServiceServer) testEmbeddedByValue() {}
-
-// UnsafeErCapabilitiesInfoServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to ErCapabilitiesInfoServiceServer will
-// result in compilation errors.
-type UnsafeErCapabilitiesInfoServiceServer interface {
-	mustEmbedUnimplementedErCapabilitiesInfoServiceServer()
-}
-
-func RegisterErCapabilitiesInfoServiceServer(s grpc.ServiceRegistrar, srv ErCapabilitiesInfoServiceServer) {
-	// If the following call panics, it indicates UnimplementedErCapabilitiesInfoServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&ErCapabilitiesInfoService_ServiceDesc, srv)
-}
-
-func _ErCapabilitiesInfoService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DescribeContentsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ErCapabilitiesInfoServiceServer).DescribeContents(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ErCapabilitiesInfoService_DescribeContents_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ErCapabilitiesInfoServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ErCapabilitiesInfoService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(EqualsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ErCapabilitiesInfoServiceServer).Equals(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ErCapabilitiesInfoService_Equals_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ErCapabilitiesInfoServiceServer).Equals(ctx, req.(*EqualsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ErCapabilitiesInfoService_GetColorModes_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetColorModesRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ErCapabilitiesInfoServiceServer).GetColorModes(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ErCapabilitiesInfoService_GetColorModes_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ErCapabilitiesInfoServiceServer).GetColorModes(ctx, req.(*GetColorModesRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ErCapabilitiesInfoService_GetDefaults_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetDefaultsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ErCapabilitiesInfoServiceServer).GetDefaults(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ErCapabilitiesInfoService_GetDefaults_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ErCapabilitiesInfoServiceServer).GetDefaults(ctx, req.(*GetDefaultsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ErCapabilitiesInfoService_GetDuplexModes_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetDuplexModesRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ErCapabilitiesInfoServiceServer).GetDuplexModes(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ErCapabilitiesInfoService_GetDuplexModes_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ErCapabilitiesInfoServiceServer).GetDuplexModes(ctx, req.(*GetDuplexModesRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ErCapabilitiesInfoService_GetMinMargins_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetMinMarginsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ErCapabilitiesInfoServiceServer).GetMinMargins(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ErCapabilitiesInfoService_GetMinMargins_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ErCapabilitiesInfoServiceServer).GetMinMargins(ctx, req.(*GetMinMarginsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ErCapabilitiesInfoService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(HashCodeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ErCapabilitiesInfoServiceServer).HashCode(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ErCapabilitiesInfoService_HashCode_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ErCapabilitiesInfoServiceServer).HashCode(ctx, req.(*HashCodeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ErCapabilitiesInfoService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ErCapabilitiesInfoToStringRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ErCapabilitiesInfoServiceServer).ToString(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ErCapabilitiesInfoService_ToString_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ErCapabilitiesInfoServiceServer).ToString(ctx, req.(*ErCapabilitiesInfoToStringRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ErCapabilitiesInfoService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WriteToParcelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ErCapabilitiesInfoServiceServer).WriteToParcel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ErCapabilitiesInfoService_WriteToParcel_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ErCapabilitiesInfoServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// ErCapabilitiesInfoService_ServiceDesc is the grpc.ServiceDesc for ErCapabilitiesInfoService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var ErCapabilitiesInfoService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "print.ErCapabilitiesInfoService",
-	HandlerType: (*ErCapabilitiesInfoServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "DescribeContents",
-			Handler:    _ErCapabilitiesInfoService_DescribeContents_Handler,
-		},
-		{
-			MethodName: "Equals",
-			Handler:    _ErCapabilitiesInfoService_Equals_Handler,
-		},
-		{
-			MethodName: "GetColorModes",
-			Handler:    _ErCapabilitiesInfoService_GetColorModes_Handler,
-		},
-		{
-			MethodName: "GetDefaults",
-			Handler:    _ErCapabilitiesInfoService_GetDefaults_Handler,
-		},
-		{
-			MethodName: "GetDuplexModes",
-			Handler:    _ErCapabilitiesInfoService_GetDuplexModes_Handler,
-		},
-		{
-			MethodName: "GetMinMargins",
-			Handler:    _ErCapabilitiesInfoService_GetMinMargins_Handler,
-		},
-		{
-			MethodName: "HashCode",
-			Handler:    _ErCapabilitiesInfoService_HashCode_Handler,
-		},
-		{
-			MethodName: "ToString",
-			Handler:    _ErCapabilitiesInfoService_ToString_Handler,
-		},
-		{
-			MethodName: "WriteToParcel",
-			Handler:    _ErCapabilitiesInfoService_WriteToParcel_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/print/print.proto",
-}
-
-const (
-	ErCapabilitiesInfoBuilderService_AddMediaSize_FullMethodName   = "/print.ErCapabilitiesInfoBuilderService/AddMediaSize"
-	ErCapabilitiesInfoBuilderService_AddResolution_FullMethodName  = "/print.ErCapabilitiesInfoBuilderService/AddResolution"
-	ErCapabilitiesInfoBuilderService_Build_FullMethodName          = "/print.ErCapabilitiesInfoBuilderService/Build"
-	ErCapabilitiesInfoBuilderService_SetColorModes_FullMethodName  = "/print.ErCapabilitiesInfoBuilderService/SetColorModes"
-	ErCapabilitiesInfoBuilderService_SetDuplexModes_FullMethodName = "/print.ErCapabilitiesInfoBuilderService/SetDuplexModes"
-	ErCapabilitiesInfoBuilderService_SetMinMargins_FullMethodName  = "/print.ErCapabilitiesInfoBuilderService/SetMinMargins"
-)
-
-// ErCapabilitiesInfoBuilderServiceClient is the client API for ErCapabilitiesInfoBuilderService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type ErCapabilitiesInfoBuilderServiceClient interface {
-	AddMediaSize(ctx context.Context, in *AddMediaSizeRequest, opts ...grpc.CallOption) (*AddMediaSizeResponse, error)
-	AddResolution(ctx context.Context, in *AddResolutionRequest, opts ...grpc.CallOption) (*AddResolutionResponse, error)
-	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
-	SetColorModes(ctx context.Context, in *SetColorModesRequest, opts ...grpc.CallOption) (*SetColorModesResponse, error)
-	SetDuplexModes(ctx context.Context, in *SetDuplexModesRequest, opts ...grpc.CallOption) (*SetDuplexModesResponse, error)
-	SetMinMargins(ctx context.Context, in *SetMinMarginsRequest, opts ...grpc.CallOption) (*SetMinMarginsResponse, error)
-}
-
-type erCapabilitiesInfoBuilderServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewErCapabilitiesInfoBuilderServiceClient(cc grpc.ClientConnInterface) ErCapabilitiesInfoBuilderServiceClient {
-	return &erCapabilitiesInfoBuilderServiceClient{cc}
-}
-
-func (c *erCapabilitiesInfoBuilderServiceClient) AddMediaSize(ctx context.Context, in *AddMediaSizeRequest, opts ...grpc.CallOption) (*AddMediaSizeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(AddMediaSizeResponse)
-	err := c.cc.Invoke(ctx, ErCapabilitiesInfoBuilderService_AddMediaSize_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *erCapabilitiesInfoBuilderServiceClient) AddResolution(ctx context.Context, in *AddResolutionRequest, opts ...grpc.CallOption) (*AddResolutionResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(AddResolutionResponse)
-	err := c.cc.Invoke(ctx, ErCapabilitiesInfoBuilderService_AddResolution_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *erCapabilitiesInfoBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(BuildResponse)
-	err := c.cc.Invoke(ctx, ErCapabilitiesInfoBuilderService_Build_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *erCapabilitiesInfoBuilderServiceClient) SetColorModes(ctx context.Context, in *SetColorModesRequest, opts ...grpc.CallOption) (*SetColorModesResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetColorModesResponse)
-	err := c.cc.Invoke(ctx, ErCapabilitiesInfoBuilderService_SetColorModes_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *erCapabilitiesInfoBuilderServiceClient) SetDuplexModes(ctx context.Context, in *SetDuplexModesRequest, opts ...grpc.CallOption) (*SetDuplexModesResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetDuplexModesResponse)
-	err := c.cc.Invoke(ctx, ErCapabilitiesInfoBuilderService_SetDuplexModes_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *erCapabilitiesInfoBuilderServiceClient) SetMinMargins(ctx context.Context, in *SetMinMarginsRequest, opts ...grpc.CallOption) (*SetMinMarginsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetMinMarginsResponse)
-	err := c.cc.Invoke(ctx, ErCapabilitiesInfoBuilderService_SetMinMargins_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// ErCapabilitiesInfoBuilderServiceServer is the server API for ErCapabilitiesInfoBuilderService service.
-// All implementations must embed UnimplementedErCapabilitiesInfoBuilderServiceServer
-// for forward compatibility.
-type ErCapabilitiesInfoBuilderServiceServer interface {
-	AddMediaSize(context.Context, *AddMediaSizeRequest) (*AddMediaSizeResponse, error)
-	AddResolution(context.Context, *AddResolutionRequest) (*AddResolutionResponse, error)
-	Build(context.Context, *BuildRequest) (*BuildResponse, error)
-	SetColorModes(context.Context, *SetColorModesRequest) (*SetColorModesResponse, error)
-	SetDuplexModes(context.Context, *SetDuplexModesRequest) (*SetDuplexModesResponse, error)
-	SetMinMargins(context.Context, *SetMinMarginsRequest) (*SetMinMarginsResponse, error)
-	mustEmbedUnimplementedErCapabilitiesInfoBuilderServiceServer()
-}
-
-// UnimplementedErCapabilitiesInfoBuilderServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedErCapabilitiesInfoBuilderServiceServer struct{}
-
-func (UnimplementedErCapabilitiesInfoBuilderServiceServer) AddMediaSize(context.Context, *AddMediaSizeRequest) (*AddMediaSizeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method AddMediaSize not implemented")
-}
-func (UnimplementedErCapabilitiesInfoBuilderServiceServer) AddResolution(context.Context, *AddResolutionRequest) (*AddResolutionResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method AddResolution not implemented")
-}
-func (UnimplementedErCapabilitiesInfoBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
-}
-func (UnimplementedErCapabilitiesInfoBuilderServiceServer) SetColorModes(context.Context, *SetColorModesRequest) (*SetColorModesResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetColorModes not implemented")
-}
-func (UnimplementedErCapabilitiesInfoBuilderServiceServer) SetDuplexModes(context.Context, *SetDuplexModesRequest) (*SetDuplexModesResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetDuplexModes not implemented")
-}
-func (UnimplementedErCapabilitiesInfoBuilderServiceServer) SetMinMargins(context.Context, *SetMinMarginsRequest) (*SetMinMarginsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetMinMargins not implemented")
-}
-func (UnimplementedErCapabilitiesInfoBuilderServiceServer) mustEmbedUnimplementedErCapabilitiesInfoBuilderServiceServer() {
-}
-func (UnimplementedErCapabilitiesInfoBuilderServiceServer) testEmbeddedByValue() {}
-
-// UnsafeErCapabilitiesInfoBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to ErCapabilitiesInfoBuilderServiceServer will
-// result in compilation errors.
-type UnsafeErCapabilitiesInfoBuilderServiceServer interface {
-	mustEmbedUnimplementedErCapabilitiesInfoBuilderServiceServer()
-}
-
-func RegisterErCapabilitiesInfoBuilderServiceServer(s grpc.ServiceRegistrar, srv ErCapabilitiesInfoBuilderServiceServer) {
-	// If the following call panics, it indicates UnimplementedErCapabilitiesInfoBuilderServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&ErCapabilitiesInfoBuilderService_ServiceDesc, srv)
-}
-
-func _ErCapabilitiesInfoBuilderService_AddMediaSize_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AddMediaSizeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ErCapabilitiesInfoBuilderServiceServer).AddMediaSize(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ErCapabilitiesInfoBuilderService_AddMediaSize_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ErCapabilitiesInfoBuilderServiceServer).AddMediaSize(ctx, req.(*AddMediaSizeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ErCapabilitiesInfoBuilderService_AddResolution_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AddResolutionRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ErCapabilitiesInfoBuilderServiceServer).AddResolution(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ErCapabilitiesInfoBuilderService_AddResolution_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ErCapabilitiesInfoBuilderServiceServer).AddResolution(ctx, req.(*AddResolutionRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ErCapabilitiesInfoBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(BuildRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ErCapabilitiesInfoBuilderServiceServer).Build(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ErCapabilitiesInfoBuilderService_Build_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ErCapabilitiesInfoBuilderServiceServer).Build(ctx, req.(*BuildRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ErCapabilitiesInfoBuilderService_SetColorModes_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetColorModesRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ErCapabilitiesInfoBuilderServiceServer).SetColorModes(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ErCapabilitiesInfoBuilderService_SetColorModes_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ErCapabilitiesInfoBuilderServiceServer).SetColorModes(ctx, req.(*SetColorModesRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ErCapabilitiesInfoBuilderService_SetDuplexModes_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetDuplexModesRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ErCapabilitiesInfoBuilderServiceServer).SetDuplexModes(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ErCapabilitiesInfoBuilderService_SetDuplexModes_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ErCapabilitiesInfoBuilderServiceServer).SetDuplexModes(ctx, req.(*SetDuplexModesRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ErCapabilitiesInfoBuilderService_SetMinMargins_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetMinMarginsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ErCapabilitiesInfoBuilderServiceServer).SetMinMargins(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ErCapabilitiesInfoBuilderService_SetMinMargins_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ErCapabilitiesInfoBuilderServiceServer).SetMinMargins(ctx, req.(*SetMinMarginsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// ErCapabilitiesInfoBuilderService_ServiceDesc is the grpc.ServiceDesc for ErCapabilitiesInfoBuilderService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var ErCapabilitiesInfoBuilderService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "print.ErCapabilitiesInfoBuilderService",
-	HandlerType: (*ErCapabilitiesInfoBuilderServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "AddMediaSize",
-			Handler:    _ErCapabilitiesInfoBuilderService_AddMediaSize_Handler,
-		},
-		{
-			MethodName: "AddResolution",
-			Handler:    _ErCapabilitiesInfoBuilderService_AddResolution_Handler,
-		},
-		{
-			MethodName: "Build",
-			Handler:    _ErCapabilitiesInfoBuilderService_Build_Handler,
-		},
-		{
-			MethodName: "SetColorModes",
-			Handler:    _ErCapabilitiesInfoBuilderService_SetColorModes_Handler,
-		},
-		{
-			MethodName: "SetDuplexModes",
-			Handler:    _ErCapabilitiesInfoBuilderService_SetDuplexModes_Handler,
-		},
-		{
-			MethodName: "SetMinMargins",
-			Handler:    _ErCapabilitiesInfoBuilderService_SetMinMargins_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

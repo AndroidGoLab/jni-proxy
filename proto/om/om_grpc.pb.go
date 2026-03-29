@@ -21,6 +21,299 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
+	OverlayManagerTransactionService_DescribeContents_FullMethodName            = "/om.OverlayManagerTransactionService/DescribeContents"
+	OverlayManagerTransactionService_RegisterFabricatedOverlay_FullMethodName   = "/om.OverlayManagerTransactionService/RegisterFabricatedOverlay"
+	OverlayManagerTransactionService_ToString_FullMethodName                    = "/om.OverlayManagerTransactionService/ToString"
+	OverlayManagerTransactionService_UnregisterFabricatedOverlay_FullMethodName = "/om.OverlayManagerTransactionService/UnregisterFabricatedOverlay"
+	OverlayManagerTransactionService_WriteToParcel_FullMethodName               = "/om.OverlayManagerTransactionService/WriteToParcel"
+	OverlayManagerTransactionService_NewInstance_FullMethodName                 = "/om.OverlayManagerTransactionService/NewInstance"
+)
+
+// OverlayManagerTransactionServiceClient is the client API for OverlayManagerTransactionService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type OverlayManagerTransactionServiceClient interface {
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	RegisterFabricatedOverlay(ctx context.Context, in *RegisterFabricatedOverlayRequest, opts ...grpc.CallOption) (*RegisterFabricatedOverlayResponse, error)
+	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+	UnregisterFabricatedOverlay(ctx context.Context, in *UnregisterFabricatedOverlayRequest, opts ...grpc.CallOption) (*UnregisterFabricatedOverlayResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+	NewInstance(ctx context.Context, in *NewInstanceRequest, opts ...grpc.CallOption) (*NewInstanceResponse, error)
+}
+
+type overlayManagerTransactionServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewOverlayManagerTransactionServiceClient(cc grpc.ClientConnInterface) OverlayManagerTransactionServiceClient {
+	return &overlayManagerTransactionServiceClient{cc}
+}
+
+func (c *overlayManagerTransactionServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, OverlayManagerTransactionService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *overlayManagerTransactionServiceClient) RegisterFabricatedOverlay(ctx context.Context, in *RegisterFabricatedOverlayRequest, opts ...grpc.CallOption) (*RegisterFabricatedOverlayResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(RegisterFabricatedOverlayResponse)
+	err := c.cc.Invoke(ctx, OverlayManagerTransactionService_RegisterFabricatedOverlay_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *overlayManagerTransactionServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, OverlayManagerTransactionService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *overlayManagerTransactionServiceClient) UnregisterFabricatedOverlay(ctx context.Context, in *UnregisterFabricatedOverlayRequest, opts ...grpc.CallOption) (*UnregisterFabricatedOverlayResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(UnregisterFabricatedOverlayResponse)
+	err := c.cc.Invoke(ctx, OverlayManagerTransactionService_UnregisterFabricatedOverlay_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *overlayManagerTransactionServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, OverlayManagerTransactionService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *overlayManagerTransactionServiceClient) NewInstance(ctx context.Context, in *NewInstanceRequest, opts ...grpc.CallOption) (*NewInstanceResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewInstanceResponse)
+	err := c.cc.Invoke(ctx, OverlayManagerTransactionService_NewInstance_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// OverlayManagerTransactionServiceServer is the server API for OverlayManagerTransactionService service.
+// All implementations must embed UnimplementedOverlayManagerTransactionServiceServer
+// for forward compatibility.
+type OverlayManagerTransactionServiceServer interface {
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	RegisterFabricatedOverlay(context.Context, *RegisterFabricatedOverlayRequest) (*RegisterFabricatedOverlayResponse, error)
+	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
+	UnregisterFabricatedOverlay(context.Context, *UnregisterFabricatedOverlayRequest) (*UnregisterFabricatedOverlayResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	NewInstance(context.Context, *NewInstanceRequest) (*NewInstanceResponse, error)
+	mustEmbedUnimplementedOverlayManagerTransactionServiceServer()
+}
+
+// UnimplementedOverlayManagerTransactionServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedOverlayManagerTransactionServiceServer struct{}
+
+func (UnimplementedOverlayManagerTransactionServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedOverlayManagerTransactionServiceServer) RegisterFabricatedOverlay(context.Context, *RegisterFabricatedOverlayRequest) (*RegisterFabricatedOverlayResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method RegisterFabricatedOverlay not implemented")
+}
+func (UnimplementedOverlayManagerTransactionServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedOverlayManagerTransactionServiceServer) UnregisterFabricatedOverlay(context.Context, *UnregisterFabricatedOverlayRequest) (*UnregisterFabricatedOverlayResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method UnregisterFabricatedOverlay not implemented")
+}
+func (UnimplementedOverlayManagerTransactionServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedOverlayManagerTransactionServiceServer) NewInstance(context.Context, *NewInstanceRequest) (*NewInstanceResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewInstance not implemented")
+}
+func (UnimplementedOverlayManagerTransactionServiceServer) mustEmbedUnimplementedOverlayManagerTransactionServiceServer() {
+}
+func (UnimplementedOverlayManagerTransactionServiceServer) testEmbeddedByValue() {}
+
+// UnsafeOverlayManagerTransactionServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to OverlayManagerTransactionServiceServer will
+// result in compilation errors.
+type UnsafeOverlayManagerTransactionServiceServer interface {
+	mustEmbedUnimplementedOverlayManagerTransactionServiceServer()
+}
+
+func RegisterOverlayManagerTransactionServiceServer(s grpc.ServiceRegistrar, srv OverlayManagerTransactionServiceServer) {
+	// If the following call panics, it indicates UnimplementedOverlayManagerTransactionServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&OverlayManagerTransactionService_ServiceDesc, srv)
+}
+
+func _OverlayManagerTransactionService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(OverlayManagerTransactionServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: OverlayManagerTransactionService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(OverlayManagerTransactionServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _OverlayManagerTransactionService_RegisterFabricatedOverlay_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RegisterFabricatedOverlayRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(OverlayManagerTransactionServiceServer).RegisterFabricatedOverlay(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: OverlayManagerTransactionService_RegisterFabricatedOverlay_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(OverlayManagerTransactionServiceServer).RegisterFabricatedOverlay(ctx, req.(*RegisterFabricatedOverlayRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _OverlayManagerTransactionService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(OverlayManagerTransactionServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: OverlayManagerTransactionService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(OverlayManagerTransactionServiceServer).ToString(ctx, req.(*ToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _OverlayManagerTransactionService_UnregisterFabricatedOverlay_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UnregisterFabricatedOverlayRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(OverlayManagerTransactionServiceServer).UnregisterFabricatedOverlay(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: OverlayManagerTransactionService_UnregisterFabricatedOverlay_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(OverlayManagerTransactionServiceServer).UnregisterFabricatedOverlay(ctx, req.(*UnregisterFabricatedOverlayRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _OverlayManagerTransactionService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(OverlayManagerTransactionServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: OverlayManagerTransactionService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(OverlayManagerTransactionServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _OverlayManagerTransactionService_NewInstance_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewInstanceRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(OverlayManagerTransactionServiceServer).NewInstance(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: OverlayManagerTransactionService_NewInstance_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(OverlayManagerTransactionServiceServer).NewInstance(ctx, req.(*NewInstanceRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// OverlayManagerTransactionService_ServiceDesc is the grpc.ServiceDesc for OverlayManagerTransactionService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var OverlayManagerTransactionService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "om.OverlayManagerTransactionService",
+	HandlerType: (*OverlayManagerTransactionServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "DescribeContents",
+			Handler:    _OverlayManagerTransactionService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "RegisterFabricatedOverlay",
+			Handler:    _OverlayManagerTransactionService_RegisterFabricatedOverlay_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _OverlayManagerTransactionService_ToString_Handler,
+		},
+		{
+			MethodName: "UnregisterFabricatedOverlay",
+			Handler:    _OverlayManagerTransactionService_UnregisterFabricatedOverlay_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _OverlayManagerTransactionService_WriteToParcel_Handler,
+		},
+		{
+			MethodName: "NewInstance",
+			Handler:    _OverlayManagerTransactionService_NewInstance_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/om/om.proto",
+}
+
+const (
 	FabricatedOverlayService_NewFabricatedOverlay_FullMethodName      = "/om.FabricatedOverlayService/NewFabricatedOverlay"
 	FabricatedOverlayService_GetIdentifier_FullMethodName             = "/om.FabricatedOverlayService/GetIdentifier"
 	FabricatedOverlayService_SetNinePatchResourceValue_FullMethodName = "/om.FabricatedOverlayService/SetNinePatchResourceValue"
@@ -645,6 +938,146 @@ var OverlayIdentifierService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
+	OverlayManagerService_Commit_FullMethodName                   = "/om.OverlayManagerService/Commit"
+	OverlayManagerService_GetOverlayInfosForTarget_FullMethodName = "/om.OverlayManagerService/GetOverlayInfosForTarget"
+)
+
+// OverlayManagerServiceClient is the client API for OverlayManagerService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type OverlayManagerServiceClient interface {
+	Commit(ctx context.Context, in *CommitRequest, opts ...grpc.CallOption) (*CommitResponse, error)
+	GetOverlayInfosForTarget(ctx context.Context, in *GetOverlayInfosForTargetRequest, opts ...grpc.CallOption) (*GetOverlayInfosForTargetResponse, error)
+}
+
+type overlayManagerServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewOverlayManagerServiceClient(cc grpc.ClientConnInterface) OverlayManagerServiceClient {
+	return &overlayManagerServiceClient{cc}
+}
+
+func (c *overlayManagerServiceClient) Commit(ctx context.Context, in *CommitRequest, opts ...grpc.CallOption) (*CommitResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CommitResponse)
+	err := c.cc.Invoke(ctx, OverlayManagerService_Commit_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *overlayManagerServiceClient) GetOverlayInfosForTarget(ctx context.Context, in *GetOverlayInfosForTargetRequest, opts ...grpc.CallOption) (*GetOverlayInfosForTargetResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetOverlayInfosForTargetResponse)
+	err := c.cc.Invoke(ctx, OverlayManagerService_GetOverlayInfosForTarget_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// OverlayManagerServiceServer is the server API for OverlayManagerService service.
+// All implementations must embed UnimplementedOverlayManagerServiceServer
+// for forward compatibility.
+type OverlayManagerServiceServer interface {
+	Commit(context.Context, *CommitRequest) (*CommitResponse, error)
+	GetOverlayInfosForTarget(context.Context, *GetOverlayInfosForTargetRequest) (*GetOverlayInfosForTargetResponse, error)
+	mustEmbedUnimplementedOverlayManagerServiceServer()
+}
+
+// UnimplementedOverlayManagerServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedOverlayManagerServiceServer struct{}
+
+func (UnimplementedOverlayManagerServiceServer) Commit(context.Context, *CommitRequest) (*CommitResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Commit not implemented")
+}
+func (UnimplementedOverlayManagerServiceServer) GetOverlayInfosForTarget(context.Context, *GetOverlayInfosForTargetRequest) (*GetOverlayInfosForTargetResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetOverlayInfosForTarget not implemented")
+}
+func (UnimplementedOverlayManagerServiceServer) mustEmbedUnimplementedOverlayManagerServiceServer() {}
+func (UnimplementedOverlayManagerServiceServer) testEmbeddedByValue()                               {}
+
+// UnsafeOverlayManagerServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to OverlayManagerServiceServer will
+// result in compilation errors.
+type UnsafeOverlayManagerServiceServer interface {
+	mustEmbedUnimplementedOverlayManagerServiceServer()
+}
+
+func RegisterOverlayManagerServiceServer(s grpc.ServiceRegistrar, srv OverlayManagerServiceServer) {
+	// If the following call panics, it indicates UnimplementedOverlayManagerServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&OverlayManagerService_ServiceDesc, srv)
+}
+
+func _OverlayManagerService_Commit_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CommitRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(OverlayManagerServiceServer).Commit(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: OverlayManagerService_Commit_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(OverlayManagerServiceServer).Commit(ctx, req.(*CommitRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _OverlayManagerService_GetOverlayInfosForTarget_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetOverlayInfosForTargetRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(OverlayManagerServiceServer).GetOverlayInfosForTarget(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: OverlayManagerService_GetOverlayInfosForTarget_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(OverlayManagerServiceServer).GetOverlayInfosForTarget(ctx, req.(*GetOverlayInfosForTargetRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// OverlayManagerService_ServiceDesc is the grpc.ServiceDesc for OverlayManagerService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var OverlayManagerService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "om.OverlayManagerService",
+	HandlerType: (*OverlayManagerServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Commit",
+			Handler:    _OverlayManagerService_Commit_Handler,
+		},
+		{
+			MethodName: "GetOverlayInfosForTarget",
+			Handler:    _OverlayManagerService_GetOverlayInfosForTarget_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/om/om.proto",
+}
+
+const (
 	OverlayInfoService_DescribeContents_FullMethodName         = "/om.OverlayInfoService/DescribeContents"
 	OverlayInfoService_Equals_FullMethodName                   = "/om.OverlayInfoService/Equals"
 	OverlayInfoService_GetOverlayIdentifier_FullMethodName     = "/om.OverlayInfoService/GetOverlayIdentifier"
@@ -1044,401 +1477,6 @@ var OverlayInfoService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "WriteToParcel",
 			Handler:    _OverlayInfoService_WriteToParcel_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/om/om.proto",
-}
-
-const (
-	OverlayManagerService_Commit_FullMethodName = "/om.OverlayManagerService/Commit"
-)
-
-// OverlayManagerServiceClient is the client API for OverlayManagerService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type OverlayManagerServiceClient interface {
-	Commit(ctx context.Context, in *CommitRequest, opts ...grpc.CallOption) (*CommitResponse, error)
-}
-
-type overlayManagerServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewOverlayManagerServiceClient(cc grpc.ClientConnInterface) OverlayManagerServiceClient {
-	return &overlayManagerServiceClient{cc}
-}
-
-func (c *overlayManagerServiceClient) Commit(ctx context.Context, in *CommitRequest, opts ...grpc.CallOption) (*CommitResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CommitResponse)
-	err := c.cc.Invoke(ctx, OverlayManagerService_Commit_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// OverlayManagerServiceServer is the server API for OverlayManagerService service.
-// All implementations must embed UnimplementedOverlayManagerServiceServer
-// for forward compatibility.
-type OverlayManagerServiceServer interface {
-	Commit(context.Context, *CommitRequest) (*CommitResponse, error)
-	mustEmbedUnimplementedOverlayManagerServiceServer()
-}
-
-// UnimplementedOverlayManagerServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedOverlayManagerServiceServer struct{}
-
-func (UnimplementedOverlayManagerServiceServer) Commit(context.Context, *CommitRequest) (*CommitResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Commit not implemented")
-}
-func (UnimplementedOverlayManagerServiceServer) mustEmbedUnimplementedOverlayManagerServiceServer() {}
-func (UnimplementedOverlayManagerServiceServer) testEmbeddedByValue()                               {}
-
-// UnsafeOverlayManagerServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to OverlayManagerServiceServer will
-// result in compilation errors.
-type UnsafeOverlayManagerServiceServer interface {
-	mustEmbedUnimplementedOverlayManagerServiceServer()
-}
-
-func RegisterOverlayManagerServiceServer(s grpc.ServiceRegistrar, srv OverlayManagerServiceServer) {
-	// If the following call panics, it indicates UnimplementedOverlayManagerServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&OverlayManagerService_ServiceDesc, srv)
-}
-
-func _OverlayManagerService_Commit_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CommitRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(OverlayManagerServiceServer).Commit(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: OverlayManagerService_Commit_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(OverlayManagerServiceServer).Commit(ctx, req.(*CommitRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// OverlayManagerService_ServiceDesc is the grpc.ServiceDesc for OverlayManagerService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var OverlayManagerService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "om.OverlayManagerService",
-	HandlerType: (*OverlayManagerServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "Commit",
-			Handler:    _OverlayManagerService_Commit_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/om/om.proto",
-}
-
-const (
-	OverlayManagerTransactionService_DescribeContents_FullMethodName            = "/om.OverlayManagerTransactionService/DescribeContents"
-	OverlayManagerTransactionService_RegisterFabricatedOverlay_FullMethodName   = "/om.OverlayManagerTransactionService/RegisterFabricatedOverlay"
-	OverlayManagerTransactionService_ToString_FullMethodName                    = "/om.OverlayManagerTransactionService/ToString"
-	OverlayManagerTransactionService_UnregisterFabricatedOverlay_FullMethodName = "/om.OverlayManagerTransactionService/UnregisterFabricatedOverlay"
-	OverlayManagerTransactionService_WriteToParcel_FullMethodName               = "/om.OverlayManagerTransactionService/WriteToParcel"
-	OverlayManagerTransactionService_NewInstance_FullMethodName                 = "/om.OverlayManagerTransactionService/NewInstance"
-)
-
-// OverlayManagerTransactionServiceClient is the client API for OverlayManagerTransactionService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type OverlayManagerTransactionServiceClient interface {
-	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	RegisterFabricatedOverlay(ctx context.Context, in *RegisterFabricatedOverlayRequest, opts ...grpc.CallOption) (*RegisterFabricatedOverlayResponse, error)
-	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
-	UnregisterFabricatedOverlay(ctx context.Context, in *UnregisterFabricatedOverlayRequest, opts ...grpc.CallOption) (*UnregisterFabricatedOverlayResponse, error)
-	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
-	NewInstance(ctx context.Context, in *NewInstanceRequest, opts ...grpc.CallOption) (*NewInstanceResponse, error)
-}
-
-type overlayManagerTransactionServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewOverlayManagerTransactionServiceClient(cc grpc.ClientConnInterface) OverlayManagerTransactionServiceClient {
-	return &overlayManagerTransactionServiceClient{cc}
-}
-
-func (c *overlayManagerTransactionServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, OverlayManagerTransactionService_DescribeContents_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *overlayManagerTransactionServiceClient) RegisterFabricatedOverlay(ctx context.Context, in *RegisterFabricatedOverlayRequest, opts ...grpc.CallOption) (*RegisterFabricatedOverlayResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(RegisterFabricatedOverlayResponse)
-	err := c.cc.Invoke(ctx, OverlayManagerTransactionService_RegisterFabricatedOverlay_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *overlayManagerTransactionServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ToStringResponse)
-	err := c.cc.Invoke(ctx, OverlayManagerTransactionService_ToString_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *overlayManagerTransactionServiceClient) UnregisterFabricatedOverlay(ctx context.Context, in *UnregisterFabricatedOverlayRequest, opts ...grpc.CallOption) (*UnregisterFabricatedOverlayResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(UnregisterFabricatedOverlayResponse)
-	err := c.cc.Invoke(ctx, OverlayManagerTransactionService_UnregisterFabricatedOverlay_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *overlayManagerTransactionServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, OverlayManagerTransactionService_WriteToParcel_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *overlayManagerTransactionServiceClient) NewInstance(ctx context.Context, in *NewInstanceRequest, opts ...grpc.CallOption) (*NewInstanceResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewInstanceResponse)
-	err := c.cc.Invoke(ctx, OverlayManagerTransactionService_NewInstance_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// OverlayManagerTransactionServiceServer is the server API for OverlayManagerTransactionService service.
-// All implementations must embed UnimplementedOverlayManagerTransactionServiceServer
-// for forward compatibility.
-type OverlayManagerTransactionServiceServer interface {
-	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
-	RegisterFabricatedOverlay(context.Context, *RegisterFabricatedOverlayRequest) (*RegisterFabricatedOverlayResponse, error)
-	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
-	UnregisterFabricatedOverlay(context.Context, *UnregisterFabricatedOverlayRequest) (*UnregisterFabricatedOverlayResponse, error)
-	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
-	NewInstance(context.Context, *NewInstanceRequest) (*NewInstanceResponse, error)
-	mustEmbedUnimplementedOverlayManagerTransactionServiceServer()
-}
-
-// UnimplementedOverlayManagerTransactionServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedOverlayManagerTransactionServiceServer struct{}
-
-func (UnimplementedOverlayManagerTransactionServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
-}
-func (UnimplementedOverlayManagerTransactionServiceServer) RegisterFabricatedOverlay(context.Context, *RegisterFabricatedOverlayRequest) (*RegisterFabricatedOverlayResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method RegisterFabricatedOverlay not implemented")
-}
-func (UnimplementedOverlayManagerTransactionServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
-}
-func (UnimplementedOverlayManagerTransactionServiceServer) UnregisterFabricatedOverlay(context.Context, *UnregisterFabricatedOverlayRequest) (*UnregisterFabricatedOverlayResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method UnregisterFabricatedOverlay not implemented")
-}
-func (UnimplementedOverlayManagerTransactionServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
-}
-func (UnimplementedOverlayManagerTransactionServiceServer) NewInstance(context.Context, *NewInstanceRequest) (*NewInstanceResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewInstance not implemented")
-}
-func (UnimplementedOverlayManagerTransactionServiceServer) mustEmbedUnimplementedOverlayManagerTransactionServiceServer() {
-}
-func (UnimplementedOverlayManagerTransactionServiceServer) testEmbeddedByValue() {}
-
-// UnsafeOverlayManagerTransactionServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to OverlayManagerTransactionServiceServer will
-// result in compilation errors.
-type UnsafeOverlayManagerTransactionServiceServer interface {
-	mustEmbedUnimplementedOverlayManagerTransactionServiceServer()
-}
-
-func RegisterOverlayManagerTransactionServiceServer(s grpc.ServiceRegistrar, srv OverlayManagerTransactionServiceServer) {
-	// If the following call panics, it indicates UnimplementedOverlayManagerTransactionServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&OverlayManagerTransactionService_ServiceDesc, srv)
-}
-
-func _OverlayManagerTransactionService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DescribeContentsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(OverlayManagerTransactionServiceServer).DescribeContents(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: OverlayManagerTransactionService_DescribeContents_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(OverlayManagerTransactionServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _OverlayManagerTransactionService_RegisterFabricatedOverlay_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(RegisterFabricatedOverlayRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(OverlayManagerTransactionServiceServer).RegisterFabricatedOverlay(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: OverlayManagerTransactionService_RegisterFabricatedOverlay_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(OverlayManagerTransactionServiceServer).RegisterFabricatedOverlay(ctx, req.(*RegisterFabricatedOverlayRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _OverlayManagerTransactionService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ToStringRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(OverlayManagerTransactionServiceServer).ToString(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: OverlayManagerTransactionService_ToString_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(OverlayManagerTransactionServiceServer).ToString(ctx, req.(*ToStringRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _OverlayManagerTransactionService_UnregisterFabricatedOverlay_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UnregisterFabricatedOverlayRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(OverlayManagerTransactionServiceServer).UnregisterFabricatedOverlay(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: OverlayManagerTransactionService_UnregisterFabricatedOverlay_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(OverlayManagerTransactionServiceServer).UnregisterFabricatedOverlay(ctx, req.(*UnregisterFabricatedOverlayRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _OverlayManagerTransactionService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WriteToParcelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(OverlayManagerTransactionServiceServer).WriteToParcel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: OverlayManagerTransactionService_WriteToParcel_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(OverlayManagerTransactionServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _OverlayManagerTransactionService_NewInstance_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewInstanceRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(OverlayManagerTransactionServiceServer).NewInstance(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: OverlayManagerTransactionService_NewInstance_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(OverlayManagerTransactionServiceServer).NewInstance(ctx, req.(*NewInstanceRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// OverlayManagerTransactionService_ServiceDesc is the grpc.ServiceDesc for OverlayManagerTransactionService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var OverlayManagerTransactionService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "om.OverlayManagerTransactionService",
-	HandlerType: (*OverlayManagerTransactionServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "DescribeContents",
-			Handler:    _OverlayManagerTransactionService_DescribeContents_Handler,
-		},
-		{
-			MethodName: "RegisterFabricatedOverlay",
-			Handler:    _OverlayManagerTransactionService_RegisterFabricatedOverlay_Handler,
-		},
-		{
-			MethodName: "ToString",
-			Handler:    _OverlayManagerTransactionService_ToString_Handler,
-		},
-		{
-			MethodName: "UnregisterFabricatedOverlay",
-			Handler:    _OverlayManagerTransactionService_UnregisterFabricatedOverlay_Handler,
-		},
-		{
-			MethodName: "WriteToParcel",
-			Handler:    _OverlayManagerTransactionService_WriteToParcel_Handler,
-		},
-		{
-			MethodName: "NewInstance",
-			Handler:    _OverlayManagerTransactionService_NewInstance_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

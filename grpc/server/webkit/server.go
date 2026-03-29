@@ -15,565 +15,6 @@ import (
 	"google.golang.org/grpc/status"
 )
 
-// ConsoleMessageServer implements pb.ConsoleMessageServiceServer.
-type ConsoleMessageServer struct {
-	pb.UnimplementedConsoleMessageServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *ConsoleMessageServer) NewConsoleMessage(_ context.Context, req *pb.NewConsoleMessageRequest) (*pb.NewConsoleMessageResponse, error) {
-	obj, err := jnipkg.NewConsoleMessage(s.Ctx.VM, req.GetArg0(), req.GetArg1(), req.GetArg2(), s.Handles.Get(req.GetArg3()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
-	}
-	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-	}
-	return &pb.NewConsoleMessageResponse{Result: handle}, nil
-}
-
-func (s *ConsoleMessageServer) LineNumber(_ context.Context, req *pb.LineNumberRequest) (*pb.LineNumberResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.ConsoleMessage{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.LineNumber()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.LineNumberResponse{Result: result}, nil
-}
-
-func (s *ConsoleMessageServer) Message(_ context.Context, req *pb.MessageRequest) (*pb.MessageResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.ConsoleMessage{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.Message()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.MessageResponse{Result: result}, nil
-}
-
-func (s *ConsoleMessageServer) MessageLevel(_ context.Context, req *pb.MessageLevelRequest) (*pb.MessageLevelResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.ConsoleMessage{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.MessageLevel()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.MessageLevelResponse{Result: handle}, nil
-}
-
-func (s *ConsoleMessageServer) SourceId(_ context.Context, req *pb.SourceIdRequest) (*pb.SourceIdResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.ConsoleMessage{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.SourceId()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SourceIdResponse{Result: result}, nil
-}
-
-// DateSorterServer implements pb.DateSorterServiceServer.
-type DateSorterServer struct {
-	pb.UnimplementedDateSorterServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *DateSorterServer) NewDateSorter(_ context.Context, req *pb.NewDateSorterRequest) (*pb.NewDateSorterResponse, error) {
-	obj, err := jnipkg.NewDateSorter(s.Ctx.VM, s.Ctx.Obj)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
-	}
-	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-	}
-	return &pb.NewDateSorterResponse{Result: handle}, nil
-}
-
-func (s *DateSorterServer) GetBoundary(_ context.Context, req *pb.GetBoundaryRequest) (*pb.GetBoundaryResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.DateSorter{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetBoundary(req.GetArg0())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetBoundaryResponse{Result: result}, nil
-}
-
-func (s *DateSorterServer) GetIndex(_ context.Context, req *pb.GetIndexRequest) (*pb.GetIndexResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.DateSorter{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetIndex(req.GetArg0())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetIndexResponse{Result: result}, nil
-}
-
-func (s *DateSorterServer) GetLabel(_ context.Context, req *pb.GetLabelRequest) (*pb.GetLabelResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.DateSorter{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetLabel(req.GetArg0())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetLabelResponse{Result: result}, nil
-}
-
-// URLUtilServer implements pb.URLUtilServiceServer.
-type URLUtilServer struct {
-	pb.UnimplementedURLUtilServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *URLUtilServer) NewURLUtil(_ context.Context, req *pb.NewURLUtilRequest) (*pb.NewURLUtilResponse, error) {
-	obj, err := jnipkg.NewURLUtil(s.Ctx.VM)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
-	}
-	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-	}
-	return &pb.NewURLUtilResponse{Result: handle}, nil
-}
-
-func (s *URLUtilServer) ComposeSearchUrl(_ context.Context, req *pb.ComposeSearchUrlRequest) (*pb.ComposeSearchUrlResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.URLUtil{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.ComposeSearchUrl(req.GetArg0(), req.GetArg1(), req.GetArg2())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.ComposeSearchUrlResponse{Result: result}, nil
-}
-
-func (s *URLUtilServer) Decode(_ context.Context, req *pb.DecodeRequest) (*pb.DecodeResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.URLUtil{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.Decode(s.Handles.Get(req.GetArg0()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.DecodeResponse{Result: handle}, nil
-}
-
-func (s *URLUtilServer) GuessFileName(_ context.Context, req *pb.GuessFileNameRequest) (*pb.GuessFileNameResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.URLUtil{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GuessFileName(req.GetArg0(), req.GetArg1(), req.GetArg2())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GuessFileNameResponse{Result: result}, nil
-}
-
-func (s *URLUtilServer) GuessUrl(_ context.Context, req *pb.GuessUrlRequest) (*pb.GuessUrlResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.URLUtil{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GuessUrl(req.GetArg0())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GuessUrlResponse{Result: result}, nil
-}
-
-func (s *URLUtilServer) IsAboutUrl(_ context.Context, req *pb.IsAboutUrlRequest) (*pb.IsAboutUrlResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.URLUtil{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.IsAboutUrl(req.GetArg0())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.IsAboutUrlResponse{Result: result}, nil
-}
-
-func (s *URLUtilServer) IsAssetUrl(_ context.Context, req *pb.IsAssetUrlRequest) (*pb.IsAssetUrlResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.URLUtil{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.IsAssetUrl(req.GetArg0())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.IsAssetUrlResponse{Result: result}, nil
-}
-
-func (s *URLUtilServer) IsContentUrl(_ context.Context, req *pb.IsContentUrlRequest) (*pb.IsContentUrlResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.URLUtil{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.IsContentUrl(req.GetArg0())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.IsContentUrlResponse{Result: result}, nil
-}
-
-func (s *URLUtilServer) IsCookielessProxyUrl(_ context.Context, req *pb.IsCookielessProxyUrlRequest) (*pb.IsCookielessProxyUrlResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.URLUtil{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.IsCookielessProxyUrl(req.GetArg0())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.IsCookielessProxyUrlResponse{Result: result}, nil
-}
-
-func (s *URLUtilServer) IsDataUrl(_ context.Context, req *pb.IsDataUrlRequest) (*pb.IsDataUrlResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.URLUtil{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.IsDataUrl(req.GetArg0())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.IsDataUrlResponse{Result: result}, nil
-}
-
-func (s *URLUtilServer) IsFileUrl(_ context.Context, req *pb.IsFileUrlRequest) (*pb.IsFileUrlResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.URLUtil{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.IsFileUrl(req.GetArg0())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.IsFileUrlResponse{Result: result}, nil
-}
-
-func (s *URLUtilServer) IsHttpUrl(_ context.Context, req *pb.IsHttpUrlRequest) (*pb.IsHttpUrlResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.URLUtil{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.IsHttpUrl(req.GetArg0())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.IsHttpUrlResponse{Result: result}, nil
-}
-
-func (s *URLUtilServer) IsHttpsUrl(_ context.Context, req *pb.IsHttpsUrlRequest) (*pb.IsHttpsUrlResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.URLUtil{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.IsHttpsUrl(req.GetArg0())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.IsHttpsUrlResponse{Result: result}, nil
-}
-
-func (s *URLUtilServer) IsJavaScriptUrl(_ context.Context, req *pb.IsJavaScriptUrlRequest) (*pb.IsJavaScriptUrlResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.URLUtil{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.IsJavaScriptUrl(req.GetArg0())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.IsJavaScriptUrlResponse{Result: result}, nil
-}
-
-func (s *URLUtilServer) IsNetworkUrl(_ context.Context, req *pb.IsNetworkUrlRequest) (*pb.IsNetworkUrlResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.URLUtil{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.IsNetworkUrl(req.GetArg0())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.IsNetworkUrlResponse{Result: result}, nil
-}
-
-func (s *URLUtilServer) IsValidUrl(_ context.Context, req *pb.IsValidUrlRequest) (*pb.IsValidUrlResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.URLUtil{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.IsValidUrl(req.GetArg0())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.IsValidUrlResponse{Result: result}, nil
-}
-
-func (s *URLUtilServer) StripAnchor(_ context.Context, req *pb.StripAnchorRequest) (*pb.StripAnchorResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.URLUtil{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.StripAnchor(req.GetArg0())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.StripAnchorResponse{Result: result}, nil
-}
-
-// WebResourceResponseServer implements pb.WebResourceResponseServiceServer.
-type WebResourceResponseServer struct {
-	pb.UnimplementedWebResourceResponseServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *WebResourceResponseServer) NewWebResourceResponse(_ context.Context, req *pb.NewWebResourceResponseRequest) (*pb.NewWebResourceResponseResponse, error) {
-	obj, err := jnipkg.NewWebResourceResponse(s.Ctx.VM, req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3(), s.Handles.Get(req.GetArg4()), s.Handles.Get(req.GetArg5()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
-	}
-	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-	}
-	return &pb.NewWebResourceResponseResponse{Result: handle}, nil
-}
-
-func (s *WebResourceResponseServer) GetData(_ context.Context, req *pb.GetDataRequest) (*pb.GetDataResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.WebResourceResponse{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetData()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetDataResponse{Result: handle}, nil
-}
-
-func (s *WebResourceResponseServer) GetEncoding(_ context.Context, req *pb.GetEncodingRequest) (*pb.GetEncodingResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.WebResourceResponse{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetEncoding()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetEncodingResponse{Result: result}, nil
-}
-
-func (s *WebResourceResponseServer) GetMimeType(_ context.Context, req *pb.GetMimeTypeRequest) (*pb.GetMimeTypeResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.WebResourceResponse{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetMimeType()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetMimeTypeResponse{Result: result}, nil
-}
-
-func (s *WebResourceResponseServer) GetReasonPhrase(_ context.Context, req *pb.GetReasonPhraseRequest) (*pb.GetReasonPhraseResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.WebResourceResponse{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetReasonPhrase()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetReasonPhraseResponse{Result: result}, nil
-}
-
-func (s *WebResourceResponseServer) GetStatusCode(_ context.Context, req *pb.GetStatusCodeRequest) (*pb.GetStatusCodeResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.WebResourceResponse{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetStatusCode()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetStatusCodeResponse{Result: result}, nil
-}
-
-func (s *WebResourceResponseServer) SetData(_ context.Context, req *pb.SetDataRequest) (*pb.SetDataResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.WebResourceResponse{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.SetData(s.Handles.Get(req.GetArg0())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SetDataResponse{}, nil
-}
-
-func (s *WebResourceResponseServer) SetEncoding(_ context.Context, req *pb.SetEncodingRequest) (*pb.SetEncodingResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.WebResourceResponse{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.SetEncoding(req.GetArg0()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SetEncodingResponse{}, nil
-}
-
-func (s *WebResourceResponseServer) SetMimeType(_ context.Context, req *pb.SetMimeTypeRequest) (*pb.SetMimeTypeResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.WebResourceResponse{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.SetMimeType(req.GetArg0()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SetMimeTypeResponse{}, nil
-}
-
-func (s *WebResourceResponseServer) SetStatusCodeAndReasonPhrase(_ context.Context, req *pb.SetStatusCodeAndReasonPhraseRequest) (*pb.SetStatusCodeAndReasonPhraseResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.WebResourceResponse{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.SetStatusCodeAndReasonPhrase(req.GetArg0(), req.GetArg1()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SetStatusCodeAndReasonPhraseResponse{}, nil
-}
-
 // WebViewServer implements pb.WebViewServiceServer.
 type WebViewServer struct {
 	pb.UnimplementedWebViewServiceServer
@@ -1319,7 +760,7 @@ func (s *WebViewServer) GetTitle(_ context.Context, req *pb.GetTitleRequest) (*p
 	return &pb.GetTitleResponse{Result: result}, nil
 }
 
-func (s *WebViewServer) GetUrl(_ context.Context, req *pb.WebViewGetUrlRequest) (*pb.WebViewGetUrlResponse, error) {
+func (s *WebViewServer) GetUrl(_ context.Context, req *pb.GetUrlRequest) (*pb.GetUrlResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -1330,7 +771,7 @@ func (s *WebViewServer) GetUrl(_ context.Context, req *pb.WebViewGetUrlRequest) 
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.WebViewGetUrlResponse{Result: result}, nil
+	return &pb.GetUrlResponse{Result: result}, nil
 }
 
 func (s *WebViewServer) GetWebChromeClient(_ context.Context, req *pb.GetWebChromeClientRequest) (*pb.GetWebChromeClientResponse, error) {
@@ -2695,591 +2136,6 @@ func (s *WebViewServer) SetWebContentsDebuggingEnabled(_ context.Context, req *p
 	return &pb.SetWebContentsDebuggingEnabledResponse{}, nil
 }
 
-// WebViewFragmentServer implements pb.WebViewFragmentServiceServer.
-type WebViewFragmentServer struct {
-	pb.UnimplementedWebViewFragmentServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *WebViewFragmentServer) NewWebViewFragment(_ context.Context, req *pb.NewWebViewFragmentRequest) (*pb.NewWebViewFragmentResponse, error) {
-	obj, err := jnipkg.NewWebViewFragment(s.Ctx.VM)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
-	}
-	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-	}
-	return &pb.NewWebViewFragmentResponse{Result: handle}, nil
-}
-
-func (s *WebViewFragmentServer) GetWebView(_ context.Context, req *pb.GetWebViewRequest) (*pb.GetWebViewResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.WebViewFragment{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetWebView()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetWebViewResponse{Result: handle}, nil
-}
-
-func (s *WebViewFragmentServer) OnCreateView(_ context.Context, req *pb.OnCreateViewRequest) (*pb.OnCreateViewResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.WebViewFragment{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.OnCreateView(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()), s.Handles.Get(req.GetArg2()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.OnCreateViewResponse{Result: handle}, nil
-}
-
-func (s *WebViewFragmentServer) OnDestroy(_ context.Context, req *pb.OnDestroyRequest) (*pb.OnDestroyResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.WebViewFragment{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.OnDestroy(); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.OnDestroyResponse{}, nil
-}
-
-func (s *WebViewFragmentServer) OnDestroyView(_ context.Context, req *pb.OnDestroyViewRequest) (*pb.OnDestroyViewResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.WebViewFragment{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.OnDestroyView(); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.OnDestroyViewResponse{}, nil
-}
-
-func (s *WebViewFragmentServer) OnPause(_ context.Context, req *pb.OnPauseRequest) (*pb.OnPauseResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.WebViewFragment{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.OnPause(); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.OnPauseResponse{}, nil
-}
-
-func (s *WebViewFragmentServer) OnResume(_ context.Context, req *pb.OnResumeRequest) (*pb.OnResumeResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.WebViewFragment{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.OnResume(); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.OnResumeResponse{}, nil
-}
-
-// WebMessageServer implements pb.WebMessageServiceServer.
-type WebMessageServer struct {
-	pb.UnimplementedWebMessageServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *WebMessageServer) NewWebMessage(_ context.Context, req *pb.NewWebMessageRequest) (*pb.NewWebMessageResponse, error) {
-	obj, err := jnipkg.NewWebMessage(s.Ctx.VM, req.GetArg0())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
-	}
-	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-	}
-	return &pb.NewWebMessageResponse{Result: handle}, nil
-}
-
-func (s *WebMessageServer) GetData(_ context.Context, req *pb.GetDataRequest) (*pb.WebMessageGetDataResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.WebMessage{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetData()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.WebMessageGetDataResponse{Result: result}, nil
-}
-
-func (s *WebMessageServer) GetPorts(_ context.Context, req *pb.GetPortsRequest) (*pb.GetPortsResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.WebMessage{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetPorts()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetPortsResponse{Result: handle}, nil
-}
-
-// ServiceWorkerClientServer implements pb.ServiceWorkerClientServiceServer.
-type ServiceWorkerClientServer struct {
-	pb.UnimplementedServiceWorkerClientServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *ServiceWorkerClientServer) NewServiceWorkerClient(_ context.Context, req *pb.NewServiceWorkerClientRequest) (*pb.NewServiceWorkerClientResponse, error) {
-	obj, err := jnipkg.NewServiceWorkerClient(s.Ctx.VM)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
-	}
-	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-	}
-	return &pb.NewServiceWorkerClientResponse{Result: handle}, nil
-}
-
-func (s *ServiceWorkerClientServer) ShouldInterceptRequest(_ context.Context, req *pb.ShouldInterceptRequestRequest) (*pb.ShouldInterceptRequestResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.ServiceWorkerClient{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.ShouldInterceptRequest(s.Handles.Get(req.GetArg0()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.ShouldInterceptRequestResponse{Result: handle}, nil
-}
-
-// WebChromeClientServer implements pb.WebChromeClientServiceServer.
-type WebChromeClientServer struct {
-	pb.UnimplementedWebChromeClientServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *WebChromeClientServer) NewWebChromeClient(_ context.Context, req *pb.NewWebChromeClientRequest) (*pb.NewWebChromeClientResponse, error) {
-	obj, err := jnipkg.NewWebChromeClient(s.Ctx.VM)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
-	}
-	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-	}
-	return &pb.NewWebChromeClientResponse{Result: handle}, nil
-}
-
-func (s *WebChromeClientServer) GetDefaultVideoPoster(_ context.Context, req *pb.GetDefaultVideoPosterRequest) (*pb.GetDefaultVideoPosterResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.WebChromeClient{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetDefaultVideoPoster()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetDefaultVideoPosterResponse{Result: handle}, nil
-}
-
-func (s *WebChromeClientServer) GetVideoLoadingProgressView(_ context.Context, req *pb.GetVideoLoadingProgressViewRequest) (*pb.GetVideoLoadingProgressViewResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.WebChromeClient{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetVideoLoadingProgressView()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetVideoLoadingProgressViewResponse{Result: handle}, nil
-}
-
-func (s *WebChromeClientServer) OnCloseWindow(_ context.Context, req *pb.OnCloseWindowRequest) (*pb.OnCloseWindowResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.WebChromeClient{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.OnCloseWindow(s.Handles.Get(req.GetArg0())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.OnCloseWindowResponse{}, nil
-}
-
-func (s *WebChromeClientServer) OnConsoleMessage1(_ context.Context, req *pb.OnConsoleMessage1Request) (*pb.OnConsoleMessage1Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.WebChromeClient{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.OnConsoleMessage1(s.Handles.Get(req.GetArg0()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.OnConsoleMessage1Response{Result: result}, nil
-}
-
-func (s *WebChromeClientServer) OnConsoleMessage3_1(_ context.Context, req *pb.OnConsoleMessage3_1Request) (*pb.OnConsoleMessage3_1Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.WebChromeClient{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.OnConsoleMessage3_1(req.GetArg0(), req.GetArg1(), req.GetArg2()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.OnConsoleMessage3_1Response{}, nil
-}
-
-func (s *WebChromeClientServer) OnCreateWindow(_ context.Context, req *pb.OnCreateWindowRequest) (*pb.OnCreateWindowResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.WebChromeClient{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.OnCreateWindow(s.Handles.Get(req.GetArg0()), req.GetArg1(), req.GetArg2(), s.Handles.Get(req.GetArg3()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.OnCreateWindowResponse{Result: result}, nil
-}
-
-func (s *WebChromeClientServer) OnExceededDatabaseQuota(_ context.Context, req *pb.OnExceededDatabaseQuotaRequest) (*pb.OnExceededDatabaseQuotaResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.WebChromeClient{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.OnExceededDatabaseQuota(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3(), req.GetArg4(), s.Handles.Get(req.GetArg5())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.OnExceededDatabaseQuotaResponse{}, nil
-}
-
-func (s *WebChromeClientServer) OnGeolocationPermissionsHidePrompt(_ context.Context, req *pb.OnGeolocationPermissionsHidePromptRequest) (*pb.OnGeolocationPermissionsHidePromptResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.WebChromeClient{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.OnGeolocationPermissionsHidePrompt(); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.OnGeolocationPermissionsHidePromptResponse{}, nil
-}
-
-func (s *WebChromeClientServer) OnGeolocationPermissionsShowPrompt(_ context.Context, req *pb.OnGeolocationPermissionsShowPromptRequest) (*pb.OnGeolocationPermissionsShowPromptResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.WebChromeClient{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.OnGeolocationPermissionsShowPrompt(req.GetArg0(), s.Handles.Get(req.GetArg1())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.OnGeolocationPermissionsShowPromptResponse{}, nil
-}
-
-func (s *WebChromeClientServer) OnHideCustomView(_ context.Context, req *pb.OnHideCustomViewRequest) (*pb.OnHideCustomViewResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.WebChromeClient{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.OnHideCustomView(); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.OnHideCustomViewResponse{}, nil
-}
-
-func (s *WebChromeClientServer) OnJsAlert(_ context.Context, req *pb.OnJsAlertRequest) (*pb.OnJsAlertResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.WebChromeClient{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.OnJsAlert(s.Handles.Get(req.GetArg0()), req.GetArg1(), req.GetArg2(), s.Handles.Get(req.GetArg3()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.OnJsAlertResponse{Result: result}, nil
-}
-
-func (s *WebChromeClientServer) OnJsBeforeUnload(_ context.Context, req *pb.OnJsBeforeUnloadRequest) (*pb.OnJsBeforeUnloadResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.WebChromeClient{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.OnJsBeforeUnload(s.Handles.Get(req.GetArg0()), req.GetArg1(), req.GetArg2(), s.Handles.Get(req.GetArg3()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.OnJsBeforeUnloadResponse{Result: result}, nil
-}
-
-func (s *WebChromeClientServer) OnJsConfirm(_ context.Context, req *pb.OnJsConfirmRequest) (*pb.OnJsConfirmResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.WebChromeClient{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.OnJsConfirm(s.Handles.Get(req.GetArg0()), req.GetArg1(), req.GetArg2(), s.Handles.Get(req.GetArg3()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.OnJsConfirmResponse{Result: result}, nil
-}
-
-func (s *WebChromeClientServer) OnJsPrompt(_ context.Context, req *pb.OnJsPromptRequest) (*pb.OnJsPromptResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.WebChromeClient{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.OnJsPrompt(s.Handles.Get(req.GetArg0()), req.GetArg1(), req.GetArg2(), req.GetArg3(), s.Handles.Get(req.GetArg4()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.OnJsPromptResponse{Result: result}, nil
-}
-
-func (s *WebChromeClientServer) OnJsTimeout(_ context.Context, req *pb.OnJsTimeoutRequest) (*pb.OnJsTimeoutResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.WebChromeClient{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.OnJsTimeout()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.OnJsTimeoutResponse{Result: result}, nil
-}
-
-func (s *WebChromeClientServer) OnPermissionRequest(_ context.Context, req *pb.OnPermissionRequestRequest) (*pb.OnPermissionRequestResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.WebChromeClient{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.OnPermissionRequest(s.Handles.Get(req.GetArg0())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.OnPermissionRequestResponse{}, nil
-}
-
-func (s *WebChromeClientServer) OnPermissionRequestCanceled(_ context.Context, req *pb.OnPermissionRequestCanceledRequest) (*pb.OnPermissionRequestCanceledResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.WebChromeClient{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.OnPermissionRequestCanceled(s.Handles.Get(req.GetArg0())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.OnPermissionRequestCanceledResponse{}, nil
-}
-
-func (s *WebChromeClientServer) OnProgressChanged(_ context.Context, req *pb.OnProgressChangedRequest) (*pb.OnProgressChangedResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.WebChromeClient{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.OnProgressChanged(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.OnProgressChangedResponse{}, nil
-}
-
-func (s *WebChromeClientServer) OnReceivedIcon(_ context.Context, req *pb.WebChromeClientOnReceivedIconRequest) (*pb.OnReceivedIconResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.WebChromeClient{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.OnReceivedIcon(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.OnReceivedIconResponse{}, nil
-}
-
-func (s *WebChromeClientServer) OnReceivedTitle(_ context.Context, req *pb.OnReceivedTitleRequest) (*pb.OnReceivedTitleResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.WebChromeClient{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.OnReceivedTitle(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.OnReceivedTitleResponse{}, nil
-}
-
-func (s *WebChromeClientServer) OnReceivedTouchIconUrl(_ context.Context, req *pb.OnReceivedTouchIconUrlRequest) (*pb.OnReceivedTouchIconUrlResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.WebChromeClient{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.OnReceivedTouchIconUrl(s.Handles.Get(req.GetArg0()), req.GetArg1(), req.GetArg2()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.OnReceivedTouchIconUrlResponse{}, nil
-}
-
-func (s *WebChromeClientServer) OnRequestFocus(_ context.Context, req *pb.OnRequestFocusRequest) (*pb.OnRequestFocusResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.WebChromeClient{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.OnRequestFocus(s.Handles.Get(req.GetArg0())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.OnRequestFocusResponse{}, nil
-}
-
-func (s *WebChromeClientServer) OnShowCustomView2(_ context.Context, req *pb.OnShowCustomView2Request) (*pb.OnShowCustomView2Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.WebChromeClient{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.OnShowCustomView2(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.OnShowCustomView2Response{}, nil
-}
-
-func (s *WebChromeClientServer) OnShowCustomView3_1(_ context.Context, req *pb.OnShowCustomView3_1Request) (*pb.OnShowCustomView3_1Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.WebChromeClient{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.OnShowCustomView3_1(s.Handles.Get(req.GetArg0()), req.GetArg1(), s.Handles.Get(req.GetArg2())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.OnShowCustomView3_1Response{}, nil
-}
-
 // WebViewClientServer implements pb.WebViewClientServiceServer.
 type WebViewClientServer struct {
 	pb.UnimplementedWebViewClientServiceServer
@@ -3597,4 +2453,1148 @@ func (s *WebViewClientServer) ShouldOverrideUrlLoading2_1(_ context.Context, req
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
 	return &pb.ShouldOverrideUrlLoading2_1Response{Result: result}, nil
+}
+
+// URLUtilServer implements pb.URLUtilServiceServer.
+type URLUtilServer struct {
+	pb.UnimplementedURLUtilServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *URLUtilServer) NewURLUtil(_ context.Context, req *pb.NewURLUtilRequest) (*pb.NewURLUtilResponse, error) {
+	obj, err := jnipkg.NewURLUtil(s.Ctx.VM)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewURLUtilResponse{Result: handle}, nil
+}
+
+func (s *URLUtilServer) ComposeSearchUrl(_ context.Context, req *pb.ComposeSearchUrlRequest) (*pb.ComposeSearchUrlResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.URLUtil{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.ComposeSearchUrl(req.GetArg0(), req.GetArg1(), req.GetArg2())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ComposeSearchUrlResponse{Result: result}, nil
+}
+
+func (s *URLUtilServer) Decode(_ context.Context, req *pb.DecodeRequest) (*pb.DecodeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.URLUtil{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.Decode(s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.DecodeResponse{Result: handle}, nil
+}
+
+func (s *URLUtilServer) GuessFileName(_ context.Context, req *pb.GuessFileNameRequest) (*pb.GuessFileNameResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.URLUtil{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GuessFileName(req.GetArg0(), req.GetArg1(), req.GetArg2())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GuessFileNameResponse{Result: result}, nil
+}
+
+func (s *URLUtilServer) GuessUrl(_ context.Context, req *pb.GuessUrlRequest) (*pb.GuessUrlResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.URLUtil{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GuessUrl(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GuessUrlResponse{Result: result}, nil
+}
+
+func (s *URLUtilServer) IsAboutUrl(_ context.Context, req *pb.IsAboutUrlRequest) (*pb.IsAboutUrlResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.URLUtil{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.IsAboutUrl(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.IsAboutUrlResponse{Result: result}, nil
+}
+
+func (s *URLUtilServer) IsAssetUrl(_ context.Context, req *pb.IsAssetUrlRequest) (*pb.IsAssetUrlResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.URLUtil{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.IsAssetUrl(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.IsAssetUrlResponse{Result: result}, nil
+}
+
+func (s *URLUtilServer) IsContentUrl(_ context.Context, req *pb.IsContentUrlRequest) (*pb.IsContentUrlResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.URLUtil{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.IsContentUrl(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.IsContentUrlResponse{Result: result}, nil
+}
+
+func (s *URLUtilServer) IsCookielessProxyUrl(_ context.Context, req *pb.IsCookielessProxyUrlRequest) (*pb.IsCookielessProxyUrlResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.URLUtil{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.IsCookielessProxyUrl(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.IsCookielessProxyUrlResponse{Result: result}, nil
+}
+
+func (s *URLUtilServer) IsDataUrl(_ context.Context, req *pb.IsDataUrlRequest) (*pb.IsDataUrlResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.URLUtil{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.IsDataUrl(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.IsDataUrlResponse{Result: result}, nil
+}
+
+func (s *URLUtilServer) IsFileUrl(_ context.Context, req *pb.IsFileUrlRequest) (*pb.IsFileUrlResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.URLUtil{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.IsFileUrl(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.IsFileUrlResponse{Result: result}, nil
+}
+
+func (s *URLUtilServer) IsHttpUrl(_ context.Context, req *pb.IsHttpUrlRequest) (*pb.IsHttpUrlResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.URLUtil{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.IsHttpUrl(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.IsHttpUrlResponse{Result: result}, nil
+}
+
+func (s *URLUtilServer) IsHttpsUrl(_ context.Context, req *pb.IsHttpsUrlRequest) (*pb.IsHttpsUrlResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.URLUtil{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.IsHttpsUrl(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.IsHttpsUrlResponse{Result: result}, nil
+}
+
+func (s *URLUtilServer) IsJavaScriptUrl(_ context.Context, req *pb.IsJavaScriptUrlRequest) (*pb.IsJavaScriptUrlResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.URLUtil{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.IsJavaScriptUrl(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.IsJavaScriptUrlResponse{Result: result}, nil
+}
+
+func (s *URLUtilServer) IsNetworkUrl(_ context.Context, req *pb.IsNetworkUrlRequest) (*pb.IsNetworkUrlResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.URLUtil{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.IsNetworkUrl(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.IsNetworkUrlResponse{Result: result}, nil
+}
+
+func (s *URLUtilServer) IsValidUrl(_ context.Context, req *pb.IsValidUrlRequest) (*pb.IsValidUrlResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.URLUtil{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.IsValidUrl(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.IsValidUrlResponse{Result: result}, nil
+}
+
+func (s *URLUtilServer) StripAnchor(_ context.Context, req *pb.StripAnchorRequest) (*pb.StripAnchorResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.URLUtil{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.StripAnchor(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.StripAnchorResponse{Result: result}, nil
+}
+
+// WebChromeClientServer implements pb.WebChromeClientServiceServer.
+type WebChromeClientServer struct {
+	pb.UnimplementedWebChromeClientServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *WebChromeClientServer) NewWebChromeClient(_ context.Context, req *pb.NewWebChromeClientRequest) (*pb.NewWebChromeClientResponse, error) {
+	obj, err := jnipkg.NewWebChromeClient(s.Ctx.VM)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewWebChromeClientResponse{Result: handle}, nil
+}
+
+func (s *WebChromeClientServer) GetDefaultVideoPoster(_ context.Context, req *pb.GetDefaultVideoPosterRequest) (*pb.GetDefaultVideoPosterResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WebChromeClient{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetDefaultVideoPoster()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetDefaultVideoPosterResponse{Result: handle}, nil
+}
+
+func (s *WebChromeClientServer) GetVideoLoadingProgressView(_ context.Context, req *pb.GetVideoLoadingProgressViewRequest) (*pb.GetVideoLoadingProgressViewResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WebChromeClient{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetVideoLoadingProgressView()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetVideoLoadingProgressViewResponse{Result: handle}, nil
+}
+
+func (s *WebChromeClientServer) OnCloseWindow(_ context.Context, req *pb.OnCloseWindowRequest) (*pb.OnCloseWindowResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WebChromeClient{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.OnCloseWindow(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.OnCloseWindowResponse{}, nil
+}
+
+func (s *WebChromeClientServer) OnConsoleMessage1(_ context.Context, req *pb.OnConsoleMessage1Request) (*pb.OnConsoleMessage1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WebChromeClient{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.OnConsoleMessage1(s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.OnConsoleMessage1Response{Result: result}, nil
+}
+
+func (s *WebChromeClientServer) OnConsoleMessage3_1(_ context.Context, req *pb.OnConsoleMessage3_1Request) (*pb.OnConsoleMessage3_1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WebChromeClient{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.OnConsoleMessage3_1(req.GetArg0(), req.GetArg1(), req.GetArg2()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.OnConsoleMessage3_1Response{}, nil
+}
+
+func (s *WebChromeClientServer) OnCreateWindow(_ context.Context, req *pb.OnCreateWindowRequest) (*pb.OnCreateWindowResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WebChromeClient{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.OnCreateWindow(s.Handles.Get(req.GetArg0()), req.GetArg1(), req.GetArg2(), s.Handles.Get(req.GetArg3()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.OnCreateWindowResponse{Result: result}, nil
+}
+
+func (s *WebChromeClientServer) OnExceededDatabaseQuota(_ context.Context, req *pb.OnExceededDatabaseQuotaRequest) (*pb.OnExceededDatabaseQuotaResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WebChromeClient{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.OnExceededDatabaseQuota(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3(), req.GetArg4(), s.Handles.Get(req.GetArg5())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.OnExceededDatabaseQuotaResponse{}, nil
+}
+
+func (s *WebChromeClientServer) OnGeolocationPermissionsHidePrompt(_ context.Context, req *pb.OnGeolocationPermissionsHidePromptRequest) (*pb.OnGeolocationPermissionsHidePromptResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WebChromeClient{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.OnGeolocationPermissionsHidePrompt(); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.OnGeolocationPermissionsHidePromptResponse{}, nil
+}
+
+func (s *WebChromeClientServer) OnGeolocationPermissionsShowPrompt(_ context.Context, req *pb.OnGeolocationPermissionsShowPromptRequest) (*pb.OnGeolocationPermissionsShowPromptResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WebChromeClient{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.OnGeolocationPermissionsShowPrompt(req.GetArg0(), s.Handles.Get(req.GetArg1())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.OnGeolocationPermissionsShowPromptResponse{}, nil
+}
+
+func (s *WebChromeClientServer) OnHideCustomView(_ context.Context, req *pb.OnHideCustomViewRequest) (*pb.OnHideCustomViewResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WebChromeClient{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.OnHideCustomView(); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.OnHideCustomViewResponse{}, nil
+}
+
+func (s *WebChromeClientServer) OnJsAlert(_ context.Context, req *pb.OnJsAlertRequest) (*pb.OnJsAlertResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WebChromeClient{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.OnJsAlert(s.Handles.Get(req.GetArg0()), req.GetArg1(), req.GetArg2(), s.Handles.Get(req.GetArg3()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.OnJsAlertResponse{Result: result}, nil
+}
+
+func (s *WebChromeClientServer) OnJsBeforeUnload(_ context.Context, req *pb.OnJsBeforeUnloadRequest) (*pb.OnJsBeforeUnloadResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WebChromeClient{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.OnJsBeforeUnload(s.Handles.Get(req.GetArg0()), req.GetArg1(), req.GetArg2(), s.Handles.Get(req.GetArg3()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.OnJsBeforeUnloadResponse{Result: result}, nil
+}
+
+func (s *WebChromeClientServer) OnJsConfirm(_ context.Context, req *pb.OnJsConfirmRequest) (*pb.OnJsConfirmResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WebChromeClient{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.OnJsConfirm(s.Handles.Get(req.GetArg0()), req.GetArg1(), req.GetArg2(), s.Handles.Get(req.GetArg3()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.OnJsConfirmResponse{Result: result}, nil
+}
+
+func (s *WebChromeClientServer) OnJsPrompt(_ context.Context, req *pb.OnJsPromptRequest) (*pb.OnJsPromptResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WebChromeClient{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.OnJsPrompt(s.Handles.Get(req.GetArg0()), req.GetArg1(), req.GetArg2(), req.GetArg3(), s.Handles.Get(req.GetArg4()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.OnJsPromptResponse{Result: result}, nil
+}
+
+func (s *WebChromeClientServer) OnJsTimeout(_ context.Context, req *pb.OnJsTimeoutRequest) (*pb.OnJsTimeoutResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WebChromeClient{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.OnJsTimeout()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.OnJsTimeoutResponse{Result: result}, nil
+}
+
+func (s *WebChromeClientServer) OnPermissionRequest(_ context.Context, req *pb.OnPermissionRequestRequest) (*pb.OnPermissionRequestResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WebChromeClient{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.OnPermissionRequest(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.OnPermissionRequestResponse{}, nil
+}
+
+func (s *WebChromeClientServer) OnPermissionRequestCanceled(_ context.Context, req *pb.OnPermissionRequestCanceledRequest) (*pb.OnPermissionRequestCanceledResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WebChromeClient{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.OnPermissionRequestCanceled(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.OnPermissionRequestCanceledResponse{}, nil
+}
+
+func (s *WebChromeClientServer) OnProgressChanged(_ context.Context, req *pb.OnProgressChangedRequest) (*pb.OnProgressChangedResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WebChromeClient{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.OnProgressChanged(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.OnProgressChangedResponse{}, nil
+}
+
+func (s *WebChromeClientServer) OnReceivedIcon(_ context.Context, req *pb.OnReceivedIconRequest) (*pb.OnReceivedIconResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WebChromeClient{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.OnReceivedIcon(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.OnReceivedIconResponse{}, nil
+}
+
+func (s *WebChromeClientServer) OnReceivedTitle(_ context.Context, req *pb.OnReceivedTitleRequest) (*pb.OnReceivedTitleResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WebChromeClient{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.OnReceivedTitle(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.OnReceivedTitleResponse{}, nil
+}
+
+func (s *WebChromeClientServer) OnReceivedTouchIconUrl(_ context.Context, req *pb.OnReceivedTouchIconUrlRequest) (*pb.OnReceivedTouchIconUrlResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WebChromeClient{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.OnReceivedTouchIconUrl(s.Handles.Get(req.GetArg0()), req.GetArg1(), req.GetArg2()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.OnReceivedTouchIconUrlResponse{}, nil
+}
+
+func (s *WebChromeClientServer) OnRequestFocus(_ context.Context, req *pb.OnRequestFocusRequest) (*pb.OnRequestFocusResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WebChromeClient{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.OnRequestFocus(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.OnRequestFocusResponse{}, nil
+}
+
+func (s *WebChromeClientServer) OnShowCustomView2(_ context.Context, req *pb.OnShowCustomView2Request) (*pb.OnShowCustomView2Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WebChromeClient{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.OnShowCustomView2(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.OnShowCustomView2Response{}, nil
+}
+
+func (s *WebChromeClientServer) OnShowCustomView3_1(_ context.Context, req *pb.OnShowCustomView3_1Request) (*pb.OnShowCustomView3_1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WebChromeClient{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.OnShowCustomView3_1(s.Handles.Get(req.GetArg0()), req.GetArg1(), s.Handles.Get(req.GetArg2())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.OnShowCustomView3_1Response{}, nil
+}
+
+// DateSorterServer implements pb.DateSorterServiceServer.
+type DateSorterServer struct {
+	pb.UnimplementedDateSorterServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *DateSorterServer) NewDateSorter(_ context.Context, req *pb.NewDateSorterRequest) (*pb.NewDateSorterResponse, error) {
+	obj, err := jnipkg.NewDateSorter(s.Ctx.VM, s.Ctx.Obj)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewDateSorterResponse{Result: handle}, nil
+}
+
+func (s *DateSorterServer) GetBoundary(_ context.Context, req *pb.GetBoundaryRequest) (*pb.GetBoundaryResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.DateSorter{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetBoundary(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetBoundaryResponse{Result: result}, nil
+}
+
+func (s *DateSorterServer) GetIndex(_ context.Context, req *pb.GetIndexRequest) (*pb.GetIndexResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.DateSorter{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetIndex(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetIndexResponse{Result: result}, nil
+}
+
+func (s *DateSorterServer) GetLabel(_ context.Context, req *pb.GetLabelRequest) (*pb.GetLabelResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.DateSorter{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetLabel(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetLabelResponse{Result: result}, nil
+}
+
+// WebResourceResponseServer implements pb.WebResourceResponseServiceServer.
+type WebResourceResponseServer struct {
+	pb.UnimplementedWebResourceResponseServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *WebResourceResponseServer) NewWebResourceResponse(_ context.Context, req *pb.NewWebResourceResponseRequest) (*pb.NewWebResourceResponseResponse, error) {
+	obj, err := jnipkg.NewWebResourceResponse(s.Ctx.VM, req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3(), s.Handles.Get(req.GetArg4()), s.Handles.Get(req.GetArg5()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewWebResourceResponseResponse{Result: handle}, nil
+}
+
+func (s *WebResourceResponseServer) GetData(_ context.Context, req *pb.GetDataRequest) (*pb.GetDataResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WebResourceResponse{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetData()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetDataResponse{Result: handle}, nil
+}
+
+func (s *WebResourceResponseServer) GetEncoding(_ context.Context, req *pb.GetEncodingRequest) (*pb.GetEncodingResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WebResourceResponse{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetEncoding()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetEncodingResponse{Result: result}, nil
+}
+
+func (s *WebResourceResponseServer) GetMimeType(_ context.Context, req *pb.GetMimeTypeRequest) (*pb.GetMimeTypeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WebResourceResponse{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetMimeType()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetMimeTypeResponse{Result: result}, nil
+}
+
+func (s *WebResourceResponseServer) GetReasonPhrase(_ context.Context, req *pb.GetReasonPhraseRequest) (*pb.GetReasonPhraseResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WebResourceResponse{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetReasonPhrase()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetReasonPhraseResponse{Result: result}, nil
+}
+
+func (s *WebResourceResponseServer) GetStatusCode(_ context.Context, req *pb.GetStatusCodeRequest) (*pb.GetStatusCodeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WebResourceResponse{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetStatusCode()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetStatusCodeResponse{Result: result}, nil
+}
+
+func (s *WebResourceResponseServer) SetData(_ context.Context, req *pb.SetDataRequest) (*pb.SetDataResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WebResourceResponse{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetData(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetDataResponse{}, nil
+}
+
+func (s *WebResourceResponseServer) SetEncoding(_ context.Context, req *pb.SetEncodingRequest) (*pb.SetEncodingResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WebResourceResponse{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetEncoding(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetEncodingResponse{}, nil
+}
+
+func (s *WebResourceResponseServer) SetMimeType(_ context.Context, req *pb.SetMimeTypeRequest) (*pb.SetMimeTypeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WebResourceResponse{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetMimeType(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetMimeTypeResponse{}, nil
+}
+
+func (s *WebResourceResponseServer) SetStatusCodeAndReasonPhrase(_ context.Context, req *pb.SetStatusCodeAndReasonPhraseRequest) (*pb.SetStatusCodeAndReasonPhraseResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WebResourceResponse{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetStatusCodeAndReasonPhrase(req.GetArg0(), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetStatusCodeAndReasonPhraseResponse{}, nil
+}
+
+// ConsoleMessageServer implements pb.ConsoleMessageServiceServer.
+type ConsoleMessageServer struct {
+	pb.UnimplementedConsoleMessageServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *ConsoleMessageServer) NewConsoleMessage(_ context.Context, req *pb.NewConsoleMessageRequest) (*pb.NewConsoleMessageResponse, error) {
+	obj, err := jnipkg.NewConsoleMessage(s.Ctx.VM, req.GetArg0(), req.GetArg1(), req.GetArg2(), s.Handles.Get(req.GetArg3()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewConsoleMessageResponse{Result: handle}, nil
+}
+
+func (s *ConsoleMessageServer) LineNumber(_ context.Context, req *pb.LineNumberRequest) (*pb.LineNumberResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ConsoleMessage{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.LineNumber()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.LineNumberResponse{Result: result}, nil
+}
+
+func (s *ConsoleMessageServer) Message(_ context.Context, req *pb.MessageRequest) (*pb.MessageResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ConsoleMessage{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.Message()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.MessageResponse{Result: result}, nil
+}
+
+func (s *ConsoleMessageServer) MessageLevel(_ context.Context, req *pb.MessageLevelRequest) (*pb.MessageLevelResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ConsoleMessage{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.MessageLevel()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.MessageLevelResponse{Result: handle}, nil
+}
+
+func (s *ConsoleMessageServer) SourceId(_ context.Context, req *pb.SourceIdRequest) (*pb.SourceIdResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ConsoleMessage{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.SourceId()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SourceIdResponse{Result: result}, nil
+}
+
+// WebMessageServer implements pb.WebMessageServiceServer.
+type WebMessageServer struct {
+	pb.UnimplementedWebMessageServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *WebMessageServer) NewWebMessage(_ context.Context, req *pb.NewWebMessageRequest) (*pb.NewWebMessageResponse, error) {
+	obj, err := jnipkg.NewWebMessage(s.Ctx.VM, req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewWebMessageResponse{Result: handle}, nil
+}
+
+func (s *WebMessageServer) GetData(_ context.Context, req *pb.GetDataRequest) (*pb.WebMessageGetDataResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WebMessage{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetData()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.WebMessageGetDataResponse{Result: result}, nil
+}
+
+func (s *WebMessageServer) GetPorts(_ context.Context, req *pb.GetPortsRequest) (*pb.GetPortsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WebMessage{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetPorts()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetPortsResponse{Result: handle}, nil
+}
+
+// WebViewFragmentServer implements pb.WebViewFragmentServiceServer.
+type WebViewFragmentServer struct {
+	pb.UnimplementedWebViewFragmentServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *WebViewFragmentServer) NewWebViewFragment(_ context.Context, req *pb.NewWebViewFragmentRequest) (*pb.NewWebViewFragmentResponse, error) {
+	obj, err := jnipkg.NewWebViewFragment(s.Ctx.VM)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewWebViewFragmentResponse{Result: handle}, nil
+}
+
+func (s *WebViewFragmentServer) GetWebView(_ context.Context, req *pb.GetWebViewRequest) (*pb.GetWebViewResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WebViewFragment{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetWebView()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetWebViewResponse{Result: handle}, nil
+}
+
+func (s *WebViewFragmentServer) OnCreateView(_ context.Context, req *pb.OnCreateViewRequest) (*pb.OnCreateViewResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WebViewFragment{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.OnCreateView(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()), s.Handles.Get(req.GetArg2()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.OnCreateViewResponse{Result: handle}, nil
+}
+
+func (s *WebViewFragmentServer) OnDestroy(_ context.Context, req *pb.OnDestroyRequest) (*pb.OnDestroyResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WebViewFragment{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.OnDestroy(); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.OnDestroyResponse{}, nil
+}
+
+func (s *WebViewFragmentServer) OnDestroyView(_ context.Context, req *pb.OnDestroyViewRequest) (*pb.OnDestroyViewResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WebViewFragment{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.OnDestroyView(); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.OnDestroyViewResponse{}, nil
+}
+
+func (s *WebViewFragmentServer) OnPause(_ context.Context, req *pb.OnPauseRequest) (*pb.OnPauseResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WebViewFragment{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.OnPause(); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.OnPauseResponse{}, nil
+}
+
+func (s *WebViewFragmentServer) OnResume(_ context.Context, req *pb.OnResumeRequest) (*pb.OnResumeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WebViewFragment{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.OnResume(); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.OnResumeResponse{}, nil
+}
+
+// ServiceWorkerClientServer implements pb.ServiceWorkerClientServiceServer.
+type ServiceWorkerClientServer struct {
+	pb.UnimplementedServiceWorkerClientServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *ServiceWorkerClientServer) NewServiceWorkerClient(_ context.Context, req *pb.NewServiceWorkerClientRequest) (*pb.NewServiceWorkerClientResponse, error) {
+	obj, err := jnipkg.NewServiceWorkerClient(s.Ctx.VM)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewServiceWorkerClientResponse{Result: handle}, nil
+}
+
+func (s *ServiceWorkerClientServer) ShouldInterceptRequest(_ context.Context, req *pb.ShouldInterceptRequestRequest) (*pb.ShouldInterceptRequestResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ServiceWorkerClient{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.ShouldInterceptRequest(s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.ShouldInterceptRequestResponse{Result: handle}, nil
 }

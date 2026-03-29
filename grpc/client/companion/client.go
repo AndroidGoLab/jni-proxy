@@ -9,6 +9,431 @@ import (
 	"google.golang.org/grpc"
 )
 
+// AssociationInfoClient wraps the gRPC AssociationInfoService client.
+type AssociationInfoClient struct {
+	svc pb.AssociationInfoServiceClient
+}
+
+// NewAssociationInfoClient creates a new AssociationInfo client.
+func NewAssociationInfoClient(cc grpc.ClientConnInterface) *AssociationInfoClient {
+	return &AssociationInfoClient{
+		svc: pb.NewAssociationInfoServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *AssociationInfoClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *AssociationInfoClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAssociatedDevice calls the GetAssociatedDevice RPC.
+func (c *AssociationInfoClient) GetAssociatedDevice(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetAssociatedDevice(ctx, &pb.GetAssociatedDeviceRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDeviceId calls the GetDeviceId RPC.
+func (c *AssociationInfoClient) GetDeviceId(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetDeviceId(ctx, &pb.GetDeviceIdRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDeviceMacAddress calls the GetDeviceMacAddress RPC.
+func (c *AssociationInfoClient) GetDeviceMacAddress(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetDeviceMacAddress(ctx, &pb.GetDeviceMacAddressRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDeviceProfile calls the GetDeviceProfile RPC.
+func (c *AssociationInfoClient) GetDeviceProfile(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetDeviceProfile(ctx, &pb.GetDeviceProfileRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDisplayName calls the GetDisplayName RPC.
+func (c *AssociationInfoClient) GetDisplayName(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetDisplayName(ctx, &pb.GetDisplayNameRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetId calls the GetId RPC.
+func (c *AssociationInfoClient) GetId(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetId(ctx, &pb.GetIdRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSystemDataSyncFlags calls the GetSystemDataSyncFlags RPC.
+func (c *AssociationInfoClient) GetSystemDataSyncFlags(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetSystemDataSyncFlags(ctx, &pb.GetSystemDataSyncFlagsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *AssociationInfoClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsSelfManaged calls the IsSelfManaged RPC.
+func (c *AssociationInfoClient) IsSelfManaged(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsSelfManaged(ctx, &pb.IsSelfManagedRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *AssociationInfoClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *AssociationInfoClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// AssociationRequestClient wraps the gRPC AssociationRequestService client.
+type AssociationRequestClient struct {
+	svc pb.AssociationRequestServiceClient
+}
+
+// NewAssociationRequestClient creates a new AssociationRequest client.
+func NewAssociationRequestClient(cc grpc.ClientConnInterface) *AssociationRequestClient {
+	return &AssociationRequestClient{
+		svc: pb.NewAssociationRequestServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *AssociationRequestClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *AssociationRequestClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDeviceProfile calls the GetDeviceProfile RPC.
+func (c *AssociationRequestClient) GetDeviceProfile(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetDeviceProfile(ctx, &pb.GetDeviceProfileRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDisplayName calls the GetDisplayName RPC.
+func (c *AssociationRequestClient) GetDisplayName(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetDisplayName(ctx, &pb.GetDisplayNameRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *AssociationRequestClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsForceConfirmation calls the IsForceConfirmation RPC.
+func (c *AssociationRequestClient) IsForceConfirmation(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsForceConfirmation(ctx, &pb.IsForceConfirmationRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsSelfManaged calls the IsSelfManaged RPC.
+func (c *AssociationRequestClient) IsSelfManaged(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsSelfManaged(ctx, &pb.IsSelfManagedRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsSingleDevice calls the IsSingleDevice RPC.
+func (c *AssociationRequestClient) IsSingleDevice(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsSingleDevice(ctx, &pb.IsSingleDeviceRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *AssociationRequestClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *AssociationRequestClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// AssociationRequestBuilderClient wraps the gRPC AssociationRequestBuilderService client.
+type AssociationRequestBuilderClient struct {
+	svc pb.AssociationRequestBuilderServiceClient
+}
+
+// NewAssociationRequestBuilderClient creates a new AssociationRequestBuilder client.
+func NewAssociationRequestBuilderClient(cc grpc.ClientConnInterface) *AssociationRequestBuilderClient {
+	return &AssociationRequestBuilderClient{
+		svc: pb.NewAssociationRequestBuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *AssociationRequestBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetDeviceProfile calls the SetDeviceProfile RPC.
+func (c *AssociationRequestBuilderClient) SetDeviceProfile(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.SetDeviceProfile(ctx, &pb.SetDeviceProfileRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetDisplayName calls the SetDisplayName RPC.
+func (c *AssociationRequestBuilderClient) SetDisplayName(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.SetDisplayName(ctx, &pb.SetDisplayNameRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetForceConfirmation calls the SetForceConfirmation RPC.
+func (c *AssociationRequestBuilderClient) SetForceConfirmation(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetForceConfirmation(ctx, &pb.SetForceConfirmationRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetSelfManaged calls the SetSelfManaged RPC.
+func (c *AssociationRequestBuilderClient) SetSelfManaged(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetSelfManaged(ctx, &pb.SetSelfManagedRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetSingleDevice calls the SetSingleDevice RPC.
+func (c *AssociationRequestBuilderClient) SetSingleDevice(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetSingleDevice(ctx, &pb.SetSingleDeviceRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// BluetoothDeviceFilterClient wraps the gRPC BluetoothDeviceFilterService client.
+type BluetoothDeviceFilterClient struct {
+	svc pb.BluetoothDeviceFilterServiceClient
+}
+
+// NewBluetoothDeviceFilterClient creates a new BluetoothDeviceFilter client.
+func NewBluetoothDeviceFilterClient(cc grpc.ClientConnInterface) *BluetoothDeviceFilterClient {
+	return &BluetoothDeviceFilterClient{
+		svc: pb.NewBluetoothDeviceFilterServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *BluetoothDeviceFilterClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *BluetoothDeviceFilterClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *BluetoothDeviceFilterClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *BluetoothDeviceFilterClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *BluetoothDeviceFilterClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// BluetoothDeviceFilterBuilderClient wraps the gRPC BluetoothDeviceFilterBuilderService client.
+type BluetoothDeviceFilterBuilderClient struct {
+	svc pb.BluetoothDeviceFilterBuilderServiceClient
+}
+
+// NewBluetoothDeviceFilterBuilderClient creates a new BluetoothDeviceFilterBuilder client.
+func NewBluetoothDeviceFilterBuilderClient(cc grpc.ClientConnInterface) *BluetoothDeviceFilterBuilderClient {
+	return &BluetoothDeviceFilterBuilderClient{
+		svc: pb.NewBluetoothDeviceFilterBuilderServiceClient(cc),
+	}
+}
+
+// AddServiceUuid calls the AddServiceUuid RPC.
+func (c *BluetoothDeviceFilterBuilderClient) AddServiceUuid(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
+	resp, err := c.svc.AddServiceUuid(ctx, &pb.AddServiceUuidRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Build calls the Build RPC.
+func (c *BluetoothDeviceFilterBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetAddress calls the SetAddress RPC.
+func (c *BluetoothDeviceFilterBuilderClient) SetAddress(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.SetAddress(ctx, &pb.SetAddressRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetNamePattern calls the SetNamePattern RPC.
+func (c *BluetoothDeviceFilterBuilderClient) SetNamePattern(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetNamePattern(ctx, &pb.SetNamePatternRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // DevicePresenceEventClient wraps the gRPC DevicePresenceEventService client.
 type DevicePresenceEventClient struct {
 	svc pb.DevicePresenceEventServiceClient
@@ -23,7 +448,7 @@ func NewDevicePresenceEventClient(cc grpc.ClientConnInterface) *DevicePresenceEv
 
 // DescribeContents calls the DescribeContents RPC.
 func (c *DevicePresenceEventClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{
+	resp, err := c.svc.DescribeContents(ctx, &pb.DevicePresenceEventDescribeContentsRequest{
 		Handle: handle,
 	})
 	if err != nil {
@@ -34,7 +459,7 @@ func (c *DevicePresenceEventClient) DescribeContents(ctx context.Context, handle
 
 // Equals calls the Equals RPC.
 func (c *DevicePresenceEventClient) Equals(ctx context.Context, handle int64, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+	resp, err := c.svc.Equals(ctx, &pb.DevicePresenceEventEqualsRequest{
 		Handle: handle,
 		Arg0:   arg0,
 	})
@@ -79,7 +504,7 @@ func (c *DevicePresenceEventClient) GetUuid(ctx context.Context, handle int64) (
 
 // HashCode calls the HashCode RPC.
 func (c *DevicePresenceEventClient) HashCode(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{
+	resp, err := c.svc.HashCode(ctx, &pb.DevicePresenceEventHashCodeRequest{
 		Handle: handle,
 	})
 	if err != nil {
@@ -90,7 +515,7 @@ func (c *DevicePresenceEventClient) HashCode(ctx context.Context, handle int64) 
 
 // ToString calls the ToString RPC.
 func (c *DevicePresenceEventClient) ToString(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{
+	resp, err := c.svc.ToString(ctx, &pb.DevicePresenceEventToStringRequest{
 		Handle: handle,
 	})
 	if err != nil {
@@ -101,12 +526,132 @@ func (c *DevicePresenceEventClient) ToString(ctx context.Context, handle int64) 
 
 // WriteToParcel calls the WriteToParcel RPC.
 func (c *DevicePresenceEventClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+	_, err := c.svc.WriteToParcel(ctx, &pb.DevicePresenceEventWriteToParcelRequest{
 		Handle: handle,
 		Arg0:   arg0,
 		Arg1:   arg1,
 	})
 	return err
+}
+
+// ObservingDevicePresenceRequestClient wraps the gRPC ObservingDevicePresenceRequestService client.
+type ObservingDevicePresenceRequestClient struct {
+	svc pb.ObservingDevicePresenceRequestServiceClient
+}
+
+// NewObservingDevicePresenceRequestClient creates a new ObservingDevicePresenceRequest client.
+func NewObservingDevicePresenceRequestClient(cc grpc.ClientConnInterface) *ObservingDevicePresenceRequestClient {
+	return &ObservingDevicePresenceRequestClient{
+		svc: pb.NewObservingDevicePresenceRequestServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *ObservingDevicePresenceRequestClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *ObservingDevicePresenceRequestClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAssociationId calls the GetAssociationId RPC.
+func (c *ObservingDevicePresenceRequestClient) GetAssociationId(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetAssociationId(ctx, &pb.ObservingDevicePresenceRequestGetAssociationIdRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetUuid calls the GetUuid RPC.
+func (c *ObservingDevicePresenceRequestClient) GetUuid(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetUuid(ctx, &pb.ObservingDevicePresenceRequestGetUuidRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *ObservingDevicePresenceRequestClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *ObservingDevicePresenceRequestClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *ObservingDevicePresenceRequestClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// ObservingDevicePresenceRequestBuilderClient wraps the gRPC ObservingDevicePresenceRequestBuilderService client.
+type ObservingDevicePresenceRequestBuilderClient struct {
+	svc pb.ObservingDevicePresenceRequestBuilderServiceClient
+}
+
+// NewObservingDevicePresenceRequestBuilderClient creates a new ObservingDevicePresenceRequestBuilder client.
+func NewObservingDevicePresenceRequestBuilderClient(cc grpc.ClientConnInterface) *ObservingDevicePresenceRequestBuilderClient {
+	return &ObservingDevicePresenceRequestBuilderClient{
+		svc: pb.NewObservingDevicePresenceRequestBuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *ObservingDevicePresenceRequestBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetAssociationId calls the SetAssociationId RPC.
+func (c *ObservingDevicePresenceRequestBuilderClient) SetAssociationId(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetAssociationId(ctx, &pb.SetAssociationIdRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetUuid calls the SetUuid RPC.
+func (c *ObservingDevicePresenceRequestBuilderClient) SetUuid(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetUuid(ctx, &pb.SetUuidRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
 }
 
 // DeviceManagerClient wraps the gRPC DeviceManagerService client.
@@ -201,6 +746,24 @@ func (c *DeviceManagerClient) EnableSystemDataSyncForTypes(ctx context.Context, 
 		Arg1: arg1,
 	})
 	return err
+}
+
+// GetAssociations calls the GetAssociations RPC.
+func (c *DeviceManagerClient) GetAssociations(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetAssociations(ctx, &pb.GetAssociationsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMyAssociations calls the GetMyAssociations RPC.
+func (c *DeviceManagerClient) GetMyAssociations(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetMyAssociations(ctx, &pb.GetMyAssociationsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
 }
 
 // HasNotificationAccess calls the HasNotificationAccess RPC.
@@ -338,21 +901,21 @@ func (c *DeviceManagerCallbackClient) OnFailure1_1(ctx context.Context, arg0 str
 	return err
 }
 
-// AssociatedDeviceClient wraps the gRPC AssociatedDeviceService client.
-type AssociatedDeviceClient struct {
-	svc pb.AssociatedDeviceServiceClient
+// DeviceIdClient wraps the gRPC DeviceIdService client.
+type DeviceIdClient struct {
+	svc pb.DeviceIdServiceClient
 }
 
-// NewAssociatedDeviceClient creates a new AssociatedDevice client.
-func NewAssociatedDeviceClient(cc grpc.ClientConnInterface) *AssociatedDeviceClient {
-	return &AssociatedDeviceClient{
-		svc: pb.NewAssociatedDeviceServiceClient(cc),
+// NewDeviceIdClient creates a new DeviceId client.
+func NewDeviceIdClient(cc grpc.ClientConnInterface) *DeviceIdClient {
+	return &DeviceIdClient{
+		svc: pb.NewDeviceIdServiceClient(cc),
 	}
 }
 
 // DescribeContents calls the DescribeContents RPC.
-func (c *AssociatedDeviceClient) DescribeContents(ctx context.Context) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.AssociatedDeviceDescribeContentsRequest{})
+func (c *DeviceIdClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
 	if err != nil {
 		return 0, err
 	}
@@ -360,8 +923,8 @@ func (c *AssociatedDeviceClient) DescribeContents(ctx context.Context) (int32, e
 }
 
 // Equals calls the Equals RPC.
-func (c *AssociatedDeviceClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.AssociatedDeviceEqualsRequest{
+func (c *DeviceIdClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
 		Arg0: arg0,
 	})
 	if err != nil {
@@ -370,27 +933,18 @@ func (c *AssociatedDeviceClient) Equals(ctx context.Context, arg0 int64) (bool, 
 	return resp.GetResult(), nil
 }
 
-// GetBleDevice calls the GetBleDevice RPC.
-func (c *AssociatedDeviceClient) GetBleDevice(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetBleDevice(ctx, &pb.GetBleDeviceRequest{})
+// GetCustomId calls the GetCustomId RPC.
+func (c *DeviceIdClient) GetCustomId(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetCustomId(ctx, &pb.GetCustomIdRequest{})
 	if err != nil {
-		return 0, err
+		return "", err
 	}
 	return resp.GetResult(), nil
 }
 
-// GetBluetoothDevice calls the GetBluetoothDevice RPC.
-func (c *AssociatedDeviceClient) GetBluetoothDevice(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetBluetoothDevice(ctx, &pb.GetBluetoothDeviceRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetWifiDevice calls the GetWifiDevice RPC.
-func (c *AssociatedDeviceClient) GetWifiDevice(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetWifiDevice(ctx, &pb.GetWifiDeviceRequest{})
+// GetMacAddress calls the GetMacAddress RPC.
+func (c *DeviceIdClient) GetMacAddress(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetMacAddress(ctx, &pb.GetMacAddressRequest{})
 	if err != nil {
 		return 0, err
 	}
@@ -398,8 +952,8 @@ func (c *AssociatedDeviceClient) GetWifiDevice(ctx context.Context) (int64, erro
 }
 
 // HashCode calls the HashCode RPC.
-func (c *AssociatedDeviceClient) HashCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.AssociatedDeviceHashCodeRequest{})
+func (c *DeviceIdClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
 	if err != nil {
 		return 0, err
 	}
@@ -407,8 +961,8 @@ func (c *AssociatedDeviceClient) HashCode(ctx context.Context) (int32, error) {
 }
 
 // ToString calls the ToString RPC.
-func (c *AssociatedDeviceClient) ToString(ctx context.Context) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.AssociatedDeviceToStringRequest{})
+func (c *DeviceIdClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
 	if err != nil {
 		return "", err
 	}
@@ -416,99 +970,28 @@ func (c *AssociatedDeviceClient) ToString(ctx context.Context) (string, error) {
 }
 
 // WriteToParcel calls the WriteToParcel RPC.
-func (c *AssociatedDeviceClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.AssociatedDeviceWriteToParcelRequest{
+func (c *DeviceIdClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
 		Arg0: arg0,
 		Arg1: arg1,
 	})
 	return err
 }
 
-// BluetoothDeviceFilterClient wraps the gRPC BluetoothDeviceFilterService client.
-type BluetoothDeviceFilterClient struct {
-	svc pb.BluetoothDeviceFilterServiceClient
+// DeviceIdBuilderClient wraps the gRPC DeviceIdBuilderService client.
+type DeviceIdBuilderClient struct {
+	svc pb.DeviceIdBuilderServiceClient
 }
 
-// NewBluetoothDeviceFilterClient creates a new BluetoothDeviceFilter client.
-func NewBluetoothDeviceFilterClient(cc grpc.ClientConnInterface) *BluetoothDeviceFilterClient {
-	return &BluetoothDeviceFilterClient{
-		svc: pb.NewBluetoothDeviceFilterServiceClient(cc),
+// NewDeviceIdBuilderClient creates a new DeviceIdBuilder client.
+func NewDeviceIdBuilderClient(cc grpc.ClientConnInterface) *DeviceIdBuilderClient {
+	return &DeviceIdBuilderClient{
+		svc: pb.NewDeviceIdBuilderServiceClient(cc),
 	}
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *BluetoothDeviceFilterClient) DescribeContents(ctx context.Context) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.BluetoothDeviceFilterDescribeContentsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Equals calls the Equals RPC.
-func (c *BluetoothDeviceFilterClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.BluetoothDeviceFilterEqualsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *BluetoothDeviceFilterClient) HashCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.BluetoothDeviceFilterHashCodeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToString calls the ToString RPC.
-func (c *BluetoothDeviceFilterClient) ToString(ctx context.Context) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.BluetoothDeviceFilterToStringRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *BluetoothDeviceFilterClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.BluetoothDeviceFilterWriteToParcelRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// BluetoothDeviceFilterBuilderClient wraps the gRPC BluetoothDeviceFilterBuilderService client.
-type BluetoothDeviceFilterBuilderClient struct {
-	svc pb.BluetoothDeviceFilterBuilderServiceClient
-}
-
-// NewBluetoothDeviceFilterBuilderClient creates a new BluetoothDeviceFilterBuilder client.
-func NewBluetoothDeviceFilterBuilderClient(cc grpc.ClientConnInterface) *BluetoothDeviceFilterBuilderClient {
-	return &BluetoothDeviceFilterBuilderClient{
-		svc: pb.NewBluetoothDeviceFilterBuilderServiceClient(cc),
-	}
-}
-
-// AddServiceUuid calls the AddServiceUuid RPC.
-func (c *BluetoothDeviceFilterBuilderClient) AddServiceUuid(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
-	resp, err := c.svc.AddServiceUuid(ctx, &pb.AddServiceUuidRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
 }
 
 // Build calls the Build RPC.
-func (c *BluetoothDeviceFilterBuilderClient) Build(ctx context.Context) (int64, error) {
+func (c *DeviceIdBuilderClient) Build(ctx context.Context) (int64, error) {
 	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
 	if err != nil {
 		return 0, err
@@ -516,9 +999,9 @@ func (c *BluetoothDeviceFilterBuilderClient) Build(ctx context.Context) (int64, 
 	return resp.GetResult(), nil
 }
 
-// SetAddress calls the SetAddress RPC.
-func (c *BluetoothDeviceFilterBuilderClient) SetAddress(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.SetAddress(ctx, &pb.SetAddressRequest{
+// SetCustomId calls the SetCustomId RPC.
+func (c *DeviceIdBuilderClient) SetCustomId(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.SetCustomId(ctx, &pb.SetCustomIdRequest{
 		Arg0: arg0,
 	})
 	if err != nil {
@@ -527,9 +1010,9 @@ func (c *BluetoothDeviceFilterBuilderClient) SetAddress(ctx context.Context, arg
 	return resp.GetResult(), nil
 }
 
-// SetNamePattern calls the SetNamePattern RPC.
-func (c *BluetoothDeviceFilterBuilderClient) SetNamePattern(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetNamePattern(ctx, &pb.SetNamePatternRequest{
+// SetMacAddress calls the SetMacAddress RPC.
+func (c *DeviceIdBuilderClient) SetMacAddress(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetMacAddress(ctx, &pb.SetMacAddressRequest{
 		Arg0: arg0,
 	})
 	if err != nil {
@@ -619,306 +1102,6 @@ func (c *DeviceServiceClient) OnDevicePresenceEvent(ctx context.Context, arg0 in
 	return err
 }
 
-// ObservingDevicePresenceRequestClient wraps the gRPC ObservingDevicePresenceRequestService client.
-type ObservingDevicePresenceRequestClient struct {
-	svc pb.ObservingDevicePresenceRequestServiceClient
-}
-
-// NewObservingDevicePresenceRequestClient creates a new ObservingDevicePresenceRequest client.
-func NewObservingDevicePresenceRequestClient(cc grpc.ClientConnInterface) *ObservingDevicePresenceRequestClient {
-	return &ObservingDevicePresenceRequestClient{
-		svc: pb.NewObservingDevicePresenceRequestServiceClient(cc),
-	}
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *ObservingDevicePresenceRequestClient) DescribeContents(ctx context.Context) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.ObservingDevicePresenceRequestDescribeContentsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Equals calls the Equals RPC.
-func (c *ObservingDevicePresenceRequestClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.ObservingDevicePresenceRequestEqualsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetAssociationId calls the GetAssociationId RPC.
-func (c *ObservingDevicePresenceRequestClient) GetAssociationId(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetAssociationId(ctx, &pb.ObservingDevicePresenceRequestGetAssociationIdRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetUuid calls the GetUuid RPC.
-func (c *ObservingDevicePresenceRequestClient) GetUuid(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetUuid(ctx, &pb.ObservingDevicePresenceRequestGetUuidRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *ObservingDevicePresenceRequestClient) HashCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.ObservingDevicePresenceRequestHashCodeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToString calls the ToString RPC.
-func (c *ObservingDevicePresenceRequestClient) ToString(ctx context.Context) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ObservingDevicePresenceRequestToStringRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *ObservingDevicePresenceRequestClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.ObservingDevicePresenceRequestWriteToParcelRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// ObservingDevicePresenceRequestBuilderClient wraps the gRPC ObservingDevicePresenceRequestBuilderService client.
-type ObservingDevicePresenceRequestBuilderClient struct {
-	svc pb.ObservingDevicePresenceRequestBuilderServiceClient
-}
-
-// NewObservingDevicePresenceRequestBuilderClient creates a new ObservingDevicePresenceRequestBuilder client.
-func NewObservingDevicePresenceRequestBuilderClient(cc grpc.ClientConnInterface) *ObservingDevicePresenceRequestBuilderClient {
-	return &ObservingDevicePresenceRequestBuilderClient{
-		svc: pb.NewObservingDevicePresenceRequestBuilderServiceClient(cc),
-	}
-}
-
-// Build calls the Build RPC.
-func (c *ObservingDevicePresenceRequestBuilderClient) Build(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetAssociationId calls the SetAssociationId RPC.
-func (c *ObservingDevicePresenceRequestBuilderClient) SetAssociationId(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.SetAssociationId(ctx, &pb.SetAssociationIdRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetUuid calls the SetUuid RPC.
-func (c *ObservingDevicePresenceRequestBuilderClient) SetUuid(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetUuid(ctx, &pb.SetUuidRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// AssociationRequestClient wraps the gRPC AssociationRequestService client.
-type AssociationRequestClient struct {
-	svc pb.AssociationRequestServiceClient
-}
-
-// NewAssociationRequestClient creates a new AssociationRequest client.
-func NewAssociationRequestClient(cc grpc.ClientConnInterface) *AssociationRequestClient {
-	return &AssociationRequestClient{
-		svc: pb.NewAssociationRequestServiceClient(cc),
-	}
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *AssociationRequestClient) DescribeContents(ctx context.Context) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.AssociationRequestDescribeContentsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Equals calls the Equals RPC.
-func (c *AssociationRequestClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.AssociationRequestEqualsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetDeviceProfile calls the GetDeviceProfile RPC.
-func (c *AssociationRequestClient) GetDeviceProfile(ctx context.Context) (string, error) {
-	resp, err := c.svc.GetDeviceProfile(ctx, &pb.GetDeviceProfileRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetDisplayName calls the GetDisplayName RPC.
-func (c *AssociationRequestClient) GetDisplayName(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetDisplayName(ctx, &pb.GetDisplayNameRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *AssociationRequestClient) HashCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.AssociationRequestHashCodeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsForceConfirmation calls the IsForceConfirmation RPC.
-func (c *AssociationRequestClient) IsForceConfirmation(ctx context.Context) (bool, error) {
-	resp, err := c.svc.IsForceConfirmation(ctx, &pb.IsForceConfirmationRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsSelfManaged calls the IsSelfManaged RPC.
-func (c *AssociationRequestClient) IsSelfManaged(ctx context.Context) (bool, error) {
-	resp, err := c.svc.IsSelfManaged(ctx, &pb.IsSelfManagedRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsSingleDevice calls the IsSingleDevice RPC.
-func (c *AssociationRequestClient) IsSingleDevice(ctx context.Context) (bool, error) {
-	resp, err := c.svc.IsSingleDevice(ctx, &pb.IsSingleDeviceRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToString calls the ToString RPC.
-func (c *AssociationRequestClient) ToString(ctx context.Context) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.AssociationRequestToStringRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *AssociationRequestClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.AssociationRequestWriteToParcelRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// AssociationRequestBuilderClient wraps the gRPC AssociationRequestBuilderService client.
-type AssociationRequestBuilderClient struct {
-	svc pb.AssociationRequestBuilderServiceClient
-}
-
-// NewAssociationRequestBuilderClient creates a new AssociationRequestBuilder client.
-func NewAssociationRequestBuilderClient(cc grpc.ClientConnInterface) *AssociationRequestBuilderClient {
-	return &AssociationRequestBuilderClient{
-		svc: pb.NewAssociationRequestBuilderServiceClient(cc),
-	}
-}
-
-// Build calls the Build RPC.
-func (c *AssociationRequestBuilderClient) Build(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetDeviceProfile calls the SetDeviceProfile RPC.
-func (c *AssociationRequestBuilderClient) SetDeviceProfile(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.SetDeviceProfile(ctx, &pb.SetDeviceProfileRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetDisplayName calls the SetDisplayName RPC.
-func (c *AssociationRequestBuilderClient) SetDisplayName(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.SetDisplayName(ctx, &pb.SetDisplayNameRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetForceConfirmation calls the SetForceConfirmation RPC.
-func (c *AssociationRequestBuilderClient) SetForceConfirmation(ctx context.Context, arg0 bool) (int64, error) {
-	resp, err := c.svc.SetForceConfirmation(ctx, &pb.SetForceConfirmationRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetSelfManaged calls the SetSelfManaged RPC.
-func (c *AssociationRequestBuilderClient) SetSelfManaged(ctx context.Context, arg0 bool) (int64, error) {
-	resp, err := c.svc.SetSelfManaged(ctx, &pb.SetSelfManagedRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetSingleDevice calls the SetSingleDevice RPC.
-func (c *AssociationRequestBuilderClient) SetSingleDevice(ctx context.Context, arg0 bool) (int64, error) {
-	resp, err := c.svc.SetSingleDevice(ctx, &pb.SetSingleDeviceRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
 // WifiDeviceFilterClient wraps the gRPC WifiDeviceFilterService client.
 type WifiDeviceFilterClient struct {
 	svc pb.WifiDeviceFilterServiceClient
@@ -933,7 +1116,7 @@ func NewWifiDeviceFilterClient(cc grpc.ClientConnInterface) *WifiDeviceFilterCli
 
 // DescribeContents calls the DescribeContents RPC.
 func (c *WifiDeviceFilterClient) DescribeContents(ctx context.Context) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.WifiDeviceFilterDescribeContentsRequest{})
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
 	if err != nil {
 		return 0, err
 	}
@@ -942,7 +1125,7 @@ func (c *WifiDeviceFilterClient) DescribeContents(ctx context.Context) (int32, e
 
 // Equals calls the Equals RPC.
 func (c *WifiDeviceFilterClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.WifiDeviceFilterEqualsRequest{
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
 		Arg0: arg0,
 	})
 	if err != nil {
@@ -953,7 +1136,7 @@ func (c *WifiDeviceFilterClient) Equals(ctx context.Context, arg0 int64) (bool, 
 
 // HashCode calls the HashCode RPC.
 func (c *WifiDeviceFilterClient) HashCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.WifiDeviceFilterHashCodeRequest{})
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
 	if err != nil {
 		return 0, err
 	}
@@ -962,7 +1145,7 @@ func (c *WifiDeviceFilterClient) HashCode(ctx context.Context) (int32, error) {
 
 // WriteToParcel calls the WriteToParcel RPC.
 func (c *WifiDeviceFilterClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.WifiDeviceFilterWriteToParcelRequest{
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
 		Arg0: arg0,
 		Arg1: arg1,
 	})
@@ -1023,21 +1206,21 @@ func (c *WifiDeviceFilterBuilderClient) SetNamePattern(ctx context.Context, arg0
 	return resp.GetResult(), nil
 }
 
-// DeviceIdClient wraps the gRPC DeviceIdService client.
-type DeviceIdClient struct {
-	svc pb.DeviceIdServiceClient
+// AssociatedDeviceClient wraps the gRPC AssociatedDeviceService client.
+type AssociatedDeviceClient struct {
+	svc pb.AssociatedDeviceServiceClient
 }
 
-// NewDeviceIdClient creates a new DeviceId client.
-func NewDeviceIdClient(cc grpc.ClientConnInterface) *DeviceIdClient {
-	return &DeviceIdClient{
-		svc: pb.NewDeviceIdServiceClient(cc),
+// NewAssociatedDeviceClient creates a new AssociatedDevice client.
+func NewAssociatedDeviceClient(cc grpc.ClientConnInterface) *AssociatedDeviceClient {
+	return &AssociatedDeviceClient{
+		svc: pb.NewAssociatedDeviceServiceClient(cc),
 	}
 }
 
 // DescribeContents calls the DescribeContents RPC.
-func (c *DeviceIdClient) DescribeContents(ctx context.Context) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.DeviceIdDescribeContentsRequest{})
+func (c *AssociatedDeviceClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
 	if err != nil {
 		return 0, err
 	}
@@ -1045,8 +1228,8 @@ func (c *DeviceIdClient) DescribeContents(ctx context.Context) (int32, error) {
 }
 
 // Equals calls the Equals RPC.
-func (c *DeviceIdClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.DeviceIdEqualsRequest{
+func (c *AssociatedDeviceClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
 		Arg0: arg0,
 	})
 	if err != nil {
@@ -1055,18 +1238,27 @@ func (c *DeviceIdClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
 	return resp.GetResult(), nil
 }
 
-// GetCustomId calls the GetCustomId RPC.
-func (c *DeviceIdClient) GetCustomId(ctx context.Context) (string, error) {
-	resp, err := c.svc.GetCustomId(ctx, &pb.GetCustomIdRequest{})
+// GetBleDevice calls the GetBleDevice RPC.
+func (c *AssociatedDeviceClient) GetBleDevice(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetBleDevice(ctx, &pb.GetBleDeviceRequest{})
 	if err != nil {
-		return "", err
+		return 0, err
 	}
 	return resp.GetResult(), nil
 }
 
-// GetMacAddress calls the GetMacAddress RPC.
-func (c *DeviceIdClient) GetMacAddress(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetMacAddress(ctx, &pb.GetMacAddressRequest{})
+// GetBluetoothDevice calls the GetBluetoothDevice RPC.
+func (c *AssociatedDeviceClient) GetBluetoothDevice(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetBluetoothDevice(ctx, &pb.GetBluetoothDeviceRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetWifiDevice calls the GetWifiDevice RPC.
+func (c *AssociatedDeviceClient) GetWifiDevice(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetWifiDevice(ctx, &pb.GetWifiDeviceRequest{})
 	if err != nil {
 		return 0, err
 	}
@@ -1074,8 +1266,8 @@ func (c *DeviceIdClient) GetMacAddress(ctx context.Context) (int64, error) {
 }
 
 // HashCode calls the HashCode RPC.
-func (c *DeviceIdClient) HashCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.DeviceIdHashCodeRequest{})
+func (c *AssociatedDeviceClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
 	if err != nil {
 		return 0, err
 	}
@@ -1083,8 +1275,8 @@ func (c *DeviceIdClient) HashCode(ctx context.Context) (int32, error) {
 }
 
 // ToString calls the ToString RPC.
-func (c *DeviceIdClient) ToString(ctx context.Context) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.DeviceIdToStringRequest{})
+func (c *AssociatedDeviceClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
 	if err != nil {
 		return "", err
 	}
@@ -1092,182 +1284,8 @@ func (c *DeviceIdClient) ToString(ctx context.Context) (string, error) {
 }
 
 // WriteToParcel calls the WriteToParcel RPC.
-func (c *DeviceIdClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.DeviceIdWriteToParcelRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// DeviceIdBuilderClient wraps the gRPC DeviceIdBuilderService client.
-type DeviceIdBuilderClient struct {
-	svc pb.DeviceIdBuilderServiceClient
-}
-
-// NewDeviceIdBuilderClient creates a new DeviceIdBuilder client.
-func NewDeviceIdBuilderClient(cc grpc.ClientConnInterface) *DeviceIdBuilderClient {
-	return &DeviceIdBuilderClient{
-		svc: pb.NewDeviceIdBuilderServiceClient(cc),
-	}
-}
-
-// Build calls the Build RPC.
-func (c *DeviceIdBuilderClient) Build(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetCustomId calls the SetCustomId RPC.
-func (c *DeviceIdBuilderClient) SetCustomId(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.SetCustomId(ctx, &pb.SetCustomIdRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetMacAddress calls the SetMacAddress RPC.
-func (c *DeviceIdBuilderClient) SetMacAddress(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetMacAddress(ctx, &pb.SetMacAddressRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// AssociationInfoClient wraps the gRPC AssociationInfoService client.
-type AssociationInfoClient struct {
-	svc pb.AssociationInfoServiceClient
-}
-
-// NewAssociationInfoClient creates a new AssociationInfo client.
-func NewAssociationInfoClient(cc grpc.ClientConnInterface) *AssociationInfoClient {
-	return &AssociationInfoClient{
-		svc: pb.NewAssociationInfoServiceClient(cc),
-	}
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *AssociationInfoClient) DescribeContents(ctx context.Context) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.AssociationInfoDescribeContentsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Equals calls the Equals RPC.
-func (c *AssociationInfoClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.AssociationInfoEqualsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetAssociatedDevice calls the GetAssociatedDevice RPC.
-func (c *AssociationInfoClient) GetAssociatedDevice(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetAssociatedDevice(ctx, &pb.GetAssociatedDeviceRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetDeviceId calls the GetDeviceId RPC.
-func (c *AssociationInfoClient) GetDeviceId(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetDeviceId(ctx, &pb.GetDeviceIdRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetDeviceMacAddress calls the GetDeviceMacAddress RPC.
-func (c *AssociationInfoClient) GetDeviceMacAddress(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetDeviceMacAddress(ctx, &pb.GetDeviceMacAddressRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetDeviceProfile calls the GetDeviceProfile RPC.
-func (c *AssociationInfoClient) GetDeviceProfile(ctx context.Context) (string, error) {
-	resp, err := c.svc.GetDeviceProfile(ctx, &pb.GetDeviceProfileRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetDisplayName calls the GetDisplayName RPC.
-func (c *AssociationInfoClient) GetDisplayName(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetDisplayName(ctx, &pb.GetDisplayNameRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetId calls the GetId RPC.
-func (c *AssociationInfoClient) GetId(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetId(ctx, &pb.GetIdRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetSystemDataSyncFlags calls the GetSystemDataSyncFlags RPC.
-func (c *AssociationInfoClient) GetSystemDataSyncFlags(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetSystemDataSyncFlags(ctx, &pb.GetSystemDataSyncFlagsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *AssociationInfoClient) HashCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.AssociationInfoHashCodeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsSelfManaged calls the IsSelfManaged RPC.
-func (c *AssociationInfoClient) IsSelfManaged(ctx context.Context) (bool, error) {
-	resp, err := c.svc.IsSelfManaged(ctx, &pb.IsSelfManagedRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToString calls the ToString RPC.
-func (c *AssociationInfoClient) ToString(ctx context.Context) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.AssociationInfoToStringRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *AssociationInfoClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.AssociationInfoWriteToParcelRequest{
+func (c *AssociatedDeviceClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
 		Arg0: arg0,
 		Arg1: arg1,
 	})
@@ -1288,7 +1306,7 @@ func NewBluetoothLeDeviceFilterClient(cc grpc.ClientConnInterface) *BluetoothLeD
 
 // DescribeContents calls the DescribeContents RPC.
 func (c *BluetoothLeDeviceFilterClient) DescribeContents(ctx context.Context) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.BluetoothLeDeviceFilterDescribeContentsRequest{})
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
 	if err != nil {
 		return 0, err
 	}
@@ -1297,7 +1315,7 @@ func (c *BluetoothLeDeviceFilterClient) DescribeContents(ctx context.Context) (i
 
 // Equals calls the Equals RPC.
 func (c *BluetoothLeDeviceFilterClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.BluetoothLeDeviceFilterEqualsRequest{
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
 		Arg0: arg0,
 	})
 	if err != nil {
@@ -1308,7 +1326,7 @@ func (c *BluetoothLeDeviceFilterClient) Equals(ctx context.Context, arg0 int64) 
 
 // HashCode calls the HashCode RPC.
 func (c *BluetoothLeDeviceFilterClient) HashCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.BluetoothLeDeviceFilterHashCodeRequest{})
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
 	if err != nil {
 		return 0, err
 	}
@@ -1317,7 +1335,7 @@ func (c *BluetoothLeDeviceFilterClient) HashCode(ctx context.Context) (int32, er
 
 // ToString calls the ToString RPC.
 func (c *BluetoothLeDeviceFilterClient) ToString(ctx context.Context) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.BluetoothLeDeviceFilterToStringRequest{})
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
 	if err != nil {
 		return "", err
 	}
@@ -1326,7 +1344,7 @@ func (c *BluetoothLeDeviceFilterClient) ToString(ctx context.Context) (string, e
 
 // WriteToParcel calls the WriteToParcel RPC.
 func (c *BluetoothLeDeviceFilterClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.BluetoothLeDeviceFilterWriteToParcelRequest{
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
 		Arg0: arg0,
 		Arg1: arg1,
 	})

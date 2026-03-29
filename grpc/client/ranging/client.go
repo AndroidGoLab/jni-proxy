@@ -9,6 +9,106 @@ import (
 	"google.golang.org/grpc"
 )
 
+// DeviceClient wraps the gRPC DeviceService client.
+type DeviceClient struct {
+	svc pb.DeviceServiceClient
+}
+
+// NewDeviceClient creates a new Device client.
+func NewDeviceClient(cc grpc.ClientConnInterface) *DeviceClient {
+	return &DeviceClient{
+		svc: pb.NewDeviceServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *DeviceClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *DeviceClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetUuid calls the GetUuid RPC.
+func (c *DeviceClient) GetUuid(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetUuid(ctx, &pb.GetUuidRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *DeviceClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *DeviceClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *DeviceClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// DeviceBuilderClient wraps the gRPC DeviceBuilderService client.
+type DeviceBuilderClient struct {
+	svc pb.DeviceBuilderServiceClient
+}
+
+// NewDeviceBuilderClient creates a new DeviceBuilder client.
+func NewDeviceBuilderClient(cc grpc.ClientConnInterface) *DeviceBuilderClient {
+	return &DeviceBuilderClient{
+		svc: pb.NewDeviceBuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *DeviceBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetUuid calls the SetUuid RPC.
+func (c *DeviceBuilderClient) SetUuid(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetUuid(ctx, &pb.SetUuidRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // SessionConfigClient wraps the gRPC SessionConfigService client.
 type SessionConfigClient struct {
 	svc pb.SessionConfigServiceClient
@@ -169,6 +269,429 @@ func (c *SessionConfigBuilderClient) SetSensorFusionParams(ctx context.Context, 
 	return resp.GetResult(), nil
 }
 
+// PreferenceClient wraps the gRPC PreferenceService client.
+type PreferenceClient struct {
+	svc pb.PreferenceServiceClient
+}
+
+// NewPreferenceClient creates a new Preference client.
+func NewPreferenceClient(cc grpc.ClientConnInterface) *PreferenceClient {
+	return &PreferenceClient{
+		svc: pb.NewPreferenceServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *PreferenceClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDeviceRole calls the GetDeviceRole RPC.
+func (c *PreferenceClient) GetDeviceRole(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetDeviceRole(ctx, &pb.GetDeviceRoleRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetRangingParams calls the GetRangingParams RPC.
+func (c *PreferenceClient) GetRangingParams(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetRangingParams(ctx, &pb.GetRangingParamsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSessionConfig calls the GetSessionConfig RPC.
+func (c *PreferenceClient) GetSessionConfig(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetSessionConfig(ctx, &pb.GetSessionConfigRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *PreferenceClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *PreferenceClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// PreferenceBuilderClient wraps the gRPC PreferenceBuilderService client.
+type PreferenceBuilderClient struct {
+	svc pb.PreferenceBuilderServiceClient
+}
+
+// NewPreferenceBuilderClient creates a new PreferenceBuilder client.
+func NewPreferenceBuilderClient(cc grpc.ClientConnInterface) *PreferenceBuilderClient {
+	return &PreferenceBuilderClient{
+		svc: pb.NewPreferenceBuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *PreferenceBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetSessionConfig calls the SetSessionConfig RPC.
+func (c *PreferenceBuilderClient) SetSessionConfig(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetSessionConfig(ctx, &pb.SetSessionConfigRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SensorFusionParamsClient wraps the gRPC SensorFusionParamsService client.
+type SensorFusionParamsClient struct {
+	svc pb.SensorFusionParamsServiceClient
+}
+
+// NewSensorFusionParamsClient creates a new SensorFusionParams client.
+func NewSensorFusionParamsClient(cc grpc.ClientConnInterface) *SensorFusionParamsClient {
+	return &SensorFusionParamsClient{
+		svc: pb.NewSensorFusionParamsServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *SensorFusionParamsClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *SensorFusionParamsClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *SensorFusionParamsClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsSensorFusionEnabled calls the IsSensorFusionEnabled RPC.
+func (c *SensorFusionParamsClient) IsSensorFusionEnabled(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsSensorFusionEnabled(ctx, &pb.IsSensorFusionEnabledRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *SensorFusionParamsClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *SensorFusionParamsClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// SensorFusionParamsBuilderClient wraps the gRPC SensorFusionParamsBuilderService client.
+type SensorFusionParamsBuilderClient struct {
+	svc pb.SensorFusionParamsBuilderServiceClient
+}
+
+// NewSensorFusionParamsBuilderClient creates a new SensorFusionParamsBuilder client.
+func NewSensorFusionParamsBuilderClient(cc grpc.ClientConnInterface) *SensorFusionParamsBuilderClient {
+	return &SensorFusionParamsBuilderClient{
+		svc: pb.NewSensorFusionParamsBuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *SensorFusionParamsBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetSensorFusionEnabled calls the SetSensorFusionEnabled RPC.
+func (c *SensorFusionParamsBuilderClient) SetSensorFusionEnabled(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetSensorFusionEnabled(ctx, &pb.SetSensorFusionEnabledRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SessionClient wraps the gRPC SessionService client.
+type SessionClient struct {
+	svc pb.SessionServiceClient
+}
+
+// NewSessionClient creates a new Session client.
+func NewSessionClient(cc grpc.ClientConnInterface) *SessionClient {
+	return &SessionClient{
+		svc: pb.NewSessionServiceClient(cc),
+	}
+}
+
+// AddDeviceToRangingSession calls the AddDeviceToRangingSession RPC.
+func (c *SessionClient) AddDeviceToRangingSession(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.AddDeviceToRangingSession(ctx, &pb.AddDeviceToRangingSessionRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// Close calls the Close RPC.
+func (c *SessionClient) Close(ctx context.Context) error {
+	_, err := c.svc.Close(ctx, &pb.CloseRequest{})
+	return err
+}
+
+// ReconfigureRangingInterval calls the ReconfigureRangingInterval RPC.
+func (c *SessionClient) ReconfigureRangingInterval(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.ReconfigureRangingInterval(ctx, &pb.ReconfigureRangingIntervalRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// RemoveDeviceFromRangingSession calls the RemoveDeviceFromRangingSession RPC.
+func (c *SessionClient) RemoveDeviceFromRangingSession(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.RemoveDeviceFromRangingSession(ctx, &pb.RemoveDeviceFromRangingSessionRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// Start calls the Start RPC.
+func (c *SessionClient) Start(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.Start(ctx, &pb.StartRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Stop calls the Stop RPC.
+func (c *SessionClient) Stop(ctx context.Context) error {
+	_, err := c.svc.Stop(ctx, &pb.StopRequest{})
+	return err
+}
+
+// ToString calls the ToString RPC.
+func (c *SessionClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// SessionCallbackClient wraps the gRPC SessionCallbackService client.
+type SessionCallbackClient struct {
+	svc pb.SessionCallbackServiceClient
+}
+
+// NewSessionCallbackClient creates a new SessionCallback client.
+func NewSessionCallbackClient(cc grpc.ClientConnInterface) *SessionCallbackClient {
+	return &SessionCallbackClient{
+		svc: pb.NewSessionCallbackServiceClient(cc),
+	}
+}
+
+// OnClosed calls the OnClosed RPC.
+func (c *SessionCallbackClient) OnClosed(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.OnClosed(ctx, &pb.OnClosedRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnOpenFailed calls the OnOpenFailed RPC.
+func (c *SessionCallbackClient) OnOpenFailed(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.OnOpenFailed(ctx, &pb.OnOpenFailedRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnOpened calls the OnOpened RPC.
+func (c *SessionCallbackClient) OnOpened(ctx context.Context) error {
+	_, err := c.svc.OnOpened(ctx, &pb.OnOpenedRequest{})
+	return err
+}
+
+// OnResults calls the OnResults RPC.
+func (c *SessionCallbackClient) OnResults(ctx context.Context, arg0 int64, arg1 int64) error {
+	_, err := c.svc.OnResults(ctx, &pb.OnResultsRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// OnStarted calls the OnStarted RPC.
+func (c *SessionCallbackClient) OnStarted(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.OnStarted(ctx, &pb.OnStartedRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// OnStopped calls the OnStopped RPC.
+func (c *SessionCallbackClient) OnStopped(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.OnStopped(ctx, &pb.OnStoppedRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// CapabilitiesClient wraps the gRPC CapabilitiesService client.
+type CapabilitiesClient struct {
+	svc pb.CapabilitiesServiceClient
+}
+
+// NewCapabilitiesClient creates a new Capabilities client.
+func NewCapabilitiesClient(cc grpc.ClientConnInterface) *CapabilitiesClient {
+	return &CapabilitiesClient{
+		svc: pb.NewCapabilitiesServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *CapabilitiesClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCsCapabilities calls the GetCsCapabilities RPC.
+func (c *CapabilitiesClient) GetCsCapabilities(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetCsCapabilities(ctx, &pb.GetCsCapabilitiesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetRttRangingCapabilities calls the GetRttRangingCapabilities RPC.
+func (c *CapabilitiesClient) GetRttRangingCapabilities(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetRttRangingCapabilities(ctx, &pb.GetRttRangingCapabilitiesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetUwbCapabilities calls the GetUwbCapabilities RPC.
+func (c *CapabilitiesClient) GetUwbCapabilities(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetUwbCapabilities(ctx, &pb.GetUwbCapabilitiesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *CapabilitiesClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *CapabilitiesClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// ConfigClient wraps the gRPC ConfigService client.
+type ConfigClient struct {
+	svc pb.ConfigServiceClient
+}
+
+// NewConfigClient creates a new Config client.
+func NewConfigClient(cc grpc.ClientConnInterface) *ConfigClient {
+	return &ConfigClient{
+		svc: pb.NewConfigServiceClient(cc),
+	}
+}
+
+// GetRangingSessionType calls the GetRangingSessionType RPC.
+func (c *ConfigClient) GetRangingSessionType(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetRangingSessionType(ctx, &pb.GetRangingSessionTypeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *ConfigClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
 // MeasurementClient wraps the gRPC MeasurementService client.
 type MeasurementClient struct {
 	svc pb.MeasurementServiceClient
@@ -319,6 +842,67 @@ func (c *DataClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) 
 	return err
 }
 
+// ManagerClient wraps the gRPC ManagerService client.
+type ManagerClient struct {
+	svc pb.ManagerServiceClient
+}
+
+// NewManagerClient creates a new Manager client.
+func NewManagerClient(cc grpc.ClientConnInterface) *ManagerClient {
+	return &ManagerClient{
+		svc: pb.NewManagerServiceClient(cc),
+	}
+}
+
+// CreateRangingSession calls the CreateRangingSession RPC.
+func (c *ManagerClient) CreateRangingSession(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
+	resp, err := c.svc.CreateRangingSession(ctx, &pb.CreateRangingSessionRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// RegisterCapabilitiesCallback calls the RegisterCapabilitiesCallback RPC.
+func (c *ManagerClient) RegisterCapabilitiesCallback(ctx context.Context, arg0 int64, arg1 int64) error {
+	_, err := c.svc.RegisterCapabilitiesCallback(ctx, &pb.RegisterCapabilitiesCallbackRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// UnregisterCapabilitiesCallback calls the UnregisterCapabilitiesCallback RPC.
+func (c *ManagerClient) UnregisterCapabilitiesCallback(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.UnregisterCapabilitiesCallback(ctx, &pb.UnregisterCapabilitiesCallbackRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// ManagerRangingCapabilitiesCallbackClient wraps the gRPC ManagerRangingCapabilitiesCallbackService client.
+type ManagerRangingCapabilitiesCallbackClient struct {
+	svc pb.ManagerRangingCapabilitiesCallbackServiceClient
+}
+
+// NewManagerRangingCapabilitiesCallbackClient creates a new ManagerRangingCapabilitiesCallback client.
+func NewManagerRangingCapabilitiesCallbackClient(cc grpc.ClientConnInterface) *ManagerRangingCapabilitiesCallbackClient {
+	return &ManagerRangingCapabilitiesCallbackClient{
+		svc: pb.NewManagerRangingCapabilitiesCallbackServiceClient(cc),
+	}
+}
+
+// OnRangingCapabilities calls the OnRangingCapabilities RPC.
+func (c *ManagerRangingCapabilitiesCallbackClient) OnRangingCapabilities(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnRangingCapabilities(ctx, &pb.OnRangingCapabilitiesRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
 // DataNotificationConfigClient wraps the gRPC DataNotificationConfigService client.
 type DataNotificationConfigClient struct {
 	svc pb.DataNotificationConfigServiceClient
@@ -457,588 +1041,4 @@ func (c *DataNotificationConfigBuilderClient) SetProximityNearCm(ctx context.Con
 		return 0, err
 	}
 	return resp.GetResult(), nil
-}
-
-// ConfigClient wraps the gRPC ConfigService client.
-type ConfigClient struct {
-	svc pb.ConfigServiceClient
-}
-
-// NewConfigClient creates a new Config client.
-func NewConfigClient(cc grpc.ClientConnInterface) *ConfigClient {
-	return &ConfigClient{
-		svc: pb.NewConfigServiceClient(cc),
-	}
-}
-
-// GetRangingSessionType calls the GetRangingSessionType RPC.
-func (c *ConfigClient) GetRangingSessionType(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetRangingSessionType(ctx, &pb.GetRangingSessionTypeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToString calls the ToString RPC.
-func (c *ConfigClient) ToString(ctx context.Context) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// SessionClient wraps the gRPC SessionService client.
-type SessionClient struct {
-	svc pb.SessionServiceClient
-}
-
-// NewSessionClient creates a new Session client.
-func NewSessionClient(cc grpc.ClientConnInterface) *SessionClient {
-	return &SessionClient{
-		svc: pb.NewSessionServiceClient(cc),
-	}
-}
-
-// AddDeviceToRangingSession calls the AddDeviceToRangingSession RPC.
-func (c *SessionClient) AddDeviceToRangingSession(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.AddDeviceToRangingSession(ctx, &pb.AddDeviceToRangingSessionRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// Close calls the Close RPC.
-func (c *SessionClient) Close(ctx context.Context) error {
-	_, err := c.svc.Close(ctx, &pb.CloseRequest{})
-	return err
-}
-
-// ReconfigureRangingInterval calls the ReconfigureRangingInterval RPC.
-func (c *SessionClient) ReconfigureRangingInterval(ctx context.Context, arg0 int32) error {
-	_, err := c.svc.ReconfigureRangingInterval(ctx, &pb.ReconfigureRangingIntervalRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// RemoveDeviceFromRangingSession calls the RemoveDeviceFromRangingSession RPC.
-func (c *SessionClient) RemoveDeviceFromRangingSession(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.RemoveDeviceFromRangingSession(ctx, &pb.RemoveDeviceFromRangingSessionRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// Start calls the Start RPC.
-func (c *SessionClient) Start(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.Start(ctx, &pb.StartRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Stop calls the Stop RPC.
-func (c *SessionClient) Stop(ctx context.Context) error {
-	_, err := c.svc.Stop(ctx, &pb.StopRequest{})
-	return err
-}
-
-// ToString calls the ToString RPC.
-func (c *SessionClient) ToString(ctx context.Context) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// SessionCallbackClient wraps the gRPC SessionCallbackService client.
-type SessionCallbackClient struct {
-	svc pb.SessionCallbackServiceClient
-}
-
-// NewSessionCallbackClient creates a new SessionCallback client.
-func NewSessionCallbackClient(cc grpc.ClientConnInterface) *SessionCallbackClient {
-	return &SessionCallbackClient{
-		svc: pb.NewSessionCallbackServiceClient(cc),
-	}
-}
-
-// OnClosed calls the OnClosed RPC.
-func (c *SessionCallbackClient) OnClosed(ctx context.Context, arg0 int32) error {
-	_, err := c.svc.OnClosed(ctx, &pb.OnClosedRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// OnOpenFailed calls the OnOpenFailed RPC.
-func (c *SessionCallbackClient) OnOpenFailed(ctx context.Context, arg0 int32) error {
-	_, err := c.svc.OnOpenFailed(ctx, &pb.OnOpenFailedRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// OnOpened calls the OnOpened RPC.
-func (c *SessionCallbackClient) OnOpened(ctx context.Context) error {
-	_, err := c.svc.OnOpened(ctx, &pb.OnOpenedRequest{})
-	return err
-}
-
-// OnResults calls the OnResults RPC.
-func (c *SessionCallbackClient) OnResults(ctx context.Context, arg0 int64, arg1 int64) error {
-	_, err := c.svc.OnResults(ctx, &pb.OnResultsRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// OnStarted calls the OnStarted RPC.
-func (c *SessionCallbackClient) OnStarted(ctx context.Context, arg0 int64, arg1 int32) error {
-	_, err := c.svc.OnStarted(ctx, &pb.OnStartedRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// OnStopped calls the OnStopped RPC.
-func (c *SessionCallbackClient) OnStopped(ctx context.Context, arg0 int64, arg1 int32) error {
-	_, err := c.svc.OnStopped(ctx, &pb.OnStoppedRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// SensorFusionParamsClient wraps the gRPC SensorFusionParamsService client.
-type SensorFusionParamsClient struct {
-	svc pb.SensorFusionParamsServiceClient
-}
-
-// NewSensorFusionParamsClient creates a new SensorFusionParams client.
-func NewSensorFusionParamsClient(cc grpc.ClientConnInterface) *SensorFusionParamsClient {
-	return &SensorFusionParamsClient{
-		svc: pb.NewSensorFusionParamsServiceClient(cc),
-	}
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *SensorFusionParamsClient) DescribeContents(ctx context.Context) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Equals calls the Equals RPC.
-func (c *SensorFusionParamsClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *SensorFusionParamsClient) HashCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsSensorFusionEnabled calls the IsSensorFusionEnabled RPC.
-func (c *SensorFusionParamsClient) IsSensorFusionEnabled(ctx context.Context) (bool, error) {
-	resp, err := c.svc.IsSensorFusionEnabled(ctx, &pb.IsSensorFusionEnabledRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToString calls the ToString RPC.
-func (c *SensorFusionParamsClient) ToString(ctx context.Context) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *SensorFusionParamsClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// SensorFusionParamsBuilderClient wraps the gRPC SensorFusionParamsBuilderService client.
-type SensorFusionParamsBuilderClient struct {
-	svc pb.SensorFusionParamsBuilderServiceClient
-}
-
-// NewSensorFusionParamsBuilderClient creates a new SensorFusionParamsBuilder client.
-func NewSensorFusionParamsBuilderClient(cc grpc.ClientConnInterface) *SensorFusionParamsBuilderClient {
-	return &SensorFusionParamsBuilderClient{
-		svc: pb.NewSensorFusionParamsBuilderServiceClient(cc),
-	}
-}
-
-// Build calls the Build RPC.
-func (c *SensorFusionParamsBuilderClient) Build(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetSensorFusionEnabled calls the SetSensorFusionEnabled RPC.
-func (c *SensorFusionParamsBuilderClient) SetSensorFusionEnabled(ctx context.Context, arg0 bool) (int64, error) {
-	resp, err := c.svc.SetSensorFusionEnabled(ctx, &pb.SetSensorFusionEnabledRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ManagerClient wraps the gRPC ManagerService client.
-type ManagerClient struct {
-	svc pb.ManagerServiceClient
-}
-
-// NewManagerClient creates a new Manager client.
-func NewManagerClient(cc grpc.ClientConnInterface) *ManagerClient {
-	return &ManagerClient{
-		svc: pb.NewManagerServiceClient(cc),
-	}
-}
-
-// CreateRangingSession calls the CreateRangingSession RPC.
-func (c *ManagerClient) CreateRangingSession(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
-	resp, err := c.svc.CreateRangingSession(ctx, &pb.CreateRangingSessionRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// RegisterCapabilitiesCallback calls the RegisterCapabilitiesCallback RPC.
-func (c *ManagerClient) RegisterCapabilitiesCallback(ctx context.Context, arg0 int64, arg1 int64) error {
-	_, err := c.svc.RegisterCapabilitiesCallback(ctx, &pb.RegisterCapabilitiesCallbackRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// UnregisterCapabilitiesCallback calls the UnregisterCapabilitiesCallback RPC.
-func (c *ManagerClient) UnregisterCapabilitiesCallback(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.UnregisterCapabilitiesCallback(ctx, &pb.UnregisterCapabilitiesCallbackRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// ManagerRangingCapabilitiesCallbackClient wraps the gRPC ManagerRangingCapabilitiesCallbackService client.
-type ManagerRangingCapabilitiesCallbackClient struct {
-	svc pb.ManagerRangingCapabilitiesCallbackServiceClient
-}
-
-// NewManagerRangingCapabilitiesCallbackClient creates a new ManagerRangingCapabilitiesCallback client.
-func NewManagerRangingCapabilitiesCallbackClient(cc grpc.ClientConnInterface) *ManagerRangingCapabilitiesCallbackClient {
-	return &ManagerRangingCapabilitiesCallbackClient{
-		svc: pb.NewManagerRangingCapabilitiesCallbackServiceClient(cc),
-	}
-}
-
-// OnRangingCapabilities calls the OnRangingCapabilities RPC.
-func (c *ManagerRangingCapabilitiesCallbackClient) OnRangingCapabilities(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.OnRangingCapabilities(ctx, &pb.OnRangingCapabilitiesRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// DeviceClient wraps the gRPC DeviceService client.
-type DeviceClient struct {
-	svc pb.DeviceServiceClient
-}
-
-// NewDeviceClient creates a new Device client.
-func NewDeviceClient(cc grpc.ClientConnInterface) *DeviceClient {
-	return &DeviceClient{
-		svc: pb.NewDeviceServiceClient(cc),
-	}
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *DeviceClient) DescribeContents(ctx context.Context) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Equals calls the Equals RPC.
-func (c *DeviceClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetUuid calls the GetUuid RPC.
-func (c *DeviceClient) GetUuid(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetUuid(ctx, &pb.GetUuidRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *DeviceClient) HashCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToString calls the ToString RPC.
-func (c *DeviceClient) ToString(ctx context.Context) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *DeviceClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// DeviceBuilderClient wraps the gRPC DeviceBuilderService client.
-type DeviceBuilderClient struct {
-	svc pb.DeviceBuilderServiceClient
-}
-
-// NewDeviceBuilderClient creates a new DeviceBuilder client.
-func NewDeviceBuilderClient(cc grpc.ClientConnInterface) *DeviceBuilderClient {
-	return &DeviceBuilderClient{
-		svc: pb.NewDeviceBuilderServiceClient(cc),
-	}
-}
-
-// Build calls the Build RPC.
-func (c *DeviceBuilderClient) Build(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetUuid calls the SetUuid RPC.
-func (c *DeviceBuilderClient) SetUuid(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetUuid(ctx, &pb.SetUuidRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// PreferenceClient wraps the gRPC PreferenceService client.
-type PreferenceClient struct {
-	svc pb.PreferenceServiceClient
-}
-
-// NewPreferenceClient creates a new Preference client.
-func NewPreferenceClient(cc grpc.ClientConnInterface) *PreferenceClient {
-	return &PreferenceClient{
-		svc: pb.NewPreferenceServiceClient(cc),
-	}
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *PreferenceClient) DescribeContents(ctx context.Context) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetDeviceRole calls the GetDeviceRole RPC.
-func (c *PreferenceClient) GetDeviceRole(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetDeviceRole(ctx, &pb.GetDeviceRoleRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetRangingParams calls the GetRangingParams RPC.
-func (c *PreferenceClient) GetRangingParams(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetRangingParams(ctx, &pb.GetRangingParamsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetSessionConfig calls the GetSessionConfig RPC.
-func (c *PreferenceClient) GetSessionConfig(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetSessionConfig(ctx, &pb.GetSessionConfigRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToString calls the ToString RPC.
-func (c *PreferenceClient) ToString(ctx context.Context) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *PreferenceClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// PreferenceBuilderClient wraps the gRPC PreferenceBuilderService client.
-type PreferenceBuilderClient struct {
-	svc pb.PreferenceBuilderServiceClient
-}
-
-// NewPreferenceBuilderClient creates a new PreferenceBuilder client.
-func NewPreferenceBuilderClient(cc grpc.ClientConnInterface) *PreferenceBuilderClient {
-	return &PreferenceBuilderClient{
-		svc: pb.NewPreferenceBuilderServiceClient(cc),
-	}
-}
-
-// Build calls the Build RPC.
-func (c *PreferenceBuilderClient) Build(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetSessionConfig calls the SetSessionConfig RPC.
-func (c *PreferenceBuilderClient) SetSessionConfig(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetSessionConfig(ctx, &pb.SetSessionConfigRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// CapabilitiesClient wraps the gRPC CapabilitiesService client.
-type CapabilitiesClient struct {
-	svc pb.CapabilitiesServiceClient
-}
-
-// NewCapabilitiesClient creates a new Capabilities client.
-func NewCapabilitiesClient(cc grpc.ClientConnInterface) *CapabilitiesClient {
-	return &CapabilitiesClient{
-		svc: pb.NewCapabilitiesServiceClient(cc),
-	}
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *CapabilitiesClient) DescribeContents(ctx context.Context) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetCsCapabilities calls the GetCsCapabilities RPC.
-func (c *CapabilitiesClient) GetCsCapabilities(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetCsCapabilities(ctx, &pb.GetCsCapabilitiesRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetRttRangingCapabilities calls the GetRttRangingCapabilities RPC.
-func (c *CapabilitiesClient) GetRttRangingCapabilities(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetRttRangingCapabilities(ctx, &pb.GetRttRangingCapabilitiesRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetUwbCapabilities calls the GetUwbCapabilities RPC.
-func (c *CapabilitiesClient) GetUwbCapabilities(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetUwbCapabilities(ctx, &pb.GetUwbCapabilitiesRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToString calls the ToString RPC.
-func (c *CapabilitiesClient) ToString(ctx context.Context) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *CapabilitiesClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
 }

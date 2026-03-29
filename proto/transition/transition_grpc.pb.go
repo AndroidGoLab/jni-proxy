@@ -21,1773 +21,367 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	SetService_NewSet_FullMethodName               = "/transition.SetService/NewSet"
-	SetService_AddListener1_FullMethodName         = "/transition.SetService/AddListener1"
-	SetService_AddTarget1_FullMethodName           = "/transition.SetService/AddTarget1"
-	SetService_AddTarget1_1_FullMethodName         = "/transition.SetService/AddTarget1_1"
-	SetService_AddTarget1_2_FullMethodName         = "/transition.SetService/AddTarget1_2"
-	SetService_AddTarget1_3_FullMethodName         = "/transition.SetService/AddTarget1_3"
-	SetService_AddTransition_FullMethodName        = "/transition.SetService/AddTransition"
-	SetService_CaptureEndValues_FullMethodName     = "/transition.SetService/CaptureEndValues"
-	SetService_CaptureStartValues_FullMethodName   = "/transition.SetService/CaptureStartValues"
-	SetService_Clone0_FullMethodName               = "/transition.SetService/Clone0"
-	SetService_ExcludeTarget2_FullMethodName       = "/transition.SetService/ExcludeTarget2"
-	SetService_ExcludeTarget2_1_FullMethodName     = "/transition.SetService/ExcludeTarget2_1"
-	SetService_ExcludeTarget2_2_FullMethodName     = "/transition.SetService/ExcludeTarget2_2"
-	SetService_ExcludeTarget2_3_FullMethodName     = "/transition.SetService/ExcludeTarget2_3"
-	SetService_GetOrdering_FullMethodName          = "/transition.SetService/GetOrdering"
-	SetService_GetTransitionAt_FullMethodName      = "/transition.SetService/GetTransitionAt"
-	SetService_GetTransitionCount_FullMethodName   = "/transition.SetService/GetTransitionCount"
-	SetService_RemoveListener1_FullMethodName      = "/transition.SetService/RemoveListener1"
-	SetService_RemoveTarget1_FullMethodName        = "/transition.SetService/RemoveTarget1"
-	SetService_RemoveTarget1_1_FullMethodName      = "/transition.SetService/RemoveTarget1_1"
-	SetService_RemoveTarget1_2_FullMethodName      = "/transition.SetService/RemoveTarget1_2"
-	SetService_RemoveTarget1_3_FullMethodName      = "/transition.SetService/RemoveTarget1_3"
-	SetService_RemoveTransition_FullMethodName     = "/transition.SetService/RemoveTransition"
-	SetService_SetDuration1_FullMethodName         = "/transition.SetService/SetDuration1"
-	SetService_SetEpicenterCallback_FullMethodName = "/transition.SetService/SetEpicenterCallback"
-	SetService_SetInterpolator1_FullMethodName     = "/transition.SetService/SetInterpolator1"
-	SetService_SetOrdering_FullMethodName          = "/transition.SetService/SetOrdering"
-	SetService_SetPathMotion_FullMethodName        = "/transition.SetService/SetPathMotion"
-	SetService_SetPropagation_FullMethodName       = "/transition.SetService/SetPropagation"
-	SetService_SetStartDelay1_FullMethodName       = "/transition.SetService/SetStartDelay1"
-	SetService_SetStartDelay1_1_FullMethodName     = "/transition.SetService/SetStartDelay1_1"
-	SetService_SetInterpolator1_1_FullMethodName   = "/transition.SetService/SetInterpolator1_1"
-	SetService_SetDuration1_1_FullMethodName       = "/transition.SetService/SetDuration1_1"
-	SetService_RemoveTarget1_4_FullMethodName      = "/transition.SetService/RemoveTarget1_4"
-	SetService_RemoveTarget1_5_FullMethodName      = "/transition.SetService/RemoveTarget1_5"
-	SetService_RemoveTarget1_6_FullMethodName      = "/transition.SetService/RemoveTarget1_6"
-	SetService_RemoveTarget1_7_FullMethodName      = "/transition.SetService/RemoveTarget1_7"
-	SetService_RemoveListener1_1_FullMethodName    = "/transition.SetService/RemoveListener1_1"
-	SetService_Clone0_1_FullMethodName             = "/transition.SetService/Clone0_1"
-	SetService_AddTarget1_4_FullMethodName         = "/transition.SetService/AddTarget1_4"
-	SetService_AddTarget1_5_FullMethodName         = "/transition.SetService/AddTarget1_5"
-	SetService_AddTarget1_6_FullMethodName         = "/transition.SetService/AddTarget1_6"
-	SetService_AddTarget1_7_FullMethodName         = "/transition.SetService/AddTarget1_7"
-	SetService_AddListener1_1_FullMethodName       = "/transition.SetService/AddListener1_1"
-	SetService_Clone0_2_FullMethodName             = "/transition.SetService/Clone0_2"
+	ArcMotionService_NewArcMotion_FullMethodName              = "/transition.ArcMotionService/NewArcMotion"
+	ArcMotionService_GetMaximumAngle_FullMethodName           = "/transition.ArcMotionService/GetMaximumAngle"
+	ArcMotionService_GetMinimumHorizontalAngle_FullMethodName = "/transition.ArcMotionService/GetMinimumHorizontalAngle"
+	ArcMotionService_GetMinimumVerticalAngle_FullMethodName   = "/transition.ArcMotionService/GetMinimumVerticalAngle"
+	ArcMotionService_GetPath_FullMethodName                   = "/transition.ArcMotionService/GetPath"
+	ArcMotionService_SetMaximumAngle_FullMethodName           = "/transition.ArcMotionService/SetMaximumAngle"
+	ArcMotionService_SetMinimumHorizontalAngle_FullMethodName = "/transition.ArcMotionService/SetMinimumHorizontalAngle"
+	ArcMotionService_SetMinimumVerticalAngle_FullMethodName   = "/transition.ArcMotionService/SetMinimumVerticalAngle"
 )
 
-// SetServiceClient is the client API for SetService service.
+// ArcMotionServiceClient is the client API for ArcMotionService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type SetServiceClient interface {
-	NewSet(ctx context.Context, in *NewSetRequest, opts ...grpc.CallOption) (*NewSetResponse, error)
-	AddListener1(ctx context.Context, in *AddListener1Request, opts ...grpc.CallOption) (*AddListener1Response, error)
-	AddTarget1(ctx context.Context, in *AddTarget1Request, opts ...grpc.CallOption) (*AddTarget1Response, error)
-	AddTarget1_1(ctx context.Context, in *AddTarget1_1Request, opts ...grpc.CallOption) (*AddTarget1_1Response, error)
-	AddTarget1_2(ctx context.Context, in *AddTarget1_2Request, opts ...grpc.CallOption) (*AddTarget1_2Response, error)
-	AddTarget1_3(ctx context.Context, in *AddTarget1_3Request, opts ...grpc.CallOption) (*AddTarget1_3Response, error)
-	AddTransition(ctx context.Context, in *AddTransitionRequest, opts ...grpc.CallOption) (*AddTransitionResponse, error)
-	CaptureEndValues(ctx context.Context, in *CaptureEndValuesRequest, opts ...grpc.CallOption) (*CaptureEndValuesResponse, error)
-	CaptureStartValues(ctx context.Context, in *CaptureStartValuesRequest, opts ...grpc.CallOption) (*CaptureStartValuesResponse, error)
-	Clone0(ctx context.Context, in *Clone0Request, opts ...grpc.CallOption) (*Clone0Response, error)
-	ExcludeTarget2(ctx context.Context, in *ExcludeTarget2Request, opts ...grpc.CallOption) (*ExcludeTarget2Response, error)
-	ExcludeTarget2_1(ctx context.Context, in *ExcludeTarget2_1Request, opts ...grpc.CallOption) (*ExcludeTarget2_1Response, error)
-	ExcludeTarget2_2(ctx context.Context, in *ExcludeTarget2_2Request, opts ...grpc.CallOption) (*ExcludeTarget2_2Response, error)
-	ExcludeTarget2_3(ctx context.Context, in *ExcludeTarget2_3Request, opts ...grpc.CallOption) (*ExcludeTarget2_3Response, error)
-	GetOrdering(ctx context.Context, in *GetOrderingRequest, opts ...grpc.CallOption) (*GetOrderingResponse, error)
-	GetTransitionAt(ctx context.Context, in *GetTransitionAtRequest, opts ...grpc.CallOption) (*GetTransitionAtResponse, error)
-	GetTransitionCount(ctx context.Context, in *GetTransitionCountRequest, opts ...grpc.CallOption) (*GetTransitionCountResponse, error)
-	RemoveListener1(ctx context.Context, in *RemoveListener1Request, opts ...grpc.CallOption) (*RemoveListener1Response, error)
-	RemoveTarget1(ctx context.Context, in *RemoveTarget1Request, opts ...grpc.CallOption) (*RemoveTarget1Response, error)
-	RemoveTarget1_1(ctx context.Context, in *RemoveTarget1_1Request, opts ...grpc.CallOption) (*RemoveTarget1_1Response, error)
-	RemoveTarget1_2(ctx context.Context, in *RemoveTarget1_2Request, opts ...grpc.CallOption) (*RemoveTarget1_2Response, error)
-	RemoveTarget1_3(ctx context.Context, in *RemoveTarget1_3Request, opts ...grpc.CallOption) (*RemoveTarget1_3Response, error)
-	RemoveTransition(ctx context.Context, in *RemoveTransitionRequest, opts ...grpc.CallOption) (*RemoveTransitionResponse, error)
-	SetDuration1(ctx context.Context, in *SetDuration1Request, opts ...grpc.CallOption) (*SetDuration1Response, error)
-	SetEpicenterCallback(ctx context.Context, in *SetEpicenterCallbackRequest, opts ...grpc.CallOption) (*SetEpicenterCallbackResponse, error)
-	SetInterpolator1(ctx context.Context, in *SetInterpolator1Request, opts ...grpc.CallOption) (*SetInterpolator1Response, error)
-	SetOrdering(ctx context.Context, in *SetOrderingRequest, opts ...grpc.CallOption) (*SetOrderingResponse, error)
-	SetPathMotion(ctx context.Context, in *SetPathMotionRequest, opts ...grpc.CallOption) (*SetPathMotionResponse, error)
-	SetPropagation(ctx context.Context, in *SetPropagationRequest, opts ...grpc.CallOption) (*SetPropagationResponse, error)
-	SetStartDelay1(ctx context.Context, in *SetStartDelay1Request, opts ...grpc.CallOption) (*SetStartDelay1Response, error)
-	SetStartDelay1_1(ctx context.Context, in *SetStartDelay1_1Request, opts ...grpc.CallOption) (*SetStartDelay1_1Response, error)
-	SetInterpolator1_1(ctx context.Context, in *SetInterpolator1_1Request, opts ...grpc.CallOption) (*SetInterpolator1_1Response, error)
-	SetDuration1_1(ctx context.Context, in *SetDuration1_1Request, opts ...grpc.CallOption) (*SetDuration1_1Response, error)
-	RemoveTarget1_4(ctx context.Context, in *RemoveTarget1_4Request, opts ...grpc.CallOption) (*RemoveTarget1_4Response, error)
-	RemoveTarget1_5(ctx context.Context, in *RemoveTarget1_5Request, opts ...grpc.CallOption) (*RemoveTarget1_5Response, error)
-	RemoveTarget1_6(ctx context.Context, in *RemoveTarget1_6Request, opts ...grpc.CallOption) (*RemoveTarget1_6Response, error)
-	RemoveTarget1_7(ctx context.Context, in *RemoveTarget1_7Request, opts ...grpc.CallOption) (*RemoveTarget1_7Response, error)
-	RemoveListener1_1(ctx context.Context, in *RemoveListener1_1Request, opts ...grpc.CallOption) (*RemoveListener1_1Response, error)
-	Clone0_1(ctx context.Context, in *Clone0_1Request, opts ...grpc.CallOption) (*Clone0_1Response, error)
-	AddTarget1_4(ctx context.Context, in *AddTarget1_4Request, opts ...grpc.CallOption) (*AddTarget1_4Response, error)
-	AddTarget1_5(ctx context.Context, in *AddTarget1_5Request, opts ...grpc.CallOption) (*AddTarget1_5Response, error)
-	AddTarget1_6(ctx context.Context, in *AddTarget1_6Request, opts ...grpc.CallOption) (*AddTarget1_6Response, error)
-	AddTarget1_7(ctx context.Context, in *AddTarget1_7Request, opts ...grpc.CallOption) (*AddTarget1_7Response, error)
-	AddListener1_1(ctx context.Context, in *AddListener1_1Request, opts ...grpc.CallOption) (*AddListener1_1Response, error)
-	Clone0_2(ctx context.Context, in *Clone0_2Request, opts ...grpc.CallOption) (*Clone0_2Response, error)
+type ArcMotionServiceClient interface {
+	NewArcMotion(ctx context.Context, in *NewArcMotionRequest, opts ...grpc.CallOption) (*NewArcMotionResponse, error)
+	GetMaximumAngle(ctx context.Context, in *GetMaximumAngleRequest, opts ...grpc.CallOption) (*GetMaximumAngleResponse, error)
+	GetMinimumHorizontalAngle(ctx context.Context, in *GetMinimumHorizontalAngleRequest, opts ...grpc.CallOption) (*GetMinimumHorizontalAngleResponse, error)
+	GetMinimumVerticalAngle(ctx context.Context, in *GetMinimumVerticalAngleRequest, opts ...grpc.CallOption) (*GetMinimumVerticalAngleResponse, error)
+	GetPath(ctx context.Context, in *GetPathRequest, opts ...grpc.CallOption) (*GetPathResponse, error)
+	SetMaximumAngle(ctx context.Context, in *SetMaximumAngleRequest, opts ...grpc.CallOption) (*SetMaximumAngleResponse, error)
+	SetMinimumHorizontalAngle(ctx context.Context, in *SetMinimumHorizontalAngleRequest, opts ...grpc.CallOption) (*SetMinimumHorizontalAngleResponse, error)
+	SetMinimumVerticalAngle(ctx context.Context, in *SetMinimumVerticalAngleRequest, opts ...grpc.CallOption) (*SetMinimumVerticalAngleResponse, error)
 }
 
-type setServiceClient struct {
+type arcMotionServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewSetServiceClient(cc grpc.ClientConnInterface) SetServiceClient {
-	return &setServiceClient{cc}
+func NewArcMotionServiceClient(cc grpc.ClientConnInterface) ArcMotionServiceClient {
+	return &arcMotionServiceClient{cc}
 }
 
-func (c *setServiceClient) NewSet(ctx context.Context, in *NewSetRequest, opts ...grpc.CallOption) (*NewSetResponse, error) {
+func (c *arcMotionServiceClient) NewArcMotion(ctx context.Context, in *NewArcMotionRequest, opts ...grpc.CallOption) (*NewArcMotionResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewSetResponse)
-	err := c.cc.Invoke(ctx, SetService_NewSet_FullMethodName, in, out, cOpts...)
+	out := new(NewArcMotionResponse)
+	err := c.cc.Invoke(ctx, ArcMotionService_NewArcMotion_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *setServiceClient) AddListener1(ctx context.Context, in *AddListener1Request, opts ...grpc.CallOption) (*AddListener1Response, error) {
+func (c *arcMotionServiceClient) GetMaximumAngle(ctx context.Context, in *GetMaximumAngleRequest, opts ...grpc.CallOption) (*GetMaximumAngleResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(AddListener1Response)
-	err := c.cc.Invoke(ctx, SetService_AddListener1_FullMethodName, in, out, cOpts...)
+	out := new(GetMaximumAngleResponse)
+	err := c.cc.Invoke(ctx, ArcMotionService_GetMaximumAngle_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *setServiceClient) AddTarget1(ctx context.Context, in *AddTarget1Request, opts ...grpc.CallOption) (*AddTarget1Response, error) {
+func (c *arcMotionServiceClient) GetMinimumHorizontalAngle(ctx context.Context, in *GetMinimumHorizontalAngleRequest, opts ...grpc.CallOption) (*GetMinimumHorizontalAngleResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(AddTarget1Response)
-	err := c.cc.Invoke(ctx, SetService_AddTarget1_FullMethodName, in, out, cOpts...)
+	out := new(GetMinimumHorizontalAngleResponse)
+	err := c.cc.Invoke(ctx, ArcMotionService_GetMinimumHorizontalAngle_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *setServiceClient) AddTarget1_1(ctx context.Context, in *AddTarget1_1Request, opts ...grpc.CallOption) (*AddTarget1_1Response, error) {
+func (c *arcMotionServiceClient) GetMinimumVerticalAngle(ctx context.Context, in *GetMinimumVerticalAngleRequest, opts ...grpc.CallOption) (*GetMinimumVerticalAngleResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(AddTarget1_1Response)
-	err := c.cc.Invoke(ctx, SetService_AddTarget1_1_FullMethodName, in, out, cOpts...)
+	out := new(GetMinimumVerticalAngleResponse)
+	err := c.cc.Invoke(ctx, ArcMotionService_GetMinimumVerticalAngle_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *setServiceClient) AddTarget1_2(ctx context.Context, in *AddTarget1_2Request, opts ...grpc.CallOption) (*AddTarget1_2Response, error) {
+func (c *arcMotionServiceClient) GetPath(ctx context.Context, in *GetPathRequest, opts ...grpc.CallOption) (*GetPathResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(AddTarget1_2Response)
-	err := c.cc.Invoke(ctx, SetService_AddTarget1_2_FullMethodName, in, out, cOpts...)
+	out := new(GetPathResponse)
+	err := c.cc.Invoke(ctx, ArcMotionService_GetPath_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *setServiceClient) AddTarget1_3(ctx context.Context, in *AddTarget1_3Request, opts ...grpc.CallOption) (*AddTarget1_3Response, error) {
+func (c *arcMotionServiceClient) SetMaximumAngle(ctx context.Context, in *SetMaximumAngleRequest, opts ...grpc.CallOption) (*SetMaximumAngleResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(AddTarget1_3Response)
-	err := c.cc.Invoke(ctx, SetService_AddTarget1_3_FullMethodName, in, out, cOpts...)
+	out := new(SetMaximumAngleResponse)
+	err := c.cc.Invoke(ctx, ArcMotionService_SetMaximumAngle_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *setServiceClient) AddTransition(ctx context.Context, in *AddTransitionRequest, opts ...grpc.CallOption) (*AddTransitionResponse, error) {
+func (c *arcMotionServiceClient) SetMinimumHorizontalAngle(ctx context.Context, in *SetMinimumHorizontalAngleRequest, opts ...grpc.CallOption) (*SetMinimumHorizontalAngleResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(AddTransitionResponse)
-	err := c.cc.Invoke(ctx, SetService_AddTransition_FullMethodName, in, out, cOpts...)
+	out := new(SetMinimumHorizontalAngleResponse)
+	err := c.cc.Invoke(ctx, ArcMotionService_SetMinimumHorizontalAngle_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *setServiceClient) CaptureEndValues(ctx context.Context, in *CaptureEndValuesRequest, opts ...grpc.CallOption) (*CaptureEndValuesResponse, error) {
+func (c *arcMotionServiceClient) SetMinimumVerticalAngle(ctx context.Context, in *SetMinimumVerticalAngleRequest, opts ...grpc.CallOption) (*SetMinimumVerticalAngleResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CaptureEndValuesResponse)
-	err := c.cc.Invoke(ctx, SetService_CaptureEndValues_FullMethodName, in, out, cOpts...)
+	out := new(SetMinimumVerticalAngleResponse)
+	err := c.cc.Invoke(ctx, ArcMotionService_SetMinimumVerticalAngle_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *setServiceClient) CaptureStartValues(ctx context.Context, in *CaptureStartValuesRequest, opts ...grpc.CallOption) (*CaptureStartValuesResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CaptureStartValuesResponse)
-	err := c.cc.Invoke(ctx, SetService_CaptureStartValues_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *setServiceClient) Clone0(ctx context.Context, in *Clone0Request, opts ...grpc.CallOption) (*Clone0Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(Clone0Response)
-	err := c.cc.Invoke(ctx, SetService_Clone0_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *setServiceClient) ExcludeTarget2(ctx context.Context, in *ExcludeTarget2Request, opts ...grpc.CallOption) (*ExcludeTarget2Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ExcludeTarget2Response)
-	err := c.cc.Invoke(ctx, SetService_ExcludeTarget2_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *setServiceClient) ExcludeTarget2_1(ctx context.Context, in *ExcludeTarget2_1Request, opts ...grpc.CallOption) (*ExcludeTarget2_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ExcludeTarget2_1Response)
-	err := c.cc.Invoke(ctx, SetService_ExcludeTarget2_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *setServiceClient) ExcludeTarget2_2(ctx context.Context, in *ExcludeTarget2_2Request, opts ...grpc.CallOption) (*ExcludeTarget2_2Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ExcludeTarget2_2Response)
-	err := c.cc.Invoke(ctx, SetService_ExcludeTarget2_2_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *setServiceClient) ExcludeTarget2_3(ctx context.Context, in *ExcludeTarget2_3Request, opts ...grpc.CallOption) (*ExcludeTarget2_3Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ExcludeTarget2_3Response)
-	err := c.cc.Invoke(ctx, SetService_ExcludeTarget2_3_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *setServiceClient) GetOrdering(ctx context.Context, in *GetOrderingRequest, opts ...grpc.CallOption) (*GetOrderingResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetOrderingResponse)
-	err := c.cc.Invoke(ctx, SetService_GetOrdering_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *setServiceClient) GetTransitionAt(ctx context.Context, in *GetTransitionAtRequest, opts ...grpc.CallOption) (*GetTransitionAtResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetTransitionAtResponse)
-	err := c.cc.Invoke(ctx, SetService_GetTransitionAt_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *setServiceClient) GetTransitionCount(ctx context.Context, in *GetTransitionCountRequest, opts ...grpc.CallOption) (*GetTransitionCountResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetTransitionCountResponse)
-	err := c.cc.Invoke(ctx, SetService_GetTransitionCount_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *setServiceClient) RemoveListener1(ctx context.Context, in *RemoveListener1Request, opts ...grpc.CallOption) (*RemoveListener1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(RemoveListener1Response)
-	err := c.cc.Invoke(ctx, SetService_RemoveListener1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *setServiceClient) RemoveTarget1(ctx context.Context, in *RemoveTarget1Request, opts ...grpc.CallOption) (*RemoveTarget1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(RemoveTarget1Response)
-	err := c.cc.Invoke(ctx, SetService_RemoveTarget1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *setServiceClient) RemoveTarget1_1(ctx context.Context, in *RemoveTarget1_1Request, opts ...grpc.CallOption) (*RemoveTarget1_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(RemoveTarget1_1Response)
-	err := c.cc.Invoke(ctx, SetService_RemoveTarget1_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *setServiceClient) RemoveTarget1_2(ctx context.Context, in *RemoveTarget1_2Request, opts ...grpc.CallOption) (*RemoveTarget1_2Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(RemoveTarget1_2Response)
-	err := c.cc.Invoke(ctx, SetService_RemoveTarget1_2_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *setServiceClient) RemoveTarget1_3(ctx context.Context, in *RemoveTarget1_3Request, opts ...grpc.CallOption) (*RemoveTarget1_3Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(RemoveTarget1_3Response)
-	err := c.cc.Invoke(ctx, SetService_RemoveTarget1_3_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *setServiceClient) RemoveTransition(ctx context.Context, in *RemoveTransitionRequest, opts ...grpc.CallOption) (*RemoveTransitionResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(RemoveTransitionResponse)
-	err := c.cc.Invoke(ctx, SetService_RemoveTransition_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *setServiceClient) SetDuration1(ctx context.Context, in *SetDuration1Request, opts ...grpc.CallOption) (*SetDuration1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetDuration1Response)
-	err := c.cc.Invoke(ctx, SetService_SetDuration1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *setServiceClient) SetEpicenterCallback(ctx context.Context, in *SetEpicenterCallbackRequest, opts ...grpc.CallOption) (*SetEpicenterCallbackResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetEpicenterCallbackResponse)
-	err := c.cc.Invoke(ctx, SetService_SetEpicenterCallback_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *setServiceClient) SetInterpolator1(ctx context.Context, in *SetInterpolator1Request, opts ...grpc.CallOption) (*SetInterpolator1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetInterpolator1Response)
-	err := c.cc.Invoke(ctx, SetService_SetInterpolator1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *setServiceClient) SetOrdering(ctx context.Context, in *SetOrderingRequest, opts ...grpc.CallOption) (*SetOrderingResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetOrderingResponse)
-	err := c.cc.Invoke(ctx, SetService_SetOrdering_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *setServiceClient) SetPathMotion(ctx context.Context, in *SetPathMotionRequest, opts ...grpc.CallOption) (*SetPathMotionResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetPathMotionResponse)
-	err := c.cc.Invoke(ctx, SetService_SetPathMotion_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *setServiceClient) SetPropagation(ctx context.Context, in *SetPropagationRequest, opts ...grpc.CallOption) (*SetPropagationResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetPropagationResponse)
-	err := c.cc.Invoke(ctx, SetService_SetPropagation_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *setServiceClient) SetStartDelay1(ctx context.Context, in *SetStartDelay1Request, opts ...grpc.CallOption) (*SetStartDelay1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetStartDelay1Response)
-	err := c.cc.Invoke(ctx, SetService_SetStartDelay1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *setServiceClient) SetStartDelay1_1(ctx context.Context, in *SetStartDelay1_1Request, opts ...grpc.CallOption) (*SetStartDelay1_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetStartDelay1_1Response)
-	err := c.cc.Invoke(ctx, SetService_SetStartDelay1_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *setServiceClient) SetInterpolator1_1(ctx context.Context, in *SetInterpolator1_1Request, opts ...grpc.CallOption) (*SetInterpolator1_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetInterpolator1_1Response)
-	err := c.cc.Invoke(ctx, SetService_SetInterpolator1_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *setServiceClient) SetDuration1_1(ctx context.Context, in *SetDuration1_1Request, opts ...grpc.CallOption) (*SetDuration1_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetDuration1_1Response)
-	err := c.cc.Invoke(ctx, SetService_SetDuration1_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *setServiceClient) RemoveTarget1_4(ctx context.Context, in *RemoveTarget1_4Request, opts ...grpc.CallOption) (*RemoveTarget1_4Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(RemoveTarget1_4Response)
-	err := c.cc.Invoke(ctx, SetService_RemoveTarget1_4_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *setServiceClient) RemoveTarget1_5(ctx context.Context, in *RemoveTarget1_5Request, opts ...grpc.CallOption) (*RemoveTarget1_5Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(RemoveTarget1_5Response)
-	err := c.cc.Invoke(ctx, SetService_RemoveTarget1_5_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *setServiceClient) RemoveTarget1_6(ctx context.Context, in *RemoveTarget1_6Request, opts ...grpc.CallOption) (*RemoveTarget1_6Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(RemoveTarget1_6Response)
-	err := c.cc.Invoke(ctx, SetService_RemoveTarget1_6_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *setServiceClient) RemoveTarget1_7(ctx context.Context, in *RemoveTarget1_7Request, opts ...grpc.CallOption) (*RemoveTarget1_7Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(RemoveTarget1_7Response)
-	err := c.cc.Invoke(ctx, SetService_RemoveTarget1_7_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *setServiceClient) RemoveListener1_1(ctx context.Context, in *RemoveListener1_1Request, opts ...grpc.CallOption) (*RemoveListener1_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(RemoveListener1_1Response)
-	err := c.cc.Invoke(ctx, SetService_RemoveListener1_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *setServiceClient) Clone0_1(ctx context.Context, in *Clone0_1Request, opts ...grpc.CallOption) (*Clone0_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(Clone0_1Response)
-	err := c.cc.Invoke(ctx, SetService_Clone0_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *setServiceClient) AddTarget1_4(ctx context.Context, in *AddTarget1_4Request, opts ...grpc.CallOption) (*AddTarget1_4Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(AddTarget1_4Response)
-	err := c.cc.Invoke(ctx, SetService_AddTarget1_4_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *setServiceClient) AddTarget1_5(ctx context.Context, in *AddTarget1_5Request, opts ...grpc.CallOption) (*AddTarget1_5Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(AddTarget1_5Response)
-	err := c.cc.Invoke(ctx, SetService_AddTarget1_5_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *setServiceClient) AddTarget1_6(ctx context.Context, in *AddTarget1_6Request, opts ...grpc.CallOption) (*AddTarget1_6Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(AddTarget1_6Response)
-	err := c.cc.Invoke(ctx, SetService_AddTarget1_6_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *setServiceClient) AddTarget1_7(ctx context.Context, in *AddTarget1_7Request, opts ...grpc.CallOption) (*AddTarget1_7Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(AddTarget1_7Response)
-	err := c.cc.Invoke(ctx, SetService_AddTarget1_7_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *setServiceClient) AddListener1_1(ctx context.Context, in *AddListener1_1Request, opts ...grpc.CallOption) (*AddListener1_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(AddListener1_1Response)
-	err := c.cc.Invoke(ctx, SetService_AddListener1_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *setServiceClient) Clone0_2(ctx context.Context, in *Clone0_2Request, opts ...grpc.CallOption) (*Clone0_2Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(Clone0_2Response)
-	err := c.cc.Invoke(ctx, SetService_Clone0_2_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// SetServiceServer is the server API for SetService service.
-// All implementations must embed UnimplementedSetServiceServer
+// ArcMotionServiceServer is the server API for ArcMotionService service.
+// All implementations must embed UnimplementedArcMotionServiceServer
 // for forward compatibility.
-type SetServiceServer interface {
-	NewSet(context.Context, *NewSetRequest) (*NewSetResponse, error)
-	AddListener1(context.Context, *AddListener1Request) (*AddListener1Response, error)
-	AddTarget1(context.Context, *AddTarget1Request) (*AddTarget1Response, error)
-	AddTarget1_1(context.Context, *AddTarget1_1Request) (*AddTarget1_1Response, error)
-	AddTarget1_2(context.Context, *AddTarget1_2Request) (*AddTarget1_2Response, error)
-	AddTarget1_3(context.Context, *AddTarget1_3Request) (*AddTarget1_3Response, error)
-	AddTransition(context.Context, *AddTransitionRequest) (*AddTransitionResponse, error)
-	CaptureEndValues(context.Context, *CaptureEndValuesRequest) (*CaptureEndValuesResponse, error)
-	CaptureStartValues(context.Context, *CaptureStartValuesRequest) (*CaptureStartValuesResponse, error)
-	Clone0(context.Context, *Clone0Request) (*Clone0Response, error)
-	ExcludeTarget2(context.Context, *ExcludeTarget2Request) (*ExcludeTarget2Response, error)
-	ExcludeTarget2_1(context.Context, *ExcludeTarget2_1Request) (*ExcludeTarget2_1Response, error)
-	ExcludeTarget2_2(context.Context, *ExcludeTarget2_2Request) (*ExcludeTarget2_2Response, error)
-	ExcludeTarget2_3(context.Context, *ExcludeTarget2_3Request) (*ExcludeTarget2_3Response, error)
-	GetOrdering(context.Context, *GetOrderingRequest) (*GetOrderingResponse, error)
-	GetTransitionAt(context.Context, *GetTransitionAtRequest) (*GetTransitionAtResponse, error)
-	GetTransitionCount(context.Context, *GetTransitionCountRequest) (*GetTransitionCountResponse, error)
-	RemoveListener1(context.Context, *RemoveListener1Request) (*RemoveListener1Response, error)
-	RemoveTarget1(context.Context, *RemoveTarget1Request) (*RemoveTarget1Response, error)
-	RemoveTarget1_1(context.Context, *RemoveTarget1_1Request) (*RemoveTarget1_1Response, error)
-	RemoveTarget1_2(context.Context, *RemoveTarget1_2Request) (*RemoveTarget1_2Response, error)
-	RemoveTarget1_3(context.Context, *RemoveTarget1_3Request) (*RemoveTarget1_3Response, error)
-	RemoveTransition(context.Context, *RemoveTransitionRequest) (*RemoveTransitionResponse, error)
-	SetDuration1(context.Context, *SetDuration1Request) (*SetDuration1Response, error)
-	SetEpicenterCallback(context.Context, *SetEpicenterCallbackRequest) (*SetEpicenterCallbackResponse, error)
-	SetInterpolator1(context.Context, *SetInterpolator1Request) (*SetInterpolator1Response, error)
-	SetOrdering(context.Context, *SetOrderingRequest) (*SetOrderingResponse, error)
-	SetPathMotion(context.Context, *SetPathMotionRequest) (*SetPathMotionResponse, error)
-	SetPropagation(context.Context, *SetPropagationRequest) (*SetPropagationResponse, error)
-	SetStartDelay1(context.Context, *SetStartDelay1Request) (*SetStartDelay1Response, error)
-	SetStartDelay1_1(context.Context, *SetStartDelay1_1Request) (*SetStartDelay1_1Response, error)
-	SetInterpolator1_1(context.Context, *SetInterpolator1_1Request) (*SetInterpolator1_1Response, error)
-	SetDuration1_1(context.Context, *SetDuration1_1Request) (*SetDuration1_1Response, error)
-	RemoveTarget1_4(context.Context, *RemoveTarget1_4Request) (*RemoveTarget1_4Response, error)
-	RemoveTarget1_5(context.Context, *RemoveTarget1_5Request) (*RemoveTarget1_5Response, error)
-	RemoveTarget1_6(context.Context, *RemoveTarget1_6Request) (*RemoveTarget1_6Response, error)
-	RemoveTarget1_7(context.Context, *RemoveTarget1_7Request) (*RemoveTarget1_7Response, error)
-	RemoveListener1_1(context.Context, *RemoveListener1_1Request) (*RemoveListener1_1Response, error)
-	Clone0_1(context.Context, *Clone0_1Request) (*Clone0_1Response, error)
-	AddTarget1_4(context.Context, *AddTarget1_4Request) (*AddTarget1_4Response, error)
-	AddTarget1_5(context.Context, *AddTarget1_5Request) (*AddTarget1_5Response, error)
-	AddTarget1_6(context.Context, *AddTarget1_6Request) (*AddTarget1_6Response, error)
-	AddTarget1_7(context.Context, *AddTarget1_7Request) (*AddTarget1_7Response, error)
-	AddListener1_1(context.Context, *AddListener1_1Request) (*AddListener1_1Response, error)
-	Clone0_2(context.Context, *Clone0_2Request) (*Clone0_2Response, error)
-	mustEmbedUnimplementedSetServiceServer()
+type ArcMotionServiceServer interface {
+	NewArcMotion(context.Context, *NewArcMotionRequest) (*NewArcMotionResponse, error)
+	GetMaximumAngle(context.Context, *GetMaximumAngleRequest) (*GetMaximumAngleResponse, error)
+	GetMinimumHorizontalAngle(context.Context, *GetMinimumHorizontalAngleRequest) (*GetMinimumHorizontalAngleResponse, error)
+	GetMinimumVerticalAngle(context.Context, *GetMinimumVerticalAngleRequest) (*GetMinimumVerticalAngleResponse, error)
+	GetPath(context.Context, *GetPathRequest) (*GetPathResponse, error)
+	SetMaximumAngle(context.Context, *SetMaximumAngleRequest) (*SetMaximumAngleResponse, error)
+	SetMinimumHorizontalAngle(context.Context, *SetMinimumHorizontalAngleRequest) (*SetMinimumHorizontalAngleResponse, error)
+	SetMinimumVerticalAngle(context.Context, *SetMinimumVerticalAngleRequest) (*SetMinimumVerticalAngleResponse, error)
+	mustEmbedUnimplementedArcMotionServiceServer()
 }
 
-// UnimplementedSetServiceServer must be embedded to have
+// UnimplementedArcMotionServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedSetServiceServer struct{}
+type UnimplementedArcMotionServiceServer struct{}
 
-func (UnimplementedSetServiceServer) NewSet(context.Context, *NewSetRequest) (*NewSetResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewSet not implemented")
+func (UnimplementedArcMotionServiceServer) NewArcMotion(context.Context, *NewArcMotionRequest) (*NewArcMotionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewArcMotion not implemented")
 }
-func (UnimplementedSetServiceServer) AddListener1(context.Context, *AddListener1Request) (*AddListener1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method AddListener1 not implemented")
+func (UnimplementedArcMotionServiceServer) GetMaximumAngle(context.Context, *GetMaximumAngleRequest) (*GetMaximumAngleResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetMaximumAngle not implemented")
 }
-func (UnimplementedSetServiceServer) AddTarget1(context.Context, *AddTarget1Request) (*AddTarget1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method AddTarget1 not implemented")
+func (UnimplementedArcMotionServiceServer) GetMinimumHorizontalAngle(context.Context, *GetMinimumHorizontalAngleRequest) (*GetMinimumHorizontalAngleResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetMinimumHorizontalAngle not implemented")
 }
-func (UnimplementedSetServiceServer) AddTarget1_1(context.Context, *AddTarget1_1Request) (*AddTarget1_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method AddTarget1_1 not implemented")
+func (UnimplementedArcMotionServiceServer) GetMinimumVerticalAngle(context.Context, *GetMinimumVerticalAngleRequest) (*GetMinimumVerticalAngleResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetMinimumVerticalAngle not implemented")
 }
-func (UnimplementedSetServiceServer) AddTarget1_2(context.Context, *AddTarget1_2Request) (*AddTarget1_2Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method AddTarget1_2 not implemented")
+func (UnimplementedArcMotionServiceServer) GetPath(context.Context, *GetPathRequest) (*GetPathResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetPath not implemented")
 }
-func (UnimplementedSetServiceServer) AddTarget1_3(context.Context, *AddTarget1_3Request) (*AddTarget1_3Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method AddTarget1_3 not implemented")
+func (UnimplementedArcMotionServiceServer) SetMaximumAngle(context.Context, *SetMaximumAngleRequest) (*SetMaximumAngleResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetMaximumAngle not implemented")
 }
-func (UnimplementedSetServiceServer) AddTransition(context.Context, *AddTransitionRequest) (*AddTransitionResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method AddTransition not implemented")
+func (UnimplementedArcMotionServiceServer) SetMinimumHorizontalAngle(context.Context, *SetMinimumHorizontalAngleRequest) (*SetMinimumHorizontalAngleResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetMinimumHorizontalAngle not implemented")
 }
-func (UnimplementedSetServiceServer) CaptureEndValues(context.Context, *CaptureEndValuesRequest) (*CaptureEndValuesResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method CaptureEndValues not implemented")
+func (UnimplementedArcMotionServiceServer) SetMinimumVerticalAngle(context.Context, *SetMinimumVerticalAngleRequest) (*SetMinimumVerticalAngleResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetMinimumVerticalAngle not implemented")
 }
-func (UnimplementedSetServiceServer) CaptureStartValues(context.Context, *CaptureStartValuesRequest) (*CaptureStartValuesResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method CaptureStartValues not implemented")
-}
-func (UnimplementedSetServiceServer) Clone0(context.Context, *Clone0Request) (*Clone0Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method Clone0 not implemented")
-}
-func (UnimplementedSetServiceServer) ExcludeTarget2(context.Context, *ExcludeTarget2Request) (*ExcludeTarget2Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method ExcludeTarget2 not implemented")
-}
-func (UnimplementedSetServiceServer) ExcludeTarget2_1(context.Context, *ExcludeTarget2_1Request) (*ExcludeTarget2_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method ExcludeTarget2_1 not implemented")
-}
-func (UnimplementedSetServiceServer) ExcludeTarget2_2(context.Context, *ExcludeTarget2_2Request) (*ExcludeTarget2_2Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method ExcludeTarget2_2 not implemented")
-}
-func (UnimplementedSetServiceServer) ExcludeTarget2_3(context.Context, *ExcludeTarget2_3Request) (*ExcludeTarget2_3Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method ExcludeTarget2_3 not implemented")
-}
-func (UnimplementedSetServiceServer) GetOrdering(context.Context, *GetOrderingRequest) (*GetOrderingResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetOrdering not implemented")
-}
-func (UnimplementedSetServiceServer) GetTransitionAt(context.Context, *GetTransitionAtRequest) (*GetTransitionAtResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetTransitionAt not implemented")
-}
-func (UnimplementedSetServiceServer) GetTransitionCount(context.Context, *GetTransitionCountRequest) (*GetTransitionCountResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetTransitionCount not implemented")
-}
-func (UnimplementedSetServiceServer) RemoveListener1(context.Context, *RemoveListener1Request) (*RemoveListener1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method RemoveListener1 not implemented")
-}
-func (UnimplementedSetServiceServer) RemoveTarget1(context.Context, *RemoveTarget1Request) (*RemoveTarget1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method RemoveTarget1 not implemented")
-}
-func (UnimplementedSetServiceServer) RemoveTarget1_1(context.Context, *RemoveTarget1_1Request) (*RemoveTarget1_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method RemoveTarget1_1 not implemented")
-}
-func (UnimplementedSetServiceServer) RemoveTarget1_2(context.Context, *RemoveTarget1_2Request) (*RemoveTarget1_2Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method RemoveTarget1_2 not implemented")
-}
-func (UnimplementedSetServiceServer) RemoveTarget1_3(context.Context, *RemoveTarget1_3Request) (*RemoveTarget1_3Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method RemoveTarget1_3 not implemented")
-}
-func (UnimplementedSetServiceServer) RemoveTransition(context.Context, *RemoveTransitionRequest) (*RemoveTransitionResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method RemoveTransition not implemented")
-}
-func (UnimplementedSetServiceServer) SetDuration1(context.Context, *SetDuration1Request) (*SetDuration1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetDuration1 not implemented")
-}
-func (UnimplementedSetServiceServer) SetEpicenterCallback(context.Context, *SetEpicenterCallbackRequest) (*SetEpicenterCallbackResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetEpicenterCallback not implemented")
-}
-func (UnimplementedSetServiceServer) SetInterpolator1(context.Context, *SetInterpolator1Request) (*SetInterpolator1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetInterpolator1 not implemented")
-}
-func (UnimplementedSetServiceServer) SetOrdering(context.Context, *SetOrderingRequest) (*SetOrderingResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetOrdering not implemented")
-}
-func (UnimplementedSetServiceServer) SetPathMotion(context.Context, *SetPathMotionRequest) (*SetPathMotionResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetPathMotion not implemented")
-}
-func (UnimplementedSetServiceServer) SetPropagation(context.Context, *SetPropagationRequest) (*SetPropagationResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetPropagation not implemented")
-}
-func (UnimplementedSetServiceServer) SetStartDelay1(context.Context, *SetStartDelay1Request) (*SetStartDelay1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetStartDelay1 not implemented")
-}
-func (UnimplementedSetServiceServer) SetStartDelay1_1(context.Context, *SetStartDelay1_1Request) (*SetStartDelay1_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetStartDelay1_1 not implemented")
-}
-func (UnimplementedSetServiceServer) SetInterpolator1_1(context.Context, *SetInterpolator1_1Request) (*SetInterpolator1_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetInterpolator1_1 not implemented")
-}
-func (UnimplementedSetServiceServer) SetDuration1_1(context.Context, *SetDuration1_1Request) (*SetDuration1_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetDuration1_1 not implemented")
-}
-func (UnimplementedSetServiceServer) RemoveTarget1_4(context.Context, *RemoveTarget1_4Request) (*RemoveTarget1_4Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method RemoveTarget1_4 not implemented")
-}
-func (UnimplementedSetServiceServer) RemoveTarget1_5(context.Context, *RemoveTarget1_5Request) (*RemoveTarget1_5Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method RemoveTarget1_5 not implemented")
-}
-func (UnimplementedSetServiceServer) RemoveTarget1_6(context.Context, *RemoveTarget1_6Request) (*RemoveTarget1_6Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method RemoveTarget1_6 not implemented")
-}
-func (UnimplementedSetServiceServer) RemoveTarget1_7(context.Context, *RemoveTarget1_7Request) (*RemoveTarget1_7Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method RemoveTarget1_7 not implemented")
-}
-func (UnimplementedSetServiceServer) RemoveListener1_1(context.Context, *RemoveListener1_1Request) (*RemoveListener1_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method RemoveListener1_1 not implemented")
-}
-func (UnimplementedSetServiceServer) Clone0_1(context.Context, *Clone0_1Request) (*Clone0_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method Clone0_1 not implemented")
-}
-func (UnimplementedSetServiceServer) AddTarget1_4(context.Context, *AddTarget1_4Request) (*AddTarget1_4Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method AddTarget1_4 not implemented")
-}
-func (UnimplementedSetServiceServer) AddTarget1_5(context.Context, *AddTarget1_5Request) (*AddTarget1_5Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method AddTarget1_5 not implemented")
-}
-func (UnimplementedSetServiceServer) AddTarget1_6(context.Context, *AddTarget1_6Request) (*AddTarget1_6Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method AddTarget1_6 not implemented")
-}
-func (UnimplementedSetServiceServer) AddTarget1_7(context.Context, *AddTarget1_7Request) (*AddTarget1_7Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method AddTarget1_7 not implemented")
-}
-func (UnimplementedSetServiceServer) AddListener1_1(context.Context, *AddListener1_1Request) (*AddListener1_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method AddListener1_1 not implemented")
-}
-func (UnimplementedSetServiceServer) Clone0_2(context.Context, *Clone0_2Request) (*Clone0_2Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method Clone0_2 not implemented")
-}
-func (UnimplementedSetServiceServer) mustEmbedUnimplementedSetServiceServer() {}
-func (UnimplementedSetServiceServer) testEmbeddedByValue()                    {}
+func (UnimplementedArcMotionServiceServer) mustEmbedUnimplementedArcMotionServiceServer() {}
+func (UnimplementedArcMotionServiceServer) testEmbeddedByValue()                          {}
 
-// UnsafeSetServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to SetServiceServer will
+// UnsafeArcMotionServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ArcMotionServiceServer will
 // result in compilation errors.
-type UnsafeSetServiceServer interface {
-	mustEmbedUnimplementedSetServiceServer()
+type UnsafeArcMotionServiceServer interface {
+	mustEmbedUnimplementedArcMotionServiceServer()
 }
 
-func RegisterSetServiceServer(s grpc.ServiceRegistrar, srv SetServiceServer) {
-	// If the following call panics, it indicates UnimplementedSetServiceServer was
+func RegisterArcMotionServiceServer(s grpc.ServiceRegistrar, srv ArcMotionServiceServer) {
+	// If the following call panics, it indicates UnimplementedArcMotionServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&SetService_ServiceDesc, srv)
+	s.RegisterService(&ArcMotionService_ServiceDesc, srv)
 }
 
-func _SetService_NewSet_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewSetRequest)
+func _ArcMotionService_NewArcMotion_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewArcMotionRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(SetServiceServer).NewSet(ctx, in)
+		return srv.(ArcMotionServiceServer).NewArcMotion(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: SetService_NewSet_FullMethodName,
+		FullMethod: ArcMotionService_NewArcMotion_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SetServiceServer).NewSet(ctx, req.(*NewSetRequest))
+		return srv.(ArcMotionServiceServer).NewArcMotion(ctx, req.(*NewArcMotionRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _SetService_AddListener1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AddListener1Request)
+func _ArcMotionService_GetMaximumAngle_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetMaximumAngleRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(SetServiceServer).AddListener1(ctx, in)
+		return srv.(ArcMotionServiceServer).GetMaximumAngle(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: SetService_AddListener1_FullMethodName,
+		FullMethod: ArcMotionService_GetMaximumAngle_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SetServiceServer).AddListener1(ctx, req.(*AddListener1Request))
+		return srv.(ArcMotionServiceServer).GetMaximumAngle(ctx, req.(*GetMaximumAngleRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _SetService_AddTarget1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AddTarget1Request)
+func _ArcMotionService_GetMinimumHorizontalAngle_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetMinimumHorizontalAngleRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(SetServiceServer).AddTarget1(ctx, in)
+		return srv.(ArcMotionServiceServer).GetMinimumHorizontalAngle(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: SetService_AddTarget1_FullMethodName,
+		FullMethod: ArcMotionService_GetMinimumHorizontalAngle_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SetServiceServer).AddTarget1(ctx, req.(*AddTarget1Request))
+		return srv.(ArcMotionServiceServer).GetMinimumHorizontalAngle(ctx, req.(*GetMinimumHorizontalAngleRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _SetService_AddTarget1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AddTarget1_1Request)
+func _ArcMotionService_GetMinimumVerticalAngle_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetMinimumVerticalAngleRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(SetServiceServer).AddTarget1_1(ctx, in)
+		return srv.(ArcMotionServiceServer).GetMinimumVerticalAngle(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: SetService_AddTarget1_1_FullMethodName,
+		FullMethod: ArcMotionService_GetMinimumVerticalAngle_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SetServiceServer).AddTarget1_1(ctx, req.(*AddTarget1_1Request))
+		return srv.(ArcMotionServiceServer).GetMinimumVerticalAngle(ctx, req.(*GetMinimumVerticalAngleRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _SetService_AddTarget1_2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AddTarget1_2Request)
+func _ArcMotionService_GetPath_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPathRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(SetServiceServer).AddTarget1_2(ctx, in)
+		return srv.(ArcMotionServiceServer).GetPath(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: SetService_AddTarget1_2_FullMethodName,
+		FullMethod: ArcMotionService_GetPath_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SetServiceServer).AddTarget1_2(ctx, req.(*AddTarget1_2Request))
+		return srv.(ArcMotionServiceServer).GetPath(ctx, req.(*GetPathRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _SetService_AddTarget1_3_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AddTarget1_3Request)
+func _ArcMotionService_SetMaximumAngle_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetMaximumAngleRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(SetServiceServer).AddTarget1_3(ctx, in)
+		return srv.(ArcMotionServiceServer).SetMaximumAngle(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: SetService_AddTarget1_3_FullMethodName,
+		FullMethod: ArcMotionService_SetMaximumAngle_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SetServiceServer).AddTarget1_3(ctx, req.(*AddTarget1_3Request))
+		return srv.(ArcMotionServiceServer).SetMaximumAngle(ctx, req.(*SetMaximumAngleRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _SetService_AddTransition_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AddTransitionRequest)
+func _ArcMotionService_SetMinimumHorizontalAngle_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetMinimumHorizontalAngleRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(SetServiceServer).AddTransition(ctx, in)
+		return srv.(ArcMotionServiceServer).SetMinimumHorizontalAngle(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: SetService_AddTransition_FullMethodName,
+		FullMethod: ArcMotionService_SetMinimumHorizontalAngle_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SetServiceServer).AddTransition(ctx, req.(*AddTransitionRequest))
+		return srv.(ArcMotionServiceServer).SetMinimumHorizontalAngle(ctx, req.(*SetMinimumHorizontalAngleRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _SetService_CaptureEndValues_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CaptureEndValuesRequest)
+func _ArcMotionService_SetMinimumVerticalAngle_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetMinimumVerticalAngleRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(SetServiceServer).CaptureEndValues(ctx, in)
+		return srv.(ArcMotionServiceServer).SetMinimumVerticalAngle(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: SetService_CaptureEndValues_FullMethodName,
+		FullMethod: ArcMotionService_SetMinimumVerticalAngle_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SetServiceServer).CaptureEndValues(ctx, req.(*CaptureEndValuesRequest))
+		return srv.(ArcMotionServiceServer).SetMinimumVerticalAngle(ctx, req.(*SetMinimumVerticalAngleRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _SetService_CaptureStartValues_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CaptureStartValuesRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SetServiceServer).CaptureStartValues(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SetService_CaptureStartValues_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SetServiceServer).CaptureStartValues(ctx, req.(*CaptureStartValuesRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SetService_Clone0_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(Clone0Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SetServiceServer).Clone0(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SetService_Clone0_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SetServiceServer).Clone0(ctx, req.(*Clone0Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SetService_ExcludeTarget2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ExcludeTarget2Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SetServiceServer).ExcludeTarget2(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SetService_ExcludeTarget2_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SetServiceServer).ExcludeTarget2(ctx, req.(*ExcludeTarget2Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SetService_ExcludeTarget2_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ExcludeTarget2_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SetServiceServer).ExcludeTarget2_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SetService_ExcludeTarget2_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SetServiceServer).ExcludeTarget2_1(ctx, req.(*ExcludeTarget2_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SetService_ExcludeTarget2_2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ExcludeTarget2_2Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SetServiceServer).ExcludeTarget2_2(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SetService_ExcludeTarget2_2_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SetServiceServer).ExcludeTarget2_2(ctx, req.(*ExcludeTarget2_2Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SetService_ExcludeTarget2_3_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ExcludeTarget2_3Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SetServiceServer).ExcludeTarget2_3(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SetService_ExcludeTarget2_3_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SetServiceServer).ExcludeTarget2_3(ctx, req.(*ExcludeTarget2_3Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SetService_GetOrdering_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetOrderingRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SetServiceServer).GetOrdering(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SetService_GetOrdering_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SetServiceServer).GetOrdering(ctx, req.(*GetOrderingRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SetService_GetTransitionAt_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetTransitionAtRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SetServiceServer).GetTransitionAt(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SetService_GetTransitionAt_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SetServiceServer).GetTransitionAt(ctx, req.(*GetTransitionAtRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SetService_GetTransitionCount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetTransitionCountRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SetServiceServer).GetTransitionCount(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SetService_GetTransitionCount_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SetServiceServer).GetTransitionCount(ctx, req.(*GetTransitionCountRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SetService_RemoveListener1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(RemoveListener1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SetServiceServer).RemoveListener1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SetService_RemoveListener1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SetServiceServer).RemoveListener1(ctx, req.(*RemoveListener1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SetService_RemoveTarget1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(RemoveTarget1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SetServiceServer).RemoveTarget1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SetService_RemoveTarget1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SetServiceServer).RemoveTarget1(ctx, req.(*RemoveTarget1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SetService_RemoveTarget1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(RemoveTarget1_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SetServiceServer).RemoveTarget1_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SetService_RemoveTarget1_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SetServiceServer).RemoveTarget1_1(ctx, req.(*RemoveTarget1_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SetService_RemoveTarget1_2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(RemoveTarget1_2Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SetServiceServer).RemoveTarget1_2(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SetService_RemoveTarget1_2_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SetServiceServer).RemoveTarget1_2(ctx, req.(*RemoveTarget1_2Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SetService_RemoveTarget1_3_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(RemoveTarget1_3Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SetServiceServer).RemoveTarget1_3(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SetService_RemoveTarget1_3_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SetServiceServer).RemoveTarget1_3(ctx, req.(*RemoveTarget1_3Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SetService_RemoveTransition_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(RemoveTransitionRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SetServiceServer).RemoveTransition(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SetService_RemoveTransition_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SetServiceServer).RemoveTransition(ctx, req.(*RemoveTransitionRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SetService_SetDuration1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetDuration1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SetServiceServer).SetDuration1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SetService_SetDuration1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SetServiceServer).SetDuration1(ctx, req.(*SetDuration1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SetService_SetEpicenterCallback_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetEpicenterCallbackRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SetServiceServer).SetEpicenterCallback(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SetService_SetEpicenterCallback_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SetServiceServer).SetEpicenterCallback(ctx, req.(*SetEpicenterCallbackRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SetService_SetInterpolator1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetInterpolator1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SetServiceServer).SetInterpolator1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SetService_SetInterpolator1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SetServiceServer).SetInterpolator1(ctx, req.(*SetInterpolator1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SetService_SetOrdering_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetOrderingRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SetServiceServer).SetOrdering(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SetService_SetOrdering_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SetServiceServer).SetOrdering(ctx, req.(*SetOrderingRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SetService_SetPathMotion_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetPathMotionRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SetServiceServer).SetPathMotion(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SetService_SetPathMotion_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SetServiceServer).SetPathMotion(ctx, req.(*SetPathMotionRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SetService_SetPropagation_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetPropagationRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SetServiceServer).SetPropagation(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SetService_SetPropagation_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SetServiceServer).SetPropagation(ctx, req.(*SetPropagationRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SetService_SetStartDelay1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetStartDelay1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SetServiceServer).SetStartDelay1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SetService_SetStartDelay1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SetServiceServer).SetStartDelay1(ctx, req.(*SetStartDelay1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SetService_SetStartDelay1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetStartDelay1_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SetServiceServer).SetStartDelay1_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SetService_SetStartDelay1_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SetServiceServer).SetStartDelay1_1(ctx, req.(*SetStartDelay1_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SetService_SetInterpolator1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetInterpolator1_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SetServiceServer).SetInterpolator1_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SetService_SetInterpolator1_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SetServiceServer).SetInterpolator1_1(ctx, req.(*SetInterpolator1_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SetService_SetDuration1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetDuration1_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SetServiceServer).SetDuration1_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SetService_SetDuration1_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SetServiceServer).SetDuration1_1(ctx, req.(*SetDuration1_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SetService_RemoveTarget1_4_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(RemoveTarget1_4Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SetServiceServer).RemoveTarget1_4(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SetService_RemoveTarget1_4_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SetServiceServer).RemoveTarget1_4(ctx, req.(*RemoveTarget1_4Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SetService_RemoveTarget1_5_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(RemoveTarget1_5Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SetServiceServer).RemoveTarget1_5(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SetService_RemoveTarget1_5_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SetServiceServer).RemoveTarget1_5(ctx, req.(*RemoveTarget1_5Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SetService_RemoveTarget1_6_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(RemoveTarget1_6Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SetServiceServer).RemoveTarget1_6(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SetService_RemoveTarget1_6_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SetServiceServer).RemoveTarget1_6(ctx, req.(*RemoveTarget1_6Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SetService_RemoveTarget1_7_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(RemoveTarget1_7Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SetServiceServer).RemoveTarget1_7(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SetService_RemoveTarget1_7_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SetServiceServer).RemoveTarget1_7(ctx, req.(*RemoveTarget1_7Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SetService_RemoveListener1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(RemoveListener1_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SetServiceServer).RemoveListener1_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SetService_RemoveListener1_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SetServiceServer).RemoveListener1_1(ctx, req.(*RemoveListener1_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SetService_Clone0_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(Clone0_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SetServiceServer).Clone0_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SetService_Clone0_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SetServiceServer).Clone0_1(ctx, req.(*Clone0_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SetService_AddTarget1_4_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AddTarget1_4Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SetServiceServer).AddTarget1_4(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SetService_AddTarget1_4_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SetServiceServer).AddTarget1_4(ctx, req.(*AddTarget1_4Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SetService_AddTarget1_5_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AddTarget1_5Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SetServiceServer).AddTarget1_5(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SetService_AddTarget1_5_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SetServiceServer).AddTarget1_5(ctx, req.(*AddTarget1_5Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SetService_AddTarget1_6_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AddTarget1_6Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SetServiceServer).AddTarget1_6(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SetService_AddTarget1_6_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SetServiceServer).AddTarget1_6(ctx, req.(*AddTarget1_6Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SetService_AddTarget1_7_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AddTarget1_7Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SetServiceServer).AddTarget1_7(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SetService_AddTarget1_7_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SetServiceServer).AddTarget1_7(ctx, req.(*AddTarget1_7Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SetService_AddListener1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AddListener1_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SetServiceServer).AddListener1_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SetService_AddListener1_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SetServiceServer).AddListener1_1(ctx, req.(*AddListener1_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SetService_Clone0_2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(Clone0_2Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SetServiceServer).Clone0_2(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SetService_Clone0_2_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SetServiceServer).Clone0_2(ctx, req.(*Clone0_2Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// SetService_ServiceDesc is the grpc.ServiceDesc for SetService service.
+// ArcMotionService_ServiceDesc is the grpc.ServiceDesc for ArcMotionService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var SetService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "transition.SetService",
-	HandlerType: (*SetServiceServer)(nil),
+var ArcMotionService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "transition.ArcMotionService",
+	HandlerType: (*ArcMotionServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "NewSet",
-			Handler:    _SetService_NewSet_Handler,
+			MethodName: "NewArcMotion",
+			Handler:    _ArcMotionService_NewArcMotion_Handler,
 		},
 		{
-			MethodName: "AddListener1",
-			Handler:    _SetService_AddListener1_Handler,
+			MethodName: "GetMaximumAngle",
+			Handler:    _ArcMotionService_GetMaximumAngle_Handler,
 		},
 		{
-			MethodName: "AddTarget1",
-			Handler:    _SetService_AddTarget1_Handler,
+			MethodName: "GetMinimumHorizontalAngle",
+			Handler:    _ArcMotionService_GetMinimumHorizontalAngle_Handler,
 		},
 		{
-			MethodName: "AddTarget1_1",
-			Handler:    _SetService_AddTarget1_1_Handler,
+			MethodName: "GetMinimumVerticalAngle",
+			Handler:    _ArcMotionService_GetMinimumVerticalAngle_Handler,
 		},
 		{
-			MethodName: "AddTarget1_2",
-			Handler:    _SetService_AddTarget1_2_Handler,
+			MethodName: "GetPath",
+			Handler:    _ArcMotionService_GetPath_Handler,
 		},
 		{
-			MethodName: "AddTarget1_3",
-			Handler:    _SetService_AddTarget1_3_Handler,
+			MethodName: "SetMaximumAngle",
+			Handler:    _ArcMotionService_SetMaximumAngle_Handler,
 		},
 		{
-			MethodName: "AddTransition",
-			Handler:    _SetService_AddTransition_Handler,
+			MethodName: "SetMinimumHorizontalAngle",
+			Handler:    _ArcMotionService_SetMinimumHorizontalAngle_Handler,
 		},
 		{
-			MethodName: "CaptureEndValues",
-			Handler:    _SetService_CaptureEndValues_Handler,
-		},
-		{
-			MethodName: "CaptureStartValues",
-			Handler:    _SetService_CaptureStartValues_Handler,
-		},
-		{
-			MethodName: "Clone0",
-			Handler:    _SetService_Clone0_Handler,
-		},
-		{
-			MethodName: "ExcludeTarget2",
-			Handler:    _SetService_ExcludeTarget2_Handler,
-		},
-		{
-			MethodName: "ExcludeTarget2_1",
-			Handler:    _SetService_ExcludeTarget2_1_Handler,
-		},
-		{
-			MethodName: "ExcludeTarget2_2",
-			Handler:    _SetService_ExcludeTarget2_2_Handler,
-		},
-		{
-			MethodName: "ExcludeTarget2_3",
-			Handler:    _SetService_ExcludeTarget2_3_Handler,
-		},
-		{
-			MethodName: "GetOrdering",
-			Handler:    _SetService_GetOrdering_Handler,
-		},
-		{
-			MethodName: "GetTransitionAt",
-			Handler:    _SetService_GetTransitionAt_Handler,
-		},
-		{
-			MethodName: "GetTransitionCount",
-			Handler:    _SetService_GetTransitionCount_Handler,
-		},
-		{
-			MethodName: "RemoveListener1",
-			Handler:    _SetService_RemoveListener1_Handler,
-		},
-		{
-			MethodName: "RemoveTarget1",
-			Handler:    _SetService_RemoveTarget1_Handler,
-		},
-		{
-			MethodName: "RemoveTarget1_1",
-			Handler:    _SetService_RemoveTarget1_1_Handler,
-		},
-		{
-			MethodName: "RemoveTarget1_2",
-			Handler:    _SetService_RemoveTarget1_2_Handler,
-		},
-		{
-			MethodName: "RemoveTarget1_3",
-			Handler:    _SetService_RemoveTarget1_3_Handler,
-		},
-		{
-			MethodName: "RemoveTransition",
-			Handler:    _SetService_RemoveTransition_Handler,
-		},
-		{
-			MethodName: "SetDuration1",
-			Handler:    _SetService_SetDuration1_Handler,
-		},
-		{
-			MethodName: "SetEpicenterCallback",
-			Handler:    _SetService_SetEpicenterCallback_Handler,
-		},
-		{
-			MethodName: "SetInterpolator1",
-			Handler:    _SetService_SetInterpolator1_Handler,
-		},
-		{
-			MethodName: "SetOrdering",
-			Handler:    _SetService_SetOrdering_Handler,
-		},
-		{
-			MethodName: "SetPathMotion",
-			Handler:    _SetService_SetPathMotion_Handler,
-		},
-		{
-			MethodName: "SetPropagation",
-			Handler:    _SetService_SetPropagation_Handler,
-		},
-		{
-			MethodName: "SetStartDelay1",
-			Handler:    _SetService_SetStartDelay1_Handler,
-		},
-		{
-			MethodName: "SetStartDelay1_1",
-			Handler:    _SetService_SetStartDelay1_1_Handler,
-		},
-		{
-			MethodName: "SetInterpolator1_1",
-			Handler:    _SetService_SetInterpolator1_1_Handler,
-		},
-		{
-			MethodName: "SetDuration1_1",
-			Handler:    _SetService_SetDuration1_1_Handler,
-		},
-		{
-			MethodName: "RemoveTarget1_4",
-			Handler:    _SetService_RemoveTarget1_4_Handler,
-		},
-		{
-			MethodName: "RemoveTarget1_5",
-			Handler:    _SetService_RemoveTarget1_5_Handler,
-		},
-		{
-			MethodName: "RemoveTarget1_6",
-			Handler:    _SetService_RemoveTarget1_6_Handler,
-		},
-		{
-			MethodName: "RemoveTarget1_7",
-			Handler:    _SetService_RemoveTarget1_7_Handler,
-		},
-		{
-			MethodName: "RemoveListener1_1",
-			Handler:    _SetService_RemoveListener1_1_Handler,
-		},
-		{
-			MethodName: "Clone0_1",
-			Handler:    _SetService_Clone0_1_Handler,
-		},
-		{
-			MethodName: "AddTarget1_4",
-			Handler:    _SetService_AddTarget1_4_Handler,
-		},
-		{
-			MethodName: "AddTarget1_5",
-			Handler:    _SetService_AddTarget1_5_Handler,
-		},
-		{
-			MethodName: "AddTarget1_6",
-			Handler:    _SetService_AddTarget1_6_Handler,
-		},
-		{
-			MethodName: "AddTarget1_7",
-			Handler:    _SetService_AddTarget1_7_Handler,
-		},
-		{
-			MethodName: "AddListener1_1",
-			Handler:    _SetService_AddListener1_1_Handler,
-		},
-		{
-			MethodName: "Clone0_2",
-			Handler:    _SetService_Clone0_2_Handler,
+			MethodName: "SetMinimumVerticalAngle",
+			Handler:    _ArcMotionService_SetMinimumVerticalAngle_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -1795,254 +389,571 @@ var SetService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	VisibilityPropagationService_CaptureValues_FullMethodName            = "/transition.VisibilityPropagationService/CaptureValues"
-	VisibilityPropagationService_GetPropagationProperties_FullMethodName = "/transition.VisibilityPropagationService/GetPropagationProperties"
-	VisibilityPropagationService_GetViewVisibility_FullMethodName        = "/transition.VisibilityPropagationService/GetViewVisibility"
-	VisibilityPropagationService_GetViewX_FullMethodName                 = "/transition.VisibilityPropagationService/GetViewX"
-	VisibilityPropagationService_GetViewY_FullMethodName                 = "/transition.VisibilityPropagationService/GetViewY"
+	InflaterService_InflateTransition_FullMethodName        = "/transition.InflaterService/InflateTransition"
+	InflaterService_InflateTransitionManager_FullMethodName = "/transition.InflaterService/InflateTransitionManager"
+	InflaterService_From_FullMethodName                     = "/transition.InflaterService/From"
 )
 
-// VisibilityPropagationServiceClient is the client API for VisibilityPropagationService service.
+// InflaterServiceClient is the client API for InflaterService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type VisibilityPropagationServiceClient interface {
-	CaptureValues(ctx context.Context, in *CaptureValuesRequest, opts ...grpc.CallOption) (*CaptureValuesResponse, error)
-	GetPropagationProperties(ctx context.Context, in *GetPropagationPropertiesRequest, opts ...grpc.CallOption) (*GetPropagationPropertiesResponse, error)
-	GetViewVisibility(ctx context.Context, in *GetViewVisibilityRequest, opts ...grpc.CallOption) (*GetViewVisibilityResponse, error)
-	GetViewX(ctx context.Context, in *GetViewXRequest, opts ...grpc.CallOption) (*GetViewXResponse, error)
-	GetViewY(ctx context.Context, in *GetViewYRequest, opts ...grpc.CallOption) (*GetViewYResponse, error)
+type InflaterServiceClient interface {
+	InflateTransition(ctx context.Context, in *InflateTransitionRequest, opts ...grpc.CallOption) (*InflateTransitionResponse, error)
+	InflateTransitionManager(ctx context.Context, in *InflateTransitionManagerRequest, opts ...grpc.CallOption) (*InflateTransitionManagerResponse, error)
+	From(ctx context.Context, in *FromRequest, opts ...grpc.CallOption) (*FromResponse, error)
 }
 
-type visibilityPropagationServiceClient struct {
+type inflaterServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewVisibilityPropagationServiceClient(cc grpc.ClientConnInterface) VisibilityPropagationServiceClient {
-	return &visibilityPropagationServiceClient{cc}
+func NewInflaterServiceClient(cc grpc.ClientConnInterface) InflaterServiceClient {
+	return &inflaterServiceClient{cc}
 }
 
-func (c *visibilityPropagationServiceClient) CaptureValues(ctx context.Context, in *CaptureValuesRequest, opts ...grpc.CallOption) (*CaptureValuesResponse, error) {
+func (c *inflaterServiceClient) InflateTransition(ctx context.Context, in *InflateTransitionRequest, opts ...grpc.CallOption) (*InflateTransitionResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CaptureValuesResponse)
-	err := c.cc.Invoke(ctx, VisibilityPropagationService_CaptureValues_FullMethodName, in, out, cOpts...)
+	out := new(InflateTransitionResponse)
+	err := c.cc.Invoke(ctx, InflaterService_InflateTransition_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *visibilityPropagationServiceClient) GetPropagationProperties(ctx context.Context, in *GetPropagationPropertiesRequest, opts ...grpc.CallOption) (*GetPropagationPropertiesResponse, error) {
+func (c *inflaterServiceClient) InflateTransitionManager(ctx context.Context, in *InflateTransitionManagerRequest, opts ...grpc.CallOption) (*InflateTransitionManagerResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetPropagationPropertiesResponse)
-	err := c.cc.Invoke(ctx, VisibilityPropagationService_GetPropagationProperties_FullMethodName, in, out, cOpts...)
+	out := new(InflateTransitionManagerResponse)
+	err := c.cc.Invoke(ctx, InflaterService_InflateTransitionManager_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *visibilityPropagationServiceClient) GetViewVisibility(ctx context.Context, in *GetViewVisibilityRequest, opts ...grpc.CallOption) (*GetViewVisibilityResponse, error) {
+func (c *inflaterServiceClient) From(ctx context.Context, in *FromRequest, opts ...grpc.CallOption) (*FromResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetViewVisibilityResponse)
-	err := c.cc.Invoke(ctx, VisibilityPropagationService_GetViewVisibility_FullMethodName, in, out, cOpts...)
+	out := new(FromResponse)
+	err := c.cc.Invoke(ctx, InflaterService_From_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *visibilityPropagationServiceClient) GetViewX(ctx context.Context, in *GetViewXRequest, opts ...grpc.CallOption) (*GetViewXResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetViewXResponse)
-	err := c.cc.Invoke(ctx, VisibilityPropagationService_GetViewX_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *visibilityPropagationServiceClient) GetViewY(ctx context.Context, in *GetViewYRequest, opts ...grpc.CallOption) (*GetViewYResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetViewYResponse)
-	err := c.cc.Invoke(ctx, VisibilityPropagationService_GetViewY_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// VisibilityPropagationServiceServer is the server API for VisibilityPropagationService service.
-// All implementations must embed UnimplementedVisibilityPropagationServiceServer
+// InflaterServiceServer is the server API for InflaterService service.
+// All implementations must embed UnimplementedInflaterServiceServer
 // for forward compatibility.
-type VisibilityPropagationServiceServer interface {
-	CaptureValues(context.Context, *CaptureValuesRequest) (*CaptureValuesResponse, error)
-	GetPropagationProperties(context.Context, *GetPropagationPropertiesRequest) (*GetPropagationPropertiesResponse, error)
-	GetViewVisibility(context.Context, *GetViewVisibilityRequest) (*GetViewVisibilityResponse, error)
-	GetViewX(context.Context, *GetViewXRequest) (*GetViewXResponse, error)
-	GetViewY(context.Context, *GetViewYRequest) (*GetViewYResponse, error)
-	mustEmbedUnimplementedVisibilityPropagationServiceServer()
+type InflaterServiceServer interface {
+	InflateTransition(context.Context, *InflateTransitionRequest) (*InflateTransitionResponse, error)
+	InflateTransitionManager(context.Context, *InflateTransitionManagerRequest) (*InflateTransitionManagerResponse, error)
+	From(context.Context, *FromRequest) (*FromResponse, error)
+	mustEmbedUnimplementedInflaterServiceServer()
 }
 
-// UnimplementedVisibilityPropagationServiceServer must be embedded to have
+// UnimplementedInflaterServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedVisibilityPropagationServiceServer struct{}
+type UnimplementedInflaterServiceServer struct{}
 
-func (UnimplementedVisibilityPropagationServiceServer) CaptureValues(context.Context, *CaptureValuesRequest) (*CaptureValuesResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method CaptureValues not implemented")
+func (UnimplementedInflaterServiceServer) InflateTransition(context.Context, *InflateTransitionRequest) (*InflateTransitionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method InflateTransition not implemented")
 }
-func (UnimplementedVisibilityPropagationServiceServer) GetPropagationProperties(context.Context, *GetPropagationPropertiesRequest) (*GetPropagationPropertiesResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetPropagationProperties not implemented")
+func (UnimplementedInflaterServiceServer) InflateTransitionManager(context.Context, *InflateTransitionManagerRequest) (*InflateTransitionManagerResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method InflateTransitionManager not implemented")
 }
-func (UnimplementedVisibilityPropagationServiceServer) GetViewVisibility(context.Context, *GetViewVisibilityRequest) (*GetViewVisibilityResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetViewVisibility not implemented")
+func (UnimplementedInflaterServiceServer) From(context.Context, *FromRequest) (*FromResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method From not implemented")
 }
-func (UnimplementedVisibilityPropagationServiceServer) GetViewX(context.Context, *GetViewXRequest) (*GetViewXResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetViewX not implemented")
-}
-func (UnimplementedVisibilityPropagationServiceServer) GetViewY(context.Context, *GetViewYRequest) (*GetViewYResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetViewY not implemented")
-}
-func (UnimplementedVisibilityPropagationServiceServer) mustEmbedUnimplementedVisibilityPropagationServiceServer() {
-}
-func (UnimplementedVisibilityPropagationServiceServer) testEmbeddedByValue() {}
+func (UnimplementedInflaterServiceServer) mustEmbedUnimplementedInflaterServiceServer() {}
+func (UnimplementedInflaterServiceServer) testEmbeddedByValue()                         {}
 
-// UnsafeVisibilityPropagationServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to VisibilityPropagationServiceServer will
+// UnsafeInflaterServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to InflaterServiceServer will
 // result in compilation errors.
-type UnsafeVisibilityPropagationServiceServer interface {
-	mustEmbedUnimplementedVisibilityPropagationServiceServer()
+type UnsafeInflaterServiceServer interface {
+	mustEmbedUnimplementedInflaterServiceServer()
 }
 
-func RegisterVisibilityPropagationServiceServer(s grpc.ServiceRegistrar, srv VisibilityPropagationServiceServer) {
-	// If the following call panics, it indicates UnimplementedVisibilityPropagationServiceServer was
+func RegisterInflaterServiceServer(s grpc.ServiceRegistrar, srv InflaterServiceServer) {
+	// If the following call panics, it indicates UnimplementedInflaterServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&VisibilityPropagationService_ServiceDesc, srv)
+	s.RegisterService(&InflaterService_ServiceDesc, srv)
 }
 
-func _VisibilityPropagationService_CaptureValues_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _InflaterService_InflateTransition_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(InflateTransitionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InflaterServiceServer).InflateTransition(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InflaterService_InflateTransition_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InflaterServiceServer).InflateTransition(ctx, req.(*InflateTransitionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InflaterService_InflateTransitionManager_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(InflateTransitionManagerRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InflaterServiceServer).InflateTransitionManager(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InflaterService_InflateTransitionManager_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InflaterServiceServer).InflateTransitionManager(ctx, req.(*InflateTransitionManagerRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InflaterService_From_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(FromRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InflaterServiceServer).From(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InflaterService_From_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InflaterServiceServer).From(ctx, req.(*FromRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// InflaterService_ServiceDesc is the grpc.ServiceDesc for InflaterService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var InflaterService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "transition.InflaterService",
+	HandlerType: (*InflaterServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "InflateTransition",
+			Handler:    _InflaterService_InflateTransition_Handler,
+		},
+		{
+			MethodName: "InflateTransitionManager",
+			Handler:    _InflaterService_InflateTransitionManager_Handler,
+		},
+		{
+			MethodName: "From",
+			Handler:    _InflaterService_From_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/transition/transition.proto",
+}
+
+const (
+	ValuesService_NewValues_FullMethodName = "/transition.ValuesService/NewValues"
+	ValuesService_Equals_FullMethodName    = "/transition.ValuesService/Equals"
+	ValuesService_HashCode_FullMethodName  = "/transition.ValuesService/HashCode"
+	ValuesService_ToString_FullMethodName  = "/transition.ValuesService/ToString"
+)
+
+// ValuesServiceClient is the client API for ValuesService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ValuesServiceClient interface {
+	NewValues(ctx context.Context, in *NewValuesRequest, opts ...grpc.CallOption) (*NewValuesResponse, error)
+	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+}
+
+type valuesServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewValuesServiceClient(cc grpc.ClientConnInterface) ValuesServiceClient {
+	return &valuesServiceClient{cc}
+}
+
+func (c *valuesServiceClient) NewValues(ctx context.Context, in *NewValuesRequest, opts ...grpc.CallOption) (*NewValuesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewValuesResponse)
+	err := c.cc.Invoke(ctx, ValuesService_NewValues_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *valuesServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(EqualsResponse)
+	err := c.cc.Invoke(ctx, ValuesService_Equals_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *valuesServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HashCodeResponse)
+	err := c.cc.Invoke(ctx, ValuesService_HashCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *valuesServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, ValuesService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ValuesServiceServer is the server API for ValuesService service.
+// All implementations must embed UnimplementedValuesServiceServer
+// for forward compatibility.
+type ValuesServiceServer interface {
+	NewValues(context.Context, *NewValuesRequest) (*NewValuesResponse, error)
+	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
+	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
+	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
+	mustEmbedUnimplementedValuesServiceServer()
+}
+
+// UnimplementedValuesServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedValuesServiceServer struct{}
+
+func (UnimplementedValuesServiceServer) NewValues(context.Context, *NewValuesRequest) (*NewValuesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewValues not implemented")
+}
+func (UnimplementedValuesServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
+}
+func (UnimplementedValuesServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
+}
+func (UnimplementedValuesServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedValuesServiceServer) mustEmbedUnimplementedValuesServiceServer() {}
+func (UnimplementedValuesServiceServer) testEmbeddedByValue()                       {}
+
+// UnsafeValuesServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ValuesServiceServer will
+// result in compilation errors.
+type UnsafeValuesServiceServer interface {
+	mustEmbedUnimplementedValuesServiceServer()
+}
+
+func RegisterValuesServiceServer(s grpc.ServiceRegistrar, srv ValuesServiceServer) {
+	// If the following call panics, it indicates UnimplementedValuesServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&ValuesService_ServiceDesc, srv)
+}
+
+func _ValuesService_NewValues_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewValuesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ValuesServiceServer).NewValues(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ValuesService_NewValues_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ValuesServiceServer).NewValues(ctx, req.(*NewValuesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ValuesService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EqualsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ValuesServiceServer).Equals(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ValuesService_Equals_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ValuesServiceServer).Equals(ctx, req.(*EqualsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ValuesService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HashCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ValuesServiceServer).HashCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ValuesService_HashCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ValuesServiceServer).HashCode(ctx, req.(*HashCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ValuesService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ValuesServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ValuesService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ValuesServiceServer).ToString(ctx, req.(*ToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ValuesService_ServiceDesc is the grpc.ServiceDesc for ValuesService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ValuesService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "transition.ValuesService",
+	HandlerType: (*ValuesServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewValues",
+			Handler:    _ValuesService_NewValues_Handler,
+		},
+		{
+			MethodName: "Equals",
+			Handler:    _ValuesService_Equals_Handler,
+		},
+		{
+			MethodName: "HashCode",
+			Handler:    _ValuesService_HashCode_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _ValuesService_ToString_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/transition/transition.proto",
+}
+
+const (
+	PropagationService_CaptureValues_FullMethodName            = "/transition.PropagationService/CaptureValues"
+	PropagationService_GetPropagationProperties_FullMethodName = "/transition.PropagationService/GetPropagationProperties"
+	PropagationService_GetStartDelay_FullMethodName            = "/transition.PropagationService/GetStartDelay"
+)
+
+// PropagationServiceClient is the client API for PropagationService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type PropagationServiceClient interface {
+	CaptureValues(ctx context.Context, in *CaptureValuesRequest, opts ...grpc.CallOption) (*CaptureValuesResponse, error)
+	GetPropagationProperties(ctx context.Context, in *GetPropagationPropertiesRequest, opts ...grpc.CallOption) (*GetPropagationPropertiesResponse, error)
+	GetStartDelay(ctx context.Context, in *GetStartDelayRequest, opts ...grpc.CallOption) (*GetStartDelayResponse, error)
+}
+
+type propagationServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewPropagationServiceClient(cc grpc.ClientConnInterface) PropagationServiceClient {
+	return &propagationServiceClient{cc}
+}
+
+func (c *propagationServiceClient) CaptureValues(ctx context.Context, in *CaptureValuesRequest, opts ...grpc.CallOption) (*CaptureValuesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CaptureValuesResponse)
+	err := c.cc.Invoke(ctx, PropagationService_CaptureValues_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *propagationServiceClient) GetPropagationProperties(ctx context.Context, in *GetPropagationPropertiesRequest, opts ...grpc.CallOption) (*GetPropagationPropertiesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetPropagationPropertiesResponse)
+	err := c.cc.Invoke(ctx, PropagationService_GetPropagationProperties_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *propagationServiceClient) GetStartDelay(ctx context.Context, in *GetStartDelayRequest, opts ...grpc.CallOption) (*GetStartDelayResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetStartDelayResponse)
+	err := c.cc.Invoke(ctx, PropagationService_GetStartDelay_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// PropagationServiceServer is the server API for PropagationService service.
+// All implementations must embed UnimplementedPropagationServiceServer
+// for forward compatibility.
+type PropagationServiceServer interface {
+	CaptureValues(context.Context, *CaptureValuesRequest) (*CaptureValuesResponse, error)
+	GetPropagationProperties(context.Context, *GetPropagationPropertiesRequest) (*GetPropagationPropertiesResponse, error)
+	GetStartDelay(context.Context, *GetStartDelayRequest) (*GetStartDelayResponse, error)
+	mustEmbedUnimplementedPropagationServiceServer()
+}
+
+// UnimplementedPropagationServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedPropagationServiceServer struct{}
+
+func (UnimplementedPropagationServiceServer) CaptureValues(context.Context, *CaptureValuesRequest) (*CaptureValuesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method CaptureValues not implemented")
+}
+func (UnimplementedPropagationServiceServer) GetPropagationProperties(context.Context, *GetPropagationPropertiesRequest) (*GetPropagationPropertiesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetPropagationProperties not implemented")
+}
+func (UnimplementedPropagationServiceServer) GetStartDelay(context.Context, *GetStartDelayRequest) (*GetStartDelayResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetStartDelay not implemented")
+}
+func (UnimplementedPropagationServiceServer) mustEmbedUnimplementedPropagationServiceServer() {}
+func (UnimplementedPropagationServiceServer) testEmbeddedByValue()                            {}
+
+// UnsafePropagationServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to PropagationServiceServer will
+// result in compilation errors.
+type UnsafePropagationServiceServer interface {
+	mustEmbedUnimplementedPropagationServiceServer()
+}
+
+func RegisterPropagationServiceServer(s grpc.ServiceRegistrar, srv PropagationServiceServer) {
+	// If the following call panics, it indicates UnimplementedPropagationServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&PropagationService_ServiceDesc, srv)
+}
+
+func _PropagationService_CaptureValues_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(CaptureValuesRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(VisibilityPropagationServiceServer).CaptureValues(ctx, in)
+		return srv.(PropagationServiceServer).CaptureValues(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: VisibilityPropagationService_CaptureValues_FullMethodName,
+		FullMethod: PropagationService_CaptureValues_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(VisibilityPropagationServiceServer).CaptureValues(ctx, req.(*CaptureValuesRequest))
+		return srv.(PropagationServiceServer).CaptureValues(ctx, req.(*CaptureValuesRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _VisibilityPropagationService_GetPropagationProperties_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _PropagationService_GetPropagationProperties_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetPropagationPropertiesRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(VisibilityPropagationServiceServer).GetPropagationProperties(ctx, in)
+		return srv.(PropagationServiceServer).GetPropagationProperties(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: VisibilityPropagationService_GetPropagationProperties_FullMethodName,
+		FullMethod: PropagationService_GetPropagationProperties_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(VisibilityPropagationServiceServer).GetPropagationProperties(ctx, req.(*GetPropagationPropertiesRequest))
+		return srv.(PropagationServiceServer).GetPropagationProperties(ctx, req.(*GetPropagationPropertiesRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _VisibilityPropagationService_GetViewVisibility_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetViewVisibilityRequest)
+func _PropagationService_GetStartDelay_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetStartDelayRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(VisibilityPropagationServiceServer).GetViewVisibility(ctx, in)
+		return srv.(PropagationServiceServer).GetStartDelay(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: VisibilityPropagationService_GetViewVisibility_FullMethodName,
+		FullMethod: PropagationService_GetStartDelay_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(VisibilityPropagationServiceServer).GetViewVisibility(ctx, req.(*GetViewVisibilityRequest))
+		return srv.(PropagationServiceServer).GetStartDelay(ctx, req.(*GetStartDelayRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _VisibilityPropagationService_GetViewX_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetViewXRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(VisibilityPropagationServiceServer).GetViewX(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: VisibilityPropagationService_GetViewX_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(VisibilityPropagationServiceServer).GetViewX(ctx, req.(*GetViewXRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _VisibilityPropagationService_GetViewY_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetViewYRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(VisibilityPropagationServiceServer).GetViewY(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: VisibilityPropagationService_GetViewY_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(VisibilityPropagationServiceServer).GetViewY(ctx, req.(*GetViewYRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// VisibilityPropagationService_ServiceDesc is the grpc.ServiceDesc for VisibilityPropagationService service.
+// PropagationService_ServiceDesc is the grpc.ServiceDesc for PropagationService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var VisibilityPropagationService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "transition.VisibilityPropagationService",
-	HandlerType: (*VisibilityPropagationServiceServer)(nil),
+var PropagationService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "transition.PropagationService",
+	HandlerType: (*PropagationServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
 			MethodName: "CaptureValues",
-			Handler:    _VisibilityPropagationService_CaptureValues_Handler,
+			Handler:    _PropagationService_CaptureValues_Handler,
 		},
 		{
 			MethodName: "GetPropagationProperties",
-			Handler:    _VisibilityPropagationService_GetPropagationProperties_Handler,
+			Handler:    _PropagationService_GetPropagationProperties_Handler,
 		},
 		{
-			MethodName: "GetViewVisibility",
-			Handler:    _VisibilityPropagationService_GetViewVisibility_Handler,
-		},
-		{
-			MethodName: "GetViewX",
-			Handler:    _VisibilityPropagationService_GetViewX_Handler,
-		},
-		{
-			MethodName: "GetViewY",
-			Handler:    _VisibilityPropagationService_GetViewY_Handler,
+			MethodName: "GetStartDelay",
+			Handler:    _PropagationService_GetStartDelay_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -2050,254 +961,178 @@ var VisibilityPropagationService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	ChangeClipBoundsService_NewChangeClipBounds_FullMethodName     = "/transition.ChangeClipBoundsService/NewChangeClipBounds"
-	ChangeClipBoundsService_CaptureEndValues_FullMethodName        = "/transition.ChangeClipBoundsService/CaptureEndValues"
-	ChangeClipBoundsService_CaptureStartValues_FullMethodName      = "/transition.ChangeClipBoundsService/CaptureStartValues"
-	ChangeClipBoundsService_CreateAnimator_FullMethodName          = "/transition.ChangeClipBoundsService/CreateAnimator"
-	ChangeClipBoundsService_GetTransitionProperties_FullMethodName = "/transition.ChangeClipBoundsService/GetTransitionProperties"
+	CircularPropagationService_NewCircularPropagation_FullMethodName = "/transition.CircularPropagationService/NewCircularPropagation"
+	CircularPropagationService_GetStartDelay_FullMethodName          = "/transition.CircularPropagationService/GetStartDelay"
+	CircularPropagationService_SetPropagationSpeed_FullMethodName    = "/transition.CircularPropagationService/SetPropagationSpeed"
 )
 
-// ChangeClipBoundsServiceClient is the client API for ChangeClipBoundsService service.
+// CircularPropagationServiceClient is the client API for CircularPropagationService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type ChangeClipBoundsServiceClient interface {
-	NewChangeClipBounds(ctx context.Context, in *NewChangeClipBoundsRequest, opts ...grpc.CallOption) (*NewChangeClipBoundsResponse, error)
-	CaptureEndValues(ctx context.Context, in *CaptureEndValuesRequest, opts ...grpc.CallOption) (*CaptureEndValuesResponse, error)
-	CaptureStartValues(ctx context.Context, in *CaptureStartValuesRequest, opts ...grpc.CallOption) (*CaptureStartValuesResponse, error)
-	CreateAnimator(ctx context.Context, in *CreateAnimatorRequest, opts ...grpc.CallOption) (*CreateAnimatorResponse, error)
-	GetTransitionProperties(ctx context.Context, in *GetTransitionPropertiesRequest, opts ...grpc.CallOption) (*GetTransitionPropertiesResponse, error)
+type CircularPropagationServiceClient interface {
+	NewCircularPropagation(ctx context.Context, in *NewCircularPropagationRequest, opts ...grpc.CallOption) (*NewCircularPropagationResponse, error)
+	GetStartDelay(ctx context.Context, in *CircularPropagationGetStartDelayRequest, opts ...grpc.CallOption) (*GetStartDelayResponse, error)
+	SetPropagationSpeed(ctx context.Context, in *SetPropagationSpeedRequest, opts ...grpc.CallOption) (*SetPropagationSpeedResponse, error)
 }
 
-type changeClipBoundsServiceClient struct {
+type circularPropagationServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewChangeClipBoundsServiceClient(cc grpc.ClientConnInterface) ChangeClipBoundsServiceClient {
-	return &changeClipBoundsServiceClient{cc}
+func NewCircularPropagationServiceClient(cc grpc.ClientConnInterface) CircularPropagationServiceClient {
+	return &circularPropagationServiceClient{cc}
 }
 
-func (c *changeClipBoundsServiceClient) NewChangeClipBounds(ctx context.Context, in *NewChangeClipBoundsRequest, opts ...grpc.CallOption) (*NewChangeClipBoundsResponse, error) {
+func (c *circularPropagationServiceClient) NewCircularPropagation(ctx context.Context, in *NewCircularPropagationRequest, opts ...grpc.CallOption) (*NewCircularPropagationResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewChangeClipBoundsResponse)
-	err := c.cc.Invoke(ctx, ChangeClipBoundsService_NewChangeClipBounds_FullMethodName, in, out, cOpts...)
+	out := new(NewCircularPropagationResponse)
+	err := c.cc.Invoke(ctx, CircularPropagationService_NewCircularPropagation_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *changeClipBoundsServiceClient) CaptureEndValues(ctx context.Context, in *CaptureEndValuesRequest, opts ...grpc.CallOption) (*CaptureEndValuesResponse, error) {
+func (c *circularPropagationServiceClient) GetStartDelay(ctx context.Context, in *CircularPropagationGetStartDelayRequest, opts ...grpc.CallOption) (*GetStartDelayResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CaptureEndValuesResponse)
-	err := c.cc.Invoke(ctx, ChangeClipBoundsService_CaptureEndValues_FullMethodName, in, out, cOpts...)
+	out := new(GetStartDelayResponse)
+	err := c.cc.Invoke(ctx, CircularPropagationService_GetStartDelay_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *changeClipBoundsServiceClient) CaptureStartValues(ctx context.Context, in *CaptureStartValuesRequest, opts ...grpc.CallOption) (*CaptureStartValuesResponse, error) {
+func (c *circularPropagationServiceClient) SetPropagationSpeed(ctx context.Context, in *SetPropagationSpeedRequest, opts ...grpc.CallOption) (*SetPropagationSpeedResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CaptureStartValuesResponse)
-	err := c.cc.Invoke(ctx, ChangeClipBoundsService_CaptureStartValues_FullMethodName, in, out, cOpts...)
+	out := new(SetPropagationSpeedResponse)
+	err := c.cc.Invoke(ctx, CircularPropagationService_SetPropagationSpeed_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *changeClipBoundsServiceClient) CreateAnimator(ctx context.Context, in *CreateAnimatorRequest, opts ...grpc.CallOption) (*CreateAnimatorResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CreateAnimatorResponse)
-	err := c.cc.Invoke(ctx, ChangeClipBoundsService_CreateAnimator_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *changeClipBoundsServiceClient) GetTransitionProperties(ctx context.Context, in *GetTransitionPropertiesRequest, opts ...grpc.CallOption) (*GetTransitionPropertiesResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetTransitionPropertiesResponse)
-	err := c.cc.Invoke(ctx, ChangeClipBoundsService_GetTransitionProperties_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// ChangeClipBoundsServiceServer is the server API for ChangeClipBoundsService service.
-// All implementations must embed UnimplementedChangeClipBoundsServiceServer
+// CircularPropagationServiceServer is the server API for CircularPropagationService service.
+// All implementations must embed UnimplementedCircularPropagationServiceServer
 // for forward compatibility.
-type ChangeClipBoundsServiceServer interface {
-	NewChangeClipBounds(context.Context, *NewChangeClipBoundsRequest) (*NewChangeClipBoundsResponse, error)
-	CaptureEndValues(context.Context, *CaptureEndValuesRequest) (*CaptureEndValuesResponse, error)
-	CaptureStartValues(context.Context, *CaptureStartValuesRequest) (*CaptureStartValuesResponse, error)
-	CreateAnimator(context.Context, *CreateAnimatorRequest) (*CreateAnimatorResponse, error)
-	GetTransitionProperties(context.Context, *GetTransitionPropertiesRequest) (*GetTransitionPropertiesResponse, error)
-	mustEmbedUnimplementedChangeClipBoundsServiceServer()
+type CircularPropagationServiceServer interface {
+	NewCircularPropagation(context.Context, *NewCircularPropagationRequest) (*NewCircularPropagationResponse, error)
+	GetStartDelay(context.Context, *CircularPropagationGetStartDelayRequest) (*GetStartDelayResponse, error)
+	SetPropagationSpeed(context.Context, *SetPropagationSpeedRequest) (*SetPropagationSpeedResponse, error)
+	mustEmbedUnimplementedCircularPropagationServiceServer()
 }
 
-// UnimplementedChangeClipBoundsServiceServer must be embedded to have
+// UnimplementedCircularPropagationServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedChangeClipBoundsServiceServer struct{}
+type UnimplementedCircularPropagationServiceServer struct{}
 
-func (UnimplementedChangeClipBoundsServiceServer) NewChangeClipBounds(context.Context, *NewChangeClipBoundsRequest) (*NewChangeClipBoundsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewChangeClipBounds not implemented")
+func (UnimplementedCircularPropagationServiceServer) NewCircularPropagation(context.Context, *NewCircularPropagationRequest) (*NewCircularPropagationResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewCircularPropagation not implemented")
 }
-func (UnimplementedChangeClipBoundsServiceServer) CaptureEndValues(context.Context, *CaptureEndValuesRequest) (*CaptureEndValuesResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method CaptureEndValues not implemented")
+func (UnimplementedCircularPropagationServiceServer) GetStartDelay(context.Context, *CircularPropagationGetStartDelayRequest) (*GetStartDelayResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetStartDelay not implemented")
 }
-func (UnimplementedChangeClipBoundsServiceServer) CaptureStartValues(context.Context, *CaptureStartValuesRequest) (*CaptureStartValuesResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method CaptureStartValues not implemented")
+func (UnimplementedCircularPropagationServiceServer) SetPropagationSpeed(context.Context, *SetPropagationSpeedRequest) (*SetPropagationSpeedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetPropagationSpeed not implemented")
 }
-func (UnimplementedChangeClipBoundsServiceServer) CreateAnimator(context.Context, *CreateAnimatorRequest) (*CreateAnimatorResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method CreateAnimator not implemented")
+func (UnimplementedCircularPropagationServiceServer) mustEmbedUnimplementedCircularPropagationServiceServer() {
 }
-func (UnimplementedChangeClipBoundsServiceServer) GetTransitionProperties(context.Context, *GetTransitionPropertiesRequest) (*GetTransitionPropertiesResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetTransitionProperties not implemented")
-}
-func (UnimplementedChangeClipBoundsServiceServer) mustEmbedUnimplementedChangeClipBoundsServiceServer() {
-}
-func (UnimplementedChangeClipBoundsServiceServer) testEmbeddedByValue() {}
+func (UnimplementedCircularPropagationServiceServer) testEmbeddedByValue() {}
 
-// UnsafeChangeClipBoundsServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to ChangeClipBoundsServiceServer will
+// UnsafeCircularPropagationServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to CircularPropagationServiceServer will
 // result in compilation errors.
-type UnsafeChangeClipBoundsServiceServer interface {
-	mustEmbedUnimplementedChangeClipBoundsServiceServer()
+type UnsafeCircularPropagationServiceServer interface {
+	mustEmbedUnimplementedCircularPropagationServiceServer()
 }
 
-func RegisterChangeClipBoundsServiceServer(s grpc.ServiceRegistrar, srv ChangeClipBoundsServiceServer) {
-	// If the following call panics, it indicates UnimplementedChangeClipBoundsServiceServer was
+func RegisterCircularPropagationServiceServer(s grpc.ServiceRegistrar, srv CircularPropagationServiceServer) {
+	// If the following call panics, it indicates UnimplementedCircularPropagationServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&ChangeClipBoundsService_ServiceDesc, srv)
+	s.RegisterService(&CircularPropagationService_ServiceDesc, srv)
 }
 
-func _ChangeClipBoundsService_NewChangeClipBounds_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewChangeClipBoundsRequest)
+func _CircularPropagationService_NewCircularPropagation_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewCircularPropagationRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ChangeClipBoundsServiceServer).NewChangeClipBounds(ctx, in)
+		return srv.(CircularPropagationServiceServer).NewCircularPropagation(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: ChangeClipBoundsService_NewChangeClipBounds_FullMethodName,
+		FullMethod: CircularPropagationService_NewCircularPropagation_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ChangeClipBoundsServiceServer).NewChangeClipBounds(ctx, req.(*NewChangeClipBoundsRequest))
+		return srv.(CircularPropagationServiceServer).NewCircularPropagation(ctx, req.(*NewCircularPropagationRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ChangeClipBoundsService_CaptureEndValues_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CaptureEndValuesRequest)
+func _CircularPropagationService_GetStartDelay_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CircularPropagationGetStartDelayRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ChangeClipBoundsServiceServer).CaptureEndValues(ctx, in)
+		return srv.(CircularPropagationServiceServer).GetStartDelay(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: ChangeClipBoundsService_CaptureEndValues_FullMethodName,
+		FullMethod: CircularPropagationService_GetStartDelay_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ChangeClipBoundsServiceServer).CaptureEndValues(ctx, req.(*CaptureEndValuesRequest))
+		return srv.(CircularPropagationServiceServer).GetStartDelay(ctx, req.(*CircularPropagationGetStartDelayRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ChangeClipBoundsService_CaptureStartValues_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CaptureStartValuesRequest)
+func _CircularPropagationService_SetPropagationSpeed_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetPropagationSpeedRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ChangeClipBoundsServiceServer).CaptureStartValues(ctx, in)
+		return srv.(CircularPropagationServiceServer).SetPropagationSpeed(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: ChangeClipBoundsService_CaptureStartValues_FullMethodName,
+		FullMethod: CircularPropagationService_SetPropagationSpeed_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ChangeClipBoundsServiceServer).CaptureStartValues(ctx, req.(*CaptureStartValuesRequest))
+		return srv.(CircularPropagationServiceServer).SetPropagationSpeed(ctx, req.(*SetPropagationSpeedRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ChangeClipBoundsService_CreateAnimator_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CreateAnimatorRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ChangeClipBoundsServiceServer).CreateAnimator(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ChangeClipBoundsService_CreateAnimator_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ChangeClipBoundsServiceServer).CreateAnimator(ctx, req.(*CreateAnimatorRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ChangeClipBoundsService_GetTransitionProperties_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetTransitionPropertiesRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ChangeClipBoundsServiceServer).GetTransitionProperties(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ChangeClipBoundsService_GetTransitionProperties_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ChangeClipBoundsServiceServer).GetTransitionProperties(ctx, req.(*GetTransitionPropertiesRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// ChangeClipBoundsService_ServiceDesc is the grpc.ServiceDesc for ChangeClipBoundsService service.
+// CircularPropagationService_ServiceDesc is the grpc.ServiceDesc for CircularPropagationService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var ChangeClipBoundsService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "transition.ChangeClipBoundsService",
-	HandlerType: (*ChangeClipBoundsServiceServer)(nil),
+var CircularPropagationService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "transition.CircularPropagationService",
+	HandlerType: (*CircularPropagationServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "NewChangeClipBounds",
-			Handler:    _ChangeClipBoundsService_NewChangeClipBounds_Handler,
+			MethodName: "NewCircularPropagation",
+			Handler:    _CircularPropagationService_NewCircularPropagation_Handler,
 		},
 		{
-			MethodName: "CaptureEndValues",
-			Handler:    _ChangeClipBoundsService_CaptureEndValues_Handler,
+			MethodName: "GetStartDelay",
+			Handler:    _CircularPropagationService_GetStartDelay_Handler,
 		},
 		{
-			MethodName: "CaptureStartValues",
-			Handler:    _ChangeClipBoundsService_CaptureStartValues_Handler,
-		},
-		{
-			MethodName: "CreateAnimator",
-			Handler:    _ChangeClipBoundsService_CreateAnimator_Handler,
-		},
-		{
-			MethodName: "GetTransitionProperties",
-			Handler:    _ChangeClipBoundsService_GetTransitionProperties_Handler,
+			MethodName: "SetPropagationSpeed",
+			Handler:    _CircularPropagationService_SetPropagationSpeed_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -2305,621 +1140,216 @@ var ChangeClipBoundsService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	ChangeScrollService_NewChangeScroll_FullMethodName         = "/transition.ChangeScrollService/NewChangeScroll"
-	ChangeScrollService_CaptureEndValues_FullMethodName        = "/transition.ChangeScrollService/CaptureEndValues"
-	ChangeScrollService_CaptureStartValues_FullMethodName      = "/transition.ChangeScrollService/CaptureStartValues"
-	ChangeScrollService_CreateAnimator_FullMethodName          = "/transition.ChangeScrollService/CreateAnimator"
-	ChangeScrollService_GetTransitionProperties_FullMethodName = "/transition.ChangeScrollService/GetTransitionProperties"
+	SidePropagationService_NewSidePropagation_FullMethodName  = "/transition.SidePropagationService/NewSidePropagation"
+	SidePropagationService_GetStartDelay_FullMethodName       = "/transition.SidePropagationService/GetStartDelay"
+	SidePropagationService_SetPropagationSpeed_FullMethodName = "/transition.SidePropagationService/SetPropagationSpeed"
+	SidePropagationService_SetSide_FullMethodName             = "/transition.SidePropagationService/SetSide"
 )
 
-// ChangeScrollServiceClient is the client API for ChangeScrollService service.
+// SidePropagationServiceClient is the client API for SidePropagationService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type ChangeScrollServiceClient interface {
-	NewChangeScroll(ctx context.Context, in *NewChangeScrollRequest, opts ...grpc.CallOption) (*NewChangeScrollResponse, error)
-	CaptureEndValues(ctx context.Context, in *CaptureEndValuesRequest, opts ...grpc.CallOption) (*CaptureEndValuesResponse, error)
-	CaptureStartValues(ctx context.Context, in *CaptureStartValuesRequest, opts ...grpc.CallOption) (*CaptureStartValuesResponse, error)
-	CreateAnimator(ctx context.Context, in *CreateAnimatorRequest, opts ...grpc.CallOption) (*CreateAnimatorResponse, error)
-	GetTransitionProperties(ctx context.Context, in *GetTransitionPropertiesRequest, opts ...grpc.CallOption) (*GetTransitionPropertiesResponse, error)
+type SidePropagationServiceClient interface {
+	NewSidePropagation(ctx context.Context, in *NewSidePropagationRequest, opts ...grpc.CallOption) (*NewSidePropagationResponse, error)
+	GetStartDelay(ctx context.Context, in *SidePropagationGetStartDelayRequest, opts ...grpc.CallOption) (*GetStartDelayResponse, error)
+	SetPropagationSpeed(ctx context.Context, in *SetPropagationSpeedRequest, opts ...grpc.CallOption) (*SetPropagationSpeedResponse, error)
+	SetSide(ctx context.Context, in *SetSideRequest, opts ...grpc.CallOption) (*SetSideResponse, error)
 }
 
-type changeScrollServiceClient struct {
+type sidePropagationServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewChangeScrollServiceClient(cc grpc.ClientConnInterface) ChangeScrollServiceClient {
-	return &changeScrollServiceClient{cc}
+func NewSidePropagationServiceClient(cc grpc.ClientConnInterface) SidePropagationServiceClient {
+	return &sidePropagationServiceClient{cc}
 }
 
-func (c *changeScrollServiceClient) NewChangeScroll(ctx context.Context, in *NewChangeScrollRequest, opts ...grpc.CallOption) (*NewChangeScrollResponse, error) {
+func (c *sidePropagationServiceClient) NewSidePropagation(ctx context.Context, in *NewSidePropagationRequest, opts ...grpc.CallOption) (*NewSidePropagationResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewChangeScrollResponse)
-	err := c.cc.Invoke(ctx, ChangeScrollService_NewChangeScroll_FullMethodName, in, out, cOpts...)
+	out := new(NewSidePropagationResponse)
+	err := c.cc.Invoke(ctx, SidePropagationService_NewSidePropagation_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *changeScrollServiceClient) CaptureEndValues(ctx context.Context, in *CaptureEndValuesRequest, opts ...grpc.CallOption) (*CaptureEndValuesResponse, error) {
+func (c *sidePropagationServiceClient) GetStartDelay(ctx context.Context, in *SidePropagationGetStartDelayRequest, opts ...grpc.CallOption) (*GetStartDelayResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CaptureEndValuesResponse)
-	err := c.cc.Invoke(ctx, ChangeScrollService_CaptureEndValues_FullMethodName, in, out, cOpts...)
+	out := new(GetStartDelayResponse)
+	err := c.cc.Invoke(ctx, SidePropagationService_GetStartDelay_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *changeScrollServiceClient) CaptureStartValues(ctx context.Context, in *CaptureStartValuesRequest, opts ...grpc.CallOption) (*CaptureStartValuesResponse, error) {
+func (c *sidePropagationServiceClient) SetPropagationSpeed(ctx context.Context, in *SetPropagationSpeedRequest, opts ...grpc.CallOption) (*SetPropagationSpeedResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CaptureStartValuesResponse)
-	err := c.cc.Invoke(ctx, ChangeScrollService_CaptureStartValues_FullMethodName, in, out, cOpts...)
+	out := new(SetPropagationSpeedResponse)
+	err := c.cc.Invoke(ctx, SidePropagationService_SetPropagationSpeed_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *changeScrollServiceClient) CreateAnimator(ctx context.Context, in *CreateAnimatorRequest, opts ...grpc.CallOption) (*CreateAnimatorResponse, error) {
+func (c *sidePropagationServiceClient) SetSide(ctx context.Context, in *SetSideRequest, opts ...grpc.CallOption) (*SetSideResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CreateAnimatorResponse)
-	err := c.cc.Invoke(ctx, ChangeScrollService_CreateAnimator_FullMethodName, in, out, cOpts...)
+	out := new(SetSideResponse)
+	err := c.cc.Invoke(ctx, SidePropagationService_SetSide_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *changeScrollServiceClient) GetTransitionProperties(ctx context.Context, in *GetTransitionPropertiesRequest, opts ...grpc.CallOption) (*GetTransitionPropertiesResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetTransitionPropertiesResponse)
-	err := c.cc.Invoke(ctx, ChangeScrollService_GetTransitionProperties_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// ChangeScrollServiceServer is the server API for ChangeScrollService service.
-// All implementations must embed UnimplementedChangeScrollServiceServer
+// SidePropagationServiceServer is the server API for SidePropagationService service.
+// All implementations must embed UnimplementedSidePropagationServiceServer
 // for forward compatibility.
-type ChangeScrollServiceServer interface {
-	NewChangeScroll(context.Context, *NewChangeScrollRequest) (*NewChangeScrollResponse, error)
-	CaptureEndValues(context.Context, *CaptureEndValuesRequest) (*CaptureEndValuesResponse, error)
-	CaptureStartValues(context.Context, *CaptureStartValuesRequest) (*CaptureStartValuesResponse, error)
-	CreateAnimator(context.Context, *CreateAnimatorRequest) (*CreateAnimatorResponse, error)
-	GetTransitionProperties(context.Context, *GetTransitionPropertiesRequest) (*GetTransitionPropertiesResponse, error)
-	mustEmbedUnimplementedChangeScrollServiceServer()
+type SidePropagationServiceServer interface {
+	NewSidePropagation(context.Context, *NewSidePropagationRequest) (*NewSidePropagationResponse, error)
+	GetStartDelay(context.Context, *SidePropagationGetStartDelayRequest) (*GetStartDelayResponse, error)
+	SetPropagationSpeed(context.Context, *SetPropagationSpeedRequest) (*SetPropagationSpeedResponse, error)
+	SetSide(context.Context, *SetSideRequest) (*SetSideResponse, error)
+	mustEmbedUnimplementedSidePropagationServiceServer()
 }
 
-// UnimplementedChangeScrollServiceServer must be embedded to have
+// UnimplementedSidePropagationServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedChangeScrollServiceServer struct{}
+type UnimplementedSidePropagationServiceServer struct{}
 
-func (UnimplementedChangeScrollServiceServer) NewChangeScroll(context.Context, *NewChangeScrollRequest) (*NewChangeScrollResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewChangeScroll not implemented")
+func (UnimplementedSidePropagationServiceServer) NewSidePropagation(context.Context, *NewSidePropagationRequest) (*NewSidePropagationResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewSidePropagation not implemented")
 }
-func (UnimplementedChangeScrollServiceServer) CaptureEndValues(context.Context, *CaptureEndValuesRequest) (*CaptureEndValuesResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method CaptureEndValues not implemented")
+func (UnimplementedSidePropagationServiceServer) GetStartDelay(context.Context, *SidePropagationGetStartDelayRequest) (*GetStartDelayResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetStartDelay not implemented")
 }
-func (UnimplementedChangeScrollServiceServer) CaptureStartValues(context.Context, *CaptureStartValuesRequest) (*CaptureStartValuesResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method CaptureStartValues not implemented")
+func (UnimplementedSidePropagationServiceServer) SetPropagationSpeed(context.Context, *SetPropagationSpeedRequest) (*SetPropagationSpeedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetPropagationSpeed not implemented")
 }
-func (UnimplementedChangeScrollServiceServer) CreateAnimator(context.Context, *CreateAnimatorRequest) (*CreateAnimatorResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method CreateAnimator not implemented")
+func (UnimplementedSidePropagationServiceServer) SetSide(context.Context, *SetSideRequest) (*SetSideResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetSide not implemented")
 }
-func (UnimplementedChangeScrollServiceServer) GetTransitionProperties(context.Context, *GetTransitionPropertiesRequest) (*GetTransitionPropertiesResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetTransitionProperties not implemented")
+func (UnimplementedSidePropagationServiceServer) mustEmbedUnimplementedSidePropagationServiceServer() {
 }
-func (UnimplementedChangeScrollServiceServer) mustEmbedUnimplementedChangeScrollServiceServer() {}
-func (UnimplementedChangeScrollServiceServer) testEmbeddedByValue()                             {}
+func (UnimplementedSidePropagationServiceServer) testEmbeddedByValue() {}
 
-// UnsafeChangeScrollServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to ChangeScrollServiceServer will
+// UnsafeSidePropagationServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to SidePropagationServiceServer will
 // result in compilation errors.
-type UnsafeChangeScrollServiceServer interface {
-	mustEmbedUnimplementedChangeScrollServiceServer()
+type UnsafeSidePropagationServiceServer interface {
+	mustEmbedUnimplementedSidePropagationServiceServer()
 }
 
-func RegisterChangeScrollServiceServer(s grpc.ServiceRegistrar, srv ChangeScrollServiceServer) {
-	// If the following call panics, it indicates UnimplementedChangeScrollServiceServer was
+func RegisterSidePropagationServiceServer(s grpc.ServiceRegistrar, srv SidePropagationServiceServer) {
+	// If the following call panics, it indicates UnimplementedSidePropagationServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&ChangeScrollService_ServiceDesc, srv)
+	s.RegisterService(&SidePropagationService_ServiceDesc, srv)
 }
 
-func _ChangeScrollService_NewChangeScroll_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewChangeScrollRequest)
+func _SidePropagationService_NewSidePropagation_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewSidePropagationRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ChangeScrollServiceServer).NewChangeScroll(ctx, in)
+		return srv.(SidePropagationServiceServer).NewSidePropagation(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: ChangeScrollService_NewChangeScroll_FullMethodName,
+		FullMethod: SidePropagationService_NewSidePropagation_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ChangeScrollServiceServer).NewChangeScroll(ctx, req.(*NewChangeScrollRequest))
+		return srv.(SidePropagationServiceServer).NewSidePropagation(ctx, req.(*NewSidePropagationRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ChangeScrollService_CaptureEndValues_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CaptureEndValuesRequest)
+func _SidePropagationService_GetStartDelay_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SidePropagationGetStartDelayRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ChangeScrollServiceServer).CaptureEndValues(ctx, in)
+		return srv.(SidePropagationServiceServer).GetStartDelay(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: ChangeScrollService_CaptureEndValues_FullMethodName,
+		FullMethod: SidePropagationService_GetStartDelay_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ChangeScrollServiceServer).CaptureEndValues(ctx, req.(*CaptureEndValuesRequest))
+		return srv.(SidePropagationServiceServer).GetStartDelay(ctx, req.(*SidePropagationGetStartDelayRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ChangeScrollService_CaptureStartValues_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CaptureStartValuesRequest)
+func _SidePropagationService_SetPropagationSpeed_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetPropagationSpeedRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ChangeScrollServiceServer).CaptureStartValues(ctx, in)
+		return srv.(SidePropagationServiceServer).SetPropagationSpeed(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: ChangeScrollService_CaptureStartValues_FullMethodName,
+		FullMethod: SidePropagationService_SetPropagationSpeed_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ChangeScrollServiceServer).CaptureStartValues(ctx, req.(*CaptureStartValuesRequest))
+		return srv.(SidePropagationServiceServer).SetPropagationSpeed(ctx, req.(*SetPropagationSpeedRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ChangeScrollService_CreateAnimator_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CreateAnimatorRequest)
+func _SidePropagationService_SetSide_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetSideRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ChangeScrollServiceServer).CreateAnimator(ctx, in)
+		return srv.(SidePropagationServiceServer).SetSide(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: ChangeScrollService_CreateAnimator_FullMethodName,
+		FullMethod: SidePropagationService_SetSide_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ChangeScrollServiceServer).CreateAnimator(ctx, req.(*CreateAnimatorRequest))
+		return srv.(SidePropagationServiceServer).SetSide(ctx, req.(*SetSideRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ChangeScrollService_GetTransitionProperties_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetTransitionPropertiesRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ChangeScrollServiceServer).GetTransitionProperties(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ChangeScrollService_GetTransitionProperties_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ChangeScrollServiceServer).GetTransitionProperties(ctx, req.(*GetTransitionPropertiesRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// ChangeScrollService_ServiceDesc is the grpc.ServiceDesc for ChangeScrollService service.
+// SidePropagationService_ServiceDesc is the grpc.ServiceDesc for SidePropagationService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var ChangeScrollService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "transition.ChangeScrollService",
-	HandlerType: (*ChangeScrollServiceServer)(nil),
+var SidePropagationService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "transition.SidePropagationService",
+	HandlerType: (*SidePropagationServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "NewChangeScroll",
-			Handler:    _ChangeScrollService_NewChangeScroll_Handler,
+			MethodName: "NewSidePropagation",
+			Handler:    _SidePropagationService_NewSidePropagation_Handler,
 		},
 		{
-			MethodName: "CaptureEndValues",
-			Handler:    _ChangeScrollService_CaptureEndValues_Handler,
+			MethodName: "GetStartDelay",
+			Handler:    _SidePropagationService_GetStartDelay_Handler,
 		},
 		{
-			MethodName: "CaptureStartValues",
-			Handler:    _ChangeScrollService_CaptureStartValues_Handler,
+			MethodName: "SetPropagationSpeed",
+			Handler:    _SidePropagationService_SetPropagationSpeed_Handler,
 		},
 		{
-			MethodName: "CreateAnimator",
-			Handler:    _ChangeScrollService_CreateAnimator_Handler,
-		},
-		{
-			MethodName: "GetTransitionProperties",
-			Handler:    _ChangeScrollService_GetTransitionProperties_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/transition/transition.proto",
-}
-
-const (
-	SceneService_NewScene_FullMethodName          = "/transition.SceneService/NewScene"
-	SceneService_Enter_FullMethodName             = "/transition.SceneService/Enter"
-	SceneService_Exit_FullMethodName              = "/transition.SceneService/Exit"
-	SceneService_GetSceneRoot_FullMethodName      = "/transition.SceneService/GetSceneRoot"
-	SceneService_SetEnterAction_FullMethodName    = "/transition.SceneService/SetEnterAction"
-	SceneService_SetExitAction_FullMethodName     = "/transition.SceneService/SetExitAction"
-	SceneService_GetCurrentScene_FullMethodName   = "/transition.SceneService/GetCurrentScene"
-	SceneService_GetSceneForLayout_FullMethodName = "/transition.SceneService/GetSceneForLayout"
-)
-
-// SceneServiceClient is the client API for SceneService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type SceneServiceClient interface {
-	NewScene(ctx context.Context, in *NewSceneRequest, opts ...grpc.CallOption) (*NewSceneResponse, error)
-	Enter(ctx context.Context, in *EnterRequest, opts ...grpc.CallOption) (*EnterResponse, error)
-	Exit(ctx context.Context, in *ExitRequest, opts ...grpc.CallOption) (*ExitResponse, error)
-	GetSceneRoot(ctx context.Context, in *GetSceneRootRequest, opts ...grpc.CallOption) (*GetSceneRootResponse, error)
-	SetEnterAction(ctx context.Context, in *SetEnterActionRequest, opts ...grpc.CallOption) (*SetEnterActionResponse, error)
-	SetExitAction(ctx context.Context, in *SetExitActionRequest, opts ...grpc.CallOption) (*SetExitActionResponse, error)
-	GetCurrentScene(ctx context.Context, in *GetCurrentSceneRequest, opts ...grpc.CallOption) (*GetCurrentSceneResponse, error)
-	GetSceneForLayout(ctx context.Context, in *GetSceneForLayoutRequest, opts ...grpc.CallOption) (*GetSceneForLayoutResponse, error)
-}
-
-type sceneServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewSceneServiceClient(cc grpc.ClientConnInterface) SceneServiceClient {
-	return &sceneServiceClient{cc}
-}
-
-func (c *sceneServiceClient) NewScene(ctx context.Context, in *NewSceneRequest, opts ...grpc.CallOption) (*NewSceneResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewSceneResponse)
-	err := c.cc.Invoke(ctx, SceneService_NewScene_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sceneServiceClient) Enter(ctx context.Context, in *EnterRequest, opts ...grpc.CallOption) (*EnterResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(EnterResponse)
-	err := c.cc.Invoke(ctx, SceneService_Enter_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sceneServiceClient) Exit(ctx context.Context, in *ExitRequest, opts ...grpc.CallOption) (*ExitResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ExitResponse)
-	err := c.cc.Invoke(ctx, SceneService_Exit_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sceneServiceClient) GetSceneRoot(ctx context.Context, in *GetSceneRootRequest, opts ...grpc.CallOption) (*GetSceneRootResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetSceneRootResponse)
-	err := c.cc.Invoke(ctx, SceneService_GetSceneRoot_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sceneServiceClient) SetEnterAction(ctx context.Context, in *SetEnterActionRequest, opts ...grpc.CallOption) (*SetEnterActionResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetEnterActionResponse)
-	err := c.cc.Invoke(ctx, SceneService_SetEnterAction_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sceneServiceClient) SetExitAction(ctx context.Context, in *SetExitActionRequest, opts ...grpc.CallOption) (*SetExitActionResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetExitActionResponse)
-	err := c.cc.Invoke(ctx, SceneService_SetExitAction_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sceneServiceClient) GetCurrentScene(ctx context.Context, in *GetCurrentSceneRequest, opts ...grpc.CallOption) (*GetCurrentSceneResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetCurrentSceneResponse)
-	err := c.cc.Invoke(ctx, SceneService_GetCurrentScene_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sceneServiceClient) GetSceneForLayout(ctx context.Context, in *GetSceneForLayoutRequest, opts ...grpc.CallOption) (*GetSceneForLayoutResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetSceneForLayoutResponse)
-	err := c.cc.Invoke(ctx, SceneService_GetSceneForLayout_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// SceneServiceServer is the server API for SceneService service.
-// All implementations must embed UnimplementedSceneServiceServer
-// for forward compatibility.
-type SceneServiceServer interface {
-	NewScene(context.Context, *NewSceneRequest) (*NewSceneResponse, error)
-	Enter(context.Context, *EnterRequest) (*EnterResponse, error)
-	Exit(context.Context, *ExitRequest) (*ExitResponse, error)
-	GetSceneRoot(context.Context, *GetSceneRootRequest) (*GetSceneRootResponse, error)
-	SetEnterAction(context.Context, *SetEnterActionRequest) (*SetEnterActionResponse, error)
-	SetExitAction(context.Context, *SetExitActionRequest) (*SetExitActionResponse, error)
-	GetCurrentScene(context.Context, *GetCurrentSceneRequest) (*GetCurrentSceneResponse, error)
-	GetSceneForLayout(context.Context, *GetSceneForLayoutRequest) (*GetSceneForLayoutResponse, error)
-	mustEmbedUnimplementedSceneServiceServer()
-}
-
-// UnimplementedSceneServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedSceneServiceServer struct{}
-
-func (UnimplementedSceneServiceServer) NewScene(context.Context, *NewSceneRequest) (*NewSceneResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewScene not implemented")
-}
-func (UnimplementedSceneServiceServer) Enter(context.Context, *EnterRequest) (*EnterResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Enter not implemented")
-}
-func (UnimplementedSceneServiceServer) Exit(context.Context, *ExitRequest) (*ExitResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Exit not implemented")
-}
-func (UnimplementedSceneServiceServer) GetSceneRoot(context.Context, *GetSceneRootRequest) (*GetSceneRootResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetSceneRoot not implemented")
-}
-func (UnimplementedSceneServiceServer) SetEnterAction(context.Context, *SetEnterActionRequest) (*SetEnterActionResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetEnterAction not implemented")
-}
-func (UnimplementedSceneServiceServer) SetExitAction(context.Context, *SetExitActionRequest) (*SetExitActionResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetExitAction not implemented")
-}
-func (UnimplementedSceneServiceServer) GetCurrentScene(context.Context, *GetCurrentSceneRequest) (*GetCurrentSceneResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetCurrentScene not implemented")
-}
-func (UnimplementedSceneServiceServer) GetSceneForLayout(context.Context, *GetSceneForLayoutRequest) (*GetSceneForLayoutResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetSceneForLayout not implemented")
-}
-func (UnimplementedSceneServiceServer) mustEmbedUnimplementedSceneServiceServer() {}
-func (UnimplementedSceneServiceServer) testEmbeddedByValue()                      {}
-
-// UnsafeSceneServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to SceneServiceServer will
-// result in compilation errors.
-type UnsafeSceneServiceServer interface {
-	mustEmbedUnimplementedSceneServiceServer()
-}
-
-func RegisterSceneServiceServer(s grpc.ServiceRegistrar, srv SceneServiceServer) {
-	// If the following call panics, it indicates UnimplementedSceneServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&SceneService_ServiceDesc, srv)
-}
-
-func _SceneService_NewScene_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewSceneRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SceneServiceServer).NewScene(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SceneService_NewScene_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SceneServiceServer).NewScene(ctx, req.(*NewSceneRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SceneService_Enter_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(EnterRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SceneServiceServer).Enter(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SceneService_Enter_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SceneServiceServer).Enter(ctx, req.(*EnterRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SceneService_Exit_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ExitRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SceneServiceServer).Exit(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SceneService_Exit_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SceneServiceServer).Exit(ctx, req.(*ExitRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SceneService_GetSceneRoot_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetSceneRootRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SceneServiceServer).GetSceneRoot(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SceneService_GetSceneRoot_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SceneServiceServer).GetSceneRoot(ctx, req.(*GetSceneRootRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SceneService_SetEnterAction_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetEnterActionRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SceneServiceServer).SetEnterAction(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SceneService_SetEnterAction_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SceneServiceServer).SetEnterAction(ctx, req.(*SetEnterActionRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SceneService_SetExitAction_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetExitActionRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SceneServiceServer).SetExitAction(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SceneService_SetExitAction_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SceneServiceServer).SetExitAction(ctx, req.(*SetExitActionRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SceneService_GetCurrentScene_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetCurrentSceneRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SceneServiceServer).GetCurrentScene(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SceneService_GetCurrentScene_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SceneServiceServer).GetCurrentScene(ctx, req.(*GetCurrentSceneRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SceneService_GetSceneForLayout_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetSceneForLayoutRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SceneServiceServer).GetSceneForLayout(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SceneService_GetSceneForLayout_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SceneServiceServer).GetSceneForLayout(ctx, req.(*GetSceneForLayoutRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// SceneService_ServiceDesc is the grpc.ServiceDesc for SceneService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var SceneService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "transition.SceneService",
-	HandlerType: (*SceneServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "NewScene",
-			Handler:    _SceneService_NewScene_Handler,
-		},
-		{
-			MethodName: "Enter",
-			Handler:    _SceneService_Enter_Handler,
-		},
-		{
-			MethodName: "Exit",
-			Handler:    _SceneService_Exit_Handler,
-		},
-		{
-			MethodName: "GetSceneRoot",
-			Handler:    _SceneService_GetSceneRoot_Handler,
-		},
-		{
-			MethodName: "SetEnterAction",
-			Handler:    _SceneService_SetEnterAction_Handler,
-		},
-		{
-			MethodName: "SetExitAction",
-			Handler:    _SceneService_SetExitAction_Handler,
-		},
-		{
-			MethodName: "GetCurrentScene",
-			Handler:    _SceneService_GetCurrentScene_Handler,
-		},
-		{
-			MethodName: "GetSceneForLayout",
-			Handler:    _SceneService_GetSceneForLayout_Handler,
+			MethodName: "SetSide",
+			Handler:    _SidePropagationService_SetSide_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -2952,6 +1382,10 @@ const (
 	TransitionService_GetPathMotion_FullMethodName           = "/transition.TransitionService/GetPathMotion"
 	TransitionService_GetPropagation_FullMethodName          = "/transition.TransitionService/GetPropagation"
 	TransitionService_GetStartDelay_FullMethodName           = "/transition.TransitionService/GetStartDelay"
+	TransitionService_GetTargetIds_FullMethodName            = "/transition.TransitionService/GetTargetIds"
+	TransitionService_GetTargetNames_FullMethodName          = "/transition.TransitionService/GetTargetNames"
+	TransitionService_GetTargetTypes_FullMethodName          = "/transition.TransitionService/GetTargetTypes"
+	TransitionService_GetTargets_FullMethodName              = "/transition.TransitionService/GetTargets"
 	TransitionService_GetTransitionProperties_FullMethodName = "/transition.TransitionService/GetTransitionProperties"
 	TransitionService_GetTransitionValues_FullMethodName     = "/transition.TransitionService/GetTransitionValues"
 	TransitionService_IsTransitionRequired_FullMethodName    = "/transition.TransitionService/IsTransitionRequired"
@@ -2976,22 +1410,22 @@ const (
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type TransitionServiceClient interface {
 	AddListener(ctx context.Context, in *AddListenerRequest, opts ...grpc.CallOption) (*AddListenerResponse, error)
-	AddTarget1(ctx context.Context, in *TransitionAddTarget1Request, opts ...grpc.CallOption) (*AddTarget1Response, error)
-	AddTarget1_1(ctx context.Context, in *TransitionAddTarget1_1Request, opts ...grpc.CallOption) (*AddTarget1_1Response, error)
-	AddTarget1_2(ctx context.Context, in *TransitionAddTarget1_2Request, opts ...grpc.CallOption) (*AddTarget1_2Response, error)
-	AddTarget1_3(ctx context.Context, in *TransitionAddTarget1_3Request, opts ...grpc.CallOption) (*AddTarget1_3Response, error)
+	AddTarget1(ctx context.Context, in *AddTarget1Request, opts ...grpc.CallOption) (*AddTarget1Response, error)
+	AddTarget1_1(ctx context.Context, in *AddTarget1_1Request, opts ...grpc.CallOption) (*AddTarget1_1Response, error)
+	AddTarget1_2(ctx context.Context, in *AddTarget1_2Request, opts ...grpc.CallOption) (*AddTarget1_2Response, error)
+	AddTarget1_3(ctx context.Context, in *AddTarget1_3Request, opts ...grpc.CallOption) (*AddTarget1_3Response, error)
 	CanRemoveViews(ctx context.Context, in *CanRemoveViewsRequest, opts ...grpc.CallOption) (*CanRemoveViewsResponse, error)
-	CaptureEndValues(ctx context.Context, in *TransitionCaptureEndValuesRequest, opts ...grpc.CallOption) (*CaptureEndValuesResponse, error)
-	CaptureStartValues(ctx context.Context, in *TransitionCaptureStartValuesRequest, opts ...grpc.CallOption) (*CaptureStartValuesResponse, error)
-	Clone0(ctx context.Context, in *TransitionClone0Request, opts ...grpc.CallOption) (*Clone0Response, error)
-	CreateAnimator(ctx context.Context, in *TransitionCreateAnimatorRequest, opts ...grpc.CallOption) (*CreateAnimatorResponse, error)
+	CaptureEndValues(ctx context.Context, in *CaptureEndValuesRequest, opts ...grpc.CallOption) (*CaptureEndValuesResponse, error)
+	CaptureStartValues(ctx context.Context, in *CaptureStartValuesRequest, opts ...grpc.CallOption) (*CaptureStartValuesResponse, error)
+	Clone0(ctx context.Context, in *Clone0Request, opts ...grpc.CallOption) (*Clone0Response, error)
+	CreateAnimator(ctx context.Context, in *CreateAnimatorRequest, opts ...grpc.CallOption) (*CreateAnimatorResponse, error)
 	ExcludeChildren2(ctx context.Context, in *ExcludeChildren2Request, opts ...grpc.CallOption) (*ExcludeChildren2Response, error)
 	ExcludeChildren2_1(ctx context.Context, in *ExcludeChildren2_1Request, opts ...grpc.CallOption) (*ExcludeChildren2_1Response, error)
 	ExcludeChildren2_2(ctx context.Context, in *ExcludeChildren2_2Request, opts ...grpc.CallOption) (*ExcludeChildren2_2Response, error)
-	ExcludeTarget2(ctx context.Context, in *TransitionExcludeTarget2Request, opts ...grpc.CallOption) (*ExcludeTarget2Response, error)
-	ExcludeTarget2_1(ctx context.Context, in *TransitionExcludeTarget2_1Request, opts ...grpc.CallOption) (*ExcludeTarget2_1Response, error)
-	ExcludeTarget2_2(ctx context.Context, in *TransitionExcludeTarget2_2Request, opts ...grpc.CallOption) (*ExcludeTarget2_2Response, error)
-	ExcludeTarget2_3(ctx context.Context, in *TransitionExcludeTarget2_3Request, opts ...grpc.CallOption) (*ExcludeTarget2_3Response, error)
+	ExcludeTarget2(ctx context.Context, in *ExcludeTarget2Request, opts ...grpc.CallOption) (*ExcludeTarget2Response, error)
+	ExcludeTarget2_1(ctx context.Context, in *ExcludeTarget2_1Request, opts ...grpc.CallOption) (*ExcludeTarget2_1Response, error)
+	ExcludeTarget2_2(ctx context.Context, in *ExcludeTarget2_2Request, opts ...grpc.CallOption) (*ExcludeTarget2_2Response, error)
+	ExcludeTarget2_3(ctx context.Context, in *ExcludeTarget2_3Request, opts ...grpc.CallOption) (*ExcludeTarget2_3Response, error)
 	GetDuration(ctx context.Context, in *GetDurationRequest, opts ...grpc.CallOption) (*GetDurationResponse, error)
 	GetEpicenter(ctx context.Context, in *GetEpicenterRequest, opts ...grpc.CallOption) (*GetEpicenterResponse, error)
 	GetEpicenterCallback(ctx context.Context, in *GetEpicenterCallbackRequest, opts ...grpc.CallOption) (*GetEpicenterCallbackResponse, error)
@@ -2999,24 +1433,28 @@ type TransitionServiceClient interface {
 	GetName(ctx context.Context, in *GetNameRequest, opts ...grpc.CallOption) (*GetNameResponse, error)
 	GetPathMotion(ctx context.Context, in *GetPathMotionRequest, opts ...grpc.CallOption) (*GetPathMotionResponse, error)
 	GetPropagation(ctx context.Context, in *GetPropagationRequest, opts ...grpc.CallOption) (*GetPropagationResponse, error)
-	GetStartDelay(ctx context.Context, in *GetStartDelayRequest, opts ...grpc.CallOption) (*GetStartDelayResponse, error)
-	GetTransitionProperties(ctx context.Context, in *TransitionGetTransitionPropertiesRequest, opts ...grpc.CallOption) (*GetTransitionPropertiesResponse, error)
+	GetStartDelay(ctx context.Context, in *TransitionGetStartDelayRequest, opts ...grpc.CallOption) (*GetStartDelayResponse, error)
+	GetTargetIds(ctx context.Context, in *GetTargetIdsRequest, opts ...grpc.CallOption) (*GetTargetIdsResponse, error)
+	GetTargetNames(ctx context.Context, in *GetTargetNamesRequest, opts ...grpc.CallOption) (*GetTargetNamesResponse, error)
+	GetTargetTypes(ctx context.Context, in *GetTargetTypesRequest, opts ...grpc.CallOption) (*GetTargetTypesResponse, error)
+	GetTargets(ctx context.Context, in *GetTargetsRequest, opts ...grpc.CallOption) (*GetTargetsResponse, error)
+	GetTransitionProperties(ctx context.Context, in *GetTransitionPropertiesRequest, opts ...grpc.CallOption) (*GetTransitionPropertiesResponse, error)
 	GetTransitionValues(ctx context.Context, in *GetTransitionValuesRequest, opts ...grpc.CallOption) (*GetTransitionValuesResponse, error)
 	IsTransitionRequired(ctx context.Context, in *IsTransitionRequiredRequest, opts ...grpc.CallOption) (*IsTransitionRequiredResponse, error)
 	RemoveListener(ctx context.Context, in *RemoveListenerRequest, opts ...grpc.CallOption) (*RemoveListenerResponse, error)
-	RemoveTarget1(ctx context.Context, in *TransitionRemoveTarget1Request, opts ...grpc.CallOption) (*RemoveTarget1Response, error)
-	RemoveTarget1_1(ctx context.Context, in *TransitionRemoveTarget1_1Request, opts ...grpc.CallOption) (*RemoveTarget1_1Response, error)
-	RemoveTarget1_2(ctx context.Context, in *TransitionRemoveTarget1_2Request, opts ...grpc.CallOption) (*RemoveTarget1_2Response, error)
-	RemoveTarget1_3(ctx context.Context, in *TransitionRemoveTarget1_3Request, opts ...grpc.CallOption) (*RemoveTarget1_3Response, error)
+	RemoveTarget1(ctx context.Context, in *RemoveTarget1Request, opts ...grpc.CallOption) (*RemoveTarget1Response, error)
+	RemoveTarget1_1(ctx context.Context, in *RemoveTarget1_1Request, opts ...grpc.CallOption) (*RemoveTarget1_1Response, error)
+	RemoveTarget1_2(ctx context.Context, in *RemoveTarget1_2Request, opts ...grpc.CallOption) (*RemoveTarget1_2Response, error)
+	RemoveTarget1_3(ctx context.Context, in *RemoveTarget1_3Request, opts ...grpc.CallOption) (*RemoveTarget1_3Response, error)
 	SetDuration(ctx context.Context, in *SetDurationRequest, opts ...grpc.CallOption) (*SetDurationResponse, error)
-	SetEpicenterCallback(ctx context.Context, in *TransitionSetEpicenterCallbackRequest, opts ...grpc.CallOption) (*SetEpicenterCallbackResponse, error)
+	SetEpicenterCallback(ctx context.Context, in *SetEpicenterCallbackRequest, opts ...grpc.CallOption) (*SetEpicenterCallbackResponse, error)
 	SetInterpolator(ctx context.Context, in *SetInterpolatorRequest, opts ...grpc.CallOption) (*SetInterpolatorResponse, error)
 	SetMatchOrder(ctx context.Context, in *SetMatchOrderRequest, opts ...grpc.CallOption) (*SetMatchOrderResponse, error)
-	SetPathMotion(ctx context.Context, in *TransitionSetPathMotionRequest, opts ...grpc.CallOption) (*SetPathMotionResponse, error)
-	SetPropagation(ctx context.Context, in *TransitionSetPropagationRequest, opts ...grpc.CallOption) (*SetPropagationResponse, error)
+	SetPathMotion(ctx context.Context, in *SetPathMotionRequest, opts ...grpc.CallOption) (*SetPathMotionResponse, error)
+	SetPropagation(ctx context.Context, in *SetPropagationRequest, opts ...grpc.CallOption) (*SetPropagationResponse, error)
 	SetStartDelay(ctx context.Context, in *SetStartDelayRequest, opts ...grpc.CallOption) (*SetStartDelayResponse, error)
-	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
-	Clone0_1(ctx context.Context, in *TransitionClone0_1Request, opts ...grpc.CallOption) (*Clone0_1Response, error)
+	ToString(ctx context.Context, in *TransitionToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+	Clone0_1(ctx context.Context, in *Clone0_1Request, opts ...grpc.CallOption) (*Clone0_1Response, error)
 }
 
 type transitionServiceClient struct {
@@ -3037,7 +1475,7 @@ func (c *transitionServiceClient) AddListener(ctx context.Context, in *AddListen
 	return out, nil
 }
 
-func (c *transitionServiceClient) AddTarget1(ctx context.Context, in *TransitionAddTarget1Request, opts ...grpc.CallOption) (*AddTarget1Response, error) {
+func (c *transitionServiceClient) AddTarget1(ctx context.Context, in *AddTarget1Request, opts ...grpc.CallOption) (*AddTarget1Response, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(AddTarget1Response)
 	err := c.cc.Invoke(ctx, TransitionService_AddTarget1_FullMethodName, in, out, cOpts...)
@@ -3047,7 +1485,7 @@ func (c *transitionServiceClient) AddTarget1(ctx context.Context, in *Transition
 	return out, nil
 }
 
-func (c *transitionServiceClient) AddTarget1_1(ctx context.Context, in *TransitionAddTarget1_1Request, opts ...grpc.CallOption) (*AddTarget1_1Response, error) {
+func (c *transitionServiceClient) AddTarget1_1(ctx context.Context, in *AddTarget1_1Request, opts ...grpc.CallOption) (*AddTarget1_1Response, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(AddTarget1_1Response)
 	err := c.cc.Invoke(ctx, TransitionService_AddTarget1_1_FullMethodName, in, out, cOpts...)
@@ -3057,7 +1495,7 @@ func (c *transitionServiceClient) AddTarget1_1(ctx context.Context, in *Transiti
 	return out, nil
 }
 
-func (c *transitionServiceClient) AddTarget1_2(ctx context.Context, in *TransitionAddTarget1_2Request, opts ...grpc.CallOption) (*AddTarget1_2Response, error) {
+func (c *transitionServiceClient) AddTarget1_2(ctx context.Context, in *AddTarget1_2Request, opts ...grpc.CallOption) (*AddTarget1_2Response, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(AddTarget1_2Response)
 	err := c.cc.Invoke(ctx, TransitionService_AddTarget1_2_FullMethodName, in, out, cOpts...)
@@ -3067,7 +1505,7 @@ func (c *transitionServiceClient) AddTarget1_2(ctx context.Context, in *Transiti
 	return out, nil
 }
 
-func (c *transitionServiceClient) AddTarget1_3(ctx context.Context, in *TransitionAddTarget1_3Request, opts ...grpc.CallOption) (*AddTarget1_3Response, error) {
+func (c *transitionServiceClient) AddTarget1_3(ctx context.Context, in *AddTarget1_3Request, opts ...grpc.CallOption) (*AddTarget1_3Response, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(AddTarget1_3Response)
 	err := c.cc.Invoke(ctx, TransitionService_AddTarget1_3_FullMethodName, in, out, cOpts...)
@@ -3087,7 +1525,7 @@ func (c *transitionServiceClient) CanRemoveViews(ctx context.Context, in *CanRem
 	return out, nil
 }
 
-func (c *transitionServiceClient) CaptureEndValues(ctx context.Context, in *TransitionCaptureEndValuesRequest, opts ...grpc.CallOption) (*CaptureEndValuesResponse, error) {
+func (c *transitionServiceClient) CaptureEndValues(ctx context.Context, in *CaptureEndValuesRequest, opts ...grpc.CallOption) (*CaptureEndValuesResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(CaptureEndValuesResponse)
 	err := c.cc.Invoke(ctx, TransitionService_CaptureEndValues_FullMethodName, in, out, cOpts...)
@@ -3097,7 +1535,7 @@ func (c *transitionServiceClient) CaptureEndValues(ctx context.Context, in *Tran
 	return out, nil
 }
 
-func (c *transitionServiceClient) CaptureStartValues(ctx context.Context, in *TransitionCaptureStartValuesRequest, opts ...grpc.CallOption) (*CaptureStartValuesResponse, error) {
+func (c *transitionServiceClient) CaptureStartValues(ctx context.Context, in *CaptureStartValuesRequest, opts ...grpc.CallOption) (*CaptureStartValuesResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(CaptureStartValuesResponse)
 	err := c.cc.Invoke(ctx, TransitionService_CaptureStartValues_FullMethodName, in, out, cOpts...)
@@ -3107,7 +1545,7 @@ func (c *transitionServiceClient) CaptureStartValues(ctx context.Context, in *Tr
 	return out, nil
 }
 
-func (c *transitionServiceClient) Clone0(ctx context.Context, in *TransitionClone0Request, opts ...grpc.CallOption) (*Clone0Response, error) {
+func (c *transitionServiceClient) Clone0(ctx context.Context, in *Clone0Request, opts ...grpc.CallOption) (*Clone0Response, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(Clone0Response)
 	err := c.cc.Invoke(ctx, TransitionService_Clone0_FullMethodName, in, out, cOpts...)
@@ -3117,7 +1555,7 @@ func (c *transitionServiceClient) Clone0(ctx context.Context, in *TransitionClon
 	return out, nil
 }
 
-func (c *transitionServiceClient) CreateAnimator(ctx context.Context, in *TransitionCreateAnimatorRequest, opts ...grpc.CallOption) (*CreateAnimatorResponse, error) {
+func (c *transitionServiceClient) CreateAnimator(ctx context.Context, in *CreateAnimatorRequest, opts ...grpc.CallOption) (*CreateAnimatorResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(CreateAnimatorResponse)
 	err := c.cc.Invoke(ctx, TransitionService_CreateAnimator_FullMethodName, in, out, cOpts...)
@@ -3157,7 +1595,7 @@ func (c *transitionServiceClient) ExcludeChildren2_2(ctx context.Context, in *Ex
 	return out, nil
 }
 
-func (c *transitionServiceClient) ExcludeTarget2(ctx context.Context, in *TransitionExcludeTarget2Request, opts ...grpc.CallOption) (*ExcludeTarget2Response, error) {
+func (c *transitionServiceClient) ExcludeTarget2(ctx context.Context, in *ExcludeTarget2Request, opts ...grpc.CallOption) (*ExcludeTarget2Response, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(ExcludeTarget2Response)
 	err := c.cc.Invoke(ctx, TransitionService_ExcludeTarget2_FullMethodName, in, out, cOpts...)
@@ -3167,7 +1605,7 @@ func (c *transitionServiceClient) ExcludeTarget2(ctx context.Context, in *Transi
 	return out, nil
 }
 
-func (c *transitionServiceClient) ExcludeTarget2_1(ctx context.Context, in *TransitionExcludeTarget2_1Request, opts ...grpc.CallOption) (*ExcludeTarget2_1Response, error) {
+func (c *transitionServiceClient) ExcludeTarget2_1(ctx context.Context, in *ExcludeTarget2_1Request, opts ...grpc.CallOption) (*ExcludeTarget2_1Response, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(ExcludeTarget2_1Response)
 	err := c.cc.Invoke(ctx, TransitionService_ExcludeTarget2_1_FullMethodName, in, out, cOpts...)
@@ -3177,7 +1615,7 @@ func (c *transitionServiceClient) ExcludeTarget2_1(ctx context.Context, in *Tran
 	return out, nil
 }
 
-func (c *transitionServiceClient) ExcludeTarget2_2(ctx context.Context, in *TransitionExcludeTarget2_2Request, opts ...grpc.CallOption) (*ExcludeTarget2_2Response, error) {
+func (c *transitionServiceClient) ExcludeTarget2_2(ctx context.Context, in *ExcludeTarget2_2Request, opts ...grpc.CallOption) (*ExcludeTarget2_2Response, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(ExcludeTarget2_2Response)
 	err := c.cc.Invoke(ctx, TransitionService_ExcludeTarget2_2_FullMethodName, in, out, cOpts...)
@@ -3187,7 +1625,7 @@ func (c *transitionServiceClient) ExcludeTarget2_2(ctx context.Context, in *Tran
 	return out, nil
 }
 
-func (c *transitionServiceClient) ExcludeTarget2_3(ctx context.Context, in *TransitionExcludeTarget2_3Request, opts ...grpc.CallOption) (*ExcludeTarget2_3Response, error) {
+func (c *transitionServiceClient) ExcludeTarget2_3(ctx context.Context, in *ExcludeTarget2_3Request, opts ...grpc.CallOption) (*ExcludeTarget2_3Response, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(ExcludeTarget2_3Response)
 	err := c.cc.Invoke(ctx, TransitionService_ExcludeTarget2_3_FullMethodName, in, out, cOpts...)
@@ -3267,7 +1705,7 @@ func (c *transitionServiceClient) GetPropagation(ctx context.Context, in *GetPro
 	return out, nil
 }
 
-func (c *transitionServiceClient) GetStartDelay(ctx context.Context, in *GetStartDelayRequest, opts ...grpc.CallOption) (*GetStartDelayResponse, error) {
+func (c *transitionServiceClient) GetStartDelay(ctx context.Context, in *TransitionGetStartDelayRequest, opts ...grpc.CallOption) (*GetStartDelayResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetStartDelayResponse)
 	err := c.cc.Invoke(ctx, TransitionService_GetStartDelay_FullMethodName, in, out, cOpts...)
@@ -3277,7 +1715,47 @@ func (c *transitionServiceClient) GetStartDelay(ctx context.Context, in *GetStar
 	return out, nil
 }
 
-func (c *transitionServiceClient) GetTransitionProperties(ctx context.Context, in *TransitionGetTransitionPropertiesRequest, opts ...grpc.CallOption) (*GetTransitionPropertiesResponse, error) {
+func (c *transitionServiceClient) GetTargetIds(ctx context.Context, in *GetTargetIdsRequest, opts ...grpc.CallOption) (*GetTargetIdsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTargetIdsResponse)
+	err := c.cc.Invoke(ctx, TransitionService_GetTargetIds_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *transitionServiceClient) GetTargetNames(ctx context.Context, in *GetTargetNamesRequest, opts ...grpc.CallOption) (*GetTargetNamesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTargetNamesResponse)
+	err := c.cc.Invoke(ctx, TransitionService_GetTargetNames_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *transitionServiceClient) GetTargetTypes(ctx context.Context, in *GetTargetTypesRequest, opts ...grpc.CallOption) (*GetTargetTypesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTargetTypesResponse)
+	err := c.cc.Invoke(ctx, TransitionService_GetTargetTypes_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *transitionServiceClient) GetTargets(ctx context.Context, in *GetTargetsRequest, opts ...grpc.CallOption) (*GetTargetsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTargetsResponse)
+	err := c.cc.Invoke(ctx, TransitionService_GetTargets_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *transitionServiceClient) GetTransitionProperties(ctx context.Context, in *GetTransitionPropertiesRequest, opts ...grpc.CallOption) (*GetTransitionPropertiesResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetTransitionPropertiesResponse)
 	err := c.cc.Invoke(ctx, TransitionService_GetTransitionProperties_FullMethodName, in, out, cOpts...)
@@ -3317,7 +1795,7 @@ func (c *transitionServiceClient) RemoveListener(ctx context.Context, in *Remove
 	return out, nil
 }
 
-func (c *transitionServiceClient) RemoveTarget1(ctx context.Context, in *TransitionRemoveTarget1Request, opts ...grpc.CallOption) (*RemoveTarget1Response, error) {
+func (c *transitionServiceClient) RemoveTarget1(ctx context.Context, in *RemoveTarget1Request, opts ...grpc.CallOption) (*RemoveTarget1Response, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(RemoveTarget1Response)
 	err := c.cc.Invoke(ctx, TransitionService_RemoveTarget1_FullMethodName, in, out, cOpts...)
@@ -3327,7 +1805,7 @@ func (c *transitionServiceClient) RemoveTarget1(ctx context.Context, in *Transit
 	return out, nil
 }
 
-func (c *transitionServiceClient) RemoveTarget1_1(ctx context.Context, in *TransitionRemoveTarget1_1Request, opts ...grpc.CallOption) (*RemoveTarget1_1Response, error) {
+func (c *transitionServiceClient) RemoveTarget1_1(ctx context.Context, in *RemoveTarget1_1Request, opts ...grpc.CallOption) (*RemoveTarget1_1Response, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(RemoveTarget1_1Response)
 	err := c.cc.Invoke(ctx, TransitionService_RemoveTarget1_1_FullMethodName, in, out, cOpts...)
@@ -3337,7 +1815,7 @@ func (c *transitionServiceClient) RemoveTarget1_1(ctx context.Context, in *Trans
 	return out, nil
 }
 
-func (c *transitionServiceClient) RemoveTarget1_2(ctx context.Context, in *TransitionRemoveTarget1_2Request, opts ...grpc.CallOption) (*RemoveTarget1_2Response, error) {
+func (c *transitionServiceClient) RemoveTarget1_2(ctx context.Context, in *RemoveTarget1_2Request, opts ...grpc.CallOption) (*RemoveTarget1_2Response, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(RemoveTarget1_2Response)
 	err := c.cc.Invoke(ctx, TransitionService_RemoveTarget1_2_FullMethodName, in, out, cOpts...)
@@ -3347,7 +1825,7 @@ func (c *transitionServiceClient) RemoveTarget1_2(ctx context.Context, in *Trans
 	return out, nil
 }
 
-func (c *transitionServiceClient) RemoveTarget1_3(ctx context.Context, in *TransitionRemoveTarget1_3Request, opts ...grpc.CallOption) (*RemoveTarget1_3Response, error) {
+func (c *transitionServiceClient) RemoveTarget1_3(ctx context.Context, in *RemoveTarget1_3Request, opts ...grpc.CallOption) (*RemoveTarget1_3Response, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(RemoveTarget1_3Response)
 	err := c.cc.Invoke(ctx, TransitionService_RemoveTarget1_3_FullMethodName, in, out, cOpts...)
@@ -3367,7 +1845,7 @@ func (c *transitionServiceClient) SetDuration(ctx context.Context, in *SetDurati
 	return out, nil
 }
 
-func (c *transitionServiceClient) SetEpicenterCallback(ctx context.Context, in *TransitionSetEpicenterCallbackRequest, opts ...grpc.CallOption) (*SetEpicenterCallbackResponse, error) {
+func (c *transitionServiceClient) SetEpicenterCallback(ctx context.Context, in *SetEpicenterCallbackRequest, opts ...grpc.CallOption) (*SetEpicenterCallbackResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(SetEpicenterCallbackResponse)
 	err := c.cc.Invoke(ctx, TransitionService_SetEpicenterCallback_FullMethodName, in, out, cOpts...)
@@ -3397,7 +1875,7 @@ func (c *transitionServiceClient) SetMatchOrder(ctx context.Context, in *SetMatc
 	return out, nil
 }
 
-func (c *transitionServiceClient) SetPathMotion(ctx context.Context, in *TransitionSetPathMotionRequest, opts ...grpc.CallOption) (*SetPathMotionResponse, error) {
+func (c *transitionServiceClient) SetPathMotion(ctx context.Context, in *SetPathMotionRequest, opts ...grpc.CallOption) (*SetPathMotionResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(SetPathMotionResponse)
 	err := c.cc.Invoke(ctx, TransitionService_SetPathMotion_FullMethodName, in, out, cOpts...)
@@ -3407,7 +1885,7 @@ func (c *transitionServiceClient) SetPathMotion(ctx context.Context, in *Transit
 	return out, nil
 }
 
-func (c *transitionServiceClient) SetPropagation(ctx context.Context, in *TransitionSetPropagationRequest, opts ...grpc.CallOption) (*SetPropagationResponse, error) {
+func (c *transitionServiceClient) SetPropagation(ctx context.Context, in *SetPropagationRequest, opts ...grpc.CallOption) (*SetPropagationResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(SetPropagationResponse)
 	err := c.cc.Invoke(ctx, TransitionService_SetPropagation_FullMethodName, in, out, cOpts...)
@@ -3427,7 +1905,7 @@ func (c *transitionServiceClient) SetStartDelay(ctx context.Context, in *SetStar
 	return out, nil
 }
 
-func (c *transitionServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+func (c *transitionServiceClient) ToString(ctx context.Context, in *TransitionToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(ToStringResponse)
 	err := c.cc.Invoke(ctx, TransitionService_ToString_FullMethodName, in, out, cOpts...)
@@ -3437,7 +1915,7 @@ func (c *transitionServiceClient) ToString(ctx context.Context, in *ToStringRequ
 	return out, nil
 }
 
-func (c *transitionServiceClient) Clone0_1(ctx context.Context, in *TransitionClone0_1Request, opts ...grpc.CallOption) (*Clone0_1Response, error) {
+func (c *transitionServiceClient) Clone0_1(ctx context.Context, in *Clone0_1Request, opts ...grpc.CallOption) (*Clone0_1Response, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(Clone0_1Response)
 	err := c.cc.Invoke(ctx, TransitionService_Clone0_1_FullMethodName, in, out, cOpts...)
@@ -3452,22 +1930,22 @@ func (c *transitionServiceClient) Clone0_1(ctx context.Context, in *TransitionCl
 // for forward compatibility.
 type TransitionServiceServer interface {
 	AddListener(context.Context, *AddListenerRequest) (*AddListenerResponse, error)
-	AddTarget1(context.Context, *TransitionAddTarget1Request) (*AddTarget1Response, error)
-	AddTarget1_1(context.Context, *TransitionAddTarget1_1Request) (*AddTarget1_1Response, error)
-	AddTarget1_2(context.Context, *TransitionAddTarget1_2Request) (*AddTarget1_2Response, error)
-	AddTarget1_3(context.Context, *TransitionAddTarget1_3Request) (*AddTarget1_3Response, error)
+	AddTarget1(context.Context, *AddTarget1Request) (*AddTarget1Response, error)
+	AddTarget1_1(context.Context, *AddTarget1_1Request) (*AddTarget1_1Response, error)
+	AddTarget1_2(context.Context, *AddTarget1_2Request) (*AddTarget1_2Response, error)
+	AddTarget1_3(context.Context, *AddTarget1_3Request) (*AddTarget1_3Response, error)
 	CanRemoveViews(context.Context, *CanRemoveViewsRequest) (*CanRemoveViewsResponse, error)
-	CaptureEndValues(context.Context, *TransitionCaptureEndValuesRequest) (*CaptureEndValuesResponse, error)
-	CaptureStartValues(context.Context, *TransitionCaptureStartValuesRequest) (*CaptureStartValuesResponse, error)
-	Clone0(context.Context, *TransitionClone0Request) (*Clone0Response, error)
-	CreateAnimator(context.Context, *TransitionCreateAnimatorRequest) (*CreateAnimatorResponse, error)
+	CaptureEndValues(context.Context, *CaptureEndValuesRequest) (*CaptureEndValuesResponse, error)
+	CaptureStartValues(context.Context, *CaptureStartValuesRequest) (*CaptureStartValuesResponse, error)
+	Clone0(context.Context, *Clone0Request) (*Clone0Response, error)
+	CreateAnimator(context.Context, *CreateAnimatorRequest) (*CreateAnimatorResponse, error)
 	ExcludeChildren2(context.Context, *ExcludeChildren2Request) (*ExcludeChildren2Response, error)
 	ExcludeChildren2_1(context.Context, *ExcludeChildren2_1Request) (*ExcludeChildren2_1Response, error)
 	ExcludeChildren2_2(context.Context, *ExcludeChildren2_2Request) (*ExcludeChildren2_2Response, error)
-	ExcludeTarget2(context.Context, *TransitionExcludeTarget2Request) (*ExcludeTarget2Response, error)
-	ExcludeTarget2_1(context.Context, *TransitionExcludeTarget2_1Request) (*ExcludeTarget2_1Response, error)
-	ExcludeTarget2_2(context.Context, *TransitionExcludeTarget2_2Request) (*ExcludeTarget2_2Response, error)
-	ExcludeTarget2_3(context.Context, *TransitionExcludeTarget2_3Request) (*ExcludeTarget2_3Response, error)
+	ExcludeTarget2(context.Context, *ExcludeTarget2Request) (*ExcludeTarget2Response, error)
+	ExcludeTarget2_1(context.Context, *ExcludeTarget2_1Request) (*ExcludeTarget2_1Response, error)
+	ExcludeTarget2_2(context.Context, *ExcludeTarget2_2Request) (*ExcludeTarget2_2Response, error)
+	ExcludeTarget2_3(context.Context, *ExcludeTarget2_3Request) (*ExcludeTarget2_3Response, error)
 	GetDuration(context.Context, *GetDurationRequest) (*GetDurationResponse, error)
 	GetEpicenter(context.Context, *GetEpicenterRequest) (*GetEpicenterResponse, error)
 	GetEpicenterCallback(context.Context, *GetEpicenterCallbackRequest) (*GetEpicenterCallbackResponse, error)
@@ -3475,24 +1953,28 @@ type TransitionServiceServer interface {
 	GetName(context.Context, *GetNameRequest) (*GetNameResponse, error)
 	GetPathMotion(context.Context, *GetPathMotionRequest) (*GetPathMotionResponse, error)
 	GetPropagation(context.Context, *GetPropagationRequest) (*GetPropagationResponse, error)
-	GetStartDelay(context.Context, *GetStartDelayRequest) (*GetStartDelayResponse, error)
-	GetTransitionProperties(context.Context, *TransitionGetTransitionPropertiesRequest) (*GetTransitionPropertiesResponse, error)
+	GetStartDelay(context.Context, *TransitionGetStartDelayRequest) (*GetStartDelayResponse, error)
+	GetTargetIds(context.Context, *GetTargetIdsRequest) (*GetTargetIdsResponse, error)
+	GetTargetNames(context.Context, *GetTargetNamesRequest) (*GetTargetNamesResponse, error)
+	GetTargetTypes(context.Context, *GetTargetTypesRequest) (*GetTargetTypesResponse, error)
+	GetTargets(context.Context, *GetTargetsRequest) (*GetTargetsResponse, error)
+	GetTransitionProperties(context.Context, *GetTransitionPropertiesRequest) (*GetTransitionPropertiesResponse, error)
 	GetTransitionValues(context.Context, *GetTransitionValuesRequest) (*GetTransitionValuesResponse, error)
 	IsTransitionRequired(context.Context, *IsTransitionRequiredRequest) (*IsTransitionRequiredResponse, error)
 	RemoveListener(context.Context, *RemoveListenerRequest) (*RemoveListenerResponse, error)
-	RemoveTarget1(context.Context, *TransitionRemoveTarget1Request) (*RemoveTarget1Response, error)
-	RemoveTarget1_1(context.Context, *TransitionRemoveTarget1_1Request) (*RemoveTarget1_1Response, error)
-	RemoveTarget1_2(context.Context, *TransitionRemoveTarget1_2Request) (*RemoveTarget1_2Response, error)
-	RemoveTarget1_3(context.Context, *TransitionRemoveTarget1_3Request) (*RemoveTarget1_3Response, error)
+	RemoveTarget1(context.Context, *RemoveTarget1Request) (*RemoveTarget1Response, error)
+	RemoveTarget1_1(context.Context, *RemoveTarget1_1Request) (*RemoveTarget1_1Response, error)
+	RemoveTarget1_2(context.Context, *RemoveTarget1_2Request) (*RemoveTarget1_2Response, error)
+	RemoveTarget1_3(context.Context, *RemoveTarget1_3Request) (*RemoveTarget1_3Response, error)
 	SetDuration(context.Context, *SetDurationRequest) (*SetDurationResponse, error)
-	SetEpicenterCallback(context.Context, *TransitionSetEpicenterCallbackRequest) (*SetEpicenterCallbackResponse, error)
+	SetEpicenterCallback(context.Context, *SetEpicenterCallbackRequest) (*SetEpicenterCallbackResponse, error)
 	SetInterpolator(context.Context, *SetInterpolatorRequest) (*SetInterpolatorResponse, error)
 	SetMatchOrder(context.Context, *SetMatchOrderRequest) (*SetMatchOrderResponse, error)
-	SetPathMotion(context.Context, *TransitionSetPathMotionRequest) (*SetPathMotionResponse, error)
-	SetPropagation(context.Context, *TransitionSetPropagationRequest) (*SetPropagationResponse, error)
+	SetPathMotion(context.Context, *SetPathMotionRequest) (*SetPathMotionResponse, error)
+	SetPropagation(context.Context, *SetPropagationRequest) (*SetPropagationResponse, error)
 	SetStartDelay(context.Context, *SetStartDelayRequest) (*SetStartDelayResponse, error)
-	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
-	Clone0_1(context.Context, *TransitionClone0_1Request) (*Clone0_1Response, error)
+	ToString(context.Context, *TransitionToStringRequest) (*ToStringResponse, error)
+	Clone0_1(context.Context, *Clone0_1Request) (*Clone0_1Response, error)
 	mustEmbedUnimplementedTransitionServiceServer()
 }
 
@@ -3506,31 +1988,31 @@ type UnimplementedTransitionServiceServer struct{}
 func (UnimplementedTransitionServiceServer) AddListener(context.Context, *AddListenerRequest) (*AddListenerResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method AddListener not implemented")
 }
-func (UnimplementedTransitionServiceServer) AddTarget1(context.Context, *TransitionAddTarget1Request) (*AddTarget1Response, error) {
+func (UnimplementedTransitionServiceServer) AddTarget1(context.Context, *AddTarget1Request) (*AddTarget1Response, error) {
 	return nil, status.Error(codes.Unimplemented, "method AddTarget1 not implemented")
 }
-func (UnimplementedTransitionServiceServer) AddTarget1_1(context.Context, *TransitionAddTarget1_1Request) (*AddTarget1_1Response, error) {
+func (UnimplementedTransitionServiceServer) AddTarget1_1(context.Context, *AddTarget1_1Request) (*AddTarget1_1Response, error) {
 	return nil, status.Error(codes.Unimplemented, "method AddTarget1_1 not implemented")
 }
-func (UnimplementedTransitionServiceServer) AddTarget1_2(context.Context, *TransitionAddTarget1_2Request) (*AddTarget1_2Response, error) {
+func (UnimplementedTransitionServiceServer) AddTarget1_2(context.Context, *AddTarget1_2Request) (*AddTarget1_2Response, error) {
 	return nil, status.Error(codes.Unimplemented, "method AddTarget1_2 not implemented")
 }
-func (UnimplementedTransitionServiceServer) AddTarget1_3(context.Context, *TransitionAddTarget1_3Request) (*AddTarget1_3Response, error) {
+func (UnimplementedTransitionServiceServer) AddTarget1_3(context.Context, *AddTarget1_3Request) (*AddTarget1_3Response, error) {
 	return nil, status.Error(codes.Unimplemented, "method AddTarget1_3 not implemented")
 }
 func (UnimplementedTransitionServiceServer) CanRemoveViews(context.Context, *CanRemoveViewsRequest) (*CanRemoveViewsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method CanRemoveViews not implemented")
 }
-func (UnimplementedTransitionServiceServer) CaptureEndValues(context.Context, *TransitionCaptureEndValuesRequest) (*CaptureEndValuesResponse, error) {
+func (UnimplementedTransitionServiceServer) CaptureEndValues(context.Context, *CaptureEndValuesRequest) (*CaptureEndValuesResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method CaptureEndValues not implemented")
 }
-func (UnimplementedTransitionServiceServer) CaptureStartValues(context.Context, *TransitionCaptureStartValuesRequest) (*CaptureStartValuesResponse, error) {
+func (UnimplementedTransitionServiceServer) CaptureStartValues(context.Context, *CaptureStartValuesRequest) (*CaptureStartValuesResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method CaptureStartValues not implemented")
 }
-func (UnimplementedTransitionServiceServer) Clone0(context.Context, *TransitionClone0Request) (*Clone0Response, error) {
+func (UnimplementedTransitionServiceServer) Clone0(context.Context, *Clone0Request) (*Clone0Response, error) {
 	return nil, status.Error(codes.Unimplemented, "method Clone0 not implemented")
 }
-func (UnimplementedTransitionServiceServer) CreateAnimator(context.Context, *TransitionCreateAnimatorRequest) (*CreateAnimatorResponse, error) {
+func (UnimplementedTransitionServiceServer) CreateAnimator(context.Context, *CreateAnimatorRequest) (*CreateAnimatorResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method CreateAnimator not implemented")
 }
 func (UnimplementedTransitionServiceServer) ExcludeChildren2(context.Context, *ExcludeChildren2Request) (*ExcludeChildren2Response, error) {
@@ -3542,16 +2024,16 @@ func (UnimplementedTransitionServiceServer) ExcludeChildren2_1(context.Context, 
 func (UnimplementedTransitionServiceServer) ExcludeChildren2_2(context.Context, *ExcludeChildren2_2Request) (*ExcludeChildren2_2Response, error) {
 	return nil, status.Error(codes.Unimplemented, "method ExcludeChildren2_2 not implemented")
 }
-func (UnimplementedTransitionServiceServer) ExcludeTarget2(context.Context, *TransitionExcludeTarget2Request) (*ExcludeTarget2Response, error) {
+func (UnimplementedTransitionServiceServer) ExcludeTarget2(context.Context, *ExcludeTarget2Request) (*ExcludeTarget2Response, error) {
 	return nil, status.Error(codes.Unimplemented, "method ExcludeTarget2 not implemented")
 }
-func (UnimplementedTransitionServiceServer) ExcludeTarget2_1(context.Context, *TransitionExcludeTarget2_1Request) (*ExcludeTarget2_1Response, error) {
+func (UnimplementedTransitionServiceServer) ExcludeTarget2_1(context.Context, *ExcludeTarget2_1Request) (*ExcludeTarget2_1Response, error) {
 	return nil, status.Error(codes.Unimplemented, "method ExcludeTarget2_1 not implemented")
 }
-func (UnimplementedTransitionServiceServer) ExcludeTarget2_2(context.Context, *TransitionExcludeTarget2_2Request) (*ExcludeTarget2_2Response, error) {
+func (UnimplementedTransitionServiceServer) ExcludeTarget2_2(context.Context, *ExcludeTarget2_2Request) (*ExcludeTarget2_2Response, error) {
 	return nil, status.Error(codes.Unimplemented, "method ExcludeTarget2_2 not implemented")
 }
-func (UnimplementedTransitionServiceServer) ExcludeTarget2_3(context.Context, *TransitionExcludeTarget2_3Request) (*ExcludeTarget2_3Response, error) {
+func (UnimplementedTransitionServiceServer) ExcludeTarget2_3(context.Context, *ExcludeTarget2_3Request) (*ExcludeTarget2_3Response, error) {
 	return nil, status.Error(codes.Unimplemented, "method ExcludeTarget2_3 not implemented")
 }
 func (UnimplementedTransitionServiceServer) GetDuration(context.Context, *GetDurationRequest) (*GetDurationResponse, error) {
@@ -3575,10 +2057,22 @@ func (UnimplementedTransitionServiceServer) GetPathMotion(context.Context, *GetP
 func (UnimplementedTransitionServiceServer) GetPropagation(context.Context, *GetPropagationRequest) (*GetPropagationResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetPropagation not implemented")
 }
-func (UnimplementedTransitionServiceServer) GetStartDelay(context.Context, *GetStartDelayRequest) (*GetStartDelayResponse, error) {
+func (UnimplementedTransitionServiceServer) GetStartDelay(context.Context, *TransitionGetStartDelayRequest) (*GetStartDelayResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetStartDelay not implemented")
 }
-func (UnimplementedTransitionServiceServer) GetTransitionProperties(context.Context, *TransitionGetTransitionPropertiesRequest) (*GetTransitionPropertiesResponse, error) {
+func (UnimplementedTransitionServiceServer) GetTargetIds(context.Context, *GetTargetIdsRequest) (*GetTargetIdsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTargetIds not implemented")
+}
+func (UnimplementedTransitionServiceServer) GetTargetNames(context.Context, *GetTargetNamesRequest) (*GetTargetNamesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTargetNames not implemented")
+}
+func (UnimplementedTransitionServiceServer) GetTargetTypes(context.Context, *GetTargetTypesRequest) (*GetTargetTypesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTargetTypes not implemented")
+}
+func (UnimplementedTransitionServiceServer) GetTargets(context.Context, *GetTargetsRequest) (*GetTargetsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTargets not implemented")
+}
+func (UnimplementedTransitionServiceServer) GetTransitionProperties(context.Context, *GetTransitionPropertiesRequest) (*GetTransitionPropertiesResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetTransitionProperties not implemented")
 }
 func (UnimplementedTransitionServiceServer) GetTransitionValues(context.Context, *GetTransitionValuesRequest) (*GetTransitionValuesResponse, error) {
@@ -3590,22 +2084,22 @@ func (UnimplementedTransitionServiceServer) IsTransitionRequired(context.Context
 func (UnimplementedTransitionServiceServer) RemoveListener(context.Context, *RemoveListenerRequest) (*RemoveListenerResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method RemoveListener not implemented")
 }
-func (UnimplementedTransitionServiceServer) RemoveTarget1(context.Context, *TransitionRemoveTarget1Request) (*RemoveTarget1Response, error) {
+func (UnimplementedTransitionServiceServer) RemoveTarget1(context.Context, *RemoveTarget1Request) (*RemoveTarget1Response, error) {
 	return nil, status.Error(codes.Unimplemented, "method RemoveTarget1 not implemented")
 }
-func (UnimplementedTransitionServiceServer) RemoveTarget1_1(context.Context, *TransitionRemoveTarget1_1Request) (*RemoveTarget1_1Response, error) {
+func (UnimplementedTransitionServiceServer) RemoveTarget1_1(context.Context, *RemoveTarget1_1Request) (*RemoveTarget1_1Response, error) {
 	return nil, status.Error(codes.Unimplemented, "method RemoveTarget1_1 not implemented")
 }
-func (UnimplementedTransitionServiceServer) RemoveTarget1_2(context.Context, *TransitionRemoveTarget1_2Request) (*RemoveTarget1_2Response, error) {
+func (UnimplementedTransitionServiceServer) RemoveTarget1_2(context.Context, *RemoveTarget1_2Request) (*RemoveTarget1_2Response, error) {
 	return nil, status.Error(codes.Unimplemented, "method RemoveTarget1_2 not implemented")
 }
-func (UnimplementedTransitionServiceServer) RemoveTarget1_3(context.Context, *TransitionRemoveTarget1_3Request) (*RemoveTarget1_3Response, error) {
+func (UnimplementedTransitionServiceServer) RemoveTarget1_3(context.Context, *RemoveTarget1_3Request) (*RemoveTarget1_3Response, error) {
 	return nil, status.Error(codes.Unimplemented, "method RemoveTarget1_3 not implemented")
 }
 func (UnimplementedTransitionServiceServer) SetDuration(context.Context, *SetDurationRequest) (*SetDurationResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method SetDuration not implemented")
 }
-func (UnimplementedTransitionServiceServer) SetEpicenterCallback(context.Context, *TransitionSetEpicenterCallbackRequest) (*SetEpicenterCallbackResponse, error) {
+func (UnimplementedTransitionServiceServer) SetEpicenterCallback(context.Context, *SetEpicenterCallbackRequest) (*SetEpicenterCallbackResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method SetEpicenterCallback not implemented")
 }
 func (UnimplementedTransitionServiceServer) SetInterpolator(context.Context, *SetInterpolatorRequest) (*SetInterpolatorResponse, error) {
@@ -3614,19 +2108,19 @@ func (UnimplementedTransitionServiceServer) SetInterpolator(context.Context, *Se
 func (UnimplementedTransitionServiceServer) SetMatchOrder(context.Context, *SetMatchOrderRequest) (*SetMatchOrderResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method SetMatchOrder not implemented")
 }
-func (UnimplementedTransitionServiceServer) SetPathMotion(context.Context, *TransitionSetPathMotionRequest) (*SetPathMotionResponse, error) {
+func (UnimplementedTransitionServiceServer) SetPathMotion(context.Context, *SetPathMotionRequest) (*SetPathMotionResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method SetPathMotion not implemented")
 }
-func (UnimplementedTransitionServiceServer) SetPropagation(context.Context, *TransitionSetPropagationRequest) (*SetPropagationResponse, error) {
+func (UnimplementedTransitionServiceServer) SetPropagation(context.Context, *SetPropagationRequest) (*SetPropagationResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method SetPropagation not implemented")
 }
 func (UnimplementedTransitionServiceServer) SetStartDelay(context.Context, *SetStartDelayRequest) (*SetStartDelayResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method SetStartDelay not implemented")
 }
-func (UnimplementedTransitionServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
+func (UnimplementedTransitionServiceServer) ToString(context.Context, *TransitionToStringRequest) (*ToStringResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
 }
-func (UnimplementedTransitionServiceServer) Clone0_1(context.Context, *TransitionClone0_1Request) (*Clone0_1Response, error) {
+func (UnimplementedTransitionServiceServer) Clone0_1(context.Context, *Clone0_1Request) (*Clone0_1Response, error) {
 	return nil, status.Error(codes.Unimplemented, "method Clone0_1 not implemented")
 }
 func (UnimplementedTransitionServiceServer) mustEmbedUnimplementedTransitionServiceServer() {}
@@ -3669,7 +2163,7 @@ func _TransitionService_AddListener_Handler(srv interface{}, ctx context.Context
 }
 
 func _TransitionService_AddTarget1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(TransitionAddTarget1Request)
+	in := new(AddTarget1Request)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -3681,13 +2175,13 @@ func _TransitionService_AddTarget1_Handler(srv interface{}, ctx context.Context,
 		FullMethod: TransitionService_AddTarget1_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TransitionServiceServer).AddTarget1(ctx, req.(*TransitionAddTarget1Request))
+		return srv.(TransitionServiceServer).AddTarget1(ctx, req.(*AddTarget1Request))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _TransitionService_AddTarget1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(TransitionAddTarget1_1Request)
+	in := new(AddTarget1_1Request)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -3699,13 +2193,13 @@ func _TransitionService_AddTarget1_1_Handler(srv interface{}, ctx context.Contex
 		FullMethod: TransitionService_AddTarget1_1_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TransitionServiceServer).AddTarget1_1(ctx, req.(*TransitionAddTarget1_1Request))
+		return srv.(TransitionServiceServer).AddTarget1_1(ctx, req.(*AddTarget1_1Request))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _TransitionService_AddTarget1_2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(TransitionAddTarget1_2Request)
+	in := new(AddTarget1_2Request)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -3717,13 +2211,13 @@ func _TransitionService_AddTarget1_2_Handler(srv interface{}, ctx context.Contex
 		FullMethod: TransitionService_AddTarget1_2_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TransitionServiceServer).AddTarget1_2(ctx, req.(*TransitionAddTarget1_2Request))
+		return srv.(TransitionServiceServer).AddTarget1_2(ctx, req.(*AddTarget1_2Request))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _TransitionService_AddTarget1_3_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(TransitionAddTarget1_3Request)
+	in := new(AddTarget1_3Request)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -3735,7 +2229,7 @@ func _TransitionService_AddTarget1_3_Handler(srv interface{}, ctx context.Contex
 		FullMethod: TransitionService_AddTarget1_3_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TransitionServiceServer).AddTarget1_3(ctx, req.(*TransitionAddTarget1_3Request))
+		return srv.(TransitionServiceServer).AddTarget1_3(ctx, req.(*AddTarget1_3Request))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -3759,7 +2253,7 @@ func _TransitionService_CanRemoveViews_Handler(srv interface{}, ctx context.Cont
 }
 
 func _TransitionService_CaptureEndValues_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(TransitionCaptureEndValuesRequest)
+	in := new(CaptureEndValuesRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -3771,13 +2265,13 @@ func _TransitionService_CaptureEndValues_Handler(srv interface{}, ctx context.Co
 		FullMethod: TransitionService_CaptureEndValues_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TransitionServiceServer).CaptureEndValues(ctx, req.(*TransitionCaptureEndValuesRequest))
+		return srv.(TransitionServiceServer).CaptureEndValues(ctx, req.(*CaptureEndValuesRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _TransitionService_CaptureStartValues_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(TransitionCaptureStartValuesRequest)
+	in := new(CaptureStartValuesRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -3789,13 +2283,13 @@ func _TransitionService_CaptureStartValues_Handler(srv interface{}, ctx context.
 		FullMethod: TransitionService_CaptureStartValues_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TransitionServiceServer).CaptureStartValues(ctx, req.(*TransitionCaptureStartValuesRequest))
+		return srv.(TransitionServiceServer).CaptureStartValues(ctx, req.(*CaptureStartValuesRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _TransitionService_Clone0_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(TransitionClone0Request)
+	in := new(Clone0Request)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -3807,13 +2301,13 @@ func _TransitionService_Clone0_Handler(srv interface{}, ctx context.Context, dec
 		FullMethod: TransitionService_Clone0_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TransitionServiceServer).Clone0(ctx, req.(*TransitionClone0Request))
+		return srv.(TransitionServiceServer).Clone0(ctx, req.(*Clone0Request))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _TransitionService_CreateAnimator_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(TransitionCreateAnimatorRequest)
+	in := new(CreateAnimatorRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -3825,7 +2319,7 @@ func _TransitionService_CreateAnimator_Handler(srv interface{}, ctx context.Cont
 		FullMethod: TransitionService_CreateAnimator_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TransitionServiceServer).CreateAnimator(ctx, req.(*TransitionCreateAnimatorRequest))
+		return srv.(TransitionServiceServer).CreateAnimator(ctx, req.(*CreateAnimatorRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -3885,7 +2379,7 @@ func _TransitionService_ExcludeChildren2_2_Handler(srv interface{}, ctx context.
 }
 
 func _TransitionService_ExcludeTarget2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(TransitionExcludeTarget2Request)
+	in := new(ExcludeTarget2Request)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -3897,13 +2391,13 @@ func _TransitionService_ExcludeTarget2_Handler(srv interface{}, ctx context.Cont
 		FullMethod: TransitionService_ExcludeTarget2_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TransitionServiceServer).ExcludeTarget2(ctx, req.(*TransitionExcludeTarget2Request))
+		return srv.(TransitionServiceServer).ExcludeTarget2(ctx, req.(*ExcludeTarget2Request))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _TransitionService_ExcludeTarget2_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(TransitionExcludeTarget2_1Request)
+	in := new(ExcludeTarget2_1Request)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -3915,13 +2409,13 @@ func _TransitionService_ExcludeTarget2_1_Handler(srv interface{}, ctx context.Co
 		FullMethod: TransitionService_ExcludeTarget2_1_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TransitionServiceServer).ExcludeTarget2_1(ctx, req.(*TransitionExcludeTarget2_1Request))
+		return srv.(TransitionServiceServer).ExcludeTarget2_1(ctx, req.(*ExcludeTarget2_1Request))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _TransitionService_ExcludeTarget2_2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(TransitionExcludeTarget2_2Request)
+	in := new(ExcludeTarget2_2Request)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -3933,13 +2427,13 @@ func _TransitionService_ExcludeTarget2_2_Handler(srv interface{}, ctx context.Co
 		FullMethod: TransitionService_ExcludeTarget2_2_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TransitionServiceServer).ExcludeTarget2_2(ctx, req.(*TransitionExcludeTarget2_2Request))
+		return srv.(TransitionServiceServer).ExcludeTarget2_2(ctx, req.(*ExcludeTarget2_2Request))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _TransitionService_ExcludeTarget2_3_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(TransitionExcludeTarget2_3Request)
+	in := new(ExcludeTarget2_3Request)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -3951,7 +2445,7 @@ func _TransitionService_ExcludeTarget2_3_Handler(srv interface{}, ctx context.Co
 		FullMethod: TransitionService_ExcludeTarget2_3_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TransitionServiceServer).ExcludeTarget2_3(ctx, req.(*TransitionExcludeTarget2_3Request))
+		return srv.(TransitionServiceServer).ExcludeTarget2_3(ctx, req.(*ExcludeTarget2_3Request))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -4083,7 +2577,7 @@ func _TransitionService_GetPropagation_Handler(srv interface{}, ctx context.Cont
 }
 
 func _TransitionService_GetStartDelay_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetStartDelayRequest)
+	in := new(TransitionGetStartDelayRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -4095,13 +2589,85 @@ func _TransitionService_GetStartDelay_Handler(srv interface{}, ctx context.Conte
 		FullMethod: TransitionService_GetStartDelay_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TransitionServiceServer).GetStartDelay(ctx, req.(*GetStartDelayRequest))
+		return srv.(TransitionServiceServer).GetStartDelay(ctx, req.(*TransitionGetStartDelayRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TransitionService_GetTargetIds_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTargetIdsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TransitionServiceServer).GetTargetIds(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TransitionService_GetTargetIds_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TransitionServiceServer).GetTargetIds(ctx, req.(*GetTargetIdsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TransitionService_GetTargetNames_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTargetNamesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TransitionServiceServer).GetTargetNames(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TransitionService_GetTargetNames_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TransitionServiceServer).GetTargetNames(ctx, req.(*GetTargetNamesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TransitionService_GetTargetTypes_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTargetTypesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TransitionServiceServer).GetTargetTypes(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TransitionService_GetTargetTypes_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TransitionServiceServer).GetTargetTypes(ctx, req.(*GetTargetTypesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TransitionService_GetTargets_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTargetsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TransitionServiceServer).GetTargets(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TransitionService_GetTargets_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TransitionServiceServer).GetTargets(ctx, req.(*GetTargetsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _TransitionService_GetTransitionProperties_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(TransitionGetTransitionPropertiesRequest)
+	in := new(GetTransitionPropertiesRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -4113,7 +2679,7 @@ func _TransitionService_GetTransitionProperties_Handler(srv interface{}, ctx con
 		FullMethod: TransitionService_GetTransitionProperties_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TransitionServiceServer).GetTransitionProperties(ctx, req.(*TransitionGetTransitionPropertiesRequest))
+		return srv.(TransitionServiceServer).GetTransitionProperties(ctx, req.(*GetTransitionPropertiesRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -4173,7 +2739,7 @@ func _TransitionService_RemoveListener_Handler(srv interface{}, ctx context.Cont
 }
 
 func _TransitionService_RemoveTarget1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(TransitionRemoveTarget1Request)
+	in := new(RemoveTarget1Request)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -4185,13 +2751,13 @@ func _TransitionService_RemoveTarget1_Handler(srv interface{}, ctx context.Conte
 		FullMethod: TransitionService_RemoveTarget1_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TransitionServiceServer).RemoveTarget1(ctx, req.(*TransitionRemoveTarget1Request))
+		return srv.(TransitionServiceServer).RemoveTarget1(ctx, req.(*RemoveTarget1Request))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _TransitionService_RemoveTarget1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(TransitionRemoveTarget1_1Request)
+	in := new(RemoveTarget1_1Request)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -4203,13 +2769,13 @@ func _TransitionService_RemoveTarget1_1_Handler(srv interface{}, ctx context.Con
 		FullMethod: TransitionService_RemoveTarget1_1_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TransitionServiceServer).RemoveTarget1_1(ctx, req.(*TransitionRemoveTarget1_1Request))
+		return srv.(TransitionServiceServer).RemoveTarget1_1(ctx, req.(*RemoveTarget1_1Request))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _TransitionService_RemoveTarget1_2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(TransitionRemoveTarget1_2Request)
+	in := new(RemoveTarget1_2Request)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -4221,13 +2787,13 @@ func _TransitionService_RemoveTarget1_2_Handler(srv interface{}, ctx context.Con
 		FullMethod: TransitionService_RemoveTarget1_2_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TransitionServiceServer).RemoveTarget1_2(ctx, req.(*TransitionRemoveTarget1_2Request))
+		return srv.(TransitionServiceServer).RemoveTarget1_2(ctx, req.(*RemoveTarget1_2Request))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _TransitionService_RemoveTarget1_3_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(TransitionRemoveTarget1_3Request)
+	in := new(RemoveTarget1_3Request)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -4239,7 +2805,7 @@ func _TransitionService_RemoveTarget1_3_Handler(srv interface{}, ctx context.Con
 		FullMethod: TransitionService_RemoveTarget1_3_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TransitionServiceServer).RemoveTarget1_3(ctx, req.(*TransitionRemoveTarget1_3Request))
+		return srv.(TransitionServiceServer).RemoveTarget1_3(ctx, req.(*RemoveTarget1_3Request))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -4263,7 +2829,7 @@ func _TransitionService_SetDuration_Handler(srv interface{}, ctx context.Context
 }
 
 func _TransitionService_SetEpicenterCallback_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(TransitionSetEpicenterCallbackRequest)
+	in := new(SetEpicenterCallbackRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -4275,7 +2841,7 @@ func _TransitionService_SetEpicenterCallback_Handler(srv interface{}, ctx contex
 		FullMethod: TransitionService_SetEpicenterCallback_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TransitionServiceServer).SetEpicenterCallback(ctx, req.(*TransitionSetEpicenterCallbackRequest))
+		return srv.(TransitionServiceServer).SetEpicenterCallback(ctx, req.(*SetEpicenterCallbackRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -4317,7 +2883,7 @@ func _TransitionService_SetMatchOrder_Handler(srv interface{}, ctx context.Conte
 }
 
 func _TransitionService_SetPathMotion_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(TransitionSetPathMotionRequest)
+	in := new(SetPathMotionRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -4329,13 +2895,13 @@ func _TransitionService_SetPathMotion_Handler(srv interface{}, ctx context.Conte
 		FullMethod: TransitionService_SetPathMotion_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TransitionServiceServer).SetPathMotion(ctx, req.(*TransitionSetPathMotionRequest))
+		return srv.(TransitionServiceServer).SetPathMotion(ctx, req.(*SetPathMotionRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _TransitionService_SetPropagation_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(TransitionSetPropagationRequest)
+	in := new(SetPropagationRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -4347,7 +2913,7 @@ func _TransitionService_SetPropagation_Handler(srv interface{}, ctx context.Cont
 		FullMethod: TransitionService_SetPropagation_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TransitionServiceServer).SetPropagation(ctx, req.(*TransitionSetPropagationRequest))
+		return srv.(TransitionServiceServer).SetPropagation(ctx, req.(*SetPropagationRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -4371,7 +2937,7 @@ func _TransitionService_SetStartDelay_Handler(srv interface{}, ctx context.Conte
 }
 
 func _TransitionService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ToStringRequest)
+	in := new(TransitionToStringRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -4383,13 +2949,13 @@ func _TransitionService_ToString_Handler(srv interface{}, ctx context.Context, d
 		FullMethod: TransitionService_ToString_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TransitionServiceServer).ToString(ctx, req.(*ToStringRequest))
+		return srv.(TransitionServiceServer).ToString(ctx, req.(*TransitionToStringRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _TransitionService_Clone0_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(TransitionClone0_1Request)
+	in := new(Clone0_1Request)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -4401,7 +2967,7 @@ func _TransitionService_Clone0_1_Handler(srv interface{}, ctx context.Context, d
 		FullMethod: TransitionService_Clone0_1_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TransitionServiceServer).Clone0_1(ctx, req.(*TransitionClone0_1Request))
+		return srv.(TransitionServiceServer).Clone0_1(ctx, req.(*Clone0_1Request))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -4512,6 +3078,22 @@ var TransitionService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetStartDelay",
 			Handler:    _TransitionService_GetStartDelay_Handler,
+		},
+		{
+			MethodName: "GetTargetIds",
+			Handler:    _TransitionService_GetTargetIds_Handler,
+		},
+		{
+			MethodName: "GetTargetNames",
+			Handler:    _TransitionService_GetTargetNames_Handler,
+		},
+		{
+			MethodName: "GetTargetTypes",
+			Handler:    _TransitionService_GetTargetTypes_Handler,
+		},
+		{
+			MethodName: "GetTargets",
+			Handler:    _TransitionService_GetTargets_Handler,
 		},
 		{
 			MethodName: "GetTransitionProperties",
@@ -4945,2206 +3527,6 @@ var TransitionListenerService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	ArcMotionService_NewArcMotion_FullMethodName              = "/transition.ArcMotionService/NewArcMotion"
-	ArcMotionService_GetMaximumAngle_FullMethodName           = "/transition.ArcMotionService/GetMaximumAngle"
-	ArcMotionService_GetMinimumHorizontalAngle_FullMethodName = "/transition.ArcMotionService/GetMinimumHorizontalAngle"
-	ArcMotionService_GetMinimumVerticalAngle_FullMethodName   = "/transition.ArcMotionService/GetMinimumVerticalAngle"
-	ArcMotionService_GetPath_FullMethodName                   = "/transition.ArcMotionService/GetPath"
-	ArcMotionService_SetMaximumAngle_FullMethodName           = "/transition.ArcMotionService/SetMaximumAngle"
-	ArcMotionService_SetMinimumHorizontalAngle_FullMethodName = "/transition.ArcMotionService/SetMinimumHorizontalAngle"
-	ArcMotionService_SetMinimumVerticalAngle_FullMethodName   = "/transition.ArcMotionService/SetMinimumVerticalAngle"
-)
-
-// ArcMotionServiceClient is the client API for ArcMotionService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type ArcMotionServiceClient interface {
-	NewArcMotion(ctx context.Context, in *NewArcMotionRequest, opts ...grpc.CallOption) (*NewArcMotionResponse, error)
-	GetMaximumAngle(ctx context.Context, in *GetMaximumAngleRequest, opts ...grpc.CallOption) (*GetMaximumAngleResponse, error)
-	GetMinimumHorizontalAngle(ctx context.Context, in *GetMinimumHorizontalAngleRequest, opts ...grpc.CallOption) (*GetMinimumHorizontalAngleResponse, error)
-	GetMinimumVerticalAngle(ctx context.Context, in *GetMinimumVerticalAngleRequest, opts ...grpc.CallOption) (*GetMinimumVerticalAngleResponse, error)
-	GetPath(ctx context.Context, in *GetPathRequest, opts ...grpc.CallOption) (*GetPathResponse, error)
-	SetMaximumAngle(ctx context.Context, in *SetMaximumAngleRequest, opts ...grpc.CallOption) (*SetMaximumAngleResponse, error)
-	SetMinimumHorizontalAngle(ctx context.Context, in *SetMinimumHorizontalAngleRequest, opts ...grpc.CallOption) (*SetMinimumHorizontalAngleResponse, error)
-	SetMinimumVerticalAngle(ctx context.Context, in *SetMinimumVerticalAngleRequest, opts ...grpc.CallOption) (*SetMinimumVerticalAngleResponse, error)
-}
-
-type arcMotionServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewArcMotionServiceClient(cc grpc.ClientConnInterface) ArcMotionServiceClient {
-	return &arcMotionServiceClient{cc}
-}
-
-func (c *arcMotionServiceClient) NewArcMotion(ctx context.Context, in *NewArcMotionRequest, opts ...grpc.CallOption) (*NewArcMotionResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewArcMotionResponse)
-	err := c.cc.Invoke(ctx, ArcMotionService_NewArcMotion_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *arcMotionServiceClient) GetMaximumAngle(ctx context.Context, in *GetMaximumAngleRequest, opts ...grpc.CallOption) (*GetMaximumAngleResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetMaximumAngleResponse)
-	err := c.cc.Invoke(ctx, ArcMotionService_GetMaximumAngle_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *arcMotionServiceClient) GetMinimumHorizontalAngle(ctx context.Context, in *GetMinimumHorizontalAngleRequest, opts ...grpc.CallOption) (*GetMinimumHorizontalAngleResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetMinimumHorizontalAngleResponse)
-	err := c.cc.Invoke(ctx, ArcMotionService_GetMinimumHorizontalAngle_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *arcMotionServiceClient) GetMinimumVerticalAngle(ctx context.Context, in *GetMinimumVerticalAngleRequest, opts ...grpc.CallOption) (*GetMinimumVerticalAngleResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetMinimumVerticalAngleResponse)
-	err := c.cc.Invoke(ctx, ArcMotionService_GetMinimumVerticalAngle_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *arcMotionServiceClient) GetPath(ctx context.Context, in *GetPathRequest, opts ...grpc.CallOption) (*GetPathResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetPathResponse)
-	err := c.cc.Invoke(ctx, ArcMotionService_GetPath_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *arcMotionServiceClient) SetMaximumAngle(ctx context.Context, in *SetMaximumAngleRequest, opts ...grpc.CallOption) (*SetMaximumAngleResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetMaximumAngleResponse)
-	err := c.cc.Invoke(ctx, ArcMotionService_SetMaximumAngle_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *arcMotionServiceClient) SetMinimumHorizontalAngle(ctx context.Context, in *SetMinimumHorizontalAngleRequest, opts ...grpc.CallOption) (*SetMinimumHorizontalAngleResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetMinimumHorizontalAngleResponse)
-	err := c.cc.Invoke(ctx, ArcMotionService_SetMinimumHorizontalAngle_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *arcMotionServiceClient) SetMinimumVerticalAngle(ctx context.Context, in *SetMinimumVerticalAngleRequest, opts ...grpc.CallOption) (*SetMinimumVerticalAngleResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetMinimumVerticalAngleResponse)
-	err := c.cc.Invoke(ctx, ArcMotionService_SetMinimumVerticalAngle_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// ArcMotionServiceServer is the server API for ArcMotionService service.
-// All implementations must embed UnimplementedArcMotionServiceServer
-// for forward compatibility.
-type ArcMotionServiceServer interface {
-	NewArcMotion(context.Context, *NewArcMotionRequest) (*NewArcMotionResponse, error)
-	GetMaximumAngle(context.Context, *GetMaximumAngleRequest) (*GetMaximumAngleResponse, error)
-	GetMinimumHorizontalAngle(context.Context, *GetMinimumHorizontalAngleRequest) (*GetMinimumHorizontalAngleResponse, error)
-	GetMinimumVerticalAngle(context.Context, *GetMinimumVerticalAngleRequest) (*GetMinimumVerticalAngleResponse, error)
-	GetPath(context.Context, *GetPathRequest) (*GetPathResponse, error)
-	SetMaximumAngle(context.Context, *SetMaximumAngleRequest) (*SetMaximumAngleResponse, error)
-	SetMinimumHorizontalAngle(context.Context, *SetMinimumHorizontalAngleRequest) (*SetMinimumHorizontalAngleResponse, error)
-	SetMinimumVerticalAngle(context.Context, *SetMinimumVerticalAngleRequest) (*SetMinimumVerticalAngleResponse, error)
-	mustEmbedUnimplementedArcMotionServiceServer()
-}
-
-// UnimplementedArcMotionServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedArcMotionServiceServer struct{}
-
-func (UnimplementedArcMotionServiceServer) NewArcMotion(context.Context, *NewArcMotionRequest) (*NewArcMotionResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewArcMotion not implemented")
-}
-func (UnimplementedArcMotionServiceServer) GetMaximumAngle(context.Context, *GetMaximumAngleRequest) (*GetMaximumAngleResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetMaximumAngle not implemented")
-}
-func (UnimplementedArcMotionServiceServer) GetMinimumHorizontalAngle(context.Context, *GetMinimumHorizontalAngleRequest) (*GetMinimumHorizontalAngleResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetMinimumHorizontalAngle not implemented")
-}
-func (UnimplementedArcMotionServiceServer) GetMinimumVerticalAngle(context.Context, *GetMinimumVerticalAngleRequest) (*GetMinimumVerticalAngleResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetMinimumVerticalAngle not implemented")
-}
-func (UnimplementedArcMotionServiceServer) GetPath(context.Context, *GetPathRequest) (*GetPathResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetPath not implemented")
-}
-func (UnimplementedArcMotionServiceServer) SetMaximumAngle(context.Context, *SetMaximumAngleRequest) (*SetMaximumAngleResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetMaximumAngle not implemented")
-}
-func (UnimplementedArcMotionServiceServer) SetMinimumHorizontalAngle(context.Context, *SetMinimumHorizontalAngleRequest) (*SetMinimumHorizontalAngleResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetMinimumHorizontalAngle not implemented")
-}
-func (UnimplementedArcMotionServiceServer) SetMinimumVerticalAngle(context.Context, *SetMinimumVerticalAngleRequest) (*SetMinimumVerticalAngleResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetMinimumVerticalAngle not implemented")
-}
-func (UnimplementedArcMotionServiceServer) mustEmbedUnimplementedArcMotionServiceServer() {}
-func (UnimplementedArcMotionServiceServer) testEmbeddedByValue()                          {}
-
-// UnsafeArcMotionServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to ArcMotionServiceServer will
-// result in compilation errors.
-type UnsafeArcMotionServiceServer interface {
-	mustEmbedUnimplementedArcMotionServiceServer()
-}
-
-func RegisterArcMotionServiceServer(s grpc.ServiceRegistrar, srv ArcMotionServiceServer) {
-	// If the following call panics, it indicates UnimplementedArcMotionServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&ArcMotionService_ServiceDesc, srv)
-}
-
-func _ArcMotionService_NewArcMotion_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewArcMotionRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ArcMotionServiceServer).NewArcMotion(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ArcMotionService_NewArcMotion_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ArcMotionServiceServer).NewArcMotion(ctx, req.(*NewArcMotionRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ArcMotionService_GetMaximumAngle_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetMaximumAngleRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ArcMotionServiceServer).GetMaximumAngle(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ArcMotionService_GetMaximumAngle_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ArcMotionServiceServer).GetMaximumAngle(ctx, req.(*GetMaximumAngleRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ArcMotionService_GetMinimumHorizontalAngle_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetMinimumHorizontalAngleRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ArcMotionServiceServer).GetMinimumHorizontalAngle(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ArcMotionService_GetMinimumHorizontalAngle_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ArcMotionServiceServer).GetMinimumHorizontalAngle(ctx, req.(*GetMinimumHorizontalAngleRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ArcMotionService_GetMinimumVerticalAngle_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetMinimumVerticalAngleRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ArcMotionServiceServer).GetMinimumVerticalAngle(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ArcMotionService_GetMinimumVerticalAngle_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ArcMotionServiceServer).GetMinimumVerticalAngle(ctx, req.(*GetMinimumVerticalAngleRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ArcMotionService_GetPath_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetPathRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ArcMotionServiceServer).GetPath(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ArcMotionService_GetPath_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ArcMotionServiceServer).GetPath(ctx, req.(*GetPathRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ArcMotionService_SetMaximumAngle_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetMaximumAngleRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ArcMotionServiceServer).SetMaximumAngle(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ArcMotionService_SetMaximumAngle_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ArcMotionServiceServer).SetMaximumAngle(ctx, req.(*SetMaximumAngleRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ArcMotionService_SetMinimumHorizontalAngle_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetMinimumHorizontalAngleRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ArcMotionServiceServer).SetMinimumHorizontalAngle(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ArcMotionService_SetMinimumHorizontalAngle_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ArcMotionServiceServer).SetMinimumHorizontalAngle(ctx, req.(*SetMinimumHorizontalAngleRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ArcMotionService_SetMinimumVerticalAngle_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetMinimumVerticalAngleRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ArcMotionServiceServer).SetMinimumVerticalAngle(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ArcMotionService_SetMinimumVerticalAngle_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ArcMotionServiceServer).SetMinimumVerticalAngle(ctx, req.(*SetMinimumVerticalAngleRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// ArcMotionService_ServiceDesc is the grpc.ServiceDesc for ArcMotionService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var ArcMotionService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "transition.ArcMotionService",
-	HandlerType: (*ArcMotionServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "NewArcMotion",
-			Handler:    _ArcMotionService_NewArcMotion_Handler,
-		},
-		{
-			MethodName: "GetMaximumAngle",
-			Handler:    _ArcMotionService_GetMaximumAngle_Handler,
-		},
-		{
-			MethodName: "GetMinimumHorizontalAngle",
-			Handler:    _ArcMotionService_GetMinimumHorizontalAngle_Handler,
-		},
-		{
-			MethodName: "GetMinimumVerticalAngle",
-			Handler:    _ArcMotionService_GetMinimumVerticalAngle_Handler,
-		},
-		{
-			MethodName: "GetPath",
-			Handler:    _ArcMotionService_GetPath_Handler,
-		},
-		{
-			MethodName: "SetMaximumAngle",
-			Handler:    _ArcMotionService_SetMaximumAngle_Handler,
-		},
-		{
-			MethodName: "SetMinimumHorizontalAngle",
-			Handler:    _ArcMotionService_SetMinimumHorizontalAngle_Handler,
-		},
-		{
-			MethodName: "SetMinimumVerticalAngle",
-			Handler:    _ArcMotionService_SetMinimumVerticalAngle_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/transition/transition.proto",
-}
-
-const (
-	VisibilityService_CaptureEndValues_FullMethodName        = "/transition.VisibilityService/CaptureEndValues"
-	VisibilityService_CaptureStartValues_FullMethodName      = "/transition.VisibilityService/CaptureStartValues"
-	VisibilityService_CreateAnimator_FullMethodName          = "/transition.VisibilityService/CreateAnimator"
-	VisibilityService_GetMode_FullMethodName                 = "/transition.VisibilityService/GetMode"
-	VisibilityService_GetTransitionProperties_FullMethodName = "/transition.VisibilityService/GetTransitionProperties"
-	VisibilityService_IsTransitionRequired_FullMethodName    = "/transition.VisibilityService/IsTransitionRequired"
-	VisibilityService_IsVisible_FullMethodName               = "/transition.VisibilityService/IsVisible"
-	VisibilityService_OnAppear5_FullMethodName               = "/transition.VisibilityService/OnAppear5"
-	VisibilityService_OnAppear4_1_FullMethodName             = "/transition.VisibilityService/OnAppear4_1"
-	VisibilityService_OnDisappear5_FullMethodName            = "/transition.VisibilityService/OnDisappear5"
-	VisibilityService_OnDisappear4_1_FullMethodName          = "/transition.VisibilityService/OnDisappear4_1"
-	VisibilityService_SetMode_FullMethodName                 = "/transition.VisibilityService/SetMode"
-)
-
-// VisibilityServiceClient is the client API for VisibilityService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type VisibilityServiceClient interface {
-	CaptureEndValues(ctx context.Context, in *VisibilityCaptureEndValuesRequest, opts ...grpc.CallOption) (*CaptureEndValuesResponse, error)
-	CaptureStartValues(ctx context.Context, in *VisibilityCaptureStartValuesRequest, opts ...grpc.CallOption) (*CaptureStartValuesResponse, error)
-	CreateAnimator(ctx context.Context, in *VisibilityCreateAnimatorRequest, opts ...grpc.CallOption) (*CreateAnimatorResponse, error)
-	GetMode(ctx context.Context, in *GetModeRequest, opts ...grpc.CallOption) (*GetModeResponse, error)
-	GetTransitionProperties(ctx context.Context, in *VisibilityGetTransitionPropertiesRequest, opts ...grpc.CallOption) (*GetTransitionPropertiesResponse, error)
-	IsTransitionRequired(ctx context.Context, in *IsTransitionRequiredRequest, opts ...grpc.CallOption) (*IsTransitionRequiredResponse, error)
-	IsVisible(ctx context.Context, in *IsVisibleRequest, opts ...grpc.CallOption) (*IsVisibleResponse, error)
-	OnAppear5(ctx context.Context, in *OnAppear5Request, opts ...grpc.CallOption) (*OnAppear5Response, error)
-	OnAppear4_1(ctx context.Context, in *OnAppear4_1Request, opts ...grpc.CallOption) (*OnAppear4_1Response, error)
-	OnDisappear5(ctx context.Context, in *OnDisappear5Request, opts ...grpc.CallOption) (*OnDisappear5Response, error)
-	OnDisappear4_1(ctx context.Context, in *OnDisappear4_1Request, opts ...grpc.CallOption) (*OnDisappear4_1Response, error)
-	SetMode(ctx context.Context, in *SetModeRequest, opts ...grpc.CallOption) (*SetModeResponse, error)
-}
-
-type visibilityServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewVisibilityServiceClient(cc grpc.ClientConnInterface) VisibilityServiceClient {
-	return &visibilityServiceClient{cc}
-}
-
-func (c *visibilityServiceClient) CaptureEndValues(ctx context.Context, in *VisibilityCaptureEndValuesRequest, opts ...grpc.CallOption) (*CaptureEndValuesResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CaptureEndValuesResponse)
-	err := c.cc.Invoke(ctx, VisibilityService_CaptureEndValues_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *visibilityServiceClient) CaptureStartValues(ctx context.Context, in *VisibilityCaptureStartValuesRequest, opts ...grpc.CallOption) (*CaptureStartValuesResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CaptureStartValuesResponse)
-	err := c.cc.Invoke(ctx, VisibilityService_CaptureStartValues_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *visibilityServiceClient) CreateAnimator(ctx context.Context, in *VisibilityCreateAnimatorRequest, opts ...grpc.CallOption) (*CreateAnimatorResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CreateAnimatorResponse)
-	err := c.cc.Invoke(ctx, VisibilityService_CreateAnimator_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *visibilityServiceClient) GetMode(ctx context.Context, in *GetModeRequest, opts ...grpc.CallOption) (*GetModeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetModeResponse)
-	err := c.cc.Invoke(ctx, VisibilityService_GetMode_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *visibilityServiceClient) GetTransitionProperties(ctx context.Context, in *VisibilityGetTransitionPropertiesRequest, opts ...grpc.CallOption) (*GetTransitionPropertiesResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetTransitionPropertiesResponse)
-	err := c.cc.Invoke(ctx, VisibilityService_GetTransitionProperties_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *visibilityServiceClient) IsTransitionRequired(ctx context.Context, in *IsTransitionRequiredRequest, opts ...grpc.CallOption) (*IsTransitionRequiredResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsTransitionRequiredResponse)
-	err := c.cc.Invoke(ctx, VisibilityService_IsTransitionRequired_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *visibilityServiceClient) IsVisible(ctx context.Context, in *IsVisibleRequest, opts ...grpc.CallOption) (*IsVisibleResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsVisibleResponse)
-	err := c.cc.Invoke(ctx, VisibilityService_IsVisible_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *visibilityServiceClient) OnAppear5(ctx context.Context, in *OnAppear5Request, opts ...grpc.CallOption) (*OnAppear5Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnAppear5Response)
-	err := c.cc.Invoke(ctx, VisibilityService_OnAppear5_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *visibilityServiceClient) OnAppear4_1(ctx context.Context, in *OnAppear4_1Request, opts ...grpc.CallOption) (*OnAppear4_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnAppear4_1Response)
-	err := c.cc.Invoke(ctx, VisibilityService_OnAppear4_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *visibilityServiceClient) OnDisappear5(ctx context.Context, in *OnDisappear5Request, opts ...grpc.CallOption) (*OnDisappear5Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnDisappear5Response)
-	err := c.cc.Invoke(ctx, VisibilityService_OnDisappear5_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *visibilityServiceClient) OnDisappear4_1(ctx context.Context, in *OnDisappear4_1Request, opts ...grpc.CallOption) (*OnDisappear4_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnDisappear4_1Response)
-	err := c.cc.Invoke(ctx, VisibilityService_OnDisappear4_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *visibilityServiceClient) SetMode(ctx context.Context, in *SetModeRequest, opts ...grpc.CallOption) (*SetModeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetModeResponse)
-	err := c.cc.Invoke(ctx, VisibilityService_SetMode_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// VisibilityServiceServer is the server API for VisibilityService service.
-// All implementations must embed UnimplementedVisibilityServiceServer
-// for forward compatibility.
-type VisibilityServiceServer interface {
-	CaptureEndValues(context.Context, *VisibilityCaptureEndValuesRequest) (*CaptureEndValuesResponse, error)
-	CaptureStartValues(context.Context, *VisibilityCaptureStartValuesRequest) (*CaptureStartValuesResponse, error)
-	CreateAnimator(context.Context, *VisibilityCreateAnimatorRequest) (*CreateAnimatorResponse, error)
-	GetMode(context.Context, *GetModeRequest) (*GetModeResponse, error)
-	GetTransitionProperties(context.Context, *VisibilityGetTransitionPropertiesRequest) (*GetTransitionPropertiesResponse, error)
-	IsTransitionRequired(context.Context, *IsTransitionRequiredRequest) (*IsTransitionRequiredResponse, error)
-	IsVisible(context.Context, *IsVisibleRequest) (*IsVisibleResponse, error)
-	OnAppear5(context.Context, *OnAppear5Request) (*OnAppear5Response, error)
-	OnAppear4_1(context.Context, *OnAppear4_1Request) (*OnAppear4_1Response, error)
-	OnDisappear5(context.Context, *OnDisappear5Request) (*OnDisappear5Response, error)
-	OnDisappear4_1(context.Context, *OnDisappear4_1Request) (*OnDisappear4_1Response, error)
-	SetMode(context.Context, *SetModeRequest) (*SetModeResponse, error)
-	mustEmbedUnimplementedVisibilityServiceServer()
-}
-
-// UnimplementedVisibilityServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedVisibilityServiceServer struct{}
-
-func (UnimplementedVisibilityServiceServer) CaptureEndValues(context.Context, *VisibilityCaptureEndValuesRequest) (*CaptureEndValuesResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method CaptureEndValues not implemented")
-}
-func (UnimplementedVisibilityServiceServer) CaptureStartValues(context.Context, *VisibilityCaptureStartValuesRequest) (*CaptureStartValuesResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method CaptureStartValues not implemented")
-}
-func (UnimplementedVisibilityServiceServer) CreateAnimator(context.Context, *VisibilityCreateAnimatorRequest) (*CreateAnimatorResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method CreateAnimator not implemented")
-}
-func (UnimplementedVisibilityServiceServer) GetMode(context.Context, *GetModeRequest) (*GetModeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetMode not implemented")
-}
-func (UnimplementedVisibilityServiceServer) GetTransitionProperties(context.Context, *VisibilityGetTransitionPropertiesRequest) (*GetTransitionPropertiesResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetTransitionProperties not implemented")
-}
-func (UnimplementedVisibilityServiceServer) IsTransitionRequired(context.Context, *IsTransitionRequiredRequest) (*IsTransitionRequiredResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsTransitionRequired not implemented")
-}
-func (UnimplementedVisibilityServiceServer) IsVisible(context.Context, *IsVisibleRequest) (*IsVisibleResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsVisible not implemented")
-}
-func (UnimplementedVisibilityServiceServer) OnAppear5(context.Context, *OnAppear5Request) (*OnAppear5Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnAppear5 not implemented")
-}
-func (UnimplementedVisibilityServiceServer) OnAppear4_1(context.Context, *OnAppear4_1Request) (*OnAppear4_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnAppear4_1 not implemented")
-}
-func (UnimplementedVisibilityServiceServer) OnDisappear5(context.Context, *OnDisappear5Request) (*OnDisappear5Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnDisappear5 not implemented")
-}
-func (UnimplementedVisibilityServiceServer) OnDisappear4_1(context.Context, *OnDisappear4_1Request) (*OnDisappear4_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnDisappear4_1 not implemented")
-}
-func (UnimplementedVisibilityServiceServer) SetMode(context.Context, *SetModeRequest) (*SetModeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetMode not implemented")
-}
-func (UnimplementedVisibilityServiceServer) mustEmbedUnimplementedVisibilityServiceServer() {}
-func (UnimplementedVisibilityServiceServer) testEmbeddedByValue()                           {}
-
-// UnsafeVisibilityServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to VisibilityServiceServer will
-// result in compilation errors.
-type UnsafeVisibilityServiceServer interface {
-	mustEmbedUnimplementedVisibilityServiceServer()
-}
-
-func RegisterVisibilityServiceServer(s grpc.ServiceRegistrar, srv VisibilityServiceServer) {
-	// If the following call panics, it indicates UnimplementedVisibilityServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&VisibilityService_ServiceDesc, srv)
-}
-
-func _VisibilityService_CaptureEndValues_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(VisibilityCaptureEndValuesRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(VisibilityServiceServer).CaptureEndValues(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: VisibilityService_CaptureEndValues_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(VisibilityServiceServer).CaptureEndValues(ctx, req.(*VisibilityCaptureEndValuesRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _VisibilityService_CaptureStartValues_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(VisibilityCaptureStartValuesRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(VisibilityServiceServer).CaptureStartValues(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: VisibilityService_CaptureStartValues_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(VisibilityServiceServer).CaptureStartValues(ctx, req.(*VisibilityCaptureStartValuesRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _VisibilityService_CreateAnimator_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(VisibilityCreateAnimatorRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(VisibilityServiceServer).CreateAnimator(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: VisibilityService_CreateAnimator_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(VisibilityServiceServer).CreateAnimator(ctx, req.(*VisibilityCreateAnimatorRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _VisibilityService_GetMode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetModeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(VisibilityServiceServer).GetMode(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: VisibilityService_GetMode_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(VisibilityServiceServer).GetMode(ctx, req.(*GetModeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _VisibilityService_GetTransitionProperties_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(VisibilityGetTransitionPropertiesRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(VisibilityServiceServer).GetTransitionProperties(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: VisibilityService_GetTransitionProperties_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(VisibilityServiceServer).GetTransitionProperties(ctx, req.(*VisibilityGetTransitionPropertiesRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _VisibilityService_IsTransitionRequired_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsTransitionRequiredRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(VisibilityServiceServer).IsTransitionRequired(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: VisibilityService_IsTransitionRequired_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(VisibilityServiceServer).IsTransitionRequired(ctx, req.(*IsTransitionRequiredRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _VisibilityService_IsVisible_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsVisibleRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(VisibilityServiceServer).IsVisible(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: VisibilityService_IsVisible_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(VisibilityServiceServer).IsVisible(ctx, req.(*IsVisibleRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _VisibilityService_OnAppear5_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnAppear5Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(VisibilityServiceServer).OnAppear5(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: VisibilityService_OnAppear5_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(VisibilityServiceServer).OnAppear5(ctx, req.(*OnAppear5Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _VisibilityService_OnAppear4_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnAppear4_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(VisibilityServiceServer).OnAppear4_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: VisibilityService_OnAppear4_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(VisibilityServiceServer).OnAppear4_1(ctx, req.(*OnAppear4_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _VisibilityService_OnDisappear5_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnDisappear5Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(VisibilityServiceServer).OnDisappear5(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: VisibilityService_OnDisappear5_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(VisibilityServiceServer).OnDisappear5(ctx, req.(*OnDisappear5Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _VisibilityService_OnDisappear4_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnDisappear4_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(VisibilityServiceServer).OnDisappear4_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: VisibilityService_OnDisappear4_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(VisibilityServiceServer).OnDisappear4_1(ctx, req.(*OnDisappear4_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _VisibilityService_SetMode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetModeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(VisibilityServiceServer).SetMode(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: VisibilityService_SetMode_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(VisibilityServiceServer).SetMode(ctx, req.(*SetModeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// VisibilityService_ServiceDesc is the grpc.ServiceDesc for VisibilityService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var VisibilityService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "transition.VisibilityService",
-	HandlerType: (*VisibilityServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "CaptureEndValues",
-			Handler:    _VisibilityService_CaptureEndValues_Handler,
-		},
-		{
-			MethodName: "CaptureStartValues",
-			Handler:    _VisibilityService_CaptureStartValues_Handler,
-		},
-		{
-			MethodName: "CreateAnimator",
-			Handler:    _VisibilityService_CreateAnimator_Handler,
-		},
-		{
-			MethodName: "GetMode",
-			Handler:    _VisibilityService_GetMode_Handler,
-		},
-		{
-			MethodName: "GetTransitionProperties",
-			Handler:    _VisibilityService_GetTransitionProperties_Handler,
-		},
-		{
-			MethodName: "IsTransitionRequired",
-			Handler:    _VisibilityService_IsTransitionRequired_Handler,
-		},
-		{
-			MethodName: "IsVisible",
-			Handler:    _VisibilityService_IsVisible_Handler,
-		},
-		{
-			MethodName: "OnAppear5",
-			Handler:    _VisibilityService_OnAppear5_Handler,
-		},
-		{
-			MethodName: "OnAppear4_1",
-			Handler:    _VisibilityService_OnAppear4_1_Handler,
-		},
-		{
-			MethodName: "OnDisappear5",
-			Handler:    _VisibilityService_OnDisappear5_Handler,
-		},
-		{
-			MethodName: "OnDisappear4_1",
-			Handler:    _VisibilityService_OnDisappear4_1_Handler,
-		},
-		{
-			MethodName: "SetMode",
-			Handler:    _VisibilityService_SetMode_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/transition/transition.proto",
-}
-
-const (
-	ExplodeService_NewExplode_FullMethodName         = "/transition.ExplodeService/NewExplode"
-	ExplodeService_CaptureEndValues_FullMethodName   = "/transition.ExplodeService/CaptureEndValues"
-	ExplodeService_CaptureStartValues_FullMethodName = "/transition.ExplodeService/CaptureStartValues"
-	ExplodeService_OnAppear_FullMethodName           = "/transition.ExplodeService/OnAppear"
-	ExplodeService_OnDisappear_FullMethodName        = "/transition.ExplodeService/OnDisappear"
-)
-
-// ExplodeServiceClient is the client API for ExplodeService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type ExplodeServiceClient interface {
-	NewExplode(ctx context.Context, in *NewExplodeRequest, opts ...grpc.CallOption) (*NewExplodeResponse, error)
-	CaptureEndValues(ctx context.Context, in *CaptureEndValuesRequest, opts ...grpc.CallOption) (*CaptureEndValuesResponse, error)
-	CaptureStartValues(ctx context.Context, in *CaptureStartValuesRequest, opts ...grpc.CallOption) (*CaptureStartValuesResponse, error)
-	OnAppear(ctx context.Context, in *OnAppearRequest, opts ...grpc.CallOption) (*OnAppearResponse, error)
-	OnDisappear(ctx context.Context, in *OnDisappearRequest, opts ...grpc.CallOption) (*OnDisappearResponse, error)
-}
-
-type explodeServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewExplodeServiceClient(cc grpc.ClientConnInterface) ExplodeServiceClient {
-	return &explodeServiceClient{cc}
-}
-
-func (c *explodeServiceClient) NewExplode(ctx context.Context, in *NewExplodeRequest, opts ...grpc.CallOption) (*NewExplodeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewExplodeResponse)
-	err := c.cc.Invoke(ctx, ExplodeService_NewExplode_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *explodeServiceClient) CaptureEndValues(ctx context.Context, in *CaptureEndValuesRequest, opts ...grpc.CallOption) (*CaptureEndValuesResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CaptureEndValuesResponse)
-	err := c.cc.Invoke(ctx, ExplodeService_CaptureEndValues_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *explodeServiceClient) CaptureStartValues(ctx context.Context, in *CaptureStartValuesRequest, opts ...grpc.CallOption) (*CaptureStartValuesResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CaptureStartValuesResponse)
-	err := c.cc.Invoke(ctx, ExplodeService_CaptureStartValues_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *explodeServiceClient) OnAppear(ctx context.Context, in *OnAppearRequest, opts ...grpc.CallOption) (*OnAppearResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnAppearResponse)
-	err := c.cc.Invoke(ctx, ExplodeService_OnAppear_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *explodeServiceClient) OnDisappear(ctx context.Context, in *OnDisappearRequest, opts ...grpc.CallOption) (*OnDisappearResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnDisappearResponse)
-	err := c.cc.Invoke(ctx, ExplodeService_OnDisappear_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// ExplodeServiceServer is the server API for ExplodeService service.
-// All implementations must embed UnimplementedExplodeServiceServer
-// for forward compatibility.
-type ExplodeServiceServer interface {
-	NewExplode(context.Context, *NewExplodeRequest) (*NewExplodeResponse, error)
-	CaptureEndValues(context.Context, *CaptureEndValuesRequest) (*CaptureEndValuesResponse, error)
-	CaptureStartValues(context.Context, *CaptureStartValuesRequest) (*CaptureStartValuesResponse, error)
-	OnAppear(context.Context, *OnAppearRequest) (*OnAppearResponse, error)
-	OnDisappear(context.Context, *OnDisappearRequest) (*OnDisappearResponse, error)
-	mustEmbedUnimplementedExplodeServiceServer()
-}
-
-// UnimplementedExplodeServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedExplodeServiceServer struct{}
-
-func (UnimplementedExplodeServiceServer) NewExplode(context.Context, *NewExplodeRequest) (*NewExplodeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewExplode not implemented")
-}
-func (UnimplementedExplodeServiceServer) CaptureEndValues(context.Context, *CaptureEndValuesRequest) (*CaptureEndValuesResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method CaptureEndValues not implemented")
-}
-func (UnimplementedExplodeServiceServer) CaptureStartValues(context.Context, *CaptureStartValuesRequest) (*CaptureStartValuesResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method CaptureStartValues not implemented")
-}
-func (UnimplementedExplodeServiceServer) OnAppear(context.Context, *OnAppearRequest) (*OnAppearResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnAppear not implemented")
-}
-func (UnimplementedExplodeServiceServer) OnDisappear(context.Context, *OnDisappearRequest) (*OnDisappearResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnDisappear not implemented")
-}
-func (UnimplementedExplodeServiceServer) mustEmbedUnimplementedExplodeServiceServer() {}
-func (UnimplementedExplodeServiceServer) testEmbeddedByValue()                        {}
-
-// UnsafeExplodeServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to ExplodeServiceServer will
-// result in compilation errors.
-type UnsafeExplodeServiceServer interface {
-	mustEmbedUnimplementedExplodeServiceServer()
-}
-
-func RegisterExplodeServiceServer(s grpc.ServiceRegistrar, srv ExplodeServiceServer) {
-	// If the following call panics, it indicates UnimplementedExplodeServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&ExplodeService_ServiceDesc, srv)
-}
-
-func _ExplodeService_NewExplode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewExplodeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ExplodeServiceServer).NewExplode(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ExplodeService_NewExplode_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ExplodeServiceServer).NewExplode(ctx, req.(*NewExplodeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ExplodeService_CaptureEndValues_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CaptureEndValuesRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ExplodeServiceServer).CaptureEndValues(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ExplodeService_CaptureEndValues_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ExplodeServiceServer).CaptureEndValues(ctx, req.(*CaptureEndValuesRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ExplodeService_CaptureStartValues_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CaptureStartValuesRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ExplodeServiceServer).CaptureStartValues(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ExplodeService_CaptureStartValues_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ExplodeServiceServer).CaptureStartValues(ctx, req.(*CaptureStartValuesRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ExplodeService_OnAppear_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnAppearRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ExplodeServiceServer).OnAppear(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ExplodeService_OnAppear_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ExplodeServiceServer).OnAppear(ctx, req.(*OnAppearRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ExplodeService_OnDisappear_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnDisappearRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ExplodeServiceServer).OnDisappear(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ExplodeService_OnDisappear_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ExplodeServiceServer).OnDisappear(ctx, req.(*OnDisappearRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// ExplodeService_ServiceDesc is the grpc.ServiceDesc for ExplodeService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var ExplodeService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "transition.ExplodeService",
-	HandlerType: (*ExplodeServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "NewExplode",
-			Handler:    _ExplodeService_NewExplode_Handler,
-		},
-		{
-			MethodName: "CaptureEndValues",
-			Handler:    _ExplodeService_CaptureEndValues_Handler,
-		},
-		{
-			MethodName: "CaptureStartValues",
-			Handler:    _ExplodeService_CaptureStartValues_Handler,
-		},
-		{
-			MethodName: "OnAppear",
-			Handler:    _ExplodeService_OnAppear_Handler,
-		},
-		{
-			MethodName: "OnDisappear",
-			Handler:    _ExplodeService_OnDisappear_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/transition/transition.proto",
-}
-
-const (
-	ListenerAdapterService_OnTransitionCancel_FullMethodName = "/transition.ListenerAdapterService/OnTransitionCancel"
-	ListenerAdapterService_OnTransitionEnd_FullMethodName    = "/transition.ListenerAdapterService/OnTransitionEnd"
-	ListenerAdapterService_OnTransitionPause_FullMethodName  = "/transition.ListenerAdapterService/OnTransitionPause"
-	ListenerAdapterService_OnTransitionResume_FullMethodName = "/transition.ListenerAdapterService/OnTransitionResume"
-	ListenerAdapterService_OnTransitionStart_FullMethodName  = "/transition.ListenerAdapterService/OnTransitionStart"
-)
-
-// ListenerAdapterServiceClient is the client API for ListenerAdapterService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type ListenerAdapterServiceClient interface {
-	OnTransitionCancel(ctx context.Context, in *OnTransitionCancelRequest, opts ...grpc.CallOption) (*OnTransitionCancelResponse, error)
-	OnTransitionEnd(ctx context.Context, in *OnTransitionEndRequest, opts ...grpc.CallOption) (*OnTransitionEndResponse, error)
-	OnTransitionPause(ctx context.Context, in *OnTransitionPauseRequest, opts ...grpc.CallOption) (*OnTransitionPauseResponse, error)
-	OnTransitionResume(ctx context.Context, in *OnTransitionResumeRequest, opts ...grpc.CallOption) (*OnTransitionResumeResponse, error)
-	OnTransitionStart(ctx context.Context, in *OnTransitionStartRequest, opts ...grpc.CallOption) (*OnTransitionStartResponse, error)
-}
-
-type listenerAdapterServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewListenerAdapterServiceClient(cc grpc.ClientConnInterface) ListenerAdapterServiceClient {
-	return &listenerAdapterServiceClient{cc}
-}
-
-func (c *listenerAdapterServiceClient) OnTransitionCancel(ctx context.Context, in *OnTransitionCancelRequest, opts ...grpc.CallOption) (*OnTransitionCancelResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnTransitionCancelResponse)
-	err := c.cc.Invoke(ctx, ListenerAdapterService_OnTransitionCancel_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *listenerAdapterServiceClient) OnTransitionEnd(ctx context.Context, in *OnTransitionEndRequest, opts ...grpc.CallOption) (*OnTransitionEndResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnTransitionEndResponse)
-	err := c.cc.Invoke(ctx, ListenerAdapterService_OnTransitionEnd_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *listenerAdapterServiceClient) OnTransitionPause(ctx context.Context, in *OnTransitionPauseRequest, opts ...grpc.CallOption) (*OnTransitionPauseResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnTransitionPauseResponse)
-	err := c.cc.Invoke(ctx, ListenerAdapterService_OnTransitionPause_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *listenerAdapterServiceClient) OnTransitionResume(ctx context.Context, in *OnTransitionResumeRequest, opts ...grpc.CallOption) (*OnTransitionResumeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnTransitionResumeResponse)
-	err := c.cc.Invoke(ctx, ListenerAdapterService_OnTransitionResume_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *listenerAdapterServiceClient) OnTransitionStart(ctx context.Context, in *OnTransitionStartRequest, opts ...grpc.CallOption) (*OnTransitionStartResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnTransitionStartResponse)
-	err := c.cc.Invoke(ctx, ListenerAdapterService_OnTransitionStart_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// ListenerAdapterServiceServer is the server API for ListenerAdapterService service.
-// All implementations must embed UnimplementedListenerAdapterServiceServer
-// for forward compatibility.
-type ListenerAdapterServiceServer interface {
-	OnTransitionCancel(context.Context, *OnTransitionCancelRequest) (*OnTransitionCancelResponse, error)
-	OnTransitionEnd(context.Context, *OnTransitionEndRequest) (*OnTransitionEndResponse, error)
-	OnTransitionPause(context.Context, *OnTransitionPauseRequest) (*OnTransitionPauseResponse, error)
-	OnTransitionResume(context.Context, *OnTransitionResumeRequest) (*OnTransitionResumeResponse, error)
-	OnTransitionStart(context.Context, *OnTransitionStartRequest) (*OnTransitionStartResponse, error)
-	mustEmbedUnimplementedListenerAdapterServiceServer()
-}
-
-// UnimplementedListenerAdapterServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedListenerAdapterServiceServer struct{}
-
-func (UnimplementedListenerAdapterServiceServer) OnTransitionCancel(context.Context, *OnTransitionCancelRequest) (*OnTransitionCancelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnTransitionCancel not implemented")
-}
-func (UnimplementedListenerAdapterServiceServer) OnTransitionEnd(context.Context, *OnTransitionEndRequest) (*OnTransitionEndResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnTransitionEnd not implemented")
-}
-func (UnimplementedListenerAdapterServiceServer) OnTransitionPause(context.Context, *OnTransitionPauseRequest) (*OnTransitionPauseResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnTransitionPause not implemented")
-}
-func (UnimplementedListenerAdapterServiceServer) OnTransitionResume(context.Context, *OnTransitionResumeRequest) (*OnTransitionResumeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnTransitionResume not implemented")
-}
-func (UnimplementedListenerAdapterServiceServer) OnTransitionStart(context.Context, *OnTransitionStartRequest) (*OnTransitionStartResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnTransitionStart not implemented")
-}
-func (UnimplementedListenerAdapterServiceServer) mustEmbedUnimplementedListenerAdapterServiceServer() {
-}
-func (UnimplementedListenerAdapterServiceServer) testEmbeddedByValue() {}
-
-// UnsafeListenerAdapterServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to ListenerAdapterServiceServer will
-// result in compilation errors.
-type UnsafeListenerAdapterServiceServer interface {
-	mustEmbedUnimplementedListenerAdapterServiceServer()
-}
-
-func RegisterListenerAdapterServiceServer(s grpc.ServiceRegistrar, srv ListenerAdapterServiceServer) {
-	// If the following call panics, it indicates UnimplementedListenerAdapterServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&ListenerAdapterService_ServiceDesc, srv)
-}
-
-func _ListenerAdapterService_OnTransitionCancel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnTransitionCancelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ListenerAdapterServiceServer).OnTransitionCancel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ListenerAdapterService_OnTransitionCancel_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ListenerAdapterServiceServer).OnTransitionCancel(ctx, req.(*OnTransitionCancelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ListenerAdapterService_OnTransitionEnd_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnTransitionEndRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ListenerAdapterServiceServer).OnTransitionEnd(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ListenerAdapterService_OnTransitionEnd_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ListenerAdapterServiceServer).OnTransitionEnd(ctx, req.(*OnTransitionEndRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ListenerAdapterService_OnTransitionPause_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnTransitionPauseRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ListenerAdapterServiceServer).OnTransitionPause(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ListenerAdapterService_OnTransitionPause_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ListenerAdapterServiceServer).OnTransitionPause(ctx, req.(*OnTransitionPauseRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ListenerAdapterService_OnTransitionResume_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnTransitionResumeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ListenerAdapterServiceServer).OnTransitionResume(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ListenerAdapterService_OnTransitionResume_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ListenerAdapterServiceServer).OnTransitionResume(ctx, req.(*OnTransitionResumeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ListenerAdapterService_OnTransitionStart_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnTransitionStartRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ListenerAdapterServiceServer).OnTransitionStart(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ListenerAdapterService_OnTransitionStart_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ListenerAdapterServiceServer).OnTransitionStart(ctx, req.(*OnTransitionStartRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// ListenerAdapterService_ServiceDesc is the grpc.ServiceDesc for ListenerAdapterService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var ListenerAdapterService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "transition.ListenerAdapterService",
-	HandlerType: (*ListenerAdapterServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "OnTransitionCancel",
-			Handler:    _ListenerAdapterService_OnTransitionCancel_Handler,
-		},
-		{
-			MethodName: "OnTransitionEnd",
-			Handler:    _ListenerAdapterService_OnTransitionEnd_Handler,
-		},
-		{
-			MethodName: "OnTransitionPause",
-			Handler:    _ListenerAdapterService_OnTransitionPause_Handler,
-		},
-		{
-			MethodName: "OnTransitionResume",
-			Handler:    _ListenerAdapterService_OnTransitionResume_Handler,
-		},
-		{
-			MethodName: "OnTransitionStart",
-			Handler:    _ListenerAdapterService_OnTransitionStart_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/transition/transition.proto",
-}
-
-const (
-	ChangeTransformService_NewChangeTransform_FullMethodName      = "/transition.ChangeTransformService/NewChangeTransform"
-	ChangeTransformService_CaptureEndValues_FullMethodName        = "/transition.ChangeTransformService/CaptureEndValues"
-	ChangeTransformService_CaptureStartValues_FullMethodName      = "/transition.ChangeTransformService/CaptureStartValues"
-	ChangeTransformService_CreateAnimator_FullMethodName          = "/transition.ChangeTransformService/CreateAnimator"
-	ChangeTransformService_GetReparent_FullMethodName             = "/transition.ChangeTransformService/GetReparent"
-	ChangeTransformService_GetReparentWithOverlay_FullMethodName  = "/transition.ChangeTransformService/GetReparentWithOverlay"
-	ChangeTransformService_GetTransitionProperties_FullMethodName = "/transition.ChangeTransformService/GetTransitionProperties"
-	ChangeTransformService_SetReparent_FullMethodName             = "/transition.ChangeTransformService/SetReparent"
-	ChangeTransformService_SetReparentWithOverlay_FullMethodName  = "/transition.ChangeTransformService/SetReparentWithOverlay"
-)
-
-// ChangeTransformServiceClient is the client API for ChangeTransformService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type ChangeTransformServiceClient interface {
-	NewChangeTransform(ctx context.Context, in *NewChangeTransformRequest, opts ...grpc.CallOption) (*NewChangeTransformResponse, error)
-	CaptureEndValues(ctx context.Context, in *CaptureEndValuesRequest, opts ...grpc.CallOption) (*CaptureEndValuesResponse, error)
-	CaptureStartValues(ctx context.Context, in *CaptureStartValuesRequest, opts ...grpc.CallOption) (*CaptureStartValuesResponse, error)
-	CreateAnimator(ctx context.Context, in *CreateAnimatorRequest, opts ...grpc.CallOption) (*CreateAnimatorResponse, error)
-	GetReparent(ctx context.Context, in *GetReparentRequest, opts ...grpc.CallOption) (*GetReparentResponse, error)
-	GetReparentWithOverlay(ctx context.Context, in *GetReparentWithOverlayRequest, opts ...grpc.CallOption) (*GetReparentWithOverlayResponse, error)
-	GetTransitionProperties(ctx context.Context, in *GetTransitionPropertiesRequest, opts ...grpc.CallOption) (*GetTransitionPropertiesResponse, error)
-	SetReparent(ctx context.Context, in *SetReparentRequest, opts ...grpc.CallOption) (*SetReparentResponse, error)
-	SetReparentWithOverlay(ctx context.Context, in *SetReparentWithOverlayRequest, opts ...grpc.CallOption) (*SetReparentWithOverlayResponse, error)
-}
-
-type changeTransformServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewChangeTransformServiceClient(cc grpc.ClientConnInterface) ChangeTransformServiceClient {
-	return &changeTransformServiceClient{cc}
-}
-
-func (c *changeTransformServiceClient) NewChangeTransform(ctx context.Context, in *NewChangeTransformRequest, opts ...grpc.CallOption) (*NewChangeTransformResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewChangeTransformResponse)
-	err := c.cc.Invoke(ctx, ChangeTransformService_NewChangeTransform_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *changeTransformServiceClient) CaptureEndValues(ctx context.Context, in *CaptureEndValuesRequest, opts ...grpc.CallOption) (*CaptureEndValuesResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CaptureEndValuesResponse)
-	err := c.cc.Invoke(ctx, ChangeTransformService_CaptureEndValues_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *changeTransformServiceClient) CaptureStartValues(ctx context.Context, in *CaptureStartValuesRequest, opts ...grpc.CallOption) (*CaptureStartValuesResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CaptureStartValuesResponse)
-	err := c.cc.Invoke(ctx, ChangeTransformService_CaptureStartValues_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *changeTransformServiceClient) CreateAnimator(ctx context.Context, in *CreateAnimatorRequest, opts ...grpc.CallOption) (*CreateAnimatorResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CreateAnimatorResponse)
-	err := c.cc.Invoke(ctx, ChangeTransformService_CreateAnimator_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *changeTransformServiceClient) GetReparent(ctx context.Context, in *GetReparentRequest, opts ...grpc.CallOption) (*GetReparentResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetReparentResponse)
-	err := c.cc.Invoke(ctx, ChangeTransformService_GetReparent_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *changeTransformServiceClient) GetReparentWithOverlay(ctx context.Context, in *GetReparentWithOverlayRequest, opts ...grpc.CallOption) (*GetReparentWithOverlayResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetReparentWithOverlayResponse)
-	err := c.cc.Invoke(ctx, ChangeTransformService_GetReparentWithOverlay_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *changeTransformServiceClient) GetTransitionProperties(ctx context.Context, in *GetTransitionPropertiesRequest, opts ...grpc.CallOption) (*GetTransitionPropertiesResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetTransitionPropertiesResponse)
-	err := c.cc.Invoke(ctx, ChangeTransformService_GetTransitionProperties_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *changeTransformServiceClient) SetReparent(ctx context.Context, in *SetReparentRequest, opts ...grpc.CallOption) (*SetReparentResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetReparentResponse)
-	err := c.cc.Invoke(ctx, ChangeTransformService_SetReparent_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *changeTransformServiceClient) SetReparentWithOverlay(ctx context.Context, in *SetReparentWithOverlayRequest, opts ...grpc.CallOption) (*SetReparentWithOverlayResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetReparentWithOverlayResponse)
-	err := c.cc.Invoke(ctx, ChangeTransformService_SetReparentWithOverlay_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// ChangeTransformServiceServer is the server API for ChangeTransformService service.
-// All implementations must embed UnimplementedChangeTransformServiceServer
-// for forward compatibility.
-type ChangeTransformServiceServer interface {
-	NewChangeTransform(context.Context, *NewChangeTransformRequest) (*NewChangeTransformResponse, error)
-	CaptureEndValues(context.Context, *CaptureEndValuesRequest) (*CaptureEndValuesResponse, error)
-	CaptureStartValues(context.Context, *CaptureStartValuesRequest) (*CaptureStartValuesResponse, error)
-	CreateAnimator(context.Context, *CreateAnimatorRequest) (*CreateAnimatorResponse, error)
-	GetReparent(context.Context, *GetReparentRequest) (*GetReparentResponse, error)
-	GetReparentWithOverlay(context.Context, *GetReparentWithOverlayRequest) (*GetReparentWithOverlayResponse, error)
-	GetTransitionProperties(context.Context, *GetTransitionPropertiesRequest) (*GetTransitionPropertiesResponse, error)
-	SetReparent(context.Context, *SetReparentRequest) (*SetReparentResponse, error)
-	SetReparentWithOverlay(context.Context, *SetReparentWithOverlayRequest) (*SetReparentWithOverlayResponse, error)
-	mustEmbedUnimplementedChangeTransformServiceServer()
-}
-
-// UnimplementedChangeTransformServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedChangeTransformServiceServer struct{}
-
-func (UnimplementedChangeTransformServiceServer) NewChangeTransform(context.Context, *NewChangeTransformRequest) (*NewChangeTransformResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewChangeTransform not implemented")
-}
-func (UnimplementedChangeTransformServiceServer) CaptureEndValues(context.Context, *CaptureEndValuesRequest) (*CaptureEndValuesResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method CaptureEndValues not implemented")
-}
-func (UnimplementedChangeTransformServiceServer) CaptureStartValues(context.Context, *CaptureStartValuesRequest) (*CaptureStartValuesResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method CaptureStartValues not implemented")
-}
-func (UnimplementedChangeTransformServiceServer) CreateAnimator(context.Context, *CreateAnimatorRequest) (*CreateAnimatorResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method CreateAnimator not implemented")
-}
-func (UnimplementedChangeTransformServiceServer) GetReparent(context.Context, *GetReparentRequest) (*GetReparentResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetReparent not implemented")
-}
-func (UnimplementedChangeTransformServiceServer) GetReparentWithOverlay(context.Context, *GetReparentWithOverlayRequest) (*GetReparentWithOverlayResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetReparentWithOverlay not implemented")
-}
-func (UnimplementedChangeTransformServiceServer) GetTransitionProperties(context.Context, *GetTransitionPropertiesRequest) (*GetTransitionPropertiesResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetTransitionProperties not implemented")
-}
-func (UnimplementedChangeTransformServiceServer) SetReparent(context.Context, *SetReparentRequest) (*SetReparentResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetReparent not implemented")
-}
-func (UnimplementedChangeTransformServiceServer) SetReparentWithOverlay(context.Context, *SetReparentWithOverlayRequest) (*SetReparentWithOverlayResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetReparentWithOverlay not implemented")
-}
-func (UnimplementedChangeTransformServiceServer) mustEmbedUnimplementedChangeTransformServiceServer() {
-}
-func (UnimplementedChangeTransformServiceServer) testEmbeddedByValue() {}
-
-// UnsafeChangeTransformServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to ChangeTransformServiceServer will
-// result in compilation errors.
-type UnsafeChangeTransformServiceServer interface {
-	mustEmbedUnimplementedChangeTransformServiceServer()
-}
-
-func RegisterChangeTransformServiceServer(s grpc.ServiceRegistrar, srv ChangeTransformServiceServer) {
-	// If the following call panics, it indicates UnimplementedChangeTransformServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&ChangeTransformService_ServiceDesc, srv)
-}
-
-func _ChangeTransformService_NewChangeTransform_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewChangeTransformRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ChangeTransformServiceServer).NewChangeTransform(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ChangeTransformService_NewChangeTransform_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ChangeTransformServiceServer).NewChangeTransform(ctx, req.(*NewChangeTransformRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ChangeTransformService_CaptureEndValues_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CaptureEndValuesRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ChangeTransformServiceServer).CaptureEndValues(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ChangeTransformService_CaptureEndValues_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ChangeTransformServiceServer).CaptureEndValues(ctx, req.(*CaptureEndValuesRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ChangeTransformService_CaptureStartValues_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CaptureStartValuesRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ChangeTransformServiceServer).CaptureStartValues(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ChangeTransformService_CaptureStartValues_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ChangeTransformServiceServer).CaptureStartValues(ctx, req.(*CaptureStartValuesRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ChangeTransformService_CreateAnimator_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CreateAnimatorRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ChangeTransformServiceServer).CreateAnimator(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ChangeTransformService_CreateAnimator_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ChangeTransformServiceServer).CreateAnimator(ctx, req.(*CreateAnimatorRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ChangeTransformService_GetReparent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetReparentRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ChangeTransformServiceServer).GetReparent(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ChangeTransformService_GetReparent_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ChangeTransformServiceServer).GetReparent(ctx, req.(*GetReparentRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ChangeTransformService_GetReparentWithOverlay_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetReparentWithOverlayRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ChangeTransformServiceServer).GetReparentWithOverlay(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ChangeTransformService_GetReparentWithOverlay_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ChangeTransformServiceServer).GetReparentWithOverlay(ctx, req.(*GetReparentWithOverlayRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ChangeTransformService_GetTransitionProperties_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetTransitionPropertiesRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ChangeTransformServiceServer).GetTransitionProperties(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ChangeTransformService_GetTransitionProperties_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ChangeTransformServiceServer).GetTransitionProperties(ctx, req.(*GetTransitionPropertiesRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ChangeTransformService_SetReparent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetReparentRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ChangeTransformServiceServer).SetReparent(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ChangeTransformService_SetReparent_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ChangeTransformServiceServer).SetReparent(ctx, req.(*SetReparentRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ChangeTransformService_SetReparentWithOverlay_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetReparentWithOverlayRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ChangeTransformServiceServer).SetReparentWithOverlay(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ChangeTransformService_SetReparentWithOverlay_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ChangeTransformServiceServer).SetReparentWithOverlay(ctx, req.(*SetReparentWithOverlayRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// ChangeTransformService_ServiceDesc is the grpc.ServiceDesc for ChangeTransformService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var ChangeTransformService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "transition.ChangeTransformService",
-	HandlerType: (*ChangeTransformServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "NewChangeTransform",
-			Handler:    _ChangeTransformService_NewChangeTransform_Handler,
-		},
-		{
-			MethodName: "CaptureEndValues",
-			Handler:    _ChangeTransformService_CaptureEndValues_Handler,
-		},
-		{
-			MethodName: "CaptureStartValues",
-			Handler:    _ChangeTransformService_CaptureStartValues_Handler,
-		},
-		{
-			MethodName: "CreateAnimator",
-			Handler:    _ChangeTransformService_CreateAnimator_Handler,
-		},
-		{
-			MethodName: "GetReparent",
-			Handler:    _ChangeTransformService_GetReparent_Handler,
-		},
-		{
-			MethodName: "GetReparentWithOverlay",
-			Handler:    _ChangeTransformService_GetReparentWithOverlay_Handler,
-		},
-		{
-			MethodName: "GetTransitionProperties",
-			Handler:    _ChangeTransformService_GetTransitionProperties_Handler,
-		},
-		{
-			MethodName: "SetReparent",
-			Handler:    _ChangeTransformService_SetReparent_Handler,
-		},
-		{
-			MethodName: "SetReparentWithOverlay",
-			Handler:    _ChangeTransformService_SetReparentWithOverlay_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/transition/transition.proto",
-}
-
-const (
-	CircularPropagationService_NewCircularPropagation_FullMethodName = "/transition.CircularPropagationService/NewCircularPropagation"
-	CircularPropagationService_GetStartDelay_FullMethodName          = "/transition.CircularPropagationService/GetStartDelay"
-	CircularPropagationService_SetPropagationSpeed_FullMethodName    = "/transition.CircularPropagationService/SetPropagationSpeed"
-)
-
-// CircularPropagationServiceClient is the client API for CircularPropagationService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type CircularPropagationServiceClient interface {
-	NewCircularPropagation(ctx context.Context, in *NewCircularPropagationRequest, opts ...grpc.CallOption) (*NewCircularPropagationResponse, error)
-	GetStartDelay(ctx context.Context, in *CircularPropagationGetStartDelayRequest, opts ...grpc.CallOption) (*GetStartDelayResponse, error)
-	SetPropagationSpeed(ctx context.Context, in *SetPropagationSpeedRequest, opts ...grpc.CallOption) (*SetPropagationSpeedResponse, error)
-}
-
-type circularPropagationServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewCircularPropagationServiceClient(cc grpc.ClientConnInterface) CircularPropagationServiceClient {
-	return &circularPropagationServiceClient{cc}
-}
-
-func (c *circularPropagationServiceClient) NewCircularPropagation(ctx context.Context, in *NewCircularPropagationRequest, opts ...grpc.CallOption) (*NewCircularPropagationResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewCircularPropagationResponse)
-	err := c.cc.Invoke(ctx, CircularPropagationService_NewCircularPropagation_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *circularPropagationServiceClient) GetStartDelay(ctx context.Context, in *CircularPropagationGetStartDelayRequest, opts ...grpc.CallOption) (*GetStartDelayResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetStartDelayResponse)
-	err := c.cc.Invoke(ctx, CircularPropagationService_GetStartDelay_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *circularPropagationServiceClient) SetPropagationSpeed(ctx context.Context, in *SetPropagationSpeedRequest, opts ...grpc.CallOption) (*SetPropagationSpeedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetPropagationSpeedResponse)
-	err := c.cc.Invoke(ctx, CircularPropagationService_SetPropagationSpeed_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// CircularPropagationServiceServer is the server API for CircularPropagationService service.
-// All implementations must embed UnimplementedCircularPropagationServiceServer
-// for forward compatibility.
-type CircularPropagationServiceServer interface {
-	NewCircularPropagation(context.Context, *NewCircularPropagationRequest) (*NewCircularPropagationResponse, error)
-	GetStartDelay(context.Context, *CircularPropagationGetStartDelayRequest) (*GetStartDelayResponse, error)
-	SetPropagationSpeed(context.Context, *SetPropagationSpeedRequest) (*SetPropagationSpeedResponse, error)
-	mustEmbedUnimplementedCircularPropagationServiceServer()
-}
-
-// UnimplementedCircularPropagationServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedCircularPropagationServiceServer struct{}
-
-func (UnimplementedCircularPropagationServiceServer) NewCircularPropagation(context.Context, *NewCircularPropagationRequest) (*NewCircularPropagationResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewCircularPropagation not implemented")
-}
-func (UnimplementedCircularPropagationServiceServer) GetStartDelay(context.Context, *CircularPropagationGetStartDelayRequest) (*GetStartDelayResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetStartDelay not implemented")
-}
-func (UnimplementedCircularPropagationServiceServer) SetPropagationSpeed(context.Context, *SetPropagationSpeedRequest) (*SetPropagationSpeedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetPropagationSpeed not implemented")
-}
-func (UnimplementedCircularPropagationServiceServer) mustEmbedUnimplementedCircularPropagationServiceServer() {
-}
-func (UnimplementedCircularPropagationServiceServer) testEmbeddedByValue() {}
-
-// UnsafeCircularPropagationServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to CircularPropagationServiceServer will
-// result in compilation errors.
-type UnsafeCircularPropagationServiceServer interface {
-	mustEmbedUnimplementedCircularPropagationServiceServer()
-}
-
-func RegisterCircularPropagationServiceServer(s grpc.ServiceRegistrar, srv CircularPropagationServiceServer) {
-	// If the following call panics, it indicates UnimplementedCircularPropagationServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&CircularPropagationService_ServiceDesc, srv)
-}
-
-func _CircularPropagationService_NewCircularPropagation_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewCircularPropagationRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CircularPropagationServiceServer).NewCircularPropagation(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CircularPropagationService_NewCircularPropagation_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CircularPropagationServiceServer).NewCircularPropagation(ctx, req.(*NewCircularPropagationRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CircularPropagationService_GetStartDelay_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CircularPropagationGetStartDelayRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CircularPropagationServiceServer).GetStartDelay(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CircularPropagationService_GetStartDelay_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CircularPropagationServiceServer).GetStartDelay(ctx, req.(*CircularPropagationGetStartDelayRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CircularPropagationService_SetPropagationSpeed_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetPropagationSpeedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CircularPropagationServiceServer).SetPropagationSpeed(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CircularPropagationService_SetPropagationSpeed_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CircularPropagationServiceServer).SetPropagationSpeed(ctx, req.(*SetPropagationSpeedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// CircularPropagationService_ServiceDesc is the grpc.ServiceDesc for CircularPropagationService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var CircularPropagationService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "transition.CircularPropagationService",
-	HandlerType: (*CircularPropagationServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "NewCircularPropagation",
-			Handler:    _CircularPropagationService_NewCircularPropagation_Handler,
-		},
-		{
-			MethodName: "GetStartDelay",
-			Handler:    _CircularPropagationService_GetStartDelay_Handler,
-		},
-		{
-			MethodName: "SetPropagationSpeed",
-			Handler:    _CircularPropagationService_SetPropagationSpeed_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/transition/transition.proto",
-}
-
-const (
-	SidePropagationService_NewSidePropagation_FullMethodName  = "/transition.SidePropagationService/NewSidePropagation"
-	SidePropagationService_GetStartDelay_FullMethodName       = "/transition.SidePropagationService/GetStartDelay"
-	SidePropagationService_SetPropagationSpeed_FullMethodName = "/transition.SidePropagationService/SetPropagationSpeed"
-	SidePropagationService_SetSide_FullMethodName             = "/transition.SidePropagationService/SetSide"
-)
-
-// SidePropagationServiceClient is the client API for SidePropagationService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type SidePropagationServiceClient interface {
-	NewSidePropagation(ctx context.Context, in *NewSidePropagationRequest, opts ...grpc.CallOption) (*NewSidePropagationResponse, error)
-	GetStartDelay(ctx context.Context, in *SidePropagationGetStartDelayRequest, opts ...grpc.CallOption) (*GetStartDelayResponse, error)
-	SetPropagationSpeed(ctx context.Context, in *SetPropagationSpeedRequest, opts ...grpc.CallOption) (*SetPropagationSpeedResponse, error)
-	SetSide(ctx context.Context, in *SetSideRequest, opts ...grpc.CallOption) (*SetSideResponse, error)
-}
-
-type sidePropagationServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewSidePropagationServiceClient(cc grpc.ClientConnInterface) SidePropagationServiceClient {
-	return &sidePropagationServiceClient{cc}
-}
-
-func (c *sidePropagationServiceClient) NewSidePropagation(ctx context.Context, in *NewSidePropagationRequest, opts ...grpc.CallOption) (*NewSidePropagationResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewSidePropagationResponse)
-	err := c.cc.Invoke(ctx, SidePropagationService_NewSidePropagation_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sidePropagationServiceClient) GetStartDelay(ctx context.Context, in *SidePropagationGetStartDelayRequest, opts ...grpc.CallOption) (*GetStartDelayResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetStartDelayResponse)
-	err := c.cc.Invoke(ctx, SidePropagationService_GetStartDelay_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sidePropagationServiceClient) SetPropagationSpeed(ctx context.Context, in *SetPropagationSpeedRequest, opts ...grpc.CallOption) (*SetPropagationSpeedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetPropagationSpeedResponse)
-	err := c.cc.Invoke(ctx, SidePropagationService_SetPropagationSpeed_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sidePropagationServiceClient) SetSide(ctx context.Context, in *SetSideRequest, opts ...grpc.CallOption) (*SetSideResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetSideResponse)
-	err := c.cc.Invoke(ctx, SidePropagationService_SetSide_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// SidePropagationServiceServer is the server API for SidePropagationService service.
-// All implementations must embed UnimplementedSidePropagationServiceServer
-// for forward compatibility.
-type SidePropagationServiceServer interface {
-	NewSidePropagation(context.Context, *NewSidePropagationRequest) (*NewSidePropagationResponse, error)
-	GetStartDelay(context.Context, *SidePropagationGetStartDelayRequest) (*GetStartDelayResponse, error)
-	SetPropagationSpeed(context.Context, *SetPropagationSpeedRequest) (*SetPropagationSpeedResponse, error)
-	SetSide(context.Context, *SetSideRequest) (*SetSideResponse, error)
-	mustEmbedUnimplementedSidePropagationServiceServer()
-}
-
-// UnimplementedSidePropagationServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedSidePropagationServiceServer struct{}
-
-func (UnimplementedSidePropagationServiceServer) NewSidePropagation(context.Context, *NewSidePropagationRequest) (*NewSidePropagationResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewSidePropagation not implemented")
-}
-func (UnimplementedSidePropagationServiceServer) GetStartDelay(context.Context, *SidePropagationGetStartDelayRequest) (*GetStartDelayResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetStartDelay not implemented")
-}
-func (UnimplementedSidePropagationServiceServer) SetPropagationSpeed(context.Context, *SetPropagationSpeedRequest) (*SetPropagationSpeedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetPropagationSpeed not implemented")
-}
-func (UnimplementedSidePropagationServiceServer) SetSide(context.Context, *SetSideRequest) (*SetSideResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetSide not implemented")
-}
-func (UnimplementedSidePropagationServiceServer) mustEmbedUnimplementedSidePropagationServiceServer() {
-}
-func (UnimplementedSidePropagationServiceServer) testEmbeddedByValue() {}
-
-// UnsafeSidePropagationServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to SidePropagationServiceServer will
-// result in compilation errors.
-type UnsafeSidePropagationServiceServer interface {
-	mustEmbedUnimplementedSidePropagationServiceServer()
-}
-
-func RegisterSidePropagationServiceServer(s grpc.ServiceRegistrar, srv SidePropagationServiceServer) {
-	// If the following call panics, it indicates UnimplementedSidePropagationServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&SidePropagationService_ServiceDesc, srv)
-}
-
-func _SidePropagationService_NewSidePropagation_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewSidePropagationRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SidePropagationServiceServer).NewSidePropagation(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SidePropagationService_NewSidePropagation_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SidePropagationServiceServer).NewSidePropagation(ctx, req.(*NewSidePropagationRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SidePropagationService_GetStartDelay_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SidePropagationGetStartDelayRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SidePropagationServiceServer).GetStartDelay(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SidePropagationService_GetStartDelay_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SidePropagationServiceServer).GetStartDelay(ctx, req.(*SidePropagationGetStartDelayRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SidePropagationService_SetPropagationSpeed_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetPropagationSpeedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SidePropagationServiceServer).SetPropagationSpeed(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SidePropagationService_SetPropagationSpeed_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SidePropagationServiceServer).SetPropagationSpeed(ctx, req.(*SetPropagationSpeedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SidePropagationService_SetSide_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetSideRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SidePropagationServiceServer).SetSide(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SidePropagationService_SetSide_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SidePropagationServiceServer).SetSide(ctx, req.(*SetSideRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// SidePropagationService_ServiceDesc is the grpc.ServiceDesc for SidePropagationService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var SidePropagationService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "transition.SidePropagationService",
-	HandlerType: (*SidePropagationServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "NewSidePropagation",
-			Handler:    _SidePropagationService_NewSidePropagation_Handler,
-		},
-		{
-			MethodName: "GetStartDelay",
-			Handler:    _SidePropagationService_GetStartDelay_Handler,
-		},
-		{
-			MethodName: "SetPropagationSpeed",
-			Handler:    _SidePropagationService_SetPropagationSpeed_Handler,
-		},
-		{
-			MethodName: "SetSide",
-			Handler:    _SidePropagationService_SetSide_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/transition/transition.proto",
-}
-
-const (
 	ManagerService_NewManager_FullMethodName                = "/transition.ManagerService/NewManager"
 	ManagerService_SetTransition3_FullMethodName            = "/transition.ManagerService/SetTransition3"
 	ManagerService_SetTransition2_1_FullMethodName          = "/transition.ManagerService/SetTransition2_1"
@@ -7551,177 +3933,519 @@ var ManagerService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	InflaterService_InflateTransition_FullMethodName        = "/transition.InflaterService/InflateTransition"
-	InflaterService_InflateTransitionManager_FullMethodName = "/transition.InflaterService/InflateTransitionManager"
-	InflaterService_From_FullMethodName                     = "/transition.InflaterService/From"
+	VisibilityService_CaptureEndValues_FullMethodName        = "/transition.VisibilityService/CaptureEndValues"
+	VisibilityService_CaptureStartValues_FullMethodName      = "/transition.VisibilityService/CaptureStartValues"
+	VisibilityService_CreateAnimator_FullMethodName          = "/transition.VisibilityService/CreateAnimator"
+	VisibilityService_GetMode_FullMethodName                 = "/transition.VisibilityService/GetMode"
+	VisibilityService_GetTransitionProperties_FullMethodName = "/transition.VisibilityService/GetTransitionProperties"
+	VisibilityService_IsTransitionRequired_FullMethodName    = "/transition.VisibilityService/IsTransitionRequired"
+	VisibilityService_IsVisible_FullMethodName               = "/transition.VisibilityService/IsVisible"
+	VisibilityService_OnAppear5_FullMethodName               = "/transition.VisibilityService/OnAppear5"
+	VisibilityService_OnAppear4_1_FullMethodName             = "/transition.VisibilityService/OnAppear4_1"
+	VisibilityService_OnDisappear5_FullMethodName            = "/transition.VisibilityService/OnDisappear5"
+	VisibilityService_OnDisappear4_1_FullMethodName          = "/transition.VisibilityService/OnDisappear4_1"
+	VisibilityService_SetMode_FullMethodName                 = "/transition.VisibilityService/SetMode"
 )
 
-// InflaterServiceClient is the client API for InflaterService service.
+// VisibilityServiceClient is the client API for VisibilityService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type InflaterServiceClient interface {
-	InflateTransition(ctx context.Context, in *InflateTransitionRequest, opts ...grpc.CallOption) (*InflateTransitionResponse, error)
-	InflateTransitionManager(ctx context.Context, in *InflateTransitionManagerRequest, opts ...grpc.CallOption) (*InflateTransitionManagerResponse, error)
-	From(ctx context.Context, in *FromRequest, opts ...grpc.CallOption) (*FromResponse, error)
+type VisibilityServiceClient interface {
+	CaptureEndValues(ctx context.Context, in *CaptureEndValuesRequest, opts ...grpc.CallOption) (*CaptureEndValuesResponse, error)
+	CaptureStartValues(ctx context.Context, in *CaptureStartValuesRequest, opts ...grpc.CallOption) (*CaptureStartValuesResponse, error)
+	CreateAnimator(ctx context.Context, in *CreateAnimatorRequest, opts ...grpc.CallOption) (*CreateAnimatorResponse, error)
+	GetMode(ctx context.Context, in *GetModeRequest, opts ...grpc.CallOption) (*GetModeResponse, error)
+	GetTransitionProperties(ctx context.Context, in *GetTransitionPropertiesRequest, opts ...grpc.CallOption) (*GetTransitionPropertiesResponse, error)
+	IsTransitionRequired(ctx context.Context, in *IsTransitionRequiredRequest, opts ...grpc.CallOption) (*IsTransitionRequiredResponse, error)
+	IsVisible(ctx context.Context, in *IsVisibleRequest, opts ...grpc.CallOption) (*IsVisibleResponse, error)
+	OnAppear5(ctx context.Context, in *OnAppear5Request, opts ...grpc.CallOption) (*OnAppear5Response, error)
+	OnAppear4_1(ctx context.Context, in *OnAppear4_1Request, opts ...grpc.CallOption) (*OnAppear4_1Response, error)
+	OnDisappear5(ctx context.Context, in *OnDisappear5Request, opts ...grpc.CallOption) (*OnDisappear5Response, error)
+	OnDisappear4_1(ctx context.Context, in *OnDisappear4_1Request, opts ...grpc.CallOption) (*OnDisappear4_1Response, error)
+	SetMode(ctx context.Context, in *SetModeRequest, opts ...grpc.CallOption) (*SetModeResponse, error)
 }
 
-type inflaterServiceClient struct {
+type visibilityServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewInflaterServiceClient(cc grpc.ClientConnInterface) InflaterServiceClient {
-	return &inflaterServiceClient{cc}
+func NewVisibilityServiceClient(cc grpc.ClientConnInterface) VisibilityServiceClient {
+	return &visibilityServiceClient{cc}
 }
 
-func (c *inflaterServiceClient) InflateTransition(ctx context.Context, in *InflateTransitionRequest, opts ...grpc.CallOption) (*InflateTransitionResponse, error) {
+func (c *visibilityServiceClient) CaptureEndValues(ctx context.Context, in *CaptureEndValuesRequest, opts ...grpc.CallOption) (*CaptureEndValuesResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(InflateTransitionResponse)
-	err := c.cc.Invoke(ctx, InflaterService_InflateTransition_FullMethodName, in, out, cOpts...)
+	out := new(CaptureEndValuesResponse)
+	err := c.cc.Invoke(ctx, VisibilityService_CaptureEndValues_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *inflaterServiceClient) InflateTransitionManager(ctx context.Context, in *InflateTransitionManagerRequest, opts ...grpc.CallOption) (*InflateTransitionManagerResponse, error) {
+func (c *visibilityServiceClient) CaptureStartValues(ctx context.Context, in *CaptureStartValuesRequest, opts ...grpc.CallOption) (*CaptureStartValuesResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(InflateTransitionManagerResponse)
-	err := c.cc.Invoke(ctx, InflaterService_InflateTransitionManager_FullMethodName, in, out, cOpts...)
+	out := new(CaptureStartValuesResponse)
+	err := c.cc.Invoke(ctx, VisibilityService_CaptureStartValues_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *inflaterServiceClient) From(ctx context.Context, in *FromRequest, opts ...grpc.CallOption) (*FromResponse, error) {
+func (c *visibilityServiceClient) CreateAnimator(ctx context.Context, in *CreateAnimatorRequest, opts ...grpc.CallOption) (*CreateAnimatorResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(FromResponse)
-	err := c.cc.Invoke(ctx, InflaterService_From_FullMethodName, in, out, cOpts...)
+	out := new(CreateAnimatorResponse)
+	err := c.cc.Invoke(ctx, VisibilityService_CreateAnimator_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// InflaterServiceServer is the server API for InflaterService service.
-// All implementations must embed UnimplementedInflaterServiceServer
+func (c *visibilityServiceClient) GetMode(ctx context.Context, in *GetModeRequest, opts ...grpc.CallOption) (*GetModeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetModeResponse)
+	err := c.cc.Invoke(ctx, VisibilityService_GetMode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *visibilityServiceClient) GetTransitionProperties(ctx context.Context, in *GetTransitionPropertiesRequest, opts ...grpc.CallOption) (*GetTransitionPropertiesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTransitionPropertiesResponse)
+	err := c.cc.Invoke(ctx, VisibilityService_GetTransitionProperties_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *visibilityServiceClient) IsTransitionRequired(ctx context.Context, in *IsTransitionRequiredRequest, opts ...grpc.CallOption) (*IsTransitionRequiredResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsTransitionRequiredResponse)
+	err := c.cc.Invoke(ctx, VisibilityService_IsTransitionRequired_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *visibilityServiceClient) IsVisible(ctx context.Context, in *IsVisibleRequest, opts ...grpc.CallOption) (*IsVisibleResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsVisibleResponse)
+	err := c.cc.Invoke(ctx, VisibilityService_IsVisible_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *visibilityServiceClient) OnAppear5(ctx context.Context, in *OnAppear5Request, opts ...grpc.CallOption) (*OnAppear5Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnAppear5Response)
+	err := c.cc.Invoke(ctx, VisibilityService_OnAppear5_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *visibilityServiceClient) OnAppear4_1(ctx context.Context, in *OnAppear4_1Request, opts ...grpc.CallOption) (*OnAppear4_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnAppear4_1Response)
+	err := c.cc.Invoke(ctx, VisibilityService_OnAppear4_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *visibilityServiceClient) OnDisappear5(ctx context.Context, in *OnDisappear5Request, opts ...grpc.CallOption) (*OnDisappear5Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnDisappear5Response)
+	err := c.cc.Invoke(ctx, VisibilityService_OnDisappear5_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *visibilityServiceClient) OnDisappear4_1(ctx context.Context, in *OnDisappear4_1Request, opts ...grpc.CallOption) (*OnDisappear4_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnDisappear4_1Response)
+	err := c.cc.Invoke(ctx, VisibilityService_OnDisappear4_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *visibilityServiceClient) SetMode(ctx context.Context, in *SetModeRequest, opts ...grpc.CallOption) (*SetModeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetModeResponse)
+	err := c.cc.Invoke(ctx, VisibilityService_SetMode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// VisibilityServiceServer is the server API for VisibilityService service.
+// All implementations must embed UnimplementedVisibilityServiceServer
 // for forward compatibility.
-type InflaterServiceServer interface {
-	InflateTransition(context.Context, *InflateTransitionRequest) (*InflateTransitionResponse, error)
-	InflateTransitionManager(context.Context, *InflateTransitionManagerRequest) (*InflateTransitionManagerResponse, error)
-	From(context.Context, *FromRequest) (*FromResponse, error)
-	mustEmbedUnimplementedInflaterServiceServer()
+type VisibilityServiceServer interface {
+	CaptureEndValues(context.Context, *CaptureEndValuesRequest) (*CaptureEndValuesResponse, error)
+	CaptureStartValues(context.Context, *CaptureStartValuesRequest) (*CaptureStartValuesResponse, error)
+	CreateAnimator(context.Context, *CreateAnimatorRequest) (*CreateAnimatorResponse, error)
+	GetMode(context.Context, *GetModeRequest) (*GetModeResponse, error)
+	GetTransitionProperties(context.Context, *GetTransitionPropertiesRequest) (*GetTransitionPropertiesResponse, error)
+	IsTransitionRequired(context.Context, *IsTransitionRequiredRequest) (*IsTransitionRequiredResponse, error)
+	IsVisible(context.Context, *IsVisibleRequest) (*IsVisibleResponse, error)
+	OnAppear5(context.Context, *OnAppear5Request) (*OnAppear5Response, error)
+	OnAppear4_1(context.Context, *OnAppear4_1Request) (*OnAppear4_1Response, error)
+	OnDisappear5(context.Context, *OnDisappear5Request) (*OnDisappear5Response, error)
+	OnDisappear4_1(context.Context, *OnDisappear4_1Request) (*OnDisappear4_1Response, error)
+	SetMode(context.Context, *SetModeRequest) (*SetModeResponse, error)
+	mustEmbedUnimplementedVisibilityServiceServer()
 }
 
-// UnimplementedInflaterServiceServer must be embedded to have
+// UnimplementedVisibilityServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedInflaterServiceServer struct{}
+type UnimplementedVisibilityServiceServer struct{}
 
-func (UnimplementedInflaterServiceServer) InflateTransition(context.Context, *InflateTransitionRequest) (*InflateTransitionResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method InflateTransition not implemented")
+func (UnimplementedVisibilityServiceServer) CaptureEndValues(context.Context, *CaptureEndValuesRequest) (*CaptureEndValuesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method CaptureEndValues not implemented")
 }
-func (UnimplementedInflaterServiceServer) InflateTransitionManager(context.Context, *InflateTransitionManagerRequest) (*InflateTransitionManagerResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method InflateTransitionManager not implemented")
+func (UnimplementedVisibilityServiceServer) CaptureStartValues(context.Context, *CaptureStartValuesRequest) (*CaptureStartValuesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method CaptureStartValues not implemented")
 }
-func (UnimplementedInflaterServiceServer) From(context.Context, *FromRequest) (*FromResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method From not implemented")
+func (UnimplementedVisibilityServiceServer) CreateAnimator(context.Context, *CreateAnimatorRequest) (*CreateAnimatorResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method CreateAnimator not implemented")
 }
-func (UnimplementedInflaterServiceServer) mustEmbedUnimplementedInflaterServiceServer() {}
-func (UnimplementedInflaterServiceServer) testEmbeddedByValue()                         {}
+func (UnimplementedVisibilityServiceServer) GetMode(context.Context, *GetModeRequest) (*GetModeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetMode not implemented")
+}
+func (UnimplementedVisibilityServiceServer) GetTransitionProperties(context.Context, *GetTransitionPropertiesRequest) (*GetTransitionPropertiesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTransitionProperties not implemented")
+}
+func (UnimplementedVisibilityServiceServer) IsTransitionRequired(context.Context, *IsTransitionRequiredRequest) (*IsTransitionRequiredResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsTransitionRequired not implemented")
+}
+func (UnimplementedVisibilityServiceServer) IsVisible(context.Context, *IsVisibleRequest) (*IsVisibleResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsVisible not implemented")
+}
+func (UnimplementedVisibilityServiceServer) OnAppear5(context.Context, *OnAppear5Request) (*OnAppear5Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnAppear5 not implemented")
+}
+func (UnimplementedVisibilityServiceServer) OnAppear4_1(context.Context, *OnAppear4_1Request) (*OnAppear4_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnAppear4_1 not implemented")
+}
+func (UnimplementedVisibilityServiceServer) OnDisappear5(context.Context, *OnDisappear5Request) (*OnDisappear5Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnDisappear5 not implemented")
+}
+func (UnimplementedVisibilityServiceServer) OnDisappear4_1(context.Context, *OnDisappear4_1Request) (*OnDisappear4_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnDisappear4_1 not implemented")
+}
+func (UnimplementedVisibilityServiceServer) SetMode(context.Context, *SetModeRequest) (*SetModeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetMode not implemented")
+}
+func (UnimplementedVisibilityServiceServer) mustEmbedUnimplementedVisibilityServiceServer() {}
+func (UnimplementedVisibilityServiceServer) testEmbeddedByValue()                           {}
 
-// UnsafeInflaterServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to InflaterServiceServer will
+// UnsafeVisibilityServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to VisibilityServiceServer will
 // result in compilation errors.
-type UnsafeInflaterServiceServer interface {
-	mustEmbedUnimplementedInflaterServiceServer()
+type UnsafeVisibilityServiceServer interface {
+	mustEmbedUnimplementedVisibilityServiceServer()
 }
 
-func RegisterInflaterServiceServer(s grpc.ServiceRegistrar, srv InflaterServiceServer) {
-	// If the following call panics, it indicates UnimplementedInflaterServiceServer was
+func RegisterVisibilityServiceServer(s grpc.ServiceRegistrar, srv VisibilityServiceServer) {
+	// If the following call panics, it indicates UnimplementedVisibilityServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&InflaterService_ServiceDesc, srv)
+	s.RegisterService(&VisibilityService_ServiceDesc, srv)
 }
 
-func _InflaterService_InflateTransition_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(InflateTransitionRequest)
+func _VisibilityService_CaptureEndValues_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CaptureEndValuesRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(InflaterServiceServer).InflateTransition(ctx, in)
+		return srv.(VisibilityServiceServer).CaptureEndValues(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: InflaterService_InflateTransition_FullMethodName,
+		FullMethod: VisibilityService_CaptureEndValues_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(InflaterServiceServer).InflateTransition(ctx, req.(*InflateTransitionRequest))
+		return srv.(VisibilityServiceServer).CaptureEndValues(ctx, req.(*CaptureEndValuesRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _InflaterService_InflateTransitionManager_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(InflateTransitionManagerRequest)
+func _VisibilityService_CaptureStartValues_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CaptureStartValuesRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(InflaterServiceServer).InflateTransitionManager(ctx, in)
+		return srv.(VisibilityServiceServer).CaptureStartValues(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: InflaterService_InflateTransitionManager_FullMethodName,
+		FullMethod: VisibilityService_CaptureStartValues_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(InflaterServiceServer).InflateTransitionManager(ctx, req.(*InflateTransitionManagerRequest))
+		return srv.(VisibilityServiceServer).CaptureStartValues(ctx, req.(*CaptureStartValuesRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _InflaterService_From_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(FromRequest)
+func _VisibilityService_CreateAnimator_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreateAnimatorRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(InflaterServiceServer).From(ctx, in)
+		return srv.(VisibilityServiceServer).CreateAnimator(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: InflaterService_From_FullMethodName,
+		FullMethod: VisibilityService_CreateAnimator_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(InflaterServiceServer).From(ctx, req.(*FromRequest))
+		return srv.(VisibilityServiceServer).CreateAnimator(ctx, req.(*CreateAnimatorRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// InflaterService_ServiceDesc is the grpc.ServiceDesc for InflaterService service.
+func _VisibilityService_GetMode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetModeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(VisibilityServiceServer).GetMode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: VisibilityService_GetMode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(VisibilityServiceServer).GetMode(ctx, req.(*GetModeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _VisibilityService_GetTransitionProperties_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTransitionPropertiesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(VisibilityServiceServer).GetTransitionProperties(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: VisibilityService_GetTransitionProperties_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(VisibilityServiceServer).GetTransitionProperties(ctx, req.(*GetTransitionPropertiesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _VisibilityService_IsTransitionRequired_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsTransitionRequiredRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(VisibilityServiceServer).IsTransitionRequired(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: VisibilityService_IsTransitionRequired_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(VisibilityServiceServer).IsTransitionRequired(ctx, req.(*IsTransitionRequiredRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _VisibilityService_IsVisible_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsVisibleRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(VisibilityServiceServer).IsVisible(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: VisibilityService_IsVisible_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(VisibilityServiceServer).IsVisible(ctx, req.(*IsVisibleRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _VisibilityService_OnAppear5_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnAppear5Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(VisibilityServiceServer).OnAppear5(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: VisibilityService_OnAppear5_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(VisibilityServiceServer).OnAppear5(ctx, req.(*OnAppear5Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _VisibilityService_OnAppear4_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnAppear4_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(VisibilityServiceServer).OnAppear4_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: VisibilityService_OnAppear4_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(VisibilityServiceServer).OnAppear4_1(ctx, req.(*OnAppear4_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _VisibilityService_OnDisappear5_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnDisappear5Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(VisibilityServiceServer).OnDisappear5(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: VisibilityService_OnDisappear5_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(VisibilityServiceServer).OnDisappear5(ctx, req.(*OnDisappear5Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _VisibilityService_OnDisappear4_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnDisappear4_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(VisibilityServiceServer).OnDisappear4_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: VisibilityService_OnDisappear4_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(VisibilityServiceServer).OnDisappear4_1(ctx, req.(*OnDisappear4_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _VisibilityService_SetMode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetModeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(VisibilityServiceServer).SetMode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: VisibilityService_SetMode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(VisibilityServiceServer).SetMode(ctx, req.(*SetModeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// VisibilityService_ServiceDesc is the grpc.ServiceDesc for VisibilityService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var InflaterService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "transition.InflaterService",
-	HandlerType: (*InflaterServiceServer)(nil),
+var VisibilityService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "transition.VisibilityService",
+	HandlerType: (*VisibilityServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "InflateTransition",
-			Handler:    _InflaterService_InflateTransition_Handler,
+			MethodName: "CaptureEndValues",
+			Handler:    _VisibilityService_CaptureEndValues_Handler,
 		},
 		{
-			MethodName: "InflateTransitionManager",
-			Handler:    _InflaterService_InflateTransitionManager_Handler,
+			MethodName: "CaptureStartValues",
+			Handler:    _VisibilityService_CaptureStartValues_Handler,
 		},
 		{
-			MethodName: "From",
-			Handler:    _InflaterService_From_Handler,
+			MethodName: "CreateAnimator",
+			Handler:    _VisibilityService_CreateAnimator_Handler,
+		},
+		{
+			MethodName: "GetMode",
+			Handler:    _VisibilityService_GetMode_Handler,
+		},
+		{
+			MethodName: "GetTransitionProperties",
+			Handler:    _VisibilityService_GetTransitionProperties_Handler,
+		},
+		{
+			MethodName: "IsTransitionRequired",
+			Handler:    _VisibilityService_IsTransitionRequired_Handler,
+		},
+		{
+			MethodName: "IsVisible",
+			Handler:    _VisibilityService_IsVisible_Handler,
+		},
+		{
+			MethodName: "OnAppear5",
+			Handler:    _VisibilityService_OnAppear5_Handler,
+		},
+		{
+			MethodName: "OnAppear4_1",
+			Handler:    _VisibilityService_OnAppear4_1_Handler,
+		},
+		{
+			MethodName: "OnDisappear5",
+			Handler:    _VisibilityService_OnDisappear5_Handler,
+		},
+		{
+			MethodName: "OnDisappear4_1",
+			Handler:    _VisibilityService_OnDisappear4_1_Handler,
+		},
+		{
+			MethodName: "SetMode",
+			Handler:    _VisibilityService_SetMode_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -7729,254 +4453,1867 @@ var InflaterService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	ChangeImageTransformService_NewChangeImageTransform_FullMethodName = "/transition.ChangeImageTransformService/NewChangeImageTransform"
-	ChangeImageTransformService_CaptureEndValues_FullMethodName        = "/transition.ChangeImageTransformService/CaptureEndValues"
-	ChangeImageTransformService_CaptureStartValues_FullMethodName      = "/transition.ChangeImageTransformService/CaptureStartValues"
-	ChangeImageTransformService_CreateAnimator_FullMethodName          = "/transition.ChangeImageTransformService/CreateAnimator"
-	ChangeImageTransformService_GetTransitionProperties_FullMethodName = "/transition.ChangeImageTransformService/GetTransitionProperties"
+	SceneService_NewScene_FullMethodName          = "/transition.SceneService/NewScene"
+	SceneService_Enter_FullMethodName             = "/transition.SceneService/Enter"
+	SceneService_Exit_FullMethodName              = "/transition.SceneService/Exit"
+	SceneService_GetSceneRoot_FullMethodName      = "/transition.SceneService/GetSceneRoot"
+	SceneService_SetEnterAction_FullMethodName    = "/transition.SceneService/SetEnterAction"
+	SceneService_SetExitAction_FullMethodName     = "/transition.SceneService/SetExitAction"
+	SceneService_GetCurrentScene_FullMethodName   = "/transition.SceneService/GetCurrentScene"
+	SceneService_GetSceneForLayout_FullMethodName = "/transition.SceneService/GetSceneForLayout"
 )
 
-// ChangeImageTransformServiceClient is the client API for ChangeImageTransformService service.
+// SceneServiceClient is the client API for SceneService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type ChangeImageTransformServiceClient interface {
-	NewChangeImageTransform(ctx context.Context, in *NewChangeImageTransformRequest, opts ...grpc.CallOption) (*NewChangeImageTransformResponse, error)
-	CaptureEndValues(ctx context.Context, in *CaptureEndValuesRequest, opts ...grpc.CallOption) (*CaptureEndValuesResponse, error)
-	CaptureStartValues(ctx context.Context, in *CaptureStartValuesRequest, opts ...grpc.CallOption) (*CaptureStartValuesResponse, error)
-	CreateAnimator(ctx context.Context, in *CreateAnimatorRequest, opts ...grpc.CallOption) (*CreateAnimatorResponse, error)
-	GetTransitionProperties(ctx context.Context, in *GetTransitionPropertiesRequest, opts ...grpc.CallOption) (*GetTransitionPropertiesResponse, error)
+type SceneServiceClient interface {
+	NewScene(ctx context.Context, in *NewSceneRequest, opts ...grpc.CallOption) (*NewSceneResponse, error)
+	Enter(ctx context.Context, in *EnterRequest, opts ...grpc.CallOption) (*EnterResponse, error)
+	Exit(ctx context.Context, in *ExitRequest, opts ...grpc.CallOption) (*ExitResponse, error)
+	GetSceneRoot(ctx context.Context, in *GetSceneRootRequest, opts ...grpc.CallOption) (*GetSceneRootResponse, error)
+	SetEnterAction(ctx context.Context, in *SetEnterActionRequest, opts ...grpc.CallOption) (*SetEnterActionResponse, error)
+	SetExitAction(ctx context.Context, in *SetExitActionRequest, opts ...grpc.CallOption) (*SetExitActionResponse, error)
+	GetCurrentScene(ctx context.Context, in *GetCurrentSceneRequest, opts ...grpc.CallOption) (*GetCurrentSceneResponse, error)
+	GetSceneForLayout(ctx context.Context, in *GetSceneForLayoutRequest, opts ...grpc.CallOption) (*GetSceneForLayoutResponse, error)
 }
 
-type changeImageTransformServiceClient struct {
+type sceneServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewChangeImageTransformServiceClient(cc grpc.ClientConnInterface) ChangeImageTransformServiceClient {
-	return &changeImageTransformServiceClient{cc}
+func NewSceneServiceClient(cc grpc.ClientConnInterface) SceneServiceClient {
+	return &sceneServiceClient{cc}
 }
 
-func (c *changeImageTransformServiceClient) NewChangeImageTransform(ctx context.Context, in *NewChangeImageTransformRequest, opts ...grpc.CallOption) (*NewChangeImageTransformResponse, error) {
+func (c *sceneServiceClient) NewScene(ctx context.Context, in *NewSceneRequest, opts ...grpc.CallOption) (*NewSceneResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewChangeImageTransformResponse)
-	err := c.cc.Invoke(ctx, ChangeImageTransformService_NewChangeImageTransform_FullMethodName, in, out, cOpts...)
+	out := new(NewSceneResponse)
+	err := c.cc.Invoke(ctx, SceneService_NewScene_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *changeImageTransformServiceClient) CaptureEndValues(ctx context.Context, in *CaptureEndValuesRequest, opts ...grpc.CallOption) (*CaptureEndValuesResponse, error) {
+func (c *sceneServiceClient) Enter(ctx context.Context, in *EnterRequest, opts ...grpc.CallOption) (*EnterResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CaptureEndValuesResponse)
-	err := c.cc.Invoke(ctx, ChangeImageTransformService_CaptureEndValues_FullMethodName, in, out, cOpts...)
+	out := new(EnterResponse)
+	err := c.cc.Invoke(ctx, SceneService_Enter_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *changeImageTransformServiceClient) CaptureStartValues(ctx context.Context, in *CaptureStartValuesRequest, opts ...grpc.CallOption) (*CaptureStartValuesResponse, error) {
+func (c *sceneServiceClient) Exit(ctx context.Context, in *ExitRequest, opts ...grpc.CallOption) (*ExitResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CaptureStartValuesResponse)
-	err := c.cc.Invoke(ctx, ChangeImageTransformService_CaptureStartValues_FullMethodName, in, out, cOpts...)
+	out := new(ExitResponse)
+	err := c.cc.Invoke(ctx, SceneService_Exit_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *changeImageTransformServiceClient) CreateAnimator(ctx context.Context, in *CreateAnimatorRequest, opts ...grpc.CallOption) (*CreateAnimatorResponse, error) {
+func (c *sceneServiceClient) GetSceneRoot(ctx context.Context, in *GetSceneRootRequest, opts ...grpc.CallOption) (*GetSceneRootResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CreateAnimatorResponse)
-	err := c.cc.Invoke(ctx, ChangeImageTransformService_CreateAnimator_FullMethodName, in, out, cOpts...)
+	out := new(GetSceneRootResponse)
+	err := c.cc.Invoke(ctx, SceneService_GetSceneRoot_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *changeImageTransformServiceClient) GetTransitionProperties(ctx context.Context, in *GetTransitionPropertiesRequest, opts ...grpc.CallOption) (*GetTransitionPropertiesResponse, error) {
+func (c *sceneServiceClient) SetEnterAction(ctx context.Context, in *SetEnterActionRequest, opts ...grpc.CallOption) (*SetEnterActionResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetTransitionPropertiesResponse)
-	err := c.cc.Invoke(ctx, ChangeImageTransformService_GetTransitionProperties_FullMethodName, in, out, cOpts...)
+	out := new(SetEnterActionResponse)
+	err := c.cc.Invoke(ctx, SceneService_SetEnterAction_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// ChangeImageTransformServiceServer is the server API for ChangeImageTransformService service.
-// All implementations must embed UnimplementedChangeImageTransformServiceServer
+func (c *sceneServiceClient) SetExitAction(ctx context.Context, in *SetExitActionRequest, opts ...grpc.CallOption) (*SetExitActionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetExitActionResponse)
+	err := c.cc.Invoke(ctx, SceneService_SetExitAction_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sceneServiceClient) GetCurrentScene(ctx context.Context, in *GetCurrentSceneRequest, opts ...grpc.CallOption) (*GetCurrentSceneResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetCurrentSceneResponse)
+	err := c.cc.Invoke(ctx, SceneService_GetCurrentScene_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sceneServiceClient) GetSceneForLayout(ctx context.Context, in *GetSceneForLayoutRequest, opts ...grpc.CallOption) (*GetSceneForLayoutResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSceneForLayoutResponse)
+	err := c.cc.Invoke(ctx, SceneService_GetSceneForLayout_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// SceneServiceServer is the server API for SceneService service.
+// All implementations must embed UnimplementedSceneServiceServer
 // for forward compatibility.
-type ChangeImageTransformServiceServer interface {
-	NewChangeImageTransform(context.Context, *NewChangeImageTransformRequest) (*NewChangeImageTransformResponse, error)
-	CaptureEndValues(context.Context, *CaptureEndValuesRequest) (*CaptureEndValuesResponse, error)
-	CaptureStartValues(context.Context, *CaptureStartValuesRequest) (*CaptureStartValuesResponse, error)
-	CreateAnimator(context.Context, *CreateAnimatorRequest) (*CreateAnimatorResponse, error)
-	GetTransitionProperties(context.Context, *GetTransitionPropertiesRequest) (*GetTransitionPropertiesResponse, error)
-	mustEmbedUnimplementedChangeImageTransformServiceServer()
+type SceneServiceServer interface {
+	NewScene(context.Context, *NewSceneRequest) (*NewSceneResponse, error)
+	Enter(context.Context, *EnterRequest) (*EnterResponse, error)
+	Exit(context.Context, *ExitRequest) (*ExitResponse, error)
+	GetSceneRoot(context.Context, *GetSceneRootRequest) (*GetSceneRootResponse, error)
+	SetEnterAction(context.Context, *SetEnterActionRequest) (*SetEnterActionResponse, error)
+	SetExitAction(context.Context, *SetExitActionRequest) (*SetExitActionResponse, error)
+	GetCurrentScene(context.Context, *GetCurrentSceneRequest) (*GetCurrentSceneResponse, error)
+	GetSceneForLayout(context.Context, *GetSceneForLayoutRequest) (*GetSceneForLayoutResponse, error)
+	mustEmbedUnimplementedSceneServiceServer()
 }
 
-// UnimplementedChangeImageTransformServiceServer must be embedded to have
+// UnimplementedSceneServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedChangeImageTransformServiceServer struct{}
+type UnimplementedSceneServiceServer struct{}
 
-func (UnimplementedChangeImageTransformServiceServer) NewChangeImageTransform(context.Context, *NewChangeImageTransformRequest) (*NewChangeImageTransformResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewChangeImageTransform not implemented")
+func (UnimplementedSceneServiceServer) NewScene(context.Context, *NewSceneRequest) (*NewSceneResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewScene not implemented")
 }
-func (UnimplementedChangeImageTransformServiceServer) CaptureEndValues(context.Context, *CaptureEndValuesRequest) (*CaptureEndValuesResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method CaptureEndValues not implemented")
+func (UnimplementedSceneServiceServer) Enter(context.Context, *EnterRequest) (*EnterResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Enter not implemented")
 }
-func (UnimplementedChangeImageTransformServiceServer) CaptureStartValues(context.Context, *CaptureStartValuesRequest) (*CaptureStartValuesResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method CaptureStartValues not implemented")
+func (UnimplementedSceneServiceServer) Exit(context.Context, *ExitRequest) (*ExitResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Exit not implemented")
 }
-func (UnimplementedChangeImageTransformServiceServer) CreateAnimator(context.Context, *CreateAnimatorRequest) (*CreateAnimatorResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method CreateAnimator not implemented")
+func (UnimplementedSceneServiceServer) GetSceneRoot(context.Context, *GetSceneRootRequest) (*GetSceneRootResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSceneRoot not implemented")
 }
-func (UnimplementedChangeImageTransformServiceServer) GetTransitionProperties(context.Context, *GetTransitionPropertiesRequest) (*GetTransitionPropertiesResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetTransitionProperties not implemented")
+func (UnimplementedSceneServiceServer) SetEnterAction(context.Context, *SetEnterActionRequest) (*SetEnterActionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetEnterAction not implemented")
 }
-func (UnimplementedChangeImageTransformServiceServer) mustEmbedUnimplementedChangeImageTransformServiceServer() {
+func (UnimplementedSceneServiceServer) SetExitAction(context.Context, *SetExitActionRequest) (*SetExitActionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetExitAction not implemented")
 }
-func (UnimplementedChangeImageTransformServiceServer) testEmbeddedByValue() {}
+func (UnimplementedSceneServiceServer) GetCurrentScene(context.Context, *GetCurrentSceneRequest) (*GetCurrentSceneResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetCurrentScene not implemented")
+}
+func (UnimplementedSceneServiceServer) GetSceneForLayout(context.Context, *GetSceneForLayoutRequest) (*GetSceneForLayoutResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSceneForLayout not implemented")
+}
+func (UnimplementedSceneServiceServer) mustEmbedUnimplementedSceneServiceServer() {}
+func (UnimplementedSceneServiceServer) testEmbeddedByValue()                      {}
 
-// UnsafeChangeImageTransformServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to ChangeImageTransformServiceServer will
+// UnsafeSceneServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to SceneServiceServer will
 // result in compilation errors.
-type UnsafeChangeImageTransformServiceServer interface {
-	mustEmbedUnimplementedChangeImageTransformServiceServer()
+type UnsafeSceneServiceServer interface {
+	mustEmbedUnimplementedSceneServiceServer()
 }
 
-func RegisterChangeImageTransformServiceServer(s grpc.ServiceRegistrar, srv ChangeImageTransformServiceServer) {
-	// If the following call panics, it indicates UnimplementedChangeImageTransformServiceServer was
+func RegisterSceneServiceServer(s grpc.ServiceRegistrar, srv SceneServiceServer) {
+	// If the following call panics, it indicates UnimplementedSceneServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&ChangeImageTransformService_ServiceDesc, srv)
+	s.RegisterService(&SceneService_ServiceDesc, srv)
 }
 
-func _ChangeImageTransformService_NewChangeImageTransform_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewChangeImageTransformRequest)
+func _SceneService_NewScene_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewSceneRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ChangeImageTransformServiceServer).NewChangeImageTransform(ctx, in)
+		return srv.(SceneServiceServer).NewScene(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: ChangeImageTransformService_NewChangeImageTransform_FullMethodName,
+		FullMethod: SceneService_NewScene_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ChangeImageTransformServiceServer).NewChangeImageTransform(ctx, req.(*NewChangeImageTransformRequest))
+		return srv.(SceneServiceServer).NewScene(ctx, req.(*NewSceneRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ChangeImageTransformService_CaptureEndValues_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CaptureEndValuesRequest)
+func _SceneService_Enter_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EnterRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ChangeImageTransformServiceServer).CaptureEndValues(ctx, in)
+		return srv.(SceneServiceServer).Enter(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: ChangeImageTransformService_CaptureEndValues_FullMethodName,
+		FullMethod: SceneService_Enter_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ChangeImageTransformServiceServer).CaptureEndValues(ctx, req.(*CaptureEndValuesRequest))
+		return srv.(SceneServiceServer).Enter(ctx, req.(*EnterRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ChangeImageTransformService_CaptureStartValues_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CaptureStartValuesRequest)
+func _SceneService_Exit_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ExitRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ChangeImageTransformServiceServer).CaptureStartValues(ctx, in)
+		return srv.(SceneServiceServer).Exit(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: ChangeImageTransformService_CaptureStartValues_FullMethodName,
+		FullMethod: SceneService_Exit_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ChangeImageTransformServiceServer).CaptureStartValues(ctx, req.(*CaptureStartValuesRequest))
+		return srv.(SceneServiceServer).Exit(ctx, req.(*ExitRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ChangeImageTransformService_CreateAnimator_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CreateAnimatorRequest)
+func _SceneService_GetSceneRoot_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSceneRootRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ChangeImageTransformServiceServer).CreateAnimator(ctx, in)
+		return srv.(SceneServiceServer).GetSceneRoot(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: ChangeImageTransformService_CreateAnimator_FullMethodName,
+		FullMethod: SceneService_GetSceneRoot_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ChangeImageTransformServiceServer).CreateAnimator(ctx, req.(*CreateAnimatorRequest))
+		return srv.(SceneServiceServer).GetSceneRoot(ctx, req.(*GetSceneRootRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ChangeImageTransformService_GetTransitionProperties_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetTransitionPropertiesRequest)
+func _SceneService_SetEnterAction_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetEnterActionRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ChangeImageTransformServiceServer).GetTransitionProperties(ctx, in)
+		return srv.(SceneServiceServer).SetEnterAction(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: ChangeImageTransformService_GetTransitionProperties_FullMethodName,
+		FullMethod: SceneService_SetEnterAction_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ChangeImageTransformServiceServer).GetTransitionProperties(ctx, req.(*GetTransitionPropertiesRequest))
+		return srv.(SceneServiceServer).SetEnterAction(ctx, req.(*SetEnterActionRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// ChangeImageTransformService_ServiceDesc is the grpc.ServiceDesc for ChangeImageTransformService service.
+func _SceneService_SetExitAction_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetExitActionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SceneServiceServer).SetExitAction(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SceneService_SetExitAction_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SceneServiceServer).SetExitAction(ctx, req.(*SetExitActionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SceneService_GetCurrentScene_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetCurrentSceneRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SceneServiceServer).GetCurrentScene(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SceneService_GetCurrentScene_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SceneServiceServer).GetCurrentScene(ctx, req.(*GetCurrentSceneRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SceneService_GetSceneForLayout_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSceneForLayoutRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SceneServiceServer).GetSceneForLayout(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SceneService_GetSceneForLayout_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SceneServiceServer).GetSceneForLayout(ctx, req.(*GetSceneForLayoutRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// SceneService_ServiceDesc is the grpc.ServiceDesc for SceneService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var ChangeImageTransformService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "transition.ChangeImageTransformService",
-	HandlerType: (*ChangeImageTransformServiceServer)(nil),
+var SceneService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "transition.SceneService",
+	HandlerType: (*SceneServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "NewChangeImageTransform",
-			Handler:    _ChangeImageTransformService_NewChangeImageTransform_Handler,
+			MethodName: "NewScene",
+			Handler:    _SceneService_NewScene_Handler,
+		},
+		{
+			MethodName: "Enter",
+			Handler:    _SceneService_Enter_Handler,
+		},
+		{
+			MethodName: "Exit",
+			Handler:    _SceneService_Exit_Handler,
+		},
+		{
+			MethodName: "GetSceneRoot",
+			Handler:    _SceneService_GetSceneRoot_Handler,
+		},
+		{
+			MethodName: "SetEnterAction",
+			Handler:    _SceneService_SetEnterAction_Handler,
+		},
+		{
+			MethodName: "SetExitAction",
+			Handler:    _SceneService_SetExitAction_Handler,
+		},
+		{
+			MethodName: "GetCurrentScene",
+			Handler:    _SceneService_GetCurrentScene_Handler,
+		},
+		{
+			MethodName: "GetSceneForLayout",
+			Handler:    _SceneService_GetSceneForLayout_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/transition/transition.proto",
+}
+
+const (
+	ChangeTransformService_NewChangeTransform_FullMethodName      = "/transition.ChangeTransformService/NewChangeTransform"
+	ChangeTransformService_CaptureEndValues_FullMethodName        = "/transition.ChangeTransformService/CaptureEndValues"
+	ChangeTransformService_CaptureStartValues_FullMethodName      = "/transition.ChangeTransformService/CaptureStartValues"
+	ChangeTransformService_CreateAnimator_FullMethodName          = "/transition.ChangeTransformService/CreateAnimator"
+	ChangeTransformService_GetReparent_FullMethodName             = "/transition.ChangeTransformService/GetReparent"
+	ChangeTransformService_GetReparentWithOverlay_FullMethodName  = "/transition.ChangeTransformService/GetReparentWithOverlay"
+	ChangeTransformService_GetTransitionProperties_FullMethodName = "/transition.ChangeTransformService/GetTransitionProperties"
+	ChangeTransformService_SetReparent_FullMethodName             = "/transition.ChangeTransformService/SetReparent"
+	ChangeTransformService_SetReparentWithOverlay_FullMethodName  = "/transition.ChangeTransformService/SetReparentWithOverlay"
+)
+
+// ChangeTransformServiceClient is the client API for ChangeTransformService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ChangeTransformServiceClient interface {
+	NewChangeTransform(ctx context.Context, in *NewChangeTransformRequest, opts ...grpc.CallOption) (*NewChangeTransformResponse, error)
+	CaptureEndValues(ctx context.Context, in *ChangeTransformCaptureEndValuesRequest, opts ...grpc.CallOption) (*CaptureEndValuesResponse, error)
+	CaptureStartValues(ctx context.Context, in *ChangeTransformCaptureStartValuesRequest, opts ...grpc.CallOption) (*CaptureStartValuesResponse, error)
+	CreateAnimator(ctx context.Context, in *ChangeTransformCreateAnimatorRequest, opts ...grpc.CallOption) (*CreateAnimatorResponse, error)
+	GetReparent(ctx context.Context, in *GetReparentRequest, opts ...grpc.CallOption) (*GetReparentResponse, error)
+	GetReparentWithOverlay(ctx context.Context, in *GetReparentWithOverlayRequest, opts ...grpc.CallOption) (*GetReparentWithOverlayResponse, error)
+	GetTransitionProperties(ctx context.Context, in *ChangeTransformGetTransitionPropertiesRequest, opts ...grpc.CallOption) (*GetTransitionPropertiesResponse, error)
+	SetReparent(ctx context.Context, in *SetReparentRequest, opts ...grpc.CallOption) (*SetReparentResponse, error)
+	SetReparentWithOverlay(ctx context.Context, in *SetReparentWithOverlayRequest, opts ...grpc.CallOption) (*SetReparentWithOverlayResponse, error)
+}
+
+type changeTransformServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewChangeTransformServiceClient(cc grpc.ClientConnInterface) ChangeTransformServiceClient {
+	return &changeTransformServiceClient{cc}
+}
+
+func (c *changeTransformServiceClient) NewChangeTransform(ctx context.Context, in *NewChangeTransformRequest, opts ...grpc.CallOption) (*NewChangeTransformResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewChangeTransformResponse)
+	err := c.cc.Invoke(ctx, ChangeTransformService_NewChangeTransform_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *changeTransformServiceClient) CaptureEndValues(ctx context.Context, in *ChangeTransformCaptureEndValuesRequest, opts ...grpc.CallOption) (*CaptureEndValuesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CaptureEndValuesResponse)
+	err := c.cc.Invoke(ctx, ChangeTransformService_CaptureEndValues_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *changeTransformServiceClient) CaptureStartValues(ctx context.Context, in *ChangeTransformCaptureStartValuesRequest, opts ...grpc.CallOption) (*CaptureStartValuesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CaptureStartValuesResponse)
+	err := c.cc.Invoke(ctx, ChangeTransformService_CaptureStartValues_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *changeTransformServiceClient) CreateAnimator(ctx context.Context, in *ChangeTransformCreateAnimatorRequest, opts ...grpc.CallOption) (*CreateAnimatorResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CreateAnimatorResponse)
+	err := c.cc.Invoke(ctx, ChangeTransformService_CreateAnimator_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *changeTransformServiceClient) GetReparent(ctx context.Context, in *GetReparentRequest, opts ...grpc.CallOption) (*GetReparentResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetReparentResponse)
+	err := c.cc.Invoke(ctx, ChangeTransformService_GetReparent_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *changeTransformServiceClient) GetReparentWithOverlay(ctx context.Context, in *GetReparentWithOverlayRequest, opts ...grpc.CallOption) (*GetReparentWithOverlayResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetReparentWithOverlayResponse)
+	err := c.cc.Invoke(ctx, ChangeTransformService_GetReparentWithOverlay_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *changeTransformServiceClient) GetTransitionProperties(ctx context.Context, in *ChangeTransformGetTransitionPropertiesRequest, opts ...grpc.CallOption) (*GetTransitionPropertiesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTransitionPropertiesResponse)
+	err := c.cc.Invoke(ctx, ChangeTransformService_GetTransitionProperties_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *changeTransformServiceClient) SetReparent(ctx context.Context, in *SetReparentRequest, opts ...grpc.CallOption) (*SetReparentResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetReparentResponse)
+	err := c.cc.Invoke(ctx, ChangeTransformService_SetReparent_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *changeTransformServiceClient) SetReparentWithOverlay(ctx context.Context, in *SetReparentWithOverlayRequest, opts ...grpc.CallOption) (*SetReparentWithOverlayResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetReparentWithOverlayResponse)
+	err := c.cc.Invoke(ctx, ChangeTransformService_SetReparentWithOverlay_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ChangeTransformServiceServer is the server API for ChangeTransformService service.
+// All implementations must embed UnimplementedChangeTransformServiceServer
+// for forward compatibility.
+type ChangeTransformServiceServer interface {
+	NewChangeTransform(context.Context, *NewChangeTransformRequest) (*NewChangeTransformResponse, error)
+	CaptureEndValues(context.Context, *ChangeTransformCaptureEndValuesRequest) (*CaptureEndValuesResponse, error)
+	CaptureStartValues(context.Context, *ChangeTransformCaptureStartValuesRequest) (*CaptureStartValuesResponse, error)
+	CreateAnimator(context.Context, *ChangeTransformCreateAnimatorRequest) (*CreateAnimatorResponse, error)
+	GetReparent(context.Context, *GetReparentRequest) (*GetReparentResponse, error)
+	GetReparentWithOverlay(context.Context, *GetReparentWithOverlayRequest) (*GetReparentWithOverlayResponse, error)
+	GetTransitionProperties(context.Context, *ChangeTransformGetTransitionPropertiesRequest) (*GetTransitionPropertiesResponse, error)
+	SetReparent(context.Context, *SetReparentRequest) (*SetReparentResponse, error)
+	SetReparentWithOverlay(context.Context, *SetReparentWithOverlayRequest) (*SetReparentWithOverlayResponse, error)
+	mustEmbedUnimplementedChangeTransformServiceServer()
+}
+
+// UnimplementedChangeTransformServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedChangeTransformServiceServer struct{}
+
+func (UnimplementedChangeTransformServiceServer) NewChangeTransform(context.Context, *NewChangeTransformRequest) (*NewChangeTransformResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewChangeTransform not implemented")
+}
+func (UnimplementedChangeTransformServiceServer) CaptureEndValues(context.Context, *ChangeTransformCaptureEndValuesRequest) (*CaptureEndValuesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method CaptureEndValues not implemented")
+}
+func (UnimplementedChangeTransformServiceServer) CaptureStartValues(context.Context, *ChangeTransformCaptureStartValuesRequest) (*CaptureStartValuesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method CaptureStartValues not implemented")
+}
+func (UnimplementedChangeTransformServiceServer) CreateAnimator(context.Context, *ChangeTransformCreateAnimatorRequest) (*CreateAnimatorResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method CreateAnimator not implemented")
+}
+func (UnimplementedChangeTransformServiceServer) GetReparent(context.Context, *GetReparentRequest) (*GetReparentResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetReparent not implemented")
+}
+func (UnimplementedChangeTransformServiceServer) GetReparentWithOverlay(context.Context, *GetReparentWithOverlayRequest) (*GetReparentWithOverlayResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetReparentWithOverlay not implemented")
+}
+func (UnimplementedChangeTransformServiceServer) GetTransitionProperties(context.Context, *ChangeTransformGetTransitionPropertiesRequest) (*GetTransitionPropertiesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTransitionProperties not implemented")
+}
+func (UnimplementedChangeTransformServiceServer) SetReparent(context.Context, *SetReparentRequest) (*SetReparentResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetReparent not implemented")
+}
+func (UnimplementedChangeTransformServiceServer) SetReparentWithOverlay(context.Context, *SetReparentWithOverlayRequest) (*SetReparentWithOverlayResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetReparentWithOverlay not implemented")
+}
+func (UnimplementedChangeTransformServiceServer) mustEmbedUnimplementedChangeTransformServiceServer() {
+}
+func (UnimplementedChangeTransformServiceServer) testEmbeddedByValue() {}
+
+// UnsafeChangeTransformServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ChangeTransformServiceServer will
+// result in compilation errors.
+type UnsafeChangeTransformServiceServer interface {
+	mustEmbedUnimplementedChangeTransformServiceServer()
+}
+
+func RegisterChangeTransformServiceServer(s grpc.ServiceRegistrar, srv ChangeTransformServiceServer) {
+	// If the following call panics, it indicates UnimplementedChangeTransformServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&ChangeTransformService_ServiceDesc, srv)
+}
+
+func _ChangeTransformService_NewChangeTransform_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewChangeTransformRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ChangeTransformServiceServer).NewChangeTransform(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ChangeTransformService_NewChangeTransform_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ChangeTransformServiceServer).NewChangeTransform(ctx, req.(*NewChangeTransformRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ChangeTransformService_CaptureEndValues_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ChangeTransformCaptureEndValuesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ChangeTransformServiceServer).CaptureEndValues(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ChangeTransformService_CaptureEndValues_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ChangeTransformServiceServer).CaptureEndValues(ctx, req.(*ChangeTransformCaptureEndValuesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ChangeTransformService_CaptureStartValues_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ChangeTransformCaptureStartValuesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ChangeTransformServiceServer).CaptureStartValues(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ChangeTransformService_CaptureStartValues_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ChangeTransformServiceServer).CaptureStartValues(ctx, req.(*ChangeTransformCaptureStartValuesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ChangeTransformService_CreateAnimator_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ChangeTransformCreateAnimatorRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ChangeTransformServiceServer).CreateAnimator(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ChangeTransformService_CreateAnimator_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ChangeTransformServiceServer).CreateAnimator(ctx, req.(*ChangeTransformCreateAnimatorRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ChangeTransformService_GetReparent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetReparentRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ChangeTransformServiceServer).GetReparent(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ChangeTransformService_GetReparent_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ChangeTransformServiceServer).GetReparent(ctx, req.(*GetReparentRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ChangeTransformService_GetReparentWithOverlay_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetReparentWithOverlayRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ChangeTransformServiceServer).GetReparentWithOverlay(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ChangeTransformService_GetReparentWithOverlay_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ChangeTransformServiceServer).GetReparentWithOverlay(ctx, req.(*GetReparentWithOverlayRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ChangeTransformService_GetTransitionProperties_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ChangeTransformGetTransitionPropertiesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ChangeTransformServiceServer).GetTransitionProperties(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ChangeTransformService_GetTransitionProperties_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ChangeTransformServiceServer).GetTransitionProperties(ctx, req.(*ChangeTransformGetTransitionPropertiesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ChangeTransformService_SetReparent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetReparentRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ChangeTransformServiceServer).SetReparent(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ChangeTransformService_SetReparent_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ChangeTransformServiceServer).SetReparent(ctx, req.(*SetReparentRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ChangeTransformService_SetReparentWithOverlay_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetReparentWithOverlayRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ChangeTransformServiceServer).SetReparentWithOverlay(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ChangeTransformService_SetReparentWithOverlay_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ChangeTransformServiceServer).SetReparentWithOverlay(ctx, req.(*SetReparentWithOverlayRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ChangeTransformService_ServiceDesc is the grpc.ServiceDesc for ChangeTransformService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ChangeTransformService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "transition.ChangeTransformService",
+	HandlerType: (*ChangeTransformServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewChangeTransform",
+			Handler:    _ChangeTransformService_NewChangeTransform_Handler,
 		},
 		{
 			MethodName: "CaptureEndValues",
-			Handler:    _ChangeImageTransformService_CaptureEndValues_Handler,
+			Handler:    _ChangeTransformService_CaptureEndValues_Handler,
 		},
 		{
 			MethodName: "CaptureStartValues",
-			Handler:    _ChangeImageTransformService_CaptureStartValues_Handler,
+			Handler:    _ChangeTransformService_CaptureStartValues_Handler,
 		},
 		{
 			MethodName: "CreateAnimator",
-			Handler:    _ChangeImageTransformService_CreateAnimator_Handler,
+			Handler:    _ChangeTransformService_CreateAnimator_Handler,
+		},
+		{
+			MethodName: "GetReparent",
+			Handler:    _ChangeTransformService_GetReparent_Handler,
+		},
+		{
+			MethodName: "GetReparentWithOverlay",
+			Handler:    _ChangeTransformService_GetReparentWithOverlay_Handler,
 		},
 		{
 			MethodName: "GetTransitionProperties",
-			Handler:    _ChangeImageTransformService_GetTransitionProperties_Handler,
+			Handler:    _ChangeTransformService_GetTransitionProperties_Handler,
+		},
+		{
+			MethodName: "SetReparent",
+			Handler:    _ChangeTransformService_SetReparent_Handler,
+		},
+		{
+			MethodName: "SetReparentWithOverlay",
+			Handler:    _ChangeTransformService_SetReparentWithOverlay_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/transition/transition.proto",
+}
+
+const (
+	ChangeScrollService_NewChangeScroll_FullMethodName         = "/transition.ChangeScrollService/NewChangeScroll"
+	ChangeScrollService_CaptureEndValues_FullMethodName        = "/transition.ChangeScrollService/CaptureEndValues"
+	ChangeScrollService_CaptureStartValues_FullMethodName      = "/transition.ChangeScrollService/CaptureStartValues"
+	ChangeScrollService_CreateAnimator_FullMethodName          = "/transition.ChangeScrollService/CreateAnimator"
+	ChangeScrollService_GetTransitionProperties_FullMethodName = "/transition.ChangeScrollService/GetTransitionProperties"
+)
+
+// ChangeScrollServiceClient is the client API for ChangeScrollService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ChangeScrollServiceClient interface {
+	NewChangeScroll(ctx context.Context, in *NewChangeScrollRequest, opts ...grpc.CallOption) (*NewChangeScrollResponse, error)
+	CaptureEndValues(ctx context.Context, in *ChangeScrollCaptureEndValuesRequest, opts ...grpc.CallOption) (*CaptureEndValuesResponse, error)
+	CaptureStartValues(ctx context.Context, in *ChangeScrollCaptureStartValuesRequest, opts ...grpc.CallOption) (*CaptureStartValuesResponse, error)
+	CreateAnimator(ctx context.Context, in *ChangeScrollCreateAnimatorRequest, opts ...grpc.CallOption) (*CreateAnimatorResponse, error)
+	GetTransitionProperties(ctx context.Context, in *ChangeScrollGetTransitionPropertiesRequest, opts ...grpc.CallOption) (*GetTransitionPropertiesResponse, error)
+}
+
+type changeScrollServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewChangeScrollServiceClient(cc grpc.ClientConnInterface) ChangeScrollServiceClient {
+	return &changeScrollServiceClient{cc}
+}
+
+func (c *changeScrollServiceClient) NewChangeScroll(ctx context.Context, in *NewChangeScrollRequest, opts ...grpc.CallOption) (*NewChangeScrollResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewChangeScrollResponse)
+	err := c.cc.Invoke(ctx, ChangeScrollService_NewChangeScroll_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *changeScrollServiceClient) CaptureEndValues(ctx context.Context, in *ChangeScrollCaptureEndValuesRequest, opts ...grpc.CallOption) (*CaptureEndValuesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CaptureEndValuesResponse)
+	err := c.cc.Invoke(ctx, ChangeScrollService_CaptureEndValues_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *changeScrollServiceClient) CaptureStartValues(ctx context.Context, in *ChangeScrollCaptureStartValuesRequest, opts ...grpc.CallOption) (*CaptureStartValuesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CaptureStartValuesResponse)
+	err := c.cc.Invoke(ctx, ChangeScrollService_CaptureStartValues_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *changeScrollServiceClient) CreateAnimator(ctx context.Context, in *ChangeScrollCreateAnimatorRequest, opts ...grpc.CallOption) (*CreateAnimatorResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CreateAnimatorResponse)
+	err := c.cc.Invoke(ctx, ChangeScrollService_CreateAnimator_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *changeScrollServiceClient) GetTransitionProperties(ctx context.Context, in *ChangeScrollGetTransitionPropertiesRequest, opts ...grpc.CallOption) (*GetTransitionPropertiesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTransitionPropertiesResponse)
+	err := c.cc.Invoke(ctx, ChangeScrollService_GetTransitionProperties_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ChangeScrollServiceServer is the server API for ChangeScrollService service.
+// All implementations must embed UnimplementedChangeScrollServiceServer
+// for forward compatibility.
+type ChangeScrollServiceServer interface {
+	NewChangeScroll(context.Context, *NewChangeScrollRequest) (*NewChangeScrollResponse, error)
+	CaptureEndValues(context.Context, *ChangeScrollCaptureEndValuesRequest) (*CaptureEndValuesResponse, error)
+	CaptureStartValues(context.Context, *ChangeScrollCaptureStartValuesRequest) (*CaptureStartValuesResponse, error)
+	CreateAnimator(context.Context, *ChangeScrollCreateAnimatorRequest) (*CreateAnimatorResponse, error)
+	GetTransitionProperties(context.Context, *ChangeScrollGetTransitionPropertiesRequest) (*GetTransitionPropertiesResponse, error)
+	mustEmbedUnimplementedChangeScrollServiceServer()
+}
+
+// UnimplementedChangeScrollServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedChangeScrollServiceServer struct{}
+
+func (UnimplementedChangeScrollServiceServer) NewChangeScroll(context.Context, *NewChangeScrollRequest) (*NewChangeScrollResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewChangeScroll not implemented")
+}
+func (UnimplementedChangeScrollServiceServer) CaptureEndValues(context.Context, *ChangeScrollCaptureEndValuesRequest) (*CaptureEndValuesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method CaptureEndValues not implemented")
+}
+func (UnimplementedChangeScrollServiceServer) CaptureStartValues(context.Context, *ChangeScrollCaptureStartValuesRequest) (*CaptureStartValuesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method CaptureStartValues not implemented")
+}
+func (UnimplementedChangeScrollServiceServer) CreateAnimator(context.Context, *ChangeScrollCreateAnimatorRequest) (*CreateAnimatorResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method CreateAnimator not implemented")
+}
+func (UnimplementedChangeScrollServiceServer) GetTransitionProperties(context.Context, *ChangeScrollGetTransitionPropertiesRequest) (*GetTransitionPropertiesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTransitionProperties not implemented")
+}
+func (UnimplementedChangeScrollServiceServer) mustEmbedUnimplementedChangeScrollServiceServer() {}
+func (UnimplementedChangeScrollServiceServer) testEmbeddedByValue()                             {}
+
+// UnsafeChangeScrollServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ChangeScrollServiceServer will
+// result in compilation errors.
+type UnsafeChangeScrollServiceServer interface {
+	mustEmbedUnimplementedChangeScrollServiceServer()
+}
+
+func RegisterChangeScrollServiceServer(s grpc.ServiceRegistrar, srv ChangeScrollServiceServer) {
+	// If the following call panics, it indicates UnimplementedChangeScrollServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&ChangeScrollService_ServiceDesc, srv)
+}
+
+func _ChangeScrollService_NewChangeScroll_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewChangeScrollRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ChangeScrollServiceServer).NewChangeScroll(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ChangeScrollService_NewChangeScroll_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ChangeScrollServiceServer).NewChangeScroll(ctx, req.(*NewChangeScrollRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ChangeScrollService_CaptureEndValues_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ChangeScrollCaptureEndValuesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ChangeScrollServiceServer).CaptureEndValues(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ChangeScrollService_CaptureEndValues_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ChangeScrollServiceServer).CaptureEndValues(ctx, req.(*ChangeScrollCaptureEndValuesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ChangeScrollService_CaptureStartValues_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ChangeScrollCaptureStartValuesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ChangeScrollServiceServer).CaptureStartValues(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ChangeScrollService_CaptureStartValues_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ChangeScrollServiceServer).CaptureStartValues(ctx, req.(*ChangeScrollCaptureStartValuesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ChangeScrollService_CreateAnimator_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ChangeScrollCreateAnimatorRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ChangeScrollServiceServer).CreateAnimator(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ChangeScrollService_CreateAnimator_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ChangeScrollServiceServer).CreateAnimator(ctx, req.(*ChangeScrollCreateAnimatorRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ChangeScrollService_GetTransitionProperties_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ChangeScrollGetTransitionPropertiesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ChangeScrollServiceServer).GetTransitionProperties(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ChangeScrollService_GetTransitionProperties_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ChangeScrollServiceServer).GetTransitionProperties(ctx, req.(*ChangeScrollGetTransitionPropertiesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ChangeScrollService_ServiceDesc is the grpc.ServiceDesc for ChangeScrollService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ChangeScrollService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "transition.ChangeScrollService",
+	HandlerType: (*ChangeScrollServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewChangeScroll",
+			Handler:    _ChangeScrollService_NewChangeScroll_Handler,
+		},
+		{
+			MethodName: "CaptureEndValues",
+			Handler:    _ChangeScrollService_CaptureEndValues_Handler,
+		},
+		{
+			MethodName: "CaptureStartValues",
+			Handler:    _ChangeScrollService_CaptureStartValues_Handler,
+		},
+		{
+			MethodName: "CreateAnimator",
+			Handler:    _ChangeScrollService_CreateAnimator_Handler,
+		},
+		{
+			MethodName: "GetTransitionProperties",
+			Handler:    _ChangeScrollService_GetTransitionProperties_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/transition/transition.proto",
+}
+
+const (
+	ChangeBoundsService_NewChangeBounds_FullMethodName         = "/transition.ChangeBoundsService/NewChangeBounds"
+	ChangeBoundsService_CaptureEndValues_FullMethodName        = "/transition.ChangeBoundsService/CaptureEndValues"
+	ChangeBoundsService_CaptureStartValues_FullMethodName      = "/transition.ChangeBoundsService/CaptureStartValues"
+	ChangeBoundsService_CreateAnimator_FullMethodName          = "/transition.ChangeBoundsService/CreateAnimator"
+	ChangeBoundsService_GetResizeClip_FullMethodName           = "/transition.ChangeBoundsService/GetResizeClip"
+	ChangeBoundsService_GetTransitionProperties_FullMethodName = "/transition.ChangeBoundsService/GetTransitionProperties"
+	ChangeBoundsService_SetReparent_FullMethodName             = "/transition.ChangeBoundsService/SetReparent"
+	ChangeBoundsService_SetResizeClip_FullMethodName           = "/transition.ChangeBoundsService/SetResizeClip"
+)
+
+// ChangeBoundsServiceClient is the client API for ChangeBoundsService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ChangeBoundsServiceClient interface {
+	NewChangeBounds(ctx context.Context, in *NewChangeBoundsRequest, opts ...grpc.CallOption) (*NewChangeBoundsResponse, error)
+	CaptureEndValues(ctx context.Context, in *ChangeBoundsCaptureEndValuesRequest, opts ...grpc.CallOption) (*CaptureEndValuesResponse, error)
+	CaptureStartValues(ctx context.Context, in *ChangeBoundsCaptureStartValuesRequest, opts ...grpc.CallOption) (*CaptureStartValuesResponse, error)
+	CreateAnimator(ctx context.Context, in *ChangeBoundsCreateAnimatorRequest, opts ...grpc.CallOption) (*CreateAnimatorResponse, error)
+	GetResizeClip(ctx context.Context, in *GetResizeClipRequest, opts ...grpc.CallOption) (*GetResizeClipResponse, error)
+	GetTransitionProperties(ctx context.Context, in *ChangeBoundsGetTransitionPropertiesRequest, opts ...grpc.CallOption) (*GetTransitionPropertiesResponse, error)
+	SetReparent(ctx context.Context, in *SetReparentRequest, opts ...grpc.CallOption) (*SetReparentResponse, error)
+	SetResizeClip(ctx context.Context, in *SetResizeClipRequest, opts ...grpc.CallOption) (*SetResizeClipResponse, error)
+}
+
+type changeBoundsServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewChangeBoundsServiceClient(cc grpc.ClientConnInterface) ChangeBoundsServiceClient {
+	return &changeBoundsServiceClient{cc}
+}
+
+func (c *changeBoundsServiceClient) NewChangeBounds(ctx context.Context, in *NewChangeBoundsRequest, opts ...grpc.CallOption) (*NewChangeBoundsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewChangeBoundsResponse)
+	err := c.cc.Invoke(ctx, ChangeBoundsService_NewChangeBounds_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *changeBoundsServiceClient) CaptureEndValues(ctx context.Context, in *ChangeBoundsCaptureEndValuesRequest, opts ...grpc.CallOption) (*CaptureEndValuesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CaptureEndValuesResponse)
+	err := c.cc.Invoke(ctx, ChangeBoundsService_CaptureEndValues_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *changeBoundsServiceClient) CaptureStartValues(ctx context.Context, in *ChangeBoundsCaptureStartValuesRequest, opts ...grpc.CallOption) (*CaptureStartValuesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CaptureStartValuesResponse)
+	err := c.cc.Invoke(ctx, ChangeBoundsService_CaptureStartValues_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *changeBoundsServiceClient) CreateAnimator(ctx context.Context, in *ChangeBoundsCreateAnimatorRequest, opts ...grpc.CallOption) (*CreateAnimatorResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CreateAnimatorResponse)
+	err := c.cc.Invoke(ctx, ChangeBoundsService_CreateAnimator_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *changeBoundsServiceClient) GetResizeClip(ctx context.Context, in *GetResizeClipRequest, opts ...grpc.CallOption) (*GetResizeClipResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetResizeClipResponse)
+	err := c.cc.Invoke(ctx, ChangeBoundsService_GetResizeClip_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *changeBoundsServiceClient) GetTransitionProperties(ctx context.Context, in *ChangeBoundsGetTransitionPropertiesRequest, opts ...grpc.CallOption) (*GetTransitionPropertiesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTransitionPropertiesResponse)
+	err := c.cc.Invoke(ctx, ChangeBoundsService_GetTransitionProperties_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *changeBoundsServiceClient) SetReparent(ctx context.Context, in *SetReparentRequest, opts ...grpc.CallOption) (*SetReparentResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetReparentResponse)
+	err := c.cc.Invoke(ctx, ChangeBoundsService_SetReparent_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *changeBoundsServiceClient) SetResizeClip(ctx context.Context, in *SetResizeClipRequest, opts ...grpc.CallOption) (*SetResizeClipResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetResizeClipResponse)
+	err := c.cc.Invoke(ctx, ChangeBoundsService_SetResizeClip_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ChangeBoundsServiceServer is the server API for ChangeBoundsService service.
+// All implementations must embed UnimplementedChangeBoundsServiceServer
+// for forward compatibility.
+type ChangeBoundsServiceServer interface {
+	NewChangeBounds(context.Context, *NewChangeBoundsRequest) (*NewChangeBoundsResponse, error)
+	CaptureEndValues(context.Context, *ChangeBoundsCaptureEndValuesRequest) (*CaptureEndValuesResponse, error)
+	CaptureStartValues(context.Context, *ChangeBoundsCaptureStartValuesRequest) (*CaptureStartValuesResponse, error)
+	CreateAnimator(context.Context, *ChangeBoundsCreateAnimatorRequest) (*CreateAnimatorResponse, error)
+	GetResizeClip(context.Context, *GetResizeClipRequest) (*GetResizeClipResponse, error)
+	GetTransitionProperties(context.Context, *ChangeBoundsGetTransitionPropertiesRequest) (*GetTransitionPropertiesResponse, error)
+	SetReparent(context.Context, *SetReparentRequest) (*SetReparentResponse, error)
+	SetResizeClip(context.Context, *SetResizeClipRequest) (*SetResizeClipResponse, error)
+	mustEmbedUnimplementedChangeBoundsServiceServer()
+}
+
+// UnimplementedChangeBoundsServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedChangeBoundsServiceServer struct{}
+
+func (UnimplementedChangeBoundsServiceServer) NewChangeBounds(context.Context, *NewChangeBoundsRequest) (*NewChangeBoundsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewChangeBounds not implemented")
+}
+func (UnimplementedChangeBoundsServiceServer) CaptureEndValues(context.Context, *ChangeBoundsCaptureEndValuesRequest) (*CaptureEndValuesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method CaptureEndValues not implemented")
+}
+func (UnimplementedChangeBoundsServiceServer) CaptureStartValues(context.Context, *ChangeBoundsCaptureStartValuesRequest) (*CaptureStartValuesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method CaptureStartValues not implemented")
+}
+func (UnimplementedChangeBoundsServiceServer) CreateAnimator(context.Context, *ChangeBoundsCreateAnimatorRequest) (*CreateAnimatorResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method CreateAnimator not implemented")
+}
+func (UnimplementedChangeBoundsServiceServer) GetResizeClip(context.Context, *GetResizeClipRequest) (*GetResizeClipResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetResizeClip not implemented")
+}
+func (UnimplementedChangeBoundsServiceServer) GetTransitionProperties(context.Context, *ChangeBoundsGetTransitionPropertiesRequest) (*GetTransitionPropertiesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTransitionProperties not implemented")
+}
+func (UnimplementedChangeBoundsServiceServer) SetReparent(context.Context, *SetReparentRequest) (*SetReparentResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetReparent not implemented")
+}
+func (UnimplementedChangeBoundsServiceServer) SetResizeClip(context.Context, *SetResizeClipRequest) (*SetResizeClipResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetResizeClip not implemented")
+}
+func (UnimplementedChangeBoundsServiceServer) mustEmbedUnimplementedChangeBoundsServiceServer() {}
+func (UnimplementedChangeBoundsServiceServer) testEmbeddedByValue()                             {}
+
+// UnsafeChangeBoundsServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ChangeBoundsServiceServer will
+// result in compilation errors.
+type UnsafeChangeBoundsServiceServer interface {
+	mustEmbedUnimplementedChangeBoundsServiceServer()
+}
+
+func RegisterChangeBoundsServiceServer(s grpc.ServiceRegistrar, srv ChangeBoundsServiceServer) {
+	// If the following call panics, it indicates UnimplementedChangeBoundsServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&ChangeBoundsService_ServiceDesc, srv)
+}
+
+func _ChangeBoundsService_NewChangeBounds_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewChangeBoundsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ChangeBoundsServiceServer).NewChangeBounds(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ChangeBoundsService_NewChangeBounds_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ChangeBoundsServiceServer).NewChangeBounds(ctx, req.(*NewChangeBoundsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ChangeBoundsService_CaptureEndValues_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ChangeBoundsCaptureEndValuesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ChangeBoundsServiceServer).CaptureEndValues(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ChangeBoundsService_CaptureEndValues_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ChangeBoundsServiceServer).CaptureEndValues(ctx, req.(*ChangeBoundsCaptureEndValuesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ChangeBoundsService_CaptureStartValues_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ChangeBoundsCaptureStartValuesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ChangeBoundsServiceServer).CaptureStartValues(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ChangeBoundsService_CaptureStartValues_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ChangeBoundsServiceServer).CaptureStartValues(ctx, req.(*ChangeBoundsCaptureStartValuesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ChangeBoundsService_CreateAnimator_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ChangeBoundsCreateAnimatorRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ChangeBoundsServiceServer).CreateAnimator(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ChangeBoundsService_CreateAnimator_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ChangeBoundsServiceServer).CreateAnimator(ctx, req.(*ChangeBoundsCreateAnimatorRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ChangeBoundsService_GetResizeClip_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetResizeClipRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ChangeBoundsServiceServer).GetResizeClip(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ChangeBoundsService_GetResizeClip_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ChangeBoundsServiceServer).GetResizeClip(ctx, req.(*GetResizeClipRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ChangeBoundsService_GetTransitionProperties_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ChangeBoundsGetTransitionPropertiesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ChangeBoundsServiceServer).GetTransitionProperties(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ChangeBoundsService_GetTransitionProperties_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ChangeBoundsServiceServer).GetTransitionProperties(ctx, req.(*ChangeBoundsGetTransitionPropertiesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ChangeBoundsService_SetReparent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetReparentRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ChangeBoundsServiceServer).SetReparent(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ChangeBoundsService_SetReparent_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ChangeBoundsServiceServer).SetReparent(ctx, req.(*SetReparentRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ChangeBoundsService_SetResizeClip_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetResizeClipRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ChangeBoundsServiceServer).SetResizeClip(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ChangeBoundsService_SetResizeClip_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ChangeBoundsServiceServer).SetResizeClip(ctx, req.(*SetResizeClipRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ChangeBoundsService_ServiceDesc is the grpc.ServiceDesc for ChangeBoundsService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ChangeBoundsService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "transition.ChangeBoundsService",
+	HandlerType: (*ChangeBoundsServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewChangeBounds",
+			Handler:    _ChangeBoundsService_NewChangeBounds_Handler,
+		},
+		{
+			MethodName: "CaptureEndValues",
+			Handler:    _ChangeBoundsService_CaptureEndValues_Handler,
+		},
+		{
+			MethodName: "CaptureStartValues",
+			Handler:    _ChangeBoundsService_CaptureStartValues_Handler,
+		},
+		{
+			MethodName: "CreateAnimator",
+			Handler:    _ChangeBoundsService_CreateAnimator_Handler,
+		},
+		{
+			MethodName: "GetResizeClip",
+			Handler:    _ChangeBoundsService_GetResizeClip_Handler,
+		},
+		{
+			MethodName: "GetTransitionProperties",
+			Handler:    _ChangeBoundsService_GetTransitionProperties_Handler,
+		},
+		{
+			MethodName: "SetReparent",
+			Handler:    _ChangeBoundsService_SetReparent_Handler,
+		},
+		{
+			MethodName: "SetResizeClip",
+			Handler:    _ChangeBoundsService_SetResizeClip_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/transition/transition.proto",
+}
+
+const (
+	FadeService_NewFade_FullMethodName            = "/transition.FadeService/NewFade"
+	FadeService_CaptureStartValues_FullMethodName = "/transition.FadeService/CaptureStartValues"
+	FadeService_OnAppear_FullMethodName           = "/transition.FadeService/OnAppear"
+	FadeService_OnDisappear_FullMethodName        = "/transition.FadeService/OnDisappear"
+)
+
+// FadeServiceClient is the client API for FadeService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type FadeServiceClient interface {
+	NewFade(ctx context.Context, in *NewFadeRequest, opts ...grpc.CallOption) (*NewFadeResponse, error)
+	CaptureStartValues(ctx context.Context, in *FadeCaptureStartValuesRequest, opts ...grpc.CallOption) (*CaptureStartValuesResponse, error)
+	OnAppear(ctx context.Context, in *OnAppearRequest, opts ...grpc.CallOption) (*OnAppearResponse, error)
+	OnDisappear(ctx context.Context, in *OnDisappearRequest, opts ...grpc.CallOption) (*OnDisappearResponse, error)
+}
+
+type fadeServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewFadeServiceClient(cc grpc.ClientConnInterface) FadeServiceClient {
+	return &fadeServiceClient{cc}
+}
+
+func (c *fadeServiceClient) NewFade(ctx context.Context, in *NewFadeRequest, opts ...grpc.CallOption) (*NewFadeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewFadeResponse)
+	err := c.cc.Invoke(ctx, FadeService_NewFade_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *fadeServiceClient) CaptureStartValues(ctx context.Context, in *FadeCaptureStartValuesRequest, opts ...grpc.CallOption) (*CaptureStartValuesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CaptureStartValuesResponse)
+	err := c.cc.Invoke(ctx, FadeService_CaptureStartValues_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *fadeServiceClient) OnAppear(ctx context.Context, in *OnAppearRequest, opts ...grpc.CallOption) (*OnAppearResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnAppearResponse)
+	err := c.cc.Invoke(ctx, FadeService_OnAppear_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *fadeServiceClient) OnDisappear(ctx context.Context, in *OnDisappearRequest, opts ...grpc.CallOption) (*OnDisappearResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnDisappearResponse)
+	err := c.cc.Invoke(ctx, FadeService_OnDisappear_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// FadeServiceServer is the server API for FadeService service.
+// All implementations must embed UnimplementedFadeServiceServer
+// for forward compatibility.
+type FadeServiceServer interface {
+	NewFade(context.Context, *NewFadeRequest) (*NewFadeResponse, error)
+	CaptureStartValues(context.Context, *FadeCaptureStartValuesRequest) (*CaptureStartValuesResponse, error)
+	OnAppear(context.Context, *OnAppearRequest) (*OnAppearResponse, error)
+	OnDisappear(context.Context, *OnDisappearRequest) (*OnDisappearResponse, error)
+	mustEmbedUnimplementedFadeServiceServer()
+}
+
+// UnimplementedFadeServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedFadeServiceServer struct{}
+
+func (UnimplementedFadeServiceServer) NewFade(context.Context, *NewFadeRequest) (*NewFadeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewFade not implemented")
+}
+func (UnimplementedFadeServiceServer) CaptureStartValues(context.Context, *FadeCaptureStartValuesRequest) (*CaptureStartValuesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method CaptureStartValues not implemented")
+}
+func (UnimplementedFadeServiceServer) OnAppear(context.Context, *OnAppearRequest) (*OnAppearResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnAppear not implemented")
+}
+func (UnimplementedFadeServiceServer) OnDisappear(context.Context, *OnDisappearRequest) (*OnDisappearResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnDisappear not implemented")
+}
+func (UnimplementedFadeServiceServer) mustEmbedUnimplementedFadeServiceServer() {}
+func (UnimplementedFadeServiceServer) testEmbeddedByValue()                     {}
+
+// UnsafeFadeServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to FadeServiceServer will
+// result in compilation errors.
+type UnsafeFadeServiceServer interface {
+	mustEmbedUnimplementedFadeServiceServer()
+}
+
+func RegisterFadeServiceServer(s grpc.ServiceRegistrar, srv FadeServiceServer) {
+	// If the following call panics, it indicates UnimplementedFadeServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&FadeService_ServiceDesc, srv)
+}
+
+func _FadeService_NewFade_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewFadeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FadeServiceServer).NewFade(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: FadeService_NewFade_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FadeServiceServer).NewFade(ctx, req.(*NewFadeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _FadeService_CaptureStartValues_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(FadeCaptureStartValuesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FadeServiceServer).CaptureStartValues(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: FadeService_CaptureStartValues_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FadeServiceServer).CaptureStartValues(ctx, req.(*FadeCaptureStartValuesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _FadeService_OnAppear_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnAppearRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FadeServiceServer).OnAppear(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: FadeService_OnAppear_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FadeServiceServer).OnAppear(ctx, req.(*OnAppearRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _FadeService_OnDisappear_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnDisappearRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FadeServiceServer).OnDisappear(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: FadeService_OnDisappear_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FadeServiceServer).OnDisappear(ctx, req.(*OnDisappearRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// FadeService_ServiceDesc is the grpc.ServiceDesc for FadeService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var FadeService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "transition.FadeService",
+	HandlerType: (*FadeServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewFade",
+			Handler:    _FadeService_NewFade_Handler,
+		},
+		{
+			MethodName: "CaptureStartValues",
+			Handler:    _FadeService_CaptureStartValues_Handler,
+		},
+		{
+			MethodName: "OnAppear",
+			Handler:    _FadeService_OnAppear_Handler,
+		},
+		{
+			MethodName: "OnDisappear",
+			Handler:    _FadeService_OnDisappear_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/transition/transition.proto",
+}
+
+const (
+	ListenerAdapterService_OnTransitionCancel_FullMethodName = "/transition.ListenerAdapterService/OnTransitionCancel"
+	ListenerAdapterService_OnTransitionEnd_FullMethodName    = "/transition.ListenerAdapterService/OnTransitionEnd"
+	ListenerAdapterService_OnTransitionPause_FullMethodName  = "/transition.ListenerAdapterService/OnTransitionPause"
+	ListenerAdapterService_OnTransitionResume_FullMethodName = "/transition.ListenerAdapterService/OnTransitionResume"
+	ListenerAdapterService_OnTransitionStart_FullMethodName  = "/transition.ListenerAdapterService/OnTransitionStart"
+)
+
+// ListenerAdapterServiceClient is the client API for ListenerAdapterService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ListenerAdapterServiceClient interface {
+	OnTransitionCancel(ctx context.Context, in *OnTransitionCancelRequest, opts ...grpc.CallOption) (*OnTransitionCancelResponse, error)
+	OnTransitionEnd(ctx context.Context, in *OnTransitionEndRequest, opts ...grpc.CallOption) (*OnTransitionEndResponse, error)
+	OnTransitionPause(ctx context.Context, in *OnTransitionPauseRequest, opts ...grpc.CallOption) (*OnTransitionPauseResponse, error)
+	OnTransitionResume(ctx context.Context, in *OnTransitionResumeRequest, opts ...grpc.CallOption) (*OnTransitionResumeResponse, error)
+	OnTransitionStart(ctx context.Context, in *OnTransitionStartRequest, opts ...grpc.CallOption) (*OnTransitionStartResponse, error)
+}
+
+type listenerAdapterServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewListenerAdapterServiceClient(cc grpc.ClientConnInterface) ListenerAdapterServiceClient {
+	return &listenerAdapterServiceClient{cc}
+}
+
+func (c *listenerAdapterServiceClient) OnTransitionCancel(ctx context.Context, in *OnTransitionCancelRequest, opts ...grpc.CallOption) (*OnTransitionCancelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnTransitionCancelResponse)
+	err := c.cc.Invoke(ctx, ListenerAdapterService_OnTransitionCancel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *listenerAdapterServiceClient) OnTransitionEnd(ctx context.Context, in *OnTransitionEndRequest, opts ...grpc.CallOption) (*OnTransitionEndResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnTransitionEndResponse)
+	err := c.cc.Invoke(ctx, ListenerAdapterService_OnTransitionEnd_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *listenerAdapterServiceClient) OnTransitionPause(ctx context.Context, in *OnTransitionPauseRequest, opts ...grpc.CallOption) (*OnTransitionPauseResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnTransitionPauseResponse)
+	err := c.cc.Invoke(ctx, ListenerAdapterService_OnTransitionPause_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *listenerAdapterServiceClient) OnTransitionResume(ctx context.Context, in *OnTransitionResumeRequest, opts ...grpc.CallOption) (*OnTransitionResumeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnTransitionResumeResponse)
+	err := c.cc.Invoke(ctx, ListenerAdapterService_OnTransitionResume_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *listenerAdapterServiceClient) OnTransitionStart(ctx context.Context, in *OnTransitionStartRequest, opts ...grpc.CallOption) (*OnTransitionStartResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnTransitionStartResponse)
+	err := c.cc.Invoke(ctx, ListenerAdapterService_OnTransitionStart_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ListenerAdapterServiceServer is the server API for ListenerAdapterService service.
+// All implementations must embed UnimplementedListenerAdapterServiceServer
+// for forward compatibility.
+type ListenerAdapterServiceServer interface {
+	OnTransitionCancel(context.Context, *OnTransitionCancelRequest) (*OnTransitionCancelResponse, error)
+	OnTransitionEnd(context.Context, *OnTransitionEndRequest) (*OnTransitionEndResponse, error)
+	OnTransitionPause(context.Context, *OnTransitionPauseRequest) (*OnTransitionPauseResponse, error)
+	OnTransitionResume(context.Context, *OnTransitionResumeRequest) (*OnTransitionResumeResponse, error)
+	OnTransitionStart(context.Context, *OnTransitionStartRequest) (*OnTransitionStartResponse, error)
+	mustEmbedUnimplementedListenerAdapterServiceServer()
+}
+
+// UnimplementedListenerAdapterServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedListenerAdapterServiceServer struct{}
+
+func (UnimplementedListenerAdapterServiceServer) OnTransitionCancel(context.Context, *OnTransitionCancelRequest) (*OnTransitionCancelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnTransitionCancel not implemented")
+}
+func (UnimplementedListenerAdapterServiceServer) OnTransitionEnd(context.Context, *OnTransitionEndRequest) (*OnTransitionEndResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnTransitionEnd not implemented")
+}
+func (UnimplementedListenerAdapterServiceServer) OnTransitionPause(context.Context, *OnTransitionPauseRequest) (*OnTransitionPauseResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnTransitionPause not implemented")
+}
+func (UnimplementedListenerAdapterServiceServer) OnTransitionResume(context.Context, *OnTransitionResumeRequest) (*OnTransitionResumeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnTransitionResume not implemented")
+}
+func (UnimplementedListenerAdapterServiceServer) OnTransitionStart(context.Context, *OnTransitionStartRequest) (*OnTransitionStartResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnTransitionStart not implemented")
+}
+func (UnimplementedListenerAdapterServiceServer) mustEmbedUnimplementedListenerAdapterServiceServer() {
+}
+func (UnimplementedListenerAdapterServiceServer) testEmbeddedByValue() {}
+
+// UnsafeListenerAdapterServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ListenerAdapterServiceServer will
+// result in compilation errors.
+type UnsafeListenerAdapterServiceServer interface {
+	mustEmbedUnimplementedListenerAdapterServiceServer()
+}
+
+func RegisterListenerAdapterServiceServer(s grpc.ServiceRegistrar, srv ListenerAdapterServiceServer) {
+	// If the following call panics, it indicates UnimplementedListenerAdapterServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&ListenerAdapterService_ServiceDesc, srv)
+}
+
+func _ListenerAdapterService_OnTransitionCancel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnTransitionCancelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ListenerAdapterServiceServer).OnTransitionCancel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ListenerAdapterService_OnTransitionCancel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ListenerAdapterServiceServer).OnTransitionCancel(ctx, req.(*OnTransitionCancelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ListenerAdapterService_OnTransitionEnd_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnTransitionEndRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ListenerAdapterServiceServer).OnTransitionEnd(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ListenerAdapterService_OnTransitionEnd_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ListenerAdapterServiceServer).OnTransitionEnd(ctx, req.(*OnTransitionEndRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ListenerAdapterService_OnTransitionPause_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnTransitionPauseRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ListenerAdapterServiceServer).OnTransitionPause(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ListenerAdapterService_OnTransitionPause_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ListenerAdapterServiceServer).OnTransitionPause(ctx, req.(*OnTransitionPauseRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ListenerAdapterService_OnTransitionResume_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnTransitionResumeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ListenerAdapterServiceServer).OnTransitionResume(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ListenerAdapterService_OnTransitionResume_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ListenerAdapterServiceServer).OnTransitionResume(ctx, req.(*OnTransitionResumeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ListenerAdapterService_OnTransitionStart_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnTransitionStartRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ListenerAdapterServiceServer).OnTransitionStart(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ListenerAdapterService_OnTransitionStart_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ListenerAdapterServiceServer).OnTransitionStart(ctx, req.(*OnTransitionStartRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ListenerAdapterService_ServiceDesc is the grpc.ServiceDesc for ListenerAdapterService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ListenerAdapterService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "transition.ListenerAdapterService",
+	HandlerType: (*ListenerAdapterServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "OnTransitionCancel",
+			Handler:    _ListenerAdapterService_OnTransitionCancel_Handler,
+		},
+		{
+			MethodName: "OnTransitionEnd",
+			Handler:    _ListenerAdapterService_OnTransitionEnd_Handler,
+		},
+		{
+			MethodName: "OnTransitionPause",
+			Handler:    _ListenerAdapterService_OnTransitionPause_Handler,
+		},
+		{
+			MethodName: "OnTransitionResume",
+			Handler:    _ListenerAdapterService_OnTransitionResume_Handler,
+		},
+		{
+			MethodName: "OnTransitionStart",
+			Handler:    _ListenerAdapterService_OnTransitionStart_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -8086,977 +6423,254 @@ var PathMotionService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	FadeService_NewFade_FullMethodName            = "/transition.FadeService/NewFade"
-	FadeService_CaptureStartValues_FullMethodName = "/transition.FadeService/CaptureStartValues"
-	FadeService_OnAppear_FullMethodName           = "/transition.FadeService/OnAppear"
-	FadeService_OnDisappear_FullMethodName        = "/transition.FadeService/OnDisappear"
+	VisibilityPropagationService_CaptureValues_FullMethodName            = "/transition.VisibilityPropagationService/CaptureValues"
+	VisibilityPropagationService_GetPropagationProperties_FullMethodName = "/transition.VisibilityPropagationService/GetPropagationProperties"
+	VisibilityPropagationService_GetViewVisibility_FullMethodName        = "/transition.VisibilityPropagationService/GetViewVisibility"
+	VisibilityPropagationService_GetViewX_FullMethodName                 = "/transition.VisibilityPropagationService/GetViewX"
+	VisibilityPropagationService_GetViewY_FullMethodName                 = "/transition.VisibilityPropagationService/GetViewY"
 )
 
-// FadeServiceClient is the client API for FadeService service.
+// VisibilityPropagationServiceClient is the client API for VisibilityPropagationService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type FadeServiceClient interface {
-	NewFade(ctx context.Context, in *NewFadeRequest, opts ...grpc.CallOption) (*NewFadeResponse, error)
-	CaptureStartValues(ctx context.Context, in *CaptureStartValuesRequest, opts ...grpc.CallOption) (*CaptureStartValuesResponse, error)
-	OnAppear(ctx context.Context, in *OnAppearRequest, opts ...grpc.CallOption) (*OnAppearResponse, error)
-	OnDisappear(ctx context.Context, in *OnDisappearRequest, opts ...grpc.CallOption) (*OnDisappearResponse, error)
-}
-
-type fadeServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewFadeServiceClient(cc grpc.ClientConnInterface) FadeServiceClient {
-	return &fadeServiceClient{cc}
-}
-
-func (c *fadeServiceClient) NewFade(ctx context.Context, in *NewFadeRequest, opts ...grpc.CallOption) (*NewFadeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewFadeResponse)
-	err := c.cc.Invoke(ctx, FadeService_NewFade_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *fadeServiceClient) CaptureStartValues(ctx context.Context, in *CaptureStartValuesRequest, opts ...grpc.CallOption) (*CaptureStartValuesResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CaptureStartValuesResponse)
-	err := c.cc.Invoke(ctx, FadeService_CaptureStartValues_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *fadeServiceClient) OnAppear(ctx context.Context, in *OnAppearRequest, opts ...grpc.CallOption) (*OnAppearResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnAppearResponse)
-	err := c.cc.Invoke(ctx, FadeService_OnAppear_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *fadeServiceClient) OnDisappear(ctx context.Context, in *OnDisappearRequest, opts ...grpc.CallOption) (*OnDisappearResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnDisappearResponse)
-	err := c.cc.Invoke(ctx, FadeService_OnDisappear_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// FadeServiceServer is the server API for FadeService service.
-// All implementations must embed UnimplementedFadeServiceServer
-// for forward compatibility.
-type FadeServiceServer interface {
-	NewFade(context.Context, *NewFadeRequest) (*NewFadeResponse, error)
-	CaptureStartValues(context.Context, *CaptureStartValuesRequest) (*CaptureStartValuesResponse, error)
-	OnAppear(context.Context, *OnAppearRequest) (*OnAppearResponse, error)
-	OnDisappear(context.Context, *OnDisappearRequest) (*OnDisappearResponse, error)
-	mustEmbedUnimplementedFadeServiceServer()
-}
-
-// UnimplementedFadeServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedFadeServiceServer struct{}
-
-func (UnimplementedFadeServiceServer) NewFade(context.Context, *NewFadeRequest) (*NewFadeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewFade not implemented")
-}
-func (UnimplementedFadeServiceServer) CaptureStartValues(context.Context, *CaptureStartValuesRequest) (*CaptureStartValuesResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method CaptureStartValues not implemented")
-}
-func (UnimplementedFadeServiceServer) OnAppear(context.Context, *OnAppearRequest) (*OnAppearResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnAppear not implemented")
-}
-func (UnimplementedFadeServiceServer) OnDisappear(context.Context, *OnDisappearRequest) (*OnDisappearResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnDisappear not implemented")
-}
-func (UnimplementedFadeServiceServer) mustEmbedUnimplementedFadeServiceServer() {}
-func (UnimplementedFadeServiceServer) testEmbeddedByValue()                     {}
-
-// UnsafeFadeServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to FadeServiceServer will
-// result in compilation errors.
-type UnsafeFadeServiceServer interface {
-	mustEmbedUnimplementedFadeServiceServer()
-}
-
-func RegisterFadeServiceServer(s grpc.ServiceRegistrar, srv FadeServiceServer) {
-	// If the following call panics, it indicates UnimplementedFadeServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&FadeService_ServiceDesc, srv)
-}
-
-func _FadeService_NewFade_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewFadeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(FadeServiceServer).NewFade(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: FadeService_NewFade_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FadeServiceServer).NewFade(ctx, req.(*NewFadeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _FadeService_CaptureStartValues_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CaptureStartValuesRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(FadeServiceServer).CaptureStartValues(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: FadeService_CaptureStartValues_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FadeServiceServer).CaptureStartValues(ctx, req.(*CaptureStartValuesRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _FadeService_OnAppear_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnAppearRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(FadeServiceServer).OnAppear(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: FadeService_OnAppear_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FadeServiceServer).OnAppear(ctx, req.(*OnAppearRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _FadeService_OnDisappear_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnDisappearRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(FadeServiceServer).OnDisappear(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: FadeService_OnDisappear_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FadeServiceServer).OnDisappear(ctx, req.(*OnDisappearRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// FadeService_ServiceDesc is the grpc.ServiceDesc for FadeService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var FadeService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "transition.FadeService",
-	HandlerType: (*FadeServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "NewFade",
-			Handler:    _FadeService_NewFade_Handler,
-		},
-		{
-			MethodName: "CaptureStartValues",
-			Handler:    _FadeService_CaptureStartValues_Handler,
-		},
-		{
-			MethodName: "OnAppear",
-			Handler:    _FadeService_OnAppear_Handler,
-		},
-		{
-			MethodName: "OnDisappear",
-			Handler:    _FadeService_OnDisappear_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/transition/transition.proto",
-}
-
-const (
-	ValuesService_NewValues_FullMethodName = "/transition.ValuesService/NewValues"
-	ValuesService_Equals_FullMethodName    = "/transition.ValuesService/Equals"
-	ValuesService_HashCode_FullMethodName  = "/transition.ValuesService/HashCode"
-	ValuesService_ToString_FullMethodName  = "/transition.ValuesService/ToString"
-)
-
-// ValuesServiceClient is the client API for ValuesService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type ValuesServiceClient interface {
-	NewValues(ctx context.Context, in *NewValuesRequest, opts ...grpc.CallOption) (*NewValuesResponse, error)
-	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
-	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
-	ToString(ctx context.Context, in *ValuesToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
-}
-
-type valuesServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewValuesServiceClient(cc grpc.ClientConnInterface) ValuesServiceClient {
-	return &valuesServiceClient{cc}
-}
-
-func (c *valuesServiceClient) NewValues(ctx context.Context, in *NewValuesRequest, opts ...grpc.CallOption) (*NewValuesResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewValuesResponse)
-	err := c.cc.Invoke(ctx, ValuesService_NewValues_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *valuesServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(EqualsResponse)
-	err := c.cc.Invoke(ctx, ValuesService_Equals_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *valuesServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(HashCodeResponse)
-	err := c.cc.Invoke(ctx, ValuesService_HashCode_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *valuesServiceClient) ToString(ctx context.Context, in *ValuesToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ToStringResponse)
-	err := c.cc.Invoke(ctx, ValuesService_ToString_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// ValuesServiceServer is the server API for ValuesService service.
-// All implementations must embed UnimplementedValuesServiceServer
-// for forward compatibility.
-type ValuesServiceServer interface {
-	NewValues(context.Context, *NewValuesRequest) (*NewValuesResponse, error)
-	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
-	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
-	ToString(context.Context, *ValuesToStringRequest) (*ToStringResponse, error)
-	mustEmbedUnimplementedValuesServiceServer()
-}
-
-// UnimplementedValuesServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedValuesServiceServer struct{}
-
-func (UnimplementedValuesServiceServer) NewValues(context.Context, *NewValuesRequest) (*NewValuesResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewValues not implemented")
-}
-func (UnimplementedValuesServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
-}
-func (UnimplementedValuesServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
-}
-func (UnimplementedValuesServiceServer) ToString(context.Context, *ValuesToStringRequest) (*ToStringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
-}
-func (UnimplementedValuesServiceServer) mustEmbedUnimplementedValuesServiceServer() {}
-func (UnimplementedValuesServiceServer) testEmbeddedByValue()                       {}
-
-// UnsafeValuesServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to ValuesServiceServer will
-// result in compilation errors.
-type UnsafeValuesServiceServer interface {
-	mustEmbedUnimplementedValuesServiceServer()
-}
-
-func RegisterValuesServiceServer(s grpc.ServiceRegistrar, srv ValuesServiceServer) {
-	// If the following call panics, it indicates UnimplementedValuesServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&ValuesService_ServiceDesc, srv)
-}
-
-func _ValuesService_NewValues_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewValuesRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ValuesServiceServer).NewValues(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ValuesService_NewValues_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ValuesServiceServer).NewValues(ctx, req.(*NewValuesRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ValuesService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(EqualsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ValuesServiceServer).Equals(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ValuesService_Equals_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ValuesServiceServer).Equals(ctx, req.(*EqualsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ValuesService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(HashCodeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ValuesServiceServer).HashCode(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ValuesService_HashCode_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ValuesServiceServer).HashCode(ctx, req.(*HashCodeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ValuesService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ValuesToStringRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ValuesServiceServer).ToString(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ValuesService_ToString_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ValuesServiceServer).ToString(ctx, req.(*ValuesToStringRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// ValuesService_ServiceDesc is the grpc.ServiceDesc for ValuesService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var ValuesService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "transition.ValuesService",
-	HandlerType: (*ValuesServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "NewValues",
-			Handler:    _ValuesService_NewValues_Handler,
-		},
-		{
-			MethodName: "Equals",
-			Handler:    _ValuesService_Equals_Handler,
-		},
-		{
-			MethodName: "HashCode",
-			Handler:    _ValuesService_HashCode_Handler,
-		},
-		{
-			MethodName: "ToString",
-			Handler:    _ValuesService_ToString_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/transition/transition.proto",
-}
-
-const (
-	ChangeBoundsService_NewChangeBounds_FullMethodName         = "/transition.ChangeBoundsService/NewChangeBounds"
-	ChangeBoundsService_CaptureEndValues_FullMethodName        = "/transition.ChangeBoundsService/CaptureEndValues"
-	ChangeBoundsService_CaptureStartValues_FullMethodName      = "/transition.ChangeBoundsService/CaptureStartValues"
-	ChangeBoundsService_CreateAnimator_FullMethodName          = "/transition.ChangeBoundsService/CreateAnimator"
-	ChangeBoundsService_GetResizeClip_FullMethodName           = "/transition.ChangeBoundsService/GetResizeClip"
-	ChangeBoundsService_GetTransitionProperties_FullMethodName = "/transition.ChangeBoundsService/GetTransitionProperties"
-	ChangeBoundsService_SetReparent_FullMethodName             = "/transition.ChangeBoundsService/SetReparent"
-	ChangeBoundsService_SetResizeClip_FullMethodName           = "/transition.ChangeBoundsService/SetResizeClip"
-)
-
-// ChangeBoundsServiceClient is the client API for ChangeBoundsService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type ChangeBoundsServiceClient interface {
-	NewChangeBounds(ctx context.Context, in *NewChangeBoundsRequest, opts ...grpc.CallOption) (*NewChangeBoundsResponse, error)
-	CaptureEndValues(ctx context.Context, in *CaptureEndValuesRequest, opts ...grpc.CallOption) (*CaptureEndValuesResponse, error)
-	CaptureStartValues(ctx context.Context, in *CaptureStartValuesRequest, opts ...grpc.CallOption) (*CaptureStartValuesResponse, error)
-	CreateAnimator(ctx context.Context, in *CreateAnimatorRequest, opts ...grpc.CallOption) (*CreateAnimatorResponse, error)
-	GetResizeClip(ctx context.Context, in *GetResizeClipRequest, opts ...grpc.CallOption) (*GetResizeClipResponse, error)
-	GetTransitionProperties(ctx context.Context, in *GetTransitionPropertiesRequest, opts ...grpc.CallOption) (*GetTransitionPropertiesResponse, error)
-	SetReparent(ctx context.Context, in *SetReparentRequest, opts ...grpc.CallOption) (*SetReparentResponse, error)
-	SetResizeClip(ctx context.Context, in *SetResizeClipRequest, opts ...grpc.CallOption) (*SetResizeClipResponse, error)
-}
-
-type changeBoundsServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewChangeBoundsServiceClient(cc grpc.ClientConnInterface) ChangeBoundsServiceClient {
-	return &changeBoundsServiceClient{cc}
-}
-
-func (c *changeBoundsServiceClient) NewChangeBounds(ctx context.Context, in *NewChangeBoundsRequest, opts ...grpc.CallOption) (*NewChangeBoundsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewChangeBoundsResponse)
-	err := c.cc.Invoke(ctx, ChangeBoundsService_NewChangeBounds_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *changeBoundsServiceClient) CaptureEndValues(ctx context.Context, in *CaptureEndValuesRequest, opts ...grpc.CallOption) (*CaptureEndValuesResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CaptureEndValuesResponse)
-	err := c.cc.Invoke(ctx, ChangeBoundsService_CaptureEndValues_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *changeBoundsServiceClient) CaptureStartValues(ctx context.Context, in *CaptureStartValuesRequest, opts ...grpc.CallOption) (*CaptureStartValuesResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CaptureStartValuesResponse)
-	err := c.cc.Invoke(ctx, ChangeBoundsService_CaptureStartValues_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *changeBoundsServiceClient) CreateAnimator(ctx context.Context, in *CreateAnimatorRequest, opts ...grpc.CallOption) (*CreateAnimatorResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CreateAnimatorResponse)
-	err := c.cc.Invoke(ctx, ChangeBoundsService_CreateAnimator_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *changeBoundsServiceClient) GetResizeClip(ctx context.Context, in *GetResizeClipRequest, opts ...grpc.CallOption) (*GetResizeClipResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetResizeClipResponse)
-	err := c.cc.Invoke(ctx, ChangeBoundsService_GetResizeClip_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *changeBoundsServiceClient) GetTransitionProperties(ctx context.Context, in *GetTransitionPropertiesRequest, opts ...grpc.CallOption) (*GetTransitionPropertiesResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetTransitionPropertiesResponse)
-	err := c.cc.Invoke(ctx, ChangeBoundsService_GetTransitionProperties_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *changeBoundsServiceClient) SetReparent(ctx context.Context, in *SetReparentRequest, opts ...grpc.CallOption) (*SetReparentResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetReparentResponse)
-	err := c.cc.Invoke(ctx, ChangeBoundsService_SetReparent_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *changeBoundsServiceClient) SetResizeClip(ctx context.Context, in *SetResizeClipRequest, opts ...grpc.CallOption) (*SetResizeClipResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetResizeClipResponse)
-	err := c.cc.Invoke(ctx, ChangeBoundsService_SetResizeClip_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// ChangeBoundsServiceServer is the server API for ChangeBoundsService service.
-// All implementations must embed UnimplementedChangeBoundsServiceServer
-// for forward compatibility.
-type ChangeBoundsServiceServer interface {
-	NewChangeBounds(context.Context, *NewChangeBoundsRequest) (*NewChangeBoundsResponse, error)
-	CaptureEndValues(context.Context, *CaptureEndValuesRequest) (*CaptureEndValuesResponse, error)
-	CaptureStartValues(context.Context, *CaptureStartValuesRequest) (*CaptureStartValuesResponse, error)
-	CreateAnimator(context.Context, *CreateAnimatorRequest) (*CreateAnimatorResponse, error)
-	GetResizeClip(context.Context, *GetResizeClipRequest) (*GetResizeClipResponse, error)
-	GetTransitionProperties(context.Context, *GetTransitionPropertiesRequest) (*GetTransitionPropertiesResponse, error)
-	SetReparent(context.Context, *SetReparentRequest) (*SetReparentResponse, error)
-	SetResizeClip(context.Context, *SetResizeClipRequest) (*SetResizeClipResponse, error)
-	mustEmbedUnimplementedChangeBoundsServiceServer()
-}
-
-// UnimplementedChangeBoundsServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedChangeBoundsServiceServer struct{}
-
-func (UnimplementedChangeBoundsServiceServer) NewChangeBounds(context.Context, *NewChangeBoundsRequest) (*NewChangeBoundsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewChangeBounds not implemented")
-}
-func (UnimplementedChangeBoundsServiceServer) CaptureEndValues(context.Context, *CaptureEndValuesRequest) (*CaptureEndValuesResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method CaptureEndValues not implemented")
-}
-func (UnimplementedChangeBoundsServiceServer) CaptureStartValues(context.Context, *CaptureStartValuesRequest) (*CaptureStartValuesResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method CaptureStartValues not implemented")
-}
-func (UnimplementedChangeBoundsServiceServer) CreateAnimator(context.Context, *CreateAnimatorRequest) (*CreateAnimatorResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method CreateAnimator not implemented")
-}
-func (UnimplementedChangeBoundsServiceServer) GetResizeClip(context.Context, *GetResizeClipRequest) (*GetResizeClipResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetResizeClip not implemented")
-}
-func (UnimplementedChangeBoundsServiceServer) GetTransitionProperties(context.Context, *GetTransitionPropertiesRequest) (*GetTransitionPropertiesResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetTransitionProperties not implemented")
-}
-func (UnimplementedChangeBoundsServiceServer) SetReparent(context.Context, *SetReparentRequest) (*SetReparentResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetReparent not implemented")
-}
-func (UnimplementedChangeBoundsServiceServer) SetResizeClip(context.Context, *SetResizeClipRequest) (*SetResizeClipResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetResizeClip not implemented")
-}
-func (UnimplementedChangeBoundsServiceServer) mustEmbedUnimplementedChangeBoundsServiceServer() {}
-func (UnimplementedChangeBoundsServiceServer) testEmbeddedByValue()                             {}
-
-// UnsafeChangeBoundsServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to ChangeBoundsServiceServer will
-// result in compilation errors.
-type UnsafeChangeBoundsServiceServer interface {
-	mustEmbedUnimplementedChangeBoundsServiceServer()
-}
-
-func RegisterChangeBoundsServiceServer(s grpc.ServiceRegistrar, srv ChangeBoundsServiceServer) {
-	// If the following call panics, it indicates UnimplementedChangeBoundsServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&ChangeBoundsService_ServiceDesc, srv)
-}
-
-func _ChangeBoundsService_NewChangeBounds_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewChangeBoundsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ChangeBoundsServiceServer).NewChangeBounds(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ChangeBoundsService_NewChangeBounds_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ChangeBoundsServiceServer).NewChangeBounds(ctx, req.(*NewChangeBoundsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ChangeBoundsService_CaptureEndValues_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CaptureEndValuesRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ChangeBoundsServiceServer).CaptureEndValues(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ChangeBoundsService_CaptureEndValues_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ChangeBoundsServiceServer).CaptureEndValues(ctx, req.(*CaptureEndValuesRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ChangeBoundsService_CaptureStartValues_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CaptureStartValuesRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ChangeBoundsServiceServer).CaptureStartValues(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ChangeBoundsService_CaptureStartValues_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ChangeBoundsServiceServer).CaptureStartValues(ctx, req.(*CaptureStartValuesRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ChangeBoundsService_CreateAnimator_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CreateAnimatorRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ChangeBoundsServiceServer).CreateAnimator(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ChangeBoundsService_CreateAnimator_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ChangeBoundsServiceServer).CreateAnimator(ctx, req.(*CreateAnimatorRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ChangeBoundsService_GetResizeClip_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetResizeClipRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ChangeBoundsServiceServer).GetResizeClip(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ChangeBoundsService_GetResizeClip_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ChangeBoundsServiceServer).GetResizeClip(ctx, req.(*GetResizeClipRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ChangeBoundsService_GetTransitionProperties_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetTransitionPropertiesRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ChangeBoundsServiceServer).GetTransitionProperties(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ChangeBoundsService_GetTransitionProperties_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ChangeBoundsServiceServer).GetTransitionProperties(ctx, req.(*GetTransitionPropertiesRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ChangeBoundsService_SetReparent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetReparentRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ChangeBoundsServiceServer).SetReparent(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ChangeBoundsService_SetReparent_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ChangeBoundsServiceServer).SetReparent(ctx, req.(*SetReparentRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ChangeBoundsService_SetResizeClip_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetResizeClipRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ChangeBoundsServiceServer).SetResizeClip(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ChangeBoundsService_SetResizeClip_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ChangeBoundsServiceServer).SetResizeClip(ctx, req.(*SetResizeClipRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// ChangeBoundsService_ServiceDesc is the grpc.ServiceDesc for ChangeBoundsService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var ChangeBoundsService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "transition.ChangeBoundsService",
-	HandlerType: (*ChangeBoundsServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "NewChangeBounds",
-			Handler:    _ChangeBoundsService_NewChangeBounds_Handler,
-		},
-		{
-			MethodName: "CaptureEndValues",
-			Handler:    _ChangeBoundsService_CaptureEndValues_Handler,
-		},
-		{
-			MethodName: "CaptureStartValues",
-			Handler:    _ChangeBoundsService_CaptureStartValues_Handler,
-		},
-		{
-			MethodName: "CreateAnimator",
-			Handler:    _ChangeBoundsService_CreateAnimator_Handler,
-		},
-		{
-			MethodName: "GetResizeClip",
-			Handler:    _ChangeBoundsService_GetResizeClip_Handler,
-		},
-		{
-			MethodName: "GetTransitionProperties",
-			Handler:    _ChangeBoundsService_GetTransitionProperties_Handler,
-		},
-		{
-			MethodName: "SetReparent",
-			Handler:    _ChangeBoundsService_SetReparent_Handler,
-		},
-		{
-			MethodName: "SetResizeClip",
-			Handler:    _ChangeBoundsService_SetResizeClip_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/transition/transition.proto",
-}
-
-const (
-	PropagationService_CaptureValues_FullMethodName            = "/transition.PropagationService/CaptureValues"
-	PropagationService_GetPropagationProperties_FullMethodName = "/transition.PropagationService/GetPropagationProperties"
-	PropagationService_GetStartDelay_FullMethodName            = "/transition.PropagationService/GetStartDelay"
-)
-
-// PropagationServiceClient is the client API for PropagationService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type PropagationServiceClient interface {
+type VisibilityPropagationServiceClient interface {
 	CaptureValues(ctx context.Context, in *CaptureValuesRequest, opts ...grpc.CallOption) (*CaptureValuesResponse, error)
 	GetPropagationProperties(ctx context.Context, in *GetPropagationPropertiesRequest, opts ...grpc.CallOption) (*GetPropagationPropertiesResponse, error)
-	GetStartDelay(ctx context.Context, in *PropagationGetStartDelayRequest, opts ...grpc.CallOption) (*GetStartDelayResponse, error)
+	GetViewVisibility(ctx context.Context, in *GetViewVisibilityRequest, opts ...grpc.CallOption) (*GetViewVisibilityResponse, error)
+	GetViewX(ctx context.Context, in *GetViewXRequest, opts ...grpc.CallOption) (*GetViewXResponse, error)
+	GetViewY(ctx context.Context, in *GetViewYRequest, opts ...grpc.CallOption) (*GetViewYResponse, error)
 }
 
-type propagationServiceClient struct {
+type visibilityPropagationServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewPropagationServiceClient(cc grpc.ClientConnInterface) PropagationServiceClient {
-	return &propagationServiceClient{cc}
+func NewVisibilityPropagationServiceClient(cc grpc.ClientConnInterface) VisibilityPropagationServiceClient {
+	return &visibilityPropagationServiceClient{cc}
 }
 
-func (c *propagationServiceClient) CaptureValues(ctx context.Context, in *CaptureValuesRequest, opts ...grpc.CallOption) (*CaptureValuesResponse, error) {
+func (c *visibilityPropagationServiceClient) CaptureValues(ctx context.Context, in *CaptureValuesRequest, opts ...grpc.CallOption) (*CaptureValuesResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(CaptureValuesResponse)
-	err := c.cc.Invoke(ctx, PropagationService_CaptureValues_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, VisibilityPropagationService_CaptureValues_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *propagationServiceClient) GetPropagationProperties(ctx context.Context, in *GetPropagationPropertiesRequest, opts ...grpc.CallOption) (*GetPropagationPropertiesResponse, error) {
+func (c *visibilityPropagationServiceClient) GetPropagationProperties(ctx context.Context, in *GetPropagationPropertiesRequest, opts ...grpc.CallOption) (*GetPropagationPropertiesResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetPropagationPropertiesResponse)
-	err := c.cc.Invoke(ctx, PropagationService_GetPropagationProperties_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, VisibilityPropagationService_GetPropagationProperties_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *propagationServiceClient) GetStartDelay(ctx context.Context, in *PropagationGetStartDelayRequest, opts ...grpc.CallOption) (*GetStartDelayResponse, error) {
+func (c *visibilityPropagationServiceClient) GetViewVisibility(ctx context.Context, in *GetViewVisibilityRequest, opts ...grpc.CallOption) (*GetViewVisibilityResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetStartDelayResponse)
-	err := c.cc.Invoke(ctx, PropagationService_GetStartDelay_FullMethodName, in, out, cOpts...)
+	out := new(GetViewVisibilityResponse)
+	err := c.cc.Invoke(ctx, VisibilityPropagationService_GetViewVisibility_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// PropagationServiceServer is the server API for PropagationService service.
-// All implementations must embed UnimplementedPropagationServiceServer
+func (c *visibilityPropagationServiceClient) GetViewX(ctx context.Context, in *GetViewXRequest, opts ...grpc.CallOption) (*GetViewXResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetViewXResponse)
+	err := c.cc.Invoke(ctx, VisibilityPropagationService_GetViewX_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *visibilityPropagationServiceClient) GetViewY(ctx context.Context, in *GetViewYRequest, opts ...grpc.CallOption) (*GetViewYResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetViewYResponse)
+	err := c.cc.Invoke(ctx, VisibilityPropagationService_GetViewY_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// VisibilityPropagationServiceServer is the server API for VisibilityPropagationService service.
+// All implementations must embed UnimplementedVisibilityPropagationServiceServer
 // for forward compatibility.
-type PropagationServiceServer interface {
+type VisibilityPropagationServiceServer interface {
 	CaptureValues(context.Context, *CaptureValuesRequest) (*CaptureValuesResponse, error)
 	GetPropagationProperties(context.Context, *GetPropagationPropertiesRequest) (*GetPropagationPropertiesResponse, error)
-	GetStartDelay(context.Context, *PropagationGetStartDelayRequest) (*GetStartDelayResponse, error)
-	mustEmbedUnimplementedPropagationServiceServer()
+	GetViewVisibility(context.Context, *GetViewVisibilityRequest) (*GetViewVisibilityResponse, error)
+	GetViewX(context.Context, *GetViewXRequest) (*GetViewXResponse, error)
+	GetViewY(context.Context, *GetViewYRequest) (*GetViewYResponse, error)
+	mustEmbedUnimplementedVisibilityPropagationServiceServer()
 }
 
-// UnimplementedPropagationServiceServer must be embedded to have
+// UnimplementedVisibilityPropagationServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedPropagationServiceServer struct{}
+type UnimplementedVisibilityPropagationServiceServer struct{}
 
-func (UnimplementedPropagationServiceServer) CaptureValues(context.Context, *CaptureValuesRequest) (*CaptureValuesResponse, error) {
+func (UnimplementedVisibilityPropagationServiceServer) CaptureValues(context.Context, *CaptureValuesRequest) (*CaptureValuesResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method CaptureValues not implemented")
 }
-func (UnimplementedPropagationServiceServer) GetPropagationProperties(context.Context, *GetPropagationPropertiesRequest) (*GetPropagationPropertiesResponse, error) {
+func (UnimplementedVisibilityPropagationServiceServer) GetPropagationProperties(context.Context, *GetPropagationPropertiesRequest) (*GetPropagationPropertiesResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetPropagationProperties not implemented")
 }
-func (UnimplementedPropagationServiceServer) GetStartDelay(context.Context, *PropagationGetStartDelayRequest) (*GetStartDelayResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetStartDelay not implemented")
+func (UnimplementedVisibilityPropagationServiceServer) GetViewVisibility(context.Context, *GetViewVisibilityRequest) (*GetViewVisibilityResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetViewVisibility not implemented")
 }
-func (UnimplementedPropagationServiceServer) mustEmbedUnimplementedPropagationServiceServer() {}
-func (UnimplementedPropagationServiceServer) testEmbeddedByValue()                            {}
+func (UnimplementedVisibilityPropagationServiceServer) GetViewX(context.Context, *GetViewXRequest) (*GetViewXResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetViewX not implemented")
+}
+func (UnimplementedVisibilityPropagationServiceServer) GetViewY(context.Context, *GetViewYRequest) (*GetViewYResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetViewY not implemented")
+}
+func (UnimplementedVisibilityPropagationServiceServer) mustEmbedUnimplementedVisibilityPropagationServiceServer() {
+}
+func (UnimplementedVisibilityPropagationServiceServer) testEmbeddedByValue() {}
 
-// UnsafePropagationServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to PropagationServiceServer will
+// UnsafeVisibilityPropagationServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to VisibilityPropagationServiceServer will
 // result in compilation errors.
-type UnsafePropagationServiceServer interface {
-	mustEmbedUnimplementedPropagationServiceServer()
+type UnsafeVisibilityPropagationServiceServer interface {
+	mustEmbedUnimplementedVisibilityPropagationServiceServer()
 }
 
-func RegisterPropagationServiceServer(s grpc.ServiceRegistrar, srv PropagationServiceServer) {
-	// If the following call panics, it indicates UnimplementedPropagationServiceServer was
+func RegisterVisibilityPropagationServiceServer(s grpc.ServiceRegistrar, srv VisibilityPropagationServiceServer) {
+	// If the following call panics, it indicates UnimplementedVisibilityPropagationServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&PropagationService_ServiceDesc, srv)
+	s.RegisterService(&VisibilityPropagationService_ServiceDesc, srv)
 }
 
-func _PropagationService_CaptureValues_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _VisibilityPropagationService_CaptureValues_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(CaptureValuesRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(PropagationServiceServer).CaptureValues(ctx, in)
+		return srv.(VisibilityPropagationServiceServer).CaptureValues(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: PropagationService_CaptureValues_FullMethodName,
+		FullMethod: VisibilityPropagationService_CaptureValues_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PropagationServiceServer).CaptureValues(ctx, req.(*CaptureValuesRequest))
+		return srv.(VisibilityPropagationServiceServer).CaptureValues(ctx, req.(*CaptureValuesRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _PropagationService_GetPropagationProperties_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _VisibilityPropagationService_GetPropagationProperties_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetPropagationPropertiesRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(PropagationServiceServer).GetPropagationProperties(ctx, in)
+		return srv.(VisibilityPropagationServiceServer).GetPropagationProperties(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: PropagationService_GetPropagationProperties_FullMethodName,
+		FullMethod: VisibilityPropagationService_GetPropagationProperties_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PropagationServiceServer).GetPropagationProperties(ctx, req.(*GetPropagationPropertiesRequest))
+		return srv.(VisibilityPropagationServiceServer).GetPropagationProperties(ctx, req.(*GetPropagationPropertiesRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _PropagationService_GetStartDelay_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(PropagationGetStartDelayRequest)
+func _VisibilityPropagationService_GetViewVisibility_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetViewVisibilityRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(PropagationServiceServer).GetStartDelay(ctx, in)
+		return srv.(VisibilityPropagationServiceServer).GetViewVisibility(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: PropagationService_GetStartDelay_FullMethodName,
+		FullMethod: VisibilityPropagationService_GetViewVisibility_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PropagationServiceServer).GetStartDelay(ctx, req.(*PropagationGetStartDelayRequest))
+		return srv.(VisibilityPropagationServiceServer).GetViewVisibility(ctx, req.(*GetViewVisibilityRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// PropagationService_ServiceDesc is the grpc.ServiceDesc for PropagationService service.
+func _VisibilityPropagationService_GetViewX_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetViewXRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(VisibilityPropagationServiceServer).GetViewX(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: VisibilityPropagationService_GetViewX_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(VisibilityPropagationServiceServer).GetViewX(ctx, req.(*GetViewXRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _VisibilityPropagationService_GetViewY_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetViewYRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(VisibilityPropagationServiceServer).GetViewY(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: VisibilityPropagationService_GetViewY_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(VisibilityPropagationServiceServer).GetViewY(ctx, req.(*GetViewYRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// VisibilityPropagationService_ServiceDesc is the grpc.ServiceDesc for VisibilityPropagationService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var PropagationService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "transition.PropagationService",
-	HandlerType: (*PropagationServiceServer)(nil),
+var VisibilityPropagationService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "transition.VisibilityPropagationService",
+	HandlerType: (*VisibilityPropagationServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
 			MethodName: "CaptureValues",
-			Handler:    _PropagationService_CaptureValues_Handler,
+			Handler:    _VisibilityPropagationService_CaptureValues_Handler,
 		},
 		{
 			MethodName: "GetPropagationProperties",
-			Handler:    _PropagationService_GetPropagationProperties_Handler,
+			Handler:    _VisibilityPropagationService_GetPropagationProperties_Handler,
 		},
 		{
-			MethodName: "GetStartDelay",
-			Handler:    _PropagationService_GetStartDelay_Handler,
+			MethodName: "GetViewVisibility",
+			Handler:    _VisibilityPropagationService_GetViewVisibility_Handler,
+		},
+		{
+			MethodName: "GetViewX",
+			Handler:    _VisibilityPropagationService_GetViewX_Handler,
+		},
+		{
+			MethodName: "GetViewY",
+			Handler:    _VisibilityPropagationService_GetViewY_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -9064,329 +6678,254 @@ var PropagationService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	SlideService_NewSlide_FullMethodName           = "/transition.SlideService/NewSlide"
-	SlideService_CaptureEndValues_FullMethodName   = "/transition.SlideService/CaptureEndValues"
-	SlideService_CaptureStartValues_FullMethodName = "/transition.SlideService/CaptureStartValues"
-	SlideService_GetSlideEdge_FullMethodName       = "/transition.SlideService/GetSlideEdge"
-	SlideService_OnAppear_FullMethodName           = "/transition.SlideService/OnAppear"
-	SlideService_OnDisappear_FullMethodName        = "/transition.SlideService/OnDisappear"
-	SlideService_SetSlideEdge_FullMethodName       = "/transition.SlideService/SetSlideEdge"
+	ChangeImageTransformService_NewChangeImageTransform_FullMethodName = "/transition.ChangeImageTransformService/NewChangeImageTransform"
+	ChangeImageTransformService_CaptureEndValues_FullMethodName        = "/transition.ChangeImageTransformService/CaptureEndValues"
+	ChangeImageTransformService_CaptureStartValues_FullMethodName      = "/transition.ChangeImageTransformService/CaptureStartValues"
+	ChangeImageTransformService_CreateAnimator_FullMethodName          = "/transition.ChangeImageTransformService/CreateAnimator"
+	ChangeImageTransformService_GetTransitionProperties_FullMethodName = "/transition.ChangeImageTransformService/GetTransitionProperties"
 )
 
-// SlideServiceClient is the client API for SlideService service.
+// ChangeImageTransformServiceClient is the client API for ChangeImageTransformService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type SlideServiceClient interface {
-	NewSlide(ctx context.Context, in *NewSlideRequest, opts ...grpc.CallOption) (*NewSlideResponse, error)
-	CaptureEndValues(ctx context.Context, in *CaptureEndValuesRequest, opts ...grpc.CallOption) (*CaptureEndValuesResponse, error)
-	CaptureStartValues(ctx context.Context, in *CaptureStartValuesRequest, opts ...grpc.CallOption) (*CaptureStartValuesResponse, error)
-	GetSlideEdge(ctx context.Context, in *GetSlideEdgeRequest, opts ...grpc.CallOption) (*GetSlideEdgeResponse, error)
-	OnAppear(ctx context.Context, in *OnAppearRequest, opts ...grpc.CallOption) (*OnAppearResponse, error)
-	OnDisappear(ctx context.Context, in *OnDisappearRequest, opts ...grpc.CallOption) (*OnDisappearResponse, error)
-	SetSlideEdge(ctx context.Context, in *SetSlideEdgeRequest, opts ...grpc.CallOption) (*SetSlideEdgeResponse, error)
+type ChangeImageTransformServiceClient interface {
+	NewChangeImageTransform(ctx context.Context, in *NewChangeImageTransformRequest, opts ...grpc.CallOption) (*NewChangeImageTransformResponse, error)
+	CaptureEndValues(ctx context.Context, in *ChangeImageTransformCaptureEndValuesRequest, opts ...grpc.CallOption) (*CaptureEndValuesResponse, error)
+	CaptureStartValues(ctx context.Context, in *ChangeImageTransformCaptureStartValuesRequest, opts ...grpc.CallOption) (*CaptureStartValuesResponse, error)
+	CreateAnimator(ctx context.Context, in *ChangeImageTransformCreateAnimatorRequest, opts ...grpc.CallOption) (*CreateAnimatorResponse, error)
+	GetTransitionProperties(ctx context.Context, in *ChangeImageTransformGetTransitionPropertiesRequest, opts ...grpc.CallOption) (*GetTransitionPropertiesResponse, error)
 }
 
-type slideServiceClient struct {
+type changeImageTransformServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewSlideServiceClient(cc grpc.ClientConnInterface) SlideServiceClient {
-	return &slideServiceClient{cc}
+func NewChangeImageTransformServiceClient(cc grpc.ClientConnInterface) ChangeImageTransformServiceClient {
+	return &changeImageTransformServiceClient{cc}
 }
 
-func (c *slideServiceClient) NewSlide(ctx context.Context, in *NewSlideRequest, opts ...grpc.CallOption) (*NewSlideResponse, error) {
+func (c *changeImageTransformServiceClient) NewChangeImageTransform(ctx context.Context, in *NewChangeImageTransformRequest, opts ...grpc.CallOption) (*NewChangeImageTransformResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewSlideResponse)
-	err := c.cc.Invoke(ctx, SlideService_NewSlide_FullMethodName, in, out, cOpts...)
+	out := new(NewChangeImageTransformResponse)
+	err := c.cc.Invoke(ctx, ChangeImageTransformService_NewChangeImageTransform_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *slideServiceClient) CaptureEndValues(ctx context.Context, in *CaptureEndValuesRequest, opts ...grpc.CallOption) (*CaptureEndValuesResponse, error) {
+func (c *changeImageTransformServiceClient) CaptureEndValues(ctx context.Context, in *ChangeImageTransformCaptureEndValuesRequest, opts ...grpc.CallOption) (*CaptureEndValuesResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(CaptureEndValuesResponse)
-	err := c.cc.Invoke(ctx, SlideService_CaptureEndValues_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ChangeImageTransformService_CaptureEndValues_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *slideServiceClient) CaptureStartValues(ctx context.Context, in *CaptureStartValuesRequest, opts ...grpc.CallOption) (*CaptureStartValuesResponse, error) {
+func (c *changeImageTransformServiceClient) CaptureStartValues(ctx context.Context, in *ChangeImageTransformCaptureStartValuesRequest, opts ...grpc.CallOption) (*CaptureStartValuesResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(CaptureStartValuesResponse)
-	err := c.cc.Invoke(ctx, SlideService_CaptureStartValues_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ChangeImageTransformService_CaptureStartValues_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *slideServiceClient) GetSlideEdge(ctx context.Context, in *GetSlideEdgeRequest, opts ...grpc.CallOption) (*GetSlideEdgeResponse, error) {
+func (c *changeImageTransformServiceClient) CreateAnimator(ctx context.Context, in *ChangeImageTransformCreateAnimatorRequest, opts ...grpc.CallOption) (*CreateAnimatorResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetSlideEdgeResponse)
-	err := c.cc.Invoke(ctx, SlideService_GetSlideEdge_FullMethodName, in, out, cOpts...)
+	out := new(CreateAnimatorResponse)
+	err := c.cc.Invoke(ctx, ChangeImageTransformService_CreateAnimator_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *slideServiceClient) OnAppear(ctx context.Context, in *OnAppearRequest, opts ...grpc.CallOption) (*OnAppearResponse, error) {
+func (c *changeImageTransformServiceClient) GetTransitionProperties(ctx context.Context, in *ChangeImageTransformGetTransitionPropertiesRequest, opts ...grpc.CallOption) (*GetTransitionPropertiesResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnAppearResponse)
-	err := c.cc.Invoke(ctx, SlideService_OnAppear_FullMethodName, in, out, cOpts...)
+	out := new(GetTransitionPropertiesResponse)
+	err := c.cc.Invoke(ctx, ChangeImageTransformService_GetTransitionProperties_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *slideServiceClient) OnDisappear(ctx context.Context, in *OnDisappearRequest, opts ...grpc.CallOption) (*OnDisappearResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnDisappearResponse)
-	err := c.cc.Invoke(ctx, SlideService_OnDisappear_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *slideServiceClient) SetSlideEdge(ctx context.Context, in *SetSlideEdgeRequest, opts ...grpc.CallOption) (*SetSlideEdgeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetSlideEdgeResponse)
-	err := c.cc.Invoke(ctx, SlideService_SetSlideEdge_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// SlideServiceServer is the server API for SlideService service.
-// All implementations must embed UnimplementedSlideServiceServer
+// ChangeImageTransformServiceServer is the server API for ChangeImageTransformService service.
+// All implementations must embed UnimplementedChangeImageTransformServiceServer
 // for forward compatibility.
-type SlideServiceServer interface {
-	NewSlide(context.Context, *NewSlideRequest) (*NewSlideResponse, error)
-	CaptureEndValues(context.Context, *CaptureEndValuesRequest) (*CaptureEndValuesResponse, error)
-	CaptureStartValues(context.Context, *CaptureStartValuesRequest) (*CaptureStartValuesResponse, error)
-	GetSlideEdge(context.Context, *GetSlideEdgeRequest) (*GetSlideEdgeResponse, error)
-	OnAppear(context.Context, *OnAppearRequest) (*OnAppearResponse, error)
-	OnDisappear(context.Context, *OnDisappearRequest) (*OnDisappearResponse, error)
-	SetSlideEdge(context.Context, *SetSlideEdgeRequest) (*SetSlideEdgeResponse, error)
-	mustEmbedUnimplementedSlideServiceServer()
+type ChangeImageTransformServiceServer interface {
+	NewChangeImageTransform(context.Context, *NewChangeImageTransformRequest) (*NewChangeImageTransformResponse, error)
+	CaptureEndValues(context.Context, *ChangeImageTransformCaptureEndValuesRequest) (*CaptureEndValuesResponse, error)
+	CaptureStartValues(context.Context, *ChangeImageTransformCaptureStartValuesRequest) (*CaptureStartValuesResponse, error)
+	CreateAnimator(context.Context, *ChangeImageTransformCreateAnimatorRequest) (*CreateAnimatorResponse, error)
+	GetTransitionProperties(context.Context, *ChangeImageTransformGetTransitionPropertiesRequest) (*GetTransitionPropertiesResponse, error)
+	mustEmbedUnimplementedChangeImageTransformServiceServer()
 }
 
-// UnimplementedSlideServiceServer must be embedded to have
+// UnimplementedChangeImageTransformServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedSlideServiceServer struct{}
+type UnimplementedChangeImageTransformServiceServer struct{}
 
-func (UnimplementedSlideServiceServer) NewSlide(context.Context, *NewSlideRequest) (*NewSlideResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewSlide not implemented")
+func (UnimplementedChangeImageTransformServiceServer) NewChangeImageTransform(context.Context, *NewChangeImageTransformRequest) (*NewChangeImageTransformResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewChangeImageTransform not implemented")
 }
-func (UnimplementedSlideServiceServer) CaptureEndValues(context.Context, *CaptureEndValuesRequest) (*CaptureEndValuesResponse, error) {
+func (UnimplementedChangeImageTransformServiceServer) CaptureEndValues(context.Context, *ChangeImageTransformCaptureEndValuesRequest) (*CaptureEndValuesResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method CaptureEndValues not implemented")
 }
-func (UnimplementedSlideServiceServer) CaptureStartValues(context.Context, *CaptureStartValuesRequest) (*CaptureStartValuesResponse, error) {
+func (UnimplementedChangeImageTransformServiceServer) CaptureStartValues(context.Context, *ChangeImageTransformCaptureStartValuesRequest) (*CaptureStartValuesResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method CaptureStartValues not implemented")
 }
-func (UnimplementedSlideServiceServer) GetSlideEdge(context.Context, *GetSlideEdgeRequest) (*GetSlideEdgeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetSlideEdge not implemented")
+func (UnimplementedChangeImageTransformServiceServer) CreateAnimator(context.Context, *ChangeImageTransformCreateAnimatorRequest) (*CreateAnimatorResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method CreateAnimator not implemented")
 }
-func (UnimplementedSlideServiceServer) OnAppear(context.Context, *OnAppearRequest) (*OnAppearResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnAppear not implemented")
+func (UnimplementedChangeImageTransformServiceServer) GetTransitionProperties(context.Context, *ChangeImageTransformGetTransitionPropertiesRequest) (*GetTransitionPropertiesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTransitionProperties not implemented")
 }
-func (UnimplementedSlideServiceServer) OnDisappear(context.Context, *OnDisappearRequest) (*OnDisappearResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnDisappear not implemented")
+func (UnimplementedChangeImageTransformServiceServer) mustEmbedUnimplementedChangeImageTransformServiceServer() {
 }
-func (UnimplementedSlideServiceServer) SetSlideEdge(context.Context, *SetSlideEdgeRequest) (*SetSlideEdgeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetSlideEdge not implemented")
-}
-func (UnimplementedSlideServiceServer) mustEmbedUnimplementedSlideServiceServer() {}
-func (UnimplementedSlideServiceServer) testEmbeddedByValue()                      {}
+func (UnimplementedChangeImageTransformServiceServer) testEmbeddedByValue() {}
 
-// UnsafeSlideServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to SlideServiceServer will
+// UnsafeChangeImageTransformServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ChangeImageTransformServiceServer will
 // result in compilation errors.
-type UnsafeSlideServiceServer interface {
-	mustEmbedUnimplementedSlideServiceServer()
+type UnsafeChangeImageTransformServiceServer interface {
+	mustEmbedUnimplementedChangeImageTransformServiceServer()
 }
 
-func RegisterSlideServiceServer(s grpc.ServiceRegistrar, srv SlideServiceServer) {
-	// If the following call panics, it indicates UnimplementedSlideServiceServer was
+func RegisterChangeImageTransformServiceServer(s grpc.ServiceRegistrar, srv ChangeImageTransformServiceServer) {
+	// If the following call panics, it indicates UnimplementedChangeImageTransformServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&SlideService_ServiceDesc, srv)
+	s.RegisterService(&ChangeImageTransformService_ServiceDesc, srv)
 }
 
-func _SlideService_NewSlide_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewSlideRequest)
+func _ChangeImageTransformService_NewChangeImageTransform_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewChangeImageTransformRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(SlideServiceServer).NewSlide(ctx, in)
+		return srv.(ChangeImageTransformServiceServer).NewChangeImageTransform(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: SlideService_NewSlide_FullMethodName,
+		FullMethod: ChangeImageTransformService_NewChangeImageTransform_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SlideServiceServer).NewSlide(ctx, req.(*NewSlideRequest))
+		return srv.(ChangeImageTransformServiceServer).NewChangeImageTransform(ctx, req.(*NewChangeImageTransformRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _SlideService_CaptureEndValues_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CaptureEndValuesRequest)
+func _ChangeImageTransformService_CaptureEndValues_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ChangeImageTransformCaptureEndValuesRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(SlideServiceServer).CaptureEndValues(ctx, in)
+		return srv.(ChangeImageTransformServiceServer).CaptureEndValues(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: SlideService_CaptureEndValues_FullMethodName,
+		FullMethod: ChangeImageTransformService_CaptureEndValues_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SlideServiceServer).CaptureEndValues(ctx, req.(*CaptureEndValuesRequest))
+		return srv.(ChangeImageTransformServiceServer).CaptureEndValues(ctx, req.(*ChangeImageTransformCaptureEndValuesRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _SlideService_CaptureStartValues_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CaptureStartValuesRequest)
+func _ChangeImageTransformService_CaptureStartValues_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ChangeImageTransformCaptureStartValuesRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(SlideServiceServer).CaptureStartValues(ctx, in)
+		return srv.(ChangeImageTransformServiceServer).CaptureStartValues(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: SlideService_CaptureStartValues_FullMethodName,
+		FullMethod: ChangeImageTransformService_CaptureStartValues_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SlideServiceServer).CaptureStartValues(ctx, req.(*CaptureStartValuesRequest))
+		return srv.(ChangeImageTransformServiceServer).CaptureStartValues(ctx, req.(*ChangeImageTransformCaptureStartValuesRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _SlideService_GetSlideEdge_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetSlideEdgeRequest)
+func _ChangeImageTransformService_CreateAnimator_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ChangeImageTransformCreateAnimatorRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(SlideServiceServer).GetSlideEdge(ctx, in)
+		return srv.(ChangeImageTransformServiceServer).CreateAnimator(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: SlideService_GetSlideEdge_FullMethodName,
+		FullMethod: ChangeImageTransformService_CreateAnimator_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SlideServiceServer).GetSlideEdge(ctx, req.(*GetSlideEdgeRequest))
+		return srv.(ChangeImageTransformServiceServer).CreateAnimator(ctx, req.(*ChangeImageTransformCreateAnimatorRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _SlideService_OnAppear_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnAppearRequest)
+func _ChangeImageTransformService_GetTransitionProperties_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ChangeImageTransformGetTransitionPropertiesRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(SlideServiceServer).OnAppear(ctx, in)
+		return srv.(ChangeImageTransformServiceServer).GetTransitionProperties(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: SlideService_OnAppear_FullMethodName,
+		FullMethod: ChangeImageTransformService_GetTransitionProperties_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SlideServiceServer).OnAppear(ctx, req.(*OnAppearRequest))
+		return srv.(ChangeImageTransformServiceServer).GetTransitionProperties(ctx, req.(*ChangeImageTransformGetTransitionPropertiesRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _SlideService_OnDisappear_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnDisappearRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SlideServiceServer).OnDisappear(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SlideService_OnDisappear_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SlideServiceServer).OnDisappear(ctx, req.(*OnDisappearRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SlideService_SetSlideEdge_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetSlideEdgeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SlideServiceServer).SetSlideEdge(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SlideService_SetSlideEdge_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SlideServiceServer).SetSlideEdge(ctx, req.(*SetSlideEdgeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// SlideService_ServiceDesc is the grpc.ServiceDesc for SlideService service.
+// ChangeImageTransformService_ServiceDesc is the grpc.ServiceDesc for ChangeImageTransformService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var SlideService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "transition.SlideService",
-	HandlerType: (*SlideServiceServer)(nil),
+var ChangeImageTransformService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "transition.ChangeImageTransformService",
+	HandlerType: (*ChangeImageTransformServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "NewSlide",
-			Handler:    _SlideService_NewSlide_Handler,
+			MethodName: "NewChangeImageTransform",
+			Handler:    _ChangeImageTransformService_NewChangeImageTransform_Handler,
 		},
 		{
 			MethodName: "CaptureEndValues",
-			Handler:    _SlideService_CaptureEndValues_Handler,
+			Handler:    _ChangeImageTransformService_CaptureEndValues_Handler,
 		},
 		{
 			MethodName: "CaptureStartValues",
-			Handler:    _SlideService_CaptureStartValues_Handler,
+			Handler:    _ChangeImageTransformService_CaptureStartValues_Handler,
 		},
 		{
-			MethodName: "GetSlideEdge",
-			Handler:    _SlideService_GetSlideEdge_Handler,
+			MethodName: "CreateAnimator",
+			Handler:    _ChangeImageTransformService_CreateAnimator_Handler,
 		},
 		{
-			MethodName: "OnAppear",
-			Handler:    _SlideService_OnAppear_Handler,
-		},
-		{
-			MethodName: "OnDisappear",
-			Handler:    _SlideService_OnDisappear_Handler,
-		},
-		{
-			MethodName: "SetSlideEdge",
-			Handler:    _SlideService_SetSlideEdge_Handler,
+			MethodName: "GetTransitionProperties",
+			Handler:    _ChangeImageTransformService_GetTransitionProperties_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -9604,6 +7143,2619 @@ var PatternPathMotionService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "SetPatternPath",
 			Handler:    _PatternPathMotionService_SetPatternPath_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/transition/transition.proto",
+}
+
+const (
+	ChangeClipBoundsService_NewChangeClipBounds_FullMethodName     = "/transition.ChangeClipBoundsService/NewChangeClipBounds"
+	ChangeClipBoundsService_CaptureEndValues_FullMethodName        = "/transition.ChangeClipBoundsService/CaptureEndValues"
+	ChangeClipBoundsService_CaptureStartValues_FullMethodName      = "/transition.ChangeClipBoundsService/CaptureStartValues"
+	ChangeClipBoundsService_CreateAnimator_FullMethodName          = "/transition.ChangeClipBoundsService/CreateAnimator"
+	ChangeClipBoundsService_GetTransitionProperties_FullMethodName = "/transition.ChangeClipBoundsService/GetTransitionProperties"
+)
+
+// ChangeClipBoundsServiceClient is the client API for ChangeClipBoundsService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ChangeClipBoundsServiceClient interface {
+	NewChangeClipBounds(ctx context.Context, in *NewChangeClipBoundsRequest, opts ...grpc.CallOption) (*NewChangeClipBoundsResponse, error)
+	CaptureEndValues(ctx context.Context, in *ChangeClipBoundsCaptureEndValuesRequest, opts ...grpc.CallOption) (*CaptureEndValuesResponse, error)
+	CaptureStartValues(ctx context.Context, in *ChangeClipBoundsCaptureStartValuesRequest, opts ...grpc.CallOption) (*CaptureStartValuesResponse, error)
+	CreateAnimator(ctx context.Context, in *ChangeClipBoundsCreateAnimatorRequest, opts ...grpc.CallOption) (*CreateAnimatorResponse, error)
+	GetTransitionProperties(ctx context.Context, in *ChangeClipBoundsGetTransitionPropertiesRequest, opts ...grpc.CallOption) (*GetTransitionPropertiesResponse, error)
+}
+
+type changeClipBoundsServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewChangeClipBoundsServiceClient(cc grpc.ClientConnInterface) ChangeClipBoundsServiceClient {
+	return &changeClipBoundsServiceClient{cc}
+}
+
+func (c *changeClipBoundsServiceClient) NewChangeClipBounds(ctx context.Context, in *NewChangeClipBoundsRequest, opts ...grpc.CallOption) (*NewChangeClipBoundsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewChangeClipBoundsResponse)
+	err := c.cc.Invoke(ctx, ChangeClipBoundsService_NewChangeClipBounds_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *changeClipBoundsServiceClient) CaptureEndValues(ctx context.Context, in *ChangeClipBoundsCaptureEndValuesRequest, opts ...grpc.CallOption) (*CaptureEndValuesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CaptureEndValuesResponse)
+	err := c.cc.Invoke(ctx, ChangeClipBoundsService_CaptureEndValues_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *changeClipBoundsServiceClient) CaptureStartValues(ctx context.Context, in *ChangeClipBoundsCaptureStartValuesRequest, opts ...grpc.CallOption) (*CaptureStartValuesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CaptureStartValuesResponse)
+	err := c.cc.Invoke(ctx, ChangeClipBoundsService_CaptureStartValues_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *changeClipBoundsServiceClient) CreateAnimator(ctx context.Context, in *ChangeClipBoundsCreateAnimatorRequest, opts ...grpc.CallOption) (*CreateAnimatorResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CreateAnimatorResponse)
+	err := c.cc.Invoke(ctx, ChangeClipBoundsService_CreateAnimator_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *changeClipBoundsServiceClient) GetTransitionProperties(ctx context.Context, in *ChangeClipBoundsGetTransitionPropertiesRequest, opts ...grpc.CallOption) (*GetTransitionPropertiesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTransitionPropertiesResponse)
+	err := c.cc.Invoke(ctx, ChangeClipBoundsService_GetTransitionProperties_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ChangeClipBoundsServiceServer is the server API for ChangeClipBoundsService service.
+// All implementations must embed UnimplementedChangeClipBoundsServiceServer
+// for forward compatibility.
+type ChangeClipBoundsServiceServer interface {
+	NewChangeClipBounds(context.Context, *NewChangeClipBoundsRequest) (*NewChangeClipBoundsResponse, error)
+	CaptureEndValues(context.Context, *ChangeClipBoundsCaptureEndValuesRequest) (*CaptureEndValuesResponse, error)
+	CaptureStartValues(context.Context, *ChangeClipBoundsCaptureStartValuesRequest) (*CaptureStartValuesResponse, error)
+	CreateAnimator(context.Context, *ChangeClipBoundsCreateAnimatorRequest) (*CreateAnimatorResponse, error)
+	GetTransitionProperties(context.Context, *ChangeClipBoundsGetTransitionPropertiesRequest) (*GetTransitionPropertiesResponse, error)
+	mustEmbedUnimplementedChangeClipBoundsServiceServer()
+}
+
+// UnimplementedChangeClipBoundsServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedChangeClipBoundsServiceServer struct{}
+
+func (UnimplementedChangeClipBoundsServiceServer) NewChangeClipBounds(context.Context, *NewChangeClipBoundsRequest) (*NewChangeClipBoundsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewChangeClipBounds not implemented")
+}
+func (UnimplementedChangeClipBoundsServiceServer) CaptureEndValues(context.Context, *ChangeClipBoundsCaptureEndValuesRequest) (*CaptureEndValuesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method CaptureEndValues not implemented")
+}
+func (UnimplementedChangeClipBoundsServiceServer) CaptureStartValues(context.Context, *ChangeClipBoundsCaptureStartValuesRequest) (*CaptureStartValuesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method CaptureStartValues not implemented")
+}
+func (UnimplementedChangeClipBoundsServiceServer) CreateAnimator(context.Context, *ChangeClipBoundsCreateAnimatorRequest) (*CreateAnimatorResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method CreateAnimator not implemented")
+}
+func (UnimplementedChangeClipBoundsServiceServer) GetTransitionProperties(context.Context, *ChangeClipBoundsGetTransitionPropertiesRequest) (*GetTransitionPropertiesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTransitionProperties not implemented")
+}
+func (UnimplementedChangeClipBoundsServiceServer) mustEmbedUnimplementedChangeClipBoundsServiceServer() {
+}
+func (UnimplementedChangeClipBoundsServiceServer) testEmbeddedByValue() {}
+
+// UnsafeChangeClipBoundsServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ChangeClipBoundsServiceServer will
+// result in compilation errors.
+type UnsafeChangeClipBoundsServiceServer interface {
+	mustEmbedUnimplementedChangeClipBoundsServiceServer()
+}
+
+func RegisterChangeClipBoundsServiceServer(s grpc.ServiceRegistrar, srv ChangeClipBoundsServiceServer) {
+	// If the following call panics, it indicates UnimplementedChangeClipBoundsServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&ChangeClipBoundsService_ServiceDesc, srv)
+}
+
+func _ChangeClipBoundsService_NewChangeClipBounds_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewChangeClipBoundsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ChangeClipBoundsServiceServer).NewChangeClipBounds(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ChangeClipBoundsService_NewChangeClipBounds_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ChangeClipBoundsServiceServer).NewChangeClipBounds(ctx, req.(*NewChangeClipBoundsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ChangeClipBoundsService_CaptureEndValues_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ChangeClipBoundsCaptureEndValuesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ChangeClipBoundsServiceServer).CaptureEndValues(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ChangeClipBoundsService_CaptureEndValues_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ChangeClipBoundsServiceServer).CaptureEndValues(ctx, req.(*ChangeClipBoundsCaptureEndValuesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ChangeClipBoundsService_CaptureStartValues_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ChangeClipBoundsCaptureStartValuesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ChangeClipBoundsServiceServer).CaptureStartValues(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ChangeClipBoundsService_CaptureStartValues_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ChangeClipBoundsServiceServer).CaptureStartValues(ctx, req.(*ChangeClipBoundsCaptureStartValuesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ChangeClipBoundsService_CreateAnimator_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ChangeClipBoundsCreateAnimatorRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ChangeClipBoundsServiceServer).CreateAnimator(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ChangeClipBoundsService_CreateAnimator_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ChangeClipBoundsServiceServer).CreateAnimator(ctx, req.(*ChangeClipBoundsCreateAnimatorRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ChangeClipBoundsService_GetTransitionProperties_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ChangeClipBoundsGetTransitionPropertiesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ChangeClipBoundsServiceServer).GetTransitionProperties(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ChangeClipBoundsService_GetTransitionProperties_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ChangeClipBoundsServiceServer).GetTransitionProperties(ctx, req.(*ChangeClipBoundsGetTransitionPropertiesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ChangeClipBoundsService_ServiceDesc is the grpc.ServiceDesc for ChangeClipBoundsService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ChangeClipBoundsService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "transition.ChangeClipBoundsService",
+	HandlerType: (*ChangeClipBoundsServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewChangeClipBounds",
+			Handler:    _ChangeClipBoundsService_NewChangeClipBounds_Handler,
+		},
+		{
+			MethodName: "CaptureEndValues",
+			Handler:    _ChangeClipBoundsService_CaptureEndValues_Handler,
+		},
+		{
+			MethodName: "CaptureStartValues",
+			Handler:    _ChangeClipBoundsService_CaptureStartValues_Handler,
+		},
+		{
+			MethodName: "CreateAnimator",
+			Handler:    _ChangeClipBoundsService_CreateAnimator_Handler,
+		},
+		{
+			MethodName: "GetTransitionProperties",
+			Handler:    _ChangeClipBoundsService_GetTransitionProperties_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/transition/transition.proto",
+}
+
+const (
+	SetService_NewSet_FullMethodName               = "/transition.SetService/NewSet"
+	SetService_AddListener1_FullMethodName         = "/transition.SetService/AddListener1"
+	SetService_AddTarget1_FullMethodName           = "/transition.SetService/AddTarget1"
+	SetService_AddTarget1_1_FullMethodName         = "/transition.SetService/AddTarget1_1"
+	SetService_AddTarget1_2_FullMethodName         = "/transition.SetService/AddTarget1_2"
+	SetService_AddTarget1_3_FullMethodName         = "/transition.SetService/AddTarget1_3"
+	SetService_AddTransition_FullMethodName        = "/transition.SetService/AddTransition"
+	SetService_CaptureEndValues_FullMethodName     = "/transition.SetService/CaptureEndValues"
+	SetService_CaptureStartValues_FullMethodName   = "/transition.SetService/CaptureStartValues"
+	SetService_Clone0_FullMethodName               = "/transition.SetService/Clone0"
+	SetService_ExcludeTarget2_FullMethodName       = "/transition.SetService/ExcludeTarget2"
+	SetService_ExcludeTarget2_1_FullMethodName     = "/transition.SetService/ExcludeTarget2_1"
+	SetService_ExcludeTarget2_2_FullMethodName     = "/transition.SetService/ExcludeTarget2_2"
+	SetService_ExcludeTarget2_3_FullMethodName     = "/transition.SetService/ExcludeTarget2_3"
+	SetService_GetOrdering_FullMethodName          = "/transition.SetService/GetOrdering"
+	SetService_GetTransitionAt_FullMethodName      = "/transition.SetService/GetTransitionAt"
+	SetService_GetTransitionCount_FullMethodName   = "/transition.SetService/GetTransitionCount"
+	SetService_RemoveListener1_FullMethodName      = "/transition.SetService/RemoveListener1"
+	SetService_RemoveTarget1_FullMethodName        = "/transition.SetService/RemoveTarget1"
+	SetService_RemoveTarget1_1_FullMethodName      = "/transition.SetService/RemoveTarget1_1"
+	SetService_RemoveTarget1_2_FullMethodName      = "/transition.SetService/RemoveTarget1_2"
+	SetService_RemoveTarget1_3_FullMethodName      = "/transition.SetService/RemoveTarget1_3"
+	SetService_RemoveTransition_FullMethodName     = "/transition.SetService/RemoveTransition"
+	SetService_SetDuration1_FullMethodName         = "/transition.SetService/SetDuration1"
+	SetService_SetEpicenterCallback_FullMethodName = "/transition.SetService/SetEpicenterCallback"
+	SetService_SetInterpolator1_FullMethodName     = "/transition.SetService/SetInterpolator1"
+	SetService_SetOrdering_FullMethodName          = "/transition.SetService/SetOrdering"
+	SetService_SetPathMotion_FullMethodName        = "/transition.SetService/SetPathMotion"
+	SetService_SetPropagation_FullMethodName       = "/transition.SetService/SetPropagation"
+	SetService_SetStartDelay1_FullMethodName       = "/transition.SetService/SetStartDelay1"
+	SetService_SetStartDelay1_1_FullMethodName     = "/transition.SetService/SetStartDelay1_1"
+	SetService_SetInterpolator1_1_FullMethodName   = "/transition.SetService/SetInterpolator1_1"
+	SetService_SetDuration1_1_FullMethodName       = "/transition.SetService/SetDuration1_1"
+	SetService_RemoveTarget1_4_FullMethodName      = "/transition.SetService/RemoveTarget1_4"
+	SetService_RemoveTarget1_5_FullMethodName      = "/transition.SetService/RemoveTarget1_5"
+	SetService_RemoveTarget1_6_FullMethodName      = "/transition.SetService/RemoveTarget1_6"
+	SetService_RemoveTarget1_7_FullMethodName      = "/transition.SetService/RemoveTarget1_7"
+	SetService_RemoveListener1_1_FullMethodName    = "/transition.SetService/RemoveListener1_1"
+	SetService_Clone0_1_FullMethodName             = "/transition.SetService/Clone0_1"
+	SetService_AddTarget1_4_FullMethodName         = "/transition.SetService/AddTarget1_4"
+	SetService_AddTarget1_5_FullMethodName         = "/transition.SetService/AddTarget1_5"
+	SetService_AddTarget1_6_FullMethodName         = "/transition.SetService/AddTarget1_6"
+	SetService_AddTarget1_7_FullMethodName         = "/transition.SetService/AddTarget1_7"
+	SetService_AddListener1_1_FullMethodName       = "/transition.SetService/AddListener1_1"
+	SetService_Clone0_2_FullMethodName             = "/transition.SetService/Clone0_2"
+)
+
+// SetServiceClient is the client API for SetService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type SetServiceClient interface {
+	NewSet(ctx context.Context, in *NewSetRequest, opts ...grpc.CallOption) (*NewSetResponse, error)
+	AddListener1(ctx context.Context, in *AddListener1Request, opts ...grpc.CallOption) (*AddListener1Response, error)
+	AddTarget1(ctx context.Context, in *SetAddTarget1Request, opts ...grpc.CallOption) (*AddTarget1Response, error)
+	AddTarget1_1(ctx context.Context, in *SetAddTarget1_1Request, opts ...grpc.CallOption) (*AddTarget1_1Response, error)
+	AddTarget1_2(ctx context.Context, in *SetAddTarget1_2Request, opts ...grpc.CallOption) (*AddTarget1_2Response, error)
+	AddTarget1_3(ctx context.Context, in *SetAddTarget1_3Request, opts ...grpc.CallOption) (*AddTarget1_3Response, error)
+	AddTransition(ctx context.Context, in *AddTransitionRequest, opts ...grpc.CallOption) (*AddTransitionResponse, error)
+	CaptureEndValues(ctx context.Context, in *SetCaptureEndValuesRequest, opts ...grpc.CallOption) (*CaptureEndValuesResponse, error)
+	CaptureStartValues(ctx context.Context, in *SetCaptureStartValuesRequest, opts ...grpc.CallOption) (*CaptureStartValuesResponse, error)
+	Clone0(ctx context.Context, in *SetClone0Request, opts ...grpc.CallOption) (*Clone0Response, error)
+	ExcludeTarget2(ctx context.Context, in *SetExcludeTarget2Request, opts ...grpc.CallOption) (*ExcludeTarget2Response, error)
+	ExcludeTarget2_1(ctx context.Context, in *SetExcludeTarget2_1Request, opts ...grpc.CallOption) (*ExcludeTarget2_1Response, error)
+	ExcludeTarget2_2(ctx context.Context, in *SetExcludeTarget2_2Request, opts ...grpc.CallOption) (*ExcludeTarget2_2Response, error)
+	ExcludeTarget2_3(ctx context.Context, in *SetExcludeTarget2_3Request, opts ...grpc.CallOption) (*ExcludeTarget2_3Response, error)
+	GetOrdering(ctx context.Context, in *GetOrderingRequest, opts ...grpc.CallOption) (*GetOrderingResponse, error)
+	GetTransitionAt(ctx context.Context, in *GetTransitionAtRequest, opts ...grpc.CallOption) (*GetTransitionAtResponse, error)
+	GetTransitionCount(ctx context.Context, in *GetTransitionCountRequest, opts ...grpc.CallOption) (*GetTransitionCountResponse, error)
+	RemoveListener1(ctx context.Context, in *RemoveListener1Request, opts ...grpc.CallOption) (*RemoveListener1Response, error)
+	RemoveTarget1(ctx context.Context, in *SetRemoveTarget1Request, opts ...grpc.CallOption) (*RemoveTarget1Response, error)
+	RemoveTarget1_1(ctx context.Context, in *SetRemoveTarget1_1Request, opts ...grpc.CallOption) (*RemoveTarget1_1Response, error)
+	RemoveTarget1_2(ctx context.Context, in *SetRemoveTarget1_2Request, opts ...grpc.CallOption) (*RemoveTarget1_2Response, error)
+	RemoveTarget1_3(ctx context.Context, in *SetRemoveTarget1_3Request, opts ...grpc.CallOption) (*RemoveTarget1_3Response, error)
+	RemoveTransition(ctx context.Context, in *RemoveTransitionRequest, opts ...grpc.CallOption) (*RemoveTransitionResponse, error)
+	SetDuration1(ctx context.Context, in *SetDuration1Request, opts ...grpc.CallOption) (*SetDuration1Response, error)
+	SetEpicenterCallback(ctx context.Context, in *SetSetEpicenterCallbackRequest, opts ...grpc.CallOption) (*SetEpicenterCallbackResponse, error)
+	SetInterpolator1(ctx context.Context, in *SetInterpolator1Request, opts ...grpc.CallOption) (*SetInterpolator1Response, error)
+	SetOrdering(ctx context.Context, in *SetOrderingRequest, opts ...grpc.CallOption) (*SetOrderingResponse, error)
+	SetPathMotion(ctx context.Context, in *SetSetPathMotionRequest, opts ...grpc.CallOption) (*SetPathMotionResponse, error)
+	SetPropagation(ctx context.Context, in *SetSetPropagationRequest, opts ...grpc.CallOption) (*SetPropagationResponse, error)
+	SetStartDelay1(ctx context.Context, in *SetStartDelay1Request, opts ...grpc.CallOption) (*SetStartDelay1Response, error)
+	SetStartDelay1_1(ctx context.Context, in *SetStartDelay1_1Request, opts ...grpc.CallOption) (*SetStartDelay1_1Response, error)
+	SetInterpolator1_1(ctx context.Context, in *SetInterpolator1_1Request, opts ...grpc.CallOption) (*SetInterpolator1_1Response, error)
+	SetDuration1_1(ctx context.Context, in *SetDuration1_1Request, opts ...grpc.CallOption) (*SetDuration1_1Response, error)
+	RemoveTarget1_4(ctx context.Context, in *RemoveTarget1_4Request, opts ...grpc.CallOption) (*RemoveTarget1_4Response, error)
+	RemoveTarget1_5(ctx context.Context, in *RemoveTarget1_5Request, opts ...grpc.CallOption) (*RemoveTarget1_5Response, error)
+	RemoveTarget1_6(ctx context.Context, in *RemoveTarget1_6Request, opts ...grpc.CallOption) (*RemoveTarget1_6Response, error)
+	RemoveTarget1_7(ctx context.Context, in *RemoveTarget1_7Request, opts ...grpc.CallOption) (*RemoveTarget1_7Response, error)
+	RemoveListener1_1(ctx context.Context, in *RemoveListener1_1Request, opts ...grpc.CallOption) (*RemoveListener1_1Response, error)
+	Clone0_1(ctx context.Context, in *SetClone0_1Request, opts ...grpc.CallOption) (*Clone0_1Response, error)
+	AddTarget1_4(ctx context.Context, in *AddTarget1_4Request, opts ...grpc.CallOption) (*AddTarget1_4Response, error)
+	AddTarget1_5(ctx context.Context, in *AddTarget1_5Request, opts ...grpc.CallOption) (*AddTarget1_5Response, error)
+	AddTarget1_6(ctx context.Context, in *AddTarget1_6Request, opts ...grpc.CallOption) (*AddTarget1_6Response, error)
+	AddTarget1_7(ctx context.Context, in *AddTarget1_7Request, opts ...grpc.CallOption) (*AddTarget1_7Response, error)
+	AddListener1_1(ctx context.Context, in *AddListener1_1Request, opts ...grpc.CallOption) (*AddListener1_1Response, error)
+	Clone0_2(ctx context.Context, in *Clone0_2Request, opts ...grpc.CallOption) (*Clone0_2Response, error)
+}
+
+type setServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewSetServiceClient(cc grpc.ClientConnInterface) SetServiceClient {
+	return &setServiceClient{cc}
+}
+
+func (c *setServiceClient) NewSet(ctx context.Context, in *NewSetRequest, opts ...grpc.CallOption) (*NewSetResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewSetResponse)
+	err := c.cc.Invoke(ctx, SetService_NewSet_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *setServiceClient) AddListener1(ctx context.Context, in *AddListener1Request, opts ...grpc.CallOption) (*AddListener1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(AddListener1Response)
+	err := c.cc.Invoke(ctx, SetService_AddListener1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *setServiceClient) AddTarget1(ctx context.Context, in *SetAddTarget1Request, opts ...grpc.CallOption) (*AddTarget1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(AddTarget1Response)
+	err := c.cc.Invoke(ctx, SetService_AddTarget1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *setServiceClient) AddTarget1_1(ctx context.Context, in *SetAddTarget1_1Request, opts ...grpc.CallOption) (*AddTarget1_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(AddTarget1_1Response)
+	err := c.cc.Invoke(ctx, SetService_AddTarget1_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *setServiceClient) AddTarget1_2(ctx context.Context, in *SetAddTarget1_2Request, opts ...grpc.CallOption) (*AddTarget1_2Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(AddTarget1_2Response)
+	err := c.cc.Invoke(ctx, SetService_AddTarget1_2_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *setServiceClient) AddTarget1_3(ctx context.Context, in *SetAddTarget1_3Request, opts ...grpc.CallOption) (*AddTarget1_3Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(AddTarget1_3Response)
+	err := c.cc.Invoke(ctx, SetService_AddTarget1_3_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *setServiceClient) AddTransition(ctx context.Context, in *AddTransitionRequest, opts ...grpc.CallOption) (*AddTransitionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(AddTransitionResponse)
+	err := c.cc.Invoke(ctx, SetService_AddTransition_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *setServiceClient) CaptureEndValues(ctx context.Context, in *SetCaptureEndValuesRequest, opts ...grpc.CallOption) (*CaptureEndValuesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CaptureEndValuesResponse)
+	err := c.cc.Invoke(ctx, SetService_CaptureEndValues_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *setServiceClient) CaptureStartValues(ctx context.Context, in *SetCaptureStartValuesRequest, opts ...grpc.CallOption) (*CaptureStartValuesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CaptureStartValuesResponse)
+	err := c.cc.Invoke(ctx, SetService_CaptureStartValues_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *setServiceClient) Clone0(ctx context.Context, in *SetClone0Request, opts ...grpc.CallOption) (*Clone0Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(Clone0Response)
+	err := c.cc.Invoke(ctx, SetService_Clone0_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *setServiceClient) ExcludeTarget2(ctx context.Context, in *SetExcludeTarget2Request, opts ...grpc.CallOption) (*ExcludeTarget2Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ExcludeTarget2Response)
+	err := c.cc.Invoke(ctx, SetService_ExcludeTarget2_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *setServiceClient) ExcludeTarget2_1(ctx context.Context, in *SetExcludeTarget2_1Request, opts ...grpc.CallOption) (*ExcludeTarget2_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ExcludeTarget2_1Response)
+	err := c.cc.Invoke(ctx, SetService_ExcludeTarget2_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *setServiceClient) ExcludeTarget2_2(ctx context.Context, in *SetExcludeTarget2_2Request, opts ...grpc.CallOption) (*ExcludeTarget2_2Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ExcludeTarget2_2Response)
+	err := c.cc.Invoke(ctx, SetService_ExcludeTarget2_2_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *setServiceClient) ExcludeTarget2_3(ctx context.Context, in *SetExcludeTarget2_3Request, opts ...grpc.CallOption) (*ExcludeTarget2_3Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ExcludeTarget2_3Response)
+	err := c.cc.Invoke(ctx, SetService_ExcludeTarget2_3_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *setServiceClient) GetOrdering(ctx context.Context, in *GetOrderingRequest, opts ...grpc.CallOption) (*GetOrderingResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetOrderingResponse)
+	err := c.cc.Invoke(ctx, SetService_GetOrdering_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *setServiceClient) GetTransitionAt(ctx context.Context, in *GetTransitionAtRequest, opts ...grpc.CallOption) (*GetTransitionAtResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTransitionAtResponse)
+	err := c.cc.Invoke(ctx, SetService_GetTransitionAt_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *setServiceClient) GetTransitionCount(ctx context.Context, in *GetTransitionCountRequest, opts ...grpc.CallOption) (*GetTransitionCountResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTransitionCountResponse)
+	err := c.cc.Invoke(ctx, SetService_GetTransitionCount_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *setServiceClient) RemoveListener1(ctx context.Context, in *RemoveListener1Request, opts ...grpc.CallOption) (*RemoveListener1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(RemoveListener1Response)
+	err := c.cc.Invoke(ctx, SetService_RemoveListener1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *setServiceClient) RemoveTarget1(ctx context.Context, in *SetRemoveTarget1Request, opts ...grpc.CallOption) (*RemoveTarget1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(RemoveTarget1Response)
+	err := c.cc.Invoke(ctx, SetService_RemoveTarget1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *setServiceClient) RemoveTarget1_1(ctx context.Context, in *SetRemoveTarget1_1Request, opts ...grpc.CallOption) (*RemoveTarget1_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(RemoveTarget1_1Response)
+	err := c.cc.Invoke(ctx, SetService_RemoveTarget1_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *setServiceClient) RemoveTarget1_2(ctx context.Context, in *SetRemoveTarget1_2Request, opts ...grpc.CallOption) (*RemoveTarget1_2Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(RemoveTarget1_2Response)
+	err := c.cc.Invoke(ctx, SetService_RemoveTarget1_2_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *setServiceClient) RemoveTarget1_3(ctx context.Context, in *SetRemoveTarget1_3Request, opts ...grpc.CallOption) (*RemoveTarget1_3Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(RemoveTarget1_3Response)
+	err := c.cc.Invoke(ctx, SetService_RemoveTarget1_3_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *setServiceClient) RemoveTransition(ctx context.Context, in *RemoveTransitionRequest, opts ...grpc.CallOption) (*RemoveTransitionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(RemoveTransitionResponse)
+	err := c.cc.Invoke(ctx, SetService_RemoveTransition_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *setServiceClient) SetDuration1(ctx context.Context, in *SetDuration1Request, opts ...grpc.CallOption) (*SetDuration1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetDuration1Response)
+	err := c.cc.Invoke(ctx, SetService_SetDuration1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *setServiceClient) SetEpicenterCallback(ctx context.Context, in *SetSetEpicenterCallbackRequest, opts ...grpc.CallOption) (*SetEpicenterCallbackResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetEpicenterCallbackResponse)
+	err := c.cc.Invoke(ctx, SetService_SetEpicenterCallback_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *setServiceClient) SetInterpolator1(ctx context.Context, in *SetInterpolator1Request, opts ...grpc.CallOption) (*SetInterpolator1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetInterpolator1Response)
+	err := c.cc.Invoke(ctx, SetService_SetInterpolator1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *setServiceClient) SetOrdering(ctx context.Context, in *SetOrderingRequest, opts ...grpc.CallOption) (*SetOrderingResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetOrderingResponse)
+	err := c.cc.Invoke(ctx, SetService_SetOrdering_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *setServiceClient) SetPathMotion(ctx context.Context, in *SetSetPathMotionRequest, opts ...grpc.CallOption) (*SetPathMotionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetPathMotionResponse)
+	err := c.cc.Invoke(ctx, SetService_SetPathMotion_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *setServiceClient) SetPropagation(ctx context.Context, in *SetSetPropagationRequest, opts ...grpc.CallOption) (*SetPropagationResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetPropagationResponse)
+	err := c.cc.Invoke(ctx, SetService_SetPropagation_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *setServiceClient) SetStartDelay1(ctx context.Context, in *SetStartDelay1Request, opts ...grpc.CallOption) (*SetStartDelay1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetStartDelay1Response)
+	err := c.cc.Invoke(ctx, SetService_SetStartDelay1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *setServiceClient) SetStartDelay1_1(ctx context.Context, in *SetStartDelay1_1Request, opts ...grpc.CallOption) (*SetStartDelay1_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetStartDelay1_1Response)
+	err := c.cc.Invoke(ctx, SetService_SetStartDelay1_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *setServiceClient) SetInterpolator1_1(ctx context.Context, in *SetInterpolator1_1Request, opts ...grpc.CallOption) (*SetInterpolator1_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetInterpolator1_1Response)
+	err := c.cc.Invoke(ctx, SetService_SetInterpolator1_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *setServiceClient) SetDuration1_1(ctx context.Context, in *SetDuration1_1Request, opts ...grpc.CallOption) (*SetDuration1_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetDuration1_1Response)
+	err := c.cc.Invoke(ctx, SetService_SetDuration1_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *setServiceClient) RemoveTarget1_4(ctx context.Context, in *RemoveTarget1_4Request, opts ...grpc.CallOption) (*RemoveTarget1_4Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(RemoveTarget1_4Response)
+	err := c.cc.Invoke(ctx, SetService_RemoveTarget1_4_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *setServiceClient) RemoveTarget1_5(ctx context.Context, in *RemoveTarget1_5Request, opts ...grpc.CallOption) (*RemoveTarget1_5Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(RemoveTarget1_5Response)
+	err := c.cc.Invoke(ctx, SetService_RemoveTarget1_5_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *setServiceClient) RemoveTarget1_6(ctx context.Context, in *RemoveTarget1_6Request, opts ...grpc.CallOption) (*RemoveTarget1_6Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(RemoveTarget1_6Response)
+	err := c.cc.Invoke(ctx, SetService_RemoveTarget1_6_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *setServiceClient) RemoveTarget1_7(ctx context.Context, in *RemoveTarget1_7Request, opts ...grpc.CallOption) (*RemoveTarget1_7Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(RemoveTarget1_7Response)
+	err := c.cc.Invoke(ctx, SetService_RemoveTarget1_7_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *setServiceClient) RemoveListener1_1(ctx context.Context, in *RemoveListener1_1Request, opts ...grpc.CallOption) (*RemoveListener1_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(RemoveListener1_1Response)
+	err := c.cc.Invoke(ctx, SetService_RemoveListener1_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *setServiceClient) Clone0_1(ctx context.Context, in *SetClone0_1Request, opts ...grpc.CallOption) (*Clone0_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(Clone0_1Response)
+	err := c.cc.Invoke(ctx, SetService_Clone0_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *setServiceClient) AddTarget1_4(ctx context.Context, in *AddTarget1_4Request, opts ...grpc.CallOption) (*AddTarget1_4Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(AddTarget1_4Response)
+	err := c.cc.Invoke(ctx, SetService_AddTarget1_4_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *setServiceClient) AddTarget1_5(ctx context.Context, in *AddTarget1_5Request, opts ...grpc.CallOption) (*AddTarget1_5Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(AddTarget1_5Response)
+	err := c.cc.Invoke(ctx, SetService_AddTarget1_5_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *setServiceClient) AddTarget1_6(ctx context.Context, in *AddTarget1_6Request, opts ...grpc.CallOption) (*AddTarget1_6Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(AddTarget1_6Response)
+	err := c.cc.Invoke(ctx, SetService_AddTarget1_6_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *setServiceClient) AddTarget1_7(ctx context.Context, in *AddTarget1_7Request, opts ...grpc.CallOption) (*AddTarget1_7Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(AddTarget1_7Response)
+	err := c.cc.Invoke(ctx, SetService_AddTarget1_7_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *setServiceClient) AddListener1_1(ctx context.Context, in *AddListener1_1Request, opts ...grpc.CallOption) (*AddListener1_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(AddListener1_1Response)
+	err := c.cc.Invoke(ctx, SetService_AddListener1_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *setServiceClient) Clone0_2(ctx context.Context, in *Clone0_2Request, opts ...grpc.CallOption) (*Clone0_2Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(Clone0_2Response)
+	err := c.cc.Invoke(ctx, SetService_Clone0_2_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// SetServiceServer is the server API for SetService service.
+// All implementations must embed UnimplementedSetServiceServer
+// for forward compatibility.
+type SetServiceServer interface {
+	NewSet(context.Context, *NewSetRequest) (*NewSetResponse, error)
+	AddListener1(context.Context, *AddListener1Request) (*AddListener1Response, error)
+	AddTarget1(context.Context, *SetAddTarget1Request) (*AddTarget1Response, error)
+	AddTarget1_1(context.Context, *SetAddTarget1_1Request) (*AddTarget1_1Response, error)
+	AddTarget1_2(context.Context, *SetAddTarget1_2Request) (*AddTarget1_2Response, error)
+	AddTarget1_3(context.Context, *SetAddTarget1_3Request) (*AddTarget1_3Response, error)
+	AddTransition(context.Context, *AddTransitionRequest) (*AddTransitionResponse, error)
+	CaptureEndValues(context.Context, *SetCaptureEndValuesRequest) (*CaptureEndValuesResponse, error)
+	CaptureStartValues(context.Context, *SetCaptureStartValuesRequest) (*CaptureStartValuesResponse, error)
+	Clone0(context.Context, *SetClone0Request) (*Clone0Response, error)
+	ExcludeTarget2(context.Context, *SetExcludeTarget2Request) (*ExcludeTarget2Response, error)
+	ExcludeTarget2_1(context.Context, *SetExcludeTarget2_1Request) (*ExcludeTarget2_1Response, error)
+	ExcludeTarget2_2(context.Context, *SetExcludeTarget2_2Request) (*ExcludeTarget2_2Response, error)
+	ExcludeTarget2_3(context.Context, *SetExcludeTarget2_3Request) (*ExcludeTarget2_3Response, error)
+	GetOrdering(context.Context, *GetOrderingRequest) (*GetOrderingResponse, error)
+	GetTransitionAt(context.Context, *GetTransitionAtRequest) (*GetTransitionAtResponse, error)
+	GetTransitionCount(context.Context, *GetTransitionCountRequest) (*GetTransitionCountResponse, error)
+	RemoveListener1(context.Context, *RemoveListener1Request) (*RemoveListener1Response, error)
+	RemoveTarget1(context.Context, *SetRemoveTarget1Request) (*RemoveTarget1Response, error)
+	RemoveTarget1_1(context.Context, *SetRemoveTarget1_1Request) (*RemoveTarget1_1Response, error)
+	RemoveTarget1_2(context.Context, *SetRemoveTarget1_2Request) (*RemoveTarget1_2Response, error)
+	RemoveTarget1_3(context.Context, *SetRemoveTarget1_3Request) (*RemoveTarget1_3Response, error)
+	RemoveTransition(context.Context, *RemoveTransitionRequest) (*RemoveTransitionResponse, error)
+	SetDuration1(context.Context, *SetDuration1Request) (*SetDuration1Response, error)
+	SetEpicenterCallback(context.Context, *SetSetEpicenterCallbackRequest) (*SetEpicenterCallbackResponse, error)
+	SetInterpolator1(context.Context, *SetInterpolator1Request) (*SetInterpolator1Response, error)
+	SetOrdering(context.Context, *SetOrderingRequest) (*SetOrderingResponse, error)
+	SetPathMotion(context.Context, *SetSetPathMotionRequest) (*SetPathMotionResponse, error)
+	SetPropagation(context.Context, *SetSetPropagationRequest) (*SetPropagationResponse, error)
+	SetStartDelay1(context.Context, *SetStartDelay1Request) (*SetStartDelay1Response, error)
+	SetStartDelay1_1(context.Context, *SetStartDelay1_1Request) (*SetStartDelay1_1Response, error)
+	SetInterpolator1_1(context.Context, *SetInterpolator1_1Request) (*SetInterpolator1_1Response, error)
+	SetDuration1_1(context.Context, *SetDuration1_1Request) (*SetDuration1_1Response, error)
+	RemoveTarget1_4(context.Context, *RemoveTarget1_4Request) (*RemoveTarget1_4Response, error)
+	RemoveTarget1_5(context.Context, *RemoveTarget1_5Request) (*RemoveTarget1_5Response, error)
+	RemoveTarget1_6(context.Context, *RemoveTarget1_6Request) (*RemoveTarget1_6Response, error)
+	RemoveTarget1_7(context.Context, *RemoveTarget1_7Request) (*RemoveTarget1_7Response, error)
+	RemoveListener1_1(context.Context, *RemoveListener1_1Request) (*RemoveListener1_1Response, error)
+	Clone0_1(context.Context, *SetClone0_1Request) (*Clone0_1Response, error)
+	AddTarget1_4(context.Context, *AddTarget1_4Request) (*AddTarget1_4Response, error)
+	AddTarget1_5(context.Context, *AddTarget1_5Request) (*AddTarget1_5Response, error)
+	AddTarget1_6(context.Context, *AddTarget1_6Request) (*AddTarget1_6Response, error)
+	AddTarget1_7(context.Context, *AddTarget1_7Request) (*AddTarget1_7Response, error)
+	AddListener1_1(context.Context, *AddListener1_1Request) (*AddListener1_1Response, error)
+	Clone0_2(context.Context, *Clone0_2Request) (*Clone0_2Response, error)
+	mustEmbedUnimplementedSetServiceServer()
+}
+
+// UnimplementedSetServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedSetServiceServer struct{}
+
+func (UnimplementedSetServiceServer) NewSet(context.Context, *NewSetRequest) (*NewSetResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewSet not implemented")
+}
+func (UnimplementedSetServiceServer) AddListener1(context.Context, *AddListener1Request) (*AddListener1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method AddListener1 not implemented")
+}
+func (UnimplementedSetServiceServer) AddTarget1(context.Context, *SetAddTarget1Request) (*AddTarget1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method AddTarget1 not implemented")
+}
+func (UnimplementedSetServiceServer) AddTarget1_1(context.Context, *SetAddTarget1_1Request) (*AddTarget1_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method AddTarget1_1 not implemented")
+}
+func (UnimplementedSetServiceServer) AddTarget1_2(context.Context, *SetAddTarget1_2Request) (*AddTarget1_2Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method AddTarget1_2 not implemented")
+}
+func (UnimplementedSetServiceServer) AddTarget1_3(context.Context, *SetAddTarget1_3Request) (*AddTarget1_3Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method AddTarget1_3 not implemented")
+}
+func (UnimplementedSetServiceServer) AddTransition(context.Context, *AddTransitionRequest) (*AddTransitionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method AddTransition not implemented")
+}
+func (UnimplementedSetServiceServer) CaptureEndValues(context.Context, *SetCaptureEndValuesRequest) (*CaptureEndValuesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method CaptureEndValues not implemented")
+}
+func (UnimplementedSetServiceServer) CaptureStartValues(context.Context, *SetCaptureStartValuesRequest) (*CaptureStartValuesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method CaptureStartValues not implemented")
+}
+func (UnimplementedSetServiceServer) Clone0(context.Context, *SetClone0Request) (*Clone0Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method Clone0 not implemented")
+}
+func (UnimplementedSetServiceServer) ExcludeTarget2(context.Context, *SetExcludeTarget2Request) (*ExcludeTarget2Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method ExcludeTarget2 not implemented")
+}
+func (UnimplementedSetServiceServer) ExcludeTarget2_1(context.Context, *SetExcludeTarget2_1Request) (*ExcludeTarget2_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method ExcludeTarget2_1 not implemented")
+}
+func (UnimplementedSetServiceServer) ExcludeTarget2_2(context.Context, *SetExcludeTarget2_2Request) (*ExcludeTarget2_2Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method ExcludeTarget2_2 not implemented")
+}
+func (UnimplementedSetServiceServer) ExcludeTarget2_3(context.Context, *SetExcludeTarget2_3Request) (*ExcludeTarget2_3Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method ExcludeTarget2_3 not implemented")
+}
+func (UnimplementedSetServiceServer) GetOrdering(context.Context, *GetOrderingRequest) (*GetOrderingResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetOrdering not implemented")
+}
+func (UnimplementedSetServiceServer) GetTransitionAt(context.Context, *GetTransitionAtRequest) (*GetTransitionAtResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTransitionAt not implemented")
+}
+func (UnimplementedSetServiceServer) GetTransitionCount(context.Context, *GetTransitionCountRequest) (*GetTransitionCountResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTransitionCount not implemented")
+}
+func (UnimplementedSetServiceServer) RemoveListener1(context.Context, *RemoveListener1Request) (*RemoveListener1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method RemoveListener1 not implemented")
+}
+func (UnimplementedSetServiceServer) RemoveTarget1(context.Context, *SetRemoveTarget1Request) (*RemoveTarget1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method RemoveTarget1 not implemented")
+}
+func (UnimplementedSetServiceServer) RemoveTarget1_1(context.Context, *SetRemoveTarget1_1Request) (*RemoveTarget1_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method RemoveTarget1_1 not implemented")
+}
+func (UnimplementedSetServiceServer) RemoveTarget1_2(context.Context, *SetRemoveTarget1_2Request) (*RemoveTarget1_2Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method RemoveTarget1_2 not implemented")
+}
+func (UnimplementedSetServiceServer) RemoveTarget1_3(context.Context, *SetRemoveTarget1_3Request) (*RemoveTarget1_3Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method RemoveTarget1_3 not implemented")
+}
+func (UnimplementedSetServiceServer) RemoveTransition(context.Context, *RemoveTransitionRequest) (*RemoveTransitionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method RemoveTransition not implemented")
+}
+func (UnimplementedSetServiceServer) SetDuration1(context.Context, *SetDuration1Request) (*SetDuration1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetDuration1 not implemented")
+}
+func (UnimplementedSetServiceServer) SetEpicenterCallback(context.Context, *SetSetEpicenterCallbackRequest) (*SetEpicenterCallbackResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetEpicenterCallback not implemented")
+}
+func (UnimplementedSetServiceServer) SetInterpolator1(context.Context, *SetInterpolator1Request) (*SetInterpolator1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetInterpolator1 not implemented")
+}
+func (UnimplementedSetServiceServer) SetOrdering(context.Context, *SetOrderingRequest) (*SetOrderingResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetOrdering not implemented")
+}
+func (UnimplementedSetServiceServer) SetPathMotion(context.Context, *SetSetPathMotionRequest) (*SetPathMotionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetPathMotion not implemented")
+}
+func (UnimplementedSetServiceServer) SetPropagation(context.Context, *SetSetPropagationRequest) (*SetPropagationResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetPropagation not implemented")
+}
+func (UnimplementedSetServiceServer) SetStartDelay1(context.Context, *SetStartDelay1Request) (*SetStartDelay1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetStartDelay1 not implemented")
+}
+func (UnimplementedSetServiceServer) SetStartDelay1_1(context.Context, *SetStartDelay1_1Request) (*SetStartDelay1_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetStartDelay1_1 not implemented")
+}
+func (UnimplementedSetServiceServer) SetInterpolator1_1(context.Context, *SetInterpolator1_1Request) (*SetInterpolator1_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetInterpolator1_1 not implemented")
+}
+func (UnimplementedSetServiceServer) SetDuration1_1(context.Context, *SetDuration1_1Request) (*SetDuration1_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetDuration1_1 not implemented")
+}
+func (UnimplementedSetServiceServer) RemoveTarget1_4(context.Context, *RemoveTarget1_4Request) (*RemoveTarget1_4Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method RemoveTarget1_4 not implemented")
+}
+func (UnimplementedSetServiceServer) RemoveTarget1_5(context.Context, *RemoveTarget1_5Request) (*RemoveTarget1_5Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method RemoveTarget1_5 not implemented")
+}
+func (UnimplementedSetServiceServer) RemoveTarget1_6(context.Context, *RemoveTarget1_6Request) (*RemoveTarget1_6Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method RemoveTarget1_6 not implemented")
+}
+func (UnimplementedSetServiceServer) RemoveTarget1_7(context.Context, *RemoveTarget1_7Request) (*RemoveTarget1_7Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method RemoveTarget1_7 not implemented")
+}
+func (UnimplementedSetServiceServer) RemoveListener1_1(context.Context, *RemoveListener1_1Request) (*RemoveListener1_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method RemoveListener1_1 not implemented")
+}
+func (UnimplementedSetServiceServer) Clone0_1(context.Context, *SetClone0_1Request) (*Clone0_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method Clone0_1 not implemented")
+}
+func (UnimplementedSetServiceServer) AddTarget1_4(context.Context, *AddTarget1_4Request) (*AddTarget1_4Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method AddTarget1_4 not implemented")
+}
+func (UnimplementedSetServiceServer) AddTarget1_5(context.Context, *AddTarget1_5Request) (*AddTarget1_5Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method AddTarget1_5 not implemented")
+}
+func (UnimplementedSetServiceServer) AddTarget1_6(context.Context, *AddTarget1_6Request) (*AddTarget1_6Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method AddTarget1_6 not implemented")
+}
+func (UnimplementedSetServiceServer) AddTarget1_7(context.Context, *AddTarget1_7Request) (*AddTarget1_7Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method AddTarget1_7 not implemented")
+}
+func (UnimplementedSetServiceServer) AddListener1_1(context.Context, *AddListener1_1Request) (*AddListener1_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method AddListener1_1 not implemented")
+}
+func (UnimplementedSetServiceServer) Clone0_2(context.Context, *Clone0_2Request) (*Clone0_2Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method Clone0_2 not implemented")
+}
+func (UnimplementedSetServiceServer) mustEmbedUnimplementedSetServiceServer() {}
+func (UnimplementedSetServiceServer) testEmbeddedByValue()                    {}
+
+// UnsafeSetServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to SetServiceServer will
+// result in compilation errors.
+type UnsafeSetServiceServer interface {
+	mustEmbedUnimplementedSetServiceServer()
+}
+
+func RegisterSetServiceServer(s grpc.ServiceRegistrar, srv SetServiceServer) {
+	// If the following call panics, it indicates UnimplementedSetServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&SetService_ServiceDesc, srv)
+}
+
+func _SetService_NewSet_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewSetRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SetServiceServer).NewSet(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SetService_NewSet_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SetServiceServer).NewSet(ctx, req.(*NewSetRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SetService_AddListener1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AddListener1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SetServiceServer).AddListener1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SetService_AddListener1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SetServiceServer).AddListener1(ctx, req.(*AddListener1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SetService_AddTarget1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetAddTarget1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SetServiceServer).AddTarget1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SetService_AddTarget1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SetServiceServer).AddTarget1(ctx, req.(*SetAddTarget1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SetService_AddTarget1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetAddTarget1_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SetServiceServer).AddTarget1_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SetService_AddTarget1_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SetServiceServer).AddTarget1_1(ctx, req.(*SetAddTarget1_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SetService_AddTarget1_2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetAddTarget1_2Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SetServiceServer).AddTarget1_2(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SetService_AddTarget1_2_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SetServiceServer).AddTarget1_2(ctx, req.(*SetAddTarget1_2Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SetService_AddTarget1_3_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetAddTarget1_3Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SetServiceServer).AddTarget1_3(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SetService_AddTarget1_3_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SetServiceServer).AddTarget1_3(ctx, req.(*SetAddTarget1_3Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SetService_AddTransition_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AddTransitionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SetServiceServer).AddTransition(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SetService_AddTransition_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SetServiceServer).AddTransition(ctx, req.(*AddTransitionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SetService_CaptureEndValues_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetCaptureEndValuesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SetServiceServer).CaptureEndValues(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SetService_CaptureEndValues_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SetServiceServer).CaptureEndValues(ctx, req.(*SetCaptureEndValuesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SetService_CaptureStartValues_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetCaptureStartValuesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SetServiceServer).CaptureStartValues(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SetService_CaptureStartValues_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SetServiceServer).CaptureStartValues(ctx, req.(*SetCaptureStartValuesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SetService_Clone0_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetClone0Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SetServiceServer).Clone0(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SetService_Clone0_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SetServiceServer).Clone0(ctx, req.(*SetClone0Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SetService_ExcludeTarget2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetExcludeTarget2Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SetServiceServer).ExcludeTarget2(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SetService_ExcludeTarget2_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SetServiceServer).ExcludeTarget2(ctx, req.(*SetExcludeTarget2Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SetService_ExcludeTarget2_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetExcludeTarget2_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SetServiceServer).ExcludeTarget2_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SetService_ExcludeTarget2_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SetServiceServer).ExcludeTarget2_1(ctx, req.(*SetExcludeTarget2_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SetService_ExcludeTarget2_2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetExcludeTarget2_2Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SetServiceServer).ExcludeTarget2_2(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SetService_ExcludeTarget2_2_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SetServiceServer).ExcludeTarget2_2(ctx, req.(*SetExcludeTarget2_2Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SetService_ExcludeTarget2_3_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetExcludeTarget2_3Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SetServiceServer).ExcludeTarget2_3(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SetService_ExcludeTarget2_3_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SetServiceServer).ExcludeTarget2_3(ctx, req.(*SetExcludeTarget2_3Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SetService_GetOrdering_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetOrderingRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SetServiceServer).GetOrdering(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SetService_GetOrdering_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SetServiceServer).GetOrdering(ctx, req.(*GetOrderingRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SetService_GetTransitionAt_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTransitionAtRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SetServiceServer).GetTransitionAt(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SetService_GetTransitionAt_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SetServiceServer).GetTransitionAt(ctx, req.(*GetTransitionAtRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SetService_GetTransitionCount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTransitionCountRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SetServiceServer).GetTransitionCount(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SetService_GetTransitionCount_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SetServiceServer).GetTransitionCount(ctx, req.(*GetTransitionCountRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SetService_RemoveListener1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RemoveListener1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SetServiceServer).RemoveListener1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SetService_RemoveListener1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SetServiceServer).RemoveListener1(ctx, req.(*RemoveListener1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SetService_RemoveTarget1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetRemoveTarget1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SetServiceServer).RemoveTarget1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SetService_RemoveTarget1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SetServiceServer).RemoveTarget1(ctx, req.(*SetRemoveTarget1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SetService_RemoveTarget1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetRemoveTarget1_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SetServiceServer).RemoveTarget1_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SetService_RemoveTarget1_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SetServiceServer).RemoveTarget1_1(ctx, req.(*SetRemoveTarget1_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SetService_RemoveTarget1_2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetRemoveTarget1_2Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SetServiceServer).RemoveTarget1_2(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SetService_RemoveTarget1_2_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SetServiceServer).RemoveTarget1_2(ctx, req.(*SetRemoveTarget1_2Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SetService_RemoveTarget1_3_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetRemoveTarget1_3Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SetServiceServer).RemoveTarget1_3(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SetService_RemoveTarget1_3_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SetServiceServer).RemoveTarget1_3(ctx, req.(*SetRemoveTarget1_3Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SetService_RemoveTransition_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RemoveTransitionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SetServiceServer).RemoveTransition(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SetService_RemoveTransition_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SetServiceServer).RemoveTransition(ctx, req.(*RemoveTransitionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SetService_SetDuration1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetDuration1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SetServiceServer).SetDuration1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SetService_SetDuration1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SetServiceServer).SetDuration1(ctx, req.(*SetDuration1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SetService_SetEpicenterCallback_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetSetEpicenterCallbackRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SetServiceServer).SetEpicenterCallback(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SetService_SetEpicenterCallback_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SetServiceServer).SetEpicenterCallback(ctx, req.(*SetSetEpicenterCallbackRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SetService_SetInterpolator1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetInterpolator1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SetServiceServer).SetInterpolator1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SetService_SetInterpolator1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SetServiceServer).SetInterpolator1(ctx, req.(*SetInterpolator1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SetService_SetOrdering_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetOrderingRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SetServiceServer).SetOrdering(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SetService_SetOrdering_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SetServiceServer).SetOrdering(ctx, req.(*SetOrderingRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SetService_SetPathMotion_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetSetPathMotionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SetServiceServer).SetPathMotion(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SetService_SetPathMotion_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SetServiceServer).SetPathMotion(ctx, req.(*SetSetPathMotionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SetService_SetPropagation_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetSetPropagationRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SetServiceServer).SetPropagation(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SetService_SetPropagation_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SetServiceServer).SetPropagation(ctx, req.(*SetSetPropagationRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SetService_SetStartDelay1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetStartDelay1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SetServiceServer).SetStartDelay1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SetService_SetStartDelay1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SetServiceServer).SetStartDelay1(ctx, req.(*SetStartDelay1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SetService_SetStartDelay1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetStartDelay1_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SetServiceServer).SetStartDelay1_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SetService_SetStartDelay1_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SetServiceServer).SetStartDelay1_1(ctx, req.(*SetStartDelay1_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SetService_SetInterpolator1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetInterpolator1_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SetServiceServer).SetInterpolator1_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SetService_SetInterpolator1_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SetServiceServer).SetInterpolator1_1(ctx, req.(*SetInterpolator1_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SetService_SetDuration1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetDuration1_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SetServiceServer).SetDuration1_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SetService_SetDuration1_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SetServiceServer).SetDuration1_1(ctx, req.(*SetDuration1_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SetService_RemoveTarget1_4_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RemoveTarget1_4Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SetServiceServer).RemoveTarget1_4(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SetService_RemoveTarget1_4_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SetServiceServer).RemoveTarget1_4(ctx, req.(*RemoveTarget1_4Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SetService_RemoveTarget1_5_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RemoveTarget1_5Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SetServiceServer).RemoveTarget1_5(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SetService_RemoveTarget1_5_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SetServiceServer).RemoveTarget1_5(ctx, req.(*RemoveTarget1_5Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SetService_RemoveTarget1_6_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RemoveTarget1_6Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SetServiceServer).RemoveTarget1_6(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SetService_RemoveTarget1_6_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SetServiceServer).RemoveTarget1_6(ctx, req.(*RemoveTarget1_6Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SetService_RemoveTarget1_7_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RemoveTarget1_7Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SetServiceServer).RemoveTarget1_7(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SetService_RemoveTarget1_7_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SetServiceServer).RemoveTarget1_7(ctx, req.(*RemoveTarget1_7Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SetService_RemoveListener1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RemoveListener1_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SetServiceServer).RemoveListener1_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SetService_RemoveListener1_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SetServiceServer).RemoveListener1_1(ctx, req.(*RemoveListener1_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SetService_Clone0_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetClone0_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SetServiceServer).Clone0_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SetService_Clone0_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SetServiceServer).Clone0_1(ctx, req.(*SetClone0_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SetService_AddTarget1_4_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AddTarget1_4Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SetServiceServer).AddTarget1_4(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SetService_AddTarget1_4_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SetServiceServer).AddTarget1_4(ctx, req.(*AddTarget1_4Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SetService_AddTarget1_5_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AddTarget1_5Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SetServiceServer).AddTarget1_5(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SetService_AddTarget1_5_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SetServiceServer).AddTarget1_5(ctx, req.(*AddTarget1_5Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SetService_AddTarget1_6_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AddTarget1_6Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SetServiceServer).AddTarget1_6(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SetService_AddTarget1_6_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SetServiceServer).AddTarget1_6(ctx, req.(*AddTarget1_6Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SetService_AddTarget1_7_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AddTarget1_7Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SetServiceServer).AddTarget1_7(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SetService_AddTarget1_7_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SetServiceServer).AddTarget1_7(ctx, req.(*AddTarget1_7Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SetService_AddListener1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AddListener1_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SetServiceServer).AddListener1_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SetService_AddListener1_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SetServiceServer).AddListener1_1(ctx, req.(*AddListener1_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SetService_Clone0_2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(Clone0_2Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SetServiceServer).Clone0_2(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SetService_Clone0_2_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SetServiceServer).Clone0_2(ctx, req.(*Clone0_2Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// SetService_ServiceDesc is the grpc.ServiceDesc for SetService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var SetService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "transition.SetService",
+	HandlerType: (*SetServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewSet",
+			Handler:    _SetService_NewSet_Handler,
+		},
+		{
+			MethodName: "AddListener1",
+			Handler:    _SetService_AddListener1_Handler,
+		},
+		{
+			MethodName: "AddTarget1",
+			Handler:    _SetService_AddTarget1_Handler,
+		},
+		{
+			MethodName: "AddTarget1_1",
+			Handler:    _SetService_AddTarget1_1_Handler,
+		},
+		{
+			MethodName: "AddTarget1_2",
+			Handler:    _SetService_AddTarget1_2_Handler,
+		},
+		{
+			MethodName: "AddTarget1_3",
+			Handler:    _SetService_AddTarget1_3_Handler,
+		},
+		{
+			MethodName: "AddTransition",
+			Handler:    _SetService_AddTransition_Handler,
+		},
+		{
+			MethodName: "CaptureEndValues",
+			Handler:    _SetService_CaptureEndValues_Handler,
+		},
+		{
+			MethodName: "CaptureStartValues",
+			Handler:    _SetService_CaptureStartValues_Handler,
+		},
+		{
+			MethodName: "Clone0",
+			Handler:    _SetService_Clone0_Handler,
+		},
+		{
+			MethodName: "ExcludeTarget2",
+			Handler:    _SetService_ExcludeTarget2_Handler,
+		},
+		{
+			MethodName: "ExcludeTarget2_1",
+			Handler:    _SetService_ExcludeTarget2_1_Handler,
+		},
+		{
+			MethodName: "ExcludeTarget2_2",
+			Handler:    _SetService_ExcludeTarget2_2_Handler,
+		},
+		{
+			MethodName: "ExcludeTarget2_3",
+			Handler:    _SetService_ExcludeTarget2_3_Handler,
+		},
+		{
+			MethodName: "GetOrdering",
+			Handler:    _SetService_GetOrdering_Handler,
+		},
+		{
+			MethodName: "GetTransitionAt",
+			Handler:    _SetService_GetTransitionAt_Handler,
+		},
+		{
+			MethodName: "GetTransitionCount",
+			Handler:    _SetService_GetTransitionCount_Handler,
+		},
+		{
+			MethodName: "RemoveListener1",
+			Handler:    _SetService_RemoveListener1_Handler,
+		},
+		{
+			MethodName: "RemoveTarget1",
+			Handler:    _SetService_RemoveTarget1_Handler,
+		},
+		{
+			MethodName: "RemoveTarget1_1",
+			Handler:    _SetService_RemoveTarget1_1_Handler,
+		},
+		{
+			MethodName: "RemoveTarget1_2",
+			Handler:    _SetService_RemoveTarget1_2_Handler,
+		},
+		{
+			MethodName: "RemoveTarget1_3",
+			Handler:    _SetService_RemoveTarget1_3_Handler,
+		},
+		{
+			MethodName: "RemoveTransition",
+			Handler:    _SetService_RemoveTransition_Handler,
+		},
+		{
+			MethodName: "SetDuration1",
+			Handler:    _SetService_SetDuration1_Handler,
+		},
+		{
+			MethodName: "SetEpicenterCallback",
+			Handler:    _SetService_SetEpicenterCallback_Handler,
+		},
+		{
+			MethodName: "SetInterpolator1",
+			Handler:    _SetService_SetInterpolator1_Handler,
+		},
+		{
+			MethodName: "SetOrdering",
+			Handler:    _SetService_SetOrdering_Handler,
+		},
+		{
+			MethodName: "SetPathMotion",
+			Handler:    _SetService_SetPathMotion_Handler,
+		},
+		{
+			MethodName: "SetPropagation",
+			Handler:    _SetService_SetPropagation_Handler,
+		},
+		{
+			MethodName: "SetStartDelay1",
+			Handler:    _SetService_SetStartDelay1_Handler,
+		},
+		{
+			MethodName: "SetStartDelay1_1",
+			Handler:    _SetService_SetStartDelay1_1_Handler,
+		},
+		{
+			MethodName: "SetInterpolator1_1",
+			Handler:    _SetService_SetInterpolator1_1_Handler,
+		},
+		{
+			MethodName: "SetDuration1_1",
+			Handler:    _SetService_SetDuration1_1_Handler,
+		},
+		{
+			MethodName: "RemoveTarget1_4",
+			Handler:    _SetService_RemoveTarget1_4_Handler,
+		},
+		{
+			MethodName: "RemoveTarget1_5",
+			Handler:    _SetService_RemoveTarget1_5_Handler,
+		},
+		{
+			MethodName: "RemoveTarget1_6",
+			Handler:    _SetService_RemoveTarget1_6_Handler,
+		},
+		{
+			MethodName: "RemoveTarget1_7",
+			Handler:    _SetService_RemoveTarget1_7_Handler,
+		},
+		{
+			MethodName: "RemoveListener1_1",
+			Handler:    _SetService_RemoveListener1_1_Handler,
+		},
+		{
+			MethodName: "Clone0_1",
+			Handler:    _SetService_Clone0_1_Handler,
+		},
+		{
+			MethodName: "AddTarget1_4",
+			Handler:    _SetService_AddTarget1_4_Handler,
+		},
+		{
+			MethodName: "AddTarget1_5",
+			Handler:    _SetService_AddTarget1_5_Handler,
+		},
+		{
+			MethodName: "AddTarget1_6",
+			Handler:    _SetService_AddTarget1_6_Handler,
+		},
+		{
+			MethodName: "AddTarget1_7",
+			Handler:    _SetService_AddTarget1_7_Handler,
+		},
+		{
+			MethodName: "AddListener1_1",
+			Handler:    _SetService_AddListener1_1_Handler,
+		},
+		{
+			MethodName: "Clone0_2",
+			Handler:    _SetService_Clone0_2_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/transition/transition.proto",
+}
+
+const (
+	SlideService_NewSlide_FullMethodName           = "/transition.SlideService/NewSlide"
+	SlideService_CaptureEndValues_FullMethodName   = "/transition.SlideService/CaptureEndValues"
+	SlideService_CaptureStartValues_FullMethodName = "/transition.SlideService/CaptureStartValues"
+	SlideService_GetSlideEdge_FullMethodName       = "/transition.SlideService/GetSlideEdge"
+	SlideService_OnAppear_FullMethodName           = "/transition.SlideService/OnAppear"
+	SlideService_OnDisappear_FullMethodName        = "/transition.SlideService/OnDisappear"
+	SlideService_SetSlideEdge_FullMethodName       = "/transition.SlideService/SetSlideEdge"
+)
+
+// SlideServiceClient is the client API for SlideService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type SlideServiceClient interface {
+	NewSlide(ctx context.Context, in *NewSlideRequest, opts ...grpc.CallOption) (*NewSlideResponse, error)
+	CaptureEndValues(ctx context.Context, in *SlideCaptureEndValuesRequest, opts ...grpc.CallOption) (*CaptureEndValuesResponse, error)
+	CaptureStartValues(ctx context.Context, in *SlideCaptureStartValuesRequest, opts ...grpc.CallOption) (*CaptureStartValuesResponse, error)
+	GetSlideEdge(ctx context.Context, in *GetSlideEdgeRequest, opts ...grpc.CallOption) (*GetSlideEdgeResponse, error)
+	OnAppear(ctx context.Context, in *OnAppearRequest, opts ...grpc.CallOption) (*OnAppearResponse, error)
+	OnDisappear(ctx context.Context, in *OnDisappearRequest, opts ...grpc.CallOption) (*OnDisappearResponse, error)
+	SetSlideEdge(ctx context.Context, in *SetSlideEdgeRequest, opts ...grpc.CallOption) (*SetSlideEdgeResponse, error)
+}
+
+type slideServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewSlideServiceClient(cc grpc.ClientConnInterface) SlideServiceClient {
+	return &slideServiceClient{cc}
+}
+
+func (c *slideServiceClient) NewSlide(ctx context.Context, in *NewSlideRequest, opts ...grpc.CallOption) (*NewSlideResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewSlideResponse)
+	err := c.cc.Invoke(ctx, SlideService_NewSlide_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *slideServiceClient) CaptureEndValues(ctx context.Context, in *SlideCaptureEndValuesRequest, opts ...grpc.CallOption) (*CaptureEndValuesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CaptureEndValuesResponse)
+	err := c.cc.Invoke(ctx, SlideService_CaptureEndValues_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *slideServiceClient) CaptureStartValues(ctx context.Context, in *SlideCaptureStartValuesRequest, opts ...grpc.CallOption) (*CaptureStartValuesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CaptureStartValuesResponse)
+	err := c.cc.Invoke(ctx, SlideService_CaptureStartValues_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *slideServiceClient) GetSlideEdge(ctx context.Context, in *GetSlideEdgeRequest, opts ...grpc.CallOption) (*GetSlideEdgeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSlideEdgeResponse)
+	err := c.cc.Invoke(ctx, SlideService_GetSlideEdge_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *slideServiceClient) OnAppear(ctx context.Context, in *OnAppearRequest, opts ...grpc.CallOption) (*OnAppearResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnAppearResponse)
+	err := c.cc.Invoke(ctx, SlideService_OnAppear_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *slideServiceClient) OnDisappear(ctx context.Context, in *OnDisappearRequest, opts ...grpc.CallOption) (*OnDisappearResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnDisappearResponse)
+	err := c.cc.Invoke(ctx, SlideService_OnDisappear_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *slideServiceClient) SetSlideEdge(ctx context.Context, in *SetSlideEdgeRequest, opts ...grpc.CallOption) (*SetSlideEdgeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetSlideEdgeResponse)
+	err := c.cc.Invoke(ctx, SlideService_SetSlideEdge_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// SlideServiceServer is the server API for SlideService service.
+// All implementations must embed UnimplementedSlideServiceServer
+// for forward compatibility.
+type SlideServiceServer interface {
+	NewSlide(context.Context, *NewSlideRequest) (*NewSlideResponse, error)
+	CaptureEndValues(context.Context, *SlideCaptureEndValuesRequest) (*CaptureEndValuesResponse, error)
+	CaptureStartValues(context.Context, *SlideCaptureStartValuesRequest) (*CaptureStartValuesResponse, error)
+	GetSlideEdge(context.Context, *GetSlideEdgeRequest) (*GetSlideEdgeResponse, error)
+	OnAppear(context.Context, *OnAppearRequest) (*OnAppearResponse, error)
+	OnDisappear(context.Context, *OnDisappearRequest) (*OnDisappearResponse, error)
+	SetSlideEdge(context.Context, *SetSlideEdgeRequest) (*SetSlideEdgeResponse, error)
+	mustEmbedUnimplementedSlideServiceServer()
+}
+
+// UnimplementedSlideServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedSlideServiceServer struct{}
+
+func (UnimplementedSlideServiceServer) NewSlide(context.Context, *NewSlideRequest) (*NewSlideResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewSlide not implemented")
+}
+func (UnimplementedSlideServiceServer) CaptureEndValues(context.Context, *SlideCaptureEndValuesRequest) (*CaptureEndValuesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method CaptureEndValues not implemented")
+}
+func (UnimplementedSlideServiceServer) CaptureStartValues(context.Context, *SlideCaptureStartValuesRequest) (*CaptureStartValuesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method CaptureStartValues not implemented")
+}
+func (UnimplementedSlideServiceServer) GetSlideEdge(context.Context, *GetSlideEdgeRequest) (*GetSlideEdgeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSlideEdge not implemented")
+}
+func (UnimplementedSlideServiceServer) OnAppear(context.Context, *OnAppearRequest) (*OnAppearResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnAppear not implemented")
+}
+func (UnimplementedSlideServiceServer) OnDisappear(context.Context, *OnDisappearRequest) (*OnDisappearResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnDisappear not implemented")
+}
+func (UnimplementedSlideServiceServer) SetSlideEdge(context.Context, *SetSlideEdgeRequest) (*SetSlideEdgeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetSlideEdge not implemented")
+}
+func (UnimplementedSlideServiceServer) mustEmbedUnimplementedSlideServiceServer() {}
+func (UnimplementedSlideServiceServer) testEmbeddedByValue()                      {}
+
+// UnsafeSlideServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to SlideServiceServer will
+// result in compilation errors.
+type UnsafeSlideServiceServer interface {
+	mustEmbedUnimplementedSlideServiceServer()
+}
+
+func RegisterSlideServiceServer(s grpc.ServiceRegistrar, srv SlideServiceServer) {
+	// If the following call panics, it indicates UnimplementedSlideServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&SlideService_ServiceDesc, srv)
+}
+
+func _SlideService_NewSlide_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewSlideRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SlideServiceServer).NewSlide(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SlideService_NewSlide_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SlideServiceServer).NewSlide(ctx, req.(*NewSlideRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SlideService_CaptureEndValues_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SlideCaptureEndValuesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SlideServiceServer).CaptureEndValues(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SlideService_CaptureEndValues_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SlideServiceServer).CaptureEndValues(ctx, req.(*SlideCaptureEndValuesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SlideService_CaptureStartValues_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SlideCaptureStartValuesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SlideServiceServer).CaptureStartValues(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SlideService_CaptureStartValues_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SlideServiceServer).CaptureStartValues(ctx, req.(*SlideCaptureStartValuesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SlideService_GetSlideEdge_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSlideEdgeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SlideServiceServer).GetSlideEdge(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SlideService_GetSlideEdge_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SlideServiceServer).GetSlideEdge(ctx, req.(*GetSlideEdgeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SlideService_OnAppear_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnAppearRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SlideServiceServer).OnAppear(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SlideService_OnAppear_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SlideServiceServer).OnAppear(ctx, req.(*OnAppearRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SlideService_OnDisappear_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnDisappearRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SlideServiceServer).OnDisappear(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SlideService_OnDisappear_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SlideServiceServer).OnDisappear(ctx, req.(*OnDisappearRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SlideService_SetSlideEdge_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetSlideEdgeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SlideServiceServer).SetSlideEdge(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SlideService_SetSlideEdge_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SlideServiceServer).SetSlideEdge(ctx, req.(*SetSlideEdgeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// SlideService_ServiceDesc is the grpc.ServiceDesc for SlideService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var SlideService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "transition.SlideService",
+	HandlerType: (*SlideServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewSlide",
+			Handler:    _SlideService_NewSlide_Handler,
+		},
+		{
+			MethodName: "CaptureEndValues",
+			Handler:    _SlideService_CaptureEndValues_Handler,
+		},
+		{
+			MethodName: "CaptureStartValues",
+			Handler:    _SlideService_CaptureStartValues_Handler,
+		},
+		{
+			MethodName: "GetSlideEdge",
+			Handler:    _SlideService_GetSlideEdge_Handler,
+		},
+		{
+			MethodName: "OnAppear",
+			Handler:    _SlideService_OnAppear_Handler,
+		},
+		{
+			MethodName: "OnDisappear",
+			Handler:    _SlideService_OnDisappear_Handler,
+		},
+		{
+			MethodName: "SetSlideEdge",
+			Handler:    _SlideService_SetSlideEdge_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/transition/transition.proto",
+}
+
+const (
+	ExplodeService_NewExplode_FullMethodName         = "/transition.ExplodeService/NewExplode"
+	ExplodeService_CaptureEndValues_FullMethodName   = "/transition.ExplodeService/CaptureEndValues"
+	ExplodeService_CaptureStartValues_FullMethodName = "/transition.ExplodeService/CaptureStartValues"
+	ExplodeService_OnAppear_FullMethodName           = "/transition.ExplodeService/OnAppear"
+	ExplodeService_OnDisappear_FullMethodName        = "/transition.ExplodeService/OnDisappear"
+)
+
+// ExplodeServiceClient is the client API for ExplodeService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ExplodeServiceClient interface {
+	NewExplode(ctx context.Context, in *NewExplodeRequest, opts ...grpc.CallOption) (*NewExplodeResponse, error)
+	CaptureEndValues(ctx context.Context, in *ExplodeCaptureEndValuesRequest, opts ...grpc.CallOption) (*CaptureEndValuesResponse, error)
+	CaptureStartValues(ctx context.Context, in *ExplodeCaptureStartValuesRequest, opts ...grpc.CallOption) (*CaptureStartValuesResponse, error)
+	OnAppear(ctx context.Context, in *OnAppearRequest, opts ...grpc.CallOption) (*OnAppearResponse, error)
+	OnDisappear(ctx context.Context, in *OnDisappearRequest, opts ...grpc.CallOption) (*OnDisappearResponse, error)
+}
+
+type explodeServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewExplodeServiceClient(cc grpc.ClientConnInterface) ExplodeServiceClient {
+	return &explodeServiceClient{cc}
+}
+
+func (c *explodeServiceClient) NewExplode(ctx context.Context, in *NewExplodeRequest, opts ...grpc.CallOption) (*NewExplodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewExplodeResponse)
+	err := c.cc.Invoke(ctx, ExplodeService_NewExplode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *explodeServiceClient) CaptureEndValues(ctx context.Context, in *ExplodeCaptureEndValuesRequest, opts ...grpc.CallOption) (*CaptureEndValuesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CaptureEndValuesResponse)
+	err := c.cc.Invoke(ctx, ExplodeService_CaptureEndValues_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *explodeServiceClient) CaptureStartValues(ctx context.Context, in *ExplodeCaptureStartValuesRequest, opts ...grpc.CallOption) (*CaptureStartValuesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CaptureStartValuesResponse)
+	err := c.cc.Invoke(ctx, ExplodeService_CaptureStartValues_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *explodeServiceClient) OnAppear(ctx context.Context, in *OnAppearRequest, opts ...grpc.CallOption) (*OnAppearResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnAppearResponse)
+	err := c.cc.Invoke(ctx, ExplodeService_OnAppear_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *explodeServiceClient) OnDisappear(ctx context.Context, in *OnDisappearRequest, opts ...grpc.CallOption) (*OnDisappearResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnDisappearResponse)
+	err := c.cc.Invoke(ctx, ExplodeService_OnDisappear_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ExplodeServiceServer is the server API for ExplodeService service.
+// All implementations must embed UnimplementedExplodeServiceServer
+// for forward compatibility.
+type ExplodeServiceServer interface {
+	NewExplode(context.Context, *NewExplodeRequest) (*NewExplodeResponse, error)
+	CaptureEndValues(context.Context, *ExplodeCaptureEndValuesRequest) (*CaptureEndValuesResponse, error)
+	CaptureStartValues(context.Context, *ExplodeCaptureStartValuesRequest) (*CaptureStartValuesResponse, error)
+	OnAppear(context.Context, *OnAppearRequest) (*OnAppearResponse, error)
+	OnDisappear(context.Context, *OnDisappearRequest) (*OnDisappearResponse, error)
+	mustEmbedUnimplementedExplodeServiceServer()
+}
+
+// UnimplementedExplodeServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedExplodeServiceServer struct{}
+
+func (UnimplementedExplodeServiceServer) NewExplode(context.Context, *NewExplodeRequest) (*NewExplodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewExplode not implemented")
+}
+func (UnimplementedExplodeServiceServer) CaptureEndValues(context.Context, *ExplodeCaptureEndValuesRequest) (*CaptureEndValuesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method CaptureEndValues not implemented")
+}
+func (UnimplementedExplodeServiceServer) CaptureStartValues(context.Context, *ExplodeCaptureStartValuesRequest) (*CaptureStartValuesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method CaptureStartValues not implemented")
+}
+func (UnimplementedExplodeServiceServer) OnAppear(context.Context, *OnAppearRequest) (*OnAppearResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnAppear not implemented")
+}
+func (UnimplementedExplodeServiceServer) OnDisappear(context.Context, *OnDisappearRequest) (*OnDisappearResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnDisappear not implemented")
+}
+func (UnimplementedExplodeServiceServer) mustEmbedUnimplementedExplodeServiceServer() {}
+func (UnimplementedExplodeServiceServer) testEmbeddedByValue()                        {}
+
+// UnsafeExplodeServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ExplodeServiceServer will
+// result in compilation errors.
+type UnsafeExplodeServiceServer interface {
+	mustEmbedUnimplementedExplodeServiceServer()
+}
+
+func RegisterExplodeServiceServer(s grpc.ServiceRegistrar, srv ExplodeServiceServer) {
+	// If the following call panics, it indicates UnimplementedExplodeServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&ExplodeService_ServiceDesc, srv)
+}
+
+func _ExplodeService_NewExplode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewExplodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ExplodeServiceServer).NewExplode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ExplodeService_NewExplode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ExplodeServiceServer).NewExplode(ctx, req.(*NewExplodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ExplodeService_CaptureEndValues_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ExplodeCaptureEndValuesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ExplodeServiceServer).CaptureEndValues(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ExplodeService_CaptureEndValues_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ExplodeServiceServer).CaptureEndValues(ctx, req.(*ExplodeCaptureEndValuesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ExplodeService_CaptureStartValues_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ExplodeCaptureStartValuesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ExplodeServiceServer).CaptureStartValues(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ExplodeService_CaptureStartValues_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ExplodeServiceServer).CaptureStartValues(ctx, req.(*ExplodeCaptureStartValuesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ExplodeService_OnAppear_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnAppearRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ExplodeServiceServer).OnAppear(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ExplodeService_OnAppear_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ExplodeServiceServer).OnAppear(ctx, req.(*OnAppearRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ExplodeService_OnDisappear_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnDisappearRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ExplodeServiceServer).OnDisappear(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ExplodeService_OnDisappear_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ExplodeServiceServer).OnDisappear(ctx, req.(*OnDisappearRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ExplodeService_ServiceDesc is the grpc.ServiceDesc for ExplodeService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ExplodeService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "transition.ExplodeService",
+	HandlerType: (*ExplodeServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewExplode",
+			Handler:    _ExplodeService_NewExplode_Handler,
+		},
+		{
+			MethodName: "CaptureEndValues",
+			Handler:    _ExplodeService_CaptureEndValues_Handler,
+		},
+		{
+			MethodName: "CaptureStartValues",
+			Handler:    _ExplodeService_CaptureStartValues_Handler,
+		},
+		{
+			MethodName: "OnAppear",
+			Handler:    _ExplodeService_OnAppear_Handler,
+		},
+		{
+			MethodName: "OnDisappear",
+			Handler:    _ExplodeService_OnDisappear_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

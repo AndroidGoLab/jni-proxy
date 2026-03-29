@@ -191,26 +191,26 @@ func (x *EqualsResponse) GetResult() bool {
 	return false
 }
 
-type GetCenterFreq0MhzRequest struct {
+type GetAltitudeRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetCenterFreq0MhzRequest) Reset() {
-	*x = GetCenterFreq0MhzRequest{}
+func (x *GetAltitudeRequest) Reset() {
+	*x = GetAltitudeRequest{}
 	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[4]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetCenterFreq0MhzRequest) String() string {
+func (x *GetAltitudeRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetCenterFreq0MhzRequest) ProtoMessage() {}
+func (*GetAltitudeRequest) ProtoMessage() {}
 
-func (x *GetCenterFreq0MhzRequest) ProtoReflect() protoreflect.Message {
+func (x *GetAltitudeRequest) ProtoReflect() protoreflect.Message {
 	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[4]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -222,32 +222,32 @@ func (x *GetCenterFreq0MhzRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetCenterFreq0MhzRequest.ProtoReflect.Descriptor instead.
-func (*GetCenterFreq0MhzRequest) Descriptor() ([]byte, []int) {
+// Deprecated: Use GetAltitudeRequest.ProtoReflect.Descriptor instead.
+func (*GetAltitudeRequest) Descriptor() ([]byte, []int) {
 	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{4}
 }
 
-type GetCenterFreq0MhzResponse struct {
+type GetAltitudeResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	Result        float64                `protobuf:"fixed64,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetCenterFreq0MhzResponse) Reset() {
-	*x = GetCenterFreq0MhzResponse{}
+func (x *GetAltitudeResponse) Reset() {
+	*x = GetAltitudeResponse{}
 	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[5]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetCenterFreq0MhzResponse) String() string {
+func (x *GetAltitudeResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetCenterFreq0MhzResponse) ProtoMessage() {}
+func (*GetAltitudeResponse) ProtoMessage() {}
 
-func (x *GetCenterFreq0MhzResponse) ProtoReflect() protoreflect.Message {
+func (x *GetAltitudeResponse) ProtoReflect() protoreflect.Message {
 	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[5]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -259,38 +259,38 @@ func (x *GetCenterFreq0MhzResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetCenterFreq0MhzResponse.ProtoReflect.Descriptor instead.
-func (*GetCenterFreq0MhzResponse) Descriptor() ([]byte, []int) {
+// Deprecated: Use GetAltitudeResponse.ProtoReflect.Descriptor instead.
+func (*GetAltitudeResponse) Descriptor() ([]byte, []int) {
 	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{5}
 }
 
-func (x *GetCenterFreq0MhzResponse) GetResult() int32 {
+func (x *GetAltitudeResponse) GetResult() float64 {
 	if x != nil {
 		return x.Result
 	}
 	return 0
 }
 
-type GetCenterFreq1MhzRequest struct {
+type GetAltitudeTypeRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetCenterFreq1MhzRequest) Reset() {
-	*x = GetCenterFreq1MhzRequest{}
+func (x *GetAltitudeTypeRequest) Reset() {
+	*x = GetAltitudeTypeRequest{}
 	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[6]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetCenterFreq1MhzRequest) String() string {
+func (x *GetAltitudeTypeRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetCenterFreq1MhzRequest) ProtoMessage() {}
+func (*GetAltitudeTypeRequest) ProtoMessage() {}
 
-func (x *GetCenterFreq1MhzRequest) ProtoReflect() protoreflect.Message {
+func (x *GetAltitudeTypeRequest) ProtoReflect() protoreflect.Message {
 	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[6]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -302,32 +302,32 @@ func (x *GetCenterFreq1MhzRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetCenterFreq1MhzRequest.ProtoReflect.Descriptor instead.
-func (*GetCenterFreq1MhzRequest) Descriptor() ([]byte, []int) {
+// Deprecated: Use GetAltitudeTypeRequest.ProtoReflect.Descriptor instead.
+func (*GetAltitudeTypeRequest) Descriptor() ([]byte, []int) {
 	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{6}
 }
 
-type GetCenterFreq1MhzResponse struct {
+type GetAltitudeTypeResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetCenterFreq1MhzResponse) Reset() {
-	*x = GetCenterFreq1MhzResponse{}
+func (x *GetAltitudeTypeResponse) Reset() {
+	*x = GetAltitudeTypeResponse{}
 	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[7]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetCenterFreq1MhzResponse) String() string {
+func (x *GetAltitudeTypeResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetCenterFreq1MhzResponse) ProtoMessage() {}
+func (*GetAltitudeTypeResponse) ProtoMessage() {}
 
-func (x *GetCenterFreq1MhzResponse) ProtoReflect() protoreflect.Message {
+func (x *GetAltitudeTypeResponse) ProtoReflect() protoreflect.Message {
 	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[7]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -339,38 +339,38 @@ func (x *GetCenterFreq1MhzResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetCenterFreq1MhzResponse.ProtoReflect.Descriptor instead.
-func (*GetCenterFreq1MhzResponse) Descriptor() ([]byte, []int) {
+// Deprecated: Use GetAltitudeTypeResponse.ProtoReflect.Descriptor instead.
+func (*GetAltitudeTypeResponse) Descriptor() ([]byte, []int) {
 	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{7}
 }
 
-func (x *GetCenterFreq1MhzResponse) GetResult() int32 {
+func (x *GetAltitudeTypeResponse) GetResult() int32 {
 	if x != nil {
 		return x.Result
 	}
 	return 0
 }
 
-type GetChannelWidthRequest struct {
+type GetAltitudeUncertaintyRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetChannelWidthRequest) Reset() {
-	*x = GetChannelWidthRequest{}
+func (x *GetAltitudeUncertaintyRequest) Reset() {
+	*x = GetAltitudeUncertaintyRequest{}
 	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[8]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetChannelWidthRequest) String() string {
+func (x *GetAltitudeUncertaintyRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetChannelWidthRequest) ProtoMessage() {}
+func (*GetAltitudeUncertaintyRequest) ProtoMessage() {}
 
-func (x *GetChannelWidthRequest) ProtoReflect() protoreflect.Message {
+func (x *GetAltitudeUncertaintyRequest) ProtoReflect() protoreflect.Message {
 	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[8]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -382,32 +382,32 @@ func (x *GetChannelWidthRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetChannelWidthRequest.ProtoReflect.Descriptor instead.
-func (*GetChannelWidthRequest) Descriptor() ([]byte, []int) {
+// Deprecated: Use GetAltitudeUncertaintyRequest.ProtoReflect.Descriptor instead.
+func (*GetAltitudeUncertaintyRequest) Descriptor() ([]byte, []int) {
 	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{8}
 }
 
-type GetChannelWidthResponse struct {
+type GetAltitudeUncertaintyResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	Result        float64                `protobuf:"fixed64,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetChannelWidthResponse) Reset() {
-	*x = GetChannelWidthResponse{}
+func (x *GetAltitudeUncertaintyResponse) Reset() {
+	*x = GetAltitudeUncertaintyResponse{}
 	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[9]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetChannelWidthResponse) String() string {
+func (x *GetAltitudeUncertaintyResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetChannelWidthResponse) ProtoMessage() {}
+func (*GetAltitudeUncertaintyResponse) ProtoMessage() {}
 
-func (x *GetChannelWidthResponse) ProtoReflect() protoreflect.Message {
+func (x *GetAltitudeUncertaintyResponse) ProtoReflect() protoreflect.Message {
 	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[9]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -419,38 +419,38 @@ func (x *GetChannelWidthResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetChannelWidthResponse.ProtoReflect.Descriptor instead.
-func (*GetChannelWidthResponse) Descriptor() ([]byte, []int) {
+// Deprecated: Use GetAltitudeUncertaintyResponse.ProtoReflect.Descriptor instead.
+func (*GetAltitudeUncertaintyResponse) Descriptor() ([]byte, []int) {
 	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{9}
 }
 
-func (x *GetChannelWidthResponse) GetResult() int32 {
+func (x *GetAltitudeUncertaintyResponse) GetResult() float64 {
 	if x != nil {
 		return x.Result
 	}
 	return 0
 }
 
-type GetFrequencyMhzRequest struct {
+type GetColocatedBssidsRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetFrequencyMhzRequest) Reset() {
-	*x = GetFrequencyMhzRequest{}
+func (x *GetColocatedBssidsRequest) Reset() {
+	*x = GetColocatedBssidsRequest{}
 	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[10]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetFrequencyMhzRequest) String() string {
+func (x *GetColocatedBssidsRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetFrequencyMhzRequest) ProtoMessage() {}
+func (*GetColocatedBssidsRequest) ProtoMessage() {}
 
-func (x *GetFrequencyMhzRequest) ProtoReflect() protoreflect.Message {
+func (x *GetColocatedBssidsRequest) ProtoReflect() protoreflect.Message {
 	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[10]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -462,32 +462,32 @@ func (x *GetFrequencyMhzRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetFrequencyMhzRequest.ProtoReflect.Descriptor instead.
-func (*GetFrequencyMhzRequest) Descriptor() ([]byte, []int) {
+// Deprecated: Use GetColocatedBssidsRequest.ProtoReflect.Descriptor instead.
+func (*GetColocatedBssidsRequest) Descriptor() ([]byte, []int) {
 	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{10}
 }
 
-type GetFrequencyMhzResponse struct {
+type GetColocatedBssidsResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetFrequencyMhzResponse) Reset() {
-	*x = GetFrequencyMhzResponse{}
+func (x *GetColocatedBssidsResponse) Reset() {
+	*x = GetColocatedBssidsResponse{}
 	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[11]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetFrequencyMhzResponse) String() string {
+func (x *GetColocatedBssidsResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetFrequencyMhzResponse) ProtoMessage() {}
+func (*GetColocatedBssidsResponse) ProtoMessage() {}
 
-func (x *GetFrequencyMhzResponse) ProtoReflect() protoreflect.Message {
+func (x *GetColocatedBssidsResponse) ProtoReflect() protoreflect.Message {
 	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[11]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -499,38 +499,38 @@ func (x *GetFrequencyMhzResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetFrequencyMhzResponse.ProtoReflect.Descriptor instead.
-func (*GetFrequencyMhzResponse) Descriptor() ([]byte, []int) {
+// Deprecated: Use GetColocatedBssidsResponse.ProtoReflect.Descriptor instead.
+func (*GetColocatedBssidsResponse) Descriptor() ([]byte, []int) {
 	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{11}
 }
 
-func (x *GetFrequencyMhzResponse) GetResult() int32 {
+func (x *GetColocatedBssidsResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
 	return 0
 }
 
-type GetMacAddressRequest struct {
+type GetDatumRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetMacAddressRequest) Reset() {
-	*x = GetMacAddressRequest{}
+func (x *GetDatumRequest) Reset() {
+	*x = GetDatumRequest{}
 	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[12]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetMacAddressRequest) String() string {
+func (x *GetDatumRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetMacAddressRequest) ProtoMessage() {}
+func (*GetDatumRequest) ProtoMessage() {}
 
-func (x *GetMacAddressRequest) ProtoReflect() protoreflect.Message {
+func (x *GetDatumRequest) ProtoReflect() protoreflect.Message {
 	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[12]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -542,32 +542,32 @@ func (x *GetMacAddressRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetMacAddressRequest.ProtoReflect.Descriptor instead.
-func (*GetMacAddressRequest) Descriptor() ([]byte, []int) {
+// Deprecated: Use GetDatumRequest.ProtoReflect.Descriptor instead.
+func (*GetDatumRequest) Descriptor() ([]byte, []int) {
 	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{12}
 }
 
-type GetMacAddressResponse struct {
+type GetDatumResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetMacAddressResponse) Reset() {
-	*x = GetMacAddressResponse{}
+func (x *GetDatumResponse) Reset() {
+	*x = GetDatumResponse{}
 	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[13]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetMacAddressResponse) String() string {
+func (x *GetDatumResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetMacAddressResponse) ProtoMessage() {}
+func (*GetDatumResponse) ProtoMessage() {}
 
-func (x *GetMacAddressResponse) ProtoReflect() protoreflect.Message {
+func (x *GetDatumResponse) ProtoReflect() protoreflect.Message {
 	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[13]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -579,38 +579,38 @@ func (x *GetMacAddressResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetMacAddressResponse.ProtoReflect.Descriptor instead.
-func (*GetMacAddressResponse) Descriptor() ([]byte, []int) {
+// Deprecated: Use GetDatumResponse.ProtoReflect.Descriptor instead.
+func (*GetDatumResponse) Descriptor() ([]byte, []int) {
 	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{13}
 }
 
-func (x *GetMacAddressResponse) GetResult() int64 {
+func (x *GetDatumResponse) GetResult() int32 {
 	if x != nil {
 		return x.Result
 	}
 	return 0
 }
 
-type GetPreambleRequest struct {
+type GetExpectedToMoveRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetPreambleRequest) Reset() {
-	*x = GetPreambleRequest{}
+func (x *GetExpectedToMoveRequest) Reset() {
+	*x = GetExpectedToMoveRequest{}
 	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[14]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetPreambleRequest) String() string {
+func (x *GetExpectedToMoveRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetPreambleRequest) ProtoMessage() {}
+func (*GetExpectedToMoveRequest) ProtoMessage() {}
 
-func (x *GetPreambleRequest) ProtoReflect() protoreflect.Message {
+func (x *GetExpectedToMoveRequest) ProtoReflect() protoreflect.Message {
 	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[14]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -622,32 +622,32 @@ func (x *GetPreambleRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetPreambleRequest.ProtoReflect.Descriptor instead.
-func (*GetPreambleRequest) Descriptor() ([]byte, []int) {
+// Deprecated: Use GetExpectedToMoveRequest.ProtoReflect.Descriptor instead.
+func (*GetExpectedToMoveRequest) Descriptor() ([]byte, []int) {
 	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{14}
 }
 
-type GetPreambleResponse struct {
+type GetExpectedToMoveResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetPreambleResponse) Reset() {
-	*x = GetPreambleResponse{}
+func (x *GetExpectedToMoveResponse) Reset() {
+	*x = GetExpectedToMoveResponse{}
 	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[15]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetPreambleResponse) String() string {
+func (x *GetExpectedToMoveResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetPreambleResponse) ProtoMessage() {}
+func (*GetExpectedToMoveResponse) ProtoMessage() {}
 
-func (x *GetPreambleResponse) ProtoReflect() protoreflect.Message {
+func (x *GetExpectedToMoveResponse) ProtoReflect() protoreflect.Message {
 	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[15]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -659,38 +659,38 @@ func (x *GetPreambleResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetPreambleResponse.ProtoReflect.Descriptor instead.
-func (*GetPreambleResponse) Descriptor() ([]byte, []int) {
+// Deprecated: Use GetExpectedToMoveResponse.ProtoReflect.Descriptor instead.
+func (*GetExpectedToMoveResponse) Descriptor() ([]byte, []int) {
 	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{15}
 }
 
-func (x *GetPreambleResponse) GetResult() int32 {
+func (x *GetExpectedToMoveResponse) GetResult() int32 {
 	if x != nil {
 		return x.Result
 	}
 	return 0
 }
 
-type GetResponderTypeRequest struct {
+type GetFloorNumberRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetResponderTypeRequest) Reset() {
-	*x = GetResponderTypeRequest{}
+func (x *GetFloorNumberRequest) Reset() {
+	*x = GetFloorNumberRequest{}
 	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[16]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetResponderTypeRequest) String() string {
+func (x *GetFloorNumberRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetResponderTypeRequest) ProtoMessage() {}
+func (*GetFloorNumberRequest) ProtoMessage() {}
 
-func (x *GetResponderTypeRequest) ProtoReflect() protoreflect.Message {
+func (x *GetFloorNumberRequest) ProtoReflect() protoreflect.Message {
 	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[16]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -702,33 +702,433 @@ func (x *GetResponderTypeRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetResponderTypeRequest.ProtoReflect.Descriptor instead.
-func (*GetResponderTypeRequest) Descriptor() ([]byte, []int) {
+// Deprecated: Use GetFloorNumberRequest.ProtoReflect.Descriptor instead.
+func (*GetFloorNumberRequest) Descriptor() ([]byte, []int) {
 	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{16}
 }
 
-type GetResponderTypeResponse struct {
+type GetFloorNumberResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        float64                `protobuf:"fixed64,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetFloorNumberResponse) Reset() {
+	*x = GetFloorNumberResponse{}
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[17]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetFloorNumberResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetFloorNumberResponse) ProtoMessage() {}
+
+func (x *GetFloorNumberResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[17]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetFloorNumberResponse.ProtoReflect.Descriptor instead.
+func (*GetFloorNumberResponse) Descriptor() ([]byte, []int) {
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{17}
+}
+
+func (x *GetFloorNumberResponse) GetResult() float64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetHeightAboveFloorMetersRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetHeightAboveFloorMetersRequest) Reset() {
+	*x = GetHeightAboveFloorMetersRequest{}
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[18]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetHeightAboveFloorMetersRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetHeightAboveFloorMetersRequest) ProtoMessage() {}
+
+func (x *GetHeightAboveFloorMetersRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[18]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetHeightAboveFloorMetersRequest.ProtoReflect.Descriptor instead.
+func (*GetHeightAboveFloorMetersRequest) Descriptor() ([]byte, []int) {
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{18}
+}
+
+type GetHeightAboveFloorMetersResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        float64                `protobuf:"fixed64,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetHeightAboveFloorMetersResponse) Reset() {
+	*x = GetHeightAboveFloorMetersResponse{}
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[19]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetHeightAboveFloorMetersResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetHeightAboveFloorMetersResponse) ProtoMessage() {}
+
+func (x *GetHeightAboveFloorMetersResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[19]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetHeightAboveFloorMetersResponse.ProtoReflect.Descriptor instead.
+func (*GetHeightAboveFloorMetersResponse) Descriptor() ([]byte, []int) {
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{19}
+}
+
+func (x *GetHeightAboveFloorMetersResponse) GetResult() float64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetHeightAboveFloorUncertaintyMetersRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetHeightAboveFloorUncertaintyMetersRequest) Reset() {
+	*x = GetHeightAboveFloorUncertaintyMetersRequest{}
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[20]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetHeightAboveFloorUncertaintyMetersRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetHeightAboveFloorUncertaintyMetersRequest) ProtoMessage() {}
+
+func (x *GetHeightAboveFloorUncertaintyMetersRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[20]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetHeightAboveFloorUncertaintyMetersRequest.ProtoReflect.Descriptor instead.
+func (*GetHeightAboveFloorUncertaintyMetersRequest) Descriptor() ([]byte, []int) {
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{20}
+}
+
+type GetHeightAboveFloorUncertaintyMetersResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        float64                `protobuf:"fixed64,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetHeightAboveFloorUncertaintyMetersResponse) Reset() {
+	*x = GetHeightAboveFloorUncertaintyMetersResponse{}
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[21]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetHeightAboveFloorUncertaintyMetersResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetHeightAboveFloorUncertaintyMetersResponse) ProtoMessage() {}
+
+func (x *GetHeightAboveFloorUncertaintyMetersResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[21]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetHeightAboveFloorUncertaintyMetersResponse.ProtoReflect.Descriptor instead.
+func (*GetHeightAboveFloorUncertaintyMetersResponse) Descriptor() ([]byte, []int) {
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{21}
+}
+
+func (x *GetHeightAboveFloorUncertaintyMetersResponse) GetResult() float64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetLatitudeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetLatitudeRequest) Reset() {
+	*x = GetLatitudeRequest{}
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[22]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetLatitudeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetLatitudeRequest) ProtoMessage() {}
+
+func (x *GetLatitudeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[22]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetLatitudeRequest.ProtoReflect.Descriptor instead.
+func (*GetLatitudeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{22}
+}
+
+type GetLatitudeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        float64                `protobuf:"fixed64,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetLatitudeResponse) Reset() {
+	*x = GetLatitudeResponse{}
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[23]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetLatitudeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetLatitudeResponse) ProtoMessage() {}
+
+func (x *GetLatitudeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[23]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetLatitudeResponse.ProtoReflect.Descriptor instead.
+func (*GetLatitudeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{23}
+}
+
+func (x *GetLatitudeResponse) GetResult() float64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetLatitudeUncertaintyRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetLatitudeUncertaintyRequest) Reset() {
+	*x = GetLatitudeUncertaintyRequest{}
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[24]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetLatitudeUncertaintyRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetLatitudeUncertaintyRequest) ProtoMessage() {}
+
+func (x *GetLatitudeUncertaintyRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[24]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetLatitudeUncertaintyRequest.ProtoReflect.Descriptor instead.
+func (*GetLatitudeUncertaintyRequest) Descriptor() ([]byte, []int) {
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{24}
+}
+
+type GetLatitudeUncertaintyResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        float64                `protobuf:"fixed64,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetLatitudeUncertaintyResponse) Reset() {
+	*x = GetLatitudeUncertaintyResponse{}
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[25]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetLatitudeUncertaintyResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetLatitudeUncertaintyResponse) ProtoMessage() {}
+
+func (x *GetLatitudeUncertaintyResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[25]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetLatitudeUncertaintyResponse.ProtoReflect.Descriptor instead.
+func (*GetLatitudeUncertaintyResponse) Descriptor() ([]byte, []int) {
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{25}
+}
+
+func (x *GetLatitudeUncertaintyResponse) GetResult() float64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetLciVersionRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetLciVersionRequest) Reset() {
+	*x = GetLciVersionRequest{}
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[26]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetLciVersionRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetLciVersionRequest) ProtoMessage() {}
+
+func (x *GetLciVersionRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[26]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetLciVersionRequest.ProtoReflect.Descriptor instead.
+func (*GetLciVersionRequest) Descriptor() ([]byte, []int) {
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{26}
+}
+
+type GetLciVersionResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetResponderTypeResponse) Reset() {
-	*x = GetResponderTypeResponse{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[17]
+func (x *GetLciVersionResponse) Reset() {
+	*x = GetLciVersionResponse{}
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[27]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetResponderTypeResponse) String() string {
+func (x *GetLciVersionResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetResponderTypeResponse) ProtoMessage() {}
+func (*GetLciVersionResponse) ProtoMessage() {}
 
-func (x *GetResponderTypeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[17]
+func (x *GetLciVersionResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[27]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -739,39 +1139,39 @@ func (x *GetResponderTypeResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetResponderTypeResponse.ProtoReflect.Descriptor instead.
-func (*GetResponderTypeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{17}
+// Deprecated: Use GetLciVersionResponse.ProtoReflect.Descriptor instead.
+func (*GetLciVersionResponse) Descriptor() ([]byte, []int) {
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{27}
 }
 
-func (x *GetResponderTypeResponse) GetResult() int32 {
+func (x *GetLciVersionResponse) GetResult() int32 {
 	if x != nil {
 		return x.Result
 	}
 	return 0
 }
 
-type GetSecureRangingConfigRequest struct {
+type GetLongitudeRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetSecureRangingConfigRequest) Reset() {
-	*x = GetSecureRangingConfigRequest{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[18]
+func (x *GetLongitudeRequest) Reset() {
+	*x = GetLongitudeRequest{}
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[28]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetSecureRangingConfigRequest) String() string {
+func (x *GetLongitudeRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetSecureRangingConfigRequest) ProtoMessage() {}
+func (*GetLongitudeRequest) ProtoMessage() {}
 
-func (x *GetSecureRangingConfigRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[18]
+func (x *GetLongitudeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[28]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -782,33 +1182,273 @@ func (x *GetSecureRangingConfigRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetSecureRangingConfigRequest.ProtoReflect.Descriptor instead.
-func (*GetSecureRangingConfigRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{18}
+// Deprecated: Use GetLongitudeRequest.ProtoReflect.Descriptor instead.
+func (*GetLongitudeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{28}
 }
 
-type GetSecureRangingConfigResponse struct {
+type GetLongitudeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        float64                `protobuf:"fixed64,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetLongitudeResponse) Reset() {
+	*x = GetLongitudeResponse{}
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[29]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetLongitudeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetLongitudeResponse) ProtoMessage() {}
+
+func (x *GetLongitudeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[29]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetLongitudeResponse.ProtoReflect.Descriptor instead.
+func (*GetLongitudeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{29}
+}
+
+func (x *GetLongitudeResponse) GetResult() float64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetLongitudeUncertaintyRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetLongitudeUncertaintyRequest) Reset() {
+	*x = GetLongitudeUncertaintyRequest{}
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[30]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetLongitudeUncertaintyRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetLongitudeUncertaintyRequest) ProtoMessage() {}
+
+func (x *GetLongitudeUncertaintyRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[30]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetLongitudeUncertaintyRequest.ProtoReflect.Descriptor instead.
+func (*GetLongitudeUncertaintyRequest) Descriptor() ([]byte, []int) {
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{30}
+}
+
+type GetLongitudeUncertaintyResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        float64                `protobuf:"fixed64,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetLongitudeUncertaintyResponse) Reset() {
+	*x = GetLongitudeUncertaintyResponse{}
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[31]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetLongitudeUncertaintyResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetLongitudeUncertaintyResponse) ProtoMessage() {}
+
+func (x *GetLongitudeUncertaintyResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[31]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetLongitudeUncertaintyResponse.ProtoReflect.Descriptor instead.
+func (*GetLongitudeUncertaintyResponse) Descriptor() ([]byte, []int) {
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{31}
+}
+
+func (x *GetLongitudeUncertaintyResponse) GetResult() float64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetMapImageMimeTypeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMapImageMimeTypeRequest) Reset() {
+	*x = GetMapImageMimeTypeRequest{}
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[32]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMapImageMimeTypeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMapImageMimeTypeRequest) ProtoMessage() {}
+
+func (x *GetMapImageMimeTypeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[32]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMapImageMimeTypeRequest.ProtoReflect.Descriptor instead.
+func (*GetMapImageMimeTypeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{32}
+}
+
+type GetMapImageMimeTypeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMapImageMimeTypeResponse) Reset() {
+	*x = GetMapImageMimeTypeResponse{}
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[33]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMapImageMimeTypeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMapImageMimeTypeResponse) ProtoMessage() {}
+
+func (x *GetMapImageMimeTypeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[33]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMapImageMimeTypeResponse.ProtoReflect.Descriptor instead.
+func (*GetMapImageMimeTypeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{33}
+}
+
+func (x *GetMapImageMimeTypeResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type GetMapImageUriRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMapImageUriRequest) Reset() {
+	*x = GetMapImageUriRequest{}
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[34]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMapImageUriRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMapImageUriRequest) ProtoMessage() {}
+
+func (x *GetMapImageUriRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[34]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMapImageUriRequest.ProtoReflect.Descriptor instead.
+func (*GetMapImageUriRequest) Descriptor() ([]byte, []int) {
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{34}
+}
+
+type GetMapImageUriResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetSecureRangingConfigResponse) Reset() {
-	*x = GetSecureRangingConfigResponse{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[19]
+func (x *GetMapImageUriResponse) Reset() {
+	*x = GetMapImageUriResponse{}
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[35]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetSecureRangingConfigResponse) String() string {
+func (x *GetMapImageUriResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetSecureRangingConfigResponse) ProtoMessage() {}
+func (*GetMapImageUriResponse) ProtoMessage() {}
 
-func (x *GetSecureRangingConfigResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[19]
+func (x *GetMapImageUriResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[35]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -819,16 +1459,96 @@ func (x *GetSecureRangingConfigResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetSecureRangingConfigResponse.ProtoReflect.Descriptor instead.
-func (*GetSecureRangingConfigResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{19}
+// Deprecated: Use GetMapImageUriResponse.ProtoReflect.Descriptor instead.
+func (*GetMapImageUriResponse) Descriptor() ([]byte, []int) {
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{35}
 }
 
-func (x *GetSecureRangingConfigResponse) GetResult() int64 {
+func (x *GetMapImageUriResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
 	return 0
+}
+
+type GetRegisteredLocationAgreementIndicationRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetRegisteredLocationAgreementIndicationRequest) Reset() {
+	*x = GetRegisteredLocationAgreementIndicationRequest{}
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[36]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetRegisteredLocationAgreementIndicationRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetRegisteredLocationAgreementIndicationRequest) ProtoMessage() {}
+
+func (x *GetRegisteredLocationAgreementIndicationRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[36]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetRegisteredLocationAgreementIndicationRequest.ProtoReflect.Descriptor instead.
+func (*GetRegisteredLocationAgreementIndicationRequest) Descriptor() ([]byte, []int) {
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{36}
+}
+
+type GetRegisteredLocationAgreementIndicationResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetRegisteredLocationAgreementIndicationResponse) Reset() {
+	*x = GetRegisteredLocationAgreementIndicationResponse{}
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[37]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetRegisteredLocationAgreementIndicationResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetRegisteredLocationAgreementIndicationResponse) ProtoMessage() {}
+
+func (x *GetRegisteredLocationAgreementIndicationResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[37]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetRegisteredLocationAgreementIndicationResponse.ProtoReflect.Descriptor instead.
+func (*GetRegisteredLocationAgreementIndicationResponse) Descriptor() ([]byte, []int) {
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{37}
+}
+
+func (x *GetRegisteredLocationAgreementIndicationResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
 }
 
 type HashCodeRequest struct {
@@ -839,7 +1559,7 @@ type HashCodeRequest struct {
 
 func (x *HashCodeRequest) Reset() {
 	*x = HashCodeRequest{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[20]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[38]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -851,7 +1571,7 @@ func (x *HashCodeRequest) String() string {
 func (*HashCodeRequest) ProtoMessage() {}
 
 func (x *HashCodeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[20]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[38]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -864,7 +1584,7 @@ func (x *HashCodeRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use HashCodeRequest.ProtoReflect.Descriptor instead.
 func (*HashCodeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{20}
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{38}
 }
 
 type HashCodeResponse struct {
@@ -876,7 +1596,7 @@ type HashCodeResponse struct {
 
 func (x *HashCodeResponse) Reset() {
 	*x = HashCodeResponse{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[21]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[39]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -888,7 +1608,7 @@ func (x *HashCodeResponse) String() string {
 func (*HashCodeResponse) ProtoMessage() {}
 
 func (x *HashCodeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[21]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[39]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -901,7 +1621,7 @@ func (x *HashCodeResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use HashCodeResponse.ProtoReflect.Descriptor instead.
 func (*HashCodeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{21}
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{39}
 }
 
 func (x *HashCodeResponse) GetResult() int32 {
@@ -911,27 +1631,27 @@ func (x *HashCodeResponse) GetResult() int32 {
 	return 0
 }
 
-type Is80211AzNtbSupportedRequest struct {
+type IsLciSubelementValidRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *Is80211AzNtbSupportedRequest) Reset() {
-	*x = Is80211AzNtbSupportedRequest{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[22]
+func (x *IsLciSubelementValidRequest) Reset() {
+	*x = IsLciSubelementValidRequest{}
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[40]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *Is80211AzNtbSupportedRequest) String() string {
+func (x *IsLciSubelementValidRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*Is80211AzNtbSupportedRequest) ProtoMessage() {}
+func (*IsLciSubelementValidRequest) ProtoMessage() {}
 
-func (x *Is80211AzNtbSupportedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[22]
+func (x *IsLciSubelementValidRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[40]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -942,113 +1662,33 @@ func (x *Is80211AzNtbSupportedRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use Is80211AzNtbSupportedRequest.ProtoReflect.Descriptor instead.
-func (*Is80211AzNtbSupportedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{22}
+// Deprecated: Use IsLciSubelementValidRequest.ProtoReflect.Descriptor instead.
+func (*IsLciSubelementValidRequest) Descriptor() ([]byte, []int) {
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{40}
 }
 
-type Is80211AzNtbSupportedResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *Is80211AzNtbSupportedResponse) Reset() {
-	*x = Is80211AzNtbSupportedResponse{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[23]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *Is80211AzNtbSupportedResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*Is80211AzNtbSupportedResponse) ProtoMessage() {}
-
-func (x *Is80211AzNtbSupportedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[23]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use Is80211AzNtbSupportedResponse.ProtoReflect.Descriptor instead.
-func (*Is80211AzNtbSupportedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{23}
-}
-
-func (x *Is80211AzNtbSupportedResponse) GetResult() bool {
-	if x != nil {
-		return x.Result
-	}
-	return false
-}
-
-type Is80211McSupportedRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *Is80211McSupportedRequest) Reset() {
-	*x = Is80211McSupportedRequest{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[24]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *Is80211McSupportedRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*Is80211McSupportedRequest) ProtoMessage() {}
-
-func (x *Is80211McSupportedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[24]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use Is80211McSupportedRequest.ProtoReflect.Descriptor instead.
-func (*Is80211McSupportedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{24}
-}
-
-type Is80211McSupportedResponse struct {
+type IsLciSubelementValidResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *Is80211McSupportedResponse) Reset() {
-	*x = Is80211McSupportedResponse{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[25]
+func (x *IsLciSubelementValidResponse) Reset() {
+	*x = IsLciSubelementValidResponse{}
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[41]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *Is80211McSupportedResponse) String() string {
+func (x *IsLciSubelementValidResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*Is80211McSupportedResponse) ProtoMessage() {}
+func (*IsLciSubelementValidResponse) ProtoMessage() {}
 
-func (x *Is80211McSupportedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[25]
+func (x *IsLciSubelementValidResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[41]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1059,39 +1699,39 @@ func (x *Is80211McSupportedResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use Is80211McSupportedResponse.ProtoReflect.Descriptor instead.
-func (*Is80211McSupportedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{25}
+// Deprecated: Use IsLciSubelementValidResponse.ProtoReflect.Descriptor instead.
+func (*IsLciSubelementValidResponse) Descriptor() ([]byte, []int) {
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{41}
 }
 
-func (x *Is80211McSupportedResponse) GetResult() bool {
+func (x *IsLciSubelementValidResponse) GetResult() bool {
 	if x != nil {
 		return x.Result
 	}
 	return false
 }
 
-type ToStringRequest struct {
+type IsZaxisSubelementValidRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *ToStringRequest) Reset() {
-	*x = ToStringRequest{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[26]
+func (x *IsZaxisSubelementValidRequest) Reset() {
+	*x = IsZaxisSubelementValidRequest{}
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[42]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *ToStringRequest) String() string {
+func (x *IsZaxisSubelementValidRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*ToStringRequest) ProtoMessage() {}
+func (*IsZaxisSubelementValidRequest) ProtoMessage() {}
 
-func (x *ToStringRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[26]
+func (x *IsZaxisSubelementValidRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[42]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1102,33 +1742,33 @@ func (x *ToStringRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use ToStringRequest.ProtoReflect.Descriptor instead.
-func (*ToStringRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{26}
+// Deprecated: Use IsZaxisSubelementValidRequest.ProtoReflect.Descriptor instead.
+func (*IsZaxisSubelementValidRequest) Descriptor() ([]byte, []int) {
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{42}
 }
 
-type ToStringResponse struct {
+type IsZaxisSubelementValidResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *ToStringResponse) Reset() {
-	*x = ToStringResponse{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[27]
+func (x *IsZaxisSubelementValidResponse) Reset() {
+	*x = IsZaxisSubelementValidResponse{}
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[43]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *ToStringResponse) String() string {
+func (x *IsZaxisSubelementValidResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*ToStringResponse) ProtoMessage() {}
+func (*IsZaxisSubelementValidResponse) ProtoMessage() {}
 
-func (x *ToStringResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[27]
+func (x *IsZaxisSubelementValidResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[43]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1139,16 +1779,256 @@ func (x *ToStringResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use ToStringResponse.ProtoReflect.Descriptor instead.
-func (*ToStringResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{27}
+// Deprecated: Use IsZaxisSubelementValidResponse.ProtoReflect.Descriptor instead.
+func (*IsZaxisSubelementValidResponse) Descriptor() ([]byte, []int) {
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{43}
 }
 
-func (x *ToStringResponse) GetResult() string {
+func (x *IsZaxisSubelementValidResponse) GetResult() bool {
 	if x != nil {
 		return x.Result
 	}
-	return ""
+	return false
+}
+
+type ToCivicLocationAddressRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ToCivicLocationAddressRequest) Reset() {
+	*x = ToCivicLocationAddressRequest{}
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[44]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ToCivicLocationAddressRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ToCivicLocationAddressRequest) ProtoMessage() {}
+
+func (x *ToCivicLocationAddressRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[44]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ToCivicLocationAddressRequest.ProtoReflect.Descriptor instead.
+func (*ToCivicLocationAddressRequest) Descriptor() ([]byte, []int) {
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{44}
+}
+
+type ToCivicLocationAddressResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ToCivicLocationAddressResponse) Reset() {
+	*x = ToCivicLocationAddressResponse{}
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[45]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ToCivicLocationAddressResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ToCivicLocationAddressResponse) ProtoMessage() {}
+
+func (x *ToCivicLocationAddressResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[45]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ToCivicLocationAddressResponse.ProtoReflect.Descriptor instead.
+func (*ToCivicLocationAddressResponse) Descriptor() ([]byte, []int) {
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{45}
+}
+
+func (x *ToCivicLocationAddressResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type ToCivicLocationSparseArrayRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ToCivicLocationSparseArrayRequest) Reset() {
+	*x = ToCivicLocationSparseArrayRequest{}
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[46]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ToCivicLocationSparseArrayRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ToCivicLocationSparseArrayRequest) ProtoMessage() {}
+
+func (x *ToCivicLocationSparseArrayRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[46]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ToCivicLocationSparseArrayRequest.ProtoReflect.Descriptor instead.
+func (*ToCivicLocationSparseArrayRequest) Descriptor() ([]byte, []int) {
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{46}
+}
+
+type ToCivicLocationSparseArrayResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ToCivicLocationSparseArrayResponse) Reset() {
+	*x = ToCivicLocationSparseArrayResponse{}
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[47]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ToCivicLocationSparseArrayResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ToCivicLocationSparseArrayResponse) ProtoMessage() {}
+
+func (x *ToCivicLocationSparseArrayResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[47]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ToCivicLocationSparseArrayResponse.ProtoReflect.Descriptor instead.
+func (*ToCivicLocationSparseArrayResponse) Descriptor() ([]byte, []int) {
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{47}
+}
+
+func (x *ToCivicLocationSparseArrayResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type ToLocationRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ToLocationRequest) Reset() {
+	*x = ToLocationRequest{}
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[48]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ToLocationRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ToLocationRequest) ProtoMessage() {}
+
+func (x *ToLocationRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[48]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ToLocationRequest.ProtoReflect.Descriptor instead.
+func (*ToLocationRequest) Descriptor() ([]byte, []int) {
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{48}
+}
+
+type ToLocationResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ToLocationResponse) Reset() {
+	*x = ToLocationResponse{}
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[49]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ToLocationResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ToLocationResponse) ProtoMessage() {}
+
+func (x *ToLocationResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[49]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ToLocationResponse.ProtoReflect.Descriptor instead.
+func (*ToLocationResponse) Descriptor() ([]byte, []int) {
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{49}
+}
+
+func (x *ToLocationResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
 }
 
 type WriteToParcelRequest struct {
@@ -1161,7 +2041,7 @@ type WriteToParcelRequest struct {
 
 func (x *WriteToParcelRequest) Reset() {
 	*x = WriteToParcelRequest{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[28]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[50]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1173,7 +2053,7 @@ func (x *WriteToParcelRequest) String() string {
 func (*WriteToParcelRequest) ProtoMessage() {}
 
 func (x *WriteToParcelRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[28]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[50]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1186,7 +2066,7 @@ func (x *WriteToParcelRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use WriteToParcelRequest.ProtoReflect.Descriptor instead.
 func (*WriteToParcelRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{28}
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{50}
 }
 
 func (x *WriteToParcelRequest) GetArg0() int64 {
@@ -1211,7 +2091,7 @@ type WriteToParcelResponse struct {
 
 func (x *WriteToParcelResponse) Reset() {
 	*x = WriteToParcelResponse{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[29]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[51]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1223,7 +2103,7 @@ func (x *WriteToParcelResponse) String() string {
 func (*WriteToParcelResponse) ProtoMessage() {}
 
 func (x *WriteToParcelResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[29]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[51]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1236,2895 +2116,7 @@ func (x *WriteToParcelResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use WriteToParcelResponse.ProtoReflect.Descriptor instead.
 func (*WriteToParcelResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{29}
-}
-
-type FromScanResultRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *FromScanResultRequest) Reset() {
-	*x = FromScanResultRequest{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[30]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *FromScanResultRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*FromScanResultRequest) ProtoMessage() {}
-
-func (x *FromScanResultRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[30]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use FromScanResultRequest.ProtoReflect.Descriptor instead.
-func (*FromScanResultRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{30}
-}
-
-func (x *FromScanResultRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type FromScanResultResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *FromScanResultResponse) Reset() {
-	*x = FromScanResultResponse{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[31]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *FromScanResultResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*FromScanResultResponse) ProtoMessage() {}
-
-func (x *FromScanResultResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[31]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use FromScanResultResponse.ProtoReflect.Descriptor instead.
-func (*FromScanResultResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{31}
-}
-
-func (x *FromScanResultResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type BuildRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *BuildRequest) Reset() {
-	*x = BuildRequest{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[32]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *BuildRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*BuildRequest) ProtoMessage() {}
-
-func (x *BuildRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[32]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use BuildRequest.ProtoReflect.Descriptor instead.
-func (*BuildRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{32}
-}
-
-type BuildResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *BuildResponse) Reset() {
-	*x = BuildResponse{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[33]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *BuildResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*BuildResponse) ProtoMessage() {}
-
-func (x *BuildResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[33]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use BuildResponse.ProtoReflect.Descriptor instead.
-func (*BuildResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{33}
-}
-
-func (x *BuildResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type Set80211AzNtbSupportedRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          bool                   `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *Set80211AzNtbSupportedRequest) Reset() {
-	*x = Set80211AzNtbSupportedRequest{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[34]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *Set80211AzNtbSupportedRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*Set80211AzNtbSupportedRequest) ProtoMessage() {}
-
-func (x *Set80211AzNtbSupportedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[34]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use Set80211AzNtbSupportedRequest.ProtoReflect.Descriptor instead.
-func (*Set80211AzNtbSupportedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{34}
-}
-
-func (x *Set80211AzNtbSupportedRequest) GetArg0() bool {
-	if x != nil {
-		return x.Arg0
-	}
-	return false
-}
-
-type Set80211AzNtbSupportedResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *Set80211AzNtbSupportedResponse) Reset() {
-	*x = Set80211AzNtbSupportedResponse{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[35]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *Set80211AzNtbSupportedResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*Set80211AzNtbSupportedResponse) ProtoMessage() {}
-
-func (x *Set80211AzNtbSupportedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[35]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use Set80211AzNtbSupportedResponse.ProtoReflect.Descriptor instead.
-func (*Set80211AzNtbSupportedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{35}
-}
-
-func (x *Set80211AzNtbSupportedResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type Set80211McSupportedRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          bool                   `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *Set80211McSupportedRequest) Reset() {
-	*x = Set80211McSupportedRequest{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[36]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *Set80211McSupportedRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*Set80211McSupportedRequest) ProtoMessage() {}
-
-func (x *Set80211McSupportedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[36]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use Set80211McSupportedRequest.ProtoReflect.Descriptor instead.
-func (*Set80211McSupportedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{36}
-}
-
-func (x *Set80211McSupportedRequest) GetArg0() bool {
-	if x != nil {
-		return x.Arg0
-	}
-	return false
-}
-
-type Set80211McSupportedResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *Set80211McSupportedResponse) Reset() {
-	*x = Set80211McSupportedResponse{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[37]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *Set80211McSupportedResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*Set80211McSupportedResponse) ProtoMessage() {}
-
-func (x *Set80211McSupportedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[37]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use Set80211McSupportedResponse.ProtoReflect.Descriptor instead.
-func (*Set80211McSupportedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{37}
-}
-
-func (x *Set80211McSupportedResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type SetCenterFreq0MhzRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetCenterFreq0MhzRequest) Reset() {
-	*x = SetCenterFreq0MhzRequest{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[38]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetCenterFreq0MhzRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetCenterFreq0MhzRequest) ProtoMessage() {}
-
-func (x *SetCenterFreq0MhzRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[38]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetCenterFreq0MhzRequest.ProtoReflect.Descriptor instead.
-func (*SetCenterFreq0MhzRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{38}
-}
-
-func (x *SetCenterFreq0MhzRequest) GetArg0() int32 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type SetCenterFreq0MhzResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetCenterFreq0MhzResponse) Reset() {
-	*x = SetCenterFreq0MhzResponse{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[39]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetCenterFreq0MhzResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetCenterFreq0MhzResponse) ProtoMessage() {}
-
-func (x *SetCenterFreq0MhzResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[39]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetCenterFreq0MhzResponse.ProtoReflect.Descriptor instead.
-func (*SetCenterFreq0MhzResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{39}
-}
-
-func (x *SetCenterFreq0MhzResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type SetCenterFreq1MhzRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetCenterFreq1MhzRequest) Reset() {
-	*x = SetCenterFreq1MhzRequest{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[40]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetCenterFreq1MhzRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetCenterFreq1MhzRequest) ProtoMessage() {}
-
-func (x *SetCenterFreq1MhzRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[40]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetCenterFreq1MhzRequest.ProtoReflect.Descriptor instead.
-func (*SetCenterFreq1MhzRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{40}
-}
-
-func (x *SetCenterFreq1MhzRequest) GetArg0() int32 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type SetCenterFreq1MhzResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetCenterFreq1MhzResponse) Reset() {
-	*x = SetCenterFreq1MhzResponse{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[41]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetCenterFreq1MhzResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetCenterFreq1MhzResponse) ProtoMessage() {}
-
-func (x *SetCenterFreq1MhzResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[41]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetCenterFreq1MhzResponse.ProtoReflect.Descriptor instead.
-func (*SetCenterFreq1MhzResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{41}
-}
-
-func (x *SetCenterFreq1MhzResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type SetChannelWidthRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetChannelWidthRequest) Reset() {
-	*x = SetChannelWidthRequest{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[42]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetChannelWidthRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetChannelWidthRequest) ProtoMessage() {}
-
-func (x *SetChannelWidthRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[42]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetChannelWidthRequest.ProtoReflect.Descriptor instead.
-func (*SetChannelWidthRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{42}
-}
-
-func (x *SetChannelWidthRequest) GetArg0() int32 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type SetChannelWidthResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetChannelWidthResponse) Reset() {
-	*x = SetChannelWidthResponse{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[43]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetChannelWidthResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetChannelWidthResponse) ProtoMessage() {}
-
-func (x *SetChannelWidthResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[43]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetChannelWidthResponse.ProtoReflect.Descriptor instead.
-func (*SetChannelWidthResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{43}
-}
-
-func (x *SetChannelWidthResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type SetFrequencyMhzRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetFrequencyMhzRequest) Reset() {
-	*x = SetFrequencyMhzRequest{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[44]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetFrequencyMhzRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetFrequencyMhzRequest) ProtoMessage() {}
-
-func (x *SetFrequencyMhzRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[44]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetFrequencyMhzRequest.ProtoReflect.Descriptor instead.
-func (*SetFrequencyMhzRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{44}
-}
-
-func (x *SetFrequencyMhzRequest) GetArg0() int32 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type SetFrequencyMhzResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetFrequencyMhzResponse) Reset() {
-	*x = SetFrequencyMhzResponse{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[45]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetFrequencyMhzResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetFrequencyMhzResponse) ProtoMessage() {}
-
-func (x *SetFrequencyMhzResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[45]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetFrequencyMhzResponse.ProtoReflect.Descriptor instead.
-func (*SetFrequencyMhzResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{45}
-}
-
-func (x *SetFrequencyMhzResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type SetMacAddressRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetMacAddressRequest) Reset() {
-	*x = SetMacAddressRequest{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[46]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetMacAddressRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetMacAddressRequest) ProtoMessage() {}
-
-func (x *SetMacAddressRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[46]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetMacAddressRequest.ProtoReflect.Descriptor instead.
-func (*SetMacAddressRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{46}
-}
-
-func (x *SetMacAddressRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type SetMacAddressResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetMacAddressResponse) Reset() {
-	*x = SetMacAddressResponse{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[47]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetMacAddressResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetMacAddressResponse) ProtoMessage() {}
-
-func (x *SetMacAddressResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[47]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetMacAddressResponse.ProtoReflect.Descriptor instead.
-func (*SetMacAddressResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{47}
-}
-
-func (x *SetMacAddressResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type SetPreambleRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetPreambleRequest) Reset() {
-	*x = SetPreambleRequest{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[48]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetPreambleRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetPreambleRequest) ProtoMessage() {}
-
-func (x *SetPreambleRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[48]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetPreambleRequest.ProtoReflect.Descriptor instead.
-func (*SetPreambleRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{48}
-}
-
-func (x *SetPreambleRequest) GetArg0() int32 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type SetPreambleResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetPreambleResponse) Reset() {
-	*x = SetPreambleResponse{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[49]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetPreambleResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetPreambleResponse) ProtoMessage() {}
-
-func (x *SetPreambleResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[49]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetPreambleResponse.ProtoReflect.Descriptor instead.
-func (*SetPreambleResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{49}
-}
-
-func (x *SetPreambleResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type SetResponderTypeRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetResponderTypeRequest) Reset() {
-	*x = SetResponderTypeRequest{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[50]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetResponderTypeRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetResponderTypeRequest) ProtoMessage() {}
-
-func (x *SetResponderTypeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[50]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetResponderTypeRequest.ProtoReflect.Descriptor instead.
-func (*SetResponderTypeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{50}
-}
-
-func (x *SetResponderTypeRequest) GetArg0() int32 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type SetResponderTypeResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetResponderTypeResponse) Reset() {
-	*x = SetResponderTypeResponse{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[51]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetResponderTypeResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetResponderTypeResponse) ProtoMessage() {}
-
-func (x *SetResponderTypeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[51]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetResponderTypeResponse.ProtoReflect.Descriptor instead.
-func (*SetResponderTypeResponse) Descriptor() ([]byte, []int) {
 	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{51}
-}
-
-func (x *SetResponderTypeResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type SetSecureRangingConfigRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetSecureRangingConfigRequest) Reset() {
-	*x = SetSecureRangingConfigRequest{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[52]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetSecureRangingConfigRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetSecureRangingConfigRequest) ProtoMessage() {}
-
-func (x *SetSecureRangingConfigRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[52]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetSecureRangingConfigRequest.ProtoReflect.Descriptor instead.
-func (*SetSecureRangingConfigRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{52}
-}
-
-func (x *SetSecureRangingConfigRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type SetSecureRangingConfigResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetSecureRangingConfigResponse) Reset() {
-	*x = SetSecureRangingConfigResponse{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[53]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetSecureRangingConfigResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetSecureRangingConfigResponse) ProtoMessage() {}
-
-func (x *SetSecureRangingConfigResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[53]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetSecureRangingConfigResponse.ProtoReflect.Descriptor instead.
-func (*SetSecureRangingConfigResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{53}
-}
-
-func (x *SetSecureRangingConfigResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetRttBurstSizeRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetRttBurstSizeRequest) Reset() {
-	*x = GetRttBurstSizeRequest{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[54]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetRttBurstSizeRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetRttBurstSizeRequest) ProtoMessage() {}
-
-func (x *GetRttBurstSizeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[54]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetRttBurstSizeRequest.ProtoReflect.Descriptor instead.
-func (*GetRttBurstSizeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{54}
-}
-
-type GetRttBurstSizeResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetRttBurstSizeResponse) Reset() {
-	*x = GetRttBurstSizeResponse{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[55]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetRttBurstSizeResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetRttBurstSizeResponse) ProtoMessage() {}
-
-func (x *GetRttBurstSizeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[55]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetRttBurstSizeResponse.ProtoReflect.Descriptor instead.
-func (*GetRttBurstSizeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{55}
-}
-
-func (x *GetRttBurstSizeResponse) GetResult() int32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetSecurityModeRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetSecurityModeRequest) Reset() {
-	*x = GetSecurityModeRequest{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[56]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetSecurityModeRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetSecurityModeRequest) ProtoMessage() {}
-
-func (x *GetSecurityModeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[56]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetSecurityModeRequest.ProtoReflect.Descriptor instead.
-func (*GetSecurityModeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{56}
-}
-
-type GetSecurityModeResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetSecurityModeResponse) Reset() {
-	*x = GetSecurityModeResponse{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[57]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetSecurityModeResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetSecurityModeResponse) ProtoMessage() {}
-
-func (x *GetSecurityModeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[57]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetSecurityModeResponse.ProtoReflect.Descriptor instead.
-func (*GetSecurityModeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{57}
-}
-
-func (x *GetSecurityModeResponse) GetResult() int32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetDefaultRttBurstSizeRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetDefaultRttBurstSizeRequest) Reset() {
-	*x = GetDefaultRttBurstSizeRequest{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[58]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetDefaultRttBurstSizeRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetDefaultRttBurstSizeRequest) ProtoMessage() {}
-
-func (x *GetDefaultRttBurstSizeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[58]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetDefaultRttBurstSizeRequest.ProtoReflect.Descriptor instead.
-func (*GetDefaultRttBurstSizeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{58}
-}
-
-type GetDefaultRttBurstSizeResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetDefaultRttBurstSizeResponse) Reset() {
-	*x = GetDefaultRttBurstSizeResponse{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[59]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetDefaultRttBurstSizeResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetDefaultRttBurstSizeResponse) ProtoMessage() {}
-
-func (x *GetDefaultRttBurstSizeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[59]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetDefaultRttBurstSizeResponse.ProtoReflect.Descriptor instead.
-func (*GetDefaultRttBurstSizeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{59}
-}
-
-func (x *GetDefaultRttBurstSizeResponse) GetResult() int32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetMaxPeersRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetMaxPeersRequest) Reset() {
-	*x = GetMaxPeersRequest{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[60]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetMaxPeersRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetMaxPeersRequest) ProtoMessage() {}
-
-func (x *GetMaxPeersRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[60]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetMaxPeersRequest.ProtoReflect.Descriptor instead.
-func (*GetMaxPeersRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{60}
-}
-
-type GetMaxPeersResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetMaxPeersResponse) Reset() {
-	*x = GetMaxPeersResponse{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[61]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetMaxPeersResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetMaxPeersResponse) ProtoMessage() {}
-
-func (x *GetMaxPeersResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[61]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetMaxPeersResponse.ProtoReflect.Descriptor instead.
-func (*GetMaxPeersResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{61}
-}
-
-func (x *GetMaxPeersResponse) GetResult() int32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetMaxRttBurstSizeRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetMaxRttBurstSizeRequest) Reset() {
-	*x = GetMaxRttBurstSizeRequest{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[62]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetMaxRttBurstSizeRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetMaxRttBurstSizeRequest) ProtoMessage() {}
-
-func (x *GetMaxRttBurstSizeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[62]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetMaxRttBurstSizeRequest.ProtoReflect.Descriptor instead.
-func (*GetMaxRttBurstSizeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{62}
-}
-
-type GetMaxRttBurstSizeResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetMaxRttBurstSizeResponse) Reset() {
-	*x = GetMaxRttBurstSizeResponse{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[63]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetMaxRttBurstSizeResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetMaxRttBurstSizeResponse) ProtoMessage() {}
-
-func (x *GetMaxRttBurstSizeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[63]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetMaxRttBurstSizeResponse.ProtoReflect.Descriptor instead.
-func (*GetMaxRttBurstSizeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{63}
-}
-
-func (x *GetMaxRttBurstSizeResponse) GetResult() int32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetMinRttBurstSizeRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetMinRttBurstSizeRequest) Reset() {
-	*x = GetMinRttBurstSizeRequest{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[64]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetMinRttBurstSizeRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetMinRttBurstSizeRequest) ProtoMessage() {}
-
-func (x *GetMinRttBurstSizeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[64]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetMinRttBurstSizeRequest.ProtoReflect.Descriptor instead.
-func (*GetMinRttBurstSizeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{64}
-}
-
-type GetMinRttBurstSizeResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetMinRttBurstSizeResponse) Reset() {
-	*x = GetMinRttBurstSizeResponse{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[65]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetMinRttBurstSizeResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetMinRttBurstSizeResponse) ProtoMessage() {}
-
-func (x *GetMinRttBurstSizeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[65]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetMinRttBurstSizeResponse.ProtoReflect.Descriptor instead.
-func (*GetMinRttBurstSizeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{65}
-}
-
-func (x *GetMinRttBurstSizeResponse) GetResult() int32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type AddAccessPointRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *AddAccessPointRequest) Reset() {
-	*x = AddAccessPointRequest{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[66]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *AddAccessPointRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*AddAccessPointRequest) ProtoMessage() {}
-
-func (x *AddAccessPointRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[66]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use AddAccessPointRequest.ProtoReflect.Descriptor instead.
-func (*AddAccessPointRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{66}
-}
-
-func (x *AddAccessPointRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type AddAccessPointResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *AddAccessPointResponse) Reset() {
-	*x = AddAccessPointResponse{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[67]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *AddAccessPointResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*AddAccessPointResponse) ProtoMessage() {}
-
-func (x *AddAccessPointResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[67]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use AddAccessPointResponse.ProtoReflect.Descriptor instead.
-func (*AddAccessPointResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{67}
-}
-
-func (x *AddAccessPointResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type AddNon80211McCapableAccessPointRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *AddNon80211McCapableAccessPointRequest) Reset() {
-	*x = AddNon80211McCapableAccessPointRequest{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[68]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *AddNon80211McCapableAccessPointRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*AddNon80211McCapableAccessPointRequest) ProtoMessage() {}
-
-func (x *AddNon80211McCapableAccessPointRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[68]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use AddNon80211McCapableAccessPointRequest.ProtoReflect.Descriptor instead.
-func (*AddNon80211McCapableAccessPointRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{68}
-}
-
-func (x *AddNon80211McCapableAccessPointRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type AddNon80211McCapableAccessPointResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *AddNon80211McCapableAccessPointResponse) Reset() {
-	*x = AddNon80211McCapableAccessPointResponse{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[69]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *AddNon80211McCapableAccessPointResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*AddNon80211McCapableAccessPointResponse) ProtoMessage() {}
-
-func (x *AddNon80211McCapableAccessPointResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[69]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use AddNon80211McCapableAccessPointResponse.ProtoReflect.Descriptor instead.
-func (*AddNon80211McCapableAccessPointResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{69}
-}
-
-func (x *AddNon80211McCapableAccessPointResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type AddResponderRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *AddResponderRequest) Reset() {
-	*x = AddResponderRequest{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[70]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *AddResponderRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*AddResponderRequest) ProtoMessage() {}
-
-func (x *AddResponderRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[70]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use AddResponderRequest.ProtoReflect.Descriptor instead.
-func (*AddResponderRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{70}
-}
-
-func (x *AddResponderRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type AddResponderResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *AddResponderResponse) Reset() {
-	*x = AddResponderResponse{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[71]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *AddResponderResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*AddResponderResponse) ProtoMessage() {}
-
-func (x *AddResponderResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[71]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use AddResponderResponse.ProtoReflect.Descriptor instead.
-func (*AddResponderResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{71}
-}
-
-func (x *AddResponderResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type AddWifiAwarePeer1Request struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *AddWifiAwarePeer1Request) Reset() {
-	*x = AddWifiAwarePeer1Request{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[72]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *AddWifiAwarePeer1Request) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*AddWifiAwarePeer1Request) ProtoMessage() {}
-
-func (x *AddWifiAwarePeer1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[72]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use AddWifiAwarePeer1Request.ProtoReflect.Descriptor instead.
-func (*AddWifiAwarePeer1Request) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{72}
-}
-
-func (x *AddWifiAwarePeer1Request) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type AddWifiAwarePeer1Response struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *AddWifiAwarePeer1Response) Reset() {
-	*x = AddWifiAwarePeer1Response{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[73]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *AddWifiAwarePeer1Response) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*AddWifiAwarePeer1Response) ProtoMessage() {}
-
-func (x *AddWifiAwarePeer1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[73]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use AddWifiAwarePeer1Response.ProtoReflect.Descriptor instead.
-func (*AddWifiAwarePeer1Response) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{73}
-}
-
-func (x *AddWifiAwarePeer1Response) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type AddWifiAwarePeer1_1Request struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *AddWifiAwarePeer1_1Request) Reset() {
-	*x = AddWifiAwarePeer1_1Request{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[74]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *AddWifiAwarePeer1_1Request) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*AddWifiAwarePeer1_1Request) ProtoMessage() {}
-
-func (x *AddWifiAwarePeer1_1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[74]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use AddWifiAwarePeer1_1Request.ProtoReflect.Descriptor instead.
-func (*AddWifiAwarePeer1_1Request) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{74}
-}
-
-func (x *AddWifiAwarePeer1_1Request) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type AddWifiAwarePeer1_1Response struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *AddWifiAwarePeer1_1Response) Reset() {
-	*x = AddWifiAwarePeer1_1Response{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[75]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *AddWifiAwarePeer1_1Response) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*AddWifiAwarePeer1_1Response) ProtoMessage() {}
-
-func (x *AddWifiAwarePeer1_1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[75]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use AddWifiAwarePeer1_1Response.ProtoReflect.Descriptor instead.
-func (*AddWifiAwarePeer1_1Response) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{75}
-}
-
-func (x *AddWifiAwarePeer1_1Response) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type SetRttBurstSizeRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetRttBurstSizeRequest) Reset() {
-	*x = SetRttBurstSizeRequest{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[76]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetRttBurstSizeRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetRttBurstSizeRequest) ProtoMessage() {}
-
-func (x *SetRttBurstSizeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[76]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetRttBurstSizeRequest.ProtoReflect.Descriptor instead.
-func (*SetRttBurstSizeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{76}
-}
-
-func (x *SetRttBurstSizeRequest) GetArg0() int32 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type SetRttBurstSizeResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetRttBurstSizeResponse) Reset() {
-	*x = SetRttBurstSizeResponse{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[77]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetRttBurstSizeResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetRttBurstSizeResponse) ProtoMessage() {}
-
-func (x *SetRttBurstSizeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[77]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetRttBurstSizeResponse.ProtoReflect.Descriptor instead.
-func (*SetRttBurstSizeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{77}
-}
-
-func (x *SetRttBurstSizeResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type SetSecurityModeRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetSecurityModeRequest) Reset() {
-	*x = SetSecurityModeRequest{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[78]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetSecurityModeRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetSecurityModeRequest) ProtoMessage() {}
-
-func (x *SetSecurityModeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[78]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetSecurityModeRequest.ProtoReflect.Descriptor instead.
-func (*SetSecurityModeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{78}
-}
-
-func (x *SetSecurityModeRequest) GetArg0() int32 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type SetSecurityModeResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetSecurityModeResponse) Reset() {
-	*x = SetSecurityModeResponse{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[79]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetSecurityModeResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetSecurityModeResponse) ProtoMessage() {}
-
-func (x *SetSecurityModeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[79]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetSecurityModeResponse.ProtoReflect.Descriptor instead.
-func (*SetSecurityModeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{79}
-}
-
-func (x *SetSecurityModeResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type OnRangingFailureRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *OnRangingFailureRequest) Reset() {
-	*x = OnRangingFailureRequest{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[80]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *OnRangingFailureRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*OnRangingFailureRequest) ProtoMessage() {}
-
-func (x *OnRangingFailureRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[80]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use OnRangingFailureRequest.ProtoReflect.Descriptor instead.
-func (*OnRangingFailureRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{80}
-}
-
-func (x *OnRangingFailureRequest) GetArg0() int32 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type OnRangingFailureResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *OnRangingFailureResponse) Reset() {
-	*x = OnRangingFailureResponse{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[81]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *OnRangingFailureResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*OnRangingFailureResponse) ProtoMessage() {}
-
-func (x *OnRangingFailureResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[81]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use OnRangingFailureResponse.ProtoReflect.Descriptor instead.
-func (*OnRangingFailureResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{81}
-}
-
-type GetBaseAkmsRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetBaseAkmsRequest) Reset() {
-	*x = GetBaseAkmsRequest{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[82]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetBaseAkmsRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetBaseAkmsRequest) ProtoMessage() {}
-
-func (x *GetBaseAkmsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[82]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetBaseAkmsRequest.ProtoReflect.Descriptor instead.
-func (*GetBaseAkmsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{82}
-}
-
-type GetBaseAkmsResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetBaseAkmsResponse) Reset() {
-	*x = GetBaseAkmsResponse{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[83]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetBaseAkmsResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetBaseAkmsResponse) ProtoMessage() {}
-
-func (x *GetBaseAkmsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[83]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetBaseAkmsResponse.ProtoReflect.Descriptor instead.
-func (*GetBaseAkmsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{83}
-}
-
-func (x *GetBaseAkmsResponse) GetResult() int32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetCiphersRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetCiphersRequest) Reset() {
-	*x = GetCiphersRequest{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[84]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetCiphersRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetCiphersRequest) ProtoMessage() {}
-
-func (x *GetCiphersRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[84]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetCiphersRequest.ProtoReflect.Descriptor instead.
-func (*GetCiphersRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{84}
-}
-
-type GetCiphersResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetCiphersResponse) Reset() {
-	*x = GetCiphersResponse{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[85]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetCiphersResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetCiphersResponse) ProtoMessage() {}
-
-func (x *GetCiphersResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[85]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetCiphersResponse.ProtoReflect.Descriptor instead.
-func (*GetCiphersResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{85}
-}
-
-func (x *GetCiphersResponse) GetResult() int32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetPasnComebackCookieRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetPasnComebackCookieRequest) Reset() {
-	*x = GetPasnComebackCookieRequest{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[86]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetPasnComebackCookieRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetPasnComebackCookieRequest) ProtoMessage() {}
-
-func (x *GetPasnComebackCookieRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[86]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetPasnComebackCookieRequest.ProtoReflect.Descriptor instead.
-func (*GetPasnComebackCookieRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{86}
-}
-
-type GetPasnComebackCookieResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetPasnComebackCookieResponse) Reset() {
-	*x = GetPasnComebackCookieResponse{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[87]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetPasnComebackCookieResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetPasnComebackCookieResponse) ProtoMessage() {}
-
-func (x *GetPasnComebackCookieResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[87]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetPasnComebackCookieResponse.ProtoReflect.Descriptor instead.
-func (*GetPasnComebackCookieResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{87}
-}
-
-func (x *GetPasnComebackCookieResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetPasswordRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetPasswordRequest) Reset() {
-	*x = GetPasswordRequest{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[88]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetPasswordRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetPasswordRequest) ProtoMessage() {}
-
-func (x *GetPasswordRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[88]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetPasswordRequest.ProtoReflect.Descriptor instead.
-func (*GetPasswordRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{88}
-}
-
-type GetPasswordResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetPasswordResponse) Reset() {
-	*x = GetPasswordResponse{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[89]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetPasswordResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetPasswordResponse) ProtoMessage() {}
-
-func (x *GetPasswordResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[89]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetPasswordResponse.ProtoReflect.Descriptor instead.
-func (*GetPasswordResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{89}
-}
-
-func (x *GetPasswordResponse) GetResult() string {
-	if x != nil {
-		return x.Result
-	}
-	return ""
-}
-
-type GetWifiSsidRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetWifiSsidRequest) Reset() {
-	*x = GetWifiSsidRequest{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[90]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetWifiSsidRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetWifiSsidRequest) ProtoMessage() {}
-
-func (x *GetWifiSsidRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[90]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetWifiSsidRequest.ProtoReflect.Descriptor instead.
-func (*GetWifiSsidRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{90}
-}
-
-type GetWifiSsidResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetWifiSsidResponse) Reset() {
-	*x = GetWifiSsidResponse{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[91]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetWifiSsidResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetWifiSsidResponse) ProtoMessage() {}
-
-func (x *GetWifiSsidResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[91]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetWifiSsidResponse.ProtoReflect.Descriptor instead.
-func (*GetWifiSsidResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{91}
-}
-
-func (x *GetWifiSsidResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type SetPasnComebackCookieRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetPasnComebackCookieRequest) Reset() {
-	*x = SetPasnComebackCookieRequest{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[92]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetPasnComebackCookieRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetPasnComebackCookieRequest) ProtoMessage() {}
-
-func (x *SetPasnComebackCookieRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[92]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetPasnComebackCookieRequest.ProtoReflect.Descriptor instead.
-func (*SetPasnComebackCookieRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{92}
-}
-
-func (x *SetPasnComebackCookieRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type SetPasnComebackCookieResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetPasnComebackCookieResponse) Reset() {
-	*x = SetPasnComebackCookieResponse{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[93]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetPasnComebackCookieResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetPasnComebackCookieResponse) ProtoMessage() {}
-
-func (x *SetPasnComebackCookieResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[93]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetPasnComebackCookieResponse.ProtoReflect.Descriptor instead.
-func (*SetPasnComebackCookieResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{93}
-}
-
-func (x *SetPasnComebackCookieResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type SetPasswordRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetPasswordRequest) Reset() {
-	*x = SetPasswordRequest{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[94]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetPasswordRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetPasswordRequest) ProtoMessage() {}
-
-func (x *SetPasswordRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[94]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetPasswordRequest.ProtoReflect.Descriptor instead.
-func (*SetPasswordRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{94}
-}
-
-func (x *SetPasswordRequest) GetArg0() string {
-	if x != nil {
-		return x.Arg0
-	}
-	return ""
-}
-
-type SetPasswordResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetPasswordResponse) Reset() {
-	*x = SetPasswordResponse{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[95]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetPasswordResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetPasswordResponse) ProtoMessage() {}
-
-func (x *SetPasswordResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[95]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetPasswordResponse.ProtoReflect.Descriptor instead.
-func (*SetPasswordResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{95}
-}
-
-func (x *SetPasswordResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type SetWifiSsidRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetWifiSsidRequest) Reset() {
-	*x = SetWifiSsidRequest{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[96]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetWifiSsidRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetWifiSsidRequest) ProtoMessage() {}
-
-func (x *SetWifiSsidRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[96]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetWifiSsidRequest.ProtoReflect.Descriptor instead.
-func (*SetWifiSsidRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{96}
-}
-
-func (x *SetWifiSsidRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type SetWifiSsidResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetWifiSsidResponse) Reset() {
-	*x = SetWifiSsidResponse{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[97]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetWifiSsidResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetWifiSsidResponse) ProtoMessage() {}
-
-func (x *SetWifiSsidResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[97]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetWifiSsidResponse.ProtoReflect.Descriptor instead.
-func (*SetWifiSsidResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{97}
-}
-
-func (x *SetWifiSsidResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
 }
 
 type Get80211AzInitiatorTxLtfRepetitionsCountRequest struct {
@@ -4135,7 +2127,7 @@ type Get80211AzInitiatorTxLtfRepetitionsCountRequest struct {
 
 func (x *Get80211AzInitiatorTxLtfRepetitionsCountRequest) Reset() {
 	*x = Get80211AzInitiatorTxLtfRepetitionsCountRequest{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[98]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[52]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4147,7 +2139,7 @@ func (x *Get80211AzInitiatorTxLtfRepetitionsCountRequest) String() string {
 func (*Get80211AzInitiatorTxLtfRepetitionsCountRequest) ProtoMessage() {}
 
 func (x *Get80211AzInitiatorTxLtfRepetitionsCountRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[98]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[52]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4160,7 +2152,7 @@ func (x *Get80211AzInitiatorTxLtfRepetitionsCountRequest) ProtoReflect() protore
 
 // Deprecated: Use Get80211AzInitiatorTxLtfRepetitionsCountRequest.ProtoReflect.Descriptor instead.
 func (*Get80211AzInitiatorTxLtfRepetitionsCountRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{98}
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{52}
 }
 
 type Get80211AzInitiatorTxLtfRepetitionsCountResponse struct {
@@ -4172,7 +2164,7 @@ type Get80211AzInitiatorTxLtfRepetitionsCountResponse struct {
 
 func (x *Get80211AzInitiatorTxLtfRepetitionsCountResponse) Reset() {
 	*x = Get80211AzInitiatorTxLtfRepetitionsCountResponse{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[99]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[53]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4184,7 +2176,7 @@ func (x *Get80211AzInitiatorTxLtfRepetitionsCountResponse) String() string {
 func (*Get80211AzInitiatorTxLtfRepetitionsCountResponse) ProtoMessage() {}
 
 func (x *Get80211AzInitiatorTxLtfRepetitionsCountResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[99]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[53]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4197,7 +2189,7 @@ func (x *Get80211AzInitiatorTxLtfRepetitionsCountResponse) ProtoReflect() protor
 
 // Deprecated: Use Get80211AzInitiatorTxLtfRepetitionsCountResponse.ProtoReflect.Descriptor instead.
 func (*Get80211AzInitiatorTxLtfRepetitionsCountResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{99}
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{53}
 }
 
 func (x *Get80211AzInitiatorTxLtfRepetitionsCountResponse) GetResult() int32 {
@@ -4215,7 +2207,7 @@ type Get80211AzNumberOfRxSpatialStreamsRequest struct {
 
 func (x *Get80211AzNumberOfRxSpatialStreamsRequest) Reset() {
 	*x = Get80211AzNumberOfRxSpatialStreamsRequest{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[100]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[54]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4227,7 +2219,7 @@ func (x *Get80211AzNumberOfRxSpatialStreamsRequest) String() string {
 func (*Get80211AzNumberOfRxSpatialStreamsRequest) ProtoMessage() {}
 
 func (x *Get80211AzNumberOfRxSpatialStreamsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[100]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[54]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4240,7 +2232,7 @@ func (x *Get80211AzNumberOfRxSpatialStreamsRequest) ProtoReflect() protoreflect.
 
 // Deprecated: Use Get80211AzNumberOfRxSpatialStreamsRequest.ProtoReflect.Descriptor instead.
 func (*Get80211AzNumberOfRxSpatialStreamsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{100}
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{54}
 }
 
 type Get80211AzNumberOfRxSpatialStreamsResponse struct {
@@ -4252,7 +2244,7 @@ type Get80211AzNumberOfRxSpatialStreamsResponse struct {
 
 func (x *Get80211AzNumberOfRxSpatialStreamsResponse) Reset() {
 	*x = Get80211AzNumberOfRxSpatialStreamsResponse{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[101]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[55]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4264,7 +2256,7 @@ func (x *Get80211AzNumberOfRxSpatialStreamsResponse) String() string {
 func (*Get80211AzNumberOfRxSpatialStreamsResponse) ProtoMessage() {}
 
 func (x *Get80211AzNumberOfRxSpatialStreamsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[101]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[55]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4277,7 +2269,7 @@ func (x *Get80211AzNumberOfRxSpatialStreamsResponse) ProtoReflect() protoreflect
 
 // Deprecated: Use Get80211AzNumberOfRxSpatialStreamsResponse.ProtoReflect.Descriptor instead.
 func (*Get80211AzNumberOfRxSpatialStreamsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{101}
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{55}
 }
 
 func (x *Get80211AzNumberOfRxSpatialStreamsResponse) GetResult() int32 {
@@ -4295,7 +2287,7 @@ type Get80211AzNumberOfTxSpatialStreamsRequest struct {
 
 func (x *Get80211AzNumberOfTxSpatialStreamsRequest) Reset() {
 	*x = Get80211AzNumberOfTxSpatialStreamsRequest{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[102]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[56]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4307,7 +2299,7 @@ func (x *Get80211AzNumberOfTxSpatialStreamsRequest) String() string {
 func (*Get80211AzNumberOfTxSpatialStreamsRequest) ProtoMessage() {}
 
 func (x *Get80211AzNumberOfTxSpatialStreamsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[102]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[56]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4320,7 +2312,7 @@ func (x *Get80211AzNumberOfTxSpatialStreamsRequest) ProtoReflect() protoreflect.
 
 // Deprecated: Use Get80211AzNumberOfTxSpatialStreamsRequest.ProtoReflect.Descriptor instead.
 func (*Get80211AzNumberOfTxSpatialStreamsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{102}
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{56}
 }
 
 type Get80211AzNumberOfTxSpatialStreamsResponse struct {
@@ -4332,7 +2324,7 @@ type Get80211AzNumberOfTxSpatialStreamsResponse struct {
 
 func (x *Get80211AzNumberOfTxSpatialStreamsResponse) Reset() {
 	*x = Get80211AzNumberOfTxSpatialStreamsResponse{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[103]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[57]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4344,7 +2336,7 @@ func (x *Get80211AzNumberOfTxSpatialStreamsResponse) String() string {
 func (*Get80211AzNumberOfTxSpatialStreamsResponse) ProtoMessage() {}
 
 func (x *Get80211AzNumberOfTxSpatialStreamsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[103]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[57]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4357,7 +2349,7 @@ func (x *Get80211AzNumberOfTxSpatialStreamsResponse) ProtoReflect() protoreflect
 
 // Deprecated: Use Get80211AzNumberOfTxSpatialStreamsResponse.ProtoReflect.Descriptor instead.
 func (*Get80211AzNumberOfTxSpatialStreamsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{103}
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{57}
 }
 
 func (x *Get80211AzNumberOfTxSpatialStreamsResponse) GetResult() int32 {
@@ -4375,7 +2367,7 @@ type Get80211AzResponderTxLtfRepetitionsCountRequest struct {
 
 func (x *Get80211AzResponderTxLtfRepetitionsCountRequest) Reset() {
 	*x = Get80211AzResponderTxLtfRepetitionsCountRequest{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[104]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[58]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4387,7 +2379,7 @@ func (x *Get80211AzResponderTxLtfRepetitionsCountRequest) String() string {
 func (*Get80211AzResponderTxLtfRepetitionsCountRequest) ProtoMessage() {}
 
 func (x *Get80211AzResponderTxLtfRepetitionsCountRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[104]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[58]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4400,7 +2392,7 @@ func (x *Get80211AzResponderTxLtfRepetitionsCountRequest) ProtoReflect() protore
 
 // Deprecated: Use Get80211AzResponderTxLtfRepetitionsCountRequest.ProtoReflect.Descriptor instead.
 func (*Get80211AzResponderTxLtfRepetitionsCountRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{104}
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{58}
 }
 
 type Get80211AzResponderTxLtfRepetitionsCountResponse struct {
@@ -4412,7 +2404,7 @@ type Get80211AzResponderTxLtfRepetitionsCountResponse struct {
 
 func (x *Get80211AzResponderTxLtfRepetitionsCountResponse) Reset() {
 	*x = Get80211AzResponderTxLtfRepetitionsCountResponse{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[105]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[59]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4424,7 +2416,7 @@ func (x *Get80211AzResponderTxLtfRepetitionsCountResponse) String() string {
 func (*Get80211AzResponderTxLtfRepetitionsCountResponse) ProtoMessage() {}
 
 func (x *Get80211AzResponderTxLtfRepetitionsCountResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[105]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[59]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4437,7 +2429,7 @@ func (x *Get80211AzResponderTxLtfRepetitionsCountResponse) ProtoReflect() protor
 
 // Deprecated: Use Get80211AzResponderTxLtfRepetitionsCountResponse.ProtoReflect.Descriptor instead.
 func (*Get80211AzResponderTxLtfRepetitionsCountResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{105}
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{59}
 }
 
 func (x *Get80211AzResponderTxLtfRepetitionsCountResponse) GetResult() int32 {
@@ -4455,7 +2447,7 @@ type GetDistanceMmRequest struct {
 
 func (x *GetDistanceMmRequest) Reset() {
 	*x = GetDistanceMmRequest{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[106]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[60]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4467,7 +2459,7 @@ func (x *GetDistanceMmRequest) String() string {
 func (*GetDistanceMmRequest) ProtoMessage() {}
 
 func (x *GetDistanceMmRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[106]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[60]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4480,7 +2472,7 @@ func (x *GetDistanceMmRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetDistanceMmRequest.ProtoReflect.Descriptor instead.
 func (*GetDistanceMmRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{106}
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{60}
 }
 
 type GetDistanceMmResponse struct {
@@ -4492,7 +2484,7 @@ type GetDistanceMmResponse struct {
 
 func (x *GetDistanceMmResponse) Reset() {
 	*x = GetDistanceMmResponse{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[107]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[61]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4504,7 +2496,7 @@ func (x *GetDistanceMmResponse) String() string {
 func (*GetDistanceMmResponse) ProtoMessage() {}
 
 func (x *GetDistanceMmResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[107]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[61]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4517,7 +2509,7 @@ func (x *GetDistanceMmResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetDistanceMmResponse.ProtoReflect.Descriptor instead.
 func (*GetDistanceMmResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{107}
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{61}
 }
 
 func (x *GetDistanceMmResponse) GetResult() int32 {
@@ -4535,7 +2527,7 @@ type GetDistanceStdDevMmRequest struct {
 
 func (x *GetDistanceStdDevMmRequest) Reset() {
 	*x = GetDistanceStdDevMmRequest{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[108]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[62]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4547,7 +2539,7 @@ func (x *GetDistanceStdDevMmRequest) String() string {
 func (*GetDistanceStdDevMmRequest) ProtoMessage() {}
 
 func (x *GetDistanceStdDevMmRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[108]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[62]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4560,7 +2552,7 @@ func (x *GetDistanceStdDevMmRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetDistanceStdDevMmRequest.ProtoReflect.Descriptor instead.
 func (*GetDistanceStdDevMmRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{108}
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{62}
 }
 
 type GetDistanceStdDevMmResponse struct {
@@ -4572,7 +2564,7 @@ type GetDistanceStdDevMmResponse struct {
 
 func (x *GetDistanceStdDevMmResponse) Reset() {
 	*x = GetDistanceStdDevMmResponse{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[109]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[63]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4584,7 +2576,7 @@ func (x *GetDistanceStdDevMmResponse) String() string {
 func (*GetDistanceStdDevMmResponse) ProtoMessage() {}
 
 func (x *GetDistanceStdDevMmResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[109]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[63]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4597,7 +2589,7 @@ func (x *GetDistanceStdDevMmResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetDistanceStdDevMmResponse.ProtoReflect.Descriptor instead.
 func (*GetDistanceStdDevMmResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{109}
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{63}
 }
 
 func (x *GetDistanceStdDevMmResponse) GetResult() int32 {
@@ -4615,7 +2607,7 @@ type GetLciRequest struct {
 
 func (x *GetLciRequest) Reset() {
 	*x = GetLciRequest{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[110]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[64]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4627,7 +2619,7 @@ func (x *GetLciRequest) String() string {
 func (*GetLciRequest) ProtoMessage() {}
 
 func (x *GetLciRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[110]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[64]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4640,7 +2632,7 @@ func (x *GetLciRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetLciRequest.ProtoReflect.Descriptor instead.
 func (*GetLciRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{110}
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{64}
 }
 
 type GetLciResponse struct {
@@ -4652,7 +2644,7 @@ type GetLciResponse struct {
 
 func (x *GetLciResponse) Reset() {
 	*x = GetLciResponse{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[111]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[65]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4664,7 +2656,7 @@ func (x *GetLciResponse) String() string {
 func (*GetLciResponse) ProtoMessage() {}
 
 func (x *GetLciResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[111]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[65]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4677,7 +2669,7 @@ func (x *GetLciResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetLciResponse.ProtoReflect.Descriptor instead.
 func (*GetLciResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{111}
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{65}
 }
 
 func (x *GetLciResponse) GetResult() int64 {
@@ -4695,7 +2687,7 @@ type GetLcrRequest struct {
 
 func (x *GetLcrRequest) Reset() {
 	*x = GetLcrRequest{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[112]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[66]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4707,7 +2699,7 @@ func (x *GetLcrRequest) String() string {
 func (*GetLcrRequest) ProtoMessage() {}
 
 func (x *GetLcrRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[112]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[66]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4720,7 +2712,7 @@ func (x *GetLcrRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetLcrRequest.ProtoReflect.Descriptor instead.
 func (*GetLcrRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{112}
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{66}
 }
 
 type GetLcrResponse struct {
@@ -4732,7 +2724,7 @@ type GetLcrResponse struct {
 
 func (x *GetLcrResponse) Reset() {
 	*x = GetLcrResponse{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[113]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[67]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4744,7 +2736,7 @@ func (x *GetLcrResponse) String() string {
 func (*GetLcrResponse) ProtoMessage() {}
 
 func (x *GetLcrResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[113]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[67]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4757,10 +2749,90 @@ func (x *GetLcrResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetLcrResponse.ProtoReflect.Descriptor instead.
 func (*GetLcrResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{113}
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{67}
 }
 
 func (x *GetLcrResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetMacAddressRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMacAddressRequest) Reset() {
+	*x = GetMacAddressRequest{}
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[68]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMacAddressRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMacAddressRequest) ProtoMessage() {}
+
+func (x *GetMacAddressRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[68]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMacAddressRequest.ProtoReflect.Descriptor instead.
+func (*GetMacAddressRequest) Descriptor() ([]byte, []int) {
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{68}
+}
+
+type GetMacAddressResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMacAddressResponse) Reset() {
+	*x = GetMacAddressResponse{}
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[69]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMacAddressResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMacAddressResponse) ProtoMessage() {}
+
+func (x *GetMacAddressResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[69]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMacAddressResponse.ProtoReflect.Descriptor instead.
+func (*GetMacAddressResponse) Descriptor() ([]byte, []int) {
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{69}
+}
+
+func (x *GetMacAddressResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
@@ -4775,7 +2847,7 @@ type GetMaxTimeBetweenNtbMeasurementsMicrosRequest struct {
 
 func (x *GetMaxTimeBetweenNtbMeasurementsMicrosRequest) Reset() {
 	*x = GetMaxTimeBetweenNtbMeasurementsMicrosRequest{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[114]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[70]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4787,7 +2859,7 @@ func (x *GetMaxTimeBetweenNtbMeasurementsMicrosRequest) String() string {
 func (*GetMaxTimeBetweenNtbMeasurementsMicrosRequest) ProtoMessage() {}
 
 func (x *GetMaxTimeBetweenNtbMeasurementsMicrosRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[114]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[70]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4800,7 +2872,7 @@ func (x *GetMaxTimeBetweenNtbMeasurementsMicrosRequest) ProtoReflect() protorefl
 
 // Deprecated: Use GetMaxTimeBetweenNtbMeasurementsMicrosRequest.ProtoReflect.Descriptor instead.
 func (*GetMaxTimeBetweenNtbMeasurementsMicrosRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{114}
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{70}
 }
 
 type GetMaxTimeBetweenNtbMeasurementsMicrosResponse struct {
@@ -4812,7 +2884,7 @@ type GetMaxTimeBetweenNtbMeasurementsMicrosResponse struct {
 
 func (x *GetMaxTimeBetweenNtbMeasurementsMicrosResponse) Reset() {
 	*x = GetMaxTimeBetweenNtbMeasurementsMicrosResponse{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[115]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[71]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4824,7 +2896,7 @@ func (x *GetMaxTimeBetweenNtbMeasurementsMicrosResponse) String() string {
 func (*GetMaxTimeBetweenNtbMeasurementsMicrosResponse) ProtoMessage() {}
 
 func (x *GetMaxTimeBetweenNtbMeasurementsMicrosResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[115]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[71]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4837,7 +2909,7 @@ func (x *GetMaxTimeBetweenNtbMeasurementsMicrosResponse) ProtoReflect() protoref
 
 // Deprecated: Use GetMaxTimeBetweenNtbMeasurementsMicrosResponse.ProtoReflect.Descriptor instead.
 func (*GetMaxTimeBetweenNtbMeasurementsMicrosResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{115}
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{71}
 }
 
 func (x *GetMaxTimeBetweenNtbMeasurementsMicrosResponse) GetResult() int64 {
@@ -4855,7 +2927,7 @@ type GetMeasurementBandwidthRequest struct {
 
 func (x *GetMeasurementBandwidthRequest) Reset() {
 	*x = GetMeasurementBandwidthRequest{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[116]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[72]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4867,7 +2939,7 @@ func (x *GetMeasurementBandwidthRequest) String() string {
 func (*GetMeasurementBandwidthRequest) ProtoMessage() {}
 
 func (x *GetMeasurementBandwidthRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[116]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[72]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4880,7 +2952,7 @@ func (x *GetMeasurementBandwidthRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetMeasurementBandwidthRequest.ProtoReflect.Descriptor instead.
 func (*GetMeasurementBandwidthRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{116}
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{72}
 }
 
 type GetMeasurementBandwidthResponse struct {
@@ -4892,7 +2964,7 @@ type GetMeasurementBandwidthResponse struct {
 
 func (x *GetMeasurementBandwidthResponse) Reset() {
 	*x = GetMeasurementBandwidthResponse{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[117]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[73]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4904,7 +2976,7 @@ func (x *GetMeasurementBandwidthResponse) String() string {
 func (*GetMeasurementBandwidthResponse) ProtoMessage() {}
 
 func (x *GetMeasurementBandwidthResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[117]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[73]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4917,7 +2989,7 @@ func (x *GetMeasurementBandwidthResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetMeasurementBandwidthResponse.ProtoReflect.Descriptor instead.
 func (*GetMeasurementBandwidthResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{117}
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{73}
 }
 
 func (x *GetMeasurementBandwidthResponse) GetResult() int32 {
@@ -4935,7 +3007,7 @@ type GetMeasurementChannelFrequencyMHzRequest struct {
 
 func (x *GetMeasurementChannelFrequencyMHzRequest) Reset() {
 	*x = GetMeasurementChannelFrequencyMHzRequest{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[118]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[74]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4947,7 +3019,7 @@ func (x *GetMeasurementChannelFrequencyMHzRequest) String() string {
 func (*GetMeasurementChannelFrequencyMHzRequest) ProtoMessage() {}
 
 func (x *GetMeasurementChannelFrequencyMHzRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[118]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[74]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4960,7 +3032,7 @@ func (x *GetMeasurementChannelFrequencyMHzRequest) ProtoReflect() protoreflect.M
 
 // Deprecated: Use GetMeasurementChannelFrequencyMHzRequest.ProtoReflect.Descriptor instead.
 func (*GetMeasurementChannelFrequencyMHzRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{118}
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{74}
 }
 
 type GetMeasurementChannelFrequencyMHzResponse struct {
@@ -4972,7 +3044,7 @@ type GetMeasurementChannelFrequencyMHzResponse struct {
 
 func (x *GetMeasurementChannelFrequencyMHzResponse) Reset() {
 	*x = GetMeasurementChannelFrequencyMHzResponse{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[119]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[75]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4984,7 +3056,7 @@ func (x *GetMeasurementChannelFrequencyMHzResponse) String() string {
 func (*GetMeasurementChannelFrequencyMHzResponse) ProtoMessage() {}
 
 func (x *GetMeasurementChannelFrequencyMHzResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[119]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[75]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4997,7 +3069,7 @@ func (x *GetMeasurementChannelFrequencyMHzResponse) ProtoReflect() protoreflect.
 
 // Deprecated: Use GetMeasurementChannelFrequencyMHzResponse.ProtoReflect.Descriptor instead.
 func (*GetMeasurementChannelFrequencyMHzResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{119}
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{75}
 }
 
 func (x *GetMeasurementChannelFrequencyMHzResponse) GetResult() int32 {
@@ -5015,7 +3087,7 @@ type GetMinTimeBetweenNtbMeasurementsMicrosRequest struct {
 
 func (x *GetMinTimeBetweenNtbMeasurementsMicrosRequest) Reset() {
 	*x = GetMinTimeBetweenNtbMeasurementsMicrosRequest{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[120]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[76]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5027,7 +3099,7 @@ func (x *GetMinTimeBetweenNtbMeasurementsMicrosRequest) String() string {
 func (*GetMinTimeBetweenNtbMeasurementsMicrosRequest) ProtoMessage() {}
 
 func (x *GetMinTimeBetweenNtbMeasurementsMicrosRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[120]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[76]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5040,7 +3112,7 @@ func (x *GetMinTimeBetweenNtbMeasurementsMicrosRequest) ProtoReflect() protorefl
 
 // Deprecated: Use GetMinTimeBetweenNtbMeasurementsMicrosRequest.ProtoReflect.Descriptor instead.
 func (*GetMinTimeBetweenNtbMeasurementsMicrosRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{120}
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{76}
 }
 
 type GetMinTimeBetweenNtbMeasurementsMicrosResponse struct {
@@ -5052,7 +3124,7 @@ type GetMinTimeBetweenNtbMeasurementsMicrosResponse struct {
 
 func (x *GetMinTimeBetweenNtbMeasurementsMicrosResponse) Reset() {
 	*x = GetMinTimeBetweenNtbMeasurementsMicrosResponse{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[121]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[77]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5064,7 +3136,7 @@ func (x *GetMinTimeBetweenNtbMeasurementsMicrosResponse) String() string {
 func (*GetMinTimeBetweenNtbMeasurementsMicrosResponse) ProtoMessage() {}
 
 func (x *GetMinTimeBetweenNtbMeasurementsMicrosResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[121]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[77]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5077,7 +3149,7 @@ func (x *GetMinTimeBetweenNtbMeasurementsMicrosResponse) ProtoReflect() protoref
 
 // Deprecated: Use GetMinTimeBetweenNtbMeasurementsMicrosResponse.ProtoReflect.Descriptor instead.
 func (*GetMinTimeBetweenNtbMeasurementsMicrosResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{121}
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{77}
 }
 
 func (x *GetMinTimeBetweenNtbMeasurementsMicrosResponse) GetResult() int64 {
@@ -5095,7 +3167,7 @@ type GetNumAttemptedMeasurementsRequest struct {
 
 func (x *GetNumAttemptedMeasurementsRequest) Reset() {
 	*x = GetNumAttemptedMeasurementsRequest{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[122]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[78]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5107,7 +3179,7 @@ func (x *GetNumAttemptedMeasurementsRequest) String() string {
 func (*GetNumAttemptedMeasurementsRequest) ProtoMessage() {}
 
 func (x *GetNumAttemptedMeasurementsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[122]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[78]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5120,7 +3192,7 @@ func (x *GetNumAttemptedMeasurementsRequest) ProtoReflect() protoreflect.Message
 
 // Deprecated: Use GetNumAttemptedMeasurementsRequest.ProtoReflect.Descriptor instead.
 func (*GetNumAttemptedMeasurementsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{122}
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{78}
 }
 
 type GetNumAttemptedMeasurementsResponse struct {
@@ -5132,7 +3204,7 @@ type GetNumAttemptedMeasurementsResponse struct {
 
 func (x *GetNumAttemptedMeasurementsResponse) Reset() {
 	*x = GetNumAttemptedMeasurementsResponse{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[123]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[79]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5144,7 +3216,7 @@ func (x *GetNumAttemptedMeasurementsResponse) String() string {
 func (*GetNumAttemptedMeasurementsResponse) ProtoMessage() {}
 
 func (x *GetNumAttemptedMeasurementsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[123]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[79]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5157,7 +3229,7 @@ func (x *GetNumAttemptedMeasurementsResponse) ProtoReflect() protoreflect.Messag
 
 // Deprecated: Use GetNumAttemptedMeasurementsResponse.ProtoReflect.Descriptor instead.
 func (*GetNumAttemptedMeasurementsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{123}
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{79}
 }
 
 func (x *GetNumAttemptedMeasurementsResponse) GetResult() int32 {
@@ -5175,7 +3247,7 @@ type GetNumSuccessfulMeasurementsRequest struct {
 
 func (x *GetNumSuccessfulMeasurementsRequest) Reset() {
 	*x = GetNumSuccessfulMeasurementsRequest{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[124]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[80]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5187,7 +3259,7 @@ func (x *GetNumSuccessfulMeasurementsRequest) String() string {
 func (*GetNumSuccessfulMeasurementsRequest) ProtoMessage() {}
 
 func (x *GetNumSuccessfulMeasurementsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[124]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[80]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5200,7 +3272,7 @@ func (x *GetNumSuccessfulMeasurementsRequest) ProtoReflect() protoreflect.Messag
 
 // Deprecated: Use GetNumSuccessfulMeasurementsRequest.ProtoReflect.Descriptor instead.
 func (*GetNumSuccessfulMeasurementsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{124}
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{80}
 }
 
 type GetNumSuccessfulMeasurementsResponse struct {
@@ -5212,7 +3284,7 @@ type GetNumSuccessfulMeasurementsResponse struct {
 
 func (x *GetNumSuccessfulMeasurementsResponse) Reset() {
 	*x = GetNumSuccessfulMeasurementsResponse{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[125]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[81]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5224,7 +3296,7 @@ func (x *GetNumSuccessfulMeasurementsResponse) String() string {
 func (*GetNumSuccessfulMeasurementsResponse) ProtoMessage() {}
 
 func (x *GetNumSuccessfulMeasurementsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[125]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[81]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5237,7 +3309,7 @@ func (x *GetNumSuccessfulMeasurementsResponse) ProtoReflect() protoreflect.Messa
 
 // Deprecated: Use GetNumSuccessfulMeasurementsResponse.ProtoReflect.Descriptor instead.
 func (*GetNumSuccessfulMeasurementsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{125}
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{81}
 }
 
 func (x *GetNumSuccessfulMeasurementsResponse) GetResult() int32 {
@@ -5255,7 +3327,7 @@ type GetPasnComebackAfterMillisRequest struct {
 
 func (x *GetPasnComebackAfterMillisRequest) Reset() {
 	*x = GetPasnComebackAfterMillisRequest{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[126]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[82]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5267,7 +3339,7 @@ func (x *GetPasnComebackAfterMillisRequest) String() string {
 func (*GetPasnComebackAfterMillisRequest) ProtoMessage() {}
 
 func (x *GetPasnComebackAfterMillisRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[126]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[82]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5280,7 +3352,7 @@ func (x *GetPasnComebackAfterMillisRequest) ProtoReflect() protoreflect.Message 
 
 // Deprecated: Use GetPasnComebackAfterMillisRequest.ProtoReflect.Descriptor instead.
 func (*GetPasnComebackAfterMillisRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{126}
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{82}
 }
 
 type GetPasnComebackAfterMillisResponse struct {
@@ -5292,7 +3364,7 @@ type GetPasnComebackAfterMillisResponse struct {
 
 func (x *GetPasnComebackAfterMillisResponse) Reset() {
 	*x = GetPasnComebackAfterMillisResponse{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[127]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[83]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5304,7 +3376,7 @@ func (x *GetPasnComebackAfterMillisResponse) String() string {
 func (*GetPasnComebackAfterMillisResponse) ProtoMessage() {}
 
 func (x *GetPasnComebackAfterMillisResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[127]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[83]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5317,10 +3389,90 @@ func (x *GetPasnComebackAfterMillisResponse) ProtoReflect() protoreflect.Message
 
 // Deprecated: Use GetPasnComebackAfterMillisResponse.ProtoReflect.Descriptor instead.
 func (*GetPasnComebackAfterMillisResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{127}
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{83}
 }
 
 func (x *GetPasnComebackAfterMillisResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetPasnComebackCookieRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPasnComebackCookieRequest) Reset() {
+	*x = GetPasnComebackCookieRequest{}
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[84]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPasnComebackCookieRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPasnComebackCookieRequest) ProtoMessage() {}
+
+func (x *GetPasnComebackCookieRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[84]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPasnComebackCookieRequest.ProtoReflect.Descriptor instead.
+func (*GetPasnComebackCookieRequest) Descriptor() ([]byte, []int) {
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{84}
+}
+
+type GetPasnComebackCookieResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPasnComebackCookieResponse) Reset() {
+	*x = GetPasnComebackCookieResponse{}
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[85]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPasnComebackCookieResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPasnComebackCookieResponse) ProtoMessage() {}
+
+func (x *GetPasnComebackCookieResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[85]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPasnComebackCookieResponse.ProtoReflect.Descriptor instead.
+func (*GetPasnComebackCookieResponse) Descriptor() ([]byte, []int) {
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{85}
+}
+
+func (x *GetPasnComebackCookieResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
@@ -5335,7 +3487,7 @@ type GetPeerHandleRequest struct {
 
 func (x *GetPeerHandleRequest) Reset() {
 	*x = GetPeerHandleRequest{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[128]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[86]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5347,7 +3499,7 @@ func (x *GetPeerHandleRequest) String() string {
 func (*GetPeerHandleRequest) ProtoMessage() {}
 
 func (x *GetPeerHandleRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[128]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[86]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5360,7 +3512,7 @@ func (x *GetPeerHandleRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetPeerHandleRequest.ProtoReflect.Descriptor instead.
 func (*GetPeerHandleRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{128}
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{86}
 }
 
 type GetPeerHandleResponse struct {
@@ -5372,7 +3524,7 @@ type GetPeerHandleResponse struct {
 
 func (x *GetPeerHandleResponse) Reset() {
 	*x = GetPeerHandleResponse{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[129]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[87]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5384,7 +3536,7 @@ func (x *GetPeerHandleResponse) String() string {
 func (*GetPeerHandleResponse) ProtoMessage() {}
 
 func (x *GetPeerHandleResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[129]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[87]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5397,7 +3549,7 @@ func (x *GetPeerHandleResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetPeerHandleResponse.ProtoReflect.Descriptor instead.
 func (*GetPeerHandleResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{129}
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{87}
 }
 
 func (x *GetPeerHandleResponse) GetResult() int64 {
@@ -5415,7 +3567,7 @@ type GetRangingTimestampMillisRequest struct {
 
 func (x *GetRangingTimestampMillisRequest) Reset() {
 	*x = GetRangingTimestampMillisRequest{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[130]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[88]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5427,7 +3579,7 @@ func (x *GetRangingTimestampMillisRequest) String() string {
 func (*GetRangingTimestampMillisRequest) ProtoMessage() {}
 
 func (x *GetRangingTimestampMillisRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[130]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[88]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5440,7 +3592,7 @@ func (x *GetRangingTimestampMillisRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetRangingTimestampMillisRequest.ProtoReflect.Descriptor instead.
 func (*GetRangingTimestampMillisRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{130}
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{88}
 }
 
 type GetRangingTimestampMillisResponse struct {
@@ -5452,7 +3604,7 @@ type GetRangingTimestampMillisResponse struct {
 
 func (x *GetRangingTimestampMillisResponse) Reset() {
 	*x = GetRangingTimestampMillisResponse{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[131]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[89]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5464,7 +3616,7 @@ func (x *GetRangingTimestampMillisResponse) String() string {
 func (*GetRangingTimestampMillisResponse) ProtoMessage() {}
 
 func (x *GetRangingTimestampMillisResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[131]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[89]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5477,7 +3629,7 @@ func (x *GetRangingTimestampMillisResponse) ProtoReflect() protoreflect.Message 
 
 // Deprecated: Use GetRangingTimestampMillisResponse.ProtoReflect.Descriptor instead.
 func (*GetRangingTimestampMillisResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{131}
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{89}
 }
 
 func (x *GetRangingTimestampMillisResponse) GetResult() int64 {
@@ -5495,7 +3647,7 @@ type GetRssiRequest struct {
 
 func (x *GetRssiRequest) Reset() {
 	*x = GetRssiRequest{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[132]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[90]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5507,7 +3659,7 @@ func (x *GetRssiRequest) String() string {
 func (*GetRssiRequest) ProtoMessage() {}
 
 func (x *GetRssiRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[132]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[90]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5520,7 +3672,7 @@ func (x *GetRssiRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetRssiRequest.ProtoReflect.Descriptor instead.
 func (*GetRssiRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{132}
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{90}
 }
 
 type GetRssiResponse struct {
@@ -5532,7 +3684,7 @@ type GetRssiResponse struct {
 
 func (x *GetRssiResponse) Reset() {
 	*x = GetRssiResponse{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[133]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[91]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5544,7 +3696,7 @@ func (x *GetRssiResponse) String() string {
 func (*GetRssiResponse) ProtoMessage() {}
 
 func (x *GetRssiResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[133]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[91]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5557,7 +3709,7 @@ func (x *GetRssiResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetRssiResponse.ProtoReflect.Descriptor instead.
 func (*GetRssiResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{133}
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{91}
 }
 
 func (x *GetRssiResponse) GetResult() int32 {
@@ -5575,7 +3727,7 @@ type GetSecureHeLtfProtocolVersionRequest struct {
 
 func (x *GetSecureHeLtfProtocolVersionRequest) Reset() {
 	*x = GetSecureHeLtfProtocolVersionRequest{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[134]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[92]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5587,7 +3739,7 @@ func (x *GetSecureHeLtfProtocolVersionRequest) String() string {
 func (*GetSecureHeLtfProtocolVersionRequest) ProtoMessage() {}
 
 func (x *GetSecureHeLtfProtocolVersionRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[134]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[92]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5600,7 +3752,7 @@ func (x *GetSecureHeLtfProtocolVersionRequest) ProtoReflect() protoreflect.Messa
 
 // Deprecated: Use GetSecureHeLtfProtocolVersionRequest.ProtoReflect.Descriptor instead.
 func (*GetSecureHeLtfProtocolVersionRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{134}
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{92}
 }
 
 type GetSecureHeLtfProtocolVersionResponse struct {
@@ -5612,7 +3764,7 @@ type GetSecureHeLtfProtocolVersionResponse struct {
 
 func (x *GetSecureHeLtfProtocolVersionResponse) Reset() {
 	*x = GetSecureHeLtfProtocolVersionResponse{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[135]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[93]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5624,7 +3776,7 @@ func (x *GetSecureHeLtfProtocolVersionResponse) String() string {
 func (*GetSecureHeLtfProtocolVersionResponse) ProtoMessage() {}
 
 func (x *GetSecureHeLtfProtocolVersionResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[135]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[93]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5637,7 +3789,7 @@ func (x *GetSecureHeLtfProtocolVersionResponse) ProtoReflect() protoreflect.Mess
 
 // Deprecated: Use GetSecureHeLtfProtocolVersionResponse.ProtoReflect.Descriptor instead.
 func (*GetSecureHeLtfProtocolVersionResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{135}
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{93}
 }
 
 func (x *GetSecureHeLtfProtocolVersionResponse) GetResult() int32 {
@@ -5655,7 +3807,7 @@ type GetStatusRequest struct {
 
 func (x *GetStatusRequest) Reset() {
 	*x = GetStatusRequest{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[136]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[94]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5667,7 +3819,7 @@ func (x *GetStatusRequest) String() string {
 func (*GetStatusRequest) ProtoMessage() {}
 
 func (x *GetStatusRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[136]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[94]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5680,7 +3832,7 @@ func (x *GetStatusRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetStatusRequest.ProtoReflect.Descriptor instead.
 func (*GetStatusRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{136}
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{94}
 }
 
 type GetStatusResponse struct {
@@ -5692,7 +3844,7 @@ type GetStatusResponse struct {
 
 func (x *GetStatusResponse) Reset() {
 	*x = GetStatusResponse{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[137]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[95]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5704,7 +3856,7 @@ func (x *GetStatusResponse) String() string {
 func (*GetStatusResponse) ProtoMessage() {}
 
 func (x *GetStatusResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[137]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[95]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5717,7 +3869,7 @@ func (x *GetStatusResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetStatusResponse.ProtoReflect.Descriptor instead.
 func (*GetStatusResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{137}
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{95}
 }
 
 func (x *GetStatusResponse) GetResult() int32 {
@@ -5735,7 +3887,7 @@ type GetUnverifiedResponderLocationRequest struct {
 
 func (x *GetUnverifiedResponderLocationRequest) Reset() {
 	*x = GetUnverifiedResponderLocationRequest{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[138]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[96]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5747,7 +3899,7 @@ func (x *GetUnverifiedResponderLocationRequest) String() string {
 func (*GetUnverifiedResponderLocationRequest) ProtoMessage() {}
 
 func (x *GetUnverifiedResponderLocationRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[138]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[96]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5760,7 +3912,7 @@ func (x *GetUnverifiedResponderLocationRequest) ProtoReflect() protoreflect.Mess
 
 // Deprecated: Use GetUnverifiedResponderLocationRequest.ProtoReflect.Descriptor instead.
 func (*GetUnverifiedResponderLocationRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{138}
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{96}
 }
 
 type GetUnverifiedResponderLocationResponse struct {
@@ -5772,7 +3924,7 @@ type GetUnverifiedResponderLocationResponse struct {
 
 func (x *GetUnverifiedResponderLocationResponse) Reset() {
 	*x = GetUnverifiedResponderLocationResponse{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[139]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[97]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5784,7 +3936,7 @@ func (x *GetUnverifiedResponderLocationResponse) String() string {
 func (*GetUnverifiedResponderLocationResponse) ProtoMessage() {}
 
 func (x *GetUnverifiedResponderLocationResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[139]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[97]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5797,7 +3949,7 @@ func (x *GetUnverifiedResponderLocationResponse) ProtoReflect() protoreflect.Mes
 
 // Deprecated: Use GetUnverifiedResponderLocationResponse.ProtoReflect.Descriptor instead.
 func (*GetUnverifiedResponderLocationResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{139}
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{97}
 }
 
 func (x *GetUnverifiedResponderLocationResponse) GetResult() int64 {
@@ -5815,7 +3967,7 @@ type Is80211AzNtbMeasurementRequest struct {
 
 func (x *Is80211AzNtbMeasurementRequest) Reset() {
 	*x = Is80211AzNtbMeasurementRequest{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[140]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[98]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5827,7 +3979,7 @@ func (x *Is80211AzNtbMeasurementRequest) String() string {
 func (*Is80211AzNtbMeasurementRequest) ProtoMessage() {}
 
 func (x *Is80211AzNtbMeasurementRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[140]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[98]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5840,7 +3992,7 @@ func (x *Is80211AzNtbMeasurementRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Is80211AzNtbMeasurementRequest.ProtoReflect.Descriptor instead.
 func (*Is80211AzNtbMeasurementRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{140}
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{98}
 }
 
 type Is80211AzNtbMeasurementResponse struct {
@@ -5852,7 +4004,7 @@ type Is80211AzNtbMeasurementResponse struct {
 
 func (x *Is80211AzNtbMeasurementResponse) Reset() {
 	*x = Is80211AzNtbMeasurementResponse{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[141]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[99]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5864,7 +4016,7 @@ func (x *Is80211AzNtbMeasurementResponse) String() string {
 func (*Is80211AzNtbMeasurementResponse) ProtoMessage() {}
 
 func (x *Is80211AzNtbMeasurementResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[141]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[99]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5877,7 +4029,7 @@ func (x *Is80211AzNtbMeasurementResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Is80211AzNtbMeasurementResponse.ProtoReflect.Descriptor instead.
 func (*Is80211AzNtbMeasurementResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{141}
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{99}
 }
 
 func (x *Is80211AzNtbMeasurementResponse) GetResult() bool {
@@ -5895,7 +4047,7 @@ type Is80211McMeasurementRequest struct {
 
 func (x *Is80211McMeasurementRequest) Reset() {
 	*x = Is80211McMeasurementRequest{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[142]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[100]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5907,7 +4059,7 @@ func (x *Is80211McMeasurementRequest) String() string {
 func (*Is80211McMeasurementRequest) ProtoMessage() {}
 
 func (x *Is80211McMeasurementRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[142]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[100]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5920,7 +4072,7 @@ func (x *Is80211McMeasurementRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Is80211McMeasurementRequest.ProtoReflect.Descriptor instead.
 func (*Is80211McMeasurementRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{142}
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{100}
 }
 
 type Is80211McMeasurementResponse struct {
@@ -5932,7 +4084,7 @@ type Is80211McMeasurementResponse struct {
 
 func (x *Is80211McMeasurementResponse) Reset() {
 	*x = Is80211McMeasurementResponse{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[143]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[101]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5944,7 +4096,7 @@ func (x *Is80211McMeasurementResponse) String() string {
 func (*Is80211McMeasurementResponse) ProtoMessage() {}
 
 func (x *Is80211McMeasurementResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[143]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[101]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5957,7 +4109,7 @@ func (x *Is80211McMeasurementResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Is80211McMeasurementResponse.ProtoReflect.Descriptor instead.
 func (*Is80211McMeasurementResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{143}
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{101}
 }
 
 func (x *Is80211McMeasurementResponse) GetResult() bool {
@@ -5975,7 +4127,7 @@ type IsRangingAuthenticatedRequest struct {
 
 func (x *IsRangingAuthenticatedRequest) Reset() {
 	*x = IsRangingAuthenticatedRequest{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[144]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[102]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5987,7 +4139,7 @@ func (x *IsRangingAuthenticatedRequest) String() string {
 func (*IsRangingAuthenticatedRequest) ProtoMessage() {}
 
 func (x *IsRangingAuthenticatedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[144]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[102]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6000,7 +4152,7 @@ func (x *IsRangingAuthenticatedRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsRangingAuthenticatedRequest.ProtoReflect.Descriptor instead.
 func (*IsRangingAuthenticatedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{144}
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{102}
 }
 
 type IsRangingAuthenticatedResponse struct {
@@ -6012,7 +4164,7 @@ type IsRangingAuthenticatedResponse struct {
 
 func (x *IsRangingAuthenticatedResponse) Reset() {
 	*x = IsRangingAuthenticatedResponse{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[145]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[103]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6024,7 +4176,7 @@ func (x *IsRangingAuthenticatedResponse) String() string {
 func (*IsRangingAuthenticatedResponse) ProtoMessage() {}
 
 func (x *IsRangingAuthenticatedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[145]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[103]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6037,7 +4189,7 @@ func (x *IsRangingAuthenticatedResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsRangingAuthenticatedResponse.ProtoReflect.Descriptor instead.
 func (*IsRangingAuthenticatedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{145}
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{103}
 }
 
 func (x *IsRangingAuthenticatedResponse) GetResult() bool {
@@ -6055,7 +4207,7 @@ type IsRangingFrameProtectedRequest struct {
 
 func (x *IsRangingFrameProtectedRequest) Reset() {
 	*x = IsRangingFrameProtectedRequest{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[146]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[104]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6067,7 +4219,7 @@ func (x *IsRangingFrameProtectedRequest) String() string {
 func (*IsRangingFrameProtectedRequest) ProtoMessage() {}
 
 func (x *IsRangingFrameProtectedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[146]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[104]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6080,7 +4232,7 @@ func (x *IsRangingFrameProtectedRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsRangingFrameProtectedRequest.ProtoReflect.Descriptor instead.
 func (*IsRangingFrameProtectedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{146}
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{104}
 }
 
 type IsRangingFrameProtectedResponse struct {
@@ -6092,7 +4244,7 @@ type IsRangingFrameProtectedResponse struct {
 
 func (x *IsRangingFrameProtectedResponse) Reset() {
 	*x = IsRangingFrameProtectedResponse{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[147]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[105]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6104,7 +4256,7 @@ func (x *IsRangingFrameProtectedResponse) String() string {
 func (*IsRangingFrameProtectedResponse) ProtoMessage() {}
 
 func (x *IsRangingFrameProtectedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[147]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[105]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6117,7 +4269,7 @@ func (x *IsRangingFrameProtectedResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsRangingFrameProtectedResponse.ProtoReflect.Descriptor instead.
 func (*IsRangingFrameProtectedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{147}
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{105}
 }
 
 func (x *IsRangingFrameProtectedResponse) GetResult() bool {
@@ -6135,7 +4287,7 @@ type IsSecureHeLtfEnabledRequest struct {
 
 func (x *IsSecureHeLtfEnabledRequest) Reset() {
 	*x = IsSecureHeLtfEnabledRequest{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[148]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[106]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6147,7 +4299,7 @@ func (x *IsSecureHeLtfEnabledRequest) String() string {
 func (*IsSecureHeLtfEnabledRequest) ProtoMessage() {}
 
 func (x *IsSecureHeLtfEnabledRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[148]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[106]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6160,7 +4312,7 @@ func (x *IsSecureHeLtfEnabledRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsSecureHeLtfEnabledRequest.ProtoReflect.Descriptor instead.
 func (*IsSecureHeLtfEnabledRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{148}
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{106}
 }
 
 type IsSecureHeLtfEnabledResponse struct {
@@ -6172,7 +4324,7 @@ type IsSecureHeLtfEnabledResponse struct {
 
 func (x *IsSecureHeLtfEnabledResponse) Reset() {
 	*x = IsSecureHeLtfEnabledResponse{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[149]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[107]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6184,7 +4336,7 @@ func (x *IsSecureHeLtfEnabledResponse) String() string {
 func (*IsSecureHeLtfEnabledResponse) ProtoMessage() {}
 
 func (x *IsSecureHeLtfEnabledResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[149]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[107]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6197,7 +4349,7 @@ func (x *IsSecureHeLtfEnabledResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsSecureHeLtfEnabledResponse.ProtoReflect.Descriptor instead.
 func (*IsSecureHeLtfEnabledResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{149}
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{107}
 }
 
 func (x *IsSecureHeLtfEnabledResponse) GetResult() bool {
@@ -6205,6 +4357,166 @@ func (x *IsSecureHeLtfEnabledResponse) GetResult() bool {
 		return x.Result
 	}
 	return false
+}
+
+type ToStringRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ToStringRequest) Reset() {
+	*x = ToStringRequest{}
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[108]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ToStringRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ToStringRequest) ProtoMessage() {}
+
+func (x *ToStringRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[108]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ToStringRequest.ProtoReflect.Descriptor instead.
+func (*ToStringRequest) Descriptor() ([]byte, []int) {
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{108}
+}
+
+type ToStringResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ToStringResponse) Reset() {
+	*x = ToStringResponse{}
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[109]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ToStringResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ToStringResponse) ProtoMessage() {}
+
+func (x *ToStringResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[109]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ToStringResponse.ProtoReflect.Descriptor instead.
+func (*ToStringResponse) Descriptor() ([]byte, []int) {
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{109}
+}
+
+func (x *ToStringResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type BuildRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *BuildRequest) Reset() {
+	*x = BuildRequest{}
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[110]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *BuildRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*BuildRequest) ProtoMessage() {}
+
+func (x *BuildRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[110]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use BuildRequest.ProtoReflect.Descriptor instead.
+func (*BuildRequest) Descriptor() ([]byte, []int) {
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{110}
+}
+
+type BuildResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *BuildResponse) Reset() {
+	*x = BuildResponse{}
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[111]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *BuildResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*BuildResponse) ProtoMessage() {}
+
+func (x *BuildResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[111]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use BuildResponse.ProtoReflect.Descriptor instead.
+func (*BuildResponse) Descriptor() ([]byte, []int) {
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{111}
+}
+
+func (x *BuildResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
 }
 
 type Set80211AzInitiatorTxLtfRepetitionsCountRequest struct {
@@ -6216,7 +4528,7 @@ type Set80211AzInitiatorTxLtfRepetitionsCountRequest struct {
 
 func (x *Set80211AzInitiatorTxLtfRepetitionsCountRequest) Reset() {
 	*x = Set80211AzInitiatorTxLtfRepetitionsCountRequest{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[150]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[112]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6228,7 +4540,7 @@ func (x *Set80211AzInitiatorTxLtfRepetitionsCountRequest) String() string {
 func (*Set80211AzInitiatorTxLtfRepetitionsCountRequest) ProtoMessage() {}
 
 func (x *Set80211AzInitiatorTxLtfRepetitionsCountRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[150]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[112]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6241,7 +4553,7 @@ func (x *Set80211AzInitiatorTxLtfRepetitionsCountRequest) ProtoReflect() protore
 
 // Deprecated: Use Set80211AzInitiatorTxLtfRepetitionsCountRequest.ProtoReflect.Descriptor instead.
 func (*Set80211AzInitiatorTxLtfRepetitionsCountRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{150}
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{112}
 }
 
 func (x *Set80211AzInitiatorTxLtfRepetitionsCountRequest) GetArg0() int32 {
@@ -6260,7 +4572,7 @@ type Set80211AzInitiatorTxLtfRepetitionsCountResponse struct {
 
 func (x *Set80211AzInitiatorTxLtfRepetitionsCountResponse) Reset() {
 	*x = Set80211AzInitiatorTxLtfRepetitionsCountResponse{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[151]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[113]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6272,7 +4584,7 @@ func (x *Set80211AzInitiatorTxLtfRepetitionsCountResponse) String() string {
 func (*Set80211AzInitiatorTxLtfRepetitionsCountResponse) ProtoMessage() {}
 
 func (x *Set80211AzInitiatorTxLtfRepetitionsCountResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[151]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[113]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6285,7 +4597,7 @@ func (x *Set80211AzInitiatorTxLtfRepetitionsCountResponse) ProtoReflect() protor
 
 // Deprecated: Use Set80211AzInitiatorTxLtfRepetitionsCountResponse.ProtoReflect.Descriptor instead.
 func (*Set80211AzInitiatorTxLtfRepetitionsCountResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{151}
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{113}
 }
 
 func (x *Set80211AzInitiatorTxLtfRepetitionsCountResponse) GetResult() int64 {
@@ -6304,7 +4616,7 @@ type Set80211AzNtbMeasurementRequest struct {
 
 func (x *Set80211AzNtbMeasurementRequest) Reset() {
 	*x = Set80211AzNtbMeasurementRequest{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[152]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[114]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6316,7 +4628,7 @@ func (x *Set80211AzNtbMeasurementRequest) String() string {
 func (*Set80211AzNtbMeasurementRequest) ProtoMessage() {}
 
 func (x *Set80211AzNtbMeasurementRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[152]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[114]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6329,7 +4641,7 @@ func (x *Set80211AzNtbMeasurementRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Set80211AzNtbMeasurementRequest.ProtoReflect.Descriptor instead.
 func (*Set80211AzNtbMeasurementRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{152}
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{114}
 }
 
 func (x *Set80211AzNtbMeasurementRequest) GetArg0() bool {
@@ -6348,7 +4660,7 @@ type Set80211AzNtbMeasurementResponse struct {
 
 func (x *Set80211AzNtbMeasurementResponse) Reset() {
 	*x = Set80211AzNtbMeasurementResponse{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[153]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[115]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6360,7 +4672,7 @@ func (x *Set80211AzNtbMeasurementResponse) String() string {
 func (*Set80211AzNtbMeasurementResponse) ProtoMessage() {}
 
 func (x *Set80211AzNtbMeasurementResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[153]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[115]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6373,7 +4685,7 @@ func (x *Set80211AzNtbMeasurementResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Set80211AzNtbMeasurementResponse.ProtoReflect.Descriptor instead.
 func (*Set80211AzNtbMeasurementResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{153}
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{115}
 }
 
 func (x *Set80211AzNtbMeasurementResponse) GetResult() int64 {
@@ -6392,7 +4704,7 @@ type Set80211AzNumberOfRxSpatialStreamsRequest struct {
 
 func (x *Set80211AzNumberOfRxSpatialStreamsRequest) Reset() {
 	*x = Set80211AzNumberOfRxSpatialStreamsRequest{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[154]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[116]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6404,7 +4716,7 @@ func (x *Set80211AzNumberOfRxSpatialStreamsRequest) String() string {
 func (*Set80211AzNumberOfRxSpatialStreamsRequest) ProtoMessage() {}
 
 func (x *Set80211AzNumberOfRxSpatialStreamsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[154]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[116]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6417,7 +4729,7 @@ func (x *Set80211AzNumberOfRxSpatialStreamsRequest) ProtoReflect() protoreflect.
 
 // Deprecated: Use Set80211AzNumberOfRxSpatialStreamsRequest.ProtoReflect.Descriptor instead.
 func (*Set80211AzNumberOfRxSpatialStreamsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{154}
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{116}
 }
 
 func (x *Set80211AzNumberOfRxSpatialStreamsRequest) GetArg0() int32 {
@@ -6436,7 +4748,7 @@ type Set80211AzNumberOfRxSpatialStreamsResponse struct {
 
 func (x *Set80211AzNumberOfRxSpatialStreamsResponse) Reset() {
 	*x = Set80211AzNumberOfRxSpatialStreamsResponse{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[155]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[117]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6448,7 +4760,7 @@ func (x *Set80211AzNumberOfRxSpatialStreamsResponse) String() string {
 func (*Set80211AzNumberOfRxSpatialStreamsResponse) ProtoMessage() {}
 
 func (x *Set80211AzNumberOfRxSpatialStreamsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[155]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[117]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6461,7 +4773,7 @@ func (x *Set80211AzNumberOfRxSpatialStreamsResponse) ProtoReflect() protoreflect
 
 // Deprecated: Use Set80211AzNumberOfRxSpatialStreamsResponse.ProtoReflect.Descriptor instead.
 func (*Set80211AzNumberOfRxSpatialStreamsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{155}
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{117}
 }
 
 func (x *Set80211AzNumberOfRxSpatialStreamsResponse) GetResult() int64 {
@@ -6480,7 +4792,7 @@ type Set80211AzNumberOfTxSpatialStreamsRequest struct {
 
 func (x *Set80211AzNumberOfTxSpatialStreamsRequest) Reset() {
 	*x = Set80211AzNumberOfTxSpatialStreamsRequest{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[156]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[118]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6492,7 +4804,7 @@ func (x *Set80211AzNumberOfTxSpatialStreamsRequest) String() string {
 func (*Set80211AzNumberOfTxSpatialStreamsRequest) ProtoMessage() {}
 
 func (x *Set80211AzNumberOfTxSpatialStreamsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[156]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[118]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6505,7 +4817,7 @@ func (x *Set80211AzNumberOfTxSpatialStreamsRequest) ProtoReflect() protoreflect.
 
 // Deprecated: Use Set80211AzNumberOfTxSpatialStreamsRequest.ProtoReflect.Descriptor instead.
 func (*Set80211AzNumberOfTxSpatialStreamsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{156}
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{118}
 }
 
 func (x *Set80211AzNumberOfTxSpatialStreamsRequest) GetArg0() int32 {
@@ -6524,7 +4836,7 @@ type Set80211AzNumberOfTxSpatialStreamsResponse struct {
 
 func (x *Set80211AzNumberOfTxSpatialStreamsResponse) Reset() {
 	*x = Set80211AzNumberOfTxSpatialStreamsResponse{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[157]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[119]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6536,7 +4848,7 @@ func (x *Set80211AzNumberOfTxSpatialStreamsResponse) String() string {
 func (*Set80211AzNumberOfTxSpatialStreamsResponse) ProtoMessage() {}
 
 func (x *Set80211AzNumberOfTxSpatialStreamsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[157]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[119]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6549,7 +4861,7 @@ func (x *Set80211AzNumberOfTxSpatialStreamsResponse) ProtoReflect() protoreflect
 
 // Deprecated: Use Set80211AzNumberOfTxSpatialStreamsResponse.ProtoReflect.Descriptor instead.
 func (*Set80211AzNumberOfTxSpatialStreamsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{157}
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{119}
 }
 
 func (x *Set80211AzNumberOfTxSpatialStreamsResponse) GetResult() int64 {
@@ -6568,7 +4880,7 @@ type Set80211AzResponderTxLtfRepetitionsCountRequest struct {
 
 func (x *Set80211AzResponderTxLtfRepetitionsCountRequest) Reset() {
 	*x = Set80211AzResponderTxLtfRepetitionsCountRequest{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[158]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[120]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6580,7 +4892,7 @@ func (x *Set80211AzResponderTxLtfRepetitionsCountRequest) String() string {
 func (*Set80211AzResponderTxLtfRepetitionsCountRequest) ProtoMessage() {}
 
 func (x *Set80211AzResponderTxLtfRepetitionsCountRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[158]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[120]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6593,7 +4905,7 @@ func (x *Set80211AzResponderTxLtfRepetitionsCountRequest) ProtoReflect() protore
 
 // Deprecated: Use Set80211AzResponderTxLtfRepetitionsCountRequest.ProtoReflect.Descriptor instead.
 func (*Set80211AzResponderTxLtfRepetitionsCountRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{158}
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{120}
 }
 
 func (x *Set80211AzResponderTxLtfRepetitionsCountRequest) GetArg0() int32 {
@@ -6612,7 +4924,7 @@ type Set80211AzResponderTxLtfRepetitionsCountResponse struct {
 
 func (x *Set80211AzResponderTxLtfRepetitionsCountResponse) Reset() {
 	*x = Set80211AzResponderTxLtfRepetitionsCountResponse{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[159]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[121]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6624,7 +4936,7 @@ func (x *Set80211AzResponderTxLtfRepetitionsCountResponse) String() string {
 func (*Set80211AzResponderTxLtfRepetitionsCountResponse) ProtoMessage() {}
 
 func (x *Set80211AzResponderTxLtfRepetitionsCountResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[159]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[121]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6637,7 +4949,7 @@ func (x *Set80211AzResponderTxLtfRepetitionsCountResponse) ProtoReflect() protor
 
 // Deprecated: Use Set80211AzResponderTxLtfRepetitionsCountResponse.ProtoReflect.Descriptor instead.
 func (*Set80211AzResponderTxLtfRepetitionsCountResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{159}
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{121}
 }
 
 func (x *Set80211AzResponderTxLtfRepetitionsCountResponse) GetResult() int64 {
@@ -6656,7 +4968,7 @@ type Set80211McMeasurementRequest struct {
 
 func (x *Set80211McMeasurementRequest) Reset() {
 	*x = Set80211McMeasurementRequest{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[160]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[122]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6668,7 +4980,7 @@ func (x *Set80211McMeasurementRequest) String() string {
 func (*Set80211McMeasurementRequest) ProtoMessage() {}
 
 func (x *Set80211McMeasurementRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[160]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[122]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6681,7 +4993,7 @@ func (x *Set80211McMeasurementRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Set80211McMeasurementRequest.ProtoReflect.Descriptor instead.
 func (*Set80211McMeasurementRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{160}
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{122}
 }
 
 func (x *Set80211McMeasurementRequest) GetArg0() bool {
@@ -6700,7 +5012,7 @@ type Set80211McMeasurementResponse struct {
 
 func (x *Set80211McMeasurementResponse) Reset() {
 	*x = Set80211McMeasurementResponse{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[161]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[123]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6712,7 +5024,7 @@ func (x *Set80211McMeasurementResponse) String() string {
 func (*Set80211McMeasurementResponse) ProtoMessage() {}
 
 func (x *Set80211McMeasurementResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[161]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[123]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6725,7 +5037,7 @@ func (x *Set80211McMeasurementResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Set80211McMeasurementResponse.ProtoReflect.Descriptor instead.
 func (*Set80211McMeasurementResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{161}
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{123}
 }
 
 func (x *Set80211McMeasurementResponse) GetResult() int64 {
@@ -6744,7 +5056,7 @@ type SetDistanceMmRequest struct {
 
 func (x *SetDistanceMmRequest) Reset() {
 	*x = SetDistanceMmRequest{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[162]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[124]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6756,7 +5068,7 @@ func (x *SetDistanceMmRequest) String() string {
 func (*SetDistanceMmRequest) ProtoMessage() {}
 
 func (x *SetDistanceMmRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[162]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[124]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6769,7 +5081,7 @@ func (x *SetDistanceMmRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetDistanceMmRequest.ProtoReflect.Descriptor instead.
 func (*SetDistanceMmRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{162}
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{124}
 }
 
 func (x *SetDistanceMmRequest) GetArg0() int32 {
@@ -6788,7 +5100,7 @@ type SetDistanceMmResponse struct {
 
 func (x *SetDistanceMmResponse) Reset() {
 	*x = SetDistanceMmResponse{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[163]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[125]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6800,7 +5112,7 @@ func (x *SetDistanceMmResponse) String() string {
 func (*SetDistanceMmResponse) ProtoMessage() {}
 
 func (x *SetDistanceMmResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[163]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[125]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6813,7 +5125,7 @@ func (x *SetDistanceMmResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetDistanceMmResponse.ProtoReflect.Descriptor instead.
 func (*SetDistanceMmResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{163}
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{125}
 }
 
 func (x *SetDistanceMmResponse) GetResult() int64 {
@@ -6832,7 +5144,7 @@ type SetDistanceStdDevMmRequest struct {
 
 func (x *SetDistanceStdDevMmRequest) Reset() {
 	*x = SetDistanceStdDevMmRequest{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[164]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[126]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6844,7 +5156,7 @@ func (x *SetDistanceStdDevMmRequest) String() string {
 func (*SetDistanceStdDevMmRequest) ProtoMessage() {}
 
 func (x *SetDistanceStdDevMmRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[164]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[126]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6857,7 +5169,7 @@ func (x *SetDistanceStdDevMmRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetDistanceStdDevMmRequest.ProtoReflect.Descriptor instead.
 func (*SetDistanceStdDevMmRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{164}
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{126}
 }
 
 func (x *SetDistanceStdDevMmRequest) GetArg0() int32 {
@@ -6876,7 +5188,7 @@ type SetDistanceStdDevMmResponse struct {
 
 func (x *SetDistanceStdDevMmResponse) Reset() {
 	*x = SetDistanceStdDevMmResponse{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[165]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[127]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6888,7 +5200,7 @@ func (x *SetDistanceStdDevMmResponse) String() string {
 func (*SetDistanceStdDevMmResponse) ProtoMessage() {}
 
 func (x *SetDistanceStdDevMmResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[165]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[127]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6901,7 +5213,7 @@ func (x *SetDistanceStdDevMmResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetDistanceStdDevMmResponse.ProtoReflect.Descriptor instead.
 func (*SetDistanceStdDevMmResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{165}
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{127}
 }
 
 func (x *SetDistanceStdDevMmResponse) GetResult() int64 {
@@ -6920,7 +5232,7 @@ type SetLciRequest struct {
 
 func (x *SetLciRequest) Reset() {
 	*x = SetLciRequest{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[166]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[128]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6932,7 +5244,7 @@ func (x *SetLciRequest) String() string {
 func (*SetLciRequest) ProtoMessage() {}
 
 func (x *SetLciRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[166]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[128]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6945,7 +5257,7 @@ func (x *SetLciRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetLciRequest.ProtoReflect.Descriptor instead.
 func (*SetLciRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{166}
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{128}
 }
 
 func (x *SetLciRequest) GetArg0() int64 {
@@ -6964,7 +5276,7 @@ type SetLciResponse struct {
 
 func (x *SetLciResponse) Reset() {
 	*x = SetLciResponse{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[167]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[129]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6976,7 +5288,7 @@ func (x *SetLciResponse) String() string {
 func (*SetLciResponse) ProtoMessage() {}
 
 func (x *SetLciResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[167]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[129]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6989,7 +5301,7 @@ func (x *SetLciResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetLciResponse.ProtoReflect.Descriptor instead.
 func (*SetLciResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{167}
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{129}
 }
 
 func (x *SetLciResponse) GetResult() int64 {
@@ -7008,7 +5320,7 @@ type SetLcrRequest struct {
 
 func (x *SetLcrRequest) Reset() {
 	*x = SetLcrRequest{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[168]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[130]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7020,7 +5332,7 @@ func (x *SetLcrRequest) String() string {
 func (*SetLcrRequest) ProtoMessage() {}
 
 func (x *SetLcrRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[168]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[130]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7033,7 +5345,7 @@ func (x *SetLcrRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetLcrRequest.ProtoReflect.Descriptor instead.
 func (*SetLcrRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{168}
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{130}
 }
 
 func (x *SetLcrRequest) GetArg0() int64 {
@@ -7052,7 +5364,7 @@ type SetLcrResponse struct {
 
 func (x *SetLcrResponse) Reset() {
 	*x = SetLcrResponse{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[169]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[131]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7064,7 +5376,7 @@ func (x *SetLcrResponse) String() string {
 func (*SetLcrResponse) ProtoMessage() {}
 
 func (x *SetLcrResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[169]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[131]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7077,10 +5389,98 @@ func (x *SetLcrResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetLcrResponse.ProtoReflect.Descriptor instead.
 func (*SetLcrResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{169}
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{131}
 }
 
 func (x *SetLcrResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetMacAddressRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetMacAddressRequest) Reset() {
+	*x = SetMacAddressRequest{}
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[132]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetMacAddressRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetMacAddressRequest) ProtoMessage() {}
+
+func (x *SetMacAddressRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[132]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetMacAddressRequest.ProtoReflect.Descriptor instead.
+func (*SetMacAddressRequest) Descriptor() ([]byte, []int) {
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{132}
+}
+
+func (x *SetMacAddressRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetMacAddressResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetMacAddressResponse) Reset() {
+	*x = SetMacAddressResponse{}
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[133]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetMacAddressResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetMacAddressResponse) ProtoMessage() {}
+
+func (x *SetMacAddressResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[133]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetMacAddressResponse.ProtoReflect.Descriptor instead.
+func (*SetMacAddressResponse) Descriptor() ([]byte, []int) {
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{133}
+}
+
+func (x *SetMacAddressResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
@@ -7096,7 +5496,7 @@ type SetMaxTimeBetweenNtbMeasurementsMicrosRequest struct {
 
 func (x *SetMaxTimeBetweenNtbMeasurementsMicrosRequest) Reset() {
 	*x = SetMaxTimeBetweenNtbMeasurementsMicrosRequest{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[170]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[134]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7108,7 +5508,7 @@ func (x *SetMaxTimeBetweenNtbMeasurementsMicrosRequest) String() string {
 func (*SetMaxTimeBetweenNtbMeasurementsMicrosRequest) ProtoMessage() {}
 
 func (x *SetMaxTimeBetweenNtbMeasurementsMicrosRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[170]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[134]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7121,7 +5521,7 @@ func (x *SetMaxTimeBetweenNtbMeasurementsMicrosRequest) ProtoReflect() protorefl
 
 // Deprecated: Use SetMaxTimeBetweenNtbMeasurementsMicrosRequest.ProtoReflect.Descriptor instead.
 func (*SetMaxTimeBetweenNtbMeasurementsMicrosRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{170}
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{134}
 }
 
 func (x *SetMaxTimeBetweenNtbMeasurementsMicrosRequest) GetArg0() int64 {
@@ -7140,7 +5540,7 @@ type SetMaxTimeBetweenNtbMeasurementsMicrosResponse struct {
 
 func (x *SetMaxTimeBetweenNtbMeasurementsMicrosResponse) Reset() {
 	*x = SetMaxTimeBetweenNtbMeasurementsMicrosResponse{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[171]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[135]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7152,7 +5552,7 @@ func (x *SetMaxTimeBetweenNtbMeasurementsMicrosResponse) String() string {
 func (*SetMaxTimeBetweenNtbMeasurementsMicrosResponse) ProtoMessage() {}
 
 func (x *SetMaxTimeBetweenNtbMeasurementsMicrosResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[171]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[135]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7165,7 +5565,7 @@ func (x *SetMaxTimeBetweenNtbMeasurementsMicrosResponse) ProtoReflect() protoref
 
 // Deprecated: Use SetMaxTimeBetweenNtbMeasurementsMicrosResponse.ProtoReflect.Descriptor instead.
 func (*SetMaxTimeBetweenNtbMeasurementsMicrosResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{171}
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{135}
 }
 
 func (x *SetMaxTimeBetweenNtbMeasurementsMicrosResponse) GetResult() int64 {
@@ -7184,7 +5584,7 @@ type SetMeasurementBandwidthRequest struct {
 
 func (x *SetMeasurementBandwidthRequest) Reset() {
 	*x = SetMeasurementBandwidthRequest{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[172]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[136]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7196,7 +5596,7 @@ func (x *SetMeasurementBandwidthRequest) String() string {
 func (*SetMeasurementBandwidthRequest) ProtoMessage() {}
 
 func (x *SetMeasurementBandwidthRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[172]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[136]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7209,7 +5609,7 @@ func (x *SetMeasurementBandwidthRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetMeasurementBandwidthRequest.ProtoReflect.Descriptor instead.
 func (*SetMeasurementBandwidthRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{172}
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{136}
 }
 
 func (x *SetMeasurementBandwidthRequest) GetArg0() int32 {
@@ -7228,7 +5628,7 @@ type SetMeasurementBandwidthResponse struct {
 
 func (x *SetMeasurementBandwidthResponse) Reset() {
 	*x = SetMeasurementBandwidthResponse{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[173]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[137]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7240,7 +5640,7 @@ func (x *SetMeasurementBandwidthResponse) String() string {
 func (*SetMeasurementBandwidthResponse) ProtoMessage() {}
 
 func (x *SetMeasurementBandwidthResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[173]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[137]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7253,7 +5653,7 @@ func (x *SetMeasurementBandwidthResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetMeasurementBandwidthResponse.ProtoReflect.Descriptor instead.
 func (*SetMeasurementBandwidthResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{173}
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{137}
 }
 
 func (x *SetMeasurementBandwidthResponse) GetResult() int64 {
@@ -7272,7 +5672,7 @@ type SetMeasurementChannelFrequencyMHzRequest struct {
 
 func (x *SetMeasurementChannelFrequencyMHzRequest) Reset() {
 	*x = SetMeasurementChannelFrequencyMHzRequest{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[174]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[138]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7284,7 +5684,7 @@ func (x *SetMeasurementChannelFrequencyMHzRequest) String() string {
 func (*SetMeasurementChannelFrequencyMHzRequest) ProtoMessage() {}
 
 func (x *SetMeasurementChannelFrequencyMHzRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[174]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[138]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7297,7 +5697,7 @@ func (x *SetMeasurementChannelFrequencyMHzRequest) ProtoReflect() protoreflect.M
 
 // Deprecated: Use SetMeasurementChannelFrequencyMHzRequest.ProtoReflect.Descriptor instead.
 func (*SetMeasurementChannelFrequencyMHzRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{174}
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{138}
 }
 
 func (x *SetMeasurementChannelFrequencyMHzRequest) GetArg0() int32 {
@@ -7316,7 +5716,7 @@ type SetMeasurementChannelFrequencyMHzResponse struct {
 
 func (x *SetMeasurementChannelFrequencyMHzResponse) Reset() {
 	*x = SetMeasurementChannelFrequencyMHzResponse{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[175]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[139]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7328,7 +5728,7 @@ func (x *SetMeasurementChannelFrequencyMHzResponse) String() string {
 func (*SetMeasurementChannelFrequencyMHzResponse) ProtoMessage() {}
 
 func (x *SetMeasurementChannelFrequencyMHzResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[175]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[139]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7341,7 +5741,7 @@ func (x *SetMeasurementChannelFrequencyMHzResponse) ProtoReflect() protoreflect.
 
 // Deprecated: Use SetMeasurementChannelFrequencyMHzResponse.ProtoReflect.Descriptor instead.
 func (*SetMeasurementChannelFrequencyMHzResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{175}
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{139}
 }
 
 func (x *SetMeasurementChannelFrequencyMHzResponse) GetResult() int64 {
@@ -7360,7 +5760,7 @@ type SetMinTimeBetweenNtbMeasurementsMicrosRequest struct {
 
 func (x *SetMinTimeBetweenNtbMeasurementsMicrosRequest) Reset() {
 	*x = SetMinTimeBetweenNtbMeasurementsMicrosRequest{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[176]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[140]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7372,7 +5772,7 @@ func (x *SetMinTimeBetweenNtbMeasurementsMicrosRequest) String() string {
 func (*SetMinTimeBetweenNtbMeasurementsMicrosRequest) ProtoMessage() {}
 
 func (x *SetMinTimeBetweenNtbMeasurementsMicrosRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[176]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[140]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7385,7 +5785,7 @@ func (x *SetMinTimeBetweenNtbMeasurementsMicrosRequest) ProtoReflect() protorefl
 
 // Deprecated: Use SetMinTimeBetweenNtbMeasurementsMicrosRequest.ProtoReflect.Descriptor instead.
 func (*SetMinTimeBetweenNtbMeasurementsMicrosRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{176}
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{140}
 }
 
 func (x *SetMinTimeBetweenNtbMeasurementsMicrosRequest) GetArg0() int64 {
@@ -7404,7 +5804,7 @@ type SetMinTimeBetweenNtbMeasurementsMicrosResponse struct {
 
 func (x *SetMinTimeBetweenNtbMeasurementsMicrosResponse) Reset() {
 	*x = SetMinTimeBetweenNtbMeasurementsMicrosResponse{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[177]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[141]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7416,7 +5816,7 @@ func (x *SetMinTimeBetweenNtbMeasurementsMicrosResponse) String() string {
 func (*SetMinTimeBetweenNtbMeasurementsMicrosResponse) ProtoMessage() {}
 
 func (x *SetMinTimeBetweenNtbMeasurementsMicrosResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[177]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[141]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7429,7 +5829,7 @@ func (x *SetMinTimeBetweenNtbMeasurementsMicrosResponse) ProtoReflect() protoref
 
 // Deprecated: Use SetMinTimeBetweenNtbMeasurementsMicrosResponse.ProtoReflect.Descriptor instead.
 func (*SetMinTimeBetweenNtbMeasurementsMicrosResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{177}
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{141}
 }
 
 func (x *SetMinTimeBetweenNtbMeasurementsMicrosResponse) GetResult() int64 {
@@ -7448,7 +5848,7 @@ type SetNumAttemptedMeasurementsRequest struct {
 
 func (x *SetNumAttemptedMeasurementsRequest) Reset() {
 	*x = SetNumAttemptedMeasurementsRequest{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[178]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[142]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7460,7 +5860,7 @@ func (x *SetNumAttemptedMeasurementsRequest) String() string {
 func (*SetNumAttemptedMeasurementsRequest) ProtoMessage() {}
 
 func (x *SetNumAttemptedMeasurementsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[178]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[142]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7473,7 +5873,7 @@ func (x *SetNumAttemptedMeasurementsRequest) ProtoReflect() protoreflect.Message
 
 // Deprecated: Use SetNumAttemptedMeasurementsRequest.ProtoReflect.Descriptor instead.
 func (*SetNumAttemptedMeasurementsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{178}
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{142}
 }
 
 func (x *SetNumAttemptedMeasurementsRequest) GetArg0() int32 {
@@ -7492,7 +5892,7 @@ type SetNumAttemptedMeasurementsResponse struct {
 
 func (x *SetNumAttemptedMeasurementsResponse) Reset() {
 	*x = SetNumAttemptedMeasurementsResponse{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[179]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[143]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7504,7 +5904,7 @@ func (x *SetNumAttemptedMeasurementsResponse) String() string {
 func (*SetNumAttemptedMeasurementsResponse) ProtoMessage() {}
 
 func (x *SetNumAttemptedMeasurementsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[179]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[143]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7517,7 +5917,7 @@ func (x *SetNumAttemptedMeasurementsResponse) ProtoReflect() protoreflect.Messag
 
 // Deprecated: Use SetNumAttemptedMeasurementsResponse.ProtoReflect.Descriptor instead.
 func (*SetNumAttemptedMeasurementsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{179}
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{143}
 }
 
 func (x *SetNumAttemptedMeasurementsResponse) GetResult() int64 {
@@ -7536,7 +5936,7 @@ type SetNumSuccessfulMeasurementsRequest struct {
 
 func (x *SetNumSuccessfulMeasurementsRequest) Reset() {
 	*x = SetNumSuccessfulMeasurementsRequest{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[180]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[144]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7548,7 +5948,7 @@ func (x *SetNumSuccessfulMeasurementsRequest) String() string {
 func (*SetNumSuccessfulMeasurementsRequest) ProtoMessage() {}
 
 func (x *SetNumSuccessfulMeasurementsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[180]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[144]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7561,7 +5961,7 @@ func (x *SetNumSuccessfulMeasurementsRequest) ProtoReflect() protoreflect.Messag
 
 // Deprecated: Use SetNumSuccessfulMeasurementsRequest.ProtoReflect.Descriptor instead.
 func (*SetNumSuccessfulMeasurementsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{180}
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{144}
 }
 
 func (x *SetNumSuccessfulMeasurementsRequest) GetArg0() int32 {
@@ -7580,7 +5980,7 @@ type SetNumSuccessfulMeasurementsResponse struct {
 
 func (x *SetNumSuccessfulMeasurementsResponse) Reset() {
 	*x = SetNumSuccessfulMeasurementsResponse{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[181]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[145]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7592,7 +5992,7 @@ func (x *SetNumSuccessfulMeasurementsResponse) String() string {
 func (*SetNumSuccessfulMeasurementsResponse) ProtoMessage() {}
 
 func (x *SetNumSuccessfulMeasurementsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[181]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[145]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7605,7 +6005,7 @@ func (x *SetNumSuccessfulMeasurementsResponse) ProtoReflect() protoreflect.Messa
 
 // Deprecated: Use SetNumSuccessfulMeasurementsResponse.ProtoReflect.Descriptor instead.
 func (*SetNumSuccessfulMeasurementsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{181}
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{145}
 }
 
 func (x *SetNumSuccessfulMeasurementsResponse) GetResult() int64 {
@@ -7624,7 +6024,7 @@ type SetPasnComebackAfterMillisRequest struct {
 
 func (x *SetPasnComebackAfterMillisRequest) Reset() {
 	*x = SetPasnComebackAfterMillisRequest{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[182]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[146]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7636,7 +6036,7 @@ func (x *SetPasnComebackAfterMillisRequest) String() string {
 func (*SetPasnComebackAfterMillisRequest) ProtoMessage() {}
 
 func (x *SetPasnComebackAfterMillisRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[182]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[146]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7649,7 +6049,7 @@ func (x *SetPasnComebackAfterMillisRequest) ProtoReflect() protoreflect.Message 
 
 // Deprecated: Use SetPasnComebackAfterMillisRequest.ProtoReflect.Descriptor instead.
 func (*SetPasnComebackAfterMillisRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{182}
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{146}
 }
 
 func (x *SetPasnComebackAfterMillisRequest) GetArg0() int64 {
@@ -7668,7 +6068,7 @@ type SetPasnComebackAfterMillisResponse struct {
 
 func (x *SetPasnComebackAfterMillisResponse) Reset() {
 	*x = SetPasnComebackAfterMillisResponse{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[183]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[147]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7680,7 +6080,7 @@ func (x *SetPasnComebackAfterMillisResponse) String() string {
 func (*SetPasnComebackAfterMillisResponse) ProtoMessage() {}
 
 func (x *SetPasnComebackAfterMillisResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[183]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[147]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7693,10 +6093,98 @@ func (x *SetPasnComebackAfterMillisResponse) ProtoReflect() protoreflect.Message
 
 // Deprecated: Use SetPasnComebackAfterMillisResponse.ProtoReflect.Descriptor instead.
 func (*SetPasnComebackAfterMillisResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{183}
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{147}
 }
 
 func (x *SetPasnComebackAfterMillisResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetPasnComebackCookieRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetPasnComebackCookieRequest) Reset() {
+	*x = SetPasnComebackCookieRequest{}
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[148]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetPasnComebackCookieRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetPasnComebackCookieRequest) ProtoMessage() {}
+
+func (x *SetPasnComebackCookieRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[148]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetPasnComebackCookieRequest.ProtoReflect.Descriptor instead.
+func (*SetPasnComebackCookieRequest) Descriptor() ([]byte, []int) {
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{148}
+}
+
+func (x *SetPasnComebackCookieRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetPasnComebackCookieResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetPasnComebackCookieResponse) Reset() {
+	*x = SetPasnComebackCookieResponse{}
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[149]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetPasnComebackCookieResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetPasnComebackCookieResponse) ProtoMessage() {}
+
+func (x *SetPasnComebackCookieResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[149]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetPasnComebackCookieResponse.ProtoReflect.Descriptor instead.
+func (*SetPasnComebackCookieResponse) Descriptor() ([]byte, []int) {
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{149}
+}
+
+func (x *SetPasnComebackCookieResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
@@ -7712,7 +6200,7 @@ type SetPeerHandleRequest struct {
 
 func (x *SetPeerHandleRequest) Reset() {
 	*x = SetPeerHandleRequest{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[184]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[150]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7724,7 +6212,7 @@ func (x *SetPeerHandleRequest) String() string {
 func (*SetPeerHandleRequest) ProtoMessage() {}
 
 func (x *SetPeerHandleRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[184]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[150]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7737,7 +6225,7 @@ func (x *SetPeerHandleRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetPeerHandleRequest.ProtoReflect.Descriptor instead.
 func (*SetPeerHandleRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{184}
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{150}
 }
 
 func (x *SetPeerHandleRequest) GetArg0() int64 {
@@ -7756,7 +6244,7 @@ type SetPeerHandleResponse struct {
 
 func (x *SetPeerHandleResponse) Reset() {
 	*x = SetPeerHandleResponse{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[185]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[151]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7768,7 +6256,7 @@ func (x *SetPeerHandleResponse) String() string {
 func (*SetPeerHandleResponse) ProtoMessage() {}
 
 func (x *SetPeerHandleResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[185]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[151]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7781,7 +6269,7 @@ func (x *SetPeerHandleResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetPeerHandleResponse.ProtoReflect.Descriptor instead.
 func (*SetPeerHandleResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{185}
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{151}
 }
 
 func (x *SetPeerHandleResponse) GetResult() int64 {
@@ -7800,7 +6288,7 @@ type SetRangingAuthenticatedRequest struct {
 
 func (x *SetRangingAuthenticatedRequest) Reset() {
 	*x = SetRangingAuthenticatedRequest{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[186]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[152]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7812,7 +6300,7 @@ func (x *SetRangingAuthenticatedRequest) String() string {
 func (*SetRangingAuthenticatedRequest) ProtoMessage() {}
 
 func (x *SetRangingAuthenticatedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[186]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[152]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7825,7 +6313,7 @@ func (x *SetRangingAuthenticatedRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetRangingAuthenticatedRequest.ProtoReflect.Descriptor instead.
 func (*SetRangingAuthenticatedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{186}
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{152}
 }
 
 func (x *SetRangingAuthenticatedRequest) GetArg0() bool {
@@ -7844,7 +6332,7 @@ type SetRangingAuthenticatedResponse struct {
 
 func (x *SetRangingAuthenticatedResponse) Reset() {
 	*x = SetRangingAuthenticatedResponse{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[187]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[153]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7856,7 +6344,7 @@ func (x *SetRangingAuthenticatedResponse) String() string {
 func (*SetRangingAuthenticatedResponse) ProtoMessage() {}
 
 func (x *SetRangingAuthenticatedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[187]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[153]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7869,7 +6357,7 @@ func (x *SetRangingAuthenticatedResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetRangingAuthenticatedResponse.ProtoReflect.Descriptor instead.
 func (*SetRangingAuthenticatedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{187}
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{153}
 }
 
 func (x *SetRangingAuthenticatedResponse) GetResult() int64 {
@@ -7888,7 +6376,7 @@ type SetRangingFrameProtectedRequest struct {
 
 func (x *SetRangingFrameProtectedRequest) Reset() {
 	*x = SetRangingFrameProtectedRequest{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[188]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[154]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7900,7 +6388,7 @@ func (x *SetRangingFrameProtectedRequest) String() string {
 func (*SetRangingFrameProtectedRequest) ProtoMessage() {}
 
 func (x *SetRangingFrameProtectedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[188]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[154]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7913,7 +6401,7 @@ func (x *SetRangingFrameProtectedRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetRangingFrameProtectedRequest.ProtoReflect.Descriptor instead.
 func (*SetRangingFrameProtectedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{188}
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{154}
 }
 
 func (x *SetRangingFrameProtectedRequest) GetArg0() bool {
@@ -7932,7 +6420,7 @@ type SetRangingFrameProtectedResponse struct {
 
 func (x *SetRangingFrameProtectedResponse) Reset() {
 	*x = SetRangingFrameProtectedResponse{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[189]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[155]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7944,7 +6432,7 @@ func (x *SetRangingFrameProtectedResponse) String() string {
 func (*SetRangingFrameProtectedResponse) ProtoMessage() {}
 
 func (x *SetRangingFrameProtectedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[189]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[155]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7957,7 +6445,7 @@ func (x *SetRangingFrameProtectedResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetRangingFrameProtectedResponse.ProtoReflect.Descriptor instead.
 func (*SetRangingFrameProtectedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{189}
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{155}
 }
 
 func (x *SetRangingFrameProtectedResponse) GetResult() int64 {
@@ -7976,7 +6464,7 @@ type SetRangingTimestampMillisRequest struct {
 
 func (x *SetRangingTimestampMillisRequest) Reset() {
 	*x = SetRangingTimestampMillisRequest{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[190]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[156]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7988,7 +6476,7 @@ func (x *SetRangingTimestampMillisRequest) String() string {
 func (*SetRangingTimestampMillisRequest) ProtoMessage() {}
 
 func (x *SetRangingTimestampMillisRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[190]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[156]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8001,7 +6489,7 @@ func (x *SetRangingTimestampMillisRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetRangingTimestampMillisRequest.ProtoReflect.Descriptor instead.
 func (*SetRangingTimestampMillisRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{190}
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{156}
 }
 
 func (x *SetRangingTimestampMillisRequest) GetArg0() int64 {
@@ -8020,7 +6508,7 @@ type SetRangingTimestampMillisResponse struct {
 
 func (x *SetRangingTimestampMillisResponse) Reset() {
 	*x = SetRangingTimestampMillisResponse{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[191]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[157]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8032,7 +6520,7 @@ func (x *SetRangingTimestampMillisResponse) String() string {
 func (*SetRangingTimestampMillisResponse) ProtoMessage() {}
 
 func (x *SetRangingTimestampMillisResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[191]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[157]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8045,7 +6533,7 @@ func (x *SetRangingTimestampMillisResponse) ProtoReflect() protoreflect.Message 
 
 // Deprecated: Use SetRangingTimestampMillisResponse.ProtoReflect.Descriptor instead.
 func (*SetRangingTimestampMillisResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{191}
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{157}
 }
 
 func (x *SetRangingTimestampMillisResponse) GetResult() int64 {
@@ -8064,7 +6552,7 @@ type SetRssiRequest struct {
 
 func (x *SetRssiRequest) Reset() {
 	*x = SetRssiRequest{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[192]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[158]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8076,7 +6564,7 @@ func (x *SetRssiRequest) String() string {
 func (*SetRssiRequest) ProtoMessage() {}
 
 func (x *SetRssiRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[192]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[158]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8089,7 +6577,7 @@ func (x *SetRssiRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetRssiRequest.ProtoReflect.Descriptor instead.
 func (*SetRssiRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{192}
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{158}
 }
 
 func (x *SetRssiRequest) GetArg0() int32 {
@@ -8108,7 +6596,7 @@ type SetRssiResponse struct {
 
 func (x *SetRssiResponse) Reset() {
 	*x = SetRssiResponse{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[193]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[159]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8120,7 +6608,7 @@ func (x *SetRssiResponse) String() string {
 func (*SetRssiResponse) ProtoMessage() {}
 
 func (x *SetRssiResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[193]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[159]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8133,7 +6621,7 @@ func (x *SetRssiResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetRssiResponse.ProtoReflect.Descriptor instead.
 func (*SetRssiResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{193}
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{159}
 }
 
 func (x *SetRssiResponse) GetResult() int64 {
@@ -8152,7 +6640,7 @@ type SetSecureHeLtfEnabledRequest struct {
 
 func (x *SetSecureHeLtfEnabledRequest) Reset() {
 	*x = SetSecureHeLtfEnabledRequest{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[194]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[160]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8164,7 +6652,7 @@ func (x *SetSecureHeLtfEnabledRequest) String() string {
 func (*SetSecureHeLtfEnabledRequest) ProtoMessage() {}
 
 func (x *SetSecureHeLtfEnabledRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[194]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[160]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8177,7 +6665,7 @@ func (x *SetSecureHeLtfEnabledRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetSecureHeLtfEnabledRequest.ProtoReflect.Descriptor instead.
 func (*SetSecureHeLtfEnabledRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{194}
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{160}
 }
 
 func (x *SetSecureHeLtfEnabledRequest) GetArg0() bool {
@@ -8196,7 +6684,7 @@ type SetSecureHeLtfEnabledResponse struct {
 
 func (x *SetSecureHeLtfEnabledResponse) Reset() {
 	*x = SetSecureHeLtfEnabledResponse{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[195]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[161]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8208,7 +6696,7 @@ func (x *SetSecureHeLtfEnabledResponse) String() string {
 func (*SetSecureHeLtfEnabledResponse) ProtoMessage() {}
 
 func (x *SetSecureHeLtfEnabledResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[195]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[161]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8221,7 +6709,7 @@ func (x *SetSecureHeLtfEnabledResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetSecureHeLtfEnabledResponse.ProtoReflect.Descriptor instead.
 func (*SetSecureHeLtfEnabledResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{195}
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{161}
 }
 
 func (x *SetSecureHeLtfEnabledResponse) GetResult() int64 {
@@ -8240,7 +6728,7 @@ type SetSecureHeLtfProtocolVersionRequest struct {
 
 func (x *SetSecureHeLtfProtocolVersionRequest) Reset() {
 	*x = SetSecureHeLtfProtocolVersionRequest{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[196]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[162]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8252,7 +6740,7 @@ func (x *SetSecureHeLtfProtocolVersionRequest) String() string {
 func (*SetSecureHeLtfProtocolVersionRequest) ProtoMessage() {}
 
 func (x *SetSecureHeLtfProtocolVersionRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[196]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[162]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8265,7 +6753,7 @@ func (x *SetSecureHeLtfProtocolVersionRequest) ProtoReflect() protoreflect.Messa
 
 // Deprecated: Use SetSecureHeLtfProtocolVersionRequest.ProtoReflect.Descriptor instead.
 func (*SetSecureHeLtfProtocolVersionRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{196}
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{162}
 }
 
 func (x *SetSecureHeLtfProtocolVersionRequest) GetArg0() int32 {
@@ -8284,7 +6772,7 @@ type SetSecureHeLtfProtocolVersionResponse struct {
 
 func (x *SetSecureHeLtfProtocolVersionResponse) Reset() {
 	*x = SetSecureHeLtfProtocolVersionResponse{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[197]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[163]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8296,7 +6784,7 @@ func (x *SetSecureHeLtfProtocolVersionResponse) String() string {
 func (*SetSecureHeLtfProtocolVersionResponse) ProtoMessage() {}
 
 func (x *SetSecureHeLtfProtocolVersionResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[197]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[163]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8309,7 +6797,7 @@ func (x *SetSecureHeLtfProtocolVersionResponse) ProtoReflect() protoreflect.Mess
 
 // Deprecated: Use SetSecureHeLtfProtocolVersionResponse.ProtoReflect.Descriptor instead.
 func (*SetSecureHeLtfProtocolVersionResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{197}
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{163}
 }
 
 func (x *SetSecureHeLtfProtocolVersionResponse) GetResult() int64 {
@@ -8328,7 +6816,7 @@ type SetStatusRequest struct {
 
 func (x *SetStatusRequest) Reset() {
 	*x = SetStatusRequest{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[198]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[164]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8340,7 +6828,7 @@ func (x *SetStatusRequest) String() string {
 func (*SetStatusRequest) ProtoMessage() {}
 
 func (x *SetStatusRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[198]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[164]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8353,7 +6841,7 @@ func (x *SetStatusRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetStatusRequest.ProtoReflect.Descriptor instead.
 func (*SetStatusRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{198}
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{164}
 }
 
 func (x *SetStatusRequest) GetArg0() int32 {
@@ -8372,7 +6860,7 @@ type SetStatusResponse struct {
 
 func (x *SetStatusResponse) Reset() {
 	*x = SetStatusResponse{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[199]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[165]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8384,7 +6872,7 @@ func (x *SetStatusResponse) String() string {
 func (*SetStatusResponse) ProtoMessage() {}
 
 func (x *SetStatusResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[199]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[165]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8397,7 +6885,7 @@ func (x *SetStatusResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetStatusResponse.ProtoReflect.Descriptor instead.
 func (*SetStatusResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{199}
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{165}
 }
 
 func (x *SetStatusResponse) GetResult() int64 {
@@ -8416,7 +6904,7 @@ type SetUnverifiedResponderLocationRequest struct {
 
 func (x *SetUnverifiedResponderLocationRequest) Reset() {
 	*x = SetUnverifiedResponderLocationRequest{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[200]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[166]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8428,7 +6916,7 @@ func (x *SetUnverifiedResponderLocationRequest) String() string {
 func (*SetUnverifiedResponderLocationRequest) ProtoMessage() {}
 
 func (x *SetUnverifiedResponderLocationRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[200]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[166]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8441,7 +6929,7 @@ func (x *SetUnverifiedResponderLocationRequest) ProtoReflect() protoreflect.Mess
 
 // Deprecated: Use SetUnverifiedResponderLocationRequest.ProtoReflect.Descriptor instead.
 func (*SetUnverifiedResponderLocationRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{200}
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{166}
 }
 
 func (x *SetUnverifiedResponderLocationRequest) GetArg0() int64 {
@@ -8460,7 +6948,7 @@ type SetUnverifiedResponderLocationResponse struct {
 
 func (x *SetUnverifiedResponderLocationResponse) Reset() {
 	*x = SetUnverifiedResponderLocationResponse{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[201]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[167]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8472,7 +6960,7 @@ func (x *SetUnverifiedResponderLocationResponse) String() string {
 func (*SetUnverifiedResponderLocationResponse) ProtoMessage() {}
 
 func (x *SetUnverifiedResponderLocationResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[201]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[167]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8485,7 +6973,7 @@ func (x *SetUnverifiedResponderLocationResponse) ProtoReflect() protoreflect.Mes
 
 // Deprecated: Use SetUnverifiedResponderLocationResponse.ProtoReflect.Descriptor instead.
 func (*SetUnverifiedResponderLocationResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{201}
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{167}
 }
 
 func (x *SetUnverifiedResponderLocationResponse) GetResult() int64 {
@@ -8503,7 +6991,7 @@ type GetPasnConfigRequest struct {
 
 func (x *GetPasnConfigRequest) Reset() {
 	*x = GetPasnConfigRequest{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[202]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[168]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8515,7 +7003,7 @@ func (x *GetPasnConfigRequest) String() string {
 func (*GetPasnConfigRequest) ProtoMessage() {}
 
 func (x *GetPasnConfigRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[202]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[168]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8528,7 +7016,7 @@ func (x *GetPasnConfigRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetPasnConfigRequest.ProtoReflect.Descriptor instead.
 func (*GetPasnConfigRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{202}
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{168}
 }
 
 type GetPasnConfigResponse struct {
@@ -8540,7 +7028,7 @@ type GetPasnConfigResponse struct {
 
 func (x *GetPasnConfigResponse) Reset() {
 	*x = GetPasnConfigResponse{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[203]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[169]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8552,7 +7040,7 @@ func (x *GetPasnConfigResponse) String() string {
 func (*GetPasnConfigResponse) ProtoMessage() {}
 
 func (x *GetPasnConfigResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[203]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[169]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8565,7 +7053,7 @@ func (x *GetPasnConfigResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetPasnConfigResponse.ProtoReflect.Descriptor instead.
 func (*GetPasnConfigResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{203}
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{169}
 }
 
 func (x *GetPasnConfigResponse) GetResult() int64 {
@@ -8583,7 +7071,7 @@ type IsRangingFrameProtectionEnabledRequest struct {
 
 func (x *IsRangingFrameProtectionEnabledRequest) Reset() {
 	*x = IsRangingFrameProtectionEnabledRequest{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[204]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[170]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8595,7 +7083,7 @@ func (x *IsRangingFrameProtectionEnabledRequest) String() string {
 func (*IsRangingFrameProtectionEnabledRequest) ProtoMessage() {}
 
 func (x *IsRangingFrameProtectionEnabledRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[204]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[170]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8608,7 +7096,7 @@ func (x *IsRangingFrameProtectionEnabledRequest) ProtoReflect() protoreflect.Mes
 
 // Deprecated: Use IsRangingFrameProtectionEnabledRequest.ProtoReflect.Descriptor instead.
 func (*IsRangingFrameProtectionEnabledRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{204}
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{170}
 }
 
 type IsRangingFrameProtectionEnabledResponse struct {
@@ -8620,7 +7108,7 @@ type IsRangingFrameProtectionEnabledResponse struct {
 
 func (x *IsRangingFrameProtectionEnabledResponse) Reset() {
 	*x = IsRangingFrameProtectionEnabledResponse{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[205]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[171]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8632,7 +7120,7 @@ func (x *IsRangingFrameProtectionEnabledResponse) String() string {
 func (*IsRangingFrameProtectionEnabledResponse) ProtoMessage() {}
 
 func (x *IsRangingFrameProtectionEnabledResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[205]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[171]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8645,7 +7133,7 @@ func (x *IsRangingFrameProtectionEnabledResponse) ProtoReflect() protoreflect.Me
 
 // Deprecated: Use IsRangingFrameProtectionEnabledResponse.ProtoReflect.Descriptor instead.
 func (*IsRangingFrameProtectionEnabledResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{205}
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{171}
 }
 
 func (x *IsRangingFrameProtectionEnabledResponse) GetResult() bool {
@@ -8664,7 +7152,7 @@ type SetRangingFrameProtectionEnabledRequest struct {
 
 func (x *SetRangingFrameProtectionEnabledRequest) Reset() {
 	*x = SetRangingFrameProtectionEnabledRequest{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[206]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[172]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8676,7 +7164,7 @@ func (x *SetRangingFrameProtectionEnabledRequest) String() string {
 func (*SetRangingFrameProtectionEnabledRequest) ProtoMessage() {}
 
 func (x *SetRangingFrameProtectionEnabledRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[206]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[172]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8689,7 +7177,7 @@ func (x *SetRangingFrameProtectionEnabledRequest) ProtoReflect() protoreflect.Me
 
 // Deprecated: Use SetRangingFrameProtectionEnabledRequest.ProtoReflect.Descriptor instead.
 func (*SetRangingFrameProtectionEnabledRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{206}
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{172}
 }
 
 func (x *SetRangingFrameProtectionEnabledRequest) GetArg0() bool {
@@ -8708,7 +7196,7 @@ type SetRangingFrameProtectionEnabledResponse struct {
 
 func (x *SetRangingFrameProtectionEnabledResponse) Reset() {
 	*x = SetRangingFrameProtectionEnabledResponse{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[207]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[173]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8720,7 +7208,7 @@ func (x *SetRangingFrameProtectionEnabledResponse) String() string {
 func (*SetRangingFrameProtectionEnabledResponse) ProtoMessage() {}
 
 func (x *SetRangingFrameProtectionEnabledResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[207]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[173]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8733,1610 +7221,10 @@ func (x *SetRangingFrameProtectionEnabledResponse) ProtoReflect() protoreflect.M
 
 // Deprecated: Use SetRangingFrameProtectionEnabledResponse.ProtoReflect.Descriptor instead.
 func (*SetRangingFrameProtectionEnabledResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{207}
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{173}
 }
 
 func (x *SetRangingFrameProtectionEnabledResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetAltitudeRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetAltitudeRequest) Reset() {
-	*x = GetAltitudeRequest{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[208]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetAltitudeRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetAltitudeRequest) ProtoMessage() {}
-
-func (x *GetAltitudeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[208]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetAltitudeRequest.ProtoReflect.Descriptor instead.
-func (*GetAltitudeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{208}
-}
-
-type GetAltitudeResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        float64                `protobuf:"fixed64,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetAltitudeResponse) Reset() {
-	*x = GetAltitudeResponse{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[209]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetAltitudeResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetAltitudeResponse) ProtoMessage() {}
-
-func (x *GetAltitudeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[209]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetAltitudeResponse.ProtoReflect.Descriptor instead.
-func (*GetAltitudeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{209}
-}
-
-func (x *GetAltitudeResponse) GetResult() float64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetAltitudeTypeRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetAltitudeTypeRequest) Reset() {
-	*x = GetAltitudeTypeRequest{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[210]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetAltitudeTypeRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetAltitudeTypeRequest) ProtoMessage() {}
-
-func (x *GetAltitudeTypeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[210]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetAltitudeTypeRequest.ProtoReflect.Descriptor instead.
-func (*GetAltitudeTypeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{210}
-}
-
-type GetAltitudeTypeResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetAltitudeTypeResponse) Reset() {
-	*x = GetAltitudeTypeResponse{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[211]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetAltitudeTypeResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetAltitudeTypeResponse) ProtoMessage() {}
-
-func (x *GetAltitudeTypeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[211]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetAltitudeTypeResponse.ProtoReflect.Descriptor instead.
-func (*GetAltitudeTypeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{211}
-}
-
-func (x *GetAltitudeTypeResponse) GetResult() int32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetAltitudeUncertaintyRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetAltitudeUncertaintyRequest) Reset() {
-	*x = GetAltitudeUncertaintyRequest{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[212]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetAltitudeUncertaintyRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetAltitudeUncertaintyRequest) ProtoMessage() {}
-
-func (x *GetAltitudeUncertaintyRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[212]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetAltitudeUncertaintyRequest.ProtoReflect.Descriptor instead.
-func (*GetAltitudeUncertaintyRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{212}
-}
-
-type GetAltitudeUncertaintyResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        float64                `protobuf:"fixed64,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetAltitudeUncertaintyResponse) Reset() {
-	*x = GetAltitudeUncertaintyResponse{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[213]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetAltitudeUncertaintyResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetAltitudeUncertaintyResponse) ProtoMessage() {}
-
-func (x *GetAltitudeUncertaintyResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[213]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetAltitudeUncertaintyResponse.ProtoReflect.Descriptor instead.
-func (*GetAltitudeUncertaintyResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{213}
-}
-
-func (x *GetAltitudeUncertaintyResponse) GetResult() float64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetDatumRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetDatumRequest) Reset() {
-	*x = GetDatumRequest{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[214]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetDatumRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetDatumRequest) ProtoMessage() {}
-
-func (x *GetDatumRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[214]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetDatumRequest.ProtoReflect.Descriptor instead.
-func (*GetDatumRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{214}
-}
-
-type GetDatumResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetDatumResponse) Reset() {
-	*x = GetDatumResponse{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[215]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetDatumResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetDatumResponse) ProtoMessage() {}
-
-func (x *GetDatumResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[215]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetDatumResponse.ProtoReflect.Descriptor instead.
-func (*GetDatumResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{215}
-}
-
-func (x *GetDatumResponse) GetResult() int32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetExpectedToMoveRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetExpectedToMoveRequest) Reset() {
-	*x = GetExpectedToMoveRequest{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[216]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetExpectedToMoveRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetExpectedToMoveRequest) ProtoMessage() {}
-
-func (x *GetExpectedToMoveRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[216]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetExpectedToMoveRequest.ProtoReflect.Descriptor instead.
-func (*GetExpectedToMoveRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{216}
-}
-
-type GetExpectedToMoveResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetExpectedToMoveResponse) Reset() {
-	*x = GetExpectedToMoveResponse{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[217]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetExpectedToMoveResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetExpectedToMoveResponse) ProtoMessage() {}
-
-func (x *GetExpectedToMoveResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[217]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetExpectedToMoveResponse.ProtoReflect.Descriptor instead.
-func (*GetExpectedToMoveResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{217}
-}
-
-func (x *GetExpectedToMoveResponse) GetResult() int32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetFloorNumberRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetFloorNumberRequest) Reset() {
-	*x = GetFloorNumberRequest{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[218]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetFloorNumberRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetFloorNumberRequest) ProtoMessage() {}
-
-func (x *GetFloorNumberRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[218]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetFloorNumberRequest.ProtoReflect.Descriptor instead.
-func (*GetFloorNumberRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{218}
-}
-
-type GetFloorNumberResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        float64                `protobuf:"fixed64,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetFloorNumberResponse) Reset() {
-	*x = GetFloorNumberResponse{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[219]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetFloorNumberResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetFloorNumberResponse) ProtoMessage() {}
-
-func (x *GetFloorNumberResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[219]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetFloorNumberResponse.ProtoReflect.Descriptor instead.
-func (*GetFloorNumberResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{219}
-}
-
-func (x *GetFloorNumberResponse) GetResult() float64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetHeightAboveFloorMetersRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetHeightAboveFloorMetersRequest) Reset() {
-	*x = GetHeightAboveFloorMetersRequest{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[220]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetHeightAboveFloorMetersRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetHeightAboveFloorMetersRequest) ProtoMessage() {}
-
-func (x *GetHeightAboveFloorMetersRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[220]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetHeightAboveFloorMetersRequest.ProtoReflect.Descriptor instead.
-func (*GetHeightAboveFloorMetersRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{220}
-}
-
-type GetHeightAboveFloorMetersResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        float64                `protobuf:"fixed64,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetHeightAboveFloorMetersResponse) Reset() {
-	*x = GetHeightAboveFloorMetersResponse{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[221]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetHeightAboveFloorMetersResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetHeightAboveFloorMetersResponse) ProtoMessage() {}
-
-func (x *GetHeightAboveFloorMetersResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[221]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetHeightAboveFloorMetersResponse.ProtoReflect.Descriptor instead.
-func (*GetHeightAboveFloorMetersResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{221}
-}
-
-func (x *GetHeightAboveFloorMetersResponse) GetResult() float64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetHeightAboveFloorUncertaintyMetersRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetHeightAboveFloorUncertaintyMetersRequest) Reset() {
-	*x = GetHeightAboveFloorUncertaintyMetersRequest{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[222]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetHeightAboveFloorUncertaintyMetersRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetHeightAboveFloorUncertaintyMetersRequest) ProtoMessage() {}
-
-func (x *GetHeightAboveFloorUncertaintyMetersRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[222]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetHeightAboveFloorUncertaintyMetersRequest.ProtoReflect.Descriptor instead.
-func (*GetHeightAboveFloorUncertaintyMetersRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{222}
-}
-
-type GetHeightAboveFloorUncertaintyMetersResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        float64                `protobuf:"fixed64,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetHeightAboveFloorUncertaintyMetersResponse) Reset() {
-	*x = GetHeightAboveFloorUncertaintyMetersResponse{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[223]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetHeightAboveFloorUncertaintyMetersResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetHeightAboveFloorUncertaintyMetersResponse) ProtoMessage() {}
-
-func (x *GetHeightAboveFloorUncertaintyMetersResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[223]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetHeightAboveFloorUncertaintyMetersResponse.ProtoReflect.Descriptor instead.
-func (*GetHeightAboveFloorUncertaintyMetersResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{223}
-}
-
-func (x *GetHeightAboveFloorUncertaintyMetersResponse) GetResult() float64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetLatitudeRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetLatitudeRequest) Reset() {
-	*x = GetLatitudeRequest{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[224]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetLatitudeRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetLatitudeRequest) ProtoMessage() {}
-
-func (x *GetLatitudeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[224]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetLatitudeRequest.ProtoReflect.Descriptor instead.
-func (*GetLatitudeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{224}
-}
-
-type GetLatitudeResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        float64                `protobuf:"fixed64,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetLatitudeResponse) Reset() {
-	*x = GetLatitudeResponse{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[225]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetLatitudeResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetLatitudeResponse) ProtoMessage() {}
-
-func (x *GetLatitudeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[225]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetLatitudeResponse.ProtoReflect.Descriptor instead.
-func (*GetLatitudeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{225}
-}
-
-func (x *GetLatitudeResponse) GetResult() float64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetLatitudeUncertaintyRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetLatitudeUncertaintyRequest) Reset() {
-	*x = GetLatitudeUncertaintyRequest{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[226]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetLatitudeUncertaintyRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetLatitudeUncertaintyRequest) ProtoMessage() {}
-
-func (x *GetLatitudeUncertaintyRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[226]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetLatitudeUncertaintyRequest.ProtoReflect.Descriptor instead.
-func (*GetLatitudeUncertaintyRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{226}
-}
-
-type GetLatitudeUncertaintyResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        float64                `protobuf:"fixed64,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetLatitudeUncertaintyResponse) Reset() {
-	*x = GetLatitudeUncertaintyResponse{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[227]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetLatitudeUncertaintyResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetLatitudeUncertaintyResponse) ProtoMessage() {}
-
-func (x *GetLatitudeUncertaintyResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[227]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetLatitudeUncertaintyResponse.ProtoReflect.Descriptor instead.
-func (*GetLatitudeUncertaintyResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{227}
-}
-
-func (x *GetLatitudeUncertaintyResponse) GetResult() float64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetLciVersionRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetLciVersionRequest) Reset() {
-	*x = GetLciVersionRequest{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[228]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetLciVersionRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetLciVersionRequest) ProtoMessage() {}
-
-func (x *GetLciVersionRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[228]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetLciVersionRequest.ProtoReflect.Descriptor instead.
-func (*GetLciVersionRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{228}
-}
-
-type GetLciVersionResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetLciVersionResponse) Reset() {
-	*x = GetLciVersionResponse{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[229]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetLciVersionResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetLciVersionResponse) ProtoMessage() {}
-
-func (x *GetLciVersionResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[229]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetLciVersionResponse.ProtoReflect.Descriptor instead.
-func (*GetLciVersionResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{229}
-}
-
-func (x *GetLciVersionResponse) GetResult() int32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetLongitudeRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetLongitudeRequest) Reset() {
-	*x = GetLongitudeRequest{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[230]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetLongitudeRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetLongitudeRequest) ProtoMessage() {}
-
-func (x *GetLongitudeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[230]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetLongitudeRequest.ProtoReflect.Descriptor instead.
-func (*GetLongitudeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{230}
-}
-
-type GetLongitudeResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        float64                `protobuf:"fixed64,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetLongitudeResponse) Reset() {
-	*x = GetLongitudeResponse{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[231]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetLongitudeResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetLongitudeResponse) ProtoMessage() {}
-
-func (x *GetLongitudeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[231]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetLongitudeResponse.ProtoReflect.Descriptor instead.
-func (*GetLongitudeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{231}
-}
-
-func (x *GetLongitudeResponse) GetResult() float64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetLongitudeUncertaintyRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetLongitudeUncertaintyRequest) Reset() {
-	*x = GetLongitudeUncertaintyRequest{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[232]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetLongitudeUncertaintyRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetLongitudeUncertaintyRequest) ProtoMessage() {}
-
-func (x *GetLongitudeUncertaintyRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[232]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetLongitudeUncertaintyRequest.ProtoReflect.Descriptor instead.
-func (*GetLongitudeUncertaintyRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{232}
-}
-
-type GetLongitudeUncertaintyResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        float64                `protobuf:"fixed64,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetLongitudeUncertaintyResponse) Reset() {
-	*x = GetLongitudeUncertaintyResponse{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[233]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetLongitudeUncertaintyResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetLongitudeUncertaintyResponse) ProtoMessage() {}
-
-func (x *GetLongitudeUncertaintyResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[233]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetLongitudeUncertaintyResponse.ProtoReflect.Descriptor instead.
-func (*GetLongitudeUncertaintyResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{233}
-}
-
-func (x *GetLongitudeUncertaintyResponse) GetResult() float64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetMapImageMimeTypeRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetMapImageMimeTypeRequest) Reset() {
-	*x = GetMapImageMimeTypeRequest{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[234]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetMapImageMimeTypeRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetMapImageMimeTypeRequest) ProtoMessage() {}
-
-func (x *GetMapImageMimeTypeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[234]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetMapImageMimeTypeRequest.ProtoReflect.Descriptor instead.
-func (*GetMapImageMimeTypeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{234}
-}
-
-type GetMapImageMimeTypeResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetMapImageMimeTypeResponse) Reset() {
-	*x = GetMapImageMimeTypeResponse{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[235]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetMapImageMimeTypeResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetMapImageMimeTypeResponse) ProtoMessage() {}
-
-func (x *GetMapImageMimeTypeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[235]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetMapImageMimeTypeResponse.ProtoReflect.Descriptor instead.
-func (*GetMapImageMimeTypeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{235}
-}
-
-func (x *GetMapImageMimeTypeResponse) GetResult() string {
-	if x != nil {
-		return x.Result
-	}
-	return ""
-}
-
-type GetMapImageUriRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetMapImageUriRequest) Reset() {
-	*x = GetMapImageUriRequest{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[236]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetMapImageUriRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetMapImageUriRequest) ProtoMessage() {}
-
-func (x *GetMapImageUriRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[236]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetMapImageUriRequest.ProtoReflect.Descriptor instead.
-func (*GetMapImageUriRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{236}
-}
-
-type GetMapImageUriResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetMapImageUriResponse) Reset() {
-	*x = GetMapImageUriResponse{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[237]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetMapImageUriResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetMapImageUriResponse) ProtoMessage() {}
-
-func (x *GetMapImageUriResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[237]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetMapImageUriResponse.ProtoReflect.Descriptor instead.
-func (*GetMapImageUriResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{237}
-}
-
-func (x *GetMapImageUriResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetRegisteredLocationAgreementIndicationRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetRegisteredLocationAgreementIndicationRequest) Reset() {
-	*x = GetRegisteredLocationAgreementIndicationRequest{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[238]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetRegisteredLocationAgreementIndicationRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetRegisteredLocationAgreementIndicationRequest) ProtoMessage() {}
-
-func (x *GetRegisteredLocationAgreementIndicationRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[238]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetRegisteredLocationAgreementIndicationRequest.ProtoReflect.Descriptor instead.
-func (*GetRegisteredLocationAgreementIndicationRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{238}
-}
-
-type GetRegisteredLocationAgreementIndicationResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetRegisteredLocationAgreementIndicationResponse) Reset() {
-	*x = GetRegisteredLocationAgreementIndicationResponse{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[239]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetRegisteredLocationAgreementIndicationResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetRegisteredLocationAgreementIndicationResponse) ProtoMessage() {}
-
-func (x *GetRegisteredLocationAgreementIndicationResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[239]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetRegisteredLocationAgreementIndicationResponse.ProtoReflect.Descriptor instead.
-func (*GetRegisteredLocationAgreementIndicationResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{239}
-}
-
-func (x *GetRegisteredLocationAgreementIndicationResponse) GetResult() bool {
-	if x != nil {
-		return x.Result
-	}
-	return false
-}
-
-type IsLciSubelementValidRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *IsLciSubelementValidRequest) Reset() {
-	*x = IsLciSubelementValidRequest{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[240]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *IsLciSubelementValidRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*IsLciSubelementValidRequest) ProtoMessage() {}
-
-func (x *IsLciSubelementValidRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[240]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use IsLciSubelementValidRequest.ProtoReflect.Descriptor instead.
-func (*IsLciSubelementValidRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{240}
-}
-
-type IsLciSubelementValidResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *IsLciSubelementValidResponse) Reset() {
-	*x = IsLciSubelementValidResponse{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[241]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *IsLciSubelementValidResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*IsLciSubelementValidResponse) ProtoMessage() {}
-
-func (x *IsLciSubelementValidResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[241]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use IsLciSubelementValidResponse.ProtoReflect.Descriptor instead.
-func (*IsLciSubelementValidResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{241}
-}
-
-func (x *IsLciSubelementValidResponse) GetResult() bool {
-	if x != nil {
-		return x.Result
-	}
-	return false
-}
-
-type IsZaxisSubelementValidRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *IsZaxisSubelementValidRequest) Reset() {
-	*x = IsZaxisSubelementValidRequest{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[242]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *IsZaxisSubelementValidRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*IsZaxisSubelementValidRequest) ProtoMessage() {}
-
-func (x *IsZaxisSubelementValidRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[242]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use IsZaxisSubelementValidRequest.ProtoReflect.Descriptor instead.
-func (*IsZaxisSubelementValidRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{242}
-}
-
-type IsZaxisSubelementValidResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *IsZaxisSubelementValidResponse) Reset() {
-	*x = IsZaxisSubelementValidResponse{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[243]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *IsZaxisSubelementValidResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*IsZaxisSubelementValidResponse) ProtoMessage() {}
-
-func (x *IsZaxisSubelementValidResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[243]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use IsZaxisSubelementValidResponse.ProtoReflect.Descriptor instead.
-func (*IsZaxisSubelementValidResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{243}
-}
-
-func (x *IsZaxisSubelementValidResponse) GetResult() bool {
-	if x != nil {
-		return x.Result
-	}
-	return false
-}
-
-type ToCivicLocationAddressRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ToCivicLocationAddressRequest) Reset() {
-	*x = ToCivicLocationAddressRequest{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[244]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ToCivicLocationAddressRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ToCivicLocationAddressRequest) ProtoMessage() {}
-
-func (x *ToCivicLocationAddressRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[244]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ToCivicLocationAddressRequest.ProtoReflect.Descriptor instead.
-func (*ToCivicLocationAddressRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{244}
-}
-
-type ToCivicLocationAddressResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ToCivicLocationAddressResponse) Reset() {
-	*x = ToCivicLocationAddressResponse{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[245]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ToCivicLocationAddressResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ToCivicLocationAddressResponse) ProtoMessage() {}
-
-func (x *ToCivicLocationAddressResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[245]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ToCivicLocationAddressResponse.ProtoReflect.Descriptor instead.
-func (*ToCivicLocationAddressResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{245}
-}
-
-func (x *ToCivicLocationAddressResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type ToLocationRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ToLocationRequest) Reset() {
-	*x = ToLocationRequest{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[246]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ToLocationRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ToLocationRequest) ProtoMessage() {}
-
-func (x *ToLocationRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[246]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ToLocationRequest.ProtoReflect.Descriptor instead.
-func (*ToLocationRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{246}
-}
-
-type ToLocationResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ToLocationResponse) Reset() {
-	*x = ToLocationResponse{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[247]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ToLocationResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ToLocationResponse) ProtoMessage() {}
-
-func (x *ToLocationResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[247]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ToLocationResponse.ProtoReflect.Descriptor instead.
-func (*ToLocationResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{247}
-}
-
-func (x *ToLocationResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
@@ -10351,7 +7239,7 @@ type GetRttCharacteristicsRequest struct {
 
 func (x *GetRttCharacteristicsRequest) Reset() {
 	*x = GetRttCharacteristicsRequest{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[248]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[174]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -10363,7 +7251,7 @@ func (x *GetRttCharacteristicsRequest) String() string {
 func (*GetRttCharacteristicsRequest) ProtoMessage() {}
 
 func (x *GetRttCharacteristicsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[248]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[174]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -10376,7 +7264,7 @@ func (x *GetRttCharacteristicsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetRttCharacteristicsRequest.ProtoReflect.Descriptor instead.
 func (*GetRttCharacteristicsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{248}
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{174}
 }
 
 type GetRttCharacteristicsResponse struct {
@@ -10388,7 +7276,7 @@ type GetRttCharacteristicsResponse struct {
 
 func (x *GetRttCharacteristicsResponse) Reset() {
 	*x = GetRttCharacteristicsResponse{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[249]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[175]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -10400,7 +7288,7 @@ func (x *GetRttCharacteristicsResponse) String() string {
 func (*GetRttCharacteristicsResponse) ProtoMessage() {}
 
 func (x *GetRttCharacteristicsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[249]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[175]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -10413,7 +7301,7 @@ func (x *GetRttCharacteristicsResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetRttCharacteristicsResponse.ProtoReflect.Descriptor instead.
 func (*GetRttCharacteristicsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{249}
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{175}
 }
 
 func (x *GetRttCharacteristicsResponse) GetResult() int64 {
@@ -10431,7 +7319,7 @@ type IsAvailableRequest struct {
 
 func (x *IsAvailableRequest) Reset() {
 	*x = IsAvailableRequest{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[250]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[176]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -10443,7 +7331,7 @@ func (x *IsAvailableRequest) String() string {
 func (*IsAvailableRequest) ProtoMessage() {}
 
 func (x *IsAvailableRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[250]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[176]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -10456,7 +7344,7 @@ func (x *IsAvailableRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsAvailableRequest.ProtoReflect.Descriptor instead.
 func (*IsAvailableRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{250}
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{176}
 }
 
 type IsAvailableResponse struct {
@@ -10468,7 +7356,7 @@ type IsAvailableResponse struct {
 
 func (x *IsAvailableResponse) Reset() {
 	*x = IsAvailableResponse{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[251]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[177]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -10480,7 +7368,7 @@ func (x *IsAvailableResponse) String() string {
 func (*IsAvailableResponse) ProtoMessage() {}
 
 func (x *IsAvailableResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[251]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[177]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -10493,7 +7381,7 @@ func (x *IsAvailableResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsAvailableResponse.ProtoReflect.Descriptor instead.
 func (*IsAvailableResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{251}
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{177}
 }
 
 func (x *IsAvailableResponse) GetResult() bool {
@@ -10514,7 +7402,7 @@ type StartRangingRequest struct {
 
 func (x *StartRangingRequest) Reset() {
 	*x = StartRangingRequest{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[252]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[178]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -10526,7 +7414,7 @@ func (x *StartRangingRequest) String() string {
 func (*StartRangingRequest) ProtoMessage() {}
 
 func (x *StartRangingRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[252]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[178]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -10539,7 +7427,7 @@ func (x *StartRangingRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use StartRangingRequest.ProtoReflect.Descriptor instead.
 func (*StartRangingRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{252}
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{178}
 }
 
 func (x *StartRangingRequest) GetArg0() int64 {
@@ -10571,7 +7459,7 @@ type StartRangingResponse struct {
 
 func (x *StartRangingResponse) Reset() {
 	*x = StartRangingResponse{}
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[253]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[179]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -10583,7 +7471,7 @@ func (x *StartRangingResponse) String() string {
 func (*StartRangingResponse) ProtoMessage() {}
 
 func (x *StartRangingResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[253]
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[179]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -10596,7 +7484,3279 @@ func (x *StartRangingResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use StartRangingResponse.ProtoReflect.Descriptor instead.
 func (*StartRangingResponse) Descriptor() ([]byte, []int) {
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{179}
+}
+
+type GetRttBurstSizeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetRttBurstSizeRequest) Reset() {
+	*x = GetRttBurstSizeRequest{}
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[180]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetRttBurstSizeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetRttBurstSizeRequest) ProtoMessage() {}
+
+func (x *GetRttBurstSizeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[180]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetRttBurstSizeRequest.ProtoReflect.Descriptor instead.
+func (*GetRttBurstSizeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{180}
+}
+
+type GetRttBurstSizeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetRttBurstSizeResponse) Reset() {
+	*x = GetRttBurstSizeResponse{}
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[181]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetRttBurstSizeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetRttBurstSizeResponse) ProtoMessage() {}
+
+func (x *GetRttBurstSizeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[181]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetRttBurstSizeResponse.ProtoReflect.Descriptor instead.
+func (*GetRttBurstSizeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{181}
+}
+
+func (x *GetRttBurstSizeResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetSecurityModeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSecurityModeRequest) Reset() {
+	*x = GetSecurityModeRequest{}
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[182]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSecurityModeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSecurityModeRequest) ProtoMessage() {}
+
+func (x *GetSecurityModeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[182]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSecurityModeRequest.ProtoReflect.Descriptor instead.
+func (*GetSecurityModeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{182}
+}
+
+type GetSecurityModeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSecurityModeResponse) Reset() {
+	*x = GetSecurityModeResponse{}
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[183]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSecurityModeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSecurityModeResponse) ProtoMessage() {}
+
+func (x *GetSecurityModeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[183]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSecurityModeResponse.ProtoReflect.Descriptor instead.
+func (*GetSecurityModeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{183}
+}
+
+func (x *GetSecurityModeResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetDefaultRttBurstSizeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetDefaultRttBurstSizeRequest) Reset() {
+	*x = GetDefaultRttBurstSizeRequest{}
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[184]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetDefaultRttBurstSizeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetDefaultRttBurstSizeRequest) ProtoMessage() {}
+
+func (x *GetDefaultRttBurstSizeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[184]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetDefaultRttBurstSizeRequest.ProtoReflect.Descriptor instead.
+func (*GetDefaultRttBurstSizeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{184}
+}
+
+type GetDefaultRttBurstSizeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetDefaultRttBurstSizeResponse) Reset() {
+	*x = GetDefaultRttBurstSizeResponse{}
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[185]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetDefaultRttBurstSizeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetDefaultRttBurstSizeResponse) ProtoMessage() {}
+
+func (x *GetDefaultRttBurstSizeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[185]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetDefaultRttBurstSizeResponse.ProtoReflect.Descriptor instead.
+func (*GetDefaultRttBurstSizeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{185}
+}
+
+func (x *GetDefaultRttBurstSizeResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetMaxPeersRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMaxPeersRequest) Reset() {
+	*x = GetMaxPeersRequest{}
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[186]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMaxPeersRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMaxPeersRequest) ProtoMessage() {}
+
+func (x *GetMaxPeersRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[186]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMaxPeersRequest.ProtoReflect.Descriptor instead.
+func (*GetMaxPeersRequest) Descriptor() ([]byte, []int) {
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{186}
+}
+
+type GetMaxPeersResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMaxPeersResponse) Reset() {
+	*x = GetMaxPeersResponse{}
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[187]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMaxPeersResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMaxPeersResponse) ProtoMessage() {}
+
+func (x *GetMaxPeersResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[187]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMaxPeersResponse.ProtoReflect.Descriptor instead.
+func (*GetMaxPeersResponse) Descriptor() ([]byte, []int) {
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{187}
+}
+
+func (x *GetMaxPeersResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetMaxRttBurstSizeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMaxRttBurstSizeRequest) Reset() {
+	*x = GetMaxRttBurstSizeRequest{}
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[188]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMaxRttBurstSizeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMaxRttBurstSizeRequest) ProtoMessage() {}
+
+func (x *GetMaxRttBurstSizeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[188]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMaxRttBurstSizeRequest.ProtoReflect.Descriptor instead.
+func (*GetMaxRttBurstSizeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{188}
+}
+
+type GetMaxRttBurstSizeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMaxRttBurstSizeResponse) Reset() {
+	*x = GetMaxRttBurstSizeResponse{}
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[189]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMaxRttBurstSizeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMaxRttBurstSizeResponse) ProtoMessage() {}
+
+func (x *GetMaxRttBurstSizeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[189]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMaxRttBurstSizeResponse.ProtoReflect.Descriptor instead.
+func (*GetMaxRttBurstSizeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{189}
+}
+
+func (x *GetMaxRttBurstSizeResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetMinRttBurstSizeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMinRttBurstSizeRequest) Reset() {
+	*x = GetMinRttBurstSizeRequest{}
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[190]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMinRttBurstSizeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMinRttBurstSizeRequest) ProtoMessage() {}
+
+func (x *GetMinRttBurstSizeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[190]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMinRttBurstSizeRequest.ProtoReflect.Descriptor instead.
+func (*GetMinRttBurstSizeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{190}
+}
+
+type GetMinRttBurstSizeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMinRttBurstSizeResponse) Reset() {
+	*x = GetMinRttBurstSizeResponse{}
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[191]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMinRttBurstSizeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMinRttBurstSizeResponse) ProtoMessage() {}
+
+func (x *GetMinRttBurstSizeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[191]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMinRttBurstSizeResponse.ProtoReflect.Descriptor instead.
+func (*GetMinRttBurstSizeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{191}
+}
+
+func (x *GetMinRttBurstSizeResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type AddAccessPointRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddAccessPointRequest) Reset() {
+	*x = AddAccessPointRequest{}
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[192]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddAccessPointRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddAccessPointRequest) ProtoMessage() {}
+
+func (x *AddAccessPointRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[192]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddAccessPointRequest.ProtoReflect.Descriptor instead.
+func (*AddAccessPointRequest) Descriptor() ([]byte, []int) {
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{192}
+}
+
+func (x *AddAccessPointRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type AddAccessPointResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddAccessPointResponse) Reset() {
+	*x = AddAccessPointResponse{}
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[193]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddAccessPointResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddAccessPointResponse) ProtoMessage() {}
+
+func (x *AddAccessPointResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[193]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddAccessPointResponse.ProtoReflect.Descriptor instead.
+func (*AddAccessPointResponse) Descriptor() ([]byte, []int) {
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{193}
+}
+
+func (x *AddAccessPointResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type AddNon80211McCapableAccessPointRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddNon80211McCapableAccessPointRequest) Reset() {
+	*x = AddNon80211McCapableAccessPointRequest{}
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[194]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddNon80211McCapableAccessPointRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddNon80211McCapableAccessPointRequest) ProtoMessage() {}
+
+func (x *AddNon80211McCapableAccessPointRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[194]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddNon80211McCapableAccessPointRequest.ProtoReflect.Descriptor instead.
+func (*AddNon80211McCapableAccessPointRequest) Descriptor() ([]byte, []int) {
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{194}
+}
+
+func (x *AddNon80211McCapableAccessPointRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type AddNon80211McCapableAccessPointResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddNon80211McCapableAccessPointResponse) Reset() {
+	*x = AddNon80211McCapableAccessPointResponse{}
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[195]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddNon80211McCapableAccessPointResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddNon80211McCapableAccessPointResponse) ProtoMessage() {}
+
+func (x *AddNon80211McCapableAccessPointResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[195]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddNon80211McCapableAccessPointResponse.ProtoReflect.Descriptor instead.
+func (*AddNon80211McCapableAccessPointResponse) Descriptor() ([]byte, []int) {
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{195}
+}
+
+func (x *AddNon80211McCapableAccessPointResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type AddResponderRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddResponderRequest) Reset() {
+	*x = AddResponderRequest{}
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[196]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddResponderRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddResponderRequest) ProtoMessage() {}
+
+func (x *AddResponderRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[196]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddResponderRequest.ProtoReflect.Descriptor instead.
+func (*AddResponderRequest) Descriptor() ([]byte, []int) {
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{196}
+}
+
+func (x *AddResponderRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type AddResponderResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddResponderResponse) Reset() {
+	*x = AddResponderResponse{}
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[197]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddResponderResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddResponderResponse) ProtoMessage() {}
+
+func (x *AddResponderResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[197]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddResponderResponse.ProtoReflect.Descriptor instead.
+func (*AddResponderResponse) Descriptor() ([]byte, []int) {
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{197}
+}
+
+func (x *AddResponderResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type AddWifiAwarePeer1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddWifiAwarePeer1Request) Reset() {
+	*x = AddWifiAwarePeer1Request{}
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[198]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddWifiAwarePeer1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddWifiAwarePeer1Request) ProtoMessage() {}
+
+func (x *AddWifiAwarePeer1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[198]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddWifiAwarePeer1Request.ProtoReflect.Descriptor instead.
+func (*AddWifiAwarePeer1Request) Descriptor() ([]byte, []int) {
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{198}
+}
+
+func (x *AddWifiAwarePeer1Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type AddWifiAwarePeer1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddWifiAwarePeer1Response) Reset() {
+	*x = AddWifiAwarePeer1Response{}
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[199]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddWifiAwarePeer1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddWifiAwarePeer1Response) ProtoMessage() {}
+
+func (x *AddWifiAwarePeer1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[199]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddWifiAwarePeer1Response.ProtoReflect.Descriptor instead.
+func (*AddWifiAwarePeer1Response) Descriptor() ([]byte, []int) {
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{199}
+}
+
+func (x *AddWifiAwarePeer1Response) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type AddWifiAwarePeer1_1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddWifiAwarePeer1_1Request) Reset() {
+	*x = AddWifiAwarePeer1_1Request{}
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[200]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddWifiAwarePeer1_1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddWifiAwarePeer1_1Request) ProtoMessage() {}
+
+func (x *AddWifiAwarePeer1_1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[200]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddWifiAwarePeer1_1Request.ProtoReflect.Descriptor instead.
+func (*AddWifiAwarePeer1_1Request) Descriptor() ([]byte, []int) {
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{200}
+}
+
+func (x *AddWifiAwarePeer1_1Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type AddWifiAwarePeer1_1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddWifiAwarePeer1_1Response) Reset() {
+	*x = AddWifiAwarePeer1_1Response{}
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[201]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddWifiAwarePeer1_1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddWifiAwarePeer1_1Response) ProtoMessage() {}
+
+func (x *AddWifiAwarePeer1_1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[201]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddWifiAwarePeer1_1Response.ProtoReflect.Descriptor instead.
+func (*AddWifiAwarePeer1_1Response) Descriptor() ([]byte, []int) {
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{201}
+}
+
+func (x *AddWifiAwarePeer1_1Response) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetRttBurstSizeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetRttBurstSizeRequest) Reset() {
+	*x = SetRttBurstSizeRequest{}
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[202]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetRttBurstSizeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetRttBurstSizeRequest) ProtoMessage() {}
+
+func (x *SetRttBurstSizeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[202]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetRttBurstSizeRequest.ProtoReflect.Descriptor instead.
+func (*SetRttBurstSizeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{202}
+}
+
+func (x *SetRttBurstSizeRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetRttBurstSizeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetRttBurstSizeResponse) Reset() {
+	*x = SetRttBurstSizeResponse{}
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[203]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetRttBurstSizeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetRttBurstSizeResponse) ProtoMessage() {}
+
+func (x *SetRttBurstSizeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[203]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetRttBurstSizeResponse.ProtoReflect.Descriptor instead.
+func (*SetRttBurstSizeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{203}
+}
+
+func (x *SetRttBurstSizeResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetSecurityModeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetSecurityModeRequest) Reset() {
+	*x = SetSecurityModeRequest{}
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[204]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetSecurityModeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetSecurityModeRequest) ProtoMessage() {}
+
+func (x *SetSecurityModeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[204]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetSecurityModeRequest.ProtoReflect.Descriptor instead.
+func (*SetSecurityModeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{204}
+}
+
+func (x *SetSecurityModeRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetSecurityModeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetSecurityModeResponse) Reset() {
+	*x = SetSecurityModeResponse{}
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[205]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetSecurityModeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetSecurityModeResponse) ProtoMessage() {}
+
+func (x *SetSecurityModeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[205]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetSecurityModeResponse.ProtoReflect.Descriptor instead.
+func (*SetSecurityModeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{205}
+}
+
+func (x *SetSecurityModeResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type OnRangingFailureRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnRangingFailureRequest) Reset() {
+	*x = OnRangingFailureRequest{}
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[206]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnRangingFailureRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnRangingFailureRequest) ProtoMessage() {}
+
+func (x *OnRangingFailureRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[206]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnRangingFailureRequest.ProtoReflect.Descriptor instead.
+func (*OnRangingFailureRequest) Descriptor() ([]byte, []int) {
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{206}
+}
+
+func (x *OnRangingFailureRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type OnRangingFailureResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnRangingFailureResponse) Reset() {
+	*x = OnRangingFailureResponse{}
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[207]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnRangingFailureResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnRangingFailureResponse) ProtoMessage() {}
+
+func (x *OnRangingFailureResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[207]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnRangingFailureResponse.ProtoReflect.Descriptor instead.
+func (*OnRangingFailureResponse) Descriptor() ([]byte, []int) {
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{207}
+}
+
+type GetCenterFreq0MhzRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetCenterFreq0MhzRequest) Reset() {
+	*x = GetCenterFreq0MhzRequest{}
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[208]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetCenterFreq0MhzRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetCenterFreq0MhzRequest) ProtoMessage() {}
+
+func (x *GetCenterFreq0MhzRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[208]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetCenterFreq0MhzRequest.ProtoReflect.Descriptor instead.
+func (*GetCenterFreq0MhzRequest) Descriptor() ([]byte, []int) {
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{208}
+}
+
+type GetCenterFreq0MhzResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetCenterFreq0MhzResponse) Reset() {
+	*x = GetCenterFreq0MhzResponse{}
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[209]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetCenterFreq0MhzResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetCenterFreq0MhzResponse) ProtoMessage() {}
+
+func (x *GetCenterFreq0MhzResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[209]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetCenterFreq0MhzResponse.ProtoReflect.Descriptor instead.
+func (*GetCenterFreq0MhzResponse) Descriptor() ([]byte, []int) {
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{209}
+}
+
+func (x *GetCenterFreq0MhzResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetCenterFreq1MhzRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetCenterFreq1MhzRequest) Reset() {
+	*x = GetCenterFreq1MhzRequest{}
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[210]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetCenterFreq1MhzRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetCenterFreq1MhzRequest) ProtoMessage() {}
+
+func (x *GetCenterFreq1MhzRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[210]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetCenterFreq1MhzRequest.ProtoReflect.Descriptor instead.
+func (*GetCenterFreq1MhzRequest) Descriptor() ([]byte, []int) {
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{210}
+}
+
+type GetCenterFreq1MhzResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetCenterFreq1MhzResponse) Reset() {
+	*x = GetCenterFreq1MhzResponse{}
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[211]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetCenterFreq1MhzResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetCenterFreq1MhzResponse) ProtoMessage() {}
+
+func (x *GetCenterFreq1MhzResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[211]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetCenterFreq1MhzResponse.ProtoReflect.Descriptor instead.
+func (*GetCenterFreq1MhzResponse) Descriptor() ([]byte, []int) {
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{211}
+}
+
+func (x *GetCenterFreq1MhzResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetChannelWidthRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetChannelWidthRequest) Reset() {
+	*x = GetChannelWidthRequest{}
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[212]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetChannelWidthRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetChannelWidthRequest) ProtoMessage() {}
+
+func (x *GetChannelWidthRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[212]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetChannelWidthRequest.ProtoReflect.Descriptor instead.
+func (*GetChannelWidthRequest) Descriptor() ([]byte, []int) {
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{212}
+}
+
+type GetChannelWidthResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetChannelWidthResponse) Reset() {
+	*x = GetChannelWidthResponse{}
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[213]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetChannelWidthResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetChannelWidthResponse) ProtoMessage() {}
+
+func (x *GetChannelWidthResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[213]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetChannelWidthResponse.ProtoReflect.Descriptor instead.
+func (*GetChannelWidthResponse) Descriptor() ([]byte, []int) {
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{213}
+}
+
+func (x *GetChannelWidthResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetFrequencyMhzRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetFrequencyMhzRequest) Reset() {
+	*x = GetFrequencyMhzRequest{}
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[214]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetFrequencyMhzRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetFrequencyMhzRequest) ProtoMessage() {}
+
+func (x *GetFrequencyMhzRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[214]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetFrequencyMhzRequest.ProtoReflect.Descriptor instead.
+func (*GetFrequencyMhzRequest) Descriptor() ([]byte, []int) {
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{214}
+}
+
+type GetFrequencyMhzResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetFrequencyMhzResponse) Reset() {
+	*x = GetFrequencyMhzResponse{}
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[215]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetFrequencyMhzResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetFrequencyMhzResponse) ProtoMessage() {}
+
+func (x *GetFrequencyMhzResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[215]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetFrequencyMhzResponse.ProtoReflect.Descriptor instead.
+func (*GetFrequencyMhzResponse) Descriptor() ([]byte, []int) {
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{215}
+}
+
+func (x *GetFrequencyMhzResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetPreambleRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPreambleRequest) Reset() {
+	*x = GetPreambleRequest{}
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[216]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPreambleRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPreambleRequest) ProtoMessage() {}
+
+func (x *GetPreambleRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[216]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPreambleRequest.ProtoReflect.Descriptor instead.
+func (*GetPreambleRequest) Descriptor() ([]byte, []int) {
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{216}
+}
+
+type GetPreambleResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPreambleResponse) Reset() {
+	*x = GetPreambleResponse{}
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[217]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPreambleResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPreambleResponse) ProtoMessage() {}
+
+func (x *GetPreambleResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[217]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPreambleResponse.ProtoReflect.Descriptor instead.
+func (*GetPreambleResponse) Descriptor() ([]byte, []int) {
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{217}
+}
+
+func (x *GetPreambleResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetResponderTypeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetResponderTypeRequest) Reset() {
+	*x = GetResponderTypeRequest{}
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[218]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetResponderTypeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetResponderTypeRequest) ProtoMessage() {}
+
+func (x *GetResponderTypeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[218]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetResponderTypeRequest.ProtoReflect.Descriptor instead.
+func (*GetResponderTypeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{218}
+}
+
+type GetResponderTypeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetResponderTypeResponse) Reset() {
+	*x = GetResponderTypeResponse{}
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[219]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetResponderTypeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetResponderTypeResponse) ProtoMessage() {}
+
+func (x *GetResponderTypeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[219]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetResponderTypeResponse.ProtoReflect.Descriptor instead.
+func (*GetResponderTypeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{219}
+}
+
+func (x *GetResponderTypeResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetSecureRangingConfigRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSecureRangingConfigRequest) Reset() {
+	*x = GetSecureRangingConfigRequest{}
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[220]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSecureRangingConfigRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSecureRangingConfigRequest) ProtoMessage() {}
+
+func (x *GetSecureRangingConfigRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[220]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSecureRangingConfigRequest.ProtoReflect.Descriptor instead.
+func (*GetSecureRangingConfigRequest) Descriptor() ([]byte, []int) {
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{220}
+}
+
+type GetSecureRangingConfigResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSecureRangingConfigResponse) Reset() {
+	*x = GetSecureRangingConfigResponse{}
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[221]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSecureRangingConfigResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSecureRangingConfigResponse) ProtoMessage() {}
+
+func (x *GetSecureRangingConfigResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[221]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSecureRangingConfigResponse.ProtoReflect.Descriptor instead.
+func (*GetSecureRangingConfigResponse) Descriptor() ([]byte, []int) {
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{221}
+}
+
+func (x *GetSecureRangingConfigResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type Is80211AzNtbSupportedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Is80211AzNtbSupportedRequest) Reset() {
+	*x = Is80211AzNtbSupportedRequest{}
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[222]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Is80211AzNtbSupportedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Is80211AzNtbSupportedRequest) ProtoMessage() {}
+
+func (x *Is80211AzNtbSupportedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[222]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Is80211AzNtbSupportedRequest.ProtoReflect.Descriptor instead.
+func (*Is80211AzNtbSupportedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{222}
+}
+
+type Is80211AzNtbSupportedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Is80211AzNtbSupportedResponse) Reset() {
+	*x = Is80211AzNtbSupportedResponse{}
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[223]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Is80211AzNtbSupportedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Is80211AzNtbSupportedResponse) ProtoMessage() {}
+
+func (x *Is80211AzNtbSupportedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[223]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Is80211AzNtbSupportedResponse.ProtoReflect.Descriptor instead.
+func (*Is80211AzNtbSupportedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{223}
+}
+
+func (x *Is80211AzNtbSupportedResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type Is80211McSupportedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Is80211McSupportedRequest) Reset() {
+	*x = Is80211McSupportedRequest{}
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[224]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Is80211McSupportedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Is80211McSupportedRequest) ProtoMessage() {}
+
+func (x *Is80211McSupportedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[224]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Is80211McSupportedRequest.ProtoReflect.Descriptor instead.
+func (*Is80211McSupportedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{224}
+}
+
+type Is80211McSupportedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Is80211McSupportedResponse) Reset() {
+	*x = Is80211McSupportedResponse{}
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[225]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Is80211McSupportedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Is80211McSupportedResponse) ProtoMessage() {}
+
+func (x *Is80211McSupportedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[225]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Is80211McSupportedResponse.ProtoReflect.Descriptor instead.
+func (*Is80211McSupportedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{225}
+}
+
+func (x *Is80211McSupportedResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type FromScanResultRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *FromScanResultRequest) Reset() {
+	*x = FromScanResultRequest{}
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[226]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *FromScanResultRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*FromScanResultRequest) ProtoMessage() {}
+
+func (x *FromScanResultRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[226]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use FromScanResultRequest.ProtoReflect.Descriptor instead.
+func (*FromScanResultRequest) Descriptor() ([]byte, []int) {
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{226}
+}
+
+func (x *FromScanResultRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type FromScanResultResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *FromScanResultResponse) Reset() {
+	*x = FromScanResultResponse{}
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[227]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *FromScanResultResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*FromScanResultResponse) ProtoMessage() {}
+
+func (x *FromScanResultResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[227]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use FromScanResultResponse.ProtoReflect.Descriptor instead.
+func (*FromScanResultResponse) Descriptor() ([]byte, []int) {
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{227}
+}
+
+func (x *FromScanResultResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type Set80211AzNtbSupportedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          bool                   `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Set80211AzNtbSupportedRequest) Reset() {
+	*x = Set80211AzNtbSupportedRequest{}
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[228]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Set80211AzNtbSupportedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Set80211AzNtbSupportedRequest) ProtoMessage() {}
+
+func (x *Set80211AzNtbSupportedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[228]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Set80211AzNtbSupportedRequest.ProtoReflect.Descriptor instead.
+func (*Set80211AzNtbSupportedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{228}
+}
+
+func (x *Set80211AzNtbSupportedRequest) GetArg0() bool {
+	if x != nil {
+		return x.Arg0
+	}
+	return false
+}
+
+type Set80211AzNtbSupportedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Set80211AzNtbSupportedResponse) Reset() {
+	*x = Set80211AzNtbSupportedResponse{}
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[229]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Set80211AzNtbSupportedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Set80211AzNtbSupportedResponse) ProtoMessage() {}
+
+func (x *Set80211AzNtbSupportedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[229]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Set80211AzNtbSupportedResponse.ProtoReflect.Descriptor instead.
+func (*Set80211AzNtbSupportedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{229}
+}
+
+func (x *Set80211AzNtbSupportedResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type Set80211McSupportedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          bool                   `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Set80211McSupportedRequest) Reset() {
+	*x = Set80211McSupportedRequest{}
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[230]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Set80211McSupportedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Set80211McSupportedRequest) ProtoMessage() {}
+
+func (x *Set80211McSupportedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[230]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Set80211McSupportedRequest.ProtoReflect.Descriptor instead.
+func (*Set80211McSupportedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{230}
+}
+
+func (x *Set80211McSupportedRequest) GetArg0() bool {
+	if x != nil {
+		return x.Arg0
+	}
+	return false
+}
+
+type Set80211McSupportedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Set80211McSupportedResponse) Reset() {
+	*x = Set80211McSupportedResponse{}
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[231]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Set80211McSupportedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Set80211McSupportedResponse) ProtoMessage() {}
+
+func (x *Set80211McSupportedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[231]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Set80211McSupportedResponse.ProtoReflect.Descriptor instead.
+func (*Set80211McSupportedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{231}
+}
+
+func (x *Set80211McSupportedResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetCenterFreq0MhzRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetCenterFreq0MhzRequest) Reset() {
+	*x = SetCenterFreq0MhzRequest{}
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[232]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetCenterFreq0MhzRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetCenterFreq0MhzRequest) ProtoMessage() {}
+
+func (x *SetCenterFreq0MhzRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[232]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetCenterFreq0MhzRequest.ProtoReflect.Descriptor instead.
+func (*SetCenterFreq0MhzRequest) Descriptor() ([]byte, []int) {
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{232}
+}
+
+func (x *SetCenterFreq0MhzRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetCenterFreq0MhzResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetCenterFreq0MhzResponse) Reset() {
+	*x = SetCenterFreq0MhzResponse{}
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[233]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetCenterFreq0MhzResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetCenterFreq0MhzResponse) ProtoMessage() {}
+
+func (x *SetCenterFreq0MhzResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[233]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetCenterFreq0MhzResponse.ProtoReflect.Descriptor instead.
+func (*SetCenterFreq0MhzResponse) Descriptor() ([]byte, []int) {
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{233}
+}
+
+func (x *SetCenterFreq0MhzResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetCenterFreq1MhzRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetCenterFreq1MhzRequest) Reset() {
+	*x = SetCenterFreq1MhzRequest{}
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[234]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetCenterFreq1MhzRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetCenterFreq1MhzRequest) ProtoMessage() {}
+
+func (x *SetCenterFreq1MhzRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[234]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetCenterFreq1MhzRequest.ProtoReflect.Descriptor instead.
+func (*SetCenterFreq1MhzRequest) Descriptor() ([]byte, []int) {
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{234}
+}
+
+func (x *SetCenterFreq1MhzRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetCenterFreq1MhzResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetCenterFreq1MhzResponse) Reset() {
+	*x = SetCenterFreq1MhzResponse{}
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[235]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetCenterFreq1MhzResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetCenterFreq1MhzResponse) ProtoMessage() {}
+
+func (x *SetCenterFreq1MhzResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[235]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetCenterFreq1MhzResponse.ProtoReflect.Descriptor instead.
+func (*SetCenterFreq1MhzResponse) Descriptor() ([]byte, []int) {
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{235}
+}
+
+func (x *SetCenterFreq1MhzResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetChannelWidthRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetChannelWidthRequest) Reset() {
+	*x = SetChannelWidthRequest{}
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[236]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetChannelWidthRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetChannelWidthRequest) ProtoMessage() {}
+
+func (x *SetChannelWidthRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[236]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetChannelWidthRequest.ProtoReflect.Descriptor instead.
+func (*SetChannelWidthRequest) Descriptor() ([]byte, []int) {
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{236}
+}
+
+func (x *SetChannelWidthRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetChannelWidthResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetChannelWidthResponse) Reset() {
+	*x = SetChannelWidthResponse{}
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[237]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetChannelWidthResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetChannelWidthResponse) ProtoMessage() {}
+
+func (x *SetChannelWidthResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[237]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetChannelWidthResponse.ProtoReflect.Descriptor instead.
+func (*SetChannelWidthResponse) Descriptor() ([]byte, []int) {
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{237}
+}
+
+func (x *SetChannelWidthResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetFrequencyMhzRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetFrequencyMhzRequest) Reset() {
+	*x = SetFrequencyMhzRequest{}
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[238]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetFrequencyMhzRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetFrequencyMhzRequest) ProtoMessage() {}
+
+func (x *SetFrequencyMhzRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[238]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetFrequencyMhzRequest.ProtoReflect.Descriptor instead.
+func (*SetFrequencyMhzRequest) Descriptor() ([]byte, []int) {
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{238}
+}
+
+func (x *SetFrequencyMhzRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetFrequencyMhzResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetFrequencyMhzResponse) Reset() {
+	*x = SetFrequencyMhzResponse{}
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[239]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetFrequencyMhzResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetFrequencyMhzResponse) ProtoMessage() {}
+
+func (x *SetFrequencyMhzResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[239]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetFrequencyMhzResponse.ProtoReflect.Descriptor instead.
+func (*SetFrequencyMhzResponse) Descriptor() ([]byte, []int) {
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{239}
+}
+
+func (x *SetFrequencyMhzResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetPreambleRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetPreambleRequest) Reset() {
+	*x = SetPreambleRequest{}
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[240]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetPreambleRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetPreambleRequest) ProtoMessage() {}
+
+func (x *SetPreambleRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[240]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetPreambleRequest.ProtoReflect.Descriptor instead.
+func (*SetPreambleRequest) Descriptor() ([]byte, []int) {
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{240}
+}
+
+func (x *SetPreambleRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetPreambleResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetPreambleResponse) Reset() {
+	*x = SetPreambleResponse{}
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[241]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetPreambleResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetPreambleResponse) ProtoMessage() {}
+
+func (x *SetPreambleResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[241]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetPreambleResponse.ProtoReflect.Descriptor instead.
+func (*SetPreambleResponse) Descriptor() ([]byte, []int) {
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{241}
+}
+
+func (x *SetPreambleResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetResponderTypeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetResponderTypeRequest) Reset() {
+	*x = SetResponderTypeRequest{}
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[242]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetResponderTypeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetResponderTypeRequest) ProtoMessage() {}
+
+func (x *SetResponderTypeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[242]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetResponderTypeRequest.ProtoReflect.Descriptor instead.
+func (*SetResponderTypeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{242}
+}
+
+func (x *SetResponderTypeRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetResponderTypeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetResponderTypeResponse) Reset() {
+	*x = SetResponderTypeResponse{}
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[243]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetResponderTypeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetResponderTypeResponse) ProtoMessage() {}
+
+func (x *SetResponderTypeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[243]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetResponderTypeResponse.ProtoReflect.Descriptor instead.
+func (*SetResponderTypeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{243}
+}
+
+func (x *SetResponderTypeResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetSecureRangingConfigRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetSecureRangingConfigRequest) Reset() {
+	*x = SetSecureRangingConfigRequest{}
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[244]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetSecureRangingConfigRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetSecureRangingConfigRequest) ProtoMessage() {}
+
+func (x *SetSecureRangingConfigRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[244]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetSecureRangingConfigRequest.ProtoReflect.Descriptor instead.
+func (*SetSecureRangingConfigRequest) Descriptor() ([]byte, []int) {
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{244}
+}
+
+func (x *SetSecureRangingConfigRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetSecureRangingConfigResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetSecureRangingConfigResponse) Reset() {
+	*x = SetSecureRangingConfigResponse{}
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[245]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetSecureRangingConfigResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetSecureRangingConfigResponse) ProtoMessage() {}
+
+func (x *SetSecureRangingConfigResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[245]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetSecureRangingConfigResponse.ProtoReflect.Descriptor instead.
+func (*SetSecureRangingConfigResponse) Descriptor() ([]byte, []int) {
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{245}
+}
+
+func (x *SetSecureRangingConfigResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetBaseAkmsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetBaseAkmsRequest) Reset() {
+	*x = GetBaseAkmsRequest{}
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[246]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetBaseAkmsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetBaseAkmsRequest) ProtoMessage() {}
+
+func (x *GetBaseAkmsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[246]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetBaseAkmsRequest.ProtoReflect.Descriptor instead.
+func (*GetBaseAkmsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{246}
+}
+
+type GetBaseAkmsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetBaseAkmsResponse) Reset() {
+	*x = GetBaseAkmsResponse{}
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[247]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetBaseAkmsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetBaseAkmsResponse) ProtoMessage() {}
+
+func (x *GetBaseAkmsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[247]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetBaseAkmsResponse.ProtoReflect.Descriptor instead.
+func (*GetBaseAkmsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{247}
+}
+
+func (x *GetBaseAkmsResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetCiphersRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetCiphersRequest) Reset() {
+	*x = GetCiphersRequest{}
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[248]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetCiphersRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetCiphersRequest) ProtoMessage() {}
+
+func (x *GetCiphersRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[248]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetCiphersRequest.ProtoReflect.Descriptor instead.
+func (*GetCiphersRequest) Descriptor() ([]byte, []int) {
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{248}
+}
+
+type GetCiphersResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetCiphersResponse) Reset() {
+	*x = GetCiphersResponse{}
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[249]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetCiphersResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetCiphersResponse) ProtoMessage() {}
+
+func (x *GetCiphersResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[249]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetCiphersResponse.ProtoReflect.Descriptor instead.
+func (*GetCiphersResponse) Descriptor() ([]byte, []int) {
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{249}
+}
+
+func (x *GetCiphersResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetPasswordRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPasswordRequest) Reset() {
+	*x = GetPasswordRequest{}
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[250]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPasswordRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPasswordRequest) ProtoMessage() {}
+
+func (x *GetPasswordRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[250]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPasswordRequest.ProtoReflect.Descriptor instead.
+func (*GetPasswordRequest) Descriptor() ([]byte, []int) {
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{250}
+}
+
+type GetPasswordResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPasswordResponse) Reset() {
+	*x = GetPasswordResponse{}
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[251]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPasswordResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPasswordResponse) ProtoMessage() {}
+
+func (x *GetPasswordResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[251]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPasswordResponse.ProtoReflect.Descriptor instead.
+func (*GetPasswordResponse) Descriptor() ([]byte, []int) {
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{251}
+}
+
+func (x *GetPasswordResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type GetWifiSsidRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetWifiSsidRequest) Reset() {
+	*x = GetWifiSsidRequest{}
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[252]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetWifiSsidRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetWifiSsidRequest) ProtoMessage() {}
+
+func (x *GetWifiSsidRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[252]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetWifiSsidRequest.ProtoReflect.Descriptor instead.
+func (*GetWifiSsidRequest) Descriptor() ([]byte, []int) {
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{252}
+}
+
+type GetWifiSsidResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetWifiSsidResponse) Reset() {
+	*x = GetWifiSsidResponse{}
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[253]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetWifiSsidResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetWifiSsidResponse) ProtoMessage() {}
+
+func (x *GetWifiSsidResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[253]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetWifiSsidResponse.ProtoReflect.Descriptor instead.
+func (*GetWifiSsidResponse) Descriptor() ([]byte, []int) {
 	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{253}
+}
+
+func (x *GetWifiSsidResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetPasswordRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetPasswordRequest) Reset() {
+	*x = SetPasswordRequest{}
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[254]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetPasswordRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetPasswordRequest) ProtoMessage() {}
+
+func (x *SetPasswordRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[254]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetPasswordRequest.ProtoReflect.Descriptor instead.
+func (*SetPasswordRequest) Descriptor() ([]byte, []int) {
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{254}
+}
+
+func (x *SetPasswordRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type SetPasswordResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetPasswordResponse) Reset() {
+	*x = SetPasswordResponse{}
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[255]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetPasswordResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetPasswordResponse) ProtoMessage() {}
+
+func (x *SetPasswordResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[255]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetPasswordResponse.ProtoReflect.Descriptor instead.
+func (*SetPasswordResponse) Descriptor() ([]byte, []int) {
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{255}
+}
+
+func (x *SetPasswordResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetWifiSsidRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetWifiSsidRequest) Reset() {
+	*x = SetWifiSsidRequest{}
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[256]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetWifiSsidRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetWifiSsidRequest) ProtoMessage() {}
+
+func (x *SetWifiSsidRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[256]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetWifiSsidRequest.ProtoReflect.Descriptor instead.
+func (*SetWifiSsidRequest) Descriptor() ([]byte, []int) {
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{256}
+}
+
+func (x *SetWifiSsidRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetWifiSsidResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetWifiSsidResponse) Reset() {
+	*x = SetWifiSsidResponse{}
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[257]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetWifiSsidResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetWifiSsidResponse) ProtoMessage() {}
+
+func (x *SetWifiSsidResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_wifi_rtt_wifi_rtt_proto_msgTypes[257]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetWifiSsidResponse.ProtoReflect.Descriptor instead.
+func (*SetWifiSsidResponse) Descriptor() ([]byte, []int) {
+	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP(), []int{257}
+}
+
+func (x *SetWifiSsidResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
 }
 
 var File_proto_wifi_rtt_wifi_rtt_proto protoreflect.FileDescriptor
@@ -10610,94 +10770,303 @@ const file_proto_wifi_rtt_wifi_rtt_proto_rawDesc = "" +
 	"\rEqualsRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"(\n" +
 	"\x0eEqualsResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\bR\x06result\"\x1a\n" +
-	"\x18GetCenterFreq0MhzRequest\"3\n" +
-	"\x19GetCenterFreq0MhzResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\"\x1a\n" +
-	"\x18GetCenterFreq1MhzRequest\"3\n" +
-	"\x19GetCenterFreq1MhzResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\"\x18\n" +
-	"\x16GetChannelWidthRequest\"1\n" +
-	"\x17GetChannelWidthResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\"\x18\n" +
-	"\x16GetFrequencyMhzRequest\"1\n" +
-	"\x17GetFrequencyMhzResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\"\x16\n" +
-	"\x14GetMacAddressRequest\"/\n" +
-	"\x15GetMacAddressResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\x14\n" +
-	"\x12GetPreambleRequest\"-\n" +
-	"\x13GetPreambleResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\"\x19\n" +
-	"\x17GetResponderTypeRequest\"2\n" +
-	"\x18GetResponderTypeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"\x14\n" +
+	"\x12GetAltitudeRequest\"-\n" +
+	"\x13GetAltitudeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x01R\x06result\"\x18\n" +
+	"\x16GetAltitudeTypeRequest\"1\n" +
+	"\x17GetAltitudeTypeResponse\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\x05R\x06result\"\x1f\n" +
-	"\x1dGetSecureRangingConfigRequest\"8\n" +
-	"\x1eGetSecureRangingConfigResponse\x12\x16\n" +
+	"\x1dGetAltitudeUncertaintyRequest\"8\n" +
+	"\x1eGetAltitudeUncertaintyResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x01R\x06result\"\x1b\n" +
+	"\x19GetColocatedBssidsRequest\"4\n" +
+	"\x1aGetColocatedBssidsResponse\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\x03R\x06result\"\x11\n" +
+	"\x0fGetDatumRequest\"*\n" +
+	"\x10GetDatumResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x1a\n" +
+	"\x18GetExpectedToMoveRequest\"3\n" +
+	"\x19GetExpectedToMoveResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x17\n" +
+	"\x15GetFloorNumberRequest\"0\n" +
+	"\x16GetFloorNumberResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x01R\x06result\"\"\n" +
+	" GetHeightAboveFloorMetersRequest\";\n" +
+	"!GetHeightAboveFloorMetersResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x01R\x06result\"-\n" +
+	"+GetHeightAboveFloorUncertaintyMetersRequest\"F\n" +
+	",GetHeightAboveFloorUncertaintyMetersResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x01R\x06result\"\x14\n" +
+	"\x12GetLatitudeRequest\"-\n" +
+	"\x13GetLatitudeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x01R\x06result\"\x1f\n" +
+	"\x1dGetLatitudeUncertaintyRequest\"8\n" +
+	"\x1eGetLatitudeUncertaintyResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x01R\x06result\"\x16\n" +
+	"\x14GetLciVersionRequest\"/\n" +
+	"\x15GetLciVersionResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x15\n" +
+	"\x13GetLongitudeRequest\".\n" +
+	"\x14GetLongitudeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x01R\x06result\" \n" +
+	"\x1eGetLongitudeUncertaintyRequest\"9\n" +
+	"\x1fGetLongitudeUncertaintyResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x01R\x06result\"\x1c\n" +
+	"\x1aGetMapImageMimeTypeRequest\"5\n" +
+	"\x1bGetMapImageMimeTypeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"\x17\n" +
+	"\x15GetMapImageUriRequest\"0\n" +
+	"\x16GetMapImageUriResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"1\n" +
+	"/GetRegisteredLocationAgreementIndicationRequest\"J\n" +
+	"0GetRegisteredLocationAgreementIndicationResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"\x11\n" +
 	"\x0fHashCodeRequest\"*\n" +
 	"\x10HashCodeResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\"\x1e\n" +
-	"\x1cIs80211azNtbSupportedRequest\"7\n" +
-	"\x1dIs80211azNtbSupportedResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\bR\x06result\"\x1b\n" +
-	"\x19Is80211mcSupportedRequest\"4\n" +
-	"\x1aIs80211mcSupportedResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\bR\x06result\"\x11\n" +
-	"\x0fToStringRequest\"*\n" +
-	"\x10ToStringResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\tR\x06result\">\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x1d\n" +
+	"\x1bIsLciSubelementValidRequest\"6\n" +
+	"\x1cIsLciSubelementValidResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"\x1f\n" +
+	"\x1dIsZaxisSubelementValidRequest\"8\n" +
+	"\x1eIsZaxisSubelementValidResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"\x1f\n" +
+	"\x1dToCivicLocationAddressRequest\"8\n" +
+	"\x1eToCivicLocationAddressResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"#\n" +
+	"!ToCivicLocationSparseArrayRequest\"<\n" +
+	"\"ToCivicLocationSparseArrayResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x13\n" +
+	"\x11ToLocationRequest\",\n" +
+	"\x12ToLocationResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\">\n" +
 	"\x14WriteToParcelRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
 	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\"\x17\n" +
-	"\x15WriteToParcelResponse\"+\n" +
-	"\x15FromScanResultRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"0\n" +
-	"\x16FromScanResultResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\x0e\n" +
+	"\x15WriteToParcelResponse\"1\n" +
+	"/Get80211azInitiatorTxLtfRepetitionsCountRequest\"J\n" +
+	"0Get80211azInitiatorTxLtfRepetitionsCountResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"+\n" +
+	")Get80211azNumberOfRxSpatialStreamsRequest\"D\n" +
+	"*Get80211azNumberOfRxSpatialStreamsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"+\n" +
+	")Get80211azNumberOfTxSpatialStreamsRequest\"D\n" +
+	"*Get80211azNumberOfTxSpatialStreamsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"1\n" +
+	"/Get80211azResponderTxLtfRepetitionsCountRequest\"J\n" +
+	"0Get80211azResponderTxLtfRepetitionsCountResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x16\n" +
+	"\x14GetDistanceMmRequest\"/\n" +
+	"\x15GetDistanceMmResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x1c\n" +
+	"\x1aGetDistanceStdDevMmRequest\"5\n" +
+	"\x1bGetDistanceStdDevMmResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x0f\n" +
+	"\rGetLciRequest\"(\n" +
+	"\x0eGetLciResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x0f\n" +
+	"\rGetLcrRequest\"(\n" +
+	"\x0eGetLcrResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x16\n" +
+	"\x14GetMacAddressRequest\"/\n" +
+	"\x15GetMacAddressResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"/\n" +
+	"-GetMaxTimeBetweenNtbMeasurementsMicrosRequest\"H\n" +
+	".GetMaxTimeBetweenNtbMeasurementsMicrosResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\" \n" +
+	"\x1eGetMeasurementBandwidthRequest\"9\n" +
+	"\x1fGetMeasurementBandwidthResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"*\n" +
+	"(GetMeasurementChannelFrequencyMHzRequest\"C\n" +
+	")GetMeasurementChannelFrequencyMHzResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"/\n" +
+	"-GetMinTimeBetweenNtbMeasurementsMicrosRequest\"H\n" +
+	".GetMinTimeBetweenNtbMeasurementsMicrosResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"$\n" +
+	"\"GetNumAttemptedMeasurementsRequest\"=\n" +
+	"#GetNumAttemptedMeasurementsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"%\n" +
+	"#GetNumSuccessfulMeasurementsRequest\">\n" +
+	"$GetNumSuccessfulMeasurementsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"#\n" +
+	"!GetPasnComebackAfterMillisRequest\"<\n" +
+	"\"GetPasnComebackAfterMillisResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1e\n" +
+	"\x1cGetPasnComebackCookieRequest\"7\n" +
+	"\x1dGetPasnComebackCookieResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x16\n" +
+	"\x14GetPeerHandleRequest\"/\n" +
+	"\x15GetPeerHandleResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\"\n" +
+	" GetRangingTimestampMillisRequest\";\n" +
+	"!GetRangingTimestampMillisResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x10\n" +
+	"\x0eGetRssiRequest\")\n" +
+	"\x0fGetRssiResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"&\n" +
+	"$GetSecureHeLtfProtocolVersionRequest\"?\n" +
+	"%GetSecureHeLtfProtocolVersionResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x12\n" +
+	"\x10GetStatusRequest\"+\n" +
+	"\x11GetStatusResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"'\n" +
+	"%GetUnverifiedResponderLocationRequest\"@\n" +
+	"&GetUnverifiedResponderLocationResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\" \n" +
+	"\x1eIs80211azNtbMeasurementRequest\"9\n" +
+	"\x1fIs80211azNtbMeasurementResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"\x1d\n" +
+	"\x1bIs80211mcMeasurementRequest\"6\n" +
+	"\x1cIs80211mcMeasurementResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"\x1f\n" +
+	"\x1dIsRangingAuthenticatedRequest\"8\n" +
+	"\x1eIsRangingAuthenticatedResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\" \n" +
+	"\x1eIsRangingFrameProtectedRequest\"9\n" +
+	"\x1fIsRangingFrameProtectedResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"\x1d\n" +
+	"\x1bIsSecureHeLtfEnabledRequest\"6\n" +
+	"\x1cIsSecureHeLtfEnabledResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"\x11\n" +
+	"\x0fToStringRequest\"*\n" +
+	"\x10ToStringResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"\x0e\n" +
 	"\fBuildRequest\"'\n" +
 	"\rBuildResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"3\n" +
-	"\x1dSet80211azNtbSupportedRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\bR\x04arg0\"8\n" +
-	"\x1eSet80211azNtbSupportedResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"E\n" +
+	"/Set80211azInitiatorTxLtfRepetitionsCountRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"J\n" +
+	"0Set80211azInitiatorTxLtfRepetitionsCountResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"5\n" +
+	"\x1fSet80211azNtbMeasurementRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\bR\x04arg0\":\n" +
+	" Set80211azNtbMeasurementResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"?\n" +
+	")Set80211azNumberOfRxSpatialStreamsRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"D\n" +
+	"*Set80211azNumberOfRxSpatialStreamsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"?\n" +
+	")Set80211azNumberOfTxSpatialStreamsRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"D\n" +
+	"*Set80211azNumberOfTxSpatialStreamsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"E\n" +
+	"/Set80211azResponderTxLtfRepetitionsCountRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"J\n" +
+	"0Set80211azResponderTxLtfRepetitionsCountResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"2\n" +
+	"\x1cSet80211mcMeasurementRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\bR\x04arg0\"7\n" +
+	"\x1dSet80211mcMeasurementResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"*\n" +
+	"\x14SetDistanceMmRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"/\n" +
+	"\x15SetDistanceMmResponse\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\x03R\x06result\"0\n" +
-	"\x1aSet80211mcSupportedRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\bR\x04arg0\"5\n" +
-	"\x1bSet80211mcSupportedResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\".\n" +
-	"\x18SetCenterFreq0MhzRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"3\n" +
-	"\x19SetCenterFreq0MhzResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\".\n" +
-	"\x18SetCenterFreq1MhzRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"3\n" +
-	"\x19SetCenterFreq1MhzResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\",\n" +
-	"\x16SetChannelWidthRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"1\n" +
-	"\x17SetChannelWidthResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\",\n" +
-	"\x16SetFrequencyMhzRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"1\n" +
-	"\x17SetFrequencyMhzResponse\x12\x16\n" +
+	"\x1aSetDistanceStdDevMmRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"5\n" +
+	"\x1bSetDistanceStdDevMmResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"#\n" +
+	"\rSetLciRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"(\n" +
+	"\x0eSetLciResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"#\n" +
+	"\rSetLcrRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"(\n" +
+	"\x0eSetLcrResponse\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\x03R\x06result\"*\n" +
 	"\x14SetMacAddressRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"/\n" +
 	"\x15SetMacAddressResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"C\n" +
+	"-SetMaxTimeBetweenNtbMeasurementsMicrosRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"H\n" +
+	".SetMaxTimeBetweenNtbMeasurementsMicrosResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"4\n" +
+	"\x1eSetMeasurementBandwidthRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"9\n" +
+	"\x1fSetMeasurementBandwidthResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\">\n" +
+	"(SetMeasurementChannelFrequencyMHzRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"C\n" +
+	")SetMeasurementChannelFrequencyMHzResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"C\n" +
+	"-SetMinTimeBetweenNtbMeasurementsMicrosRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"H\n" +
+	".SetMinTimeBetweenNtbMeasurementsMicrosResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"8\n" +
+	"\"SetNumAttemptedMeasurementsRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"=\n" +
+	"#SetNumAttemptedMeasurementsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"9\n" +
+	"#SetNumSuccessfulMeasurementsRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\">\n" +
+	"$SetNumSuccessfulMeasurementsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"7\n" +
+	"!SetPasnComebackAfterMillisRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"<\n" +
+	"\"SetPasnComebackAfterMillisResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"2\n" +
+	"\x1cSetPasnComebackCookieRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"7\n" +
+	"\x1dSetPasnComebackCookieResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"*\n" +
+	"\x14SetPeerHandleRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"/\n" +
+	"\x15SetPeerHandleResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"4\n" +
+	"\x1eSetRangingAuthenticatedRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\bR\x04arg0\"9\n" +
+	"\x1fSetRangingAuthenticatedResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"5\n" +
+	"\x1fSetRangingFrameProtectedRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\bR\x04arg0\":\n" +
+	" SetRangingFrameProtectedResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"6\n" +
+	" SetRangingTimestampMillisRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\";\n" +
+	"!SetRangingTimestampMillisResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"$\n" +
+	"\x0eSetRssiRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\")\n" +
+	"\x0fSetRssiResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"2\n" +
+	"\x1cSetSecureHeLtfEnabledRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\bR\x04arg0\"7\n" +
+	"\x1dSetSecureHeLtfEnabledResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\":\n" +
+	"$SetSecureHeLtfProtocolVersionRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"?\n" +
+	"%SetSecureHeLtfProtocolVersionResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"&\n" +
+	"\x10SetStatusRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"+\n" +
+	"\x11SetStatusResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\";\n" +
+	"%SetUnverifiedResponderLocationRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"@\n" +
+	"&SetUnverifiedResponderLocationResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x16\n" +
+	"\x14GetPasnConfigRequest\"/\n" +
+	"\x15GetPasnConfigResponse\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\x03R\x06result\"(\n" +
-	"\x12SetPreambleRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"-\n" +
-	"\x13SetPreambleResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"-\n" +
-	"\x17SetResponderTypeRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"2\n" +
-	"\x18SetResponderTypeResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"3\n" +
-	"\x1dSetSecureRangingConfigRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"8\n" +
-	"\x1eSetSecureRangingConfigResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\x18\n" +
+	"&IsRangingFrameProtectionEnabledRequest\"A\n" +
+	"'IsRangingFrameProtectionEnabledResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"=\n" +
+	"'SetRangingFrameProtectionEnabledRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\bR\x04arg0\"B\n" +
+	"(SetRangingFrameProtectionEnabledResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1e\n" +
+	"\x1cGetRttCharacteristicsRequest\"7\n" +
+	"\x1dGetRttCharacteristicsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x14\n" +
+	"\x12IsAvailableRequest\"-\n" +
+	"\x13IsAvailableResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"Q\n" +
+	"\x13StartRangingRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\"\x16\n" +
+	"\x14StartRangingResponse\"\x18\n" +
 	"\x16GetRttBurstSizeRequest\"1\n" +
 	"\x17GetRttBurstSizeResponse\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\x05R\x06result\"\x18\n" +
@@ -10746,25 +11115,85 @@ const file_proto_wifi_rtt_wifi_rtt_proto_rawDesc = "" +
 	"\x06result\x18\x01 \x01(\x03R\x06result\"-\n" +
 	"\x17OnRangingFailureRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"\x1a\n" +
-	"\x18OnRangingFailureResponse\"\x14\n" +
+	"\x18OnRangingFailureResponse\"\x1a\n" +
+	"\x18GetCenterFreq0MhzRequest\"3\n" +
+	"\x19GetCenterFreq0MhzResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x1a\n" +
+	"\x18GetCenterFreq1MhzRequest\"3\n" +
+	"\x19GetCenterFreq1MhzResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x18\n" +
+	"\x16GetChannelWidthRequest\"1\n" +
+	"\x17GetChannelWidthResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x18\n" +
+	"\x16GetFrequencyMhzRequest\"1\n" +
+	"\x17GetFrequencyMhzResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x14\n" +
+	"\x12GetPreambleRequest\"-\n" +
+	"\x13GetPreambleResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x19\n" +
+	"\x17GetResponderTypeRequest\"2\n" +
+	"\x18GetResponderTypeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x1f\n" +
+	"\x1dGetSecureRangingConfigRequest\"8\n" +
+	"\x1eGetSecureRangingConfigResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1e\n" +
+	"\x1cIs80211azNtbSupportedRequest\"7\n" +
+	"\x1dIs80211azNtbSupportedResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"\x1b\n" +
+	"\x19Is80211mcSupportedRequest\"4\n" +
+	"\x1aIs80211mcSupportedResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"+\n" +
+	"\x15FromScanResultRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"0\n" +
+	"\x16FromScanResultResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"3\n" +
+	"\x1dSet80211azNtbSupportedRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\bR\x04arg0\"8\n" +
+	"\x1eSet80211azNtbSupportedResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"0\n" +
+	"\x1aSet80211mcSupportedRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\bR\x04arg0\"5\n" +
+	"\x1bSet80211mcSupportedResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\".\n" +
+	"\x18SetCenterFreq0MhzRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"3\n" +
+	"\x19SetCenterFreq0MhzResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\".\n" +
+	"\x18SetCenterFreq1MhzRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"3\n" +
+	"\x19SetCenterFreq1MhzResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\",\n" +
+	"\x16SetChannelWidthRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"1\n" +
+	"\x17SetChannelWidthResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\",\n" +
+	"\x16SetFrequencyMhzRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"1\n" +
+	"\x17SetFrequencyMhzResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"(\n" +
+	"\x12SetPreambleRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"-\n" +
+	"\x13SetPreambleResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"-\n" +
+	"\x17SetResponderTypeRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"2\n" +
+	"\x18SetResponderTypeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"3\n" +
+	"\x1dSetSecureRangingConfigRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"8\n" +
+	"\x1eSetSecureRangingConfigResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x14\n" +
 	"\x12GetBaseAkmsRequest\"-\n" +
 	"\x13GetBaseAkmsResponse\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\x05R\x06result\"\x13\n" +
 	"\x11GetCiphersRequest\",\n" +
 	"\x12GetCiphersResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\"\x1e\n" +
-	"\x1cGetPasnComebackCookieRequest\"7\n" +
-	"\x1dGetPasnComebackCookieResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\x14\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x14\n" +
 	"\x12GetPasswordRequest\"-\n" +
 	"\x13GetPasswordResponse\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\tR\x06result\"\x14\n" +
 	"\x12GetWifiSsidRequest\"-\n" +
 	"\x13GetWifiSsidResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"2\n" +
-	"\x1cSetPasnComebackCookieRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"7\n" +
-	"\x1dSetPasnComebackCookieResponse\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\x03R\x06result\"(\n" +
 	"\x12SetPasswordRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"-\n" +
@@ -10773,340 +11202,35 @@ const file_proto_wifi_rtt_wifi_rtt_proto_rawDesc = "" +
 	"\x12SetWifiSsidRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"-\n" +
 	"\x13SetWifiSsidResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"1\n" +
-	"/Get80211azInitiatorTxLtfRepetitionsCountRequest\"J\n" +
-	"0Get80211azInitiatorTxLtfRepetitionsCountResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\"+\n" +
-	")Get80211azNumberOfRxSpatialStreamsRequest\"D\n" +
-	"*Get80211azNumberOfRxSpatialStreamsResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\"+\n" +
-	")Get80211azNumberOfTxSpatialStreamsRequest\"D\n" +
-	"*Get80211azNumberOfTxSpatialStreamsResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\"1\n" +
-	"/Get80211azResponderTxLtfRepetitionsCountRequest\"J\n" +
-	"0Get80211azResponderTxLtfRepetitionsCountResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\"\x16\n" +
-	"\x14GetDistanceMmRequest\"/\n" +
-	"\x15GetDistanceMmResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\"\x1c\n" +
-	"\x1aGetDistanceStdDevMmRequest\"5\n" +
-	"\x1bGetDistanceStdDevMmResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\"\x0f\n" +
-	"\rGetLciRequest\"(\n" +
-	"\x0eGetLciResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\x0f\n" +
-	"\rGetLcrRequest\"(\n" +
-	"\x0eGetLcrResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"/\n" +
-	"-GetMaxTimeBetweenNtbMeasurementsMicrosRequest\"H\n" +
-	".GetMaxTimeBetweenNtbMeasurementsMicrosResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\" \n" +
-	"\x1eGetMeasurementBandwidthRequest\"9\n" +
-	"\x1fGetMeasurementBandwidthResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\"*\n" +
-	"(GetMeasurementChannelFrequencyMHzRequest\"C\n" +
-	")GetMeasurementChannelFrequencyMHzResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\"/\n" +
-	"-GetMinTimeBetweenNtbMeasurementsMicrosRequest\"H\n" +
-	".GetMinTimeBetweenNtbMeasurementsMicrosResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"$\n" +
-	"\"GetNumAttemptedMeasurementsRequest\"=\n" +
-	"#GetNumAttemptedMeasurementsResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\"%\n" +
-	"#GetNumSuccessfulMeasurementsRequest\">\n" +
-	"$GetNumSuccessfulMeasurementsResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\"#\n" +
-	"!GetPasnComebackAfterMillisRequest\"<\n" +
-	"\"GetPasnComebackAfterMillisResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\x16\n" +
-	"\x14GetPeerHandleRequest\"/\n" +
-	"\x15GetPeerHandleResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\"\n" +
-	" GetRangingTimestampMillisRequest\";\n" +
-	"!GetRangingTimestampMillisResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\x10\n" +
-	"\x0eGetRssiRequest\")\n" +
-	"\x0fGetRssiResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\"&\n" +
-	"$GetSecureHeLtfProtocolVersionRequest\"?\n" +
-	"%GetSecureHeLtfProtocolVersionResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\"\x12\n" +
-	"\x10GetStatusRequest\"+\n" +
-	"\x11GetStatusResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\"'\n" +
-	"%GetUnverifiedResponderLocationRequest\"@\n" +
-	"&GetUnverifiedResponderLocationResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\" \n" +
-	"\x1eIs80211azNtbMeasurementRequest\"9\n" +
-	"\x1fIs80211azNtbMeasurementResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\bR\x06result\"\x1d\n" +
-	"\x1bIs80211mcMeasurementRequest\"6\n" +
-	"\x1cIs80211mcMeasurementResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\bR\x06result\"\x1f\n" +
-	"\x1dIsRangingAuthenticatedRequest\"8\n" +
-	"\x1eIsRangingAuthenticatedResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\bR\x06result\" \n" +
-	"\x1eIsRangingFrameProtectedRequest\"9\n" +
-	"\x1fIsRangingFrameProtectedResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\bR\x06result\"\x1d\n" +
-	"\x1bIsSecureHeLtfEnabledRequest\"6\n" +
-	"\x1cIsSecureHeLtfEnabledResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\bR\x06result\"E\n" +
-	"/Set80211azInitiatorTxLtfRepetitionsCountRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"J\n" +
-	"0Set80211azInitiatorTxLtfRepetitionsCountResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"5\n" +
-	"\x1fSet80211azNtbMeasurementRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\bR\x04arg0\":\n" +
-	" Set80211azNtbMeasurementResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"?\n" +
-	")Set80211azNumberOfRxSpatialStreamsRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"D\n" +
-	"*Set80211azNumberOfRxSpatialStreamsResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"?\n" +
-	")Set80211azNumberOfTxSpatialStreamsRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"D\n" +
-	"*Set80211azNumberOfTxSpatialStreamsResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"E\n" +
-	"/Set80211azResponderTxLtfRepetitionsCountRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"J\n" +
-	"0Set80211azResponderTxLtfRepetitionsCountResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"2\n" +
-	"\x1cSet80211mcMeasurementRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\bR\x04arg0\"7\n" +
-	"\x1dSet80211mcMeasurementResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"*\n" +
-	"\x14SetDistanceMmRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"/\n" +
-	"\x15SetDistanceMmResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"0\n" +
-	"\x1aSetDistanceStdDevMmRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"5\n" +
-	"\x1bSetDistanceStdDevMmResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"#\n" +
-	"\rSetLciRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"(\n" +
-	"\x0eSetLciResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"#\n" +
-	"\rSetLcrRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"(\n" +
-	"\x0eSetLcrResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"C\n" +
-	"-SetMaxTimeBetweenNtbMeasurementsMicrosRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"H\n" +
-	".SetMaxTimeBetweenNtbMeasurementsMicrosResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"4\n" +
-	"\x1eSetMeasurementBandwidthRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"9\n" +
-	"\x1fSetMeasurementBandwidthResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\">\n" +
-	"(SetMeasurementChannelFrequencyMHzRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"C\n" +
-	")SetMeasurementChannelFrequencyMHzResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"C\n" +
-	"-SetMinTimeBetweenNtbMeasurementsMicrosRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"H\n" +
-	".SetMinTimeBetweenNtbMeasurementsMicrosResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"8\n" +
-	"\"SetNumAttemptedMeasurementsRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"=\n" +
-	"#SetNumAttemptedMeasurementsResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"9\n" +
-	"#SetNumSuccessfulMeasurementsRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\">\n" +
-	"$SetNumSuccessfulMeasurementsResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"7\n" +
-	"!SetPasnComebackAfterMillisRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"<\n" +
-	"\"SetPasnComebackAfterMillisResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"*\n" +
-	"\x14SetPeerHandleRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"/\n" +
-	"\x15SetPeerHandleResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"4\n" +
-	"\x1eSetRangingAuthenticatedRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\bR\x04arg0\"9\n" +
-	"\x1fSetRangingAuthenticatedResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"5\n" +
-	"\x1fSetRangingFrameProtectedRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\bR\x04arg0\":\n" +
-	" SetRangingFrameProtectedResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"6\n" +
-	" SetRangingTimestampMillisRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\";\n" +
-	"!SetRangingTimestampMillisResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"$\n" +
-	"\x0eSetRssiRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\")\n" +
-	"\x0fSetRssiResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"2\n" +
-	"\x1cSetSecureHeLtfEnabledRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\bR\x04arg0\"7\n" +
-	"\x1dSetSecureHeLtfEnabledResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\":\n" +
-	"$SetSecureHeLtfProtocolVersionRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"?\n" +
-	"%SetSecureHeLtfProtocolVersionResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"&\n" +
-	"\x10SetStatusRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"+\n" +
-	"\x11SetStatusResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\";\n" +
-	"%SetUnverifiedResponderLocationRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"@\n" +
-	"&SetUnverifiedResponderLocationResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\x16\n" +
-	"\x14GetPasnConfigRequest\"/\n" +
-	"\x15GetPasnConfigResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"(\n" +
-	"&IsRangingFrameProtectionEnabledRequest\"A\n" +
-	"'IsRangingFrameProtectionEnabledResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\bR\x06result\"=\n" +
-	"'SetRangingFrameProtectionEnabledRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\bR\x04arg0\"B\n" +
-	"(SetRangingFrameProtectionEnabledResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\x14\n" +
-	"\x12GetAltitudeRequest\"-\n" +
-	"\x13GetAltitudeResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x01R\x06result\"\x18\n" +
-	"\x16GetAltitudeTypeRequest\"1\n" +
-	"\x17GetAltitudeTypeResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\"\x1f\n" +
-	"\x1dGetAltitudeUncertaintyRequest\"8\n" +
-	"\x1eGetAltitudeUncertaintyResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x01R\x06result\"\x11\n" +
-	"\x0fGetDatumRequest\"*\n" +
-	"\x10GetDatumResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\"\x1a\n" +
-	"\x18GetExpectedToMoveRequest\"3\n" +
-	"\x19GetExpectedToMoveResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\"\x17\n" +
-	"\x15GetFloorNumberRequest\"0\n" +
-	"\x16GetFloorNumberResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x01R\x06result\"\"\n" +
-	" GetHeightAboveFloorMetersRequest\";\n" +
-	"!GetHeightAboveFloorMetersResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x01R\x06result\"-\n" +
-	"+GetHeightAboveFloorUncertaintyMetersRequest\"F\n" +
-	",GetHeightAboveFloorUncertaintyMetersResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x01R\x06result\"\x14\n" +
-	"\x12GetLatitudeRequest\"-\n" +
-	"\x13GetLatitudeResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x01R\x06result\"\x1f\n" +
-	"\x1dGetLatitudeUncertaintyRequest\"8\n" +
-	"\x1eGetLatitudeUncertaintyResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x01R\x06result\"\x16\n" +
-	"\x14GetLciVersionRequest\"/\n" +
-	"\x15GetLciVersionResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\"\x15\n" +
-	"\x13GetLongitudeRequest\".\n" +
-	"\x14GetLongitudeResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x01R\x06result\" \n" +
-	"\x1eGetLongitudeUncertaintyRequest\"9\n" +
-	"\x1fGetLongitudeUncertaintyResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x01R\x06result\"\x1c\n" +
-	"\x1aGetMapImageMimeTypeRequest\"5\n" +
-	"\x1bGetMapImageMimeTypeResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\tR\x06result\"\x17\n" +
-	"\x15GetMapImageUriRequest\"0\n" +
-	"\x16GetMapImageUriResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"1\n" +
-	"/GetRegisteredLocationAgreementIndicationRequest\"J\n" +
-	"0GetRegisteredLocationAgreementIndicationResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\bR\x06result\"\x1d\n" +
-	"\x1bIsLciSubelementValidRequest\"6\n" +
-	"\x1cIsLciSubelementValidResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\bR\x06result\"\x1f\n" +
-	"\x1dIsZaxisSubelementValidRequest\"8\n" +
-	"\x1eIsZaxisSubelementValidResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\bR\x06result\"\x1f\n" +
-	"\x1dToCivicLocationAddressRequest\"8\n" +
-	"\x1eToCivicLocationAddressResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\x13\n" +
-	"\x11ToLocationRequest\",\n" +
-	"\x12ToLocationResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1e\n" +
-	"\x1cGetRttCharacteristicsRequest\"7\n" +
-	"\x1dGetRttCharacteristicsResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\x14\n" +
-	"\x12IsAvailableRequest\"-\n" +
-	"\x13IsAvailableResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\bR\x06result\"Q\n" +
-	"\x13StartRangingRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
-	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\"\x16\n" +
-	"\x14StartRangingResponse2\xfa\n" +
-	"\n" +
-	"\x16ResponderConfigService\x12Y\n" +
-	"\x10DescribeContents\x12!.wifi_rtt.DescribeContentsRequest\x1a\".wifi_rtt.DescribeContentsResponse\x12;\n" +
-	"\x06Equals\x12\x17.wifi_rtt.EqualsRequest\x1a\x18.wifi_rtt.EqualsResponse\x12\\\n" +
-	"\x11GetCenterFreq0Mhz\x12\".wifi_rtt.GetCenterFreq0MhzRequest\x1a#.wifi_rtt.GetCenterFreq0MhzResponse\x12\\\n" +
-	"\x11GetCenterFreq1Mhz\x12\".wifi_rtt.GetCenterFreq1MhzRequest\x1a#.wifi_rtt.GetCenterFreq1MhzResponse\x12V\n" +
-	"\x0fGetChannelWidth\x12 .wifi_rtt.GetChannelWidthRequest\x1a!.wifi_rtt.GetChannelWidthResponse\x12V\n" +
-	"\x0fGetFrequencyMhz\x12 .wifi_rtt.GetFrequencyMhzRequest\x1a!.wifi_rtt.GetFrequencyMhzResponse\x12P\n" +
-	"\rGetMacAddress\x12\x1e.wifi_rtt.GetMacAddressRequest\x1a\x1f.wifi_rtt.GetMacAddressResponse\x12J\n" +
-	"\vGetPreamble\x12\x1c.wifi_rtt.GetPreambleRequest\x1a\x1d.wifi_rtt.GetPreambleResponse\x12Y\n" +
-	"\x10GetResponderType\x12!.wifi_rtt.GetResponderTypeRequest\x1a\".wifi_rtt.GetResponderTypeResponse\x12k\n" +
-	"\x16GetSecureRangingConfig\x12'.wifi_rtt.GetSecureRangingConfigRequest\x1a(.wifi_rtt.GetSecureRangingConfigResponse\x12A\n" +
-	"\bHashCode\x12\x19.wifi_rtt.HashCodeRequest\x1a\x1a.wifi_rtt.HashCodeResponse\x12h\n" +
-	"\x15Is80211azNtbSupported\x12&.wifi_rtt.Is80211azNtbSupportedRequest\x1a'.wifi_rtt.Is80211azNtbSupportedResponse\x12_\n" +
-	"\x12Is80211mcSupported\x12#.wifi_rtt.Is80211mcSupportedRequest\x1a$.wifi_rtt.Is80211mcSupportedResponse\x12A\n" +
-	"\bToString\x12\x19.wifi_rtt.ToStringRequest\x1a\x1a.wifi_rtt.ToStringResponse\x12P\n" +
-	"\rWriteToParcel\x12\x1e.wifi_rtt.WriteToParcelRequest\x1a\x1f.wifi_rtt.WriteToParcelResponse\x12S\n" +
-	"\x0eFromScanResult\x12\x1f.wifi_rtt.FromScanResultRequest\x1a .wifi_rtt.FromScanResultResponse2\xfc\a\n" +
-	"\x1dResponderConfigBuilderService\x128\n" +
-	"\x05Build\x12\x16.wifi_rtt.BuildRequest\x1a\x17.wifi_rtt.BuildResponse\x12k\n" +
-	"\x16Set80211azNtbSupported\x12'.wifi_rtt.Set80211azNtbSupportedRequest\x1a(.wifi_rtt.Set80211azNtbSupportedResponse\x12b\n" +
-	"\x13Set80211mcSupported\x12$.wifi_rtt.Set80211mcSupportedRequest\x1a%.wifi_rtt.Set80211mcSupportedResponse\x12\\\n" +
-	"\x11SetCenterFreq0Mhz\x12\".wifi_rtt.SetCenterFreq0MhzRequest\x1a#.wifi_rtt.SetCenterFreq0MhzResponse\x12\\\n" +
-	"\x11SetCenterFreq1Mhz\x12\".wifi_rtt.SetCenterFreq1MhzRequest\x1a#.wifi_rtt.SetCenterFreq1MhzResponse\x12V\n" +
-	"\x0fSetChannelWidth\x12 .wifi_rtt.SetChannelWidthRequest\x1a!.wifi_rtt.SetChannelWidthResponse\x12V\n" +
-	"\x0fSetFrequencyMhz\x12 .wifi_rtt.SetFrequencyMhzRequest\x1a!.wifi_rtt.SetFrequencyMhzResponse\x12P\n" +
-	"\rSetMacAddress\x12\x1e.wifi_rtt.SetMacAddressRequest\x1a\x1f.wifi_rtt.SetMacAddressResponse\x12J\n" +
-	"\vSetPreamble\x12\x1c.wifi_rtt.SetPreambleRequest\x1a\x1d.wifi_rtt.SetPreambleResponse\x12Y\n" +
-	"\x10SetResponderType\x12!.wifi_rtt.SetResponderTypeRequest\x1a\".wifi_rtt.SetResponderTypeResponse\x12k\n" +
-	"\x16SetSecureRangingConfig\x12'.wifi_rtt.SetSecureRangingConfigRequest\x1a(.wifi_rtt.SetSecureRangingConfigResponse2\xb2\a\n" +
-	"\x15RangingRequestService\x12Y\n" +
-	"\x10DescribeContents\x12!.wifi_rtt.DescribeContentsRequest\x1a\".wifi_rtt.DescribeContentsResponse\x12;\n" +
-	"\x06Equals\x12\x17.wifi_rtt.EqualsRequest\x1a\x18.wifi_rtt.EqualsResponse\x12V\n" +
-	"\x0fGetRttBurstSize\x12 .wifi_rtt.GetRttBurstSizeRequest\x1a!.wifi_rtt.GetRttBurstSizeResponse\x12V\n" +
-	"\x0fGetSecurityMode\x12 .wifi_rtt.GetSecurityModeRequest\x1a!.wifi_rtt.GetSecurityModeResponse\x12A\n" +
-	"\bHashCode\x12\x19.wifi_rtt.HashCodeRequest\x1a\x1a.wifi_rtt.HashCodeResponse\x12A\n" +
-	"\bToString\x12\x19.wifi_rtt.ToStringRequest\x1a\x1a.wifi_rtt.ToStringResponse\x12P\n" +
-	"\rWriteToParcel\x12\x1e.wifi_rtt.WriteToParcelRequest\x1a\x1f.wifi_rtt.WriteToParcelResponse\x12k\n" +
-	"\x16GetDefaultRttBurstSize\x12'.wifi_rtt.GetDefaultRttBurstSizeRequest\x1a(.wifi_rtt.GetDefaultRttBurstSizeResponse\x12J\n" +
-	"\vGetMaxPeers\x12\x1c.wifi_rtt.GetMaxPeersRequest\x1a\x1d.wifi_rtt.GetMaxPeersResponse\x12_\n" +
-	"\x12GetMaxRttBurstSize\x12#.wifi_rtt.GetMaxRttBurstSizeRequest\x1a$.wifi_rtt.GetMaxRttBurstSizeResponse\x12_\n" +
-	"\x12GetMinRttBurstSize\x12#.wifi_rtt.GetMinRttBurstSizeRequest\x1a$.wifi_rtt.GetMinRttBurstSizeResponse2\xf7\x05\n" +
-	"\x1cRangingRequestBuilderService\x12S\n" +
-	"\x0eAddAccessPoint\x12\x1f.wifi_rtt.AddAccessPointRequest\x1a .wifi_rtt.AddAccessPointResponse\x12\x86\x01\n" +
-	"\x1fAddNon80211mcCapableAccessPoint\x120.wifi_rtt.AddNon80211mcCapableAccessPointRequest\x1a1.wifi_rtt.AddNon80211mcCapableAccessPointResponse\x12M\n" +
-	"\fAddResponder\x12\x1d.wifi_rtt.AddResponderRequest\x1a\x1e.wifi_rtt.AddResponderResponse\x12\\\n" +
-	"\x11AddWifiAwarePeer1\x12\".wifi_rtt.AddWifiAwarePeer1Request\x1a#.wifi_rtt.AddWifiAwarePeer1Response\x12b\n" +
-	"\x13AddWifiAwarePeer1_1\x12$.wifi_rtt.AddWifiAwarePeer1_1Request\x1a%.wifi_rtt.AddWifiAwarePeer1_1Response\x128\n" +
-	"\x05Build\x12\x16.wifi_rtt.BuildRequest\x1a\x17.wifi_rtt.BuildResponse\x12V\n" +
-	"\x0fSetRttBurstSize\x12 .wifi_rtt.SetRttBurstSizeRequest\x1a!.wifi_rtt.SetRttBurstSizeResponse\x12V\n" +
-	"\x0fSetSecurityMode\x12 .wifi_rtt.SetSecurityModeRequest\x1a!.wifi_rtt.SetSecurityModeResponse2y\n" +
-	"\x1cRangingResultCallbackService\x12Y\n" +
-	"\x10OnRangingFailure\x12!.wifi_rtt.OnRangingFailureRequest\x1a\".wifi_rtt.OnRangingFailureResponse2\x9a\x06\n" +
-	"\x11PasnConfigService\x12Y\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result2\xe7\x13\n" +
+	"\x18ResponderLocationService\x12Y\n" +
 	"\x10DescribeContents\x12!.wifi_rtt.DescribeContentsRequest\x1a\".wifi_rtt.DescribeContentsResponse\x12;\n" +
 	"\x06Equals\x12\x17.wifi_rtt.EqualsRequest\x1a\x18.wifi_rtt.EqualsResponse\x12J\n" +
-	"\vGetBaseAkms\x12\x1c.wifi_rtt.GetBaseAkmsRequest\x1a\x1d.wifi_rtt.GetBaseAkmsResponse\x12G\n" +
+	"\vGetAltitude\x12\x1c.wifi_rtt.GetAltitudeRequest\x1a\x1d.wifi_rtt.GetAltitudeResponse\x12V\n" +
+	"\x0fGetAltitudeType\x12 .wifi_rtt.GetAltitudeTypeRequest\x1a!.wifi_rtt.GetAltitudeTypeResponse\x12k\n" +
+	"\x16GetAltitudeUncertainty\x12'.wifi_rtt.GetAltitudeUncertaintyRequest\x1a(.wifi_rtt.GetAltitudeUncertaintyResponse\x12_\n" +
+	"\x12GetColocatedBssids\x12#.wifi_rtt.GetColocatedBssidsRequest\x1a$.wifi_rtt.GetColocatedBssidsResponse\x12A\n" +
+	"\bGetDatum\x12\x19.wifi_rtt.GetDatumRequest\x1a\x1a.wifi_rtt.GetDatumResponse\x12\\\n" +
+	"\x11GetExpectedToMove\x12\".wifi_rtt.GetExpectedToMoveRequest\x1a#.wifi_rtt.GetExpectedToMoveResponse\x12S\n" +
+	"\x0eGetFloorNumber\x12\x1f.wifi_rtt.GetFloorNumberRequest\x1a .wifi_rtt.GetFloorNumberResponse\x12t\n" +
+	"\x19GetHeightAboveFloorMeters\x12*.wifi_rtt.GetHeightAboveFloorMetersRequest\x1a+.wifi_rtt.GetHeightAboveFloorMetersResponse\x12\x95\x01\n" +
+	"$GetHeightAboveFloorUncertaintyMeters\x125.wifi_rtt.GetHeightAboveFloorUncertaintyMetersRequest\x1a6.wifi_rtt.GetHeightAboveFloorUncertaintyMetersResponse\x12J\n" +
+	"\vGetLatitude\x12\x1c.wifi_rtt.GetLatitudeRequest\x1a\x1d.wifi_rtt.GetLatitudeResponse\x12k\n" +
+	"\x16GetLatitudeUncertainty\x12'.wifi_rtt.GetLatitudeUncertaintyRequest\x1a(.wifi_rtt.GetLatitudeUncertaintyResponse\x12P\n" +
+	"\rGetLciVersion\x12\x1e.wifi_rtt.GetLciVersionRequest\x1a\x1f.wifi_rtt.GetLciVersionResponse\x12M\n" +
+	"\fGetLongitude\x12\x1d.wifi_rtt.GetLongitudeRequest\x1a\x1e.wifi_rtt.GetLongitudeResponse\x12n\n" +
+	"\x17GetLongitudeUncertainty\x12(.wifi_rtt.GetLongitudeUncertaintyRequest\x1a).wifi_rtt.GetLongitudeUncertaintyResponse\x12b\n" +
+	"\x13GetMapImageMimeType\x12$.wifi_rtt.GetMapImageMimeTypeRequest\x1a%.wifi_rtt.GetMapImageMimeTypeResponse\x12S\n" +
+	"\x0eGetMapImageUri\x12\x1f.wifi_rtt.GetMapImageUriRequest\x1a .wifi_rtt.GetMapImageUriResponse\x12\xa1\x01\n" +
+	"(GetRegisteredLocationAgreementIndication\x129.wifi_rtt.GetRegisteredLocationAgreementIndicationRequest\x1a:.wifi_rtt.GetRegisteredLocationAgreementIndicationResponse\x12A\n" +
+	"\bHashCode\x12\x19.wifi_rtt.HashCodeRequest\x1a\x1a.wifi_rtt.HashCodeResponse\x12e\n" +
+	"\x14IsLciSubelementValid\x12%.wifi_rtt.IsLciSubelementValidRequest\x1a&.wifi_rtt.IsLciSubelementValidResponse\x12k\n" +
+	"\x16IsZaxisSubelementValid\x12'.wifi_rtt.IsZaxisSubelementValidRequest\x1a(.wifi_rtt.IsZaxisSubelementValidResponse\x12k\n" +
+	"\x16ToCivicLocationAddress\x12'.wifi_rtt.ToCivicLocationAddressRequest\x1a(.wifi_rtt.ToCivicLocationAddressResponse\x12w\n" +
+	"\x1aToCivicLocationSparseArray\x12+.wifi_rtt.ToCivicLocationSparseArrayRequest\x1a,.wifi_rtt.ToCivicLocationSparseArrayResponse\x12G\n" +
 	"\n" +
-	"GetCiphers\x12\x1b.wifi_rtt.GetCiphersRequest\x1a\x1c.wifi_rtt.GetCiphersResponse\x12h\n" +
-	"\x15GetPasnComebackCookie\x12&.wifi_rtt.GetPasnComebackCookieRequest\x1a'.wifi_rtt.GetPasnComebackCookieResponse\x12J\n" +
-	"\vGetPassword\x12\x1c.wifi_rtt.GetPasswordRequest\x1a\x1d.wifi_rtt.GetPasswordResponse\x12J\n" +
-	"\vGetWifiSsid\x12\x1c.wifi_rtt.GetWifiSsidRequest\x1a\x1d.wifi_rtt.GetWifiSsidResponse\x12A\n" +
-	"\bHashCode\x12\x19.wifi_rtt.HashCodeRequest\x1a\x1a.wifi_rtt.HashCodeResponse\x12A\n" +
-	"\bToString\x12\x19.wifi_rtt.ToStringRequest\x1a\x1a.wifi_rtt.ToStringResponse\x12P\n" +
-	"\rWriteToParcel\x12\x1e.wifi_rtt.WriteToParcelRequest\x1a\x1f.wifi_rtt.WriteToParcelResponse2\xd6\x02\n" +
-	"\x18PasnConfigBuilderService\x128\n" +
-	"\x05Build\x12\x16.wifi_rtt.BuildRequest\x1a\x17.wifi_rtt.BuildResponse\x12h\n" +
-	"\x15SetPasnComebackCookie\x12&.wifi_rtt.SetPasnComebackCookieRequest\x1a'.wifi_rtt.SetPasnComebackCookieResponse\x12J\n" +
-	"\vSetPassword\x12\x1c.wifi_rtt.SetPasswordRequest\x1a\x1d.wifi_rtt.SetPasswordResponse\x12J\n" +
-	"\vSetWifiSsid\x12\x1c.wifi_rtt.SetWifiSsidRequest\x1a\x1d.wifi_rtt.SetWifiSsidResponse2\xff\x1b\n" +
+	"ToLocation\x12\x1b.wifi_rtt.ToLocationRequest\x1a\x1c.wifi_rtt.ToLocationResponse\x12P\n" +
+	"\rWriteToParcel\x12\x1e.wifi_rtt.WriteToParcelRequest\x1a\x1f.wifi_rtt.WriteToParcelResponse2\xff\x1b\n" +
 	"\x14RangingResultService\x12Y\n" +
 	"\x10DescribeContents\x12!.wifi_rtt.DescribeContentsRequest\x1a\".wifi_rtt.DescribeContentsResponse\x12;\n" +
 	"\x06Equals\x12\x17.wifi_rtt.EqualsRequest\x1a\x18.wifi_rtt.EqualsResponse\x12\xa1\x01\n" +
@@ -11183,37 +11307,81 @@ const file_proto_wifi_rtt_wifi_rtt_proto_rawDesc = "" +
 	"!SecureRangingConfigBuilderService\x128\n" +
 	"\x05Build\x12\x16.wifi_rtt.BuildRequest\x1a\x17.wifi_rtt.BuildResponse\x12\x89\x01\n" +
 	" SetRangingFrameProtectionEnabled\x121.wifi_rtt.SetRangingFrameProtectionEnabledRequest\x1a2.wifi_rtt.SetRangingFrameProtectionEnabledResponse\x12h\n" +
-	"\x15SetSecureHeLtfEnabled\x12&.wifi_rtt.SetSecureHeLtfEnabledRequest\x1a'.wifi_rtt.SetSecureHeLtfEnabledResponse2\x8d\x12\n" +
-	"\x18ResponderLocationService\x12Y\n" +
-	"\x10DescribeContents\x12!.wifi_rtt.DescribeContentsRequest\x1a\".wifi_rtt.DescribeContentsResponse\x12;\n" +
-	"\x06Equals\x12\x17.wifi_rtt.EqualsRequest\x1a\x18.wifi_rtt.EqualsResponse\x12J\n" +
-	"\vGetAltitude\x12\x1c.wifi_rtt.GetAltitudeRequest\x1a\x1d.wifi_rtt.GetAltitudeResponse\x12V\n" +
-	"\x0fGetAltitudeType\x12 .wifi_rtt.GetAltitudeTypeRequest\x1a!.wifi_rtt.GetAltitudeTypeResponse\x12k\n" +
-	"\x16GetAltitudeUncertainty\x12'.wifi_rtt.GetAltitudeUncertaintyRequest\x1a(.wifi_rtt.GetAltitudeUncertaintyResponse\x12A\n" +
-	"\bGetDatum\x12\x19.wifi_rtt.GetDatumRequest\x1a\x1a.wifi_rtt.GetDatumResponse\x12\\\n" +
-	"\x11GetExpectedToMove\x12\".wifi_rtt.GetExpectedToMoveRequest\x1a#.wifi_rtt.GetExpectedToMoveResponse\x12S\n" +
-	"\x0eGetFloorNumber\x12\x1f.wifi_rtt.GetFloorNumberRequest\x1a .wifi_rtt.GetFloorNumberResponse\x12t\n" +
-	"\x19GetHeightAboveFloorMeters\x12*.wifi_rtt.GetHeightAboveFloorMetersRequest\x1a+.wifi_rtt.GetHeightAboveFloorMetersResponse\x12\x95\x01\n" +
-	"$GetHeightAboveFloorUncertaintyMeters\x125.wifi_rtt.GetHeightAboveFloorUncertaintyMetersRequest\x1a6.wifi_rtt.GetHeightAboveFloorUncertaintyMetersResponse\x12J\n" +
-	"\vGetLatitude\x12\x1c.wifi_rtt.GetLatitudeRequest\x1a\x1d.wifi_rtt.GetLatitudeResponse\x12k\n" +
-	"\x16GetLatitudeUncertainty\x12'.wifi_rtt.GetLatitudeUncertaintyRequest\x1a(.wifi_rtt.GetLatitudeUncertaintyResponse\x12P\n" +
-	"\rGetLciVersion\x12\x1e.wifi_rtt.GetLciVersionRequest\x1a\x1f.wifi_rtt.GetLciVersionResponse\x12M\n" +
-	"\fGetLongitude\x12\x1d.wifi_rtt.GetLongitudeRequest\x1a\x1e.wifi_rtt.GetLongitudeResponse\x12n\n" +
-	"\x17GetLongitudeUncertainty\x12(.wifi_rtt.GetLongitudeUncertaintyRequest\x1a).wifi_rtt.GetLongitudeUncertaintyResponse\x12b\n" +
-	"\x13GetMapImageMimeType\x12$.wifi_rtt.GetMapImageMimeTypeRequest\x1a%.wifi_rtt.GetMapImageMimeTypeResponse\x12S\n" +
-	"\x0eGetMapImageUri\x12\x1f.wifi_rtt.GetMapImageUriRequest\x1a .wifi_rtt.GetMapImageUriResponse\x12\xa1\x01\n" +
-	"(GetRegisteredLocationAgreementIndication\x129.wifi_rtt.GetRegisteredLocationAgreementIndicationRequest\x1a:.wifi_rtt.GetRegisteredLocationAgreementIndicationResponse\x12A\n" +
-	"\bHashCode\x12\x19.wifi_rtt.HashCodeRequest\x1a\x1a.wifi_rtt.HashCodeResponse\x12e\n" +
-	"\x14IsLciSubelementValid\x12%.wifi_rtt.IsLciSubelementValidRequest\x1a&.wifi_rtt.IsLciSubelementValidResponse\x12k\n" +
-	"\x16IsZaxisSubelementValid\x12'.wifi_rtt.IsZaxisSubelementValidRequest\x1a(.wifi_rtt.IsZaxisSubelementValidResponse\x12k\n" +
-	"\x16ToCivicLocationAddress\x12'.wifi_rtt.ToCivicLocationAddressRequest\x1a(.wifi_rtt.ToCivicLocationAddressResponse\x12G\n" +
-	"\n" +
-	"ToLocation\x12\x1b.wifi_rtt.ToLocationRequest\x1a\x1c.wifi_rtt.ToLocationResponse\x12P\n" +
-	"\rWriteToParcel\x12\x1e.wifi_rtt.WriteToParcelRequest\x1a\x1f.wifi_rtt.WriteToParcelResponse2\x9c\x02\n" +
+	"\x15SetSecureHeLtfEnabled\x12&.wifi_rtt.SetSecureHeLtfEnabledRequest\x1a'.wifi_rtt.SetSecureHeLtfEnabledResponse2\x9c\x02\n" +
 	"\x15WifiRttManagerService\x12h\n" +
 	"\x15GetRttCharacteristics\x12&.wifi_rtt.GetRttCharacteristicsRequest\x1a'.wifi_rtt.GetRttCharacteristicsResponse\x12J\n" +
 	"\vIsAvailable\x12\x1c.wifi_rtt.IsAvailableRequest\x1a\x1d.wifi_rtt.IsAvailableResponse\x12M\n" +
-	"\fStartRanging\x12\x1d.wifi_rtt.StartRangingRequest\x1a\x1e.wifi_rtt.StartRangingResponseB2Z0github.com/AndroidGoLab/jni-proxy/proto/wifi_rttb\x06proto3"
+	"\fStartRanging\x12\x1d.wifi_rtt.StartRangingRequest\x1a\x1e.wifi_rtt.StartRangingResponse2\xb2\a\n" +
+	"\x15RangingRequestService\x12Y\n" +
+	"\x10DescribeContents\x12!.wifi_rtt.DescribeContentsRequest\x1a\".wifi_rtt.DescribeContentsResponse\x12;\n" +
+	"\x06Equals\x12\x17.wifi_rtt.EqualsRequest\x1a\x18.wifi_rtt.EqualsResponse\x12V\n" +
+	"\x0fGetRttBurstSize\x12 .wifi_rtt.GetRttBurstSizeRequest\x1a!.wifi_rtt.GetRttBurstSizeResponse\x12V\n" +
+	"\x0fGetSecurityMode\x12 .wifi_rtt.GetSecurityModeRequest\x1a!.wifi_rtt.GetSecurityModeResponse\x12A\n" +
+	"\bHashCode\x12\x19.wifi_rtt.HashCodeRequest\x1a\x1a.wifi_rtt.HashCodeResponse\x12A\n" +
+	"\bToString\x12\x19.wifi_rtt.ToStringRequest\x1a\x1a.wifi_rtt.ToStringResponse\x12P\n" +
+	"\rWriteToParcel\x12\x1e.wifi_rtt.WriteToParcelRequest\x1a\x1f.wifi_rtt.WriteToParcelResponse\x12k\n" +
+	"\x16GetDefaultRttBurstSize\x12'.wifi_rtt.GetDefaultRttBurstSizeRequest\x1a(.wifi_rtt.GetDefaultRttBurstSizeResponse\x12J\n" +
+	"\vGetMaxPeers\x12\x1c.wifi_rtt.GetMaxPeersRequest\x1a\x1d.wifi_rtt.GetMaxPeersResponse\x12_\n" +
+	"\x12GetMaxRttBurstSize\x12#.wifi_rtt.GetMaxRttBurstSizeRequest\x1a$.wifi_rtt.GetMaxRttBurstSizeResponse\x12_\n" +
+	"\x12GetMinRttBurstSize\x12#.wifi_rtt.GetMinRttBurstSizeRequest\x1a$.wifi_rtt.GetMinRttBurstSizeResponse2\xf7\x05\n" +
+	"\x1cRangingRequestBuilderService\x12S\n" +
+	"\x0eAddAccessPoint\x12\x1f.wifi_rtt.AddAccessPointRequest\x1a .wifi_rtt.AddAccessPointResponse\x12\x86\x01\n" +
+	"\x1fAddNon80211mcCapableAccessPoint\x120.wifi_rtt.AddNon80211mcCapableAccessPointRequest\x1a1.wifi_rtt.AddNon80211mcCapableAccessPointResponse\x12M\n" +
+	"\fAddResponder\x12\x1d.wifi_rtt.AddResponderRequest\x1a\x1e.wifi_rtt.AddResponderResponse\x12\\\n" +
+	"\x11AddWifiAwarePeer1\x12\".wifi_rtt.AddWifiAwarePeer1Request\x1a#.wifi_rtt.AddWifiAwarePeer1Response\x12b\n" +
+	"\x13AddWifiAwarePeer1_1\x12$.wifi_rtt.AddWifiAwarePeer1_1Request\x1a%.wifi_rtt.AddWifiAwarePeer1_1Response\x128\n" +
+	"\x05Build\x12\x16.wifi_rtt.BuildRequest\x1a\x17.wifi_rtt.BuildResponse\x12V\n" +
+	"\x0fSetRttBurstSize\x12 .wifi_rtt.SetRttBurstSizeRequest\x1a!.wifi_rtt.SetRttBurstSizeResponse\x12V\n" +
+	"\x0fSetSecurityMode\x12 .wifi_rtt.SetSecurityModeRequest\x1a!.wifi_rtt.SetSecurityModeResponse2y\n" +
+	"\x1cRangingResultCallbackService\x12Y\n" +
+	"\x10OnRangingFailure\x12!.wifi_rtt.OnRangingFailureRequest\x1a\".wifi_rtt.OnRangingFailureResponse2\xfa\n" +
+	"\n" +
+	"\x16ResponderConfigService\x12Y\n" +
+	"\x10DescribeContents\x12!.wifi_rtt.DescribeContentsRequest\x1a\".wifi_rtt.DescribeContentsResponse\x12;\n" +
+	"\x06Equals\x12\x17.wifi_rtt.EqualsRequest\x1a\x18.wifi_rtt.EqualsResponse\x12\\\n" +
+	"\x11GetCenterFreq0Mhz\x12\".wifi_rtt.GetCenterFreq0MhzRequest\x1a#.wifi_rtt.GetCenterFreq0MhzResponse\x12\\\n" +
+	"\x11GetCenterFreq1Mhz\x12\".wifi_rtt.GetCenterFreq1MhzRequest\x1a#.wifi_rtt.GetCenterFreq1MhzResponse\x12V\n" +
+	"\x0fGetChannelWidth\x12 .wifi_rtt.GetChannelWidthRequest\x1a!.wifi_rtt.GetChannelWidthResponse\x12V\n" +
+	"\x0fGetFrequencyMhz\x12 .wifi_rtt.GetFrequencyMhzRequest\x1a!.wifi_rtt.GetFrequencyMhzResponse\x12P\n" +
+	"\rGetMacAddress\x12\x1e.wifi_rtt.GetMacAddressRequest\x1a\x1f.wifi_rtt.GetMacAddressResponse\x12J\n" +
+	"\vGetPreamble\x12\x1c.wifi_rtt.GetPreambleRequest\x1a\x1d.wifi_rtt.GetPreambleResponse\x12Y\n" +
+	"\x10GetResponderType\x12!.wifi_rtt.GetResponderTypeRequest\x1a\".wifi_rtt.GetResponderTypeResponse\x12k\n" +
+	"\x16GetSecureRangingConfig\x12'.wifi_rtt.GetSecureRangingConfigRequest\x1a(.wifi_rtt.GetSecureRangingConfigResponse\x12A\n" +
+	"\bHashCode\x12\x19.wifi_rtt.HashCodeRequest\x1a\x1a.wifi_rtt.HashCodeResponse\x12h\n" +
+	"\x15Is80211azNtbSupported\x12&.wifi_rtt.Is80211azNtbSupportedRequest\x1a'.wifi_rtt.Is80211azNtbSupportedResponse\x12_\n" +
+	"\x12Is80211mcSupported\x12#.wifi_rtt.Is80211mcSupportedRequest\x1a$.wifi_rtt.Is80211mcSupportedResponse\x12A\n" +
+	"\bToString\x12\x19.wifi_rtt.ToStringRequest\x1a\x1a.wifi_rtt.ToStringResponse\x12P\n" +
+	"\rWriteToParcel\x12\x1e.wifi_rtt.WriteToParcelRequest\x1a\x1f.wifi_rtt.WriteToParcelResponse\x12S\n" +
+	"\x0eFromScanResult\x12\x1f.wifi_rtt.FromScanResultRequest\x1a .wifi_rtt.FromScanResultResponse2\xfc\a\n" +
+	"\x1dResponderConfigBuilderService\x128\n" +
+	"\x05Build\x12\x16.wifi_rtt.BuildRequest\x1a\x17.wifi_rtt.BuildResponse\x12k\n" +
+	"\x16Set80211azNtbSupported\x12'.wifi_rtt.Set80211azNtbSupportedRequest\x1a(.wifi_rtt.Set80211azNtbSupportedResponse\x12b\n" +
+	"\x13Set80211mcSupported\x12$.wifi_rtt.Set80211mcSupportedRequest\x1a%.wifi_rtt.Set80211mcSupportedResponse\x12\\\n" +
+	"\x11SetCenterFreq0Mhz\x12\".wifi_rtt.SetCenterFreq0MhzRequest\x1a#.wifi_rtt.SetCenterFreq0MhzResponse\x12\\\n" +
+	"\x11SetCenterFreq1Mhz\x12\".wifi_rtt.SetCenterFreq1MhzRequest\x1a#.wifi_rtt.SetCenterFreq1MhzResponse\x12V\n" +
+	"\x0fSetChannelWidth\x12 .wifi_rtt.SetChannelWidthRequest\x1a!.wifi_rtt.SetChannelWidthResponse\x12V\n" +
+	"\x0fSetFrequencyMhz\x12 .wifi_rtt.SetFrequencyMhzRequest\x1a!.wifi_rtt.SetFrequencyMhzResponse\x12P\n" +
+	"\rSetMacAddress\x12\x1e.wifi_rtt.SetMacAddressRequest\x1a\x1f.wifi_rtt.SetMacAddressResponse\x12J\n" +
+	"\vSetPreamble\x12\x1c.wifi_rtt.SetPreambleRequest\x1a\x1d.wifi_rtt.SetPreambleResponse\x12Y\n" +
+	"\x10SetResponderType\x12!.wifi_rtt.SetResponderTypeRequest\x1a\".wifi_rtt.SetResponderTypeResponse\x12k\n" +
+	"\x16SetSecureRangingConfig\x12'.wifi_rtt.SetSecureRangingConfigRequest\x1a(.wifi_rtt.SetSecureRangingConfigResponse2\x9a\x06\n" +
+	"\x11PasnConfigService\x12Y\n" +
+	"\x10DescribeContents\x12!.wifi_rtt.DescribeContentsRequest\x1a\".wifi_rtt.DescribeContentsResponse\x12;\n" +
+	"\x06Equals\x12\x17.wifi_rtt.EqualsRequest\x1a\x18.wifi_rtt.EqualsResponse\x12J\n" +
+	"\vGetBaseAkms\x12\x1c.wifi_rtt.GetBaseAkmsRequest\x1a\x1d.wifi_rtt.GetBaseAkmsResponse\x12G\n" +
+	"\n" +
+	"GetCiphers\x12\x1b.wifi_rtt.GetCiphersRequest\x1a\x1c.wifi_rtt.GetCiphersResponse\x12h\n" +
+	"\x15GetPasnComebackCookie\x12&.wifi_rtt.GetPasnComebackCookieRequest\x1a'.wifi_rtt.GetPasnComebackCookieResponse\x12J\n" +
+	"\vGetPassword\x12\x1c.wifi_rtt.GetPasswordRequest\x1a\x1d.wifi_rtt.GetPasswordResponse\x12J\n" +
+	"\vGetWifiSsid\x12\x1c.wifi_rtt.GetWifiSsidRequest\x1a\x1d.wifi_rtt.GetWifiSsidResponse\x12A\n" +
+	"\bHashCode\x12\x19.wifi_rtt.HashCodeRequest\x1a\x1a.wifi_rtt.HashCodeResponse\x12A\n" +
+	"\bToString\x12\x19.wifi_rtt.ToStringRequest\x1a\x1a.wifi_rtt.ToStringResponse\x12P\n" +
+	"\rWriteToParcel\x12\x1e.wifi_rtt.WriteToParcelRequest\x1a\x1f.wifi_rtt.WriteToParcelResponse2\xd6\x02\n" +
+	"\x18PasnConfigBuilderService\x128\n" +
+	"\x05Build\x12\x16.wifi_rtt.BuildRequest\x1a\x17.wifi_rtt.BuildResponse\x12h\n" +
+	"\x15SetPasnComebackCookie\x12&.wifi_rtt.SetPasnComebackCookieRequest\x1a'.wifi_rtt.SetPasnComebackCookieResponse\x12J\n" +
+	"\vSetPassword\x12\x1c.wifi_rtt.SetPasswordRequest\x1a\x1d.wifi_rtt.SetPasswordResponse\x12J\n" +
+	"\vSetWifiSsid\x12\x1c.wifi_rtt.SetWifiSsidRequest\x1a\x1d.wifi_rtt.SetWifiSsidResponseB2Z0github.com/AndroidGoLab/jni-proxy/proto/wifi_rttb\x06proto3"
 
 var (
 	file_proto_wifi_rtt_wifi_rtt_proto_rawDescOnce sync.Once
@@ -11227,588 +11395,596 @@ func file_proto_wifi_rtt_wifi_rtt_proto_rawDescGZIP() []byte {
 	return file_proto_wifi_rtt_wifi_rtt_proto_rawDescData
 }
 
-var file_proto_wifi_rtt_wifi_rtt_proto_msgTypes = make([]protoimpl.MessageInfo, 254)
+var file_proto_wifi_rtt_wifi_rtt_proto_msgTypes = make([]protoimpl.MessageInfo, 258)
 var file_proto_wifi_rtt_wifi_rtt_proto_goTypes = []any{
 	(*DescribeContentsRequest)(nil),                          // 0: wifi_rtt.DescribeContentsRequest
 	(*DescribeContentsResponse)(nil),                         // 1: wifi_rtt.DescribeContentsResponse
 	(*EqualsRequest)(nil),                                    // 2: wifi_rtt.EqualsRequest
 	(*EqualsResponse)(nil),                                   // 3: wifi_rtt.EqualsResponse
-	(*GetCenterFreq0MhzRequest)(nil),                         // 4: wifi_rtt.GetCenterFreq0MhzRequest
-	(*GetCenterFreq0MhzResponse)(nil),                        // 5: wifi_rtt.GetCenterFreq0MhzResponse
-	(*GetCenterFreq1MhzRequest)(nil),                         // 6: wifi_rtt.GetCenterFreq1MhzRequest
-	(*GetCenterFreq1MhzResponse)(nil),                        // 7: wifi_rtt.GetCenterFreq1MhzResponse
-	(*GetChannelWidthRequest)(nil),                           // 8: wifi_rtt.GetChannelWidthRequest
-	(*GetChannelWidthResponse)(nil),                          // 9: wifi_rtt.GetChannelWidthResponse
-	(*GetFrequencyMhzRequest)(nil),                           // 10: wifi_rtt.GetFrequencyMhzRequest
-	(*GetFrequencyMhzResponse)(nil),                          // 11: wifi_rtt.GetFrequencyMhzResponse
-	(*GetMacAddressRequest)(nil),                             // 12: wifi_rtt.GetMacAddressRequest
-	(*GetMacAddressResponse)(nil),                            // 13: wifi_rtt.GetMacAddressResponse
-	(*GetPreambleRequest)(nil),                               // 14: wifi_rtt.GetPreambleRequest
-	(*GetPreambleResponse)(nil),                              // 15: wifi_rtt.GetPreambleResponse
-	(*GetResponderTypeRequest)(nil),                          // 16: wifi_rtt.GetResponderTypeRequest
-	(*GetResponderTypeResponse)(nil),                         // 17: wifi_rtt.GetResponderTypeResponse
-	(*GetSecureRangingConfigRequest)(nil),                    // 18: wifi_rtt.GetSecureRangingConfigRequest
-	(*GetSecureRangingConfigResponse)(nil),                   // 19: wifi_rtt.GetSecureRangingConfigResponse
-	(*HashCodeRequest)(nil),                                  // 20: wifi_rtt.HashCodeRequest
-	(*HashCodeResponse)(nil),                                 // 21: wifi_rtt.HashCodeResponse
-	(*Is80211AzNtbSupportedRequest)(nil),                     // 22: wifi_rtt.Is80211azNtbSupportedRequest
-	(*Is80211AzNtbSupportedResponse)(nil),                    // 23: wifi_rtt.Is80211azNtbSupportedResponse
-	(*Is80211McSupportedRequest)(nil),                        // 24: wifi_rtt.Is80211mcSupportedRequest
-	(*Is80211McSupportedResponse)(nil),                       // 25: wifi_rtt.Is80211mcSupportedResponse
-	(*ToStringRequest)(nil),                                  // 26: wifi_rtt.ToStringRequest
-	(*ToStringResponse)(nil),                                 // 27: wifi_rtt.ToStringResponse
-	(*WriteToParcelRequest)(nil),                             // 28: wifi_rtt.WriteToParcelRequest
-	(*WriteToParcelResponse)(nil),                            // 29: wifi_rtt.WriteToParcelResponse
-	(*FromScanResultRequest)(nil),                            // 30: wifi_rtt.FromScanResultRequest
-	(*FromScanResultResponse)(nil),                           // 31: wifi_rtt.FromScanResultResponse
-	(*BuildRequest)(nil),                                     // 32: wifi_rtt.BuildRequest
-	(*BuildResponse)(nil),                                    // 33: wifi_rtt.BuildResponse
-	(*Set80211AzNtbSupportedRequest)(nil),                    // 34: wifi_rtt.Set80211azNtbSupportedRequest
-	(*Set80211AzNtbSupportedResponse)(nil),                   // 35: wifi_rtt.Set80211azNtbSupportedResponse
-	(*Set80211McSupportedRequest)(nil),                       // 36: wifi_rtt.Set80211mcSupportedRequest
-	(*Set80211McSupportedResponse)(nil),                      // 37: wifi_rtt.Set80211mcSupportedResponse
-	(*SetCenterFreq0MhzRequest)(nil),                         // 38: wifi_rtt.SetCenterFreq0MhzRequest
-	(*SetCenterFreq0MhzResponse)(nil),                        // 39: wifi_rtt.SetCenterFreq0MhzResponse
-	(*SetCenterFreq1MhzRequest)(nil),                         // 40: wifi_rtt.SetCenterFreq1MhzRequest
-	(*SetCenterFreq1MhzResponse)(nil),                        // 41: wifi_rtt.SetCenterFreq1MhzResponse
-	(*SetChannelWidthRequest)(nil),                           // 42: wifi_rtt.SetChannelWidthRequest
-	(*SetChannelWidthResponse)(nil),                          // 43: wifi_rtt.SetChannelWidthResponse
-	(*SetFrequencyMhzRequest)(nil),                           // 44: wifi_rtt.SetFrequencyMhzRequest
-	(*SetFrequencyMhzResponse)(nil),                          // 45: wifi_rtt.SetFrequencyMhzResponse
-	(*SetMacAddressRequest)(nil),                             // 46: wifi_rtt.SetMacAddressRequest
-	(*SetMacAddressResponse)(nil),                            // 47: wifi_rtt.SetMacAddressResponse
-	(*SetPreambleRequest)(nil),                               // 48: wifi_rtt.SetPreambleRequest
-	(*SetPreambleResponse)(nil),                              // 49: wifi_rtt.SetPreambleResponse
-	(*SetResponderTypeRequest)(nil),                          // 50: wifi_rtt.SetResponderTypeRequest
-	(*SetResponderTypeResponse)(nil),                         // 51: wifi_rtt.SetResponderTypeResponse
-	(*SetSecureRangingConfigRequest)(nil),                    // 52: wifi_rtt.SetSecureRangingConfigRequest
-	(*SetSecureRangingConfigResponse)(nil),                   // 53: wifi_rtt.SetSecureRangingConfigResponse
-	(*GetRttBurstSizeRequest)(nil),                           // 54: wifi_rtt.GetRttBurstSizeRequest
-	(*GetRttBurstSizeResponse)(nil),                          // 55: wifi_rtt.GetRttBurstSizeResponse
-	(*GetSecurityModeRequest)(nil),                           // 56: wifi_rtt.GetSecurityModeRequest
-	(*GetSecurityModeResponse)(nil),                          // 57: wifi_rtt.GetSecurityModeResponse
-	(*GetDefaultRttBurstSizeRequest)(nil),                    // 58: wifi_rtt.GetDefaultRttBurstSizeRequest
-	(*GetDefaultRttBurstSizeResponse)(nil),                   // 59: wifi_rtt.GetDefaultRttBurstSizeResponse
-	(*GetMaxPeersRequest)(nil),                               // 60: wifi_rtt.GetMaxPeersRequest
-	(*GetMaxPeersResponse)(nil),                              // 61: wifi_rtt.GetMaxPeersResponse
-	(*GetMaxRttBurstSizeRequest)(nil),                        // 62: wifi_rtt.GetMaxRttBurstSizeRequest
-	(*GetMaxRttBurstSizeResponse)(nil),                       // 63: wifi_rtt.GetMaxRttBurstSizeResponse
-	(*GetMinRttBurstSizeRequest)(nil),                        // 64: wifi_rtt.GetMinRttBurstSizeRequest
-	(*GetMinRttBurstSizeResponse)(nil),                       // 65: wifi_rtt.GetMinRttBurstSizeResponse
-	(*AddAccessPointRequest)(nil),                            // 66: wifi_rtt.AddAccessPointRequest
-	(*AddAccessPointResponse)(nil),                           // 67: wifi_rtt.AddAccessPointResponse
-	(*AddNon80211McCapableAccessPointRequest)(nil),           // 68: wifi_rtt.AddNon80211mcCapableAccessPointRequest
-	(*AddNon80211McCapableAccessPointResponse)(nil),          // 69: wifi_rtt.AddNon80211mcCapableAccessPointResponse
-	(*AddResponderRequest)(nil),                              // 70: wifi_rtt.AddResponderRequest
-	(*AddResponderResponse)(nil),                             // 71: wifi_rtt.AddResponderResponse
-	(*AddWifiAwarePeer1Request)(nil),                         // 72: wifi_rtt.AddWifiAwarePeer1Request
-	(*AddWifiAwarePeer1Response)(nil),                        // 73: wifi_rtt.AddWifiAwarePeer1Response
-	(*AddWifiAwarePeer1_1Request)(nil),                       // 74: wifi_rtt.AddWifiAwarePeer1_1Request
-	(*AddWifiAwarePeer1_1Response)(nil),                      // 75: wifi_rtt.AddWifiAwarePeer1_1Response
-	(*SetRttBurstSizeRequest)(nil),                           // 76: wifi_rtt.SetRttBurstSizeRequest
-	(*SetRttBurstSizeResponse)(nil),                          // 77: wifi_rtt.SetRttBurstSizeResponse
-	(*SetSecurityModeRequest)(nil),                           // 78: wifi_rtt.SetSecurityModeRequest
-	(*SetSecurityModeResponse)(nil),                          // 79: wifi_rtt.SetSecurityModeResponse
-	(*OnRangingFailureRequest)(nil),                          // 80: wifi_rtt.OnRangingFailureRequest
-	(*OnRangingFailureResponse)(nil),                         // 81: wifi_rtt.OnRangingFailureResponse
-	(*GetBaseAkmsRequest)(nil),                               // 82: wifi_rtt.GetBaseAkmsRequest
-	(*GetBaseAkmsResponse)(nil),                              // 83: wifi_rtt.GetBaseAkmsResponse
-	(*GetCiphersRequest)(nil),                                // 84: wifi_rtt.GetCiphersRequest
-	(*GetCiphersResponse)(nil),                               // 85: wifi_rtt.GetCiphersResponse
-	(*GetPasnComebackCookieRequest)(nil),                     // 86: wifi_rtt.GetPasnComebackCookieRequest
-	(*GetPasnComebackCookieResponse)(nil),                    // 87: wifi_rtt.GetPasnComebackCookieResponse
-	(*GetPasswordRequest)(nil),                               // 88: wifi_rtt.GetPasswordRequest
-	(*GetPasswordResponse)(nil),                              // 89: wifi_rtt.GetPasswordResponse
-	(*GetWifiSsidRequest)(nil),                               // 90: wifi_rtt.GetWifiSsidRequest
-	(*GetWifiSsidResponse)(nil),                              // 91: wifi_rtt.GetWifiSsidResponse
-	(*SetPasnComebackCookieRequest)(nil),                     // 92: wifi_rtt.SetPasnComebackCookieRequest
-	(*SetPasnComebackCookieResponse)(nil),                    // 93: wifi_rtt.SetPasnComebackCookieResponse
-	(*SetPasswordRequest)(nil),                               // 94: wifi_rtt.SetPasswordRequest
-	(*SetPasswordResponse)(nil),                              // 95: wifi_rtt.SetPasswordResponse
-	(*SetWifiSsidRequest)(nil),                               // 96: wifi_rtt.SetWifiSsidRequest
-	(*SetWifiSsidResponse)(nil),                              // 97: wifi_rtt.SetWifiSsidResponse
-	(*Get80211AzInitiatorTxLtfRepetitionsCountRequest)(nil),  // 98: wifi_rtt.Get80211azInitiatorTxLtfRepetitionsCountRequest
-	(*Get80211AzInitiatorTxLtfRepetitionsCountResponse)(nil), // 99: wifi_rtt.Get80211azInitiatorTxLtfRepetitionsCountResponse
-	(*Get80211AzNumberOfRxSpatialStreamsRequest)(nil),        // 100: wifi_rtt.Get80211azNumberOfRxSpatialStreamsRequest
-	(*Get80211AzNumberOfRxSpatialStreamsResponse)(nil),       // 101: wifi_rtt.Get80211azNumberOfRxSpatialStreamsResponse
-	(*Get80211AzNumberOfTxSpatialStreamsRequest)(nil),        // 102: wifi_rtt.Get80211azNumberOfTxSpatialStreamsRequest
-	(*Get80211AzNumberOfTxSpatialStreamsResponse)(nil),       // 103: wifi_rtt.Get80211azNumberOfTxSpatialStreamsResponse
-	(*Get80211AzResponderTxLtfRepetitionsCountRequest)(nil),  // 104: wifi_rtt.Get80211azResponderTxLtfRepetitionsCountRequest
-	(*Get80211AzResponderTxLtfRepetitionsCountResponse)(nil), // 105: wifi_rtt.Get80211azResponderTxLtfRepetitionsCountResponse
-	(*GetDistanceMmRequest)(nil),                             // 106: wifi_rtt.GetDistanceMmRequest
-	(*GetDistanceMmResponse)(nil),                            // 107: wifi_rtt.GetDistanceMmResponse
-	(*GetDistanceStdDevMmRequest)(nil),                       // 108: wifi_rtt.GetDistanceStdDevMmRequest
-	(*GetDistanceStdDevMmResponse)(nil),                      // 109: wifi_rtt.GetDistanceStdDevMmResponse
-	(*GetLciRequest)(nil),                                    // 110: wifi_rtt.GetLciRequest
-	(*GetLciResponse)(nil),                                   // 111: wifi_rtt.GetLciResponse
-	(*GetLcrRequest)(nil),                                    // 112: wifi_rtt.GetLcrRequest
-	(*GetLcrResponse)(nil),                                   // 113: wifi_rtt.GetLcrResponse
-	(*GetMaxTimeBetweenNtbMeasurementsMicrosRequest)(nil),    // 114: wifi_rtt.GetMaxTimeBetweenNtbMeasurementsMicrosRequest
-	(*GetMaxTimeBetweenNtbMeasurementsMicrosResponse)(nil),   // 115: wifi_rtt.GetMaxTimeBetweenNtbMeasurementsMicrosResponse
-	(*GetMeasurementBandwidthRequest)(nil),                   // 116: wifi_rtt.GetMeasurementBandwidthRequest
-	(*GetMeasurementBandwidthResponse)(nil),                  // 117: wifi_rtt.GetMeasurementBandwidthResponse
-	(*GetMeasurementChannelFrequencyMHzRequest)(nil),         // 118: wifi_rtt.GetMeasurementChannelFrequencyMHzRequest
-	(*GetMeasurementChannelFrequencyMHzResponse)(nil),        // 119: wifi_rtt.GetMeasurementChannelFrequencyMHzResponse
-	(*GetMinTimeBetweenNtbMeasurementsMicrosRequest)(nil),    // 120: wifi_rtt.GetMinTimeBetweenNtbMeasurementsMicrosRequest
-	(*GetMinTimeBetweenNtbMeasurementsMicrosResponse)(nil),   // 121: wifi_rtt.GetMinTimeBetweenNtbMeasurementsMicrosResponse
-	(*GetNumAttemptedMeasurementsRequest)(nil),               // 122: wifi_rtt.GetNumAttemptedMeasurementsRequest
-	(*GetNumAttemptedMeasurementsResponse)(nil),              // 123: wifi_rtt.GetNumAttemptedMeasurementsResponse
-	(*GetNumSuccessfulMeasurementsRequest)(nil),              // 124: wifi_rtt.GetNumSuccessfulMeasurementsRequest
-	(*GetNumSuccessfulMeasurementsResponse)(nil),             // 125: wifi_rtt.GetNumSuccessfulMeasurementsResponse
-	(*GetPasnComebackAfterMillisRequest)(nil),                // 126: wifi_rtt.GetPasnComebackAfterMillisRequest
-	(*GetPasnComebackAfterMillisResponse)(nil),               // 127: wifi_rtt.GetPasnComebackAfterMillisResponse
-	(*GetPeerHandleRequest)(nil),                             // 128: wifi_rtt.GetPeerHandleRequest
-	(*GetPeerHandleResponse)(nil),                            // 129: wifi_rtt.GetPeerHandleResponse
-	(*GetRangingTimestampMillisRequest)(nil),                 // 130: wifi_rtt.GetRangingTimestampMillisRequest
-	(*GetRangingTimestampMillisResponse)(nil),                // 131: wifi_rtt.GetRangingTimestampMillisResponse
-	(*GetRssiRequest)(nil),                                   // 132: wifi_rtt.GetRssiRequest
-	(*GetRssiResponse)(nil),                                  // 133: wifi_rtt.GetRssiResponse
-	(*GetSecureHeLtfProtocolVersionRequest)(nil),             // 134: wifi_rtt.GetSecureHeLtfProtocolVersionRequest
-	(*GetSecureHeLtfProtocolVersionResponse)(nil),            // 135: wifi_rtt.GetSecureHeLtfProtocolVersionResponse
-	(*GetStatusRequest)(nil),                                 // 136: wifi_rtt.GetStatusRequest
-	(*GetStatusResponse)(nil),                                // 137: wifi_rtt.GetStatusResponse
-	(*GetUnverifiedResponderLocationRequest)(nil),            // 138: wifi_rtt.GetUnverifiedResponderLocationRequest
-	(*GetUnverifiedResponderLocationResponse)(nil),           // 139: wifi_rtt.GetUnverifiedResponderLocationResponse
-	(*Is80211AzNtbMeasurementRequest)(nil),                   // 140: wifi_rtt.Is80211azNtbMeasurementRequest
-	(*Is80211AzNtbMeasurementResponse)(nil),                  // 141: wifi_rtt.Is80211azNtbMeasurementResponse
-	(*Is80211McMeasurementRequest)(nil),                      // 142: wifi_rtt.Is80211mcMeasurementRequest
-	(*Is80211McMeasurementResponse)(nil),                     // 143: wifi_rtt.Is80211mcMeasurementResponse
-	(*IsRangingAuthenticatedRequest)(nil),                    // 144: wifi_rtt.IsRangingAuthenticatedRequest
-	(*IsRangingAuthenticatedResponse)(nil),                   // 145: wifi_rtt.IsRangingAuthenticatedResponse
-	(*IsRangingFrameProtectedRequest)(nil),                   // 146: wifi_rtt.IsRangingFrameProtectedRequest
-	(*IsRangingFrameProtectedResponse)(nil),                  // 147: wifi_rtt.IsRangingFrameProtectedResponse
-	(*IsSecureHeLtfEnabledRequest)(nil),                      // 148: wifi_rtt.IsSecureHeLtfEnabledRequest
-	(*IsSecureHeLtfEnabledResponse)(nil),                     // 149: wifi_rtt.IsSecureHeLtfEnabledResponse
-	(*Set80211AzInitiatorTxLtfRepetitionsCountRequest)(nil),  // 150: wifi_rtt.Set80211azInitiatorTxLtfRepetitionsCountRequest
-	(*Set80211AzInitiatorTxLtfRepetitionsCountResponse)(nil), // 151: wifi_rtt.Set80211azInitiatorTxLtfRepetitionsCountResponse
-	(*Set80211AzNtbMeasurementRequest)(nil),                  // 152: wifi_rtt.Set80211azNtbMeasurementRequest
-	(*Set80211AzNtbMeasurementResponse)(nil),                 // 153: wifi_rtt.Set80211azNtbMeasurementResponse
-	(*Set80211AzNumberOfRxSpatialStreamsRequest)(nil),        // 154: wifi_rtt.Set80211azNumberOfRxSpatialStreamsRequest
-	(*Set80211AzNumberOfRxSpatialStreamsResponse)(nil),       // 155: wifi_rtt.Set80211azNumberOfRxSpatialStreamsResponse
-	(*Set80211AzNumberOfTxSpatialStreamsRequest)(nil),        // 156: wifi_rtt.Set80211azNumberOfTxSpatialStreamsRequest
-	(*Set80211AzNumberOfTxSpatialStreamsResponse)(nil),       // 157: wifi_rtt.Set80211azNumberOfTxSpatialStreamsResponse
-	(*Set80211AzResponderTxLtfRepetitionsCountRequest)(nil),  // 158: wifi_rtt.Set80211azResponderTxLtfRepetitionsCountRequest
-	(*Set80211AzResponderTxLtfRepetitionsCountResponse)(nil), // 159: wifi_rtt.Set80211azResponderTxLtfRepetitionsCountResponse
-	(*Set80211McMeasurementRequest)(nil),                     // 160: wifi_rtt.Set80211mcMeasurementRequest
-	(*Set80211McMeasurementResponse)(nil),                    // 161: wifi_rtt.Set80211mcMeasurementResponse
-	(*SetDistanceMmRequest)(nil),                             // 162: wifi_rtt.SetDistanceMmRequest
-	(*SetDistanceMmResponse)(nil),                            // 163: wifi_rtt.SetDistanceMmResponse
-	(*SetDistanceStdDevMmRequest)(nil),                       // 164: wifi_rtt.SetDistanceStdDevMmRequest
-	(*SetDistanceStdDevMmResponse)(nil),                      // 165: wifi_rtt.SetDistanceStdDevMmResponse
-	(*SetLciRequest)(nil),                                    // 166: wifi_rtt.SetLciRequest
-	(*SetLciResponse)(nil),                                   // 167: wifi_rtt.SetLciResponse
-	(*SetLcrRequest)(nil),                                    // 168: wifi_rtt.SetLcrRequest
-	(*SetLcrResponse)(nil),                                   // 169: wifi_rtt.SetLcrResponse
-	(*SetMaxTimeBetweenNtbMeasurementsMicrosRequest)(nil),    // 170: wifi_rtt.SetMaxTimeBetweenNtbMeasurementsMicrosRequest
-	(*SetMaxTimeBetweenNtbMeasurementsMicrosResponse)(nil),   // 171: wifi_rtt.SetMaxTimeBetweenNtbMeasurementsMicrosResponse
-	(*SetMeasurementBandwidthRequest)(nil),                   // 172: wifi_rtt.SetMeasurementBandwidthRequest
-	(*SetMeasurementBandwidthResponse)(nil),                  // 173: wifi_rtt.SetMeasurementBandwidthResponse
-	(*SetMeasurementChannelFrequencyMHzRequest)(nil),         // 174: wifi_rtt.SetMeasurementChannelFrequencyMHzRequest
-	(*SetMeasurementChannelFrequencyMHzResponse)(nil),        // 175: wifi_rtt.SetMeasurementChannelFrequencyMHzResponse
-	(*SetMinTimeBetweenNtbMeasurementsMicrosRequest)(nil),    // 176: wifi_rtt.SetMinTimeBetweenNtbMeasurementsMicrosRequest
-	(*SetMinTimeBetweenNtbMeasurementsMicrosResponse)(nil),   // 177: wifi_rtt.SetMinTimeBetweenNtbMeasurementsMicrosResponse
-	(*SetNumAttemptedMeasurementsRequest)(nil),               // 178: wifi_rtt.SetNumAttemptedMeasurementsRequest
-	(*SetNumAttemptedMeasurementsResponse)(nil),              // 179: wifi_rtt.SetNumAttemptedMeasurementsResponse
-	(*SetNumSuccessfulMeasurementsRequest)(nil),              // 180: wifi_rtt.SetNumSuccessfulMeasurementsRequest
-	(*SetNumSuccessfulMeasurementsResponse)(nil),             // 181: wifi_rtt.SetNumSuccessfulMeasurementsResponse
-	(*SetPasnComebackAfterMillisRequest)(nil),                // 182: wifi_rtt.SetPasnComebackAfterMillisRequest
-	(*SetPasnComebackAfterMillisResponse)(nil),               // 183: wifi_rtt.SetPasnComebackAfterMillisResponse
-	(*SetPeerHandleRequest)(nil),                             // 184: wifi_rtt.SetPeerHandleRequest
-	(*SetPeerHandleResponse)(nil),                            // 185: wifi_rtt.SetPeerHandleResponse
-	(*SetRangingAuthenticatedRequest)(nil),                   // 186: wifi_rtt.SetRangingAuthenticatedRequest
-	(*SetRangingAuthenticatedResponse)(nil),                  // 187: wifi_rtt.SetRangingAuthenticatedResponse
-	(*SetRangingFrameProtectedRequest)(nil),                  // 188: wifi_rtt.SetRangingFrameProtectedRequest
-	(*SetRangingFrameProtectedResponse)(nil),                 // 189: wifi_rtt.SetRangingFrameProtectedResponse
-	(*SetRangingTimestampMillisRequest)(nil),                 // 190: wifi_rtt.SetRangingTimestampMillisRequest
-	(*SetRangingTimestampMillisResponse)(nil),                // 191: wifi_rtt.SetRangingTimestampMillisResponse
-	(*SetRssiRequest)(nil),                                   // 192: wifi_rtt.SetRssiRequest
-	(*SetRssiResponse)(nil),                                  // 193: wifi_rtt.SetRssiResponse
-	(*SetSecureHeLtfEnabledRequest)(nil),                     // 194: wifi_rtt.SetSecureHeLtfEnabledRequest
-	(*SetSecureHeLtfEnabledResponse)(nil),                    // 195: wifi_rtt.SetSecureHeLtfEnabledResponse
-	(*SetSecureHeLtfProtocolVersionRequest)(nil),             // 196: wifi_rtt.SetSecureHeLtfProtocolVersionRequest
-	(*SetSecureHeLtfProtocolVersionResponse)(nil),            // 197: wifi_rtt.SetSecureHeLtfProtocolVersionResponse
-	(*SetStatusRequest)(nil),                                 // 198: wifi_rtt.SetStatusRequest
-	(*SetStatusResponse)(nil),                                // 199: wifi_rtt.SetStatusResponse
-	(*SetUnverifiedResponderLocationRequest)(nil),            // 200: wifi_rtt.SetUnverifiedResponderLocationRequest
-	(*SetUnverifiedResponderLocationResponse)(nil),           // 201: wifi_rtt.SetUnverifiedResponderLocationResponse
-	(*GetPasnConfigRequest)(nil),                             // 202: wifi_rtt.GetPasnConfigRequest
-	(*GetPasnConfigResponse)(nil),                            // 203: wifi_rtt.GetPasnConfigResponse
-	(*IsRangingFrameProtectionEnabledRequest)(nil),           // 204: wifi_rtt.IsRangingFrameProtectionEnabledRequest
-	(*IsRangingFrameProtectionEnabledResponse)(nil),          // 205: wifi_rtt.IsRangingFrameProtectionEnabledResponse
-	(*SetRangingFrameProtectionEnabledRequest)(nil),          // 206: wifi_rtt.SetRangingFrameProtectionEnabledRequest
-	(*SetRangingFrameProtectionEnabledResponse)(nil),         // 207: wifi_rtt.SetRangingFrameProtectionEnabledResponse
-	(*GetAltitudeRequest)(nil),                               // 208: wifi_rtt.GetAltitudeRequest
-	(*GetAltitudeResponse)(nil),                              // 209: wifi_rtt.GetAltitudeResponse
-	(*GetAltitudeTypeRequest)(nil),                           // 210: wifi_rtt.GetAltitudeTypeRequest
-	(*GetAltitudeTypeResponse)(nil),                          // 211: wifi_rtt.GetAltitudeTypeResponse
-	(*GetAltitudeUncertaintyRequest)(nil),                    // 212: wifi_rtt.GetAltitudeUncertaintyRequest
-	(*GetAltitudeUncertaintyResponse)(nil),                   // 213: wifi_rtt.GetAltitudeUncertaintyResponse
-	(*GetDatumRequest)(nil),                                  // 214: wifi_rtt.GetDatumRequest
-	(*GetDatumResponse)(nil),                                 // 215: wifi_rtt.GetDatumResponse
-	(*GetExpectedToMoveRequest)(nil),                         // 216: wifi_rtt.GetExpectedToMoveRequest
-	(*GetExpectedToMoveResponse)(nil),                        // 217: wifi_rtt.GetExpectedToMoveResponse
-	(*GetFloorNumberRequest)(nil),                            // 218: wifi_rtt.GetFloorNumberRequest
-	(*GetFloorNumberResponse)(nil),                           // 219: wifi_rtt.GetFloorNumberResponse
-	(*GetHeightAboveFloorMetersRequest)(nil),                 // 220: wifi_rtt.GetHeightAboveFloorMetersRequest
-	(*GetHeightAboveFloorMetersResponse)(nil),                // 221: wifi_rtt.GetHeightAboveFloorMetersResponse
-	(*GetHeightAboveFloorUncertaintyMetersRequest)(nil),      // 222: wifi_rtt.GetHeightAboveFloorUncertaintyMetersRequest
-	(*GetHeightAboveFloorUncertaintyMetersResponse)(nil),     // 223: wifi_rtt.GetHeightAboveFloorUncertaintyMetersResponse
-	(*GetLatitudeRequest)(nil),                               // 224: wifi_rtt.GetLatitudeRequest
-	(*GetLatitudeResponse)(nil),                              // 225: wifi_rtt.GetLatitudeResponse
-	(*GetLatitudeUncertaintyRequest)(nil),                    // 226: wifi_rtt.GetLatitudeUncertaintyRequest
-	(*GetLatitudeUncertaintyResponse)(nil),                   // 227: wifi_rtt.GetLatitudeUncertaintyResponse
-	(*GetLciVersionRequest)(nil),                             // 228: wifi_rtt.GetLciVersionRequest
-	(*GetLciVersionResponse)(nil),                            // 229: wifi_rtt.GetLciVersionResponse
-	(*GetLongitudeRequest)(nil),                              // 230: wifi_rtt.GetLongitudeRequest
-	(*GetLongitudeResponse)(nil),                             // 231: wifi_rtt.GetLongitudeResponse
-	(*GetLongitudeUncertaintyRequest)(nil),                   // 232: wifi_rtt.GetLongitudeUncertaintyRequest
-	(*GetLongitudeUncertaintyResponse)(nil),                  // 233: wifi_rtt.GetLongitudeUncertaintyResponse
-	(*GetMapImageMimeTypeRequest)(nil),                       // 234: wifi_rtt.GetMapImageMimeTypeRequest
-	(*GetMapImageMimeTypeResponse)(nil),                      // 235: wifi_rtt.GetMapImageMimeTypeResponse
-	(*GetMapImageUriRequest)(nil),                            // 236: wifi_rtt.GetMapImageUriRequest
-	(*GetMapImageUriResponse)(nil),                           // 237: wifi_rtt.GetMapImageUriResponse
-	(*GetRegisteredLocationAgreementIndicationRequest)(nil),  // 238: wifi_rtt.GetRegisteredLocationAgreementIndicationRequest
-	(*GetRegisteredLocationAgreementIndicationResponse)(nil), // 239: wifi_rtt.GetRegisteredLocationAgreementIndicationResponse
-	(*IsLciSubelementValidRequest)(nil),                      // 240: wifi_rtt.IsLciSubelementValidRequest
-	(*IsLciSubelementValidResponse)(nil),                     // 241: wifi_rtt.IsLciSubelementValidResponse
-	(*IsZaxisSubelementValidRequest)(nil),                    // 242: wifi_rtt.IsZaxisSubelementValidRequest
-	(*IsZaxisSubelementValidResponse)(nil),                   // 243: wifi_rtt.IsZaxisSubelementValidResponse
-	(*ToCivicLocationAddressRequest)(nil),                    // 244: wifi_rtt.ToCivicLocationAddressRequest
-	(*ToCivicLocationAddressResponse)(nil),                   // 245: wifi_rtt.ToCivicLocationAddressResponse
-	(*ToLocationRequest)(nil),                                // 246: wifi_rtt.ToLocationRequest
-	(*ToLocationResponse)(nil),                               // 247: wifi_rtt.ToLocationResponse
-	(*GetRttCharacteristicsRequest)(nil),                     // 248: wifi_rtt.GetRttCharacteristicsRequest
-	(*GetRttCharacteristicsResponse)(nil),                    // 249: wifi_rtt.GetRttCharacteristicsResponse
-	(*IsAvailableRequest)(nil),                               // 250: wifi_rtt.IsAvailableRequest
-	(*IsAvailableResponse)(nil),                              // 251: wifi_rtt.IsAvailableResponse
-	(*StartRangingRequest)(nil),                              // 252: wifi_rtt.StartRangingRequest
-	(*StartRangingResponse)(nil),                             // 253: wifi_rtt.StartRangingResponse
+	(*GetAltitudeRequest)(nil),                               // 4: wifi_rtt.GetAltitudeRequest
+	(*GetAltitudeResponse)(nil),                              // 5: wifi_rtt.GetAltitudeResponse
+	(*GetAltitudeTypeRequest)(nil),                           // 6: wifi_rtt.GetAltitudeTypeRequest
+	(*GetAltitudeTypeResponse)(nil),                          // 7: wifi_rtt.GetAltitudeTypeResponse
+	(*GetAltitudeUncertaintyRequest)(nil),                    // 8: wifi_rtt.GetAltitudeUncertaintyRequest
+	(*GetAltitudeUncertaintyResponse)(nil),                   // 9: wifi_rtt.GetAltitudeUncertaintyResponse
+	(*GetColocatedBssidsRequest)(nil),                        // 10: wifi_rtt.GetColocatedBssidsRequest
+	(*GetColocatedBssidsResponse)(nil),                       // 11: wifi_rtt.GetColocatedBssidsResponse
+	(*GetDatumRequest)(nil),                                  // 12: wifi_rtt.GetDatumRequest
+	(*GetDatumResponse)(nil),                                 // 13: wifi_rtt.GetDatumResponse
+	(*GetExpectedToMoveRequest)(nil),                         // 14: wifi_rtt.GetExpectedToMoveRequest
+	(*GetExpectedToMoveResponse)(nil),                        // 15: wifi_rtt.GetExpectedToMoveResponse
+	(*GetFloorNumberRequest)(nil),                            // 16: wifi_rtt.GetFloorNumberRequest
+	(*GetFloorNumberResponse)(nil),                           // 17: wifi_rtt.GetFloorNumberResponse
+	(*GetHeightAboveFloorMetersRequest)(nil),                 // 18: wifi_rtt.GetHeightAboveFloorMetersRequest
+	(*GetHeightAboveFloorMetersResponse)(nil),                // 19: wifi_rtt.GetHeightAboveFloorMetersResponse
+	(*GetHeightAboveFloorUncertaintyMetersRequest)(nil),      // 20: wifi_rtt.GetHeightAboveFloorUncertaintyMetersRequest
+	(*GetHeightAboveFloorUncertaintyMetersResponse)(nil),     // 21: wifi_rtt.GetHeightAboveFloorUncertaintyMetersResponse
+	(*GetLatitudeRequest)(nil),                               // 22: wifi_rtt.GetLatitudeRequest
+	(*GetLatitudeResponse)(nil),                              // 23: wifi_rtt.GetLatitudeResponse
+	(*GetLatitudeUncertaintyRequest)(nil),                    // 24: wifi_rtt.GetLatitudeUncertaintyRequest
+	(*GetLatitudeUncertaintyResponse)(nil),                   // 25: wifi_rtt.GetLatitudeUncertaintyResponse
+	(*GetLciVersionRequest)(nil),                             // 26: wifi_rtt.GetLciVersionRequest
+	(*GetLciVersionResponse)(nil),                            // 27: wifi_rtt.GetLciVersionResponse
+	(*GetLongitudeRequest)(nil),                              // 28: wifi_rtt.GetLongitudeRequest
+	(*GetLongitudeResponse)(nil),                             // 29: wifi_rtt.GetLongitudeResponse
+	(*GetLongitudeUncertaintyRequest)(nil),                   // 30: wifi_rtt.GetLongitudeUncertaintyRequest
+	(*GetLongitudeUncertaintyResponse)(nil),                  // 31: wifi_rtt.GetLongitudeUncertaintyResponse
+	(*GetMapImageMimeTypeRequest)(nil),                       // 32: wifi_rtt.GetMapImageMimeTypeRequest
+	(*GetMapImageMimeTypeResponse)(nil),                      // 33: wifi_rtt.GetMapImageMimeTypeResponse
+	(*GetMapImageUriRequest)(nil),                            // 34: wifi_rtt.GetMapImageUriRequest
+	(*GetMapImageUriResponse)(nil),                           // 35: wifi_rtt.GetMapImageUriResponse
+	(*GetRegisteredLocationAgreementIndicationRequest)(nil),  // 36: wifi_rtt.GetRegisteredLocationAgreementIndicationRequest
+	(*GetRegisteredLocationAgreementIndicationResponse)(nil), // 37: wifi_rtt.GetRegisteredLocationAgreementIndicationResponse
+	(*HashCodeRequest)(nil),                                  // 38: wifi_rtt.HashCodeRequest
+	(*HashCodeResponse)(nil),                                 // 39: wifi_rtt.HashCodeResponse
+	(*IsLciSubelementValidRequest)(nil),                      // 40: wifi_rtt.IsLciSubelementValidRequest
+	(*IsLciSubelementValidResponse)(nil),                     // 41: wifi_rtt.IsLciSubelementValidResponse
+	(*IsZaxisSubelementValidRequest)(nil),                    // 42: wifi_rtt.IsZaxisSubelementValidRequest
+	(*IsZaxisSubelementValidResponse)(nil),                   // 43: wifi_rtt.IsZaxisSubelementValidResponse
+	(*ToCivicLocationAddressRequest)(nil),                    // 44: wifi_rtt.ToCivicLocationAddressRequest
+	(*ToCivicLocationAddressResponse)(nil),                   // 45: wifi_rtt.ToCivicLocationAddressResponse
+	(*ToCivicLocationSparseArrayRequest)(nil),                // 46: wifi_rtt.ToCivicLocationSparseArrayRequest
+	(*ToCivicLocationSparseArrayResponse)(nil),               // 47: wifi_rtt.ToCivicLocationSparseArrayResponse
+	(*ToLocationRequest)(nil),                                // 48: wifi_rtt.ToLocationRequest
+	(*ToLocationResponse)(nil),                               // 49: wifi_rtt.ToLocationResponse
+	(*WriteToParcelRequest)(nil),                             // 50: wifi_rtt.WriteToParcelRequest
+	(*WriteToParcelResponse)(nil),                            // 51: wifi_rtt.WriteToParcelResponse
+	(*Get80211AzInitiatorTxLtfRepetitionsCountRequest)(nil),  // 52: wifi_rtt.Get80211azInitiatorTxLtfRepetitionsCountRequest
+	(*Get80211AzInitiatorTxLtfRepetitionsCountResponse)(nil), // 53: wifi_rtt.Get80211azInitiatorTxLtfRepetitionsCountResponse
+	(*Get80211AzNumberOfRxSpatialStreamsRequest)(nil),        // 54: wifi_rtt.Get80211azNumberOfRxSpatialStreamsRequest
+	(*Get80211AzNumberOfRxSpatialStreamsResponse)(nil),       // 55: wifi_rtt.Get80211azNumberOfRxSpatialStreamsResponse
+	(*Get80211AzNumberOfTxSpatialStreamsRequest)(nil),        // 56: wifi_rtt.Get80211azNumberOfTxSpatialStreamsRequest
+	(*Get80211AzNumberOfTxSpatialStreamsResponse)(nil),       // 57: wifi_rtt.Get80211azNumberOfTxSpatialStreamsResponse
+	(*Get80211AzResponderTxLtfRepetitionsCountRequest)(nil),  // 58: wifi_rtt.Get80211azResponderTxLtfRepetitionsCountRequest
+	(*Get80211AzResponderTxLtfRepetitionsCountResponse)(nil), // 59: wifi_rtt.Get80211azResponderTxLtfRepetitionsCountResponse
+	(*GetDistanceMmRequest)(nil),                             // 60: wifi_rtt.GetDistanceMmRequest
+	(*GetDistanceMmResponse)(nil),                            // 61: wifi_rtt.GetDistanceMmResponse
+	(*GetDistanceStdDevMmRequest)(nil),                       // 62: wifi_rtt.GetDistanceStdDevMmRequest
+	(*GetDistanceStdDevMmResponse)(nil),                      // 63: wifi_rtt.GetDistanceStdDevMmResponse
+	(*GetLciRequest)(nil),                                    // 64: wifi_rtt.GetLciRequest
+	(*GetLciResponse)(nil),                                   // 65: wifi_rtt.GetLciResponse
+	(*GetLcrRequest)(nil),                                    // 66: wifi_rtt.GetLcrRequest
+	(*GetLcrResponse)(nil),                                   // 67: wifi_rtt.GetLcrResponse
+	(*GetMacAddressRequest)(nil),                             // 68: wifi_rtt.GetMacAddressRequest
+	(*GetMacAddressResponse)(nil),                            // 69: wifi_rtt.GetMacAddressResponse
+	(*GetMaxTimeBetweenNtbMeasurementsMicrosRequest)(nil),    // 70: wifi_rtt.GetMaxTimeBetweenNtbMeasurementsMicrosRequest
+	(*GetMaxTimeBetweenNtbMeasurementsMicrosResponse)(nil),   // 71: wifi_rtt.GetMaxTimeBetweenNtbMeasurementsMicrosResponse
+	(*GetMeasurementBandwidthRequest)(nil),                   // 72: wifi_rtt.GetMeasurementBandwidthRequest
+	(*GetMeasurementBandwidthResponse)(nil),                  // 73: wifi_rtt.GetMeasurementBandwidthResponse
+	(*GetMeasurementChannelFrequencyMHzRequest)(nil),         // 74: wifi_rtt.GetMeasurementChannelFrequencyMHzRequest
+	(*GetMeasurementChannelFrequencyMHzResponse)(nil),        // 75: wifi_rtt.GetMeasurementChannelFrequencyMHzResponse
+	(*GetMinTimeBetweenNtbMeasurementsMicrosRequest)(nil),    // 76: wifi_rtt.GetMinTimeBetweenNtbMeasurementsMicrosRequest
+	(*GetMinTimeBetweenNtbMeasurementsMicrosResponse)(nil),   // 77: wifi_rtt.GetMinTimeBetweenNtbMeasurementsMicrosResponse
+	(*GetNumAttemptedMeasurementsRequest)(nil),               // 78: wifi_rtt.GetNumAttemptedMeasurementsRequest
+	(*GetNumAttemptedMeasurementsResponse)(nil),              // 79: wifi_rtt.GetNumAttemptedMeasurementsResponse
+	(*GetNumSuccessfulMeasurementsRequest)(nil),              // 80: wifi_rtt.GetNumSuccessfulMeasurementsRequest
+	(*GetNumSuccessfulMeasurementsResponse)(nil),             // 81: wifi_rtt.GetNumSuccessfulMeasurementsResponse
+	(*GetPasnComebackAfterMillisRequest)(nil),                // 82: wifi_rtt.GetPasnComebackAfterMillisRequest
+	(*GetPasnComebackAfterMillisResponse)(nil),               // 83: wifi_rtt.GetPasnComebackAfterMillisResponse
+	(*GetPasnComebackCookieRequest)(nil),                     // 84: wifi_rtt.GetPasnComebackCookieRequest
+	(*GetPasnComebackCookieResponse)(nil),                    // 85: wifi_rtt.GetPasnComebackCookieResponse
+	(*GetPeerHandleRequest)(nil),                             // 86: wifi_rtt.GetPeerHandleRequest
+	(*GetPeerHandleResponse)(nil),                            // 87: wifi_rtt.GetPeerHandleResponse
+	(*GetRangingTimestampMillisRequest)(nil),                 // 88: wifi_rtt.GetRangingTimestampMillisRequest
+	(*GetRangingTimestampMillisResponse)(nil),                // 89: wifi_rtt.GetRangingTimestampMillisResponse
+	(*GetRssiRequest)(nil),                                   // 90: wifi_rtt.GetRssiRequest
+	(*GetRssiResponse)(nil),                                  // 91: wifi_rtt.GetRssiResponse
+	(*GetSecureHeLtfProtocolVersionRequest)(nil),             // 92: wifi_rtt.GetSecureHeLtfProtocolVersionRequest
+	(*GetSecureHeLtfProtocolVersionResponse)(nil),            // 93: wifi_rtt.GetSecureHeLtfProtocolVersionResponse
+	(*GetStatusRequest)(nil),                                 // 94: wifi_rtt.GetStatusRequest
+	(*GetStatusResponse)(nil),                                // 95: wifi_rtt.GetStatusResponse
+	(*GetUnverifiedResponderLocationRequest)(nil),            // 96: wifi_rtt.GetUnverifiedResponderLocationRequest
+	(*GetUnverifiedResponderLocationResponse)(nil),           // 97: wifi_rtt.GetUnverifiedResponderLocationResponse
+	(*Is80211AzNtbMeasurementRequest)(nil),                   // 98: wifi_rtt.Is80211azNtbMeasurementRequest
+	(*Is80211AzNtbMeasurementResponse)(nil),                  // 99: wifi_rtt.Is80211azNtbMeasurementResponse
+	(*Is80211McMeasurementRequest)(nil),                      // 100: wifi_rtt.Is80211mcMeasurementRequest
+	(*Is80211McMeasurementResponse)(nil),                     // 101: wifi_rtt.Is80211mcMeasurementResponse
+	(*IsRangingAuthenticatedRequest)(nil),                    // 102: wifi_rtt.IsRangingAuthenticatedRequest
+	(*IsRangingAuthenticatedResponse)(nil),                   // 103: wifi_rtt.IsRangingAuthenticatedResponse
+	(*IsRangingFrameProtectedRequest)(nil),                   // 104: wifi_rtt.IsRangingFrameProtectedRequest
+	(*IsRangingFrameProtectedResponse)(nil),                  // 105: wifi_rtt.IsRangingFrameProtectedResponse
+	(*IsSecureHeLtfEnabledRequest)(nil),                      // 106: wifi_rtt.IsSecureHeLtfEnabledRequest
+	(*IsSecureHeLtfEnabledResponse)(nil),                     // 107: wifi_rtt.IsSecureHeLtfEnabledResponse
+	(*ToStringRequest)(nil),                                  // 108: wifi_rtt.ToStringRequest
+	(*ToStringResponse)(nil),                                 // 109: wifi_rtt.ToStringResponse
+	(*BuildRequest)(nil),                                     // 110: wifi_rtt.BuildRequest
+	(*BuildResponse)(nil),                                    // 111: wifi_rtt.BuildResponse
+	(*Set80211AzInitiatorTxLtfRepetitionsCountRequest)(nil),  // 112: wifi_rtt.Set80211azInitiatorTxLtfRepetitionsCountRequest
+	(*Set80211AzInitiatorTxLtfRepetitionsCountResponse)(nil), // 113: wifi_rtt.Set80211azInitiatorTxLtfRepetitionsCountResponse
+	(*Set80211AzNtbMeasurementRequest)(nil),                  // 114: wifi_rtt.Set80211azNtbMeasurementRequest
+	(*Set80211AzNtbMeasurementResponse)(nil),                 // 115: wifi_rtt.Set80211azNtbMeasurementResponse
+	(*Set80211AzNumberOfRxSpatialStreamsRequest)(nil),        // 116: wifi_rtt.Set80211azNumberOfRxSpatialStreamsRequest
+	(*Set80211AzNumberOfRxSpatialStreamsResponse)(nil),       // 117: wifi_rtt.Set80211azNumberOfRxSpatialStreamsResponse
+	(*Set80211AzNumberOfTxSpatialStreamsRequest)(nil),        // 118: wifi_rtt.Set80211azNumberOfTxSpatialStreamsRequest
+	(*Set80211AzNumberOfTxSpatialStreamsResponse)(nil),       // 119: wifi_rtt.Set80211azNumberOfTxSpatialStreamsResponse
+	(*Set80211AzResponderTxLtfRepetitionsCountRequest)(nil),  // 120: wifi_rtt.Set80211azResponderTxLtfRepetitionsCountRequest
+	(*Set80211AzResponderTxLtfRepetitionsCountResponse)(nil), // 121: wifi_rtt.Set80211azResponderTxLtfRepetitionsCountResponse
+	(*Set80211McMeasurementRequest)(nil),                     // 122: wifi_rtt.Set80211mcMeasurementRequest
+	(*Set80211McMeasurementResponse)(nil),                    // 123: wifi_rtt.Set80211mcMeasurementResponse
+	(*SetDistanceMmRequest)(nil),                             // 124: wifi_rtt.SetDistanceMmRequest
+	(*SetDistanceMmResponse)(nil),                            // 125: wifi_rtt.SetDistanceMmResponse
+	(*SetDistanceStdDevMmRequest)(nil),                       // 126: wifi_rtt.SetDistanceStdDevMmRequest
+	(*SetDistanceStdDevMmResponse)(nil),                      // 127: wifi_rtt.SetDistanceStdDevMmResponse
+	(*SetLciRequest)(nil),                                    // 128: wifi_rtt.SetLciRequest
+	(*SetLciResponse)(nil),                                   // 129: wifi_rtt.SetLciResponse
+	(*SetLcrRequest)(nil),                                    // 130: wifi_rtt.SetLcrRequest
+	(*SetLcrResponse)(nil),                                   // 131: wifi_rtt.SetLcrResponse
+	(*SetMacAddressRequest)(nil),                             // 132: wifi_rtt.SetMacAddressRequest
+	(*SetMacAddressResponse)(nil),                            // 133: wifi_rtt.SetMacAddressResponse
+	(*SetMaxTimeBetweenNtbMeasurementsMicrosRequest)(nil),    // 134: wifi_rtt.SetMaxTimeBetweenNtbMeasurementsMicrosRequest
+	(*SetMaxTimeBetweenNtbMeasurementsMicrosResponse)(nil),   // 135: wifi_rtt.SetMaxTimeBetweenNtbMeasurementsMicrosResponse
+	(*SetMeasurementBandwidthRequest)(nil),                   // 136: wifi_rtt.SetMeasurementBandwidthRequest
+	(*SetMeasurementBandwidthResponse)(nil),                  // 137: wifi_rtt.SetMeasurementBandwidthResponse
+	(*SetMeasurementChannelFrequencyMHzRequest)(nil),         // 138: wifi_rtt.SetMeasurementChannelFrequencyMHzRequest
+	(*SetMeasurementChannelFrequencyMHzResponse)(nil),        // 139: wifi_rtt.SetMeasurementChannelFrequencyMHzResponse
+	(*SetMinTimeBetweenNtbMeasurementsMicrosRequest)(nil),    // 140: wifi_rtt.SetMinTimeBetweenNtbMeasurementsMicrosRequest
+	(*SetMinTimeBetweenNtbMeasurementsMicrosResponse)(nil),   // 141: wifi_rtt.SetMinTimeBetweenNtbMeasurementsMicrosResponse
+	(*SetNumAttemptedMeasurementsRequest)(nil),               // 142: wifi_rtt.SetNumAttemptedMeasurementsRequest
+	(*SetNumAttemptedMeasurementsResponse)(nil),              // 143: wifi_rtt.SetNumAttemptedMeasurementsResponse
+	(*SetNumSuccessfulMeasurementsRequest)(nil),              // 144: wifi_rtt.SetNumSuccessfulMeasurementsRequest
+	(*SetNumSuccessfulMeasurementsResponse)(nil),             // 145: wifi_rtt.SetNumSuccessfulMeasurementsResponse
+	(*SetPasnComebackAfterMillisRequest)(nil),                // 146: wifi_rtt.SetPasnComebackAfterMillisRequest
+	(*SetPasnComebackAfterMillisResponse)(nil),               // 147: wifi_rtt.SetPasnComebackAfterMillisResponse
+	(*SetPasnComebackCookieRequest)(nil),                     // 148: wifi_rtt.SetPasnComebackCookieRequest
+	(*SetPasnComebackCookieResponse)(nil),                    // 149: wifi_rtt.SetPasnComebackCookieResponse
+	(*SetPeerHandleRequest)(nil),                             // 150: wifi_rtt.SetPeerHandleRequest
+	(*SetPeerHandleResponse)(nil),                            // 151: wifi_rtt.SetPeerHandleResponse
+	(*SetRangingAuthenticatedRequest)(nil),                   // 152: wifi_rtt.SetRangingAuthenticatedRequest
+	(*SetRangingAuthenticatedResponse)(nil),                  // 153: wifi_rtt.SetRangingAuthenticatedResponse
+	(*SetRangingFrameProtectedRequest)(nil),                  // 154: wifi_rtt.SetRangingFrameProtectedRequest
+	(*SetRangingFrameProtectedResponse)(nil),                 // 155: wifi_rtt.SetRangingFrameProtectedResponse
+	(*SetRangingTimestampMillisRequest)(nil),                 // 156: wifi_rtt.SetRangingTimestampMillisRequest
+	(*SetRangingTimestampMillisResponse)(nil),                // 157: wifi_rtt.SetRangingTimestampMillisResponse
+	(*SetRssiRequest)(nil),                                   // 158: wifi_rtt.SetRssiRequest
+	(*SetRssiResponse)(nil),                                  // 159: wifi_rtt.SetRssiResponse
+	(*SetSecureHeLtfEnabledRequest)(nil),                     // 160: wifi_rtt.SetSecureHeLtfEnabledRequest
+	(*SetSecureHeLtfEnabledResponse)(nil),                    // 161: wifi_rtt.SetSecureHeLtfEnabledResponse
+	(*SetSecureHeLtfProtocolVersionRequest)(nil),             // 162: wifi_rtt.SetSecureHeLtfProtocolVersionRequest
+	(*SetSecureHeLtfProtocolVersionResponse)(nil),            // 163: wifi_rtt.SetSecureHeLtfProtocolVersionResponse
+	(*SetStatusRequest)(nil),                                 // 164: wifi_rtt.SetStatusRequest
+	(*SetStatusResponse)(nil),                                // 165: wifi_rtt.SetStatusResponse
+	(*SetUnverifiedResponderLocationRequest)(nil),            // 166: wifi_rtt.SetUnverifiedResponderLocationRequest
+	(*SetUnverifiedResponderLocationResponse)(nil),           // 167: wifi_rtt.SetUnverifiedResponderLocationResponse
+	(*GetPasnConfigRequest)(nil),                             // 168: wifi_rtt.GetPasnConfigRequest
+	(*GetPasnConfigResponse)(nil),                            // 169: wifi_rtt.GetPasnConfigResponse
+	(*IsRangingFrameProtectionEnabledRequest)(nil),           // 170: wifi_rtt.IsRangingFrameProtectionEnabledRequest
+	(*IsRangingFrameProtectionEnabledResponse)(nil),          // 171: wifi_rtt.IsRangingFrameProtectionEnabledResponse
+	(*SetRangingFrameProtectionEnabledRequest)(nil),          // 172: wifi_rtt.SetRangingFrameProtectionEnabledRequest
+	(*SetRangingFrameProtectionEnabledResponse)(nil),         // 173: wifi_rtt.SetRangingFrameProtectionEnabledResponse
+	(*GetRttCharacteristicsRequest)(nil),                     // 174: wifi_rtt.GetRttCharacteristicsRequest
+	(*GetRttCharacteristicsResponse)(nil),                    // 175: wifi_rtt.GetRttCharacteristicsResponse
+	(*IsAvailableRequest)(nil),                               // 176: wifi_rtt.IsAvailableRequest
+	(*IsAvailableResponse)(nil),                              // 177: wifi_rtt.IsAvailableResponse
+	(*StartRangingRequest)(nil),                              // 178: wifi_rtt.StartRangingRequest
+	(*StartRangingResponse)(nil),                             // 179: wifi_rtt.StartRangingResponse
+	(*GetRttBurstSizeRequest)(nil),                           // 180: wifi_rtt.GetRttBurstSizeRequest
+	(*GetRttBurstSizeResponse)(nil),                          // 181: wifi_rtt.GetRttBurstSizeResponse
+	(*GetSecurityModeRequest)(nil),                           // 182: wifi_rtt.GetSecurityModeRequest
+	(*GetSecurityModeResponse)(nil),                          // 183: wifi_rtt.GetSecurityModeResponse
+	(*GetDefaultRttBurstSizeRequest)(nil),                    // 184: wifi_rtt.GetDefaultRttBurstSizeRequest
+	(*GetDefaultRttBurstSizeResponse)(nil),                   // 185: wifi_rtt.GetDefaultRttBurstSizeResponse
+	(*GetMaxPeersRequest)(nil),                               // 186: wifi_rtt.GetMaxPeersRequest
+	(*GetMaxPeersResponse)(nil),                              // 187: wifi_rtt.GetMaxPeersResponse
+	(*GetMaxRttBurstSizeRequest)(nil),                        // 188: wifi_rtt.GetMaxRttBurstSizeRequest
+	(*GetMaxRttBurstSizeResponse)(nil),                       // 189: wifi_rtt.GetMaxRttBurstSizeResponse
+	(*GetMinRttBurstSizeRequest)(nil),                        // 190: wifi_rtt.GetMinRttBurstSizeRequest
+	(*GetMinRttBurstSizeResponse)(nil),                       // 191: wifi_rtt.GetMinRttBurstSizeResponse
+	(*AddAccessPointRequest)(nil),                            // 192: wifi_rtt.AddAccessPointRequest
+	(*AddAccessPointResponse)(nil),                           // 193: wifi_rtt.AddAccessPointResponse
+	(*AddNon80211McCapableAccessPointRequest)(nil),           // 194: wifi_rtt.AddNon80211mcCapableAccessPointRequest
+	(*AddNon80211McCapableAccessPointResponse)(nil),          // 195: wifi_rtt.AddNon80211mcCapableAccessPointResponse
+	(*AddResponderRequest)(nil),                              // 196: wifi_rtt.AddResponderRequest
+	(*AddResponderResponse)(nil),                             // 197: wifi_rtt.AddResponderResponse
+	(*AddWifiAwarePeer1Request)(nil),                         // 198: wifi_rtt.AddWifiAwarePeer1Request
+	(*AddWifiAwarePeer1Response)(nil),                        // 199: wifi_rtt.AddWifiAwarePeer1Response
+	(*AddWifiAwarePeer1_1Request)(nil),                       // 200: wifi_rtt.AddWifiAwarePeer1_1Request
+	(*AddWifiAwarePeer1_1Response)(nil),                      // 201: wifi_rtt.AddWifiAwarePeer1_1Response
+	(*SetRttBurstSizeRequest)(nil),                           // 202: wifi_rtt.SetRttBurstSizeRequest
+	(*SetRttBurstSizeResponse)(nil),                          // 203: wifi_rtt.SetRttBurstSizeResponse
+	(*SetSecurityModeRequest)(nil),                           // 204: wifi_rtt.SetSecurityModeRequest
+	(*SetSecurityModeResponse)(nil),                          // 205: wifi_rtt.SetSecurityModeResponse
+	(*OnRangingFailureRequest)(nil),                          // 206: wifi_rtt.OnRangingFailureRequest
+	(*OnRangingFailureResponse)(nil),                         // 207: wifi_rtt.OnRangingFailureResponse
+	(*GetCenterFreq0MhzRequest)(nil),                         // 208: wifi_rtt.GetCenterFreq0MhzRequest
+	(*GetCenterFreq0MhzResponse)(nil),                        // 209: wifi_rtt.GetCenterFreq0MhzResponse
+	(*GetCenterFreq1MhzRequest)(nil),                         // 210: wifi_rtt.GetCenterFreq1MhzRequest
+	(*GetCenterFreq1MhzResponse)(nil),                        // 211: wifi_rtt.GetCenterFreq1MhzResponse
+	(*GetChannelWidthRequest)(nil),                           // 212: wifi_rtt.GetChannelWidthRequest
+	(*GetChannelWidthResponse)(nil),                          // 213: wifi_rtt.GetChannelWidthResponse
+	(*GetFrequencyMhzRequest)(nil),                           // 214: wifi_rtt.GetFrequencyMhzRequest
+	(*GetFrequencyMhzResponse)(nil),                          // 215: wifi_rtt.GetFrequencyMhzResponse
+	(*GetPreambleRequest)(nil),                               // 216: wifi_rtt.GetPreambleRequest
+	(*GetPreambleResponse)(nil),                              // 217: wifi_rtt.GetPreambleResponse
+	(*GetResponderTypeRequest)(nil),                          // 218: wifi_rtt.GetResponderTypeRequest
+	(*GetResponderTypeResponse)(nil),                         // 219: wifi_rtt.GetResponderTypeResponse
+	(*GetSecureRangingConfigRequest)(nil),                    // 220: wifi_rtt.GetSecureRangingConfigRequest
+	(*GetSecureRangingConfigResponse)(nil),                   // 221: wifi_rtt.GetSecureRangingConfigResponse
+	(*Is80211AzNtbSupportedRequest)(nil),                     // 222: wifi_rtt.Is80211azNtbSupportedRequest
+	(*Is80211AzNtbSupportedResponse)(nil),                    // 223: wifi_rtt.Is80211azNtbSupportedResponse
+	(*Is80211McSupportedRequest)(nil),                        // 224: wifi_rtt.Is80211mcSupportedRequest
+	(*Is80211McSupportedResponse)(nil),                       // 225: wifi_rtt.Is80211mcSupportedResponse
+	(*FromScanResultRequest)(nil),                            // 226: wifi_rtt.FromScanResultRequest
+	(*FromScanResultResponse)(nil),                           // 227: wifi_rtt.FromScanResultResponse
+	(*Set80211AzNtbSupportedRequest)(nil),                    // 228: wifi_rtt.Set80211azNtbSupportedRequest
+	(*Set80211AzNtbSupportedResponse)(nil),                   // 229: wifi_rtt.Set80211azNtbSupportedResponse
+	(*Set80211McSupportedRequest)(nil),                       // 230: wifi_rtt.Set80211mcSupportedRequest
+	(*Set80211McSupportedResponse)(nil),                      // 231: wifi_rtt.Set80211mcSupportedResponse
+	(*SetCenterFreq0MhzRequest)(nil),                         // 232: wifi_rtt.SetCenterFreq0MhzRequest
+	(*SetCenterFreq0MhzResponse)(nil),                        // 233: wifi_rtt.SetCenterFreq0MhzResponse
+	(*SetCenterFreq1MhzRequest)(nil),                         // 234: wifi_rtt.SetCenterFreq1MhzRequest
+	(*SetCenterFreq1MhzResponse)(nil),                        // 235: wifi_rtt.SetCenterFreq1MhzResponse
+	(*SetChannelWidthRequest)(nil),                           // 236: wifi_rtt.SetChannelWidthRequest
+	(*SetChannelWidthResponse)(nil),                          // 237: wifi_rtt.SetChannelWidthResponse
+	(*SetFrequencyMhzRequest)(nil),                           // 238: wifi_rtt.SetFrequencyMhzRequest
+	(*SetFrequencyMhzResponse)(nil),                          // 239: wifi_rtt.SetFrequencyMhzResponse
+	(*SetPreambleRequest)(nil),                               // 240: wifi_rtt.SetPreambleRequest
+	(*SetPreambleResponse)(nil),                              // 241: wifi_rtt.SetPreambleResponse
+	(*SetResponderTypeRequest)(nil),                          // 242: wifi_rtt.SetResponderTypeRequest
+	(*SetResponderTypeResponse)(nil),                         // 243: wifi_rtt.SetResponderTypeResponse
+	(*SetSecureRangingConfigRequest)(nil),                    // 244: wifi_rtt.SetSecureRangingConfigRequest
+	(*SetSecureRangingConfigResponse)(nil),                   // 245: wifi_rtt.SetSecureRangingConfigResponse
+	(*GetBaseAkmsRequest)(nil),                               // 246: wifi_rtt.GetBaseAkmsRequest
+	(*GetBaseAkmsResponse)(nil),                              // 247: wifi_rtt.GetBaseAkmsResponse
+	(*GetCiphersRequest)(nil),                                // 248: wifi_rtt.GetCiphersRequest
+	(*GetCiphersResponse)(nil),                               // 249: wifi_rtt.GetCiphersResponse
+	(*GetPasswordRequest)(nil),                               // 250: wifi_rtt.GetPasswordRequest
+	(*GetPasswordResponse)(nil),                              // 251: wifi_rtt.GetPasswordResponse
+	(*GetWifiSsidRequest)(nil),                               // 252: wifi_rtt.GetWifiSsidRequest
+	(*GetWifiSsidResponse)(nil),                              // 253: wifi_rtt.GetWifiSsidResponse
+	(*SetPasswordRequest)(nil),                               // 254: wifi_rtt.SetPasswordRequest
+	(*SetPasswordResponse)(nil),                              // 255: wifi_rtt.SetPasswordResponse
+	(*SetWifiSsidRequest)(nil),                               // 256: wifi_rtt.SetWifiSsidRequest
+	(*SetWifiSsidResponse)(nil),                              // 257: wifi_rtt.SetWifiSsidResponse
 }
 var file_proto_wifi_rtt_wifi_rtt_proto_depIdxs = []int32{
-	0,   // 0: wifi_rtt.ResponderConfigService.DescribeContents:input_type -> wifi_rtt.DescribeContentsRequest
-	2,   // 1: wifi_rtt.ResponderConfigService.Equals:input_type -> wifi_rtt.EqualsRequest
-	4,   // 2: wifi_rtt.ResponderConfigService.GetCenterFreq0Mhz:input_type -> wifi_rtt.GetCenterFreq0MhzRequest
-	6,   // 3: wifi_rtt.ResponderConfigService.GetCenterFreq1Mhz:input_type -> wifi_rtt.GetCenterFreq1MhzRequest
-	8,   // 4: wifi_rtt.ResponderConfigService.GetChannelWidth:input_type -> wifi_rtt.GetChannelWidthRequest
-	10,  // 5: wifi_rtt.ResponderConfigService.GetFrequencyMhz:input_type -> wifi_rtt.GetFrequencyMhzRequest
-	12,  // 6: wifi_rtt.ResponderConfigService.GetMacAddress:input_type -> wifi_rtt.GetMacAddressRequest
-	14,  // 7: wifi_rtt.ResponderConfigService.GetPreamble:input_type -> wifi_rtt.GetPreambleRequest
-	16,  // 8: wifi_rtt.ResponderConfigService.GetResponderType:input_type -> wifi_rtt.GetResponderTypeRequest
-	18,  // 9: wifi_rtt.ResponderConfigService.GetSecureRangingConfig:input_type -> wifi_rtt.GetSecureRangingConfigRequest
-	20,  // 10: wifi_rtt.ResponderConfigService.HashCode:input_type -> wifi_rtt.HashCodeRequest
-	22,  // 11: wifi_rtt.ResponderConfigService.Is80211azNtbSupported:input_type -> wifi_rtt.Is80211azNtbSupportedRequest
-	24,  // 12: wifi_rtt.ResponderConfigService.Is80211mcSupported:input_type -> wifi_rtt.Is80211mcSupportedRequest
-	26,  // 13: wifi_rtt.ResponderConfigService.ToString:input_type -> wifi_rtt.ToStringRequest
-	28,  // 14: wifi_rtt.ResponderConfigService.WriteToParcel:input_type -> wifi_rtt.WriteToParcelRequest
-	30,  // 15: wifi_rtt.ResponderConfigService.FromScanResult:input_type -> wifi_rtt.FromScanResultRequest
-	32,  // 16: wifi_rtt.ResponderConfigBuilderService.Build:input_type -> wifi_rtt.BuildRequest
-	34,  // 17: wifi_rtt.ResponderConfigBuilderService.Set80211azNtbSupported:input_type -> wifi_rtt.Set80211azNtbSupportedRequest
-	36,  // 18: wifi_rtt.ResponderConfigBuilderService.Set80211mcSupported:input_type -> wifi_rtt.Set80211mcSupportedRequest
-	38,  // 19: wifi_rtt.ResponderConfigBuilderService.SetCenterFreq0Mhz:input_type -> wifi_rtt.SetCenterFreq0MhzRequest
-	40,  // 20: wifi_rtt.ResponderConfigBuilderService.SetCenterFreq1Mhz:input_type -> wifi_rtt.SetCenterFreq1MhzRequest
-	42,  // 21: wifi_rtt.ResponderConfigBuilderService.SetChannelWidth:input_type -> wifi_rtt.SetChannelWidthRequest
-	44,  // 22: wifi_rtt.ResponderConfigBuilderService.SetFrequencyMhz:input_type -> wifi_rtt.SetFrequencyMhzRequest
-	46,  // 23: wifi_rtt.ResponderConfigBuilderService.SetMacAddress:input_type -> wifi_rtt.SetMacAddressRequest
-	48,  // 24: wifi_rtt.ResponderConfigBuilderService.SetPreamble:input_type -> wifi_rtt.SetPreambleRequest
-	50,  // 25: wifi_rtt.ResponderConfigBuilderService.SetResponderType:input_type -> wifi_rtt.SetResponderTypeRequest
-	52,  // 26: wifi_rtt.ResponderConfigBuilderService.SetSecureRangingConfig:input_type -> wifi_rtt.SetSecureRangingConfigRequest
-	0,   // 27: wifi_rtt.RangingRequestService.DescribeContents:input_type -> wifi_rtt.DescribeContentsRequest
-	2,   // 28: wifi_rtt.RangingRequestService.Equals:input_type -> wifi_rtt.EqualsRequest
-	54,  // 29: wifi_rtt.RangingRequestService.GetRttBurstSize:input_type -> wifi_rtt.GetRttBurstSizeRequest
-	56,  // 30: wifi_rtt.RangingRequestService.GetSecurityMode:input_type -> wifi_rtt.GetSecurityModeRequest
-	20,  // 31: wifi_rtt.RangingRequestService.HashCode:input_type -> wifi_rtt.HashCodeRequest
-	26,  // 32: wifi_rtt.RangingRequestService.ToString:input_type -> wifi_rtt.ToStringRequest
-	28,  // 33: wifi_rtt.RangingRequestService.WriteToParcel:input_type -> wifi_rtt.WriteToParcelRequest
-	58,  // 34: wifi_rtt.RangingRequestService.GetDefaultRttBurstSize:input_type -> wifi_rtt.GetDefaultRttBurstSizeRequest
-	60,  // 35: wifi_rtt.RangingRequestService.GetMaxPeers:input_type -> wifi_rtt.GetMaxPeersRequest
-	62,  // 36: wifi_rtt.RangingRequestService.GetMaxRttBurstSize:input_type -> wifi_rtt.GetMaxRttBurstSizeRequest
-	64,  // 37: wifi_rtt.RangingRequestService.GetMinRttBurstSize:input_type -> wifi_rtt.GetMinRttBurstSizeRequest
-	66,  // 38: wifi_rtt.RangingRequestBuilderService.AddAccessPoint:input_type -> wifi_rtt.AddAccessPointRequest
-	68,  // 39: wifi_rtt.RangingRequestBuilderService.AddNon80211mcCapableAccessPoint:input_type -> wifi_rtt.AddNon80211mcCapableAccessPointRequest
-	70,  // 40: wifi_rtt.RangingRequestBuilderService.AddResponder:input_type -> wifi_rtt.AddResponderRequest
-	72,  // 41: wifi_rtt.RangingRequestBuilderService.AddWifiAwarePeer1:input_type -> wifi_rtt.AddWifiAwarePeer1Request
-	74,  // 42: wifi_rtt.RangingRequestBuilderService.AddWifiAwarePeer1_1:input_type -> wifi_rtt.AddWifiAwarePeer1_1Request
-	32,  // 43: wifi_rtt.RangingRequestBuilderService.Build:input_type -> wifi_rtt.BuildRequest
-	76,  // 44: wifi_rtt.RangingRequestBuilderService.SetRttBurstSize:input_type -> wifi_rtt.SetRttBurstSizeRequest
-	78,  // 45: wifi_rtt.RangingRequestBuilderService.SetSecurityMode:input_type -> wifi_rtt.SetSecurityModeRequest
-	80,  // 46: wifi_rtt.RangingResultCallbackService.OnRangingFailure:input_type -> wifi_rtt.OnRangingFailureRequest
-	0,   // 47: wifi_rtt.PasnConfigService.DescribeContents:input_type -> wifi_rtt.DescribeContentsRequest
-	2,   // 48: wifi_rtt.PasnConfigService.Equals:input_type -> wifi_rtt.EqualsRequest
-	82,  // 49: wifi_rtt.PasnConfigService.GetBaseAkms:input_type -> wifi_rtt.GetBaseAkmsRequest
-	84,  // 50: wifi_rtt.PasnConfigService.GetCiphers:input_type -> wifi_rtt.GetCiphersRequest
-	86,  // 51: wifi_rtt.PasnConfigService.GetPasnComebackCookie:input_type -> wifi_rtt.GetPasnComebackCookieRequest
-	88,  // 52: wifi_rtt.PasnConfigService.GetPassword:input_type -> wifi_rtt.GetPasswordRequest
-	90,  // 53: wifi_rtt.PasnConfigService.GetWifiSsid:input_type -> wifi_rtt.GetWifiSsidRequest
-	20,  // 54: wifi_rtt.PasnConfigService.HashCode:input_type -> wifi_rtt.HashCodeRequest
-	26,  // 55: wifi_rtt.PasnConfigService.ToString:input_type -> wifi_rtt.ToStringRequest
-	28,  // 56: wifi_rtt.PasnConfigService.WriteToParcel:input_type -> wifi_rtt.WriteToParcelRequest
-	32,  // 57: wifi_rtt.PasnConfigBuilderService.Build:input_type -> wifi_rtt.BuildRequest
-	92,  // 58: wifi_rtt.PasnConfigBuilderService.SetPasnComebackCookie:input_type -> wifi_rtt.SetPasnComebackCookieRequest
-	94,  // 59: wifi_rtt.PasnConfigBuilderService.SetPassword:input_type -> wifi_rtt.SetPasswordRequest
-	96,  // 60: wifi_rtt.PasnConfigBuilderService.SetWifiSsid:input_type -> wifi_rtt.SetWifiSsidRequest
-	0,   // 61: wifi_rtt.RangingResultService.DescribeContents:input_type -> wifi_rtt.DescribeContentsRequest
-	2,   // 62: wifi_rtt.RangingResultService.Equals:input_type -> wifi_rtt.EqualsRequest
-	98,  // 63: wifi_rtt.RangingResultService.Get80211azInitiatorTxLtfRepetitionsCount:input_type -> wifi_rtt.Get80211azInitiatorTxLtfRepetitionsCountRequest
-	100, // 64: wifi_rtt.RangingResultService.Get80211azNumberOfRxSpatialStreams:input_type -> wifi_rtt.Get80211azNumberOfRxSpatialStreamsRequest
-	102, // 65: wifi_rtt.RangingResultService.Get80211azNumberOfTxSpatialStreams:input_type -> wifi_rtt.Get80211azNumberOfTxSpatialStreamsRequest
-	104, // 66: wifi_rtt.RangingResultService.Get80211azResponderTxLtfRepetitionsCount:input_type -> wifi_rtt.Get80211azResponderTxLtfRepetitionsCountRequest
-	106, // 67: wifi_rtt.RangingResultService.GetDistanceMm:input_type -> wifi_rtt.GetDistanceMmRequest
-	108, // 68: wifi_rtt.RangingResultService.GetDistanceStdDevMm:input_type -> wifi_rtt.GetDistanceStdDevMmRequest
-	110, // 69: wifi_rtt.RangingResultService.GetLci:input_type -> wifi_rtt.GetLciRequest
-	112, // 70: wifi_rtt.RangingResultService.GetLcr:input_type -> wifi_rtt.GetLcrRequest
-	12,  // 71: wifi_rtt.RangingResultService.GetMacAddress:input_type -> wifi_rtt.GetMacAddressRequest
-	114, // 72: wifi_rtt.RangingResultService.GetMaxTimeBetweenNtbMeasurementsMicros:input_type -> wifi_rtt.GetMaxTimeBetweenNtbMeasurementsMicrosRequest
-	116, // 73: wifi_rtt.RangingResultService.GetMeasurementBandwidth:input_type -> wifi_rtt.GetMeasurementBandwidthRequest
-	118, // 74: wifi_rtt.RangingResultService.GetMeasurementChannelFrequencyMHz:input_type -> wifi_rtt.GetMeasurementChannelFrequencyMHzRequest
-	120, // 75: wifi_rtt.RangingResultService.GetMinTimeBetweenNtbMeasurementsMicros:input_type -> wifi_rtt.GetMinTimeBetweenNtbMeasurementsMicrosRequest
-	122, // 76: wifi_rtt.RangingResultService.GetNumAttemptedMeasurements:input_type -> wifi_rtt.GetNumAttemptedMeasurementsRequest
-	124, // 77: wifi_rtt.RangingResultService.GetNumSuccessfulMeasurements:input_type -> wifi_rtt.GetNumSuccessfulMeasurementsRequest
-	126, // 78: wifi_rtt.RangingResultService.GetPasnComebackAfterMillis:input_type -> wifi_rtt.GetPasnComebackAfterMillisRequest
-	86,  // 79: wifi_rtt.RangingResultService.GetPasnComebackCookie:input_type -> wifi_rtt.GetPasnComebackCookieRequest
-	128, // 80: wifi_rtt.RangingResultService.GetPeerHandle:input_type -> wifi_rtt.GetPeerHandleRequest
-	130, // 81: wifi_rtt.RangingResultService.GetRangingTimestampMillis:input_type -> wifi_rtt.GetRangingTimestampMillisRequest
-	132, // 82: wifi_rtt.RangingResultService.GetRssi:input_type -> wifi_rtt.GetRssiRequest
-	134, // 83: wifi_rtt.RangingResultService.GetSecureHeLtfProtocolVersion:input_type -> wifi_rtt.GetSecureHeLtfProtocolVersionRequest
-	136, // 84: wifi_rtt.RangingResultService.GetStatus:input_type -> wifi_rtt.GetStatusRequest
-	138, // 85: wifi_rtt.RangingResultService.GetUnverifiedResponderLocation:input_type -> wifi_rtt.GetUnverifiedResponderLocationRequest
-	20,  // 86: wifi_rtt.RangingResultService.HashCode:input_type -> wifi_rtt.HashCodeRequest
-	140, // 87: wifi_rtt.RangingResultService.Is80211azNtbMeasurement:input_type -> wifi_rtt.Is80211azNtbMeasurementRequest
-	142, // 88: wifi_rtt.RangingResultService.Is80211mcMeasurement:input_type -> wifi_rtt.Is80211mcMeasurementRequest
-	144, // 89: wifi_rtt.RangingResultService.IsRangingAuthenticated:input_type -> wifi_rtt.IsRangingAuthenticatedRequest
-	146, // 90: wifi_rtt.RangingResultService.IsRangingFrameProtected:input_type -> wifi_rtt.IsRangingFrameProtectedRequest
-	148, // 91: wifi_rtt.RangingResultService.IsSecureHeLtfEnabled:input_type -> wifi_rtt.IsSecureHeLtfEnabledRequest
-	26,  // 92: wifi_rtt.RangingResultService.ToString:input_type -> wifi_rtt.ToStringRequest
-	28,  // 93: wifi_rtt.RangingResultService.WriteToParcel:input_type -> wifi_rtt.WriteToParcelRequest
-	32,  // 94: wifi_rtt.RangingResultBuilderService.Build:input_type -> wifi_rtt.BuildRequest
-	150, // 95: wifi_rtt.RangingResultBuilderService.Set80211azInitiatorTxLtfRepetitionsCount:input_type -> wifi_rtt.Set80211azInitiatorTxLtfRepetitionsCountRequest
-	152, // 96: wifi_rtt.RangingResultBuilderService.Set80211azNtbMeasurement:input_type -> wifi_rtt.Set80211azNtbMeasurementRequest
-	154, // 97: wifi_rtt.RangingResultBuilderService.Set80211azNumberOfRxSpatialStreams:input_type -> wifi_rtt.Set80211azNumberOfRxSpatialStreamsRequest
-	156, // 98: wifi_rtt.RangingResultBuilderService.Set80211azNumberOfTxSpatialStreams:input_type -> wifi_rtt.Set80211azNumberOfTxSpatialStreamsRequest
-	158, // 99: wifi_rtt.RangingResultBuilderService.Set80211azResponderTxLtfRepetitionsCount:input_type -> wifi_rtt.Set80211azResponderTxLtfRepetitionsCountRequest
-	160, // 100: wifi_rtt.RangingResultBuilderService.Set80211mcMeasurement:input_type -> wifi_rtt.Set80211mcMeasurementRequest
-	162, // 101: wifi_rtt.RangingResultBuilderService.SetDistanceMm:input_type -> wifi_rtt.SetDistanceMmRequest
-	164, // 102: wifi_rtt.RangingResultBuilderService.SetDistanceStdDevMm:input_type -> wifi_rtt.SetDistanceStdDevMmRequest
-	166, // 103: wifi_rtt.RangingResultBuilderService.SetLci:input_type -> wifi_rtt.SetLciRequest
-	168, // 104: wifi_rtt.RangingResultBuilderService.SetLcr:input_type -> wifi_rtt.SetLcrRequest
-	46,  // 105: wifi_rtt.RangingResultBuilderService.SetMacAddress:input_type -> wifi_rtt.SetMacAddressRequest
-	170, // 106: wifi_rtt.RangingResultBuilderService.SetMaxTimeBetweenNtbMeasurementsMicros:input_type -> wifi_rtt.SetMaxTimeBetweenNtbMeasurementsMicrosRequest
-	172, // 107: wifi_rtt.RangingResultBuilderService.SetMeasurementBandwidth:input_type -> wifi_rtt.SetMeasurementBandwidthRequest
-	174, // 108: wifi_rtt.RangingResultBuilderService.SetMeasurementChannelFrequencyMHz:input_type -> wifi_rtt.SetMeasurementChannelFrequencyMHzRequest
-	176, // 109: wifi_rtt.RangingResultBuilderService.SetMinTimeBetweenNtbMeasurementsMicros:input_type -> wifi_rtt.SetMinTimeBetweenNtbMeasurementsMicrosRequest
-	178, // 110: wifi_rtt.RangingResultBuilderService.SetNumAttemptedMeasurements:input_type -> wifi_rtt.SetNumAttemptedMeasurementsRequest
-	180, // 111: wifi_rtt.RangingResultBuilderService.SetNumSuccessfulMeasurements:input_type -> wifi_rtt.SetNumSuccessfulMeasurementsRequest
-	182, // 112: wifi_rtt.RangingResultBuilderService.SetPasnComebackAfterMillis:input_type -> wifi_rtt.SetPasnComebackAfterMillisRequest
-	92,  // 113: wifi_rtt.RangingResultBuilderService.SetPasnComebackCookie:input_type -> wifi_rtt.SetPasnComebackCookieRequest
-	184, // 114: wifi_rtt.RangingResultBuilderService.SetPeerHandle:input_type -> wifi_rtt.SetPeerHandleRequest
-	186, // 115: wifi_rtt.RangingResultBuilderService.SetRangingAuthenticated:input_type -> wifi_rtt.SetRangingAuthenticatedRequest
-	188, // 116: wifi_rtt.RangingResultBuilderService.SetRangingFrameProtected:input_type -> wifi_rtt.SetRangingFrameProtectedRequest
-	190, // 117: wifi_rtt.RangingResultBuilderService.SetRangingTimestampMillis:input_type -> wifi_rtt.SetRangingTimestampMillisRequest
-	192, // 118: wifi_rtt.RangingResultBuilderService.SetRssi:input_type -> wifi_rtt.SetRssiRequest
-	194, // 119: wifi_rtt.RangingResultBuilderService.SetSecureHeLtfEnabled:input_type -> wifi_rtt.SetSecureHeLtfEnabledRequest
-	196, // 120: wifi_rtt.RangingResultBuilderService.SetSecureHeLtfProtocolVersion:input_type -> wifi_rtt.SetSecureHeLtfProtocolVersionRequest
-	198, // 121: wifi_rtt.RangingResultBuilderService.SetStatus:input_type -> wifi_rtt.SetStatusRequest
-	200, // 122: wifi_rtt.RangingResultBuilderService.SetUnverifiedResponderLocation:input_type -> wifi_rtt.SetUnverifiedResponderLocationRequest
-	0,   // 123: wifi_rtt.SecureRangingConfigService.DescribeContents:input_type -> wifi_rtt.DescribeContentsRequest
-	2,   // 124: wifi_rtt.SecureRangingConfigService.Equals:input_type -> wifi_rtt.EqualsRequest
-	202, // 125: wifi_rtt.SecureRangingConfigService.GetPasnConfig:input_type -> wifi_rtt.GetPasnConfigRequest
-	20,  // 126: wifi_rtt.SecureRangingConfigService.HashCode:input_type -> wifi_rtt.HashCodeRequest
-	204, // 127: wifi_rtt.SecureRangingConfigService.IsRangingFrameProtectionEnabled:input_type -> wifi_rtt.IsRangingFrameProtectionEnabledRequest
-	148, // 128: wifi_rtt.SecureRangingConfigService.IsSecureHeLtfEnabled:input_type -> wifi_rtt.IsSecureHeLtfEnabledRequest
-	26,  // 129: wifi_rtt.SecureRangingConfigService.ToString:input_type -> wifi_rtt.ToStringRequest
-	28,  // 130: wifi_rtt.SecureRangingConfigService.WriteToParcel:input_type -> wifi_rtt.WriteToParcelRequest
-	32,  // 131: wifi_rtt.SecureRangingConfigBuilderService.Build:input_type -> wifi_rtt.BuildRequest
-	206, // 132: wifi_rtt.SecureRangingConfigBuilderService.SetRangingFrameProtectionEnabled:input_type -> wifi_rtt.SetRangingFrameProtectionEnabledRequest
-	194, // 133: wifi_rtt.SecureRangingConfigBuilderService.SetSecureHeLtfEnabled:input_type -> wifi_rtt.SetSecureHeLtfEnabledRequest
-	0,   // 134: wifi_rtt.ResponderLocationService.DescribeContents:input_type -> wifi_rtt.DescribeContentsRequest
-	2,   // 135: wifi_rtt.ResponderLocationService.Equals:input_type -> wifi_rtt.EqualsRequest
-	208, // 136: wifi_rtt.ResponderLocationService.GetAltitude:input_type -> wifi_rtt.GetAltitudeRequest
-	210, // 137: wifi_rtt.ResponderLocationService.GetAltitudeType:input_type -> wifi_rtt.GetAltitudeTypeRequest
-	212, // 138: wifi_rtt.ResponderLocationService.GetAltitudeUncertainty:input_type -> wifi_rtt.GetAltitudeUncertaintyRequest
-	214, // 139: wifi_rtt.ResponderLocationService.GetDatum:input_type -> wifi_rtt.GetDatumRequest
-	216, // 140: wifi_rtt.ResponderLocationService.GetExpectedToMove:input_type -> wifi_rtt.GetExpectedToMoveRequest
-	218, // 141: wifi_rtt.ResponderLocationService.GetFloorNumber:input_type -> wifi_rtt.GetFloorNumberRequest
-	220, // 142: wifi_rtt.ResponderLocationService.GetHeightAboveFloorMeters:input_type -> wifi_rtt.GetHeightAboveFloorMetersRequest
-	222, // 143: wifi_rtt.ResponderLocationService.GetHeightAboveFloorUncertaintyMeters:input_type -> wifi_rtt.GetHeightAboveFloorUncertaintyMetersRequest
-	224, // 144: wifi_rtt.ResponderLocationService.GetLatitude:input_type -> wifi_rtt.GetLatitudeRequest
-	226, // 145: wifi_rtt.ResponderLocationService.GetLatitudeUncertainty:input_type -> wifi_rtt.GetLatitudeUncertaintyRequest
-	228, // 146: wifi_rtt.ResponderLocationService.GetLciVersion:input_type -> wifi_rtt.GetLciVersionRequest
-	230, // 147: wifi_rtt.ResponderLocationService.GetLongitude:input_type -> wifi_rtt.GetLongitudeRequest
-	232, // 148: wifi_rtt.ResponderLocationService.GetLongitudeUncertainty:input_type -> wifi_rtt.GetLongitudeUncertaintyRequest
-	234, // 149: wifi_rtt.ResponderLocationService.GetMapImageMimeType:input_type -> wifi_rtt.GetMapImageMimeTypeRequest
-	236, // 150: wifi_rtt.ResponderLocationService.GetMapImageUri:input_type -> wifi_rtt.GetMapImageUriRequest
-	238, // 151: wifi_rtt.ResponderLocationService.GetRegisteredLocationAgreementIndication:input_type -> wifi_rtt.GetRegisteredLocationAgreementIndicationRequest
-	20,  // 152: wifi_rtt.ResponderLocationService.HashCode:input_type -> wifi_rtt.HashCodeRequest
-	240, // 153: wifi_rtt.ResponderLocationService.IsLciSubelementValid:input_type -> wifi_rtt.IsLciSubelementValidRequest
-	242, // 154: wifi_rtt.ResponderLocationService.IsZaxisSubelementValid:input_type -> wifi_rtt.IsZaxisSubelementValidRequest
-	244, // 155: wifi_rtt.ResponderLocationService.ToCivicLocationAddress:input_type -> wifi_rtt.ToCivicLocationAddressRequest
-	246, // 156: wifi_rtt.ResponderLocationService.ToLocation:input_type -> wifi_rtt.ToLocationRequest
-	28,  // 157: wifi_rtt.ResponderLocationService.WriteToParcel:input_type -> wifi_rtt.WriteToParcelRequest
-	248, // 158: wifi_rtt.WifiRttManagerService.GetRttCharacteristics:input_type -> wifi_rtt.GetRttCharacteristicsRequest
-	250, // 159: wifi_rtt.WifiRttManagerService.IsAvailable:input_type -> wifi_rtt.IsAvailableRequest
-	252, // 160: wifi_rtt.WifiRttManagerService.StartRanging:input_type -> wifi_rtt.StartRangingRequest
-	1,   // 161: wifi_rtt.ResponderConfigService.DescribeContents:output_type -> wifi_rtt.DescribeContentsResponse
-	3,   // 162: wifi_rtt.ResponderConfigService.Equals:output_type -> wifi_rtt.EqualsResponse
-	5,   // 163: wifi_rtt.ResponderConfigService.GetCenterFreq0Mhz:output_type -> wifi_rtt.GetCenterFreq0MhzResponse
-	7,   // 164: wifi_rtt.ResponderConfigService.GetCenterFreq1Mhz:output_type -> wifi_rtt.GetCenterFreq1MhzResponse
-	9,   // 165: wifi_rtt.ResponderConfigService.GetChannelWidth:output_type -> wifi_rtt.GetChannelWidthResponse
-	11,  // 166: wifi_rtt.ResponderConfigService.GetFrequencyMhz:output_type -> wifi_rtt.GetFrequencyMhzResponse
-	13,  // 167: wifi_rtt.ResponderConfigService.GetMacAddress:output_type -> wifi_rtt.GetMacAddressResponse
-	15,  // 168: wifi_rtt.ResponderConfigService.GetPreamble:output_type -> wifi_rtt.GetPreambleResponse
-	17,  // 169: wifi_rtt.ResponderConfigService.GetResponderType:output_type -> wifi_rtt.GetResponderTypeResponse
-	19,  // 170: wifi_rtt.ResponderConfigService.GetSecureRangingConfig:output_type -> wifi_rtt.GetSecureRangingConfigResponse
-	21,  // 171: wifi_rtt.ResponderConfigService.HashCode:output_type -> wifi_rtt.HashCodeResponse
-	23,  // 172: wifi_rtt.ResponderConfigService.Is80211azNtbSupported:output_type -> wifi_rtt.Is80211azNtbSupportedResponse
-	25,  // 173: wifi_rtt.ResponderConfigService.Is80211mcSupported:output_type -> wifi_rtt.Is80211mcSupportedResponse
-	27,  // 174: wifi_rtt.ResponderConfigService.ToString:output_type -> wifi_rtt.ToStringResponse
-	29,  // 175: wifi_rtt.ResponderConfigService.WriteToParcel:output_type -> wifi_rtt.WriteToParcelResponse
-	31,  // 176: wifi_rtt.ResponderConfigService.FromScanResult:output_type -> wifi_rtt.FromScanResultResponse
-	33,  // 177: wifi_rtt.ResponderConfigBuilderService.Build:output_type -> wifi_rtt.BuildResponse
-	35,  // 178: wifi_rtt.ResponderConfigBuilderService.Set80211azNtbSupported:output_type -> wifi_rtt.Set80211azNtbSupportedResponse
-	37,  // 179: wifi_rtt.ResponderConfigBuilderService.Set80211mcSupported:output_type -> wifi_rtt.Set80211mcSupportedResponse
-	39,  // 180: wifi_rtt.ResponderConfigBuilderService.SetCenterFreq0Mhz:output_type -> wifi_rtt.SetCenterFreq0MhzResponse
-	41,  // 181: wifi_rtt.ResponderConfigBuilderService.SetCenterFreq1Mhz:output_type -> wifi_rtt.SetCenterFreq1MhzResponse
-	43,  // 182: wifi_rtt.ResponderConfigBuilderService.SetChannelWidth:output_type -> wifi_rtt.SetChannelWidthResponse
-	45,  // 183: wifi_rtt.ResponderConfigBuilderService.SetFrequencyMhz:output_type -> wifi_rtt.SetFrequencyMhzResponse
-	47,  // 184: wifi_rtt.ResponderConfigBuilderService.SetMacAddress:output_type -> wifi_rtt.SetMacAddressResponse
-	49,  // 185: wifi_rtt.ResponderConfigBuilderService.SetPreamble:output_type -> wifi_rtt.SetPreambleResponse
-	51,  // 186: wifi_rtt.ResponderConfigBuilderService.SetResponderType:output_type -> wifi_rtt.SetResponderTypeResponse
-	53,  // 187: wifi_rtt.ResponderConfigBuilderService.SetSecureRangingConfig:output_type -> wifi_rtt.SetSecureRangingConfigResponse
-	1,   // 188: wifi_rtt.RangingRequestService.DescribeContents:output_type -> wifi_rtt.DescribeContentsResponse
-	3,   // 189: wifi_rtt.RangingRequestService.Equals:output_type -> wifi_rtt.EqualsResponse
-	55,  // 190: wifi_rtt.RangingRequestService.GetRttBurstSize:output_type -> wifi_rtt.GetRttBurstSizeResponse
-	57,  // 191: wifi_rtt.RangingRequestService.GetSecurityMode:output_type -> wifi_rtt.GetSecurityModeResponse
-	21,  // 192: wifi_rtt.RangingRequestService.HashCode:output_type -> wifi_rtt.HashCodeResponse
-	27,  // 193: wifi_rtt.RangingRequestService.ToString:output_type -> wifi_rtt.ToStringResponse
-	29,  // 194: wifi_rtt.RangingRequestService.WriteToParcel:output_type -> wifi_rtt.WriteToParcelResponse
-	59,  // 195: wifi_rtt.RangingRequestService.GetDefaultRttBurstSize:output_type -> wifi_rtt.GetDefaultRttBurstSizeResponse
-	61,  // 196: wifi_rtt.RangingRequestService.GetMaxPeers:output_type -> wifi_rtt.GetMaxPeersResponse
-	63,  // 197: wifi_rtt.RangingRequestService.GetMaxRttBurstSize:output_type -> wifi_rtt.GetMaxRttBurstSizeResponse
-	65,  // 198: wifi_rtt.RangingRequestService.GetMinRttBurstSize:output_type -> wifi_rtt.GetMinRttBurstSizeResponse
-	67,  // 199: wifi_rtt.RangingRequestBuilderService.AddAccessPoint:output_type -> wifi_rtt.AddAccessPointResponse
-	69,  // 200: wifi_rtt.RangingRequestBuilderService.AddNon80211mcCapableAccessPoint:output_type -> wifi_rtt.AddNon80211mcCapableAccessPointResponse
-	71,  // 201: wifi_rtt.RangingRequestBuilderService.AddResponder:output_type -> wifi_rtt.AddResponderResponse
-	73,  // 202: wifi_rtt.RangingRequestBuilderService.AddWifiAwarePeer1:output_type -> wifi_rtt.AddWifiAwarePeer1Response
-	75,  // 203: wifi_rtt.RangingRequestBuilderService.AddWifiAwarePeer1_1:output_type -> wifi_rtt.AddWifiAwarePeer1_1Response
-	33,  // 204: wifi_rtt.RangingRequestBuilderService.Build:output_type -> wifi_rtt.BuildResponse
-	77,  // 205: wifi_rtt.RangingRequestBuilderService.SetRttBurstSize:output_type -> wifi_rtt.SetRttBurstSizeResponse
-	79,  // 206: wifi_rtt.RangingRequestBuilderService.SetSecurityMode:output_type -> wifi_rtt.SetSecurityModeResponse
-	81,  // 207: wifi_rtt.RangingResultCallbackService.OnRangingFailure:output_type -> wifi_rtt.OnRangingFailureResponse
-	1,   // 208: wifi_rtt.PasnConfigService.DescribeContents:output_type -> wifi_rtt.DescribeContentsResponse
-	3,   // 209: wifi_rtt.PasnConfigService.Equals:output_type -> wifi_rtt.EqualsResponse
-	83,  // 210: wifi_rtt.PasnConfigService.GetBaseAkms:output_type -> wifi_rtt.GetBaseAkmsResponse
-	85,  // 211: wifi_rtt.PasnConfigService.GetCiphers:output_type -> wifi_rtt.GetCiphersResponse
-	87,  // 212: wifi_rtt.PasnConfigService.GetPasnComebackCookie:output_type -> wifi_rtt.GetPasnComebackCookieResponse
-	89,  // 213: wifi_rtt.PasnConfigService.GetPassword:output_type -> wifi_rtt.GetPasswordResponse
-	91,  // 214: wifi_rtt.PasnConfigService.GetWifiSsid:output_type -> wifi_rtt.GetWifiSsidResponse
-	21,  // 215: wifi_rtt.PasnConfigService.HashCode:output_type -> wifi_rtt.HashCodeResponse
-	27,  // 216: wifi_rtt.PasnConfigService.ToString:output_type -> wifi_rtt.ToStringResponse
-	29,  // 217: wifi_rtt.PasnConfigService.WriteToParcel:output_type -> wifi_rtt.WriteToParcelResponse
-	33,  // 218: wifi_rtt.PasnConfigBuilderService.Build:output_type -> wifi_rtt.BuildResponse
-	93,  // 219: wifi_rtt.PasnConfigBuilderService.SetPasnComebackCookie:output_type -> wifi_rtt.SetPasnComebackCookieResponse
-	95,  // 220: wifi_rtt.PasnConfigBuilderService.SetPassword:output_type -> wifi_rtt.SetPasswordResponse
-	97,  // 221: wifi_rtt.PasnConfigBuilderService.SetWifiSsid:output_type -> wifi_rtt.SetWifiSsidResponse
-	1,   // 222: wifi_rtt.RangingResultService.DescribeContents:output_type -> wifi_rtt.DescribeContentsResponse
-	3,   // 223: wifi_rtt.RangingResultService.Equals:output_type -> wifi_rtt.EqualsResponse
-	99,  // 224: wifi_rtt.RangingResultService.Get80211azInitiatorTxLtfRepetitionsCount:output_type -> wifi_rtt.Get80211azInitiatorTxLtfRepetitionsCountResponse
-	101, // 225: wifi_rtt.RangingResultService.Get80211azNumberOfRxSpatialStreams:output_type -> wifi_rtt.Get80211azNumberOfRxSpatialStreamsResponse
-	103, // 226: wifi_rtt.RangingResultService.Get80211azNumberOfTxSpatialStreams:output_type -> wifi_rtt.Get80211azNumberOfTxSpatialStreamsResponse
-	105, // 227: wifi_rtt.RangingResultService.Get80211azResponderTxLtfRepetitionsCount:output_type -> wifi_rtt.Get80211azResponderTxLtfRepetitionsCountResponse
-	107, // 228: wifi_rtt.RangingResultService.GetDistanceMm:output_type -> wifi_rtt.GetDistanceMmResponse
-	109, // 229: wifi_rtt.RangingResultService.GetDistanceStdDevMm:output_type -> wifi_rtt.GetDistanceStdDevMmResponse
-	111, // 230: wifi_rtt.RangingResultService.GetLci:output_type -> wifi_rtt.GetLciResponse
-	113, // 231: wifi_rtt.RangingResultService.GetLcr:output_type -> wifi_rtt.GetLcrResponse
-	13,  // 232: wifi_rtt.RangingResultService.GetMacAddress:output_type -> wifi_rtt.GetMacAddressResponse
-	115, // 233: wifi_rtt.RangingResultService.GetMaxTimeBetweenNtbMeasurementsMicros:output_type -> wifi_rtt.GetMaxTimeBetweenNtbMeasurementsMicrosResponse
-	117, // 234: wifi_rtt.RangingResultService.GetMeasurementBandwidth:output_type -> wifi_rtt.GetMeasurementBandwidthResponse
-	119, // 235: wifi_rtt.RangingResultService.GetMeasurementChannelFrequencyMHz:output_type -> wifi_rtt.GetMeasurementChannelFrequencyMHzResponse
-	121, // 236: wifi_rtt.RangingResultService.GetMinTimeBetweenNtbMeasurementsMicros:output_type -> wifi_rtt.GetMinTimeBetweenNtbMeasurementsMicrosResponse
-	123, // 237: wifi_rtt.RangingResultService.GetNumAttemptedMeasurements:output_type -> wifi_rtt.GetNumAttemptedMeasurementsResponse
-	125, // 238: wifi_rtt.RangingResultService.GetNumSuccessfulMeasurements:output_type -> wifi_rtt.GetNumSuccessfulMeasurementsResponse
-	127, // 239: wifi_rtt.RangingResultService.GetPasnComebackAfterMillis:output_type -> wifi_rtt.GetPasnComebackAfterMillisResponse
-	87,  // 240: wifi_rtt.RangingResultService.GetPasnComebackCookie:output_type -> wifi_rtt.GetPasnComebackCookieResponse
-	129, // 241: wifi_rtt.RangingResultService.GetPeerHandle:output_type -> wifi_rtt.GetPeerHandleResponse
-	131, // 242: wifi_rtt.RangingResultService.GetRangingTimestampMillis:output_type -> wifi_rtt.GetRangingTimestampMillisResponse
-	133, // 243: wifi_rtt.RangingResultService.GetRssi:output_type -> wifi_rtt.GetRssiResponse
-	135, // 244: wifi_rtt.RangingResultService.GetSecureHeLtfProtocolVersion:output_type -> wifi_rtt.GetSecureHeLtfProtocolVersionResponse
-	137, // 245: wifi_rtt.RangingResultService.GetStatus:output_type -> wifi_rtt.GetStatusResponse
-	139, // 246: wifi_rtt.RangingResultService.GetUnverifiedResponderLocation:output_type -> wifi_rtt.GetUnverifiedResponderLocationResponse
-	21,  // 247: wifi_rtt.RangingResultService.HashCode:output_type -> wifi_rtt.HashCodeResponse
-	141, // 248: wifi_rtt.RangingResultService.Is80211azNtbMeasurement:output_type -> wifi_rtt.Is80211azNtbMeasurementResponse
-	143, // 249: wifi_rtt.RangingResultService.Is80211mcMeasurement:output_type -> wifi_rtt.Is80211mcMeasurementResponse
-	145, // 250: wifi_rtt.RangingResultService.IsRangingAuthenticated:output_type -> wifi_rtt.IsRangingAuthenticatedResponse
-	147, // 251: wifi_rtt.RangingResultService.IsRangingFrameProtected:output_type -> wifi_rtt.IsRangingFrameProtectedResponse
-	149, // 252: wifi_rtt.RangingResultService.IsSecureHeLtfEnabled:output_type -> wifi_rtt.IsSecureHeLtfEnabledResponse
-	27,  // 253: wifi_rtt.RangingResultService.ToString:output_type -> wifi_rtt.ToStringResponse
-	29,  // 254: wifi_rtt.RangingResultService.WriteToParcel:output_type -> wifi_rtt.WriteToParcelResponse
-	33,  // 255: wifi_rtt.RangingResultBuilderService.Build:output_type -> wifi_rtt.BuildResponse
-	151, // 256: wifi_rtt.RangingResultBuilderService.Set80211azInitiatorTxLtfRepetitionsCount:output_type -> wifi_rtt.Set80211azInitiatorTxLtfRepetitionsCountResponse
-	153, // 257: wifi_rtt.RangingResultBuilderService.Set80211azNtbMeasurement:output_type -> wifi_rtt.Set80211azNtbMeasurementResponse
-	155, // 258: wifi_rtt.RangingResultBuilderService.Set80211azNumberOfRxSpatialStreams:output_type -> wifi_rtt.Set80211azNumberOfRxSpatialStreamsResponse
-	157, // 259: wifi_rtt.RangingResultBuilderService.Set80211azNumberOfTxSpatialStreams:output_type -> wifi_rtt.Set80211azNumberOfTxSpatialStreamsResponse
-	159, // 260: wifi_rtt.RangingResultBuilderService.Set80211azResponderTxLtfRepetitionsCount:output_type -> wifi_rtt.Set80211azResponderTxLtfRepetitionsCountResponse
-	161, // 261: wifi_rtt.RangingResultBuilderService.Set80211mcMeasurement:output_type -> wifi_rtt.Set80211mcMeasurementResponse
-	163, // 262: wifi_rtt.RangingResultBuilderService.SetDistanceMm:output_type -> wifi_rtt.SetDistanceMmResponse
-	165, // 263: wifi_rtt.RangingResultBuilderService.SetDistanceStdDevMm:output_type -> wifi_rtt.SetDistanceStdDevMmResponse
-	167, // 264: wifi_rtt.RangingResultBuilderService.SetLci:output_type -> wifi_rtt.SetLciResponse
-	169, // 265: wifi_rtt.RangingResultBuilderService.SetLcr:output_type -> wifi_rtt.SetLcrResponse
-	47,  // 266: wifi_rtt.RangingResultBuilderService.SetMacAddress:output_type -> wifi_rtt.SetMacAddressResponse
-	171, // 267: wifi_rtt.RangingResultBuilderService.SetMaxTimeBetweenNtbMeasurementsMicros:output_type -> wifi_rtt.SetMaxTimeBetweenNtbMeasurementsMicrosResponse
-	173, // 268: wifi_rtt.RangingResultBuilderService.SetMeasurementBandwidth:output_type -> wifi_rtt.SetMeasurementBandwidthResponse
-	175, // 269: wifi_rtt.RangingResultBuilderService.SetMeasurementChannelFrequencyMHz:output_type -> wifi_rtt.SetMeasurementChannelFrequencyMHzResponse
-	177, // 270: wifi_rtt.RangingResultBuilderService.SetMinTimeBetweenNtbMeasurementsMicros:output_type -> wifi_rtt.SetMinTimeBetweenNtbMeasurementsMicrosResponse
-	179, // 271: wifi_rtt.RangingResultBuilderService.SetNumAttemptedMeasurements:output_type -> wifi_rtt.SetNumAttemptedMeasurementsResponse
-	181, // 272: wifi_rtt.RangingResultBuilderService.SetNumSuccessfulMeasurements:output_type -> wifi_rtt.SetNumSuccessfulMeasurementsResponse
-	183, // 273: wifi_rtt.RangingResultBuilderService.SetPasnComebackAfterMillis:output_type -> wifi_rtt.SetPasnComebackAfterMillisResponse
-	93,  // 274: wifi_rtt.RangingResultBuilderService.SetPasnComebackCookie:output_type -> wifi_rtt.SetPasnComebackCookieResponse
-	185, // 275: wifi_rtt.RangingResultBuilderService.SetPeerHandle:output_type -> wifi_rtt.SetPeerHandleResponse
-	187, // 276: wifi_rtt.RangingResultBuilderService.SetRangingAuthenticated:output_type -> wifi_rtt.SetRangingAuthenticatedResponse
-	189, // 277: wifi_rtt.RangingResultBuilderService.SetRangingFrameProtected:output_type -> wifi_rtt.SetRangingFrameProtectedResponse
-	191, // 278: wifi_rtt.RangingResultBuilderService.SetRangingTimestampMillis:output_type -> wifi_rtt.SetRangingTimestampMillisResponse
-	193, // 279: wifi_rtt.RangingResultBuilderService.SetRssi:output_type -> wifi_rtt.SetRssiResponse
-	195, // 280: wifi_rtt.RangingResultBuilderService.SetSecureHeLtfEnabled:output_type -> wifi_rtt.SetSecureHeLtfEnabledResponse
-	197, // 281: wifi_rtt.RangingResultBuilderService.SetSecureHeLtfProtocolVersion:output_type -> wifi_rtt.SetSecureHeLtfProtocolVersionResponse
-	199, // 282: wifi_rtt.RangingResultBuilderService.SetStatus:output_type -> wifi_rtt.SetStatusResponse
-	201, // 283: wifi_rtt.RangingResultBuilderService.SetUnverifiedResponderLocation:output_type -> wifi_rtt.SetUnverifiedResponderLocationResponse
-	1,   // 284: wifi_rtt.SecureRangingConfigService.DescribeContents:output_type -> wifi_rtt.DescribeContentsResponse
-	3,   // 285: wifi_rtt.SecureRangingConfigService.Equals:output_type -> wifi_rtt.EqualsResponse
-	203, // 286: wifi_rtt.SecureRangingConfigService.GetPasnConfig:output_type -> wifi_rtt.GetPasnConfigResponse
-	21,  // 287: wifi_rtt.SecureRangingConfigService.HashCode:output_type -> wifi_rtt.HashCodeResponse
-	205, // 288: wifi_rtt.SecureRangingConfigService.IsRangingFrameProtectionEnabled:output_type -> wifi_rtt.IsRangingFrameProtectionEnabledResponse
-	149, // 289: wifi_rtt.SecureRangingConfigService.IsSecureHeLtfEnabled:output_type -> wifi_rtt.IsSecureHeLtfEnabledResponse
-	27,  // 290: wifi_rtt.SecureRangingConfigService.ToString:output_type -> wifi_rtt.ToStringResponse
-	29,  // 291: wifi_rtt.SecureRangingConfigService.WriteToParcel:output_type -> wifi_rtt.WriteToParcelResponse
-	33,  // 292: wifi_rtt.SecureRangingConfigBuilderService.Build:output_type -> wifi_rtt.BuildResponse
-	207, // 293: wifi_rtt.SecureRangingConfigBuilderService.SetRangingFrameProtectionEnabled:output_type -> wifi_rtt.SetRangingFrameProtectionEnabledResponse
-	195, // 294: wifi_rtt.SecureRangingConfigBuilderService.SetSecureHeLtfEnabled:output_type -> wifi_rtt.SetSecureHeLtfEnabledResponse
-	1,   // 295: wifi_rtt.ResponderLocationService.DescribeContents:output_type -> wifi_rtt.DescribeContentsResponse
-	3,   // 296: wifi_rtt.ResponderLocationService.Equals:output_type -> wifi_rtt.EqualsResponse
-	209, // 297: wifi_rtt.ResponderLocationService.GetAltitude:output_type -> wifi_rtt.GetAltitudeResponse
-	211, // 298: wifi_rtt.ResponderLocationService.GetAltitudeType:output_type -> wifi_rtt.GetAltitudeTypeResponse
-	213, // 299: wifi_rtt.ResponderLocationService.GetAltitudeUncertainty:output_type -> wifi_rtt.GetAltitudeUncertaintyResponse
-	215, // 300: wifi_rtt.ResponderLocationService.GetDatum:output_type -> wifi_rtt.GetDatumResponse
-	217, // 301: wifi_rtt.ResponderLocationService.GetExpectedToMove:output_type -> wifi_rtt.GetExpectedToMoveResponse
-	219, // 302: wifi_rtt.ResponderLocationService.GetFloorNumber:output_type -> wifi_rtt.GetFloorNumberResponse
-	221, // 303: wifi_rtt.ResponderLocationService.GetHeightAboveFloorMeters:output_type -> wifi_rtt.GetHeightAboveFloorMetersResponse
-	223, // 304: wifi_rtt.ResponderLocationService.GetHeightAboveFloorUncertaintyMeters:output_type -> wifi_rtt.GetHeightAboveFloorUncertaintyMetersResponse
-	225, // 305: wifi_rtt.ResponderLocationService.GetLatitude:output_type -> wifi_rtt.GetLatitudeResponse
-	227, // 306: wifi_rtt.ResponderLocationService.GetLatitudeUncertainty:output_type -> wifi_rtt.GetLatitudeUncertaintyResponse
-	229, // 307: wifi_rtt.ResponderLocationService.GetLciVersion:output_type -> wifi_rtt.GetLciVersionResponse
-	231, // 308: wifi_rtt.ResponderLocationService.GetLongitude:output_type -> wifi_rtt.GetLongitudeResponse
-	233, // 309: wifi_rtt.ResponderLocationService.GetLongitudeUncertainty:output_type -> wifi_rtt.GetLongitudeUncertaintyResponse
-	235, // 310: wifi_rtt.ResponderLocationService.GetMapImageMimeType:output_type -> wifi_rtt.GetMapImageMimeTypeResponse
-	237, // 311: wifi_rtt.ResponderLocationService.GetMapImageUri:output_type -> wifi_rtt.GetMapImageUriResponse
-	239, // 312: wifi_rtt.ResponderLocationService.GetRegisteredLocationAgreementIndication:output_type -> wifi_rtt.GetRegisteredLocationAgreementIndicationResponse
-	21,  // 313: wifi_rtt.ResponderLocationService.HashCode:output_type -> wifi_rtt.HashCodeResponse
-	241, // 314: wifi_rtt.ResponderLocationService.IsLciSubelementValid:output_type -> wifi_rtt.IsLciSubelementValidResponse
-	243, // 315: wifi_rtt.ResponderLocationService.IsZaxisSubelementValid:output_type -> wifi_rtt.IsZaxisSubelementValidResponse
-	245, // 316: wifi_rtt.ResponderLocationService.ToCivicLocationAddress:output_type -> wifi_rtt.ToCivicLocationAddressResponse
-	247, // 317: wifi_rtt.ResponderLocationService.ToLocation:output_type -> wifi_rtt.ToLocationResponse
-	29,  // 318: wifi_rtt.ResponderLocationService.WriteToParcel:output_type -> wifi_rtt.WriteToParcelResponse
-	249, // 319: wifi_rtt.WifiRttManagerService.GetRttCharacteristics:output_type -> wifi_rtt.GetRttCharacteristicsResponse
-	251, // 320: wifi_rtt.WifiRttManagerService.IsAvailable:output_type -> wifi_rtt.IsAvailableResponse
-	253, // 321: wifi_rtt.WifiRttManagerService.StartRanging:output_type -> wifi_rtt.StartRangingResponse
-	161, // [161:322] is the sub-list for method output_type
-	0,   // [0:161] is the sub-list for method input_type
+	0,   // 0: wifi_rtt.ResponderLocationService.DescribeContents:input_type -> wifi_rtt.DescribeContentsRequest
+	2,   // 1: wifi_rtt.ResponderLocationService.Equals:input_type -> wifi_rtt.EqualsRequest
+	4,   // 2: wifi_rtt.ResponderLocationService.GetAltitude:input_type -> wifi_rtt.GetAltitudeRequest
+	6,   // 3: wifi_rtt.ResponderLocationService.GetAltitudeType:input_type -> wifi_rtt.GetAltitudeTypeRequest
+	8,   // 4: wifi_rtt.ResponderLocationService.GetAltitudeUncertainty:input_type -> wifi_rtt.GetAltitudeUncertaintyRequest
+	10,  // 5: wifi_rtt.ResponderLocationService.GetColocatedBssids:input_type -> wifi_rtt.GetColocatedBssidsRequest
+	12,  // 6: wifi_rtt.ResponderLocationService.GetDatum:input_type -> wifi_rtt.GetDatumRequest
+	14,  // 7: wifi_rtt.ResponderLocationService.GetExpectedToMove:input_type -> wifi_rtt.GetExpectedToMoveRequest
+	16,  // 8: wifi_rtt.ResponderLocationService.GetFloorNumber:input_type -> wifi_rtt.GetFloorNumberRequest
+	18,  // 9: wifi_rtt.ResponderLocationService.GetHeightAboveFloorMeters:input_type -> wifi_rtt.GetHeightAboveFloorMetersRequest
+	20,  // 10: wifi_rtt.ResponderLocationService.GetHeightAboveFloorUncertaintyMeters:input_type -> wifi_rtt.GetHeightAboveFloorUncertaintyMetersRequest
+	22,  // 11: wifi_rtt.ResponderLocationService.GetLatitude:input_type -> wifi_rtt.GetLatitudeRequest
+	24,  // 12: wifi_rtt.ResponderLocationService.GetLatitudeUncertainty:input_type -> wifi_rtt.GetLatitudeUncertaintyRequest
+	26,  // 13: wifi_rtt.ResponderLocationService.GetLciVersion:input_type -> wifi_rtt.GetLciVersionRequest
+	28,  // 14: wifi_rtt.ResponderLocationService.GetLongitude:input_type -> wifi_rtt.GetLongitudeRequest
+	30,  // 15: wifi_rtt.ResponderLocationService.GetLongitudeUncertainty:input_type -> wifi_rtt.GetLongitudeUncertaintyRequest
+	32,  // 16: wifi_rtt.ResponderLocationService.GetMapImageMimeType:input_type -> wifi_rtt.GetMapImageMimeTypeRequest
+	34,  // 17: wifi_rtt.ResponderLocationService.GetMapImageUri:input_type -> wifi_rtt.GetMapImageUriRequest
+	36,  // 18: wifi_rtt.ResponderLocationService.GetRegisteredLocationAgreementIndication:input_type -> wifi_rtt.GetRegisteredLocationAgreementIndicationRequest
+	38,  // 19: wifi_rtt.ResponderLocationService.HashCode:input_type -> wifi_rtt.HashCodeRequest
+	40,  // 20: wifi_rtt.ResponderLocationService.IsLciSubelementValid:input_type -> wifi_rtt.IsLciSubelementValidRequest
+	42,  // 21: wifi_rtt.ResponderLocationService.IsZaxisSubelementValid:input_type -> wifi_rtt.IsZaxisSubelementValidRequest
+	44,  // 22: wifi_rtt.ResponderLocationService.ToCivicLocationAddress:input_type -> wifi_rtt.ToCivicLocationAddressRequest
+	46,  // 23: wifi_rtt.ResponderLocationService.ToCivicLocationSparseArray:input_type -> wifi_rtt.ToCivicLocationSparseArrayRequest
+	48,  // 24: wifi_rtt.ResponderLocationService.ToLocation:input_type -> wifi_rtt.ToLocationRequest
+	50,  // 25: wifi_rtt.ResponderLocationService.WriteToParcel:input_type -> wifi_rtt.WriteToParcelRequest
+	0,   // 26: wifi_rtt.RangingResultService.DescribeContents:input_type -> wifi_rtt.DescribeContentsRequest
+	2,   // 27: wifi_rtt.RangingResultService.Equals:input_type -> wifi_rtt.EqualsRequest
+	52,  // 28: wifi_rtt.RangingResultService.Get80211azInitiatorTxLtfRepetitionsCount:input_type -> wifi_rtt.Get80211azInitiatorTxLtfRepetitionsCountRequest
+	54,  // 29: wifi_rtt.RangingResultService.Get80211azNumberOfRxSpatialStreams:input_type -> wifi_rtt.Get80211azNumberOfRxSpatialStreamsRequest
+	56,  // 30: wifi_rtt.RangingResultService.Get80211azNumberOfTxSpatialStreams:input_type -> wifi_rtt.Get80211azNumberOfTxSpatialStreamsRequest
+	58,  // 31: wifi_rtt.RangingResultService.Get80211azResponderTxLtfRepetitionsCount:input_type -> wifi_rtt.Get80211azResponderTxLtfRepetitionsCountRequest
+	60,  // 32: wifi_rtt.RangingResultService.GetDistanceMm:input_type -> wifi_rtt.GetDistanceMmRequest
+	62,  // 33: wifi_rtt.RangingResultService.GetDistanceStdDevMm:input_type -> wifi_rtt.GetDistanceStdDevMmRequest
+	64,  // 34: wifi_rtt.RangingResultService.GetLci:input_type -> wifi_rtt.GetLciRequest
+	66,  // 35: wifi_rtt.RangingResultService.GetLcr:input_type -> wifi_rtt.GetLcrRequest
+	68,  // 36: wifi_rtt.RangingResultService.GetMacAddress:input_type -> wifi_rtt.GetMacAddressRequest
+	70,  // 37: wifi_rtt.RangingResultService.GetMaxTimeBetweenNtbMeasurementsMicros:input_type -> wifi_rtt.GetMaxTimeBetweenNtbMeasurementsMicrosRequest
+	72,  // 38: wifi_rtt.RangingResultService.GetMeasurementBandwidth:input_type -> wifi_rtt.GetMeasurementBandwidthRequest
+	74,  // 39: wifi_rtt.RangingResultService.GetMeasurementChannelFrequencyMHz:input_type -> wifi_rtt.GetMeasurementChannelFrequencyMHzRequest
+	76,  // 40: wifi_rtt.RangingResultService.GetMinTimeBetweenNtbMeasurementsMicros:input_type -> wifi_rtt.GetMinTimeBetweenNtbMeasurementsMicrosRequest
+	78,  // 41: wifi_rtt.RangingResultService.GetNumAttemptedMeasurements:input_type -> wifi_rtt.GetNumAttemptedMeasurementsRequest
+	80,  // 42: wifi_rtt.RangingResultService.GetNumSuccessfulMeasurements:input_type -> wifi_rtt.GetNumSuccessfulMeasurementsRequest
+	82,  // 43: wifi_rtt.RangingResultService.GetPasnComebackAfterMillis:input_type -> wifi_rtt.GetPasnComebackAfterMillisRequest
+	84,  // 44: wifi_rtt.RangingResultService.GetPasnComebackCookie:input_type -> wifi_rtt.GetPasnComebackCookieRequest
+	86,  // 45: wifi_rtt.RangingResultService.GetPeerHandle:input_type -> wifi_rtt.GetPeerHandleRequest
+	88,  // 46: wifi_rtt.RangingResultService.GetRangingTimestampMillis:input_type -> wifi_rtt.GetRangingTimestampMillisRequest
+	90,  // 47: wifi_rtt.RangingResultService.GetRssi:input_type -> wifi_rtt.GetRssiRequest
+	92,  // 48: wifi_rtt.RangingResultService.GetSecureHeLtfProtocolVersion:input_type -> wifi_rtt.GetSecureHeLtfProtocolVersionRequest
+	94,  // 49: wifi_rtt.RangingResultService.GetStatus:input_type -> wifi_rtt.GetStatusRequest
+	96,  // 50: wifi_rtt.RangingResultService.GetUnverifiedResponderLocation:input_type -> wifi_rtt.GetUnverifiedResponderLocationRequest
+	38,  // 51: wifi_rtt.RangingResultService.HashCode:input_type -> wifi_rtt.HashCodeRequest
+	98,  // 52: wifi_rtt.RangingResultService.Is80211azNtbMeasurement:input_type -> wifi_rtt.Is80211azNtbMeasurementRequest
+	100, // 53: wifi_rtt.RangingResultService.Is80211mcMeasurement:input_type -> wifi_rtt.Is80211mcMeasurementRequest
+	102, // 54: wifi_rtt.RangingResultService.IsRangingAuthenticated:input_type -> wifi_rtt.IsRangingAuthenticatedRequest
+	104, // 55: wifi_rtt.RangingResultService.IsRangingFrameProtected:input_type -> wifi_rtt.IsRangingFrameProtectedRequest
+	106, // 56: wifi_rtt.RangingResultService.IsSecureHeLtfEnabled:input_type -> wifi_rtt.IsSecureHeLtfEnabledRequest
+	108, // 57: wifi_rtt.RangingResultService.ToString:input_type -> wifi_rtt.ToStringRequest
+	50,  // 58: wifi_rtt.RangingResultService.WriteToParcel:input_type -> wifi_rtt.WriteToParcelRequest
+	110, // 59: wifi_rtt.RangingResultBuilderService.Build:input_type -> wifi_rtt.BuildRequest
+	112, // 60: wifi_rtt.RangingResultBuilderService.Set80211azInitiatorTxLtfRepetitionsCount:input_type -> wifi_rtt.Set80211azInitiatorTxLtfRepetitionsCountRequest
+	114, // 61: wifi_rtt.RangingResultBuilderService.Set80211azNtbMeasurement:input_type -> wifi_rtt.Set80211azNtbMeasurementRequest
+	116, // 62: wifi_rtt.RangingResultBuilderService.Set80211azNumberOfRxSpatialStreams:input_type -> wifi_rtt.Set80211azNumberOfRxSpatialStreamsRequest
+	118, // 63: wifi_rtt.RangingResultBuilderService.Set80211azNumberOfTxSpatialStreams:input_type -> wifi_rtt.Set80211azNumberOfTxSpatialStreamsRequest
+	120, // 64: wifi_rtt.RangingResultBuilderService.Set80211azResponderTxLtfRepetitionsCount:input_type -> wifi_rtt.Set80211azResponderTxLtfRepetitionsCountRequest
+	122, // 65: wifi_rtt.RangingResultBuilderService.Set80211mcMeasurement:input_type -> wifi_rtt.Set80211mcMeasurementRequest
+	124, // 66: wifi_rtt.RangingResultBuilderService.SetDistanceMm:input_type -> wifi_rtt.SetDistanceMmRequest
+	126, // 67: wifi_rtt.RangingResultBuilderService.SetDistanceStdDevMm:input_type -> wifi_rtt.SetDistanceStdDevMmRequest
+	128, // 68: wifi_rtt.RangingResultBuilderService.SetLci:input_type -> wifi_rtt.SetLciRequest
+	130, // 69: wifi_rtt.RangingResultBuilderService.SetLcr:input_type -> wifi_rtt.SetLcrRequest
+	132, // 70: wifi_rtt.RangingResultBuilderService.SetMacAddress:input_type -> wifi_rtt.SetMacAddressRequest
+	134, // 71: wifi_rtt.RangingResultBuilderService.SetMaxTimeBetweenNtbMeasurementsMicros:input_type -> wifi_rtt.SetMaxTimeBetweenNtbMeasurementsMicrosRequest
+	136, // 72: wifi_rtt.RangingResultBuilderService.SetMeasurementBandwidth:input_type -> wifi_rtt.SetMeasurementBandwidthRequest
+	138, // 73: wifi_rtt.RangingResultBuilderService.SetMeasurementChannelFrequencyMHz:input_type -> wifi_rtt.SetMeasurementChannelFrequencyMHzRequest
+	140, // 74: wifi_rtt.RangingResultBuilderService.SetMinTimeBetweenNtbMeasurementsMicros:input_type -> wifi_rtt.SetMinTimeBetweenNtbMeasurementsMicrosRequest
+	142, // 75: wifi_rtt.RangingResultBuilderService.SetNumAttemptedMeasurements:input_type -> wifi_rtt.SetNumAttemptedMeasurementsRequest
+	144, // 76: wifi_rtt.RangingResultBuilderService.SetNumSuccessfulMeasurements:input_type -> wifi_rtt.SetNumSuccessfulMeasurementsRequest
+	146, // 77: wifi_rtt.RangingResultBuilderService.SetPasnComebackAfterMillis:input_type -> wifi_rtt.SetPasnComebackAfterMillisRequest
+	148, // 78: wifi_rtt.RangingResultBuilderService.SetPasnComebackCookie:input_type -> wifi_rtt.SetPasnComebackCookieRequest
+	150, // 79: wifi_rtt.RangingResultBuilderService.SetPeerHandle:input_type -> wifi_rtt.SetPeerHandleRequest
+	152, // 80: wifi_rtt.RangingResultBuilderService.SetRangingAuthenticated:input_type -> wifi_rtt.SetRangingAuthenticatedRequest
+	154, // 81: wifi_rtt.RangingResultBuilderService.SetRangingFrameProtected:input_type -> wifi_rtt.SetRangingFrameProtectedRequest
+	156, // 82: wifi_rtt.RangingResultBuilderService.SetRangingTimestampMillis:input_type -> wifi_rtt.SetRangingTimestampMillisRequest
+	158, // 83: wifi_rtt.RangingResultBuilderService.SetRssi:input_type -> wifi_rtt.SetRssiRequest
+	160, // 84: wifi_rtt.RangingResultBuilderService.SetSecureHeLtfEnabled:input_type -> wifi_rtt.SetSecureHeLtfEnabledRequest
+	162, // 85: wifi_rtt.RangingResultBuilderService.SetSecureHeLtfProtocolVersion:input_type -> wifi_rtt.SetSecureHeLtfProtocolVersionRequest
+	164, // 86: wifi_rtt.RangingResultBuilderService.SetStatus:input_type -> wifi_rtt.SetStatusRequest
+	166, // 87: wifi_rtt.RangingResultBuilderService.SetUnverifiedResponderLocation:input_type -> wifi_rtt.SetUnverifiedResponderLocationRequest
+	0,   // 88: wifi_rtt.SecureRangingConfigService.DescribeContents:input_type -> wifi_rtt.DescribeContentsRequest
+	2,   // 89: wifi_rtt.SecureRangingConfigService.Equals:input_type -> wifi_rtt.EqualsRequest
+	168, // 90: wifi_rtt.SecureRangingConfigService.GetPasnConfig:input_type -> wifi_rtt.GetPasnConfigRequest
+	38,  // 91: wifi_rtt.SecureRangingConfigService.HashCode:input_type -> wifi_rtt.HashCodeRequest
+	170, // 92: wifi_rtt.SecureRangingConfigService.IsRangingFrameProtectionEnabled:input_type -> wifi_rtt.IsRangingFrameProtectionEnabledRequest
+	106, // 93: wifi_rtt.SecureRangingConfigService.IsSecureHeLtfEnabled:input_type -> wifi_rtt.IsSecureHeLtfEnabledRequest
+	108, // 94: wifi_rtt.SecureRangingConfigService.ToString:input_type -> wifi_rtt.ToStringRequest
+	50,  // 95: wifi_rtt.SecureRangingConfigService.WriteToParcel:input_type -> wifi_rtt.WriteToParcelRequest
+	110, // 96: wifi_rtt.SecureRangingConfigBuilderService.Build:input_type -> wifi_rtt.BuildRequest
+	172, // 97: wifi_rtt.SecureRangingConfigBuilderService.SetRangingFrameProtectionEnabled:input_type -> wifi_rtt.SetRangingFrameProtectionEnabledRequest
+	160, // 98: wifi_rtt.SecureRangingConfigBuilderService.SetSecureHeLtfEnabled:input_type -> wifi_rtt.SetSecureHeLtfEnabledRequest
+	174, // 99: wifi_rtt.WifiRttManagerService.GetRttCharacteristics:input_type -> wifi_rtt.GetRttCharacteristicsRequest
+	176, // 100: wifi_rtt.WifiRttManagerService.IsAvailable:input_type -> wifi_rtt.IsAvailableRequest
+	178, // 101: wifi_rtt.WifiRttManagerService.StartRanging:input_type -> wifi_rtt.StartRangingRequest
+	0,   // 102: wifi_rtt.RangingRequestService.DescribeContents:input_type -> wifi_rtt.DescribeContentsRequest
+	2,   // 103: wifi_rtt.RangingRequestService.Equals:input_type -> wifi_rtt.EqualsRequest
+	180, // 104: wifi_rtt.RangingRequestService.GetRttBurstSize:input_type -> wifi_rtt.GetRttBurstSizeRequest
+	182, // 105: wifi_rtt.RangingRequestService.GetSecurityMode:input_type -> wifi_rtt.GetSecurityModeRequest
+	38,  // 106: wifi_rtt.RangingRequestService.HashCode:input_type -> wifi_rtt.HashCodeRequest
+	108, // 107: wifi_rtt.RangingRequestService.ToString:input_type -> wifi_rtt.ToStringRequest
+	50,  // 108: wifi_rtt.RangingRequestService.WriteToParcel:input_type -> wifi_rtt.WriteToParcelRequest
+	184, // 109: wifi_rtt.RangingRequestService.GetDefaultRttBurstSize:input_type -> wifi_rtt.GetDefaultRttBurstSizeRequest
+	186, // 110: wifi_rtt.RangingRequestService.GetMaxPeers:input_type -> wifi_rtt.GetMaxPeersRequest
+	188, // 111: wifi_rtt.RangingRequestService.GetMaxRttBurstSize:input_type -> wifi_rtt.GetMaxRttBurstSizeRequest
+	190, // 112: wifi_rtt.RangingRequestService.GetMinRttBurstSize:input_type -> wifi_rtt.GetMinRttBurstSizeRequest
+	192, // 113: wifi_rtt.RangingRequestBuilderService.AddAccessPoint:input_type -> wifi_rtt.AddAccessPointRequest
+	194, // 114: wifi_rtt.RangingRequestBuilderService.AddNon80211mcCapableAccessPoint:input_type -> wifi_rtt.AddNon80211mcCapableAccessPointRequest
+	196, // 115: wifi_rtt.RangingRequestBuilderService.AddResponder:input_type -> wifi_rtt.AddResponderRequest
+	198, // 116: wifi_rtt.RangingRequestBuilderService.AddWifiAwarePeer1:input_type -> wifi_rtt.AddWifiAwarePeer1Request
+	200, // 117: wifi_rtt.RangingRequestBuilderService.AddWifiAwarePeer1_1:input_type -> wifi_rtt.AddWifiAwarePeer1_1Request
+	110, // 118: wifi_rtt.RangingRequestBuilderService.Build:input_type -> wifi_rtt.BuildRequest
+	202, // 119: wifi_rtt.RangingRequestBuilderService.SetRttBurstSize:input_type -> wifi_rtt.SetRttBurstSizeRequest
+	204, // 120: wifi_rtt.RangingRequestBuilderService.SetSecurityMode:input_type -> wifi_rtt.SetSecurityModeRequest
+	206, // 121: wifi_rtt.RangingResultCallbackService.OnRangingFailure:input_type -> wifi_rtt.OnRangingFailureRequest
+	0,   // 122: wifi_rtt.ResponderConfigService.DescribeContents:input_type -> wifi_rtt.DescribeContentsRequest
+	2,   // 123: wifi_rtt.ResponderConfigService.Equals:input_type -> wifi_rtt.EqualsRequest
+	208, // 124: wifi_rtt.ResponderConfigService.GetCenterFreq0Mhz:input_type -> wifi_rtt.GetCenterFreq0MhzRequest
+	210, // 125: wifi_rtt.ResponderConfigService.GetCenterFreq1Mhz:input_type -> wifi_rtt.GetCenterFreq1MhzRequest
+	212, // 126: wifi_rtt.ResponderConfigService.GetChannelWidth:input_type -> wifi_rtt.GetChannelWidthRequest
+	214, // 127: wifi_rtt.ResponderConfigService.GetFrequencyMhz:input_type -> wifi_rtt.GetFrequencyMhzRequest
+	68,  // 128: wifi_rtt.ResponderConfigService.GetMacAddress:input_type -> wifi_rtt.GetMacAddressRequest
+	216, // 129: wifi_rtt.ResponderConfigService.GetPreamble:input_type -> wifi_rtt.GetPreambleRequest
+	218, // 130: wifi_rtt.ResponderConfigService.GetResponderType:input_type -> wifi_rtt.GetResponderTypeRequest
+	220, // 131: wifi_rtt.ResponderConfigService.GetSecureRangingConfig:input_type -> wifi_rtt.GetSecureRangingConfigRequest
+	38,  // 132: wifi_rtt.ResponderConfigService.HashCode:input_type -> wifi_rtt.HashCodeRequest
+	222, // 133: wifi_rtt.ResponderConfigService.Is80211azNtbSupported:input_type -> wifi_rtt.Is80211azNtbSupportedRequest
+	224, // 134: wifi_rtt.ResponderConfigService.Is80211mcSupported:input_type -> wifi_rtt.Is80211mcSupportedRequest
+	108, // 135: wifi_rtt.ResponderConfigService.ToString:input_type -> wifi_rtt.ToStringRequest
+	50,  // 136: wifi_rtt.ResponderConfigService.WriteToParcel:input_type -> wifi_rtt.WriteToParcelRequest
+	226, // 137: wifi_rtt.ResponderConfigService.FromScanResult:input_type -> wifi_rtt.FromScanResultRequest
+	110, // 138: wifi_rtt.ResponderConfigBuilderService.Build:input_type -> wifi_rtt.BuildRequest
+	228, // 139: wifi_rtt.ResponderConfigBuilderService.Set80211azNtbSupported:input_type -> wifi_rtt.Set80211azNtbSupportedRequest
+	230, // 140: wifi_rtt.ResponderConfigBuilderService.Set80211mcSupported:input_type -> wifi_rtt.Set80211mcSupportedRequest
+	232, // 141: wifi_rtt.ResponderConfigBuilderService.SetCenterFreq0Mhz:input_type -> wifi_rtt.SetCenterFreq0MhzRequest
+	234, // 142: wifi_rtt.ResponderConfigBuilderService.SetCenterFreq1Mhz:input_type -> wifi_rtt.SetCenterFreq1MhzRequest
+	236, // 143: wifi_rtt.ResponderConfigBuilderService.SetChannelWidth:input_type -> wifi_rtt.SetChannelWidthRequest
+	238, // 144: wifi_rtt.ResponderConfigBuilderService.SetFrequencyMhz:input_type -> wifi_rtt.SetFrequencyMhzRequest
+	132, // 145: wifi_rtt.ResponderConfigBuilderService.SetMacAddress:input_type -> wifi_rtt.SetMacAddressRequest
+	240, // 146: wifi_rtt.ResponderConfigBuilderService.SetPreamble:input_type -> wifi_rtt.SetPreambleRequest
+	242, // 147: wifi_rtt.ResponderConfigBuilderService.SetResponderType:input_type -> wifi_rtt.SetResponderTypeRequest
+	244, // 148: wifi_rtt.ResponderConfigBuilderService.SetSecureRangingConfig:input_type -> wifi_rtt.SetSecureRangingConfigRequest
+	0,   // 149: wifi_rtt.PasnConfigService.DescribeContents:input_type -> wifi_rtt.DescribeContentsRequest
+	2,   // 150: wifi_rtt.PasnConfigService.Equals:input_type -> wifi_rtt.EqualsRequest
+	246, // 151: wifi_rtt.PasnConfigService.GetBaseAkms:input_type -> wifi_rtt.GetBaseAkmsRequest
+	248, // 152: wifi_rtt.PasnConfigService.GetCiphers:input_type -> wifi_rtt.GetCiphersRequest
+	84,  // 153: wifi_rtt.PasnConfigService.GetPasnComebackCookie:input_type -> wifi_rtt.GetPasnComebackCookieRequest
+	250, // 154: wifi_rtt.PasnConfigService.GetPassword:input_type -> wifi_rtt.GetPasswordRequest
+	252, // 155: wifi_rtt.PasnConfigService.GetWifiSsid:input_type -> wifi_rtt.GetWifiSsidRequest
+	38,  // 156: wifi_rtt.PasnConfigService.HashCode:input_type -> wifi_rtt.HashCodeRequest
+	108, // 157: wifi_rtt.PasnConfigService.ToString:input_type -> wifi_rtt.ToStringRequest
+	50,  // 158: wifi_rtt.PasnConfigService.WriteToParcel:input_type -> wifi_rtt.WriteToParcelRequest
+	110, // 159: wifi_rtt.PasnConfigBuilderService.Build:input_type -> wifi_rtt.BuildRequest
+	148, // 160: wifi_rtt.PasnConfigBuilderService.SetPasnComebackCookie:input_type -> wifi_rtt.SetPasnComebackCookieRequest
+	254, // 161: wifi_rtt.PasnConfigBuilderService.SetPassword:input_type -> wifi_rtt.SetPasswordRequest
+	256, // 162: wifi_rtt.PasnConfigBuilderService.SetWifiSsid:input_type -> wifi_rtt.SetWifiSsidRequest
+	1,   // 163: wifi_rtt.ResponderLocationService.DescribeContents:output_type -> wifi_rtt.DescribeContentsResponse
+	3,   // 164: wifi_rtt.ResponderLocationService.Equals:output_type -> wifi_rtt.EqualsResponse
+	5,   // 165: wifi_rtt.ResponderLocationService.GetAltitude:output_type -> wifi_rtt.GetAltitudeResponse
+	7,   // 166: wifi_rtt.ResponderLocationService.GetAltitudeType:output_type -> wifi_rtt.GetAltitudeTypeResponse
+	9,   // 167: wifi_rtt.ResponderLocationService.GetAltitudeUncertainty:output_type -> wifi_rtt.GetAltitudeUncertaintyResponse
+	11,  // 168: wifi_rtt.ResponderLocationService.GetColocatedBssids:output_type -> wifi_rtt.GetColocatedBssidsResponse
+	13,  // 169: wifi_rtt.ResponderLocationService.GetDatum:output_type -> wifi_rtt.GetDatumResponse
+	15,  // 170: wifi_rtt.ResponderLocationService.GetExpectedToMove:output_type -> wifi_rtt.GetExpectedToMoveResponse
+	17,  // 171: wifi_rtt.ResponderLocationService.GetFloorNumber:output_type -> wifi_rtt.GetFloorNumberResponse
+	19,  // 172: wifi_rtt.ResponderLocationService.GetHeightAboveFloorMeters:output_type -> wifi_rtt.GetHeightAboveFloorMetersResponse
+	21,  // 173: wifi_rtt.ResponderLocationService.GetHeightAboveFloorUncertaintyMeters:output_type -> wifi_rtt.GetHeightAboveFloorUncertaintyMetersResponse
+	23,  // 174: wifi_rtt.ResponderLocationService.GetLatitude:output_type -> wifi_rtt.GetLatitudeResponse
+	25,  // 175: wifi_rtt.ResponderLocationService.GetLatitudeUncertainty:output_type -> wifi_rtt.GetLatitudeUncertaintyResponse
+	27,  // 176: wifi_rtt.ResponderLocationService.GetLciVersion:output_type -> wifi_rtt.GetLciVersionResponse
+	29,  // 177: wifi_rtt.ResponderLocationService.GetLongitude:output_type -> wifi_rtt.GetLongitudeResponse
+	31,  // 178: wifi_rtt.ResponderLocationService.GetLongitudeUncertainty:output_type -> wifi_rtt.GetLongitudeUncertaintyResponse
+	33,  // 179: wifi_rtt.ResponderLocationService.GetMapImageMimeType:output_type -> wifi_rtt.GetMapImageMimeTypeResponse
+	35,  // 180: wifi_rtt.ResponderLocationService.GetMapImageUri:output_type -> wifi_rtt.GetMapImageUriResponse
+	37,  // 181: wifi_rtt.ResponderLocationService.GetRegisteredLocationAgreementIndication:output_type -> wifi_rtt.GetRegisteredLocationAgreementIndicationResponse
+	39,  // 182: wifi_rtt.ResponderLocationService.HashCode:output_type -> wifi_rtt.HashCodeResponse
+	41,  // 183: wifi_rtt.ResponderLocationService.IsLciSubelementValid:output_type -> wifi_rtt.IsLciSubelementValidResponse
+	43,  // 184: wifi_rtt.ResponderLocationService.IsZaxisSubelementValid:output_type -> wifi_rtt.IsZaxisSubelementValidResponse
+	45,  // 185: wifi_rtt.ResponderLocationService.ToCivicLocationAddress:output_type -> wifi_rtt.ToCivicLocationAddressResponse
+	47,  // 186: wifi_rtt.ResponderLocationService.ToCivicLocationSparseArray:output_type -> wifi_rtt.ToCivicLocationSparseArrayResponse
+	49,  // 187: wifi_rtt.ResponderLocationService.ToLocation:output_type -> wifi_rtt.ToLocationResponse
+	51,  // 188: wifi_rtt.ResponderLocationService.WriteToParcel:output_type -> wifi_rtt.WriteToParcelResponse
+	1,   // 189: wifi_rtt.RangingResultService.DescribeContents:output_type -> wifi_rtt.DescribeContentsResponse
+	3,   // 190: wifi_rtt.RangingResultService.Equals:output_type -> wifi_rtt.EqualsResponse
+	53,  // 191: wifi_rtt.RangingResultService.Get80211azInitiatorTxLtfRepetitionsCount:output_type -> wifi_rtt.Get80211azInitiatorTxLtfRepetitionsCountResponse
+	55,  // 192: wifi_rtt.RangingResultService.Get80211azNumberOfRxSpatialStreams:output_type -> wifi_rtt.Get80211azNumberOfRxSpatialStreamsResponse
+	57,  // 193: wifi_rtt.RangingResultService.Get80211azNumberOfTxSpatialStreams:output_type -> wifi_rtt.Get80211azNumberOfTxSpatialStreamsResponse
+	59,  // 194: wifi_rtt.RangingResultService.Get80211azResponderTxLtfRepetitionsCount:output_type -> wifi_rtt.Get80211azResponderTxLtfRepetitionsCountResponse
+	61,  // 195: wifi_rtt.RangingResultService.GetDistanceMm:output_type -> wifi_rtt.GetDistanceMmResponse
+	63,  // 196: wifi_rtt.RangingResultService.GetDistanceStdDevMm:output_type -> wifi_rtt.GetDistanceStdDevMmResponse
+	65,  // 197: wifi_rtt.RangingResultService.GetLci:output_type -> wifi_rtt.GetLciResponse
+	67,  // 198: wifi_rtt.RangingResultService.GetLcr:output_type -> wifi_rtt.GetLcrResponse
+	69,  // 199: wifi_rtt.RangingResultService.GetMacAddress:output_type -> wifi_rtt.GetMacAddressResponse
+	71,  // 200: wifi_rtt.RangingResultService.GetMaxTimeBetweenNtbMeasurementsMicros:output_type -> wifi_rtt.GetMaxTimeBetweenNtbMeasurementsMicrosResponse
+	73,  // 201: wifi_rtt.RangingResultService.GetMeasurementBandwidth:output_type -> wifi_rtt.GetMeasurementBandwidthResponse
+	75,  // 202: wifi_rtt.RangingResultService.GetMeasurementChannelFrequencyMHz:output_type -> wifi_rtt.GetMeasurementChannelFrequencyMHzResponse
+	77,  // 203: wifi_rtt.RangingResultService.GetMinTimeBetweenNtbMeasurementsMicros:output_type -> wifi_rtt.GetMinTimeBetweenNtbMeasurementsMicrosResponse
+	79,  // 204: wifi_rtt.RangingResultService.GetNumAttemptedMeasurements:output_type -> wifi_rtt.GetNumAttemptedMeasurementsResponse
+	81,  // 205: wifi_rtt.RangingResultService.GetNumSuccessfulMeasurements:output_type -> wifi_rtt.GetNumSuccessfulMeasurementsResponse
+	83,  // 206: wifi_rtt.RangingResultService.GetPasnComebackAfterMillis:output_type -> wifi_rtt.GetPasnComebackAfterMillisResponse
+	85,  // 207: wifi_rtt.RangingResultService.GetPasnComebackCookie:output_type -> wifi_rtt.GetPasnComebackCookieResponse
+	87,  // 208: wifi_rtt.RangingResultService.GetPeerHandle:output_type -> wifi_rtt.GetPeerHandleResponse
+	89,  // 209: wifi_rtt.RangingResultService.GetRangingTimestampMillis:output_type -> wifi_rtt.GetRangingTimestampMillisResponse
+	91,  // 210: wifi_rtt.RangingResultService.GetRssi:output_type -> wifi_rtt.GetRssiResponse
+	93,  // 211: wifi_rtt.RangingResultService.GetSecureHeLtfProtocolVersion:output_type -> wifi_rtt.GetSecureHeLtfProtocolVersionResponse
+	95,  // 212: wifi_rtt.RangingResultService.GetStatus:output_type -> wifi_rtt.GetStatusResponse
+	97,  // 213: wifi_rtt.RangingResultService.GetUnverifiedResponderLocation:output_type -> wifi_rtt.GetUnverifiedResponderLocationResponse
+	39,  // 214: wifi_rtt.RangingResultService.HashCode:output_type -> wifi_rtt.HashCodeResponse
+	99,  // 215: wifi_rtt.RangingResultService.Is80211azNtbMeasurement:output_type -> wifi_rtt.Is80211azNtbMeasurementResponse
+	101, // 216: wifi_rtt.RangingResultService.Is80211mcMeasurement:output_type -> wifi_rtt.Is80211mcMeasurementResponse
+	103, // 217: wifi_rtt.RangingResultService.IsRangingAuthenticated:output_type -> wifi_rtt.IsRangingAuthenticatedResponse
+	105, // 218: wifi_rtt.RangingResultService.IsRangingFrameProtected:output_type -> wifi_rtt.IsRangingFrameProtectedResponse
+	107, // 219: wifi_rtt.RangingResultService.IsSecureHeLtfEnabled:output_type -> wifi_rtt.IsSecureHeLtfEnabledResponse
+	109, // 220: wifi_rtt.RangingResultService.ToString:output_type -> wifi_rtt.ToStringResponse
+	51,  // 221: wifi_rtt.RangingResultService.WriteToParcel:output_type -> wifi_rtt.WriteToParcelResponse
+	111, // 222: wifi_rtt.RangingResultBuilderService.Build:output_type -> wifi_rtt.BuildResponse
+	113, // 223: wifi_rtt.RangingResultBuilderService.Set80211azInitiatorTxLtfRepetitionsCount:output_type -> wifi_rtt.Set80211azInitiatorTxLtfRepetitionsCountResponse
+	115, // 224: wifi_rtt.RangingResultBuilderService.Set80211azNtbMeasurement:output_type -> wifi_rtt.Set80211azNtbMeasurementResponse
+	117, // 225: wifi_rtt.RangingResultBuilderService.Set80211azNumberOfRxSpatialStreams:output_type -> wifi_rtt.Set80211azNumberOfRxSpatialStreamsResponse
+	119, // 226: wifi_rtt.RangingResultBuilderService.Set80211azNumberOfTxSpatialStreams:output_type -> wifi_rtt.Set80211azNumberOfTxSpatialStreamsResponse
+	121, // 227: wifi_rtt.RangingResultBuilderService.Set80211azResponderTxLtfRepetitionsCount:output_type -> wifi_rtt.Set80211azResponderTxLtfRepetitionsCountResponse
+	123, // 228: wifi_rtt.RangingResultBuilderService.Set80211mcMeasurement:output_type -> wifi_rtt.Set80211mcMeasurementResponse
+	125, // 229: wifi_rtt.RangingResultBuilderService.SetDistanceMm:output_type -> wifi_rtt.SetDistanceMmResponse
+	127, // 230: wifi_rtt.RangingResultBuilderService.SetDistanceStdDevMm:output_type -> wifi_rtt.SetDistanceStdDevMmResponse
+	129, // 231: wifi_rtt.RangingResultBuilderService.SetLci:output_type -> wifi_rtt.SetLciResponse
+	131, // 232: wifi_rtt.RangingResultBuilderService.SetLcr:output_type -> wifi_rtt.SetLcrResponse
+	133, // 233: wifi_rtt.RangingResultBuilderService.SetMacAddress:output_type -> wifi_rtt.SetMacAddressResponse
+	135, // 234: wifi_rtt.RangingResultBuilderService.SetMaxTimeBetweenNtbMeasurementsMicros:output_type -> wifi_rtt.SetMaxTimeBetweenNtbMeasurementsMicrosResponse
+	137, // 235: wifi_rtt.RangingResultBuilderService.SetMeasurementBandwidth:output_type -> wifi_rtt.SetMeasurementBandwidthResponse
+	139, // 236: wifi_rtt.RangingResultBuilderService.SetMeasurementChannelFrequencyMHz:output_type -> wifi_rtt.SetMeasurementChannelFrequencyMHzResponse
+	141, // 237: wifi_rtt.RangingResultBuilderService.SetMinTimeBetweenNtbMeasurementsMicros:output_type -> wifi_rtt.SetMinTimeBetweenNtbMeasurementsMicrosResponse
+	143, // 238: wifi_rtt.RangingResultBuilderService.SetNumAttemptedMeasurements:output_type -> wifi_rtt.SetNumAttemptedMeasurementsResponse
+	145, // 239: wifi_rtt.RangingResultBuilderService.SetNumSuccessfulMeasurements:output_type -> wifi_rtt.SetNumSuccessfulMeasurementsResponse
+	147, // 240: wifi_rtt.RangingResultBuilderService.SetPasnComebackAfterMillis:output_type -> wifi_rtt.SetPasnComebackAfterMillisResponse
+	149, // 241: wifi_rtt.RangingResultBuilderService.SetPasnComebackCookie:output_type -> wifi_rtt.SetPasnComebackCookieResponse
+	151, // 242: wifi_rtt.RangingResultBuilderService.SetPeerHandle:output_type -> wifi_rtt.SetPeerHandleResponse
+	153, // 243: wifi_rtt.RangingResultBuilderService.SetRangingAuthenticated:output_type -> wifi_rtt.SetRangingAuthenticatedResponse
+	155, // 244: wifi_rtt.RangingResultBuilderService.SetRangingFrameProtected:output_type -> wifi_rtt.SetRangingFrameProtectedResponse
+	157, // 245: wifi_rtt.RangingResultBuilderService.SetRangingTimestampMillis:output_type -> wifi_rtt.SetRangingTimestampMillisResponse
+	159, // 246: wifi_rtt.RangingResultBuilderService.SetRssi:output_type -> wifi_rtt.SetRssiResponse
+	161, // 247: wifi_rtt.RangingResultBuilderService.SetSecureHeLtfEnabled:output_type -> wifi_rtt.SetSecureHeLtfEnabledResponse
+	163, // 248: wifi_rtt.RangingResultBuilderService.SetSecureHeLtfProtocolVersion:output_type -> wifi_rtt.SetSecureHeLtfProtocolVersionResponse
+	165, // 249: wifi_rtt.RangingResultBuilderService.SetStatus:output_type -> wifi_rtt.SetStatusResponse
+	167, // 250: wifi_rtt.RangingResultBuilderService.SetUnverifiedResponderLocation:output_type -> wifi_rtt.SetUnverifiedResponderLocationResponse
+	1,   // 251: wifi_rtt.SecureRangingConfigService.DescribeContents:output_type -> wifi_rtt.DescribeContentsResponse
+	3,   // 252: wifi_rtt.SecureRangingConfigService.Equals:output_type -> wifi_rtt.EqualsResponse
+	169, // 253: wifi_rtt.SecureRangingConfigService.GetPasnConfig:output_type -> wifi_rtt.GetPasnConfigResponse
+	39,  // 254: wifi_rtt.SecureRangingConfigService.HashCode:output_type -> wifi_rtt.HashCodeResponse
+	171, // 255: wifi_rtt.SecureRangingConfigService.IsRangingFrameProtectionEnabled:output_type -> wifi_rtt.IsRangingFrameProtectionEnabledResponse
+	107, // 256: wifi_rtt.SecureRangingConfigService.IsSecureHeLtfEnabled:output_type -> wifi_rtt.IsSecureHeLtfEnabledResponse
+	109, // 257: wifi_rtt.SecureRangingConfigService.ToString:output_type -> wifi_rtt.ToStringResponse
+	51,  // 258: wifi_rtt.SecureRangingConfigService.WriteToParcel:output_type -> wifi_rtt.WriteToParcelResponse
+	111, // 259: wifi_rtt.SecureRangingConfigBuilderService.Build:output_type -> wifi_rtt.BuildResponse
+	173, // 260: wifi_rtt.SecureRangingConfigBuilderService.SetRangingFrameProtectionEnabled:output_type -> wifi_rtt.SetRangingFrameProtectionEnabledResponse
+	161, // 261: wifi_rtt.SecureRangingConfigBuilderService.SetSecureHeLtfEnabled:output_type -> wifi_rtt.SetSecureHeLtfEnabledResponse
+	175, // 262: wifi_rtt.WifiRttManagerService.GetRttCharacteristics:output_type -> wifi_rtt.GetRttCharacteristicsResponse
+	177, // 263: wifi_rtt.WifiRttManagerService.IsAvailable:output_type -> wifi_rtt.IsAvailableResponse
+	179, // 264: wifi_rtt.WifiRttManagerService.StartRanging:output_type -> wifi_rtt.StartRangingResponse
+	1,   // 265: wifi_rtt.RangingRequestService.DescribeContents:output_type -> wifi_rtt.DescribeContentsResponse
+	3,   // 266: wifi_rtt.RangingRequestService.Equals:output_type -> wifi_rtt.EqualsResponse
+	181, // 267: wifi_rtt.RangingRequestService.GetRttBurstSize:output_type -> wifi_rtt.GetRttBurstSizeResponse
+	183, // 268: wifi_rtt.RangingRequestService.GetSecurityMode:output_type -> wifi_rtt.GetSecurityModeResponse
+	39,  // 269: wifi_rtt.RangingRequestService.HashCode:output_type -> wifi_rtt.HashCodeResponse
+	109, // 270: wifi_rtt.RangingRequestService.ToString:output_type -> wifi_rtt.ToStringResponse
+	51,  // 271: wifi_rtt.RangingRequestService.WriteToParcel:output_type -> wifi_rtt.WriteToParcelResponse
+	185, // 272: wifi_rtt.RangingRequestService.GetDefaultRttBurstSize:output_type -> wifi_rtt.GetDefaultRttBurstSizeResponse
+	187, // 273: wifi_rtt.RangingRequestService.GetMaxPeers:output_type -> wifi_rtt.GetMaxPeersResponse
+	189, // 274: wifi_rtt.RangingRequestService.GetMaxRttBurstSize:output_type -> wifi_rtt.GetMaxRttBurstSizeResponse
+	191, // 275: wifi_rtt.RangingRequestService.GetMinRttBurstSize:output_type -> wifi_rtt.GetMinRttBurstSizeResponse
+	193, // 276: wifi_rtt.RangingRequestBuilderService.AddAccessPoint:output_type -> wifi_rtt.AddAccessPointResponse
+	195, // 277: wifi_rtt.RangingRequestBuilderService.AddNon80211mcCapableAccessPoint:output_type -> wifi_rtt.AddNon80211mcCapableAccessPointResponse
+	197, // 278: wifi_rtt.RangingRequestBuilderService.AddResponder:output_type -> wifi_rtt.AddResponderResponse
+	199, // 279: wifi_rtt.RangingRequestBuilderService.AddWifiAwarePeer1:output_type -> wifi_rtt.AddWifiAwarePeer1Response
+	201, // 280: wifi_rtt.RangingRequestBuilderService.AddWifiAwarePeer1_1:output_type -> wifi_rtt.AddWifiAwarePeer1_1Response
+	111, // 281: wifi_rtt.RangingRequestBuilderService.Build:output_type -> wifi_rtt.BuildResponse
+	203, // 282: wifi_rtt.RangingRequestBuilderService.SetRttBurstSize:output_type -> wifi_rtt.SetRttBurstSizeResponse
+	205, // 283: wifi_rtt.RangingRequestBuilderService.SetSecurityMode:output_type -> wifi_rtt.SetSecurityModeResponse
+	207, // 284: wifi_rtt.RangingResultCallbackService.OnRangingFailure:output_type -> wifi_rtt.OnRangingFailureResponse
+	1,   // 285: wifi_rtt.ResponderConfigService.DescribeContents:output_type -> wifi_rtt.DescribeContentsResponse
+	3,   // 286: wifi_rtt.ResponderConfigService.Equals:output_type -> wifi_rtt.EqualsResponse
+	209, // 287: wifi_rtt.ResponderConfigService.GetCenterFreq0Mhz:output_type -> wifi_rtt.GetCenterFreq0MhzResponse
+	211, // 288: wifi_rtt.ResponderConfigService.GetCenterFreq1Mhz:output_type -> wifi_rtt.GetCenterFreq1MhzResponse
+	213, // 289: wifi_rtt.ResponderConfigService.GetChannelWidth:output_type -> wifi_rtt.GetChannelWidthResponse
+	215, // 290: wifi_rtt.ResponderConfigService.GetFrequencyMhz:output_type -> wifi_rtt.GetFrequencyMhzResponse
+	69,  // 291: wifi_rtt.ResponderConfigService.GetMacAddress:output_type -> wifi_rtt.GetMacAddressResponse
+	217, // 292: wifi_rtt.ResponderConfigService.GetPreamble:output_type -> wifi_rtt.GetPreambleResponse
+	219, // 293: wifi_rtt.ResponderConfigService.GetResponderType:output_type -> wifi_rtt.GetResponderTypeResponse
+	221, // 294: wifi_rtt.ResponderConfigService.GetSecureRangingConfig:output_type -> wifi_rtt.GetSecureRangingConfigResponse
+	39,  // 295: wifi_rtt.ResponderConfigService.HashCode:output_type -> wifi_rtt.HashCodeResponse
+	223, // 296: wifi_rtt.ResponderConfigService.Is80211azNtbSupported:output_type -> wifi_rtt.Is80211azNtbSupportedResponse
+	225, // 297: wifi_rtt.ResponderConfigService.Is80211mcSupported:output_type -> wifi_rtt.Is80211mcSupportedResponse
+	109, // 298: wifi_rtt.ResponderConfigService.ToString:output_type -> wifi_rtt.ToStringResponse
+	51,  // 299: wifi_rtt.ResponderConfigService.WriteToParcel:output_type -> wifi_rtt.WriteToParcelResponse
+	227, // 300: wifi_rtt.ResponderConfigService.FromScanResult:output_type -> wifi_rtt.FromScanResultResponse
+	111, // 301: wifi_rtt.ResponderConfigBuilderService.Build:output_type -> wifi_rtt.BuildResponse
+	229, // 302: wifi_rtt.ResponderConfigBuilderService.Set80211azNtbSupported:output_type -> wifi_rtt.Set80211azNtbSupportedResponse
+	231, // 303: wifi_rtt.ResponderConfigBuilderService.Set80211mcSupported:output_type -> wifi_rtt.Set80211mcSupportedResponse
+	233, // 304: wifi_rtt.ResponderConfigBuilderService.SetCenterFreq0Mhz:output_type -> wifi_rtt.SetCenterFreq0MhzResponse
+	235, // 305: wifi_rtt.ResponderConfigBuilderService.SetCenterFreq1Mhz:output_type -> wifi_rtt.SetCenterFreq1MhzResponse
+	237, // 306: wifi_rtt.ResponderConfigBuilderService.SetChannelWidth:output_type -> wifi_rtt.SetChannelWidthResponse
+	239, // 307: wifi_rtt.ResponderConfigBuilderService.SetFrequencyMhz:output_type -> wifi_rtt.SetFrequencyMhzResponse
+	133, // 308: wifi_rtt.ResponderConfigBuilderService.SetMacAddress:output_type -> wifi_rtt.SetMacAddressResponse
+	241, // 309: wifi_rtt.ResponderConfigBuilderService.SetPreamble:output_type -> wifi_rtt.SetPreambleResponse
+	243, // 310: wifi_rtt.ResponderConfigBuilderService.SetResponderType:output_type -> wifi_rtt.SetResponderTypeResponse
+	245, // 311: wifi_rtt.ResponderConfigBuilderService.SetSecureRangingConfig:output_type -> wifi_rtt.SetSecureRangingConfigResponse
+	1,   // 312: wifi_rtt.PasnConfigService.DescribeContents:output_type -> wifi_rtt.DescribeContentsResponse
+	3,   // 313: wifi_rtt.PasnConfigService.Equals:output_type -> wifi_rtt.EqualsResponse
+	247, // 314: wifi_rtt.PasnConfigService.GetBaseAkms:output_type -> wifi_rtt.GetBaseAkmsResponse
+	249, // 315: wifi_rtt.PasnConfigService.GetCiphers:output_type -> wifi_rtt.GetCiphersResponse
+	85,  // 316: wifi_rtt.PasnConfigService.GetPasnComebackCookie:output_type -> wifi_rtt.GetPasnComebackCookieResponse
+	251, // 317: wifi_rtt.PasnConfigService.GetPassword:output_type -> wifi_rtt.GetPasswordResponse
+	253, // 318: wifi_rtt.PasnConfigService.GetWifiSsid:output_type -> wifi_rtt.GetWifiSsidResponse
+	39,  // 319: wifi_rtt.PasnConfigService.HashCode:output_type -> wifi_rtt.HashCodeResponse
+	109, // 320: wifi_rtt.PasnConfigService.ToString:output_type -> wifi_rtt.ToStringResponse
+	51,  // 321: wifi_rtt.PasnConfigService.WriteToParcel:output_type -> wifi_rtt.WriteToParcelResponse
+	111, // 322: wifi_rtt.PasnConfigBuilderService.Build:output_type -> wifi_rtt.BuildResponse
+	149, // 323: wifi_rtt.PasnConfigBuilderService.SetPasnComebackCookie:output_type -> wifi_rtt.SetPasnComebackCookieResponse
+	255, // 324: wifi_rtt.PasnConfigBuilderService.SetPassword:output_type -> wifi_rtt.SetPasswordResponse
+	257, // 325: wifi_rtt.PasnConfigBuilderService.SetWifiSsid:output_type -> wifi_rtt.SetWifiSsidResponse
+	163, // [163:326] is the sub-list for method output_type
+	0,   // [0:163] is the sub-list for method input_type
 	0,   // [0:0] is the sub-list for extension type_name
 	0,   // [0:0] is the sub-list for extension extendee
 	0,   // [0:0] is the sub-list for field type_name
@@ -11825,7 +12001,7 @@ func file_proto_wifi_rtt_wifi_rtt_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_proto_wifi_rtt_wifi_rtt_proto_rawDesc), len(file_proto_wifi_rtt_wifi_rtt_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   254,
+			NumMessages:   258,
 			NumExtensions: 0,
 			NumServices:   13,
 		},

@@ -24,6 +24,7 @@ const (
 	FieldClassificationService_NewFieldClassification_FullMethodName = "/classification.FieldClassificationService/NewFieldClassification"
 	FieldClassificationService_DescribeContents_FullMethodName       = "/classification.FieldClassificationService/DescribeContents"
 	FieldClassificationService_GetAutofillId_FullMethodName          = "/classification.FieldClassificationService/GetAutofillId"
+	FieldClassificationService_GetHints_FullMethodName               = "/classification.FieldClassificationService/GetHints"
 	FieldClassificationService_ToString_FullMethodName               = "/classification.FieldClassificationService/ToString"
 	FieldClassificationService_WriteToParcel_FullMethodName          = "/classification.FieldClassificationService/WriteToParcel"
 )
@@ -35,6 +36,7 @@ type FieldClassificationServiceClient interface {
 	NewFieldClassification(ctx context.Context, in *NewFieldClassificationRequest, opts ...grpc.CallOption) (*NewFieldClassificationResponse, error)
 	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
 	GetAutofillId(ctx context.Context, in *GetAutofillIdRequest, opts ...grpc.CallOption) (*GetAutofillIdResponse, error)
+	GetHints(ctx context.Context, in *GetHintsRequest, opts ...grpc.CallOption) (*GetHintsResponse, error)
 	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
 	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
 }
@@ -77,6 +79,16 @@ func (c *fieldClassificationServiceClient) GetAutofillId(ctx context.Context, in
 	return out, nil
 }
 
+func (c *fieldClassificationServiceClient) GetHints(ctx context.Context, in *GetHintsRequest, opts ...grpc.CallOption) (*GetHintsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetHintsResponse)
+	err := c.cc.Invoke(ctx, FieldClassificationService_GetHints_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *fieldClassificationServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(ToStringResponse)
@@ -104,6 +116,7 @@ type FieldClassificationServiceServer interface {
 	NewFieldClassification(context.Context, *NewFieldClassificationRequest) (*NewFieldClassificationResponse, error)
 	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
 	GetAutofillId(context.Context, *GetAutofillIdRequest) (*GetAutofillIdResponse, error)
+	GetHints(context.Context, *GetHintsRequest) (*GetHintsResponse, error)
 	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
 	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
 	mustEmbedUnimplementedFieldClassificationServiceServer()
@@ -124,6 +137,9 @@ func (UnimplementedFieldClassificationServiceServer) DescribeContents(context.Co
 }
 func (UnimplementedFieldClassificationServiceServer) GetAutofillId(context.Context, *GetAutofillIdRequest) (*GetAutofillIdResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetAutofillId not implemented")
+}
+func (UnimplementedFieldClassificationServiceServer) GetHints(context.Context, *GetHintsRequest) (*GetHintsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetHints not implemented")
 }
 func (UnimplementedFieldClassificationServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
@@ -207,6 +223,24 @@ func _FieldClassificationService_GetAutofillId_Handler(srv interface{}, ctx cont
 	return interceptor(ctx, in, info, handler)
 }
 
+func _FieldClassificationService_GetHints_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetHintsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FieldClassificationServiceServer).GetHints(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: FieldClassificationService_GetHints_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FieldClassificationServiceServer).GetHints(ctx, req.(*GetHintsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _FieldClassificationService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(ToStringRequest)
 	if err := dec(in); err != nil {
@@ -261,6 +295,10 @@ var FieldClassificationService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetAutofillId",
 			Handler:    _FieldClassificationService_GetAutofillId_Handler,
+		},
+		{
+			MethodName: "GetHints",
+			Handler:    _FieldClassificationService_GetHints_Handler,
 		},
 		{
 			MethodName: "ToString",

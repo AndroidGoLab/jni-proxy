@@ -37,7 +37,7 @@ func (s *LuhnChecksumValidatorServer) NewLuhnChecksumValidator(_ context.Context
 	return &pb.NewLuhnChecksumValidatorResponse{Result: handle}, nil
 }
 
-func (s *LuhnChecksumValidatorServer) DescribeContents(_ context.Context, req *pb.LuhnChecksumValidatorDescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
+func (s *LuhnChecksumValidatorServer) DescribeContents(_ context.Context, req *pb.DescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -51,7 +51,7 @@ func (s *LuhnChecksumValidatorServer) DescribeContents(_ context.Context, req *p
 	return &pb.DescribeContentsResponse{Result: result}, nil
 }
 
-func (s *LuhnChecksumValidatorServer) ToString(_ context.Context, req *pb.LuhnChecksumValidatorToStringRequest) (*pb.ToStringResponse, error) {
+func (s *LuhnChecksumValidatorServer) ToString(_ context.Context, req *pb.ToStringRequest) (*pb.ToStringResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -65,7 +65,7 @@ func (s *LuhnChecksumValidatorServer) ToString(_ context.Context, req *pb.LuhnCh
 	return &pb.ToStringResponse{Result: result}, nil
 }
 
-func (s *LuhnChecksumValidatorServer) WriteToParcel(_ context.Context, req *pb.LuhnChecksumValidatorWriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
+func (s *LuhnChecksumValidatorServer) WriteToParcel(_ context.Context, req *pb.WriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -78,15 +78,15 @@ func (s *LuhnChecksumValidatorServer) WriteToParcel(_ context.Context, req *pb.L
 	return &pb.WriteToParcelResponse{}, nil
 }
 
-// TextValueSanitizerServer implements pb.TextValueSanitizerServiceServer.
-type TextValueSanitizerServer struct {
-	pb.UnimplementedTextValueSanitizerServiceServer
+// DateTransformationServer implements pb.DateTransformationServiceServer.
+type DateTransformationServer struct {
+	pb.UnimplementedDateTransformationServiceServer
 	Ctx     *app.Context
 	Handles *handlestore.HandleStore
 }
 
-func (s *TextValueSanitizerServer) NewTextValueSanitizer(_ context.Context, req *pb.NewTextValueSanitizerRequest) (*pb.NewTextValueSanitizerResponse, error) {
-	obj, err := jnipkg.NewTextValueSanitizer(s.Ctx.VM, s.Handles.Get(req.GetArg0()), req.GetArg1())
+func (s *DateTransformationServer) NewDateTransformation(_ context.Context, req *pb.NewDateTransformationRequest) (*pb.NewDateTransformationResponse, error) {
+	obj, err := jnipkg.NewDateTransformation(s.Ctx.VM, s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()))
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create object: %v", err)
 	}
@@ -97,15 +97,15 @@ func (s *TextValueSanitizerServer) NewTextValueSanitizer(_ context.Context, req 
 	}); doErr != nil {
 		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
 	}
-	return &pb.NewTextValueSanitizerResponse{Result: handle}, nil
+	return &pb.NewDateTransformationResponse{Result: handle}, nil
 }
 
-func (s *TextValueSanitizerServer) DescribeContents(_ context.Context, req *pb.TextValueSanitizerDescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
+func (s *DateTransformationServer) DescribeContents(_ context.Context, req *pb.DescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.TextValueSanitizer{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.DateTransformation{VM: s.Ctx.VM, Obj: rawObj}
 
 	result, err := mgr.DescribeContents()
 	if err != nil {
@@ -114,12 +114,12 @@ func (s *TextValueSanitizerServer) DescribeContents(_ context.Context, req *pb.T
 	return &pb.DescribeContentsResponse{Result: result}, nil
 }
 
-func (s *TextValueSanitizerServer) ToString(_ context.Context, req *pb.TextValueSanitizerToStringRequest) (*pb.ToStringResponse, error) {
+func (s *DateTransformationServer) ToString(_ context.Context, req *pb.ToStringRequest) (*pb.ToStringResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.TextValueSanitizer{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.DateTransformation{VM: s.Ctx.VM, Obj: rawObj}
 
 	result, err := mgr.ToString()
 	if err != nil {
@@ -128,12 +128,12 @@ func (s *TextValueSanitizerServer) ToString(_ context.Context, req *pb.TextValue
 	return &pb.ToStringResponse{Result: result}, nil
 }
 
-func (s *TextValueSanitizerServer) WriteToParcel(_ context.Context, req *pb.TextValueSanitizerWriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
+func (s *DateTransformationServer) WriteToParcel(_ context.Context, req *pb.WriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.TextValueSanitizer{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.DateTransformation{VM: s.Ctx.VM, Obj: rawObj}
 
 	if err := mgr.WriteToParcel(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
@@ -191,7 +191,7 @@ func (s *SavedDatasetsInfoServer) GetCount(_ context.Context, req *pb.GetCountRe
 	return &pb.GetCountResponse{Result: result}, nil
 }
 
-func (s *SavedDatasetsInfoServer) GetType(_ context.Context, req *pb.SavedDatasetsInfoGetTypeRequest) (*pb.SavedDatasetsInfoGetTypeResponse, error) {
+func (s *SavedDatasetsInfoServer) GetType(_ context.Context, req *pb.GetTypeRequest) (*pb.GetTypeResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -202,7 +202,7 @@ func (s *SavedDatasetsInfoServer) GetType(_ context.Context, req *pb.SavedDatase
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.SavedDatasetsInfoGetTypeResponse{Result: result}, nil
+	return &pb.GetTypeResponse{Result: result}, nil
 }
 
 func (s *SavedDatasetsInfoServer) HashCode(_ context.Context, req *pb.HashCodeRequest) (*pb.HashCodeResponse, error) {
@@ -219,7 +219,7 @@ func (s *SavedDatasetsInfoServer) HashCode(_ context.Context, req *pb.HashCodeRe
 	return &pb.HashCodeResponse{Result: result}, nil
 }
 
-func (s *SavedDatasetsInfoServer) ToString(_ context.Context, req *pb.SavedDatasetsInfoToStringRequest) (*pb.ToStringResponse, error) {
+func (s *SavedDatasetsInfoServer) ToString(_ context.Context, req *pb.ToStringRequest) (*pb.ToStringResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -231,132 +231,6 @@ func (s *SavedDatasetsInfoServer) ToString(_ context.Context, req *pb.SavedDatas
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
 	return &pb.ToStringResponse{Result: result}, nil
-}
-
-// DateTransformationServer implements pb.DateTransformationServiceServer.
-type DateTransformationServer struct {
-	pb.UnimplementedDateTransformationServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *DateTransformationServer) NewDateTransformation(_ context.Context, req *pb.NewDateTransformationRequest) (*pb.NewDateTransformationResponse, error) {
-	obj, err := jnipkg.NewDateTransformation(s.Ctx.VM, s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
-	}
-	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-	}
-	return &pb.NewDateTransformationResponse{Result: handle}, nil
-}
-
-func (s *DateTransformationServer) DescribeContents(_ context.Context, req *pb.DateTransformationDescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.DateTransformation{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.DescribeContents()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.DescribeContentsResponse{Result: result}, nil
-}
-
-func (s *DateTransformationServer) ToString(_ context.Context, req *pb.DateTransformationToStringRequest) (*pb.ToStringResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.DateTransformation{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.ToString()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.ToStringResponse{Result: result}, nil
-}
-
-func (s *DateTransformationServer) WriteToParcel(_ context.Context, req *pb.DateTransformationWriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.DateTransformation{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.WriteToParcel(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.WriteToParcelResponse{}, nil
-}
-
-// RegexValidatorServer implements pb.RegexValidatorServiceServer.
-type RegexValidatorServer struct {
-	pb.UnimplementedRegexValidatorServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *RegexValidatorServer) NewRegexValidator(_ context.Context, req *pb.NewRegexValidatorRequest) (*pb.NewRegexValidatorResponse, error) {
-	obj, err := jnipkg.NewRegexValidator(s.Ctx.VM, s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
-	}
-	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-	}
-	return &pb.NewRegexValidatorResponse{Result: handle}, nil
-}
-
-func (s *RegexValidatorServer) DescribeContents(_ context.Context, req *pb.RegexValidatorDescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.RegexValidator{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.DescribeContents()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.DescribeContentsResponse{Result: result}, nil
-}
-
-func (s *RegexValidatorServer) ToString(_ context.Context, req *pb.RegexValidatorToStringRequest) (*pb.ToStringResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.RegexValidator{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.ToString()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.ToStringResponse{Result: result}, nil
-}
-
-func (s *RegexValidatorServer) WriteToParcel(_ context.Context, req *pb.RegexValidatorWriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.RegexValidator{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.WriteToParcel(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.WriteToParcelResponse{}, nil
 }
 
 // InlinePresentationServer implements pb.InlinePresentationServiceServer.
@@ -381,7 +255,7 @@ func (s *InlinePresentationServer) NewInlinePresentation(_ context.Context, req 
 	return &pb.NewInlinePresentationResponse{Result: handle}, nil
 }
 
-func (s *InlinePresentationServer) DescribeContents(_ context.Context, req *pb.InlinePresentationDescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
+func (s *InlinePresentationServer) DescribeContents(_ context.Context, req *pb.DescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -483,7 +357,7 @@ func (s *InlinePresentationServer) IsPinned(_ context.Context, req *pb.IsPinnedR
 	return &pb.IsPinnedResponse{Result: result}, nil
 }
 
-func (s *InlinePresentationServer) ToString(_ context.Context, req *pb.InlinePresentationToStringRequest) (*pb.ToStringResponse, error) {
+func (s *InlinePresentationServer) ToString(_ context.Context, req *pb.ToStringRequest) (*pb.ToStringResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -497,7 +371,7 @@ func (s *InlinePresentationServer) ToString(_ context.Context, req *pb.InlinePre
 	return &pb.ToStringResponse{Result: result}, nil
 }
 
-func (s *InlinePresentationServer) WriteToParcel(_ context.Context, req *pb.InlinePresentationWriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
+func (s *InlinePresentationServer) WriteToParcel(_ context.Context, req *pb.WriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -555,7 +429,7 @@ func (s *DateValueSanitizerServer) NewDateValueSanitizer(_ context.Context, req 
 	return &pb.NewDateValueSanitizerResponse{Result: handle}, nil
 }
 
-func (s *DateValueSanitizerServer) DescribeContents(_ context.Context, req *pb.DateValueSanitizerDescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
+func (s *DateValueSanitizerServer) DescribeContents(_ context.Context, req *pb.DescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -569,7 +443,7 @@ func (s *DateValueSanitizerServer) DescribeContents(_ context.Context, req *pb.D
 	return &pb.DescribeContentsResponse{Result: result}, nil
 }
 
-func (s *DateValueSanitizerServer) ToString(_ context.Context, req *pb.DateValueSanitizerToStringRequest) (*pb.ToStringResponse, error) {
+func (s *DateValueSanitizerServer) ToString(_ context.Context, req *pb.ToStringRequest) (*pb.ToStringResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -583,12 +457,138 @@ func (s *DateValueSanitizerServer) ToString(_ context.Context, req *pb.DateValue
 	return &pb.ToStringResponse{Result: result}, nil
 }
 
-func (s *DateValueSanitizerServer) WriteToParcel(_ context.Context, req *pb.DateValueSanitizerWriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
+func (s *DateValueSanitizerServer) WriteToParcel(_ context.Context, req *pb.WriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
 	mgr := &jnipkg.DateValueSanitizer{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.WriteToParcel(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.WriteToParcelResponse{}, nil
+}
+
+// TextValueSanitizerServer implements pb.TextValueSanitizerServiceServer.
+type TextValueSanitizerServer struct {
+	pb.UnimplementedTextValueSanitizerServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *TextValueSanitizerServer) NewTextValueSanitizer(_ context.Context, req *pb.NewTextValueSanitizerRequest) (*pb.NewTextValueSanitizerResponse, error) {
+	obj, err := jnipkg.NewTextValueSanitizer(s.Ctx.VM, s.Handles.Get(req.GetArg0()), req.GetArg1())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewTextValueSanitizerResponse{Result: handle}, nil
+}
+
+func (s *TextValueSanitizerServer) DescribeContents(_ context.Context, req *pb.DescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.TextValueSanitizer{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.DescribeContents()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.DescribeContentsResponse{Result: result}, nil
+}
+
+func (s *TextValueSanitizerServer) ToString(_ context.Context, req *pb.ToStringRequest) (*pb.ToStringResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.TextValueSanitizer{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.ToString()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ToStringResponse{Result: result}, nil
+}
+
+func (s *TextValueSanitizerServer) WriteToParcel(_ context.Context, req *pb.WriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.TextValueSanitizer{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.WriteToParcel(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.WriteToParcelResponse{}, nil
+}
+
+// RegexValidatorServer implements pb.RegexValidatorServiceServer.
+type RegexValidatorServer struct {
+	pb.UnimplementedRegexValidatorServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *RegexValidatorServer) NewRegexValidator(_ context.Context, req *pb.NewRegexValidatorRequest) (*pb.NewRegexValidatorResponse, error) {
+	obj, err := jnipkg.NewRegexValidator(s.Ctx.VM, s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewRegexValidatorResponse{Result: handle}, nil
+}
+
+func (s *RegexValidatorServer) DescribeContents(_ context.Context, req *pb.DescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.RegexValidator{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.DescribeContents()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.DescribeContentsResponse{Result: result}, nil
+}
+
+func (s *RegexValidatorServer) ToString(_ context.Context, req *pb.ToStringRequest) (*pb.ToStringResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.RegexValidator{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.ToString()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ToStringResponse{Result: result}, nil
+}
+
+func (s *RegexValidatorServer) WriteToParcel(_ context.Context, req *pb.WriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.RegexValidator{VM: s.Ctx.VM, Obj: rawObj}
 
 	if err := mgr.WriteToParcel(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)

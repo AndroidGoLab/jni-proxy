@@ -6,10 +6,10 @@ package wifi_p2p;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/wifi_p2p";
 
-message NewWifiP2pDeviceRequest {
+message NewWifiP2pConfigRequest {
 }
 
-message NewWifiP2pDeviceResponse {
+message NewWifiP2pConfigResponse {
   int64 result = 1;
 }
 
@@ -19,6 +19,274 @@ message DescribeContentsRequest {
 
 message DescribeContentsResponse {
   int32 result = 1;
+}
+
+message GetGroupClientIpProvisioningModeRequest {
+  int64 handle = 1;
+}
+
+message GetGroupClientIpProvisioningModeResponse {
+  int32 result = 1;
+}
+
+message GetGroupOwnerBandRequest {
+  int64 handle = 1;
+}
+
+message GetGroupOwnerBandResponse {
+  int32 result = 1;
+}
+
+message GetGroupOwnerVersionRequest {
+  int64 handle = 1;
+}
+
+message GetGroupOwnerVersionResponse {
+  int32 result = 1;
+}
+
+message GetNetworkIdRequest {
+  int64 handle = 1;
+}
+
+message GetNetworkIdResponse {
+  int32 result = 1;
+}
+
+message GetNetworkNameRequest {
+  int64 handle = 1;
+}
+
+message GetNetworkNameResponse {
+  string result = 1;
+}
+
+message GetPairingBootstrappingConfigRequest {
+  int64 handle = 1;
+}
+
+message GetPairingBootstrappingConfigResponse {
+  int64 result = 1;
+}
+
+message GetPassphraseRequest {
+  int64 handle = 1;
+}
+
+message GetPassphraseResponse {
+  string result = 1;
+}
+
+message GetPccModeConnectionTypeRequest {
+  int64 handle = 1;
+}
+
+message GetPccModeConnectionTypeResponse {
+  int32 result = 1;
+}
+
+message IsAuthorizeConnectionFromPeerEnabledRequest {
+  int64 handle = 1;
+}
+
+message IsAuthorizeConnectionFromPeerEnabledResponse {
+  bool result = 1;
+}
+
+message SetGroupOwnerVersionRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetGroupOwnerVersionResponse {
+}
+
+message ToStringRequest {
+  int64 handle = 1;
+}
+
+message ToStringResponse {
+  string result = 1;
+}
+
+message WriteToParcelRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message WriteToParcelResponse {
+}
+
+message BuildRequest {
+}
+
+message BuildResponse {
+  int64 result = 1;
+}
+
+message EnablePersistentModeRequest {
+  bool arg0 = 1;
+}
+
+message EnablePersistentModeResponse {
+  int64 result = 1;
+}
+
+message SetAuthorizeConnectionFromPeerEnabledRequest {
+  bool arg0 = 1;
+}
+
+message SetAuthorizeConnectionFromPeerEnabledResponse {
+  int64 result = 1;
+}
+
+message SetDeviceAddressRequest {
+  int64 arg0 = 1;
+}
+
+message SetDeviceAddressResponse {
+  int64 result = 1;
+}
+
+message SetGroupClientIpProvisioningModeRequest {
+  int32 arg0 = 1;
+}
+
+message SetGroupClientIpProvisioningModeResponse {
+  int64 result = 1;
+}
+
+message SetGroupOperatingBandRequest {
+  int32 arg0 = 1;
+}
+
+message SetGroupOperatingBandResponse {
+  int64 result = 1;
+}
+
+message SetGroupOperatingFrequencyRequest {
+  int32 arg0 = 1;
+}
+
+message SetGroupOperatingFrequencyResponse {
+  int64 result = 1;
+}
+
+message SetNetworkNameRequest {
+  string arg0 = 1;
+}
+
+message SetNetworkNameResponse {
+  int64 result = 1;
+}
+
+message SetPairingBootstrappingConfigRequest {
+  int64 arg0 = 1;
+}
+
+message SetPairingBootstrappingConfigResponse {
+  int64 result = 1;
+}
+
+message SetPassphraseRequest {
+  string arg0 = 1;
+}
+
+message SetPassphraseResponse {
+  int64 result = 1;
+}
+
+message SetPccModeConnectionTypeRequest {
+  int32 arg0 = 1;
+}
+
+message SetPccModeConnectionTypeResponse {
+  int64 result = 1;
+}
+
+message WifiP2pUsdBasedLocalServiceAdvertisementConfigDescribeContentsRequest {
+}
+
+message GetFrequencyMhzRequest {
+}
+
+message GetFrequencyMhzResponse {
+  int32 result = 1;
+}
+
+message WifiP2pUsdBasedLocalServiceAdvertisementConfigToStringRequest {
+}
+
+message WifiP2pUsdBasedLocalServiceAdvertisementConfigWriteToParcelRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message SetFrequencyMhzRequest {
+  int32 arg0 = 1;
+}
+
+message SetFrequencyMhzResponse {
+  int64 result = 1;
+}
+
+message WifiP2pDiscoveryConfigDescribeContentsRequest {
+}
+
+message GetScanTypeRequest {
+}
+
+message GetScanTypeResponse {
+  int32 result = 1;
+}
+
+message WifiP2pDiscoveryConfigToStringRequest {
+}
+
+message WifiP2pDiscoveryConfigWriteToParcelRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message NewWifiP2pPairingBootstrappingConfigRequest {
+  int32 arg0 = 1;
+  string arg1 = 2;
+}
+
+message NewWifiP2pPairingBootstrappingConfigResponse {
+  int64 result = 1;
+}
+
+message NewWifiP2pDeviceListRequest {
+}
+
+message NewWifiP2pDeviceListResponse {
+  int64 result = 1;
+}
+
+message GetRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message GetResponse {
+  int64 result = 1;
+}
+
+message GetDeviceListRequest {
+  int64 handle = 1;
+}
+
+message GetDeviceListResponse {
+  int64 result = 1;
+}
+
+message NewWifiP2pDeviceRequest {
+}
+
+message NewWifiP2pDeviceResponse {
+  int64 result = 1;
 }
 
 message EqualsRequest {
@@ -35,6 +303,14 @@ message GetIpAddressRequest {
 }
 
 message GetIpAddressResponse {
+  int64 result = 1;
+}
+
+message GetVendorElementsRequest {
+  int64 handle = 1;
+}
+
+message GetVendorElementsResponse {
   int64 result = 1;
 }
 
@@ -110,14 +386,6 @@ message IsServiceDiscoveryCapableResponse {
   bool result = 1;
 }
 
-message ToStringRequest {
-  int64 handle = 1;
-}
-
-message ToStringResponse {
-  string result = 1;
-}
-
 message UpdateRequest {
   int64 handle = 1;
   int64 arg0 = 2;
@@ -148,121 +416,6 @@ message WpsPbcSupportedRequest {
 
 message WpsPbcSupportedResponse {
   bool result = 1;
-}
-
-message WriteToParcelRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-  int32 arg1 = 3;
-}
-
-message WriteToParcelResponse {
-}
-
-message NewWifiP2pInfoRequest {
-}
-
-message NewWifiP2pInfoResponse {
-  int64 result = 1;
-}
-
-message NewWifiP2pDeviceListRequest {
-}
-
-message NewWifiP2pDeviceListResponse {
-  int64 result = 1;
-}
-
-message GetRequest {
-  int64 handle = 1;
-  string arg0 = 2;
-}
-
-message GetResponse {
-  int64 result = 1;
-}
-
-message NewWifiP2pDirInfoRequest {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-  int64 arg2 = 3;
-}
-
-message NewWifiP2pDirInfoResponse {
-  int64 result = 1;
-}
-
-message GetDirTagRequest {
-  int64 handle = 1;
-}
-
-message GetDirTagResponse {
-  int64 result = 1;
-}
-
-message GetMacAddressRequest {
-  int64 handle = 1;
-}
-
-message GetMacAddressResponse {
-  int64 result = 1;
-}
-
-message GetNonceRequest {
-  int64 handle = 1;
-}
-
-message GetNonceResponse {
-  int64 result = 1;
-}
-
-message NewWifiP2pPairingBootstrappingConfigRequest {
-  int32 arg0 = 1;
-  string arg1 = 2;
-}
-
-message NewWifiP2pPairingBootstrappingConfigResponse {
-  int64 result = 1;
-}
-
-message WifiP2pDiscoveryConfigDescribeContentsRequest {
-}
-
-message GetFrequencyMhzRequest {
-}
-
-message GetFrequencyMhzResponse {
-  int32 result = 1;
-}
-
-message GetScanTypeRequest {
-}
-
-message GetScanTypeResponse {
-  int32 result = 1;
-}
-
-message WifiP2pDiscoveryConfigToStringRequest {
-}
-
-message WifiP2pDiscoveryConfigWriteToParcelRequest {
-  int64 arg0 = 1;
-  int32 arg1 = 2;
-}
-
-message BuildRequest {
-}
-
-message BuildResponse {
-  int64 result = 1;
-}
-
-message SetFrequencyMhzRequest {
-  int32 arg0 = 1;
-}
-
-message SetFrequencyMhzResponse {
-  int64 result = 1;
 }
 
 message NewWifiP2pWfdInfoRequest {
@@ -442,6 +595,13 @@ message SetSessionAvailableRequest {
 message SetSessionAvailableResponse {
 }
 
+message NewWifiP2pInfoRequest {
+}
+
+message NewWifiP2pInfoResponse {
+  int64 result = 1;
+}
+
 message WifiP2pUsdBasedServiceDiscoveryConfigDescribeContentsRequest {
 }
 
@@ -490,6 +650,14 @@ message NewWifiP2pGroupResponse {
   int64 result = 1;
 }
 
+message GetClientListRequest {
+  int64 handle = 1;
+}
+
+message GetClientListResponse {
+  int64 result = 1;
+}
+
 message GetFrequencyRequest {
   int64 handle = 1;
 }
@@ -514,22 +682,6 @@ message GetInterfaceResponse {
   string result = 1;
 }
 
-message GetNetworkIdRequest {
-  int64 handle = 1;
-}
-
-message GetNetworkIdResponse {
-  int32 result = 1;
-}
-
-message GetNetworkNameRequest {
-  int64 handle = 1;
-}
-
-message GetNetworkNameResponse {
-  string result = 1;
-}
-
 message GetOwnerRequest {
   int64 handle = 1;
 }
@@ -538,20 +690,46 @@ message GetOwnerResponse {
   int64 result = 1;
 }
 
-message GetPassphraseRequest {
-  int64 handle = 1;
-}
-
-message GetPassphraseResponse {
-  string result = 1;
-}
-
 message GetSecurityTypeRequest {
   int64 handle = 1;
 }
 
 message GetSecurityTypeResponse {
   int32 result = 1;
+}
+
+message NewWifiP2pDirInfoRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message NewWifiP2pDirInfoResponse {
+  int64 result = 1;
+}
+
+message GetDirTagRequest {
+  int64 handle = 1;
+}
+
+message GetDirTagResponse {
+  int64 result = 1;
+}
+
+message GetMacAddressRequest {
+  int64 handle = 1;
+}
+
+message GetMacAddressResponse {
+  int64 result = 1;
+}
+
+message GetNonceRequest {
+  int64 handle = 1;
+}
+
+message GetNonceResponse {
+  int64 result = 1;
 }
 
 message AddExternalApproverRequest {
@@ -1069,158 +1247,76 @@ message OnServiceAvailableRequest {
 message OnServiceAvailableResponse {
 }
 
-message WifiP2pUsdBasedLocalServiceAdvertisementConfigDescribeContentsRequest {
+service WifiP2pConfigService {
+  rpc NewWifiP2pConfig (NewWifiP2pConfigRequest) returns (NewWifiP2pConfigResponse);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetGroupClientIpProvisioningMode (GetGroupClientIpProvisioningModeRequest) returns (GetGroupClientIpProvisioningModeResponse);
+  rpc GetGroupOwnerBand (GetGroupOwnerBandRequest) returns (GetGroupOwnerBandResponse);
+  rpc GetGroupOwnerVersion (GetGroupOwnerVersionRequest) returns (GetGroupOwnerVersionResponse);
+  rpc GetNetworkId (GetNetworkIdRequest) returns (GetNetworkIdResponse);
+  rpc GetNetworkName (GetNetworkNameRequest) returns (GetNetworkNameResponse);
+  rpc GetPairingBootstrappingConfig (GetPairingBootstrappingConfigRequest) returns (GetPairingBootstrappingConfigResponse);
+  rpc GetPassphrase (GetPassphraseRequest) returns (GetPassphraseResponse);
+  rpc GetPccModeConnectionType (GetPccModeConnectionTypeRequest) returns (GetPccModeConnectionTypeResponse);
+  rpc IsAuthorizeConnectionFromPeerEnabled (IsAuthorizeConnectionFromPeerEnabledRequest) returns (IsAuthorizeConnectionFromPeerEnabledResponse);
+  rpc SetGroupOwnerVersion (SetGroupOwnerVersionRequest) returns (SetGroupOwnerVersionResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
 }
 
-message WifiP2pUsdBasedLocalServiceAdvertisementConfigToStringRequest {
+service WifiP2pConfigBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc EnablePersistentMode (EnablePersistentModeRequest) returns (EnablePersistentModeResponse);
+  rpc SetAuthorizeConnectionFromPeerEnabled (SetAuthorizeConnectionFromPeerEnabledRequest) returns (SetAuthorizeConnectionFromPeerEnabledResponse);
+  rpc SetDeviceAddress (SetDeviceAddressRequest) returns (SetDeviceAddressResponse);
+  rpc SetGroupClientIpProvisioningMode (SetGroupClientIpProvisioningModeRequest) returns (SetGroupClientIpProvisioningModeResponse);
+  rpc SetGroupOperatingBand (SetGroupOperatingBandRequest) returns (SetGroupOperatingBandResponse);
+  rpc SetGroupOperatingFrequency (SetGroupOperatingFrequencyRequest) returns (SetGroupOperatingFrequencyResponse);
+  rpc SetNetworkName (SetNetworkNameRequest) returns (SetNetworkNameResponse);
+  rpc SetPairingBootstrappingConfig (SetPairingBootstrappingConfigRequest) returns (SetPairingBootstrappingConfigResponse);
+  rpc SetPassphrase (SetPassphraseRequest) returns (SetPassphraseResponse);
+  rpc SetPccModeConnectionType (SetPccModeConnectionTypeRequest) returns (SetPccModeConnectionTypeResponse);
 }
 
-message WifiP2pUsdBasedLocalServiceAdvertisementConfigWriteToParcelRequest {
-  int64 arg0 = 1;
-  int32 arg1 = 2;
+service WifiP2pUsdBasedLocalServiceAdvertisementConfigService {
+  rpc DescribeContents (WifiP2pUsdBasedLocalServiceAdvertisementConfigDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetFrequencyMhz (GetFrequencyMhzRequest) returns (GetFrequencyMhzResponse);
+  rpc ToString (WifiP2pUsdBasedLocalServiceAdvertisementConfigToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WifiP2pUsdBasedLocalServiceAdvertisementConfigWriteToParcelRequest) returns (WriteToParcelResponse);
 }
 
-message NewWifiP2pConfigRequest {
+service WifiP2pUsdBasedLocalServiceAdvertisementConfigBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetFrequencyMhz (SetFrequencyMhzRequest) returns (SetFrequencyMhzResponse);
 }
 
-message NewWifiP2pConfigResponse {
-  int64 result = 1;
+service WifiP2pDiscoveryConfigService {
+  rpc DescribeContents (WifiP2pDiscoveryConfigDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetFrequencyMhz (GetFrequencyMhzRequest) returns (GetFrequencyMhzResponse);
+  rpc GetScanType (GetScanTypeRequest) returns (GetScanTypeResponse);
+  rpc ToString (WifiP2pDiscoveryConfigToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WifiP2pDiscoveryConfigWriteToParcelRequest) returns (WriteToParcelResponse);
 }
 
-message GetGroupClientIpProvisioningModeRequest {
-  int64 handle = 1;
+service WifiP2pDiscoveryConfigBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetFrequencyMhz (SetFrequencyMhzRequest) returns (SetFrequencyMhzResponse);
 }
 
-message GetGroupClientIpProvisioningModeResponse {
-  int32 result = 1;
+service WifiP2pPairingBootstrappingConfigService {
+  rpc NewWifiP2pPairingBootstrappingConfig (NewWifiP2pPairingBootstrappingConfigRequest) returns (NewWifiP2pPairingBootstrappingConfigResponse);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
 }
 
-message GetGroupOwnerBandRequest {
-  int64 handle = 1;
-}
-
-message GetGroupOwnerBandResponse {
-  int32 result = 1;
-}
-
-message GetGroupOwnerVersionRequest {
-  int64 handle = 1;
-}
-
-message GetGroupOwnerVersionResponse {
-  int32 result = 1;
-}
-
-message GetPairingBootstrappingConfigRequest {
-  int64 handle = 1;
-}
-
-message GetPairingBootstrappingConfigResponse {
-  int64 result = 1;
-}
-
-message GetPccModeConnectionTypeRequest {
-  int64 handle = 1;
-}
-
-message GetPccModeConnectionTypeResponse {
-  int32 result = 1;
-}
-
-message IsAuthorizeConnectionFromPeerEnabledRequest {
-  int64 handle = 1;
-}
-
-message IsAuthorizeConnectionFromPeerEnabledResponse {
-  bool result = 1;
-}
-
-message SetGroupOwnerVersionRequest {
-  int64 handle = 1;
-  int32 arg0 = 2;
-}
-
-message SetGroupOwnerVersionResponse {
-}
-
-message EnablePersistentModeRequest {
-  bool arg0 = 1;
-}
-
-message EnablePersistentModeResponse {
-  int64 result = 1;
-}
-
-message SetAuthorizeConnectionFromPeerEnabledRequest {
-  bool arg0 = 1;
-}
-
-message SetAuthorizeConnectionFromPeerEnabledResponse {
-  int64 result = 1;
-}
-
-message SetDeviceAddressRequest {
-  int64 arg0 = 1;
-}
-
-message SetDeviceAddressResponse {
-  int64 result = 1;
-}
-
-message SetGroupClientIpProvisioningModeRequest {
-  int32 arg0 = 1;
-}
-
-message SetGroupClientIpProvisioningModeResponse {
-  int64 result = 1;
-}
-
-message SetGroupOperatingBandRequest {
-  int32 arg0 = 1;
-}
-
-message SetGroupOperatingBandResponse {
-  int64 result = 1;
-}
-
-message SetGroupOperatingFrequencyRequest {
-  int32 arg0 = 1;
-}
-
-message SetGroupOperatingFrequencyResponse {
-  int64 result = 1;
-}
-
-message SetNetworkNameRequest {
-  string arg0 = 1;
-}
-
-message SetNetworkNameResponse {
-  int64 result = 1;
-}
-
-message SetPairingBootstrappingConfigRequest {
-  int64 arg0 = 1;
-}
-
-message SetPairingBootstrappingConfigResponse {
-  int64 result = 1;
-}
-
-message SetPassphraseRequest {
-  string arg0 = 1;
-}
-
-message SetPassphraseResponse {
-  int64 result = 1;
-}
-
-message SetPccModeConnectionTypeRequest {
-  int32 arg0 = 1;
-}
-
-message SetPccModeConnectionTypeResponse {
-  int64 result = 1;
+service WifiP2pDeviceListService {
+  rpc NewWifiP2pDeviceList (NewWifiP2pDeviceListRequest) returns (NewWifiP2pDeviceListResponse);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Get (GetRequest) returns (GetResponse);
+  rpc GetDeviceList (GetDeviceListRequest) returns (GetDeviceListResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
 }
 
 service WifiP2pDeviceService {
@@ -1228,6 +1324,7 @@ service WifiP2pDeviceService {
   rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
   rpc Equals (EqualsRequest) returns (EqualsResponse);
   rpc GetIpAddress (GetIpAddressRequest) returns (GetIpAddressResponse);
+  rpc GetVendorElements (GetVendorElementsRequest) returns (GetVendorElementsResponse);
   rpc GetWfdInfo (GetWfdInfoRequest) returns (GetWfdInfoResponse);
   rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
   rpc IsGroupOwner (IsGroupOwnerRequest) returns (IsGroupOwnerResponse);
@@ -1243,51 +1340,6 @@ service WifiP2pDeviceService {
   rpc WpsKeypadSupported (WpsKeypadSupportedRequest) returns (WpsKeypadSupportedResponse);
   rpc WpsPbcSupported (WpsPbcSupportedRequest) returns (WpsPbcSupportedResponse);
   rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
-}
-
-service WifiP2pInfoService {
-  rpc NewWifiP2pInfo (NewWifiP2pInfoRequest) returns (NewWifiP2pInfoResponse);
-  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc ToString (ToStringRequest) returns (ToStringResponse);
-  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
-}
-
-service WifiP2pDeviceListService {
-  rpc NewWifiP2pDeviceList (NewWifiP2pDeviceListRequest) returns (NewWifiP2pDeviceListResponse);
-  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc Get (GetRequest) returns (GetResponse);
-  rpc ToString (ToStringRequest) returns (ToStringResponse);
-  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
-}
-
-service WifiP2pDirInfoService {
-  rpc NewWifiP2pDirInfo (NewWifiP2pDirInfoRequest) returns (NewWifiP2pDirInfoResponse);
-  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc GetDirTag (GetDirTagRequest) returns (GetDirTagResponse);
-  rpc GetMacAddress (GetMacAddressRequest) returns (GetMacAddressResponse);
-  rpc GetNonce (GetNonceRequest) returns (GetNonceResponse);
-  rpc ToString (ToStringRequest) returns (ToStringResponse);
-  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
-}
-
-service WifiP2pPairingBootstrappingConfigService {
-  rpc NewWifiP2pPairingBootstrappingConfig (NewWifiP2pPairingBootstrappingConfigRequest) returns (NewWifiP2pPairingBootstrappingConfigResponse);
-  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc ToString (ToStringRequest) returns (ToStringResponse);
-  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
-}
-
-service WifiP2pDiscoveryConfigService {
-  rpc DescribeContents (WifiP2pDiscoveryConfigDescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc GetFrequencyMhz (GetFrequencyMhzRequest) returns (GetFrequencyMhzResponse);
-  rpc GetScanType (GetScanTypeRequest) returns (GetScanTypeResponse);
-  rpc ToString (WifiP2pDiscoveryConfigToStringRequest) returns (ToStringResponse);
-  rpc WriteToParcel (WifiP2pDiscoveryConfigWriteToParcelRequest) returns (WriteToParcelResponse);
-}
-
-service WifiP2pDiscoveryConfigBuilderService {
-  rpc Build (BuildRequest) returns (BuildResponse);
-  rpc SetFrequencyMhz (SetFrequencyMhzRequest) returns (SetFrequencyMhzResponse);
 }
 
 service WifiP2pWfdInfoService {
@@ -1318,6 +1370,13 @@ service WifiP2pWfdInfoService {
   rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
 }
 
+service WifiP2pInfoService {
+  rpc NewWifiP2pInfo (NewWifiP2pInfoRequest) returns (NewWifiP2pInfoResponse);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
 service WifiP2pUsdBasedServiceDiscoveryConfigService {
   rpc DescribeContents (WifiP2pUsdBasedServiceDiscoveryConfigDescribeContentsRequest) returns (DescribeContentsResponse);
   rpc GetBand (GetBandRequest) returns (GetBandResponse);
@@ -1335,6 +1394,7 @@ service WifiP2pUsdBasedServiceDiscoveryConfigBuilderService {
 service WifiP2pGroupService {
   rpc NewWifiP2pGroup (NewWifiP2pGroupRequest) returns (NewWifiP2pGroupResponse);
   rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetClientList (GetClientListRequest) returns (GetClientListResponse);
   rpc GetFrequency (GetFrequencyRequest) returns (GetFrequencyResponse);
   rpc GetGroupOwnerBssid (GetGroupOwnerBssidRequest) returns (GetGroupOwnerBssidResponse);
   rpc GetInterface (GetInterfaceRequest) returns (GetInterfaceResponse);
@@ -1344,6 +1404,16 @@ service WifiP2pGroupService {
   rpc GetPassphrase (GetPassphraseRequest) returns (GetPassphraseResponse);
   rpc GetSecurityType (GetSecurityTypeRequest) returns (GetSecurityTypeResponse);
   rpc IsGroupOwner (IsGroupOwnerRequest) returns (IsGroupOwnerResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service WifiP2pDirInfoService {
+  rpc NewWifiP2pDirInfo (NewWifiP2pDirInfoRequest) returns (NewWifiP2pDirInfoResponse);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetDirTag (GetDirTagRequest) returns (GetDirTagResponse);
+  rpc GetMacAddress (GetMacAddressRequest) returns (GetMacAddressResponse);
+  rpc GetNonce (GetNonceRequest) returns (GetNonceResponse);
   rpc ToString (ToStringRequest) returns (ToStringResponse);
   rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
 }
@@ -1452,47 +1522,4 @@ service WifiP2pManagerPeerListListenerService {
 
 service WifiP2pManagerServiceResponseListenerService {
   rpc OnServiceAvailable (OnServiceAvailableRequest) returns (OnServiceAvailableResponse);
-}
-
-service WifiP2pUsdBasedLocalServiceAdvertisementConfigService {
-  rpc DescribeContents (WifiP2pUsdBasedLocalServiceAdvertisementConfigDescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc GetFrequencyMhz (GetFrequencyMhzRequest) returns (GetFrequencyMhzResponse);
-  rpc ToString (WifiP2pUsdBasedLocalServiceAdvertisementConfigToStringRequest) returns (ToStringResponse);
-  rpc WriteToParcel (WifiP2pUsdBasedLocalServiceAdvertisementConfigWriteToParcelRequest) returns (WriteToParcelResponse);
-}
-
-service WifiP2pUsdBasedLocalServiceAdvertisementConfigBuilderService {
-  rpc Build (BuildRequest) returns (BuildResponse);
-  rpc SetFrequencyMhz (SetFrequencyMhzRequest) returns (SetFrequencyMhzResponse);
-}
-
-service WifiP2pConfigService {
-  rpc NewWifiP2pConfig (NewWifiP2pConfigRequest) returns (NewWifiP2pConfigResponse);
-  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc GetGroupClientIpProvisioningMode (GetGroupClientIpProvisioningModeRequest) returns (GetGroupClientIpProvisioningModeResponse);
-  rpc GetGroupOwnerBand (GetGroupOwnerBandRequest) returns (GetGroupOwnerBandResponse);
-  rpc GetGroupOwnerVersion (GetGroupOwnerVersionRequest) returns (GetGroupOwnerVersionResponse);
-  rpc GetNetworkId (GetNetworkIdRequest) returns (GetNetworkIdResponse);
-  rpc GetNetworkName (GetNetworkNameRequest) returns (GetNetworkNameResponse);
-  rpc GetPairingBootstrappingConfig (GetPairingBootstrappingConfigRequest) returns (GetPairingBootstrappingConfigResponse);
-  rpc GetPassphrase (GetPassphraseRequest) returns (GetPassphraseResponse);
-  rpc GetPccModeConnectionType (GetPccModeConnectionTypeRequest) returns (GetPccModeConnectionTypeResponse);
-  rpc IsAuthorizeConnectionFromPeerEnabled (IsAuthorizeConnectionFromPeerEnabledRequest) returns (IsAuthorizeConnectionFromPeerEnabledResponse);
-  rpc SetGroupOwnerVersion (SetGroupOwnerVersionRequest) returns (SetGroupOwnerVersionResponse);
-  rpc ToString (ToStringRequest) returns (ToStringResponse);
-  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
-}
-
-service WifiP2pConfigBuilderService {
-  rpc Build (BuildRequest) returns (BuildResponse);
-  rpc EnablePersistentMode (EnablePersistentModeRequest) returns (EnablePersistentModeResponse);
-  rpc SetAuthorizeConnectionFromPeerEnabled (SetAuthorizeConnectionFromPeerEnabledRequest) returns (SetAuthorizeConnectionFromPeerEnabledResponse);
-  rpc SetDeviceAddress (SetDeviceAddressRequest) returns (SetDeviceAddressResponse);
-  rpc SetGroupClientIpProvisioningMode (SetGroupClientIpProvisioningModeRequest) returns (SetGroupClientIpProvisioningModeResponse);
-  rpc SetGroupOperatingBand (SetGroupOperatingBandRequest) returns (SetGroupOperatingBandResponse);
-  rpc SetGroupOperatingFrequency (SetGroupOperatingFrequencyRequest) returns (SetGroupOperatingFrequencyResponse);
-  rpc SetNetworkName (SetNetworkNameRequest) returns (SetNetworkNameResponse);
-  rpc SetPairingBootstrappingConfig (SetPairingBootstrappingConfigRequest) returns (SetPairingBootstrappingConfigResponse);
-  rpc SetPassphrase (SetPassphraseRequest) returns (SetPassphraseResponse);
-  rpc SetPccModeConnectionType (SetPccModeConnectionTypeRequest) returns (SetPccModeConnectionTypeResponse);
 }

@@ -3015,6 +3015,86 @@ func (x *EqualsResponse) GetResult() bool {
 	return false
 }
 
+type GetPathRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPathRequest) Reset() {
+	*x = GetPathRequest{}
+	mi := &file_proto_documents_documents_proto_msgTypes[62]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPathRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPathRequest) ProtoMessage() {}
+
+func (x *GetPathRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_documents_documents_proto_msgTypes[62]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPathRequest.ProtoReflect.Descriptor instead.
+func (*GetPathRequest) Descriptor() ([]byte, []int) {
+	return file_proto_documents_documents_proto_rawDescGZIP(), []int{62}
+}
+
+type GetPathResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPathResponse) Reset() {
+	*x = GetPathResponse{}
+	mi := &file_proto_documents_documents_proto_msgTypes[63]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPathResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPathResponse) ProtoMessage() {}
+
+func (x *GetPathResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_documents_documents_proto_msgTypes[63]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPathResponse.ProtoReflect.Descriptor instead.
+func (*GetPathResponse) Descriptor() ([]byte, []int) {
+	return file_proto_documents_documents_proto_rawDescGZIP(), []int{63}
+}
+
+func (x *GetPathResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
 type ContractPathGetRootIdRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	unknownFields protoimpl.UnknownFields
@@ -3023,7 +3103,7 @@ type ContractPathGetRootIdRequest struct {
 
 func (x *ContractPathGetRootIdRequest) Reset() {
 	*x = ContractPathGetRootIdRequest{}
-	mi := &file_proto_documents_documents_proto_msgTypes[62]
+	mi := &file_proto_documents_documents_proto_msgTypes[64]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3035,7 +3115,7 @@ func (x *ContractPathGetRootIdRequest) String() string {
 func (*ContractPathGetRootIdRequest) ProtoMessage() {}
 
 func (x *ContractPathGetRootIdRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_documents_documents_proto_msgTypes[62]
+	mi := &file_proto_documents_documents_proto_msgTypes[64]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3048,7 +3128,7 @@ func (x *ContractPathGetRootIdRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ContractPathGetRootIdRequest.ProtoReflect.Descriptor instead.
 func (*ContractPathGetRootIdRequest) Descriptor() ([]byte, []int) {
-	return file_proto_documents_documents_proto_rawDescGZIP(), []int{62}
+	return file_proto_documents_documents_proto_rawDescGZIP(), []int{64}
 }
 
 type HashCodeRequest struct {
@@ -3059,7 +3139,7 @@ type HashCodeRequest struct {
 
 func (x *HashCodeRequest) Reset() {
 	*x = HashCodeRequest{}
-	mi := &file_proto_documents_documents_proto_msgTypes[63]
+	mi := &file_proto_documents_documents_proto_msgTypes[65]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3071,7 +3151,7 @@ func (x *HashCodeRequest) String() string {
 func (*HashCodeRequest) ProtoMessage() {}
 
 func (x *HashCodeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_documents_documents_proto_msgTypes[63]
+	mi := &file_proto_documents_documents_proto_msgTypes[65]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3084,7 +3164,7 @@ func (x *HashCodeRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use HashCodeRequest.ProtoReflect.Descriptor instead.
 func (*HashCodeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_documents_documents_proto_rawDescGZIP(), []int{63}
+	return file_proto_documents_documents_proto_rawDescGZIP(), []int{65}
 }
 
 type HashCodeResponse struct {
@@ -3096,7 +3176,7 @@ type HashCodeResponse struct {
 
 func (x *HashCodeResponse) Reset() {
 	*x = HashCodeResponse{}
-	mi := &file_proto_documents_documents_proto_msgTypes[64]
+	mi := &file_proto_documents_documents_proto_msgTypes[66]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3108,7 +3188,7 @@ func (x *HashCodeResponse) String() string {
 func (*HashCodeResponse) ProtoMessage() {}
 
 func (x *HashCodeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_documents_documents_proto_msgTypes[64]
+	mi := &file_proto_documents_documents_proto_msgTypes[66]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3121,7 +3201,7 @@ func (x *HashCodeResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use HashCodeResponse.ProtoReflect.Descriptor instead.
 func (*HashCodeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_documents_documents_proto_rawDescGZIP(), []int{64}
+	return file_proto_documents_documents_proto_rawDescGZIP(), []int{66}
 }
 
 func (x *HashCodeResponse) GetResult() int32 {
@@ -3139,7 +3219,7 @@ type ToStringRequest struct {
 
 func (x *ToStringRequest) Reset() {
 	*x = ToStringRequest{}
-	mi := &file_proto_documents_documents_proto_msgTypes[65]
+	mi := &file_proto_documents_documents_proto_msgTypes[67]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3151,7 +3231,7 @@ func (x *ToStringRequest) String() string {
 func (*ToStringRequest) ProtoMessage() {}
 
 func (x *ToStringRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_documents_documents_proto_msgTypes[65]
+	mi := &file_proto_documents_documents_proto_msgTypes[67]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3164,7 +3244,7 @@ func (x *ToStringRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ToStringRequest.ProtoReflect.Descriptor instead.
 func (*ToStringRequest) Descriptor() ([]byte, []int) {
-	return file_proto_documents_documents_proto_rawDescGZIP(), []int{65}
+	return file_proto_documents_documents_proto_rawDescGZIP(), []int{67}
 }
 
 type ToStringResponse struct {
@@ -3176,7 +3256,7 @@ type ToStringResponse struct {
 
 func (x *ToStringResponse) Reset() {
 	*x = ToStringResponse{}
-	mi := &file_proto_documents_documents_proto_msgTypes[66]
+	mi := &file_proto_documents_documents_proto_msgTypes[68]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3188,7 +3268,7 @@ func (x *ToStringResponse) String() string {
 func (*ToStringResponse) ProtoMessage() {}
 
 func (x *ToStringResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_documents_documents_proto_msgTypes[66]
+	mi := &file_proto_documents_documents_proto_msgTypes[68]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3201,7 +3281,7 @@ func (x *ToStringResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ToStringResponse.ProtoReflect.Descriptor instead.
 func (*ToStringResponse) Descriptor() ([]byte, []int) {
-	return file_proto_documents_documents_proto_rawDescGZIP(), []int{66}
+	return file_proto_documents_documents_proto_rawDescGZIP(), []int{68}
 }
 
 func (x *ToStringResponse) GetResult() string {
@@ -3221,7 +3301,7 @@ type WriteToParcelRequest struct {
 
 func (x *WriteToParcelRequest) Reset() {
 	*x = WriteToParcelRequest{}
-	mi := &file_proto_documents_documents_proto_msgTypes[67]
+	mi := &file_proto_documents_documents_proto_msgTypes[69]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3233,7 +3313,7 @@ func (x *WriteToParcelRequest) String() string {
 func (*WriteToParcelRequest) ProtoMessage() {}
 
 func (x *WriteToParcelRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_documents_documents_proto_msgTypes[67]
+	mi := &file_proto_documents_documents_proto_msgTypes[69]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3246,7 +3326,7 @@ func (x *WriteToParcelRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use WriteToParcelRequest.ProtoReflect.Descriptor instead.
 func (*WriteToParcelRequest) Descriptor() ([]byte, []int) {
-	return file_proto_documents_documents_proto_rawDescGZIP(), []int{67}
+	return file_proto_documents_documents_proto_rawDescGZIP(), []int{69}
 }
 
 func (x *WriteToParcelRequest) GetArg0() int64 {
@@ -3271,7 +3351,7 @@ type WriteToParcelResponse struct {
 
 func (x *WriteToParcelResponse) Reset() {
 	*x = WriteToParcelResponse{}
-	mi := &file_proto_documents_documents_proto_msgTypes[68]
+	mi := &file_proto_documents_documents_proto_msgTypes[70]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3283,7 +3363,7 @@ func (x *WriteToParcelResponse) String() string {
 func (*WriteToParcelResponse) ProtoMessage() {}
 
 func (x *WriteToParcelResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_documents_documents_proto_msgTypes[68]
+	mi := &file_proto_documents_documents_proto_msgTypes[70]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3296,7 +3376,7 @@ func (x *WriteToParcelResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use WriteToParcelResponse.ProtoReflect.Descriptor instead.
 func (*WriteToParcelResponse) Descriptor() ([]byte, []int) {
-	return file_proto_documents_documents_proto_rawDescGZIP(), []int{68}
+	return file_proto_documents_documents_proto_rawDescGZIP(), []int{70}
 }
 
 var File_proto_documents_documents_proto protoreflect.FileDescriptor
@@ -3460,7 +3540,10 @@ const file_proto_documents_documents_proto_rawDesc = "" +
 	"\rEqualsRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"(\n" +
 	"\x0eEqualsResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\bR\x06result\"\x1e\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"\x10\n" +
+	"\x0eGetPathRequest\")\n" +
+	"\x0fGetPathResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1e\n" +
 	"\x1cContractPathGetRootIdRequest\"\x11\n" +
 	"\x0fHashCodeRequest\"*\n" +
 	"\x10HashCodeResponse\x12\x16\n" +
@@ -3502,10 +3585,11 @@ const file_proto_documents_documents_proto_rawDesc = "" +
 	"\tIsTreeUri\x12\x1b.documents.IsTreeUriRequest\x1a\x1c.documents.IsTreeUriResponse\x12O\n" +
 	"\fMoveDocument\x12\x1e.documents.MoveDocumentRequest\x1a\x1f.documents.MoveDocumentResponse\x12U\n" +
 	"\x0eRemoveDocument\x12 .documents.RemoveDocumentRequest\x1a!.documents.RemoveDocumentResponse\x12U\n" +
-	"\x0eRenameDocument\x12 .documents.RenameDocumentRequest\x1a!.documents.RenameDocumentResponse2\xe3\x03\n" +
+	"\x0eRenameDocument\x12 .documents.RenameDocumentRequest\x1a!.documents.RenameDocumentResponse2\xa5\x04\n" +
 	"\x13ContractPathService\x12[\n" +
 	"\x10DescribeContents\x12\".documents.DescribeContentsRequest\x1a#.documents.DescribeContentsResponse\x12=\n" +
-	"\x06Equals\x12\x18.documents.EqualsRequest\x1a\x19.documents.EqualsResponse\x12R\n" +
+	"\x06Equals\x12\x18.documents.EqualsRequest\x1a\x19.documents.EqualsResponse\x12@\n" +
+	"\aGetPath\x12\x19.documents.GetPathRequest\x1a\x1a.documents.GetPathResponse\x12R\n" +
 	"\tGetRootId\x12'.documents.ContractPathGetRootIdRequest\x1a\x1c.documents.GetRootIdResponse\x12C\n" +
 	"\bHashCode\x12\x1a.documents.HashCodeRequest\x1a\x1b.documents.HashCodeResponse\x12C\n" +
 	"\bToString\x12\x1a.documents.ToStringRequest\x1a\x1b.documents.ToStringResponse\x12R\n" +
@@ -3523,7 +3607,7 @@ func file_proto_documents_documents_proto_rawDescGZIP() []byte {
 	return file_proto_documents_documents_proto_rawDescData
 }
 
-var file_proto_documents_documents_proto_msgTypes = make([]protoimpl.MessageInfo, 69)
+var file_proto_documents_documents_proto_msgTypes = make([]protoimpl.MessageInfo, 71)
 var file_proto_documents_documents_proto_goTypes = []any{
 	(*BuildChildDocumentsUriRequest)(nil),           // 0: documents.BuildChildDocumentsUriRequest
 	(*BuildChildDocumentsUriResponse)(nil),          // 1: documents.BuildChildDocumentsUriResponse
@@ -3587,13 +3671,15 @@ var file_proto_documents_documents_proto_goTypes = []any{
 	(*DescribeContentsResponse)(nil),                // 59: documents.DescribeContentsResponse
 	(*EqualsRequest)(nil),                           // 60: documents.EqualsRequest
 	(*EqualsResponse)(nil),                          // 61: documents.EqualsResponse
-	(*ContractPathGetRootIdRequest)(nil),            // 62: documents.ContractPathGetRootIdRequest
-	(*HashCodeRequest)(nil),                         // 63: documents.HashCodeRequest
-	(*HashCodeResponse)(nil),                        // 64: documents.HashCodeResponse
-	(*ToStringRequest)(nil),                         // 65: documents.ToStringRequest
-	(*ToStringResponse)(nil),                        // 66: documents.ToStringResponse
-	(*WriteToParcelRequest)(nil),                    // 67: documents.WriteToParcelRequest
-	(*WriteToParcelResponse)(nil),                   // 68: documents.WriteToParcelResponse
+	(*GetPathRequest)(nil),                          // 62: documents.GetPathRequest
+	(*GetPathResponse)(nil),                         // 63: documents.GetPathResponse
+	(*ContractPathGetRootIdRequest)(nil),            // 64: documents.ContractPathGetRootIdRequest
+	(*HashCodeRequest)(nil),                         // 65: documents.HashCodeRequest
+	(*HashCodeResponse)(nil),                        // 66: documents.HashCodeResponse
+	(*ToStringRequest)(nil),                         // 67: documents.ToStringRequest
+	(*ToStringResponse)(nil),                        // 68: documents.ToStringResponse
+	(*WriteToParcelRequest)(nil),                    // 69: documents.WriteToParcelRequest
+	(*WriteToParcelResponse)(nil),                   // 70: documents.WriteToParcelResponse
 }
 var file_proto_documents_documents_proto_depIdxs = []int32{
 	0,  // 0: documents.ContractService.BuildChildDocumentsUri:input_type -> documents.BuildChildDocumentsUriRequest
@@ -3627,47 +3713,49 @@ var file_proto_documents_documents_proto_depIdxs = []int32{
 	56, // 28: documents.ContractService.RenameDocument:input_type -> documents.RenameDocumentRequest
 	58, // 29: documents.ContractPathService.DescribeContents:input_type -> documents.DescribeContentsRequest
 	60, // 30: documents.ContractPathService.Equals:input_type -> documents.EqualsRequest
-	62, // 31: documents.ContractPathService.GetRootId:input_type -> documents.ContractPathGetRootIdRequest
-	63, // 32: documents.ContractPathService.HashCode:input_type -> documents.HashCodeRequest
-	65, // 33: documents.ContractPathService.ToString:input_type -> documents.ToStringRequest
-	67, // 34: documents.ContractPathService.WriteToParcel:input_type -> documents.WriteToParcelRequest
-	1,  // 35: documents.ContractService.BuildChildDocumentsUri:output_type -> documents.BuildChildDocumentsUriResponse
-	3,  // 36: documents.ContractService.BuildChildDocumentsUriUsingTree:output_type -> documents.BuildChildDocumentsUriUsingTreeResponse
-	5,  // 37: documents.ContractService.BuildDocumentUri:output_type -> documents.BuildDocumentUriResponse
-	7,  // 38: documents.ContractService.BuildDocumentUriUsingTree:output_type -> documents.BuildDocumentUriUsingTreeResponse
-	9,  // 39: documents.ContractService.BuildRecentDocumentsUri:output_type -> documents.BuildRecentDocumentsUriResponse
-	11, // 40: documents.ContractService.BuildRootUri:output_type -> documents.BuildRootUriResponse
-	13, // 41: documents.ContractService.BuildRootsUri:output_type -> documents.BuildRootsUriResponse
-	15, // 42: documents.ContractService.BuildSearchDocumentsUri:output_type -> documents.BuildSearchDocumentsUriResponse
-	17, // 43: documents.ContractService.BuildTreeDocumentUri:output_type -> documents.BuildTreeDocumentUriResponse
-	19, // 44: documents.ContractService.CopyDocument:output_type -> documents.CopyDocumentResponse
-	21, // 45: documents.ContractService.CreateDocument:output_type -> documents.CreateDocumentResponse
-	23, // 46: documents.ContractService.CreateWebLinkIntent:output_type -> documents.CreateWebLinkIntentResponse
-	25, // 47: documents.ContractService.DeleteDocument:output_type -> documents.DeleteDocumentResponse
-	27, // 48: documents.ContractService.EjectRoot:output_type -> documents.EjectRootResponse
-	29, // 49: documents.ContractService.FindDocumentPath:output_type -> documents.FindDocumentPathResponse
-	31, // 50: documents.ContractService.GetDocumentId:output_type -> documents.GetDocumentIdResponse
-	33, // 51: documents.ContractService.GetDocumentMetadata:output_type -> documents.GetDocumentMetadataResponse
-	35, // 52: documents.ContractService.GetDocumentThumbnail:output_type -> documents.GetDocumentThumbnailResponse
-	37, // 53: documents.ContractService.GetRootId:output_type -> documents.GetRootIdResponse
-	39, // 54: documents.ContractService.GetSearchDocumentsQuery:output_type -> documents.GetSearchDocumentsQueryResponse
-	41, // 55: documents.ContractService.GetTreeDocumentId:output_type -> documents.GetTreeDocumentIdResponse
-	43, // 56: documents.ContractService.IsChildDocument:output_type -> documents.IsChildDocumentResponse
-	45, // 57: documents.ContractService.IsDocumentUri:output_type -> documents.IsDocumentUriResponse
-	47, // 58: documents.ContractService.IsRootUri:output_type -> documents.IsRootUriResponse
-	49, // 59: documents.ContractService.IsRootsUri:output_type -> documents.IsRootsUriResponse
-	51, // 60: documents.ContractService.IsTreeUri:output_type -> documents.IsTreeUriResponse
-	53, // 61: documents.ContractService.MoveDocument:output_type -> documents.MoveDocumentResponse
-	55, // 62: documents.ContractService.RemoveDocument:output_type -> documents.RemoveDocumentResponse
-	57, // 63: documents.ContractService.RenameDocument:output_type -> documents.RenameDocumentResponse
-	59, // 64: documents.ContractPathService.DescribeContents:output_type -> documents.DescribeContentsResponse
-	61, // 65: documents.ContractPathService.Equals:output_type -> documents.EqualsResponse
-	37, // 66: documents.ContractPathService.GetRootId:output_type -> documents.GetRootIdResponse
-	64, // 67: documents.ContractPathService.HashCode:output_type -> documents.HashCodeResponse
-	66, // 68: documents.ContractPathService.ToString:output_type -> documents.ToStringResponse
-	68, // 69: documents.ContractPathService.WriteToParcel:output_type -> documents.WriteToParcelResponse
-	35, // [35:70] is the sub-list for method output_type
-	0,  // [0:35] is the sub-list for method input_type
+	62, // 31: documents.ContractPathService.GetPath:input_type -> documents.GetPathRequest
+	64, // 32: documents.ContractPathService.GetRootId:input_type -> documents.ContractPathGetRootIdRequest
+	65, // 33: documents.ContractPathService.HashCode:input_type -> documents.HashCodeRequest
+	67, // 34: documents.ContractPathService.ToString:input_type -> documents.ToStringRequest
+	69, // 35: documents.ContractPathService.WriteToParcel:input_type -> documents.WriteToParcelRequest
+	1,  // 36: documents.ContractService.BuildChildDocumentsUri:output_type -> documents.BuildChildDocumentsUriResponse
+	3,  // 37: documents.ContractService.BuildChildDocumentsUriUsingTree:output_type -> documents.BuildChildDocumentsUriUsingTreeResponse
+	5,  // 38: documents.ContractService.BuildDocumentUri:output_type -> documents.BuildDocumentUriResponse
+	7,  // 39: documents.ContractService.BuildDocumentUriUsingTree:output_type -> documents.BuildDocumentUriUsingTreeResponse
+	9,  // 40: documents.ContractService.BuildRecentDocumentsUri:output_type -> documents.BuildRecentDocumentsUriResponse
+	11, // 41: documents.ContractService.BuildRootUri:output_type -> documents.BuildRootUriResponse
+	13, // 42: documents.ContractService.BuildRootsUri:output_type -> documents.BuildRootsUriResponse
+	15, // 43: documents.ContractService.BuildSearchDocumentsUri:output_type -> documents.BuildSearchDocumentsUriResponse
+	17, // 44: documents.ContractService.BuildTreeDocumentUri:output_type -> documents.BuildTreeDocumentUriResponse
+	19, // 45: documents.ContractService.CopyDocument:output_type -> documents.CopyDocumentResponse
+	21, // 46: documents.ContractService.CreateDocument:output_type -> documents.CreateDocumentResponse
+	23, // 47: documents.ContractService.CreateWebLinkIntent:output_type -> documents.CreateWebLinkIntentResponse
+	25, // 48: documents.ContractService.DeleteDocument:output_type -> documents.DeleteDocumentResponse
+	27, // 49: documents.ContractService.EjectRoot:output_type -> documents.EjectRootResponse
+	29, // 50: documents.ContractService.FindDocumentPath:output_type -> documents.FindDocumentPathResponse
+	31, // 51: documents.ContractService.GetDocumentId:output_type -> documents.GetDocumentIdResponse
+	33, // 52: documents.ContractService.GetDocumentMetadata:output_type -> documents.GetDocumentMetadataResponse
+	35, // 53: documents.ContractService.GetDocumentThumbnail:output_type -> documents.GetDocumentThumbnailResponse
+	37, // 54: documents.ContractService.GetRootId:output_type -> documents.GetRootIdResponse
+	39, // 55: documents.ContractService.GetSearchDocumentsQuery:output_type -> documents.GetSearchDocumentsQueryResponse
+	41, // 56: documents.ContractService.GetTreeDocumentId:output_type -> documents.GetTreeDocumentIdResponse
+	43, // 57: documents.ContractService.IsChildDocument:output_type -> documents.IsChildDocumentResponse
+	45, // 58: documents.ContractService.IsDocumentUri:output_type -> documents.IsDocumentUriResponse
+	47, // 59: documents.ContractService.IsRootUri:output_type -> documents.IsRootUriResponse
+	49, // 60: documents.ContractService.IsRootsUri:output_type -> documents.IsRootsUriResponse
+	51, // 61: documents.ContractService.IsTreeUri:output_type -> documents.IsTreeUriResponse
+	53, // 62: documents.ContractService.MoveDocument:output_type -> documents.MoveDocumentResponse
+	55, // 63: documents.ContractService.RemoveDocument:output_type -> documents.RemoveDocumentResponse
+	57, // 64: documents.ContractService.RenameDocument:output_type -> documents.RenameDocumentResponse
+	59, // 65: documents.ContractPathService.DescribeContents:output_type -> documents.DescribeContentsResponse
+	61, // 66: documents.ContractPathService.Equals:output_type -> documents.EqualsResponse
+	63, // 67: documents.ContractPathService.GetPath:output_type -> documents.GetPathResponse
+	37, // 68: documents.ContractPathService.GetRootId:output_type -> documents.GetRootIdResponse
+	66, // 69: documents.ContractPathService.HashCode:output_type -> documents.HashCodeResponse
+	68, // 70: documents.ContractPathService.ToString:output_type -> documents.ToStringResponse
+	70, // 71: documents.ContractPathService.WriteToParcel:output_type -> documents.WriteToParcelResponse
+	36, // [36:72] is the sub-list for method output_type
+	0,  // [0:36] is the sub-list for method input_type
 	0,  // [0:0] is the sub-list for extension type_name
 	0,  // [0:0] is the sub-list for extension extendee
 	0,  // [0:0] is the sub-list for field type_name
@@ -3684,7 +3772,7 @@ func file_proto_documents_documents_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_proto_documents_documents_proto_rawDesc), len(file_proto_documents_documents_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   69,
+			NumMessages:   71,
 			NumExtensions: 0,
 			NumServices:   2,
 		},

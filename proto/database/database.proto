@@ -6,25 +6,268 @@ package database;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/database";
 
-message NewDataSetObservableRequest {
+message NewMatrixCursorRequest {
+  int64 arg0 = 1;
 }
 
-message NewDataSetObservableResponse {
+message NewMatrixCursorResponse {
   int64 result = 1;
 }
 
-message NotifyChangedRequest {
+message AddRowRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message AddRowResponse {
+}
+
+message GetBlobRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message GetBlobResponse {
+  int64 result = 1;
+}
+
+message GetColumnNamesRequest {
   int64 handle = 1;
 }
 
-message NotifyChangedResponse {
+message GetColumnNamesResponse {
+  int64 result = 1;
 }
 
-message NotifyInvalidatedRequest {
+message GetCountRequest {
   int64 handle = 1;
 }
 
-message NotifyInvalidatedResponse {
+message GetCountResponse {
+  int32 result = 1;
+}
+
+message GetDoubleRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message GetDoubleResponse {
+  double result = 1;
+}
+
+message GetFloatRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message GetFloatResponse {
+  float result = 1;
+}
+
+message GetIntRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message GetIntResponse {
+  int32 result = 1;
+}
+
+message GetLongRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message GetLongResponse {
+  int64 result = 1;
+}
+
+message GetShortRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message GetShortResponse {
+  int32 result = 1;
+}
+
+message GetStringRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message GetStringResponse {
+  string result = 1;
+}
+
+message GetTypeRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message GetTypeResponse {
+  int32 result = 1;
+}
+
+message IsNullRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message IsNullResponse {
+  bool result = 1;
+}
+
+message NewRowRequest {
+  int64 handle = 1;
+}
+
+message NewRowResponse {
+  int64 result = 1;
+}
+
+message Add1Request {
+  int64 arg0 = 1;
+}
+
+message Add1Response {
+  int64 result = 1;
+}
+
+message Add2_1Request {
+  string arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message Add2_1Response {
+  int64 result = 1;
+}
+
+message CopyStringToBufferRequest {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message CopyStringToBufferResponse {
+}
+
+message AbstractWindowedCursorGetBlobRequest {
+  int32 arg0 = 1;
+}
+
+message AbstractWindowedCursorGetDoubleRequest {
+  int32 arg0 = 1;
+}
+
+message AbstractWindowedCursorGetFloatRequest {
+  int32 arg0 = 1;
+}
+
+message AbstractWindowedCursorGetIntRequest {
+  int32 arg0 = 1;
+}
+
+message AbstractWindowedCursorGetLongRequest {
+  int32 arg0 = 1;
+}
+
+message AbstractWindowedCursorGetShortRequest {
+  int32 arg0 = 1;
+}
+
+message AbstractWindowedCursorGetStringRequest {
+  int32 arg0 = 1;
+}
+
+message AbstractWindowedCursorGetTypeRequest {
+  int32 arg0 = 1;
+}
+
+message GetWindowRequest {
+}
+
+message GetWindowResponse {
+  int64 result = 1;
+}
+
+message HasWindowRequest {
+}
+
+message HasWindowResponse {
+  bool result = 1;
+}
+
+message IsBlobRequest {
+  int32 arg0 = 1;
+}
+
+message IsBlobResponse {
+  bool result = 1;
+}
+
+message IsFloatRequest {
+  int32 arg0 = 1;
+}
+
+message IsFloatResponse {
+  bool result = 1;
+}
+
+message IsLongRequest {
+  int32 arg0 = 1;
+}
+
+message IsLongResponse {
+  bool result = 1;
+}
+
+message AbstractWindowedCursorIsNullRequest {
+  int32 arg0 = 1;
+}
+
+message IsStringRequest {
+  int32 arg0 = 1;
+}
+
+message IsStringResponse {
+  bool result = 1;
+}
+
+message SetWindowRequest {
+  int64 arg0 = 1;
+}
+
+message SetWindowResponse {
+}
+
+message FillWindowRequest {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message FillWindowResponse {
+}
+
+message OnMoveRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message OnMoveResponse {
+  bool result = 1;
+}
+
+message OnChangedRequest {
+}
+
+message OnChangedResponse {
+}
+
+message OnInvalidatedRequest {
+}
+
+message OnInvalidatedResponse {
 }
 
 message NewUtilsRequest {
@@ -604,142 +847,28 @@ message ReplaceResponse {
   int64 result = 1;
 }
 
-message NewMatrixCursorRequest {
+message NewCrossProcessCursorWrapperRequest {
   int64 arg0 = 1;
 }
 
-message NewMatrixCursorResponse {
+message NewCrossProcessCursorWrapperResponse {
   int64 result = 1;
 }
 
-message AddRowRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-}
-
-message AddRowResponse {
-}
-
-message GetBlobRequest {
+message CrossProcessCursorWrapperFillWindowRequest {
   int64 handle = 1;
   int32 arg0 = 2;
+  int64 arg1 = 3;
 }
 
-message GetBlobResponse {
-  int64 result = 1;
-}
-
-message GetColumnNamesRequest {
+message CrossProcessCursorWrapperGetWindowRequest {
   int64 handle = 1;
 }
 
-message GetColumnNamesResponse {
-  int64 result = 1;
-}
-
-message GetCountRequest {
-  int64 handle = 1;
-}
-
-message GetCountResponse {
-  int32 result = 1;
-}
-
-message GetDoubleRequest {
+message CrossProcessCursorWrapperOnMoveRequest {
   int64 handle = 1;
   int32 arg0 = 2;
-}
-
-message GetDoubleResponse {
-  double result = 1;
-}
-
-message GetFloatRequest {
-  int64 handle = 1;
-  int32 arg0 = 2;
-}
-
-message GetFloatResponse {
-  float result = 1;
-}
-
-message GetIntRequest {
-  int64 handle = 1;
-  int32 arg0 = 2;
-}
-
-message GetIntResponse {
-  int32 result = 1;
-}
-
-message GetLongRequest {
-  int64 handle = 1;
-  int32 arg0 = 2;
-}
-
-message GetLongResponse {
-  int64 result = 1;
-}
-
-message GetShortRequest {
-  int64 handle = 1;
-  int32 arg0 = 2;
-}
-
-message GetShortResponse {
-  int32 result = 1;
-}
-
-message GetStringRequest {
-  int64 handle = 1;
-  int32 arg0 = 2;
-}
-
-message GetStringResponse {
-  string result = 1;
-}
-
-message GetTypeRequest {
-  int64 handle = 1;
-  int32 arg0 = 2;
-}
-
-message GetTypeResponse {
-  int32 result = 1;
-}
-
-message IsNullRequest {
-  int64 handle = 1;
-  int32 arg0 = 2;
-}
-
-message IsNullResponse {
-  bool result = 1;
-}
-
-message NewRowRequest {
-  int64 handle = 1;
-}
-
-message NewRowResponse {
-  int64 result = 1;
-}
-
-message Add1Request {
-  int64 arg0 = 1;
-}
-
-message Add1Response {
-  int64 result = 1;
-}
-
-message Add2_1Request {
-  string arg0 = 1;
-  int64 arg1 = 2;
-}
-
-message Add2_1Response {
-  int64 result = 1;
+  int32 arg1 = 3;
 }
 
 message DeliverSelfNotificationsRequest {
@@ -812,382 +941,46 @@ message OnCorruptionRequest {
 message OnCorruptionResponse {
 }
 
-message NewCursorWrapperRequest {
-  int64 arg0 = 1;
+message NewContentObservableRequest {
 }
 
-message NewCursorWrapperResponse {
+message NewContentObservableResponse {
   int64 result = 1;
 }
 
-message CursorWrapperCloseRequest {
+message ContentObservableDispatchChange1Request {
   int64 handle = 1;
+  bool arg0 = 2;
 }
 
-message CopyStringToBufferRequest {
+message ContentObservableDispatchChange2_1Request {
   int64 handle = 1;
-  int32 arg0 = 2;
+  bool arg0 = 2;
   int64 arg1 = 3;
 }
 
-message CopyStringToBufferResponse {
-}
-
-message DeactivateRequest {
+message NotifyChangeRequest {
   int64 handle = 1;
+  bool arg0 = 2;
 }
 
-message DeactivateResponse {
+message NotifyChangeResponse {
 }
 
-message GetColumnCountRequest {
-  int64 handle = 1;
-}
-
-message GetColumnCountResponse {
-  int32 result = 1;
-}
-
-message CursorWrapperGetColumnIndexRequest {
-  int64 handle = 1;
-  string arg0 = 2;
-}
-
-message GetColumnIndexOrThrowRequest {
-  int64 handle = 1;
-  string arg0 = 2;
-}
-
-message GetColumnIndexOrThrowResponse {
-  int32 result = 1;
-}
-
-message GetColumnNameRequest {
-  int64 handle = 1;
-  int32 arg0 = 2;
-}
-
-message GetColumnNameResponse {
-  string result = 1;
-}
-
-message GetExtrasRequest {
-  int64 handle = 1;
-}
-
-message GetExtrasResponse {
-  int64 result = 1;
-}
-
-message GetNotificationUriRequest {
-  int64 handle = 1;
-}
-
-message GetNotificationUriResponse {
-  int64 result = 1;
-}
-
-message GetPositionRequest {
-  int64 handle = 1;
-}
-
-message GetPositionResponse {
-  int32 result = 1;
-}
-
-message GetWantsAllOnMoveCallsRequest {
-  int64 handle = 1;
-}
-
-message GetWantsAllOnMoveCallsResponse {
-  bool result = 1;
-}
-
-message GetWrappedCursorRequest {
-  int64 handle = 1;
-}
-
-message GetWrappedCursorResponse {
-  int64 result = 1;
-}
-
-message IsAfterLastRequest {
-  int64 handle = 1;
-}
-
-message IsAfterLastResponse {
-  bool result = 1;
-}
-
-message IsBeforeFirstRequest {
-  int64 handle = 1;
-}
-
-message IsBeforeFirstResponse {
-  bool result = 1;
-}
-
-message IsClosedRequest {
-  int64 handle = 1;
-}
-
-message IsClosedResponse {
-  bool result = 1;
-}
-
-message IsFirstRequest {
-  int64 handle = 1;
-}
-
-message IsFirstResponse {
-  bool result = 1;
-}
-
-message IsLastRequest {
-  int64 handle = 1;
-}
-
-message IsLastResponse {
-  bool result = 1;
-}
-
-message MoveRequest {
-  int64 handle = 1;
-  int32 arg0 = 2;
-}
-
-message MoveResponse {
-  bool result = 1;
-}
-
-message MoveToFirstRequest {
-  int64 handle = 1;
-}
-
-message MoveToFirstResponse {
-  bool result = 1;
-}
-
-message MoveToLastRequest {
-  int64 handle = 1;
-}
-
-message MoveToLastResponse {
-  bool result = 1;
-}
-
-message MoveToNextRequest {
-  int64 handle = 1;
-}
-
-message MoveToNextResponse {
-  bool result = 1;
-}
-
-message MoveToPositionRequest {
-  int64 handle = 1;
-  int32 arg0 = 2;
-}
-
-message MoveToPositionResponse {
-  bool result = 1;
-}
-
-message MoveToPreviousRequest {
-  int64 handle = 1;
-}
-
-message MoveToPreviousResponse {
-  bool result = 1;
-}
-
-message RegisterContentObserverRequest {
+message RegisterObserver1Request {
   int64 handle = 1;
   int64 arg0 = 2;
 }
 
-message RegisterContentObserverResponse {
+message RegisterObserver1Response {
 }
 
-message RegisterDataSetObserverRequest {
+message RegisterObserver1_1Request {
   int64 handle = 1;
   int64 arg0 = 2;
 }
 
-message RegisterDataSetObserverResponse {
-}
-
-message RequeryRequest {
-  int64 handle = 1;
-}
-
-message RequeryResponse {
-  bool result = 1;
-}
-
-message RespondRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-}
-
-message RespondResponse {
-  int64 result = 1;
-}
-
-message SetExtrasRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-}
-
-message SetExtrasResponse {
-}
-
-message SetNotificationUriRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-  int64 arg1 = 3;
-}
-
-message SetNotificationUriResponse {
-}
-
-message UnregisterContentObserverRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-}
-
-message UnregisterContentObserverResponse {
-}
-
-message UnregisterDataSetObserverRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-}
-
-message UnregisterDataSetObserverResponse {
-}
-
-message UnregisterAllRequest {
-}
-
-message UnregisterAllResponse {
-}
-
-message NewCrossProcessCursorWrapperRequest {
-  int64 arg0 = 1;
-}
-
-message NewCrossProcessCursorWrapperResponse {
-  int64 result = 1;
-}
-
-message FillWindowRequest {
-  int64 handle = 1;
-  int32 arg0 = 2;
-  int64 arg1 = 3;
-}
-
-message FillWindowResponse {
-}
-
-message GetWindowRequest {
-  int64 handle = 1;
-}
-
-message GetWindowResponse {
-  int64 result = 1;
-}
-
-message OnMoveRequest {
-  int64 handle = 1;
-  int32 arg0 = 2;
-  int32 arg1 = 3;
-}
-
-message OnMoveResponse {
-  bool result = 1;
-}
-
-message OnChangedRequest {
-}
-
-message OnChangedResponse {
-}
-
-message OnInvalidatedRequest {
-}
-
-message OnInvalidatedResponse {
-}
-
-message NewCursorJoinerRequest {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-  int64 arg2 = 3;
-  int64 arg3 = 4;
-}
-
-message NewCursorJoinerResponse {
-  int64 result = 1;
-}
-
-message HasNextRequest {
-  int64 handle = 1;
-}
-
-message HasNextResponse {
-  bool result = 1;
-}
-
-message Next0Request {
-  int64 handle = 1;
-}
-
-message Next0Response {
-  int64 result = 1;
-}
-
-message RemoveRequest {
-  int64 handle = 1;
-}
-
-message RemoveResponse {
-}
-
-message Next0_1Request {
-  int64 handle = 1;
-}
-
-message Next0_1Response {
-  int64 result = 1;
-}
-
-message ValuesRequest {
-}
-
-message ValuesResponse {
-  int64 result = 1;
-}
-
-message ValueOfRequest {
-  string arg0 = 1;
-}
-
-message ValueOfResponse {
-  int64 result = 1;
-}
-
-message CrossProcessCursorFillWindowRequest {
-  int32 arg0 = 1;
-  int64 arg1 = 2;
-}
-
-message CrossProcessCursorGetWindowRequest {
-}
-
-message CrossProcessCursorOnMoveRequest {
-  int32 arg0 = 1;
-  int32 arg1 = 2;
+message RegisterObserver1_1Response {
 }
 
 message NewCursorWindowRequest {
@@ -1299,34 +1092,22 @@ message CursorWindowGetTypeRequest {
   int32 arg1 = 3;
 }
 
-message IsBlobRequest {
+message CursorWindowIsBlobRequest {
   int64 handle = 1;
   int32 arg0 = 2;
   int32 arg1 = 3;
 }
 
-message IsBlobResponse {
-  bool result = 1;
-}
-
-message IsFloatRequest {
+message CursorWindowIsFloatRequest {
   int64 handle = 1;
   int32 arg0 = 2;
   int32 arg1 = 3;
 }
 
-message IsFloatResponse {
-  bool result = 1;
-}
-
-message IsLongRequest {
+message CursorWindowIsLongRequest {
   int64 handle = 1;
   int32 arg0 = 2;
   int32 arg1 = 3;
-}
-
-message IsLongResponse {
-  bool result = 1;
 }
 
 message CursorWindowIsNullRequest {
@@ -1335,14 +1116,10 @@ message CursorWindowIsNullRequest {
   int32 arg1 = 3;
 }
 
-message IsStringRequest {
+message CursorWindowIsStringRequest {
   int64 handle = 1;
   int32 arg0 = 2;
   int32 arg1 = 3;
-}
-
-message IsStringResponse {
-  bool result = 1;
 }
 
 message PutBlobRequest {
@@ -1442,46 +1219,14 @@ message NewFromParcelResponse {
   int64 result = 1;
 }
 
-message NewContentObservableRequest {
+message ErrorHandlerOnCorruptionRequest {
+  int64 arg0 = 1;
 }
 
-message NewContentObservableResponse {
-  int64 result = 1;
+message UnregisterAllRequest {
 }
 
-message ContentObservableDispatchChange1Request {
-  int64 handle = 1;
-  bool arg0 = 2;
-}
-
-message ContentObservableDispatchChange2_1Request {
-  int64 handle = 1;
-  bool arg0 = 2;
-  int64 arg1 = 3;
-}
-
-message NotifyChangeRequest {
-  int64 handle = 1;
-  bool arg0 = 2;
-}
-
-message NotifyChangeResponse {
-}
-
-message RegisterObserver1Request {
-  int64 handle = 1;
-  int64 arg0 = 2;
-}
-
-message RegisterObserver1Response {
-}
-
-message RegisterObserver1_1Request {
-  int64 handle = 1;
-  int64 arg0 = 2;
-}
-
-message RegisterObserver1_1Response {
+message UnregisterAllResponse {
 }
 
 message NewMergeCursorRequest {
@@ -1496,110 +1241,87 @@ message MergeCursorCloseRequest {
   int64 handle = 1;
 }
 
-message AbstractWindowedCursorCopyStringToBufferRequest {
-  int32 arg0 = 1;
-  int64 arg1 = 2;
+message DeactivateRequest {
+  int64 handle = 1;
 }
 
-message AbstractWindowedCursorGetBlobRequest {
-  int32 arg0 = 1;
+message DeactivateResponse {
 }
 
-message AbstractWindowedCursorGetDoubleRequest {
-  int32 arg0 = 1;
+message MergeCursorOnMoveRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
 }
 
-message AbstractWindowedCursorGetFloatRequest {
-  int32 arg0 = 1;
+message RegisterContentObserverRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
 }
 
-message AbstractWindowedCursorGetIntRequest {
-  int32 arg0 = 1;
+message RegisterContentObserverResponse {
 }
 
-message AbstractWindowedCursorGetLongRequest {
-  int32 arg0 = 1;
+message RegisterDataSetObserverRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
 }
 
-message AbstractWindowedCursorGetShortRequest {
-  int32 arg0 = 1;
+message RegisterDataSetObserverResponse {
 }
 
-message AbstractWindowedCursorGetStringRequest {
-  int32 arg0 = 1;
+message RequeryRequest {
+  int64 handle = 1;
 }
 
-message AbstractWindowedCursorGetTypeRequest {
-  int32 arg0 = 1;
-}
-
-message AbstractWindowedCursorGetWindowRequest {
-}
-
-message HasWindowRequest {
-}
-
-message HasWindowResponse {
+message RequeryResponse {
   bool result = 1;
 }
 
-message AbstractWindowedCursorIsBlobRequest {
-  int32 arg0 = 1;
+message UnregisterContentObserverRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
 }
 
-message AbstractWindowedCursorIsFloatRequest {
-  int32 arg0 = 1;
+message UnregisterContentObserverResponse {
 }
 
-message AbstractWindowedCursorIsLongRequest {
-  int32 arg0 = 1;
+message UnregisterDataSetObserverRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
 }
 
-message AbstractWindowedCursorIsNullRequest {
-  int32 arg0 = 1;
-}
-
-message AbstractWindowedCursorIsStringRequest {
-  int32 arg0 = 1;
-}
-
-message SetWindowRequest {
-  int64 arg0 = 1;
-}
-
-message SetWindowResponse {
-}
-
-message ErrorHandlerOnCorruptionRequest {
-  int64 arg0 = 1;
-}
-
-message AbstractCursorCopyStringToBufferRequest {
-  int32 arg0 = 1;
-  int64 arg1 = 2;
+message UnregisterDataSetObserverResponse {
 }
 
 message AbstractCursorDeactivateRequest {
-}
-
-message AbstractCursorFillWindowRequest {
-  int32 arg0 = 1;
-  int64 arg1 = 2;
 }
 
 message AbstractCursorGetBlobRequest {
   int32 arg0 = 1;
 }
 
-message AbstractCursorGetColumnCountRequest {
+message GetColumnCountRequest {
 }
 
-message AbstractCursorGetColumnIndexOrThrowRequest {
+message GetColumnCountResponse {
+  int32 result = 1;
+}
+
+message GetColumnIndexOrThrowRequest {
   string arg0 = 1;
 }
 
-message AbstractCursorGetColumnNameRequest {
+message GetColumnIndexOrThrowResponse {
+  int32 result = 1;
+}
+
+message GetColumnNameRequest {
   int32 arg0 = 1;
+}
+
+message GetColumnNameResponse {
+  string result = 1;
 }
 
 message AbstractCursorGetColumnNamesRequest {
@@ -1612,7 +1334,11 @@ message AbstractCursorGetDoubleRequest {
   int32 arg0 = 1;
 }
 
-message AbstractCursorGetExtrasRequest {
+message GetExtrasRequest {
+}
+
+message GetExtrasResponse {
+  int64 result = 1;
 }
 
 message AbstractCursorGetFloatRequest {
@@ -1627,10 +1353,25 @@ message AbstractCursorGetLongRequest {
   int32 arg0 = 1;
 }
 
-message AbstractCursorGetNotificationUriRequest {
+message GetNotificationUriRequest {
 }
 
-message AbstractCursorGetPositionRequest {
+message GetNotificationUriResponse {
+  int64 result = 1;
+}
+
+message GetNotificationUrisRequest {
+}
+
+message GetNotificationUrisResponse {
+  int64 result = 1;
+}
+
+message GetPositionRequest {
+}
+
+message GetPositionResponse {
+  int32 result = 1;
 }
 
 message AbstractCursorGetShortRequest {
@@ -1645,54 +1386,94 @@ message AbstractCursorGetTypeRequest {
   int32 arg0 = 1;
 }
 
-message AbstractCursorGetWantsAllOnMoveCallsRequest {
+message GetWantsAllOnMoveCallsRequest {
 }
 
-message AbstractCursorGetWindowRequest {
+message GetWantsAllOnMoveCallsResponse {
+  bool result = 1;
 }
 
-message AbstractCursorIsAfterLastRequest {
+message IsAfterLastRequest {
 }
 
-message AbstractCursorIsBeforeFirstRequest {
+message IsAfterLastResponse {
+  bool result = 1;
 }
 
-message AbstractCursorIsClosedRequest {
+message IsBeforeFirstRequest {
 }
 
-message AbstractCursorIsFirstRequest {
+message IsBeforeFirstResponse {
+  bool result = 1;
 }
 
-message AbstractCursorIsLastRequest {
+message IsClosedRequest {
+}
+
+message IsClosedResponse {
+  bool result = 1;
+}
+
+message IsFirstRequest {
+}
+
+message IsFirstResponse {
+  bool result = 1;
+}
+
+message IsLastRequest {
+}
+
+message IsLastResponse {
+  bool result = 1;
 }
 
 message AbstractCursorIsNullRequest {
   int32 arg0 = 1;
 }
 
-message AbstractCursorMoveRequest {
+message MoveRequest {
   int32 arg0 = 1;
 }
 
-message AbstractCursorMoveToFirstRequest {
+message MoveResponse {
+  bool result = 1;
 }
 
-message AbstractCursorMoveToLastRequest {
+message MoveToFirstRequest {
 }
 
-message AbstractCursorMoveToNextRequest {
+message MoveToFirstResponse {
+  bool result = 1;
 }
 
-message AbstractCursorMoveToPositionRequest {
+message MoveToLastRequest {
+}
+
+message MoveToLastResponse {
+  bool result = 1;
+}
+
+message MoveToNextRequest {
+}
+
+message MoveToNextResponse {
+  bool result = 1;
+}
+
+message MoveToPositionRequest {
   int32 arg0 = 1;
 }
 
-message AbstractCursorMoveToPreviousRequest {
+message MoveToPositionResponse {
+  bool result = 1;
 }
 
-message AbstractCursorOnMoveRequest {
-  int32 arg0 = 1;
-  int32 arg1 = 2;
+message MoveToPreviousRequest {
+}
+
+message MoveToPreviousResponse {
+  bool result = 1;
 }
 
 message AbstractCursorRegisterContentObserverRequest {
@@ -1706,17 +1487,27 @@ message AbstractCursorRegisterDataSetObserverRequest {
 message AbstractCursorRequeryRequest {
 }
 
-message AbstractCursorRespondRequest {
+message RespondRequest {
   int64 arg0 = 1;
 }
 
-message AbstractCursorSetExtrasRequest {
+message RespondResponse {
+  int64 result = 1;
+}
+
+message SetExtrasRequest {
   int64 arg0 = 1;
 }
 
-message AbstractCursorSetNotificationUriRequest {
+message SetExtrasResponse {
+}
+
+message SetNotificationUriRequest {
   int64 arg0 = 1;
   int64 arg1 = 2;
+}
+
+message SetNotificationUriResponse {
 }
 
 message AbstractCursorUnregisterContentObserverRequest {
@@ -1734,10 +1525,270 @@ message OnChangeRequest {
 message OnChangeResponse {
 }
 
-service DataSetObservableService {
-  rpc NewDataSetObservable (NewDataSetObservableRequest) returns (NewDataSetObservableResponse);
-  rpc NotifyChanged (NotifyChangedRequest) returns (NotifyChangedResponse);
-  rpc NotifyInvalidated (NotifyInvalidatedRequest) returns (NotifyInvalidatedResponse);
+message NewCursorJoinerRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+  int64 arg3 = 4;
+}
+
+message NewCursorJoinerResponse {
+  int64 result = 1;
+}
+
+message HasNextRequest {
+  int64 handle = 1;
+}
+
+message HasNextResponse {
+  bool result = 1;
+}
+
+message IteratorRequest {
+  int64 handle = 1;
+}
+
+message IteratorResponse {
+  int64 result = 1;
+}
+
+message Next0Request {
+  int64 handle = 1;
+}
+
+message Next0Response {
+  int64 result = 1;
+}
+
+message RemoveRequest {
+  int64 handle = 1;
+}
+
+message RemoveResponse {
+}
+
+message Next0_1Request {
+  int64 handle = 1;
+}
+
+message Next0_1Response {
+  int64 result = 1;
+}
+
+message ValuesRequest {
+}
+
+message ValuesResponse {
+  int64 result = 1;
+}
+
+message ValueOfRequest {
+  string arg0 = 1;
+}
+
+message ValueOfResponse {
+  int64 result = 1;
+}
+
+message NewCursorWrapperRequest {
+  int64 arg0 = 1;
+}
+
+message NewCursorWrapperResponse {
+  int64 result = 1;
+}
+
+message CursorWrapperCloseRequest {
+  int64 handle = 1;
+}
+
+message CursorWrapperCopyStringToBufferRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message CursorWrapperGetColumnCountRequest {
+  int64 handle = 1;
+}
+
+message CursorWrapperGetColumnIndexRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message CursorWrapperGetColumnIndexOrThrowRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message CursorWrapperGetColumnNameRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message CursorWrapperGetExtrasRequest {
+  int64 handle = 1;
+}
+
+message CursorWrapperGetNotificationUriRequest {
+  int64 handle = 1;
+}
+
+message CursorWrapperGetNotificationUrisRequest {
+  int64 handle = 1;
+}
+
+message CursorWrapperGetPositionRequest {
+  int64 handle = 1;
+}
+
+message CursorWrapperGetWantsAllOnMoveCallsRequest {
+  int64 handle = 1;
+}
+
+message GetWrappedCursorRequest {
+  int64 handle = 1;
+}
+
+message GetWrappedCursorResponse {
+  int64 result = 1;
+}
+
+message CursorWrapperIsAfterLastRequest {
+  int64 handle = 1;
+}
+
+message CursorWrapperIsBeforeFirstRequest {
+  int64 handle = 1;
+}
+
+message CursorWrapperIsClosedRequest {
+  int64 handle = 1;
+}
+
+message CursorWrapperIsFirstRequest {
+  int64 handle = 1;
+}
+
+message CursorWrapperIsLastRequest {
+  int64 handle = 1;
+}
+
+message CursorWrapperMoveRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message CursorWrapperMoveToFirstRequest {
+  int64 handle = 1;
+}
+
+message CursorWrapperMoveToLastRequest {
+  int64 handle = 1;
+}
+
+message CursorWrapperMoveToNextRequest {
+  int64 handle = 1;
+}
+
+message CursorWrapperMoveToPositionRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message CursorWrapperMoveToPreviousRequest {
+  int64 handle = 1;
+}
+
+message CursorWrapperRespondRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message CursorWrapperSetExtrasRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message CursorWrapperSetNotificationUriRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message NewDataSetObservableRequest {
+}
+
+message NewDataSetObservableResponse {
+  int64 result = 1;
+}
+
+message NotifyChangedRequest {
+  int64 handle = 1;
+}
+
+message NotifyChangedResponse {
+}
+
+message NotifyInvalidatedRequest {
+  int64 handle = 1;
+}
+
+message NotifyInvalidatedResponse {
+}
+
+service MatrixCursorService {
+  rpc NewMatrixCursor (NewMatrixCursorRequest) returns (NewMatrixCursorResponse);
+  rpc AddRow (AddRowRequest) returns (AddRowResponse);
+  rpc GetBlob (GetBlobRequest) returns (GetBlobResponse);
+  rpc GetColumnNames (GetColumnNamesRequest) returns (GetColumnNamesResponse);
+  rpc GetCount (GetCountRequest) returns (GetCountResponse);
+  rpc GetDouble (GetDoubleRequest) returns (GetDoubleResponse);
+  rpc GetFloat (GetFloatRequest) returns (GetFloatResponse);
+  rpc GetInt (GetIntRequest) returns (GetIntResponse);
+  rpc GetLong (GetLongRequest) returns (GetLongResponse);
+  rpc GetShort (GetShortRequest) returns (GetShortResponse);
+  rpc GetString (GetStringRequest) returns (GetStringResponse);
+  rpc GetType (GetTypeRequest) returns (GetTypeResponse);
+  rpc IsNull (IsNullRequest) returns (IsNullResponse);
+  rpc NewRow (NewRowRequest) returns (NewRowResponse);
+}
+
+service MatrixCursorRowBuilderService {
+  rpc Add1 (Add1Request) returns (Add1Response);
+  rpc Add2_1 (Add2_1Request) returns (Add2_1Response);
+}
+
+service AbstractWindowedCursorService {
+  rpc CopyStringToBuffer (CopyStringToBufferRequest) returns (CopyStringToBufferResponse);
+  rpc GetBlob (AbstractWindowedCursorGetBlobRequest) returns (GetBlobResponse);
+  rpc GetDouble (AbstractWindowedCursorGetDoubleRequest) returns (GetDoubleResponse);
+  rpc GetFloat (AbstractWindowedCursorGetFloatRequest) returns (GetFloatResponse);
+  rpc GetInt (AbstractWindowedCursorGetIntRequest) returns (GetIntResponse);
+  rpc GetLong (AbstractWindowedCursorGetLongRequest) returns (GetLongResponse);
+  rpc GetShort (AbstractWindowedCursorGetShortRequest) returns (GetShortResponse);
+  rpc GetString (AbstractWindowedCursorGetStringRequest) returns (GetStringResponse);
+  rpc GetType (AbstractWindowedCursorGetTypeRequest) returns (GetTypeResponse);
+  rpc GetWindow (GetWindowRequest) returns (GetWindowResponse);
+  rpc HasWindow (HasWindowRequest) returns (HasWindowResponse);
+  rpc IsBlob (IsBlobRequest) returns (IsBlobResponse);
+  rpc IsFloat (IsFloatRequest) returns (IsFloatResponse);
+  rpc IsLong (IsLongRequest) returns (IsLongResponse);
+  rpc IsNull (AbstractWindowedCursorIsNullRequest) returns (IsNullResponse);
+  rpc IsString (IsStringRequest) returns (IsStringResponse);
+  rpc SetWindow (SetWindowRequest) returns (SetWindowResponse);
+}
+
+service CrossProcessCursorService {
+  rpc FillWindow (FillWindowRequest) returns (FillWindowResponse);
+  rpc GetWindow (GetWindowRequest) returns (GetWindowResponse);
+  rpc OnMove (OnMoveRequest) returns (OnMoveResponse);
+}
+
+service DataSetObserverService {
+  rpc OnChanged (OnChangedRequest) returns (OnChangedResponse);
+  rpc OnInvalidated (OnInvalidatedRequest) returns (OnInvalidatedResponse);
 }
 
 service UtilsService {
@@ -1809,26 +1860,11 @@ service UtilsInsertHelperService {
   rpc Replace (ReplaceRequest) returns (ReplaceResponse);
 }
 
-service MatrixCursorService {
-  rpc NewMatrixCursor (NewMatrixCursorRequest) returns (NewMatrixCursorResponse);
-  rpc AddRow (AddRowRequest) returns (AddRowResponse);
-  rpc GetBlob (GetBlobRequest) returns (GetBlobResponse);
-  rpc GetColumnNames (GetColumnNamesRequest) returns (GetColumnNamesResponse);
-  rpc GetCount (GetCountRequest) returns (GetCountResponse);
-  rpc GetDouble (GetDoubleRequest) returns (GetDoubleResponse);
-  rpc GetFloat (GetFloatRequest) returns (GetFloatResponse);
-  rpc GetInt (GetIntRequest) returns (GetIntResponse);
-  rpc GetLong (GetLongRequest) returns (GetLongResponse);
-  rpc GetShort (GetShortRequest) returns (GetShortResponse);
-  rpc GetString (GetStringRequest) returns (GetStringResponse);
-  rpc GetType (GetTypeRequest) returns (GetTypeResponse);
-  rpc IsNull (IsNullRequest) returns (IsNullResponse);
-  rpc NewRow (NewRowRequest) returns (NewRowResponse);
-}
-
-service MatrixCursorRowBuilderService {
-  rpc Add1 (Add1Request) returns (Add1Response);
-  rpc Add2_1 (Add2_1Request) returns (Add2_1Response);
+service CrossProcessCursorWrapperService {
+  rpc NewCrossProcessCursorWrapper (NewCrossProcessCursorWrapperRequest) returns (NewCrossProcessCursorWrapperResponse);
+  rpc FillWindow (CrossProcessCursorWrapperFillWindowRequest) returns (FillWindowResponse);
+  rpc GetWindow (CrossProcessCursorWrapperGetWindowRequest) returns (GetWindowResponse);
+  rpc OnMove (CrossProcessCursorWrapperOnMoveRequest) returns (OnMoveResponse);
 }
 
 service ContentObserverService {
@@ -1846,85 +1882,13 @@ service DefaultDatabaseErrorHandlerService {
   rpc OnCorruption (OnCorruptionRequest) returns (OnCorruptionResponse);
 }
 
-service CursorWrapperService {
-  rpc NewCursorWrapper (NewCursorWrapperRequest) returns (NewCursorWrapperResponse);
-  rpc Close (CursorWrapperCloseRequest) returns (CloseResponse);
-  rpc CopyStringToBuffer (CopyStringToBufferRequest) returns (CopyStringToBufferResponse);
-  rpc Deactivate (DeactivateRequest) returns (DeactivateResponse);
-  rpc GetBlob (GetBlobRequest) returns (GetBlobResponse);
-  rpc GetColumnCount (GetColumnCountRequest) returns (GetColumnCountResponse);
-  rpc GetColumnIndex (CursorWrapperGetColumnIndexRequest) returns (GetColumnIndexResponse);
-  rpc GetColumnIndexOrThrow (GetColumnIndexOrThrowRequest) returns (GetColumnIndexOrThrowResponse);
-  rpc GetColumnName (GetColumnNameRequest) returns (GetColumnNameResponse);
-  rpc GetColumnNames (GetColumnNamesRequest) returns (GetColumnNamesResponse);
-  rpc GetCount (GetCountRequest) returns (GetCountResponse);
-  rpc GetDouble (GetDoubleRequest) returns (GetDoubleResponse);
-  rpc GetExtras (GetExtrasRequest) returns (GetExtrasResponse);
-  rpc GetFloat (GetFloatRequest) returns (GetFloatResponse);
-  rpc GetInt (GetIntRequest) returns (GetIntResponse);
-  rpc GetLong (GetLongRequest) returns (GetLongResponse);
-  rpc GetNotificationUri (GetNotificationUriRequest) returns (GetNotificationUriResponse);
-  rpc GetPosition (GetPositionRequest) returns (GetPositionResponse);
-  rpc GetShort (GetShortRequest) returns (GetShortResponse);
-  rpc GetString (GetStringRequest) returns (GetStringResponse);
-  rpc GetType (GetTypeRequest) returns (GetTypeResponse);
-  rpc GetWantsAllOnMoveCalls (GetWantsAllOnMoveCallsRequest) returns (GetWantsAllOnMoveCallsResponse);
-  rpc GetWrappedCursor (GetWrappedCursorRequest) returns (GetWrappedCursorResponse);
-  rpc IsAfterLast (IsAfterLastRequest) returns (IsAfterLastResponse);
-  rpc IsBeforeFirst (IsBeforeFirstRequest) returns (IsBeforeFirstResponse);
-  rpc IsClosed (IsClosedRequest) returns (IsClosedResponse);
-  rpc IsFirst (IsFirstRequest) returns (IsFirstResponse);
-  rpc IsLast (IsLastRequest) returns (IsLastResponse);
-  rpc IsNull (IsNullRequest) returns (IsNullResponse);
-  rpc Move (MoveRequest) returns (MoveResponse);
-  rpc MoveToFirst (MoveToFirstRequest) returns (MoveToFirstResponse);
-  rpc MoveToLast (MoveToLastRequest) returns (MoveToLastResponse);
-  rpc MoveToNext (MoveToNextRequest) returns (MoveToNextResponse);
-  rpc MoveToPosition (MoveToPositionRequest) returns (MoveToPositionResponse);
-  rpc MoveToPrevious (MoveToPreviousRequest) returns (MoveToPreviousResponse);
-  rpc RegisterContentObserver (RegisterContentObserverRequest) returns (RegisterContentObserverResponse);
-  rpc RegisterDataSetObserver (RegisterDataSetObserverRequest) returns (RegisterDataSetObserverResponse);
-  rpc Requery (RequeryRequest) returns (RequeryResponse);
-  rpc Respond (RespondRequest) returns (RespondResponse);
-  rpc SetExtras (SetExtrasRequest) returns (SetExtrasResponse);
-  rpc SetNotificationUri (SetNotificationUriRequest) returns (SetNotificationUriResponse);
-  rpc UnregisterContentObserver (UnregisterContentObserverRequest) returns (UnregisterContentObserverResponse);
-  rpc UnregisterDataSetObserver (UnregisterDataSetObserverRequest) returns (UnregisterDataSetObserverResponse);
-}
-
-service ObservableService {
-  rpc UnregisterAll (UnregisterAllRequest) returns (UnregisterAllResponse);
-}
-
-service CrossProcessCursorWrapperService {
-  rpc NewCrossProcessCursorWrapper (NewCrossProcessCursorWrapperRequest) returns (NewCrossProcessCursorWrapperResponse);
-  rpc FillWindow (FillWindowRequest) returns (FillWindowResponse);
-  rpc GetWindow (GetWindowRequest) returns (GetWindowResponse);
-  rpc OnMove (OnMoveRequest) returns (OnMoveResponse);
-}
-
-service DataSetObserverService {
-  rpc OnChanged (OnChangedRequest) returns (OnChangedResponse);
-  rpc OnInvalidated (OnInvalidatedRequest) returns (OnInvalidatedResponse);
-}
-
-service CursorJoinerService {
-  rpc NewCursorJoiner (NewCursorJoinerRequest) returns (NewCursorJoinerResponse);
-  rpc HasNext (HasNextRequest) returns (HasNextResponse);
-  rpc Next0 (Next0Request) returns (Next0Response);
-  rpc Remove (RemoveRequest) returns (RemoveResponse);
-  rpc Next0_1 (Next0_1Request) returns (Next0_1Response);
-}
-
-service CursorJoinerResultService {
-  rpc Values (ValuesRequest) returns (ValuesResponse);
-  rpc ValueOf (ValueOfRequest) returns (ValueOfResponse);
-}
-
-service CrossProcessCursorService {
-  rpc FillWindow (CrossProcessCursorFillWindowRequest) returns (FillWindowResponse);
-  rpc GetWindow (CrossProcessCursorGetWindowRequest) returns (GetWindowResponse);
-  rpc OnMove (CrossProcessCursorOnMoveRequest) returns (OnMoveResponse);
+service ContentObservableService {
+  rpc NewContentObservable (NewContentObservableRequest) returns (NewContentObservableResponse);
+  rpc DispatchChange1 (ContentObservableDispatchChange1Request) returns (DispatchChange1Response);
+  rpc DispatchChange2_1 (ContentObservableDispatchChange2_1Request) returns (DispatchChange2_1Response);
+  rpc NotifyChange (NotifyChangeRequest) returns (NotifyChangeResponse);
+  rpc RegisterObserver1 (RegisterObserver1Request) returns (RegisterObserver1Response);
+  rpc RegisterObserver1_1 (RegisterObserver1_1Request) returns (RegisterObserver1_1Response);
 }
 
 service CursorWindowService {
@@ -1944,11 +1908,11 @@ service CursorWindowService {
   rpc GetStartPosition (GetStartPositionRequest) returns (GetStartPositionResponse);
   rpc GetString (CursorWindowGetStringRequest) returns (GetStringResponse);
   rpc GetType (CursorWindowGetTypeRequest) returns (GetTypeResponse);
-  rpc IsBlob (IsBlobRequest) returns (IsBlobResponse);
-  rpc IsFloat (IsFloatRequest) returns (IsFloatResponse);
-  rpc IsLong (IsLongRequest) returns (IsLongResponse);
+  rpc IsBlob (CursorWindowIsBlobRequest) returns (IsBlobResponse);
+  rpc IsFloat (CursorWindowIsFloatRequest) returns (IsFloatResponse);
+  rpc IsLong (CursorWindowIsLongRequest) returns (IsLongResponse);
   rpc IsNull (CursorWindowIsNullRequest) returns (IsNullResponse);
-  rpc IsString (IsStringRequest) returns (IsStringResponse);
+  rpc IsString (CursorWindowIsStringRequest) returns (IsStringResponse);
   rpc PutBlob (PutBlobRequest) returns (PutBlobResponse);
   rpc PutDouble (PutDoubleRequest) returns (PutDoubleResponse);
   rpc PutLong (PutLongRequest) returns (PutLongResponse);
@@ -1961,13 +1925,12 @@ service CursorWindowService {
   rpc NewFromParcel (NewFromParcelRequest) returns (NewFromParcelResponse);
 }
 
-service ContentObservableService {
-  rpc NewContentObservable (NewContentObservableRequest) returns (NewContentObservableResponse);
-  rpc DispatchChange1 (ContentObservableDispatchChange1Request) returns (DispatchChange1Response);
-  rpc DispatchChange2_1 (ContentObservableDispatchChange2_1Request) returns (DispatchChange2_1Response);
-  rpc NotifyChange (NotifyChangeRequest) returns (NotifyChangeResponse);
-  rpc RegisterObserver1 (RegisterObserver1Request) returns (RegisterObserver1Response);
-  rpc RegisterObserver1_1 (RegisterObserver1_1Request) returns (RegisterObserver1_1Response);
+service ErrorHandlerService {
+  rpc OnCorruption (ErrorHandlerOnCorruptionRequest) returns (OnCorruptionResponse);
+}
+
+service ObservableService {
+  rpc UnregisterAll (UnregisterAllRequest) returns (UnregisterAllResponse);
 }
 
 service MergeCursorService {
@@ -1985,7 +1948,7 @@ service MergeCursorService {
   rpc GetString (GetStringRequest) returns (GetStringResponse);
   rpc GetType (GetTypeRequest) returns (GetTypeResponse);
   rpc IsNull (IsNullRequest) returns (IsNullResponse);
-  rpc OnMove (OnMoveRequest) returns (OnMoveResponse);
+  rpc OnMove (MergeCursorOnMoveRequest) returns (OnMoveResponse);
   rpc RegisterContentObserver (RegisterContentObserverRequest) returns (RegisterContentObserverResponse);
   rpc RegisterDataSetObserver (RegisterDataSetObserverRequest) returns (RegisterDataSetObserverResponse);
   rpc Requery (RequeryRequest) returns (RequeryResponse);
@@ -1993,73 +1956,50 @@ service MergeCursorService {
   rpc UnregisterDataSetObserver (UnregisterDataSetObserverRequest) returns (UnregisterDataSetObserverResponse);
 }
 
-service AbstractWindowedCursorService {
-  rpc CopyStringToBuffer (AbstractWindowedCursorCopyStringToBufferRequest) returns (CopyStringToBufferResponse);
-  rpc GetBlob (AbstractWindowedCursorGetBlobRequest) returns (GetBlobResponse);
-  rpc GetDouble (AbstractWindowedCursorGetDoubleRequest) returns (GetDoubleResponse);
-  rpc GetFloat (AbstractWindowedCursorGetFloatRequest) returns (GetFloatResponse);
-  rpc GetInt (AbstractWindowedCursorGetIntRequest) returns (GetIntResponse);
-  rpc GetLong (AbstractWindowedCursorGetLongRequest) returns (GetLongResponse);
-  rpc GetShort (AbstractWindowedCursorGetShortRequest) returns (GetShortResponse);
-  rpc GetString (AbstractWindowedCursorGetStringRequest) returns (GetStringResponse);
-  rpc GetType (AbstractWindowedCursorGetTypeRequest) returns (GetTypeResponse);
-  rpc GetWindow (AbstractWindowedCursorGetWindowRequest) returns (GetWindowResponse);
-  rpc HasWindow (HasWindowRequest) returns (HasWindowResponse);
-  rpc IsBlob (AbstractWindowedCursorIsBlobRequest) returns (IsBlobResponse);
-  rpc IsFloat (AbstractWindowedCursorIsFloatRequest) returns (IsFloatResponse);
-  rpc IsLong (AbstractWindowedCursorIsLongRequest) returns (IsLongResponse);
-  rpc IsNull (AbstractWindowedCursorIsNullRequest) returns (IsNullResponse);
-  rpc IsString (AbstractWindowedCursorIsStringRequest) returns (IsStringResponse);
-  rpc SetWindow (SetWindowRequest) returns (SetWindowResponse);
-}
-
-service ErrorHandlerService {
-  rpc OnCorruption (ErrorHandlerOnCorruptionRequest) returns (OnCorruptionResponse);
-}
-
 service AbstractCursorService {
   rpc Close (CloseRequest) returns (CloseResponse);
-  rpc CopyStringToBuffer (AbstractCursorCopyStringToBufferRequest) returns (CopyStringToBufferResponse);
+  rpc CopyStringToBuffer (CopyStringToBufferRequest) returns (CopyStringToBufferResponse);
   rpc Deactivate (AbstractCursorDeactivateRequest) returns (DeactivateResponse);
-  rpc FillWindow (AbstractCursorFillWindowRequest) returns (FillWindowResponse);
+  rpc FillWindow (FillWindowRequest) returns (FillWindowResponse);
   rpc GetBlob (AbstractCursorGetBlobRequest) returns (GetBlobResponse);
-  rpc GetColumnCount (AbstractCursorGetColumnCountRequest) returns (GetColumnCountResponse);
+  rpc GetColumnCount (GetColumnCountRequest) returns (GetColumnCountResponse);
   rpc GetColumnIndex (GetColumnIndexRequest) returns (GetColumnIndexResponse);
-  rpc GetColumnIndexOrThrow (AbstractCursorGetColumnIndexOrThrowRequest) returns (GetColumnIndexOrThrowResponse);
-  rpc GetColumnName (AbstractCursorGetColumnNameRequest) returns (GetColumnNameResponse);
+  rpc GetColumnIndexOrThrow (GetColumnIndexOrThrowRequest) returns (GetColumnIndexOrThrowResponse);
+  rpc GetColumnName (GetColumnNameRequest) returns (GetColumnNameResponse);
   rpc GetColumnNames (AbstractCursorGetColumnNamesRequest) returns (GetColumnNamesResponse);
   rpc GetCount (AbstractCursorGetCountRequest) returns (GetCountResponse);
   rpc GetDouble (AbstractCursorGetDoubleRequest) returns (GetDoubleResponse);
-  rpc GetExtras (AbstractCursorGetExtrasRequest) returns (GetExtrasResponse);
+  rpc GetExtras (GetExtrasRequest) returns (GetExtrasResponse);
   rpc GetFloat (AbstractCursorGetFloatRequest) returns (GetFloatResponse);
   rpc GetInt (AbstractCursorGetIntRequest) returns (GetIntResponse);
   rpc GetLong (AbstractCursorGetLongRequest) returns (GetLongResponse);
-  rpc GetNotificationUri (AbstractCursorGetNotificationUriRequest) returns (GetNotificationUriResponse);
-  rpc GetPosition (AbstractCursorGetPositionRequest) returns (GetPositionResponse);
+  rpc GetNotificationUri (GetNotificationUriRequest) returns (GetNotificationUriResponse);
+  rpc GetNotificationUris (GetNotificationUrisRequest) returns (GetNotificationUrisResponse);
+  rpc GetPosition (GetPositionRequest) returns (GetPositionResponse);
   rpc GetShort (AbstractCursorGetShortRequest) returns (GetShortResponse);
   rpc GetString (AbstractCursorGetStringRequest) returns (GetStringResponse);
   rpc GetType (AbstractCursorGetTypeRequest) returns (GetTypeResponse);
-  rpc GetWantsAllOnMoveCalls (AbstractCursorGetWantsAllOnMoveCallsRequest) returns (GetWantsAllOnMoveCallsResponse);
-  rpc GetWindow (AbstractCursorGetWindowRequest) returns (GetWindowResponse);
-  rpc IsAfterLast (AbstractCursorIsAfterLastRequest) returns (IsAfterLastResponse);
-  rpc IsBeforeFirst (AbstractCursorIsBeforeFirstRequest) returns (IsBeforeFirstResponse);
-  rpc IsClosed (AbstractCursorIsClosedRequest) returns (IsClosedResponse);
-  rpc IsFirst (AbstractCursorIsFirstRequest) returns (IsFirstResponse);
-  rpc IsLast (AbstractCursorIsLastRequest) returns (IsLastResponse);
+  rpc GetWantsAllOnMoveCalls (GetWantsAllOnMoveCallsRequest) returns (GetWantsAllOnMoveCallsResponse);
+  rpc GetWindow (GetWindowRequest) returns (GetWindowResponse);
+  rpc IsAfterLast (IsAfterLastRequest) returns (IsAfterLastResponse);
+  rpc IsBeforeFirst (IsBeforeFirstRequest) returns (IsBeforeFirstResponse);
+  rpc IsClosed (IsClosedRequest) returns (IsClosedResponse);
+  rpc IsFirst (IsFirstRequest) returns (IsFirstResponse);
+  rpc IsLast (IsLastRequest) returns (IsLastResponse);
   rpc IsNull (AbstractCursorIsNullRequest) returns (IsNullResponse);
-  rpc Move (AbstractCursorMoveRequest) returns (MoveResponse);
-  rpc MoveToFirst (AbstractCursorMoveToFirstRequest) returns (MoveToFirstResponse);
-  rpc MoveToLast (AbstractCursorMoveToLastRequest) returns (MoveToLastResponse);
-  rpc MoveToNext (AbstractCursorMoveToNextRequest) returns (MoveToNextResponse);
-  rpc MoveToPosition (AbstractCursorMoveToPositionRequest) returns (MoveToPositionResponse);
-  rpc MoveToPrevious (AbstractCursorMoveToPreviousRequest) returns (MoveToPreviousResponse);
-  rpc OnMove (AbstractCursorOnMoveRequest) returns (OnMoveResponse);
+  rpc Move (MoveRequest) returns (MoveResponse);
+  rpc MoveToFirst (MoveToFirstRequest) returns (MoveToFirstResponse);
+  rpc MoveToLast (MoveToLastRequest) returns (MoveToLastResponse);
+  rpc MoveToNext (MoveToNextRequest) returns (MoveToNextResponse);
+  rpc MoveToPosition (MoveToPositionRequest) returns (MoveToPositionResponse);
+  rpc MoveToPrevious (MoveToPreviousRequest) returns (MoveToPreviousResponse);
+  rpc OnMove (OnMoveRequest) returns (OnMoveResponse);
   rpc RegisterContentObserver (AbstractCursorRegisterContentObserverRequest) returns (RegisterContentObserverResponse);
   rpc RegisterDataSetObserver (AbstractCursorRegisterDataSetObserverRequest) returns (RegisterDataSetObserverResponse);
   rpc Requery (AbstractCursorRequeryRequest) returns (RequeryResponse);
-  rpc Respond (AbstractCursorRespondRequest) returns (RespondResponse);
-  rpc SetExtras (AbstractCursorSetExtrasRequest) returns (SetExtrasResponse);
-  rpc SetNotificationUri (AbstractCursorSetNotificationUriRequest) returns (SetNotificationUriResponse);
+  rpc Respond (RespondRequest) returns (RespondResponse);
+  rpc SetExtras (SetExtrasRequest) returns (SetExtrasResponse);
+  rpc SetNotificationUri (SetNotificationUriRequest) returns (SetNotificationUriResponse);
   rpc UnregisterContentObserver (AbstractCursorUnregisterContentObserverRequest) returns (UnregisterContentObserverResponse);
   rpc UnregisterDataSetObserver (AbstractCursorUnregisterDataSetObserverRequest) returns (UnregisterDataSetObserverResponse);
 }
@@ -2067,4 +2007,71 @@ service AbstractCursorService {
 service AbstractCursorSelfContentObserverService {
   rpc DeliverSelfNotifications (DeliverSelfNotificationsRequest) returns (DeliverSelfNotificationsResponse);
   rpc OnChange (OnChangeRequest) returns (OnChangeResponse);
+}
+
+service CursorJoinerService {
+  rpc NewCursorJoiner (NewCursorJoinerRequest) returns (NewCursorJoinerResponse);
+  rpc HasNext (HasNextRequest) returns (HasNextResponse);
+  rpc Iterator (IteratorRequest) returns (IteratorResponse);
+  rpc Next0 (Next0Request) returns (Next0Response);
+  rpc Remove (RemoveRequest) returns (RemoveResponse);
+  rpc Next0_1 (Next0_1Request) returns (Next0_1Response);
+}
+
+service CursorJoinerResultService {
+  rpc Values (ValuesRequest) returns (ValuesResponse);
+  rpc ValueOf (ValueOfRequest) returns (ValueOfResponse);
+}
+
+service CursorWrapperService {
+  rpc NewCursorWrapper (NewCursorWrapperRequest) returns (NewCursorWrapperResponse);
+  rpc Close (CursorWrapperCloseRequest) returns (CloseResponse);
+  rpc CopyStringToBuffer (CursorWrapperCopyStringToBufferRequest) returns (CopyStringToBufferResponse);
+  rpc Deactivate (DeactivateRequest) returns (DeactivateResponse);
+  rpc GetBlob (GetBlobRequest) returns (GetBlobResponse);
+  rpc GetColumnCount (CursorWrapperGetColumnCountRequest) returns (GetColumnCountResponse);
+  rpc GetColumnIndex (CursorWrapperGetColumnIndexRequest) returns (GetColumnIndexResponse);
+  rpc GetColumnIndexOrThrow (CursorWrapperGetColumnIndexOrThrowRequest) returns (GetColumnIndexOrThrowResponse);
+  rpc GetColumnName (CursorWrapperGetColumnNameRequest) returns (GetColumnNameResponse);
+  rpc GetColumnNames (GetColumnNamesRequest) returns (GetColumnNamesResponse);
+  rpc GetCount (GetCountRequest) returns (GetCountResponse);
+  rpc GetDouble (GetDoubleRequest) returns (GetDoubleResponse);
+  rpc GetExtras (CursorWrapperGetExtrasRequest) returns (GetExtrasResponse);
+  rpc GetFloat (GetFloatRequest) returns (GetFloatResponse);
+  rpc GetInt (GetIntRequest) returns (GetIntResponse);
+  rpc GetLong (GetLongRequest) returns (GetLongResponse);
+  rpc GetNotificationUri (CursorWrapperGetNotificationUriRequest) returns (GetNotificationUriResponse);
+  rpc GetNotificationUris (CursorWrapperGetNotificationUrisRequest) returns (GetNotificationUrisResponse);
+  rpc GetPosition (CursorWrapperGetPositionRequest) returns (GetPositionResponse);
+  rpc GetShort (GetShortRequest) returns (GetShortResponse);
+  rpc GetString (GetStringRequest) returns (GetStringResponse);
+  rpc GetType (GetTypeRequest) returns (GetTypeResponse);
+  rpc GetWantsAllOnMoveCalls (CursorWrapperGetWantsAllOnMoveCallsRequest) returns (GetWantsAllOnMoveCallsResponse);
+  rpc GetWrappedCursor (GetWrappedCursorRequest) returns (GetWrappedCursorResponse);
+  rpc IsAfterLast (CursorWrapperIsAfterLastRequest) returns (IsAfterLastResponse);
+  rpc IsBeforeFirst (CursorWrapperIsBeforeFirstRequest) returns (IsBeforeFirstResponse);
+  rpc IsClosed (CursorWrapperIsClosedRequest) returns (IsClosedResponse);
+  rpc IsFirst (CursorWrapperIsFirstRequest) returns (IsFirstResponse);
+  rpc IsLast (CursorWrapperIsLastRequest) returns (IsLastResponse);
+  rpc IsNull (IsNullRequest) returns (IsNullResponse);
+  rpc Move (CursorWrapperMoveRequest) returns (MoveResponse);
+  rpc MoveToFirst (CursorWrapperMoveToFirstRequest) returns (MoveToFirstResponse);
+  rpc MoveToLast (CursorWrapperMoveToLastRequest) returns (MoveToLastResponse);
+  rpc MoveToNext (CursorWrapperMoveToNextRequest) returns (MoveToNextResponse);
+  rpc MoveToPosition (CursorWrapperMoveToPositionRequest) returns (MoveToPositionResponse);
+  rpc MoveToPrevious (CursorWrapperMoveToPreviousRequest) returns (MoveToPreviousResponse);
+  rpc RegisterContentObserver (RegisterContentObserverRequest) returns (RegisterContentObserverResponse);
+  rpc RegisterDataSetObserver (RegisterDataSetObserverRequest) returns (RegisterDataSetObserverResponse);
+  rpc Requery (RequeryRequest) returns (RequeryResponse);
+  rpc Respond (CursorWrapperRespondRequest) returns (RespondResponse);
+  rpc SetExtras (CursorWrapperSetExtrasRequest) returns (SetExtrasResponse);
+  rpc SetNotificationUri (CursorWrapperSetNotificationUriRequest) returns (SetNotificationUriResponse);
+  rpc UnregisterContentObserver (UnregisterContentObserverRequest) returns (UnregisterContentObserverResponse);
+  rpc UnregisterDataSetObserver (UnregisterDataSetObserverRequest) returns (UnregisterDataSetObserverResponse);
+}
+
+service DataSetObservableService {
+  rpc NewDataSetObservable (NewDataSetObservableRequest) returns (NewDataSetObservableResponse);
+  rpc NotifyChanged (NotifyChangedRequest) returns (NotifyChangedResponse);
+  rpc NotifyInvalidated (NotifyInvalidatedRequest) returns (NotifyInvalidatedResponse);
 }

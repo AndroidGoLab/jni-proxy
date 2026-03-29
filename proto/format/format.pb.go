@@ -23,6 +23,2950 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+type NewTimeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewTimeRequest) Reset() {
+	*x = NewTimeRequest{}
+	mi := &file_proto_format_format_proto_msgTypes[0]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewTimeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewTimeRequest) ProtoMessage() {}
+
+func (x *NewTimeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_format_format_proto_msgTypes[0]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewTimeRequest.ProtoReflect.Descriptor instead.
+func (*NewTimeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_format_format_proto_rawDescGZIP(), []int{0}
+}
+
+type NewTimeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewTimeResponse) Reset() {
+	*x = NewTimeResponse{}
+	mi := &file_proto_format_format_proto_msgTypes[1]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewTimeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewTimeResponse) ProtoMessage() {}
+
+func (x *NewTimeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_format_format_proto_msgTypes[1]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewTimeResponse.ProtoReflect.Descriptor instead.
+func (*NewTimeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_format_format_proto_rawDescGZIP(), []int{1}
+}
+
+func (x *NewTimeResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type AfterRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AfterRequest) Reset() {
+	*x = AfterRequest{}
+	mi := &file_proto_format_format_proto_msgTypes[2]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AfterRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AfterRequest) ProtoMessage() {}
+
+func (x *AfterRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_format_format_proto_msgTypes[2]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AfterRequest.ProtoReflect.Descriptor instead.
+func (*AfterRequest) Descriptor() ([]byte, []int) {
+	return file_proto_format_format_proto_rawDescGZIP(), []int{2}
+}
+
+func (x *AfterRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *AfterRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type AfterResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AfterResponse) Reset() {
+	*x = AfterResponse{}
+	mi := &file_proto_format_format_proto_msgTypes[3]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AfterResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AfterResponse) ProtoMessage() {}
+
+func (x *AfterResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_format_format_proto_msgTypes[3]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AfterResponse.ProtoReflect.Descriptor instead.
+func (*AfterResponse) Descriptor() ([]byte, []int) {
+	return file_proto_format_format_proto_rawDescGZIP(), []int{3}
+}
+
+func (x *AfterResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type BeforeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *BeforeRequest) Reset() {
+	*x = BeforeRequest{}
+	mi := &file_proto_format_format_proto_msgTypes[4]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *BeforeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*BeforeRequest) ProtoMessage() {}
+
+func (x *BeforeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_format_format_proto_msgTypes[4]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use BeforeRequest.ProtoReflect.Descriptor instead.
+func (*BeforeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_format_format_proto_rawDescGZIP(), []int{4}
+}
+
+func (x *BeforeRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *BeforeRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type BeforeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *BeforeResponse) Reset() {
+	*x = BeforeResponse{}
+	mi := &file_proto_format_format_proto_msgTypes[5]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *BeforeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*BeforeResponse) ProtoMessage() {}
+
+func (x *BeforeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_format_format_proto_msgTypes[5]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use BeforeResponse.ProtoReflect.Descriptor instead.
+func (*BeforeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_format_format_proto_rawDescGZIP(), []int{5}
+}
+
+func (x *BeforeResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type ClearRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          string                 `protobuf:"bytes,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ClearRequest) Reset() {
+	*x = ClearRequest{}
+	mi := &file_proto_format_format_proto_msgTypes[6]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ClearRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ClearRequest) ProtoMessage() {}
+
+func (x *ClearRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_format_format_proto_msgTypes[6]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ClearRequest.ProtoReflect.Descriptor instead.
+func (*ClearRequest) Descriptor() ([]byte, []int) {
+	return file_proto_format_format_proto_rawDescGZIP(), []int{6}
+}
+
+func (x *ClearRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *ClearRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type ClearResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ClearResponse) Reset() {
+	*x = ClearResponse{}
+	mi := &file_proto_format_format_proto_msgTypes[7]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ClearResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ClearResponse) ProtoMessage() {}
+
+func (x *ClearResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_format_format_proto_msgTypes[7]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ClearResponse.ProtoReflect.Descriptor instead.
+func (*ClearResponse) Descriptor() ([]byte, []int) {
+	return file_proto_format_format_proto_rawDescGZIP(), []int{7}
+}
+
+type FormatRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          string                 `protobuf:"bytes,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *FormatRequest) Reset() {
+	*x = FormatRequest{}
+	mi := &file_proto_format_format_proto_msgTypes[8]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *FormatRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*FormatRequest) ProtoMessage() {}
+
+func (x *FormatRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_format_format_proto_msgTypes[8]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use FormatRequest.ProtoReflect.Descriptor instead.
+func (*FormatRequest) Descriptor() ([]byte, []int) {
+	return file_proto_format_format_proto_rawDescGZIP(), []int{8}
+}
+
+func (x *FormatRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *FormatRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type FormatResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *FormatResponse) Reset() {
+	*x = FormatResponse{}
+	mi := &file_proto_format_format_proto_msgTypes[9]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *FormatResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*FormatResponse) ProtoMessage() {}
+
+func (x *FormatResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_format_format_proto_msgTypes[9]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use FormatResponse.ProtoReflect.Descriptor instead.
+func (*FormatResponse) Descriptor() ([]byte, []int) {
+	return file_proto_format_format_proto_rawDescGZIP(), []int{9}
+}
+
+func (x *FormatResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type Format2445Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Format2445Request) Reset() {
+	*x = Format2445Request{}
+	mi := &file_proto_format_format_proto_msgTypes[10]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Format2445Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Format2445Request) ProtoMessage() {}
+
+func (x *Format2445Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_format_format_proto_msgTypes[10]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Format2445Request.ProtoReflect.Descriptor instead.
+func (*Format2445Request) Descriptor() ([]byte, []int) {
+	return file_proto_format_format_proto_rawDescGZIP(), []int{10}
+}
+
+func (x *Format2445Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type Format2445Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Format2445Response) Reset() {
+	*x = Format2445Response{}
+	mi := &file_proto_format_format_proto_msgTypes[11]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Format2445Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Format2445Response) ProtoMessage() {}
+
+func (x *Format2445Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_format_format_proto_msgTypes[11]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Format2445Response.ProtoReflect.Descriptor instead.
+func (*Format2445Response) Descriptor() ([]byte, []int) {
+	return file_proto_format_format_proto_rawDescGZIP(), []int{11}
+}
+
+func (x *Format2445Response) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type Format3339Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          bool                   `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Format3339Request) Reset() {
+	*x = Format3339Request{}
+	mi := &file_proto_format_format_proto_msgTypes[12]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Format3339Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Format3339Request) ProtoMessage() {}
+
+func (x *Format3339Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_format_format_proto_msgTypes[12]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Format3339Request.ProtoReflect.Descriptor instead.
+func (*Format3339Request) Descriptor() ([]byte, []int) {
+	return file_proto_format_format_proto_rawDescGZIP(), []int{12}
+}
+
+func (x *Format3339Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *Format3339Request) GetArg0() bool {
+	if x != nil {
+		return x.Arg0
+	}
+	return false
+}
+
+type Format3339Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Format3339Response) Reset() {
+	*x = Format3339Response{}
+	mi := &file_proto_format_format_proto_msgTypes[13]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Format3339Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Format3339Response) ProtoMessage() {}
+
+func (x *Format3339Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_format_format_proto_msgTypes[13]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Format3339Response.ProtoReflect.Descriptor instead.
+func (*Format3339Response) Descriptor() ([]byte, []int) {
+	return file_proto_format_format_proto_rawDescGZIP(), []int{13}
+}
+
+func (x *Format3339Response) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type GetActualMaximumRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetActualMaximumRequest) Reset() {
+	*x = GetActualMaximumRequest{}
+	mi := &file_proto_format_format_proto_msgTypes[14]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetActualMaximumRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetActualMaximumRequest) ProtoMessage() {}
+
+func (x *GetActualMaximumRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_format_format_proto_msgTypes[14]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetActualMaximumRequest.ProtoReflect.Descriptor instead.
+func (*GetActualMaximumRequest) Descriptor() ([]byte, []int) {
+	return file_proto_format_format_proto_rawDescGZIP(), []int{14}
+}
+
+func (x *GetActualMaximumRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *GetActualMaximumRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type GetActualMaximumResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetActualMaximumResponse) Reset() {
+	*x = GetActualMaximumResponse{}
+	mi := &file_proto_format_format_proto_msgTypes[15]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetActualMaximumResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetActualMaximumResponse) ProtoMessage() {}
+
+func (x *GetActualMaximumResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_format_format_proto_msgTypes[15]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetActualMaximumResponse.ProtoReflect.Descriptor instead.
+func (*GetActualMaximumResponse) Descriptor() ([]byte, []int) {
+	return file_proto_format_format_proto_rawDescGZIP(), []int{15}
+}
+
+func (x *GetActualMaximumResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetWeekNumberRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetWeekNumberRequest) Reset() {
+	*x = GetWeekNumberRequest{}
+	mi := &file_proto_format_format_proto_msgTypes[16]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetWeekNumberRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetWeekNumberRequest) ProtoMessage() {}
+
+func (x *GetWeekNumberRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_format_format_proto_msgTypes[16]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetWeekNumberRequest.ProtoReflect.Descriptor instead.
+func (*GetWeekNumberRequest) Descriptor() ([]byte, []int) {
+	return file_proto_format_format_proto_rawDescGZIP(), []int{16}
+}
+
+func (x *GetWeekNumberRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetWeekNumberResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetWeekNumberResponse) Reset() {
+	*x = GetWeekNumberResponse{}
+	mi := &file_proto_format_format_proto_msgTypes[17]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetWeekNumberResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetWeekNumberResponse) ProtoMessage() {}
+
+func (x *GetWeekNumberResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_format_format_proto_msgTypes[17]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetWeekNumberResponse.ProtoReflect.Descriptor instead.
+func (*GetWeekNumberResponse) Descriptor() ([]byte, []int) {
+	return file_proto_format_format_proto_rawDescGZIP(), []int{17}
+}
+
+func (x *GetWeekNumberResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type NormalizeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          bool                   `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NormalizeRequest) Reset() {
+	*x = NormalizeRequest{}
+	mi := &file_proto_format_format_proto_msgTypes[18]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NormalizeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NormalizeRequest) ProtoMessage() {}
+
+func (x *NormalizeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_format_format_proto_msgTypes[18]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NormalizeRequest.ProtoReflect.Descriptor instead.
+func (*NormalizeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_format_format_proto_rawDescGZIP(), []int{18}
+}
+
+func (x *NormalizeRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *NormalizeRequest) GetArg0() bool {
+	if x != nil {
+		return x.Arg0
+	}
+	return false
+}
+
+type NormalizeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NormalizeResponse) Reset() {
+	*x = NormalizeResponse{}
+	mi := &file_proto_format_format_proto_msgTypes[19]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NormalizeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NormalizeResponse) ProtoMessage() {}
+
+func (x *NormalizeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_format_format_proto_msgTypes[19]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NormalizeResponse.ProtoReflect.Descriptor instead.
+func (*NormalizeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_format_format_proto_rawDescGZIP(), []int{19}
+}
+
+func (x *NormalizeResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type ParseRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          string                 `protobuf:"bytes,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ParseRequest) Reset() {
+	*x = ParseRequest{}
+	mi := &file_proto_format_format_proto_msgTypes[20]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ParseRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ParseRequest) ProtoMessage() {}
+
+func (x *ParseRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_format_format_proto_msgTypes[20]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ParseRequest.ProtoReflect.Descriptor instead.
+func (*ParseRequest) Descriptor() ([]byte, []int) {
+	return file_proto_format_format_proto_rawDescGZIP(), []int{20}
+}
+
+func (x *ParseRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *ParseRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type ParseResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ParseResponse) Reset() {
+	*x = ParseResponse{}
+	mi := &file_proto_format_format_proto_msgTypes[21]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ParseResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ParseResponse) ProtoMessage() {}
+
+func (x *ParseResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_format_format_proto_msgTypes[21]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ParseResponse.ProtoReflect.Descriptor instead.
+func (*ParseResponse) Descriptor() ([]byte, []int) {
+	return file_proto_format_format_proto_rawDescGZIP(), []int{21}
+}
+
+func (x *ParseResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type Parse3339Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          string                 `protobuf:"bytes,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Parse3339Request) Reset() {
+	*x = Parse3339Request{}
+	mi := &file_proto_format_format_proto_msgTypes[22]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Parse3339Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Parse3339Request) ProtoMessage() {}
+
+func (x *Parse3339Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_format_format_proto_msgTypes[22]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Parse3339Request.ProtoReflect.Descriptor instead.
+func (*Parse3339Request) Descriptor() ([]byte, []int) {
+	return file_proto_format_format_proto_rawDescGZIP(), []int{22}
+}
+
+func (x *Parse3339Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *Parse3339Request) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type Parse3339Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Parse3339Response) Reset() {
+	*x = Parse3339Response{}
+	mi := &file_proto_format_format_proto_msgTypes[23]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Parse3339Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Parse3339Response) ProtoMessage() {}
+
+func (x *Parse3339Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_format_format_proto_msgTypes[23]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Parse3339Response.ProtoReflect.Descriptor instead.
+func (*Parse3339Response) Descriptor() ([]byte, []int) {
+	return file_proto_format_format_proto_rawDescGZIP(), []int{23}
+}
+
+func (x *Parse3339Response) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type Set1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Set1Request) Reset() {
+	*x = Set1Request{}
+	mi := &file_proto_format_format_proto_msgTypes[24]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Set1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Set1Request) ProtoMessage() {}
+
+func (x *Set1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_format_format_proto_msgTypes[24]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Set1Request.ProtoReflect.Descriptor instead.
+func (*Set1Request) Descriptor() ([]byte, []int) {
+	return file_proto_format_format_proto_rawDescGZIP(), []int{24}
+}
+
+func (x *Set1Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *Set1Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type Set1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Set1Response) Reset() {
+	*x = Set1Response{}
+	mi := &file_proto_format_format_proto_msgTypes[25]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Set1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Set1Response) ProtoMessage() {}
+
+func (x *Set1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_format_format_proto_msgTypes[25]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Set1Response.ProtoReflect.Descriptor instead.
+func (*Set1Response) Descriptor() ([]byte, []int) {
+	return file_proto_format_format_proto_rawDescGZIP(), []int{25}
+}
+
+type Set3_1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int32                  `protobuf:"varint,4,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Set3_1Request) Reset() {
+	*x = Set3_1Request{}
+	mi := &file_proto_format_format_proto_msgTypes[26]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Set3_1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Set3_1Request) ProtoMessage() {}
+
+func (x *Set3_1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_format_format_proto_msgTypes[26]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Set3_1Request.ProtoReflect.Descriptor instead.
+func (*Set3_1Request) Descriptor() ([]byte, []int) {
+	return file_proto_format_format_proto_rawDescGZIP(), []int{26}
+}
+
+func (x *Set3_1Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *Set3_1Request) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *Set3_1Request) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *Set3_1Request) GetArg2() int32 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+type Set3_1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Set3_1Response) Reset() {
+	*x = Set3_1Response{}
+	mi := &file_proto_format_format_proto_msgTypes[27]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Set3_1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Set3_1Response) ProtoMessage() {}
+
+func (x *Set3_1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_format_format_proto_msgTypes[27]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Set3_1Response.ProtoReflect.Descriptor instead.
+func (*Set3_1Response) Descriptor() ([]byte, []int) {
+	return file_proto_format_format_proto_rawDescGZIP(), []int{27}
+}
+
+type Set6_2Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int32                  `protobuf:"varint,4,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	Arg3          int32                  `protobuf:"varint,5,opt,name=arg3,proto3" json:"arg3,omitempty"`
+	Arg4          int32                  `protobuf:"varint,6,opt,name=arg4,proto3" json:"arg4,omitempty"`
+	Arg5          int32                  `protobuf:"varint,7,opt,name=arg5,proto3" json:"arg5,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Set6_2Request) Reset() {
+	*x = Set6_2Request{}
+	mi := &file_proto_format_format_proto_msgTypes[28]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Set6_2Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Set6_2Request) ProtoMessage() {}
+
+func (x *Set6_2Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_format_format_proto_msgTypes[28]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Set6_2Request.ProtoReflect.Descriptor instead.
+func (*Set6_2Request) Descriptor() ([]byte, []int) {
+	return file_proto_format_format_proto_rawDescGZIP(), []int{28}
+}
+
+func (x *Set6_2Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *Set6_2Request) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *Set6_2Request) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *Set6_2Request) GetArg2() int32 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+func (x *Set6_2Request) GetArg3() int32 {
+	if x != nil {
+		return x.Arg3
+	}
+	return 0
+}
+
+func (x *Set6_2Request) GetArg4() int32 {
+	if x != nil {
+		return x.Arg4
+	}
+	return 0
+}
+
+func (x *Set6_2Request) GetArg5() int32 {
+	if x != nil {
+		return x.Arg5
+	}
+	return 0
+}
+
+type Set6_2Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Set6_2Response) Reset() {
+	*x = Set6_2Response{}
+	mi := &file_proto_format_format_proto_msgTypes[29]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Set6_2Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Set6_2Response) ProtoMessage() {}
+
+func (x *Set6_2Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_format_format_proto_msgTypes[29]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Set6_2Response.ProtoReflect.Descriptor instead.
+func (*Set6_2Response) Descriptor() ([]byte, []int) {
+	return file_proto_format_format_proto_rawDescGZIP(), []int{29}
+}
+
+type Set1_3Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Set1_3Request) Reset() {
+	*x = Set1_3Request{}
+	mi := &file_proto_format_format_proto_msgTypes[30]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Set1_3Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Set1_3Request) ProtoMessage() {}
+
+func (x *Set1_3Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_format_format_proto_msgTypes[30]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Set1_3Request.ProtoReflect.Descriptor instead.
+func (*Set1_3Request) Descriptor() ([]byte, []int) {
+	return file_proto_format_format_proto_rawDescGZIP(), []int{30}
+}
+
+func (x *Set1_3Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *Set1_3Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type Set1_3Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Set1_3Response) Reset() {
+	*x = Set1_3Response{}
+	mi := &file_proto_format_format_proto_msgTypes[31]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Set1_3Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Set1_3Response) ProtoMessage() {}
+
+func (x *Set1_3Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_format_format_proto_msgTypes[31]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Set1_3Response.ProtoReflect.Descriptor instead.
+func (*Set1_3Response) Descriptor() ([]byte, []int) {
+	return file_proto_format_format_proto_rawDescGZIP(), []int{31}
+}
+
+type SetJulianDayRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetJulianDayRequest) Reset() {
+	*x = SetJulianDayRequest{}
+	mi := &file_proto_format_format_proto_msgTypes[32]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetJulianDayRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetJulianDayRequest) ProtoMessage() {}
+
+func (x *SetJulianDayRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_format_format_proto_msgTypes[32]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetJulianDayRequest.ProtoReflect.Descriptor instead.
+func (*SetJulianDayRequest) Descriptor() ([]byte, []int) {
+	return file_proto_format_format_proto_rawDescGZIP(), []int{32}
+}
+
+func (x *SetJulianDayRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetJulianDayRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetJulianDayResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetJulianDayResponse) Reset() {
+	*x = SetJulianDayResponse{}
+	mi := &file_proto_format_format_proto_msgTypes[33]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetJulianDayResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetJulianDayResponse) ProtoMessage() {}
+
+func (x *SetJulianDayResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_format_format_proto_msgTypes[33]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetJulianDayResponse.ProtoReflect.Descriptor instead.
+func (*SetJulianDayResponse) Descriptor() ([]byte, []int) {
+	return file_proto_format_format_proto_rawDescGZIP(), []int{33}
+}
+
+func (x *SetJulianDayResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetToNowRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetToNowRequest) Reset() {
+	*x = SetToNowRequest{}
+	mi := &file_proto_format_format_proto_msgTypes[34]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetToNowRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetToNowRequest) ProtoMessage() {}
+
+func (x *SetToNowRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_format_format_proto_msgTypes[34]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetToNowRequest.ProtoReflect.Descriptor instead.
+func (*SetToNowRequest) Descriptor() ([]byte, []int) {
+	return file_proto_format_format_proto_rawDescGZIP(), []int{34}
+}
+
+func (x *SetToNowRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type SetToNowResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetToNowResponse) Reset() {
+	*x = SetToNowResponse{}
+	mi := &file_proto_format_format_proto_msgTypes[35]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetToNowResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetToNowResponse) ProtoMessage() {}
+
+func (x *SetToNowResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_format_format_proto_msgTypes[35]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetToNowResponse.ProtoReflect.Descriptor instead.
+func (*SetToNowResponse) Descriptor() ([]byte, []int) {
+	return file_proto_format_format_proto_rawDescGZIP(), []int{35}
+}
+
+type SwitchTimezoneRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          string                 `protobuf:"bytes,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SwitchTimezoneRequest) Reset() {
+	*x = SwitchTimezoneRequest{}
+	mi := &file_proto_format_format_proto_msgTypes[36]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SwitchTimezoneRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SwitchTimezoneRequest) ProtoMessage() {}
+
+func (x *SwitchTimezoneRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_format_format_proto_msgTypes[36]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SwitchTimezoneRequest.ProtoReflect.Descriptor instead.
+func (*SwitchTimezoneRequest) Descriptor() ([]byte, []int) {
+	return file_proto_format_format_proto_rawDescGZIP(), []int{36}
+}
+
+func (x *SwitchTimezoneRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SwitchTimezoneRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type SwitchTimezoneResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SwitchTimezoneResponse) Reset() {
+	*x = SwitchTimezoneResponse{}
+	mi := &file_proto_format_format_proto_msgTypes[37]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SwitchTimezoneResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SwitchTimezoneResponse) ProtoMessage() {}
+
+func (x *SwitchTimezoneResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_format_format_proto_msgTypes[37]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SwitchTimezoneResponse.ProtoReflect.Descriptor instead.
+func (*SwitchTimezoneResponse) Descriptor() ([]byte, []int) {
+	return file_proto_format_format_proto_rawDescGZIP(), []int{37}
+}
+
+type ToMillisRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          bool                   `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ToMillisRequest) Reset() {
+	*x = ToMillisRequest{}
+	mi := &file_proto_format_format_proto_msgTypes[38]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ToMillisRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ToMillisRequest) ProtoMessage() {}
+
+func (x *ToMillisRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_format_format_proto_msgTypes[38]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ToMillisRequest.ProtoReflect.Descriptor instead.
+func (*ToMillisRequest) Descriptor() ([]byte, []int) {
+	return file_proto_format_format_proto_rawDescGZIP(), []int{38}
+}
+
+func (x *ToMillisRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *ToMillisRequest) GetArg0() bool {
+	if x != nil {
+		return x.Arg0
+	}
+	return false
+}
+
+type ToMillisResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ToMillisResponse) Reset() {
+	*x = ToMillisResponse{}
+	mi := &file_proto_format_format_proto_msgTypes[39]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ToMillisResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ToMillisResponse) ProtoMessage() {}
+
+func (x *ToMillisResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_format_format_proto_msgTypes[39]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ToMillisResponse.ProtoReflect.Descriptor instead.
+func (*ToMillisResponse) Descriptor() ([]byte, []int) {
+	return file_proto_format_format_proto_rawDescGZIP(), []int{39}
+}
+
+func (x *ToMillisResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type ToStringRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ToStringRequest) Reset() {
+	*x = ToStringRequest{}
+	mi := &file_proto_format_format_proto_msgTypes[40]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ToStringRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ToStringRequest) ProtoMessage() {}
+
+func (x *ToStringRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_format_format_proto_msgTypes[40]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ToStringRequest.ProtoReflect.Descriptor instead.
+func (*ToStringRequest) Descriptor() ([]byte, []int) {
+	return file_proto_format_format_proto_rawDescGZIP(), []int{40}
+}
+
+func (x *ToStringRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type ToStringResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ToStringResponse) Reset() {
+	*x = ToStringResponse{}
+	mi := &file_proto_format_format_proto_msgTypes[41]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ToStringResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ToStringResponse) ProtoMessage() {}
+
+func (x *ToStringResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_format_format_proto_msgTypes[41]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ToStringResponse.ProtoReflect.Descriptor instead.
+func (*ToStringResponse) Descriptor() ([]byte, []int) {
+	return file_proto_format_format_proto_rawDescGZIP(), []int{41}
+}
+
+func (x *ToStringResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type CompareRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CompareRequest) Reset() {
+	*x = CompareRequest{}
+	mi := &file_proto_format_format_proto_msgTypes[42]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CompareRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CompareRequest) ProtoMessage() {}
+
+func (x *CompareRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_format_format_proto_msgTypes[42]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CompareRequest.ProtoReflect.Descriptor instead.
+func (*CompareRequest) Descriptor() ([]byte, []int) {
+	return file_proto_format_format_proto_rawDescGZIP(), []int{42}
+}
+
+func (x *CompareRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *CompareRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *CompareRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type CompareResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CompareResponse) Reset() {
+	*x = CompareResponse{}
+	mi := &file_proto_format_format_proto_msgTypes[43]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CompareResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CompareResponse) ProtoMessage() {}
+
+func (x *CompareResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_format_format_proto_msgTypes[43]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CompareResponse.ProtoReflect.Descriptor instead.
+func (*CompareResponse) Descriptor() ([]byte, []int) {
+	return file_proto_format_format_proto_rawDescGZIP(), []int{43}
+}
+
+func (x *CompareResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetCurrentTimezoneRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetCurrentTimezoneRequest) Reset() {
+	*x = GetCurrentTimezoneRequest{}
+	mi := &file_proto_format_format_proto_msgTypes[44]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetCurrentTimezoneRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetCurrentTimezoneRequest) ProtoMessage() {}
+
+func (x *GetCurrentTimezoneRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_format_format_proto_msgTypes[44]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetCurrentTimezoneRequest.ProtoReflect.Descriptor instead.
+func (*GetCurrentTimezoneRequest) Descriptor() ([]byte, []int) {
+	return file_proto_format_format_proto_rawDescGZIP(), []int{44}
+}
+
+func (x *GetCurrentTimezoneRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetCurrentTimezoneResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetCurrentTimezoneResponse) Reset() {
+	*x = GetCurrentTimezoneResponse{}
+	mi := &file_proto_format_format_proto_msgTypes[45]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetCurrentTimezoneResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetCurrentTimezoneResponse) ProtoMessage() {}
+
+func (x *GetCurrentTimezoneResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_format_format_proto_msgTypes[45]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetCurrentTimezoneResponse.ProtoReflect.Descriptor instead.
+func (*GetCurrentTimezoneResponse) Descriptor() ([]byte, []int) {
+	return file_proto_format_format_proto_rawDescGZIP(), []int{45}
+}
+
+func (x *GetCurrentTimezoneResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type GetJulianDayRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetJulianDayRequest) Reset() {
+	*x = GetJulianDayRequest{}
+	mi := &file_proto_format_format_proto_msgTypes[46]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetJulianDayRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetJulianDayRequest) ProtoMessage() {}
+
+func (x *GetJulianDayRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_format_format_proto_msgTypes[46]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetJulianDayRequest.ProtoReflect.Descriptor instead.
+func (*GetJulianDayRequest) Descriptor() ([]byte, []int) {
+	return file_proto_format_format_proto_rawDescGZIP(), []int{46}
+}
+
+func (x *GetJulianDayRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *GetJulianDayRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *GetJulianDayRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type GetJulianDayResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetJulianDayResponse) Reset() {
+	*x = GetJulianDayResponse{}
+	mi := &file_proto_format_format_proto_msgTypes[47]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetJulianDayResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetJulianDayResponse) ProtoMessage() {}
+
+func (x *GetJulianDayResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_format_format_proto_msgTypes[47]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetJulianDayResponse.ProtoReflect.Descriptor instead.
+func (*GetJulianDayResponse) Descriptor() ([]byte, []int) {
+	return file_proto_format_format_proto_rawDescGZIP(), []int{47}
+}
+
+func (x *GetJulianDayResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetJulianMondayFromWeeksSinceEpochRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetJulianMondayFromWeeksSinceEpochRequest) Reset() {
+	*x = GetJulianMondayFromWeeksSinceEpochRequest{}
+	mi := &file_proto_format_format_proto_msgTypes[48]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetJulianMondayFromWeeksSinceEpochRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetJulianMondayFromWeeksSinceEpochRequest) ProtoMessage() {}
+
+func (x *GetJulianMondayFromWeeksSinceEpochRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_format_format_proto_msgTypes[48]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetJulianMondayFromWeeksSinceEpochRequest.ProtoReflect.Descriptor instead.
+func (*GetJulianMondayFromWeeksSinceEpochRequest) Descriptor() ([]byte, []int) {
+	return file_proto_format_format_proto_rawDescGZIP(), []int{48}
+}
+
+func (x *GetJulianMondayFromWeeksSinceEpochRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *GetJulianMondayFromWeeksSinceEpochRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type GetJulianMondayFromWeeksSinceEpochResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetJulianMondayFromWeeksSinceEpochResponse) Reset() {
+	*x = GetJulianMondayFromWeeksSinceEpochResponse{}
+	mi := &file_proto_format_format_proto_msgTypes[49]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetJulianMondayFromWeeksSinceEpochResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetJulianMondayFromWeeksSinceEpochResponse) ProtoMessage() {}
+
+func (x *GetJulianMondayFromWeeksSinceEpochResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_format_format_proto_msgTypes[49]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetJulianMondayFromWeeksSinceEpochResponse.ProtoReflect.Descriptor instead.
+func (*GetJulianMondayFromWeeksSinceEpochResponse) Descriptor() ([]byte, []int) {
+	return file_proto_format_format_proto_rawDescGZIP(), []int{49}
+}
+
+func (x *GetJulianMondayFromWeeksSinceEpochResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetWeeksSinceEpochFromJulianDayRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetWeeksSinceEpochFromJulianDayRequest) Reset() {
+	*x = GetWeeksSinceEpochFromJulianDayRequest{}
+	mi := &file_proto_format_format_proto_msgTypes[50]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetWeeksSinceEpochFromJulianDayRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetWeeksSinceEpochFromJulianDayRequest) ProtoMessage() {}
+
+func (x *GetWeeksSinceEpochFromJulianDayRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_format_format_proto_msgTypes[50]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetWeeksSinceEpochFromJulianDayRequest.ProtoReflect.Descriptor instead.
+func (*GetWeeksSinceEpochFromJulianDayRequest) Descriptor() ([]byte, []int) {
+	return file_proto_format_format_proto_rawDescGZIP(), []int{50}
+}
+
+func (x *GetWeeksSinceEpochFromJulianDayRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *GetWeeksSinceEpochFromJulianDayRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *GetWeeksSinceEpochFromJulianDayRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type GetWeeksSinceEpochFromJulianDayResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetWeeksSinceEpochFromJulianDayResponse) Reset() {
+	*x = GetWeeksSinceEpochFromJulianDayResponse{}
+	mi := &file_proto_format_format_proto_msgTypes[51]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetWeeksSinceEpochFromJulianDayResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetWeeksSinceEpochFromJulianDayResponse) ProtoMessage() {}
+
+func (x *GetWeeksSinceEpochFromJulianDayResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_format_format_proto_msgTypes[51]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetWeeksSinceEpochFromJulianDayResponse.ProtoReflect.Descriptor instead.
+func (*GetWeeksSinceEpochFromJulianDayResponse) Descriptor() ([]byte, []int) {
+	return file_proto_format_format_proto_rawDescGZIP(), []int{51}
+}
+
+func (x *GetWeeksSinceEpochFromJulianDayResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type IsEpochRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsEpochRequest) Reset() {
+	*x = IsEpochRequest{}
+	mi := &file_proto_format_format_proto_msgTypes[52]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsEpochRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsEpochRequest) ProtoMessage() {}
+
+func (x *IsEpochRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_format_format_proto_msgTypes[52]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsEpochRequest.ProtoReflect.Descriptor instead.
+func (*IsEpochRequest) Descriptor() ([]byte, []int) {
+	return file_proto_format_format_proto_rawDescGZIP(), []int{52}
+}
+
+func (x *IsEpochRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *IsEpochRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type IsEpochResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsEpochResponse) Reset() {
+	*x = IsEpochResponse{}
+	mi := &file_proto_format_format_proto_msgTypes[53]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsEpochResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsEpochResponse) ProtoMessage() {}
+
+func (x *IsEpochResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_format_format_proto_msgTypes[53]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsEpochResponse.ProtoReflect.Descriptor instead.
+func (*IsEpochResponse) Descriptor() ([]byte, []int) {
+	return file_proto_format_format_proto_rawDescGZIP(), []int{53}
+}
+
+func (x *IsEpochResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type NewTerRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewTerRequest) Reset() {
+	*x = NewTerRequest{}
+	mi := &file_proto_format_format_proto_msgTypes[54]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewTerRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewTerRequest) ProtoMessage() {}
+
+func (x *NewTerRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_format_format_proto_msgTypes[54]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewTerRequest.ProtoReflect.Descriptor instead.
+func (*NewTerRequest) Descriptor() ([]byte, []int) {
+	return file_proto_format_format_proto_rawDescGZIP(), []int{54}
+}
+
+type NewTerResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewTerResponse) Reset() {
+	*x = NewTerResponse{}
+	mi := &file_proto_format_format_proto_msgTypes[55]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewTerResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewTerResponse) ProtoMessage() {}
+
+func (x *NewTerResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_format_format_proto_msgTypes[55]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewTerResponse.ProtoReflect.Descriptor instead.
+func (*NewTerResponse) Descriptor() ([]byte, []int) {
+	return file_proto_format_format_proto_rawDescGZIP(), []int{55}
+}
+
+func (x *NewTerResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type FormatFileSizeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *FormatFileSizeRequest) Reset() {
+	*x = FormatFileSizeRequest{}
+	mi := &file_proto_format_format_proto_msgTypes[56]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *FormatFileSizeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*FormatFileSizeRequest) ProtoMessage() {}
+
+func (x *FormatFileSizeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_format_format_proto_msgTypes[56]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use FormatFileSizeRequest.ProtoReflect.Descriptor instead.
+func (*FormatFileSizeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_format_format_proto_rawDescGZIP(), []int{56}
+}
+
+func (x *FormatFileSizeRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *FormatFileSizeRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *FormatFileSizeRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type FormatFileSizeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *FormatFileSizeResponse) Reset() {
+	*x = FormatFileSizeResponse{}
+	mi := &file_proto_format_format_proto_msgTypes[57]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *FormatFileSizeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*FormatFileSizeResponse) ProtoMessage() {}
+
+func (x *FormatFileSizeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_format_format_proto_msgTypes[57]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use FormatFileSizeResponse.ProtoReflect.Descriptor instead.
+func (*FormatFileSizeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_format_format_proto_rawDescGZIP(), []int{57}
+}
+
+func (x *FormatFileSizeResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type FormatIpAddressRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *FormatIpAddressRequest) Reset() {
+	*x = FormatIpAddressRequest{}
+	mi := &file_proto_format_format_proto_msgTypes[58]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *FormatIpAddressRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*FormatIpAddressRequest) ProtoMessage() {}
+
+func (x *FormatIpAddressRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_format_format_proto_msgTypes[58]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use FormatIpAddressRequest.ProtoReflect.Descriptor instead.
+func (*FormatIpAddressRequest) Descriptor() ([]byte, []int) {
+	return file_proto_format_format_proto_rawDescGZIP(), []int{58}
+}
+
+func (x *FormatIpAddressRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *FormatIpAddressRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type FormatIpAddressResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *FormatIpAddressResponse) Reset() {
+	*x = FormatIpAddressResponse{}
+	mi := &file_proto_format_format_proto_msgTypes[59]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *FormatIpAddressResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*FormatIpAddressResponse) ProtoMessage() {}
+
+func (x *FormatIpAddressResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_format_format_proto_msgTypes[59]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use FormatIpAddressResponse.ProtoReflect.Descriptor instead.
+func (*FormatIpAddressResponse) Descriptor() ([]byte, []int) {
+	return file_proto_format_format_proto_rawDescGZIP(), []int{59}
+}
+
+func (x *FormatIpAddressResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type FormatShortFileSizeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *FormatShortFileSizeRequest) Reset() {
+	*x = FormatShortFileSizeRequest{}
+	mi := &file_proto_format_format_proto_msgTypes[60]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *FormatShortFileSizeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*FormatShortFileSizeRequest) ProtoMessage() {}
+
+func (x *FormatShortFileSizeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_format_format_proto_msgTypes[60]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use FormatShortFileSizeRequest.ProtoReflect.Descriptor instead.
+func (*FormatShortFileSizeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_format_format_proto_rawDescGZIP(), []int{60}
+}
+
+func (x *FormatShortFileSizeRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *FormatShortFileSizeRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *FormatShortFileSizeRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type FormatShortFileSizeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *FormatShortFileSizeResponse) Reset() {
+	*x = FormatShortFileSizeResponse{}
+	mi := &file_proto_format_format_proto_msgTypes[61]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *FormatShortFileSizeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*FormatShortFileSizeResponse) ProtoMessage() {}
+
+func (x *FormatShortFileSizeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_format_format_proto_msgTypes[61]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use FormatShortFileSizeResponse.ProtoReflect.Descriptor instead.
+func (*FormatShortFileSizeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_format_format_proto_rawDescGZIP(), []int{61}
+}
+
+func (x *FormatShortFileSizeResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
 type NewDateFormatRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	unknownFields protoimpl.UnknownFields
@@ -31,7 +2975,7 @@ type NewDateFormatRequest struct {
 
 func (x *NewDateFormatRequest) Reset() {
 	*x = NewDateFormatRequest{}
-	mi := &file_proto_format_format_proto_msgTypes[0]
+	mi := &file_proto_format_format_proto_msgTypes[62]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -43,7 +2987,7 @@ func (x *NewDateFormatRequest) String() string {
 func (*NewDateFormatRequest) ProtoMessage() {}
 
 func (x *NewDateFormatRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_format_format_proto_msgTypes[0]
+	mi := &file_proto_format_format_proto_msgTypes[62]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -56,7 +3000,7 @@ func (x *NewDateFormatRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NewDateFormatRequest.ProtoReflect.Descriptor instead.
 func (*NewDateFormatRequest) Descriptor() ([]byte, []int) {
-	return file_proto_format_format_proto_rawDescGZIP(), []int{0}
+	return file_proto_format_format_proto_rawDescGZIP(), []int{62}
 }
 
 type NewDateFormatResponse struct {
@@ -68,7 +3012,7 @@ type NewDateFormatResponse struct {
 
 func (x *NewDateFormatResponse) Reset() {
 	*x = NewDateFormatResponse{}
-	mi := &file_proto_format_format_proto_msgTypes[1]
+	mi := &file_proto_format_format_proto_msgTypes[63]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -80,7 +3024,7 @@ func (x *NewDateFormatResponse) String() string {
 func (*NewDateFormatResponse) ProtoMessage() {}
 
 func (x *NewDateFormatResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_format_format_proto_msgTypes[1]
+	mi := &file_proto_format_format_proto_msgTypes[63]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -93,7 +3037,7 @@ func (x *NewDateFormatResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NewDateFormatResponse.ProtoReflect.Descriptor instead.
 func (*NewDateFormatResponse) Descriptor() ([]byte, []int) {
-	return file_proto_format_format_proto_rawDescGZIP(), []int{1}
+	return file_proto_format_format_proto_rawDescGZIP(), []int{63}
 }
 
 func (x *NewDateFormatResponse) GetResult() int64 {
@@ -114,7 +3058,7 @@ type Format2Request struct {
 
 func (x *Format2Request) Reset() {
 	*x = Format2Request{}
-	mi := &file_proto_format_format_proto_msgTypes[2]
+	mi := &file_proto_format_format_proto_msgTypes[64]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -126,7 +3070,7 @@ func (x *Format2Request) String() string {
 func (*Format2Request) ProtoMessage() {}
 
 func (x *Format2Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_format_format_proto_msgTypes[2]
+	mi := &file_proto_format_format_proto_msgTypes[64]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -139,7 +3083,7 @@ func (x *Format2Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Format2Request.ProtoReflect.Descriptor instead.
 func (*Format2Request) Descriptor() ([]byte, []int) {
-	return file_proto_format_format_proto_rawDescGZIP(), []int{2}
+	return file_proto_format_format_proto_rawDescGZIP(), []int{64}
 }
 
 func (x *Format2Request) GetHandle() int64 {
@@ -172,7 +3116,7 @@ type Format2Response struct {
 
 func (x *Format2Response) Reset() {
 	*x = Format2Response{}
-	mi := &file_proto_format_format_proto_msgTypes[3]
+	mi := &file_proto_format_format_proto_msgTypes[65]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -184,7 +3128,7 @@ func (x *Format2Response) String() string {
 func (*Format2Response) ProtoMessage() {}
 
 func (x *Format2Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_format_format_proto_msgTypes[3]
+	mi := &file_proto_format_format_proto_msgTypes[65]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -197,7 +3141,7 @@ func (x *Format2Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Format2Response.ProtoReflect.Descriptor instead.
 func (*Format2Response) Descriptor() ([]byte, []int) {
-	return file_proto_format_format_proto_rawDescGZIP(), []int{3}
+	return file_proto_format_format_proto_rawDescGZIP(), []int{65}
 }
 
 func (x *Format2Response) GetResult() int64 {
@@ -218,7 +3162,7 @@ type Format2_1Request struct {
 
 func (x *Format2_1Request) Reset() {
 	*x = Format2_1Request{}
-	mi := &file_proto_format_format_proto_msgTypes[4]
+	mi := &file_proto_format_format_proto_msgTypes[66]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -230,7 +3174,7 @@ func (x *Format2_1Request) String() string {
 func (*Format2_1Request) ProtoMessage() {}
 
 func (x *Format2_1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_format_format_proto_msgTypes[4]
+	mi := &file_proto_format_format_proto_msgTypes[66]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -243,7 +3187,7 @@ func (x *Format2_1Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Format2_1Request.ProtoReflect.Descriptor instead.
 func (*Format2_1Request) Descriptor() ([]byte, []int) {
-	return file_proto_format_format_proto_rawDescGZIP(), []int{4}
+	return file_proto_format_format_proto_rawDescGZIP(), []int{66}
 }
 
 func (x *Format2_1Request) GetHandle() int64 {
@@ -276,7 +3220,7 @@ type Format2_1Response struct {
 
 func (x *Format2_1Response) Reset() {
 	*x = Format2_1Response{}
-	mi := &file_proto_format_format_proto_msgTypes[5]
+	mi := &file_proto_format_format_proto_msgTypes[67]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -288,7 +3232,7 @@ func (x *Format2_1Response) String() string {
 func (*Format2_1Response) ProtoMessage() {}
 
 func (x *Format2_1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_format_format_proto_msgTypes[5]
+	mi := &file_proto_format_format_proto_msgTypes[67]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -301,7 +3245,7 @@ func (x *Format2_1Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Format2_1Response.ProtoReflect.Descriptor instead.
 func (*Format2_1Response) Descriptor() ([]byte, []int) {
-	return file_proto_format_format_proto_rawDescGZIP(), []int{5}
+	return file_proto_format_format_proto_rawDescGZIP(), []int{67}
 }
 
 func (x *Format2_1Response) GetResult() int64 {
@@ -322,7 +3266,7 @@ type Format2_2Request struct {
 
 func (x *Format2_2Request) Reset() {
 	*x = Format2_2Request{}
-	mi := &file_proto_format_format_proto_msgTypes[6]
+	mi := &file_proto_format_format_proto_msgTypes[68]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -334,7 +3278,7 @@ func (x *Format2_2Request) String() string {
 func (*Format2_2Request) ProtoMessage() {}
 
 func (x *Format2_2Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_format_format_proto_msgTypes[6]
+	mi := &file_proto_format_format_proto_msgTypes[68]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -347,7 +3291,7 @@ func (x *Format2_2Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Format2_2Request.ProtoReflect.Descriptor instead.
 func (*Format2_2Request) Descriptor() ([]byte, []int) {
-	return file_proto_format_format_proto_rawDescGZIP(), []int{6}
+	return file_proto_format_format_proto_rawDescGZIP(), []int{68}
 }
 
 func (x *Format2_2Request) GetHandle() int64 {
@@ -380,7 +3324,7 @@ type Format2_2Response struct {
 
 func (x *Format2_2Response) Reset() {
 	*x = Format2_2Response{}
-	mi := &file_proto_format_format_proto_msgTypes[7]
+	mi := &file_proto_format_format_proto_msgTypes[69]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -392,7 +3336,7 @@ func (x *Format2_2Response) String() string {
 func (*Format2_2Response) ProtoMessage() {}
 
 func (x *Format2_2Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_format_format_proto_msgTypes[7]
+	mi := &file_proto_format_format_proto_msgTypes[69]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -405,7 +3349,7 @@ func (x *Format2_2Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Format2_2Response.ProtoReflect.Descriptor instead.
 func (*Format2_2Response) Descriptor() ([]byte, []int) {
-	return file_proto_format_format_proto_rawDescGZIP(), []int{7}
+	return file_proto_format_format_proto_rawDescGZIP(), []int{69}
 }
 
 func (x *Format2_2Response) GetResult() int64 {
@@ -426,7 +3370,7 @@ type GetBestDateTimePatternRequest struct {
 
 func (x *GetBestDateTimePatternRequest) Reset() {
 	*x = GetBestDateTimePatternRequest{}
-	mi := &file_proto_format_format_proto_msgTypes[8]
+	mi := &file_proto_format_format_proto_msgTypes[70]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -438,7 +3382,7 @@ func (x *GetBestDateTimePatternRequest) String() string {
 func (*GetBestDateTimePatternRequest) ProtoMessage() {}
 
 func (x *GetBestDateTimePatternRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_format_format_proto_msgTypes[8]
+	mi := &file_proto_format_format_proto_msgTypes[70]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -451,7 +3395,7 @@ func (x *GetBestDateTimePatternRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetBestDateTimePatternRequest.ProtoReflect.Descriptor instead.
 func (*GetBestDateTimePatternRequest) Descriptor() ([]byte, []int) {
-	return file_proto_format_format_proto_rawDescGZIP(), []int{8}
+	return file_proto_format_format_proto_rawDescGZIP(), []int{70}
 }
 
 func (x *GetBestDateTimePatternRequest) GetHandle() int64 {
@@ -484,7 +3428,7 @@ type GetBestDateTimePatternResponse struct {
 
 func (x *GetBestDateTimePatternResponse) Reset() {
 	*x = GetBestDateTimePatternResponse{}
-	mi := &file_proto_format_format_proto_msgTypes[9]
+	mi := &file_proto_format_format_proto_msgTypes[71]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -496,7 +3440,7 @@ func (x *GetBestDateTimePatternResponse) String() string {
 func (*GetBestDateTimePatternResponse) ProtoMessage() {}
 
 func (x *GetBestDateTimePatternResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_format_format_proto_msgTypes[9]
+	mi := &file_proto_format_format_proto_msgTypes[71]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -509,7 +3453,7 @@ func (x *GetBestDateTimePatternResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetBestDateTimePatternResponse.ProtoReflect.Descriptor instead.
 func (*GetBestDateTimePatternResponse) Descriptor() ([]byte, []int) {
-	return file_proto_format_format_proto_rawDescGZIP(), []int{9}
+	return file_proto_format_format_proto_rawDescGZIP(), []int{71}
 }
 
 func (x *GetBestDateTimePatternResponse) GetResult() string {
@@ -529,7 +3473,7 @@ type GetDateFormatRequest struct {
 
 func (x *GetDateFormatRequest) Reset() {
 	*x = GetDateFormatRequest{}
-	mi := &file_proto_format_format_proto_msgTypes[10]
+	mi := &file_proto_format_format_proto_msgTypes[72]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -541,7 +3485,7 @@ func (x *GetDateFormatRequest) String() string {
 func (*GetDateFormatRequest) ProtoMessage() {}
 
 func (x *GetDateFormatRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_format_format_proto_msgTypes[10]
+	mi := &file_proto_format_format_proto_msgTypes[72]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -554,7 +3498,7 @@ func (x *GetDateFormatRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetDateFormatRequest.ProtoReflect.Descriptor instead.
 func (*GetDateFormatRequest) Descriptor() ([]byte, []int) {
-	return file_proto_format_format_proto_rawDescGZIP(), []int{10}
+	return file_proto_format_format_proto_rawDescGZIP(), []int{72}
 }
 
 func (x *GetDateFormatRequest) GetHandle() int64 {
@@ -580,7 +3524,7 @@ type GetDateFormatResponse struct {
 
 func (x *GetDateFormatResponse) Reset() {
 	*x = GetDateFormatResponse{}
-	mi := &file_proto_format_format_proto_msgTypes[11]
+	mi := &file_proto_format_format_proto_msgTypes[73]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -592,7 +3536,7 @@ func (x *GetDateFormatResponse) String() string {
 func (*GetDateFormatResponse) ProtoMessage() {}
 
 func (x *GetDateFormatResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_format_format_proto_msgTypes[11]
+	mi := &file_proto_format_format_proto_msgTypes[73]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -605,7 +3549,7 @@ func (x *GetDateFormatResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetDateFormatResponse.ProtoReflect.Descriptor instead.
 func (*GetDateFormatResponse) Descriptor() ([]byte, []int) {
-	return file_proto_format_format_proto_rawDescGZIP(), []int{11}
+	return file_proto_format_format_proto_rawDescGZIP(), []int{73}
 }
 
 func (x *GetDateFormatResponse) GetResult() int64 {
@@ -625,7 +3569,7 @@ type GetDateFormatOrderRequest struct {
 
 func (x *GetDateFormatOrderRequest) Reset() {
 	*x = GetDateFormatOrderRequest{}
-	mi := &file_proto_format_format_proto_msgTypes[12]
+	mi := &file_proto_format_format_proto_msgTypes[74]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -637,7 +3581,7 @@ func (x *GetDateFormatOrderRequest) String() string {
 func (*GetDateFormatOrderRequest) ProtoMessage() {}
 
 func (x *GetDateFormatOrderRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_format_format_proto_msgTypes[12]
+	mi := &file_proto_format_format_proto_msgTypes[74]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -650,7 +3594,7 @@ func (x *GetDateFormatOrderRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetDateFormatOrderRequest.ProtoReflect.Descriptor instead.
 func (*GetDateFormatOrderRequest) Descriptor() ([]byte, []int) {
-	return file_proto_format_format_proto_rawDescGZIP(), []int{12}
+	return file_proto_format_format_proto_rawDescGZIP(), []int{74}
 }
 
 func (x *GetDateFormatOrderRequest) GetHandle() int64 {
@@ -676,7 +3620,7 @@ type GetDateFormatOrderResponse struct {
 
 func (x *GetDateFormatOrderResponse) Reset() {
 	*x = GetDateFormatOrderResponse{}
-	mi := &file_proto_format_format_proto_msgTypes[13]
+	mi := &file_proto_format_format_proto_msgTypes[75]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -688,7 +3632,7 @@ func (x *GetDateFormatOrderResponse) String() string {
 func (*GetDateFormatOrderResponse) ProtoMessage() {}
 
 func (x *GetDateFormatOrderResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_format_format_proto_msgTypes[13]
+	mi := &file_proto_format_format_proto_msgTypes[75]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -701,7 +3645,7 @@ func (x *GetDateFormatOrderResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetDateFormatOrderResponse.ProtoReflect.Descriptor instead.
 func (*GetDateFormatOrderResponse) Descriptor() ([]byte, []int) {
-	return file_proto_format_format_proto_rawDescGZIP(), []int{13}
+	return file_proto_format_format_proto_rawDescGZIP(), []int{75}
 }
 
 func (x *GetDateFormatOrderResponse) GetResult() int64 {
@@ -721,7 +3665,7 @@ type GetLongDateFormatRequest struct {
 
 func (x *GetLongDateFormatRequest) Reset() {
 	*x = GetLongDateFormatRequest{}
-	mi := &file_proto_format_format_proto_msgTypes[14]
+	mi := &file_proto_format_format_proto_msgTypes[76]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -733,7 +3677,7 @@ func (x *GetLongDateFormatRequest) String() string {
 func (*GetLongDateFormatRequest) ProtoMessage() {}
 
 func (x *GetLongDateFormatRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_format_format_proto_msgTypes[14]
+	mi := &file_proto_format_format_proto_msgTypes[76]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -746,7 +3690,7 @@ func (x *GetLongDateFormatRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetLongDateFormatRequest.ProtoReflect.Descriptor instead.
 func (*GetLongDateFormatRequest) Descriptor() ([]byte, []int) {
-	return file_proto_format_format_proto_rawDescGZIP(), []int{14}
+	return file_proto_format_format_proto_rawDescGZIP(), []int{76}
 }
 
 func (x *GetLongDateFormatRequest) GetHandle() int64 {
@@ -772,7 +3716,7 @@ type GetLongDateFormatResponse struct {
 
 func (x *GetLongDateFormatResponse) Reset() {
 	*x = GetLongDateFormatResponse{}
-	mi := &file_proto_format_format_proto_msgTypes[15]
+	mi := &file_proto_format_format_proto_msgTypes[77]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -784,7 +3728,7 @@ func (x *GetLongDateFormatResponse) String() string {
 func (*GetLongDateFormatResponse) ProtoMessage() {}
 
 func (x *GetLongDateFormatResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_format_format_proto_msgTypes[15]
+	mi := &file_proto_format_format_proto_msgTypes[77]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -797,7 +3741,7 @@ func (x *GetLongDateFormatResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetLongDateFormatResponse.ProtoReflect.Descriptor instead.
 func (*GetLongDateFormatResponse) Descriptor() ([]byte, []int) {
-	return file_proto_format_format_proto_rawDescGZIP(), []int{15}
+	return file_proto_format_format_proto_rawDescGZIP(), []int{77}
 }
 
 func (x *GetLongDateFormatResponse) GetResult() int64 {
@@ -817,7 +3761,7 @@ type GetMediumDateFormatRequest struct {
 
 func (x *GetMediumDateFormatRequest) Reset() {
 	*x = GetMediumDateFormatRequest{}
-	mi := &file_proto_format_format_proto_msgTypes[16]
+	mi := &file_proto_format_format_proto_msgTypes[78]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -829,7 +3773,7 @@ func (x *GetMediumDateFormatRequest) String() string {
 func (*GetMediumDateFormatRequest) ProtoMessage() {}
 
 func (x *GetMediumDateFormatRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_format_format_proto_msgTypes[16]
+	mi := &file_proto_format_format_proto_msgTypes[78]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -842,7 +3786,7 @@ func (x *GetMediumDateFormatRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetMediumDateFormatRequest.ProtoReflect.Descriptor instead.
 func (*GetMediumDateFormatRequest) Descriptor() ([]byte, []int) {
-	return file_proto_format_format_proto_rawDescGZIP(), []int{16}
+	return file_proto_format_format_proto_rawDescGZIP(), []int{78}
 }
 
 func (x *GetMediumDateFormatRequest) GetHandle() int64 {
@@ -868,7 +3812,7 @@ type GetMediumDateFormatResponse struct {
 
 func (x *GetMediumDateFormatResponse) Reset() {
 	*x = GetMediumDateFormatResponse{}
-	mi := &file_proto_format_format_proto_msgTypes[17]
+	mi := &file_proto_format_format_proto_msgTypes[79]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -880,7 +3824,7 @@ func (x *GetMediumDateFormatResponse) String() string {
 func (*GetMediumDateFormatResponse) ProtoMessage() {}
 
 func (x *GetMediumDateFormatResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_format_format_proto_msgTypes[17]
+	mi := &file_proto_format_format_proto_msgTypes[79]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -893,7 +3837,7 @@ func (x *GetMediumDateFormatResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetMediumDateFormatResponse.ProtoReflect.Descriptor instead.
 func (*GetMediumDateFormatResponse) Descriptor() ([]byte, []int) {
-	return file_proto_format_format_proto_rawDescGZIP(), []int{17}
+	return file_proto_format_format_proto_rawDescGZIP(), []int{79}
 }
 
 func (x *GetMediumDateFormatResponse) GetResult() int64 {
@@ -913,7 +3857,7 @@ type GetTimeFormatRequest struct {
 
 func (x *GetTimeFormatRequest) Reset() {
 	*x = GetTimeFormatRequest{}
-	mi := &file_proto_format_format_proto_msgTypes[18]
+	mi := &file_proto_format_format_proto_msgTypes[80]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -925,7 +3869,7 @@ func (x *GetTimeFormatRequest) String() string {
 func (*GetTimeFormatRequest) ProtoMessage() {}
 
 func (x *GetTimeFormatRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_format_format_proto_msgTypes[18]
+	mi := &file_proto_format_format_proto_msgTypes[80]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -938,7 +3882,7 @@ func (x *GetTimeFormatRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetTimeFormatRequest.ProtoReflect.Descriptor instead.
 func (*GetTimeFormatRequest) Descriptor() ([]byte, []int) {
-	return file_proto_format_format_proto_rawDescGZIP(), []int{18}
+	return file_proto_format_format_proto_rawDescGZIP(), []int{80}
 }
 
 func (x *GetTimeFormatRequest) GetHandle() int64 {
@@ -964,7 +3908,7 @@ type GetTimeFormatResponse struct {
 
 func (x *GetTimeFormatResponse) Reset() {
 	*x = GetTimeFormatResponse{}
-	mi := &file_proto_format_format_proto_msgTypes[19]
+	mi := &file_proto_format_format_proto_msgTypes[81]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -976,7 +3920,7 @@ func (x *GetTimeFormatResponse) String() string {
 func (*GetTimeFormatResponse) ProtoMessage() {}
 
 func (x *GetTimeFormatResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_format_format_proto_msgTypes[19]
+	mi := &file_proto_format_format_proto_msgTypes[81]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -989,7 +3933,7 @@ func (x *GetTimeFormatResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetTimeFormatResponse.ProtoReflect.Descriptor instead.
 func (*GetTimeFormatResponse) Descriptor() ([]byte, []int) {
-	return file_proto_format_format_proto_rawDescGZIP(), []int{19}
+	return file_proto_format_format_proto_rawDescGZIP(), []int{81}
 }
 
 func (x *GetTimeFormatResponse) GetResult() int64 {
@@ -1009,7 +3953,7 @@ type Is24HourFormatRequest struct {
 
 func (x *Is24HourFormatRequest) Reset() {
 	*x = Is24HourFormatRequest{}
-	mi := &file_proto_format_format_proto_msgTypes[20]
+	mi := &file_proto_format_format_proto_msgTypes[82]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1021,7 +3965,7 @@ func (x *Is24HourFormatRequest) String() string {
 func (*Is24HourFormatRequest) ProtoMessage() {}
 
 func (x *Is24HourFormatRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_format_format_proto_msgTypes[20]
+	mi := &file_proto_format_format_proto_msgTypes[82]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1034,7 +3978,7 @@ func (x *Is24HourFormatRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Is24HourFormatRequest.ProtoReflect.Descriptor instead.
 func (*Is24HourFormatRequest) Descriptor() ([]byte, []int) {
-	return file_proto_format_format_proto_rawDescGZIP(), []int{20}
+	return file_proto_format_format_proto_rawDescGZIP(), []int{82}
 }
 
 func (x *Is24HourFormatRequest) GetHandle() int64 {
@@ -1060,7 +4004,7 @@ type Is24HourFormatResponse struct {
 
 func (x *Is24HourFormatResponse) Reset() {
 	*x = Is24HourFormatResponse{}
-	mi := &file_proto_format_format_proto_msgTypes[21]
+	mi := &file_proto_format_format_proto_msgTypes[83]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1072,7 +4016,7 @@ func (x *Is24HourFormatResponse) String() string {
 func (*Is24HourFormatResponse) ProtoMessage() {}
 
 func (x *Is24HourFormatResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_format_format_proto_msgTypes[21]
+	mi := &file_proto_format_format_proto_msgTypes[83]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1085,7 +4029,7 @@ func (x *Is24HourFormatResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Is24HourFormatResponse.ProtoReflect.Descriptor instead.
 func (*Is24HourFormatResponse) Descriptor() ([]byte, []int) {
-	return file_proto_format_format_proto_rawDescGZIP(), []int{21}
+	return file_proto_format_format_proto_rawDescGZIP(), []int{83}
 }
 
 func (x *Is24HourFormatResponse) GetResult() bool {
@@ -1103,7 +4047,7 @@ type NewDateUtilsRequest struct {
 
 func (x *NewDateUtilsRequest) Reset() {
 	*x = NewDateUtilsRequest{}
-	mi := &file_proto_format_format_proto_msgTypes[22]
+	mi := &file_proto_format_format_proto_msgTypes[84]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1115,7 +4059,7 @@ func (x *NewDateUtilsRequest) String() string {
 func (*NewDateUtilsRequest) ProtoMessage() {}
 
 func (x *NewDateUtilsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_format_format_proto_msgTypes[22]
+	mi := &file_proto_format_format_proto_msgTypes[84]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1128,7 +4072,7 @@ func (x *NewDateUtilsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NewDateUtilsRequest.ProtoReflect.Descriptor instead.
 func (*NewDateUtilsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_format_format_proto_rawDescGZIP(), []int{22}
+	return file_proto_format_format_proto_rawDescGZIP(), []int{84}
 }
 
 type NewDateUtilsResponse struct {
@@ -1140,7 +4084,7 @@ type NewDateUtilsResponse struct {
 
 func (x *NewDateUtilsResponse) Reset() {
 	*x = NewDateUtilsResponse{}
-	mi := &file_proto_format_format_proto_msgTypes[23]
+	mi := &file_proto_format_format_proto_msgTypes[85]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1152,7 +4096,7 @@ func (x *NewDateUtilsResponse) String() string {
 func (*NewDateUtilsResponse) ProtoMessage() {}
 
 func (x *NewDateUtilsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_format_format_proto_msgTypes[23]
+	mi := &file_proto_format_format_proto_msgTypes[85]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1165,7 +4109,7 @@ func (x *NewDateUtilsResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NewDateUtilsResponse.ProtoReflect.Descriptor instead.
 func (*NewDateUtilsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_format_format_proto_rawDescGZIP(), []int{23}
+	return file_proto_format_format_proto_rawDescGZIP(), []int{85}
 }
 
 func (x *NewDateUtilsResponse) GetResult() int64 {
@@ -1189,7 +4133,7 @@ type FormatDateRange5Request struct {
 
 func (x *FormatDateRange5Request) Reset() {
 	*x = FormatDateRange5Request{}
-	mi := &file_proto_format_format_proto_msgTypes[24]
+	mi := &file_proto_format_format_proto_msgTypes[86]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1201,7 +4145,7 @@ func (x *FormatDateRange5Request) String() string {
 func (*FormatDateRange5Request) ProtoMessage() {}
 
 func (x *FormatDateRange5Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_format_format_proto_msgTypes[24]
+	mi := &file_proto_format_format_proto_msgTypes[86]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1214,7 +4158,7 @@ func (x *FormatDateRange5Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use FormatDateRange5Request.ProtoReflect.Descriptor instead.
 func (*FormatDateRange5Request) Descriptor() ([]byte, []int) {
-	return file_proto_format_format_proto_rawDescGZIP(), []int{24}
+	return file_proto_format_format_proto_rawDescGZIP(), []int{86}
 }
 
 func (x *FormatDateRange5Request) GetHandle() int64 {
@@ -1268,7 +4212,7 @@ type FormatDateRange5Response struct {
 
 func (x *FormatDateRange5Response) Reset() {
 	*x = FormatDateRange5Response{}
-	mi := &file_proto_format_format_proto_msgTypes[25]
+	mi := &file_proto_format_format_proto_msgTypes[87]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1280,7 +4224,7 @@ func (x *FormatDateRange5Response) String() string {
 func (*FormatDateRange5Response) ProtoMessage() {}
 
 func (x *FormatDateRange5Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_format_format_proto_msgTypes[25]
+	mi := &file_proto_format_format_proto_msgTypes[87]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1293,7 +4237,7 @@ func (x *FormatDateRange5Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use FormatDateRange5Response.ProtoReflect.Descriptor instead.
 func (*FormatDateRange5Response) Descriptor() ([]byte, []int) {
-	return file_proto_format_format_proto_rawDescGZIP(), []int{25}
+	return file_proto_format_format_proto_rawDescGZIP(), []int{87}
 }
 
 func (x *FormatDateRange5Response) GetResult() int64 {
@@ -1318,7 +4262,7 @@ type FormatDateRange6_1Request struct {
 
 func (x *FormatDateRange6_1Request) Reset() {
 	*x = FormatDateRange6_1Request{}
-	mi := &file_proto_format_format_proto_msgTypes[26]
+	mi := &file_proto_format_format_proto_msgTypes[88]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1330,7 +4274,7 @@ func (x *FormatDateRange6_1Request) String() string {
 func (*FormatDateRange6_1Request) ProtoMessage() {}
 
 func (x *FormatDateRange6_1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_format_format_proto_msgTypes[26]
+	mi := &file_proto_format_format_proto_msgTypes[88]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1343,7 +4287,7 @@ func (x *FormatDateRange6_1Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use FormatDateRange6_1Request.ProtoReflect.Descriptor instead.
 func (*FormatDateRange6_1Request) Descriptor() ([]byte, []int) {
-	return file_proto_format_format_proto_rawDescGZIP(), []int{26}
+	return file_proto_format_format_proto_rawDescGZIP(), []int{88}
 }
 
 func (x *FormatDateRange6_1Request) GetHandle() int64 {
@@ -1404,7 +4348,7 @@ type FormatDateRange6_1Response struct {
 
 func (x *FormatDateRange6_1Response) Reset() {
 	*x = FormatDateRange6_1Response{}
-	mi := &file_proto_format_format_proto_msgTypes[27]
+	mi := &file_proto_format_format_proto_msgTypes[89]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1416,7 +4360,7 @@ func (x *FormatDateRange6_1Response) String() string {
 func (*FormatDateRange6_1Response) ProtoMessage() {}
 
 func (x *FormatDateRange6_1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_format_format_proto_msgTypes[27]
+	mi := &file_proto_format_format_proto_msgTypes[89]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1429,7 +4373,7 @@ func (x *FormatDateRange6_1Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use FormatDateRange6_1Response.ProtoReflect.Descriptor instead.
 func (*FormatDateRange6_1Response) Descriptor() ([]byte, []int) {
-	return file_proto_format_format_proto_rawDescGZIP(), []int{27}
+	return file_proto_format_format_proto_rawDescGZIP(), []int{89}
 }
 
 func (x *FormatDateRange6_1Response) GetResult() int64 {
@@ -1452,7 +4396,7 @@ type FormatDateRange4_2Request struct {
 
 func (x *FormatDateRange4_2Request) Reset() {
 	*x = FormatDateRange4_2Request{}
-	mi := &file_proto_format_format_proto_msgTypes[28]
+	mi := &file_proto_format_format_proto_msgTypes[90]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1464,7 +4408,7 @@ func (x *FormatDateRange4_2Request) String() string {
 func (*FormatDateRange4_2Request) ProtoMessage() {}
 
 func (x *FormatDateRange4_2Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_format_format_proto_msgTypes[28]
+	mi := &file_proto_format_format_proto_msgTypes[90]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1477,7 +4421,7 @@ func (x *FormatDateRange4_2Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use FormatDateRange4_2Request.ProtoReflect.Descriptor instead.
 func (*FormatDateRange4_2Request) Descriptor() ([]byte, []int) {
-	return file_proto_format_format_proto_rawDescGZIP(), []int{28}
+	return file_proto_format_format_proto_rawDescGZIP(), []int{90}
 }
 
 func (x *FormatDateRange4_2Request) GetHandle() int64 {
@@ -1524,7 +4468,7 @@ type FormatDateRange4_2Response struct {
 
 func (x *FormatDateRange4_2Response) Reset() {
 	*x = FormatDateRange4_2Response{}
-	mi := &file_proto_format_format_proto_msgTypes[29]
+	mi := &file_proto_format_format_proto_msgTypes[91]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1536,7 +4480,7 @@ func (x *FormatDateRange4_2Response) String() string {
 func (*FormatDateRange4_2Response) ProtoMessage() {}
 
 func (x *FormatDateRange4_2Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_format_format_proto_msgTypes[29]
+	mi := &file_proto_format_format_proto_msgTypes[91]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1549,7 +4493,7 @@ func (x *FormatDateRange4_2Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use FormatDateRange4_2Response.ProtoReflect.Descriptor instead.
 func (*FormatDateRange4_2Response) Descriptor() ([]byte, []int) {
-	return file_proto_format_format_proto_rawDescGZIP(), []int{29}
+	return file_proto_format_format_proto_rawDescGZIP(), []int{91}
 }
 
 func (x *FormatDateRange4_2Response) GetResult() string {
@@ -1571,7 +4515,7 @@ type FormatDateTimeRequest struct {
 
 func (x *FormatDateTimeRequest) Reset() {
 	*x = FormatDateTimeRequest{}
-	mi := &file_proto_format_format_proto_msgTypes[30]
+	mi := &file_proto_format_format_proto_msgTypes[92]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1583,7 +4527,7 @@ func (x *FormatDateTimeRequest) String() string {
 func (*FormatDateTimeRequest) ProtoMessage() {}
 
 func (x *FormatDateTimeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_format_format_proto_msgTypes[30]
+	mi := &file_proto_format_format_proto_msgTypes[92]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1596,7 +4540,7 @@ func (x *FormatDateTimeRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use FormatDateTimeRequest.ProtoReflect.Descriptor instead.
 func (*FormatDateTimeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_format_format_proto_rawDescGZIP(), []int{30}
+	return file_proto_format_format_proto_rawDescGZIP(), []int{92}
 }
 
 func (x *FormatDateTimeRequest) GetHandle() int64 {
@@ -1636,7 +4580,7 @@ type FormatDateTimeResponse struct {
 
 func (x *FormatDateTimeResponse) Reset() {
 	*x = FormatDateTimeResponse{}
-	mi := &file_proto_format_format_proto_msgTypes[31]
+	mi := &file_proto_format_format_proto_msgTypes[93]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1648,7 +4592,7 @@ func (x *FormatDateTimeResponse) String() string {
 func (*FormatDateTimeResponse) ProtoMessage() {}
 
 func (x *FormatDateTimeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_format_format_proto_msgTypes[31]
+	mi := &file_proto_format_format_proto_msgTypes[93]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1661,7 +4605,7 @@ func (x *FormatDateTimeResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use FormatDateTimeResponse.ProtoReflect.Descriptor instead.
 func (*FormatDateTimeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_format_format_proto_rawDescGZIP(), []int{31}
+	return file_proto_format_format_proto_rawDescGZIP(), []int{93}
 }
 
 func (x *FormatDateTimeResponse) GetResult() string {
@@ -1682,7 +4626,7 @@ type FormatElapsedTime2Request struct {
 
 func (x *FormatElapsedTime2Request) Reset() {
 	*x = FormatElapsedTime2Request{}
-	mi := &file_proto_format_format_proto_msgTypes[32]
+	mi := &file_proto_format_format_proto_msgTypes[94]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1694,7 +4638,7 @@ func (x *FormatElapsedTime2Request) String() string {
 func (*FormatElapsedTime2Request) ProtoMessage() {}
 
 func (x *FormatElapsedTime2Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_format_format_proto_msgTypes[32]
+	mi := &file_proto_format_format_proto_msgTypes[94]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1707,7 +4651,7 @@ func (x *FormatElapsedTime2Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use FormatElapsedTime2Request.ProtoReflect.Descriptor instead.
 func (*FormatElapsedTime2Request) Descriptor() ([]byte, []int) {
-	return file_proto_format_format_proto_rawDescGZIP(), []int{32}
+	return file_proto_format_format_proto_rawDescGZIP(), []int{94}
 }
 
 func (x *FormatElapsedTime2Request) GetHandle() int64 {
@@ -1740,7 +4684,7 @@ type FormatElapsedTime2Response struct {
 
 func (x *FormatElapsedTime2Response) Reset() {
 	*x = FormatElapsedTime2Response{}
-	mi := &file_proto_format_format_proto_msgTypes[33]
+	mi := &file_proto_format_format_proto_msgTypes[95]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1752,7 +4696,7 @@ func (x *FormatElapsedTime2Response) String() string {
 func (*FormatElapsedTime2Response) ProtoMessage() {}
 
 func (x *FormatElapsedTime2Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_format_format_proto_msgTypes[33]
+	mi := &file_proto_format_format_proto_msgTypes[95]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1765,7 +4709,7 @@ func (x *FormatElapsedTime2Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use FormatElapsedTime2Response.ProtoReflect.Descriptor instead.
 func (*FormatElapsedTime2Response) Descriptor() ([]byte, []int) {
-	return file_proto_format_format_proto_rawDescGZIP(), []int{33}
+	return file_proto_format_format_proto_rawDescGZIP(), []int{95}
 }
 
 func (x *FormatElapsedTime2Response) GetResult() string {
@@ -1785,7 +4729,7 @@ type FormatElapsedTime1_1Request struct {
 
 func (x *FormatElapsedTime1_1Request) Reset() {
 	*x = FormatElapsedTime1_1Request{}
-	mi := &file_proto_format_format_proto_msgTypes[34]
+	mi := &file_proto_format_format_proto_msgTypes[96]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1797,7 +4741,7 @@ func (x *FormatElapsedTime1_1Request) String() string {
 func (*FormatElapsedTime1_1Request) ProtoMessage() {}
 
 func (x *FormatElapsedTime1_1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_format_format_proto_msgTypes[34]
+	mi := &file_proto_format_format_proto_msgTypes[96]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1810,7 +4754,7 @@ func (x *FormatElapsedTime1_1Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use FormatElapsedTime1_1Request.ProtoReflect.Descriptor instead.
 func (*FormatElapsedTime1_1Request) Descriptor() ([]byte, []int) {
-	return file_proto_format_format_proto_rawDescGZIP(), []int{34}
+	return file_proto_format_format_proto_rawDescGZIP(), []int{96}
 }
 
 func (x *FormatElapsedTime1_1Request) GetHandle() int64 {
@@ -1836,7 +4780,7 @@ type FormatElapsedTime1_1Response struct {
 
 func (x *FormatElapsedTime1_1Response) Reset() {
 	*x = FormatElapsedTime1_1Response{}
-	mi := &file_proto_format_format_proto_msgTypes[35]
+	mi := &file_proto_format_format_proto_msgTypes[97]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1848,7 +4792,7 @@ func (x *FormatElapsedTime1_1Response) String() string {
 func (*FormatElapsedTime1_1Response) ProtoMessage() {}
 
 func (x *FormatElapsedTime1_1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_format_format_proto_msgTypes[35]
+	mi := &file_proto_format_format_proto_msgTypes[97]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1861,7 +4805,7 @@ func (x *FormatElapsedTime1_1Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use FormatElapsedTime1_1Response.ProtoReflect.Descriptor instead.
 func (*FormatElapsedTime1_1Response) Descriptor() ([]byte, []int) {
-	return file_proto_format_format_proto_rawDescGZIP(), []int{35}
+	return file_proto_format_format_proto_rawDescGZIP(), []int{97}
 }
 
 func (x *FormatElapsedTime1_1Response) GetResult() string {
@@ -1884,7 +4828,7 @@ type FormatSameDayTimeRequest struct {
 
 func (x *FormatSameDayTimeRequest) Reset() {
 	*x = FormatSameDayTimeRequest{}
-	mi := &file_proto_format_format_proto_msgTypes[36]
+	mi := &file_proto_format_format_proto_msgTypes[98]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1896,7 +4840,7 @@ func (x *FormatSameDayTimeRequest) String() string {
 func (*FormatSameDayTimeRequest) ProtoMessage() {}
 
 func (x *FormatSameDayTimeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_format_format_proto_msgTypes[36]
+	mi := &file_proto_format_format_proto_msgTypes[98]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1909,7 +4853,7 @@ func (x *FormatSameDayTimeRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use FormatSameDayTimeRequest.ProtoReflect.Descriptor instead.
 func (*FormatSameDayTimeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_format_format_proto_rawDescGZIP(), []int{36}
+	return file_proto_format_format_proto_rawDescGZIP(), []int{98}
 }
 
 func (x *FormatSameDayTimeRequest) GetHandle() int64 {
@@ -1956,7 +4900,7 @@ type FormatSameDayTimeResponse struct {
 
 func (x *FormatSameDayTimeResponse) Reset() {
 	*x = FormatSameDayTimeResponse{}
-	mi := &file_proto_format_format_proto_msgTypes[37]
+	mi := &file_proto_format_format_proto_msgTypes[99]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1968,7 +4912,7 @@ func (x *FormatSameDayTimeResponse) String() string {
 func (*FormatSameDayTimeResponse) ProtoMessage() {}
 
 func (x *FormatSameDayTimeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_format_format_proto_msgTypes[37]
+	mi := &file_proto_format_format_proto_msgTypes[99]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1981,7 +4925,7 @@ func (x *FormatSameDayTimeResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use FormatSameDayTimeResponse.ProtoReflect.Descriptor instead.
 func (*FormatSameDayTimeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_format_format_proto_rawDescGZIP(), []int{37}
+	return file_proto_format_format_proto_rawDescGZIP(), []int{99}
 }
 
 func (x *FormatSameDayTimeResponse) GetResult() int64 {
@@ -2001,7 +4945,7 @@ type GetAMPMStringRequest struct {
 
 func (x *GetAMPMStringRequest) Reset() {
 	*x = GetAMPMStringRequest{}
-	mi := &file_proto_format_format_proto_msgTypes[38]
+	mi := &file_proto_format_format_proto_msgTypes[100]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2013,7 +4957,7 @@ func (x *GetAMPMStringRequest) String() string {
 func (*GetAMPMStringRequest) ProtoMessage() {}
 
 func (x *GetAMPMStringRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_format_format_proto_msgTypes[38]
+	mi := &file_proto_format_format_proto_msgTypes[100]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2026,7 +4970,7 @@ func (x *GetAMPMStringRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetAMPMStringRequest.ProtoReflect.Descriptor instead.
 func (*GetAMPMStringRequest) Descriptor() ([]byte, []int) {
-	return file_proto_format_format_proto_rawDescGZIP(), []int{38}
+	return file_proto_format_format_proto_rawDescGZIP(), []int{100}
 }
 
 func (x *GetAMPMStringRequest) GetHandle() int64 {
@@ -2052,7 +4996,7 @@ type GetAMPMStringResponse struct {
 
 func (x *GetAMPMStringResponse) Reset() {
 	*x = GetAMPMStringResponse{}
-	mi := &file_proto_format_format_proto_msgTypes[39]
+	mi := &file_proto_format_format_proto_msgTypes[101]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2064,7 +5008,7 @@ func (x *GetAMPMStringResponse) String() string {
 func (*GetAMPMStringResponse) ProtoMessage() {}
 
 func (x *GetAMPMStringResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_format_format_proto_msgTypes[39]
+	mi := &file_proto_format_format_proto_msgTypes[101]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2077,7 +5021,7 @@ func (x *GetAMPMStringResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetAMPMStringResponse.ProtoReflect.Descriptor instead.
 func (*GetAMPMStringResponse) Descriptor() ([]byte, []int) {
-	return file_proto_format_format_proto_rawDescGZIP(), []int{39}
+	return file_proto_format_format_proto_rawDescGZIP(), []int{101}
 }
 
 func (x *GetAMPMStringResponse) GetResult() string {
@@ -2098,7 +5042,7 @@ type GetDayOfWeekStringRequest struct {
 
 func (x *GetDayOfWeekStringRequest) Reset() {
 	*x = GetDayOfWeekStringRequest{}
-	mi := &file_proto_format_format_proto_msgTypes[40]
+	mi := &file_proto_format_format_proto_msgTypes[102]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2110,7 +5054,7 @@ func (x *GetDayOfWeekStringRequest) String() string {
 func (*GetDayOfWeekStringRequest) ProtoMessage() {}
 
 func (x *GetDayOfWeekStringRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_format_format_proto_msgTypes[40]
+	mi := &file_proto_format_format_proto_msgTypes[102]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2123,7 +5067,7 @@ func (x *GetDayOfWeekStringRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetDayOfWeekStringRequest.ProtoReflect.Descriptor instead.
 func (*GetDayOfWeekStringRequest) Descriptor() ([]byte, []int) {
-	return file_proto_format_format_proto_rawDescGZIP(), []int{40}
+	return file_proto_format_format_proto_rawDescGZIP(), []int{102}
 }
 
 func (x *GetDayOfWeekStringRequest) GetHandle() int64 {
@@ -2156,7 +5100,7 @@ type GetDayOfWeekStringResponse struct {
 
 func (x *GetDayOfWeekStringResponse) Reset() {
 	*x = GetDayOfWeekStringResponse{}
-	mi := &file_proto_format_format_proto_msgTypes[41]
+	mi := &file_proto_format_format_proto_msgTypes[103]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2168,7 +5112,7 @@ func (x *GetDayOfWeekStringResponse) String() string {
 func (*GetDayOfWeekStringResponse) ProtoMessage() {}
 
 func (x *GetDayOfWeekStringResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_format_format_proto_msgTypes[41]
+	mi := &file_proto_format_format_proto_msgTypes[103]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2181,7 +5125,7 @@ func (x *GetDayOfWeekStringResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetDayOfWeekStringResponse.ProtoReflect.Descriptor instead.
 func (*GetDayOfWeekStringResponse) Descriptor() ([]byte, []int) {
-	return file_proto_format_format_proto_rawDescGZIP(), []int{41}
+	return file_proto_format_format_proto_rawDescGZIP(), []int{103}
 }
 
 func (x *GetDayOfWeekStringResponse) GetResult() string {
@@ -2202,7 +5146,7 @@ type GetMonthStringRequest struct {
 
 func (x *GetMonthStringRequest) Reset() {
 	*x = GetMonthStringRequest{}
-	mi := &file_proto_format_format_proto_msgTypes[42]
+	mi := &file_proto_format_format_proto_msgTypes[104]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2214,7 +5158,7 @@ func (x *GetMonthStringRequest) String() string {
 func (*GetMonthStringRequest) ProtoMessage() {}
 
 func (x *GetMonthStringRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_format_format_proto_msgTypes[42]
+	mi := &file_proto_format_format_proto_msgTypes[104]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2227,7 +5171,7 @@ func (x *GetMonthStringRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetMonthStringRequest.ProtoReflect.Descriptor instead.
 func (*GetMonthStringRequest) Descriptor() ([]byte, []int) {
-	return file_proto_format_format_proto_rawDescGZIP(), []int{42}
+	return file_proto_format_format_proto_rawDescGZIP(), []int{104}
 }
 
 func (x *GetMonthStringRequest) GetHandle() int64 {
@@ -2260,7 +5204,7 @@ type GetMonthStringResponse struct {
 
 func (x *GetMonthStringResponse) Reset() {
 	*x = GetMonthStringResponse{}
-	mi := &file_proto_format_format_proto_msgTypes[43]
+	mi := &file_proto_format_format_proto_msgTypes[105]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2272,7 +5216,7 @@ func (x *GetMonthStringResponse) String() string {
 func (*GetMonthStringResponse) ProtoMessage() {}
 
 func (x *GetMonthStringResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_format_format_proto_msgTypes[43]
+	mi := &file_proto_format_format_proto_msgTypes[105]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2285,7 +5229,7 @@ func (x *GetMonthStringResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetMonthStringResponse.ProtoReflect.Descriptor instead.
 func (*GetMonthStringResponse) Descriptor() ([]byte, []int) {
-	return file_proto_format_format_proto_rawDescGZIP(), []int{43}
+	return file_proto_format_format_proto_rawDescGZIP(), []int{105}
 }
 
 func (x *GetMonthStringResponse) GetResult() string {
@@ -2309,7 +5253,7 @@ type GetRelativeDateTimeStringRequest struct {
 
 func (x *GetRelativeDateTimeStringRequest) Reset() {
 	*x = GetRelativeDateTimeStringRequest{}
-	mi := &file_proto_format_format_proto_msgTypes[44]
+	mi := &file_proto_format_format_proto_msgTypes[106]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2321,7 +5265,7 @@ func (x *GetRelativeDateTimeStringRequest) String() string {
 func (*GetRelativeDateTimeStringRequest) ProtoMessage() {}
 
 func (x *GetRelativeDateTimeStringRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_format_format_proto_msgTypes[44]
+	mi := &file_proto_format_format_proto_msgTypes[106]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2334,7 +5278,7 @@ func (x *GetRelativeDateTimeStringRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetRelativeDateTimeStringRequest.ProtoReflect.Descriptor instead.
 func (*GetRelativeDateTimeStringRequest) Descriptor() ([]byte, []int) {
-	return file_proto_format_format_proto_rawDescGZIP(), []int{44}
+	return file_proto_format_format_proto_rawDescGZIP(), []int{106}
 }
 
 func (x *GetRelativeDateTimeStringRequest) GetHandle() int64 {
@@ -2388,7 +5332,7 @@ type GetRelativeDateTimeStringResponse struct {
 
 func (x *GetRelativeDateTimeStringResponse) Reset() {
 	*x = GetRelativeDateTimeStringResponse{}
-	mi := &file_proto_format_format_proto_msgTypes[45]
+	mi := &file_proto_format_format_proto_msgTypes[107]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2400,7 +5344,7 @@ func (x *GetRelativeDateTimeStringResponse) String() string {
 func (*GetRelativeDateTimeStringResponse) ProtoMessage() {}
 
 func (x *GetRelativeDateTimeStringResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_format_format_proto_msgTypes[45]
+	mi := &file_proto_format_format_proto_msgTypes[107]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2413,7 +5357,7 @@ func (x *GetRelativeDateTimeStringResponse) ProtoReflect() protoreflect.Message 
 
 // Deprecated: Use GetRelativeDateTimeStringResponse.ProtoReflect.Descriptor instead.
 func (*GetRelativeDateTimeStringResponse) Descriptor() ([]byte, []int) {
-	return file_proto_format_format_proto_rawDescGZIP(), []int{45}
+	return file_proto_format_format_proto_rawDescGZIP(), []int{107}
 }
 
 func (x *GetRelativeDateTimeStringResponse) GetResult() int64 {
@@ -2434,7 +5378,7 @@ type GetRelativeTimeSpanString2Request struct {
 
 func (x *GetRelativeTimeSpanString2Request) Reset() {
 	*x = GetRelativeTimeSpanString2Request{}
-	mi := &file_proto_format_format_proto_msgTypes[46]
+	mi := &file_proto_format_format_proto_msgTypes[108]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2446,7 +5390,7 @@ func (x *GetRelativeTimeSpanString2Request) String() string {
 func (*GetRelativeTimeSpanString2Request) ProtoMessage() {}
 
 func (x *GetRelativeTimeSpanString2Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_format_format_proto_msgTypes[46]
+	mi := &file_proto_format_format_proto_msgTypes[108]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2459,7 +5403,7 @@ func (x *GetRelativeTimeSpanString2Request) ProtoReflect() protoreflect.Message 
 
 // Deprecated: Use GetRelativeTimeSpanString2Request.ProtoReflect.Descriptor instead.
 func (*GetRelativeTimeSpanString2Request) Descriptor() ([]byte, []int) {
-	return file_proto_format_format_proto_rawDescGZIP(), []int{46}
+	return file_proto_format_format_proto_rawDescGZIP(), []int{108}
 }
 
 func (x *GetRelativeTimeSpanString2Request) GetHandle() int64 {
@@ -2492,7 +5436,7 @@ type GetRelativeTimeSpanString2Response struct {
 
 func (x *GetRelativeTimeSpanString2Response) Reset() {
 	*x = GetRelativeTimeSpanString2Response{}
-	mi := &file_proto_format_format_proto_msgTypes[47]
+	mi := &file_proto_format_format_proto_msgTypes[109]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2504,7 +5448,7 @@ func (x *GetRelativeTimeSpanString2Response) String() string {
 func (*GetRelativeTimeSpanString2Response) ProtoMessage() {}
 
 func (x *GetRelativeTimeSpanString2Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_format_format_proto_msgTypes[47]
+	mi := &file_proto_format_format_proto_msgTypes[109]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2517,7 +5461,7 @@ func (x *GetRelativeTimeSpanString2Response) ProtoReflect() protoreflect.Message
 
 // Deprecated: Use GetRelativeTimeSpanString2Response.ProtoReflect.Descriptor instead.
 func (*GetRelativeTimeSpanString2Response) Descriptor() ([]byte, []int) {
-	return file_proto_format_format_proto_rawDescGZIP(), []int{47}
+	return file_proto_format_format_proto_rawDescGZIP(), []int{109}
 }
 
 func (x *GetRelativeTimeSpanString2Response) GetResult() int64 {
@@ -2539,7 +5483,7 @@ type GetRelativeTimeSpanString3_1Request struct {
 
 func (x *GetRelativeTimeSpanString3_1Request) Reset() {
 	*x = GetRelativeTimeSpanString3_1Request{}
-	mi := &file_proto_format_format_proto_msgTypes[48]
+	mi := &file_proto_format_format_proto_msgTypes[110]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2551,7 +5495,7 @@ func (x *GetRelativeTimeSpanString3_1Request) String() string {
 func (*GetRelativeTimeSpanString3_1Request) ProtoMessage() {}
 
 func (x *GetRelativeTimeSpanString3_1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_format_format_proto_msgTypes[48]
+	mi := &file_proto_format_format_proto_msgTypes[110]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2564,7 +5508,7 @@ func (x *GetRelativeTimeSpanString3_1Request) ProtoReflect() protoreflect.Messag
 
 // Deprecated: Use GetRelativeTimeSpanString3_1Request.ProtoReflect.Descriptor instead.
 func (*GetRelativeTimeSpanString3_1Request) Descriptor() ([]byte, []int) {
-	return file_proto_format_format_proto_rawDescGZIP(), []int{48}
+	return file_proto_format_format_proto_rawDescGZIP(), []int{110}
 }
 
 func (x *GetRelativeTimeSpanString3_1Request) GetHandle() int64 {
@@ -2604,7 +5548,7 @@ type GetRelativeTimeSpanString3_1Response struct {
 
 func (x *GetRelativeTimeSpanString3_1Response) Reset() {
 	*x = GetRelativeTimeSpanString3_1Response{}
-	mi := &file_proto_format_format_proto_msgTypes[49]
+	mi := &file_proto_format_format_proto_msgTypes[111]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2616,7 +5560,7 @@ func (x *GetRelativeTimeSpanString3_1Response) String() string {
 func (*GetRelativeTimeSpanString3_1Response) ProtoMessage() {}
 
 func (x *GetRelativeTimeSpanString3_1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_format_format_proto_msgTypes[49]
+	mi := &file_proto_format_format_proto_msgTypes[111]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2629,7 +5573,7 @@ func (x *GetRelativeTimeSpanString3_1Response) ProtoReflect() protoreflect.Messa
 
 // Deprecated: Use GetRelativeTimeSpanString3_1Response.ProtoReflect.Descriptor instead.
 func (*GetRelativeTimeSpanString3_1Response) Descriptor() ([]byte, []int) {
-	return file_proto_format_format_proto_rawDescGZIP(), []int{49}
+	return file_proto_format_format_proto_rawDescGZIP(), []int{111}
 }
 
 func (x *GetRelativeTimeSpanString3_1Response) GetResult() int64 {
@@ -2649,7 +5593,7 @@ type GetRelativeTimeSpanString1_2Request struct {
 
 func (x *GetRelativeTimeSpanString1_2Request) Reset() {
 	*x = GetRelativeTimeSpanString1_2Request{}
-	mi := &file_proto_format_format_proto_msgTypes[50]
+	mi := &file_proto_format_format_proto_msgTypes[112]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2661,7 +5605,7 @@ func (x *GetRelativeTimeSpanString1_2Request) String() string {
 func (*GetRelativeTimeSpanString1_2Request) ProtoMessage() {}
 
 func (x *GetRelativeTimeSpanString1_2Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_format_format_proto_msgTypes[50]
+	mi := &file_proto_format_format_proto_msgTypes[112]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2674,7 +5618,7 @@ func (x *GetRelativeTimeSpanString1_2Request) ProtoReflect() protoreflect.Messag
 
 // Deprecated: Use GetRelativeTimeSpanString1_2Request.ProtoReflect.Descriptor instead.
 func (*GetRelativeTimeSpanString1_2Request) Descriptor() ([]byte, []int) {
-	return file_proto_format_format_proto_rawDescGZIP(), []int{50}
+	return file_proto_format_format_proto_rawDescGZIP(), []int{112}
 }
 
 func (x *GetRelativeTimeSpanString1_2Request) GetHandle() int64 {
@@ -2700,7 +5644,7 @@ type GetRelativeTimeSpanString1_2Response struct {
 
 func (x *GetRelativeTimeSpanString1_2Response) Reset() {
 	*x = GetRelativeTimeSpanString1_2Response{}
-	mi := &file_proto_format_format_proto_msgTypes[51]
+	mi := &file_proto_format_format_proto_msgTypes[113]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2712,7 +5656,7 @@ func (x *GetRelativeTimeSpanString1_2Response) String() string {
 func (*GetRelativeTimeSpanString1_2Response) ProtoMessage() {}
 
 func (x *GetRelativeTimeSpanString1_2Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_format_format_proto_msgTypes[51]
+	mi := &file_proto_format_format_proto_msgTypes[113]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2725,7 +5669,7 @@ func (x *GetRelativeTimeSpanString1_2Response) ProtoReflect() protoreflect.Messa
 
 // Deprecated: Use GetRelativeTimeSpanString1_2Response.ProtoReflect.Descriptor instead.
 func (*GetRelativeTimeSpanString1_2Response) Descriptor() ([]byte, []int) {
-	return file_proto_format_format_proto_rawDescGZIP(), []int{51}
+	return file_proto_format_format_proto_rawDescGZIP(), []int{113}
 }
 
 func (x *GetRelativeTimeSpanString1_2Response) GetResult() int64 {
@@ -2747,7 +5691,7 @@ type GetRelativeTimeSpanString3_3Request struct {
 
 func (x *GetRelativeTimeSpanString3_3Request) Reset() {
 	*x = GetRelativeTimeSpanString3_3Request{}
-	mi := &file_proto_format_format_proto_msgTypes[52]
+	mi := &file_proto_format_format_proto_msgTypes[114]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2759,7 +5703,7 @@ func (x *GetRelativeTimeSpanString3_3Request) String() string {
 func (*GetRelativeTimeSpanString3_3Request) ProtoMessage() {}
 
 func (x *GetRelativeTimeSpanString3_3Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_format_format_proto_msgTypes[52]
+	mi := &file_proto_format_format_proto_msgTypes[114]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2772,7 +5716,7 @@ func (x *GetRelativeTimeSpanString3_3Request) ProtoReflect() protoreflect.Messag
 
 // Deprecated: Use GetRelativeTimeSpanString3_3Request.ProtoReflect.Descriptor instead.
 func (*GetRelativeTimeSpanString3_3Request) Descriptor() ([]byte, []int) {
-	return file_proto_format_format_proto_rawDescGZIP(), []int{52}
+	return file_proto_format_format_proto_rawDescGZIP(), []int{114}
 }
 
 func (x *GetRelativeTimeSpanString3_3Request) GetHandle() int64 {
@@ -2812,7 +5756,7 @@ type GetRelativeTimeSpanString3_3Response struct {
 
 func (x *GetRelativeTimeSpanString3_3Response) Reset() {
 	*x = GetRelativeTimeSpanString3_3Response{}
-	mi := &file_proto_format_format_proto_msgTypes[53]
+	mi := &file_proto_format_format_proto_msgTypes[115]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2824,7 +5768,7 @@ func (x *GetRelativeTimeSpanString3_3Response) String() string {
 func (*GetRelativeTimeSpanString3_3Response) ProtoMessage() {}
 
 func (x *GetRelativeTimeSpanString3_3Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_format_format_proto_msgTypes[53]
+	mi := &file_proto_format_format_proto_msgTypes[115]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2837,7 +5781,7 @@ func (x *GetRelativeTimeSpanString3_3Response) ProtoReflect() protoreflect.Messa
 
 // Deprecated: Use GetRelativeTimeSpanString3_3Response.ProtoReflect.Descriptor instead.
 func (*GetRelativeTimeSpanString3_3Response) Descriptor() ([]byte, []int) {
-	return file_proto_format_format_proto_rawDescGZIP(), []int{53}
+	return file_proto_format_format_proto_rawDescGZIP(), []int{115}
 }
 
 func (x *GetRelativeTimeSpanString3_3Response) GetResult() int64 {
@@ -2860,7 +5804,7 @@ type GetRelativeTimeSpanString4_4Request struct {
 
 func (x *GetRelativeTimeSpanString4_4Request) Reset() {
 	*x = GetRelativeTimeSpanString4_4Request{}
-	mi := &file_proto_format_format_proto_msgTypes[54]
+	mi := &file_proto_format_format_proto_msgTypes[116]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2872,7 +5816,7 @@ func (x *GetRelativeTimeSpanString4_4Request) String() string {
 func (*GetRelativeTimeSpanString4_4Request) ProtoMessage() {}
 
 func (x *GetRelativeTimeSpanString4_4Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_format_format_proto_msgTypes[54]
+	mi := &file_proto_format_format_proto_msgTypes[116]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2885,7 +5829,7 @@ func (x *GetRelativeTimeSpanString4_4Request) ProtoReflect() protoreflect.Messag
 
 // Deprecated: Use GetRelativeTimeSpanString4_4Request.ProtoReflect.Descriptor instead.
 func (*GetRelativeTimeSpanString4_4Request) Descriptor() ([]byte, []int) {
-	return file_proto_format_format_proto_rawDescGZIP(), []int{54}
+	return file_proto_format_format_proto_rawDescGZIP(), []int{116}
 }
 
 func (x *GetRelativeTimeSpanString4_4Request) GetHandle() int64 {
@@ -2932,7 +5876,7 @@ type GetRelativeTimeSpanString4_4Response struct {
 
 func (x *GetRelativeTimeSpanString4_4Response) Reset() {
 	*x = GetRelativeTimeSpanString4_4Response{}
-	mi := &file_proto_format_format_proto_msgTypes[55]
+	mi := &file_proto_format_format_proto_msgTypes[117]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2944,7 +5888,7 @@ func (x *GetRelativeTimeSpanString4_4Response) String() string {
 func (*GetRelativeTimeSpanString4_4Response) ProtoMessage() {}
 
 func (x *GetRelativeTimeSpanString4_4Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_format_format_proto_msgTypes[55]
+	mi := &file_proto_format_format_proto_msgTypes[117]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2957,7 +5901,7 @@ func (x *GetRelativeTimeSpanString4_4Response) ProtoReflect() protoreflect.Messa
 
 // Deprecated: Use GetRelativeTimeSpanString4_4Response.ProtoReflect.Descriptor instead.
 func (*GetRelativeTimeSpanString4_4Response) Descriptor() ([]byte, []int) {
-	return file_proto_format_format_proto_rawDescGZIP(), []int{55}
+	return file_proto_format_format_proto_rawDescGZIP(), []int{117}
 }
 
 func (x *GetRelativeTimeSpanString4_4Response) GetResult() int64 {
@@ -2977,7 +5921,7 @@ type IsTodayRequest struct {
 
 func (x *IsTodayRequest) Reset() {
 	*x = IsTodayRequest{}
-	mi := &file_proto_format_format_proto_msgTypes[56]
+	mi := &file_proto_format_format_proto_msgTypes[118]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2989,7 +5933,7 @@ func (x *IsTodayRequest) String() string {
 func (*IsTodayRequest) ProtoMessage() {}
 
 func (x *IsTodayRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_format_format_proto_msgTypes[56]
+	mi := &file_proto_format_format_proto_msgTypes[118]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3002,7 +5946,7 @@ func (x *IsTodayRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsTodayRequest.ProtoReflect.Descriptor instead.
 func (*IsTodayRequest) Descriptor() ([]byte, []int) {
-	return file_proto_format_format_proto_rawDescGZIP(), []int{56}
+	return file_proto_format_format_proto_rawDescGZIP(), []int{118}
 }
 
 func (x *IsTodayRequest) GetHandle() int64 {
@@ -3028,7 +5972,7 @@ type IsTodayResponse struct {
 
 func (x *IsTodayResponse) Reset() {
 	*x = IsTodayResponse{}
-	mi := &file_proto_format_format_proto_msgTypes[57]
+	mi := &file_proto_format_format_proto_msgTypes[119]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3040,7 +5984,7 @@ func (x *IsTodayResponse) String() string {
 func (*IsTodayResponse) ProtoMessage() {}
 
 func (x *IsTodayResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_format_format_proto_msgTypes[57]
+	mi := &file_proto_format_format_proto_msgTypes[119]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3053,7 +5997,7 @@ func (x *IsTodayResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsTodayResponse.ProtoReflect.Descriptor instead.
 func (*IsTodayResponse) Descriptor() ([]byte, []int) {
-	return file_proto_format_format_proto_rawDescGZIP(), []int{57}
+	return file_proto_format_format_proto_rawDescGZIP(), []int{119}
 }
 
 func (x *IsTodayResponse) GetResult() bool {
@@ -3063,2955 +6007,162 @@ func (x *IsTodayResponse) GetResult() bool {
 	return false
 }
 
-type NewTimeRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *NewTimeRequest) Reset() {
-	*x = NewTimeRequest{}
-	mi := &file_proto_format_format_proto_msgTypes[58]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *NewTimeRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*NewTimeRequest) ProtoMessage() {}
-
-func (x *NewTimeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_format_format_proto_msgTypes[58]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use NewTimeRequest.ProtoReflect.Descriptor instead.
-func (*NewTimeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_format_format_proto_rawDescGZIP(), []int{58}
-}
-
-type NewTimeResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *NewTimeResponse) Reset() {
-	*x = NewTimeResponse{}
-	mi := &file_proto_format_format_proto_msgTypes[59]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *NewTimeResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*NewTimeResponse) ProtoMessage() {}
-
-func (x *NewTimeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_format_format_proto_msgTypes[59]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use NewTimeResponse.ProtoReflect.Descriptor instead.
-func (*NewTimeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_format_format_proto_rawDescGZIP(), []int{59}
-}
-
-func (x *NewTimeResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type AfterRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *AfterRequest) Reset() {
-	*x = AfterRequest{}
-	mi := &file_proto_format_format_proto_msgTypes[60]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *AfterRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*AfterRequest) ProtoMessage() {}
-
-func (x *AfterRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_format_format_proto_msgTypes[60]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use AfterRequest.ProtoReflect.Descriptor instead.
-func (*AfterRequest) Descriptor() ([]byte, []int) {
-	return file_proto_format_format_proto_rawDescGZIP(), []int{60}
-}
-
-func (x *AfterRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-func (x *AfterRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type AfterResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *AfterResponse) Reset() {
-	*x = AfterResponse{}
-	mi := &file_proto_format_format_proto_msgTypes[61]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *AfterResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*AfterResponse) ProtoMessage() {}
-
-func (x *AfterResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_format_format_proto_msgTypes[61]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use AfterResponse.ProtoReflect.Descriptor instead.
-func (*AfterResponse) Descriptor() ([]byte, []int) {
-	return file_proto_format_format_proto_rawDescGZIP(), []int{61}
-}
-
-func (x *AfterResponse) GetResult() bool {
-	if x != nil {
-		return x.Result
-	}
-	return false
-}
-
-type BeforeRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *BeforeRequest) Reset() {
-	*x = BeforeRequest{}
-	mi := &file_proto_format_format_proto_msgTypes[62]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *BeforeRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*BeforeRequest) ProtoMessage() {}
-
-func (x *BeforeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_format_format_proto_msgTypes[62]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use BeforeRequest.ProtoReflect.Descriptor instead.
-func (*BeforeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_format_format_proto_rawDescGZIP(), []int{62}
-}
-
-func (x *BeforeRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-func (x *BeforeRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type BeforeResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *BeforeResponse) Reset() {
-	*x = BeforeResponse{}
-	mi := &file_proto_format_format_proto_msgTypes[63]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *BeforeResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*BeforeResponse) ProtoMessage() {}
-
-func (x *BeforeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_format_format_proto_msgTypes[63]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use BeforeResponse.ProtoReflect.Descriptor instead.
-func (*BeforeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_format_format_proto_rawDescGZIP(), []int{63}
-}
-
-func (x *BeforeResponse) GetResult() bool {
-	if x != nil {
-		return x.Result
-	}
-	return false
-}
-
-type ClearRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	Arg0          string                 `protobuf:"bytes,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ClearRequest) Reset() {
-	*x = ClearRequest{}
-	mi := &file_proto_format_format_proto_msgTypes[64]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ClearRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ClearRequest) ProtoMessage() {}
-
-func (x *ClearRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_format_format_proto_msgTypes[64]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ClearRequest.ProtoReflect.Descriptor instead.
-func (*ClearRequest) Descriptor() ([]byte, []int) {
-	return file_proto_format_format_proto_rawDescGZIP(), []int{64}
-}
-
-func (x *ClearRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-func (x *ClearRequest) GetArg0() string {
-	if x != nil {
-		return x.Arg0
-	}
-	return ""
-}
-
-type ClearResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ClearResponse) Reset() {
-	*x = ClearResponse{}
-	mi := &file_proto_format_format_proto_msgTypes[65]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ClearResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ClearResponse) ProtoMessage() {}
-
-func (x *ClearResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_format_format_proto_msgTypes[65]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ClearResponse.ProtoReflect.Descriptor instead.
-func (*ClearResponse) Descriptor() ([]byte, []int) {
-	return file_proto_format_format_proto_rawDescGZIP(), []int{65}
-}
-
-type FormatRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	Arg0          string                 `protobuf:"bytes,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *FormatRequest) Reset() {
-	*x = FormatRequest{}
-	mi := &file_proto_format_format_proto_msgTypes[66]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *FormatRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*FormatRequest) ProtoMessage() {}
-
-func (x *FormatRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_format_format_proto_msgTypes[66]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use FormatRequest.ProtoReflect.Descriptor instead.
-func (*FormatRequest) Descriptor() ([]byte, []int) {
-	return file_proto_format_format_proto_rawDescGZIP(), []int{66}
-}
-
-func (x *FormatRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-func (x *FormatRequest) GetArg0() string {
-	if x != nil {
-		return x.Arg0
-	}
-	return ""
-}
-
-type FormatResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *FormatResponse) Reset() {
-	*x = FormatResponse{}
-	mi := &file_proto_format_format_proto_msgTypes[67]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *FormatResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*FormatResponse) ProtoMessage() {}
-
-func (x *FormatResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_format_format_proto_msgTypes[67]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use FormatResponse.ProtoReflect.Descriptor instead.
-func (*FormatResponse) Descriptor() ([]byte, []int) {
-	return file_proto_format_format_proto_rawDescGZIP(), []int{67}
-}
-
-func (x *FormatResponse) GetResult() string {
-	if x != nil {
-		return x.Result
-	}
-	return ""
-}
-
-type Format2445Request struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *Format2445Request) Reset() {
-	*x = Format2445Request{}
-	mi := &file_proto_format_format_proto_msgTypes[68]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *Format2445Request) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*Format2445Request) ProtoMessage() {}
-
-func (x *Format2445Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_format_format_proto_msgTypes[68]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use Format2445Request.ProtoReflect.Descriptor instead.
-func (*Format2445Request) Descriptor() ([]byte, []int) {
-	return file_proto_format_format_proto_rawDescGZIP(), []int{68}
-}
-
-func (x *Format2445Request) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-type Format2445Response struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *Format2445Response) Reset() {
-	*x = Format2445Response{}
-	mi := &file_proto_format_format_proto_msgTypes[69]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *Format2445Response) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*Format2445Response) ProtoMessage() {}
-
-func (x *Format2445Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_format_format_proto_msgTypes[69]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use Format2445Response.ProtoReflect.Descriptor instead.
-func (*Format2445Response) Descriptor() ([]byte, []int) {
-	return file_proto_format_format_proto_rawDescGZIP(), []int{69}
-}
-
-func (x *Format2445Response) GetResult() string {
-	if x != nil {
-		return x.Result
-	}
-	return ""
-}
-
-type Format3339Request struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	Arg0          bool                   `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *Format3339Request) Reset() {
-	*x = Format3339Request{}
-	mi := &file_proto_format_format_proto_msgTypes[70]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *Format3339Request) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*Format3339Request) ProtoMessage() {}
-
-func (x *Format3339Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_format_format_proto_msgTypes[70]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use Format3339Request.ProtoReflect.Descriptor instead.
-func (*Format3339Request) Descriptor() ([]byte, []int) {
-	return file_proto_format_format_proto_rawDescGZIP(), []int{70}
-}
-
-func (x *Format3339Request) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-func (x *Format3339Request) GetArg0() bool {
-	if x != nil {
-		return x.Arg0
-	}
-	return false
-}
-
-type Format3339Response struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *Format3339Response) Reset() {
-	*x = Format3339Response{}
-	mi := &file_proto_format_format_proto_msgTypes[71]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *Format3339Response) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*Format3339Response) ProtoMessage() {}
-
-func (x *Format3339Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_format_format_proto_msgTypes[71]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use Format3339Response.ProtoReflect.Descriptor instead.
-func (*Format3339Response) Descriptor() ([]byte, []int) {
-	return file_proto_format_format_proto_rawDescGZIP(), []int{71}
-}
-
-func (x *Format3339Response) GetResult() string {
-	if x != nil {
-		return x.Result
-	}
-	return ""
-}
-
-type GetActualMaximumRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetActualMaximumRequest) Reset() {
-	*x = GetActualMaximumRequest{}
-	mi := &file_proto_format_format_proto_msgTypes[72]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetActualMaximumRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetActualMaximumRequest) ProtoMessage() {}
-
-func (x *GetActualMaximumRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_format_format_proto_msgTypes[72]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetActualMaximumRequest.ProtoReflect.Descriptor instead.
-func (*GetActualMaximumRequest) Descriptor() ([]byte, []int) {
-	return file_proto_format_format_proto_rawDescGZIP(), []int{72}
-}
-
-func (x *GetActualMaximumRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-func (x *GetActualMaximumRequest) GetArg0() int32 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type GetActualMaximumResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetActualMaximumResponse) Reset() {
-	*x = GetActualMaximumResponse{}
-	mi := &file_proto_format_format_proto_msgTypes[73]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetActualMaximumResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetActualMaximumResponse) ProtoMessage() {}
-
-func (x *GetActualMaximumResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_format_format_proto_msgTypes[73]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetActualMaximumResponse.ProtoReflect.Descriptor instead.
-func (*GetActualMaximumResponse) Descriptor() ([]byte, []int) {
-	return file_proto_format_format_proto_rawDescGZIP(), []int{73}
-}
-
-func (x *GetActualMaximumResponse) GetResult() int32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetWeekNumberRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetWeekNumberRequest) Reset() {
-	*x = GetWeekNumberRequest{}
-	mi := &file_proto_format_format_proto_msgTypes[74]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetWeekNumberRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetWeekNumberRequest) ProtoMessage() {}
-
-func (x *GetWeekNumberRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_format_format_proto_msgTypes[74]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetWeekNumberRequest.ProtoReflect.Descriptor instead.
-func (*GetWeekNumberRequest) Descriptor() ([]byte, []int) {
-	return file_proto_format_format_proto_rawDescGZIP(), []int{74}
-}
-
-func (x *GetWeekNumberRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-type GetWeekNumberResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetWeekNumberResponse) Reset() {
-	*x = GetWeekNumberResponse{}
-	mi := &file_proto_format_format_proto_msgTypes[75]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetWeekNumberResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetWeekNumberResponse) ProtoMessage() {}
-
-func (x *GetWeekNumberResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_format_format_proto_msgTypes[75]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetWeekNumberResponse.ProtoReflect.Descriptor instead.
-func (*GetWeekNumberResponse) Descriptor() ([]byte, []int) {
-	return file_proto_format_format_proto_rawDescGZIP(), []int{75}
-}
-
-func (x *GetWeekNumberResponse) GetResult() int32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type NormalizeRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	Arg0          bool                   `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *NormalizeRequest) Reset() {
-	*x = NormalizeRequest{}
-	mi := &file_proto_format_format_proto_msgTypes[76]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *NormalizeRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*NormalizeRequest) ProtoMessage() {}
-
-func (x *NormalizeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_format_format_proto_msgTypes[76]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use NormalizeRequest.ProtoReflect.Descriptor instead.
-func (*NormalizeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_format_format_proto_rawDescGZIP(), []int{76}
-}
-
-func (x *NormalizeRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-func (x *NormalizeRequest) GetArg0() bool {
-	if x != nil {
-		return x.Arg0
-	}
-	return false
-}
-
-type NormalizeResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *NormalizeResponse) Reset() {
-	*x = NormalizeResponse{}
-	mi := &file_proto_format_format_proto_msgTypes[77]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *NormalizeResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*NormalizeResponse) ProtoMessage() {}
-
-func (x *NormalizeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_format_format_proto_msgTypes[77]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use NormalizeResponse.ProtoReflect.Descriptor instead.
-func (*NormalizeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_format_format_proto_rawDescGZIP(), []int{77}
-}
-
-func (x *NormalizeResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type ParseRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	Arg0          string                 `protobuf:"bytes,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ParseRequest) Reset() {
-	*x = ParseRequest{}
-	mi := &file_proto_format_format_proto_msgTypes[78]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ParseRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ParseRequest) ProtoMessage() {}
-
-func (x *ParseRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_format_format_proto_msgTypes[78]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ParseRequest.ProtoReflect.Descriptor instead.
-func (*ParseRequest) Descriptor() ([]byte, []int) {
-	return file_proto_format_format_proto_rawDescGZIP(), []int{78}
-}
-
-func (x *ParseRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-func (x *ParseRequest) GetArg0() string {
-	if x != nil {
-		return x.Arg0
-	}
-	return ""
-}
-
-type ParseResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ParseResponse) Reset() {
-	*x = ParseResponse{}
-	mi := &file_proto_format_format_proto_msgTypes[79]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ParseResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ParseResponse) ProtoMessage() {}
-
-func (x *ParseResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_format_format_proto_msgTypes[79]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ParseResponse.ProtoReflect.Descriptor instead.
-func (*ParseResponse) Descriptor() ([]byte, []int) {
-	return file_proto_format_format_proto_rawDescGZIP(), []int{79}
-}
-
-func (x *ParseResponse) GetResult() bool {
-	if x != nil {
-		return x.Result
-	}
-	return false
-}
-
-type Parse3339Request struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	Arg0          string                 `protobuf:"bytes,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *Parse3339Request) Reset() {
-	*x = Parse3339Request{}
-	mi := &file_proto_format_format_proto_msgTypes[80]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *Parse3339Request) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*Parse3339Request) ProtoMessage() {}
-
-func (x *Parse3339Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_format_format_proto_msgTypes[80]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use Parse3339Request.ProtoReflect.Descriptor instead.
-func (*Parse3339Request) Descriptor() ([]byte, []int) {
-	return file_proto_format_format_proto_rawDescGZIP(), []int{80}
-}
-
-func (x *Parse3339Request) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-func (x *Parse3339Request) GetArg0() string {
-	if x != nil {
-		return x.Arg0
-	}
-	return ""
-}
-
-type Parse3339Response struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *Parse3339Response) Reset() {
-	*x = Parse3339Response{}
-	mi := &file_proto_format_format_proto_msgTypes[81]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *Parse3339Response) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*Parse3339Response) ProtoMessage() {}
-
-func (x *Parse3339Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_format_format_proto_msgTypes[81]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use Parse3339Response.ProtoReflect.Descriptor instead.
-func (*Parse3339Response) Descriptor() ([]byte, []int) {
-	return file_proto_format_format_proto_rawDescGZIP(), []int{81}
-}
-
-func (x *Parse3339Response) GetResult() bool {
-	if x != nil {
-		return x.Result
-	}
-	return false
-}
-
-type Set1Request struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *Set1Request) Reset() {
-	*x = Set1Request{}
-	mi := &file_proto_format_format_proto_msgTypes[82]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *Set1Request) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*Set1Request) ProtoMessage() {}
-
-func (x *Set1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_format_format_proto_msgTypes[82]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use Set1Request.ProtoReflect.Descriptor instead.
-func (*Set1Request) Descriptor() ([]byte, []int) {
-	return file_proto_format_format_proto_rawDescGZIP(), []int{82}
-}
-
-func (x *Set1Request) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-func (x *Set1Request) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type Set1Response struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *Set1Response) Reset() {
-	*x = Set1Response{}
-	mi := &file_proto_format_format_proto_msgTypes[83]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *Set1Response) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*Set1Response) ProtoMessage() {}
-
-func (x *Set1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_format_format_proto_msgTypes[83]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use Set1Response.ProtoReflect.Descriptor instead.
-func (*Set1Response) Descriptor() ([]byte, []int) {
-	return file_proto_format_format_proto_rawDescGZIP(), []int{83}
-}
-
-type Set3_1Request struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int32                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	Arg2          int32                  `protobuf:"varint,4,opt,name=arg2,proto3" json:"arg2,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *Set3_1Request) Reset() {
-	*x = Set3_1Request{}
-	mi := &file_proto_format_format_proto_msgTypes[84]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *Set3_1Request) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*Set3_1Request) ProtoMessage() {}
-
-func (x *Set3_1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_format_format_proto_msgTypes[84]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use Set3_1Request.ProtoReflect.Descriptor instead.
-func (*Set3_1Request) Descriptor() ([]byte, []int) {
-	return file_proto_format_format_proto_rawDescGZIP(), []int{84}
-}
-
-func (x *Set3_1Request) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-func (x *Set3_1Request) GetArg0() int32 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-func (x *Set3_1Request) GetArg1() int32 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-func (x *Set3_1Request) GetArg2() int32 {
-	if x != nil {
-		return x.Arg2
-	}
-	return 0
-}
-
-type Set3_1Response struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *Set3_1Response) Reset() {
-	*x = Set3_1Response{}
-	mi := &file_proto_format_format_proto_msgTypes[85]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *Set3_1Response) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*Set3_1Response) ProtoMessage() {}
-
-func (x *Set3_1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_format_format_proto_msgTypes[85]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use Set3_1Response.ProtoReflect.Descriptor instead.
-func (*Set3_1Response) Descriptor() ([]byte, []int) {
-	return file_proto_format_format_proto_rawDescGZIP(), []int{85}
-}
-
-type Set6_2Request struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int32                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	Arg2          int32                  `protobuf:"varint,4,opt,name=arg2,proto3" json:"arg2,omitempty"`
-	Arg3          int32                  `protobuf:"varint,5,opt,name=arg3,proto3" json:"arg3,omitempty"`
-	Arg4          int32                  `protobuf:"varint,6,opt,name=arg4,proto3" json:"arg4,omitempty"`
-	Arg5          int32                  `protobuf:"varint,7,opt,name=arg5,proto3" json:"arg5,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *Set6_2Request) Reset() {
-	*x = Set6_2Request{}
-	mi := &file_proto_format_format_proto_msgTypes[86]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *Set6_2Request) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*Set6_2Request) ProtoMessage() {}
-
-func (x *Set6_2Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_format_format_proto_msgTypes[86]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use Set6_2Request.ProtoReflect.Descriptor instead.
-func (*Set6_2Request) Descriptor() ([]byte, []int) {
-	return file_proto_format_format_proto_rawDescGZIP(), []int{86}
-}
-
-func (x *Set6_2Request) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-func (x *Set6_2Request) GetArg0() int32 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-func (x *Set6_2Request) GetArg1() int32 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-func (x *Set6_2Request) GetArg2() int32 {
-	if x != nil {
-		return x.Arg2
-	}
-	return 0
-}
-
-func (x *Set6_2Request) GetArg3() int32 {
-	if x != nil {
-		return x.Arg3
-	}
-	return 0
-}
-
-func (x *Set6_2Request) GetArg4() int32 {
-	if x != nil {
-		return x.Arg4
-	}
-	return 0
-}
-
-func (x *Set6_2Request) GetArg5() int32 {
-	if x != nil {
-		return x.Arg5
-	}
-	return 0
-}
-
-type Set6_2Response struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *Set6_2Response) Reset() {
-	*x = Set6_2Response{}
-	mi := &file_proto_format_format_proto_msgTypes[87]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *Set6_2Response) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*Set6_2Response) ProtoMessage() {}
-
-func (x *Set6_2Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_format_format_proto_msgTypes[87]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use Set6_2Response.ProtoReflect.Descriptor instead.
-func (*Set6_2Response) Descriptor() ([]byte, []int) {
-	return file_proto_format_format_proto_rawDescGZIP(), []int{87}
-}
-
-type Set1_3Request struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *Set1_3Request) Reset() {
-	*x = Set1_3Request{}
-	mi := &file_proto_format_format_proto_msgTypes[88]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *Set1_3Request) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*Set1_3Request) ProtoMessage() {}
-
-func (x *Set1_3Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_format_format_proto_msgTypes[88]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use Set1_3Request.ProtoReflect.Descriptor instead.
-func (*Set1_3Request) Descriptor() ([]byte, []int) {
-	return file_proto_format_format_proto_rawDescGZIP(), []int{88}
-}
-
-func (x *Set1_3Request) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-func (x *Set1_3Request) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type Set1_3Response struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *Set1_3Response) Reset() {
-	*x = Set1_3Response{}
-	mi := &file_proto_format_format_proto_msgTypes[89]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *Set1_3Response) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*Set1_3Response) ProtoMessage() {}
-
-func (x *Set1_3Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_format_format_proto_msgTypes[89]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use Set1_3Response.ProtoReflect.Descriptor instead.
-func (*Set1_3Response) Descriptor() ([]byte, []int) {
-	return file_proto_format_format_proto_rawDescGZIP(), []int{89}
-}
-
-type SetJulianDayRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetJulianDayRequest) Reset() {
-	*x = SetJulianDayRequest{}
-	mi := &file_proto_format_format_proto_msgTypes[90]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetJulianDayRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetJulianDayRequest) ProtoMessage() {}
-
-func (x *SetJulianDayRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_format_format_proto_msgTypes[90]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetJulianDayRequest.ProtoReflect.Descriptor instead.
-func (*SetJulianDayRequest) Descriptor() ([]byte, []int) {
-	return file_proto_format_format_proto_rawDescGZIP(), []int{90}
-}
-
-func (x *SetJulianDayRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-func (x *SetJulianDayRequest) GetArg0() int32 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type SetJulianDayResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetJulianDayResponse) Reset() {
-	*x = SetJulianDayResponse{}
-	mi := &file_proto_format_format_proto_msgTypes[91]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetJulianDayResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetJulianDayResponse) ProtoMessage() {}
-
-func (x *SetJulianDayResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_format_format_proto_msgTypes[91]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetJulianDayResponse.ProtoReflect.Descriptor instead.
-func (*SetJulianDayResponse) Descriptor() ([]byte, []int) {
-	return file_proto_format_format_proto_rawDescGZIP(), []int{91}
-}
-
-func (x *SetJulianDayResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type SetToNowRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetToNowRequest) Reset() {
-	*x = SetToNowRequest{}
-	mi := &file_proto_format_format_proto_msgTypes[92]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetToNowRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetToNowRequest) ProtoMessage() {}
-
-func (x *SetToNowRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_format_format_proto_msgTypes[92]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetToNowRequest.ProtoReflect.Descriptor instead.
-func (*SetToNowRequest) Descriptor() ([]byte, []int) {
-	return file_proto_format_format_proto_rawDescGZIP(), []int{92}
-}
-
-func (x *SetToNowRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-type SetToNowResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetToNowResponse) Reset() {
-	*x = SetToNowResponse{}
-	mi := &file_proto_format_format_proto_msgTypes[93]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetToNowResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetToNowResponse) ProtoMessage() {}
-
-func (x *SetToNowResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_format_format_proto_msgTypes[93]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetToNowResponse.ProtoReflect.Descriptor instead.
-func (*SetToNowResponse) Descriptor() ([]byte, []int) {
-	return file_proto_format_format_proto_rawDescGZIP(), []int{93}
-}
-
-type SwitchTimezoneRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	Arg0          string                 `protobuf:"bytes,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SwitchTimezoneRequest) Reset() {
-	*x = SwitchTimezoneRequest{}
-	mi := &file_proto_format_format_proto_msgTypes[94]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SwitchTimezoneRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SwitchTimezoneRequest) ProtoMessage() {}
-
-func (x *SwitchTimezoneRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_format_format_proto_msgTypes[94]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SwitchTimezoneRequest.ProtoReflect.Descriptor instead.
-func (*SwitchTimezoneRequest) Descriptor() ([]byte, []int) {
-	return file_proto_format_format_proto_rawDescGZIP(), []int{94}
-}
-
-func (x *SwitchTimezoneRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-func (x *SwitchTimezoneRequest) GetArg0() string {
-	if x != nil {
-		return x.Arg0
-	}
-	return ""
-}
-
-type SwitchTimezoneResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SwitchTimezoneResponse) Reset() {
-	*x = SwitchTimezoneResponse{}
-	mi := &file_proto_format_format_proto_msgTypes[95]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SwitchTimezoneResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SwitchTimezoneResponse) ProtoMessage() {}
-
-func (x *SwitchTimezoneResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_format_format_proto_msgTypes[95]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SwitchTimezoneResponse.ProtoReflect.Descriptor instead.
-func (*SwitchTimezoneResponse) Descriptor() ([]byte, []int) {
-	return file_proto_format_format_proto_rawDescGZIP(), []int{95}
-}
-
-type ToMillisRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	Arg0          bool                   `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ToMillisRequest) Reset() {
-	*x = ToMillisRequest{}
-	mi := &file_proto_format_format_proto_msgTypes[96]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ToMillisRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ToMillisRequest) ProtoMessage() {}
-
-func (x *ToMillisRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_format_format_proto_msgTypes[96]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ToMillisRequest.ProtoReflect.Descriptor instead.
-func (*ToMillisRequest) Descriptor() ([]byte, []int) {
-	return file_proto_format_format_proto_rawDescGZIP(), []int{96}
-}
-
-func (x *ToMillisRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-func (x *ToMillisRequest) GetArg0() bool {
-	if x != nil {
-		return x.Arg0
-	}
-	return false
-}
-
-type ToMillisResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ToMillisResponse) Reset() {
-	*x = ToMillisResponse{}
-	mi := &file_proto_format_format_proto_msgTypes[97]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ToMillisResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ToMillisResponse) ProtoMessage() {}
-
-func (x *ToMillisResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_format_format_proto_msgTypes[97]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ToMillisResponse.ProtoReflect.Descriptor instead.
-func (*ToMillisResponse) Descriptor() ([]byte, []int) {
-	return file_proto_format_format_proto_rawDescGZIP(), []int{97}
-}
-
-func (x *ToMillisResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type ToStringRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ToStringRequest) Reset() {
-	*x = ToStringRequest{}
-	mi := &file_proto_format_format_proto_msgTypes[98]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ToStringRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ToStringRequest) ProtoMessage() {}
-
-func (x *ToStringRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_format_format_proto_msgTypes[98]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ToStringRequest.ProtoReflect.Descriptor instead.
-func (*ToStringRequest) Descriptor() ([]byte, []int) {
-	return file_proto_format_format_proto_rawDescGZIP(), []int{98}
-}
-
-func (x *ToStringRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-type ToStringResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ToStringResponse) Reset() {
-	*x = ToStringResponse{}
-	mi := &file_proto_format_format_proto_msgTypes[99]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ToStringResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ToStringResponse) ProtoMessage() {}
-
-func (x *ToStringResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_format_format_proto_msgTypes[99]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ToStringResponse.ProtoReflect.Descriptor instead.
-func (*ToStringResponse) Descriptor() ([]byte, []int) {
-	return file_proto_format_format_proto_rawDescGZIP(), []int{99}
-}
-
-func (x *ToStringResponse) GetResult() string {
-	if x != nil {
-		return x.Result
-	}
-	return ""
-}
-
-type CompareRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int64                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *CompareRequest) Reset() {
-	*x = CompareRequest{}
-	mi := &file_proto_format_format_proto_msgTypes[100]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CompareRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CompareRequest) ProtoMessage() {}
-
-func (x *CompareRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_format_format_proto_msgTypes[100]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CompareRequest.ProtoReflect.Descriptor instead.
-func (*CompareRequest) Descriptor() ([]byte, []int) {
-	return file_proto_format_format_proto_rawDescGZIP(), []int{100}
-}
-
-func (x *CompareRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-func (x *CompareRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-func (x *CompareRequest) GetArg1() int64 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-type CompareResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *CompareResponse) Reset() {
-	*x = CompareResponse{}
-	mi := &file_proto_format_format_proto_msgTypes[101]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CompareResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CompareResponse) ProtoMessage() {}
-
-func (x *CompareResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_format_format_proto_msgTypes[101]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CompareResponse.ProtoReflect.Descriptor instead.
-func (*CompareResponse) Descriptor() ([]byte, []int) {
-	return file_proto_format_format_proto_rawDescGZIP(), []int{101}
-}
-
-func (x *CompareResponse) GetResult() int32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetCurrentTimezoneRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetCurrentTimezoneRequest) Reset() {
-	*x = GetCurrentTimezoneRequest{}
-	mi := &file_proto_format_format_proto_msgTypes[102]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetCurrentTimezoneRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetCurrentTimezoneRequest) ProtoMessage() {}
-
-func (x *GetCurrentTimezoneRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_format_format_proto_msgTypes[102]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetCurrentTimezoneRequest.ProtoReflect.Descriptor instead.
-func (*GetCurrentTimezoneRequest) Descriptor() ([]byte, []int) {
-	return file_proto_format_format_proto_rawDescGZIP(), []int{102}
-}
-
-func (x *GetCurrentTimezoneRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-type GetCurrentTimezoneResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetCurrentTimezoneResponse) Reset() {
-	*x = GetCurrentTimezoneResponse{}
-	mi := &file_proto_format_format_proto_msgTypes[103]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetCurrentTimezoneResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetCurrentTimezoneResponse) ProtoMessage() {}
-
-func (x *GetCurrentTimezoneResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_format_format_proto_msgTypes[103]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetCurrentTimezoneResponse.ProtoReflect.Descriptor instead.
-func (*GetCurrentTimezoneResponse) Descriptor() ([]byte, []int) {
-	return file_proto_format_format_proto_rawDescGZIP(), []int{103}
-}
-
-func (x *GetCurrentTimezoneResponse) GetResult() string {
-	if x != nil {
-		return x.Result
-	}
-	return ""
-}
-
-type GetJulianDayRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int64                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetJulianDayRequest) Reset() {
-	*x = GetJulianDayRequest{}
-	mi := &file_proto_format_format_proto_msgTypes[104]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetJulianDayRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetJulianDayRequest) ProtoMessage() {}
-
-func (x *GetJulianDayRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_format_format_proto_msgTypes[104]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetJulianDayRequest.ProtoReflect.Descriptor instead.
-func (*GetJulianDayRequest) Descriptor() ([]byte, []int) {
-	return file_proto_format_format_proto_rawDescGZIP(), []int{104}
-}
-
-func (x *GetJulianDayRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-func (x *GetJulianDayRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-func (x *GetJulianDayRequest) GetArg1() int64 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-type GetJulianDayResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetJulianDayResponse) Reset() {
-	*x = GetJulianDayResponse{}
-	mi := &file_proto_format_format_proto_msgTypes[105]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetJulianDayResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetJulianDayResponse) ProtoMessage() {}
-
-func (x *GetJulianDayResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_format_format_proto_msgTypes[105]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetJulianDayResponse.ProtoReflect.Descriptor instead.
-func (*GetJulianDayResponse) Descriptor() ([]byte, []int) {
-	return file_proto_format_format_proto_rawDescGZIP(), []int{105}
-}
-
-func (x *GetJulianDayResponse) GetResult() int32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetJulianMondayFromWeeksSinceEpochRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetJulianMondayFromWeeksSinceEpochRequest) Reset() {
-	*x = GetJulianMondayFromWeeksSinceEpochRequest{}
-	mi := &file_proto_format_format_proto_msgTypes[106]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetJulianMondayFromWeeksSinceEpochRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetJulianMondayFromWeeksSinceEpochRequest) ProtoMessage() {}
-
-func (x *GetJulianMondayFromWeeksSinceEpochRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_format_format_proto_msgTypes[106]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetJulianMondayFromWeeksSinceEpochRequest.ProtoReflect.Descriptor instead.
-func (*GetJulianMondayFromWeeksSinceEpochRequest) Descriptor() ([]byte, []int) {
-	return file_proto_format_format_proto_rawDescGZIP(), []int{106}
-}
-
-func (x *GetJulianMondayFromWeeksSinceEpochRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-func (x *GetJulianMondayFromWeeksSinceEpochRequest) GetArg0() int32 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type GetJulianMondayFromWeeksSinceEpochResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetJulianMondayFromWeeksSinceEpochResponse) Reset() {
-	*x = GetJulianMondayFromWeeksSinceEpochResponse{}
-	mi := &file_proto_format_format_proto_msgTypes[107]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetJulianMondayFromWeeksSinceEpochResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetJulianMondayFromWeeksSinceEpochResponse) ProtoMessage() {}
-
-func (x *GetJulianMondayFromWeeksSinceEpochResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_format_format_proto_msgTypes[107]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetJulianMondayFromWeeksSinceEpochResponse.ProtoReflect.Descriptor instead.
-func (*GetJulianMondayFromWeeksSinceEpochResponse) Descriptor() ([]byte, []int) {
-	return file_proto_format_format_proto_rawDescGZIP(), []int{107}
-}
-
-func (x *GetJulianMondayFromWeeksSinceEpochResponse) GetResult() int32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetWeeksSinceEpochFromJulianDayRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int32                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetWeeksSinceEpochFromJulianDayRequest) Reset() {
-	*x = GetWeeksSinceEpochFromJulianDayRequest{}
-	mi := &file_proto_format_format_proto_msgTypes[108]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetWeeksSinceEpochFromJulianDayRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetWeeksSinceEpochFromJulianDayRequest) ProtoMessage() {}
-
-func (x *GetWeeksSinceEpochFromJulianDayRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_format_format_proto_msgTypes[108]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetWeeksSinceEpochFromJulianDayRequest.ProtoReflect.Descriptor instead.
-func (*GetWeeksSinceEpochFromJulianDayRequest) Descriptor() ([]byte, []int) {
-	return file_proto_format_format_proto_rawDescGZIP(), []int{108}
-}
-
-func (x *GetWeeksSinceEpochFromJulianDayRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-func (x *GetWeeksSinceEpochFromJulianDayRequest) GetArg0() int32 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-func (x *GetWeeksSinceEpochFromJulianDayRequest) GetArg1() int32 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-type GetWeeksSinceEpochFromJulianDayResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetWeeksSinceEpochFromJulianDayResponse) Reset() {
-	*x = GetWeeksSinceEpochFromJulianDayResponse{}
-	mi := &file_proto_format_format_proto_msgTypes[109]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetWeeksSinceEpochFromJulianDayResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetWeeksSinceEpochFromJulianDayResponse) ProtoMessage() {}
-
-func (x *GetWeeksSinceEpochFromJulianDayResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_format_format_proto_msgTypes[109]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetWeeksSinceEpochFromJulianDayResponse.ProtoReflect.Descriptor instead.
-func (*GetWeeksSinceEpochFromJulianDayResponse) Descriptor() ([]byte, []int) {
-	return file_proto_format_format_proto_rawDescGZIP(), []int{109}
-}
-
-func (x *GetWeeksSinceEpochFromJulianDayResponse) GetResult() int32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type IsEpochRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *IsEpochRequest) Reset() {
-	*x = IsEpochRequest{}
-	mi := &file_proto_format_format_proto_msgTypes[110]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *IsEpochRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*IsEpochRequest) ProtoMessage() {}
-
-func (x *IsEpochRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_format_format_proto_msgTypes[110]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use IsEpochRequest.ProtoReflect.Descriptor instead.
-func (*IsEpochRequest) Descriptor() ([]byte, []int) {
-	return file_proto_format_format_proto_rawDescGZIP(), []int{110}
-}
-
-func (x *IsEpochRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-func (x *IsEpochRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type IsEpochResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *IsEpochResponse) Reset() {
-	*x = IsEpochResponse{}
-	mi := &file_proto_format_format_proto_msgTypes[111]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *IsEpochResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*IsEpochResponse) ProtoMessage() {}
-
-func (x *IsEpochResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_format_format_proto_msgTypes[111]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use IsEpochResponse.ProtoReflect.Descriptor instead.
-func (*IsEpochResponse) Descriptor() ([]byte, []int) {
-	return file_proto_format_format_proto_rawDescGZIP(), []int{111}
-}
-
-func (x *IsEpochResponse) GetResult() bool {
-	if x != nil {
-		return x.Result
-	}
-	return false
-}
-
-type NewTerRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *NewTerRequest) Reset() {
-	*x = NewTerRequest{}
-	mi := &file_proto_format_format_proto_msgTypes[112]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *NewTerRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*NewTerRequest) ProtoMessage() {}
-
-func (x *NewTerRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_format_format_proto_msgTypes[112]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use NewTerRequest.ProtoReflect.Descriptor instead.
-func (*NewTerRequest) Descriptor() ([]byte, []int) {
-	return file_proto_format_format_proto_rawDescGZIP(), []int{112}
-}
-
-type NewTerResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *NewTerResponse) Reset() {
-	*x = NewTerResponse{}
-	mi := &file_proto_format_format_proto_msgTypes[113]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *NewTerResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*NewTerResponse) ProtoMessage() {}
-
-func (x *NewTerResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_format_format_proto_msgTypes[113]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use NewTerResponse.ProtoReflect.Descriptor instead.
-func (*NewTerResponse) Descriptor() ([]byte, []int) {
-	return file_proto_format_format_proto_rawDescGZIP(), []int{113}
-}
-
-func (x *NewTerResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type FormatFileSizeRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int64                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *FormatFileSizeRequest) Reset() {
-	*x = FormatFileSizeRequest{}
-	mi := &file_proto_format_format_proto_msgTypes[114]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *FormatFileSizeRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*FormatFileSizeRequest) ProtoMessage() {}
-
-func (x *FormatFileSizeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_format_format_proto_msgTypes[114]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use FormatFileSizeRequest.ProtoReflect.Descriptor instead.
-func (*FormatFileSizeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_format_format_proto_rawDescGZIP(), []int{114}
-}
-
-func (x *FormatFileSizeRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-func (x *FormatFileSizeRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-func (x *FormatFileSizeRequest) GetArg1() int64 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-type FormatFileSizeResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *FormatFileSizeResponse) Reset() {
-	*x = FormatFileSizeResponse{}
-	mi := &file_proto_format_format_proto_msgTypes[115]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *FormatFileSizeResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*FormatFileSizeResponse) ProtoMessage() {}
-
-func (x *FormatFileSizeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_format_format_proto_msgTypes[115]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use FormatFileSizeResponse.ProtoReflect.Descriptor instead.
-func (*FormatFileSizeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_format_format_proto_rawDescGZIP(), []int{115}
-}
-
-func (x *FormatFileSizeResponse) GetResult() string {
-	if x != nil {
-		return x.Result
-	}
-	return ""
-}
-
-type FormatIpAddressRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *FormatIpAddressRequest) Reset() {
-	*x = FormatIpAddressRequest{}
-	mi := &file_proto_format_format_proto_msgTypes[116]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *FormatIpAddressRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*FormatIpAddressRequest) ProtoMessage() {}
-
-func (x *FormatIpAddressRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_format_format_proto_msgTypes[116]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use FormatIpAddressRequest.ProtoReflect.Descriptor instead.
-func (*FormatIpAddressRequest) Descriptor() ([]byte, []int) {
-	return file_proto_format_format_proto_rawDescGZIP(), []int{116}
-}
-
-func (x *FormatIpAddressRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-func (x *FormatIpAddressRequest) GetArg0() int32 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type FormatIpAddressResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *FormatIpAddressResponse) Reset() {
-	*x = FormatIpAddressResponse{}
-	mi := &file_proto_format_format_proto_msgTypes[117]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *FormatIpAddressResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*FormatIpAddressResponse) ProtoMessage() {}
-
-func (x *FormatIpAddressResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_format_format_proto_msgTypes[117]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use FormatIpAddressResponse.ProtoReflect.Descriptor instead.
-func (*FormatIpAddressResponse) Descriptor() ([]byte, []int) {
-	return file_proto_format_format_proto_rawDescGZIP(), []int{117}
-}
-
-func (x *FormatIpAddressResponse) GetResult() string {
-	if x != nil {
-		return x.Result
-	}
-	return ""
-}
-
-type FormatShortFileSizeRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int64                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *FormatShortFileSizeRequest) Reset() {
-	*x = FormatShortFileSizeRequest{}
-	mi := &file_proto_format_format_proto_msgTypes[118]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *FormatShortFileSizeRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*FormatShortFileSizeRequest) ProtoMessage() {}
-
-func (x *FormatShortFileSizeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_format_format_proto_msgTypes[118]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use FormatShortFileSizeRequest.ProtoReflect.Descriptor instead.
-func (*FormatShortFileSizeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_format_format_proto_rawDescGZIP(), []int{118}
-}
-
-func (x *FormatShortFileSizeRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-func (x *FormatShortFileSizeRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-func (x *FormatShortFileSizeRequest) GetArg1() int64 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-type FormatShortFileSizeResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *FormatShortFileSizeResponse) Reset() {
-	*x = FormatShortFileSizeResponse{}
-	mi := &file_proto_format_format_proto_msgTypes[119]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *FormatShortFileSizeResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*FormatShortFileSizeResponse) ProtoMessage() {}
-
-func (x *FormatShortFileSizeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_format_format_proto_msgTypes[119]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use FormatShortFileSizeResponse.ProtoReflect.Descriptor instead.
-func (*FormatShortFileSizeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_format_format_proto_rawDescGZIP(), []int{119}
-}
-
-func (x *FormatShortFileSizeResponse) GetResult() string {
-	if x != nil {
-		return x.Result
-	}
-	return ""
-}
-
 var File_proto_format_format_proto protoreflect.FileDescriptor
 
 const file_proto_format_format_proto_rawDesc = "" +
 	"\n" +
-	"\x19proto/format/format.proto\x12\x06format\"\x16\n" +
+	"\x19proto/format/format.proto\x12\x06format\"\x10\n" +
+	"\x0eNewTimeRequest\")\n" +
+	"\x0fNewTimeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\":\n" +
+	"\fAfterRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"'\n" +
+	"\rAfterResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\";\n" +
+	"\rBeforeRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"(\n" +
+	"\x0eBeforeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\":\n" +
+	"\fClearRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\tR\x04arg0\"\x0f\n" +
+	"\rClearResponse\";\n" +
+	"\rFormatRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\tR\x04arg0\"(\n" +
+	"\x0eFormatResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"+\n" +
+	"\x11Format2445Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\",\n" +
+	"\x12Format2445Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"?\n" +
+	"\x11Format3339Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\bR\x04arg0\",\n" +
+	"\x12Format3339Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"E\n" +
+	"\x17GetActualMaximumRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\"2\n" +
+	"\x18GetActualMaximumResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\".\n" +
+	"\x14GetWeekNumberRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"/\n" +
+	"\x15GetWeekNumberResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\">\n" +
+	"\x10NormalizeRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\bR\x04arg0\"+\n" +
+	"\x11NormalizeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\":\n" +
+	"\fParseRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\tR\x04arg0\"'\n" +
+	"\rParseResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\">\n" +
+	"\x10Parse3339Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\tR\x04arg0\"+\n" +
+	"\x11Parse3339Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"9\n" +
+	"\vSet1Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"\x0e\n" +
+	"\fSet1Response\"c\n" +
+	"\rSet3_1Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x05R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x04 \x01(\x05R\x04arg2\"\x10\n" +
+	"\x0eSet3_1Response\"\x9f\x01\n" +
+	"\rSet6_2Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x05R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x04 \x01(\x05R\x04arg2\x12\x12\n" +
+	"\x04arg3\x18\x05 \x01(\x05R\x04arg3\x12\x12\n" +
+	"\x04arg4\x18\x06 \x01(\x05R\x04arg4\x12\x12\n" +
+	"\x04arg5\x18\a \x01(\x05R\x04arg5\"\x10\n" +
+	"\x0eSet6_2Response\";\n" +
+	"\rSet1_3Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"\x10\n" +
+	"\x0eSet1_3Response\"A\n" +
+	"\x13SetJulianDayRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\".\n" +
+	"\x14SetJulianDayResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\")\n" +
+	"\x0fSetToNowRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"\x12\n" +
+	"\x10SetToNowResponse\"C\n" +
+	"\x15SwitchTimezoneRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\tR\x04arg0\"\x18\n" +
+	"\x16SwitchTimezoneResponse\"=\n" +
+	"\x0fToMillisRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\bR\x04arg0\"*\n" +
+	"\x10ToMillisResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\")\n" +
+	"\x0fToStringRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"*\n" +
+	"\x10ToStringResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"P\n" +
+	"\x0eCompareRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x03R\x04arg1\")\n" +
+	"\x0fCompareResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"3\n" +
+	"\x19GetCurrentTimezoneRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"4\n" +
+	"\x1aGetCurrentTimezoneResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"U\n" +
+	"\x13GetJulianDayRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x03R\x04arg1\".\n" +
+	"\x14GetJulianDayResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"W\n" +
+	")GetJulianMondayFromWeeksSinceEpochRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\"D\n" +
+	"*GetJulianMondayFromWeeksSinceEpochResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"h\n" +
+	"&GetWeeksSinceEpochFromJulianDayRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x05R\x04arg1\"A\n" +
+	"'GetWeeksSinceEpochFromJulianDayResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"<\n" +
+	"\x0eIsEpochRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\")\n" +
+	"\x0fIsEpochResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"\x0f\n" +
+	"\rNewTerRequest\"(\n" +
+	"\x0eNewTerResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"W\n" +
+	"\x15FormatFileSizeRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x03R\x04arg1\"0\n" +
+	"\x16FormatFileSizeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"D\n" +
+	"\x16FormatIpAddressRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\"1\n" +
+	"\x17FormatIpAddressResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"\\\n" +
+	"\x1aFormatShortFileSizeRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x03R\x04arg1\"5\n" +
+	"\x1bFormatShortFileSizeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"\x16\n" +
 	"\x14NewDateFormatRequest\"/\n" +
 	"\x15NewDateFormatResponse\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\x03R\x06result\"P\n" +
@@ -6188,189 +6339,7 @@ const file_proto_format_format_proto_rawDesc = "" +
 	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
 	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\")\n" +
 	"\x0fIsTodayResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\bR\x06result\"\x10\n" +
-	"\x0eNewTimeRequest\")\n" +
-	"\x0fNewTimeResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\":\n" +
-	"\fAfterRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
-	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"'\n" +
-	"\rAfterResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\bR\x06result\";\n" +
-	"\rBeforeRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
-	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"(\n" +
-	"\x0eBeforeResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\bR\x06result\":\n" +
-	"\fClearRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
-	"\x04arg0\x18\x02 \x01(\tR\x04arg0\"\x0f\n" +
-	"\rClearResponse\";\n" +
-	"\rFormatRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
-	"\x04arg0\x18\x02 \x01(\tR\x04arg0\"(\n" +
-	"\x0eFormatResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\tR\x06result\"+\n" +
-	"\x11Format2445Request\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\",\n" +
-	"\x12Format2445Response\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\tR\x06result\"?\n" +
-	"\x11Format3339Request\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
-	"\x04arg0\x18\x02 \x01(\bR\x04arg0\",\n" +
-	"\x12Format3339Response\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\tR\x06result\"E\n" +
-	"\x17GetActualMaximumRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
-	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\"2\n" +
-	"\x18GetActualMaximumResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\".\n" +
-	"\x14GetWeekNumberRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\"/\n" +
-	"\x15GetWeekNumberResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\">\n" +
-	"\x10NormalizeRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
-	"\x04arg0\x18\x02 \x01(\bR\x04arg0\"+\n" +
-	"\x11NormalizeResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\":\n" +
-	"\fParseRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
-	"\x04arg0\x18\x02 \x01(\tR\x04arg0\"'\n" +
-	"\rParseResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\bR\x06result\">\n" +
-	"\x10Parse3339Request\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
-	"\x04arg0\x18\x02 \x01(\tR\x04arg0\"+\n" +
-	"\x11Parse3339Response\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\bR\x06result\"9\n" +
-	"\vSet1Request\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
-	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"\x0e\n" +
-	"\fSet1Response\"c\n" +
-	"\rSet3_1Request\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
-	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x03 \x01(\x05R\x04arg1\x12\x12\n" +
-	"\x04arg2\x18\x04 \x01(\x05R\x04arg2\"\x10\n" +
-	"\x0eSet3_1Response\"\x9f\x01\n" +
-	"\rSet6_2Request\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
-	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x03 \x01(\x05R\x04arg1\x12\x12\n" +
-	"\x04arg2\x18\x04 \x01(\x05R\x04arg2\x12\x12\n" +
-	"\x04arg3\x18\x05 \x01(\x05R\x04arg3\x12\x12\n" +
-	"\x04arg4\x18\x06 \x01(\x05R\x04arg4\x12\x12\n" +
-	"\x04arg5\x18\a \x01(\x05R\x04arg5\"\x10\n" +
-	"\x0eSet6_2Response\";\n" +
-	"\rSet1_3Request\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
-	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"\x10\n" +
-	"\x0eSet1_3Response\"A\n" +
-	"\x13SetJulianDayRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
-	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\".\n" +
-	"\x14SetJulianDayResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\")\n" +
-	"\x0fSetToNowRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\"\x12\n" +
-	"\x10SetToNowResponse\"C\n" +
-	"\x15SwitchTimezoneRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
-	"\x04arg0\x18\x02 \x01(\tR\x04arg0\"\x18\n" +
-	"\x16SwitchTimezoneResponse\"=\n" +
-	"\x0fToMillisRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
-	"\x04arg0\x18\x02 \x01(\bR\x04arg0\"*\n" +
-	"\x10ToMillisResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\")\n" +
-	"\x0fToStringRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\"*\n" +
-	"\x10ToStringResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\tR\x06result\"P\n" +
-	"\x0eCompareRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
-	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x03 \x01(\x03R\x04arg1\")\n" +
-	"\x0fCompareResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\"3\n" +
-	"\x19GetCurrentTimezoneRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\"4\n" +
-	"\x1aGetCurrentTimezoneResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\tR\x06result\"U\n" +
-	"\x13GetJulianDayRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
-	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x03 \x01(\x03R\x04arg1\".\n" +
-	"\x14GetJulianDayResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\"W\n" +
-	")GetJulianMondayFromWeeksSinceEpochRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
-	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\"D\n" +
-	"*GetJulianMondayFromWeeksSinceEpochResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\"h\n" +
-	"&GetWeeksSinceEpochFromJulianDayRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
-	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x03 \x01(\x05R\x04arg1\"A\n" +
-	"'GetWeeksSinceEpochFromJulianDayResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\"<\n" +
-	"\x0eIsEpochRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
-	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\")\n" +
-	"\x0fIsEpochResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\bR\x06result\"\x0f\n" +
-	"\rNewTerRequest\"(\n" +
-	"\x0eNewTerResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"W\n" +
-	"\x15FormatFileSizeRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
-	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x03 \x01(\x03R\x04arg1\"0\n" +
-	"\x16FormatFileSizeResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\tR\x06result\"D\n" +
-	"\x16FormatIpAddressRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
-	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\"1\n" +
-	"\x17FormatIpAddressResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\tR\x06result\"\\\n" +
-	"\x1aFormatShortFileSizeRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
-	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x03 \x01(\x03R\x04arg1\"5\n" +
-	"\x1bFormatShortFileSizeResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\tR\x06result2\x8e\a\n" +
-	"\x11DateFormatService\x12L\n" +
-	"\rNewDateFormat\x12\x1c.format.NewDateFormatRequest\x1a\x1d.format.NewDateFormatResponse\x12:\n" +
-	"\aFormat2\x12\x16.format.Format2Request\x1a\x17.format.Format2Response\x12@\n" +
-	"\tFormat2_1\x12\x18.format.Format2_1Request\x1a\x19.format.Format2_1Response\x12@\n" +
-	"\tFormat2_2\x12\x18.format.Format2_2Request\x1a\x19.format.Format2_2Response\x12g\n" +
-	"\x16GetBestDateTimePattern\x12%.format.GetBestDateTimePatternRequest\x1a&.format.GetBestDateTimePatternResponse\x12L\n" +
-	"\rGetDateFormat\x12\x1c.format.GetDateFormatRequest\x1a\x1d.format.GetDateFormatResponse\x12[\n" +
-	"\x12GetDateFormatOrder\x12!.format.GetDateFormatOrderRequest\x1a\".format.GetDateFormatOrderResponse\x12X\n" +
-	"\x11GetLongDateFormat\x12 .format.GetLongDateFormatRequest\x1a!.format.GetLongDateFormatResponse\x12^\n" +
-	"\x13GetMediumDateFormat\x12\".format.GetMediumDateFormatRequest\x1a#.format.GetMediumDateFormatResponse\x12L\n" +
-	"\rGetTimeFormat\x12\x1c.format.GetTimeFormatRequest\x1a\x1d.format.GetTimeFormatResponse\x12O\n" +
-	"\x0eIs24HourFormat\x12\x1d.format.Is24HourFormatRequest\x1a\x1e.format.Is24HourFormatResponse2\xe4\r\n" +
-	"\x10DateUtilsService\x12I\n" +
-	"\fNewDateUtils\x12\x1b.format.NewDateUtilsRequest\x1a\x1c.format.NewDateUtilsResponse\x12U\n" +
-	"\x10FormatDateRange5\x12\x1f.format.FormatDateRange5Request\x1a .format.FormatDateRange5Response\x12[\n" +
-	"\x12FormatDateRange6_1\x12!.format.FormatDateRange6_1Request\x1a\".format.FormatDateRange6_1Response\x12[\n" +
-	"\x12FormatDateRange4_2\x12!.format.FormatDateRange4_2Request\x1a\".format.FormatDateRange4_2Response\x12O\n" +
-	"\x0eFormatDateTime\x12\x1d.format.FormatDateTimeRequest\x1a\x1e.format.FormatDateTimeResponse\x12[\n" +
-	"\x12FormatElapsedTime2\x12!.format.FormatElapsedTime2Request\x1a\".format.FormatElapsedTime2Response\x12a\n" +
-	"\x14FormatElapsedTime1_1\x12#.format.FormatElapsedTime1_1Request\x1a$.format.FormatElapsedTime1_1Response\x12X\n" +
-	"\x11FormatSameDayTime\x12 .format.FormatSameDayTimeRequest\x1a!.format.FormatSameDayTimeResponse\x12L\n" +
-	"\rGetAMPMString\x12\x1c.format.GetAMPMStringRequest\x1a\x1d.format.GetAMPMStringResponse\x12[\n" +
-	"\x12GetDayOfWeekString\x12!.format.GetDayOfWeekStringRequest\x1a\".format.GetDayOfWeekStringResponse\x12O\n" +
-	"\x0eGetMonthString\x12\x1d.format.GetMonthStringRequest\x1a\x1e.format.GetMonthStringResponse\x12p\n" +
-	"\x19GetRelativeDateTimeString\x12(.format.GetRelativeDateTimeStringRequest\x1a).format.GetRelativeDateTimeStringResponse\x12s\n" +
-	"\x1aGetRelativeTimeSpanString2\x12).format.GetRelativeTimeSpanString2Request\x1a*.format.GetRelativeTimeSpanString2Response\x12y\n" +
-	"\x1cGetRelativeTimeSpanString3_1\x12+.format.GetRelativeTimeSpanString3_1Request\x1a,.format.GetRelativeTimeSpanString3_1Response\x12y\n" +
-	"\x1cGetRelativeTimeSpanString1_2\x12+.format.GetRelativeTimeSpanString1_2Request\x1a,.format.GetRelativeTimeSpanString1_2Response\x12y\n" +
-	"\x1cGetRelativeTimeSpanString3_3\x12+.format.GetRelativeTimeSpanString3_3Request\x1a,.format.GetRelativeTimeSpanString3_3Response\x12y\n" +
-	"\x1cGetRelativeTimeSpanString4_4\x12+.format.GetRelativeTimeSpanString4_4Request\x1a,.format.GetRelativeTimeSpanString4_4Response\x12:\n" +
-	"\aIsToday\x12\x16.format.IsTodayRequest\x1a\x17.format.IsTodayResponse2\xfa\x0e\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result2\xfa\x0e\n" +
 	"\vTimeService\x12:\n" +
 	"\aNewTime\x12\x16.format.NewTimeRequest\x1a\x17.format.NewTimeResponse\x124\n" +
 	"\x05After\x12\x14.format.AfterRequest\x1a\x15.format.AfterResponse\x127\n" +
@@ -6406,7 +6375,38 @@ const file_proto_format_format_proto_rawDesc = "" +
 	"\x06NewTer\x12\x15.format.NewTerRequest\x1a\x16.format.NewTerResponse\x12O\n" +
 	"\x0eFormatFileSize\x12\x1d.format.FormatFileSizeRequest\x1a\x1e.format.FormatFileSizeResponse\x12R\n" +
 	"\x0fFormatIpAddress\x12\x1e.format.FormatIpAddressRequest\x1a\x1f.format.FormatIpAddressResponse\x12^\n" +
-	"\x13FormatShortFileSize\x12\".format.FormatShortFileSizeRequest\x1a#.format.FormatShortFileSizeResponseB0Z.github.com/AndroidGoLab/jni-proxy/proto/formatb\x06proto3"
+	"\x13FormatShortFileSize\x12\".format.FormatShortFileSizeRequest\x1a#.format.FormatShortFileSizeResponse2\x8e\a\n" +
+	"\x11DateFormatService\x12L\n" +
+	"\rNewDateFormat\x12\x1c.format.NewDateFormatRequest\x1a\x1d.format.NewDateFormatResponse\x12:\n" +
+	"\aFormat2\x12\x16.format.Format2Request\x1a\x17.format.Format2Response\x12@\n" +
+	"\tFormat2_1\x12\x18.format.Format2_1Request\x1a\x19.format.Format2_1Response\x12@\n" +
+	"\tFormat2_2\x12\x18.format.Format2_2Request\x1a\x19.format.Format2_2Response\x12g\n" +
+	"\x16GetBestDateTimePattern\x12%.format.GetBestDateTimePatternRequest\x1a&.format.GetBestDateTimePatternResponse\x12L\n" +
+	"\rGetDateFormat\x12\x1c.format.GetDateFormatRequest\x1a\x1d.format.GetDateFormatResponse\x12[\n" +
+	"\x12GetDateFormatOrder\x12!.format.GetDateFormatOrderRequest\x1a\".format.GetDateFormatOrderResponse\x12X\n" +
+	"\x11GetLongDateFormat\x12 .format.GetLongDateFormatRequest\x1a!.format.GetLongDateFormatResponse\x12^\n" +
+	"\x13GetMediumDateFormat\x12\".format.GetMediumDateFormatRequest\x1a#.format.GetMediumDateFormatResponse\x12L\n" +
+	"\rGetTimeFormat\x12\x1c.format.GetTimeFormatRequest\x1a\x1d.format.GetTimeFormatResponse\x12O\n" +
+	"\x0eIs24HourFormat\x12\x1d.format.Is24HourFormatRequest\x1a\x1e.format.Is24HourFormatResponse2\xe4\r\n" +
+	"\x10DateUtilsService\x12I\n" +
+	"\fNewDateUtils\x12\x1b.format.NewDateUtilsRequest\x1a\x1c.format.NewDateUtilsResponse\x12U\n" +
+	"\x10FormatDateRange5\x12\x1f.format.FormatDateRange5Request\x1a .format.FormatDateRange5Response\x12[\n" +
+	"\x12FormatDateRange6_1\x12!.format.FormatDateRange6_1Request\x1a\".format.FormatDateRange6_1Response\x12[\n" +
+	"\x12FormatDateRange4_2\x12!.format.FormatDateRange4_2Request\x1a\".format.FormatDateRange4_2Response\x12O\n" +
+	"\x0eFormatDateTime\x12\x1d.format.FormatDateTimeRequest\x1a\x1e.format.FormatDateTimeResponse\x12[\n" +
+	"\x12FormatElapsedTime2\x12!.format.FormatElapsedTime2Request\x1a\".format.FormatElapsedTime2Response\x12a\n" +
+	"\x14FormatElapsedTime1_1\x12#.format.FormatElapsedTime1_1Request\x1a$.format.FormatElapsedTime1_1Response\x12X\n" +
+	"\x11FormatSameDayTime\x12 .format.FormatSameDayTimeRequest\x1a!.format.FormatSameDayTimeResponse\x12L\n" +
+	"\rGetAMPMString\x12\x1c.format.GetAMPMStringRequest\x1a\x1d.format.GetAMPMStringResponse\x12[\n" +
+	"\x12GetDayOfWeekString\x12!.format.GetDayOfWeekStringRequest\x1a\".format.GetDayOfWeekStringResponse\x12O\n" +
+	"\x0eGetMonthString\x12\x1d.format.GetMonthStringRequest\x1a\x1e.format.GetMonthStringResponse\x12p\n" +
+	"\x19GetRelativeDateTimeString\x12(.format.GetRelativeDateTimeStringRequest\x1a).format.GetRelativeDateTimeStringResponse\x12s\n" +
+	"\x1aGetRelativeTimeSpanString2\x12).format.GetRelativeTimeSpanString2Request\x1a*.format.GetRelativeTimeSpanString2Response\x12y\n" +
+	"\x1cGetRelativeTimeSpanString3_1\x12+.format.GetRelativeTimeSpanString3_1Request\x1a,.format.GetRelativeTimeSpanString3_1Response\x12y\n" +
+	"\x1cGetRelativeTimeSpanString1_2\x12+.format.GetRelativeTimeSpanString1_2Request\x1a,.format.GetRelativeTimeSpanString1_2Response\x12y\n" +
+	"\x1cGetRelativeTimeSpanString3_3\x12+.format.GetRelativeTimeSpanString3_3Request\x1a,.format.GetRelativeTimeSpanString3_3Response\x12y\n" +
+	"\x1cGetRelativeTimeSpanString4_4\x12+.format.GetRelativeTimeSpanString4_4Request\x1a,.format.GetRelativeTimeSpanString4_4Response\x12:\n" +
+	"\aIsToday\x12\x16.format.IsTodayRequest\x1a\x17.format.IsTodayResponseB0Z.github.com/AndroidGoLab/jni-proxy/proto/formatb\x06proto3"
 
 var (
 	file_proto_format_format_proto_rawDescOnce sync.Once
@@ -6422,248 +6422,248 @@ func file_proto_format_format_proto_rawDescGZIP() []byte {
 
 var file_proto_format_format_proto_msgTypes = make([]protoimpl.MessageInfo, 120)
 var file_proto_format_format_proto_goTypes = []any{
-	(*NewDateFormatRequest)(nil),                       // 0: format.NewDateFormatRequest
-	(*NewDateFormatResponse)(nil),                      // 1: format.NewDateFormatResponse
-	(*Format2Request)(nil),                             // 2: format.Format2Request
-	(*Format2Response)(nil),                            // 3: format.Format2Response
-	(*Format2_1Request)(nil),                           // 4: format.Format2_1Request
-	(*Format2_1Response)(nil),                          // 5: format.Format2_1Response
-	(*Format2_2Request)(nil),                           // 6: format.Format2_2Request
-	(*Format2_2Response)(nil),                          // 7: format.Format2_2Response
-	(*GetBestDateTimePatternRequest)(nil),              // 8: format.GetBestDateTimePatternRequest
-	(*GetBestDateTimePatternResponse)(nil),             // 9: format.GetBestDateTimePatternResponse
-	(*GetDateFormatRequest)(nil),                       // 10: format.GetDateFormatRequest
-	(*GetDateFormatResponse)(nil),                      // 11: format.GetDateFormatResponse
-	(*GetDateFormatOrderRequest)(nil),                  // 12: format.GetDateFormatOrderRequest
-	(*GetDateFormatOrderResponse)(nil),                 // 13: format.GetDateFormatOrderResponse
-	(*GetLongDateFormatRequest)(nil),                   // 14: format.GetLongDateFormatRequest
-	(*GetLongDateFormatResponse)(nil),                  // 15: format.GetLongDateFormatResponse
-	(*GetMediumDateFormatRequest)(nil),                 // 16: format.GetMediumDateFormatRequest
-	(*GetMediumDateFormatResponse)(nil),                // 17: format.GetMediumDateFormatResponse
-	(*GetTimeFormatRequest)(nil),                       // 18: format.GetTimeFormatRequest
-	(*GetTimeFormatResponse)(nil),                      // 19: format.GetTimeFormatResponse
-	(*Is24HourFormatRequest)(nil),                      // 20: format.Is24HourFormatRequest
-	(*Is24HourFormatResponse)(nil),                     // 21: format.Is24HourFormatResponse
-	(*NewDateUtilsRequest)(nil),                        // 22: format.NewDateUtilsRequest
-	(*NewDateUtilsResponse)(nil),                       // 23: format.NewDateUtilsResponse
-	(*FormatDateRange5Request)(nil),                    // 24: format.FormatDateRange5Request
-	(*FormatDateRange5Response)(nil),                   // 25: format.FormatDateRange5Response
-	(*FormatDateRange6_1Request)(nil),                  // 26: format.FormatDateRange6_1Request
-	(*FormatDateRange6_1Response)(nil),                 // 27: format.FormatDateRange6_1Response
-	(*FormatDateRange4_2Request)(nil),                  // 28: format.FormatDateRange4_2Request
-	(*FormatDateRange4_2Response)(nil),                 // 29: format.FormatDateRange4_2Response
-	(*FormatDateTimeRequest)(nil),                      // 30: format.FormatDateTimeRequest
-	(*FormatDateTimeResponse)(nil),                     // 31: format.FormatDateTimeResponse
-	(*FormatElapsedTime2Request)(nil),                  // 32: format.FormatElapsedTime2Request
-	(*FormatElapsedTime2Response)(nil),                 // 33: format.FormatElapsedTime2Response
-	(*FormatElapsedTime1_1Request)(nil),                // 34: format.FormatElapsedTime1_1Request
-	(*FormatElapsedTime1_1Response)(nil),               // 35: format.FormatElapsedTime1_1Response
-	(*FormatSameDayTimeRequest)(nil),                   // 36: format.FormatSameDayTimeRequest
-	(*FormatSameDayTimeResponse)(nil),                  // 37: format.FormatSameDayTimeResponse
-	(*GetAMPMStringRequest)(nil),                       // 38: format.GetAMPMStringRequest
-	(*GetAMPMStringResponse)(nil),                      // 39: format.GetAMPMStringResponse
-	(*GetDayOfWeekStringRequest)(nil),                  // 40: format.GetDayOfWeekStringRequest
-	(*GetDayOfWeekStringResponse)(nil),                 // 41: format.GetDayOfWeekStringResponse
-	(*GetMonthStringRequest)(nil),                      // 42: format.GetMonthStringRequest
-	(*GetMonthStringResponse)(nil),                     // 43: format.GetMonthStringResponse
-	(*GetRelativeDateTimeStringRequest)(nil),           // 44: format.GetRelativeDateTimeStringRequest
-	(*GetRelativeDateTimeStringResponse)(nil),          // 45: format.GetRelativeDateTimeStringResponse
-	(*GetRelativeTimeSpanString2Request)(nil),          // 46: format.GetRelativeTimeSpanString2Request
-	(*GetRelativeTimeSpanString2Response)(nil),         // 47: format.GetRelativeTimeSpanString2Response
-	(*GetRelativeTimeSpanString3_1Request)(nil),        // 48: format.GetRelativeTimeSpanString3_1Request
-	(*GetRelativeTimeSpanString3_1Response)(nil),       // 49: format.GetRelativeTimeSpanString3_1Response
-	(*GetRelativeTimeSpanString1_2Request)(nil),        // 50: format.GetRelativeTimeSpanString1_2Request
-	(*GetRelativeTimeSpanString1_2Response)(nil),       // 51: format.GetRelativeTimeSpanString1_2Response
-	(*GetRelativeTimeSpanString3_3Request)(nil),        // 52: format.GetRelativeTimeSpanString3_3Request
-	(*GetRelativeTimeSpanString3_3Response)(nil),       // 53: format.GetRelativeTimeSpanString3_3Response
-	(*GetRelativeTimeSpanString4_4Request)(nil),        // 54: format.GetRelativeTimeSpanString4_4Request
-	(*GetRelativeTimeSpanString4_4Response)(nil),       // 55: format.GetRelativeTimeSpanString4_4Response
-	(*IsTodayRequest)(nil),                             // 56: format.IsTodayRequest
-	(*IsTodayResponse)(nil),                            // 57: format.IsTodayResponse
-	(*NewTimeRequest)(nil),                             // 58: format.NewTimeRequest
-	(*NewTimeResponse)(nil),                            // 59: format.NewTimeResponse
-	(*AfterRequest)(nil),                               // 60: format.AfterRequest
-	(*AfterResponse)(nil),                              // 61: format.AfterResponse
-	(*BeforeRequest)(nil),                              // 62: format.BeforeRequest
-	(*BeforeResponse)(nil),                             // 63: format.BeforeResponse
-	(*ClearRequest)(nil),                               // 64: format.ClearRequest
-	(*ClearResponse)(nil),                              // 65: format.ClearResponse
-	(*FormatRequest)(nil),                              // 66: format.FormatRequest
-	(*FormatResponse)(nil),                             // 67: format.FormatResponse
-	(*Format2445Request)(nil),                          // 68: format.Format2445Request
-	(*Format2445Response)(nil),                         // 69: format.Format2445Response
-	(*Format3339Request)(nil),                          // 70: format.Format3339Request
-	(*Format3339Response)(nil),                         // 71: format.Format3339Response
-	(*GetActualMaximumRequest)(nil),                    // 72: format.GetActualMaximumRequest
-	(*GetActualMaximumResponse)(nil),                   // 73: format.GetActualMaximumResponse
-	(*GetWeekNumberRequest)(nil),                       // 74: format.GetWeekNumberRequest
-	(*GetWeekNumberResponse)(nil),                      // 75: format.GetWeekNumberResponse
-	(*NormalizeRequest)(nil),                           // 76: format.NormalizeRequest
-	(*NormalizeResponse)(nil),                          // 77: format.NormalizeResponse
-	(*ParseRequest)(nil),                               // 78: format.ParseRequest
-	(*ParseResponse)(nil),                              // 79: format.ParseResponse
-	(*Parse3339Request)(nil),                           // 80: format.Parse3339Request
-	(*Parse3339Response)(nil),                          // 81: format.Parse3339Response
-	(*Set1Request)(nil),                                // 82: format.Set1Request
-	(*Set1Response)(nil),                               // 83: format.Set1Response
-	(*Set3_1Request)(nil),                              // 84: format.Set3_1Request
-	(*Set3_1Response)(nil),                             // 85: format.Set3_1Response
-	(*Set6_2Request)(nil),                              // 86: format.Set6_2Request
-	(*Set6_2Response)(nil),                             // 87: format.Set6_2Response
-	(*Set1_3Request)(nil),                              // 88: format.Set1_3Request
-	(*Set1_3Response)(nil),                             // 89: format.Set1_3Response
-	(*SetJulianDayRequest)(nil),                        // 90: format.SetJulianDayRequest
-	(*SetJulianDayResponse)(nil),                       // 91: format.SetJulianDayResponse
-	(*SetToNowRequest)(nil),                            // 92: format.SetToNowRequest
-	(*SetToNowResponse)(nil),                           // 93: format.SetToNowResponse
-	(*SwitchTimezoneRequest)(nil),                      // 94: format.SwitchTimezoneRequest
-	(*SwitchTimezoneResponse)(nil),                     // 95: format.SwitchTimezoneResponse
-	(*ToMillisRequest)(nil),                            // 96: format.ToMillisRequest
-	(*ToMillisResponse)(nil),                           // 97: format.ToMillisResponse
-	(*ToStringRequest)(nil),                            // 98: format.ToStringRequest
-	(*ToStringResponse)(nil),                           // 99: format.ToStringResponse
-	(*CompareRequest)(nil),                             // 100: format.CompareRequest
-	(*CompareResponse)(nil),                            // 101: format.CompareResponse
-	(*GetCurrentTimezoneRequest)(nil),                  // 102: format.GetCurrentTimezoneRequest
-	(*GetCurrentTimezoneResponse)(nil),                 // 103: format.GetCurrentTimezoneResponse
-	(*GetJulianDayRequest)(nil),                        // 104: format.GetJulianDayRequest
-	(*GetJulianDayResponse)(nil),                       // 105: format.GetJulianDayResponse
-	(*GetJulianMondayFromWeeksSinceEpochRequest)(nil),  // 106: format.GetJulianMondayFromWeeksSinceEpochRequest
-	(*GetJulianMondayFromWeeksSinceEpochResponse)(nil), // 107: format.GetJulianMondayFromWeeksSinceEpochResponse
-	(*GetWeeksSinceEpochFromJulianDayRequest)(nil),     // 108: format.GetWeeksSinceEpochFromJulianDayRequest
-	(*GetWeeksSinceEpochFromJulianDayResponse)(nil),    // 109: format.GetWeeksSinceEpochFromJulianDayResponse
-	(*IsEpochRequest)(nil),                             // 110: format.IsEpochRequest
-	(*IsEpochResponse)(nil),                            // 111: format.IsEpochResponse
-	(*NewTerRequest)(nil),                              // 112: format.NewTerRequest
-	(*NewTerResponse)(nil),                             // 113: format.NewTerResponse
-	(*FormatFileSizeRequest)(nil),                      // 114: format.FormatFileSizeRequest
-	(*FormatFileSizeResponse)(nil),                     // 115: format.FormatFileSizeResponse
-	(*FormatIpAddressRequest)(nil),                     // 116: format.FormatIpAddressRequest
-	(*FormatIpAddressResponse)(nil),                    // 117: format.FormatIpAddressResponse
-	(*FormatShortFileSizeRequest)(nil),                 // 118: format.FormatShortFileSizeRequest
-	(*FormatShortFileSizeResponse)(nil),                // 119: format.FormatShortFileSizeResponse
+	(*NewTimeRequest)(nil),                             // 0: format.NewTimeRequest
+	(*NewTimeResponse)(nil),                            // 1: format.NewTimeResponse
+	(*AfterRequest)(nil),                               // 2: format.AfterRequest
+	(*AfterResponse)(nil),                              // 3: format.AfterResponse
+	(*BeforeRequest)(nil),                              // 4: format.BeforeRequest
+	(*BeforeResponse)(nil),                             // 5: format.BeforeResponse
+	(*ClearRequest)(nil),                               // 6: format.ClearRequest
+	(*ClearResponse)(nil),                              // 7: format.ClearResponse
+	(*FormatRequest)(nil),                              // 8: format.FormatRequest
+	(*FormatResponse)(nil),                             // 9: format.FormatResponse
+	(*Format2445Request)(nil),                          // 10: format.Format2445Request
+	(*Format2445Response)(nil),                         // 11: format.Format2445Response
+	(*Format3339Request)(nil),                          // 12: format.Format3339Request
+	(*Format3339Response)(nil),                         // 13: format.Format3339Response
+	(*GetActualMaximumRequest)(nil),                    // 14: format.GetActualMaximumRequest
+	(*GetActualMaximumResponse)(nil),                   // 15: format.GetActualMaximumResponse
+	(*GetWeekNumberRequest)(nil),                       // 16: format.GetWeekNumberRequest
+	(*GetWeekNumberResponse)(nil),                      // 17: format.GetWeekNumberResponse
+	(*NormalizeRequest)(nil),                           // 18: format.NormalizeRequest
+	(*NormalizeResponse)(nil),                          // 19: format.NormalizeResponse
+	(*ParseRequest)(nil),                               // 20: format.ParseRequest
+	(*ParseResponse)(nil),                              // 21: format.ParseResponse
+	(*Parse3339Request)(nil),                           // 22: format.Parse3339Request
+	(*Parse3339Response)(nil),                          // 23: format.Parse3339Response
+	(*Set1Request)(nil),                                // 24: format.Set1Request
+	(*Set1Response)(nil),                               // 25: format.Set1Response
+	(*Set3_1Request)(nil),                              // 26: format.Set3_1Request
+	(*Set3_1Response)(nil),                             // 27: format.Set3_1Response
+	(*Set6_2Request)(nil),                              // 28: format.Set6_2Request
+	(*Set6_2Response)(nil),                             // 29: format.Set6_2Response
+	(*Set1_3Request)(nil),                              // 30: format.Set1_3Request
+	(*Set1_3Response)(nil),                             // 31: format.Set1_3Response
+	(*SetJulianDayRequest)(nil),                        // 32: format.SetJulianDayRequest
+	(*SetJulianDayResponse)(nil),                       // 33: format.SetJulianDayResponse
+	(*SetToNowRequest)(nil),                            // 34: format.SetToNowRequest
+	(*SetToNowResponse)(nil),                           // 35: format.SetToNowResponse
+	(*SwitchTimezoneRequest)(nil),                      // 36: format.SwitchTimezoneRequest
+	(*SwitchTimezoneResponse)(nil),                     // 37: format.SwitchTimezoneResponse
+	(*ToMillisRequest)(nil),                            // 38: format.ToMillisRequest
+	(*ToMillisResponse)(nil),                           // 39: format.ToMillisResponse
+	(*ToStringRequest)(nil),                            // 40: format.ToStringRequest
+	(*ToStringResponse)(nil),                           // 41: format.ToStringResponse
+	(*CompareRequest)(nil),                             // 42: format.CompareRequest
+	(*CompareResponse)(nil),                            // 43: format.CompareResponse
+	(*GetCurrentTimezoneRequest)(nil),                  // 44: format.GetCurrentTimezoneRequest
+	(*GetCurrentTimezoneResponse)(nil),                 // 45: format.GetCurrentTimezoneResponse
+	(*GetJulianDayRequest)(nil),                        // 46: format.GetJulianDayRequest
+	(*GetJulianDayResponse)(nil),                       // 47: format.GetJulianDayResponse
+	(*GetJulianMondayFromWeeksSinceEpochRequest)(nil),  // 48: format.GetJulianMondayFromWeeksSinceEpochRequest
+	(*GetJulianMondayFromWeeksSinceEpochResponse)(nil), // 49: format.GetJulianMondayFromWeeksSinceEpochResponse
+	(*GetWeeksSinceEpochFromJulianDayRequest)(nil),     // 50: format.GetWeeksSinceEpochFromJulianDayRequest
+	(*GetWeeksSinceEpochFromJulianDayResponse)(nil),    // 51: format.GetWeeksSinceEpochFromJulianDayResponse
+	(*IsEpochRequest)(nil),                             // 52: format.IsEpochRequest
+	(*IsEpochResponse)(nil),                            // 53: format.IsEpochResponse
+	(*NewTerRequest)(nil),                              // 54: format.NewTerRequest
+	(*NewTerResponse)(nil),                             // 55: format.NewTerResponse
+	(*FormatFileSizeRequest)(nil),                      // 56: format.FormatFileSizeRequest
+	(*FormatFileSizeResponse)(nil),                     // 57: format.FormatFileSizeResponse
+	(*FormatIpAddressRequest)(nil),                     // 58: format.FormatIpAddressRequest
+	(*FormatIpAddressResponse)(nil),                    // 59: format.FormatIpAddressResponse
+	(*FormatShortFileSizeRequest)(nil),                 // 60: format.FormatShortFileSizeRequest
+	(*FormatShortFileSizeResponse)(nil),                // 61: format.FormatShortFileSizeResponse
+	(*NewDateFormatRequest)(nil),                       // 62: format.NewDateFormatRequest
+	(*NewDateFormatResponse)(nil),                      // 63: format.NewDateFormatResponse
+	(*Format2Request)(nil),                             // 64: format.Format2Request
+	(*Format2Response)(nil),                            // 65: format.Format2Response
+	(*Format2_1Request)(nil),                           // 66: format.Format2_1Request
+	(*Format2_1Response)(nil),                          // 67: format.Format2_1Response
+	(*Format2_2Request)(nil),                           // 68: format.Format2_2Request
+	(*Format2_2Response)(nil),                          // 69: format.Format2_2Response
+	(*GetBestDateTimePatternRequest)(nil),              // 70: format.GetBestDateTimePatternRequest
+	(*GetBestDateTimePatternResponse)(nil),             // 71: format.GetBestDateTimePatternResponse
+	(*GetDateFormatRequest)(nil),                       // 72: format.GetDateFormatRequest
+	(*GetDateFormatResponse)(nil),                      // 73: format.GetDateFormatResponse
+	(*GetDateFormatOrderRequest)(nil),                  // 74: format.GetDateFormatOrderRequest
+	(*GetDateFormatOrderResponse)(nil),                 // 75: format.GetDateFormatOrderResponse
+	(*GetLongDateFormatRequest)(nil),                   // 76: format.GetLongDateFormatRequest
+	(*GetLongDateFormatResponse)(nil),                  // 77: format.GetLongDateFormatResponse
+	(*GetMediumDateFormatRequest)(nil),                 // 78: format.GetMediumDateFormatRequest
+	(*GetMediumDateFormatResponse)(nil),                // 79: format.GetMediumDateFormatResponse
+	(*GetTimeFormatRequest)(nil),                       // 80: format.GetTimeFormatRequest
+	(*GetTimeFormatResponse)(nil),                      // 81: format.GetTimeFormatResponse
+	(*Is24HourFormatRequest)(nil),                      // 82: format.Is24HourFormatRequest
+	(*Is24HourFormatResponse)(nil),                     // 83: format.Is24HourFormatResponse
+	(*NewDateUtilsRequest)(nil),                        // 84: format.NewDateUtilsRequest
+	(*NewDateUtilsResponse)(nil),                       // 85: format.NewDateUtilsResponse
+	(*FormatDateRange5Request)(nil),                    // 86: format.FormatDateRange5Request
+	(*FormatDateRange5Response)(nil),                   // 87: format.FormatDateRange5Response
+	(*FormatDateRange6_1Request)(nil),                  // 88: format.FormatDateRange6_1Request
+	(*FormatDateRange6_1Response)(nil),                 // 89: format.FormatDateRange6_1Response
+	(*FormatDateRange4_2Request)(nil),                  // 90: format.FormatDateRange4_2Request
+	(*FormatDateRange4_2Response)(nil),                 // 91: format.FormatDateRange4_2Response
+	(*FormatDateTimeRequest)(nil),                      // 92: format.FormatDateTimeRequest
+	(*FormatDateTimeResponse)(nil),                     // 93: format.FormatDateTimeResponse
+	(*FormatElapsedTime2Request)(nil),                  // 94: format.FormatElapsedTime2Request
+	(*FormatElapsedTime2Response)(nil),                 // 95: format.FormatElapsedTime2Response
+	(*FormatElapsedTime1_1Request)(nil),                // 96: format.FormatElapsedTime1_1Request
+	(*FormatElapsedTime1_1Response)(nil),               // 97: format.FormatElapsedTime1_1Response
+	(*FormatSameDayTimeRequest)(nil),                   // 98: format.FormatSameDayTimeRequest
+	(*FormatSameDayTimeResponse)(nil),                  // 99: format.FormatSameDayTimeResponse
+	(*GetAMPMStringRequest)(nil),                       // 100: format.GetAMPMStringRequest
+	(*GetAMPMStringResponse)(nil),                      // 101: format.GetAMPMStringResponse
+	(*GetDayOfWeekStringRequest)(nil),                  // 102: format.GetDayOfWeekStringRequest
+	(*GetDayOfWeekStringResponse)(nil),                 // 103: format.GetDayOfWeekStringResponse
+	(*GetMonthStringRequest)(nil),                      // 104: format.GetMonthStringRequest
+	(*GetMonthStringResponse)(nil),                     // 105: format.GetMonthStringResponse
+	(*GetRelativeDateTimeStringRequest)(nil),           // 106: format.GetRelativeDateTimeStringRequest
+	(*GetRelativeDateTimeStringResponse)(nil),          // 107: format.GetRelativeDateTimeStringResponse
+	(*GetRelativeTimeSpanString2Request)(nil),          // 108: format.GetRelativeTimeSpanString2Request
+	(*GetRelativeTimeSpanString2Response)(nil),         // 109: format.GetRelativeTimeSpanString2Response
+	(*GetRelativeTimeSpanString3_1Request)(nil),        // 110: format.GetRelativeTimeSpanString3_1Request
+	(*GetRelativeTimeSpanString3_1Response)(nil),       // 111: format.GetRelativeTimeSpanString3_1Response
+	(*GetRelativeTimeSpanString1_2Request)(nil),        // 112: format.GetRelativeTimeSpanString1_2Request
+	(*GetRelativeTimeSpanString1_2Response)(nil),       // 113: format.GetRelativeTimeSpanString1_2Response
+	(*GetRelativeTimeSpanString3_3Request)(nil),        // 114: format.GetRelativeTimeSpanString3_3Request
+	(*GetRelativeTimeSpanString3_3Response)(nil),       // 115: format.GetRelativeTimeSpanString3_3Response
+	(*GetRelativeTimeSpanString4_4Request)(nil),        // 116: format.GetRelativeTimeSpanString4_4Request
+	(*GetRelativeTimeSpanString4_4Response)(nil),       // 117: format.GetRelativeTimeSpanString4_4Response
+	(*IsTodayRequest)(nil),                             // 118: format.IsTodayRequest
+	(*IsTodayResponse)(nil),                            // 119: format.IsTodayResponse
 }
 var file_proto_format_format_proto_depIdxs = []int32{
-	0,   // 0: format.DateFormatService.NewDateFormat:input_type -> format.NewDateFormatRequest
-	2,   // 1: format.DateFormatService.Format2:input_type -> format.Format2Request
-	4,   // 2: format.DateFormatService.Format2_1:input_type -> format.Format2_1Request
-	6,   // 3: format.DateFormatService.Format2_2:input_type -> format.Format2_2Request
-	8,   // 4: format.DateFormatService.GetBestDateTimePattern:input_type -> format.GetBestDateTimePatternRequest
-	10,  // 5: format.DateFormatService.GetDateFormat:input_type -> format.GetDateFormatRequest
-	12,  // 6: format.DateFormatService.GetDateFormatOrder:input_type -> format.GetDateFormatOrderRequest
-	14,  // 7: format.DateFormatService.GetLongDateFormat:input_type -> format.GetLongDateFormatRequest
-	16,  // 8: format.DateFormatService.GetMediumDateFormat:input_type -> format.GetMediumDateFormatRequest
-	18,  // 9: format.DateFormatService.GetTimeFormat:input_type -> format.GetTimeFormatRequest
-	20,  // 10: format.DateFormatService.Is24HourFormat:input_type -> format.Is24HourFormatRequest
-	22,  // 11: format.DateUtilsService.NewDateUtils:input_type -> format.NewDateUtilsRequest
-	24,  // 12: format.DateUtilsService.FormatDateRange5:input_type -> format.FormatDateRange5Request
-	26,  // 13: format.DateUtilsService.FormatDateRange6_1:input_type -> format.FormatDateRange6_1Request
-	28,  // 14: format.DateUtilsService.FormatDateRange4_2:input_type -> format.FormatDateRange4_2Request
-	30,  // 15: format.DateUtilsService.FormatDateTime:input_type -> format.FormatDateTimeRequest
-	32,  // 16: format.DateUtilsService.FormatElapsedTime2:input_type -> format.FormatElapsedTime2Request
-	34,  // 17: format.DateUtilsService.FormatElapsedTime1_1:input_type -> format.FormatElapsedTime1_1Request
-	36,  // 18: format.DateUtilsService.FormatSameDayTime:input_type -> format.FormatSameDayTimeRequest
-	38,  // 19: format.DateUtilsService.GetAMPMString:input_type -> format.GetAMPMStringRequest
-	40,  // 20: format.DateUtilsService.GetDayOfWeekString:input_type -> format.GetDayOfWeekStringRequest
-	42,  // 21: format.DateUtilsService.GetMonthString:input_type -> format.GetMonthStringRequest
-	44,  // 22: format.DateUtilsService.GetRelativeDateTimeString:input_type -> format.GetRelativeDateTimeStringRequest
-	46,  // 23: format.DateUtilsService.GetRelativeTimeSpanString2:input_type -> format.GetRelativeTimeSpanString2Request
-	48,  // 24: format.DateUtilsService.GetRelativeTimeSpanString3_1:input_type -> format.GetRelativeTimeSpanString3_1Request
-	50,  // 25: format.DateUtilsService.GetRelativeTimeSpanString1_2:input_type -> format.GetRelativeTimeSpanString1_2Request
-	52,  // 26: format.DateUtilsService.GetRelativeTimeSpanString3_3:input_type -> format.GetRelativeTimeSpanString3_3Request
-	54,  // 27: format.DateUtilsService.GetRelativeTimeSpanString4_4:input_type -> format.GetRelativeTimeSpanString4_4Request
-	56,  // 28: format.DateUtilsService.IsToday:input_type -> format.IsTodayRequest
-	58,  // 29: format.TimeService.NewTime:input_type -> format.NewTimeRequest
-	60,  // 30: format.TimeService.After:input_type -> format.AfterRequest
-	62,  // 31: format.TimeService.Before:input_type -> format.BeforeRequest
-	64,  // 32: format.TimeService.Clear:input_type -> format.ClearRequest
-	66,  // 33: format.TimeService.Format:input_type -> format.FormatRequest
-	68,  // 34: format.TimeService.Format2445:input_type -> format.Format2445Request
-	70,  // 35: format.TimeService.Format3339:input_type -> format.Format3339Request
-	72,  // 36: format.TimeService.GetActualMaximum:input_type -> format.GetActualMaximumRequest
-	74,  // 37: format.TimeService.GetWeekNumber:input_type -> format.GetWeekNumberRequest
-	76,  // 38: format.TimeService.Normalize:input_type -> format.NormalizeRequest
-	78,  // 39: format.TimeService.Parse:input_type -> format.ParseRequest
-	80,  // 40: format.TimeService.Parse3339:input_type -> format.Parse3339Request
-	82,  // 41: format.TimeService.Set1:input_type -> format.Set1Request
-	84,  // 42: format.TimeService.Set3_1:input_type -> format.Set3_1Request
-	86,  // 43: format.TimeService.Set6_2:input_type -> format.Set6_2Request
-	88,  // 44: format.TimeService.Set1_3:input_type -> format.Set1_3Request
-	90,  // 45: format.TimeService.SetJulianDay:input_type -> format.SetJulianDayRequest
-	92,  // 46: format.TimeService.SetToNow:input_type -> format.SetToNowRequest
-	94,  // 47: format.TimeService.SwitchTimezone:input_type -> format.SwitchTimezoneRequest
-	96,  // 48: format.TimeService.ToMillis:input_type -> format.ToMillisRequest
-	98,  // 49: format.TimeService.ToString:input_type -> format.ToStringRequest
-	100, // 50: format.TimeService.Compare:input_type -> format.CompareRequest
-	102, // 51: format.TimeService.GetCurrentTimezone:input_type -> format.GetCurrentTimezoneRequest
-	104, // 52: format.TimeService.GetJulianDay:input_type -> format.GetJulianDayRequest
-	106, // 53: format.TimeService.GetJulianMondayFromWeeksSinceEpoch:input_type -> format.GetJulianMondayFromWeeksSinceEpochRequest
-	108, // 54: format.TimeService.GetWeeksSinceEpochFromJulianDay:input_type -> format.GetWeeksSinceEpochFromJulianDayRequest
-	110, // 55: format.TimeService.IsEpoch:input_type -> format.IsEpochRequest
-	112, // 56: format.TerService.NewTer:input_type -> format.NewTerRequest
-	114, // 57: format.TerService.FormatFileSize:input_type -> format.FormatFileSizeRequest
-	116, // 58: format.TerService.FormatIpAddress:input_type -> format.FormatIpAddressRequest
-	118, // 59: format.TerService.FormatShortFileSize:input_type -> format.FormatShortFileSizeRequest
-	1,   // 60: format.DateFormatService.NewDateFormat:output_type -> format.NewDateFormatResponse
-	3,   // 61: format.DateFormatService.Format2:output_type -> format.Format2Response
-	5,   // 62: format.DateFormatService.Format2_1:output_type -> format.Format2_1Response
-	7,   // 63: format.DateFormatService.Format2_2:output_type -> format.Format2_2Response
-	9,   // 64: format.DateFormatService.GetBestDateTimePattern:output_type -> format.GetBestDateTimePatternResponse
-	11,  // 65: format.DateFormatService.GetDateFormat:output_type -> format.GetDateFormatResponse
-	13,  // 66: format.DateFormatService.GetDateFormatOrder:output_type -> format.GetDateFormatOrderResponse
-	15,  // 67: format.DateFormatService.GetLongDateFormat:output_type -> format.GetLongDateFormatResponse
-	17,  // 68: format.DateFormatService.GetMediumDateFormat:output_type -> format.GetMediumDateFormatResponse
-	19,  // 69: format.DateFormatService.GetTimeFormat:output_type -> format.GetTimeFormatResponse
-	21,  // 70: format.DateFormatService.Is24HourFormat:output_type -> format.Is24HourFormatResponse
-	23,  // 71: format.DateUtilsService.NewDateUtils:output_type -> format.NewDateUtilsResponse
-	25,  // 72: format.DateUtilsService.FormatDateRange5:output_type -> format.FormatDateRange5Response
-	27,  // 73: format.DateUtilsService.FormatDateRange6_1:output_type -> format.FormatDateRange6_1Response
-	29,  // 74: format.DateUtilsService.FormatDateRange4_2:output_type -> format.FormatDateRange4_2Response
-	31,  // 75: format.DateUtilsService.FormatDateTime:output_type -> format.FormatDateTimeResponse
-	33,  // 76: format.DateUtilsService.FormatElapsedTime2:output_type -> format.FormatElapsedTime2Response
-	35,  // 77: format.DateUtilsService.FormatElapsedTime1_1:output_type -> format.FormatElapsedTime1_1Response
-	37,  // 78: format.DateUtilsService.FormatSameDayTime:output_type -> format.FormatSameDayTimeResponse
-	39,  // 79: format.DateUtilsService.GetAMPMString:output_type -> format.GetAMPMStringResponse
-	41,  // 80: format.DateUtilsService.GetDayOfWeekString:output_type -> format.GetDayOfWeekStringResponse
-	43,  // 81: format.DateUtilsService.GetMonthString:output_type -> format.GetMonthStringResponse
-	45,  // 82: format.DateUtilsService.GetRelativeDateTimeString:output_type -> format.GetRelativeDateTimeStringResponse
-	47,  // 83: format.DateUtilsService.GetRelativeTimeSpanString2:output_type -> format.GetRelativeTimeSpanString2Response
-	49,  // 84: format.DateUtilsService.GetRelativeTimeSpanString3_1:output_type -> format.GetRelativeTimeSpanString3_1Response
-	51,  // 85: format.DateUtilsService.GetRelativeTimeSpanString1_2:output_type -> format.GetRelativeTimeSpanString1_2Response
-	53,  // 86: format.DateUtilsService.GetRelativeTimeSpanString3_3:output_type -> format.GetRelativeTimeSpanString3_3Response
-	55,  // 87: format.DateUtilsService.GetRelativeTimeSpanString4_4:output_type -> format.GetRelativeTimeSpanString4_4Response
-	57,  // 88: format.DateUtilsService.IsToday:output_type -> format.IsTodayResponse
-	59,  // 89: format.TimeService.NewTime:output_type -> format.NewTimeResponse
-	61,  // 90: format.TimeService.After:output_type -> format.AfterResponse
-	63,  // 91: format.TimeService.Before:output_type -> format.BeforeResponse
-	65,  // 92: format.TimeService.Clear:output_type -> format.ClearResponse
-	67,  // 93: format.TimeService.Format:output_type -> format.FormatResponse
-	69,  // 94: format.TimeService.Format2445:output_type -> format.Format2445Response
-	71,  // 95: format.TimeService.Format3339:output_type -> format.Format3339Response
-	73,  // 96: format.TimeService.GetActualMaximum:output_type -> format.GetActualMaximumResponse
-	75,  // 97: format.TimeService.GetWeekNumber:output_type -> format.GetWeekNumberResponse
-	77,  // 98: format.TimeService.Normalize:output_type -> format.NormalizeResponse
-	79,  // 99: format.TimeService.Parse:output_type -> format.ParseResponse
-	81,  // 100: format.TimeService.Parse3339:output_type -> format.Parse3339Response
-	83,  // 101: format.TimeService.Set1:output_type -> format.Set1Response
-	85,  // 102: format.TimeService.Set3_1:output_type -> format.Set3_1Response
-	87,  // 103: format.TimeService.Set6_2:output_type -> format.Set6_2Response
-	89,  // 104: format.TimeService.Set1_3:output_type -> format.Set1_3Response
-	91,  // 105: format.TimeService.SetJulianDay:output_type -> format.SetJulianDayResponse
-	93,  // 106: format.TimeService.SetToNow:output_type -> format.SetToNowResponse
-	95,  // 107: format.TimeService.SwitchTimezone:output_type -> format.SwitchTimezoneResponse
-	97,  // 108: format.TimeService.ToMillis:output_type -> format.ToMillisResponse
-	99,  // 109: format.TimeService.ToString:output_type -> format.ToStringResponse
-	101, // 110: format.TimeService.Compare:output_type -> format.CompareResponse
-	103, // 111: format.TimeService.GetCurrentTimezone:output_type -> format.GetCurrentTimezoneResponse
-	105, // 112: format.TimeService.GetJulianDay:output_type -> format.GetJulianDayResponse
-	107, // 113: format.TimeService.GetJulianMondayFromWeeksSinceEpoch:output_type -> format.GetJulianMondayFromWeeksSinceEpochResponse
-	109, // 114: format.TimeService.GetWeeksSinceEpochFromJulianDay:output_type -> format.GetWeeksSinceEpochFromJulianDayResponse
-	111, // 115: format.TimeService.IsEpoch:output_type -> format.IsEpochResponse
-	113, // 116: format.TerService.NewTer:output_type -> format.NewTerResponse
-	115, // 117: format.TerService.FormatFileSize:output_type -> format.FormatFileSizeResponse
-	117, // 118: format.TerService.FormatIpAddress:output_type -> format.FormatIpAddressResponse
-	119, // 119: format.TerService.FormatShortFileSize:output_type -> format.FormatShortFileSizeResponse
+	0,   // 0: format.TimeService.NewTime:input_type -> format.NewTimeRequest
+	2,   // 1: format.TimeService.After:input_type -> format.AfterRequest
+	4,   // 2: format.TimeService.Before:input_type -> format.BeforeRequest
+	6,   // 3: format.TimeService.Clear:input_type -> format.ClearRequest
+	8,   // 4: format.TimeService.Format:input_type -> format.FormatRequest
+	10,  // 5: format.TimeService.Format2445:input_type -> format.Format2445Request
+	12,  // 6: format.TimeService.Format3339:input_type -> format.Format3339Request
+	14,  // 7: format.TimeService.GetActualMaximum:input_type -> format.GetActualMaximumRequest
+	16,  // 8: format.TimeService.GetWeekNumber:input_type -> format.GetWeekNumberRequest
+	18,  // 9: format.TimeService.Normalize:input_type -> format.NormalizeRequest
+	20,  // 10: format.TimeService.Parse:input_type -> format.ParseRequest
+	22,  // 11: format.TimeService.Parse3339:input_type -> format.Parse3339Request
+	24,  // 12: format.TimeService.Set1:input_type -> format.Set1Request
+	26,  // 13: format.TimeService.Set3_1:input_type -> format.Set3_1Request
+	28,  // 14: format.TimeService.Set6_2:input_type -> format.Set6_2Request
+	30,  // 15: format.TimeService.Set1_3:input_type -> format.Set1_3Request
+	32,  // 16: format.TimeService.SetJulianDay:input_type -> format.SetJulianDayRequest
+	34,  // 17: format.TimeService.SetToNow:input_type -> format.SetToNowRequest
+	36,  // 18: format.TimeService.SwitchTimezone:input_type -> format.SwitchTimezoneRequest
+	38,  // 19: format.TimeService.ToMillis:input_type -> format.ToMillisRequest
+	40,  // 20: format.TimeService.ToString:input_type -> format.ToStringRequest
+	42,  // 21: format.TimeService.Compare:input_type -> format.CompareRequest
+	44,  // 22: format.TimeService.GetCurrentTimezone:input_type -> format.GetCurrentTimezoneRequest
+	46,  // 23: format.TimeService.GetJulianDay:input_type -> format.GetJulianDayRequest
+	48,  // 24: format.TimeService.GetJulianMondayFromWeeksSinceEpoch:input_type -> format.GetJulianMondayFromWeeksSinceEpochRequest
+	50,  // 25: format.TimeService.GetWeeksSinceEpochFromJulianDay:input_type -> format.GetWeeksSinceEpochFromJulianDayRequest
+	52,  // 26: format.TimeService.IsEpoch:input_type -> format.IsEpochRequest
+	54,  // 27: format.TerService.NewTer:input_type -> format.NewTerRequest
+	56,  // 28: format.TerService.FormatFileSize:input_type -> format.FormatFileSizeRequest
+	58,  // 29: format.TerService.FormatIpAddress:input_type -> format.FormatIpAddressRequest
+	60,  // 30: format.TerService.FormatShortFileSize:input_type -> format.FormatShortFileSizeRequest
+	62,  // 31: format.DateFormatService.NewDateFormat:input_type -> format.NewDateFormatRequest
+	64,  // 32: format.DateFormatService.Format2:input_type -> format.Format2Request
+	66,  // 33: format.DateFormatService.Format2_1:input_type -> format.Format2_1Request
+	68,  // 34: format.DateFormatService.Format2_2:input_type -> format.Format2_2Request
+	70,  // 35: format.DateFormatService.GetBestDateTimePattern:input_type -> format.GetBestDateTimePatternRequest
+	72,  // 36: format.DateFormatService.GetDateFormat:input_type -> format.GetDateFormatRequest
+	74,  // 37: format.DateFormatService.GetDateFormatOrder:input_type -> format.GetDateFormatOrderRequest
+	76,  // 38: format.DateFormatService.GetLongDateFormat:input_type -> format.GetLongDateFormatRequest
+	78,  // 39: format.DateFormatService.GetMediumDateFormat:input_type -> format.GetMediumDateFormatRequest
+	80,  // 40: format.DateFormatService.GetTimeFormat:input_type -> format.GetTimeFormatRequest
+	82,  // 41: format.DateFormatService.Is24HourFormat:input_type -> format.Is24HourFormatRequest
+	84,  // 42: format.DateUtilsService.NewDateUtils:input_type -> format.NewDateUtilsRequest
+	86,  // 43: format.DateUtilsService.FormatDateRange5:input_type -> format.FormatDateRange5Request
+	88,  // 44: format.DateUtilsService.FormatDateRange6_1:input_type -> format.FormatDateRange6_1Request
+	90,  // 45: format.DateUtilsService.FormatDateRange4_2:input_type -> format.FormatDateRange4_2Request
+	92,  // 46: format.DateUtilsService.FormatDateTime:input_type -> format.FormatDateTimeRequest
+	94,  // 47: format.DateUtilsService.FormatElapsedTime2:input_type -> format.FormatElapsedTime2Request
+	96,  // 48: format.DateUtilsService.FormatElapsedTime1_1:input_type -> format.FormatElapsedTime1_1Request
+	98,  // 49: format.DateUtilsService.FormatSameDayTime:input_type -> format.FormatSameDayTimeRequest
+	100, // 50: format.DateUtilsService.GetAMPMString:input_type -> format.GetAMPMStringRequest
+	102, // 51: format.DateUtilsService.GetDayOfWeekString:input_type -> format.GetDayOfWeekStringRequest
+	104, // 52: format.DateUtilsService.GetMonthString:input_type -> format.GetMonthStringRequest
+	106, // 53: format.DateUtilsService.GetRelativeDateTimeString:input_type -> format.GetRelativeDateTimeStringRequest
+	108, // 54: format.DateUtilsService.GetRelativeTimeSpanString2:input_type -> format.GetRelativeTimeSpanString2Request
+	110, // 55: format.DateUtilsService.GetRelativeTimeSpanString3_1:input_type -> format.GetRelativeTimeSpanString3_1Request
+	112, // 56: format.DateUtilsService.GetRelativeTimeSpanString1_2:input_type -> format.GetRelativeTimeSpanString1_2Request
+	114, // 57: format.DateUtilsService.GetRelativeTimeSpanString3_3:input_type -> format.GetRelativeTimeSpanString3_3Request
+	116, // 58: format.DateUtilsService.GetRelativeTimeSpanString4_4:input_type -> format.GetRelativeTimeSpanString4_4Request
+	118, // 59: format.DateUtilsService.IsToday:input_type -> format.IsTodayRequest
+	1,   // 60: format.TimeService.NewTime:output_type -> format.NewTimeResponse
+	3,   // 61: format.TimeService.After:output_type -> format.AfterResponse
+	5,   // 62: format.TimeService.Before:output_type -> format.BeforeResponse
+	7,   // 63: format.TimeService.Clear:output_type -> format.ClearResponse
+	9,   // 64: format.TimeService.Format:output_type -> format.FormatResponse
+	11,  // 65: format.TimeService.Format2445:output_type -> format.Format2445Response
+	13,  // 66: format.TimeService.Format3339:output_type -> format.Format3339Response
+	15,  // 67: format.TimeService.GetActualMaximum:output_type -> format.GetActualMaximumResponse
+	17,  // 68: format.TimeService.GetWeekNumber:output_type -> format.GetWeekNumberResponse
+	19,  // 69: format.TimeService.Normalize:output_type -> format.NormalizeResponse
+	21,  // 70: format.TimeService.Parse:output_type -> format.ParseResponse
+	23,  // 71: format.TimeService.Parse3339:output_type -> format.Parse3339Response
+	25,  // 72: format.TimeService.Set1:output_type -> format.Set1Response
+	27,  // 73: format.TimeService.Set3_1:output_type -> format.Set3_1Response
+	29,  // 74: format.TimeService.Set6_2:output_type -> format.Set6_2Response
+	31,  // 75: format.TimeService.Set1_3:output_type -> format.Set1_3Response
+	33,  // 76: format.TimeService.SetJulianDay:output_type -> format.SetJulianDayResponse
+	35,  // 77: format.TimeService.SetToNow:output_type -> format.SetToNowResponse
+	37,  // 78: format.TimeService.SwitchTimezone:output_type -> format.SwitchTimezoneResponse
+	39,  // 79: format.TimeService.ToMillis:output_type -> format.ToMillisResponse
+	41,  // 80: format.TimeService.ToString:output_type -> format.ToStringResponse
+	43,  // 81: format.TimeService.Compare:output_type -> format.CompareResponse
+	45,  // 82: format.TimeService.GetCurrentTimezone:output_type -> format.GetCurrentTimezoneResponse
+	47,  // 83: format.TimeService.GetJulianDay:output_type -> format.GetJulianDayResponse
+	49,  // 84: format.TimeService.GetJulianMondayFromWeeksSinceEpoch:output_type -> format.GetJulianMondayFromWeeksSinceEpochResponse
+	51,  // 85: format.TimeService.GetWeeksSinceEpochFromJulianDay:output_type -> format.GetWeeksSinceEpochFromJulianDayResponse
+	53,  // 86: format.TimeService.IsEpoch:output_type -> format.IsEpochResponse
+	55,  // 87: format.TerService.NewTer:output_type -> format.NewTerResponse
+	57,  // 88: format.TerService.FormatFileSize:output_type -> format.FormatFileSizeResponse
+	59,  // 89: format.TerService.FormatIpAddress:output_type -> format.FormatIpAddressResponse
+	61,  // 90: format.TerService.FormatShortFileSize:output_type -> format.FormatShortFileSizeResponse
+	63,  // 91: format.DateFormatService.NewDateFormat:output_type -> format.NewDateFormatResponse
+	65,  // 92: format.DateFormatService.Format2:output_type -> format.Format2Response
+	67,  // 93: format.DateFormatService.Format2_1:output_type -> format.Format2_1Response
+	69,  // 94: format.DateFormatService.Format2_2:output_type -> format.Format2_2Response
+	71,  // 95: format.DateFormatService.GetBestDateTimePattern:output_type -> format.GetBestDateTimePatternResponse
+	73,  // 96: format.DateFormatService.GetDateFormat:output_type -> format.GetDateFormatResponse
+	75,  // 97: format.DateFormatService.GetDateFormatOrder:output_type -> format.GetDateFormatOrderResponse
+	77,  // 98: format.DateFormatService.GetLongDateFormat:output_type -> format.GetLongDateFormatResponse
+	79,  // 99: format.DateFormatService.GetMediumDateFormat:output_type -> format.GetMediumDateFormatResponse
+	81,  // 100: format.DateFormatService.GetTimeFormat:output_type -> format.GetTimeFormatResponse
+	83,  // 101: format.DateFormatService.Is24HourFormat:output_type -> format.Is24HourFormatResponse
+	85,  // 102: format.DateUtilsService.NewDateUtils:output_type -> format.NewDateUtilsResponse
+	87,  // 103: format.DateUtilsService.FormatDateRange5:output_type -> format.FormatDateRange5Response
+	89,  // 104: format.DateUtilsService.FormatDateRange6_1:output_type -> format.FormatDateRange6_1Response
+	91,  // 105: format.DateUtilsService.FormatDateRange4_2:output_type -> format.FormatDateRange4_2Response
+	93,  // 106: format.DateUtilsService.FormatDateTime:output_type -> format.FormatDateTimeResponse
+	95,  // 107: format.DateUtilsService.FormatElapsedTime2:output_type -> format.FormatElapsedTime2Response
+	97,  // 108: format.DateUtilsService.FormatElapsedTime1_1:output_type -> format.FormatElapsedTime1_1Response
+	99,  // 109: format.DateUtilsService.FormatSameDayTime:output_type -> format.FormatSameDayTimeResponse
+	101, // 110: format.DateUtilsService.GetAMPMString:output_type -> format.GetAMPMStringResponse
+	103, // 111: format.DateUtilsService.GetDayOfWeekString:output_type -> format.GetDayOfWeekStringResponse
+	105, // 112: format.DateUtilsService.GetMonthString:output_type -> format.GetMonthStringResponse
+	107, // 113: format.DateUtilsService.GetRelativeDateTimeString:output_type -> format.GetRelativeDateTimeStringResponse
+	109, // 114: format.DateUtilsService.GetRelativeTimeSpanString2:output_type -> format.GetRelativeTimeSpanString2Response
+	111, // 115: format.DateUtilsService.GetRelativeTimeSpanString3_1:output_type -> format.GetRelativeTimeSpanString3_1Response
+	113, // 116: format.DateUtilsService.GetRelativeTimeSpanString1_2:output_type -> format.GetRelativeTimeSpanString1_2Response
+	115, // 117: format.DateUtilsService.GetRelativeTimeSpanString3_3:output_type -> format.GetRelativeTimeSpanString3_3Response
+	117, // 118: format.DateUtilsService.GetRelativeTimeSpanString4_4:output_type -> format.GetRelativeTimeSpanString4_4Response
+	119, // 119: format.DateUtilsService.IsToday:output_type -> format.IsTodayResponse
 	60,  // [60:120] is the sub-list for method output_type
 	0,   // [0:60] is the sub-list for method input_type
 	0,   // [0:0] is the sub-list for extension type_name

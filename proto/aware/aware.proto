@@ -6,64 +6,11 @@ package aware;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/aware";
 
-message NewIdentityChangedListenerRequest {
-}
-
-message NewIdentityChangedListenerResponse {
-  int64 result = 1;
-}
-
-message OnClusterIdChangedRequest {
-  int64 handle = 1;
-  int32 arg0 = 2;
-  int64 arg1 = 3;
-}
-
-message OnClusterIdChangedResponse {
-}
-
-message OnIdentityChangedRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-}
-
-message OnIdentityChangedResponse {
-}
-
-message NewParcelablePeerHandleRequest {
-  int64 arg0 = 1;
-}
-
-message NewParcelablePeerHandleResponse {
-  int64 result = 1;
-}
-
 message DescribeContentsRequest {
-  int64 handle = 1;
 }
 
 message DescribeContentsResponse {
   int32 result = 1;
-}
-
-message WriteToParcelRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-  int32 arg1 = 3;
-}
-
-message WriteToParcelResponse {
-}
-
-message CanBeSatisfiedByRequest {
-  int64 arg0 = 1;
-}
-
-message CanBeSatisfiedByResponse {
-  bool result = 1;
-}
-
-message WifiAwareNetworkSpecifierDescribeContentsRequest {
 }
 
 message EqualsRequest {
@@ -71,6 +18,261 @@ message EqualsRequest {
 }
 
 message EqualsResponse {
+  bool result = 1;
+}
+
+message GetInstantCommunicationBandRequest {
+}
+
+message GetInstantCommunicationBandResponse {
+  int32 result = 1;
+}
+
+message GetPairingConfigRequest {
+}
+
+message GetPairingConfigResponse {
+  int64 result = 1;
+}
+
+message HashCodeRequest {
+}
+
+message HashCodeResponse {
+  int32 result = 1;
+}
+
+message IsInstantCommunicationModeEnabledRequest {
+}
+
+message IsInstantCommunicationModeEnabledResponse {
+  bool result = 1;
+}
+
+message ToStringRequest {
+}
+
+message ToStringResponse {
+  string result = 1;
+}
+
+message WriteToParcelRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message WriteToParcelResponse {
+}
+
+message BuildRequest {
+}
+
+message BuildResponse {
+  int64 result = 1;
+}
+
+message SetInstantCommunicationModeEnabledRequest {
+  bool arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message SetInstantCommunicationModeEnabledResponse {
+  int64 result = 1;
+}
+
+message SetMaxDistanceMmRequest {
+  int32 arg0 = 1;
+}
+
+message SetMaxDistanceMmResponse {
+  int64 result = 1;
+}
+
+message SetMinDistanceMmRequest {
+  int32 arg0 = 1;
+}
+
+message SetMinDistanceMmResponse {
+  int64 result = 1;
+}
+
+message SetPairingConfigRequest {
+  int64 arg0 = 1;
+}
+
+message SetPairingConfigResponse {
+  int64 result = 1;
+}
+
+message SetServiceNameRequest {
+  string arg0 = 1;
+}
+
+message SetServiceNameResponse {
+  int64 result = 1;
+}
+
+message SetServiceSpecificInfoRequest {
+  int64 arg0 = 1;
+}
+
+message SetServiceSpecificInfoResponse {
+  int64 result = 1;
+}
+
+message SetSubscribeTypeRequest {
+  int32 arg0 = 1;
+}
+
+message SetSubscribeTypeResponse {
+  int64 result = 1;
+}
+
+message SetTerminateNotificationEnabledRequest {
+  bool arg0 = 1;
+}
+
+message SetTerminateNotificationEnabledResponse {
+  int64 result = 1;
+}
+
+message SetTtlSecRequest {
+  int32 arg0 = 1;
+}
+
+message SetTtlSecResponse {
+  int64 result = 1;
+}
+
+message GetAvailableAwareResourcesRequest {
+}
+
+message GetAvailableAwareResourcesResponse {
+  int64 result = 1;
+}
+
+message GetCharacteristicsRequest {
+}
+
+message GetCharacteristicsResponse {
+  int64 result = 1;
+}
+
+message IsAvailableRequest {
+}
+
+message IsAvailableResponse {
+  bool result = 1;
+}
+
+message IsDeviceAttachedRequest {
+}
+
+message IsDeviceAttachedResponse {
+  bool result = 1;
+}
+
+message IsSetChannelOnDataPathSupportedRequest {
+}
+
+message IsSetChannelOnDataPathSupportedResponse {
+  bool result = 1;
+}
+
+message RemovePairedDeviceRequest {
+  string arg0 = 1;
+}
+
+message RemovePairedDeviceResponse {
+}
+
+message ResetPairedDevicesRequest {
+}
+
+message ResetPairedDevicesResponse {
+}
+
+message SetOpportunisticModeEnabledRequest {
+  bool arg0 = 1;
+}
+
+message SetOpportunisticModeEnabledResponse {
+}
+
+message AcceptPairingRequestRequest {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+  string arg2 = 3;
+  int32 arg3 = 4;
+  string arg4 = 5;
+}
+
+message AcceptPairingRequestResponse {
+}
+
+message CloseRequest {
+}
+
+message CloseResponse {
+}
+
+message CreateNetworkSpecifierOpenRequest {
+  int64 arg0 = 1;
+}
+
+message CreateNetworkSpecifierOpenResponse {
+  int64 result = 1;
+}
+
+message CreateNetworkSpecifierPassphraseRequest {
+  int64 arg0 = 1;
+  string arg1 = 2;
+}
+
+message CreateNetworkSpecifierPassphraseResponse {
+  int64 result = 1;
+}
+
+message InitiateBootstrappingRequestRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message InitiateBootstrappingRequestResponse {
+}
+
+message InitiatePairingRequestRequest {
+  int64 arg0 = 1;
+  string arg1 = 2;
+  int32 arg2 = 3;
+  string arg3 = 4;
+}
+
+message InitiatePairingRequestResponse {
+}
+
+message RejectPairingRequestRequest {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message RejectPairingRequestResponse {
+}
+
+message SendMessageRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message SendMessageResponse {
+}
+
+message CanBeSatisfiedByRequest {
+  int64 arg0 = 1;
+}
+
+message CanBeSatisfiedByResponse {
   bool result = 1;
 }
 
@@ -88,37 +290,11 @@ message GetWifiAwareDataPathSecurityConfigResponse {
   int64 result = 1;
 }
 
-message HashCodeRequest {
-}
-
-message HashCodeResponse {
-  int32 result = 1;
-}
-
 message IsChannelRequiredRequest {
 }
 
 message IsChannelRequiredResponse {
   bool result = 1;
-}
-
-message ToStringRequest {
-}
-
-message ToStringResponse {
-  string result = 1;
-}
-
-message WifiAwareNetworkSpecifierWriteToParcelRequest {
-  int64 arg0 = 1;
-  int32 arg1 = 2;
-}
-
-message BuildRequest {
-}
-
-message BuildResponse {
-  int64 result = 1;
 }
 
 message SetChannelFrequencyMhzRequest {
@@ -170,69 +346,179 @@ message SetTransportProtocolResponse {
   int64 result = 1;
 }
 
-message GetAvailableAwareResourcesRequest {
+message GetSecurityConfigRequest {
 }
 
-message GetAvailableAwareResourcesResponse {
+message GetSecurityConfigResponse {
   int64 result = 1;
 }
 
-message GetCharacteristicsRequest {
+message SetPublishTypeRequest {
+  int32 arg0 = 1;
 }
 
-message GetCharacteristicsResponse {
+message SetPublishTypeResponse {
   int64 result = 1;
 }
 
-message IsAvailableRequest {
-}
-
-message IsAvailableResponse {
-  bool result = 1;
-}
-
-message IsDeviceAttachedRequest {
-}
-
-message IsDeviceAttachedResponse {
-  bool result = 1;
-}
-
-message IsInstantCommunicationModeEnabledRequest {
-}
-
-message IsInstantCommunicationModeEnabledResponse {
-  bool result = 1;
-}
-
-message IsSetChannelOnDataPathSupportedRequest {
-}
-
-message IsSetChannelOnDataPathSupportedResponse {
-  bool result = 1;
-}
-
-message RemovePairedDeviceRequest {
-  string arg0 = 1;
-}
-
-message RemovePairedDeviceResponse {
-}
-
-message ResetPairedDevicesRequest {
-}
-
-message ResetPairedDevicesResponse {
-}
-
-message SetOpportunisticModeEnabledRequest {
+message SetRangingEnabledRequest {
   bool arg0 = 1;
 }
 
-message SetOpportunisticModeEnabledResponse {
+message SetRangingEnabledResponse {
+  int64 result = 1;
 }
 
-message WifiAwareNetworkInfoDescribeContentsRequest {
+message NewIdentityChangedListenerRequest {
+}
+
+message NewIdentityChangedListenerResponse {
+  int64 result = 1;
+}
+
+message OnClusterIdChangedRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message OnClusterIdChangedResponse {
+}
+
+message OnIdentityChangedRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message OnIdentityChangedResponse {
+}
+
+message UpdateSubscribeRequest {
+  int64 arg0 = 1;
+}
+
+message UpdateSubscribeResponse {
+}
+
+message GetCipherSuiteRequest {
+}
+
+message GetCipherSuiteResponse {
+  int32 result = 1;
+}
+
+message GetPmkRequest {
+}
+
+message GetPmkResponse {
+  int64 result = 1;
+}
+
+message GetPmkIdRequest {
+}
+
+message GetPmkIdResponse {
+  int64 result = 1;
+}
+
+message GetPskPassphraseRequest {
+}
+
+message GetPskPassphraseResponse {
+  string result = 1;
+}
+
+message SetPmkIdRequest {
+  int64 arg0 = 1;
+}
+
+message SetPmkIdResponse {
+  int64 result = 1;
+}
+
+message NewParcelablePeerHandleRequest {
+  int64 arg0 = 1;
+}
+
+message NewParcelablePeerHandleResponse {
+  int64 result = 1;
+}
+
+message ParcelablePeerHandleDescribeContentsRequest {
+  int64 handle = 1;
+}
+
+message ParcelablePeerHandleWriteToParcelRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message WifiAwareSessionCreateNetworkSpecifierOpenRequest {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message WifiAwareSessionCreateNetworkSpecifierPassphraseRequest {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+  string arg2 = 3;
+}
+
+message UpdatePublishRequest {
+  int64 arg0 = 1;
+}
+
+message UpdatePublishResponse {
+}
+
+message GetMatchFiltersRequest {
+}
+
+message GetMatchFiltersResponse {
+  int64 result = 1;
+}
+
+message GetPairedAliasRequest {
+}
+
+message GetPairedAliasResponse {
+  string result = 1;
+}
+
+message GetPeerCipherSuiteRequest {
+}
+
+message GetPeerCipherSuiteResponse {
+  int32 result = 1;
+}
+
+message GetPeerHandleRequest {
+}
+
+message GetPeerHandleResponse {
+  int64 result = 1;
+}
+
+message GetScidRequest {
+}
+
+message GetScidResponse {
+  int64 result = 1;
+}
+
+message GetServiceSpecificInfoRequest {
+}
+
+message GetServiceSpecificInfoResponse {
+  int64 result = 1;
+}
+
+message GetChannelInfoListRequest {
+}
+
+message GetChannelInfoListResponse {
+  int64 result = 1;
 }
 
 message GetPeerIpv6AddrRequest {
@@ -256,38 +542,48 @@ message GetTransportProtocolResponse {
   int32 result = 1;
 }
 
-message WifiAwareNetworkInfoWriteToParcelRequest {
-  int64 arg0 = 1;
+message NewResourcesRequest {
+  int32 arg0 = 1;
   int32 arg1 = 2;
+  int32 arg2 = 3;
 }
 
-message NewAttachCallbackRequest {
-}
-
-message NewAttachCallbackResponse {
+message NewResourcesResponse {
   int64 result = 1;
 }
 
-message OnAttachFailedRequest {
+message ResourcesDescribeContentsRequest {
   int64 handle = 1;
 }
 
-message OnAttachFailedResponse {
+message GetAvailableDataPathsCountRequest {
+  int64 handle = 1;
 }
 
-message OnAttachedRequest {
+message GetAvailableDataPathsCountResponse {
+  int32 result = 1;
+}
+
+message GetAvailablePublishSessionsCountRequest {
+  int64 handle = 1;
+}
+
+message GetAvailablePublishSessionsCountResponse {
+  int32 result = 1;
+}
+
+message GetAvailableSubscribeSessionsCountRequest {
+  int64 handle = 1;
+}
+
+message GetAvailableSubscribeSessionsCountResponse {
+  int32 result = 1;
+}
+
+message ResourcesWriteToParcelRequest {
   int64 handle = 1;
   int64 arg0 = 2;
-}
-
-message OnAttachedResponse {
-}
-
-message OnAwareSessionTerminatedRequest {
-  int64 handle = 1;
-}
-
-message OnAwareSessionTerminatedResponse {
+  int32 arg1 = 3;
 }
 
 message NewDiscoverySessionCallbackRequest {
@@ -445,246 +741,33 @@ message OnSubscribeStartedRequest {
 message OnSubscribeStartedResponse {
 }
 
-message UpdatePublishRequest {
-  int64 arg0 = 1;
+message NewAttachCallbackRequest {
 }
 
-message UpdatePublishResponse {
-}
-
-message WifiAwareDataPathSecurityConfigDescribeContentsRequest {
-}
-
-message GetCipherSuiteRequest {
-}
-
-message GetCipherSuiteResponse {
-  int32 result = 1;
-}
-
-message GetPmkRequest {
-}
-
-message GetPmkResponse {
+message NewAttachCallbackResponse {
   int64 result = 1;
 }
 
-message GetPmkIdRequest {
-}
-
-message GetPmkIdResponse {
-  int64 result = 1;
-}
-
-message GetPskPassphraseRequest {
-}
-
-message GetPskPassphraseResponse {
-  string result = 1;
-}
-
-message WifiAwareDataPathSecurityConfigWriteToParcelRequest {
-  int64 arg0 = 1;
-  int32 arg1 = 2;
-}
-
-message SetPmkIdRequest {
-  int64 arg0 = 1;
-}
-
-message SetPmkIdResponse {
-  int64 result = 1;
-}
-
-message CloseRequest {
-}
-
-message CloseResponse {
-}
-
-message CreateNetworkSpecifierOpenRequest {
-  int32 arg0 = 1;
-  int64 arg1 = 2;
-}
-
-message CreateNetworkSpecifierOpenResponse {
-  int64 result = 1;
-}
-
-message CreateNetworkSpecifierPassphraseRequest {
-  int32 arg0 = 1;
-  int64 arg1 = 2;
-  string arg2 = 3;
-}
-
-message CreateNetworkSpecifierPassphraseResponse {
-  int64 result = 1;
-}
-
-message NewResourcesRequest {
-  int32 arg0 = 1;
-  int32 arg1 = 2;
-  int32 arg2 = 3;
-}
-
-message NewResourcesResponse {
-  int64 result = 1;
-}
-
-message GetAvailableDataPathsCountRequest {
+message OnAttachFailedRequest {
   int64 handle = 1;
 }
 
-message GetAvailableDataPathsCountResponse {
-  int32 result = 1;
+message OnAttachFailedResponse {
 }
 
-message GetAvailablePublishSessionsCountRequest {
+message OnAttachedRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message OnAttachedResponse {
+}
+
+message OnAwareSessionTerminatedRequest {
   int64 handle = 1;
 }
 
-message GetAvailablePublishSessionsCountResponse {
-  int32 result = 1;
-}
-
-message GetAvailableSubscribeSessionsCountRequest {
-  int64 handle = 1;
-}
-
-message GetAvailableSubscribeSessionsCountResponse {
-  int32 result = 1;
-}
-
-message PublishConfigDescribeContentsRequest {
-}
-
-message GetInstantCommunicationBandRequest {
-}
-
-message GetInstantCommunicationBandResponse {
-  int32 result = 1;
-}
-
-message GetPairingConfigRequest {
-}
-
-message GetPairingConfigResponse {
-  int64 result = 1;
-}
-
-message GetSecurityConfigRequest {
-}
-
-message GetSecurityConfigResponse {
-  int64 result = 1;
-}
-
-message PublishConfigWriteToParcelRequest {
-  int64 arg0 = 1;
-  int32 arg1 = 2;
-}
-
-message SetInstantCommunicationModeEnabledRequest {
-  bool arg0 = 1;
-  int32 arg1 = 2;
-}
-
-message SetInstantCommunicationModeEnabledResponse {
-  int64 result = 1;
-}
-
-message SetPairingConfigRequest {
-  int64 arg0 = 1;
-}
-
-message SetPairingConfigResponse {
-  int64 result = 1;
-}
-
-message SetPublishTypeRequest {
-  int32 arg0 = 1;
-}
-
-message SetPublishTypeResponse {
-  int64 result = 1;
-}
-
-message SetRangingEnabledRequest {
-  bool arg0 = 1;
-}
-
-message SetRangingEnabledResponse {
-  int64 result = 1;
-}
-
-message SetServiceNameRequest {
-  string arg0 = 1;
-}
-
-message SetServiceNameResponse {
-  int64 result = 1;
-}
-
-message SetServiceSpecificInfoRequest {
-  int64 arg0 = 1;
-}
-
-message SetServiceSpecificInfoResponse {
-  int64 result = 1;
-}
-
-message SetTerminateNotificationEnabledRequest {
-  bool arg0 = 1;
-}
-
-message SetTerminateNotificationEnabledResponse {
-  int64 result = 1;
-}
-
-message SetTtlSecRequest {
-  int32 arg0 = 1;
-}
-
-message SetTtlSecResponse {
-  int64 result = 1;
-}
-
-message GetPairedAliasRequest {
-}
-
-message GetPairedAliasResponse {
-  string result = 1;
-}
-
-message GetPeerCipherSuiteRequest {
-}
-
-message GetPeerCipherSuiteResponse {
-  int32 result = 1;
-}
-
-message GetPeerHandleRequest {
-}
-
-message GetPeerHandleResponse {
-  int64 result = 1;
-}
-
-message GetScidRequest {
-}
-
-message GetScidResponse {
-  int64 result = 1;
-}
-
-message GetServiceSpecificInfoRequest {
-}
-
-message GetServiceSpecificInfoResponse {
-  int64 result = 1;
-}
-
-message WifiAwareChannelInfoDescribeContentsRequest {
+message OnAwareSessionTerminatedResponse {
 }
 
 message GetChannelBandwidthRequest {
@@ -699,97 +782,6 @@ message GetSpatialStreamCountRequest {
 
 message GetSpatialStreamCountResponse {
   int32 result = 1;
-}
-
-message WifiAwareChannelInfoWriteToParcelRequest {
-  int64 arg0 = 1;
-  int32 arg1 = 2;
-}
-
-message PairingConfigDescribeContentsRequest {
-}
-
-message GetBootstrappingMethodsRequest {
-}
-
-message GetBootstrappingMethodsResponse {
-  int32 result = 1;
-}
-
-message GetSupportedCipherSuitesRequest {
-}
-
-message GetSupportedCipherSuitesResponse {
-  int32 result = 1;
-}
-
-message IsPairingCacheEnabledRequest {
-}
-
-message IsPairingCacheEnabledResponse {
-  bool result = 1;
-}
-
-message IsPairingSetupEnabledRequest {
-}
-
-message IsPairingSetupEnabledResponse {
-  bool result = 1;
-}
-
-message IsPairingVerificationEnabledRequest {
-}
-
-message IsPairingVerificationEnabledResponse {
-  bool result = 1;
-}
-
-message PairingConfigWriteToParcelRequest {
-  int64 arg0 = 1;
-  int32 arg1 = 2;
-}
-
-message SetBootstrappingMethodsRequest {
-  int32 arg0 = 1;
-}
-
-message SetBootstrappingMethodsResponse {
-  int64 result = 1;
-}
-
-message SetPairingCacheEnabledRequest {
-  bool arg0 = 1;
-}
-
-message SetPairingCacheEnabledResponse {
-  int64 result = 1;
-}
-
-message SetPairingSetupEnabledRequest {
-  bool arg0 = 1;
-}
-
-message SetPairingSetupEnabledResponse {
-  int64 result = 1;
-}
-
-message SetPairingVerificationEnabledRequest {
-  bool arg0 = 1;
-}
-
-message SetPairingVerificationEnabledResponse {
-  int64 result = 1;
-}
-
-message SetSupportedCipherSuitesRequest {
-  int32 arg0 = 1;
-}
-
-message SetSupportedCipherSuitesResponse {
-  int64 result = 1;
-}
-
-message CharacteristicsDescribeContentsRequest {
 }
 
 message GetMaxMatchFilterLengthRequest {
@@ -841,6 +833,13 @@ message GetNumberOfSupportedSubscribeSessionsResponse {
   int32 result = 1;
 }
 
+message GetSupportedCipherSuitesRequest {
+}
+
+message GetSupportedCipherSuitesResponse {
+  int32 result = 1;
+}
+
 message GetSupportedPairingCipherSuitesRequest {
 }
 
@@ -869,137 +868,96 @@ message IsSuspensionSupportedResponse {
   bool result = 1;
 }
 
-message CharacteristicsWriteToParcelRequest {
-  int64 arg0 = 1;
-  int32 arg1 = 2;
+message GetBootstrappingMethodsRequest {
 }
 
-message UpdateSubscribeRequest {
-  int64 arg0 = 1;
+message GetBootstrappingMethodsResponse {
+  int32 result = 1;
 }
 
-message UpdateSubscribeResponse {
+message IsPairingCacheEnabledRequest {
 }
 
-message AcceptPairingRequestRequest {
-  int32 arg0 = 1;
-  int64 arg1 = 2;
-  string arg2 = 3;
-  int32 arg3 = 4;
-  string arg4 = 5;
+message IsPairingCacheEnabledResponse {
+  bool result = 1;
 }
 
-message AcceptPairingRequestResponse {
+message IsPairingSetupEnabledRequest {
 }
 
-message DiscoverySessionCreateNetworkSpecifierOpenRequest {
-  int64 arg0 = 1;
+message IsPairingSetupEnabledResponse {
+  bool result = 1;
 }
 
-message DiscoverySessionCreateNetworkSpecifierPassphraseRequest {
-  int64 arg0 = 1;
-  string arg1 = 2;
+message IsPairingVerificationEnabledRequest {
 }
 
-message InitiateBootstrappingRequestRequest {
-  int64 arg0 = 1;
-  int32 arg1 = 2;
+message IsPairingVerificationEnabledResponse {
+  bool result = 1;
 }
 
-message InitiateBootstrappingRequestResponse {
-}
-
-message InitiatePairingRequestRequest {
-  int64 arg0 = 1;
-  string arg1 = 2;
-  int32 arg2 = 3;
-  string arg3 = 4;
-}
-
-message InitiatePairingRequestResponse {
-}
-
-message RejectPairingRequestRequest {
-  int32 arg0 = 1;
-  int64 arg1 = 2;
-}
-
-message RejectPairingRequestResponse {
-}
-
-message SendMessageRequest {
-  int64 arg0 = 1;
-  int32 arg1 = 2;
-  int64 arg2 = 3;
-}
-
-message SendMessageResponse {
-}
-
-message SubscribeConfigDescribeContentsRequest {
-}
-
-message SubscribeConfigWriteToParcelRequest {
-  int64 arg0 = 1;
-  int32 arg1 = 2;
-}
-
-message SetMaxDistanceMmRequest {
+message SetBootstrappingMethodsRequest {
   int32 arg0 = 1;
 }
 
-message SetMaxDistanceMmResponse {
+message SetBootstrappingMethodsResponse {
   int64 result = 1;
 }
 
-message SetMinDistanceMmRequest {
-  int32 arg0 = 1;
+message SetPairingCacheEnabledRequest {
+  bool arg0 = 1;
 }
 
-message SetMinDistanceMmResponse {
+message SetPairingCacheEnabledResponse {
   int64 result = 1;
 }
 
-message SetSubscribeTypeRequest {
-  int32 arg0 = 1;
+message SetPairingSetupEnabledRequest {
+  bool arg0 = 1;
 }
 
-message SetSubscribeTypeResponse {
+message SetPairingSetupEnabledResponse {
   int64 result = 1;
 }
 
-service IdentityChangedListenerService {
-  rpc NewIdentityChangedListener (NewIdentityChangedListenerRequest) returns (NewIdentityChangedListenerResponse);
-  rpc OnClusterIdChanged (OnClusterIdChangedRequest) returns (OnClusterIdChangedResponse);
-  rpc OnIdentityChanged (OnIdentityChangedRequest) returns (OnIdentityChangedResponse);
+message SetPairingVerificationEnabledRequest {
+  bool arg0 = 1;
 }
 
-service ParcelablePeerHandleService {
-  rpc NewParcelablePeerHandle (NewParcelablePeerHandleRequest) returns (NewParcelablePeerHandleResponse);
+message SetPairingVerificationEnabledResponse {
+  int64 result = 1;
+}
+
+message SetSupportedCipherSuitesRequest {
+  int32 arg0 = 1;
+}
+
+message SetSupportedCipherSuitesResponse {
+  int64 result = 1;
+}
+
+service SubscribeConfigService {
   rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetInstantCommunicationBand (GetInstantCommunicationBandRequest) returns (GetInstantCommunicationBandResponse);
+  rpc GetPairingConfig (GetPairingConfigRequest) returns (GetPairingConfigResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc IsInstantCommunicationModeEnabled (IsInstantCommunicationModeEnabledRequest) returns (IsInstantCommunicationModeEnabledResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
   rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
 }
 
-service WifiAwareNetworkSpecifierService {
-  rpc CanBeSatisfiedBy (CanBeSatisfiedByRequest) returns (CanBeSatisfiedByResponse);
-  rpc DescribeContents (WifiAwareNetworkSpecifierDescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc Equals (EqualsRequest) returns (EqualsResponse);
-  rpc GetChannelFrequencyMhz (GetChannelFrequencyMhzRequest) returns (GetChannelFrequencyMhzResponse);
-  rpc GetWifiAwareDataPathSecurityConfig (GetWifiAwareDataPathSecurityConfigRequest) returns (GetWifiAwareDataPathSecurityConfigResponse);
-  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
-  rpc IsChannelRequired (IsChannelRequiredRequest) returns (IsChannelRequiredResponse);
-  rpc ToString (ToStringRequest) returns (ToStringResponse);
-  rpc WriteToParcel (WifiAwareNetworkSpecifierWriteToParcelRequest) returns (WriteToParcelResponse);
-}
-
-service WifiAwareNetworkSpecifierBuilderService {
+service SubscribeConfigBuilderService {
   rpc Build (BuildRequest) returns (BuildResponse);
-  rpc SetChannelFrequencyMhz (SetChannelFrequencyMhzRequest) returns (SetChannelFrequencyMhzResponse);
-  rpc SetDataPathSecurityConfig (SetDataPathSecurityConfigRequest) returns (SetDataPathSecurityConfigResponse);
-  rpc SetPmk (SetPmkRequest) returns (SetPmkResponse);
-  rpc SetPort (SetPortRequest) returns (SetPortResponse);
-  rpc SetPskPassphrase (SetPskPassphraseRequest) returns (SetPskPassphraseResponse);
-  rpc SetTransportProtocol (SetTransportProtocolRequest) returns (SetTransportProtocolResponse);
+  rpc SetInstantCommunicationModeEnabled (SetInstantCommunicationModeEnabledRequest) returns (SetInstantCommunicationModeEnabledResponse);
+  rpc SetMaxDistanceMm (SetMaxDistanceMmRequest) returns (SetMaxDistanceMmResponse);
+  rpc SetMinDistanceMm (SetMinDistanceMmRequest) returns (SetMinDistanceMmResponse);
+  rpc SetPairingConfig (SetPairingConfigRequest) returns (SetPairingConfigResponse);
+  rpc SetServiceName (SetServiceNameRequest) returns (SetServiceNameResponse);
+  rpc SetServiceSpecificInfo (SetServiceSpecificInfoRequest) returns (SetServiceSpecificInfoResponse);
+  rpc SetSubscribeType (SetSubscribeTypeRequest) returns (SetSubscribeTypeResponse);
+  rpc SetTerminateNotificationEnabled (SetTerminateNotificationEnabledRequest) returns (SetTerminateNotificationEnabledResponse);
+  rpc SetTtlSec (SetTtlSecRequest) returns (SetTtlSecResponse);
 }
 
 service WifiAwareManagerService {
@@ -1014,22 +972,143 @@ service WifiAwareManagerService {
   rpc SetOpportunisticModeEnabled (SetOpportunisticModeEnabledRequest) returns (SetOpportunisticModeEnabledResponse);
 }
 
-service WifiAwareNetworkInfoService {
-  rpc DescribeContents (WifiAwareNetworkInfoDescribeContentsRequest) returns (DescribeContentsResponse);
+service DiscoverySessionService {
+  rpc AcceptPairingRequest (AcceptPairingRequestRequest) returns (AcceptPairingRequestResponse);
+  rpc Close (CloseRequest) returns (CloseResponse);
+  rpc CreateNetworkSpecifierOpen (CreateNetworkSpecifierOpenRequest) returns (CreateNetworkSpecifierOpenResponse);
+  rpc CreateNetworkSpecifierPassphrase (CreateNetworkSpecifierPassphraseRequest) returns (CreateNetworkSpecifierPassphraseResponse);
+  rpc InitiateBootstrappingRequest (InitiateBootstrappingRequestRequest) returns (InitiateBootstrappingRequestResponse);
+  rpc InitiatePairingRequest (InitiatePairingRequestRequest) returns (InitiatePairingRequestResponse);
+  rpc RejectPairingRequest (RejectPairingRequestRequest) returns (RejectPairingRequestResponse);
+  rpc SendMessage (SendMessageRequest) returns (SendMessageResponse);
+}
+
+service WifiAwareNetworkSpecifierService {
+  rpc CanBeSatisfiedBy (CanBeSatisfiedByRequest) returns (CanBeSatisfiedByResponse);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
   rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetChannelFrequencyMhz (GetChannelFrequencyMhzRequest) returns (GetChannelFrequencyMhzResponse);
+  rpc GetWifiAwareDataPathSecurityConfig (GetWifiAwareDataPathSecurityConfigRequest) returns (GetWifiAwareDataPathSecurityConfigResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc IsChannelRequired (IsChannelRequiredRequest) returns (IsChannelRequiredResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service WifiAwareNetworkSpecifierBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetChannelFrequencyMhz (SetChannelFrequencyMhzRequest) returns (SetChannelFrequencyMhzResponse);
+  rpc SetDataPathSecurityConfig (SetDataPathSecurityConfigRequest) returns (SetDataPathSecurityConfigResponse);
+  rpc SetPmk (SetPmkRequest) returns (SetPmkResponse);
+  rpc SetPort (SetPortRequest) returns (SetPortResponse);
+  rpc SetPskPassphrase (SetPskPassphraseRequest) returns (SetPskPassphraseResponse);
+  rpc SetTransportProtocol (SetTransportProtocolRequest) returns (SetTransportProtocolResponse);
+}
+
+service PublishConfigService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetInstantCommunicationBand (GetInstantCommunicationBandRequest) returns (GetInstantCommunicationBandResponse);
+  rpc GetPairingConfig (GetPairingConfigRequest) returns (GetPairingConfigResponse);
+  rpc GetSecurityConfig (GetSecurityConfigRequest) returns (GetSecurityConfigResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc IsInstantCommunicationModeEnabled (IsInstantCommunicationModeEnabledRequest) returns (IsInstantCommunicationModeEnabledResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service PublishConfigBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetDataPathSecurityConfig (SetDataPathSecurityConfigRequest) returns (SetDataPathSecurityConfigResponse);
+  rpc SetInstantCommunicationModeEnabled (SetInstantCommunicationModeEnabledRequest) returns (SetInstantCommunicationModeEnabledResponse);
+  rpc SetPairingConfig (SetPairingConfigRequest) returns (SetPairingConfigResponse);
+  rpc SetPublishType (SetPublishTypeRequest) returns (SetPublishTypeResponse);
+  rpc SetRangingEnabled (SetRangingEnabledRequest) returns (SetRangingEnabledResponse);
+  rpc SetServiceName (SetServiceNameRequest) returns (SetServiceNameResponse);
+  rpc SetServiceSpecificInfo (SetServiceSpecificInfoRequest) returns (SetServiceSpecificInfoResponse);
+  rpc SetTerminateNotificationEnabled (SetTerminateNotificationEnabledRequest) returns (SetTerminateNotificationEnabledResponse);
+  rpc SetTtlSec (SetTtlSecRequest) returns (SetTtlSecResponse);
+}
+
+service IdentityChangedListenerService {
+  rpc NewIdentityChangedListener (NewIdentityChangedListenerRequest) returns (NewIdentityChangedListenerResponse);
+  rpc OnClusterIdChanged (OnClusterIdChangedRequest) returns (OnClusterIdChangedResponse);
+  rpc OnIdentityChanged (OnIdentityChangedRequest) returns (OnIdentityChangedResponse);
+}
+
+service PeerHandleService {
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+}
+
+service SubscribeDiscoverySessionService {
+  rpc UpdateSubscribe (UpdateSubscribeRequest) returns (UpdateSubscribeResponse);
+}
+
+service WifiAwareDataPathSecurityConfigService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetCipherSuite (GetCipherSuiteRequest) returns (GetCipherSuiteResponse);
+  rpc GetPmk (GetPmkRequest) returns (GetPmkResponse);
+  rpc GetPmkId (GetPmkIdRequest) returns (GetPmkIdResponse);
+  rpc GetPskPassphrase (GetPskPassphraseRequest) returns (GetPskPassphraseResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service WifiAwareDataPathSecurityConfigBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetPmk (SetPmkRequest) returns (SetPmkResponse);
+  rpc SetPmkId (SetPmkIdRequest) returns (SetPmkIdResponse);
+  rpc SetPskPassphrase (SetPskPassphraseRequest) returns (SetPskPassphraseResponse);
+}
+
+service ParcelablePeerHandleService {
+  rpc NewParcelablePeerHandle (NewParcelablePeerHandleRequest) returns (NewParcelablePeerHandleResponse);
+  rpc DescribeContents (ParcelablePeerHandleDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc WriteToParcel (ParcelablePeerHandleWriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service WifiAwareSessionService {
+  rpc Close (CloseRequest) returns (CloseResponse);
+  rpc CreateNetworkSpecifierOpen (WifiAwareSessionCreateNetworkSpecifierOpenRequest) returns (CreateNetworkSpecifierOpenResponse);
+  rpc CreateNetworkSpecifierPassphrase (WifiAwareSessionCreateNetworkSpecifierPassphraseRequest) returns (CreateNetworkSpecifierPassphraseResponse);
+}
+
+service PublishDiscoverySessionService {
+  rpc UpdatePublish (UpdatePublishRequest) returns (UpdatePublishResponse);
+}
+
+service ServiceDiscoveryInfoService {
+  rpc GetMatchFilters (GetMatchFiltersRequest) returns (GetMatchFiltersResponse);
+  rpc GetPairedAlias (GetPairedAliasRequest) returns (GetPairedAliasResponse);
+  rpc GetPairingConfig (GetPairingConfigRequest) returns (GetPairingConfigResponse);
+  rpc GetPeerCipherSuite (GetPeerCipherSuiteRequest) returns (GetPeerCipherSuiteResponse);
+  rpc GetPeerHandle (GetPeerHandleRequest) returns (GetPeerHandleResponse);
+  rpc GetScid (GetScidRequest) returns (GetScidResponse);
+  rpc GetServiceSpecificInfo (GetServiceSpecificInfoRequest) returns (GetServiceSpecificInfoResponse);
+}
+
+service WifiAwareNetworkInfoService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetChannelInfoList (GetChannelInfoListRequest) returns (GetChannelInfoListResponse);
   rpc GetPeerIpv6Addr (GetPeerIpv6AddrRequest) returns (GetPeerIpv6AddrResponse);
   rpc GetPort (GetPortRequest) returns (GetPortResponse);
   rpc GetTransportProtocol (GetTransportProtocolRequest) returns (GetTransportProtocolResponse);
   rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
   rpc ToString (ToStringRequest) returns (ToStringResponse);
-  rpc WriteToParcel (WifiAwareNetworkInfoWriteToParcelRequest) returns (WriteToParcelResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
 }
 
-service AttachCallbackService {
-  rpc NewAttachCallback (NewAttachCallbackRequest) returns (NewAttachCallbackResponse);
-  rpc OnAttachFailed (OnAttachFailedRequest) returns (OnAttachFailedResponse);
-  rpc OnAttached (OnAttachedRequest) returns (OnAttachedResponse);
-  rpc OnAwareSessionTerminated (OnAwareSessionTerminatedRequest) returns (OnAwareSessionTerminatedResponse);
+service ResourcesService {
+  rpc NewResources (NewResourcesRequest) returns (NewResourcesResponse);
+  rpc DescribeContents (ResourcesDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetAvailableDataPathsCount (GetAvailableDataPathsCountRequest) returns (GetAvailableDataPathsCountResponse);
+  rpc GetAvailablePublishSessionsCount (GetAvailablePublishSessionsCountRequest) returns (GetAvailablePublishSessionsCountResponse);
+  rpc GetAvailableSubscribeSessionsCount (GetAvailableSubscribeSessionsCountRequest) returns (GetAvailableSubscribeSessionsCountResponse);
+  rpc WriteToParcel (ResourcesWriteToParcelRequest) returns (WriteToParcelResponse);
 }
 
 service DiscoverySessionCallbackService {
@@ -1054,117 +1133,26 @@ service DiscoverySessionCallbackService {
   rpc OnSubscribeStarted (OnSubscribeStartedRequest) returns (OnSubscribeStartedResponse);
 }
 
-service PublishDiscoverySessionService {
-  rpc UpdatePublish (UpdatePublishRequest) returns (UpdatePublishResponse);
-}
-
-service WifiAwareDataPathSecurityConfigService {
-  rpc DescribeContents (WifiAwareDataPathSecurityConfigDescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc Equals (EqualsRequest) returns (EqualsResponse);
-  rpc GetCipherSuite (GetCipherSuiteRequest) returns (GetCipherSuiteResponse);
-  rpc GetPmk (GetPmkRequest) returns (GetPmkResponse);
-  rpc GetPmkId (GetPmkIdRequest) returns (GetPmkIdResponse);
-  rpc GetPskPassphrase (GetPskPassphraseRequest) returns (GetPskPassphraseResponse);
-  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
-  rpc ToString (ToStringRequest) returns (ToStringResponse);
-  rpc WriteToParcel (WifiAwareDataPathSecurityConfigWriteToParcelRequest) returns (WriteToParcelResponse);
-}
-
-service WifiAwareDataPathSecurityConfigBuilderService {
-  rpc Build (BuildRequest) returns (BuildResponse);
-  rpc SetPmk (SetPmkRequest) returns (SetPmkResponse);
-  rpc SetPmkId (SetPmkIdRequest) returns (SetPmkIdResponse);
-  rpc SetPskPassphrase (SetPskPassphraseRequest) returns (SetPskPassphraseResponse);
-}
-
-service WifiAwareSessionService {
-  rpc Close (CloseRequest) returns (CloseResponse);
-  rpc CreateNetworkSpecifierOpen (CreateNetworkSpecifierOpenRequest) returns (CreateNetworkSpecifierOpenResponse);
-  rpc CreateNetworkSpecifierPassphrase (CreateNetworkSpecifierPassphraseRequest) returns (CreateNetworkSpecifierPassphraseResponse);
-}
-
-service ResourcesService {
-  rpc NewResources (NewResourcesRequest) returns (NewResourcesResponse);
-  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc GetAvailableDataPathsCount (GetAvailableDataPathsCountRequest) returns (GetAvailableDataPathsCountResponse);
-  rpc GetAvailablePublishSessionsCount (GetAvailablePublishSessionsCountRequest) returns (GetAvailablePublishSessionsCountResponse);
-  rpc GetAvailableSubscribeSessionsCount (GetAvailableSubscribeSessionsCountRequest) returns (GetAvailableSubscribeSessionsCountResponse);
-  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
-}
-
-service PublishConfigService {
-  rpc DescribeContents (PublishConfigDescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc Equals (EqualsRequest) returns (EqualsResponse);
-  rpc GetInstantCommunicationBand (GetInstantCommunicationBandRequest) returns (GetInstantCommunicationBandResponse);
-  rpc GetPairingConfig (GetPairingConfigRequest) returns (GetPairingConfigResponse);
-  rpc GetSecurityConfig (GetSecurityConfigRequest) returns (GetSecurityConfigResponse);
-  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
-  rpc IsInstantCommunicationModeEnabled (IsInstantCommunicationModeEnabledRequest) returns (IsInstantCommunicationModeEnabledResponse);
-  rpc ToString (ToStringRequest) returns (ToStringResponse);
-  rpc WriteToParcel (PublishConfigWriteToParcelRequest) returns (WriteToParcelResponse);
-}
-
-service PublishConfigBuilderService {
-  rpc Build (BuildRequest) returns (BuildResponse);
-  rpc SetDataPathSecurityConfig (SetDataPathSecurityConfigRequest) returns (SetDataPathSecurityConfigResponse);
-  rpc SetInstantCommunicationModeEnabled (SetInstantCommunicationModeEnabledRequest) returns (SetInstantCommunicationModeEnabledResponse);
-  rpc SetPairingConfig (SetPairingConfigRequest) returns (SetPairingConfigResponse);
-  rpc SetPublishType (SetPublishTypeRequest) returns (SetPublishTypeResponse);
-  rpc SetRangingEnabled (SetRangingEnabledRequest) returns (SetRangingEnabledResponse);
-  rpc SetServiceName (SetServiceNameRequest) returns (SetServiceNameResponse);
-  rpc SetServiceSpecificInfo (SetServiceSpecificInfoRequest) returns (SetServiceSpecificInfoResponse);
-  rpc SetTerminateNotificationEnabled (SetTerminateNotificationEnabledRequest) returns (SetTerminateNotificationEnabledResponse);
-  rpc SetTtlSec (SetTtlSecRequest) returns (SetTtlSecResponse);
-}
-
-service PeerHandleService {
-  rpc Equals (EqualsRequest) returns (EqualsResponse);
-  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
-}
-
-service ServiceDiscoveryInfoService {
-  rpc GetPairedAlias (GetPairedAliasRequest) returns (GetPairedAliasResponse);
-  rpc GetPairingConfig (GetPairingConfigRequest) returns (GetPairingConfigResponse);
-  rpc GetPeerCipherSuite (GetPeerCipherSuiteRequest) returns (GetPeerCipherSuiteResponse);
-  rpc GetPeerHandle (GetPeerHandleRequest) returns (GetPeerHandleResponse);
-  rpc GetScid (GetScidRequest) returns (GetScidResponse);
-  rpc GetServiceSpecificInfo (GetServiceSpecificInfoRequest) returns (GetServiceSpecificInfoResponse);
+service AttachCallbackService {
+  rpc NewAttachCallback (NewAttachCallbackRequest) returns (NewAttachCallbackResponse);
+  rpc OnAttachFailed (OnAttachFailedRequest) returns (OnAttachFailedResponse);
+  rpc OnAttached (OnAttachedRequest) returns (OnAttachedResponse);
+  rpc OnAwareSessionTerminated (OnAwareSessionTerminatedRequest) returns (OnAwareSessionTerminatedResponse);
 }
 
 service WifiAwareChannelInfoService {
-  rpc DescribeContents (WifiAwareChannelInfoDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
   rpc Equals (EqualsRequest) returns (EqualsResponse);
   rpc GetChannelBandwidth (GetChannelBandwidthRequest) returns (GetChannelBandwidthResponse);
   rpc GetChannelFrequencyMhz (GetChannelFrequencyMhzRequest) returns (GetChannelFrequencyMhzResponse);
   rpc GetSpatialStreamCount (GetSpatialStreamCountRequest) returns (GetSpatialStreamCountResponse);
   rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
   rpc ToString (ToStringRequest) returns (ToStringResponse);
-  rpc WriteToParcel (WifiAwareChannelInfoWriteToParcelRequest) returns (WriteToParcelResponse);
-}
-
-service PairingConfigService {
-  rpc DescribeContents (PairingConfigDescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc Equals (EqualsRequest) returns (EqualsResponse);
-  rpc GetBootstrappingMethods (GetBootstrappingMethodsRequest) returns (GetBootstrappingMethodsResponse);
-  rpc GetSupportedCipherSuites (GetSupportedCipherSuitesRequest) returns (GetSupportedCipherSuitesResponse);
-  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
-  rpc IsPairingCacheEnabled (IsPairingCacheEnabledRequest) returns (IsPairingCacheEnabledResponse);
-  rpc IsPairingSetupEnabled (IsPairingSetupEnabledRequest) returns (IsPairingSetupEnabledResponse);
-  rpc IsPairingVerificationEnabled (IsPairingVerificationEnabledRequest) returns (IsPairingVerificationEnabledResponse);
-  rpc WriteToParcel (PairingConfigWriteToParcelRequest) returns (WriteToParcelResponse);
-}
-
-service PairingConfigBuilderService {
-  rpc Build (BuildRequest) returns (BuildResponse);
-  rpc SetBootstrappingMethods (SetBootstrappingMethodsRequest) returns (SetBootstrappingMethodsResponse);
-  rpc SetPairingCacheEnabled (SetPairingCacheEnabledRequest) returns (SetPairingCacheEnabledResponse);
-  rpc SetPairingSetupEnabled (SetPairingSetupEnabledRequest) returns (SetPairingSetupEnabledResponse);
-  rpc SetPairingVerificationEnabled (SetPairingVerificationEnabledRequest) returns (SetPairingVerificationEnabledResponse);
-  rpc SetSupportedCipherSuites (SetSupportedCipherSuitesRequest) returns (SetSupportedCipherSuitesResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
 }
 
 service CharacteristicsService {
-  rpc DescribeContents (CharacteristicsDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
   rpc GetMaxMatchFilterLength (GetMaxMatchFilterLengthRequest) returns (GetMaxMatchFilterLengthResponse);
   rpc GetMaxServiceNameLength (GetMaxServiceNameLengthRequest) returns (GetMaxServiceNameLengthResponse);
   rpc GetMaxServiceSpecificInfoLength (GetMaxServiceSpecificInfoLengthRequest) returns (GetMaxServiceSpecificInfoLengthResponse);
@@ -1177,44 +1165,26 @@ service CharacteristicsService {
   rpc IsAwarePairingSupported (IsAwarePairingSupportedRequest) returns (IsAwarePairingSupportedResponse);
   rpc IsInstantCommunicationModeSupported (IsInstantCommunicationModeSupportedRequest) returns (IsInstantCommunicationModeSupportedResponse);
   rpc IsSuspensionSupported (IsSuspensionSupportedRequest) returns (IsSuspensionSupportedResponse);
-  rpc WriteToParcel (CharacteristicsWriteToParcelRequest) returns (WriteToParcelResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
 }
 
-service SubscribeDiscoverySessionService {
-  rpc UpdateSubscribe (UpdateSubscribeRequest) returns (UpdateSubscribeResponse);
-}
-
-service DiscoverySessionService {
-  rpc AcceptPairingRequest (AcceptPairingRequestRequest) returns (AcceptPairingRequestResponse);
-  rpc Close (CloseRequest) returns (CloseResponse);
-  rpc CreateNetworkSpecifierOpen (DiscoverySessionCreateNetworkSpecifierOpenRequest) returns (CreateNetworkSpecifierOpenResponse);
-  rpc CreateNetworkSpecifierPassphrase (DiscoverySessionCreateNetworkSpecifierPassphraseRequest) returns (CreateNetworkSpecifierPassphraseResponse);
-  rpc InitiateBootstrappingRequest (InitiateBootstrappingRequestRequest) returns (InitiateBootstrappingRequestResponse);
-  rpc InitiatePairingRequest (InitiatePairingRequestRequest) returns (InitiatePairingRequestResponse);
-  rpc RejectPairingRequest (RejectPairingRequestRequest) returns (RejectPairingRequestResponse);
-  rpc SendMessage (SendMessageRequest) returns (SendMessageResponse);
-}
-
-service SubscribeConfigService {
-  rpc DescribeContents (SubscribeConfigDescribeContentsRequest) returns (DescribeContentsResponse);
+service PairingConfigService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
   rpc Equals (EqualsRequest) returns (EqualsResponse);
-  rpc GetInstantCommunicationBand (GetInstantCommunicationBandRequest) returns (GetInstantCommunicationBandResponse);
-  rpc GetPairingConfig (GetPairingConfigRequest) returns (GetPairingConfigResponse);
+  rpc GetBootstrappingMethods (GetBootstrappingMethodsRequest) returns (GetBootstrappingMethodsResponse);
+  rpc GetSupportedCipherSuites (GetSupportedCipherSuitesRequest) returns (GetSupportedCipherSuitesResponse);
   rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
-  rpc IsInstantCommunicationModeEnabled (IsInstantCommunicationModeEnabledRequest) returns (IsInstantCommunicationModeEnabledResponse);
-  rpc ToString (ToStringRequest) returns (ToStringResponse);
-  rpc WriteToParcel (SubscribeConfigWriteToParcelRequest) returns (WriteToParcelResponse);
+  rpc IsPairingCacheEnabled (IsPairingCacheEnabledRequest) returns (IsPairingCacheEnabledResponse);
+  rpc IsPairingSetupEnabled (IsPairingSetupEnabledRequest) returns (IsPairingSetupEnabledResponse);
+  rpc IsPairingVerificationEnabled (IsPairingVerificationEnabledRequest) returns (IsPairingVerificationEnabledResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
 }
 
-service SubscribeConfigBuilderService {
+service PairingConfigBuilderService {
   rpc Build (BuildRequest) returns (BuildResponse);
-  rpc SetInstantCommunicationModeEnabled (SetInstantCommunicationModeEnabledRequest) returns (SetInstantCommunicationModeEnabledResponse);
-  rpc SetMaxDistanceMm (SetMaxDistanceMmRequest) returns (SetMaxDistanceMmResponse);
-  rpc SetMinDistanceMm (SetMinDistanceMmRequest) returns (SetMinDistanceMmResponse);
-  rpc SetPairingConfig (SetPairingConfigRequest) returns (SetPairingConfigResponse);
-  rpc SetServiceName (SetServiceNameRequest) returns (SetServiceNameResponse);
-  rpc SetServiceSpecificInfo (SetServiceSpecificInfoRequest) returns (SetServiceSpecificInfoResponse);
-  rpc SetSubscribeType (SetSubscribeTypeRequest) returns (SetSubscribeTypeResponse);
-  rpc SetTerminateNotificationEnabled (SetTerminateNotificationEnabledRequest) returns (SetTerminateNotificationEnabledResponse);
-  rpc SetTtlSec (SetTtlSecRequest) returns (SetTtlSecResponse);
+  rpc SetBootstrappingMethods (SetBootstrappingMethodsRequest) returns (SetBootstrappingMethodsResponse);
+  rpc SetPairingCacheEnabled (SetPairingCacheEnabledRequest) returns (SetPairingCacheEnabledResponse);
+  rpc SetPairingSetupEnabled (SetPairingSetupEnabledRequest) returns (SetPairingSetupEnabledResponse);
+  rpc SetPairingVerificationEnabled (SetPairingVerificationEnabledRequest) returns (SetPairingVerificationEnabledResponse);
+  rpc SetSupportedCipherSuites (SetSupportedCipherSuitesRequest) returns (SetSupportedCipherSuitesResponse);
 }

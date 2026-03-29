@@ -12,20 +12,20 @@ var pmCmd = &cobra.Command{
 	Short: "pm service operations",
 }
 
-var pmComponentInfoCmd = &cobra.Command{
-	Use:   "component-info",
-	Short: "ComponentInfoService operations",
+var pmActivityInfoCmd = &cobra.Command{
+	Use:   "activity-info",
+	Short: "ActivityInfoService operations",
 }
 
-var pmComponentInfoNewComponentInfoCmd = &cobra.Command{
-	Use:   "new-component-info",
-	Short: "NewComponentInfo RPC",
+var pmActivityInfoNewActivityInfoCmd = &cobra.Command{
+	Use:   "new-activity-info",
+	Short: "NewActivityInfo RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewComponentInfoServiceClient(grpcConn)
-		req := &pb.NewComponentInfoRequest{}
-		resp, err := client.NewComponentInfo(ctx, req)
+		client := pb.NewActivityInfoServiceClient(grpcConn)
+		req := &pb.NewActivityInfoRequest{}
+		resp, err := client.NewActivityInfo(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -33,18 +33,18 @@ var pmComponentInfoNewComponentInfoCmd = &cobra.Command{
 	},
 }
 
-var pmComponentInfoGetBannerResourceCmd = &cobra.Command{
-	Use:   "get-banner-resource",
-	Short: "GetBannerResource RPC",
+var pmActivityInfoDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewComponentInfoServiceClient(grpcConn)
-		req := &pb.GetBannerResourceRequest{}
+		client := pb.NewActivityInfoServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
-		resp, err := client.GetBannerResource(ctx, req)
+		resp, err := client.DescribeContents(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -52,18 +52,24 @@ var pmComponentInfoGetBannerResourceCmd = &cobra.Command{
 	},
 }
 
-var pmComponentInfoGetIconResourceCmd = &cobra.Command{
-	Use:   "get-icon-resource",
-	Short: "GetIconResource RPC",
+var pmActivityInfoDumpCmd = &cobra.Command{
+	Use:   "dump",
+	Short: "Dump RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewComponentInfoServiceClient(grpcConn)
-		req := &pb.GetIconResourceRequest{}
+		client := pb.NewActivityInfoServiceClient(grpcConn)
+		req := &pb.DumpRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
-		resp, err := client.GetIconResource(ctx, req)
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.Dump(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -71,18 +77,18 @@ var pmComponentInfoGetIconResourceCmd = &cobra.Command{
 	},
 }
 
-var pmComponentInfoGetLogoResourceCmd = &cobra.Command{
-	Use:   "get-logo-resource",
-	Short: "GetLogoResource RPC",
+var pmActivityInfoGetKnownActivityEmbeddingCertsCmd = &cobra.Command{
+	Use:   "get-known-activity-embedding-certs",
+	Short: "GetKnownActivityEmbeddingCerts RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewComponentInfoServiceClient(grpcConn)
-		req := &pb.GetLogoResourceRequest{}
+		client := pb.NewActivityInfoServiceClient(grpcConn)
+		req := &pb.GetKnownActivityEmbeddingCertsRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
-		resp, err := client.GetLogoResource(ctx, req)
+		resp, err := client.GetKnownActivityEmbeddingCerts(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -90,18 +96,18 @@ var pmComponentInfoGetLogoResourceCmd = &cobra.Command{
 	},
 }
 
-var pmComponentInfoIsEnabledCmd = &cobra.Command{
-	Use:   "is-enabled",
-	Short: "IsEnabled RPC",
+var pmActivityInfoGetThemeResourceCmd = &cobra.Command{
+	Use:   "get-theme-resource",
+	Short: "GetThemeResource RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewComponentInfoServiceClient(grpcConn)
-		req := &pb.IsEnabledRequest{}
+		client := pb.NewActivityInfoServiceClient(grpcConn)
+		req := &pb.GetThemeResourceRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
-		resp, err := client.IsEnabled(ctx, req)
+		resp, err := client.GetThemeResource(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -109,13 +115,32 @@ var pmComponentInfoIsEnabledCmd = &cobra.Command{
 	},
 }
 
-var pmComponentInfoWriteToParcelCmd = &cobra.Command{
+var pmActivityInfoToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewActivityInfoServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmActivityInfoWriteToParcelCmd = &cobra.Command{
 	Use:   "write-to-parcel",
 	Short: "WriteToParcel RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewComponentInfoServiceClient(grpcConn)
+		client := pb.NewActivityInfoServiceClient(grpcConn)
 		req := &pb.WriteToParcelRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
@@ -134,23 +159,64 @@ var pmComponentInfoWriteToParcelCmd = &cobra.Command{
 	},
 }
 
-var pmPathPermissionCmd = &cobra.Command{
-	Use:   "path-permission",
-	Short: "PathPermissionService operations",
+var pmProviderInfoCmd = &cobra.Command{
+	Use:   "provider-info",
+	Short: "ProviderInfoService operations",
 }
 
-var pmPathPermissionNewPathPermissionCmd = &cobra.Command{
-	Use:   "new-path-permission",
-	Short: "NewPathPermission RPC",
+var pmProviderInfoNewProviderInfoCmd = &cobra.Command{
+	Use:   "new-provider-info",
+	Short: "NewProviderInfo RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewPathPermissionServiceClient(grpcConn)
-		req := &pb.NewPathPermissionRequest{}
+		client := pb.NewProviderInfoServiceClient(grpcConn)
+		req := &pb.NewProviderInfoRequest{}
+		resp, err := client.NewProviderInfo(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmProviderInfoDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewProviderInfoServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmProviderInfoDumpCmd = &cobra.Command{
+	Use:   "dump",
+	Short: "Dump RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewProviderInfoServiceClient(grpcConn)
+		req := &pb.DumpRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		resp, err := client.NewPathPermission(ctx, req)
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.Dump(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -158,18 +224,18 @@ var pmPathPermissionNewPathPermissionCmd = &cobra.Command{
 	},
 }
 
-var pmPathPermissionGetReadPermissionCmd = &cobra.Command{
-	Use:   "get-read-permission",
-	Short: "GetReadPermission RPC",
+var pmProviderInfoToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewPathPermissionServiceClient(grpcConn)
-		req := &pb.GetReadPermissionRequest{}
+		client := pb.NewProviderInfoServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
-		resp, err := client.GetReadPermission(ctx, req)
+		resp, err := client.ToString(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -177,32 +243,13 @@ var pmPathPermissionGetReadPermissionCmd = &cobra.Command{
 	},
 }
 
-var pmPathPermissionGetWritePermissionCmd = &cobra.Command{
-	Use:   "get-write-permission",
-	Short: "GetWritePermission RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPathPermissionServiceClient(grpcConn)
-		req := &pb.GetWritePermissionRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetWritePermission(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPathPermissionWriteToParcelCmd = &cobra.Command{
+var pmProviderInfoWriteToParcelCmd = &cobra.Command{
 	Use:   "write-to-parcel",
 	Short: "WriteToParcel RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewPathPermissionServiceClient(grpcConn)
+		client := pb.NewProviderInfoServiceClient(grpcConn)
 		req := &pb.WriteToParcelRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
@@ -221,20 +268,20 @@ var pmPathPermissionWriteToParcelCmd = &cobra.Command{
 	},
 }
 
-var pmCrossProfileAppsCmd = &cobra.Command{
-	Use:   "cross-profile-apps",
-	Short: "CrossProfileAppsService operations",
+var pmSharedLibraryInfoCmd = &cobra.Command{
+	Use:   "shared-library-info",
+	Short: "SharedLibraryInfoService operations",
 }
 
-var pmCrossProfileAppsCanInteractAcrossProfilesCmd = &cobra.Command{
-	Use:   "can-interact-across-profiles",
-	Short: "CanInteractAcrossProfiles RPC",
+var pmSharedLibraryInfoDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewCrossProfileAppsServiceClient(grpcConn)
-		req := &pb.CanInteractAcrossProfilesRequest{}
-		resp, err := client.CanInteractAcrossProfiles(ctx, req)
+		client := pb.NewSharedLibraryInfoServiceClient(grpcConn)
+		req := &pb.SharedLibraryInfoDescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -242,15 +289,15 @@ var pmCrossProfileAppsCanInteractAcrossProfilesCmd = &cobra.Command{
 	},
 }
 
-var pmCrossProfileAppsCanRequestInteractAcrossProfilesCmd = &cobra.Command{
-	Use:   "can-request-interact-across-profiles",
-	Short: "CanRequestInteractAcrossProfiles RPC",
+var pmSharedLibraryInfoGetCertDigestsCmd = &cobra.Command{
+	Use:   "get-cert-digests",
+	Short: "GetCertDigests RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewCrossProfileAppsServiceClient(grpcConn)
-		req := &pb.CanRequestInteractAcrossProfilesRequest{}
-		resp, err := client.CanRequestInteractAcrossProfiles(ctx, req)
+		client := pb.NewSharedLibraryInfoServiceClient(grpcConn)
+		req := &pb.GetCertDigestsRequest{}
+		resp, err := client.GetCertDigests(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -258,15 +305,15 @@ var pmCrossProfileAppsCanRequestInteractAcrossProfilesCmd = &cobra.Command{
 	},
 }
 
-var pmCrossProfileAppsCreateRequestInteractAcrossProfilesIntentCmd = &cobra.Command{
-	Use:   "create-request-interact-across-profiles-intent",
-	Short: "CreateRequestInteractAcrossProfilesIntent RPC",
+var pmSharedLibraryInfoGetDeclaringPackageCmd = &cobra.Command{
+	Use:   "get-declaring-package",
+	Short: "GetDeclaringPackage RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewCrossProfileAppsServiceClient(grpcConn)
-		req := &pb.CreateRequestInteractAcrossProfilesIntentRequest{}
-		resp, err := client.CreateRequestInteractAcrossProfilesIntent(ctx, req)
+		client := pb.NewSharedLibraryInfoServiceClient(grpcConn)
+		req := &pb.GetDeclaringPackageRequest{}
+		resp, err := client.GetDeclaringPackage(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -274,18 +321,117 @@ var pmCrossProfileAppsCreateRequestInteractAcrossProfilesIntentCmd = &cobra.Comm
 	},
 }
 
-var pmCrossProfileAppsGetProfileSwitchingIconDrawableCmd = &cobra.Command{
-	Use:   "get-profile-switching-icon-drawable",
-	Short: "GetProfileSwitchingIconDrawable RPC",
+var pmSharedLibraryInfoGetDependentPackagesCmd = &cobra.Command{
+	Use:   "get-dependent-packages",
+	Short: "GetDependentPackages RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewCrossProfileAppsServiceClient(grpcConn)
-		req := &pb.GetProfileSwitchingIconDrawableRequest{}
+		client := pb.NewSharedLibraryInfoServiceClient(grpcConn)
+		req := &pb.GetDependentPackagesRequest{}
+		resp, err := client.GetDependentPackages(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmSharedLibraryInfoGetLongVersionCmd = &cobra.Command{
+	Use:   "get-long-version",
+	Short: "GetLongVersion RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSharedLibraryInfoServiceClient(grpcConn)
+		req := &pb.GetLongVersionRequest{}
+		resp, err := client.GetLongVersion(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmSharedLibraryInfoGetNameCmd = &cobra.Command{
+	Use:   "get-name",
+	Short: "GetName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSharedLibraryInfoServiceClient(grpcConn)
+		req := &pb.GetNameRequest{}
+		resp, err := client.GetName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmSharedLibraryInfoGetTypeCmd = &cobra.Command{
+	Use:   "get-type",
+	Short: "GetType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSharedLibraryInfoServiceClient(grpcConn)
+		req := &pb.GetTypeRequest{}
+		resp, err := client.GetType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmSharedLibraryInfoGetVersionCmd = &cobra.Command{
+	Use:   "get-version",
+	Short: "GetVersion RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSharedLibraryInfoServiceClient(grpcConn)
+		req := &pb.GetVersionRequest{}
+		resp, err := client.GetVersion(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmSharedLibraryInfoToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSharedLibraryInfoServiceClient(grpcConn)
+		req := &pb.SharedLibraryInfoToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmSharedLibraryInfoWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSharedLibraryInfoServiceClient(grpcConn)
+		req := &pb.SharedLibraryInfoWriteToParcelRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		resp, err := client.GetProfileSwitchingIconDrawable(ctx, req)
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -293,72 +439,20 @@ var pmCrossProfileAppsGetProfileSwitchingIconDrawableCmd = &cobra.Command{
 	},
 }
 
-var pmCrossProfileAppsGetProfileSwitchingLabelCmd = &cobra.Command{
-	Use:   "get-profile-switching-label",
-	Short: "GetProfileSwitchingLabel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCrossProfileAppsServiceClient(grpcConn)
-		req := &pb.GetProfileSwitchingLabelRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetProfileSwitchingLabel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
+var pmArchivedPackageInfoCmd = &cobra.Command{
+	Use:   "archived-package-info",
+	Short: "ArchivedPackageInfoService operations",
 }
 
-var pmCrossProfileAppsIsManagedProfileCmd = &cobra.Command{
-	Use:   "is-managed-profile",
-	Short: "IsManagedProfile RPC",
+var pmArchivedPackageInfoNewArchivedPackageInfoCmd = &cobra.Command{
+	Use:   "new-archived-package-info",
+	Short: "NewArchivedPackageInfo RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewCrossProfileAppsServiceClient(grpcConn)
-		req := &pb.IsManagedProfileRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.IsManagedProfile(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmCrossProfileAppsIsProfileCmd = &cobra.Command{
-	Use:   "is-profile",
-	Short: "IsProfile RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCrossProfileAppsServiceClient(grpcConn)
-		req := &pb.IsProfileRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.IsProfile(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmCrossProfileAppsStartActivity3Cmd = &cobra.Command{
-	Use:   "start-activity3",
-	Short: "StartActivity3 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCrossProfileAppsServiceClient(grpcConn)
-		req := &pb.StartActivity3Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+		client := pb.NewArchivedPackageInfoServiceClient(grpcConn)
+		req := &pb.NewArchivedPackageInfoRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
 			req.Arg0 = v
 		}
 		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
@@ -367,7 +461,7 @@ var pmCrossProfileAppsStartActivity3Cmd = &cobra.Command{
 		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
 			req.Arg2 = v
 		}
-		resp, err := client.StartActivity3(ctx, req)
+		resp, err := client.NewArchivedPackageInfo(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -375,27 +469,18 @@ var pmCrossProfileAppsStartActivity3Cmd = &cobra.Command{
 	},
 }
 
-var pmCrossProfileAppsStartActivity4_1Cmd = &cobra.Command{
-	Use:   "start-activity4_1",
-	Short: "StartActivity4_1 RPC",
+var pmArchivedPackageInfoGetDefaultToDeviceProtectedStorageCmd = &cobra.Command{
+	Use:   "get-default-to-device-protected-storage",
+	Short: "GetDefaultToDeviceProtectedStorage RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewCrossProfileAppsServiceClient(grpcConn)
-		req := &pb.StartActivity4_1Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
+		client := pb.NewArchivedPackageInfoServiceClient(grpcConn)
+		req := &pb.GetDefaultToDeviceProtectedStorageRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
 		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		resp, err := client.StartActivity4_1(ctx, req)
+		resp, err := client.GetDefaultToDeviceProtectedStorage(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -403,21 +488,18 @@ var pmCrossProfileAppsStartActivity4_1Cmd = &cobra.Command{
 	},
 }
 
-var pmCrossProfileAppsStartMainActivity2Cmd = &cobra.Command{
-	Use:   "start-main-activity2",
-	Short: "StartMainActivity2 RPC",
+var pmArchivedPackageInfoGetLauncherActivitiesCmd = &cobra.Command{
+	Use:   "get-launcher-activities",
+	Short: "GetLauncherActivities RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewCrossProfileAppsServiceClient(grpcConn)
-		req := &pb.StartMainActivity2Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
+		client := pb.NewArchivedPackageInfoServiceClient(grpcConn)
+		req := &pb.GetLauncherActivitiesRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
 		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.StartMainActivity2(ctx, req)
+		resp, err := client.GetLauncherActivities(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -425,27 +507,499 @@ var pmCrossProfileAppsStartMainActivity2Cmd = &cobra.Command{
 	},
 }
 
-var pmCrossProfileAppsStartMainActivity4_1Cmd = &cobra.Command{
-	Use:   "start-main-activity4_1",
-	Short: "StartMainActivity4_1 RPC",
+var pmArchivedPackageInfoGetPackageNameCmd = &cobra.Command{
+	Use:   "get-package-name",
+	Short: "GetPackageName RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewCrossProfileAppsServiceClient(grpcConn)
-		req := &pb.StartMainActivity4_1Request{}
+		client := pb.NewArchivedPackageInfoServiceClient(grpcConn)
+		req := &pb.GetPackageNameRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetPackageName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmArchivedPackageInfoGetRequestLegacyExternalStorageCmd = &cobra.Command{
+	Use:   "get-request-legacy-external-storage",
+	Short: "GetRequestLegacyExternalStorage RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewArchivedPackageInfoServiceClient(grpcConn)
+		req := &pb.GetRequestLegacyExternalStorageRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetRequestLegacyExternalStorage(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmArchivedPackageInfoGetSigningInfoCmd = &cobra.Command{
+	Use:   "get-signing-info",
+	Short: "GetSigningInfo RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewArchivedPackageInfoServiceClient(grpcConn)
+		req := &pb.GetSigningInfoRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetSigningInfo(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmArchivedPackageInfoGetTargetSdkVersionCmd = &cobra.Command{
+	Use:   "get-target-sdk-version",
+	Short: "GetTargetSdkVersion RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewArchivedPackageInfoServiceClient(grpcConn)
+		req := &pb.GetTargetSdkVersionRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetTargetSdkVersion(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmArchivedPackageInfoGetUserDataFragileCmd = &cobra.Command{
+	Use:   "get-user-data-fragile",
+	Short: "GetUserDataFragile RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewArchivedPackageInfoServiceClient(grpcConn)
+		req := &pb.GetUserDataFragileRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetUserDataFragile(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmArchivedPackageInfoGetVersionCodeCmd = &cobra.Command{
+	Use:   "get-version-code",
+	Short: "GetVersionCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewArchivedPackageInfoServiceClient(grpcConn)
+		req := &pb.GetVersionCodeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetVersionCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmArchivedPackageInfoGetVersionCodeMajorCmd = &cobra.Command{
+	Use:   "get-version-code-major",
+	Short: "GetVersionCodeMajor RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewArchivedPackageInfoServiceClient(grpcConn)
+		req := &pb.GetVersionCodeMajorRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetVersionCodeMajor(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmArchivedPackageInfoSetDefaultToDeviceProtectedStorageCmd = &cobra.Command{
+	Use:   "set-default-to-device-protected-storage",
+	Short: "SetDefaultToDeviceProtectedStorage RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewArchivedPackageInfoServiceClient(grpcConn)
+		req := &pb.SetDefaultToDeviceProtectedStorageRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetDefaultToDeviceProtectedStorage(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmArchivedPackageInfoSetPackageNameCmd = &cobra.Command{
+	Use:   "set-package-name",
+	Short: "SetPackageName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewArchivedPackageInfoServiceClient(grpcConn)
+		req := &pb.SetPackageNameRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetPackageName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmArchivedPackageInfoSetRequestLegacyExternalStorageCmd = &cobra.Command{
+	Use:   "set-request-legacy-external-storage",
+	Short: "SetRequestLegacyExternalStorage RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewArchivedPackageInfoServiceClient(grpcConn)
+		req := &pb.SetRequestLegacyExternalStorageRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetRequestLegacyExternalStorage(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmArchivedPackageInfoSetSigningInfoCmd = &cobra.Command{
+	Use:   "set-signing-info",
+	Short: "SetSigningInfo RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewArchivedPackageInfoServiceClient(grpcConn)
+		req := &pb.SetSigningInfoRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetSigningInfo(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmArchivedPackageInfoSetTargetSdkVersionCmd = &cobra.Command{
+	Use:   "set-target-sdk-version",
+	Short: "SetTargetSdkVersion RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewArchivedPackageInfoServiceClient(grpcConn)
+		req := &pb.SetTargetSdkVersionRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetTargetSdkVersion(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmArchivedPackageInfoSetUserDataFragileCmd = &cobra.Command{
+	Use:   "set-user-data-fragile",
+	Short: "SetUserDataFragile RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewArchivedPackageInfoServiceClient(grpcConn)
+		req := &pb.SetUserDataFragileRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetUserDataFragile(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmArchivedPackageInfoSetVersionCodeCmd = &cobra.Command{
+	Use:   "set-version-code",
+	Short: "SetVersionCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewArchivedPackageInfoServiceClient(grpcConn)
+		req := &pb.SetVersionCodeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetVersionCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmArchivedPackageInfoSetVersionCodeMajorCmd = &cobra.Command{
+	Use:   "set-version-code-major",
+	Short: "SetVersionCodeMajor RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewArchivedPackageInfoServiceClient(grpcConn)
+		req := &pb.SetVersionCodeMajorRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetVersionCodeMajor(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmSignatureCmd = &cobra.Command{
+	Use:   "signature",
+	Short: "SignatureService operations",
+}
+
+var pmSignatureNewSignatureCmd = &cobra.Command{
+	Use:   "new-signature",
+	Short: "NewSignature RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSignatureServiceClient(grpcConn)
+		req := &pb.NewSignatureRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.NewSignature(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmSignatureDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSignatureServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmSignatureEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSignatureServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmSignatureHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSignatureServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmSignatureToByteArrayCmd = &cobra.Command{
+	Use:   "to-byte-array",
+	Short: "ToByteArray RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSignatureServiceClient(grpcConn)
+		req := &pb.ToByteArrayRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.ToByteArray(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmSignatureToChars0Cmd = &cobra.Command{
+	Use:   "to-chars0",
+	Short: "ToChars0 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSignatureServiceClient(grpcConn)
+		req := &pb.ToChars0Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.ToChars0(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmSignatureToChars2_1Cmd = &cobra.Command{
+	Use:   "to-chars2_1",
+	Short: "ToChars2_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSignatureServiceClient(grpcConn)
+		req := &pb.ToChars2_1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
 		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
 			req.Arg1 = v
 		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
+		resp, err := client.ToChars2_1(ctx, req)
+		if err != nil {
+			return err
 		}
-		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
-			req.Arg3 = v
+		return printProtoMessage(resp)
+	},
+}
+
+var pmSignatureToCharsStringCmd = &cobra.Command{
+	Use:   "to-chars-string",
+	Short: "ToCharsString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSignatureServiceClient(grpcConn)
+		req := &pb.ToCharsStringRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
 		}
-		resp, err := client.StartMainActivity4_1(ctx, req)
+		resp, err := client.ToCharsString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmSignatureWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSignatureServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -693,19 +1247,41 @@ var pmResolveInfoDisplayNameComparatorCompare2_1Cmd = &cobra.Command{
 	},
 }
 
-var pmSharedLibraryInfoCmd = &cobra.Command{
-	Use:   "shared-library-info",
-	Short: "SharedLibraryInfoService operations",
+var pmPackageStatsCmd = &cobra.Command{
+	Use:   "package-stats",
+	Short: "PackageStatsService operations",
 }
 
-var pmSharedLibraryInfoDescribeContentsCmd = &cobra.Command{
+var pmPackageStatsNewPackageStatsCmd = &cobra.Command{
+	Use:   "new-package-stats",
+	Short: "NewPackageStats RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageStatsServiceClient(grpcConn)
+		req := &pb.NewPackageStatsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.NewPackageStats(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageStatsDescribeContentsCmd = &cobra.Command{
 	Use:   "describe-contents",
 	Short: "DescribeContents RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewSharedLibraryInfoServiceClient(grpcConn)
-		req := &pb.SharedLibraryInfoDescribeContentsRequest{}
+		client := pb.NewPackageStatsServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
 		resp, err := client.DescribeContents(ctx, req)
 		if err != nil {
 			return err
@@ -714,15 +1290,21 @@ var pmSharedLibraryInfoDescribeContentsCmd = &cobra.Command{
 	},
 }
 
-var pmSharedLibraryInfoGetDeclaringPackageCmd = &cobra.Command{
-	Use:   "get-declaring-package",
-	Short: "GetDeclaringPackage RPC",
+var pmPackageStatsEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewSharedLibraryInfoServiceClient(grpcConn)
-		req := &pb.GetDeclaringPackageRequest{}
-		resp, err := client.GetDeclaringPackage(ctx, req)
+		client := pb.NewPackageStatsServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -730,15 +1312,18 @@ var pmSharedLibraryInfoGetDeclaringPackageCmd = &cobra.Command{
 	},
 }
 
-var pmSharedLibraryInfoGetLongVersionCmd = &cobra.Command{
-	Use:   "get-long-version",
-	Short: "GetLongVersion RPC",
+var pmPackageStatsHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewSharedLibraryInfoServiceClient(grpcConn)
-		req := &pb.GetLongVersionRequest{}
-		resp, err := client.GetLongVersion(ctx, req)
+		client := pb.NewPackageStatsServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.HashCode(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -746,13 +1331,485 @@ var pmSharedLibraryInfoGetLongVersionCmd = &cobra.Command{
 	},
 }
 
-var pmSharedLibraryInfoGetNameCmd = &cobra.Command{
+var pmPackageStatsToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageStatsServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageStatsWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageStatsServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmComponentInfoCmd = &cobra.Command{
+	Use:   "component-info",
+	Short: "ComponentInfoService operations",
+}
+
+var pmComponentInfoNewComponentInfoCmd = &cobra.Command{
+	Use:   "new-component-info",
+	Short: "NewComponentInfo RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewComponentInfoServiceClient(grpcConn)
+		req := &pb.NewComponentInfoRequest{}
+		resp, err := client.NewComponentInfo(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmComponentInfoGetBannerResourceCmd = &cobra.Command{
+	Use:   "get-banner-resource",
+	Short: "GetBannerResource RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewComponentInfoServiceClient(grpcConn)
+		req := &pb.GetBannerResourceRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetBannerResource(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmComponentInfoGetIconResourceCmd = &cobra.Command{
+	Use:   "get-icon-resource",
+	Short: "GetIconResource RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewComponentInfoServiceClient(grpcConn)
+		req := &pb.GetIconResourceRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetIconResource(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmComponentInfoGetLogoResourceCmd = &cobra.Command{
+	Use:   "get-logo-resource",
+	Short: "GetLogoResource RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewComponentInfoServiceClient(grpcConn)
+		req := &pb.GetLogoResourceRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetLogoResource(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmComponentInfoIsEnabledCmd = &cobra.Command{
+	Use:   "is-enabled",
+	Short: "IsEnabled RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewComponentInfoServiceClient(grpcConn)
+		req := &pb.IsEnabledRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.IsEnabled(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmComponentInfoWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewComponentInfoServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageInfoCmd = &cobra.Command{
+	Use:   "package-info",
+	Short: "PackageInfoService operations",
+}
+
+var pmPackageInfoNewPackageInfoCmd = &cobra.Command{
+	Use:   "new-package-info",
+	Short: "NewPackageInfo RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageInfoServiceClient(grpcConn)
+		req := &pb.NewPackageInfoRequest{}
+		resp, err := client.NewPackageInfo(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageInfoDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageInfoServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageInfoGetApexPackageNameCmd = &cobra.Command{
+	Use:   "get-apex-package-name",
+	Short: "GetApexPackageName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageInfoServiceClient(grpcConn)
+		req := &pb.GetApexPackageNameRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetApexPackageName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageInfoGetArchiveTimeMillisCmd = &cobra.Command{
+	Use:   "get-archive-time-millis",
+	Short: "GetArchiveTimeMillis RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageInfoServiceClient(grpcConn)
+		req := &pb.GetArchiveTimeMillisRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetArchiveTimeMillis(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageInfoGetLongVersionCodeCmd = &cobra.Command{
+	Use:   "get-long-version-code",
+	Short: "GetLongVersionCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageInfoServiceClient(grpcConn)
+		req := &pb.GetLongVersionCodeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetLongVersionCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageInfoSetLongVersionCodeCmd = &cobra.Command{
+	Use:   "set-long-version-code",
+	Short: "SetLongVersionCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageInfoServiceClient(grpcConn)
+		req := &pb.SetLongVersionCodeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetLongVersionCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageInfoToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageInfoServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageInfoWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageInfoServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPathPermissionCmd = &cobra.Command{
+	Use:   "path-permission",
+	Short: "PathPermissionService operations",
+}
+
+var pmPathPermissionNewPathPermissionCmd = &cobra.Command{
+	Use:   "new-path-permission",
+	Short: "NewPathPermission RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPathPermissionServiceClient(grpcConn)
+		req := &pb.NewPathPermissionRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.NewPathPermission(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPathPermissionGetReadPermissionCmd = &cobra.Command{
+	Use:   "get-read-permission",
+	Short: "GetReadPermission RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPathPermissionServiceClient(grpcConn)
+		req := &pb.GetReadPermissionRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetReadPermission(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPathPermissionGetWritePermissionCmd = &cobra.Command{
+	Use:   "get-write-permission",
+	Short: "GetWritePermission RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPathPermissionServiceClient(grpcConn)
+		req := &pb.GetWritePermissionRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetWritePermission(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPathPermissionWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPathPermissionServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmCapabilityParamsCmd = &cobra.Command{
+	Use:   "capability-params",
+	Short: "CapabilityParamsService operations",
+}
+
+var pmCapabilityParamsDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCapabilityParamsServiceClient(grpcConn)
+		req := &pb.CapabilityParamsDescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmCapabilityParamsEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCapabilityParamsServiceClient(grpcConn)
+		req := &pb.CapabilityParamsEqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmCapabilityParamsGetAliasesCmd = &cobra.Command{
+	Use:   "get-aliases",
+	Short: "GetAliases RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCapabilityParamsServiceClient(grpcConn)
+		req := &pb.GetAliasesRequest{}
+		resp, err := client.GetAliases(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmCapabilityParamsGetNameCmd = &cobra.Command{
 	Use:   "get-name",
 	Short: "GetName RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewSharedLibraryInfoServiceClient(grpcConn)
+		client := pb.NewCapabilityParamsServiceClient(grpcConn)
 		req := &pb.GetNameRequest{}
 		resp, err := client.GetName(ctx, req)
 		if err != nil {
@@ -762,13 +1819,1738 @@ var pmSharedLibraryInfoGetNameCmd = &cobra.Command{
 	},
 }
 
-var pmSharedLibraryInfoGetTypeCmd = &cobra.Command{
+var pmCapabilityParamsGetValueCmd = &cobra.Command{
+	Use:   "get-value",
+	Short: "GetValue RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCapabilityParamsServiceClient(grpcConn)
+		req := &pb.GetValueRequest{}
+		resp, err := client.GetValue(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmCapabilityParamsHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCapabilityParamsServiceClient(grpcConn)
+		req := &pb.CapabilityParamsHashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmCapabilityParamsWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCapabilityParamsServiceClient(grpcConn)
+		req := &pb.CapabilityParamsWriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmCapabilityParamsBuilderCmd = &cobra.Command{
+	Use:   "capability-params-builder",
+	Short: "CapabilityParamsBuilderService operations",
+}
+
+var pmCapabilityParamsBuilderAddAliasCmd = &cobra.Command{
+	Use:   "add-alias",
+	Short: "AddAlias RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCapabilityParamsBuilderServiceClient(grpcConn)
+		req := &pb.AddAliasRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddAlias(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmCapabilityParamsBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCapabilityParamsBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmLauncherUserInfoCmd = &cobra.Command{
+	Use:   "launcher-user-info",
+	Short: "LauncherUserInfoService operations",
+}
+
+var pmLauncherUserInfoDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLauncherUserInfoServiceClient(grpcConn)
+		req := &pb.LauncherUserInfoDescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmLauncherUserInfoGetUserConfigCmd = &cobra.Command{
+	Use:   "get-user-config",
+	Short: "GetUserConfig RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLauncherUserInfoServiceClient(grpcConn)
+		req := &pb.GetUserConfigRequest{}
+		resp, err := client.GetUserConfig(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmLauncherUserInfoGetUserSerialNumberCmd = &cobra.Command{
+	Use:   "get-user-serial-number",
+	Short: "GetUserSerialNumber RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLauncherUserInfoServiceClient(grpcConn)
+		req := &pb.GetUserSerialNumberRequest{}
+		resp, err := client.GetUserSerialNumber(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmLauncherUserInfoGetUserTypeCmd = &cobra.Command{
+	Use:   "get-user-type",
+	Short: "GetUserType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLauncherUserInfoServiceClient(grpcConn)
+		req := &pb.GetUserTypeRequest{}
+		resp, err := client.GetUserType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmLauncherUserInfoWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLauncherUserInfoServiceClient(grpcConn)
+		req := &pb.LauncherUserInfoWriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmShortcutManagerCmd = &cobra.Command{
+	Use:   "shortcut-manager",
+	Short: "ShortcutManagerService operations",
+}
+
+var pmShortcutManagerCreateShortcutResultIntentCmd = &cobra.Command{
+	Use:   "create-shortcut-result-intent",
+	Short: "CreateShortcutResultIntent RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewShortcutManagerServiceClient(grpcConn)
+		req := &pb.CreateShortcutResultIntentRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.CreateShortcutResultIntent(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmShortcutManagerGetDynamicShortcutsCmd = &cobra.Command{
+	Use:   "get-dynamic-shortcuts",
+	Short: "GetDynamicShortcuts RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewShortcutManagerServiceClient(grpcConn)
+		req := &pb.GetDynamicShortcutsRequest{}
+		resp, err := client.GetDynamicShortcuts(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmShortcutManagerGetIconMaxHeightCmd = &cobra.Command{
+	Use:   "get-icon-max-height",
+	Short: "GetIconMaxHeight RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewShortcutManagerServiceClient(grpcConn)
+		req := &pb.GetIconMaxHeightRequest{}
+		resp, err := client.GetIconMaxHeight(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmShortcutManagerGetIconMaxWidthCmd = &cobra.Command{
+	Use:   "get-icon-max-width",
+	Short: "GetIconMaxWidth RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewShortcutManagerServiceClient(grpcConn)
+		req := &pb.GetIconMaxWidthRequest{}
+		resp, err := client.GetIconMaxWidth(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmShortcutManagerGetManifestShortcutsCmd = &cobra.Command{
+	Use:   "get-manifest-shortcuts",
+	Short: "GetManifestShortcuts RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewShortcutManagerServiceClient(grpcConn)
+		req := &pb.GetManifestShortcutsRequest{}
+		resp, err := client.GetManifestShortcuts(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmShortcutManagerGetMaxShortcutCountPerActivityCmd = &cobra.Command{
+	Use:   "get-max-shortcut-count-per-activity",
+	Short: "GetMaxShortcutCountPerActivity RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewShortcutManagerServiceClient(grpcConn)
+		req := &pb.GetMaxShortcutCountPerActivityRequest{}
+		resp, err := client.GetMaxShortcutCountPerActivity(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmShortcutManagerGetPinnedShortcutsCmd = &cobra.Command{
+	Use:   "get-pinned-shortcuts",
+	Short: "GetPinnedShortcuts RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewShortcutManagerServiceClient(grpcConn)
+		req := &pb.GetPinnedShortcutsRequest{}
+		resp, err := client.GetPinnedShortcuts(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmShortcutManagerGetShortcutsCmd = &cobra.Command{
+	Use:   "get-shortcuts",
+	Short: "GetShortcuts RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewShortcutManagerServiceClient(grpcConn)
+		req := &pb.GetShortcutsRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetShortcuts(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmShortcutManagerIsRateLimitingActiveCmd = &cobra.Command{
+	Use:   "is-rate-limiting-active",
+	Short: "IsRateLimitingActive RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewShortcutManagerServiceClient(grpcConn)
+		req := &pb.IsRateLimitingActiveRequest{}
+		resp, err := client.IsRateLimitingActive(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmShortcutManagerIsRequestPinShortcutSupportedCmd = &cobra.Command{
+	Use:   "is-request-pin-shortcut-supported",
+	Short: "IsRequestPinShortcutSupported RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewShortcutManagerServiceClient(grpcConn)
+		req := &pb.IsRequestPinShortcutSupportedRequest{}
+		resp, err := client.IsRequestPinShortcutSupported(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmShortcutManagerPushDynamicShortcutCmd = &cobra.Command{
+	Use:   "push-dynamic-shortcut",
+	Short: "PushDynamicShortcut RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewShortcutManagerServiceClient(grpcConn)
+		req := &pb.PushDynamicShortcutRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.PushDynamicShortcut(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmShortcutManagerRemoveAllDynamicShortcutsCmd = &cobra.Command{
+	Use:   "remove-all-dynamic-shortcuts",
+	Short: "RemoveAllDynamicShortcuts RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewShortcutManagerServiceClient(grpcConn)
+		req := &pb.RemoveAllDynamicShortcutsRequest{}
+		resp, err := client.RemoveAllDynamicShortcuts(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmShortcutManagerReportShortcutUsedCmd = &cobra.Command{
+	Use:   "report-shortcut-used",
+	Short: "ReportShortcutUsed RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewShortcutManagerServiceClient(grpcConn)
+		req := &pb.ReportShortcutUsedRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.ReportShortcutUsed(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmShortcutManagerRequestPinShortcutCmd = &cobra.Command{
+	Use:   "request-pin-shortcut",
+	Short: "RequestPinShortcut RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewShortcutManagerServiceClient(grpcConn)
+		req := &pb.RequestPinShortcutRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.RequestPinShortcut(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmCrossProfileAppsCmd = &cobra.Command{
+	Use:   "cross-profile-apps",
+	Short: "CrossProfileAppsService operations",
+}
+
+var pmCrossProfileAppsCanInteractAcrossProfilesCmd = &cobra.Command{
+	Use:   "can-interact-across-profiles",
+	Short: "CanInteractAcrossProfiles RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCrossProfileAppsServiceClient(grpcConn)
+		req := &pb.CanInteractAcrossProfilesRequest{}
+		resp, err := client.CanInteractAcrossProfiles(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmCrossProfileAppsCanRequestInteractAcrossProfilesCmd = &cobra.Command{
+	Use:   "can-request-interact-across-profiles",
+	Short: "CanRequestInteractAcrossProfiles RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCrossProfileAppsServiceClient(grpcConn)
+		req := &pb.CanRequestInteractAcrossProfilesRequest{}
+		resp, err := client.CanRequestInteractAcrossProfiles(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmCrossProfileAppsCreateRequestInteractAcrossProfilesIntentCmd = &cobra.Command{
+	Use:   "create-request-interact-across-profiles-intent",
+	Short: "CreateRequestInteractAcrossProfilesIntent RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCrossProfileAppsServiceClient(grpcConn)
+		req := &pb.CreateRequestInteractAcrossProfilesIntentRequest{}
+		resp, err := client.CreateRequestInteractAcrossProfilesIntent(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmCrossProfileAppsGetProfileSwitchingIconDrawableCmd = &cobra.Command{
+	Use:   "get-profile-switching-icon-drawable",
+	Short: "GetProfileSwitchingIconDrawable RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCrossProfileAppsServiceClient(grpcConn)
+		req := &pb.GetProfileSwitchingIconDrawableRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetProfileSwitchingIconDrawable(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmCrossProfileAppsGetProfileSwitchingLabelCmd = &cobra.Command{
+	Use:   "get-profile-switching-label",
+	Short: "GetProfileSwitchingLabel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCrossProfileAppsServiceClient(grpcConn)
+		req := &pb.GetProfileSwitchingLabelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetProfileSwitchingLabel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmCrossProfileAppsGetTargetUserProfilesCmd = &cobra.Command{
+	Use:   "get-target-user-profiles",
+	Short: "GetTargetUserProfiles RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCrossProfileAppsServiceClient(grpcConn)
+		req := &pb.GetTargetUserProfilesRequest{}
+		resp, err := client.GetTargetUserProfiles(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmCrossProfileAppsIsManagedProfileCmd = &cobra.Command{
+	Use:   "is-managed-profile",
+	Short: "IsManagedProfile RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCrossProfileAppsServiceClient(grpcConn)
+		req := &pb.IsManagedProfileRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.IsManagedProfile(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmCrossProfileAppsIsProfileCmd = &cobra.Command{
+	Use:   "is-profile",
+	Short: "IsProfile RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCrossProfileAppsServiceClient(grpcConn)
+		req := &pb.IsProfileRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.IsProfile(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmCrossProfileAppsStartActivity3Cmd = &cobra.Command{
+	Use:   "start-activity3",
+	Short: "StartActivity3 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCrossProfileAppsServiceClient(grpcConn)
+		req := &pb.StartActivity3Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.StartActivity3(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmCrossProfileAppsStartActivity4_1Cmd = &cobra.Command{
+	Use:   "start-activity4_1",
+	Short: "StartActivity4_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCrossProfileAppsServiceClient(grpcConn)
+		req := &pb.StartActivity4_1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.StartActivity4_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmCrossProfileAppsStartMainActivity2Cmd = &cobra.Command{
+	Use:   "start-main-activity2",
+	Short: "StartMainActivity2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCrossProfileAppsServiceClient(grpcConn)
+		req := &pb.StartMainActivity2Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.StartMainActivity2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmCrossProfileAppsStartMainActivity4_1Cmd = &cobra.Command{
+	Use:   "start-main-activity4_1",
+	Short: "StartMainActivity4_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCrossProfileAppsServiceClient(grpcConn)
+		req := &pb.StartMainActivity4_1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.StartMainActivity4_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmInstrumentationInfoCmd = &cobra.Command{
+	Use:   "instrumentation-info",
+	Short: "InstrumentationInfoService operations",
+}
+
+var pmInstrumentationInfoNewInstrumentationInfoCmd = &cobra.Command{
+	Use:   "new-instrumentation-info",
+	Short: "NewInstrumentationInfo RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInstrumentationInfoServiceClient(grpcConn)
+		req := &pb.NewInstrumentationInfoRequest{}
+		resp, err := client.NewInstrumentationInfo(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmInstrumentationInfoDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInstrumentationInfoServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmInstrumentationInfoToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInstrumentationInfoServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmInstrumentationInfoWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInstrumentationInfoServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmApplicationInfoCmd = &cobra.Command{
+	Use:   "application-info",
+	Short: "ApplicationInfoService operations",
+}
+
+var pmApplicationInfoNewApplicationInfoCmd = &cobra.Command{
+	Use:   "new-application-info",
+	Short: "NewApplicationInfo RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewApplicationInfoServiceClient(grpcConn)
+		req := &pb.NewApplicationInfoRequest{}
+		resp, err := client.NewApplicationInfo(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmApplicationInfoAreAttributionsUserVisibleCmd = &cobra.Command{
+	Use:   "are-attributions-user-visible",
+	Short: "AreAttributionsUserVisible RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewApplicationInfoServiceClient(grpcConn)
+		req := &pb.AreAttributionsUserVisibleRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.AreAttributionsUserVisible(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmApplicationInfoDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewApplicationInfoServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmApplicationInfoDumpCmd = &cobra.Command{
+	Use:   "dump",
+	Short: "Dump RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewApplicationInfoServiceClient(grpcConn)
+		req := &pb.DumpRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.Dump(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmApplicationInfoGetGwpAsanModeCmd = &cobra.Command{
+	Use:   "get-gwp-asan-mode",
+	Short: "GetGwpAsanMode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewApplicationInfoServiceClient(grpcConn)
+		req := &pb.GetGwpAsanModeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetGwpAsanMode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmApplicationInfoGetKnownActivityEmbeddingCertsCmd = &cobra.Command{
+	Use:   "get-known-activity-embedding-certs",
+	Short: "GetKnownActivityEmbeddingCerts RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewApplicationInfoServiceClient(grpcConn)
+		req := &pb.GetKnownActivityEmbeddingCertsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetKnownActivityEmbeddingCerts(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmApplicationInfoGetMemtagModeCmd = &cobra.Command{
+	Use:   "get-memtag-mode",
+	Short: "GetMemtagMode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewApplicationInfoServiceClient(grpcConn)
+		req := &pb.GetMemtagModeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetMemtagMode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmApplicationInfoGetNativeHeapZeroInitializedCmd = &cobra.Command{
+	Use:   "get-native-heap-zero-initialized",
+	Short: "GetNativeHeapZeroInitialized RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewApplicationInfoServiceClient(grpcConn)
+		req := &pb.GetNativeHeapZeroInitializedRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetNativeHeapZeroInitialized(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmApplicationInfoGetRequestRawExternalStorageAccessCmd = &cobra.Command{
+	Use:   "get-request-raw-external-storage-access",
+	Short: "GetRequestRawExternalStorageAccess RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewApplicationInfoServiceClient(grpcConn)
+		req := &pb.GetRequestRawExternalStorageAccessRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetRequestRawExternalStorageAccess(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmApplicationInfoIsProfileableCmd = &cobra.Command{
+	Use:   "is-profileable",
+	Short: "IsProfileable RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewApplicationInfoServiceClient(grpcConn)
+		req := &pb.IsProfileableRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.IsProfileable(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmApplicationInfoIsProfileableByShellCmd = &cobra.Command{
+	Use:   "is-profileable-by-shell",
+	Short: "IsProfileableByShell RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewApplicationInfoServiceClient(grpcConn)
+		req := &pb.IsProfileableByShellRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.IsProfileableByShell(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmApplicationInfoIsResourceOverlayCmd = &cobra.Command{
+	Use:   "is-resource-overlay",
+	Short: "IsResourceOverlay RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewApplicationInfoServiceClient(grpcConn)
+		req := &pb.IsResourceOverlayRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.IsResourceOverlay(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmApplicationInfoIsVirtualPreloadCmd = &cobra.Command{
+	Use:   "is-virtual-preload",
+	Short: "IsVirtualPreload RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewApplicationInfoServiceClient(grpcConn)
+		req := &pb.IsVirtualPreloadRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.IsVirtualPreload(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmApplicationInfoLoadDescriptionCmd = &cobra.Command{
+	Use:   "load-description",
+	Short: "LoadDescription RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewApplicationInfoServiceClient(grpcConn)
+		req := &pb.LoadDescriptionRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.LoadDescription(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmApplicationInfoToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewApplicationInfoServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmApplicationInfoWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewApplicationInfoServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmApplicationInfoGetCategoryTitleCmd = &cobra.Command{
+	Use:   "get-category-title",
+	Short: "GetCategoryTitle RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewApplicationInfoServiceClient(grpcConn)
+		req := &pb.GetCategoryTitleRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.GetCategoryTitle(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmApplicationInfoDisplayNameComparatorCmd = &cobra.Command{
+	Use:   "application-info-display-name-comparator",
+	Short: "ApplicationInfoDisplayNameComparatorService operations",
+}
+
+var pmApplicationInfoDisplayNameComparatorCompare2Cmd = &cobra.Command{
+	Use:   "compare2",
+	Short: "Compare2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewApplicationInfoDisplayNameComparatorServiceClient(grpcConn)
+		req := &pb.Compare2Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.Compare2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmApplicationInfoDisplayNameComparatorCompare2_1Cmd = &cobra.Command{
+	Use:   "compare2_1",
+	Short: "Compare2_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewApplicationInfoDisplayNameComparatorServiceClient(grpcConn)
+		req := &pb.Compare2_1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.Compare2_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmChecksumCmd = &cobra.Command{
+	Use:   "checksum",
+	Short: "ChecksumService operations",
+}
+
+var pmChecksumNewChecksumCmd = &cobra.Command{
+	Use:   "new-checksum",
+	Short: "NewChecksum RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewChecksumServiceClient(grpcConn)
+		req := &pb.NewChecksumRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.NewChecksum(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmChecksumDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewChecksumServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmChecksumGetTypeCmd = &cobra.Command{
 	Use:   "get-type",
 	Short: "GetType RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewSharedLibraryInfoServiceClient(grpcConn)
+		client := pb.NewChecksumServiceClient(grpcConn)
+		req := &pb.ChecksumGetTypeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmChecksumGetValueCmd = &cobra.Command{
+	Use:   "get-value",
+	Short: "GetValue RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewChecksumServiceClient(grpcConn)
+		req := &pb.ChecksumGetValueRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetValue(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmChecksumWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewChecksumServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmVersionedPackageCmd = &cobra.Command{
+	Use:   "versioned-package",
+	Short: "VersionedPackageService operations",
+}
+
+var pmVersionedPackageNewVersionedPackageCmd = &cobra.Command{
+	Use:   "new-versioned-package",
+	Short: "NewVersionedPackage RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVersionedPackageServiceClient(grpcConn)
+		req := &pb.NewVersionedPackageRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.NewVersionedPackage(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmVersionedPackageDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVersionedPackageServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmVersionedPackageEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVersionedPackageServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmVersionedPackageGetLongVersionCodeCmd = &cobra.Command{
+	Use:   "get-long-version-code",
+	Short: "GetLongVersionCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVersionedPackageServiceClient(grpcConn)
+		req := &pb.GetLongVersionCodeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetLongVersionCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmVersionedPackageGetPackageNameCmd = &cobra.Command{
+	Use:   "get-package-name",
+	Short: "GetPackageName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVersionedPackageServiceClient(grpcConn)
+		req := &pb.GetPackageNameRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetPackageName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmVersionedPackageGetVersionCodeCmd = &cobra.Command{
+	Use:   "get-version-code",
+	Short: "GetVersionCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVersionedPackageServiceClient(grpcConn)
+		req := &pb.GetVersionCodeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetVersionCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmVersionedPackageHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVersionedPackageServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmVersionedPackageToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVersionedPackageServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmVersionedPackageWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVersionedPackageServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmLabeledIntentCmd = &cobra.Command{
+	Use:   "labeled-intent",
+	Short: "LabeledIntentService operations",
+}
+
+var pmLabeledIntentNewLabeledIntentCmd = &cobra.Command{
+	Use:   "new-labeled-intent",
+	Short: "NewLabeledIntent RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLabeledIntentServiceClient(grpcConn)
+		req := &pb.NewLabeledIntentRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.NewLabeledIntent(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmLabeledIntentGetIconResourceCmd = &cobra.Command{
+	Use:   "get-icon-resource",
+	Short: "GetIconResource RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLabeledIntentServiceClient(grpcConn)
+		req := &pb.GetIconResourceRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetIconResource(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmLabeledIntentGetLabelResourceCmd = &cobra.Command{
+	Use:   "get-label-resource",
+	Short: "GetLabelResource RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLabeledIntentServiceClient(grpcConn)
+		req := &pb.GetLabelResourceRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetLabelResource(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmLabeledIntentGetNonLocalizedLabelCmd = &cobra.Command{
+	Use:   "get-non-localized-label",
+	Short: "GetNonLocalizedLabel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLabeledIntentServiceClient(grpcConn)
+		req := &pb.GetNonLocalizedLabelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetNonLocalizedLabel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmLabeledIntentGetSourcePackageCmd = &cobra.Command{
+	Use:   "get-source-package",
+	Short: "GetSourcePackage RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLabeledIntentServiceClient(grpcConn)
+		req := &pb.GetSourcePackageRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetSourcePackage(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmLabeledIntentLoadIconCmd = &cobra.Command{
+	Use:   "load-icon",
+	Short: "LoadIcon RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLabeledIntentServiceClient(grpcConn)
+		req := &pb.LoadIconRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.LoadIcon(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmLabeledIntentLoadLabelCmd = &cobra.Command{
+	Use:   "load-label",
+	Short: "LoadLabel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLabeledIntentServiceClient(grpcConn)
+		req := &pb.LoadLabelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.LoadLabel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmLabeledIntentReadFromParcelCmd = &cobra.Command{
+	Use:   "read-from-parcel",
+	Short: "ReadFromParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLabeledIntentServiceClient(grpcConn)
+		req := &pb.ReadFromParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.ReadFromParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmLabeledIntentWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLabeledIntentServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmApkChecksumCmd = &cobra.Command{
+	Use:   "apk-checksum",
+	Short: "ApkChecksumService operations",
+}
+
+var pmApkChecksumDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewApkChecksumServiceClient(grpcConn)
+		req := &pb.ApkChecksumDescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmApkChecksumGetInstallerCertificateCmd = &cobra.Command{
+	Use:   "get-installer-certificate",
+	Short: "GetInstallerCertificate RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewApkChecksumServiceClient(grpcConn)
+		req := &pb.GetInstallerCertificateRequest{}
+		resp, err := client.GetInstallerCertificate(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmApkChecksumGetInstallerPackageNameCmd = &cobra.Command{
+	Use:   "get-installer-package-name",
+	Short: "GetInstallerPackageName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewApkChecksumServiceClient(grpcConn)
+		req := &pb.GetInstallerPackageNameRequest{}
+		resp, err := client.GetInstallerPackageName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmApkChecksumGetSplitNameCmd = &cobra.Command{
+	Use:   "get-split-name",
+	Short: "GetSplitName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewApkChecksumServiceClient(grpcConn)
+		req := &pb.GetSplitNameRequest{}
+		resp, err := client.GetSplitName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmApkChecksumGetTypeCmd = &cobra.Command{
+	Use:   "get-type",
+	Short: "GetType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewApkChecksumServiceClient(grpcConn)
 		req := &pb.GetTypeRequest{}
 		resp, err := client.GetType(ctx, req)
 		if err != nil {
@@ -778,15 +3560,15 @@ var pmSharedLibraryInfoGetTypeCmd = &cobra.Command{
 	},
 }
 
-var pmSharedLibraryInfoGetVersionCmd = &cobra.Command{
-	Use:   "get-version",
-	Short: "GetVersion RPC",
+var pmApkChecksumGetValueCmd = &cobra.Command{
+	Use:   "get-value",
+	Short: "GetValue RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewSharedLibraryInfoServiceClient(grpcConn)
-		req := &pb.GetVersionRequest{}
-		resp, err := client.GetVersion(ctx, req)
+		client := pb.NewApkChecksumServiceClient(grpcConn)
+		req := &pb.GetValueRequest{}
+		resp, err := client.GetValue(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -794,14 +3576,14 @@ var pmSharedLibraryInfoGetVersionCmd = &cobra.Command{
 	},
 }
 
-var pmSharedLibraryInfoToStringCmd = &cobra.Command{
+var pmApkChecksumToStringCmd = &cobra.Command{
 	Use:   "to-string",
 	Short: "ToString RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewSharedLibraryInfoServiceClient(grpcConn)
-		req := &pb.SharedLibraryInfoToStringRequest{}
+		client := pb.NewApkChecksumServiceClient(grpcConn)
+		req := &pb.ApkChecksumToStringRequest{}
 		resp, err := client.ToString(ctx, req)
 		if err != nil {
 			return err
@@ -810,14 +3592,4471 @@ var pmSharedLibraryInfoToStringCmd = &cobra.Command{
 	},
 }
 
-var pmSharedLibraryInfoWriteToParcelCmd = &cobra.Command{
+var pmApkChecksumWriteToParcelCmd = &cobra.Command{
 	Use:   "write-to-parcel",
 	Short: "WriteToParcel RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewSharedLibraryInfoServiceClient(grpcConn)
-		req := &pb.SharedLibraryInfoWriteToParcelRequest{}
+		client := pb.NewApkChecksumServiceClient(grpcConn)
+		req := &pb.ApkChecksumWriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmInstallSourceInfoCmd = &cobra.Command{
+	Use:   "install-source-info",
+	Short: "InstallSourceInfoService operations",
+}
+
+var pmInstallSourceInfoDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInstallSourceInfoServiceClient(grpcConn)
+		req := &pb.InstallSourceInfoDescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmInstallSourceInfoGetInitiatingPackageNameCmd = &cobra.Command{
+	Use:   "get-initiating-package-name",
+	Short: "GetInitiatingPackageName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInstallSourceInfoServiceClient(grpcConn)
+		req := &pb.GetInitiatingPackageNameRequest{}
+		resp, err := client.GetInitiatingPackageName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmInstallSourceInfoGetInitiatingPackageSigningInfoCmd = &cobra.Command{
+	Use:   "get-initiating-package-signing-info",
+	Short: "GetInitiatingPackageSigningInfo RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInstallSourceInfoServiceClient(grpcConn)
+		req := &pb.GetInitiatingPackageSigningInfoRequest{}
+		resp, err := client.GetInitiatingPackageSigningInfo(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmInstallSourceInfoGetInstallingPackageNameCmd = &cobra.Command{
+	Use:   "get-installing-package-name",
+	Short: "GetInstallingPackageName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInstallSourceInfoServiceClient(grpcConn)
+		req := &pb.GetInstallingPackageNameRequest{}
+		resp, err := client.GetInstallingPackageName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmInstallSourceInfoGetOriginatingPackageNameCmd = &cobra.Command{
+	Use:   "get-originating-package-name",
+	Short: "GetOriginatingPackageName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInstallSourceInfoServiceClient(grpcConn)
+		req := &pb.GetOriginatingPackageNameRequest{}
+		resp, err := client.GetOriginatingPackageName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmInstallSourceInfoGetPackageSourceCmd = &cobra.Command{
+	Use:   "get-package-source",
+	Short: "GetPackageSource RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInstallSourceInfoServiceClient(grpcConn)
+		req := &pb.GetPackageSourceRequest{}
+		resp, err := client.GetPackageSource(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmInstallSourceInfoGetUpdateOwnerPackageNameCmd = &cobra.Command{
+	Use:   "get-update-owner-package-name",
+	Short: "GetUpdateOwnerPackageName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInstallSourceInfoServiceClient(grpcConn)
+		req := &pb.GetUpdateOwnerPackageNameRequest{}
+		resp, err := client.GetUpdateOwnerPackageName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmInstallSourceInfoWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInstallSourceInfoServiceClient(grpcConn)
+		req := &pb.InstallSourceInfoWriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmLauncherActivityInfoCmd = &cobra.Command{
+	Use:   "launcher-activity-info",
+	Short: "LauncherActivityInfoService operations",
+}
+
+var pmLauncherActivityInfoGetActivityInfoCmd = &cobra.Command{
+	Use:   "get-activity-info",
+	Short: "GetActivityInfo RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLauncherActivityInfoServiceClient(grpcConn)
+		req := &pb.GetActivityInfoRequest{}
+		resp, err := client.GetActivityInfo(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmLauncherActivityInfoGetApplicationInfoCmd = &cobra.Command{
+	Use:   "get-application-info",
+	Short: "GetApplicationInfo RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLauncherActivityInfoServiceClient(grpcConn)
+		req := &pb.GetApplicationInfoRequest{}
+		resp, err := client.GetApplicationInfo(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmLauncherActivityInfoGetBadgedIconCmd = &cobra.Command{
+	Use:   "get-badged-icon",
+	Short: "GetBadgedIcon RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLauncherActivityInfoServiceClient(grpcConn)
+		req := &pb.GetBadgedIconRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetBadgedIcon(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmLauncherActivityInfoGetComponentNameCmd = &cobra.Command{
+	Use:   "get-component-name",
+	Short: "GetComponentName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLauncherActivityInfoServiceClient(grpcConn)
+		req := &pb.GetComponentNameRequest{}
+		resp, err := client.GetComponentName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmLauncherActivityInfoGetFirstInstallTimeCmd = &cobra.Command{
+	Use:   "get-first-install-time",
+	Short: "GetFirstInstallTime RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLauncherActivityInfoServiceClient(grpcConn)
+		req := &pb.GetFirstInstallTimeRequest{}
+		resp, err := client.GetFirstInstallTime(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmLauncherActivityInfoGetIconCmd = &cobra.Command{
+	Use:   "get-icon",
+	Short: "GetIcon RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLauncherActivityInfoServiceClient(grpcConn)
+		req := &pb.GetIconRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetIcon(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmLauncherActivityInfoGetLabelCmd = &cobra.Command{
+	Use:   "get-label",
+	Short: "GetLabel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLauncherActivityInfoServiceClient(grpcConn)
+		req := &pb.GetLabelRequest{}
+		resp, err := client.GetLabel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmLauncherActivityInfoGetLoadingProgressCmd = &cobra.Command{
+	Use:   "get-loading-progress",
+	Short: "GetLoadingProgress RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLauncherActivityInfoServiceClient(grpcConn)
+		req := &pb.GetLoadingProgressRequest{}
+		resp, err := client.GetLoadingProgress(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmLauncherActivityInfoGetNameCmd = &cobra.Command{
+	Use:   "get-name",
+	Short: "GetName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLauncherActivityInfoServiceClient(grpcConn)
+		req := &pb.GetNameRequest{}
+		resp, err := client.GetName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmLauncherActivityInfoGetUserCmd = &cobra.Command{
+	Use:   "get-user",
+	Short: "GetUser RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLauncherActivityInfoServiceClient(grpcConn)
+		req := &pb.GetUserRequest{}
+		resp, err := client.GetUser(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmModuleInfoCmd = &cobra.Command{
+	Use:   "module-info",
+	Short: "ModuleInfoService operations",
+}
+
+var pmModuleInfoDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewModuleInfoServiceClient(grpcConn)
+		req := &pb.ModuleInfoDescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmModuleInfoEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewModuleInfoServiceClient(grpcConn)
+		req := &pb.ModuleInfoEqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmModuleInfoGetNameCmd = &cobra.Command{
+	Use:   "get-name",
+	Short: "GetName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewModuleInfoServiceClient(grpcConn)
+		req := &pb.GetNameRequest{}
+		resp, err := client.GetName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmModuleInfoGetPackageNameCmd = &cobra.Command{
+	Use:   "get-package-name",
+	Short: "GetPackageName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewModuleInfoServiceClient(grpcConn)
+		req := &pb.ModuleInfoGetPackageNameRequest{}
+		resp, err := client.GetPackageName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmModuleInfoHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewModuleInfoServiceClient(grpcConn)
+		req := &pb.ModuleInfoHashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmModuleInfoIsHiddenCmd = &cobra.Command{
+	Use:   "is-hidden",
+	Short: "IsHidden RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewModuleInfoServiceClient(grpcConn)
+		req := &pb.IsHiddenRequest{}
+		resp, err := client.IsHidden(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmModuleInfoToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewModuleInfoServiceClient(grpcConn)
+		req := &pb.ModuleInfoToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmModuleInfoWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewModuleInfoServiceClient(grpcConn)
+		req := &pb.ModuleInfoWriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmSigningInfoCmd = &cobra.Command{
+	Use:   "signing-info",
+	Short: "SigningInfoService operations",
+}
+
+var pmSigningInfoNewSigningInfoCmd = &cobra.Command{
+	Use:   "new-signing-info",
+	Short: "NewSigningInfo RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSigningInfoServiceClient(grpcConn)
+		req := &pb.NewSigningInfoRequest{}
+		resp, err := client.NewSigningInfo(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmSigningInfoDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSigningInfoServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmSigningInfoGetApkContentsSignersCmd = &cobra.Command{
+	Use:   "get-apk-contents-signers",
+	Short: "GetApkContentsSigners RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSigningInfoServiceClient(grpcConn)
+		req := &pb.GetApkContentsSignersRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetApkContentsSigners(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmSigningInfoGetPublicKeysCmd = &cobra.Command{
+	Use:   "get-public-keys",
+	Short: "GetPublicKeys RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSigningInfoServiceClient(grpcConn)
+		req := &pb.GetPublicKeysRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetPublicKeys(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmSigningInfoGetSchemeVersionCmd = &cobra.Command{
+	Use:   "get-scheme-version",
+	Short: "GetSchemeVersion RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSigningInfoServiceClient(grpcConn)
+		req := &pb.GetSchemeVersionRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetSchemeVersion(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmSigningInfoGetSigningCertificateHistoryCmd = &cobra.Command{
+	Use:   "get-signing-certificate-history",
+	Short: "GetSigningCertificateHistory RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSigningInfoServiceClient(grpcConn)
+		req := &pb.GetSigningCertificateHistoryRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetSigningCertificateHistory(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmSigningInfoHasMultipleSignersCmd = &cobra.Command{
+	Use:   "has-multiple-signers",
+	Short: "HasMultipleSigners RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSigningInfoServiceClient(grpcConn)
+		req := &pb.HasMultipleSignersRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.HasMultipleSigners(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmSigningInfoHasPastSigningCertificatesCmd = &cobra.Command{
+	Use:   "has-past-signing-certificates",
+	Short: "HasPastSigningCertificates RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSigningInfoServiceClient(grpcConn)
+		req := &pb.HasPastSigningCertificatesRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.HasPastSigningCertificates(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmSigningInfoSignersMatchExactlyCmd = &cobra.Command{
+	Use:   "signers-match-exactly",
+	Short: "SignersMatchExactly RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSigningInfoServiceClient(grpcConn)
+		req := &pb.SignersMatchExactlyRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SignersMatchExactly(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmSigningInfoWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSigningInfoServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerCmd = &cobra.Command{
+	Use:   "package-manager",
+	Short: "PackageManagerService operations",
+}
+
+var pmPackageManagerAddPackageToPreferredCmd = &cobra.Command{
+	Use:   "add-package-to-preferred",
+	Short: "AddPackageToPreferred RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerServiceClient(grpcConn)
+		req := &pb.AddPackageToPreferredRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddPackageToPreferred(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerAddPermissionCmd = &cobra.Command{
+	Use:   "add-permission",
+	Short: "AddPermission RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerServiceClient(grpcConn)
+		req := &pb.AddPermissionRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddPermission(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerAddPermissionAsyncCmd = &cobra.Command{
+	Use:   "add-permission-async",
+	Short: "AddPermissionAsync RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerServiceClient(grpcConn)
+		req := &pb.AddPermissionAsyncRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddPermissionAsync(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerAddPreferredActivityCmd = &cobra.Command{
+	Use:   "add-preferred-activity",
+	Short: "AddPreferredActivity RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerServiceClient(grpcConn)
+		req := &pb.AddPreferredActivityRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.AddPreferredActivity(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerAddWhitelistedRestrictedPermissionCmd = &cobra.Command{
+	Use:   "add-whitelisted-restricted-permission",
+	Short: "AddWhitelistedRestrictedPermission RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerServiceClient(grpcConn)
+		req := &pb.AddWhitelistedRestrictedPermissionRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.AddWhitelistedRestrictedPermission(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerCanPackageQuery2Cmd = &cobra.Command{
+	Use:   "can-package-query2",
+	Short: "CanPackageQuery2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerServiceClient(grpcConn)
+		req := &pb.CanPackageQuery2Request{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.CanPackageQuery2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerCanPackageQuery2_1Cmd = &cobra.Command{
+	Use:   "can-package-query2_1",
+	Short: "CanPackageQuery2_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerServiceClient(grpcConn)
+		req := &pb.CanPackageQuery2_1Request{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.CanPackageQuery2_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerCanRequestPackageInstallsCmd = &cobra.Command{
+	Use:   "can-request-package-installs",
+	Short: "CanRequestPackageInstalls RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerServiceClient(grpcConn)
+		req := &pb.CanRequestPackageInstallsRequest{}
+		resp, err := client.CanRequestPackageInstalls(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerCanonicalToCurrentPackageNamesCmd = &cobra.Command{
+	Use:   "canonical-to-current-package-names",
+	Short: "CanonicalToCurrentPackageNames RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerServiceClient(grpcConn)
+		req := &pb.CanonicalToCurrentPackageNamesRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.CanonicalToCurrentPackageNames(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerCheckPermissionCmd = &cobra.Command{
+	Use:   "check-permission",
+	Short: "CheckPermission RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerServiceClient(grpcConn)
+		req := &pb.CheckPermissionRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.CheckPermission(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerCheckSignatures2Cmd = &cobra.Command{
+	Use:   "check-signatures2",
+	Short: "CheckSignatures2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerServiceClient(grpcConn)
+		req := &pb.CheckSignatures2Request{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.CheckSignatures2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerCheckSignatures2_1Cmd = &cobra.Command{
+	Use:   "check-signatures2_1",
+	Short: "CheckSignatures2_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerServiceClient(grpcConn)
+		req := &pb.CheckSignatures2_1Request{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.CheckSignatures2_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerClearInstantAppCookieCmd = &cobra.Command{
+	Use:   "clear-instant-app-cookie",
+	Short: "ClearInstantAppCookie RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerServiceClient(grpcConn)
+		req := &pb.ClearInstantAppCookieRequest{}
+		resp, err := client.ClearInstantAppCookie(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerClearPackagePreferredActivitiesCmd = &cobra.Command{
+	Use:   "clear-package-preferred-activities",
+	Short: "ClearPackagePreferredActivities RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerServiceClient(grpcConn)
+		req := &pb.ClearPackagePreferredActivitiesRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.ClearPackagePreferredActivities(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerCurrentToCanonicalPackageNamesCmd = &cobra.Command{
+	Use:   "current-to-canonical-package-names",
+	Short: "CurrentToCanonicalPackageNames RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerServiceClient(grpcConn)
+		req := &pb.CurrentToCanonicalPackageNamesRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.CurrentToCanonicalPackageNames(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerExtendVerificationTimeoutCmd = &cobra.Command{
+	Use:   "extend-verification-timeout",
+	Short: "ExtendVerificationTimeout RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerServiceClient(grpcConn)
+		req := &pb.ExtendVerificationTimeoutRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.ExtendVerificationTimeout(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerGetActivityBanner1Cmd = &cobra.Command{
+	Use:   "get-activity-banner1",
+	Short: "GetActivityBanner1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerServiceClient(grpcConn)
+		req := &pb.GetActivityBanner1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetActivityBanner1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerGetActivityBanner1_1Cmd = &cobra.Command{
+	Use:   "get-activity-banner1_1",
+	Short: "GetActivityBanner1_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerServiceClient(grpcConn)
+		req := &pb.GetActivityBanner1_1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetActivityBanner1_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerGetActivityIcon1Cmd = &cobra.Command{
+	Use:   "get-activity-icon1",
+	Short: "GetActivityIcon1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerServiceClient(grpcConn)
+		req := &pb.GetActivityIcon1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetActivityIcon1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerGetActivityIcon1_1Cmd = &cobra.Command{
+	Use:   "get-activity-icon1_1",
+	Short: "GetActivityIcon1_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerServiceClient(grpcConn)
+		req := &pb.GetActivityIcon1_1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetActivityIcon1_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerGetActivityInfo2Cmd = &cobra.Command{
+	Use:   "get-activity-info2",
+	Short: "GetActivityInfo2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerServiceClient(grpcConn)
+		req := &pb.GetActivityInfo2Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.GetActivityInfo2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerGetActivityInfo2_1Cmd = &cobra.Command{
+	Use:   "get-activity-info2_1",
+	Short: "GetActivityInfo2_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerServiceClient(grpcConn)
+		req := &pb.GetActivityInfo2_1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.GetActivityInfo2_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerGetActivityLogo1Cmd = &cobra.Command{
+	Use:   "get-activity-logo1",
+	Short: "GetActivityLogo1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerServiceClient(grpcConn)
+		req := &pb.GetActivityLogo1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetActivityLogo1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerGetActivityLogo1_1Cmd = &cobra.Command{
+	Use:   "get-activity-logo1_1",
+	Short: "GetActivityLogo1_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerServiceClient(grpcConn)
+		req := &pb.GetActivityLogo1_1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetActivityLogo1_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerGetAllPermissionGroupsCmd = &cobra.Command{
+	Use:   "get-all-permission-groups",
+	Short: "GetAllPermissionGroups RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerServiceClient(grpcConn)
+		req := &pb.GetAllPermissionGroupsRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetAllPermissionGroups(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerGetApplicationBanner1Cmd = &cobra.Command{
+	Use:   "get-application-banner1",
+	Short: "GetApplicationBanner1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerServiceClient(grpcConn)
+		req := &pb.GetApplicationBanner1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetApplicationBanner1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerGetApplicationBanner1_1Cmd = &cobra.Command{
+	Use:   "get-application-banner1_1",
+	Short: "GetApplicationBanner1_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerServiceClient(grpcConn)
+		req := &pb.GetApplicationBanner1_1Request{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetApplicationBanner1_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerGetApplicationEnabledSettingCmd = &cobra.Command{
+	Use:   "get-application-enabled-setting",
+	Short: "GetApplicationEnabledSetting RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerServiceClient(grpcConn)
+		req := &pb.GetApplicationEnabledSettingRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetApplicationEnabledSetting(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerGetApplicationIcon1Cmd = &cobra.Command{
+	Use:   "get-application-icon1",
+	Short: "GetApplicationIcon1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerServiceClient(grpcConn)
+		req := &pb.GetApplicationIcon1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetApplicationIcon1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerGetApplicationIcon1_1Cmd = &cobra.Command{
+	Use:   "get-application-icon1_1",
+	Short: "GetApplicationIcon1_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerServiceClient(grpcConn)
+		req := &pb.GetApplicationIcon1_1Request{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetApplicationIcon1_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerGetApplicationInfo2Cmd = &cobra.Command{
+	Use:   "get-application-info2",
+	Short: "GetApplicationInfo2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerServiceClient(grpcConn)
+		req := &pb.GetApplicationInfo2Request{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.GetApplicationInfo2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerGetApplicationInfo2_1Cmd = &cobra.Command{
+	Use:   "get-application-info2_1",
+	Short: "GetApplicationInfo2_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerServiceClient(grpcConn)
+		req := &pb.GetApplicationInfo2_1Request{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.GetApplicationInfo2_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerGetApplicationLabelCmd = &cobra.Command{
+	Use:   "get-application-label",
+	Short: "GetApplicationLabel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerServiceClient(grpcConn)
+		req := &pb.GetApplicationLabelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetApplicationLabel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerGetApplicationLogo1Cmd = &cobra.Command{
+	Use:   "get-application-logo1",
+	Short: "GetApplicationLogo1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerServiceClient(grpcConn)
+		req := &pb.GetApplicationLogo1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetApplicationLogo1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerGetApplicationLogo1_1Cmd = &cobra.Command{
+	Use:   "get-application-logo1_1",
+	Short: "GetApplicationLogo1_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerServiceClient(grpcConn)
+		req := &pb.GetApplicationLogo1_1Request{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetApplicationLogo1_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerGetArchivedPackageCmd = &cobra.Command{
+	Use:   "get-archived-package",
+	Short: "GetArchivedPackage RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerServiceClient(grpcConn)
+		req := &pb.GetArchivedPackageRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetArchivedPackage(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerGetBackgroundPermissionOptionLabelCmd = &cobra.Command{
+	Use:   "get-background-permission-option-label",
+	Short: "GetBackgroundPermissionOptionLabel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerServiceClient(grpcConn)
+		req := &pb.GetBackgroundPermissionOptionLabelRequest{}
+		resp, err := client.GetBackgroundPermissionOptionLabel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerGetChangedPackagesCmd = &cobra.Command{
+	Use:   "get-changed-packages",
+	Short: "GetChangedPackages RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerServiceClient(grpcConn)
+		req := &pb.GetChangedPackagesRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetChangedPackages(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerGetComponentEnabledSettingCmd = &cobra.Command{
+	Use:   "get-component-enabled-setting",
+	Short: "GetComponentEnabledSetting RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerServiceClient(grpcConn)
+		req := &pb.GetComponentEnabledSettingRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetComponentEnabledSetting(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerGetDefaultActivityIconCmd = &cobra.Command{
+	Use:   "get-default-activity-icon",
+	Short: "GetDefaultActivityIcon RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerServiceClient(grpcConn)
+		req := &pb.GetDefaultActivityIconRequest{}
+		resp, err := client.GetDefaultActivityIcon(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerGetDrawableCmd = &cobra.Command{
+	Use:   "get-drawable",
+	Short: "GetDrawable RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerServiceClient(grpcConn)
+		req := &pb.GetDrawableRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.GetDrawable(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerGetInstallSourceInfoCmd = &cobra.Command{
+	Use:   "get-install-source-info",
+	Short: "GetInstallSourceInfo RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerServiceClient(grpcConn)
+		req := &pb.GetInstallSourceInfoRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetInstallSourceInfo(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerGetInstalledApplications1Cmd = &cobra.Command{
+	Use:   "get-installed-applications1",
+	Short: "GetInstalledApplications1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerServiceClient(grpcConn)
+		req := &pb.GetInstalledApplications1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetInstalledApplications1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerGetInstalledApplications1_1Cmd = &cobra.Command{
+	Use:   "get-installed-applications1_1",
+	Short: "GetInstalledApplications1_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerServiceClient(grpcConn)
+		req := &pb.GetInstalledApplications1_1Request{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetInstalledApplications1_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerGetInstalledModulesCmd = &cobra.Command{
+	Use:   "get-installed-modules",
+	Short: "GetInstalledModules RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerServiceClient(grpcConn)
+		req := &pb.GetInstalledModulesRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetInstalledModules(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerGetInstalledPackages1Cmd = &cobra.Command{
+	Use:   "get-installed-packages1",
+	Short: "GetInstalledPackages1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerServiceClient(grpcConn)
+		req := &pb.GetInstalledPackages1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetInstalledPackages1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerGetInstalledPackages1_1Cmd = &cobra.Command{
+	Use:   "get-installed-packages1_1",
+	Short: "GetInstalledPackages1_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerServiceClient(grpcConn)
+		req := &pb.GetInstalledPackages1_1Request{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetInstalledPackages1_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerGetInstallerPackageNameCmd = &cobra.Command{
+	Use:   "get-installer-package-name",
+	Short: "GetInstallerPackageName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerServiceClient(grpcConn)
+		req := &pb.PackageManagerGetInstallerPackageNameRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetInstallerPackageName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerGetInstantAppCookieCmd = &cobra.Command{
+	Use:   "get-instant-app-cookie",
+	Short: "GetInstantAppCookie RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerServiceClient(grpcConn)
+		req := &pb.GetInstantAppCookieRequest{}
+		resp, err := client.GetInstantAppCookie(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerGetInstantAppCookieMaxBytesCmd = &cobra.Command{
+	Use:   "get-instant-app-cookie-max-bytes",
+	Short: "GetInstantAppCookieMaxBytes RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerServiceClient(grpcConn)
+		req := &pb.GetInstantAppCookieMaxBytesRequest{}
+		resp, err := client.GetInstantAppCookieMaxBytes(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerGetInstrumentationInfoCmd = &cobra.Command{
+	Use:   "get-instrumentation-info",
+	Short: "GetInstrumentationInfo RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerServiceClient(grpcConn)
+		req := &pb.GetInstrumentationInfoRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.GetInstrumentationInfo(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerGetLaunchIntentForPackageCmd = &cobra.Command{
+	Use:   "get-launch-intent-for-package",
+	Short: "GetLaunchIntentForPackage RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerServiceClient(grpcConn)
+		req := &pb.GetLaunchIntentForPackageRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetLaunchIntentForPackage(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerGetLaunchIntentSenderForPackageCmd = &cobra.Command{
+	Use:   "get-launch-intent-sender-for-package",
+	Short: "GetLaunchIntentSenderForPackage RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerServiceClient(grpcConn)
+		req := &pb.GetLaunchIntentSenderForPackageRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetLaunchIntentSenderForPackage(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerGetLeanbackLaunchIntentForPackageCmd = &cobra.Command{
+	Use:   "get-leanback-launch-intent-for-package",
+	Short: "GetLeanbackLaunchIntentForPackage RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerServiceClient(grpcConn)
+		req := &pb.GetLeanbackLaunchIntentForPackageRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetLeanbackLaunchIntentForPackage(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerGetMimeGroupCmd = &cobra.Command{
+	Use:   "get-mime-group",
+	Short: "GetMimeGroup RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerServiceClient(grpcConn)
+		req := &pb.GetMimeGroupRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetMimeGroup(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerGetModuleInfoCmd = &cobra.Command{
+	Use:   "get-module-info",
+	Short: "GetModuleInfo RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerServiceClient(grpcConn)
+		req := &pb.GetModuleInfoRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.GetModuleInfo(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerGetNameForUidCmd = &cobra.Command{
+	Use:   "get-name-for-uid",
+	Short: "GetNameForUid RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerServiceClient(grpcConn)
+		req := &pb.GetNameForUidRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetNameForUid(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerGetPackageArchiveInfo2Cmd = &cobra.Command{
+	Use:   "get-package-archive-info2",
+	Short: "GetPackageArchiveInfo2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerServiceClient(grpcConn)
+		req := &pb.GetPackageArchiveInfo2Request{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.GetPackageArchiveInfo2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerGetPackageArchiveInfo2_1Cmd = &cobra.Command{
+	Use:   "get-package-archive-info2_1",
+	Short: "GetPackageArchiveInfo2_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerServiceClient(grpcConn)
+		req := &pb.GetPackageArchiveInfo2_1Request{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.GetPackageArchiveInfo2_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerGetPackageGids1Cmd = &cobra.Command{
+	Use:   "get-package-gids1",
+	Short: "GetPackageGids1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerServiceClient(grpcConn)
+		req := &pb.GetPackageGids1Request{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetPackageGids1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerGetPackageGids2_1Cmd = &cobra.Command{
+	Use:   "get-package-gids2_1",
+	Short: "GetPackageGids2_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerServiceClient(grpcConn)
+		req := &pb.GetPackageGids2_1Request{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.GetPackageGids2_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerGetPackageGids2_2Cmd = &cobra.Command{
+	Use:   "get-package-gids2_2",
+	Short: "GetPackageGids2_2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerServiceClient(grpcConn)
+		req := &pb.GetPackageGids2_2Request{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.GetPackageGids2_2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerGetPackageInfo2Cmd = &cobra.Command{
+	Use:   "get-package-info2",
+	Short: "GetPackageInfo2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerServiceClient(grpcConn)
+		req := &pb.GetPackageInfo2Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.GetPackageInfo2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerGetPackageInfo2_1Cmd = &cobra.Command{
+	Use:   "get-package-info2_1",
+	Short: "GetPackageInfo2_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerServiceClient(grpcConn)
+		req := &pb.GetPackageInfo2_1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.GetPackageInfo2_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerGetPackageInfo2_2Cmd = &cobra.Command{
+	Use:   "get-package-info2_2",
+	Short: "GetPackageInfo2_2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerServiceClient(grpcConn)
+		req := &pb.GetPackageInfo2_2Request{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.GetPackageInfo2_2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerGetPackageInfo2_3Cmd = &cobra.Command{
+	Use:   "get-package-info2_3",
+	Short: "GetPackageInfo2_3 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerServiceClient(grpcConn)
+		req := &pb.GetPackageInfo2_3Request{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.GetPackageInfo2_3(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerGetPackageInstallerCmd = &cobra.Command{
+	Use:   "get-package-installer",
+	Short: "GetPackageInstaller RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerServiceClient(grpcConn)
+		req := &pb.GetPackageInstallerRequest{}
+		resp, err := client.GetPackageInstaller(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerGetPackageUid2Cmd = &cobra.Command{
+	Use:   "get-package-uid2",
+	Short: "GetPackageUid2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerServiceClient(grpcConn)
+		req := &pb.GetPackageUid2Request{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.GetPackageUid2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerGetPackageUid2_1Cmd = &cobra.Command{
+	Use:   "get-package-uid2_1",
+	Short: "GetPackageUid2_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerServiceClient(grpcConn)
+		req := &pb.GetPackageUid2_1Request{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.GetPackageUid2_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerGetPackagesForUidCmd = &cobra.Command{
+	Use:   "get-packages-for-uid",
+	Short: "GetPackagesForUid RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerServiceClient(grpcConn)
+		req := &pb.GetPackagesForUidRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetPackagesForUid(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerGetPackagesHoldingPermissions2Cmd = &cobra.Command{
+	Use:   "get-packages-holding-permissions2",
+	Short: "GetPackagesHoldingPermissions2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerServiceClient(grpcConn)
+		req := &pb.GetPackagesHoldingPermissions2Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.GetPackagesHoldingPermissions2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerGetPackagesHoldingPermissions2_1Cmd = &cobra.Command{
+	Use:   "get-packages-holding-permissions2_1",
+	Short: "GetPackagesHoldingPermissions2_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerServiceClient(grpcConn)
+		req := &pb.GetPackagesHoldingPermissions2_1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.GetPackagesHoldingPermissions2_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerGetPermissionGroupInfoCmd = &cobra.Command{
+	Use:   "get-permission-group-info",
+	Short: "GetPermissionGroupInfo RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerServiceClient(grpcConn)
+		req := &pb.GetPermissionGroupInfoRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.GetPermissionGroupInfo(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerGetPermissionInfoCmd = &cobra.Command{
+	Use:   "get-permission-info",
+	Short: "GetPermissionInfo RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerServiceClient(grpcConn)
+		req := &pb.GetPermissionInfoRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.GetPermissionInfo(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerGetPreferredPackagesCmd = &cobra.Command{
+	Use:   "get-preferred-packages",
+	Short: "GetPreferredPackages RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerServiceClient(grpcConn)
+		req := &pb.GetPreferredPackagesRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetPreferredPackages(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerGetProperty2Cmd = &cobra.Command{
+	Use:   "get-property2",
+	Short: "GetProperty2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerServiceClient(grpcConn)
+		req := &pb.GetProperty2Request{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.GetProperty2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerGetProperty2_1Cmd = &cobra.Command{
+	Use:   "get-property2_1",
+	Short: "GetProperty2_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerServiceClient(grpcConn)
+		req := &pb.GetProperty2_1Request{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.GetProperty2_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerGetProviderInfo2Cmd = &cobra.Command{
+	Use:   "get-provider-info2",
+	Short: "GetProviderInfo2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerServiceClient(grpcConn)
+		req := &pb.GetProviderInfo2Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.GetProviderInfo2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerGetProviderInfo2_1Cmd = &cobra.Command{
+	Use:   "get-provider-info2_1",
+	Short: "GetProviderInfo2_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerServiceClient(grpcConn)
+		req := &pb.GetProviderInfo2_1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.GetProviderInfo2_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerGetReceiverInfo2Cmd = &cobra.Command{
+	Use:   "get-receiver-info2",
+	Short: "GetReceiverInfo2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerServiceClient(grpcConn)
+		req := &pb.GetReceiverInfo2Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.GetReceiverInfo2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerGetReceiverInfo2_1Cmd = &cobra.Command{
+	Use:   "get-receiver-info2_1",
+	Short: "GetReceiverInfo2_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerServiceClient(grpcConn)
+		req := &pb.GetReceiverInfo2_1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.GetReceiverInfo2_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerGetResourcesForActivityCmd = &cobra.Command{
+	Use:   "get-resources-for-activity",
+	Short: "GetResourcesForActivity RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerServiceClient(grpcConn)
+		req := &pb.GetResourcesForActivityRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetResourcesForActivity(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerGetResourcesForApplication1Cmd = &cobra.Command{
+	Use:   "get-resources-for-application1",
+	Short: "GetResourcesForApplication1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerServiceClient(grpcConn)
+		req := &pb.GetResourcesForApplication1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetResourcesForApplication1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerGetResourcesForApplication2_1Cmd = &cobra.Command{
+	Use:   "get-resources-for-application2_1",
+	Short: "GetResourcesForApplication2_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerServiceClient(grpcConn)
+		req := &pb.GetResourcesForApplication2_1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.GetResourcesForApplication2_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerGetResourcesForApplication1_2Cmd = &cobra.Command{
+	Use:   "get-resources-for-application1_2",
+	Short: "GetResourcesForApplication1_2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerServiceClient(grpcConn)
+		req := &pb.GetResourcesForApplication1_2Request{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetResourcesForApplication1_2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerGetServiceInfo2Cmd = &cobra.Command{
+	Use:   "get-service-info2",
+	Short: "GetServiceInfo2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerServiceClient(grpcConn)
+		req := &pb.GetServiceInfo2Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.GetServiceInfo2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerGetServiceInfo2_1Cmd = &cobra.Command{
+	Use:   "get-service-info2_1",
+	Short: "GetServiceInfo2_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerServiceClient(grpcConn)
+		req := &pb.GetServiceInfo2_1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.GetServiceInfo2_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerGetSharedLibraries1Cmd = &cobra.Command{
+	Use:   "get-shared-libraries1",
+	Short: "GetSharedLibraries1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerServiceClient(grpcConn)
+		req := &pb.GetSharedLibraries1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetSharedLibraries1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerGetSharedLibraries1_1Cmd = &cobra.Command{
+	Use:   "get-shared-libraries1_1",
+	Short: "GetSharedLibraries1_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerServiceClient(grpcConn)
+		req := &pb.GetSharedLibraries1_1Request{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetSharedLibraries1_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerGetSuspendedPackageAppExtrasCmd = &cobra.Command{
+	Use:   "get-suspended-package-app-extras",
+	Short: "GetSuspendedPackageAppExtras RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerServiceClient(grpcConn)
+		req := &pb.GetSuspendedPackageAppExtrasRequest{}
+		resp, err := client.GetSuspendedPackageAppExtras(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerGetSyntheticAppDetailsActivityEnabledCmd = &cobra.Command{
+	Use:   "get-synthetic-app-details-activity-enabled",
+	Short: "GetSyntheticAppDetailsActivityEnabled RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerServiceClient(grpcConn)
+		req := &pb.GetSyntheticAppDetailsActivityEnabledRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetSyntheticAppDetailsActivityEnabled(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerGetSystemAvailableFeaturesCmd = &cobra.Command{
+	Use:   "get-system-available-features",
+	Short: "GetSystemAvailableFeatures RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerServiceClient(grpcConn)
+		req := &pb.GetSystemAvailableFeaturesRequest{}
+		resp, err := client.GetSystemAvailableFeatures(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerGetSystemSharedLibraryNamesCmd = &cobra.Command{
+	Use:   "get-system-shared-library-names",
+	Short: "GetSystemSharedLibraryNames RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerServiceClient(grpcConn)
+		req := &pb.GetSystemSharedLibraryNamesRequest{}
+		resp, err := client.GetSystemSharedLibraryNames(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerGetTargetSdkVersionCmd = &cobra.Command{
+	Use:   "get-target-sdk-version",
+	Short: "GetTargetSdkVersion RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerServiceClient(grpcConn)
+		req := &pb.PackageManagerGetTargetSdkVersionRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetTargetSdkVersion(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerGetTextCmd = &cobra.Command{
+	Use:   "get-text",
+	Short: "GetText RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerServiceClient(grpcConn)
+		req := &pb.GetTextRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.GetText(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerGetUserBadgedDrawableForDensityCmd = &cobra.Command{
+	Use:   "get-user-badged-drawable-for-density",
+	Short: "GetUserBadgedDrawableForDensity RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerServiceClient(grpcConn)
+		req := &pb.GetUserBadgedDrawableForDensityRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.GetUserBadgedDrawableForDensity(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerGetUserBadgedIconCmd = &cobra.Command{
+	Use:   "get-user-badged-icon",
+	Short: "GetUserBadgedIcon RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerServiceClient(grpcConn)
+		req := &pb.GetUserBadgedIconRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.GetUserBadgedIcon(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerGetUserBadgedLabelCmd = &cobra.Command{
+	Use:   "get-user-badged-label",
+	Short: "GetUserBadgedLabel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerServiceClient(grpcConn)
+		req := &pb.GetUserBadgedLabelRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.GetUserBadgedLabel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerGetWhitelistedRestrictedPermissionsCmd = &cobra.Command{
+	Use:   "get-whitelisted-restricted-permissions",
+	Short: "GetWhitelistedRestrictedPermissions RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerServiceClient(grpcConn)
+		req := &pb.GetWhitelistedRestrictedPermissionsRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.GetWhitelistedRestrictedPermissions(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerGetXmlCmd = &cobra.Command{
+	Use:   "get-xml",
+	Short: "GetXml RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerServiceClient(grpcConn)
+		req := &pb.GetXmlRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.GetXml(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerHasSigningCertificate3Cmd = &cobra.Command{
+	Use:   "has-signing-certificate3",
+	Short: "HasSigningCertificate3 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerServiceClient(grpcConn)
+		req := &pb.HasSigningCertificate3Request{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.HasSigningCertificate3(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerHasSigningCertificate3_1Cmd = &cobra.Command{
+	Use:   "has-signing-certificate3_1",
+	Short: "HasSigningCertificate3_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerServiceClient(grpcConn)
+		req := &pb.HasSigningCertificate3_1Request{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.HasSigningCertificate3_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerHasSystemFeature1Cmd = &cobra.Command{
+	Use:   "has-system-feature1",
+	Short: "HasSystemFeature1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerServiceClient(grpcConn)
+		req := &pb.HasSystemFeature1Request{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.HasSystemFeature1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerHasSystemFeature2_1Cmd = &cobra.Command{
+	Use:   "has-system-feature2_1",
+	Short: "HasSystemFeature2_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerServiceClient(grpcConn)
+		req := &pb.HasSystemFeature2_1Request{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.HasSystemFeature2_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerIsAppArchivableCmd = &cobra.Command{
+	Use:   "is-app-archivable",
+	Short: "IsAppArchivable RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerServiceClient(grpcConn)
+		req := &pb.IsAppArchivableRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.IsAppArchivable(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerIsAutoRevokeWhitelisted0Cmd = &cobra.Command{
+	Use:   "is-auto-revoke-whitelisted0",
+	Short: "IsAutoRevokeWhitelisted0 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerServiceClient(grpcConn)
+		req := &pb.IsAutoRevokeWhitelisted0Request{}
+		resp, err := client.IsAutoRevokeWhitelisted0(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerIsAutoRevokeWhitelisted1_1Cmd = &cobra.Command{
+	Use:   "is-auto-revoke-whitelisted1_1",
+	Short: "IsAutoRevokeWhitelisted1_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerServiceClient(grpcConn)
+		req := &pb.IsAutoRevokeWhitelisted1_1Request{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.IsAutoRevokeWhitelisted1_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerIsDefaultApplicationIconCmd = &cobra.Command{
+	Use:   "is-default-application-icon",
+	Short: "IsDefaultApplicationIcon RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerServiceClient(grpcConn)
+		req := &pb.IsDefaultApplicationIconRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.IsDefaultApplicationIcon(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerIsDeviceUpgradingCmd = &cobra.Command{
+	Use:   "is-device-upgrading",
+	Short: "IsDeviceUpgrading RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerServiceClient(grpcConn)
+		req := &pb.IsDeviceUpgradingRequest{}
+		resp, err := client.IsDeviceUpgrading(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerIsInstantApp0Cmd = &cobra.Command{
+	Use:   "is-instant-app0",
+	Short: "IsInstantApp0 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerServiceClient(grpcConn)
+		req := &pb.IsInstantApp0Request{}
+		resp, err := client.IsInstantApp0(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerIsInstantApp1_1Cmd = &cobra.Command{
+	Use:   "is-instant-app1_1",
+	Short: "IsInstantApp1_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerServiceClient(grpcConn)
+		req := &pb.IsInstantApp1_1Request{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.IsInstantApp1_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerIsPackageStoppedCmd = &cobra.Command{
+	Use:   "is-package-stopped",
+	Short: "IsPackageStopped RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerServiceClient(grpcConn)
+		req := &pb.IsPackageStoppedRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.IsPackageStopped(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerIsPackageSuspended0Cmd = &cobra.Command{
+	Use:   "is-package-suspended0",
+	Short: "IsPackageSuspended0 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerServiceClient(grpcConn)
+		req := &pb.IsPackageSuspended0Request{}
+		resp, err := client.IsPackageSuspended0(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerIsPackageSuspended1_1Cmd = &cobra.Command{
+	Use:   "is-package-suspended1_1",
+	Short: "IsPackageSuspended1_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerServiceClient(grpcConn)
+		req := &pb.IsPackageSuspended1_1Request{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.IsPackageSuspended1_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerIsPermissionRevokedByPolicyCmd = &cobra.Command{
+	Use:   "is-permission-revoked-by-policy",
+	Short: "IsPermissionRevokedByPolicy RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerServiceClient(grpcConn)
+		req := &pb.IsPermissionRevokedByPolicyRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.IsPermissionRevokedByPolicy(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerIsSafeModeCmd = &cobra.Command{
+	Use:   "is-safe-mode",
+	Short: "IsSafeMode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerServiceClient(grpcConn)
+		req := &pb.IsSafeModeRequest{}
+		resp, err := client.IsSafeMode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerQueryActivityPropertyCmd = &cobra.Command{
+	Use:   "query-activity-property",
+	Short: "QueryActivityProperty RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerServiceClient(grpcConn)
+		req := &pb.QueryActivityPropertyRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.QueryActivityProperty(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerQueryApplicationPropertyCmd = &cobra.Command{
+	Use:   "query-application-property",
+	Short: "QueryApplicationProperty RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerServiceClient(grpcConn)
+		req := &pb.QueryApplicationPropertyRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.QueryApplicationProperty(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerQueryBroadcastReceivers2Cmd = &cobra.Command{
+	Use:   "query-broadcast-receivers2",
+	Short: "QueryBroadcastReceivers2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerServiceClient(grpcConn)
+		req := &pb.QueryBroadcastReceivers2Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.QueryBroadcastReceivers2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerQueryBroadcastReceivers2_1Cmd = &cobra.Command{
+	Use:   "query-broadcast-receivers2_1",
+	Short: "QueryBroadcastReceivers2_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerServiceClient(grpcConn)
+		req := &pb.QueryBroadcastReceivers2_1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.QueryBroadcastReceivers2_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerQueryContentProviders3Cmd = &cobra.Command{
+	Use:   "query-content-providers3",
+	Short: "QueryContentProviders3 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerServiceClient(grpcConn)
+		req := &pb.QueryContentProviders3Request{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.QueryContentProviders3(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerQueryContentProviders3_1Cmd = &cobra.Command{
+	Use:   "query-content-providers3_1",
+	Short: "QueryContentProviders3_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerServiceClient(grpcConn)
+		req := &pb.QueryContentProviders3_1Request{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.QueryContentProviders3_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerQueryInstrumentationCmd = &cobra.Command{
+	Use:   "query-instrumentation",
+	Short: "QueryInstrumentation RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerServiceClient(grpcConn)
+		req := &pb.QueryInstrumentationRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.QueryInstrumentation(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerQueryIntentActivities2Cmd = &cobra.Command{
+	Use:   "query-intent-activities2",
+	Short: "QueryIntentActivities2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerServiceClient(grpcConn)
+		req := &pb.QueryIntentActivities2Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.QueryIntentActivities2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerQueryIntentActivities2_1Cmd = &cobra.Command{
+	Use:   "query-intent-activities2_1",
+	Short: "QueryIntentActivities2_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerServiceClient(grpcConn)
+		req := &pb.QueryIntentActivities2_1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.QueryIntentActivities2_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerQueryIntentActivityOptionsCmd = &cobra.Command{
+	Use:   "query-intent-activity-options",
+	Short: "QueryIntentActivityOptions RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerServiceClient(grpcConn)
+		req := &pb.QueryIntentActivityOptionsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.QueryIntentActivityOptions(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerQueryIntentContentProviders2Cmd = &cobra.Command{
+	Use:   "query-intent-content-providers2",
+	Short: "QueryIntentContentProviders2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerServiceClient(grpcConn)
+		req := &pb.QueryIntentContentProviders2Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.QueryIntentContentProviders2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerQueryIntentContentProviders2_1Cmd = &cobra.Command{
+	Use:   "query-intent-content-providers2_1",
+	Short: "QueryIntentContentProviders2_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerServiceClient(grpcConn)
+		req := &pb.QueryIntentContentProviders2_1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.QueryIntentContentProviders2_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerQueryIntentServices2Cmd = &cobra.Command{
+	Use:   "query-intent-services2",
+	Short: "QueryIntentServices2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerServiceClient(grpcConn)
+		req := &pb.QueryIntentServices2Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.QueryIntentServices2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerQueryIntentServices2_1Cmd = &cobra.Command{
+	Use:   "query-intent-services2_1",
+	Short: "QueryIntentServices2_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerServiceClient(grpcConn)
+		req := &pb.QueryIntentServices2_1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.QueryIntentServices2_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerQueryPermissionsByGroupCmd = &cobra.Command{
+	Use:   "query-permissions-by-group",
+	Short: "QueryPermissionsByGroup RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerServiceClient(grpcConn)
+		req := &pb.QueryPermissionsByGroupRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.QueryPermissionsByGroup(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerQueryProviderPropertyCmd = &cobra.Command{
+	Use:   "query-provider-property",
+	Short: "QueryProviderProperty RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerServiceClient(grpcConn)
+		req := &pb.QueryProviderPropertyRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.QueryProviderProperty(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerQueryReceiverPropertyCmd = &cobra.Command{
+	Use:   "query-receiver-property",
+	Short: "QueryReceiverProperty RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerServiceClient(grpcConn)
+		req := &pb.QueryReceiverPropertyRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.QueryReceiverProperty(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerQueryServicePropertyCmd = &cobra.Command{
+	Use:   "query-service-property",
+	Short: "QueryServiceProperty RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerServiceClient(grpcConn)
+		req := &pb.QueryServicePropertyRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.QueryServiceProperty(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerRelinquishUpdateOwnershipCmd = &cobra.Command{
+	Use:   "relinquish-update-ownership",
+	Short: "RelinquishUpdateOwnership RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerServiceClient(grpcConn)
+		req := &pb.RelinquishUpdateOwnershipRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.RelinquishUpdateOwnership(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerRemovePackageFromPreferredCmd = &cobra.Command{
+	Use:   "remove-package-from-preferred",
+	Short: "RemovePackageFromPreferred RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerServiceClient(grpcConn)
+		req := &pb.RemovePackageFromPreferredRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.RemovePackageFromPreferred(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerRemovePermissionCmd = &cobra.Command{
+	Use:   "remove-permission",
+	Short: "RemovePermission RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerServiceClient(grpcConn)
+		req := &pb.RemovePermissionRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.RemovePermission(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerRemoveWhitelistedRestrictedPermissionCmd = &cobra.Command{
+	Use:   "remove-whitelisted-restricted-permission",
+	Short: "RemoveWhitelistedRestrictedPermission RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerServiceClient(grpcConn)
+		req := &pb.RemoveWhitelistedRestrictedPermissionRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.RemoveWhitelistedRestrictedPermission(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerResolveActivity2Cmd = &cobra.Command{
+	Use:   "resolve-activity2",
+	Short: "ResolveActivity2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerServiceClient(grpcConn)
+		req := &pb.ResolveActivity2Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.ResolveActivity2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerResolveActivity2_1Cmd = &cobra.Command{
+	Use:   "resolve-activity2_1",
+	Short: "ResolveActivity2_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerServiceClient(grpcConn)
+		req := &pb.ResolveActivity2_1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.ResolveActivity2_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerResolveContentProvider2Cmd = &cobra.Command{
+	Use:   "resolve-content-provider2",
+	Short: "ResolveContentProvider2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerServiceClient(grpcConn)
+		req := &pb.ResolveContentProvider2Request{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.ResolveContentProvider2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerResolveContentProvider2_1Cmd = &cobra.Command{
+	Use:   "resolve-content-provider2_1",
+	Short: "ResolveContentProvider2_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerServiceClient(grpcConn)
+		req := &pb.ResolveContentProvider2_1Request{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.ResolveContentProvider2_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerResolveService2Cmd = &cobra.Command{
+	Use:   "resolve-service2",
+	Short: "ResolveService2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerServiceClient(grpcConn)
+		req := &pb.ResolveService2Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.ResolveService2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerResolveService2_1Cmd = &cobra.Command{
+	Use:   "resolve-service2_1",
+	Short: "ResolveService2_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerServiceClient(grpcConn)
+		req := &pb.ResolveService2_1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.ResolveService2_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerSetApplicationCategoryHintCmd = &cobra.Command{
+	Use:   "set-application-category-hint",
+	Short: "SetApplicationCategoryHint RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerServiceClient(grpcConn)
+		req := &pb.SetApplicationCategoryHintRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.SetApplicationCategoryHint(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerSetApplicationEnabledSettingCmd = &cobra.Command{
+	Use:   "set-application-enabled-setting",
+	Short: "SetApplicationEnabledSetting RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerServiceClient(grpcConn)
+		req := &pb.SetApplicationEnabledSettingRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.SetApplicationEnabledSetting(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerSetAutoRevokeWhitelistedCmd = &cobra.Command{
+	Use:   "set-auto-revoke-whitelisted",
+	Short: "SetAutoRevokeWhitelisted RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerServiceClient(grpcConn)
+		req := &pb.SetAutoRevokeWhitelistedRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetBool("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.SetAutoRevokeWhitelisted(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerSetComponentEnabledSettingCmd = &cobra.Command{
+	Use:   "set-component-enabled-setting",
+	Short: "SetComponentEnabledSetting RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerServiceClient(grpcConn)
+		req := &pb.SetComponentEnabledSettingRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.SetComponentEnabledSetting(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerSetInstallerPackageNameCmd = &cobra.Command{
+	Use:   "set-installer-package-name",
+	Short: "SetInstallerPackageName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerServiceClient(grpcConn)
+		req := &pb.SetInstallerPackageNameRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.SetInstallerPackageName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerUpdateInstantAppCookieCmd = &cobra.Command{
+	Use:   "update-instant-app-cookie",
+	Short: "UpdateInstantAppCookie RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerServiceClient(grpcConn)
+		req := &pb.UpdateInstantAppCookieRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.UpdateInstantAppCookie(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerVerifyPendingInstallCmd = &cobra.Command{
+	Use:   "verify-pending-install",
+	Short: "VerifyPendingInstall RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerServiceClient(grpcConn)
+		req := &pb.VerifyPendingInstallRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.VerifyPendingInstall(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerGetVerifiedSigningInfoCmd = &cobra.Command{
+	Use:   "get-verified-signing-info",
+	Short: "GetVerifiedSigningInfo RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerServiceClient(grpcConn)
+		req := &pb.GetVerifiedSigningInfoRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.GetVerifiedSigningInfo(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerApplicationInfoFlagsCmd = &cobra.Command{
+	Use:   "package-manager-application-info-flags",
+	Short: "PackageManagerApplicationInfoFlagsService operations",
+}
+
+var pmPackageManagerApplicationInfoFlagsGetValueCmd = &cobra.Command{
+	Use:   "get-value",
+	Short: "GetValue RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerApplicationInfoFlagsServiceClient(grpcConn)
+		req := &pb.GetValueRequest{}
+		resp, err := client.GetValue(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerApplicationInfoFlagsOfCmd = &cobra.Command{
+	Use:   "of",
+	Short: "Of RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerApplicationInfoFlagsServiceClient(grpcConn)
+		req := &pb.OfRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Of(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerComponentEnabledSettingCmd = &cobra.Command{
+	Use:   "package-manager-component-enabled-setting",
+	Short: "PackageManagerComponentEnabledSettingService operations",
+}
+
+var pmPackageManagerComponentEnabledSettingDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerComponentEnabledSettingServiceClient(grpcConn)
+		req := &pb.PackageManagerComponentEnabledSettingDescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerComponentEnabledSettingGetComponentNameCmd = &cobra.Command{
+	Use:   "get-component-name",
+	Short: "GetComponentName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerComponentEnabledSettingServiceClient(grpcConn)
+		req := &pb.GetComponentNameRequest{}
+		resp, err := client.GetComponentName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerComponentEnabledSettingGetEnabledFlagsCmd = &cobra.Command{
+	Use:   "get-enabled-flags",
+	Short: "GetEnabledFlags RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerComponentEnabledSettingServiceClient(grpcConn)
+		req := &pb.GetEnabledFlagsRequest{}
+		resp, err := client.GetEnabledFlags(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerComponentEnabledSettingGetEnabledStateCmd = &cobra.Command{
+	Use:   "get-enabled-state",
+	Short: "GetEnabledState RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerComponentEnabledSettingServiceClient(grpcConn)
+		req := &pb.GetEnabledStateRequest{}
+		resp, err := client.GetEnabledState(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerComponentEnabledSettingWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerComponentEnabledSettingServiceClient(grpcConn)
+		req := &pb.PackageManagerComponentEnabledSettingWriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerComponentInfoFlagsCmd = &cobra.Command{
+	Use:   "package-manager-component-info-flags",
+	Short: "PackageManagerComponentInfoFlagsService operations",
+}
+
+var pmPackageManagerComponentInfoFlagsGetValueCmd = &cobra.Command{
+	Use:   "get-value",
+	Short: "GetValue RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerComponentInfoFlagsServiceClient(grpcConn)
+		req := &pb.GetValueRequest{}
+		resp, err := client.GetValue(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerComponentInfoFlagsOfCmd = &cobra.Command{
+	Use:   "of",
+	Short: "Of RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerComponentInfoFlagsServiceClient(grpcConn)
+		req := &pb.OfRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Of(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerPackageInfoFlagsCmd = &cobra.Command{
+	Use:   "package-manager-package-info-flags",
+	Short: "PackageManagerPackageInfoFlagsService operations",
+}
+
+var pmPackageManagerPackageInfoFlagsGetValueCmd = &cobra.Command{
+	Use:   "get-value",
+	Short: "GetValue RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerPackageInfoFlagsServiceClient(grpcConn)
+		req := &pb.GetValueRequest{}
+		resp, err := client.GetValue(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerPackageInfoFlagsOfCmd = &cobra.Command{
+	Use:   "of",
+	Short: "Of RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerPackageInfoFlagsServiceClient(grpcConn)
+		req := &pb.OfRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Of(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerPropertyCmd = &cobra.Command{
+	Use:   "package-manager-property",
+	Short: "PackageManagerPropertyService operations",
+}
+
+var pmPackageManagerPropertyDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerPropertyServiceClient(grpcConn)
+		req := &pb.PackageManagerPropertyDescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerPropertyEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerPropertyServiceClient(grpcConn)
+		req := &pb.PackageManagerPropertyEqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerPropertyGetBooleanCmd = &cobra.Command{
+	Use:   "get-boolean",
+	Short: "GetBoolean RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerPropertyServiceClient(grpcConn)
+		req := &pb.GetBooleanRequest{}
+		resp, err := client.GetBoolean(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerPropertyGetClassNameCmd = &cobra.Command{
+	Use:   "get-class-name",
+	Short: "GetClassName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerPropertyServiceClient(grpcConn)
+		req := &pb.GetClassNameRequest{}
+		resp, err := client.GetClassName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerPropertyGetFloatCmd = &cobra.Command{
+	Use:   "get-float",
+	Short: "GetFloat RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerPropertyServiceClient(grpcConn)
+		req := &pb.GetFloatRequest{}
+		resp, err := client.GetFloat(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerPropertyGetIntegerCmd = &cobra.Command{
+	Use:   "get-integer",
+	Short: "GetInteger RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerPropertyServiceClient(grpcConn)
+		req := &pb.GetIntegerRequest{}
+		resp, err := client.GetInteger(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerPropertyGetNameCmd = &cobra.Command{
+	Use:   "get-name",
+	Short: "GetName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerPropertyServiceClient(grpcConn)
+		req := &pb.GetNameRequest{}
+		resp, err := client.GetName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerPropertyGetPackageNameCmd = &cobra.Command{
+	Use:   "get-package-name",
+	Short: "GetPackageName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerPropertyServiceClient(grpcConn)
+		req := &pb.PackageManagerPropertyGetPackageNameRequest{}
+		resp, err := client.GetPackageName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerPropertyGetResourceIdCmd = &cobra.Command{
+	Use:   "get-resource-id",
+	Short: "GetResourceId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerPropertyServiceClient(grpcConn)
+		req := &pb.GetResourceIdRequest{}
+		resp, err := client.GetResourceId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerPropertyGetStringCmd = &cobra.Command{
+	Use:   "get-string",
+	Short: "GetString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerPropertyServiceClient(grpcConn)
+		req := &pb.GetStringRequest{}
+		resp, err := client.GetString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerPropertyHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerPropertyServiceClient(grpcConn)
+		req := &pb.PackageManagerPropertyHashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerPropertyIsBooleanCmd = &cobra.Command{
+	Use:   "is-boolean",
+	Short: "IsBoolean RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerPropertyServiceClient(grpcConn)
+		req := &pb.IsBooleanRequest{}
+		resp, err := client.IsBoolean(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerPropertyIsFloatCmd = &cobra.Command{
+	Use:   "is-float",
+	Short: "IsFloat RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerPropertyServiceClient(grpcConn)
+		req := &pb.IsFloatRequest{}
+		resp, err := client.IsFloat(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerPropertyIsIntegerCmd = &cobra.Command{
+	Use:   "is-integer",
+	Short: "IsInteger RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerPropertyServiceClient(grpcConn)
+		req := &pb.IsIntegerRequest{}
+		resp, err := client.IsInteger(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerPropertyIsResourceIdCmd = &cobra.Command{
+	Use:   "is-resource-id",
+	Short: "IsResourceId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerPropertyServiceClient(grpcConn)
+		req := &pb.IsResourceIdRequest{}
+		resp, err := client.IsResourceId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerPropertyIsStringCmd = &cobra.Command{
+	Use:   "is-string",
+	Short: "IsString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerPropertyServiceClient(grpcConn)
+		req := &pb.IsStringRequest{}
+		resp, err := client.IsString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerPropertyWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerPropertyServiceClient(grpcConn)
+		req := &pb.PackageManagerPropertyWriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerResolveInfoFlagsCmd = &cobra.Command{
+	Use:   "package-manager-resolve-info-flags",
+	Short: "PackageManagerResolveInfoFlagsService operations",
+}
+
+var pmPackageManagerResolveInfoFlagsGetValueCmd = &cobra.Command{
+	Use:   "get-value",
+	Short: "GetValue RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerResolveInfoFlagsServiceClient(grpcConn)
+		req := &pb.GetValueRequest{}
+		resp, err := client.GetValue(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageManagerResolveInfoFlagsOfCmd = &cobra.Command{
+	Use:   "of",
+	Short: "Of RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageManagerResolveInfoFlagsServiceClient(grpcConn)
+		req := &pb.OfRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Of(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmFeatureGroupInfoCmd = &cobra.Command{
+	Use:   "feature-group-info",
+	Short: "FeatureGroupInfoService operations",
+}
+
+var pmFeatureGroupInfoNewFeatureGroupInfoCmd = &cobra.Command{
+	Use:   "new-feature-group-info",
+	Short: "NewFeatureGroupInfo RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFeatureGroupInfoServiceClient(grpcConn)
+		req := &pb.NewFeatureGroupInfoRequest{}
+		resp, err := client.NewFeatureGroupInfo(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmFeatureGroupInfoDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFeatureGroupInfoServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmFeatureGroupInfoWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFeatureGroupInfoServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmAttributionCmd = &cobra.Command{
+	Use:   "attribution",
+	Short: "AttributionService operations",
+}
+
+var pmAttributionDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAttributionServiceClient(grpcConn)
+		req := &pb.AttributionDescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmAttributionGetLabelCmd = &cobra.Command{
+	Use:   "get-label",
+	Short: "GetLabel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAttributionServiceClient(grpcConn)
+		req := &pb.GetLabelRequest{}
+		resp, err := client.GetLabel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmAttributionGetTagCmd = &cobra.Command{
+	Use:   "get-tag",
+	Short: "GetTag RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAttributionServiceClient(grpcConn)
+		req := &pb.GetTagRequest{}
+		resp, err := client.GetTag(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmAttributionWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAttributionServiceClient(grpcConn)
+		req := &pb.AttributionWriteToParcelRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
@@ -976,19 +8215,19 @@ var pmPermissionInfoWriteToParcelCmd = &cobra.Command{
 	},
 }
 
-var pmShortcutInfoCmd = &cobra.Command{
-	Use:   "shortcut-info",
-	Short: "ShortcutInfoService operations",
+var pmCapabilityCmd = &cobra.Command{
+	Use:   "capability",
+	Short: "CapabilityService operations",
 }
 
-var pmShortcutInfoDescribeContentsCmd = &cobra.Command{
+var pmCapabilityDescribeContentsCmd = &cobra.Command{
 	Use:   "describe-contents",
 	Short: "DescribeContents RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewShortcutInfoServiceClient(grpcConn)
-		req := &pb.ShortcutInfoDescribeContentsRequest{}
+		client := pb.NewCapabilityServiceClient(grpcConn)
+		req := &pb.CapabilityDescribeContentsRequest{}
 		resp, err := client.DescribeContents(ctx, req)
 		if err != nil {
 			return err
@@ -997,338 +8236,18 @@ var pmShortcutInfoDescribeContentsCmd = &cobra.Command{
 	},
 }
 
-var pmShortcutInfoGetActivityCmd = &cobra.Command{
-	Use:   "get-activity",
-	Short: "GetActivity RPC",
+var pmCapabilityEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewShortcutInfoServiceClient(grpcConn)
-		req := &pb.GetActivityRequest{}
-		resp, err := client.GetActivity(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmShortcutInfoGetDisabledMessageCmd = &cobra.Command{
-	Use:   "get-disabled-message",
-	Short: "GetDisabledMessage RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewShortcutInfoServiceClient(grpcConn)
-		req := &pb.GetDisabledMessageRequest{}
-		resp, err := client.GetDisabledMessage(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmShortcutInfoGetDisabledReasonCmd = &cobra.Command{
-	Use:   "get-disabled-reason",
-	Short: "GetDisabledReason RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewShortcutInfoServiceClient(grpcConn)
-		req := &pb.GetDisabledReasonRequest{}
-		resp, err := client.GetDisabledReason(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmShortcutInfoGetExcludedFromSurfacesCmd = &cobra.Command{
-	Use:   "get-excluded-from-surfaces",
-	Short: "GetExcludedFromSurfaces RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewShortcutInfoServiceClient(grpcConn)
-		req := &pb.GetExcludedFromSurfacesRequest{}
-		resp, err := client.GetExcludedFromSurfaces(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmShortcutInfoGetExtrasCmd = &cobra.Command{
-	Use:   "get-extras",
-	Short: "GetExtras RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewShortcutInfoServiceClient(grpcConn)
-		req := &pb.GetExtrasRequest{}
-		resp, err := client.GetExtras(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmShortcutInfoGetIdCmd = &cobra.Command{
-	Use:   "get-id",
-	Short: "GetId RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewShortcutInfoServiceClient(grpcConn)
-		req := &pb.GetIdRequest{}
-		resp, err := client.GetId(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmShortcutInfoGetIntentCmd = &cobra.Command{
-	Use:   "get-intent",
-	Short: "GetIntent RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewShortcutInfoServiceClient(grpcConn)
-		req := &pb.GetIntentRequest{}
-		resp, err := client.GetIntent(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmShortcutInfoGetIntentsCmd = &cobra.Command{
-	Use:   "get-intents",
-	Short: "GetIntents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewShortcutInfoServiceClient(grpcConn)
-		req := &pb.GetIntentsRequest{}
-		resp, err := client.GetIntents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmShortcutInfoGetLastChangedTimestampCmd = &cobra.Command{
-	Use:   "get-last-changed-timestamp",
-	Short: "GetLastChangedTimestamp RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewShortcutInfoServiceClient(grpcConn)
-		req := &pb.GetLastChangedTimestampRequest{}
-		resp, err := client.GetLastChangedTimestamp(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmShortcutInfoGetLocusIdCmd = &cobra.Command{
-	Use:   "get-locus-id",
-	Short: "GetLocusId RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewShortcutInfoServiceClient(grpcConn)
-		req := &pb.GetLocusIdRequest{}
-		resp, err := client.GetLocusId(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmShortcutInfoGetLongLabelCmd = &cobra.Command{
-	Use:   "get-long-label",
-	Short: "GetLongLabel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewShortcutInfoServiceClient(grpcConn)
-		req := &pb.GetLongLabelRequest{}
-		resp, err := client.GetLongLabel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmShortcutInfoGetPackageCmd = &cobra.Command{
-	Use:   "get-package",
-	Short: "GetPackage RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewShortcutInfoServiceClient(grpcConn)
-		req := &pb.GetPackageRequest{}
-		resp, err := client.GetPackage(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmShortcutInfoGetRankCmd = &cobra.Command{
-	Use:   "get-rank",
-	Short: "GetRank RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewShortcutInfoServiceClient(grpcConn)
-		req := &pb.GetRankRequest{}
-		resp, err := client.GetRank(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmShortcutInfoGetShortLabelCmd = &cobra.Command{
-	Use:   "get-short-label",
-	Short: "GetShortLabel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewShortcutInfoServiceClient(grpcConn)
-		req := &pb.GetShortLabelRequest{}
-		resp, err := client.GetShortLabel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmShortcutInfoGetUserHandleCmd = &cobra.Command{
-	Use:   "get-user-handle",
-	Short: "GetUserHandle RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewShortcutInfoServiceClient(grpcConn)
-		req := &pb.GetUserHandleRequest{}
-		resp, err := client.GetUserHandle(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmShortcutInfoHasKeyFieldsOnlyCmd = &cobra.Command{
-	Use:   "has-key-fields-only",
-	Short: "HasKeyFieldsOnly RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewShortcutInfoServiceClient(grpcConn)
-		req := &pb.HasKeyFieldsOnlyRequest{}
-		resp, err := client.HasKeyFieldsOnly(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmShortcutInfoIsCachedCmd = &cobra.Command{
-	Use:   "is-cached",
-	Short: "IsCached RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewShortcutInfoServiceClient(grpcConn)
-		req := &pb.IsCachedRequest{}
-		resp, err := client.IsCached(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmShortcutInfoIsDeclaredInManifestCmd = &cobra.Command{
-	Use:   "is-declared-in-manifest",
-	Short: "IsDeclaredInManifest RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewShortcutInfoServiceClient(grpcConn)
-		req := &pb.IsDeclaredInManifestRequest{}
-		resp, err := client.IsDeclaredInManifest(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmShortcutInfoIsDynamicCmd = &cobra.Command{
-	Use:   "is-dynamic",
-	Short: "IsDynamic RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewShortcutInfoServiceClient(grpcConn)
-		req := &pb.IsDynamicRequest{}
-		resp, err := client.IsDynamic(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmShortcutInfoIsEnabledCmd = &cobra.Command{
-	Use:   "is-enabled",
-	Short: "IsEnabled RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewShortcutInfoServiceClient(grpcConn)
-		req := &pb.ShortcutInfoIsEnabledRequest{}
-		resp, err := client.IsEnabled(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmShortcutInfoIsExcludedFromSurfacesCmd = &cobra.Command{
-	Use:   "is-excluded-from-surfaces",
-	Short: "IsExcludedFromSurfaces RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewShortcutInfoServiceClient(grpcConn)
-		req := &pb.IsExcludedFromSurfacesRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+		client := pb.NewCapabilityServiceClient(grpcConn)
+		req := &pb.CapabilityEqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		resp, err := client.IsExcludedFromSurfaces(ctx, req)
+		resp, err := client.Equals(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1336,15 +8255,15 @@ var pmShortcutInfoIsExcludedFromSurfacesCmd = &cobra.Command{
 	},
 }
 
-var pmShortcutInfoIsImmutableCmd = &cobra.Command{
-	Use:   "is-immutable",
-	Short: "IsImmutable RPC",
+var pmCapabilityGetNameCmd = &cobra.Command{
+	Use:   "get-name",
+	Short: "GetName RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewShortcutInfoServiceClient(grpcConn)
-		req := &pb.IsImmutableRequest{}
-		resp, err := client.IsImmutable(ctx, req)
+		client := pb.NewCapabilityServiceClient(grpcConn)
+		req := &pb.GetNameRequest{}
+		resp, err := client.GetName(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1352,15 +8271,15 @@ var pmShortcutInfoIsImmutableCmd = &cobra.Command{
 	},
 }
 
-var pmShortcutInfoIsPinnedCmd = &cobra.Command{
-	Use:   "is-pinned",
-	Short: "IsPinned RPC",
+var pmCapabilityHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewShortcutInfoServiceClient(grpcConn)
-		req := &pb.IsPinnedRequest{}
-		resp, err := client.IsPinned(ctx, req)
+		client := pb.NewCapabilityServiceClient(grpcConn)
+		req := &pb.CapabilityHashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1368,30 +8287,14 @@ var pmShortcutInfoIsPinnedCmd = &cobra.Command{
 	},
 }
 
-var pmShortcutInfoToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewShortcutInfoServiceClient(grpcConn)
-		req := &pb.ShortcutInfoToStringRequest{}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmShortcutInfoWriteToParcelCmd = &cobra.Command{
+var pmCapabilityWriteToParcelCmd = &cobra.Command{
 	Use:   "write-to-parcel",
 	Short: "WriteToParcel RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewShortcutInfoServiceClient(grpcConn)
-		req := &pb.ShortcutInfoWriteToParcelRequest{}
+		client := pb.NewCapabilityServiceClient(grpcConn)
+		req := &pb.CapabilityWriteToParcelRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
@@ -1406,62 +8309,18 @@ var pmShortcutInfoWriteToParcelCmd = &cobra.Command{
 	},
 }
 
-var pmShortcutInfoCreateFromGenericDocumentCmd = &cobra.Command{
-	Use:   "create-from-generic-document",
-	Short: "CreateFromGenericDocument RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewShortcutInfoServiceClient(grpcConn)
-		req := &pb.CreateFromGenericDocumentRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.CreateFromGenericDocument(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
+var pmCapabilityBuilderCmd = &cobra.Command{
+	Use:   "capability-builder",
+	Short: "CapabilityBuilderService operations",
 }
 
-var pmShortcutInfoBuilderCmd = &cobra.Command{
-	Use:   "shortcut-info-builder",
-	Short: "ShortcutInfoBuilderService operations",
-}
-
-var pmShortcutInfoBuilderAddCapabilityBindingCmd = &cobra.Command{
-	Use:   "add-capability-binding",
-	Short: "AddCapabilityBinding RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewShortcutInfoBuilderServiceClient(grpcConn)
-		req := &pb.AddCapabilityBindingRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.AddCapabilityBinding(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmShortcutInfoBuilderBuildCmd = &cobra.Command{
+var pmCapabilityBuilderBuildCmd = &cobra.Command{
 	Use:   "build",
 	Short: "Build RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewShortcutInfoBuilderServiceClient(grpcConn)
+		client := pb.NewCapabilityBuilderServiceClient(grpcConn)
 		req := &pb.BuildRequest{}
 		resp, err := client.Build(ctx, req)
 		if err != nil {
@@ -1471,284 +8330,20 @@ var pmShortcutInfoBuilderBuildCmd = &cobra.Command{
 	},
 }
 
-var pmShortcutInfoBuilderSetActivityCmd = &cobra.Command{
-	Use:   "set-activity",
-	Short: "SetActivity RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewShortcutInfoBuilderServiceClient(grpcConn)
-		req := &pb.SetActivityRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetActivity(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
+var pmSigningInfoExceptionCmd = &cobra.Command{
+	Use:   "signing-info-exception",
+	Short: "SigningInfoExceptionService operations",
 }
 
-var pmShortcutInfoBuilderSetDisabledMessageCmd = &cobra.Command{
-	Use:   "set-disabled-message",
-	Short: "SetDisabledMessage RPC",
+var pmSigningInfoExceptionGetCodeCmd = &cobra.Command{
+	Use:   "get-code",
+	Short: "GetCode RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewShortcutInfoBuilderServiceClient(grpcConn)
-		req := &pb.SetDisabledMessageRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetDisabledMessage(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmShortcutInfoBuilderSetExcludedFromSurfacesCmd = &cobra.Command{
-	Use:   "set-excluded-from-surfaces",
-	Short: "SetExcludedFromSurfaces RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewShortcutInfoBuilderServiceClient(grpcConn)
-		req := &pb.SetExcludedFromSurfacesRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetExcludedFromSurfaces(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmShortcutInfoBuilderSetExtrasCmd = &cobra.Command{
-	Use:   "set-extras",
-	Short: "SetExtras RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewShortcutInfoBuilderServiceClient(grpcConn)
-		req := &pb.SetExtrasRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetExtras(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmShortcutInfoBuilderSetIconCmd = &cobra.Command{
-	Use:   "set-icon",
-	Short: "SetIcon RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewShortcutInfoBuilderServiceClient(grpcConn)
-		req := &pb.SetIconRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetIcon(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmShortcutInfoBuilderSetIntentCmd = &cobra.Command{
-	Use:   "set-intent",
-	Short: "SetIntent RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewShortcutInfoBuilderServiceClient(grpcConn)
-		req := &pb.SetIntentRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetIntent(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmShortcutInfoBuilderSetIntentsCmd = &cobra.Command{
-	Use:   "set-intents",
-	Short: "SetIntents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewShortcutInfoBuilderServiceClient(grpcConn)
-		req := &pb.SetIntentsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetIntents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmShortcutInfoBuilderSetLocusIdCmd = &cobra.Command{
-	Use:   "set-locus-id",
-	Short: "SetLocusId RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewShortcutInfoBuilderServiceClient(grpcConn)
-		req := &pb.SetLocusIdRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetLocusId(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmShortcutInfoBuilderSetLongLabelCmd = &cobra.Command{
-	Use:   "set-long-label",
-	Short: "SetLongLabel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewShortcutInfoBuilderServiceClient(grpcConn)
-		req := &pb.SetLongLabelRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetLongLabel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmShortcutInfoBuilderSetLongLivedCmd = &cobra.Command{
-	Use:   "set-long-lived",
-	Short: "SetLongLived RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewShortcutInfoBuilderServiceClient(grpcConn)
-		req := &pb.SetLongLivedRequest{}
-		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetLongLived(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmShortcutInfoBuilderSetPersonCmd = &cobra.Command{
-	Use:   "set-person",
-	Short: "SetPerson RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewShortcutInfoBuilderServiceClient(grpcConn)
-		req := &pb.SetPersonRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetPerson(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmShortcutInfoBuilderSetPersonsCmd = &cobra.Command{
-	Use:   "set-persons",
-	Short: "SetPersons RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewShortcutInfoBuilderServiceClient(grpcConn)
-		req := &pb.SetPersonsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetPersons(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmShortcutInfoBuilderSetRankCmd = &cobra.Command{
-	Use:   "set-rank",
-	Short: "SetRank RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewShortcutInfoBuilderServiceClient(grpcConn)
-		req := &pb.SetRankRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetRank(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmShortcutInfoBuilderSetShortLabelCmd = &cobra.Command{
-	Use:   "set-short-label",
-	Short: "SetShortLabel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewShortcutInfoBuilderServiceClient(grpcConn)
-		req := &pb.SetShortLabelRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetShortLabel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmShortcutInfoBuilderSetStartingThemeCmd = &cobra.Command{
-	Use:   "set-starting-theme",
-	Short: "SetStartingTheme RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewShortcutInfoBuilderServiceClient(grpcConn)
-		req := &pb.SetStartingThemeRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetStartingTheme(ctx, req)
+		client := pb.NewSigningInfoExceptionServiceClient(grpcConn)
+		req := &pb.GetCodeRequest{}
+		resp, err := client.GetCode(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1759,6 +8354,44 @@ var pmShortcutInfoBuilderSetStartingThemeCmd = &cobra.Command{
 var pmLauncherAppsCmd = &cobra.Command{
 	Use:   "launcher-apps",
 	Short: "LauncherAppsService operations",
+}
+
+var pmLauncherAppsGetActivityListCmd = &cobra.Command{
+	Use:   "get-activity-list",
+	Short: "GetActivityList RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLauncherAppsServiceClient(grpcConn)
+		req := &pb.GetActivityListRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.GetActivityList(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmLauncherAppsGetAllPackageInstallerSessionsCmd = &cobra.Command{
+	Use:   "get-all-package-installer-sessions",
+	Short: "GetAllPackageInstallerSessions RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLauncherAppsServiceClient(grpcConn)
+		req := &pb.GetAllPackageInstallerSessionsRequest{}
+		resp, err := client.GetAllPackageInstallerSessions(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
 }
 
 var pmLauncherAppsGetAppMarketActivityIntentCmd = &cobra.Command{
@@ -1790,7 +8423,7 @@ var pmLauncherAppsGetApplicationInfoCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewLauncherAppsServiceClient(grpcConn)
-		req := &pb.GetApplicationInfoRequest{}
+		req := &pb.LauncherAppsGetApplicationInfoRequest{}
 		if v, err := cmd.Flags().GetString("arg0"); err == nil {
 			req.Arg0 = v
 		}
@@ -1846,6 +8479,25 @@ var pmLauncherAppsGetPinItemRequestCmd = &cobra.Command{
 	},
 }
 
+var pmLauncherAppsGetPreInstalledSystemPackagesCmd = &cobra.Command{
+	Use:   "get-pre-installed-system-packages",
+	Short: "GetPreInstalledSystemPackages RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLauncherAppsServiceClient(grpcConn)
+		req := &pb.GetPreInstalledSystemPackagesRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetPreInstalledSystemPackages(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var pmLauncherAppsGetPrivateSpaceSettingsIntentCmd = &cobra.Command{
 	Use:   "get-private-space-settings-intent",
 	Short: "GetPrivateSpaceSettingsIntent RPC",
@@ -1855,6 +8507,22 @@ var pmLauncherAppsGetPrivateSpaceSettingsIntentCmd = &cobra.Command{
 		client := pb.NewLauncherAppsServiceClient(grpcConn)
 		req := &pb.GetPrivateSpaceSettingsIntentRequest{}
 		resp, err := client.GetPrivateSpaceSettingsIntent(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmLauncherAppsGetProfilesCmd = &cobra.Command{
+	Use:   "get-profiles",
+	Short: "GetProfiles RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLauncherAppsServiceClient(grpcConn)
+		req := &pb.GetProfilesRequest{}
+		resp, err := client.GetProfiles(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1896,6 +8564,28 @@ var pmLauncherAppsGetShortcutConfigActivityIntentCmd = &cobra.Command{
 			req.Arg0 = v
 		}
 		resp, err := client.GetShortcutConfigActivityIntent(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmLauncherAppsGetShortcutConfigActivityListCmd = &cobra.Command{
+	Use:   "get-shortcut-config-activity-list",
+	Short: "GetShortcutConfigActivityList RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLauncherAppsServiceClient(grpcConn)
+		req := &pb.GetShortcutConfigActivityListRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.GetShortcutConfigActivityList(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1946,6 +8636,28 @@ var pmLauncherAppsGetShortcutIntentCmd = &cobra.Command{
 			req.Arg3 = v
 		}
 		resp, err := client.GetShortcutIntent(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmLauncherAppsGetShortcutsCmd = &cobra.Command{
+	Use:   "get-shortcuts",
+	Short: "GetShortcuts RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLauncherAppsServiceClient(grpcConn)
+		req := &pb.LauncherAppsGetShortcutsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.GetShortcuts(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -2833,941 +9545,6 @@ var pmLauncherAppsShortcutQuerySetQueryFlagsCmd = &cobra.Command{
 	},
 }
 
-var pmInstallSourceInfoCmd = &cobra.Command{
-	Use:   "install-source-info",
-	Short: "InstallSourceInfoService operations",
-}
-
-var pmInstallSourceInfoDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewInstallSourceInfoServiceClient(grpcConn)
-		req := &pb.InstallSourceInfoDescribeContentsRequest{}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmInstallSourceInfoGetInitiatingPackageNameCmd = &cobra.Command{
-	Use:   "get-initiating-package-name",
-	Short: "GetInitiatingPackageName RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewInstallSourceInfoServiceClient(grpcConn)
-		req := &pb.GetInitiatingPackageNameRequest{}
-		resp, err := client.GetInitiatingPackageName(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmInstallSourceInfoGetInitiatingPackageSigningInfoCmd = &cobra.Command{
-	Use:   "get-initiating-package-signing-info",
-	Short: "GetInitiatingPackageSigningInfo RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewInstallSourceInfoServiceClient(grpcConn)
-		req := &pb.GetInitiatingPackageSigningInfoRequest{}
-		resp, err := client.GetInitiatingPackageSigningInfo(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmInstallSourceInfoGetInstallingPackageNameCmd = &cobra.Command{
-	Use:   "get-installing-package-name",
-	Short: "GetInstallingPackageName RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewInstallSourceInfoServiceClient(grpcConn)
-		req := &pb.GetInstallingPackageNameRequest{}
-		resp, err := client.GetInstallingPackageName(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmInstallSourceInfoGetOriginatingPackageNameCmd = &cobra.Command{
-	Use:   "get-originating-package-name",
-	Short: "GetOriginatingPackageName RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewInstallSourceInfoServiceClient(grpcConn)
-		req := &pb.GetOriginatingPackageNameRequest{}
-		resp, err := client.GetOriginatingPackageName(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmInstallSourceInfoGetPackageSourceCmd = &cobra.Command{
-	Use:   "get-package-source",
-	Short: "GetPackageSource RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewInstallSourceInfoServiceClient(grpcConn)
-		req := &pb.GetPackageSourceRequest{}
-		resp, err := client.GetPackageSource(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmInstallSourceInfoGetUpdateOwnerPackageNameCmd = &cobra.Command{
-	Use:   "get-update-owner-package-name",
-	Short: "GetUpdateOwnerPackageName RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewInstallSourceInfoServiceClient(grpcConn)
-		req := &pb.GetUpdateOwnerPackageNameRequest{}
-		resp, err := client.GetUpdateOwnerPackageName(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmInstallSourceInfoWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewInstallSourceInfoServiceClient(grpcConn)
-		req := &pb.InstallSourceInfoWriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmFeatureGroupInfoCmd = &cobra.Command{
-	Use:   "feature-group-info",
-	Short: "FeatureGroupInfoService operations",
-}
-
-var pmFeatureGroupInfoNewFeatureGroupInfoCmd = &cobra.Command{
-	Use:   "new-feature-group-info",
-	Short: "NewFeatureGroupInfo RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFeatureGroupInfoServiceClient(grpcConn)
-		req := &pb.NewFeatureGroupInfoRequest{}
-		resp, err := client.NewFeatureGroupInfo(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmFeatureGroupInfoDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFeatureGroupInfoServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmFeatureGroupInfoWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFeatureGroupInfoServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageStatsCmd = &cobra.Command{
-	Use:   "package-stats",
-	Short: "PackageStatsService operations",
-}
-
-var pmPackageStatsNewPackageStatsCmd = &cobra.Command{
-	Use:   "new-package-stats",
-	Short: "NewPackageStats RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageStatsServiceClient(grpcConn)
-		req := &pb.NewPackageStatsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.NewPackageStats(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageStatsDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageStatsServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageStatsEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageStatsServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageStatsHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageStatsServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageStatsToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageStatsServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageStatsWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageStatsServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmConfigurationInfoCmd = &cobra.Command{
-	Use:   "configuration-info",
-	Short: "ConfigurationInfoService operations",
-}
-
-var pmConfigurationInfoNewConfigurationInfoCmd = &cobra.Command{
-	Use:   "new-configuration-info",
-	Short: "NewConfigurationInfo RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewConfigurationInfoServiceClient(grpcConn)
-		req := &pb.NewConfigurationInfoRequest{}
-		resp, err := client.NewConfigurationInfo(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmConfigurationInfoDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewConfigurationInfoServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmConfigurationInfoGetGlEsVersionCmd = &cobra.Command{
-	Use:   "get-gl-es-version",
-	Short: "GetGlEsVersion RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewConfigurationInfoServiceClient(grpcConn)
-		req := &pb.GetGlEsVersionRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetGlEsVersion(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmConfigurationInfoToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewConfigurationInfoServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmConfigurationInfoWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewConfigurationInfoServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmSignatureCmd = &cobra.Command{
-	Use:   "signature",
-	Short: "SignatureService operations",
-}
-
-var pmSignatureNewSignatureCmd = &cobra.Command{
-	Use:   "new-signature",
-	Short: "NewSignature RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSignatureServiceClient(grpcConn)
-		req := &pb.NewSignatureRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.NewSignature(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmSignatureDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSignatureServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmSignatureEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSignatureServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmSignatureHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSignatureServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmSignatureToByteArrayCmd = &cobra.Command{
-	Use:   "to-byte-array",
-	Short: "ToByteArray RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSignatureServiceClient(grpcConn)
-		req := &pb.ToByteArrayRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.ToByteArray(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmSignatureToChars0Cmd = &cobra.Command{
-	Use:   "to-chars0",
-	Short: "ToChars0 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSignatureServiceClient(grpcConn)
-		req := &pb.ToChars0Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.ToChars0(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmSignatureToChars2_1Cmd = &cobra.Command{
-	Use:   "to-chars2_1",
-	Short: "ToChars2_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSignatureServiceClient(grpcConn)
-		req := &pb.ToChars2_1Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.ToChars2_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmSignatureToCharsStringCmd = &cobra.Command{
-	Use:   "to-chars-string",
-	Short: "ToCharsString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSignatureServiceClient(grpcConn)
-		req := &pb.ToCharsStringRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.ToCharsString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmSignatureWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSignatureServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmLabeledIntentCmd = &cobra.Command{
-	Use:   "labeled-intent",
-	Short: "LabeledIntentService operations",
-}
-
-var pmLabeledIntentNewLabeledIntentCmd = &cobra.Command{
-	Use:   "new-labeled-intent",
-	Short: "NewLabeledIntent RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewLabeledIntentServiceClient(grpcConn)
-		req := &pb.NewLabeledIntentRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetString("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		resp, err := client.NewLabeledIntent(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmLabeledIntentGetIconResourceCmd = &cobra.Command{
-	Use:   "get-icon-resource",
-	Short: "GetIconResource RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewLabeledIntentServiceClient(grpcConn)
-		req := &pb.GetIconResourceRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetIconResource(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmLabeledIntentGetLabelResourceCmd = &cobra.Command{
-	Use:   "get-label-resource",
-	Short: "GetLabelResource RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewLabeledIntentServiceClient(grpcConn)
-		req := &pb.GetLabelResourceRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetLabelResource(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmLabeledIntentGetNonLocalizedLabelCmd = &cobra.Command{
-	Use:   "get-non-localized-label",
-	Short: "GetNonLocalizedLabel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewLabeledIntentServiceClient(grpcConn)
-		req := &pb.GetNonLocalizedLabelRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetNonLocalizedLabel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmLabeledIntentGetSourcePackageCmd = &cobra.Command{
-	Use:   "get-source-package",
-	Short: "GetSourcePackage RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewLabeledIntentServiceClient(grpcConn)
-		req := &pb.GetSourcePackageRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetSourcePackage(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmLabeledIntentLoadIconCmd = &cobra.Command{
-	Use:   "load-icon",
-	Short: "LoadIcon RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewLabeledIntentServiceClient(grpcConn)
-		req := &pb.LoadIconRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.LoadIcon(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmLabeledIntentLoadLabelCmd = &cobra.Command{
-	Use:   "load-label",
-	Short: "LoadLabel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewLabeledIntentServiceClient(grpcConn)
-		req := &pb.LoadLabelRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.LoadLabel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmLabeledIntentReadFromParcelCmd = &cobra.Command{
-	Use:   "read-from-parcel",
-	Short: "ReadFromParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewLabeledIntentServiceClient(grpcConn)
-		req := &pb.ReadFromParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.ReadFromParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmLabeledIntentWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewLabeledIntentServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmChecksumCmd = &cobra.Command{
-	Use:   "checksum",
-	Short: "ChecksumService operations",
-}
-
-var pmChecksumNewChecksumCmd = &cobra.Command{
-	Use:   "new-checksum",
-	Short: "NewChecksum RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewChecksumServiceClient(grpcConn)
-		req := &pb.NewChecksumRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.NewChecksum(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmChecksumDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewChecksumServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmChecksumGetTypeCmd = &cobra.Command{
-	Use:   "get-type",
-	Short: "GetType RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewChecksumServiceClient(grpcConn)
-		req := &pb.ChecksumGetTypeRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetType(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmChecksumGetValueCmd = &cobra.Command{
-	Use:   "get-value",
-	Short: "GetValue RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewChecksumServiceClient(grpcConn)
-		req := &pb.GetValueRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetValue(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmChecksumWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewChecksumServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
 var pmPackageItemInfoCmd = &cobra.Command{
 	Use:   "package-item-info",
 	Short: "PackageItemInfoService operations",
@@ -3998,19 +9775,38 @@ var pmPackageItemInfoDisplayNameComparatorCompare2_1Cmd = &cobra.Command{
 	},
 }
 
-var pmCapabilityCmd = &cobra.Command{
-	Use:   "capability",
-	Short: "CapabilityService operations",
+var pmConfigurationInfoCmd = &cobra.Command{
+	Use:   "configuration-info",
+	Short: "ConfigurationInfoService operations",
 }
 
-var pmCapabilityDescribeContentsCmd = &cobra.Command{
+var pmConfigurationInfoNewConfigurationInfoCmd = &cobra.Command{
+	Use:   "new-configuration-info",
+	Short: "NewConfigurationInfo RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConfigurationInfoServiceClient(grpcConn)
+		req := &pb.NewConfigurationInfoRequest{}
+		resp, err := client.NewConfigurationInfo(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmConfigurationInfoDescribeContentsCmd = &cobra.Command{
 	Use:   "describe-contents",
 	Short: "DescribeContents RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewCapabilityServiceClient(grpcConn)
-		req := &pb.CapabilityDescribeContentsRequest{}
+		client := pb.NewConfigurationInfoServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
 		resp, err := client.DescribeContents(ctx, req)
 		if err != nil {
 			return err
@@ -4019,18 +9815,18 @@ var pmCapabilityDescribeContentsCmd = &cobra.Command{
 	},
 }
 
-var pmCapabilityEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
+var pmConfigurationInfoGetGlEsVersionCmd = &cobra.Command{
+	Use:   "get-gl-es-version",
+	Short: "GetGlEsVersion RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewCapabilityServiceClient(grpcConn)
-		req := &pb.CapabilityEqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
+		client := pb.NewConfigurationInfoServiceClient(grpcConn)
+		req := &pb.GetGlEsVersionRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
 		}
-		resp, err := client.Equals(ctx, req)
+		resp, err := client.GetGlEsVersion(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -4038,15 +9834,18 @@ var pmCapabilityEqualsCmd = &cobra.Command{
 	},
 }
 
-var pmCapabilityGetNameCmd = &cobra.Command{
-	Use:   "get-name",
-	Short: "GetName RPC",
+var pmConfigurationInfoToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewCapabilityServiceClient(grpcConn)
-		req := &pb.GetNameRequest{}
-		resp, err := client.GetName(ctx, req)
+		client := pb.NewConfigurationInfoServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.ToString(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -4054,30 +9853,17 @@ var pmCapabilityGetNameCmd = &cobra.Command{
 	},
 }
 
-var pmCapabilityHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCapabilityServiceClient(grpcConn)
-		req := &pb.CapabilityHashCodeRequest{}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmCapabilityWriteToParcelCmd = &cobra.Command{
+var pmConfigurationInfoWriteToParcelCmd = &cobra.Command{
 	Use:   "write-to-parcel",
 	Short: "WriteToParcel RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewCapabilityServiceClient(grpcConn)
-		req := &pb.CapabilityWriteToParcelRequest{}
+		client := pb.NewConfigurationInfoServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
@@ -4092,20 +9878,1042 @@ var pmCapabilityWriteToParcelCmd = &cobra.Command{
 	},
 }
 
-var pmCapabilityBuilderCmd = &cobra.Command{
-	Use:   "capability-builder",
-	Short: "CapabilityBuilderService operations",
+var pmChangedPackagesCmd = &cobra.Command{
+	Use:   "changed-packages",
+	Short: "ChangedPackagesService operations",
 }
 
-var pmCapabilityBuilderBuildCmd = &cobra.Command{
+var pmChangedPackagesNewChangedPackagesCmd = &cobra.Command{
+	Use:   "new-changed-packages",
+	Short: "NewChangedPackages RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewChangedPackagesServiceClient(grpcConn)
+		req := &pb.NewChangedPackagesRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.NewChangedPackages(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmChangedPackagesDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewChangedPackagesServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmChangedPackagesGetPackageNamesCmd = &cobra.Command{
+	Use:   "get-package-names",
+	Short: "GetPackageNames RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewChangedPackagesServiceClient(grpcConn)
+		req := &pb.GetPackageNamesRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetPackageNames(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmChangedPackagesGetSequenceNumberCmd = &cobra.Command{
+	Use:   "get-sequence-number",
+	Short: "GetSequenceNumber RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewChangedPackagesServiceClient(grpcConn)
+		req := &pb.GetSequenceNumberRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetSequenceNumber(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmChangedPackagesWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewChangedPackagesServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmFeatureInfoCmd = &cobra.Command{
+	Use:   "feature-info",
+	Short: "FeatureInfoService operations",
+}
+
+var pmFeatureInfoNewFeatureInfoCmd = &cobra.Command{
+	Use:   "new-feature-info",
+	Short: "NewFeatureInfo RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFeatureInfoServiceClient(grpcConn)
+		req := &pb.NewFeatureInfoRequest{}
+		resp, err := client.NewFeatureInfo(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmFeatureInfoDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFeatureInfoServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmFeatureInfoGetGlEsVersionCmd = &cobra.Command{
+	Use:   "get-gl-es-version",
+	Short: "GetGlEsVersion RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFeatureInfoServiceClient(grpcConn)
+		req := &pb.GetGlEsVersionRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetGlEsVersion(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmFeatureInfoToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFeatureInfoServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmFeatureInfoWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFeatureInfoServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmShortcutInfoCmd = &cobra.Command{
+	Use:   "shortcut-info",
+	Short: "ShortcutInfoService operations",
+}
+
+var pmShortcutInfoDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewShortcutInfoServiceClient(grpcConn)
+		req := &pb.ShortcutInfoDescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmShortcutInfoGetActivityCmd = &cobra.Command{
+	Use:   "get-activity",
+	Short: "GetActivity RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewShortcutInfoServiceClient(grpcConn)
+		req := &pb.GetActivityRequest{}
+		resp, err := client.GetActivity(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmShortcutInfoGetCapabilitiesCmd = &cobra.Command{
+	Use:   "get-capabilities",
+	Short: "GetCapabilities RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewShortcutInfoServiceClient(grpcConn)
+		req := &pb.GetCapabilitiesRequest{}
+		resp, err := client.GetCapabilities(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmShortcutInfoGetCapabilityParamsCmd = &cobra.Command{
+	Use:   "get-capability-params",
+	Short: "GetCapabilityParams RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewShortcutInfoServiceClient(grpcConn)
+		req := &pb.GetCapabilityParamsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetCapabilityParams(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmShortcutInfoGetCategoriesCmd = &cobra.Command{
+	Use:   "get-categories",
+	Short: "GetCategories RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewShortcutInfoServiceClient(grpcConn)
+		req := &pb.GetCategoriesRequest{}
+		resp, err := client.GetCategories(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmShortcutInfoGetDisabledMessageCmd = &cobra.Command{
+	Use:   "get-disabled-message",
+	Short: "GetDisabledMessage RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewShortcutInfoServiceClient(grpcConn)
+		req := &pb.GetDisabledMessageRequest{}
+		resp, err := client.GetDisabledMessage(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmShortcutInfoGetDisabledReasonCmd = &cobra.Command{
+	Use:   "get-disabled-reason",
+	Short: "GetDisabledReason RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewShortcutInfoServiceClient(grpcConn)
+		req := &pb.GetDisabledReasonRequest{}
+		resp, err := client.GetDisabledReason(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmShortcutInfoGetExcludedFromSurfacesCmd = &cobra.Command{
+	Use:   "get-excluded-from-surfaces",
+	Short: "GetExcludedFromSurfaces RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewShortcutInfoServiceClient(grpcConn)
+		req := &pb.GetExcludedFromSurfacesRequest{}
+		resp, err := client.GetExcludedFromSurfaces(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmShortcutInfoGetExtrasCmd = &cobra.Command{
+	Use:   "get-extras",
+	Short: "GetExtras RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewShortcutInfoServiceClient(grpcConn)
+		req := &pb.GetExtrasRequest{}
+		resp, err := client.GetExtras(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmShortcutInfoGetIdCmd = &cobra.Command{
+	Use:   "get-id",
+	Short: "GetId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewShortcutInfoServiceClient(grpcConn)
+		req := &pb.GetIdRequest{}
+		resp, err := client.GetId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmShortcutInfoGetIntentCmd = &cobra.Command{
+	Use:   "get-intent",
+	Short: "GetIntent RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewShortcutInfoServiceClient(grpcConn)
+		req := &pb.GetIntentRequest{}
+		resp, err := client.GetIntent(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmShortcutInfoGetIntentsCmd = &cobra.Command{
+	Use:   "get-intents",
+	Short: "GetIntents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewShortcutInfoServiceClient(grpcConn)
+		req := &pb.GetIntentsRequest{}
+		resp, err := client.GetIntents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmShortcutInfoGetLastChangedTimestampCmd = &cobra.Command{
+	Use:   "get-last-changed-timestamp",
+	Short: "GetLastChangedTimestamp RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewShortcutInfoServiceClient(grpcConn)
+		req := &pb.GetLastChangedTimestampRequest{}
+		resp, err := client.GetLastChangedTimestamp(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmShortcutInfoGetLocusIdCmd = &cobra.Command{
+	Use:   "get-locus-id",
+	Short: "GetLocusId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewShortcutInfoServiceClient(grpcConn)
+		req := &pb.GetLocusIdRequest{}
+		resp, err := client.GetLocusId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmShortcutInfoGetLongLabelCmd = &cobra.Command{
+	Use:   "get-long-label",
+	Short: "GetLongLabel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewShortcutInfoServiceClient(grpcConn)
+		req := &pb.GetLongLabelRequest{}
+		resp, err := client.GetLongLabel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmShortcutInfoGetPackageCmd = &cobra.Command{
+	Use:   "get-package",
+	Short: "GetPackage RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewShortcutInfoServiceClient(grpcConn)
+		req := &pb.GetPackageRequest{}
+		resp, err := client.GetPackage(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmShortcutInfoGetRankCmd = &cobra.Command{
+	Use:   "get-rank",
+	Short: "GetRank RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewShortcutInfoServiceClient(grpcConn)
+		req := &pb.GetRankRequest{}
+		resp, err := client.GetRank(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmShortcutInfoGetShortLabelCmd = &cobra.Command{
+	Use:   "get-short-label",
+	Short: "GetShortLabel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewShortcutInfoServiceClient(grpcConn)
+		req := &pb.GetShortLabelRequest{}
+		resp, err := client.GetShortLabel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmShortcutInfoGetUserHandleCmd = &cobra.Command{
+	Use:   "get-user-handle",
+	Short: "GetUserHandle RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewShortcutInfoServiceClient(grpcConn)
+		req := &pb.GetUserHandleRequest{}
+		resp, err := client.GetUserHandle(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmShortcutInfoHasKeyFieldsOnlyCmd = &cobra.Command{
+	Use:   "has-key-fields-only",
+	Short: "HasKeyFieldsOnly RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewShortcutInfoServiceClient(grpcConn)
+		req := &pb.HasKeyFieldsOnlyRequest{}
+		resp, err := client.HasKeyFieldsOnly(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmShortcutInfoIsCachedCmd = &cobra.Command{
+	Use:   "is-cached",
+	Short: "IsCached RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewShortcutInfoServiceClient(grpcConn)
+		req := &pb.IsCachedRequest{}
+		resp, err := client.IsCached(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmShortcutInfoIsDeclaredInManifestCmd = &cobra.Command{
+	Use:   "is-declared-in-manifest",
+	Short: "IsDeclaredInManifest RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewShortcutInfoServiceClient(grpcConn)
+		req := &pb.IsDeclaredInManifestRequest{}
+		resp, err := client.IsDeclaredInManifest(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmShortcutInfoIsDynamicCmd = &cobra.Command{
+	Use:   "is-dynamic",
+	Short: "IsDynamic RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewShortcutInfoServiceClient(grpcConn)
+		req := &pb.IsDynamicRequest{}
+		resp, err := client.IsDynamic(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmShortcutInfoIsEnabledCmd = &cobra.Command{
+	Use:   "is-enabled",
+	Short: "IsEnabled RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewShortcutInfoServiceClient(grpcConn)
+		req := &pb.ShortcutInfoIsEnabledRequest{}
+		resp, err := client.IsEnabled(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmShortcutInfoIsExcludedFromSurfacesCmd = &cobra.Command{
+	Use:   "is-excluded-from-surfaces",
+	Short: "IsExcludedFromSurfaces RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewShortcutInfoServiceClient(grpcConn)
+		req := &pb.IsExcludedFromSurfacesRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.IsExcludedFromSurfaces(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmShortcutInfoIsImmutableCmd = &cobra.Command{
+	Use:   "is-immutable",
+	Short: "IsImmutable RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewShortcutInfoServiceClient(grpcConn)
+		req := &pb.IsImmutableRequest{}
+		resp, err := client.IsImmutable(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmShortcutInfoIsPinnedCmd = &cobra.Command{
+	Use:   "is-pinned",
+	Short: "IsPinned RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewShortcutInfoServiceClient(grpcConn)
+		req := &pb.IsPinnedRequest{}
+		resp, err := client.IsPinned(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmShortcutInfoToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewShortcutInfoServiceClient(grpcConn)
+		req := &pb.ShortcutInfoToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmShortcutInfoWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewShortcutInfoServiceClient(grpcConn)
+		req := &pb.ShortcutInfoWriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmShortcutInfoCreateFromGenericDocumentCmd = &cobra.Command{
+	Use:   "create-from-generic-document",
+	Short: "CreateFromGenericDocument RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewShortcutInfoServiceClient(grpcConn)
+		req := &pb.CreateFromGenericDocumentRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.CreateFromGenericDocument(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmShortcutInfoBuilderCmd = &cobra.Command{
+	Use:   "shortcut-info-builder",
+	Short: "ShortcutInfoBuilderService operations",
+}
+
+var pmShortcutInfoBuilderAddCapabilityBindingCmd = &cobra.Command{
+	Use:   "add-capability-binding",
+	Short: "AddCapabilityBinding RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewShortcutInfoBuilderServiceClient(grpcConn)
+		req := &pb.AddCapabilityBindingRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.AddCapabilityBinding(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmShortcutInfoBuilderBuildCmd = &cobra.Command{
 	Use:   "build",
 	Short: "Build RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewCapabilityBuilderServiceClient(grpcConn)
+		client := pb.NewShortcutInfoBuilderServiceClient(grpcConn)
 		req := &pb.BuildRequest{}
 		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmShortcutInfoBuilderSetActivityCmd = &cobra.Command{
+	Use:   "set-activity",
+	Short: "SetActivity RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewShortcutInfoBuilderServiceClient(grpcConn)
+		req := &pb.SetActivityRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetActivity(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmShortcutInfoBuilderSetDisabledMessageCmd = &cobra.Command{
+	Use:   "set-disabled-message",
+	Short: "SetDisabledMessage RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewShortcutInfoBuilderServiceClient(grpcConn)
+		req := &pb.SetDisabledMessageRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetDisabledMessage(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmShortcutInfoBuilderSetExcludedFromSurfacesCmd = &cobra.Command{
+	Use:   "set-excluded-from-surfaces",
+	Short: "SetExcludedFromSurfaces RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewShortcutInfoBuilderServiceClient(grpcConn)
+		req := &pb.SetExcludedFromSurfacesRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetExcludedFromSurfaces(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmShortcutInfoBuilderSetExtrasCmd = &cobra.Command{
+	Use:   "set-extras",
+	Short: "SetExtras RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewShortcutInfoBuilderServiceClient(grpcConn)
+		req := &pb.SetExtrasRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetExtras(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmShortcutInfoBuilderSetIconCmd = &cobra.Command{
+	Use:   "set-icon",
+	Short: "SetIcon RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewShortcutInfoBuilderServiceClient(grpcConn)
+		req := &pb.SetIconRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetIcon(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmShortcutInfoBuilderSetIntentCmd = &cobra.Command{
+	Use:   "set-intent",
+	Short: "SetIntent RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewShortcutInfoBuilderServiceClient(grpcConn)
+		req := &pb.SetIntentRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetIntent(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmShortcutInfoBuilderSetIntentsCmd = &cobra.Command{
+	Use:   "set-intents",
+	Short: "SetIntents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewShortcutInfoBuilderServiceClient(grpcConn)
+		req := &pb.SetIntentsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetIntents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmShortcutInfoBuilderSetLocusIdCmd = &cobra.Command{
+	Use:   "set-locus-id",
+	Short: "SetLocusId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewShortcutInfoBuilderServiceClient(grpcConn)
+		req := &pb.SetLocusIdRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetLocusId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmShortcutInfoBuilderSetLongLabelCmd = &cobra.Command{
+	Use:   "set-long-label",
+	Short: "SetLongLabel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewShortcutInfoBuilderServiceClient(grpcConn)
+		req := &pb.SetLongLabelRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetLongLabel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmShortcutInfoBuilderSetLongLivedCmd = &cobra.Command{
+	Use:   "set-long-lived",
+	Short: "SetLongLived RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewShortcutInfoBuilderServiceClient(grpcConn)
+		req := &pb.SetLongLivedRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetLongLived(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmShortcutInfoBuilderSetPersonCmd = &cobra.Command{
+	Use:   "set-person",
+	Short: "SetPerson RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewShortcutInfoBuilderServiceClient(grpcConn)
+		req := &pb.SetPersonRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetPerson(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmShortcutInfoBuilderSetPersonsCmd = &cobra.Command{
+	Use:   "set-persons",
+	Short: "SetPersons RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewShortcutInfoBuilderServiceClient(grpcConn)
+		req := &pb.SetPersonsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetPersons(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmShortcutInfoBuilderSetRankCmd = &cobra.Command{
+	Use:   "set-rank",
+	Short: "SetRank RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewShortcutInfoBuilderServiceClient(grpcConn)
+		req := &pb.SetRankRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetRank(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmShortcutInfoBuilderSetShortLabelCmd = &cobra.Command{
+	Use:   "set-short-label",
+	Short: "SetShortLabel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewShortcutInfoBuilderServiceClient(grpcConn)
+		req := &pb.SetShortLabelRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetShortLabel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmShortcutInfoBuilderSetStartingThemeCmd = &cobra.Command{
+	Use:   "set-starting-theme",
+	Short: "SetStartingTheme RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewShortcutInfoBuilderServiceClient(grpcConn)
+		req := &pb.SetStartingThemeRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetStartingTheme(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -4241,1688 +11049,6 @@ var pmServiceInfoWriteToParcelCmd = &cobra.Command{
 	},
 }
 
-var pmInstrumentationInfoCmd = &cobra.Command{
-	Use:   "instrumentation-info",
-	Short: "InstrumentationInfoService operations",
-}
-
-var pmInstrumentationInfoNewInstrumentationInfoCmd = &cobra.Command{
-	Use:   "new-instrumentation-info",
-	Short: "NewInstrumentationInfo RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewInstrumentationInfoServiceClient(grpcConn)
-		req := &pb.NewInstrumentationInfoRequest{}
-		resp, err := client.NewInstrumentationInfo(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmInstrumentationInfoDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewInstrumentationInfoServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmInstrumentationInfoToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewInstrumentationInfoServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmInstrumentationInfoWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewInstrumentationInfoServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPermissionGroupInfoCmd = &cobra.Command{
-	Use:   "permission-group-info",
-	Short: "PermissionGroupInfoService operations",
-}
-
-var pmPermissionGroupInfoNewPermissionGroupInfoCmd = &cobra.Command{
-	Use:   "new-permission-group-info",
-	Short: "NewPermissionGroupInfo RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPermissionGroupInfoServiceClient(grpcConn)
-		req := &pb.NewPermissionGroupInfoRequest{}
-		resp, err := client.NewPermissionGroupInfo(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPermissionGroupInfoDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPermissionGroupInfoServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPermissionGroupInfoLoadDescriptionCmd = &cobra.Command{
-	Use:   "load-description",
-	Short: "LoadDescription RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPermissionGroupInfoServiceClient(grpcConn)
-		req := &pb.LoadDescriptionRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.LoadDescription(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPermissionGroupInfoToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPermissionGroupInfoServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPermissionGroupInfoWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPermissionGroupInfoServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmApplicationInfoCmd = &cobra.Command{
-	Use:   "application-info",
-	Short: "ApplicationInfoService operations",
-}
-
-var pmApplicationInfoNewApplicationInfoCmd = &cobra.Command{
-	Use:   "new-application-info",
-	Short: "NewApplicationInfo RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewApplicationInfoServiceClient(grpcConn)
-		req := &pb.NewApplicationInfoRequest{}
-		resp, err := client.NewApplicationInfo(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmApplicationInfoAreAttributionsUserVisibleCmd = &cobra.Command{
-	Use:   "are-attributions-user-visible",
-	Short: "AreAttributionsUserVisible RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewApplicationInfoServiceClient(grpcConn)
-		req := &pb.AreAttributionsUserVisibleRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.AreAttributionsUserVisible(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmApplicationInfoDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewApplicationInfoServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmApplicationInfoDumpCmd = &cobra.Command{
-	Use:   "dump",
-	Short: "Dump RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewApplicationInfoServiceClient(grpcConn)
-		req := &pb.DumpRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetString("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.Dump(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmApplicationInfoGetGwpAsanModeCmd = &cobra.Command{
-	Use:   "get-gwp-asan-mode",
-	Short: "GetGwpAsanMode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewApplicationInfoServiceClient(grpcConn)
-		req := &pb.GetGwpAsanModeRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetGwpAsanMode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmApplicationInfoGetMemtagModeCmd = &cobra.Command{
-	Use:   "get-memtag-mode",
-	Short: "GetMemtagMode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewApplicationInfoServiceClient(grpcConn)
-		req := &pb.GetMemtagModeRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetMemtagMode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmApplicationInfoGetNativeHeapZeroInitializedCmd = &cobra.Command{
-	Use:   "get-native-heap-zero-initialized",
-	Short: "GetNativeHeapZeroInitialized RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewApplicationInfoServiceClient(grpcConn)
-		req := &pb.GetNativeHeapZeroInitializedRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetNativeHeapZeroInitialized(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmApplicationInfoGetRequestRawExternalStorageAccessCmd = &cobra.Command{
-	Use:   "get-request-raw-external-storage-access",
-	Short: "GetRequestRawExternalStorageAccess RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewApplicationInfoServiceClient(grpcConn)
-		req := &pb.GetRequestRawExternalStorageAccessRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetRequestRawExternalStorageAccess(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmApplicationInfoIsProfileableCmd = &cobra.Command{
-	Use:   "is-profileable",
-	Short: "IsProfileable RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewApplicationInfoServiceClient(grpcConn)
-		req := &pb.IsProfileableRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.IsProfileable(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmApplicationInfoIsProfileableByShellCmd = &cobra.Command{
-	Use:   "is-profileable-by-shell",
-	Short: "IsProfileableByShell RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewApplicationInfoServiceClient(grpcConn)
-		req := &pb.IsProfileableByShellRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.IsProfileableByShell(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmApplicationInfoIsResourceOverlayCmd = &cobra.Command{
-	Use:   "is-resource-overlay",
-	Short: "IsResourceOverlay RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewApplicationInfoServiceClient(grpcConn)
-		req := &pb.IsResourceOverlayRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.IsResourceOverlay(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmApplicationInfoIsVirtualPreloadCmd = &cobra.Command{
-	Use:   "is-virtual-preload",
-	Short: "IsVirtualPreload RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewApplicationInfoServiceClient(grpcConn)
-		req := &pb.IsVirtualPreloadRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.IsVirtualPreload(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmApplicationInfoLoadDescriptionCmd = &cobra.Command{
-	Use:   "load-description",
-	Short: "LoadDescription RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewApplicationInfoServiceClient(grpcConn)
-		req := &pb.LoadDescriptionRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.LoadDescription(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmApplicationInfoToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewApplicationInfoServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmApplicationInfoWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewApplicationInfoServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmApplicationInfoGetCategoryTitleCmd = &cobra.Command{
-	Use:   "get-category-title",
-	Short: "GetCategoryTitle RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewApplicationInfoServiceClient(grpcConn)
-		req := &pb.GetCategoryTitleRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.GetCategoryTitle(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmApplicationInfoDisplayNameComparatorCmd = &cobra.Command{
-	Use:   "application-info-display-name-comparator",
-	Short: "ApplicationInfoDisplayNameComparatorService operations",
-}
-
-var pmApplicationInfoDisplayNameComparatorCompare2Cmd = &cobra.Command{
-	Use:   "compare2",
-	Short: "Compare2 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewApplicationInfoDisplayNameComparatorServiceClient(grpcConn)
-		req := &pb.Compare2Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.Compare2(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmApplicationInfoDisplayNameComparatorCompare2_1Cmd = &cobra.Command{
-	Use:   "compare2_1",
-	Short: "Compare2_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewApplicationInfoDisplayNameComparatorServiceClient(grpcConn)
-		req := &pb.Compare2_1Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.Compare2_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmArchivedActivityInfoCmd = &cobra.Command{
-	Use:   "archived-activity-info",
-	Short: "ArchivedActivityInfoService operations",
-}
-
-var pmArchivedActivityInfoNewArchivedActivityInfoCmd = &cobra.Command{
-	Use:   "new-archived-activity-info",
-	Short: "NewArchivedActivityInfo RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewArchivedActivityInfoServiceClient(grpcConn)
-		req := &pb.NewArchivedActivityInfoRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.NewArchivedActivityInfo(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmArchivedActivityInfoGetComponentNameCmd = &cobra.Command{
-	Use:   "get-component-name",
-	Short: "GetComponentName RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewArchivedActivityInfoServiceClient(grpcConn)
-		req := &pb.GetComponentNameRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetComponentName(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmArchivedActivityInfoGetIconCmd = &cobra.Command{
-	Use:   "get-icon",
-	Short: "GetIcon RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewArchivedActivityInfoServiceClient(grpcConn)
-		req := &pb.GetIconRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetIcon(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmArchivedActivityInfoGetLabelCmd = &cobra.Command{
-	Use:   "get-label",
-	Short: "GetLabel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewArchivedActivityInfoServiceClient(grpcConn)
-		req := &pb.GetLabelRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetLabel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmArchivedActivityInfoGetMonochromeIconCmd = &cobra.Command{
-	Use:   "get-monochrome-icon",
-	Short: "GetMonochromeIcon RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewArchivedActivityInfoServiceClient(grpcConn)
-		req := &pb.GetMonochromeIconRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetMonochromeIcon(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmArchivedActivityInfoSetComponentNameCmd = &cobra.Command{
-	Use:   "set-component-name",
-	Short: "SetComponentName RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewArchivedActivityInfoServiceClient(grpcConn)
-		req := &pb.SetComponentNameRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetComponentName(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmArchivedActivityInfoSetIconCmd = &cobra.Command{
-	Use:   "set-icon",
-	Short: "SetIcon RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewArchivedActivityInfoServiceClient(grpcConn)
-		req := &pb.ArchivedActivityInfoSetIconRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetIcon(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmArchivedActivityInfoSetLabelCmd = &cobra.Command{
-	Use:   "set-label",
-	Short: "SetLabel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewArchivedActivityInfoServiceClient(grpcConn)
-		req := &pb.SetLabelRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetLabel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmArchivedActivityInfoSetMonochromeIconCmd = &cobra.Command{
-	Use:   "set-monochrome-icon",
-	Short: "SetMonochromeIcon RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewArchivedActivityInfoServiceClient(grpcConn)
-		req := &pb.SetMonochromeIconRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetMonochromeIcon(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmSigningInfoExceptionCmd = &cobra.Command{
-	Use:   "signing-info-exception",
-	Short: "SigningInfoExceptionService operations",
-}
-
-var pmSigningInfoExceptionGetCodeCmd = &cobra.Command{
-	Use:   "get-code",
-	Short: "GetCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSigningInfoExceptionServiceClient(grpcConn)
-		req := &pb.GetCodeRequest{}
-		resp, err := client.GetCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmShortcutManagerCmd = &cobra.Command{
-	Use:   "shortcut-manager",
-	Short: "ShortcutManagerService operations",
-}
-
-var pmShortcutManagerCreateShortcutResultIntentCmd = &cobra.Command{
-	Use:   "create-shortcut-result-intent",
-	Short: "CreateShortcutResultIntent RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewShortcutManagerServiceClient(grpcConn)
-		req := &pb.CreateShortcutResultIntentRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.CreateShortcutResultIntent(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmShortcutManagerGetIconMaxHeightCmd = &cobra.Command{
-	Use:   "get-icon-max-height",
-	Short: "GetIconMaxHeight RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewShortcutManagerServiceClient(grpcConn)
-		req := &pb.GetIconMaxHeightRequest{}
-		resp, err := client.GetIconMaxHeight(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmShortcutManagerGetIconMaxWidthCmd = &cobra.Command{
-	Use:   "get-icon-max-width",
-	Short: "GetIconMaxWidth RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewShortcutManagerServiceClient(grpcConn)
-		req := &pb.GetIconMaxWidthRequest{}
-		resp, err := client.GetIconMaxWidth(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmShortcutManagerGetMaxShortcutCountPerActivityCmd = &cobra.Command{
-	Use:   "get-max-shortcut-count-per-activity",
-	Short: "GetMaxShortcutCountPerActivity RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewShortcutManagerServiceClient(grpcConn)
-		req := &pb.GetMaxShortcutCountPerActivityRequest{}
-		resp, err := client.GetMaxShortcutCountPerActivity(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmShortcutManagerIsRateLimitingActiveCmd = &cobra.Command{
-	Use:   "is-rate-limiting-active",
-	Short: "IsRateLimitingActive RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewShortcutManagerServiceClient(grpcConn)
-		req := &pb.IsRateLimitingActiveRequest{}
-		resp, err := client.IsRateLimitingActive(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmShortcutManagerIsRequestPinShortcutSupportedCmd = &cobra.Command{
-	Use:   "is-request-pin-shortcut-supported",
-	Short: "IsRequestPinShortcutSupported RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewShortcutManagerServiceClient(grpcConn)
-		req := &pb.IsRequestPinShortcutSupportedRequest{}
-		resp, err := client.IsRequestPinShortcutSupported(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmShortcutManagerPushDynamicShortcutCmd = &cobra.Command{
-	Use:   "push-dynamic-shortcut",
-	Short: "PushDynamicShortcut RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewShortcutManagerServiceClient(grpcConn)
-		req := &pb.PushDynamicShortcutRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.PushDynamicShortcut(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmShortcutManagerRemoveAllDynamicShortcutsCmd = &cobra.Command{
-	Use:   "remove-all-dynamic-shortcuts",
-	Short: "RemoveAllDynamicShortcuts RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewShortcutManagerServiceClient(grpcConn)
-		req := &pb.RemoveAllDynamicShortcutsRequest{}
-		resp, err := client.RemoveAllDynamicShortcuts(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmShortcutManagerReportShortcutUsedCmd = &cobra.Command{
-	Use:   "report-shortcut-used",
-	Short: "ReportShortcutUsed RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewShortcutManagerServiceClient(grpcConn)
-		req := &pb.ReportShortcutUsedRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.ReportShortcutUsed(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmShortcutManagerRequestPinShortcutCmd = &cobra.Command{
-	Use:   "request-pin-shortcut",
-	Short: "RequestPinShortcut RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewShortcutManagerServiceClient(grpcConn)
-		req := &pb.RequestPinShortcutRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.RequestPinShortcut(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmAttributionCmd = &cobra.Command{
-	Use:   "attribution",
-	Short: "AttributionService operations",
-}
-
-var pmAttributionDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAttributionServiceClient(grpcConn)
-		req := &pb.AttributionDescribeContentsRequest{}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmAttributionGetLabelCmd = &cobra.Command{
-	Use:   "get-label",
-	Short: "GetLabel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAttributionServiceClient(grpcConn)
-		req := &pb.AttributionGetLabelRequest{}
-		resp, err := client.GetLabel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmAttributionGetTagCmd = &cobra.Command{
-	Use:   "get-tag",
-	Short: "GetTag RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAttributionServiceClient(grpcConn)
-		req := &pb.GetTagRequest{}
-		resp, err := client.GetTag(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmAttributionWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAttributionServiceClient(grpcConn)
-		req := &pb.AttributionWriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmCapabilityParamsCmd = &cobra.Command{
-	Use:   "capability-params",
-	Short: "CapabilityParamsService operations",
-}
-
-var pmCapabilityParamsDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCapabilityParamsServiceClient(grpcConn)
-		req := &pb.CapabilityParamsDescribeContentsRequest{}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmCapabilityParamsEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCapabilityParamsServiceClient(grpcConn)
-		req := &pb.CapabilityParamsEqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmCapabilityParamsGetNameCmd = &cobra.Command{
-	Use:   "get-name",
-	Short: "GetName RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCapabilityParamsServiceClient(grpcConn)
-		req := &pb.GetNameRequest{}
-		resp, err := client.GetName(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmCapabilityParamsGetValueCmd = &cobra.Command{
-	Use:   "get-value",
-	Short: "GetValue RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCapabilityParamsServiceClient(grpcConn)
-		req := &pb.CapabilityParamsGetValueRequest{}
-		resp, err := client.GetValue(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmCapabilityParamsHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCapabilityParamsServiceClient(grpcConn)
-		req := &pb.CapabilityParamsHashCodeRequest{}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmCapabilityParamsWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCapabilityParamsServiceClient(grpcConn)
-		req := &pb.CapabilityParamsWriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmCapabilityParamsBuilderCmd = &cobra.Command{
-	Use:   "capability-params-builder",
-	Short: "CapabilityParamsBuilderService operations",
-}
-
-var pmCapabilityParamsBuilderAddAliasCmd = &cobra.Command{
-	Use:   "add-alias",
-	Short: "AddAlias RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCapabilityParamsBuilderServiceClient(grpcConn)
-		req := &pb.AddAliasRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.AddAlias(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmCapabilityParamsBuilderBuildCmd = &cobra.Command{
-	Use:   "build",
-	Short: "Build RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCapabilityParamsBuilderServiceClient(grpcConn)
-		req := &pb.BuildRequest{}
-		resp, err := client.Build(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmProviderInfoCmd = &cobra.Command{
-	Use:   "provider-info",
-	Short: "ProviderInfoService operations",
-}
-
-var pmProviderInfoNewProviderInfoCmd = &cobra.Command{
-	Use:   "new-provider-info",
-	Short: "NewProviderInfo RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewProviderInfoServiceClient(grpcConn)
-		req := &pb.NewProviderInfoRequest{}
-		resp, err := client.NewProviderInfo(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmProviderInfoDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewProviderInfoServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmProviderInfoDumpCmd = &cobra.Command{
-	Use:   "dump",
-	Short: "Dump RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewProviderInfoServiceClient(grpcConn)
-		req := &pb.DumpRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetString("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.Dump(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmProviderInfoToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewProviderInfoServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmProviderInfoWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewProviderInfoServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmLauncherActivityInfoCmd = &cobra.Command{
-	Use:   "launcher-activity-info",
-	Short: "LauncherActivityInfoService operations",
-}
-
-var pmLauncherActivityInfoGetActivityInfoCmd = &cobra.Command{
-	Use:   "get-activity-info",
-	Short: "GetActivityInfo RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewLauncherActivityInfoServiceClient(grpcConn)
-		req := &pb.GetActivityInfoRequest{}
-		resp, err := client.GetActivityInfo(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmLauncherActivityInfoGetApplicationInfoCmd = &cobra.Command{
-	Use:   "get-application-info",
-	Short: "GetApplicationInfo RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewLauncherActivityInfoServiceClient(grpcConn)
-		req := &pb.LauncherActivityInfoGetApplicationInfoRequest{}
-		resp, err := client.GetApplicationInfo(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmLauncherActivityInfoGetBadgedIconCmd = &cobra.Command{
-	Use:   "get-badged-icon",
-	Short: "GetBadgedIcon RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewLauncherActivityInfoServiceClient(grpcConn)
-		req := &pb.GetBadgedIconRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetBadgedIcon(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmLauncherActivityInfoGetComponentNameCmd = &cobra.Command{
-	Use:   "get-component-name",
-	Short: "GetComponentName RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewLauncherActivityInfoServiceClient(grpcConn)
-		req := &pb.LauncherActivityInfoGetComponentNameRequest{}
-		resp, err := client.GetComponentName(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmLauncherActivityInfoGetFirstInstallTimeCmd = &cobra.Command{
-	Use:   "get-first-install-time",
-	Short: "GetFirstInstallTime RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewLauncherActivityInfoServiceClient(grpcConn)
-		req := &pb.GetFirstInstallTimeRequest{}
-		resp, err := client.GetFirstInstallTime(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmLauncherActivityInfoGetIconCmd = &cobra.Command{
-	Use:   "get-icon",
-	Short: "GetIcon RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewLauncherActivityInfoServiceClient(grpcConn)
-		req := &pb.LauncherActivityInfoGetIconRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetIcon(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmLauncherActivityInfoGetLabelCmd = &cobra.Command{
-	Use:   "get-label",
-	Short: "GetLabel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewLauncherActivityInfoServiceClient(grpcConn)
-		req := &pb.LauncherActivityInfoGetLabelRequest{}
-		resp, err := client.GetLabel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmLauncherActivityInfoGetLoadingProgressCmd = &cobra.Command{
-	Use:   "get-loading-progress",
-	Short: "GetLoadingProgress RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewLauncherActivityInfoServiceClient(grpcConn)
-		req := &pb.GetLoadingProgressRequest{}
-		resp, err := client.GetLoadingProgress(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmLauncherActivityInfoGetNameCmd = &cobra.Command{
-	Use:   "get-name",
-	Short: "GetName RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewLauncherActivityInfoServiceClient(grpcConn)
-		req := &pb.GetNameRequest{}
-		resp, err := client.GetName(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmLauncherActivityInfoGetUserCmd = &cobra.Command{
-	Use:   "get-user",
-	Short: "GetUser RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewLauncherActivityInfoServiceClient(grpcConn)
-		req := &pb.GetUserRequest{}
-		resp, err := client.GetUser(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmLauncherUserInfoCmd = &cobra.Command{
-	Use:   "launcher-user-info",
-	Short: "LauncherUserInfoService operations",
-}
-
-var pmLauncherUserInfoDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewLauncherUserInfoServiceClient(grpcConn)
-		req := &pb.LauncherUserInfoDescribeContentsRequest{}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmLauncherUserInfoGetUserConfigCmd = &cobra.Command{
-	Use:   "get-user-config",
-	Short: "GetUserConfig RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewLauncherUserInfoServiceClient(grpcConn)
-		req := &pb.GetUserConfigRequest{}
-		resp, err := client.GetUserConfig(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmLauncherUserInfoGetUserSerialNumberCmd = &cobra.Command{
-	Use:   "get-user-serial-number",
-	Short: "GetUserSerialNumber RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewLauncherUserInfoServiceClient(grpcConn)
-		req := &pb.GetUserSerialNumberRequest{}
-		resp, err := client.GetUserSerialNumber(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmLauncherUserInfoGetUserTypeCmd = &cobra.Command{
-	Use:   "get-user-type",
-	Short: "GetUserType RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewLauncherUserInfoServiceClient(grpcConn)
-		req := &pb.GetUserTypeRequest{}
-		resp, err := client.GetUserType(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmLauncherUserInfoWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewLauncherUserInfoServiceClient(grpcConn)
-		req := &pb.LauncherUserInfoWriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmActivityInfoCmd = &cobra.Command{
-	Use:   "activity-info",
-	Short: "ActivityInfoService operations",
-}
-
-var pmActivityInfoNewActivityInfoCmd = &cobra.Command{
-	Use:   "new-activity-info",
-	Short: "NewActivityInfo RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewActivityInfoServiceClient(grpcConn)
-		req := &pb.NewActivityInfoRequest{}
-		resp, err := client.NewActivityInfo(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmActivityInfoDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewActivityInfoServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmActivityInfoDumpCmd = &cobra.Command{
-	Use:   "dump",
-	Short: "Dump RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewActivityInfoServiceClient(grpcConn)
-		req := &pb.DumpRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetString("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.Dump(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmActivityInfoGetThemeResourceCmd = &cobra.Command{
-	Use:   "get-theme-resource",
-	Short: "GetThemeResource RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewActivityInfoServiceClient(grpcConn)
-		req := &pb.GetThemeResourceRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetThemeResource(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmActivityInfoToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewActivityInfoServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmActivityInfoWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewActivityInfoServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
 var pmPackageInstallerCmd = &cobra.Command{
 	Use:   "package-installer",
 	Short: "PackageInstallerService operations",
@@ -6010,6 +11136,54 @@ var pmPackageInstallerGetActiveStagedSessionCmd = &cobra.Command{
 	},
 }
 
+var pmPackageInstallerGetActiveStagedSessionsCmd = &cobra.Command{
+	Use:   "get-active-staged-sessions",
+	Short: "GetActiveStagedSessions RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageInstallerServiceClient(grpcConn)
+		req := &pb.GetActiveStagedSessionsRequest{}
+		resp, err := client.GetActiveStagedSessions(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageInstallerGetAllSessionsCmd = &cobra.Command{
+	Use:   "get-all-sessions",
+	Short: "GetAllSessions RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageInstallerServiceClient(grpcConn)
+		req := &pb.GetAllSessionsRequest{}
+		resp, err := client.GetAllSessions(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageInstallerGetMySessionsCmd = &cobra.Command{
+	Use:   "get-my-sessions",
+	Short: "GetMySessions RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageInstallerServiceClient(grpcConn)
+		req := &pb.GetMySessionsRequest{}
+		resp, err := client.GetMySessions(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var pmPackageInstallerGetSessionInfoCmd = &cobra.Command{
 	Use:   "get-session-info",
 	Short: "GetSessionInfo RPC",
@@ -6022,6 +11196,22 @@ var pmPackageInstallerGetSessionInfoCmd = &cobra.Command{
 			req.Arg0 = v
 		}
 		resp, err := client.GetSessionInfo(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmPackageInstallerGetStagedSessionsCmd = &cobra.Command{
+	Use:   "get-staged-sessions",
+	Short: "GetStagedSessions RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackageInstallerServiceClient(grpcConn)
+		req := &pb.GetStagedSessionsRequest{}
+		resp, err := client.GetStagedSessions(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -6623,7 +11813,7 @@ var pmPackageInstallerPreapprovalDetailsGetLabelCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewPackageInstallerPreapprovalDetailsServiceClient(grpcConn)
-		req := &pb.PackageInstallerPreapprovalDetailsGetLabelRequest{}
+		req := &pb.GetLabelRequest{}
 		resp, err := client.GetLabel(ctx, req)
 		if err != nil {
 			return err
@@ -6655,7 +11845,7 @@ var pmPackageInstallerPreapprovalDetailsGetPackageNameCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewPackageInstallerPreapprovalDetailsServiceClient(grpcConn)
-		req := &pb.GetPackageNameRequest{}
+		req := &pb.PackageInstallerPreapprovalDetailsGetPackageNameRequest{}
 		resp, err := client.GetPackageName(ctx, req)
 		if err != nil {
 			return err
@@ -8108,7 +13298,7 @@ var pmPackageInstallerSessionParamsSetInstallerPackageNameCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewPackageInstallerSessionParamsServiceClient(grpcConn)
-		req := &pb.SetInstallerPackageNameRequest{}
+		req := &pb.PackageInstallerSessionParamsSetInstallerPackageNameRequest{}
 		if v, err := cmd.Flags().GetString("arg0"); err == nil {
 			req.Arg0 = v
 		}
@@ -8441,26 +13631,20 @@ var pmPackageInstallerUnarchivalStateCreateUserActionRequiredStateCmd = &cobra.C
 	},
 }
 
-var pmVersionedPackageCmd = &cobra.Command{
-	Use:   "versioned-package",
-	Short: "VersionedPackageService operations",
+var pmPermissionGroupInfoCmd = &cobra.Command{
+	Use:   "permission-group-info",
+	Short: "PermissionGroupInfoService operations",
 }
 
-var pmVersionedPackageNewVersionedPackageCmd = &cobra.Command{
-	Use:   "new-versioned-package",
-	Short: "NewVersionedPackage RPC",
+var pmPermissionGroupInfoNewPermissionGroupInfoCmd = &cobra.Command{
+	Use:   "new-permission-group-info",
+	Short: "NewPermissionGroupInfo RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewVersionedPackageServiceClient(grpcConn)
-		req := &pb.NewVersionedPackageRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.NewVersionedPackage(ctx, req)
+		client := pb.NewPermissionGroupInfoServiceClient(grpcConn)
+		req := &pb.NewPermissionGroupInfoRequest{}
+		resp, err := client.NewPermissionGroupInfo(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -8468,13 +13652,13 @@ var pmVersionedPackageNewVersionedPackageCmd = &cobra.Command{
 	},
 }
 
-var pmVersionedPackageDescribeContentsCmd = &cobra.Command{
+var pmPermissionGroupInfoDescribeContentsCmd = &cobra.Command{
 	Use:   "describe-contents",
 	Short: "DescribeContents RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewVersionedPackageServiceClient(grpcConn)
+		client := pb.NewPermissionGroupInfoServiceClient(grpcConn)
 		req := &pb.DescribeContentsRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
@@ -8487,21 +13671,21 @@ var pmVersionedPackageDescribeContentsCmd = &cobra.Command{
 	},
 }
 
-var pmVersionedPackageEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
+var pmPermissionGroupInfoLoadDescriptionCmd = &cobra.Command{
+	Use:   "load-description",
+	Short: "LoadDescription RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewVersionedPackageServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
+		client := pb.NewPermissionGroupInfoServiceClient(grpcConn)
+		req := &pb.LoadDescriptionRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		resp, err := client.Equals(ctx, req)
+		resp, err := client.LoadDescription(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -8509,89 +13693,13 @@ var pmVersionedPackageEqualsCmd = &cobra.Command{
 	},
 }
 
-var pmVersionedPackageGetLongVersionCodeCmd = &cobra.Command{
-	Use:   "get-long-version-code",
-	Short: "GetLongVersionCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewVersionedPackageServiceClient(grpcConn)
-		req := &pb.GetLongVersionCodeRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetLongVersionCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmVersionedPackageGetPackageNameCmd = &cobra.Command{
-	Use:   "get-package-name",
-	Short: "GetPackageName RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewVersionedPackageServiceClient(grpcConn)
-		req := &pb.VersionedPackageGetPackageNameRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetPackageName(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmVersionedPackageGetVersionCodeCmd = &cobra.Command{
-	Use:   "get-version-code",
-	Short: "GetVersionCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewVersionedPackageServiceClient(grpcConn)
-		req := &pb.GetVersionCodeRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetVersionCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmVersionedPackageHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewVersionedPackageServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmVersionedPackageToStringCmd = &cobra.Command{
+var pmPermissionGroupInfoToStringCmd = &cobra.Command{
 	Use:   "to-string",
 	Short: "ToString RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewVersionedPackageServiceClient(grpcConn)
+		client := pb.NewPermissionGroupInfoServiceClient(grpcConn)
 		req := &pb.ToStringRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
@@ -8604,13 +13712,13 @@ var pmVersionedPackageToStringCmd = &cobra.Command{
 	},
 }
 
-var pmVersionedPackageWriteToParcelCmd = &cobra.Command{
+var pmPermissionGroupInfoWriteToParcelCmd = &cobra.Command{
 	Use:   "write-to-parcel",
 	Short: "WriteToParcel RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewVersionedPackageServiceClient(grpcConn)
+		client := pb.NewPermissionGroupInfoServiceClient(grpcConn)
 		req := &pb.WriteToParcelRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
@@ -8629,3162 +13737,26 @@ var pmVersionedPackageWriteToParcelCmd = &cobra.Command{
 	},
 }
 
-var pmFeatureInfoCmd = &cobra.Command{
-	Use:   "feature-info",
-	Short: "FeatureInfoService operations",
+var pmArchivedActivityInfoCmd = &cobra.Command{
+	Use:   "archived-activity-info",
+	Short: "ArchivedActivityInfoService operations",
 }
 
-var pmFeatureInfoNewFeatureInfoCmd = &cobra.Command{
-	Use:   "new-feature-info",
-	Short: "NewFeatureInfo RPC",
+var pmArchivedActivityInfoNewArchivedActivityInfoCmd = &cobra.Command{
+	Use:   "new-archived-activity-info",
+	Short: "NewArchivedActivityInfo RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewFeatureInfoServiceClient(grpcConn)
-		req := &pb.NewFeatureInfoRequest{}
-		resp, err := client.NewFeatureInfo(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmFeatureInfoDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFeatureInfoServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmFeatureInfoGetGlEsVersionCmd = &cobra.Command{
-	Use:   "get-gl-es-version",
-	Short: "GetGlEsVersion RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFeatureInfoServiceClient(grpcConn)
-		req := &pb.GetGlEsVersionRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetGlEsVersion(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmFeatureInfoToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFeatureInfoServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmFeatureInfoWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFeatureInfoServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmArchivedPackageInfoCmd = &cobra.Command{
-	Use:   "archived-package-info",
-	Short: "ArchivedPackageInfoService operations",
-}
-
-var pmArchivedPackageInfoNewArchivedPackageInfoCmd = &cobra.Command{
-	Use:   "new-archived-package-info",
-	Short: "NewArchivedPackageInfo RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewArchivedPackageInfoServiceClient(grpcConn)
-		req := &pb.NewArchivedPackageInfoRequest{}
+		client := pb.NewArchivedActivityInfoServiceClient(grpcConn)
+		req := &pb.NewArchivedActivityInfoRequest{}
 		if v, err := cmd.Flags().GetString("arg0"); err == nil {
 			req.Arg0 = v
 		}
 		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
 			req.Arg1 = v
 		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.NewArchivedPackageInfo(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmArchivedPackageInfoGetDefaultToDeviceProtectedStorageCmd = &cobra.Command{
-	Use:   "get-default-to-device-protected-storage",
-	Short: "GetDefaultToDeviceProtectedStorage RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewArchivedPackageInfoServiceClient(grpcConn)
-		req := &pb.GetDefaultToDeviceProtectedStorageRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetDefaultToDeviceProtectedStorage(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmArchivedPackageInfoGetPackageNameCmd = &cobra.Command{
-	Use:   "get-package-name",
-	Short: "GetPackageName RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewArchivedPackageInfoServiceClient(grpcConn)
-		req := &pb.ArchivedPackageInfoGetPackageNameRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetPackageName(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmArchivedPackageInfoGetRequestLegacyExternalStorageCmd = &cobra.Command{
-	Use:   "get-request-legacy-external-storage",
-	Short: "GetRequestLegacyExternalStorage RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewArchivedPackageInfoServiceClient(grpcConn)
-		req := &pb.GetRequestLegacyExternalStorageRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetRequestLegacyExternalStorage(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmArchivedPackageInfoGetSigningInfoCmd = &cobra.Command{
-	Use:   "get-signing-info",
-	Short: "GetSigningInfo RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewArchivedPackageInfoServiceClient(grpcConn)
-		req := &pb.GetSigningInfoRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetSigningInfo(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmArchivedPackageInfoGetTargetSdkVersionCmd = &cobra.Command{
-	Use:   "get-target-sdk-version",
-	Short: "GetTargetSdkVersion RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewArchivedPackageInfoServiceClient(grpcConn)
-		req := &pb.GetTargetSdkVersionRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetTargetSdkVersion(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmArchivedPackageInfoGetUserDataFragileCmd = &cobra.Command{
-	Use:   "get-user-data-fragile",
-	Short: "GetUserDataFragile RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewArchivedPackageInfoServiceClient(grpcConn)
-		req := &pb.GetUserDataFragileRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetUserDataFragile(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmArchivedPackageInfoGetVersionCodeCmd = &cobra.Command{
-	Use:   "get-version-code",
-	Short: "GetVersionCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewArchivedPackageInfoServiceClient(grpcConn)
-		req := &pb.GetVersionCodeRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetVersionCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmArchivedPackageInfoGetVersionCodeMajorCmd = &cobra.Command{
-	Use:   "get-version-code-major",
-	Short: "GetVersionCodeMajor RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewArchivedPackageInfoServiceClient(grpcConn)
-		req := &pb.GetVersionCodeMajorRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetVersionCodeMajor(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmArchivedPackageInfoSetDefaultToDeviceProtectedStorageCmd = &cobra.Command{
-	Use:   "set-default-to-device-protected-storage",
-	Short: "SetDefaultToDeviceProtectedStorage RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewArchivedPackageInfoServiceClient(grpcConn)
-		req := &pb.SetDefaultToDeviceProtectedStorageRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetDefaultToDeviceProtectedStorage(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmArchivedPackageInfoSetPackageNameCmd = &cobra.Command{
-	Use:   "set-package-name",
-	Short: "SetPackageName RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewArchivedPackageInfoServiceClient(grpcConn)
-		req := &pb.SetPackageNameRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetPackageName(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmArchivedPackageInfoSetRequestLegacyExternalStorageCmd = &cobra.Command{
-	Use:   "set-request-legacy-external-storage",
-	Short: "SetRequestLegacyExternalStorage RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewArchivedPackageInfoServiceClient(grpcConn)
-		req := &pb.SetRequestLegacyExternalStorageRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetRequestLegacyExternalStorage(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmArchivedPackageInfoSetSigningInfoCmd = &cobra.Command{
-	Use:   "set-signing-info",
-	Short: "SetSigningInfo RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewArchivedPackageInfoServiceClient(grpcConn)
-		req := &pb.SetSigningInfoRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetSigningInfo(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmArchivedPackageInfoSetTargetSdkVersionCmd = &cobra.Command{
-	Use:   "set-target-sdk-version",
-	Short: "SetTargetSdkVersion RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewArchivedPackageInfoServiceClient(grpcConn)
-		req := &pb.SetTargetSdkVersionRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetTargetSdkVersion(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmArchivedPackageInfoSetUserDataFragileCmd = &cobra.Command{
-	Use:   "set-user-data-fragile",
-	Short: "SetUserDataFragile RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewArchivedPackageInfoServiceClient(grpcConn)
-		req := &pb.SetUserDataFragileRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetUserDataFragile(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmArchivedPackageInfoSetVersionCodeCmd = &cobra.Command{
-	Use:   "set-version-code",
-	Short: "SetVersionCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewArchivedPackageInfoServiceClient(grpcConn)
-		req := &pb.SetVersionCodeRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetVersionCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmArchivedPackageInfoSetVersionCodeMajorCmd = &cobra.Command{
-	Use:   "set-version-code-major",
-	Short: "SetVersionCodeMajor RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewArchivedPackageInfoServiceClient(grpcConn)
-		req := &pb.SetVersionCodeMajorRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetVersionCodeMajor(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageInfoCmd = &cobra.Command{
-	Use:   "package-info",
-	Short: "PackageInfoService operations",
-}
-
-var pmPackageInfoNewPackageInfoCmd = &cobra.Command{
-	Use:   "new-package-info",
-	Short: "NewPackageInfo RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageInfoServiceClient(grpcConn)
-		req := &pb.NewPackageInfoRequest{}
-		resp, err := client.NewPackageInfo(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageInfoDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageInfoServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageInfoGetApexPackageNameCmd = &cobra.Command{
-	Use:   "get-apex-package-name",
-	Short: "GetApexPackageName RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageInfoServiceClient(grpcConn)
-		req := &pb.GetApexPackageNameRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetApexPackageName(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageInfoGetArchiveTimeMillisCmd = &cobra.Command{
-	Use:   "get-archive-time-millis",
-	Short: "GetArchiveTimeMillis RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageInfoServiceClient(grpcConn)
-		req := &pb.GetArchiveTimeMillisRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetArchiveTimeMillis(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageInfoGetLongVersionCodeCmd = &cobra.Command{
-	Use:   "get-long-version-code",
-	Short: "GetLongVersionCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageInfoServiceClient(grpcConn)
-		req := &pb.GetLongVersionCodeRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetLongVersionCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageInfoSetLongVersionCodeCmd = &cobra.Command{
-	Use:   "set-long-version-code",
-	Short: "SetLongVersionCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageInfoServiceClient(grpcConn)
-		req := &pb.SetLongVersionCodeRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetLongVersionCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageInfoToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageInfoServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageInfoWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageInfoServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageManagerCmd = &cobra.Command{
-	Use:   "package-manager",
-	Short: "PackageManagerService operations",
-}
-
-var pmPackageManagerAddPackageToPreferredCmd = &cobra.Command{
-	Use:   "add-package-to-preferred",
-	Short: "AddPackageToPreferred RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageManagerServiceClient(grpcConn)
-		req := &pb.AddPackageToPreferredRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.AddPackageToPreferred(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageManagerAddPermissionCmd = &cobra.Command{
-	Use:   "add-permission",
-	Short: "AddPermission RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageManagerServiceClient(grpcConn)
-		req := &pb.AddPermissionRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.AddPermission(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageManagerAddPermissionAsyncCmd = &cobra.Command{
-	Use:   "add-permission-async",
-	Short: "AddPermissionAsync RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageManagerServiceClient(grpcConn)
-		req := &pb.AddPermissionAsyncRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.AddPermissionAsync(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageManagerAddPreferredActivityCmd = &cobra.Command{
-	Use:   "add-preferred-activity",
-	Short: "AddPreferredActivity RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageManagerServiceClient(grpcConn)
-		req := &pb.AddPreferredActivityRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		resp, err := client.AddPreferredActivity(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageManagerAddWhitelistedRestrictedPermissionCmd = &cobra.Command{
-	Use:   "add-whitelisted-restricted-permission",
-	Short: "AddWhitelistedRestrictedPermission RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageManagerServiceClient(grpcConn)
-		req := &pb.AddWhitelistedRestrictedPermissionRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetString("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.AddWhitelistedRestrictedPermission(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageManagerCanPackageQuery2Cmd = &cobra.Command{
-	Use:   "can-package-query2",
-	Short: "CanPackageQuery2 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageManagerServiceClient(grpcConn)
-		req := &pb.CanPackageQuery2Request{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetString("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.CanPackageQuery2(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageManagerCanPackageQuery2_1Cmd = &cobra.Command{
-	Use:   "can-package-query2_1",
-	Short: "CanPackageQuery2_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageManagerServiceClient(grpcConn)
-		req := &pb.CanPackageQuery2_1Request{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.CanPackageQuery2_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageManagerCanRequestPackageInstallsCmd = &cobra.Command{
-	Use:   "can-request-package-installs",
-	Short: "CanRequestPackageInstalls RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageManagerServiceClient(grpcConn)
-		req := &pb.CanRequestPackageInstallsRequest{}
-		resp, err := client.CanRequestPackageInstalls(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageManagerCanonicalToCurrentPackageNamesCmd = &cobra.Command{
-	Use:   "canonical-to-current-package-names",
-	Short: "CanonicalToCurrentPackageNames RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageManagerServiceClient(grpcConn)
-		req := &pb.CanonicalToCurrentPackageNamesRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.CanonicalToCurrentPackageNames(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageManagerCheckPermissionCmd = &cobra.Command{
-	Use:   "check-permission",
-	Short: "CheckPermission RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageManagerServiceClient(grpcConn)
-		req := &pb.CheckPermissionRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetString("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.CheckPermission(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageManagerCheckSignatures2Cmd = &cobra.Command{
-	Use:   "check-signatures2",
-	Short: "CheckSignatures2 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageManagerServiceClient(grpcConn)
-		req := &pb.CheckSignatures2Request{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.CheckSignatures2(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageManagerCheckSignatures2_1Cmd = &cobra.Command{
-	Use:   "check-signatures2_1",
-	Short: "CheckSignatures2_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageManagerServiceClient(grpcConn)
-		req := &pb.CheckSignatures2_1Request{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetString("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.CheckSignatures2_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageManagerClearInstantAppCookieCmd = &cobra.Command{
-	Use:   "clear-instant-app-cookie",
-	Short: "ClearInstantAppCookie RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageManagerServiceClient(grpcConn)
-		req := &pb.ClearInstantAppCookieRequest{}
-		resp, err := client.ClearInstantAppCookie(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageManagerClearPackagePreferredActivitiesCmd = &cobra.Command{
-	Use:   "clear-package-preferred-activities",
-	Short: "ClearPackagePreferredActivities RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageManagerServiceClient(grpcConn)
-		req := &pb.ClearPackagePreferredActivitiesRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.ClearPackagePreferredActivities(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageManagerCurrentToCanonicalPackageNamesCmd = &cobra.Command{
-	Use:   "current-to-canonical-package-names",
-	Short: "CurrentToCanonicalPackageNames RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageManagerServiceClient(grpcConn)
-		req := &pb.CurrentToCanonicalPackageNamesRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.CurrentToCanonicalPackageNames(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageManagerExtendVerificationTimeoutCmd = &cobra.Command{
-	Use:   "extend-verification-timeout",
-	Short: "ExtendVerificationTimeout RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageManagerServiceClient(grpcConn)
-		req := &pb.ExtendVerificationTimeoutRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.ExtendVerificationTimeout(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageManagerGetActivityBanner1Cmd = &cobra.Command{
-	Use:   "get-activity-banner1",
-	Short: "GetActivityBanner1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageManagerServiceClient(grpcConn)
-		req := &pb.GetActivityBanner1Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetActivityBanner1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageManagerGetActivityBanner1_1Cmd = &cobra.Command{
-	Use:   "get-activity-banner1_1",
-	Short: "GetActivityBanner1_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageManagerServiceClient(grpcConn)
-		req := &pb.GetActivityBanner1_1Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetActivityBanner1_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageManagerGetActivityIcon1Cmd = &cobra.Command{
-	Use:   "get-activity-icon1",
-	Short: "GetActivityIcon1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageManagerServiceClient(grpcConn)
-		req := &pb.GetActivityIcon1Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetActivityIcon1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageManagerGetActivityIcon1_1Cmd = &cobra.Command{
-	Use:   "get-activity-icon1_1",
-	Short: "GetActivityIcon1_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageManagerServiceClient(grpcConn)
-		req := &pb.GetActivityIcon1_1Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetActivityIcon1_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageManagerGetActivityInfo2Cmd = &cobra.Command{
-	Use:   "get-activity-info2",
-	Short: "GetActivityInfo2 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageManagerServiceClient(grpcConn)
-		req := &pb.GetActivityInfo2Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.GetActivityInfo2(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageManagerGetActivityInfo2_1Cmd = &cobra.Command{
-	Use:   "get-activity-info2_1",
-	Short: "GetActivityInfo2_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageManagerServiceClient(grpcConn)
-		req := &pb.GetActivityInfo2_1Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.GetActivityInfo2_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageManagerGetActivityLogo1Cmd = &cobra.Command{
-	Use:   "get-activity-logo1",
-	Short: "GetActivityLogo1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageManagerServiceClient(grpcConn)
-		req := &pb.GetActivityLogo1Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetActivityLogo1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageManagerGetActivityLogo1_1Cmd = &cobra.Command{
-	Use:   "get-activity-logo1_1",
-	Short: "GetActivityLogo1_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageManagerServiceClient(grpcConn)
-		req := &pb.GetActivityLogo1_1Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetActivityLogo1_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageManagerGetApplicationBanner1Cmd = &cobra.Command{
-	Use:   "get-application-banner1",
-	Short: "GetApplicationBanner1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageManagerServiceClient(grpcConn)
-		req := &pb.GetApplicationBanner1Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetApplicationBanner1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageManagerGetApplicationBanner1_1Cmd = &cobra.Command{
-	Use:   "get-application-banner1_1",
-	Short: "GetApplicationBanner1_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageManagerServiceClient(grpcConn)
-		req := &pb.GetApplicationBanner1_1Request{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetApplicationBanner1_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageManagerGetApplicationEnabledSettingCmd = &cobra.Command{
-	Use:   "get-application-enabled-setting",
-	Short: "GetApplicationEnabledSetting RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageManagerServiceClient(grpcConn)
-		req := &pb.GetApplicationEnabledSettingRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetApplicationEnabledSetting(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageManagerGetApplicationIcon1Cmd = &cobra.Command{
-	Use:   "get-application-icon1",
-	Short: "GetApplicationIcon1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageManagerServiceClient(grpcConn)
-		req := &pb.GetApplicationIcon1Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetApplicationIcon1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageManagerGetApplicationIcon1_1Cmd = &cobra.Command{
-	Use:   "get-application-icon1_1",
-	Short: "GetApplicationIcon1_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageManagerServiceClient(grpcConn)
-		req := &pb.GetApplicationIcon1_1Request{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetApplicationIcon1_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageManagerGetApplicationInfo2Cmd = &cobra.Command{
-	Use:   "get-application-info2",
-	Short: "GetApplicationInfo2 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageManagerServiceClient(grpcConn)
-		req := &pb.GetApplicationInfo2Request{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.GetApplicationInfo2(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageManagerGetApplicationInfo2_1Cmd = &cobra.Command{
-	Use:   "get-application-info2_1",
-	Short: "GetApplicationInfo2_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageManagerServiceClient(grpcConn)
-		req := &pb.GetApplicationInfo2_1Request{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.GetApplicationInfo2_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageManagerGetApplicationLabelCmd = &cobra.Command{
-	Use:   "get-application-label",
-	Short: "GetApplicationLabel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageManagerServiceClient(grpcConn)
-		req := &pb.GetApplicationLabelRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetApplicationLabel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageManagerGetApplicationLogo1Cmd = &cobra.Command{
-	Use:   "get-application-logo1",
-	Short: "GetApplicationLogo1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageManagerServiceClient(grpcConn)
-		req := &pb.GetApplicationLogo1Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetApplicationLogo1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageManagerGetApplicationLogo1_1Cmd = &cobra.Command{
-	Use:   "get-application-logo1_1",
-	Short: "GetApplicationLogo1_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageManagerServiceClient(grpcConn)
-		req := &pb.GetApplicationLogo1_1Request{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetApplicationLogo1_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageManagerGetArchivedPackageCmd = &cobra.Command{
-	Use:   "get-archived-package",
-	Short: "GetArchivedPackage RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageManagerServiceClient(grpcConn)
-		req := &pb.GetArchivedPackageRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetArchivedPackage(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageManagerGetBackgroundPermissionOptionLabelCmd = &cobra.Command{
-	Use:   "get-background-permission-option-label",
-	Short: "GetBackgroundPermissionOptionLabel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageManagerServiceClient(grpcConn)
-		req := &pb.GetBackgroundPermissionOptionLabelRequest{}
-		resp, err := client.GetBackgroundPermissionOptionLabel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageManagerGetChangedPackagesCmd = &cobra.Command{
-	Use:   "get-changed-packages",
-	Short: "GetChangedPackages RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageManagerServiceClient(grpcConn)
-		req := &pb.GetChangedPackagesRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetChangedPackages(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageManagerGetComponentEnabledSettingCmd = &cobra.Command{
-	Use:   "get-component-enabled-setting",
-	Short: "GetComponentEnabledSetting RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageManagerServiceClient(grpcConn)
-		req := &pb.GetComponentEnabledSettingRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetComponentEnabledSetting(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageManagerGetDefaultActivityIconCmd = &cobra.Command{
-	Use:   "get-default-activity-icon",
-	Short: "GetDefaultActivityIcon RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageManagerServiceClient(grpcConn)
-		req := &pb.GetDefaultActivityIconRequest{}
-		resp, err := client.GetDefaultActivityIcon(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageManagerGetDrawableCmd = &cobra.Command{
-	Use:   "get-drawable",
-	Short: "GetDrawable RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageManagerServiceClient(grpcConn)
-		req := &pb.GetDrawableRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.GetDrawable(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageManagerGetInstallSourceInfoCmd = &cobra.Command{
-	Use:   "get-install-source-info",
-	Short: "GetInstallSourceInfo RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageManagerServiceClient(grpcConn)
-		req := &pb.GetInstallSourceInfoRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetInstallSourceInfo(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageManagerGetInstallerPackageNameCmd = &cobra.Command{
-	Use:   "get-installer-package-name",
-	Short: "GetInstallerPackageName RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageManagerServiceClient(grpcConn)
-		req := &pb.PackageManagerGetInstallerPackageNameRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetInstallerPackageName(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageManagerGetInstantAppCookieCmd = &cobra.Command{
-	Use:   "get-instant-app-cookie",
-	Short: "GetInstantAppCookie RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageManagerServiceClient(grpcConn)
-		req := &pb.GetInstantAppCookieRequest{}
-		resp, err := client.GetInstantAppCookie(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageManagerGetInstantAppCookieMaxBytesCmd = &cobra.Command{
-	Use:   "get-instant-app-cookie-max-bytes",
-	Short: "GetInstantAppCookieMaxBytes RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageManagerServiceClient(grpcConn)
-		req := &pb.GetInstantAppCookieMaxBytesRequest{}
-		resp, err := client.GetInstantAppCookieMaxBytes(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageManagerGetInstrumentationInfoCmd = &cobra.Command{
-	Use:   "get-instrumentation-info",
-	Short: "GetInstrumentationInfo RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageManagerServiceClient(grpcConn)
-		req := &pb.GetInstrumentationInfoRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.GetInstrumentationInfo(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageManagerGetLaunchIntentForPackageCmd = &cobra.Command{
-	Use:   "get-launch-intent-for-package",
-	Short: "GetLaunchIntentForPackage RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageManagerServiceClient(grpcConn)
-		req := &pb.GetLaunchIntentForPackageRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetLaunchIntentForPackage(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageManagerGetLaunchIntentSenderForPackageCmd = &cobra.Command{
-	Use:   "get-launch-intent-sender-for-package",
-	Short: "GetLaunchIntentSenderForPackage RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageManagerServiceClient(grpcConn)
-		req := &pb.GetLaunchIntentSenderForPackageRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetLaunchIntentSenderForPackage(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageManagerGetLeanbackLaunchIntentForPackageCmd = &cobra.Command{
-	Use:   "get-leanback-launch-intent-for-package",
-	Short: "GetLeanbackLaunchIntentForPackage RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageManagerServiceClient(grpcConn)
-		req := &pb.GetLeanbackLaunchIntentForPackageRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetLeanbackLaunchIntentForPackage(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageManagerGetModuleInfoCmd = &cobra.Command{
-	Use:   "get-module-info",
-	Short: "GetModuleInfo RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageManagerServiceClient(grpcConn)
-		req := &pb.GetModuleInfoRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.GetModuleInfo(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageManagerGetNameForUidCmd = &cobra.Command{
-	Use:   "get-name-for-uid",
-	Short: "GetNameForUid RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageManagerServiceClient(grpcConn)
-		req := &pb.GetNameForUidRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetNameForUid(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageManagerGetPackageArchiveInfo2Cmd = &cobra.Command{
-	Use:   "get-package-archive-info2",
-	Short: "GetPackageArchiveInfo2 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageManagerServiceClient(grpcConn)
-		req := &pb.GetPackageArchiveInfo2Request{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.GetPackageArchiveInfo2(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageManagerGetPackageArchiveInfo2_1Cmd = &cobra.Command{
-	Use:   "get-package-archive-info2_1",
-	Short: "GetPackageArchiveInfo2_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageManagerServiceClient(grpcConn)
-		req := &pb.GetPackageArchiveInfo2_1Request{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.GetPackageArchiveInfo2_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageManagerGetPackageGids1Cmd = &cobra.Command{
-	Use:   "get-package-gids1",
-	Short: "GetPackageGids1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageManagerServiceClient(grpcConn)
-		req := &pb.GetPackageGids1Request{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetPackageGids1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageManagerGetPackageGids2_1Cmd = &cobra.Command{
-	Use:   "get-package-gids2_1",
-	Short: "GetPackageGids2_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageManagerServiceClient(grpcConn)
-		req := &pb.GetPackageGids2_1Request{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.GetPackageGids2_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageManagerGetPackageGids2_2Cmd = &cobra.Command{
-	Use:   "get-package-gids2_2",
-	Short: "GetPackageGids2_2 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageManagerServiceClient(grpcConn)
-		req := &pb.GetPackageGids2_2Request{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.GetPackageGids2_2(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageManagerGetPackageInfo2Cmd = &cobra.Command{
-	Use:   "get-package-info2",
-	Short: "GetPackageInfo2 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageManagerServiceClient(grpcConn)
-		req := &pb.GetPackageInfo2Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.GetPackageInfo2(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageManagerGetPackageInfo2_1Cmd = &cobra.Command{
-	Use:   "get-package-info2_1",
-	Short: "GetPackageInfo2_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageManagerServiceClient(grpcConn)
-		req := &pb.GetPackageInfo2_1Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.GetPackageInfo2_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageManagerGetPackageInfo2_2Cmd = &cobra.Command{
-	Use:   "get-package-info2_2",
-	Short: "GetPackageInfo2_2 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageManagerServiceClient(grpcConn)
-		req := &pb.GetPackageInfo2_2Request{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.GetPackageInfo2_2(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageManagerGetPackageInfo2_3Cmd = &cobra.Command{
-	Use:   "get-package-info2_3",
-	Short: "GetPackageInfo2_3 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageManagerServiceClient(grpcConn)
-		req := &pb.GetPackageInfo2_3Request{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.GetPackageInfo2_3(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageManagerGetPackageInstallerCmd = &cobra.Command{
-	Use:   "get-package-installer",
-	Short: "GetPackageInstaller RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageManagerServiceClient(grpcConn)
-		req := &pb.GetPackageInstallerRequest{}
-		resp, err := client.GetPackageInstaller(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageManagerGetPackageUid2Cmd = &cobra.Command{
-	Use:   "get-package-uid2",
-	Short: "GetPackageUid2 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageManagerServiceClient(grpcConn)
-		req := &pb.GetPackageUid2Request{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.GetPackageUid2(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageManagerGetPackageUid2_1Cmd = &cobra.Command{
-	Use:   "get-package-uid2_1",
-	Short: "GetPackageUid2_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageManagerServiceClient(grpcConn)
-		req := &pb.GetPackageUid2_1Request{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.GetPackageUid2_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageManagerGetPackagesForUidCmd = &cobra.Command{
-	Use:   "get-packages-for-uid",
-	Short: "GetPackagesForUid RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageManagerServiceClient(grpcConn)
-		req := &pb.GetPackagesForUidRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetPackagesForUid(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageManagerGetPermissionGroupInfoCmd = &cobra.Command{
-	Use:   "get-permission-group-info",
-	Short: "GetPermissionGroupInfo RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageManagerServiceClient(grpcConn)
-		req := &pb.GetPermissionGroupInfoRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.GetPermissionGroupInfo(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageManagerGetPermissionInfoCmd = &cobra.Command{
-	Use:   "get-permission-info",
-	Short: "GetPermissionInfo RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageManagerServiceClient(grpcConn)
-		req := &pb.GetPermissionInfoRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.GetPermissionInfo(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageManagerGetProperty2Cmd = &cobra.Command{
-	Use:   "get-property2",
-	Short: "GetProperty2 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageManagerServiceClient(grpcConn)
-		req := &pb.GetProperty2Request{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.GetProperty2(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageManagerGetProperty2_1Cmd = &cobra.Command{
-	Use:   "get-property2_1",
-	Short: "GetProperty2_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageManagerServiceClient(grpcConn)
-		req := &pb.GetProperty2_1Request{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetString("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.GetProperty2_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageManagerGetProviderInfo2Cmd = &cobra.Command{
-	Use:   "get-provider-info2",
-	Short: "GetProviderInfo2 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageManagerServiceClient(grpcConn)
-		req := &pb.GetProviderInfo2Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.GetProviderInfo2(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageManagerGetProviderInfo2_1Cmd = &cobra.Command{
-	Use:   "get-provider-info2_1",
-	Short: "GetProviderInfo2_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageManagerServiceClient(grpcConn)
-		req := &pb.GetProviderInfo2_1Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.GetProviderInfo2_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageManagerGetReceiverInfo2Cmd = &cobra.Command{
-	Use:   "get-receiver-info2",
-	Short: "GetReceiverInfo2 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageManagerServiceClient(grpcConn)
-		req := &pb.GetReceiverInfo2Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.GetReceiverInfo2(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageManagerGetReceiverInfo2_1Cmd = &cobra.Command{
-	Use:   "get-receiver-info2_1",
-	Short: "GetReceiverInfo2_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageManagerServiceClient(grpcConn)
-		req := &pb.GetReceiverInfo2_1Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.GetReceiverInfo2_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageManagerGetResourcesForActivityCmd = &cobra.Command{
-	Use:   "get-resources-for-activity",
-	Short: "GetResourcesForActivity RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageManagerServiceClient(grpcConn)
-		req := &pb.GetResourcesForActivityRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetResourcesForActivity(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageManagerGetResourcesForApplication1Cmd = &cobra.Command{
-	Use:   "get-resources-for-application1",
-	Short: "GetResourcesForApplication1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageManagerServiceClient(grpcConn)
-		req := &pb.GetResourcesForApplication1Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetResourcesForApplication1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageManagerGetResourcesForApplication2_1Cmd = &cobra.Command{
-	Use:   "get-resources-for-application2_1",
-	Short: "GetResourcesForApplication2_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageManagerServiceClient(grpcConn)
-		req := &pb.GetResourcesForApplication2_1Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.GetResourcesForApplication2_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageManagerGetResourcesForApplication1_2Cmd = &cobra.Command{
-	Use:   "get-resources-for-application1_2",
-	Short: "GetResourcesForApplication1_2 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageManagerServiceClient(grpcConn)
-		req := &pb.GetResourcesForApplication1_2Request{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetResourcesForApplication1_2(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageManagerGetServiceInfo2Cmd = &cobra.Command{
-	Use:   "get-service-info2",
-	Short: "GetServiceInfo2 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageManagerServiceClient(grpcConn)
-		req := &pb.GetServiceInfo2Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.GetServiceInfo2(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageManagerGetServiceInfo2_1Cmd = &cobra.Command{
-	Use:   "get-service-info2_1",
-	Short: "GetServiceInfo2_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageManagerServiceClient(grpcConn)
-		req := &pb.GetServiceInfo2_1Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.GetServiceInfo2_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageManagerGetSuspendedPackageAppExtrasCmd = &cobra.Command{
-	Use:   "get-suspended-package-app-extras",
-	Short: "GetSuspendedPackageAppExtras RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageManagerServiceClient(grpcConn)
-		req := &pb.GetSuspendedPackageAppExtrasRequest{}
-		resp, err := client.GetSuspendedPackageAppExtras(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageManagerGetSyntheticAppDetailsActivityEnabledCmd = &cobra.Command{
-	Use:   "get-synthetic-app-details-activity-enabled",
-	Short: "GetSyntheticAppDetailsActivityEnabled RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageManagerServiceClient(grpcConn)
-		req := &pb.GetSyntheticAppDetailsActivityEnabledRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetSyntheticAppDetailsActivityEnabled(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageManagerGetSystemAvailableFeaturesCmd = &cobra.Command{
-	Use:   "get-system-available-features",
-	Short: "GetSystemAvailableFeatures RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageManagerServiceClient(grpcConn)
-		req := &pb.GetSystemAvailableFeaturesRequest{}
-		resp, err := client.GetSystemAvailableFeatures(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageManagerGetSystemSharedLibraryNamesCmd = &cobra.Command{
-	Use:   "get-system-shared-library-names",
-	Short: "GetSystemSharedLibraryNames RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageManagerServiceClient(grpcConn)
-		req := &pb.GetSystemSharedLibraryNamesRequest{}
-		resp, err := client.GetSystemSharedLibraryNames(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageManagerGetTargetSdkVersionCmd = &cobra.Command{
-	Use:   "get-target-sdk-version",
-	Short: "GetTargetSdkVersion RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageManagerServiceClient(grpcConn)
-		req := &pb.PackageManagerGetTargetSdkVersionRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetTargetSdkVersion(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageManagerGetTextCmd = &cobra.Command{
-	Use:   "get-text",
-	Short: "GetText RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageManagerServiceClient(grpcConn)
-		req := &pb.GetTextRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.GetText(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageManagerGetUserBadgedDrawableForDensityCmd = &cobra.Command{
-	Use:   "get-user-badged-drawable-for-density",
-	Short: "GetUserBadgedDrawableForDensity RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageManagerServiceClient(grpcConn)
-		req := &pb.GetUserBadgedDrawableForDensityRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		resp, err := client.GetUserBadgedDrawableForDensity(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageManagerGetUserBadgedIconCmd = &cobra.Command{
-	Use:   "get-user-badged-icon",
-	Short: "GetUserBadgedIcon RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageManagerServiceClient(grpcConn)
-		req := &pb.GetUserBadgedIconRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.GetUserBadgedIcon(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageManagerGetUserBadgedLabelCmd = &cobra.Command{
-	Use:   "get-user-badged-label",
-	Short: "GetUserBadgedLabel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageManagerServiceClient(grpcConn)
-		req := &pb.GetUserBadgedLabelRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.GetUserBadgedLabel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageManagerGetXmlCmd = &cobra.Command{
-	Use:   "get-xml",
-	Short: "GetXml RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageManagerServiceClient(grpcConn)
-		req := &pb.GetXmlRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.GetXml(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageManagerHasSigningCertificate3Cmd = &cobra.Command{
-	Use:   "has-signing-certificate3",
-	Short: "HasSigningCertificate3 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageManagerServiceClient(grpcConn)
-		req := &pb.HasSigningCertificate3Request{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.HasSigningCertificate3(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageManagerHasSigningCertificate3_1Cmd = &cobra.Command{
-	Use:   "has-signing-certificate3_1",
-	Short: "HasSigningCertificate3_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageManagerServiceClient(grpcConn)
-		req := &pb.HasSigningCertificate3_1Request{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.HasSigningCertificate3_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageManagerHasSystemFeature1Cmd = &cobra.Command{
-	Use:   "has-system-feature1",
-	Short: "HasSystemFeature1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageManagerServiceClient(grpcConn)
-		req := &pb.HasSystemFeature1Request{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.HasSystemFeature1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageManagerHasSystemFeature2_1Cmd = &cobra.Command{
-	Use:   "has-system-feature2_1",
-	Short: "HasSystemFeature2_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageManagerServiceClient(grpcConn)
-		req := &pb.HasSystemFeature2_1Request{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.HasSystemFeature2_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageManagerIsAppArchivableCmd = &cobra.Command{
-	Use:   "is-app-archivable",
-	Short: "IsAppArchivable RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageManagerServiceClient(grpcConn)
-		req := &pb.IsAppArchivableRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.IsAppArchivable(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageManagerIsAutoRevokeWhitelisted0Cmd = &cobra.Command{
-	Use:   "is-auto-revoke-whitelisted0",
-	Short: "IsAutoRevokeWhitelisted0 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageManagerServiceClient(grpcConn)
-		req := &pb.IsAutoRevokeWhitelisted0Request{}
-		resp, err := client.IsAutoRevokeWhitelisted0(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageManagerIsAutoRevokeWhitelisted1_1Cmd = &cobra.Command{
-	Use:   "is-auto-revoke-whitelisted1_1",
-	Short: "IsAutoRevokeWhitelisted1_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageManagerServiceClient(grpcConn)
-		req := &pb.IsAutoRevokeWhitelisted1_1Request{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.IsAutoRevokeWhitelisted1_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageManagerIsDefaultApplicationIconCmd = &cobra.Command{
-	Use:   "is-default-application-icon",
-	Short: "IsDefaultApplicationIcon RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageManagerServiceClient(grpcConn)
-		req := &pb.IsDefaultApplicationIconRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.IsDefaultApplicationIcon(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageManagerIsDeviceUpgradingCmd = &cobra.Command{
-	Use:   "is-device-upgrading",
-	Short: "IsDeviceUpgrading RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageManagerServiceClient(grpcConn)
-		req := &pb.IsDeviceUpgradingRequest{}
-		resp, err := client.IsDeviceUpgrading(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageManagerIsInstantApp0Cmd = &cobra.Command{
-	Use:   "is-instant-app0",
-	Short: "IsInstantApp0 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageManagerServiceClient(grpcConn)
-		req := &pb.IsInstantApp0Request{}
-		resp, err := client.IsInstantApp0(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageManagerIsInstantApp1_1Cmd = &cobra.Command{
-	Use:   "is-instant-app1_1",
-	Short: "IsInstantApp1_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageManagerServiceClient(grpcConn)
-		req := &pb.IsInstantApp1_1Request{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.IsInstantApp1_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageManagerIsPackageStoppedCmd = &cobra.Command{
-	Use:   "is-package-stopped",
-	Short: "IsPackageStopped RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageManagerServiceClient(grpcConn)
-		req := &pb.IsPackageStoppedRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.IsPackageStopped(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageManagerIsPackageSuspended0Cmd = &cobra.Command{
-	Use:   "is-package-suspended0",
-	Short: "IsPackageSuspended0 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageManagerServiceClient(grpcConn)
-		req := &pb.IsPackageSuspended0Request{}
-		resp, err := client.IsPackageSuspended0(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageManagerIsPackageSuspended1_1Cmd = &cobra.Command{
-	Use:   "is-package-suspended1_1",
-	Short: "IsPackageSuspended1_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageManagerServiceClient(grpcConn)
-		req := &pb.IsPackageSuspended1_1Request{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.IsPackageSuspended1_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageManagerIsPermissionRevokedByPolicyCmd = &cobra.Command{
-	Use:   "is-permission-revoked-by-policy",
-	Short: "IsPermissionRevokedByPolicy RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageManagerServiceClient(grpcConn)
-		req := &pb.IsPermissionRevokedByPolicyRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetString("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.IsPermissionRevokedByPolicy(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageManagerIsSafeModeCmd = &cobra.Command{
-	Use:   "is-safe-mode",
-	Short: "IsSafeMode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageManagerServiceClient(grpcConn)
-		req := &pb.IsSafeModeRequest{}
-		resp, err := client.IsSafeMode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageManagerRelinquishUpdateOwnershipCmd = &cobra.Command{
-	Use:   "relinquish-update-ownership",
-	Short: "RelinquishUpdateOwnership RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageManagerServiceClient(grpcConn)
-		req := &pb.RelinquishUpdateOwnershipRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.RelinquishUpdateOwnership(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageManagerRemovePackageFromPreferredCmd = &cobra.Command{
-	Use:   "remove-package-from-preferred",
-	Short: "RemovePackageFromPreferred RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageManagerServiceClient(grpcConn)
-		req := &pb.RemovePackageFromPreferredRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.RemovePackageFromPreferred(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageManagerRemovePermissionCmd = &cobra.Command{
-	Use:   "remove-permission",
-	Short: "RemovePermission RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageManagerServiceClient(grpcConn)
-		req := &pb.RemovePermissionRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.RemovePermission(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageManagerRemoveWhitelistedRestrictedPermissionCmd = &cobra.Command{
-	Use:   "remove-whitelisted-restricted-permission",
-	Short: "RemoveWhitelistedRestrictedPermission RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageManagerServiceClient(grpcConn)
-		req := &pb.RemoveWhitelistedRestrictedPermissionRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetString("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.RemoveWhitelistedRestrictedPermission(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageManagerResolveActivity2Cmd = &cobra.Command{
-	Use:   "resolve-activity2",
-	Short: "ResolveActivity2 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageManagerServiceClient(grpcConn)
-		req := &pb.ResolveActivity2Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.ResolveActivity2(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageManagerResolveActivity2_1Cmd = &cobra.Command{
-	Use:   "resolve-activity2_1",
-	Short: "ResolveActivity2_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageManagerServiceClient(grpcConn)
-		req := &pb.ResolveActivity2_1Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.ResolveActivity2_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageManagerResolveContentProvider2Cmd = &cobra.Command{
-	Use:   "resolve-content-provider2",
-	Short: "ResolveContentProvider2 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageManagerServiceClient(grpcConn)
-		req := &pb.ResolveContentProvider2Request{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.ResolveContentProvider2(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageManagerResolveContentProvider2_1Cmd = &cobra.Command{
-	Use:   "resolve-content-provider2_1",
-	Short: "ResolveContentProvider2_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageManagerServiceClient(grpcConn)
-		req := &pb.ResolveContentProvider2_1Request{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.ResolveContentProvider2_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageManagerResolveService2Cmd = &cobra.Command{
-	Use:   "resolve-service2",
-	Short: "ResolveService2 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageManagerServiceClient(grpcConn)
-		req := &pb.ResolveService2Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.ResolveService2(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageManagerResolveService2_1Cmd = &cobra.Command{
-	Use:   "resolve-service2_1",
-	Short: "ResolveService2_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageManagerServiceClient(grpcConn)
-		req := &pb.ResolveService2_1Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.ResolveService2_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageManagerSetApplicationCategoryHintCmd = &cobra.Command{
-	Use:   "set-application-category-hint",
-	Short: "SetApplicationCategoryHint RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageManagerServiceClient(grpcConn)
-		req := &pb.SetApplicationCategoryHintRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.SetApplicationCategoryHint(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageManagerSetApplicationEnabledSettingCmd = &cobra.Command{
-	Use:   "set-application-enabled-setting",
-	Short: "SetApplicationEnabledSetting RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageManagerServiceClient(grpcConn)
-		req := &pb.SetApplicationEnabledSettingRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.SetApplicationEnabledSetting(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageManagerSetAutoRevokeWhitelistedCmd = &cobra.Command{
-	Use:   "set-auto-revoke-whitelisted",
-	Short: "SetAutoRevokeWhitelisted RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageManagerServiceClient(grpcConn)
-		req := &pb.SetAutoRevokeWhitelistedRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetBool("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.SetAutoRevokeWhitelisted(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageManagerSetComponentEnabledSettingCmd = &cobra.Command{
-	Use:   "set-component-enabled-setting",
-	Short: "SetComponentEnabledSetting RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageManagerServiceClient(grpcConn)
-		req := &pb.SetComponentEnabledSettingRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.SetComponentEnabledSetting(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageManagerSetInstallerPackageNameCmd = &cobra.Command{
-	Use:   "set-installer-package-name",
-	Short: "SetInstallerPackageName RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageManagerServiceClient(grpcConn)
-		req := &pb.PackageManagerSetInstallerPackageNameRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetString("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.SetInstallerPackageName(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageManagerUpdateInstantAppCookieCmd = &cobra.Command{
-	Use:   "update-instant-app-cookie",
-	Short: "UpdateInstantAppCookie RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageManagerServiceClient(grpcConn)
-		req := &pb.UpdateInstantAppCookieRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.UpdateInstantAppCookie(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageManagerVerifyPendingInstallCmd = &cobra.Command{
-	Use:   "verify-pending-install",
-	Short: "VerifyPendingInstall RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageManagerServiceClient(grpcConn)
-		req := &pb.VerifyPendingInstallRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.VerifyPendingInstall(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageManagerGetVerifiedSigningInfoCmd = &cobra.Command{
-	Use:   "get-verified-signing-info",
-	Short: "GetVerifiedSigningInfo RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageManagerServiceClient(grpcConn)
-		req := &pb.GetVerifiedSigningInfoRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.GetVerifiedSigningInfo(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageManagerApplicationInfoFlagsCmd = &cobra.Command{
-	Use:   "package-manager-application-info-flags",
-	Short: "PackageManagerApplicationInfoFlagsService operations",
-}
-
-var pmPackageManagerApplicationInfoFlagsGetValueCmd = &cobra.Command{
-	Use:   "get-value",
-	Short: "GetValue RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageManagerApplicationInfoFlagsServiceClient(grpcConn)
-		req := &pb.PackageManagerApplicationInfoFlagsGetValueRequest{}
-		resp, err := client.GetValue(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageManagerApplicationInfoFlagsOfCmd = &cobra.Command{
-	Use:   "of",
-	Short: "Of RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageManagerApplicationInfoFlagsServiceClient(grpcConn)
-		req := &pb.OfRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Of(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageManagerComponentEnabledSettingCmd = &cobra.Command{
-	Use:   "package-manager-component-enabled-setting",
-	Short: "PackageManagerComponentEnabledSettingService operations",
-}
-
-var pmPackageManagerComponentEnabledSettingDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageManagerComponentEnabledSettingServiceClient(grpcConn)
-		req := &pb.PackageManagerComponentEnabledSettingDescribeContentsRequest{}
-		resp, err := client.DescribeContents(ctx, req)
+		resp, err := client.NewArchivedActivityInfo(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -11792,14 +13764,17 @@ var pmPackageManagerComponentEnabledSettingDescribeContentsCmd = &cobra.Command{
 	},
 }
 
-var pmPackageManagerComponentEnabledSettingGetComponentNameCmd = &cobra.Command{
+var pmArchivedActivityInfoGetComponentNameCmd = &cobra.Command{
 	Use:   "get-component-name",
 	Short: "GetComponentName RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewPackageManagerComponentEnabledSettingServiceClient(grpcConn)
-		req := &pb.PackageManagerComponentEnabledSettingGetComponentNameRequest{}
+		client := pb.NewArchivedActivityInfoServiceClient(grpcConn)
+		req := &pb.ArchivedActivityInfoGetComponentNameRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
 		resp, err := client.GetComponentName(ctx, req)
 		if err != nil {
 			return err
@@ -11808,786 +13783,18 @@ var pmPackageManagerComponentEnabledSettingGetComponentNameCmd = &cobra.Command{
 	},
 }
 
-var pmPackageManagerComponentEnabledSettingGetEnabledFlagsCmd = &cobra.Command{
-	Use:   "get-enabled-flags",
-	Short: "GetEnabledFlags RPC",
+var pmArchivedActivityInfoGetIconCmd = &cobra.Command{
+	Use:   "get-icon",
+	Short: "GetIcon RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewPackageManagerComponentEnabledSettingServiceClient(grpcConn)
-		req := &pb.GetEnabledFlagsRequest{}
-		resp, err := client.GetEnabledFlags(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageManagerComponentEnabledSettingGetEnabledStateCmd = &cobra.Command{
-	Use:   "get-enabled-state",
-	Short: "GetEnabledState RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageManagerComponentEnabledSettingServiceClient(grpcConn)
-		req := &pb.GetEnabledStateRequest{}
-		resp, err := client.GetEnabledState(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageManagerComponentEnabledSettingWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageManagerComponentEnabledSettingServiceClient(grpcConn)
-		req := &pb.PackageManagerComponentEnabledSettingWriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageManagerComponentInfoFlagsCmd = &cobra.Command{
-	Use:   "package-manager-component-info-flags",
-	Short: "PackageManagerComponentInfoFlagsService operations",
-}
-
-var pmPackageManagerComponentInfoFlagsGetValueCmd = &cobra.Command{
-	Use:   "get-value",
-	Short: "GetValue RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageManagerComponentInfoFlagsServiceClient(grpcConn)
-		req := &pb.PackageManagerComponentInfoFlagsGetValueRequest{}
-		resp, err := client.GetValue(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageManagerComponentInfoFlagsOfCmd = &cobra.Command{
-	Use:   "of",
-	Short: "Of RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageManagerComponentInfoFlagsServiceClient(grpcConn)
-		req := &pb.OfRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Of(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageManagerPackageInfoFlagsCmd = &cobra.Command{
-	Use:   "package-manager-package-info-flags",
-	Short: "PackageManagerPackageInfoFlagsService operations",
-}
-
-var pmPackageManagerPackageInfoFlagsGetValueCmd = &cobra.Command{
-	Use:   "get-value",
-	Short: "GetValue RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageManagerPackageInfoFlagsServiceClient(grpcConn)
-		req := &pb.PackageManagerPackageInfoFlagsGetValueRequest{}
-		resp, err := client.GetValue(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageManagerPackageInfoFlagsOfCmd = &cobra.Command{
-	Use:   "of",
-	Short: "Of RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageManagerPackageInfoFlagsServiceClient(grpcConn)
-		req := &pb.OfRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Of(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageManagerPropertyCmd = &cobra.Command{
-	Use:   "package-manager-property",
-	Short: "PackageManagerPropertyService operations",
-}
-
-var pmPackageManagerPropertyDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageManagerPropertyServiceClient(grpcConn)
-		req := &pb.PackageManagerPropertyDescribeContentsRequest{}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageManagerPropertyEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageManagerPropertyServiceClient(grpcConn)
-		req := &pb.PackageManagerPropertyEqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageManagerPropertyGetBooleanCmd = &cobra.Command{
-	Use:   "get-boolean",
-	Short: "GetBoolean RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageManagerPropertyServiceClient(grpcConn)
-		req := &pb.GetBooleanRequest{}
-		resp, err := client.GetBoolean(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageManagerPropertyGetClassNameCmd = &cobra.Command{
-	Use:   "get-class-name",
-	Short: "GetClassName RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageManagerPropertyServiceClient(grpcConn)
-		req := &pb.GetClassNameRequest{}
-		resp, err := client.GetClassName(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageManagerPropertyGetFloatCmd = &cobra.Command{
-	Use:   "get-float",
-	Short: "GetFloat RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageManagerPropertyServiceClient(grpcConn)
-		req := &pb.GetFloatRequest{}
-		resp, err := client.GetFloat(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageManagerPropertyGetIntegerCmd = &cobra.Command{
-	Use:   "get-integer",
-	Short: "GetInteger RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageManagerPropertyServiceClient(grpcConn)
-		req := &pb.GetIntegerRequest{}
-		resp, err := client.GetInteger(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageManagerPropertyGetNameCmd = &cobra.Command{
-	Use:   "get-name",
-	Short: "GetName RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageManagerPropertyServiceClient(grpcConn)
-		req := &pb.GetNameRequest{}
-		resp, err := client.GetName(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageManagerPropertyGetPackageNameCmd = &cobra.Command{
-	Use:   "get-package-name",
-	Short: "GetPackageName RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageManagerPropertyServiceClient(grpcConn)
-		req := &pb.GetPackageNameRequest{}
-		resp, err := client.GetPackageName(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageManagerPropertyGetResourceIdCmd = &cobra.Command{
-	Use:   "get-resource-id",
-	Short: "GetResourceId RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageManagerPropertyServiceClient(grpcConn)
-		req := &pb.GetResourceIdRequest{}
-		resp, err := client.GetResourceId(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageManagerPropertyGetStringCmd = &cobra.Command{
-	Use:   "get-string",
-	Short: "GetString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageManagerPropertyServiceClient(grpcConn)
-		req := &pb.GetStringRequest{}
-		resp, err := client.GetString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageManagerPropertyHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageManagerPropertyServiceClient(grpcConn)
-		req := &pb.PackageManagerPropertyHashCodeRequest{}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageManagerPropertyIsBooleanCmd = &cobra.Command{
-	Use:   "is-boolean",
-	Short: "IsBoolean RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageManagerPropertyServiceClient(grpcConn)
-		req := &pb.IsBooleanRequest{}
-		resp, err := client.IsBoolean(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageManagerPropertyIsFloatCmd = &cobra.Command{
-	Use:   "is-float",
-	Short: "IsFloat RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageManagerPropertyServiceClient(grpcConn)
-		req := &pb.IsFloatRequest{}
-		resp, err := client.IsFloat(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageManagerPropertyIsIntegerCmd = &cobra.Command{
-	Use:   "is-integer",
-	Short: "IsInteger RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageManagerPropertyServiceClient(grpcConn)
-		req := &pb.IsIntegerRequest{}
-		resp, err := client.IsInteger(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageManagerPropertyIsResourceIdCmd = &cobra.Command{
-	Use:   "is-resource-id",
-	Short: "IsResourceId RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageManagerPropertyServiceClient(grpcConn)
-		req := &pb.IsResourceIdRequest{}
-		resp, err := client.IsResourceId(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageManagerPropertyIsStringCmd = &cobra.Command{
-	Use:   "is-string",
-	Short: "IsString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageManagerPropertyServiceClient(grpcConn)
-		req := &pb.IsStringRequest{}
-		resp, err := client.IsString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageManagerPropertyWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageManagerPropertyServiceClient(grpcConn)
-		req := &pb.PackageManagerPropertyWriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageManagerResolveInfoFlagsCmd = &cobra.Command{
-	Use:   "package-manager-resolve-info-flags",
-	Short: "PackageManagerResolveInfoFlagsService operations",
-}
-
-var pmPackageManagerResolveInfoFlagsGetValueCmd = &cobra.Command{
-	Use:   "get-value",
-	Short: "GetValue RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageManagerResolveInfoFlagsServiceClient(grpcConn)
-		req := &pb.PackageManagerResolveInfoFlagsGetValueRequest{}
-		resp, err := client.GetValue(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmPackageManagerResolveInfoFlagsOfCmd = &cobra.Command{
-	Use:   "of",
-	Short: "Of RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPackageManagerResolveInfoFlagsServiceClient(grpcConn)
-		req := &pb.OfRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Of(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmModuleInfoCmd = &cobra.Command{
-	Use:   "module-info",
-	Short: "ModuleInfoService operations",
-}
-
-var pmModuleInfoDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewModuleInfoServiceClient(grpcConn)
-		req := &pb.ModuleInfoDescribeContentsRequest{}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmModuleInfoEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewModuleInfoServiceClient(grpcConn)
-		req := &pb.ModuleInfoEqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmModuleInfoGetNameCmd = &cobra.Command{
-	Use:   "get-name",
-	Short: "GetName RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewModuleInfoServiceClient(grpcConn)
-		req := &pb.GetNameRequest{}
-		resp, err := client.GetName(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmModuleInfoGetPackageNameCmd = &cobra.Command{
-	Use:   "get-package-name",
-	Short: "GetPackageName RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewModuleInfoServiceClient(grpcConn)
-		req := &pb.GetPackageNameRequest{}
-		resp, err := client.GetPackageName(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmModuleInfoHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewModuleInfoServiceClient(grpcConn)
-		req := &pb.ModuleInfoHashCodeRequest{}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmModuleInfoIsHiddenCmd = &cobra.Command{
-	Use:   "is-hidden",
-	Short: "IsHidden RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewModuleInfoServiceClient(grpcConn)
-		req := &pb.IsHiddenRequest{}
-		resp, err := client.IsHidden(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmModuleInfoToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewModuleInfoServiceClient(grpcConn)
-		req := &pb.ModuleInfoToStringRequest{}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmModuleInfoWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewModuleInfoServiceClient(grpcConn)
-		req := &pb.ModuleInfoWriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmApkChecksumCmd = &cobra.Command{
-	Use:   "apk-checksum",
-	Short: "ApkChecksumService operations",
-}
-
-var pmApkChecksumDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewApkChecksumServiceClient(grpcConn)
-		req := &pb.ApkChecksumDescribeContentsRequest{}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmApkChecksumGetInstallerCertificateCmd = &cobra.Command{
-	Use:   "get-installer-certificate",
-	Short: "GetInstallerCertificate RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewApkChecksumServiceClient(grpcConn)
-		req := &pb.GetInstallerCertificateRequest{}
-		resp, err := client.GetInstallerCertificate(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmApkChecksumGetInstallerPackageNameCmd = &cobra.Command{
-	Use:   "get-installer-package-name",
-	Short: "GetInstallerPackageName RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewApkChecksumServiceClient(grpcConn)
-		req := &pb.GetInstallerPackageNameRequest{}
-		resp, err := client.GetInstallerPackageName(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmApkChecksumGetSplitNameCmd = &cobra.Command{
-	Use:   "get-split-name",
-	Short: "GetSplitName RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewApkChecksumServiceClient(grpcConn)
-		req := &pb.GetSplitNameRequest{}
-		resp, err := client.GetSplitName(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmApkChecksumGetTypeCmd = &cobra.Command{
-	Use:   "get-type",
-	Short: "GetType RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewApkChecksumServiceClient(grpcConn)
-		req := &pb.GetTypeRequest{}
-		resp, err := client.GetType(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmApkChecksumGetValueCmd = &cobra.Command{
-	Use:   "get-value",
-	Short: "GetValue RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewApkChecksumServiceClient(grpcConn)
-		req := &pb.ApkChecksumGetValueRequest{}
-		resp, err := client.GetValue(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmApkChecksumToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewApkChecksumServiceClient(grpcConn)
-		req := &pb.ApkChecksumToStringRequest{}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmApkChecksumWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewApkChecksumServiceClient(grpcConn)
-		req := &pb.ApkChecksumWriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmChangedPackagesCmd = &cobra.Command{
-	Use:   "changed-packages",
-	Short: "ChangedPackagesService operations",
-}
-
-var pmChangedPackagesNewChangedPackagesCmd = &cobra.Command{
-	Use:   "new-changed-packages",
-	Short: "NewChangedPackages RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewChangedPackagesServiceClient(grpcConn)
-		req := &pb.NewChangedPackagesRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.NewChangedPackages(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmChangedPackagesDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewChangedPackagesServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
+		client := pb.NewArchivedActivityInfoServiceClient(grpcConn)
+		req := &pb.ArchivedActivityInfoGetIconRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
-		resp, err := client.DescribeContents(ctx, req)
+		resp, err := client.GetIcon(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -12595,18 +13802,18 @@ var pmChangedPackagesDescribeContentsCmd = &cobra.Command{
 	},
 }
 
-var pmChangedPackagesGetSequenceNumberCmd = &cobra.Command{
-	Use:   "get-sequence-number",
-	Short: "GetSequenceNumber RPC",
+var pmArchivedActivityInfoGetLabelCmd = &cobra.Command{
+	Use:   "get-label",
+	Short: "GetLabel RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewChangedPackagesServiceClient(grpcConn)
-		req := &pb.GetSequenceNumberRequest{}
+		client := pb.NewArchivedActivityInfoServiceClient(grpcConn)
+		req := &pb.ArchivedActivityInfoGetLabelRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
-		resp, err := client.GetSequenceNumber(ctx, req)
+		resp, err := client.GetLabel(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -12614,24 +13821,40 @@ var pmChangedPackagesGetSequenceNumberCmd = &cobra.Command{
 	},
 }
 
-var pmChangedPackagesWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
+var pmArchivedActivityInfoGetMonochromeIconCmd = &cobra.Command{
+	Use:   "get-monochrome-icon",
+	Short: "GetMonochromeIcon RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewChangedPackagesServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
+		client := pb.NewArchivedActivityInfoServiceClient(grpcConn)
+		req := &pb.GetMonochromeIconRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetMonochromeIcon(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmArchivedActivityInfoSetComponentNameCmd = &cobra.Command{
+	Use:   "set-component-name",
+	Short: "SetComponentName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewArchivedActivityInfoServiceClient(grpcConn)
+		req := &pb.SetComponentNameRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
+		resp, err := client.SetComponentName(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -12639,156 +13862,21 @@ var pmChangedPackagesWriteToParcelCmd = &cobra.Command{
 	},
 }
 
-var pmSigningInfoCmd = &cobra.Command{
-	Use:   "signing-info",
-	Short: "SigningInfoService operations",
-}
-
-var pmSigningInfoNewSigningInfoCmd = &cobra.Command{
-	Use:   "new-signing-info",
-	Short: "NewSigningInfo RPC",
+var pmArchivedActivityInfoSetIconCmd = &cobra.Command{
+	Use:   "set-icon",
+	Short: "SetIcon RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewSigningInfoServiceClient(grpcConn)
-		req := &pb.NewSigningInfoRequest{}
-		resp, err := client.NewSigningInfo(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmSigningInfoDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSigningInfoServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmSigningInfoGetApkContentsSignersCmd = &cobra.Command{
-	Use:   "get-apk-contents-signers",
-	Short: "GetApkContentsSigners RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSigningInfoServiceClient(grpcConn)
-		req := &pb.GetApkContentsSignersRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetApkContentsSigners(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmSigningInfoGetSchemeVersionCmd = &cobra.Command{
-	Use:   "get-scheme-version",
-	Short: "GetSchemeVersion RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSigningInfoServiceClient(grpcConn)
-		req := &pb.GetSchemeVersionRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetSchemeVersion(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmSigningInfoGetSigningCertificateHistoryCmd = &cobra.Command{
-	Use:   "get-signing-certificate-history",
-	Short: "GetSigningCertificateHistory RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSigningInfoServiceClient(grpcConn)
-		req := &pb.GetSigningCertificateHistoryRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetSigningCertificateHistory(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmSigningInfoHasMultipleSignersCmd = &cobra.Command{
-	Use:   "has-multiple-signers",
-	Short: "HasMultipleSigners RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSigningInfoServiceClient(grpcConn)
-		req := &pb.HasMultipleSignersRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.HasMultipleSigners(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmSigningInfoHasPastSigningCertificatesCmd = &cobra.Command{
-	Use:   "has-past-signing-certificates",
-	Short: "HasPastSigningCertificates RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSigningInfoServiceClient(grpcConn)
-		req := &pb.HasPastSigningCertificatesRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.HasPastSigningCertificates(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmSigningInfoSignersMatchExactlyCmd = &cobra.Command{
-	Use:   "signers-match-exactly",
-	Short: "SignersMatchExactly RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSigningInfoServiceClient(grpcConn)
-		req := &pb.SignersMatchExactlyRequest{}
+		client := pb.NewArchivedActivityInfoServiceClient(grpcConn)
+		req := &pb.ArchivedActivityInfoSetIconRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		resp, err := client.SignersMatchExactly(ctx, req)
+		resp, err := client.SetIcon(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -12796,24 +13884,43 @@ var pmSigningInfoSignersMatchExactlyCmd = &cobra.Command{
 	},
 }
 
-var pmSigningInfoWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
+var pmArchivedActivityInfoSetLabelCmd = &cobra.Command{
+	Use:   "set-label",
+	Short: "SetLabel RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewSigningInfoServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
+		client := pb.NewArchivedActivityInfoServiceClient(grpcConn)
+		req := &pb.SetLabelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetLabel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmArchivedActivityInfoSetMonochromeIconCmd = &cobra.Command{
+	Use:   "set-monochrome-icon",
+	Short: "SetMonochromeIcon RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewArchivedActivityInfoServiceClient(grpcConn)
+		req := &pb.SetMonochromeIconRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
+		resp, err := client.SetMonochromeIcon(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -12822,60 +13929,122 @@ var pmSigningInfoWriteToParcelCmd = &cobra.Command{
 }
 
 func init() {
-	pmComponentInfoCmd.AddCommand(pmComponentInfoNewComponentInfoCmd)
-	pmComponentInfoGetBannerResourceCmd.Flags().Int64("handle", 0, "handle (int64)")
-	pmComponentInfoCmd.AddCommand(pmComponentInfoGetBannerResourceCmd)
-	pmComponentInfoGetIconResourceCmd.Flags().Int64("handle", 0, "handle (int64)")
-	pmComponentInfoCmd.AddCommand(pmComponentInfoGetIconResourceCmd)
-	pmComponentInfoGetLogoResourceCmd.Flags().Int64("handle", 0, "handle (int64)")
-	pmComponentInfoCmd.AddCommand(pmComponentInfoGetLogoResourceCmd)
-	pmComponentInfoIsEnabledCmd.Flags().Int64("handle", 0, "handle (int64)")
-	pmComponentInfoCmd.AddCommand(pmComponentInfoIsEnabledCmd)
-	pmComponentInfoWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
-	pmComponentInfoWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	pmComponentInfoWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	pmComponentInfoCmd.AddCommand(pmComponentInfoWriteToParcelCmd)
-	pmCmd.AddCommand(pmComponentInfoCmd)
-	pmPathPermissionNewPathPermissionCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	pmPathPermissionCmd.AddCommand(pmPathPermissionNewPathPermissionCmd)
-	pmPathPermissionGetReadPermissionCmd.Flags().Int64("handle", 0, "handle (int64)")
-	pmPathPermissionCmd.AddCommand(pmPathPermissionGetReadPermissionCmd)
-	pmPathPermissionGetWritePermissionCmd.Flags().Int64("handle", 0, "handle (int64)")
-	pmPathPermissionCmd.AddCommand(pmPathPermissionGetWritePermissionCmd)
-	pmPathPermissionWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
-	pmPathPermissionWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	pmPathPermissionWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	pmPathPermissionCmd.AddCommand(pmPathPermissionWriteToParcelCmd)
-	pmCmd.AddCommand(pmPathPermissionCmd)
-	pmCrossProfileAppsCmd.AddCommand(pmCrossProfileAppsCanInteractAcrossProfilesCmd)
-	pmCrossProfileAppsCmd.AddCommand(pmCrossProfileAppsCanRequestInteractAcrossProfilesCmd)
-	pmCrossProfileAppsCmd.AddCommand(pmCrossProfileAppsCreateRequestInteractAcrossProfilesIntentCmd)
-	pmCrossProfileAppsGetProfileSwitchingIconDrawableCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	pmCrossProfileAppsCmd.AddCommand(pmCrossProfileAppsGetProfileSwitchingIconDrawableCmd)
-	pmCrossProfileAppsGetProfileSwitchingLabelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	pmCrossProfileAppsCmd.AddCommand(pmCrossProfileAppsGetProfileSwitchingLabelCmd)
-	pmCrossProfileAppsIsManagedProfileCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	pmCrossProfileAppsCmd.AddCommand(pmCrossProfileAppsIsManagedProfileCmd)
-	pmCrossProfileAppsIsProfileCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	pmCrossProfileAppsCmd.AddCommand(pmCrossProfileAppsIsProfileCmd)
-	pmCrossProfileAppsStartActivity3Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	pmCrossProfileAppsStartActivity3Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	pmCrossProfileAppsStartActivity3Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	pmCrossProfileAppsCmd.AddCommand(pmCrossProfileAppsStartActivity3Cmd)
-	pmCrossProfileAppsStartActivity4_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	pmCrossProfileAppsStartActivity4_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	pmCrossProfileAppsStartActivity4_1Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	pmCrossProfileAppsStartActivity4_1Cmd.Flags().Int64("arg3", 0, "arg3 (int64)")
-	pmCrossProfileAppsCmd.AddCommand(pmCrossProfileAppsStartActivity4_1Cmd)
-	pmCrossProfileAppsStartMainActivity2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	pmCrossProfileAppsStartMainActivity2Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	pmCrossProfileAppsCmd.AddCommand(pmCrossProfileAppsStartMainActivity2Cmd)
-	pmCrossProfileAppsStartMainActivity4_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	pmCrossProfileAppsStartMainActivity4_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	pmCrossProfileAppsStartMainActivity4_1Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	pmCrossProfileAppsStartMainActivity4_1Cmd.Flags().Int64("arg3", 0, "arg3 (int64)")
-	pmCrossProfileAppsCmd.AddCommand(pmCrossProfileAppsStartMainActivity4_1Cmd)
-	pmCmd.AddCommand(pmCrossProfileAppsCmd)
+	pmActivityInfoCmd.AddCommand(pmActivityInfoNewActivityInfoCmd)
+	pmActivityInfoDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	pmActivityInfoCmd.AddCommand(pmActivityInfoDescribeContentsCmd)
+	pmActivityInfoDumpCmd.Flags().Int64("handle", 0, "handle (int64)")
+	pmActivityInfoDumpCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pmActivityInfoDumpCmd.Flags().String("arg1", "", "arg1 (string)")
+	pmActivityInfoCmd.AddCommand(pmActivityInfoDumpCmd)
+	pmActivityInfoGetKnownActivityEmbeddingCertsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	pmActivityInfoCmd.AddCommand(pmActivityInfoGetKnownActivityEmbeddingCertsCmd)
+	pmActivityInfoGetThemeResourceCmd.Flags().Int64("handle", 0, "handle (int64)")
+	pmActivityInfoCmd.AddCommand(pmActivityInfoGetThemeResourceCmd)
+	pmActivityInfoToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
+	pmActivityInfoCmd.AddCommand(pmActivityInfoToStringCmd)
+	pmActivityInfoWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	pmActivityInfoWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pmActivityInfoWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	pmActivityInfoCmd.AddCommand(pmActivityInfoWriteToParcelCmd)
+	pmCmd.AddCommand(pmActivityInfoCmd)
+	pmProviderInfoCmd.AddCommand(pmProviderInfoNewProviderInfoCmd)
+	pmProviderInfoDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	pmProviderInfoCmd.AddCommand(pmProviderInfoDescribeContentsCmd)
+	pmProviderInfoDumpCmd.Flags().Int64("handle", 0, "handle (int64)")
+	pmProviderInfoDumpCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pmProviderInfoDumpCmd.Flags().String("arg1", "", "arg1 (string)")
+	pmProviderInfoCmd.AddCommand(pmProviderInfoDumpCmd)
+	pmProviderInfoToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
+	pmProviderInfoCmd.AddCommand(pmProviderInfoToStringCmd)
+	pmProviderInfoWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	pmProviderInfoWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pmProviderInfoWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	pmProviderInfoCmd.AddCommand(pmProviderInfoWriteToParcelCmd)
+	pmCmd.AddCommand(pmProviderInfoCmd)
+	pmSharedLibraryInfoCmd.AddCommand(pmSharedLibraryInfoDescribeContentsCmd)
+	pmSharedLibraryInfoCmd.AddCommand(pmSharedLibraryInfoGetCertDigestsCmd)
+	pmSharedLibraryInfoCmd.AddCommand(pmSharedLibraryInfoGetDeclaringPackageCmd)
+	pmSharedLibraryInfoCmd.AddCommand(pmSharedLibraryInfoGetDependentPackagesCmd)
+	pmSharedLibraryInfoCmd.AddCommand(pmSharedLibraryInfoGetLongVersionCmd)
+	pmSharedLibraryInfoCmd.AddCommand(pmSharedLibraryInfoGetNameCmd)
+	pmSharedLibraryInfoCmd.AddCommand(pmSharedLibraryInfoGetTypeCmd)
+	pmSharedLibraryInfoCmd.AddCommand(pmSharedLibraryInfoGetVersionCmd)
+	pmSharedLibraryInfoCmd.AddCommand(pmSharedLibraryInfoToStringCmd)
+	pmSharedLibraryInfoWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pmSharedLibraryInfoWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	pmSharedLibraryInfoCmd.AddCommand(pmSharedLibraryInfoWriteToParcelCmd)
+	pmCmd.AddCommand(pmSharedLibraryInfoCmd)
+	pmArchivedPackageInfoNewArchivedPackageInfoCmd.Flags().String("arg0", "", "arg0 (string)")
+	pmArchivedPackageInfoNewArchivedPackageInfoCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	pmArchivedPackageInfoNewArchivedPackageInfoCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	pmArchivedPackageInfoCmd.AddCommand(pmArchivedPackageInfoNewArchivedPackageInfoCmd)
+	pmArchivedPackageInfoGetDefaultToDeviceProtectedStorageCmd.Flags().Int64("handle", 0, "handle (int64)")
+	pmArchivedPackageInfoCmd.AddCommand(pmArchivedPackageInfoGetDefaultToDeviceProtectedStorageCmd)
+	pmArchivedPackageInfoGetLauncherActivitiesCmd.Flags().Int64("handle", 0, "handle (int64)")
+	pmArchivedPackageInfoCmd.AddCommand(pmArchivedPackageInfoGetLauncherActivitiesCmd)
+	pmArchivedPackageInfoGetPackageNameCmd.Flags().Int64("handle", 0, "handle (int64)")
+	pmArchivedPackageInfoCmd.AddCommand(pmArchivedPackageInfoGetPackageNameCmd)
+	pmArchivedPackageInfoGetRequestLegacyExternalStorageCmd.Flags().Int64("handle", 0, "handle (int64)")
+	pmArchivedPackageInfoCmd.AddCommand(pmArchivedPackageInfoGetRequestLegacyExternalStorageCmd)
+	pmArchivedPackageInfoGetSigningInfoCmd.Flags().Int64("handle", 0, "handle (int64)")
+	pmArchivedPackageInfoCmd.AddCommand(pmArchivedPackageInfoGetSigningInfoCmd)
+	pmArchivedPackageInfoGetTargetSdkVersionCmd.Flags().Int64("handle", 0, "handle (int64)")
+	pmArchivedPackageInfoCmd.AddCommand(pmArchivedPackageInfoGetTargetSdkVersionCmd)
+	pmArchivedPackageInfoGetUserDataFragileCmd.Flags().Int64("handle", 0, "handle (int64)")
+	pmArchivedPackageInfoCmd.AddCommand(pmArchivedPackageInfoGetUserDataFragileCmd)
+	pmArchivedPackageInfoGetVersionCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	pmArchivedPackageInfoCmd.AddCommand(pmArchivedPackageInfoGetVersionCodeCmd)
+	pmArchivedPackageInfoGetVersionCodeMajorCmd.Flags().Int64("handle", 0, "handle (int64)")
+	pmArchivedPackageInfoCmd.AddCommand(pmArchivedPackageInfoGetVersionCodeMajorCmd)
+	pmArchivedPackageInfoSetDefaultToDeviceProtectedStorageCmd.Flags().Int64("handle", 0, "handle (int64)")
+	pmArchivedPackageInfoSetDefaultToDeviceProtectedStorageCmd.Flags().String("arg0", "", "arg0 (string)")
+	pmArchivedPackageInfoCmd.AddCommand(pmArchivedPackageInfoSetDefaultToDeviceProtectedStorageCmd)
+	pmArchivedPackageInfoSetPackageNameCmd.Flags().Int64("handle", 0, "handle (int64)")
+	pmArchivedPackageInfoSetPackageNameCmd.Flags().String("arg0", "", "arg0 (string)")
+	pmArchivedPackageInfoCmd.AddCommand(pmArchivedPackageInfoSetPackageNameCmd)
+	pmArchivedPackageInfoSetRequestLegacyExternalStorageCmd.Flags().Int64("handle", 0, "handle (int64)")
+	pmArchivedPackageInfoSetRequestLegacyExternalStorageCmd.Flags().String("arg0", "", "arg0 (string)")
+	pmArchivedPackageInfoCmd.AddCommand(pmArchivedPackageInfoSetRequestLegacyExternalStorageCmd)
+	pmArchivedPackageInfoSetSigningInfoCmd.Flags().Int64("handle", 0, "handle (int64)")
+	pmArchivedPackageInfoSetSigningInfoCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pmArchivedPackageInfoCmd.AddCommand(pmArchivedPackageInfoSetSigningInfoCmd)
+	pmArchivedPackageInfoSetTargetSdkVersionCmd.Flags().Int64("handle", 0, "handle (int64)")
+	pmArchivedPackageInfoSetTargetSdkVersionCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	pmArchivedPackageInfoCmd.AddCommand(pmArchivedPackageInfoSetTargetSdkVersionCmd)
+	pmArchivedPackageInfoSetUserDataFragileCmd.Flags().Int64("handle", 0, "handle (int64)")
+	pmArchivedPackageInfoSetUserDataFragileCmd.Flags().String("arg0", "", "arg0 (string)")
+	pmArchivedPackageInfoCmd.AddCommand(pmArchivedPackageInfoSetUserDataFragileCmd)
+	pmArchivedPackageInfoSetVersionCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	pmArchivedPackageInfoSetVersionCodeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	pmArchivedPackageInfoCmd.AddCommand(pmArchivedPackageInfoSetVersionCodeCmd)
+	pmArchivedPackageInfoSetVersionCodeMajorCmd.Flags().Int64("handle", 0, "handle (int64)")
+	pmArchivedPackageInfoSetVersionCodeMajorCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	pmArchivedPackageInfoCmd.AddCommand(pmArchivedPackageInfoSetVersionCodeMajorCmd)
+	pmCmd.AddCommand(pmArchivedPackageInfoCmd)
+	pmSignatureNewSignatureCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pmSignatureCmd.AddCommand(pmSignatureNewSignatureCmd)
+	pmSignatureDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	pmSignatureCmd.AddCommand(pmSignatureDescribeContentsCmd)
+	pmSignatureEqualsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	pmSignatureEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pmSignatureCmd.AddCommand(pmSignatureEqualsCmd)
+	pmSignatureHashCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	pmSignatureCmd.AddCommand(pmSignatureHashCodeCmd)
+	pmSignatureToByteArrayCmd.Flags().Int64("handle", 0, "handle (int64)")
+	pmSignatureCmd.AddCommand(pmSignatureToByteArrayCmd)
+	pmSignatureToChars0Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	pmSignatureCmd.AddCommand(pmSignatureToChars0Cmd)
+	pmSignatureToChars2_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	pmSignatureToChars2_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pmSignatureToChars2_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	pmSignatureCmd.AddCommand(pmSignatureToChars2_1Cmd)
+	pmSignatureToCharsStringCmd.Flags().Int64("handle", 0, "handle (int64)")
+	pmSignatureCmd.AddCommand(pmSignatureToCharsStringCmd)
+	pmSignatureWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	pmSignatureWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pmSignatureWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	pmSignatureCmd.AddCommand(pmSignatureWriteToParcelCmd)
+	pmCmd.AddCommand(pmSignatureCmd)
 	pmResolveInfoCmd.AddCommand(pmResolveInfoNewResolveInfoCmd)
 	pmResolveInfoDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
 	pmResolveInfoCmd.AddCommand(pmResolveInfoDescribeContentsCmd)
@@ -12907,17 +14076,775 @@ func init() {
 	pmResolveInfoDisplayNameComparatorCompare2_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
 	pmResolveInfoDisplayNameComparatorCmd.AddCommand(pmResolveInfoDisplayNameComparatorCompare2_1Cmd)
 	pmCmd.AddCommand(pmResolveInfoDisplayNameComparatorCmd)
-	pmSharedLibraryInfoCmd.AddCommand(pmSharedLibraryInfoDescribeContentsCmd)
-	pmSharedLibraryInfoCmd.AddCommand(pmSharedLibraryInfoGetDeclaringPackageCmd)
-	pmSharedLibraryInfoCmd.AddCommand(pmSharedLibraryInfoGetLongVersionCmd)
-	pmSharedLibraryInfoCmd.AddCommand(pmSharedLibraryInfoGetNameCmd)
-	pmSharedLibraryInfoCmd.AddCommand(pmSharedLibraryInfoGetTypeCmd)
-	pmSharedLibraryInfoCmd.AddCommand(pmSharedLibraryInfoGetVersionCmd)
-	pmSharedLibraryInfoCmd.AddCommand(pmSharedLibraryInfoToStringCmd)
-	pmSharedLibraryInfoWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	pmSharedLibraryInfoWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	pmSharedLibraryInfoCmd.AddCommand(pmSharedLibraryInfoWriteToParcelCmd)
-	pmCmd.AddCommand(pmSharedLibraryInfoCmd)
+	pmPackageStatsNewPackageStatsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pmPackageStatsCmd.AddCommand(pmPackageStatsNewPackageStatsCmd)
+	pmPackageStatsDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	pmPackageStatsCmd.AddCommand(pmPackageStatsDescribeContentsCmd)
+	pmPackageStatsEqualsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	pmPackageStatsEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pmPackageStatsCmd.AddCommand(pmPackageStatsEqualsCmd)
+	pmPackageStatsHashCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	pmPackageStatsCmd.AddCommand(pmPackageStatsHashCodeCmd)
+	pmPackageStatsToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
+	pmPackageStatsCmd.AddCommand(pmPackageStatsToStringCmd)
+	pmPackageStatsWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	pmPackageStatsWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pmPackageStatsWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	pmPackageStatsCmd.AddCommand(pmPackageStatsWriteToParcelCmd)
+	pmCmd.AddCommand(pmPackageStatsCmd)
+	pmComponentInfoCmd.AddCommand(pmComponentInfoNewComponentInfoCmd)
+	pmComponentInfoGetBannerResourceCmd.Flags().Int64("handle", 0, "handle (int64)")
+	pmComponentInfoCmd.AddCommand(pmComponentInfoGetBannerResourceCmd)
+	pmComponentInfoGetIconResourceCmd.Flags().Int64("handle", 0, "handle (int64)")
+	pmComponentInfoCmd.AddCommand(pmComponentInfoGetIconResourceCmd)
+	pmComponentInfoGetLogoResourceCmd.Flags().Int64("handle", 0, "handle (int64)")
+	pmComponentInfoCmd.AddCommand(pmComponentInfoGetLogoResourceCmd)
+	pmComponentInfoIsEnabledCmd.Flags().Int64("handle", 0, "handle (int64)")
+	pmComponentInfoCmd.AddCommand(pmComponentInfoIsEnabledCmd)
+	pmComponentInfoWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	pmComponentInfoWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pmComponentInfoWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	pmComponentInfoCmd.AddCommand(pmComponentInfoWriteToParcelCmd)
+	pmCmd.AddCommand(pmComponentInfoCmd)
+	pmPackageInfoCmd.AddCommand(pmPackageInfoNewPackageInfoCmd)
+	pmPackageInfoDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	pmPackageInfoCmd.AddCommand(pmPackageInfoDescribeContentsCmd)
+	pmPackageInfoGetApexPackageNameCmd.Flags().Int64("handle", 0, "handle (int64)")
+	pmPackageInfoCmd.AddCommand(pmPackageInfoGetApexPackageNameCmd)
+	pmPackageInfoGetArchiveTimeMillisCmd.Flags().Int64("handle", 0, "handle (int64)")
+	pmPackageInfoCmd.AddCommand(pmPackageInfoGetArchiveTimeMillisCmd)
+	pmPackageInfoGetLongVersionCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	pmPackageInfoCmd.AddCommand(pmPackageInfoGetLongVersionCodeCmd)
+	pmPackageInfoSetLongVersionCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	pmPackageInfoSetLongVersionCodeCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pmPackageInfoCmd.AddCommand(pmPackageInfoSetLongVersionCodeCmd)
+	pmPackageInfoToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
+	pmPackageInfoCmd.AddCommand(pmPackageInfoToStringCmd)
+	pmPackageInfoWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	pmPackageInfoWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pmPackageInfoWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	pmPackageInfoCmd.AddCommand(pmPackageInfoWriteToParcelCmd)
+	pmCmd.AddCommand(pmPackageInfoCmd)
+	pmPathPermissionNewPathPermissionCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pmPathPermissionCmd.AddCommand(pmPathPermissionNewPathPermissionCmd)
+	pmPathPermissionGetReadPermissionCmd.Flags().Int64("handle", 0, "handle (int64)")
+	pmPathPermissionCmd.AddCommand(pmPathPermissionGetReadPermissionCmd)
+	pmPathPermissionGetWritePermissionCmd.Flags().Int64("handle", 0, "handle (int64)")
+	pmPathPermissionCmd.AddCommand(pmPathPermissionGetWritePermissionCmd)
+	pmPathPermissionWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	pmPathPermissionWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pmPathPermissionWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	pmPathPermissionCmd.AddCommand(pmPathPermissionWriteToParcelCmd)
+	pmCmd.AddCommand(pmPathPermissionCmd)
+	pmCapabilityParamsCmd.AddCommand(pmCapabilityParamsDescribeContentsCmd)
+	pmCapabilityParamsEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pmCapabilityParamsCmd.AddCommand(pmCapabilityParamsEqualsCmd)
+	pmCapabilityParamsCmd.AddCommand(pmCapabilityParamsGetAliasesCmd)
+	pmCapabilityParamsCmd.AddCommand(pmCapabilityParamsGetNameCmd)
+	pmCapabilityParamsCmd.AddCommand(pmCapabilityParamsGetValueCmd)
+	pmCapabilityParamsCmd.AddCommand(pmCapabilityParamsHashCodeCmd)
+	pmCapabilityParamsWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pmCapabilityParamsWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	pmCapabilityParamsCmd.AddCommand(pmCapabilityParamsWriteToParcelCmd)
+	pmCmd.AddCommand(pmCapabilityParamsCmd)
+	pmCapabilityParamsBuilderAddAliasCmd.Flags().String("arg0", "", "arg0 (string)")
+	pmCapabilityParamsBuilderCmd.AddCommand(pmCapabilityParamsBuilderAddAliasCmd)
+	pmCapabilityParamsBuilderCmd.AddCommand(pmCapabilityParamsBuilderBuildCmd)
+	pmCmd.AddCommand(pmCapabilityParamsBuilderCmd)
+	pmLauncherUserInfoCmd.AddCommand(pmLauncherUserInfoDescribeContentsCmd)
+	pmLauncherUserInfoCmd.AddCommand(pmLauncherUserInfoGetUserConfigCmd)
+	pmLauncherUserInfoCmd.AddCommand(pmLauncherUserInfoGetUserSerialNumberCmd)
+	pmLauncherUserInfoCmd.AddCommand(pmLauncherUserInfoGetUserTypeCmd)
+	pmLauncherUserInfoWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pmLauncherUserInfoWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	pmLauncherUserInfoCmd.AddCommand(pmLauncherUserInfoWriteToParcelCmd)
+	pmCmd.AddCommand(pmLauncherUserInfoCmd)
+	pmShortcutManagerCreateShortcutResultIntentCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pmShortcutManagerCmd.AddCommand(pmShortcutManagerCreateShortcutResultIntentCmd)
+	pmShortcutManagerCmd.AddCommand(pmShortcutManagerGetDynamicShortcutsCmd)
+	pmShortcutManagerCmd.AddCommand(pmShortcutManagerGetIconMaxHeightCmd)
+	pmShortcutManagerCmd.AddCommand(pmShortcutManagerGetIconMaxWidthCmd)
+	pmShortcutManagerCmd.AddCommand(pmShortcutManagerGetManifestShortcutsCmd)
+	pmShortcutManagerCmd.AddCommand(pmShortcutManagerGetMaxShortcutCountPerActivityCmd)
+	pmShortcutManagerCmd.AddCommand(pmShortcutManagerGetPinnedShortcutsCmd)
+	pmShortcutManagerGetShortcutsCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	pmShortcutManagerCmd.AddCommand(pmShortcutManagerGetShortcutsCmd)
+	pmShortcutManagerCmd.AddCommand(pmShortcutManagerIsRateLimitingActiveCmd)
+	pmShortcutManagerCmd.AddCommand(pmShortcutManagerIsRequestPinShortcutSupportedCmd)
+	pmShortcutManagerPushDynamicShortcutCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pmShortcutManagerCmd.AddCommand(pmShortcutManagerPushDynamicShortcutCmd)
+	pmShortcutManagerCmd.AddCommand(pmShortcutManagerRemoveAllDynamicShortcutsCmd)
+	pmShortcutManagerReportShortcutUsedCmd.Flags().String("arg0", "", "arg0 (string)")
+	pmShortcutManagerCmd.AddCommand(pmShortcutManagerReportShortcutUsedCmd)
+	pmShortcutManagerRequestPinShortcutCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pmShortcutManagerRequestPinShortcutCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	pmShortcutManagerCmd.AddCommand(pmShortcutManagerRequestPinShortcutCmd)
+	pmCmd.AddCommand(pmShortcutManagerCmd)
+	pmCrossProfileAppsCmd.AddCommand(pmCrossProfileAppsCanInteractAcrossProfilesCmd)
+	pmCrossProfileAppsCmd.AddCommand(pmCrossProfileAppsCanRequestInteractAcrossProfilesCmd)
+	pmCrossProfileAppsCmd.AddCommand(pmCrossProfileAppsCreateRequestInteractAcrossProfilesIntentCmd)
+	pmCrossProfileAppsGetProfileSwitchingIconDrawableCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pmCrossProfileAppsCmd.AddCommand(pmCrossProfileAppsGetProfileSwitchingIconDrawableCmd)
+	pmCrossProfileAppsGetProfileSwitchingLabelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pmCrossProfileAppsCmd.AddCommand(pmCrossProfileAppsGetProfileSwitchingLabelCmd)
+	pmCrossProfileAppsCmd.AddCommand(pmCrossProfileAppsGetTargetUserProfilesCmd)
+	pmCrossProfileAppsIsManagedProfileCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pmCrossProfileAppsCmd.AddCommand(pmCrossProfileAppsIsManagedProfileCmd)
+	pmCrossProfileAppsIsProfileCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pmCrossProfileAppsCmd.AddCommand(pmCrossProfileAppsIsProfileCmd)
+	pmCrossProfileAppsStartActivity3Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pmCrossProfileAppsStartActivity3Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	pmCrossProfileAppsStartActivity3Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	pmCrossProfileAppsCmd.AddCommand(pmCrossProfileAppsStartActivity3Cmd)
+	pmCrossProfileAppsStartActivity4_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pmCrossProfileAppsStartActivity4_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	pmCrossProfileAppsStartActivity4_1Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	pmCrossProfileAppsStartActivity4_1Cmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	pmCrossProfileAppsCmd.AddCommand(pmCrossProfileAppsStartActivity4_1Cmd)
+	pmCrossProfileAppsStartMainActivity2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pmCrossProfileAppsStartMainActivity2Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	pmCrossProfileAppsCmd.AddCommand(pmCrossProfileAppsStartMainActivity2Cmd)
+	pmCrossProfileAppsStartMainActivity4_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pmCrossProfileAppsStartMainActivity4_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	pmCrossProfileAppsStartMainActivity4_1Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	pmCrossProfileAppsStartMainActivity4_1Cmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	pmCrossProfileAppsCmd.AddCommand(pmCrossProfileAppsStartMainActivity4_1Cmd)
+	pmCmd.AddCommand(pmCrossProfileAppsCmd)
+	pmInstrumentationInfoCmd.AddCommand(pmInstrumentationInfoNewInstrumentationInfoCmd)
+	pmInstrumentationInfoDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	pmInstrumentationInfoCmd.AddCommand(pmInstrumentationInfoDescribeContentsCmd)
+	pmInstrumentationInfoToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
+	pmInstrumentationInfoCmd.AddCommand(pmInstrumentationInfoToStringCmd)
+	pmInstrumentationInfoWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	pmInstrumentationInfoWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pmInstrumentationInfoWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	pmInstrumentationInfoCmd.AddCommand(pmInstrumentationInfoWriteToParcelCmd)
+	pmCmd.AddCommand(pmInstrumentationInfoCmd)
+	pmApplicationInfoCmd.AddCommand(pmApplicationInfoNewApplicationInfoCmd)
+	pmApplicationInfoAreAttributionsUserVisibleCmd.Flags().Int64("handle", 0, "handle (int64)")
+	pmApplicationInfoCmd.AddCommand(pmApplicationInfoAreAttributionsUserVisibleCmd)
+	pmApplicationInfoDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	pmApplicationInfoCmd.AddCommand(pmApplicationInfoDescribeContentsCmd)
+	pmApplicationInfoDumpCmd.Flags().Int64("handle", 0, "handle (int64)")
+	pmApplicationInfoDumpCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pmApplicationInfoDumpCmd.Flags().String("arg1", "", "arg1 (string)")
+	pmApplicationInfoCmd.AddCommand(pmApplicationInfoDumpCmd)
+	pmApplicationInfoGetGwpAsanModeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	pmApplicationInfoCmd.AddCommand(pmApplicationInfoGetGwpAsanModeCmd)
+	pmApplicationInfoGetKnownActivityEmbeddingCertsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	pmApplicationInfoCmd.AddCommand(pmApplicationInfoGetKnownActivityEmbeddingCertsCmd)
+	pmApplicationInfoGetMemtagModeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	pmApplicationInfoCmd.AddCommand(pmApplicationInfoGetMemtagModeCmd)
+	pmApplicationInfoGetNativeHeapZeroInitializedCmd.Flags().Int64("handle", 0, "handle (int64)")
+	pmApplicationInfoCmd.AddCommand(pmApplicationInfoGetNativeHeapZeroInitializedCmd)
+	pmApplicationInfoGetRequestRawExternalStorageAccessCmd.Flags().Int64("handle", 0, "handle (int64)")
+	pmApplicationInfoCmd.AddCommand(pmApplicationInfoGetRequestRawExternalStorageAccessCmd)
+	pmApplicationInfoIsProfileableCmd.Flags().Int64("handle", 0, "handle (int64)")
+	pmApplicationInfoCmd.AddCommand(pmApplicationInfoIsProfileableCmd)
+	pmApplicationInfoIsProfileableByShellCmd.Flags().Int64("handle", 0, "handle (int64)")
+	pmApplicationInfoCmd.AddCommand(pmApplicationInfoIsProfileableByShellCmd)
+	pmApplicationInfoIsResourceOverlayCmd.Flags().Int64("handle", 0, "handle (int64)")
+	pmApplicationInfoCmd.AddCommand(pmApplicationInfoIsResourceOverlayCmd)
+	pmApplicationInfoIsVirtualPreloadCmd.Flags().Int64("handle", 0, "handle (int64)")
+	pmApplicationInfoCmd.AddCommand(pmApplicationInfoIsVirtualPreloadCmd)
+	pmApplicationInfoLoadDescriptionCmd.Flags().Int64("handle", 0, "handle (int64)")
+	pmApplicationInfoLoadDescriptionCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pmApplicationInfoCmd.AddCommand(pmApplicationInfoLoadDescriptionCmd)
+	pmApplicationInfoToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
+	pmApplicationInfoCmd.AddCommand(pmApplicationInfoToStringCmd)
+	pmApplicationInfoWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	pmApplicationInfoWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pmApplicationInfoWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	pmApplicationInfoCmd.AddCommand(pmApplicationInfoWriteToParcelCmd)
+	pmApplicationInfoGetCategoryTitleCmd.Flags().Int64("handle", 0, "handle (int64)")
+	pmApplicationInfoGetCategoryTitleCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pmApplicationInfoGetCategoryTitleCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	pmApplicationInfoCmd.AddCommand(pmApplicationInfoGetCategoryTitleCmd)
+	pmCmd.AddCommand(pmApplicationInfoCmd)
+	pmApplicationInfoDisplayNameComparatorCompare2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pmApplicationInfoDisplayNameComparatorCompare2Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	pmApplicationInfoDisplayNameComparatorCmd.AddCommand(pmApplicationInfoDisplayNameComparatorCompare2Cmd)
+	pmApplicationInfoDisplayNameComparatorCompare2_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pmApplicationInfoDisplayNameComparatorCompare2_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	pmApplicationInfoDisplayNameComparatorCmd.AddCommand(pmApplicationInfoDisplayNameComparatorCompare2_1Cmd)
+	pmCmd.AddCommand(pmApplicationInfoDisplayNameComparatorCmd)
+	pmChecksumNewChecksumCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	pmChecksumNewChecksumCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	pmChecksumCmd.AddCommand(pmChecksumNewChecksumCmd)
+	pmChecksumDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	pmChecksumCmd.AddCommand(pmChecksumDescribeContentsCmd)
+	pmChecksumGetTypeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	pmChecksumCmd.AddCommand(pmChecksumGetTypeCmd)
+	pmChecksumGetValueCmd.Flags().Int64("handle", 0, "handle (int64)")
+	pmChecksumCmd.AddCommand(pmChecksumGetValueCmd)
+	pmChecksumWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	pmChecksumWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pmChecksumWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	pmChecksumCmd.AddCommand(pmChecksumWriteToParcelCmd)
+	pmCmd.AddCommand(pmChecksumCmd)
+	pmVersionedPackageNewVersionedPackageCmd.Flags().String("arg0", "", "arg0 (string)")
+	pmVersionedPackageNewVersionedPackageCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	pmVersionedPackageCmd.AddCommand(pmVersionedPackageNewVersionedPackageCmd)
+	pmVersionedPackageDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	pmVersionedPackageCmd.AddCommand(pmVersionedPackageDescribeContentsCmd)
+	pmVersionedPackageEqualsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	pmVersionedPackageEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pmVersionedPackageCmd.AddCommand(pmVersionedPackageEqualsCmd)
+	pmVersionedPackageGetLongVersionCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	pmVersionedPackageCmd.AddCommand(pmVersionedPackageGetLongVersionCodeCmd)
+	pmVersionedPackageGetPackageNameCmd.Flags().Int64("handle", 0, "handle (int64)")
+	pmVersionedPackageCmd.AddCommand(pmVersionedPackageGetPackageNameCmd)
+	pmVersionedPackageGetVersionCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	pmVersionedPackageCmd.AddCommand(pmVersionedPackageGetVersionCodeCmd)
+	pmVersionedPackageHashCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	pmVersionedPackageCmd.AddCommand(pmVersionedPackageHashCodeCmd)
+	pmVersionedPackageToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
+	pmVersionedPackageCmd.AddCommand(pmVersionedPackageToStringCmd)
+	pmVersionedPackageWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	pmVersionedPackageWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pmVersionedPackageWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	pmVersionedPackageCmd.AddCommand(pmVersionedPackageWriteToParcelCmd)
+	pmCmd.AddCommand(pmVersionedPackageCmd)
+	pmLabeledIntentNewLabeledIntentCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pmLabeledIntentNewLabeledIntentCmd.Flags().String("arg1", "", "arg1 (string)")
+	pmLabeledIntentNewLabeledIntentCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	pmLabeledIntentNewLabeledIntentCmd.Flags().Int32("arg3", 0, "arg3 (int32)")
+	pmLabeledIntentCmd.AddCommand(pmLabeledIntentNewLabeledIntentCmd)
+	pmLabeledIntentGetIconResourceCmd.Flags().Int64("handle", 0, "handle (int64)")
+	pmLabeledIntentCmd.AddCommand(pmLabeledIntentGetIconResourceCmd)
+	pmLabeledIntentGetLabelResourceCmd.Flags().Int64("handle", 0, "handle (int64)")
+	pmLabeledIntentCmd.AddCommand(pmLabeledIntentGetLabelResourceCmd)
+	pmLabeledIntentGetNonLocalizedLabelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	pmLabeledIntentCmd.AddCommand(pmLabeledIntentGetNonLocalizedLabelCmd)
+	pmLabeledIntentGetSourcePackageCmd.Flags().Int64("handle", 0, "handle (int64)")
+	pmLabeledIntentCmd.AddCommand(pmLabeledIntentGetSourcePackageCmd)
+	pmLabeledIntentLoadIconCmd.Flags().Int64("handle", 0, "handle (int64)")
+	pmLabeledIntentLoadIconCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pmLabeledIntentCmd.AddCommand(pmLabeledIntentLoadIconCmd)
+	pmLabeledIntentLoadLabelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	pmLabeledIntentLoadLabelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pmLabeledIntentCmd.AddCommand(pmLabeledIntentLoadLabelCmd)
+	pmLabeledIntentReadFromParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	pmLabeledIntentReadFromParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pmLabeledIntentCmd.AddCommand(pmLabeledIntentReadFromParcelCmd)
+	pmLabeledIntentWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	pmLabeledIntentWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pmLabeledIntentWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	pmLabeledIntentCmd.AddCommand(pmLabeledIntentWriteToParcelCmd)
+	pmCmd.AddCommand(pmLabeledIntentCmd)
+	pmApkChecksumCmd.AddCommand(pmApkChecksumDescribeContentsCmd)
+	pmApkChecksumCmd.AddCommand(pmApkChecksumGetInstallerCertificateCmd)
+	pmApkChecksumCmd.AddCommand(pmApkChecksumGetInstallerPackageNameCmd)
+	pmApkChecksumCmd.AddCommand(pmApkChecksumGetSplitNameCmd)
+	pmApkChecksumCmd.AddCommand(pmApkChecksumGetTypeCmd)
+	pmApkChecksumCmd.AddCommand(pmApkChecksumGetValueCmd)
+	pmApkChecksumCmd.AddCommand(pmApkChecksumToStringCmd)
+	pmApkChecksumWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pmApkChecksumWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	pmApkChecksumCmd.AddCommand(pmApkChecksumWriteToParcelCmd)
+	pmCmd.AddCommand(pmApkChecksumCmd)
+	pmInstallSourceInfoCmd.AddCommand(pmInstallSourceInfoDescribeContentsCmd)
+	pmInstallSourceInfoCmd.AddCommand(pmInstallSourceInfoGetInitiatingPackageNameCmd)
+	pmInstallSourceInfoCmd.AddCommand(pmInstallSourceInfoGetInitiatingPackageSigningInfoCmd)
+	pmInstallSourceInfoCmd.AddCommand(pmInstallSourceInfoGetInstallingPackageNameCmd)
+	pmInstallSourceInfoCmd.AddCommand(pmInstallSourceInfoGetOriginatingPackageNameCmd)
+	pmInstallSourceInfoCmd.AddCommand(pmInstallSourceInfoGetPackageSourceCmd)
+	pmInstallSourceInfoCmd.AddCommand(pmInstallSourceInfoGetUpdateOwnerPackageNameCmd)
+	pmInstallSourceInfoWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pmInstallSourceInfoWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	pmInstallSourceInfoCmd.AddCommand(pmInstallSourceInfoWriteToParcelCmd)
+	pmCmd.AddCommand(pmInstallSourceInfoCmd)
+	pmLauncherActivityInfoCmd.AddCommand(pmLauncherActivityInfoGetActivityInfoCmd)
+	pmLauncherActivityInfoCmd.AddCommand(pmLauncherActivityInfoGetApplicationInfoCmd)
+	pmLauncherActivityInfoGetBadgedIconCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	pmLauncherActivityInfoCmd.AddCommand(pmLauncherActivityInfoGetBadgedIconCmd)
+	pmLauncherActivityInfoCmd.AddCommand(pmLauncherActivityInfoGetComponentNameCmd)
+	pmLauncherActivityInfoCmd.AddCommand(pmLauncherActivityInfoGetFirstInstallTimeCmd)
+	pmLauncherActivityInfoGetIconCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	pmLauncherActivityInfoCmd.AddCommand(pmLauncherActivityInfoGetIconCmd)
+	pmLauncherActivityInfoCmd.AddCommand(pmLauncherActivityInfoGetLabelCmd)
+	pmLauncherActivityInfoCmd.AddCommand(pmLauncherActivityInfoGetLoadingProgressCmd)
+	pmLauncherActivityInfoCmd.AddCommand(pmLauncherActivityInfoGetNameCmd)
+	pmLauncherActivityInfoCmd.AddCommand(pmLauncherActivityInfoGetUserCmd)
+	pmCmd.AddCommand(pmLauncherActivityInfoCmd)
+	pmModuleInfoCmd.AddCommand(pmModuleInfoDescribeContentsCmd)
+	pmModuleInfoEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pmModuleInfoCmd.AddCommand(pmModuleInfoEqualsCmd)
+	pmModuleInfoCmd.AddCommand(pmModuleInfoGetNameCmd)
+	pmModuleInfoCmd.AddCommand(pmModuleInfoGetPackageNameCmd)
+	pmModuleInfoCmd.AddCommand(pmModuleInfoHashCodeCmd)
+	pmModuleInfoCmd.AddCommand(pmModuleInfoIsHiddenCmd)
+	pmModuleInfoCmd.AddCommand(pmModuleInfoToStringCmd)
+	pmModuleInfoWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pmModuleInfoWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	pmModuleInfoCmd.AddCommand(pmModuleInfoWriteToParcelCmd)
+	pmCmd.AddCommand(pmModuleInfoCmd)
+	pmSigningInfoCmd.AddCommand(pmSigningInfoNewSigningInfoCmd)
+	pmSigningInfoDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	pmSigningInfoCmd.AddCommand(pmSigningInfoDescribeContentsCmd)
+	pmSigningInfoGetApkContentsSignersCmd.Flags().Int64("handle", 0, "handle (int64)")
+	pmSigningInfoCmd.AddCommand(pmSigningInfoGetApkContentsSignersCmd)
+	pmSigningInfoGetPublicKeysCmd.Flags().Int64("handle", 0, "handle (int64)")
+	pmSigningInfoCmd.AddCommand(pmSigningInfoGetPublicKeysCmd)
+	pmSigningInfoGetSchemeVersionCmd.Flags().Int64("handle", 0, "handle (int64)")
+	pmSigningInfoCmd.AddCommand(pmSigningInfoGetSchemeVersionCmd)
+	pmSigningInfoGetSigningCertificateHistoryCmd.Flags().Int64("handle", 0, "handle (int64)")
+	pmSigningInfoCmd.AddCommand(pmSigningInfoGetSigningCertificateHistoryCmd)
+	pmSigningInfoHasMultipleSignersCmd.Flags().Int64("handle", 0, "handle (int64)")
+	pmSigningInfoCmd.AddCommand(pmSigningInfoHasMultipleSignersCmd)
+	pmSigningInfoHasPastSigningCertificatesCmd.Flags().Int64("handle", 0, "handle (int64)")
+	pmSigningInfoCmd.AddCommand(pmSigningInfoHasPastSigningCertificatesCmd)
+	pmSigningInfoSignersMatchExactlyCmd.Flags().Int64("handle", 0, "handle (int64)")
+	pmSigningInfoSignersMatchExactlyCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pmSigningInfoCmd.AddCommand(pmSigningInfoSignersMatchExactlyCmd)
+	pmSigningInfoWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	pmSigningInfoWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pmSigningInfoWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	pmSigningInfoCmd.AddCommand(pmSigningInfoWriteToParcelCmd)
+	pmCmd.AddCommand(pmSigningInfoCmd)
+	pmPackageManagerAddPackageToPreferredCmd.Flags().String("arg0", "", "arg0 (string)")
+	pmPackageManagerCmd.AddCommand(pmPackageManagerAddPackageToPreferredCmd)
+	pmPackageManagerAddPermissionCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pmPackageManagerCmd.AddCommand(pmPackageManagerAddPermissionCmd)
+	pmPackageManagerAddPermissionAsyncCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pmPackageManagerCmd.AddCommand(pmPackageManagerAddPermissionAsyncCmd)
+	pmPackageManagerAddPreferredActivityCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pmPackageManagerAddPreferredActivityCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	pmPackageManagerAddPreferredActivityCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	pmPackageManagerAddPreferredActivityCmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	pmPackageManagerCmd.AddCommand(pmPackageManagerAddPreferredActivityCmd)
+	pmPackageManagerAddWhitelistedRestrictedPermissionCmd.Flags().String("arg0", "", "arg0 (string)")
+	pmPackageManagerAddWhitelistedRestrictedPermissionCmd.Flags().String("arg1", "", "arg1 (string)")
+	pmPackageManagerAddWhitelistedRestrictedPermissionCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	pmPackageManagerCmd.AddCommand(pmPackageManagerAddWhitelistedRestrictedPermissionCmd)
+	pmPackageManagerCanPackageQuery2Cmd.Flags().String("arg0", "", "arg0 (string)")
+	pmPackageManagerCanPackageQuery2Cmd.Flags().String("arg1", "", "arg1 (string)")
+	pmPackageManagerCmd.AddCommand(pmPackageManagerCanPackageQuery2Cmd)
+	pmPackageManagerCanPackageQuery2_1Cmd.Flags().String("arg0", "", "arg0 (string)")
+	pmPackageManagerCanPackageQuery2_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	pmPackageManagerCmd.AddCommand(pmPackageManagerCanPackageQuery2_1Cmd)
+	pmPackageManagerCmd.AddCommand(pmPackageManagerCanRequestPackageInstallsCmd)
+	pmPackageManagerCanonicalToCurrentPackageNamesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pmPackageManagerCmd.AddCommand(pmPackageManagerCanonicalToCurrentPackageNamesCmd)
+	pmPackageManagerCheckPermissionCmd.Flags().String("arg0", "", "arg0 (string)")
+	pmPackageManagerCheckPermissionCmd.Flags().String("arg1", "", "arg1 (string)")
+	pmPackageManagerCmd.AddCommand(pmPackageManagerCheckPermissionCmd)
+	pmPackageManagerCheckSignatures2Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	pmPackageManagerCheckSignatures2Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	pmPackageManagerCmd.AddCommand(pmPackageManagerCheckSignatures2Cmd)
+	pmPackageManagerCheckSignatures2_1Cmd.Flags().String("arg0", "", "arg0 (string)")
+	pmPackageManagerCheckSignatures2_1Cmd.Flags().String("arg1", "", "arg1 (string)")
+	pmPackageManagerCmd.AddCommand(pmPackageManagerCheckSignatures2_1Cmd)
+	pmPackageManagerCmd.AddCommand(pmPackageManagerClearInstantAppCookieCmd)
+	pmPackageManagerClearPackagePreferredActivitiesCmd.Flags().String("arg0", "", "arg0 (string)")
+	pmPackageManagerCmd.AddCommand(pmPackageManagerClearPackagePreferredActivitiesCmd)
+	pmPackageManagerCurrentToCanonicalPackageNamesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pmPackageManagerCmd.AddCommand(pmPackageManagerCurrentToCanonicalPackageNamesCmd)
+	pmPackageManagerExtendVerificationTimeoutCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	pmPackageManagerExtendVerificationTimeoutCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	pmPackageManagerExtendVerificationTimeoutCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	pmPackageManagerCmd.AddCommand(pmPackageManagerExtendVerificationTimeoutCmd)
+	pmPackageManagerGetActivityBanner1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pmPackageManagerCmd.AddCommand(pmPackageManagerGetActivityBanner1Cmd)
+	pmPackageManagerGetActivityBanner1_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pmPackageManagerCmd.AddCommand(pmPackageManagerGetActivityBanner1_1Cmd)
+	pmPackageManagerGetActivityIcon1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pmPackageManagerCmd.AddCommand(pmPackageManagerGetActivityIcon1Cmd)
+	pmPackageManagerGetActivityIcon1_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pmPackageManagerCmd.AddCommand(pmPackageManagerGetActivityIcon1_1Cmd)
+	pmPackageManagerGetActivityInfo2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pmPackageManagerGetActivityInfo2Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	pmPackageManagerCmd.AddCommand(pmPackageManagerGetActivityInfo2Cmd)
+	pmPackageManagerGetActivityInfo2_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pmPackageManagerGetActivityInfo2_1Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	pmPackageManagerCmd.AddCommand(pmPackageManagerGetActivityInfo2_1Cmd)
+	pmPackageManagerGetActivityLogo1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pmPackageManagerCmd.AddCommand(pmPackageManagerGetActivityLogo1Cmd)
+	pmPackageManagerGetActivityLogo1_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pmPackageManagerCmd.AddCommand(pmPackageManagerGetActivityLogo1_1Cmd)
+	pmPackageManagerGetAllPermissionGroupsCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	pmPackageManagerCmd.AddCommand(pmPackageManagerGetAllPermissionGroupsCmd)
+	pmPackageManagerGetApplicationBanner1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pmPackageManagerCmd.AddCommand(pmPackageManagerGetApplicationBanner1Cmd)
+	pmPackageManagerGetApplicationBanner1_1Cmd.Flags().String("arg0", "", "arg0 (string)")
+	pmPackageManagerCmd.AddCommand(pmPackageManagerGetApplicationBanner1_1Cmd)
+	pmPackageManagerGetApplicationEnabledSettingCmd.Flags().String("arg0", "", "arg0 (string)")
+	pmPackageManagerCmd.AddCommand(pmPackageManagerGetApplicationEnabledSettingCmd)
+	pmPackageManagerGetApplicationIcon1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pmPackageManagerCmd.AddCommand(pmPackageManagerGetApplicationIcon1Cmd)
+	pmPackageManagerGetApplicationIcon1_1Cmd.Flags().String("arg0", "", "arg0 (string)")
+	pmPackageManagerCmd.AddCommand(pmPackageManagerGetApplicationIcon1_1Cmd)
+	pmPackageManagerGetApplicationInfo2Cmd.Flags().String("arg0", "", "arg0 (string)")
+	pmPackageManagerGetApplicationInfo2Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	pmPackageManagerCmd.AddCommand(pmPackageManagerGetApplicationInfo2Cmd)
+	pmPackageManagerGetApplicationInfo2_1Cmd.Flags().String("arg0", "", "arg0 (string)")
+	pmPackageManagerGetApplicationInfo2_1Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	pmPackageManagerCmd.AddCommand(pmPackageManagerGetApplicationInfo2_1Cmd)
+	pmPackageManagerGetApplicationLabelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pmPackageManagerCmd.AddCommand(pmPackageManagerGetApplicationLabelCmd)
+	pmPackageManagerGetApplicationLogo1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pmPackageManagerCmd.AddCommand(pmPackageManagerGetApplicationLogo1Cmd)
+	pmPackageManagerGetApplicationLogo1_1Cmd.Flags().String("arg0", "", "arg0 (string)")
+	pmPackageManagerCmd.AddCommand(pmPackageManagerGetApplicationLogo1_1Cmd)
+	pmPackageManagerGetArchivedPackageCmd.Flags().String("arg0", "", "arg0 (string)")
+	pmPackageManagerCmd.AddCommand(pmPackageManagerGetArchivedPackageCmd)
+	pmPackageManagerCmd.AddCommand(pmPackageManagerGetBackgroundPermissionOptionLabelCmd)
+	pmPackageManagerGetChangedPackagesCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	pmPackageManagerCmd.AddCommand(pmPackageManagerGetChangedPackagesCmd)
+	pmPackageManagerGetComponentEnabledSettingCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pmPackageManagerCmd.AddCommand(pmPackageManagerGetComponentEnabledSettingCmd)
+	pmPackageManagerCmd.AddCommand(pmPackageManagerGetDefaultActivityIconCmd)
+	pmPackageManagerGetDrawableCmd.Flags().String("arg0", "", "arg0 (string)")
+	pmPackageManagerGetDrawableCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	pmPackageManagerGetDrawableCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	pmPackageManagerCmd.AddCommand(pmPackageManagerGetDrawableCmd)
+	pmPackageManagerGetInstallSourceInfoCmd.Flags().String("arg0", "", "arg0 (string)")
+	pmPackageManagerCmd.AddCommand(pmPackageManagerGetInstallSourceInfoCmd)
+	pmPackageManagerGetInstalledApplications1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pmPackageManagerCmd.AddCommand(pmPackageManagerGetInstalledApplications1Cmd)
+	pmPackageManagerGetInstalledApplications1_1Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	pmPackageManagerCmd.AddCommand(pmPackageManagerGetInstalledApplications1_1Cmd)
+	pmPackageManagerGetInstalledModulesCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	pmPackageManagerCmd.AddCommand(pmPackageManagerGetInstalledModulesCmd)
+	pmPackageManagerGetInstalledPackages1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pmPackageManagerCmd.AddCommand(pmPackageManagerGetInstalledPackages1Cmd)
+	pmPackageManagerGetInstalledPackages1_1Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	pmPackageManagerCmd.AddCommand(pmPackageManagerGetInstalledPackages1_1Cmd)
+	pmPackageManagerGetInstallerPackageNameCmd.Flags().String("arg0", "", "arg0 (string)")
+	pmPackageManagerCmd.AddCommand(pmPackageManagerGetInstallerPackageNameCmd)
+	pmPackageManagerCmd.AddCommand(pmPackageManagerGetInstantAppCookieCmd)
+	pmPackageManagerCmd.AddCommand(pmPackageManagerGetInstantAppCookieMaxBytesCmd)
+	pmPackageManagerGetInstrumentationInfoCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pmPackageManagerGetInstrumentationInfoCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	pmPackageManagerCmd.AddCommand(pmPackageManagerGetInstrumentationInfoCmd)
+	pmPackageManagerGetLaunchIntentForPackageCmd.Flags().String("arg0", "", "arg0 (string)")
+	pmPackageManagerCmd.AddCommand(pmPackageManagerGetLaunchIntentForPackageCmd)
+	pmPackageManagerGetLaunchIntentSenderForPackageCmd.Flags().String("arg0", "", "arg0 (string)")
+	pmPackageManagerCmd.AddCommand(pmPackageManagerGetLaunchIntentSenderForPackageCmd)
+	pmPackageManagerGetLeanbackLaunchIntentForPackageCmd.Flags().String("arg0", "", "arg0 (string)")
+	pmPackageManagerCmd.AddCommand(pmPackageManagerGetLeanbackLaunchIntentForPackageCmd)
+	pmPackageManagerGetMimeGroupCmd.Flags().String("arg0", "", "arg0 (string)")
+	pmPackageManagerCmd.AddCommand(pmPackageManagerGetMimeGroupCmd)
+	pmPackageManagerGetModuleInfoCmd.Flags().String("arg0", "", "arg0 (string)")
+	pmPackageManagerGetModuleInfoCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	pmPackageManagerCmd.AddCommand(pmPackageManagerGetModuleInfoCmd)
+	pmPackageManagerGetNameForUidCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	pmPackageManagerCmd.AddCommand(pmPackageManagerGetNameForUidCmd)
+	pmPackageManagerGetPackageArchiveInfo2Cmd.Flags().String("arg0", "", "arg0 (string)")
+	pmPackageManagerGetPackageArchiveInfo2Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	pmPackageManagerCmd.AddCommand(pmPackageManagerGetPackageArchiveInfo2Cmd)
+	pmPackageManagerGetPackageArchiveInfo2_1Cmd.Flags().String("arg0", "", "arg0 (string)")
+	pmPackageManagerGetPackageArchiveInfo2_1Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	pmPackageManagerCmd.AddCommand(pmPackageManagerGetPackageArchiveInfo2_1Cmd)
+	pmPackageManagerGetPackageGids1Cmd.Flags().String("arg0", "", "arg0 (string)")
+	pmPackageManagerCmd.AddCommand(pmPackageManagerGetPackageGids1Cmd)
+	pmPackageManagerGetPackageGids2_1Cmd.Flags().String("arg0", "", "arg0 (string)")
+	pmPackageManagerGetPackageGids2_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	pmPackageManagerCmd.AddCommand(pmPackageManagerGetPackageGids2_1Cmd)
+	pmPackageManagerGetPackageGids2_2Cmd.Flags().String("arg0", "", "arg0 (string)")
+	pmPackageManagerGetPackageGids2_2Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	pmPackageManagerCmd.AddCommand(pmPackageManagerGetPackageGids2_2Cmd)
+	pmPackageManagerGetPackageInfo2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pmPackageManagerGetPackageInfo2Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	pmPackageManagerCmd.AddCommand(pmPackageManagerGetPackageInfo2Cmd)
+	pmPackageManagerGetPackageInfo2_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pmPackageManagerGetPackageInfo2_1Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	pmPackageManagerCmd.AddCommand(pmPackageManagerGetPackageInfo2_1Cmd)
+	pmPackageManagerGetPackageInfo2_2Cmd.Flags().String("arg0", "", "arg0 (string)")
+	pmPackageManagerGetPackageInfo2_2Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	pmPackageManagerCmd.AddCommand(pmPackageManagerGetPackageInfo2_2Cmd)
+	pmPackageManagerGetPackageInfo2_3Cmd.Flags().String("arg0", "", "arg0 (string)")
+	pmPackageManagerGetPackageInfo2_3Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	pmPackageManagerCmd.AddCommand(pmPackageManagerGetPackageInfo2_3Cmd)
+	pmPackageManagerCmd.AddCommand(pmPackageManagerGetPackageInstallerCmd)
+	pmPackageManagerGetPackageUid2Cmd.Flags().String("arg0", "", "arg0 (string)")
+	pmPackageManagerGetPackageUid2Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	pmPackageManagerCmd.AddCommand(pmPackageManagerGetPackageUid2Cmd)
+	pmPackageManagerGetPackageUid2_1Cmd.Flags().String("arg0", "", "arg0 (string)")
+	pmPackageManagerGetPackageUid2_1Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	pmPackageManagerCmd.AddCommand(pmPackageManagerGetPackageUid2_1Cmd)
+	pmPackageManagerGetPackagesForUidCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	pmPackageManagerCmd.AddCommand(pmPackageManagerGetPackagesForUidCmd)
+	pmPackageManagerGetPackagesHoldingPermissions2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pmPackageManagerGetPackagesHoldingPermissions2Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	pmPackageManagerCmd.AddCommand(pmPackageManagerGetPackagesHoldingPermissions2Cmd)
+	pmPackageManagerGetPackagesHoldingPermissions2_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pmPackageManagerGetPackagesHoldingPermissions2_1Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	pmPackageManagerCmd.AddCommand(pmPackageManagerGetPackagesHoldingPermissions2_1Cmd)
+	pmPackageManagerGetPermissionGroupInfoCmd.Flags().String("arg0", "", "arg0 (string)")
+	pmPackageManagerGetPermissionGroupInfoCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	pmPackageManagerCmd.AddCommand(pmPackageManagerGetPermissionGroupInfoCmd)
+	pmPackageManagerGetPermissionInfoCmd.Flags().String("arg0", "", "arg0 (string)")
+	pmPackageManagerGetPermissionInfoCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	pmPackageManagerCmd.AddCommand(pmPackageManagerGetPermissionInfoCmd)
+	pmPackageManagerGetPreferredPackagesCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	pmPackageManagerCmd.AddCommand(pmPackageManagerGetPreferredPackagesCmd)
+	pmPackageManagerGetProperty2Cmd.Flags().String("arg0", "", "arg0 (string)")
+	pmPackageManagerGetProperty2Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	pmPackageManagerCmd.AddCommand(pmPackageManagerGetProperty2Cmd)
+	pmPackageManagerGetProperty2_1Cmd.Flags().String("arg0", "", "arg0 (string)")
+	pmPackageManagerGetProperty2_1Cmd.Flags().String("arg1", "", "arg1 (string)")
+	pmPackageManagerCmd.AddCommand(pmPackageManagerGetProperty2_1Cmd)
+	pmPackageManagerGetProviderInfo2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pmPackageManagerGetProviderInfo2Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	pmPackageManagerCmd.AddCommand(pmPackageManagerGetProviderInfo2Cmd)
+	pmPackageManagerGetProviderInfo2_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pmPackageManagerGetProviderInfo2_1Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	pmPackageManagerCmd.AddCommand(pmPackageManagerGetProviderInfo2_1Cmd)
+	pmPackageManagerGetReceiverInfo2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pmPackageManagerGetReceiverInfo2Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	pmPackageManagerCmd.AddCommand(pmPackageManagerGetReceiverInfo2Cmd)
+	pmPackageManagerGetReceiverInfo2_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pmPackageManagerGetReceiverInfo2_1Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	pmPackageManagerCmd.AddCommand(pmPackageManagerGetReceiverInfo2_1Cmd)
+	pmPackageManagerGetResourcesForActivityCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pmPackageManagerCmd.AddCommand(pmPackageManagerGetResourcesForActivityCmd)
+	pmPackageManagerGetResourcesForApplication1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pmPackageManagerCmd.AddCommand(pmPackageManagerGetResourcesForApplication1Cmd)
+	pmPackageManagerGetResourcesForApplication2_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pmPackageManagerGetResourcesForApplication2_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	pmPackageManagerCmd.AddCommand(pmPackageManagerGetResourcesForApplication2_1Cmd)
+	pmPackageManagerGetResourcesForApplication1_2Cmd.Flags().String("arg0", "", "arg0 (string)")
+	pmPackageManagerCmd.AddCommand(pmPackageManagerGetResourcesForApplication1_2Cmd)
+	pmPackageManagerGetServiceInfo2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pmPackageManagerGetServiceInfo2Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	pmPackageManagerCmd.AddCommand(pmPackageManagerGetServiceInfo2Cmd)
+	pmPackageManagerGetServiceInfo2_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pmPackageManagerGetServiceInfo2_1Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	pmPackageManagerCmd.AddCommand(pmPackageManagerGetServiceInfo2_1Cmd)
+	pmPackageManagerGetSharedLibraries1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pmPackageManagerCmd.AddCommand(pmPackageManagerGetSharedLibraries1Cmd)
+	pmPackageManagerGetSharedLibraries1_1Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	pmPackageManagerCmd.AddCommand(pmPackageManagerGetSharedLibraries1_1Cmd)
+	pmPackageManagerCmd.AddCommand(pmPackageManagerGetSuspendedPackageAppExtrasCmd)
+	pmPackageManagerGetSyntheticAppDetailsActivityEnabledCmd.Flags().String("arg0", "", "arg0 (string)")
+	pmPackageManagerCmd.AddCommand(pmPackageManagerGetSyntheticAppDetailsActivityEnabledCmd)
+	pmPackageManagerCmd.AddCommand(pmPackageManagerGetSystemAvailableFeaturesCmd)
+	pmPackageManagerCmd.AddCommand(pmPackageManagerGetSystemSharedLibraryNamesCmd)
+	pmPackageManagerGetTargetSdkVersionCmd.Flags().String("arg0", "", "arg0 (string)")
+	pmPackageManagerCmd.AddCommand(pmPackageManagerGetTargetSdkVersionCmd)
+	pmPackageManagerGetTextCmd.Flags().String("arg0", "", "arg0 (string)")
+	pmPackageManagerGetTextCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	pmPackageManagerGetTextCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	pmPackageManagerCmd.AddCommand(pmPackageManagerGetTextCmd)
+	pmPackageManagerGetUserBadgedDrawableForDensityCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pmPackageManagerGetUserBadgedDrawableForDensityCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	pmPackageManagerGetUserBadgedDrawableForDensityCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	pmPackageManagerGetUserBadgedDrawableForDensityCmd.Flags().Int32("arg3", 0, "arg3 (int32)")
+	pmPackageManagerCmd.AddCommand(pmPackageManagerGetUserBadgedDrawableForDensityCmd)
+	pmPackageManagerGetUserBadgedIconCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pmPackageManagerGetUserBadgedIconCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	pmPackageManagerCmd.AddCommand(pmPackageManagerGetUserBadgedIconCmd)
+	pmPackageManagerGetUserBadgedLabelCmd.Flags().String("arg0", "", "arg0 (string)")
+	pmPackageManagerGetUserBadgedLabelCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	pmPackageManagerCmd.AddCommand(pmPackageManagerGetUserBadgedLabelCmd)
+	pmPackageManagerGetWhitelistedRestrictedPermissionsCmd.Flags().String("arg0", "", "arg0 (string)")
+	pmPackageManagerGetWhitelistedRestrictedPermissionsCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	pmPackageManagerCmd.AddCommand(pmPackageManagerGetWhitelistedRestrictedPermissionsCmd)
+	pmPackageManagerGetXmlCmd.Flags().String("arg0", "", "arg0 (string)")
+	pmPackageManagerGetXmlCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	pmPackageManagerGetXmlCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	pmPackageManagerCmd.AddCommand(pmPackageManagerGetXmlCmd)
+	pmPackageManagerHasSigningCertificate3Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	pmPackageManagerHasSigningCertificate3Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	pmPackageManagerHasSigningCertificate3Cmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	pmPackageManagerCmd.AddCommand(pmPackageManagerHasSigningCertificate3Cmd)
+	pmPackageManagerHasSigningCertificate3_1Cmd.Flags().String("arg0", "", "arg0 (string)")
+	pmPackageManagerHasSigningCertificate3_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	pmPackageManagerHasSigningCertificate3_1Cmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	pmPackageManagerCmd.AddCommand(pmPackageManagerHasSigningCertificate3_1Cmd)
+	pmPackageManagerHasSystemFeature1Cmd.Flags().String("arg0", "", "arg0 (string)")
+	pmPackageManagerCmd.AddCommand(pmPackageManagerHasSystemFeature1Cmd)
+	pmPackageManagerHasSystemFeature2_1Cmd.Flags().String("arg0", "", "arg0 (string)")
+	pmPackageManagerHasSystemFeature2_1Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	pmPackageManagerCmd.AddCommand(pmPackageManagerHasSystemFeature2_1Cmd)
+	pmPackageManagerIsAppArchivableCmd.Flags().String("arg0", "", "arg0 (string)")
+	pmPackageManagerCmd.AddCommand(pmPackageManagerIsAppArchivableCmd)
+	pmPackageManagerCmd.AddCommand(pmPackageManagerIsAutoRevokeWhitelisted0Cmd)
+	pmPackageManagerIsAutoRevokeWhitelisted1_1Cmd.Flags().String("arg0", "", "arg0 (string)")
+	pmPackageManagerCmd.AddCommand(pmPackageManagerIsAutoRevokeWhitelisted1_1Cmd)
+	pmPackageManagerIsDefaultApplicationIconCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pmPackageManagerCmd.AddCommand(pmPackageManagerIsDefaultApplicationIconCmd)
+	pmPackageManagerCmd.AddCommand(pmPackageManagerIsDeviceUpgradingCmd)
+	pmPackageManagerCmd.AddCommand(pmPackageManagerIsInstantApp0Cmd)
+	pmPackageManagerIsInstantApp1_1Cmd.Flags().String("arg0", "", "arg0 (string)")
+	pmPackageManagerCmd.AddCommand(pmPackageManagerIsInstantApp1_1Cmd)
+	pmPackageManagerIsPackageStoppedCmd.Flags().String("arg0", "", "arg0 (string)")
+	pmPackageManagerCmd.AddCommand(pmPackageManagerIsPackageStoppedCmd)
+	pmPackageManagerCmd.AddCommand(pmPackageManagerIsPackageSuspended0Cmd)
+	pmPackageManagerIsPackageSuspended1_1Cmd.Flags().String("arg0", "", "arg0 (string)")
+	pmPackageManagerCmd.AddCommand(pmPackageManagerIsPackageSuspended1_1Cmd)
+	pmPackageManagerIsPermissionRevokedByPolicyCmd.Flags().String("arg0", "", "arg0 (string)")
+	pmPackageManagerIsPermissionRevokedByPolicyCmd.Flags().String("arg1", "", "arg1 (string)")
+	pmPackageManagerCmd.AddCommand(pmPackageManagerIsPermissionRevokedByPolicyCmd)
+	pmPackageManagerCmd.AddCommand(pmPackageManagerIsSafeModeCmd)
+	pmPackageManagerQueryActivityPropertyCmd.Flags().String("arg0", "", "arg0 (string)")
+	pmPackageManagerCmd.AddCommand(pmPackageManagerQueryActivityPropertyCmd)
+	pmPackageManagerQueryApplicationPropertyCmd.Flags().String("arg0", "", "arg0 (string)")
+	pmPackageManagerCmd.AddCommand(pmPackageManagerQueryApplicationPropertyCmd)
+	pmPackageManagerQueryBroadcastReceivers2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pmPackageManagerQueryBroadcastReceivers2Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	pmPackageManagerCmd.AddCommand(pmPackageManagerQueryBroadcastReceivers2Cmd)
+	pmPackageManagerQueryBroadcastReceivers2_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pmPackageManagerQueryBroadcastReceivers2_1Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	pmPackageManagerCmd.AddCommand(pmPackageManagerQueryBroadcastReceivers2_1Cmd)
+	pmPackageManagerQueryContentProviders3Cmd.Flags().String("arg0", "", "arg0 (string)")
+	pmPackageManagerQueryContentProviders3Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	pmPackageManagerQueryContentProviders3Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	pmPackageManagerCmd.AddCommand(pmPackageManagerQueryContentProviders3Cmd)
+	pmPackageManagerQueryContentProviders3_1Cmd.Flags().String("arg0", "", "arg0 (string)")
+	pmPackageManagerQueryContentProviders3_1Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	pmPackageManagerQueryContentProviders3_1Cmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	pmPackageManagerCmd.AddCommand(pmPackageManagerQueryContentProviders3_1Cmd)
+	pmPackageManagerQueryInstrumentationCmd.Flags().String("arg0", "", "arg0 (string)")
+	pmPackageManagerQueryInstrumentationCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	pmPackageManagerCmd.AddCommand(pmPackageManagerQueryInstrumentationCmd)
+	pmPackageManagerQueryIntentActivities2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pmPackageManagerQueryIntentActivities2Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	pmPackageManagerCmd.AddCommand(pmPackageManagerQueryIntentActivities2Cmd)
+	pmPackageManagerQueryIntentActivities2_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pmPackageManagerQueryIntentActivities2_1Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	pmPackageManagerCmd.AddCommand(pmPackageManagerQueryIntentActivities2_1Cmd)
+	pmPackageManagerQueryIntentActivityOptionsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pmPackageManagerQueryIntentActivityOptionsCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	pmPackageManagerQueryIntentActivityOptionsCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	pmPackageManagerQueryIntentActivityOptionsCmd.Flags().Int32("arg3", 0, "arg3 (int32)")
+	pmPackageManagerCmd.AddCommand(pmPackageManagerQueryIntentActivityOptionsCmd)
+	pmPackageManagerQueryIntentContentProviders2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pmPackageManagerQueryIntentContentProviders2Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	pmPackageManagerCmd.AddCommand(pmPackageManagerQueryIntentContentProviders2Cmd)
+	pmPackageManagerQueryIntentContentProviders2_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pmPackageManagerQueryIntentContentProviders2_1Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	pmPackageManagerCmd.AddCommand(pmPackageManagerQueryIntentContentProviders2_1Cmd)
+	pmPackageManagerQueryIntentServices2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pmPackageManagerQueryIntentServices2Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	pmPackageManagerCmd.AddCommand(pmPackageManagerQueryIntentServices2Cmd)
+	pmPackageManagerQueryIntentServices2_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pmPackageManagerQueryIntentServices2_1Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	pmPackageManagerCmd.AddCommand(pmPackageManagerQueryIntentServices2_1Cmd)
+	pmPackageManagerQueryPermissionsByGroupCmd.Flags().String("arg0", "", "arg0 (string)")
+	pmPackageManagerQueryPermissionsByGroupCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	pmPackageManagerCmd.AddCommand(pmPackageManagerQueryPermissionsByGroupCmd)
+	pmPackageManagerQueryProviderPropertyCmd.Flags().String("arg0", "", "arg0 (string)")
+	pmPackageManagerCmd.AddCommand(pmPackageManagerQueryProviderPropertyCmd)
+	pmPackageManagerQueryReceiverPropertyCmd.Flags().String("arg0", "", "arg0 (string)")
+	pmPackageManagerCmd.AddCommand(pmPackageManagerQueryReceiverPropertyCmd)
+	pmPackageManagerQueryServicePropertyCmd.Flags().String("arg0", "", "arg0 (string)")
+	pmPackageManagerCmd.AddCommand(pmPackageManagerQueryServicePropertyCmd)
+	pmPackageManagerRelinquishUpdateOwnershipCmd.Flags().String("arg0", "", "arg0 (string)")
+	pmPackageManagerCmd.AddCommand(pmPackageManagerRelinquishUpdateOwnershipCmd)
+	pmPackageManagerRemovePackageFromPreferredCmd.Flags().String("arg0", "", "arg0 (string)")
+	pmPackageManagerCmd.AddCommand(pmPackageManagerRemovePackageFromPreferredCmd)
+	pmPackageManagerRemovePermissionCmd.Flags().String("arg0", "", "arg0 (string)")
+	pmPackageManagerCmd.AddCommand(pmPackageManagerRemovePermissionCmd)
+	pmPackageManagerRemoveWhitelistedRestrictedPermissionCmd.Flags().String("arg0", "", "arg0 (string)")
+	pmPackageManagerRemoveWhitelistedRestrictedPermissionCmd.Flags().String("arg1", "", "arg1 (string)")
+	pmPackageManagerRemoveWhitelistedRestrictedPermissionCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	pmPackageManagerCmd.AddCommand(pmPackageManagerRemoveWhitelistedRestrictedPermissionCmd)
+	pmPackageManagerResolveActivity2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pmPackageManagerResolveActivity2Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	pmPackageManagerCmd.AddCommand(pmPackageManagerResolveActivity2Cmd)
+	pmPackageManagerResolveActivity2_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pmPackageManagerResolveActivity2_1Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	pmPackageManagerCmd.AddCommand(pmPackageManagerResolveActivity2_1Cmd)
+	pmPackageManagerResolveContentProvider2Cmd.Flags().String("arg0", "", "arg0 (string)")
+	pmPackageManagerResolveContentProvider2Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	pmPackageManagerCmd.AddCommand(pmPackageManagerResolveContentProvider2Cmd)
+	pmPackageManagerResolveContentProvider2_1Cmd.Flags().String("arg0", "", "arg0 (string)")
+	pmPackageManagerResolveContentProvider2_1Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	pmPackageManagerCmd.AddCommand(pmPackageManagerResolveContentProvider2_1Cmd)
+	pmPackageManagerResolveService2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pmPackageManagerResolveService2Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	pmPackageManagerCmd.AddCommand(pmPackageManagerResolveService2Cmd)
+	pmPackageManagerResolveService2_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pmPackageManagerResolveService2_1Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	pmPackageManagerCmd.AddCommand(pmPackageManagerResolveService2_1Cmd)
+	pmPackageManagerSetApplicationCategoryHintCmd.Flags().String("arg0", "", "arg0 (string)")
+	pmPackageManagerSetApplicationCategoryHintCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	pmPackageManagerCmd.AddCommand(pmPackageManagerSetApplicationCategoryHintCmd)
+	pmPackageManagerSetApplicationEnabledSettingCmd.Flags().String("arg0", "", "arg0 (string)")
+	pmPackageManagerSetApplicationEnabledSettingCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	pmPackageManagerSetApplicationEnabledSettingCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	pmPackageManagerCmd.AddCommand(pmPackageManagerSetApplicationEnabledSettingCmd)
+	pmPackageManagerSetAutoRevokeWhitelistedCmd.Flags().String("arg0", "", "arg0 (string)")
+	pmPackageManagerSetAutoRevokeWhitelistedCmd.Flags().Bool("arg1", false, "arg1 (bool)")
+	pmPackageManagerCmd.AddCommand(pmPackageManagerSetAutoRevokeWhitelistedCmd)
+	pmPackageManagerSetComponentEnabledSettingCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pmPackageManagerSetComponentEnabledSettingCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	pmPackageManagerSetComponentEnabledSettingCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	pmPackageManagerCmd.AddCommand(pmPackageManagerSetComponentEnabledSettingCmd)
+	pmPackageManagerSetInstallerPackageNameCmd.Flags().String("arg0", "", "arg0 (string)")
+	pmPackageManagerSetInstallerPackageNameCmd.Flags().String("arg1", "", "arg1 (string)")
+	pmPackageManagerCmd.AddCommand(pmPackageManagerSetInstallerPackageNameCmd)
+	pmPackageManagerUpdateInstantAppCookieCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pmPackageManagerCmd.AddCommand(pmPackageManagerUpdateInstantAppCookieCmd)
+	pmPackageManagerVerifyPendingInstallCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	pmPackageManagerVerifyPendingInstallCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	pmPackageManagerCmd.AddCommand(pmPackageManagerVerifyPendingInstallCmd)
+	pmPackageManagerGetVerifiedSigningInfoCmd.Flags().String("arg0", "", "arg0 (string)")
+	pmPackageManagerGetVerifiedSigningInfoCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	pmPackageManagerCmd.AddCommand(pmPackageManagerGetVerifiedSigningInfoCmd)
+	pmCmd.AddCommand(pmPackageManagerCmd)
+	pmPackageManagerApplicationInfoFlagsCmd.AddCommand(pmPackageManagerApplicationInfoFlagsGetValueCmd)
+	pmPackageManagerApplicationInfoFlagsOfCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pmPackageManagerApplicationInfoFlagsCmd.AddCommand(pmPackageManagerApplicationInfoFlagsOfCmd)
+	pmCmd.AddCommand(pmPackageManagerApplicationInfoFlagsCmd)
+	pmPackageManagerComponentEnabledSettingCmd.AddCommand(pmPackageManagerComponentEnabledSettingDescribeContentsCmd)
+	pmPackageManagerComponentEnabledSettingCmd.AddCommand(pmPackageManagerComponentEnabledSettingGetComponentNameCmd)
+	pmPackageManagerComponentEnabledSettingCmd.AddCommand(pmPackageManagerComponentEnabledSettingGetEnabledFlagsCmd)
+	pmPackageManagerComponentEnabledSettingCmd.AddCommand(pmPackageManagerComponentEnabledSettingGetEnabledStateCmd)
+	pmPackageManagerComponentEnabledSettingWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pmPackageManagerComponentEnabledSettingWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	pmPackageManagerComponentEnabledSettingCmd.AddCommand(pmPackageManagerComponentEnabledSettingWriteToParcelCmd)
+	pmCmd.AddCommand(pmPackageManagerComponentEnabledSettingCmd)
+	pmPackageManagerComponentInfoFlagsCmd.AddCommand(pmPackageManagerComponentInfoFlagsGetValueCmd)
+	pmPackageManagerComponentInfoFlagsOfCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pmPackageManagerComponentInfoFlagsCmd.AddCommand(pmPackageManagerComponentInfoFlagsOfCmd)
+	pmCmd.AddCommand(pmPackageManagerComponentInfoFlagsCmd)
+	pmPackageManagerPackageInfoFlagsCmd.AddCommand(pmPackageManagerPackageInfoFlagsGetValueCmd)
+	pmPackageManagerPackageInfoFlagsOfCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pmPackageManagerPackageInfoFlagsCmd.AddCommand(pmPackageManagerPackageInfoFlagsOfCmd)
+	pmCmd.AddCommand(pmPackageManagerPackageInfoFlagsCmd)
+	pmPackageManagerPropertyCmd.AddCommand(pmPackageManagerPropertyDescribeContentsCmd)
+	pmPackageManagerPropertyEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pmPackageManagerPropertyCmd.AddCommand(pmPackageManagerPropertyEqualsCmd)
+	pmPackageManagerPropertyCmd.AddCommand(pmPackageManagerPropertyGetBooleanCmd)
+	pmPackageManagerPropertyCmd.AddCommand(pmPackageManagerPropertyGetClassNameCmd)
+	pmPackageManagerPropertyCmd.AddCommand(pmPackageManagerPropertyGetFloatCmd)
+	pmPackageManagerPropertyCmd.AddCommand(pmPackageManagerPropertyGetIntegerCmd)
+	pmPackageManagerPropertyCmd.AddCommand(pmPackageManagerPropertyGetNameCmd)
+	pmPackageManagerPropertyCmd.AddCommand(pmPackageManagerPropertyGetPackageNameCmd)
+	pmPackageManagerPropertyCmd.AddCommand(pmPackageManagerPropertyGetResourceIdCmd)
+	pmPackageManagerPropertyCmd.AddCommand(pmPackageManagerPropertyGetStringCmd)
+	pmPackageManagerPropertyCmd.AddCommand(pmPackageManagerPropertyHashCodeCmd)
+	pmPackageManagerPropertyCmd.AddCommand(pmPackageManagerPropertyIsBooleanCmd)
+	pmPackageManagerPropertyCmd.AddCommand(pmPackageManagerPropertyIsFloatCmd)
+	pmPackageManagerPropertyCmd.AddCommand(pmPackageManagerPropertyIsIntegerCmd)
+	pmPackageManagerPropertyCmd.AddCommand(pmPackageManagerPropertyIsResourceIdCmd)
+	pmPackageManagerPropertyCmd.AddCommand(pmPackageManagerPropertyIsStringCmd)
+	pmPackageManagerPropertyWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pmPackageManagerPropertyWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	pmPackageManagerPropertyCmd.AddCommand(pmPackageManagerPropertyWriteToParcelCmd)
+	pmCmd.AddCommand(pmPackageManagerPropertyCmd)
+	pmPackageManagerResolveInfoFlagsCmd.AddCommand(pmPackageManagerResolveInfoFlagsGetValueCmd)
+	pmPackageManagerResolveInfoFlagsOfCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pmPackageManagerResolveInfoFlagsCmd.AddCommand(pmPackageManagerResolveInfoFlagsOfCmd)
+	pmCmd.AddCommand(pmPackageManagerResolveInfoFlagsCmd)
+	pmFeatureGroupInfoCmd.AddCommand(pmFeatureGroupInfoNewFeatureGroupInfoCmd)
+	pmFeatureGroupInfoDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	pmFeatureGroupInfoCmd.AddCommand(pmFeatureGroupInfoDescribeContentsCmd)
+	pmFeatureGroupInfoWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	pmFeatureGroupInfoWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pmFeatureGroupInfoWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	pmFeatureGroupInfoCmd.AddCommand(pmFeatureGroupInfoWriteToParcelCmd)
+	pmCmd.AddCommand(pmFeatureGroupInfoCmd)
+	pmAttributionCmd.AddCommand(pmAttributionDescribeContentsCmd)
+	pmAttributionCmd.AddCommand(pmAttributionGetLabelCmd)
+	pmAttributionCmd.AddCommand(pmAttributionGetTagCmd)
+	pmAttributionWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pmAttributionWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	pmAttributionCmd.AddCommand(pmAttributionWriteToParcelCmd)
+	pmCmd.AddCommand(pmAttributionCmd)
 	pmPermissionInfoCmd.AddCommand(pmPermissionInfoNewPermissionInfoCmd)
 	pmPermissionInfoDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
 	pmPermissionInfoCmd.AddCommand(pmPermissionInfoDescribeContentsCmd)
@@ -12935,74 +14862,23 @@ func init() {
 	pmPermissionInfoWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
 	pmPermissionInfoCmd.AddCommand(pmPermissionInfoWriteToParcelCmd)
 	pmCmd.AddCommand(pmPermissionInfoCmd)
-	pmShortcutInfoCmd.AddCommand(pmShortcutInfoDescribeContentsCmd)
-	pmShortcutInfoCmd.AddCommand(pmShortcutInfoGetActivityCmd)
-	pmShortcutInfoCmd.AddCommand(pmShortcutInfoGetDisabledMessageCmd)
-	pmShortcutInfoCmd.AddCommand(pmShortcutInfoGetDisabledReasonCmd)
-	pmShortcutInfoCmd.AddCommand(pmShortcutInfoGetExcludedFromSurfacesCmd)
-	pmShortcutInfoCmd.AddCommand(pmShortcutInfoGetExtrasCmd)
-	pmShortcutInfoCmd.AddCommand(pmShortcutInfoGetIdCmd)
-	pmShortcutInfoCmd.AddCommand(pmShortcutInfoGetIntentCmd)
-	pmShortcutInfoCmd.AddCommand(pmShortcutInfoGetIntentsCmd)
-	pmShortcutInfoCmd.AddCommand(pmShortcutInfoGetLastChangedTimestampCmd)
-	pmShortcutInfoCmd.AddCommand(pmShortcutInfoGetLocusIdCmd)
-	pmShortcutInfoCmd.AddCommand(pmShortcutInfoGetLongLabelCmd)
-	pmShortcutInfoCmd.AddCommand(pmShortcutInfoGetPackageCmd)
-	pmShortcutInfoCmd.AddCommand(pmShortcutInfoGetRankCmd)
-	pmShortcutInfoCmd.AddCommand(pmShortcutInfoGetShortLabelCmd)
-	pmShortcutInfoCmd.AddCommand(pmShortcutInfoGetUserHandleCmd)
-	pmShortcutInfoCmd.AddCommand(pmShortcutInfoHasKeyFieldsOnlyCmd)
-	pmShortcutInfoCmd.AddCommand(pmShortcutInfoIsCachedCmd)
-	pmShortcutInfoCmd.AddCommand(pmShortcutInfoIsDeclaredInManifestCmd)
-	pmShortcutInfoCmd.AddCommand(pmShortcutInfoIsDynamicCmd)
-	pmShortcutInfoCmd.AddCommand(pmShortcutInfoIsEnabledCmd)
-	pmShortcutInfoIsExcludedFromSurfacesCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	pmShortcutInfoCmd.AddCommand(pmShortcutInfoIsExcludedFromSurfacesCmd)
-	pmShortcutInfoCmd.AddCommand(pmShortcutInfoIsImmutableCmd)
-	pmShortcutInfoCmd.AddCommand(pmShortcutInfoIsPinnedCmd)
-	pmShortcutInfoCmd.AddCommand(pmShortcutInfoToStringCmd)
-	pmShortcutInfoWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	pmShortcutInfoWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	pmShortcutInfoCmd.AddCommand(pmShortcutInfoWriteToParcelCmd)
-	pmShortcutInfoCreateFromGenericDocumentCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	pmShortcutInfoCreateFromGenericDocumentCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	pmShortcutInfoCmd.AddCommand(pmShortcutInfoCreateFromGenericDocumentCmd)
-	pmCmd.AddCommand(pmShortcutInfoCmd)
-	pmShortcutInfoBuilderAddCapabilityBindingCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	pmShortcutInfoBuilderAddCapabilityBindingCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	pmShortcutInfoBuilderCmd.AddCommand(pmShortcutInfoBuilderAddCapabilityBindingCmd)
-	pmShortcutInfoBuilderCmd.AddCommand(pmShortcutInfoBuilderBuildCmd)
-	pmShortcutInfoBuilderSetActivityCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	pmShortcutInfoBuilderCmd.AddCommand(pmShortcutInfoBuilderSetActivityCmd)
-	pmShortcutInfoBuilderSetDisabledMessageCmd.Flags().String("arg0", "", "arg0 (string)")
-	pmShortcutInfoBuilderCmd.AddCommand(pmShortcutInfoBuilderSetDisabledMessageCmd)
-	pmShortcutInfoBuilderSetExcludedFromSurfacesCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	pmShortcutInfoBuilderCmd.AddCommand(pmShortcutInfoBuilderSetExcludedFromSurfacesCmd)
-	pmShortcutInfoBuilderSetExtrasCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	pmShortcutInfoBuilderCmd.AddCommand(pmShortcutInfoBuilderSetExtrasCmd)
-	pmShortcutInfoBuilderSetIconCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	pmShortcutInfoBuilderCmd.AddCommand(pmShortcutInfoBuilderSetIconCmd)
-	pmShortcutInfoBuilderSetIntentCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	pmShortcutInfoBuilderCmd.AddCommand(pmShortcutInfoBuilderSetIntentCmd)
-	pmShortcutInfoBuilderSetIntentsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	pmShortcutInfoBuilderCmd.AddCommand(pmShortcutInfoBuilderSetIntentsCmd)
-	pmShortcutInfoBuilderSetLocusIdCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	pmShortcutInfoBuilderCmd.AddCommand(pmShortcutInfoBuilderSetLocusIdCmd)
-	pmShortcutInfoBuilderSetLongLabelCmd.Flags().String("arg0", "", "arg0 (string)")
-	pmShortcutInfoBuilderCmd.AddCommand(pmShortcutInfoBuilderSetLongLabelCmd)
-	pmShortcutInfoBuilderSetLongLivedCmd.Flags().Bool("arg0", false, "arg0 (bool)")
-	pmShortcutInfoBuilderCmd.AddCommand(pmShortcutInfoBuilderSetLongLivedCmd)
-	pmShortcutInfoBuilderSetPersonCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	pmShortcutInfoBuilderCmd.AddCommand(pmShortcutInfoBuilderSetPersonCmd)
-	pmShortcutInfoBuilderSetPersonsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	pmShortcutInfoBuilderCmd.AddCommand(pmShortcutInfoBuilderSetPersonsCmd)
-	pmShortcutInfoBuilderSetRankCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	pmShortcutInfoBuilderCmd.AddCommand(pmShortcutInfoBuilderSetRankCmd)
-	pmShortcutInfoBuilderSetShortLabelCmd.Flags().String("arg0", "", "arg0 (string)")
-	pmShortcutInfoBuilderCmd.AddCommand(pmShortcutInfoBuilderSetShortLabelCmd)
-	pmShortcutInfoBuilderSetStartingThemeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	pmShortcutInfoBuilderCmd.AddCommand(pmShortcutInfoBuilderSetStartingThemeCmd)
-	pmCmd.AddCommand(pmShortcutInfoBuilderCmd)
+	pmCapabilityCmd.AddCommand(pmCapabilityDescribeContentsCmd)
+	pmCapabilityEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pmCapabilityCmd.AddCommand(pmCapabilityEqualsCmd)
+	pmCapabilityCmd.AddCommand(pmCapabilityGetNameCmd)
+	pmCapabilityCmd.AddCommand(pmCapabilityHashCodeCmd)
+	pmCapabilityWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pmCapabilityWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	pmCapabilityCmd.AddCommand(pmCapabilityWriteToParcelCmd)
+	pmCmd.AddCommand(pmCapabilityCmd)
+	pmCapabilityBuilderCmd.AddCommand(pmCapabilityBuilderBuildCmd)
+	pmCmd.AddCommand(pmCapabilityBuilderCmd)
+	pmSigningInfoExceptionCmd.AddCommand(pmSigningInfoExceptionGetCodeCmd)
+	pmCmd.AddCommand(pmSigningInfoExceptionCmd)
+	pmLauncherAppsGetActivityListCmd.Flags().String("arg0", "", "arg0 (string)")
+	pmLauncherAppsGetActivityListCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	pmLauncherAppsCmd.AddCommand(pmLauncherAppsGetActivityListCmd)
+	pmLauncherAppsCmd.AddCommand(pmLauncherAppsGetAllPackageInstallerSessionsCmd)
 	pmLauncherAppsGetAppMarketActivityIntentCmd.Flags().String("arg0", "", "arg0 (string)")
 	pmLauncherAppsGetAppMarketActivityIntentCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
 	pmLauncherAppsCmd.AddCommand(pmLauncherAppsGetAppMarketActivityIntentCmd)
@@ -13014,12 +14890,18 @@ func init() {
 	pmLauncherAppsCmd.AddCommand(pmLauncherAppsGetLauncherUserInfoCmd)
 	pmLauncherAppsGetPinItemRequestCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	pmLauncherAppsCmd.AddCommand(pmLauncherAppsGetPinItemRequestCmd)
+	pmLauncherAppsGetPreInstalledSystemPackagesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pmLauncherAppsCmd.AddCommand(pmLauncherAppsGetPreInstalledSystemPackagesCmd)
 	pmLauncherAppsCmd.AddCommand(pmLauncherAppsGetPrivateSpaceSettingsIntentCmd)
+	pmLauncherAppsCmd.AddCommand(pmLauncherAppsGetProfilesCmd)
 	pmLauncherAppsGetShortcutBadgedIconDrawableCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	pmLauncherAppsGetShortcutBadgedIconDrawableCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
 	pmLauncherAppsCmd.AddCommand(pmLauncherAppsGetShortcutBadgedIconDrawableCmd)
 	pmLauncherAppsGetShortcutConfigActivityIntentCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	pmLauncherAppsCmd.AddCommand(pmLauncherAppsGetShortcutConfigActivityIntentCmd)
+	pmLauncherAppsGetShortcutConfigActivityListCmd.Flags().String("arg0", "", "arg0 (string)")
+	pmLauncherAppsGetShortcutConfigActivityListCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	pmLauncherAppsCmd.AddCommand(pmLauncherAppsGetShortcutConfigActivityListCmd)
 	pmLauncherAppsGetShortcutIconDrawableCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	pmLauncherAppsGetShortcutIconDrawableCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
 	pmLauncherAppsCmd.AddCommand(pmLauncherAppsGetShortcutIconDrawableCmd)
@@ -13028,6 +14910,9 @@ func init() {
 	pmLauncherAppsGetShortcutIntentCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
 	pmLauncherAppsGetShortcutIntentCmd.Flags().Int64("arg3", 0, "arg3 (int64)")
 	pmLauncherAppsCmd.AddCommand(pmLauncherAppsGetShortcutIntentCmd)
+	pmLauncherAppsGetShortcutsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pmLauncherAppsGetShortcutsCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	pmLauncherAppsCmd.AddCommand(pmLauncherAppsGetShortcutsCmd)
 	pmLauncherAppsGetSuspendedPackageLauncherExtrasCmd.Flags().String("arg0", "", "arg0 (string)")
 	pmLauncherAppsGetSuspendedPackageLauncherExtrasCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
 	pmLauncherAppsCmd.AddCommand(pmLauncherAppsGetSuspendedPackageLauncherExtrasCmd)
@@ -13142,118 +15027,6 @@ func init() {
 	pmLauncherAppsShortcutQuerySetQueryFlagsCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
 	pmLauncherAppsShortcutQueryCmd.AddCommand(pmLauncherAppsShortcutQuerySetQueryFlagsCmd)
 	pmCmd.AddCommand(pmLauncherAppsShortcutQueryCmd)
-	pmInstallSourceInfoCmd.AddCommand(pmInstallSourceInfoDescribeContentsCmd)
-	pmInstallSourceInfoCmd.AddCommand(pmInstallSourceInfoGetInitiatingPackageNameCmd)
-	pmInstallSourceInfoCmd.AddCommand(pmInstallSourceInfoGetInitiatingPackageSigningInfoCmd)
-	pmInstallSourceInfoCmd.AddCommand(pmInstallSourceInfoGetInstallingPackageNameCmd)
-	pmInstallSourceInfoCmd.AddCommand(pmInstallSourceInfoGetOriginatingPackageNameCmd)
-	pmInstallSourceInfoCmd.AddCommand(pmInstallSourceInfoGetPackageSourceCmd)
-	pmInstallSourceInfoCmd.AddCommand(pmInstallSourceInfoGetUpdateOwnerPackageNameCmd)
-	pmInstallSourceInfoWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	pmInstallSourceInfoWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	pmInstallSourceInfoCmd.AddCommand(pmInstallSourceInfoWriteToParcelCmd)
-	pmCmd.AddCommand(pmInstallSourceInfoCmd)
-	pmFeatureGroupInfoCmd.AddCommand(pmFeatureGroupInfoNewFeatureGroupInfoCmd)
-	pmFeatureGroupInfoDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	pmFeatureGroupInfoCmd.AddCommand(pmFeatureGroupInfoDescribeContentsCmd)
-	pmFeatureGroupInfoWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
-	pmFeatureGroupInfoWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	pmFeatureGroupInfoWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	pmFeatureGroupInfoCmd.AddCommand(pmFeatureGroupInfoWriteToParcelCmd)
-	pmCmd.AddCommand(pmFeatureGroupInfoCmd)
-	pmPackageStatsNewPackageStatsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	pmPackageStatsCmd.AddCommand(pmPackageStatsNewPackageStatsCmd)
-	pmPackageStatsDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	pmPackageStatsCmd.AddCommand(pmPackageStatsDescribeContentsCmd)
-	pmPackageStatsEqualsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	pmPackageStatsEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	pmPackageStatsCmd.AddCommand(pmPackageStatsEqualsCmd)
-	pmPackageStatsHashCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
-	pmPackageStatsCmd.AddCommand(pmPackageStatsHashCodeCmd)
-	pmPackageStatsToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
-	pmPackageStatsCmd.AddCommand(pmPackageStatsToStringCmd)
-	pmPackageStatsWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
-	pmPackageStatsWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	pmPackageStatsWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	pmPackageStatsCmd.AddCommand(pmPackageStatsWriteToParcelCmd)
-	pmCmd.AddCommand(pmPackageStatsCmd)
-	pmConfigurationInfoCmd.AddCommand(pmConfigurationInfoNewConfigurationInfoCmd)
-	pmConfigurationInfoDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	pmConfigurationInfoCmd.AddCommand(pmConfigurationInfoDescribeContentsCmd)
-	pmConfigurationInfoGetGlEsVersionCmd.Flags().Int64("handle", 0, "handle (int64)")
-	pmConfigurationInfoCmd.AddCommand(pmConfigurationInfoGetGlEsVersionCmd)
-	pmConfigurationInfoToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
-	pmConfigurationInfoCmd.AddCommand(pmConfigurationInfoToStringCmd)
-	pmConfigurationInfoWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
-	pmConfigurationInfoWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	pmConfigurationInfoWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	pmConfigurationInfoCmd.AddCommand(pmConfigurationInfoWriteToParcelCmd)
-	pmCmd.AddCommand(pmConfigurationInfoCmd)
-	pmSignatureNewSignatureCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	pmSignatureCmd.AddCommand(pmSignatureNewSignatureCmd)
-	pmSignatureDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	pmSignatureCmd.AddCommand(pmSignatureDescribeContentsCmd)
-	pmSignatureEqualsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	pmSignatureEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	pmSignatureCmd.AddCommand(pmSignatureEqualsCmd)
-	pmSignatureHashCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
-	pmSignatureCmd.AddCommand(pmSignatureHashCodeCmd)
-	pmSignatureToByteArrayCmd.Flags().Int64("handle", 0, "handle (int64)")
-	pmSignatureCmd.AddCommand(pmSignatureToByteArrayCmd)
-	pmSignatureToChars0Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	pmSignatureCmd.AddCommand(pmSignatureToChars0Cmd)
-	pmSignatureToChars2_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	pmSignatureToChars2_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	pmSignatureToChars2_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	pmSignatureCmd.AddCommand(pmSignatureToChars2_1Cmd)
-	pmSignatureToCharsStringCmd.Flags().Int64("handle", 0, "handle (int64)")
-	pmSignatureCmd.AddCommand(pmSignatureToCharsStringCmd)
-	pmSignatureWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
-	pmSignatureWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	pmSignatureWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	pmSignatureCmd.AddCommand(pmSignatureWriteToParcelCmd)
-	pmCmd.AddCommand(pmSignatureCmd)
-	pmLabeledIntentNewLabeledIntentCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	pmLabeledIntentNewLabeledIntentCmd.Flags().String("arg1", "", "arg1 (string)")
-	pmLabeledIntentNewLabeledIntentCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
-	pmLabeledIntentNewLabeledIntentCmd.Flags().Int32("arg3", 0, "arg3 (int32)")
-	pmLabeledIntentCmd.AddCommand(pmLabeledIntentNewLabeledIntentCmd)
-	pmLabeledIntentGetIconResourceCmd.Flags().Int64("handle", 0, "handle (int64)")
-	pmLabeledIntentCmd.AddCommand(pmLabeledIntentGetIconResourceCmd)
-	pmLabeledIntentGetLabelResourceCmd.Flags().Int64("handle", 0, "handle (int64)")
-	pmLabeledIntentCmd.AddCommand(pmLabeledIntentGetLabelResourceCmd)
-	pmLabeledIntentGetNonLocalizedLabelCmd.Flags().Int64("handle", 0, "handle (int64)")
-	pmLabeledIntentCmd.AddCommand(pmLabeledIntentGetNonLocalizedLabelCmd)
-	pmLabeledIntentGetSourcePackageCmd.Flags().Int64("handle", 0, "handle (int64)")
-	pmLabeledIntentCmd.AddCommand(pmLabeledIntentGetSourcePackageCmd)
-	pmLabeledIntentLoadIconCmd.Flags().Int64("handle", 0, "handle (int64)")
-	pmLabeledIntentLoadIconCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	pmLabeledIntentCmd.AddCommand(pmLabeledIntentLoadIconCmd)
-	pmLabeledIntentLoadLabelCmd.Flags().Int64("handle", 0, "handle (int64)")
-	pmLabeledIntentLoadLabelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	pmLabeledIntentCmd.AddCommand(pmLabeledIntentLoadLabelCmd)
-	pmLabeledIntentReadFromParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
-	pmLabeledIntentReadFromParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	pmLabeledIntentCmd.AddCommand(pmLabeledIntentReadFromParcelCmd)
-	pmLabeledIntentWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
-	pmLabeledIntentWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	pmLabeledIntentWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	pmLabeledIntentCmd.AddCommand(pmLabeledIntentWriteToParcelCmd)
-	pmCmd.AddCommand(pmLabeledIntentCmd)
-	pmChecksumNewChecksumCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	pmChecksumNewChecksumCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	pmChecksumCmd.AddCommand(pmChecksumNewChecksumCmd)
-	pmChecksumDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	pmChecksumCmd.AddCommand(pmChecksumDescribeContentsCmd)
-	pmChecksumGetTypeCmd.Flags().Int64("handle", 0, "handle (int64)")
-	pmChecksumCmd.AddCommand(pmChecksumGetTypeCmd)
-	pmChecksumGetValueCmd.Flags().Int64("handle", 0, "handle (int64)")
-	pmChecksumCmd.AddCommand(pmChecksumGetValueCmd)
-	pmChecksumWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
-	pmChecksumWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	pmChecksumWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	pmChecksumCmd.AddCommand(pmChecksumWriteToParcelCmd)
-	pmCmd.AddCommand(pmChecksumCmd)
 	pmPackageItemInfoCmd.AddCommand(pmPackageItemInfoNewPackageItemInfoCmd)
 	pmPackageItemInfoLoadBannerCmd.Flags().Int64("handle", 0, "handle (int64)")
 	pmPackageItemInfoLoadBannerCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
@@ -13286,17 +15059,116 @@ func init() {
 	pmPackageItemInfoDisplayNameComparatorCompare2_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
 	pmPackageItemInfoDisplayNameComparatorCmd.AddCommand(pmPackageItemInfoDisplayNameComparatorCompare2_1Cmd)
 	pmCmd.AddCommand(pmPackageItemInfoDisplayNameComparatorCmd)
-	pmCapabilityCmd.AddCommand(pmCapabilityDescribeContentsCmd)
-	pmCapabilityEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	pmCapabilityCmd.AddCommand(pmCapabilityEqualsCmd)
-	pmCapabilityCmd.AddCommand(pmCapabilityGetNameCmd)
-	pmCapabilityCmd.AddCommand(pmCapabilityHashCodeCmd)
-	pmCapabilityWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	pmCapabilityWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	pmCapabilityCmd.AddCommand(pmCapabilityWriteToParcelCmd)
-	pmCmd.AddCommand(pmCapabilityCmd)
-	pmCapabilityBuilderCmd.AddCommand(pmCapabilityBuilderBuildCmd)
-	pmCmd.AddCommand(pmCapabilityBuilderCmd)
+	pmConfigurationInfoCmd.AddCommand(pmConfigurationInfoNewConfigurationInfoCmd)
+	pmConfigurationInfoDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	pmConfigurationInfoCmd.AddCommand(pmConfigurationInfoDescribeContentsCmd)
+	pmConfigurationInfoGetGlEsVersionCmd.Flags().Int64("handle", 0, "handle (int64)")
+	pmConfigurationInfoCmd.AddCommand(pmConfigurationInfoGetGlEsVersionCmd)
+	pmConfigurationInfoToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
+	pmConfigurationInfoCmd.AddCommand(pmConfigurationInfoToStringCmd)
+	pmConfigurationInfoWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	pmConfigurationInfoWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pmConfigurationInfoWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	pmConfigurationInfoCmd.AddCommand(pmConfigurationInfoWriteToParcelCmd)
+	pmCmd.AddCommand(pmConfigurationInfoCmd)
+	pmChangedPackagesNewChangedPackagesCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	pmChangedPackagesNewChangedPackagesCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	pmChangedPackagesCmd.AddCommand(pmChangedPackagesNewChangedPackagesCmd)
+	pmChangedPackagesDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	pmChangedPackagesCmd.AddCommand(pmChangedPackagesDescribeContentsCmd)
+	pmChangedPackagesGetPackageNamesCmd.Flags().Int64("handle", 0, "handle (int64)")
+	pmChangedPackagesCmd.AddCommand(pmChangedPackagesGetPackageNamesCmd)
+	pmChangedPackagesGetSequenceNumberCmd.Flags().Int64("handle", 0, "handle (int64)")
+	pmChangedPackagesCmd.AddCommand(pmChangedPackagesGetSequenceNumberCmd)
+	pmChangedPackagesWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	pmChangedPackagesWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pmChangedPackagesWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	pmChangedPackagesCmd.AddCommand(pmChangedPackagesWriteToParcelCmd)
+	pmCmd.AddCommand(pmChangedPackagesCmd)
+	pmFeatureInfoCmd.AddCommand(pmFeatureInfoNewFeatureInfoCmd)
+	pmFeatureInfoDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	pmFeatureInfoCmd.AddCommand(pmFeatureInfoDescribeContentsCmd)
+	pmFeatureInfoGetGlEsVersionCmd.Flags().Int64("handle", 0, "handle (int64)")
+	pmFeatureInfoCmd.AddCommand(pmFeatureInfoGetGlEsVersionCmd)
+	pmFeatureInfoToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
+	pmFeatureInfoCmd.AddCommand(pmFeatureInfoToStringCmd)
+	pmFeatureInfoWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	pmFeatureInfoWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pmFeatureInfoWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	pmFeatureInfoCmd.AddCommand(pmFeatureInfoWriteToParcelCmd)
+	pmCmd.AddCommand(pmFeatureInfoCmd)
+	pmShortcutInfoCmd.AddCommand(pmShortcutInfoDescribeContentsCmd)
+	pmShortcutInfoCmd.AddCommand(pmShortcutInfoGetActivityCmd)
+	pmShortcutInfoCmd.AddCommand(pmShortcutInfoGetCapabilitiesCmd)
+	pmShortcutInfoGetCapabilityParamsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pmShortcutInfoCmd.AddCommand(pmShortcutInfoGetCapabilityParamsCmd)
+	pmShortcutInfoCmd.AddCommand(pmShortcutInfoGetCategoriesCmd)
+	pmShortcutInfoCmd.AddCommand(pmShortcutInfoGetDisabledMessageCmd)
+	pmShortcutInfoCmd.AddCommand(pmShortcutInfoGetDisabledReasonCmd)
+	pmShortcutInfoCmd.AddCommand(pmShortcutInfoGetExcludedFromSurfacesCmd)
+	pmShortcutInfoCmd.AddCommand(pmShortcutInfoGetExtrasCmd)
+	pmShortcutInfoCmd.AddCommand(pmShortcutInfoGetIdCmd)
+	pmShortcutInfoCmd.AddCommand(pmShortcutInfoGetIntentCmd)
+	pmShortcutInfoCmd.AddCommand(pmShortcutInfoGetIntentsCmd)
+	pmShortcutInfoCmd.AddCommand(pmShortcutInfoGetLastChangedTimestampCmd)
+	pmShortcutInfoCmd.AddCommand(pmShortcutInfoGetLocusIdCmd)
+	pmShortcutInfoCmd.AddCommand(pmShortcutInfoGetLongLabelCmd)
+	pmShortcutInfoCmd.AddCommand(pmShortcutInfoGetPackageCmd)
+	pmShortcutInfoCmd.AddCommand(pmShortcutInfoGetRankCmd)
+	pmShortcutInfoCmd.AddCommand(pmShortcutInfoGetShortLabelCmd)
+	pmShortcutInfoCmd.AddCommand(pmShortcutInfoGetUserHandleCmd)
+	pmShortcutInfoCmd.AddCommand(pmShortcutInfoHasKeyFieldsOnlyCmd)
+	pmShortcutInfoCmd.AddCommand(pmShortcutInfoIsCachedCmd)
+	pmShortcutInfoCmd.AddCommand(pmShortcutInfoIsDeclaredInManifestCmd)
+	pmShortcutInfoCmd.AddCommand(pmShortcutInfoIsDynamicCmd)
+	pmShortcutInfoCmd.AddCommand(pmShortcutInfoIsEnabledCmd)
+	pmShortcutInfoIsExcludedFromSurfacesCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	pmShortcutInfoCmd.AddCommand(pmShortcutInfoIsExcludedFromSurfacesCmd)
+	pmShortcutInfoCmd.AddCommand(pmShortcutInfoIsImmutableCmd)
+	pmShortcutInfoCmd.AddCommand(pmShortcutInfoIsPinnedCmd)
+	pmShortcutInfoCmd.AddCommand(pmShortcutInfoToStringCmd)
+	pmShortcutInfoWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pmShortcutInfoWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	pmShortcutInfoCmd.AddCommand(pmShortcutInfoWriteToParcelCmd)
+	pmShortcutInfoCreateFromGenericDocumentCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pmShortcutInfoCreateFromGenericDocumentCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	pmShortcutInfoCmd.AddCommand(pmShortcutInfoCreateFromGenericDocumentCmd)
+	pmCmd.AddCommand(pmShortcutInfoCmd)
+	pmShortcutInfoBuilderAddCapabilityBindingCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pmShortcutInfoBuilderAddCapabilityBindingCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	pmShortcutInfoBuilderCmd.AddCommand(pmShortcutInfoBuilderAddCapabilityBindingCmd)
+	pmShortcutInfoBuilderCmd.AddCommand(pmShortcutInfoBuilderBuildCmd)
+	pmShortcutInfoBuilderSetActivityCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pmShortcutInfoBuilderCmd.AddCommand(pmShortcutInfoBuilderSetActivityCmd)
+	pmShortcutInfoBuilderSetDisabledMessageCmd.Flags().String("arg0", "", "arg0 (string)")
+	pmShortcutInfoBuilderCmd.AddCommand(pmShortcutInfoBuilderSetDisabledMessageCmd)
+	pmShortcutInfoBuilderSetExcludedFromSurfacesCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	pmShortcutInfoBuilderCmd.AddCommand(pmShortcutInfoBuilderSetExcludedFromSurfacesCmd)
+	pmShortcutInfoBuilderSetExtrasCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pmShortcutInfoBuilderCmd.AddCommand(pmShortcutInfoBuilderSetExtrasCmd)
+	pmShortcutInfoBuilderSetIconCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pmShortcutInfoBuilderCmd.AddCommand(pmShortcutInfoBuilderSetIconCmd)
+	pmShortcutInfoBuilderSetIntentCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pmShortcutInfoBuilderCmd.AddCommand(pmShortcutInfoBuilderSetIntentCmd)
+	pmShortcutInfoBuilderSetIntentsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pmShortcutInfoBuilderCmd.AddCommand(pmShortcutInfoBuilderSetIntentsCmd)
+	pmShortcutInfoBuilderSetLocusIdCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pmShortcutInfoBuilderCmd.AddCommand(pmShortcutInfoBuilderSetLocusIdCmd)
+	pmShortcutInfoBuilderSetLongLabelCmd.Flags().String("arg0", "", "arg0 (string)")
+	pmShortcutInfoBuilderCmd.AddCommand(pmShortcutInfoBuilderSetLongLabelCmd)
+	pmShortcutInfoBuilderSetLongLivedCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	pmShortcutInfoBuilderCmd.AddCommand(pmShortcutInfoBuilderSetLongLivedCmd)
+	pmShortcutInfoBuilderSetPersonCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pmShortcutInfoBuilderCmd.AddCommand(pmShortcutInfoBuilderSetPersonCmd)
+	pmShortcutInfoBuilderSetPersonsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pmShortcutInfoBuilderCmd.AddCommand(pmShortcutInfoBuilderSetPersonsCmd)
+	pmShortcutInfoBuilderSetRankCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	pmShortcutInfoBuilderCmd.AddCommand(pmShortcutInfoBuilderSetRankCmd)
+	pmShortcutInfoBuilderSetShortLabelCmd.Flags().String("arg0", "", "arg0 (string)")
+	pmShortcutInfoBuilderCmd.AddCommand(pmShortcutInfoBuilderSetShortLabelCmd)
+	pmShortcutInfoBuilderSetStartingThemeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	pmShortcutInfoBuilderCmd.AddCommand(pmShortcutInfoBuilderSetStartingThemeCmd)
+	pmCmd.AddCommand(pmShortcutInfoBuilderCmd)
 	pmServiceInfoCmd.AddCommand(pmServiceInfoNewServiceInfoCmd)
 	pmServiceInfoDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
 	pmServiceInfoCmd.AddCommand(pmServiceInfoDescribeContentsCmd)
@@ -13313,189 +15185,6 @@ func init() {
 	pmServiceInfoWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
 	pmServiceInfoCmd.AddCommand(pmServiceInfoWriteToParcelCmd)
 	pmCmd.AddCommand(pmServiceInfoCmd)
-	pmInstrumentationInfoCmd.AddCommand(pmInstrumentationInfoNewInstrumentationInfoCmd)
-	pmInstrumentationInfoDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	pmInstrumentationInfoCmd.AddCommand(pmInstrumentationInfoDescribeContentsCmd)
-	pmInstrumentationInfoToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
-	pmInstrumentationInfoCmd.AddCommand(pmInstrumentationInfoToStringCmd)
-	pmInstrumentationInfoWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
-	pmInstrumentationInfoWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	pmInstrumentationInfoWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	pmInstrumentationInfoCmd.AddCommand(pmInstrumentationInfoWriteToParcelCmd)
-	pmCmd.AddCommand(pmInstrumentationInfoCmd)
-	pmPermissionGroupInfoCmd.AddCommand(pmPermissionGroupInfoNewPermissionGroupInfoCmd)
-	pmPermissionGroupInfoDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	pmPermissionGroupInfoCmd.AddCommand(pmPermissionGroupInfoDescribeContentsCmd)
-	pmPermissionGroupInfoLoadDescriptionCmd.Flags().Int64("handle", 0, "handle (int64)")
-	pmPermissionGroupInfoLoadDescriptionCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	pmPermissionGroupInfoCmd.AddCommand(pmPermissionGroupInfoLoadDescriptionCmd)
-	pmPermissionGroupInfoToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
-	pmPermissionGroupInfoCmd.AddCommand(pmPermissionGroupInfoToStringCmd)
-	pmPermissionGroupInfoWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
-	pmPermissionGroupInfoWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	pmPermissionGroupInfoWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	pmPermissionGroupInfoCmd.AddCommand(pmPermissionGroupInfoWriteToParcelCmd)
-	pmCmd.AddCommand(pmPermissionGroupInfoCmd)
-	pmApplicationInfoCmd.AddCommand(pmApplicationInfoNewApplicationInfoCmd)
-	pmApplicationInfoAreAttributionsUserVisibleCmd.Flags().Int64("handle", 0, "handle (int64)")
-	pmApplicationInfoCmd.AddCommand(pmApplicationInfoAreAttributionsUserVisibleCmd)
-	pmApplicationInfoDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	pmApplicationInfoCmd.AddCommand(pmApplicationInfoDescribeContentsCmd)
-	pmApplicationInfoDumpCmd.Flags().Int64("handle", 0, "handle (int64)")
-	pmApplicationInfoDumpCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	pmApplicationInfoDumpCmd.Flags().String("arg1", "", "arg1 (string)")
-	pmApplicationInfoCmd.AddCommand(pmApplicationInfoDumpCmd)
-	pmApplicationInfoGetGwpAsanModeCmd.Flags().Int64("handle", 0, "handle (int64)")
-	pmApplicationInfoCmd.AddCommand(pmApplicationInfoGetGwpAsanModeCmd)
-	pmApplicationInfoGetMemtagModeCmd.Flags().Int64("handle", 0, "handle (int64)")
-	pmApplicationInfoCmd.AddCommand(pmApplicationInfoGetMemtagModeCmd)
-	pmApplicationInfoGetNativeHeapZeroInitializedCmd.Flags().Int64("handle", 0, "handle (int64)")
-	pmApplicationInfoCmd.AddCommand(pmApplicationInfoGetNativeHeapZeroInitializedCmd)
-	pmApplicationInfoGetRequestRawExternalStorageAccessCmd.Flags().Int64("handle", 0, "handle (int64)")
-	pmApplicationInfoCmd.AddCommand(pmApplicationInfoGetRequestRawExternalStorageAccessCmd)
-	pmApplicationInfoIsProfileableCmd.Flags().Int64("handle", 0, "handle (int64)")
-	pmApplicationInfoCmd.AddCommand(pmApplicationInfoIsProfileableCmd)
-	pmApplicationInfoIsProfileableByShellCmd.Flags().Int64("handle", 0, "handle (int64)")
-	pmApplicationInfoCmd.AddCommand(pmApplicationInfoIsProfileableByShellCmd)
-	pmApplicationInfoIsResourceOverlayCmd.Flags().Int64("handle", 0, "handle (int64)")
-	pmApplicationInfoCmd.AddCommand(pmApplicationInfoIsResourceOverlayCmd)
-	pmApplicationInfoIsVirtualPreloadCmd.Flags().Int64("handle", 0, "handle (int64)")
-	pmApplicationInfoCmd.AddCommand(pmApplicationInfoIsVirtualPreloadCmd)
-	pmApplicationInfoLoadDescriptionCmd.Flags().Int64("handle", 0, "handle (int64)")
-	pmApplicationInfoLoadDescriptionCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	pmApplicationInfoCmd.AddCommand(pmApplicationInfoLoadDescriptionCmd)
-	pmApplicationInfoToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
-	pmApplicationInfoCmd.AddCommand(pmApplicationInfoToStringCmd)
-	pmApplicationInfoWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
-	pmApplicationInfoWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	pmApplicationInfoWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	pmApplicationInfoCmd.AddCommand(pmApplicationInfoWriteToParcelCmd)
-	pmApplicationInfoGetCategoryTitleCmd.Flags().Int64("handle", 0, "handle (int64)")
-	pmApplicationInfoGetCategoryTitleCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	pmApplicationInfoGetCategoryTitleCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	pmApplicationInfoCmd.AddCommand(pmApplicationInfoGetCategoryTitleCmd)
-	pmCmd.AddCommand(pmApplicationInfoCmd)
-	pmApplicationInfoDisplayNameComparatorCompare2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	pmApplicationInfoDisplayNameComparatorCompare2Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	pmApplicationInfoDisplayNameComparatorCmd.AddCommand(pmApplicationInfoDisplayNameComparatorCompare2Cmd)
-	pmApplicationInfoDisplayNameComparatorCompare2_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	pmApplicationInfoDisplayNameComparatorCompare2_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	pmApplicationInfoDisplayNameComparatorCmd.AddCommand(pmApplicationInfoDisplayNameComparatorCompare2_1Cmd)
-	pmCmd.AddCommand(pmApplicationInfoDisplayNameComparatorCmd)
-	pmArchivedActivityInfoNewArchivedActivityInfoCmd.Flags().String("arg0", "", "arg0 (string)")
-	pmArchivedActivityInfoNewArchivedActivityInfoCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	pmArchivedActivityInfoCmd.AddCommand(pmArchivedActivityInfoNewArchivedActivityInfoCmd)
-	pmArchivedActivityInfoGetComponentNameCmd.Flags().Int64("handle", 0, "handle (int64)")
-	pmArchivedActivityInfoCmd.AddCommand(pmArchivedActivityInfoGetComponentNameCmd)
-	pmArchivedActivityInfoGetIconCmd.Flags().Int64("handle", 0, "handle (int64)")
-	pmArchivedActivityInfoCmd.AddCommand(pmArchivedActivityInfoGetIconCmd)
-	pmArchivedActivityInfoGetLabelCmd.Flags().Int64("handle", 0, "handle (int64)")
-	pmArchivedActivityInfoCmd.AddCommand(pmArchivedActivityInfoGetLabelCmd)
-	pmArchivedActivityInfoGetMonochromeIconCmd.Flags().Int64("handle", 0, "handle (int64)")
-	pmArchivedActivityInfoCmd.AddCommand(pmArchivedActivityInfoGetMonochromeIconCmd)
-	pmArchivedActivityInfoSetComponentNameCmd.Flags().Int64("handle", 0, "handle (int64)")
-	pmArchivedActivityInfoSetComponentNameCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	pmArchivedActivityInfoCmd.AddCommand(pmArchivedActivityInfoSetComponentNameCmd)
-	pmArchivedActivityInfoSetIconCmd.Flags().Int64("handle", 0, "handle (int64)")
-	pmArchivedActivityInfoSetIconCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	pmArchivedActivityInfoCmd.AddCommand(pmArchivedActivityInfoSetIconCmd)
-	pmArchivedActivityInfoSetLabelCmd.Flags().Int64("handle", 0, "handle (int64)")
-	pmArchivedActivityInfoSetLabelCmd.Flags().String("arg0", "", "arg0 (string)")
-	pmArchivedActivityInfoCmd.AddCommand(pmArchivedActivityInfoSetLabelCmd)
-	pmArchivedActivityInfoSetMonochromeIconCmd.Flags().Int64("handle", 0, "handle (int64)")
-	pmArchivedActivityInfoSetMonochromeIconCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	pmArchivedActivityInfoCmd.AddCommand(pmArchivedActivityInfoSetMonochromeIconCmd)
-	pmCmd.AddCommand(pmArchivedActivityInfoCmd)
-	pmSigningInfoExceptionCmd.AddCommand(pmSigningInfoExceptionGetCodeCmd)
-	pmCmd.AddCommand(pmSigningInfoExceptionCmd)
-	pmShortcutManagerCreateShortcutResultIntentCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	pmShortcutManagerCmd.AddCommand(pmShortcutManagerCreateShortcutResultIntentCmd)
-	pmShortcutManagerCmd.AddCommand(pmShortcutManagerGetIconMaxHeightCmd)
-	pmShortcutManagerCmd.AddCommand(pmShortcutManagerGetIconMaxWidthCmd)
-	pmShortcutManagerCmd.AddCommand(pmShortcutManagerGetMaxShortcutCountPerActivityCmd)
-	pmShortcutManagerCmd.AddCommand(pmShortcutManagerIsRateLimitingActiveCmd)
-	pmShortcutManagerCmd.AddCommand(pmShortcutManagerIsRequestPinShortcutSupportedCmd)
-	pmShortcutManagerPushDynamicShortcutCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	pmShortcutManagerCmd.AddCommand(pmShortcutManagerPushDynamicShortcutCmd)
-	pmShortcutManagerCmd.AddCommand(pmShortcutManagerRemoveAllDynamicShortcutsCmd)
-	pmShortcutManagerReportShortcutUsedCmd.Flags().String("arg0", "", "arg0 (string)")
-	pmShortcutManagerCmd.AddCommand(pmShortcutManagerReportShortcutUsedCmd)
-	pmShortcutManagerRequestPinShortcutCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	pmShortcutManagerRequestPinShortcutCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	pmShortcutManagerCmd.AddCommand(pmShortcutManagerRequestPinShortcutCmd)
-	pmCmd.AddCommand(pmShortcutManagerCmd)
-	pmAttributionCmd.AddCommand(pmAttributionDescribeContentsCmd)
-	pmAttributionCmd.AddCommand(pmAttributionGetLabelCmd)
-	pmAttributionCmd.AddCommand(pmAttributionGetTagCmd)
-	pmAttributionWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	pmAttributionWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	pmAttributionCmd.AddCommand(pmAttributionWriteToParcelCmd)
-	pmCmd.AddCommand(pmAttributionCmd)
-	pmCapabilityParamsCmd.AddCommand(pmCapabilityParamsDescribeContentsCmd)
-	pmCapabilityParamsEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	pmCapabilityParamsCmd.AddCommand(pmCapabilityParamsEqualsCmd)
-	pmCapabilityParamsCmd.AddCommand(pmCapabilityParamsGetNameCmd)
-	pmCapabilityParamsCmd.AddCommand(pmCapabilityParamsGetValueCmd)
-	pmCapabilityParamsCmd.AddCommand(pmCapabilityParamsHashCodeCmd)
-	pmCapabilityParamsWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	pmCapabilityParamsWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	pmCapabilityParamsCmd.AddCommand(pmCapabilityParamsWriteToParcelCmd)
-	pmCmd.AddCommand(pmCapabilityParamsCmd)
-	pmCapabilityParamsBuilderAddAliasCmd.Flags().String("arg0", "", "arg0 (string)")
-	pmCapabilityParamsBuilderCmd.AddCommand(pmCapabilityParamsBuilderAddAliasCmd)
-	pmCapabilityParamsBuilderCmd.AddCommand(pmCapabilityParamsBuilderBuildCmd)
-	pmCmd.AddCommand(pmCapabilityParamsBuilderCmd)
-	pmProviderInfoCmd.AddCommand(pmProviderInfoNewProviderInfoCmd)
-	pmProviderInfoDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	pmProviderInfoCmd.AddCommand(pmProviderInfoDescribeContentsCmd)
-	pmProviderInfoDumpCmd.Flags().Int64("handle", 0, "handle (int64)")
-	pmProviderInfoDumpCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	pmProviderInfoDumpCmd.Flags().String("arg1", "", "arg1 (string)")
-	pmProviderInfoCmd.AddCommand(pmProviderInfoDumpCmd)
-	pmProviderInfoToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
-	pmProviderInfoCmd.AddCommand(pmProviderInfoToStringCmd)
-	pmProviderInfoWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
-	pmProviderInfoWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	pmProviderInfoWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	pmProviderInfoCmd.AddCommand(pmProviderInfoWriteToParcelCmd)
-	pmCmd.AddCommand(pmProviderInfoCmd)
-	pmLauncherActivityInfoCmd.AddCommand(pmLauncherActivityInfoGetActivityInfoCmd)
-	pmLauncherActivityInfoCmd.AddCommand(pmLauncherActivityInfoGetApplicationInfoCmd)
-	pmLauncherActivityInfoGetBadgedIconCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	pmLauncherActivityInfoCmd.AddCommand(pmLauncherActivityInfoGetBadgedIconCmd)
-	pmLauncherActivityInfoCmd.AddCommand(pmLauncherActivityInfoGetComponentNameCmd)
-	pmLauncherActivityInfoCmd.AddCommand(pmLauncherActivityInfoGetFirstInstallTimeCmd)
-	pmLauncherActivityInfoGetIconCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	pmLauncherActivityInfoCmd.AddCommand(pmLauncherActivityInfoGetIconCmd)
-	pmLauncherActivityInfoCmd.AddCommand(pmLauncherActivityInfoGetLabelCmd)
-	pmLauncherActivityInfoCmd.AddCommand(pmLauncherActivityInfoGetLoadingProgressCmd)
-	pmLauncherActivityInfoCmd.AddCommand(pmLauncherActivityInfoGetNameCmd)
-	pmLauncherActivityInfoCmd.AddCommand(pmLauncherActivityInfoGetUserCmd)
-	pmCmd.AddCommand(pmLauncherActivityInfoCmd)
-	pmLauncherUserInfoCmd.AddCommand(pmLauncherUserInfoDescribeContentsCmd)
-	pmLauncherUserInfoCmd.AddCommand(pmLauncherUserInfoGetUserConfigCmd)
-	pmLauncherUserInfoCmd.AddCommand(pmLauncherUserInfoGetUserSerialNumberCmd)
-	pmLauncherUserInfoCmd.AddCommand(pmLauncherUserInfoGetUserTypeCmd)
-	pmLauncherUserInfoWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	pmLauncherUserInfoWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	pmLauncherUserInfoCmd.AddCommand(pmLauncherUserInfoWriteToParcelCmd)
-	pmCmd.AddCommand(pmLauncherUserInfoCmd)
-	pmActivityInfoCmd.AddCommand(pmActivityInfoNewActivityInfoCmd)
-	pmActivityInfoDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	pmActivityInfoCmd.AddCommand(pmActivityInfoDescribeContentsCmd)
-	pmActivityInfoDumpCmd.Flags().Int64("handle", 0, "handle (int64)")
-	pmActivityInfoDumpCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	pmActivityInfoDumpCmd.Flags().String("arg1", "", "arg1 (string)")
-	pmActivityInfoCmd.AddCommand(pmActivityInfoDumpCmd)
-	pmActivityInfoGetThemeResourceCmd.Flags().Int64("handle", 0, "handle (int64)")
-	pmActivityInfoCmd.AddCommand(pmActivityInfoGetThemeResourceCmd)
-	pmActivityInfoToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
-	pmActivityInfoCmd.AddCommand(pmActivityInfoToStringCmd)
-	pmActivityInfoWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
-	pmActivityInfoWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	pmActivityInfoWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	pmActivityInfoCmd.AddCommand(pmActivityInfoWriteToParcelCmd)
-	pmCmd.AddCommand(pmActivityInfoCmd)
 	pmPackageInstallerAbandonSessionCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
 	pmPackageInstallerCmd.AddCommand(pmPackageInstallerAbandonSessionCmd)
 	pmPackageInstallerCommitSessionAfterInstallConstraintsAreMetCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
@@ -13506,8 +15195,12 @@ func init() {
 	pmPackageInstallerCreateSessionCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	pmPackageInstallerCmd.AddCommand(pmPackageInstallerCreateSessionCmd)
 	pmPackageInstallerCmd.AddCommand(pmPackageInstallerGetActiveStagedSessionCmd)
+	pmPackageInstallerCmd.AddCommand(pmPackageInstallerGetActiveStagedSessionsCmd)
+	pmPackageInstallerCmd.AddCommand(pmPackageInstallerGetAllSessionsCmd)
+	pmPackageInstallerCmd.AddCommand(pmPackageInstallerGetMySessionsCmd)
 	pmPackageInstallerGetSessionInfoCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
 	pmPackageInstallerCmd.AddCommand(pmPackageInstallerGetSessionInfoCmd)
+	pmPackageInstallerCmd.AddCommand(pmPackageInstallerGetStagedSessionsCmd)
 	pmPackageInstallerInstallExistingPackageCmd.Flags().String("arg0", "", "arg0 (string)")
 	pmPackageInstallerInstallExistingPackageCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
 	pmPackageInstallerInstallExistingPackageCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
@@ -13740,506 +15433,42 @@ func init() {
 	pmPackageInstallerUnarchivalStateCreateUserActionRequiredStateCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
 	pmPackageInstallerUnarchivalStateCmd.AddCommand(pmPackageInstallerUnarchivalStateCreateUserActionRequiredStateCmd)
 	pmCmd.AddCommand(pmPackageInstallerUnarchivalStateCmd)
-	pmVersionedPackageNewVersionedPackageCmd.Flags().String("arg0", "", "arg0 (string)")
-	pmVersionedPackageNewVersionedPackageCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	pmVersionedPackageCmd.AddCommand(pmVersionedPackageNewVersionedPackageCmd)
-	pmVersionedPackageDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	pmVersionedPackageCmd.AddCommand(pmVersionedPackageDescribeContentsCmd)
-	pmVersionedPackageEqualsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	pmVersionedPackageEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	pmVersionedPackageCmd.AddCommand(pmVersionedPackageEqualsCmd)
-	pmVersionedPackageGetLongVersionCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
-	pmVersionedPackageCmd.AddCommand(pmVersionedPackageGetLongVersionCodeCmd)
-	pmVersionedPackageGetPackageNameCmd.Flags().Int64("handle", 0, "handle (int64)")
-	pmVersionedPackageCmd.AddCommand(pmVersionedPackageGetPackageNameCmd)
-	pmVersionedPackageGetVersionCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
-	pmVersionedPackageCmd.AddCommand(pmVersionedPackageGetVersionCodeCmd)
-	pmVersionedPackageHashCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
-	pmVersionedPackageCmd.AddCommand(pmVersionedPackageHashCodeCmd)
-	pmVersionedPackageToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
-	pmVersionedPackageCmd.AddCommand(pmVersionedPackageToStringCmd)
-	pmVersionedPackageWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
-	pmVersionedPackageWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	pmVersionedPackageWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	pmVersionedPackageCmd.AddCommand(pmVersionedPackageWriteToParcelCmd)
-	pmCmd.AddCommand(pmVersionedPackageCmd)
-	pmFeatureInfoCmd.AddCommand(pmFeatureInfoNewFeatureInfoCmd)
-	pmFeatureInfoDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	pmFeatureInfoCmd.AddCommand(pmFeatureInfoDescribeContentsCmd)
-	pmFeatureInfoGetGlEsVersionCmd.Flags().Int64("handle", 0, "handle (int64)")
-	pmFeatureInfoCmd.AddCommand(pmFeatureInfoGetGlEsVersionCmd)
-	pmFeatureInfoToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
-	pmFeatureInfoCmd.AddCommand(pmFeatureInfoToStringCmd)
-	pmFeatureInfoWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
-	pmFeatureInfoWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	pmFeatureInfoWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	pmFeatureInfoCmd.AddCommand(pmFeatureInfoWriteToParcelCmd)
-	pmCmd.AddCommand(pmFeatureInfoCmd)
-	pmArchivedPackageInfoNewArchivedPackageInfoCmd.Flags().String("arg0", "", "arg0 (string)")
-	pmArchivedPackageInfoNewArchivedPackageInfoCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	pmArchivedPackageInfoNewArchivedPackageInfoCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	pmArchivedPackageInfoCmd.AddCommand(pmArchivedPackageInfoNewArchivedPackageInfoCmd)
-	pmArchivedPackageInfoGetDefaultToDeviceProtectedStorageCmd.Flags().Int64("handle", 0, "handle (int64)")
-	pmArchivedPackageInfoCmd.AddCommand(pmArchivedPackageInfoGetDefaultToDeviceProtectedStorageCmd)
-	pmArchivedPackageInfoGetPackageNameCmd.Flags().Int64("handle", 0, "handle (int64)")
-	pmArchivedPackageInfoCmd.AddCommand(pmArchivedPackageInfoGetPackageNameCmd)
-	pmArchivedPackageInfoGetRequestLegacyExternalStorageCmd.Flags().Int64("handle", 0, "handle (int64)")
-	pmArchivedPackageInfoCmd.AddCommand(pmArchivedPackageInfoGetRequestLegacyExternalStorageCmd)
-	pmArchivedPackageInfoGetSigningInfoCmd.Flags().Int64("handle", 0, "handle (int64)")
-	pmArchivedPackageInfoCmd.AddCommand(pmArchivedPackageInfoGetSigningInfoCmd)
-	pmArchivedPackageInfoGetTargetSdkVersionCmd.Flags().Int64("handle", 0, "handle (int64)")
-	pmArchivedPackageInfoCmd.AddCommand(pmArchivedPackageInfoGetTargetSdkVersionCmd)
-	pmArchivedPackageInfoGetUserDataFragileCmd.Flags().Int64("handle", 0, "handle (int64)")
-	pmArchivedPackageInfoCmd.AddCommand(pmArchivedPackageInfoGetUserDataFragileCmd)
-	pmArchivedPackageInfoGetVersionCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
-	pmArchivedPackageInfoCmd.AddCommand(pmArchivedPackageInfoGetVersionCodeCmd)
-	pmArchivedPackageInfoGetVersionCodeMajorCmd.Flags().Int64("handle", 0, "handle (int64)")
-	pmArchivedPackageInfoCmd.AddCommand(pmArchivedPackageInfoGetVersionCodeMajorCmd)
-	pmArchivedPackageInfoSetDefaultToDeviceProtectedStorageCmd.Flags().Int64("handle", 0, "handle (int64)")
-	pmArchivedPackageInfoSetDefaultToDeviceProtectedStorageCmd.Flags().String("arg0", "", "arg0 (string)")
-	pmArchivedPackageInfoCmd.AddCommand(pmArchivedPackageInfoSetDefaultToDeviceProtectedStorageCmd)
-	pmArchivedPackageInfoSetPackageNameCmd.Flags().Int64("handle", 0, "handle (int64)")
-	pmArchivedPackageInfoSetPackageNameCmd.Flags().String("arg0", "", "arg0 (string)")
-	pmArchivedPackageInfoCmd.AddCommand(pmArchivedPackageInfoSetPackageNameCmd)
-	pmArchivedPackageInfoSetRequestLegacyExternalStorageCmd.Flags().Int64("handle", 0, "handle (int64)")
-	pmArchivedPackageInfoSetRequestLegacyExternalStorageCmd.Flags().String("arg0", "", "arg0 (string)")
-	pmArchivedPackageInfoCmd.AddCommand(pmArchivedPackageInfoSetRequestLegacyExternalStorageCmd)
-	pmArchivedPackageInfoSetSigningInfoCmd.Flags().Int64("handle", 0, "handle (int64)")
-	pmArchivedPackageInfoSetSigningInfoCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	pmArchivedPackageInfoCmd.AddCommand(pmArchivedPackageInfoSetSigningInfoCmd)
-	pmArchivedPackageInfoSetTargetSdkVersionCmd.Flags().Int64("handle", 0, "handle (int64)")
-	pmArchivedPackageInfoSetTargetSdkVersionCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	pmArchivedPackageInfoCmd.AddCommand(pmArchivedPackageInfoSetTargetSdkVersionCmd)
-	pmArchivedPackageInfoSetUserDataFragileCmd.Flags().Int64("handle", 0, "handle (int64)")
-	pmArchivedPackageInfoSetUserDataFragileCmd.Flags().String("arg0", "", "arg0 (string)")
-	pmArchivedPackageInfoCmd.AddCommand(pmArchivedPackageInfoSetUserDataFragileCmd)
-	pmArchivedPackageInfoSetVersionCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
-	pmArchivedPackageInfoSetVersionCodeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	pmArchivedPackageInfoCmd.AddCommand(pmArchivedPackageInfoSetVersionCodeCmd)
-	pmArchivedPackageInfoSetVersionCodeMajorCmd.Flags().Int64("handle", 0, "handle (int64)")
-	pmArchivedPackageInfoSetVersionCodeMajorCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	pmArchivedPackageInfoCmd.AddCommand(pmArchivedPackageInfoSetVersionCodeMajorCmd)
-	pmCmd.AddCommand(pmArchivedPackageInfoCmd)
-	pmPackageInfoCmd.AddCommand(pmPackageInfoNewPackageInfoCmd)
-	pmPackageInfoDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	pmPackageInfoCmd.AddCommand(pmPackageInfoDescribeContentsCmd)
-	pmPackageInfoGetApexPackageNameCmd.Flags().Int64("handle", 0, "handle (int64)")
-	pmPackageInfoCmd.AddCommand(pmPackageInfoGetApexPackageNameCmd)
-	pmPackageInfoGetArchiveTimeMillisCmd.Flags().Int64("handle", 0, "handle (int64)")
-	pmPackageInfoCmd.AddCommand(pmPackageInfoGetArchiveTimeMillisCmd)
-	pmPackageInfoGetLongVersionCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
-	pmPackageInfoCmd.AddCommand(pmPackageInfoGetLongVersionCodeCmd)
-	pmPackageInfoSetLongVersionCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
-	pmPackageInfoSetLongVersionCodeCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	pmPackageInfoCmd.AddCommand(pmPackageInfoSetLongVersionCodeCmd)
-	pmPackageInfoToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
-	pmPackageInfoCmd.AddCommand(pmPackageInfoToStringCmd)
-	pmPackageInfoWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
-	pmPackageInfoWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	pmPackageInfoWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	pmPackageInfoCmd.AddCommand(pmPackageInfoWriteToParcelCmd)
-	pmCmd.AddCommand(pmPackageInfoCmd)
-	pmPackageManagerAddPackageToPreferredCmd.Flags().String("arg0", "", "arg0 (string)")
-	pmPackageManagerCmd.AddCommand(pmPackageManagerAddPackageToPreferredCmd)
-	pmPackageManagerAddPermissionCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	pmPackageManagerCmd.AddCommand(pmPackageManagerAddPermissionCmd)
-	pmPackageManagerAddPermissionAsyncCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	pmPackageManagerCmd.AddCommand(pmPackageManagerAddPermissionAsyncCmd)
-	pmPackageManagerAddPreferredActivityCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	pmPackageManagerAddPreferredActivityCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	pmPackageManagerAddPreferredActivityCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	pmPackageManagerAddPreferredActivityCmd.Flags().Int64("arg3", 0, "arg3 (int64)")
-	pmPackageManagerCmd.AddCommand(pmPackageManagerAddPreferredActivityCmd)
-	pmPackageManagerAddWhitelistedRestrictedPermissionCmd.Flags().String("arg0", "", "arg0 (string)")
-	pmPackageManagerAddWhitelistedRestrictedPermissionCmd.Flags().String("arg1", "", "arg1 (string)")
-	pmPackageManagerAddWhitelistedRestrictedPermissionCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
-	pmPackageManagerCmd.AddCommand(pmPackageManagerAddWhitelistedRestrictedPermissionCmd)
-	pmPackageManagerCanPackageQuery2Cmd.Flags().String("arg0", "", "arg0 (string)")
-	pmPackageManagerCanPackageQuery2Cmd.Flags().String("arg1", "", "arg1 (string)")
-	pmPackageManagerCmd.AddCommand(pmPackageManagerCanPackageQuery2Cmd)
-	pmPackageManagerCanPackageQuery2_1Cmd.Flags().String("arg0", "", "arg0 (string)")
-	pmPackageManagerCanPackageQuery2_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	pmPackageManagerCmd.AddCommand(pmPackageManagerCanPackageQuery2_1Cmd)
-	pmPackageManagerCmd.AddCommand(pmPackageManagerCanRequestPackageInstallsCmd)
-	pmPackageManagerCanonicalToCurrentPackageNamesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	pmPackageManagerCmd.AddCommand(pmPackageManagerCanonicalToCurrentPackageNamesCmd)
-	pmPackageManagerCheckPermissionCmd.Flags().String("arg0", "", "arg0 (string)")
-	pmPackageManagerCheckPermissionCmd.Flags().String("arg1", "", "arg1 (string)")
-	pmPackageManagerCmd.AddCommand(pmPackageManagerCheckPermissionCmd)
-	pmPackageManagerCheckSignatures2Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	pmPackageManagerCheckSignatures2Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	pmPackageManagerCmd.AddCommand(pmPackageManagerCheckSignatures2Cmd)
-	pmPackageManagerCheckSignatures2_1Cmd.Flags().String("arg0", "", "arg0 (string)")
-	pmPackageManagerCheckSignatures2_1Cmd.Flags().String("arg1", "", "arg1 (string)")
-	pmPackageManagerCmd.AddCommand(pmPackageManagerCheckSignatures2_1Cmd)
-	pmPackageManagerCmd.AddCommand(pmPackageManagerClearInstantAppCookieCmd)
-	pmPackageManagerClearPackagePreferredActivitiesCmd.Flags().String("arg0", "", "arg0 (string)")
-	pmPackageManagerCmd.AddCommand(pmPackageManagerClearPackagePreferredActivitiesCmd)
-	pmPackageManagerCurrentToCanonicalPackageNamesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	pmPackageManagerCmd.AddCommand(pmPackageManagerCurrentToCanonicalPackageNamesCmd)
-	pmPackageManagerExtendVerificationTimeoutCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	pmPackageManagerExtendVerificationTimeoutCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	pmPackageManagerExtendVerificationTimeoutCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	pmPackageManagerCmd.AddCommand(pmPackageManagerExtendVerificationTimeoutCmd)
-	pmPackageManagerGetActivityBanner1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	pmPackageManagerCmd.AddCommand(pmPackageManagerGetActivityBanner1Cmd)
-	pmPackageManagerGetActivityBanner1_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	pmPackageManagerCmd.AddCommand(pmPackageManagerGetActivityBanner1_1Cmd)
-	pmPackageManagerGetActivityIcon1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	pmPackageManagerCmd.AddCommand(pmPackageManagerGetActivityIcon1Cmd)
-	pmPackageManagerGetActivityIcon1_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	pmPackageManagerCmd.AddCommand(pmPackageManagerGetActivityIcon1_1Cmd)
-	pmPackageManagerGetActivityInfo2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	pmPackageManagerGetActivityInfo2Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	pmPackageManagerCmd.AddCommand(pmPackageManagerGetActivityInfo2Cmd)
-	pmPackageManagerGetActivityInfo2_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	pmPackageManagerGetActivityInfo2_1Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	pmPackageManagerCmd.AddCommand(pmPackageManagerGetActivityInfo2_1Cmd)
-	pmPackageManagerGetActivityLogo1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	pmPackageManagerCmd.AddCommand(pmPackageManagerGetActivityLogo1Cmd)
-	pmPackageManagerGetActivityLogo1_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	pmPackageManagerCmd.AddCommand(pmPackageManagerGetActivityLogo1_1Cmd)
-	pmPackageManagerGetApplicationBanner1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	pmPackageManagerCmd.AddCommand(pmPackageManagerGetApplicationBanner1Cmd)
-	pmPackageManagerGetApplicationBanner1_1Cmd.Flags().String("arg0", "", "arg0 (string)")
-	pmPackageManagerCmd.AddCommand(pmPackageManagerGetApplicationBanner1_1Cmd)
-	pmPackageManagerGetApplicationEnabledSettingCmd.Flags().String("arg0", "", "arg0 (string)")
-	pmPackageManagerCmd.AddCommand(pmPackageManagerGetApplicationEnabledSettingCmd)
-	pmPackageManagerGetApplicationIcon1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	pmPackageManagerCmd.AddCommand(pmPackageManagerGetApplicationIcon1Cmd)
-	pmPackageManagerGetApplicationIcon1_1Cmd.Flags().String("arg0", "", "arg0 (string)")
-	pmPackageManagerCmd.AddCommand(pmPackageManagerGetApplicationIcon1_1Cmd)
-	pmPackageManagerGetApplicationInfo2Cmd.Flags().String("arg0", "", "arg0 (string)")
-	pmPackageManagerGetApplicationInfo2Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	pmPackageManagerCmd.AddCommand(pmPackageManagerGetApplicationInfo2Cmd)
-	pmPackageManagerGetApplicationInfo2_1Cmd.Flags().String("arg0", "", "arg0 (string)")
-	pmPackageManagerGetApplicationInfo2_1Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	pmPackageManagerCmd.AddCommand(pmPackageManagerGetApplicationInfo2_1Cmd)
-	pmPackageManagerGetApplicationLabelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	pmPackageManagerCmd.AddCommand(pmPackageManagerGetApplicationLabelCmd)
-	pmPackageManagerGetApplicationLogo1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	pmPackageManagerCmd.AddCommand(pmPackageManagerGetApplicationLogo1Cmd)
-	pmPackageManagerGetApplicationLogo1_1Cmd.Flags().String("arg0", "", "arg0 (string)")
-	pmPackageManagerCmd.AddCommand(pmPackageManagerGetApplicationLogo1_1Cmd)
-	pmPackageManagerGetArchivedPackageCmd.Flags().String("arg0", "", "arg0 (string)")
-	pmPackageManagerCmd.AddCommand(pmPackageManagerGetArchivedPackageCmd)
-	pmPackageManagerCmd.AddCommand(pmPackageManagerGetBackgroundPermissionOptionLabelCmd)
-	pmPackageManagerGetChangedPackagesCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	pmPackageManagerCmd.AddCommand(pmPackageManagerGetChangedPackagesCmd)
-	pmPackageManagerGetComponentEnabledSettingCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	pmPackageManagerCmd.AddCommand(pmPackageManagerGetComponentEnabledSettingCmd)
-	pmPackageManagerCmd.AddCommand(pmPackageManagerGetDefaultActivityIconCmd)
-	pmPackageManagerGetDrawableCmd.Flags().String("arg0", "", "arg0 (string)")
-	pmPackageManagerGetDrawableCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	pmPackageManagerGetDrawableCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	pmPackageManagerCmd.AddCommand(pmPackageManagerGetDrawableCmd)
-	pmPackageManagerGetInstallSourceInfoCmd.Flags().String("arg0", "", "arg0 (string)")
-	pmPackageManagerCmd.AddCommand(pmPackageManagerGetInstallSourceInfoCmd)
-	pmPackageManagerGetInstallerPackageNameCmd.Flags().String("arg0", "", "arg0 (string)")
-	pmPackageManagerCmd.AddCommand(pmPackageManagerGetInstallerPackageNameCmd)
-	pmPackageManagerCmd.AddCommand(pmPackageManagerGetInstantAppCookieCmd)
-	pmPackageManagerCmd.AddCommand(pmPackageManagerGetInstantAppCookieMaxBytesCmd)
-	pmPackageManagerGetInstrumentationInfoCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	pmPackageManagerGetInstrumentationInfoCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	pmPackageManagerCmd.AddCommand(pmPackageManagerGetInstrumentationInfoCmd)
-	pmPackageManagerGetLaunchIntentForPackageCmd.Flags().String("arg0", "", "arg0 (string)")
-	pmPackageManagerCmd.AddCommand(pmPackageManagerGetLaunchIntentForPackageCmd)
-	pmPackageManagerGetLaunchIntentSenderForPackageCmd.Flags().String("arg0", "", "arg0 (string)")
-	pmPackageManagerCmd.AddCommand(pmPackageManagerGetLaunchIntentSenderForPackageCmd)
-	pmPackageManagerGetLeanbackLaunchIntentForPackageCmd.Flags().String("arg0", "", "arg0 (string)")
-	pmPackageManagerCmd.AddCommand(pmPackageManagerGetLeanbackLaunchIntentForPackageCmd)
-	pmPackageManagerGetModuleInfoCmd.Flags().String("arg0", "", "arg0 (string)")
-	pmPackageManagerGetModuleInfoCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	pmPackageManagerCmd.AddCommand(pmPackageManagerGetModuleInfoCmd)
-	pmPackageManagerGetNameForUidCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	pmPackageManagerCmd.AddCommand(pmPackageManagerGetNameForUidCmd)
-	pmPackageManagerGetPackageArchiveInfo2Cmd.Flags().String("arg0", "", "arg0 (string)")
-	pmPackageManagerGetPackageArchiveInfo2Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	pmPackageManagerCmd.AddCommand(pmPackageManagerGetPackageArchiveInfo2Cmd)
-	pmPackageManagerGetPackageArchiveInfo2_1Cmd.Flags().String("arg0", "", "arg0 (string)")
-	pmPackageManagerGetPackageArchiveInfo2_1Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	pmPackageManagerCmd.AddCommand(pmPackageManagerGetPackageArchiveInfo2_1Cmd)
-	pmPackageManagerGetPackageGids1Cmd.Flags().String("arg0", "", "arg0 (string)")
-	pmPackageManagerCmd.AddCommand(pmPackageManagerGetPackageGids1Cmd)
-	pmPackageManagerGetPackageGids2_1Cmd.Flags().String("arg0", "", "arg0 (string)")
-	pmPackageManagerGetPackageGids2_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	pmPackageManagerCmd.AddCommand(pmPackageManagerGetPackageGids2_1Cmd)
-	pmPackageManagerGetPackageGids2_2Cmd.Flags().String("arg0", "", "arg0 (string)")
-	pmPackageManagerGetPackageGids2_2Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	pmPackageManagerCmd.AddCommand(pmPackageManagerGetPackageGids2_2Cmd)
-	pmPackageManagerGetPackageInfo2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	pmPackageManagerGetPackageInfo2Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	pmPackageManagerCmd.AddCommand(pmPackageManagerGetPackageInfo2Cmd)
-	pmPackageManagerGetPackageInfo2_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	pmPackageManagerGetPackageInfo2_1Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	pmPackageManagerCmd.AddCommand(pmPackageManagerGetPackageInfo2_1Cmd)
-	pmPackageManagerGetPackageInfo2_2Cmd.Flags().String("arg0", "", "arg0 (string)")
-	pmPackageManagerGetPackageInfo2_2Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	pmPackageManagerCmd.AddCommand(pmPackageManagerGetPackageInfo2_2Cmd)
-	pmPackageManagerGetPackageInfo2_3Cmd.Flags().String("arg0", "", "arg0 (string)")
-	pmPackageManagerGetPackageInfo2_3Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	pmPackageManagerCmd.AddCommand(pmPackageManagerGetPackageInfo2_3Cmd)
-	pmPackageManagerCmd.AddCommand(pmPackageManagerGetPackageInstallerCmd)
-	pmPackageManagerGetPackageUid2Cmd.Flags().String("arg0", "", "arg0 (string)")
-	pmPackageManagerGetPackageUid2Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	pmPackageManagerCmd.AddCommand(pmPackageManagerGetPackageUid2Cmd)
-	pmPackageManagerGetPackageUid2_1Cmd.Flags().String("arg0", "", "arg0 (string)")
-	pmPackageManagerGetPackageUid2_1Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	pmPackageManagerCmd.AddCommand(pmPackageManagerGetPackageUid2_1Cmd)
-	pmPackageManagerGetPackagesForUidCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	pmPackageManagerCmd.AddCommand(pmPackageManagerGetPackagesForUidCmd)
-	pmPackageManagerGetPermissionGroupInfoCmd.Flags().String("arg0", "", "arg0 (string)")
-	pmPackageManagerGetPermissionGroupInfoCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	pmPackageManagerCmd.AddCommand(pmPackageManagerGetPermissionGroupInfoCmd)
-	pmPackageManagerGetPermissionInfoCmd.Flags().String("arg0", "", "arg0 (string)")
-	pmPackageManagerGetPermissionInfoCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	pmPackageManagerCmd.AddCommand(pmPackageManagerGetPermissionInfoCmd)
-	pmPackageManagerGetProperty2Cmd.Flags().String("arg0", "", "arg0 (string)")
-	pmPackageManagerGetProperty2Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	pmPackageManagerCmd.AddCommand(pmPackageManagerGetProperty2Cmd)
-	pmPackageManagerGetProperty2_1Cmd.Flags().String("arg0", "", "arg0 (string)")
-	pmPackageManagerGetProperty2_1Cmd.Flags().String("arg1", "", "arg1 (string)")
-	pmPackageManagerCmd.AddCommand(pmPackageManagerGetProperty2_1Cmd)
-	pmPackageManagerGetProviderInfo2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	pmPackageManagerGetProviderInfo2Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	pmPackageManagerCmd.AddCommand(pmPackageManagerGetProviderInfo2Cmd)
-	pmPackageManagerGetProviderInfo2_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	pmPackageManagerGetProviderInfo2_1Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	pmPackageManagerCmd.AddCommand(pmPackageManagerGetProviderInfo2_1Cmd)
-	pmPackageManagerGetReceiverInfo2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	pmPackageManagerGetReceiverInfo2Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	pmPackageManagerCmd.AddCommand(pmPackageManagerGetReceiverInfo2Cmd)
-	pmPackageManagerGetReceiverInfo2_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	pmPackageManagerGetReceiverInfo2_1Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	pmPackageManagerCmd.AddCommand(pmPackageManagerGetReceiverInfo2_1Cmd)
-	pmPackageManagerGetResourcesForActivityCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	pmPackageManagerCmd.AddCommand(pmPackageManagerGetResourcesForActivityCmd)
-	pmPackageManagerGetResourcesForApplication1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	pmPackageManagerCmd.AddCommand(pmPackageManagerGetResourcesForApplication1Cmd)
-	pmPackageManagerGetResourcesForApplication2_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	pmPackageManagerGetResourcesForApplication2_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	pmPackageManagerCmd.AddCommand(pmPackageManagerGetResourcesForApplication2_1Cmd)
-	pmPackageManagerGetResourcesForApplication1_2Cmd.Flags().String("arg0", "", "arg0 (string)")
-	pmPackageManagerCmd.AddCommand(pmPackageManagerGetResourcesForApplication1_2Cmd)
-	pmPackageManagerGetServiceInfo2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	pmPackageManagerGetServiceInfo2Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	pmPackageManagerCmd.AddCommand(pmPackageManagerGetServiceInfo2Cmd)
-	pmPackageManagerGetServiceInfo2_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	pmPackageManagerGetServiceInfo2_1Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	pmPackageManagerCmd.AddCommand(pmPackageManagerGetServiceInfo2_1Cmd)
-	pmPackageManagerCmd.AddCommand(pmPackageManagerGetSuspendedPackageAppExtrasCmd)
-	pmPackageManagerGetSyntheticAppDetailsActivityEnabledCmd.Flags().String("arg0", "", "arg0 (string)")
-	pmPackageManagerCmd.AddCommand(pmPackageManagerGetSyntheticAppDetailsActivityEnabledCmd)
-	pmPackageManagerCmd.AddCommand(pmPackageManagerGetSystemAvailableFeaturesCmd)
-	pmPackageManagerCmd.AddCommand(pmPackageManagerGetSystemSharedLibraryNamesCmd)
-	pmPackageManagerGetTargetSdkVersionCmd.Flags().String("arg0", "", "arg0 (string)")
-	pmPackageManagerCmd.AddCommand(pmPackageManagerGetTargetSdkVersionCmd)
-	pmPackageManagerGetTextCmd.Flags().String("arg0", "", "arg0 (string)")
-	pmPackageManagerGetTextCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	pmPackageManagerGetTextCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	pmPackageManagerCmd.AddCommand(pmPackageManagerGetTextCmd)
-	pmPackageManagerGetUserBadgedDrawableForDensityCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	pmPackageManagerGetUserBadgedDrawableForDensityCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	pmPackageManagerGetUserBadgedDrawableForDensityCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	pmPackageManagerGetUserBadgedDrawableForDensityCmd.Flags().Int32("arg3", 0, "arg3 (int32)")
-	pmPackageManagerCmd.AddCommand(pmPackageManagerGetUserBadgedDrawableForDensityCmd)
-	pmPackageManagerGetUserBadgedIconCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	pmPackageManagerGetUserBadgedIconCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	pmPackageManagerCmd.AddCommand(pmPackageManagerGetUserBadgedIconCmd)
-	pmPackageManagerGetUserBadgedLabelCmd.Flags().String("arg0", "", "arg0 (string)")
-	pmPackageManagerGetUserBadgedLabelCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	pmPackageManagerCmd.AddCommand(pmPackageManagerGetUserBadgedLabelCmd)
-	pmPackageManagerGetXmlCmd.Flags().String("arg0", "", "arg0 (string)")
-	pmPackageManagerGetXmlCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	pmPackageManagerGetXmlCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	pmPackageManagerCmd.AddCommand(pmPackageManagerGetXmlCmd)
-	pmPackageManagerHasSigningCertificate3Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	pmPackageManagerHasSigningCertificate3Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	pmPackageManagerHasSigningCertificate3Cmd.Flags().Int32("arg2", 0, "arg2 (int32)")
-	pmPackageManagerCmd.AddCommand(pmPackageManagerHasSigningCertificate3Cmd)
-	pmPackageManagerHasSigningCertificate3_1Cmd.Flags().String("arg0", "", "arg0 (string)")
-	pmPackageManagerHasSigningCertificate3_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	pmPackageManagerHasSigningCertificate3_1Cmd.Flags().Int32("arg2", 0, "arg2 (int32)")
-	pmPackageManagerCmd.AddCommand(pmPackageManagerHasSigningCertificate3_1Cmd)
-	pmPackageManagerHasSystemFeature1Cmd.Flags().String("arg0", "", "arg0 (string)")
-	pmPackageManagerCmd.AddCommand(pmPackageManagerHasSystemFeature1Cmd)
-	pmPackageManagerHasSystemFeature2_1Cmd.Flags().String("arg0", "", "arg0 (string)")
-	pmPackageManagerHasSystemFeature2_1Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	pmPackageManagerCmd.AddCommand(pmPackageManagerHasSystemFeature2_1Cmd)
-	pmPackageManagerIsAppArchivableCmd.Flags().String("arg0", "", "arg0 (string)")
-	pmPackageManagerCmd.AddCommand(pmPackageManagerIsAppArchivableCmd)
-	pmPackageManagerCmd.AddCommand(pmPackageManagerIsAutoRevokeWhitelisted0Cmd)
-	pmPackageManagerIsAutoRevokeWhitelisted1_1Cmd.Flags().String("arg0", "", "arg0 (string)")
-	pmPackageManagerCmd.AddCommand(pmPackageManagerIsAutoRevokeWhitelisted1_1Cmd)
-	pmPackageManagerIsDefaultApplicationIconCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	pmPackageManagerCmd.AddCommand(pmPackageManagerIsDefaultApplicationIconCmd)
-	pmPackageManagerCmd.AddCommand(pmPackageManagerIsDeviceUpgradingCmd)
-	pmPackageManagerCmd.AddCommand(pmPackageManagerIsInstantApp0Cmd)
-	pmPackageManagerIsInstantApp1_1Cmd.Flags().String("arg0", "", "arg0 (string)")
-	pmPackageManagerCmd.AddCommand(pmPackageManagerIsInstantApp1_1Cmd)
-	pmPackageManagerIsPackageStoppedCmd.Flags().String("arg0", "", "arg0 (string)")
-	pmPackageManagerCmd.AddCommand(pmPackageManagerIsPackageStoppedCmd)
-	pmPackageManagerCmd.AddCommand(pmPackageManagerIsPackageSuspended0Cmd)
-	pmPackageManagerIsPackageSuspended1_1Cmd.Flags().String("arg0", "", "arg0 (string)")
-	pmPackageManagerCmd.AddCommand(pmPackageManagerIsPackageSuspended1_1Cmd)
-	pmPackageManagerIsPermissionRevokedByPolicyCmd.Flags().String("arg0", "", "arg0 (string)")
-	pmPackageManagerIsPermissionRevokedByPolicyCmd.Flags().String("arg1", "", "arg1 (string)")
-	pmPackageManagerCmd.AddCommand(pmPackageManagerIsPermissionRevokedByPolicyCmd)
-	pmPackageManagerCmd.AddCommand(pmPackageManagerIsSafeModeCmd)
-	pmPackageManagerRelinquishUpdateOwnershipCmd.Flags().String("arg0", "", "arg0 (string)")
-	pmPackageManagerCmd.AddCommand(pmPackageManagerRelinquishUpdateOwnershipCmd)
-	pmPackageManagerRemovePackageFromPreferredCmd.Flags().String("arg0", "", "arg0 (string)")
-	pmPackageManagerCmd.AddCommand(pmPackageManagerRemovePackageFromPreferredCmd)
-	pmPackageManagerRemovePermissionCmd.Flags().String("arg0", "", "arg0 (string)")
-	pmPackageManagerCmd.AddCommand(pmPackageManagerRemovePermissionCmd)
-	pmPackageManagerRemoveWhitelistedRestrictedPermissionCmd.Flags().String("arg0", "", "arg0 (string)")
-	pmPackageManagerRemoveWhitelistedRestrictedPermissionCmd.Flags().String("arg1", "", "arg1 (string)")
-	pmPackageManagerRemoveWhitelistedRestrictedPermissionCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
-	pmPackageManagerCmd.AddCommand(pmPackageManagerRemoveWhitelistedRestrictedPermissionCmd)
-	pmPackageManagerResolveActivity2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	pmPackageManagerResolveActivity2Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	pmPackageManagerCmd.AddCommand(pmPackageManagerResolveActivity2Cmd)
-	pmPackageManagerResolveActivity2_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	pmPackageManagerResolveActivity2_1Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	pmPackageManagerCmd.AddCommand(pmPackageManagerResolveActivity2_1Cmd)
-	pmPackageManagerResolveContentProvider2Cmd.Flags().String("arg0", "", "arg0 (string)")
-	pmPackageManagerResolveContentProvider2Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	pmPackageManagerCmd.AddCommand(pmPackageManagerResolveContentProvider2Cmd)
-	pmPackageManagerResolveContentProvider2_1Cmd.Flags().String("arg0", "", "arg0 (string)")
-	pmPackageManagerResolveContentProvider2_1Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	pmPackageManagerCmd.AddCommand(pmPackageManagerResolveContentProvider2_1Cmd)
-	pmPackageManagerResolveService2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	pmPackageManagerResolveService2Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	pmPackageManagerCmd.AddCommand(pmPackageManagerResolveService2Cmd)
-	pmPackageManagerResolveService2_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	pmPackageManagerResolveService2_1Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	pmPackageManagerCmd.AddCommand(pmPackageManagerResolveService2_1Cmd)
-	pmPackageManagerSetApplicationCategoryHintCmd.Flags().String("arg0", "", "arg0 (string)")
-	pmPackageManagerSetApplicationCategoryHintCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	pmPackageManagerCmd.AddCommand(pmPackageManagerSetApplicationCategoryHintCmd)
-	pmPackageManagerSetApplicationEnabledSettingCmd.Flags().String("arg0", "", "arg0 (string)")
-	pmPackageManagerSetApplicationEnabledSettingCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	pmPackageManagerSetApplicationEnabledSettingCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
-	pmPackageManagerCmd.AddCommand(pmPackageManagerSetApplicationEnabledSettingCmd)
-	pmPackageManagerSetAutoRevokeWhitelistedCmd.Flags().String("arg0", "", "arg0 (string)")
-	pmPackageManagerSetAutoRevokeWhitelistedCmd.Flags().Bool("arg1", false, "arg1 (bool)")
-	pmPackageManagerCmd.AddCommand(pmPackageManagerSetAutoRevokeWhitelistedCmd)
-	pmPackageManagerSetComponentEnabledSettingCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	pmPackageManagerSetComponentEnabledSettingCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	pmPackageManagerSetComponentEnabledSettingCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
-	pmPackageManagerCmd.AddCommand(pmPackageManagerSetComponentEnabledSettingCmd)
-	pmPackageManagerSetInstallerPackageNameCmd.Flags().String("arg0", "", "arg0 (string)")
-	pmPackageManagerSetInstallerPackageNameCmd.Flags().String("arg1", "", "arg1 (string)")
-	pmPackageManagerCmd.AddCommand(pmPackageManagerSetInstallerPackageNameCmd)
-	pmPackageManagerUpdateInstantAppCookieCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	pmPackageManagerCmd.AddCommand(pmPackageManagerUpdateInstantAppCookieCmd)
-	pmPackageManagerVerifyPendingInstallCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	pmPackageManagerVerifyPendingInstallCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	pmPackageManagerCmd.AddCommand(pmPackageManagerVerifyPendingInstallCmd)
-	pmPackageManagerGetVerifiedSigningInfoCmd.Flags().String("arg0", "", "arg0 (string)")
-	pmPackageManagerGetVerifiedSigningInfoCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	pmPackageManagerCmd.AddCommand(pmPackageManagerGetVerifiedSigningInfoCmd)
-	pmCmd.AddCommand(pmPackageManagerCmd)
-	pmPackageManagerApplicationInfoFlagsCmd.AddCommand(pmPackageManagerApplicationInfoFlagsGetValueCmd)
-	pmPackageManagerApplicationInfoFlagsOfCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	pmPackageManagerApplicationInfoFlagsCmd.AddCommand(pmPackageManagerApplicationInfoFlagsOfCmd)
-	pmCmd.AddCommand(pmPackageManagerApplicationInfoFlagsCmd)
-	pmPackageManagerComponentEnabledSettingCmd.AddCommand(pmPackageManagerComponentEnabledSettingDescribeContentsCmd)
-	pmPackageManagerComponentEnabledSettingCmd.AddCommand(pmPackageManagerComponentEnabledSettingGetComponentNameCmd)
-	pmPackageManagerComponentEnabledSettingCmd.AddCommand(pmPackageManagerComponentEnabledSettingGetEnabledFlagsCmd)
-	pmPackageManagerComponentEnabledSettingCmd.AddCommand(pmPackageManagerComponentEnabledSettingGetEnabledStateCmd)
-	pmPackageManagerComponentEnabledSettingWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	pmPackageManagerComponentEnabledSettingWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	pmPackageManagerComponentEnabledSettingCmd.AddCommand(pmPackageManagerComponentEnabledSettingWriteToParcelCmd)
-	pmCmd.AddCommand(pmPackageManagerComponentEnabledSettingCmd)
-	pmPackageManagerComponentInfoFlagsCmd.AddCommand(pmPackageManagerComponentInfoFlagsGetValueCmd)
-	pmPackageManagerComponentInfoFlagsOfCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	pmPackageManagerComponentInfoFlagsCmd.AddCommand(pmPackageManagerComponentInfoFlagsOfCmd)
-	pmCmd.AddCommand(pmPackageManagerComponentInfoFlagsCmd)
-	pmPackageManagerPackageInfoFlagsCmd.AddCommand(pmPackageManagerPackageInfoFlagsGetValueCmd)
-	pmPackageManagerPackageInfoFlagsOfCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	pmPackageManagerPackageInfoFlagsCmd.AddCommand(pmPackageManagerPackageInfoFlagsOfCmd)
-	pmCmd.AddCommand(pmPackageManagerPackageInfoFlagsCmd)
-	pmPackageManagerPropertyCmd.AddCommand(pmPackageManagerPropertyDescribeContentsCmd)
-	pmPackageManagerPropertyEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	pmPackageManagerPropertyCmd.AddCommand(pmPackageManagerPropertyEqualsCmd)
-	pmPackageManagerPropertyCmd.AddCommand(pmPackageManagerPropertyGetBooleanCmd)
-	pmPackageManagerPropertyCmd.AddCommand(pmPackageManagerPropertyGetClassNameCmd)
-	pmPackageManagerPropertyCmd.AddCommand(pmPackageManagerPropertyGetFloatCmd)
-	pmPackageManagerPropertyCmd.AddCommand(pmPackageManagerPropertyGetIntegerCmd)
-	pmPackageManagerPropertyCmd.AddCommand(pmPackageManagerPropertyGetNameCmd)
-	pmPackageManagerPropertyCmd.AddCommand(pmPackageManagerPropertyGetPackageNameCmd)
-	pmPackageManagerPropertyCmd.AddCommand(pmPackageManagerPropertyGetResourceIdCmd)
-	pmPackageManagerPropertyCmd.AddCommand(pmPackageManagerPropertyGetStringCmd)
-	pmPackageManagerPropertyCmd.AddCommand(pmPackageManagerPropertyHashCodeCmd)
-	pmPackageManagerPropertyCmd.AddCommand(pmPackageManagerPropertyIsBooleanCmd)
-	pmPackageManagerPropertyCmd.AddCommand(pmPackageManagerPropertyIsFloatCmd)
-	pmPackageManagerPropertyCmd.AddCommand(pmPackageManagerPropertyIsIntegerCmd)
-	pmPackageManagerPropertyCmd.AddCommand(pmPackageManagerPropertyIsResourceIdCmd)
-	pmPackageManagerPropertyCmd.AddCommand(pmPackageManagerPropertyIsStringCmd)
-	pmPackageManagerPropertyWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	pmPackageManagerPropertyWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	pmPackageManagerPropertyCmd.AddCommand(pmPackageManagerPropertyWriteToParcelCmd)
-	pmCmd.AddCommand(pmPackageManagerPropertyCmd)
-	pmPackageManagerResolveInfoFlagsCmd.AddCommand(pmPackageManagerResolveInfoFlagsGetValueCmd)
-	pmPackageManagerResolveInfoFlagsOfCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	pmPackageManagerResolveInfoFlagsCmd.AddCommand(pmPackageManagerResolveInfoFlagsOfCmd)
-	pmCmd.AddCommand(pmPackageManagerResolveInfoFlagsCmd)
-	pmModuleInfoCmd.AddCommand(pmModuleInfoDescribeContentsCmd)
-	pmModuleInfoEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	pmModuleInfoCmd.AddCommand(pmModuleInfoEqualsCmd)
-	pmModuleInfoCmd.AddCommand(pmModuleInfoGetNameCmd)
-	pmModuleInfoCmd.AddCommand(pmModuleInfoGetPackageNameCmd)
-	pmModuleInfoCmd.AddCommand(pmModuleInfoHashCodeCmd)
-	pmModuleInfoCmd.AddCommand(pmModuleInfoIsHiddenCmd)
-	pmModuleInfoCmd.AddCommand(pmModuleInfoToStringCmd)
-	pmModuleInfoWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	pmModuleInfoWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	pmModuleInfoCmd.AddCommand(pmModuleInfoWriteToParcelCmd)
-	pmCmd.AddCommand(pmModuleInfoCmd)
-	pmApkChecksumCmd.AddCommand(pmApkChecksumDescribeContentsCmd)
-	pmApkChecksumCmd.AddCommand(pmApkChecksumGetInstallerCertificateCmd)
-	pmApkChecksumCmd.AddCommand(pmApkChecksumGetInstallerPackageNameCmd)
-	pmApkChecksumCmd.AddCommand(pmApkChecksumGetSplitNameCmd)
-	pmApkChecksumCmd.AddCommand(pmApkChecksumGetTypeCmd)
-	pmApkChecksumCmd.AddCommand(pmApkChecksumGetValueCmd)
-	pmApkChecksumCmd.AddCommand(pmApkChecksumToStringCmd)
-	pmApkChecksumWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	pmApkChecksumWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	pmApkChecksumCmd.AddCommand(pmApkChecksumWriteToParcelCmd)
-	pmCmd.AddCommand(pmApkChecksumCmd)
-	pmChangedPackagesNewChangedPackagesCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	pmChangedPackagesNewChangedPackagesCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	pmChangedPackagesCmd.AddCommand(pmChangedPackagesNewChangedPackagesCmd)
-	pmChangedPackagesDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	pmChangedPackagesCmd.AddCommand(pmChangedPackagesDescribeContentsCmd)
-	pmChangedPackagesGetSequenceNumberCmd.Flags().Int64("handle", 0, "handle (int64)")
-	pmChangedPackagesCmd.AddCommand(pmChangedPackagesGetSequenceNumberCmd)
-	pmChangedPackagesWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
-	pmChangedPackagesWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	pmChangedPackagesWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	pmChangedPackagesCmd.AddCommand(pmChangedPackagesWriteToParcelCmd)
-	pmCmd.AddCommand(pmChangedPackagesCmd)
-	pmSigningInfoCmd.AddCommand(pmSigningInfoNewSigningInfoCmd)
-	pmSigningInfoDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	pmSigningInfoCmd.AddCommand(pmSigningInfoDescribeContentsCmd)
-	pmSigningInfoGetApkContentsSignersCmd.Flags().Int64("handle", 0, "handle (int64)")
-	pmSigningInfoCmd.AddCommand(pmSigningInfoGetApkContentsSignersCmd)
-	pmSigningInfoGetSchemeVersionCmd.Flags().Int64("handle", 0, "handle (int64)")
-	pmSigningInfoCmd.AddCommand(pmSigningInfoGetSchemeVersionCmd)
-	pmSigningInfoGetSigningCertificateHistoryCmd.Flags().Int64("handle", 0, "handle (int64)")
-	pmSigningInfoCmd.AddCommand(pmSigningInfoGetSigningCertificateHistoryCmd)
-	pmSigningInfoHasMultipleSignersCmd.Flags().Int64("handle", 0, "handle (int64)")
-	pmSigningInfoCmd.AddCommand(pmSigningInfoHasMultipleSignersCmd)
-	pmSigningInfoHasPastSigningCertificatesCmd.Flags().Int64("handle", 0, "handle (int64)")
-	pmSigningInfoCmd.AddCommand(pmSigningInfoHasPastSigningCertificatesCmd)
-	pmSigningInfoSignersMatchExactlyCmd.Flags().Int64("handle", 0, "handle (int64)")
-	pmSigningInfoSignersMatchExactlyCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	pmSigningInfoCmd.AddCommand(pmSigningInfoSignersMatchExactlyCmd)
-	pmSigningInfoWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
-	pmSigningInfoWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	pmSigningInfoWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	pmSigningInfoCmd.AddCommand(pmSigningInfoWriteToParcelCmd)
-	pmCmd.AddCommand(pmSigningInfoCmd)
+	pmPermissionGroupInfoCmd.AddCommand(pmPermissionGroupInfoNewPermissionGroupInfoCmd)
+	pmPermissionGroupInfoDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	pmPermissionGroupInfoCmd.AddCommand(pmPermissionGroupInfoDescribeContentsCmd)
+	pmPermissionGroupInfoLoadDescriptionCmd.Flags().Int64("handle", 0, "handle (int64)")
+	pmPermissionGroupInfoLoadDescriptionCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pmPermissionGroupInfoCmd.AddCommand(pmPermissionGroupInfoLoadDescriptionCmd)
+	pmPermissionGroupInfoToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
+	pmPermissionGroupInfoCmd.AddCommand(pmPermissionGroupInfoToStringCmd)
+	pmPermissionGroupInfoWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	pmPermissionGroupInfoWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pmPermissionGroupInfoWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	pmPermissionGroupInfoCmd.AddCommand(pmPermissionGroupInfoWriteToParcelCmd)
+	pmCmd.AddCommand(pmPermissionGroupInfoCmd)
+	pmArchivedActivityInfoNewArchivedActivityInfoCmd.Flags().String("arg0", "", "arg0 (string)")
+	pmArchivedActivityInfoNewArchivedActivityInfoCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	pmArchivedActivityInfoCmd.AddCommand(pmArchivedActivityInfoNewArchivedActivityInfoCmd)
+	pmArchivedActivityInfoGetComponentNameCmd.Flags().Int64("handle", 0, "handle (int64)")
+	pmArchivedActivityInfoCmd.AddCommand(pmArchivedActivityInfoGetComponentNameCmd)
+	pmArchivedActivityInfoGetIconCmd.Flags().Int64("handle", 0, "handle (int64)")
+	pmArchivedActivityInfoCmd.AddCommand(pmArchivedActivityInfoGetIconCmd)
+	pmArchivedActivityInfoGetLabelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	pmArchivedActivityInfoCmd.AddCommand(pmArchivedActivityInfoGetLabelCmd)
+	pmArchivedActivityInfoGetMonochromeIconCmd.Flags().Int64("handle", 0, "handle (int64)")
+	pmArchivedActivityInfoCmd.AddCommand(pmArchivedActivityInfoGetMonochromeIconCmd)
+	pmArchivedActivityInfoSetComponentNameCmd.Flags().Int64("handle", 0, "handle (int64)")
+	pmArchivedActivityInfoSetComponentNameCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pmArchivedActivityInfoCmd.AddCommand(pmArchivedActivityInfoSetComponentNameCmd)
+	pmArchivedActivityInfoSetIconCmd.Flags().Int64("handle", 0, "handle (int64)")
+	pmArchivedActivityInfoSetIconCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pmArchivedActivityInfoCmd.AddCommand(pmArchivedActivityInfoSetIconCmd)
+	pmArchivedActivityInfoSetLabelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	pmArchivedActivityInfoSetLabelCmd.Flags().String("arg0", "", "arg0 (string)")
+	pmArchivedActivityInfoCmd.AddCommand(pmArchivedActivityInfoSetLabelCmd)
+	pmArchivedActivityInfoSetMonochromeIconCmd.Flags().Int64("handle", 0, "handle (int64)")
+	pmArchivedActivityInfoSetMonochromeIconCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pmArchivedActivityInfoCmd.AddCommand(pmArchivedActivityInfoSetMonochromeIconCmd)
+	pmCmd.AddCommand(pmArchivedActivityInfoCmd)
 	rootCmd.AddCommand(pmCmd)
 }

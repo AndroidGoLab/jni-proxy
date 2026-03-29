@@ -2101,6 +2101,109 @@ var ContractSimAccountService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
+	ContractSimContactsService_GetSimAccounts_FullMethodName = "/contacts.ContractSimContactsService/GetSimAccounts"
+)
+
+// ContractSimContactsServiceClient is the client API for ContractSimContactsService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ContractSimContactsServiceClient interface {
+	GetSimAccounts(ctx context.Context, in *GetSimAccountsRequest, opts ...grpc.CallOption) (*GetSimAccountsResponse, error)
+}
+
+type contractSimContactsServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewContractSimContactsServiceClient(cc grpc.ClientConnInterface) ContractSimContactsServiceClient {
+	return &contractSimContactsServiceClient{cc}
+}
+
+func (c *contractSimContactsServiceClient) GetSimAccounts(ctx context.Context, in *GetSimAccountsRequest, opts ...grpc.CallOption) (*GetSimAccountsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSimAccountsResponse)
+	err := c.cc.Invoke(ctx, ContractSimContactsService_GetSimAccounts_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ContractSimContactsServiceServer is the server API for ContractSimContactsService service.
+// All implementations must embed UnimplementedContractSimContactsServiceServer
+// for forward compatibility.
+type ContractSimContactsServiceServer interface {
+	GetSimAccounts(context.Context, *GetSimAccountsRequest) (*GetSimAccountsResponse, error)
+	mustEmbedUnimplementedContractSimContactsServiceServer()
+}
+
+// UnimplementedContractSimContactsServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedContractSimContactsServiceServer struct{}
+
+func (UnimplementedContractSimContactsServiceServer) GetSimAccounts(context.Context, *GetSimAccountsRequest) (*GetSimAccountsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSimAccounts not implemented")
+}
+func (UnimplementedContractSimContactsServiceServer) mustEmbedUnimplementedContractSimContactsServiceServer() {
+}
+func (UnimplementedContractSimContactsServiceServer) testEmbeddedByValue() {}
+
+// UnsafeContractSimContactsServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ContractSimContactsServiceServer will
+// result in compilation errors.
+type UnsafeContractSimContactsServiceServer interface {
+	mustEmbedUnimplementedContractSimContactsServiceServer()
+}
+
+func RegisterContractSimContactsServiceServer(s grpc.ServiceRegistrar, srv ContractSimContactsServiceServer) {
+	// If the following call panics, it indicates UnimplementedContractSimContactsServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&ContractSimContactsService_ServiceDesc, srv)
+}
+
+func _ContractSimContactsService_GetSimAccounts_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSimAccountsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ContractSimContactsServiceServer).GetSimAccounts(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ContractSimContactsService_GetSimAccounts_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ContractSimContactsServiceServer).GetSimAccounts(ctx, req.(*GetSimAccountsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ContractSimContactsService_ServiceDesc is the grpc.ServiceDesc for ContractSimContactsService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ContractSimContactsService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "contacts.ContractSimContactsService",
+	HandlerType: (*ContractSimContactsServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "GetSimAccounts",
+			Handler:    _ContractSimContactsService_GetSimAccounts_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/contacts/contacts.proto",
+}
+
+const (
 	ContractStatusUpdatesService_GetPresenceIconResourceId_FullMethodName = "/contacts.ContractStatusUpdatesService/GetPresenceIconResourceId"
 	ContractStatusUpdatesService_GetPresencePrecedence_FullMethodName     = "/contacts.ContractStatusUpdatesService/GetPresencePrecedence"
 )

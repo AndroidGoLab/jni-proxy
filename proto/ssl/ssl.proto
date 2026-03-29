@@ -17,11 +17,11 @@ message ExportKeyingMaterialResponse {
   int64 result = 1;
 }
 
-message IsSupportedSocketRequest {
+message IsSupportedEngineRequest {
   int64 arg0 = 1;
 }
 
-message IsSupportedSocketResponse {
+message IsSupportedEngineResponse {
   bool result = 1;
 }
 
@@ -33,22 +33,22 @@ message SetUseSessionTicketsRequest {
 message SetUseSessionTicketsResponse {
 }
 
-message IsSupportedEngineRequest {
+message IsSupportedSocketRequest {
   int64 arg0 = 1;
 }
 
-message IsSupportedEngineResponse {
+message IsSupportedSocketResponse {
   bool result = 1;
-}
-
-service SSLSocketsService {
-  rpc ExportKeyingMaterial (ExportKeyingMaterialRequest) returns (ExportKeyingMaterialResponse);
-  rpc IsSupportedSocket (IsSupportedSocketRequest) returns (IsSupportedSocketResponse);
-  rpc SetUseSessionTickets (SetUseSessionTicketsRequest) returns (SetUseSessionTicketsResponse);
 }
 
 service SSLEnginesService {
   rpc ExportKeyingMaterial (ExportKeyingMaterialRequest) returns (ExportKeyingMaterialResponse);
   rpc IsSupportedEngine (IsSupportedEngineRequest) returns (IsSupportedEngineResponse);
+  rpc SetUseSessionTickets (SetUseSessionTicketsRequest) returns (SetUseSessionTicketsResponse);
+}
+
+service SSLSocketsService {
+  rpc ExportKeyingMaterial (ExportKeyingMaterialRequest) returns (ExportKeyingMaterialResponse);
+  rpc IsSupportedSocket (IsSupportedSocketRequest) returns (IsSupportedSocketResponse);
   rpc SetUseSessionTickets (SetUseSessionTicketsRequest) returns (SetUseSessionTicketsResponse);
 }

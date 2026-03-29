@@ -21,364 +21,6 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	FactoryResetProtectionPolicyService_DescribeContents_FullMethodName                = "/admin.FactoryResetProtectionPolicyService/DescribeContents"
-	FactoryResetProtectionPolicyService_IsFactoryResetProtectionEnabled_FullMethodName = "/admin.FactoryResetProtectionPolicyService/IsFactoryResetProtectionEnabled"
-	FactoryResetProtectionPolicyService_ToString_FullMethodName                        = "/admin.FactoryResetProtectionPolicyService/ToString"
-	FactoryResetProtectionPolicyService_WriteToParcel_FullMethodName                   = "/admin.FactoryResetProtectionPolicyService/WriteToParcel"
-)
-
-// FactoryResetProtectionPolicyServiceClient is the client API for FactoryResetProtectionPolicyService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type FactoryResetProtectionPolicyServiceClient interface {
-	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	IsFactoryResetProtectionEnabled(ctx context.Context, in *IsFactoryResetProtectionEnabledRequest, opts ...grpc.CallOption) (*IsFactoryResetProtectionEnabledResponse, error)
-	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
-	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
-}
-
-type factoryResetProtectionPolicyServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewFactoryResetProtectionPolicyServiceClient(cc grpc.ClientConnInterface) FactoryResetProtectionPolicyServiceClient {
-	return &factoryResetProtectionPolicyServiceClient{cc}
-}
-
-func (c *factoryResetProtectionPolicyServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, FactoryResetProtectionPolicyService_DescribeContents_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *factoryResetProtectionPolicyServiceClient) IsFactoryResetProtectionEnabled(ctx context.Context, in *IsFactoryResetProtectionEnabledRequest, opts ...grpc.CallOption) (*IsFactoryResetProtectionEnabledResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsFactoryResetProtectionEnabledResponse)
-	err := c.cc.Invoke(ctx, FactoryResetProtectionPolicyService_IsFactoryResetProtectionEnabled_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *factoryResetProtectionPolicyServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ToStringResponse)
-	err := c.cc.Invoke(ctx, FactoryResetProtectionPolicyService_ToString_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *factoryResetProtectionPolicyServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, FactoryResetProtectionPolicyService_WriteToParcel_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// FactoryResetProtectionPolicyServiceServer is the server API for FactoryResetProtectionPolicyService service.
-// All implementations must embed UnimplementedFactoryResetProtectionPolicyServiceServer
-// for forward compatibility.
-type FactoryResetProtectionPolicyServiceServer interface {
-	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
-	IsFactoryResetProtectionEnabled(context.Context, *IsFactoryResetProtectionEnabledRequest) (*IsFactoryResetProtectionEnabledResponse, error)
-	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
-	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
-	mustEmbedUnimplementedFactoryResetProtectionPolicyServiceServer()
-}
-
-// UnimplementedFactoryResetProtectionPolicyServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedFactoryResetProtectionPolicyServiceServer struct{}
-
-func (UnimplementedFactoryResetProtectionPolicyServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
-}
-func (UnimplementedFactoryResetProtectionPolicyServiceServer) IsFactoryResetProtectionEnabled(context.Context, *IsFactoryResetProtectionEnabledRequest) (*IsFactoryResetProtectionEnabledResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsFactoryResetProtectionEnabled not implemented")
-}
-func (UnimplementedFactoryResetProtectionPolicyServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
-}
-func (UnimplementedFactoryResetProtectionPolicyServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
-}
-func (UnimplementedFactoryResetProtectionPolicyServiceServer) mustEmbedUnimplementedFactoryResetProtectionPolicyServiceServer() {
-}
-func (UnimplementedFactoryResetProtectionPolicyServiceServer) testEmbeddedByValue() {}
-
-// UnsafeFactoryResetProtectionPolicyServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to FactoryResetProtectionPolicyServiceServer will
-// result in compilation errors.
-type UnsafeFactoryResetProtectionPolicyServiceServer interface {
-	mustEmbedUnimplementedFactoryResetProtectionPolicyServiceServer()
-}
-
-func RegisterFactoryResetProtectionPolicyServiceServer(s grpc.ServiceRegistrar, srv FactoryResetProtectionPolicyServiceServer) {
-	// If the following call panics, it indicates UnimplementedFactoryResetProtectionPolicyServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&FactoryResetProtectionPolicyService_ServiceDesc, srv)
-}
-
-func _FactoryResetProtectionPolicyService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DescribeContentsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(FactoryResetProtectionPolicyServiceServer).DescribeContents(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: FactoryResetProtectionPolicyService_DescribeContents_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FactoryResetProtectionPolicyServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _FactoryResetProtectionPolicyService_IsFactoryResetProtectionEnabled_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsFactoryResetProtectionEnabledRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(FactoryResetProtectionPolicyServiceServer).IsFactoryResetProtectionEnabled(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: FactoryResetProtectionPolicyService_IsFactoryResetProtectionEnabled_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FactoryResetProtectionPolicyServiceServer).IsFactoryResetProtectionEnabled(ctx, req.(*IsFactoryResetProtectionEnabledRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _FactoryResetProtectionPolicyService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ToStringRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(FactoryResetProtectionPolicyServiceServer).ToString(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: FactoryResetProtectionPolicyService_ToString_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FactoryResetProtectionPolicyServiceServer).ToString(ctx, req.(*ToStringRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _FactoryResetProtectionPolicyService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WriteToParcelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(FactoryResetProtectionPolicyServiceServer).WriteToParcel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: FactoryResetProtectionPolicyService_WriteToParcel_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FactoryResetProtectionPolicyServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// FactoryResetProtectionPolicyService_ServiceDesc is the grpc.ServiceDesc for FactoryResetProtectionPolicyService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var FactoryResetProtectionPolicyService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "admin.FactoryResetProtectionPolicyService",
-	HandlerType: (*FactoryResetProtectionPolicyServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "DescribeContents",
-			Handler:    _FactoryResetProtectionPolicyService_DescribeContents_Handler,
-		},
-		{
-			MethodName: "IsFactoryResetProtectionEnabled",
-			Handler:    _FactoryResetProtectionPolicyService_IsFactoryResetProtectionEnabled_Handler,
-		},
-		{
-			MethodName: "ToString",
-			Handler:    _FactoryResetProtectionPolicyService_ToString_Handler,
-		},
-		{
-			MethodName: "WriteToParcel",
-			Handler:    _FactoryResetProtectionPolicyService_WriteToParcel_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/admin/admin.proto",
-}
-
-const (
-	FactoryResetProtectionPolicyBuilderService_Build_FullMethodName                            = "/admin.FactoryResetProtectionPolicyBuilderService/Build"
-	FactoryResetProtectionPolicyBuilderService_SetFactoryResetProtectionEnabled_FullMethodName = "/admin.FactoryResetProtectionPolicyBuilderService/SetFactoryResetProtectionEnabled"
-)
-
-// FactoryResetProtectionPolicyBuilderServiceClient is the client API for FactoryResetProtectionPolicyBuilderService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type FactoryResetProtectionPolicyBuilderServiceClient interface {
-	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
-	SetFactoryResetProtectionEnabled(ctx context.Context, in *SetFactoryResetProtectionEnabledRequest, opts ...grpc.CallOption) (*SetFactoryResetProtectionEnabledResponse, error)
-}
-
-type factoryResetProtectionPolicyBuilderServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewFactoryResetProtectionPolicyBuilderServiceClient(cc grpc.ClientConnInterface) FactoryResetProtectionPolicyBuilderServiceClient {
-	return &factoryResetProtectionPolicyBuilderServiceClient{cc}
-}
-
-func (c *factoryResetProtectionPolicyBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(BuildResponse)
-	err := c.cc.Invoke(ctx, FactoryResetProtectionPolicyBuilderService_Build_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *factoryResetProtectionPolicyBuilderServiceClient) SetFactoryResetProtectionEnabled(ctx context.Context, in *SetFactoryResetProtectionEnabledRequest, opts ...grpc.CallOption) (*SetFactoryResetProtectionEnabledResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetFactoryResetProtectionEnabledResponse)
-	err := c.cc.Invoke(ctx, FactoryResetProtectionPolicyBuilderService_SetFactoryResetProtectionEnabled_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// FactoryResetProtectionPolicyBuilderServiceServer is the server API for FactoryResetProtectionPolicyBuilderService service.
-// All implementations must embed UnimplementedFactoryResetProtectionPolicyBuilderServiceServer
-// for forward compatibility.
-type FactoryResetProtectionPolicyBuilderServiceServer interface {
-	Build(context.Context, *BuildRequest) (*BuildResponse, error)
-	SetFactoryResetProtectionEnabled(context.Context, *SetFactoryResetProtectionEnabledRequest) (*SetFactoryResetProtectionEnabledResponse, error)
-	mustEmbedUnimplementedFactoryResetProtectionPolicyBuilderServiceServer()
-}
-
-// UnimplementedFactoryResetProtectionPolicyBuilderServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedFactoryResetProtectionPolicyBuilderServiceServer struct{}
-
-func (UnimplementedFactoryResetProtectionPolicyBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
-}
-func (UnimplementedFactoryResetProtectionPolicyBuilderServiceServer) SetFactoryResetProtectionEnabled(context.Context, *SetFactoryResetProtectionEnabledRequest) (*SetFactoryResetProtectionEnabledResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetFactoryResetProtectionEnabled not implemented")
-}
-func (UnimplementedFactoryResetProtectionPolicyBuilderServiceServer) mustEmbedUnimplementedFactoryResetProtectionPolicyBuilderServiceServer() {
-}
-func (UnimplementedFactoryResetProtectionPolicyBuilderServiceServer) testEmbeddedByValue() {}
-
-// UnsafeFactoryResetProtectionPolicyBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to FactoryResetProtectionPolicyBuilderServiceServer will
-// result in compilation errors.
-type UnsafeFactoryResetProtectionPolicyBuilderServiceServer interface {
-	mustEmbedUnimplementedFactoryResetProtectionPolicyBuilderServiceServer()
-}
-
-func RegisterFactoryResetProtectionPolicyBuilderServiceServer(s grpc.ServiceRegistrar, srv FactoryResetProtectionPolicyBuilderServiceServer) {
-	// If the following call panics, it indicates UnimplementedFactoryResetProtectionPolicyBuilderServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&FactoryResetProtectionPolicyBuilderService_ServiceDesc, srv)
-}
-
-func _FactoryResetProtectionPolicyBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(BuildRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(FactoryResetProtectionPolicyBuilderServiceServer).Build(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: FactoryResetProtectionPolicyBuilderService_Build_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FactoryResetProtectionPolicyBuilderServiceServer).Build(ctx, req.(*BuildRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _FactoryResetProtectionPolicyBuilderService_SetFactoryResetProtectionEnabled_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetFactoryResetProtectionEnabledRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(FactoryResetProtectionPolicyBuilderServiceServer).SetFactoryResetProtectionEnabled(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: FactoryResetProtectionPolicyBuilderService_SetFactoryResetProtectionEnabled_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FactoryResetProtectionPolicyBuilderServiceServer).SetFactoryResetProtectionEnabled(ctx, req.(*SetFactoryResetProtectionEnabledRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// FactoryResetProtectionPolicyBuilderService_ServiceDesc is the grpc.ServiceDesc for FactoryResetProtectionPolicyBuilderService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var FactoryResetProtectionPolicyBuilderService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "admin.FactoryResetProtectionPolicyBuilderService",
-	HandlerType: (*FactoryResetProtectionPolicyBuilderServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "Build",
-			Handler:    _FactoryResetProtectionPolicyBuilderService_Build_Handler,
-		},
-		{
-			MethodName: "SetFactoryResetProtectionEnabled",
-			Handler:    _FactoryResetProtectionPolicyBuilderService_SetFactoryResetProtectionEnabled_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/admin/admin.proto",
-}
-
-const (
 	DeviceAdminServiceService_NewDeviceAdminService_FullMethodName = "/admin.DeviceAdminServiceService/NewDeviceAdminService"
 	DeviceAdminServiceService_OnBind_FullMethodName                = "/admin.DeviceAdminServiceService/OnBind"
 )
@@ -520,948 +162,6 @@ var DeviceAdminServiceService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	PolicyUpdateReceiverService_OnPolicyChanged_FullMethodName   = "/admin.PolicyUpdateReceiverService/OnPolicyChanged"
-	PolicyUpdateReceiverService_OnPolicySetResult_FullMethodName = "/admin.PolicyUpdateReceiverService/OnPolicySetResult"
-	PolicyUpdateReceiverService_OnReceive_FullMethodName         = "/admin.PolicyUpdateReceiverService/OnReceive"
-)
-
-// PolicyUpdateReceiverServiceClient is the client API for PolicyUpdateReceiverService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type PolicyUpdateReceiverServiceClient interface {
-	OnPolicyChanged(ctx context.Context, in *OnPolicyChangedRequest, opts ...grpc.CallOption) (*OnPolicyChangedResponse, error)
-	OnPolicySetResult(ctx context.Context, in *OnPolicySetResultRequest, opts ...grpc.CallOption) (*OnPolicySetResultResponse, error)
-	OnReceive(ctx context.Context, in *OnReceiveRequest, opts ...grpc.CallOption) (*OnReceiveResponse, error)
-}
-
-type policyUpdateReceiverServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewPolicyUpdateReceiverServiceClient(cc grpc.ClientConnInterface) PolicyUpdateReceiverServiceClient {
-	return &policyUpdateReceiverServiceClient{cc}
-}
-
-func (c *policyUpdateReceiverServiceClient) OnPolicyChanged(ctx context.Context, in *OnPolicyChangedRequest, opts ...grpc.CallOption) (*OnPolicyChangedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnPolicyChangedResponse)
-	err := c.cc.Invoke(ctx, PolicyUpdateReceiverService_OnPolicyChanged_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *policyUpdateReceiverServiceClient) OnPolicySetResult(ctx context.Context, in *OnPolicySetResultRequest, opts ...grpc.CallOption) (*OnPolicySetResultResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnPolicySetResultResponse)
-	err := c.cc.Invoke(ctx, PolicyUpdateReceiverService_OnPolicySetResult_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *policyUpdateReceiverServiceClient) OnReceive(ctx context.Context, in *OnReceiveRequest, opts ...grpc.CallOption) (*OnReceiveResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnReceiveResponse)
-	err := c.cc.Invoke(ctx, PolicyUpdateReceiverService_OnReceive_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// PolicyUpdateReceiverServiceServer is the server API for PolicyUpdateReceiverService service.
-// All implementations must embed UnimplementedPolicyUpdateReceiverServiceServer
-// for forward compatibility.
-type PolicyUpdateReceiverServiceServer interface {
-	OnPolicyChanged(context.Context, *OnPolicyChangedRequest) (*OnPolicyChangedResponse, error)
-	OnPolicySetResult(context.Context, *OnPolicySetResultRequest) (*OnPolicySetResultResponse, error)
-	OnReceive(context.Context, *OnReceiveRequest) (*OnReceiveResponse, error)
-	mustEmbedUnimplementedPolicyUpdateReceiverServiceServer()
-}
-
-// UnimplementedPolicyUpdateReceiverServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedPolicyUpdateReceiverServiceServer struct{}
-
-func (UnimplementedPolicyUpdateReceiverServiceServer) OnPolicyChanged(context.Context, *OnPolicyChangedRequest) (*OnPolicyChangedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnPolicyChanged not implemented")
-}
-func (UnimplementedPolicyUpdateReceiverServiceServer) OnPolicySetResult(context.Context, *OnPolicySetResultRequest) (*OnPolicySetResultResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnPolicySetResult not implemented")
-}
-func (UnimplementedPolicyUpdateReceiverServiceServer) OnReceive(context.Context, *OnReceiveRequest) (*OnReceiveResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnReceive not implemented")
-}
-func (UnimplementedPolicyUpdateReceiverServiceServer) mustEmbedUnimplementedPolicyUpdateReceiverServiceServer() {
-}
-func (UnimplementedPolicyUpdateReceiverServiceServer) testEmbeddedByValue() {}
-
-// UnsafePolicyUpdateReceiverServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to PolicyUpdateReceiverServiceServer will
-// result in compilation errors.
-type UnsafePolicyUpdateReceiverServiceServer interface {
-	mustEmbedUnimplementedPolicyUpdateReceiverServiceServer()
-}
-
-func RegisterPolicyUpdateReceiverServiceServer(s grpc.ServiceRegistrar, srv PolicyUpdateReceiverServiceServer) {
-	// If the following call panics, it indicates UnimplementedPolicyUpdateReceiverServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&PolicyUpdateReceiverService_ServiceDesc, srv)
-}
-
-func _PolicyUpdateReceiverService_OnPolicyChanged_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnPolicyChangedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PolicyUpdateReceiverServiceServer).OnPolicyChanged(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PolicyUpdateReceiverService_OnPolicyChanged_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PolicyUpdateReceiverServiceServer).OnPolicyChanged(ctx, req.(*OnPolicyChangedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PolicyUpdateReceiverService_OnPolicySetResult_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnPolicySetResultRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PolicyUpdateReceiverServiceServer).OnPolicySetResult(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PolicyUpdateReceiverService_OnPolicySetResult_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PolicyUpdateReceiverServiceServer).OnPolicySetResult(ctx, req.(*OnPolicySetResultRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PolicyUpdateReceiverService_OnReceive_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnReceiveRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PolicyUpdateReceiverServiceServer).OnReceive(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PolicyUpdateReceiverService_OnReceive_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PolicyUpdateReceiverServiceServer).OnReceive(ctx, req.(*OnReceiveRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// PolicyUpdateReceiverService_ServiceDesc is the grpc.ServiceDesc for PolicyUpdateReceiverService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var PolicyUpdateReceiverService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "admin.PolicyUpdateReceiverService",
-	HandlerType: (*PolicyUpdateReceiverServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "OnPolicyChanged",
-			Handler:    _PolicyUpdateReceiverService_OnPolicyChanged_Handler,
-		},
-		{
-			MethodName: "OnPolicySetResult",
-			Handler:    _PolicyUpdateReceiverService_OnPolicySetResult_Handler,
-		},
-		{
-			MethodName: "OnReceive",
-			Handler:    _PolicyUpdateReceiverService_OnReceive_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/admin/admin.proto",
-}
-
-const (
-	WifiSsidPolicyService_NewWifiSsidPolicy_FullMethodName = "/admin.WifiSsidPolicyService/NewWifiSsidPolicy"
-	WifiSsidPolicyService_DescribeContents_FullMethodName  = "/admin.WifiSsidPolicyService/DescribeContents"
-	WifiSsidPolicyService_Equals_FullMethodName            = "/admin.WifiSsidPolicyService/Equals"
-	WifiSsidPolicyService_GetPolicyType_FullMethodName     = "/admin.WifiSsidPolicyService/GetPolicyType"
-	WifiSsidPolicyService_HashCode_FullMethodName          = "/admin.WifiSsidPolicyService/HashCode"
-	WifiSsidPolicyService_WriteToParcel_FullMethodName     = "/admin.WifiSsidPolicyService/WriteToParcel"
-)
-
-// WifiSsidPolicyServiceClient is the client API for WifiSsidPolicyService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type WifiSsidPolicyServiceClient interface {
-	NewWifiSsidPolicy(ctx context.Context, in *NewWifiSsidPolicyRequest, opts ...grpc.CallOption) (*NewWifiSsidPolicyResponse, error)
-	DescribeContents(ctx context.Context, in *WifiSsidPolicyDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
-	GetPolicyType(ctx context.Context, in *GetPolicyTypeRequest, opts ...grpc.CallOption) (*GetPolicyTypeResponse, error)
-	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
-	WriteToParcel(ctx context.Context, in *WifiSsidPolicyWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
-}
-
-type wifiSsidPolicyServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewWifiSsidPolicyServiceClient(cc grpc.ClientConnInterface) WifiSsidPolicyServiceClient {
-	return &wifiSsidPolicyServiceClient{cc}
-}
-
-func (c *wifiSsidPolicyServiceClient) NewWifiSsidPolicy(ctx context.Context, in *NewWifiSsidPolicyRequest, opts ...grpc.CallOption) (*NewWifiSsidPolicyResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewWifiSsidPolicyResponse)
-	err := c.cc.Invoke(ctx, WifiSsidPolicyService_NewWifiSsidPolicy_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *wifiSsidPolicyServiceClient) DescribeContents(ctx context.Context, in *WifiSsidPolicyDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, WifiSsidPolicyService_DescribeContents_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *wifiSsidPolicyServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(EqualsResponse)
-	err := c.cc.Invoke(ctx, WifiSsidPolicyService_Equals_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *wifiSsidPolicyServiceClient) GetPolicyType(ctx context.Context, in *GetPolicyTypeRequest, opts ...grpc.CallOption) (*GetPolicyTypeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetPolicyTypeResponse)
-	err := c.cc.Invoke(ctx, WifiSsidPolicyService_GetPolicyType_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *wifiSsidPolicyServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(HashCodeResponse)
-	err := c.cc.Invoke(ctx, WifiSsidPolicyService_HashCode_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *wifiSsidPolicyServiceClient) WriteToParcel(ctx context.Context, in *WifiSsidPolicyWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, WifiSsidPolicyService_WriteToParcel_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// WifiSsidPolicyServiceServer is the server API for WifiSsidPolicyService service.
-// All implementations must embed UnimplementedWifiSsidPolicyServiceServer
-// for forward compatibility.
-type WifiSsidPolicyServiceServer interface {
-	NewWifiSsidPolicy(context.Context, *NewWifiSsidPolicyRequest) (*NewWifiSsidPolicyResponse, error)
-	DescribeContents(context.Context, *WifiSsidPolicyDescribeContentsRequest) (*DescribeContentsResponse, error)
-	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
-	GetPolicyType(context.Context, *GetPolicyTypeRequest) (*GetPolicyTypeResponse, error)
-	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
-	WriteToParcel(context.Context, *WifiSsidPolicyWriteToParcelRequest) (*WriteToParcelResponse, error)
-	mustEmbedUnimplementedWifiSsidPolicyServiceServer()
-}
-
-// UnimplementedWifiSsidPolicyServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedWifiSsidPolicyServiceServer struct{}
-
-func (UnimplementedWifiSsidPolicyServiceServer) NewWifiSsidPolicy(context.Context, *NewWifiSsidPolicyRequest) (*NewWifiSsidPolicyResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewWifiSsidPolicy not implemented")
-}
-func (UnimplementedWifiSsidPolicyServiceServer) DescribeContents(context.Context, *WifiSsidPolicyDescribeContentsRequest) (*DescribeContentsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
-}
-func (UnimplementedWifiSsidPolicyServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
-}
-func (UnimplementedWifiSsidPolicyServiceServer) GetPolicyType(context.Context, *GetPolicyTypeRequest) (*GetPolicyTypeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetPolicyType not implemented")
-}
-func (UnimplementedWifiSsidPolicyServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
-}
-func (UnimplementedWifiSsidPolicyServiceServer) WriteToParcel(context.Context, *WifiSsidPolicyWriteToParcelRequest) (*WriteToParcelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
-}
-func (UnimplementedWifiSsidPolicyServiceServer) mustEmbedUnimplementedWifiSsidPolicyServiceServer() {}
-func (UnimplementedWifiSsidPolicyServiceServer) testEmbeddedByValue()                               {}
-
-// UnsafeWifiSsidPolicyServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to WifiSsidPolicyServiceServer will
-// result in compilation errors.
-type UnsafeWifiSsidPolicyServiceServer interface {
-	mustEmbedUnimplementedWifiSsidPolicyServiceServer()
-}
-
-func RegisterWifiSsidPolicyServiceServer(s grpc.ServiceRegistrar, srv WifiSsidPolicyServiceServer) {
-	// If the following call panics, it indicates UnimplementedWifiSsidPolicyServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&WifiSsidPolicyService_ServiceDesc, srv)
-}
-
-func _WifiSsidPolicyService_NewWifiSsidPolicy_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewWifiSsidPolicyRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(WifiSsidPolicyServiceServer).NewWifiSsidPolicy(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: WifiSsidPolicyService_NewWifiSsidPolicy_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiSsidPolicyServiceServer).NewWifiSsidPolicy(ctx, req.(*NewWifiSsidPolicyRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _WifiSsidPolicyService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WifiSsidPolicyDescribeContentsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(WifiSsidPolicyServiceServer).DescribeContents(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: WifiSsidPolicyService_DescribeContents_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiSsidPolicyServiceServer).DescribeContents(ctx, req.(*WifiSsidPolicyDescribeContentsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _WifiSsidPolicyService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(EqualsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(WifiSsidPolicyServiceServer).Equals(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: WifiSsidPolicyService_Equals_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiSsidPolicyServiceServer).Equals(ctx, req.(*EqualsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _WifiSsidPolicyService_GetPolicyType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetPolicyTypeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(WifiSsidPolicyServiceServer).GetPolicyType(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: WifiSsidPolicyService_GetPolicyType_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiSsidPolicyServiceServer).GetPolicyType(ctx, req.(*GetPolicyTypeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _WifiSsidPolicyService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(HashCodeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(WifiSsidPolicyServiceServer).HashCode(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: WifiSsidPolicyService_HashCode_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiSsidPolicyServiceServer).HashCode(ctx, req.(*HashCodeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _WifiSsidPolicyService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WifiSsidPolicyWriteToParcelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(WifiSsidPolicyServiceServer).WriteToParcel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: WifiSsidPolicyService_WriteToParcel_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiSsidPolicyServiceServer).WriteToParcel(ctx, req.(*WifiSsidPolicyWriteToParcelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// WifiSsidPolicyService_ServiceDesc is the grpc.ServiceDesc for WifiSsidPolicyService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var WifiSsidPolicyService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "admin.WifiSsidPolicyService",
-	HandlerType: (*WifiSsidPolicyServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "NewWifiSsidPolicy",
-			Handler:    _WifiSsidPolicyService_NewWifiSsidPolicy_Handler,
-		},
-		{
-			MethodName: "DescribeContents",
-			Handler:    _WifiSsidPolicyService_DescribeContents_Handler,
-		},
-		{
-			MethodName: "Equals",
-			Handler:    _WifiSsidPolicyService_Equals_Handler,
-		},
-		{
-			MethodName: "GetPolicyType",
-			Handler:    _WifiSsidPolicyService_GetPolicyType_Handler,
-		},
-		{
-			MethodName: "HashCode",
-			Handler:    _WifiSsidPolicyService_HashCode_Handler,
-		},
-		{
-			MethodName: "WriteToParcel",
-			Handler:    _WifiSsidPolicyService_WriteToParcel_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/admin/admin.proto",
-}
-
-const (
-	PackagePolicyService_NewPackagePolicy_FullMethodName = "/admin.PackagePolicyService/NewPackagePolicy"
-	PackagePolicyService_DescribeContents_FullMethodName = "/admin.PackagePolicyService/DescribeContents"
-	PackagePolicyService_Equals_FullMethodName           = "/admin.PackagePolicyService/Equals"
-	PackagePolicyService_GetPolicyType_FullMethodName    = "/admin.PackagePolicyService/GetPolicyType"
-	PackagePolicyService_HashCode_FullMethodName         = "/admin.PackagePolicyService/HashCode"
-	PackagePolicyService_WriteToParcel_FullMethodName    = "/admin.PackagePolicyService/WriteToParcel"
-)
-
-// PackagePolicyServiceClient is the client API for PackagePolicyService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type PackagePolicyServiceClient interface {
-	NewPackagePolicy(ctx context.Context, in *NewPackagePolicyRequest, opts ...grpc.CallOption) (*NewPackagePolicyResponse, error)
-	DescribeContents(ctx context.Context, in *PackagePolicyDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
-	GetPolicyType(ctx context.Context, in *GetPolicyTypeRequest, opts ...grpc.CallOption) (*GetPolicyTypeResponse, error)
-	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
-	WriteToParcel(ctx context.Context, in *PackagePolicyWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
-}
-
-type packagePolicyServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewPackagePolicyServiceClient(cc grpc.ClientConnInterface) PackagePolicyServiceClient {
-	return &packagePolicyServiceClient{cc}
-}
-
-func (c *packagePolicyServiceClient) NewPackagePolicy(ctx context.Context, in *NewPackagePolicyRequest, opts ...grpc.CallOption) (*NewPackagePolicyResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewPackagePolicyResponse)
-	err := c.cc.Invoke(ctx, PackagePolicyService_NewPackagePolicy_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *packagePolicyServiceClient) DescribeContents(ctx context.Context, in *PackagePolicyDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, PackagePolicyService_DescribeContents_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *packagePolicyServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(EqualsResponse)
-	err := c.cc.Invoke(ctx, PackagePolicyService_Equals_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *packagePolicyServiceClient) GetPolicyType(ctx context.Context, in *GetPolicyTypeRequest, opts ...grpc.CallOption) (*GetPolicyTypeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetPolicyTypeResponse)
-	err := c.cc.Invoke(ctx, PackagePolicyService_GetPolicyType_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *packagePolicyServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(HashCodeResponse)
-	err := c.cc.Invoke(ctx, PackagePolicyService_HashCode_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *packagePolicyServiceClient) WriteToParcel(ctx context.Context, in *PackagePolicyWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, PackagePolicyService_WriteToParcel_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// PackagePolicyServiceServer is the server API for PackagePolicyService service.
-// All implementations must embed UnimplementedPackagePolicyServiceServer
-// for forward compatibility.
-type PackagePolicyServiceServer interface {
-	NewPackagePolicy(context.Context, *NewPackagePolicyRequest) (*NewPackagePolicyResponse, error)
-	DescribeContents(context.Context, *PackagePolicyDescribeContentsRequest) (*DescribeContentsResponse, error)
-	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
-	GetPolicyType(context.Context, *GetPolicyTypeRequest) (*GetPolicyTypeResponse, error)
-	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
-	WriteToParcel(context.Context, *PackagePolicyWriteToParcelRequest) (*WriteToParcelResponse, error)
-	mustEmbedUnimplementedPackagePolicyServiceServer()
-}
-
-// UnimplementedPackagePolicyServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedPackagePolicyServiceServer struct{}
-
-func (UnimplementedPackagePolicyServiceServer) NewPackagePolicy(context.Context, *NewPackagePolicyRequest) (*NewPackagePolicyResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewPackagePolicy not implemented")
-}
-func (UnimplementedPackagePolicyServiceServer) DescribeContents(context.Context, *PackagePolicyDescribeContentsRequest) (*DescribeContentsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
-}
-func (UnimplementedPackagePolicyServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
-}
-func (UnimplementedPackagePolicyServiceServer) GetPolicyType(context.Context, *GetPolicyTypeRequest) (*GetPolicyTypeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetPolicyType not implemented")
-}
-func (UnimplementedPackagePolicyServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
-}
-func (UnimplementedPackagePolicyServiceServer) WriteToParcel(context.Context, *PackagePolicyWriteToParcelRequest) (*WriteToParcelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
-}
-func (UnimplementedPackagePolicyServiceServer) mustEmbedUnimplementedPackagePolicyServiceServer() {}
-func (UnimplementedPackagePolicyServiceServer) testEmbeddedByValue()                              {}
-
-// UnsafePackagePolicyServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to PackagePolicyServiceServer will
-// result in compilation errors.
-type UnsafePackagePolicyServiceServer interface {
-	mustEmbedUnimplementedPackagePolicyServiceServer()
-}
-
-func RegisterPackagePolicyServiceServer(s grpc.ServiceRegistrar, srv PackagePolicyServiceServer) {
-	// If the following call panics, it indicates UnimplementedPackagePolicyServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&PackagePolicyService_ServiceDesc, srv)
-}
-
-func _PackagePolicyService_NewPackagePolicy_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewPackagePolicyRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PackagePolicyServiceServer).NewPackagePolicy(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PackagePolicyService_NewPackagePolicy_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackagePolicyServiceServer).NewPackagePolicy(ctx, req.(*NewPackagePolicyRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PackagePolicyService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(PackagePolicyDescribeContentsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PackagePolicyServiceServer).DescribeContents(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PackagePolicyService_DescribeContents_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackagePolicyServiceServer).DescribeContents(ctx, req.(*PackagePolicyDescribeContentsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PackagePolicyService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(EqualsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PackagePolicyServiceServer).Equals(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PackagePolicyService_Equals_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackagePolicyServiceServer).Equals(ctx, req.(*EqualsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PackagePolicyService_GetPolicyType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetPolicyTypeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PackagePolicyServiceServer).GetPolicyType(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PackagePolicyService_GetPolicyType_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackagePolicyServiceServer).GetPolicyType(ctx, req.(*GetPolicyTypeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PackagePolicyService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(HashCodeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PackagePolicyServiceServer).HashCode(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PackagePolicyService_HashCode_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackagePolicyServiceServer).HashCode(ctx, req.(*HashCodeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PackagePolicyService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(PackagePolicyWriteToParcelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PackagePolicyServiceServer).WriteToParcel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PackagePolicyService_WriteToParcel_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackagePolicyServiceServer).WriteToParcel(ctx, req.(*PackagePolicyWriteToParcelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// PackagePolicyService_ServiceDesc is the grpc.ServiceDesc for PackagePolicyService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var PackagePolicyService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "admin.PackagePolicyService",
-	HandlerType: (*PackagePolicyServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "NewPackagePolicy",
-			Handler:    _PackagePolicyService_NewPackagePolicy_Handler,
-		},
-		{
-			MethodName: "DescribeContents",
-			Handler:    _PackagePolicyService_DescribeContents_Handler,
-		},
-		{
-			MethodName: "Equals",
-			Handler:    _PackagePolicyService_Equals_Handler,
-		},
-		{
-			MethodName: "GetPolicyType",
-			Handler:    _PackagePolicyService_GetPolicyType_Handler,
-		},
-		{
-			MethodName: "HashCode",
-			Handler:    _PackagePolicyService_HashCode_Handler,
-		},
-		{
-			MethodName: "WriteToParcel",
-			Handler:    _PackagePolicyService_WriteToParcel_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/admin/admin.proto",
-}
-
-const (
-	UnsafeStateExceptionService_DescribeContents_FullMethodName = "/admin.UnsafeStateExceptionService/DescribeContents"
-	UnsafeStateExceptionService_GetMessage_FullMethodName       = "/admin.UnsafeStateExceptionService/GetMessage"
-	UnsafeStateExceptionService_WriteToParcel_FullMethodName    = "/admin.UnsafeStateExceptionService/WriteToParcel"
-)
-
-// UnsafeStateExceptionServiceClient is the client API for UnsafeStateExceptionService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type UnsafeStateExceptionServiceClient interface {
-	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	GetMessage(ctx context.Context, in *GetMessageRequest, opts ...grpc.CallOption) (*GetMessageResponse, error)
-	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
-}
-
-type unsafeStateExceptionServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewUnsafeStateExceptionServiceClient(cc grpc.ClientConnInterface) UnsafeStateExceptionServiceClient {
-	return &unsafeStateExceptionServiceClient{cc}
-}
-
-func (c *unsafeStateExceptionServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, UnsafeStateExceptionService_DescribeContents_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *unsafeStateExceptionServiceClient) GetMessage(ctx context.Context, in *GetMessageRequest, opts ...grpc.CallOption) (*GetMessageResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetMessageResponse)
-	err := c.cc.Invoke(ctx, UnsafeStateExceptionService_GetMessage_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *unsafeStateExceptionServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, UnsafeStateExceptionService_WriteToParcel_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// UnsafeStateExceptionServiceServer is the server API for UnsafeStateExceptionService service.
-// All implementations must embed UnimplementedUnsafeStateExceptionServiceServer
-// for forward compatibility.
-type UnsafeStateExceptionServiceServer interface {
-	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
-	GetMessage(context.Context, *GetMessageRequest) (*GetMessageResponse, error)
-	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
-	mustEmbedUnimplementedUnsafeStateExceptionServiceServer()
-}
-
-// UnimplementedUnsafeStateExceptionServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedUnsafeStateExceptionServiceServer struct{}
-
-func (UnimplementedUnsafeStateExceptionServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
-}
-func (UnimplementedUnsafeStateExceptionServiceServer) GetMessage(context.Context, *GetMessageRequest) (*GetMessageResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetMessage not implemented")
-}
-func (UnimplementedUnsafeStateExceptionServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
-}
-func (UnimplementedUnsafeStateExceptionServiceServer) mustEmbedUnimplementedUnsafeStateExceptionServiceServer() {
-}
-func (UnimplementedUnsafeStateExceptionServiceServer) testEmbeddedByValue() {}
-
-// UnsafeUnsafeStateExceptionServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to UnsafeStateExceptionServiceServer will
-// result in compilation errors.
-type UnsafeUnsafeStateExceptionServiceServer interface {
-	mustEmbedUnimplementedUnsafeStateExceptionServiceServer()
-}
-
-func RegisterUnsafeStateExceptionServiceServer(s grpc.ServiceRegistrar, srv UnsafeStateExceptionServiceServer) {
-	// If the following call panics, it indicates UnimplementedUnsafeStateExceptionServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&UnsafeStateExceptionService_ServiceDesc, srv)
-}
-
-func _UnsafeStateExceptionService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DescribeContentsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(UnsafeStateExceptionServiceServer).DescribeContents(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: UnsafeStateExceptionService_DescribeContents_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UnsafeStateExceptionServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _UnsafeStateExceptionService_GetMessage_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetMessageRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(UnsafeStateExceptionServiceServer).GetMessage(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: UnsafeStateExceptionService_GetMessage_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UnsafeStateExceptionServiceServer).GetMessage(ctx, req.(*GetMessageRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _UnsafeStateExceptionService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WriteToParcelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(UnsafeStateExceptionServiceServer).WriteToParcel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: UnsafeStateExceptionService_WriteToParcel_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UnsafeStateExceptionServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// UnsafeStateExceptionService_ServiceDesc is the grpc.ServiceDesc for UnsafeStateExceptionService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var UnsafeStateExceptionService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "admin.UnsafeStateExceptionService",
-	HandlerType: (*UnsafeStateExceptionServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "DescribeContents",
-			Handler:    _UnsafeStateExceptionService_DescribeContents_Handler,
-		},
-		{
-			MethodName: "GetMessage",
-			Handler:    _UnsafeStateExceptionService_GetMessage_Handler,
-		},
-		{
-			MethodName: "WriteToParcel",
-			Handler:    _UnsafeStateExceptionService_WriteToParcel_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/admin/admin.proto",
-}
-
-const (
 	FreezePeriodService_NewFreezePeriod_FullMethodName = "/admin.FreezePeriodService/NewFreezePeriod"
 	FreezePeriodService_GetEnd_FullMethodName          = "/admin.FreezePeriodService/GetEnd"
 	FreezePeriodService_GetStart_FullMethodName        = "/admin.FreezePeriodService/GetStart"
@@ -1475,7 +175,7 @@ type FreezePeriodServiceClient interface {
 	NewFreezePeriod(ctx context.Context, in *NewFreezePeriodRequest, opts ...grpc.CallOption) (*NewFreezePeriodResponse, error)
 	GetEnd(ctx context.Context, in *GetEndRequest, opts ...grpc.CallOption) (*GetEndResponse, error)
 	GetStart(ctx context.Context, in *GetStartRequest, opts ...grpc.CallOption) (*GetStartResponse, error)
-	ToString(ctx context.Context, in *FreezePeriodToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
 }
 
 type freezePeriodServiceClient struct {
@@ -1516,7 +216,7 @@ func (c *freezePeriodServiceClient) GetStart(ctx context.Context, in *GetStartRe
 	return out, nil
 }
 
-func (c *freezePeriodServiceClient) ToString(ctx context.Context, in *FreezePeriodToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+func (c *freezePeriodServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(ToStringResponse)
 	err := c.cc.Invoke(ctx, FreezePeriodService_ToString_FullMethodName, in, out, cOpts...)
@@ -1533,7 +233,7 @@ type FreezePeriodServiceServer interface {
 	NewFreezePeriod(context.Context, *NewFreezePeriodRequest) (*NewFreezePeriodResponse, error)
 	GetEnd(context.Context, *GetEndRequest) (*GetEndResponse, error)
 	GetStart(context.Context, *GetStartRequest) (*GetStartResponse, error)
-	ToString(context.Context, *FreezePeriodToStringRequest) (*ToStringResponse, error)
+	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
 	mustEmbedUnimplementedFreezePeriodServiceServer()
 }
 
@@ -1553,7 +253,7 @@ func (UnimplementedFreezePeriodServiceServer) GetEnd(context.Context, *GetEndReq
 func (UnimplementedFreezePeriodServiceServer) GetStart(context.Context, *GetStartRequest) (*GetStartResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetStart not implemented")
 }
-func (UnimplementedFreezePeriodServiceServer) ToString(context.Context, *FreezePeriodToStringRequest) (*ToStringResponse, error) {
+func (UnimplementedFreezePeriodServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
 }
 func (UnimplementedFreezePeriodServiceServer) mustEmbedUnimplementedFreezePeriodServiceServer() {}
@@ -1632,7 +332,7 @@ func _FreezePeriodService_GetStart_Handler(srv interface{}, ctx context.Context,
 }
 
 func _FreezePeriodService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(FreezePeriodToStringRequest)
+	in := new(ToStringRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -1644,7 +344,7 @@ func _FreezePeriodService_ToString_Handler(srv interface{}, ctx context.Context,
 		FullMethod: FreezePeriodService_ToString_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FreezePeriodServiceServer).ToString(ctx, req.(*FreezePeriodToStringRequest))
+		return srv.(FreezePeriodServiceServer).ToString(ctx, req.(*ToStringRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -1678,140 +378,470 @@ var FreezePeriodService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	PolicyUpdateResultService_NewPolicyUpdateResult_FullMethodName = "/admin.PolicyUpdateResultService/NewPolicyUpdateResult"
-	PolicyUpdateResultService_GetResultCode_FullMethodName         = "/admin.PolicyUpdateResultService/GetResultCode"
+	DevicePolicyResourcesManagerService_GetDrawableAsIcon3_FullMethodName   = "/admin.DevicePolicyResourcesManagerService/GetDrawableAsIcon3"
+	DevicePolicyResourcesManagerService_GetDrawableAsIcon4_1_FullMethodName = "/admin.DevicePolicyResourcesManagerService/GetDrawableAsIcon4_1"
 )
 
-// PolicyUpdateResultServiceClient is the client API for PolicyUpdateResultService service.
+// DevicePolicyResourcesManagerServiceClient is the client API for DevicePolicyResourcesManagerService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type PolicyUpdateResultServiceClient interface {
-	NewPolicyUpdateResult(ctx context.Context, in *NewPolicyUpdateResultRequest, opts ...grpc.CallOption) (*NewPolicyUpdateResultResponse, error)
-	GetResultCode(ctx context.Context, in *GetResultCodeRequest, opts ...grpc.CallOption) (*GetResultCodeResponse, error)
+type DevicePolicyResourcesManagerServiceClient interface {
+	GetDrawableAsIcon3(ctx context.Context, in *GetDrawableAsIcon3Request, opts ...grpc.CallOption) (*GetDrawableAsIcon3Response, error)
+	GetDrawableAsIcon4_1(ctx context.Context, in *GetDrawableAsIcon4_1Request, opts ...grpc.CallOption) (*GetDrawableAsIcon4_1Response, error)
 }
 
-type policyUpdateResultServiceClient struct {
+type devicePolicyResourcesManagerServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewPolicyUpdateResultServiceClient(cc grpc.ClientConnInterface) PolicyUpdateResultServiceClient {
-	return &policyUpdateResultServiceClient{cc}
+func NewDevicePolicyResourcesManagerServiceClient(cc grpc.ClientConnInterface) DevicePolicyResourcesManagerServiceClient {
+	return &devicePolicyResourcesManagerServiceClient{cc}
 }
 
-func (c *policyUpdateResultServiceClient) NewPolicyUpdateResult(ctx context.Context, in *NewPolicyUpdateResultRequest, opts ...grpc.CallOption) (*NewPolicyUpdateResultResponse, error) {
+func (c *devicePolicyResourcesManagerServiceClient) GetDrawableAsIcon3(ctx context.Context, in *GetDrawableAsIcon3Request, opts ...grpc.CallOption) (*GetDrawableAsIcon3Response, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewPolicyUpdateResultResponse)
-	err := c.cc.Invoke(ctx, PolicyUpdateResultService_NewPolicyUpdateResult_FullMethodName, in, out, cOpts...)
+	out := new(GetDrawableAsIcon3Response)
+	err := c.cc.Invoke(ctx, DevicePolicyResourcesManagerService_GetDrawableAsIcon3_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *policyUpdateResultServiceClient) GetResultCode(ctx context.Context, in *GetResultCodeRequest, opts ...grpc.CallOption) (*GetResultCodeResponse, error) {
+func (c *devicePolicyResourcesManagerServiceClient) GetDrawableAsIcon4_1(ctx context.Context, in *GetDrawableAsIcon4_1Request, opts ...grpc.CallOption) (*GetDrawableAsIcon4_1Response, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetResultCodeResponse)
-	err := c.cc.Invoke(ctx, PolicyUpdateResultService_GetResultCode_FullMethodName, in, out, cOpts...)
+	out := new(GetDrawableAsIcon4_1Response)
+	err := c.cc.Invoke(ctx, DevicePolicyResourcesManagerService_GetDrawableAsIcon4_1_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// PolicyUpdateResultServiceServer is the server API for PolicyUpdateResultService service.
-// All implementations must embed UnimplementedPolicyUpdateResultServiceServer
+// DevicePolicyResourcesManagerServiceServer is the server API for DevicePolicyResourcesManagerService service.
+// All implementations must embed UnimplementedDevicePolicyResourcesManagerServiceServer
 // for forward compatibility.
-type PolicyUpdateResultServiceServer interface {
-	NewPolicyUpdateResult(context.Context, *NewPolicyUpdateResultRequest) (*NewPolicyUpdateResultResponse, error)
-	GetResultCode(context.Context, *GetResultCodeRequest) (*GetResultCodeResponse, error)
-	mustEmbedUnimplementedPolicyUpdateResultServiceServer()
+type DevicePolicyResourcesManagerServiceServer interface {
+	GetDrawableAsIcon3(context.Context, *GetDrawableAsIcon3Request) (*GetDrawableAsIcon3Response, error)
+	GetDrawableAsIcon4_1(context.Context, *GetDrawableAsIcon4_1Request) (*GetDrawableAsIcon4_1Response, error)
+	mustEmbedUnimplementedDevicePolicyResourcesManagerServiceServer()
 }
 
-// UnimplementedPolicyUpdateResultServiceServer must be embedded to have
+// UnimplementedDevicePolicyResourcesManagerServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedPolicyUpdateResultServiceServer struct{}
+type UnimplementedDevicePolicyResourcesManagerServiceServer struct{}
 
-func (UnimplementedPolicyUpdateResultServiceServer) NewPolicyUpdateResult(context.Context, *NewPolicyUpdateResultRequest) (*NewPolicyUpdateResultResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewPolicyUpdateResult not implemented")
+func (UnimplementedDevicePolicyResourcesManagerServiceServer) GetDrawableAsIcon3(context.Context, *GetDrawableAsIcon3Request) (*GetDrawableAsIcon3Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetDrawableAsIcon3 not implemented")
 }
-func (UnimplementedPolicyUpdateResultServiceServer) GetResultCode(context.Context, *GetResultCodeRequest) (*GetResultCodeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetResultCode not implemented")
+func (UnimplementedDevicePolicyResourcesManagerServiceServer) GetDrawableAsIcon4_1(context.Context, *GetDrawableAsIcon4_1Request) (*GetDrawableAsIcon4_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetDrawableAsIcon4_1 not implemented")
 }
-func (UnimplementedPolicyUpdateResultServiceServer) mustEmbedUnimplementedPolicyUpdateResultServiceServer() {
+func (UnimplementedDevicePolicyResourcesManagerServiceServer) mustEmbedUnimplementedDevicePolicyResourcesManagerServiceServer() {
 }
-func (UnimplementedPolicyUpdateResultServiceServer) testEmbeddedByValue() {}
+func (UnimplementedDevicePolicyResourcesManagerServiceServer) testEmbeddedByValue() {}
 
-// UnsafePolicyUpdateResultServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to PolicyUpdateResultServiceServer will
+// UnsafeDevicePolicyResourcesManagerServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to DevicePolicyResourcesManagerServiceServer will
 // result in compilation errors.
-type UnsafePolicyUpdateResultServiceServer interface {
-	mustEmbedUnimplementedPolicyUpdateResultServiceServer()
+type UnsafeDevicePolicyResourcesManagerServiceServer interface {
+	mustEmbedUnimplementedDevicePolicyResourcesManagerServiceServer()
 }
 
-func RegisterPolicyUpdateResultServiceServer(s grpc.ServiceRegistrar, srv PolicyUpdateResultServiceServer) {
-	// If the following call panics, it indicates UnimplementedPolicyUpdateResultServiceServer was
+func RegisterDevicePolicyResourcesManagerServiceServer(s grpc.ServiceRegistrar, srv DevicePolicyResourcesManagerServiceServer) {
+	// If the following call panics, it indicates UnimplementedDevicePolicyResourcesManagerServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&PolicyUpdateResultService_ServiceDesc, srv)
+	s.RegisterService(&DevicePolicyResourcesManagerService_ServiceDesc, srv)
 }
 
-func _PolicyUpdateResultService_NewPolicyUpdateResult_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewPolicyUpdateResultRequest)
+func _DevicePolicyResourcesManagerService_GetDrawableAsIcon3_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetDrawableAsIcon3Request)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(PolicyUpdateResultServiceServer).NewPolicyUpdateResult(ctx, in)
+		return srv.(DevicePolicyResourcesManagerServiceServer).GetDrawableAsIcon3(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: PolicyUpdateResultService_NewPolicyUpdateResult_FullMethodName,
+		FullMethod: DevicePolicyResourcesManagerService_GetDrawableAsIcon3_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PolicyUpdateResultServiceServer).NewPolicyUpdateResult(ctx, req.(*NewPolicyUpdateResultRequest))
+		return srv.(DevicePolicyResourcesManagerServiceServer).GetDrawableAsIcon3(ctx, req.(*GetDrawableAsIcon3Request))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _PolicyUpdateResultService_GetResultCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetResultCodeRequest)
+func _DevicePolicyResourcesManagerService_GetDrawableAsIcon4_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetDrawableAsIcon4_1Request)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(PolicyUpdateResultServiceServer).GetResultCode(ctx, in)
+		return srv.(DevicePolicyResourcesManagerServiceServer).GetDrawableAsIcon4_1(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: PolicyUpdateResultService_GetResultCode_FullMethodName,
+		FullMethod: DevicePolicyResourcesManagerService_GetDrawableAsIcon4_1_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PolicyUpdateResultServiceServer).GetResultCode(ctx, req.(*GetResultCodeRequest))
+		return srv.(DevicePolicyResourcesManagerServiceServer).GetDrawableAsIcon4_1(ctx, req.(*GetDrawableAsIcon4_1Request))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// PolicyUpdateResultService_ServiceDesc is the grpc.ServiceDesc for PolicyUpdateResultService service.
+// DevicePolicyResourcesManagerService_ServiceDesc is the grpc.ServiceDesc for DevicePolicyResourcesManagerService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var PolicyUpdateResultService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "admin.PolicyUpdateResultService",
-	HandlerType: (*PolicyUpdateResultServiceServer)(nil),
+var DevicePolicyResourcesManagerService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "admin.DevicePolicyResourcesManagerService",
+	HandlerType: (*DevicePolicyResourcesManagerServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "NewPolicyUpdateResult",
-			Handler:    _PolicyUpdateResultService_NewPolicyUpdateResult_Handler,
+			MethodName: "GetDrawableAsIcon3",
+			Handler:    _DevicePolicyResourcesManagerService_GetDrawableAsIcon3_Handler,
 		},
 		{
-			MethodName: "GetResultCode",
-			Handler:    _PolicyUpdateResultService_GetResultCode_Handler,
+			MethodName: "GetDrawableAsIcon4_1",
+			Handler:    _DevicePolicyResourcesManagerService_GetDrawableAsIcon4_1_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/admin/admin.proto",
+}
+
+const (
+	PackagePolicyService_NewPackagePolicy_FullMethodName = "/admin.PackagePolicyService/NewPackagePolicy"
+	PackagePolicyService_DescribeContents_FullMethodName = "/admin.PackagePolicyService/DescribeContents"
+	PackagePolicyService_Equals_FullMethodName           = "/admin.PackagePolicyService/Equals"
+	PackagePolicyService_GetPackageNames_FullMethodName  = "/admin.PackagePolicyService/GetPackageNames"
+	PackagePolicyService_GetPolicyType_FullMethodName    = "/admin.PackagePolicyService/GetPolicyType"
+	PackagePolicyService_HashCode_FullMethodName         = "/admin.PackagePolicyService/HashCode"
+	PackagePolicyService_WriteToParcel_FullMethodName    = "/admin.PackagePolicyService/WriteToParcel"
+)
+
+// PackagePolicyServiceClient is the client API for PackagePolicyService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type PackagePolicyServiceClient interface {
+	NewPackagePolicy(ctx context.Context, in *NewPackagePolicyRequest, opts ...grpc.CallOption) (*NewPackagePolicyResponse, error)
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	GetPackageNames(ctx context.Context, in *GetPackageNamesRequest, opts ...grpc.CallOption) (*GetPackageNamesResponse, error)
+	GetPolicyType(ctx context.Context, in *GetPolicyTypeRequest, opts ...grpc.CallOption) (*GetPolicyTypeResponse, error)
+	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type packagePolicyServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewPackagePolicyServiceClient(cc grpc.ClientConnInterface) PackagePolicyServiceClient {
+	return &packagePolicyServiceClient{cc}
+}
+
+func (c *packagePolicyServiceClient) NewPackagePolicy(ctx context.Context, in *NewPackagePolicyRequest, opts ...grpc.CallOption) (*NewPackagePolicyResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewPackagePolicyResponse)
+	err := c.cc.Invoke(ctx, PackagePolicyService_NewPackagePolicy_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *packagePolicyServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, PackagePolicyService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *packagePolicyServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(EqualsResponse)
+	err := c.cc.Invoke(ctx, PackagePolicyService_Equals_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *packagePolicyServiceClient) GetPackageNames(ctx context.Context, in *GetPackageNamesRequest, opts ...grpc.CallOption) (*GetPackageNamesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetPackageNamesResponse)
+	err := c.cc.Invoke(ctx, PackagePolicyService_GetPackageNames_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *packagePolicyServiceClient) GetPolicyType(ctx context.Context, in *GetPolicyTypeRequest, opts ...grpc.CallOption) (*GetPolicyTypeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetPolicyTypeResponse)
+	err := c.cc.Invoke(ctx, PackagePolicyService_GetPolicyType_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *packagePolicyServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HashCodeResponse)
+	err := c.cc.Invoke(ctx, PackagePolicyService_HashCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *packagePolicyServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, PackagePolicyService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// PackagePolicyServiceServer is the server API for PackagePolicyService service.
+// All implementations must embed UnimplementedPackagePolicyServiceServer
+// for forward compatibility.
+type PackagePolicyServiceServer interface {
+	NewPackagePolicy(context.Context, *NewPackagePolicyRequest) (*NewPackagePolicyResponse, error)
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
+	GetPackageNames(context.Context, *GetPackageNamesRequest) (*GetPackageNamesResponse, error)
+	GetPolicyType(context.Context, *GetPolicyTypeRequest) (*GetPolicyTypeResponse, error)
+	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedPackagePolicyServiceServer()
+}
+
+// UnimplementedPackagePolicyServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedPackagePolicyServiceServer struct{}
+
+func (UnimplementedPackagePolicyServiceServer) NewPackagePolicy(context.Context, *NewPackagePolicyRequest) (*NewPackagePolicyResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewPackagePolicy not implemented")
+}
+func (UnimplementedPackagePolicyServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedPackagePolicyServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
+}
+func (UnimplementedPackagePolicyServiceServer) GetPackageNames(context.Context, *GetPackageNamesRequest) (*GetPackageNamesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetPackageNames not implemented")
+}
+func (UnimplementedPackagePolicyServiceServer) GetPolicyType(context.Context, *GetPolicyTypeRequest) (*GetPolicyTypeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetPolicyType not implemented")
+}
+func (UnimplementedPackagePolicyServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
+}
+func (UnimplementedPackagePolicyServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedPackagePolicyServiceServer) mustEmbedUnimplementedPackagePolicyServiceServer() {}
+func (UnimplementedPackagePolicyServiceServer) testEmbeddedByValue()                              {}
+
+// UnsafePackagePolicyServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to PackagePolicyServiceServer will
+// result in compilation errors.
+type UnsafePackagePolicyServiceServer interface {
+	mustEmbedUnimplementedPackagePolicyServiceServer()
+}
+
+func RegisterPackagePolicyServiceServer(s grpc.ServiceRegistrar, srv PackagePolicyServiceServer) {
+	// If the following call panics, it indicates UnimplementedPackagePolicyServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&PackagePolicyService_ServiceDesc, srv)
+}
+
+func _PackagePolicyService_NewPackagePolicy_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewPackagePolicyRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PackagePolicyServiceServer).NewPackagePolicy(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PackagePolicyService_NewPackagePolicy_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PackagePolicyServiceServer).NewPackagePolicy(ctx, req.(*NewPackagePolicyRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PackagePolicyService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PackagePolicyServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PackagePolicyService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PackagePolicyServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PackagePolicyService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EqualsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PackagePolicyServiceServer).Equals(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PackagePolicyService_Equals_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PackagePolicyServiceServer).Equals(ctx, req.(*EqualsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PackagePolicyService_GetPackageNames_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPackageNamesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PackagePolicyServiceServer).GetPackageNames(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PackagePolicyService_GetPackageNames_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PackagePolicyServiceServer).GetPackageNames(ctx, req.(*GetPackageNamesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PackagePolicyService_GetPolicyType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPolicyTypeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PackagePolicyServiceServer).GetPolicyType(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PackagePolicyService_GetPolicyType_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PackagePolicyServiceServer).GetPolicyType(ctx, req.(*GetPolicyTypeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PackagePolicyService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HashCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PackagePolicyServiceServer).HashCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PackagePolicyService_HashCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PackagePolicyServiceServer).HashCode(ctx, req.(*HashCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PackagePolicyService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PackagePolicyServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PackagePolicyService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PackagePolicyServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// PackagePolicyService_ServiceDesc is the grpc.ServiceDesc for PackagePolicyService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var PackagePolicyService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "admin.PackagePolicyService",
+	HandlerType: (*PackagePolicyServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewPackagePolicy",
+			Handler:    _PackagePolicyService_NewPackagePolicy_Handler,
+		},
+		{
+			MethodName: "DescribeContents",
+			Handler:    _PackagePolicyService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "Equals",
+			Handler:    _PackagePolicyService_Equals_Handler,
+		},
+		{
+			MethodName: "GetPackageNames",
+			Handler:    _PackagePolicyService_GetPackageNames_Handler,
+		},
+		{
+			MethodName: "GetPolicyType",
+			Handler:    _PackagePolicyService_GetPolicyType_Handler,
+		},
+		{
+			MethodName: "HashCode",
+			Handler:    _PackagePolicyService_HashCode_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _PackagePolicyService_WriteToParcel_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -1836,7 +866,7 @@ const (
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type PreferentialNetworkServiceConfigServiceClient interface {
-	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	DescribeContents(ctx context.Context, in *PreferentialNetworkServiceConfigDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
 	Equals(ctx context.Context, in *PreferentialNetworkServiceConfigEqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
 	GetExcludedUids(ctx context.Context, in *GetExcludedUidsRequest, opts ...grpc.CallOption) (*GetExcludedUidsResponse, error)
 	GetIncludedUids(ctx context.Context, in *GetIncludedUidsRequest, opts ...grpc.CallOption) (*GetIncludedUidsResponse, error)
@@ -1845,8 +875,8 @@ type PreferentialNetworkServiceConfigServiceClient interface {
 	IsEnabled(ctx context.Context, in *IsEnabledRequest, opts ...grpc.CallOption) (*IsEnabledResponse, error)
 	IsFallbackToDefaultConnectionAllowed(ctx context.Context, in *IsFallbackToDefaultConnectionAllowedRequest, opts ...grpc.CallOption) (*IsFallbackToDefaultConnectionAllowedResponse, error)
 	ShouldBlockNonMatchingNetworks(ctx context.Context, in *ShouldBlockNonMatchingNetworksRequest, opts ...grpc.CallOption) (*ShouldBlockNonMatchingNetworksResponse, error)
-	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
-	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+	ToString(ctx context.Context, in *PreferentialNetworkServiceConfigToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+	WriteToParcel(ctx context.Context, in *PreferentialNetworkServiceConfigWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
 }
 
 type preferentialNetworkServiceConfigServiceClient struct {
@@ -1857,7 +887,7 @@ func NewPreferentialNetworkServiceConfigServiceClient(cc grpc.ClientConnInterfac
 	return &preferentialNetworkServiceConfigServiceClient{cc}
 }
 
-func (c *preferentialNetworkServiceConfigServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+func (c *preferentialNetworkServiceConfigServiceClient) DescribeContents(ctx context.Context, in *PreferentialNetworkServiceConfigDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(DescribeContentsResponse)
 	err := c.cc.Invoke(ctx, PreferentialNetworkServiceConfigService_DescribeContents_FullMethodName, in, out, cOpts...)
@@ -1947,7 +977,7 @@ func (c *preferentialNetworkServiceConfigServiceClient) ShouldBlockNonMatchingNe
 	return out, nil
 }
 
-func (c *preferentialNetworkServiceConfigServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+func (c *preferentialNetworkServiceConfigServiceClient) ToString(ctx context.Context, in *PreferentialNetworkServiceConfigToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(ToStringResponse)
 	err := c.cc.Invoke(ctx, PreferentialNetworkServiceConfigService_ToString_FullMethodName, in, out, cOpts...)
@@ -1957,7 +987,7 @@ func (c *preferentialNetworkServiceConfigServiceClient) ToString(ctx context.Con
 	return out, nil
 }
 
-func (c *preferentialNetworkServiceConfigServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+func (c *preferentialNetworkServiceConfigServiceClient) WriteToParcel(ctx context.Context, in *PreferentialNetworkServiceConfigWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(WriteToParcelResponse)
 	err := c.cc.Invoke(ctx, PreferentialNetworkServiceConfigService_WriteToParcel_FullMethodName, in, out, cOpts...)
@@ -1971,7 +1001,7 @@ func (c *preferentialNetworkServiceConfigServiceClient) WriteToParcel(ctx contex
 // All implementations must embed UnimplementedPreferentialNetworkServiceConfigServiceServer
 // for forward compatibility.
 type PreferentialNetworkServiceConfigServiceServer interface {
-	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	DescribeContents(context.Context, *PreferentialNetworkServiceConfigDescribeContentsRequest) (*DescribeContentsResponse, error)
 	Equals(context.Context, *PreferentialNetworkServiceConfigEqualsRequest) (*EqualsResponse, error)
 	GetExcludedUids(context.Context, *GetExcludedUidsRequest) (*GetExcludedUidsResponse, error)
 	GetIncludedUids(context.Context, *GetIncludedUidsRequest) (*GetIncludedUidsResponse, error)
@@ -1980,8 +1010,8 @@ type PreferentialNetworkServiceConfigServiceServer interface {
 	IsEnabled(context.Context, *IsEnabledRequest) (*IsEnabledResponse, error)
 	IsFallbackToDefaultConnectionAllowed(context.Context, *IsFallbackToDefaultConnectionAllowedRequest) (*IsFallbackToDefaultConnectionAllowedResponse, error)
 	ShouldBlockNonMatchingNetworks(context.Context, *ShouldBlockNonMatchingNetworksRequest) (*ShouldBlockNonMatchingNetworksResponse, error)
-	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
-	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	ToString(context.Context, *PreferentialNetworkServiceConfigToStringRequest) (*ToStringResponse, error)
+	WriteToParcel(context.Context, *PreferentialNetworkServiceConfigWriteToParcelRequest) (*WriteToParcelResponse, error)
 	mustEmbedUnimplementedPreferentialNetworkServiceConfigServiceServer()
 }
 
@@ -1992,7 +1022,7 @@ type PreferentialNetworkServiceConfigServiceServer interface {
 // pointer dereference when methods are called.
 type UnimplementedPreferentialNetworkServiceConfigServiceServer struct{}
 
-func (UnimplementedPreferentialNetworkServiceConfigServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+func (UnimplementedPreferentialNetworkServiceConfigServiceServer) DescribeContents(context.Context, *PreferentialNetworkServiceConfigDescribeContentsRequest) (*DescribeContentsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
 }
 func (UnimplementedPreferentialNetworkServiceConfigServiceServer) Equals(context.Context, *PreferentialNetworkServiceConfigEqualsRequest) (*EqualsResponse, error) {
@@ -2019,10 +1049,10 @@ func (UnimplementedPreferentialNetworkServiceConfigServiceServer) IsFallbackToDe
 func (UnimplementedPreferentialNetworkServiceConfigServiceServer) ShouldBlockNonMatchingNetworks(context.Context, *ShouldBlockNonMatchingNetworksRequest) (*ShouldBlockNonMatchingNetworksResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method ShouldBlockNonMatchingNetworks not implemented")
 }
-func (UnimplementedPreferentialNetworkServiceConfigServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
+func (UnimplementedPreferentialNetworkServiceConfigServiceServer) ToString(context.Context, *PreferentialNetworkServiceConfigToStringRequest) (*ToStringResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
 }
-func (UnimplementedPreferentialNetworkServiceConfigServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+func (UnimplementedPreferentialNetworkServiceConfigServiceServer) WriteToParcel(context.Context, *PreferentialNetworkServiceConfigWriteToParcelRequest) (*WriteToParcelResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
 }
 func (UnimplementedPreferentialNetworkServiceConfigServiceServer) mustEmbedUnimplementedPreferentialNetworkServiceConfigServiceServer() {
@@ -2048,7 +1078,7 @@ func RegisterPreferentialNetworkServiceConfigServiceServer(s grpc.ServiceRegistr
 }
 
 func _PreferentialNetworkServiceConfigService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DescribeContentsRequest)
+	in := new(PreferentialNetworkServiceConfigDescribeContentsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -2060,7 +1090,7 @@ func _PreferentialNetworkServiceConfigService_DescribeContents_Handler(srv inter
 		FullMethod: PreferentialNetworkServiceConfigService_DescribeContents_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PreferentialNetworkServiceConfigServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+		return srv.(PreferentialNetworkServiceConfigServiceServer).DescribeContents(ctx, req.(*PreferentialNetworkServiceConfigDescribeContentsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -2210,7 +1240,7 @@ func _PreferentialNetworkServiceConfigService_ShouldBlockNonMatchingNetworks_Han
 }
 
 func _PreferentialNetworkServiceConfigService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ToStringRequest)
+	in := new(PreferentialNetworkServiceConfigToStringRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -2222,13 +1252,13 @@ func _PreferentialNetworkServiceConfigService_ToString_Handler(srv interface{}, 
 		FullMethod: PreferentialNetworkServiceConfigService_ToString_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PreferentialNetworkServiceConfigServiceServer).ToString(ctx, req.(*ToStringRequest))
+		return srv.(PreferentialNetworkServiceConfigServiceServer).ToString(ctx, req.(*PreferentialNetworkServiceConfigToStringRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _PreferentialNetworkServiceConfigService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WriteToParcelRequest)
+	in := new(PreferentialNetworkServiceConfigWriteToParcelRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -2240,7 +1270,7 @@ func _PreferentialNetworkServiceConfigService_WriteToParcel_Handler(srv interfac
 		FullMethod: PreferentialNetworkServiceConfigService_WriteToParcel_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PreferentialNetworkServiceConfigServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+		return srv.(PreferentialNetworkServiceConfigServiceServer).WriteToParcel(ctx, req.(*PreferentialNetworkServiceConfigWriteToParcelRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -2633,813 +1663,622 @@ var PreferentialNetworkServiceConfigBuilderService_ServiceDesc = grpc.ServiceDes
 }
 
 const (
-	SecurityLogSecurityEventService_DescribeContents_FullMethodName = "/admin.SecurityLogSecurityEventService/DescribeContents"
-	SecurityLogSecurityEventService_Equals_FullMethodName           = "/admin.SecurityLogSecurityEventService/Equals"
-	SecurityLogSecurityEventService_GetData_FullMethodName          = "/admin.SecurityLogSecurityEventService/GetData"
-	SecurityLogSecurityEventService_GetId_FullMethodName            = "/admin.SecurityLogSecurityEventService/GetId"
-	SecurityLogSecurityEventService_GetLogLevel_FullMethodName      = "/admin.SecurityLogSecurityEventService/GetLogLevel"
-	SecurityLogSecurityEventService_GetTag_FullMethodName           = "/admin.SecurityLogSecurityEventService/GetTag"
-	SecurityLogSecurityEventService_GetTimeNanos_FullMethodName     = "/admin.SecurityLogSecurityEventService/GetTimeNanos"
-	SecurityLogSecurityEventService_HashCode_FullMethodName         = "/admin.SecurityLogSecurityEventService/HashCode"
-	SecurityLogSecurityEventService_WriteToParcel_FullMethodName    = "/admin.SecurityLogSecurityEventService/WriteToParcel"
+	DnsEventService_DescribeContents_FullMethodName             = "/admin.DnsEventService/DescribeContents"
+	DnsEventService_GetHostname_FullMethodName                  = "/admin.DnsEventService/GetHostname"
+	DnsEventService_GetInetAddresses_FullMethodName             = "/admin.DnsEventService/GetInetAddresses"
+	DnsEventService_GetTotalResolvedAddressCount_FullMethodName = "/admin.DnsEventService/GetTotalResolvedAddressCount"
+	DnsEventService_ToString_FullMethodName                     = "/admin.DnsEventService/ToString"
+	DnsEventService_WriteToParcel_FullMethodName                = "/admin.DnsEventService/WriteToParcel"
 )
 
-// SecurityLogSecurityEventServiceClient is the client API for SecurityLogSecurityEventService service.
+// DnsEventServiceClient is the client API for DnsEventService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type SecurityLogSecurityEventServiceClient interface {
-	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	Equals(ctx context.Context, in *SecurityLogSecurityEventEqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
-	GetData(ctx context.Context, in *GetDataRequest, opts ...grpc.CallOption) (*GetDataResponse, error)
-	GetId(ctx context.Context, in *GetIdRequest, opts ...grpc.CallOption) (*GetIdResponse, error)
-	GetLogLevel(ctx context.Context, in *GetLogLevelRequest, opts ...grpc.CallOption) (*GetLogLevelResponse, error)
-	GetTag(ctx context.Context, in *GetTagRequest, opts ...grpc.CallOption) (*GetTagResponse, error)
-	GetTimeNanos(ctx context.Context, in *GetTimeNanosRequest, opts ...grpc.CallOption) (*GetTimeNanosResponse, error)
-	HashCode(ctx context.Context, in *SecurityLogSecurityEventHashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
-	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+type DnsEventServiceClient interface {
+	DescribeContents(ctx context.Context, in *DnsEventDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	GetHostname(ctx context.Context, in *GetHostnameRequest, opts ...grpc.CallOption) (*GetHostnameResponse, error)
+	GetInetAddresses(ctx context.Context, in *GetInetAddressesRequest, opts ...grpc.CallOption) (*GetInetAddressesResponse, error)
+	GetTotalResolvedAddressCount(ctx context.Context, in *GetTotalResolvedAddressCountRequest, opts ...grpc.CallOption) (*GetTotalResolvedAddressCountResponse, error)
+	ToString(ctx context.Context, in *DnsEventToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+	WriteToParcel(ctx context.Context, in *DnsEventWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
 }
 
-type securityLogSecurityEventServiceClient struct {
+type dnsEventServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewSecurityLogSecurityEventServiceClient(cc grpc.ClientConnInterface) SecurityLogSecurityEventServiceClient {
-	return &securityLogSecurityEventServiceClient{cc}
+func NewDnsEventServiceClient(cc grpc.ClientConnInterface) DnsEventServiceClient {
+	return &dnsEventServiceClient{cc}
 }
 
-func (c *securityLogSecurityEventServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+func (c *dnsEventServiceClient) DescribeContents(ctx context.Context, in *DnsEventDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, SecurityLogSecurityEventService_DescribeContents_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, DnsEventService_DescribeContents_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *securityLogSecurityEventServiceClient) Equals(ctx context.Context, in *SecurityLogSecurityEventEqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+func (c *dnsEventServiceClient) GetHostname(ctx context.Context, in *GetHostnameRequest, opts ...grpc.CallOption) (*GetHostnameResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(EqualsResponse)
-	err := c.cc.Invoke(ctx, SecurityLogSecurityEventService_Equals_FullMethodName, in, out, cOpts...)
+	out := new(GetHostnameResponse)
+	err := c.cc.Invoke(ctx, DnsEventService_GetHostname_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *securityLogSecurityEventServiceClient) GetData(ctx context.Context, in *GetDataRequest, opts ...grpc.CallOption) (*GetDataResponse, error) {
+func (c *dnsEventServiceClient) GetInetAddresses(ctx context.Context, in *GetInetAddressesRequest, opts ...grpc.CallOption) (*GetInetAddressesResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetDataResponse)
-	err := c.cc.Invoke(ctx, SecurityLogSecurityEventService_GetData_FullMethodName, in, out, cOpts...)
+	out := new(GetInetAddressesResponse)
+	err := c.cc.Invoke(ctx, DnsEventService_GetInetAddresses_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *securityLogSecurityEventServiceClient) GetId(ctx context.Context, in *GetIdRequest, opts ...grpc.CallOption) (*GetIdResponse, error) {
+func (c *dnsEventServiceClient) GetTotalResolvedAddressCount(ctx context.Context, in *GetTotalResolvedAddressCountRequest, opts ...grpc.CallOption) (*GetTotalResolvedAddressCountResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetIdResponse)
-	err := c.cc.Invoke(ctx, SecurityLogSecurityEventService_GetId_FullMethodName, in, out, cOpts...)
+	out := new(GetTotalResolvedAddressCountResponse)
+	err := c.cc.Invoke(ctx, DnsEventService_GetTotalResolvedAddressCount_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *securityLogSecurityEventServiceClient) GetLogLevel(ctx context.Context, in *GetLogLevelRequest, opts ...grpc.CallOption) (*GetLogLevelResponse, error) {
+func (c *dnsEventServiceClient) ToString(ctx context.Context, in *DnsEventToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetLogLevelResponse)
-	err := c.cc.Invoke(ctx, SecurityLogSecurityEventService_GetLogLevel_FullMethodName, in, out, cOpts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, DnsEventService_ToString_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *securityLogSecurityEventServiceClient) GetTag(ctx context.Context, in *GetTagRequest, opts ...grpc.CallOption) (*GetTagResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetTagResponse)
-	err := c.cc.Invoke(ctx, SecurityLogSecurityEventService_GetTag_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *securityLogSecurityEventServiceClient) GetTimeNanos(ctx context.Context, in *GetTimeNanosRequest, opts ...grpc.CallOption) (*GetTimeNanosResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetTimeNanosResponse)
-	err := c.cc.Invoke(ctx, SecurityLogSecurityEventService_GetTimeNanos_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *securityLogSecurityEventServiceClient) HashCode(ctx context.Context, in *SecurityLogSecurityEventHashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(HashCodeResponse)
-	err := c.cc.Invoke(ctx, SecurityLogSecurityEventService_HashCode_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *securityLogSecurityEventServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+func (c *dnsEventServiceClient) WriteToParcel(ctx context.Context, in *DnsEventWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, SecurityLogSecurityEventService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, DnsEventService_WriteToParcel_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// SecurityLogSecurityEventServiceServer is the server API for SecurityLogSecurityEventService service.
-// All implementations must embed UnimplementedSecurityLogSecurityEventServiceServer
+// DnsEventServiceServer is the server API for DnsEventService service.
+// All implementations must embed UnimplementedDnsEventServiceServer
 // for forward compatibility.
-type SecurityLogSecurityEventServiceServer interface {
-	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
-	Equals(context.Context, *SecurityLogSecurityEventEqualsRequest) (*EqualsResponse, error)
-	GetData(context.Context, *GetDataRequest) (*GetDataResponse, error)
-	GetId(context.Context, *GetIdRequest) (*GetIdResponse, error)
-	GetLogLevel(context.Context, *GetLogLevelRequest) (*GetLogLevelResponse, error)
-	GetTag(context.Context, *GetTagRequest) (*GetTagResponse, error)
-	GetTimeNanos(context.Context, *GetTimeNanosRequest) (*GetTimeNanosResponse, error)
-	HashCode(context.Context, *SecurityLogSecurityEventHashCodeRequest) (*HashCodeResponse, error)
-	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
-	mustEmbedUnimplementedSecurityLogSecurityEventServiceServer()
+type DnsEventServiceServer interface {
+	DescribeContents(context.Context, *DnsEventDescribeContentsRequest) (*DescribeContentsResponse, error)
+	GetHostname(context.Context, *GetHostnameRequest) (*GetHostnameResponse, error)
+	GetInetAddresses(context.Context, *GetInetAddressesRequest) (*GetInetAddressesResponse, error)
+	GetTotalResolvedAddressCount(context.Context, *GetTotalResolvedAddressCountRequest) (*GetTotalResolvedAddressCountResponse, error)
+	ToString(context.Context, *DnsEventToStringRequest) (*ToStringResponse, error)
+	WriteToParcel(context.Context, *DnsEventWriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedDnsEventServiceServer()
 }
 
-// UnimplementedSecurityLogSecurityEventServiceServer must be embedded to have
+// UnimplementedDnsEventServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedSecurityLogSecurityEventServiceServer struct{}
+type UnimplementedDnsEventServiceServer struct{}
 
-func (UnimplementedSecurityLogSecurityEventServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+func (UnimplementedDnsEventServiceServer) DescribeContents(context.Context, *DnsEventDescribeContentsRequest) (*DescribeContentsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
 }
-func (UnimplementedSecurityLogSecurityEventServiceServer) Equals(context.Context, *SecurityLogSecurityEventEqualsRequest) (*EqualsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
+func (UnimplementedDnsEventServiceServer) GetHostname(context.Context, *GetHostnameRequest) (*GetHostnameResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetHostname not implemented")
 }
-func (UnimplementedSecurityLogSecurityEventServiceServer) GetData(context.Context, *GetDataRequest) (*GetDataResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetData not implemented")
+func (UnimplementedDnsEventServiceServer) GetInetAddresses(context.Context, *GetInetAddressesRequest) (*GetInetAddressesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetInetAddresses not implemented")
 }
-func (UnimplementedSecurityLogSecurityEventServiceServer) GetId(context.Context, *GetIdRequest) (*GetIdResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetId not implemented")
+func (UnimplementedDnsEventServiceServer) GetTotalResolvedAddressCount(context.Context, *GetTotalResolvedAddressCountRequest) (*GetTotalResolvedAddressCountResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTotalResolvedAddressCount not implemented")
 }
-func (UnimplementedSecurityLogSecurityEventServiceServer) GetLogLevel(context.Context, *GetLogLevelRequest) (*GetLogLevelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetLogLevel not implemented")
+func (UnimplementedDnsEventServiceServer) ToString(context.Context, *DnsEventToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
 }
-func (UnimplementedSecurityLogSecurityEventServiceServer) GetTag(context.Context, *GetTagRequest) (*GetTagResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetTag not implemented")
-}
-func (UnimplementedSecurityLogSecurityEventServiceServer) GetTimeNanos(context.Context, *GetTimeNanosRequest) (*GetTimeNanosResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetTimeNanos not implemented")
-}
-func (UnimplementedSecurityLogSecurityEventServiceServer) HashCode(context.Context, *SecurityLogSecurityEventHashCodeRequest) (*HashCodeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
-}
-func (UnimplementedSecurityLogSecurityEventServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+func (UnimplementedDnsEventServiceServer) WriteToParcel(context.Context, *DnsEventWriteToParcelRequest) (*WriteToParcelResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
 }
-func (UnimplementedSecurityLogSecurityEventServiceServer) mustEmbedUnimplementedSecurityLogSecurityEventServiceServer() {
-}
-func (UnimplementedSecurityLogSecurityEventServiceServer) testEmbeddedByValue() {}
+func (UnimplementedDnsEventServiceServer) mustEmbedUnimplementedDnsEventServiceServer() {}
+func (UnimplementedDnsEventServiceServer) testEmbeddedByValue()                         {}
 
-// UnsafeSecurityLogSecurityEventServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to SecurityLogSecurityEventServiceServer will
+// UnsafeDnsEventServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to DnsEventServiceServer will
 // result in compilation errors.
-type UnsafeSecurityLogSecurityEventServiceServer interface {
-	mustEmbedUnimplementedSecurityLogSecurityEventServiceServer()
+type UnsafeDnsEventServiceServer interface {
+	mustEmbedUnimplementedDnsEventServiceServer()
 }
 
-func RegisterSecurityLogSecurityEventServiceServer(s grpc.ServiceRegistrar, srv SecurityLogSecurityEventServiceServer) {
-	// If the following call panics, it indicates UnimplementedSecurityLogSecurityEventServiceServer was
+func RegisterDnsEventServiceServer(s grpc.ServiceRegistrar, srv DnsEventServiceServer) {
+	// If the following call panics, it indicates UnimplementedDnsEventServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&SecurityLogSecurityEventService_ServiceDesc, srv)
+	s.RegisterService(&DnsEventService_ServiceDesc, srv)
 }
 
-func _SecurityLogSecurityEventService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DescribeContentsRequest)
+func _DnsEventService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DnsEventDescribeContentsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(SecurityLogSecurityEventServiceServer).DescribeContents(ctx, in)
+		return srv.(DnsEventServiceServer).DescribeContents(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: SecurityLogSecurityEventService_DescribeContents_FullMethodName,
+		FullMethod: DnsEventService_DescribeContents_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SecurityLogSecurityEventServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+		return srv.(DnsEventServiceServer).DescribeContents(ctx, req.(*DnsEventDescribeContentsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _SecurityLogSecurityEventService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SecurityLogSecurityEventEqualsRequest)
+func _DnsEventService_GetHostname_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetHostnameRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(SecurityLogSecurityEventServiceServer).Equals(ctx, in)
+		return srv.(DnsEventServiceServer).GetHostname(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: SecurityLogSecurityEventService_Equals_FullMethodName,
+		FullMethod: DnsEventService_GetHostname_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SecurityLogSecurityEventServiceServer).Equals(ctx, req.(*SecurityLogSecurityEventEqualsRequest))
+		return srv.(DnsEventServiceServer).GetHostname(ctx, req.(*GetHostnameRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _SecurityLogSecurityEventService_GetData_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetDataRequest)
+func _DnsEventService_GetInetAddresses_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetInetAddressesRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(SecurityLogSecurityEventServiceServer).GetData(ctx, in)
+		return srv.(DnsEventServiceServer).GetInetAddresses(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: SecurityLogSecurityEventService_GetData_FullMethodName,
+		FullMethod: DnsEventService_GetInetAddresses_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SecurityLogSecurityEventServiceServer).GetData(ctx, req.(*GetDataRequest))
+		return srv.(DnsEventServiceServer).GetInetAddresses(ctx, req.(*GetInetAddressesRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _SecurityLogSecurityEventService_GetId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetIdRequest)
+func _DnsEventService_GetTotalResolvedAddressCount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTotalResolvedAddressCountRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(SecurityLogSecurityEventServiceServer).GetId(ctx, in)
+		return srv.(DnsEventServiceServer).GetTotalResolvedAddressCount(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: SecurityLogSecurityEventService_GetId_FullMethodName,
+		FullMethod: DnsEventService_GetTotalResolvedAddressCount_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SecurityLogSecurityEventServiceServer).GetId(ctx, req.(*GetIdRequest))
+		return srv.(DnsEventServiceServer).GetTotalResolvedAddressCount(ctx, req.(*GetTotalResolvedAddressCountRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _SecurityLogSecurityEventService_GetLogLevel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetLogLevelRequest)
+func _DnsEventService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DnsEventToStringRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(SecurityLogSecurityEventServiceServer).GetLogLevel(ctx, in)
+		return srv.(DnsEventServiceServer).ToString(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: SecurityLogSecurityEventService_GetLogLevel_FullMethodName,
+		FullMethod: DnsEventService_ToString_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SecurityLogSecurityEventServiceServer).GetLogLevel(ctx, req.(*GetLogLevelRequest))
+		return srv.(DnsEventServiceServer).ToString(ctx, req.(*DnsEventToStringRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _SecurityLogSecurityEventService_GetTag_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetTagRequest)
+func _DnsEventService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DnsEventWriteToParcelRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(SecurityLogSecurityEventServiceServer).GetTag(ctx, in)
+		return srv.(DnsEventServiceServer).WriteToParcel(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: SecurityLogSecurityEventService_GetTag_FullMethodName,
+		FullMethod: DnsEventService_WriteToParcel_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SecurityLogSecurityEventServiceServer).GetTag(ctx, req.(*GetTagRequest))
+		return srv.(DnsEventServiceServer).WriteToParcel(ctx, req.(*DnsEventWriteToParcelRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _SecurityLogSecurityEventService_GetTimeNanos_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetTimeNanosRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SecurityLogSecurityEventServiceServer).GetTimeNanos(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SecurityLogSecurityEventService_GetTimeNanos_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SecurityLogSecurityEventServiceServer).GetTimeNanos(ctx, req.(*GetTimeNanosRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SecurityLogSecurityEventService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SecurityLogSecurityEventHashCodeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SecurityLogSecurityEventServiceServer).HashCode(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SecurityLogSecurityEventService_HashCode_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SecurityLogSecurityEventServiceServer).HashCode(ctx, req.(*SecurityLogSecurityEventHashCodeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SecurityLogSecurityEventService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WriteToParcelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SecurityLogSecurityEventServiceServer).WriteToParcel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SecurityLogSecurityEventService_WriteToParcel_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SecurityLogSecurityEventServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// SecurityLogSecurityEventService_ServiceDesc is the grpc.ServiceDesc for SecurityLogSecurityEventService service.
+// DnsEventService_ServiceDesc is the grpc.ServiceDesc for DnsEventService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var SecurityLogSecurityEventService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "admin.SecurityLogSecurityEventService",
-	HandlerType: (*SecurityLogSecurityEventServiceServer)(nil),
+var DnsEventService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "admin.DnsEventService",
+	HandlerType: (*DnsEventServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
 			MethodName: "DescribeContents",
-			Handler:    _SecurityLogSecurityEventService_DescribeContents_Handler,
+			Handler:    _DnsEventService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "GetHostname",
+			Handler:    _DnsEventService_GetHostname_Handler,
+		},
+		{
+			MethodName: "GetInetAddresses",
+			Handler:    _DnsEventService_GetInetAddresses_Handler,
+		},
+		{
+			MethodName: "GetTotalResolvedAddressCount",
+			Handler:    _DnsEventService_GetTotalResolvedAddressCount_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _DnsEventService_ToString_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _DnsEventService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/admin/admin.proto",
+}
+
+const (
+	SystemUpdateInfoService_DescribeContents_FullMethodName      = "/admin.SystemUpdateInfoService/DescribeContents"
+	SystemUpdateInfoService_Equals_FullMethodName                = "/admin.SystemUpdateInfoService/Equals"
+	SystemUpdateInfoService_GetReceivedTime_FullMethodName       = "/admin.SystemUpdateInfoService/GetReceivedTime"
+	SystemUpdateInfoService_GetSecurityPatchState_FullMethodName = "/admin.SystemUpdateInfoService/GetSecurityPatchState"
+	SystemUpdateInfoService_HashCode_FullMethodName              = "/admin.SystemUpdateInfoService/HashCode"
+	SystemUpdateInfoService_ToString_FullMethodName              = "/admin.SystemUpdateInfoService/ToString"
+	SystemUpdateInfoService_WriteToParcel_FullMethodName         = "/admin.SystemUpdateInfoService/WriteToParcel"
+)
+
+// SystemUpdateInfoServiceClient is the client API for SystemUpdateInfoService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type SystemUpdateInfoServiceClient interface {
+	DescribeContents(ctx context.Context, in *SystemUpdateInfoDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	Equals(ctx context.Context, in *SystemUpdateInfoEqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	GetReceivedTime(ctx context.Context, in *GetReceivedTimeRequest, opts ...grpc.CallOption) (*GetReceivedTimeResponse, error)
+	GetSecurityPatchState(ctx context.Context, in *GetSecurityPatchStateRequest, opts ...grpc.CallOption) (*GetSecurityPatchStateResponse, error)
+	HashCode(ctx context.Context, in *SystemUpdateInfoHashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+	ToString(ctx context.Context, in *SystemUpdateInfoToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+	WriteToParcel(ctx context.Context, in *SystemUpdateInfoWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type systemUpdateInfoServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewSystemUpdateInfoServiceClient(cc grpc.ClientConnInterface) SystemUpdateInfoServiceClient {
+	return &systemUpdateInfoServiceClient{cc}
+}
+
+func (c *systemUpdateInfoServiceClient) DescribeContents(ctx context.Context, in *SystemUpdateInfoDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, SystemUpdateInfoService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *systemUpdateInfoServiceClient) Equals(ctx context.Context, in *SystemUpdateInfoEqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(EqualsResponse)
+	err := c.cc.Invoke(ctx, SystemUpdateInfoService_Equals_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *systemUpdateInfoServiceClient) GetReceivedTime(ctx context.Context, in *GetReceivedTimeRequest, opts ...grpc.CallOption) (*GetReceivedTimeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetReceivedTimeResponse)
+	err := c.cc.Invoke(ctx, SystemUpdateInfoService_GetReceivedTime_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *systemUpdateInfoServiceClient) GetSecurityPatchState(ctx context.Context, in *GetSecurityPatchStateRequest, opts ...grpc.CallOption) (*GetSecurityPatchStateResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSecurityPatchStateResponse)
+	err := c.cc.Invoke(ctx, SystemUpdateInfoService_GetSecurityPatchState_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *systemUpdateInfoServiceClient) HashCode(ctx context.Context, in *SystemUpdateInfoHashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HashCodeResponse)
+	err := c.cc.Invoke(ctx, SystemUpdateInfoService_HashCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *systemUpdateInfoServiceClient) ToString(ctx context.Context, in *SystemUpdateInfoToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, SystemUpdateInfoService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *systemUpdateInfoServiceClient) WriteToParcel(ctx context.Context, in *SystemUpdateInfoWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, SystemUpdateInfoService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// SystemUpdateInfoServiceServer is the server API for SystemUpdateInfoService service.
+// All implementations must embed UnimplementedSystemUpdateInfoServiceServer
+// for forward compatibility.
+type SystemUpdateInfoServiceServer interface {
+	DescribeContents(context.Context, *SystemUpdateInfoDescribeContentsRequest) (*DescribeContentsResponse, error)
+	Equals(context.Context, *SystemUpdateInfoEqualsRequest) (*EqualsResponse, error)
+	GetReceivedTime(context.Context, *GetReceivedTimeRequest) (*GetReceivedTimeResponse, error)
+	GetSecurityPatchState(context.Context, *GetSecurityPatchStateRequest) (*GetSecurityPatchStateResponse, error)
+	HashCode(context.Context, *SystemUpdateInfoHashCodeRequest) (*HashCodeResponse, error)
+	ToString(context.Context, *SystemUpdateInfoToStringRequest) (*ToStringResponse, error)
+	WriteToParcel(context.Context, *SystemUpdateInfoWriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedSystemUpdateInfoServiceServer()
+}
+
+// UnimplementedSystemUpdateInfoServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedSystemUpdateInfoServiceServer struct{}
+
+func (UnimplementedSystemUpdateInfoServiceServer) DescribeContents(context.Context, *SystemUpdateInfoDescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedSystemUpdateInfoServiceServer) Equals(context.Context, *SystemUpdateInfoEqualsRequest) (*EqualsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
+}
+func (UnimplementedSystemUpdateInfoServiceServer) GetReceivedTime(context.Context, *GetReceivedTimeRequest) (*GetReceivedTimeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetReceivedTime not implemented")
+}
+func (UnimplementedSystemUpdateInfoServiceServer) GetSecurityPatchState(context.Context, *GetSecurityPatchStateRequest) (*GetSecurityPatchStateResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSecurityPatchState not implemented")
+}
+func (UnimplementedSystemUpdateInfoServiceServer) HashCode(context.Context, *SystemUpdateInfoHashCodeRequest) (*HashCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
+}
+func (UnimplementedSystemUpdateInfoServiceServer) ToString(context.Context, *SystemUpdateInfoToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedSystemUpdateInfoServiceServer) WriteToParcel(context.Context, *SystemUpdateInfoWriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedSystemUpdateInfoServiceServer) mustEmbedUnimplementedSystemUpdateInfoServiceServer() {
+}
+func (UnimplementedSystemUpdateInfoServiceServer) testEmbeddedByValue() {}
+
+// UnsafeSystemUpdateInfoServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to SystemUpdateInfoServiceServer will
+// result in compilation errors.
+type UnsafeSystemUpdateInfoServiceServer interface {
+	mustEmbedUnimplementedSystemUpdateInfoServiceServer()
+}
+
+func RegisterSystemUpdateInfoServiceServer(s grpc.ServiceRegistrar, srv SystemUpdateInfoServiceServer) {
+	// If the following call panics, it indicates UnimplementedSystemUpdateInfoServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&SystemUpdateInfoService_ServiceDesc, srv)
+}
+
+func _SystemUpdateInfoService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SystemUpdateInfoDescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SystemUpdateInfoServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SystemUpdateInfoService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SystemUpdateInfoServiceServer).DescribeContents(ctx, req.(*SystemUpdateInfoDescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SystemUpdateInfoService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SystemUpdateInfoEqualsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SystemUpdateInfoServiceServer).Equals(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SystemUpdateInfoService_Equals_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SystemUpdateInfoServiceServer).Equals(ctx, req.(*SystemUpdateInfoEqualsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SystemUpdateInfoService_GetReceivedTime_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetReceivedTimeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SystemUpdateInfoServiceServer).GetReceivedTime(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SystemUpdateInfoService_GetReceivedTime_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SystemUpdateInfoServiceServer).GetReceivedTime(ctx, req.(*GetReceivedTimeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SystemUpdateInfoService_GetSecurityPatchState_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSecurityPatchStateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SystemUpdateInfoServiceServer).GetSecurityPatchState(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SystemUpdateInfoService_GetSecurityPatchState_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SystemUpdateInfoServiceServer).GetSecurityPatchState(ctx, req.(*GetSecurityPatchStateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SystemUpdateInfoService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SystemUpdateInfoHashCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SystemUpdateInfoServiceServer).HashCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SystemUpdateInfoService_HashCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SystemUpdateInfoServiceServer).HashCode(ctx, req.(*SystemUpdateInfoHashCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SystemUpdateInfoService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SystemUpdateInfoToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SystemUpdateInfoServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SystemUpdateInfoService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SystemUpdateInfoServiceServer).ToString(ctx, req.(*SystemUpdateInfoToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SystemUpdateInfoService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SystemUpdateInfoWriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SystemUpdateInfoServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SystemUpdateInfoService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SystemUpdateInfoServiceServer).WriteToParcel(ctx, req.(*SystemUpdateInfoWriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// SystemUpdateInfoService_ServiceDesc is the grpc.ServiceDesc for SystemUpdateInfoService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var SystemUpdateInfoService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "admin.SystemUpdateInfoService",
+	HandlerType: (*SystemUpdateInfoServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "DescribeContents",
+			Handler:    _SystemUpdateInfoService_DescribeContents_Handler,
 		},
 		{
 			MethodName: "Equals",
-			Handler:    _SecurityLogSecurityEventService_Equals_Handler,
+			Handler:    _SystemUpdateInfoService_Equals_Handler,
 		},
 		{
-			MethodName: "GetData",
-			Handler:    _SecurityLogSecurityEventService_GetData_Handler,
+			MethodName: "GetReceivedTime",
+			Handler:    _SystemUpdateInfoService_GetReceivedTime_Handler,
 		},
 		{
-			MethodName: "GetId",
-			Handler:    _SecurityLogSecurityEventService_GetId_Handler,
-		},
-		{
-			MethodName: "GetLogLevel",
-			Handler:    _SecurityLogSecurityEventService_GetLogLevel_Handler,
-		},
-		{
-			MethodName: "GetTag",
-			Handler:    _SecurityLogSecurityEventService_GetTag_Handler,
-		},
-		{
-			MethodName: "GetTimeNanos",
-			Handler:    _SecurityLogSecurityEventService_GetTimeNanos_Handler,
+			MethodName: "GetSecurityPatchState",
+			Handler:    _SystemUpdateInfoService_GetSecurityPatchState_Handler,
 		},
 		{
 			MethodName: "HashCode",
-			Handler:    _SecurityLogSecurityEventService_HashCode_Handler,
-		},
-		{
-			MethodName: "WriteToParcel",
-			Handler:    _SecurityLogSecurityEventService_WriteToParcel_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/admin/admin.proto",
-}
-
-const (
-	SystemUpdatePolicyService_DescribeContents_FullMethodName             = "/admin.SystemUpdatePolicyService/DescribeContents"
-	SystemUpdatePolicyService_GetInstallWindowEnd_FullMethodName          = "/admin.SystemUpdatePolicyService/GetInstallWindowEnd"
-	SystemUpdatePolicyService_GetInstallWindowStart_FullMethodName        = "/admin.SystemUpdatePolicyService/GetInstallWindowStart"
-	SystemUpdatePolicyService_GetPolicyType_FullMethodName                = "/admin.SystemUpdatePolicyService/GetPolicyType"
-	SystemUpdatePolicyService_ToString_FullMethodName                     = "/admin.SystemUpdatePolicyService/ToString"
-	SystemUpdatePolicyService_WriteToParcel_FullMethodName                = "/admin.SystemUpdatePolicyService/WriteToParcel"
-	SystemUpdatePolicyService_CreateAutomaticInstallPolicy_FullMethodName = "/admin.SystemUpdatePolicyService/CreateAutomaticInstallPolicy"
-	SystemUpdatePolicyService_CreatePostponeInstallPolicy_FullMethodName  = "/admin.SystemUpdatePolicyService/CreatePostponeInstallPolicy"
-	SystemUpdatePolicyService_CreateWindowedInstallPolicy_FullMethodName  = "/admin.SystemUpdatePolicyService/CreateWindowedInstallPolicy"
-)
-
-// SystemUpdatePolicyServiceClient is the client API for SystemUpdatePolicyService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type SystemUpdatePolicyServiceClient interface {
-	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	GetInstallWindowEnd(ctx context.Context, in *GetInstallWindowEndRequest, opts ...grpc.CallOption) (*GetInstallWindowEndResponse, error)
-	GetInstallWindowStart(ctx context.Context, in *GetInstallWindowStartRequest, opts ...grpc.CallOption) (*GetInstallWindowStartResponse, error)
-	GetPolicyType(ctx context.Context, in *SystemUpdatePolicyGetPolicyTypeRequest, opts ...grpc.CallOption) (*GetPolicyTypeResponse, error)
-	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
-	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
-	CreateAutomaticInstallPolicy(ctx context.Context, in *CreateAutomaticInstallPolicyRequest, opts ...grpc.CallOption) (*CreateAutomaticInstallPolicyResponse, error)
-	CreatePostponeInstallPolicy(ctx context.Context, in *CreatePostponeInstallPolicyRequest, opts ...grpc.CallOption) (*CreatePostponeInstallPolicyResponse, error)
-	CreateWindowedInstallPolicy(ctx context.Context, in *CreateWindowedInstallPolicyRequest, opts ...grpc.CallOption) (*CreateWindowedInstallPolicyResponse, error)
-}
-
-type systemUpdatePolicyServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewSystemUpdatePolicyServiceClient(cc grpc.ClientConnInterface) SystemUpdatePolicyServiceClient {
-	return &systemUpdatePolicyServiceClient{cc}
-}
-
-func (c *systemUpdatePolicyServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, SystemUpdatePolicyService_DescribeContents_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *systemUpdatePolicyServiceClient) GetInstallWindowEnd(ctx context.Context, in *GetInstallWindowEndRequest, opts ...grpc.CallOption) (*GetInstallWindowEndResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetInstallWindowEndResponse)
-	err := c.cc.Invoke(ctx, SystemUpdatePolicyService_GetInstallWindowEnd_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *systemUpdatePolicyServiceClient) GetInstallWindowStart(ctx context.Context, in *GetInstallWindowStartRequest, opts ...grpc.CallOption) (*GetInstallWindowStartResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetInstallWindowStartResponse)
-	err := c.cc.Invoke(ctx, SystemUpdatePolicyService_GetInstallWindowStart_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *systemUpdatePolicyServiceClient) GetPolicyType(ctx context.Context, in *SystemUpdatePolicyGetPolicyTypeRequest, opts ...grpc.CallOption) (*GetPolicyTypeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetPolicyTypeResponse)
-	err := c.cc.Invoke(ctx, SystemUpdatePolicyService_GetPolicyType_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *systemUpdatePolicyServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ToStringResponse)
-	err := c.cc.Invoke(ctx, SystemUpdatePolicyService_ToString_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *systemUpdatePolicyServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, SystemUpdatePolicyService_WriteToParcel_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *systemUpdatePolicyServiceClient) CreateAutomaticInstallPolicy(ctx context.Context, in *CreateAutomaticInstallPolicyRequest, opts ...grpc.CallOption) (*CreateAutomaticInstallPolicyResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CreateAutomaticInstallPolicyResponse)
-	err := c.cc.Invoke(ctx, SystemUpdatePolicyService_CreateAutomaticInstallPolicy_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *systemUpdatePolicyServiceClient) CreatePostponeInstallPolicy(ctx context.Context, in *CreatePostponeInstallPolicyRequest, opts ...grpc.CallOption) (*CreatePostponeInstallPolicyResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CreatePostponeInstallPolicyResponse)
-	err := c.cc.Invoke(ctx, SystemUpdatePolicyService_CreatePostponeInstallPolicy_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *systemUpdatePolicyServiceClient) CreateWindowedInstallPolicy(ctx context.Context, in *CreateWindowedInstallPolicyRequest, opts ...grpc.CallOption) (*CreateWindowedInstallPolicyResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CreateWindowedInstallPolicyResponse)
-	err := c.cc.Invoke(ctx, SystemUpdatePolicyService_CreateWindowedInstallPolicy_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// SystemUpdatePolicyServiceServer is the server API for SystemUpdatePolicyService service.
-// All implementations must embed UnimplementedSystemUpdatePolicyServiceServer
-// for forward compatibility.
-type SystemUpdatePolicyServiceServer interface {
-	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
-	GetInstallWindowEnd(context.Context, *GetInstallWindowEndRequest) (*GetInstallWindowEndResponse, error)
-	GetInstallWindowStart(context.Context, *GetInstallWindowStartRequest) (*GetInstallWindowStartResponse, error)
-	GetPolicyType(context.Context, *SystemUpdatePolicyGetPolicyTypeRequest) (*GetPolicyTypeResponse, error)
-	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
-	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
-	CreateAutomaticInstallPolicy(context.Context, *CreateAutomaticInstallPolicyRequest) (*CreateAutomaticInstallPolicyResponse, error)
-	CreatePostponeInstallPolicy(context.Context, *CreatePostponeInstallPolicyRequest) (*CreatePostponeInstallPolicyResponse, error)
-	CreateWindowedInstallPolicy(context.Context, *CreateWindowedInstallPolicyRequest) (*CreateWindowedInstallPolicyResponse, error)
-	mustEmbedUnimplementedSystemUpdatePolicyServiceServer()
-}
-
-// UnimplementedSystemUpdatePolicyServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedSystemUpdatePolicyServiceServer struct{}
-
-func (UnimplementedSystemUpdatePolicyServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
-}
-func (UnimplementedSystemUpdatePolicyServiceServer) GetInstallWindowEnd(context.Context, *GetInstallWindowEndRequest) (*GetInstallWindowEndResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetInstallWindowEnd not implemented")
-}
-func (UnimplementedSystemUpdatePolicyServiceServer) GetInstallWindowStart(context.Context, *GetInstallWindowStartRequest) (*GetInstallWindowStartResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetInstallWindowStart not implemented")
-}
-func (UnimplementedSystemUpdatePolicyServiceServer) GetPolicyType(context.Context, *SystemUpdatePolicyGetPolicyTypeRequest) (*GetPolicyTypeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetPolicyType not implemented")
-}
-func (UnimplementedSystemUpdatePolicyServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
-}
-func (UnimplementedSystemUpdatePolicyServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
-}
-func (UnimplementedSystemUpdatePolicyServiceServer) CreateAutomaticInstallPolicy(context.Context, *CreateAutomaticInstallPolicyRequest) (*CreateAutomaticInstallPolicyResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method CreateAutomaticInstallPolicy not implemented")
-}
-func (UnimplementedSystemUpdatePolicyServiceServer) CreatePostponeInstallPolicy(context.Context, *CreatePostponeInstallPolicyRequest) (*CreatePostponeInstallPolicyResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method CreatePostponeInstallPolicy not implemented")
-}
-func (UnimplementedSystemUpdatePolicyServiceServer) CreateWindowedInstallPolicy(context.Context, *CreateWindowedInstallPolicyRequest) (*CreateWindowedInstallPolicyResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method CreateWindowedInstallPolicy not implemented")
-}
-func (UnimplementedSystemUpdatePolicyServiceServer) mustEmbedUnimplementedSystemUpdatePolicyServiceServer() {
-}
-func (UnimplementedSystemUpdatePolicyServiceServer) testEmbeddedByValue() {}
-
-// UnsafeSystemUpdatePolicyServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to SystemUpdatePolicyServiceServer will
-// result in compilation errors.
-type UnsafeSystemUpdatePolicyServiceServer interface {
-	mustEmbedUnimplementedSystemUpdatePolicyServiceServer()
-}
-
-func RegisterSystemUpdatePolicyServiceServer(s grpc.ServiceRegistrar, srv SystemUpdatePolicyServiceServer) {
-	// If the following call panics, it indicates UnimplementedSystemUpdatePolicyServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&SystemUpdatePolicyService_ServiceDesc, srv)
-}
-
-func _SystemUpdatePolicyService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DescribeContentsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SystemUpdatePolicyServiceServer).DescribeContents(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SystemUpdatePolicyService_DescribeContents_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SystemUpdatePolicyServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SystemUpdatePolicyService_GetInstallWindowEnd_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetInstallWindowEndRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SystemUpdatePolicyServiceServer).GetInstallWindowEnd(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SystemUpdatePolicyService_GetInstallWindowEnd_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SystemUpdatePolicyServiceServer).GetInstallWindowEnd(ctx, req.(*GetInstallWindowEndRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SystemUpdatePolicyService_GetInstallWindowStart_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetInstallWindowStartRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SystemUpdatePolicyServiceServer).GetInstallWindowStart(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SystemUpdatePolicyService_GetInstallWindowStart_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SystemUpdatePolicyServiceServer).GetInstallWindowStart(ctx, req.(*GetInstallWindowStartRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SystemUpdatePolicyService_GetPolicyType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SystemUpdatePolicyGetPolicyTypeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SystemUpdatePolicyServiceServer).GetPolicyType(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SystemUpdatePolicyService_GetPolicyType_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SystemUpdatePolicyServiceServer).GetPolicyType(ctx, req.(*SystemUpdatePolicyGetPolicyTypeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SystemUpdatePolicyService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ToStringRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SystemUpdatePolicyServiceServer).ToString(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SystemUpdatePolicyService_ToString_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SystemUpdatePolicyServiceServer).ToString(ctx, req.(*ToStringRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SystemUpdatePolicyService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WriteToParcelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SystemUpdatePolicyServiceServer).WriteToParcel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SystemUpdatePolicyService_WriteToParcel_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SystemUpdatePolicyServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SystemUpdatePolicyService_CreateAutomaticInstallPolicy_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CreateAutomaticInstallPolicyRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SystemUpdatePolicyServiceServer).CreateAutomaticInstallPolicy(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SystemUpdatePolicyService_CreateAutomaticInstallPolicy_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SystemUpdatePolicyServiceServer).CreateAutomaticInstallPolicy(ctx, req.(*CreateAutomaticInstallPolicyRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SystemUpdatePolicyService_CreatePostponeInstallPolicy_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CreatePostponeInstallPolicyRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SystemUpdatePolicyServiceServer).CreatePostponeInstallPolicy(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SystemUpdatePolicyService_CreatePostponeInstallPolicy_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SystemUpdatePolicyServiceServer).CreatePostponeInstallPolicy(ctx, req.(*CreatePostponeInstallPolicyRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SystemUpdatePolicyService_CreateWindowedInstallPolicy_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CreateWindowedInstallPolicyRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SystemUpdatePolicyServiceServer).CreateWindowedInstallPolicy(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SystemUpdatePolicyService_CreateWindowedInstallPolicy_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SystemUpdatePolicyServiceServer).CreateWindowedInstallPolicy(ctx, req.(*CreateWindowedInstallPolicyRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// SystemUpdatePolicyService_ServiceDesc is the grpc.ServiceDesc for SystemUpdatePolicyService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var SystemUpdatePolicyService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "admin.SystemUpdatePolicyService",
-	HandlerType: (*SystemUpdatePolicyServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "DescribeContents",
-			Handler:    _SystemUpdatePolicyService_DescribeContents_Handler,
-		},
-		{
-			MethodName: "GetInstallWindowEnd",
-			Handler:    _SystemUpdatePolicyService_GetInstallWindowEnd_Handler,
-		},
-		{
-			MethodName: "GetInstallWindowStart",
-			Handler:    _SystemUpdatePolicyService_GetInstallWindowStart_Handler,
-		},
-		{
-			MethodName: "GetPolicyType",
-			Handler:    _SystemUpdatePolicyService_GetPolicyType_Handler,
+			Handler:    _SystemUpdateInfoService_HashCode_Handler,
 		},
 		{
 			MethodName: "ToString",
-			Handler:    _SystemUpdatePolicyService_ToString_Handler,
+			Handler:    _SystemUpdateInfoService_ToString_Handler,
 		},
 		{
 			MethodName: "WriteToParcel",
-			Handler:    _SystemUpdatePolicyService_WriteToParcel_Handler,
-		},
-		{
-			MethodName: "CreateAutomaticInstallPolicy",
-			Handler:    _SystemUpdatePolicyService_CreateAutomaticInstallPolicy_Handler,
-		},
-		{
-			MethodName: "CreatePostponeInstallPolicy",
-			Handler:    _SystemUpdatePolicyService_CreatePostponeInstallPolicy_Handler,
-		},
-		{
-			MethodName: "CreateWindowedInstallPolicy",
-			Handler:    _SystemUpdatePolicyService_CreateWindowedInstallPolicy_Handler,
+			Handler:    _SystemUpdateInfoService_WriteToParcel_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -3447,432 +2286,395 @@ var SystemUpdatePolicyService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	SystemUpdatePolicyValidationFailedExceptionService_DescribeContents_FullMethodName = "/admin.SystemUpdatePolicyValidationFailedExceptionService/DescribeContents"
-	SystemUpdatePolicyValidationFailedExceptionService_GetErrorCode_FullMethodName     = "/admin.SystemUpdatePolicyValidationFailedExceptionService/GetErrorCode"
-	SystemUpdatePolicyValidationFailedExceptionService_WriteToParcel_FullMethodName    = "/admin.SystemUpdatePolicyValidationFailedExceptionService/WriteToParcel"
+	FactoryResetProtectionPolicyService_DescribeContents_FullMethodName                  = "/admin.FactoryResetProtectionPolicyService/DescribeContents"
+	FactoryResetProtectionPolicyService_GetFactoryResetProtectionAccounts_FullMethodName = "/admin.FactoryResetProtectionPolicyService/GetFactoryResetProtectionAccounts"
+	FactoryResetProtectionPolicyService_IsFactoryResetProtectionEnabled_FullMethodName   = "/admin.FactoryResetProtectionPolicyService/IsFactoryResetProtectionEnabled"
+	FactoryResetProtectionPolicyService_ToString_FullMethodName                          = "/admin.FactoryResetProtectionPolicyService/ToString"
+	FactoryResetProtectionPolicyService_WriteToParcel_FullMethodName                     = "/admin.FactoryResetProtectionPolicyService/WriteToParcel"
 )
 
-// SystemUpdatePolicyValidationFailedExceptionServiceClient is the client API for SystemUpdatePolicyValidationFailedExceptionService service.
+// FactoryResetProtectionPolicyServiceClient is the client API for FactoryResetProtectionPolicyService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type SystemUpdatePolicyValidationFailedExceptionServiceClient interface {
-	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	GetErrorCode(ctx context.Context, in *GetErrorCodeRequest, opts ...grpc.CallOption) (*GetErrorCodeResponse, error)
-	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+type FactoryResetProtectionPolicyServiceClient interface {
+	DescribeContents(ctx context.Context, in *FactoryResetProtectionPolicyDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	GetFactoryResetProtectionAccounts(ctx context.Context, in *GetFactoryResetProtectionAccountsRequest, opts ...grpc.CallOption) (*GetFactoryResetProtectionAccountsResponse, error)
+	IsFactoryResetProtectionEnabled(ctx context.Context, in *IsFactoryResetProtectionEnabledRequest, opts ...grpc.CallOption) (*IsFactoryResetProtectionEnabledResponse, error)
+	ToString(ctx context.Context, in *FactoryResetProtectionPolicyToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+	WriteToParcel(ctx context.Context, in *FactoryResetProtectionPolicyWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
 }
 
-type systemUpdatePolicyValidationFailedExceptionServiceClient struct {
+type factoryResetProtectionPolicyServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewSystemUpdatePolicyValidationFailedExceptionServiceClient(cc grpc.ClientConnInterface) SystemUpdatePolicyValidationFailedExceptionServiceClient {
-	return &systemUpdatePolicyValidationFailedExceptionServiceClient{cc}
+func NewFactoryResetProtectionPolicyServiceClient(cc grpc.ClientConnInterface) FactoryResetProtectionPolicyServiceClient {
+	return &factoryResetProtectionPolicyServiceClient{cc}
 }
 
-func (c *systemUpdatePolicyValidationFailedExceptionServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+func (c *factoryResetProtectionPolicyServiceClient) DescribeContents(ctx context.Context, in *FactoryResetProtectionPolicyDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, SystemUpdatePolicyValidationFailedExceptionService_DescribeContents_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, FactoryResetProtectionPolicyService_DescribeContents_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *systemUpdatePolicyValidationFailedExceptionServiceClient) GetErrorCode(ctx context.Context, in *GetErrorCodeRequest, opts ...grpc.CallOption) (*GetErrorCodeResponse, error) {
+func (c *factoryResetProtectionPolicyServiceClient) GetFactoryResetProtectionAccounts(ctx context.Context, in *GetFactoryResetProtectionAccountsRequest, opts ...grpc.CallOption) (*GetFactoryResetProtectionAccountsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetErrorCodeResponse)
-	err := c.cc.Invoke(ctx, SystemUpdatePolicyValidationFailedExceptionService_GetErrorCode_FullMethodName, in, out, cOpts...)
+	out := new(GetFactoryResetProtectionAccountsResponse)
+	err := c.cc.Invoke(ctx, FactoryResetProtectionPolicyService_GetFactoryResetProtectionAccounts_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *systemUpdatePolicyValidationFailedExceptionServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+func (c *factoryResetProtectionPolicyServiceClient) IsFactoryResetProtectionEnabled(ctx context.Context, in *IsFactoryResetProtectionEnabledRequest, opts ...grpc.CallOption) (*IsFactoryResetProtectionEnabledResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, SystemUpdatePolicyValidationFailedExceptionService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	out := new(IsFactoryResetProtectionEnabledResponse)
+	err := c.cc.Invoke(ctx, FactoryResetProtectionPolicyService_IsFactoryResetProtectionEnabled_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// SystemUpdatePolicyValidationFailedExceptionServiceServer is the server API for SystemUpdatePolicyValidationFailedExceptionService service.
-// All implementations must embed UnimplementedSystemUpdatePolicyValidationFailedExceptionServiceServer
-// for forward compatibility.
-type SystemUpdatePolicyValidationFailedExceptionServiceServer interface {
-	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
-	GetErrorCode(context.Context, *GetErrorCodeRequest) (*GetErrorCodeResponse, error)
-	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
-	mustEmbedUnimplementedSystemUpdatePolicyValidationFailedExceptionServiceServer()
-}
-
-// UnimplementedSystemUpdatePolicyValidationFailedExceptionServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedSystemUpdatePolicyValidationFailedExceptionServiceServer struct{}
-
-func (UnimplementedSystemUpdatePolicyValidationFailedExceptionServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
-}
-func (UnimplementedSystemUpdatePolicyValidationFailedExceptionServiceServer) GetErrorCode(context.Context, *GetErrorCodeRequest) (*GetErrorCodeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetErrorCode not implemented")
-}
-func (UnimplementedSystemUpdatePolicyValidationFailedExceptionServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
-}
-func (UnimplementedSystemUpdatePolicyValidationFailedExceptionServiceServer) mustEmbedUnimplementedSystemUpdatePolicyValidationFailedExceptionServiceServer() {
-}
-func (UnimplementedSystemUpdatePolicyValidationFailedExceptionServiceServer) testEmbeddedByValue() {}
-
-// UnsafeSystemUpdatePolicyValidationFailedExceptionServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to SystemUpdatePolicyValidationFailedExceptionServiceServer will
-// result in compilation errors.
-type UnsafeSystemUpdatePolicyValidationFailedExceptionServiceServer interface {
-	mustEmbedUnimplementedSystemUpdatePolicyValidationFailedExceptionServiceServer()
-}
-
-func RegisterSystemUpdatePolicyValidationFailedExceptionServiceServer(s grpc.ServiceRegistrar, srv SystemUpdatePolicyValidationFailedExceptionServiceServer) {
-	// If the following call panics, it indicates UnimplementedSystemUpdatePolicyValidationFailedExceptionServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&SystemUpdatePolicyValidationFailedExceptionService_ServiceDesc, srv)
-}
-
-func _SystemUpdatePolicyValidationFailedExceptionService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DescribeContentsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SystemUpdatePolicyValidationFailedExceptionServiceServer).DescribeContents(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SystemUpdatePolicyValidationFailedExceptionService_DescribeContents_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SystemUpdatePolicyValidationFailedExceptionServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SystemUpdatePolicyValidationFailedExceptionService_GetErrorCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetErrorCodeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SystemUpdatePolicyValidationFailedExceptionServiceServer).GetErrorCode(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SystemUpdatePolicyValidationFailedExceptionService_GetErrorCode_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SystemUpdatePolicyValidationFailedExceptionServiceServer).GetErrorCode(ctx, req.(*GetErrorCodeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SystemUpdatePolicyValidationFailedExceptionService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WriteToParcelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SystemUpdatePolicyValidationFailedExceptionServiceServer).WriteToParcel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SystemUpdatePolicyValidationFailedExceptionService_WriteToParcel_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SystemUpdatePolicyValidationFailedExceptionServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// SystemUpdatePolicyValidationFailedExceptionService_ServiceDesc is the grpc.ServiceDesc for SystemUpdatePolicyValidationFailedExceptionService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var SystemUpdatePolicyValidationFailedExceptionService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "admin.SystemUpdatePolicyValidationFailedExceptionService",
-	HandlerType: (*SystemUpdatePolicyValidationFailedExceptionServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "DescribeContents",
-			Handler:    _SystemUpdatePolicyValidationFailedExceptionService_DescribeContents_Handler,
-		},
-		{
-			MethodName: "GetErrorCode",
-			Handler:    _SystemUpdatePolicyValidationFailedExceptionService_GetErrorCode_Handler,
-		},
-		{
-			MethodName: "WriteToParcel",
-			Handler:    _SystemUpdatePolicyValidationFailedExceptionService_WriteToParcel_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/admin/admin.proto",
-}
-
-const (
-	ConnectEventService_DescribeContents_FullMethodName = "/admin.ConnectEventService/DescribeContents"
-	ConnectEventService_GetInetAddress_FullMethodName   = "/admin.ConnectEventService/GetInetAddress"
-	ConnectEventService_GetPort_FullMethodName          = "/admin.ConnectEventService/GetPort"
-	ConnectEventService_ToString_FullMethodName         = "/admin.ConnectEventService/ToString"
-	ConnectEventService_WriteToParcel_FullMethodName    = "/admin.ConnectEventService/WriteToParcel"
-)
-
-// ConnectEventServiceClient is the client API for ConnectEventService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type ConnectEventServiceClient interface {
-	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	GetInetAddress(ctx context.Context, in *GetInetAddressRequest, opts ...grpc.CallOption) (*GetInetAddressResponse, error)
-	GetPort(ctx context.Context, in *GetPortRequest, opts ...grpc.CallOption) (*GetPortResponse, error)
-	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
-	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
-}
-
-type connectEventServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewConnectEventServiceClient(cc grpc.ClientConnInterface) ConnectEventServiceClient {
-	return &connectEventServiceClient{cc}
-}
-
-func (c *connectEventServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, ConnectEventService_DescribeContents_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *connectEventServiceClient) GetInetAddress(ctx context.Context, in *GetInetAddressRequest, opts ...grpc.CallOption) (*GetInetAddressResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetInetAddressResponse)
-	err := c.cc.Invoke(ctx, ConnectEventService_GetInetAddress_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *connectEventServiceClient) GetPort(ctx context.Context, in *GetPortRequest, opts ...grpc.CallOption) (*GetPortResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetPortResponse)
-	err := c.cc.Invoke(ctx, ConnectEventService_GetPort_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *connectEventServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+func (c *factoryResetProtectionPolicyServiceClient) ToString(ctx context.Context, in *FactoryResetProtectionPolicyToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(ToStringResponse)
-	err := c.cc.Invoke(ctx, ConnectEventService_ToString_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, FactoryResetProtectionPolicyService_ToString_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *connectEventServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+func (c *factoryResetProtectionPolicyServiceClient) WriteToParcel(ctx context.Context, in *FactoryResetProtectionPolicyWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, ConnectEventService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, FactoryResetProtectionPolicyService_WriteToParcel_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// ConnectEventServiceServer is the server API for ConnectEventService service.
-// All implementations must embed UnimplementedConnectEventServiceServer
+// FactoryResetProtectionPolicyServiceServer is the server API for FactoryResetProtectionPolicyService service.
+// All implementations must embed UnimplementedFactoryResetProtectionPolicyServiceServer
 // for forward compatibility.
-type ConnectEventServiceServer interface {
-	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
-	GetInetAddress(context.Context, *GetInetAddressRequest) (*GetInetAddressResponse, error)
-	GetPort(context.Context, *GetPortRequest) (*GetPortResponse, error)
-	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
-	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
-	mustEmbedUnimplementedConnectEventServiceServer()
+type FactoryResetProtectionPolicyServiceServer interface {
+	DescribeContents(context.Context, *FactoryResetProtectionPolicyDescribeContentsRequest) (*DescribeContentsResponse, error)
+	GetFactoryResetProtectionAccounts(context.Context, *GetFactoryResetProtectionAccountsRequest) (*GetFactoryResetProtectionAccountsResponse, error)
+	IsFactoryResetProtectionEnabled(context.Context, *IsFactoryResetProtectionEnabledRequest) (*IsFactoryResetProtectionEnabledResponse, error)
+	ToString(context.Context, *FactoryResetProtectionPolicyToStringRequest) (*ToStringResponse, error)
+	WriteToParcel(context.Context, *FactoryResetProtectionPolicyWriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedFactoryResetProtectionPolicyServiceServer()
 }
 
-// UnimplementedConnectEventServiceServer must be embedded to have
+// UnimplementedFactoryResetProtectionPolicyServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedConnectEventServiceServer struct{}
+type UnimplementedFactoryResetProtectionPolicyServiceServer struct{}
 
-func (UnimplementedConnectEventServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+func (UnimplementedFactoryResetProtectionPolicyServiceServer) DescribeContents(context.Context, *FactoryResetProtectionPolicyDescribeContentsRequest) (*DescribeContentsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
 }
-func (UnimplementedConnectEventServiceServer) GetInetAddress(context.Context, *GetInetAddressRequest) (*GetInetAddressResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetInetAddress not implemented")
+func (UnimplementedFactoryResetProtectionPolicyServiceServer) GetFactoryResetProtectionAccounts(context.Context, *GetFactoryResetProtectionAccountsRequest) (*GetFactoryResetProtectionAccountsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetFactoryResetProtectionAccounts not implemented")
 }
-func (UnimplementedConnectEventServiceServer) GetPort(context.Context, *GetPortRequest) (*GetPortResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetPort not implemented")
+func (UnimplementedFactoryResetProtectionPolicyServiceServer) IsFactoryResetProtectionEnabled(context.Context, *IsFactoryResetProtectionEnabledRequest) (*IsFactoryResetProtectionEnabledResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsFactoryResetProtectionEnabled not implemented")
 }
-func (UnimplementedConnectEventServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
+func (UnimplementedFactoryResetProtectionPolicyServiceServer) ToString(context.Context, *FactoryResetProtectionPolicyToStringRequest) (*ToStringResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
 }
-func (UnimplementedConnectEventServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+func (UnimplementedFactoryResetProtectionPolicyServiceServer) WriteToParcel(context.Context, *FactoryResetProtectionPolicyWriteToParcelRequest) (*WriteToParcelResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
 }
-func (UnimplementedConnectEventServiceServer) mustEmbedUnimplementedConnectEventServiceServer() {}
-func (UnimplementedConnectEventServiceServer) testEmbeddedByValue()                             {}
+func (UnimplementedFactoryResetProtectionPolicyServiceServer) mustEmbedUnimplementedFactoryResetProtectionPolicyServiceServer() {
+}
+func (UnimplementedFactoryResetProtectionPolicyServiceServer) testEmbeddedByValue() {}
 
-// UnsafeConnectEventServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to ConnectEventServiceServer will
+// UnsafeFactoryResetProtectionPolicyServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to FactoryResetProtectionPolicyServiceServer will
 // result in compilation errors.
-type UnsafeConnectEventServiceServer interface {
-	mustEmbedUnimplementedConnectEventServiceServer()
+type UnsafeFactoryResetProtectionPolicyServiceServer interface {
+	mustEmbedUnimplementedFactoryResetProtectionPolicyServiceServer()
 }
 
-func RegisterConnectEventServiceServer(s grpc.ServiceRegistrar, srv ConnectEventServiceServer) {
-	// If the following call panics, it indicates UnimplementedConnectEventServiceServer was
+func RegisterFactoryResetProtectionPolicyServiceServer(s grpc.ServiceRegistrar, srv FactoryResetProtectionPolicyServiceServer) {
+	// If the following call panics, it indicates UnimplementedFactoryResetProtectionPolicyServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&ConnectEventService_ServiceDesc, srv)
+	s.RegisterService(&FactoryResetProtectionPolicyService_ServiceDesc, srv)
 }
 
-func _ConnectEventService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DescribeContentsRequest)
+func _FactoryResetProtectionPolicyService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(FactoryResetProtectionPolicyDescribeContentsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ConnectEventServiceServer).DescribeContents(ctx, in)
+		return srv.(FactoryResetProtectionPolicyServiceServer).DescribeContents(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: ConnectEventService_DescribeContents_FullMethodName,
+		FullMethod: FactoryResetProtectionPolicyService_DescribeContents_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ConnectEventServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+		return srv.(FactoryResetProtectionPolicyServiceServer).DescribeContents(ctx, req.(*FactoryResetProtectionPolicyDescribeContentsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ConnectEventService_GetInetAddress_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetInetAddressRequest)
+func _FactoryResetProtectionPolicyService_GetFactoryResetProtectionAccounts_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetFactoryResetProtectionAccountsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ConnectEventServiceServer).GetInetAddress(ctx, in)
+		return srv.(FactoryResetProtectionPolicyServiceServer).GetFactoryResetProtectionAccounts(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: ConnectEventService_GetInetAddress_FullMethodName,
+		FullMethod: FactoryResetProtectionPolicyService_GetFactoryResetProtectionAccounts_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ConnectEventServiceServer).GetInetAddress(ctx, req.(*GetInetAddressRequest))
+		return srv.(FactoryResetProtectionPolicyServiceServer).GetFactoryResetProtectionAccounts(ctx, req.(*GetFactoryResetProtectionAccountsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ConnectEventService_GetPort_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetPortRequest)
+func _FactoryResetProtectionPolicyService_IsFactoryResetProtectionEnabled_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsFactoryResetProtectionEnabledRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ConnectEventServiceServer).GetPort(ctx, in)
+		return srv.(FactoryResetProtectionPolicyServiceServer).IsFactoryResetProtectionEnabled(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: ConnectEventService_GetPort_FullMethodName,
+		FullMethod: FactoryResetProtectionPolicyService_IsFactoryResetProtectionEnabled_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ConnectEventServiceServer).GetPort(ctx, req.(*GetPortRequest))
+		return srv.(FactoryResetProtectionPolicyServiceServer).IsFactoryResetProtectionEnabled(ctx, req.(*IsFactoryResetProtectionEnabledRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ConnectEventService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ToStringRequest)
+func _FactoryResetProtectionPolicyService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(FactoryResetProtectionPolicyToStringRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ConnectEventServiceServer).ToString(ctx, in)
+		return srv.(FactoryResetProtectionPolicyServiceServer).ToString(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: ConnectEventService_ToString_FullMethodName,
+		FullMethod: FactoryResetProtectionPolicyService_ToString_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ConnectEventServiceServer).ToString(ctx, req.(*ToStringRequest))
+		return srv.(FactoryResetProtectionPolicyServiceServer).ToString(ctx, req.(*FactoryResetProtectionPolicyToStringRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ConnectEventService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WriteToParcelRequest)
+func _FactoryResetProtectionPolicyService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(FactoryResetProtectionPolicyWriteToParcelRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ConnectEventServiceServer).WriteToParcel(ctx, in)
+		return srv.(FactoryResetProtectionPolicyServiceServer).WriteToParcel(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: ConnectEventService_WriteToParcel_FullMethodName,
+		FullMethod: FactoryResetProtectionPolicyService_WriteToParcel_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ConnectEventServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+		return srv.(FactoryResetProtectionPolicyServiceServer).WriteToParcel(ctx, req.(*FactoryResetProtectionPolicyWriteToParcelRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// ConnectEventService_ServiceDesc is the grpc.ServiceDesc for ConnectEventService service.
+// FactoryResetProtectionPolicyService_ServiceDesc is the grpc.ServiceDesc for FactoryResetProtectionPolicyService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var ConnectEventService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "admin.ConnectEventService",
-	HandlerType: (*ConnectEventServiceServer)(nil),
+var FactoryResetProtectionPolicyService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "admin.FactoryResetProtectionPolicyService",
+	HandlerType: (*FactoryResetProtectionPolicyServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
 			MethodName: "DescribeContents",
-			Handler:    _ConnectEventService_DescribeContents_Handler,
+			Handler:    _FactoryResetProtectionPolicyService_DescribeContents_Handler,
 		},
 		{
-			MethodName: "GetInetAddress",
-			Handler:    _ConnectEventService_GetInetAddress_Handler,
+			MethodName: "GetFactoryResetProtectionAccounts",
+			Handler:    _FactoryResetProtectionPolicyService_GetFactoryResetProtectionAccounts_Handler,
 		},
 		{
-			MethodName: "GetPort",
-			Handler:    _ConnectEventService_GetPort_Handler,
+			MethodName: "IsFactoryResetProtectionEnabled",
+			Handler:    _FactoryResetProtectionPolicyService_IsFactoryResetProtectionEnabled_Handler,
 		},
 		{
 			MethodName: "ToString",
-			Handler:    _ConnectEventService_ToString_Handler,
+			Handler:    _FactoryResetProtectionPolicyService_ToString_Handler,
 		},
 		{
 			MethodName: "WriteToParcel",
-			Handler:    _ConnectEventService_WriteToParcel_Handler,
+			Handler:    _FactoryResetProtectionPolicyService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/admin/admin.proto",
+}
+
+const (
+	FactoryResetProtectionPolicyBuilderService_Build_FullMethodName                            = "/admin.FactoryResetProtectionPolicyBuilderService/Build"
+	FactoryResetProtectionPolicyBuilderService_SetFactoryResetProtectionEnabled_FullMethodName = "/admin.FactoryResetProtectionPolicyBuilderService/SetFactoryResetProtectionEnabled"
+)
+
+// FactoryResetProtectionPolicyBuilderServiceClient is the client API for FactoryResetProtectionPolicyBuilderService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type FactoryResetProtectionPolicyBuilderServiceClient interface {
+	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
+	SetFactoryResetProtectionEnabled(ctx context.Context, in *SetFactoryResetProtectionEnabledRequest, opts ...grpc.CallOption) (*SetFactoryResetProtectionEnabledResponse, error)
+}
+
+type factoryResetProtectionPolicyBuilderServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewFactoryResetProtectionPolicyBuilderServiceClient(cc grpc.ClientConnInterface) FactoryResetProtectionPolicyBuilderServiceClient {
+	return &factoryResetProtectionPolicyBuilderServiceClient{cc}
+}
+
+func (c *factoryResetProtectionPolicyBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(BuildResponse)
+	err := c.cc.Invoke(ctx, FactoryResetProtectionPolicyBuilderService_Build_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *factoryResetProtectionPolicyBuilderServiceClient) SetFactoryResetProtectionEnabled(ctx context.Context, in *SetFactoryResetProtectionEnabledRequest, opts ...grpc.CallOption) (*SetFactoryResetProtectionEnabledResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetFactoryResetProtectionEnabledResponse)
+	err := c.cc.Invoke(ctx, FactoryResetProtectionPolicyBuilderService_SetFactoryResetProtectionEnabled_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// FactoryResetProtectionPolicyBuilderServiceServer is the server API for FactoryResetProtectionPolicyBuilderService service.
+// All implementations must embed UnimplementedFactoryResetProtectionPolicyBuilderServiceServer
+// for forward compatibility.
+type FactoryResetProtectionPolicyBuilderServiceServer interface {
+	Build(context.Context, *BuildRequest) (*BuildResponse, error)
+	SetFactoryResetProtectionEnabled(context.Context, *SetFactoryResetProtectionEnabledRequest) (*SetFactoryResetProtectionEnabledResponse, error)
+	mustEmbedUnimplementedFactoryResetProtectionPolicyBuilderServiceServer()
+}
+
+// UnimplementedFactoryResetProtectionPolicyBuilderServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedFactoryResetProtectionPolicyBuilderServiceServer struct{}
+
+func (UnimplementedFactoryResetProtectionPolicyBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
+}
+func (UnimplementedFactoryResetProtectionPolicyBuilderServiceServer) SetFactoryResetProtectionEnabled(context.Context, *SetFactoryResetProtectionEnabledRequest) (*SetFactoryResetProtectionEnabledResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetFactoryResetProtectionEnabled not implemented")
+}
+func (UnimplementedFactoryResetProtectionPolicyBuilderServiceServer) mustEmbedUnimplementedFactoryResetProtectionPolicyBuilderServiceServer() {
+}
+func (UnimplementedFactoryResetProtectionPolicyBuilderServiceServer) testEmbeddedByValue() {}
+
+// UnsafeFactoryResetProtectionPolicyBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to FactoryResetProtectionPolicyBuilderServiceServer will
+// result in compilation errors.
+type UnsafeFactoryResetProtectionPolicyBuilderServiceServer interface {
+	mustEmbedUnimplementedFactoryResetProtectionPolicyBuilderServiceServer()
+}
+
+func RegisterFactoryResetProtectionPolicyBuilderServiceServer(s grpc.ServiceRegistrar, srv FactoryResetProtectionPolicyBuilderServiceServer) {
+	// If the following call panics, it indicates UnimplementedFactoryResetProtectionPolicyBuilderServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&FactoryResetProtectionPolicyBuilderService_ServiceDesc, srv)
+}
+
+func _FactoryResetProtectionPolicyBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BuildRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FactoryResetProtectionPolicyBuilderServiceServer).Build(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: FactoryResetProtectionPolicyBuilderService_Build_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FactoryResetProtectionPolicyBuilderServiceServer).Build(ctx, req.(*BuildRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _FactoryResetProtectionPolicyBuilderService_SetFactoryResetProtectionEnabled_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetFactoryResetProtectionEnabledRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FactoryResetProtectionPolicyBuilderServiceServer).SetFactoryResetProtectionEnabled(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: FactoryResetProtectionPolicyBuilderService_SetFactoryResetProtectionEnabled_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FactoryResetProtectionPolicyBuilderServiceServer).SetFactoryResetProtectionEnabled(ctx, req.(*SetFactoryResetProtectionEnabledRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// FactoryResetProtectionPolicyBuilderService_ServiceDesc is the grpc.ServiceDesc for FactoryResetProtectionPolicyBuilderService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var FactoryResetProtectionPolicyBuilderService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "admin.FactoryResetProtectionPolicyBuilderService",
+	HandlerType: (*FactoryResetProtectionPolicyBuilderServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Build",
+			Handler:    _FactoryResetProtectionPolicyBuilderService_Build_Handler,
+		},
+		{
+			MethodName: "SetFactoryResetProtectionEnabled",
+			Handler:    _FactoryResetProtectionPolicyBuilderService_SetFactoryResetProtectionEnabled_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -3904,6 +2706,9 @@ const (
 	DevicePolicyManagerService_EnableSystemApp2_1_FullMethodName                             = "/admin.DevicePolicyManagerService/EnableSystemApp2_1"
 	DevicePolicyManagerService_GenerateKeyPair_FullMethodName                                = "/admin.DevicePolicyManagerService/GenerateKeyPair"
 	DevicePolicyManagerService_GetAccountTypesWithManagementDisabled_FullMethodName          = "/admin.DevicePolicyManagerService/GetAccountTypesWithManagementDisabled"
+	DevicePolicyManagerService_GetActiveAdmins_FullMethodName                                = "/admin.DevicePolicyManagerService/GetActiveAdmins"
+	DevicePolicyManagerService_GetAffiliationIds_FullMethodName                              = "/admin.DevicePolicyManagerService/GetAffiliationIds"
+	DevicePolicyManagerService_GetAlwaysOnVpnLockdownWhitelist_FullMethodName                = "/admin.DevicePolicyManagerService/GetAlwaysOnVpnLockdownWhitelist"
 	DevicePolicyManagerService_GetAlwaysOnVpnPackage_FullMethodName                          = "/admin.DevicePolicyManagerService/GetAlwaysOnVpnPackage"
 	DevicePolicyManagerService_GetAppFunctionsPolicy_FullMethodName                          = "/admin.DevicePolicyManagerService/GetAppFunctionsPolicy"
 	DevicePolicyManagerService_GetApplicationRestrictions_FullMethodName                     = "/admin.DevicePolicyManagerService/GetApplicationRestrictions"
@@ -3913,14 +2718,20 @@ const (
 	DevicePolicyManagerService_GetAutoTimeRequired_FullMethodName                            = "/admin.DevicePolicyManagerService/GetAutoTimeRequired"
 	DevicePolicyManagerService_GetAutoTimeZoneEnabled_FullMethodName                         = "/admin.DevicePolicyManagerService/GetAutoTimeZoneEnabled"
 	DevicePolicyManagerService_GetAutoTimeZonePolicy_FullMethodName                          = "/admin.DevicePolicyManagerService/GetAutoTimeZonePolicy"
+	DevicePolicyManagerService_GetBindDeviceAdminTargetUsers_FullMethodName                  = "/admin.DevicePolicyManagerService/GetBindDeviceAdminTargetUsers"
 	DevicePolicyManagerService_GetBluetoothContactSharingDisabled_FullMethodName             = "/admin.DevicePolicyManagerService/GetBluetoothContactSharingDisabled"
 	DevicePolicyManagerService_GetCameraDisabled_FullMethodName                              = "/admin.DevicePolicyManagerService/GetCameraDisabled"
 	DevicePolicyManagerService_GetCertInstallerPackage_FullMethodName                        = "/admin.DevicePolicyManagerService/GetCertInstallerPackage"
 	DevicePolicyManagerService_GetContentProtectionPolicy_FullMethodName                     = "/admin.DevicePolicyManagerService/GetContentProtectionPolicy"
 	DevicePolicyManagerService_GetCredentialManagerPolicy_FullMethodName                     = "/admin.DevicePolicyManagerService/GetCredentialManagerPolicy"
+	DevicePolicyManagerService_GetCrossProfileCalendarPackages_FullMethodName                = "/admin.DevicePolicyManagerService/GetCrossProfileCalendarPackages"
 	DevicePolicyManagerService_GetCrossProfileCallerIdDisabled_FullMethodName                = "/admin.DevicePolicyManagerService/GetCrossProfileCallerIdDisabled"
 	DevicePolicyManagerService_GetCrossProfileContactsSearchDisabled_FullMethodName          = "/admin.DevicePolicyManagerService/GetCrossProfileContactsSearchDisabled"
+	DevicePolicyManagerService_GetCrossProfilePackages_FullMethodName                        = "/admin.DevicePolicyManagerService/GetCrossProfilePackages"
+	DevicePolicyManagerService_GetCrossProfileWidgetProviders_FullMethodName                 = "/admin.DevicePolicyManagerService/GetCrossProfileWidgetProviders"
 	DevicePolicyManagerService_GetCurrentFailedPasswordAttempts_FullMethodName               = "/admin.DevicePolicyManagerService/GetCurrentFailedPasswordAttempts"
+	DevicePolicyManagerService_GetDelegatePackages_FullMethodName                            = "/admin.DevicePolicyManagerService/GetDelegatePackages"
+	DevicePolicyManagerService_GetDelegatedScopes_FullMethodName                             = "/admin.DevicePolicyManagerService/GetDelegatedScopes"
 	DevicePolicyManagerService_GetDeviceOwnerLockScreenInfo_FullMethodName                   = "/admin.DevicePolicyManagerService/GetDeviceOwnerLockScreenInfo"
 	DevicePolicyManagerService_GetDevicePolicyManagementRoleHolderPackage_FullMethodName     = "/admin.DevicePolicyManagerService/GetDevicePolicyManagementRoleHolderPackage"
 	DevicePolicyManagerService_GetEndUserSessionMessage_FullMethodName                       = "/admin.DevicePolicyManagerService/GetEndUserSessionMessage"
@@ -3928,6 +2739,8 @@ const (
 	DevicePolicyManagerService_GetFactoryResetProtectionPolicy_FullMethodName                = "/admin.DevicePolicyManagerService/GetFactoryResetProtectionPolicy"
 	DevicePolicyManagerService_GetGlobalPrivateDnsHost_FullMethodName                        = "/admin.DevicePolicyManagerService/GetGlobalPrivateDnsHost"
 	DevicePolicyManagerService_GetGlobalPrivateDnsMode_FullMethodName                        = "/admin.DevicePolicyManagerService/GetGlobalPrivateDnsMode"
+	DevicePolicyManagerService_GetInstalledCaCerts_FullMethodName                            = "/admin.DevicePolicyManagerService/GetInstalledCaCerts"
+	DevicePolicyManagerService_GetKeepUninstalledPackages_FullMethodName                     = "/admin.DevicePolicyManagerService/GetKeepUninstalledPackages"
 	DevicePolicyManagerService_GetKeyguardDisabledFeatures_FullMethodName                    = "/admin.DevicePolicyManagerService/GetKeyguardDisabledFeatures"
 	DevicePolicyManagerService_GetLockTaskFeatures_FullMethodName                            = "/admin.DevicePolicyManagerService/GetLockTaskFeatures"
 	DevicePolicyManagerService_GetLockTaskPackages_FullMethodName                            = "/admin.DevicePolicyManagerService/GetLockTaskPackages"
@@ -3938,12 +2751,14 @@ const (
 	DevicePolicyManagerService_GetManagedSubscriptionsPolicy_FullMethodName                  = "/admin.DevicePolicyManagerService/GetManagedSubscriptionsPolicy"
 	DevicePolicyManagerService_GetMaximumFailedPasswordsForWipe_FullMethodName               = "/admin.DevicePolicyManagerService/GetMaximumFailedPasswordsForWipe"
 	DevicePolicyManagerService_GetMaximumTimeToLock_FullMethodName                           = "/admin.DevicePolicyManagerService/GetMaximumTimeToLock"
+	DevicePolicyManagerService_GetMeteredDataDisabledPackages_FullMethodName                 = "/admin.DevicePolicyManagerService/GetMeteredDataDisabledPackages"
 	DevicePolicyManagerService_GetMinimumRequiredWifiSecurityLevel_FullMethodName            = "/admin.DevicePolicyManagerService/GetMinimumRequiredWifiSecurityLevel"
 	DevicePolicyManagerService_GetMtePolicy_FullMethodName                                   = "/admin.DevicePolicyManagerService/GetMtePolicy"
 	DevicePolicyManagerService_GetNearbyAppStreamingPolicy_FullMethodName                    = "/admin.DevicePolicyManagerService/GetNearbyAppStreamingPolicy"
 	DevicePolicyManagerService_GetNearbyNotificationStreamingPolicy_FullMethodName           = "/admin.DevicePolicyManagerService/GetNearbyNotificationStreamingPolicy"
 	DevicePolicyManagerService_GetOrganizationColor_FullMethodName                           = "/admin.DevicePolicyManagerService/GetOrganizationColor"
 	DevicePolicyManagerService_GetOrganizationName_FullMethodName                            = "/admin.DevicePolicyManagerService/GetOrganizationName"
+	DevicePolicyManagerService_GetOverrideApns_FullMethodName                                = "/admin.DevicePolicyManagerService/GetOverrideApns"
 	DevicePolicyManagerService_GetParentProfileInstance_FullMethodName                       = "/admin.DevicePolicyManagerService/GetParentProfileInstance"
 	DevicePolicyManagerService_GetPasswordComplexity_FullMethodName                          = "/admin.DevicePolicyManagerService/GetPasswordComplexity"
 	DevicePolicyManagerService_GetPasswordExpiration_FullMethodName                          = "/admin.DevicePolicyManagerService/GetPasswordExpiration"
@@ -3961,17 +2776,25 @@ const (
 	DevicePolicyManagerService_GetPendingSystemUpdate_FullMethodName                         = "/admin.DevicePolicyManagerService/GetPendingSystemUpdate"
 	DevicePolicyManagerService_GetPermissionGrantState_FullMethodName                        = "/admin.DevicePolicyManagerService/GetPermissionGrantState"
 	DevicePolicyManagerService_GetPermissionPolicy_FullMethodName                            = "/admin.DevicePolicyManagerService/GetPermissionPolicy"
+	DevicePolicyManagerService_GetPermittedAccessibilityServices_FullMethodName              = "/admin.DevicePolicyManagerService/GetPermittedAccessibilityServices"
+	DevicePolicyManagerService_GetPermittedCrossProfileNotificationListeners_FullMethodName  = "/admin.DevicePolicyManagerService/GetPermittedCrossProfileNotificationListeners"
+	DevicePolicyManagerService_GetPermittedInputMethods_FullMethodName                       = "/admin.DevicePolicyManagerService/GetPermittedInputMethods"
 	DevicePolicyManagerService_GetPersonalAppsSuspendedReasons_FullMethodName                = "/admin.DevicePolicyManagerService/GetPersonalAppsSuspendedReasons"
+	DevicePolicyManagerService_GetPreferentialNetworkServiceConfigs_FullMethodName           = "/admin.DevicePolicyManagerService/GetPreferentialNetworkServiceConfigs"
 	DevicePolicyManagerService_GetRequiredPasswordComplexity_FullMethodName                  = "/admin.DevicePolicyManagerService/GetRequiredPasswordComplexity"
 	DevicePolicyManagerService_GetRequiredStrongAuthTimeout_FullMethodName                   = "/admin.DevicePolicyManagerService/GetRequiredStrongAuthTimeout"
 	DevicePolicyManagerService_GetResources_FullMethodName                                   = "/admin.DevicePolicyManagerService/GetResources"
 	DevicePolicyManagerService_GetScreenCaptureDisabled_FullMethodName                       = "/admin.DevicePolicyManagerService/GetScreenCaptureDisabled"
+	DevicePolicyManagerService_GetSecondaryUsers_FullMethodName                              = "/admin.DevicePolicyManagerService/GetSecondaryUsers"
 	DevicePolicyManagerService_GetShortSupportMessage_FullMethodName                         = "/admin.DevicePolicyManagerService/GetShortSupportMessage"
 	DevicePolicyManagerService_GetStartUserSessionMessage_FullMethodName                     = "/admin.DevicePolicyManagerService/GetStartUserSessionMessage"
 	DevicePolicyManagerService_GetStorageEncryption_FullMethodName                           = "/admin.DevicePolicyManagerService/GetStorageEncryption"
 	DevicePolicyManagerService_GetStorageEncryptionStatus_FullMethodName                     = "/admin.DevicePolicyManagerService/GetStorageEncryptionStatus"
+	DevicePolicyManagerService_GetSubscriptionIds_FullMethodName                             = "/admin.DevicePolicyManagerService/GetSubscriptionIds"
 	DevicePolicyManagerService_GetSystemUpdatePolicy_FullMethodName                          = "/admin.DevicePolicyManagerService/GetSystemUpdatePolicy"
 	DevicePolicyManagerService_GetTransferOwnershipBundle_FullMethodName                     = "/admin.DevicePolicyManagerService/GetTransferOwnershipBundle"
+	DevicePolicyManagerService_GetTrustAgentConfiguration_FullMethodName                     = "/admin.DevicePolicyManagerService/GetTrustAgentConfiguration"
+	DevicePolicyManagerService_GetUserControlDisabledPackages_FullMethodName                 = "/admin.DevicePolicyManagerService/GetUserControlDisabledPackages"
 	DevicePolicyManagerService_GetUserRestrictions_FullMethodName                            = "/admin.DevicePolicyManagerService/GetUserRestrictions"
 	DevicePolicyManagerService_GetUserRestrictionsGlobally_FullMethodName                    = "/admin.DevicePolicyManagerService/GetUserRestrictionsGlobally"
 	DevicePolicyManagerService_GetWifiMacAddress_FullMethodName                              = "/admin.DevicePolicyManagerService/GetWifiMacAddress"
@@ -4022,6 +2845,7 @@ const (
 	DevicePolicyManagerService_IsUniqueDeviceAttestationSupported_FullMethodName             = "/admin.DevicePolicyManagerService/IsUniqueDeviceAttestationSupported"
 	DevicePolicyManagerService_IsUsbDataSignalingEnabled_FullMethodName                      = "/admin.DevicePolicyManagerService/IsUsbDataSignalingEnabled"
 	DevicePolicyManagerService_IsUsingUnifiedPassword_FullMethodName                         = "/admin.DevicePolicyManagerService/IsUsingUnifiedPassword"
+	DevicePolicyManagerService_ListForegroundAffiliatedUsers_FullMethodName                  = "/admin.DevicePolicyManagerService/ListForegroundAffiliatedUsers"
 	DevicePolicyManagerService_LockNow0_FullMethodName                                       = "/admin.DevicePolicyManagerService/LockNow0"
 	DevicePolicyManagerService_LockNow1_1_FullMethodName                                     = "/admin.DevicePolicyManagerService/LockNow1_1"
 	DevicePolicyManagerService_LogoutUser_FullMethodName                                     = "/admin.DevicePolicyManagerService/LogoutUser"
@@ -4034,6 +2858,9 @@ const (
 	DevicePolicyManagerService_RequestBugreport_FullMethodName                               = "/admin.DevicePolicyManagerService/RequestBugreport"
 	DevicePolicyManagerService_ResetPassword_FullMethodName                                  = "/admin.DevicePolicyManagerService/ResetPassword"
 	DevicePolicyManagerService_ResetPasswordWithToken_FullMethodName                         = "/admin.DevicePolicyManagerService/ResetPasswordWithToken"
+	DevicePolicyManagerService_RetrieveNetworkLogs_FullMethodName                            = "/admin.DevicePolicyManagerService/RetrieveNetworkLogs"
+	DevicePolicyManagerService_RetrievePreRebootSecurityLogs_FullMethodName                  = "/admin.DevicePolicyManagerService/RetrievePreRebootSecurityLogs"
+	DevicePolicyManagerService_RetrieveSecurityLogs_FullMethodName                           = "/admin.DevicePolicyManagerService/RetrieveSecurityLogs"
 	DevicePolicyManagerService_RevokeKeyPairFromApp_FullMethodName                           = "/admin.DevicePolicyManagerService/RevokeKeyPairFromApp"
 	DevicePolicyManagerService_RevokeKeyPairFromWifiAuth_FullMethodName                      = "/admin.DevicePolicyManagerService/RevokeKeyPairFromWifiAuth"
 	DevicePolicyManagerService_SetAccountManagementDisabled_FullMethodName                   = "/admin.DevicePolicyManagerService/SetAccountManagementDisabled"
@@ -4167,6 +2994,9 @@ type DevicePolicyManagerServiceClient interface {
 	EnableSystemApp2_1(ctx context.Context, in *EnableSystemApp2_1Request, opts ...grpc.CallOption) (*EnableSystemApp2_1Response, error)
 	GenerateKeyPair(ctx context.Context, in *GenerateKeyPairRequest, opts ...grpc.CallOption) (*GenerateKeyPairResponse, error)
 	GetAccountTypesWithManagementDisabled(ctx context.Context, in *GetAccountTypesWithManagementDisabledRequest, opts ...grpc.CallOption) (*GetAccountTypesWithManagementDisabledResponse, error)
+	GetActiveAdmins(ctx context.Context, in *GetActiveAdminsRequest, opts ...grpc.CallOption) (*GetActiveAdminsResponse, error)
+	GetAffiliationIds(ctx context.Context, in *GetAffiliationIdsRequest, opts ...grpc.CallOption) (*GetAffiliationIdsResponse, error)
+	GetAlwaysOnVpnLockdownWhitelist(ctx context.Context, in *GetAlwaysOnVpnLockdownWhitelistRequest, opts ...grpc.CallOption) (*GetAlwaysOnVpnLockdownWhitelistResponse, error)
 	GetAlwaysOnVpnPackage(ctx context.Context, in *GetAlwaysOnVpnPackageRequest, opts ...grpc.CallOption) (*GetAlwaysOnVpnPackageResponse, error)
 	GetAppFunctionsPolicy(ctx context.Context, in *GetAppFunctionsPolicyRequest, opts ...grpc.CallOption) (*GetAppFunctionsPolicyResponse, error)
 	GetApplicationRestrictions(ctx context.Context, in *GetApplicationRestrictionsRequest, opts ...grpc.CallOption) (*GetApplicationRestrictionsResponse, error)
@@ -4176,14 +3006,20 @@ type DevicePolicyManagerServiceClient interface {
 	GetAutoTimeRequired(ctx context.Context, in *GetAutoTimeRequiredRequest, opts ...grpc.CallOption) (*GetAutoTimeRequiredResponse, error)
 	GetAutoTimeZoneEnabled(ctx context.Context, in *GetAutoTimeZoneEnabledRequest, opts ...grpc.CallOption) (*GetAutoTimeZoneEnabledResponse, error)
 	GetAutoTimeZonePolicy(ctx context.Context, in *GetAutoTimeZonePolicyRequest, opts ...grpc.CallOption) (*GetAutoTimeZonePolicyResponse, error)
+	GetBindDeviceAdminTargetUsers(ctx context.Context, in *GetBindDeviceAdminTargetUsersRequest, opts ...grpc.CallOption) (*GetBindDeviceAdminTargetUsersResponse, error)
 	GetBluetoothContactSharingDisabled(ctx context.Context, in *GetBluetoothContactSharingDisabledRequest, opts ...grpc.CallOption) (*GetBluetoothContactSharingDisabledResponse, error)
 	GetCameraDisabled(ctx context.Context, in *GetCameraDisabledRequest, opts ...grpc.CallOption) (*GetCameraDisabledResponse, error)
 	GetCertInstallerPackage(ctx context.Context, in *GetCertInstallerPackageRequest, opts ...grpc.CallOption) (*GetCertInstallerPackageResponse, error)
 	GetContentProtectionPolicy(ctx context.Context, in *GetContentProtectionPolicyRequest, opts ...grpc.CallOption) (*GetContentProtectionPolicyResponse, error)
 	GetCredentialManagerPolicy(ctx context.Context, in *GetCredentialManagerPolicyRequest, opts ...grpc.CallOption) (*GetCredentialManagerPolicyResponse, error)
+	GetCrossProfileCalendarPackages(ctx context.Context, in *GetCrossProfileCalendarPackagesRequest, opts ...grpc.CallOption) (*GetCrossProfileCalendarPackagesResponse, error)
 	GetCrossProfileCallerIdDisabled(ctx context.Context, in *GetCrossProfileCallerIdDisabledRequest, opts ...grpc.CallOption) (*GetCrossProfileCallerIdDisabledResponse, error)
 	GetCrossProfileContactsSearchDisabled(ctx context.Context, in *GetCrossProfileContactsSearchDisabledRequest, opts ...grpc.CallOption) (*GetCrossProfileContactsSearchDisabledResponse, error)
+	GetCrossProfilePackages(ctx context.Context, in *GetCrossProfilePackagesRequest, opts ...grpc.CallOption) (*GetCrossProfilePackagesResponse, error)
+	GetCrossProfileWidgetProviders(ctx context.Context, in *GetCrossProfileWidgetProvidersRequest, opts ...grpc.CallOption) (*GetCrossProfileWidgetProvidersResponse, error)
 	GetCurrentFailedPasswordAttempts(ctx context.Context, in *GetCurrentFailedPasswordAttemptsRequest, opts ...grpc.CallOption) (*GetCurrentFailedPasswordAttemptsResponse, error)
+	GetDelegatePackages(ctx context.Context, in *GetDelegatePackagesRequest, opts ...grpc.CallOption) (*GetDelegatePackagesResponse, error)
+	GetDelegatedScopes(ctx context.Context, in *GetDelegatedScopesRequest, opts ...grpc.CallOption) (*GetDelegatedScopesResponse, error)
 	GetDeviceOwnerLockScreenInfo(ctx context.Context, in *GetDeviceOwnerLockScreenInfoRequest, opts ...grpc.CallOption) (*GetDeviceOwnerLockScreenInfoResponse, error)
 	GetDevicePolicyManagementRoleHolderPackage(ctx context.Context, in *GetDevicePolicyManagementRoleHolderPackageRequest, opts ...grpc.CallOption) (*GetDevicePolicyManagementRoleHolderPackageResponse, error)
 	GetEndUserSessionMessage(ctx context.Context, in *GetEndUserSessionMessageRequest, opts ...grpc.CallOption) (*GetEndUserSessionMessageResponse, error)
@@ -4191,6 +3027,8 @@ type DevicePolicyManagerServiceClient interface {
 	GetFactoryResetProtectionPolicy(ctx context.Context, in *GetFactoryResetProtectionPolicyRequest, opts ...grpc.CallOption) (*GetFactoryResetProtectionPolicyResponse, error)
 	GetGlobalPrivateDnsHost(ctx context.Context, in *GetGlobalPrivateDnsHostRequest, opts ...grpc.CallOption) (*GetGlobalPrivateDnsHostResponse, error)
 	GetGlobalPrivateDnsMode(ctx context.Context, in *GetGlobalPrivateDnsModeRequest, opts ...grpc.CallOption) (*GetGlobalPrivateDnsModeResponse, error)
+	GetInstalledCaCerts(ctx context.Context, in *GetInstalledCaCertsRequest, opts ...grpc.CallOption) (*GetInstalledCaCertsResponse, error)
+	GetKeepUninstalledPackages(ctx context.Context, in *GetKeepUninstalledPackagesRequest, opts ...grpc.CallOption) (*GetKeepUninstalledPackagesResponse, error)
 	GetKeyguardDisabledFeatures(ctx context.Context, in *GetKeyguardDisabledFeaturesRequest, opts ...grpc.CallOption) (*GetKeyguardDisabledFeaturesResponse, error)
 	GetLockTaskFeatures(ctx context.Context, in *GetLockTaskFeaturesRequest, opts ...grpc.CallOption) (*GetLockTaskFeaturesResponse, error)
 	GetLockTaskPackages(ctx context.Context, in *GetLockTaskPackagesRequest, opts ...grpc.CallOption) (*GetLockTaskPackagesResponse, error)
@@ -4201,12 +3039,14 @@ type DevicePolicyManagerServiceClient interface {
 	GetManagedSubscriptionsPolicy(ctx context.Context, in *GetManagedSubscriptionsPolicyRequest, opts ...grpc.CallOption) (*GetManagedSubscriptionsPolicyResponse, error)
 	GetMaximumFailedPasswordsForWipe(ctx context.Context, in *GetMaximumFailedPasswordsForWipeRequest, opts ...grpc.CallOption) (*GetMaximumFailedPasswordsForWipeResponse, error)
 	GetMaximumTimeToLock(ctx context.Context, in *GetMaximumTimeToLockRequest, opts ...grpc.CallOption) (*GetMaximumTimeToLockResponse, error)
+	GetMeteredDataDisabledPackages(ctx context.Context, in *GetMeteredDataDisabledPackagesRequest, opts ...grpc.CallOption) (*GetMeteredDataDisabledPackagesResponse, error)
 	GetMinimumRequiredWifiSecurityLevel(ctx context.Context, in *GetMinimumRequiredWifiSecurityLevelRequest, opts ...grpc.CallOption) (*GetMinimumRequiredWifiSecurityLevelResponse, error)
 	GetMtePolicy(ctx context.Context, in *GetMtePolicyRequest, opts ...grpc.CallOption) (*GetMtePolicyResponse, error)
 	GetNearbyAppStreamingPolicy(ctx context.Context, in *GetNearbyAppStreamingPolicyRequest, opts ...grpc.CallOption) (*GetNearbyAppStreamingPolicyResponse, error)
 	GetNearbyNotificationStreamingPolicy(ctx context.Context, in *GetNearbyNotificationStreamingPolicyRequest, opts ...grpc.CallOption) (*GetNearbyNotificationStreamingPolicyResponse, error)
 	GetOrganizationColor(ctx context.Context, in *GetOrganizationColorRequest, opts ...grpc.CallOption) (*GetOrganizationColorResponse, error)
 	GetOrganizationName(ctx context.Context, in *GetOrganizationNameRequest, opts ...grpc.CallOption) (*GetOrganizationNameResponse, error)
+	GetOverrideApns(ctx context.Context, in *GetOverrideApnsRequest, opts ...grpc.CallOption) (*GetOverrideApnsResponse, error)
 	GetParentProfileInstance(ctx context.Context, in *GetParentProfileInstanceRequest, opts ...grpc.CallOption) (*GetParentProfileInstanceResponse, error)
 	GetPasswordComplexity(ctx context.Context, in *GetPasswordComplexityRequest, opts ...grpc.CallOption) (*GetPasswordComplexityResponse, error)
 	GetPasswordExpiration(ctx context.Context, in *GetPasswordExpirationRequest, opts ...grpc.CallOption) (*GetPasswordExpirationResponse, error)
@@ -4224,17 +3064,25 @@ type DevicePolicyManagerServiceClient interface {
 	GetPendingSystemUpdate(ctx context.Context, in *GetPendingSystemUpdateRequest, opts ...grpc.CallOption) (*GetPendingSystemUpdateResponse, error)
 	GetPermissionGrantState(ctx context.Context, in *GetPermissionGrantStateRequest, opts ...grpc.CallOption) (*GetPermissionGrantStateResponse, error)
 	GetPermissionPolicy(ctx context.Context, in *GetPermissionPolicyRequest, opts ...grpc.CallOption) (*GetPermissionPolicyResponse, error)
+	GetPermittedAccessibilityServices(ctx context.Context, in *GetPermittedAccessibilityServicesRequest, opts ...grpc.CallOption) (*GetPermittedAccessibilityServicesResponse, error)
+	GetPermittedCrossProfileNotificationListeners(ctx context.Context, in *GetPermittedCrossProfileNotificationListenersRequest, opts ...grpc.CallOption) (*GetPermittedCrossProfileNotificationListenersResponse, error)
+	GetPermittedInputMethods(ctx context.Context, in *GetPermittedInputMethodsRequest, opts ...grpc.CallOption) (*GetPermittedInputMethodsResponse, error)
 	GetPersonalAppsSuspendedReasons(ctx context.Context, in *GetPersonalAppsSuspendedReasonsRequest, opts ...grpc.CallOption) (*GetPersonalAppsSuspendedReasonsResponse, error)
+	GetPreferentialNetworkServiceConfigs(ctx context.Context, in *GetPreferentialNetworkServiceConfigsRequest, opts ...grpc.CallOption) (*GetPreferentialNetworkServiceConfigsResponse, error)
 	GetRequiredPasswordComplexity(ctx context.Context, in *GetRequiredPasswordComplexityRequest, opts ...grpc.CallOption) (*GetRequiredPasswordComplexityResponse, error)
 	GetRequiredStrongAuthTimeout(ctx context.Context, in *GetRequiredStrongAuthTimeoutRequest, opts ...grpc.CallOption) (*GetRequiredStrongAuthTimeoutResponse, error)
 	GetResources(ctx context.Context, in *GetResourcesRequest, opts ...grpc.CallOption) (*GetResourcesResponse, error)
 	GetScreenCaptureDisabled(ctx context.Context, in *GetScreenCaptureDisabledRequest, opts ...grpc.CallOption) (*GetScreenCaptureDisabledResponse, error)
+	GetSecondaryUsers(ctx context.Context, in *GetSecondaryUsersRequest, opts ...grpc.CallOption) (*GetSecondaryUsersResponse, error)
 	GetShortSupportMessage(ctx context.Context, in *GetShortSupportMessageRequest, opts ...grpc.CallOption) (*GetShortSupportMessageResponse, error)
 	GetStartUserSessionMessage(ctx context.Context, in *GetStartUserSessionMessageRequest, opts ...grpc.CallOption) (*GetStartUserSessionMessageResponse, error)
 	GetStorageEncryption(ctx context.Context, in *GetStorageEncryptionRequest, opts ...grpc.CallOption) (*GetStorageEncryptionResponse, error)
 	GetStorageEncryptionStatus(ctx context.Context, in *GetStorageEncryptionStatusRequest, opts ...grpc.CallOption) (*GetStorageEncryptionStatusResponse, error)
+	GetSubscriptionIds(ctx context.Context, in *GetSubscriptionIdsRequest, opts ...grpc.CallOption) (*GetSubscriptionIdsResponse, error)
 	GetSystemUpdatePolicy(ctx context.Context, in *GetSystemUpdatePolicyRequest, opts ...grpc.CallOption) (*GetSystemUpdatePolicyResponse, error)
 	GetTransferOwnershipBundle(ctx context.Context, in *GetTransferOwnershipBundleRequest, opts ...grpc.CallOption) (*GetTransferOwnershipBundleResponse, error)
+	GetTrustAgentConfiguration(ctx context.Context, in *GetTrustAgentConfigurationRequest, opts ...grpc.CallOption) (*GetTrustAgentConfigurationResponse, error)
+	GetUserControlDisabledPackages(ctx context.Context, in *GetUserControlDisabledPackagesRequest, opts ...grpc.CallOption) (*GetUserControlDisabledPackagesResponse, error)
 	GetUserRestrictions(ctx context.Context, in *GetUserRestrictionsRequest, opts ...grpc.CallOption) (*GetUserRestrictionsResponse, error)
 	GetUserRestrictionsGlobally(ctx context.Context, in *GetUserRestrictionsGloballyRequest, opts ...grpc.CallOption) (*GetUserRestrictionsGloballyResponse, error)
 	GetWifiMacAddress(ctx context.Context, in *GetWifiMacAddressRequest, opts ...grpc.CallOption) (*GetWifiMacAddressResponse, error)
@@ -4285,6 +3133,7 @@ type DevicePolicyManagerServiceClient interface {
 	IsUniqueDeviceAttestationSupported(ctx context.Context, in *IsUniqueDeviceAttestationSupportedRequest, opts ...grpc.CallOption) (*IsUniqueDeviceAttestationSupportedResponse, error)
 	IsUsbDataSignalingEnabled(ctx context.Context, in *IsUsbDataSignalingEnabledRequest, opts ...grpc.CallOption) (*IsUsbDataSignalingEnabledResponse, error)
 	IsUsingUnifiedPassword(ctx context.Context, in *IsUsingUnifiedPasswordRequest, opts ...grpc.CallOption) (*IsUsingUnifiedPasswordResponse, error)
+	ListForegroundAffiliatedUsers(ctx context.Context, in *ListForegroundAffiliatedUsersRequest, opts ...grpc.CallOption) (*ListForegroundAffiliatedUsersResponse, error)
 	LockNow0(ctx context.Context, in *LockNow0Request, opts ...grpc.CallOption) (*LockNow0Response, error)
 	LockNow1_1(ctx context.Context, in *LockNow1_1Request, opts ...grpc.CallOption) (*LockNow1_1Response, error)
 	LogoutUser(ctx context.Context, in *LogoutUserRequest, opts ...grpc.CallOption) (*LogoutUserResponse, error)
@@ -4297,6 +3146,9 @@ type DevicePolicyManagerServiceClient interface {
 	RequestBugreport(ctx context.Context, in *RequestBugreportRequest, opts ...grpc.CallOption) (*RequestBugreportResponse, error)
 	ResetPassword(ctx context.Context, in *ResetPasswordRequest, opts ...grpc.CallOption) (*ResetPasswordResponse, error)
 	ResetPasswordWithToken(ctx context.Context, in *ResetPasswordWithTokenRequest, opts ...grpc.CallOption) (*ResetPasswordWithTokenResponse, error)
+	RetrieveNetworkLogs(ctx context.Context, in *RetrieveNetworkLogsRequest, opts ...grpc.CallOption) (*RetrieveNetworkLogsResponse, error)
+	RetrievePreRebootSecurityLogs(ctx context.Context, in *RetrievePreRebootSecurityLogsRequest, opts ...grpc.CallOption) (*RetrievePreRebootSecurityLogsResponse, error)
+	RetrieveSecurityLogs(ctx context.Context, in *RetrieveSecurityLogsRequest, opts ...grpc.CallOption) (*RetrieveSecurityLogsResponse, error)
 	RevokeKeyPairFromApp(ctx context.Context, in *RevokeKeyPairFromAppRequest, opts ...grpc.CallOption) (*RevokeKeyPairFromAppResponse, error)
 	RevokeKeyPairFromWifiAuth(ctx context.Context, in *RevokeKeyPairFromWifiAuthRequest, opts ...grpc.CallOption) (*RevokeKeyPairFromWifiAuthResponse, error)
 	SetAccountManagementDisabled(ctx context.Context, in *SetAccountManagementDisabledRequest, opts ...grpc.CallOption) (*SetAccountManagementDisabledResponse, error)
@@ -4650,6 +3502,36 @@ func (c *devicePolicyManagerServiceClient) GetAccountTypesWithManagementDisabled
 	return out, nil
 }
 
+func (c *devicePolicyManagerServiceClient) GetActiveAdmins(ctx context.Context, in *GetActiveAdminsRequest, opts ...grpc.CallOption) (*GetActiveAdminsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetActiveAdminsResponse)
+	err := c.cc.Invoke(ctx, DevicePolicyManagerService_GetActiveAdmins_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *devicePolicyManagerServiceClient) GetAffiliationIds(ctx context.Context, in *GetAffiliationIdsRequest, opts ...grpc.CallOption) (*GetAffiliationIdsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetAffiliationIdsResponse)
+	err := c.cc.Invoke(ctx, DevicePolicyManagerService_GetAffiliationIds_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *devicePolicyManagerServiceClient) GetAlwaysOnVpnLockdownWhitelist(ctx context.Context, in *GetAlwaysOnVpnLockdownWhitelistRequest, opts ...grpc.CallOption) (*GetAlwaysOnVpnLockdownWhitelistResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetAlwaysOnVpnLockdownWhitelistResponse)
+	err := c.cc.Invoke(ctx, DevicePolicyManagerService_GetAlwaysOnVpnLockdownWhitelist_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *devicePolicyManagerServiceClient) GetAlwaysOnVpnPackage(ctx context.Context, in *GetAlwaysOnVpnPackageRequest, opts ...grpc.CallOption) (*GetAlwaysOnVpnPackageResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetAlwaysOnVpnPackageResponse)
@@ -4740,6 +3622,16 @@ func (c *devicePolicyManagerServiceClient) GetAutoTimeZonePolicy(ctx context.Con
 	return out, nil
 }
 
+func (c *devicePolicyManagerServiceClient) GetBindDeviceAdminTargetUsers(ctx context.Context, in *GetBindDeviceAdminTargetUsersRequest, opts ...grpc.CallOption) (*GetBindDeviceAdminTargetUsersResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetBindDeviceAdminTargetUsersResponse)
+	err := c.cc.Invoke(ctx, DevicePolicyManagerService_GetBindDeviceAdminTargetUsers_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *devicePolicyManagerServiceClient) GetBluetoothContactSharingDisabled(ctx context.Context, in *GetBluetoothContactSharingDisabledRequest, opts ...grpc.CallOption) (*GetBluetoothContactSharingDisabledResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetBluetoothContactSharingDisabledResponse)
@@ -4790,6 +3682,16 @@ func (c *devicePolicyManagerServiceClient) GetCredentialManagerPolicy(ctx contex
 	return out, nil
 }
 
+func (c *devicePolicyManagerServiceClient) GetCrossProfileCalendarPackages(ctx context.Context, in *GetCrossProfileCalendarPackagesRequest, opts ...grpc.CallOption) (*GetCrossProfileCalendarPackagesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetCrossProfileCalendarPackagesResponse)
+	err := c.cc.Invoke(ctx, DevicePolicyManagerService_GetCrossProfileCalendarPackages_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *devicePolicyManagerServiceClient) GetCrossProfileCallerIdDisabled(ctx context.Context, in *GetCrossProfileCallerIdDisabledRequest, opts ...grpc.CallOption) (*GetCrossProfileCallerIdDisabledResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetCrossProfileCallerIdDisabledResponse)
@@ -4810,10 +3712,50 @@ func (c *devicePolicyManagerServiceClient) GetCrossProfileContactsSearchDisabled
 	return out, nil
 }
 
+func (c *devicePolicyManagerServiceClient) GetCrossProfilePackages(ctx context.Context, in *GetCrossProfilePackagesRequest, opts ...grpc.CallOption) (*GetCrossProfilePackagesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetCrossProfilePackagesResponse)
+	err := c.cc.Invoke(ctx, DevicePolicyManagerService_GetCrossProfilePackages_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *devicePolicyManagerServiceClient) GetCrossProfileWidgetProviders(ctx context.Context, in *GetCrossProfileWidgetProvidersRequest, opts ...grpc.CallOption) (*GetCrossProfileWidgetProvidersResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetCrossProfileWidgetProvidersResponse)
+	err := c.cc.Invoke(ctx, DevicePolicyManagerService_GetCrossProfileWidgetProviders_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *devicePolicyManagerServiceClient) GetCurrentFailedPasswordAttempts(ctx context.Context, in *GetCurrentFailedPasswordAttemptsRequest, opts ...grpc.CallOption) (*GetCurrentFailedPasswordAttemptsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetCurrentFailedPasswordAttemptsResponse)
 	err := c.cc.Invoke(ctx, DevicePolicyManagerService_GetCurrentFailedPasswordAttempts_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *devicePolicyManagerServiceClient) GetDelegatePackages(ctx context.Context, in *GetDelegatePackagesRequest, opts ...grpc.CallOption) (*GetDelegatePackagesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetDelegatePackagesResponse)
+	err := c.cc.Invoke(ctx, DevicePolicyManagerService_GetDelegatePackages_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *devicePolicyManagerServiceClient) GetDelegatedScopes(ctx context.Context, in *GetDelegatedScopesRequest, opts ...grpc.CallOption) (*GetDelegatedScopesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetDelegatedScopesResponse)
+	err := c.cc.Invoke(ctx, DevicePolicyManagerService_GetDelegatedScopes_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -4884,6 +3826,26 @@ func (c *devicePolicyManagerServiceClient) GetGlobalPrivateDnsMode(ctx context.C
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetGlobalPrivateDnsModeResponse)
 	err := c.cc.Invoke(ctx, DevicePolicyManagerService_GetGlobalPrivateDnsMode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *devicePolicyManagerServiceClient) GetInstalledCaCerts(ctx context.Context, in *GetInstalledCaCertsRequest, opts ...grpc.CallOption) (*GetInstalledCaCertsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetInstalledCaCertsResponse)
+	err := c.cc.Invoke(ctx, DevicePolicyManagerService_GetInstalledCaCerts_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *devicePolicyManagerServiceClient) GetKeepUninstalledPackages(ctx context.Context, in *GetKeepUninstalledPackagesRequest, opts ...grpc.CallOption) (*GetKeepUninstalledPackagesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetKeepUninstalledPackagesResponse)
+	err := c.cc.Invoke(ctx, DevicePolicyManagerService_GetKeepUninstalledPackages_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -4990,6 +3952,16 @@ func (c *devicePolicyManagerServiceClient) GetMaximumTimeToLock(ctx context.Cont
 	return out, nil
 }
 
+func (c *devicePolicyManagerServiceClient) GetMeteredDataDisabledPackages(ctx context.Context, in *GetMeteredDataDisabledPackagesRequest, opts ...grpc.CallOption) (*GetMeteredDataDisabledPackagesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetMeteredDataDisabledPackagesResponse)
+	err := c.cc.Invoke(ctx, DevicePolicyManagerService_GetMeteredDataDisabledPackages_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *devicePolicyManagerServiceClient) GetMinimumRequiredWifiSecurityLevel(ctx context.Context, in *GetMinimumRequiredWifiSecurityLevelRequest, opts ...grpc.CallOption) (*GetMinimumRequiredWifiSecurityLevelResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetMinimumRequiredWifiSecurityLevelResponse)
@@ -5044,6 +4016,16 @@ func (c *devicePolicyManagerServiceClient) GetOrganizationName(ctx context.Conte
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetOrganizationNameResponse)
 	err := c.cc.Invoke(ctx, DevicePolicyManagerService_GetOrganizationName_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *devicePolicyManagerServiceClient) GetOverrideApns(ctx context.Context, in *GetOverrideApnsRequest, opts ...grpc.CallOption) (*GetOverrideApnsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetOverrideApnsResponse)
+	err := c.cc.Invoke(ctx, DevicePolicyManagerService_GetOverrideApns_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -5220,10 +4202,50 @@ func (c *devicePolicyManagerServiceClient) GetPermissionPolicy(ctx context.Conte
 	return out, nil
 }
 
+func (c *devicePolicyManagerServiceClient) GetPermittedAccessibilityServices(ctx context.Context, in *GetPermittedAccessibilityServicesRequest, opts ...grpc.CallOption) (*GetPermittedAccessibilityServicesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetPermittedAccessibilityServicesResponse)
+	err := c.cc.Invoke(ctx, DevicePolicyManagerService_GetPermittedAccessibilityServices_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *devicePolicyManagerServiceClient) GetPermittedCrossProfileNotificationListeners(ctx context.Context, in *GetPermittedCrossProfileNotificationListenersRequest, opts ...grpc.CallOption) (*GetPermittedCrossProfileNotificationListenersResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetPermittedCrossProfileNotificationListenersResponse)
+	err := c.cc.Invoke(ctx, DevicePolicyManagerService_GetPermittedCrossProfileNotificationListeners_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *devicePolicyManagerServiceClient) GetPermittedInputMethods(ctx context.Context, in *GetPermittedInputMethodsRequest, opts ...grpc.CallOption) (*GetPermittedInputMethodsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetPermittedInputMethodsResponse)
+	err := c.cc.Invoke(ctx, DevicePolicyManagerService_GetPermittedInputMethods_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *devicePolicyManagerServiceClient) GetPersonalAppsSuspendedReasons(ctx context.Context, in *GetPersonalAppsSuspendedReasonsRequest, opts ...grpc.CallOption) (*GetPersonalAppsSuspendedReasonsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetPersonalAppsSuspendedReasonsResponse)
 	err := c.cc.Invoke(ctx, DevicePolicyManagerService_GetPersonalAppsSuspendedReasons_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *devicePolicyManagerServiceClient) GetPreferentialNetworkServiceConfigs(ctx context.Context, in *GetPreferentialNetworkServiceConfigsRequest, opts ...grpc.CallOption) (*GetPreferentialNetworkServiceConfigsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetPreferentialNetworkServiceConfigsResponse)
+	err := c.cc.Invoke(ctx, DevicePolicyManagerService_GetPreferentialNetworkServiceConfigs_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -5270,6 +4292,16 @@ func (c *devicePolicyManagerServiceClient) GetScreenCaptureDisabled(ctx context.
 	return out, nil
 }
 
+func (c *devicePolicyManagerServiceClient) GetSecondaryUsers(ctx context.Context, in *GetSecondaryUsersRequest, opts ...grpc.CallOption) (*GetSecondaryUsersResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSecondaryUsersResponse)
+	err := c.cc.Invoke(ctx, DevicePolicyManagerService_GetSecondaryUsers_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *devicePolicyManagerServiceClient) GetShortSupportMessage(ctx context.Context, in *GetShortSupportMessageRequest, opts ...grpc.CallOption) (*GetShortSupportMessageResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetShortSupportMessageResponse)
@@ -5310,6 +4342,16 @@ func (c *devicePolicyManagerServiceClient) GetStorageEncryptionStatus(ctx contex
 	return out, nil
 }
 
+func (c *devicePolicyManagerServiceClient) GetSubscriptionIds(ctx context.Context, in *GetSubscriptionIdsRequest, opts ...grpc.CallOption) (*GetSubscriptionIdsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSubscriptionIdsResponse)
+	err := c.cc.Invoke(ctx, DevicePolicyManagerService_GetSubscriptionIds_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *devicePolicyManagerServiceClient) GetSystemUpdatePolicy(ctx context.Context, in *GetSystemUpdatePolicyRequest, opts ...grpc.CallOption) (*GetSystemUpdatePolicyResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetSystemUpdatePolicyResponse)
@@ -5324,6 +4366,26 @@ func (c *devicePolicyManagerServiceClient) GetTransferOwnershipBundle(ctx contex
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetTransferOwnershipBundleResponse)
 	err := c.cc.Invoke(ctx, DevicePolicyManagerService_GetTransferOwnershipBundle_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *devicePolicyManagerServiceClient) GetTrustAgentConfiguration(ctx context.Context, in *GetTrustAgentConfigurationRequest, opts ...grpc.CallOption) (*GetTrustAgentConfigurationResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTrustAgentConfigurationResponse)
+	err := c.cc.Invoke(ctx, DevicePolicyManagerService_GetTrustAgentConfiguration_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *devicePolicyManagerServiceClient) GetUserControlDisabledPackages(ctx context.Context, in *GetUserControlDisabledPackagesRequest, opts ...grpc.CallOption) (*GetUserControlDisabledPackagesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetUserControlDisabledPackagesResponse)
+	err := c.cc.Invoke(ctx, DevicePolicyManagerService_GetUserControlDisabledPackages_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -5830,6 +4892,16 @@ func (c *devicePolicyManagerServiceClient) IsUsingUnifiedPassword(ctx context.Co
 	return out, nil
 }
 
+func (c *devicePolicyManagerServiceClient) ListForegroundAffiliatedUsers(ctx context.Context, in *ListForegroundAffiliatedUsersRequest, opts ...grpc.CallOption) (*ListForegroundAffiliatedUsersResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ListForegroundAffiliatedUsersResponse)
+	err := c.cc.Invoke(ctx, DevicePolicyManagerService_ListForegroundAffiliatedUsers_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *devicePolicyManagerServiceClient) LockNow0(ctx context.Context, in *LockNow0Request, opts ...grpc.CallOption) (*LockNow0Response, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(LockNow0Response)
@@ -5944,6 +5016,36 @@ func (c *devicePolicyManagerServiceClient) ResetPasswordWithToken(ctx context.Co
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(ResetPasswordWithTokenResponse)
 	err := c.cc.Invoke(ctx, DevicePolicyManagerService_ResetPasswordWithToken_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *devicePolicyManagerServiceClient) RetrieveNetworkLogs(ctx context.Context, in *RetrieveNetworkLogsRequest, opts ...grpc.CallOption) (*RetrieveNetworkLogsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(RetrieveNetworkLogsResponse)
+	err := c.cc.Invoke(ctx, DevicePolicyManagerService_RetrieveNetworkLogs_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *devicePolicyManagerServiceClient) RetrievePreRebootSecurityLogs(ctx context.Context, in *RetrievePreRebootSecurityLogsRequest, opts ...grpc.CallOption) (*RetrievePreRebootSecurityLogsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(RetrievePreRebootSecurityLogsResponse)
+	err := c.cc.Invoke(ctx, DevicePolicyManagerService_RetrievePreRebootSecurityLogs_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *devicePolicyManagerServiceClient) RetrieveSecurityLogs(ctx context.Context, in *RetrieveSecurityLogsRequest, opts ...grpc.CallOption) (*RetrieveSecurityLogsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(RetrieveSecurityLogsResponse)
+	err := c.cc.Invoke(ctx, DevicePolicyManagerService_RetrieveSecurityLogs_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -7008,6 +6110,9 @@ type DevicePolicyManagerServiceServer interface {
 	EnableSystemApp2_1(context.Context, *EnableSystemApp2_1Request) (*EnableSystemApp2_1Response, error)
 	GenerateKeyPair(context.Context, *GenerateKeyPairRequest) (*GenerateKeyPairResponse, error)
 	GetAccountTypesWithManagementDisabled(context.Context, *GetAccountTypesWithManagementDisabledRequest) (*GetAccountTypesWithManagementDisabledResponse, error)
+	GetActiveAdmins(context.Context, *GetActiveAdminsRequest) (*GetActiveAdminsResponse, error)
+	GetAffiliationIds(context.Context, *GetAffiliationIdsRequest) (*GetAffiliationIdsResponse, error)
+	GetAlwaysOnVpnLockdownWhitelist(context.Context, *GetAlwaysOnVpnLockdownWhitelistRequest) (*GetAlwaysOnVpnLockdownWhitelistResponse, error)
 	GetAlwaysOnVpnPackage(context.Context, *GetAlwaysOnVpnPackageRequest) (*GetAlwaysOnVpnPackageResponse, error)
 	GetAppFunctionsPolicy(context.Context, *GetAppFunctionsPolicyRequest) (*GetAppFunctionsPolicyResponse, error)
 	GetApplicationRestrictions(context.Context, *GetApplicationRestrictionsRequest) (*GetApplicationRestrictionsResponse, error)
@@ -7017,14 +6122,20 @@ type DevicePolicyManagerServiceServer interface {
 	GetAutoTimeRequired(context.Context, *GetAutoTimeRequiredRequest) (*GetAutoTimeRequiredResponse, error)
 	GetAutoTimeZoneEnabled(context.Context, *GetAutoTimeZoneEnabledRequest) (*GetAutoTimeZoneEnabledResponse, error)
 	GetAutoTimeZonePolicy(context.Context, *GetAutoTimeZonePolicyRequest) (*GetAutoTimeZonePolicyResponse, error)
+	GetBindDeviceAdminTargetUsers(context.Context, *GetBindDeviceAdminTargetUsersRequest) (*GetBindDeviceAdminTargetUsersResponse, error)
 	GetBluetoothContactSharingDisabled(context.Context, *GetBluetoothContactSharingDisabledRequest) (*GetBluetoothContactSharingDisabledResponse, error)
 	GetCameraDisabled(context.Context, *GetCameraDisabledRequest) (*GetCameraDisabledResponse, error)
 	GetCertInstallerPackage(context.Context, *GetCertInstallerPackageRequest) (*GetCertInstallerPackageResponse, error)
 	GetContentProtectionPolicy(context.Context, *GetContentProtectionPolicyRequest) (*GetContentProtectionPolicyResponse, error)
 	GetCredentialManagerPolicy(context.Context, *GetCredentialManagerPolicyRequest) (*GetCredentialManagerPolicyResponse, error)
+	GetCrossProfileCalendarPackages(context.Context, *GetCrossProfileCalendarPackagesRequest) (*GetCrossProfileCalendarPackagesResponse, error)
 	GetCrossProfileCallerIdDisabled(context.Context, *GetCrossProfileCallerIdDisabledRequest) (*GetCrossProfileCallerIdDisabledResponse, error)
 	GetCrossProfileContactsSearchDisabled(context.Context, *GetCrossProfileContactsSearchDisabledRequest) (*GetCrossProfileContactsSearchDisabledResponse, error)
+	GetCrossProfilePackages(context.Context, *GetCrossProfilePackagesRequest) (*GetCrossProfilePackagesResponse, error)
+	GetCrossProfileWidgetProviders(context.Context, *GetCrossProfileWidgetProvidersRequest) (*GetCrossProfileWidgetProvidersResponse, error)
 	GetCurrentFailedPasswordAttempts(context.Context, *GetCurrentFailedPasswordAttemptsRequest) (*GetCurrentFailedPasswordAttemptsResponse, error)
+	GetDelegatePackages(context.Context, *GetDelegatePackagesRequest) (*GetDelegatePackagesResponse, error)
+	GetDelegatedScopes(context.Context, *GetDelegatedScopesRequest) (*GetDelegatedScopesResponse, error)
 	GetDeviceOwnerLockScreenInfo(context.Context, *GetDeviceOwnerLockScreenInfoRequest) (*GetDeviceOwnerLockScreenInfoResponse, error)
 	GetDevicePolicyManagementRoleHolderPackage(context.Context, *GetDevicePolicyManagementRoleHolderPackageRequest) (*GetDevicePolicyManagementRoleHolderPackageResponse, error)
 	GetEndUserSessionMessage(context.Context, *GetEndUserSessionMessageRequest) (*GetEndUserSessionMessageResponse, error)
@@ -7032,6 +6143,8 @@ type DevicePolicyManagerServiceServer interface {
 	GetFactoryResetProtectionPolicy(context.Context, *GetFactoryResetProtectionPolicyRequest) (*GetFactoryResetProtectionPolicyResponse, error)
 	GetGlobalPrivateDnsHost(context.Context, *GetGlobalPrivateDnsHostRequest) (*GetGlobalPrivateDnsHostResponse, error)
 	GetGlobalPrivateDnsMode(context.Context, *GetGlobalPrivateDnsModeRequest) (*GetGlobalPrivateDnsModeResponse, error)
+	GetInstalledCaCerts(context.Context, *GetInstalledCaCertsRequest) (*GetInstalledCaCertsResponse, error)
+	GetKeepUninstalledPackages(context.Context, *GetKeepUninstalledPackagesRequest) (*GetKeepUninstalledPackagesResponse, error)
 	GetKeyguardDisabledFeatures(context.Context, *GetKeyguardDisabledFeaturesRequest) (*GetKeyguardDisabledFeaturesResponse, error)
 	GetLockTaskFeatures(context.Context, *GetLockTaskFeaturesRequest) (*GetLockTaskFeaturesResponse, error)
 	GetLockTaskPackages(context.Context, *GetLockTaskPackagesRequest) (*GetLockTaskPackagesResponse, error)
@@ -7042,12 +6155,14 @@ type DevicePolicyManagerServiceServer interface {
 	GetManagedSubscriptionsPolicy(context.Context, *GetManagedSubscriptionsPolicyRequest) (*GetManagedSubscriptionsPolicyResponse, error)
 	GetMaximumFailedPasswordsForWipe(context.Context, *GetMaximumFailedPasswordsForWipeRequest) (*GetMaximumFailedPasswordsForWipeResponse, error)
 	GetMaximumTimeToLock(context.Context, *GetMaximumTimeToLockRequest) (*GetMaximumTimeToLockResponse, error)
+	GetMeteredDataDisabledPackages(context.Context, *GetMeteredDataDisabledPackagesRequest) (*GetMeteredDataDisabledPackagesResponse, error)
 	GetMinimumRequiredWifiSecurityLevel(context.Context, *GetMinimumRequiredWifiSecurityLevelRequest) (*GetMinimumRequiredWifiSecurityLevelResponse, error)
 	GetMtePolicy(context.Context, *GetMtePolicyRequest) (*GetMtePolicyResponse, error)
 	GetNearbyAppStreamingPolicy(context.Context, *GetNearbyAppStreamingPolicyRequest) (*GetNearbyAppStreamingPolicyResponse, error)
 	GetNearbyNotificationStreamingPolicy(context.Context, *GetNearbyNotificationStreamingPolicyRequest) (*GetNearbyNotificationStreamingPolicyResponse, error)
 	GetOrganizationColor(context.Context, *GetOrganizationColorRequest) (*GetOrganizationColorResponse, error)
 	GetOrganizationName(context.Context, *GetOrganizationNameRequest) (*GetOrganizationNameResponse, error)
+	GetOverrideApns(context.Context, *GetOverrideApnsRequest) (*GetOverrideApnsResponse, error)
 	GetParentProfileInstance(context.Context, *GetParentProfileInstanceRequest) (*GetParentProfileInstanceResponse, error)
 	GetPasswordComplexity(context.Context, *GetPasswordComplexityRequest) (*GetPasswordComplexityResponse, error)
 	GetPasswordExpiration(context.Context, *GetPasswordExpirationRequest) (*GetPasswordExpirationResponse, error)
@@ -7065,17 +6180,25 @@ type DevicePolicyManagerServiceServer interface {
 	GetPendingSystemUpdate(context.Context, *GetPendingSystemUpdateRequest) (*GetPendingSystemUpdateResponse, error)
 	GetPermissionGrantState(context.Context, *GetPermissionGrantStateRequest) (*GetPermissionGrantStateResponse, error)
 	GetPermissionPolicy(context.Context, *GetPermissionPolicyRequest) (*GetPermissionPolicyResponse, error)
+	GetPermittedAccessibilityServices(context.Context, *GetPermittedAccessibilityServicesRequest) (*GetPermittedAccessibilityServicesResponse, error)
+	GetPermittedCrossProfileNotificationListeners(context.Context, *GetPermittedCrossProfileNotificationListenersRequest) (*GetPermittedCrossProfileNotificationListenersResponse, error)
+	GetPermittedInputMethods(context.Context, *GetPermittedInputMethodsRequest) (*GetPermittedInputMethodsResponse, error)
 	GetPersonalAppsSuspendedReasons(context.Context, *GetPersonalAppsSuspendedReasonsRequest) (*GetPersonalAppsSuspendedReasonsResponse, error)
+	GetPreferentialNetworkServiceConfigs(context.Context, *GetPreferentialNetworkServiceConfigsRequest) (*GetPreferentialNetworkServiceConfigsResponse, error)
 	GetRequiredPasswordComplexity(context.Context, *GetRequiredPasswordComplexityRequest) (*GetRequiredPasswordComplexityResponse, error)
 	GetRequiredStrongAuthTimeout(context.Context, *GetRequiredStrongAuthTimeoutRequest) (*GetRequiredStrongAuthTimeoutResponse, error)
 	GetResources(context.Context, *GetResourcesRequest) (*GetResourcesResponse, error)
 	GetScreenCaptureDisabled(context.Context, *GetScreenCaptureDisabledRequest) (*GetScreenCaptureDisabledResponse, error)
+	GetSecondaryUsers(context.Context, *GetSecondaryUsersRequest) (*GetSecondaryUsersResponse, error)
 	GetShortSupportMessage(context.Context, *GetShortSupportMessageRequest) (*GetShortSupportMessageResponse, error)
 	GetStartUserSessionMessage(context.Context, *GetStartUserSessionMessageRequest) (*GetStartUserSessionMessageResponse, error)
 	GetStorageEncryption(context.Context, *GetStorageEncryptionRequest) (*GetStorageEncryptionResponse, error)
 	GetStorageEncryptionStatus(context.Context, *GetStorageEncryptionStatusRequest) (*GetStorageEncryptionStatusResponse, error)
+	GetSubscriptionIds(context.Context, *GetSubscriptionIdsRequest) (*GetSubscriptionIdsResponse, error)
 	GetSystemUpdatePolicy(context.Context, *GetSystemUpdatePolicyRequest) (*GetSystemUpdatePolicyResponse, error)
 	GetTransferOwnershipBundle(context.Context, *GetTransferOwnershipBundleRequest) (*GetTransferOwnershipBundleResponse, error)
+	GetTrustAgentConfiguration(context.Context, *GetTrustAgentConfigurationRequest) (*GetTrustAgentConfigurationResponse, error)
+	GetUserControlDisabledPackages(context.Context, *GetUserControlDisabledPackagesRequest) (*GetUserControlDisabledPackagesResponse, error)
 	GetUserRestrictions(context.Context, *GetUserRestrictionsRequest) (*GetUserRestrictionsResponse, error)
 	GetUserRestrictionsGlobally(context.Context, *GetUserRestrictionsGloballyRequest) (*GetUserRestrictionsGloballyResponse, error)
 	GetWifiMacAddress(context.Context, *GetWifiMacAddressRequest) (*GetWifiMacAddressResponse, error)
@@ -7126,6 +6249,7 @@ type DevicePolicyManagerServiceServer interface {
 	IsUniqueDeviceAttestationSupported(context.Context, *IsUniqueDeviceAttestationSupportedRequest) (*IsUniqueDeviceAttestationSupportedResponse, error)
 	IsUsbDataSignalingEnabled(context.Context, *IsUsbDataSignalingEnabledRequest) (*IsUsbDataSignalingEnabledResponse, error)
 	IsUsingUnifiedPassword(context.Context, *IsUsingUnifiedPasswordRequest) (*IsUsingUnifiedPasswordResponse, error)
+	ListForegroundAffiliatedUsers(context.Context, *ListForegroundAffiliatedUsersRequest) (*ListForegroundAffiliatedUsersResponse, error)
 	LockNow0(context.Context, *LockNow0Request) (*LockNow0Response, error)
 	LockNow1_1(context.Context, *LockNow1_1Request) (*LockNow1_1Response, error)
 	LogoutUser(context.Context, *LogoutUserRequest) (*LogoutUserResponse, error)
@@ -7138,6 +6262,9 @@ type DevicePolicyManagerServiceServer interface {
 	RequestBugreport(context.Context, *RequestBugreportRequest) (*RequestBugreportResponse, error)
 	ResetPassword(context.Context, *ResetPasswordRequest) (*ResetPasswordResponse, error)
 	ResetPasswordWithToken(context.Context, *ResetPasswordWithTokenRequest) (*ResetPasswordWithTokenResponse, error)
+	RetrieveNetworkLogs(context.Context, *RetrieveNetworkLogsRequest) (*RetrieveNetworkLogsResponse, error)
+	RetrievePreRebootSecurityLogs(context.Context, *RetrievePreRebootSecurityLogsRequest) (*RetrievePreRebootSecurityLogsResponse, error)
+	RetrieveSecurityLogs(context.Context, *RetrieveSecurityLogsRequest) (*RetrieveSecurityLogsResponse, error)
 	RevokeKeyPairFromApp(context.Context, *RevokeKeyPairFromAppRequest) (*RevokeKeyPairFromAppResponse, error)
 	RevokeKeyPairFromWifiAuth(context.Context, *RevokeKeyPairFromWifiAuthRequest) (*RevokeKeyPairFromWifiAuthResponse, error)
 	SetAccountManagementDisabled(context.Context, *SetAccountManagementDisabledRequest) (*SetAccountManagementDisabledResponse, error)
@@ -7323,6 +6450,15 @@ func (UnimplementedDevicePolicyManagerServiceServer) GenerateKeyPair(context.Con
 func (UnimplementedDevicePolicyManagerServiceServer) GetAccountTypesWithManagementDisabled(context.Context, *GetAccountTypesWithManagementDisabledRequest) (*GetAccountTypesWithManagementDisabledResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetAccountTypesWithManagementDisabled not implemented")
 }
+func (UnimplementedDevicePolicyManagerServiceServer) GetActiveAdmins(context.Context, *GetActiveAdminsRequest) (*GetActiveAdminsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetActiveAdmins not implemented")
+}
+func (UnimplementedDevicePolicyManagerServiceServer) GetAffiliationIds(context.Context, *GetAffiliationIdsRequest) (*GetAffiliationIdsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetAffiliationIds not implemented")
+}
+func (UnimplementedDevicePolicyManagerServiceServer) GetAlwaysOnVpnLockdownWhitelist(context.Context, *GetAlwaysOnVpnLockdownWhitelistRequest) (*GetAlwaysOnVpnLockdownWhitelistResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetAlwaysOnVpnLockdownWhitelist not implemented")
+}
 func (UnimplementedDevicePolicyManagerServiceServer) GetAlwaysOnVpnPackage(context.Context, *GetAlwaysOnVpnPackageRequest) (*GetAlwaysOnVpnPackageResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetAlwaysOnVpnPackage not implemented")
 }
@@ -7350,6 +6486,9 @@ func (UnimplementedDevicePolicyManagerServiceServer) GetAutoTimeZoneEnabled(cont
 func (UnimplementedDevicePolicyManagerServiceServer) GetAutoTimeZonePolicy(context.Context, *GetAutoTimeZonePolicyRequest) (*GetAutoTimeZonePolicyResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetAutoTimeZonePolicy not implemented")
 }
+func (UnimplementedDevicePolicyManagerServiceServer) GetBindDeviceAdminTargetUsers(context.Context, *GetBindDeviceAdminTargetUsersRequest) (*GetBindDeviceAdminTargetUsersResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetBindDeviceAdminTargetUsers not implemented")
+}
 func (UnimplementedDevicePolicyManagerServiceServer) GetBluetoothContactSharingDisabled(context.Context, *GetBluetoothContactSharingDisabledRequest) (*GetBluetoothContactSharingDisabledResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetBluetoothContactSharingDisabled not implemented")
 }
@@ -7365,14 +6504,29 @@ func (UnimplementedDevicePolicyManagerServiceServer) GetContentProtectionPolicy(
 func (UnimplementedDevicePolicyManagerServiceServer) GetCredentialManagerPolicy(context.Context, *GetCredentialManagerPolicyRequest) (*GetCredentialManagerPolicyResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetCredentialManagerPolicy not implemented")
 }
+func (UnimplementedDevicePolicyManagerServiceServer) GetCrossProfileCalendarPackages(context.Context, *GetCrossProfileCalendarPackagesRequest) (*GetCrossProfileCalendarPackagesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetCrossProfileCalendarPackages not implemented")
+}
 func (UnimplementedDevicePolicyManagerServiceServer) GetCrossProfileCallerIdDisabled(context.Context, *GetCrossProfileCallerIdDisabledRequest) (*GetCrossProfileCallerIdDisabledResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetCrossProfileCallerIdDisabled not implemented")
 }
 func (UnimplementedDevicePolicyManagerServiceServer) GetCrossProfileContactsSearchDisabled(context.Context, *GetCrossProfileContactsSearchDisabledRequest) (*GetCrossProfileContactsSearchDisabledResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetCrossProfileContactsSearchDisabled not implemented")
 }
+func (UnimplementedDevicePolicyManagerServiceServer) GetCrossProfilePackages(context.Context, *GetCrossProfilePackagesRequest) (*GetCrossProfilePackagesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetCrossProfilePackages not implemented")
+}
+func (UnimplementedDevicePolicyManagerServiceServer) GetCrossProfileWidgetProviders(context.Context, *GetCrossProfileWidgetProvidersRequest) (*GetCrossProfileWidgetProvidersResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetCrossProfileWidgetProviders not implemented")
+}
 func (UnimplementedDevicePolicyManagerServiceServer) GetCurrentFailedPasswordAttempts(context.Context, *GetCurrentFailedPasswordAttemptsRequest) (*GetCurrentFailedPasswordAttemptsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetCurrentFailedPasswordAttempts not implemented")
+}
+func (UnimplementedDevicePolicyManagerServiceServer) GetDelegatePackages(context.Context, *GetDelegatePackagesRequest) (*GetDelegatePackagesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetDelegatePackages not implemented")
+}
+func (UnimplementedDevicePolicyManagerServiceServer) GetDelegatedScopes(context.Context, *GetDelegatedScopesRequest) (*GetDelegatedScopesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetDelegatedScopes not implemented")
 }
 func (UnimplementedDevicePolicyManagerServiceServer) GetDeviceOwnerLockScreenInfo(context.Context, *GetDeviceOwnerLockScreenInfoRequest) (*GetDeviceOwnerLockScreenInfoResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetDeviceOwnerLockScreenInfo not implemented")
@@ -7394,6 +6548,12 @@ func (UnimplementedDevicePolicyManagerServiceServer) GetGlobalPrivateDnsHost(con
 }
 func (UnimplementedDevicePolicyManagerServiceServer) GetGlobalPrivateDnsMode(context.Context, *GetGlobalPrivateDnsModeRequest) (*GetGlobalPrivateDnsModeResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetGlobalPrivateDnsMode not implemented")
+}
+func (UnimplementedDevicePolicyManagerServiceServer) GetInstalledCaCerts(context.Context, *GetInstalledCaCertsRequest) (*GetInstalledCaCertsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetInstalledCaCerts not implemented")
+}
+func (UnimplementedDevicePolicyManagerServiceServer) GetKeepUninstalledPackages(context.Context, *GetKeepUninstalledPackagesRequest) (*GetKeepUninstalledPackagesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetKeepUninstalledPackages not implemented")
 }
 func (UnimplementedDevicePolicyManagerServiceServer) GetKeyguardDisabledFeatures(context.Context, *GetKeyguardDisabledFeaturesRequest) (*GetKeyguardDisabledFeaturesResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetKeyguardDisabledFeatures not implemented")
@@ -7425,6 +6585,9 @@ func (UnimplementedDevicePolicyManagerServiceServer) GetMaximumFailedPasswordsFo
 func (UnimplementedDevicePolicyManagerServiceServer) GetMaximumTimeToLock(context.Context, *GetMaximumTimeToLockRequest) (*GetMaximumTimeToLockResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetMaximumTimeToLock not implemented")
 }
+func (UnimplementedDevicePolicyManagerServiceServer) GetMeteredDataDisabledPackages(context.Context, *GetMeteredDataDisabledPackagesRequest) (*GetMeteredDataDisabledPackagesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetMeteredDataDisabledPackages not implemented")
+}
 func (UnimplementedDevicePolicyManagerServiceServer) GetMinimumRequiredWifiSecurityLevel(context.Context, *GetMinimumRequiredWifiSecurityLevelRequest) (*GetMinimumRequiredWifiSecurityLevelResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetMinimumRequiredWifiSecurityLevel not implemented")
 }
@@ -7442,6 +6605,9 @@ func (UnimplementedDevicePolicyManagerServiceServer) GetOrganizationColor(contex
 }
 func (UnimplementedDevicePolicyManagerServiceServer) GetOrganizationName(context.Context, *GetOrganizationNameRequest) (*GetOrganizationNameResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetOrganizationName not implemented")
+}
+func (UnimplementedDevicePolicyManagerServiceServer) GetOverrideApns(context.Context, *GetOverrideApnsRequest) (*GetOverrideApnsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetOverrideApns not implemented")
 }
 func (UnimplementedDevicePolicyManagerServiceServer) GetParentProfileInstance(context.Context, *GetParentProfileInstanceRequest) (*GetParentProfileInstanceResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetParentProfileInstance not implemented")
@@ -7494,8 +6660,20 @@ func (UnimplementedDevicePolicyManagerServiceServer) GetPermissionGrantState(con
 func (UnimplementedDevicePolicyManagerServiceServer) GetPermissionPolicy(context.Context, *GetPermissionPolicyRequest) (*GetPermissionPolicyResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetPermissionPolicy not implemented")
 }
+func (UnimplementedDevicePolicyManagerServiceServer) GetPermittedAccessibilityServices(context.Context, *GetPermittedAccessibilityServicesRequest) (*GetPermittedAccessibilityServicesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetPermittedAccessibilityServices not implemented")
+}
+func (UnimplementedDevicePolicyManagerServiceServer) GetPermittedCrossProfileNotificationListeners(context.Context, *GetPermittedCrossProfileNotificationListenersRequest) (*GetPermittedCrossProfileNotificationListenersResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetPermittedCrossProfileNotificationListeners not implemented")
+}
+func (UnimplementedDevicePolicyManagerServiceServer) GetPermittedInputMethods(context.Context, *GetPermittedInputMethodsRequest) (*GetPermittedInputMethodsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetPermittedInputMethods not implemented")
+}
 func (UnimplementedDevicePolicyManagerServiceServer) GetPersonalAppsSuspendedReasons(context.Context, *GetPersonalAppsSuspendedReasonsRequest) (*GetPersonalAppsSuspendedReasonsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetPersonalAppsSuspendedReasons not implemented")
+}
+func (UnimplementedDevicePolicyManagerServiceServer) GetPreferentialNetworkServiceConfigs(context.Context, *GetPreferentialNetworkServiceConfigsRequest) (*GetPreferentialNetworkServiceConfigsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetPreferentialNetworkServiceConfigs not implemented")
 }
 func (UnimplementedDevicePolicyManagerServiceServer) GetRequiredPasswordComplexity(context.Context, *GetRequiredPasswordComplexityRequest) (*GetRequiredPasswordComplexityResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetRequiredPasswordComplexity not implemented")
@@ -7509,6 +6687,9 @@ func (UnimplementedDevicePolicyManagerServiceServer) GetResources(context.Contex
 func (UnimplementedDevicePolicyManagerServiceServer) GetScreenCaptureDisabled(context.Context, *GetScreenCaptureDisabledRequest) (*GetScreenCaptureDisabledResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetScreenCaptureDisabled not implemented")
 }
+func (UnimplementedDevicePolicyManagerServiceServer) GetSecondaryUsers(context.Context, *GetSecondaryUsersRequest) (*GetSecondaryUsersResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSecondaryUsers not implemented")
+}
 func (UnimplementedDevicePolicyManagerServiceServer) GetShortSupportMessage(context.Context, *GetShortSupportMessageRequest) (*GetShortSupportMessageResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetShortSupportMessage not implemented")
 }
@@ -7521,11 +6702,20 @@ func (UnimplementedDevicePolicyManagerServiceServer) GetStorageEncryption(contex
 func (UnimplementedDevicePolicyManagerServiceServer) GetStorageEncryptionStatus(context.Context, *GetStorageEncryptionStatusRequest) (*GetStorageEncryptionStatusResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetStorageEncryptionStatus not implemented")
 }
+func (UnimplementedDevicePolicyManagerServiceServer) GetSubscriptionIds(context.Context, *GetSubscriptionIdsRequest) (*GetSubscriptionIdsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSubscriptionIds not implemented")
+}
 func (UnimplementedDevicePolicyManagerServiceServer) GetSystemUpdatePolicy(context.Context, *GetSystemUpdatePolicyRequest) (*GetSystemUpdatePolicyResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetSystemUpdatePolicy not implemented")
 }
 func (UnimplementedDevicePolicyManagerServiceServer) GetTransferOwnershipBundle(context.Context, *GetTransferOwnershipBundleRequest) (*GetTransferOwnershipBundleResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetTransferOwnershipBundle not implemented")
+}
+func (UnimplementedDevicePolicyManagerServiceServer) GetTrustAgentConfiguration(context.Context, *GetTrustAgentConfigurationRequest) (*GetTrustAgentConfigurationResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTrustAgentConfiguration not implemented")
+}
+func (UnimplementedDevicePolicyManagerServiceServer) GetUserControlDisabledPackages(context.Context, *GetUserControlDisabledPackagesRequest) (*GetUserControlDisabledPackagesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetUserControlDisabledPackages not implemented")
 }
 func (UnimplementedDevicePolicyManagerServiceServer) GetUserRestrictions(context.Context, *GetUserRestrictionsRequest) (*GetUserRestrictionsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetUserRestrictions not implemented")
@@ -7677,6 +6867,9 @@ func (UnimplementedDevicePolicyManagerServiceServer) IsUsbDataSignalingEnabled(c
 func (UnimplementedDevicePolicyManagerServiceServer) IsUsingUnifiedPassword(context.Context, *IsUsingUnifiedPasswordRequest) (*IsUsingUnifiedPasswordResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method IsUsingUnifiedPassword not implemented")
 }
+func (UnimplementedDevicePolicyManagerServiceServer) ListForegroundAffiliatedUsers(context.Context, *ListForegroundAffiliatedUsersRequest) (*ListForegroundAffiliatedUsersResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ListForegroundAffiliatedUsers not implemented")
+}
 func (UnimplementedDevicePolicyManagerServiceServer) LockNow0(context.Context, *LockNow0Request) (*LockNow0Response, error) {
 	return nil, status.Error(codes.Unimplemented, "method LockNow0 not implemented")
 }
@@ -7712,6 +6905,15 @@ func (UnimplementedDevicePolicyManagerServiceServer) ResetPassword(context.Conte
 }
 func (UnimplementedDevicePolicyManagerServiceServer) ResetPasswordWithToken(context.Context, *ResetPasswordWithTokenRequest) (*ResetPasswordWithTokenResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method ResetPasswordWithToken not implemented")
+}
+func (UnimplementedDevicePolicyManagerServiceServer) RetrieveNetworkLogs(context.Context, *RetrieveNetworkLogsRequest) (*RetrieveNetworkLogsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method RetrieveNetworkLogs not implemented")
+}
+func (UnimplementedDevicePolicyManagerServiceServer) RetrievePreRebootSecurityLogs(context.Context, *RetrievePreRebootSecurityLogsRequest) (*RetrievePreRebootSecurityLogsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method RetrievePreRebootSecurityLogs not implemented")
+}
+func (UnimplementedDevicePolicyManagerServiceServer) RetrieveSecurityLogs(context.Context, *RetrieveSecurityLogsRequest) (*RetrieveSecurityLogsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method RetrieveSecurityLogs not implemented")
 }
 func (UnimplementedDevicePolicyManagerServiceServer) RevokeKeyPairFromApp(context.Context, *RevokeKeyPairFromAppRequest) (*RevokeKeyPairFromAppResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method RevokeKeyPairFromApp not implemented")
@@ -8476,6 +7678,60 @@ func _DevicePolicyManagerService_GetAccountTypesWithManagementDisabled_Handler(s
 	return interceptor(ctx, in, info, handler)
 }
 
+func _DevicePolicyManagerService_GetActiveAdmins_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetActiveAdminsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DevicePolicyManagerServiceServer).GetActiveAdmins(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DevicePolicyManagerService_GetActiveAdmins_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DevicePolicyManagerServiceServer).GetActiveAdmins(ctx, req.(*GetActiveAdminsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DevicePolicyManagerService_GetAffiliationIds_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetAffiliationIdsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DevicePolicyManagerServiceServer).GetAffiliationIds(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DevicePolicyManagerService_GetAffiliationIds_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DevicePolicyManagerServiceServer).GetAffiliationIds(ctx, req.(*GetAffiliationIdsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DevicePolicyManagerService_GetAlwaysOnVpnLockdownWhitelist_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetAlwaysOnVpnLockdownWhitelistRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DevicePolicyManagerServiceServer).GetAlwaysOnVpnLockdownWhitelist(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DevicePolicyManagerService_GetAlwaysOnVpnLockdownWhitelist_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DevicePolicyManagerServiceServer).GetAlwaysOnVpnLockdownWhitelist(ctx, req.(*GetAlwaysOnVpnLockdownWhitelistRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _DevicePolicyManagerService_GetAlwaysOnVpnPackage_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetAlwaysOnVpnPackageRequest)
 	if err := dec(in); err != nil {
@@ -8638,6 +7894,24 @@ func _DevicePolicyManagerService_GetAutoTimeZonePolicy_Handler(srv interface{}, 
 	return interceptor(ctx, in, info, handler)
 }
 
+func _DevicePolicyManagerService_GetBindDeviceAdminTargetUsers_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetBindDeviceAdminTargetUsersRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DevicePolicyManagerServiceServer).GetBindDeviceAdminTargetUsers(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DevicePolicyManagerService_GetBindDeviceAdminTargetUsers_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DevicePolicyManagerServiceServer).GetBindDeviceAdminTargetUsers(ctx, req.(*GetBindDeviceAdminTargetUsersRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _DevicePolicyManagerService_GetBluetoothContactSharingDisabled_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetBluetoothContactSharingDisabledRequest)
 	if err := dec(in); err != nil {
@@ -8728,6 +8002,24 @@ func _DevicePolicyManagerService_GetCredentialManagerPolicy_Handler(srv interfac
 	return interceptor(ctx, in, info, handler)
 }
 
+func _DevicePolicyManagerService_GetCrossProfileCalendarPackages_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetCrossProfileCalendarPackagesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DevicePolicyManagerServiceServer).GetCrossProfileCalendarPackages(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DevicePolicyManagerService_GetCrossProfileCalendarPackages_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DevicePolicyManagerServiceServer).GetCrossProfileCalendarPackages(ctx, req.(*GetCrossProfileCalendarPackagesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _DevicePolicyManagerService_GetCrossProfileCallerIdDisabled_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetCrossProfileCallerIdDisabledRequest)
 	if err := dec(in); err != nil {
@@ -8764,6 +8056,42 @@ func _DevicePolicyManagerService_GetCrossProfileContactsSearchDisabled_Handler(s
 	return interceptor(ctx, in, info, handler)
 }
 
+func _DevicePolicyManagerService_GetCrossProfilePackages_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetCrossProfilePackagesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DevicePolicyManagerServiceServer).GetCrossProfilePackages(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DevicePolicyManagerService_GetCrossProfilePackages_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DevicePolicyManagerServiceServer).GetCrossProfilePackages(ctx, req.(*GetCrossProfilePackagesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DevicePolicyManagerService_GetCrossProfileWidgetProviders_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetCrossProfileWidgetProvidersRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DevicePolicyManagerServiceServer).GetCrossProfileWidgetProviders(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DevicePolicyManagerService_GetCrossProfileWidgetProviders_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DevicePolicyManagerServiceServer).GetCrossProfileWidgetProviders(ctx, req.(*GetCrossProfileWidgetProvidersRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _DevicePolicyManagerService_GetCurrentFailedPasswordAttempts_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetCurrentFailedPasswordAttemptsRequest)
 	if err := dec(in); err != nil {
@@ -8778,6 +8106,42 @@ func _DevicePolicyManagerService_GetCurrentFailedPasswordAttempts_Handler(srv in
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(DevicePolicyManagerServiceServer).GetCurrentFailedPasswordAttempts(ctx, req.(*GetCurrentFailedPasswordAttemptsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DevicePolicyManagerService_GetDelegatePackages_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetDelegatePackagesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DevicePolicyManagerServiceServer).GetDelegatePackages(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DevicePolicyManagerService_GetDelegatePackages_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DevicePolicyManagerServiceServer).GetDelegatePackages(ctx, req.(*GetDelegatePackagesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DevicePolicyManagerService_GetDelegatedScopes_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetDelegatedScopesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DevicePolicyManagerServiceServer).GetDelegatedScopes(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DevicePolicyManagerService_GetDelegatedScopes_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DevicePolicyManagerServiceServer).GetDelegatedScopes(ctx, req.(*GetDelegatedScopesRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -8904,6 +8268,42 @@ func _DevicePolicyManagerService_GetGlobalPrivateDnsMode_Handler(srv interface{}
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(DevicePolicyManagerServiceServer).GetGlobalPrivateDnsMode(ctx, req.(*GetGlobalPrivateDnsModeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DevicePolicyManagerService_GetInstalledCaCerts_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetInstalledCaCertsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DevicePolicyManagerServiceServer).GetInstalledCaCerts(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DevicePolicyManagerService_GetInstalledCaCerts_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DevicePolicyManagerServiceServer).GetInstalledCaCerts(ctx, req.(*GetInstalledCaCertsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DevicePolicyManagerService_GetKeepUninstalledPackages_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetKeepUninstalledPackagesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DevicePolicyManagerServiceServer).GetKeepUninstalledPackages(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DevicePolicyManagerService_GetKeepUninstalledPackages_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DevicePolicyManagerServiceServer).GetKeepUninstalledPackages(ctx, req.(*GetKeepUninstalledPackagesRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -9088,6 +8488,24 @@ func _DevicePolicyManagerService_GetMaximumTimeToLock_Handler(srv interface{}, c
 	return interceptor(ctx, in, info, handler)
 }
 
+func _DevicePolicyManagerService_GetMeteredDataDisabledPackages_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetMeteredDataDisabledPackagesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DevicePolicyManagerServiceServer).GetMeteredDataDisabledPackages(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DevicePolicyManagerService_GetMeteredDataDisabledPackages_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DevicePolicyManagerServiceServer).GetMeteredDataDisabledPackages(ctx, req.(*GetMeteredDataDisabledPackagesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _DevicePolicyManagerService_GetMinimumRequiredWifiSecurityLevel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetMinimumRequiredWifiSecurityLevelRequest)
 	if err := dec(in); err != nil {
@@ -9192,6 +8610,24 @@ func _DevicePolicyManagerService_GetOrganizationName_Handler(srv interface{}, ct
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(DevicePolicyManagerServiceServer).GetOrganizationName(ctx, req.(*GetOrganizationNameRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DevicePolicyManagerService_GetOverrideApns_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetOverrideApnsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DevicePolicyManagerServiceServer).GetOverrideApns(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DevicePolicyManagerService_GetOverrideApns_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DevicePolicyManagerServiceServer).GetOverrideApns(ctx, req.(*GetOverrideApnsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -9502,6 +8938,60 @@ func _DevicePolicyManagerService_GetPermissionPolicy_Handler(srv interface{}, ct
 	return interceptor(ctx, in, info, handler)
 }
 
+func _DevicePolicyManagerService_GetPermittedAccessibilityServices_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPermittedAccessibilityServicesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DevicePolicyManagerServiceServer).GetPermittedAccessibilityServices(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DevicePolicyManagerService_GetPermittedAccessibilityServices_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DevicePolicyManagerServiceServer).GetPermittedAccessibilityServices(ctx, req.(*GetPermittedAccessibilityServicesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DevicePolicyManagerService_GetPermittedCrossProfileNotificationListeners_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPermittedCrossProfileNotificationListenersRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DevicePolicyManagerServiceServer).GetPermittedCrossProfileNotificationListeners(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DevicePolicyManagerService_GetPermittedCrossProfileNotificationListeners_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DevicePolicyManagerServiceServer).GetPermittedCrossProfileNotificationListeners(ctx, req.(*GetPermittedCrossProfileNotificationListenersRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DevicePolicyManagerService_GetPermittedInputMethods_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPermittedInputMethodsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DevicePolicyManagerServiceServer).GetPermittedInputMethods(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DevicePolicyManagerService_GetPermittedInputMethods_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DevicePolicyManagerServiceServer).GetPermittedInputMethods(ctx, req.(*GetPermittedInputMethodsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _DevicePolicyManagerService_GetPersonalAppsSuspendedReasons_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetPersonalAppsSuspendedReasonsRequest)
 	if err := dec(in); err != nil {
@@ -9516,6 +9006,24 @@ func _DevicePolicyManagerService_GetPersonalAppsSuspendedReasons_Handler(srv int
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(DevicePolicyManagerServiceServer).GetPersonalAppsSuspendedReasons(ctx, req.(*GetPersonalAppsSuspendedReasonsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DevicePolicyManagerService_GetPreferentialNetworkServiceConfigs_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPreferentialNetworkServiceConfigsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DevicePolicyManagerServiceServer).GetPreferentialNetworkServiceConfigs(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DevicePolicyManagerService_GetPreferentialNetworkServiceConfigs_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DevicePolicyManagerServiceServer).GetPreferentialNetworkServiceConfigs(ctx, req.(*GetPreferentialNetworkServiceConfigsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -9592,6 +9100,24 @@ func _DevicePolicyManagerService_GetScreenCaptureDisabled_Handler(srv interface{
 	return interceptor(ctx, in, info, handler)
 }
 
+func _DevicePolicyManagerService_GetSecondaryUsers_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSecondaryUsersRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DevicePolicyManagerServiceServer).GetSecondaryUsers(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DevicePolicyManagerService_GetSecondaryUsers_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DevicePolicyManagerServiceServer).GetSecondaryUsers(ctx, req.(*GetSecondaryUsersRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _DevicePolicyManagerService_GetShortSupportMessage_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetShortSupportMessageRequest)
 	if err := dec(in); err != nil {
@@ -9664,6 +9190,24 @@ func _DevicePolicyManagerService_GetStorageEncryptionStatus_Handler(srv interfac
 	return interceptor(ctx, in, info, handler)
 }
 
+func _DevicePolicyManagerService_GetSubscriptionIds_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSubscriptionIdsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DevicePolicyManagerServiceServer).GetSubscriptionIds(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DevicePolicyManagerService_GetSubscriptionIds_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DevicePolicyManagerServiceServer).GetSubscriptionIds(ctx, req.(*GetSubscriptionIdsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _DevicePolicyManagerService_GetSystemUpdatePolicy_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetSystemUpdatePolicyRequest)
 	if err := dec(in); err != nil {
@@ -9696,6 +9240,42 @@ func _DevicePolicyManagerService_GetTransferOwnershipBundle_Handler(srv interfac
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(DevicePolicyManagerServiceServer).GetTransferOwnershipBundle(ctx, req.(*GetTransferOwnershipBundleRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DevicePolicyManagerService_GetTrustAgentConfiguration_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTrustAgentConfigurationRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DevicePolicyManagerServiceServer).GetTrustAgentConfiguration(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DevicePolicyManagerService_GetTrustAgentConfiguration_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DevicePolicyManagerServiceServer).GetTrustAgentConfiguration(ctx, req.(*GetTrustAgentConfigurationRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DevicePolicyManagerService_GetUserControlDisabledPackages_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetUserControlDisabledPackagesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DevicePolicyManagerServiceServer).GetUserControlDisabledPackages(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DevicePolicyManagerService_GetUserControlDisabledPackages_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DevicePolicyManagerServiceServer).GetUserControlDisabledPackages(ctx, req.(*GetUserControlDisabledPackagesRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -10600,6 +10180,24 @@ func _DevicePolicyManagerService_IsUsingUnifiedPassword_Handler(srv interface{},
 	return interceptor(ctx, in, info, handler)
 }
 
+func _DevicePolicyManagerService_ListForegroundAffiliatedUsers_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ListForegroundAffiliatedUsersRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DevicePolicyManagerServiceServer).ListForegroundAffiliatedUsers(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DevicePolicyManagerService_ListForegroundAffiliatedUsers_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DevicePolicyManagerServiceServer).ListForegroundAffiliatedUsers(ctx, req.(*ListForegroundAffiliatedUsersRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _DevicePolicyManagerService_LockNow0_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(LockNow0Request)
 	if err := dec(in); err != nil {
@@ -10812,6 +10410,60 @@ func _DevicePolicyManagerService_ResetPasswordWithToken_Handler(srv interface{},
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(DevicePolicyManagerServiceServer).ResetPasswordWithToken(ctx, req.(*ResetPasswordWithTokenRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DevicePolicyManagerService_RetrieveNetworkLogs_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RetrieveNetworkLogsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DevicePolicyManagerServiceServer).RetrieveNetworkLogs(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DevicePolicyManagerService_RetrieveNetworkLogs_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DevicePolicyManagerServiceServer).RetrieveNetworkLogs(ctx, req.(*RetrieveNetworkLogsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DevicePolicyManagerService_RetrievePreRebootSecurityLogs_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RetrievePreRebootSecurityLogsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DevicePolicyManagerServiceServer).RetrievePreRebootSecurityLogs(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DevicePolicyManagerService_RetrievePreRebootSecurityLogs_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DevicePolicyManagerServiceServer).RetrievePreRebootSecurityLogs(ctx, req.(*RetrievePreRebootSecurityLogsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DevicePolicyManagerService_RetrieveSecurityLogs_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RetrieveSecurityLogsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DevicePolicyManagerServiceServer).RetrieveSecurityLogs(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DevicePolicyManagerService_RetrieveSecurityLogs_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DevicePolicyManagerServiceServer).RetrieveSecurityLogs(ctx, req.(*RetrieveSecurityLogsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -12774,6 +12426,18 @@ var DevicePolicyManagerService_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _DevicePolicyManagerService_GetAccountTypesWithManagementDisabled_Handler,
 		},
 		{
+			MethodName: "GetActiveAdmins",
+			Handler:    _DevicePolicyManagerService_GetActiveAdmins_Handler,
+		},
+		{
+			MethodName: "GetAffiliationIds",
+			Handler:    _DevicePolicyManagerService_GetAffiliationIds_Handler,
+		},
+		{
+			MethodName: "GetAlwaysOnVpnLockdownWhitelist",
+			Handler:    _DevicePolicyManagerService_GetAlwaysOnVpnLockdownWhitelist_Handler,
+		},
+		{
 			MethodName: "GetAlwaysOnVpnPackage",
 			Handler:    _DevicePolicyManagerService_GetAlwaysOnVpnPackage_Handler,
 		},
@@ -12810,6 +12474,10 @@ var DevicePolicyManagerService_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _DevicePolicyManagerService_GetAutoTimeZonePolicy_Handler,
 		},
 		{
+			MethodName: "GetBindDeviceAdminTargetUsers",
+			Handler:    _DevicePolicyManagerService_GetBindDeviceAdminTargetUsers_Handler,
+		},
+		{
 			MethodName: "GetBluetoothContactSharingDisabled",
 			Handler:    _DevicePolicyManagerService_GetBluetoothContactSharingDisabled_Handler,
 		},
@@ -12830,6 +12498,10 @@ var DevicePolicyManagerService_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _DevicePolicyManagerService_GetCredentialManagerPolicy_Handler,
 		},
 		{
+			MethodName: "GetCrossProfileCalendarPackages",
+			Handler:    _DevicePolicyManagerService_GetCrossProfileCalendarPackages_Handler,
+		},
+		{
 			MethodName: "GetCrossProfileCallerIdDisabled",
 			Handler:    _DevicePolicyManagerService_GetCrossProfileCallerIdDisabled_Handler,
 		},
@@ -12838,8 +12510,24 @@ var DevicePolicyManagerService_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _DevicePolicyManagerService_GetCrossProfileContactsSearchDisabled_Handler,
 		},
 		{
+			MethodName: "GetCrossProfilePackages",
+			Handler:    _DevicePolicyManagerService_GetCrossProfilePackages_Handler,
+		},
+		{
+			MethodName: "GetCrossProfileWidgetProviders",
+			Handler:    _DevicePolicyManagerService_GetCrossProfileWidgetProviders_Handler,
+		},
+		{
 			MethodName: "GetCurrentFailedPasswordAttempts",
 			Handler:    _DevicePolicyManagerService_GetCurrentFailedPasswordAttempts_Handler,
+		},
+		{
+			MethodName: "GetDelegatePackages",
+			Handler:    _DevicePolicyManagerService_GetDelegatePackages_Handler,
+		},
+		{
+			MethodName: "GetDelegatedScopes",
+			Handler:    _DevicePolicyManagerService_GetDelegatedScopes_Handler,
 		},
 		{
 			MethodName: "GetDeviceOwnerLockScreenInfo",
@@ -12868,6 +12556,14 @@ var DevicePolicyManagerService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetGlobalPrivateDnsMode",
 			Handler:    _DevicePolicyManagerService_GetGlobalPrivateDnsMode_Handler,
+		},
+		{
+			MethodName: "GetInstalledCaCerts",
+			Handler:    _DevicePolicyManagerService_GetInstalledCaCerts_Handler,
+		},
+		{
+			MethodName: "GetKeepUninstalledPackages",
+			Handler:    _DevicePolicyManagerService_GetKeepUninstalledPackages_Handler,
 		},
 		{
 			MethodName: "GetKeyguardDisabledFeatures",
@@ -12910,6 +12606,10 @@ var DevicePolicyManagerService_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _DevicePolicyManagerService_GetMaximumTimeToLock_Handler,
 		},
 		{
+			MethodName: "GetMeteredDataDisabledPackages",
+			Handler:    _DevicePolicyManagerService_GetMeteredDataDisabledPackages_Handler,
+		},
+		{
 			MethodName: "GetMinimumRequiredWifiSecurityLevel",
 			Handler:    _DevicePolicyManagerService_GetMinimumRequiredWifiSecurityLevel_Handler,
 		},
@@ -12932,6 +12632,10 @@ var DevicePolicyManagerService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetOrganizationName",
 			Handler:    _DevicePolicyManagerService_GetOrganizationName_Handler,
+		},
+		{
+			MethodName: "GetOverrideApns",
+			Handler:    _DevicePolicyManagerService_GetOverrideApns_Handler,
 		},
 		{
 			MethodName: "GetParentProfileInstance",
@@ -13002,8 +12706,24 @@ var DevicePolicyManagerService_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _DevicePolicyManagerService_GetPermissionPolicy_Handler,
 		},
 		{
+			MethodName: "GetPermittedAccessibilityServices",
+			Handler:    _DevicePolicyManagerService_GetPermittedAccessibilityServices_Handler,
+		},
+		{
+			MethodName: "GetPermittedCrossProfileNotificationListeners",
+			Handler:    _DevicePolicyManagerService_GetPermittedCrossProfileNotificationListeners_Handler,
+		},
+		{
+			MethodName: "GetPermittedInputMethods",
+			Handler:    _DevicePolicyManagerService_GetPermittedInputMethods_Handler,
+		},
+		{
 			MethodName: "GetPersonalAppsSuspendedReasons",
 			Handler:    _DevicePolicyManagerService_GetPersonalAppsSuspendedReasons_Handler,
+		},
+		{
+			MethodName: "GetPreferentialNetworkServiceConfigs",
+			Handler:    _DevicePolicyManagerService_GetPreferentialNetworkServiceConfigs_Handler,
 		},
 		{
 			MethodName: "GetRequiredPasswordComplexity",
@@ -13022,6 +12742,10 @@ var DevicePolicyManagerService_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _DevicePolicyManagerService_GetScreenCaptureDisabled_Handler,
 		},
 		{
+			MethodName: "GetSecondaryUsers",
+			Handler:    _DevicePolicyManagerService_GetSecondaryUsers_Handler,
+		},
+		{
 			MethodName: "GetShortSupportMessage",
 			Handler:    _DevicePolicyManagerService_GetShortSupportMessage_Handler,
 		},
@@ -13038,12 +12762,24 @@ var DevicePolicyManagerService_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _DevicePolicyManagerService_GetStorageEncryptionStatus_Handler,
 		},
 		{
+			MethodName: "GetSubscriptionIds",
+			Handler:    _DevicePolicyManagerService_GetSubscriptionIds_Handler,
+		},
+		{
 			MethodName: "GetSystemUpdatePolicy",
 			Handler:    _DevicePolicyManagerService_GetSystemUpdatePolicy_Handler,
 		},
 		{
 			MethodName: "GetTransferOwnershipBundle",
 			Handler:    _DevicePolicyManagerService_GetTransferOwnershipBundle_Handler,
+		},
+		{
+			MethodName: "GetTrustAgentConfiguration",
+			Handler:    _DevicePolicyManagerService_GetTrustAgentConfiguration_Handler,
+		},
+		{
+			MethodName: "GetUserControlDisabledPackages",
+			Handler:    _DevicePolicyManagerService_GetUserControlDisabledPackages_Handler,
 		},
 		{
 			MethodName: "GetUserRestrictions",
@@ -13246,6 +12982,10 @@ var DevicePolicyManagerService_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _DevicePolicyManagerService_IsUsingUnifiedPassword_Handler,
 		},
 		{
+			MethodName: "ListForegroundAffiliatedUsers",
+			Handler:    _DevicePolicyManagerService_ListForegroundAffiliatedUsers_Handler,
+		},
+		{
 			MethodName: "LockNow0",
 			Handler:    _DevicePolicyManagerService_LockNow0_Handler,
 		},
@@ -13292,6 +13032,18 @@ var DevicePolicyManagerService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "ResetPasswordWithToken",
 			Handler:    _DevicePolicyManagerService_ResetPasswordWithToken_Handler,
+		},
+		{
+			MethodName: "RetrieveNetworkLogs",
+			Handler:    _DevicePolicyManagerService_RetrieveNetworkLogs_Handler,
+		},
+		{
+			MethodName: "RetrievePreRebootSecurityLogs",
+			Handler:    _DevicePolicyManagerService_RetrievePreRebootSecurityLogs_Handler,
+		},
+		{
+			MethodName: "RetrieveSecurityLogs",
+			Handler:    _DevicePolicyManagerService_RetrieveSecurityLogs_Handler,
 		},
 		{
 			MethodName: "RevokeKeyPairFromApp",
@@ -13912,6 +13664,1064 @@ var DevicePolicyManagerOnClearApplicationUserDataListenerService_ServiceDesc = g
 		{
 			MethodName: "OnApplicationUserDataCleared",
 			Handler:    _DevicePolicyManagerOnClearApplicationUserDataListenerService_OnApplicationUserDataCleared_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/admin/admin.proto",
+}
+
+const (
+	SecurityLogSecurityEventService_DescribeContents_FullMethodName = "/admin.SecurityLogSecurityEventService/DescribeContents"
+	SecurityLogSecurityEventService_Equals_FullMethodName           = "/admin.SecurityLogSecurityEventService/Equals"
+	SecurityLogSecurityEventService_GetData_FullMethodName          = "/admin.SecurityLogSecurityEventService/GetData"
+	SecurityLogSecurityEventService_GetId_FullMethodName            = "/admin.SecurityLogSecurityEventService/GetId"
+	SecurityLogSecurityEventService_GetLogLevel_FullMethodName      = "/admin.SecurityLogSecurityEventService/GetLogLevel"
+	SecurityLogSecurityEventService_GetTag_FullMethodName           = "/admin.SecurityLogSecurityEventService/GetTag"
+	SecurityLogSecurityEventService_GetTimeNanos_FullMethodName     = "/admin.SecurityLogSecurityEventService/GetTimeNanos"
+	SecurityLogSecurityEventService_HashCode_FullMethodName         = "/admin.SecurityLogSecurityEventService/HashCode"
+	SecurityLogSecurityEventService_WriteToParcel_FullMethodName    = "/admin.SecurityLogSecurityEventService/WriteToParcel"
+)
+
+// SecurityLogSecurityEventServiceClient is the client API for SecurityLogSecurityEventService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type SecurityLogSecurityEventServiceClient interface {
+	DescribeContents(ctx context.Context, in *SecurityLogSecurityEventDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	Equals(ctx context.Context, in *SecurityLogSecurityEventEqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	GetData(ctx context.Context, in *GetDataRequest, opts ...grpc.CallOption) (*GetDataResponse, error)
+	GetId(ctx context.Context, in *GetIdRequest, opts ...grpc.CallOption) (*GetIdResponse, error)
+	GetLogLevel(ctx context.Context, in *GetLogLevelRequest, opts ...grpc.CallOption) (*GetLogLevelResponse, error)
+	GetTag(ctx context.Context, in *GetTagRequest, opts ...grpc.CallOption) (*GetTagResponse, error)
+	GetTimeNanos(ctx context.Context, in *GetTimeNanosRequest, opts ...grpc.CallOption) (*GetTimeNanosResponse, error)
+	HashCode(ctx context.Context, in *SecurityLogSecurityEventHashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+	WriteToParcel(ctx context.Context, in *SecurityLogSecurityEventWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type securityLogSecurityEventServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewSecurityLogSecurityEventServiceClient(cc grpc.ClientConnInterface) SecurityLogSecurityEventServiceClient {
+	return &securityLogSecurityEventServiceClient{cc}
+}
+
+func (c *securityLogSecurityEventServiceClient) DescribeContents(ctx context.Context, in *SecurityLogSecurityEventDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, SecurityLogSecurityEventService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *securityLogSecurityEventServiceClient) Equals(ctx context.Context, in *SecurityLogSecurityEventEqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(EqualsResponse)
+	err := c.cc.Invoke(ctx, SecurityLogSecurityEventService_Equals_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *securityLogSecurityEventServiceClient) GetData(ctx context.Context, in *GetDataRequest, opts ...grpc.CallOption) (*GetDataResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetDataResponse)
+	err := c.cc.Invoke(ctx, SecurityLogSecurityEventService_GetData_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *securityLogSecurityEventServiceClient) GetId(ctx context.Context, in *GetIdRequest, opts ...grpc.CallOption) (*GetIdResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetIdResponse)
+	err := c.cc.Invoke(ctx, SecurityLogSecurityEventService_GetId_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *securityLogSecurityEventServiceClient) GetLogLevel(ctx context.Context, in *GetLogLevelRequest, opts ...grpc.CallOption) (*GetLogLevelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetLogLevelResponse)
+	err := c.cc.Invoke(ctx, SecurityLogSecurityEventService_GetLogLevel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *securityLogSecurityEventServiceClient) GetTag(ctx context.Context, in *GetTagRequest, opts ...grpc.CallOption) (*GetTagResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTagResponse)
+	err := c.cc.Invoke(ctx, SecurityLogSecurityEventService_GetTag_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *securityLogSecurityEventServiceClient) GetTimeNanos(ctx context.Context, in *GetTimeNanosRequest, opts ...grpc.CallOption) (*GetTimeNanosResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTimeNanosResponse)
+	err := c.cc.Invoke(ctx, SecurityLogSecurityEventService_GetTimeNanos_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *securityLogSecurityEventServiceClient) HashCode(ctx context.Context, in *SecurityLogSecurityEventHashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HashCodeResponse)
+	err := c.cc.Invoke(ctx, SecurityLogSecurityEventService_HashCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *securityLogSecurityEventServiceClient) WriteToParcel(ctx context.Context, in *SecurityLogSecurityEventWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, SecurityLogSecurityEventService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// SecurityLogSecurityEventServiceServer is the server API for SecurityLogSecurityEventService service.
+// All implementations must embed UnimplementedSecurityLogSecurityEventServiceServer
+// for forward compatibility.
+type SecurityLogSecurityEventServiceServer interface {
+	DescribeContents(context.Context, *SecurityLogSecurityEventDescribeContentsRequest) (*DescribeContentsResponse, error)
+	Equals(context.Context, *SecurityLogSecurityEventEqualsRequest) (*EqualsResponse, error)
+	GetData(context.Context, *GetDataRequest) (*GetDataResponse, error)
+	GetId(context.Context, *GetIdRequest) (*GetIdResponse, error)
+	GetLogLevel(context.Context, *GetLogLevelRequest) (*GetLogLevelResponse, error)
+	GetTag(context.Context, *GetTagRequest) (*GetTagResponse, error)
+	GetTimeNanos(context.Context, *GetTimeNanosRequest) (*GetTimeNanosResponse, error)
+	HashCode(context.Context, *SecurityLogSecurityEventHashCodeRequest) (*HashCodeResponse, error)
+	WriteToParcel(context.Context, *SecurityLogSecurityEventWriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedSecurityLogSecurityEventServiceServer()
+}
+
+// UnimplementedSecurityLogSecurityEventServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedSecurityLogSecurityEventServiceServer struct{}
+
+func (UnimplementedSecurityLogSecurityEventServiceServer) DescribeContents(context.Context, *SecurityLogSecurityEventDescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedSecurityLogSecurityEventServiceServer) Equals(context.Context, *SecurityLogSecurityEventEqualsRequest) (*EqualsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
+}
+func (UnimplementedSecurityLogSecurityEventServiceServer) GetData(context.Context, *GetDataRequest) (*GetDataResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetData not implemented")
+}
+func (UnimplementedSecurityLogSecurityEventServiceServer) GetId(context.Context, *GetIdRequest) (*GetIdResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetId not implemented")
+}
+func (UnimplementedSecurityLogSecurityEventServiceServer) GetLogLevel(context.Context, *GetLogLevelRequest) (*GetLogLevelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetLogLevel not implemented")
+}
+func (UnimplementedSecurityLogSecurityEventServiceServer) GetTag(context.Context, *GetTagRequest) (*GetTagResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTag not implemented")
+}
+func (UnimplementedSecurityLogSecurityEventServiceServer) GetTimeNanos(context.Context, *GetTimeNanosRequest) (*GetTimeNanosResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTimeNanos not implemented")
+}
+func (UnimplementedSecurityLogSecurityEventServiceServer) HashCode(context.Context, *SecurityLogSecurityEventHashCodeRequest) (*HashCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
+}
+func (UnimplementedSecurityLogSecurityEventServiceServer) WriteToParcel(context.Context, *SecurityLogSecurityEventWriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedSecurityLogSecurityEventServiceServer) mustEmbedUnimplementedSecurityLogSecurityEventServiceServer() {
+}
+func (UnimplementedSecurityLogSecurityEventServiceServer) testEmbeddedByValue() {}
+
+// UnsafeSecurityLogSecurityEventServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to SecurityLogSecurityEventServiceServer will
+// result in compilation errors.
+type UnsafeSecurityLogSecurityEventServiceServer interface {
+	mustEmbedUnimplementedSecurityLogSecurityEventServiceServer()
+}
+
+func RegisterSecurityLogSecurityEventServiceServer(s grpc.ServiceRegistrar, srv SecurityLogSecurityEventServiceServer) {
+	// If the following call panics, it indicates UnimplementedSecurityLogSecurityEventServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&SecurityLogSecurityEventService_ServiceDesc, srv)
+}
+
+func _SecurityLogSecurityEventService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SecurityLogSecurityEventDescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SecurityLogSecurityEventServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SecurityLogSecurityEventService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SecurityLogSecurityEventServiceServer).DescribeContents(ctx, req.(*SecurityLogSecurityEventDescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SecurityLogSecurityEventService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SecurityLogSecurityEventEqualsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SecurityLogSecurityEventServiceServer).Equals(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SecurityLogSecurityEventService_Equals_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SecurityLogSecurityEventServiceServer).Equals(ctx, req.(*SecurityLogSecurityEventEqualsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SecurityLogSecurityEventService_GetData_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetDataRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SecurityLogSecurityEventServiceServer).GetData(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SecurityLogSecurityEventService_GetData_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SecurityLogSecurityEventServiceServer).GetData(ctx, req.(*GetDataRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SecurityLogSecurityEventService_GetId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SecurityLogSecurityEventServiceServer).GetId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SecurityLogSecurityEventService_GetId_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SecurityLogSecurityEventServiceServer).GetId(ctx, req.(*GetIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SecurityLogSecurityEventService_GetLogLevel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetLogLevelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SecurityLogSecurityEventServiceServer).GetLogLevel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SecurityLogSecurityEventService_GetLogLevel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SecurityLogSecurityEventServiceServer).GetLogLevel(ctx, req.(*GetLogLevelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SecurityLogSecurityEventService_GetTag_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTagRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SecurityLogSecurityEventServiceServer).GetTag(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SecurityLogSecurityEventService_GetTag_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SecurityLogSecurityEventServiceServer).GetTag(ctx, req.(*GetTagRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SecurityLogSecurityEventService_GetTimeNanos_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTimeNanosRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SecurityLogSecurityEventServiceServer).GetTimeNanos(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SecurityLogSecurityEventService_GetTimeNanos_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SecurityLogSecurityEventServiceServer).GetTimeNanos(ctx, req.(*GetTimeNanosRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SecurityLogSecurityEventService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SecurityLogSecurityEventHashCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SecurityLogSecurityEventServiceServer).HashCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SecurityLogSecurityEventService_HashCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SecurityLogSecurityEventServiceServer).HashCode(ctx, req.(*SecurityLogSecurityEventHashCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SecurityLogSecurityEventService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SecurityLogSecurityEventWriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SecurityLogSecurityEventServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SecurityLogSecurityEventService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SecurityLogSecurityEventServiceServer).WriteToParcel(ctx, req.(*SecurityLogSecurityEventWriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// SecurityLogSecurityEventService_ServiceDesc is the grpc.ServiceDesc for SecurityLogSecurityEventService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var SecurityLogSecurityEventService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "admin.SecurityLogSecurityEventService",
+	HandlerType: (*SecurityLogSecurityEventServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "DescribeContents",
+			Handler:    _SecurityLogSecurityEventService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "Equals",
+			Handler:    _SecurityLogSecurityEventService_Equals_Handler,
+		},
+		{
+			MethodName: "GetData",
+			Handler:    _SecurityLogSecurityEventService_GetData_Handler,
+		},
+		{
+			MethodName: "GetId",
+			Handler:    _SecurityLogSecurityEventService_GetId_Handler,
+		},
+		{
+			MethodName: "GetLogLevel",
+			Handler:    _SecurityLogSecurityEventService_GetLogLevel_Handler,
+		},
+		{
+			MethodName: "GetTag",
+			Handler:    _SecurityLogSecurityEventService_GetTag_Handler,
+		},
+		{
+			MethodName: "GetTimeNanos",
+			Handler:    _SecurityLogSecurityEventService_GetTimeNanos_Handler,
+		},
+		{
+			MethodName: "HashCode",
+			Handler:    _SecurityLogSecurityEventService_HashCode_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _SecurityLogSecurityEventService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/admin/admin.proto",
+}
+
+const (
+	ManagedSubscriptionsPolicyService_NewManagedSubscriptionsPolicy_FullMethodName = "/admin.ManagedSubscriptionsPolicyService/NewManagedSubscriptionsPolicy"
+	ManagedSubscriptionsPolicyService_DescribeContents_FullMethodName              = "/admin.ManagedSubscriptionsPolicyService/DescribeContents"
+	ManagedSubscriptionsPolicyService_Equals_FullMethodName                        = "/admin.ManagedSubscriptionsPolicyService/Equals"
+	ManagedSubscriptionsPolicyService_GetPolicyType_FullMethodName                 = "/admin.ManagedSubscriptionsPolicyService/GetPolicyType"
+	ManagedSubscriptionsPolicyService_HashCode_FullMethodName                      = "/admin.ManagedSubscriptionsPolicyService/HashCode"
+	ManagedSubscriptionsPolicyService_ToString_FullMethodName                      = "/admin.ManagedSubscriptionsPolicyService/ToString"
+	ManagedSubscriptionsPolicyService_WriteToParcel_FullMethodName                 = "/admin.ManagedSubscriptionsPolicyService/WriteToParcel"
+)
+
+// ManagedSubscriptionsPolicyServiceClient is the client API for ManagedSubscriptionsPolicyService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ManagedSubscriptionsPolicyServiceClient interface {
+	NewManagedSubscriptionsPolicy(ctx context.Context, in *NewManagedSubscriptionsPolicyRequest, opts ...grpc.CallOption) (*NewManagedSubscriptionsPolicyResponse, error)
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	GetPolicyType(ctx context.Context, in *GetPolicyTypeRequest, opts ...grpc.CallOption) (*GetPolicyTypeResponse, error)
+	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type managedSubscriptionsPolicyServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewManagedSubscriptionsPolicyServiceClient(cc grpc.ClientConnInterface) ManagedSubscriptionsPolicyServiceClient {
+	return &managedSubscriptionsPolicyServiceClient{cc}
+}
+
+func (c *managedSubscriptionsPolicyServiceClient) NewManagedSubscriptionsPolicy(ctx context.Context, in *NewManagedSubscriptionsPolicyRequest, opts ...grpc.CallOption) (*NewManagedSubscriptionsPolicyResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewManagedSubscriptionsPolicyResponse)
+	err := c.cc.Invoke(ctx, ManagedSubscriptionsPolicyService_NewManagedSubscriptionsPolicy_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *managedSubscriptionsPolicyServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, ManagedSubscriptionsPolicyService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *managedSubscriptionsPolicyServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(EqualsResponse)
+	err := c.cc.Invoke(ctx, ManagedSubscriptionsPolicyService_Equals_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *managedSubscriptionsPolicyServiceClient) GetPolicyType(ctx context.Context, in *GetPolicyTypeRequest, opts ...grpc.CallOption) (*GetPolicyTypeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetPolicyTypeResponse)
+	err := c.cc.Invoke(ctx, ManagedSubscriptionsPolicyService_GetPolicyType_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *managedSubscriptionsPolicyServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HashCodeResponse)
+	err := c.cc.Invoke(ctx, ManagedSubscriptionsPolicyService_HashCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *managedSubscriptionsPolicyServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, ManagedSubscriptionsPolicyService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *managedSubscriptionsPolicyServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, ManagedSubscriptionsPolicyService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ManagedSubscriptionsPolicyServiceServer is the server API for ManagedSubscriptionsPolicyService service.
+// All implementations must embed UnimplementedManagedSubscriptionsPolicyServiceServer
+// for forward compatibility.
+type ManagedSubscriptionsPolicyServiceServer interface {
+	NewManagedSubscriptionsPolicy(context.Context, *NewManagedSubscriptionsPolicyRequest) (*NewManagedSubscriptionsPolicyResponse, error)
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
+	GetPolicyType(context.Context, *GetPolicyTypeRequest) (*GetPolicyTypeResponse, error)
+	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
+	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedManagedSubscriptionsPolicyServiceServer()
+}
+
+// UnimplementedManagedSubscriptionsPolicyServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedManagedSubscriptionsPolicyServiceServer struct{}
+
+func (UnimplementedManagedSubscriptionsPolicyServiceServer) NewManagedSubscriptionsPolicy(context.Context, *NewManagedSubscriptionsPolicyRequest) (*NewManagedSubscriptionsPolicyResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewManagedSubscriptionsPolicy not implemented")
+}
+func (UnimplementedManagedSubscriptionsPolicyServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedManagedSubscriptionsPolicyServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
+}
+func (UnimplementedManagedSubscriptionsPolicyServiceServer) GetPolicyType(context.Context, *GetPolicyTypeRequest) (*GetPolicyTypeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetPolicyType not implemented")
+}
+func (UnimplementedManagedSubscriptionsPolicyServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
+}
+func (UnimplementedManagedSubscriptionsPolicyServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedManagedSubscriptionsPolicyServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedManagedSubscriptionsPolicyServiceServer) mustEmbedUnimplementedManagedSubscriptionsPolicyServiceServer() {
+}
+func (UnimplementedManagedSubscriptionsPolicyServiceServer) testEmbeddedByValue() {}
+
+// UnsafeManagedSubscriptionsPolicyServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ManagedSubscriptionsPolicyServiceServer will
+// result in compilation errors.
+type UnsafeManagedSubscriptionsPolicyServiceServer interface {
+	mustEmbedUnimplementedManagedSubscriptionsPolicyServiceServer()
+}
+
+func RegisterManagedSubscriptionsPolicyServiceServer(s grpc.ServiceRegistrar, srv ManagedSubscriptionsPolicyServiceServer) {
+	// If the following call panics, it indicates UnimplementedManagedSubscriptionsPolicyServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&ManagedSubscriptionsPolicyService_ServiceDesc, srv)
+}
+
+func _ManagedSubscriptionsPolicyService_NewManagedSubscriptionsPolicy_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewManagedSubscriptionsPolicyRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagedSubscriptionsPolicyServiceServer).NewManagedSubscriptionsPolicy(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagedSubscriptionsPolicyService_NewManagedSubscriptionsPolicy_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagedSubscriptionsPolicyServiceServer).NewManagedSubscriptionsPolicy(ctx, req.(*NewManagedSubscriptionsPolicyRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ManagedSubscriptionsPolicyService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagedSubscriptionsPolicyServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagedSubscriptionsPolicyService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagedSubscriptionsPolicyServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ManagedSubscriptionsPolicyService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EqualsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagedSubscriptionsPolicyServiceServer).Equals(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagedSubscriptionsPolicyService_Equals_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagedSubscriptionsPolicyServiceServer).Equals(ctx, req.(*EqualsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ManagedSubscriptionsPolicyService_GetPolicyType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPolicyTypeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagedSubscriptionsPolicyServiceServer).GetPolicyType(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagedSubscriptionsPolicyService_GetPolicyType_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagedSubscriptionsPolicyServiceServer).GetPolicyType(ctx, req.(*GetPolicyTypeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ManagedSubscriptionsPolicyService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HashCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagedSubscriptionsPolicyServiceServer).HashCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagedSubscriptionsPolicyService_HashCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagedSubscriptionsPolicyServiceServer).HashCode(ctx, req.(*HashCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ManagedSubscriptionsPolicyService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagedSubscriptionsPolicyServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagedSubscriptionsPolicyService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagedSubscriptionsPolicyServiceServer).ToString(ctx, req.(*ToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ManagedSubscriptionsPolicyService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagedSubscriptionsPolicyServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagedSubscriptionsPolicyService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagedSubscriptionsPolicyServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ManagedSubscriptionsPolicyService_ServiceDesc is the grpc.ServiceDesc for ManagedSubscriptionsPolicyService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ManagedSubscriptionsPolicyService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "admin.ManagedSubscriptionsPolicyService",
+	HandlerType: (*ManagedSubscriptionsPolicyServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewManagedSubscriptionsPolicy",
+			Handler:    _ManagedSubscriptionsPolicyService_NewManagedSubscriptionsPolicy_Handler,
+		},
+		{
+			MethodName: "DescribeContents",
+			Handler:    _ManagedSubscriptionsPolicyService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "Equals",
+			Handler:    _ManagedSubscriptionsPolicyService_Equals_Handler,
+		},
+		{
+			MethodName: "GetPolicyType",
+			Handler:    _ManagedSubscriptionsPolicyService_GetPolicyType_Handler,
+		},
+		{
+			MethodName: "HashCode",
+			Handler:    _ManagedSubscriptionsPolicyService_HashCode_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _ManagedSubscriptionsPolicyService_ToString_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _ManagedSubscriptionsPolicyService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/admin/admin.proto",
+}
+
+const (
+	PolicyUpdateReceiverService_OnPolicyChanged_FullMethodName   = "/admin.PolicyUpdateReceiverService/OnPolicyChanged"
+	PolicyUpdateReceiverService_OnPolicySetResult_FullMethodName = "/admin.PolicyUpdateReceiverService/OnPolicySetResult"
+	PolicyUpdateReceiverService_OnReceive_FullMethodName         = "/admin.PolicyUpdateReceiverService/OnReceive"
+)
+
+// PolicyUpdateReceiverServiceClient is the client API for PolicyUpdateReceiverService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type PolicyUpdateReceiverServiceClient interface {
+	OnPolicyChanged(ctx context.Context, in *OnPolicyChangedRequest, opts ...grpc.CallOption) (*OnPolicyChangedResponse, error)
+	OnPolicySetResult(ctx context.Context, in *OnPolicySetResultRequest, opts ...grpc.CallOption) (*OnPolicySetResultResponse, error)
+	OnReceive(ctx context.Context, in *OnReceiveRequest, opts ...grpc.CallOption) (*OnReceiveResponse, error)
+}
+
+type policyUpdateReceiverServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewPolicyUpdateReceiverServiceClient(cc grpc.ClientConnInterface) PolicyUpdateReceiverServiceClient {
+	return &policyUpdateReceiverServiceClient{cc}
+}
+
+func (c *policyUpdateReceiverServiceClient) OnPolicyChanged(ctx context.Context, in *OnPolicyChangedRequest, opts ...grpc.CallOption) (*OnPolicyChangedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnPolicyChangedResponse)
+	err := c.cc.Invoke(ctx, PolicyUpdateReceiverService_OnPolicyChanged_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *policyUpdateReceiverServiceClient) OnPolicySetResult(ctx context.Context, in *OnPolicySetResultRequest, opts ...grpc.CallOption) (*OnPolicySetResultResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnPolicySetResultResponse)
+	err := c.cc.Invoke(ctx, PolicyUpdateReceiverService_OnPolicySetResult_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *policyUpdateReceiverServiceClient) OnReceive(ctx context.Context, in *OnReceiveRequest, opts ...grpc.CallOption) (*OnReceiveResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnReceiveResponse)
+	err := c.cc.Invoke(ctx, PolicyUpdateReceiverService_OnReceive_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// PolicyUpdateReceiverServiceServer is the server API for PolicyUpdateReceiverService service.
+// All implementations must embed UnimplementedPolicyUpdateReceiverServiceServer
+// for forward compatibility.
+type PolicyUpdateReceiverServiceServer interface {
+	OnPolicyChanged(context.Context, *OnPolicyChangedRequest) (*OnPolicyChangedResponse, error)
+	OnPolicySetResult(context.Context, *OnPolicySetResultRequest) (*OnPolicySetResultResponse, error)
+	OnReceive(context.Context, *OnReceiveRequest) (*OnReceiveResponse, error)
+	mustEmbedUnimplementedPolicyUpdateReceiverServiceServer()
+}
+
+// UnimplementedPolicyUpdateReceiverServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedPolicyUpdateReceiverServiceServer struct{}
+
+func (UnimplementedPolicyUpdateReceiverServiceServer) OnPolicyChanged(context.Context, *OnPolicyChangedRequest) (*OnPolicyChangedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnPolicyChanged not implemented")
+}
+func (UnimplementedPolicyUpdateReceiverServiceServer) OnPolicySetResult(context.Context, *OnPolicySetResultRequest) (*OnPolicySetResultResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnPolicySetResult not implemented")
+}
+func (UnimplementedPolicyUpdateReceiverServiceServer) OnReceive(context.Context, *OnReceiveRequest) (*OnReceiveResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnReceive not implemented")
+}
+func (UnimplementedPolicyUpdateReceiverServiceServer) mustEmbedUnimplementedPolicyUpdateReceiverServiceServer() {
+}
+func (UnimplementedPolicyUpdateReceiverServiceServer) testEmbeddedByValue() {}
+
+// UnsafePolicyUpdateReceiverServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to PolicyUpdateReceiverServiceServer will
+// result in compilation errors.
+type UnsafePolicyUpdateReceiverServiceServer interface {
+	mustEmbedUnimplementedPolicyUpdateReceiverServiceServer()
+}
+
+func RegisterPolicyUpdateReceiverServiceServer(s grpc.ServiceRegistrar, srv PolicyUpdateReceiverServiceServer) {
+	// If the following call panics, it indicates UnimplementedPolicyUpdateReceiverServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&PolicyUpdateReceiverService_ServiceDesc, srv)
+}
+
+func _PolicyUpdateReceiverService_OnPolicyChanged_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnPolicyChangedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PolicyUpdateReceiverServiceServer).OnPolicyChanged(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PolicyUpdateReceiverService_OnPolicyChanged_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PolicyUpdateReceiverServiceServer).OnPolicyChanged(ctx, req.(*OnPolicyChangedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PolicyUpdateReceiverService_OnPolicySetResult_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnPolicySetResultRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PolicyUpdateReceiverServiceServer).OnPolicySetResult(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PolicyUpdateReceiverService_OnPolicySetResult_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PolicyUpdateReceiverServiceServer).OnPolicySetResult(ctx, req.(*OnPolicySetResultRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PolicyUpdateReceiverService_OnReceive_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnReceiveRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PolicyUpdateReceiverServiceServer).OnReceive(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PolicyUpdateReceiverService_OnReceive_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PolicyUpdateReceiverServiceServer).OnReceive(ctx, req.(*OnReceiveRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// PolicyUpdateReceiverService_ServiceDesc is the grpc.ServiceDesc for PolicyUpdateReceiverService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var PolicyUpdateReceiverService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "admin.PolicyUpdateReceiverService",
+	HandlerType: (*PolicyUpdateReceiverServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "OnPolicyChanged",
+			Handler:    _PolicyUpdateReceiverService_OnPolicyChanged_Handler,
+		},
+		{
+			MethodName: "OnPolicySetResult",
+			Handler:    _PolicyUpdateReceiverService_OnPolicySetResult_Handler,
+		},
+		{
+			MethodName: "OnReceive",
+			Handler:    _PolicyUpdateReceiverService_OnReceive_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/admin/admin.proto",
+}
+
+const (
+	PolicyUpdateResultService_NewPolicyUpdateResult_FullMethodName = "/admin.PolicyUpdateResultService/NewPolicyUpdateResult"
+	PolicyUpdateResultService_GetResultCode_FullMethodName         = "/admin.PolicyUpdateResultService/GetResultCode"
+)
+
+// PolicyUpdateResultServiceClient is the client API for PolicyUpdateResultService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type PolicyUpdateResultServiceClient interface {
+	NewPolicyUpdateResult(ctx context.Context, in *NewPolicyUpdateResultRequest, opts ...grpc.CallOption) (*NewPolicyUpdateResultResponse, error)
+	GetResultCode(ctx context.Context, in *GetResultCodeRequest, opts ...grpc.CallOption) (*GetResultCodeResponse, error)
+}
+
+type policyUpdateResultServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewPolicyUpdateResultServiceClient(cc grpc.ClientConnInterface) PolicyUpdateResultServiceClient {
+	return &policyUpdateResultServiceClient{cc}
+}
+
+func (c *policyUpdateResultServiceClient) NewPolicyUpdateResult(ctx context.Context, in *NewPolicyUpdateResultRequest, opts ...grpc.CallOption) (*NewPolicyUpdateResultResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewPolicyUpdateResultResponse)
+	err := c.cc.Invoke(ctx, PolicyUpdateResultService_NewPolicyUpdateResult_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *policyUpdateResultServiceClient) GetResultCode(ctx context.Context, in *GetResultCodeRequest, opts ...grpc.CallOption) (*GetResultCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetResultCodeResponse)
+	err := c.cc.Invoke(ctx, PolicyUpdateResultService_GetResultCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// PolicyUpdateResultServiceServer is the server API for PolicyUpdateResultService service.
+// All implementations must embed UnimplementedPolicyUpdateResultServiceServer
+// for forward compatibility.
+type PolicyUpdateResultServiceServer interface {
+	NewPolicyUpdateResult(context.Context, *NewPolicyUpdateResultRequest) (*NewPolicyUpdateResultResponse, error)
+	GetResultCode(context.Context, *GetResultCodeRequest) (*GetResultCodeResponse, error)
+	mustEmbedUnimplementedPolicyUpdateResultServiceServer()
+}
+
+// UnimplementedPolicyUpdateResultServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedPolicyUpdateResultServiceServer struct{}
+
+func (UnimplementedPolicyUpdateResultServiceServer) NewPolicyUpdateResult(context.Context, *NewPolicyUpdateResultRequest) (*NewPolicyUpdateResultResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewPolicyUpdateResult not implemented")
+}
+func (UnimplementedPolicyUpdateResultServiceServer) GetResultCode(context.Context, *GetResultCodeRequest) (*GetResultCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetResultCode not implemented")
+}
+func (UnimplementedPolicyUpdateResultServiceServer) mustEmbedUnimplementedPolicyUpdateResultServiceServer() {
+}
+func (UnimplementedPolicyUpdateResultServiceServer) testEmbeddedByValue() {}
+
+// UnsafePolicyUpdateResultServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to PolicyUpdateResultServiceServer will
+// result in compilation errors.
+type UnsafePolicyUpdateResultServiceServer interface {
+	mustEmbedUnimplementedPolicyUpdateResultServiceServer()
+}
+
+func RegisterPolicyUpdateResultServiceServer(s grpc.ServiceRegistrar, srv PolicyUpdateResultServiceServer) {
+	// If the following call panics, it indicates UnimplementedPolicyUpdateResultServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&PolicyUpdateResultService_ServiceDesc, srv)
+}
+
+func _PolicyUpdateResultService_NewPolicyUpdateResult_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewPolicyUpdateResultRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PolicyUpdateResultServiceServer).NewPolicyUpdateResult(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PolicyUpdateResultService_NewPolicyUpdateResult_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PolicyUpdateResultServiceServer).NewPolicyUpdateResult(ctx, req.(*NewPolicyUpdateResultRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PolicyUpdateResultService_GetResultCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetResultCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PolicyUpdateResultServiceServer).GetResultCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PolicyUpdateResultService_GetResultCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PolicyUpdateResultServiceServer).GetResultCode(ctx, req.(*GetResultCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// PolicyUpdateResultService_ServiceDesc is the grpc.ServiceDesc for PolicyUpdateResultService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var PolicyUpdateResultService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "admin.PolicyUpdateResultService",
+	HandlerType: (*PolicyUpdateResultServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewPolicyUpdateResult",
+			Handler:    _PolicyUpdateResultService_NewPolicyUpdateResult_Handler,
+		},
+		{
+			MethodName: "GetResultCode",
+			Handler:    _PolicyUpdateResultService_GetResultCode_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -15314,2010 +16124,216 @@ var DeviceAdminReceiverService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	DnsEventService_DescribeContents_FullMethodName             = "/admin.DnsEventService/DescribeContents"
-	DnsEventService_GetHostname_FullMethodName                  = "/admin.DnsEventService/GetHostname"
-	DnsEventService_GetTotalResolvedAddressCount_FullMethodName = "/admin.DnsEventService/GetTotalResolvedAddressCount"
-	DnsEventService_ToString_FullMethodName                     = "/admin.DnsEventService/ToString"
-	DnsEventService_WriteToParcel_FullMethodName                = "/admin.DnsEventService/WriteToParcel"
+	UnsafeStateExceptionService_DescribeContents_FullMethodName = "/admin.UnsafeStateExceptionService/DescribeContents"
+	UnsafeStateExceptionService_GetMessage_FullMethodName       = "/admin.UnsafeStateExceptionService/GetMessage"
+	UnsafeStateExceptionService_GetReasons_FullMethodName       = "/admin.UnsafeStateExceptionService/GetReasons"
+	UnsafeStateExceptionService_WriteToParcel_FullMethodName    = "/admin.UnsafeStateExceptionService/WriteToParcel"
 )
 
-// DnsEventServiceClient is the client API for DnsEventService service.
+// UnsafeStateExceptionServiceClient is the client API for UnsafeStateExceptionService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type DnsEventServiceClient interface {
-	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	GetHostname(ctx context.Context, in *GetHostnameRequest, opts ...grpc.CallOption) (*GetHostnameResponse, error)
-	GetTotalResolvedAddressCount(ctx context.Context, in *GetTotalResolvedAddressCountRequest, opts ...grpc.CallOption) (*GetTotalResolvedAddressCountResponse, error)
-	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
-	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+type UnsafeStateExceptionServiceClient interface {
+	DescribeContents(ctx context.Context, in *UnsafeStateExceptionDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	GetMessage(ctx context.Context, in *GetMessageRequest, opts ...grpc.CallOption) (*GetMessageResponse, error)
+	GetReasons(ctx context.Context, in *GetReasonsRequest, opts ...grpc.CallOption) (*GetReasonsResponse, error)
+	WriteToParcel(ctx context.Context, in *UnsafeStateExceptionWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
 }
 
-type dnsEventServiceClient struct {
+type unsafeStateExceptionServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewDnsEventServiceClient(cc grpc.ClientConnInterface) DnsEventServiceClient {
-	return &dnsEventServiceClient{cc}
+func NewUnsafeStateExceptionServiceClient(cc grpc.ClientConnInterface) UnsafeStateExceptionServiceClient {
+	return &unsafeStateExceptionServiceClient{cc}
 }
 
-func (c *dnsEventServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+func (c *unsafeStateExceptionServiceClient) DescribeContents(ctx context.Context, in *UnsafeStateExceptionDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, DnsEventService_DescribeContents_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, UnsafeStateExceptionService_DescribeContents_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *dnsEventServiceClient) GetHostname(ctx context.Context, in *GetHostnameRequest, opts ...grpc.CallOption) (*GetHostnameResponse, error) {
+func (c *unsafeStateExceptionServiceClient) GetMessage(ctx context.Context, in *GetMessageRequest, opts ...grpc.CallOption) (*GetMessageResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetHostnameResponse)
-	err := c.cc.Invoke(ctx, DnsEventService_GetHostname_FullMethodName, in, out, cOpts...)
+	out := new(GetMessageResponse)
+	err := c.cc.Invoke(ctx, UnsafeStateExceptionService_GetMessage_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *dnsEventServiceClient) GetTotalResolvedAddressCount(ctx context.Context, in *GetTotalResolvedAddressCountRequest, opts ...grpc.CallOption) (*GetTotalResolvedAddressCountResponse, error) {
+func (c *unsafeStateExceptionServiceClient) GetReasons(ctx context.Context, in *GetReasonsRequest, opts ...grpc.CallOption) (*GetReasonsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetTotalResolvedAddressCountResponse)
-	err := c.cc.Invoke(ctx, DnsEventService_GetTotalResolvedAddressCount_FullMethodName, in, out, cOpts...)
+	out := new(GetReasonsResponse)
+	err := c.cc.Invoke(ctx, UnsafeStateExceptionService_GetReasons_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *dnsEventServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ToStringResponse)
-	err := c.cc.Invoke(ctx, DnsEventService_ToString_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *dnsEventServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+func (c *unsafeStateExceptionServiceClient) WriteToParcel(ctx context.Context, in *UnsafeStateExceptionWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, DnsEventService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, UnsafeStateExceptionService_WriteToParcel_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// DnsEventServiceServer is the server API for DnsEventService service.
-// All implementations must embed UnimplementedDnsEventServiceServer
+// UnsafeStateExceptionServiceServer is the server API for UnsafeStateExceptionService service.
+// All implementations must embed UnimplementedUnsafeStateExceptionServiceServer
 // for forward compatibility.
-type DnsEventServiceServer interface {
-	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
-	GetHostname(context.Context, *GetHostnameRequest) (*GetHostnameResponse, error)
-	GetTotalResolvedAddressCount(context.Context, *GetTotalResolvedAddressCountRequest) (*GetTotalResolvedAddressCountResponse, error)
-	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
-	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
-	mustEmbedUnimplementedDnsEventServiceServer()
+type UnsafeStateExceptionServiceServer interface {
+	DescribeContents(context.Context, *UnsafeStateExceptionDescribeContentsRequest) (*DescribeContentsResponse, error)
+	GetMessage(context.Context, *GetMessageRequest) (*GetMessageResponse, error)
+	GetReasons(context.Context, *GetReasonsRequest) (*GetReasonsResponse, error)
+	WriteToParcel(context.Context, *UnsafeStateExceptionWriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedUnsafeStateExceptionServiceServer()
 }
 
-// UnimplementedDnsEventServiceServer must be embedded to have
+// UnimplementedUnsafeStateExceptionServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedDnsEventServiceServer struct{}
+type UnimplementedUnsafeStateExceptionServiceServer struct{}
 
-func (UnimplementedDnsEventServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+func (UnimplementedUnsafeStateExceptionServiceServer) DescribeContents(context.Context, *UnsafeStateExceptionDescribeContentsRequest) (*DescribeContentsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
 }
-func (UnimplementedDnsEventServiceServer) GetHostname(context.Context, *GetHostnameRequest) (*GetHostnameResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetHostname not implemented")
+func (UnimplementedUnsafeStateExceptionServiceServer) GetMessage(context.Context, *GetMessageRequest) (*GetMessageResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetMessage not implemented")
 }
-func (UnimplementedDnsEventServiceServer) GetTotalResolvedAddressCount(context.Context, *GetTotalResolvedAddressCountRequest) (*GetTotalResolvedAddressCountResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetTotalResolvedAddressCount not implemented")
+func (UnimplementedUnsafeStateExceptionServiceServer) GetReasons(context.Context, *GetReasonsRequest) (*GetReasonsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetReasons not implemented")
 }
-func (UnimplementedDnsEventServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
-}
-func (UnimplementedDnsEventServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+func (UnimplementedUnsafeStateExceptionServiceServer) WriteToParcel(context.Context, *UnsafeStateExceptionWriteToParcelRequest) (*WriteToParcelResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
 }
-func (UnimplementedDnsEventServiceServer) mustEmbedUnimplementedDnsEventServiceServer() {}
-func (UnimplementedDnsEventServiceServer) testEmbeddedByValue()                         {}
+func (UnimplementedUnsafeStateExceptionServiceServer) mustEmbedUnimplementedUnsafeStateExceptionServiceServer() {
+}
+func (UnimplementedUnsafeStateExceptionServiceServer) testEmbeddedByValue() {}
 
-// UnsafeDnsEventServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to DnsEventServiceServer will
+// UnsafeUnsafeStateExceptionServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to UnsafeStateExceptionServiceServer will
 // result in compilation errors.
-type UnsafeDnsEventServiceServer interface {
-	mustEmbedUnimplementedDnsEventServiceServer()
+type UnsafeUnsafeStateExceptionServiceServer interface {
+	mustEmbedUnimplementedUnsafeStateExceptionServiceServer()
 }
 
-func RegisterDnsEventServiceServer(s grpc.ServiceRegistrar, srv DnsEventServiceServer) {
-	// If the following call panics, it indicates UnimplementedDnsEventServiceServer was
+func RegisterUnsafeStateExceptionServiceServer(s grpc.ServiceRegistrar, srv UnsafeStateExceptionServiceServer) {
+	// If the following call panics, it indicates UnimplementedUnsafeStateExceptionServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&DnsEventService_ServiceDesc, srv)
+	s.RegisterService(&UnsafeStateExceptionService_ServiceDesc, srv)
 }
 
-func _DnsEventService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DescribeContentsRequest)
+func _UnsafeStateExceptionService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UnsafeStateExceptionDescribeContentsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(DnsEventServiceServer).DescribeContents(ctx, in)
+		return srv.(UnsafeStateExceptionServiceServer).DescribeContents(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: DnsEventService_DescribeContents_FullMethodName,
+		FullMethod: UnsafeStateExceptionService_DescribeContents_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DnsEventServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+		return srv.(UnsafeStateExceptionServiceServer).DescribeContents(ctx, req.(*UnsafeStateExceptionDescribeContentsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _DnsEventService_GetHostname_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetHostnameRequest)
+func _UnsafeStateExceptionService_GetMessage_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetMessageRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(DnsEventServiceServer).GetHostname(ctx, in)
+		return srv.(UnsafeStateExceptionServiceServer).GetMessage(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: DnsEventService_GetHostname_FullMethodName,
+		FullMethod: UnsafeStateExceptionService_GetMessage_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DnsEventServiceServer).GetHostname(ctx, req.(*GetHostnameRequest))
+		return srv.(UnsafeStateExceptionServiceServer).GetMessage(ctx, req.(*GetMessageRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _DnsEventService_GetTotalResolvedAddressCount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetTotalResolvedAddressCountRequest)
+func _UnsafeStateExceptionService_GetReasons_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetReasonsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(DnsEventServiceServer).GetTotalResolvedAddressCount(ctx, in)
+		return srv.(UnsafeStateExceptionServiceServer).GetReasons(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: DnsEventService_GetTotalResolvedAddressCount_FullMethodName,
+		FullMethod: UnsafeStateExceptionService_GetReasons_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DnsEventServiceServer).GetTotalResolvedAddressCount(ctx, req.(*GetTotalResolvedAddressCountRequest))
+		return srv.(UnsafeStateExceptionServiceServer).GetReasons(ctx, req.(*GetReasonsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _DnsEventService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ToStringRequest)
+func _UnsafeStateExceptionService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UnsafeStateExceptionWriteToParcelRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(DnsEventServiceServer).ToString(ctx, in)
+		return srv.(UnsafeStateExceptionServiceServer).WriteToParcel(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: DnsEventService_ToString_FullMethodName,
+		FullMethod: UnsafeStateExceptionService_WriteToParcel_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DnsEventServiceServer).ToString(ctx, req.(*ToStringRequest))
+		return srv.(UnsafeStateExceptionServiceServer).WriteToParcel(ctx, req.(*UnsafeStateExceptionWriteToParcelRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _DnsEventService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WriteToParcelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DnsEventServiceServer).WriteToParcel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DnsEventService_WriteToParcel_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DnsEventServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// DnsEventService_ServiceDesc is the grpc.ServiceDesc for DnsEventService service.
+// UnsafeStateExceptionService_ServiceDesc is the grpc.ServiceDesc for UnsafeStateExceptionService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var DnsEventService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "admin.DnsEventService",
-	HandlerType: (*DnsEventServiceServer)(nil),
+var UnsafeStateExceptionService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "admin.UnsafeStateExceptionService",
+	HandlerType: (*UnsafeStateExceptionServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
 			MethodName: "DescribeContents",
-			Handler:    _DnsEventService_DescribeContents_Handler,
+			Handler:    _UnsafeStateExceptionService_DescribeContents_Handler,
 		},
 		{
-			MethodName: "GetHostname",
-			Handler:    _DnsEventService_GetHostname_Handler,
+			MethodName: "GetMessage",
+			Handler:    _UnsafeStateExceptionService_GetMessage_Handler,
 		},
 		{
-			MethodName: "GetTotalResolvedAddressCount",
-			Handler:    _DnsEventService_GetTotalResolvedAddressCount_Handler,
-		},
-		{
-			MethodName: "ToString",
-			Handler:    _DnsEventService_ToString_Handler,
+			MethodName: "GetReasons",
+			Handler:    _UnsafeStateExceptionService_GetReasons_Handler,
 		},
 		{
 			MethodName: "WriteToParcel",
-			Handler:    _DnsEventService_WriteToParcel_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/admin/admin.proto",
-}
-
-const (
-	DevicePolicyIdentifiersService_GetIdentifierForUserRestriction_FullMethodName = "/admin.DevicePolicyIdentifiersService/GetIdentifierForUserRestriction"
-)
-
-// DevicePolicyIdentifiersServiceClient is the client API for DevicePolicyIdentifiersService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type DevicePolicyIdentifiersServiceClient interface {
-	GetIdentifierForUserRestriction(ctx context.Context, in *GetIdentifierForUserRestrictionRequest, opts ...grpc.CallOption) (*GetIdentifierForUserRestrictionResponse, error)
-}
-
-type devicePolicyIdentifiersServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewDevicePolicyIdentifiersServiceClient(cc grpc.ClientConnInterface) DevicePolicyIdentifiersServiceClient {
-	return &devicePolicyIdentifiersServiceClient{cc}
-}
-
-func (c *devicePolicyIdentifiersServiceClient) GetIdentifierForUserRestriction(ctx context.Context, in *GetIdentifierForUserRestrictionRequest, opts ...grpc.CallOption) (*GetIdentifierForUserRestrictionResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetIdentifierForUserRestrictionResponse)
-	err := c.cc.Invoke(ctx, DevicePolicyIdentifiersService_GetIdentifierForUserRestriction_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// DevicePolicyIdentifiersServiceServer is the server API for DevicePolicyIdentifiersService service.
-// All implementations must embed UnimplementedDevicePolicyIdentifiersServiceServer
-// for forward compatibility.
-type DevicePolicyIdentifiersServiceServer interface {
-	GetIdentifierForUserRestriction(context.Context, *GetIdentifierForUserRestrictionRequest) (*GetIdentifierForUserRestrictionResponse, error)
-	mustEmbedUnimplementedDevicePolicyIdentifiersServiceServer()
-}
-
-// UnimplementedDevicePolicyIdentifiersServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedDevicePolicyIdentifiersServiceServer struct{}
-
-func (UnimplementedDevicePolicyIdentifiersServiceServer) GetIdentifierForUserRestriction(context.Context, *GetIdentifierForUserRestrictionRequest) (*GetIdentifierForUserRestrictionResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetIdentifierForUserRestriction not implemented")
-}
-func (UnimplementedDevicePolicyIdentifiersServiceServer) mustEmbedUnimplementedDevicePolicyIdentifiersServiceServer() {
-}
-func (UnimplementedDevicePolicyIdentifiersServiceServer) testEmbeddedByValue() {}
-
-// UnsafeDevicePolicyIdentifiersServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to DevicePolicyIdentifiersServiceServer will
-// result in compilation errors.
-type UnsafeDevicePolicyIdentifiersServiceServer interface {
-	mustEmbedUnimplementedDevicePolicyIdentifiersServiceServer()
-}
-
-func RegisterDevicePolicyIdentifiersServiceServer(s grpc.ServiceRegistrar, srv DevicePolicyIdentifiersServiceServer) {
-	// If the following call panics, it indicates UnimplementedDevicePolicyIdentifiersServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&DevicePolicyIdentifiersService_ServiceDesc, srv)
-}
-
-func _DevicePolicyIdentifiersService_GetIdentifierForUserRestriction_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetIdentifierForUserRestrictionRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DevicePolicyIdentifiersServiceServer).GetIdentifierForUserRestriction(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DevicePolicyIdentifiersService_GetIdentifierForUserRestriction_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DevicePolicyIdentifiersServiceServer).GetIdentifierForUserRestriction(ctx, req.(*GetIdentifierForUserRestrictionRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// DevicePolicyIdentifiersService_ServiceDesc is the grpc.ServiceDesc for DevicePolicyIdentifiersService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var DevicePolicyIdentifiersService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "admin.DevicePolicyIdentifiersService",
-	HandlerType: (*DevicePolicyIdentifiersServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "GetIdentifierForUserRestriction",
-			Handler:    _DevicePolicyIdentifiersService_GetIdentifierForUserRestriction_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/admin/admin.proto",
-}
-
-const (
-	DevicePolicyResourcesManagerService_GetDrawableAsIcon3_FullMethodName   = "/admin.DevicePolicyResourcesManagerService/GetDrawableAsIcon3"
-	DevicePolicyResourcesManagerService_GetDrawableAsIcon4_1_FullMethodName = "/admin.DevicePolicyResourcesManagerService/GetDrawableAsIcon4_1"
-)
-
-// DevicePolicyResourcesManagerServiceClient is the client API for DevicePolicyResourcesManagerService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type DevicePolicyResourcesManagerServiceClient interface {
-	GetDrawableAsIcon3(ctx context.Context, in *GetDrawableAsIcon3Request, opts ...grpc.CallOption) (*GetDrawableAsIcon3Response, error)
-	GetDrawableAsIcon4_1(ctx context.Context, in *GetDrawableAsIcon4_1Request, opts ...grpc.CallOption) (*GetDrawableAsIcon4_1Response, error)
-}
-
-type devicePolicyResourcesManagerServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewDevicePolicyResourcesManagerServiceClient(cc grpc.ClientConnInterface) DevicePolicyResourcesManagerServiceClient {
-	return &devicePolicyResourcesManagerServiceClient{cc}
-}
-
-func (c *devicePolicyResourcesManagerServiceClient) GetDrawableAsIcon3(ctx context.Context, in *GetDrawableAsIcon3Request, opts ...grpc.CallOption) (*GetDrawableAsIcon3Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetDrawableAsIcon3Response)
-	err := c.cc.Invoke(ctx, DevicePolicyResourcesManagerService_GetDrawableAsIcon3_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *devicePolicyResourcesManagerServiceClient) GetDrawableAsIcon4_1(ctx context.Context, in *GetDrawableAsIcon4_1Request, opts ...grpc.CallOption) (*GetDrawableAsIcon4_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetDrawableAsIcon4_1Response)
-	err := c.cc.Invoke(ctx, DevicePolicyResourcesManagerService_GetDrawableAsIcon4_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// DevicePolicyResourcesManagerServiceServer is the server API for DevicePolicyResourcesManagerService service.
-// All implementations must embed UnimplementedDevicePolicyResourcesManagerServiceServer
-// for forward compatibility.
-type DevicePolicyResourcesManagerServiceServer interface {
-	GetDrawableAsIcon3(context.Context, *GetDrawableAsIcon3Request) (*GetDrawableAsIcon3Response, error)
-	GetDrawableAsIcon4_1(context.Context, *GetDrawableAsIcon4_1Request) (*GetDrawableAsIcon4_1Response, error)
-	mustEmbedUnimplementedDevicePolicyResourcesManagerServiceServer()
-}
-
-// UnimplementedDevicePolicyResourcesManagerServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedDevicePolicyResourcesManagerServiceServer struct{}
-
-func (UnimplementedDevicePolicyResourcesManagerServiceServer) GetDrawableAsIcon3(context.Context, *GetDrawableAsIcon3Request) (*GetDrawableAsIcon3Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetDrawableAsIcon3 not implemented")
-}
-func (UnimplementedDevicePolicyResourcesManagerServiceServer) GetDrawableAsIcon4_1(context.Context, *GetDrawableAsIcon4_1Request) (*GetDrawableAsIcon4_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetDrawableAsIcon4_1 not implemented")
-}
-func (UnimplementedDevicePolicyResourcesManagerServiceServer) mustEmbedUnimplementedDevicePolicyResourcesManagerServiceServer() {
-}
-func (UnimplementedDevicePolicyResourcesManagerServiceServer) testEmbeddedByValue() {}
-
-// UnsafeDevicePolicyResourcesManagerServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to DevicePolicyResourcesManagerServiceServer will
-// result in compilation errors.
-type UnsafeDevicePolicyResourcesManagerServiceServer interface {
-	mustEmbedUnimplementedDevicePolicyResourcesManagerServiceServer()
-}
-
-func RegisterDevicePolicyResourcesManagerServiceServer(s grpc.ServiceRegistrar, srv DevicePolicyResourcesManagerServiceServer) {
-	// If the following call panics, it indicates UnimplementedDevicePolicyResourcesManagerServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&DevicePolicyResourcesManagerService_ServiceDesc, srv)
-}
-
-func _DevicePolicyResourcesManagerService_GetDrawableAsIcon3_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetDrawableAsIcon3Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DevicePolicyResourcesManagerServiceServer).GetDrawableAsIcon3(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DevicePolicyResourcesManagerService_GetDrawableAsIcon3_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DevicePolicyResourcesManagerServiceServer).GetDrawableAsIcon3(ctx, req.(*GetDrawableAsIcon3Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DevicePolicyResourcesManagerService_GetDrawableAsIcon4_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetDrawableAsIcon4_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DevicePolicyResourcesManagerServiceServer).GetDrawableAsIcon4_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DevicePolicyResourcesManagerService_GetDrawableAsIcon4_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DevicePolicyResourcesManagerServiceServer).GetDrawableAsIcon4_1(ctx, req.(*GetDrawableAsIcon4_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// DevicePolicyResourcesManagerService_ServiceDesc is the grpc.ServiceDesc for DevicePolicyResourcesManagerService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var DevicePolicyResourcesManagerService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "admin.DevicePolicyResourcesManagerService",
-	HandlerType: (*DevicePolicyResourcesManagerServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "GetDrawableAsIcon3",
-			Handler:    _DevicePolicyResourcesManagerService_GetDrawableAsIcon3_Handler,
-		},
-		{
-			MethodName: "GetDrawableAsIcon4_1",
-			Handler:    _DevicePolicyResourcesManagerService_GetDrawableAsIcon4_1_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/admin/admin.proto",
-}
-
-const (
-	SystemUpdateInfoService_DescribeContents_FullMethodName      = "/admin.SystemUpdateInfoService/DescribeContents"
-	SystemUpdateInfoService_Equals_FullMethodName                = "/admin.SystemUpdateInfoService/Equals"
-	SystemUpdateInfoService_GetReceivedTime_FullMethodName       = "/admin.SystemUpdateInfoService/GetReceivedTime"
-	SystemUpdateInfoService_GetSecurityPatchState_FullMethodName = "/admin.SystemUpdateInfoService/GetSecurityPatchState"
-	SystemUpdateInfoService_HashCode_FullMethodName              = "/admin.SystemUpdateInfoService/HashCode"
-	SystemUpdateInfoService_ToString_FullMethodName              = "/admin.SystemUpdateInfoService/ToString"
-	SystemUpdateInfoService_WriteToParcel_FullMethodName         = "/admin.SystemUpdateInfoService/WriteToParcel"
-)
-
-// SystemUpdateInfoServiceClient is the client API for SystemUpdateInfoService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type SystemUpdateInfoServiceClient interface {
-	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	Equals(ctx context.Context, in *SystemUpdateInfoEqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
-	GetReceivedTime(ctx context.Context, in *GetReceivedTimeRequest, opts ...grpc.CallOption) (*GetReceivedTimeResponse, error)
-	GetSecurityPatchState(ctx context.Context, in *GetSecurityPatchStateRequest, opts ...grpc.CallOption) (*GetSecurityPatchStateResponse, error)
-	HashCode(ctx context.Context, in *SystemUpdateInfoHashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
-	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
-	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
-}
-
-type systemUpdateInfoServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewSystemUpdateInfoServiceClient(cc grpc.ClientConnInterface) SystemUpdateInfoServiceClient {
-	return &systemUpdateInfoServiceClient{cc}
-}
-
-func (c *systemUpdateInfoServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, SystemUpdateInfoService_DescribeContents_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *systemUpdateInfoServiceClient) Equals(ctx context.Context, in *SystemUpdateInfoEqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(EqualsResponse)
-	err := c.cc.Invoke(ctx, SystemUpdateInfoService_Equals_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *systemUpdateInfoServiceClient) GetReceivedTime(ctx context.Context, in *GetReceivedTimeRequest, opts ...grpc.CallOption) (*GetReceivedTimeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetReceivedTimeResponse)
-	err := c.cc.Invoke(ctx, SystemUpdateInfoService_GetReceivedTime_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *systemUpdateInfoServiceClient) GetSecurityPatchState(ctx context.Context, in *GetSecurityPatchStateRequest, opts ...grpc.CallOption) (*GetSecurityPatchStateResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetSecurityPatchStateResponse)
-	err := c.cc.Invoke(ctx, SystemUpdateInfoService_GetSecurityPatchState_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *systemUpdateInfoServiceClient) HashCode(ctx context.Context, in *SystemUpdateInfoHashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(HashCodeResponse)
-	err := c.cc.Invoke(ctx, SystemUpdateInfoService_HashCode_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *systemUpdateInfoServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ToStringResponse)
-	err := c.cc.Invoke(ctx, SystemUpdateInfoService_ToString_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *systemUpdateInfoServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, SystemUpdateInfoService_WriteToParcel_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// SystemUpdateInfoServiceServer is the server API for SystemUpdateInfoService service.
-// All implementations must embed UnimplementedSystemUpdateInfoServiceServer
-// for forward compatibility.
-type SystemUpdateInfoServiceServer interface {
-	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
-	Equals(context.Context, *SystemUpdateInfoEqualsRequest) (*EqualsResponse, error)
-	GetReceivedTime(context.Context, *GetReceivedTimeRequest) (*GetReceivedTimeResponse, error)
-	GetSecurityPatchState(context.Context, *GetSecurityPatchStateRequest) (*GetSecurityPatchStateResponse, error)
-	HashCode(context.Context, *SystemUpdateInfoHashCodeRequest) (*HashCodeResponse, error)
-	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
-	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
-	mustEmbedUnimplementedSystemUpdateInfoServiceServer()
-}
-
-// UnimplementedSystemUpdateInfoServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedSystemUpdateInfoServiceServer struct{}
-
-func (UnimplementedSystemUpdateInfoServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
-}
-func (UnimplementedSystemUpdateInfoServiceServer) Equals(context.Context, *SystemUpdateInfoEqualsRequest) (*EqualsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
-}
-func (UnimplementedSystemUpdateInfoServiceServer) GetReceivedTime(context.Context, *GetReceivedTimeRequest) (*GetReceivedTimeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetReceivedTime not implemented")
-}
-func (UnimplementedSystemUpdateInfoServiceServer) GetSecurityPatchState(context.Context, *GetSecurityPatchStateRequest) (*GetSecurityPatchStateResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetSecurityPatchState not implemented")
-}
-func (UnimplementedSystemUpdateInfoServiceServer) HashCode(context.Context, *SystemUpdateInfoHashCodeRequest) (*HashCodeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
-}
-func (UnimplementedSystemUpdateInfoServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
-}
-func (UnimplementedSystemUpdateInfoServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
-}
-func (UnimplementedSystemUpdateInfoServiceServer) mustEmbedUnimplementedSystemUpdateInfoServiceServer() {
-}
-func (UnimplementedSystemUpdateInfoServiceServer) testEmbeddedByValue() {}
-
-// UnsafeSystemUpdateInfoServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to SystemUpdateInfoServiceServer will
-// result in compilation errors.
-type UnsafeSystemUpdateInfoServiceServer interface {
-	mustEmbedUnimplementedSystemUpdateInfoServiceServer()
-}
-
-func RegisterSystemUpdateInfoServiceServer(s grpc.ServiceRegistrar, srv SystemUpdateInfoServiceServer) {
-	// If the following call panics, it indicates UnimplementedSystemUpdateInfoServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&SystemUpdateInfoService_ServiceDesc, srv)
-}
-
-func _SystemUpdateInfoService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DescribeContentsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SystemUpdateInfoServiceServer).DescribeContents(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SystemUpdateInfoService_DescribeContents_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SystemUpdateInfoServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SystemUpdateInfoService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SystemUpdateInfoEqualsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SystemUpdateInfoServiceServer).Equals(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SystemUpdateInfoService_Equals_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SystemUpdateInfoServiceServer).Equals(ctx, req.(*SystemUpdateInfoEqualsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SystemUpdateInfoService_GetReceivedTime_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetReceivedTimeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SystemUpdateInfoServiceServer).GetReceivedTime(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SystemUpdateInfoService_GetReceivedTime_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SystemUpdateInfoServiceServer).GetReceivedTime(ctx, req.(*GetReceivedTimeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SystemUpdateInfoService_GetSecurityPatchState_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetSecurityPatchStateRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SystemUpdateInfoServiceServer).GetSecurityPatchState(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SystemUpdateInfoService_GetSecurityPatchState_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SystemUpdateInfoServiceServer).GetSecurityPatchState(ctx, req.(*GetSecurityPatchStateRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SystemUpdateInfoService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SystemUpdateInfoHashCodeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SystemUpdateInfoServiceServer).HashCode(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SystemUpdateInfoService_HashCode_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SystemUpdateInfoServiceServer).HashCode(ctx, req.(*SystemUpdateInfoHashCodeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SystemUpdateInfoService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ToStringRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SystemUpdateInfoServiceServer).ToString(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SystemUpdateInfoService_ToString_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SystemUpdateInfoServiceServer).ToString(ctx, req.(*ToStringRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SystemUpdateInfoService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WriteToParcelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SystemUpdateInfoServiceServer).WriteToParcel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SystemUpdateInfoService_WriteToParcel_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SystemUpdateInfoServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// SystemUpdateInfoService_ServiceDesc is the grpc.ServiceDesc for SystemUpdateInfoService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var SystemUpdateInfoService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "admin.SystemUpdateInfoService",
-	HandlerType: (*SystemUpdateInfoServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "DescribeContents",
-			Handler:    _SystemUpdateInfoService_DescribeContents_Handler,
-		},
-		{
-			MethodName: "Equals",
-			Handler:    _SystemUpdateInfoService_Equals_Handler,
-		},
-		{
-			MethodName: "GetReceivedTime",
-			Handler:    _SystemUpdateInfoService_GetReceivedTime_Handler,
-		},
-		{
-			MethodName: "GetSecurityPatchState",
-			Handler:    _SystemUpdateInfoService_GetSecurityPatchState_Handler,
-		},
-		{
-			MethodName: "HashCode",
-			Handler:    _SystemUpdateInfoService_HashCode_Handler,
-		},
-		{
-			MethodName: "ToString",
-			Handler:    _SystemUpdateInfoService_ToString_Handler,
-		},
-		{
-			MethodName: "WriteToParcel",
-			Handler:    _SystemUpdateInfoService_WriteToParcel_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/admin/admin.proto",
-}
-
-const (
-	ManagedSubscriptionsPolicyService_NewManagedSubscriptionsPolicy_FullMethodName = "/admin.ManagedSubscriptionsPolicyService/NewManagedSubscriptionsPolicy"
-	ManagedSubscriptionsPolicyService_DescribeContents_FullMethodName              = "/admin.ManagedSubscriptionsPolicyService/DescribeContents"
-	ManagedSubscriptionsPolicyService_Equals_FullMethodName                        = "/admin.ManagedSubscriptionsPolicyService/Equals"
-	ManagedSubscriptionsPolicyService_GetPolicyType_FullMethodName                 = "/admin.ManagedSubscriptionsPolicyService/GetPolicyType"
-	ManagedSubscriptionsPolicyService_HashCode_FullMethodName                      = "/admin.ManagedSubscriptionsPolicyService/HashCode"
-	ManagedSubscriptionsPolicyService_ToString_FullMethodName                      = "/admin.ManagedSubscriptionsPolicyService/ToString"
-	ManagedSubscriptionsPolicyService_WriteToParcel_FullMethodName                 = "/admin.ManagedSubscriptionsPolicyService/WriteToParcel"
-)
-
-// ManagedSubscriptionsPolicyServiceClient is the client API for ManagedSubscriptionsPolicyService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type ManagedSubscriptionsPolicyServiceClient interface {
-	NewManagedSubscriptionsPolicy(ctx context.Context, in *NewManagedSubscriptionsPolicyRequest, opts ...grpc.CallOption) (*NewManagedSubscriptionsPolicyResponse, error)
-	DescribeContents(ctx context.Context, in *ManagedSubscriptionsPolicyDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
-	GetPolicyType(ctx context.Context, in *GetPolicyTypeRequest, opts ...grpc.CallOption) (*GetPolicyTypeResponse, error)
-	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
-	ToString(ctx context.Context, in *ManagedSubscriptionsPolicyToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
-	WriteToParcel(ctx context.Context, in *ManagedSubscriptionsPolicyWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
-}
-
-type managedSubscriptionsPolicyServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewManagedSubscriptionsPolicyServiceClient(cc grpc.ClientConnInterface) ManagedSubscriptionsPolicyServiceClient {
-	return &managedSubscriptionsPolicyServiceClient{cc}
-}
-
-func (c *managedSubscriptionsPolicyServiceClient) NewManagedSubscriptionsPolicy(ctx context.Context, in *NewManagedSubscriptionsPolicyRequest, opts ...grpc.CallOption) (*NewManagedSubscriptionsPolicyResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewManagedSubscriptionsPolicyResponse)
-	err := c.cc.Invoke(ctx, ManagedSubscriptionsPolicyService_NewManagedSubscriptionsPolicy_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *managedSubscriptionsPolicyServiceClient) DescribeContents(ctx context.Context, in *ManagedSubscriptionsPolicyDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, ManagedSubscriptionsPolicyService_DescribeContents_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *managedSubscriptionsPolicyServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(EqualsResponse)
-	err := c.cc.Invoke(ctx, ManagedSubscriptionsPolicyService_Equals_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *managedSubscriptionsPolicyServiceClient) GetPolicyType(ctx context.Context, in *GetPolicyTypeRequest, opts ...grpc.CallOption) (*GetPolicyTypeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetPolicyTypeResponse)
-	err := c.cc.Invoke(ctx, ManagedSubscriptionsPolicyService_GetPolicyType_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *managedSubscriptionsPolicyServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(HashCodeResponse)
-	err := c.cc.Invoke(ctx, ManagedSubscriptionsPolicyService_HashCode_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *managedSubscriptionsPolicyServiceClient) ToString(ctx context.Context, in *ManagedSubscriptionsPolicyToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ToStringResponse)
-	err := c.cc.Invoke(ctx, ManagedSubscriptionsPolicyService_ToString_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *managedSubscriptionsPolicyServiceClient) WriteToParcel(ctx context.Context, in *ManagedSubscriptionsPolicyWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, ManagedSubscriptionsPolicyService_WriteToParcel_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// ManagedSubscriptionsPolicyServiceServer is the server API for ManagedSubscriptionsPolicyService service.
-// All implementations must embed UnimplementedManagedSubscriptionsPolicyServiceServer
-// for forward compatibility.
-type ManagedSubscriptionsPolicyServiceServer interface {
-	NewManagedSubscriptionsPolicy(context.Context, *NewManagedSubscriptionsPolicyRequest) (*NewManagedSubscriptionsPolicyResponse, error)
-	DescribeContents(context.Context, *ManagedSubscriptionsPolicyDescribeContentsRequest) (*DescribeContentsResponse, error)
-	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
-	GetPolicyType(context.Context, *GetPolicyTypeRequest) (*GetPolicyTypeResponse, error)
-	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
-	ToString(context.Context, *ManagedSubscriptionsPolicyToStringRequest) (*ToStringResponse, error)
-	WriteToParcel(context.Context, *ManagedSubscriptionsPolicyWriteToParcelRequest) (*WriteToParcelResponse, error)
-	mustEmbedUnimplementedManagedSubscriptionsPolicyServiceServer()
-}
-
-// UnimplementedManagedSubscriptionsPolicyServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedManagedSubscriptionsPolicyServiceServer struct{}
-
-func (UnimplementedManagedSubscriptionsPolicyServiceServer) NewManagedSubscriptionsPolicy(context.Context, *NewManagedSubscriptionsPolicyRequest) (*NewManagedSubscriptionsPolicyResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewManagedSubscriptionsPolicy not implemented")
-}
-func (UnimplementedManagedSubscriptionsPolicyServiceServer) DescribeContents(context.Context, *ManagedSubscriptionsPolicyDescribeContentsRequest) (*DescribeContentsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
-}
-func (UnimplementedManagedSubscriptionsPolicyServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
-}
-func (UnimplementedManagedSubscriptionsPolicyServiceServer) GetPolicyType(context.Context, *GetPolicyTypeRequest) (*GetPolicyTypeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetPolicyType not implemented")
-}
-func (UnimplementedManagedSubscriptionsPolicyServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
-}
-func (UnimplementedManagedSubscriptionsPolicyServiceServer) ToString(context.Context, *ManagedSubscriptionsPolicyToStringRequest) (*ToStringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
-}
-func (UnimplementedManagedSubscriptionsPolicyServiceServer) WriteToParcel(context.Context, *ManagedSubscriptionsPolicyWriteToParcelRequest) (*WriteToParcelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
-}
-func (UnimplementedManagedSubscriptionsPolicyServiceServer) mustEmbedUnimplementedManagedSubscriptionsPolicyServiceServer() {
-}
-func (UnimplementedManagedSubscriptionsPolicyServiceServer) testEmbeddedByValue() {}
-
-// UnsafeManagedSubscriptionsPolicyServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to ManagedSubscriptionsPolicyServiceServer will
-// result in compilation errors.
-type UnsafeManagedSubscriptionsPolicyServiceServer interface {
-	mustEmbedUnimplementedManagedSubscriptionsPolicyServiceServer()
-}
-
-func RegisterManagedSubscriptionsPolicyServiceServer(s grpc.ServiceRegistrar, srv ManagedSubscriptionsPolicyServiceServer) {
-	// If the following call panics, it indicates UnimplementedManagedSubscriptionsPolicyServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&ManagedSubscriptionsPolicyService_ServiceDesc, srv)
-}
-
-func _ManagedSubscriptionsPolicyService_NewManagedSubscriptionsPolicy_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewManagedSubscriptionsPolicyRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagedSubscriptionsPolicyServiceServer).NewManagedSubscriptionsPolicy(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagedSubscriptionsPolicyService_NewManagedSubscriptionsPolicy_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagedSubscriptionsPolicyServiceServer).NewManagedSubscriptionsPolicy(ctx, req.(*NewManagedSubscriptionsPolicyRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ManagedSubscriptionsPolicyService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ManagedSubscriptionsPolicyDescribeContentsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagedSubscriptionsPolicyServiceServer).DescribeContents(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagedSubscriptionsPolicyService_DescribeContents_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagedSubscriptionsPolicyServiceServer).DescribeContents(ctx, req.(*ManagedSubscriptionsPolicyDescribeContentsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ManagedSubscriptionsPolicyService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(EqualsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagedSubscriptionsPolicyServiceServer).Equals(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagedSubscriptionsPolicyService_Equals_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagedSubscriptionsPolicyServiceServer).Equals(ctx, req.(*EqualsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ManagedSubscriptionsPolicyService_GetPolicyType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetPolicyTypeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagedSubscriptionsPolicyServiceServer).GetPolicyType(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagedSubscriptionsPolicyService_GetPolicyType_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagedSubscriptionsPolicyServiceServer).GetPolicyType(ctx, req.(*GetPolicyTypeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ManagedSubscriptionsPolicyService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(HashCodeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagedSubscriptionsPolicyServiceServer).HashCode(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagedSubscriptionsPolicyService_HashCode_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagedSubscriptionsPolicyServiceServer).HashCode(ctx, req.(*HashCodeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ManagedSubscriptionsPolicyService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ManagedSubscriptionsPolicyToStringRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagedSubscriptionsPolicyServiceServer).ToString(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagedSubscriptionsPolicyService_ToString_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagedSubscriptionsPolicyServiceServer).ToString(ctx, req.(*ManagedSubscriptionsPolicyToStringRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ManagedSubscriptionsPolicyService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ManagedSubscriptionsPolicyWriteToParcelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagedSubscriptionsPolicyServiceServer).WriteToParcel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagedSubscriptionsPolicyService_WriteToParcel_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagedSubscriptionsPolicyServiceServer).WriteToParcel(ctx, req.(*ManagedSubscriptionsPolicyWriteToParcelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// ManagedSubscriptionsPolicyService_ServiceDesc is the grpc.ServiceDesc for ManagedSubscriptionsPolicyService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var ManagedSubscriptionsPolicyService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "admin.ManagedSubscriptionsPolicyService",
-	HandlerType: (*ManagedSubscriptionsPolicyServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "NewManagedSubscriptionsPolicy",
-			Handler:    _ManagedSubscriptionsPolicyService_NewManagedSubscriptionsPolicy_Handler,
-		},
-		{
-			MethodName: "DescribeContents",
-			Handler:    _ManagedSubscriptionsPolicyService_DescribeContents_Handler,
-		},
-		{
-			MethodName: "Equals",
-			Handler:    _ManagedSubscriptionsPolicyService_Equals_Handler,
-		},
-		{
-			MethodName: "GetPolicyType",
-			Handler:    _ManagedSubscriptionsPolicyService_GetPolicyType_Handler,
-		},
-		{
-			MethodName: "HashCode",
-			Handler:    _ManagedSubscriptionsPolicyService_HashCode_Handler,
-		},
-		{
-			MethodName: "ToString",
-			Handler:    _ManagedSubscriptionsPolicyService_ToString_Handler,
-		},
-		{
-			MethodName: "WriteToParcel",
-			Handler:    _ManagedSubscriptionsPolicyService_WriteToParcel_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/admin/admin.proto",
-}
-
-const (
-	TargetUserService_Equals_FullMethodName   = "/admin.TargetUserService/Equals"
-	TargetUserService_HashCode_FullMethodName = "/admin.TargetUserService/HashCode"
-)
-
-// TargetUserServiceClient is the client API for TargetUserService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type TargetUserServiceClient interface {
-	Equals(ctx context.Context, in *TargetUserEqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
-	HashCode(ctx context.Context, in *TargetUserHashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
-}
-
-type targetUserServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewTargetUserServiceClient(cc grpc.ClientConnInterface) TargetUserServiceClient {
-	return &targetUserServiceClient{cc}
-}
-
-func (c *targetUserServiceClient) Equals(ctx context.Context, in *TargetUserEqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(EqualsResponse)
-	err := c.cc.Invoke(ctx, TargetUserService_Equals_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *targetUserServiceClient) HashCode(ctx context.Context, in *TargetUserHashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(HashCodeResponse)
-	err := c.cc.Invoke(ctx, TargetUserService_HashCode_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// TargetUserServiceServer is the server API for TargetUserService service.
-// All implementations must embed UnimplementedTargetUserServiceServer
-// for forward compatibility.
-type TargetUserServiceServer interface {
-	Equals(context.Context, *TargetUserEqualsRequest) (*EqualsResponse, error)
-	HashCode(context.Context, *TargetUserHashCodeRequest) (*HashCodeResponse, error)
-	mustEmbedUnimplementedTargetUserServiceServer()
-}
-
-// UnimplementedTargetUserServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedTargetUserServiceServer struct{}
-
-func (UnimplementedTargetUserServiceServer) Equals(context.Context, *TargetUserEqualsRequest) (*EqualsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
-}
-func (UnimplementedTargetUserServiceServer) HashCode(context.Context, *TargetUserHashCodeRequest) (*HashCodeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
-}
-func (UnimplementedTargetUserServiceServer) mustEmbedUnimplementedTargetUserServiceServer() {}
-func (UnimplementedTargetUserServiceServer) testEmbeddedByValue()                           {}
-
-// UnsafeTargetUserServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to TargetUserServiceServer will
-// result in compilation errors.
-type UnsafeTargetUserServiceServer interface {
-	mustEmbedUnimplementedTargetUserServiceServer()
-}
-
-func RegisterTargetUserServiceServer(s grpc.ServiceRegistrar, srv TargetUserServiceServer) {
-	// If the following call panics, it indicates UnimplementedTargetUserServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&TargetUserService_ServiceDesc, srv)
-}
-
-func _TargetUserService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(TargetUserEqualsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TargetUserServiceServer).Equals(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TargetUserService_Equals_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TargetUserServiceServer).Equals(ctx, req.(*TargetUserEqualsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TargetUserService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(TargetUserHashCodeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TargetUserServiceServer).HashCode(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TargetUserService_HashCode_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TargetUserServiceServer).HashCode(ctx, req.(*TargetUserHashCodeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// TargetUserService_ServiceDesc is the grpc.ServiceDesc for TargetUserService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var TargetUserService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "admin.TargetUserService",
-	HandlerType: (*TargetUserServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "Equals",
-			Handler:    _TargetUserService_Equals_Handler,
-		},
-		{
-			MethodName: "HashCode",
-			Handler:    _TargetUserService_HashCode_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/admin/admin.proto",
-}
-
-const (
-	DeviceAdminInfoService_NewDeviceAdminInfo_FullMethodName         = "/admin.DeviceAdminInfoService/NewDeviceAdminInfo"
-	DeviceAdminInfoService_DescribeContents_FullMethodName           = "/admin.DeviceAdminInfoService/DescribeContents"
-	DeviceAdminInfoService_Dump_FullMethodName                       = "/admin.DeviceAdminInfoService/Dump"
-	DeviceAdminInfoService_GetActivityInfo_FullMethodName            = "/admin.DeviceAdminInfoService/GetActivityInfo"
-	DeviceAdminInfoService_GetComponent_FullMethodName               = "/admin.DeviceAdminInfoService/GetComponent"
-	DeviceAdminInfoService_GetHeadlessDeviceOwnerMode_FullMethodName = "/admin.DeviceAdminInfoService/GetHeadlessDeviceOwnerMode"
-	DeviceAdminInfoService_GetPackageName_FullMethodName             = "/admin.DeviceAdminInfoService/GetPackageName"
-	DeviceAdminInfoService_GetReceiverName_FullMethodName            = "/admin.DeviceAdminInfoService/GetReceiverName"
-	DeviceAdminInfoService_GetTagForPolicy_FullMethodName            = "/admin.DeviceAdminInfoService/GetTagForPolicy"
-	DeviceAdminInfoService_IsVisible_FullMethodName                  = "/admin.DeviceAdminInfoService/IsVisible"
-	DeviceAdminInfoService_LoadDescription_FullMethodName            = "/admin.DeviceAdminInfoService/LoadDescription"
-	DeviceAdminInfoService_LoadIcon_FullMethodName                   = "/admin.DeviceAdminInfoService/LoadIcon"
-	DeviceAdminInfoService_LoadLabel_FullMethodName                  = "/admin.DeviceAdminInfoService/LoadLabel"
-	DeviceAdminInfoService_SupportsTransferOwnership_FullMethodName  = "/admin.DeviceAdminInfoService/SupportsTransferOwnership"
-	DeviceAdminInfoService_ToString_FullMethodName                   = "/admin.DeviceAdminInfoService/ToString"
-	DeviceAdminInfoService_UsesPolicy_FullMethodName                 = "/admin.DeviceAdminInfoService/UsesPolicy"
-	DeviceAdminInfoService_WriteToParcel_FullMethodName              = "/admin.DeviceAdminInfoService/WriteToParcel"
-)
-
-// DeviceAdminInfoServiceClient is the client API for DeviceAdminInfoService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type DeviceAdminInfoServiceClient interface {
-	NewDeviceAdminInfo(ctx context.Context, in *NewDeviceAdminInfoRequest, opts ...grpc.CallOption) (*NewDeviceAdminInfoResponse, error)
-	DescribeContents(ctx context.Context, in *DeviceAdminInfoDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	Dump(ctx context.Context, in *DumpRequest, opts ...grpc.CallOption) (*DumpResponse, error)
-	GetActivityInfo(ctx context.Context, in *GetActivityInfoRequest, opts ...grpc.CallOption) (*GetActivityInfoResponse, error)
-	GetComponent(ctx context.Context, in *GetComponentRequest, opts ...grpc.CallOption) (*GetComponentResponse, error)
-	GetHeadlessDeviceOwnerMode(ctx context.Context, in *GetHeadlessDeviceOwnerModeRequest, opts ...grpc.CallOption) (*GetHeadlessDeviceOwnerModeResponse, error)
-	GetPackageName(ctx context.Context, in *GetPackageNameRequest, opts ...grpc.CallOption) (*GetPackageNameResponse, error)
-	GetReceiverName(ctx context.Context, in *GetReceiverNameRequest, opts ...grpc.CallOption) (*GetReceiverNameResponse, error)
-	GetTagForPolicy(ctx context.Context, in *GetTagForPolicyRequest, opts ...grpc.CallOption) (*GetTagForPolicyResponse, error)
-	IsVisible(ctx context.Context, in *IsVisibleRequest, opts ...grpc.CallOption) (*IsVisibleResponse, error)
-	LoadDescription(ctx context.Context, in *LoadDescriptionRequest, opts ...grpc.CallOption) (*LoadDescriptionResponse, error)
-	LoadIcon(ctx context.Context, in *LoadIconRequest, opts ...grpc.CallOption) (*LoadIconResponse, error)
-	LoadLabel(ctx context.Context, in *LoadLabelRequest, opts ...grpc.CallOption) (*LoadLabelResponse, error)
-	SupportsTransferOwnership(ctx context.Context, in *SupportsTransferOwnershipRequest, opts ...grpc.CallOption) (*SupportsTransferOwnershipResponse, error)
-	ToString(ctx context.Context, in *DeviceAdminInfoToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
-	UsesPolicy(ctx context.Context, in *UsesPolicyRequest, opts ...grpc.CallOption) (*UsesPolicyResponse, error)
-	WriteToParcel(ctx context.Context, in *DeviceAdminInfoWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
-}
-
-type deviceAdminInfoServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewDeviceAdminInfoServiceClient(cc grpc.ClientConnInterface) DeviceAdminInfoServiceClient {
-	return &deviceAdminInfoServiceClient{cc}
-}
-
-func (c *deviceAdminInfoServiceClient) NewDeviceAdminInfo(ctx context.Context, in *NewDeviceAdminInfoRequest, opts ...grpc.CallOption) (*NewDeviceAdminInfoResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewDeviceAdminInfoResponse)
-	err := c.cc.Invoke(ctx, DeviceAdminInfoService_NewDeviceAdminInfo_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *deviceAdminInfoServiceClient) DescribeContents(ctx context.Context, in *DeviceAdminInfoDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, DeviceAdminInfoService_DescribeContents_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *deviceAdminInfoServiceClient) Dump(ctx context.Context, in *DumpRequest, opts ...grpc.CallOption) (*DumpResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DumpResponse)
-	err := c.cc.Invoke(ctx, DeviceAdminInfoService_Dump_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *deviceAdminInfoServiceClient) GetActivityInfo(ctx context.Context, in *GetActivityInfoRequest, opts ...grpc.CallOption) (*GetActivityInfoResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetActivityInfoResponse)
-	err := c.cc.Invoke(ctx, DeviceAdminInfoService_GetActivityInfo_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *deviceAdminInfoServiceClient) GetComponent(ctx context.Context, in *GetComponentRequest, opts ...grpc.CallOption) (*GetComponentResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetComponentResponse)
-	err := c.cc.Invoke(ctx, DeviceAdminInfoService_GetComponent_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *deviceAdminInfoServiceClient) GetHeadlessDeviceOwnerMode(ctx context.Context, in *GetHeadlessDeviceOwnerModeRequest, opts ...grpc.CallOption) (*GetHeadlessDeviceOwnerModeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetHeadlessDeviceOwnerModeResponse)
-	err := c.cc.Invoke(ctx, DeviceAdminInfoService_GetHeadlessDeviceOwnerMode_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *deviceAdminInfoServiceClient) GetPackageName(ctx context.Context, in *GetPackageNameRequest, opts ...grpc.CallOption) (*GetPackageNameResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetPackageNameResponse)
-	err := c.cc.Invoke(ctx, DeviceAdminInfoService_GetPackageName_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *deviceAdminInfoServiceClient) GetReceiverName(ctx context.Context, in *GetReceiverNameRequest, opts ...grpc.CallOption) (*GetReceiverNameResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetReceiverNameResponse)
-	err := c.cc.Invoke(ctx, DeviceAdminInfoService_GetReceiverName_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *deviceAdminInfoServiceClient) GetTagForPolicy(ctx context.Context, in *GetTagForPolicyRequest, opts ...grpc.CallOption) (*GetTagForPolicyResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetTagForPolicyResponse)
-	err := c.cc.Invoke(ctx, DeviceAdminInfoService_GetTagForPolicy_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *deviceAdminInfoServiceClient) IsVisible(ctx context.Context, in *IsVisibleRequest, opts ...grpc.CallOption) (*IsVisibleResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsVisibleResponse)
-	err := c.cc.Invoke(ctx, DeviceAdminInfoService_IsVisible_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *deviceAdminInfoServiceClient) LoadDescription(ctx context.Context, in *LoadDescriptionRequest, opts ...grpc.CallOption) (*LoadDescriptionResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(LoadDescriptionResponse)
-	err := c.cc.Invoke(ctx, DeviceAdminInfoService_LoadDescription_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *deviceAdminInfoServiceClient) LoadIcon(ctx context.Context, in *LoadIconRequest, opts ...grpc.CallOption) (*LoadIconResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(LoadIconResponse)
-	err := c.cc.Invoke(ctx, DeviceAdminInfoService_LoadIcon_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *deviceAdminInfoServiceClient) LoadLabel(ctx context.Context, in *LoadLabelRequest, opts ...grpc.CallOption) (*LoadLabelResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(LoadLabelResponse)
-	err := c.cc.Invoke(ctx, DeviceAdminInfoService_LoadLabel_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *deviceAdminInfoServiceClient) SupportsTransferOwnership(ctx context.Context, in *SupportsTransferOwnershipRequest, opts ...grpc.CallOption) (*SupportsTransferOwnershipResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SupportsTransferOwnershipResponse)
-	err := c.cc.Invoke(ctx, DeviceAdminInfoService_SupportsTransferOwnership_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *deviceAdminInfoServiceClient) ToString(ctx context.Context, in *DeviceAdminInfoToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ToStringResponse)
-	err := c.cc.Invoke(ctx, DeviceAdminInfoService_ToString_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *deviceAdminInfoServiceClient) UsesPolicy(ctx context.Context, in *UsesPolicyRequest, opts ...grpc.CallOption) (*UsesPolicyResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(UsesPolicyResponse)
-	err := c.cc.Invoke(ctx, DeviceAdminInfoService_UsesPolicy_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *deviceAdminInfoServiceClient) WriteToParcel(ctx context.Context, in *DeviceAdminInfoWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, DeviceAdminInfoService_WriteToParcel_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// DeviceAdminInfoServiceServer is the server API for DeviceAdminInfoService service.
-// All implementations must embed UnimplementedDeviceAdminInfoServiceServer
-// for forward compatibility.
-type DeviceAdminInfoServiceServer interface {
-	NewDeviceAdminInfo(context.Context, *NewDeviceAdminInfoRequest) (*NewDeviceAdminInfoResponse, error)
-	DescribeContents(context.Context, *DeviceAdminInfoDescribeContentsRequest) (*DescribeContentsResponse, error)
-	Dump(context.Context, *DumpRequest) (*DumpResponse, error)
-	GetActivityInfo(context.Context, *GetActivityInfoRequest) (*GetActivityInfoResponse, error)
-	GetComponent(context.Context, *GetComponentRequest) (*GetComponentResponse, error)
-	GetHeadlessDeviceOwnerMode(context.Context, *GetHeadlessDeviceOwnerModeRequest) (*GetHeadlessDeviceOwnerModeResponse, error)
-	GetPackageName(context.Context, *GetPackageNameRequest) (*GetPackageNameResponse, error)
-	GetReceiverName(context.Context, *GetReceiverNameRequest) (*GetReceiverNameResponse, error)
-	GetTagForPolicy(context.Context, *GetTagForPolicyRequest) (*GetTagForPolicyResponse, error)
-	IsVisible(context.Context, *IsVisibleRequest) (*IsVisibleResponse, error)
-	LoadDescription(context.Context, *LoadDescriptionRequest) (*LoadDescriptionResponse, error)
-	LoadIcon(context.Context, *LoadIconRequest) (*LoadIconResponse, error)
-	LoadLabel(context.Context, *LoadLabelRequest) (*LoadLabelResponse, error)
-	SupportsTransferOwnership(context.Context, *SupportsTransferOwnershipRequest) (*SupportsTransferOwnershipResponse, error)
-	ToString(context.Context, *DeviceAdminInfoToStringRequest) (*ToStringResponse, error)
-	UsesPolicy(context.Context, *UsesPolicyRequest) (*UsesPolicyResponse, error)
-	WriteToParcel(context.Context, *DeviceAdminInfoWriteToParcelRequest) (*WriteToParcelResponse, error)
-	mustEmbedUnimplementedDeviceAdminInfoServiceServer()
-}
-
-// UnimplementedDeviceAdminInfoServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedDeviceAdminInfoServiceServer struct{}
-
-func (UnimplementedDeviceAdminInfoServiceServer) NewDeviceAdminInfo(context.Context, *NewDeviceAdminInfoRequest) (*NewDeviceAdminInfoResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewDeviceAdminInfo not implemented")
-}
-func (UnimplementedDeviceAdminInfoServiceServer) DescribeContents(context.Context, *DeviceAdminInfoDescribeContentsRequest) (*DescribeContentsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
-}
-func (UnimplementedDeviceAdminInfoServiceServer) Dump(context.Context, *DumpRequest) (*DumpResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Dump not implemented")
-}
-func (UnimplementedDeviceAdminInfoServiceServer) GetActivityInfo(context.Context, *GetActivityInfoRequest) (*GetActivityInfoResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetActivityInfo not implemented")
-}
-func (UnimplementedDeviceAdminInfoServiceServer) GetComponent(context.Context, *GetComponentRequest) (*GetComponentResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetComponent not implemented")
-}
-func (UnimplementedDeviceAdminInfoServiceServer) GetHeadlessDeviceOwnerMode(context.Context, *GetHeadlessDeviceOwnerModeRequest) (*GetHeadlessDeviceOwnerModeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetHeadlessDeviceOwnerMode not implemented")
-}
-func (UnimplementedDeviceAdminInfoServiceServer) GetPackageName(context.Context, *GetPackageNameRequest) (*GetPackageNameResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetPackageName not implemented")
-}
-func (UnimplementedDeviceAdminInfoServiceServer) GetReceiverName(context.Context, *GetReceiverNameRequest) (*GetReceiverNameResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetReceiverName not implemented")
-}
-func (UnimplementedDeviceAdminInfoServiceServer) GetTagForPolicy(context.Context, *GetTagForPolicyRequest) (*GetTagForPolicyResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetTagForPolicy not implemented")
-}
-func (UnimplementedDeviceAdminInfoServiceServer) IsVisible(context.Context, *IsVisibleRequest) (*IsVisibleResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsVisible not implemented")
-}
-func (UnimplementedDeviceAdminInfoServiceServer) LoadDescription(context.Context, *LoadDescriptionRequest) (*LoadDescriptionResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method LoadDescription not implemented")
-}
-func (UnimplementedDeviceAdminInfoServiceServer) LoadIcon(context.Context, *LoadIconRequest) (*LoadIconResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method LoadIcon not implemented")
-}
-func (UnimplementedDeviceAdminInfoServiceServer) LoadLabel(context.Context, *LoadLabelRequest) (*LoadLabelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method LoadLabel not implemented")
-}
-func (UnimplementedDeviceAdminInfoServiceServer) SupportsTransferOwnership(context.Context, *SupportsTransferOwnershipRequest) (*SupportsTransferOwnershipResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SupportsTransferOwnership not implemented")
-}
-func (UnimplementedDeviceAdminInfoServiceServer) ToString(context.Context, *DeviceAdminInfoToStringRequest) (*ToStringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
-}
-func (UnimplementedDeviceAdminInfoServiceServer) UsesPolicy(context.Context, *UsesPolicyRequest) (*UsesPolicyResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method UsesPolicy not implemented")
-}
-func (UnimplementedDeviceAdminInfoServiceServer) WriteToParcel(context.Context, *DeviceAdminInfoWriteToParcelRequest) (*WriteToParcelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
-}
-func (UnimplementedDeviceAdminInfoServiceServer) mustEmbedUnimplementedDeviceAdminInfoServiceServer() {
-}
-func (UnimplementedDeviceAdminInfoServiceServer) testEmbeddedByValue() {}
-
-// UnsafeDeviceAdminInfoServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to DeviceAdminInfoServiceServer will
-// result in compilation errors.
-type UnsafeDeviceAdminInfoServiceServer interface {
-	mustEmbedUnimplementedDeviceAdminInfoServiceServer()
-}
-
-func RegisterDeviceAdminInfoServiceServer(s grpc.ServiceRegistrar, srv DeviceAdminInfoServiceServer) {
-	// If the following call panics, it indicates UnimplementedDeviceAdminInfoServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&DeviceAdminInfoService_ServiceDesc, srv)
-}
-
-func _DeviceAdminInfoService_NewDeviceAdminInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewDeviceAdminInfoRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DeviceAdminInfoServiceServer).NewDeviceAdminInfo(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DeviceAdminInfoService_NewDeviceAdminInfo_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DeviceAdminInfoServiceServer).NewDeviceAdminInfo(ctx, req.(*NewDeviceAdminInfoRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DeviceAdminInfoService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DeviceAdminInfoDescribeContentsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DeviceAdminInfoServiceServer).DescribeContents(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DeviceAdminInfoService_DescribeContents_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DeviceAdminInfoServiceServer).DescribeContents(ctx, req.(*DeviceAdminInfoDescribeContentsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DeviceAdminInfoService_Dump_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DumpRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DeviceAdminInfoServiceServer).Dump(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DeviceAdminInfoService_Dump_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DeviceAdminInfoServiceServer).Dump(ctx, req.(*DumpRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DeviceAdminInfoService_GetActivityInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetActivityInfoRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DeviceAdminInfoServiceServer).GetActivityInfo(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DeviceAdminInfoService_GetActivityInfo_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DeviceAdminInfoServiceServer).GetActivityInfo(ctx, req.(*GetActivityInfoRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DeviceAdminInfoService_GetComponent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetComponentRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DeviceAdminInfoServiceServer).GetComponent(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DeviceAdminInfoService_GetComponent_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DeviceAdminInfoServiceServer).GetComponent(ctx, req.(*GetComponentRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DeviceAdminInfoService_GetHeadlessDeviceOwnerMode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetHeadlessDeviceOwnerModeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DeviceAdminInfoServiceServer).GetHeadlessDeviceOwnerMode(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DeviceAdminInfoService_GetHeadlessDeviceOwnerMode_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DeviceAdminInfoServiceServer).GetHeadlessDeviceOwnerMode(ctx, req.(*GetHeadlessDeviceOwnerModeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DeviceAdminInfoService_GetPackageName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetPackageNameRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DeviceAdminInfoServiceServer).GetPackageName(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DeviceAdminInfoService_GetPackageName_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DeviceAdminInfoServiceServer).GetPackageName(ctx, req.(*GetPackageNameRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DeviceAdminInfoService_GetReceiverName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetReceiverNameRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DeviceAdminInfoServiceServer).GetReceiverName(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DeviceAdminInfoService_GetReceiverName_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DeviceAdminInfoServiceServer).GetReceiverName(ctx, req.(*GetReceiverNameRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DeviceAdminInfoService_GetTagForPolicy_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetTagForPolicyRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DeviceAdminInfoServiceServer).GetTagForPolicy(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DeviceAdminInfoService_GetTagForPolicy_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DeviceAdminInfoServiceServer).GetTagForPolicy(ctx, req.(*GetTagForPolicyRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DeviceAdminInfoService_IsVisible_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsVisibleRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DeviceAdminInfoServiceServer).IsVisible(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DeviceAdminInfoService_IsVisible_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DeviceAdminInfoServiceServer).IsVisible(ctx, req.(*IsVisibleRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DeviceAdminInfoService_LoadDescription_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(LoadDescriptionRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DeviceAdminInfoServiceServer).LoadDescription(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DeviceAdminInfoService_LoadDescription_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DeviceAdminInfoServiceServer).LoadDescription(ctx, req.(*LoadDescriptionRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DeviceAdminInfoService_LoadIcon_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(LoadIconRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DeviceAdminInfoServiceServer).LoadIcon(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DeviceAdminInfoService_LoadIcon_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DeviceAdminInfoServiceServer).LoadIcon(ctx, req.(*LoadIconRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DeviceAdminInfoService_LoadLabel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(LoadLabelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DeviceAdminInfoServiceServer).LoadLabel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DeviceAdminInfoService_LoadLabel_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DeviceAdminInfoServiceServer).LoadLabel(ctx, req.(*LoadLabelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DeviceAdminInfoService_SupportsTransferOwnership_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SupportsTransferOwnershipRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DeviceAdminInfoServiceServer).SupportsTransferOwnership(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DeviceAdminInfoService_SupportsTransferOwnership_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DeviceAdminInfoServiceServer).SupportsTransferOwnership(ctx, req.(*SupportsTransferOwnershipRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DeviceAdminInfoService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DeviceAdminInfoToStringRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DeviceAdminInfoServiceServer).ToString(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DeviceAdminInfoService_ToString_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DeviceAdminInfoServiceServer).ToString(ctx, req.(*DeviceAdminInfoToStringRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DeviceAdminInfoService_UsesPolicy_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UsesPolicyRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DeviceAdminInfoServiceServer).UsesPolicy(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DeviceAdminInfoService_UsesPolicy_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DeviceAdminInfoServiceServer).UsesPolicy(ctx, req.(*UsesPolicyRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DeviceAdminInfoService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DeviceAdminInfoWriteToParcelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DeviceAdminInfoServiceServer).WriteToParcel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DeviceAdminInfoService_WriteToParcel_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DeviceAdminInfoServiceServer).WriteToParcel(ctx, req.(*DeviceAdminInfoWriteToParcelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// DeviceAdminInfoService_ServiceDesc is the grpc.ServiceDesc for DeviceAdminInfoService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var DeviceAdminInfoService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "admin.DeviceAdminInfoService",
-	HandlerType: (*DeviceAdminInfoServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "NewDeviceAdminInfo",
-			Handler:    _DeviceAdminInfoService_NewDeviceAdminInfo_Handler,
-		},
-		{
-			MethodName: "DescribeContents",
-			Handler:    _DeviceAdminInfoService_DescribeContents_Handler,
-		},
-		{
-			MethodName: "Dump",
-			Handler:    _DeviceAdminInfoService_Dump_Handler,
-		},
-		{
-			MethodName: "GetActivityInfo",
-			Handler:    _DeviceAdminInfoService_GetActivityInfo_Handler,
-		},
-		{
-			MethodName: "GetComponent",
-			Handler:    _DeviceAdminInfoService_GetComponent_Handler,
-		},
-		{
-			MethodName: "GetHeadlessDeviceOwnerMode",
-			Handler:    _DeviceAdminInfoService_GetHeadlessDeviceOwnerMode_Handler,
-		},
-		{
-			MethodName: "GetPackageName",
-			Handler:    _DeviceAdminInfoService_GetPackageName_Handler,
-		},
-		{
-			MethodName: "GetReceiverName",
-			Handler:    _DeviceAdminInfoService_GetReceiverName_Handler,
-		},
-		{
-			MethodName: "GetTagForPolicy",
-			Handler:    _DeviceAdminInfoService_GetTagForPolicy_Handler,
-		},
-		{
-			MethodName: "IsVisible",
-			Handler:    _DeviceAdminInfoService_IsVisible_Handler,
-		},
-		{
-			MethodName: "LoadDescription",
-			Handler:    _DeviceAdminInfoService_LoadDescription_Handler,
-		},
-		{
-			MethodName: "LoadIcon",
-			Handler:    _DeviceAdminInfoService_LoadIcon_Handler,
-		},
-		{
-			MethodName: "LoadLabel",
-			Handler:    _DeviceAdminInfoService_LoadLabel_Handler,
-		},
-		{
-			MethodName: "SupportsTransferOwnership",
-			Handler:    _DeviceAdminInfoService_SupportsTransferOwnership_Handler,
-		},
-		{
-			MethodName: "ToString",
-			Handler:    _DeviceAdminInfoService_ToString_Handler,
-		},
-		{
-			MethodName: "UsesPolicy",
-			Handler:    _DeviceAdminInfoService_UsesPolicy_Handler,
-		},
-		{
-			MethodName: "WriteToParcel",
-			Handler:    _DeviceAdminInfoService_WriteToParcel_Handler,
+			Handler:    _UnsafeStateExceptionService_WriteToParcel_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -17580,6 +16596,1544 @@ var DelegatedAdminReceiverService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
+	TargetUserService_Equals_FullMethodName   = "/admin.TargetUserService/Equals"
+	TargetUserService_HashCode_FullMethodName = "/admin.TargetUserService/HashCode"
+)
+
+// TargetUserServiceClient is the client API for TargetUserService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type TargetUserServiceClient interface {
+	Equals(ctx context.Context, in *TargetUserEqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	HashCode(ctx context.Context, in *TargetUserHashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+}
+
+type targetUserServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewTargetUserServiceClient(cc grpc.ClientConnInterface) TargetUserServiceClient {
+	return &targetUserServiceClient{cc}
+}
+
+func (c *targetUserServiceClient) Equals(ctx context.Context, in *TargetUserEqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(EqualsResponse)
+	err := c.cc.Invoke(ctx, TargetUserService_Equals_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *targetUserServiceClient) HashCode(ctx context.Context, in *TargetUserHashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HashCodeResponse)
+	err := c.cc.Invoke(ctx, TargetUserService_HashCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// TargetUserServiceServer is the server API for TargetUserService service.
+// All implementations must embed UnimplementedTargetUserServiceServer
+// for forward compatibility.
+type TargetUserServiceServer interface {
+	Equals(context.Context, *TargetUserEqualsRequest) (*EqualsResponse, error)
+	HashCode(context.Context, *TargetUserHashCodeRequest) (*HashCodeResponse, error)
+	mustEmbedUnimplementedTargetUserServiceServer()
+}
+
+// UnimplementedTargetUserServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedTargetUserServiceServer struct{}
+
+func (UnimplementedTargetUserServiceServer) Equals(context.Context, *TargetUserEqualsRequest) (*EqualsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
+}
+func (UnimplementedTargetUserServiceServer) HashCode(context.Context, *TargetUserHashCodeRequest) (*HashCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
+}
+func (UnimplementedTargetUserServiceServer) mustEmbedUnimplementedTargetUserServiceServer() {}
+func (UnimplementedTargetUserServiceServer) testEmbeddedByValue()                           {}
+
+// UnsafeTargetUserServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to TargetUserServiceServer will
+// result in compilation errors.
+type UnsafeTargetUserServiceServer interface {
+	mustEmbedUnimplementedTargetUserServiceServer()
+}
+
+func RegisterTargetUserServiceServer(s grpc.ServiceRegistrar, srv TargetUserServiceServer) {
+	// If the following call panics, it indicates UnimplementedTargetUserServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&TargetUserService_ServiceDesc, srv)
+}
+
+func _TargetUserService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(TargetUserEqualsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TargetUserServiceServer).Equals(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TargetUserService_Equals_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TargetUserServiceServer).Equals(ctx, req.(*TargetUserEqualsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TargetUserService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(TargetUserHashCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TargetUserServiceServer).HashCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TargetUserService_HashCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TargetUserServiceServer).HashCode(ctx, req.(*TargetUserHashCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// TargetUserService_ServiceDesc is the grpc.ServiceDesc for TargetUserService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var TargetUserService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "admin.TargetUserService",
+	HandlerType: (*TargetUserServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Equals",
+			Handler:    _TargetUserService_Equals_Handler,
+		},
+		{
+			MethodName: "HashCode",
+			Handler:    _TargetUserService_HashCode_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/admin/admin.proto",
+}
+
+const (
+	WifiSsidPolicyService_NewWifiSsidPolicy_FullMethodName = "/admin.WifiSsidPolicyService/NewWifiSsidPolicy"
+	WifiSsidPolicyService_DescribeContents_FullMethodName  = "/admin.WifiSsidPolicyService/DescribeContents"
+	WifiSsidPolicyService_Equals_FullMethodName            = "/admin.WifiSsidPolicyService/Equals"
+	WifiSsidPolicyService_GetPolicyType_FullMethodName     = "/admin.WifiSsidPolicyService/GetPolicyType"
+	WifiSsidPolicyService_GetSsids_FullMethodName          = "/admin.WifiSsidPolicyService/GetSsids"
+	WifiSsidPolicyService_HashCode_FullMethodName          = "/admin.WifiSsidPolicyService/HashCode"
+	WifiSsidPolicyService_WriteToParcel_FullMethodName     = "/admin.WifiSsidPolicyService/WriteToParcel"
+)
+
+// WifiSsidPolicyServiceClient is the client API for WifiSsidPolicyService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type WifiSsidPolicyServiceClient interface {
+	NewWifiSsidPolicy(ctx context.Context, in *NewWifiSsidPolicyRequest, opts ...grpc.CallOption) (*NewWifiSsidPolicyResponse, error)
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	GetPolicyType(ctx context.Context, in *GetPolicyTypeRequest, opts ...grpc.CallOption) (*GetPolicyTypeResponse, error)
+	GetSsids(ctx context.Context, in *GetSsidsRequest, opts ...grpc.CallOption) (*GetSsidsResponse, error)
+	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type wifiSsidPolicyServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewWifiSsidPolicyServiceClient(cc grpc.ClientConnInterface) WifiSsidPolicyServiceClient {
+	return &wifiSsidPolicyServiceClient{cc}
+}
+
+func (c *wifiSsidPolicyServiceClient) NewWifiSsidPolicy(ctx context.Context, in *NewWifiSsidPolicyRequest, opts ...grpc.CallOption) (*NewWifiSsidPolicyResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewWifiSsidPolicyResponse)
+	err := c.cc.Invoke(ctx, WifiSsidPolicyService_NewWifiSsidPolicy_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *wifiSsidPolicyServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, WifiSsidPolicyService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *wifiSsidPolicyServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(EqualsResponse)
+	err := c.cc.Invoke(ctx, WifiSsidPolicyService_Equals_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *wifiSsidPolicyServiceClient) GetPolicyType(ctx context.Context, in *GetPolicyTypeRequest, opts ...grpc.CallOption) (*GetPolicyTypeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetPolicyTypeResponse)
+	err := c.cc.Invoke(ctx, WifiSsidPolicyService_GetPolicyType_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *wifiSsidPolicyServiceClient) GetSsids(ctx context.Context, in *GetSsidsRequest, opts ...grpc.CallOption) (*GetSsidsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSsidsResponse)
+	err := c.cc.Invoke(ctx, WifiSsidPolicyService_GetSsids_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *wifiSsidPolicyServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HashCodeResponse)
+	err := c.cc.Invoke(ctx, WifiSsidPolicyService_HashCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *wifiSsidPolicyServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, WifiSsidPolicyService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// WifiSsidPolicyServiceServer is the server API for WifiSsidPolicyService service.
+// All implementations must embed UnimplementedWifiSsidPolicyServiceServer
+// for forward compatibility.
+type WifiSsidPolicyServiceServer interface {
+	NewWifiSsidPolicy(context.Context, *NewWifiSsidPolicyRequest) (*NewWifiSsidPolicyResponse, error)
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
+	GetPolicyType(context.Context, *GetPolicyTypeRequest) (*GetPolicyTypeResponse, error)
+	GetSsids(context.Context, *GetSsidsRequest) (*GetSsidsResponse, error)
+	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedWifiSsidPolicyServiceServer()
+}
+
+// UnimplementedWifiSsidPolicyServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedWifiSsidPolicyServiceServer struct{}
+
+func (UnimplementedWifiSsidPolicyServiceServer) NewWifiSsidPolicy(context.Context, *NewWifiSsidPolicyRequest) (*NewWifiSsidPolicyResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewWifiSsidPolicy not implemented")
+}
+func (UnimplementedWifiSsidPolicyServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedWifiSsidPolicyServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
+}
+func (UnimplementedWifiSsidPolicyServiceServer) GetPolicyType(context.Context, *GetPolicyTypeRequest) (*GetPolicyTypeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetPolicyType not implemented")
+}
+func (UnimplementedWifiSsidPolicyServiceServer) GetSsids(context.Context, *GetSsidsRequest) (*GetSsidsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSsids not implemented")
+}
+func (UnimplementedWifiSsidPolicyServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
+}
+func (UnimplementedWifiSsidPolicyServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedWifiSsidPolicyServiceServer) mustEmbedUnimplementedWifiSsidPolicyServiceServer() {}
+func (UnimplementedWifiSsidPolicyServiceServer) testEmbeddedByValue()                               {}
+
+// UnsafeWifiSsidPolicyServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to WifiSsidPolicyServiceServer will
+// result in compilation errors.
+type UnsafeWifiSsidPolicyServiceServer interface {
+	mustEmbedUnimplementedWifiSsidPolicyServiceServer()
+}
+
+func RegisterWifiSsidPolicyServiceServer(s grpc.ServiceRegistrar, srv WifiSsidPolicyServiceServer) {
+	// If the following call panics, it indicates UnimplementedWifiSsidPolicyServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&WifiSsidPolicyService_ServiceDesc, srv)
+}
+
+func _WifiSsidPolicyService_NewWifiSsidPolicy_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewWifiSsidPolicyRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WifiSsidPolicyServiceServer).NewWifiSsidPolicy(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WifiSsidPolicyService_NewWifiSsidPolicy_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WifiSsidPolicyServiceServer).NewWifiSsidPolicy(ctx, req.(*NewWifiSsidPolicyRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WifiSsidPolicyService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WifiSsidPolicyServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WifiSsidPolicyService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WifiSsidPolicyServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WifiSsidPolicyService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EqualsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WifiSsidPolicyServiceServer).Equals(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WifiSsidPolicyService_Equals_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WifiSsidPolicyServiceServer).Equals(ctx, req.(*EqualsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WifiSsidPolicyService_GetPolicyType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPolicyTypeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WifiSsidPolicyServiceServer).GetPolicyType(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WifiSsidPolicyService_GetPolicyType_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WifiSsidPolicyServiceServer).GetPolicyType(ctx, req.(*GetPolicyTypeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WifiSsidPolicyService_GetSsids_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSsidsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WifiSsidPolicyServiceServer).GetSsids(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WifiSsidPolicyService_GetSsids_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WifiSsidPolicyServiceServer).GetSsids(ctx, req.(*GetSsidsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WifiSsidPolicyService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HashCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WifiSsidPolicyServiceServer).HashCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WifiSsidPolicyService_HashCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WifiSsidPolicyServiceServer).HashCode(ctx, req.(*HashCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WifiSsidPolicyService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WifiSsidPolicyServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WifiSsidPolicyService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WifiSsidPolicyServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// WifiSsidPolicyService_ServiceDesc is the grpc.ServiceDesc for WifiSsidPolicyService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var WifiSsidPolicyService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "admin.WifiSsidPolicyService",
+	HandlerType: (*WifiSsidPolicyServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewWifiSsidPolicy",
+			Handler:    _WifiSsidPolicyService_NewWifiSsidPolicy_Handler,
+		},
+		{
+			MethodName: "DescribeContents",
+			Handler:    _WifiSsidPolicyService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "Equals",
+			Handler:    _WifiSsidPolicyService_Equals_Handler,
+		},
+		{
+			MethodName: "GetPolicyType",
+			Handler:    _WifiSsidPolicyService_GetPolicyType_Handler,
+		},
+		{
+			MethodName: "GetSsids",
+			Handler:    _WifiSsidPolicyService_GetSsids_Handler,
+		},
+		{
+			MethodName: "HashCode",
+			Handler:    _WifiSsidPolicyService_HashCode_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _WifiSsidPolicyService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/admin/admin.proto",
+}
+
+const (
+	DevicePolicyIdentifiersService_GetIdentifierForUserRestriction_FullMethodName = "/admin.DevicePolicyIdentifiersService/GetIdentifierForUserRestriction"
+)
+
+// DevicePolicyIdentifiersServiceClient is the client API for DevicePolicyIdentifiersService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type DevicePolicyIdentifiersServiceClient interface {
+	GetIdentifierForUserRestriction(ctx context.Context, in *GetIdentifierForUserRestrictionRequest, opts ...grpc.CallOption) (*GetIdentifierForUserRestrictionResponse, error)
+}
+
+type devicePolicyIdentifiersServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewDevicePolicyIdentifiersServiceClient(cc grpc.ClientConnInterface) DevicePolicyIdentifiersServiceClient {
+	return &devicePolicyIdentifiersServiceClient{cc}
+}
+
+func (c *devicePolicyIdentifiersServiceClient) GetIdentifierForUserRestriction(ctx context.Context, in *GetIdentifierForUserRestrictionRequest, opts ...grpc.CallOption) (*GetIdentifierForUserRestrictionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetIdentifierForUserRestrictionResponse)
+	err := c.cc.Invoke(ctx, DevicePolicyIdentifiersService_GetIdentifierForUserRestriction_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// DevicePolicyIdentifiersServiceServer is the server API for DevicePolicyIdentifiersService service.
+// All implementations must embed UnimplementedDevicePolicyIdentifiersServiceServer
+// for forward compatibility.
+type DevicePolicyIdentifiersServiceServer interface {
+	GetIdentifierForUserRestriction(context.Context, *GetIdentifierForUserRestrictionRequest) (*GetIdentifierForUserRestrictionResponse, error)
+	mustEmbedUnimplementedDevicePolicyIdentifiersServiceServer()
+}
+
+// UnimplementedDevicePolicyIdentifiersServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedDevicePolicyIdentifiersServiceServer struct{}
+
+func (UnimplementedDevicePolicyIdentifiersServiceServer) GetIdentifierForUserRestriction(context.Context, *GetIdentifierForUserRestrictionRequest) (*GetIdentifierForUserRestrictionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetIdentifierForUserRestriction not implemented")
+}
+func (UnimplementedDevicePolicyIdentifiersServiceServer) mustEmbedUnimplementedDevicePolicyIdentifiersServiceServer() {
+}
+func (UnimplementedDevicePolicyIdentifiersServiceServer) testEmbeddedByValue() {}
+
+// UnsafeDevicePolicyIdentifiersServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to DevicePolicyIdentifiersServiceServer will
+// result in compilation errors.
+type UnsafeDevicePolicyIdentifiersServiceServer interface {
+	mustEmbedUnimplementedDevicePolicyIdentifiersServiceServer()
+}
+
+func RegisterDevicePolicyIdentifiersServiceServer(s grpc.ServiceRegistrar, srv DevicePolicyIdentifiersServiceServer) {
+	// If the following call panics, it indicates UnimplementedDevicePolicyIdentifiersServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&DevicePolicyIdentifiersService_ServiceDesc, srv)
+}
+
+func _DevicePolicyIdentifiersService_GetIdentifierForUserRestriction_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetIdentifierForUserRestrictionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DevicePolicyIdentifiersServiceServer).GetIdentifierForUserRestriction(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DevicePolicyIdentifiersService_GetIdentifierForUserRestriction_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DevicePolicyIdentifiersServiceServer).GetIdentifierForUserRestriction(ctx, req.(*GetIdentifierForUserRestrictionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// DevicePolicyIdentifiersService_ServiceDesc is the grpc.ServiceDesc for DevicePolicyIdentifiersService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var DevicePolicyIdentifiersService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "admin.DevicePolicyIdentifiersService",
+	HandlerType: (*DevicePolicyIdentifiersServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "GetIdentifierForUserRestriction",
+			Handler:    _DevicePolicyIdentifiersService_GetIdentifierForUserRestriction_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/admin/admin.proto",
+}
+
+const (
+	ConnectEventService_DescribeContents_FullMethodName = "/admin.ConnectEventService/DescribeContents"
+	ConnectEventService_GetInetAddress_FullMethodName   = "/admin.ConnectEventService/GetInetAddress"
+	ConnectEventService_GetPort_FullMethodName          = "/admin.ConnectEventService/GetPort"
+	ConnectEventService_ToString_FullMethodName         = "/admin.ConnectEventService/ToString"
+	ConnectEventService_WriteToParcel_FullMethodName    = "/admin.ConnectEventService/WriteToParcel"
+)
+
+// ConnectEventServiceClient is the client API for ConnectEventService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ConnectEventServiceClient interface {
+	DescribeContents(ctx context.Context, in *ConnectEventDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	GetInetAddress(ctx context.Context, in *GetInetAddressRequest, opts ...grpc.CallOption) (*GetInetAddressResponse, error)
+	GetPort(ctx context.Context, in *GetPortRequest, opts ...grpc.CallOption) (*GetPortResponse, error)
+	ToString(ctx context.Context, in *ConnectEventToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+	WriteToParcel(ctx context.Context, in *ConnectEventWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type connectEventServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewConnectEventServiceClient(cc grpc.ClientConnInterface) ConnectEventServiceClient {
+	return &connectEventServiceClient{cc}
+}
+
+func (c *connectEventServiceClient) DescribeContents(ctx context.Context, in *ConnectEventDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, ConnectEventService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *connectEventServiceClient) GetInetAddress(ctx context.Context, in *GetInetAddressRequest, opts ...grpc.CallOption) (*GetInetAddressResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetInetAddressResponse)
+	err := c.cc.Invoke(ctx, ConnectEventService_GetInetAddress_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *connectEventServiceClient) GetPort(ctx context.Context, in *GetPortRequest, opts ...grpc.CallOption) (*GetPortResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetPortResponse)
+	err := c.cc.Invoke(ctx, ConnectEventService_GetPort_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *connectEventServiceClient) ToString(ctx context.Context, in *ConnectEventToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, ConnectEventService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *connectEventServiceClient) WriteToParcel(ctx context.Context, in *ConnectEventWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, ConnectEventService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ConnectEventServiceServer is the server API for ConnectEventService service.
+// All implementations must embed UnimplementedConnectEventServiceServer
+// for forward compatibility.
+type ConnectEventServiceServer interface {
+	DescribeContents(context.Context, *ConnectEventDescribeContentsRequest) (*DescribeContentsResponse, error)
+	GetInetAddress(context.Context, *GetInetAddressRequest) (*GetInetAddressResponse, error)
+	GetPort(context.Context, *GetPortRequest) (*GetPortResponse, error)
+	ToString(context.Context, *ConnectEventToStringRequest) (*ToStringResponse, error)
+	WriteToParcel(context.Context, *ConnectEventWriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedConnectEventServiceServer()
+}
+
+// UnimplementedConnectEventServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedConnectEventServiceServer struct{}
+
+func (UnimplementedConnectEventServiceServer) DescribeContents(context.Context, *ConnectEventDescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedConnectEventServiceServer) GetInetAddress(context.Context, *GetInetAddressRequest) (*GetInetAddressResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetInetAddress not implemented")
+}
+func (UnimplementedConnectEventServiceServer) GetPort(context.Context, *GetPortRequest) (*GetPortResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetPort not implemented")
+}
+func (UnimplementedConnectEventServiceServer) ToString(context.Context, *ConnectEventToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedConnectEventServiceServer) WriteToParcel(context.Context, *ConnectEventWriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedConnectEventServiceServer) mustEmbedUnimplementedConnectEventServiceServer() {}
+func (UnimplementedConnectEventServiceServer) testEmbeddedByValue()                             {}
+
+// UnsafeConnectEventServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ConnectEventServiceServer will
+// result in compilation errors.
+type UnsafeConnectEventServiceServer interface {
+	mustEmbedUnimplementedConnectEventServiceServer()
+}
+
+func RegisterConnectEventServiceServer(s grpc.ServiceRegistrar, srv ConnectEventServiceServer) {
+	// If the following call panics, it indicates UnimplementedConnectEventServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&ConnectEventService_ServiceDesc, srv)
+}
+
+func _ConnectEventService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ConnectEventDescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ConnectEventServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ConnectEventService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ConnectEventServiceServer).DescribeContents(ctx, req.(*ConnectEventDescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ConnectEventService_GetInetAddress_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetInetAddressRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ConnectEventServiceServer).GetInetAddress(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ConnectEventService_GetInetAddress_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ConnectEventServiceServer).GetInetAddress(ctx, req.(*GetInetAddressRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ConnectEventService_GetPort_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPortRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ConnectEventServiceServer).GetPort(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ConnectEventService_GetPort_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ConnectEventServiceServer).GetPort(ctx, req.(*GetPortRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ConnectEventService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ConnectEventToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ConnectEventServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ConnectEventService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ConnectEventServiceServer).ToString(ctx, req.(*ConnectEventToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ConnectEventService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ConnectEventWriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ConnectEventServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ConnectEventService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ConnectEventServiceServer).WriteToParcel(ctx, req.(*ConnectEventWriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ConnectEventService_ServiceDesc is the grpc.ServiceDesc for ConnectEventService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ConnectEventService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "admin.ConnectEventService",
+	HandlerType: (*ConnectEventServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "DescribeContents",
+			Handler:    _ConnectEventService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "GetInetAddress",
+			Handler:    _ConnectEventService_GetInetAddress_Handler,
+		},
+		{
+			MethodName: "GetPort",
+			Handler:    _ConnectEventService_GetPort_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _ConnectEventService_ToString_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _ConnectEventService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/admin/admin.proto",
+}
+
+const (
+	DeviceAdminInfoService_NewDeviceAdminInfo_FullMethodName         = "/admin.DeviceAdminInfoService/NewDeviceAdminInfo"
+	DeviceAdminInfoService_DescribeContents_FullMethodName           = "/admin.DeviceAdminInfoService/DescribeContents"
+	DeviceAdminInfoService_Dump_FullMethodName                       = "/admin.DeviceAdminInfoService/Dump"
+	DeviceAdminInfoService_GetActivityInfo_FullMethodName            = "/admin.DeviceAdminInfoService/GetActivityInfo"
+	DeviceAdminInfoService_GetComponent_FullMethodName               = "/admin.DeviceAdminInfoService/GetComponent"
+	DeviceAdminInfoService_GetHeadlessDeviceOwnerMode_FullMethodName = "/admin.DeviceAdminInfoService/GetHeadlessDeviceOwnerMode"
+	DeviceAdminInfoService_GetPackageName_FullMethodName             = "/admin.DeviceAdminInfoService/GetPackageName"
+	DeviceAdminInfoService_GetReceiverName_FullMethodName            = "/admin.DeviceAdminInfoService/GetReceiverName"
+	DeviceAdminInfoService_GetTagForPolicy_FullMethodName            = "/admin.DeviceAdminInfoService/GetTagForPolicy"
+	DeviceAdminInfoService_IsVisible_FullMethodName                  = "/admin.DeviceAdminInfoService/IsVisible"
+	DeviceAdminInfoService_LoadDescription_FullMethodName            = "/admin.DeviceAdminInfoService/LoadDescription"
+	DeviceAdminInfoService_LoadIcon_FullMethodName                   = "/admin.DeviceAdminInfoService/LoadIcon"
+	DeviceAdminInfoService_LoadLabel_FullMethodName                  = "/admin.DeviceAdminInfoService/LoadLabel"
+	DeviceAdminInfoService_SupportsTransferOwnership_FullMethodName  = "/admin.DeviceAdminInfoService/SupportsTransferOwnership"
+	DeviceAdminInfoService_ToString_FullMethodName                   = "/admin.DeviceAdminInfoService/ToString"
+	DeviceAdminInfoService_UsesPolicy_FullMethodName                 = "/admin.DeviceAdminInfoService/UsesPolicy"
+	DeviceAdminInfoService_WriteToParcel_FullMethodName              = "/admin.DeviceAdminInfoService/WriteToParcel"
+)
+
+// DeviceAdminInfoServiceClient is the client API for DeviceAdminInfoService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type DeviceAdminInfoServiceClient interface {
+	NewDeviceAdminInfo(ctx context.Context, in *NewDeviceAdminInfoRequest, opts ...grpc.CallOption) (*NewDeviceAdminInfoResponse, error)
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	Dump(ctx context.Context, in *DumpRequest, opts ...grpc.CallOption) (*DumpResponse, error)
+	GetActivityInfo(ctx context.Context, in *GetActivityInfoRequest, opts ...grpc.CallOption) (*GetActivityInfoResponse, error)
+	GetComponent(ctx context.Context, in *GetComponentRequest, opts ...grpc.CallOption) (*GetComponentResponse, error)
+	GetHeadlessDeviceOwnerMode(ctx context.Context, in *GetHeadlessDeviceOwnerModeRequest, opts ...grpc.CallOption) (*GetHeadlessDeviceOwnerModeResponse, error)
+	GetPackageName(ctx context.Context, in *GetPackageNameRequest, opts ...grpc.CallOption) (*GetPackageNameResponse, error)
+	GetReceiverName(ctx context.Context, in *GetReceiverNameRequest, opts ...grpc.CallOption) (*GetReceiverNameResponse, error)
+	GetTagForPolicy(ctx context.Context, in *GetTagForPolicyRequest, opts ...grpc.CallOption) (*GetTagForPolicyResponse, error)
+	IsVisible(ctx context.Context, in *IsVisibleRequest, opts ...grpc.CallOption) (*IsVisibleResponse, error)
+	LoadDescription(ctx context.Context, in *LoadDescriptionRequest, opts ...grpc.CallOption) (*LoadDescriptionResponse, error)
+	LoadIcon(ctx context.Context, in *LoadIconRequest, opts ...grpc.CallOption) (*LoadIconResponse, error)
+	LoadLabel(ctx context.Context, in *LoadLabelRequest, opts ...grpc.CallOption) (*LoadLabelResponse, error)
+	SupportsTransferOwnership(ctx context.Context, in *SupportsTransferOwnershipRequest, opts ...grpc.CallOption) (*SupportsTransferOwnershipResponse, error)
+	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+	UsesPolicy(ctx context.Context, in *UsesPolicyRequest, opts ...grpc.CallOption) (*UsesPolicyResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type deviceAdminInfoServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewDeviceAdminInfoServiceClient(cc grpc.ClientConnInterface) DeviceAdminInfoServiceClient {
+	return &deviceAdminInfoServiceClient{cc}
+}
+
+func (c *deviceAdminInfoServiceClient) NewDeviceAdminInfo(ctx context.Context, in *NewDeviceAdminInfoRequest, opts ...grpc.CallOption) (*NewDeviceAdminInfoResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewDeviceAdminInfoResponse)
+	err := c.cc.Invoke(ctx, DeviceAdminInfoService_NewDeviceAdminInfo_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *deviceAdminInfoServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, DeviceAdminInfoService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *deviceAdminInfoServiceClient) Dump(ctx context.Context, in *DumpRequest, opts ...grpc.CallOption) (*DumpResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DumpResponse)
+	err := c.cc.Invoke(ctx, DeviceAdminInfoService_Dump_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *deviceAdminInfoServiceClient) GetActivityInfo(ctx context.Context, in *GetActivityInfoRequest, opts ...grpc.CallOption) (*GetActivityInfoResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetActivityInfoResponse)
+	err := c.cc.Invoke(ctx, DeviceAdminInfoService_GetActivityInfo_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *deviceAdminInfoServiceClient) GetComponent(ctx context.Context, in *GetComponentRequest, opts ...grpc.CallOption) (*GetComponentResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetComponentResponse)
+	err := c.cc.Invoke(ctx, DeviceAdminInfoService_GetComponent_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *deviceAdminInfoServiceClient) GetHeadlessDeviceOwnerMode(ctx context.Context, in *GetHeadlessDeviceOwnerModeRequest, opts ...grpc.CallOption) (*GetHeadlessDeviceOwnerModeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetHeadlessDeviceOwnerModeResponse)
+	err := c.cc.Invoke(ctx, DeviceAdminInfoService_GetHeadlessDeviceOwnerMode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *deviceAdminInfoServiceClient) GetPackageName(ctx context.Context, in *GetPackageNameRequest, opts ...grpc.CallOption) (*GetPackageNameResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetPackageNameResponse)
+	err := c.cc.Invoke(ctx, DeviceAdminInfoService_GetPackageName_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *deviceAdminInfoServiceClient) GetReceiverName(ctx context.Context, in *GetReceiverNameRequest, opts ...grpc.CallOption) (*GetReceiverNameResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetReceiverNameResponse)
+	err := c.cc.Invoke(ctx, DeviceAdminInfoService_GetReceiverName_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *deviceAdminInfoServiceClient) GetTagForPolicy(ctx context.Context, in *GetTagForPolicyRequest, opts ...grpc.CallOption) (*GetTagForPolicyResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTagForPolicyResponse)
+	err := c.cc.Invoke(ctx, DeviceAdminInfoService_GetTagForPolicy_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *deviceAdminInfoServiceClient) IsVisible(ctx context.Context, in *IsVisibleRequest, opts ...grpc.CallOption) (*IsVisibleResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsVisibleResponse)
+	err := c.cc.Invoke(ctx, DeviceAdminInfoService_IsVisible_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *deviceAdminInfoServiceClient) LoadDescription(ctx context.Context, in *LoadDescriptionRequest, opts ...grpc.CallOption) (*LoadDescriptionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(LoadDescriptionResponse)
+	err := c.cc.Invoke(ctx, DeviceAdminInfoService_LoadDescription_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *deviceAdminInfoServiceClient) LoadIcon(ctx context.Context, in *LoadIconRequest, opts ...grpc.CallOption) (*LoadIconResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(LoadIconResponse)
+	err := c.cc.Invoke(ctx, DeviceAdminInfoService_LoadIcon_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *deviceAdminInfoServiceClient) LoadLabel(ctx context.Context, in *LoadLabelRequest, opts ...grpc.CallOption) (*LoadLabelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(LoadLabelResponse)
+	err := c.cc.Invoke(ctx, DeviceAdminInfoService_LoadLabel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *deviceAdminInfoServiceClient) SupportsTransferOwnership(ctx context.Context, in *SupportsTransferOwnershipRequest, opts ...grpc.CallOption) (*SupportsTransferOwnershipResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SupportsTransferOwnershipResponse)
+	err := c.cc.Invoke(ctx, DeviceAdminInfoService_SupportsTransferOwnership_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *deviceAdminInfoServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, DeviceAdminInfoService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *deviceAdminInfoServiceClient) UsesPolicy(ctx context.Context, in *UsesPolicyRequest, opts ...grpc.CallOption) (*UsesPolicyResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(UsesPolicyResponse)
+	err := c.cc.Invoke(ctx, DeviceAdminInfoService_UsesPolicy_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *deviceAdminInfoServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, DeviceAdminInfoService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// DeviceAdminInfoServiceServer is the server API for DeviceAdminInfoService service.
+// All implementations must embed UnimplementedDeviceAdminInfoServiceServer
+// for forward compatibility.
+type DeviceAdminInfoServiceServer interface {
+	NewDeviceAdminInfo(context.Context, *NewDeviceAdminInfoRequest) (*NewDeviceAdminInfoResponse, error)
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	Dump(context.Context, *DumpRequest) (*DumpResponse, error)
+	GetActivityInfo(context.Context, *GetActivityInfoRequest) (*GetActivityInfoResponse, error)
+	GetComponent(context.Context, *GetComponentRequest) (*GetComponentResponse, error)
+	GetHeadlessDeviceOwnerMode(context.Context, *GetHeadlessDeviceOwnerModeRequest) (*GetHeadlessDeviceOwnerModeResponse, error)
+	GetPackageName(context.Context, *GetPackageNameRequest) (*GetPackageNameResponse, error)
+	GetReceiverName(context.Context, *GetReceiverNameRequest) (*GetReceiverNameResponse, error)
+	GetTagForPolicy(context.Context, *GetTagForPolicyRequest) (*GetTagForPolicyResponse, error)
+	IsVisible(context.Context, *IsVisibleRequest) (*IsVisibleResponse, error)
+	LoadDescription(context.Context, *LoadDescriptionRequest) (*LoadDescriptionResponse, error)
+	LoadIcon(context.Context, *LoadIconRequest) (*LoadIconResponse, error)
+	LoadLabel(context.Context, *LoadLabelRequest) (*LoadLabelResponse, error)
+	SupportsTransferOwnership(context.Context, *SupportsTransferOwnershipRequest) (*SupportsTransferOwnershipResponse, error)
+	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
+	UsesPolicy(context.Context, *UsesPolicyRequest) (*UsesPolicyResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedDeviceAdminInfoServiceServer()
+}
+
+// UnimplementedDeviceAdminInfoServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedDeviceAdminInfoServiceServer struct{}
+
+func (UnimplementedDeviceAdminInfoServiceServer) NewDeviceAdminInfo(context.Context, *NewDeviceAdminInfoRequest) (*NewDeviceAdminInfoResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewDeviceAdminInfo not implemented")
+}
+func (UnimplementedDeviceAdminInfoServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedDeviceAdminInfoServiceServer) Dump(context.Context, *DumpRequest) (*DumpResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Dump not implemented")
+}
+func (UnimplementedDeviceAdminInfoServiceServer) GetActivityInfo(context.Context, *GetActivityInfoRequest) (*GetActivityInfoResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetActivityInfo not implemented")
+}
+func (UnimplementedDeviceAdminInfoServiceServer) GetComponent(context.Context, *GetComponentRequest) (*GetComponentResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetComponent not implemented")
+}
+func (UnimplementedDeviceAdminInfoServiceServer) GetHeadlessDeviceOwnerMode(context.Context, *GetHeadlessDeviceOwnerModeRequest) (*GetHeadlessDeviceOwnerModeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetHeadlessDeviceOwnerMode not implemented")
+}
+func (UnimplementedDeviceAdminInfoServiceServer) GetPackageName(context.Context, *GetPackageNameRequest) (*GetPackageNameResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetPackageName not implemented")
+}
+func (UnimplementedDeviceAdminInfoServiceServer) GetReceiverName(context.Context, *GetReceiverNameRequest) (*GetReceiverNameResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetReceiverName not implemented")
+}
+func (UnimplementedDeviceAdminInfoServiceServer) GetTagForPolicy(context.Context, *GetTagForPolicyRequest) (*GetTagForPolicyResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTagForPolicy not implemented")
+}
+func (UnimplementedDeviceAdminInfoServiceServer) IsVisible(context.Context, *IsVisibleRequest) (*IsVisibleResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsVisible not implemented")
+}
+func (UnimplementedDeviceAdminInfoServiceServer) LoadDescription(context.Context, *LoadDescriptionRequest) (*LoadDescriptionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method LoadDescription not implemented")
+}
+func (UnimplementedDeviceAdminInfoServiceServer) LoadIcon(context.Context, *LoadIconRequest) (*LoadIconResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method LoadIcon not implemented")
+}
+func (UnimplementedDeviceAdminInfoServiceServer) LoadLabel(context.Context, *LoadLabelRequest) (*LoadLabelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method LoadLabel not implemented")
+}
+func (UnimplementedDeviceAdminInfoServiceServer) SupportsTransferOwnership(context.Context, *SupportsTransferOwnershipRequest) (*SupportsTransferOwnershipResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SupportsTransferOwnership not implemented")
+}
+func (UnimplementedDeviceAdminInfoServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedDeviceAdminInfoServiceServer) UsesPolicy(context.Context, *UsesPolicyRequest) (*UsesPolicyResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method UsesPolicy not implemented")
+}
+func (UnimplementedDeviceAdminInfoServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedDeviceAdminInfoServiceServer) mustEmbedUnimplementedDeviceAdminInfoServiceServer() {
+}
+func (UnimplementedDeviceAdminInfoServiceServer) testEmbeddedByValue() {}
+
+// UnsafeDeviceAdminInfoServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to DeviceAdminInfoServiceServer will
+// result in compilation errors.
+type UnsafeDeviceAdminInfoServiceServer interface {
+	mustEmbedUnimplementedDeviceAdminInfoServiceServer()
+}
+
+func RegisterDeviceAdminInfoServiceServer(s grpc.ServiceRegistrar, srv DeviceAdminInfoServiceServer) {
+	// If the following call panics, it indicates UnimplementedDeviceAdminInfoServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&DeviceAdminInfoService_ServiceDesc, srv)
+}
+
+func _DeviceAdminInfoService_NewDeviceAdminInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewDeviceAdminInfoRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DeviceAdminInfoServiceServer).NewDeviceAdminInfo(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DeviceAdminInfoService_NewDeviceAdminInfo_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DeviceAdminInfoServiceServer).NewDeviceAdminInfo(ctx, req.(*NewDeviceAdminInfoRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DeviceAdminInfoService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DeviceAdminInfoServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DeviceAdminInfoService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DeviceAdminInfoServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DeviceAdminInfoService_Dump_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DumpRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DeviceAdminInfoServiceServer).Dump(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DeviceAdminInfoService_Dump_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DeviceAdminInfoServiceServer).Dump(ctx, req.(*DumpRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DeviceAdminInfoService_GetActivityInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetActivityInfoRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DeviceAdminInfoServiceServer).GetActivityInfo(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DeviceAdminInfoService_GetActivityInfo_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DeviceAdminInfoServiceServer).GetActivityInfo(ctx, req.(*GetActivityInfoRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DeviceAdminInfoService_GetComponent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetComponentRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DeviceAdminInfoServiceServer).GetComponent(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DeviceAdminInfoService_GetComponent_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DeviceAdminInfoServiceServer).GetComponent(ctx, req.(*GetComponentRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DeviceAdminInfoService_GetHeadlessDeviceOwnerMode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetHeadlessDeviceOwnerModeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DeviceAdminInfoServiceServer).GetHeadlessDeviceOwnerMode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DeviceAdminInfoService_GetHeadlessDeviceOwnerMode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DeviceAdminInfoServiceServer).GetHeadlessDeviceOwnerMode(ctx, req.(*GetHeadlessDeviceOwnerModeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DeviceAdminInfoService_GetPackageName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPackageNameRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DeviceAdminInfoServiceServer).GetPackageName(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DeviceAdminInfoService_GetPackageName_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DeviceAdminInfoServiceServer).GetPackageName(ctx, req.(*GetPackageNameRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DeviceAdminInfoService_GetReceiverName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetReceiverNameRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DeviceAdminInfoServiceServer).GetReceiverName(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DeviceAdminInfoService_GetReceiverName_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DeviceAdminInfoServiceServer).GetReceiverName(ctx, req.(*GetReceiverNameRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DeviceAdminInfoService_GetTagForPolicy_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTagForPolicyRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DeviceAdminInfoServiceServer).GetTagForPolicy(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DeviceAdminInfoService_GetTagForPolicy_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DeviceAdminInfoServiceServer).GetTagForPolicy(ctx, req.(*GetTagForPolicyRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DeviceAdminInfoService_IsVisible_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsVisibleRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DeviceAdminInfoServiceServer).IsVisible(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DeviceAdminInfoService_IsVisible_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DeviceAdminInfoServiceServer).IsVisible(ctx, req.(*IsVisibleRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DeviceAdminInfoService_LoadDescription_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(LoadDescriptionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DeviceAdminInfoServiceServer).LoadDescription(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DeviceAdminInfoService_LoadDescription_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DeviceAdminInfoServiceServer).LoadDescription(ctx, req.(*LoadDescriptionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DeviceAdminInfoService_LoadIcon_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(LoadIconRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DeviceAdminInfoServiceServer).LoadIcon(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DeviceAdminInfoService_LoadIcon_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DeviceAdminInfoServiceServer).LoadIcon(ctx, req.(*LoadIconRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DeviceAdminInfoService_LoadLabel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(LoadLabelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DeviceAdminInfoServiceServer).LoadLabel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DeviceAdminInfoService_LoadLabel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DeviceAdminInfoServiceServer).LoadLabel(ctx, req.(*LoadLabelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DeviceAdminInfoService_SupportsTransferOwnership_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SupportsTransferOwnershipRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DeviceAdminInfoServiceServer).SupportsTransferOwnership(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DeviceAdminInfoService_SupportsTransferOwnership_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DeviceAdminInfoServiceServer).SupportsTransferOwnership(ctx, req.(*SupportsTransferOwnershipRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DeviceAdminInfoService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DeviceAdminInfoServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DeviceAdminInfoService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DeviceAdminInfoServiceServer).ToString(ctx, req.(*ToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DeviceAdminInfoService_UsesPolicy_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UsesPolicyRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DeviceAdminInfoServiceServer).UsesPolicy(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DeviceAdminInfoService_UsesPolicy_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DeviceAdminInfoServiceServer).UsesPolicy(ctx, req.(*UsesPolicyRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DeviceAdminInfoService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DeviceAdminInfoServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DeviceAdminInfoService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DeviceAdminInfoServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// DeviceAdminInfoService_ServiceDesc is the grpc.ServiceDesc for DeviceAdminInfoService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var DeviceAdminInfoService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "admin.DeviceAdminInfoService",
+	HandlerType: (*DeviceAdminInfoServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewDeviceAdminInfo",
+			Handler:    _DeviceAdminInfoService_NewDeviceAdminInfo_Handler,
+		},
+		{
+			MethodName: "DescribeContents",
+			Handler:    _DeviceAdminInfoService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "Dump",
+			Handler:    _DeviceAdminInfoService_Dump_Handler,
+		},
+		{
+			MethodName: "GetActivityInfo",
+			Handler:    _DeviceAdminInfoService_GetActivityInfo_Handler,
+		},
+		{
+			MethodName: "GetComponent",
+			Handler:    _DeviceAdminInfoService_GetComponent_Handler,
+		},
+		{
+			MethodName: "GetHeadlessDeviceOwnerMode",
+			Handler:    _DeviceAdminInfoService_GetHeadlessDeviceOwnerMode_Handler,
+		},
+		{
+			MethodName: "GetPackageName",
+			Handler:    _DeviceAdminInfoService_GetPackageName_Handler,
+		},
+		{
+			MethodName: "GetReceiverName",
+			Handler:    _DeviceAdminInfoService_GetReceiverName_Handler,
+		},
+		{
+			MethodName: "GetTagForPolicy",
+			Handler:    _DeviceAdminInfoService_GetTagForPolicy_Handler,
+		},
+		{
+			MethodName: "IsVisible",
+			Handler:    _DeviceAdminInfoService_IsVisible_Handler,
+		},
+		{
+			MethodName: "LoadDescription",
+			Handler:    _DeviceAdminInfoService_LoadDescription_Handler,
+		},
+		{
+			MethodName: "LoadIcon",
+			Handler:    _DeviceAdminInfoService_LoadIcon_Handler,
+		},
+		{
+			MethodName: "LoadLabel",
+			Handler:    _DeviceAdminInfoService_LoadLabel_Handler,
+		},
+		{
+			MethodName: "SupportsTransferOwnership",
+			Handler:    _DeviceAdminInfoService_SupportsTransferOwnership_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _DeviceAdminInfoService_ToString_Handler,
+		},
+		{
+			MethodName: "UsesPolicy",
+			Handler:    _DeviceAdminInfoService_UsesPolicy_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _DeviceAdminInfoService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/admin/admin.proto",
+}
+
+const (
 	NetworkEventService_DescribeContents_FullMethodName = "/admin.NetworkEventService/DescribeContents"
 	NetworkEventService_GetId_FullMethodName            = "/admin.NetworkEventService/GetId"
 	NetworkEventService_GetPackageName_FullMethodName   = "/admin.NetworkEventService/GetPackageName"
@@ -17591,11 +18145,11 @@ const (
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type NetworkEventServiceClient interface {
-	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	DescribeContents(ctx context.Context, in *NetworkEventDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
 	GetId(ctx context.Context, in *GetIdRequest, opts ...grpc.CallOption) (*GetIdResponse, error)
 	GetPackageName(ctx context.Context, in *NetworkEventGetPackageNameRequest, opts ...grpc.CallOption) (*GetPackageNameResponse, error)
 	GetTimestamp(ctx context.Context, in *GetTimestampRequest, opts ...grpc.CallOption) (*GetTimestampResponse, error)
-	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+	WriteToParcel(ctx context.Context, in *NetworkEventWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
 }
 
 type networkEventServiceClient struct {
@@ -17606,7 +18160,7 @@ func NewNetworkEventServiceClient(cc grpc.ClientConnInterface) NetworkEventServi
 	return &networkEventServiceClient{cc}
 }
 
-func (c *networkEventServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+func (c *networkEventServiceClient) DescribeContents(ctx context.Context, in *NetworkEventDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(DescribeContentsResponse)
 	err := c.cc.Invoke(ctx, NetworkEventService_DescribeContents_FullMethodName, in, out, cOpts...)
@@ -17646,7 +18200,7 @@ func (c *networkEventServiceClient) GetTimestamp(ctx context.Context, in *GetTim
 	return out, nil
 }
 
-func (c *networkEventServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+func (c *networkEventServiceClient) WriteToParcel(ctx context.Context, in *NetworkEventWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(WriteToParcelResponse)
 	err := c.cc.Invoke(ctx, NetworkEventService_WriteToParcel_FullMethodName, in, out, cOpts...)
@@ -17660,11 +18214,11 @@ func (c *networkEventServiceClient) WriteToParcel(ctx context.Context, in *Write
 // All implementations must embed UnimplementedNetworkEventServiceServer
 // for forward compatibility.
 type NetworkEventServiceServer interface {
-	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	DescribeContents(context.Context, *NetworkEventDescribeContentsRequest) (*DescribeContentsResponse, error)
 	GetId(context.Context, *GetIdRequest) (*GetIdResponse, error)
 	GetPackageName(context.Context, *NetworkEventGetPackageNameRequest) (*GetPackageNameResponse, error)
 	GetTimestamp(context.Context, *GetTimestampRequest) (*GetTimestampResponse, error)
-	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	WriteToParcel(context.Context, *NetworkEventWriteToParcelRequest) (*WriteToParcelResponse, error)
 	mustEmbedUnimplementedNetworkEventServiceServer()
 }
 
@@ -17675,7 +18229,7 @@ type NetworkEventServiceServer interface {
 // pointer dereference when methods are called.
 type UnimplementedNetworkEventServiceServer struct{}
 
-func (UnimplementedNetworkEventServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+func (UnimplementedNetworkEventServiceServer) DescribeContents(context.Context, *NetworkEventDescribeContentsRequest) (*DescribeContentsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
 }
 func (UnimplementedNetworkEventServiceServer) GetId(context.Context, *GetIdRequest) (*GetIdResponse, error) {
@@ -17687,7 +18241,7 @@ func (UnimplementedNetworkEventServiceServer) GetPackageName(context.Context, *N
 func (UnimplementedNetworkEventServiceServer) GetTimestamp(context.Context, *GetTimestampRequest) (*GetTimestampResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetTimestamp not implemented")
 }
-func (UnimplementedNetworkEventServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+func (UnimplementedNetworkEventServiceServer) WriteToParcel(context.Context, *NetworkEventWriteToParcelRequest) (*WriteToParcelResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
 }
 func (UnimplementedNetworkEventServiceServer) mustEmbedUnimplementedNetworkEventServiceServer() {}
@@ -17712,7 +18266,7 @@ func RegisterNetworkEventServiceServer(s grpc.ServiceRegistrar, srv NetworkEvent
 }
 
 func _NetworkEventService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DescribeContentsRequest)
+	in := new(NetworkEventDescribeContentsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -17724,7 +18278,7 @@ func _NetworkEventService_DescribeContents_Handler(srv interface{}, ctx context.
 		FullMethod: NetworkEventService_DescribeContents_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NetworkEventServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+		return srv.(NetworkEventServiceServer).DescribeContents(ctx, req.(*NetworkEventDescribeContentsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -17784,7 +18338,7 @@ func _NetworkEventService_GetTimestamp_Handler(srv interface{}, ctx context.Cont
 }
 
 func _NetworkEventService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WriteToParcelRequest)
+	in := new(NetworkEventWriteToParcelRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -17796,7 +18350,7 @@ func _NetworkEventService_WriteToParcel_Handler(srv interface{}, ctx context.Con
 		FullMethod: NetworkEventService_WriteToParcel_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NetworkEventServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+		return srv.(NetworkEventServiceServer).WriteToParcel(ctx, req.(*NetworkEventWriteToParcelRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -17827,6 +18381,630 @@ var NetworkEventService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "WriteToParcel",
 			Handler:    _NetworkEventService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/admin/admin.proto",
+}
+
+const (
+	SystemUpdatePolicyService_DescribeContents_FullMethodName             = "/admin.SystemUpdatePolicyService/DescribeContents"
+	SystemUpdatePolicyService_GetFreezePeriods_FullMethodName             = "/admin.SystemUpdatePolicyService/GetFreezePeriods"
+	SystemUpdatePolicyService_GetInstallWindowEnd_FullMethodName          = "/admin.SystemUpdatePolicyService/GetInstallWindowEnd"
+	SystemUpdatePolicyService_GetInstallWindowStart_FullMethodName        = "/admin.SystemUpdatePolicyService/GetInstallWindowStart"
+	SystemUpdatePolicyService_GetPolicyType_FullMethodName                = "/admin.SystemUpdatePolicyService/GetPolicyType"
+	SystemUpdatePolicyService_ToString_FullMethodName                     = "/admin.SystemUpdatePolicyService/ToString"
+	SystemUpdatePolicyService_WriteToParcel_FullMethodName                = "/admin.SystemUpdatePolicyService/WriteToParcel"
+	SystemUpdatePolicyService_CreateAutomaticInstallPolicy_FullMethodName = "/admin.SystemUpdatePolicyService/CreateAutomaticInstallPolicy"
+	SystemUpdatePolicyService_CreatePostponeInstallPolicy_FullMethodName  = "/admin.SystemUpdatePolicyService/CreatePostponeInstallPolicy"
+	SystemUpdatePolicyService_CreateWindowedInstallPolicy_FullMethodName  = "/admin.SystemUpdatePolicyService/CreateWindowedInstallPolicy"
+)
+
+// SystemUpdatePolicyServiceClient is the client API for SystemUpdatePolicyService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type SystemUpdatePolicyServiceClient interface {
+	DescribeContents(ctx context.Context, in *SystemUpdatePolicyDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	GetFreezePeriods(ctx context.Context, in *GetFreezePeriodsRequest, opts ...grpc.CallOption) (*GetFreezePeriodsResponse, error)
+	GetInstallWindowEnd(ctx context.Context, in *GetInstallWindowEndRequest, opts ...grpc.CallOption) (*GetInstallWindowEndResponse, error)
+	GetInstallWindowStart(ctx context.Context, in *GetInstallWindowStartRequest, opts ...grpc.CallOption) (*GetInstallWindowStartResponse, error)
+	GetPolicyType(ctx context.Context, in *SystemUpdatePolicyGetPolicyTypeRequest, opts ...grpc.CallOption) (*GetPolicyTypeResponse, error)
+	ToString(ctx context.Context, in *SystemUpdatePolicyToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+	WriteToParcel(ctx context.Context, in *SystemUpdatePolicyWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+	CreateAutomaticInstallPolicy(ctx context.Context, in *CreateAutomaticInstallPolicyRequest, opts ...grpc.CallOption) (*CreateAutomaticInstallPolicyResponse, error)
+	CreatePostponeInstallPolicy(ctx context.Context, in *CreatePostponeInstallPolicyRequest, opts ...grpc.CallOption) (*CreatePostponeInstallPolicyResponse, error)
+	CreateWindowedInstallPolicy(ctx context.Context, in *CreateWindowedInstallPolicyRequest, opts ...grpc.CallOption) (*CreateWindowedInstallPolicyResponse, error)
+}
+
+type systemUpdatePolicyServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewSystemUpdatePolicyServiceClient(cc grpc.ClientConnInterface) SystemUpdatePolicyServiceClient {
+	return &systemUpdatePolicyServiceClient{cc}
+}
+
+func (c *systemUpdatePolicyServiceClient) DescribeContents(ctx context.Context, in *SystemUpdatePolicyDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, SystemUpdatePolicyService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *systemUpdatePolicyServiceClient) GetFreezePeriods(ctx context.Context, in *GetFreezePeriodsRequest, opts ...grpc.CallOption) (*GetFreezePeriodsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetFreezePeriodsResponse)
+	err := c.cc.Invoke(ctx, SystemUpdatePolicyService_GetFreezePeriods_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *systemUpdatePolicyServiceClient) GetInstallWindowEnd(ctx context.Context, in *GetInstallWindowEndRequest, opts ...grpc.CallOption) (*GetInstallWindowEndResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetInstallWindowEndResponse)
+	err := c.cc.Invoke(ctx, SystemUpdatePolicyService_GetInstallWindowEnd_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *systemUpdatePolicyServiceClient) GetInstallWindowStart(ctx context.Context, in *GetInstallWindowStartRequest, opts ...grpc.CallOption) (*GetInstallWindowStartResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetInstallWindowStartResponse)
+	err := c.cc.Invoke(ctx, SystemUpdatePolicyService_GetInstallWindowStart_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *systemUpdatePolicyServiceClient) GetPolicyType(ctx context.Context, in *SystemUpdatePolicyGetPolicyTypeRequest, opts ...grpc.CallOption) (*GetPolicyTypeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetPolicyTypeResponse)
+	err := c.cc.Invoke(ctx, SystemUpdatePolicyService_GetPolicyType_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *systemUpdatePolicyServiceClient) ToString(ctx context.Context, in *SystemUpdatePolicyToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, SystemUpdatePolicyService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *systemUpdatePolicyServiceClient) WriteToParcel(ctx context.Context, in *SystemUpdatePolicyWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, SystemUpdatePolicyService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *systemUpdatePolicyServiceClient) CreateAutomaticInstallPolicy(ctx context.Context, in *CreateAutomaticInstallPolicyRequest, opts ...grpc.CallOption) (*CreateAutomaticInstallPolicyResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CreateAutomaticInstallPolicyResponse)
+	err := c.cc.Invoke(ctx, SystemUpdatePolicyService_CreateAutomaticInstallPolicy_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *systemUpdatePolicyServiceClient) CreatePostponeInstallPolicy(ctx context.Context, in *CreatePostponeInstallPolicyRequest, opts ...grpc.CallOption) (*CreatePostponeInstallPolicyResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CreatePostponeInstallPolicyResponse)
+	err := c.cc.Invoke(ctx, SystemUpdatePolicyService_CreatePostponeInstallPolicy_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *systemUpdatePolicyServiceClient) CreateWindowedInstallPolicy(ctx context.Context, in *CreateWindowedInstallPolicyRequest, opts ...grpc.CallOption) (*CreateWindowedInstallPolicyResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CreateWindowedInstallPolicyResponse)
+	err := c.cc.Invoke(ctx, SystemUpdatePolicyService_CreateWindowedInstallPolicy_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// SystemUpdatePolicyServiceServer is the server API for SystemUpdatePolicyService service.
+// All implementations must embed UnimplementedSystemUpdatePolicyServiceServer
+// for forward compatibility.
+type SystemUpdatePolicyServiceServer interface {
+	DescribeContents(context.Context, *SystemUpdatePolicyDescribeContentsRequest) (*DescribeContentsResponse, error)
+	GetFreezePeriods(context.Context, *GetFreezePeriodsRequest) (*GetFreezePeriodsResponse, error)
+	GetInstallWindowEnd(context.Context, *GetInstallWindowEndRequest) (*GetInstallWindowEndResponse, error)
+	GetInstallWindowStart(context.Context, *GetInstallWindowStartRequest) (*GetInstallWindowStartResponse, error)
+	GetPolicyType(context.Context, *SystemUpdatePolicyGetPolicyTypeRequest) (*GetPolicyTypeResponse, error)
+	ToString(context.Context, *SystemUpdatePolicyToStringRequest) (*ToStringResponse, error)
+	WriteToParcel(context.Context, *SystemUpdatePolicyWriteToParcelRequest) (*WriteToParcelResponse, error)
+	CreateAutomaticInstallPolicy(context.Context, *CreateAutomaticInstallPolicyRequest) (*CreateAutomaticInstallPolicyResponse, error)
+	CreatePostponeInstallPolicy(context.Context, *CreatePostponeInstallPolicyRequest) (*CreatePostponeInstallPolicyResponse, error)
+	CreateWindowedInstallPolicy(context.Context, *CreateWindowedInstallPolicyRequest) (*CreateWindowedInstallPolicyResponse, error)
+	mustEmbedUnimplementedSystemUpdatePolicyServiceServer()
+}
+
+// UnimplementedSystemUpdatePolicyServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedSystemUpdatePolicyServiceServer struct{}
+
+func (UnimplementedSystemUpdatePolicyServiceServer) DescribeContents(context.Context, *SystemUpdatePolicyDescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedSystemUpdatePolicyServiceServer) GetFreezePeriods(context.Context, *GetFreezePeriodsRequest) (*GetFreezePeriodsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetFreezePeriods not implemented")
+}
+func (UnimplementedSystemUpdatePolicyServiceServer) GetInstallWindowEnd(context.Context, *GetInstallWindowEndRequest) (*GetInstallWindowEndResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetInstallWindowEnd not implemented")
+}
+func (UnimplementedSystemUpdatePolicyServiceServer) GetInstallWindowStart(context.Context, *GetInstallWindowStartRequest) (*GetInstallWindowStartResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetInstallWindowStart not implemented")
+}
+func (UnimplementedSystemUpdatePolicyServiceServer) GetPolicyType(context.Context, *SystemUpdatePolicyGetPolicyTypeRequest) (*GetPolicyTypeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetPolicyType not implemented")
+}
+func (UnimplementedSystemUpdatePolicyServiceServer) ToString(context.Context, *SystemUpdatePolicyToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedSystemUpdatePolicyServiceServer) WriteToParcel(context.Context, *SystemUpdatePolicyWriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedSystemUpdatePolicyServiceServer) CreateAutomaticInstallPolicy(context.Context, *CreateAutomaticInstallPolicyRequest) (*CreateAutomaticInstallPolicyResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method CreateAutomaticInstallPolicy not implemented")
+}
+func (UnimplementedSystemUpdatePolicyServiceServer) CreatePostponeInstallPolicy(context.Context, *CreatePostponeInstallPolicyRequest) (*CreatePostponeInstallPolicyResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method CreatePostponeInstallPolicy not implemented")
+}
+func (UnimplementedSystemUpdatePolicyServiceServer) CreateWindowedInstallPolicy(context.Context, *CreateWindowedInstallPolicyRequest) (*CreateWindowedInstallPolicyResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method CreateWindowedInstallPolicy not implemented")
+}
+func (UnimplementedSystemUpdatePolicyServiceServer) mustEmbedUnimplementedSystemUpdatePolicyServiceServer() {
+}
+func (UnimplementedSystemUpdatePolicyServiceServer) testEmbeddedByValue() {}
+
+// UnsafeSystemUpdatePolicyServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to SystemUpdatePolicyServiceServer will
+// result in compilation errors.
+type UnsafeSystemUpdatePolicyServiceServer interface {
+	mustEmbedUnimplementedSystemUpdatePolicyServiceServer()
+}
+
+func RegisterSystemUpdatePolicyServiceServer(s grpc.ServiceRegistrar, srv SystemUpdatePolicyServiceServer) {
+	// If the following call panics, it indicates UnimplementedSystemUpdatePolicyServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&SystemUpdatePolicyService_ServiceDesc, srv)
+}
+
+func _SystemUpdatePolicyService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SystemUpdatePolicyDescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SystemUpdatePolicyServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SystemUpdatePolicyService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SystemUpdatePolicyServiceServer).DescribeContents(ctx, req.(*SystemUpdatePolicyDescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SystemUpdatePolicyService_GetFreezePeriods_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetFreezePeriodsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SystemUpdatePolicyServiceServer).GetFreezePeriods(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SystemUpdatePolicyService_GetFreezePeriods_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SystemUpdatePolicyServiceServer).GetFreezePeriods(ctx, req.(*GetFreezePeriodsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SystemUpdatePolicyService_GetInstallWindowEnd_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetInstallWindowEndRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SystemUpdatePolicyServiceServer).GetInstallWindowEnd(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SystemUpdatePolicyService_GetInstallWindowEnd_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SystemUpdatePolicyServiceServer).GetInstallWindowEnd(ctx, req.(*GetInstallWindowEndRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SystemUpdatePolicyService_GetInstallWindowStart_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetInstallWindowStartRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SystemUpdatePolicyServiceServer).GetInstallWindowStart(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SystemUpdatePolicyService_GetInstallWindowStart_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SystemUpdatePolicyServiceServer).GetInstallWindowStart(ctx, req.(*GetInstallWindowStartRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SystemUpdatePolicyService_GetPolicyType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SystemUpdatePolicyGetPolicyTypeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SystemUpdatePolicyServiceServer).GetPolicyType(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SystemUpdatePolicyService_GetPolicyType_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SystemUpdatePolicyServiceServer).GetPolicyType(ctx, req.(*SystemUpdatePolicyGetPolicyTypeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SystemUpdatePolicyService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SystemUpdatePolicyToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SystemUpdatePolicyServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SystemUpdatePolicyService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SystemUpdatePolicyServiceServer).ToString(ctx, req.(*SystemUpdatePolicyToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SystemUpdatePolicyService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SystemUpdatePolicyWriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SystemUpdatePolicyServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SystemUpdatePolicyService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SystemUpdatePolicyServiceServer).WriteToParcel(ctx, req.(*SystemUpdatePolicyWriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SystemUpdatePolicyService_CreateAutomaticInstallPolicy_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreateAutomaticInstallPolicyRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SystemUpdatePolicyServiceServer).CreateAutomaticInstallPolicy(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SystemUpdatePolicyService_CreateAutomaticInstallPolicy_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SystemUpdatePolicyServiceServer).CreateAutomaticInstallPolicy(ctx, req.(*CreateAutomaticInstallPolicyRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SystemUpdatePolicyService_CreatePostponeInstallPolicy_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreatePostponeInstallPolicyRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SystemUpdatePolicyServiceServer).CreatePostponeInstallPolicy(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SystemUpdatePolicyService_CreatePostponeInstallPolicy_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SystemUpdatePolicyServiceServer).CreatePostponeInstallPolicy(ctx, req.(*CreatePostponeInstallPolicyRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SystemUpdatePolicyService_CreateWindowedInstallPolicy_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreateWindowedInstallPolicyRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SystemUpdatePolicyServiceServer).CreateWindowedInstallPolicy(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SystemUpdatePolicyService_CreateWindowedInstallPolicy_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SystemUpdatePolicyServiceServer).CreateWindowedInstallPolicy(ctx, req.(*CreateWindowedInstallPolicyRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// SystemUpdatePolicyService_ServiceDesc is the grpc.ServiceDesc for SystemUpdatePolicyService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var SystemUpdatePolicyService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "admin.SystemUpdatePolicyService",
+	HandlerType: (*SystemUpdatePolicyServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "DescribeContents",
+			Handler:    _SystemUpdatePolicyService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "GetFreezePeriods",
+			Handler:    _SystemUpdatePolicyService_GetFreezePeriods_Handler,
+		},
+		{
+			MethodName: "GetInstallWindowEnd",
+			Handler:    _SystemUpdatePolicyService_GetInstallWindowEnd_Handler,
+		},
+		{
+			MethodName: "GetInstallWindowStart",
+			Handler:    _SystemUpdatePolicyService_GetInstallWindowStart_Handler,
+		},
+		{
+			MethodName: "GetPolicyType",
+			Handler:    _SystemUpdatePolicyService_GetPolicyType_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _SystemUpdatePolicyService_ToString_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _SystemUpdatePolicyService_WriteToParcel_Handler,
+		},
+		{
+			MethodName: "CreateAutomaticInstallPolicy",
+			Handler:    _SystemUpdatePolicyService_CreateAutomaticInstallPolicy_Handler,
+		},
+		{
+			MethodName: "CreatePostponeInstallPolicy",
+			Handler:    _SystemUpdatePolicyService_CreatePostponeInstallPolicy_Handler,
+		},
+		{
+			MethodName: "CreateWindowedInstallPolicy",
+			Handler:    _SystemUpdatePolicyService_CreateWindowedInstallPolicy_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/admin/admin.proto",
+}
+
+const (
+	SystemUpdatePolicyValidationFailedExceptionService_DescribeContents_FullMethodName = "/admin.SystemUpdatePolicyValidationFailedExceptionService/DescribeContents"
+	SystemUpdatePolicyValidationFailedExceptionService_GetErrorCode_FullMethodName     = "/admin.SystemUpdatePolicyValidationFailedExceptionService/GetErrorCode"
+	SystemUpdatePolicyValidationFailedExceptionService_WriteToParcel_FullMethodName    = "/admin.SystemUpdatePolicyValidationFailedExceptionService/WriteToParcel"
+)
+
+// SystemUpdatePolicyValidationFailedExceptionServiceClient is the client API for SystemUpdatePolicyValidationFailedExceptionService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type SystemUpdatePolicyValidationFailedExceptionServiceClient interface {
+	DescribeContents(ctx context.Context, in *SystemUpdatePolicyValidationFailedExceptionDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	GetErrorCode(ctx context.Context, in *GetErrorCodeRequest, opts ...grpc.CallOption) (*GetErrorCodeResponse, error)
+	WriteToParcel(ctx context.Context, in *SystemUpdatePolicyValidationFailedExceptionWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type systemUpdatePolicyValidationFailedExceptionServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewSystemUpdatePolicyValidationFailedExceptionServiceClient(cc grpc.ClientConnInterface) SystemUpdatePolicyValidationFailedExceptionServiceClient {
+	return &systemUpdatePolicyValidationFailedExceptionServiceClient{cc}
+}
+
+func (c *systemUpdatePolicyValidationFailedExceptionServiceClient) DescribeContents(ctx context.Context, in *SystemUpdatePolicyValidationFailedExceptionDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, SystemUpdatePolicyValidationFailedExceptionService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *systemUpdatePolicyValidationFailedExceptionServiceClient) GetErrorCode(ctx context.Context, in *GetErrorCodeRequest, opts ...grpc.CallOption) (*GetErrorCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetErrorCodeResponse)
+	err := c.cc.Invoke(ctx, SystemUpdatePolicyValidationFailedExceptionService_GetErrorCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *systemUpdatePolicyValidationFailedExceptionServiceClient) WriteToParcel(ctx context.Context, in *SystemUpdatePolicyValidationFailedExceptionWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, SystemUpdatePolicyValidationFailedExceptionService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// SystemUpdatePolicyValidationFailedExceptionServiceServer is the server API for SystemUpdatePolicyValidationFailedExceptionService service.
+// All implementations must embed UnimplementedSystemUpdatePolicyValidationFailedExceptionServiceServer
+// for forward compatibility.
+type SystemUpdatePolicyValidationFailedExceptionServiceServer interface {
+	DescribeContents(context.Context, *SystemUpdatePolicyValidationFailedExceptionDescribeContentsRequest) (*DescribeContentsResponse, error)
+	GetErrorCode(context.Context, *GetErrorCodeRequest) (*GetErrorCodeResponse, error)
+	WriteToParcel(context.Context, *SystemUpdatePolicyValidationFailedExceptionWriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedSystemUpdatePolicyValidationFailedExceptionServiceServer()
+}
+
+// UnimplementedSystemUpdatePolicyValidationFailedExceptionServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedSystemUpdatePolicyValidationFailedExceptionServiceServer struct{}
+
+func (UnimplementedSystemUpdatePolicyValidationFailedExceptionServiceServer) DescribeContents(context.Context, *SystemUpdatePolicyValidationFailedExceptionDescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedSystemUpdatePolicyValidationFailedExceptionServiceServer) GetErrorCode(context.Context, *GetErrorCodeRequest) (*GetErrorCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetErrorCode not implemented")
+}
+func (UnimplementedSystemUpdatePolicyValidationFailedExceptionServiceServer) WriteToParcel(context.Context, *SystemUpdatePolicyValidationFailedExceptionWriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedSystemUpdatePolicyValidationFailedExceptionServiceServer) mustEmbedUnimplementedSystemUpdatePolicyValidationFailedExceptionServiceServer() {
+}
+func (UnimplementedSystemUpdatePolicyValidationFailedExceptionServiceServer) testEmbeddedByValue() {}
+
+// UnsafeSystemUpdatePolicyValidationFailedExceptionServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to SystemUpdatePolicyValidationFailedExceptionServiceServer will
+// result in compilation errors.
+type UnsafeSystemUpdatePolicyValidationFailedExceptionServiceServer interface {
+	mustEmbedUnimplementedSystemUpdatePolicyValidationFailedExceptionServiceServer()
+}
+
+func RegisterSystemUpdatePolicyValidationFailedExceptionServiceServer(s grpc.ServiceRegistrar, srv SystemUpdatePolicyValidationFailedExceptionServiceServer) {
+	// If the following call panics, it indicates UnimplementedSystemUpdatePolicyValidationFailedExceptionServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&SystemUpdatePolicyValidationFailedExceptionService_ServiceDesc, srv)
+}
+
+func _SystemUpdatePolicyValidationFailedExceptionService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SystemUpdatePolicyValidationFailedExceptionDescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SystemUpdatePolicyValidationFailedExceptionServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SystemUpdatePolicyValidationFailedExceptionService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SystemUpdatePolicyValidationFailedExceptionServiceServer).DescribeContents(ctx, req.(*SystemUpdatePolicyValidationFailedExceptionDescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SystemUpdatePolicyValidationFailedExceptionService_GetErrorCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetErrorCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SystemUpdatePolicyValidationFailedExceptionServiceServer).GetErrorCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SystemUpdatePolicyValidationFailedExceptionService_GetErrorCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SystemUpdatePolicyValidationFailedExceptionServiceServer).GetErrorCode(ctx, req.(*GetErrorCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SystemUpdatePolicyValidationFailedExceptionService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SystemUpdatePolicyValidationFailedExceptionWriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SystemUpdatePolicyValidationFailedExceptionServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SystemUpdatePolicyValidationFailedExceptionService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SystemUpdatePolicyValidationFailedExceptionServiceServer).WriteToParcel(ctx, req.(*SystemUpdatePolicyValidationFailedExceptionWriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// SystemUpdatePolicyValidationFailedExceptionService_ServiceDesc is the grpc.ServiceDesc for SystemUpdatePolicyValidationFailedExceptionService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var SystemUpdatePolicyValidationFailedExceptionService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "admin.SystemUpdatePolicyValidationFailedExceptionService",
+	HandlerType: (*SystemUpdatePolicyValidationFailedExceptionServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "DescribeContents",
+			Handler:    _SystemUpdatePolicyValidationFailedExceptionService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "GetErrorCode",
+			Handler:    _SystemUpdatePolicyValidationFailedExceptionService_GetErrorCode_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _SystemUpdatePolicyValidationFailedExceptionService_WriteToParcel_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

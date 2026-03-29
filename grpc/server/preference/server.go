@@ -15,140 +15,6 @@ import (
 	"google.golang.org/grpc/status"
 )
 
-// MultiSelectListPreferenceServer implements pb.MultiSelectListPreferenceServiceServer.
-type MultiSelectListPreferenceServer struct {
-	pb.UnimplementedMultiSelectListPreferenceServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *MultiSelectListPreferenceServer) NewMultiSelectListPreference(_ context.Context, req *pb.NewMultiSelectListPreferenceRequest) (*pb.NewMultiSelectListPreferenceResponse, error) {
-	obj, err := jnipkg.NewMultiSelectListPreference(s.Ctx.VM, s.Ctx.Obj)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
-	}
-	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-	}
-	return &pb.NewMultiSelectListPreferenceResponse{Result: handle}, nil
-}
-
-func (s *MultiSelectListPreferenceServer) FindIndexOfValue(_ context.Context, req *pb.FindIndexOfValueRequest) (*pb.FindIndexOfValueResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.MultiSelectListPreference{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.FindIndexOfValue(req.GetArg0())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.FindIndexOfValueResponse{Result: result}, nil
-}
-
-func (s *MultiSelectListPreferenceServer) GetEntries(_ context.Context, req *pb.GetEntriesRequest) (*pb.GetEntriesResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.MultiSelectListPreference{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetEntries()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetEntriesResponse{Result: handle}, nil
-}
-
-func (s *MultiSelectListPreferenceServer) GetEntryValues(_ context.Context, req *pb.GetEntryValuesRequest) (*pb.GetEntryValuesResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.MultiSelectListPreference{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetEntryValues()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetEntryValuesResponse{Result: handle}, nil
-}
-
-func (s *MultiSelectListPreferenceServer) SetEntries1(_ context.Context, req *pb.SetEntries1Request) (*pb.SetEntries1Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.MultiSelectListPreference{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.SetEntries1(req.GetArg0()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SetEntries1Response{}, nil
-}
-
-func (s *MultiSelectListPreferenceServer) SetEntries1_1(_ context.Context, req *pb.SetEntries1_1Request) (*pb.SetEntries1_1Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.MultiSelectListPreference{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.SetEntries1_1(s.Handles.Get(req.GetArg0())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SetEntries1_1Response{}, nil
-}
-
-func (s *MultiSelectListPreferenceServer) SetEntryValues1(_ context.Context, req *pb.SetEntryValues1Request) (*pb.SetEntryValues1Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.MultiSelectListPreference{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.SetEntryValues1(req.GetArg0()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SetEntryValues1Response{}, nil
-}
-
-func (s *MultiSelectListPreferenceServer) SetEntryValues1_1(_ context.Context, req *pb.SetEntryValues1_1Request) (*pb.SetEntryValues1_1Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.MultiSelectListPreference{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.SetEntryValues1_1(s.Handles.Get(req.GetArg0())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SetEntryValues1_1Response{}, nil
-}
-
 // SwitchPreferenceServer implements pb.SwitchPreferenceServiceServer.
 type SwitchPreferenceServer struct {
 	pb.UnimplementedSwitchPreferenceServiceServer
@@ -267,6 +133,1304 @@ func (s *SwitchPreferenceServer) SetSwitchTextOn1_1(_ context.Context, req *pb.S
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
 	return &pb.SetSwitchTextOn1_1Response{}, nil
+}
+
+// PreferenceServer implements pb.PreferenceServiceServer.
+type PreferenceServer struct {
+	pb.UnimplementedPreferenceServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *PreferenceServer) NewPreference(_ context.Context, req *pb.NewPreferenceRequest) (*pb.NewPreferenceResponse, error) {
+	obj, err := jnipkg.NewPreference(s.Ctx.VM, s.Ctx.Obj)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewPreferenceResponse{Result: handle}, nil
+}
+
+func (s *PreferenceServer) CompareTo1(_ context.Context, req *pb.CompareTo1Request) (*pb.CompareTo1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Preference{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.CompareTo1(s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.CompareTo1Response{Result: result}, nil
+}
+
+func (s *PreferenceServer) GetContext(_ context.Context, req *pb.GetContextRequest) (*pb.GetContextResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Preference{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetContext()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetContextResponse{Result: handle}, nil
+}
+
+func (s *PreferenceServer) GetDependency(_ context.Context, req *pb.GetDependencyRequest) (*pb.GetDependencyResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Preference{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetDependency()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetDependencyResponse{Result: result}, nil
+}
+
+func (s *PreferenceServer) GetEditor(_ context.Context, req *pb.GetEditorRequest) (*pb.GetEditorResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Preference{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetEditor()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetEditorResponse{Result: handle}, nil
+}
+
+func (s *PreferenceServer) GetExtras(_ context.Context, req *pb.GetExtrasRequest) (*pb.GetExtrasResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Preference{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetExtras()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetExtrasResponse{Result: handle}, nil
+}
+
+func (s *PreferenceServer) GetFragment(_ context.Context, req *pb.GetFragmentRequest) (*pb.GetFragmentResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Preference{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetFragment()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetFragmentResponse{Result: result}, nil
+}
+
+func (s *PreferenceServer) GetIcon(_ context.Context, req *pb.GetIconRequest) (*pb.GetIconResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Preference{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetIcon()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetIconResponse{Result: handle}, nil
+}
+
+func (s *PreferenceServer) GetIntent(_ context.Context, req *pb.GetIntentRequest) (*pb.GetIntentResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Preference{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetIntent()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetIntentResponse{Result: handle}, nil
+}
+
+func (s *PreferenceServer) GetKey(_ context.Context, req *pb.GetKeyRequest) (*pb.GetKeyResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Preference{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetKey()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetKeyResponse{Result: result}, nil
+}
+
+func (s *PreferenceServer) GetLayoutResource(_ context.Context, req *pb.GetLayoutResourceRequest) (*pb.GetLayoutResourceResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Preference{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetLayoutResource()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetLayoutResourceResponse{Result: result}, nil
+}
+
+func (s *PreferenceServer) GetOnPreferenceChangeListener(_ context.Context, req *pb.GetOnPreferenceChangeListenerRequest) (*pb.GetOnPreferenceChangeListenerResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Preference{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetOnPreferenceChangeListener()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetOnPreferenceChangeListenerResponse{Result: handle}, nil
+}
+
+func (s *PreferenceServer) GetOnPreferenceClickListener(_ context.Context, req *pb.GetOnPreferenceClickListenerRequest) (*pb.GetOnPreferenceClickListenerResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Preference{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetOnPreferenceClickListener()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetOnPreferenceClickListenerResponse{Result: handle}, nil
+}
+
+func (s *PreferenceServer) GetOrder(_ context.Context, req *pb.GetOrderRequest) (*pb.GetOrderResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Preference{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetOrder()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetOrderResponse{Result: result}, nil
+}
+
+func (s *PreferenceServer) GetParent(_ context.Context, req *pb.GetParentRequest) (*pb.GetParentResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Preference{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetParent()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetParentResponse{Result: handle}, nil
+}
+
+func (s *PreferenceServer) GetPreferenceDataStore(_ context.Context, req *pb.GetPreferenceDataStoreRequest) (*pb.GetPreferenceDataStoreResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Preference{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetPreferenceDataStore()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetPreferenceDataStoreResponse{Result: handle}, nil
+}
+
+func (s *PreferenceServer) GetPreferenceManager(_ context.Context, req *pb.PreferenceGetPreferenceManagerRequest) (*pb.GetPreferenceManagerResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Preference{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetPreferenceManager()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetPreferenceManagerResponse{Result: handle}, nil
+}
+
+func (s *PreferenceServer) GetSharedPreferences(_ context.Context, req *pb.GetSharedPreferencesRequest) (*pb.GetSharedPreferencesResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Preference{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetSharedPreferences()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetSharedPreferencesResponse{Result: handle}, nil
+}
+
+func (s *PreferenceServer) GetShouldDisableView(_ context.Context, req *pb.GetShouldDisableViewRequest) (*pb.GetShouldDisableViewResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Preference{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetShouldDisableView()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetShouldDisableViewResponse{Result: result}, nil
+}
+
+func (s *PreferenceServer) GetSummary(_ context.Context, req *pb.GetSummaryRequest) (*pb.GetSummaryResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Preference{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetSummary()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetSummaryResponse{Result: handle}, nil
+}
+
+func (s *PreferenceServer) GetTitle(_ context.Context, req *pb.GetTitleRequest) (*pb.GetTitleResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Preference{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetTitle()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetTitleResponse{Result: handle}, nil
+}
+
+func (s *PreferenceServer) GetTitleRes(_ context.Context, req *pb.GetTitleResRequest) (*pb.GetTitleResResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Preference{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetTitleRes()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetTitleResResponse{Result: result}, nil
+}
+
+func (s *PreferenceServer) GetView(_ context.Context, req *pb.GetViewRequest) (*pb.GetViewResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Preference{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetView(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetViewResponse{Result: handle}, nil
+}
+
+func (s *PreferenceServer) GetWidgetLayoutResource(_ context.Context, req *pb.GetWidgetLayoutResourceRequest) (*pb.GetWidgetLayoutResourceResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Preference{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetWidgetLayoutResource()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetWidgetLayoutResourceResponse{Result: result}, nil
+}
+
+func (s *PreferenceServer) HasKey(_ context.Context, req *pb.HasKeyRequest) (*pb.HasKeyResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Preference{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.HasKey()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.HasKeyResponse{Result: result}, nil
+}
+
+func (s *PreferenceServer) IsEnabled(_ context.Context, req *pb.IsEnabledRequest) (*pb.IsEnabledResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Preference{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.IsEnabled()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.IsEnabledResponse{Result: result}, nil
+}
+
+func (s *PreferenceServer) IsIconSpaceReserved(_ context.Context, req *pb.IsIconSpaceReservedRequest) (*pb.IsIconSpaceReservedResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Preference{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.IsIconSpaceReserved()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.IsIconSpaceReservedResponse{Result: result}, nil
+}
+
+func (s *PreferenceServer) IsPersistent(_ context.Context, req *pb.IsPersistentRequest) (*pb.IsPersistentResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Preference{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.IsPersistent()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.IsPersistentResponse{Result: result}, nil
+}
+
+func (s *PreferenceServer) IsRecycleEnabled(_ context.Context, req *pb.IsRecycleEnabledRequest) (*pb.IsRecycleEnabledResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Preference{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.IsRecycleEnabled()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.IsRecycleEnabledResponse{Result: result}, nil
+}
+
+func (s *PreferenceServer) IsSelectable(_ context.Context, req *pb.IsSelectableRequest) (*pb.IsSelectableResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Preference{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.IsSelectable()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.IsSelectableResponse{Result: result}, nil
+}
+
+func (s *PreferenceServer) IsSingleLineTitle(_ context.Context, req *pb.IsSingleLineTitleRequest) (*pb.IsSingleLineTitleResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Preference{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.IsSingleLineTitle()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.IsSingleLineTitleResponse{Result: result}, nil
+}
+
+func (s *PreferenceServer) NotifyDependencyChange(_ context.Context, req *pb.NotifyDependencyChangeRequest) (*pb.NotifyDependencyChangeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Preference{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.NotifyDependencyChange(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.NotifyDependencyChangeResponse{}, nil
+}
+
+func (s *PreferenceServer) OnDependencyChanged(_ context.Context, req *pb.OnDependencyChangedRequest) (*pb.OnDependencyChangedResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Preference{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.OnDependencyChanged(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.OnDependencyChangedResponse{}, nil
+}
+
+func (s *PreferenceServer) OnParentChanged(_ context.Context, req *pb.OnParentChangedRequest) (*pb.OnParentChangedResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Preference{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.OnParentChanged(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.OnParentChangedResponse{}, nil
+}
+
+func (s *PreferenceServer) PeekExtras(_ context.Context, req *pb.PeekExtrasRequest) (*pb.PeekExtrasResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Preference{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.PeekExtras()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.PeekExtrasResponse{Result: handle}, nil
+}
+
+func (s *PreferenceServer) RestoreHierarchyState(_ context.Context, req *pb.RestoreHierarchyStateRequest) (*pb.RestoreHierarchyStateResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Preference{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.RestoreHierarchyState(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.RestoreHierarchyStateResponse{}, nil
+}
+
+func (s *PreferenceServer) SaveHierarchyState(_ context.Context, req *pb.SaveHierarchyStateRequest) (*pb.SaveHierarchyStateResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Preference{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SaveHierarchyState(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SaveHierarchyStateResponse{}, nil
+}
+
+func (s *PreferenceServer) SetDefaultValue(_ context.Context, req *pb.SetDefaultValueRequest) (*pb.SetDefaultValueResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Preference{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetDefaultValue(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetDefaultValueResponse{}, nil
+}
+
+func (s *PreferenceServer) SetDependency(_ context.Context, req *pb.SetDependencyRequest) (*pb.SetDependencyResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Preference{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetDependency(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetDependencyResponse{}, nil
+}
+
+func (s *PreferenceServer) SetEnabled(_ context.Context, req *pb.SetEnabledRequest) (*pb.SetEnabledResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Preference{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetEnabled(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetEnabledResponse{}, nil
+}
+
+func (s *PreferenceServer) SetFragment(_ context.Context, req *pb.SetFragmentRequest) (*pb.SetFragmentResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Preference{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetFragment(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetFragmentResponse{}, nil
+}
+
+func (s *PreferenceServer) SetIcon1(_ context.Context, req *pb.SetIcon1Request) (*pb.SetIcon1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Preference{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetIcon1(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetIcon1Response{}, nil
+}
+
+func (s *PreferenceServer) SetIcon1_1(_ context.Context, req *pb.SetIcon1_1Request) (*pb.SetIcon1_1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Preference{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetIcon1_1(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetIcon1_1Response{}, nil
+}
+
+func (s *PreferenceServer) SetIconSpaceReserved(_ context.Context, req *pb.SetIconSpaceReservedRequest) (*pb.SetIconSpaceReservedResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Preference{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetIconSpaceReserved(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetIconSpaceReservedResponse{}, nil
+}
+
+func (s *PreferenceServer) SetIntent(_ context.Context, req *pb.SetIntentRequest) (*pb.SetIntentResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Preference{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetIntent(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetIntentResponse{}, nil
+}
+
+func (s *PreferenceServer) SetKey(_ context.Context, req *pb.SetKeyRequest) (*pb.SetKeyResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Preference{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetKey(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetKeyResponse{}, nil
+}
+
+func (s *PreferenceServer) SetLayoutResource(_ context.Context, req *pb.SetLayoutResourceRequest) (*pb.SetLayoutResourceResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Preference{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetLayoutResource(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetLayoutResourceResponse{}, nil
+}
+
+func (s *PreferenceServer) SetOnPreferenceChangeListener(_ context.Context, req *pb.SetOnPreferenceChangeListenerRequest) (*pb.SetOnPreferenceChangeListenerResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Preference{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetOnPreferenceChangeListener(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetOnPreferenceChangeListenerResponse{}, nil
+}
+
+func (s *PreferenceServer) SetOnPreferenceClickListener(_ context.Context, req *pb.SetOnPreferenceClickListenerRequest) (*pb.SetOnPreferenceClickListenerResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Preference{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetOnPreferenceClickListener(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetOnPreferenceClickListenerResponse{}, nil
+}
+
+func (s *PreferenceServer) SetOrder(_ context.Context, req *pb.SetOrderRequest) (*pb.SetOrderResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Preference{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetOrder(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetOrderResponse{}, nil
+}
+
+func (s *PreferenceServer) SetPersistent(_ context.Context, req *pb.SetPersistentRequest) (*pb.SetPersistentResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Preference{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetPersistent(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetPersistentResponse{}, nil
+}
+
+func (s *PreferenceServer) SetPreferenceDataStore(_ context.Context, req *pb.SetPreferenceDataStoreRequest) (*pb.SetPreferenceDataStoreResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Preference{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetPreferenceDataStore(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetPreferenceDataStoreResponse{}, nil
+}
+
+func (s *PreferenceServer) SetRecycleEnabled(_ context.Context, req *pb.SetRecycleEnabledRequest) (*pb.SetRecycleEnabledResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Preference{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetRecycleEnabled(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetRecycleEnabledResponse{}, nil
+}
+
+func (s *PreferenceServer) SetSelectable(_ context.Context, req *pb.SetSelectableRequest) (*pb.SetSelectableResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Preference{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetSelectable(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetSelectableResponse{}, nil
+}
+
+func (s *PreferenceServer) SetShouldDisableView(_ context.Context, req *pb.SetShouldDisableViewRequest) (*pb.SetShouldDisableViewResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Preference{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetShouldDisableView(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetShouldDisableViewResponse{}, nil
+}
+
+func (s *PreferenceServer) SetSingleLineTitle(_ context.Context, req *pb.SetSingleLineTitleRequest) (*pb.SetSingleLineTitleResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Preference{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetSingleLineTitle(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetSingleLineTitleResponse{}, nil
+}
+
+func (s *PreferenceServer) SetSummary1(_ context.Context, req *pb.SetSummary1Request) (*pb.SetSummary1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Preference{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetSummary1(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetSummary1Response{}, nil
+}
+
+func (s *PreferenceServer) SetSummary1_1(_ context.Context, req *pb.SetSummary1_1Request) (*pb.SetSummary1_1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Preference{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetSummary1_1(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetSummary1_1Response{}, nil
+}
+
+func (s *PreferenceServer) SetTitle1(_ context.Context, req *pb.SetTitle1Request) (*pb.SetTitle1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Preference{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetTitle1(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetTitle1Response{}, nil
+}
+
+func (s *PreferenceServer) SetTitle1_1(_ context.Context, req *pb.SetTitle1_1Request) (*pb.SetTitle1_1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Preference{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetTitle1_1(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetTitle1_1Response{}, nil
+}
+
+func (s *PreferenceServer) SetWidgetLayoutResource(_ context.Context, req *pb.SetWidgetLayoutResourceRequest) (*pb.SetWidgetLayoutResourceResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Preference{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetWidgetLayoutResource(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetWidgetLayoutResourceResponse{}, nil
+}
+
+func (s *PreferenceServer) ShouldCommit(_ context.Context, req *pb.ShouldCommitRequest) (*pb.ShouldCommitResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Preference{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.ShouldCommit()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ShouldCommitResponse{Result: result}, nil
+}
+
+func (s *PreferenceServer) ShouldDisableDependents(_ context.Context, req *pb.ShouldDisableDependentsRequest) (*pb.ShouldDisableDependentsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Preference{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.ShouldDisableDependents()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ShouldDisableDependentsResponse{Result: result}, nil
+}
+
+func (s *PreferenceServer) ToString(_ context.Context, req *pb.ToStringRequest) (*pb.ToStringResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Preference{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.ToString()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ToStringResponse{Result: result}, nil
+}
+
+func (s *PreferenceServer) CompareTo1_1(_ context.Context, req *pb.CompareTo1_1Request) (*pb.CompareTo1_1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Preference{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.CompareTo1_1(s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.CompareTo1_1Response{Result: result}, nil
+}
+
+// RingtonePreferenceServer implements pb.RingtonePreferenceServiceServer.
+type RingtonePreferenceServer struct {
+	pb.UnimplementedRingtonePreferenceServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *RingtonePreferenceServer) NewRingtonePreference(_ context.Context, req *pb.NewRingtonePreferenceRequest) (*pb.NewRingtonePreferenceResponse, error) {
+	obj, err := jnipkg.NewRingtonePreference(s.Ctx.VM, s.Ctx.Obj)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewRingtonePreferenceResponse{Result: handle}, nil
+}
+
+func (s *RingtonePreferenceServer) GetRingtoneType(_ context.Context, req *pb.GetRingtoneTypeRequest) (*pb.GetRingtoneTypeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.RingtonePreference{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetRingtoneType()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetRingtoneTypeResponse{Result: result}, nil
+}
+
+func (s *RingtonePreferenceServer) GetShowDefault(_ context.Context, req *pb.GetShowDefaultRequest) (*pb.GetShowDefaultResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.RingtonePreference{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetShowDefault()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetShowDefaultResponse{Result: result}, nil
+}
+
+func (s *RingtonePreferenceServer) GetShowSilent(_ context.Context, req *pb.GetShowSilentRequest) (*pb.GetShowSilentResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.RingtonePreference{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetShowSilent()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetShowSilentResponse{Result: result}, nil
+}
+
+func (s *RingtonePreferenceServer) OnActivityResult(_ context.Context, req *pb.RingtonePreferenceOnActivityResultRequest) (*pb.RingtonePreferenceOnActivityResultResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.RingtonePreference{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.OnActivityResult(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.RingtonePreferenceOnActivityResultResponse{Result: result}, nil
+}
+
+func (s *RingtonePreferenceServer) SetRingtoneType(_ context.Context, req *pb.SetRingtoneTypeRequest) (*pb.SetRingtoneTypeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.RingtonePreference{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetRingtoneType(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetRingtoneTypeResponse{}, nil
+}
+
+func (s *RingtonePreferenceServer) SetShowDefault(_ context.Context, req *pb.SetShowDefaultRequest) (*pb.SetShowDefaultResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.RingtonePreference{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetShowDefault(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetShowDefaultResponse{}, nil
+}
+
+func (s *RingtonePreferenceServer) SetShowSilent(_ context.Context, req *pb.SetShowSilentRequest) (*pb.SetShowSilentResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.RingtonePreference{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetShowSilent(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetShowSilentResponse{}, nil
+}
+
+// MultiSelectListPreferenceServer implements pb.MultiSelectListPreferenceServiceServer.
+type MultiSelectListPreferenceServer struct {
+	pb.UnimplementedMultiSelectListPreferenceServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *MultiSelectListPreferenceServer) NewMultiSelectListPreference(_ context.Context, req *pb.NewMultiSelectListPreferenceRequest) (*pb.NewMultiSelectListPreferenceResponse, error) {
+	obj, err := jnipkg.NewMultiSelectListPreference(s.Ctx.VM, s.Ctx.Obj)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewMultiSelectListPreferenceResponse{Result: handle}, nil
+}
+
+func (s *MultiSelectListPreferenceServer) FindIndexOfValue(_ context.Context, req *pb.FindIndexOfValueRequest) (*pb.FindIndexOfValueResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.MultiSelectListPreference{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.FindIndexOfValue(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.FindIndexOfValueResponse{Result: result}, nil
+}
+
+func (s *MultiSelectListPreferenceServer) GetEntries(_ context.Context, req *pb.GetEntriesRequest) (*pb.GetEntriesResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.MultiSelectListPreference{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetEntries()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetEntriesResponse{Result: handle}, nil
+}
+
+func (s *MultiSelectListPreferenceServer) GetEntryValues(_ context.Context, req *pb.GetEntryValuesRequest) (*pb.GetEntryValuesResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.MultiSelectListPreference{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetEntryValues()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetEntryValuesResponse{Result: handle}, nil
+}
+
+func (s *MultiSelectListPreferenceServer) GetValues(_ context.Context, req *pb.GetValuesRequest) (*pb.GetValuesResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.MultiSelectListPreference{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetValues()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetValuesResponse{Result: handle}, nil
+}
+
+func (s *MultiSelectListPreferenceServer) SetEntries1(_ context.Context, req *pb.SetEntries1Request) (*pb.SetEntries1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.MultiSelectListPreference{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetEntries1(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetEntries1Response{}, nil
+}
+
+func (s *MultiSelectListPreferenceServer) SetEntries1_1(_ context.Context, req *pb.SetEntries1_1Request) (*pb.SetEntries1_1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.MultiSelectListPreference{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetEntries1_1(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetEntries1_1Response{}, nil
+}
+
+func (s *MultiSelectListPreferenceServer) SetEntryValues1(_ context.Context, req *pb.SetEntryValues1Request) (*pb.SetEntryValues1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.MultiSelectListPreference{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetEntryValues1(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetEntryValues1Response{}, nil
+}
+
+func (s *MultiSelectListPreferenceServer) SetEntryValues1_1(_ context.Context, req *pb.SetEntryValues1_1Request) (*pb.SetEntryValues1_1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.MultiSelectListPreference{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetEntryValues1_1(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetEntryValues1_1Response{}, nil
 }
 
 // EditTextPreferenceServer implements pb.EditTextPreferenceServiceServer.
@@ -586,1147 +1750,6 @@ func (s *ListPreferenceServer) SetValueIndex(_ context.Context, req *pb.SetValue
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
 	return &pb.SetValueIndexResponse{}, nil
-}
-
-// RingtonePreferenceServer implements pb.RingtonePreferenceServiceServer.
-type RingtonePreferenceServer struct {
-	pb.UnimplementedRingtonePreferenceServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *RingtonePreferenceServer) NewRingtonePreference(_ context.Context, req *pb.NewRingtonePreferenceRequest) (*pb.NewRingtonePreferenceResponse, error) {
-	obj, err := jnipkg.NewRingtonePreference(s.Ctx.VM, s.Ctx.Obj)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
-	}
-	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-	}
-	return &pb.NewRingtonePreferenceResponse{Result: handle}, nil
-}
-
-func (s *RingtonePreferenceServer) GetRingtoneType(_ context.Context, req *pb.GetRingtoneTypeRequest) (*pb.GetRingtoneTypeResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.RingtonePreference{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetRingtoneType()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetRingtoneTypeResponse{Result: result}, nil
-}
-
-func (s *RingtonePreferenceServer) GetShowDefault(_ context.Context, req *pb.GetShowDefaultRequest) (*pb.GetShowDefaultResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.RingtonePreference{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetShowDefault()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetShowDefaultResponse{Result: result}, nil
-}
-
-func (s *RingtonePreferenceServer) GetShowSilent(_ context.Context, req *pb.GetShowSilentRequest) (*pb.GetShowSilentResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.RingtonePreference{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetShowSilent()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetShowSilentResponse{Result: result}, nil
-}
-
-func (s *RingtonePreferenceServer) OnActivityResult(_ context.Context, req *pb.RingtonePreferenceOnActivityResultRequest) (*pb.RingtonePreferenceOnActivityResultResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.RingtonePreference{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.OnActivityResult(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.RingtonePreferenceOnActivityResultResponse{Result: result}, nil
-}
-
-func (s *RingtonePreferenceServer) SetRingtoneType(_ context.Context, req *pb.SetRingtoneTypeRequest) (*pb.SetRingtoneTypeResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.RingtonePreference{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.SetRingtoneType(req.GetArg0()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SetRingtoneTypeResponse{}, nil
-}
-
-func (s *RingtonePreferenceServer) SetShowDefault(_ context.Context, req *pb.SetShowDefaultRequest) (*pb.SetShowDefaultResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.RingtonePreference{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.SetShowDefault(req.GetArg0()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SetShowDefaultResponse{}, nil
-}
-
-func (s *RingtonePreferenceServer) SetShowSilent(_ context.Context, req *pb.SetShowSilentRequest) (*pb.SetShowSilentResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.RingtonePreference{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.SetShowSilent(req.GetArg0()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SetShowSilentResponse{}, nil
-}
-
-// PreferenceServer implements pb.PreferenceServiceServer.
-type PreferenceServer struct {
-	pb.UnimplementedPreferenceServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *PreferenceServer) NewPreference(_ context.Context, req *pb.NewPreferenceRequest) (*pb.NewPreferenceResponse, error) {
-	obj, err := jnipkg.NewPreference(s.Ctx.VM, s.Ctx.Obj)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
-	}
-	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-	}
-	return &pb.NewPreferenceResponse{Result: handle}, nil
-}
-
-func (s *PreferenceServer) CompareTo1(_ context.Context, req *pb.CompareTo1Request) (*pb.CompareTo1Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Preference{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.CompareTo1(s.Handles.Get(req.GetArg0()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.CompareTo1Response{Result: result}, nil
-}
-
-func (s *PreferenceServer) GetContext(_ context.Context, req *pb.GetContextRequest) (*pb.GetContextResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Preference{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetContext()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetContextResponse{Result: handle}, nil
-}
-
-func (s *PreferenceServer) GetDependency(_ context.Context, req *pb.GetDependencyRequest) (*pb.GetDependencyResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Preference{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetDependency()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetDependencyResponse{Result: result}, nil
-}
-
-func (s *PreferenceServer) GetEditor(_ context.Context, req *pb.GetEditorRequest) (*pb.GetEditorResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Preference{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetEditor()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetEditorResponse{Result: handle}, nil
-}
-
-func (s *PreferenceServer) GetExtras(_ context.Context, req *pb.GetExtrasRequest) (*pb.GetExtrasResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Preference{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetExtras()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetExtrasResponse{Result: handle}, nil
-}
-
-func (s *PreferenceServer) GetFragment(_ context.Context, req *pb.GetFragmentRequest) (*pb.GetFragmentResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Preference{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetFragment()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetFragmentResponse{Result: result}, nil
-}
-
-func (s *PreferenceServer) GetIcon(_ context.Context, req *pb.GetIconRequest) (*pb.GetIconResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Preference{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetIcon()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetIconResponse{Result: handle}, nil
-}
-
-func (s *PreferenceServer) GetIntent(_ context.Context, req *pb.GetIntentRequest) (*pb.GetIntentResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Preference{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetIntent()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetIntentResponse{Result: handle}, nil
-}
-
-func (s *PreferenceServer) GetKey(_ context.Context, req *pb.GetKeyRequest) (*pb.GetKeyResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Preference{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetKey()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetKeyResponse{Result: result}, nil
-}
-
-func (s *PreferenceServer) GetLayoutResource(_ context.Context, req *pb.GetLayoutResourceRequest) (*pb.GetLayoutResourceResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Preference{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetLayoutResource()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetLayoutResourceResponse{Result: result}, nil
-}
-
-func (s *PreferenceServer) GetOnPreferenceChangeListener(_ context.Context, req *pb.GetOnPreferenceChangeListenerRequest) (*pb.GetOnPreferenceChangeListenerResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Preference{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetOnPreferenceChangeListener()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetOnPreferenceChangeListenerResponse{Result: handle}, nil
-}
-
-func (s *PreferenceServer) GetOnPreferenceClickListener(_ context.Context, req *pb.GetOnPreferenceClickListenerRequest) (*pb.GetOnPreferenceClickListenerResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Preference{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetOnPreferenceClickListener()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetOnPreferenceClickListenerResponse{Result: handle}, nil
-}
-
-func (s *PreferenceServer) GetOrder(_ context.Context, req *pb.GetOrderRequest) (*pb.GetOrderResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Preference{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetOrder()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetOrderResponse{Result: result}, nil
-}
-
-func (s *PreferenceServer) GetParent(_ context.Context, req *pb.GetParentRequest) (*pb.GetParentResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Preference{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetParent()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetParentResponse{Result: handle}, nil
-}
-
-func (s *PreferenceServer) GetPreferenceDataStore(_ context.Context, req *pb.PreferenceGetPreferenceDataStoreRequest) (*pb.GetPreferenceDataStoreResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Preference{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetPreferenceDataStore()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetPreferenceDataStoreResponse{Result: handle}, nil
-}
-
-func (s *PreferenceServer) GetPreferenceManager(_ context.Context, req *pb.PreferenceGetPreferenceManagerRequest) (*pb.GetPreferenceManagerResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Preference{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetPreferenceManager()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetPreferenceManagerResponse{Result: handle}, nil
-}
-
-func (s *PreferenceServer) GetSharedPreferences(_ context.Context, req *pb.PreferenceGetSharedPreferencesRequest) (*pb.GetSharedPreferencesResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Preference{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetSharedPreferences()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetSharedPreferencesResponse{Result: handle}, nil
-}
-
-func (s *PreferenceServer) GetShouldDisableView(_ context.Context, req *pb.GetShouldDisableViewRequest) (*pb.GetShouldDisableViewResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Preference{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetShouldDisableView()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetShouldDisableViewResponse{Result: result}, nil
-}
-
-func (s *PreferenceServer) GetSummary(_ context.Context, req *pb.GetSummaryRequest) (*pb.GetSummaryResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Preference{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetSummary()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetSummaryResponse{Result: handle}, nil
-}
-
-func (s *PreferenceServer) GetTitle(_ context.Context, req *pb.PreferenceGetTitleRequest) (*pb.GetTitleResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Preference{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetTitle()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetTitleResponse{Result: handle}, nil
-}
-
-func (s *PreferenceServer) GetTitleRes(_ context.Context, req *pb.GetTitleResRequest) (*pb.GetTitleResResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Preference{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetTitleRes()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetTitleResResponse{Result: result}, nil
-}
-
-func (s *PreferenceServer) GetView(_ context.Context, req *pb.GetViewRequest) (*pb.GetViewResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Preference{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetView(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetViewResponse{Result: handle}, nil
-}
-
-func (s *PreferenceServer) GetWidgetLayoutResource(_ context.Context, req *pb.GetWidgetLayoutResourceRequest) (*pb.GetWidgetLayoutResourceResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Preference{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetWidgetLayoutResource()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetWidgetLayoutResourceResponse{Result: result}, nil
-}
-
-func (s *PreferenceServer) HasKey(_ context.Context, req *pb.HasKeyRequest) (*pb.HasKeyResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Preference{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.HasKey()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.HasKeyResponse{Result: result}, nil
-}
-
-func (s *PreferenceServer) IsEnabled(_ context.Context, req *pb.IsEnabledRequest) (*pb.IsEnabledResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Preference{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.IsEnabled()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.IsEnabledResponse{Result: result}, nil
-}
-
-func (s *PreferenceServer) IsIconSpaceReserved(_ context.Context, req *pb.IsIconSpaceReservedRequest) (*pb.IsIconSpaceReservedResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Preference{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.IsIconSpaceReserved()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.IsIconSpaceReservedResponse{Result: result}, nil
-}
-
-func (s *PreferenceServer) IsPersistent(_ context.Context, req *pb.IsPersistentRequest) (*pb.IsPersistentResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Preference{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.IsPersistent()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.IsPersistentResponse{Result: result}, nil
-}
-
-func (s *PreferenceServer) IsRecycleEnabled(_ context.Context, req *pb.IsRecycleEnabledRequest) (*pb.IsRecycleEnabledResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Preference{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.IsRecycleEnabled()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.IsRecycleEnabledResponse{Result: result}, nil
-}
-
-func (s *PreferenceServer) IsSelectable(_ context.Context, req *pb.IsSelectableRequest) (*pb.IsSelectableResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Preference{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.IsSelectable()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.IsSelectableResponse{Result: result}, nil
-}
-
-func (s *PreferenceServer) IsSingleLineTitle(_ context.Context, req *pb.IsSingleLineTitleRequest) (*pb.IsSingleLineTitleResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Preference{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.IsSingleLineTitle()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.IsSingleLineTitleResponse{Result: result}, nil
-}
-
-func (s *PreferenceServer) NotifyDependencyChange(_ context.Context, req *pb.PreferenceNotifyDependencyChangeRequest) (*pb.NotifyDependencyChangeResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Preference{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.NotifyDependencyChange(req.GetArg0()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.NotifyDependencyChangeResponse{}, nil
-}
-
-func (s *PreferenceServer) OnDependencyChanged(_ context.Context, req *pb.OnDependencyChangedRequest) (*pb.OnDependencyChangedResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Preference{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.OnDependencyChanged(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.OnDependencyChangedResponse{}, nil
-}
-
-func (s *PreferenceServer) OnParentChanged(_ context.Context, req *pb.OnParentChangedRequest) (*pb.OnParentChangedResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Preference{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.OnParentChanged(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.OnParentChangedResponse{}, nil
-}
-
-func (s *PreferenceServer) PeekExtras(_ context.Context, req *pb.PeekExtrasRequest) (*pb.PeekExtrasResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Preference{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.PeekExtras()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.PeekExtrasResponse{Result: handle}, nil
-}
-
-func (s *PreferenceServer) RestoreHierarchyState(_ context.Context, req *pb.RestoreHierarchyStateRequest) (*pb.RestoreHierarchyStateResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Preference{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.RestoreHierarchyState(s.Handles.Get(req.GetArg0())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.RestoreHierarchyStateResponse{}, nil
-}
-
-func (s *PreferenceServer) SaveHierarchyState(_ context.Context, req *pb.SaveHierarchyStateRequest) (*pb.SaveHierarchyStateResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Preference{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.SaveHierarchyState(s.Handles.Get(req.GetArg0())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SaveHierarchyStateResponse{}, nil
-}
-
-func (s *PreferenceServer) SetDefaultValue(_ context.Context, req *pb.SetDefaultValueRequest) (*pb.SetDefaultValueResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Preference{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.SetDefaultValue(s.Handles.Get(req.GetArg0())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SetDefaultValueResponse{}, nil
-}
-
-func (s *PreferenceServer) SetDependency(_ context.Context, req *pb.SetDependencyRequest) (*pb.SetDependencyResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Preference{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.SetDependency(req.GetArg0()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SetDependencyResponse{}, nil
-}
-
-func (s *PreferenceServer) SetEnabled(_ context.Context, req *pb.SetEnabledRequest) (*pb.SetEnabledResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Preference{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.SetEnabled(req.GetArg0()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SetEnabledResponse{}, nil
-}
-
-func (s *PreferenceServer) SetFragment(_ context.Context, req *pb.SetFragmentRequest) (*pb.SetFragmentResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Preference{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.SetFragment(req.GetArg0()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SetFragmentResponse{}, nil
-}
-
-func (s *PreferenceServer) SetIcon1(_ context.Context, req *pb.SetIcon1Request) (*pb.SetIcon1Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Preference{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.SetIcon1(s.Handles.Get(req.GetArg0())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SetIcon1Response{}, nil
-}
-
-func (s *PreferenceServer) SetIcon1_1(_ context.Context, req *pb.SetIcon1_1Request) (*pb.SetIcon1_1Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Preference{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.SetIcon1_1(req.GetArg0()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SetIcon1_1Response{}, nil
-}
-
-func (s *PreferenceServer) SetIconSpaceReserved(_ context.Context, req *pb.SetIconSpaceReservedRequest) (*pb.SetIconSpaceReservedResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Preference{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.SetIconSpaceReserved(req.GetArg0()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SetIconSpaceReservedResponse{}, nil
-}
-
-func (s *PreferenceServer) SetIntent(_ context.Context, req *pb.SetIntentRequest) (*pb.SetIntentResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Preference{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.SetIntent(s.Handles.Get(req.GetArg0())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SetIntentResponse{}, nil
-}
-
-func (s *PreferenceServer) SetKey(_ context.Context, req *pb.SetKeyRequest) (*pb.SetKeyResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Preference{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.SetKey(req.GetArg0()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SetKeyResponse{}, nil
-}
-
-func (s *PreferenceServer) SetLayoutResource(_ context.Context, req *pb.SetLayoutResourceRequest) (*pb.SetLayoutResourceResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Preference{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.SetLayoutResource(req.GetArg0()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SetLayoutResourceResponse{}, nil
-}
-
-func (s *PreferenceServer) SetOnPreferenceChangeListener(_ context.Context, req *pb.SetOnPreferenceChangeListenerRequest) (*pb.SetOnPreferenceChangeListenerResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Preference{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.SetOnPreferenceChangeListener(s.Handles.Get(req.GetArg0())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SetOnPreferenceChangeListenerResponse{}, nil
-}
-
-func (s *PreferenceServer) SetOnPreferenceClickListener(_ context.Context, req *pb.SetOnPreferenceClickListenerRequest) (*pb.SetOnPreferenceClickListenerResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Preference{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.SetOnPreferenceClickListener(s.Handles.Get(req.GetArg0())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SetOnPreferenceClickListenerResponse{}, nil
-}
-
-func (s *PreferenceServer) SetOrder(_ context.Context, req *pb.SetOrderRequest) (*pb.SetOrderResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Preference{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.SetOrder(req.GetArg0()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SetOrderResponse{}, nil
-}
-
-func (s *PreferenceServer) SetPersistent(_ context.Context, req *pb.SetPersistentRequest) (*pb.SetPersistentResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Preference{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.SetPersistent(req.GetArg0()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SetPersistentResponse{}, nil
-}
-
-func (s *PreferenceServer) SetPreferenceDataStore(_ context.Context, req *pb.PreferenceSetPreferenceDataStoreRequest) (*pb.SetPreferenceDataStoreResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Preference{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.SetPreferenceDataStore(s.Handles.Get(req.GetArg0())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SetPreferenceDataStoreResponse{}, nil
-}
-
-func (s *PreferenceServer) SetRecycleEnabled(_ context.Context, req *pb.SetRecycleEnabledRequest) (*pb.SetRecycleEnabledResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Preference{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.SetRecycleEnabled(req.GetArg0()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SetRecycleEnabledResponse{}, nil
-}
-
-func (s *PreferenceServer) SetSelectable(_ context.Context, req *pb.SetSelectableRequest) (*pb.SetSelectableResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Preference{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.SetSelectable(req.GetArg0()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SetSelectableResponse{}, nil
-}
-
-func (s *PreferenceServer) SetShouldDisableView(_ context.Context, req *pb.SetShouldDisableViewRequest) (*pb.SetShouldDisableViewResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Preference{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.SetShouldDisableView(req.GetArg0()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SetShouldDisableViewResponse{}, nil
-}
-
-func (s *PreferenceServer) SetSingleLineTitle(_ context.Context, req *pb.SetSingleLineTitleRequest) (*pb.SetSingleLineTitleResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Preference{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.SetSingleLineTitle(req.GetArg0()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SetSingleLineTitleResponse{}, nil
-}
-
-func (s *PreferenceServer) SetSummary1(_ context.Context, req *pb.SetSummary1Request) (*pb.SetSummary1Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Preference{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.SetSummary1(req.GetArg0()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SetSummary1Response{}, nil
-}
-
-func (s *PreferenceServer) SetSummary1_1(_ context.Context, req *pb.SetSummary1_1Request) (*pb.SetSummary1_1Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Preference{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.SetSummary1_1(req.GetArg0()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SetSummary1_1Response{}, nil
-}
-
-func (s *PreferenceServer) SetTitle1(_ context.Context, req *pb.SetTitle1Request) (*pb.SetTitle1Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Preference{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.SetTitle1(req.GetArg0()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SetTitle1Response{}, nil
-}
-
-func (s *PreferenceServer) SetTitle1_1(_ context.Context, req *pb.SetTitle1_1Request) (*pb.SetTitle1_1Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Preference{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.SetTitle1_1(req.GetArg0()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SetTitle1_1Response{}, nil
-}
-
-func (s *PreferenceServer) SetWidgetLayoutResource(_ context.Context, req *pb.SetWidgetLayoutResourceRequest) (*pb.SetWidgetLayoutResourceResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Preference{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.SetWidgetLayoutResource(req.GetArg0()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SetWidgetLayoutResourceResponse{}, nil
-}
-
-func (s *PreferenceServer) ShouldCommit(_ context.Context, req *pb.ShouldCommitRequest) (*pb.ShouldCommitResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Preference{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.ShouldCommit()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.ShouldCommitResponse{Result: result}, nil
-}
-
-func (s *PreferenceServer) ShouldDisableDependents(_ context.Context, req *pb.ShouldDisableDependentsRequest) (*pb.ShouldDisableDependentsResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Preference{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.ShouldDisableDependents()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.ShouldDisableDependentsResponse{Result: result}, nil
-}
-
-func (s *PreferenceServer) ToString(_ context.Context, req *pb.ToStringRequest) (*pb.ToStringResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Preference{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.ToString()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.ToStringResponse{Result: result}, nil
-}
-
-func (s *PreferenceServer) CompareTo1_1(_ context.Context, req *pb.CompareTo1_1Request) (*pb.CompareTo1_1Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Preference{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.CompareTo1_1(s.Handles.Get(req.GetArg0()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.CompareTo1_1Response{Result: result}, nil
 }
 
 // CategoryServer implements pb.CategoryServiceServer.

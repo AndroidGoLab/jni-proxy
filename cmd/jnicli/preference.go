@@ -367,572 +367,6 @@ var preferenceFragmentOnPreferenceStartFragmentCallbackOnPreferenceStartFragment
 	},
 }
 
-var preferenceMultiSelectListPreferenceCmd = &cobra.Command{
-	Use:   "multi-select-list-preference",
-	Short: "MultiSelectListPreferenceService operations",
-}
-
-var preferenceMultiSelectListPreferenceNewMultiSelectListPreferenceCmd = &cobra.Command{
-	Use:   "new-multi-select-list-preference",
-	Short: "NewMultiSelectListPreference RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMultiSelectListPreferenceServiceClient(grpcConn)
-		req := &pb.NewMultiSelectListPreferenceRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.NewMultiSelectListPreference(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var preferenceMultiSelectListPreferenceFindIndexOfValueCmd = &cobra.Command{
-	Use:   "find-index-of-value",
-	Short: "FindIndexOfValue RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMultiSelectListPreferenceServiceClient(grpcConn)
-		req := &pb.FindIndexOfValueRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.FindIndexOfValue(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var preferenceMultiSelectListPreferenceGetEntriesCmd = &cobra.Command{
-	Use:   "get-entries",
-	Short: "GetEntries RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMultiSelectListPreferenceServiceClient(grpcConn)
-		req := &pb.GetEntriesRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetEntries(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var preferenceMultiSelectListPreferenceGetEntryValuesCmd = &cobra.Command{
-	Use:   "get-entry-values",
-	Short: "GetEntryValues RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMultiSelectListPreferenceServiceClient(grpcConn)
-		req := &pb.GetEntryValuesRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetEntryValues(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var preferenceMultiSelectListPreferenceSetEntries1Cmd = &cobra.Command{
-	Use:   "set-entries1",
-	Short: "SetEntries1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMultiSelectListPreferenceServiceClient(grpcConn)
-		req := &pb.SetEntries1Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetEntries1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var preferenceMultiSelectListPreferenceSetEntries1_1Cmd = &cobra.Command{
-	Use:   "set-entries1_1",
-	Short: "SetEntries1_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMultiSelectListPreferenceServiceClient(grpcConn)
-		req := &pb.SetEntries1_1Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetEntries1_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var preferenceMultiSelectListPreferenceSetEntryValues1Cmd = &cobra.Command{
-	Use:   "set-entry-values1",
-	Short: "SetEntryValues1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMultiSelectListPreferenceServiceClient(grpcConn)
-		req := &pb.SetEntryValues1Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetEntryValues1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var preferenceMultiSelectListPreferenceSetEntryValues1_1Cmd = &cobra.Command{
-	Use:   "set-entry-values1_1",
-	Short: "SetEntryValues1_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMultiSelectListPreferenceServiceClient(grpcConn)
-		req := &pb.SetEntryValues1_1Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetEntryValues1_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var preferenceManagerCmd = &cobra.Command{
-	Use:   "manager",
-	Short: "ManagerService operations",
-}
-
-var preferenceManagerCreatePreferenceScreenCmd = &cobra.Command{
-	Use:   "create-preference-screen",
-	Short: "CreatePreferenceScreen RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewManagerServiceClient(grpcConn)
-		req := &pb.CreatePreferenceScreenRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.CreatePreferenceScreen(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var preferenceManagerFindPreferenceCmd = &cobra.Command{
-	Use:   "find-preference",
-	Short: "FindPreference RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewManagerServiceClient(grpcConn)
-		req := &pb.FindPreferenceRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.FindPreference(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var preferenceManagerGetPreferenceDataStoreCmd = &cobra.Command{
-	Use:   "get-preference-data-store",
-	Short: "GetPreferenceDataStore RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewManagerServiceClient(grpcConn)
-		req := &pb.GetPreferenceDataStoreRequest{}
-		resp, err := client.GetPreferenceDataStore(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var preferenceManagerGetSharedPreferencesCmd = &cobra.Command{
-	Use:   "get-shared-preferences",
-	Short: "GetSharedPreferences RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewManagerServiceClient(grpcConn)
-		req := &pb.GetSharedPreferencesRequest{}
-		resp, err := client.GetSharedPreferences(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var preferenceManagerGetSharedPreferencesModeCmd = &cobra.Command{
-	Use:   "get-shared-preferences-mode",
-	Short: "GetSharedPreferencesMode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewManagerServiceClient(grpcConn)
-		req := &pb.GetSharedPreferencesModeRequest{}
-		resp, err := client.GetSharedPreferencesMode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var preferenceManagerGetSharedPreferencesNameCmd = &cobra.Command{
-	Use:   "get-shared-preferences-name",
-	Short: "GetSharedPreferencesName RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewManagerServiceClient(grpcConn)
-		req := &pb.GetSharedPreferencesNameRequest{}
-		resp, err := client.GetSharedPreferencesName(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var preferenceManagerIsStorageDefaultCmd = &cobra.Command{
-	Use:   "is-storage-default",
-	Short: "IsStorageDefault RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewManagerServiceClient(grpcConn)
-		req := &pb.IsStorageDefaultRequest{}
-		resp, err := client.IsStorageDefault(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var preferenceManagerIsStorageDeviceProtectedCmd = &cobra.Command{
-	Use:   "is-storage-device-protected",
-	Short: "IsStorageDeviceProtected RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewManagerServiceClient(grpcConn)
-		req := &pb.IsStorageDeviceProtectedRequest{}
-		resp, err := client.IsStorageDeviceProtected(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var preferenceManagerSetPreferenceDataStoreCmd = &cobra.Command{
-	Use:   "set-preference-data-store",
-	Short: "SetPreferenceDataStore RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewManagerServiceClient(grpcConn)
-		req := &pb.SetPreferenceDataStoreRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetPreferenceDataStore(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var preferenceManagerSetSharedPreferencesModeCmd = &cobra.Command{
-	Use:   "set-shared-preferences-mode",
-	Short: "SetSharedPreferencesMode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewManagerServiceClient(grpcConn)
-		req := &pb.SetSharedPreferencesModeRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetSharedPreferencesMode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var preferenceManagerSetSharedPreferencesNameCmd = &cobra.Command{
-	Use:   "set-shared-preferences-name",
-	Short: "SetSharedPreferencesName RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewManagerServiceClient(grpcConn)
-		req := &pb.SetSharedPreferencesNameRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetSharedPreferencesName(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var preferenceManagerSetStorageDefaultCmd = &cobra.Command{
-	Use:   "set-storage-default",
-	Short: "SetStorageDefault RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewManagerServiceClient(grpcConn)
-		req := &pb.SetStorageDefaultRequest{}
-		resp, err := client.SetStorageDefault(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var preferenceManagerSetStorageDeviceProtectedCmd = &cobra.Command{
-	Use:   "set-storage-device-protected",
-	Short: "SetStorageDeviceProtected RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewManagerServiceClient(grpcConn)
-		req := &pb.SetStorageDeviceProtectedRequest{}
-		resp, err := client.SetStorageDeviceProtected(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var preferenceManagerGetDefaultSharedPreferencesCmd = &cobra.Command{
-	Use:   "get-default-shared-preferences",
-	Short: "GetDefaultSharedPreferences RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewManagerServiceClient(grpcConn)
-		req := &pb.GetDefaultSharedPreferencesRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetDefaultSharedPreferences(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var preferenceManagerGetDefaultSharedPreferencesNameCmd = &cobra.Command{
-	Use:   "get-default-shared-preferences-name",
-	Short: "GetDefaultSharedPreferencesName RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewManagerServiceClient(grpcConn)
-		req := &pb.GetDefaultSharedPreferencesNameRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetDefaultSharedPreferencesName(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var preferenceManagerSetDefaultValues3Cmd = &cobra.Command{
-	Use:   "set-default-values3",
-	Short: "SetDefaultValues3 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewManagerServiceClient(grpcConn)
-		req := &pb.SetDefaultValues3Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetBool("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.SetDefaultValues3(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var preferenceManagerSetDefaultValues5_1Cmd = &cobra.Command{
-	Use:   "set-default-values5_1",
-	Short: "SetDefaultValues5_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewManagerServiceClient(grpcConn)
-		req := &pb.SetDefaultValues5_1Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetString("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		if v, err := cmd.Flags().GetBool("arg4"); err == nil {
-			req.Arg4 = v
-		}
-		resp, err := client.SetDefaultValues5_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var preferenceManagerOnActivityDestroyListenerCmd = &cobra.Command{
-	Use:   "manager-on-activity-destroy-listener",
-	Short: "ManagerOnActivityDestroyListenerService operations",
-}
-
-var preferenceManagerOnActivityDestroyListenerOnActivityDestroyCmd = &cobra.Command{
-	Use:   "on-activity-destroy",
-	Short: "OnActivityDestroy RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewManagerOnActivityDestroyListenerServiceClient(grpcConn)
-		req := &pb.OnActivityDestroyRequest{}
-		resp, err := client.OnActivityDestroy(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var preferenceManagerOnActivityResultListenerCmd = &cobra.Command{
-	Use:   "manager-on-activity-result-listener",
-	Short: "ManagerOnActivityResultListenerService operations",
-}
-
-var preferenceManagerOnActivityResultListenerOnActivityResultCmd = &cobra.Command{
-	Use:   "on-activity-result",
-	Short: "OnActivityResult RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewManagerOnActivityResultListenerServiceClient(grpcConn)
-		req := &pb.OnActivityResultRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.OnActivityResult(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var preferenceManagerOnActivityStopListenerCmd = &cobra.Command{
-	Use:   "manager-on-activity-stop-listener",
-	Short: "ManagerOnActivityStopListenerService operations",
-}
-
-var preferenceManagerOnActivityStopListenerOnActivityStopCmd = &cobra.Command{
-	Use:   "on-activity-stop",
-	Short: "OnActivityStop RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewManagerOnActivityStopListenerServiceClient(grpcConn)
-		req := &pb.OnActivityStopRequest{}
-		resp, err := client.OnActivityStop(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
 var preferenceSwitchPreferenceCmd = &cobra.Command{
 	Use:   "switch-preference",
 	Short: "SwitchPreferenceService operations",
@@ -1083,23 +517,23 @@ var preferenceSwitchPreferenceSetSwitchTextOn1_1Cmd = &cobra.Command{
 	},
 }
 
-var preferenceEditTextPreferenceCmd = &cobra.Command{
-	Use:   "edit-text-preference",
-	Short: "EditTextPreferenceService operations",
+var preferencePreferenceCmd = &cobra.Command{
+	Use:   "preference",
+	Short: "PreferenceService operations",
 }
 
-var preferenceEditTextPreferenceNewEditTextPreferenceCmd = &cobra.Command{
-	Use:   "new-edit-text-preference",
-	Short: "NewEditTextPreference RPC",
+var preferencePreferenceNewPreferenceCmd = &cobra.Command{
+	Use:   "new-preference",
+	Short: "NewPreference RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewEditTextPreferenceServiceClient(grpcConn)
-		req := &pb.NewEditTextPreferenceRequest{}
+		client := pb.NewPreferenceServiceClient(grpcConn)
+		req := &pb.NewPreferenceRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		resp, err := client.NewEditTextPreference(ctx, req)
+		resp, err := client.NewPreference(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1107,102 +541,21 @@ var preferenceEditTextPreferenceNewEditTextPreferenceCmd = &cobra.Command{
 	},
 }
 
-var preferenceEditTextPreferenceGetEditTextCmd = &cobra.Command{
-	Use:   "get-edit-text",
-	Short: "GetEditText RPC",
+var preferencePreferenceCompareTo1Cmd = &cobra.Command{
+	Use:   "compare-to1",
+	Short: "CompareTo1 RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewEditTextPreferenceServiceClient(grpcConn)
-		req := &pb.GetEditTextRequest{}
+		client := pb.NewPreferenceServiceClient(grpcConn)
+		req := &pb.CompareTo1Request{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
-		resp, err := client.GetEditText(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var preferenceEditTextPreferenceGetTextCmd = &cobra.Command{
-	Use:   "get-text",
-	Short: "GetText RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewEditTextPreferenceServiceClient(grpcConn)
-		req := &pb.GetTextRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetText(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var preferenceEditTextPreferenceSetTextCmd = &cobra.Command{
-	Use:   "set-text",
-	Short: "SetText RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewEditTextPreferenceServiceClient(grpcConn)
-		req := &pb.SetTextRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetText(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var preferenceEditTextPreferenceShouldDisableDependentsCmd = &cobra.Command{
-	Use:   "should-disable-dependents",
-	Short: "ShouldDisableDependents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewEditTextPreferenceServiceClient(grpcConn)
-		req := &pb.ShouldDisableDependentsRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.ShouldDisableDependents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var preferenceListPreferenceCmd = &cobra.Command{
-	Use:   "list-preference",
-	Short: "ListPreferenceService operations",
-}
-
-var preferenceListPreferenceNewListPreferenceCmd = &cobra.Command{
-	Use:   "new-list-preference",
-	Short: "NewListPreference RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewListPreferenceServiceClient(grpcConn)
-		req := &pb.NewListPreferenceRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		resp, err := client.NewListPreference(ctx, req)
+		resp, err := client.CompareTo1(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1210,21 +563,18 @@ var preferenceListPreferenceNewListPreferenceCmd = &cobra.Command{
 	},
 }
 
-var preferenceListPreferenceFindIndexOfValueCmd = &cobra.Command{
-	Use:   "find-index-of-value",
-	Short: "FindIndexOfValue RPC",
+var preferencePreferenceGetContextCmd = &cobra.Command{
+	Use:   "get-context",
+	Short: "GetContext RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewListPreferenceServiceClient(grpcConn)
-		req := &pb.FindIndexOfValueRequest{}
+		client := pb.NewPreferenceServiceClient(grpcConn)
+		req := &pb.GetContextRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.FindIndexOfValue(ctx, req)
+		resp, err := client.GetContext(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1232,18 +582,18 @@ var preferenceListPreferenceFindIndexOfValueCmd = &cobra.Command{
 	},
 }
 
-var preferenceListPreferenceGetEntriesCmd = &cobra.Command{
-	Use:   "get-entries",
-	Short: "GetEntries RPC",
+var preferencePreferenceGetDependencyCmd = &cobra.Command{
+	Use:   "get-dependency",
+	Short: "GetDependency RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewListPreferenceServiceClient(grpcConn)
-		req := &pb.GetEntriesRequest{}
+		client := pb.NewPreferenceServiceClient(grpcConn)
+		req := &pb.GetDependencyRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
-		resp, err := client.GetEntries(ctx, req)
+		resp, err := client.GetDependency(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1251,18 +601,18 @@ var preferenceListPreferenceGetEntriesCmd = &cobra.Command{
 	},
 }
 
-var preferenceListPreferenceGetEntryCmd = &cobra.Command{
-	Use:   "get-entry",
-	Short: "GetEntry RPC",
+var preferencePreferenceGetEditorCmd = &cobra.Command{
+	Use:   "get-editor",
+	Short: "GetEditor RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewListPreferenceServiceClient(grpcConn)
-		req := &pb.GetEntryRequest{}
+		client := pb.NewPreferenceServiceClient(grpcConn)
+		req := &pb.GetEditorRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
-		resp, err := client.GetEntry(ctx, req)
+		resp, err := client.GetEditor(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1270,18 +620,18 @@ var preferenceListPreferenceGetEntryCmd = &cobra.Command{
 	},
 }
 
-var preferenceListPreferenceGetEntryValuesCmd = &cobra.Command{
-	Use:   "get-entry-values",
-	Short: "GetEntryValues RPC",
+var preferencePreferenceGetExtrasCmd = &cobra.Command{
+	Use:   "get-extras",
+	Short: "GetExtras RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewListPreferenceServiceClient(grpcConn)
-		req := &pb.GetEntryValuesRequest{}
+		client := pb.NewPreferenceServiceClient(grpcConn)
+		req := &pb.GetExtrasRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
-		resp, err := client.GetEntryValues(ctx, req)
+		resp, err := client.GetExtras(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1289,13 +639,260 @@ var preferenceListPreferenceGetEntryValuesCmd = &cobra.Command{
 	},
 }
 
-var preferenceListPreferenceGetSummaryCmd = &cobra.Command{
+var preferencePreferenceGetFragmentCmd = &cobra.Command{
+	Use:   "get-fragment",
+	Short: "GetFragment RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPreferenceServiceClient(grpcConn)
+		req := &pb.GetFragmentRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetFragment(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var preferencePreferenceGetIconCmd = &cobra.Command{
+	Use:   "get-icon",
+	Short: "GetIcon RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPreferenceServiceClient(grpcConn)
+		req := &pb.GetIconRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetIcon(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var preferencePreferenceGetIntentCmd = &cobra.Command{
+	Use:   "get-intent",
+	Short: "GetIntent RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPreferenceServiceClient(grpcConn)
+		req := &pb.GetIntentRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetIntent(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var preferencePreferenceGetKeyCmd = &cobra.Command{
+	Use:   "get-key",
+	Short: "GetKey RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPreferenceServiceClient(grpcConn)
+		req := &pb.GetKeyRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetKey(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var preferencePreferenceGetLayoutResourceCmd = &cobra.Command{
+	Use:   "get-layout-resource",
+	Short: "GetLayoutResource RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPreferenceServiceClient(grpcConn)
+		req := &pb.GetLayoutResourceRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetLayoutResource(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var preferencePreferenceGetOnPreferenceChangeListenerCmd = &cobra.Command{
+	Use:   "get-on-preference-change-listener",
+	Short: "GetOnPreferenceChangeListener RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPreferenceServiceClient(grpcConn)
+		req := &pb.GetOnPreferenceChangeListenerRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetOnPreferenceChangeListener(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var preferencePreferenceGetOnPreferenceClickListenerCmd = &cobra.Command{
+	Use:   "get-on-preference-click-listener",
+	Short: "GetOnPreferenceClickListener RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPreferenceServiceClient(grpcConn)
+		req := &pb.GetOnPreferenceClickListenerRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetOnPreferenceClickListener(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var preferencePreferenceGetOrderCmd = &cobra.Command{
+	Use:   "get-order",
+	Short: "GetOrder RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPreferenceServiceClient(grpcConn)
+		req := &pb.GetOrderRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetOrder(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var preferencePreferenceGetParentCmd = &cobra.Command{
+	Use:   "get-parent",
+	Short: "GetParent RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPreferenceServiceClient(grpcConn)
+		req := &pb.GetParentRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetParent(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var preferencePreferenceGetPreferenceDataStoreCmd = &cobra.Command{
+	Use:   "get-preference-data-store",
+	Short: "GetPreferenceDataStore RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPreferenceServiceClient(grpcConn)
+		req := &pb.GetPreferenceDataStoreRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetPreferenceDataStore(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var preferencePreferenceGetPreferenceManagerCmd = &cobra.Command{
+	Use:   "get-preference-manager",
+	Short: "GetPreferenceManager RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPreferenceServiceClient(grpcConn)
+		req := &pb.PreferenceGetPreferenceManagerRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetPreferenceManager(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var preferencePreferenceGetSharedPreferencesCmd = &cobra.Command{
+	Use:   "get-shared-preferences",
+	Short: "GetSharedPreferences RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPreferenceServiceClient(grpcConn)
+		req := &pb.GetSharedPreferencesRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetSharedPreferences(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var preferencePreferenceGetShouldDisableViewCmd = &cobra.Command{
+	Use:   "get-should-disable-view",
+	Short: "GetShouldDisableView RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPreferenceServiceClient(grpcConn)
+		req := &pb.GetShouldDisableViewRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetShouldDisableView(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var preferencePreferenceGetSummaryCmd = &cobra.Command{
 	Use:   "get-summary",
 	Short: "GetSummary RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewListPreferenceServiceClient(grpcConn)
+		client := pb.NewPreferenceServiceClient(grpcConn)
 		req := &pb.GetSummaryRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
@@ -1308,18 +905,18 @@ var preferenceListPreferenceGetSummaryCmd = &cobra.Command{
 	},
 }
 
-var preferenceListPreferenceGetValueCmd = &cobra.Command{
-	Use:   "get-value",
-	Short: "GetValue RPC",
+var preferencePreferenceGetTitleCmd = &cobra.Command{
+	Use:   "get-title",
+	Short: "GetTitle RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewListPreferenceServiceClient(grpcConn)
-		req := &pb.GetValueRequest{}
+		client := pb.NewPreferenceServiceClient(grpcConn)
+		req := &pb.GetTitleRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
-		resp, err := client.GetValue(ctx, req)
+		resp, err := client.GetTitle(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1327,21 +924,18 @@ var preferenceListPreferenceGetValueCmd = &cobra.Command{
 	},
 }
 
-var preferenceListPreferenceSetEntries1Cmd = &cobra.Command{
-	Use:   "set-entries1",
-	Short: "SetEntries1 RPC",
+var preferencePreferenceGetTitleResCmd = &cobra.Command{
+	Use:   "get-title-res",
+	Short: "GetTitleRes RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewListPreferenceServiceClient(grpcConn)
-		req := &pb.SetEntries1Request{}
+		client := pb.NewPreferenceServiceClient(grpcConn)
+		req := &pb.GetTitleResRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetEntries1(ctx, req)
+		resp, err := client.GetTitleRes(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1349,21 +943,24 @@ var preferenceListPreferenceSetEntries1Cmd = &cobra.Command{
 	},
 }
 
-var preferenceListPreferenceSetEntries1_1Cmd = &cobra.Command{
-	Use:   "set-entries1_1",
-	Short: "SetEntries1_1 RPC",
+var preferencePreferenceGetViewCmd = &cobra.Command{
+	Use:   "get-view",
+	Short: "GetView RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewListPreferenceServiceClient(grpcConn)
-		req := &pb.SetEntries1_1Request{}
+		client := pb.NewPreferenceServiceClient(grpcConn)
+		req := &pb.GetViewRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		resp, err := client.SetEntries1_1(ctx, req)
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.GetView(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1371,21 +968,18 @@ var preferenceListPreferenceSetEntries1_1Cmd = &cobra.Command{
 	},
 }
 
-var preferenceListPreferenceSetEntryValues1Cmd = &cobra.Command{
-	Use:   "set-entry-values1",
-	Short: "SetEntryValues1 RPC",
+var preferencePreferenceGetWidgetLayoutResourceCmd = &cobra.Command{
+	Use:   "get-widget-layout-resource",
+	Short: "GetWidgetLayoutResource RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewListPreferenceServiceClient(grpcConn)
-		req := &pb.SetEntryValues1Request{}
+		client := pb.NewPreferenceServiceClient(grpcConn)
+		req := &pb.GetWidgetLayoutResourceRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetEntryValues1(ctx, req)
+		resp, err := client.GetWidgetLayoutResource(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1393,21 +987,179 @@ var preferenceListPreferenceSetEntryValues1Cmd = &cobra.Command{
 	},
 }
 
-var preferenceListPreferenceSetEntryValues1_1Cmd = &cobra.Command{
-	Use:   "set-entry-values1_1",
-	Short: "SetEntryValues1_1 RPC",
+var preferencePreferenceHasKeyCmd = &cobra.Command{
+	Use:   "has-key",
+	Short: "HasKey RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewListPreferenceServiceClient(grpcConn)
-		req := &pb.SetEntryValues1_1Request{}
+		client := pb.NewPreferenceServiceClient(grpcConn)
+		req := &pb.HasKeyRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.HasKey(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var preferencePreferenceIsEnabledCmd = &cobra.Command{
+	Use:   "is-enabled",
+	Short: "IsEnabled RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPreferenceServiceClient(grpcConn)
+		req := &pb.IsEnabledRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.IsEnabled(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var preferencePreferenceIsIconSpaceReservedCmd = &cobra.Command{
+	Use:   "is-icon-space-reserved",
+	Short: "IsIconSpaceReserved RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPreferenceServiceClient(grpcConn)
+		req := &pb.IsIconSpaceReservedRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.IsIconSpaceReserved(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var preferencePreferenceIsPersistentCmd = &cobra.Command{
+	Use:   "is-persistent",
+	Short: "IsPersistent RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPreferenceServiceClient(grpcConn)
+		req := &pb.IsPersistentRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.IsPersistent(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var preferencePreferenceIsRecycleEnabledCmd = &cobra.Command{
+	Use:   "is-recycle-enabled",
+	Short: "IsRecycleEnabled RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPreferenceServiceClient(grpcConn)
+		req := &pb.IsRecycleEnabledRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.IsRecycleEnabled(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var preferencePreferenceIsSelectableCmd = &cobra.Command{
+	Use:   "is-selectable",
+	Short: "IsSelectable RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPreferenceServiceClient(grpcConn)
+		req := &pb.IsSelectableRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.IsSelectable(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var preferencePreferenceIsSingleLineTitleCmd = &cobra.Command{
+	Use:   "is-single-line-title",
+	Short: "IsSingleLineTitle RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPreferenceServiceClient(grpcConn)
+		req := &pb.IsSingleLineTitleRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.IsSingleLineTitle(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var preferencePreferenceNotifyDependencyChangeCmd = &cobra.Command{
+	Use:   "notify-dependency-change",
+	Short: "NotifyDependencyChange RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPreferenceServiceClient(grpcConn)
+		req := &pb.NotifyDependencyChangeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.NotifyDependencyChange(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var preferencePreferenceOnDependencyChangedCmd = &cobra.Command{
+	Use:   "on-dependency-changed",
+	Short: "OnDependencyChanged RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPreferenceServiceClient(grpcConn)
+		req := &pb.OnDependencyChangedRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		resp, err := client.SetEntryValues1_1(ctx, req)
+		if v, err := cmd.Flags().GetBool("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.OnDependencyChanged(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1415,21 +1167,131 @@ var preferenceListPreferenceSetEntryValues1_1Cmd = &cobra.Command{
 	},
 }
 
-var preferenceListPreferenceSetSummaryCmd = &cobra.Command{
-	Use:   "set-summary",
-	Short: "SetSummary RPC",
+var preferencePreferenceOnParentChangedCmd = &cobra.Command{
+	Use:   "on-parent-changed",
+	Short: "OnParentChanged RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewListPreferenceServiceClient(grpcConn)
-		req := &pb.SetSummaryRequest{}
+		client := pb.NewPreferenceServiceClient(grpcConn)
+		req := &pb.OnParentChangedRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetBool("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.OnParentChanged(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var preferencePreferencePeekExtrasCmd = &cobra.Command{
+	Use:   "peek-extras",
+	Short: "PeekExtras RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPreferenceServiceClient(grpcConn)
+		req := &pb.PeekExtrasRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.PeekExtras(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var preferencePreferenceRestoreHierarchyStateCmd = &cobra.Command{
+	Use:   "restore-hierarchy-state",
+	Short: "RestoreHierarchyState RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPreferenceServiceClient(grpcConn)
+		req := &pb.RestoreHierarchyStateRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.RestoreHierarchyState(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var preferencePreferenceSaveHierarchyStateCmd = &cobra.Command{
+	Use:   "save-hierarchy-state",
+	Short: "SaveHierarchyState RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPreferenceServiceClient(grpcConn)
+		req := &pb.SaveHierarchyStateRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SaveHierarchyState(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var preferencePreferenceSetDefaultValueCmd = &cobra.Command{
+	Use:   "set-default-value",
+	Short: "SetDefaultValue RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPreferenceServiceClient(grpcConn)
+		req := &pb.SetDefaultValueRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetDefaultValue(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var preferencePreferenceSetDependencyCmd = &cobra.Command{
+	Use:   "set-dependency",
+	Short: "SetDependency RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPreferenceServiceClient(grpcConn)
+		req := &pb.SetDependencyRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
 		if v, err := cmd.Flags().GetString("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		resp, err := client.SetSummary(ctx, req)
+		resp, err := client.SetDependency(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1437,21 +1299,43 @@ var preferenceListPreferenceSetSummaryCmd = &cobra.Command{
 	},
 }
 
-var preferenceListPreferenceSetValueCmd = &cobra.Command{
-	Use:   "set-value",
-	Short: "SetValue RPC",
+var preferencePreferenceSetEnabledCmd = &cobra.Command{
+	Use:   "set-enabled",
+	Short: "SetEnabled RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewListPreferenceServiceClient(grpcConn)
-		req := &pb.SetValueRequest{}
+		client := pb.NewPreferenceServiceClient(grpcConn)
+		req := &pb.SetEnabledRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetEnabled(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var preferencePreferenceSetFragmentCmd = &cobra.Command{
+	Use:   "set-fragment",
+	Short: "SetFragment RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPreferenceServiceClient(grpcConn)
+		req := &pb.SetFragmentRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
 		if v, err := cmd.Flags().GetString("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		resp, err := client.SetValue(ctx, req)
+		resp, err := client.SetFragment(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1459,21 +1343,744 @@ var preferenceListPreferenceSetValueCmd = &cobra.Command{
 	},
 }
 
-var preferenceListPreferenceSetValueIndexCmd = &cobra.Command{
-	Use:   "set-value-index",
-	Short: "SetValueIndex RPC",
+var preferencePreferenceSetIcon1Cmd = &cobra.Command{
+	Use:   "set-icon1",
+	Short: "SetIcon1 RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewListPreferenceServiceClient(grpcConn)
-		req := &pb.SetValueIndexRequest{}
+		client := pb.NewPreferenceServiceClient(grpcConn)
+		req := &pb.SetIcon1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetIcon1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var preferencePreferenceSetIcon1_1Cmd = &cobra.Command{
+	Use:   "set-icon1_1",
+	Short: "SetIcon1_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPreferenceServiceClient(grpcConn)
+		req := &pb.SetIcon1_1Request{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
 		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		resp, err := client.SetValueIndex(ctx, req)
+		resp, err := client.SetIcon1_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var preferencePreferenceSetIconSpaceReservedCmd = &cobra.Command{
+	Use:   "set-icon-space-reserved",
+	Short: "SetIconSpaceReserved RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPreferenceServiceClient(grpcConn)
+		req := &pb.SetIconSpaceReservedRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetIconSpaceReserved(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var preferencePreferenceSetIntentCmd = &cobra.Command{
+	Use:   "set-intent",
+	Short: "SetIntent RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPreferenceServiceClient(grpcConn)
+		req := &pb.SetIntentRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetIntent(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var preferencePreferenceSetKeyCmd = &cobra.Command{
+	Use:   "set-key",
+	Short: "SetKey RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPreferenceServiceClient(grpcConn)
+		req := &pb.SetKeyRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetKey(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var preferencePreferenceSetLayoutResourceCmd = &cobra.Command{
+	Use:   "set-layout-resource",
+	Short: "SetLayoutResource RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPreferenceServiceClient(grpcConn)
+		req := &pb.SetLayoutResourceRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetLayoutResource(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var preferencePreferenceSetOnPreferenceChangeListenerCmd = &cobra.Command{
+	Use:   "set-on-preference-change-listener",
+	Short: "SetOnPreferenceChangeListener RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPreferenceServiceClient(grpcConn)
+		req := &pb.SetOnPreferenceChangeListenerRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetOnPreferenceChangeListener(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var preferencePreferenceSetOnPreferenceClickListenerCmd = &cobra.Command{
+	Use:   "set-on-preference-click-listener",
+	Short: "SetOnPreferenceClickListener RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPreferenceServiceClient(grpcConn)
+		req := &pb.SetOnPreferenceClickListenerRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetOnPreferenceClickListener(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var preferencePreferenceSetOrderCmd = &cobra.Command{
+	Use:   "set-order",
+	Short: "SetOrder RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPreferenceServiceClient(grpcConn)
+		req := &pb.SetOrderRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetOrder(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var preferencePreferenceSetPersistentCmd = &cobra.Command{
+	Use:   "set-persistent",
+	Short: "SetPersistent RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPreferenceServiceClient(grpcConn)
+		req := &pb.SetPersistentRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetPersistent(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var preferencePreferenceSetPreferenceDataStoreCmd = &cobra.Command{
+	Use:   "set-preference-data-store",
+	Short: "SetPreferenceDataStore RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPreferenceServiceClient(grpcConn)
+		req := &pb.SetPreferenceDataStoreRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetPreferenceDataStore(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var preferencePreferenceSetRecycleEnabledCmd = &cobra.Command{
+	Use:   "set-recycle-enabled",
+	Short: "SetRecycleEnabled RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPreferenceServiceClient(grpcConn)
+		req := &pb.SetRecycleEnabledRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetRecycleEnabled(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var preferencePreferenceSetSelectableCmd = &cobra.Command{
+	Use:   "set-selectable",
+	Short: "SetSelectable RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPreferenceServiceClient(grpcConn)
+		req := &pb.SetSelectableRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetSelectable(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var preferencePreferenceSetShouldDisableViewCmd = &cobra.Command{
+	Use:   "set-should-disable-view",
+	Short: "SetShouldDisableView RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPreferenceServiceClient(grpcConn)
+		req := &pb.SetShouldDisableViewRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetShouldDisableView(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var preferencePreferenceSetSingleLineTitleCmd = &cobra.Command{
+	Use:   "set-single-line-title",
+	Short: "SetSingleLineTitle RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPreferenceServiceClient(grpcConn)
+		req := &pb.SetSingleLineTitleRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetSingleLineTitle(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var preferencePreferenceSetSummary1Cmd = &cobra.Command{
+	Use:   "set-summary1",
+	Short: "SetSummary1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPreferenceServiceClient(grpcConn)
+		req := &pb.SetSummary1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetSummary1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var preferencePreferenceSetSummary1_1Cmd = &cobra.Command{
+	Use:   "set-summary1_1",
+	Short: "SetSummary1_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPreferenceServiceClient(grpcConn)
+		req := &pb.SetSummary1_1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetSummary1_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var preferencePreferenceSetTitle1Cmd = &cobra.Command{
+	Use:   "set-title1",
+	Short: "SetTitle1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPreferenceServiceClient(grpcConn)
+		req := &pb.SetTitle1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetTitle1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var preferencePreferenceSetTitle1_1Cmd = &cobra.Command{
+	Use:   "set-title1_1",
+	Short: "SetTitle1_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPreferenceServiceClient(grpcConn)
+		req := &pb.SetTitle1_1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetTitle1_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var preferencePreferenceSetWidgetLayoutResourceCmd = &cobra.Command{
+	Use:   "set-widget-layout-resource",
+	Short: "SetWidgetLayoutResource RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPreferenceServiceClient(grpcConn)
+		req := &pb.SetWidgetLayoutResourceRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetWidgetLayoutResource(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var preferencePreferenceShouldCommitCmd = &cobra.Command{
+	Use:   "should-commit",
+	Short: "ShouldCommit RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPreferenceServiceClient(grpcConn)
+		req := &pb.ShouldCommitRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.ShouldCommit(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var preferencePreferenceShouldDisableDependentsCmd = &cobra.Command{
+	Use:   "should-disable-dependents",
+	Short: "ShouldDisableDependents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPreferenceServiceClient(grpcConn)
+		req := &pb.ShouldDisableDependentsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.ShouldDisableDependents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var preferencePreferenceToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPreferenceServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var preferencePreferenceCompareTo1_1Cmd = &cobra.Command{
+	Use:   "compare-to1_1",
+	Short: "CompareTo1_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPreferenceServiceClient(grpcConn)
+		req := &pb.CompareTo1_1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.CompareTo1_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var preferenceOnPreferenceChangeListenerCmd = &cobra.Command{
+	Use:   "on-preference-change-listener",
+	Short: "OnPreferenceChangeListenerService operations",
+}
+
+var preferenceOnPreferenceChangeListenerOnPreferenceChangeCmd = &cobra.Command{
+	Use:   "on-preference-change",
+	Short: "OnPreferenceChange RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewOnPreferenceChangeListenerServiceClient(grpcConn)
+		req := &pb.OnPreferenceChangeRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.OnPreferenceChange(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var preferenceOnPreferenceClickListenerCmd = &cobra.Command{
+	Use:   "on-preference-click-listener",
+	Short: "OnPreferenceClickListenerService operations",
+}
+
+var preferenceOnPreferenceClickListenerOnPreferenceClickCmd = &cobra.Command{
+	Use:   "on-preference-click",
+	Short: "OnPreferenceClick RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewOnPreferenceClickListenerServiceClient(grpcConn)
+		req := &pb.OnPreferenceClickRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnPreferenceClick(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var preferenceRingtonePreferenceCmd = &cobra.Command{
+	Use:   "ringtone-preference",
+	Short: "RingtonePreferenceService operations",
+}
+
+var preferenceRingtonePreferenceNewRingtonePreferenceCmd = &cobra.Command{
+	Use:   "new-ringtone-preference",
+	Short: "NewRingtonePreference RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRingtonePreferenceServiceClient(grpcConn)
+		req := &pb.NewRingtonePreferenceRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.NewRingtonePreference(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var preferenceRingtonePreferenceGetRingtoneTypeCmd = &cobra.Command{
+	Use:   "get-ringtone-type",
+	Short: "GetRingtoneType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRingtonePreferenceServiceClient(grpcConn)
+		req := &pb.GetRingtoneTypeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetRingtoneType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var preferenceRingtonePreferenceGetShowDefaultCmd = &cobra.Command{
+	Use:   "get-show-default",
+	Short: "GetShowDefault RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRingtonePreferenceServiceClient(grpcConn)
+		req := &pb.GetShowDefaultRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetShowDefault(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var preferenceRingtonePreferenceGetShowSilentCmd = &cobra.Command{
+	Use:   "get-show-silent",
+	Short: "GetShowSilent RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRingtonePreferenceServiceClient(grpcConn)
+		req := &pb.GetShowSilentRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetShowSilent(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var preferenceRingtonePreferenceOnActivityResultCmd = &cobra.Command{
+	Use:   "on-activity-result",
+	Short: "OnActivityResult RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRingtonePreferenceServiceClient(grpcConn)
+		req := &pb.RingtonePreferenceOnActivityResultRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.OnActivityResult(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var preferenceRingtonePreferenceSetRingtoneTypeCmd = &cobra.Command{
+	Use:   "set-ringtone-type",
+	Short: "SetRingtoneType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRingtonePreferenceServiceClient(grpcConn)
+		req := &pb.SetRingtoneTypeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetRingtoneType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var preferenceRingtonePreferenceSetShowDefaultCmd = &cobra.Command{
+	Use:   "set-show-default",
+	Short: "SetShowDefault RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRingtonePreferenceServiceClient(grpcConn)
+		req := &pb.SetShowDefaultRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetShowDefault(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var preferenceRingtonePreferenceSetShowSilentCmd = &cobra.Command{
+	Use:   "set-show-silent",
+	Short: "SetShowSilent RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRingtonePreferenceServiceClient(grpcConn)
+		req := &pb.SetShowSilentRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetShowSilent(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -2186,7 +2793,7 @@ var preferenceActivityHeaderGetTitleCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewActivityHeaderServiceClient(grpcConn)
-		req := &pb.GetTitleRequest{}
+		req := &pb.ActivityHeaderGetTitleRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
@@ -2431,6 +3038,1340 @@ var preferenceTwoStatePreferenceShouldDisableDependentsCmd = &cobra.Command{
 		client := pb.NewTwoStatePreferenceServiceClient(grpcConn)
 		req := &pb.TwoStatePreferenceShouldDisableDependentsRequest{}
 		resp, err := client.ShouldDisableDependents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var preferenceMultiSelectListPreferenceCmd = &cobra.Command{
+	Use:   "multi-select-list-preference",
+	Short: "MultiSelectListPreferenceService operations",
+}
+
+var preferenceMultiSelectListPreferenceNewMultiSelectListPreferenceCmd = &cobra.Command{
+	Use:   "new-multi-select-list-preference",
+	Short: "NewMultiSelectListPreference RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMultiSelectListPreferenceServiceClient(grpcConn)
+		req := &pb.NewMultiSelectListPreferenceRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.NewMultiSelectListPreference(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var preferenceMultiSelectListPreferenceFindIndexOfValueCmd = &cobra.Command{
+	Use:   "find-index-of-value",
+	Short: "FindIndexOfValue RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMultiSelectListPreferenceServiceClient(grpcConn)
+		req := &pb.FindIndexOfValueRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.FindIndexOfValue(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var preferenceMultiSelectListPreferenceGetEntriesCmd = &cobra.Command{
+	Use:   "get-entries",
+	Short: "GetEntries RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMultiSelectListPreferenceServiceClient(grpcConn)
+		req := &pb.GetEntriesRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetEntries(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var preferenceMultiSelectListPreferenceGetEntryValuesCmd = &cobra.Command{
+	Use:   "get-entry-values",
+	Short: "GetEntryValues RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMultiSelectListPreferenceServiceClient(grpcConn)
+		req := &pb.GetEntryValuesRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetEntryValues(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var preferenceMultiSelectListPreferenceGetValuesCmd = &cobra.Command{
+	Use:   "get-values",
+	Short: "GetValues RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMultiSelectListPreferenceServiceClient(grpcConn)
+		req := &pb.GetValuesRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetValues(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var preferenceMultiSelectListPreferenceSetEntries1Cmd = &cobra.Command{
+	Use:   "set-entries1",
+	Short: "SetEntries1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMultiSelectListPreferenceServiceClient(grpcConn)
+		req := &pb.SetEntries1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetEntries1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var preferenceMultiSelectListPreferenceSetEntries1_1Cmd = &cobra.Command{
+	Use:   "set-entries1_1",
+	Short: "SetEntries1_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMultiSelectListPreferenceServiceClient(grpcConn)
+		req := &pb.SetEntries1_1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetEntries1_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var preferenceMultiSelectListPreferenceSetEntryValues1Cmd = &cobra.Command{
+	Use:   "set-entry-values1",
+	Short: "SetEntryValues1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMultiSelectListPreferenceServiceClient(grpcConn)
+		req := &pb.SetEntryValues1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetEntryValues1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var preferenceMultiSelectListPreferenceSetEntryValues1_1Cmd = &cobra.Command{
+	Use:   "set-entry-values1_1",
+	Short: "SetEntryValues1_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMultiSelectListPreferenceServiceClient(grpcConn)
+		req := &pb.SetEntryValues1_1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetEntryValues1_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var preferenceEditTextPreferenceCmd = &cobra.Command{
+	Use:   "edit-text-preference",
+	Short: "EditTextPreferenceService operations",
+}
+
+var preferenceEditTextPreferenceNewEditTextPreferenceCmd = &cobra.Command{
+	Use:   "new-edit-text-preference",
+	Short: "NewEditTextPreference RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEditTextPreferenceServiceClient(grpcConn)
+		req := &pb.NewEditTextPreferenceRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.NewEditTextPreference(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var preferenceEditTextPreferenceGetEditTextCmd = &cobra.Command{
+	Use:   "get-edit-text",
+	Short: "GetEditText RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEditTextPreferenceServiceClient(grpcConn)
+		req := &pb.GetEditTextRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetEditText(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var preferenceEditTextPreferenceGetTextCmd = &cobra.Command{
+	Use:   "get-text",
+	Short: "GetText RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEditTextPreferenceServiceClient(grpcConn)
+		req := &pb.GetTextRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetText(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var preferenceEditTextPreferenceSetTextCmd = &cobra.Command{
+	Use:   "set-text",
+	Short: "SetText RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEditTextPreferenceServiceClient(grpcConn)
+		req := &pb.SetTextRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetText(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var preferenceEditTextPreferenceShouldDisableDependentsCmd = &cobra.Command{
+	Use:   "should-disable-dependents",
+	Short: "ShouldDisableDependents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEditTextPreferenceServiceClient(grpcConn)
+		req := &pb.ShouldDisableDependentsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.ShouldDisableDependents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var preferenceManagerCmd = &cobra.Command{
+	Use:   "manager",
+	Short: "ManagerService operations",
+}
+
+var preferenceManagerCreatePreferenceScreenCmd = &cobra.Command{
+	Use:   "create-preference-screen",
+	Short: "CreatePreferenceScreen RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerServiceClient(grpcConn)
+		req := &pb.CreatePreferenceScreenRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.CreatePreferenceScreen(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var preferenceManagerFindPreferenceCmd = &cobra.Command{
+	Use:   "find-preference",
+	Short: "FindPreference RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerServiceClient(grpcConn)
+		req := &pb.FindPreferenceRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.FindPreference(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var preferenceManagerGetPreferenceDataStoreCmd = &cobra.Command{
+	Use:   "get-preference-data-store",
+	Short: "GetPreferenceDataStore RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerServiceClient(grpcConn)
+		req := &pb.ManagerGetPreferenceDataStoreRequest{}
+		resp, err := client.GetPreferenceDataStore(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var preferenceManagerGetSharedPreferencesCmd = &cobra.Command{
+	Use:   "get-shared-preferences",
+	Short: "GetSharedPreferences RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerServiceClient(grpcConn)
+		req := &pb.ManagerGetSharedPreferencesRequest{}
+		resp, err := client.GetSharedPreferences(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var preferenceManagerGetSharedPreferencesModeCmd = &cobra.Command{
+	Use:   "get-shared-preferences-mode",
+	Short: "GetSharedPreferencesMode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerServiceClient(grpcConn)
+		req := &pb.GetSharedPreferencesModeRequest{}
+		resp, err := client.GetSharedPreferencesMode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var preferenceManagerGetSharedPreferencesNameCmd = &cobra.Command{
+	Use:   "get-shared-preferences-name",
+	Short: "GetSharedPreferencesName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerServiceClient(grpcConn)
+		req := &pb.GetSharedPreferencesNameRequest{}
+		resp, err := client.GetSharedPreferencesName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var preferenceManagerIsStorageDefaultCmd = &cobra.Command{
+	Use:   "is-storage-default",
+	Short: "IsStorageDefault RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerServiceClient(grpcConn)
+		req := &pb.IsStorageDefaultRequest{}
+		resp, err := client.IsStorageDefault(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var preferenceManagerIsStorageDeviceProtectedCmd = &cobra.Command{
+	Use:   "is-storage-device-protected",
+	Short: "IsStorageDeviceProtected RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerServiceClient(grpcConn)
+		req := &pb.IsStorageDeviceProtectedRequest{}
+		resp, err := client.IsStorageDeviceProtected(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var preferenceManagerSetPreferenceDataStoreCmd = &cobra.Command{
+	Use:   "set-preference-data-store",
+	Short: "SetPreferenceDataStore RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerServiceClient(grpcConn)
+		req := &pb.ManagerSetPreferenceDataStoreRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetPreferenceDataStore(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var preferenceManagerSetSharedPreferencesModeCmd = &cobra.Command{
+	Use:   "set-shared-preferences-mode",
+	Short: "SetSharedPreferencesMode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerServiceClient(grpcConn)
+		req := &pb.SetSharedPreferencesModeRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetSharedPreferencesMode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var preferenceManagerSetSharedPreferencesNameCmd = &cobra.Command{
+	Use:   "set-shared-preferences-name",
+	Short: "SetSharedPreferencesName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerServiceClient(grpcConn)
+		req := &pb.SetSharedPreferencesNameRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetSharedPreferencesName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var preferenceManagerSetStorageDefaultCmd = &cobra.Command{
+	Use:   "set-storage-default",
+	Short: "SetStorageDefault RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerServiceClient(grpcConn)
+		req := &pb.SetStorageDefaultRequest{}
+		resp, err := client.SetStorageDefault(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var preferenceManagerSetStorageDeviceProtectedCmd = &cobra.Command{
+	Use:   "set-storage-device-protected",
+	Short: "SetStorageDeviceProtected RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerServiceClient(grpcConn)
+		req := &pb.SetStorageDeviceProtectedRequest{}
+		resp, err := client.SetStorageDeviceProtected(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var preferenceManagerGetDefaultSharedPreferencesCmd = &cobra.Command{
+	Use:   "get-default-shared-preferences",
+	Short: "GetDefaultSharedPreferences RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerServiceClient(grpcConn)
+		req := &pb.GetDefaultSharedPreferencesRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetDefaultSharedPreferences(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var preferenceManagerGetDefaultSharedPreferencesNameCmd = &cobra.Command{
+	Use:   "get-default-shared-preferences-name",
+	Short: "GetDefaultSharedPreferencesName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerServiceClient(grpcConn)
+		req := &pb.GetDefaultSharedPreferencesNameRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetDefaultSharedPreferencesName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var preferenceManagerSetDefaultValues3Cmd = &cobra.Command{
+	Use:   "set-default-values3",
+	Short: "SetDefaultValues3 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerServiceClient(grpcConn)
+		req := &pb.SetDefaultValues3Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetBool("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.SetDefaultValues3(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var preferenceManagerSetDefaultValues5_1Cmd = &cobra.Command{
+	Use:   "set-default-values5_1",
+	Short: "SetDefaultValues5_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerServiceClient(grpcConn)
+		req := &pb.SetDefaultValues5_1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetBool("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		resp, err := client.SetDefaultValues5_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var preferenceManagerOnActivityDestroyListenerCmd = &cobra.Command{
+	Use:   "manager-on-activity-destroy-listener",
+	Short: "ManagerOnActivityDestroyListenerService operations",
+}
+
+var preferenceManagerOnActivityDestroyListenerOnActivityDestroyCmd = &cobra.Command{
+	Use:   "on-activity-destroy",
+	Short: "OnActivityDestroy RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerOnActivityDestroyListenerServiceClient(grpcConn)
+		req := &pb.OnActivityDestroyRequest{}
+		resp, err := client.OnActivityDestroy(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var preferenceManagerOnActivityResultListenerCmd = &cobra.Command{
+	Use:   "manager-on-activity-result-listener",
+	Short: "ManagerOnActivityResultListenerService operations",
+}
+
+var preferenceManagerOnActivityResultListenerOnActivityResultCmd = &cobra.Command{
+	Use:   "on-activity-result",
+	Short: "OnActivityResult RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerOnActivityResultListenerServiceClient(grpcConn)
+		req := &pb.OnActivityResultRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.OnActivityResult(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var preferenceManagerOnActivityStopListenerCmd = &cobra.Command{
+	Use:   "manager-on-activity-stop-listener",
+	Short: "ManagerOnActivityStopListenerService operations",
+}
+
+var preferenceManagerOnActivityStopListenerOnActivityStopCmd = &cobra.Command{
+	Use:   "on-activity-stop",
+	Short: "OnActivityStop RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerOnActivityStopListenerServiceClient(grpcConn)
+		req := &pb.OnActivityStopRequest{}
+		resp, err := client.OnActivityStop(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var preferenceListPreferenceCmd = &cobra.Command{
+	Use:   "list-preference",
+	Short: "ListPreferenceService operations",
+}
+
+var preferenceListPreferenceNewListPreferenceCmd = &cobra.Command{
+	Use:   "new-list-preference",
+	Short: "NewListPreference RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewListPreferenceServiceClient(grpcConn)
+		req := &pb.NewListPreferenceRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.NewListPreference(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var preferenceListPreferenceFindIndexOfValueCmd = &cobra.Command{
+	Use:   "find-index-of-value",
+	Short: "FindIndexOfValue RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewListPreferenceServiceClient(grpcConn)
+		req := &pb.FindIndexOfValueRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.FindIndexOfValue(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var preferenceListPreferenceGetEntriesCmd = &cobra.Command{
+	Use:   "get-entries",
+	Short: "GetEntries RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewListPreferenceServiceClient(grpcConn)
+		req := &pb.GetEntriesRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetEntries(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var preferenceListPreferenceGetEntryCmd = &cobra.Command{
+	Use:   "get-entry",
+	Short: "GetEntry RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewListPreferenceServiceClient(grpcConn)
+		req := &pb.GetEntryRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetEntry(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var preferenceListPreferenceGetEntryValuesCmd = &cobra.Command{
+	Use:   "get-entry-values",
+	Short: "GetEntryValues RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewListPreferenceServiceClient(grpcConn)
+		req := &pb.GetEntryValuesRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetEntryValues(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var preferenceListPreferenceGetSummaryCmd = &cobra.Command{
+	Use:   "get-summary",
+	Short: "GetSummary RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewListPreferenceServiceClient(grpcConn)
+		req := &pb.GetSummaryRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetSummary(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var preferenceListPreferenceGetValueCmd = &cobra.Command{
+	Use:   "get-value",
+	Short: "GetValue RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewListPreferenceServiceClient(grpcConn)
+		req := &pb.GetValueRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetValue(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var preferenceListPreferenceSetEntries1Cmd = &cobra.Command{
+	Use:   "set-entries1",
+	Short: "SetEntries1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewListPreferenceServiceClient(grpcConn)
+		req := &pb.SetEntries1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetEntries1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var preferenceListPreferenceSetEntries1_1Cmd = &cobra.Command{
+	Use:   "set-entries1_1",
+	Short: "SetEntries1_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewListPreferenceServiceClient(grpcConn)
+		req := &pb.SetEntries1_1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetEntries1_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var preferenceListPreferenceSetEntryValues1Cmd = &cobra.Command{
+	Use:   "set-entry-values1",
+	Short: "SetEntryValues1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewListPreferenceServiceClient(grpcConn)
+		req := &pb.SetEntryValues1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetEntryValues1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var preferenceListPreferenceSetEntryValues1_1Cmd = &cobra.Command{
+	Use:   "set-entry-values1_1",
+	Short: "SetEntryValues1_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewListPreferenceServiceClient(grpcConn)
+		req := &pb.SetEntryValues1_1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetEntryValues1_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var preferenceListPreferenceSetSummaryCmd = &cobra.Command{
+	Use:   "set-summary",
+	Short: "SetSummary RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewListPreferenceServiceClient(grpcConn)
+		req := &pb.SetSummaryRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetSummary(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var preferenceListPreferenceSetValueCmd = &cobra.Command{
+	Use:   "set-value",
+	Short: "SetValue RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewListPreferenceServiceClient(grpcConn)
+		req := &pb.SetValueRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetValue(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var preferenceListPreferenceSetValueIndexCmd = &cobra.Command{
+	Use:   "set-value-index",
+	Short: "SetValueIndex RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewListPreferenceServiceClient(grpcConn)
+		req := &pb.SetValueIndexRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetValueIndex(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var preferenceGroupCmd = &cobra.Command{
+	Use:   "group",
+	Short: "GroupService operations",
+}
+
+var preferenceGroupAddItemFromInflaterCmd = &cobra.Command{
+	Use:   "add-item-from-inflater",
+	Short: "AddItemFromInflater RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGroupServiceClient(grpcConn)
+		req := &pb.AddItemFromInflaterRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddItemFromInflater(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var preferenceGroupAddPreferenceCmd = &cobra.Command{
+	Use:   "add-preference",
+	Short: "AddPreference RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGroupServiceClient(grpcConn)
+		req := &pb.AddPreferenceRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddPreference(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var preferenceGroupFindPreferenceCmd = &cobra.Command{
+	Use:   "find-preference",
+	Short: "FindPreference RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGroupServiceClient(grpcConn)
+		req := &pb.FindPreferenceRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.FindPreference(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var preferenceGroupGetPreferenceCmd = &cobra.Command{
+	Use:   "get-preference",
+	Short: "GetPreference RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGroupServiceClient(grpcConn)
+		req := &pb.GetPreferenceRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetPreference(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var preferenceGroupGetPreferenceCountCmd = &cobra.Command{
+	Use:   "get-preference-count",
+	Short: "GetPreferenceCount RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGroupServiceClient(grpcConn)
+		req := &pb.GetPreferenceCountRequest{}
+		resp, err := client.GetPreferenceCount(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var preferenceGroupIsOrderingAsAddedCmd = &cobra.Command{
+	Use:   "is-ordering-as-added",
+	Short: "IsOrderingAsAdded RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGroupServiceClient(grpcConn)
+		req := &pb.IsOrderingAsAddedRequest{}
+		resp, err := client.IsOrderingAsAdded(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var preferenceGroupNotifyDependencyChangeCmd = &cobra.Command{
+	Use:   "notify-dependency-change",
+	Short: "NotifyDependencyChange RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGroupServiceClient(grpcConn)
+		req := &pb.GroupNotifyDependencyChangeRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.NotifyDependencyChange(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var preferenceGroupRemoveAllCmd = &cobra.Command{
+	Use:   "remove-all",
+	Short: "RemoveAll RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGroupServiceClient(grpcConn)
+		req := &pb.RemoveAllRequest{}
+		resp, err := client.RemoveAll(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var preferenceGroupRemovePreferenceCmd = &cobra.Command{
+	Use:   "remove-preference",
+	Short: "RemovePreference RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGroupServiceClient(grpcConn)
+		req := &pb.RemovePreferenceRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.RemovePreference(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var preferenceGroupSetOrderingAsAddedCmd = &cobra.Command{
+	Use:   "set-ordering-as-added",
+	Short: "SetOrderingAsAdded RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGroupServiceClient(grpcConn)
+		req := &pb.SetOrderingAsAddedRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetOrderingAsAdded(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var preferenceCategoryCmd = &cobra.Command{
+	Use:   "category",
+	Short: "CategoryService operations",
+}
+
+var preferenceCategoryNewCategoryCmd = &cobra.Command{
+	Use:   "new-category",
+	Short: "NewCategory RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCategoryServiceClient(grpcConn)
+		req := &pb.NewCategoryRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.NewCategory(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var preferenceCategoryIsEnabledCmd = &cobra.Command{
+	Use:   "is-enabled",
+	Short: "IsEnabled RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCategoryServiceClient(grpcConn)
+		req := &pb.IsEnabledRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.IsEnabled(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var preferenceCategoryShouldDisableDependentsCmd = &cobra.Command{
+	Use:   "should-disable-dependents",
+	Short: "ShouldDisableDependents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCategoryServiceClient(grpcConn)
+		req := &pb.ShouldDisableDependentsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.ShouldDisableDependents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var preferenceScreenCmd = &cobra.Command{
+	Use:   "screen",
+	Short: "ScreenService operations",
+}
+
+var preferenceScreenBindCmd = &cobra.Command{
+	Use:   "bind",
+	Short: "Bind RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewScreenServiceClient(grpcConn)
+		req := &pb.BindRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Bind(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var preferenceScreenGetDialogCmd = &cobra.Command{
+	Use:   "get-dialog",
+	Short: "GetDialog RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewScreenServiceClient(grpcConn)
+		req := &pb.GetDialogRequest{}
+		resp, err := client.GetDialog(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var preferenceScreenGetRootAdapterCmd = &cobra.Command{
+	Use:   "get-root-adapter",
+	Short: "GetRootAdapter RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewScreenServiceClient(grpcConn)
+		req := &pb.GetRootAdapterRequest{}
+		resp, err := client.GetRootAdapter(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var preferenceScreenOnDismissCmd = &cobra.Command{
+	Use:   "on-dismiss",
+	Short: "OnDismiss RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewScreenServiceClient(grpcConn)
+		req := &pb.OnDismissRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnDismiss(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var preferenceScreenOnItemClickCmd = &cobra.Command{
+	Use:   "on-item-click",
+	Short: "OnItemClick RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewScreenServiceClient(grpcConn)
+		req := &pb.OnItemClickRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.OnItemClick(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -2821,1928 +4762,6 @@ var preferenceDialogPreferenceSetPositiveButtonText1_1Cmd = &cobra.Command{
 	},
 }
 
-var preferenceScreenCmd = &cobra.Command{
-	Use:   "screen",
-	Short: "ScreenService operations",
-}
-
-var preferenceScreenBindCmd = &cobra.Command{
-	Use:   "bind",
-	Short: "Bind RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewScreenServiceClient(grpcConn)
-		req := &pb.BindRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Bind(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var preferenceScreenGetDialogCmd = &cobra.Command{
-	Use:   "get-dialog",
-	Short: "GetDialog RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewScreenServiceClient(grpcConn)
-		req := &pb.GetDialogRequest{}
-		resp, err := client.GetDialog(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var preferenceScreenGetRootAdapterCmd = &cobra.Command{
-	Use:   "get-root-adapter",
-	Short: "GetRootAdapter RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewScreenServiceClient(grpcConn)
-		req := &pb.GetRootAdapterRequest{}
-		resp, err := client.GetRootAdapter(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var preferenceScreenOnDismissCmd = &cobra.Command{
-	Use:   "on-dismiss",
-	Short: "OnDismiss RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewScreenServiceClient(grpcConn)
-		req := &pb.OnDismissRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.OnDismiss(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var preferenceScreenOnItemClickCmd = &cobra.Command{
-	Use:   "on-item-click",
-	Short: "OnItemClick RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewScreenServiceClient(grpcConn)
-		req := &pb.OnItemClickRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		resp, err := client.OnItemClick(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var preferenceGroupCmd = &cobra.Command{
-	Use:   "group",
-	Short: "GroupService operations",
-}
-
-var preferenceGroupAddItemFromInflaterCmd = &cobra.Command{
-	Use:   "add-item-from-inflater",
-	Short: "AddItemFromInflater RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewGroupServiceClient(grpcConn)
-		req := &pb.AddItemFromInflaterRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.AddItemFromInflater(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var preferenceGroupAddPreferenceCmd = &cobra.Command{
-	Use:   "add-preference",
-	Short: "AddPreference RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewGroupServiceClient(grpcConn)
-		req := &pb.AddPreferenceRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.AddPreference(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var preferenceGroupFindPreferenceCmd = &cobra.Command{
-	Use:   "find-preference",
-	Short: "FindPreference RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewGroupServiceClient(grpcConn)
-		req := &pb.FindPreferenceRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.FindPreference(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var preferenceGroupGetPreferenceCmd = &cobra.Command{
-	Use:   "get-preference",
-	Short: "GetPreference RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewGroupServiceClient(grpcConn)
-		req := &pb.GetPreferenceRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetPreference(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var preferenceGroupGetPreferenceCountCmd = &cobra.Command{
-	Use:   "get-preference-count",
-	Short: "GetPreferenceCount RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewGroupServiceClient(grpcConn)
-		req := &pb.GetPreferenceCountRequest{}
-		resp, err := client.GetPreferenceCount(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var preferenceGroupIsOrderingAsAddedCmd = &cobra.Command{
-	Use:   "is-ordering-as-added",
-	Short: "IsOrderingAsAdded RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewGroupServiceClient(grpcConn)
-		req := &pb.IsOrderingAsAddedRequest{}
-		resp, err := client.IsOrderingAsAdded(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var preferenceGroupNotifyDependencyChangeCmd = &cobra.Command{
-	Use:   "notify-dependency-change",
-	Short: "NotifyDependencyChange RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewGroupServiceClient(grpcConn)
-		req := &pb.NotifyDependencyChangeRequest{}
-		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.NotifyDependencyChange(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var preferenceGroupRemoveAllCmd = &cobra.Command{
-	Use:   "remove-all",
-	Short: "RemoveAll RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewGroupServiceClient(grpcConn)
-		req := &pb.RemoveAllRequest{}
-		resp, err := client.RemoveAll(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var preferenceGroupRemovePreferenceCmd = &cobra.Command{
-	Use:   "remove-preference",
-	Short: "RemovePreference RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewGroupServiceClient(grpcConn)
-		req := &pb.RemovePreferenceRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.RemovePreference(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var preferenceGroupSetOrderingAsAddedCmd = &cobra.Command{
-	Use:   "set-ordering-as-added",
-	Short: "SetOrderingAsAdded RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewGroupServiceClient(grpcConn)
-		req := &pb.SetOrderingAsAddedRequest{}
-		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetOrderingAsAdded(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var preferenceRingtonePreferenceCmd = &cobra.Command{
-	Use:   "ringtone-preference",
-	Short: "RingtonePreferenceService operations",
-}
-
-var preferenceRingtonePreferenceNewRingtonePreferenceCmd = &cobra.Command{
-	Use:   "new-ringtone-preference",
-	Short: "NewRingtonePreference RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRingtonePreferenceServiceClient(grpcConn)
-		req := &pb.NewRingtonePreferenceRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.NewRingtonePreference(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var preferenceRingtonePreferenceGetRingtoneTypeCmd = &cobra.Command{
-	Use:   "get-ringtone-type",
-	Short: "GetRingtoneType RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRingtonePreferenceServiceClient(grpcConn)
-		req := &pb.GetRingtoneTypeRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetRingtoneType(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var preferenceRingtonePreferenceGetShowDefaultCmd = &cobra.Command{
-	Use:   "get-show-default",
-	Short: "GetShowDefault RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRingtonePreferenceServiceClient(grpcConn)
-		req := &pb.GetShowDefaultRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetShowDefault(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var preferenceRingtonePreferenceGetShowSilentCmd = &cobra.Command{
-	Use:   "get-show-silent",
-	Short: "GetShowSilent RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRingtonePreferenceServiceClient(grpcConn)
-		req := &pb.GetShowSilentRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetShowSilent(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var preferenceRingtonePreferenceOnActivityResultCmd = &cobra.Command{
-	Use:   "on-activity-result",
-	Short: "OnActivityResult RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRingtonePreferenceServiceClient(grpcConn)
-		req := &pb.RingtonePreferenceOnActivityResultRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.OnActivityResult(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var preferenceRingtonePreferenceSetRingtoneTypeCmd = &cobra.Command{
-	Use:   "set-ringtone-type",
-	Short: "SetRingtoneType RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRingtonePreferenceServiceClient(grpcConn)
-		req := &pb.SetRingtoneTypeRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetRingtoneType(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var preferenceRingtonePreferenceSetShowDefaultCmd = &cobra.Command{
-	Use:   "set-show-default",
-	Short: "SetShowDefault RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRingtonePreferenceServiceClient(grpcConn)
-		req := &pb.SetShowDefaultRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetShowDefault(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var preferenceRingtonePreferenceSetShowSilentCmd = &cobra.Command{
-	Use:   "set-show-silent",
-	Short: "SetShowSilent RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRingtonePreferenceServiceClient(grpcConn)
-		req := &pb.SetShowSilentRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetShowSilent(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var preferencePreferenceCmd = &cobra.Command{
-	Use:   "preference",
-	Short: "PreferenceService operations",
-}
-
-var preferencePreferenceNewPreferenceCmd = &cobra.Command{
-	Use:   "new-preference",
-	Short: "NewPreference RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPreferenceServiceClient(grpcConn)
-		req := &pb.NewPreferenceRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.NewPreference(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var preferencePreferenceCompareTo1Cmd = &cobra.Command{
-	Use:   "compare-to1",
-	Short: "CompareTo1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPreferenceServiceClient(grpcConn)
-		req := &pb.CompareTo1Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.CompareTo1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var preferencePreferenceGetContextCmd = &cobra.Command{
-	Use:   "get-context",
-	Short: "GetContext RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPreferenceServiceClient(grpcConn)
-		req := &pb.GetContextRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetContext(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var preferencePreferenceGetDependencyCmd = &cobra.Command{
-	Use:   "get-dependency",
-	Short: "GetDependency RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPreferenceServiceClient(grpcConn)
-		req := &pb.GetDependencyRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetDependency(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var preferencePreferenceGetEditorCmd = &cobra.Command{
-	Use:   "get-editor",
-	Short: "GetEditor RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPreferenceServiceClient(grpcConn)
-		req := &pb.GetEditorRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetEditor(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var preferencePreferenceGetExtrasCmd = &cobra.Command{
-	Use:   "get-extras",
-	Short: "GetExtras RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPreferenceServiceClient(grpcConn)
-		req := &pb.GetExtrasRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetExtras(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var preferencePreferenceGetFragmentCmd = &cobra.Command{
-	Use:   "get-fragment",
-	Short: "GetFragment RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPreferenceServiceClient(grpcConn)
-		req := &pb.GetFragmentRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetFragment(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var preferencePreferenceGetIconCmd = &cobra.Command{
-	Use:   "get-icon",
-	Short: "GetIcon RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPreferenceServiceClient(grpcConn)
-		req := &pb.GetIconRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetIcon(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var preferencePreferenceGetIntentCmd = &cobra.Command{
-	Use:   "get-intent",
-	Short: "GetIntent RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPreferenceServiceClient(grpcConn)
-		req := &pb.GetIntentRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetIntent(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var preferencePreferenceGetKeyCmd = &cobra.Command{
-	Use:   "get-key",
-	Short: "GetKey RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPreferenceServiceClient(grpcConn)
-		req := &pb.GetKeyRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetKey(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var preferencePreferenceGetLayoutResourceCmd = &cobra.Command{
-	Use:   "get-layout-resource",
-	Short: "GetLayoutResource RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPreferenceServiceClient(grpcConn)
-		req := &pb.GetLayoutResourceRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetLayoutResource(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var preferencePreferenceGetOnPreferenceChangeListenerCmd = &cobra.Command{
-	Use:   "get-on-preference-change-listener",
-	Short: "GetOnPreferenceChangeListener RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPreferenceServiceClient(grpcConn)
-		req := &pb.GetOnPreferenceChangeListenerRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetOnPreferenceChangeListener(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var preferencePreferenceGetOnPreferenceClickListenerCmd = &cobra.Command{
-	Use:   "get-on-preference-click-listener",
-	Short: "GetOnPreferenceClickListener RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPreferenceServiceClient(grpcConn)
-		req := &pb.GetOnPreferenceClickListenerRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetOnPreferenceClickListener(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var preferencePreferenceGetOrderCmd = &cobra.Command{
-	Use:   "get-order",
-	Short: "GetOrder RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPreferenceServiceClient(grpcConn)
-		req := &pb.GetOrderRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetOrder(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var preferencePreferenceGetParentCmd = &cobra.Command{
-	Use:   "get-parent",
-	Short: "GetParent RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPreferenceServiceClient(grpcConn)
-		req := &pb.GetParentRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetParent(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var preferencePreferenceGetPreferenceDataStoreCmd = &cobra.Command{
-	Use:   "get-preference-data-store",
-	Short: "GetPreferenceDataStore RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPreferenceServiceClient(grpcConn)
-		req := &pb.PreferenceGetPreferenceDataStoreRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetPreferenceDataStore(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var preferencePreferenceGetPreferenceManagerCmd = &cobra.Command{
-	Use:   "get-preference-manager",
-	Short: "GetPreferenceManager RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPreferenceServiceClient(grpcConn)
-		req := &pb.PreferenceGetPreferenceManagerRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetPreferenceManager(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var preferencePreferenceGetSharedPreferencesCmd = &cobra.Command{
-	Use:   "get-shared-preferences",
-	Short: "GetSharedPreferences RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPreferenceServiceClient(grpcConn)
-		req := &pb.PreferenceGetSharedPreferencesRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetSharedPreferences(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var preferencePreferenceGetShouldDisableViewCmd = &cobra.Command{
-	Use:   "get-should-disable-view",
-	Short: "GetShouldDisableView RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPreferenceServiceClient(grpcConn)
-		req := &pb.GetShouldDisableViewRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetShouldDisableView(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var preferencePreferenceGetSummaryCmd = &cobra.Command{
-	Use:   "get-summary",
-	Short: "GetSummary RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPreferenceServiceClient(grpcConn)
-		req := &pb.GetSummaryRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetSummary(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var preferencePreferenceGetTitleCmd = &cobra.Command{
-	Use:   "get-title",
-	Short: "GetTitle RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPreferenceServiceClient(grpcConn)
-		req := &pb.PreferenceGetTitleRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetTitle(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var preferencePreferenceGetTitleResCmd = &cobra.Command{
-	Use:   "get-title-res",
-	Short: "GetTitleRes RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPreferenceServiceClient(grpcConn)
-		req := &pb.GetTitleResRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetTitleRes(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var preferencePreferenceGetViewCmd = &cobra.Command{
-	Use:   "get-view",
-	Short: "GetView RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPreferenceServiceClient(grpcConn)
-		req := &pb.GetViewRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.GetView(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var preferencePreferenceGetWidgetLayoutResourceCmd = &cobra.Command{
-	Use:   "get-widget-layout-resource",
-	Short: "GetWidgetLayoutResource RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPreferenceServiceClient(grpcConn)
-		req := &pb.GetWidgetLayoutResourceRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetWidgetLayoutResource(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var preferencePreferenceHasKeyCmd = &cobra.Command{
-	Use:   "has-key",
-	Short: "HasKey RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPreferenceServiceClient(grpcConn)
-		req := &pb.HasKeyRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.HasKey(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var preferencePreferenceIsEnabledCmd = &cobra.Command{
-	Use:   "is-enabled",
-	Short: "IsEnabled RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPreferenceServiceClient(grpcConn)
-		req := &pb.IsEnabledRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.IsEnabled(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var preferencePreferenceIsIconSpaceReservedCmd = &cobra.Command{
-	Use:   "is-icon-space-reserved",
-	Short: "IsIconSpaceReserved RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPreferenceServiceClient(grpcConn)
-		req := &pb.IsIconSpaceReservedRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.IsIconSpaceReserved(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var preferencePreferenceIsPersistentCmd = &cobra.Command{
-	Use:   "is-persistent",
-	Short: "IsPersistent RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPreferenceServiceClient(grpcConn)
-		req := &pb.IsPersistentRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.IsPersistent(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var preferencePreferenceIsRecycleEnabledCmd = &cobra.Command{
-	Use:   "is-recycle-enabled",
-	Short: "IsRecycleEnabled RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPreferenceServiceClient(grpcConn)
-		req := &pb.IsRecycleEnabledRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.IsRecycleEnabled(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var preferencePreferenceIsSelectableCmd = &cobra.Command{
-	Use:   "is-selectable",
-	Short: "IsSelectable RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPreferenceServiceClient(grpcConn)
-		req := &pb.IsSelectableRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.IsSelectable(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var preferencePreferenceIsSingleLineTitleCmd = &cobra.Command{
-	Use:   "is-single-line-title",
-	Short: "IsSingleLineTitle RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPreferenceServiceClient(grpcConn)
-		req := &pb.IsSingleLineTitleRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.IsSingleLineTitle(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var preferencePreferenceNotifyDependencyChangeCmd = &cobra.Command{
-	Use:   "notify-dependency-change",
-	Short: "NotifyDependencyChange RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPreferenceServiceClient(grpcConn)
-		req := &pb.PreferenceNotifyDependencyChangeRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.NotifyDependencyChange(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var preferencePreferenceOnDependencyChangedCmd = &cobra.Command{
-	Use:   "on-dependency-changed",
-	Short: "OnDependencyChanged RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPreferenceServiceClient(grpcConn)
-		req := &pb.OnDependencyChangedRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetBool("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.OnDependencyChanged(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var preferencePreferenceOnParentChangedCmd = &cobra.Command{
-	Use:   "on-parent-changed",
-	Short: "OnParentChanged RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPreferenceServiceClient(grpcConn)
-		req := &pb.OnParentChangedRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetBool("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.OnParentChanged(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var preferencePreferencePeekExtrasCmd = &cobra.Command{
-	Use:   "peek-extras",
-	Short: "PeekExtras RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPreferenceServiceClient(grpcConn)
-		req := &pb.PeekExtrasRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.PeekExtras(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var preferencePreferenceRestoreHierarchyStateCmd = &cobra.Command{
-	Use:   "restore-hierarchy-state",
-	Short: "RestoreHierarchyState RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPreferenceServiceClient(grpcConn)
-		req := &pb.RestoreHierarchyStateRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.RestoreHierarchyState(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var preferencePreferenceSaveHierarchyStateCmd = &cobra.Command{
-	Use:   "save-hierarchy-state",
-	Short: "SaveHierarchyState RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPreferenceServiceClient(grpcConn)
-		req := &pb.SaveHierarchyStateRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SaveHierarchyState(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var preferencePreferenceSetDefaultValueCmd = &cobra.Command{
-	Use:   "set-default-value",
-	Short: "SetDefaultValue RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPreferenceServiceClient(grpcConn)
-		req := &pb.SetDefaultValueRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetDefaultValue(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var preferencePreferenceSetDependencyCmd = &cobra.Command{
-	Use:   "set-dependency",
-	Short: "SetDependency RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPreferenceServiceClient(grpcConn)
-		req := &pb.SetDependencyRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetDependency(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var preferencePreferenceSetEnabledCmd = &cobra.Command{
-	Use:   "set-enabled",
-	Short: "SetEnabled RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPreferenceServiceClient(grpcConn)
-		req := &pb.SetEnabledRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetEnabled(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var preferencePreferenceSetFragmentCmd = &cobra.Command{
-	Use:   "set-fragment",
-	Short: "SetFragment RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPreferenceServiceClient(grpcConn)
-		req := &pb.SetFragmentRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetFragment(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var preferencePreferenceSetIcon1Cmd = &cobra.Command{
-	Use:   "set-icon1",
-	Short: "SetIcon1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPreferenceServiceClient(grpcConn)
-		req := &pb.SetIcon1Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetIcon1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var preferencePreferenceSetIcon1_1Cmd = &cobra.Command{
-	Use:   "set-icon1_1",
-	Short: "SetIcon1_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPreferenceServiceClient(grpcConn)
-		req := &pb.SetIcon1_1Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetIcon1_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var preferencePreferenceSetIconSpaceReservedCmd = &cobra.Command{
-	Use:   "set-icon-space-reserved",
-	Short: "SetIconSpaceReserved RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPreferenceServiceClient(grpcConn)
-		req := &pb.SetIconSpaceReservedRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetIconSpaceReserved(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var preferencePreferenceSetIntentCmd = &cobra.Command{
-	Use:   "set-intent",
-	Short: "SetIntent RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPreferenceServiceClient(grpcConn)
-		req := &pb.SetIntentRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetIntent(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var preferencePreferenceSetKeyCmd = &cobra.Command{
-	Use:   "set-key",
-	Short: "SetKey RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPreferenceServiceClient(grpcConn)
-		req := &pb.SetKeyRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetKey(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var preferencePreferenceSetLayoutResourceCmd = &cobra.Command{
-	Use:   "set-layout-resource",
-	Short: "SetLayoutResource RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPreferenceServiceClient(grpcConn)
-		req := &pb.SetLayoutResourceRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetLayoutResource(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var preferencePreferenceSetOnPreferenceChangeListenerCmd = &cobra.Command{
-	Use:   "set-on-preference-change-listener",
-	Short: "SetOnPreferenceChangeListener RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPreferenceServiceClient(grpcConn)
-		req := &pb.SetOnPreferenceChangeListenerRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetOnPreferenceChangeListener(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var preferencePreferenceSetOnPreferenceClickListenerCmd = &cobra.Command{
-	Use:   "set-on-preference-click-listener",
-	Short: "SetOnPreferenceClickListener RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPreferenceServiceClient(grpcConn)
-		req := &pb.SetOnPreferenceClickListenerRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetOnPreferenceClickListener(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var preferencePreferenceSetOrderCmd = &cobra.Command{
-	Use:   "set-order",
-	Short: "SetOrder RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPreferenceServiceClient(grpcConn)
-		req := &pb.SetOrderRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetOrder(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var preferencePreferenceSetPersistentCmd = &cobra.Command{
-	Use:   "set-persistent",
-	Short: "SetPersistent RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPreferenceServiceClient(grpcConn)
-		req := &pb.SetPersistentRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetPersistent(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var preferencePreferenceSetPreferenceDataStoreCmd = &cobra.Command{
-	Use:   "set-preference-data-store",
-	Short: "SetPreferenceDataStore RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPreferenceServiceClient(grpcConn)
-		req := &pb.PreferenceSetPreferenceDataStoreRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetPreferenceDataStore(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var preferencePreferenceSetRecycleEnabledCmd = &cobra.Command{
-	Use:   "set-recycle-enabled",
-	Short: "SetRecycleEnabled RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPreferenceServiceClient(grpcConn)
-		req := &pb.SetRecycleEnabledRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetRecycleEnabled(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var preferencePreferenceSetSelectableCmd = &cobra.Command{
-	Use:   "set-selectable",
-	Short: "SetSelectable RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPreferenceServiceClient(grpcConn)
-		req := &pb.SetSelectableRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetSelectable(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var preferencePreferenceSetShouldDisableViewCmd = &cobra.Command{
-	Use:   "set-should-disable-view",
-	Short: "SetShouldDisableView RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPreferenceServiceClient(grpcConn)
-		req := &pb.SetShouldDisableViewRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetShouldDisableView(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var preferencePreferenceSetSingleLineTitleCmd = &cobra.Command{
-	Use:   "set-single-line-title",
-	Short: "SetSingleLineTitle RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPreferenceServiceClient(grpcConn)
-		req := &pb.SetSingleLineTitleRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetSingleLineTitle(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var preferencePreferenceSetSummary1Cmd = &cobra.Command{
-	Use:   "set-summary1",
-	Short: "SetSummary1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPreferenceServiceClient(grpcConn)
-		req := &pb.SetSummary1Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetSummary1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var preferencePreferenceSetSummary1_1Cmd = &cobra.Command{
-	Use:   "set-summary1_1",
-	Short: "SetSummary1_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPreferenceServiceClient(grpcConn)
-		req := &pb.SetSummary1_1Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetSummary1_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var preferencePreferenceSetTitle1Cmd = &cobra.Command{
-	Use:   "set-title1",
-	Short: "SetTitle1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPreferenceServiceClient(grpcConn)
-		req := &pb.SetTitle1Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetTitle1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var preferencePreferenceSetTitle1_1Cmd = &cobra.Command{
-	Use:   "set-title1_1",
-	Short: "SetTitle1_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPreferenceServiceClient(grpcConn)
-		req := &pb.SetTitle1_1Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetTitle1_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var preferencePreferenceSetWidgetLayoutResourceCmd = &cobra.Command{
-	Use:   "set-widget-layout-resource",
-	Short: "SetWidgetLayoutResource RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPreferenceServiceClient(grpcConn)
-		req := &pb.SetWidgetLayoutResourceRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetWidgetLayoutResource(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var preferencePreferenceShouldCommitCmd = &cobra.Command{
-	Use:   "should-commit",
-	Short: "ShouldCommit RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPreferenceServiceClient(grpcConn)
-		req := &pb.ShouldCommitRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.ShouldCommit(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var preferencePreferenceShouldDisableDependentsCmd = &cobra.Command{
-	Use:   "should-disable-dependents",
-	Short: "ShouldDisableDependents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPreferenceServiceClient(grpcConn)
-		req := &pb.ShouldDisableDependentsRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.ShouldDisableDependents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var preferencePreferenceToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPreferenceServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var preferencePreferenceCompareTo1_1Cmd = &cobra.Command{
-	Use:   "compare-to1_1",
-	Short: "CompareTo1_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPreferenceServiceClient(grpcConn)
-		req := &pb.CompareTo1_1Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.CompareTo1_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var preferenceOnPreferenceChangeListenerCmd = &cobra.Command{
-	Use:   "on-preference-change-listener",
-	Short: "OnPreferenceChangeListenerService operations",
-}
-
-var preferenceOnPreferenceChangeListenerOnPreferenceChangeCmd = &cobra.Command{
-	Use:   "on-preference-change",
-	Short: "OnPreferenceChange RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewOnPreferenceChangeListenerServiceClient(grpcConn)
-		req := &pb.OnPreferenceChangeRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.OnPreferenceChange(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var preferenceOnPreferenceClickListenerCmd = &cobra.Command{
-	Use:   "on-preference-click-listener",
-	Short: "OnPreferenceClickListenerService operations",
-}
-
-var preferenceOnPreferenceClickListenerOnPreferenceClickCmd = &cobra.Command{
-	Use:   "on-preference-click",
-	Short: "OnPreferenceClick RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewOnPreferenceClickListenerServiceClient(grpcConn)
-		req := &pb.OnPreferenceClickRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.OnPreferenceClick(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var preferenceCategoryCmd = &cobra.Command{
-	Use:   "category",
-	Short: "CategoryService operations",
-}
-
-var preferenceCategoryNewCategoryCmd = &cobra.Command{
-	Use:   "new-category",
-	Short: "NewCategory RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCategoryServiceClient(grpcConn)
-		req := &pb.NewCategoryRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.NewCategory(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var preferenceCategoryIsEnabledCmd = &cobra.Command{
-	Use:   "is-enabled",
-	Short: "IsEnabled RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCategoryServiceClient(grpcConn)
-		req := &pb.IsEnabledRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.IsEnabled(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var preferenceCategoryShouldDisableDependentsCmd = &cobra.Command{
-	Use:   "should-disable-dependents",
-	Short: "ShouldDisableDependents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCategoryServiceClient(grpcConn)
-		req := &pb.ShouldDisableDependentsRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.ShouldDisableDependents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
 func init() {
 	preferenceFragmentAddPreferencesFromIntentCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	preferenceFragmentCmd.AddCommand(preferenceFragmentAddPreferencesFromIntentCmd)
@@ -4783,70 +4802,6 @@ func init() {
 	preferenceFragmentOnPreferenceStartFragmentCallbackOnPreferenceStartFragmentCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
 	preferenceFragmentOnPreferenceStartFragmentCallbackCmd.AddCommand(preferenceFragmentOnPreferenceStartFragmentCallbackOnPreferenceStartFragmentCmd)
 	preferenceCmd.AddCommand(preferenceFragmentOnPreferenceStartFragmentCallbackCmd)
-	preferenceMultiSelectListPreferenceNewMultiSelectListPreferenceCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	preferenceMultiSelectListPreferenceCmd.AddCommand(preferenceMultiSelectListPreferenceNewMultiSelectListPreferenceCmd)
-	preferenceMultiSelectListPreferenceFindIndexOfValueCmd.Flags().Int64("handle", 0, "handle (int64)")
-	preferenceMultiSelectListPreferenceFindIndexOfValueCmd.Flags().String("arg0", "", "arg0 (string)")
-	preferenceMultiSelectListPreferenceCmd.AddCommand(preferenceMultiSelectListPreferenceFindIndexOfValueCmd)
-	preferenceMultiSelectListPreferenceGetEntriesCmd.Flags().Int64("handle", 0, "handle (int64)")
-	preferenceMultiSelectListPreferenceCmd.AddCommand(preferenceMultiSelectListPreferenceGetEntriesCmd)
-	preferenceMultiSelectListPreferenceGetEntryValuesCmd.Flags().Int64("handle", 0, "handle (int64)")
-	preferenceMultiSelectListPreferenceCmd.AddCommand(preferenceMultiSelectListPreferenceGetEntryValuesCmd)
-	preferenceMultiSelectListPreferenceSetEntries1Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	preferenceMultiSelectListPreferenceSetEntries1Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	preferenceMultiSelectListPreferenceCmd.AddCommand(preferenceMultiSelectListPreferenceSetEntries1Cmd)
-	preferenceMultiSelectListPreferenceSetEntries1_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	preferenceMultiSelectListPreferenceSetEntries1_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	preferenceMultiSelectListPreferenceCmd.AddCommand(preferenceMultiSelectListPreferenceSetEntries1_1Cmd)
-	preferenceMultiSelectListPreferenceSetEntryValues1Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	preferenceMultiSelectListPreferenceSetEntryValues1Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	preferenceMultiSelectListPreferenceCmd.AddCommand(preferenceMultiSelectListPreferenceSetEntryValues1Cmd)
-	preferenceMultiSelectListPreferenceSetEntryValues1_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	preferenceMultiSelectListPreferenceSetEntryValues1_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	preferenceMultiSelectListPreferenceCmd.AddCommand(preferenceMultiSelectListPreferenceSetEntryValues1_1Cmd)
-	preferenceCmd.AddCommand(preferenceMultiSelectListPreferenceCmd)
-	preferenceManagerCreatePreferenceScreenCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	preferenceManagerCmd.AddCommand(preferenceManagerCreatePreferenceScreenCmd)
-	preferenceManagerFindPreferenceCmd.Flags().String("arg0", "", "arg0 (string)")
-	preferenceManagerCmd.AddCommand(preferenceManagerFindPreferenceCmd)
-	preferenceManagerCmd.AddCommand(preferenceManagerGetPreferenceDataStoreCmd)
-	preferenceManagerCmd.AddCommand(preferenceManagerGetSharedPreferencesCmd)
-	preferenceManagerCmd.AddCommand(preferenceManagerGetSharedPreferencesModeCmd)
-	preferenceManagerCmd.AddCommand(preferenceManagerGetSharedPreferencesNameCmd)
-	preferenceManagerCmd.AddCommand(preferenceManagerIsStorageDefaultCmd)
-	preferenceManagerCmd.AddCommand(preferenceManagerIsStorageDeviceProtectedCmd)
-	preferenceManagerSetPreferenceDataStoreCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	preferenceManagerCmd.AddCommand(preferenceManagerSetPreferenceDataStoreCmd)
-	preferenceManagerSetSharedPreferencesModeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	preferenceManagerCmd.AddCommand(preferenceManagerSetSharedPreferencesModeCmd)
-	preferenceManagerSetSharedPreferencesNameCmd.Flags().String("arg0", "", "arg0 (string)")
-	preferenceManagerCmd.AddCommand(preferenceManagerSetSharedPreferencesNameCmd)
-	preferenceManagerCmd.AddCommand(preferenceManagerSetStorageDefaultCmd)
-	preferenceManagerCmd.AddCommand(preferenceManagerSetStorageDeviceProtectedCmd)
-	preferenceManagerGetDefaultSharedPreferencesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	preferenceManagerCmd.AddCommand(preferenceManagerGetDefaultSharedPreferencesCmd)
-	preferenceManagerGetDefaultSharedPreferencesNameCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	preferenceManagerCmd.AddCommand(preferenceManagerGetDefaultSharedPreferencesNameCmd)
-	preferenceManagerSetDefaultValues3Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	preferenceManagerSetDefaultValues3Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	preferenceManagerSetDefaultValues3Cmd.Flags().Bool("arg2", false, "arg2 (bool)")
-	preferenceManagerCmd.AddCommand(preferenceManagerSetDefaultValues3Cmd)
-	preferenceManagerSetDefaultValues5_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	preferenceManagerSetDefaultValues5_1Cmd.Flags().String("arg1", "", "arg1 (string)")
-	preferenceManagerSetDefaultValues5_1Cmd.Flags().Int32("arg2", 0, "arg2 (int32)")
-	preferenceManagerSetDefaultValues5_1Cmd.Flags().Int32("arg3", 0, "arg3 (int32)")
-	preferenceManagerSetDefaultValues5_1Cmd.Flags().Bool("arg4", false, "arg4 (bool)")
-	preferenceManagerCmd.AddCommand(preferenceManagerSetDefaultValues5_1Cmd)
-	preferenceCmd.AddCommand(preferenceManagerCmd)
-	preferenceManagerOnActivityDestroyListenerCmd.AddCommand(preferenceManagerOnActivityDestroyListenerOnActivityDestroyCmd)
-	preferenceCmd.AddCommand(preferenceManagerOnActivityDestroyListenerCmd)
-	preferenceManagerOnActivityResultListenerOnActivityResultCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	preferenceManagerOnActivityResultListenerOnActivityResultCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	preferenceManagerOnActivityResultListenerOnActivityResultCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	preferenceManagerOnActivityResultListenerCmd.AddCommand(preferenceManagerOnActivityResultListenerOnActivityResultCmd)
-	preferenceCmd.AddCommand(preferenceManagerOnActivityResultListenerCmd)
-	preferenceManagerOnActivityStopListenerCmd.AddCommand(preferenceManagerOnActivityStopListenerOnActivityStopCmd)
-	preferenceCmd.AddCommand(preferenceManagerOnActivityStopListenerCmd)
 	preferenceSwitchPreferenceNewSwitchPreferenceCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	preferenceSwitchPreferenceCmd.AddCommand(preferenceSwitchPreferenceNewSwitchPreferenceCmd)
 	preferenceSwitchPreferenceGetSwitchTextOffCmd.Flags().Int64("handle", 0, "handle (int64)")
@@ -4866,253 +4821,6 @@ func init() {
 	preferenceSwitchPreferenceSetSwitchTextOn1_1Cmd.Flags().String("arg0", "", "arg0 (string)")
 	preferenceSwitchPreferenceCmd.AddCommand(preferenceSwitchPreferenceSetSwitchTextOn1_1Cmd)
 	preferenceCmd.AddCommand(preferenceSwitchPreferenceCmd)
-	preferenceEditTextPreferenceNewEditTextPreferenceCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	preferenceEditTextPreferenceCmd.AddCommand(preferenceEditTextPreferenceNewEditTextPreferenceCmd)
-	preferenceEditTextPreferenceGetEditTextCmd.Flags().Int64("handle", 0, "handle (int64)")
-	preferenceEditTextPreferenceCmd.AddCommand(preferenceEditTextPreferenceGetEditTextCmd)
-	preferenceEditTextPreferenceGetTextCmd.Flags().Int64("handle", 0, "handle (int64)")
-	preferenceEditTextPreferenceCmd.AddCommand(preferenceEditTextPreferenceGetTextCmd)
-	preferenceEditTextPreferenceSetTextCmd.Flags().Int64("handle", 0, "handle (int64)")
-	preferenceEditTextPreferenceSetTextCmd.Flags().String("arg0", "", "arg0 (string)")
-	preferenceEditTextPreferenceCmd.AddCommand(preferenceEditTextPreferenceSetTextCmd)
-	preferenceEditTextPreferenceShouldDisableDependentsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	preferenceEditTextPreferenceCmd.AddCommand(preferenceEditTextPreferenceShouldDisableDependentsCmd)
-	preferenceCmd.AddCommand(preferenceEditTextPreferenceCmd)
-	preferenceListPreferenceNewListPreferenceCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	preferenceListPreferenceCmd.AddCommand(preferenceListPreferenceNewListPreferenceCmd)
-	preferenceListPreferenceFindIndexOfValueCmd.Flags().Int64("handle", 0, "handle (int64)")
-	preferenceListPreferenceFindIndexOfValueCmd.Flags().String("arg0", "", "arg0 (string)")
-	preferenceListPreferenceCmd.AddCommand(preferenceListPreferenceFindIndexOfValueCmd)
-	preferenceListPreferenceGetEntriesCmd.Flags().Int64("handle", 0, "handle (int64)")
-	preferenceListPreferenceCmd.AddCommand(preferenceListPreferenceGetEntriesCmd)
-	preferenceListPreferenceGetEntryCmd.Flags().Int64("handle", 0, "handle (int64)")
-	preferenceListPreferenceCmd.AddCommand(preferenceListPreferenceGetEntryCmd)
-	preferenceListPreferenceGetEntryValuesCmd.Flags().Int64("handle", 0, "handle (int64)")
-	preferenceListPreferenceCmd.AddCommand(preferenceListPreferenceGetEntryValuesCmd)
-	preferenceListPreferenceGetSummaryCmd.Flags().Int64("handle", 0, "handle (int64)")
-	preferenceListPreferenceCmd.AddCommand(preferenceListPreferenceGetSummaryCmd)
-	preferenceListPreferenceGetValueCmd.Flags().Int64("handle", 0, "handle (int64)")
-	preferenceListPreferenceCmd.AddCommand(preferenceListPreferenceGetValueCmd)
-	preferenceListPreferenceSetEntries1Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	preferenceListPreferenceSetEntries1Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	preferenceListPreferenceCmd.AddCommand(preferenceListPreferenceSetEntries1Cmd)
-	preferenceListPreferenceSetEntries1_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	preferenceListPreferenceSetEntries1_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	preferenceListPreferenceCmd.AddCommand(preferenceListPreferenceSetEntries1_1Cmd)
-	preferenceListPreferenceSetEntryValues1Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	preferenceListPreferenceSetEntryValues1Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	preferenceListPreferenceCmd.AddCommand(preferenceListPreferenceSetEntryValues1Cmd)
-	preferenceListPreferenceSetEntryValues1_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	preferenceListPreferenceSetEntryValues1_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	preferenceListPreferenceCmd.AddCommand(preferenceListPreferenceSetEntryValues1_1Cmd)
-	preferenceListPreferenceSetSummaryCmd.Flags().Int64("handle", 0, "handle (int64)")
-	preferenceListPreferenceSetSummaryCmd.Flags().String("arg0", "", "arg0 (string)")
-	preferenceListPreferenceCmd.AddCommand(preferenceListPreferenceSetSummaryCmd)
-	preferenceListPreferenceSetValueCmd.Flags().Int64("handle", 0, "handle (int64)")
-	preferenceListPreferenceSetValueCmd.Flags().String("arg0", "", "arg0 (string)")
-	preferenceListPreferenceCmd.AddCommand(preferenceListPreferenceSetValueCmd)
-	preferenceListPreferenceSetValueIndexCmd.Flags().Int64("handle", 0, "handle (int64)")
-	preferenceListPreferenceSetValueIndexCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	preferenceListPreferenceCmd.AddCommand(preferenceListPreferenceSetValueIndexCmd)
-	preferenceCmd.AddCommand(preferenceListPreferenceCmd)
-	preferenceActivityAddPreferencesFromIntentCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	preferenceActivityCmd.AddCommand(preferenceActivityAddPreferencesFromIntentCmd)
-	preferenceActivityAddPreferencesFromResourceCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	preferenceActivityCmd.AddCommand(preferenceActivityAddPreferencesFromResourceCmd)
-	preferenceActivityFindPreferenceCmd.Flags().String("arg0", "", "arg0 (string)")
-	preferenceActivityCmd.AddCommand(preferenceActivityFindPreferenceCmd)
-	preferenceActivityFinishPreferencePanelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	preferenceActivityFinishPreferencePanelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	preferenceActivityFinishPreferencePanelCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	preferenceActivityCmd.AddCommand(preferenceActivityFinishPreferencePanelCmd)
-	preferenceActivityCmd.AddCommand(preferenceActivityGetPreferenceManagerCmd)
-	preferenceActivityCmd.AddCommand(preferenceActivityGetPreferenceScreenCmd)
-	preferenceActivityCmd.AddCommand(preferenceActivityHasHeadersCmd)
-	preferenceActivityCmd.AddCommand(preferenceActivityInvalidateHeadersCmd)
-	preferenceActivityCmd.AddCommand(preferenceActivityIsMultiPaneCmd)
-	preferenceActivityCmd.AddCommand(preferenceActivityOnBackPressedCmd)
-	preferenceActivityOnBuildStartFragmentIntentCmd.Flags().String("arg0", "", "arg0 (string)")
-	preferenceActivityOnBuildStartFragmentIntentCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	preferenceActivityOnBuildStartFragmentIntentCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
-	preferenceActivityOnBuildStartFragmentIntentCmd.Flags().Int32("arg3", 0, "arg3 (int32)")
-	preferenceActivityCmd.AddCommand(preferenceActivityOnBuildStartFragmentIntentCmd)
-	preferenceActivityCmd.AddCommand(preferenceActivityOnContentChangedCmd)
-	preferenceActivityCmd.AddCommand(preferenceActivityOnGetInitialHeaderCmd)
-	preferenceActivityCmd.AddCommand(preferenceActivityOnGetNewHeaderCmd)
-	preferenceActivityOnHeaderClickCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	preferenceActivityOnHeaderClickCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	preferenceActivityCmd.AddCommand(preferenceActivityOnHeaderClickCmd)
-	preferenceActivityCmd.AddCommand(preferenceActivityOnIsHidingHeadersCmd)
-	preferenceActivityCmd.AddCommand(preferenceActivityOnIsMultiPaneCmd)
-	preferenceActivityOnOptionsItemSelectedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	preferenceActivityCmd.AddCommand(preferenceActivityOnOptionsItemSelectedCmd)
-	preferenceActivityOnPreferenceStartFragmentCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	preferenceActivityOnPreferenceStartFragmentCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	preferenceActivityCmd.AddCommand(preferenceActivityOnPreferenceStartFragmentCmd)
-	preferenceActivityOnPreferenceTreeClickCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	preferenceActivityOnPreferenceTreeClickCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	preferenceActivityCmd.AddCommand(preferenceActivityOnPreferenceTreeClickCmd)
-	preferenceActivitySetListFooterCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	preferenceActivityCmd.AddCommand(preferenceActivitySetListFooterCmd)
-	preferenceActivitySetParentTitleCmd.Flags().String("arg0", "", "arg0 (string)")
-	preferenceActivitySetParentTitleCmd.Flags().String("arg1", "", "arg1 (string)")
-	preferenceActivitySetParentTitleCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	preferenceActivityCmd.AddCommand(preferenceActivitySetParentTitleCmd)
-	preferenceActivitySetPreferenceScreenCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	preferenceActivityCmd.AddCommand(preferenceActivitySetPreferenceScreenCmd)
-	preferenceActivityShowBreadCrumbsCmd.Flags().String("arg0", "", "arg0 (string)")
-	preferenceActivityShowBreadCrumbsCmd.Flags().String("arg1", "", "arg1 (string)")
-	preferenceActivityCmd.AddCommand(preferenceActivityShowBreadCrumbsCmd)
-	preferenceActivityStartPreferenceFragmentCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	preferenceActivityStartPreferenceFragmentCmd.Flags().Bool("arg1", false, "arg1 (bool)")
-	preferenceActivityCmd.AddCommand(preferenceActivityStartPreferenceFragmentCmd)
-	preferenceActivityStartPreferencePanelCmd.Flags().String("arg0", "", "arg0 (string)")
-	preferenceActivityStartPreferencePanelCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	preferenceActivityStartPreferencePanelCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
-	preferenceActivityStartPreferencePanelCmd.Flags().String("arg3", "", "arg3 (string)")
-	preferenceActivityStartPreferencePanelCmd.Flags().Int64("arg4", 0, "arg4 (int64)")
-	preferenceActivityStartPreferencePanelCmd.Flags().Int32("arg5", 0, "arg5 (int32)")
-	preferenceActivityCmd.AddCommand(preferenceActivityStartPreferencePanelCmd)
-	preferenceActivityStartWithFragment4Cmd.Flags().String("arg0", "", "arg0 (string)")
-	preferenceActivityStartWithFragment4Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	preferenceActivityStartWithFragment4Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	preferenceActivityStartWithFragment4Cmd.Flags().Int32("arg3", 0, "arg3 (int32)")
-	preferenceActivityCmd.AddCommand(preferenceActivityStartWithFragment4Cmd)
-	preferenceActivityStartWithFragment6_1Cmd.Flags().String("arg0", "", "arg0 (string)")
-	preferenceActivityStartWithFragment6_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	preferenceActivityStartWithFragment6_1Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	preferenceActivityStartWithFragment6_1Cmd.Flags().Int32("arg3", 0, "arg3 (int32)")
-	preferenceActivityStartWithFragment6_1Cmd.Flags().Int32("arg4", 0, "arg4 (int32)")
-	preferenceActivityStartWithFragment6_1Cmd.Flags().Int32("arg5", 0, "arg5 (int32)")
-	preferenceActivityCmd.AddCommand(preferenceActivityStartWithFragment6_1Cmd)
-	preferenceActivitySwitchToHeader1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	preferenceActivityCmd.AddCommand(preferenceActivitySwitchToHeader1Cmd)
-	preferenceActivitySwitchToHeader2_1Cmd.Flags().String("arg0", "", "arg0 (string)")
-	preferenceActivitySwitchToHeader2_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	preferenceActivityCmd.AddCommand(preferenceActivitySwitchToHeader2_1Cmd)
-	preferenceCmd.AddCommand(preferenceActivityCmd)
-	preferenceActivityHeaderCmd.AddCommand(preferenceActivityHeaderDescribeContentsCmd)
-	preferenceActivityHeaderGetBreadCrumbShortTitleCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	preferenceActivityHeaderCmd.AddCommand(preferenceActivityHeaderGetBreadCrumbShortTitleCmd)
-	preferenceActivityHeaderGetBreadCrumbTitleCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	preferenceActivityHeaderCmd.AddCommand(preferenceActivityHeaderGetBreadCrumbTitleCmd)
-	preferenceActivityHeaderGetSummaryCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	preferenceActivityHeaderCmd.AddCommand(preferenceActivityHeaderGetSummaryCmd)
-	preferenceActivityHeaderGetTitleCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	preferenceActivityHeaderCmd.AddCommand(preferenceActivityHeaderGetTitleCmd)
-	preferenceActivityHeaderReadFromParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	preferenceActivityHeaderCmd.AddCommand(preferenceActivityHeaderReadFromParcelCmd)
-	preferenceActivityHeaderWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	preferenceActivityHeaderWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	preferenceActivityHeaderCmd.AddCommand(preferenceActivityHeaderWriteToParcelCmd)
-	preferenceCmd.AddCommand(preferenceActivityHeaderCmd)
-	preferenceTwoStatePreferenceCmd.AddCommand(preferenceTwoStatePreferenceGetDisableDependentsStateCmd)
-	preferenceTwoStatePreferenceCmd.AddCommand(preferenceTwoStatePreferenceGetSummaryOffCmd)
-	preferenceTwoStatePreferenceCmd.AddCommand(preferenceTwoStatePreferenceGetSummaryOnCmd)
-	preferenceTwoStatePreferenceCmd.AddCommand(preferenceTwoStatePreferenceIsCheckedCmd)
-	preferenceTwoStatePreferenceSetCheckedCmd.Flags().Bool("arg0", false, "arg0 (bool)")
-	preferenceTwoStatePreferenceCmd.AddCommand(preferenceTwoStatePreferenceSetCheckedCmd)
-	preferenceTwoStatePreferenceSetDisableDependentsStateCmd.Flags().Bool("arg0", false, "arg0 (bool)")
-	preferenceTwoStatePreferenceCmd.AddCommand(preferenceTwoStatePreferenceSetDisableDependentsStateCmd)
-	preferenceTwoStatePreferenceSetSummaryOff1Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	preferenceTwoStatePreferenceCmd.AddCommand(preferenceTwoStatePreferenceSetSummaryOff1Cmd)
-	preferenceTwoStatePreferenceSetSummaryOff1_1Cmd.Flags().String("arg0", "", "arg0 (string)")
-	preferenceTwoStatePreferenceCmd.AddCommand(preferenceTwoStatePreferenceSetSummaryOff1_1Cmd)
-	preferenceTwoStatePreferenceSetSummaryOn1Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	preferenceTwoStatePreferenceCmd.AddCommand(preferenceTwoStatePreferenceSetSummaryOn1Cmd)
-	preferenceTwoStatePreferenceSetSummaryOn1_1Cmd.Flags().String("arg0", "", "arg0 (string)")
-	preferenceTwoStatePreferenceCmd.AddCommand(preferenceTwoStatePreferenceSetSummaryOn1_1Cmd)
-	preferenceTwoStatePreferenceCmd.AddCommand(preferenceTwoStatePreferenceShouldDisableDependentsCmd)
-	preferenceCmd.AddCommand(preferenceTwoStatePreferenceCmd)
-	preferenceDialogPreferenceCmd.AddCommand(preferenceDialogPreferenceGetDialogCmd)
-	preferenceDialogPreferenceCmd.AddCommand(preferenceDialogPreferenceGetDialogIconCmd)
-	preferenceDialogPreferenceCmd.AddCommand(preferenceDialogPreferenceGetDialogLayoutResourceCmd)
-	preferenceDialogPreferenceCmd.AddCommand(preferenceDialogPreferenceGetDialogMessageCmd)
-	preferenceDialogPreferenceCmd.AddCommand(preferenceDialogPreferenceGetDialogTitleCmd)
-	preferenceDialogPreferenceCmd.AddCommand(preferenceDialogPreferenceGetNegativeButtonTextCmd)
-	preferenceDialogPreferenceCmd.AddCommand(preferenceDialogPreferenceGetPositiveButtonTextCmd)
-	preferenceDialogPreferenceCmd.AddCommand(preferenceDialogPreferenceOnActivityDestroyCmd)
-	preferenceDialogPreferenceOnClickCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	preferenceDialogPreferenceOnClickCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	preferenceDialogPreferenceCmd.AddCommand(preferenceDialogPreferenceOnClickCmd)
-	preferenceDialogPreferenceOnDismissCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	preferenceDialogPreferenceCmd.AddCommand(preferenceDialogPreferenceOnDismissCmd)
-	preferenceDialogPreferenceSetDialogIcon1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	preferenceDialogPreferenceCmd.AddCommand(preferenceDialogPreferenceSetDialogIcon1Cmd)
-	preferenceDialogPreferenceSetDialogIcon1_1Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	preferenceDialogPreferenceCmd.AddCommand(preferenceDialogPreferenceSetDialogIcon1_1Cmd)
-	preferenceDialogPreferenceSetDialogLayoutResourceCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	preferenceDialogPreferenceCmd.AddCommand(preferenceDialogPreferenceSetDialogLayoutResourceCmd)
-	preferenceDialogPreferenceSetDialogMessage1Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	preferenceDialogPreferenceCmd.AddCommand(preferenceDialogPreferenceSetDialogMessage1Cmd)
-	preferenceDialogPreferenceSetDialogMessage1_1Cmd.Flags().String("arg0", "", "arg0 (string)")
-	preferenceDialogPreferenceCmd.AddCommand(preferenceDialogPreferenceSetDialogMessage1_1Cmd)
-	preferenceDialogPreferenceSetDialogTitle1Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	preferenceDialogPreferenceCmd.AddCommand(preferenceDialogPreferenceSetDialogTitle1Cmd)
-	preferenceDialogPreferenceSetDialogTitle1_1Cmd.Flags().String("arg0", "", "arg0 (string)")
-	preferenceDialogPreferenceCmd.AddCommand(preferenceDialogPreferenceSetDialogTitle1_1Cmd)
-	preferenceDialogPreferenceSetNegativeButtonText1Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	preferenceDialogPreferenceCmd.AddCommand(preferenceDialogPreferenceSetNegativeButtonText1Cmd)
-	preferenceDialogPreferenceSetNegativeButtonText1_1Cmd.Flags().String("arg0", "", "arg0 (string)")
-	preferenceDialogPreferenceCmd.AddCommand(preferenceDialogPreferenceSetNegativeButtonText1_1Cmd)
-	preferenceDialogPreferenceSetPositiveButtonText1Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	preferenceDialogPreferenceCmd.AddCommand(preferenceDialogPreferenceSetPositiveButtonText1Cmd)
-	preferenceDialogPreferenceSetPositiveButtonText1_1Cmd.Flags().String("arg0", "", "arg0 (string)")
-	preferenceDialogPreferenceCmd.AddCommand(preferenceDialogPreferenceSetPositiveButtonText1_1Cmd)
-	preferenceCmd.AddCommand(preferenceDialogPreferenceCmd)
-	preferenceScreenBindCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	preferenceScreenCmd.AddCommand(preferenceScreenBindCmd)
-	preferenceScreenCmd.AddCommand(preferenceScreenGetDialogCmd)
-	preferenceScreenCmd.AddCommand(preferenceScreenGetRootAdapterCmd)
-	preferenceScreenOnDismissCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	preferenceScreenCmd.AddCommand(preferenceScreenOnDismissCmd)
-	preferenceScreenOnItemClickCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	preferenceScreenOnItemClickCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	preferenceScreenOnItemClickCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
-	preferenceScreenOnItemClickCmd.Flags().Int64("arg3", 0, "arg3 (int64)")
-	preferenceScreenCmd.AddCommand(preferenceScreenOnItemClickCmd)
-	preferenceCmd.AddCommand(preferenceScreenCmd)
-	preferenceGroupAddItemFromInflaterCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	preferenceGroupCmd.AddCommand(preferenceGroupAddItemFromInflaterCmd)
-	preferenceGroupAddPreferenceCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	preferenceGroupCmd.AddCommand(preferenceGroupAddPreferenceCmd)
-	preferenceGroupFindPreferenceCmd.Flags().String("arg0", "", "arg0 (string)")
-	preferenceGroupCmd.AddCommand(preferenceGroupFindPreferenceCmd)
-	preferenceGroupGetPreferenceCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	preferenceGroupCmd.AddCommand(preferenceGroupGetPreferenceCmd)
-	preferenceGroupCmd.AddCommand(preferenceGroupGetPreferenceCountCmd)
-	preferenceGroupCmd.AddCommand(preferenceGroupIsOrderingAsAddedCmd)
-	preferenceGroupNotifyDependencyChangeCmd.Flags().Bool("arg0", false, "arg0 (bool)")
-	preferenceGroupCmd.AddCommand(preferenceGroupNotifyDependencyChangeCmd)
-	preferenceGroupCmd.AddCommand(preferenceGroupRemoveAllCmd)
-	preferenceGroupRemovePreferenceCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	preferenceGroupCmd.AddCommand(preferenceGroupRemovePreferenceCmd)
-	preferenceGroupSetOrderingAsAddedCmd.Flags().Bool("arg0", false, "arg0 (bool)")
-	preferenceGroupCmd.AddCommand(preferenceGroupSetOrderingAsAddedCmd)
-	preferenceCmd.AddCommand(preferenceGroupCmd)
-	preferenceRingtonePreferenceNewRingtonePreferenceCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	preferenceRingtonePreferenceCmd.AddCommand(preferenceRingtonePreferenceNewRingtonePreferenceCmd)
-	preferenceRingtonePreferenceGetRingtoneTypeCmd.Flags().Int64("handle", 0, "handle (int64)")
-	preferenceRingtonePreferenceCmd.AddCommand(preferenceRingtonePreferenceGetRingtoneTypeCmd)
-	preferenceRingtonePreferenceGetShowDefaultCmd.Flags().Int64("handle", 0, "handle (int64)")
-	preferenceRingtonePreferenceCmd.AddCommand(preferenceRingtonePreferenceGetShowDefaultCmd)
-	preferenceRingtonePreferenceGetShowSilentCmd.Flags().Int64("handle", 0, "handle (int64)")
-	preferenceRingtonePreferenceCmd.AddCommand(preferenceRingtonePreferenceGetShowSilentCmd)
-	preferenceRingtonePreferenceOnActivityResultCmd.Flags().Int64("handle", 0, "handle (int64)")
-	preferenceRingtonePreferenceOnActivityResultCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	preferenceRingtonePreferenceOnActivityResultCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	preferenceRingtonePreferenceOnActivityResultCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	preferenceRingtonePreferenceCmd.AddCommand(preferenceRingtonePreferenceOnActivityResultCmd)
-	preferenceRingtonePreferenceSetRingtoneTypeCmd.Flags().Int64("handle", 0, "handle (int64)")
-	preferenceRingtonePreferenceSetRingtoneTypeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	preferenceRingtonePreferenceCmd.AddCommand(preferenceRingtonePreferenceSetRingtoneTypeCmd)
-	preferenceRingtonePreferenceSetShowDefaultCmd.Flags().Int64("handle", 0, "handle (int64)")
-	preferenceRingtonePreferenceSetShowDefaultCmd.Flags().Bool("arg0", false, "arg0 (bool)")
-	preferenceRingtonePreferenceCmd.AddCommand(preferenceRingtonePreferenceSetShowDefaultCmd)
-	preferenceRingtonePreferenceSetShowSilentCmd.Flags().Int64("handle", 0, "handle (int64)")
-	preferenceRingtonePreferenceSetShowSilentCmd.Flags().Bool("arg0", false, "arg0 (bool)")
-	preferenceRingtonePreferenceCmd.AddCommand(preferenceRingtonePreferenceSetShowSilentCmd)
-	preferenceCmd.AddCommand(preferenceRingtonePreferenceCmd)
 	preferencePreferenceNewPreferenceCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	preferencePreferenceCmd.AddCommand(preferencePreferenceNewPreferenceCmd)
 	preferencePreferenceCompareTo1Cmd.Flags().Int64("handle", 0, "handle (int64)")
@@ -5286,6 +4994,271 @@ func init() {
 	preferenceOnPreferenceClickListenerOnPreferenceClickCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	preferenceOnPreferenceClickListenerCmd.AddCommand(preferenceOnPreferenceClickListenerOnPreferenceClickCmd)
 	preferenceCmd.AddCommand(preferenceOnPreferenceClickListenerCmd)
+	preferenceRingtonePreferenceNewRingtonePreferenceCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	preferenceRingtonePreferenceCmd.AddCommand(preferenceRingtonePreferenceNewRingtonePreferenceCmd)
+	preferenceRingtonePreferenceGetRingtoneTypeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	preferenceRingtonePreferenceCmd.AddCommand(preferenceRingtonePreferenceGetRingtoneTypeCmd)
+	preferenceRingtonePreferenceGetShowDefaultCmd.Flags().Int64("handle", 0, "handle (int64)")
+	preferenceRingtonePreferenceCmd.AddCommand(preferenceRingtonePreferenceGetShowDefaultCmd)
+	preferenceRingtonePreferenceGetShowSilentCmd.Flags().Int64("handle", 0, "handle (int64)")
+	preferenceRingtonePreferenceCmd.AddCommand(preferenceRingtonePreferenceGetShowSilentCmd)
+	preferenceRingtonePreferenceOnActivityResultCmd.Flags().Int64("handle", 0, "handle (int64)")
+	preferenceRingtonePreferenceOnActivityResultCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	preferenceRingtonePreferenceOnActivityResultCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	preferenceRingtonePreferenceOnActivityResultCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	preferenceRingtonePreferenceCmd.AddCommand(preferenceRingtonePreferenceOnActivityResultCmd)
+	preferenceRingtonePreferenceSetRingtoneTypeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	preferenceRingtonePreferenceSetRingtoneTypeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	preferenceRingtonePreferenceCmd.AddCommand(preferenceRingtonePreferenceSetRingtoneTypeCmd)
+	preferenceRingtonePreferenceSetShowDefaultCmd.Flags().Int64("handle", 0, "handle (int64)")
+	preferenceRingtonePreferenceSetShowDefaultCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	preferenceRingtonePreferenceCmd.AddCommand(preferenceRingtonePreferenceSetShowDefaultCmd)
+	preferenceRingtonePreferenceSetShowSilentCmd.Flags().Int64("handle", 0, "handle (int64)")
+	preferenceRingtonePreferenceSetShowSilentCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	preferenceRingtonePreferenceCmd.AddCommand(preferenceRingtonePreferenceSetShowSilentCmd)
+	preferenceCmd.AddCommand(preferenceRingtonePreferenceCmd)
+	preferenceActivityAddPreferencesFromIntentCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	preferenceActivityCmd.AddCommand(preferenceActivityAddPreferencesFromIntentCmd)
+	preferenceActivityAddPreferencesFromResourceCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	preferenceActivityCmd.AddCommand(preferenceActivityAddPreferencesFromResourceCmd)
+	preferenceActivityFindPreferenceCmd.Flags().String("arg0", "", "arg0 (string)")
+	preferenceActivityCmd.AddCommand(preferenceActivityFindPreferenceCmd)
+	preferenceActivityFinishPreferencePanelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	preferenceActivityFinishPreferencePanelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	preferenceActivityFinishPreferencePanelCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	preferenceActivityCmd.AddCommand(preferenceActivityFinishPreferencePanelCmd)
+	preferenceActivityCmd.AddCommand(preferenceActivityGetPreferenceManagerCmd)
+	preferenceActivityCmd.AddCommand(preferenceActivityGetPreferenceScreenCmd)
+	preferenceActivityCmd.AddCommand(preferenceActivityHasHeadersCmd)
+	preferenceActivityCmd.AddCommand(preferenceActivityInvalidateHeadersCmd)
+	preferenceActivityCmd.AddCommand(preferenceActivityIsMultiPaneCmd)
+	preferenceActivityCmd.AddCommand(preferenceActivityOnBackPressedCmd)
+	preferenceActivityOnBuildStartFragmentIntentCmd.Flags().String("arg0", "", "arg0 (string)")
+	preferenceActivityOnBuildStartFragmentIntentCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	preferenceActivityOnBuildStartFragmentIntentCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	preferenceActivityOnBuildStartFragmentIntentCmd.Flags().Int32("arg3", 0, "arg3 (int32)")
+	preferenceActivityCmd.AddCommand(preferenceActivityOnBuildStartFragmentIntentCmd)
+	preferenceActivityCmd.AddCommand(preferenceActivityOnContentChangedCmd)
+	preferenceActivityCmd.AddCommand(preferenceActivityOnGetInitialHeaderCmd)
+	preferenceActivityCmd.AddCommand(preferenceActivityOnGetNewHeaderCmd)
+	preferenceActivityOnHeaderClickCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	preferenceActivityOnHeaderClickCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	preferenceActivityCmd.AddCommand(preferenceActivityOnHeaderClickCmd)
+	preferenceActivityCmd.AddCommand(preferenceActivityOnIsHidingHeadersCmd)
+	preferenceActivityCmd.AddCommand(preferenceActivityOnIsMultiPaneCmd)
+	preferenceActivityOnOptionsItemSelectedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	preferenceActivityCmd.AddCommand(preferenceActivityOnOptionsItemSelectedCmd)
+	preferenceActivityOnPreferenceStartFragmentCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	preferenceActivityOnPreferenceStartFragmentCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	preferenceActivityCmd.AddCommand(preferenceActivityOnPreferenceStartFragmentCmd)
+	preferenceActivityOnPreferenceTreeClickCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	preferenceActivityOnPreferenceTreeClickCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	preferenceActivityCmd.AddCommand(preferenceActivityOnPreferenceTreeClickCmd)
+	preferenceActivitySetListFooterCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	preferenceActivityCmd.AddCommand(preferenceActivitySetListFooterCmd)
+	preferenceActivitySetParentTitleCmd.Flags().String("arg0", "", "arg0 (string)")
+	preferenceActivitySetParentTitleCmd.Flags().String("arg1", "", "arg1 (string)")
+	preferenceActivitySetParentTitleCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	preferenceActivityCmd.AddCommand(preferenceActivitySetParentTitleCmd)
+	preferenceActivitySetPreferenceScreenCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	preferenceActivityCmd.AddCommand(preferenceActivitySetPreferenceScreenCmd)
+	preferenceActivityShowBreadCrumbsCmd.Flags().String("arg0", "", "arg0 (string)")
+	preferenceActivityShowBreadCrumbsCmd.Flags().String("arg1", "", "arg1 (string)")
+	preferenceActivityCmd.AddCommand(preferenceActivityShowBreadCrumbsCmd)
+	preferenceActivityStartPreferenceFragmentCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	preferenceActivityStartPreferenceFragmentCmd.Flags().Bool("arg1", false, "arg1 (bool)")
+	preferenceActivityCmd.AddCommand(preferenceActivityStartPreferenceFragmentCmd)
+	preferenceActivityStartPreferencePanelCmd.Flags().String("arg0", "", "arg0 (string)")
+	preferenceActivityStartPreferencePanelCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	preferenceActivityStartPreferencePanelCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	preferenceActivityStartPreferencePanelCmd.Flags().String("arg3", "", "arg3 (string)")
+	preferenceActivityStartPreferencePanelCmd.Flags().Int64("arg4", 0, "arg4 (int64)")
+	preferenceActivityStartPreferencePanelCmd.Flags().Int32("arg5", 0, "arg5 (int32)")
+	preferenceActivityCmd.AddCommand(preferenceActivityStartPreferencePanelCmd)
+	preferenceActivityStartWithFragment4Cmd.Flags().String("arg0", "", "arg0 (string)")
+	preferenceActivityStartWithFragment4Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	preferenceActivityStartWithFragment4Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	preferenceActivityStartWithFragment4Cmd.Flags().Int32("arg3", 0, "arg3 (int32)")
+	preferenceActivityCmd.AddCommand(preferenceActivityStartWithFragment4Cmd)
+	preferenceActivityStartWithFragment6_1Cmd.Flags().String("arg0", "", "arg0 (string)")
+	preferenceActivityStartWithFragment6_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	preferenceActivityStartWithFragment6_1Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	preferenceActivityStartWithFragment6_1Cmd.Flags().Int32("arg3", 0, "arg3 (int32)")
+	preferenceActivityStartWithFragment6_1Cmd.Flags().Int32("arg4", 0, "arg4 (int32)")
+	preferenceActivityStartWithFragment6_1Cmd.Flags().Int32("arg5", 0, "arg5 (int32)")
+	preferenceActivityCmd.AddCommand(preferenceActivityStartWithFragment6_1Cmd)
+	preferenceActivitySwitchToHeader1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	preferenceActivityCmd.AddCommand(preferenceActivitySwitchToHeader1Cmd)
+	preferenceActivitySwitchToHeader2_1Cmd.Flags().String("arg0", "", "arg0 (string)")
+	preferenceActivitySwitchToHeader2_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	preferenceActivityCmd.AddCommand(preferenceActivitySwitchToHeader2_1Cmd)
+	preferenceCmd.AddCommand(preferenceActivityCmd)
+	preferenceActivityHeaderCmd.AddCommand(preferenceActivityHeaderDescribeContentsCmd)
+	preferenceActivityHeaderGetBreadCrumbShortTitleCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	preferenceActivityHeaderCmd.AddCommand(preferenceActivityHeaderGetBreadCrumbShortTitleCmd)
+	preferenceActivityHeaderGetBreadCrumbTitleCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	preferenceActivityHeaderCmd.AddCommand(preferenceActivityHeaderGetBreadCrumbTitleCmd)
+	preferenceActivityHeaderGetSummaryCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	preferenceActivityHeaderCmd.AddCommand(preferenceActivityHeaderGetSummaryCmd)
+	preferenceActivityHeaderGetTitleCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	preferenceActivityHeaderCmd.AddCommand(preferenceActivityHeaderGetTitleCmd)
+	preferenceActivityHeaderReadFromParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	preferenceActivityHeaderCmd.AddCommand(preferenceActivityHeaderReadFromParcelCmd)
+	preferenceActivityHeaderWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	preferenceActivityHeaderWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	preferenceActivityHeaderCmd.AddCommand(preferenceActivityHeaderWriteToParcelCmd)
+	preferenceCmd.AddCommand(preferenceActivityHeaderCmd)
+	preferenceTwoStatePreferenceCmd.AddCommand(preferenceTwoStatePreferenceGetDisableDependentsStateCmd)
+	preferenceTwoStatePreferenceCmd.AddCommand(preferenceTwoStatePreferenceGetSummaryOffCmd)
+	preferenceTwoStatePreferenceCmd.AddCommand(preferenceTwoStatePreferenceGetSummaryOnCmd)
+	preferenceTwoStatePreferenceCmd.AddCommand(preferenceTwoStatePreferenceIsCheckedCmd)
+	preferenceTwoStatePreferenceSetCheckedCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	preferenceTwoStatePreferenceCmd.AddCommand(preferenceTwoStatePreferenceSetCheckedCmd)
+	preferenceTwoStatePreferenceSetDisableDependentsStateCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	preferenceTwoStatePreferenceCmd.AddCommand(preferenceTwoStatePreferenceSetDisableDependentsStateCmd)
+	preferenceTwoStatePreferenceSetSummaryOff1Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	preferenceTwoStatePreferenceCmd.AddCommand(preferenceTwoStatePreferenceSetSummaryOff1Cmd)
+	preferenceTwoStatePreferenceSetSummaryOff1_1Cmd.Flags().String("arg0", "", "arg0 (string)")
+	preferenceTwoStatePreferenceCmd.AddCommand(preferenceTwoStatePreferenceSetSummaryOff1_1Cmd)
+	preferenceTwoStatePreferenceSetSummaryOn1Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	preferenceTwoStatePreferenceCmd.AddCommand(preferenceTwoStatePreferenceSetSummaryOn1Cmd)
+	preferenceTwoStatePreferenceSetSummaryOn1_1Cmd.Flags().String("arg0", "", "arg0 (string)")
+	preferenceTwoStatePreferenceCmd.AddCommand(preferenceTwoStatePreferenceSetSummaryOn1_1Cmd)
+	preferenceTwoStatePreferenceCmd.AddCommand(preferenceTwoStatePreferenceShouldDisableDependentsCmd)
+	preferenceCmd.AddCommand(preferenceTwoStatePreferenceCmd)
+	preferenceMultiSelectListPreferenceNewMultiSelectListPreferenceCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	preferenceMultiSelectListPreferenceCmd.AddCommand(preferenceMultiSelectListPreferenceNewMultiSelectListPreferenceCmd)
+	preferenceMultiSelectListPreferenceFindIndexOfValueCmd.Flags().Int64("handle", 0, "handle (int64)")
+	preferenceMultiSelectListPreferenceFindIndexOfValueCmd.Flags().String("arg0", "", "arg0 (string)")
+	preferenceMultiSelectListPreferenceCmd.AddCommand(preferenceMultiSelectListPreferenceFindIndexOfValueCmd)
+	preferenceMultiSelectListPreferenceGetEntriesCmd.Flags().Int64("handle", 0, "handle (int64)")
+	preferenceMultiSelectListPreferenceCmd.AddCommand(preferenceMultiSelectListPreferenceGetEntriesCmd)
+	preferenceMultiSelectListPreferenceGetEntryValuesCmd.Flags().Int64("handle", 0, "handle (int64)")
+	preferenceMultiSelectListPreferenceCmd.AddCommand(preferenceMultiSelectListPreferenceGetEntryValuesCmd)
+	preferenceMultiSelectListPreferenceGetValuesCmd.Flags().Int64("handle", 0, "handle (int64)")
+	preferenceMultiSelectListPreferenceCmd.AddCommand(preferenceMultiSelectListPreferenceGetValuesCmd)
+	preferenceMultiSelectListPreferenceSetEntries1Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	preferenceMultiSelectListPreferenceSetEntries1Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	preferenceMultiSelectListPreferenceCmd.AddCommand(preferenceMultiSelectListPreferenceSetEntries1Cmd)
+	preferenceMultiSelectListPreferenceSetEntries1_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	preferenceMultiSelectListPreferenceSetEntries1_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	preferenceMultiSelectListPreferenceCmd.AddCommand(preferenceMultiSelectListPreferenceSetEntries1_1Cmd)
+	preferenceMultiSelectListPreferenceSetEntryValues1Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	preferenceMultiSelectListPreferenceSetEntryValues1Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	preferenceMultiSelectListPreferenceCmd.AddCommand(preferenceMultiSelectListPreferenceSetEntryValues1Cmd)
+	preferenceMultiSelectListPreferenceSetEntryValues1_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	preferenceMultiSelectListPreferenceSetEntryValues1_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	preferenceMultiSelectListPreferenceCmd.AddCommand(preferenceMultiSelectListPreferenceSetEntryValues1_1Cmd)
+	preferenceCmd.AddCommand(preferenceMultiSelectListPreferenceCmd)
+	preferenceEditTextPreferenceNewEditTextPreferenceCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	preferenceEditTextPreferenceCmd.AddCommand(preferenceEditTextPreferenceNewEditTextPreferenceCmd)
+	preferenceEditTextPreferenceGetEditTextCmd.Flags().Int64("handle", 0, "handle (int64)")
+	preferenceEditTextPreferenceCmd.AddCommand(preferenceEditTextPreferenceGetEditTextCmd)
+	preferenceEditTextPreferenceGetTextCmd.Flags().Int64("handle", 0, "handle (int64)")
+	preferenceEditTextPreferenceCmd.AddCommand(preferenceEditTextPreferenceGetTextCmd)
+	preferenceEditTextPreferenceSetTextCmd.Flags().Int64("handle", 0, "handle (int64)")
+	preferenceEditTextPreferenceSetTextCmd.Flags().String("arg0", "", "arg0 (string)")
+	preferenceEditTextPreferenceCmd.AddCommand(preferenceEditTextPreferenceSetTextCmd)
+	preferenceEditTextPreferenceShouldDisableDependentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	preferenceEditTextPreferenceCmd.AddCommand(preferenceEditTextPreferenceShouldDisableDependentsCmd)
+	preferenceCmd.AddCommand(preferenceEditTextPreferenceCmd)
+	preferenceManagerCreatePreferenceScreenCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	preferenceManagerCmd.AddCommand(preferenceManagerCreatePreferenceScreenCmd)
+	preferenceManagerFindPreferenceCmd.Flags().String("arg0", "", "arg0 (string)")
+	preferenceManagerCmd.AddCommand(preferenceManagerFindPreferenceCmd)
+	preferenceManagerCmd.AddCommand(preferenceManagerGetPreferenceDataStoreCmd)
+	preferenceManagerCmd.AddCommand(preferenceManagerGetSharedPreferencesCmd)
+	preferenceManagerCmd.AddCommand(preferenceManagerGetSharedPreferencesModeCmd)
+	preferenceManagerCmd.AddCommand(preferenceManagerGetSharedPreferencesNameCmd)
+	preferenceManagerCmd.AddCommand(preferenceManagerIsStorageDefaultCmd)
+	preferenceManagerCmd.AddCommand(preferenceManagerIsStorageDeviceProtectedCmd)
+	preferenceManagerSetPreferenceDataStoreCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	preferenceManagerCmd.AddCommand(preferenceManagerSetPreferenceDataStoreCmd)
+	preferenceManagerSetSharedPreferencesModeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	preferenceManagerCmd.AddCommand(preferenceManagerSetSharedPreferencesModeCmd)
+	preferenceManagerSetSharedPreferencesNameCmd.Flags().String("arg0", "", "arg0 (string)")
+	preferenceManagerCmd.AddCommand(preferenceManagerSetSharedPreferencesNameCmd)
+	preferenceManagerCmd.AddCommand(preferenceManagerSetStorageDefaultCmd)
+	preferenceManagerCmd.AddCommand(preferenceManagerSetStorageDeviceProtectedCmd)
+	preferenceManagerGetDefaultSharedPreferencesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	preferenceManagerCmd.AddCommand(preferenceManagerGetDefaultSharedPreferencesCmd)
+	preferenceManagerGetDefaultSharedPreferencesNameCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	preferenceManagerCmd.AddCommand(preferenceManagerGetDefaultSharedPreferencesNameCmd)
+	preferenceManagerSetDefaultValues3Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	preferenceManagerSetDefaultValues3Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	preferenceManagerSetDefaultValues3Cmd.Flags().Bool("arg2", false, "arg2 (bool)")
+	preferenceManagerCmd.AddCommand(preferenceManagerSetDefaultValues3Cmd)
+	preferenceManagerSetDefaultValues5_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	preferenceManagerSetDefaultValues5_1Cmd.Flags().String("arg1", "", "arg1 (string)")
+	preferenceManagerSetDefaultValues5_1Cmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	preferenceManagerSetDefaultValues5_1Cmd.Flags().Int32("arg3", 0, "arg3 (int32)")
+	preferenceManagerSetDefaultValues5_1Cmd.Flags().Bool("arg4", false, "arg4 (bool)")
+	preferenceManagerCmd.AddCommand(preferenceManagerSetDefaultValues5_1Cmd)
+	preferenceCmd.AddCommand(preferenceManagerCmd)
+	preferenceManagerOnActivityDestroyListenerCmd.AddCommand(preferenceManagerOnActivityDestroyListenerOnActivityDestroyCmd)
+	preferenceCmd.AddCommand(preferenceManagerOnActivityDestroyListenerCmd)
+	preferenceManagerOnActivityResultListenerOnActivityResultCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	preferenceManagerOnActivityResultListenerOnActivityResultCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	preferenceManagerOnActivityResultListenerOnActivityResultCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	preferenceManagerOnActivityResultListenerCmd.AddCommand(preferenceManagerOnActivityResultListenerOnActivityResultCmd)
+	preferenceCmd.AddCommand(preferenceManagerOnActivityResultListenerCmd)
+	preferenceManagerOnActivityStopListenerCmd.AddCommand(preferenceManagerOnActivityStopListenerOnActivityStopCmd)
+	preferenceCmd.AddCommand(preferenceManagerOnActivityStopListenerCmd)
+	preferenceListPreferenceNewListPreferenceCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	preferenceListPreferenceCmd.AddCommand(preferenceListPreferenceNewListPreferenceCmd)
+	preferenceListPreferenceFindIndexOfValueCmd.Flags().Int64("handle", 0, "handle (int64)")
+	preferenceListPreferenceFindIndexOfValueCmd.Flags().String("arg0", "", "arg0 (string)")
+	preferenceListPreferenceCmd.AddCommand(preferenceListPreferenceFindIndexOfValueCmd)
+	preferenceListPreferenceGetEntriesCmd.Flags().Int64("handle", 0, "handle (int64)")
+	preferenceListPreferenceCmd.AddCommand(preferenceListPreferenceGetEntriesCmd)
+	preferenceListPreferenceGetEntryCmd.Flags().Int64("handle", 0, "handle (int64)")
+	preferenceListPreferenceCmd.AddCommand(preferenceListPreferenceGetEntryCmd)
+	preferenceListPreferenceGetEntryValuesCmd.Flags().Int64("handle", 0, "handle (int64)")
+	preferenceListPreferenceCmd.AddCommand(preferenceListPreferenceGetEntryValuesCmd)
+	preferenceListPreferenceGetSummaryCmd.Flags().Int64("handle", 0, "handle (int64)")
+	preferenceListPreferenceCmd.AddCommand(preferenceListPreferenceGetSummaryCmd)
+	preferenceListPreferenceGetValueCmd.Flags().Int64("handle", 0, "handle (int64)")
+	preferenceListPreferenceCmd.AddCommand(preferenceListPreferenceGetValueCmd)
+	preferenceListPreferenceSetEntries1Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	preferenceListPreferenceSetEntries1Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	preferenceListPreferenceCmd.AddCommand(preferenceListPreferenceSetEntries1Cmd)
+	preferenceListPreferenceSetEntries1_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	preferenceListPreferenceSetEntries1_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	preferenceListPreferenceCmd.AddCommand(preferenceListPreferenceSetEntries1_1Cmd)
+	preferenceListPreferenceSetEntryValues1Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	preferenceListPreferenceSetEntryValues1Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	preferenceListPreferenceCmd.AddCommand(preferenceListPreferenceSetEntryValues1Cmd)
+	preferenceListPreferenceSetEntryValues1_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	preferenceListPreferenceSetEntryValues1_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	preferenceListPreferenceCmd.AddCommand(preferenceListPreferenceSetEntryValues1_1Cmd)
+	preferenceListPreferenceSetSummaryCmd.Flags().Int64("handle", 0, "handle (int64)")
+	preferenceListPreferenceSetSummaryCmd.Flags().String("arg0", "", "arg0 (string)")
+	preferenceListPreferenceCmd.AddCommand(preferenceListPreferenceSetSummaryCmd)
+	preferenceListPreferenceSetValueCmd.Flags().Int64("handle", 0, "handle (int64)")
+	preferenceListPreferenceSetValueCmd.Flags().String("arg0", "", "arg0 (string)")
+	preferenceListPreferenceCmd.AddCommand(preferenceListPreferenceSetValueCmd)
+	preferenceListPreferenceSetValueIndexCmd.Flags().Int64("handle", 0, "handle (int64)")
+	preferenceListPreferenceSetValueIndexCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	preferenceListPreferenceCmd.AddCommand(preferenceListPreferenceSetValueIndexCmd)
+	preferenceCmd.AddCommand(preferenceListPreferenceCmd)
+	preferenceGroupAddItemFromInflaterCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	preferenceGroupCmd.AddCommand(preferenceGroupAddItemFromInflaterCmd)
+	preferenceGroupAddPreferenceCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	preferenceGroupCmd.AddCommand(preferenceGroupAddPreferenceCmd)
+	preferenceGroupFindPreferenceCmd.Flags().String("arg0", "", "arg0 (string)")
+	preferenceGroupCmd.AddCommand(preferenceGroupFindPreferenceCmd)
+	preferenceGroupGetPreferenceCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	preferenceGroupCmd.AddCommand(preferenceGroupGetPreferenceCmd)
+	preferenceGroupCmd.AddCommand(preferenceGroupGetPreferenceCountCmd)
+	preferenceGroupCmd.AddCommand(preferenceGroupIsOrderingAsAddedCmd)
+	preferenceGroupNotifyDependencyChangeCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	preferenceGroupCmd.AddCommand(preferenceGroupNotifyDependencyChangeCmd)
+	preferenceGroupCmd.AddCommand(preferenceGroupRemoveAllCmd)
+	preferenceGroupRemovePreferenceCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	preferenceGroupCmd.AddCommand(preferenceGroupRemovePreferenceCmd)
+	preferenceGroupSetOrderingAsAddedCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	preferenceGroupCmd.AddCommand(preferenceGroupSetOrderingAsAddedCmd)
+	preferenceCmd.AddCommand(preferenceGroupCmd)
 	preferenceCategoryNewCategoryCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	preferenceCategoryCmd.AddCommand(preferenceCategoryNewCategoryCmd)
 	preferenceCategoryIsEnabledCmd.Flags().Int64("handle", 0, "handle (int64)")
@@ -5293,5 +5266,53 @@ func init() {
 	preferenceCategoryShouldDisableDependentsCmd.Flags().Int64("handle", 0, "handle (int64)")
 	preferenceCategoryCmd.AddCommand(preferenceCategoryShouldDisableDependentsCmd)
 	preferenceCmd.AddCommand(preferenceCategoryCmd)
+	preferenceScreenBindCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	preferenceScreenCmd.AddCommand(preferenceScreenBindCmd)
+	preferenceScreenCmd.AddCommand(preferenceScreenGetDialogCmd)
+	preferenceScreenCmd.AddCommand(preferenceScreenGetRootAdapterCmd)
+	preferenceScreenOnDismissCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	preferenceScreenCmd.AddCommand(preferenceScreenOnDismissCmd)
+	preferenceScreenOnItemClickCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	preferenceScreenOnItemClickCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	preferenceScreenOnItemClickCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	preferenceScreenOnItemClickCmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	preferenceScreenCmd.AddCommand(preferenceScreenOnItemClickCmd)
+	preferenceCmd.AddCommand(preferenceScreenCmd)
+	preferenceDialogPreferenceCmd.AddCommand(preferenceDialogPreferenceGetDialogCmd)
+	preferenceDialogPreferenceCmd.AddCommand(preferenceDialogPreferenceGetDialogIconCmd)
+	preferenceDialogPreferenceCmd.AddCommand(preferenceDialogPreferenceGetDialogLayoutResourceCmd)
+	preferenceDialogPreferenceCmd.AddCommand(preferenceDialogPreferenceGetDialogMessageCmd)
+	preferenceDialogPreferenceCmd.AddCommand(preferenceDialogPreferenceGetDialogTitleCmd)
+	preferenceDialogPreferenceCmd.AddCommand(preferenceDialogPreferenceGetNegativeButtonTextCmd)
+	preferenceDialogPreferenceCmd.AddCommand(preferenceDialogPreferenceGetPositiveButtonTextCmd)
+	preferenceDialogPreferenceCmd.AddCommand(preferenceDialogPreferenceOnActivityDestroyCmd)
+	preferenceDialogPreferenceOnClickCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	preferenceDialogPreferenceOnClickCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	preferenceDialogPreferenceCmd.AddCommand(preferenceDialogPreferenceOnClickCmd)
+	preferenceDialogPreferenceOnDismissCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	preferenceDialogPreferenceCmd.AddCommand(preferenceDialogPreferenceOnDismissCmd)
+	preferenceDialogPreferenceSetDialogIcon1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	preferenceDialogPreferenceCmd.AddCommand(preferenceDialogPreferenceSetDialogIcon1Cmd)
+	preferenceDialogPreferenceSetDialogIcon1_1Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	preferenceDialogPreferenceCmd.AddCommand(preferenceDialogPreferenceSetDialogIcon1_1Cmd)
+	preferenceDialogPreferenceSetDialogLayoutResourceCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	preferenceDialogPreferenceCmd.AddCommand(preferenceDialogPreferenceSetDialogLayoutResourceCmd)
+	preferenceDialogPreferenceSetDialogMessage1Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	preferenceDialogPreferenceCmd.AddCommand(preferenceDialogPreferenceSetDialogMessage1Cmd)
+	preferenceDialogPreferenceSetDialogMessage1_1Cmd.Flags().String("arg0", "", "arg0 (string)")
+	preferenceDialogPreferenceCmd.AddCommand(preferenceDialogPreferenceSetDialogMessage1_1Cmd)
+	preferenceDialogPreferenceSetDialogTitle1Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	preferenceDialogPreferenceCmd.AddCommand(preferenceDialogPreferenceSetDialogTitle1Cmd)
+	preferenceDialogPreferenceSetDialogTitle1_1Cmd.Flags().String("arg0", "", "arg0 (string)")
+	preferenceDialogPreferenceCmd.AddCommand(preferenceDialogPreferenceSetDialogTitle1_1Cmd)
+	preferenceDialogPreferenceSetNegativeButtonText1Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	preferenceDialogPreferenceCmd.AddCommand(preferenceDialogPreferenceSetNegativeButtonText1Cmd)
+	preferenceDialogPreferenceSetNegativeButtonText1_1Cmd.Flags().String("arg0", "", "arg0 (string)")
+	preferenceDialogPreferenceCmd.AddCommand(preferenceDialogPreferenceSetNegativeButtonText1_1Cmd)
+	preferenceDialogPreferenceSetPositiveButtonText1Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	preferenceDialogPreferenceCmd.AddCommand(preferenceDialogPreferenceSetPositiveButtonText1Cmd)
+	preferenceDialogPreferenceSetPositiveButtonText1_1Cmd.Flags().String("arg0", "", "arg0 (string)")
+	preferenceDialogPreferenceCmd.AddCommand(preferenceDialogPreferenceSetPositiveButtonText1_1Cmd)
+	preferenceCmd.AddCommand(preferenceDialogPreferenceCmd)
 	rootCmd.AddCommand(preferenceCmd)
 }

@@ -21,215 +21,178 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	ConfigService_DescribeContents_FullMethodName = "/vcn.ConfigService/DescribeContents"
-	ConfigService_Equals_FullMethodName           = "/vcn.ConfigService/Equals"
-	ConfigService_HashCode_FullMethodName         = "/vcn.ConfigService/HashCode"
-	ConfigService_WriteToParcel_FullMethodName    = "/vcn.ConfigService/WriteToParcel"
+	WifiUnderlyingNetworkTemplateService_Equals_FullMethodName   = "/vcn.WifiUnderlyingNetworkTemplateService/Equals"
+	WifiUnderlyingNetworkTemplateService_GetSsids_FullMethodName = "/vcn.WifiUnderlyingNetworkTemplateService/GetSsids"
+	WifiUnderlyingNetworkTemplateService_HashCode_FullMethodName = "/vcn.WifiUnderlyingNetworkTemplateService/HashCode"
 )
 
-// ConfigServiceClient is the client API for ConfigService service.
+// WifiUnderlyingNetworkTemplateServiceClient is the client API for WifiUnderlyingNetworkTemplateService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type ConfigServiceClient interface {
-	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+type WifiUnderlyingNetworkTemplateServiceClient interface {
 	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	GetSsids(ctx context.Context, in *GetSsidsRequest, opts ...grpc.CallOption) (*GetSsidsResponse, error)
 	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
-	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
 }
 
-type configServiceClient struct {
+type wifiUnderlyingNetworkTemplateServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewConfigServiceClient(cc grpc.ClientConnInterface) ConfigServiceClient {
-	return &configServiceClient{cc}
+func NewWifiUnderlyingNetworkTemplateServiceClient(cc grpc.ClientConnInterface) WifiUnderlyingNetworkTemplateServiceClient {
+	return &wifiUnderlyingNetworkTemplateServiceClient{cc}
 }
 
-func (c *configServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, ConfigService_DescribeContents_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *configServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+func (c *wifiUnderlyingNetworkTemplateServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(EqualsResponse)
-	err := c.cc.Invoke(ctx, ConfigService_Equals_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, WifiUnderlyingNetworkTemplateService_Equals_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *configServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+func (c *wifiUnderlyingNetworkTemplateServiceClient) GetSsids(ctx context.Context, in *GetSsidsRequest, opts ...grpc.CallOption) (*GetSsidsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSsidsResponse)
+	err := c.cc.Invoke(ctx, WifiUnderlyingNetworkTemplateService_GetSsids_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *wifiUnderlyingNetworkTemplateServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(HashCodeResponse)
-	err := c.cc.Invoke(ctx, ConfigService_HashCode_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, WifiUnderlyingNetworkTemplateService_HashCode_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *configServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, ConfigService_WriteToParcel_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// ConfigServiceServer is the server API for ConfigService service.
-// All implementations must embed UnimplementedConfigServiceServer
+// WifiUnderlyingNetworkTemplateServiceServer is the server API for WifiUnderlyingNetworkTemplateService service.
+// All implementations must embed UnimplementedWifiUnderlyingNetworkTemplateServiceServer
 // for forward compatibility.
-type ConfigServiceServer interface {
-	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+type WifiUnderlyingNetworkTemplateServiceServer interface {
 	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
+	GetSsids(context.Context, *GetSsidsRequest) (*GetSsidsResponse, error)
 	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
-	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
-	mustEmbedUnimplementedConfigServiceServer()
+	mustEmbedUnimplementedWifiUnderlyingNetworkTemplateServiceServer()
 }
 
-// UnimplementedConfigServiceServer must be embedded to have
+// UnimplementedWifiUnderlyingNetworkTemplateServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedConfigServiceServer struct{}
+type UnimplementedWifiUnderlyingNetworkTemplateServiceServer struct{}
 
-func (UnimplementedConfigServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
-}
-func (UnimplementedConfigServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
+func (UnimplementedWifiUnderlyingNetworkTemplateServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
 }
-func (UnimplementedConfigServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
+func (UnimplementedWifiUnderlyingNetworkTemplateServiceServer) GetSsids(context.Context, *GetSsidsRequest) (*GetSsidsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSsids not implemented")
+}
+func (UnimplementedWifiUnderlyingNetworkTemplateServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
 }
-func (UnimplementedConfigServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+func (UnimplementedWifiUnderlyingNetworkTemplateServiceServer) mustEmbedUnimplementedWifiUnderlyingNetworkTemplateServiceServer() {
 }
-func (UnimplementedConfigServiceServer) mustEmbedUnimplementedConfigServiceServer() {}
-func (UnimplementedConfigServiceServer) testEmbeddedByValue()                       {}
+func (UnimplementedWifiUnderlyingNetworkTemplateServiceServer) testEmbeddedByValue() {}
 
-// UnsafeConfigServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to ConfigServiceServer will
+// UnsafeWifiUnderlyingNetworkTemplateServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to WifiUnderlyingNetworkTemplateServiceServer will
 // result in compilation errors.
-type UnsafeConfigServiceServer interface {
-	mustEmbedUnimplementedConfigServiceServer()
+type UnsafeWifiUnderlyingNetworkTemplateServiceServer interface {
+	mustEmbedUnimplementedWifiUnderlyingNetworkTemplateServiceServer()
 }
 
-func RegisterConfigServiceServer(s grpc.ServiceRegistrar, srv ConfigServiceServer) {
-	// If the following call panics, it indicates UnimplementedConfigServiceServer was
+func RegisterWifiUnderlyingNetworkTemplateServiceServer(s grpc.ServiceRegistrar, srv WifiUnderlyingNetworkTemplateServiceServer) {
+	// If the following call panics, it indicates UnimplementedWifiUnderlyingNetworkTemplateServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&ConfigService_ServiceDesc, srv)
+	s.RegisterService(&WifiUnderlyingNetworkTemplateService_ServiceDesc, srv)
 }
 
-func _ConfigService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DescribeContentsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ConfigServiceServer).DescribeContents(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ConfigService_DescribeContents_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ConfigServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ConfigService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _WifiUnderlyingNetworkTemplateService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(EqualsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ConfigServiceServer).Equals(ctx, in)
+		return srv.(WifiUnderlyingNetworkTemplateServiceServer).Equals(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: ConfigService_Equals_FullMethodName,
+		FullMethod: WifiUnderlyingNetworkTemplateService_Equals_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ConfigServiceServer).Equals(ctx, req.(*EqualsRequest))
+		return srv.(WifiUnderlyingNetworkTemplateServiceServer).Equals(ctx, req.(*EqualsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ConfigService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _WifiUnderlyingNetworkTemplateService_GetSsids_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSsidsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WifiUnderlyingNetworkTemplateServiceServer).GetSsids(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WifiUnderlyingNetworkTemplateService_GetSsids_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WifiUnderlyingNetworkTemplateServiceServer).GetSsids(ctx, req.(*GetSsidsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WifiUnderlyingNetworkTemplateService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(HashCodeRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ConfigServiceServer).HashCode(ctx, in)
+		return srv.(WifiUnderlyingNetworkTemplateServiceServer).HashCode(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: ConfigService_HashCode_FullMethodName,
+		FullMethod: WifiUnderlyingNetworkTemplateService_HashCode_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ConfigServiceServer).HashCode(ctx, req.(*HashCodeRequest))
+		return srv.(WifiUnderlyingNetworkTemplateServiceServer).HashCode(ctx, req.(*HashCodeRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ConfigService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WriteToParcelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ConfigServiceServer).WriteToParcel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ConfigService_WriteToParcel_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ConfigServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// ConfigService_ServiceDesc is the grpc.ServiceDesc for ConfigService service.
+// WifiUnderlyingNetworkTemplateService_ServiceDesc is the grpc.ServiceDesc for WifiUnderlyingNetworkTemplateService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var ConfigService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "vcn.ConfigService",
-	HandlerType: (*ConfigServiceServer)(nil),
+var WifiUnderlyingNetworkTemplateService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "vcn.WifiUnderlyingNetworkTemplateService",
+	HandlerType: (*WifiUnderlyingNetworkTemplateServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "DescribeContents",
-			Handler:    _ConfigService_DescribeContents_Handler,
+			MethodName: "Equals",
+			Handler:    _WifiUnderlyingNetworkTemplateService_Equals_Handler,
 		},
 		{
-			MethodName: "Equals",
-			Handler:    _ConfigService_Equals_Handler,
+			MethodName: "GetSsids",
+			Handler:    _WifiUnderlyingNetworkTemplateService_GetSsids_Handler,
 		},
 		{
 			MethodName: "HashCode",
-			Handler:    _ConfigService_HashCode_Handler,
-		},
-		{
-			MethodName: "WriteToParcel",
-			Handler:    _ConfigService_WriteToParcel_Handler,
+			Handler:    _WifiUnderlyingNetworkTemplateService_HashCode_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -237,139 +200,216 @@ var ConfigService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	ConfigBuilderService_AddGatewayConnectionConfig_FullMethodName = "/vcn.ConfigBuilderService/AddGatewayConnectionConfig"
-	ConfigBuilderService_Build_FullMethodName                      = "/vcn.ConfigBuilderService/Build"
+	WifiUnderlyingNetworkTemplateBuilderService_Build_FullMethodName                         = "/vcn.WifiUnderlyingNetworkTemplateBuilderService/Build"
+	WifiUnderlyingNetworkTemplateBuilderService_SetMetered_FullMethodName                    = "/vcn.WifiUnderlyingNetworkTemplateBuilderService/SetMetered"
+	WifiUnderlyingNetworkTemplateBuilderService_SetMinDownstreamBandwidthKbps_FullMethodName = "/vcn.WifiUnderlyingNetworkTemplateBuilderService/SetMinDownstreamBandwidthKbps"
+	WifiUnderlyingNetworkTemplateBuilderService_SetMinUpstreamBandwidthKbps_FullMethodName   = "/vcn.WifiUnderlyingNetworkTemplateBuilderService/SetMinUpstreamBandwidthKbps"
 )
 
-// ConfigBuilderServiceClient is the client API for ConfigBuilderService service.
+// WifiUnderlyingNetworkTemplateBuilderServiceClient is the client API for WifiUnderlyingNetworkTemplateBuilderService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type ConfigBuilderServiceClient interface {
-	AddGatewayConnectionConfig(ctx context.Context, in *AddGatewayConnectionConfigRequest, opts ...grpc.CallOption) (*AddGatewayConnectionConfigResponse, error)
+type WifiUnderlyingNetworkTemplateBuilderServiceClient interface {
 	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
+	SetMetered(ctx context.Context, in *SetMeteredRequest, opts ...grpc.CallOption) (*SetMeteredResponse, error)
+	SetMinDownstreamBandwidthKbps(ctx context.Context, in *SetMinDownstreamBandwidthKbpsRequest, opts ...grpc.CallOption) (*SetMinDownstreamBandwidthKbpsResponse, error)
+	SetMinUpstreamBandwidthKbps(ctx context.Context, in *SetMinUpstreamBandwidthKbpsRequest, opts ...grpc.CallOption) (*SetMinUpstreamBandwidthKbpsResponse, error)
 }
 
-type configBuilderServiceClient struct {
+type wifiUnderlyingNetworkTemplateBuilderServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewConfigBuilderServiceClient(cc grpc.ClientConnInterface) ConfigBuilderServiceClient {
-	return &configBuilderServiceClient{cc}
+func NewWifiUnderlyingNetworkTemplateBuilderServiceClient(cc grpc.ClientConnInterface) WifiUnderlyingNetworkTemplateBuilderServiceClient {
+	return &wifiUnderlyingNetworkTemplateBuilderServiceClient{cc}
 }
 
-func (c *configBuilderServiceClient) AddGatewayConnectionConfig(ctx context.Context, in *AddGatewayConnectionConfigRequest, opts ...grpc.CallOption) (*AddGatewayConnectionConfigResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(AddGatewayConnectionConfigResponse)
-	err := c.cc.Invoke(ctx, ConfigBuilderService_AddGatewayConnectionConfig_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *configBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
+func (c *wifiUnderlyingNetworkTemplateBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(BuildResponse)
-	err := c.cc.Invoke(ctx, ConfigBuilderService_Build_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, WifiUnderlyingNetworkTemplateBuilderService_Build_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// ConfigBuilderServiceServer is the server API for ConfigBuilderService service.
-// All implementations must embed UnimplementedConfigBuilderServiceServer
-// for forward compatibility.
-type ConfigBuilderServiceServer interface {
-	AddGatewayConnectionConfig(context.Context, *AddGatewayConnectionConfigRequest) (*AddGatewayConnectionConfigResponse, error)
-	Build(context.Context, *BuildRequest) (*BuildResponse, error)
-	mustEmbedUnimplementedConfigBuilderServiceServer()
+func (c *wifiUnderlyingNetworkTemplateBuilderServiceClient) SetMetered(ctx context.Context, in *SetMeteredRequest, opts ...grpc.CallOption) (*SetMeteredResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetMeteredResponse)
+	err := c.cc.Invoke(ctx, WifiUnderlyingNetworkTemplateBuilderService_SetMetered_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
 }
 
-// UnimplementedConfigBuilderServiceServer must be embedded to have
+func (c *wifiUnderlyingNetworkTemplateBuilderServiceClient) SetMinDownstreamBandwidthKbps(ctx context.Context, in *SetMinDownstreamBandwidthKbpsRequest, opts ...grpc.CallOption) (*SetMinDownstreamBandwidthKbpsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetMinDownstreamBandwidthKbpsResponse)
+	err := c.cc.Invoke(ctx, WifiUnderlyingNetworkTemplateBuilderService_SetMinDownstreamBandwidthKbps_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *wifiUnderlyingNetworkTemplateBuilderServiceClient) SetMinUpstreamBandwidthKbps(ctx context.Context, in *SetMinUpstreamBandwidthKbpsRequest, opts ...grpc.CallOption) (*SetMinUpstreamBandwidthKbpsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetMinUpstreamBandwidthKbpsResponse)
+	err := c.cc.Invoke(ctx, WifiUnderlyingNetworkTemplateBuilderService_SetMinUpstreamBandwidthKbps_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// WifiUnderlyingNetworkTemplateBuilderServiceServer is the server API for WifiUnderlyingNetworkTemplateBuilderService service.
+// All implementations must embed UnimplementedWifiUnderlyingNetworkTemplateBuilderServiceServer
+// for forward compatibility.
+type WifiUnderlyingNetworkTemplateBuilderServiceServer interface {
+	Build(context.Context, *BuildRequest) (*BuildResponse, error)
+	SetMetered(context.Context, *SetMeteredRequest) (*SetMeteredResponse, error)
+	SetMinDownstreamBandwidthKbps(context.Context, *SetMinDownstreamBandwidthKbpsRequest) (*SetMinDownstreamBandwidthKbpsResponse, error)
+	SetMinUpstreamBandwidthKbps(context.Context, *SetMinUpstreamBandwidthKbpsRequest) (*SetMinUpstreamBandwidthKbpsResponse, error)
+	mustEmbedUnimplementedWifiUnderlyingNetworkTemplateBuilderServiceServer()
+}
+
+// UnimplementedWifiUnderlyingNetworkTemplateBuilderServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedConfigBuilderServiceServer struct{}
+type UnimplementedWifiUnderlyingNetworkTemplateBuilderServiceServer struct{}
 
-func (UnimplementedConfigBuilderServiceServer) AddGatewayConnectionConfig(context.Context, *AddGatewayConnectionConfigRequest) (*AddGatewayConnectionConfigResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method AddGatewayConnectionConfig not implemented")
-}
-func (UnimplementedConfigBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
+func (UnimplementedWifiUnderlyingNetworkTemplateBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
 }
-func (UnimplementedConfigBuilderServiceServer) mustEmbedUnimplementedConfigBuilderServiceServer() {}
-func (UnimplementedConfigBuilderServiceServer) testEmbeddedByValue()                              {}
+func (UnimplementedWifiUnderlyingNetworkTemplateBuilderServiceServer) SetMetered(context.Context, *SetMeteredRequest) (*SetMeteredResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetMetered not implemented")
+}
+func (UnimplementedWifiUnderlyingNetworkTemplateBuilderServiceServer) SetMinDownstreamBandwidthKbps(context.Context, *SetMinDownstreamBandwidthKbpsRequest) (*SetMinDownstreamBandwidthKbpsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetMinDownstreamBandwidthKbps not implemented")
+}
+func (UnimplementedWifiUnderlyingNetworkTemplateBuilderServiceServer) SetMinUpstreamBandwidthKbps(context.Context, *SetMinUpstreamBandwidthKbpsRequest) (*SetMinUpstreamBandwidthKbpsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetMinUpstreamBandwidthKbps not implemented")
+}
+func (UnimplementedWifiUnderlyingNetworkTemplateBuilderServiceServer) mustEmbedUnimplementedWifiUnderlyingNetworkTemplateBuilderServiceServer() {
+}
+func (UnimplementedWifiUnderlyingNetworkTemplateBuilderServiceServer) testEmbeddedByValue() {}
 
-// UnsafeConfigBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to ConfigBuilderServiceServer will
+// UnsafeWifiUnderlyingNetworkTemplateBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to WifiUnderlyingNetworkTemplateBuilderServiceServer will
 // result in compilation errors.
-type UnsafeConfigBuilderServiceServer interface {
-	mustEmbedUnimplementedConfigBuilderServiceServer()
+type UnsafeWifiUnderlyingNetworkTemplateBuilderServiceServer interface {
+	mustEmbedUnimplementedWifiUnderlyingNetworkTemplateBuilderServiceServer()
 }
 
-func RegisterConfigBuilderServiceServer(s grpc.ServiceRegistrar, srv ConfigBuilderServiceServer) {
-	// If the following call panics, it indicates UnimplementedConfigBuilderServiceServer was
+func RegisterWifiUnderlyingNetworkTemplateBuilderServiceServer(s grpc.ServiceRegistrar, srv WifiUnderlyingNetworkTemplateBuilderServiceServer) {
+	// If the following call panics, it indicates UnimplementedWifiUnderlyingNetworkTemplateBuilderServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&ConfigBuilderService_ServiceDesc, srv)
+	s.RegisterService(&WifiUnderlyingNetworkTemplateBuilderService_ServiceDesc, srv)
 }
 
-func _ConfigBuilderService_AddGatewayConnectionConfig_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AddGatewayConnectionConfigRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ConfigBuilderServiceServer).AddGatewayConnectionConfig(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ConfigBuilderService_AddGatewayConnectionConfig_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ConfigBuilderServiceServer).AddGatewayConnectionConfig(ctx, req.(*AddGatewayConnectionConfigRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ConfigBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _WifiUnderlyingNetworkTemplateBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(BuildRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ConfigBuilderServiceServer).Build(ctx, in)
+		return srv.(WifiUnderlyingNetworkTemplateBuilderServiceServer).Build(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: ConfigBuilderService_Build_FullMethodName,
+		FullMethod: WifiUnderlyingNetworkTemplateBuilderService_Build_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ConfigBuilderServiceServer).Build(ctx, req.(*BuildRequest))
+		return srv.(WifiUnderlyingNetworkTemplateBuilderServiceServer).Build(ctx, req.(*BuildRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// ConfigBuilderService_ServiceDesc is the grpc.ServiceDesc for ConfigBuilderService service.
+func _WifiUnderlyingNetworkTemplateBuilderService_SetMetered_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetMeteredRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WifiUnderlyingNetworkTemplateBuilderServiceServer).SetMetered(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WifiUnderlyingNetworkTemplateBuilderService_SetMetered_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WifiUnderlyingNetworkTemplateBuilderServiceServer).SetMetered(ctx, req.(*SetMeteredRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WifiUnderlyingNetworkTemplateBuilderService_SetMinDownstreamBandwidthKbps_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetMinDownstreamBandwidthKbpsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WifiUnderlyingNetworkTemplateBuilderServiceServer).SetMinDownstreamBandwidthKbps(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WifiUnderlyingNetworkTemplateBuilderService_SetMinDownstreamBandwidthKbps_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WifiUnderlyingNetworkTemplateBuilderServiceServer).SetMinDownstreamBandwidthKbps(ctx, req.(*SetMinDownstreamBandwidthKbpsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WifiUnderlyingNetworkTemplateBuilderService_SetMinUpstreamBandwidthKbps_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetMinUpstreamBandwidthKbpsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WifiUnderlyingNetworkTemplateBuilderServiceServer).SetMinUpstreamBandwidthKbps(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WifiUnderlyingNetworkTemplateBuilderService_SetMinUpstreamBandwidthKbps_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WifiUnderlyingNetworkTemplateBuilderServiceServer).SetMinUpstreamBandwidthKbps(ctx, req.(*SetMinUpstreamBandwidthKbpsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// WifiUnderlyingNetworkTemplateBuilderService_ServiceDesc is the grpc.ServiceDesc for WifiUnderlyingNetworkTemplateBuilderService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var ConfigBuilderService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "vcn.ConfigBuilderService",
-	HandlerType: (*ConfigBuilderServiceServer)(nil),
+var WifiUnderlyingNetworkTemplateBuilderService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "vcn.WifiUnderlyingNetworkTemplateBuilderService",
+	HandlerType: (*WifiUnderlyingNetworkTemplateBuilderServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "AddGatewayConnectionConfig",
-			Handler:    _ConfigBuilderService_AddGatewayConnectionConfig_Handler,
+			MethodName: "Build",
+			Handler:    _WifiUnderlyingNetworkTemplateBuilderService_Build_Handler,
 		},
 		{
-			MethodName: "Build",
-			Handler:    _ConfigBuilderService_Build_Handler,
+			MethodName: "SetMetered",
+			Handler:    _WifiUnderlyingNetworkTemplateBuilderService_SetMetered_Handler,
+		},
+		{
+			MethodName: "SetMinDownstreamBandwidthKbps",
+			Handler:    _WifiUnderlyingNetworkTemplateBuilderService_SetMinDownstreamBandwidthKbps_Handler,
+		},
+		{
+			MethodName: "SetMinUpstreamBandwidthKbps",
+			Handler:    _WifiUnderlyingNetworkTemplateBuilderService_SetMinUpstreamBandwidthKbps_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -377,16 +417,18 @@ var ConfigBuilderService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	CellUnderlyingNetworkTemplateService_Equals_FullMethodName           = "/vcn.CellUnderlyingNetworkTemplateService/Equals"
-	CellUnderlyingNetworkTemplateService_GetCbs_FullMethodName           = "/vcn.CellUnderlyingNetworkTemplateService/GetCbs"
-	CellUnderlyingNetworkTemplateService_GetDun_FullMethodName           = "/vcn.CellUnderlyingNetworkTemplateService/GetDun"
-	CellUnderlyingNetworkTemplateService_GetIms_FullMethodName           = "/vcn.CellUnderlyingNetworkTemplateService/GetIms"
-	CellUnderlyingNetworkTemplateService_GetInternet_FullMethodName      = "/vcn.CellUnderlyingNetworkTemplateService/GetInternet"
-	CellUnderlyingNetworkTemplateService_GetMms_FullMethodName           = "/vcn.CellUnderlyingNetworkTemplateService/GetMms"
-	CellUnderlyingNetworkTemplateService_GetOpportunistic_FullMethodName = "/vcn.CellUnderlyingNetworkTemplateService/GetOpportunistic"
-	CellUnderlyingNetworkTemplateService_GetRcs_FullMethodName           = "/vcn.CellUnderlyingNetworkTemplateService/GetRcs"
-	CellUnderlyingNetworkTemplateService_GetRoaming_FullMethodName       = "/vcn.CellUnderlyingNetworkTemplateService/GetRoaming"
-	CellUnderlyingNetworkTemplateService_HashCode_FullMethodName         = "/vcn.CellUnderlyingNetworkTemplateService/HashCode"
+	CellUnderlyingNetworkTemplateService_Equals_FullMethodName                   = "/vcn.CellUnderlyingNetworkTemplateService/Equals"
+	CellUnderlyingNetworkTemplateService_GetCbs_FullMethodName                   = "/vcn.CellUnderlyingNetworkTemplateService/GetCbs"
+	CellUnderlyingNetworkTemplateService_GetDun_FullMethodName                   = "/vcn.CellUnderlyingNetworkTemplateService/GetDun"
+	CellUnderlyingNetworkTemplateService_GetIms_FullMethodName                   = "/vcn.CellUnderlyingNetworkTemplateService/GetIms"
+	CellUnderlyingNetworkTemplateService_GetInternet_FullMethodName              = "/vcn.CellUnderlyingNetworkTemplateService/GetInternet"
+	CellUnderlyingNetworkTemplateService_GetMms_FullMethodName                   = "/vcn.CellUnderlyingNetworkTemplateService/GetMms"
+	CellUnderlyingNetworkTemplateService_GetOperatorPlmnIds_FullMethodName       = "/vcn.CellUnderlyingNetworkTemplateService/GetOperatorPlmnIds"
+	CellUnderlyingNetworkTemplateService_GetOpportunistic_FullMethodName         = "/vcn.CellUnderlyingNetworkTemplateService/GetOpportunistic"
+	CellUnderlyingNetworkTemplateService_GetRcs_FullMethodName                   = "/vcn.CellUnderlyingNetworkTemplateService/GetRcs"
+	CellUnderlyingNetworkTemplateService_GetRoaming_FullMethodName               = "/vcn.CellUnderlyingNetworkTemplateService/GetRoaming"
+	CellUnderlyingNetworkTemplateService_GetSimSpecificCarrierIds_FullMethodName = "/vcn.CellUnderlyingNetworkTemplateService/GetSimSpecificCarrierIds"
+	CellUnderlyingNetworkTemplateService_HashCode_FullMethodName                 = "/vcn.CellUnderlyingNetworkTemplateService/HashCode"
 )
 
 // CellUnderlyingNetworkTemplateServiceClient is the client API for CellUnderlyingNetworkTemplateService service.
@@ -399,9 +441,11 @@ type CellUnderlyingNetworkTemplateServiceClient interface {
 	GetIms(ctx context.Context, in *GetImsRequest, opts ...grpc.CallOption) (*GetImsResponse, error)
 	GetInternet(ctx context.Context, in *GetInternetRequest, opts ...grpc.CallOption) (*GetInternetResponse, error)
 	GetMms(ctx context.Context, in *GetMmsRequest, opts ...grpc.CallOption) (*GetMmsResponse, error)
+	GetOperatorPlmnIds(ctx context.Context, in *GetOperatorPlmnIdsRequest, opts ...grpc.CallOption) (*GetOperatorPlmnIdsResponse, error)
 	GetOpportunistic(ctx context.Context, in *GetOpportunisticRequest, opts ...grpc.CallOption) (*GetOpportunisticResponse, error)
 	GetRcs(ctx context.Context, in *GetRcsRequest, opts ...grpc.CallOption) (*GetRcsResponse, error)
 	GetRoaming(ctx context.Context, in *GetRoamingRequest, opts ...grpc.CallOption) (*GetRoamingResponse, error)
+	GetSimSpecificCarrierIds(ctx context.Context, in *GetSimSpecificCarrierIdsRequest, opts ...grpc.CallOption) (*GetSimSpecificCarrierIdsResponse, error)
 	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
 }
 
@@ -473,6 +517,16 @@ func (c *cellUnderlyingNetworkTemplateServiceClient) GetMms(ctx context.Context,
 	return out, nil
 }
 
+func (c *cellUnderlyingNetworkTemplateServiceClient) GetOperatorPlmnIds(ctx context.Context, in *GetOperatorPlmnIdsRequest, opts ...grpc.CallOption) (*GetOperatorPlmnIdsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetOperatorPlmnIdsResponse)
+	err := c.cc.Invoke(ctx, CellUnderlyingNetworkTemplateService_GetOperatorPlmnIds_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *cellUnderlyingNetworkTemplateServiceClient) GetOpportunistic(ctx context.Context, in *GetOpportunisticRequest, opts ...grpc.CallOption) (*GetOpportunisticResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetOpportunisticResponse)
@@ -503,6 +557,16 @@ func (c *cellUnderlyingNetworkTemplateServiceClient) GetRoaming(ctx context.Cont
 	return out, nil
 }
 
+func (c *cellUnderlyingNetworkTemplateServiceClient) GetSimSpecificCarrierIds(ctx context.Context, in *GetSimSpecificCarrierIdsRequest, opts ...grpc.CallOption) (*GetSimSpecificCarrierIdsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSimSpecificCarrierIdsResponse)
+	err := c.cc.Invoke(ctx, CellUnderlyingNetworkTemplateService_GetSimSpecificCarrierIds_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *cellUnderlyingNetworkTemplateServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(HashCodeResponse)
@@ -523,9 +587,11 @@ type CellUnderlyingNetworkTemplateServiceServer interface {
 	GetIms(context.Context, *GetImsRequest) (*GetImsResponse, error)
 	GetInternet(context.Context, *GetInternetRequest) (*GetInternetResponse, error)
 	GetMms(context.Context, *GetMmsRequest) (*GetMmsResponse, error)
+	GetOperatorPlmnIds(context.Context, *GetOperatorPlmnIdsRequest) (*GetOperatorPlmnIdsResponse, error)
 	GetOpportunistic(context.Context, *GetOpportunisticRequest) (*GetOpportunisticResponse, error)
 	GetRcs(context.Context, *GetRcsRequest) (*GetRcsResponse, error)
 	GetRoaming(context.Context, *GetRoamingRequest) (*GetRoamingResponse, error)
+	GetSimSpecificCarrierIds(context.Context, *GetSimSpecificCarrierIdsRequest) (*GetSimSpecificCarrierIdsResponse, error)
 	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
 	mustEmbedUnimplementedCellUnderlyingNetworkTemplateServiceServer()
 }
@@ -555,6 +621,9 @@ func (UnimplementedCellUnderlyingNetworkTemplateServiceServer) GetInternet(conte
 func (UnimplementedCellUnderlyingNetworkTemplateServiceServer) GetMms(context.Context, *GetMmsRequest) (*GetMmsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetMms not implemented")
 }
+func (UnimplementedCellUnderlyingNetworkTemplateServiceServer) GetOperatorPlmnIds(context.Context, *GetOperatorPlmnIdsRequest) (*GetOperatorPlmnIdsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetOperatorPlmnIds not implemented")
+}
 func (UnimplementedCellUnderlyingNetworkTemplateServiceServer) GetOpportunistic(context.Context, *GetOpportunisticRequest) (*GetOpportunisticResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetOpportunistic not implemented")
 }
@@ -563,6 +632,9 @@ func (UnimplementedCellUnderlyingNetworkTemplateServiceServer) GetRcs(context.Co
 }
 func (UnimplementedCellUnderlyingNetworkTemplateServiceServer) GetRoaming(context.Context, *GetRoamingRequest) (*GetRoamingResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetRoaming not implemented")
+}
+func (UnimplementedCellUnderlyingNetworkTemplateServiceServer) GetSimSpecificCarrierIds(context.Context, *GetSimSpecificCarrierIdsRequest) (*GetSimSpecificCarrierIdsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSimSpecificCarrierIds not implemented")
 }
 func (UnimplementedCellUnderlyingNetworkTemplateServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
@@ -697,6 +769,24 @@ func _CellUnderlyingNetworkTemplateService_GetMms_Handler(srv interface{}, ctx c
 	return interceptor(ctx, in, info, handler)
 }
 
+func _CellUnderlyingNetworkTemplateService_GetOperatorPlmnIds_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetOperatorPlmnIdsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CellUnderlyingNetworkTemplateServiceServer).GetOperatorPlmnIds(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CellUnderlyingNetworkTemplateService_GetOperatorPlmnIds_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CellUnderlyingNetworkTemplateServiceServer).GetOperatorPlmnIds(ctx, req.(*GetOperatorPlmnIdsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _CellUnderlyingNetworkTemplateService_GetOpportunistic_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetOpportunisticRequest)
 	if err := dec(in); err != nil {
@@ -751,6 +841,24 @@ func _CellUnderlyingNetworkTemplateService_GetRoaming_Handler(srv interface{}, c
 	return interceptor(ctx, in, info, handler)
 }
 
+func _CellUnderlyingNetworkTemplateService_GetSimSpecificCarrierIds_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSimSpecificCarrierIdsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CellUnderlyingNetworkTemplateServiceServer).GetSimSpecificCarrierIds(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CellUnderlyingNetworkTemplateService_GetSimSpecificCarrierIds_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CellUnderlyingNetworkTemplateServiceServer).GetSimSpecificCarrierIds(ctx, req.(*GetSimSpecificCarrierIdsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _CellUnderlyingNetworkTemplateService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(HashCodeRequest)
 	if err := dec(in); err != nil {
@@ -801,6 +909,10 @@ var CellUnderlyingNetworkTemplateService_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _CellUnderlyingNetworkTemplateService_GetMms_Handler,
 		},
 		{
+			MethodName: "GetOperatorPlmnIds",
+			Handler:    _CellUnderlyingNetworkTemplateService_GetOperatorPlmnIds_Handler,
+		},
+		{
 			MethodName: "GetOpportunistic",
 			Handler:    _CellUnderlyingNetworkTemplateService_GetOpportunistic_Handler,
 		},
@@ -811,6 +923,10 @@ var CellUnderlyingNetworkTemplateService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetRoaming",
 			Handler:    _CellUnderlyingNetworkTemplateService_GetRoaming_Handler,
+		},
+		{
+			MethodName: "GetSimSpecificCarrierIds",
+			Handler:    _CellUnderlyingNetworkTemplateService_GetSimSpecificCarrierIds_Handler,
 		},
 		{
 			MethodName: "HashCode",
@@ -1343,140 +1459,291 @@ var CellUnderlyingNetworkTemplateBuilderService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	WifiUnderlyingNetworkTemplateService_Equals_FullMethodName   = "/vcn.WifiUnderlyingNetworkTemplateService/Equals"
-	WifiUnderlyingNetworkTemplateService_HashCode_FullMethodName = "/vcn.WifiUnderlyingNetworkTemplateService/HashCode"
+	ConfigService_DescribeContents_FullMethodName                         = "/vcn.ConfigService/DescribeContents"
+	ConfigService_Equals_FullMethodName                                   = "/vcn.ConfigService/Equals"
+	ConfigService_GetGatewayConnectionConfigs_FullMethodName              = "/vcn.ConfigService/GetGatewayConnectionConfigs"
+	ConfigService_GetRestrictedUnderlyingNetworkTransports_FullMethodName = "/vcn.ConfigService/GetRestrictedUnderlyingNetworkTransports"
+	ConfigService_HashCode_FullMethodName                                 = "/vcn.ConfigService/HashCode"
+	ConfigService_WriteToParcel_FullMethodName                            = "/vcn.ConfigService/WriteToParcel"
 )
 
-// WifiUnderlyingNetworkTemplateServiceClient is the client API for WifiUnderlyingNetworkTemplateService service.
+// ConfigServiceClient is the client API for ConfigService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type WifiUnderlyingNetworkTemplateServiceClient interface {
+type ConfigServiceClient interface {
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
 	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	GetGatewayConnectionConfigs(ctx context.Context, in *GetGatewayConnectionConfigsRequest, opts ...grpc.CallOption) (*GetGatewayConnectionConfigsResponse, error)
+	GetRestrictedUnderlyingNetworkTransports(ctx context.Context, in *GetRestrictedUnderlyingNetworkTransportsRequest, opts ...grpc.CallOption) (*GetRestrictedUnderlyingNetworkTransportsResponse, error)
 	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
 }
 
-type wifiUnderlyingNetworkTemplateServiceClient struct {
+type configServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewWifiUnderlyingNetworkTemplateServiceClient(cc grpc.ClientConnInterface) WifiUnderlyingNetworkTemplateServiceClient {
-	return &wifiUnderlyingNetworkTemplateServiceClient{cc}
+func NewConfigServiceClient(cc grpc.ClientConnInterface) ConfigServiceClient {
+	return &configServiceClient{cc}
 }
 
-func (c *wifiUnderlyingNetworkTemplateServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+func (c *configServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, ConfigService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *configServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(EqualsResponse)
-	err := c.cc.Invoke(ctx, WifiUnderlyingNetworkTemplateService_Equals_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ConfigService_Equals_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiUnderlyingNetworkTemplateServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+func (c *configServiceClient) GetGatewayConnectionConfigs(ctx context.Context, in *GetGatewayConnectionConfigsRequest, opts ...grpc.CallOption) (*GetGatewayConnectionConfigsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetGatewayConnectionConfigsResponse)
+	err := c.cc.Invoke(ctx, ConfigService_GetGatewayConnectionConfigs_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *configServiceClient) GetRestrictedUnderlyingNetworkTransports(ctx context.Context, in *GetRestrictedUnderlyingNetworkTransportsRequest, opts ...grpc.CallOption) (*GetRestrictedUnderlyingNetworkTransportsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetRestrictedUnderlyingNetworkTransportsResponse)
+	err := c.cc.Invoke(ctx, ConfigService_GetRestrictedUnderlyingNetworkTransports_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *configServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(HashCodeResponse)
-	err := c.cc.Invoke(ctx, WifiUnderlyingNetworkTemplateService_HashCode_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ConfigService_HashCode_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// WifiUnderlyingNetworkTemplateServiceServer is the server API for WifiUnderlyingNetworkTemplateService service.
-// All implementations must embed UnimplementedWifiUnderlyingNetworkTemplateServiceServer
-// for forward compatibility.
-type WifiUnderlyingNetworkTemplateServiceServer interface {
-	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
-	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
-	mustEmbedUnimplementedWifiUnderlyingNetworkTemplateServiceServer()
+func (c *configServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, ConfigService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
 }
 
-// UnimplementedWifiUnderlyingNetworkTemplateServiceServer must be embedded to have
+// ConfigServiceServer is the server API for ConfigService service.
+// All implementations must embed UnimplementedConfigServiceServer
+// for forward compatibility.
+type ConfigServiceServer interface {
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
+	GetGatewayConnectionConfigs(context.Context, *GetGatewayConnectionConfigsRequest) (*GetGatewayConnectionConfigsResponse, error)
+	GetRestrictedUnderlyingNetworkTransports(context.Context, *GetRestrictedUnderlyingNetworkTransportsRequest) (*GetRestrictedUnderlyingNetworkTransportsResponse, error)
+	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedConfigServiceServer()
+}
+
+// UnimplementedConfigServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedWifiUnderlyingNetworkTemplateServiceServer struct{}
+type UnimplementedConfigServiceServer struct{}
 
-func (UnimplementedWifiUnderlyingNetworkTemplateServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
+func (UnimplementedConfigServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedConfigServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
 }
-func (UnimplementedWifiUnderlyingNetworkTemplateServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
+func (UnimplementedConfigServiceServer) GetGatewayConnectionConfigs(context.Context, *GetGatewayConnectionConfigsRequest) (*GetGatewayConnectionConfigsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetGatewayConnectionConfigs not implemented")
+}
+func (UnimplementedConfigServiceServer) GetRestrictedUnderlyingNetworkTransports(context.Context, *GetRestrictedUnderlyingNetworkTransportsRequest) (*GetRestrictedUnderlyingNetworkTransportsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetRestrictedUnderlyingNetworkTransports not implemented")
+}
+func (UnimplementedConfigServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
 }
-func (UnimplementedWifiUnderlyingNetworkTemplateServiceServer) mustEmbedUnimplementedWifiUnderlyingNetworkTemplateServiceServer() {
+func (UnimplementedConfigServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
 }
-func (UnimplementedWifiUnderlyingNetworkTemplateServiceServer) testEmbeddedByValue() {}
+func (UnimplementedConfigServiceServer) mustEmbedUnimplementedConfigServiceServer() {}
+func (UnimplementedConfigServiceServer) testEmbeddedByValue()                       {}
 
-// UnsafeWifiUnderlyingNetworkTemplateServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to WifiUnderlyingNetworkTemplateServiceServer will
+// UnsafeConfigServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ConfigServiceServer will
 // result in compilation errors.
-type UnsafeWifiUnderlyingNetworkTemplateServiceServer interface {
-	mustEmbedUnimplementedWifiUnderlyingNetworkTemplateServiceServer()
+type UnsafeConfigServiceServer interface {
+	mustEmbedUnimplementedConfigServiceServer()
 }
 
-func RegisterWifiUnderlyingNetworkTemplateServiceServer(s grpc.ServiceRegistrar, srv WifiUnderlyingNetworkTemplateServiceServer) {
-	// If the following call panics, it indicates UnimplementedWifiUnderlyingNetworkTemplateServiceServer was
+func RegisterConfigServiceServer(s grpc.ServiceRegistrar, srv ConfigServiceServer) {
+	// If the following call panics, it indicates UnimplementedConfigServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&WifiUnderlyingNetworkTemplateService_ServiceDesc, srv)
+	s.RegisterService(&ConfigService_ServiceDesc, srv)
 }
 
-func _WifiUnderlyingNetworkTemplateService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ConfigService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ConfigServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ConfigService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ConfigServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ConfigService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(EqualsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiUnderlyingNetworkTemplateServiceServer).Equals(ctx, in)
+		return srv.(ConfigServiceServer).Equals(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiUnderlyingNetworkTemplateService_Equals_FullMethodName,
+		FullMethod: ConfigService_Equals_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiUnderlyingNetworkTemplateServiceServer).Equals(ctx, req.(*EqualsRequest))
+		return srv.(ConfigServiceServer).Equals(ctx, req.(*EqualsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiUnderlyingNetworkTemplateService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ConfigService_GetGatewayConnectionConfigs_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetGatewayConnectionConfigsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ConfigServiceServer).GetGatewayConnectionConfigs(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ConfigService_GetGatewayConnectionConfigs_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ConfigServiceServer).GetGatewayConnectionConfigs(ctx, req.(*GetGatewayConnectionConfigsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ConfigService_GetRestrictedUnderlyingNetworkTransports_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetRestrictedUnderlyingNetworkTransportsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ConfigServiceServer).GetRestrictedUnderlyingNetworkTransports(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ConfigService_GetRestrictedUnderlyingNetworkTransports_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ConfigServiceServer).GetRestrictedUnderlyingNetworkTransports(ctx, req.(*GetRestrictedUnderlyingNetworkTransportsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ConfigService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(HashCodeRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiUnderlyingNetworkTemplateServiceServer).HashCode(ctx, in)
+		return srv.(ConfigServiceServer).HashCode(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiUnderlyingNetworkTemplateService_HashCode_FullMethodName,
+		FullMethod: ConfigService_HashCode_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiUnderlyingNetworkTemplateServiceServer).HashCode(ctx, req.(*HashCodeRequest))
+		return srv.(ConfigServiceServer).HashCode(ctx, req.(*HashCodeRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// WifiUnderlyingNetworkTemplateService_ServiceDesc is the grpc.ServiceDesc for WifiUnderlyingNetworkTemplateService service.
+func _ConfigService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ConfigServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ConfigService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ConfigServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ConfigService_ServiceDesc is the grpc.ServiceDesc for ConfigService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var WifiUnderlyingNetworkTemplateService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "vcn.WifiUnderlyingNetworkTemplateService",
-	HandlerType: (*WifiUnderlyingNetworkTemplateServiceServer)(nil),
+var ConfigService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "vcn.ConfigService",
+	HandlerType: (*ConfigServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
+			MethodName: "DescribeContents",
+			Handler:    _ConfigService_DescribeContents_Handler,
+		},
+		{
 			MethodName: "Equals",
-			Handler:    _WifiUnderlyingNetworkTemplateService_Equals_Handler,
+			Handler:    _ConfigService_Equals_Handler,
+		},
+		{
+			MethodName: "GetGatewayConnectionConfigs",
+			Handler:    _ConfigService_GetGatewayConnectionConfigs_Handler,
+		},
+		{
+			MethodName: "GetRestrictedUnderlyingNetworkTransports",
+			Handler:    _ConfigService_GetRestrictedUnderlyingNetworkTransports_Handler,
 		},
 		{
 			MethodName: "HashCode",
-			Handler:    _WifiUnderlyingNetworkTemplateService_HashCode_Handler,
+			Handler:    _ConfigService_HashCode_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _ConfigService_WriteToParcel_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -1484,216 +1751,534 @@ var WifiUnderlyingNetworkTemplateService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	WifiUnderlyingNetworkTemplateBuilderService_Build_FullMethodName                         = "/vcn.WifiUnderlyingNetworkTemplateBuilderService/Build"
-	WifiUnderlyingNetworkTemplateBuilderService_SetMetered_FullMethodName                    = "/vcn.WifiUnderlyingNetworkTemplateBuilderService/SetMetered"
-	WifiUnderlyingNetworkTemplateBuilderService_SetMinDownstreamBandwidthKbps_FullMethodName = "/vcn.WifiUnderlyingNetworkTemplateBuilderService/SetMinDownstreamBandwidthKbps"
-	WifiUnderlyingNetworkTemplateBuilderService_SetMinUpstreamBandwidthKbps_FullMethodName   = "/vcn.WifiUnderlyingNetworkTemplateBuilderService/SetMinUpstreamBandwidthKbps"
+	ConfigBuilderService_AddGatewayConnectionConfig_FullMethodName = "/vcn.ConfigBuilderService/AddGatewayConnectionConfig"
+	ConfigBuilderService_Build_FullMethodName                      = "/vcn.ConfigBuilderService/Build"
 )
 
-// WifiUnderlyingNetworkTemplateBuilderServiceClient is the client API for WifiUnderlyingNetworkTemplateBuilderService service.
+// ConfigBuilderServiceClient is the client API for ConfigBuilderService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type WifiUnderlyingNetworkTemplateBuilderServiceClient interface {
+type ConfigBuilderServiceClient interface {
+	AddGatewayConnectionConfig(ctx context.Context, in *AddGatewayConnectionConfigRequest, opts ...grpc.CallOption) (*AddGatewayConnectionConfigResponse, error)
 	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
-	SetMetered(ctx context.Context, in *SetMeteredRequest, opts ...grpc.CallOption) (*SetMeteredResponse, error)
-	SetMinDownstreamBandwidthKbps(ctx context.Context, in *SetMinDownstreamBandwidthKbpsRequest, opts ...grpc.CallOption) (*SetMinDownstreamBandwidthKbpsResponse, error)
-	SetMinUpstreamBandwidthKbps(ctx context.Context, in *SetMinUpstreamBandwidthKbpsRequest, opts ...grpc.CallOption) (*SetMinUpstreamBandwidthKbpsResponse, error)
 }
 
-type wifiUnderlyingNetworkTemplateBuilderServiceClient struct {
+type configBuilderServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewWifiUnderlyingNetworkTemplateBuilderServiceClient(cc grpc.ClientConnInterface) WifiUnderlyingNetworkTemplateBuilderServiceClient {
-	return &wifiUnderlyingNetworkTemplateBuilderServiceClient{cc}
+func NewConfigBuilderServiceClient(cc grpc.ClientConnInterface) ConfigBuilderServiceClient {
+	return &configBuilderServiceClient{cc}
 }
 
-func (c *wifiUnderlyingNetworkTemplateBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
+func (c *configBuilderServiceClient) AddGatewayConnectionConfig(ctx context.Context, in *AddGatewayConnectionConfigRequest, opts ...grpc.CallOption) (*AddGatewayConnectionConfigResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(AddGatewayConnectionConfigResponse)
+	err := c.cc.Invoke(ctx, ConfigBuilderService_AddGatewayConnectionConfig_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *configBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(BuildResponse)
-	err := c.cc.Invoke(ctx, WifiUnderlyingNetworkTemplateBuilderService_Build_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ConfigBuilderService_Build_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiUnderlyingNetworkTemplateBuilderServiceClient) SetMetered(ctx context.Context, in *SetMeteredRequest, opts ...grpc.CallOption) (*SetMeteredResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetMeteredResponse)
-	err := c.cc.Invoke(ctx, WifiUnderlyingNetworkTemplateBuilderService_SetMetered_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *wifiUnderlyingNetworkTemplateBuilderServiceClient) SetMinDownstreamBandwidthKbps(ctx context.Context, in *SetMinDownstreamBandwidthKbpsRequest, opts ...grpc.CallOption) (*SetMinDownstreamBandwidthKbpsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetMinDownstreamBandwidthKbpsResponse)
-	err := c.cc.Invoke(ctx, WifiUnderlyingNetworkTemplateBuilderService_SetMinDownstreamBandwidthKbps_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *wifiUnderlyingNetworkTemplateBuilderServiceClient) SetMinUpstreamBandwidthKbps(ctx context.Context, in *SetMinUpstreamBandwidthKbpsRequest, opts ...grpc.CallOption) (*SetMinUpstreamBandwidthKbpsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetMinUpstreamBandwidthKbpsResponse)
-	err := c.cc.Invoke(ctx, WifiUnderlyingNetworkTemplateBuilderService_SetMinUpstreamBandwidthKbps_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// WifiUnderlyingNetworkTemplateBuilderServiceServer is the server API for WifiUnderlyingNetworkTemplateBuilderService service.
-// All implementations must embed UnimplementedWifiUnderlyingNetworkTemplateBuilderServiceServer
+// ConfigBuilderServiceServer is the server API for ConfigBuilderService service.
+// All implementations must embed UnimplementedConfigBuilderServiceServer
 // for forward compatibility.
-type WifiUnderlyingNetworkTemplateBuilderServiceServer interface {
+type ConfigBuilderServiceServer interface {
+	AddGatewayConnectionConfig(context.Context, *AddGatewayConnectionConfigRequest) (*AddGatewayConnectionConfigResponse, error)
 	Build(context.Context, *BuildRequest) (*BuildResponse, error)
-	SetMetered(context.Context, *SetMeteredRequest) (*SetMeteredResponse, error)
-	SetMinDownstreamBandwidthKbps(context.Context, *SetMinDownstreamBandwidthKbpsRequest) (*SetMinDownstreamBandwidthKbpsResponse, error)
-	SetMinUpstreamBandwidthKbps(context.Context, *SetMinUpstreamBandwidthKbpsRequest) (*SetMinUpstreamBandwidthKbpsResponse, error)
-	mustEmbedUnimplementedWifiUnderlyingNetworkTemplateBuilderServiceServer()
+	mustEmbedUnimplementedConfigBuilderServiceServer()
 }
 
-// UnimplementedWifiUnderlyingNetworkTemplateBuilderServiceServer must be embedded to have
+// UnimplementedConfigBuilderServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedWifiUnderlyingNetworkTemplateBuilderServiceServer struct{}
+type UnimplementedConfigBuilderServiceServer struct{}
 
-func (UnimplementedWifiUnderlyingNetworkTemplateBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
+func (UnimplementedConfigBuilderServiceServer) AddGatewayConnectionConfig(context.Context, *AddGatewayConnectionConfigRequest) (*AddGatewayConnectionConfigResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method AddGatewayConnectionConfig not implemented")
+}
+func (UnimplementedConfigBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
 }
-func (UnimplementedWifiUnderlyingNetworkTemplateBuilderServiceServer) SetMetered(context.Context, *SetMeteredRequest) (*SetMeteredResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetMetered not implemented")
-}
-func (UnimplementedWifiUnderlyingNetworkTemplateBuilderServiceServer) SetMinDownstreamBandwidthKbps(context.Context, *SetMinDownstreamBandwidthKbpsRequest) (*SetMinDownstreamBandwidthKbpsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetMinDownstreamBandwidthKbps not implemented")
-}
-func (UnimplementedWifiUnderlyingNetworkTemplateBuilderServiceServer) SetMinUpstreamBandwidthKbps(context.Context, *SetMinUpstreamBandwidthKbpsRequest) (*SetMinUpstreamBandwidthKbpsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetMinUpstreamBandwidthKbps not implemented")
-}
-func (UnimplementedWifiUnderlyingNetworkTemplateBuilderServiceServer) mustEmbedUnimplementedWifiUnderlyingNetworkTemplateBuilderServiceServer() {
-}
-func (UnimplementedWifiUnderlyingNetworkTemplateBuilderServiceServer) testEmbeddedByValue() {}
+func (UnimplementedConfigBuilderServiceServer) mustEmbedUnimplementedConfigBuilderServiceServer() {}
+func (UnimplementedConfigBuilderServiceServer) testEmbeddedByValue()                              {}
 
-// UnsafeWifiUnderlyingNetworkTemplateBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to WifiUnderlyingNetworkTemplateBuilderServiceServer will
+// UnsafeConfigBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ConfigBuilderServiceServer will
 // result in compilation errors.
-type UnsafeWifiUnderlyingNetworkTemplateBuilderServiceServer interface {
-	mustEmbedUnimplementedWifiUnderlyingNetworkTemplateBuilderServiceServer()
+type UnsafeConfigBuilderServiceServer interface {
+	mustEmbedUnimplementedConfigBuilderServiceServer()
 }
 
-func RegisterWifiUnderlyingNetworkTemplateBuilderServiceServer(s grpc.ServiceRegistrar, srv WifiUnderlyingNetworkTemplateBuilderServiceServer) {
-	// If the following call panics, it indicates UnimplementedWifiUnderlyingNetworkTemplateBuilderServiceServer was
+func RegisterConfigBuilderServiceServer(s grpc.ServiceRegistrar, srv ConfigBuilderServiceServer) {
+	// If the following call panics, it indicates UnimplementedConfigBuilderServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&WifiUnderlyingNetworkTemplateBuilderService_ServiceDesc, srv)
+	s.RegisterService(&ConfigBuilderService_ServiceDesc, srv)
 }
 
-func _WifiUnderlyingNetworkTemplateBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ConfigBuilderService_AddGatewayConnectionConfig_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AddGatewayConnectionConfigRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ConfigBuilderServiceServer).AddGatewayConnectionConfig(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ConfigBuilderService_AddGatewayConnectionConfig_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ConfigBuilderServiceServer).AddGatewayConnectionConfig(ctx, req.(*AddGatewayConnectionConfigRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ConfigBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(BuildRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiUnderlyingNetworkTemplateBuilderServiceServer).Build(ctx, in)
+		return srv.(ConfigBuilderServiceServer).Build(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiUnderlyingNetworkTemplateBuilderService_Build_FullMethodName,
+		FullMethod: ConfigBuilderService_Build_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiUnderlyingNetworkTemplateBuilderServiceServer).Build(ctx, req.(*BuildRequest))
+		return srv.(ConfigBuilderServiceServer).Build(ctx, req.(*BuildRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiUnderlyingNetworkTemplateBuilderService_SetMetered_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetMeteredRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(WifiUnderlyingNetworkTemplateBuilderServiceServer).SetMetered(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: WifiUnderlyingNetworkTemplateBuilderService_SetMetered_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiUnderlyingNetworkTemplateBuilderServiceServer).SetMetered(ctx, req.(*SetMeteredRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _WifiUnderlyingNetworkTemplateBuilderService_SetMinDownstreamBandwidthKbps_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetMinDownstreamBandwidthKbpsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(WifiUnderlyingNetworkTemplateBuilderServiceServer).SetMinDownstreamBandwidthKbps(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: WifiUnderlyingNetworkTemplateBuilderService_SetMinDownstreamBandwidthKbps_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiUnderlyingNetworkTemplateBuilderServiceServer).SetMinDownstreamBandwidthKbps(ctx, req.(*SetMinDownstreamBandwidthKbpsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _WifiUnderlyingNetworkTemplateBuilderService_SetMinUpstreamBandwidthKbps_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetMinUpstreamBandwidthKbpsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(WifiUnderlyingNetworkTemplateBuilderServiceServer).SetMinUpstreamBandwidthKbps(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: WifiUnderlyingNetworkTemplateBuilderService_SetMinUpstreamBandwidthKbps_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiUnderlyingNetworkTemplateBuilderServiceServer).SetMinUpstreamBandwidthKbps(ctx, req.(*SetMinUpstreamBandwidthKbpsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// WifiUnderlyingNetworkTemplateBuilderService_ServiceDesc is the grpc.ServiceDesc for WifiUnderlyingNetworkTemplateBuilderService service.
+// ConfigBuilderService_ServiceDesc is the grpc.ServiceDesc for ConfigBuilderService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var WifiUnderlyingNetworkTemplateBuilderService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "vcn.WifiUnderlyingNetworkTemplateBuilderService",
-	HandlerType: (*WifiUnderlyingNetworkTemplateBuilderServiceServer)(nil),
+var ConfigBuilderService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "vcn.ConfigBuilderService",
+	HandlerType: (*ConfigBuilderServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
+			MethodName: "AddGatewayConnectionConfig",
+			Handler:    _ConfigBuilderService_AddGatewayConnectionConfig_Handler,
+		},
+		{
 			MethodName: "Build",
-			Handler:    _WifiUnderlyingNetworkTemplateBuilderService_Build_Handler,
+			Handler:    _ConfigBuilderService_Build_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/vcn/vcn.proto",
+}
+
+const (
+	ManagerService_ClearVcnConfig_FullMethodName                  = "/vcn.ManagerService/ClearVcnConfig"
+	ManagerService_GetConfiguredSubscriptionGroups_FullMethodName = "/vcn.ManagerService/GetConfiguredSubscriptionGroups"
+	ManagerService_RegisterVcnStatusCallback_FullMethodName       = "/vcn.ManagerService/RegisterVcnStatusCallback"
+	ManagerService_SetVcnConfig_FullMethodName                    = "/vcn.ManagerService/SetVcnConfig"
+	ManagerService_UnregisterVcnStatusCallback_FullMethodName     = "/vcn.ManagerService/UnregisterVcnStatusCallback"
+)
+
+// ManagerServiceClient is the client API for ManagerService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ManagerServiceClient interface {
+	ClearVcnConfig(ctx context.Context, in *ClearVcnConfigRequest, opts ...grpc.CallOption) (*ClearVcnConfigResponse, error)
+	GetConfiguredSubscriptionGroups(ctx context.Context, in *GetConfiguredSubscriptionGroupsRequest, opts ...grpc.CallOption) (*GetConfiguredSubscriptionGroupsResponse, error)
+	RegisterVcnStatusCallback(ctx context.Context, in *RegisterVcnStatusCallbackRequest, opts ...grpc.CallOption) (*RegisterVcnStatusCallbackResponse, error)
+	SetVcnConfig(ctx context.Context, in *SetVcnConfigRequest, opts ...grpc.CallOption) (*SetVcnConfigResponse, error)
+	UnregisterVcnStatusCallback(ctx context.Context, in *UnregisterVcnStatusCallbackRequest, opts ...grpc.CallOption) (*UnregisterVcnStatusCallbackResponse, error)
+}
+
+type managerServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewManagerServiceClient(cc grpc.ClientConnInterface) ManagerServiceClient {
+	return &managerServiceClient{cc}
+}
+
+func (c *managerServiceClient) ClearVcnConfig(ctx context.Context, in *ClearVcnConfigRequest, opts ...grpc.CallOption) (*ClearVcnConfigResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ClearVcnConfigResponse)
+	err := c.cc.Invoke(ctx, ManagerService_ClearVcnConfig_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *managerServiceClient) GetConfiguredSubscriptionGroups(ctx context.Context, in *GetConfiguredSubscriptionGroupsRequest, opts ...grpc.CallOption) (*GetConfiguredSubscriptionGroupsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetConfiguredSubscriptionGroupsResponse)
+	err := c.cc.Invoke(ctx, ManagerService_GetConfiguredSubscriptionGroups_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *managerServiceClient) RegisterVcnStatusCallback(ctx context.Context, in *RegisterVcnStatusCallbackRequest, opts ...grpc.CallOption) (*RegisterVcnStatusCallbackResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(RegisterVcnStatusCallbackResponse)
+	err := c.cc.Invoke(ctx, ManagerService_RegisterVcnStatusCallback_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *managerServiceClient) SetVcnConfig(ctx context.Context, in *SetVcnConfigRequest, opts ...grpc.CallOption) (*SetVcnConfigResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetVcnConfigResponse)
+	err := c.cc.Invoke(ctx, ManagerService_SetVcnConfig_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *managerServiceClient) UnregisterVcnStatusCallback(ctx context.Context, in *UnregisterVcnStatusCallbackRequest, opts ...grpc.CallOption) (*UnregisterVcnStatusCallbackResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(UnregisterVcnStatusCallbackResponse)
+	err := c.cc.Invoke(ctx, ManagerService_UnregisterVcnStatusCallback_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ManagerServiceServer is the server API for ManagerService service.
+// All implementations must embed UnimplementedManagerServiceServer
+// for forward compatibility.
+type ManagerServiceServer interface {
+	ClearVcnConfig(context.Context, *ClearVcnConfigRequest) (*ClearVcnConfigResponse, error)
+	GetConfiguredSubscriptionGroups(context.Context, *GetConfiguredSubscriptionGroupsRequest) (*GetConfiguredSubscriptionGroupsResponse, error)
+	RegisterVcnStatusCallback(context.Context, *RegisterVcnStatusCallbackRequest) (*RegisterVcnStatusCallbackResponse, error)
+	SetVcnConfig(context.Context, *SetVcnConfigRequest) (*SetVcnConfigResponse, error)
+	UnregisterVcnStatusCallback(context.Context, *UnregisterVcnStatusCallbackRequest) (*UnregisterVcnStatusCallbackResponse, error)
+	mustEmbedUnimplementedManagerServiceServer()
+}
+
+// UnimplementedManagerServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedManagerServiceServer struct{}
+
+func (UnimplementedManagerServiceServer) ClearVcnConfig(context.Context, *ClearVcnConfigRequest) (*ClearVcnConfigResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ClearVcnConfig not implemented")
+}
+func (UnimplementedManagerServiceServer) GetConfiguredSubscriptionGroups(context.Context, *GetConfiguredSubscriptionGroupsRequest) (*GetConfiguredSubscriptionGroupsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetConfiguredSubscriptionGroups not implemented")
+}
+func (UnimplementedManagerServiceServer) RegisterVcnStatusCallback(context.Context, *RegisterVcnStatusCallbackRequest) (*RegisterVcnStatusCallbackResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method RegisterVcnStatusCallback not implemented")
+}
+func (UnimplementedManagerServiceServer) SetVcnConfig(context.Context, *SetVcnConfigRequest) (*SetVcnConfigResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetVcnConfig not implemented")
+}
+func (UnimplementedManagerServiceServer) UnregisterVcnStatusCallback(context.Context, *UnregisterVcnStatusCallbackRequest) (*UnregisterVcnStatusCallbackResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method UnregisterVcnStatusCallback not implemented")
+}
+func (UnimplementedManagerServiceServer) mustEmbedUnimplementedManagerServiceServer() {}
+func (UnimplementedManagerServiceServer) testEmbeddedByValue()                        {}
+
+// UnsafeManagerServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ManagerServiceServer will
+// result in compilation errors.
+type UnsafeManagerServiceServer interface {
+	mustEmbedUnimplementedManagerServiceServer()
+}
+
+func RegisterManagerServiceServer(s grpc.ServiceRegistrar, srv ManagerServiceServer) {
+	// If the following call panics, it indicates UnimplementedManagerServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&ManagerService_ServiceDesc, srv)
+}
+
+func _ManagerService_ClearVcnConfig_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ClearVcnConfigRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerServiceServer).ClearVcnConfig(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerService_ClearVcnConfig_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerServiceServer).ClearVcnConfig(ctx, req.(*ClearVcnConfigRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ManagerService_GetConfiguredSubscriptionGroups_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetConfiguredSubscriptionGroupsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerServiceServer).GetConfiguredSubscriptionGroups(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerService_GetConfiguredSubscriptionGroups_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerServiceServer).GetConfiguredSubscriptionGroups(ctx, req.(*GetConfiguredSubscriptionGroupsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ManagerService_RegisterVcnStatusCallback_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RegisterVcnStatusCallbackRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerServiceServer).RegisterVcnStatusCallback(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerService_RegisterVcnStatusCallback_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerServiceServer).RegisterVcnStatusCallback(ctx, req.(*RegisterVcnStatusCallbackRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ManagerService_SetVcnConfig_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetVcnConfigRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerServiceServer).SetVcnConfig(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerService_SetVcnConfig_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerServiceServer).SetVcnConfig(ctx, req.(*SetVcnConfigRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ManagerService_UnregisterVcnStatusCallback_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UnregisterVcnStatusCallbackRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerServiceServer).UnregisterVcnStatusCallback(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerService_UnregisterVcnStatusCallback_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerServiceServer).UnregisterVcnStatusCallback(ctx, req.(*UnregisterVcnStatusCallbackRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ManagerService_ServiceDesc is the grpc.ServiceDesc for ManagerService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ManagerService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "vcn.ManagerService",
+	HandlerType: (*ManagerServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "ClearVcnConfig",
+			Handler:    _ManagerService_ClearVcnConfig_Handler,
 		},
 		{
-			MethodName: "SetMetered",
-			Handler:    _WifiUnderlyingNetworkTemplateBuilderService_SetMetered_Handler,
+			MethodName: "GetConfiguredSubscriptionGroups",
+			Handler:    _ManagerService_GetConfiguredSubscriptionGroups_Handler,
 		},
 		{
-			MethodName: "SetMinDownstreamBandwidthKbps",
-			Handler:    _WifiUnderlyingNetworkTemplateBuilderService_SetMinDownstreamBandwidthKbps_Handler,
+			MethodName: "RegisterVcnStatusCallback",
+			Handler:    _ManagerService_RegisterVcnStatusCallback_Handler,
 		},
 		{
-			MethodName: "SetMinUpstreamBandwidthKbps",
-			Handler:    _WifiUnderlyingNetworkTemplateBuilderService_SetMinUpstreamBandwidthKbps_Handler,
+			MethodName: "SetVcnConfig",
+			Handler:    _ManagerService_SetVcnConfig_Handler,
+		},
+		{
+			MethodName: "UnregisterVcnStatusCallback",
+			Handler:    _ManagerService_UnregisterVcnStatusCallback_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/vcn/vcn.proto",
+}
+
+const (
+	ManagerVcnStatusCallbackService_OnGatewayConnectionError_FullMethodName = "/vcn.ManagerVcnStatusCallbackService/OnGatewayConnectionError"
+	ManagerVcnStatusCallbackService_OnStatusChanged_FullMethodName          = "/vcn.ManagerVcnStatusCallbackService/OnStatusChanged"
+)
+
+// ManagerVcnStatusCallbackServiceClient is the client API for ManagerVcnStatusCallbackService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ManagerVcnStatusCallbackServiceClient interface {
+	OnGatewayConnectionError(ctx context.Context, in *OnGatewayConnectionErrorRequest, opts ...grpc.CallOption) (*OnGatewayConnectionErrorResponse, error)
+	OnStatusChanged(ctx context.Context, in *OnStatusChangedRequest, opts ...grpc.CallOption) (*OnStatusChangedResponse, error)
+}
+
+type managerVcnStatusCallbackServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewManagerVcnStatusCallbackServiceClient(cc grpc.ClientConnInterface) ManagerVcnStatusCallbackServiceClient {
+	return &managerVcnStatusCallbackServiceClient{cc}
+}
+
+func (c *managerVcnStatusCallbackServiceClient) OnGatewayConnectionError(ctx context.Context, in *OnGatewayConnectionErrorRequest, opts ...grpc.CallOption) (*OnGatewayConnectionErrorResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnGatewayConnectionErrorResponse)
+	err := c.cc.Invoke(ctx, ManagerVcnStatusCallbackService_OnGatewayConnectionError_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *managerVcnStatusCallbackServiceClient) OnStatusChanged(ctx context.Context, in *OnStatusChangedRequest, opts ...grpc.CallOption) (*OnStatusChangedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnStatusChangedResponse)
+	err := c.cc.Invoke(ctx, ManagerVcnStatusCallbackService_OnStatusChanged_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ManagerVcnStatusCallbackServiceServer is the server API for ManagerVcnStatusCallbackService service.
+// All implementations must embed UnimplementedManagerVcnStatusCallbackServiceServer
+// for forward compatibility.
+type ManagerVcnStatusCallbackServiceServer interface {
+	OnGatewayConnectionError(context.Context, *OnGatewayConnectionErrorRequest) (*OnGatewayConnectionErrorResponse, error)
+	OnStatusChanged(context.Context, *OnStatusChangedRequest) (*OnStatusChangedResponse, error)
+	mustEmbedUnimplementedManagerVcnStatusCallbackServiceServer()
+}
+
+// UnimplementedManagerVcnStatusCallbackServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedManagerVcnStatusCallbackServiceServer struct{}
+
+func (UnimplementedManagerVcnStatusCallbackServiceServer) OnGatewayConnectionError(context.Context, *OnGatewayConnectionErrorRequest) (*OnGatewayConnectionErrorResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnGatewayConnectionError not implemented")
+}
+func (UnimplementedManagerVcnStatusCallbackServiceServer) OnStatusChanged(context.Context, *OnStatusChangedRequest) (*OnStatusChangedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnStatusChanged not implemented")
+}
+func (UnimplementedManagerVcnStatusCallbackServiceServer) mustEmbedUnimplementedManagerVcnStatusCallbackServiceServer() {
+}
+func (UnimplementedManagerVcnStatusCallbackServiceServer) testEmbeddedByValue() {}
+
+// UnsafeManagerVcnStatusCallbackServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ManagerVcnStatusCallbackServiceServer will
+// result in compilation errors.
+type UnsafeManagerVcnStatusCallbackServiceServer interface {
+	mustEmbedUnimplementedManagerVcnStatusCallbackServiceServer()
+}
+
+func RegisterManagerVcnStatusCallbackServiceServer(s grpc.ServiceRegistrar, srv ManagerVcnStatusCallbackServiceServer) {
+	// If the following call panics, it indicates UnimplementedManagerVcnStatusCallbackServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&ManagerVcnStatusCallbackService_ServiceDesc, srv)
+}
+
+func _ManagerVcnStatusCallbackService_OnGatewayConnectionError_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnGatewayConnectionErrorRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerVcnStatusCallbackServiceServer).OnGatewayConnectionError(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerVcnStatusCallbackService_OnGatewayConnectionError_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerVcnStatusCallbackServiceServer).OnGatewayConnectionError(ctx, req.(*OnGatewayConnectionErrorRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ManagerVcnStatusCallbackService_OnStatusChanged_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnStatusChangedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerVcnStatusCallbackServiceServer).OnStatusChanged(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerVcnStatusCallbackService_OnStatusChanged_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerVcnStatusCallbackServiceServer).OnStatusChanged(ctx, req.(*OnStatusChangedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ManagerVcnStatusCallbackService_ServiceDesc is the grpc.ServiceDesc for ManagerVcnStatusCallbackService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ManagerVcnStatusCallbackService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "vcn.ManagerVcnStatusCallbackService",
+	HandlerType: (*ManagerVcnStatusCallbackServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "OnGatewayConnectionError",
+			Handler:    _ManagerVcnStatusCallbackService_OnGatewayConnectionError_Handler,
+		},
+		{
+			MethodName: "OnStatusChanged",
+			Handler:    _ManagerVcnStatusCallbackService_OnStatusChanged_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -1707,6 +2292,7 @@ const (
 	GatewayConnectionConfigService_GetMaxMtu_FullMethodName                          = "/vcn.GatewayConnectionConfigService/GetMaxMtu"
 	GatewayConnectionConfigService_GetMinUdpPort4500NatTimeoutSeconds_FullMethodName = "/vcn.GatewayConnectionConfigService/GetMinUdpPort4500NatTimeoutSeconds"
 	GatewayConnectionConfigService_GetRetryIntervalsMillis_FullMethodName            = "/vcn.GatewayConnectionConfigService/GetRetryIntervalsMillis"
+	GatewayConnectionConfigService_GetVcnUnderlyingNetworkPriorities_FullMethodName  = "/vcn.GatewayConnectionConfigService/GetVcnUnderlyingNetworkPriorities"
 	GatewayConnectionConfigService_HasGatewayOption_FullMethodName                   = "/vcn.GatewayConnectionConfigService/HasGatewayOption"
 	GatewayConnectionConfigService_HashCode_FullMethodName                           = "/vcn.GatewayConnectionConfigService/HashCode"
 	GatewayConnectionConfigService_IsSafeModeEnabled_FullMethodName                  = "/vcn.GatewayConnectionConfigService/IsSafeModeEnabled"
@@ -1722,6 +2308,7 @@ type GatewayConnectionConfigServiceClient interface {
 	GetMaxMtu(ctx context.Context, in *GetMaxMtuRequest, opts ...grpc.CallOption) (*GetMaxMtuResponse, error)
 	GetMinUdpPort4500NatTimeoutSeconds(ctx context.Context, in *GetMinUdpPort4500NatTimeoutSecondsRequest, opts ...grpc.CallOption) (*GetMinUdpPort4500NatTimeoutSecondsResponse, error)
 	GetRetryIntervalsMillis(ctx context.Context, in *GetRetryIntervalsMillisRequest, opts ...grpc.CallOption) (*GetRetryIntervalsMillisResponse, error)
+	GetVcnUnderlyingNetworkPriorities(ctx context.Context, in *GetVcnUnderlyingNetworkPrioritiesRequest, opts ...grpc.CallOption) (*GetVcnUnderlyingNetworkPrioritiesResponse, error)
 	HasGatewayOption(ctx context.Context, in *HasGatewayOptionRequest, opts ...grpc.CallOption) (*HasGatewayOptionResponse, error)
 	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
 	IsSafeModeEnabled(ctx context.Context, in *IsSafeModeEnabledRequest, opts ...grpc.CallOption) (*IsSafeModeEnabledResponse, error)
@@ -1795,6 +2382,16 @@ func (c *gatewayConnectionConfigServiceClient) GetRetryIntervalsMillis(ctx conte
 	return out, nil
 }
 
+func (c *gatewayConnectionConfigServiceClient) GetVcnUnderlyingNetworkPriorities(ctx context.Context, in *GetVcnUnderlyingNetworkPrioritiesRequest, opts ...grpc.CallOption) (*GetVcnUnderlyingNetworkPrioritiesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetVcnUnderlyingNetworkPrioritiesResponse)
+	err := c.cc.Invoke(ctx, GatewayConnectionConfigService_GetVcnUnderlyingNetworkPriorities_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *gatewayConnectionConfigServiceClient) HasGatewayOption(ctx context.Context, in *HasGatewayOptionRequest, opts ...grpc.CallOption) (*HasGatewayOptionResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(HasGatewayOptionResponse)
@@ -1835,6 +2432,7 @@ type GatewayConnectionConfigServiceServer interface {
 	GetMaxMtu(context.Context, *GetMaxMtuRequest) (*GetMaxMtuResponse, error)
 	GetMinUdpPort4500NatTimeoutSeconds(context.Context, *GetMinUdpPort4500NatTimeoutSecondsRequest) (*GetMinUdpPort4500NatTimeoutSecondsResponse, error)
 	GetRetryIntervalsMillis(context.Context, *GetRetryIntervalsMillisRequest) (*GetRetryIntervalsMillisResponse, error)
+	GetVcnUnderlyingNetworkPriorities(context.Context, *GetVcnUnderlyingNetworkPrioritiesRequest) (*GetVcnUnderlyingNetworkPrioritiesResponse, error)
 	HasGatewayOption(context.Context, *HasGatewayOptionRequest) (*HasGatewayOptionResponse, error)
 	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
 	IsSafeModeEnabled(context.Context, *IsSafeModeEnabledRequest) (*IsSafeModeEnabledResponse, error)
@@ -1865,6 +2463,9 @@ func (UnimplementedGatewayConnectionConfigServiceServer) GetMinUdpPort4500NatTim
 }
 func (UnimplementedGatewayConnectionConfigServiceServer) GetRetryIntervalsMillis(context.Context, *GetRetryIntervalsMillisRequest) (*GetRetryIntervalsMillisResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetRetryIntervalsMillis not implemented")
+}
+func (UnimplementedGatewayConnectionConfigServiceServer) GetVcnUnderlyingNetworkPriorities(context.Context, *GetVcnUnderlyingNetworkPrioritiesRequest) (*GetVcnUnderlyingNetworkPrioritiesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetVcnUnderlyingNetworkPriorities not implemented")
 }
 func (UnimplementedGatewayConnectionConfigServiceServer) HasGatewayOption(context.Context, *HasGatewayOptionRequest) (*HasGatewayOptionResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method HasGatewayOption not implemented")
@@ -2005,6 +2606,24 @@ func _GatewayConnectionConfigService_GetRetryIntervalsMillis_Handler(srv interfa
 	return interceptor(ctx, in, info, handler)
 }
 
+func _GatewayConnectionConfigService_GetVcnUnderlyingNetworkPriorities_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetVcnUnderlyingNetworkPrioritiesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GatewayConnectionConfigServiceServer).GetVcnUnderlyingNetworkPriorities(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: GatewayConnectionConfigService_GetVcnUnderlyingNetworkPriorities_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GatewayConnectionConfigServiceServer).GetVcnUnderlyingNetworkPriorities(ctx, req.(*GetVcnUnderlyingNetworkPrioritiesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _GatewayConnectionConfigService_HasGatewayOption_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(HasGatewayOptionRequest)
 	if err := dec(in); err != nil {
@@ -2089,6 +2708,10 @@ var GatewayConnectionConfigService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetRetryIntervalsMillis",
 			Handler:    _GatewayConnectionConfigService_GetRetryIntervalsMillis_Handler,
+		},
+		{
+			MethodName: "GetVcnUnderlyingNetworkPriorities",
+			Handler:    _GatewayConnectionConfigService_GetVcnUnderlyingNetworkPriorities_Handler,
 		},
 		{
 			MethodName: "HasGatewayOption",
@@ -2508,363 +3131,6 @@ var GatewayConnectionConfigBuilderService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "SetSafeModeEnabled",
 			Handler:    _GatewayConnectionConfigBuilderService_SetSafeModeEnabled_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/vcn/vcn.proto",
-}
-
-const (
-	ManagerService_ClearVcnConfig_FullMethodName              = "/vcn.ManagerService/ClearVcnConfig"
-	ManagerService_RegisterVcnStatusCallback_FullMethodName   = "/vcn.ManagerService/RegisterVcnStatusCallback"
-	ManagerService_SetVcnConfig_FullMethodName                = "/vcn.ManagerService/SetVcnConfig"
-	ManagerService_UnregisterVcnStatusCallback_FullMethodName = "/vcn.ManagerService/UnregisterVcnStatusCallback"
-)
-
-// ManagerServiceClient is the client API for ManagerService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type ManagerServiceClient interface {
-	ClearVcnConfig(ctx context.Context, in *ClearVcnConfigRequest, opts ...grpc.CallOption) (*ClearVcnConfigResponse, error)
-	RegisterVcnStatusCallback(ctx context.Context, in *RegisterVcnStatusCallbackRequest, opts ...grpc.CallOption) (*RegisterVcnStatusCallbackResponse, error)
-	SetVcnConfig(ctx context.Context, in *SetVcnConfigRequest, opts ...grpc.CallOption) (*SetVcnConfigResponse, error)
-	UnregisterVcnStatusCallback(ctx context.Context, in *UnregisterVcnStatusCallbackRequest, opts ...grpc.CallOption) (*UnregisterVcnStatusCallbackResponse, error)
-}
-
-type managerServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewManagerServiceClient(cc grpc.ClientConnInterface) ManagerServiceClient {
-	return &managerServiceClient{cc}
-}
-
-func (c *managerServiceClient) ClearVcnConfig(ctx context.Context, in *ClearVcnConfigRequest, opts ...grpc.CallOption) (*ClearVcnConfigResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ClearVcnConfigResponse)
-	err := c.cc.Invoke(ctx, ManagerService_ClearVcnConfig_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *managerServiceClient) RegisterVcnStatusCallback(ctx context.Context, in *RegisterVcnStatusCallbackRequest, opts ...grpc.CallOption) (*RegisterVcnStatusCallbackResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(RegisterVcnStatusCallbackResponse)
-	err := c.cc.Invoke(ctx, ManagerService_RegisterVcnStatusCallback_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *managerServiceClient) SetVcnConfig(ctx context.Context, in *SetVcnConfigRequest, opts ...grpc.CallOption) (*SetVcnConfigResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetVcnConfigResponse)
-	err := c.cc.Invoke(ctx, ManagerService_SetVcnConfig_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *managerServiceClient) UnregisterVcnStatusCallback(ctx context.Context, in *UnregisterVcnStatusCallbackRequest, opts ...grpc.CallOption) (*UnregisterVcnStatusCallbackResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(UnregisterVcnStatusCallbackResponse)
-	err := c.cc.Invoke(ctx, ManagerService_UnregisterVcnStatusCallback_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// ManagerServiceServer is the server API for ManagerService service.
-// All implementations must embed UnimplementedManagerServiceServer
-// for forward compatibility.
-type ManagerServiceServer interface {
-	ClearVcnConfig(context.Context, *ClearVcnConfigRequest) (*ClearVcnConfigResponse, error)
-	RegisterVcnStatusCallback(context.Context, *RegisterVcnStatusCallbackRequest) (*RegisterVcnStatusCallbackResponse, error)
-	SetVcnConfig(context.Context, *SetVcnConfigRequest) (*SetVcnConfigResponse, error)
-	UnregisterVcnStatusCallback(context.Context, *UnregisterVcnStatusCallbackRequest) (*UnregisterVcnStatusCallbackResponse, error)
-	mustEmbedUnimplementedManagerServiceServer()
-}
-
-// UnimplementedManagerServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedManagerServiceServer struct{}
-
-func (UnimplementedManagerServiceServer) ClearVcnConfig(context.Context, *ClearVcnConfigRequest) (*ClearVcnConfigResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ClearVcnConfig not implemented")
-}
-func (UnimplementedManagerServiceServer) RegisterVcnStatusCallback(context.Context, *RegisterVcnStatusCallbackRequest) (*RegisterVcnStatusCallbackResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method RegisterVcnStatusCallback not implemented")
-}
-func (UnimplementedManagerServiceServer) SetVcnConfig(context.Context, *SetVcnConfigRequest) (*SetVcnConfigResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetVcnConfig not implemented")
-}
-func (UnimplementedManagerServiceServer) UnregisterVcnStatusCallback(context.Context, *UnregisterVcnStatusCallbackRequest) (*UnregisterVcnStatusCallbackResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method UnregisterVcnStatusCallback not implemented")
-}
-func (UnimplementedManagerServiceServer) mustEmbedUnimplementedManagerServiceServer() {}
-func (UnimplementedManagerServiceServer) testEmbeddedByValue()                        {}
-
-// UnsafeManagerServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to ManagerServiceServer will
-// result in compilation errors.
-type UnsafeManagerServiceServer interface {
-	mustEmbedUnimplementedManagerServiceServer()
-}
-
-func RegisterManagerServiceServer(s grpc.ServiceRegistrar, srv ManagerServiceServer) {
-	// If the following call panics, it indicates UnimplementedManagerServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&ManagerService_ServiceDesc, srv)
-}
-
-func _ManagerService_ClearVcnConfig_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ClearVcnConfigRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerServiceServer).ClearVcnConfig(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerService_ClearVcnConfig_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).ClearVcnConfig(ctx, req.(*ClearVcnConfigRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ManagerService_RegisterVcnStatusCallback_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(RegisterVcnStatusCallbackRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerServiceServer).RegisterVcnStatusCallback(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerService_RegisterVcnStatusCallback_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).RegisterVcnStatusCallback(ctx, req.(*RegisterVcnStatusCallbackRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ManagerService_SetVcnConfig_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetVcnConfigRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerServiceServer).SetVcnConfig(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerService_SetVcnConfig_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).SetVcnConfig(ctx, req.(*SetVcnConfigRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ManagerService_UnregisterVcnStatusCallback_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UnregisterVcnStatusCallbackRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerServiceServer).UnregisterVcnStatusCallback(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerService_UnregisterVcnStatusCallback_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).UnregisterVcnStatusCallback(ctx, req.(*UnregisterVcnStatusCallbackRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// ManagerService_ServiceDesc is the grpc.ServiceDesc for ManagerService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var ManagerService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "vcn.ManagerService",
-	HandlerType: (*ManagerServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "ClearVcnConfig",
-			Handler:    _ManagerService_ClearVcnConfig_Handler,
-		},
-		{
-			MethodName: "RegisterVcnStatusCallback",
-			Handler:    _ManagerService_RegisterVcnStatusCallback_Handler,
-		},
-		{
-			MethodName: "SetVcnConfig",
-			Handler:    _ManagerService_SetVcnConfig_Handler,
-		},
-		{
-			MethodName: "UnregisterVcnStatusCallback",
-			Handler:    _ManagerService_UnregisterVcnStatusCallback_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/vcn/vcn.proto",
-}
-
-const (
-	ManagerVcnStatusCallbackService_OnGatewayConnectionError_FullMethodName = "/vcn.ManagerVcnStatusCallbackService/OnGatewayConnectionError"
-	ManagerVcnStatusCallbackService_OnStatusChanged_FullMethodName          = "/vcn.ManagerVcnStatusCallbackService/OnStatusChanged"
-)
-
-// ManagerVcnStatusCallbackServiceClient is the client API for ManagerVcnStatusCallbackService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type ManagerVcnStatusCallbackServiceClient interface {
-	OnGatewayConnectionError(ctx context.Context, in *OnGatewayConnectionErrorRequest, opts ...grpc.CallOption) (*OnGatewayConnectionErrorResponse, error)
-	OnStatusChanged(ctx context.Context, in *OnStatusChangedRequest, opts ...grpc.CallOption) (*OnStatusChangedResponse, error)
-}
-
-type managerVcnStatusCallbackServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewManagerVcnStatusCallbackServiceClient(cc grpc.ClientConnInterface) ManagerVcnStatusCallbackServiceClient {
-	return &managerVcnStatusCallbackServiceClient{cc}
-}
-
-func (c *managerVcnStatusCallbackServiceClient) OnGatewayConnectionError(ctx context.Context, in *OnGatewayConnectionErrorRequest, opts ...grpc.CallOption) (*OnGatewayConnectionErrorResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnGatewayConnectionErrorResponse)
-	err := c.cc.Invoke(ctx, ManagerVcnStatusCallbackService_OnGatewayConnectionError_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *managerVcnStatusCallbackServiceClient) OnStatusChanged(ctx context.Context, in *OnStatusChangedRequest, opts ...grpc.CallOption) (*OnStatusChangedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnStatusChangedResponse)
-	err := c.cc.Invoke(ctx, ManagerVcnStatusCallbackService_OnStatusChanged_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// ManagerVcnStatusCallbackServiceServer is the server API for ManagerVcnStatusCallbackService service.
-// All implementations must embed UnimplementedManagerVcnStatusCallbackServiceServer
-// for forward compatibility.
-type ManagerVcnStatusCallbackServiceServer interface {
-	OnGatewayConnectionError(context.Context, *OnGatewayConnectionErrorRequest) (*OnGatewayConnectionErrorResponse, error)
-	OnStatusChanged(context.Context, *OnStatusChangedRequest) (*OnStatusChangedResponse, error)
-	mustEmbedUnimplementedManagerVcnStatusCallbackServiceServer()
-}
-
-// UnimplementedManagerVcnStatusCallbackServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedManagerVcnStatusCallbackServiceServer struct{}
-
-func (UnimplementedManagerVcnStatusCallbackServiceServer) OnGatewayConnectionError(context.Context, *OnGatewayConnectionErrorRequest) (*OnGatewayConnectionErrorResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnGatewayConnectionError not implemented")
-}
-func (UnimplementedManagerVcnStatusCallbackServiceServer) OnStatusChanged(context.Context, *OnStatusChangedRequest) (*OnStatusChangedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnStatusChanged not implemented")
-}
-func (UnimplementedManagerVcnStatusCallbackServiceServer) mustEmbedUnimplementedManagerVcnStatusCallbackServiceServer() {
-}
-func (UnimplementedManagerVcnStatusCallbackServiceServer) testEmbeddedByValue() {}
-
-// UnsafeManagerVcnStatusCallbackServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to ManagerVcnStatusCallbackServiceServer will
-// result in compilation errors.
-type UnsafeManagerVcnStatusCallbackServiceServer interface {
-	mustEmbedUnimplementedManagerVcnStatusCallbackServiceServer()
-}
-
-func RegisterManagerVcnStatusCallbackServiceServer(s grpc.ServiceRegistrar, srv ManagerVcnStatusCallbackServiceServer) {
-	// If the following call panics, it indicates UnimplementedManagerVcnStatusCallbackServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&ManagerVcnStatusCallbackService_ServiceDesc, srv)
-}
-
-func _ManagerVcnStatusCallbackService_OnGatewayConnectionError_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnGatewayConnectionErrorRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerVcnStatusCallbackServiceServer).OnGatewayConnectionError(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerVcnStatusCallbackService_OnGatewayConnectionError_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerVcnStatusCallbackServiceServer).OnGatewayConnectionError(ctx, req.(*OnGatewayConnectionErrorRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ManagerVcnStatusCallbackService_OnStatusChanged_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnStatusChangedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerVcnStatusCallbackServiceServer).OnStatusChanged(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerVcnStatusCallbackService_OnStatusChanged_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerVcnStatusCallbackServiceServer).OnStatusChanged(ctx, req.(*OnStatusChangedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// ManagerVcnStatusCallbackService_ServiceDesc is the grpc.ServiceDesc for ManagerVcnStatusCallbackService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var ManagerVcnStatusCallbackService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "vcn.ManagerVcnStatusCallbackService",
-	HandlerType: (*ManagerVcnStatusCallbackServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "OnGatewayConnectionError",
-			Handler:    _ManagerVcnStatusCallbackService_OnGatewayConnectionError_Handler,
-		},
-		{
-			MethodName: "OnStatusChanged",
-			Handler:    _ManagerVcnStatusCallbackService_OnStatusChanged_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

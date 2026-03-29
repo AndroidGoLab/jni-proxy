@@ -9,6 +9,40 @@ import (
 	"google.golang.org/grpc"
 )
 
+// RequestSurfacePackageExceptionClient wraps the gRPC RequestSurfacePackageExceptionService client.
+type RequestSurfacePackageExceptionClient struct {
+	svc pb.RequestSurfacePackageExceptionServiceClient
+}
+
+// NewRequestSurfacePackageExceptionClient creates a new RequestSurfacePackageException client.
+func NewRequestSurfacePackageExceptionClient(cc grpc.ClientConnInterface) *RequestSurfacePackageExceptionClient {
+	return &RequestSurfacePackageExceptionClient{
+		svc: pb.NewRequestSurfacePackageExceptionServiceClient(cc),
+	}
+}
+
+// GetExtraErrorInformation calls the GetExtraErrorInformation RPC.
+func (c *RequestSurfacePackageExceptionClient) GetExtraErrorInformation(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetExtraErrorInformation(ctx, &pb.GetExtraErrorInformationRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetRequestSurfacePackageErrorCode calls the GetRequestSurfacePackageErrorCode RPC.
+func (c *RequestSurfacePackageExceptionClient) GetRequestSurfacePackageErrorCode(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetRequestSurfacePackageErrorCode(ctx, &pb.GetRequestSurfacePackageErrorCodeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // SandboxedSdkProviderClient wraps the gRPC SandboxedSdkProviderService client.
 type SandboxedSdkProviderClient struct {
 	svc pb.SandboxedSdkProviderServiceClient
@@ -90,6 +124,33 @@ func (c *SdkSandboxManagerClient) AddSdkSandboxProcessDeathCallback(ctx context.
 	return err
 }
 
+// GetAppOwnedSdkSandboxInterfaces calls the GetAppOwnedSdkSandboxInterfaces RPC.
+func (c *SdkSandboxManagerClient) GetAppOwnedSdkSandboxInterfaces(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetAppOwnedSdkSandboxInterfaces(ctx, &pb.GetAppOwnedSdkSandboxInterfacesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSandboxedSdks calls the GetSandboxedSdks RPC.
+func (c *SdkSandboxManagerClient) GetSandboxedSdks(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetSandboxedSdks(ctx, &pb.GetSandboxedSdksRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSyncedSharedPreferencesKeys calls the GetSyncedSharedPreferencesKeys RPC.
+func (c *SdkSandboxManagerClient) GetSyncedSharedPreferencesKeys(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetSyncedSharedPreferencesKeys(ctx, &pb.GetSyncedSharedPreferencesKeysRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // RegisterAppOwnedSdkSandboxInterface calls the RegisterAppOwnedSdkSandboxInterface RPC.
 func (c *SdkSandboxManagerClient) RegisterAppOwnedSdkSandboxInterface(ctx context.Context, arg0 int64) error {
 	_, err := c.svc.RegisterAppOwnedSdkSandboxInterface(ctx, &pb.RegisterAppOwnedSdkSandboxInterfaceRequest{
@@ -158,6 +219,61 @@ func (c *SdkSandboxManagerSdkSandboxProcessDeathCallbackClient) OnSdkSandboxDied
 	return err
 }
 
+// SandboxedSdkClient wraps the gRPC SandboxedSdkService client.
+type SandboxedSdkClient struct {
+	svc pb.SandboxedSdkServiceClient
+}
+
+// NewSandboxedSdkClient creates a new SandboxedSdk client.
+func NewSandboxedSdkClient(cc grpc.ClientConnInterface) *SandboxedSdkClient {
+	return &SandboxedSdkClient{
+		svc: pb.NewSandboxedSdkServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *SandboxedSdkClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInterface calls the GetInterface RPC.
+func (c *SandboxedSdkClient) GetInterface(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetInterface(ctx, &pb.GetInterfaceRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSharedLibraryInfo calls the GetSharedLibraryInfo RPC.
+func (c *SandboxedSdkClient) GetSharedLibraryInfo(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetSharedLibraryInfo(ctx, &pb.GetSharedLibraryInfoRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *SandboxedSdkClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
 // AppOwnedSdkSandboxInterfaceClient wraps the gRPC AppOwnedSdkSandboxInterfaceService client.
 type AppOwnedSdkSandboxInterfaceClient struct {
 	svc pb.AppOwnedSdkSandboxInterfaceServiceClient
@@ -216,95 +332,6 @@ func (c *AppOwnedSdkSandboxInterfaceClient) GetVersion(ctx context.Context, hand
 
 // WriteToParcel calls the WriteToParcel RPC.
 func (c *AppOwnedSdkSandboxInterfaceClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// RequestSurfacePackageExceptionClient wraps the gRPC RequestSurfacePackageExceptionService client.
-type RequestSurfacePackageExceptionClient struct {
-	svc pb.RequestSurfacePackageExceptionServiceClient
-}
-
-// NewRequestSurfacePackageExceptionClient creates a new RequestSurfacePackageException client.
-func NewRequestSurfacePackageExceptionClient(cc grpc.ClientConnInterface) *RequestSurfacePackageExceptionClient {
-	return &RequestSurfacePackageExceptionClient{
-		svc: pb.NewRequestSurfacePackageExceptionServiceClient(cc),
-	}
-}
-
-// GetExtraErrorInformation calls the GetExtraErrorInformation RPC.
-func (c *RequestSurfacePackageExceptionClient) GetExtraErrorInformation(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetExtraErrorInformation(ctx, &pb.GetExtraErrorInformationRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetRequestSurfacePackageErrorCode calls the GetRequestSurfacePackageErrorCode RPC.
-func (c *RequestSurfacePackageExceptionClient) GetRequestSurfacePackageErrorCode(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetRequestSurfacePackageErrorCode(ctx, &pb.GetRequestSurfacePackageErrorCodeRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SandboxedSdkClient wraps the gRPC SandboxedSdkService client.
-type SandboxedSdkClient struct {
-	svc pb.SandboxedSdkServiceClient
-}
-
-// NewSandboxedSdkClient creates a new SandboxedSdk client.
-func NewSandboxedSdkClient(cc grpc.ClientConnInterface) *SandboxedSdkClient {
-	return &SandboxedSdkClient{
-		svc: pb.NewSandboxedSdkServiceClient(cc),
-	}
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *SandboxedSdkClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetInterface calls the GetInterface RPC.
-func (c *SandboxedSdkClient) GetInterface(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetInterface(ctx, &pb.GetInterfaceRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetSharedLibraryInfo calls the GetSharedLibraryInfo RPC.
-func (c *SandboxedSdkClient) GetSharedLibraryInfo(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetSharedLibraryInfo(ctx, &pb.GetSharedLibraryInfoRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *SandboxedSdkClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
 	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
 		Handle: handle,
 		Arg0:   arg0,

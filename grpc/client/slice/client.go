@@ -9,237 +9,6 @@ import (
 	"google.golang.org/grpc"
 )
 
-// ItemClient wraps the gRPC ItemService client.
-type ItemClient struct {
-	svc pb.ItemServiceClient
-}
-
-// NewItemClient creates a new Item client.
-func NewItemClient(cc grpc.ClientConnInterface) *ItemClient {
-	return &ItemClient{
-		svc: pb.NewItemServiceClient(cc),
-	}
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *ItemClient) DescribeContents(ctx context.Context) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetAction calls the GetAction RPC.
-func (c *ItemClient) GetAction(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetAction(ctx, &pb.GetActionRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetBundle calls the GetBundle RPC.
-func (c *ItemClient) GetBundle(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetBundle(ctx, &pb.GetBundleRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetFormat calls the GetFormat RPC.
-func (c *ItemClient) GetFormat(ctx context.Context) (string, error) {
-	resp, err := c.svc.GetFormat(ctx, &pb.GetFormatRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetIcon calls the GetIcon RPC.
-func (c *ItemClient) GetIcon(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetIcon(ctx, &pb.GetIconRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetInt calls the GetInt RPC.
-func (c *ItemClient) GetInt(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetInt(ctx, &pb.GetIntRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetLong calls the GetLong RPC.
-func (c *ItemClient) GetLong(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetLong(ctx, &pb.GetLongRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetRemoteInput calls the GetRemoteInput RPC.
-func (c *ItemClient) GetRemoteInput(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetRemoteInput(ctx, &pb.GetRemoteInputRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetSlice calls the GetSlice RPC.
-func (c *ItemClient) GetSlice(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetSlice(ctx, &pb.GetSliceRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetSubType calls the GetSubType RPC.
-func (c *ItemClient) GetSubType(ctx context.Context) (string, error) {
-	resp, err := c.svc.GetSubType(ctx, &pb.GetSubTypeRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetText calls the GetText RPC.
-func (c *ItemClient) GetText(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetText(ctx, &pb.GetTextRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HasHint calls the HasHint RPC.
-func (c *ItemClient) HasHint(ctx context.Context, arg0 string) (bool, error) {
-	resp, err := c.svc.HasHint(ctx, &pb.HasHintRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *ItemClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// ManagerClient wraps the gRPC ManagerService client.
-type ManagerClient struct {
-	svc pb.ManagerServiceClient
-}
-
-// NewManagerClient creates a new Manager client.
-func NewManagerClient(cc grpc.ClientConnInterface) *ManagerClient {
-	return &ManagerClient{
-		svc: pb.NewManagerServiceClient(cc),
-	}
-}
-
-// CheckSlicePermission calls the CheckSlicePermission RPC.
-func (c *ManagerClient) CheckSlicePermission(ctx context.Context, arg0 int64, arg1 int32, arg2 int32) (int32, error) {
-	resp, err := c.svc.CheckSlicePermission(ctx, &pb.CheckSlicePermissionRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GrantSlicePermission calls the GrantSlicePermission RPC.
-func (c *ManagerClient) GrantSlicePermission(ctx context.Context, arg0 string, arg1 int64) error {
-	_, err := c.svc.GrantSlicePermission(ctx, &pb.GrantSlicePermissionRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// MapIntentToUri calls the MapIntentToUri RPC.
-func (c *ManagerClient) MapIntentToUri(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.MapIntentToUri(ctx, &pb.MapIntentToUriRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// RevokeSlicePermission calls the RevokeSlicePermission RPC.
-func (c *ManagerClient) RevokeSlicePermission(ctx context.Context, arg0 string, arg1 int64) error {
-	_, err := c.svc.RevokeSlicePermission(ctx, &pb.RevokeSlicePermissionRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// UnpinSlice calls the UnpinSlice RPC.
-func (c *ManagerClient) UnpinSlice(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.UnpinSlice(ctx, &pb.UnpinSliceRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// MetricsClient wraps the gRPC MetricsService client.
-type MetricsClient struct {
-	svc pb.MetricsServiceClient
-}
-
-// NewMetricsClient creates a new Metrics client.
-func NewMetricsClient(cc grpc.ClientConnInterface) *MetricsClient {
-	return &MetricsClient{
-		svc: pb.NewMetricsServiceClient(cc),
-	}
-}
-
-// LogHidden calls the LogHidden RPC.
-func (c *MetricsClient) LogHidden(ctx context.Context, handle int64) error {
-	_, err := c.svc.LogHidden(ctx, &pb.LogHiddenRequest{
-		Handle: handle,
-	})
-	return err
-}
-
-// LogTouch calls the LogTouch RPC.
-func (c *MetricsClient) LogTouch(ctx context.Context, handle int64, arg0 int32, arg1 int64) error {
-	_, err := c.svc.LogTouch(ctx, &pb.LogTouchRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// LogVisible calls the LogVisible RPC.
-func (c *MetricsClient) LogVisible(ctx context.Context, handle int64) error {
-	_, err := c.svc.LogVisible(ctx, &pb.LogVisibleRequest{
-		Handle: handle,
-	})
-	return err
-}
-
 // SpecClient wraps the gRPC SpecService client.
 type SpecClient struct {
 	svc pb.SpecServiceClient
@@ -266,7 +35,7 @@ func (c *SpecClient) CanRender(ctx context.Context, handle int64, arg0 int64) (b
 
 // DescribeContents calls the DescribeContents RPC.
 func (c *SpecClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.SpecDescribeContentsRequest{
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{
 		Handle: handle,
 	})
 	if err != nil {
@@ -322,12 +91,153 @@ func (c *SpecClient) ToString(ctx context.Context, handle int64) (string, error)
 
 // WriteToParcel calls the WriteToParcel RPC.
 func (c *SpecClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.SpecWriteToParcelRequest{
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
 		Handle: handle,
 		Arg0:   arg0,
 		Arg1:   arg1,
 	})
 	return err
+}
+
+// SliceClient wraps the gRPC SliceService client.
+type SliceClient struct {
+	svc pb.SliceServiceClient
+}
+
+// NewSliceClient creates a new Slice client.
+func NewSliceClient(cc grpc.ClientConnInterface) *SliceClient {
+	return &SliceClient{
+		svc: pb.NewSliceServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *SliceClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.SliceDescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetHints calls the GetHints RPC.
+func (c *SliceClient) GetHints(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetHints(ctx, &pb.GetHintsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetItems calls the GetItems RPC.
+func (c *SliceClient) GetItems(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetItems(ctx, &pb.GetItemsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSpec calls the GetSpec RPC.
+func (c *SliceClient) GetSpec(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetSpec(ctx, &pb.GetSpecRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetUri calls the GetUri RPC.
+func (c *SliceClient) GetUri(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetUri(ctx, &pb.GetUriRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsCallerNeeded calls the IsCallerNeeded RPC.
+func (c *SliceClient) IsCallerNeeded(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsCallerNeeded(ctx, &pb.IsCallerNeededRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *SliceClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.SliceToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *SliceClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.SliceWriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// BuilderClient wraps the gRPC BuilderService client.
+type BuilderClient struct {
+	svc pb.BuilderServiceClient
+}
+
+// NewBuilderClient creates a new Builder client.
+func NewBuilderClient(cc grpc.ClientConnInterface) *BuilderClient {
+	return &BuilderClient{
+		svc: pb.NewBuilderServiceClient(cc),
+	}
+}
+
+// AddAction calls the AddAction RPC.
+func (c *BuilderClient) AddAction(ctx context.Context, arg0 int64, arg1 int64, arg2 string) (int64, error) {
+	resp, err := c.svc.AddAction(ctx, &pb.AddActionRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AddSubSlice calls the AddSubSlice RPC.
+func (c *BuilderClient) AddSubSlice(ctx context.Context, arg0 int64, arg1 string) (int64, error) {
+	resp, err := c.svc.AddSubSlice(ctx, &pb.AddSubSliceRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Build calls the Build RPC.
+func (c *BuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetCallerNeeded calls the SetCallerNeeded RPC.
+func (c *BuilderClient) SetCallerNeeded(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetCallerNeeded(ctx, &pb.SetCallerNeededRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
 }
 
 // ProviderClient wraps the gRPC ProviderService client.
@@ -403,6 +313,17 @@ func (c *ProviderClient) Insert(ctx context.Context, arg0 int64, arg1 int64) (in
 // OnCreatePermissionRequest calls the OnCreatePermissionRequest RPC.
 func (c *ProviderClient) OnCreatePermissionRequest(ctx context.Context, arg0 int64) (int64, error) {
 	resp, err := c.svc.OnCreatePermissionRequest(ctx, &pb.OnCreatePermissionRequestRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnGetSliceDescendants calls the OnGetSliceDescendants RPC.
+func (c *ProviderClient) OnGetSliceDescendants(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.OnGetSliceDescendants(ctx, &pb.OnGetSliceDescendantsRequest{
 		Arg0: arg0,
 	})
 	if err != nil {
@@ -497,87 +418,199 @@ func (c *ProviderClient) Update(ctx context.Context, arg0 int64, arg1 int64, arg
 	return resp.GetResult(), nil
 }
 
-// SliceClient wraps the gRPC SliceService client.
-type SliceClient struct {
-	svc pb.SliceServiceClient
+// ItemClient wraps the gRPC ItemService client.
+type ItemClient struct {
+	svc pb.ItemServiceClient
 }
 
-// NewSliceClient creates a new Slice client.
-func NewSliceClient(cc grpc.ClientConnInterface) *SliceClient {
-	return &SliceClient{
-		svc: pb.NewSliceServiceClient(cc),
+// NewItemClient creates a new Item client.
+func NewItemClient(cc grpc.ClientConnInterface) *ItemClient {
+	return &ItemClient{
+		svc: pb.NewItemServiceClient(cc),
 	}
 }
 
 // DescribeContents calls the DescribeContents RPC.
-func (c *SliceClient) DescribeContents(ctx context.Context) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+func (c *ItemClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.ItemDescribeContentsRequest{})
 	if err != nil {
 		return 0, err
 	}
 	return resp.GetResult(), nil
 }
 
-// GetSpec calls the GetSpec RPC.
-func (c *SliceClient) GetSpec(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetSpec(ctx, &pb.GetSpecRequest{})
+// GetAction calls the GetAction RPC.
+func (c *ItemClient) GetAction(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetAction(ctx, &pb.GetActionRequest{})
 	if err != nil {
 		return 0, err
 	}
 	return resp.GetResult(), nil
 }
 
-// GetUri calls the GetUri RPC.
-func (c *SliceClient) GetUri(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetUri(ctx, &pb.GetUriRequest{})
+// GetBundle calls the GetBundle RPC.
+func (c *ItemClient) GetBundle(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetBundle(ctx, &pb.GetBundleRequest{})
 	if err != nil {
 		return 0, err
 	}
 	return resp.GetResult(), nil
 }
 
-// IsCallerNeeded calls the IsCallerNeeded RPC.
-func (c *SliceClient) IsCallerNeeded(ctx context.Context) (bool, error) {
-	resp, err := c.svc.IsCallerNeeded(ctx, &pb.IsCallerNeededRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToString calls the ToString RPC.
-func (c *SliceClient) ToString(ctx context.Context) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.SliceToStringRequest{})
+// GetFormat calls the GetFormat RPC.
+func (c *ItemClient) GetFormat(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetFormat(ctx, &pb.GetFormatRequest{})
 	if err != nil {
 		return "", err
 	}
 	return resp.GetResult(), nil
 }
 
+// GetHints calls the GetHints RPC.
+func (c *ItemClient) GetHints(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetHints(ctx, &pb.GetHintsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetIcon calls the GetIcon RPC.
+func (c *ItemClient) GetIcon(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetIcon(ctx, &pb.GetIconRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInt calls the GetInt RPC.
+func (c *ItemClient) GetInt(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetInt(ctx, &pb.GetIntRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLong calls the GetLong RPC.
+func (c *ItemClient) GetLong(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetLong(ctx, &pb.GetLongRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetRemoteInput calls the GetRemoteInput RPC.
+func (c *ItemClient) GetRemoteInput(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetRemoteInput(ctx, &pb.GetRemoteInputRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSlice calls the GetSlice RPC.
+func (c *ItemClient) GetSlice(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetSlice(ctx, &pb.GetSliceRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSubType calls the GetSubType RPC.
+func (c *ItemClient) GetSubType(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetSubType(ctx, &pb.GetSubTypeRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetText calls the GetText RPC.
+func (c *ItemClient) GetText(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetText(ctx, &pb.GetTextRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasHint calls the HasHint RPC.
+func (c *ItemClient) HasHint(ctx context.Context, arg0 string) (bool, error) {
+	resp, err := c.svc.HasHint(ctx, &pb.HasHintRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
 // WriteToParcel calls the WriteToParcel RPC.
-func (c *SliceClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+func (c *ItemClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.ItemWriteToParcelRequest{
 		Arg0: arg0,
 		Arg1: arg1,
 	})
 	return err
 }
 
-// BuilderClient wraps the gRPC BuilderService client.
-type BuilderClient struct {
-	svc pb.BuilderServiceClient
+// MetricsClient wraps the gRPC MetricsService client.
+type MetricsClient struct {
+	svc pb.MetricsServiceClient
 }
 
-// NewBuilderClient creates a new Builder client.
-func NewBuilderClient(cc grpc.ClientConnInterface) *BuilderClient {
-	return &BuilderClient{
-		svc: pb.NewBuilderServiceClient(cc),
+// NewMetricsClient creates a new Metrics client.
+func NewMetricsClient(cc grpc.ClientConnInterface) *MetricsClient {
+	return &MetricsClient{
+		svc: pb.NewMetricsServiceClient(cc),
 	}
 }
 
-// AddAction calls the AddAction RPC.
-func (c *BuilderClient) AddAction(ctx context.Context, arg0 int64, arg1 int64, arg2 string) (int64, error) {
-	resp, err := c.svc.AddAction(ctx, &pb.AddActionRequest{
+// LogHidden calls the LogHidden RPC.
+func (c *MetricsClient) LogHidden(ctx context.Context, handle int64) error {
+	_, err := c.svc.LogHidden(ctx, &pb.LogHiddenRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// LogTouch calls the LogTouch RPC.
+func (c *MetricsClient) LogTouch(ctx context.Context, handle int64, arg0 int32, arg1 int64) error {
+	_, err := c.svc.LogTouch(ctx, &pb.LogTouchRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// LogVisible calls the LogVisible RPC.
+func (c *MetricsClient) LogVisible(ctx context.Context, handle int64) error {
+	_, err := c.svc.LogVisible(ctx, &pb.LogVisibleRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// ManagerClient wraps the gRPC ManagerService client.
+type ManagerClient struct {
+	svc pb.ManagerServiceClient
+}
+
+// NewManagerClient creates a new Manager client.
+func NewManagerClient(cc grpc.ClientConnInterface) *ManagerClient {
+	return &ManagerClient{
+		svc: pb.NewManagerServiceClient(cc),
+	}
+}
+
+// CheckSlicePermission calls the CheckSlicePermission RPC.
+func (c *ManagerClient) CheckSlicePermission(ctx context.Context, arg0 int64, arg1 int32, arg2 int32) (int32, error) {
+	resp, err := c.svc.CheckSlicePermission(ctx, &pb.CheckSlicePermissionRequest{
 		Arg0: arg0,
 		Arg1: arg1,
 		Arg2: arg2,
@@ -588,34 +621,70 @@ func (c *BuilderClient) AddAction(ctx context.Context, arg0 int64, arg1 int64, a
 	return resp.GetResult(), nil
 }
 
-// AddSubSlice calls the AddSubSlice RPC.
-func (c *BuilderClient) AddSubSlice(ctx context.Context, arg0 int64, arg1 string) (int64, error) {
-	resp, err := c.svc.AddSubSlice(ctx, &pb.AddSubSliceRequest{
+// GetPinnedSlices calls the GetPinnedSlices RPC.
+func (c *ManagerClient) GetPinnedSlices(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetPinnedSlices(ctx, &pb.GetPinnedSlicesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPinnedSpecs calls the GetPinnedSpecs RPC.
+func (c *ManagerClient) GetPinnedSpecs(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.GetPinnedSpecs(ctx, &pb.GetPinnedSpecsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSliceDescendants calls the GetSliceDescendants RPC.
+func (c *ManagerClient) GetSliceDescendants(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.GetSliceDescendants(ctx, &pb.GetSliceDescendantsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GrantSlicePermission calls the GrantSlicePermission RPC.
+func (c *ManagerClient) GrantSlicePermission(ctx context.Context, arg0 string, arg1 int64) error {
+	_, err := c.svc.GrantSlicePermission(ctx, &pb.GrantSlicePermissionRequest{
 		Arg0: arg0,
 		Arg1: arg1,
 	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
+	return err
 }
 
-// Build calls the Build RPC.
-func (c *BuilderClient) Build(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetCallerNeeded calls the SetCallerNeeded RPC.
-func (c *BuilderClient) SetCallerNeeded(ctx context.Context, arg0 bool) (int64, error) {
-	resp, err := c.svc.SetCallerNeeded(ctx, &pb.SetCallerNeededRequest{
+// MapIntentToUri calls the MapIntentToUri RPC.
+func (c *ManagerClient) MapIntentToUri(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.MapIntentToUri(ctx, &pb.MapIntentToUriRequest{
 		Arg0: arg0,
 	})
 	if err != nil {
 		return 0, err
 	}
 	return resp.GetResult(), nil
+}
+
+// RevokeSlicePermission calls the RevokeSlicePermission RPC.
+func (c *ManagerClient) RevokeSlicePermission(ctx context.Context, arg0 string, arg1 int64) error {
+	_, err := c.svc.RevokeSlicePermission(ctx, &pb.RevokeSlicePermissionRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// UnpinSlice calls the UnpinSlice RPC.
+func (c *ManagerClient) UnpinSlice(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.UnpinSlice(ctx, &pb.UnpinSliceRequest{
+		Arg0: arg0,
+	})
+	return err
 }

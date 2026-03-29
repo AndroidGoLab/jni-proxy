@@ -15,6 +15,65 @@ import (
 	"google.golang.org/grpc/status"
 )
 
+// RemoveCustomAudienceOverrideRequestServer implements pb.RemoveCustomAudienceOverrideRequestServiceServer.
+type RemoveCustomAudienceOverrideRequestServer struct {
+	pb.UnimplementedRemoveCustomAudienceOverrideRequestServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *RemoveCustomAudienceOverrideRequestServer) NewRemoveCustomAudienceOverrideRequest(_ context.Context, req *pb.NewRemoveCustomAudienceOverrideRequestRequest) (*pb.NewRemoveCustomAudienceOverrideRequestResponse, error) {
+	obj, err := jnipkg.NewRemoveCustomAudienceOverrideRequest(s.Ctx.VM, s.Handles.Get(req.GetArg0()), req.GetArg1())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewRemoveCustomAudienceOverrideRequestResponse{Result: handle}, nil
+}
+
+func (s *RemoveCustomAudienceOverrideRequestServer) GetBuyer(_ context.Context, req *pb.RemoveCustomAudienceOverrideRequestGetBuyerRequest) (*pb.GetBuyerResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.RemoveCustomAudienceOverrideRequest{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetBuyer()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetBuyerResponse{Result: handle}, nil
+}
+
+func (s *RemoveCustomAudienceOverrideRequestServer) GetName(_ context.Context, req *pb.RemoveCustomAudienceOverrideRequestGetNameRequest) (*pb.GetNameResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.RemoveCustomAudienceOverrideRequest{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetName()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetNameResponse{Result: result}, nil
+}
+
 // AddCustomAudienceOverrideRequestServer implements pb.AddCustomAudienceOverrideRequestServiceServer.
 type AddCustomAudienceOverrideRequestServer struct {
 	pb.UnimplementedAddCustomAudienceOverrideRequestServiceServer
@@ -123,63 +182,4 @@ func (s *AddCustomAudienceOverrideRequestServer) GetTrustedBiddingSignals(_ cont
 		}
 	}
 	return &pb.GetTrustedBiddingSignalsResponse{Result: handle}, nil
-}
-
-// RemoveCustomAudienceOverrideRequestServer implements pb.RemoveCustomAudienceOverrideRequestServiceServer.
-type RemoveCustomAudienceOverrideRequestServer struct {
-	pb.UnimplementedRemoveCustomAudienceOverrideRequestServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *RemoveCustomAudienceOverrideRequestServer) NewRemoveCustomAudienceOverrideRequest(_ context.Context, req *pb.NewRemoveCustomAudienceOverrideRequestRequest) (*pb.NewRemoveCustomAudienceOverrideRequestResponse, error) {
-	obj, err := jnipkg.NewRemoveCustomAudienceOverrideRequest(s.Ctx.VM, s.Handles.Get(req.GetArg0()), req.GetArg1())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
-	}
-	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-	}
-	return &pb.NewRemoveCustomAudienceOverrideRequestResponse{Result: handle}, nil
-}
-
-func (s *RemoveCustomAudienceOverrideRequestServer) GetBuyer(_ context.Context, req *pb.RemoveCustomAudienceOverrideRequestGetBuyerRequest) (*pb.GetBuyerResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.RemoveCustomAudienceOverrideRequest{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetBuyer()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetBuyerResponse{Result: handle}, nil
-}
-
-func (s *RemoveCustomAudienceOverrideRequestServer) GetName(_ context.Context, req *pb.RemoveCustomAudienceOverrideRequestGetNameRequest) (*pb.GetNameResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.RemoveCustomAudienceOverrideRequest{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetName()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetNameResponse{Result: result}, nil
 }

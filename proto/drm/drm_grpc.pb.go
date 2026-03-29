@@ -21,34 +21,35 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	ManagerClientService_NewManagerClient_FullMethodName       = "/drm.ManagerClientService/NewManagerClient"
-	ManagerClientService_AcquireDrmInfo_FullMethodName         = "/drm.ManagerClientService/AcquireDrmInfo"
-	ManagerClientService_AcquireRights_FullMethodName          = "/drm.ManagerClientService/AcquireRights"
-	ManagerClientService_CanHandle2_FullMethodName             = "/drm.ManagerClientService/CanHandle2"
-	ManagerClientService_CanHandle2_1_FullMethodName           = "/drm.ManagerClientService/CanHandle2_1"
-	ManagerClientService_CheckRightsStatus1_FullMethodName     = "/drm.ManagerClientService/CheckRightsStatus1"
-	ManagerClientService_CheckRightsStatus2_1_FullMethodName   = "/drm.ManagerClientService/CheckRightsStatus2_1"
-	ManagerClientService_CheckRightsStatus1_2_FullMethodName   = "/drm.ManagerClientService/CheckRightsStatus1_2"
-	ManagerClientService_CheckRightsStatus2_3_FullMethodName   = "/drm.ManagerClientService/CheckRightsStatus2_3"
-	ManagerClientService_Close_FullMethodName                  = "/drm.ManagerClientService/Close"
-	ManagerClientService_CloseConvertSession_FullMethodName    = "/drm.ManagerClientService/CloseConvertSession"
-	ManagerClientService_ConvertData_FullMethodName            = "/drm.ManagerClientService/ConvertData"
-	ManagerClientService_GetAvailableDrmEngines_FullMethodName = "/drm.ManagerClientService/GetAvailableDrmEngines"
-	ManagerClientService_GetConstraints2_FullMethodName        = "/drm.ManagerClientService/GetConstraints2"
-	ManagerClientService_GetConstraints2_1_FullMethodName      = "/drm.ManagerClientService/GetConstraints2_1"
-	ManagerClientService_GetDrmObjectType2_FullMethodName      = "/drm.ManagerClientService/GetDrmObjectType2"
-	ManagerClientService_GetDrmObjectType2_1_FullMethodName    = "/drm.ManagerClientService/GetDrmObjectType2_1"
-	ManagerClientService_GetMetadata1_FullMethodName           = "/drm.ManagerClientService/GetMetadata1"
-	ManagerClientService_GetMetadata1_1_FullMethodName         = "/drm.ManagerClientService/GetMetadata1_1"
-	ManagerClientService_GetOriginalMimeType1_FullMethodName   = "/drm.ManagerClientService/GetOriginalMimeType1"
-	ManagerClientService_GetOriginalMimeType1_1_FullMethodName = "/drm.ManagerClientService/GetOriginalMimeType1_1"
-	ManagerClientService_OpenConvertSession_FullMethodName     = "/drm.ManagerClientService/OpenConvertSession"
-	ManagerClientService_ProcessDrmInfo_FullMethodName         = "/drm.ManagerClientService/ProcessDrmInfo"
-	ManagerClientService_Release_FullMethodName                = "/drm.ManagerClientService/Release"
-	ManagerClientService_RemoveAllRights_FullMethodName        = "/drm.ManagerClientService/RemoveAllRights"
-	ManagerClientService_RemoveRights1_FullMethodName          = "/drm.ManagerClientService/RemoveRights1"
-	ManagerClientService_RemoveRights1_1_FullMethodName        = "/drm.ManagerClientService/RemoveRights1_1"
-	ManagerClientService_SaveRights_FullMethodName             = "/drm.ManagerClientService/SaveRights"
+	ManagerClientService_NewManagerClient_FullMethodName           = "/drm.ManagerClientService/NewManagerClient"
+	ManagerClientService_AcquireDrmInfo_FullMethodName             = "/drm.ManagerClientService/AcquireDrmInfo"
+	ManagerClientService_AcquireRights_FullMethodName              = "/drm.ManagerClientService/AcquireRights"
+	ManagerClientService_CanHandle2_FullMethodName                 = "/drm.ManagerClientService/CanHandle2"
+	ManagerClientService_CanHandle2_1_FullMethodName               = "/drm.ManagerClientService/CanHandle2_1"
+	ManagerClientService_CheckRightsStatus1_FullMethodName         = "/drm.ManagerClientService/CheckRightsStatus1"
+	ManagerClientService_CheckRightsStatus2_1_FullMethodName       = "/drm.ManagerClientService/CheckRightsStatus2_1"
+	ManagerClientService_CheckRightsStatus1_2_FullMethodName       = "/drm.ManagerClientService/CheckRightsStatus1_2"
+	ManagerClientService_CheckRightsStatus2_3_FullMethodName       = "/drm.ManagerClientService/CheckRightsStatus2_3"
+	ManagerClientService_Close_FullMethodName                      = "/drm.ManagerClientService/Close"
+	ManagerClientService_CloseConvertSession_FullMethodName        = "/drm.ManagerClientService/CloseConvertSession"
+	ManagerClientService_ConvertData_FullMethodName                = "/drm.ManagerClientService/ConvertData"
+	ManagerClientService_GetAvailableDrmEngines_FullMethodName     = "/drm.ManagerClientService/GetAvailableDrmEngines"
+	ManagerClientService_GetAvailableDrmSupportInfo_FullMethodName = "/drm.ManagerClientService/GetAvailableDrmSupportInfo"
+	ManagerClientService_GetConstraints2_FullMethodName            = "/drm.ManagerClientService/GetConstraints2"
+	ManagerClientService_GetConstraints2_1_FullMethodName          = "/drm.ManagerClientService/GetConstraints2_1"
+	ManagerClientService_GetDrmObjectType2_FullMethodName          = "/drm.ManagerClientService/GetDrmObjectType2"
+	ManagerClientService_GetDrmObjectType2_1_FullMethodName        = "/drm.ManagerClientService/GetDrmObjectType2_1"
+	ManagerClientService_GetMetadata1_FullMethodName               = "/drm.ManagerClientService/GetMetadata1"
+	ManagerClientService_GetMetadata1_1_FullMethodName             = "/drm.ManagerClientService/GetMetadata1_1"
+	ManagerClientService_GetOriginalMimeType1_FullMethodName       = "/drm.ManagerClientService/GetOriginalMimeType1"
+	ManagerClientService_GetOriginalMimeType1_1_FullMethodName     = "/drm.ManagerClientService/GetOriginalMimeType1_1"
+	ManagerClientService_OpenConvertSession_FullMethodName         = "/drm.ManagerClientService/OpenConvertSession"
+	ManagerClientService_ProcessDrmInfo_FullMethodName             = "/drm.ManagerClientService/ProcessDrmInfo"
+	ManagerClientService_Release_FullMethodName                    = "/drm.ManagerClientService/Release"
+	ManagerClientService_RemoveAllRights_FullMethodName            = "/drm.ManagerClientService/RemoveAllRights"
+	ManagerClientService_RemoveRights1_FullMethodName              = "/drm.ManagerClientService/RemoveRights1"
+	ManagerClientService_RemoveRights1_1_FullMethodName            = "/drm.ManagerClientService/RemoveRights1_1"
+	ManagerClientService_SaveRights_FullMethodName                 = "/drm.ManagerClientService/SaveRights"
 )
 
 // ManagerClientServiceClient is the client API for ManagerClientService service.
@@ -68,6 +69,7 @@ type ManagerClientServiceClient interface {
 	CloseConvertSession(ctx context.Context, in *CloseConvertSessionRequest, opts ...grpc.CallOption) (*CloseConvertSessionResponse, error)
 	ConvertData(ctx context.Context, in *ConvertDataRequest, opts ...grpc.CallOption) (*ConvertDataResponse, error)
 	GetAvailableDrmEngines(ctx context.Context, in *GetAvailableDrmEnginesRequest, opts ...grpc.CallOption) (*GetAvailableDrmEnginesResponse, error)
+	GetAvailableDrmSupportInfo(ctx context.Context, in *GetAvailableDrmSupportInfoRequest, opts ...grpc.CallOption) (*GetAvailableDrmSupportInfoResponse, error)
 	GetConstraints2(ctx context.Context, in *GetConstraints2Request, opts ...grpc.CallOption) (*GetConstraints2Response, error)
 	GetConstraints2_1(ctx context.Context, in *GetConstraints2_1Request, opts ...grpc.CallOption) (*GetConstraints2_1Response, error)
 	GetDrmObjectType2(ctx context.Context, in *GetDrmObjectType2Request, opts ...grpc.CallOption) (*GetDrmObjectType2Response, error)
@@ -217,6 +219,16 @@ func (c *managerClientServiceClient) GetAvailableDrmEngines(ctx context.Context,
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetAvailableDrmEnginesResponse)
 	err := c.cc.Invoke(ctx, ManagerClientService_GetAvailableDrmEngines_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *managerClientServiceClient) GetAvailableDrmSupportInfo(ctx context.Context, in *GetAvailableDrmSupportInfoRequest, opts ...grpc.CallOption) (*GetAvailableDrmSupportInfoResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetAvailableDrmSupportInfoResponse)
+	err := c.cc.Invoke(ctx, ManagerClientService_GetAvailableDrmSupportInfo_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -390,6 +402,7 @@ type ManagerClientServiceServer interface {
 	CloseConvertSession(context.Context, *CloseConvertSessionRequest) (*CloseConvertSessionResponse, error)
 	ConvertData(context.Context, *ConvertDataRequest) (*ConvertDataResponse, error)
 	GetAvailableDrmEngines(context.Context, *GetAvailableDrmEnginesRequest) (*GetAvailableDrmEnginesResponse, error)
+	GetAvailableDrmSupportInfo(context.Context, *GetAvailableDrmSupportInfoRequest) (*GetAvailableDrmSupportInfoResponse, error)
 	GetConstraints2(context.Context, *GetConstraints2Request) (*GetConstraints2Response, error)
 	GetConstraints2_1(context.Context, *GetConstraints2_1Request) (*GetConstraints2_1Response, error)
 	GetDrmObjectType2(context.Context, *GetDrmObjectType2Request) (*GetDrmObjectType2Response, error)
@@ -453,6 +466,9 @@ func (UnimplementedManagerClientServiceServer) ConvertData(context.Context, *Con
 }
 func (UnimplementedManagerClientServiceServer) GetAvailableDrmEngines(context.Context, *GetAvailableDrmEnginesRequest) (*GetAvailableDrmEnginesResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetAvailableDrmEngines not implemented")
+}
+func (UnimplementedManagerClientServiceServer) GetAvailableDrmSupportInfo(context.Context, *GetAvailableDrmSupportInfoRequest) (*GetAvailableDrmSupportInfoResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetAvailableDrmSupportInfo not implemented")
 }
 func (UnimplementedManagerClientServiceServer) GetConstraints2(context.Context, *GetConstraints2Request) (*GetConstraints2Response, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetConstraints2 not implemented")
@@ -750,6 +766,24 @@ func _ManagerClientService_GetAvailableDrmEngines_Handler(srv interface{}, ctx c
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(ManagerClientServiceServer).GetAvailableDrmEngines(ctx, req.(*GetAvailableDrmEnginesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ManagerClientService_GetAvailableDrmSupportInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetAvailableDrmSupportInfoRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerClientServiceServer).GetAvailableDrmSupportInfo(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerClientService_GetAvailableDrmSupportInfo_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerClientServiceServer).GetAvailableDrmSupportInfo(ctx, req.(*GetAvailableDrmSupportInfoRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -1082,6 +1116,10 @@ var ManagerClientService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetAvailableDrmEngines",
 			Handler:    _ManagerClientService_GetAvailableDrmEngines_Handler,
+		},
+		{
+			MethodName: "GetAvailableDrmSupportInfo",
+			Handler:    _ManagerClientService_GetAvailableDrmSupportInfo_Handler,
 		},
 		{
 			MethodName: "GetConstraints2",
@@ -1458,864 +1496,177 @@ var ManagerClientOnInfoListenerService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	UtilsService_NewUtils_FullMethodName                  = "/drm.UtilsService/NewUtils"
-	UtilsService_GetExtendedMetadataParser_FullMethodName = "/drm.UtilsService/GetExtendedMetadataParser"
+	ProcessedDataService_GetAccountId_FullMethodName      = "/drm.ProcessedDataService/GetAccountId"
+	ProcessedDataService_GetData_FullMethodName           = "/drm.ProcessedDataService/GetData"
+	ProcessedDataService_GetSubscriptionId_FullMethodName = "/drm.ProcessedDataService/GetSubscriptionId"
 )
 
-// UtilsServiceClient is the client API for UtilsService service.
+// ProcessedDataServiceClient is the client API for ProcessedDataService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type UtilsServiceClient interface {
-	NewUtils(ctx context.Context, in *NewUtilsRequest, opts ...grpc.CallOption) (*NewUtilsResponse, error)
-	GetExtendedMetadataParser(ctx context.Context, in *GetExtendedMetadataParserRequest, opts ...grpc.CallOption) (*GetExtendedMetadataParserResponse, error)
+type ProcessedDataServiceClient interface {
+	GetAccountId(ctx context.Context, in *GetAccountIdRequest, opts ...grpc.CallOption) (*GetAccountIdResponse, error)
+	GetData(ctx context.Context, in *GetDataRequest, opts ...grpc.CallOption) (*GetDataResponse, error)
+	GetSubscriptionId(ctx context.Context, in *GetSubscriptionIdRequest, opts ...grpc.CallOption) (*GetSubscriptionIdResponse, error)
 }
 
-type utilsServiceClient struct {
+type processedDataServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewUtilsServiceClient(cc grpc.ClientConnInterface) UtilsServiceClient {
-	return &utilsServiceClient{cc}
+func NewProcessedDataServiceClient(cc grpc.ClientConnInterface) ProcessedDataServiceClient {
+	return &processedDataServiceClient{cc}
 }
 
-func (c *utilsServiceClient) NewUtils(ctx context.Context, in *NewUtilsRequest, opts ...grpc.CallOption) (*NewUtilsResponse, error) {
+func (c *processedDataServiceClient) GetAccountId(ctx context.Context, in *GetAccountIdRequest, opts ...grpc.CallOption) (*GetAccountIdResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewUtilsResponse)
-	err := c.cc.Invoke(ctx, UtilsService_NewUtils_FullMethodName, in, out, cOpts...)
+	out := new(GetAccountIdResponse)
+	err := c.cc.Invoke(ctx, ProcessedDataService_GetAccountId_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *utilsServiceClient) GetExtendedMetadataParser(ctx context.Context, in *GetExtendedMetadataParserRequest, opts ...grpc.CallOption) (*GetExtendedMetadataParserResponse, error) {
+func (c *processedDataServiceClient) GetData(ctx context.Context, in *GetDataRequest, opts ...grpc.CallOption) (*GetDataResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetExtendedMetadataParserResponse)
-	err := c.cc.Invoke(ctx, UtilsService_GetExtendedMetadataParser_FullMethodName, in, out, cOpts...)
+	out := new(GetDataResponse)
+	err := c.cc.Invoke(ctx, ProcessedDataService_GetData_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// UtilsServiceServer is the server API for UtilsService service.
-// All implementations must embed UnimplementedUtilsServiceServer
+func (c *processedDataServiceClient) GetSubscriptionId(ctx context.Context, in *GetSubscriptionIdRequest, opts ...grpc.CallOption) (*GetSubscriptionIdResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSubscriptionIdResponse)
+	err := c.cc.Invoke(ctx, ProcessedDataService_GetSubscriptionId_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ProcessedDataServiceServer is the server API for ProcessedDataService service.
+// All implementations must embed UnimplementedProcessedDataServiceServer
 // for forward compatibility.
-type UtilsServiceServer interface {
-	NewUtils(context.Context, *NewUtilsRequest) (*NewUtilsResponse, error)
-	GetExtendedMetadataParser(context.Context, *GetExtendedMetadataParserRequest) (*GetExtendedMetadataParserResponse, error)
-	mustEmbedUnimplementedUtilsServiceServer()
+type ProcessedDataServiceServer interface {
+	GetAccountId(context.Context, *GetAccountIdRequest) (*GetAccountIdResponse, error)
+	GetData(context.Context, *GetDataRequest) (*GetDataResponse, error)
+	GetSubscriptionId(context.Context, *GetSubscriptionIdRequest) (*GetSubscriptionIdResponse, error)
+	mustEmbedUnimplementedProcessedDataServiceServer()
 }
 
-// UnimplementedUtilsServiceServer must be embedded to have
+// UnimplementedProcessedDataServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedUtilsServiceServer struct{}
+type UnimplementedProcessedDataServiceServer struct{}
 
-func (UnimplementedUtilsServiceServer) NewUtils(context.Context, *NewUtilsRequest) (*NewUtilsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewUtils not implemented")
+func (UnimplementedProcessedDataServiceServer) GetAccountId(context.Context, *GetAccountIdRequest) (*GetAccountIdResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetAccountId not implemented")
 }
-func (UnimplementedUtilsServiceServer) GetExtendedMetadataParser(context.Context, *GetExtendedMetadataParserRequest) (*GetExtendedMetadataParserResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetExtendedMetadataParser not implemented")
+func (UnimplementedProcessedDataServiceServer) GetData(context.Context, *GetDataRequest) (*GetDataResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetData not implemented")
 }
-func (UnimplementedUtilsServiceServer) mustEmbedUnimplementedUtilsServiceServer() {}
-func (UnimplementedUtilsServiceServer) testEmbeddedByValue()                      {}
+func (UnimplementedProcessedDataServiceServer) GetSubscriptionId(context.Context, *GetSubscriptionIdRequest) (*GetSubscriptionIdResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSubscriptionId not implemented")
+}
+func (UnimplementedProcessedDataServiceServer) mustEmbedUnimplementedProcessedDataServiceServer() {}
+func (UnimplementedProcessedDataServiceServer) testEmbeddedByValue()                              {}
 
-// UnsafeUtilsServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to UtilsServiceServer will
+// UnsafeProcessedDataServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ProcessedDataServiceServer will
 // result in compilation errors.
-type UnsafeUtilsServiceServer interface {
-	mustEmbedUnimplementedUtilsServiceServer()
+type UnsafeProcessedDataServiceServer interface {
+	mustEmbedUnimplementedProcessedDataServiceServer()
 }
 
-func RegisterUtilsServiceServer(s grpc.ServiceRegistrar, srv UtilsServiceServer) {
-	// If the following call panics, it indicates UnimplementedUtilsServiceServer was
+func RegisterProcessedDataServiceServer(s grpc.ServiceRegistrar, srv ProcessedDataServiceServer) {
+	// If the following call panics, it indicates UnimplementedProcessedDataServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&UtilsService_ServiceDesc, srv)
+	s.RegisterService(&ProcessedDataService_ServiceDesc, srv)
 }
 
-func _UtilsService_NewUtils_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewUtilsRequest)
+func _ProcessedDataService_GetAccountId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetAccountIdRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(UtilsServiceServer).NewUtils(ctx, in)
+		return srv.(ProcessedDataServiceServer).GetAccountId(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: UtilsService_NewUtils_FullMethodName,
+		FullMethod: ProcessedDataService_GetAccountId_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UtilsServiceServer).NewUtils(ctx, req.(*NewUtilsRequest))
+		return srv.(ProcessedDataServiceServer).GetAccountId(ctx, req.(*GetAccountIdRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _UtilsService_GetExtendedMetadataParser_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetExtendedMetadataParserRequest)
+func _ProcessedDataService_GetData_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetDataRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(UtilsServiceServer).GetExtendedMetadataParser(ctx, in)
+		return srv.(ProcessedDataServiceServer).GetData(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: UtilsService_GetExtendedMetadataParser_FullMethodName,
+		FullMethod: ProcessedDataService_GetData_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UtilsServiceServer).GetExtendedMetadataParser(ctx, req.(*GetExtendedMetadataParserRequest))
+		return srv.(ProcessedDataServiceServer).GetData(ctx, req.(*GetDataRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// UtilsService_ServiceDesc is the grpc.ServiceDesc for UtilsService service.
+func _ProcessedDataService_GetSubscriptionId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSubscriptionIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ProcessedDataServiceServer).GetSubscriptionId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ProcessedDataService_GetSubscriptionId_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ProcessedDataServiceServer).GetSubscriptionId(ctx, req.(*GetSubscriptionIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ProcessedDataService_ServiceDesc is the grpc.ServiceDesc for ProcessedDataService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var UtilsService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "drm.UtilsService",
-	HandlerType: (*UtilsServiceServer)(nil),
+var ProcessedDataService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "drm.ProcessedDataService",
+	HandlerType: (*ProcessedDataServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "NewUtils",
-			Handler:    _UtilsService_NewUtils_Handler,
+			MethodName: "GetAccountId",
+			Handler:    _ProcessedDataService_GetAccountId_Handler,
 		},
 		{
-			MethodName: "GetExtendedMetadataParser",
-			Handler:    _UtilsService_GetExtendedMetadataParser_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/drm/drm.proto",
-}
-
-const (
-	UtilsExtendedMetadataParserService_Get_FullMethodName = "/drm.UtilsExtendedMetadataParserService/Get"
-)
-
-// UtilsExtendedMetadataParserServiceClient is the client API for UtilsExtendedMetadataParserService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type UtilsExtendedMetadataParserServiceClient interface {
-	Get(ctx context.Context, in *GetRequest, opts ...grpc.CallOption) (*GetResponse, error)
-}
-
-type utilsExtendedMetadataParserServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewUtilsExtendedMetadataParserServiceClient(cc grpc.ClientConnInterface) UtilsExtendedMetadataParserServiceClient {
-	return &utilsExtendedMetadataParserServiceClient{cc}
-}
-
-func (c *utilsExtendedMetadataParserServiceClient) Get(ctx context.Context, in *GetRequest, opts ...grpc.CallOption) (*GetResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetResponse)
-	err := c.cc.Invoke(ctx, UtilsExtendedMetadataParserService_Get_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// UtilsExtendedMetadataParserServiceServer is the server API for UtilsExtendedMetadataParserService service.
-// All implementations must embed UnimplementedUtilsExtendedMetadataParserServiceServer
-// for forward compatibility.
-type UtilsExtendedMetadataParserServiceServer interface {
-	Get(context.Context, *GetRequest) (*GetResponse, error)
-	mustEmbedUnimplementedUtilsExtendedMetadataParserServiceServer()
-}
-
-// UnimplementedUtilsExtendedMetadataParserServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedUtilsExtendedMetadataParserServiceServer struct{}
-
-func (UnimplementedUtilsExtendedMetadataParserServiceServer) Get(context.Context, *GetRequest) (*GetResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Get not implemented")
-}
-func (UnimplementedUtilsExtendedMetadataParserServiceServer) mustEmbedUnimplementedUtilsExtendedMetadataParserServiceServer() {
-}
-func (UnimplementedUtilsExtendedMetadataParserServiceServer) testEmbeddedByValue() {}
-
-// UnsafeUtilsExtendedMetadataParserServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to UtilsExtendedMetadataParserServiceServer will
-// result in compilation errors.
-type UnsafeUtilsExtendedMetadataParserServiceServer interface {
-	mustEmbedUnimplementedUtilsExtendedMetadataParserServiceServer()
-}
-
-func RegisterUtilsExtendedMetadataParserServiceServer(s grpc.ServiceRegistrar, srv UtilsExtendedMetadataParserServiceServer) {
-	// If the following call panics, it indicates UnimplementedUtilsExtendedMetadataParserServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&UtilsExtendedMetadataParserService_ServiceDesc, srv)
-}
-
-func _UtilsExtendedMetadataParserService_Get_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(UtilsExtendedMetadataParserServiceServer).Get(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: UtilsExtendedMetadataParserService_Get_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UtilsExtendedMetadataParserServiceServer).Get(ctx, req.(*GetRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// UtilsExtendedMetadataParserService_ServiceDesc is the grpc.ServiceDesc for UtilsExtendedMetadataParserService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var UtilsExtendedMetadataParserService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "drm.UtilsExtendedMetadataParserService",
-	HandlerType: (*UtilsExtendedMetadataParserServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "Get",
-			Handler:    _UtilsExtendedMetadataParserService_Get_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/drm/drm.proto",
-}
-
-const (
-	SupportInfoService_NewSupportInfo_FullMethodName   = "/drm.SupportInfoService/NewSupportInfo"
-	SupportInfoService_AddFileSuffix_FullMethodName    = "/drm.SupportInfoService/AddFileSuffix"
-	SupportInfoService_AddMimeType_FullMethodName      = "/drm.SupportInfoService/AddMimeType"
-	SupportInfoService_Equals_FullMethodName           = "/drm.SupportInfoService/Equals"
-	SupportInfoService_GetDescriprition_FullMethodName = "/drm.SupportInfoService/GetDescriprition"
-	SupportInfoService_GetDescription_FullMethodName   = "/drm.SupportInfoService/GetDescription"
-	SupportInfoService_HashCode_FullMethodName         = "/drm.SupportInfoService/HashCode"
-	SupportInfoService_SetDescription_FullMethodName   = "/drm.SupportInfoService/SetDescription"
-)
-
-// SupportInfoServiceClient is the client API for SupportInfoService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type SupportInfoServiceClient interface {
-	NewSupportInfo(ctx context.Context, in *NewSupportInfoRequest, opts ...grpc.CallOption) (*NewSupportInfoResponse, error)
-	AddFileSuffix(ctx context.Context, in *AddFileSuffixRequest, opts ...grpc.CallOption) (*AddFileSuffixResponse, error)
-	AddMimeType(ctx context.Context, in *AddMimeTypeRequest, opts ...grpc.CallOption) (*AddMimeTypeResponse, error)
-	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
-	GetDescriprition(ctx context.Context, in *GetDescripritionRequest, opts ...grpc.CallOption) (*GetDescripritionResponse, error)
-	GetDescription(ctx context.Context, in *GetDescriptionRequest, opts ...grpc.CallOption) (*GetDescriptionResponse, error)
-	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
-	SetDescription(ctx context.Context, in *SetDescriptionRequest, opts ...grpc.CallOption) (*SetDescriptionResponse, error)
-}
-
-type supportInfoServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewSupportInfoServiceClient(cc grpc.ClientConnInterface) SupportInfoServiceClient {
-	return &supportInfoServiceClient{cc}
-}
-
-func (c *supportInfoServiceClient) NewSupportInfo(ctx context.Context, in *NewSupportInfoRequest, opts ...grpc.CallOption) (*NewSupportInfoResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewSupportInfoResponse)
-	err := c.cc.Invoke(ctx, SupportInfoService_NewSupportInfo_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *supportInfoServiceClient) AddFileSuffix(ctx context.Context, in *AddFileSuffixRequest, opts ...grpc.CallOption) (*AddFileSuffixResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(AddFileSuffixResponse)
-	err := c.cc.Invoke(ctx, SupportInfoService_AddFileSuffix_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *supportInfoServiceClient) AddMimeType(ctx context.Context, in *AddMimeTypeRequest, opts ...grpc.CallOption) (*AddMimeTypeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(AddMimeTypeResponse)
-	err := c.cc.Invoke(ctx, SupportInfoService_AddMimeType_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *supportInfoServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(EqualsResponse)
-	err := c.cc.Invoke(ctx, SupportInfoService_Equals_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *supportInfoServiceClient) GetDescriprition(ctx context.Context, in *GetDescripritionRequest, opts ...grpc.CallOption) (*GetDescripritionResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetDescripritionResponse)
-	err := c.cc.Invoke(ctx, SupportInfoService_GetDescriprition_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *supportInfoServiceClient) GetDescription(ctx context.Context, in *GetDescriptionRequest, opts ...grpc.CallOption) (*GetDescriptionResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetDescriptionResponse)
-	err := c.cc.Invoke(ctx, SupportInfoService_GetDescription_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *supportInfoServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(HashCodeResponse)
-	err := c.cc.Invoke(ctx, SupportInfoService_HashCode_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *supportInfoServiceClient) SetDescription(ctx context.Context, in *SetDescriptionRequest, opts ...grpc.CallOption) (*SetDescriptionResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetDescriptionResponse)
-	err := c.cc.Invoke(ctx, SupportInfoService_SetDescription_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// SupportInfoServiceServer is the server API for SupportInfoService service.
-// All implementations must embed UnimplementedSupportInfoServiceServer
-// for forward compatibility.
-type SupportInfoServiceServer interface {
-	NewSupportInfo(context.Context, *NewSupportInfoRequest) (*NewSupportInfoResponse, error)
-	AddFileSuffix(context.Context, *AddFileSuffixRequest) (*AddFileSuffixResponse, error)
-	AddMimeType(context.Context, *AddMimeTypeRequest) (*AddMimeTypeResponse, error)
-	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
-	GetDescriprition(context.Context, *GetDescripritionRequest) (*GetDescripritionResponse, error)
-	GetDescription(context.Context, *GetDescriptionRequest) (*GetDescriptionResponse, error)
-	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
-	SetDescription(context.Context, *SetDescriptionRequest) (*SetDescriptionResponse, error)
-	mustEmbedUnimplementedSupportInfoServiceServer()
-}
-
-// UnimplementedSupportInfoServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedSupportInfoServiceServer struct{}
-
-func (UnimplementedSupportInfoServiceServer) NewSupportInfo(context.Context, *NewSupportInfoRequest) (*NewSupportInfoResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewSupportInfo not implemented")
-}
-func (UnimplementedSupportInfoServiceServer) AddFileSuffix(context.Context, *AddFileSuffixRequest) (*AddFileSuffixResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method AddFileSuffix not implemented")
-}
-func (UnimplementedSupportInfoServiceServer) AddMimeType(context.Context, *AddMimeTypeRequest) (*AddMimeTypeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method AddMimeType not implemented")
-}
-func (UnimplementedSupportInfoServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
-}
-func (UnimplementedSupportInfoServiceServer) GetDescriprition(context.Context, *GetDescripritionRequest) (*GetDescripritionResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetDescriprition not implemented")
-}
-func (UnimplementedSupportInfoServiceServer) GetDescription(context.Context, *GetDescriptionRequest) (*GetDescriptionResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetDescription not implemented")
-}
-func (UnimplementedSupportInfoServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
-}
-func (UnimplementedSupportInfoServiceServer) SetDescription(context.Context, *SetDescriptionRequest) (*SetDescriptionResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetDescription not implemented")
-}
-func (UnimplementedSupportInfoServiceServer) mustEmbedUnimplementedSupportInfoServiceServer() {}
-func (UnimplementedSupportInfoServiceServer) testEmbeddedByValue()                            {}
-
-// UnsafeSupportInfoServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to SupportInfoServiceServer will
-// result in compilation errors.
-type UnsafeSupportInfoServiceServer interface {
-	mustEmbedUnimplementedSupportInfoServiceServer()
-}
-
-func RegisterSupportInfoServiceServer(s grpc.ServiceRegistrar, srv SupportInfoServiceServer) {
-	// If the following call panics, it indicates UnimplementedSupportInfoServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&SupportInfoService_ServiceDesc, srv)
-}
-
-func _SupportInfoService_NewSupportInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewSupportInfoRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SupportInfoServiceServer).NewSupportInfo(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SupportInfoService_NewSupportInfo_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SupportInfoServiceServer).NewSupportInfo(ctx, req.(*NewSupportInfoRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SupportInfoService_AddFileSuffix_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AddFileSuffixRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SupportInfoServiceServer).AddFileSuffix(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SupportInfoService_AddFileSuffix_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SupportInfoServiceServer).AddFileSuffix(ctx, req.(*AddFileSuffixRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SupportInfoService_AddMimeType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AddMimeTypeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SupportInfoServiceServer).AddMimeType(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SupportInfoService_AddMimeType_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SupportInfoServiceServer).AddMimeType(ctx, req.(*AddMimeTypeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SupportInfoService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(EqualsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SupportInfoServiceServer).Equals(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SupportInfoService_Equals_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SupportInfoServiceServer).Equals(ctx, req.(*EqualsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SupportInfoService_GetDescriprition_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetDescripritionRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SupportInfoServiceServer).GetDescriprition(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SupportInfoService_GetDescriprition_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SupportInfoServiceServer).GetDescriprition(ctx, req.(*GetDescripritionRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SupportInfoService_GetDescription_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetDescriptionRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SupportInfoServiceServer).GetDescription(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SupportInfoService_GetDescription_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SupportInfoServiceServer).GetDescription(ctx, req.(*GetDescriptionRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SupportInfoService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(HashCodeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SupportInfoServiceServer).HashCode(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SupportInfoService_HashCode_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SupportInfoServiceServer).HashCode(ctx, req.(*HashCodeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SupportInfoService_SetDescription_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetDescriptionRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SupportInfoServiceServer).SetDescription(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SupportInfoService_SetDescription_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SupportInfoServiceServer).SetDescription(ctx, req.(*SetDescriptionRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// SupportInfoService_ServiceDesc is the grpc.ServiceDesc for SupportInfoService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var SupportInfoService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "drm.SupportInfoService",
-	HandlerType: (*SupportInfoServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "NewSupportInfo",
-			Handler:    _SupportInfoService_NewSupportInfo_Handler,
+			MethodName: "GetData",
+			Handler:    _ProcessedDataService_GetData_Handler,
 		},
 		{
-			MethodName: "AddFileSuffix",
-			Handler:    _SupportInfoService_AddFileSuffix_Handler,
-		},
-		{
-			MethodName: "AddMimeType",
-			Handler:    _SupportInfoService_AddMimeType_Handler,
-		},
-		{
-			MethodName: "Equals",
-			Handler:    _SupportInfoService_Equals_Handler,
-		},
-		{
-			MethodName: "GetDescriprition",
-			Handler:    _SupportInfoService_GetDescriprition_Handler,
-		},
-		{
-			MethodName: "GetDescription",
-			Handler:    _SupportInfoService_GetDescription_Handler,
-		},
-		{
-			MethodName: "HashCode",
-			Handler:    _SupportInfoService_HashCode_Handler,
-		},
-		{
-			MethodName: "SetDescription",
-			Handler:    _SupportInfoService_SetDescription_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/drm/drm.proto",
-}
-
-const (
-	InfoRequestService_NewInfoRequestOp_FullMethodName = "/drm.InfoRequestService/NewInfoRequestOp"
-	InfoRequestService_Get_FullMethodName              = "/drm.InfoRequestService/Get"
-	InfoRequestService_GetInfoType_FullMethodName      = "/drm.InfoRequestService/GetInfoType"
-	InfoRequestService_GetMimeType_FullMethodName      = "/drm.InfoRequestService/GetMimeType"
-	InfoRequestService_Put_FullMethodName              = "/drm.InfoRequestService/Put"
-)
-
-// InfoRequestServiceClient is the client API for InfoRequestService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type InfoRequestServiceClient interface {
-	NewInfoRequestOp(ctx context.Context, in *NewInfoRequestOpRequest, opts ...grpc.CallOption) (*NewInfoRequestOpResponse, error)
-	Get(ctx context.Context, in *InfoRequestGetRequest, opts ...grpc.CallOption) (*InfoRequestGetResponse, error)
-	GetInfoType(ctx context.Context, in *GetInfoTypeRequest, opts ...grpc.CallOption) (*GetInfoTypeResponse, error)
-	GetMimeType(ctx context.Context, in *GetMimeTypeRequest, opts ...grpc.CallOption) (*GetMimeTypeResponse, error)
-	Put(ctx context.Context, in *PutRequest, opts ...grpc.CallOption) (*PutResponse, error)
-}
-
-type infoRequestServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewInfoRequestServiceClient(cc grpc.ClientConnInterface) InfoRequestServiceClient {
-	return &infoRequestServiceClient{cc}
-}
-
-func (c *infoRequestServiceClient) NewInfoRequestOp(ctx context.Context, in *NewInfoRequestOpRequest, opts ...grpc.CallOption) (*NewInfoRequestOpResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewInfoRequestOpResponse)
-	err := c.cc.Invoke(ctx, InfoRequestService_NewInfoRequestOp_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *infoRequestServiceClient) Get(ctx context.Context, in *InfoRequestGetRequest, opts ...grpc.CallOption) (*InfoRequestGetResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(InfoRequestGetResponse)
-	err := c.cc.Invoke(ctx, InfoRequestService_Get_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *infoRequestServiceClient) GetInfoType(ctx context.Context, in *GetInfoTypeRequest, opts ...grpc.CallOption) (*GetInfoTypeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetInfoTypeResponse)
-	err := c.cc.Invoke(ctx, InfoRequestService_GetInfoType_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *infoRequestServiceClient) GetMimeType(ctx context.Context, in *GetMimeTypeRequest, opts ...grpc.CallOption) (*GetMimeTypeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetMimeTypeResponse)
-	err := c.cc.Invoke(ctx, InfoRequestService_GetMimeType_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *infoRequestServiceClient) Put(ctx context.Context, in *PutRequest, opts ...grpc.CallOption) (*PutResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(PutResponse)
-	err := c.cc.Invoke(ctx, InfoRequestService_Put_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// InfoRequestServiceServer is the server API for InfoRequestService service.
-// All implementations must embed UnimplementedInfoRequestServiceServer
-// for forward compatibility.
-type InfoRequestServiceServer interface {
-	NewInfoRequestOp(context.Context, *NewInfoRequestOpRequest) (*NewInfoRequestOpResponse, error)
-	Get(context.Context, *InfoRequestGetRequest) (*InfoRequestGetResponse, error)
-	GetInfoType(context.Context, *GetInfoTypeRequest) (*GetInfoTypeResponse, error)
-	GetMimeType(context.Context, *GetMimeTypeRequest) (*GetMimeTypeResponse, error)
-	Put(context.Context, *PutRequest) (*PutResponse, error)
-	mustEmbedUnimplementedInfoRequestServiceServer()
-}
-
-// UnimplementedInfoRequestServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedInfoRequestServiceServer struct{}
-
-func (UnimplementedInfoRequestServiceServer) NewInfoRequestOp(context.Context, *NewInfoRequestOpRequest) (*NewInfoRequestOpResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewInfoRequestOp not implemented")
-}
-func (UnimplementedInfoRequestServiceServer) Get(context.Context, *InfoRequestGetRequest) (*InfoRequestGetResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Get not implemented")
-}
-func (UnimplementedInfoRequestServiceServer) GetInfoType(context.Context, *GetInfoTypeRequest) (*GetInfoTypeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetInfoType not implemented")
-}
-func (UnimplementedInfoRequestServiceServer) GetMimeType(context.Context, *GetMimeTypeRequest) (*GetMimeTypeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetMimeType not implemented")
-}
-func (UnimplementedInfoRequestServiceServer) Put(context.Context, *PutRequest) (*PutResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Put not implemented")
-}
-func (UnimplementedInfoRequestServiceServer) mustEmbedUnimplementedInfoRequestServiceServer() {}
-func (UnimplementedInfoRequestServiceServer) testEmbeddedByValue()                            {}
-
-// UnsafeInfoRequestServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to InfoRequestServiceServer will
-// result in compilation errors.
-type UnsafeInfoRequestServiceServer interface {
-	mustEmbedUnimplementedInfoRequestServiceServer()
-}
-
-func RegisterInfoRequestServiceServer(s grpc.ServiceRegistrar, srv InfoRequestServiceServer) {
-	// If the following call panics, it indicates UnimplementedInfoRequestServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&InfoRequestService_ServiceDesc, srv)
-}
-
-func _InfoRequestService_NewInfoRequestOp_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewInfoRequestOpRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(InfoRequestServiceServer).NewInfoRequestOp(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: InfoRequestService_NewInfoRequestOp_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(InfoRequestServiceServer).NewInfoRequestOp(ctx, req.(*NewInfoRequestOpRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _InfoRequestService_Get_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(InfoRequestGetRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(InfoRequestServiceServer).Get(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: InfoRequestService_Get_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(InfoRequestServiceServer).Get(ctx, req.(*InfoRequestGetRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _InfoRequestService_GetInfoType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetInfoTypeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(InfoRequestServiceServer).GetInfoType(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: InfoRequestService_GetInfoType_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(InfoRequestServiceServer).GetInfoType(ctx, req.(*GetInfoTypeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _InfoRequestService_GetMimeType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetMimeTypeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(InfoRequestServiceServer).GetMimeType(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: InfoRequestService_GetMimeType_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(InfoRequestServiceServer).GetMimeType(ctx, req.(*GetMimeTypeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _InfoRequestService_Put_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(PutRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(InfoRequestServiceServer).Put(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: InfoRequestService_Put_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(InfoRequestServiceServer).Put(ctx, req.(*PutRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// InfoRequestService_ServiceDesc is the grpc.ServiceDesc for InfoRequestService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var InfoRequestService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "drm.InfoRequestService",
-	HandlerType: (*InfoRequestServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "NewInfoRequestOp",
-			Handler:    _InfoRequestService_NewInfoRequestOp_Handler,
-		},
-		{
-			MethodName: "Get",
-			Handler:    _InfoRequestService_Get_Handler,
-		},
-		{
-			MethodName: "GetInfoType",
-			Handler:    _InfoRequestService_GetInfoType_Handler,
-		},
-		{
-			MethodName: "GetMimeType",
-			Handler:    _InfoRequestService_GetMimeType_Handler,
-		},
-		{
-			MethodName: "Put",
-			Handler:    _InfoRequestService_Put_Handler,
+			MethodName: "GetSubscriptionId",
+			Handler:    _ProcessedDataService_GetSubscriptionId_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -2539,6 +1890,450 @@ var EventService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
+	SupportInfoService_NewSupportInfo_FullMethodName        = "/drm.SupportInfoService/NewSupportInfo"
+	SupportInfoService_AddFileSuffix_FullMethodName         = "/drm.SupportInfoService/AddFileSuffix"
+	SupportInfoService_AddMimeType_FullMethodName           = "/drm.SupportInfoService/AddMimeType"
+	SupportInfoService_Equals_FullMethodName                = "/drm.SupportInfoService/Equals"
+	SupportInfoService_GetDescriprition_FullMethodName      = "/drm.SupportInfoService/GetDescriprition"
+	SupportInfoService_GetDescription_FullMethodName        = "/drm.SupportInfoService/GetDescription"
+	SupportInfoService_GetFileSuffixIterator_FullMethodName = "/drm.SupportInfoService/GetFileSuffixIterator"
+	SupportInfoService_GetMimeTypeIterator_FullMethodName   = "/drm.SupportInfoService/GetMimeTypeIterator"
+	SupportInfoService_HashCode_FullMethodName              = "/drm.SupportInfoService/HashCode"
+	SupportInfoService_SetDescription_FullMethodName        = "/drm.SupportInfoService/SetDescription"
+)
+
+// SupportInfoServiceClient is the client API for SupportInfoService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type SupportInfoServiceClient interface {
+	NewSupportInfo(ctx context.Context, in *NewSupportInfoRequest, opts ...grpc.CallOption) (*NewSupportInfoResponse, error)
+	AddFileSuffix(ctx context.Context, in *AddFileSuffixRequest, opts ...grpc.CallOption) (*AddFileSuffixResponse, error)
+	AddMimeType(ctx context.Context, in *AddMimeTypeRequest, opts ...grpc.CallOption) (*AddMimeTypeResponse, error)
+	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	GetDescriprition(ctx context.Context, in *GetDescripritionRequest, opts ...grpc.CallOption) (*GetDescripritionResponse, error)
+	GetDescription(ctx context.Context, in *GetDescriptionRequest, opts ...grpc.CallOption) (*GetDescriptionResponse, error)
+	GetFileSuffixIterator(ctx context.Context, in *GetFileSuffixIteratorRequest, opts ...grpc.CallOption) (*GetFileSuffixIteratorResponse, error)
+	GetMimeTypeIterator(ctx context.Context, in *GetMimeTypeIteratorRequest, opts ...grpc.CallOption) (*GetMimeTypeIteratorResponse, error)
+	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+	SetDescription(ctx context.Context, in *SetDescriptionRequest, opts ...grpc.CallOption) (*SetDescriptionResponse, error)
+}
+
+type supportInfoServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewSupportInfoServiceClient(cc grpc.ClientConnInterface) SupportInfoServiceClient {
+	return &supportInfoServiceClient{cc}
+}
+
+func (c *supportInfoServiceClient) NewSupportInfo(ctx context.Context, in *NewSupportInfoRequest, opts ...grpc.CallOption) (*NewSupportInfoResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewSupportInfoResponse)
+	err := c.cc.Invoke(ctx, SupportInfoService_NewSupportInfo_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *supportInfoServiceClient) AddFileSuffix(ctx context.Context, in *AddFileSuffixRequest, opts ...grpc.CallOption) (*AddFileSuffixResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(AddFileSuffixResponse)
+	err := c.cc.Invoke(ctx, SupportInfoService_AddFileSuffix_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *supportInfoServiceClient) AddMimeType(ctx context.Context, in *AddMimeTypeRequest, opts ...grpc.CallOption) (*AddMimeTypeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(AddMimeTypeResponse)
+	err := c.cc.Invoke(ctx, SupportInfoService_AddMimeType_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *supportInfoServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(EqualsResponse)
+	err := c.cc.Invoke(ctx, SupportInfoService_Equals_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *supportInfoServiceClient) GetDescriprition(ctx context.Context, in *GetDescripritionRequest, opts ...grpc.CallOption) (*GetDescripritionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetDescripritionResponse)
+	err := c.cc.Invoke(ctx, SupportInfoService_GetDescriprition_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *supportInfoServiceClient) GetDescription(ctx context.Context, in *GetDescriptionRequest, opts ...grpc.CallOption) (*GetDescriptionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetDescriptionResponse)
+	err := c.cc.Invoke(ctx, SupportInfoService_GetDescription_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *supportInfoServiceClient) GetFileSuffixIterator(ctx context.Context, in *GetFileSuffixIteratorRequest, opts ...grpc.CallOption) (*GetFileSuffixIteratorResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetFileSuffixIteratorResponse)
+	err := c.cc.Invoke(ctx, SupportInfoService_GetFileSuffixIterator_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *supportInfoServiceClient) GetMimeTypeIterator(ctx context.Context, in *GetMimeTypeIteratorRequest, opts ...grpc.CallOption) (*GetMimeTypeIteratorResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetMimeTypeIteratorResponse)
+	err := c.cc.Invoke(ctx, SupportInfoService_GetMimeTypeIterator_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *supportInfoServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HashCodeResponse)
+	err := c.cc.Invoke(ctx, SupportInfoService_HashCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *supportInfoServiceClient) SetDescription(ctx context.Context, in *SetDescriptionRequest, opts ...grpc.CallOption) (*SetDescriptionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetDescriptionResponse)
+	err := c.cc.Invoke(ctx, SupportInfoService_SetDescription_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// SupportInfoServiceServer is the server API for SupportInfoService service.
+// All implementations must embed UnimplementedSupportInfoServiceServer
+// for forward compatibility.
+type SupportInfoServiceServer interface {
+	NewSupportInfo(context.Context, *NewSupportInfoRequest) (*NewSupportInfoResponse, error)
+	AddFileSuffix(context.Context, *AddFileSuffixRequest) (*AddFileSuffixResponse, error)
+	AddMimeType(context.Context, *AddMimeTypeRequest) (*AddMimeTypeResponse, error)
+	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
+	GetDescriprition(context.Context, *GetDescripritionRequest) (*GetDescripritionResponse, error)
+	GetDescription(context.Context, *GetDescriptionRequest) (*GetDescriptionResponse, error)
+	GetFileSuffixIterator(context.Context, *GetFileSuffixIteratorRequest) (*GetFileSuffixIteratorResponse, error)
+	GetMimeTypeIterator(context.Context, *GetMimeTypeIteratorRequest) (*GetMimeTypeIteratorResponse, error)
+	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
+	SetDescription(context.Context, *SetDescriptionRequest) (*SetDescriptionResponse, error)
+	mustEmbedUnimplementedSupportInfoServiceServer()
+}
+
+// UnimplementedSupportInfoServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedSupportInfoServiceServer struct{}
+
+func (UnimplementedSupportInfoServiceServer) NewSupportInfo(context.Context, *NewSupportInfoRequest) (*NewSupportInfoResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewSupportInfo not implemented")
+}
+func (UnimplementedSupportInfoServiceServer) AddFileSuffix(context.Context, *AddFileSuffixRequest) (*AddFileSuffixResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method AddFileSuffix not implemented")
+}
+func (UnimplementedSupportInfoServiceServer) AddMimeType(context.Context, *AddMimeTypeRequest) (*AddMimeTypeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method AddMimeType not implemented")
+}
+func (UnimplementedSupportInfoServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
+}
+func (UnimplementedSupportInfoServiceServer) GetDescriprition(context.Context, *GetDescripritionRequest) (*GetDescripritionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetDescriprition not implemented")
+}
+func (UnimplementedSupportInfoServiceServer) GetDescription(context.Context, *GetDescriptionRequest) (*GetDescriptionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetDescription not implemented")
+}
+func (UnimplementedSupportInfoServiceServer) GetFileSuffixIterator(context.Context, *GetFileSuffixIteratorRequest) (*GetFileSuffixIteratorResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetFileSuffixIterator not implemented")
+}
+func (UnimplementedSupportInfoServiceServer) GetMimeTypeIterator(context.Context, *GetMimeTypeIteratorRequest) (*GetMimeTypeIteratorResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetMimeTypeIterator not implemented")
+}
+func (UnimplementedSupportInfoServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
+}
+func (UnimplementedSupportInfoServiceServer) SetDescription(context.Context, *SetDescriptionRequest) (*SetDescriptionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetDescription not implemented")
+}
+func (UnimplementedSupportInfoServiceServer) mustEmbedUnimplementedSupportInfoServiceServer() {}
+func (UnimplementedSupportInfoServiceServer) testEmbeddedByValue()                            {}
+
+// UnsafeSupportInfoServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to SupportInfoServiceServer will
+// result in compilation errors.
+type UnsafeSupportInfoServiceServer interface {
+	mustEmbedUnimplementedSupportInfoServiceServer()
+}
+
+func RegisterSupportInfoServiceServer(s grpc.ServiceRegistrar, srv SupportInfoServiceServer) {
+	// If the following call panics, it indicates UnimplementedSupportInfoServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&SupportInfoService_ServiceDesc, srv)
+}
+
+func _SupportInfoService_NewSupportInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewSupportInfoRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SupportInfoServiceServer).NewSupportInfo(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SupportInfoService_NewSupportInfo_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SupportInfoServiceServer).NewSupportInfo(ctx, req.(*NewSupportInfoRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SupportInfoService_AddFileSuffix_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AddFileSuffixRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SupportInfoServiceServer).AddFileSuffix(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SupportInfoService_AddFileSuffix_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SupportInfoServiceServer).AddFileSuffix(ctx, req.(*AddFileSuffixRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SupportInfoService_AddMimeType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AddMimeTypeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SupportInfoServiceServer).AddMimeType(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SupportInfoService_AddMimeType_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SupportInfoServiceServer).AddMimeType(ctx, req.(*AddMimeTypeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SupportInfoService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EqualsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SupportInfoServiceServer).Equals(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SupportInfoService_Equals_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SupportInfoServiceServer).Equals(ctx, req.(*EqualsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SupportInfoService_GetDescriprition_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetDescripritionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SupportInfoServiceServer).GetDescriprition(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SupportInfoService_GetDescriprition_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SupportInfoServiceServer).GetDescriprition(ctx, req.(*GetDescripritionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SupportInfoService_GetDescription_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetDescriptionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SupportInfoServiceServer).GetDescription(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SupportInfoService_GetDescription_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SupportInfoServiceServer).GetDescription(ctx, req.(*GetDescriptionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SupportInfoService_GetFileSuffixIterator_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetFileSuffixIteratorRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SupportInfoServiceServer).GetFileSuffixIterator(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SupportInfoService_GetFileSuffixIterator_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SupportInfoServiceServer).GetFileSuffixIterator(ctx, req.(*GetFileSuffixIteratorRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SupportInfoService_GetMimeTypeIterator_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetMimeTypeIteratorRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SupportInfoServiceServer).GetMimeTypeIterator(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SupportInfoService_GetMimeTypeIterator_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SupportInfoServiceServer).GetMimeTypeIterator(ctx, req.(*GetMimeTypeIteratorRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SupportInfoService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HashCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SupportInfoServiceServer).HashCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SupportInfoService_HashCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SupportInfoServiceServer).HashCode(ctx, req.(*HashCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SupportInfoService_SetDescription_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetDescriptionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SupportInfoServiceServer).SetDescription(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SupportInfoService_SetDescription_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SupportInfoServiceServer).SetDescription(ctx, req.(*SetDescriptionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// SupportInfoService_ServiceDesc is the grpc.ServiceDesc for SupportInfoService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var SupportInfoService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "drm.SupportInfoService",
+	HandlerType: (*SupportInfoServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewSupportInfo",
+			Handler:    _SupportInfoService_NewSupportInfo_Handler,
+		},
+		{
+			MethodName: "AddFileSuffix",
+			Handler:    _SupportInfoService_AddFileSuffix_Handler,
+		},
+		{
+			MethodName: "AddMimeType",
+			Handler:    _SupportInfoService_AddMimeType_Handler,
+		},
+		{
+			MethodName: "Equals",
+			Handler:    _SupportInfoService_Equals_Handler,
+		},
+		{
+			MethodName: "GetDescriprition",
+			Handler:    _SupportInfoService_GetDescriprition_Handler,
+		},
+		{
+			MethodName: "GetDescription",
+			Handler:    _SupportInfoService_GetDescription_Handler,
+		},
+		{
+			MethodName: "GetFileSuffixIterator",
+			Handler:    _SupportInfoService_GetFileSuffixIterator_Handler,
+		},
+		{
+			MethodName: "GetMimeTypeIterator",
+			Handler:    _SupportInfoService_GetMimeTypeIterator_Handler,
+		},
+		{
+			MethodName: "HashCode",
+			Handler:    _SupportInfoService_HashCode_Handler,
+		},
+		{
+			MethodName: "SetDescription",
+			Handler:    _SupportInfoService_SetDescription_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/drm/drm.proto",
+}
+
+const (
 	RightsService_NewRights_FullMethodName         = "/drm.RightsService/NewRights"
 	RightsService_GetAccountId_FullMethodName      = "/drm.RightsService/GetAccountId"
 	RightsService_GetData_FullMethodName           = "/drm.RightsService/GetData"
@@ -2551,10 +2346,10 @@ const (
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type RightsServiceClient interface {
 	NewRights(ctx context.Context, in *NewRightsRequest, opts ...grpc.CallOption) (*NewRightsResponse, error)
-	GetAccountId(ctx context.Context, in *GetAccountIdRequest, opts ...grpc.CallOption) (*GetAccountIdResponse, error)
-	GetData(ctx context.Context, in *GetDataRequest, opts ...grpc.CallOption) (*GetDataResponse, error)
+	GetAccountId(ctx context.Context, in *RightsGetAccountIdRequest, opts ...grpc.CallOption) (*GetAccountIdResponse, error)
+	GetData(ctx context.Context, in *RightsGetDataRequest, opts ...grpc.CallOption) (*GetDataResponse, error)
 	GetMimeType(ctx context.Context, in *GetMimeTypeRequest, opts ...grpc.CallOption) (*GetMimeTypeResponse, error)
-	GetSubscriptionId(ctx context.Context, in *GetSubscriptionIdRequest, opts ...grpc.CallOption) (*GetSubscriptionIdResponse, error)
+	GetSubscriptionId(ctx context.Context, in *RightsGetSubscriptionIdRequest, opts ...grpc.CallOption) (*GetSubscriptionIdResponse, error)
 }
 
 type rightsServiceClient struct {
@@ -2575,7 +2370,7 @@ func (c *rightsServiceClient) NewRights(ctx context.Context, in *NewRightsReques
 	return out, nil
 }
 
-func (c *rightsServiceClient) GetAccountId(ctx context.Context, in *GetAccountIdRequest, opts ...grpc.CallOption) (*GetAccountIdResponse, error) {
+func (c *rightsServiceClient) GetAccountId(ctx context.Context, in *RightsGetAccountIdRequest, opts ...grpc.CallOption) (*GetAccountIdResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetAccountIdResponse)
 	err := c.cc.Invoke(ctx, RightsService_GetAccountId_FullMethodName, in, out, cOpts...)
@@ -2585,7 +2380,7 @@ func (c *rightsServiceClient) GetAccountId(ctx context.Context, in *GetAccountId
 	return out, nil
 }
 
-func (c *rightsServiceClient) GetData(ctx context.Context, in *GetDataRequest, opts ...grpc.CallOption) (*GetDataResponse, error) {
+func (c *rightsServiceClient) GetData(ctx context.Context, in *RightsGetDataRequest, opts ...grpc.CallOption) (*GetDataResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetDataResponse)
 	err := c.cc.Invoke(ctx, RightsService_GetData_FullMethodName, in, out, cOpts...)
@@ -2605,7 +2400,7 @@ func (c *rightsServiceClient) GetMimeType(ctx context.Context, in *GetMimeTypeRe
 	return out, nil
 }
 
-func (c *rightsServiceClient) GetSubscriptionId(ctx context.Context, in *GetSubscriptionIdRequest, opts ...grpc.CallOption) (*GetSubscriptionIdResponse, error) {
+func (c *rightsServiceClient) GetSubscriptionId(ctx context.Context, in *RightsGetSubscriptionIdRequest, opts ...grpc.CallOption) (*GetSubscriptionIdResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetSubscriptionIdResponse)
 	err := c.cc.Invoke(ctx, RightsService_GetSubscriptionId_FullMethodName, in, out, cOpts...)
@@ -2620,10 +2415,10 @@ func (c *rightsServiceClient) GetSubscriptionId(ctx context.Context, in *GetSubs
 // for forward compatibility.
 type RightsServiceServer interface {
 	NewRights(context.Context, *NewRightsRequest) (*NewRightsResponse, error)
-	GetAccountId(context.Context, *GetAccountIdRequest) (*GetAccountIdResponse, error)
-	GetData(context.Context, *GetDataRequest) (*GetDataResponse, error)
+	GetAccountId(context.Context, *RightsGetAccountIdRequest) (*GetAccountIdResponse, error)
+	GetData(context.Context, *RightsGetDataRequest) (*GetDataResponse, error)
 	GetMimeType(context.Context, *GetMimeTypeRequest) (*GetMimeTypeResponse, error)
-	GetSubscriptionId(context.Context, *GetSubscriptionIdRequest) (*GetSubscriptionIdResponse, error)
+	GetSubscriptionId(context.Context, *RightsGetSubscriptionIdRequest) (*GetSubscriptionIdResponse, error)
 	mustEmbedUnimplementedRightsServiceServer()
 }
 
@@ -2637,16 +2432,16 @@ type UnimplementedRightsServiceServer struct{}
 func (UnimplementedRightsServiceServer) NewRights(context.Context, *NewRightsRequest) (*NewRightsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method NewRights not implemented")
 }
-func (UnimplementedRightsServiceServer) GetAccountId(context.Context, *GetAccountIdRequest) (*GetAccountIdResponse, error) {
+func (UnimplementedRightsServiceServer) GetAccountId(context.Context, *RightsGetAccountIdRequest) (*GetAccountIdResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetAccountId not implemented")
 }
-func (UnimplementedRightsServiceServer) GetData(context.Context, *GetDataRequest) (*GetDataResponse, error) {
+func (UnimplementedRightsServiceServer) GetData(context.Context, *RightsGetDataRequest) (*GetDataResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetData not implemented")
 }
 func (UnimplementedRightsServiceServer) GetMimeType(context.Context, *GetMimeTypeRequest) (*GetMimeTypeResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetMimeType not implemented")
 }
-func (UnimplementedRightsServiceServer) GetSubscriptionId(context.Context, *GetSubscriptionIdRequest) (*GetSubscriptionIdResponse, error) {
+func (UnimplementedRightsServiceServer) GetSubscriptionId(context.Context, *RightsGetSubscriptionIdRequest) (*GetSubscriptionIdResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetSubscriptionId not implemented")
 }
 func (UnimplementedRightsServiceServer) mustEmbedUnimplementedRightsServiceServer() {}
@@ -2689,7 +2484,7 @@ func _RightsService_NewRights_Handler(srv interface{}, ctx context.Context, dec 
 }
 
 func _RightsService_GetAccountId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetAccountIdRequest)
+	in := new(RightsGetAccountIdRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -2701,13 +2496,13 @@ func _RightsService_GetAccountId_Handler(srv interface{}, ctx context.Context, d
 		FullMethod: RightsService_GetAccountId_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RightsServiceServer).GetAccountId(ctx, req.(*GetAccountIdRequest))
+		return srv.(RightsServiceServer).GetAccountId(ctx, req.(*RightsGetAccountIdRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _RightsService_GetData_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetDataRequest)
+	in := new(RightsGetDataRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -2719,7 +2514,7 @@ func _RightsService_GetData_Handler(srv interface{}, ctx context.Context, dec fu
 		FullMethod: RightsService_GetData_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RightsServiceServer).GetData(ctx, req.(*GetDataRequest))
+		return srv.(RightsServiceServer).GetData(ctx, req.(*RightsGetDataRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -2743,7 +2538,7 @@ func _RightsService_GetMimeType_Handler(srv interface{}, ctx context.Context, de
 }
 
 func _RightsService_GetSubscriptionId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetSubscriptionIdRequest)
+	in := new(RightsGetSubscriptionIdRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -2755,7 +2550,7 @@ func _RightsService_GetSubscriptionId_Handler(srv interface{}, ctx context.Conte
 		FullMethod: RightsService_GetSubscriptionId_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RightsServiceServer).GetSubscriptionId(ctx, req.(*GetSubscriptionIdRequest))
+		return srv.(RightsServiceServer).GetSubscriptionId(ctx, req.(*RightsGetSubscriptionIdRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -2798,6 +2593,8 @@ const (
 	InfoService_GetData_FullMethodName     = "/drm.InfoService/GetData"
 	InfoService_GetInfoType_FullMethodName = "/drm.InfoService/GetInfoType"
 	InfoService_GetMimeType_FullMethodName = "/drm.InfoService/GetMimeType"
+	InfoService_Iterator_FullMethodName    = "/drm.InfoService/Iterator"
+	InfoService_KeyIterator_FullMethodName = "/drm.InfoService/KeyIterator"
 	InfoService_Put_FullMethodName         = "/drm.InfoService/Put"
 )
 
@@ -2806,10 +2603,12 @@ const (
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type InfoServiceClient interface {
 	NewInfo(ctx context.Context, in *NewInfoRequest, opts ...grpc.CallOption) (*NewInfoResponse, error)
-	Get(ctx context.Context, in *InfoGetRequest, opts ...grpc.CallOption) (*InfoGetResponse, error)
-	GetData(ctx context.Context, in *GetDataRequest, opts ...grpc.CallOption) (*GetDataResponse, error)
+	Get(ctx context.Context, in *GetRequest, opts ...grpc.CallOption) (*GetResponse, error)
+	GetData(ctx context.Context, in *InfoGetDataRequest, opts ...grpc.CallOption) (*GetDataResponse, error)
 	GetInfoType(ctx context.Context, in *GetInfoTypeRequest, opts ...grpc.CallOption) (*GetInfoTypeResponse, error)
 	GetMimeType(ctx context.Context, in *GetMimeTypeRequest, opts ...grpc.CallOption) (*GetMimeTypeResponse, error)
+	Iterator(ctx context.Context, in *IteratorRequest, opts ...grpc.CallOption) (*IteratorResponse, error)
+	KeyIterator(ctx context.Context, in *KeyIteratorRequest, opts ...grpc.CallOption) (*KeyIteratorResponse, error)
 	Put(ctx context.Context, in *PutRequest, opts ...grpc.CallOption) (*PutResponse, error)
 }
 
@@ -2831,9 +2630,9 @@ func (c *infoServiceClient) NewInfo(ctx context.Context, in *NewInfoRequest, opt
 	return out, nil
 }
 
-func (c *infoServiceClient) Get(ctx context.Context, in *InfoGetRequest, opts ...grpc.CallOption) (*InfoGetResponse, error) {
+func (c *infoServiceClient) Get(ctx context.Context, in *GetRequest, opts ...grpc.CallOption) (*GetResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(InfoGetResponse)
+	out := new(GetResponse)
 	err := c.cc.Invoke(ctx, InfoService_Get_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -2841,7 +2640,7 @@ func (c *infoServiceClient) Get(ctx context.Context, in *InfoGetRequest, opts ..
 	return out, nil
 }
 
-func (c *infoServiceClient) GetData(ctx context.Context, in *GetDataRequest, opts ...grpc.CallOption) (*GetDataResponse, error) {
+func (c *infoServiceClient) GetData(ctx context.Context, in *InfoGetDataRequest, opts ...grpc.CallOption) (*GetDataResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetDataResponse)
 	err := c.cc.Invoke(ctx, InfoService_GetData_FullMethodName, in, out, cOpts...)
@@ -2871,6 +2670,26 @@ func (c *infoServiceClient) GetMimeType(ctx context.Context, in *GetMimeTypeRequ
 	return out, nil
 }
 
+func (c *infoServiceClient) Iterator(ctx context.Context, in *IteratorRequest, opts ...grpc.CallOption) (*IteratorResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IteratorResponse)
+	err := c.cc.Invoke(ctx, InfoService_Iterator_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *infoServiceClient) KeyIterator(ctx context.Context, in *KeyIteratorRequest, opts ...grpc.CallOption) (*KeyIteratorResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(KeyIteratorResponse)
+	err := c.cc.Invoke(ctx, InfoService_KeyIterator_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *infoServiceClient) Put(ctx context.Context, in *PutRequest, opts ...grpc.CallOption) (*PutResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(PutResponse)
@@ -2886,10 +2705,12 @@ func (c *infoServiceClient) Put(ctx context.Context, in *PutRequest, opts ...grp
 // for forward compatibility.
 type InfoServiceServer interface {
 	NewInfo(context.Context, *NewInfoRequest) (*NewInfoResponse, error)
-	Get(context.Context, *InfoGetRequest) (*InfoGetResponse, error)
-	GetData(context.Context, *GetDataRequest) (*GetDataResponse, error)
+	Get(context.Context, *GetRequest) (*GetResponse, error)
+	GetData(context.Context, *InfoGetDataRequest) (*GetDataResponse, error)
 	GetInfoType(context.Context, *GetInfoTypeRequest) (*GetInfoTypeResponse, error)
 	GetMimeType(context.Context, *GetMimeTypeRequest) (*GetMimeTypeResponse, error)
+	Iterator(context.Context, *IteratorRequest) (*IteratorResponse, error)
+	KeyIterator(context.Context, *KeyIteratorRequest) (*KeyIteratorResponse, error)
 	Put(context.Context, *PutRequest) (*PutResponse, error)
 	mustEmbedUnimplementedInfoServiceServer()
 }
@@ -2904,10 +2725,10 @@ type UnimplementedInfoServiceServer struct{}
 func (UnimplementedInfoServiceServer) NewInfo(context.Context, *NewInfoRequest) (*NewInfoResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method NewInfo not implemented")
 }
-func (UnimplementedInfoServiceServer) Get(context.Context, *InfoGetRequest) (*InfoGetResponse, error) {
+func (UnimplementedInfoServiceServer) Get(context.Context, *GetRequest) (*GetResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method Get not implemented")
 }
-func (UnimplementedInfoServiceServer) GetData(context.Context, *GetDataRequest) (*GetDataResponse, error) {
+func (UnimplementedInfoServiceServer) GetData(context.Context, *InfoGetDataRequest) (*GetDataResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetData not implemented")
 }
 func (UnimplementedInfoServiceServer) GetInfoType(context.Context, *GetInfoTypeRequest) (*GetInfoTypeResponse, error) {
@@ -2915,6 +2736,12 @@ func (UnimplementedInfoServiceServer) GetInfoType(context.Context, *GetInfoTypeR
 }
 func (UnimplementedInfoServiceServer) GetMimeType(context.Context, *GetMimeTypeRequest) (*GetMimeTypeResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetMimeType not implemented")
+}
+func (UnimplementedInfoServiceServer) Iterator(context.Context, *IteratorRequest) (*IteratorResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Iterator not implemented")
+}
+func (UnimplementedInfoServiceServer) KeyIterator(context.Context, *KeyIteratorRequest) (*KeyIteratorResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method KeyIterator not implemented")
 }
 func (UnimplementedInfoServiceServer) Put(context.Context, *PutRequest) (*PutResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method Put not implemented")
@@ -2959,7 +2786,7 @@ func _InfoService_NewInfo_Handler(srv interface{}, ctx context.Context, dec func
 }
 
 func _InfoService_Get_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(InfoGetRequest)
+	in := new(GetRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -2971,13 +2798,13 @@ func _InfoService_Get_Handler(srv interface{}, ctx context.Context, dec func(int
 		FullMethod: InfoService_Get_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(InfoServiceServer).Get(ctx, req.(*InfoGetRequest))
+		return srv.(InfoServiceServer).Get(ctx, req.(*GetRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _InfoService_GetData_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetDataRequest)
+	in := new(InfoGetDataRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -2989,7 +2816,7 @@ func _InfoService_GetData_Handler(srv interface{}, ctx context.Context, dec func
 		FullMethod: InfoService_GetData_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(InfoServiceServer).GetData(ctx, req.(*GetDataRequest))
+		return srv.(InfoServiceServer).GetData(ctx, req.(*InfoGetDataRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -3026,6 +2853,42 @@ func _InfoService_GetMimeType_Handler(srv interface{}, ctx context.Context, dec 
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(InfoServiceServer).GetMimeType(ctx, req.(*GetMimeTypeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InfoService_Iterator_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IteratorRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InfoServiceServer).Iterator(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InfoService_Iterator_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InfoServiceServer).Iterator(ctx, req.(*IteratorRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InfoService_KeyIterator_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(KeyIteratorRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InfoServiceServer).KeyIterator(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InfoService_KeyIterator_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InfoServiceServer).KeyIterator(ctx, req.(*KeyIteratorRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -3076,6 +2939,14 @@ var InfoService_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _InfoService_GetMimeType_Handler,
 		},
 		{
+			MethodName: "Iterator",
+			Handler:    _InfoService_Iterator_Handler,
+		},
+		{
+			MethodName: "KeyIterator",
+			Handler:    _InfoService_KeyIterator_Handler,
+		},
+		{
 			MethodName: "Put",
 			Handler:    _InfoService_Put_Handler,
 		},
@@ -3085,177 +2956,648 @@ var InfoService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	ProcessedDataService_GetAccountId_FullMethodName      = "/drm.ProcessedDataService/GetAccountId"
-	ProcessedDataService_GetData_FullMethodName           = "/drm.ProcessedDataService/GetData"
-	ProcessedDataService_GetSubscriptionId_FullMethodName = "/drm.ProcessedDataService/GetSubscriptionId"
+	UtilsService_NewUtils_FullMethodName                  = "/drm.UtilsService/NewUtils"
+	UtilsService_GetExtendedMetadataParser_FullMethodName = "/drm.UtilsService/GetExtendedMetadataParser"
 )
 
-// ProcessedDataServiceClient is the client API for ProcessedDataService service.
+// UtilsServiceClient is the client API for UtilsService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type ProcessedDataServiceClient interface {
-	GetAccountId(ctx context.Context, in *ProcessedDataGetAccountIdRequest, opts ...grpc.CallOption) (*GetAccountIdResponse, error)
-	GetData(ctx context.Context, in *ProcessedDataGetDataRequest, opts ...grpc.CallOption) (*GetDataResponse, error)
-	GetSubscriptionId(ctx context.Context, in *ProcessedDataGetSubscriptionIdRequest, opts ...grpc.CallOption) (*GetSubscriptionIdResponse, error)
+type UtilsServiceClient interface {
+	NewUtils(ctx context.Context, in *NewUtilsRequest, opts ...grpc.CallOption) (*NewUtilsResponse, error)
+	GetExtendedMetadataParser(ctx context.Context, in *GetExtendedMetadataParserRequest, opts ...grpc.CallOption) (*GetExtendedMetadataParserResponse, error)
 }
 
-type processedDataServiceClient struct {
+type utilsServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewProcessedDataServiceClient(cc grpc.ClientConnInterface) ProcessedDataServiceClient {
-	return &processedDataServiceClient{cc}
+func NewUtilsServiceClient(cc grpc.ClientConnInterface) UtilsServiceClient {
+	return &utilsServiceClient{cc}
 }
 
-func (c *processedDataServiceClient) GetAccountId(ctx context.Context, in *ProcessedDataGetAccountIdRequest, opts ...grpc.CallOption) (*GetAccountIdResponse, error) {
+func (c *utilsServiceClient) NewUtils(ctx context.Context, in *NewUtilsRequest, opts ...grpc.CallOption) (*NewUtilsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetAccountIdResponse)
-	err := c.cc.Invoke(ctx, ProcessedDataService_GetAccountId_FullMethodName, in, out, cOpts...)
+	out := new(NewUtilsResponse)
+	err := c.cc.Invoke(ctx, UtilsService_NewUtils_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *processedDataServiceClient) GetData(ctx context.Context, in *ProcessedDataGetDataRequest, opts ...grpc.CallOption) (*GetDataResponse, error) {
+func (c *utilsServiceClient) GetExtendedMetadataParser(ctx context.Context, in *GetExtendedMetadataParserRequest, opts ...grpc.CallOption) (*GetExtendedMetadataParserResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetDataResponse)
-	err := c.cc.Invoke(ctx, ProcessedDataService_GetData_FullMethodName, in, out, cOpts...)
+	out := new(GetExtendedMetadataParserResponse)
+	err := c.cc.Invoke(ctx, UtilsService_GetExtendedMetadataParser_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *processedDataServiceClient) GetSubscriptionId(ctx context.Context, in *ProcessedDataGetSubscriptionIdRequest, opts ...grpc.CallOption) (*GetSubscriptionIdResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetSubscriptionIdResponse)
-	err := c.cc.Invoke(ctx, ProcessedDataService_GetSubscriptionId_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// ProcessedDataServiceServer is the server API for ProcessedDataService service.
-// All implementations must embed UnimplementedProcessedDataServiceServer
+// UtilsServiceServer is the server API for UtilsService service.
+// All implementations must embed UnimplementedUtilsServiceServer
 // for forward compatibility.
-type ProcessedDataServiceServer interface {
-	GetAccountId(context.Context, *ProcessedDataGetAccountIdRequest) (*GetAccountIdResponse, error)
-	GetData(context.Context, *ProcessedDataGetDataRequest) (*GetDataResponse, error)
-	GetSubscriptionId(context.Context, *ProcessedDataGetSubscriptionIdRequest) (*GetSubscriptionIdResponse, error)
-	mustEmbedUnimplementedProcessedDataServiceServer()
+type UtilsServiceServer interface {
+	NewUtils(context.Context, *NewUtilsRequest) (*NewUtilsResponse, error)
+	GetExtendedMetadataParser(context.Context, *GetExtendedMetadataParserRequest) (*GetExtendedMetadataParserResponse, error)
+	mustEmbedUnimplementedUtilsServiceServer()
 }
 
-// UnimplementedProcessedDataServiceServer must be embedded to have
+// UnimplementedUtilsServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedProcessedDataServiceServer struct{}
+type UnimplementedUtilsServiceServer struct{}
 
-func (UnimplementedProcessedDataServiceServer) GetAccountId(context.Context, *ProcessedDataGetAccountIdRequest) (*GetAccountIdResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetAccountId not implemented")
+func (UnimplementedUtilsServiceServer) NewUtils(context.Context, *NewUtilsRequest) (*NewUtilsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewUtils not implemented")
 }
-func (UnimplementedProcessedDataServiceServer) GetData(context.Context, *ProcessedDataGetDataRequest) (*GetDataResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetData not implemented")
+func (UnimplementedUtilsServiceServer) GetExtendedMetadataParser(context.Context, *GetExtendedMetadataParserRequest) (*GetExtendedMetadataParserResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetExtendedMetadataParser not implemented")
 }
-func (UnimplementedProcessedDataServiceServer) GetSubscriptionId(context.Context, *ProcessedDataGetSubscriptionIdRequest) (*GetSubscriptionIdResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetSubscriptionId not implemented")
-}
-func (UnimplementedProcessedDataServiceServer) mustEmbedUnimplementedProcessedDataServiceServer() {}
-func (UnimplementedProcessedDataServiceServer) testEmbeddedByValue()                              {}
+func (UnimplementedUtilsServiceServer) mustEmbedUnimplementedUtilsServiceServer() {}
+func (UnimplementedUtilsServiceServer) testEmbeddedByValue()                      {}
 
-// UnsafeProcessedDataServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to ProcessedDataServiceServer will
+// UnsafeUtilsServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to UtilsServiceServer will
 // result in compilation errors.
-type UnsafeProcessedDataServiceServer interface {
-	mustEmbedUnimplementedProcessedDataServiceServer()
+type UnsafeUtilsServiceServer interface {
+	mustEmbedUnimplementedUtilsServiceServer()
 }
 
-func RegisterProcessedDataServiceServer(s grpc.ServiceRegistrar, srv ProcessedDataServiceServer) {
-	// If the following call panics, it indicates UnimplementedProcessedDataServiceServer was
+func RegisterUtilsServiceServer(s grpc.ServiceRegistrar, srv UtilsServiceServer) {
+	// If the following call panics, it indicates UnimplementedUtilsServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&ProcessedDataService_ServiceDesc, srv)
+	s.RegisterService(&UtilsService_ServiceDesc, srv)
 }
 
-func _ProcessedDataService_GetAccountId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ProcessedDataGetAccountIdRequest)
+func _UtilsService_NewUtils_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewUtilsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ProcessedDataServiceServer).GetAccountId(ctx, in)
+		return srv.(UtilsServiceServer).NewUtils(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: ProcessedDataService_GetAccountId_FullMethodName,
+		FullMethod: UtilsService_NewUtils_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ProcessedDataServiceServer).GetAccountId(ctx, req.(*ProcessedDataGetAccountIdRequest))
+		return srv.(UtilsServiceServer).NewUtils(ctx, req.(*NewUtilsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ProcessedDataService_GetData_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ProcessedDataGetDataRequest)
+func _UtilsService_GetExtendedMetadataParser_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetExtendedMetadataParserRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ProcessedDataServiceServer).GetData(ctx, in)
+		return srv.(UtilsServiceServer).GetExtendedMetadataParser(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: ProcessedDataService_GetData_FullMethodName,
+		FullMethod: UtilsService_GetExtendedMetadataParser_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ProcessedDataServiceServer).GetData(ctx, req.(*ProcessedDataGetDataRequest))
+		return srv.(UtilsServiceServer).GetExtendedMetadataParser(ctx, req.(*GetExtendedMetadataParserRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ProcessedDataService_GetSubscriptionId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ProcessedDataGetSubscriptionIdRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ProcessedDataServiceServer).GetSubscriptionId(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ProcessedDataService_GetSubscriptionId_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ProcessedDataServiceServer).GetSubscriptionId(ctx, req.(*ProcessedDataGetSubscriptionIdRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// ProcessedDataService_ServiceDesc is the grpc.ServiceDesc for ProcessedDataService service.
+// UtilsService_ServiceDesc is the grpc.ServiceDesc for UtilsService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var ProcessedDataService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "drm.ProcessedDataService",
-	HandlerType: (*ProcessedDataServiceServer)(nil),
+var UtilsService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "drm.UtilsService",
+	HandlerType: (*UtilsServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "GetAccountId",
-			Handler:    _ProcessedDataService_GetAccountId_Handler,
+			MethodName: "NewUtils",
+			Handler:    _UtilsService_NewUtils_Handler,
 		},
 		{
-			MethodName: "GetData",
-			Handler:    _ProcessedDataService_GetData_Handler,
+			MethodName: "GetExtendedMetadataParser",
+			Handler:    _UtilsService_GetExtendedMetadataParser_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/drm/drm.proto",
+}
+
+const (
+	UtilsExtendedMetadataParserService_Get_FullMethodName         = "/drm.UtilsExtendedMetadataParserService/Get"
+	UtilsExtendedMetadataParserService_Iterator_FullMethodName    = "/drm.UtilsExtendedMetadataParserService/Iterator"
+	UtilsExtendedMetadataParserService_KeyIterator_FullMethodName = "/drm.UtilsExtendedMetadataParserService/KeyIterator"
+)
+
+// UtilsExtendedMetadataParserServiceClient is the client API for UtilsExtendedMetadataParserService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type UtilsExtendedMetadataParserServiceClient interface {
+	Get(ctx context.Context, in *UtilsExtendedMetadataParserGetRequest, opts ...grpc.CallOption) (*UtilsExtendedMetadataParserGetResponse, error)
+	Iterator(ctx context.Context, in *UtilsExtendedMetadataParserIteratorRequest, opts ...grpc.CallOption) (*IteratorResponse, error)
+	KeyIterator(ctx context.Context, in *UtilsExtendedMetadataParserKeyIteratorRequest, opts ...grpc.CallOption) (*KeyIteratorResponse, error)
+}
+
+type utilsExtendedMetadataParserServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewUtilsExtendedMetadataParserServiceClient(cc grpc.ClientConnInterface) UtilsExtendedMetadataParserServiceClient {
+	return &utilsExtendedMetadataParserServiceClient{cc}
+}
+
+func (c *utilsExtendedMetadataParserServiceClient) Get(ctx context.Context, in *UtilsExtendedMetadataParserGetRequest, opts ...grpc.CallOption) (*UtilsExtendedMetadataParserGetResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(UtilsExtendedMetadataParserGetResponse)
+	err := c.cc.Invoke(ctx, UtilsExtendedMetadataParserService_Get_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *utilsExtendedMetadataParserServiceClient) Iterator(ctx context.Context, in *UtilsExtendedMetadataParserIteratorRequest, opts ...grpc.CallOption) (*IteratorResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IteratorResponse)
+	err := c.cc.Invoke(ctx, UtilsExtendedMetadataParserService_Iterator_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *utilsExtendedMetadataParserServiceClient) KeyIterator(ctx context.Context, in *UtilsExtendedMetadataParserKeyIteratorRequest, opts ...grpc.CallOption) (*KeyIteratorResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(KeyIteratorResponse)
+	err := c.cc.Invoke(ctx, UtilsExtendedMetadataParserService_KeyIterator_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// UtilsExtendedMetadataParserServiceServer is the server API for UtilsExtendedMetadataParserService service.
+// All implementations must embed UnimplementedUtilsExtendedMetadataParserServiceServer
+// for forward compatibility.
+type UtilsExtendedMetadataParserServiceServer interface {
+	Get(context.Context, *UtilsExtendedMetadataParserGetRequest) (*UtilsExtendedMetadataParserGetResponse, error)
+	Iterator(context.Context, *UtilsExtendedMetadataParserIteratorRequest) (*IteratorResponse, error)
+	KeyIterator(context.Context, *UtilsExtendedMetadataParserKeyIteratorRequest) (*KeyIteratorResponse, error)
+	mustEmbedUnimplementedUtilsExtendedMetadataParserServiceServer()
+}
+
+// UnimplementedUtilsExtendedMetadataParserServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedUtilsExtendedMetadataParserServiceServer struct{}
+
+func (UnimplementedUtilsExtendedMetadataParserServiceServer) Get(context.Context, *UtilsExtendedMetadataParserGetRequest) (*UtilsExtendedMetadataParserGetResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Get not implemented")
+}
+func (UnimplementedUtilsExtendedMetadataParserServiceServer) Iterator(context.Context, *UtilsExtendedMetadataParserIteratorRequest) (*IteratorResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Iterator not implemented")
+}
+func (UnimplementedUtilsExtendedMetadataParserServiceServer) KeyIterator(context.Context, *UtilsExtendedMetadataParserKeyIteratorRequest) (*KeyIteratorResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method KeyIterator not implemented")
+}
+func (UnimplementedUtilsExtendedMetadataParserServiceServer) mustEmbedUnimplementedUtilsExtendedMetadataParserServiceServer() {
+}
+func (UnimplementedUtilsExtendedMetadataParserServiceServer) testEmbeddedByValue() {}
+
+// UnsafeUtilsExtendedMetadataParserServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to UtilsExtendedMetadataParserServiceServer will
+// result in compilation errors.
+type UnsafeUtilsExtendedMetadataParserServiceServer interface {
+	mustEmbedUnimplementedUtilsExtendedMetadataParserServiceServer()
+}
+
+func RegisterUtilsExtendedMetadataParserServiceServer(s grpc.ServiceRegistrar, srv UtilsExtendedMetadataParserServiceServer) {
+	// If the following call panics, it indicates UnimplementedUtilsExtendedMetadataParserServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&UtilsExtendedMetadataParserService_ServiceDesc, srv)
+}
+
+func _UtilsExtendedMetadataParserService_Get_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UtilsExtendedMetadataParserGetRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(UtilsExtendedMetadataParserServiceServer).Get(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: UtilsExtendedMetadataParserService_Get_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(UtilsExtendedMetadataParserServiceServer).Get(ctx, req.(*UtilsExtendedMetadataParserGetRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _UtilsExtendedMetadataParserService_Iterator_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UtilsExtendedMetadataParserIteratorRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(UtilsExtendedMetadataParserServiceServer).Iterator(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: UtilsExtendedMetadataParserService_Iterator_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(UtilsExtendedMetadataParserServiceServer).Iterator(ctx, req.(*UtilsExtendedMetadataParserIteratorRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _UtilsExtendedMetadataParserService_KeyIterator_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UtilsExtendedMetadataParserKeyIteratorRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(UtilsExtendedMetadataParserServiceServer).KeyIterator(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: UtilsExtendedMetadataParserService_KeyIterator_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(UtilsExtendedMetadataParserServiceServer).KeyIterator(ctx, req.(*UtilsExtendedMetadataParserKeyIteratorRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// UtilsExtendedMetadataParserService_ServiceDesc is the grpc.ServiceDesc for UtilsExtendedMetadataParserService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var UtilsExtendedMetadataParserService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "drm.UtilsExtendedMetadataParserService",
+	HandlerType: (*UtilsExtendedMetadataParserServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Get",
+			Handler:    _UtilsExtendedMetadataParserService_Get_Handler,
 		},
 		{
-			MethodName: "GetSubscriptionId",
-			Handler:    _ProcessedDataService_GetSubscriptionId_Handler,
+			MethodName: "Iterator",
+			Handler:    _UtilsExtendedMetadataParserService_Iterator_Handler,
+		},
+		{
+			MethodName: "KeyIterator",
+			Handler:    _UtilsExtendedMetadataParserService_KeyIterator_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/drm/drm.proto",
+}
+
+const (
+	InfoRequestService_NewInfoRequestOp_FullMethodName = "/drm.InfoRequestService/NewInfoRequestOp"
+	InfoRequestService_Get_FullMethodName              = "/drm.InfoRequestService/Get"
+	InfoRequestService_GetInfoType_FullMethodName      = "/drm.InfoRequestService/GetInfoType"
+	InfoRequestService_GetMimeType_FullMethodName      = "/drm.InfoRequestService/GetMimeType"
+	InfoRequestService_Iterator_FullMethodName         = "/drm.InfoRequestService/Iterator"
+	InfoRequestService_KeyIterator_FullMethodName      = "/drm.InfoRequestService/KeyIterator"
+	InfoRequestService_Put_FullMethodName              = "/drm.InfoRequestService/Put"
+)
+
+// InfoRequestServiceClient is the client API for InfoRequestService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type InfoRequestServiceClient interface {
+	NewInfoRequestOp(ctx context.Context, in *NewInfoRequestOpRequest, opts ...grpc.CallOption) (*NewInfoRequestOpResponse, error)
+	Get(ctx context.Context, in *GetRequest, opts ...grpc.CallOption) (*GetResponse, error)
+	GetInfoType(ctx context.Context, in *GetInfoTypeRequest, opts ...grpc.CallOption) (*GetInfoTypeResponse, error)
+	GetMimeType(ctx context.Context, in *GetMimeTypeRequest, opts ...grpc.CallOption) (*GetMimeTypeResponse, error)
+	Iterator(ctx context.Context, in *IteratorRequest, opts ...grpc.CallOption) (*IteratorResponse, error)
+	KeyIterator(ctx context.Context, in *KeyIteratorRequest, opts ...grpc.CallOption) (*KeyIteratorResponse, error)
+	Put(ctx context.Context, in *PutRequest, opts ...grpc.CallOption) (*PutResponse, error)
+}
+
+type infoRequestServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewInfoRequestServiceClient(cc grpc.ClientConnInterface) InfoRequestServiceClient {
+	return &infoRequestServiceClient{cc}
+}
+
+func (c *infoRequestServiceClient) NewInfoRequestOp(ctx context.Context, in *NewInfoRequestOpRequest, opts ...grpc.CallOption) (*NewInfoRequestOpResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewInfoRequestOpResponse)
+	err := c.cc.Invoke(ctx, InfoRequestService_NewInfoRequestOp_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *infoRequestServiceClient) Get(ctx context.Context, in *GetRequest, opts ...grpc.CallOption) (*GetResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetResponse)
+	err := c.cc.Invoke(ctx, InfoRequestService_Get_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *infoRequestServiceClient) GetInfoType(ctx context.Context, in *GetInfoTypeRequest, opts ...grpc.CallOption) (*GetInfoTypeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetInfoTypeResponse)
+	err := c.cc.Invoke(ctx, InfoRequestService_GetInfoType_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *infoRequestServiceClient) GetMimeType(ctx context.Context, in *GetMimeTypeRequest, opts ...grpc.CallOption) (*GetMimeTypeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetMimeTypeResponse)
+	err := c.cc.Invoke(ctx, InfoRequestService_GetMimeType_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *infoRequestServiceClient) Iterator(ctx context.Context, in *IteratorRequest, opts ...grpc.CallOption) (*IteratorResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IteratorResponse)
+	err := c.cc.Invoke(ctx, InfoRequestService_Iterator_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *infoRequestServiceClient) KeyIterator(ctx context.Context, in *KeyIteratorRequest, opts ...grpc.CallOption) (*KeyIteratorResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(KeyIteratorResponse)
+	err := c.cc.Invoke(ctx, InfoRequestService_KeyIterator_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *infoRequestServiceClient) Put(ctx context.Context, in *PutRequest, opts ...grpc.CallOption) (*PutResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(PutResponse)
+	err := c.cc.Invoke(ctx, InfoRequestService_Put_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// InfoRequestServiceServer is the server API for InfoRequestService service.
+// All implementations must embed UnimplementedInfoRequestServiceServer
+// for forward compatibility.
+type InfoRequestServiceServer interface {
+	NewInfoRequestOp(context.Context, *NewInfoRequestOpRequest) (*NewInfoRequestOpResponse, error)
+	Get(context.Context, *GetRequest) (*GetResponse, error)
+	GetInfoType(context.Context, *GetInfoTypeRequest) (*GetInfoTypeResponse, error)
+	GetMimeType(context.Context, *GetMimeTypeRequest) (*GetMimeTypeResponse, error)
+	Iterator(context.Context, *IteratorRequest) (*IteratorResponse, error)
+	KeyIterator(context.Context, *KeyIteratorRequest) (*KeyIteratorResponse, error)
+	Put(context.Context, *PutRequest) (*PutResponse, error)
+	mustEmbedUnimplementedInfoRequestServiceServer()
+}
+
+// UnimplementedInfoRequestServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedInfoRequestServiceServer struct{}
+
+func (UnimplementedInfoRequestServiceServer) NewInfoRequestOp(context.Context, *NewInfoRequestOpRequest) (*NewInfoRequestOpResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewInfoRequestOp not implemented")
+}
+func (UnimplementedInfoRequestServiceServer) Get(context.Context, *GetRequest) (*GetResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Get not implemented")
+}
+func (UnimplementedInfoRequestServiceServer) GetInfoType(context.Context, *GetInfoTypeRequest) (*GetInfoTypeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetInfoType not implemented")
+}
+func (UnimplementedInfoRequestServiceServer) GetMimeType(context.Context, *GetMimeTypeRequest) (*GetMimeTypeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetMimeType not implemented")
+}
+func (UnimplementedInfoRequestServiceServer) Iterator(context.Context, *IteratorRequest) (*IteratorResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Iterator not implemented")
+}
+func (UnimplementedInfoRequestServiceServer) KeyIterator(context.Context, *KeyIteratorRequest) (*KeyIteratorResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method KeyIterator not implemented")
+}
+func (UnimplementedInfoRequestServiceServer) Put(context.Context, *PutRequest) (*PutResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Put not implemented")
+}
+func (UnimplementedInfoRequestServiceServer) mustEmbedUnimplementedInfoRequestServiceServer() {}
+func (UnimplementedInfoRequestServiceServer) testEmbeddedByValue()                            {}
+
+// UnsafeInfoRequestServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to InfoRequestServiceServer will
+// result in compilation errors.
+type UnsafeInfoRequestServiceServer interface {
+	mustEmbedUnimplementedInfoRequestServiceServer()
+}
+
+func RegisterInfoRequestServiceServer(s grpc.ServiceRegistrar, srv InfoRequestServiceServer) {
+	// If the following call panics, it indicates UnimplementedInfoRequestServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&InfoRequestService_ServiceDesc, srv)
+}
+
+func _InfoRequestService_NewInfoRequestOp_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewInfoRequestOpRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InfoRequestServiceServer).NewInfoRequestOp(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InfoRequestService_NewInfoRequestOp_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InfoRequestServiceServer).NewInfoRequestOp(ctx, req.(*NewInfoRequestOpRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InfoRequestService_Get_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InfoRequestServiceServer).Get(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InfoRequestService_Get_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InfoRequestServiceServer).Get(ctx, req.(*GetRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InfoRequestService_GetInfoType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetInfoTypeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InfoRequestServiceServer).GetInfoType(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InfoRequestService_GetInfoType_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InfoRequestServiceServer).GetInfoType(ctx, req.(*GetInfoTypeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InfoRequestService_GetMimeType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetMimeTypeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InfoRequestServiceServer).GetMimeType(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InfoRequestService_GetMimeType_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InfoRequestServiceServer).GetMimeType(ctx, req.(*GetMimeTypeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InfoRequestService_Iterator_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IteratorRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InfoRequestServiceServer).Iterator(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InfoRequestService_Iterator_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InfoRequestServiceServer).Iterator(ctx, req.(*IteratorRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InfoRequestService_KeyIterator_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(KeyIteratorRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InfoRequestServiceServer).KeyIterator(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InfoRequestService_KeyIterator_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InfoRequestServiceServer).KeyIterator(ctx, req.(*KeyIteratorRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InfoRequestService_Put_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(PutRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InfoRequestServiceServer).Put(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InfoRequestService_Put_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InfoRequestServiceServer).Put(ctx, req.(*PutRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// InfoRequestService_ServiceDesc is the grpc.ServiceDesc for InfoRequestService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var InfoRequestService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "drm.InfoRequestService",
+	HandlerType: (*InfoRequestServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewInfoRequestOp",
+			Handler:    _InfoRequestService_NewInfoRequestOp_Handler,
+		},
+		{
+			MethodName: "Get",
+			Handler:    _InfoRequestService_Get_Handler,
+		},
+		{
+			MethodName: "GetInfoType",
+			Handler:    _InfoRequestService_GetInfoType_Handler,
+		},
+		{
+			MethodName: "GetMimeType",
+			Handler:    _InfoRequestService_GetMimeType_Handler,
+		},
+		{
+			MethodName: "Iterator",
+			Handler:    _InfoRequestService_Iterator_Handler,
+		},
+		{
+			MethodName: "KeyIterator",
+			Handler:    _InfoRequestService_KeyIterator_Handler,
+		},
+		{
+			MethodName: "Put",
+			Handler:    _InfoRequestService_Put_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

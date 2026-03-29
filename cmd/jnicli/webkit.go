@@ -12,20 +12,20 @@ var webkitCmd = &cobra.Command{
 	Short: "webkit service operations",
 }
 
-var webkitWebIconDatabaseCmd = &cobra.Command{
-	Use:   "web-icon-database",
-	Short: "WebIconDatabaseService operations",
+var webkitWebStorageCmd = &cobra.Command{
+	Use:   "web-storage",
+	Short: "WebStorageService operations",
 }
 
-var webkitWebIconDatabaseCloseCmd = &cobra.Command{
-	Use:   "close",
-	Short: "Close RPC",
+var webkitWebStorageDeleteAllDataCmd = &cobra.Command{
+	Use:   "delete-all-data",
+	Short: "DeleteAllData RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewWebIconDatabaseServiceClient(grpcConn)
-		req := &pb.CloseRequest{}
-		resp, err := client.Close(ctx, req)
+		client := pb.NewWebStorageServiceClient(grpcConn)
+		req := &pb.DeleteAllDataRequest{}
+		resp, err := client.DeleteAllData(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -33,18 +33,18 @@ var webkitWebIconDatabaseCloseCmd = &cobra.Command{
 	},
 }
 
-var webkitWebIconDatabaseOpenCmd = &cobra.Command{
-	Use:   "open",
-	Short: "Open RPC",
+var webkitWebStorageDeleteOriginCmd = &cobra.Command{
+	Use:   "delete-origin",
+	Short: "DeleteOrigin RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewWebIconDatabaseServiceClient(grpcConn)
-		req := &pb.OpenRequest{}
+		client := pb.NewWebStorageServiceClient(grpcConn)
+		req := &pb.DeleteOriginRequest{}
 		if v, err := cmd.Flags().GetString("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		resp, err := client.Open(ctx, req)
+		resp, err := client.DeleteOrigin(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -52,56 +52,21 @@ var webkitWebIconDatabaseOpenCmd = &cobra.Command{
 	},
 }
 
-var webkitWebIconDatabaseReleaseIconForPageUrlCmd = &cobra.Command{
-	Use:   "release-icon-for-page-url",
-	Short: "ReleaseIconForPageUrl RPC",
+var webkitWebStorageSetQuotaForOriginCmd = &cobra.Command{
+	Use:   "set-quota-for-origin",
+	Short: "SetQuotaForOrigin RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewWebIconDatabaseServiceClient(grpcConn)
-		req := &pb.ReleaseIconForPageUrlRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.ReleaseIconForPageUrl(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebIconDatabaseRemoveAllIconsCmd = &cobra.Command{
-	Use:   "remove-all-icons",
-	Short: "RemoveAllIcons RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebIconDatabaseServiceClient(grpcConn)
-		req := &pb.RemoveAllIconsRequest{}
-		resp, err := client.RemoveAllIcons(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebIconDatabaseRequestIconForPageUrlCmd = &cobra.Command{
-	Use:   "request-icon-for-page-url",
-	Short: "RequestIconForPageUrl RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebIconDatabaseServiceClient(grpcConn)
-		req := &pb.RequestIconForPageUrlRequest{}
+		client := pb.NewWebStorageServiceClient(grpcConn)
+		req := &pb.SetQuotaForOriginRequest{}
 		if v, err := cmd.Flags().GetString("arg0"); err == nil {
 			req.Arg0 = v
 		}
 		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
 			req.Arg1 = v
 		}
-		resp, err := client.RequestIconForPageUrl(ctx, req)
+		resp, err := client.SetQuotaForOrigin(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -109,32 +74,13 @@ var webkitWebIconDatabaseRequestIconForPageUrlCmd = &cobra.Command{
 	},
 }
 
-var webkitWebIconDatabaseRetainIconForPageUrlCmd = &cobra.Command{
-	Use:   "retain-icon-for-page-url",
-	Short: "RetainIconForPageUrl RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebIconDatabaseServiceClient(grpcConn)
-		req := &pb.RetainIconForPageUrlRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.RetainIconForPageUrl(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebIconDatabaseGetInstanceCmd = &cobra.Command{
+var webkitWebStorageGetInstanceCmd = &cobra.Command{
 	Use:   "get-instance",
 	Short: "GetInstance RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewWebIconDatabaseServiceClient(grpcConn)
+		client := pb.NewWebStorageServiceClient(grpcConn)
 		req := &pb.GetInstanceRequest{}
 		resp, err := client.GetInstance(ctx, req)
 		if err != nil {
@@ -144,26 +90,20 @@ var webkitWebIconDatabaseGetInstanceCmd = &cobra.Command{
 	},
 }
 
-var webkitWebIconDatabaseIconListenerCmd = &cobra.Command{
-	Use:   "web-icon-database-icon-listener",
-	Short: "WebIconDatabaseIconListenerService operations",
+var webkitWebStorageOriginCmd = &cobra.Command{
+	Use:   "web-storage-origin",
+	Short: "WebStorageOriginService operations",
 }
 
-var webkitWebIconDatabaseIconListenerOnReceivedIconCmd = &cobra.Command{
-	Use:   "on-received-icon",
-	Short: "OnReceivedIcon RPC",
+var webkitWebStorageOriginGetOriginCmd = &cobra.Command{
+	Use:   "get-origin",
+	Short: "GetOrigin RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewWebIconDatabaseIconListenerServiceClient(grpcConn)
-		req := &pb.OnReceivedIconRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.OnReceivedIcon(ctx, req)
+		client := pb.NewWebStorageOriginServiceClient(grpcConn)
+		req := &pb.GetOriginRequest{}
+		resp, err := client.GetOrigin(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -171,32 +111,135 @@ var webkitWebIconDatabaseIconListenerOnReceivedIconCmd = &cobra.Command{
 	},
 }
 
-var webkitConsoleMessageCmd = &cobra.Command{
-	Use:   "console-message",
-	Short: "ConsoleMessageService operations",
-}
-
-var webkitConsoleMessageNewConsoleMessageCmd = &cobra.Command{
-	Use:   "new-console-message",
-	Short: "NewConsoleMessage RPC",
+var webkitWebStorageOriginGetQuotaCmd = &cobra.Command{
+	Use:   "get-quota",
+	Short: "GetQuota RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewConsoleMessageServiceClient(grpcConn)
-		req := &pb.NewConsoleMessageRequest{}
+		client := pb.NewWebStorageOriginServiceClient(grpcConn)
+		req := &pb.GetQuotaRequest{}
+		resp, err := client.GetQuota(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebStorageOriginGetUsageCmd = &cobra.Command{
+	Use:   "get-usage",
+	Short: "GetUsage RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebStorageOriginServiceClient(grpcConn)
+		req := &pb.GetUsageRequest{}
+		resp, err := client.GetUsage(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebStorageQuotaUpdaterCmd = &cobra.Command{
+	Use:   "web-storage-quota-updater",
+	Short: "WebStorageQuotaUpdaterService operations",
+}
+
+var webkitWebStorageQuotaUpdaterUpdateQuotaCmd = &cobra.Command{
+	Use:   "update-quota",
+	Short: "UpdateQuota RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebStorageQuotaUpdaterServiceClient(grpcConn)
+		req := &pb.UpdateQuotaRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.UpdateQuota(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitSslErrorHandlerCmd = &cobra.Command{
+	Use:   "ssl-error-handler",
+	Short: "SslErrorHandlerService operations",
+}
+
+var webkitSslErrorHandlerCancelCmd = &cobra.Command{
+	Use:   "cancel",
+	Short: "Cancel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSslErrorHandlerServiceClient(grpcConn)
+		req := &pb.CancelRequest{}
+		resp, err := client.Cancel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitSslErrorHandlerProceedCmd = &cobra.Command{
+	Use:   "proceed",
+	Short: "Proceed RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSslErrorHandlerServiceClient(grpcConn)
+		req := &pb.ProceedRequest{}
+		resp, err := client.Proceed(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitHttpAuthHandlerCmd = &cobra.Command{
+	Use:   "http-auth-handler",
+	Short: "HttpAuthHandlerService operations",
+}
+
+var webkitHttpAuthHandlerCancelCmd = &cobra.Command{
+	Use:   "cancel",
+	Short: "Cancel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewHttpAuthHandlerServiceClient(grpcConn)
+		req := &pb.CancelRequest{}
+		resp, err := client.Cancel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitHttpAuthHandlerProceedCmd = &cobra.Command{
+	Use:   "proceed",
+	Short: "Proceed RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewHttpAuthHandlerServiceClient(grpcConn)
+		req := &pb.HttpAuthHandlerProceedRequest{}
 		if v, err := cmd.Flags().GetString("arg0"); err == nil {
 			req.Arg0 = v
 		}
 		if v, err := cmd.Flags().GetString("arg1"); err == nil {
 			req.Arg1 = v
 		}
-		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		resp, err := client.NewConsoleMessage(ctx, req)
+		resp, err := client.Proceed(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -204,18 +247,15 @@ var webkitConsoleMessageNewConsoleMessageCmd = &cobra.Command{
 	},
 }
 
-var webkitConsoleMessageLineNumberCmd = &cobra.Command{
-	Use:   "line-number",
-	Short: "LineNumber RPC",
+var webkitHttpAuthHandlerUseHttpAuthUsernamePasswordCmd = &cobra.Command{
+	Use:   "use-http-auth-username-password",
+	Short: "UseHttpAuthUsernamePassword RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewConsoleMessageServiceClient(grpcConn)
-		req := &pb.LineNumberRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.LineNumber(ctx, req)
+		client := pb.NewHttpAuthHandlerServiceClient(grpcConn)
+		req := &pb.UseHttpAuthUsernamePasswordRequest{}
+		resp, err := client.UseHttpAuthUsernamePassword(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -223,18 +263,20 @@ var webkitConsoleMessageLineNumberCmd = &cobra.Command{
 	},
 }
 
-var webkitConsoleMessageMessageCmd = &cobra.Command{
-	Use:   "message",
-	Short: "Message RPC",
+var webkitWebSettingsCmd = &cobra.Command{
+	Use:   "web-settings",
+	Short: "WebSettingsService operations",
+}
+
+var webkitWebSettingsEnableSmoothTransitionCmd = &cobra.Command{
+	Use:   "enable-smooth-transition",
+	Short: "EnableSmoothTransition RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewConsoleMessageServiceClient(grpcConn)
-		req := &pb.MessageRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.Message(ctx, req)
+		client := pb.NewWebSettingsServiceClient(grpcConn)
+		req := &pb.EnableSmoothTransitionRequest{}
+		resp, err := client.EnableSmoothTransition(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -242,18 +284,15 @@ var webkitConsoleMessageMessageCmd = &cobra.Command{
 	},
 }
 
-var webkitConsoleMessageMessageLevelCmd = &cobra.Command{
-	Use:   "message-level",
-	Short: "MessageLevel RPC",
+var webkitWebSettingsGetAllowContentAccessCmd = &cobra.Command{
+	Use:   "get-allow-content-access",
+	Short: "GetAllowContentAccess RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewConsoleMessageServiceClient(grpcConn)
-		req := &pb.MessageLevelRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.MessageLevel(ctx, req)
+		client := pb.NewWebSettingsServiceClient(grpcConn)
+		req := &pb.GetAllowContentAccessRequest{}
+		resp, err := client.GetAllowContentAccess(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -261,18 +300,15 @@ var webkitConsoleMessageMessageLevelCmd = &cobra.Command{
 	},
 }
 
-var webkitConsoleMessageSourceIdCmd = &cobra.Command{
-	Use:   "source-id",
-	Short: "SourceId RPC",
+var webkitWebSettingsGetAllowFileAccessCmd = &cobra.Command{
+	Use:   "get-allow-file-access",
+	Short: "GetAllowFileAccess RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewConsoleMessageServiceClient(grpcConn)
-		req := &pb.SourceIdRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.SourceId(ctx, req)
+		client := pb.NewWebSettingsServiceClient(grpcConn)
+		req := &pb.GetAllowFileAccessRequest{}
+		resp, err := client.GetAllowFileAccess(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -280,18 +316,1675 @@ var webkitConsoleMessageSourceIdCmd = &cobra.Command{
 	},
 }
 
-var webkitConsoleMessageMessageLevelSvcCmd = &cobra.Command{
-	Use:   "console-message-message-level",
-	Short: "ConsoleMessageMessageLevelService operations",
+var webkitWebSettingsGetAllowFileAccessFromFileURLsCmd = &cobra.Command{
+	Use:   "get-allow-file-access-from-file-ur-ls",
+	Short: "GetAllowFileAccessFromFileURLs RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebSettingsServiceClient(grpcConn)
+		req := &pb.GetAllowFileAccessFromFileURLsRequest{}
+		resp, err := client.GetAllowFileAccessFromFileURLs(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
 }
 
-var webkitConsoleMessageMessageLevelSvcValuesCmd = &cobra.Command{
+var webkitWebSettingsGetAllowUniversalAccessFromFileURLsCmd = &cobra.Command{
+	Use:   "get-allow-universal-access-from-file-ur-ls",
+	Short: "GetAllowUniversalAccessFromFileURLs RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebSettingsServiceClient(grpcConn)
+		req := &pb.GetAllowUniversalAccessFromFileURLsRequest{}
+		resp, err := client.GetAllowUniversalAccessFromFileURLs(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebSettingsGetBlockNetworkImageCmd = &cobra.Command{
+	Use:   "get-block-network-image",
+	Short: "GetBlockNetworkImage RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebSettingsServiceClient(grpcConn)
+		req := &pb.GetBlockNetworkImageRequest{}
+		resp, err := client.GetBlockNetworkImage(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebSettingsGetBlockNetworkLoadsCmd = &cobra.Command{
+	Use:   "get-block-network-loads",
+	Short: "GetBlockNetworkLoads RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebSettingsServiceClient(grpcConn)
+		req := &pb.GetBlockNetworkLoadsRequest{}
+		resp, err := client.GetBlockNetworkLoads(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebSettingsGetBuiltInZoomControlsCmd = &cobra.Command{
+	Use:   "get-built-in-zoom-controls",
+	Short: "GetBuiltInZoomControls RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebSettingsServiceClient(grpcConn)
+		req := &pb.GetBuiltInZoomControlsRequest{}
+		resp, err := client.GetBuiltInZoomControls(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebSettingsGetCacheModeCmd = &cobra.Command{
+	Use:   "get-cache-mode",
+	Short: "GetCacheMode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebSettingsServiceClient(grpcConn)
+		req := &pb.GetCacheModeRequest{}
+		resp, err := client.GetCacheMode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebSettingsGetCursiveFontFamilyCmd = &cobra.Command{
+	Use:   "get-cursive-font-family",
+	Short: "GetCursiveFontFamily RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebSettingsServiceClient(grpcConn)
+		req := &pb.GetCursiveFontFamilyRequest{}
+		resp, err := client.GetCursiveFontFamily(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebSettingsGetDatabaseEnabledCmd = &cobra.Command{
+	Use:   "get-database-enabled",
+	Short: "GetDatabaseEnabled RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebSettingsServiceClient(grpcConn)
+		req := &pb.GetDatabaseEnabledRequest{}
+		resp, err := client.GetDatabaseEnabled(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebSettingsGetDatabasePathCmd = &cobra.Command{
+	Use:   "get-database-path",
+	Short: "GetDatabasePath RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebSettingsServiceClient(grpcConn)
+		req := &pb.GetDatabasePathRequest{}
+		resp, err := client.GetDatabasePath(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebSettingsGetDefaultFixedFontSizeCmd = &cobra.Command{
+	Use:   "get-default-fixed-font-size",
+	Short: "GetDefaultFixedFontSize RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebSettingsServiceClient(grpcConn)
+		req := &pb.GetDefaultFixedFontSizeRequest{}
+		resp, err := client.GetDefaultFixedFontSize(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebSettingsGetDefaultFontSizeCmd = &cobra.Command{
+	Use:   "get-default-font-size",
+	Short: "GetDefaultFontSize RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebSettingsServiceClient(grpcConn)
+		req := &pb.GetDefaultFontSizeRequest{}
+		resp, err := client.GetDefaultFontSize(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebSettingsGetDefaultTextEncodingNameCmd = &cobra.Command{
+	Use:   "get-default-text-encoding-name",
+	Short: "GetDefaultTextEncodingName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebSettingsServiceClient(grpcConn)
+		req := &pb.GetDefaultTextEncodingNameRequest{}
+		resp, err := client.GetDefaultTextEncodingName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebSettingsGetDefaultZoomCmd = &cobra.Command{
+	Use:   "get-default-zoom",
+	Short: "GetDefaultZoom RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebSettingsServiceClient(grpcConn)
+		req := &pb.GetDefaultZoomRequest{}
+		resp, err := client.GetDefaultZoom(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebSettingsGetDisabledActionModeMenuItemsCmd = &cobra.Command{
+	Use:   "get-disabled-action-mode-menu-items",
+	Short: "GetDisabledActionModeMenuItems RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebSettingsServiceClient(grpcConn)
+		req := &pb.GetDisabledActionModeMenuItemsRequest{}
+		resp, err := client.GetDisabledActionModeMenuItems(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebSettingsGetDisplayZoomControlsCmd = &cobra.Command{
+	Use:   "get-display-zoom-controls",
+	Short: "GetDisplayZoomControls RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebSettingsServiceClient(grpcConn)
+		req := &pb.GetDisplayZoomControlsRequest{}
+		resp, err := client.GetDisplayZoomControls(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebSettingsGetDomStorageEnabledCmd = &cobra.Command{
+	Use:   "get-dom-storage-enabled",
+	Short: "GetDomStorageEnabled RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebSettingsServiceClient(grpcConn)
+		req := &pb.GetDomStorageEnabledRequest{}
+		resp, err := client.GetDomStorageEnabled(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebSettingsGetFantasyFontFamilyCmd = &cobra.Command{
+	Use:   "get-fantasy-font-family",
+	Short: "GetFantasyFontFamily RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebSettingsServiceClient(grpcConn)
+		req := &pb.GetFantasyFontFamilyRequest{}
+		resp, err := client.GetFantasyFontFamily(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebSettingsGetFixedFontFamilyCmd = &cobra.Command{
+	Use:   "get-fixed-font-family",
+	Short: "GetFixedFontFamily RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebSettingsServiceClient(grpcConn)
+		req := &pb.GetFixedFontFamilyRequest{}
+		resp, err := client.GetFixedFontFamily(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebSettingsGetForceDarkCmd = &cobra.Command{
+	Use:   "get-force-dark",
+	Short: "GetForceDark RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebSettingsServiceClient(grpcConn)
+		req := &pb.GetForceDarkRequest{}
+		resp, err := client.GetForceDark(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebSettingsGetJavaScriptCanOpenWindowsAutomaticallyCmd = &cobra.Command{
+	Use:   "get-java-script-can-open-windows-automatically",
+	Short: "GetJavaScriptCanOpenWindowsAutomatically RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebSettingsServiceClient(grpcConn)
+		req := &pb.GetJavaScriptCanOpenWindowsAutomaticallyRequest{}
+		resp, err := client.GetJavaScriptCanOpenWindowsAutomatically(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebSettingsGetJavaScriptEnabledCmd = &cobra.Command{
+	Use:   "get-java-script-enabled",
+	Short: "GetJavaScriptEnabled RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebSettingsServiceClient(grpcConn)
+		req := &pb.GetJavaScriptEnabledRequest{}
+		resp, err := client.GetJavaScriptEnabled(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebSettingsGetLayoutAlgorithmCmd = &cobra.Command{
+	Use:   "get-layout-algorithm",
+	Short: "GetLayoutAlgorithm RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebSettingsServiceClient(grpcConn)
+		req := &pb.GetLayoutAlgorithmRequest{}
+		resp, err := client.GetLayoutAlgorithm(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebSettingsGetLightTouchEnabledCmd = &cobra.Command{
+	Use:   "get-light-touch-enabled",
+	Short: "GetLightTouchEnabled RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebSettingsServiceClient(grpcConn)
+		req := &pb.GetLightTouchEnabledRequest{}
+		resp, err := client.GetLightTouchEnabled(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebSettingsGetLoadWithOverviewModeCmd = &cobra.Command{
+	Use:   "get-load-with-overview-mode",
+	Short: "GetLoadWithOverviewMode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebSettingsServiceClient(grpcConn)
+		req := &pb.GetLoadWithOverviewModeRequest{}
+		resp, err := client.GetLoadWithOverviewMode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebSettingsGetLoadsImagesAutomaticallyCmd = &cobra.Command{
+	Use:   "get-loads-images-automatically",
+	Short: "GetLoadsImagesAutomatically RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebSettingsServiceClient(grpcConn)
+		req := &pb.GetLoadsImagesAutomaticallyRequest{}
+		resp, err := client.GetLoadsImagesAutomatically(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebSettingsGetMediaPlaybackRequiresUserGestureCmd = &cobra.Command{
+	Use:   "get-media-playback-requires-user-gesture",
+	Short: "GetMediaPlaybackRequiresUserGesture RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebSettingsServiceClient(grpcConn)
+		req := &pb.GetMediaPlaybackRequiresUserGestureRequest{}
+		resp, err := client.GetMediaPlaybackRequiresUserGesture(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebSettingsGetMinimumFontSizeCmd = &cobra.Command{
+	Use:   "get-minimum-font-size",
+	Short: "GetMinimumFontSize RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebSettingsServiceClient(grpcConn)
+		req := &pb.GetMinimumFontSizeRequest{}
+		resp, err := client.GetMinimumFontSize(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebSettingsGetMinimumLogicalFontSizeCmd = &cobra.Command{
+	Use:   "get-minimum-logical-font-size",
+	Short: "GetMinimumLogicalFontSize RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebSettingsServiceClient(grpcConn)
+		req := &pb.GetMinimumLogicalFontSizeRequest{}
+		resp, err := client.GetMinimumLogicalFontSize(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebSettingsGetMixedContentModeCmd = &cobra.Command{
+	Use:   "get-mixed-content-mode",
+	Short: "GetMixedContentMode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebSettingsServiceClient(grpcConn)
+		req := &pb.GetMixedContentModeRequest{}
+		resp, err := client.GetMixedContentMode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebSettingsGetOffscreenPreRasterCmd = &cobra.Command{
+	Use:   "get-offscreen-pre-raster",
+	Short: "GetOffscreenPreRaster RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebSettingsServiceClient(grpcConn)
+		req := &pb.GetOffscreenPreRasterRequest{}
+		resp, err := client.GetOffscreenPreRaster(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebSettingsGetPluginStateCmd = &cobra.Command{
+	Use:   "get-plugin-state",
+	Short: "GetPluginState RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebSettingsServiceClient(grpcConn)
+		req := &pb.GetPluginStateRequest{}
+		resp, err := client.GetPluginState(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebSettingsGetSafeBrowsingEnabledCmd = &cobra.Command{
+	Use:   "get-safe-browsing-enabled",
+	Short: "GetSafeBrowsingEnabled RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebSettingsServiceClient(grpcConn)
+		req := &pb.GetSafeBrowsingEnabledRequest{}
+		resp, err := client.GetSafeBrowsingEnabled(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebSettingsGetSansSerifFontFamilyCmd = &cobra.Command{
+	Use:   "get-sans-serif-font-family",
+	Short: "GetSansSerifFontFamily RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebSettingsServiceClient(grpcConn)
+		req := &pb.GetSansSerifFontFamilyRequest{}
+		resp, err := client.GetSansSerifFontFamily(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebSettingsGetSaveFormDataCmd = &cobra.Command{
+	Use:   "get-save-form-data",
+	Short: "GetSaveFormData RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebSettingsServiceClient(grpcConn)
+		req := &pb.GetSaveFormDataRequest{}
+		resp, err := client.GetSaveFormData(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebSettingsGetSavePasswordCmd = &cobra.Command{
+	Use:   "get-save-password",
+	Short: "GetSavePassword RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebSettingsServiceClient(grpcConn)
+		req := &pb.GetSavePasswordRequest{}
+		resp, err := client.GetSavePassword(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebSettingsGetSerifFontFamilyCmd = &cobra.Command{
+	Use:   "get-serif-font-family",
+	Short: "GetSerifFontFamily RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebSettingsServiceClient(grpcConn)
+		req := &pb.GetSerifFontFamilyRequest{}
+		resp, err := client.GetSerifFontFamily(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebSettingsGetStandardFontFamilyCmd = &cobra.Command{
+	Use:   "get-standard-font-family",
+	Short: "GetStandardFontFamily RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebSettingsServiceClient(grpcConn)
+		req := &pb.GetStandardFontFamilyRequest{}
+		resp, err := client.GetStandardFontFamily(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebSettingsGetTextZoomCmd = &cobra.Command{
+	Use:   "get-text-zoom",
+	Short: "GetTextZoom RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebSettingsServiceClient(grpcConn)
+		req := &pb.GetTextZoomRequest{}
+		resp, err := client.GetTextZoom(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebSettingsGetUseWideViewPortCmd = &cobra.Command{
+	Use:   "get-use-wide-view-port",
+	Short: "GetUseWideViewPort RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebSettingsServiceClient(grpcConn)
+		req := &pb.GetUseWideViewPortRequest{}
+		resp, err := client.GetUseWideViewPort(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebSettingsGetUserAgentStringCmd = &cobra.Command{
+	Use:   "get-user-agent-string",
+	Short: "GetUserAgentString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebSettingsServiceClient(grpcConn)
+		req := &pb.GetUserAgentStringRequest{}
+		resp, err := client.GetUserAgentString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebSettingsIsAlgorithmicDarkeningAllowedCmd = &cobra.Command{
+	Use:   "is-algorithmic-darkening-allowed",
+	Short: "IsAlgorithmicDarkeningAllowed RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebSettingsServiceClient(grpcConn)
+		req := &pb.IsAlgorithmicDarkeningAllowedRequest{}
+		resp, err := client.IsAlgorithmicDarkeningAllowed(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebSettingsSetAlgorithmicDarkeningAllowedCmd = &cobra.Command{
+	Use:   "set-algorithmic-darkening-allowed",
+	Short: "SetAlgorithmicDarkeningAllowed RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebSettingsServiceClient(grpcConn)
+		req := &pb.SetAlgorithmicDarkeningAllowedRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetAlgorithmicDarkeningAllowed(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebSettingsSetAllowContentAccessCmd = &cobra.Command{
+	Use:   "set-allow-content-access",
+	Short: "SetAllowContentAccess RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebSettingsServiceClient(grpcConn)
+		req := &pb.SetAllowContentAccessRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetAllowContentAccess(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebSettingsSetAllowFileAccessCmd = &cobra.Command{
+	Use:   "set-allow-file-access",
+	Short: "SetAllowFileAccess RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebSettingsServiceClient(grpcConn)
+		req := &pb.SetAllowFileAccessRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetAllowFileAccess(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebSettingsSetAllowFileAccessFromFileURLsCmd = &cobra.Command{
+	Use:   "set-allow-file-access-from-file-ur-ls",
+	Short: "SetAllowFileAccessFromFileURLs RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebSettingsServiceClient(grpcConn)
+		req := &pb.SetAllowFileAccessFromFileURLsRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetAllowFileAccessFromFileURLs(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebSettingsSetAllowUniversalAccessFromFileURLsCmd = &cobra.Command{
+	Use:   "set-allow-universal-access-from-file-ur-ls",
+	Short: "SetAllowUniversalAccessFromFileURLs RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebSettingsServiceClient(grpcConn)
+		req := &pb.SetAllowUniversalAccessFromFileURLsRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetAllowUniversalAccessFromFileURLs(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebSettingsSetBlockNetworkImageCmd = &cobra.Command{
+	Use:   "set-block-network-image",
+	Short: "SetBlockNetworkImage RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebSettingsServiceClient(grpcConn)
+		req := &pb.SetBlockNetworkImageRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetBlockNetworkImage(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebSettingsSetBlockNetworkLoadsCmd = &cobra.Command{
+	Use:   "set-block-network-loads",
+	Short: "SetBlockNetworkLoads RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebSettingsServiceClient(grpcConn)
+		req := &pb.SetBlockNetworkLoadsRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetBlockNetworkLoads(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebSettingsSetBuiltInZoomControlsCmd = &cobra.Command{
+	Use:   "set-built-in-zoom-controls",
+	Short: "SetBuiltInZoomControls RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebSettingsServiceClient(grpcConn)
+		req := &pb.SetBuiltInZoomControlsRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetBuiltInZoomControls(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebSettingsSetCacheModeCmd = &cobra.Command{
+	Use:   "set-cache-mode",
+	Short: "SetCacheMode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebSettingsServiceClient(grpcConn)
+		req := &pb.SetCacheModeRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetCacheMode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebSettingsSetCursiveFontFamilyCmd = &cobra.Command{
+	Use:   "set-cursive-font-family",
+	Short: "SetCursiveFontFamily RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebSettingsServiceClient(grpcConn)
+		req := &pb.SetCursiveFontFamilyRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetCursiveFontFamily(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebSettingsSetDatabaseEnabledCmd = &cobra.Command{
+	Use:   "set-database-enabled",
+	Short: "SetDatabaseEnabled RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebSettingsServiceClient(grpcConn)
+		req := &pb.SetDatabaseEnabledRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetDatabaseEnabled(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebSettingsSetDatabasePathCmd = &cobra.Command{
+	Use:   "set-database-path",
+	Short: "SetDatabasePath RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebSettingsServiceClient(grpcConn)
+		req := &pb.SetDatabasePathRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetDatabasePath(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebSettingsSetDefaultFixedFontSizeCmd = &cobra.Command{
+	Use:   "set-default-fixed-font-size",
+	Short: "SetDefaultFixedFontSize RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebSettingsServiceClient(grpcConn)
+		req := &pb.SetDefaultFixedFontSizeRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetDefaultFixedFontSize(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebSettingsSetDefaultFontSizeCmd = &cobra.Command{
+	Use:   "set-default-font-size",
+	Short: "SetDefaultFontSize RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebSettingsServiceClient(grpcConn)
+		req := &pb.SetDefaultFontSizeRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetDefaultFontSize(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebSettingsSetDefaultTextEncodingNameCmd = &cobra.Command{
+	Use:   "set-default-text-encoding-name",
+	Short: "SetDefaultTextEncodingName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebSettingsServiceClient(grpcConn)
+		req := &pb.SetDefaultTextEncodingNameRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetDefaultTextEncodingName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebSettingsSetDefaultZoomCmd = &cobra.Command{
+	Use:   "set-default-zoom",
+	Short: "SetDefaultZoom RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebSettingsServiceClient(grpcConn)
+		req := &pb.SetDefaultZoomRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetDefaultZoom(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebSettingsSetDisabledActionModeMenuItemsCmd = &cobra.Command{
+	Use:   "set-disabled-action-mode-menu-items",
+	Short: "SetDisabledActionModeMenuItems RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebSettingsServiceClient(grpcConn)
+		req := &pb.SetDisabledActionModeMenuItemsRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetDisabledActionModeMenuItems(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebSettingsSetDisplayZoomControlsCmd = &cobra.Command{
+	Use:   "set-display-zoom-controls",
+	Short: "SetDisplayZoomControls RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebSettingsServiceClient(grpcConn)
+		req := &pb.SetDisplayZoomControlsRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetDisplayZoomControls(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebSettingsSetDomStorageEnabledCmd = &cobra.Command{
+	Use:   "set-dom-storage-enabled",
+	Short: "SetDomStorageEnabled RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebSettingsServiceClient(grpcConn)
+		req := &pb.SetDomStorageEnabledRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetDomStorageEnabled(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebSettingsSetEnableSmoothTransitionCmd = &cobra.Command{
+	Use:   "set-enable-smooth-transition",
+	Short: "SetEnableSmoothTransition RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebSettingsServiceClient(grpcConn)
+		req := &pb.SetEnableSmoothTransitionRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetEnableSmoothTransition(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebSettingsSetFantasyFontFamilyCmd = &cobra.Command{
+	Use:   "set-fantasy-font-family",
+	Short: "SetFantasyFontFamily RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebSettingsServiceClient(grpcConn)
+		req := &pb.SetFantasyFontFamilyRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetFantasyFontFamily(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebSettingsSetFixedFontFamilyCmd = &cobra.Command{
+	Use:   "set-fixed-font-family",
+	Short: "SetFixedFontFamily RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebSettingsServiceClient(grpcConn)
+		req := &pb.SetFixedFontFamilyRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetFixedFontFamily(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebSettingsSetForceDarkCmd = &cobra.Command{
+	Use:   "set-force-dark",
+	Short: "SetForceDark RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebSettingsServiceClient(grpcConn)
+		req := &pb.SetForceDarkRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetForceDark(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebSettingsSetGeolocationDatabasePathCmd = &cobra.Command{
+	Use:   "set-geolocation-database-path",
+	Short: "SetGeolocationDatabasePath RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebSettingsServiceClient(grpcConn)
+		req := &pb.SetGeolocationDatabasePathRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetGeolocationDatabasePath(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebSettingsSetGeolocationEnabledCmd = &cobra.Command{
+	Use:   "set-geolocation-enabled",
+	Short: "SetGeolocationEnabled RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebSettingsServiceClient(grpcConn)
+		req := &pb.SetGeolocationEnabledRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetGeolocationEnabled(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebSettingsSetJavaScriptCanOpenWindowsAutomaticallyCmd = &cobra.Command{
+	Use:   "set-java-script-can-open-windows-automatically",
+	Short: "SetJavaScriptCanOpenWindowsAutomatically RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebSettingsServiceClient(grpcConn)
+		req := &pb.SetJavaScriptCanOpenWindowsAutomaticallyRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetJavaScriptCanOpenWindowsAutomatically(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebSettingsSetJavaScriptEnabledCmd = &cobra.Command{
+	Use:   "set-java-script-enabled",
+	Short: "SetJavaScriptEnabled RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebSettingsServiceClient(grpcConn)
+		req := &pb.SetJavaScriptEnabledRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetJavaScriptEnabled(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebSettingsSetLayoutAlgorithmCmd = &cobra.Command{
+	Use:   "set-layout-algorithm",
+	Short: "SetLayoutAlgorithm RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebSettingsServiceClient(grpcConn)
+		req := &pb.SetLayoutAlgorithmRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetLayoutAlgorithm(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebSettingsSetLightTouchEnabledCmd = &cobra.Command{
+	Use:   "set-light-touch-enabled",
+	Short: "SetLightTouchEnabled RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebSettingsServiceClient(grpcConn)
+		req := &pb.SetLightTouchEnabledRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetLightTouchEnabled(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebSettingsSetLoadWithOverviewModeCmd = &cobra.Command{
+	Use:   "set-load-with-overview-mode",
+	Short: "SetLoadWithOverviewMode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebSettingsServiceClient(grpcConn)
+		req := &pb.SetLoadWithOverviewModeRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetLoadWithOverviewMode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebSettingsSetLoadsImagesAutomaticallyCmd = &cobra.Command{
+	Use:   "set-loads-images-automatically",
+	Short: "SetLoadsImagesAutomatically RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebSettingsServiceClient(grpcConn)
+		req := &pb.SetLoadsImagesAutomaticallyRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetLoadsImagesAutomatically(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebSettingsSetMediaPlaybackRequiresUserGestureCmd = &cobra.Command{
+	Use:   "set-media-playback-requires-user-gesture",
+	Short: "SetMediaPlaybackRequiresUserGesture RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebSettingsServiceClient(grpcConn)
+		req := &pb.SetMediaPlaybackRequiresUserGestureRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetMediaPlaybackRequiresUserGesture(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebSettingsSetMinimumFontSizeCmd = &cobra.Command{
+	Use:   "set-minimum-font-size",
+	Short: "SetMinimumFontSize RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebSettingsServiceClient(grpcConn)
+		req := &pb.SetMinimumFontSizeRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetMinimumFontSize(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebSettingsSetMinimumLogicalFontSizeCmd = &cobra.Command{
+	Use:   "set-minimum-logical-font-size",
+	Short: "SetMinimumLogicalFontSize RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebSettingsServiceClient(grpcConn)
+		req := &pb.SetMinimumLogicalFontSizeRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetMinimumLogicalFontSize(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebSettingsSetMixedContentModeCmd = &cobra.Command{
+	Use:   "set-mixed-content-mode",
+	Short: "SetMixedContentMode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebSettingsServiceClient(grpcConn)
+		req := &pb.SetMixedContentModeRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetMixedContentMode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebSettingsSetNeedInitialFocusCmd = &cobra.Command{
+	Use:   "set-need-initial-focus",
+	Short: "SetNeedInitialFocus RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebSettingsServiceClient(grpcConn)
+		req := &pb.SetNeedInitialFocusRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetNeedInitialFocus(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebSettingsSetOffscreenPreRasterCmd = &cobra.Command{
+	Use:   "set-offscreen-pre-raster",
+	Short: "SetOffscreenPreRaster RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebSettingsServiceClient(grpcConn)
+		req := &pb.SetOffscreenPreRasterRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetOffscreenPreRaster(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebSettingsSetPluginStateCmd = &cobra.Command{
+	Use:   "set-plugin-state",
+	Short: "SetPluginState RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebSettingsServiceClient(grpcConn)
+		req := &pb.SetPluginStateRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetPluginState(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebSettingsSetRenderPriorityCmd = &cobra.Command{
+	Use:   "set-render-priority",
+	Short: "SetRenderPriority RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebSettingsServiceClient(grpcConn)
+		req := &pb.SetRenderPriorityRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetRenderPriority(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebSettingsSetSafeBrowsingEnabledCmd = &cobra.Command{
+	Use:   "set-safe-browsing-enabled",
+	Short: "SetSafeBrowsingEnabled RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebSettingsServiceClient(grpcConn)
+		req := &pb.SetSafeBrowsingEnabledRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetSafeBrowsingEnabled(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebSettingsSetSansSerifFontFamilyCmd = &cobra.Command{
+	Use:   "set-sans-serif-font-family",
+	Short: "SetSansSerifFontFamily RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebSettingsServiceClient(grpcConn)
+		req := &pb.SetSansSerifFontFamilyRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetSansSerifFontFamily(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebSettingsSetSaveFormDataCmd = &cobra.Command{
+	Use:   "set-save-form-data",
+	Short: "SetSaveFormData RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebSettingsServiceClient(grpcConn)
+		req := &pb.SetSaveFormDataRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetSaveFormData(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebSettingsSetSavePasswordCmd = &cobra.Command{
+	Use:   "set-save-password",
+	Short: "SetSavePassword RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebSettingsServiceClient(grpcConn)
+		req := &pb.SetSavePasswordRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetSavePassword(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebSettingsSetSerifFontFamilyCmd = &cobra.Command{
+	Use:   "set-serif-font-family",
+	Short: "SetSerifFontFamily RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebSettingsServiceClient(grpcConn)
+		req := &pb.SetSerifFontFamilyRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetSerifFontFamily(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebSettingsSetStandardFontFamilyCmd = &cobra.Command{
+	Use:   "set-standard-font-family",
+	Short: "SetStandardFontFamily RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebSettingsServiceClient(grpcConn)
+		req := &pb.SetStandardFontFamilyRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetStandardFontFamily(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebSettingsSetSupportMultipleWindowsCmd = &cobra.Command{
+	Use:   "set-support-multiple-windows",
+	Short: "SetSupportMultipleWindows RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebSettingsServiceClient(grpcConn)
+		req := &pb.SetSupportMultipleWindowsRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetSupportMultipleWindows(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebSettingsSetSupportZoomCmd = &cobra.Command{
+	Use:   "set-support-zoom",
+	Short: "SetSupportZoom RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebSettingsServiceClient(grpcConn)
+		req := &pb.SetSupportZoomRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetSupportZoom(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebSettingsSetTextZoomCmd = &cobra.Command{
+	Use:   "set-text-zoom",
+	Short: "SetTextZoom RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebSettingsServiceClient(grpcConn)
+		req := &pb.SetTextZoomRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetTextZoom(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebSettingsSetUseWideViewPortCmd = &cobra.Command{
+	Use:   "set-use-wide-view-port",
+	Short: "SetUseWideViewPort RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebSettingsServiceClient(grpcConn)
+		req := &pb.SetUseWideViewPortRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetUseWideViewPort(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebSettingsSetUserAgentStringCmd = &cobra.Command{
+	Use:   "set-user-agent-string",
+	Short: "SetUserAgentString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebSettingsServiceClient(grpcConn)
+		req := &pb.SetUserAgentStringRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetUserAgentString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebSettingsSupportMultipleWindowsCmd = &cobra.Command{
+	Use:   "support-multiple-windows",
+	Short: "SupportMultipleWindows RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebSettingsServiceClient(grpcConn)
+		req := &pb.SupportMultipleWindowsRequest{}
+		resp, err := client.SupportMultipleWindows(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebSettingsSupportZoomCmd = &cobra.Command{
+	Use:   "support-zoom",
+	Short: "SupportZoom RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebSettingsServiceClient(grpcConn)
+		req := &pb.SupportZoomRequest{}
+		resp, err := client.SupportZoom(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebSettingsGetDefaultUserAgentCmd = &cobra.Command{
+	Use:   "get-default-user-agent",
+	Short: "GetDefaultUserAgent RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebSettingsServiceClient(grpcConn)
+		req := &pb.GetDefaultUserAgentRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetDefaultUserAgent(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebSettingsLayoutAlgorithmCmd = &cobra.Command{
+	Use:   "web-settings-layout-algorithm",
+	Short: "WebSettingsLayoutAlgorithmService operations",
+}
+
+var webkitWebSettingsLayoutAlgorithmValuesCmd = &cobra.Command{
 	Use:   "values",
 	Short: "Values RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewConsoleMessageMessageLevelServiceClient(grpcConn)
+		client := pb.NewWebSettingsLayoutAlgorithmServiceClient(grpcConn)
 		req := &pb.ValuesRequest{}
 		resp, err := client.Values(ctx, req)
 		if err != nil {
@@ -301,13 +1994,13 @@ var webkitConsoleMessageMessageLevelSvcValuesCmd = &cobra.Command{
 	},
 }
 
-var webkitConsoleMessageMessageLevelSvcValueOfCmd = &cobra.Command{
+var webkitWebSettingsLayoutAlgorithmValueOfCmd = &cobra.Command{
 	Use:   "value-of",
 	Short: "ValueOf RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewConsoleMessageMessageLevelServiceClient(grpcConn)
+		client := pb.NewWebSettingsLayoutAlgorithmServiceClient(grpcConn)
 		req := &pb.ValueOfRequest{}
 		if v, err := cmd.Flags().GetString("arg0"); err == nil {
 			req.Arg0 = v
@@ -320,20 +2013,20 @@ var webkitConsoleMessageMessageLevelSvcValueOfCmd = &cobra.Command{
 	},
 }
 
-var webkitRenderProcessGoneDetailCmd = &cobra.Command{
-	Use:   "render-process-gone-detail",
-	Short: "RenderProcessGoneDetailService operations",
+var webkitWebSettingsPluginStateCmd = &cobra.Command{
+	Use:   "web-settings-plugin-state",
+	Short: "WebSettingsPluginStateService operations",
 }
 
-var webkitRenderProcessGoneDetailDidCrashCmd = &cobra.Command{
-	Use:   "did-crash",
-	Short: "DidCrash RPC",
+var webkitWebSettingsPluginStateValuesCmd = &cobra.Command{
+	Use:   "values",
+	Short: "Values RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewRenderProcessGoneDetailServiceClient(grpcConn)
-		req := &pb.DidCrashRequest{}
-		resp, err := client.DidCrash(ctx, req)
+		client := pb.NewWebSettingsPluginStateServiceClient(grpcConn)
+		req := &pb.ValuesRequest{}
+		resp, err := client.Values(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -341,418 +2034,18 @@ var webkitRenderProcessGoneDetailDidCrashCmd = &cobra.Command{
 	},
 }
 
-var webkitRenderProcessGoneDetailRendererPriorityAtExitCmd = &cobra.Command{
-	Use:   "renderer-priority-at-exit",
-	Short: "RendererPriorityAtExit RPC",
+var webkitWebSettingsPluginStateValueOfCmd = &cobra.Command{
+	Use:   "value-of",
+	Short: "ValueOf RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewRenderProcessGoneDetailServiceClient(grpcConn)
-		req := &pb.RendererPriorityAtExitRequest{}
-		resp, err := client.RendererPriorityAtExit(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitDateSorterCmd = &cobra.Command{
-	Use:   "date-sorter",
-	Short: "DateSorterService operations",
-}
-
-var webkitDateSorterNewDateSorterCmd = &cobra.Command{
-	Use:   "new-date-sorter",
-	Short: "NewDateSorter RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDateSorterServiceClient(grpcConn)
-		req := &pb.NewDateSorterRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.NewDateSorter(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitDateSorterGetBoundaryCmd = &cobra.Command{
-	Use:   "get-boundary",
-	Short: "GetBoundary RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDateSorterServiceClient(grpcConn)
-		req := &pb.GetBoundaryRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetBoundary(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitDateSorterGetIndexCmd = &cobra.Command{
-	Use:   "get-index",
-	Short: "GetIndex RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDateSorterServiceClient(grpcConn)
-		req := &pb.GetIndexRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetIndex(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitDateSorterGetLabelCmd = &cobra.Command{
-	Use:   "get-label",
-	Short: "GetLabel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDateSorterServiceClient(grpcConn)
-		req := &pb.GetLabelRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetLabel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitClientCertRequestCmd = &cobra.Command{
-	Use:   "client-cert-request",
-	Short: "ClientCertRequestService operations",
-}
-
-var webkitClientCertRequestCancelCmd = &cobra.Command{
-	Use:   "cancel",
-	Short: "Cancel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewClientCertRequestServiceClient(grpcConn)
-		req := &pb.CancelRequest{}
-		resp, err := client.Cancel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitClientCertRequestGetHostCmd = &cobra.Command{
-	Use:   "get-host",
-	Short: "GetHost RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewClientCertRequestServiceClient(grpcConn)
-		req := &pb.GetHostRequest{}
-		resp, err := client.GetHost(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitClientCertRequestGetKeyTypesCmd = &cobra.Command{
-	Use:   "get-key-types",
-	Short: "GetKeyTypes RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewClientCertRequestServiceClient(grpcConn)
-		req := &pb.GetKeyTypesRequest{}
-		resp, err := client.GetKeyTypes(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitClientCertRequestGetPortCmd = &cobra.Command{
-	Use:   "get-port",
-	Short: "GetPort RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewClientCertRequestServiceClient(grpcConn)
-		req := &pb.GetPortRequest{}
-		resp, err := client.GetPort(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitClientCertRequestGetPrincipalsCmd = &cobra.Command{
-	Use:   "get-principals",
-	Short: "GetPrincipals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewClientCertRequestServiceClient(grpcConn)
-		req := &pb.GetPrincipalsRequest{}
-		resp, err := client.GetPrincipals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitClientCertRequestIgnoreCmd = &cobra.Command{
-	Use:   "ignore",
-	Short: "Ignore RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewClientCertRequestServiceClient(grpcConn)
-		req := &pb.IgnoreRequest{}
-		resp, err := client.Ignore(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitClientCertRequestProceedCmd = &cobra.Command{
-	Use:   "proceed",
-	Short: "Proceed RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewClientCertRequestServiceClient(grpcConn)
-		req := &pb.ProceedRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.Proceed(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebResourceRequestCmd = &cobra.Command{
-	Use:   "web-resource-request",
-	Short: "WebResourceRequestService operations",
-}
-
-var webkitWebResourceRequestGetMethodCmd = &cobra.Command{
-	Use:   "get-method",
-	Short: "GetMethod RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebResourceRequestServiceClient(grpcConn)
-		req := &pb.GetMethodRequest{}
-		resp, err := client.GetMethod(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebResourceRequestGetUrlCmd = &cobra.Command{
-	Use:   "get-url",
-	Short: "GetUrl RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebResourceRequestServiceClient(grpcConn)
-		req := &pb.GetUrlRequest{}
-		resp, err := client.GetUrl(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebResourceRequestHasGestureCmd = &cobra.Command{
-	Use:   "has-gesture",
-	Short: "HasGesture RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebResourceRequestServiceClient(grpcConn)
-		req := &pb.HasGestureRequest{}
-		resp, err := client.HasGesture(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebResourceRequestIsForMainFrameCmd = &cobra.Command{
-	Use:   "is-for-main-frame",
-	Short: "IsForMainFrame RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebResourceRequestServiceClient(grpcConn)
-		req := &pb.IsForMainFrameRequest{}
-		resp, err := client.IsForMainFrame(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebResourceRequestIsRedirectCmd = &cobra.Command{
-	Use:   "is-redirect",
-	Short: "IsRedirect RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebResourceRequestServiceClient(grpcConn)
-		req := &pb.IsRedirectRequest{}
-		resp, err := client.IsRedirect(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitServiceWorkerControllerCmd = &cobra.Command{
-	Use:   "service-worker-controller",
-	Short: "ServiceWorkerControllerService operations",
-}
-
-var webkitServiceWorkerControllerGetServiceWorkerWebSettingsCmd = &cobra.Command{
-	Use:   "get-service-worker-web-settings",
-	Short: "GetServiceWorkerWebSettings RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewServiceWorkerControllerServiceClient(grpcConn)
-		req := &pb.GetServiceWorkerWebSettingsRequest{}
-		resp, err := client.GetServiceWorkerWebSettings(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitServiceWorkerControllerSetServiceWorkerClientCmd = &cobra.Command{
-	Use:   "set-service-worker-client",
-	Short: "SetServiceWorkerClient RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewServiceWorkerControllerServiceClient(grpcConn)
-		req := &pb.SetServiceWorkerClientRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetServiceWorkerClient(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitServiceWorkerControllerGetInstanceCmd = &cobra.Command{
-	Use:   "get-instance",
-	Short: "GetInstance RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewServiceWorkerControllerServiceClient(grpcConn)
-		req := &pb.GetInstanceRequest{}
-		resp, err := client.GetInstance(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitURLUtilCmd = &cobra.Command{
-	Use:   "url-util",
-	Short: "URLUtilService operations",
-}
-
-var webkitURLUtilNewURLUtilCmd = &cobra.Command{
-	Use:   "new-url-util",
-	Short: "NewURLUtil RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewURLUtilServiceClient(grpcConn)
-		req := &pb.NewURLUtilRequest{}
-		resp, err := client.NewURLUtil(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitURLUtilComposeSearchUrlCmd = &cobra.Command{
-	Use:   "compose-search-url",
-	Short: "ComposeSearchUrl RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewURLUtilServiceClient(grpcConn)
-		req := &pb.ComposeSearchUrlRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
+		client := pb.NewWebSettingsPluginStateServiceClient(grpcConn)
+		req := &pb.ValueOfRequest{}
 		if v, err := cmd.Flags().GetString("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		if v, err := cmd.Flags().GetString("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetString("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.ComposeSearchUrl(ctx, req)
+		resp, err := client.ValueOf(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -760,21 +2053,20 @@ var webkitURLUtilComposeSearchUrlCmd = &cobra.Command{
 	},
 }
 
-var webkitURLUtilDecodeCmd = &cobra.Command{
-	Use:   "decode",
-	Short: "Decode RPC",
+var webkitWebSettingsRenderPriorityCmd = &cobra.Command{
+	Use:   "web-settings-render-priority",
+	Short: "WebSettingsRenderPriorityService operations",
+}
+
+var webkitWebSettingsRenderPriorityValuesCmd = &cobra.Command{
+	Use:   "values",
+	Short: "Values RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewURLUtilServiceClient(grpcConn)
-		req := &pb.DecodeRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Decode(ctx, req)
+		client := pb.NewWebSettingsRenderPriorityServiceClient(grpcConn)
+		req := &pb.ValuesRequest{}
+		resp, err := client.Values(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -782,27 +2074,18 @@ var webkitURLUtilDecodeCmd = &cobra.Command{
 	},
 }
 
-var webkitURLUtilGuessFileNameCmd = &cobra.Command{
-	Use:   "guess-file-name",
-	Short: "GuessFileName RPC",
+var webkitWebSettingsRenderPriorityValueOfCmd = &cobra.Command{
+	Use:   "value-of",
+	Short: "ValueOf RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewURLUtilServiceClient(grpcConn)
-		req := &pb.GuessFileNameRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
+		client := pb.NewWebSettingsRenderPriorityServiceClient(grpcConn)
+		req := &pb.ValueOfRequest{}
 		if v, err := cmd.Flags().GetString("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		if v, err := cmd.Flags().GetString("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetString("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.GuessFileName(ctx, req)
+		resp, err := client.ValueOf(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -810,21 +2093,39 @@ var webkitURLUtilGuessFileNameCmd = &cobra.Command{
 	},
 }
 
-var webkitURLUtilGuessUrlCmd = &cobra.Command{
-	Use:   "guess-url",
-	Short: "GuessUrl RPC",
+var webkitWebSettingsTextSizeCmd = &cobra.Command{
+	Use:   "web-settings-text-size",
+	Short: "WebSettingsTextSizeService operations",
+}
+
+var webkitWebSettingsTextSizeValuesCmd = &cobra.Command{
+	Use:   "values",
+	Short: "Values RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewURLUtilServiceClient(grpcConn)
-		req := &pb.GuessUrlRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
+		client := pb.NewWebSettingsTextSizeServiceClient(grpcConn)
+		req := &pb.ValuesRequest{}
+		resp, err := client.Values(ctx, req)
+		if err != nil {
+			return err
 		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebSettingsTextSizeValueOfCmd = &cobra.Command{
+	Use:   "value-of",
+	Short: "ValueOf RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebSettingsTextSizeServiceClient(grpcConn)
+		req := &pb.ValueOfRequest{}
 		if v, err := cmd.Flags().GetString("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		resp, err := client.GuessUrl(ctx, req)
+		resp, err := client.ValueOf(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -832,537 +2133,39 @@ var webkitURLUtilGuessUrlCmd = &cobra.Command{
 	},
 }
 
-var webkitURLUtilIsAboutUrlCmd = &cobra.Command{
-	Use:   "is-about-url",
-	Short: "IsAboutUrl RPC",
+var webkitWebSettingsZoomDensityCmd = &cobra.Command{
+	Use:   "web-settings-zoom-density",
+	Short: "WebSettingsZoomDensityService operations",
+}
+
+var webkitWebSettingsZoomDensityValuesCmd = &cobra.Command{
+	Use:   "values",
+	Short: "Values RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewURLUtilServiceClient(grpcConn)
-		req := &pb.IsAboutUrlRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
+		client := pb.NewWebSettingsZoomDensityServiceClient(grpcConn)
+		req := &pb.ValuesRequest{}
+		resp, err := client.Values(ctx, req)
+		if err != nil {
+			return err
 		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebSettingsZoomDensityValueOfCmd = &cobra.Command{
+	Use:   "value-of",
+	Short: "ValueOf RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebSettingsZoomDensityServiceClient(grpcConn)
+		req := &pb.ValueOfRequest{}
 		if v, err := cmd.Flags().GetString("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		resp, err := client.IsAboutUrl(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitURLUtilIsAssetUrlCmd = &cobra.Command{
-	Use:   "is-asset-url",
-	Short: "IsAssetUrl RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewURLUtilServiceClient(grpcConn)
-		req := &pb.IsAssetUrlRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.IsAssetUrl(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitURLUtilIsContentUrlCmd = &cobra.Command{
-	Use:   "is-content-url",
-	Short: "IsContentUrl RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewURLUtilServiceClient(grpcConn)
-		req := &pb.IsContentUrlRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.IsContentUrl(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitURLUtilIsCookielessProxyUrlCmd = &cobra.Command{
-	Use:   "is-cookieless-proxy-url",
-	Short: "IsCookielessProxyUrl RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewURLUtilServiceClient(grpcConn)
-		req := &pb.IsCookielessProxyUrlRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.IsCookielessProxyUrl(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitURLUtilIsDataUrlCmd = &cobra.Command{
-	Use:   "is-data-url",
-	Short: "IsDataUrl RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewURLUtilServiceClient(grpcConn)
-		req := &pb.IsDataUrlRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.IsDataUrl(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitURLUtilIsFileUrlCmd = &cobra.Command{
-	Use:   "is-file-url",
-	Short: "IsFileUrl RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewURLUtilServiceClient(grpcConn)
-		req := &pb.IsFileUrlRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.IsFileUrl(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitURLUtilIsHttpUrlCmd = &cobra.Command{
-	Use:   "is-http-url",
-	Short: "IsHttpUrl RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewURLUtilServiceClient(grpcConn)
-		req := &pb.IsHttpUrlRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.IsHttpUrl(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitURLUtilIsHttpsUrlCmd = &cobra.Command{
-	Use:   "is-https-url",
-	Short: "IsHttpsUrl RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewURLUtilServiceClient(grpcConn)
-		req := &pb.IsHttpsUrlRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.IsHttpsUrl(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitURLUtilIsJavaScriptUrlCmd = &cobra.Command{
-	Use:   "is-java-script-url",
-	Short: "IsJavaScriptUrl RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewURLUtilServiceClient(grpcConn)
-		req := &pb.IsJavaScriptUrlRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.IsJavaScriptUrl(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitURLUtilIsNetworkUrlCmd = &cobra.Command{
-	Use:   "is-network-url",
-	Short: "IsNetworkUrl RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewURLUtilServiceClient(grpcConn)
-		req := &pb.IsNetworkUrlRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.IsNetworkUrl(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitURLUtilIsValidUrlCmd = &cobra.Command{
-	Use:   "is-valid-url",
-	Short: "IsValidUrl RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewURLUtilServiceClient(grpcConn)
-		req := &pb.IsValidUrlRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.IsValidUrl(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitURLUtilStripAnchorCmd = &cobra.Command{
-	Use:   "strip-anchor",
-	Short: "StripAnchor RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewURLUtilServiceClient(grpcConn)
-		req := &pb.StripAnchorRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.StripAnchor(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebResourceResponseCmd = &cobra.Command{
-	Use:   "web-resource-response",
-	Short: "WebResourceResponseService operations",
-}
-
-var webkitWebResourceResponseNewWebResourceResponseCmd = &cobra.Command{
-	Use:   "new-web-resource-response",
-	Short: "NewWebResourceResponse RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebResourceResponseServiceClient(grpcConn)
-		req := &pb.NewWebResourceResponseRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetString("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetString("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg4"); err == nil {
-			req.Arg4 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg5"); err == nil {
-			req.Arg5 = v
-		}
-		resp, err := client.NewWebResourceResponse(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebResourceResponseGetDataCmd = &cobra.Command{
-	Use:   "get-data",
-	Short: "GetData RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebResourceResponseServiceClient(grpcConn)
-		req := &pb.GetDataRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetData(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebResourceResponseGetEncodingCmd = &cobra.Command{
-	Use:   "get-encoding",
-	Short: "GetEncoding RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebResourceResponseServiceClient(grpcConn)
-		req := &pb.GetEncodingRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetEncoding(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebResourceResponseGetMimeTypeCmd = &cobra.Command{
-	Use:   "get-mime-type",
-	Short: "GetMimeType RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebResourceResponseServiceClient(grpcConn)
-		req := &pb.GetMimeTypeRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetMimeType(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebResourceResponseGetReasonPhraseCmd = &cobra.Command{
-	Use:   "get-reason-phrase",
-	Short: "GetReasonPhrase RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebResourceResponseServiceClient(grpcConn)
-		req := &pb.GetReasonPhraseRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetReasonPhrase(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebResourceResponseGetStatusCodeCmd = &cobra.Command{
-	Use:   "get-status-code",
-	Short: "GetStatusCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebResourceResponseServiceClient(grpcConn)
-		req := &pb.GetStatusCodeRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetStatusCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebResourceResponseSetDataCmd = &cobra.Command{
-	Use:   "set-data",
-	Short: "SetData RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebResourceResponseServiceClient(grpcConn)
-		req := &pb.SetDataRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetData(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebResourceResponseSetEncodingCmd = &cobra.Command{
-	Use:   "set-encoding",
-	Short: "SetEncoding RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebResourceResponseServiceClient(grpcConn)
-		req := &pb.SetEncodingRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetEncoding(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebResourceResponseSetMimeTypeCmd = &cobra.Command{
-	Use:   "set-mime-type",
-	Short: "SetMimeType RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebResourceResponseServiceClient(grpcConn)
-		req := &pb.SetMimeTypeRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetMimeType(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebResourceResponseSetStatusCodeAndReasonPhraseCmd = &cobra.Command{
-	Use:   "set-status-code-and-reason-phrase",
-	Short: "SetStatusCodeAndReasonPhrase RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebResourceResponseServiceClient(grpcConn)
-		req := &pb.SetStatusCodeAndReasonPhraseRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetString("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.SetStatusCodeAndReasonPhrase(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebViewRenderProcessClientCmd = &cobra.Command{
-	Use:   "web-view-render-process-client",
-	Short: "WebViewRenderProcessClientService operations",
-}
-
-var webkitWebViewRenderProcessClientOnRenderProcessResponsiveCmd = &cobra.Command{
-	Use:   "on-render-process-responsive",
-	Short: "OnRenderProcessResponsive RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebViewRenderProcessClientServiceClient(grpcConn)
-		req := &pb.OnRenderProcessResponsiveRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.OnRenderProcessResponsive(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebViewRenderProcessClientOnRenderProcessUnresponsiveCmd = &cobra.Command{
-	Use:   "on-render-process-unresponsive",
-	Short: "OnRenderProcessUnresponsive RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebViewRenderProcessClientServiceClient(grpcConn)
-		req := &pb.OnRenderProcessUnresponsiveRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.OnRenderProcessUnresponsive(ctx, req)
+		resp, err := client.ValueOf(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -2260,7 +3063,7 @@ var webkitWebViewGetUrlCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewWebViewServiceClient(grpcConn)
-		req := &pb.WebViewGetUrlRequest{}
+		req := &pb.GetUrlRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
@@ -4442,20 +5245,20 @@ var webkitWebViewVisualStateCallbackOnCompleteCmd = &cobra.Command{
 	},
 }
 
-var webkitTracingConfigCmd = &cobra.Command{
-	Use:   "tracing-config",
-	Short: "TracingConfigService operations",
+var webkitServiceWorkerControllerCmd = &cobra.Command{
+	Use:   "service-worker-controller",
+	Short: "ServiceWorkerControllerService operations",
 }
 
-var webkitTracingConfigGetPredefinedCategoriesCmd = &cobra.Command{
-	Use:   "get-predefined-categories",
-	Short: "GetPredefinedCategories RPC",
+var webkitServiceWorkerControllerGetServiceWorkerWebSettingsCmd = &cobra.Command{
+	Use:   "get-service-worker-web-settings",
+	Short: "GetServiceWorkerWebSettings RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewTracingConfigServiceClient(grpcConn)
-		req := &pb.GetPredefinedCategoriesRequest{}
-		resp, err := client.GetPredefinedCategories(ctx, req)
+		client := pb.NewServiceWorkerControllerServiceClient(grpcConn)
+		req := &pb.GetServiceWorkerWebSettingsRequest{}
+		resp, err := client.GetServiceWorkerWebSettings(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -4463,39 +5266,18 @@ var webkitTracingConfigGetPredefinedCategoriesCmd = &cobra.Command{
 	},
 }
 
-var webkitTracingConfigGetTracingModeCmd = &cobra.Command{
-	Use:   "get-tracing-mode",
-	Short: "GetTracingMode RPC",
+var webkitServiceWorkerControllerSetServiceWorkerClientCmd = &cobra.Command{
+	Use:   "set-service-worker-client",
+	Short: "SetServiceWorkerClient RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewTracingConfigServiceClient(grpcConn)
-		req := &pb.GetTracingModeRequest{}
-		resp, err := client.GetTracingMode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitTracingConfigBuilderCmd = &cobra.Command{
-	Use:   "tracing-config-builder",
-	Short: "TracingConfigBuilderService operations",
-}
-
-var webkitTracingConfigBuilderAddCategories1Cmd = &cobra.Command{
-	Use:   "add-categories1",
-	Short: "AddCategories1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTracingConfigBuilderServiceClient(grpcConn)
-		req := &pb.AddCategories1Request{}
+		client := pb.NewServiceWorkerControllerServiceClient(grpcConn)
+		req := &pb.SetServiceWorkerClientRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		resp, err := client.AddCategories1(ctx, req)
+		resp, err := client.SetServiceWorkerClient(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -4503,2691 +5285,15 @@ var webkitTracingConfigBuilderAddCategories1Cmd = &cobra.Command{
 	},
 }
 
-var webkitTracingConfigBuilderAddCategories1_1Cmd = &cobra.Command{
-	Use:   "add-categories1_1",
-	Short: "AddCategories1_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTracingConfigBuilderServiceClient(grpcConn)
-		req := &pb.AddCategories1_1Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.AddCategories1_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitTracingConfigBuilderBuildCmd = &cobra.Command{
-	Use:   "build",
-	Short: "Build RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTracingConfigBuilderServiceClient(grpcConn)
-		req := &pb.BuildRequest{}
-		resp, err := client.Build(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitTracingConfigBuilderSetTracingModeCmd = &cobra.Command{
-	Use:   "set-tracing-mode",
-	Short: "SetTracingMode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTracingConfigBuilderServiceClient(grpcConn)
-		req := &pb.SetTracingModeRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetTracingMode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebMessagePortCmd = &cobra.Command{
-	Use:   "web-message-port",
-	Short: "WebMessagePortService operations",
-}
-
-var webkitWebMessagePortCloseCmd = &cobra.Command{
-	Use:   "close",
-	Short: "Close RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebMessagePortServiceClient(grpcConn)
-		req := &pb.CloseRequest{}
-		resp, err := client.Close(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebMessagePortPostMessageCmd = &cobra.Command{
-	Use:   "post-message",
-	Short: "PostMessage RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebMessagePortServiceClient(grpcConn)
-		req := &pb.PostMessageRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.PostMessage(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebMessagePortSetWebMessageCallbackCmd = &cobra.Command{
-	Use:   "set-web-message-callback",
-	Short: "SetWebMessageCallback RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebMessagePortServiceClient(grpcConn)
-		req := &pb.SetWebMessageCallbackRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetWebMessageCallback(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebMessagePortWebMessageCallbackCmd = &cobra.Command{
-	Use:   "web-message-port-web-message-callback",
-	Short: "WebMessagePortWebMessageCallbackService operations",
-}
-
-var webkitWebMessagePortWebMessageCallbackOnMessageCmd = &cobra.Command{
-	Use:   "on-message",
-	Short: "OnMessage RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebMessagePortWebMessageCallbackServiceClient(grpcConn)
-		req := &pb.OnMessageRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.OnMessage(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitJsPromptResultCmd = &cobra.Command{
-	Use:   "js-prompt-result",
-	Short: "JsPromptResultService operations",
-}
-
-var webkitJsPromptResultConfirmCmd = &cobra.Command{
-	Use:   "confirm",
-	Short: "Confirm RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewJsPromptResultServiceClient(grpcConn)
-		req := &pb.ConfirmRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Confirm(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebStorageCmd = &cobra.Command{
-	Use:   "web-storage",
-	Short: "WebStorageService operations",
-}
-
-var webkitWebStorageDeleteAllDataCmd = &cobra.Command{
-	Use:   "delete-all-data",
-	Short: "DeleteAllData RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebStorageServiceClient(grpcConn)
-		req := &pb.DeleteAllDataRequest{}
-		resp, err := client.DeleteAllData(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebStorageDeleteOriginCmd = &cobra.Command{
-	Use:   "delete-origin",
-	Short: "DeleteOrigin RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebStorageServiceClient(grpcConn)
-		req := &pb.DeleteOriginRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.DeleteOrigin(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebStorageSetQuotaForOriginCmd = &cobra.Command{
-	Use:   "set-quota-for-origin",
-	Short: "SetQuotaForOrigin RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebStorageServiceClient(grpcConn)
-		req := &pb.SetQuotaForOriginRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.SetQuotaForOrigin(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebStorageGetInstanceCmd = &cobra.Command{
+var webkitServiceWorkerControllerGetInstanceCmd = &cobra.Command{
 	Use:   "get-instance",
 	Short: "GetInstance RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewWebStorageServiceClient(grpcConn)
+		client := pb.NewServiceWorkerControllerServiceClient(grpcConn)
 		req := &pb.GetInstanceRequest{}
 		resp, err := client.GetInstance(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebStorageOriginCmd = &cobra.Command{
-	Use:   "web-storage-origin",
-	Short: "WebStorageOriginService operations",
-}
-
-var webkitWebStorageOriginGetOriginCmd = &cobra.Command{
-	Use:   "get-origin",
-	Short: "GetOrigin RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebStorageOriginServiceClient(grpcConn)
-		req := &pb.GetOriginRequest{}
-		resp, err := client.GetOrigin(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebStorageOriginGetQuotaCmd = &cobra.Command{
-	Use:   "get-quota",
-	Short: "GetQuota RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebStorageOriginServiceClient(grpcConn)
-		req := &pb.GetQuotaRequest{}
-		resp, err := client.GetQuota(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebStorageOriginGetUsageCmd = &cobra.Command{
-	Use:   "get-usage",
-	Short: "GetUsage RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebStorageOriginServiceClient(grpcConn)
-		req := &pb.GetUsageRequest{}
-		resp, err := client.GetUsage(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebStorageQuotaUpdaterCmd = &cobra.Command{
-	Use:   "web-storage-quota-updater",
-	Short: "WebStorageQuotaUpdaterService operations",
-}
-
-var webkitWebStorageQuotaUpdaterUpdateQuotaCmd = &cobra.Command{
-	Use:   "update-quota",
-	Short: "UpdateQuota RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebStorageQuotaUpdaterServiceClient(grpcConn)
-		req := &pb.UpdateQuotaRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.UpdateQuota(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitSslErrorHandlerCmd = &cobra.Command{
-	Use:   "ssl-error-handler",
-	Short: "SslErrorHandlerService operations",
-}
-
-var webkitSslErrorHandlerCancelCmd = &cobra.Command{
-	Use:   "cancel",
-	Short: "Cancel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSslErrorHandlerServiceClient(grpcConn)
-		req := &pb.CancelRequest{}
-		resp, err := client.Cancel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitSslErrorHandlerProceedCmd = &cobra.Command{
-	Use:   "proceed",
-	Short: "Proceed RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSslErrorHandlerServiceClient(grpcConn)
-		req := &pb.SslErrorHandlerProceedRequest{}
-		resp, err := client.Proceed(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebViewFragmentCmd = &cobra.Command{
-	Use:   "web-view-fragment",
-	Short: "WebViewFragmentService operations",
-}
-
-var webkitWebViewFragmentNewWebViewFragmentCmd = &cobra.Command{
-	Use:   "new-web-view-fragment",
-	Short: "NewWebViewFragment RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebViewFragmentServiceClient(grpcConn)
-		req := &pb.NewWebViewFragmentRequest{}
-		resp, err := client.NewWebViewFragment(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebViewFragmentGetWebViewCmd = &cobra.Command{
-	Use:   "get-web-view",
-	Short: "GetWebView RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebViewFragmentServiceClient(grpcConn)
-		req := &pb.GetWebViewRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetWebView(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebViewFragmentOnCreateViewCmd = &cobra.Command{
-	Use:   "on-create-view",
-	Short: "OnCreateView RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebViewFragmentServiceClient(grpcConn)
-		req := &pb.OnCreateViewRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.OnCreateView(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebViewFragmentOnDestroyCmd = &cobra.Command{
-	Use:   "on-destroy",
-	Short: "OnDestroy RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebViewFragmentServiceClient(grpcConn)
-		req := &pb.OnDestroyRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.OnDestroy(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebViewFragmentOnDestroyViewCmd = &cobra.Command{
-	Use:   "on-destroy-view",
-	Short: "OnDestroyView RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebViewFragmentServiceClient(grpcConn)
-		req := &pb.OnDestroyViewRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.OnDestroyView(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebViewFragmentOnPauseCmd = &cobra.Command{
-	Use:   "on-pause",
-	Short: "OnPause RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebViewFragmentServiceClient(grpcConn)
-		req := &pb.OnPauseRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.OnPause(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebViewFragmentOnResumeCmd = &cobra.Command{
-	Use:   "on-resume",
-	Short: "OnResume RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebViewFragmentServiceClient(grpcConn)
-		req := &pb.OnResumeRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.OnResume(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitHttpAuthHandlerCmd = &cobra.Command{
-	Use:   "http-auth-handler",
-	Short: "HttpAuthHandlerService operations",
-}
-
-var webkitHttpAuthHandlerCancelCmd = &cobra.Command{
-	Use:   "cancel",
-	Short: "Cancel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewHttpAuthHandlerServiceClient(grpcConn)
-		req := &pb.CancelRequest{}
-		resp, err := client.Cancel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitHttpAuthHandlerProceedCmd = &cobra.Command{
-	Use:   "proceed",
-	Short: "Proceed RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewHttpAuthHandlerServiceClient(grpcConn)
-		req := &pb.HttpAuthHandlerProceedRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetString("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.Proceed(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitHttpAuthHandlerUseHttpAuthUsernamePasswordCmd = &cobra.Command{
-	Use:   "use-http-auth-username-password",
-	Short: "UseHttpAuthUsernamePassword RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewHttpAuthHandlerServiceClient(grpcConn)
-		req := &pb.UseHttpAuthUsernamePasswordRequest{}
-		resp, err := client.UseHttpAuthUsernamePassword(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebResourceErrorCmd = &cobra.Command{
-	Use:   "web-resource-error",
-	Short: "WebResourceErrorService operations",
-}
-
-var webkitWebResourceErrorGetDescriptionCmd = &cobra.Command{
-	Use:   "get-description",
-	Short: "GetDescription RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebResourceErrorServiceClient(grpcConn)
-		req := &pb.GetDescriptionRequest{}
-		resp, err := client.GetDescription(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebResourceErrorGetErrorCodeCmd = &cobra.Command{
-	Use:   "get-error-code",
-	Short: "GetErrorCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebResourceErrorServiceClient(grpcConn)
-		req := &pb.GetErrorCodeRequest{}
-		resp, err := client.GetErrorCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitPluginStubCmd = &cobra.Command{
-	Use:   "plugin-stub",
-	Short: "PluginStubService operations",
-}
-
-var webkitPluginStubGetEmbeddedViewCmd = &cobra.Command{
-	Use:   "get-embedded-view",
-	Short: "GetEmbeddedView RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPluginStubServiceClient(grpcConn)
-		req := &pb.GetEmbeddedViewRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.GetEmbeddedView(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitPluginStubGetFullScreenViewCmd = &cobra.Command{
-	Use:   "get-full-screen-view",
-	Short: "GetFullScreenView RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPluginStubServiceClient(grpcConn)
-		req := &pb.GetFullScreenViewRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.GetFullScreenView(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitMimeTypeMapCmd = &cobra.Command{
-	Use:   "mime-type-map",
-	Short: "MimeTypeMapService operations",
-}
-
-var webkitMimeTypeMapGetExtensionFromMimeTypeCmd = &cobra.Command{
-	Use:   "get-extension-from-mime-type",
-	Short: "GetExtensionFromMimeType RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMimeTypeMapServiceClient(grpcConn)
-		req := &pb.GetExtensionFromMimeTypeRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetExtensionFromMimeType(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitMimeTypeMapGetMimeTypeFromExtensionCmd = &cobra.Command{
-	Use:   "get-mime-type-from-extension",
-	Short: "GetMimeTypeFromExtension RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMimeTypeMapServiceClient(grpcConn)
-		req := &pb.GetMimeTypeFromExtensionRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetMimeTypeFromExtension(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitMimeTypeMapHasExtensionCmd = &cobra.Command{
-	Use:   "has-extension",
-	Short: "HasExtension RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMimeTypeMapServiceClient(grpcConn)
-		req := &pb.HasExtensionRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.HasExtension(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitMimeTypeMapHasMimeTypeCmd = &cobra.Command{
-	Use:   "has-mime-type",
-	Short: "HasMimeType RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMimeTypeMapServiceClient(grpcConn)
-		req := &pb.HasMimeTypeRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.HasMimeType(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitMimeTypeMapGetFileExtensionFromUrlCmd = &cobra.Command{
-	Use:   "get-file-extension-from-url",
-	Short: "GetFileExtensionFromUrl RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMimeTypeMapServiceClient(grpcConn)
-		req := &pb.GetFileExtensionFromUrlRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetFileExtensionFromUrl(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitMimeTypeMapGetSingletonCmd = &cobra.Command{
-	Use:   "get-singleton",
-	Short: "GetSingleton RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMimeTypeMapServiceClient(grpcConn)
-		req := &pb.GetSingletonRequest{}
-		resp, err := client.GetSingleton(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebViewDatabaseCmd = &cobra.Command{
-	Use:   "web-view-database",
-	Short: "WebViewDatabaseService operations",
-}
-
-var webkitWebViewDatabaseClearFormDataCmd = &cobra.Command{
-	Use:   "clear-form-data",
-	Short: "ClearFormData RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebViewDatabaseServiceClient(grpcConn)
-		req := &pb.WebViewDatabaseClearFormDataRequest{}
-		resp, err := client.ClearFormData(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebViewDatabaseClearHttpAuthUsernamePasswordCmd = &cobra.Command{
-	Use:   "clear-http-auth-username-password",
-	Short: "ClearHttpAuthUsernamePassword RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebViewDatabaseServiceClient(grpcConn)
-		req := &pb.ClearHttpAuthUsernamePasswordRequest{}
-		resp, err := client.ClearHttpAuthUsernamePassword(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebViewDatabaseClearUsernamePasswordCmd = &cobra.Command{
-	Use:   "clear-username-password",
-	Short: "ClearUsernamePassword RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebViewDatabaseServiceClient(grpcConn)
-		req := &pb.ClearUsernamePasswordRequest{}
-		resp, err := client.ClearUsernamePassword(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebViewDatabaseGetHttpAuthUsernamePasswordCmd = &cobra.Command{
-	Use:   "get-http-auth-username-password",
-	Short: "GetHttpAuthUsernamePassword RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebViewDatabaseServiceClient(grpcConn)
-		req := &pb.WebViewDatabaseGetHttpAuthUsernamePasswordRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetString("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.GetHttpAuthUsernamePassword(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebViewDatabaseHasFormDataCmd = &cobra.Command{
-	Use:   "has-form-data",
-	Short: "HasFormData RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebViewDatabaseServiceClient(grpcConn)
-		req := &pb.HasFormDataRequest{}
-		resp, err := client.HasFormData(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebViewDatabaseHasHttpAuthUsernamePasswordCmd = &cobra.Command{
-	Use:   "has-http-auth-username-password",
-	Short: "HasHttpAuthUsernamePassword RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebViewDatabaseServiceClient(grpcConn)
-		req := &pb.HasHttpAuthUsernamePasswordRequest{}
-		resp, err := client.HasHttpAuthUsernamePassword(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebViewDatabaseHasUsernamePasswordCmd = &cobra.Command{
-	Use:   "has-username-password",
-	Short: "HasUsernamePassword RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebViewDatabaseServiceClient(grpcConn)
-		req := &pb.HasUsernamePasswordRequest{}
-		resp, err := client.HasUsernamePassword(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebViewDatabaseSetHttpAuthUsernamePasswordCmd = &cobra.Command{
-	Use:   "set-http-auth-username-password",
-	Short: "SetHttpAuthUsernamePassword RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebViewDatabaseServiceClient(grpcConn)
-		req := &pb.WebViewDatabaseSetHttpAuthUsernamePasswordRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetString("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetString("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetString("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		resp, err := client.SetHttpAuthUsernamePassword(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebViewDatabaseGetInstanceCmd = &cobra.Command{
-	Use:   "get-instance",
-	Short: "GetInstance RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebViewDatabaseServiceClient(grpcConn)
-		req := &pb.WebViewDatabaseGetInstanceRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetInstance(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitCookieManagerCmd = &cobra.Command{
-	Use:   "cookie-manager",
-	Short: "CookieManagerService operations",
-}
-
-var webkitCookieManagerAcceptCookieCmd = &cobra.Command{
-	Use:   "accept-cookie",
-	Short: "AcceptCookie RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCookieManagerServiceClient(grpcConn)
-		req := &pb.AcceptCookieRequest{}
-		resp, err := client.AcceptCookie(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitCookieManagerAcceptThirdPartyCookiesCmd = &cobra.Command{
-	Use:   "accept-third-party-cookies",
-	Short: "AcceptThirdPartyCookies RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCookieManagerServiceClient(grpcConn)
-		req := &pb.AcceptThirdPartyCookiesRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.AcceptThirdPartyCookies(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitCookieManagerFlushCmd = &cobra.Command{
-	Use:   "flush",
-	Short: "Flush RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCookieManagerServiceClient(grpcConn)
-		req := &pb.FlushRequest{}
-		resp, err := client.Flush(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitCookieManagerGetCookieCmd = &cobra.Command{
-	Use:   "get-cookie",
-	Short: "GetCookie RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCookieManagerServiceClient(grpcConn)
-		req := &pb.GetCookieRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetCookie(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitCookieManagerHasCookiesCmd = &cobra.Command{
-	Use:   "has-cookies",
-	Short: "HasCookies RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCookieManagerServiceClient(grpcConn)
-		req := &pb.HasCookiesRequest{}
-		resp, err := client.HasCookies(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitCookieManagerRemoveAllCookieCmd = &cobra.Command{
-	Use:   "remove-all-cookie",
-	Short: "RemoveAllCookie RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCookieManagerServiceClient(grpcConn)
-		req := &pb.RemoveAllCookieRequest{}
-		resp, err := client.RemoveAllCookie(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitCookieManagerRemoveExpiredCookieCmd = &cobra.Command{
-	Use:   "remove-expired-cookie",
-	Short: "RemoveExpiredCookie RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCookieManagerServiceClient(grpcConn)
-		req := &pb.RemoveExpiredCookieRequest{}
-		resp, err := client.RemoveExpiredCookie(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitCookieManagerRemoveSessionCookieCmd = &cobra.Command{
-	Use:   "remove-session-cookie",
-	Short: "RemoveSessionCookie RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCookieManagerServiceClient(grpcConn)
-		req := &pb.RemoveSessionCookieRequest{}
-		resp, err := client.RemoveSessionCookie(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitCookieManagerSetAcceptCookieCmd = &cobra.Command{
-	Use:   "set-accept-cookie",
-	Short: "SetAcceptCookie RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCookieManagerServiceClient(grpcConn)
-		req := &pb.SetAcceptCookieRequest{}
-		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetAcceptCookie(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitCookieManagerSetAcceptThirdPartyCookiesCmd = &cobra.Command{
-	Use:   "set-accept-third-party-cookies",
-	Short: "SetAcceptThirdPartyCookies RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCookieManagerServiceClient(grpcConn)
-		req := &pb.SetAcceptThirdPartyCookiesRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetBool("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.SetAcceptThirdPartyCookies(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitCookieManagerSetCookieCmd = &cobra.Command{
-	Use:   "set-cookie",
-	Short: "SetCookie RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCookieManagerServiceClient(grpcConn)
-		req := &pb.SetCookieRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetString("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.SetCookie(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitCookieManagerAllowFileSchemeCookiesCmd = &cobra.Command{
-	Use:   "allow-file-scheme-cookies",
-	Short: "AllowFileSchemeCookies RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCookieManagerServiceClient(grpcConn)
-		req := &pb.AllowFileSchemeCookiesRequest{}
-		resp, err := client.AllowFileSchemeCookies(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitCookieManagerGetInstanceCmd = &cobra.Command{
-	Use:   "get-instance",
-	Short: "GetInstance RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCookieManagerServiceClient(grpcConn)
-		req := &pb.GetInstanceRequest{}
-		resp, err := client.GetInstance(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitCookieManagerSetAcceptFileSchemeCookiesCmd = &cobra.Command{
-	Use:   "set-accept-file-scheme-cookies",
-	Short: "SetAcceptFileSchemeCookies RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCookieManagerServiceClient(grpcConn)
-		req := &pb.SetAcceptFileSchemeCookiesRequest{}
-		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetAcceptFileSchemeCookies(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitDownloadListenerCmd = &cobra.Command{
-	Use:   "download-listener",
-	Short: "DownloadListenerService operations",
-}
-
-var webkitDownloadListenerOnDownloadStartCmd = &cobra.Command{
-	Use:   "on-download-start",
-	Short: "OnDownloadStart RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDownloadListenerServiceClient(grpcConn)
-		req := &pb.OnDownloadStartRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetString("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetString("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetString("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg4"); err == nil {
-			req.Arg4 = v
-		}
-		resp, err := client.OnDownloadStart(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitServiceWorkerWebSettingsCmd = &cobra.Command{
-	Use:   "service-worker-web-settings",
-	Short: "ServiceWorkerWebSettingsService operations",
-}
-
-var webkitServiceWorkerWebSettingsGetAllowContentAccessCmd = &cobra.Command{
-	Use:   "get-allow-content-access",
-	Short: "GetAllowContentAccess RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewServiceWorkerWebSettingsServiceClient(grpcConn)
-		req := &pb.GetAllowContentAccessRequest{}
-		resp, err := client.GetAllowContentAccess(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitServiceWorkerWebSettingsGetAllowFileAccessCmd = &cobra.Command{
-	Use:   "get-allow-file-access",
-	Short: "GetAllowFileAccess RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewServiceWorkerWebSettingsServiceClient(grpcConn)
-		req := &pb.GetAllowFileAccessRequest{}
-		resp, err := client.GetAllowFileAccess(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitServiceWorkerWebSettingsGetBlockNetworkLoadsCmd = &cobra.Command{
-	Use:   "get-block-network-loads",
-	Short: "GetBlockNetworkLoads RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewServiceWorkerWebSettingsServiceClient(grpcConn)
-		req := &pb.GetBlockNetworkLoadsRequest{}
-		resp, err := client.GetBlockNetworkLoads(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitServiceWorkerWebSettingsGetCacheModeCmd = &cobra.Command{
-	Use:   "get-cache-mode",
-	Short: "GetCacheMode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewServiceWorkerWebSettingsServiceClient(grpcConn)
-		req := &pb.GetCacheModeRequest{}
-		resp, err := client.GetCacheMode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitServiceWorkerWebSettingsSetAllowContentAccessCmd = &cobra.Command{
-	Use:   "set-allow-content-access",
-	Short: "SetAllowContentAccess RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewServiceWorkerWebSettingsServiceClient(grpcConn)
-		req := &pb.SetAllowContentAccessRequest{}
-		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetAllowContentAccess(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitServiceWorkerWebSettingsSetAllowFileAccessCmd = &cobra.Command{
-	Use:   "set-allow-file-access",
-	Short: "SetAllowFileAccess RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewServiceWorkerWebSettingsServiceClient(grpcConn)
-		req := &pb.SetAllowFileAccessRequest{}
-		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetAllowFileAccess(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitServiceWorkerWebSettingsSetBlockNetworkLoadsCmd = &cobra.Command{
-	Use:   "set-block-network-loads",
-	Short: "SetBlockNetworkLoads RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewServiceWorkerWebSettingsServiceClient(grpcConn)
-		req := &pb.SetBlockNetworkLoadsRequest{}
-		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetBlockNetworkLoads(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitServiceWorkerWebSettingsSetCacheModeCmd = &cobra.Command{
-	Use:   "set-cache-mode",
-	Short: "SetCacheMode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewServiceWorkerWebSettingsServiceClient(grpcConn)
-		req := &pb.SetCacheModeRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetCacheMode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitPermissionRequestCmd = &cobra.Command{
-	Use:   "permission-request",
-	Short: "PermissionRequestService operations",
-}
-
-var webkitPermissionRequestDenyCmd = &cobra.Command{
-	Use:   "deny",
-	Short: "Deny RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPermissionRequestServiceClient(grpcConn)
-		req := &pb.DenyRequest{}
-		resp, err := client.Deny(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitPermissionRequestGetOriginCmd = &cobra.Command{
-	Use:   "get-origin",
-	Short: "GetOrigin RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPermissionRequestServiceClient(grpcConn)
-		req := &pb.GetOriginRequest{}
-		resp, err := client.GetOrigin(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitPermissionRequestGetResourcesCmd = &cobra.Command{
-	Use:   "get-resources",
-	Short: "GetResources RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPermissionRequestServiceClient(grpcConn)
-		req := &pb.GetResourcesRequest{}
-		resp, err := client.GetResources(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitPermissionRequestGrantCmd = &cobra.Command{
-	Use:   "grant",
-	Short: "Grant RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPermissionRequestServiceClient(grpcConn)
-		req := &pb.GrantRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Grant(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebBackForwardListCmd = &cobra.Command{
-	Use:   "web-back-forward-list",
-	Short: "WebBackForwardListService operations",
-}
-
-var webkitWebBackForwardListGetCurrentIndexCmd = &cobra.Command{
-	Use:   "get-current-index",
-	Short: "GetCurrentIndex RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebBackForwardListServiceClient(grpcConn)
-		req := &pb.GetCurrentIndexRequest{}
-		resp, err := client.GetCurrentIndex(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebBackForwardListGetCurrentItemCmd = &cobra.Command{
-	Use:   "get-current-item",
-	Short: "GetCurrentItem RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebBackForwardListServiceClient(grpcConn)
-		req := &pb.GetCurrentItemRequest{}
-		resp, err := client.GetCurrentItem(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebBackForwardListGetItemAtIndexCmd = &cobra.Command{
-	Use:   "get-item-at-index",
-	Short: "GetItemAtIndex RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebBackForwardListServiceClient(grpcConn)
-		req := &pb.GetItemAtIndexRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetItemAtIndex(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebBackForwardListGetSizeCmd = &cobra.Command{
-	Use:   "get-size",
-	Short: "GetSize RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebBackForwardListServiceClient(grpcConn)
-		req := &pb.GetSizeRequest{}
-		resp, err := client.GetSize(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebMessageCmd = &cobra.Command{
-	Use:   "web-message",
-	Short: "WebMessageService operations",
-}
-
-var webkitWebMessageNewWebMessageCmd = &cobra.Command{
-	Use:   "new-web-message",
-	Short: "NewWebMessage RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebMessageServiceClient(grpcConn)
-		req := &pb.NewWebMessageRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.NewWebMessage(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebMessageGetDataCmd = &cobra.Command{
-	Use:   "get-data",
-	Short: "GetData RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebMessageServiceClient(grpcConn)
-		req := &pb.GetDataRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetData(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebMessageGetPortsCmd = &cobra.Command{
-	Use:   "get-ports",
-	Short: "GetPorts RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebMessageServiceClient(grpcConn)
-		req := &pb.GetPortsRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetPorts(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitCookieSyncManagerCmd = &cobra.Command{
-	Use:   "cookie-sync-manager",
-	Short: "CookieSyncManagerService operations",
-}
-
-var webkitCookieSyncManagerResetSyncCmd = &cobra.Command{
-	Use:   "reset-sync",
-	Short: "ResetSync RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCookieSyncManagerServiceClient(grpcConn)
-		req := &pb.ResetSyncRequest{}
-		resp, err := client.ResetSync(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitCookieSyncManagerRunCmd = &cobra.Command{
-	Use:   "run",
-	Short: "Run RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCookieSyncManagerServiceClient(grpcConn)
-		req := &pb.RunRequest{}
-		resp, err := client.Run(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitCookieSyncManagerStartSyncCmd = &cobra.Command{
-	Use:   "start-sync",
-	Short: "StartSync RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCookieSyncManagerServiceClient(grpcConn)
-		req := &pb.StartSyncRequest{}
-		resp, err := client.StartSync(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitCookieSyncManagerStopSyncCmd = &cobra.Command{
-	Use:   "stop-sync",
-	Short: "StopSync RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCookieSyncManagerServiceClient(grpcConn)
-		req := &pb.StopSyncRequest{}
-		resp, err := client.StopSync(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitCookieSyncManagerSyncCmd = &cobra.Command{
-	Use:   "sync",
-	Short: "Sync RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCookieSyncManagerServiceClient(grpcConn)
-		req := &pb.SyncRequest{}
-		resp, err := client.Sync(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitCookieSyncManagerCreateInstanceCmd = &cobra.Command{
-	Use:   "create-instance",
-	Short: "CreateInstance RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCookieSyncManagerServiceClient(grpcConn)
-		req := &pb.CreateInstanceRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.CreateInstance(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitCookieSyncManagerGetInstanceCmd = &cobra.Command{
-	Use:   "get-instance",
-	Short: "GetInstance RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCookieSyncManagerServiceClient(grpcConn)
-		req := &pb.GetInstanceRequest{}
-		resp, err := client.GetInstance(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitJsResultCmd = &cobra.Command{
-	Use:   "js-result",
-	Short: "JsResultService operations",
-}
-
-var webkitJsResultCancelCmd = &cobra.Command{
-	Use:   "cancel",
-	Short: "Cancel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewJsResultServiceClient(grpcConn)
-		req := &pb.CancelRequest{}
-		resp, err := client.Cancel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitJsResultConfirmCmd = &cobra.Command{
-	Use:   "confirm",
-	Short: "Confirm RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewJsResultServiceClient(grpcConn)
-		req := &pb.JsResultConfirmRequest{}
-		resp, err := client.Confirm(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitServiceWorkerClientCmd = &cobra.Command{
-	Use:   "service-worker-client",
-	Short: "ServiceWorkerClientService operations",
-}
-
-var webkitServiceWorkerClientNewServiceWorkerClientCmd = &cobra.Command{
-	Use:   "new-service-worker-client",
-	Short: "NewServiceWorkerClient RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewServiceWorkerClientServiceClient(grpcConn)
-		req := &pb.NewServiceWorkerClientRequest{}
-		resp, err := client.NewServiceWorkerClient(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitServiceWorkerClientShouldInterceptRequestCmd = &cobra.Command{
-	Use:   "should-intercept-request",
-	Short: "ShouldInterceptRequest RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewServiceWorkerClientServiceClient(grpcConn)
-		req := &pb.ShouldInterceptRequestRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.ShouldInterceptRequest(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitTracingControllerCmd = &cobra.Command{
-	Use:   "tracing-controller",
-	Short: "TracingControllerService operations",
-}
-
-var webkitTracingControllerIsTracingCmd = &cobra.Command{
-	Use:   "is-tracing",
-	Short: "IsTracing RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTracingControllerServiceClient(grpcConn)
-		req := &pb.IsTracingRequest{}
-		resp, err := client.IsTracing(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitTracingControllerStartCmd = &cobra.Command{
-	Use:   "start",
-	Short: "Start RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTracingControllerServiceClient(grpcConn)
-		req := &pb.StartRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Start(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitTracingControllerStopCmd = &cobra.Command{
-	Use:   "stop",
-	Short: "Stop RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTracingControllerServiceClient(grpcConn)
-		req := &pb.StopRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.Stop(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitTracingControllerGetInstanceCmd = &cobra.Command{
-	Use:   "get-instance",
-	Short: "GetInstance RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTracingControllerServiceClient(grpcConn)
-		req := &pb.GetInstanceRequest{}
-		resp, err := client.GetInstance(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebChromeClientCmd = &cobra.Command{
-	Use:   "web-chrome-client",
-	Short: "WebChromeClientService operations",
-}
-
-var webkitWebChromeClientNewWebChromeClientCmd = &cobra.Command{
-	Use:   "new-web-chrome-client",
-	Short: "NewWebChromeClient RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebChromeClientServiceClient(grpcConn)
-		req := &pb.NewWebChromeClientRequest{}
-		resp, err := client.NewWebChromeClient(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebChromeClientGetDefaultVideoPosterCmd = &cobra.Command{
-	Use:   "get-default-video-poster",
-	Short: "GetDefaultVideoPoster RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebChromeClientServiceClient(grpcConn)
-		req := &pb.GetDefaultVideoPosterRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetDefaultVideoPoster(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebChromeClientGetVideoLoadingProgressViewCmd = &cobra.Command{
-	Use:   "get-video-loading-progress-view",
-	Short: "GetVideoLoadingProgressView RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebChromeClientServiceClient(grpcConn)
-		req := &pb.GetVideoLoadingProgressViewRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetVideoLoadingProgressView(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebChromeClientOnCloseWindowCmd = &cobra.Command{
-	Use:   "on-close-window",
-	Short: "OnCloseWindow RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebChromeClientServiceClient(grpcConn)
-		req := &pb.OnCloseWindowRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.OnCloseWindow(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebChromeClientOnConsoleMessage1Cmd = &cobra.Command{
-	Use:   "on-console-message1",
-	Short: "OnConsoleMessage1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebChromeClientServiceClient(grpcConn)
-		req := &pb.OnConsoleMessage1Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.OnConsoleMessage1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebChromeClientOnConsoleMessage3_1Cmd = &cobra.Command{
-	Use:   "on-console-message3_1",
-	Short: "OnConsoleMessage3_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebChromeClientServiceClient(grpcConn)
-		req := &pb.OnConsoleMessage3_1Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetString("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.OnConsoleMessage3_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebChromeClientOnCreateWindowCmd = &cobra.Command{
-	Use:   "on-create-window",
-	Short: "OnCreateWindow RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebChromeClientServiceClient(grpcConn)
-		req := &pb.OnCreateWindowRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetBool("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetBool("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		resp, err := client.OnCreateWindow(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebChromeClientOnExceededDatabaseQuotaCmd = &cobra.Command{
-	Use:   "on-exceeded-database-quota",
-	Short: "OnExceededDatabaseQuota RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebChromeClientServiceClient(grpcConn)
-		req := &pb.OnExceededDatabaseQuotaRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetString("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg4"); err == nil {
-			req.Arg4 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg5"); err == nil {
-			req.Arg5 = v
-		}
-		resp, err := client.OnExceededDatabaseQuota(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebChromeClientOnGeolocationPermissionsHidePromptCmd = &cobra.Command{
-	Use:   "on-geolocation-permissions-hide-prompt",
-	Short: "OnGeolocationPermissionsHidePrompt RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebChromeClientServiceClient(grpcConn)
-		req := &pb.OnGeolocationPermissionsHidePromptRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.OnGeolocationPermissionsHidePrompt(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebChromeClientOnGeolocationPermissionsShowPromptCmd = &cobra.Command{
-	Use:   "on-geolocation-permissions-show-prompt",
-	Short: "OnGeolocationPermissionsShowPrompt RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebChromeClientServiceClient(grpcConn)
-		req := &pb.OnGeolocationPermissionsShowPromptRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.OnGeolocationPermissionsShowPrompt(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebChromeClientOnHideCustomViewCmd = &cobra.Command{
-	Use:   "on-hide-custom-view",
-	Short: "OnHideCustomView RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebChromeClientServiceClient(grpcConn)
-		req := &pb.OnHideCustomViewRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.OnHideCustomView(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebChromeClientOnJsAlertCmd = &cobra.Command{
-	Use:   "on-js-alert",
-	Short: "OnJsAlert RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebChromeClientServiceClient(grpcConn)
-		req := &pb.OnJsAlertRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetString("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetString("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		resp, err := client.OnJsAlert(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebChromeClientOnJsBeforeUnloadCmd = &cobra.Command{
-	Use:   "on-js-before-unload",
-	Short: "OnJsBeforeUnload RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebChromeClientServiceClient(grpcConn)
-		req := &pb.OnJsBeforeUnloadRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetString("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetString("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		resp, err := client.OnJsBeforeUnload(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebChromeClientOnJsConfirmCmd = &cobra.Command{
-	Use:   "on-js-confirm",
-	Short: "OnJsConfirm RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebChromeClientServiceClient(grpcConn)
-		req := &pb.OnJsConfirmRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetString("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetString("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		resp, err := client.OnJsConfirm(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebChromeClientOnJsPromptCmd = &cobra.Command{
-	Use:   "on-js-prompt",
-	Short: "OnJsPrompt RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebChromeClientServiceClient(grpcConn)
-		req := &pb.OnJsPromptRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetString("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetString("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetString("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg4"); err == nil {
-			req.Arg4 = v
-		}
-		resp, err := client.OnJsPrompt(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebChromeClientOnJsTimeoutCmd = &cobra.Command{
-	Use:   "on-js-timeout",
-	Short: "OnJsTimeout RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebChromeClientServiceClient(grpcConn)
-		req := &pb.OnJsTimeoutRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.OnJsTimeout(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebChromeClientOnPermissionRequestCmd = &cobra.Command{
-	Use:   "on-permission-request",
-	Short: "OnPermissionRequest RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebChromeClientServiceClient(grpcConn)
-		req := &pb.OnPermissionRequestRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.OnPermissionRequest(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebChromeClientOnPermissionRequestCanceledCmd = &cobra.Command{
-	Use:   "on-permission-request-canceled",
-	Short: "OnPermissionRequestCanceled RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebChromeClientServiceClient(grpcConn)
-		req := &pb.OnPermissionRequestCanceledRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.OnPermissionRequestCanceled(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebChromeClientOnProgressChangedCmd = &cobra.Command{
-	Use:   "on-progress-changed",
-	Short: "OnProgressChanged RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebChromeClientServiceClient(grpcConn)
-		req := &pb.OnProgressChangedRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.OnProgressChanged(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebChromeClientOnReceivedIconCmd = &cobra.Command{
-	Use:   "on-received-icon",
-	Short: "OnReceivedIcon RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebChromeClientServiceClient(grpcConn)
-		req := &pb.WebChromeClientOnReceivedIconRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.OnReceivedIcon(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebChromeClientOnReceivedTitleCmd = &cobra.Command{
-	Use:   "on-received-title",
-	Short: "OnReceivedTitle RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebChromeClientServiceClient(grpcConn)
-		req := &pb.OnReceivedTitleRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetString("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.OnReceivedTitle(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebChromeClientOnReceivedTouchIconUrlCmd = &cobra.Command{
-	Use:   "on-received-touch-icon-url",
-	Short: "OnReceivedTouchIconUrl RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebChromeClientServiceClient(grpcConn)
-		req := &pb.OnReceivedTouchIconUrlRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetString("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetBool("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.OnReceivedTouchIconUrl(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebChromeClientOnRequestFocusCmd = &cobra.Command{
-	Use:   "on-request-focus",
-	Short: "OnRequestFocus RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebChromeClientServiceClient(grpcConn)
-		req := &pb.OnRequestFocusRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.OnRequestFocus(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebChromeClientOnShowCustomView2Cmd = &cobra.Command{
-	Use:   "on-show-custom-view2",
-	Short: "OnShowCustomView2 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebChromeClientServiceClient(grpcConn)
-		req := &pb.OnShowCustomView2Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.OnShowCustomView2(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebChromeClientOnShowCustomView3_1Cmd = &cobra.Command{
-	Use:   "on-show-custom-view3_1",
-	Short: "OnShowCustomView3_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebChromeClientServiceClient(grpcConn)
-		req := &pb.OnShowCustomView3_1Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.OnShowCustomView3_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebChromeClientCustomViewCallbackCmd = &cobra.Command{
-	Use:   "web-chrome-client-custom-view-callback",
-	Short: "WebChromeClientCustomViewCallbackService operations",
-}
-
-var webkitWebChromeClientCustomViewCallbackOnCustomViewHiddenCmd = &cobra.Command{
-	Use:   "on-custom-view-hidden",
-	Short: "OnCustomViewHidden RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebChromeClientCustomViewCallbackServiceClient(grpcConn)
-		req := &pb.OnCustomViewHiddenRequest{}
-		resp, err := client.OnCustomViewHidden(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebChromeClientFileChooserParamsCmd = &cobra.Command{
-	Use:   "web-chrome-client-file-chooser-params",
-	Short: "WebChromeClientFileChooserParamsService operations",
-}
-
-var webkitWebChromeClientFileChooserParamsCreateIntentCmd = &cobra.Command{
-	Use:   "create-intent",
-	Short: "CreateIntent RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebChromeClientFileChooserParamsServiceClient(grpcConn)
-		req := &pb.CreateIntentRequest{}
-		resp, err := client.CreateIntent(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebChromeClientFileChooserParamsGetAcceptTypesCmd = &cobra.Command{
-	Use:   "get-accept-types",
-	Short: "GetAcceptTypes RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebChromeClientFileChooserParamsServiceClient(grpcConn)
-		req := &pb.GetAcceptTypesRequest{}
-		resp, err := client.GetAcceptTypes(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebChromeClientFileChooserParamsGetFilenameHintCmd = &cobra.Command{
-	Use:   "get-filename-hint",
-	Short: "GetFilenameHint RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebChromeClientFileChooserParamsServiceClient(grpcConn)
-		req := &pb.GetFilenameHintRequest{}
-		resp, err := client.GetFilenameHint(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebChromeClientFileChooserParamsGetModeCmd = &cobra.Command{
-	Use:   "get-mode",
-	Short: "GetMode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebChromeClientFileChooserParamsServiceClient(grpcConn)
-		req := &pb.GetModeRequest{}
-		resp, err := client.GetMode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebChromeClientFileChooserParamsGetTitleCmd = &cobra.Command{
-	Use:   "get-title",
-	Short: "GetTitle RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebChromeClientFileChooserParamsServiceClient(grpcConn)
-		req := &pb.WebChromeClientFileChooserParamsGetTitleRequest{}
-		resp, err := client.GetTitle(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebChromeClientFileChooserParamsIsCaptureEnabledCmd = &cobra.Command{
-	Use:   "is-capture-enabled",
-	Short: "IsCaptureEnabled RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebChromeClientFileChooserParamsServiceClient(grpcConn)
-		req := &pb.IsCaptureEnabledRequest{}
-		resp, err := client.IsCaptureEnabled(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebChromeClientFileChooserParamsParseResultCmd = &cobra.Command{
-	Use:   "parse-result",
-	Short: "ParseResult RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebChromeClientFileChooserParamsServiceClient(grpcConn)
-		req := &pb.ParseResultRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.ParseResult(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebHistoryItemCmd = &cobra.Command{
-	Use:   "web-history-item",
-	Short: "WebHistoryItemService operations",
-}
-
-var webkitWebHistoryItemGetFaviconCmd = &cobra.Command{
-	Use:   "get-favicon",
-	Short: "GetFavicon RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebHistoryItemServiceClient(grpcConn)
-		req := &pb.WebHistoryItemGetFaviconRequest{}
-		resp, err := client.GetFavicon(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebHistoryItemGetOriginalUrlCmd = &cobra.Command{
-	Use:   "get-original-url",
-	Short: "GetOriginalUrl RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebHistoryItemServiceClient(grpcConn)
-		req := &pb.WebHistoryItemGetOriginalUrlRequest{}
-		resp, err := client.GetOriginalUrl(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebHistoryItemGetTitleCmd = &cobra.Command{
-	Use:   "get-title",
-	Short: "GetTitle RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebHistoryItemServiceClient(grpcConn)
-		req := &pb.WebHistoryItemGetTitleRequest{}
-		resp, err := client.GetTitle(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebHistoryItemGetUrlCmd = &cobra.Command{
-	Use:   "get-url",
-	Short: "GetUrl RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebHistoryItemServiceClient(grpcConn)
-		req := &pb.GetUrlRequest{}
-		resp, err := client.GetUrl(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -7780,6 +5886,126 @@ var webkitWebViewClientShouldOverrideUrlLoading2_1Cmd = &cobra.Command{
 	},
 }
 
+var webkitCookieSyncManagerCmd = &cobra.Command{
+	Use:   "cookie-sync-manager",
+	Short: "CookieSyncManagerService operations",
+}
+
+var webkitCookieSyncManagerResetSyncCmd = &cobra.Command{
+	Use:   "reset-sync",
+	Short: "ResetSync RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCookieSyncManagerServiceClient(grpcConn)
+		req := &pb.ResetSyncRequest{}
+		resp, err := client.ResetSync(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitCookieSyncManagerRunCmd = &cobra.Command{
+	Use:   "run",
+	Short: "Run RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCookieSyncManagerServiceClient(grpcConn)
+		req := &pb.RunRequest{}
+		resp, err := client.Run(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitCookieSyncManagerStartSyncCmd = &cobra.Command{
+	Use:   "start-sync",
+	Short: "StartSync RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCookieSyncManagerServiceClient(grpcConn)
+		req := &pb.StartSyncRequest{}
+		resp, err := client.StartSync(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitCookieSyncManagerStopSyncCmd = &cobra.Command{
+	Use:   "stop-sync",
+	Short: "StopSync RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCookieSyncManagerServiceClient(grpcConn)
+		req := &pb.StopSyncRequest{}
+		resp, err := client.StopSync(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitCookieSyncManagerSyncCmd = &cobra.Command{
+	Use:   "sync",
+	Short: "Sync RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCookieSyncManagerServiceClient(grpcConn)
+		req := &pb.SyncRequest{}
+		resp, err := client.Sync(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitCookieSyncManagerCreateInstanceCmd = &cobra.Command{
+	Use:   "create-instance",
+	Short: "CreateInstance RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCookieSyncManagerServiceClient(grpcConn)
+		req := &pb.CreateInstanceRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.CreateInstance(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitCookieSyncManagerGetInstanceCmd = &cobra.Command{
+	Use:   "get-instance",
+	Short: "GetInstance RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCookieSyncManagerServiceClient(grpcConn)
+		req := &pb.GetInstanceRequest{}
+		resp, err := client.GetInstance(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var webkitGeolocationPermissionsCmd = &cobra.Command{
 	Use:   "geolocation-permissions",
 	Short: "GeolocationPermissionsService operations",
@@ -7885,6 +6111,2737 @@ var webkitGeolocationPermissionsCallbackInvokeCmd = &cobra.Command{
 	},
 }
 
+var webkitWebViewRenderProcessClientCmd = &cobra.Command{
+	Use:   "web-view-render-process-client",
+	Short: "WebViewRenderProcessClientService operations",
+}
+
+var webkitWebViewRenderProcessClientOnRenderProcessResponsiveCmd = &cobra.Command{
+	Use:   "on-render-process-responsive",
+	Short: "OnRenderProcessResponsive RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebViewRenderProcessClientServiceClient(grpcConn)
+		req := &pb.OnRenderProcessResponsiveRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.OnRenderProcessResponsive(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebViewRenderProcessClientOnRenderProcessUnresponsiveCmd = &cobra.Command{
+	Use:   "on-render-process-unresponsive",
+	Short: "OnRenderProcessUnresponsive RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebViewRenderProcessClientServiceClient(grpcConn)
+		req := &pb.OnRenderProcessUnresponsiveRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.OnRenderProcessUnresponsive(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitCookieManagerCmd = &cobra.Command{
+	Use:   "cookie-manager",
+	Short: "CookieManagerService operations",
+}
+
+var webkitCookieManagerAcceptCookieCmd = &cobra.Command{
+	Use:   "accept-cookie",
+	Short: "AcceptCookie RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCookieManagerServiceClient(grpcConn)
+		req := &pb.AcceptCookieRequest{}
+		resp, err := client.AcceptCookie(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitCookieManagerAcceptThirdPartyCookiesCmd = &cobra.Command{
+	Use:   "accept-third-party-cookies",
+	Short: "AcceptThirdPartyCookies RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCookieManagerServiceClient(grpcConn)
+		req := &pb.AcceptThirdPartyCookiesRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AcceptThirdPartyCookies(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitCookieManagerFlushCmd = &cobra.Command{
+	Use:   "flush",
+	Short: "Flush RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCookieManagerServiceClient(grpcConn)
+		req := &pb.FlushRequest{}
+		resp, err := client.Flush(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitCookieManagerGetCookieCmd = &cobra.Command{
+	Use:   "get-cookie",
+	Short: "GetCookie RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCookieManagerServiceClient(grpcConn)
+		req := &pb.GetCookieRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetCookie(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitCookieManagerHasCookiesCmd = &cobra.Command{
+	Use:   "has-cookies",
+	Short: "HasCookies RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCookieManagerServiceClient(grpcConn)
+		req := &pb.HasCookiesRequest{}
+		resp, err := client.HasCookies(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitCookieManagerRemoveAllCookieCmd = &cobra.Command{
+	Use:   "remove-all-cookie",
+	Short: "RemoveAllCookie RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCookieManagerServiceClient(grpcConn)
+		req := &pb.RemoveAllCookieRequest{}
+		resp, err := client.RemoveAllCookie(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitCookieManagerRemoveExpiredCookieCmd = &cobra.Command{
+	Use:   "remove-expired-cookie",
+	Short: "RemoveExpiredCookie RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCookieManagerServiceClient(grpcConn)
+		req := &pb.RemoveExpiredCookieRequest{}
+		resp, err := client.RemoveExpiredCookie(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitCookieManagerRemoveSessionCookieCmd = &cobra.Command{
+	Use:   "remove-session-cookie",
+	Short: "RemoveSessionCookie RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCookieManagerServiceClient(grpcConn)
+		req := &pb.RemoveSessionCookieRequest{}
+		resp, err := client.RemoveSessionCookie(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitCookieManagerSetAcceptCookieCmd = &cobra.Command{
+	Use:   "set-accept-cookie",
+	Short: "SetAcceptCookie RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCookieManagerServiceClient(grpcConn)
+		req := &pb.SetAcceptCookieRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetAcceptCookie(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitCookieManagerSetAcceptThirdPartyCookiesCmd = &cobra.Command{
+	Use:   "set-accept-third-party-cookies",
+	Short: "SetAcceptThirdPartyCookies RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCookieManagerServiceClient(grpcConn)
+		req := &pb.SetAcceptThirdPartyCookiesRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetBool("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.SetAcceptThirdPartyCookies(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitCookieManagerSetCookieCmd = &cobra.Command{
+	Use:   "set-cookie",
+	Short: "SetCookie RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCookieManagerServiceClient(grpcConn)
+		req := &pb.SetCookieRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.SetCookie(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitCookieManagerAllowFileSchemeCookiesCmd = &cobra.Command{
+	Use:   "allow-file-scheme-cookies",
+	Short: "AllowFileSchemeCookies RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCookieManagerServiceClient(grpcConn)
+		req := &pb.AllowFileSchemeCookiesRequest{}
+		resp, err := client.AllowFileSchemeCookies(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitCookieManagerGetInstanceCmd = &cobra.Command{
+	Use:   "get-instance",
+	Short: "GetInstance RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCookieManagerServiceClient(grpcConn)
+		req := &pb.GetInstanceRequest{}
+		resp, err := client.GetInstance(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitCookieManagerSetAcceptFileSchemeCookiesCmd = &cobra.Command{
+	Use:   "set-accept-file-scheme-cookies",
+	Short: "SetAcceptFileSchemeCookies RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCookieManagerServiceClient(grpcConn)
+		req := &pb.SetAcceptFileSchemeCookiesRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetAcceptFileSchemeCookies(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitURLUtilCmd = &cobra.Command{
+	Use:   "url-util",
+	Short: "URLUtilService operations",
+}
+
+var webkitURLUtilNewURLUtilCmd = &cobra.Command{
+	Use:   "new-url-util",
+	Short: "NewURLUtil RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewURLUtilServiceClient(grpcConn)
+		req := &pb.NewURLUtilRequest{}
+		resp, err := client.NewURLUtil(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitURLUtilComposeSearchUrlCmd = &cobra.Command{
+	Use:   "compose-search-url",
+	Short: "ComposeSearchUrl RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewURLUtilServiceClient(grpcConn)
+		req := &pb.ComposeSearchUrlRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetString("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.ComposeSearchUrl(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitURLUtilDecodeCmd = &cobra.Command{
+	Use:   "decode",
+	Short: "Decode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewURLUtilServiceClient(grpcConn)
+		req := &pb.DecodeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Decode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitURLUtilGuessFileNameCmd = &cobra.Command{
+	Use:   "guess-file-name",
+	Short: "GuessFileName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewURLUtilServiceClient(grpcConn)
+		req := &pb.GuessFileNameRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetString("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.GuessFileName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitURLUtilGuessUrlCmd = &cobra.Command{
+	Use:   "guess-url",
+	Short: "GuessUrl RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewURLUtilServiceClient(grpcConn)
+		req := &pb.GuessUrlRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GuessUrl(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitURLUtilIsAboutUrlCmd = &cobra.Command{
+	Use:   "is-about-url",
+	Short: "IsAboutUrl RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewURLUtilServiceClient(grpcConn)
+		req := &pb.IsAboutUrlRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.IsAboutUrl(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitURLUtilIsAssetUrlCmd = &cobra.Command{
+	Use:   "is-asset-url",
+	Short: "IsAssetUrl RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewURLUtilServiceClient(grpcConn)
+		req := &pb.IsAssetUrlRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.IsAssetUrl(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitURLUtilIsContentUrlCmd = &cobra.Command{
+	Use:   "is-content-url",
+	Short: "IsContentUrl RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewURLUtilServiceClient(grpcConn)
+		req := &pb.IsContentUrlRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.IsContentUrl(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitURLUtilIsCookielessProxyUrlCmd = &cobra.Command{
+	Use:   "is-cookieless-proxy-url",
+	Short: "IsCookielessProxyUrl RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewURLUtilServiceClient(grpcConn)
+		req := &pb.IsCookielessProxyUrlRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.IsCookielessProxyUrl(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitURLUtilIsDataUrlCmd = &cobra.Command{
+	Use:   "is-data-url",
+	Short: "IsDataUrl RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewURLUtilServiceClient(grpcConn)
+		req := &pb.IsDataUrlRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.IsDataUrl(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitURLUtilIsFileUrlCmd = &cobra.Command{
+	Use:   "is-file-url",
+	Short: "IsFileUrl RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewURLUtilServiceClient(grpcConn)
+		req := &pb.IsFileUrlRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.IsFileUrl(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitURLUtilIsHttpUrlCmd = &cobra.Command{
+	Use:   "is-http-url",
+	Short: "IsHttpUrl RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewURLUtilServiceClient(grpcConn)
+		req := &pb.IsHttpUrlRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.IsHttpUrl(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitURLUtilIsHttpsUrlCmd = &cobra.Command{
+	Use:   "is-https-url",
+	Short: "IsHttpsUrl RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewURLUtilServiceClient(grpcConn)
+		req := &pb.IsHttpsUrlRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.IsHttpsUrl(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitURLUtilIsJavaScriptUrlCmd = &cobra.Command{
+	Use:   "is-java-script-url",
+	Short: "IsJavaScriptUrl RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewURLUtilServiceClient(grpcConn)
+		req := &pb.IsJavaScriptUrlRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.IsJavaScriptUrl(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitURLUtilIsNetworkUrlCmd = &cobra.Command{
+	Use:   "is-network-url",
+	Short: "IsNetworkUrl RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewURLUtilServiceClient(grpcConn)
+		req := &pb.IsNetworkUrlRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.IsNetworkUrl(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitURLUtilIsValidUrlCmd = &cobra.Command{
+	Use:   "is-valid-url",
+	Short: "IsValidUrl RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewURLUtilServiceClient(grpcConn)
+		req := &pb.IsValidUrlRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.IsValidUrl(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitURLUtilStripAnchorCmd = &cobra.Command{
+	Use:   "strip-anchor",
+	Short: "StripAnchor RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewURLUtilServiceClient(grpcConn)
+		req := &pb.StripAnchorRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.StripAnchor(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitClientCertRequestCmd = &cobra.Command{
+	Use:   "client-cert-request",
+	Short: "ClientCertRequestService operations",
+}
+
+var webkitClientCertRequestCancelCmd = &cobra.Command{
+	Use:   "cancel",
+	Short: "Cancel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewClientCertRequestServiceClient(grpcConn)
+		req := &pb.CancelRequest{}
+		resp, err := client.Cancel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitClientCertRequestGetHostCmd = &cobra.Command{
+	Use:   "get-host",
+	Short: "GetHost RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewClientCertRequestServiceClient(grpcConn)
+		req := &pb.GetHostRequest{}
+		resp, err := client.GetHost(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitClientCertRequestGetKeyTypesCmd = &cobra.Command{
+	Use:   "get-key-types",
+	Short: "GetKeyTypes RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewClientCertRequestServiceClient(grpcConn)
+		req := &pb.GetKeyTypesRequest{}
+		resp, err := client.GetKeyTypes(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitClientCertRequestGetPortCmd = &cobra.Command{
+	Use:   "get-port",
+	Short: "GetPort RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewClientCertRequestServiceClient(grpcConn)
+		req := &pb.GetPortRequest{}
+		resp, err := client.GetPort(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitClientCertRequestGetPrincipalsCmd = &cobra.Command{
+	Use:   "get-principals",
+	Short: "GetPrincipals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewClientCertRequestServiceClient(grpcConn)
+		req := &pb.GetPrincipalsRequest{}
+		resp, err := client.GetPrincipals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitClientCertRequestIgnoreCmd = &cobra.Command{
+	Use:   "ignore",
+	Short: "Ignore RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewClientCertRequestServiceClient(grpcConn)
+		req := &pb.IgnoreRequest{}
+		resp, err := client.Ignore(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitClientCertRequestProceedCmd = &cobra.Command{
+	Use:   "proceed",
+	Short: "Proceed RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewClientCertRequestServiceClient(grpcConn)
+		req := &pb.ClientCertRequestProceedRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.Proceed(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitTracingConfigCmd = &cobra.Command{
+	Use:   "tracing-config",
+	Short: "TracingConfigService operations",
+}
+
+var webkitTracingConfigGetCustomIncludedCategoriesCmd = &cobra.Command{
+	Use:   "get-custom-included-categories",
+	Short: "GetCustomIncludedCategories RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTracingConfigServiceClient(grpcConn)
+		req := &pb.GetCustomIncludedCategoriesRequest{}
+		resp, err := client.GetCustomIncludedCategories(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitTracingConfigGetPredefinedCategoriesCmd = &cobra.Command{
+	Use:   "get-predefined-categories",
+	Short: "GetPredefinedCategories RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTracingConfigServiceClient(grpcConn)
+		req := &pb.GetPredefinedCategoriesRequest{}
+		resp, err := client.GetPredefinedCategories(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitTracingConfigGetTracingModeCmd = &cobra.Command{
+	Use:   "get-tracing-mode",
+	Short: "GetTracingMode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTracingConfigServiceClient(grpcConn)
+		req := &pb.GetTracingModeRequest{}
+		resp, err := client.GetTracingMode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitTracingConfigBuilderCmd = &cobra.Command{
+	Use:   "tracing-config-builder",
+	Short: "TracingConfigBuilderService operations",
+}
+
+var webkitTracingConfigBuilderAddCategories1Cmd = &cobra.Command{
+	Use:   "add-categories1",
+	Short: "AddCategories1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTracingConfigBuilderServiceClient(grpcConn)
+		req := &pb.AddCategories1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddCategories1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitTracingConfigBuilderAddCategories1_1Cmd = &cobra.Command{
+	Use:   "add-categories1_1",
+	Short: "AddCategories1_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTracingConfigBuilderServiceClient(grpcConn)
+		req := &pb.AddCategories1_1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddCategories1_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitTracingConfigBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTracingConfigBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitTracingConfigBuilderSetTracingModeCmd = &cobra.Command{
+	Use:   "set-tracing-mode",
+	Short: "SetTracingMode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTracingConfigBuilderServiceClient(grpcConn)
+		req := &pb.SetTracingModeRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetTracingMode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebChromeClientCmd = &cobra.Command{
+	Use:   "web-chrome-client",
+	Short: "WebChromeClientService operations",
+}
+
+var webkitWebChromeClientNewWebChromeClientCmd = &cobra.Command{
+	Use:   "new-web-chrome-client",
+	Short: "NewWebChromeClient RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebChromeClientServiceClient(grpcConn)
+		req := &pb.NewWebChromeClientRequest{}
+		resp, err := client.NewWebChromeClient(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebChromeClientGetDefaultVideoPosterCmd = &cobra.Command{
+	Use:   "get-default-video-poster",
+	Short: "GetDefaultVideoPoster RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebChromeClientServiceClient(grpcConn)
+		req := &pb.GetDefaultVideoPosterRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetDefaultVideoPoster(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebChromeClientGetVideoLoadingProgressViewCmd = &cobra.Command{
+	Use:   "get-video-loading-progress-view",
+	Short: "GetVideoLoadingProgressView RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebChromeClientServiceClient(grpcConn)
+		req := &pb.GetVideoLoadingProgressViewRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetVideoLoadingProgressView(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebChromeClientOnCloseWindowCmd = &cobra.Command{
+	Use:   "on-close-window",
+	Short: "OnCloseWindow RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebChromeClientServiceClient(grpcConn)
+		req := &pb.OnCloseWindowRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnCloseWindow(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebChromeClientOnConsoleMessage1Cmd = &cobra.Command{
+	Use:   "on-console-message1",
+	Short: "OnConsoleMessage1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebChromeClientServiceClient(grpcConn)
+		req := &pb.OnConsoleMessage1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnConsoleMessage1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebChromeClientOnConsoleMessage3_1Cmd = &cobra.Command{
+	Use:   "on-console-message3_1",
+	Short: "OnConsoleMessage3_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebChromeClientServiceClient(grpcConn)
+		req := &pb.OnConsoleMessage3_1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetString("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.OnConsoleMessage3_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebChromeClientOnCreateWindowCmd = &cobra.Command{
+	Use:   "on-create-window",
+	Short: "OnCreateWindow RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebChromeClientServiceClient(grpcConn)
+		req := &pb.OnCreateWindowRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetBool("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetBool("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.OnCreateWindow(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebChromeClientOnExceededDatabaseQuotaCmd = &cobra.Command{
+	Use:   "on-exceeded-database-quota",
+	Short: "OnExceededDatabaseQuota RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebChromeClientServiceClient(grpcConn)
+		req := &pb.OnExceededDatabaseQuotaRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg5"); err == nil {
+			req.Arg5 = v
+		}
+		resp, err := client.OnExceededDatabaseQuota(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebChromeClientOnGeolocationPermissionsHidePromptCmd = &cobra.Command{
+	Use:   "on-geolocation-permissions-hide-prompt",
+	Short: "OnGeolocationPermissionsHidePrompt RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebChromeClientServiceClient(grpcConn)
+		req := &pb.OnGeolocationPermissionsHidePromptRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.OnGeolocationPermissionsHidePrompt(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebChromeClientOnGeolocationPermissionsShowPromptCmd = &cobra.Command{
+	Use:   "on-geolocation-permissions-show-prompt",
+	Short: "OnGeolocationPermissionsShowPrompt RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebChromeClientServiceClient(grpcConn)
+		req := &pb.OnGeolocationPermissionsShowPromptRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.OnGeolocationPermissionsShowPrompt(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebChromeClientOnHideCustomViewCmd = &cobra.Command{
+	Use:   "on-hide-custom-view",
+	Short: "OnHideCustomView RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebChromeClientServiceClient(grpcConn)
+		req := &pb.OnHideCustomViewRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.OnHideCustomView(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebChromeClientOnJsAlertCmd = &cobra.Command{
+	Use:   "on-js-alert",
+	Short: "OnJsAlert RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebChromeClientServiceClient(grpcConn)
+		req := &pb.OnJsAlertRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetString("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.OnJsAlert(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebChromeClientOnJsBeforeUnloadCmd = &cobra.Command{
+	Use:   "on-js-before-unload",
+	Short: "OnJsBeforeUnload RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebChromeClientServiceClient(grpcConn)
+		req := &pb.OnJsBeforeUnloadRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetString("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.OnJsBeforeUnload(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebChromeClientOnJsConfirmCmd = &cobra.Command{
+	Use:   "on-js-confirm",
+	Short: "OnJsConfirm RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebChromeClientServiceClient(grpcConn)
+		req := &pb.OnJsConfirmRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetString("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.OnJsConfirm(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebChromeClientOnJsPromptCmd = &cobra.Command{
+	Use:   "on-js-prompt",
+	Short: "OnJsPrompt RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebChromeClientServiceClient(grpcConn)
+		req := &pb.OnJsPromptRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetString("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetString("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		resp, err := client.OnJsPrompt(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebChromeClientOnJsTimeoutCmd = &cobra.Command{
+	Use:   "on-js-timeout",
+	Short: "OnJsTimeout RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebChromeClientServiceClient(grpcConn)
+		req := &pb.OnJsTimeoutRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.OnJsTimeout(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebChromeClientOnPermissionRequestCmd = &cobra.Command{
+	Use:   "on-permission-request",
+	Short: "OnPermissionRequest RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebChromeClientServiceClient(grpcConn)
+		req := &pb.OnPermissionRequestRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnPermissionRequest(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebChromeClientOnPermissionRequestCanceledCmd = &cobra.Command{
+	Use:   "on-permission-request-canceled",
+	Short: "OnPermissionRequestCanceled RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebChromeClientServiceClient(grpcConn)
+		req := &pb.OnPermissionRequestCanceledRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnPermissionRequestCanceled(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebChromeClientOnProgressChangedCmd = &cobra.Command{
+	Use:   "on-progress-changed",
+	Short: "OnProgressChanged RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebChromeClientServiceClient(grpcConn)
+		req := &pb.OnProgressChangedRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.OnProgressChanged(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebChromeClientOnReceivedIconCmd = &cobra.Command{
+	Use:   "on-received-icon",
+	Short: "OnReceivedIcon RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebChromeClientServiceClient(grpcConn)
+		req := &pb.OnReceivedIconRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.OnReceivedIcon(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebChromeClientOnReceivedTitleCmd = &cobra.Command{
+	Use:   "on-received-title",
+	Short: "OnReceivedTitle RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebChromeClientServiceClient(grpcConn)
+		req := &pb.OnReceivedTitleRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.OnReceivedTitle(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebChromeClientOnReceivedTouchIconUrlCmd = &cobra.Command{
+	Use:   "on-received-touch-icon-url",
+	Short: "OnReceivedTouchIconUrl RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebChromeClientServiceClient(grpcConn)
+		req := &pb.OnReceivedTouchIconUrlRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetBool("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.OnReceivedTouchIconUrl(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebChromeClientOnRequestFocusCmd = &cobra.Command{
+	Use:   "on-request-focus",
+	Short: "OnRequestFocus RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebChromeClientServiceClient(grpcConn)
+		req := &pb.OnRequestFocusRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnRequestFocus(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebChromeClientOnShowCustomView2Cmd = &cobra.Command{
+	Use:   "on-show-custom-view2",
+	Short: "OnShowCustomView2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebChromeClientServiceClient(grpcConn)
+		req := &pb.OnShowCustomView2Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.OnShowCustomView2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebChromeClientOnShowCustomView3_1Cmd = &cobra.Command{
+	Use:   "on-show-custom-view3_1",
+	Short: "OnShowCustomView3_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebChromeClientServiceClient(grpcConn)
+		req := &pb.OnShowCustomView3_1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.OnShowCustomView3_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebChromeClientCustomViewCallbackCmd = &cobra.Command{
+	Use:   "web-chrome-client-custom-view-callback",
+	Short: "WebChromeClientCustomViewCallbackService operations",
+}
+
+var webkitWebChromeClientCustomViewCallbackOnCustomViewHiddenCmd = &cobra.Command{
+	Use:   "on-custom-view-hidden",
+	Short: "OnCustomViewHidden RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebChromeClientCustomViewCallbackServiceClient(grpcConn)
+		req := &pb.OnCustomViewHiddenRequest{}
+		resp, err := client.OnCustomViewHidden(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebChromeClientFileChooserParamsCmd = &cobra.Command{
+	Use:   "web-chrome-client-file-chooser-params",
+	Short: "WebChromeClientFileChooserParamsService operations",
+}
+
+var webkitWebChromeClientFileChooserParamsCreateIntentCmd = &cobra.Command{
+	Use:   "create-intent",
+	Short: "CreateIntent RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebChromeClientFileChooserParamsServiceClient(grpcConn)
+		req := &pb.CreateIntentRequest{}
+		resp, err := client.CreateIntent(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebChromeClientFileChooserParamsGetAcceptTypesCmd = &cobra.Command{
+	Use:   "get-accept-types",
+	Short: "GetAcceptTypes RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebChromeClientFileChooserParamsServiceClient(grpcConn)
+		req := &pb.GetAcceptTypesRequest{}
+		resp, err := client.GetAcceptTypes(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebChromeClientFileChooserParamsGetFilenameHintCmd = &cobra.Command{
+	Use:   "get-filename-hint",
+	Short: "GetFilenameHint RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebChromeClientFileChooserParamsServiceClient(grpcConn)
+		req := &pb.GetFilenameHintRequest{}
+		resp, err := client.GetFilenameHint(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebChromeClientFileChooserParamsGetModeCmd = &cobra.Command{
+	Use:   "get-mode",
+	Short: "GetMode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebChromeClientFileChooserParamsServiceClient(grpcConn)
+		req := &pb.GetModeRequest{}
+		resp, err := client.GetMode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebChromeClientFileChooserParamsGetTitleCmd = &cobra.Command{
+	Use:   "get-title",
+	Short: "GetTitle RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebChromeClientFileChooserParamsServiceClient(grpcConn)
+		req := &pb.WebChromeClientFileChooserParamsGetTitleRequest{}
+		resp, err := client.GetTitle(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebChromeClientFileChooserParamsIsCaptureEnabledCmd = &cobra.Command{
+	Use:   "is-capture-enabled",
+	Short: "IsCaptureEnabled RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebChromeClientFileChooserParamsServiceClient(grpcConn)
+		req := &pb.IsCaptureEnabledRequest{}
+		resp, err := client.IsCaptureEnabled(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebChromeClientFileChooserParamsParseResultCmd = &cobra.Command{
+	Use:   "parse-result",
+	Short: "ParseResult RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebChromeClientFileChooserParamsServiceClient(grpcConn)
+		req := &pb.ParseResultRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.ParseResult(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitServiceWorkerWebSettingsCmd = &cobra.Command{
+	Use:   "service-worker-web-settings",
+	Short: "ServiceWorkerWebSettingsService operations",
+}
+
+var webkitServiceWorkerWebSettingsGetAllowContentAccessCmd = &cobra.Command{
+	Use:   "get-allow-content-access",
+	Short: "GetAllowContentAccess RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewServiceWorkerWebSettingsServiceClient(grpcConn)
+		req := &pb.GetAllowContentAccessRequest{}
+		resp, err := client.GetAllowContentAccess(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitServiceWorkerWebSettingsGetAllowFileAccessCmd = &cobra.Command{
+	Use:   "get-allow-file-access",
+	Short: "GetAllowFileAccess RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewServiceWorkerWebSettingsServiceClient(grpcConn)
+		req := &pb.GetAllowFileAccessRequest{}
+		resp, err := client.GetAllowFileAccess(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitServiceWorkerWebSettingsGetBlockNetworkLoadsCmd = &cobra.Command{
+	Use:   "get-block-network-loads",
+	Short: "GetBlockNetworkLoads RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewServiceWorkerWebSettingsServiceClient(grpcConn)
+		req := &pb.GetBlockNetworkLoadsRequest{}
+		resp, err := client.GetBlockNetworkLoads(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitServiceWorkerWebSettingsGetCacheModeCmd = &cobra.Command{
+	Use:   "get-cache-mode",
+	Short: "GetCacheMode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewServiceWorkerWebSettingsServiceClient(grpcConn)
+		req := &pb.GetCacheModeRequest{}
+		resp, err := client.GetCacheMode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitServiceWorkerWebSettingsSetAllowContentAccessCmd = &cobra.Command{
+	Use:   "set-allow-content-access",
+	Short: "SetAllowContentAccess RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewServiceWorkerWebSettingsServiceClient(grpcConn)
+		req := &pb.SetAllowContentAccessRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetAllowContentAccess(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitServiceWorkerWebSettingsSetAllowFileAccessCmd = &cobra.Command{
+	Use:   "set-allow-file-access",
+	Short: "SetAllowFileAccess RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewServiceWorkerWebSettingsServiceClient(grpcConn)
+		req := &pb.SetAllowFileAccessRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetAllowFileAccess(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitServiceWorkerWebSettingsSetBlockNetworkLoadsCmd = &cobra.Command{
+	Use:   "set-block-network-loads",
+	Short: "SetBlockNetworkLoads RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewServiceWorkerWebSettingsServiceClient(grpcConn)
+		req := &pb.SetBlockNetworkLoadsRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetBlockNetworkLoads(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitServiceWorkerWebSettingsSetCacheModeCmd = &cobra.Command{
+	Use:   "set-cache-mode",
+	Short: "SetCacheMode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewServiceWorkerWebSettingsServiceClient(grpcConn)
+		req := &pb.SetCacheModeRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetCacheMode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitRenderProcessGoneDetailCmd = &cobra.Command{
+	Use:   "render-process-gone-detail",
+	Short: "RenderProcessGoneDetailService operations",
+}
+
+var webkitRenderProcessGoneDetailDidCrashCmd = &cobra.Command{
+	Use:   "did-crash",
+	Short: "DidCrash RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRenderProcessGoneDetailServiceClient(grpcConn)
+		req := &pb.DidCrashRequest{}
+		resp, err := client.DidCrash(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitRenderProcessGoneDetailRendererPriorityAtExitCmd = &cobra.Command{
+	Use:   "renderer-priority-at-exit",
+	Short: "RendererPriorityAtExit RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRenderProcessGoneDetailServiceClient(grpcConn)
+		req := &pb.RendererPriorityAtExitRequest{}
+		resp, err := client.RendererPriorityAtExit(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitDateSorterCmd = &cobra.Command{
+	Use:   "date-sorter",
+	Short: "DateSorterService operations",
+}
+
+var webkitDateSorterNewDateSorterCmd = &cobra.Command{
+	Use:   "new-date-sorter",
+	Short: "NewDateSorter RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDateSorterServiceClient(grpcConn)
+		req := &pb.NewDateSorterRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.NewDateSorter(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitDateSorterGetBoundaryCmd = &cobra.Command{
+	Use:   "get-boundary",
+	Short: "GetBoundary RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDateSorterServiceClient(grpcConn)
+		req := &pb.GetBoundaryRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetBoundary(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitDateSorterGetIndexCmd = &cobra.Command{
+	Use:   "get-index",
+	Short: "GetIndex RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDateSorterServiceClient(grpcConn)
+		req := &pb.GetIndexRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetIndex(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitDateSorterGetLabelCmd = &cobra.Command{
+	Use:   "get-label",
+	Short: "GetLabel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDateSorterServiceClient(grpcConn)
+		req := &pb.GetLabelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetLabel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitPluginStubCmd = &cobra.Command{
+	Use:   "plugin-stub",
+	Short: "PluginStubService operations",
+}
+
+var webkitPluginStubGetEmbeddedViewCmd = &cobra.Command{
+	Use:   "get-embedded-view",
+	Short: "GetEmbeddedView RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPluginStubServiceClient(grpcConn)
+		req := &pb.GetEmbeddedViewRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.GetEmbeddedView(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitPluginStubGetFullScreenViewCmd = &cobra.Command{
+	Use:   "get-full-screen-view",
+	Short: "GetFullScreenView RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPluginStubServiceClient(grpcConn)
+		req := &pb.GetFullScreenViewRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.GetFullScreenView(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebViewRenderProcessCmd = &cobra.Command{
+	Use:   "web-view-render-process",
+	Short: "WebViewRenderProcessService operations",
+}
+
+var webkitWebViewRenderProcessTerminateCmd = &cobra.Command{
+	Use:   "terminate",
+	Short: "Terminate RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebViewRenderProcessServiceClient(grpcConn)
+		req := &pb.TerminateRequest{}
+		resp, err := client.Terminate(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebResourceResponseCmd = &cobra.Command{
+	Use:   "web-resource-response",
+	Short: "WebResourceResponseService operations",
+}
+
+var webkitWebResourceResponseNewWebResourceResponseCmd = &cobra.Command{
+	Use:   "new-web-resource-response",
+	Short: "NewWebResourceResponse RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebResourceResponseServiceClient(grpcConn)
+		req := &pb.NewWebResourceResponseRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetString("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg5"); err == nil {
+			req.Arg5 = v
+		}
+		resp, err := client.NewWebResourceResponse(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebResourceResponseGetDataCmd = &cobra.Command{
+	Use:   "get-data",
+	Short: "GetData RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebResourceResponseServiceClient(grpcConn)
+		req := &pb.GetDataRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetData(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebResourceResponseGetEncodingCmd = &cobra.Command{
+	Use:   "get-encoding",
+	Short: "GetEncoding RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebResourceResponseServiceClient(grpcConn)
+		req := &pb.GetEncodingRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetEncoding(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebResourceResponseGetMimeTypeCmd = &cobra.Command{
+	Use:   "get-mime-type",
+	Short: "GetMimeType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebResourceResponseServiceClient(grpcConn)
+		req := &pb.GetMimeTypeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetMimeType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebResourceResponseGetReasonPhraseCmd = &cobra.Command{
+	Use:   "get-reason-phrase",
+	Short: "GetReasonPhrase RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebResourceResponseServiceClient(grpcConn)
+		req := &pb.GetReasonPhraseRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetReasonPhrase(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebResourceResponseGetStatusCodeCmd = &cobra.Command{
+	Use:   "get-status-code",
+	Short: "GetStatusCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebResourceResponseServiceClient(grpcConn)
+		req := &pb.GetStatusCodeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetStatusCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebResourceResponseSetDataCmd = &cobra.Command{
+	Use:   "set-data",
+	Short: "SetData RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebResourceResponseServiceClient(grpcConn)
+		req := &pb.SetDataRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetData(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebResourceResponseSetEncodingCmd = &cobra.Command{
+	Use:   "set-encoding",
+	Short: "SetEncoding RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebResourceResponseServiceClient(grpcConn)
+		req := &pb.SetEncodingRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetEncoding(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebResourceResponseSetMimeTypeCmd = &cobra.Command{
+	Use:   "set-mime-type",
+	Short: "SetMimeType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebResourceResponseServiceClient(grpcConn)
+		req := &pb.SetMimeTypeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetMimeType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebResourceResponseSetStatusCodeAndReasonPhraseCmd = &cobra.Command{
+	Use:   "set-status-code-and-reason-phrase",
+	Short: "SetStatusCodeAndReasonPhrase RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebResourceResponseServiceClient(grpcConn)
+		req := &pb.SetStatusCodeAndReasonPhraseRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.SetStatusCodeAndReasonPhrase(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitConsoleMessageCmd = &cobra.Command{
+	Use:   "console-message",
+	Short: "ConsoleMessageService operations",
+}
+
+var webkitConsoleMessageNewConsoleMessageCmd = &cobra.Command{
+	Use:   "new-console-message",
+	Short: "NewConsoleMessage RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConsoleMessageServiceClient(grpcConn)
+		req := &pb.NewConsoleMessageRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.NewConsoleMessage(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitConsoleMessageLineNumberCmd = &cobra.Command{
+	Use:   "line-number",
+	Short: "LineNumber RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConsoleMessageServiceClient(grpcConn)
+		req := &pb.LineNumberRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.LineNumber(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitConsoleMessageMessageCmd = &cobra.Command{
+	Use:   "message",
+	Short: "Message RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConsoleMessageServiceClient(grpcConn)
+		req := &pb.MessageRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.Message(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitConsoleMessageMessageLevelCmd = &cobra.Command{
+	Use:   "message-level",
+	Short: "MessageLevel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConsoleMessageServiceClient(grpcConn)
+		req := &pb.MessageLevelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.MessageLevel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitConsoleMessageSourceIdCmd = &cobra.Command{
+	Use:   "source-id",
+	Short: "SourceId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConsoleMessageServiceClient(grpcConn)
+		req := &pb.SourceIdRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.SourceId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitConsoleMessageMessageLevelSvcCmd = &cobra.Command{
+	Use:   "console-message-message-level",
+	Short: "ConsoleMessageMessageLevelService operations",
+}
+
+var webkitConsoleMessageMessageLevelSvcValuesCmd = &cobra.Command{
+	Use:   "values",
+	Short: "Values RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConsoleMessageMessageLevelServiceClient(grpcConn)
+		req := &pb.ValuesRequest{}
+		resp, err := client.Values(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitConsoleMessageMessageLevelSvcValueOfCmd = &cobra.Command{
+	Use:   "value-of",
+	Short: "ValueOf RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConsoleMessageMessageLevelServiceClient(grpcConn)
+		req := &pb.ValueOfRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.ValueOf(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitJsPromptResultCmd = &cobra.Command{
+	Use:   "js-prompt-result",
+	Short: "JsPromptResultService operations",
+}
+
+var webkitJsPromptResultConfirmCmd = &cobra.Command{
+	Use:   "confirm",
+	Short: "Confirm RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewJsPromptResultServiceClient(grpcConn)
+		req := &pb.ConfirmRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Confirm(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitJsResultCmd = &cobra.Command{
+	Use:   "js-result",
+	Short: "JsResultService operations",
+}
+
+var webkitJsResultCancelCmd = &cobra.Command{
+	Use:   "cancel",
+	Short: "Cancel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewJsResultServiceClient(grpcConn)
+		req := &pb.CancelRequest{}
+		resp, err := client.Cancel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitJsResultConfirmCmd = &cobra.Command{
+	Use:   "confirm",
+	Short: "Confirm RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewJsResultServiceClient(grpcConn)
+		req := &pb.JsResultConfirmRequest{}
+		resp, err := client.Confirm(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebMessagePortCmd = &cobra.Command{
+	Use:   "web-message-port",
+	Short: "WebMessagePortService operations",
+}
+
+var webkitWebMessagePortCloseCmd = &cobra.Command{
+	Use:   "close",
+	Short: "Close RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebMessagePortServiceClient(grpcConn)
+		req := &pb.CloseRequest{}
+		resp, err := client.Close(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebMessagePortPostMessageCmd = &cobra.Command{
+	Use:   "post-message",
+	Short: "PostMessage RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebMessagePortServiceClient(grpcConn)
+		req := &pb.PostMessageRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.PostMessage(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebMessagePortSetWebMessageCallbackCmd = &cobra.Command{
+	Use:   "set-web-message-callback",
+	Short: "SetWebMessageCallback RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebMessagePortServiceClient(grpcConn)
+		req := &pb.SetWebMessageCallbackRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetWebMessageCallback(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebMessagePortWebMessageCallbackCmd = &cobra.Command{
+	Use:   "web-message-port-web-message-callback",
+	Short: "WebMessagePortWebMessageCallbackService operations",
+}
+
+var webkitWebMessagePortWebMessageCallbackOnMessageCmd = &cobra.Command{
+	Use:   "on-message",
+	Short: "OnMessage RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebMessagePortWebMessageCallbackServiceClient(grpcConn)
+		req := &pb.OnMessageRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.OnMessage(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitMimeTypeMapCmd = &cobra.Command{
+	Use:   "mime-type-map",
+	Short: "MimeTypeMapService operations",
+}
+
+var webkitMimeTypeMapGetExtensionFromMimeTypeCmd = &cobra.Command{
+	Use:   "get-extension-from-mime-type",
+	Short: "GetExtensionFromMimeType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMimeTypeMapServiceClient(grpcConn)
+		req := &pb.GetExtensionFromMimeTypeRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetExtensionFromMimeType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitMimeTypeMapGetMimeTypeFromExtensionCmd = &cobra.Command{
+	Use:   "get-mime-type-from-extension",
+	Short: "GetMimeTypeFromExtension RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMimeTypeMapServiceClient(grpcConn)
+		req := &pb.GetMimeTypeFromExtensionRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetMimeTypeFromExtension(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitMimeTypeMapHasExtensionCmd = &cobra.Command{
+	Use:   "has-extension",
+	Short: "HasExtension RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMimeTypeMapServiceClient(grpcConn)
+		req := &pb.HasExtensionRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.HasExtension(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitMimeTypeMapHasMimeTypeCmd = &cobra.Command{
+	Use:   "has-mime-type",
+	Short: "HasMimeType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMimeTypeMapServiceClient(grpcConn)
+		req := &pb.HasMimeTypeRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.HasMimeType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitMimeTypeMapGetFileExtensionFromUrlCmd = &cobra.Command{
+	Use:   "get-file-extension-from-url",
+	Short: "GetFileExtensionFromUrl RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMimeTypeMapServiceClient(grpcConn)
+		req := &pb.GetFileExtensionFromUrlRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetFileExtensionFromUrl(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitMimeTypeMapGetSingletonCmd = &cobra.Command{
+	Use:   "get-singleton",
+	Short: "GetSingleton RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMimeTypeMapServiceClient(grpcConn)
+		req := &pb.GetSingletonRequest{}
+		resp, err := client.GetSingleton(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebResourceErrorCmd = &cobra.Command{
+	Use:   "web-resource-error",
+	Short: "WebResourceErrorService operations",
+}
+
+var webkitWebResourceErrorGetDescriptionCmd = &cobra.Command{
+	Use:   "get-description",
+	Short: "GetDescription RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebResourceErrorServiceClient(grpcConn)
+		req := &pb.GetDescriptionRequest{}
+		resp, err := client.GetDescription(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebResourceErrorGetErrorCodeCmd = &cobra.Command{
+	Use:   "get-error-code",
+	Short: "GetErrorCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebResourceErrorServiceClient(grpcConn)
+		req := &pb.GetErrorCodeRequest{}
+		resp, err := client.GetErrorCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var webkitSafeBrowsingResponseCmd = &cobra.Command{
 	Use:   "safe-browsing-response",
 	Short: "SafeBrowsingResponseService operations",
@@ -7947,20 +8904,20 @@ var webkitSafeBrowsingResponseShowInterstitialCmd = &cobra.Command{
 	},
 }
 
-var webkitWebViewRenderProcessCmd = &cobra.Command{
-	Use:   "web-view-render-process",
-	Short: "WebViewRenderProcessService operations",
+var webkitWebHistoryItemCmd = &cobra.Command{
+	Use:   "web-history-item",
+	Short: "WebHistoryItemService operations",
 }
 
-var webkitWebViewRenderProcessTerminateCmd = &cobra.Command{
-	Use:   "terminate",
-	Short: "Terminate RPC",
+var webkitWebHistoryItemGetFaviconCmd = &cobra.Command{
+	Use:   "get-favicon",
+	Short: "GetFavicon RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewWebViewRenderProcessServiceClient(grpcConn)
-		req := &pb.TerminateRequest{}
-		resp, err := client.Terminate(ctx, req)
+		client := pb.NewWebHistoryItemServiceClient(grpcConn)
+		req := &pb.WebHistoryItemGetFaviconRequest{}
+		resp, err := client.GetFavicon(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -7968,20 +8925,15 @@ var webkitWebViewRenderProcessTerminateCmd = &cobra.Command{
 	},
 }
 
-var webkitWebSettingsCmd = &cobra.Command{
-	Use:   "web-settings",
-	Short: "WebSettingsService operations",
-}
-
-var webkitWebSettingsEnableSmoothTransitionCmd = &cobra.Command{
-	Use:   "enable-smooth-transition",
-	Short: "EnableSmoothTransition RPC",
+var webkitWebHistoryItemGetOriginalUrlCmd = &cobra.Command{
+	Use:   "get-original-url",
+	Short: "GetOriginalUrl RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewWebSettingsServiceClient(grpcConn)
-		req := &pb.EnableSmoothTransitionRequest{}
-		resp, err := client.EnableSmoothTransition(ctx, req)
+		client := pb.NewWebHistoryItemServiceClient(grpcConn)
+		req := &pb.WebHistoryItemGetOriginalUrlRequest{}
+		resp, err := client.GetOriginalUrl(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -7989,15 +8941,15 @@ var webkitWebSettingsEnableSmoothTransitionCmd = &cobra.Command{
 	},
 }
 
-var webkitWebSettingsGetAllowContentAccessCmd = &cobra.Command{
-	Use:   "get-allow-content-access",
-	Short: "GetAllowContentAccess RPC",
+var webkitWebHistoryItemGetTitleCmd = &cobra.Command{
+	Use:   "get-title",
+	Short: "GetTitle RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewWebSettingsServiceClient(grpcConn)
-		req := &pb.GetAllowContentAccessRequest{}
-		resp, err := client.GetAllowContentAccess(ctx, req)
+		client := pb.NewWebHistoryItemServiceClient(grpcConn)
+		req := &pb.WebHistoryItemGetTitleRequest{}
+		resp, err := client.GetTitle(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -8005,15 +8957,15 @@ var webkitWebSettingsGetAllowContentAccessCmd = &cobra.Command{
 	},
 }
 
-var webkitWebSettingsGetAllowFileAccessCmd = &cobra.Command{
-	Use:   "get-allow-file-access",
-	Short: "GetAllowFileAccess RPC",
+var webkitWebHistoryItemGetUrlCmd = &cobra.Command{
+	Use:   "get-url",
+	Short: "GetUrl RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewWebSettingsServiceClient(grpcConn)
-		req := &pb.GetAllowFileAccessRequest{}
-		resp, err := client.GetAllowFileAccess(ctx, req)
+		client := pb.NewWebHistoryItemServiceClient(grpcConn)
+		req := &pb.WebHistoryItemGetUrlRequest{}
+		resp, err := client.GetUrl(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -8021,845 +8973,23 @@ var webkitWebSettingsGetAllowFileAccessCmd = &cobra.Command{
 	},
 }
 
-var webkitWebSettingsGetAllowFileAccessFromFileURLsCmd = &cobra.Command{
-	Use:   "get-allow-file-access-from-file-ur-ls",
-	Short: "GetAllowFileAccessFromFileURLs RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebSettingsServiceClient(grpcConn)
-		req := &pb.GetAllowFileAccessFromFileURLsRequest{}
-		resp, err := client.GetAllowFileAccessFromFileURLs(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
+var webkitWebMessageCmd = &cobra.Command{
+	Use:   "web-message",
+	Short: "WebMessageService operations",
 }
 
-var webkitWebSettingsGetAllowUniversalAccessFromFileURLsCmd = &cobra.Command{
-	Use:   "get-allow-universal-access-from-file-ur-ls",
-	Short: "GetAllowUniversalAccessFromFileURLs RPC",
+var webkitWebMessageNewWebMessageCmd = &cobra.Command{
+	Use:   "new-web-message",
+	Short: "NewWebMessage RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewWebSettingsServiceClient(grpcConn)
-		req := &pb.GetAllowUniversalAccessFromFileURLsRequest{}
-		resp, err := client.GetAllowUniversalAccessFromFileURLs(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebSettingsGetBlockNetworkImageCmd = &cobra.Command{
-	Use:   "get-block-network-image",
-	Short: "GetBlockNetworkImage RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebSettingsServiceClient(grpcConn)
-		req := &pb.GetBlockNetworkImageRequest{}
-		resp, err := client.GetBlockNetworkImage(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebSettingsGetBlockNetworkLoadsCmd = &cobra.Command{
-	Use:   "get-block-network-loads",
-	Short: "GetBlockNetworkLoads RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebSettingsServiceClient(grpcConn)
-		req := &pb.GetBlockNetworkLoadsRequest{}
-		resp, err := client.GetBlockNetworkLoads(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebSettingsGetBuiltInZoomControlsCmd = &cobra.Command{
-	Use:   "get-built-in-zoom-controls",
-	Short: "GetBuiltInZoomControls RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebSettingsServiceClient(grpcConn)
-		req := &pb.GetBuiltInZoomControlsRequest{}
-		resp, err := client.GetBuiltInZoomControls(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebSettingsGetCacheModeCmd = &cobra.Command{
-	Use:   "get-cache-mode",
-	Short: "GetCacheMode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebSettingsServiceClient(grpcConn)
-		req := &pb.GetCacheModeRequest{}
-		resp, err := client.GetCacheMode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebSettingsGetCursiveFontFamilyCmd = &cobra.Command{
-	Use:   "get-cursive-font-family",
-	Short: "GetCursiveFontFamily RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebSettingsServiceClient(grpcConn)
-		req := &pb.GetCursiveFontFamilyRequest{}
-		resp, err := client.GetCursiveFontFamily(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebSettingsGetDatabaseEnabledCmd = &cobra.Command{
-	Use:   "get-database-enabled",
-	Short: "GetDatabaseEnabled RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebSettingsServiceClient(grpcConn)
-		req := &pb.GetDatabaseEnabledRequest{}
-		resp, err := client.GetDatabaseEnabled(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebSettingsGetDatabasePathCmd = &cobra.Command{
-	Use:   "get-database-path",
-	Short: "GetDatabasePath RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebSettingsServiceClient(grpcConn)
-		req := &pb.GetDatabasePathRequest{}
-		resp, err := client.GetDatabasePath(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebSettingsGetDefaultFixedFontSizeCmd = &cobra.Command{
-	Use:   "get-default-fixed-font-size",
-	Short: "GetDefaultFixedFontSize RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebSettingsServiceClient(grpcConn)
-		req := &pb.GetDefaultFixedFontSizeRequest{}
-		resp, err := client.GetDefaultFixedFontSize(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebSettingsGetDefaultFontSizeCmd = &cobra.Command{
-	Use:   "get-default-font-size",
-	Short: "GetDefaultFontSize RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebSettingsServiceClient(grpcConn)
-		req := &pb.GetDefaultFontSizeRequest{}
-		resp, err := client.GetDefaultFontSize(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebSettingsGetDefaultTextEncodingNameCmd = &cobra.Command{
-	Use:   "get-default-text-encoding-name",
-	Short: "GetDefaultTextEncodingName RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebSettingsServiceClient(grpcConn)
-		req := &pb.GetDefaultTextEncodingNameRequest{}
-		resp, err := client.GetDefaultTextEncodingName(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebSettingsGetDefaultZoomCmd = &cobra.Command{
-	Use:   "get-default-zoom",
-	Short: "GetDefaultZoom RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebSettingsServiceClient(grpcConn)
-		req := &pb.GetDefaultZoomRequest{}
-		resp, err := client.GetDefaultZoom(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebSettingsGetDisabledActionModeMenuItemsCmd = &cobra.Command{
-	Use:   "get-disabled-action-mode-menu-items",
-	Short: "GetDisabledActionModeMenuItems RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebSettingsServiceClient(grpcConn)
-		req := &pb.GetDisabledActionModeMenuItemsRequest{}
-		resp, err := client.GetDisabledActionModeMenuItems(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebSettingsGetDisplayZoomControlsCmd = &cobra.Command{
-	Use:   "get-display-zoom-controls",
-	Short: "GetDisplayZoomControls RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebSettingsServiceClient(grpcConn)
-		req := &pb.GetDisplayZoomControlsRequest{}
-		resp, err := client.GetDisplayZoomControls(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebSettingsGetDomStorageEnabledCmd = &cobra.Command{
-	Use:   "get-dom-storage-enabled",
-	Short: "GetDomStorageEnabled RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebSettingsServiceClient(grpcConn)
-		req := &pb.GetDomStorageEnabledRequest{}
-		resp, err := client.GetDomStorageEnabled(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebSettingsGetFantasyFontFamilyCmd = &cobra.Command{
-	Use:   "get-fantasy-font-family",
-	Short: "GetFantasyFontFamily RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebSettingsServiceClient(grpcConn)
-		req := &pb.GetFantasyFontFamilyRequest{}
-		resp, err := client.GetFantasyFontFamily(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebSettingsGetFixedFontFamilyCmd = &cobra.Command{
-	Use:   "get-fixed-font-family",
-	Short: "GetFixedFontFamily RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebSettingsServiceClient(grpcConn)
-		req := &pb.GetFixedFontFamilyRequest{}
-		resp, err := client.GetFixedFontFamily(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebSettingsGetForceDarkCmd = &cobra.Command{
-	Use:   "get-force-dark",
-	Short: "GetForceDark RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebSettingsServiceClient(grpcConn)
-		req := &pb.GetForceDarkRequest{}
-		resp, err := client.GetForceDark(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebSettingsGetJavaScriptCanOpenWindowsAutomaticallyCmd = &cobra.Command{
-	Use:   "get-java-script-can-open-windows-automatically",
-	Short: "GetJavaScriptCanOpenWindowsAutomatically RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebSettingsServiceClient(grpcConn)
-		req := &pb.GetJavaScriptCanOpenWindowsAutomaticallyRequest{}
-		resp, err := client.GetJavaScriptCanOpenWindowsAutomatically(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebSettingsGetJavaScriptEnabledCmd = &cobra.Command{
-	Use:   "get-java-script-enabled",
-	Short: "GetJavaScriptEnabled RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebSettingsServiceClient(grpcConn)
-		req := &pb.GetJavaScriptEnabledRequest{}
-		resp, err := client.GetJavaScriptEnabled(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebSettingsGetLayoutAlgorithmCmd = &cobra.Command{
-	Use:   "get-layout-algorithm",
-	Short: "GetLayoutAlgorithm RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebSettingsServiceClient(grpcConn)
-		req := &pb.GetLayoutAlgorithmRequest{}
-		resp, err := client.GetLayoutAlgorithm(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebSettingsGetLightTouchEnabledCmd = &cobra.Command{
-	Use:   "get-light-touch-enabled",
-	Short: "GetLightTouchEnabled RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebSettingsServiceClient(grpcConn)
-		req := &pb.GetLightTouchEnabledRequest{}
-		resp, err := client.GetLightTouchEnabled(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebSettingsGetLoadWithOverviewModeCmd = &cobra.Command{
-	Use:   "get-load-with-overview-mode",
-	Short: "GetLoadWithOverviewMode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebSettingsServiceClient(grpcConn)
-		req := &pb.GetLoadWithOverviewModeRequest{}
-		resp, err := client.GetLoadWithOverviewMode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebSettingsGetLoadsImagesAutomaticallyCmd = &cobra.Command{
-	Use:   "get-loads-images-automatically",
-	Short: "GetLoadsImagesAutomatically RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebSettingsServiceClient(grpcConn)
-		req := &pb.GetLoadsImagesAutomaticallyRequest{}
-		resp, err := client.GetLoadsImagesAutomatically(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebSettingsGetMediaPlaybackRequiresUserGestureCmd = &cobra.Command{
-	Use:   "get-media-playback-requires-user-gesture",
-	Short: "GetMediaPlaybackRequiresUserGesture RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebSettingsServiceClient(grpcConn)
-		req := &pb.GetMediaPlaybackRequiresUserGestureRequest{}
-		resp, err := client.GetMediaPlaybackRequiresUserGesture(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebSettingsGetMinimumFontSizeCmd = &cobra.Command{
-	Use:   "get-minimum-font-size",
-	Short: "GetMinimumFontSize RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebSettingsServiceClient(grpcConn)
-		req := &pb.GetMinimumFontSizeRequest{}
-		resp, err := client.GetMinimumFontSize(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebSettingsGetMinimumLogicalFontSizeCmd = &cobra.Command{
-	Use:   "get-minimum-logical-font-size",
-	Short: "GetMinimumLogicalFontSize RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebSettingsServiceClient(grpcConn)
-		req := &pb.GetMinimumLogicalFontSizeRequest{}
-		resp, err := client.GetMinimumLogicalFontSize(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebSettingsGetMixedContentModeCmd = &cobra.Command{
-	Use:   "get-mixed-content-mode",
-	Short: "GetMixedContentMode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebSettingsServiceClient(grpcConn)
-		req := &pb.GetMixedContentModeRequest{}
-		resp, err := client.GetMixedContentMode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebSettingsGetOffscreenPreRasterCmd = &cobra.Command{
-	Use:   "get-offscreen-pre-raster",
-	Short: "GetOffscreenPreRaster RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebSettingsServiceClient(grpcConn)
-		req := &pb.GetOffscreenPreRasterRequest{}
-		resp, err := client.GetOffscreenPreRaster(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebSettingsGetPluginStateCmd = &cobra.Command{
-	Use:   "get-plugin-state",
-	Short: "GetPluginState RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebSettingsServiceClient(grpcConn)
-		req := &pb.GetPluginStateRequest{}
-		resp, err := client.GetPluginState(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebSettingsGetSafeBrowsingEnabledCmd = &cobra.Command{
-	Use:   "get-safe-browsing-enabled",
-	Short: "GetSafeBrowsingEnabled RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebSettingsServiceClient(grpcConn)
-		req := &pb.GetSafeBrowsingEnabledRequest{}
-		resp, err := client.GetSafeBrowsingEnabled(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebSettingsGetSansSerifFontFamilyCmd = &cobra.Command{
-	Use:   "get-sans-serif-font-family",
-	Short: "GetSansSerifFontFamily RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebSettingsServiceClient(grpcConn)
-		req := &pb.GetSansSerifFontFamilyRequest{}
-		resp, err := client.GetSansSerifFontFamily(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebSettingsGetSaveFormDataCmd = &cobra.Command{
-	Use:   "get-save-form-data",
-	Short: "GetSaveFormData RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebSettingsServiceClient(grpcConn)
-		req := &pb.GetSaveFormDataRequest{}
-		resp, err := client.GetSaveFormData(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebSettingsGetSavePasswordCmd = &cobra.Command{
-	Use:   "get-save-password",
-	Short: "GetSavePassword RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebSettingsServiceClient(grpcConn)
-		req := &pb.GetSavePasswordRequest{}
-		resp, err := client.GetSavePassword(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebSettingsGetSerifFontFamilyCmd = &cobra.Command{
-	Use:   "get-serif-font-family",
-	Short: "GetSerifFontFamily RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebSettingsServiceClient(grpcConn)
-		req := &pb.GetSerifFontFamilyRequest{}
-		resp, err := client.GetSerifFontFamily(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebSettingsGetStandardFontFamilyCmd = &cobra.Command{
-	Use:   "get-standard-font-family",
-	Short: "GetStandardFontFamily RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebSettingsServiceClient(grpcConn)
-		req := &pb.GetStandardFontFamilyRequest{}
-		resp, err := client.GetStandardFontFamily(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebSettingsGetTextZoomCmd = &cobra.Command{
-	Use:   "get-text-zoom",
-	Short: "GetTextZoom RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebSettingsServiceClient(grpcConn)
-		req := &pb.GetTextZoomRequest{}
-		resp, err := client.GetTextZoom(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebSettingsGetUseWideViewPortCmd = &cobra.Command{
-	Use:   "get-use-wide-view-port",
-	Short: "GetUseWideViewPort RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebSettingsServiceClient(grpcConn)
-		req := &pb.GetUseWideViewPortRequest{}
-		resp, err := client.GetUseWideViewPort(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebSettingsGetUserAgentStringCmd = &cobra.Command{
-	Use:   "get-user-agent-string",
-	Short: "GetUserAgentString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebSettingsServiceClient(grpcConn)
-		req := &pb.GetUserAgentStringRequest{}
-		resp, err := client.GetUserAgentString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebSettingsIsAlgorithmicDarkeningAllowedCmd = &cobra.Command{
-	Use:   "is-algorithmic-darkening-allowed",
-	Short: "IsAlgorithmicDarkeningAllowed RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebSettingsServiceClient(grpcConn)
-		req := &pb.IsAlgorithmicDarkeningAllowedRequest{}
-		resp, err := client.IsAlgorithmicDarkeningAllowed(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebSettingsSetAlgorithmicDarkeningAllowedCmd = &cobra.Command{
-	Use:   "set-algorithmic-darkening-allowed",
-	Short: "SetAlgorithmicDarkeningAllowed RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebSettingsServiceClient(grpcConn)
-		req := &pb.SetAlgorithmicDarkeningAllowedRequest{}
-		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetAlgorithmicDarkeningAllowed(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebSettingsSetAllowContentAccessCmd = &cobra.Command{
-	Use:   "set-allow-content-access",
-	Short: "SetAllowContentAccess RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebSettingsServiceClient(grpcConn)
-		req := &pb.SetAllowContentAccessRequest{}
-		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetAllowContentAccess(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebSettingsSetAllowFileAccessCmd = &cobra.Command{
-	Use:   "set-allow-file-access",
-	Short: "SetAllowFileAccess RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebSettingsServiceClient(grpcConn)
-		req := &pb.SetAllowFileAccessRequest{}
-		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetAllowFileAccess(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebSettingsSetAllowFileAccessFromFileURLsCmd = &cobra.Command{
-	Use:   "set-allow-file-access-from-file-ur-ls",
-	Short: "SetAllowFileAccessFromFileURLs RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebSettingsServiceClient(grpcConn)
-		req := &pb.SetAllowFileAccessFromFileURLsRequest{}
-		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetAllowFileAccessFromFileURLs(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebSettingsSetAllowUniversalAccessFromFileURLsCmd = &cobra.Command{
-	Use:   "set-allow-universal-access-from-file-ur-ls",
-	Short: "SetAllowUniversalAccessFromFileURLs RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebSettingsServiceClient(grpcConn)
-		req := &pb.SetAllowUniversalAccessFromFileURLsRequest{}
-		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetAllowUniversalAccessFromFileURLs(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebSettingsSetBlockNetworkImageCmd = &cobra.Command{
-	Use:   "set-block-network-image",
-	Short: "SetBlockNetworkImage RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebSettingsServiceClient(grpcConn)
-		req := &pb.SetBlockNetworkImageRequest{}
-		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetBlockNetworkImage(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebSettingsSetBlockNetworkLoadsCmd = &cobra.Command{
-	Use:   "set-block-network-loads",
-	Short: "SetBlockNetworkLoads RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebSettingsServiceClient(grpcConn)
-		req := &pb.SetBlockNetworkLoadsRequest{}
-		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetBlockNetworkLoads(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebSettingsSetBuiltInZoomControlsCmd = &cobra.Command{
-	Use:   "set-built-in-zoom-controls",
-	Short: "SetBuiltInZoomControls RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebSettingsServiceClient(grpcConn)
-		req := &pb.SetBuiltInZoomControlsRequest{}
-		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetBuiltInZoomControls(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebSettingsSetCacheModeCmd = &cobra.Command{
-	Use:   "set-cache-mode",
-	Short: "SetCacheMode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebSettingsServiceClient(grpcConn)
-		req := &pb.SetCacheModeRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetCacheMode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebSettingsSetCursiveFontFamilyCmd = &cobra.Command{
-	Use:   "set-cursive-font-family",
-	Short: "SetCursiveFontFamily RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebSettingsServiceClient(grpcConn)
-		req := &pb.SetCursiveFontFamilyRequest{}
+		client := pb.NewWebMessageServiceClient(grpcConn)
+		req := &pb.NewWebMessageRequest{}
 		if v, err := cmd.Flags().GetString("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		resp, err := client.SetCursiveFontFamily(ctx, req)
+		resp, err := client.NewWebMessage(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -8867,18 +8997,18 @@ var webkitWebSettingsSetCursiveFontFamilyCmd = &cobra.Command{
 	},
 }
 
-var webkitWebSettingsSetDatabaseEnabledCmd = &cobra.Command{
-	Use:   "set-database-enabled",
-	Short: "SetDatabaseEnabled RPC",
+var webkitWebMessageGetDataCmd = &cobra.Command{
+	Use:   "get-data",
+	Short: "GetData RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewWebSettingsServiceClient(grpcConn)
-		req := &pb.SetDatabaseEnabledRequest{}
-		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
-			req.Arg0 = v
+		client := pb.NewWebMessageServiceClient(grpcConn)
+		req := &pb.GetDataRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
 		}
-		resp, err := client.SetDatabaseEnabled(ctx, req)
+		resp, err := client.GetData(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -8886,18 +9016,18 @@ var webkitWebSettingsSetDatabaseEnabledCmd = &cobra.Command{
 	},
 }
 
-var webkitWebSettingsSetDatabasePathCmd = &cobra.Command{
-	Use:   "set-database-path",
-	Short: "SetDatabasePath RPC",
+var webkitWebMessageGetPortsCmd = &cobra.Command{
+	Use:   "get-ports",
+	Short: "GetPorts RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewWebSettingsServiceClient(grpcConn)
-		req := &pb.SetDatabasePathRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
+		client := pb.NewWebMessageServiceClient(grpcConn)
+		req := &pb.GetPortsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
 		}
-		resp, err := client.SetDatabasePath(ctx, req)
+		resp, err := client.GetPorts(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -8905,18 +9035,20 @@ var webkitWebSettingsSetDatabasePathCmd = &cobra.Command{
 	},
 }
 
-var webkitWebSettingsSetDefaultFixedFontSizeCmd = &cobra.Command{
-	Use:   "set-default-fixed-font-size",
-	Short: "SetDefaultFixedFontSize RPC",
+var webkitWebViewFragmentCmd = &cobra.Command{
+	Use:   "web-view-fragment",
+	Short: "WebViewFragmentService operations",
+}
+
+var webkitWebViewFragmentNewWebViewFragmentCmd = &cobra.Command{
+	Use:   "new-web-view-fragment",
+	Short: "NewWebViewFragment RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewWebSettingsServiceClient(grpcConn)
-		req := &pb.SetDefaultFixedFontSizeRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetDefaultFixedFontSize(ctx, req)
+		client := pb.NewWebViewFragmentServiceClient(grpcConn)
+		req := &pb.NewWebViewFragmentRequest{}
+		resp, err := client.NewWebViewFragment(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -8924,18 +9056,18 @@ var webkitWebSettingsSetDefaultFixedFontSizeCmd = &cobra.Command{
 	},
 }
 
-var webkitWebSettingsSetDefaultFontSizeCmd = &cobra.Command{
-	Use:   "set-default-font-size",
-	Short: "SetDefaultFontSize RPC",
+var webkitWebViewFragmentGetWebViewCmd = &cobra.Command{
+	Use:   "get-web-view",
+	Short: "GetWebView RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewWebSettingsServiceClient(grpcConn)
-		req := &pb.SetDefaultFontSizeRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
+		client := pb.NewWebViewFragmentServiceClient(grpcConn)
+		req := &pb.GetWebViewRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
 		}
-		resp, err := client.SetDefaultFontSize(ctx, req)
+		resp, err := client.GetWebView(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -8943,37 +9075,27 @@ var webkitWebSettingsSetDefaultFontSizeCmd = &cobra.Command{
 	},
 }
 
-var webkitWebSettingsSetDefaultTextEncodingNameCmd = &cobra.Command{
-	Use:   "set-default-text-encoding-name",
-	Short: "SetDefaultTextEncodingName RPC",
+var webkitWebViewFragmentOnCreateViewCmd = &cobra.Command{
+	Use:   "on-create-view",
+	Short: "OnCreateView RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewWebSettingsServiceClient(grpcConn)
-		req := &pb.SetDefaultTextEncodingNameRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
+		client := pb.NewWebViewFragmentServiceClient(grpcConn)
+		req := &pb.OnCreateViewRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
 		}
-		resp, err := client.SetDefaultTextEncodingName(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebSettingsSetDefaultZoomCmd = &cobra.Command{
-	Use:   "set-default-zoom",
-	Short: "SetDefaultZoom RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebSettingsServiceClient(grpcConn)
-		req := &pb.SetDefaultZoomRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		resp, err := client.SetDefaultZoom(ctx, req)
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.OnCreateView(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -8981,18 +9103,18 @@ var webkitWebSettingsSetDefaultZoomCmd = &cobra.Command{
 	},
 }
 
-var webkitWebSettingsSetDisabledActionModeMenuItemsCmd = &cobra.Command{
-	Use:   "set-disabled-action-mode-menu-items",
-	Short: "SetDisabledActionModeMenuItems RPC",
+var webkitWebViewFragmentOnDestroyCmd = &cobra.Command{
+	Use:   "on-destroy",
+	Short: "OnDestroy RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewWebSettingsServiceClient(grpcConn)
-		req := &pb.SetDisabledActionModeMenuItemsRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
+		client := pb.NewWebViewFragmentServiceClient(grpcConn)
+		req := &pb.OnDestroyRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
 		}
-		resp, err := client.SetDisabledActionModeMenuItems(ctx, req)
+		resp, err := client.OnDestroy(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -9000,18 +9122,18 @@ var webkitWebSettingsSetDisabledActionModeMenuItemsCmd = &cobra.Command{
 	},
 }
 
-var webkitWebSettingsSetDisplayZoomControlsCmd = &cobra.Command{
-	Use:   "set-display-zoom-controls",
-	Short: "SetDisplayZoomControls RPC",
+var webkitWebViewFragmentOnDestroyViewCmd = &cobra.Command{
+	Use:   "on-destroy-view",
+	Short: "OnDestroyView RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewWebSettingsServiceClient(grpcConn)
-		req := &pb.SetDisplayZoomControlsRequest{}
-		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
-			req.Arg0 = v
+		client := pb.NewWebViewFragmentServiceClient(grpcConn)
+		req := &pb.OnDestroyViewRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
 		}
-		resp, err := client.SetDisplayZoomControls(ctx, req)
+		resp, err := client.OnDestroyView(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -9019,18 +9141,18 @@ var webkitWebSettingsSetDisplayZoomControlsCmd = &cobra.Command{
 	},
 }
 
-var webkitWebSettingsSetDomStorageEnabledCmd = &cobra.Command{
-	Use:   "set-dom-storage-enabled",
-	Short: "SetDomStorageEnabled RPC",
+var webkitWebViewFragmentOnPauseCmd = &cobra.Command{
+	Use:   "on-pause",
+	Short: "OnPause RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewWebSettingsServiceClient(grpcConn)
-		req := &pb.SetDomStorageEnabledRequest{}
-		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
-			req.Arg0 = v
+		client := pb.NewWebViewFragmentServiceClient(grpcConn)
+		req := &pb.OnPauseRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
 		}
-		resp, err := client.SetDomStorageEnabled(ctx, req)
+		resp, err := client.OnPause(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -9038,18 +9160,18 @@ var webkitWebSettingsSetDomStorageEnabledCmd = &cobra.Command{
 	},
 }
 
-var webkitWebSettingsSetEnableSmoothTransitionCmd = &cobra.Command{
-	Use:   "set-enable-smooth-transition",
-	Short: "SetEnableSmoothTransition RPC",
+var webkitWebViewFragmentOnResumeCmd = &cobra.Command{
+	Use:   "on-resume",
+	Short: "OnResume RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewWebSettingsServiceClient(grpcConn)
-		req := &pb.SetEnableSmoothTransitionRequest{}
-		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
-			req.Arg0 = v
+		client := pb.NewWebViewFragmentServiceClient(grpcConn)
+		req := &pb.OnResumeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
 		}
-		resp, err := client.SetEnableSmoothTransition(ctx, req)
+		resp, err := client.OnResume(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -9057,18 +9179,20 @@ var webkitWebSettingsSetEnableSmoothTransitionCmd = &cobra.Command{
 	},
 }
 
-var webkitWebSettingsSetFantasyFontFamilyCmd = &cobra.Command{
-	Use:   "set-fantasy-font-family",
-	Short: "SetFantasyFontFamily RPC",
+var webkitPermissionRequestCmd = &cobra.Command{
+	Use:   "permission-request",
+	Short: "PermissionRequestService operations",
+}
+
+var webkitPermissionRequestDenyCmd = &cobra.Command{
+	Use:   "deny",
+	Short: "Deny RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewWebSettingsServiceClient(grpcConn)
-		req := &pb.SetFantasyFontFamilyRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetFantasyFontFamily(ctx, req)
+		client := pb.NewPermissionRequestServiceClient(grpcConn)
+		req := &pb.DenyRequest{}
+		resp, err := client.Deny(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -9076,18 +9200,15 @@ var webkitWebSettingsSetFantasyFontFamilyCmd = &cobra.Command{
 	},
 }
 
-var webkitWebSettingsSetFixedFontFamilyCmd = &cobra.Command{
-	Use:   "set-fixed-font-family",
-	Short: "SetFixedFontFamily RPC",
+var webkitPermissionRequestGetOriginCmd = &cobra.Command{
+	Use:   "get-origin",
+	Short: "GetOrigin RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewWebSettingsServiceClient(grpcConn)
-		req := &pb.SetFixedFontFamilyRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetFixedFontFamily(ctx, req)
+		client := pb.NewPermissionRequestServiceClient(grpcConn)
+		req := &pb.GetOriginRequest{}
+		resp, err := client.GetOrigin(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -9095,18 +9216,15 @@ var webkitWebSettingsSetFixedFontFamilyCmd = &cobra.Command{
 	},
 }
 
-var webkitWebSettingsSetForceDarkCmd = &cobra.Command{
-	Use:   "set-force-dark",
-	Short: "SetForceDark RPC",
+var webkitPermissionRequestGetResourcesCmd = &cobra.Command{
+	Use:   "get-resources",
+	Short: "GetResources RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewWebSettingsServiceClient(grpcConn)
-		req := &pb.SetForceDarkRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetForceDark(ctx, req)
+		client := pb.NewPermissionRequestServiceClient(grpcConn)
+		req := &pb.GetResourcesRequest{}
+		resp, err := client.GetResources(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -9114,94 +9232,18 @@ var webkitWebSettingsSetForceDarkCmd = &cobra.Command{
 	},
 }
 
-var webkitWebSettingsSetGeolocationDatabasePathCmd = &cobra.Command{
-	Use:   "set-geolocation-database-path",
-	Short: "SetGeolocationDatabasePath RPC",
+var webkitPermissionRequestGrantCmd = &cobra.Command{
+	Use:   "grant",
+	Short: "Grant RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewWebSettingsServiceClient(grpcConn)
-		req := &pb.SetGeolocationDatabasePathRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetGeolocationDatabasePath(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebSettingsSetGeolocationEnabledCmd = &cobra.Command{
-	Use:   "set-geolocation-enabled",
-	Short: "SetGeolocationEnabled RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebSettingsServiceClient(grpcConn)
-		req := &pb.SetGeolocationEnabledRequest{}
-		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetGeolocationEnabled(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebSettingsSetJavaScriptCanOpenWindowsAutomaticallyCmd = &cobra.Command{
-	Use:   "set-java-script-can-open-windows-automatically",
-	Short: "SetJavaScriptCanOpenWindowsAutomatically RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebSettingsServiceClient(grpcConn)
-		req := &pb.SetJavaScriptCanOpenWindowsAutomaticallyRequest{}
-		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetJavaScriptCanOpenWindowsAutomatically(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebSettingsSetJavaScriptEnabledCmd = &cobra.Command{
-	Use:   "set-java-script-enabled",
-	Short: "SetJavaScriptEnabled RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebSettingsServiceClient(grpcConn)
-		req := &pb.SetJavaScriptEnabledRequest{}
-		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetJavaScriptEnabled(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebSettingsSetLayoutAlgorithmCmd = &cobra.Command{
-	Use:   "set-layout-algorithm",
-	Short: "SetLayoutAlgorithm RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebSettingsServiceClient(grpcConn)
-		req := &pb.SetLayoutAlgorithmRequest{}
+		client := pb.NewPermissionRequestServiceClient(grpcConn)
+		req := &pb.GrantRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		resp, err := client.SetLayoutAlgorithm(ctx, req)
+		resp, err := client.Grant(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -9209,18 +9251,39 @@ var webkitWebSettingsSetLayoutAlgorithmCmd = &cobra.Command{
 	},
 }
 
-var webkitWebSettingsSetLightTouchEnabledCmd = &cobra.Command{
-	Use:   "set-light-touch-enabled",
-	Short: "SetLightTouchEnabled RPC",
+var webkitWebIconDatabaseCmd = &cobra.Command{
+	Use:   "web-icon-database",
+	Short: "WebIconDatabaseService operations",
+}
+
+var webkitWebIconDatabaseCloseCmd = &cobra.Command{
+	Use:   "close",
+	Short: "Close RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewWebSettingsServiceClient(grpcConn)
-		req := &pb.SetLightTouchEnabledRequest{}
-		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+		client := pb.NewWebIconDatabaseServiceClient(grpcConn)
+		req := &pb.CloseRequest{}
+		resp, err := client.Close(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebIconDatabaseOpenCmd = &cobra.Command{
+	Use:   "open",
+	Short: "Open RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebIconDatabaseServiceClient(grpcConn)
+		req := &pb.OpenRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		resp, err := client.SetLightTouchEnabled(ctx, req)
+		resp, err := client.Open(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -9228,18 +9291,18 @@ var webkitWebSettingsSetLightTouchEnabledCmd = &cobra.Command{
 	},
 }
 
-var webkitWebSettingsSetLoadWithOverviewModeCmd = &cobra.Command{
-	Use:   "set-load-with-overview-mode",
-	Short: "SetLoadWithOverviewMode RPC",
+var webkitWebIconDatabaseReleaseIconForPageUrlCmd = &cobra.Command{
+	Use:   "release-icon-for-page-url",
+	Short: "ReleaseIconForPageUrl RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewWebSettingsServiceClient(grpcConn)
-		req := &pb.SetLoadWithOverviewModeRequest{}
-		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+		client := pb.NewWebIconDatabaseServiceClient(grpcConn)
+		req := &pb.ReleaseIconForPageUrlRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		resp, err := client.SetLoadWithOverviewMode(ctx, req)
+		resp, err := client.ReleaseIconForPageUrl(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -9247,18 +9310,37 @@ var webkitWebSettingsSetLoadWithOverviewModeCmd = &cobra.Command{
 	},
 }
 
-var webkitWebSettingsSetLoadsImagesAutomaticallyCmd = &cobra.Command{
-	Use:   "set-loads-images-automatically",
-	Short: "SetLoadsImagesAutomatically RPC",
+var webkitWebIconDatabaseRemoveAllIconsCmd = &cobra.Command{
+	Use:   "remove-all-icons",
+	Short: "RemoveAllIcons RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewWebSettingsServiceClient(grpcConn)
-		req := &pb.SetLoadsImagesAutomaticallyRequest{}
-		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+		client := pb.NewWebIconDatabaseServiceClient(grpcConn)
+		req := &pb.RemoveAllIconsRequest{}
+		resp, err := client.RemoveAllIcons(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebIconDatabaseRequestIconForPageUrlCmd = &cobra.Command{
+	Use:   "request-icon-for-page-url",
+	Short: "RequestIconForPageUrl RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebIconDatabaseServiceClient(grpcConn)
+		req := &pb.RequestIconForPageUrlRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		resp, err := client.SetLoadsImagesAutomatically(ctx, req)
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.RequestIconForPageUrl(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -9266,18 +9348,18 @@ var webkitWebSettingsSetLoadsImagesAutomaticallyCmd = &cobra.Command{
 	},
 }
 
-var webkitWebSettingsSetMediaPlaybackRequiresUserGestureCmd = &cobra.Command{
-	Use:   "set-media-playback-requires-user-gesture",
-	Short: "SetMediaPlaybackRequiresUserGesture RPC",
+var webkitWebIconDatabaseRetainIconForPageUrlCmd = &cobra.Command{
+	Use:   "retain-icon-for-page-url",
+	Short: "RetainIconForPageUrl RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewWebSettingsServiceClient(grpcConn)
-		req := &pb.SetMediaPlaybackRequiresUserGestureRequest{}
-		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+		client := pb.NewWebIconDatabaseServiceClient(grpcConn)
+		req := &pb.RetainIconForPageUrlRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		resp, err := client.SetMediaPlaybackRequiresUserGesture(ctx, req)
+		resp, err := client.RetainIconForPageUrl(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -9285,18 +9367,134 @@ var webkitWebSettingsSetMediaPlaybackRequiresUserGestureCmd = &cobra.Command{
 	},
 }
 
-var webkitWebSettingsSetMinimumFontSizeCmd = &cobra.Command{
-	Use:   "set-minimum-font-size",
-	Short: "SetMinimumFontSize RPC",
+var webkitWebIconDatabaseGetInstanceCmd = &cobra.Command{
+	Use:   "get-instance",
+	Short: "GetInstance RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewWebSettingsServiceClient(grpcConn)
-		req := &pb.SetMinimumFontSizeRequest{}
+		client := pb.NewWebIconDatabaseServiceClient(grpcConn)
+		req := &pb.GetInstanceRequest{}
+		resp, err := client.GetInstance(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebIconDatabaseIconListenerCmd = &cobra.Command{
+	Use:   "web-icon-database-icon-listener",
+	Short: "WebIconDatabaseIconListenerService operations",
+}
+
+var webkitWebIconDatabaseIconListenerOnReceivedIconCmd = &cobra.Command{
+	Use:   "on-received-icon",
+	Short: "OnReceivedIcon RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebIconDatabaseIconListenerServiceClient(grpcConn)
+		req := &pb.WebIconDatabaseIconListenerOnReceivedIconRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.OnReceivedIcon(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitDownloadListenerCmd = &cobra.Command{
+	Use:   "download-listener",
+	Short: "DownloadListenerService operations",
+}
+
+var webkitDownloadListenerOnDownloadStartCmd = &cobra.Command{
+	Use:   "on-download-start",
+	Short: "OnDownloadStart RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDownloadListenerServiceClient(grpcConn)
+		req := &pb.OnDownloadStartRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetString("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetString("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		resp, err := client.OnDownloadStart(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebBackForwardListCmd = &cobra.Command{
+	Use:   "web-back-forward-list",
+	Short: "WebBackForwardListService operations",
+}
+
+var webkitWebBackForwardListGetCurrentIndexCmd = &cobra.Command{
+	Use:   "get-current-index",
+	Short: "GetCurrentIndex RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebBackForwardListServiceClient(grpcConn)
+		req := &pb.GetCurrentIndexRequest{}
+		resp, err := client.GetCurrentIndex(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebBackForwardListGetCurrentItemCmd = &cobra.Command{
+	Use:   "get-current-item",
+	Short: "GetCurrentItem RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebBackForwardListServiceClient(grpcConn)
+		req := &pb.GetCurrentItemRequest{}
+		resp, err := client.GetCurrentItem(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebBackForwardListGetItemAtIndexCmd = &cobra.Command{
+	Use:   "get-item-at-index",
+	Short: "GetItemAtIndex RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebBackForwardListServiceClient(grpcConn)
+		req := &pb.GetItemAtIndexRequest{}
 		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		resp, err := client.SetMinimumFontSize(ctx, req)
+		resp, err := client.GetItemAtIndex(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -9304,18 +9502,15 @@ var webkitWebSettingsSetMinimumFontSizeCmd = &cobra.Command{
 	},
 }
 
-var webkitWebSettingsSetMinimumLogicalFontSizeCmd = &cobra.Command{
-	Use:   "set-minimum-logical-font-size",
-	Short: "SetMinimumLogicalFontSize RPC",
+var webkitWebBackForwardListGetSizeCmd = &cobra.Command{
+	Use:   "get-size",
+	Short: "GetSize RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewWebSettingsServiceClient(grpcConn)
-		req := &pb.SetMinimumLogicalFontSizeRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetMinimumLogicalFontSize(ctx, req)
+		client := pb.NewWebBackForwardListServiceClient(grpcConn)
+		req := &pb.GetSizeRequest{}
+		resp, err := client.GetSize(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -9323,18 +9518,20 @@ var webkitWebSettingsSetMinimumLogicalFontSizeCmd = &cobra.Command{
 	},
 }
 
-var webkitWebSettingsSetMixedContentModeCmd = &cobra.Command{
-	Use:   "set-mixed-content-mode",
-	Short: "SetMixedContentMode RPC",
+var webkitWebResourceRequestCmd = &cobra.Command{
+	Use:   "web-resource-request",
+	Short: "WebResourceRequestService operations",
+}
+
+var webkitWebResourceRequestGetMethodCmd = &cobra.Command{
+	Use:   "get-method",
+	Short: "GetMethod RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewWebSettingsServiceClient(grpcConn)
-		req := &pb.SetMixedContentModeRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetMixedContentMode(ctx, req)
+		client := pb.NewWebResourceRequestServiceClient(grpcConn)
+		req := &pb.GetMethodRequest{}
+		resp, err := client.GetMethod(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -9342,18 +9539,15 @@ var webkitWebSettingsSetMixedContentModeCmd = &cobra.Command{
 	},
 }
 
-var webkitWebSettingsSetNeedInitialFocusCmd = &cobra.Command{
-	Use:   "set-need-initial-focus",
-	Short: "SetNeedInitialFocus RPC",
+var webkitWebResourceRequestGetUrlCmd = &cobra.Command{
+	Use:   "get-url",
+	Short: "GetUrl RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewWebSettingsServiceClient(grpcConn)
-		req := &pb.SetNeedInitialFocusRequest{}
-		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetNeedInitialFocus(ctx, req)
+		client := pb.NewWebResourceRequestServiceClient(grpcConn)
+		req := &pb.WebResourceRequestGetUrlRequest{}
+		resp, err := client.GetUrl(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -9361,18 +9555,15 @@ var webkitWebSettingsSetNeedInitialFocusCmd = &cobra.Command{
 	},
 }
 
-var webkitWebSettingsSetOffscreenPreRasterCmd = &cobra.Command{
-	Use:   "set-offscreen-pre-raster",
-	Short: "SetOffscreenPreRaster RPC",
+var webkitWebResourceRequestHasGestureCmd = &cobra.Command{
+	Use:   "has-gesture",
+	Short: "HasGesture RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewWebSettingsServiceClient(grpcConn)
-		req := &pb.SetOffscreenPreRasterRequest{}
-		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetOffscreenPreRaster(ctx, req)
+		client := pb.NewWebResourceRequestServiceClient(grpcConn)
+		req := &pb.HasGestureRequest{}
+		resp, err := client.HasGesture(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -9380,18 +9571,74 @@ var webkitWebSettingsSetOffscreenPreRasterCmd = &cobra.Command{
 	},
 }
 
-var webkitWebSettingsSetPluginStateCmd = &cobra.Command{
-	Use:   "set-plugin-state",
-	Short: "SetPluginState RPC",
+var webkitWebResourceRequestIsForMainFrameCmd = &cobra.Command{
+	Use:   "is-for-main-frame",
+	Short: "IsForMainFrame RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewWebSettingsServiceClient(grpcConn)
-		req := &pb.SetPluginStateRequest{}
+		client := pb.NewWebResourceRequestServiceClient(grpcConn)
+		req := &pb.IsForMainFrameRequest{}
+		resp, err := client.IsForMainFrame(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebResourceRequestIsRedirectCmd = &cobra.Command{
+	Use:   "is-redirect",
+	Short: "IsRedirect RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebResourceRequestServiceClient(grpcConn)
+		req := &pb.IsRedirectRequest{}
+		resp, err := client.IsRedirect(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitServiceWorkerClientCmd = &cobra.Command{
+	Use:   "service-worker-client",
+	Short: "ServiceWorkerClientService operations",
+}
+
+var webkitServiceWorkerClientNewServiceWorkerClientCmd = &cobra.Command{
+	Use:   "new-service-worker-client",
+	Short: "NewServiceWorkerClient RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewServiceWorkerClientServiceClient(grpcConn)
+		req := &pb.NewServiceWorkerClientRequest{}
+		resp, err := client.NewServiceWorkerClient(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitServiceWorkerClientShouldInterceptRequestCmd = &cobra.Command{
+	Use:   "should-intercept-request",
+	Short: "ShouldInterceptRequest RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewServiceWorkerClientServiceClient(grpcConn)
+		req := &pb.ShouldInterceptRequestRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		resp, err := client.SetPluginState(ctx, req)
+		resp, err := client.ShouldInterceptRequest(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -9399,18 +9646,169 @@ var webkitWebSettingsSetPluginStateCmd = &cobra.Command{
 	},
 }
 
-var webkitWebSettingsSetRenderPriorityCmd = &cobra.Command{
-	Use:   "set-render-priority",
-	Short: "SetRenderPriority RPC",
+var webkitWebViewDatabaseCmd = &cobra.Command{
+	Use:   "web-view-database",
+	Short: "WebViewDatabaseService operations",
+}
+
+var webkitWebViewDatabaseClearFormDataCmd = &cobra.Command{
+	Use:   "clear-form-data",
+	Short: "ClearFormData RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewWebSettingsServiceClient(grpcConn)
-		req := &pb.SetRenderPriorityRequest{}
+		client := pb.NewWebViewDatabaseServiceClient(grpcConn)
+		req := &pb.WebViewDatabaseClearFormDataRequest{}
+		resp, err := client.ClearFormData(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebViewDatabaseClearHttpAuthUsernamePasswordCmd = &cobra.Command{
+	Use:   "clear-http-auth-username-password",
+	Short: "ClearHttpAuthUsernamePassword RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebViewDatabaseServiceClient(grpcConn)
+		req := &pb.ClearHttpAuthUsernamePasswordRequest{}
+		resp, err := client.ClearHttpAuthUsernamePassword(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebViewDatabaseClearUsernamePasswordCmd = &cobra.Command{
+	Use:   "clear-username-password",
+	Short: "ClearUsernamePassword RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebViewDatabaseServiceClient(grpcConn)
+		req := &pb.ClearUsernamePasswordRequest{}
+		resp, err := client.ClearUsernamePassword(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebViewDatabaseGetHttpAuthUsernamePasswordCmd = &cobra.Command{
+	Use:   "get-http-auth-username-password",
+	Short: "GetHttpAuthUsernamePassword RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebViewDatabaseServiceClient(grpcConn)
+		req := &pb.WebViewDatabaseGetHttpAuthUsernamePasswordRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.GetHttpAuthUsernamePassword(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebViewDatabaseHasFormDataCmd = &cobra.Command{
+	Use:   "has-form-data",
+	Short: "HasFormData RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebViewDatabaseServiceClient(grpcConn)
+		req := &pb.HasFormDataRequest{}
+		resp, err := client.HasFormData(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebViewDatabaseHasHttpAuthUsernamePasswordCmd = &cobra.Command{
+	Use:   "has-http-auth-username-password",
+	Short: "HasHttpAuthUsernamePassword RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebViewDatabaseServiceClient(grpcConn)
+		req := &pb.HasHttpAuthUsernamePasswordRequest{}
+		resp, err := client.HasHttpAuthUsernamePassword(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebViewDatabaseHasUsernamePasswordCmd = &cobra.Command{
+	Use:   "has-username-password",
+	Short: "HasUsernamePassword RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebViewDatabaseServiceClient(grpcConn)
+		req := &pb.HasUsernamePasswordRequest{}
+		resp, err := client.HasUsernamePassword(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebViewDatabaseSetHttpAuthUsernamePasswordCmd = &cobra.Command{
+	Use:   "set-http-auth-username-password",
+	Short: "SetHttpAuthUsernamePassword RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebViewDatabaseServiceClient(grpcConn)
+		req := &pb.WebViewDatabaseSetHttpAuthUsernamePasswordRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetString("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetString("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.SetHttpAuthUsernamePassword(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var webkitWebViewDatabaseGetInstanceCmd = &cobra.Command{
+	Use:   "get-instance",
+	Short: "GetInstance RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebViewDatabaseServiceClient(grpcConn)
+		req := &pb.WebViewDatabaseGetInstanceRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		resp, err := client.SetRenderPriority(ctx, req)
+		resp, err := client.GetInstance(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -9418,18 +9816,20 @@ var webkitWebSettingsSetRenderPriorityCmd = &cobra.Command{
 	},
 }
 
-var webkitWebSettingsSetSafeBrowsingEnabledCmd = &cobra.Command{
-	Use:   "set-safe-browsing-enabled",
-	Short: "SetSafeBrowsingEnabled RPC",
+var webkitTracingControllerCmd = &cobra.Command{
+	Use:   "tracing-controller",
+	Short: "TracingControllerService operations",
+}
+
+var webkitTracingControllerIsTracingCmd = &cobra.Command{
+	Use:   "is-tracing",
+	Short: "IsTracing RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewWebSettingsServiceClient(grpcConn)
-		req := &pb.SetSafeBrowsingEnabledRequest{}
-		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetSafeBrowsingEnabled(ctx, req)
+		client := pb.NewTracingControllerServiceClient(grpcConn)
+		req := &pb.IsTracingRequest{}
+		resp, err := client.IsTracing(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -9437,240 +9837,18 @@ var webkitWebSettingsSetSafeBrowsingEnabledCmd = &cobra.Command{
 	},
 }
 
-var webkitWebSettingsSetSansSerifFontFamilyCmd = &cobra.Command{
-	Use:   "set-sans-serif-font-family",
-	Short: "SetSansSerifFontFamily RPC",
+var webkitTracingControllerStartCmd = &cobra.Command{
+	Use:   "start",
+	Short: "Start RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewWebSettingsServiceClient(grpcConn)
-		req := &pb.SetSansSerifFontFamilyRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetSansSerifFontFamily(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebSettingsSetSaveFormDataCmd = &cobra.Command{
-	Use:   "set-save-form-data",
-	Short: "SetSaveFormData RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebSettingsServiceClient(grpcConn)
-		req := &pb.SetSaveFormDataRequest{}
-		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetSaveFormData(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebSettingsSetSavePasswordCmd = &cobra.Command{
-	Use:   "set-save-password",
-	Short: "SetSavePassword RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebSettingsServiceClient(grpcConn)
-		req := &pb.SetSavePasswordRequest{}
-		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetSavePassword(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebSettingsSetSerifFontFamilyCmd = &cobra.Command{
-	Use:   "set-serif-font-family",
-	Short: "SetSerifFontFamily RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebSettingsServiceClient(grpcConn)
-		req := &pb.SetSerifFontFamilyRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetSerifFontFamily(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebSettingsSetStandardFontFamilyCmd = &cobra.Command{
-	Use:   "set-standard-font-family",
-	Short: "SetStandardFontFamily RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebSettingsServiceClient(grpcConn)
-		req := &pb.SetStandardFontFamilyRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetStandardFontFamily(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebSettingsSetSupportMultipleWindowsCmd = &cobra.Command{
-	Use:   "set-support-multiple-windows",
-	Short: "SetSupportMultipleWindows RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebSettingsServiceClient(grpcConn)
-		req := &pb.SetSupportMultipleWindowsRequest{}
-		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetSupportMultipleWindows(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebSettingsSetSupportZoomCmd = &cobra.Command{
-	Use:   "set-support-zoom",
-	Short: "SetSupportZoom RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebSettingsServiceClient(grpcConn)
-		req := &pb.SetSupportZoomRequest{}
-		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetSupportZoom(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebSettingsSetTextZoomCmd = &cobra.Command{
-	Use:   "set-text-zoom",
-	Short: "SetTextZoom RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebSettingsServiceClient(grpcConn)
-		req := &pb.SetTextZoomRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetTextZoom(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebSettingsSetUseWideViewPortCmd = &cobra.Command{
-	Use:   "set-use-wide-view-port",
-	Short: "SetUseWideViewPort RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebSettingsServiceClient(grpcConn)
-		req := &pb.SetUseWideViewPortRequest{}
-		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetUseWideViewPort(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebSettingsSetUserAgentStringCmd = &cobra.Command{
-	Use:   "set-user-agent-string",
-	Short: "SetUserAgentString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebSettingsServiceClient(grpcConn)
-		req := &pb.SetUserAgentStringRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetUserAgentString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebSettingsSupportMultipleWindowsCmd = &cobra.Command{
-	Use:   "support-multiple-windows",
-	Short: "SupportMultipleWindows RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebSettingsServiceClient(grpcConn)
-		req := &pb.SupportMultipleWindowsRequest{}
-		resp, err := client.SupportMultipleWindows(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebSettingsSupportZoomCmd = &cobra.Command{
-	Use:   "support-zoom",
-	Short: "SupportZoom RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebSettingsServiceClient(grpcConn)
-		req := &pb.SupportZoomRequest{}
-		resp, err := client.SupportZoom(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebSettingsGetDefaultUserAgentCmd = &cobra.Command{
-	Use:   "get-default-user-agent",
-	Short: "GetDefaultUserAgent RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebSettingsServiceClient(grpcConn)
-		req := &pb.GetDefaultUserAgentRequest{}
+		client := pb.NewTracingControllerServiceClient(grpcConn)
+		req := &pb.StartRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		resp, err := client.GetDefaultUserAgent(ctx, req)
+		resp, err := client.Start(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -9678,39 +9856,21 @@ var webkitWebSettingsGetDefaultUserAgentCmd = &cobra.Command{
 	},
 }
 
-var webkitWebSettingsLayoutAlgorithmCmd = &cobra.Command{
-	Use:   "web-settings-layout-algorithm",
-	Short: "WebSettingsLayoutAlgorithmService operations",
-}
-
-var webkitWebSettingsLayoutAlgorithmValuesCmd = &cobra.Command{
-	Use:   "values",
-	Short: "Values RPC",
+var webkitTracingControllerStopCmd = &cobra.Command{
+	Use:   "stop",
+	Short: "Stop RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewWebSettingsLayoutAlgorithmServiceClient(grpcConn)
-		req := &pb.ValuesRequest{}
-		resp, err := client.Values(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebSettingsLayoutAlgorithmValueOfCmd = &cobra.Command{
-	Use:   "value-of",
-	Short: "ValueOf RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebSettingsLayoutAlgorithmServiceClient(grpcConn)
-		req := &pb.ValueOfRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+		client := pb.NewTracingControllerServiceClient(grpcConn)
+		req := &pb.StopRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		resp, err := client.ValueOf(ctx, req)
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.Stop(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -9718,159 +9878,15 @@ var webkitWebSettingsLayoutAlgorithmValueOfCmd = &cobra.Command{
 	},
 }
 
-var webkitWebSettingsPluginStateCmd = &cobra.Command{
-	Use:   "web-settings-plugin-state",
-	Short: "WebSettingsPluginStateService operations",
-}
-
-var webkitWebSettingsPluginStateValuesCmd = &cobra.Command{
-	Use:   "values",
-	Short: "Values RPC",
+var webkitTracingControllerGetInstanceCmd = &cobra.Command{
+	Use:   "get-instance",
+	Short: "GetInstance RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewWebSettingsPluginStateServiceClient(grpcConn)
-		req := &pb.ValuesRequest{}
-		resp, err := client.Values(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebSettingsPluginStateValueOfCmd = &cobra.Command{
-	Use:   "value-of",
-	Short: "ValueOf RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebSettingsPluginStateServiceClient(grpcConn)
-		req := &pb.ValueOfRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.ValueOf(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebSettingsRenderPriorityCmd = &cobra.Command{
-	Use:   "web-settings-render-priority",
-	Short: "WebSettingsRenderPriorityService operations",
-}
-
-var webkitWebSettingsRenderPriorityValuesCmd = &cobra.Command{
-	Use:   "values",
-	Short: "Values RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebSettingsRenderPriorityServiceClient(grpcConn)
-		req := &pb.ValuesRequest{}
-		resp, err := client.Values(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebSettingsRenderPriorityValueOfCmd = &cobra.Command{
-	Use:   "value-of",
-	Short: "ValueOf RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebSettingsRenderPriorityServiceClient(grpcConn)
-		req := &pb.ValueOfRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.ValueOf(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebSettingsTextSizeCmd = &cobra.Command{
-	Use:   "web-settings-text-size",
-	Short: "WebSettingsTextSizeService operations",
-}
-
-var webkitWebSettingsTextSizeValuesCmd = &cobra.Command{
-	Use:   "values",
-	Short: "Values RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebSettingsTextSizeServiceClient(grpcConn)
-		req := &pb.ValuesRequest{}
-		resp, err := client.Values(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebSettingsTextSizeValueOfCmd = &cobra.Command{
-	Use:   "value-of",
-	Short: "ValueOf RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebSettingsTextSizeServiceClient(grpcConn)
-		req := &pb.ValueOfRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.ValueOf(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebSettingsZoomDensityCmd = &cobra.Command{
-	Use:   "web-settings-zoom-density",
-	Short: "WebSettingsZoomDensityService operations",
-}
-
-var webkitWebSettingsZoomDensityValuesCmd = &cobra.Command{
-	Use:   "values",
-	Short: "Values RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebSettingsZoomDensityServiceClient(grpcConn)
-		req := &pb.ValuesRequest{}
-		resp, err := client.Values(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var webkitWebSettingsZoomDensityValueOfCmd = &cobra.Command{
-	Use:   "value-of",
-	Short: "ValueOf RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebSettingsZoomDensityServiceClient(grpcConn)
-		req := &pb.ValueOfRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.ValueOf(ctx, req)
+		client := pb.NewTracingControllerServiceClient(grpcConn)
+		req := &pb.GetInstanceRequest{}
+		resp, err := client.GetInstance(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -9879,169 +9895,199 @@ var webkitWebSettingsZoomDensityValueOfCmd = &cobra.Command{
 }
 
 func init() {
-	webkitWebIconDatabaseCmd.AddCommand(webkitWebIconDatabaseCloseCmd)
-	webkitWebIconDatabaseOpenCmd.Flags().String("arg0", "", "arg0 (string)")
-	webkitWebIconDatabaseCmd.AddCommand(webkitWebIconDatabaseOpenCmd)
-	webkitWebIconDatabaseReleaseIconForPageUrlCmd.Flags().String("arg0", "", "arg0 (string)")
-	webkitWebIconDatabaseCmd.AddCommand(webkitWebIconDatabaseReleaseIconForPageUrlCmd)
-	webkitWebIconDatabaseCmd.AddCommand(webkitWebIconDatabaseRemoveAllIconsCmd)
-	webkitWebIconDatabaseRequestIconForPageUrlCmd.Flags().String("arg0", "", "arg0 (string)")
-	webkitWebIconDatabaseRequestIconForPageUrlCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	webkitWebIconDatabaseCmd.AddCommand(webkitWebIconDatabaseRequestIconForPageUrlCmd)
-	webkitWebIconDatabaseRetainIconForPageUrlCmd.Flags().String("arg0", "", "arg0 (string)")
-	webkitWebIconDatabaseCmd.AddCommand(webkitWebIconDatabaseRetainIconForPageUrlCmd)
-	webkitWebIconDatabaseCmd.AddCommand(webkitWebIconDatabaseGetInstanceCmd)
-	webkitCmd.AddCommand(webkitWebIconDatabaseCmd)
-	webkitWebIconDatabaseIconListenerOnReceivedIconCmd.Flags().String("arg0", "", "arg0 (string)")
-	webkitWebIconDatabaseIconListenerOnReceivedIconCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	webkitWebIconDatabaseIconListenerCmd.AddCommand(webkitWebIconDatabaseIconListenerOnReceivedIconCmd)
-	webkitCmd.AddCommand(webkitWebIconDatabaseIconListenerCmd)
-	webkitConsoleMessageNewConsoleMessageCmd.Flags().String("arg0", "", "arg0 (string)")
-	webkitConsoleMessageNewConsoleMessageCmd.Flags().String("arg1", "", "arg1 (string)")
-	webkitConsoleMessageNewConsoleMessageCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
-	webkitConsoleMessageNewConsoleMessageCmd.Flags().Int64("arg3", 0, "arg3 (int64)")
-	webkitConsoleMessageCmd.AddCommand(webkitConsoleMessageNewConsoleMessageCmd)
-	webkitConsoleMessageLineNumberCmd.Flags().Int64("handle", 0, "handle (int64)")
-	webkitConsoleMessageCmd.AddCommand(webkitConsoleMessageLineNumberCmd)
-	webkitConsoleMessageMessageCmd.Flags().Int64("handle", 0, "handle (int64)")
-	webkitConsoleMessageCmd.AddCommand(webkitConsoleMessageMessageCmd)
-	webkitConsoleMessageMessageLevelCmd.Flags().Int64("handle", 0, "handle (int64)")
-	webkitConsoleMessageCmd.AddCommand(webkitConsoleMessageMessageLevelCmd)
-	webkitConsoleMessageSourceIdCmd.Flags().Int64("handle", 0, "handle (int64)")
-	webkitConsoleMessageCmd.AddCommand(webkitConsoleMessageSourceIdCmd)
-	webkitCmd.AddCommand(webkitConsoleMessageCmd)
-	webkitConsoleMessageMessageLevelSvcCmd.AddCommand(webkitConsoleMessageMessageLevelSvcValuesCmd)
-	webkitConsoleMessageMessageLevelSvcValueOfCmd.Flags().String("arg0", "", "arg0 (string)")
-	webkitConsoleMessageMessageLevelSvcCmd.AddCommand(webkitConsoleMessageMessageLevelSvcValueOfCmd)
-	webkitCmd.AddCommand(webkitConsoleMessageMessageLevelSvcCmd)
-	webkitRenderProcessGoneDetailCmd.AddCommand(webkitRenderProcessGoneDetailDidCrashCmd)
-	webkitRenderProcessGoneDetailCmd.AddCommand(webkitRenderProcessGoneDetailRendererPriorityAtExitCmd)
-	webkitCmd.AddCommand(webkitRenderProcessGoneDetailCmd)
-	webkitDateSorterNewDateSorterCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	webkitDateSorterCmd.AddCommand(webkitDateSorterNewDateSorterCmd)
-	webkitDateSorterGetBoundaryCmd.Flags().Int64("handle", 0, "handle (int64)")
-	webkitDateSorterGetBoundaryCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	webkitDateSorterCmd.AddCommand(webkitDateSorterGetBoundaryCmd)
-	webkitDateSorterGetIndexCmd.Flags().Int64("handle", 0, "handle (int64)")
-	webkitDateSorterGetIndexCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	webkitDateSorterCmd.AddCommand(webkitDateSorterGetIndexCmd)
-	webkitDateSorterGetLabelCmd.Flags().Int64("handle", 0, "handle (int64)")
-	webkitDateSorterGetLabelCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	webkitDateSorterCmd.AddCommand(webkitDateSorterGetLabelCmd)
-	webkitCmd.AddCommand(webkitDateSorterCmd)
-	webkitClientCertRequestCmd.AddCommand(webkitClientCertRequestCancelCmd)
-	webkitClientCertRequestCmd.AddCommand(webkitClientCertRequestGetHostCmd)
-	webkitClientCertRequestCmd.AddCommand(webkitClientCertRequestGetKeyTypesCmd)
-	webkitClientCertRequestCmd.AddCommand(webkitClientCertRequestGetPortCmd)
-	webkitClientCertRequestCmd.AddCommand(webkitClientCertRequestGetPrincipalsCmd)
-	webkitClientCertRequestCmd.AddCommand(webkitClientCertRequestIgnoreCmd)
-	webkitClientCertRequestProceedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	webkitClientCertRequestProceedCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	webkitClientCertRequestCmd.AddCommand(webkitClientCertRequestProceedCmd)
-	webkitCmd.AddCommand(webkitClientCertRequestCmd)
-	webkitWebResourceRequestCmd.AddCommand(webkitWebResourceRequestGetMethodCmd)
-	webkitWebResourceRequestCmd.AddCommand(webkitWebResourceRequestGetUrlCmd)
-	webkitWebResourceRequestCmd.AddCommand(webkitWebResourceRequestHasGestureCmd)
-	webkitWebResourceRequestCmd.AddCommand(webkitWebResourceRequestIsForMainFrameCmd)
-	webkitWebResourceRequestCmd.AddCommand(webkitWebResourceRequestIsRedirectCmd)
-	webkitCmd.AddCommand(webkitWebResourceRequestCmd)
-	webkitServiceWorkerControllerCmd.AddCommand(webkitServiceWorkerControllerGetServiceWorkerWebSettingsCmd)
-	webkitServiceWorkerControllerSetServiceWorkerClientCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	webkitServiceWorkerControllerCmd.AddCommand(webkitServiceWorkerControllerSetServiceWorkerClientCmd)
-	webkitServiceWorkerControllerCmd.AddCommand(webkitServiceWorkerControllerGetInstanceCmd)
-	webkitCmd.AddCommand(webkitServiceWorkerControllerCmd)
-	webkitURLUtilCmd.AddCommand(webkitURLUtilNewURLUtilCmd)
-	webkitURLUtilComposeSearchUrlCmd.Flags().Int64("handle", 0, "handle (int64)")
-	webkitURLUtilComposeSearchUrlCmd.Flags().String("arg0", "", "arg0 (string)")
-	webkitURLUtilComposeSearchUrlCmd.Flags().String("arg1", "", "arg1 (string)")
-	webkitURLUtilComposeSearchUrlCmd.Flags().String("arg2", "", "arg2 (string)")
-	webkitURLUtilCmd.AddCommand(webkitURLUtilComposeSearchUrlCmd)
-	webkitURLUtilDecodeCmd.Flags().Int64("handle", 0, "handle (int64)")
-	webkitURLUtilDecodeCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	webkitURLUtilCmd.AddCommand(webkitURLUtilDecodeCmd)
-	webkitURLUtilGuessFileNameCmd.Flags().Int64("handle", 0, "handle (int64)")
-	webkitURLUtilGuessFileNameCmd.Flags().String("arg0", "", "arg0 (string)")
-	webkitURLUtilGuessFileNameCmd.Flags().String("arg1", "", "arg1 (string)")
-	webkitURLUtilGuessFileNameCmd.Flags().String("arg2", "", "arg2 (string)")
-	webkitURLUtilCmd.AddCommand(webkitURLUtilGuessFileNameCmd)
-	webkitURLUtilGuessUrlCmd.Flags().Int64("handle", 0, "handle (int64)")
-	webkitURLUtilGuessUrlCmd.Flags().String("arg0", "", "arg0 (string)")
-	webkitURLUtilCmd.AddCommand(webkitURLUtilGuessUrlCmd)
-	webkitURLUtilIsAboutUrlCmd.Flags().Int64("handle", 0, "handle (int64)")
-	webkitURLUtilIsAboutUrlCmd.Flags().String("arg0", "", "arg0 (string)")
-	webkitURLUtilCmd.AddCommand(webkitURLUtilIsAboutUrlCmd)
-	webkitURLUtilIsAssetUrlCmd.Flags().Int64("handle", 0, "handle (int64)")
-	webkitURLUtilIsAssetUrlCmd.Flags().String("arg0", "", "arg0 (string)")
-	webkitURLUtilCmd.AddCommand(webkitURLUtilIsAssetUrlCmd)
-	webkitURLUtilIsContentUrlCmd.Flags().Int64("handle", 0, "handle (int64)")
-	webkitURLUtilIsContentUrlCmd.Flags().String("arg0", "", "arg0 (string)")
-	webkitURLUtilCmd.AddCommand(webkitURLUtilIsContentUrlCmd)
-	webkitURLUtilIsCookielessProxyUrlCmd.Flags().Int64("handle", 0, "handle (int64)")
-	webkitURLUtilIsCookielessProxyUrlCmd.Flags().String("arg0", "", "arg0 (string)")
-	webkitURLUtilCmd.AddCommand(webkitURLUtilIsCookielessProxyUrlCmd)
-	webkitURLUtilIsDataUrlCmd.Flags().Int64("handle", 0, "handle (int64)")
-	webkitURLUtilIsDataUrlCmd.Flags().String("arg0", "", "arg0 (string)")
-	webkitURLUtilCmd.AddCommand(webkitURLUtilIsDataUrlCmd)
-	webkitURLUtilIsFileUrlCmd.Flags().Int64("handle", 0, "handle (int64)")
-	webkitURLUtilIsFileUrlCmd.Flags().String("arg0", "", "arg0 (string)")
-	webkitURLUtilCmd.AddCommand(webkitURLUtilIsFileUrlCmd)
-	webkitURLUtilIsHttpUrlCmd.Flags().Int64("handle", 0, "handle (int64)")
-	webkitURLUtilIsHttpUrlCmd.Flags().String("arg0", "", "arg0 (string)")
-	webkitURLUtilCmd.AddCommand(webkitURLUtilIsHttpUrlCmd)
-	webkitURLUtilIsHttpsUrlCmd.Flags().Int64("handle", 0, "handle (int64)")
-	webkitURLUtilIsHttpsUrlCmd.Flags().String("arg0", "", "arg0 (string)")
-	webkitURLUtilCmd.AddCommand(webkitURLUtilIsHttpsUrlCmd)
-	webkitURLUtilIsJavaScriptUrlCmd.Flags().Int64("handle", 0, "handle (int64)")
-	webkitURLUtilIsJavaScriptUrlCmd.Flags().String("arg0", "", "arg0 (string)")
-	webkitURLUtilCmd.AddCommand(webkitURLUtilIsJavaScriptUrlCmd)
-	webkitURLUtilIsNetworkUrlCmd.Flags().Int64("handle", 0, "handle (int64)")
-	webkitURLUtilIsNetworkUrlCmd.Flags().String("arg0", "", "arg0 (string)")
-	webkitURLUtilCmd.AddCommand(webkitURLUtilIsNetworkUrlCmd)
-	webkitURLUtilIsValidUrlCmd.Flags().Int64("handle", 0, "handle (int64)")
-	webkitURLUtilIsValidUrlCmd.Flags().String("arg0", "", "arg0 (string)")
-	webkitURLUtilCmd.AddCommand(webkitURLUtilIsValidUrlCmd)
-	webkitURLUtilStripAnchorCmd.Flags().Int64("handle", 0, "handle (int64)")
-	webkitURLUtilStripAnchorCmd.Flags().String("arg0", "", "arg0 (string)")
-	webkitURLUtilCmd.AddCommand(webkitURLUtilStripAnchorCmd)
-	webkitCmd.AddCommand(webkitURLUtilCmd)
-	webkitWebResourceResponseNewWebResourceResponseCmd.Flags().String("arg0", "", "arg0 (string)")
-	webkitWebResourceResponseNewWebResourceResponseCmd.Flags().String("arg1", "", "arg1 (string)")
-	webkitWebResourceResponseNewWebResourceResponseCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
-	webkitWebResourceResponseNewWebResourceResponseCmd.Flags().String("arg3", "", "arg3 (string)")
-	webkitWebResourceResponseNewWebResourceResponseCmd.Flags().Int64("arg4", 0, "arg4 (int64)")
-	webkitWebResourceResponseNewWebResourceResponseCmd.Flags().Int64("arg5", 0, "arg5 (int64)")
-	webkitWebResourceResponseCmd.AddCommand(webkitWebResourceResponseNewWebResourceResponseCmd)
-	webkitWebResourceResponseGetDataCmd.Flags().Int64("handle", 0, "handle (int64)")
-	webkitWebResourceResponseCmd.AddCommand(webkitWebResourceResponseGetDataCmd)
-	webkitWebResourceResponseGetEncodingCmd.Flags().Int64("handle", 0, "handle (int64)")
-	webkitWebResourceResponseCmd.AddCommand(webkitWebResourceResponseGetEncodingCmd)
-	webkitWebResourceResponseGetMimeTypeCmd.Flags().Int64("handle", 0, "handle (int64)")
-	webkitWebResourceResponseCmd.AddCommand(webkitWebResourceResponseGetMimeTypeCmd)
-	webkitWebResourceResponseGetReasonPhraseCmd.Flags().Int64("handle", 0, "handle (int64)")
-	webkitWebResourceResponseCmd.AddCommand(webkitWebResourceResponseGetReasonPhraseCmd)
-	webkitWebResourceResponseGetStatusCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
-	webkitWebResourceResponseCmd.AddCommand(webkitWebResourceResponseGetStatusCodeCmd)
-	webkitWebResourceResponseSetDataCmd.Flags().Int64("handle", 0, "handle (int64)")
-	webkitWebResourceResponseSetDataCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	webkitWebResourceResponseCmd.AddCommand(webkitWebResourceResponseSetDataCmd)
-	webkitWebResourceResponseSetEncodingCmd.Flags().Int64("handle", 0, "handle (int64)")
-	webkitWebResourceResponseSetEncodingCmd.Flags().String("arg0", "", "arg0 (string)")
-	webkitWebResourceResponseCmd.AddCommand(webkitWebResourceResponseSetEncodingCmd)
-	webkitWebResourceResponseSetMimeTypeCmd.Flags().Int64("handle", 0, "handle (int64)")
-	webkitWebResourceResponseSetMimeTypeCmd.Flags().String("arg0", "", "arg0 (string)")
-	webkitWebResourceResponseCmd.AddCommand(webkitWebResourceResponseSetMimeTypeCmd)
-	webkitWebResourceResponseSetStatusCodeAndReasonPhraseCmd.Flags().Int64("handle", 0, "handle (int64)")
-	webkitWebResourceResponseSetStatusCodeAndReasonPhraseCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	webkitWebResourceResponseSetStatusCodeAndReasonPhraseCmd.Flags().String("arg1", "", "arg1 (string)")
-	webkitWebResourceResponseCmd.AddCommand(webkitWebResourceResponseSetStatusCodeAndReasonPhraseCmd)
-	webkitCmd.AddCommand(webkitWebResourceResponseCmd)
-	webkitWebViewRenderProcessClientOnRenderProcessResponsiveCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	webkitWebViewRenderProcessClientOnRenderProcessResponsiveCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	webkitWebViewRenderProcessClientCmd.AddCommand(webkitWebViewRenderProcessClientOnRenderProcessResponsiveCmd)
-	webkitWebViewRenderProcessClientOnRenderProcessUnresponsiveCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	webkitWebViewRenderProcessClientOnRenderProcessUnresponsiveCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	webkitWebViewRenderProcessClientCmd.AddCommand(webkitWebViewRenderProcessClientOnRenderProcessUnresponsiveCmd)
-	webkitCmd.AddCommand(webkitWebViewRenderProcessClientCmd)
+	webkitWebStorageCmd.AddCommand(webkitWebStorageDeleteAllDataCmd)
+	webkitWebStorageDeleteOriginCmd.Flags().String("arg0", "", "arg0 (string)")
+	webkitWebStorageCmd.AddCommand(webkitWebStorageDeleteOriginCmd)
+	webkitWebStorageSetQuotaForOriginCmd.Flags().String("arg0", "", "arg0 (string)")
+	webkitWebStorageSetQuotaForOriginCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	webkitWebStorageCmd.AddCommand(webkitWebStorageSetQuotaForOriginCmd)
+	webkitWebStorageCmd.AddCommand(webkitWebStorageGetInstanceCmd)
+	webkitCmd.AddCommand(webkitWebStorageCmd)
+	webkitWebStorageOriginCmd.AddCommand(webkitWebStorageOriginGetOriginCmd)
+	webkitWebStorageOriginCmd.AddCommand(webkitWebStorageOriginGetQuotaCmd)
+	webkitWebStorageOriginCmd.AddCommand(webkitWebStorageOriginGetUsageCmd)
+	webkitCmd.AddCommand(webkitWebStorageOriginCmd)
+	webkitWebStorageQuotaUpdaterUpdateQuotaCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	webkitWebStorageQuotaUpdaterCmd.AddCommand(webkitWebStorageQuotaUpdaterUpdateQuotaCmd)
+	webkitCmd.AddCommand(webkitWebStorageQuotaUpdaterCmd)
+	webkitSslErrorHandlerCmd.AddCommand(webkitSslErrorHandlerCancelCmd)
+	webkitSslErrorHandlerCmd.AddCommand(webkitSslErrorHandlerProceedCmd)
+	webkitCmd.AddCommand(webkitSslErrorHandlerCmd)
+	webkitHttpAuthHandlerCmd.AddCommand(webkitHttpAuthHandlerCancelCmd)
+	webkitHttpAuthHandlerProceedCmd.Flags().String("arg0", "", "arg0 (string)")
+	webkitHttpAuthHandlerProceedCmd.Flags().String("arg1", "", "arg1 (string)")
+	webkitHttpAuthHandlerCmd.AddCommand(webkitHttpAuthHandlerProceedCmd)
+	webkitHttpAuthHandlerCmd.AddCommand(webkitHttpAuthHandlerUseHttpAuthUsernamePasswordCmd)
+	webkitCmd.AddCommand(webkitHttpAuthHandlerCmd)
+	webkitWebSettingsCmd.AddCommand(webkitWebSettingsEnableSmoothTransitionCmd)
+	webkitWebSettingsCmd.AddCommand(webkitWebSettingsGetAllowContentAccessCmd)
+	webkitWebSettingsCmd.AddCommand(webkitWebSettingsGetAllowFileAccessCmd)
+	webkitWebSettingsCmd.AddCommand(webkitWebSettingsGetAllowFileAccessFromFileURLsCmd)
+	webkitWebSettingsCmd.AddCommand(webkitWebSettingsGetAllowUniversalAccessFromFileURLsCmd)
+	webkitWebSettingsCmd.AddCommand(webkitWebSettingsGetBlockNetworkImageCmd)
+	webkitWebSettingsCmd.AddCommand(webkitWebSettingsGetBlockNetworkLoadsCmd)
+	webkitWebSettingsCmd.AddCommand(webkitWebSettingsGetBuiltInZoomControlsCmd)
+	webkitWebSettingsCmd.AddCommand(webkitWebSettingsGetCacheModeCmd)
+	webkitWebSettingsCmd.AddCommand(webkitWebSettingsGetCursiveFontFamilyCmd)
+	webkitWebSettingsCmd.AddCommand(webkitWebSettingsGetDatabaseEnabledCmd)
+	webkitWebSettingsCmd.AddCommand(webkitWebSettingsGetDatabasePathCmd)
+	webkitWebSettingsCmd.AddCommand(webkitWebSettingsGetDefaultFixedFontSizeCmd)
+	webkitWebSettingsCmd.AddCommand(webkitWebSettingsGetDefaultFontSizeCmd)
+	webkitWebSettingsCmd.AddCommand(webkitWebSettingsGetDefaultTextEncodingNameCmd)
+	webkitWebSettingsCmd.AddCommand(webkitWebSettingsGetDefaultZoomCmd)
+	webkitWebSettingsCmd.AddCommand(webkitWebSettingsGetDisabledActionModeMenuItemsCmd)
+	webkitWebSettingsCmd.AddCommand(webkitWebSettingsGetDisplayZoomControlsCmd)
+	webkitWebSettingsCmd.AddCommand(webkitWebSettingsGetDomStorageEnabledCmd)
+	webkitWebSettingsCmd.AddCommand(webkitWebSettingsGetFantasyFontFamilyCmd)
+	webkitWebSettingsCmd.AddCommand(webkitWebSettingsGetFixedFontFamilyCmd)
+	webkitWebSettingsCmd.AddCommand(webkitWebSettingsGetForceDarkCmd)
+	webkitWebSettingsCmd.AddCommand(webkitWebSettingsGetJavaScriptCanOpenWindowsAutomaticallyCmd)
+	webkitWebSettingsCmd.AddCommand(webkitWebSettingsGetJavaScriptEnabledCmd)
+	webkitWebSettingsCmd.AddCommand(webkitWebSettingsGetLayoutAlgorithmCmd)
+	webkitWebSettingsCmd.AddCommand(webkitWebSettingsGetLightTouchEnabledCmd)
+	webkitWebSettingsCmd.AddCommand(webkitWebSettingsGetLoadWithOverviewModeCmd)
+	webkitWebSettingsCmd.AddCommand(webkitWebSettingsGetLoadsImagesAutomaticallyCmd)
+	webkitWebSettingsCmd.AddCommand(webkitWebSettingsGetMediaPlaybackRequiresUserGestureCmd)
+	webkitWebSettingsCmd.AddCommand(webkitWebSettingsGetMinimumFontSizeCmd)
+	webkitWebSettingsCmd.AddCommand(webkitWebSettingsGetMinimumLogicalFontSizeCmd)
+	webkitWebSettingsCmd.AddCommand(webkitWebSettingsGetMixedContentModeCmd)
+	webkitWebSettingsCmd.AddCommand(webkitWebSettingsGetOffscreenPreRasterCmd)
+	webkitWebSettingsCmd.AddCommand(webkitWebSettingsGetPluginStateCmd)
+	webkitWebSettingsCmd.AddCommand(webkitWebSettingsGetSafeBrowsingEnabledCmd)
+	webkitWebSettingsCmd.AddCommand(webkitWebSettingsGetSansSerifFontFamilyCmd)
+	webkitWebSettingsCmd.AddCommand(webkitWebSettingsGetSaveFormDataCmd)
+	webkitWebSettingsCmd.AddCommand(webkitWebSettingsGetSavePasswordCmd)
+	webkitWebSettingsCmd.AddCommand(webkitWebSettingsGetSerifFontFamilyCmd)
+	webkitWebSettingsCmd.AddCommand(webkitWebSettingsGetStandardFontFamilyCmd)
+	webkitWebSettingsCmd.AddCommand(webkitWebSettingsGetTextZoomCmd)
+	webkitWebSettingsCmd.AddCommand(webkitWebSettingsGetUseWideViewPortCmd)
+	webkitWebSettingsCmd.AddCommand(webkitWebSettingsGetUserAgentStringCmd)
+	webkitWebSettingsCmd.AddCommand(webkitWebSettingsIsAlgorithmicDarkeningAllowedCmd)
+	webkitWebSettingsSetAlgorithmicDarkeningAllowedCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	webkitWebSettingsCmd.AddCommand(webkitWebSettingsSetAlgorithmicDarkeningAllowedCmd)
+	webkitWebSettingsSetAllowContentAccessCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	webkitWebSettingsCmd.AddCommand(webkitWebSettingsSetAllowContentAccessCmd)
+	webkitWebSettingsSetAllowFileAccessCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	webkitWebSettingsCmd.AddCommand(webkitWebSettingsSetAllowFileAccessCmd)
+	webkitWebSettingsSetAllowFileAccessFromFileURLsCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	webkitWebSettingsCmd.AddCommand(webkitWebSettingsSetAllowFileAccessFromFileURLsCmd)
+	webkitWebSettingsSetAllowUniversalAccessFromFileURLsCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	webkitWebSettingsCmd.AddCommand(webkitWebSettingsSetAllowUniversalAccessFromFileURLsCmd)
+	webkitWebSettingsSetBlockNetworkImageCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	webkitWebSettingsCmd.AddCommand(webkitWebSettingsSetBlockNetworkImageCmd)
+	webkitWebSettingsSetBlockNetworkLoadsCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	webkitWebSettingsCmd.AddCommand(webkitWebSettingsSetBlockNetworkLoadsCmd)
+	webkitWebSettingsSetBuiltInZoomControlsCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	webkitWebSettingsCmd.AddCommand(webkitWebSettingsSetBuiltInZoomControlsCmd)
+	webkitWebSettingsSetCacheModeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	webkitWebSettingsCmd.AddCommand(webkitWebSettingsSetCacheModeCmd)
+	webkitWebSettingsSetCursiveFontFamilyCmd.Flags().String("arg0", "", "arg0 (string)")
+	webkitWebSettingsCmd.AddCommand(webkitWebSettingsSetCursiveFontFamilyCmd)
+	webkitWebSettingsSetDatabaseEnabledCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	webkitWebSettingsCmd.AddCommand(webkitWebSettingsSetDatabaseEnabledCmd)
+	webkitWebSettingsSetDatabasePathCmd.Flags().String("arg0", "", "arg0 (string)")
+	webkitWebSettingsCmd.AddCommand(webkitWebSettingsSetDatabasePathCmd)
+	webkitWebSettingsSetDefaultFixedFontSizeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	webkitWebSettingsCmd.AddCommand(webkitWebSettingsSetDefaultFixedFontSizeCmd)
+	webkitWebSettingsSetDefaultFontSizeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	webkitWebSettingsCmd.AddCommand(webkitWebSettingsSetDefaultFontSizeCmd)
+	webkitWebSettingsSetDefaultTextEncodingNameCmd.Flags().String("arg0", "", "arg0 (string)")
+	webkitWebSettingsCmd.AddCommand(webkitWebSettingsSetDefaultTextEncodingNameCmd)
+	webkitWebSettingsSetDefaultZoomCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	webkitWebSettingsCmd.AddCommand(webkitWebSettingsSetDefaultZoomCmd)
+	webkitWebSettingsSetDisabledActionModeMenuItemsCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	webkitWebSettingsCmd.AddCommand(webkitWebSettingsSetDisabledActionModeMenuItemsCmd)
+	webkitWebSettingsSetDisplayZoomControlsCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	webkitWebSettingsCmd.AddCommand(webkitWebSettingsSetDisplayZoomControlsCmd)
+	webkitWebSettingsSetDomStorageEnabledCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	webkitWebSettingsCmd.AddCommand(webkitWebSettingsSetDomStorageEnabledCmd)
+	webkitWebSettingsSetEnableSmoothTransitionCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	webkitWebSettingsCmd.AddCommand(webkitWebSettingsSetEnableSmoothTransitionCmd)
+	webkitWebSettingsSetFantasyFontFamilyCmd.Flags().String("arg0", "", "arg0 (string)")
+	webkitWebSettingsCmd.AddCommand(webkitWebSettingsSetFantasyFontFamilyCmd)
+	webkitWebSettingsSetFixedFontFamilyCmd.Flags().String("arg0", "", "arg0 (string)")
+	webkitWebSettingsCmd.AddCommand(webkitWebSettingsSetFixedFontFamilyCmd)
+	webkitWebSettingsSetForceDarkCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	webkitWebSettingsCmd.AddCommand(webkitWebSettingsSetForceDarkCmd)
+	webkitWebSettingsSetGeolocationDatabasePathCmd.Flags().String("arg0", "", "arg0 (string)")
+	webkitWebSettingsCmd.AddCommand(webkitWebSettingsSetGeolocationDatabasePathCmd)
+	webkitWebSettingsSetGeolocationEnabledCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	webkitWebSettingsCmd.AddCommand(webkitWebSettingsSetGeolocationEnabledCmd)
+	webkitWebSettingsSetJavaScriptCanOpenWindowsAutomaticallyCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	webkitWebSettingsCmd.AddCommand(webkitWebSettingsSetJavaScriptCanOpenWindowsAutomaticallyCmd)
+	webkitWebSettingsSetJavaScriptEnabledCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	webkitWebSettingsCmd.AddCommand(webkitWebSettingsSetJavaScriptEnabledCmd)
+	webkitWebSettingsSetLayoutAlgorithmCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	webkitWebSettingsCmd.AddCommand(webkitWebSettingsSetLayoutAlgorithmCmd)
+	webkitWebSettingsSetLightTouchEnabledCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	webkitWebSettingsCmd.AddCommand(webkitWebSettingsSetLightTouchEnabledCmd)
+	webkitWebSettingsSetLoadWithOverviewModeCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	webkitWebSettingsCmd.AddCommand(webkitWebSettingsSetLoadWithOverviewModeCmd)
+	webkitWebSettingsSetLoadsImagesAutomaticallyCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	webkitWebSettingsCmd.AddCommand(webkitWebSettingsSetLoadsImagesAutomaticallyCmd)
+	webkitWebSettingsSetMediaPlaybackRequiresUserGestureCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	webkitWebSettingsCmd.AddCommand(webkitWebSettingsSetMediaPlaybackRequiresUserGestureCmd)
+	webkitWebSettingsSetMinimumFontSizeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	webkitWebSettingsCmd.AddCommand(webkitWebSettingsSetMinimumFontSizeCmd)
+	webkitWebSettingsSetMinimumLogicalFontSizeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	webkitWebSettingsCmd.AddCommand(webkitWebSettingsSetMinimumLogicalFontSizeCmd)
+	webkitWebSettingsSetMixedContentModeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	webkitWebSettingsCmd.AddCommand(webkitWebSettingsSetMixedContentModeCmd)
+	webkitWebSettingsSetNeedInitialFocusCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	webkitWebSettingsCmd.AddCommand(webkitWebSettingsSetNeedInitialFocusCmd)
+	webkitWebSettingsSetOffscreenPreRasterCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	webkitWebSettingsCmd.AddCommand(webkitWebSettingsSetOffscreenPreRasterCmd)
+	webkitWebSettingsSetPluginStateCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	webkitWebSettingsCmd.AddCommand(webkitWebSettingsSetPluginStateCmd)
+	webkitWebSettingsSetRenderPriorityCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	webkitWebSettingsCmd.AddCommand(webkitWebSettingsSetRenderPriorityCmd)
+	webkitWebSettingsSetSafeBrowsingEnabledCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	webkitWebSettingsCmd.AddCommand(webkitWebSettingsSetSafeBrowsingEnabledCmd)
+	webkitWebSettingsSetSansSerifFontFamilyCmd.Flags().String("arg0", "", "arg0 (string)")
+	webkitWebSettingsCmd.AddCommand(webkitWebSettingsSetSansSerifFontFamilyCmd)
+	webkitWebSettingsSetSaveFormDataCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	webkitWebSettingsCmd.AddCommand(webkitWebSettingsSetSaveFormDataCmd)
+	webkitWebSettingsSetSavePasswordCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	webkitWebSettingsCmd.AddCommand(webkitWebSettingsSetSavePasswordCmd)
+	webkitWebSettingsSetSerifFontFamilyCmd.Flags().String("arg0", "", "arg0 (string)")
+	webkitWebSettingsCmd.AddCommand(webkitWebSettingsSetSerifFontFamilyCmd)
+	webkitWebSettingsSetStandardFontFamilyCmd.Flags().String("arg0", "", "arg0 (string)")
+	webkitWebSettingsCmd.AddCommand(webkitWebSettingsSetStandardFontFamilyCmd)
+	webkitWebSettingsSetSupportMultipleWindowsCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	webkitWebSettingsCmd.AddCommand(webkitWebSettingsSetSupportMultipleWindowsCmd)
+	webkitWebSettingsSetSupportZoomCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	webkitWebSettingsCmd.AddCommand(webkitWebSettingsSetSupportZoomCmd)
+	webkitWebSettingsSetTextZoomCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	webkitWebSettingsCmd.AddCommand(webkitWebSettingsSetTextZoomCmd)
+	webkitWebSettingsSetUseWideViewPortCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	webkitWebSettingsCmd.AddCommand(webkitWebSettingsSetUseWideViewPortCmd)
+	webkitWebSettingsSetUserAgentStringCmd.Flags().String("arg0", "", "arg0 (string)")
+	webkitWebSettingsCmd.AddCommand(webkitWebSettingsSetUserAgentStringCmd)
+	webkitWebSettingsCmd.AddCommand(webkitWebSettingsSupportMultipleWindowsCmd)
+	webkitWebSettingsCmd.AddCommand(webkitWebSettingsSupportZoomCmd)
+	webkitWebSettingsGetDefaultUserAgentCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	webkitWebSettingsCmd.AddCommand(webkitWebSettingsGetDefaultUserAgentCmd)
+	webkitCmd.AddCommand(webkitWebSettingsCmd)
+	webkitWebSettingsLayoutAlgorithmCmd.AddCommand(webkitWebSettingsLayoutAlgorithmValuesCmd)
+	webkitWebSettingsLayoutAlgorithmValueOfCmd.Flags().String("arg0", "", "arg0 (string)")
+	webkitWebSettingsLayoutAlgorithmCmd.AddCommand(webkitWebSettingsLayoutAlgorithmValueOfCmd)
+	webkitCmd.AddCommand(webkitWebSettingsLayoutAlgorithmCmd)
+	webkitWebSettingsPluginStateCmd.AddCommand(webkitWebSettingsPluginStateValuesCmd)
+	webkitWebSettingsPluginStateValueOfCmd.Flags().String("arg0", "", "arg0 (string)")
+	webkitWebSettingsPluginStateCmd.AddCommand(webkitWebSettingsPluginStateValueOfCmd)
+	webkitCmd.AddCommand(webkitWebSettingsPluginStateCmd)
+	webkitWebSettingsRenderPriorityCmd.AddCommand(webkitWebSettingsRenderPriorityValuesCmd)
+	webkitWebSettingsRenderPriorityValueOfCmd.Flags().String("arg0", "", "arg0 (string)")
+	webkitWebSettingsRenderPriorityCmd.AddCommand(webkitWebSettingsRenderPriorityValueOfCmd)
+	webkitCmd.AddCommand(webkitWebSettingsRenderPriorityCmd)
+	webkitWebSettingsTextSizeCmd.AddCommand(webkitWebSettingsTextSizeValuesCmd)
+	webkitWebSettingsTextSizeValueOfCmd.Flags().String("arg0", "", "arg0 (string)")
+	webkitWebSettingsTextSizeCmd.AddCommand(webkitWebSettingsTextSizeValueOfCmd)
+	webkitCmd.AddCommand(webkitWebSettingsTextSizeCmd)
+	webkitWebSettingsZoomDensityCmd.AddCommand(webkitWebSettingsZoomDensityValuesCmd)
+	webkitWebSettingsZoomDensityValueOfCmd.Flags().String("arg0", "", "arg0 (string)")
+	webkitWebSettingsZoomDensityCmd.AddCommand(webkitWebSettingsZoomDensityValueOfCmd)
+	webkitCmd.AddCommand(webkitWebSettingsZoomDensityCmd)
 	webkitWebViewNewWebViewCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	webkitWebViewCmd.AddCommand(webkitWebViewNewWebViewCmd)
 	webkitWebViewAddJavascriptInterfaceCmd.Flags().Int64("handle", 0, "handle (int64)")
@@ -10443,110 +10489,138 @@ func init() {
 	webkitWebViewVisualStateCallbackOnCompleteCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	webkitWebViewVisualStateCallbackCmd.AddCommand(webkitWebViewVisualStateCallbackOnCompleteCmd)
 	webkitCmd.AddCommand(webkitWebViewVisualStateCallbackCmd)
-	webkitTracingConfigCmd.AddCommand(webkitTracingConfigGetPredefinedCategoriesCmd)
-	webkitTracingConfigCmd.AddCommand(webkitTracingConfigGetTracingModeCmd)
-	webkitCmd.AddCommand(webkitTracingConfigCmd)
-	webkitTracingConfigBuilderAddCategories1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	webkitTracingConfigBuilderCmd.AddCommand(webkitTracingConfigBuilderAddCategories1Cmd)
-	webkitTracingConfigBuilderAddCategories1_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	webkitTracingConfigBuilderCmd.AddCommand(webkitTracingConfigBuilderAddCategories1_1Cmd)
-	webkitTracingConfigBuilderCmd.AddCommand(webkitTracingConfigBuilderBuildCmd)
-	webkitTracingConfigBuilderSetTracingModeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	webkitTracingConfigBuilderCmd.AddCommand(webkitTracingConfigBuilderSetTracingModeCmd)
-	webkitCmd.AddCommand(webkitTracingConfigBuilderCmd)
-	webkitWebMessagePortCmd.AddCommand(webkitWebMessagePortCloseCmd)
-	webkitWebMessagePortPostMessageCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	webkitWebMessagePortCmd.AddCommand(webkitWebMessagePortPostMessageCmd)
-	webkitWebMessagePortSetWebMessageCallbackCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	webkitWebMessagePortCmd.AddCommand(webkitWebMessagePortSetWebMessageCallbackCmd)
-	webkitCmd.AddCommand(webkitWebMessagePortCmd)
-	webkitWebMessagePortWebMessageCallbackOnMessageCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	webkitWebMessagePortWebMessageCallbackOnMessageCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	webkitWebMessagePortWebMessageCallbackCmd.AddCommand(webkitWebMessagePortWebMessageCallbackOnMessageCmd)
-	webkitCmd.AddCommand(webkitWebMessagePortWebMessageCallbackCmd)
-	webkitJsPromptResultConfirmCmd.Flags().String("arg0", "", "arg0 (string)")
-	webkitJsPromptResultCmd.AddCommand(webkitJsPromptResultConfirmCmd)
-	webkitCmd.AddCommand(webkitJsPromptResultCmd)
-	webkitWebStorageCmd.AddCommand(webkitWebStorageDeleteAllDataCmd)
-	webkitWebStorageDeleteOriginCmd.Flags().String("arg0", "", "arg0 (string)")
-	webkitWebStorageCmd.AddCommand(webkitWebStorageDeleteOriginCmd)
-	webkitWebStorageSetQuotaForOriginCmd.Flags().String("arg0", "", "arg0 (string)")
-	webkitWebStorageSetQuotaForOriginCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	webkitWebStorageCmd.AddCommand(webkitWebStorageSetQuotaForOriginCmd)
-	webkitWebStorageCmd.AddCommand(webkitWebStorageGetInstanceCmd)
-	webkitCmd.AddCommand(webkitWebStorageCmd)
-	webkitWebStorageOriginCmd.AddCommand(webkitWebStorageOriginGetOriginCmd)
-	webkitWebStorageOriginCmd.AddCommand(webkitWebStorageOriginGetQuotaCmd)
-	webkitWebStorageOriginCmd.AddCommand(webkitWebStorageOriginGetUsageCmd)
-	webkitCmd.AddCommand(webkitWebStorageOriginCmd)
-	webkitWebStorageQuotaUpdaterUpdateQuotaCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	webkitWebStorageQuotaUpdaterCmd.AddCommand(webkitWebStorageQuotaUpdaterUpdateQuotaCmd)
-	webkitCmd.AddCommand(webkitWebStorageQuotaUpdaterCmd)
-	webkitSslErrorHandlerCmd.AddCommand(webkitSslErrorHandlerCancelCmd)
-	webkitSslErrorHandlerCmd.AddCommand(webkitSslErrorHandlerProceedCmd)
-	webkitCmd.AddCommand(webkitSslErrorHandlerCmd)
-	webkitWebViewFragmentCmd.AddCommand(webkitWebViewFragmentNewWebViewFragmentCmd)
-	webkitWebViewFragmentGetWebViewCmd.Flags().Int64("handle", 0, "handle (int64)")
-	webkitWebViewFragmentCmd.AddCommand(webkitWebViewFragmentGetWebViewCmd)
-	webkitWebViewFragmentOnCreateViewCmd.Flags().Int64("handle", 0, "handle (int64)")
-	webkitWebViewFragmentOnCreateViewCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	webkitWebViewFragmentOnCreateViewCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	webkitWebViewFragmentOnCreateViewCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	webkitWebViewFragmentCmd.AddCommand(webkitWebViewFragmentOnCreateViewCmd)
-	webkitWebViewFragmentOnDestroyCmd.Flags().Int64("handle", 0, "handle (int64)")
-	webkitWebViewFragmentCmd.AddCommand(webkitWebViewFragmentOnDestroyCmd)
-	webkitWebViewFragmentOnDestroyViewCmd.Flags().Int64("handle", 0, "handle (int64)")
-	webkitWebViewFragmentCmd.AddCommand(webkitWebViewFragmentOnDestroyViewCmd)
-	webkitWebViewFragmentOnPauseCmd.Flags().Int64("handle", 0, "handle (int64)")
-	webkitWebViewFragmentCmd.AddCommand(webkitWebViewFragmentOnPauseCmd)
-	webkitWebViewFragmentOnResumeCmd.Flags().Int64("handle", 0, "handle (int64)")
-	webkitWebViewFragmentCmd.AddCommand(webkitWebViewFragmentOnResumeCmd)
-	webkitCmd.AddCommand(webkitWebViewFragmentCmd)
-	webkitHttpAuthHandlerCmd.AddCommand(webkitHttpAuthHandlerCancelCmd)
-	webkitHttpAuthHandlerProceedCmd.Flags().String("arg0", "", "arg0 (string)")
-	webkitHttpAuthHandlerProceedCmd.Flags().String("arg1", "", "arg1 (string)")
-	webkitHttpAuthHandlerCmd.AddCommand(webkitHttpAuthHandlerProceedCmd)
-	webkitHttpAuthHandlerCmd.AddCommand(webkitHttpAuthHandlerUseHttpAuthUsernamePasswordCmd)
-	webkitCmd.AddCommand(webkitHttpAuthHandlerCmd)
-	webkitWebResourceErrorCmd.AddCommand(webkitWebResourceErrorGetDescriptionCmd)
-	webkitWebResourceErrorCmd.AddCommand(webkitWebResourceErrorGetErrorCodeCmd)
-	webkitCmd.AddCommand(webkitWebResourceErrorCmd)
-	webkitPluginStubGetEmbeddedViewCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	webkitPluginStubGetEmbeddedViewCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	webkitPluginStubCmd.AddCommand(webkitPluginStubGetEmbeddedViewCmd)
-	webkitPluginStubGetFullScreenViewCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	webkitPluginStubGetFullScreenViewCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	webkitPluginStubCmd.AddCommand(webkitPluginStubGetFullScreenViewCmd)
-	webkitCmd.AddCommand(webkitPluginStubCmd)
-	webkitMimeTypeMapGetExtensionFromMimeTypeCmd.Flags().String("arg0", "", "arg0 (string)")
-	webkitMimeTypeMapCmd.AddCommand(webkitMimeTypeMapGetExtensionFromMimeTypeCmd)
-	webkitMimeTypeMapGetMimeTypeFromExtensionCmd.Flags().String("arg0", "", "arg0 (string)")
-	webkitMimeTypeMapCmd.AddCommand(webkitMimeTypeMapGetMimeTypeFromExtensionCmd)
-	webkitMimeTypeMapHasExtensionCmd.Flags().String("arg0", "", "arg0 (string)")
-	webkitMimeTypeMapCmd.AddCommand(webkitMimeTypeMapHasExtensionCmd)
-	webkitMimeTypeMapHasMimeTypeCmd.Flags().String("arg0", "", "arg0 (string)")
-	webkitMimeTypeMapCmd.AddCommand(webkitMimeTypeMapHasMimeTypeCmd)
-	webkitMimeTypeMapGetFileExtensionFromUrlCmd.Flags().String("arg0", "", "arg0 (string)")
-	webkitMimeTypeMapCmd.AddCommand(webkitMimeTypeMapGetFileExtensionFromUrlCmd)
-	webkitMimeTypeMapCmd.AddCommand(webkitMimeTypeMapGetSingletonCmd)
-	webkitCmd.AddCommand(webkitMimeTypeMapCmd)
-	webkitWebViewDatabaseCmd.AddCommand(webkitWebViewDatabaseClearFormDataCmd)
-	webkitWebViewDatabaseCmd.AddCommand(webkitWebViewDatabaseClearHttpAuthUsernamePasswordCmd)
-	webkitWebViewDatabaseCmd.AddCommand(webkitWebViewDatabaseClearUsernamePasswordCmd)
-	webkitWebViewDatabaseGetHttpAuthUsernamePasswordCmd.Flags().String("arg0", "", "arg0 (string)")
-	webkitWebViewDatabaseGetHttpAuthUsernamePasswordCmd.Flags().String("arg1", "", "arg1 (string)")
-	webkitWebViewDatabaseCmd.AddCommand(webkitWebViewDatabaseGetHttpAuthUsernamePasswordCmd)
-	webkitWebViewDatabaseCmd.AddCommand(webkitWebViewDatabaseHasFormDataCmd)
-	webkitWebViewDatabaseCmd.AddCommand(webkitWebViewDatabaseHasHttpAuthUsernamePasswordCmd)
-	webkitWebViewDatabaseCmd.AddCommand(webkitWebViewDatabaseHasUsernamePasswordCmd)
-	webkitWebViewDatabaseSetHttpAuthUsernamePasswordCmd.Flags().String("arg0", "", "arg0 (string)")
-	webkitWebViewDatabaseSetHttpAuthUsernamePasswordCmd.Flags().String("arg1", "", "arg1 (string)")
-	webkitWebViewDatabaseSetHttpAuthUsernamePasswordCmd.Flags().String("arg2", "", "arg2 (string)")
-	webkitWebViewDatabaseSetHttpAuthUsernamePasswordCmd.Flags().String("arg3", "", "arg3 (string)")
-	webkitWebViewDatabaseCmd.AddCommand(webkitWebViewDatabaseSetHttpAuthUsernamePasswordCmd)
-	webkitWebViewDatabaseGetInstanceCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	webkitWebViewDatabaseCmd.AddCommand(webkitWebViewDatabaseGetInstanceCmd)
-	webkitCmd.AddCommand(webkitWebViewDatabaseCmd)
+	webkitServiceWorkerControllerCmd.AddCommand(webkitServiceWorkerControllerGetServiceWorkerWebSettingsCmd)
+	webkitServiceWorkerControllerSetServiceWorkerClientCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	webkitServiceWorkerControllerCmd.AddCommand(webkitServiceWorkerControllerSetServiceWorkerClientCmd)
+	webkitServiceWorkerControllerCmd.AddCommand(webkitServiceWorkerControllerGetInstanceCmd)
+	webkitCmd.AddCommand(webkitServiceWorkerControllerCmd)
+	webkitWebViewClientCmd.AddCommand(webkitWebViewClientNewWebViewClientCmd)
+	webkitWebViewClientDoUpdateVisitedHistoryCmd.Flags().Int64("handle", 0, "handle (int64)")
+	webkitWebViewClientDoUpdateVisitedHistoryCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	webkitWebViewClientDoUpdateVisitedHistoryCmd.Flags().String("arg1", "", "arg1 (string)")
+	webkitWebViewClientDoUpdateVisitedHistoryCmd.Flags().Bool("arg2", false, "arg2 (bool)")
+	webkitWebViewClientCmd.AddCommand(webkitWebViewClientDoUpdateVisitedHistoryCmd)
+	webkitWebViewClientOnFormResubmissionCmd.Flags().Int64("handle", 0, "handle (int64)")
+	webkitWebViewClientOnFormResubmissionCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	webkitWebViewClientOnFormResubmissionCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	webkitWebViewClientOnFormResubmissionCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	webkitWebViewClientCmd.AddCommand(webkitWebViewClientOnFormResubmissionCmd)
+	webkitWebViewClientOnLoadResourceCmd.Flags().Int64("handle", 0, "handle (int64)")
+	webkitWebViewClientOnLoadResourceCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	webkitWebViewClientOnLoadResourceCmd.Flags().String("arg1", "", "arg1 (string)")
+	webkitWebViewClientCmd.AddCommand(webkitWebViewClientOnLoadResourceCmd)
+	webkitWebViewClientOnPageCommitVisibleCmd.Flags().Int64("handle", 0, "handle (int64)")
+	webkitWebViewClientOnPageCommitVisibleCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	webkitWebViewClientOnPageCommitVisibleCmd.Flags().String("arg1", "", "arg1 (string)")
+	webkitWebViewClientCmd.AddCommand(webkitWebViewClientOnPageCommitVisibleCmd)
+	webkitWebViewClientOnPageFinishedCmd.Flags().Int64("handle", 0, "handle (int64)")
+	webkitWebViewClientOnPageFinishedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	webkitWebViewClientOnPageFinishedCmd.Flags().String("arg1", "", "arg1 (string)")
+	webkitWebViewClientCmd.AddCommand(webkitWebViewClientOnPageFinishedCmd)
+	webkitWebViewClientOnPageStartedCmd.Flags().Int64("handle", 0, "handle (int64)")
+	webkitWebViewClientOnPageStartedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	webkitWebViewClientOnPageStartedCmd.Flags().String("arg1", "", "arg1 (string)")
+	webkitWebViewClientOnPageStartedCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	webkitWebViewClientCmd.AddCommand(webkitWebViewClientOnPageStartedCmd)
+	webkitWebViewClientOnReceivedClientCertRequestCmd.Flags().Int64("handle", 0, "handle (int64)")
+	webkitWebViewClientOnReceivedClientCertRequestCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	webkitWebViewClientOnReceivedClientCertRequestCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	webkitWebViewClientCmd.AddCommand(webkitWebViewClientOnReceivedClientCertRequestCmd)
+	webkitWebViewClientOnReceivedError3Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	webkitWebViewClientOnReceivedError3Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	webkitWebViewClientOnReceivedError3Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	webkitWebViewClientOnReceivedError3Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	webkitWebViewClientCmd.AddCommand(webkitWebViewClientOnReceivedError3Cmd)
+	webkitWebViewClientOnReceivedError4_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	webkitWebViewClientOnReceivedError4_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	webkitWebViewClientOnReceivedError4_1Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	webkitWebViewClientOnReceivedError4_1Cmd.Flags().String("arg2", "", "arg2 (string)")
+	webkitWebViewClientOnReceivedError4_1Cmd.Flags().String("arg3", "", "arg3 (string)")
+	webkitWebViewClientCmd.AddCommand(webkitWebViewClientOnReceivedError4_1Cmd)
+	webkitWebViewClientOnReceivedHttpErrorCmd.Flags().Int64("handle", 0, "handle (int64)")
+	webkitWebViewClientOnReceivedHttpErrorCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	webkitWebViewClientOnReceivedHttpErrorCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	webkitWebViewClientOnReceivedHttpErrorCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	webkitWebViewClientCmd.AddCommand(webkitWebViewClientOnReceivedHttpErrorCmd)
+	webkitWebViewClientOnReceivedLoginRequestCmd.Flags().Int64("handle", 0, "handle (int64)")
+	webkitWebViewClientOnReceivedLoginRequestCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	webkitWebViewClientOnReceivedLoginRequestCmd.Flags().String("arg1", "", "arg1 (string)")
+	webkitWebViewClientOnReceivedLoginRequestCmd.Flags().String("arg2", "", "arg2 (string)")
+	webkitWebViewClientOnReceivedLoginRequestCmd.Flags().String("arg3", "", "arg3 (string)")
+	webkitWebViewClientCmd.AddCommand(webkitWebViewClientOnReceivedLoginRequestCmd)
+	webkitWebViewClientOnRenderProcessGoneCmd.Flags().Int64("handle", 0, "handle (int64)")
+	webkitWebViewClientOnRenderProcessGoneCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	webkitWebViewClientOnRenderProcessGoneCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	webkitWebViewClientCmd.AddCommand(webkitWebViewClientOnRenderProcessGoneCmd)
+	webkitWebViewClientOnSafeBrowsingHitCmd.Flags().Int64("handle", 0, "handle (int64)")
+	webkitWebViewClientOnSafeBrowsingHitCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	webkitWebViewClientOnSafeBrowsingHitCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	webkitWebViewClientOnSafeBrowsingHitCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	webkitWebViewClientOnSafeBrowsingHitCmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	webkitWebViewClientCmd.AddCommand(webkitWebViewClientOnSafeBrowsingHitCmd)
+	webkitWebViewClientOnScaleChangedCmd.Flags().Int64("handle", 0, "handle (int64)")
+	webkitWebViewClientOnScaleChangedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	webkitWebViewClientOnScaleChangedCmd.Flags().Float32("arg1", 0, "arg1 (float32)")
+	webkitWebViewClientOnScaleChangedCmd.Flags().Float32("arg2", 0, "arg2 (float32)")
+	webkitWebViewClientCmd.AddCommand(webkitWebViewClientOnScaleChangedCmd)
+	webkitWebViewClientOnTooManyRedirectsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	webkitWebViewClientOnTooManyRedirectsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	webkitWebViewClientOnTooManyRedirectsCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	webkitWebViewClientOnTooManyRedirectsCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	webkitWebViewClientCmd.AddCommand(webkitWebViewClientOnTooManyRedirectsCmd)
+	webkitWebViewClientOnUnhandledKeyEventCmd.Flags().Int64("handle", 0, "handle (int64)")
+	webkitWebViewClientOnUnhandledKeyEventCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	webkitWebViewClientOnUnhandledKeyEventCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	webkitWebViewClientCmd.AddCommand(webkitWebViewClientOnUnhandledKeyEventCmd)
+	webkitWebViewClientShouldInterceptRequest2Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	webkitWebViewClientShouldInterceptRequest2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	webkitWebViewClientShouldInterceptRequest2Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	webkitWebViewClientCmd.AddCommand(webkitWebViewClientShouldInterceptRequest2Cmd)
+	webkitWebViewClientShouldInterceptRequest2_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	webkitWebViewClientShouldInterceptRequest2_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	webkitWebViewClientShouldInterceptRequest2_1Cmd.Flags().String("arg1", "", "arg1 (string)")
+	webkitWebViewClientCmd.AddCommand(webkitWebViewClientShouldInterceptRequest2_1Cmd)
+	webkitWebViewClientShouldOverrideKeyEventCmd.Flags().Int64("handle", 0, "handle (int64)")
+	webkitWebViewClientShouldOverrideKeyEventCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	webkitWebViewClientShouldOverrideKeyEventCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	webkitWebViewClientCmd.AddCommand(webkitWebViewClientShouldOverrideKeyEventCmd)
+	webkitWebViewClientShouldOverrideUrlLoading2Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	webkitWebViewClientShouldOverrideUrlLoading2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	webkitWebViewClientShouldOverrideUrlLoading2Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	webkitWebViewClientCmd.AddCommand(webkitWebViewClientShouldOverrideUrlLoading2Cmd)
+	webkitWebViewClientShouldOverrideUrlLoading2_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	webkitWebViewClientShouldOverrideUrlLoading2_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	webkitWebViewClientShouldOverrideUrlLoading2_1Cmd.Flags().String("arg1", "", "arg1 (string)")
+	webkitWebViewClientCmd.AddCommand(webkitWebViewClientShouldOverrideUrlLoading2_1Cmd)
+	webkitCmd.AddCommand(webkitWebViewClientCmd)
+	webkitCookieSyncManagerCmd.AddCommand(webkitCookieSyncManagerResetSyncCmd)
+	webkitCookieSyncManagerCmd.AddCommand(webkitCookieSyncManagerRunCmd)
+	webkitCookieSyncManagerCmd.AddCommand(webkitCookieSyncManagerStartSyncCmd)
+	webkitCookieSyncManagerCmd.AddCommand(webkitCookieSyncManagerStopSyncCmd)
+	webkitCookieSyncManagerCmd.AddCommand(webkitCookieSyncManagerSyncCmd)
+	webkitCookieSyncManagerCreateInstanceCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	webkitCookieSyncManagerCmd.AddCommand(webkitCookieSyncManagerCreateInstanceCmd)
+	webkitCookieSyncManagerCmd.AddCommand(webkitCookieSyncManagerGetInstanceCmd)
+	webkitCmd.AddCommand(webkitCookieSyncManagerCmd)
+	webkitGeolocationPermissionsAllowCmd.Flags().String("arg0", "", "arg0 (string)")
+	webkitGeolocationPermissionsCmd.AddCommand(webkitGeolocationPermissionsAllowCmd)
+	webkitGeolocationPermissionsClearCmd.Flags().String("arg0", "", "arg0 (string)")
+	webkitGeolocationPermissionsCmd.AddCommand(webkitGeolocationPermissionsClearCmd)
+	webkitGeolocationPermissionsCmd.AddCommand(webkitGeolocationPermissionsClearAllCmd)
+	webkitGeolocationPermissionsCmd.AddCommand(webkitGeolocationPermissionsGetInstanceCmd)
+	webkitCmd.AddCommand(webkitGeolocationPermissionsCmd)
+	webkitGeolocationPermissionsCallbackInvokeCmd.Flags().String("arg0", "", "arg0 (string)")
+	webkitGeolocationPermissionsCallbackInvokeCmd.Flags().Bool("arg1", false, "arg1 (bool)")
+	webkitGeolocationPermissionsCallbackInvokeCmd.Flags().Bool("arg2", false, "arg2 (bool)")
+	webkitGeolocationPermissionsCallbackCmd.AddCommand(webkitGeolocationPermissionsCallbackInvokeCmd)
+	webkitCmd.AddCommand(webkitGeolocationPermissionsCallbackCmd)
+	webkitWebViewRenderProcessClientOnRenderProcessResponsiveCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	webkitWebViewRenderProcessClientOnRenderProcessResponsiveCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	webkitWebViewRenderProcessClientCmd.AddCommand(webkitWebViewRenderProcessClientOnRenderProcessResponsiveCmd)
+	webkitWebViewRenderProcessClientOnRenderProcessUnresponsiveCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	webkitWebViewRenderProcessClientOnRenderProcessUnresponsiveCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	webkitWebViewRenderProcessClientCmd.AddCommand(webkitWebViewRenderProcessClientOnRenderProcessUnresponsiveCmd)
+	webkitCmd.AddCommand(webkitWebViewRenderProcessClientCmd)
 	webkitCookieManagerCmd.AddCommand(webkitCookieManagerAcceptCookieCmd)
 	webkitCookieManagerAcceptThirdPartyCookiesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	webkitCookieManagerCmd.AddCommand(webkitCookieManagerAcceptThirdPartyCookiesCmd)
@@ -10570,70 +10644,82 @@ func init() {
 	webkitCookieManagerSetAcceptFileSchemeCookiesCmd.Flags().Bool("arg0", false, "arg0 (bool)")
 	webkitCookieManagerCmd.AddCommand(webkitCookieManagerSetAcceptFileSchemeCookiesCmd)
 	webkitCmd.AddCommand(webkitCookieManagerCmd)
-	webkitDownloadListenerOnDownloadStartCmd.Flags().String("arg0", "", "arg0 (string)")
-	webkitDownloadListenerOnDownloadStartCmd.Flags().String("arg1", "", "arg1 (string)")
-	webkitDownloadListenerOnDownloadStartCmd.Flags().String("arg2", "", "arg2 (string)")
-	webkitDownloadListenerOnDownloadStartCmd.Flags().String("arg3", "", "arg3 (string)")
-	webkitDownloadListenerOnDownloadStartCmd.Flags().Int64("arg4", 0, "arg4 (int64)")
-	webkitDownloadListenerCmd.AddCommand(webkitDownloadListenerOnDownloadStartCmd)
-	webkitCmd.AddCommand(webkitDownloadListenerCmd)
-	webkitServiceWorkerWebSettingsCmd.AddCommand(webkitServiceWorkerWebSettingsGetAllowContentAccessCmd)
-	webkitServiceWorkerWebSettingsCmd.AddCommand(webkitServiceWorkerWebSettingsGetAllowFileAccessCmd)
-	webkitServiceWorkerWebSettingsCmd.AddCommand(webkitServiceWorkerWebSettingsGetBlockNetworkLoadsCmd)
-	webkitServiceWorkerWebSettingsCmd.AddCommand(webkitServiceWorkerWebSettingsGetCacheModeCmd)
-	webkitServiceWorkerWebSettingsSetAllowContentAccessCmd.Flags().Bool("arg0", false, "arg0 (bool)")
-	webkitServiceWorkerWebSettingsCmd.AddCommand(webkitServiceWorkerWebSettingsSetAllowContentAccessCmd)
-	webkitServiceWorkerWebSettingsSetAllowFileAccessCmd.Flags().Bool("arg0", false, "arg0 (bool)")
-	webkitServiceWorkerWebSettingsCmd.AddCommand(webkitServiceWorkerWebSettingsSetAllowFileAccessCmd)
-	webkitServiceWorkerWebSettingsSetBlockNetworkLoadsCmd.Flags().Bool("arg0", false, "arg0 (bool)")
-	webkitServiceWorkerWebSettingsCmd.AddCommand(webkitServiceWorkerWebSettingsSetBlockNetworkLoadsCmd)
-	webkitServiceWorkerWebSettingsSetCacheModeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	webkitServiceWorkerWebSettingsCmd.AddCommand(webkitServiceWorkerWebSettingsSetCacheModeCmd)
-	webkitCmd.AddCommand(webkitServiceWorkerWebSettingsCmd)
-	webkitPermissionRequestCmd.AddCommand(webkitPermissionRequestDenyCmd)
-	webkitPermissionRequestCmd.AddCommand(webkitPermissionRequestGetOriginCmd)
-	webkitPermissionRequestCmd.AddCommand(webkitPermissionRequestGetResourcesCmd)
-	webkitPermissionRequestGrantCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	webkitPermissionRequestCmd.AddCommand(webkitPermissionRequestGrantCmd)
-	webkitCmd.AddCommand(webkitPermissionRequestCmd)
-	webkitWebBackForwardListCmd.AddCommand(webkitWebBackForwardListGetCurrentIndexCmd)
-	webkitWebBackForwardListCmd.AddCommand(webkitWebBackForwardListGetCurrentItemCmd)
-	webkitWebBackForwardListGetItemAtIndexCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	webkitWebBackForwardListCmd.AddCommand(webkitWebBackForwardListGetItemAtIndexCmd)
-	webkitWebBackForwardListCmd.AddCommand(webkitWebBackForwardListGetSizeCmd)
-	webkitCmd.AddCommand(webkitWebBackForwardListCmd)
-	webkitWebMessageNewWebMessageCmd.Flags().String("arg0", "", "arg0 (string)")
-	webkitWebMessageCmd.AddCommand(webkitWebMessageNewWebMessageCmd)
-	webkitWebMessageGetDataCmd.Flags().Int64("handle", 0, "handle (int64)")
-	webkitWebMessageCmd.AddCommand(webkitWebMessageGetDataCmd)
-	webkitWebMessageGetPortsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	webkitWebMessageCmd.AddCommand(webkitWebMessageGetPortsCmd)
-	webkitCmd.AddCommand(webkitWebMessageCmd)
-	webkitCookieSyncManagerCmd.AddCommand(webkitCookieSyncManagerResetSyncCmd)
-	webkitCookieSyncManagerCmd.AddCommand(webkitCookieSyncManagerRunCmd)
-	webkitCookieSyncManagerCmd.AddCommand(webkitCookieSyncManagerStartSyncCmd)
-	webkitCookieSyncManagerCmd.AddCommand(webkitCookieSyncManagerStopSyncCmd)
-	webkitCookieSyncManagerCmd.AddCommand(webkitCookieSyncManagerSyncCmd)
-	webkitCookieSyncManagerCreateInstanceCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	webkitCookieSyncManagerCmd.AddCommand(webkitCookieSyncManagerCreateInstanceCmd)
-	webkitCookieSyncManagerCmd.AddCommand(webkitCookieSyncManagerGetInstanceCmd)
-	webkitCmd.AddCommand(webkitCookieSyncManagerCmd)
-	webkitJsResultCmd.AddCommand(webkitJsResultCancelCmd)
-	webkitJsResultCmd.AddCommand(webkitJsResultConfirmCmd)
-	webkitCmd.AddCommand(webkitJsResultCmd)
-	webkitServiceWorkerClientCmd.AddCommand(webkitServiceWorkerClientNewServiceWorkerClientCmd)
-	webkitServiceWorkerClientShouldInterceptRequestCmd.Flags().Int64("handle", 0, "handle (int64)")
-	webkitServiceWorkerClientShouldInterceptRequestCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	webkitServiceWorkerClientCmd.AddCommand(webkitServiceWorkerClientShouldInterceptRequestCmd)
-	webkitCmd.AddCommand(webkitServiceWorkerClientCmd)
-	webkitTracingControllerCmd.AddCommand(webkitTracingControllerIsTracingCmd)
-	webkitTracingControllerStartCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	webkitTracingControllerCmd.AddCommand(webkitTracingControllerStartCmd)
-	webkitTracingControllerStopCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	webkitTracingControllerStopCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	webkitTracingControllerCmd.AddCommand(webkitTracingControllerStopCmd)
-	webkitTracingControllerCmd.AddCommand(webkitTracingControllerGetInstanceCmd)
-	webkitCmd.AddCommand(webkitTracingControllerCmd)
+	webkitURLUtilCmd.AddCommand(webkitURLUtilNewURLUtilCmd)
+	webkitURLUtilComposeSearchUrlCmd.Flags().Int64("handle", 0, "handle (int64)")
+	webkitURLUtilComposeSearchUrlCmd.Flags().String("arg0", "", "arg0 (string)")
+	webkitURLUtilComposeSearchUrlCmd.Flags().String("arg1", "", "arg1 (string)")
+	webkitURLUtilComposeSearchUrlCmd.Flags().String("arg2", "", "arg2 (string)")
+	webkitURLUtilCmd.AddCommand(webkitURLUtilComposeSearchUrlCmd)
+	webkitURLUtilDecodeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	webkitURLUtilDecodeCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	webkitURLUtilCmd.AddCommand(webkitURLUtilDecodeCmd)
+	webkitURLUtilGuessFileNameCmd.Flags().Int64("handle", 0, "handle (int64)")
+	webkitURLUtilGuessFileNameCmd.Flags().String("arg0", "", "arg0 (string)")
+	webkitURLUtilGuessFileNameCmd.Flags().String("arg1", "", "arg1 (string)")
+	webkitURLUtilGuessFileNameCmd.Flags().String("arg2", "", "arg2 (string)")
+	webkitURLUtilCmd.AddCommand(webkitURLUtilGuessFileNameCmd)
+	webkitURLUtilGuessUrlCmd.Flags().Int64("handle", 0, "handle (int64)")
+	webkitURLUtilGuessUrlCmd.Flags().String("arg0", "", "arg0 (string)")
+	webkitURLUtilCmd.AddCommand(webkitURLUtilGuessUrlCmd)
+	webkitURLUtilIsAboutUrlCmd.Flags().Int64("handle", 0, "handle (int64)")
+	webkitURLUtilIsAboutUrlCmd.Flags().String("arg0", "", "arg0 (string)")
+	webkitURLUtilCmd.AddCommand(webkitURLUtilIsAboutUrlCmd)
+	webkitURLUtilIsAssetUrlCmd.Flags().Int64("handle", 0, "handle (int64)")
+	webkitURLUtilIsAssetUrlCmd.Flags().String("arg0", "", "arg0 (string)")
+	webkitURLUtilCmd.AddCommand(webkitURLUtilIsAssetUrlCmd)
+	webkitURLUtilIsContentUrlCmd.Flags().Int64("handle", 0, "handle (int64)")
+	webkitURLUtilIsContentUrlCmd.Flags().String("arg0", "", "arg0 (string)")
+	webkitURLUtilCmd.AddCommand(webkitURLUtilIsContentUrlCmd)
+	webkitURLUtilIsCookielessProxyUrlCmd.Flags().Int64("handle", 0, "handle (int64)")
+	webkitURLUtilIsCookielessProxyUrlCmd.Flags().String("arg0", "", "arg0 (string)")
+	webkitURLUtilCmd.AddCommand(webkitURLUtilIsCookielessProxyUrlCmd)
+	webkitURLUtilIsDataUrlCmd.Flags().Int64("handle", 0, "handle (int64)")
+	webkitURLUtilIsDataUrlCmd.Flags().String("arg0", "", "arg0 (string)")
+	webkitURLUtilCmd.AddCommand(webkitURLUtilIsDataUrlCmd)
+	webkitURLUtilIsFileUrlCmd.Flags().Int64("handle", 0, "handle (int64)")
+	webkitURLUtilIsFileUrlCmd.Flags().String("arg0", "", "arg0 (string)")
+	webkitURLUtilCmd.AddCommand(webkitURLUtilIsFileUrlCmd)
+	webkitURLUtilIsHttpUrlCmd.Flags().Int64("handle", 0, "handle (int64)")
+	webkitURLUtilIsHttpUrlCmd.Flags().String("arg0", "", "arg0 (string)")
+	webkitURLUtilCmd.AddCommand(webkitURLUtilIsHttpUrlCmd)
+	webkitURLUtilIsHttpsUrlCmd.Flags().Int64("handle", 0, "handle (int64)")
+	webkitURLUtilIsHttpsUrlCmd.Flags().String("arg0", "", "arg0 (string)")
+	webkitURLUtilCmd.AddCommand(webkitURLUtilIsHttpsUrlCmd)
+	webkitURLUtilIsJavaScriptUrlCmd.Flags().Int64("handle", 0, "handle (int64)")
+	webkitURLUtilIsJavaScriptUrlCmd.Flags().String("arg0", "", "arg0 (string)")
+	webkitURLUtilCmd.AddCommand(webkitURLUtilIsJavaScriptUrlCmd)
+	webkitURLUtilIsNetworkUrlCmd.Flags().Int64("handle", 0, "handle (int64)")
+	webkitURLUtilIsNetworkUrlCmd.Flags().String("arg0", "", "arg0 (string)")
+	webkitURLUtilCmd.AddCommand(webkitURLUtilIsNetworkUrlCmd)
+	webkitURLUtilIsValidUrlCmd.Flags().Int64("handle", 0, "handle (int64)")
+	webkitURLUtilIsValidUrlCmd.Flags().String("arg0", "", "arg0 (string)")
+	webkitURLUtilCmd.AddCommand(webkitURLUtilIsValidUrlCmd)
+	webkitURLUtilStripAnchorCmd.Flags().Int64("handle", 0, "handle (int64)")
+	webkitURLUtilStripAnchorCmd.Flags().String("arg0", "", "arg0 (string)")
+	webkitURLUtilCmd.AddCommand(webkitURLUtilStripAnchorCmd)
+	webkitCmd.AddCommand(webkitURLUtilCmd)
+	webkitClientCertRequestCmd.AddCommand(webkitClientCertRequestCancelCmd)
+	webkitClientCertRequestCmd.AddCommand(webkitClientCertRequestGetHostCmd)
+	webkitClientCertRequestCmd.AddCommand(webkitClientCertRequestGetKeyTypesCmd)
+	webkitClientCertRequestCmd.AddCommand(webkitClientCertRequestGetPortCmd)
+	webkitClientCertRequestCmd.AddCommand(webkitClientCertRequestGetPrincipalsCmd)
+	webkitClientCertRequestCmd.AddCommand(webkitClientCertRequestIgnoreCmd)
+	webkitClientCertRequestProceedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	webkitClientCertRequestProceedCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	webkitClientCertRequestCmd.AddCommand(webkitClientCertRequestProceedCmd)
+	webkitCmd.AddCommand(webkitClientCertRequestCmd)
+	webkitTracingConfigCmd.AddCommand(webkitTracingConfigGetCustomIncludedCategoriesCmd)
+	webkitTracingConfigCmd.AddCommand(webkitTracingConfigGetPredefinedCategoriesCmd)
+	webkitTracingConfigCmd.AddCommand(webkitTracingConfigGetTracingModeCmd)
+	webkitCmd.AddCommand(webkitTracingConfigCmd)
+	webkitTracingConfigBuilderAddCategories1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	webkitTracingConfigBuilderCmd.AddCommand(webkitTracingConfigBuilderAddCategories1Cmd)
+	webkitTracingConfigBuilderAddCategories1_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	webkitTracingConfigBuilderCmd.AddCommand(webkitTracingConfigBuilderAddCategories1_1Cmd)
+	webkitTracingConfigBuilderCmd.AddCommand(webkitTracingConfigBuilderBuildCmd)
+	webkitTracingConfigBuilderSetTracingModeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	webkitTracingConfigBuilderCmd.AddCommand(webkitTracingConfigBuilderSetTracingModeCmd)
+	webkitCmd.AddCommand(webkitTracingConfigBuilderCmd)
 	webkitWebChromeClientCmd.AddCommand(webkitWebChromeClientNewWebChromeClientCmd)
 	webkitWebChromeClientGetDefaultVideoPosterCmd.Flags().Int64("handle", 0, "handle (int64)")
 	webkitWebChromeClientCmd.AddCommand(webkitWebChromeClientGetDefaultVideoPosterCmd)
@@ -10747,122 +10833,123 @@ func init() {
 	webkitWebChromeClientFileChooserParamsParseResultCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
 	webkitWebChromeClientFileChooserParamsCmd.AddCommand(webkitWebChromeClientFileChooserParamsParseResultCmd)
 	webkitCmd.AddCommand(webkitWebChromeClientFileChooserParamsCmd)
-	webkitWebHistoryItemCmd.AddCommand(webkitWebHistoryItemGetFaviconCmd)
-	webkitWebHistoryItemCmd.AddCommand(webkitWebHistoryItemGetOriginalUrlCmd)
-	webkitWebHistoryItemCmd.AddCommand(webkitWebHistoryItemGetTitleCmd)
-	webkitWebHistoryItemCmd.AddCommand(webkitWebHistoryItemGetUrlCmd)
-	webkitCmd.AddCommand(webkitWebHistoryItemCmd)
-	webkitWebViewClientCmd.AddCommand(webkitWebViewClientNewWebViewClientCmd)
-	webkitWebViewClientDoUpdateVisitedHistoryCmd.Flags().Int64("handle", 0, "handle (int64)")
-	webkitWebViewClientDoUpdateVisitedHistoryCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	webkitWebViewClientDoUpdateVisitedHistoryCmd.Flags().String("arg1", "", "arg1 (string)")
-	webkitWebViewClientDoUpdateVisitedHistoryCmd.Flags().Bool("arg2", false, "arg2 (bool)")
-	webkitWebViewClientCmd.AddCommand(webkitWebViewClientDoUpdateVisitedHistoryCmd)
-	webkitWebViewClientOnFormResubmissionCmd.Flags().Int64("handle", 0, "handle (int64)")
-	webkitWebViewClientOnFormResubmissionCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	webkitWebViewClientOnFormResubmissionCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	webkitWebViewClientOnFormResubmissionCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	webkitWebViewClientCmd.AddCommand(webkitWebViewClientOnFormResubmissionCmd)
-	webkitWebViewClientOnLoadResourceCmd.Flags().Int64("handle", 0, "handle (int64)")
-	webkitWebViewClientOnLoadResourceCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	webkitWebViewClientOnLoadResourceCmd.Flags().String("arg1", "", "arg1 (string)")
-	webkitWebViewClientCmd.AddCommand(webkitWebViewClientOnLoadResourceCmd)
-	webkitWebViewClientOnPageCommitVisibleCmd.Flags().Int64("handle", 0, "handle (int64)")
-	webkitWebViewClientOnPageCommitVisibleCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	webkitWebViewClientOnPageCommitVisibleCmd.Flags().String("arg1", "", "arg1 (string)")
-	webkitWebViewClientCmd.AddCommand(webkitWebViewClientOnPageCommitVisibleCmd)
-	webkitWebViewClientOnPageFinishedCmd.Flags().Int64("handle", 0, "handle (int64)")
-	webkitWebViewClientOnPageFinishedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	webkitWebViewClientOnPageFinishedCmd.Flags().String("arg1", "", "arg1 (string)")
-	webkitWebViewClientCmd.AddCommand(webkitWebViewClientOnPageFinishedCmd)
-	webkitWebViewClientOnPageStartedCmd.Flags().Int64("handle", 0, "handle (int64)")
-	webkitWebViewClientOnPageStartedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	webkitWebViewClientOnPageStartedCmd.Flags().String("arg1", "", "arg1 (string)")
-	webkitWebViewClientOnPageStartedCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	webkitWebViewClientCmd.AddCommand(webkitWebViewClientOnPageStartedCmd)
-	webkitWebViewClientOnReceivedClientCertRequestCmd.Flags().Int64("handle", 0, "handle (int64)")
-	webkitWebViewClientOnReceivedClientCertRequestCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	webkitWebViewClientOnReceivedClientCertRequestCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	webkitWebViewClientCmd.AddCommand(webkitWebViewClientOnReceivedClientCertRequestCmd)
-	webkitWebViewClientOnReceivedError3Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	webkitWebViewClientOnReceivedError3Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	webkitWebViewClientOnReceivedError3Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	webkitWebViewClientOnReceivedError3Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	webkitWebViewClientCmd.AddCommand(webkitWebViewClientOnReceivedError3Cmd)
-	webkitWebViewClientOnReceivedError4_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	webkitWebViewClientOnReceivedError4_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	webkitWebViewClientOnReceivedError4_1Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	webkitWebViewClientOnReceivedError4_1Cmd.Flags().String("arg2", "", "arg2 (string)")
-	webkitWebViewClientOnReceivedError4_1Cmd.Flags().String("arg3", "", "arg3 (string)")
-	webkitWebViewClientCmd.AddCommand(webkitWebViewClientOnReceivedError4_1Cmd)
-	webkitWebViewClientOnReceivedHttpErrorCmd.Flags().Int64("handle", 0, "handle (int64)")
-	webkitWebViewClientOnReceivedHttpErrorCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	webkitWebViewClientOnReceivedHttpErrorCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	webkitWebViewClientOnReceivedHttpErrorCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	webkitWebViewClientCmd.AddCommand(webkitWebViewClientOnReceivedHttpErrorCmd)
-	webkitWebViewClientOnReceivedLoginRequestCmd.Flags().Int64("handle", 0, "handle (int64)")
-	webkitWebViewClientOnReceivedLoginRequestCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	webkitWebViewClientOnReceivedLoginRequestCmd.Flags().String("arg1", "", "arg1 (string)")
-	webkitWebViewClientOnReceivedLoginRequestCmd.Flags().String("arg2", "", "arg2 (string)")
-	webkitWebViewClientOnReceivedLoginRequestCmd.Flags().String("arg3", "", "arg3 (string)")
-	webkitWebViewClientCmd.AddCommand(webkitWebViewClientOnReceivedLoginRequestCmd)
-	webkitWebViewClientOnRenderProcessGoneCmd.Flags().Int64("handle", 0, "handle (int64)")
-	webkitWebViewClientOnRenderProcessGoneCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	webkitWebViewClientOnRenderProcessGoneCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	webkitWebViewClientCmd.AddCommand(webkitWebViewClientOnRenderProcessGoneCmd)
-	webkitWebViewClientOnSafeBrowsingHitCmd.Flags().Int64("handle", 0, "handle (int64)")
-	webkitWebViewClientOnSafeBrowsingHitCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	webkitWebViewClientOnSafeBrowsingHitCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	webkitWebViewClientOnSafeBrowsingHitCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
-	webkitWebViewClientOnSafeBrowsingHitCmd.Flags().Int64("arg3", 0, "arg3 (int64)")
-	webkitWebViewClientCmd.AddCommand(webkitWebViewClientOnSafeBrowsingHitCmd)
-	webkitWebViewClientOnScaleChangedCmd.Flags().Int64("handle", 0, "handle (int64)")
-	webkitWebViewClientOnScaleChangedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	webkitWebViewClientOnScaleChangedCmd.Flags().Float32("arg1", 0, "arg1 (float32)")
-	webkitWebViewClientOnScaleChangedCmd.Flags().Float32("arg2", 0, "arg2 (float32)")
-	webkitWebViewClientCmd.AddCommand(webkitWebViewClientOnScaleChangedCmd)
-	webkitWebViewClientOnTooManyRedirectsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	webkitWebViewClientOnTooManyRedirectsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	webkitWebViewClientOnTooManyRedirectsCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	webkitWebViewClientOnTooManyRedirectsCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	webkitWebViewClientCmd.AddCommand(webkitWebViewClientOnTooManyRedirectsCmd)
-	webkitWebViewClientOnUnhandledKeyEventCmd.Flags().Int64("handle", 0, "handle (int64)")
-	webkitWebViewClientOnUnhandledKeyEventCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	webkitWebViewClientOnUnhandledKeyEventCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	webkitWebViewClientCmd.AddCommand(webkitWebViewClientOnUnhandledKeyEventCmd)
-	webkitWebViewClientShouldInterceptRequest2Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	webkitWebViewClientShouldInterceptRequest2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	webkitWebViewClientShouldInterceptRequest2Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	webkitWebViewClientCmd.AddCommand(webkitWebViewClientShouldInterceptRequest2Cmd)
-	webkitWebViewClientShouldInterceptRequest2_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	webkitWebViewClientShouldInterceptRequest2_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	webkitWebViewClientShouldInterceptRequest2_1Cmd.Flags().String("arg1", "", "arg1 (string)")
-	webkitWebViewClientCmd.AddCommand(webkitWebViewClientShouldInterceptRequest2_1Cmd)
-	webkitWebViewClientShouldOverrideKeyEventCmd.Flags().Int64("handle", 0, "handle (int64)")
-	webkitWebViewClientShouldOverrideKeyEventCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	webkitWebViewClientShouldOverrideKeyEventCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	webkitWebViewClientCmd.AddCommand(webkitWebViewClientShouldOverrideKeyEventCmd)
-	webkitWebViewClientShouldOverrideUrlLoading2Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	webkitWebViewClientShouldOverrideUrlLoading2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	webkitWebViewClientShouldOverrideUrlLoading2Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	webkitWebViewClientCmd.AddCommand(webkitWebViewClientShouldOverrideUrlLoading2Cmd)
-	webkitWebViewClientShouldOverrideUrlLoading2_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	webkitWebViewClientShouldOverrideUrlLoading2_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	webkitWebViewClientShouldOverrideUrlLoading2_1Cmd.Flags().String("arg1", "", "arg1 (string)")
-	webkitWebViewClientCmd.AddCommand(webkitWebViewClientShouldOverrideUrlLoading2_1Cmd)
-	webkitCmd.AddCommand(webkitWebViewClientCmd)
-	webkitGeolocationPermissionsAllowCmd.Flags().String("arg0", "", "arg0 (string)")
-	webkitGeolocationPermissionsCmd.AddCommand(webkitGeolocationPermissionsAllowCmd)
-	webkitGeolocationPermissionsClearCmd.Flags().String("arg0", "", "arg0 (string)")
-	webkitGeolocationPermissionsCmd.AddCommand(webkitGeolocationPermissionsClearCmd)
-	webkitGeolocationPermissionsCmd.AddCommand(webkitGeolocationPermissionsClearAllCmd)
-	webkitGeolocationPermissionsCmd.AddCommand(webkitGeolocationPermissionsGetInstanceCmd)
-	webkitCmd.AddCommand(webkitGeolocationPermissionsCmd)
-	webkitGeolocationPermissionsCallbackInvokeCmd.Flags().String("arg0", "", "arg0 (string)")
-	webkitGeolocationPermissionsCallbackInvokeCmd.Flags().Bool("arg1", false, "arg1 (bool)")
-	webkitGeolocationPermissionsCallbackInvokeCmd.Flags().Bool("arg2", false, "arg2 (bool)")
-	webkitGeolocationPermissionsCallbackCmd.AddCommand(webkitGeolocationPermissionsCallbackInvokeCmd)
-	webkitCmd.AddCommand(webkitGeolocationPermissionsCallbackCmd)
+	webkitServiceWorkerWebSettingsCmd.AddCommand(webkitServiceWorkerWebSettingsGetAllowContentAccessCmd)
+	webkitServiceWorkerWebSettingsCmd.AddCommand(webkitServiceWorkerWebSettingsGetAllowFileAccessCmd)
+	webkitServiceWorkerWebSettingsCmd.AddCommand(webkitServiceWorkerWebSettingsGetBlockNetworkLoadsCmd)
+	webkitServiceWorkerWebSettingsCmd.AddCommand(webkitServiceWorkerWebSettingsGetCacheModeCmd)
+	webkitServiceWorkerWebSettingsSetAllowContentAccessCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	webkitServiceWorkerWebSettingsCmd.AddCommand(webkitServiceWorkerWebSettingsSetAllowContentAccessCmd)
+	webkitServiceWorkerWebSettingsSetAllowFileAccessCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	webkitServiceWorkerWebSettingsCmd.AddCommand(webkitServiceWorkerWebSettingsSetAllowFileAccessCmd)
+	webkitServiceWorkerWebSettingsSetBlockNetworkLoadsCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	webkitServiceWorkerWebSettingsCmd.AddCommand(webkitServiceWorkerWebSettingsSetBlockNetworkLoadsCmd)
+	webkitServiceWorkerWebSettingsSetCacheModeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	webkitServiceWorkerWebSettingsCmd.AddCommand(webkitServiceWorkerWebSettingsSetCacheModeCmd)
+	webkitCmd.AddCommand(webkitServiceWorkerWebSettingsCmd)
+	webkitRenderProcessGoneDetailCmd.AddCommand(webkitRenderProcessGoneDetailDidCrashCmd)
+	webkitRenderProcessGoneDetailCmd.AddCommand(webkitRenderProcessGoneDetailRendererPriorityAtExitCmd)
+	webkitCmd.AddCommand(webkitRenderProcessGoneDetailCmd)
+	webkitDateSorterNewDateSorterCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	webkitDateSorterCmd.AddCommand(webkitDateSorterNewDateSorterCmd)
+	webkitDateSorterGetBoundaryCmd.Flags().Int64("handle", 0, "handle (int64)")
+	webkitDateSorterGetBoundaryCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	webkitDateSorterCmd.AddCommand(webkitDateSorterGetBoundaryCmd)
+	webkitDateSorterGetIndexCmd.Flags().Int64("handle", 0, "handle (int64)")
+	webkitDateSorterGetIndexCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	webkitDateSorterCmd.AddCommand(webkitDateSorterGetIndexCmd)
+	webkitDateSorterGetLabelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	webkitDateSorterGetLabelCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	webkitDateSorterCmd.AddCommand(webkitDateSorterGetLabelCmd)
+	webkitCmd.AddCommand(webkitDateSorterCmd)
+	webkitPluginStubGetEmbeddedViewCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	webkitPluginStubGetEmbeddedViewCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	webkitPluginStubCmd.AddCommand(webkitPluginStubGetEmbeddedViewCmd)
+	webkitPluginStubGetFullScreenViewCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	webkitPluginStubGetFullScreenViewCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	webkitPluginStubCmd.AddCommand(webkitPluginStubGetFullScreenViewCmd)
+	webkitCmd.AddCommand(webkitPluginStubCmd)
+	webkitWebViewRenderProcessCmd.AddCommand(webkitWebViewRenderProcessTerminateCmd)
+	webkitCmd.AddCommand(webkitWebViewRenderProcessCmd)
+	webkitWebResourceResponseNewWebResourceResponseCmd.Flags().String("arg0", "", "arg0 (string)")
+	webkitWebResourceResponseNewWebResourceResponseCmd.Flags().String("arg1", "", "arg1 (string)")
+	webkitWebResourceResponseNewWebResourceResponseCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	webkitWebResourceResponseNewWebResourceResponseCmd.Flags().String("arg3", "", "arg3 (string)")
+	webkitWebResourceResponseNewWebResourceResponseCmd.Flags().Int64("arg4", 0, "arg4 (int64)")
+	webkitWebResourceResponseNewWebResourceResponseCmd.Flags().Int64("arg5", 0, "arg5 (int64)")
+	webkitWebResourceResponseCmd.AddCommand(webkitWebResourceResponseNewWebResourceResponseCmd)
+	webkitWebResourceResponseGetDataCmd.Flags().Int64("handle", 0, "handle (int64)")
+	webkitWebResourceResponseCmd.AddCommand(webkitWebResourceResponseGetDataCmd)
+	webkitWebResourceResponseGetEncodingCmd.Flags().Int64("handle", 0, "handle (int64)")
+	webkitWebResourceResponseCmd.AddCommand(webkitWebResourceResponseGetEncodingCmd)
+	webkitWebResourceResponseGetMimeTypeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	webkitWebResourceResponseCmd.AddCommand(webkitWebResourceResponseGetMimeTypeCmd)
+	webkitWebResourceResponseGetReasonPhraseCmd.Flags().Int64("handle", 0, "handle (int64)")
+	webkitWebResourceResponseCmd.AddCommand(webkitWebResourceResponseGetReasonPhraseCmd)
+	webkitWebResourceResponseGetStatusCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	webkitWebResourceResponseCmd.AddCommand(webkitWebResourceResponseGetStatusCodeCmd)
+	webkitWebResourceResponseSetDataCmd.Flags().Int64("handle", 0, "handle (int64)")
+	webkitWebResourceResponseSetDataCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	webkitWebResourceResponseCmd.AddCommand(webkitWebResourceResponseSetDataCmd)
+	webkitWebResourceResponseSetEncodingCmd.Flags().Int64("handle", 0, "handle (int64)")
+	webkitWebResourceResponseSetEncodingCmd.Flags().String("arg0", "", "arg0 (string)")
+	webkitWebResourceResponseCmd.AddCommand(webkitWebResourceResponseSetEncodingCmd)
+	webkitWebResourceResponseSetMimeTypeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	webkitWebResourceResponseSetMimeTypeCmd.Flags().String("arg0", "", "arg0 (string)")
+	webkitWebResourceResponseCmd.AddCommand(webkitWebResourceResponseSetMimeTypeCmd)
+	webkitWebResourceResponseSetStatusCodeAndReasonPhraseCmd.Flags().Int64("handle", 0, "handle (int64)")
+	webkitWebResourceResponseSetStatusCodeAndReasonPhraseCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	webkitWebResourceResponseSetStatusCodeAndReasonPhraseCmd.Flags().String("arg1", "", "arg1 (string)")
+	webkitWebResourceResponseCmd.AddCommand(webkitWebResourceResponseSetStatusCodeAndReasonPhraseCmd)
+	webkitCmd.AddCommand(webkitWebResourceResponseCmd)
+	webkitConsoleMessageNewConsoleMessageCmd.Flags().String("arg0", "", "arg0 (string)")
+	webkitConsoleMessageNewConsoleMessageCmd.Flags().String("arg1", "", "arg1 (string)")
+	webkitConsoleMessageNewConsoleMessageCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	webkitConsoleMessageNewConsoleMessageCmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	webkitConsoleMessageCmd.AddCommand(webkitConsoleMessageNewConsoleMessageCmd)
+	webkitConsoleMessageLineNumberCmd.Flags().Int64("handle", 0, "handle (int64)")
+	webkitConsoleMessageCmd.AddCommand(webkitConsoleMessageLineNumberCmd)
+	webkitConsoleMessageMessageCmd.Flags().Int64("handle", 0, "handle (int64)")
+	webkitConsoleMessageCmd.AddCommand(webkitConsoleMessageMessageCmd)
+	webkitConsoleMessageMessageLevelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	webkitConsoleMessageCmd.AddCommand(webkitConsoleMessageMessageLevelCmd)
+	webkitConsoleMessageSourceIdCmd.Flags().Int64("handle", 0, "handle (int64)")
+	webkitConsoleMessageCmd.AddCommand(webkitConsoleMessageSourceIdCmd)
+	webkitCmd.AddCommand(webkitConsoleMessageCmd)
+	webkitConsoleMessageMessageLevelSvcCmd.AddCommand(webkitConsoleMessageMessageLevelSvcValuesCmd)
+	webkitConsoleMessageMessageLevelSvcValueOfCmd.Flags().String("arg0", "", "arg0 (string)")
+	webkitConsoleMessageMessageLevelSvcCmd.AddCommand(webkitConsoleMessageMessageLevelSvcValueOfCmd)
+	webkitCmd.AddCommand(webkitConsoleMessageMessageLevelSvcCmd)
+	webkitJsPromptResultConfirmCmd.Flags().String("arg0", "", "arg0 (string)")
+	webkitJsPromptResultCmd.AddCommand(webkitJsPromptResultConfirmCmd)
+	webkitCmd.AddCommand(webkitJsPromptResultCmd)
+	webkitJsResultCmd.AddCommand(webkitJsResultCancelCmd)
+	webkitJsResultCmd.AddCommand(webkitJsResultConfirmCmd)
+	webkitCmd.AddCommand(webkitJsResultCmd)
+	webkitWebMessagePortCmd.AddCommand(webkitWebMessagePortCloseCmd)
+	webkitWebMessagePortPostMessageCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	webkitWebMessagePortCmd.AddCommand(webkitWebMessagePortPostMessageCmd)
+	webkitWebMessagePortSetWebMessageCallbackCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	webkitWebMessagePortCmd.AddCommand(webkitWebMessagePortSetWebMessageCallbackCmd)
+	webkitCmd.AddCommand(webkitWebMessagePortCmd)
+	webkitWebMessagePortWebMessageCallbackOnMessageCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	webkitWebMessagePortWebMessageCallbackOnMessageCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	webkitWebMessagePortWebMessageCallbackCmd.AddCommand(webkitWebMessagePortWebMessageCallbackOnMessageCmd)
+	webkitCmd.AddCommand(webkitWebMessagePortWebMessageCallbackCmd)
+	webkitMimeTypeMapGetExtensionFromMimeTypeCmd.Flags().String("arg0", "", "arg0 (string)")
+	webkitMimeTypeMapCmd.AddCommand(webkitMimeTypeMapGetExtensionFromMimeTypeCmd)
+	webkitMimeTypeMapGetMimeTypeFromExtensionCmd.Flags().String("arg0", "", "arg0 (string)")
+	webkitMimeTypeMapCmd.AddCommand(webkitMimeTypeMapGetMimeTypeFromExtensionCmd)
+	webkitMimeTypeMapHasExtensionCmd.Flags().String("arg0", "", "arg0 (string)")
+	webkitMimeTypeMapCmd.AddCommand(webkitMimeTypeMapHasExtensionCmd)
+	webkitMimeTypeMapHasMimeTypeCmd.Flags().String("arg0", "", "arg0 (string)")
+	webkitMimeTypeMapCmd.AddCommand(webkitMimeTypeMapHasMimeTypeCmd)
+	webkitMimeTypeMapGetFileExtensionFromUrlCmd.Flags().String("arg0", "", "arg0 (string)")
+	webkitMimeTypeMapCmd.AddCommand(webkitMimeTypeMapGetFileExtensionFromUrlCmd)
+	webkitMimeTypeMapCmd.AddCommand(webkitMimeTypeMapGetSingletonCmd)
+	webkitCmd.AddCommand(webkitMimeTypeMapCmd)
+	webkitWebResourceErrorCmd.AddCommand(webkitWebResourceErrorGetDescriptionCmd)
+	webkitWebResourceErrorCmd.AddCommand(webkitWebResourceErrorGetErrorCodeCmd)
+	webkitCmd.AddCommand(webkitWebResourceErrorCmd)
 	webkitSafeBrowsingResponseBackToSafetyCmd.Flags().Bool("arg0", false, "arg0 (bool)")
 	webkitSafeBrowsingResponseCmd.AddCommand(webkitSafeBrowsingResponseBackToSafetyCmd)
 	webkitSafeBrowsingResponseProceedCmd.Flags().Bool("arg0", false, "arg0 (bool)")
@@ -10870,176 +10957,106 @@ func init() {
 	webkitSafeBrowsingResponseShowInterstitialCmd.Flags().Bool("arg0", false, "arg0 (bool)")
 	webkitSafeBrowsingResponseCmd.AddCommand(webkitSafeBrowsingResponseShowInterstitialCmd)
 	webkitCmd.AddCommand(webkitSafeBrowsingResponseCmd)
-	webkitWebViewRenderProcessCmd.AddCommand(webkitWebViewRenderProcessTerminateCmd)
-	webkitCmd.AddCommand(webkitWebViewRenderProcessCmd)
-	webkitWebSettingsCmd.AddCommand(webkitWebSettingsEnableSmoothTransitionCmd)
-	webkitWebSettingsCmd.AddCommand(webkitWebSettingsGetAllowContentAccessCmd)
-	webkitWebSettingsCmd.AddCommand(webkitWebSettingsGetAllowFileAccessCmd)
-	webkitWebSettingsCmd.AddCommand(webkitWebSettingsGetAllowFileAccessFromFileURLsCmd)
-	webkitWebSettingsCmd.AddCommand(webkitWebSettingsGetAllowUniversalAccessFromFileURLsCmd)
-	webkitWebSettingsCmd.AddCommand(webkitWebSettingsGetBlockNetworkImageCmd)
-	webkitWebSettingsCmd.AddCommand(webkitWebSettingsGetBlockNetworkLoadsCmd)
-	webkitWebSettingsCmd.AddCommand(webkitWebSettingsGetBuiltInZoomControlsCmd)
-	webkitWebSettingsCmd.AddCommand(webkitWebSettingsGetCacheModeCmd)
-	webkitWebSettingsCmd.AddCommand(webkitWebSettingsGetCursiveFontFamilyCmd)
-	webkitWebSettingsCmd.AddCommand(webkitWebSettingsGetDatabaseEnabledCmd)
-	webkitWebSettingsCmd.AddCommand(webkitWebSettingsGetDatabasePathCmd)
-	webkitWebSettingsCmd.AddCommand(webkitWebSettingsGetDefaultFixedFontSizeCmd)
-	webkitWebSettingsCmd.AddCommand(webkitWebSettingsGetDefaultFontSizeCmd)
-	webkitWebSettingsCmd.AddCommand(webkitWebSettingsGetDefaultTextEncodingNameCmd)
-	webkitWebSettingsCmd.AddCommand(webkitWebSettingsGetDefaultZoomCmd)
-	webkitWebSettingsCmd.AddCommand(webkitWebSettingsGetDisabledActionModeMenuItemsCmd)
-	webkitWebSettingsCmd.AddCommand(webkitWebSettingsGetDisplayZoomControlsCmd)
-	webkitWebSettingsCmd.AddCommand(webkitWebSettingsGetDomStorageEnabledCmd)
-	webkitWebSettingsCmd.AddCommand(webkitWebSettingsGetFantasyFontFamilyCmd)
-	webkitWebSettingsCmd.AddCommand(webkitWebSettingsGetFixedFontFamilyCmd)
-	webkitWebSettingsCmd.AddCommand(webkitWebSettingsGetForceDarkCmd)
-	webkitWebSettingsCmd.AddCommand(webkitWebSettingsGetJavaScriptCanOpenWindowsAutomaticallyCmd)
-	webkitWebSettingsCmd.AddCommand(webkitWebSettingsGetJavaScriptEnabledCmd)
-	webkitWebSettingsCmd.AddCommand(webkitWebSettingsGetLayoutAlgorithmCmd)
-	webkitWebSettingsCmd.AddCommand(webkitWebSettingsGetLightTouchEnabledCmd)
-	webkitWebSettingsCmd.AddCommand(webkitWebSettingsGetLoadWithOverviewModeCmd)
-	webkitWebSettingsCmd.AddCommand(webkitWebSettingsGetLoadsImagesAutomaticallyCmd)
-	webkitWebSettingsCmd.AddCommand(webkitWebSettingsGetMediaPlaybackRequiresUserGestureCmd)
-	webkitWebSettingsCmd.AddCommand(webkitWebSettingsGetMinimumFontSizeCmd)
-	webkitWebSettingsCmd.AddCommand(webkitWebSettingsGetMinimumLogicalFontSizeCmd)
-	webkitWebSettingsCmd.AddCommand(webkitWebSettingsGetMixedContentModeCmd)
-	webkitWebSettingsCmd.AddCommand(webkitWebSettingsGetOffscreenPreRasterCmd)
-	webkitWebSettingsCmd.AddCommand(webkitWebSettingsGetPluginStateCmd)
-	webkitWebSettingsCmd.AddCommand(webkitWebSettingsGetSafeBrowsingEnabledCmd)
-	webkitWebSettingsCmd.AddCommand(webkitWebSettingsGetSansSerifFontFamilyCmd)
-	webkitWebSettingsCmd.AddCommand(webkitWebSettingsGetSaveFormDataCmd)
-	webkitWebSettingsCmd.AddCommand(webkitWebSettingsGetSavePasswordCmd)
-	webkitWebSettingsCmd.AddCommand(webkitWebSettingsGetSerifFontFamilyCmd)
-	webkitWebSettingsCmd.AddCommand(webkitWebSettingsGetStandardFontFamilyCmd)
-	webkitWebSettingsCmd.AddCommand(webkitWebSettingsGetTextZoomCmd)
-	webkitWebSettingsCmd.AddCommand(webkitWebSettingsGetUseWideViewPortCmd)
-	webkitWebSettingsCmd.AddCommand(webkitWebSettingsGetUserAgentStringCmd)
-	webkitWebSettingsCmd.AddCommand(webkitWebSettingsIsAlgorithmicDarkeningAllowedCmd)
-	webkitWebSettingsSetAlgorithmicDarkeningAllowedCmd.Flags().Bool("arg0", false, "arg0 (bool)")
-	webkitWebSettingsCmd.AddCommand(webkitWebSettingsSetAlgorithmicDarkeningAllowedCmd)
-	webkitWebSettingsSetAllowContentAccessCmd.Flags().Bool("arg0", false, "arg0 (bool)")
-	webkitWebSettingsCmd.AddCommand(webkitWebSettingsSetAllowContentAccessCmd)
-	webkitWebSettingsSetAllowFileAccessCmd.Flags().Bool("arg0", false, "arg0 (bool)")
-	webkitWebSettingsCmd.AddCommand(webkitWebSettingsSetAllowFileAccessCmd)
-	webkitWebSettingsSetAllowFileAccessFromFileURLsCmd.Flags().Bool("arg0", false, "arg0 (bool)")
-	webkitWebSettingsCmd.AddCommand(webkitWebSettingsSetAllowFileAccessFromFileURLsCmd)
-	webkitWebSettingsSetAllowUniversalAccessFromFileURLsCmd.Flags().Bool("arg0", false, "arg0 (bool)")
-	webkitWebSettingsCmd.AddCommand(webkitWebSettingsSetAllowUniversalAccessFromFileURLsCmd)
-	webkitWebSettingsSetBlockNetworkImageCmd.Flags().Bool("arg0", false, "arg0 (bool)")
-	webkitWebSettingsCmd.AddCommand(webkitWebSettingsSetBlockNetworkImageCmd)
-	webkitWebSettingsSetBlockNetworkLoadsCmd.Flags().Bool("arg0", false, "arg0 (bool)")
-	webkitWebSettingsCmd.AddCommand(webkitWebSettingsSetBlockNetworkLoadsCmd)
-	webkitWebSettingsSetBuiltInZoomControlsCmd.Flags().Bool("arg0", false, "arg0 (bool)")
-	webkitWebSettingsCmd.AddCommand(webkitWebSettingsSetBuiltInZoomControlsCmd)
-	webkitWebSettingsSetCacheModeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	webkitWebSettingsCmd.AddCommand(webkitWebSettingsSetCacheModeCmd)
-	webkitWebSettingsSetCursiveFontFamilyCmd.Flags().String("arg0", "", "arg0 (string)")
-	webkitWebSettingsCmd.AddCommand(webkitWebSettingsSetCursiveFontFamilyCmd)
-	webkitWebSettingsSetDatabaseEnabledCmd.Flags().Bool("arg0", false, "arg0 (bool)")
-	webkitWebSettingsCmd.AddCommand(webkitWebSettingsSetDatabaseEnabledCmd)
-	webkitWebSettingsSetDatabasePathCmd.Flags().String("arg0", "", "arg0 (string)")
-	webkitWebSettingsCmd.AddCommand(webkitWebSettingsSetDatabasePathCmd)
-	webkitWebSettingsSetDefaultFixedFontSizeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	webkitWebSettingsCmd.AddCommand(webkitWebSettingsSetDefaultFixedFontSizeCmd)
-	webkitWebSettingsSetDefaultFontSizeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	webkitWebSettingsCmd.AddCommand(webkitWebSettingsSetDefaultFontSizeCmd)
-	webkitWebSettingsSetDefaultTextEncodingNameCmd.Flags().String("arg0", "", "arg0 (string)")
-	webkitWebSettingsCmd.AddCommand(webkitWebSettingsSetDefaultTextEncodingNameCmd)
-	webkitWebSettingsSetDefaultZoomCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	webkitWebSettingsCmd.AddCommand(webkitWebSettingsSetDefaultZoomCmd)
-	webkitWebSettingsSetDisabledActionModeMenuItemsCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	webkitWebSettingsCmd.AddCommand(webkitWebSettingsSetDisabledActionModeMenuItemsCmd)
-	webkitWebSettingsSetDisplayZoomControlsCmd.Flags().Bool("arg0", false, "arg0 (bool)")
-	webkitWebSettingsCmd.AddCommand(webkitWebSettingsSetDisplayZoomControlsCmd)
-	webkitWebSettingsSetDomStorageEnabledCmd.Flags().Bool("arg0", false, "arg0 (bool)")
-	webkitWebSettingsCmd.AddCommand(webkitWebSettingsSetDomStorageEnabledCmd)
-	webkitWebSettingsSetEnableSmoothTransitionCmd.Flags().Bool("arg0", false, "arg0 (bool)")
-	webkitWebSettingsCmd.AddCommand(webkitWebSettingsSetEnableSmoothTransitionCmd)
-	webkitWebSettingsSetFantasyFontFamilyCmd.Flags().String("arg0", "", "arg0 (string)")
-	webkitWebSettingsCmd.AddCommand(webkitWebSettingsSetFantasyFontFamilyCmd)
-	webkitWebSettingsSetFixedFontFamilyCmd.Flags().String("arg0", "", "arg0 (string)")
-	webkitWebSettingsCmd.AddCommand(webkitWebSettingsSetFixedFontFamilyCmd)
-	webkitWebSettingsSetForceDarkCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	webkitWebSettingsCmd.AddCommand(webkitWebSettingsSetForceDarkCmd)
-	webkitWebSettingsSetGeolocationDatabasePathCmd.Flags().String("arg0", "", "arg0 (string)")
-	webkitWebSettingsCmd.AddCommand(webkitWebSettingsSetGeolocationDatabasePathCmd)
-	webkitWebSettingsSetGeolocationEnabledCmd.Flags().Bool("arg0", false, "arg0 (bool)")
-	webkitWebSettingsCmd.AddCommand(webkitWebSettingsSetGeolocationEnabledCmd)
-	webkitWebSettingsSetJavaScriptCanOpenWindowsAutomaticallyCmd.Flags().Bool("arg0", false, "arg0 (bool)")
-	webkitWebSettingsCmd.AddCommand(webkitWebSettingsSetJavaScriptCanOpenWindowsAutomaticallyCmd)
-	webkitWebSettingsSetJavaScriptEnabledCmd.Flags().Bool("arg0", false, "arg0 (bool)")
-	webkitWebSettingsCmd.AddCommand(webkitWebSettingsSetJavaScriptEnabledCmd)
-	webkitWebSettingsSetLayoutAlgorithmCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	webkitWebSettingsCmd.AddCommand(webkitWebSettingsSetLayoutAlgorithmCmd)
-	webkitWebSettingsSetLightTouchEnabledCmd.Flags().Bool("arg0", false, "arg0 (bool)")
-	webkitWebSettingsCmd.AddCommand(webkitWebSettingsSetLightTouchEnabledCmd)
-	webkitWebSettingsSetLoadWithOverviewModeCmd.Flags().Bool("arg0", false, "arg0 (bool)")
-	webkitWebSettingsCmd.AddCommand(webkitWebSettingsSetLoadWithOverviewModeCmd)
-	webkitWebSettingsSetLoadsImagesAutomaticallyCmd.Flags().Bool("arg0", false, "arg0 (bool)")
-	webkitWebSettingsCmd.AddCommand(webkitWebSettingsSetLoadsImagesAutomaticallyCmd)
-	webkitWebSettingsSetMediaPlaybackRequiresUserGestureCmd.Flags().Bool("arg0", false, "arg0 (bool)")
-	webkitWebSettingsCmd.AddCommand(webkitWebSettingsSetMediaPlaybackRequiresUserGestureCmd)
-	webkitWebSettingsSetMinimumFontSizeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	webkitWebSettingsCmd.AddCommand(webkitWebSettingsSetMinimumFontSizeCmd)
-	webkitWebSettingsSetMinimumLogicalFontSizeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	webkitWebSettingsCmd.AddCommand(webkitWebSettingsSetMinimumLogicalFontSizeCmd)
-	webkitWebSettingsSetMixedContentModeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	webkitWebSettingsCmd.AddCommand(webkitWebSettingsSetMixedContentModeCmd)
-	webkitWebSettingsSetNeedInitialFocusCmd.Flags().Bool("arg0", false, "arg0 (bool)")
-	webkitWebSettingsCmd.AddCommand(webkitWebSettingsSetNeedInitialFocusCmd)
-	webkitWebSettingsSetOffscreenPreRasterCmd.Flags().Bool("arg0", false, "arg0 (bool)")
-	webkitWebSettingsCmd.AddCommand(webkitWebSettingsSetOffscreenPreRasterCmd)
-	webkitWebSettingsSetPluginStateCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	webkitWebSettingsCmd.AddCommand(webkitWebSettingsSetPluginStateCmd)
-	webkitWebSettingsSetRenderPriorityCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	webkitWebSettingsCmd.AddCommand(webkitWebSettingsSetRenderPriorityCmd)
-	webkitWebSettingsSetSafeBrowsingEnabledCmd.Flags().Bool("arg0", false, "arg0 (bool)")
-	webkitWebSettingsCmd.AddCommand(webkitWebSettingsSetSafeBrowsingEnabledCmd)
-	webkitWebSettingsSetSansSerifFontFamilyCmd.Flags().String("arg0", "", "arg0 (string)")
-	webkitWebSettingsCmd.AddCommand(webkitWebSettingsSetSansSerifFontFamilyCmd)
-	webkitWebSettingsSetSaveFormDataCmd.Flags().Bool("arg0", false, "arg0 (bool)")
-	webkitWebSettingsCmd.AddCommand(webkitWebSettingsSetSaveFormDataCmd)
-	webkitWebSettingsSetSavePasswordCmd.Flags().Bool("arg0", false, "arg0 (bool)")
-	webkitWebSettingsCmd.AddCommand(webkitWebSettingsSetSavePasswordCmd)
-	webkitWebSettingsSetSerifFontFamilyCmd.Flags().String("arg0", "", "arg0 (string)")
-	webkitWebSettingsCmd.AddCommand(webkitWebSettingsSetSerifFontFamilyCmd)
-	webkitWebSettingsSetStandardFontFamilyCmd.Flags().String("arg0", "", "arg0 (string)")
-	webkitWebSettingsCmd.AddCommand(webkitWebSettingsSetStandardFontFamilyCmd)
-	webkitWebSettingsSetSupportMultipleWindowsCmd.Flags().Bool("arg0", false, "arg0 (bool)")
-	webkitWebSettingsCmd.AddCommand(webkitWebSettingsSetSupportMultipleWindowsCmd)
-	webkitWebSettingsSetSupportZoomCmd.Flags().Bool("arg0", false, "arg0 (bool)")
-	webkitWebSettingsCmd.AddCommand(webkitWebSettingsSetSupportZoomCmd)
-	webkitWebSettingsSetTextZoomCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	webkitWebSettingsCmd.AddCommand(webkitWebSettingsSetTextZoomCmd)
-	webkitWebSettingsSetUseWideViewPortCmd.Flags().Bool("arg0", false, "arg0 (bool)")
-	webkitWebSettingsCmd.AddCommand(webkitWebSettingsSetUseWideViewPortCmd)
-	webkitWebSettingsSetUserAgentStringCmd.Flags().String("arg0", "", "arg0 (string)")
-	webkitWebSettingsCmd.AddCommand(webkitWebSettingsSetUserAgentStringCmd)
-	webkitWebSettingsCmd.AddCommand(webkitWebSettingsSupportMultipleWindowsCmd)
-	webkitWebSettingsCmd.AddCommand(webkitWebSettingsSupportZoomCmd)
-	webkitWebSettingsGetDefaultUserAgentCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	webkitWebSettingsCmd.AddCommand(webkitWebSettingsGetDefaultUserAgentCmd)
-	webkitCmd.AddCommand(webkitWebSettingsCmd)
-	webkitWebSettingsLayoutAlgorithmCmd.AddCommand(webkitWebSettingsLayoutAlgorithmValuesCmd)
-	webkitWebSettingsLayoutAlgorithmValueOfCmd.Flags().String("arg0", "", "arg0 (string)")
-	webkitWebSettingsLayoutAlgorithmCmd.AddCommand(webkitWebSettingsLayoutAlgorithmValueOfCmd)
-	webkitCmd.AddCommand(webkitWebSettingsLayoutAlgorithmCmd)
-	webkitWebSettingsPluginStateCmd.AddCommand(webkitWebSettingsPluginStateValuesCmd)
-	webkitWebSettingsPluginStateValueOfCmd.Flags().String("arg0", "", "arg0 (string)")
-	webkitWebSettingsPluginStateCmd.AddCommand(webkitWebSettingsPluginStateValueOfCmd)
-	webkitCmd.AddCommand(webkitWebSettingsPluginStateCmd)
-	webkitWebSettingsRenderPriorityCmd.AddCommand(webkitWebSettingsRenderPriorityValuesCmd)
-	webkitWebSettingsRenderPriorityValueOfCmd.Flags().String("arg0", "", "arg0 (string)")
-	webkitWebSettingsRenderPriorityCmd.AddCommand(webkitWebSettingsRenderPriorityValueOfCmd)
-	webkitCmd.AddCommand(webkitWebSettingsRenderPriorityCmd)
-	webkitWebSettingsTextSizeCmd.AddCommand(webkitWebSettingsTextSizeValuesCmd)
-	webkitWebSettingsTextSizeValueOfCmd.Flags().String("arg0", "", "arg0 (string)")
-	webkitWebSettingsTextSizeCmd.AddCommand(webkitWebSettingsTextSizeValueOfCmd)
-	webkitCmd.AddCommand(webkitWebSettingsTextSizeCmd)
-	webkitWebSettingsZoomDensityCmd.AddCommand(webkitWebSettingsZoomDensityValuesCmd)
-	webkitWebSettingsZoomDensityValueOfCmd.Flags().String("arg0", "", "arg0 (string)")
-	webkitWebSettingsZoomDensityCmd.AddCommand(webkitWebSettingsZoomDensityValueOfCmd)
-	webkitCmd.AddCommand(webkitWebSettingsZoomDensityCmd)
+	webkitWebHistoryItemCmd.AddCommand(webkitWebHistoryItemGetFaviconCmd)
+	webkitWebHistoryItemCmd.AddCommand(webkitWebHistoryItemGetOriginalUrlCmd)
+	webkitWebHistoryItemCmd.AddCommand(webkitWebHistoryItemGetTitleCmd)
+	webkitWebHistoryItemCmd.AddCommand(webkitWebHistoryItemGetUrlCmd)
+	webkitCmd.AddCommand(webkitWebHistoryItemCmd)
+	webkitWebMessageNewWebMessageCmd.Flags().String("arg0", "", "arg0 (string)")
+	webkitWebMessageCmd.AddCommand(webkitWebMessageNewWebMessageCmd)
+	webkitWebMessageGetDataCmd.Flags().Int64("handle", 0, "handle (int64)")
+	webkitWebMessageCmd.AddCommand(webkitWebMessageGetDataCmd)
+	webkitWebMessageGetPortsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	webkitWebMessageCmd.AddCommand(webkitWebMessageGetPortsCmd)
+	webkitCmd.AddCommand(webkitWebMessageCmd)
+	webkitWebViewFragmentCmd.AddCommand(webkitWebViewFragmentNewWebViewFragmentCmd)
+	webkitWebViewFragmentGetWebViewCmd.Flags().Int64("handle", 0, "handle (int64)")
+	webkitWebViewFragmentCmd.AddCommand(webkitWebViewFragmentGetWebViewCmd)
+	webkitWebViewFragmentOnCreateViewCmd.Flags().Int64("handle", 0, "handle (int64)")
+	webkitWebViewFragmentOnCreateViewCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	webkitWebViewFragmentOnCreateViewCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	webkitWebViewFragmentOnCreateViewCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	webkitWebViewFragmentCmd.AddCommand(webkitWebViewFragmentOnCreateViewCmd)
+	webkitWebViewFragmentOnDestroyCmd.Flags().Int64("handle", 0, "handle (int64)")
+	webkitWebViewFragmentCmd.AddCommand(webkitWebViewFragmentOnDestroyCmd)
+	webkitWebViewFragmentOnDestroyViewCmd.Flags().Int64("handle", 0, "handle (int64)")
+	webkitWebViewFragmentCmd.AddCommand(webkitWebViewFragmentOnDestroyViewCmd)
+	webkitWebViewFragmentOnPauseCmd.Flags().Int64("handle", 0, "handle (int64)")
+	webkitWebViewFragmentCmd.AddCommand(webkitWebViewFragmentOnPauseCmd)
+	webkitWebViewFragmentOnResumeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	webkitWebViewFragmentCmd.AddCommand(webkitWebViewFragmentOnResumeCmd)
+	webkitCmd.AddCommand(webkitWebViewFragmentCmd)
+	webkitPermissionRequestCmd.AddCommand(webkitPermissionRequestDenyCmd)
+	webkitPermissionRequestCmd.AddCommand(webkitPermissionRequestGetOriginCmd)
+	webkitPermissionRequestCmd.AddCommand(webkitPermissionRequestGetResourcesCmd)
+	webkitPermissionRequestGrantCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	webkitPermissionRequestCmd.AddCommand(webkitPermissionRequestGrantCmd)
+	webkitCmd.AddCommand(webkitPermissionRequestCmd)
+	webkitWebIconDatabaseCmd.AddCommand(webkitWebIconDatabaseCloseCmd)
+	webkitWebIconDatabaseOpenCmd.Flags().String("arg0", "", "arg0 (string)")
+	webkitWebIconDatabaseCmd.AddCommand(webkitWebIconDatabaseOpenCmd)
+	webkitWebIconDatabaseReleaseIconForPageUrlCmd.Flags().String("arg0", "", "arg0 (string)")
+	webkitWebIconDatabaseCmd.AddCommand(webkitWebIconDatabaseReleaseIconForPageUrlCmd)
+	webkitWebIconDatabaseCmd.AddCommand(webkitWebIconDatabaseRemoveAllIconsCmd)
+	webkitWebIconDatabaseRequestIconForPageUrlCmd.Flags().String("arg0", "", "arg0 (string)")
+	webkitWebIconDatabaseRequestIconForPageUrlCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	webkitWebIconDatabaseCmd.AddCommand(webkitWebIconDatabaseRequestIconForPageUrlCmd)
+	webkitWebIconDatabaseRetainIconForPageUrlCmd.Flags().String("arg0", "", "arg0 (string)")
+	webkitWebIconDatabaseCmd.AddCommand(webkitWebIconDatabaseRetainIconForPageUrlCmd)
+	webkitWebIconDatabaseCmd.AddCommand(webkitWebIconDatabaseGetInstanceCmd)
+	webkitCmd.AddCommand(webkitWebIconDatabaseCmd)
+	webkitWebIconDatabaseIconListenerOnReceivedIconCmd.Flags().String("arg0", "", "arg0 (string)")
+	webkitWebIconDatabaseIconListenerOnReceivedIconCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	webkitWebIconDatabaseIconListenerCmd.AddCommand(webkitWebIconDatabaseIconListenerOnReceivedIconCmd)
+	webkitCmd.AddCommand(webkitWebIconDatabaseIconListenerCmd)
+	webkitDownloadListenerOnDownloadStartCmd.Flags().String("arg0", "", "arg0 (string)")
+	webkitDownloadListenerOnDownloadStartCmd.Flags().String("arg1", "", "arg1 (string)")
+	webkitDownloadListenerOnDownloadStartCmd.Flags().String("arg2", "", "arg2 (string)")
+	webkitDownloadListenerOnDownloadStartCmd.Flags().String("arg3", "", "arg3 (string)")
+	webkitDownloadListenerOnDownloadStartCmd.Flags().Int64("arg4", 0, "arg4 (int64)")
+	webkitDownloadListenerCmd.AddCommand(webkitDownloadListenerOnDownloadStartCmd)
+	webkitCmd.AddCommand(webkitDownloadListenerCmd)
+	webkitWebBackForwardListCmd.AddCommand(webkitWebBackForwardListGetCurrentIndexCmd)
+	webkitWebBackForwardListCmd.AddCommand(webkitWebBackForwardListGetCurrentItemCmd)
+	webkitWebBackForwardListGetItemAtIndexCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	webkitWebBackForwardListCmd.AddCommand(webkitWebBackForwardListGetItemAtIndexCmd)
+	webkitWebBackForwardListCmd.AddCommand(webkitWebBackForwardListGetSizeCmd)
+	webkitCmd.AddCommand(webkitWebBackForwardListCmd)
+	webkitWebResourceRequestCmd.AddCommand(webkitWebResourceRequestGetMethodCmd)
+	webkitWebResourceRequestCmd.AddCommand(webkitWebResourceRequestGetUrlCmd)
+	webkitWebResourceRequestCmd.AddCommand(webkitWebResourceRequestHasGestureCmd)
+	webkitWebResourceRequestCmd.AddCommand(webkitWebResourceRequestIsForMainFrameCmd)
+	webkitWebResourceRequestCmd.AddCommand(webkitWebResourceRequestIsRedirectCmd)
+	webkitCmd.AddCommand(webkitWebResourceRequestCmd)
+	webkitServiceWorkerClientCmd.AddCommand(webkitServiceWorkerClientNewServiceWorkerClientCmd)
+	webkitServiceWorkerClientShouldInterceptRequestCmd.Flags().Int64("handle", 0, "handle (int64)")
+	webkitServiceWorkerClientShouldInterceptRequestCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	webkitServiceWorkerClientCmd.AddCommand(webkitServiceWorkerClientShouldInterceptRequestCmd)
+	webkitCmd.AddCommand(webkitServiceWorkerClientCmd)
+	webkitWebViewDatabaseCmd.AddCommand(webkitWebViewDatabaseClearFormDataCmd)
+	webkitWebViewDatabaseCmd.AddCommand(webkitWebViewDatabaseClearHttpAuthUsernamePasswordCmd)
+	webkitWebViewDatabaseCmd.AddCommand(webkitWebViewDatabaseClearUsernamePasswordCmd)
+	webkitWebViewDatabaseGetHttpAuthUsernamePasswordCmd.Flags().String("arg0", "", "arg0 (string)")
+	webkitWebViewDatabaseGetHttpAuthUsernamePasswordCmd.Flags().String("arg1", "", "arg1 (string)")
+	webkitWebViewDatabaseCmd.AddCommand(webkitWebViewDatabaseGetHttpAuthUsernamePasswordCmd)
+	webkitWebViewDatabaseCmd.AddCommand(webkitWebViewDatabaseHasFormDataCmd)
+	webkitWebViewDatabaseCmd.AddCommand(webkitWebViewDatabaseHasHttpAuthUsernamePasswordCmd)
+	webkitWebViewDatabaseCmd.AddCommand(webkitWebViewDatabaseHasUsernamePasswordCmd)
+	webkitWebViewDatabaseSetHttpAuthUsernamePasswordCmd.Flags().String("arg0", "", "arg0 (string)")
+	webkitWebViewDatabaseSetHttpAuthUsernamePasswordCmd.Flags().String("arg1", "", "arg1 (string)")
+	webkitWebViewDatabaseSetHttpAuthUsernamePasswordCmd.Flags().String("arg2", "", "arg2 (string)")
+	webkitWebViewDatabaseSetHttpAuthUsernamePasswordCmd.Flags().String("arg3", "", "arg3 (string)")
+	webkitWebViewDatabaseCmd.AddCommand(webkitWebViewDatabaseSetHttpAuthUsernamePasswordCmd)
+	webkitWebViewDatabaseGetInstanceCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	webkitWebViewDatabaseCmd.AddCommand(webkitWebViewDatabaseGetInstanceCmd)
+	webkitCmd.AddCommand(webkitWebViewDatabaseCmd)
+	webkitTracingControllerCmd.AddCommand(webkitTracingControllerIsTracingCmd)
+	webkitTracingControllerStartCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	webkitTracingControllerCmd.AddCommand(webkitTracingControllerStartCmd)
+	webkitTracingControllerStopCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	webkitTracingControllerStopCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	webkitTracingControllerCmd.AddCommand(webkitTracingControllerStopCmd)
+	webkitTracingControllerCmd.AddCommand(webkitTracingControllerGetInstanceCmd)
+	webkitCmd.AddCommand(webkitTracingControllerCmd)
 	rootCmd.AddCommand(webkitCmd)
 }

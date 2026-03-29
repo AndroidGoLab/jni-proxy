@@ -5878,97 +5878,6 @@ message SetZOrderOnTopRequest {
 message SetZOrderOnTopResponse {
 }
 
-message CreateVirtualDisplay1Request {
-  int64 arg0 = 1;
-}
-
-message CreateVirtualDisplay1Response {
-  int64 result = 1;
-}
-
-message CreateVirtualDisplay6_1Request {
-  string arg0 = 1;
-  int32 arg1 = 2;
-  int32 arg2 = 3;
-  int32 arg3 = 4;
-  int64 arg4 = 5;
-  int32 arg5 = 6;
-}
-
-message CreateVirtualDisplay6_1Response {
-  int64 result = 1;
-}
-
-message ManagerGetDisplayRequest {
-  int32 arg0 = 1;
-}
-
-message GetDisplays0Request {
-}
-
-message GetDisplays0Response {
-  int64 result = 1;
-}
-
-message GetDisplays1_1Request {
-  string arg0 = 1;
-}
-
-message GetDisplays1_1Response {
-  int64 result = 1;
-}
-
-message GetHdrConversionModeRequest {
-}
-
-message GetHdrConversionModeResponse {
-  int64 result = 1;
-}
-
-message GetMatchContentFrameRateUserPreferenceRequest {
-}
-
-message GetMatchContentFrameRateUserPreferenceResponse {
-  int32 result = 1;
-}
-
-message RegisterDisplayListenerRequest {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-  int64 arg2 = 3;
-}
-
-message RegisterDisplayListenerResponse {
-}
-
-message UnregisterDisplayListenerRequest {
-  int64 arg0 = 1;
-}
-
-message UnregisterDisplayListenerResponse {
-}
-
-message OnDisplayAddedRequest {
-  int32 arg0 = 1;
-}
-
-message OnDisplayAddedResponse {
-}
-
-message OnDisplayChangedRequest {
-  int32 arg0 = 1;
-}
-
-message OnDisplayChangedResponse {
-}
-
-message OnDisplayRemovedRequest {
-  int32 arg0 = 1;
-}
-
-message OnDisplayRemovedResponse {
-}
-
 message NewDeviceProductInfoRequest {
   string arg0 = 1;
   string arg1 = 2;
@@ -6084,6 +5993,97 @@ message GetPreferredHdrOutputTypeResponse {
   int32 result = 1;
 }
 
+message CreateVirtualDisplay1Request {
+  int64 arg0 = 1;
+}
+
+message CreateVirtualDisplay1Response {
+  int64 result = 1;
+}
+
+message CreateVirtualDisplay6_1Request {
+  string arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+  int32 arg3 = 4;
+  int64 arg4 = 5;
+  int32 arg5 = 6;
+}
+
+message CreateVirtualDisplay6_1Response {
+  int64 result = 1;
+}
+
+message ManagerGetDisplayRequest {
+  int32 arg0 = 1;
+}
+
+message GetDisplays0Request {
+}
+
+message GetDisplays0Response {
+  int64 result = 1;
+}
+
+message GetDisplays1_1Request {
+  string arg0 = 1;
+}
+
+message GetDisplays1_1Response {
+  int64 result = 1;
+}
+
+message GetHdrConversionModeRequest {
+}
+
+message GetHdrConversionModeResponse {
+  int64 result = 1;
+}
+
+message GetMatchContentFrameRateUserPreferenceRequest {
+}
+
+message GetMatchContentFrameRateUserPreferenceResponse {
+  int32 result = 1;
+}
+
+message RegisterDisplayListenerRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message RegisterDisplayListenerResponse {
+}
+
+message UnregisterDisplayListenerRequest {
+  int64 arg0 = 1;
+}
+
+message UnregisterDisplayListenerResponse {
+}
+
+message OnDisplayAddedRequest {
+  int32 arg0 = 1;
+}
+
+message OnDisplayAddedResponse {
+}
+
+message OnDisplayChangedRequest {
+  int32 arg0 = 1;
+}
+
+message OnDisplayChangedResponse {
+}
+
+message OnDisplayRemovedRequest {
+  int32 arg0 = 1;
+}
+
+message OnDisplayRemovedResponse {
+}
+
 message VirtualDisplayConfigDescribeContentsRequest {
 }
 
@@ -6110,6 +6110,13 @@ message GetDimBrightnessRequest {
 
 message GetDimBrightnessResponse {
   float result = 1;
+}
+
+message GetDisplayCategoriesRequest {
+}
+
+message GetDisplayCategoriesResponse {
+  int64 result = 1;
 }
 
 message VirtualDisplayConfigGetNameRequest {
@@ -6202,6 +6209,66 @@ message SetSurfaceRequest {
 
 message SetSurfaceResponse {
   int64 result = 1;
+}
+
+message HdrCapabilitiesEqualsRequest {
+  int64 arg0 = 1;
+}
+
+message GetDesiredMaxAverageLuminanceRequest {
+}
+
+message GetDesiredMaxAverageLuminanceResponse {
+  float result = 1;
+}
+
+message GetDesiredMaxLuminanceRequest {
+}
+
+message GetDesiredMaxLuminanceResponse {
+  float result = 1;
+}
+
+message GetDesiredMinLuminanceRequest {
+}
+
+message GetDesiredMinLuminanceResponse {
+  float result = 1;
+}
+
+message GetSupportedHdrTypesRequest {
+}
+
+message GetSupportedHdrTypesResponse {
+  int64 result = 1;
+}
+
+message GetAlternativeRefreshRatesRequest {
+}
+
+message GetAlternativeRefreshRatesResponse {
+  int64 result = 1;
+}
+
+message GetModeIdRequest {
+}
+
+message GetModeIdResponse {
+  int32 result = 1;
+}
+
+message GetPhysicalHeightRequest {
+}
+
+message GetPhysicalHeightResponse {
+  int32 result = 1;
+}
+
+message GetPhysicalWidthRequest {
+}
+
+message GetPhysicalWidthResponse {
+  int32 result = 1;
 }
 
 message NewSurfaceViewRequest {
@@ -6311,481 +6378,6 @@ message SurfaceViewSetZOrderMediaOverlayRequest {
 message SurfaceViewSetZOrderOnTopRequest {
   int64 handle = 1;
   bool arg0 = 2;
-}
-
-message AreWallpaperTouchEventsEnabledRequest {
-}
-
-message AreWallpaperTouchEventsEnabledResponse {
-  bool result = 1;
-}
-
-message CanPlayMoveAnimationRequest {
-}
-
-message CanPlayMoveAnimationResponse {
-  bool result = 1;
-}
-
-message CopyFromRequest {
-  int64 arg0 = 1;
-}
-
-message CopyFromResponse {
-  int32 result = 1;
-}
-
-message DebugRequest {
-  string arg0 = 1;
-}
-
-message DebugResponse {
-  string result = 1;
-}
-
-message GetBlurBehindRadiusRequest {
-}
-
-message GetBlurBehindRadiusResponse {
-  int32 result = 1;
-}
-
-message GetColorModeRequest {
-}
-
-message GetColorModeResponse {
-  int32 result = 1;
-}
-
-message GetDesiredHdrHeadroomRequest {
-}
-
-message GetDesiredHdrHeadroomResponse {
-  float result = 1;
-}
-
-message GetFitInsetsSidesRequest {
-}
-
-message GetFitInsetsSidesResponse {
-  int32 result = 1;
-}
-
-message GetFitInsetsTypesRequest {
-}
-
-message GetFitInsetsTypesResponse {
-  int32 result = 1;
-}
-
-message GetFrameRateBoostOnTouchEnabledRequest {
-}
-
-message GetFrameRateBoostOnTouchEnabledResponse {
-  bool result = 1;
-}
-
-message GetTitleRequest {
-}
-
-message GetTitleResponse {
-  int64 result = 1;
-}
-
-message IsFitInsetsIgnoringVisibilityRequest {
-}
-
-message IsFitInsetsIgnoringVisibilityResponse {
-  bool result = 1;
-}
-
-message IsFrameRatePowerSavingsBalancedRequest {
-}
-
-message IsFrameRatePowerSavingsBalancedResponse {
-  bool result = 1;
-}
-
-message IsHdrConversionEnabledRequest {
-}
-
-message IsHdrConversionEnabledResponse {
-  bool result = 1;
-}
-
-message SetBlurBehindRadiusRequest {
-  int32 arg0 = 1;
-}
-
-message SetBlurBehindRadiusResponse {
-}
-
-message SetCanPlayMoveAnimationRequest {
-  bool arg0 = 1;
-}
-
-message SetCanPlayMoveAnimationResponse {
-}
-
-message SetColorModeRequest {
-  int32 arg0 = 1;
-}
-
-message SetColorModeResponse {
-}
-
-message WindowManagerLayoutParamsSetDesiredHdrHeadroomRequest {
-  float arg0 = 1;
-}
-
-message SetFitInsetsIgnoringVisibilityRequest {
-  bool arg0 = 1;
-}
-
-message SetFitInsetsIgnoringVisibilityResponse {
-}
-
-message SetFitInsetsSidesRequest {
-  int32 arg0 = 1;
-}
-
-message SetFitInsetsSidesResponse {
-}
-
-message SetFitInsetsTypesRequest {
-  int32 arg0 = 1;
-}
-
-message SetFitInsetsTypesResponse {
-}
-
-message SetFrameRateBoostOnTouchEnabledRequest {
-  bool arg0 = 1;
-}
-
-message SetFrameRateBoostOnTouchEnabledResponse {
-}
-
-message SetFrameRatePowerSavingsBalancedRequest {
-  bool arg0 = 1;
-}
-
-message SetFrameRatePowerSavingsBalancedResponse {
-}
-
-message SetHdrConversionEnabledRequest {
-  bool arg0 = 1;
-}
-
-message SetHdrConversionEnabledResponse {
-}
-
-message SetTitleRequest {
-  string arg0 = 1;
-}
-
-message SetTitleResponse {
-}
-
-message SetWallpaperTouchEventsEnabledRequest {
-  bool arg0 = 1;
-}
-
-message SetWallpaperTouchEventsEnabledResponse {
-}
-
-message MayUseInputMethodRequest {
-  int32 arg0 = 1;
-}
-
-message MayUseInputMethodResponse {
-  bool result = 1;
-}
-
-message NewMetricsRequest {
-}
-
-message NewMetricsResponse {
-  int64 result = 1;
-}
-
-message MetricsEquals1Request {
-  int64 handle = 1;
-  int64 arg0 = 2;
-}
-
-message MetricsEquals1_1Request {
-  int64 handle = 1;
-  int64 arg0 = 2;
-}
-
-message MetricsHashCodeRequest {
-  int64 handle = 1;
-}
-
-message MetricsSetToRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-}
-
-message MetricsSetToDefaultsRequest {
-  int64 handle = 1;
-}
-
-message MetricsToStringRequest {
-  int64 handle = 1;
-}
-
-message FocusSearchRequest2 {
-  int64 arg0 = 1;
-  int32 arg1 = 2;
-}
-
-message ViewGroupGatherTransparentRegionRequest {
-  int64 arg0 = 1;
-}
-
-message ViewGroupGetAccessibilityClassNameRequest {
-}
-
-message ResolveLayoutDirectionRequest {
-  int32 arg0 = 1;
-}
-
-message ResolveLayoutDirectionResponse {
-}
-
-message GetMarginEndRequest {
-}
-
-message GetMarginEndResponse {
-  int32 result = 1;
-}
-
-message GetMarginStartRequest {
-}
-
-message GetMarginStartResponse {
-  int32 result = 1;
-}
-
-message IsMarginRelativeRequest {
-}
-
-message IsMarginRelativeResponse {
-  bool result = 1;
-}
-
-message SetMarginEndRequest {
-  int32 arg0 = 1;
-}
-
-message SetMarginEndResponse {
-}
-
-message SetMarginStartRequest {
-  int32 arg0 = 1;
-}
-
-message SetMarginStartResponse {
-}
-
-message SetMarginsRequest {
-  int32 arg0 = 1;
-  int32 arg1 = 2;
-  int32 arg2 = 3;
-  int32 arg3 = 4;
-}
-
-message SetMarginsResponse {
-}
-
-message OnChildViewAddedRequest {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-}
-
-message OnChildViewAddedResponse {
-}
-
-message OnChildViewRemovedRequest {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-}
-
-message OnChildViewRemovedResponse {
-}
-
-message HdrCapabilitiesEqualsRequest {
-  int64 arg0 = 1;
-}
-
-message GetDesiredMaxAverageLuminanceRequest {
-}
-
-message GetDesiredMaxAverageLuminanceResponse {
-  float result = 1;
-}
-
-message GetDesiredMaxLuminanceRequest {
-}
-
-message GetDesiredMaxLuminanceResponse {
-  float result = 1;
-}
-
-message GetDesiredMinLuminanceRequest {
-}
-
-message GetDesiredMinLuminanceResponse {
-  float result = 1;
-}
-
-message GetSupportedHdrTypesRequest {
-}
-
-message GetSupportedHdrTypesResponse {
-  int64 result = 1;
-}
-
-message HdrCapabilitiesHashCodeRequest {
-}
-
-message GetAlternativeRefreshRatesRequest {
-}
-
-message GetAlternativeRefreshRatesResponse {
-  int64 result = 1;
-}
-
-message GetModeIdRequest {
-}
-
-message GetModeIdResponse {
-  int32 result = 1;
-}
-
-message GetPhysicalHeightRequest {
-}
-
-message GetPhysicalHeightResponse {
-  int32 result = 1;
-}
-
-message GetPhysicalWidthRequest {
-}
-
-message GetPhysicalWidthResponse {
-  int32 result = 1;
-}
-
-message ModeHashCodeRequest {
-}
-
-message NewSurfaceRequest {
-  int64 arg0 = 1;
-}
-
-message NewSurfaceResponse {
-  int64 result = 1;
-}
-
-message SurfaceClearFrameRateRequest {
-  int64 handle = 1;
-}
-
-message SurfaceDescribeContentsRequest {
-  int64 handle = 1;
-}
-
-message SurfaceIsValidRequest {
-  int64 handle = 1;
-}
-
-message SurfaceLockCanvasRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-}
-
-message SurfaceLockHardwareCanvasRequest {
-  int64 handle = 1;
-}
-
-message SurfaceReadFromParcelRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-}
-
-message SurfaceReleaseRequest {
-  int64 handle = 1;
-}
-
-message SurfaceSetFrameRate2Request {
-  int64 handle = 1;
-  float arg0 = 2;
-  int32 arg1 = 3;
-}
-
-message SurfaceSetFrameRate3_1Request {
-  int64 handle = 1;
-  float arg0 = 2;
-  int32 arg1 = 3;
-  int32 arg2 = 4;
-}
-
-message SurfaceToStringRequest {
-  int64 handle = 1;
-}
-
-message SurfaceUnlockCanvasRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-}
-
-message SurfaceUnlockCanvasAndPostRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-}
-
-message SurfaceWriteToParcelRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-  int32 arg1 = 3;
-}
-
-message SurfaceHolderUnlockCanvasAndPostRequest {
-  int64 arg0 = 1;
-}
-
-message SurfaceChangedRequest {
-  int64 arg0 = 1;
-  int32 arg1 = 2;
-  int32 arg2 = 3;
-  int32 arg3 = 4;
-}
-
-message SurfaceChangedResponse {
-}
-
-message SurfaceCreatedRequest {
-  int64 arg0 = 1;
-}
-
-message SurfaceCreatedResponse {
-}
-
-message SurfaceDestroyedRequest {
-  int64 arg0 = 1;
-}
-
-message SurfaceDestroyedResponse {
-}
-
-message SurfaceRedrawNeededRequest {
-  int64 arg0 = 1;
-}
-
-message SurfaceRedrawNeededResponse {
 }
 
 message NewViewRequest {
@@ -7322,6 +6914,11 @@ message ViewGetFocusableRequest {
   int64 handle = 1;
 }
 
+message ViewGetFocusablesRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
 message ViewGetFocusedRectRequest {
   int64 handle = 1;
   int64 arg0 = 2;
@@ -7603,6 +7200,10 @@ message ViewGetPointerIconRequest {
   int64 handle = 1;
 }
 
+message ViewGetPreferKeepClearRectsRequest {
+  int64 handle = 1;
+}
+
 message ViewGetReceiveContentMimeTypesRequest {
   int64 handle = 1;
 }
@@ -7707,6 +7308,10 @@ message ViewGetSupplementalDescriptionRequest {
   int64 handle = 1;
 }
 
+message ViewGetSystemGestureExclusionRectsRequest {
+  int64 handle = 1;
+}
+
 message ViewGetSystemUiVisibilityRequest {
   int64 handle = 1;
 }
@@ -7737,6 +7342,10 @@ message ViewGetTopRequest {
 }
 
 message ViewGetTouchDelegateRequest {
+  int64 handle = 1;
+}
+
+message ViewGetTouchablesRequest {
   int64 handle = 1;
 }
 
@@ -9847,6 +9456,568 @@ message OnUnhandledKeyEventResponse {
   bool result = 1;
 }
 
+message NewSurfaceRequest {
+  int64 arg0 = 1;
+}
+
+message NewSurfaceResponse {
+  int64 result = 1;
+}
+
+message SurfaceClearFrameRateRequest {
+  int64 handle = 1;
+}
+
+message SurfaceDescribeContentsRequest {
+  int64 handle = 1;
+}
+
+message SurfaceIsValidRequest {
+  int64 handle = 1;
+}
+
+message SurfaceLockCanvasRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SurfaceLockHardwareCanvasRequest {
+  int64 handle = 1;
+}
+
+message SurfaceReadFromParcelRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SurfaceReleaseRequest {
+  int64 handle = 1;
+}
+
+message SurfaceSetFrameRate2Request {
+  int64 handle = 1;
+  float arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message SurfaceSetFrameRate3_1Request {
+  int64 handle = 1;
+  float arg0 = 2;
+  int32 arg1 = 3;
+  int32 arg2 = 4;
+}
+
+message SurfaceToStringRequest {
+  int64 handle = 1;
+}
+
+message SurfaceUnlockCanvasRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SurfaceUnlockCanvasAndPostRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SurfaceWriteToParcelRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message SurfaceHolderSetKeepScreenOnRequest {
+  bool arg0 = 1;
+}
+
+message SurfaceHolderUnlockCanvasAndPostRequest {
+  int64 arg0 = 1;
+}
+
+message SurfaceChangedRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+  int32 arg3 = 4;
+}
+
+message SurfaceChangedResponse {
+}
+
+message SurfaceCreatedRequest {
+  int64 arg0 = 1;
+}
+
+message SurfaceCreatedResponse {
+}
+
+message SurfaceDestroyedRequest {
+  int64 arg0 = 1;
+}
+
+message SurfaceDestroyedResponse {
+}
+
+message SurfaceRedrawNeededRequest {
+  int64 arg0 = 1;
+}
+
+message SurfaceRedrawNeededResponse {
+}
+
+message ViewGroupAddExtraDataToAccessibilityNodeInfoRequest {
+  int64 arg0 = 1;
+  string arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message ViewGroupClearFocusRequest {
+}
+
+message ViewGroupDispatchApplyWindowInsetsRequest {
+  int64 arg0 = 1;
+}
+
+message ViewGroupDispatchCapturedPointerEventRequest {
+  int64 arg0 = 1;
+}
+
+message ViewGroupDispatchConfigurationChangedRequest {
+  int64 arg0 = 1;
+}
+
+message ViewGroupDispatchDisplayHintRequest {
+  int32 arg0 = 1;
+}
+
+message ViewGroupDispatchDragEventRequest {
+  int64 arg0 = 1;
+}
+
+message ViewGroupDispatchDrawableHotspotChangedRequest {
+  float arg0 = 1;
+  float arg1 = 2;
+}
+
+message ViewGroupDispatchFinishTemporaryDetachRequest {
+}
+
+message ViewGroupDispatchKeyEventRequest {
+  int64 arg0 = 1;
+}
+
+message ViewGroupDispatchKeyEventPreImeRequest {
+  int64 arg0 = 1;
+}
+
+message ViewGroupDispatchKeyShortcutEventRequest {
+  int64 arg0 = 1;
+}
+
+message ViewGroupDispatchPointerCaptureChangedRequest {
+  bool arg0 = 1;
+}
+
+message ViewGroupDispatchProvideAutofillStructureRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message ViewGroupDispatchProvideStructureRequest {
+  int64 arg0 = 1;
+}
+
+message ViewGroupDispatchStartTemporaryDetachRequest {
+}
+
+message ViewGroupDispatchSystemUiVisibilityChangedRequest {
+  int32 arg0 = 1;
+}
+
+message ViewGroupDispatchTouchEventRequest {
+  int64 arg0 = 1;
+}
+
+message ViewGroupDispatchTrackballEventRequest {
+  int64 arg0 = 1;
+}
+
+message ViewGroupDispatchUnhandledMoveRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message ViewGroupDispatchWindowFocusChangedRequest {
+  bool arg0 = 1;
+}
+
+message ViewGroupDispatchWindowInsetsAnimationEndRequest {
+  int64 arg0 = 1;
+}
+
+message ViewGroupDispatchWindowInsetsAnimationPrepareRequest {
+  int64 arg0 = 1;
+}
+
+message ViewGroupDispatchWindowInsetsAnimationStartRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message ViewGroupDispatchWindowSystemUiVisiblityChangedRequest {
+  int32 arg0 = 1;
+}
+
+message ViewGroupDispatchWindowVisibilityChangedRequest {
+  int32 arg0 = 1;
+}
+
+message ViewGroupFindFocusRequest {
+}
+
+message ViewGroupGatherTransparentRegionRequest {
+  int64 arg0 = 1;
+}
+
+message ViewGroupGetAccessibilityClassNameRequest {
+}
+
+message ViewGroupHasFocusRequest {
+}
+
+message ViewGroupHasTransientStateRequest {
+}
+
+message ViewGroupJumpDrawablesToCurrentStateRequest {
+}
+
+message ViewGroupLayoutRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+  int32 arg3 = 4;
+}
+
+message ViewGroupOnRequestSendAccessibilityEventRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message ViewGroupOnResolvePointerIconRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message ViewGroupRestoreDefaultFocusRequest {
+}
+
+message ViewGroupSetRequestedFrameRateRequest {
+  float arg0 = 1;
+}
+
+message ViewGroupSetWindowInsetsAnimationCallbackRequest {
+  int64 arg0 = 1;
+}
+
+message ResolveLayoutDirectionRequest {
+  int32 arg0 = 1;
+}
+
+message ResolveLayoutDirectionResponse {
+}
+
+message ViewGroupMarginLayoutParamsGetLayoutDirectionRequest {
+}
+
+message GetMarginEndRequest {
+}
+
+message GetMarginEndResponse {
+  int32 result = 1;
+}
+
+message GetMarginStartRequest {
+}
+
+message GetMarginStartResponse {
+  int32 result = 1;
+}
+
+message IsMarginRelativeRequest {
+}
+
+message IsMarginRelativeResponse {
+  bool result = 1;
+}
+
+message ViewGroupMarginLayoutParamsSetLayoutDirectionRequest {
+  int32 arg0 = 1;
+}
+
+message SetMarginEndRequest {
+  int32 arg0 = 1;
+}
+
+message SetMarginEndResponse {
+}
+
+message SetMarginStartRequest {
+  int32 arg0 = 1;
+}
+
+message SetMarginStartResponse {
+}
+
+message SetMarginsRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+  int32 arg3 = 4;
+}
+
+message SetMarginsResponse {
+}
+
+message OnChildViewAddedRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message OnChildViewAddedResponse {
+}
+
+message OnChildViewRemovedRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message OnChildViewRemovedResponse {
+}
+
+message NewMetricsRequest {
+}
+
+message NewMetricsResponse {
+  int64 result = 1;
+}
+
+message MetricsEquals1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message MetricsEquals1_1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message MetricsHashCodeRequest {
+  int64 handle = 1;
+}
+
+message MetricsSetToRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message MetricsSetToDefaultsRequest {
+  int64 handle = 1;
+}
+
+message MetricsToStringRequest {
+  int64 handle = 1;
+}
+
+message AreWallpaperTouchEventsEnabledRequest {
+}
+
+message AreWallpaperTouchEventsEnabledResponse {
+  bool result = 1;
+}
+
+message CanPlayMoveAnimationRequest {
+}
+
+message CanPlayMoveAnimationResponse {
+  bool result = 1;
+}
+
+message CopyFromRequest {
+  int64 arg0 = 1;
+}
+
+message CopyFromResponse {
+  int32 result = 1;
+}
+
+message DebugRequest {
+  string arg0 = 1;
+}
+
+message DebugResponse {
+  string result = 1;
+}
+
+message GetBlurBehindRadiusRequest {
+}
+
+message GetBlurBehindRadiusResponse {
+  int32 result = 1;
+}
+
+message GetColorModeRequest {
+}
+
+message GetColorModeResponse {
+  int32 result = 1;
+}
+
+message GetDesiredHdrHeadroomRequest {
+}
+
+message GetDesiredHdrHeadroomResponse {
+  float result = 1;
+}
+
+message GetFitInsetsSidesRequest {
+}
+
+message GetFitInsetsSidesResponse {
+  int32 result = 1;
+}
+
+message GetFitInsetsTypesRequest {
+}
+
+message GetFitInsetsTypesResponse {
+  int32 result = 1;
+}
+
+message GetFrameRateBoostOnTouchEnabledRequest {
+}
+
+message GetFrameRateBoostOnTouchEnabledResponse {
+  bool result = 1;
+}
+
+message GetTitleRequest {
+}
+
+message GetTitleResponse {
+  int64 result = 1;
+}
+
+message IsFitInsetsIgnoringVisibilityRequest {
+}
+
+message IsFitInsetsIgnoringVisibilityResponse {
+  bool result = 1;
+}
+
+message IsFrameRatePowerSavingsBalancedRequest {
+}
+
+message IsFrameRatePowerSavingsBalancedResponse {
+  bool result = 1;
+}
+
+message IsHdrConversionEnabledRequest {
+}
+
+message IsHdrConversionEnabledResponse {
+  bool result = 1;
+}
+
+message SetBlurBehindRadiusRequest {
+  int32 arg0 = 1;
+}
+
+message SetBlurBehindRadiusResponse {
+}
+
+message SetCanPlayMoveAnimationRequest {
+  bool arg0 = 1;
+}
+
+message SetCanPlayMoveAnimationResponse {
+}
+
+message SetColorModeRequest {
+  int32 arg0 = 1;
+}
+
+message SetColorModeResponse {
+}
+
+message WindowManagerLayoutParamsSetDesiredHdrHeadroomRequest {
+  float arg0 = 1;
+}
+
+message SetFitInsetsIgnoringVisibilityRequest {
+  bool arg0 = 1;
+}
+
+message SetFitInsetsIgnoringVisibilityResponse {
+}
+
+message SetFitInsetsSidesRequest {
+  int32 arg0 = 1;
+}
+
+message SetFitInsetsSidesResponse {
+}
+
+message SetFitInsetsTypesRequest {
+  int32 arg0 = 1;
+}
+
+message SetFitInsetsTypesResponse {
+}
+
+message SetFrameRateBoostOnTouchEnabledRequest {
+  bool arg0 = 1;
+}
+
+message SetFrameRateBoostOnTouchEnabledResponse {
+}
+
+message SetFrameRatePowerSavingsBalancedRequest {
+  bool arg0 = 1;
+}
+
+message SetFrameRatePowerSavingsBalancedResponse {
+}
+
+message SetHdrConversionEnabledRequest {
+  bool arg0 = 1;
+}
+
+message SetHdrConversionEnabledResponse {
+}
+
+message SetTitleRequest {
+  string arg0 = 1;
+}
+
+message SetTitleResponse {
+}
+
+message SetWallpaperTouchEventsEnabledRequest {
+  bool arg0 = 1;
+}
+
+message SetWallpaperTouchEventsEnabledResponse {
+}
+
+message MayUseInputMethodRequest {
+  int32 arg0 = 1;
+}
+
+message MayUseInputMethodResponse {
+  bool result = 1;
+}
+
 service SurfaceHolderService {
   rpc AddCallback (AddCallbackRequest) returns (AddCallbackResponse);
   rpc GetSurface (GetSurfaceRequest) returns (GetSurfaceResponse);
@@ -10741,24 +10912,6 @@ service SurfaceViewService {
   rpc NewSurfaceView (NewSurfaceViewRequest) returns (NewSurfaceViewResponse);
 }
 
-service ManagerService {
-  rpc CreateVirtualDisplay1 (CreateVirtualDisplay1Request) returns (CreateVirtualDisplay1Response);
-  rpc CreateVirtualDisplay6_1 (CreateVirtualDisplay6_1Request) returns (CreateVirtualDisplay6_1Response);
-  rpc GetDisplay (ManagerGetDisplayRequest) returns (GetDisplayResponse);
-  rpc GetDisplays0 (GetDisplays0Request) returns (GetDisplays0Response);
-  rpc GetDisplays1_1 (GetDisplays1_1Request) returns (GetDisplays1_1Response);
-  rpc GetHdrConversionMode (GetHdrConversionModeRequest) returns (GetHdrConversionModeResponse);
-  rpc GetMatchContentFrameRateUserPreference (GetMatchContentFrameRateUserPreferenceRequest) returns (GetMatchContentFrameRateUserPreferenceResponse);
-  rpc RegisterDisplayListener (RegisterDisplayListenerRequest) returns (RegisterDisplayListenerResponse);
-  rpc UnregisterDisplayListener (UnregisterDisplayListenerRequest) returns (UnregisterDisplayListenerResponse);
-}
-
-service ManagerDisplayListenerService {
-  rpc OnDisplayAdded (OnDisplayAddedRequest) returns (OnDisplayAddedResponse);
-  rpc OnDisplayChanged (OnDisplayChangedRequest) returns (OnDisplayChangedResponse);
-  rpc OnDisplayRemoved (OnDisplayRemovedRequest) returns (OnDisplayRemovedResponse);
-}
-
 service DeviceProductInfoService {
   rpc NewDeviceProductInfo (NewDeviceProductInfoRequest) returns (NewDeviceProductInfoResponse);
   rpc DescribeContents (DeviceProductInfoDescribeContentsRequest) returns (DescribeContentsResponse);
@@ -10786,12 +10939,31 @@ service HdrConversionModeService {
   rpc WriteToParcel (DeviceProductInfoWriteToParcelRequest) returns (WriteToParcelResponse);
 }
 
+service ManagerService {
+  rpc CreateVirtualDisplay1 (CreateVirtualDisplay1Request) returns (CreateVirtualDisplay1Response);
+  rpc CreateVirtualDisplay6_1 (CreateVirtualDisplay6_1Request) returns (CreateVirtualDisplay6_1Response);
+  rpc GetDisplay (ManagerGetDisplayRequest) returns (GetDisplayResponse);
+  rpc GetDisplays0 (GetDisplays0Request) returns (GetDisplays0Response);
+  rpc GetDisplays1_1 (GetDisplays1_1Request) returns (GetDisplays1_1Response);
+  rpc GetHdrConversionMode (GetHdrConversionModeRequest) returns (GetHdrConversionModeResponse);
+  rpc GetMatchContentFrameRateUserPreference (GetMatchContentFrameRateUserPreferenceRequest) returns (GetMatchContentFrameRateUserPreferenceResponse);
+  rpc RegisterDisplayListener (RegisterDisplayListenerRequest) returns (RegisterDisplayListenerResponse);
+  rpc UnregisterDisplayListener (UnregisterDisplayListenerRequest) returns (UnregisterDisplayListenerResponse);
+}
+
+service ManagerDisplayListenerService {
+  rpc OnDisplayAdded (OnDisplayAddedRequest) returns (OnDisplayAddedResponse);
+  rpc OnDisplayChanged (OnDisplayChangedRequest) returns (OnDisplayChangedResponse);
+  rpc OnDisplayRemoved (OnDisplayRemovedRequest) returns (OnDisplayRemovedResponse);
+}
+
 service VirtualDisplayConfigService {
   rpc DescribeContents (VirtualDisplayConfigDescribeContentsRequest) returns (DescribeContentsResponse);
   rpc Equals (VirtualDisplayConfigEqualsRequest) returns (EqualsResponse);
   rpc GetDefaultBrightness (GetDefaultBrightnessRequest) returns (GetDefaultBrightnessResponse);
   rpc GetDensityDpi (GetDensityDpiRequest) returns (GetDensityDpiResponse);
   rpc GetDimBrightness (GetDimBrightnessRequest) returns (GetDimBrightnessResponse);
+  rpc GetDisplayCategories (GetDisplayCategoriesRequest) returns (GetDisplayCategoriesResponse);
   rpc GetFlags (GetFlagsRequest) returns (GetFlagsResponse);
   rpc GetHeight (GetHeightRequest) returns (GetHeightResponse);
   rpc GetName (VirtualDisplayConfigGetNameRequest) returns (GetNameResponse);
@@ -10818,60 +10990,6 @@ service VirtualDisplayConfigBuilderService {
   rpc SetSurface (SetSurfaceRequest) returns (SetSurfaceResponse);
 }
 
-service WindowManagerLayoutParamsService {
-  rpc AreWallpaperTouchEventsEnabled (AreWallpaperTouchEventsEnabledRequest) returns (AreWallpaperTouchEventsEnabledResponse);
-  rpc CanPlayMoveAnimation (CanPlayMoveAnimationRequest) returns (CanPlayMoveAnimationResponse);
-  rpc CopyFrom (CopyFromRequest) returns (CopyFromResponse);
-  rpc Debug (DebugRequest) returns (DebugResponse);
-  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc GetBlurBehindRadius (GetBlurBehindRadiusRequest) returns (GetBlurBehindRadiusResponse);
-  rpc GetColorMode (GetColorModeRequest) returns (GetColorModeResponse);
-  rpc GetDesiredHdrHeadroom (GetDesiredHdrHeadroomRequest) returns (GetDesiredHdrHeadroomResponse);
-  rpc GetFitInsetsSides (GetFitInsetsSidesRequest) returns (GetFitInsetsSidesResponse);
-  rpc GetFitInsetsTypes (GetFitInsetsTypesRequest) returns (GetFitInsetsTypesResponse);
-  rpc GetFrameRateBoostOnTouchEnabled (GetFrameRateBoostOnTouchEnabledRequest) returns (GetFrameRateBoostOnTouchEnabledResponse);
-  rpc GetTitle (GetTitleRequest) returns (GetTitleResponse);
-  rpc IsFitInsetsIgnoringVisibility (IsFitInsetsIgnoringVisibilityRequest) returns (IsFitInsetsIgnoringVisibilityResponse);
-  rpc IsFrameRatePowerSavingsBalanced (IsFrameRatePowerSavingsBalancedRequest) returns (IsFrameRatePowerSavingsBalancedResponse);
-  rpc IsHdrConversionEnabled (IsHdrConversionEnabledRequest) returns (IsHdrConversionEnabledResponse);
-  rpc SetBlurBehindRadius (SetBlurBehindRadiusRequest) returns (SetBlurBehindRadiusResponse);
-  rpc SetCanPlayMoveAnimation (SetCanPlayMoveAnimationRequest) returns (SetCanPlayMoveAnimationResponse);
-  rpc SetColorMode (SetColorModeRequest) returns (SetColorModeResponse);
-  rpc SetDesiredHdrHeadroom (WindowManagerLayoutParamsSetDesiredHdrHeadroomRequest) returns (SetDesiredHdrHeadroomResponse);
-  rpc SetFitInsetsIgnoringVisibility (SetFitInsetsIgnoringVisibilityRequest) returns (SetFitInsetsIgnoringVisibilityResponse);
-  rpc SetFitInsetsSides (SetFitInsetsSidesRequest) returns (SetFitInsetsSidesResponse);
-  rpc SetFitInsetsTypes (SetFitInsetsTypesRequest) returns (SetFitInsetsTypesResponse);
-  rpc SetFrameRateBoostOnTouchEnabled (SetFrameRateBoostOnTouchEnabledRequest) returns (SetFrameRateBoostOnTouchEnabledResponse);
-  rpc SetFrameRatePowerSavingsBalanced (SetFrameRatePowerSavingsBalancedRequest) returns (SetFrameRatePowerSavingsBalancedResponse);
-  rpc SetHdrConversionEnabled (SetHdrConversionEnabledRequest) returns (SetHdrConversionEnabledResponse);
-  rpc SetTitle (SetTitleRequest) returns (SetTitleResponse);
-  rpc SetWallpaperTouchEventsEnabled (SetWallpaperTouchEventsEnabledRequest) returns (SetWallpaperTouchEventsEnabledResponse);
-  rpc ToString (ToStringRequest) returns (ToStringResponse);
-  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
-  rpc MayUseInputMethod (MayUseInputMethodRequest) returns (MayUseInputMethodResponse);
-}
-
-service ViewGroupLayoutParamsService {
-  rpc ResolveLayoutDirection (ResolveLayoutDirectionRequest) returns (ResolveLayoutDirectionResponse);
-}
-
-service ViewGroupMarginLayoutParamsService {
-  rpc GetLayoutDirection (GetLayoutDirectionRequest) returns (GetLayoutDirectionResponse);
-  rpc GetMarginEnd (GetMarginEndRequest) returns (GetMarginEndResponse);
-  rpc GetMarginStart (GetMarginStartRequest) returns (GetMarginStartResponse);
-  rpc IsMarginRelative (IsMarginRelativeRequest) returns (IsMarginRelativeResponse);
-  rpc ResolveLayoutDirection (ResolveLayoutDirectionRequest) returns (ResolveLayoutDirectionResponse);
-  rpc SetLayoutDirection (SetLayoutDirectionRequest) returns (SetLayoutDirectionResponse);
-  rpc SetMarginEnd (SetMarginEndRequest) returns (SetMarginEndResponse);
-  rpc SetMarginStart (SetMarginStartRequest) returns (SetMarginStartResponse);
-  rpc SetMargins (SetMarginsRequest) returns (SetMarginsResponse);
-}
-
-service ViewGroupOnHierarchyChangeListenerService {
-  rpc OnChildViewAdded (OnChildViewAddedRequest) returns (OnChildViewAddedResponse);
-  rpc OnChildViewRemoved (OnChildViewRemovedRequest) returns (OnChildViewRemovedResponse);
-}
-
 service HdrCapabilitiesService {
   rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
   rpc Equals (HdrCapabilitiesEqualsRequest) returns (EqualsResponse);
@@ -10879,7 +10997,7 @@ service HdrCapabilitiesService {
   rpc GetDesiredMaxLuminance (GetDesiredMaxLuminanceRequest) returns (GetDesiredMaxLuminanceResponse);
   rpc GetDesiredMinLuminance (GetDesiredMinLuminanceRequest) returns (GetDesiredMinLuminanceResponse);
   rpc GetSupportedHdrTypes (GetSupportedHdrTypesRequest) returns (GetSupportedHdrTypesResponse);
-  rpc HashCode (HdrCapabilitiesHashCodeRequest) returns (HashCodeResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
   rpc ToString (ToStringRequest) returns (ToStringResponse);
   rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
 }
@@ -10893,19 +11011,9 @@ service ModeService {
   rpc GetPhysicalWidth (GetPhysicalWidthRequest) returns (GetPhysicalWidthResponse);
   rpc GetRefreshRate (GetRefreshRateRequest) returns (GetRefreshRateResponse);
   rpc GetSupportedHdrTypes (GetSupportedHdrTypesRequest) returns (GetSupportedHdrTypesResponse);
-  rpc HashCode (ModeHashCodeRequest) returns (HashCodeResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
   rpc ToString (ToStringRequest) returns (ToStringResponse);
   rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
-}
-
-service SurfaceHolderCallbackService {
-  rpc SurfaceChanged (SurfaceChangedRequest) returns (SurfaceChangedResponse);
-  rpc SurfaceCreated (SurfaceCreatedRequest) returns (SurfaceCreatedResponse);
-  rpc SurfaceDestroyed (SurfaceDestroyedRequest) returns (SurfaceDestroyedResponse);
-}
-
-service SurfaceHolderCallback2Service {
-  rpc SurfaceRedrawNeeded (SurfaceRedrawNeededRequest) returns (SurfaceRedrawNeededResponse);
 }
 
 service ViewAccessibilityDelegateService {
@@ -11005,4 +11113,68 @@ service ViewOnTouchListenerService {
 
 service ViewOnUnhandledKeyEventListenerService {
   rpc OnUnhandledKeyEvent (OnUnhandledKeyEventRequest) returns (OnUnhandledKeyEventResponse);
+}
+
+service SurfaceHolderCallbackService {
+  rpc SurfaceChanged (SurfaceChangedRequest) returns (SurfaceChangedResponse);
+  rpc SurfaceCreated (SurfaceCreatedRequest) returns (SurfaceCreatedResponse);
+  rpc SurfaceDestroyed (SurfaceDestroyedRequest) returns (SurfaceDestroyedResponse);
+}
+
+service SurfaceHolderCallback2Service {
+  rpc SurfaceRedrawNeeded (SurfaceRedrawNeededRequest) returns (SurfaceRedrawNeededResponse);
+}
+
+service ViewGroupLayoutParamsService {
+  rpc ResolveLayoutDirection (ResolveLayoutDirectionRequest) returns (ResolveLayoutDirectionResponse);
+}
+
+service ViewGroupMarginLayoutParamsService {
+  rpc GetLayoutDirection (ViewGroupMarginLayoutParamsGetLayoutDirectionRequest) returns (GetLayoutDirectionResponse);
+  rpc GetMarginEnd (GetMarginEndRequest) returns (GetMarginEndResponse);
+  rpc GetMarginStart (GetMarginStartRequest) returns (GetMarginStartResponse);
+  rpc IsMarginRelative (IsMarginRelativeRequest) returns (IsMarginRelativeResponse);
+  rpc ResolveLayoutDirection (ResolveLayoutDirectionRequest) returns (ResolveLayoutDirectionResponse);
+  rpc SetLayoutDirection (ViewGroupMarginLayoutParamsSetLayoutDirectionRequest) returns (SetLayoutDirectionResponse);
+  rpc SetMarginEnd (SetMarginEndRequest) returns (SetMarginEndResponse);
+  rpc SetMarginStart (SetMarginStartRequest) returns (SetMarginStartResponse);
+  rpc SetMargins (SetMarginsRequest) returns (SetMarginsResponse);
+}
+
+service ViewGroupOnHierarchyChangeListenerService {
+  rpc OnChildViewAdded (OnChildViewAddedRequest) returns (OnChildViewAddedResponse);
+  rpc OnChildViewRemoved (OnChildViewRemovedRequest) returns (OnChildViewRemovedResponse);
+}
+
+service WindowManagerLayoutParamsService {
+  rpc AreWallpaperTouchEventsEnabled (AreWallpaperTouchEventsEnabledRequest) returns (AreWallpaperTouchEventsEnabledResponse);
+  rpc CanPlayMoveAnimation (CanPlayMoveAnimationRequest) returns (CanPlayMoveAnimationResponse);
+  rpc CopyFrom (CopyFromRequest) returns (CopyFromResponse);
+  rpc Debug (DebugRequest) returns (DebugResponse);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetBlurBehindRadius (GetBlurBehindRadiusRequest) returns (GetBlurBehindRadiusResponse);
+  rpc GetColorMode (GetColorModeRequest) returns (GetColorModeResponse);
+  rpc GetDesiredHdrHeadroom (GetDesiredHdrHeadroomRequest) returns (GetDesiredHdrHeadroomResponse);
+  rpc GetFitInsetsSides (GetFitInsetsSidesRequest) returns (GetFitInsetsSidesResponse);
+  rpc GetFitInsetsTypes (GetFitInsetsTypesRequest) returns (GetFitInsetsTypesResponse);
+  rpc GetFrameRateBoostOnTouchEnabled (GetFrameRateBoostOnTouchEnabledRequest) returns (GetFrameRateBoostOnTouchEnabledResponse);
+  rpc GetTitle (GetTitleRequest) returns (GetTitleResponse);
+  rpc IsFitInsetsIgnoringVisibility (IsFitInsetsIgnoringVisibilityRequest) returns (IsFitInsetsIgnoringVisibilityResponse);
+  rpc IsFrameRatePowerSavingsBalanced (IsFrameRatePowerSavingsBalancedRequest) returns (IsFrameRatePowerSavingsBalancedResponse);
+  rpc IsHdrConversionEnabled (IsHdrConversionEnabledRequest) returns (IsHdrConversionEnabledResponse);
+  rpc SetBlurBehindRadius (SetBlurBehindRadiusRequest) returns (SetBlurBehindRadiusResponse);
+  rpc SetCanPlayMoveAnimation (SetCanPlayMoveAnimationRequest) returns (SetCanPlayMoveAnimationResponse);
+  rpc SetColorMode (SetColorModeRequest) returns (SetColorModeResponse);
+  rpc SetDesiredHdrHeadroom (WindowManagerLayoutParamsSetDesiredHdrHeadroomRequest) returns (SetDesiredHdrHeadroomResponse);
+  rpc SetFitInsetsIgnoringVisibility (SetFitInsetsIgnoringVisibilityRequest) returns (SetFitInsetsIgnoringVisibilityResponse);
+  rpc SetFitInsetsSides (SetFitInsetsSidesRequest) returns (SetFitInsetsSidesResponse);
+  rpc SetFitInsetsTypes (SetFitInsetsTypesRequest) returns (SetFitInsetsTypesResponse);
+  rpc SetFrameRateBoostOnTouchEnabled (SetFrameRateBoostOnTouchEnabledRequest) returns (SetFrameRateBoostOnTouchEnabledResponse);
+  rpc SetFrameRatePowerSavingsBalanced (SetFrameRatePowerSavingsBalancedRequest) returns (SetFrameRatePowerSavingsBalancedResponse);
+  rpc SetHdrConversionEnabled (SetHdrConversionEnabledRequest) returns (SetHdrConversionEnabledResponse);
+  rpc SetTitle (SetTitleRequest) returns (SetTitleResponse);
+  rpc SetWallpaperTouchEventsEnabled (SetWallpaperTouchEventsEnabledRequest) returns (SetWallpaperTouchEventsEnabledResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+  rpc MayUseInputMethod (MayUseInputMethodRequest) returns (MayUseInputMethodResponse);
 }

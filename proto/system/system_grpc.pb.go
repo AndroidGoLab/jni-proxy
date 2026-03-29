@@ -21,1355 +21,6 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	CleanerService_Cleaner_FullMethodName = "/system.CleanerService/Cleaner"
-)
-
-// CleanerServiceClient is the client API for CleanerService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type CleanerServiceClient interface {
-	Cleaner(ctx context.Context, in *CleanerRequest, opts ...grpc.CallOption) (*CleanerResponse, error)
-}
-
-type cleanerServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewCleanerServiceClient(cc grpc.ClientConnInterface) CleanerServiceClient {
-	return &cleanerServiceClient{cc}
-}
-
-func (c *cleanerServiceClient) Cleaner(ctx context.Context, in *CleanerRequest, opts ...grpc.CallOption) (*CleanerResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CleanerResponse)
-	err := c.cc.Invoke(ctx, CleanerService_Cleaner_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// CleanerServiceServer is the server API for CleanerService service.
-// All implementations must embed UnimplementedCleanerServiceServer
-// for forward compatibility.
-type CleanerServiceServer interface {
-	Cleaner(context.Context, *CleanerRequest) (*CleanerResponse, error)
-	mustEmbedUnimplementedCleanerServiceServer()
-}
-
-// UnimplementedCleanerServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedCleanerServiceServer struct{}
-
-func (UnimplementedCleanerServiceServer) Cleaner(context.Context, *CleanerRequest) (*CleanerResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Cleaner not implemented")
-}
-func (UnimplementedCleanerServiceServer) mustEmbedUnimplementedCleanerServiceServer() {}
-func (UnimplementedCleanerServiceServer) testEmbeddedByValue()                        {}
-
-// UnsafeCleanerServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to CleanerServiceServer will
-// result in compilation errors.
-type UnsafeCleanerServiceServer interface {
-	mustEmbedUnimplementedCleanerServiceServer()
-}
-
-func RegisterCleanerServiceServer(s grpc.ServiceRegistrar, srv CleanerServiceServer) {
-	// If the following call panics, it indicates UnimplementedCleanerServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&CleanerService_ServiceDesc, srv)
-}
-
-func _CleanerService_Cleaner_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CleanerRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CleanerServiceServer).Cleaner(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CleanerService_Cleaner_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CleanerServiceServer).Cleaner(ctx, req.(*CleanerRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// CleanerService_ServiceDesc is the grpc.ServiceDesc for CleanerService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var CleanerService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "system.CleanerService",
-	HandlerType: (*CleanerServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "Cleaner",
-			Handler:    _CleanerService_Cleaner_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/system/system.proto",
-}
-
-const (
-	VmSocketAddressService_NewVmSocketAddress_FullMethodName = "/system.VmSocketAddressService/NewVmSocketAddress"
-	VmSocketAddressService_GetSvmCid_FullMethodName          = "/system.VmSocketAddressService/GetSvmCid"
-	VmSocketAddressService_GetSvmPort_FullMethodName         = "/system.VmSocketAddressService/GetSvmPort"
-)
-
-// VmSocketAddressServiceClient is the client API for VmSocketAddressService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type VmSocketAddressServiceClient interface {
-	NewVmSocketAddress(ctx context.Context, in *NewVmSocketAddressRequest, opts ...grpc.CallOption) (*NewVmSocketAddressResponse, error)
-	GetSvmCid(ctx context.Context, in *GetSvmCidRequest, opts ...grpc.CallOption) (*GetSvmCidResponse, error)
-	GetSvmPort(ctx context.Context, in *GetSvmPortRequest, opts ...grpc.CallOption) (*GetSvmPortResponse, error)
-}
-
-type vmSocketAddressServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewVmSocketAddressServiceClient(cc grpc.ClientConnInterface) VmSocketAddressServiceClient {
-	return &vmSocketAddressServiceClient{cc}
-}
-
-func (c *vmSocketAddressServiceClient) NewVmSocketAddress(ctx context.Context, in *NewVmSocketAddressRequest, opts ...grpc.CallOption) (*NewVmSocketAddressResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewVmSocketAddressResponse)
-	err := c.cc.Invoke(ctx, VmSocketAddressService_NewVmSocketAddress_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *vmSocketAddressServiceClient) GetSvmCid(ctx context.Context, in *GetSvmCidRequest, opts ...grpc.CallOption) (*GetSvmCidResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetSvmCidResponse)
-	err := c.cc.Invoke(ctx, VmSocketAddressService_GetSvmCid_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *vmSocketAddressServiceClient) GetSvmPort(ctx context.Context, in *GetSvmPortRequest, opts ...grpc.CallOption) (*GetSvmPortResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetSvmPortResponse)
-	err := c.cc.Invoke(ctx, VmSocketAddressService_GetSvmPort_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// VmSocketAddressServiceServer is the server API for VmSocketAddressService service.
-// All implementations must embed UnimplementedVmSocketAddressServiceServer
-// for forward compatibility.
-type VmSocketAddressServiceServer interface {
-	NewVmSocketAddress(context.Context, *NewVmSocketAddressRequest) (*NewVmSocketAddressResponse, error)
-	GetSvmCid(context.Context, *GetSvmCidRequest) (*GetSvmCidResponse, error)
-	GetSvmPort(context.Context, *GetSvmPortRequest) (*GetSvmPortResponse, error)
-	mustEmbedUnimplementedVmSocketAddressServiceServer()
-}
-
-// UnimplementedVmSocketAddressServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedVmSocketAddressServiceServer struct{}
-
-func (UnimplementedVmSocketAddressServiceServer) NewVmSocketAddress(context.Context, *NewVmSocketAddressRequest) (*NewVmSocketAddressResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewVmSocketAddress not implemented")
-}
-func (UnimplementedVmSocketAddressServiceServer) GetSvmCid(context.Context, *GetSvmCidRequest) (*GetSvmCidResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetSvmCid not implemented")
-}
-func (UnimplementedVmSocketAddressServiceServer) GetSvmPort(context.Context, *GetSvmPortRequest) (*GetSvmPortResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetSvmPort not implemented")
-}
-func (UnimplementedVmSocketAddressServiceServer) mustEmbedUnimplementedVmSocketAddressServiceServer() {
-}
-func (UnimplementedVmSocketAddressServiceServer) testEmbeddedByValue() {}
-
-// UnsafeVmSocketAddressServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to VmSocketAddressServiceServer will
-// result in compilation errors.
-type UnsafeVmSocketAddressServiceServer interface {
-	mustEmbedUnimplementedVmSocketAddressServiceServer()
-}
-
-func RegisterVmSocketAddressServiceServer(s grpc.ServiceRegistrar, srv VmSocketAddressServiceServer) {
-	// If the following call panics, it indicates UnimplementedVmSocketAddressServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&VmSocketAddressService_ServiceDesc, srv)
-}
-
-func _VmSocketAddressService_NewVmSocketAddress_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewVmSocketAddressRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(VmSocketAddressServiceServer).NewVmSocketAddress(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: VmSocketAddressService_NewVmSocketAddress_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(VmSocketAddressServiceServer).NewVmSocketAddress(ctx, req.(*NewVmSocketAddressRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _VmSocketAddressService_GetSvmCid_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetSvmCidRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(VmSocketAddressServiceServer).GetSvmCid(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: VmSocketAddressService_GetSvmCid_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(VmSocketAddressServiceServer).GetSvmCid(ctx, req.(*GetSvmCidRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _VmSocketAddressService_GetSvmPort_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetSvmPortRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(VmSocketAddressServiceServer).GetSvmPort(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: VmSocketAddressService_GetSvmPort_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(VmSocketAddressServiceServer).GetSvmPort(ctx, req.(*GetSvmPortRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// VmSocketAddressService_ServiceDesc is the grpc.ServiceDesc for VmSocketAddressService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var VmSocketAddressService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "system.VmSocketAddressService",
-	HandlerType: (*VmSocketAddressServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "NewVmSocketAddress",
-			Handler:    _VmSocketAddressService_NewVmSocketAddress_Handler,
-		},
-		{
-			MethodName: "GetSvmCid",
-			Handler:    _VmSocketAddressService_GetSvmCid_Handler,
-		},
-		{
-			MethodName: "GetSvmPort",
-			Handler:    _VmSocketAddressService_GetSvmPort_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/system/system.proto",
-}
-
-const (
-	StructStatService_NewStructStat_FullMethodName = "/system.StructStatService/NewStructStat"
-	StructStatService_ToString_FullMethodName      = "/system.StructStatService/ToString"
-)
-
-// StructStatServiceClient is the client API for StructStatService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type StructStatServiceClient interface {
-	NewStructStat(ctx context.Context, in *NewStructStatRequest, opts ...grpc.CallOption) (*NewStructStatResponse, error)
-	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
-}
-
-type structStatServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewStructStatServiceClient(cc grpc.ClientConnInterface) StructStatServiceClient {
-	return &structStatServiceClient{cc}
-}
-
-func (c *structStatServiceClient) NewStructStat(ctx context.Context, in *NewStructStatRequest, opts ...grpc.CallOption) (*NewStructStatResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewStructStatResponse)
-	err := c.cc.Invoke(ctx, StructStatService_NewStructStat_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *structStatServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ToStringResponse)
-	err := c.cc.Invoke(ctx, StructStatService_ToString_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// StructStatServiceServer is the server API for StructStatService service.
-// All implementations must embed UnimplementedStructStatServiceServer
-// for forward compatibility.
-type StructStatServiceServer interface {
-	NewStructStat(context.Context, *NewStructStatRequest) (*NewStructStatResponse, error)
-	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
-	mustEmbedUnimplementedStructStatServiceServer()
-}
-
-// UnimplementedStructStatServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedStructStatServiceServer struct{}
-
-func (UnimplementedStructStatServiceServer) NewStructStat(context.Context, *NewStructStatRequest) (*NewStructStatResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewStructStat not implemented")
-}
-func (UnimplementedStructStatServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
-}
-func (UnimplementedStructStatServiceServer) mustEmbedUnimplementedStructStatServiceServer() {}
-func (UnimplementedStructStatServiceServer) testEmbeddedByValue()                           {}
-
-// UnsafeStructStatServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to StructStatServiceServer will
-// result in compilation errors.
-type UnsafeStructStatServiceServer interface {
-	mustEmbedUnimplementedStructStatServiceServer()
-}
-
-func RegisterStructStatServiceServer(s grpc.ServiceRegistrar, srv StructStatServiceServer) {
-	// If the following call panics, it indicates UnimplementedStructStatServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&StructStatService_ServiceDesc, srv)
-}
-
-func _StructStatService_NewStructStat_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewStructStatRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(StructStatServiceServer).NewStructStat(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: StructStatService_NewStructStat_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(StructStatServiceServer).NewStructStat(ctx, req.(*NewStructStatRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _StructStatService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ToStringRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(StructStatServiceServer).ToString(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: StructStatService_ToString_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(StructStatServiceServer).ToString(ctx, req.(*ToStringRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// StructStatService_ServiceDesc is the grpc.ServiceDesc for StructStatService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var StructStatService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "system.StructStatService",
-	HandlerType: (*StructStatServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "NewStructStat",
-			Handler:    _StructStatService_NewStructStat_Handler,
-		},
-		{
-			MethodName: "ToString",
-			Handler:    _StructStatService_ToString_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/system/system.proto",
-}
-
-const (
-	ErrnoExceptionService_NewErrnoException_FullMethodName        = "/system.ErrnoExceptionService/NewErrnoException"
-	ErrnoExceptionService_GetMessage_FullMethodName               = "/system.ErrnoExceptionService/GetMessage"
-	ErrnoExceptionService_RethrowAsIOException_FullMethodName     = "/system.ErrnoExceptionService/RethrowAsIOException"
-	ErrnoExceptionService_RethrowAsSocketException_FullMethodName = "/system.ErrnoExceptionService/RethrowAsSocketException"
-)
-
-// ErrnoExceptionServiceClient is the client API for ErrnoExceptionService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type ErrnoExceptionServiceClient interface {
-	NewErrnoException(ctx context.Context, in *NewErrnoExceptionRequest, opts ...grpc.CallOption) (*NewErrnoExceptionResponse, error)
-	GetMessage(ctx context.Context, in *GetMessageRequest, opts ...grpc.CallOption) (*GetMessageResponse, error)
-	RethrowAsIOException(ctx context.Context, in *RethrowAsIOExceptionRequest, opts ...grpc.CallOption) (*RethrowAsIOExceptionResponse, error)
-	RethrowAsSocketException(ctx context.Context, in *RethrowAsSocketExceptionRequest, opts ...grpc.CallOption) (*RethrowAsSocketExceptionResponse, error)
-}
-
-type errnoExceptionServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewErrnoExceptionServiceClient(cc grpc.ClientConnInterface) ErrnoExceptionServiceClient {
-	return &errnoExceptionServiceClient{cc}
-}
-
-func (c *errnoExceptionServiceClient) NewErrnoException(ctx context.Context, in *NewErrnoExceptionRequest, opts ...grpc.CallOption) (*NewErrnoExceptionResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewErrnoExceptionResponse)
-	err := c.cc.Invoke(ctx, ErrnoExceptionService_NewErrnoException_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *errnoExceptionServiceClient) GetMessage(ctx context.Context, in *GetMessageRequest, opts ...grpc.CallOption) (*GetMessageResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetMessageResponse)
-	err := c.cc.Invoke(ctx, ErrnoExceptionService_GetMessage_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *errnoExceptionServiceClient) RethrowAsIOException(ctx context.Context, in *RethrowAsIOExceptionRequest, opts ...grpc.CallOption) (*RethrowAsIOExceptionResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(RethrowAsIOExceptionResponse)
-	err := c.cc.Invoke(ctx, ErrnoExceptionService_RethrowAsIOException_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *errnoExceptionServiceClient) RethrowAsSocketException(ctx context.Context, in *RethrowAsSocketExceptionRequest, opts ...grpc.CallOption) (*RethrowAsSocketExceptionResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(RethrowAsSocketExceptionResponse)
-	err := c.cc.Invoke(ctx, ErrnoExceptionService_RethrowAsSocketException_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// ErrnoExceptionServiceServer is the server API for ErrnoExceptionService service.
-// All implementations must embed UnimplementedErrnoExceptionServiceServer
-// for forward compatibility.
-type ErrnoExceptionServiceServer interface {
-	NewErrnoException(context.Context, *NewErrnoExceptionRequest) (*NewErrnoExceptionResponse, error)
-	GetMessage(context.Context, *GetMessageRequest) (*GetMessageResponse, error)
-	RethrowAsIOException(context.Context, *RethrowAsIOExceptionRequest) (*RethrowAsIOExceptionResponse, error)
-	RethrowAsSocketException(context.Context, *RethrowAsSocketExceptionRequest) (*RethrowAsSocketExceptionResponse, error)
-	mustEmbedUnimplementedErrnoExceptionServiceServer()
-}
-
-// UnimplementedErrnoExceptionServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedErrnoExceptionServiceServer struct{}
-
-func (UnimplementedErrnoExceptionServiceServer) NewErrnoException(context.Context, *NewErrnoExceptionRequest) (*NewErrnoExceptionResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewErrnoException not implemented")
-}
-func (UnimplementedErrnoExceptionServiceServer) GetMessage(context.Context, *GetMessageRequest) (*GetMessageResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetMessage not implemented")
-}
-func (UnimplementedErrnoExceptionServiceServer) RethrowAsIOException(context.Context, *RethrowAsIOExceptionRequest) (*RethrowAsIOExceptionResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method RethrowAsIOException not implemented")
-}
-func (UnimplementedErrnoExceptionServiceServer) RethrowAsSocketException(context.Context, *RethrowAsSocketExceptionRequest) (*RethrowAsSocketExceptionResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method RethrowAsSocketException not implemented")
-}
-func (UnimplementedErrnoExceptionServiceServer) mustEmbedUnimplementedErrnoExceptionServiceServer() {}
-func (UnimplementedErrnoExceptionServiceServer) testEmbeddedByValue()                               {}
-
-// UnsafeErrnoExceptionServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to ErrnoExceptionServiceServer will
-// result in compilation errors.
-type UnsafeErrnoExceptionServiceServer interface {
-	mustEmbedUnimplementedErrnoExceptionServiceServer()
-}
-
-func RegisterErrnoExceptionServiceServer(s grpc.ServiceRegistrar, srv ErrnoExceptionServiceServer) {
-	// If the following call panics, it indicates UnimplementedErrnoExceptionServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&ErrnoExceptionService_ServiceDesc, srv)
-}
-
-func _ErrnoExceptionService_NewErrnoException_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewErrnoExceptionRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ErrnoExceptionServiceServer).NewErrnoException(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ErrnoExceptionService_NewErrnoException_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ErrnoExceptionServiceServer).NewErrnoException(ctx, req.(*NewErrnoExceptionRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ErrnoExceptionService_GetMessage_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetMessageRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ErrnoExceptionServiceServer).GetMessage(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ErrnoExceptionService_GetMessage_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ErrnoExceptionServiceServer).GetMessage(ctx, req.(*GetMessageRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ErrnoExceptionService_RethrowAsIOException_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(RethrowAsIOExceptionRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ErrnoExceptionServiceServer).RethrowAsIOException(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ErrnoExceptionService_RethrowAsIOException_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ErrnoExceptionServiceServer).RethrowAsIOException(ctx, req.(*RethrowAsIOExceptionRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ErrnoExceptionService_RethrowAsSocketException_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(RethrowAsSocketExceptionRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ErrnoExceptionServiceServer).RethrowAsSocketException(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ErrnoExceptionService_RethrowAsSocketException_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ErrnoExceptionServiceServer).RethrowAsSocketException(ctx, req.(*RethrowAsSocketExceptionRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// ErrnoExceptionService_ServiceDesc is the grpc.ServiceDesc for ErrnoExceptionService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var ErrnoExceptionService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "system.ErrnoExceptionService",
-	HandlerType: (*ErrnoExceptionServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "NewErrnoException",
-			Handler:    _ErrnoExceptionService_NewErrnoException_Handler,
-		},
-		{
-			MethodName: "GetMessage",
-			Handler:    _ErrnoExceptionService_GetMessage_Handler,
-		},
-		{
-			MethodName: "RethrowAsIOException",
-			Handler:    _ErrnoExceptionService_RethrowAsIOException_Handler,
-		},
-		{
-			MethodName: "RethrowAsSocketException",
-			Handler:    _ErrnoExceptionService_RethrowAsSocketException_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/system/system.proto",
-}
-
-const (
-	StructStatVfsService_NewStructStatVfs_FullMethodName = "/system.StructStatVfsService/NewStructStatVfs"
-	StructStatVfsService_ToString_FullMethodName         = "/system.StructStatVfsService/ToString"
-)
-
-// StructStatVfsServiceClient is the client API for StructStatVfsService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type StructStatVfsServiceClient interface {
-	NewStructStatVfs(ctx context.Context, in *NewStructStatVfsRequest, opts ...grpc.CallOption) (*NewStructStatVfsResponse, error)
-	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
-}
-
-type structStatVfsServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewStructStatVfsServiceClient(cc grpc.ClientConnInterface) StructStatVfsServiceClient {
-	return &structStatVfsServiceClient{cc}
-}
-
-func (c *structStatVfsServiceClient) NewStructStatVfs(ctx context.Context, in *NewStructStatVfsRequest, opts ...grpc.CallOption) (*NewStructStatVfsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewStructStatVfsResponse)
-	err := c.cc.Invoke(ctx, StructStatVfsService_NewStructStatVfs_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *structStatVfsServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ToStringResponse)
-	err := c.cc.Invoke(ctx, StructStatVfsService_ToString_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// StructStatVfsServiceServer is the server API for StructStatVfsService service.
-// All implementations must embed UnimplementedStructStatVfsServiceServer
-// for forward compatibility.
-type StructStatVfsServiceServer interface {
-	NewStructStatVfs(context.Context, *NewStructStatVfsRequest) (*NewStructStatVfsResponse, error)
-	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
-	mustEmbedUnimplementedStructStatVfsServiceServer()
-}
-
-// UnimplementedStructStatVfsServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedStructStatVfsServiceServer struct{}
-
-func (UnimplementedStructStatVfsServiceServer) NewStructStatVfs(context.Context, *NewStructStatVfsRequest) (*NewStructStatVfsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewStructStatVfs not implemented")
-}
-func (UnimplementedStructStatVfsServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
-}
-func (UnimplementedStructStatVfsServiceServer) mustEmbedUnimplementedStructStatVfsServiceServer() {}
-func (UnimplementedStructStatVfsServiceServer) testEmbeddedByValue()                              {}
-
-// UnsafeStructStatVfsServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to StructStatVfsServiceServer will
-// result in compilation errors.
-type UnsafeStructStatVfsServiceServer interface {
-	mustEmbedUnimplementedStructStatVfsServiceServer()
-}
-
-func RegisterStructStatVfsServiceServer(s grpc.ServiceRegistrar, srv StructStatVfsServiceServer) {
-	// If the following call panics, it indicates UnimplementedStructStatVfsServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&StructStatVfsService_ServiceDesc, srv)
-}
-
-func _StructStatVfsService_NewStructStatVfs_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewStructStatVfsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(StructStatVfsServiceServer).NewStructStatVfs(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: StructStatVfsService_NewStructStatVfs_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(StructStatVfsServiceServer).NewStructStatVfs(ctx, req.(*NewStructStatVfsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _StructStatVfsService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ToStringRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(StructStatVfsServiceServer).ToString(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: StructStatVfsService_ToString_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(StructStatVfsServiceServer).ToString(ctx, req.(*ToStringRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// StructStatVfsService_ServiceDesc is the grpc.ServiceDesc for StructStatVfsService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var StructStatVfsService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "system.StructStatVfsService",
-	HandlerType: (*StructStatVfsServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "NewStructStatVfs",
-			Handler:    _StructStatVfsService_NewStructStatVfs_Handler,
-		},
-		{
-			MethodName: "ToString",
-			Handler:    _StructStatVfsService_ToString_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/system/system.proto",
-}
-
-const (
-	StructTimespecService_NewStructTimespec_FullMethodName = "/system.StructTimespecService/NewStructTimespec"
-	StructTimespecService_CompareTo1_FullMethodName        = "/system.StructTimespecService/CompareTo1"
-	StructTimespecService_Equals_FullMethodName            = "/system.StructTimespecService/Equals"
-	StructTimespecService_HashCode_FullMethodName          = "/system.StructTimespecService/HashCode"
-	StructTimespecService_ToString_FullMethodName          = "/system.StructTimespecService/ToString"
-	StructTimespecService_CompareTo1_1_FullMethodName      = "/system.StructTimespecService/CompareTo1_1"
-)
-
-// StructTimespecServiceClient is the client API for StructTimespecService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type StructTimespecServiceClient interface {
-	NewStructTimespec(ctx context.Context, in *NewStructTimespecRequest, opts ...grpc.CallOption) (*NewStructTimespecResponse, error)
-	CompareTo1(ctx context.Context, in *CompareTo1Request, opts ...grpc.CallOption) (*CompareTo1Response, error)
-	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
-	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
-	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
-	CompareTo1_1(ctx context.Context, in *CompareTo1_1Request, opts ...grpc.CallOption) (*CompareTo1_1Response, error)
-}
-
-type structTimespecServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewStructTimespecServiceClient(cc grpc.ClientConnInterface) StructTimespecServiceClient {
-	return &structTimespecServiceClient{cc}
-}
-
-func (c *structTimespecServiceClient) NewStructTimespec(ctx context.Context, in *NewStructTimespecRequest, opts ...grpc.CallOption) (*NewStructTimespecResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewStructTimespecResponse)
-	err := c.cc.Invoke(ctx, StructTimespecService_NewStructTimespec_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *structTimespecServiceClient) CompareTo1(ctx context.Context, in *CompareTo1Request, opts ...grpc.CallOption) (*CompareTo1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CompareTo1Response)
-	err := c.cc.Invoke(ctx, StructTimespecService_CompareTo1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *structTimespecServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(EqualsResponse)
-	err := c.cc.Invoke(ctx, StructTimespecService_Equals_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *structTimespecServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(HashCodeResponse)
-	err := c.cc.Invoke(ctx, StructTimespecService_HashCode_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *structTimespecServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ToStringResponse)
-	err := c.cc.Invoke(ctx, StructTimespecService_ToString_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *structTimespecServiceClient) CompareTo1_1(ctx context.Context, in *CompareTo1_1Request, opts ...grpc.CallOption) (*CompareTo1_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CompareTo1_1Response)
-	err := c.cc.Invoke(ctx, StructTimespecService_CompareTo1_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// StructTimespecServiceServer is the server API for StructTimespecService service.
-// All implementations must embed UnimplementedStructTimespecServiceServer
-// for forward compatibility.
-type StructTimespecServiceServer interface {
-	NewStructTimespec(context.Context, *NewStructTimespecRequest) (*NewStructTimespecResponse, error)
-	CompareTo1(context.Context, *CompareTo1Request) (*CompareTo1Response, error)
-	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
-	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
-	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
-	CompareTo1_1(context.Context, *CompareTo1_1Request) (*CompareTo1_1Response, error)
-	mustEmbedUnimplementedStructTimespecServiceServer()
-}
-
-// UnimplementedStructTimespecServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedStructTimespecServiceServer struct{}
-
-func (UnimplementedStructTimespecServiceServer) NewStructTimespec(context.Context, *NewStructTimespecRequest) (*NewStructTimespecResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewStructTimespec not implemented")
-}
-func (UnimplementedStructTimespecServiceServer) CompareTo1(context.Context, *CompareTo1Request) (*CompareTo1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method CompareTo1 not implemented")
-}
-func (UnimplementedStructTimespecServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
-}
-func (UnimplementedStructTimespecServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
-}
-func (UnimplementedStructTimespecServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
-}
-func (UnimplementedStructTimespecServiceServer) CompareTo1_1(context.Context, *CompareTo1_1Request) (*CompareTo1_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method CompareTo1_1 not implemented")
-}
-func (UnimplementedStructTimespecServiceServer) mustEmbedUnimplementedStructTimespecServiceServer() {}
-func (UnimplementedStructTimespecServiceServer) testEmbeddedByValue()                               {}
-
-// UnsafeStructTimespecServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to StructTimespecServiceServer will
-// result in compilation errors.
-type UnsafeStructTimespecServiceServer interface {
-	mustEmbedUnimplementedStructTimespecServiceServer()
-}
-
-func RegisterStructTimespecServiceServer(s grpc.ServiceRegistrar, srv StructTimespecServiceServer) {
-	// If the following call panics, it indicates UnimplementedStructTimespecServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&StructTimespecService_ServiceDesc, srv)
-}
-
-func _StructTimespecService_NewStructTimespec_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewStructTimespecRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(StructTimespecServiceServer).NewStructTimespec(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: StructTimespecService_NewStructTimespec_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(StructTimespecServiceServer).NewStructTimespec(ctx, req.(*NewStructTimespecRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _StructTimespecService_CompareTo1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CompareTo1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(StructTimespecServiceServer).CompareTo1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: StructTimespecService_CompareTo1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(StructTimespecServiceServer).CompareTo1(ctx, req.(*CompareTo1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _StructTimespecService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(EqualsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(StructTimespecServiceServer).Equals(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: StructTimespecService_Equals_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(StructTimespecServiceServer).Equals(ctx, req.(*EqualsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _StructTimespecService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(HashCodeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(StructTimespecServiceServer).HashCode(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: StructTimespecService_HashCode_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(StructTimespecServiceServer).HashCode(ctx, req.(*HashCodeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _StructTimespecService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ToStringRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(StructTimespecServiceServer).ToString(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: StructTimespecService_ToString_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(StructTimespecServiceServer).ToString(ctx, req.(*ToStringRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _StructTimespecService_CompareTo1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CompareTo1_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(StructTimespecServiceServer).CompareTo1_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: StructTimespecService_CompareTo1_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(StructTimespecServiceServer).CompareTo1_1(ctx, req.(*CompareTo1_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// StructTimespecService_ServiceDesc is the grpc.ServiceDesc for StructTimespecService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var StructTimespecService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "system.StructTimespecService",
-	HandlerType: (*StructTimespecServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "NewStructTimespec",
-			Handler:    _StructTimespecService_NewStructTimespec_Handler,
-		},
-		{
-			MethodName: "CompareTo1",
-			Handler:    _StructTimespecService_CompareTo1_Handler,
-		},
-		{
-			MethodName: "Equals",
-			Handler:    _StructTimespecService_Equals_Handler,
-		},
-		{
-			MethodName: "HashCode",
-			Handler:    _StructTimespecService_HashCode_Handler,
-		},
-		{
-			MethodName: "ToString",
-			Handler:    _StructTimespecService_ToString_Handler,
-		},
-		{
-			MethodName: "CompareTo1_1",
-			Handler:    _StructTimespecService_CompareTo1_1_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/system/system.proto",
-}
-
-const (
-	Int64RefService_NewInt64Ref_FullMethodName = "/system.Int64RefService/NewInt64Ref"
-	Int64RefService_ToString_FullMethodName    = "/system.Int64RefService/ToString"
-)
-
-// Int64RefServiceClient is the client API for Int64RefService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type Int64RefServiceClient interface {
-	NewInt64Ref(ctx context.Context, in *NewInt64RefRequest, opts ...grpc.CallOption) (*NewInt64RefResponse, error)
-	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
-}
-
-type int64RefServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewInt64RefServiceClient(cc grpc.ClientConnInterface) Int64RefServiceClient {
-	return &int64RefServiceClient{cc}
-}
-
-func (c *int64RefServiceClient) NewInt64Ref(ctx context.Context, in *NewInt64RefRequest, opts ...grpc.CallOption) (*NewInt64RefResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewInt64RefResponse)
-	err := c.cc.Invoke(ctx, Int64RefService_NewInt64Ref_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *int64RefServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ToStringResponse)
-	err := c.cc.Invoke(ctx, Int64RefService_ToString_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// Int64RefServiceServer is the server API for Int64RefService service.
-// All implementations must embed UnimplementedInt64RefServiceServer
-// for forward compatibility.
-type Int64RefServiceServer interface {
-	NewInt64Ref(context.Context, *NewInt64RefRequest) (*NewInt64RefResponse, error)
-	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
-	mustEmbedUnimplementedInt64RefServiceServer()
-}
-
-// UnimplementedInt64RefServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedInt64RefServiceServer struct{}
-
-func (UnimplementedInt64RefServiceServer) NewInt64Ref(context.Context, *NewInt64RefRequest) (*NewInt64RefResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewInt64Ref not implemented")
-}
-func (UnimplementedInt64RefServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
-}
-func (UnimplementedInt64RefServiceServer) mustEmbedUnimplementedInt64RefServiceServer() {}
-func (UnimplementedInt64RefServiceServer) testEmbeddedByValue()                         {}
-
-// UnsafeInt64RefServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to Int64RefServiceServer will
-// result in compilation errors.
-type UnsafeInt64RefServiceServer interface {
-	mustEmbedUnimplementedInt64RefServiceServer()
-}
-
-func RegisterInt64RefServiceServer(s grpc.ServiceRegistrar, srv Int64RefServiceServer) {
-	// If the following call panics, it indicates UnimplementedInt64RefServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&Int64RefService_ServiceDesc, srv)
-}
-
-func _Int64RefService_NewInt64Ref_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewInt64RefRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(Int64RefServiceServer).NewInt64Ref(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: Int64RefService_NewInt64Ref_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(Int64RefServiceServer).NewInt64Ref(ctx, req.(*NewInt64RefRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _Int64RefService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ToStringRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(Int64RefServiceServer).ToString(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: Int64RefService_ToString_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(Int64RefServiceServer).ToString(ctx, req.(*ToStringRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// Int64RefService_ServiceDesc is the grpc.ServiceDesc for Int64RefService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var Int64RefService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "system.Int64RefService",
-	HandlerType: (*Int64RefServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "NewInt64Ref",
-			Handler:    _Int64RefService_NewInt64Ref_Handler,
-		},
-		{
-			MethodName: "ToString",
-			Handler:    _Int64RefService_ToString_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/system/system.proto",
-}
-
-const (
-	StructPollfdService_NewStructPollfd_FullMethodName = "/system.StructPollfdService/NewStructPollfd"
-	StructPollfdService_ToString_FullMethodName        = "/system.StructPollfdService/ToString"
-)
-
-// StructPollfdServiceClient is the client API for StructPollfdService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type StructPollfdServiceClient interface {
-	NewStructPollfd(ctx context.Context, in *NewStructPollfdRequest, opts ...grpc.CallOption) (*NewStructPollfdResponse, error)
-	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
-}
-
-type structPollfdServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewStructPollfdServiceClient(cc grpc.ClientConnInterface) StructPollfdServiceClient {
-	return &structPollfdServiceClient{cc}
-}
-
-func (c *structPollfdServiceClient) NewStructPollfd(ctx context.Context, in *NewStructPollfdRequest, opts ...grpc.CallOption) (*NewStructPollfdResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewStructPollfdResponse)
-	err := c.cc.Invoke(ctx, StructPollfdService_NewStructPollfd_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *structPollfdServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ToStringResponse)
-	err := c.cc.Invoke(ctx, StructPollfdService_ToString_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// StructPollfdServiceServer is the server API for StructPollfdService service.
-// All implementations must embed UnimplementedStructPollfdServiceServer
-// for forward compatibility.
-type StructPollfdServiceServer interface {
-	NewStructPollfd(context.Context, *NewStructPollfdRequest) (*NewStructPollfdResponse, error)
-	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
-	mustEmbedUnimplementedStructPollfdServiceServer()
-}
-
-// UnimplementedStructPollfdServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedStructPollfdServiceServer struct{}
-
-func (UnimplementedStructPollfdServiceServer) NewStructPollfd(context.Context, *NewStructPollfdRequest) (*NewStructPollfdResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewStructPollfd not implemented")
-}
-func (UnimplementedStructPollfdServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
-}
-func (UnimplementedStructPollfdServiceServer) mustEmbedUnimplementedStructPollfdServiceServer() {}
-func (UnimplementedStructPollfdServiceServer) testEmbeddedByValue()                             {}
-
-// UnsafeStructPollfdServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to StructPollfdServiceServer will
-// result in compilation errors.
-type UnsafeStructPollfdServiceServer interface {
-	mustEmbedUnimplementedStructPollfdServiceServer()
-}
-
-func RegisterStructPollfdServiceServer(s grpc.ServiceRegistrar, srv StructPollfdServiceServer) {
-	// If the following call panics, it indicates UnimplementedStructPollfdServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&StructPollfdService_ServiceDesc, srv)
-}
-
-func _StructPollfdService_NewStructPollfd_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewStructPollfdRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(StructPollfdServiceServer).NewStructPollfd(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: StructPollfdService_NewStructPollfd_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(StructPollfdServiceServer).NewStructPollfd(ctx, req.(*NewStructPollfdRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _StructPollfdService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ToStringRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(StructPollfdServiceServer).ToString(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: StructPollfdService_ToString_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(StructPollfdServiceServer).ToString(ctx, req.(*ToStringRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// StructPollfdService_ServiceDesc is the grpc.ServiceDesc for StructPollfdService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var StructPollfdService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "system.StructPollfdService",
-	HandlerType: (*StructPollfdServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "NewStructPollfd",
-			Handler:    _StructPollfdService_NewStructPollfd_Handler,
-		},
-		{
-			MethodName: "ToString",
-			Handler:    _StructPollfdService_ToString_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/system/system.proto",
-}
-
-const (
 	OsConstantsService_S_ISBLK_FullMethodName     = "/system.OsConstantsService/S_ISBLK"
 	OsConstantsService_S_ISCHR_FullMethodName     = "/system.OsConstantsService/S_ISCHR"
 	OsConstantsService_S_ISDIR_FullMethodName     = "/system.OsConstantsService/S_ISDIR"
@@ -2042,6 +693,756 @@ var OsConstantsService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
+	ErrnoExceptionService_NewErrnoException_FullMethodName        = "/system.ErrnoExceptionService/NewErrnoException"
+	ErrnoExceptionService_GetMessage_FullMethodName               = "/system.ErrnoExceptionService/GetMessage"
+	ErrnoExceptionService_RethrowAsIOException_FullMethodName     = "/system.ErrnoExceptionService/RethrowAsIOException"
+	ErrnoExceptionService_RethrowAsSocketException_FullMethodName = "/system.ErrnoExceptionService/RethrowAsSocketException"
+)
+
+// ErrnoExceptionServiceClient is the client API for ErrnoExceptionService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ErrnoExceptionServiceClient interface {
+	NewErrnoException(ctx context.Context, in *NewErrnoExceptionRequest, opts ...grpc.CallOption) (*NewErrnoExceptionResponse, error)
+	GetMessage(ctx context.Context, in *GetMessageRequest, opts ...grpc.CallOption) (*GetMessageResponse, error)
+	RethrowAsIOException(ctx context.Context, in *RethrowAsIOExceptionRequest, opts ...grpc.CallOption) (*RethrowAsIOExceptionResponse, error)
+	RethrowAsSocketException(ctx context.Context, in *RethrowAsSocketExceptionRequest, opts ...grpc.CallOption) (*RethrowAsSocketExceptionResponse, error)
+}
+
+type errnoExceptionServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewErrnoExceptionServiceClient(cc grpc.ClientConnInterface) ErrnoExceptionServiceClient {
+	return &errnoExceptionServiceClient{cc}
+}
+
+func (c *errnoExceptionServiceClient) NewErrnoException(ctx context.Context, in *NewErrnoExceptionRequest, opts ...grpc.CallOption) (*NewErrnoExceptionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewErrnoExceptionResponse)
+	err := c.cc.Invoke(ctx, ErrnoExceptionService_NewErrnoException_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *errnoExceptionServiceClient) GetMessage(ctx context.Context, in *GetMessageRequest, opts ...grpc.CallOption) (*GetMessageResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetMessageResponse)
+	err := c.cc.Invoke(ctx, ErrnoExceptionService_GetMessage_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *errnoExceptionServiceClient) RethrowAsIOException(ctx context.Context, in *RethrowAsIOExceptionRequest, opts ...grpc.CallOption) (*RethrowAsIOExceptionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(RethrowAsIOExceptionResponse)
+	err := c.cc.Invoke(ctx, ErrnoExceptionService_RethrowAsIOException_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *errnoExceptionServiceClient) RethrowAsSocketException(ctx context.Context, in *RethrowAsSocketExceptionRequest, opts ...grpc.CallOption) (*RethrowAsSocketExceptionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(RethrowAsSocketExceptionResponse)
+	err := c.cc.Invoke(ctx, ErrnoExceptionService_RethrowAsSocketException_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ErrnoExceptionServiceServer is the server API for ErrnoExceptionService service.
+// All implementations must embed UnimplementedErrnoExceptionServiceServer
+// for forward compatibility.
+type ErrnoExceptionServiceServer interface {
+	NewErrnoException(context.Context, *NewErrnoExceptionRequest) (*NewErrnoExceptionResponse, error)
+	GetMessage(context.Context, *GetMessageRequest) (*GetMessageResponse, error)
+	RethrowAsIOException(context.Context, *RethrowAsIOExceptionRequest) (*RethrowAsIOExceptionResponse, error)
+	RethrowAsSocketException(context.Context, *RethrowAsSocketExceptionRequest) (*RethrowAsSocketExceptionResponse, error)
+	mustEmbedUnimplementedErrnoExceptionServiceServer()
+}
+
+// UnimplementedErrnoExceptionServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedErrnoExceptionServiceServer struct{}
+
+func (UnimplementedErrnoExceptionServiceServer) NewErrnoException(context.Context, *NewErrnoExceptionRequest) (*NewErrnoExceptionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewErrnoException not implemented")
+}
+func (UnimplementedErrnoExceptionServiceServer) GetMessage(context.Context, *GetMessageRequest) (*GetMessageResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetMessage not implemented")
+}
+func (UnimplementedErrnoExceptionServiceServer) RethrowAsIOException(context.Context, *RethrowAsIOExceptionRequest) (*RethrowAsIOExceptionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method RethrowAsIOException not implemented")
+}
+func (UnimplementedErrnoExceptionServiceServer) RethrowAsSocketException(context.Context, *RethrowAsSocketExceptionRequest) (*RethrowAsSocketExceptionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method RethrowAsSocketException not implemented")
+}
+func (UnimplementedErrnoExceptionServiceServer) mustEmbedUnimplementedErrnoExceptionServiceServer() {}
+func (UnimplementedErrnoExceptionServiceServer) testEmbeddedByValue()                               {}
+
+// UnsafeErrnoExceptionServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ErrnoExceptionServiceServer will
+// result in compilation errors.
+type UnsafeErrnoExceptionServiceServer interface {
+	mustEmbedUnimplementedErrnoExceptionServiceServer()
+}
+
+func RegisterErrnoExceptionServiceServer(s grpc.ServiceRegistrar, srv ErrnoExceptionServiceServer) {
+	// If the following call panics, it indicates UnimplementedErrnoExceptionServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&ErrnoExceptionService_ServiceDesc, srv)
+}
+
+func _ErrnoExceptionService_NewErrnoException_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewErrnoExceptionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ErrnoExceptionServiceServer).NewErrnoException(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ErrnoExceptionService_NewErrnoException_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ErrnoExceptionServiceServer).NewErrnoException(ctx, req.(*NewErrnoExceptionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ErrnoExceptionService_GetMessage_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetMessageRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ErrnoExceptionServiceServer).GetMessage(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ErrnoExceptionService_GetMessage_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ErrnoExceptionServiceServer).GetMessage(ctx, req.(*GetMessageRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ErrnoExceptionService_RethrowAsIOException_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RethrowAsIOExceptionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ErrnoExceptionServiceServer).RethrowAsIOException(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ErrnoExceptionService_RethrowAsIOException_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ErrnoExceptionServiceServer).RethrowAsIOException(ctx, req.(*RethrowAsIOExceptionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ErrnoExceptionService_RethrowAsSocketException_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RethrowAsSocketExceptionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ErrnoExceptionServiceServer).RethrowAsSocketException(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ErrnoExceptionService_RethrowAsSocketException_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ErrnoExceptionServiceServer).RethrowAsSocketException(ctx, req.(*RethrowAsSocketExceptionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ErrnoExceptionService_ServiceDesc is the grpc.ServiceDesc for ErrnoExceptionService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ErrnoExceptionService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "system.ErrnoExceptionService",
+	HandlerType: (*ErrnoExceptionServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewErrnoException",
+			Handler:    _ErrnoExceptionService_NewErrnoException_Handler,
+		},
+		{
+			MethodName: "GetMessage",
+			Handler:    _ErrnoExceptionService_GetMessage_Handler,
+		},
+		{
+			MethodName: "RethrowAsIOException",
+			Handler:    _ErrnoExceptionService_RethrowAsIOException_Handler,
+		},
+		{
+			MethodName: "RethrowAsSocketException",
+			Handler:    _ErrnoExceptionService_RethrowAsSocketException_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/system/system.proto",
+}
+
+const (
+	StructPollfdService_NewStructPollfd_FullMethodName = "/system.StructPollfdService/NewStructPollfd"
+	StructPollfdService_ToString_FullMethodName        = "/system.StructPollfdService/ToString"
+)
+
+// StructPollfdServiceClient is the client API for StructPollfdService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type StructPollfdServiceClient interface {
+	NewStructPollfd(ctx context.Context, in *NewStructPollfdRequest, opts ...grpc.CallOption) (*NewStructPollfdResponse, error)
+	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+}
+
+type structPollfdServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewStructPollfdServiceClient(cc grpc.ClientConnInterface) StructPollfdServiceClient {
+	return &structPollfdServiceClient{cc}
+}
+
+func (c *structPollfdServiceClient) NewStructPollfd(ctx context.Context, in *NewStructPollfdRequest, opts ...grpc.CallOption) (*NewStructPollfdResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewStructPollfdResponse)
+	err := c.cc.Invoke(ctx, StructPollfdService_NewStructPollfd_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *structPollfdServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, StructPollfdService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// StructPollfdServiceServer is the server API for StructPollfdService service.
+// All implementations must embed UnimplementedStructPollfdServiceServer
+// for forward compatibility.
+type StructPollfdServiceServer interface {
+	NewStructPollfd(context.Context, *NewStructPollfdRequest) (*NewStructPollfdResponse, error)
+	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
+	mustEmbedUnimplementedStructPollfdServiceServer()
+}
+
+// UnimplementedStructPollfdServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedStructPollfdServiceServer struct{}
+
+func (UnimplementedStructPollfdServiceServer) NewStructPollfd(context.Context, *NewStructPollfdRequest) (*NewStructPollfdResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewStructPollfd not implemented")
+}
+func (UnimplementedStructPollfdServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedStructPollfdServiceServer) mustEmbedUnimplementedStructPollfdServiceServer() {}
+func (UnimplementedStructPollfdServiceServer) testEmbeddedByValue()                             {}
+
+// UnsafeStructPollfdServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to StructPollfdServiceServer will
+// result in compilation errors.
+type UnsafeStructPollfdServiceServer interface {
+	mustEmbedUnimplementedStructPollfdServiceServer()
+}
+
+func RegisterStructPollfdServiceServer(s grpc.ServiceRegistrar, srv StructPollfdServiceServer) {
+	// If the following call panics, it indicates UnimplementedStructPollfdServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&StructPollfdService_ServiceDesc, srv)
+}
+
+func _StructPollfdService_NewStructPollfd_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewStructPollfdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(StructPollfdServiceServer).NewStructPollfd(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: StructPollfdService_NewStructPollfd_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(StructPollfdServiceServer).NewStructPollfd(ctx, req.(*NewStructPollfdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _StructPollfdService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(StructPollfdServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: StructPollfdService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(StructPollfdServiceServer).ToString(ctx, req.(*ToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// StructPollfdService_ServiceDesc is the grpc.ServiceDesc for StructPollfdService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var StructPollfdService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "system.StructPollfdService",
+	HandlerType: (*StructPollfdServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewStructPollfd",
+			Handler:    _StructPollfdService_NewStructPollfd_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _StructPollfdService_ToString_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/system/system.proto",
+}
+
+const (
+	Int64RefService_NewInt64Ref_FullMethodName = "/system.Int64RefService/NewInt64Ref"
+	Int64RefService_ToString_FullMethodName    = "/system.Int64RefService/ToString"
+)
+
+// Int64RefServiceClient is the client API for Int64RefService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type Int64RefServiceClient interface {
+	NewInt64Ref(ctx context.Context, in *NewInt64RefRequest, opts ...grpc.CallOption) (*NewInt64RefResponse, error)
+	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+}
+
+type int64RefServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewInt64RefServiceClient(cc grpc.ClientConnInterface) Int64RefServiceClient {
+	return &int64RefServiceClient{cc}
+}
+
+func (c *int64RefServiceClient) NewInt64Ref(ctx context.Context, in *NewInt64RefRequest, opts ...grpc.CallOption) (*NewInt64RefResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewInt64RefResponse)
+	err := c.cc.Invoke(ctx, Int64RefService_NewInt64Ref_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *int64RefServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, Int64RefService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// Int64RefServiceServer is the server API for Int64RefService service.
+// All implementations must embed UnimplementedInt64RefServiceServer
+// for forward compatibility.
+type Int64RefServiceServer interface {
+	NewInt64Ref(context.Context, *NewInt64RefRequest) (*NewInt64RefResponse, error)
+	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
+	mustEmbedUnimplementedInt64RefServiceServer()
+}
+
+// UnimplementedInt64RefServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedInt64RefServiceServer struct{}
+
+func (UnimplementedInt64RefServiceServer) NewInt64Ref(context.Context, *NewInt64RefRequest) (*NewInt64RefResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewInt64Ref not implemented")
+}
+func (UnimplementedInt64RefServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedInt64RefServiceServer) mustEmbedUnimplementedInt64RefServiceServer() {}
+func (UnimplementedInt64RefServiceServer) testEmbeddedByValue()                         {}
+
+// UnsafeInt64RefServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to Int64RefServiceServer will
+// result in compilation errors.
+type UnsafeInt64RefServiceServer interface {
+	mustEmbedUnimplementedInt64RefServiceServer()
+}
+
+func RegisterInt64RefServiceServer(s grpc.ServiceRegistrar, srv Int64RefServiceServer) {
+	// If the following call panics, it indicates UnimplementedInt64RefServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&Int64RefService_ServiceDesc, srv)
+}
+
+func _Int64RefService_NewInt64Ref_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewInt64RefRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(Int64RefServiceServer).NewInt64Ref(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Int64RefService_NewInt64Ref_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(Int64RefServiceServer).NewInt64Ref(ctx, req.(*NewInt64RefRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Int64RefService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(Int64RefServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Int64RefService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(Int64RefServiceServer).ToString(ctx, req.(*ToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// Int64RefService_ServiceDesc is the grpc.ServiceDesc for Int64RefService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var Int64RefService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "system.Int64RefService",
+	HandlerType: (*Int64RefServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewInt64Ref",
+			Handler:    _Int64RefService_NewInt64Ref_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _Int64RefService_ToString_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/system/system.proto",
+}
+
+const (
+	StructTimevalService_Equals_FullMethodName     = "/system.StructTimevalService/Equals"
+	StructTimevalService_HashCode_FullMethodName   = "/system.StructTimevalService/HashCode"
+	StructTimevalService_ToMillis_FullMethodName   = "/system.StructTimevalService/ToMillis"
+	StructTimevalService_ToString_FullMethodName   = "/system.StructTimevalService/ToString"
+	StructTimevalService_FromMillis_FullMethodName = "/system.StructTimevalService/FromMillis"
+)
+
+// StructTimevalServiceClient is the client API for StructTimevalService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type StructTimevalServiceClient interface {
+	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+	ToMillis(ctx context.Context, in *ToMillisRequest, opts ...grpc.CallOption) (*ToMillisResponse, error)
+	ToString(ctx context.Context, in *StructTimevalToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+	FromMillis(ctx context.Context, in *FromMillisRequest, opts ...grpc.CallOption) (*FromMillisResponse, error)
+}
+
+type structTimevalServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewStructTimevalServiceClient(cc grpc.ClientConnInterface) StructTimevalServiceClient {
+	return &structTimevalServiceClient{cc}
+}
+
+func (c *structTimevalServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(EqualsResponse)
+	err := c.cc.Invoke(ctx, StructTimevalService_Equals_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *structTimevalServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HashCodeResponse)
+	err := c.cc.Invoke(ctx, StructTimevalService_HashCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *structTimevalServiceClient) ToMillis(ctx context.Context, in *ToMillisRequest, opts ...grpc.CallOption) (*ToMillisResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToMillisResponse)
+	err := c.cc.Invoke(ctx, StructTimevalService_ToMillis_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *structTimevalServiceClient) ToString(ctx context.Context, in *StructTimevalToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, StructTimevalService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *structTimevalServiceClient) FromMillis(ctx context.Context, in *FromMillisRequest, opts ...grpc.CallOption) (*FromMillisResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(FromMillisResponse)
+	err := c.cc.Invoke(ctx, StructTimevalService_FromMillis_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// StructTimevalServiceServer is the server API for StructTimevalService service.
+// All implementations must embed UnimplementedStructTimevalServiceServer
+// for forward compatibility.
+type StructTimevalServiceServer interface {
+	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
+	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
+	ToMillis(context.Context, *ToMillisRequest) (*ToMillisResponse, error)
+	ToString(context.Context, *StructTimevalToStringRequest) (*ToStringResponse, error)
+	FromMillis(context.Context, *FromMillisRequest) (*FromMillisResponse, error)
+	mustEmbedUnimplementedStructTimevalServiceServer()
+}
+
+// UnimplementedStructTimevalServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedStructTimevalServiceServer struct{}
+
+func (UnimplementedStructTimevalServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
+}
+func (UnimplementedStructTimevalServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
+}
+func (UnimplementedStructTimevalServiceServer) ToMillis(context.Context, *ToMillisRequest) (*ToMillisResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToMillis not implemented")
+}
+func (UnimplementedStructTimevalServiceServer) ToString(context.Context, *StructTimevalToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedStructTimevalServiceServer) FromMillis(context.Context, *FromMillisRequest) (*FromMillisResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method FromMillis not implemented")
+}
+func (UnimplementedStructTimevalServiceServer) mustEmbedUnimplementedStructTimevalServiceServer() {}
+func (UnimplementedStructTimevalServiceServer) testEmbeddedByValue()                              {}
+
+// UnsafeStructTimevalServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to StructTimevalServiceServer will
+// result in compilation errors.
+type UnsafeStructTimevalServiceServer interface {
+	mustEmbedUnimplementedStructTimevalServiceServer()
+}
+
+func RegisterStructTimevalServiceServer(s grpc.ServiceRegistrar, srv StructTimevalServiceServer) {
+	// If the following call panics, it indicates UnimplementedStructTimevalServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&StructTimevalService_ServiceDesc, srv)
+}
+
+func _StructTimevalService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EqualsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(StructTimevalServiceServer).Equals(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: StructTimevalService_Equals_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(StructTimevalServiceServer).Equals(ctx, req.(*EqualsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _StructTimevalService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HashCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(StructTimevalServiceServer).HashCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: StructTimevalService_HashCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(StructTimevalServiceServer).HashCode(ctx, req.(*HashCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _StructTimevalService_ToMillis_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ToMillisRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(StructTimevalServiceServer).ToMillis(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: StructTimevalService_ToMillis_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(StructTimevalServiceServer).ToMillis(ctx, req.(*ToMillisRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _StructTimevalService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(StructTimevalToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(StructTimevalServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: StructTimevalService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(StructTimevalServiceServer).ToString(ctx, req.(*StructTimevalToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _StructTimevalService_FromMillis_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(FromMillisRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(StructTimevalServiceServer).FromMillis(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: StructTimevalService_FromMillis_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(StructTimevalServiceServer).FromMillis(ctx, req.(*FromMillisRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// StructTimevalService_ServiceDesc is the grpc.ServiceDesc for StructTimevalService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var StructTimevalService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "system.StructTimevalService",
+	HandlerType: (*StructTimevalServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Equals",
+			Handler:    _StructTimevalService_Equals_Handler,
+		},
+		{
+			MethodName: "HashCode",
+			Handler:    _StructTimevalService_HashCode_Handler,
+		},
+		{
+			MethodName: "ToMillis",
+			Handler:    _StructTimevalService_ToMillis_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _StructTimevalService_ToString_Handler,
+		},
+		{
+			MethodName: "FromMillis",
+			Handler:    _StructTimevalService_FromMillis_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/system/system.proto",
+}
+
+const (
 	StructUtsnameService_NewStructUtsname_FullMethodName = "/system.StructUtsnameService/NewStructUtsname"
 	StructUtsnameService_ToString_FullMethodName         = "/system.StructUtsnameService/ToString"
 )
@@ -2182,253 +1583,291 @@ var StructUtsnameService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	StructTimevalService_Equals_FullMethodName     = "/system.StructTimevalService/Equals"
-	StructTimevalService_HashCode_FullMethodName   = "/system.StructTimevalService/HashCode"
-	StructTimevalService_ToMillis_FullMethodName   = "/system.StructTimevalService/ToMillis"
-	StructTimevalService_ToString_FullMethodName   = "/system.StructTimevalService/ToString"
-	StructTimevalService_FromMillis_FullMethodName = "/system.StructTimevalService/FromMillis"
+	StructTimespecService_NewStructTimespec_FullMethodName = "/system.StructTimespecService/NewStructTimespec"
+	StructTimespecService_CompareTo1_FullMethodName        = "/system.StructTimespecService/CompareTo1"
+	StructTimespecService_Equals_FullMethodName            = "/system.StructTimespecService/Equals"
+	StructTimespecService_HashCode_FullMethodName          = "/system.StructTimespecService/HashCode"
+	StructTimespecService_ToString_FullMethodName          = "/system.StructTimespecService/ToString"
+	StructTimespecService_CompareTo1_1_FullMethodName      = "/system.StructTimespecService/CompareTo1_1"
 )
 
-// StructTimevalServiceClient is the client API for StructTimevalService service.
+// StructTimespecServiceClient is the client API for StructTimespecService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type StructTimevalServiceClient interface {
-	Equals(ctx context.Context, in *StructTimevalEqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
-	HashCode(ctx context.Context, in *StructTimevalHashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
-	ToMillis(ctx context.Context, in *ToMillisRequest, opts ...grpc.CallOption) (*ToMillisResponse, error)
-	ToString(ctx context.Context, in *StructTimevalToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
-	FromMillis(ctx context.Context, in *FromMillisRequest, opts ...grpc.CallOption) (*FromMillisResponse, error)
+type StructTimespecServiceClient interface {
+	NewStructTimespec(ctx context.Context, in *NewStructTimespecRequest, opts ...grpc.CallOption) (*NewStructTimespecResponse, error)
+	CompareTo1(ctx context.Context, in *CompareTo1Request, opts ...grpc.CallOption) (*CompareTo1Response, error)
+	Equals(ctx context.Context, in *StructTimespecEqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	HashCode(ctx context.Context, in *StructTimespecHashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+	CompareTo1_1(ctx context.Context, in *CompareTo1_1Request, opts ...grpc.CallOption) (*CompareTo1_1Response, error)
 }
 
-type structTimevalServiceClient struct {
+type structTimespecServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewStructTimevalServiceClient(cc grpc.ClientConnInterface) StructTimevalServiceClient {
-	return &structTimevalServiceClient{cc}
+func NewStructTimespecServiceClient(cc grpc.ClientConnInterface) StructTimespecServiceClient {
+	return &structTimespecServiceClient{cc}
 }
 
-func (c *structTimevalServiceClient) Equals(ctx context.Context, in *StructTimevalEqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+func (c *structTimespecServiceClient) NewStructTimespec(ctx context.Context, in *NewStructTimespecRequest, opts ...grpc.CallOption) (*NewStructTimespecResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewStructTimespecResponse)
+	err := c.cc.Invoke(ctx, StructTimespecService_NewStructTimespec_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *structTimespecServiceClient) CompareTo1(ctx context.Context, in *CompareTo1Request, opts ...grpc.CallOption) (*CompareTo1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CompareTo1Response)
+	err := c.cc.Invoke(ctx, StructTimespecService_CompareTo1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *structTimespecServiceClient) Equals(ctx context.Context, in *StructTimespecEqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(EqualsResponse)
-	err := c.cc.Invoke(ctx, StructTimevalService_Equals_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, StructTimespecService_Equals_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *structTimevalServiceClient) HashCode(ctx context.Context, in *StructTimevalHashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+func (c *structTimespecServiceClient) HashCode(ctx context.Context, in *StructTimespecHashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(HashCodeResponse)
-	err := c.cc.Invoke(ctx, StructTimevalService_HashCode_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, StructTimespecService_HashCode_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *structTimevalServiceClient) ToMillis(ctx context.Context, in *ToMillisRequest, opts ...grpc.CallOption) (*ToMillisResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ToMillisResponse)
-	err := c.cc.Invoke(ctx, StructTimevalService_ToMillis_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *structTimevalServiceClient) ToString(ctx context.Context, in *StructTimevalToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+func (c *structTimespecServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(ToStringResponse)
-	err := c.cc.Invoke(ctx, StructTimevalService_ToString_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, StructTimespecService_ToString_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *structTimevalServiceClient) FromMillis(ctx context.Context, in *FromMillisRequest, opts ...grpc.CallOption) (*FromMillisResponse, error) {
+func (c *structTimespecServiceClient) CompareTo1_1(ctx context.Context, in *CompareTo1_1Request, opts ...grpc.CallOption) (*CompareTo1_1Response, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(FromMillisResponse)
-	err := c.cc.Invoke(ctx, StructTimevalService_FromMillis_FullMethodName, in, out, cOpts...)
+	out := new(CompareTo1_1Response)
+	err := c.cc.Invoke(ctx, StructTimespecService_CompareTo1_1_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// StructTimevalServiceServer is the server API for StructTimevalService service.
-// All implementations must embed UnimplementedStructTimevalServiceServer
+// StructTimespecServiceServer is the server API for StructTimespecService service.
+// All implementations must embed UnimplementedStructTimespecServiceServer
 // for forward compatibility.
-type StructTimevalServiceServer interface {
-	Equals(context.Context, *StructTimevalEqualsRequest) (*EqualsResponse, error)
-	HashCode(context.Context, *StructTimevalHashCodeRequest) (*HashCodeResponse, error)
-	ToMillis(context.Context, *ToMillisRequest) (*ToMillisResponse, error)
-	ToString(context.Context, *StructTimevalToStringRequest) (*ToStringResponse, error)
-	FromMillis(context.Context, *FromMillisRequest) (*FromMillisResponse, error)
-	mustEmbedUnimplementedStructTimevalServiceServer()
+type StructTimespecServiceServer interface {
+	NewStructTimespec(context.Context, *NewStructTimespecRequest) (*NewStructTimespecResponse, error)
+	CompareTo1(context.Context, *CompareTo1Request) (*CompareTo1Response, error)
+	Equals(context.Context, *StructTimespecEqualsRequest) (*EqualsResponse, error)
+	HashCode(context.Context, *StructTimespecHashCodeRequest) (*HashCodeResponse, error)
+	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
+	CompareTo1_1(context.Context, *CompareTo1_1Request) (*CompareTo1_1Response, error)
+	mustEmbedUnimplementedStructTimespecServiceServer()
 }
 
-// UnimplementedStructTimevalServiceServer must be embedded to have
+// UnimplementedStructTimespecServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedStructTimevalServiceServer struct{}
+type UnimplementedStructTimespecServiceServer struct{}
 
-func (UnimplementedStructTimevalServiceServer) Equals(context.Context, *StructTimevalEqualsRequest) (*EqualsResponse, error) {
+func (UnimplementedStructTimespecServiceServer) NewStructTimespec(context.Context, *NewStructTimespecRequest) (*NewStructTimespecResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewStructTimespec not implemented")
+}
+func (UnimplementedStructTimespecServiceServer) CompareTo1(context.Context, *CompareTo1Request) (*CompareTo1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method CompareTo1 not implemented")
+}
+func (UnimplementedStructTimespecServiceServer) Equals(context.Context, *StructTimespecEqualsRequest) (*EqualsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
 }
-func (UnimplementedStructTimevalServiceServer) HashCode(context.Context, *StructTimevalHashCodeRequest) (*HashCodeResponse, error) {
+func (UnimplementedStructTimespecServiceServer) HashCode(context.Context, *StructTimespecHashCodeRequest) (*HashCodeResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
 }
-func (UnimplementedStructTimevalServiceServer) ToMillis(context.Context, *ToMillisRequest) (*ToMillisResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ToMillis not implemented")
-}
-func (UnimplementedStructTimevalServiceServer) ToString(context.Context, *StructTimevalToStringRequest) (*ToStringResponse, error) {
+func (UnimplementedStructTimespecServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
 }
-func (UnimplementedStructTimevalServiceServer) FromMillis(context.Context, *FromMillisRequest) (*FromMillisResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method FromMillis not implemented")
+func (UnimplementedStructTimespecServiceServer) CompareTo1_1(context.Context, *CompareTo1_1Request) (*CompareTo1_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method CompareTo1_1 not implemented")
 }
-func (UnimplementedStructTimevalServiceServer) mustEmbedUnimplementedStructTimevalServiceServer() {}
-func (UnimplementedStructTimevalServiceServer) testEmbeddedByValue()                              {}
+func (UnimplementedStructTimespecServiceServer) mustEmbedUnimplementedStructTimespecServiceServer() {}
+func (UnimplementedStructTimespecServiceServer) testEmbeddedByValue()                               {}
 
-// UnsafeStructTimevalServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to StructTimevalServiceServer will
+// UnsafeStructTimespecServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to StructTimespecServiceServer will
 // result in compilation errors.
-type UnsafeStructTimevalServiceServer interface {
-	mustEmbedUnimplementedStructTimevalServiceServer()
+type UnsafeStructTimespecServiceServer interface {
+	mustEmbedUnimplementedStructTimespecServiceServer()
 }
 
-func RegisterStructTimevalServiceServer(s grpc.ServiceRegistrar, srv StructTimevalServiceServer) {
-	// If the following call panics, it indicates UnimplementedStructTimevalServiceServer was
+func RegisterStructTimespecServiceServer(s grpc.ServiceRegistrar, srv StructTimespecServiceServer) {
+	// If the following call panics, it indicates UnimplementedStructTimespecServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&StructTimevalService_ServiceDesc, srv)
+	s.RegisterService(&StructTimespecService_ServiceDesc, srv)
 }
 
-func _StructTimevalService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(StructTimevalEqualsRequest)
+func _StructTimespecService_NewStructTimespec_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewStructTimespecRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(StructTimevalServiceServer).Equals(ctx, in)
+		return srv.(StructTimespecServiceServer).NewStructTimespec(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: StructTimevalService_Equals_FullMethodName,
+		FullMethod: StructTimespecService_NewStructTimespec_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(StructTimevalServiceServer).Equals(ctx, req.(*StructTimevalEqualsRequest))
+		return srv.(StructTimespecServiceServer).NewStructTimespec(ctx, req.(*NewStructTimespecRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _StructTimevalService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(StructTimevalHashCodeRequest)
+func _StructTimespecService_CompareTo1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CompareTo1Request)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(StructTimevalServiceServer).HashCode(ctx, in)
+		return srv.(StructTimespecServiceServer).CompareTo1(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: StructTimevalService_HashCode_FullMethodName,
+		FullMethod: StructTimespecService_CompareTo1_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(StructTimevalServiceServer).HashCode(ctx, req.(*StructTimevalHashCodeRequest))
+		return srv.(StructTimespecServiceServer).CompareTo1(ctx, req.(*CompareTo1Request))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _StructTimevalService_ToMillis_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ToMillisRequest)
+func _StructTimespecService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(StructTimespecEqualsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(StructTimevalServiceServer).ToMillis(ctx, in)
+		return srv.(StructTimespecServiceServer).Equals(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: StructTimevalService_ToMillis_FullMethodName,
+		FullMethod: StructTimespecService_Equals_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(StructTimevalServiceServer).ToMillis(ctx, req.(*ToMillisRequest))
+		return srv.(StructTimespecServiceServer).Equals(ctx, req.(*StructTimespecEqualsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _StructTimevalService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(StructTimevalToStringRequest)
+func _StructTimespecService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(StructTimespecHashCodeRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(StructTimevalServiceServer).ToString(ctx, in)
+		return srv.(StructTimespecServiceServer).HashCode(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: StructTimevalService_ToString_FullMethodName,
+		FullMethod: StructTimespecService_HashCode_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(StructTimevalServiceServer).ToString(ctx, req.(*StructTimevalToStringRequest))
+		return srv.(StructTimespecServiceServer).HashCode(ctx, req.(*StructTimespecHashCodeRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _StructTimevalService_FromMillis_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(FromMillisRequest)
+func _StructTimespecService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ToStringRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(StructTimevalServiceServer).FromMillis(ctx, in)
+		return srv.(StructTimespecServiceServer).ToString(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: StructTimevalService_FromMillis_FullMethodName,
+		FullMethod: StructTimespecService_ToString_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(StructTimevalServiceServer).FromMillis(ctx, req.(*FromMillisRequest))
+		return srv.(StructTimespecServiceServer).ToString(ctx, req.(*ToStringRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// StructTimevalService_ServiceDesc is the grpc.ServiceDesc for StructTimevalService service.
+func _StructTimespecService_CompareTo1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CompareTo1_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(StructTimespecServiceServer).CompareTo1_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: StructTimespecService_CompareTo1_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(StructTimespecServiceServer).CompareTo1_1(ctx, req.(*CompareTo1_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// StructTimespecService_ServiceDesc is the grpc.ServiceDesc for StructTimespecService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var StructTimevalService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "system.StructTimevalService",
-	HandlerType: (*StructTimevalServiceServer)(nil),
+var StructTimespecService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "system.StructTimespecService",
+	HandlerType: (*StructTimespecServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
+			MethodName: "NewStructTimespec",
+			Handler:    _StructTimespecService_NewStructTimespec_Handler,
+		},
+		{
+			MethodName: "CompareTo1",
+			Handler:    _StructTimespecService_CompareTo1_Handler,
+		},
+		{
 			MethodName: "Equals",
-			Handler:    _StructTimevalService_Equals_Handler,
+			Handler:    _StructTimespecService_Equals_Handler,
 		},
 		{
 			MethodName: "HashCode",
-			Handler:    _StructTimevalService_HashCode_Handler,
-		},
-		{
-			MethodName: "ToMillis",
-			Handler:    _StructTimevalService_ToMillis_Handler,
+			Handler:    _StructTimespecService_HashCode_Handler,
 		},
 		{
 			MethodName: "ToString",
-			Handler:    _StructTimevalService_ToString_Handler,
+			Handler:    _StructTimespecService_ToString_Handler,
 		},
 		{
-			MethodName: "FromMillis",
-			Handler:    _StructTimevalService_FromMillis_Handler,
+			MethodName: "CompareTo1_1",
+			Handler:    _StructTimespecService_CompareTo1_1_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -6255,6 +5694,567 @@ var OsService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "Writev",
 			Handler:    _OsService_Writev_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/system/system.proto",
+}
+
+const (
+	CleanerService_Cleaner_FullMethodName = "/system.CleanerService/Cleaner"
+)
+
+// CleanerServiceClient is the client API for CleanerService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type CleanerServiceClient interface {
+	Cleaner(ctx context.Context, in *CleanerRequest, opts ...grpc.CallOption) (*CleanerResponse, error)
+}
+
+type cleanerServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewCleanerServiceClient(cc grpc.ClientConnInterface) CleanerServiceClient {
+	return &cleanerServiceClient{cc}
+}
+
+func (c *cleanerServiceClient) Cleaner(ctx context.Context, in *CleanerRequest, opts ...grpc.CallOption) (*CleanerResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CleanerResponse)
+	err := c.cc.Invoke(ctx, CleanerService_Cleaner_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// CleanerServiceServer is the server API for CleanerService service.
+// All implementations must embed UnimplementedCleanerServiceServer
+// for forward compatibility.
+type CleanerServiceServer interface {
+	Cleaner(context.Context, *CleanerRequest) (*CleanerResponse, error)
+	mustEmbedUnimplementedCleanerServiceServer()
+}
+
+// UnimplementedCleanerServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedCleanerServiceServer struct{}
+
+func (UnimplementedCleanerServiceServer) Cleaner(context.Context, *CleanerRequest) (*CleanerResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Cleaner not implemented")
+}
+func (UnimplementedCleanerServiceServer) mustEmbedUnimplementedCleanerServiceServer() {}
+func (UnimplementedCleanerServiceServer) testEmbeddedByValue()                        {}
+
+// UnsafeCleanerServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to CleanerServiceServer will
+// result in compilation errors.
+type UnsafeCleanerServiceServer interface {
+	mustEmbedUnimplementedCleanerServiceServer()
+}
+
+func RegisterCleanerServiceServer(s grpc.ServiceRegistrar, srv CleanerServiceServer) {
+	// If the following call panics, it indicates UnimplementedCleanerServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&CleanerService_ServiceDesc, srv)
+}
+
+func _CleanerService_Cleaner_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CleanerRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CleanerServiceServer).Cleaner(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CleanerService_Cleaner_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CleanerServiceServer).Cleaner(ctx, req.(*CleanerRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// CleanerService_ServiceDesc is the grpc.ServiceDesc for CleanerService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var CleanerService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "system.CleanerService",
+	HandlerType: (*CleanerServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Cleaner",
+			Handler:    _CleanerService_Cleaner_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/system/system.proto",
+}
+
+const (
+	VmSocketAddressService_NewVmSocketAddress_FullMethodName = "/system.VmSocketAddressService/NewVmSocketAddress"
+	VmSocketAddressService_GetSvmCid_FullMethodName          = "/system.VmSocketAddressService/GetSvmCid"
+	VmSocketAddressService_GetSvmPort_FullMethodName         = "/system.VmSocketAddressService/GetSvmPort"
+)
+
+// VmSocketAddressServiceClient is the client API for VmSocketAddressService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type VmSocketAddressServiceClient interface {
+	NewVmSocketAddress(ctx context.Context, in *NewVmSocketAddressRequest, opts ...grpc.CallOption) (*NewVmSocketAddressResponse, error)
+	GetSvmCid(ctx context.Context, in *GetSvmCidRequest, opts ...grpc.CallOption) (*GetSvmCidResponse, error)
+	GetSvmPort(ctx context.Context, in *GetSvmPortRequest, opts ...grpc.CallOption) (*GetSvmPortResponse, error)
+}
+
+type vmSocketAddressServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewVmSocketAddressServiceClient(cc grpc.ClientConnInterface) VmSocketAddressServiceClient {
+	return &vmSocketAddressServiceClient{cc}
+}
+
+func (c *vmSocketAddressServiceClient) NewVmSocketAddress(ctx context.Context, in *NewVmSocketAddressRequest, opts ...grpc.CallOption) (*NewVmSocketAddressResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewVmSocketAddressResponse)
+	err := c.cc.Invoke(ctx, VmSocketAddressService_NewVmSocketAddress_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *vmSocketAddressServiceClient) GetSvmCid(ctx context.Context, in *GetSvmCidRequest, opts ...grpc.CallOption) (*GetSvmCidResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSvmCidResponse)
+	err := c.cc.Invoke(ctx, VmSocketAddressService_GetSvmCid_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *vmSocketAddressServiceClient) GetSvmPort(ctx context.Context, in *GetSvmPortRequest, opts ...grpc.CallOption) (*GetSvmPortResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSvmPortResponse)
+	err := c.cc.Invoke(ctx, VmSocketAddressService_GetSvmPort_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// VmSocketAddressServiceServer is the server API for VmSocketAddressService service.
+// All implementations must embed UnimplementedVmSocketAddressServiceServer
+// for forward compatibility.
+type VmSocketAddressServiceServer interface {
+	NewVmSocketAddress(context.Context, *NewVmSocketAddressRequest) (*NewVmSocketAddressResponse, error)
+	GetSvmCid(context.Context, *GetSvmCidRequest) (*GetSvmCidResponse, error)
+	GetSvmPort(context.Context, *GetSvmPortRequest) (*GetSvmPortResponse, error)
+	mustEmbedUnimplementedVmSocketAddressServiceServer()
+}
+
+// UnimplementedVmSocketAddressServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedVmSocketAddressServiceServer struct{}
+
+func (UnimplementedVmSocketAddressServiceServer) NewVmSocketAddress(context.Context, *NewVmSocketAddressRequest) (*NewVmSocketAddressResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewVmSocketAddress not implemented")
+}
+func (UnimplementedVmSocketAddressServiceServer) GetSvmCid(context.Context, *GetSvmCidRequest) (*GetSvmCidResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSvmCid not implemented")
+}
+func (UnimplementedVmSocketAddressServiceServer) GetSvmPort(context.Context, *GetSvmPortRequest) (*GetSvmPortResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSvmPort not implemented")
+}
+func (UnimplementedVmSocketAddressServiceServer) mustEmbedUnimplementedVmSocketAddressServiceServer() {
+}
+func (UnimplementedVmSocketAddressServiceServer) testEmbeddedByValue() {}
+
+// UnsafeVmSocketAddressServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to VmSocketAddressServiceServer will
+// result in compilation errors.
+type UnsafeVmSocketAddressServiceServer interface {
+	mustEmbedUnimplementedVmSocketAddressServiceServer()
+}
+
+func RegisterVmSocketAddressServiceServer(s grpc.ServiceRegistrar, srv VmSocketAddressServiceServer) {
+	// If the following call panics, it indicates UnimplementedVmSocketAddressServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&VmSocketAddressService_ServiceDesc, srv)
+}
+
+func _VmSocketAddressService_NewVmSocketAddress_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewVmSocketAddressRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(VmSocketAddressServiceServer).NewVmSocketAddress(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: VmSocketAddressService_NewVmSocketAddress_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(VmSocketAddressServiceServer).NewVmSocketAddress(ctx, req.(*NewVmSocketAddressRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _VmSocketAddressService_GetSvmCid_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSvmCidRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(VmSocketAddressServiceServer).GetSvmCid(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: VmSocketAddressService_GetSvmCid_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(VmSocketAddressServiceServer).GetSvmCid(ctx, req.(*GetSvmCidRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _VmSocketAddressService_GetSvmPort_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSvmPortRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(VmSocketAddressServiceServer).GetSvmPort(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: VmSocketAddressService_GetSvmPort_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(VmSocketAddressServiceServer).GetSvmPort(ctx, req.(*GetSvmPortRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// VmSocketAddressService_ServiceDesc is the grpc.ServiceDesc for VmSocketAddressService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var VmSocketAddressService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "system.VmSocketAddressService",
+	HandlerType: (*VmSocketAddressServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewVmSocketAddress",
+			Handler:    _VmSocketAddressService_NewVmSocketAddress_Handler,
+		},
+		{
+			MethodName: "GetSvmCid",
+			Handler:    _VmSocketAddressService_GetSvmCid_Handler,
+		},
+		{
+			MethodName: "GetSvmPort",
+			Handler:    _VmSocketAddressService_GetSvmPort_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/system/system.proto",
+}
+
+const (
+	StructStatVfsService_NewStructStatVfs_FullMethodName = "/system.StructStatVfsService/NewStructStatVfs"
+	StructStatVfsService_ToString_FullMethodName         = "/system.StructStatVfsService/ToString"
+)
+
+// StructStatVfsServiceClient is the client API for StructStatVfsService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type StructStatVfsServiceClient interface {
+	NewStructStatVfs(ctx context.Context, in *NewStructStatVfsRequest, opts ...grpc.CallOption) (*NewStructStatVfsResponse, error)
+	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+}
+
+type structStatVfsServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewStructStatVfsServiceClient(cc grpc.ClientConnInterface) StructStatVfsServiceClient {
+	return &structStatVfsServiceClient{cc}
+}
+
+func (c *structStatVfsServiceClient) NewStructStatVfs(ctx context.Context, in *NewStructStatVfsRequest, opts ...grpc.CallOption) (*NewStructStatVfsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewStructStatVfsResponse)
+	err := c.cc.Invoke(ctx, StructStatVfsService_NewStructStatVfs_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *structStatVfsServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, StructStatVfsService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// StructStatVfsServiceServer is the server API for StructStatVfsService service.
+// All implementations must embed UnimplementedStructStatVfsServiceServer
+// for forward compatibility.
+type StructStatVfsServiceServer interface {
+	NewStructStatVfs(context.Context, *NewStructStatVfsRequest) (*NewStructStatVfsResponse, error)
+	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
+	mustEmbedUnimplementedStructStatVfsServiceServer()
+}
+
+// UnimplementedStructStatVfsServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedStructStatVfsServiceServer struct{}
+
+func (UnimplementedStructStatVfsServiceServer) NewStructStatVfs(context.Context, *NewStructStatVfsRequest) (*NewStructStatVfsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewStructStatVfs not implemented")
+}
+func (UnimplementedStructStatVfsServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedStructStatVfsServiceServer) mustEmbedUnimplementedStructStatVfsServiceServer() {}
+func (UnimplementedStructStatVfsServiceServer) testEmbeddedByValue()                              {}
+
+// UnsafeStructStatVfsServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to StructStatVfsServiceServer will
+// result in compilation errors.
+type UnsafeStructStatVfsServiceServer interface {
+	mustEmbedUnimplementedStructStatVfsServiceServer()
+}
+
+func RegisterStructStatVfsServiceServer(s grpc.ServiceRegistrar, srv StructStatVfsServiceServer) {
+	// If the following call panics, it indicates UnimplementedStructStatVfsServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&StructStatVfsService_ServiceDesc, srv)
+}
+
+func _StructStatVfsService_NewStructStatVfs_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewStructStatVfsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(StructStatVfsServiceServer).NewStructStatVfs(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: StructStatVfsService_NewStructStatVfs_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(StructStatVfsServiceServer).NewStructStatVfs(ctx, req.(*NewStructStatVfsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _StructStatVfsService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(StructStatVfsServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: StructStatVfsService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(StructStatVfsServiceServer).ToString(ctx, req.(*ToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// StructStatVfsService_ServiceDesc is the grpc.ServiceDesc for StructStatVfsService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var StructStatVfsService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "system.StructStatVfsService",
+	HandlerType: (*StructStatVfsServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewStructStatVfs",
+			Handler:    _StructStatVfsService_NewStructStatVfs_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _StructStatVfsService_ToString_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/system/system.proto",
+}
+
+const (
+	StructStatService_NewStructStat_FullMethodName = "/system.StructStatService/NewStructStat"
+	StructStatService_ToString_FullMethodName      = "/system.StructStatService/ToString"
+)
+
+// StructStatServiceClient is the client API for StructStatService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type StructStatServiceClient interface {
+	NewStructStat(ctx context.Context, in *NewStructStatRequest, opts ...grpc.CallOption) (*NewStructStatResponse, error)
+	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+}
+
+type structStatServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewStructStatServiceClient(cc grpc.ClientConnInterface) StructStatServiceClient {
+	return &structStatServiceClient{cc}
+}
+
+func (c *structStatServiceClient) NewStructStat(ctx context.Context, in *NewStructStatRequest, opts ...grpc.CallOption) (*NewStructStatResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewStructStatResponse)
+	err := c.cc.Invoke(ctx, StructStatService_NewStructStat_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *structStatServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, StructStatService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// StructStatServiceServer is the server API for StructStatService service.
+// All implementations must embed UnimplementedStructStatServiceServer
+// for forward compatibility.
+type StructStatServiceServer interface {
+	NewStructStat(context.Context, *NewStructStatRequest) (*NewStructStatResponse, error)
+	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
+	mustEmbedUnimplementedStructStatServiceServer()
+}
+
+// UnimplementedStructStatServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedStructStatServiceServer struct{}
+
+func (UnimplementedStructStatServiceServer) NewStructStat(context.Context, *NewStructStatRequest) (*NewStructStatResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewStructStat not implemented")
+}
+func (UnimplementedStructStatServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedStructStatServiceServer) mustEmbedUnimplementedStructStatServiceServer() {}
+func (UnimplementedStructStatServiceServer) testEmbeddedByValue()                           {}
+
+// UnsafeStructStatServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to StructStatServiceServer will
+// result in compilation errors.
+type UnsafeStructStatServiceServer interface {
+	mustEmbedUnimplementedStructStatServiceServer()
+}
+
+func RegisterStructStatServiceServer(s grpc.ServiceRegistrar, srv StructStatServiceServer) {
+	// If the following call panics, it indicates UnimplementedStructStatServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&StructStatService_ServiceDesc, srv)
+}
+
+func _StructStatService_NewStructStat_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewStructStatRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(StructStatServiceServer).NewStructStat(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: StructStatService_NewStructStat_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(StructStatServiceServer).NewStructStat(ctx, req.(*NewStructStatRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _StructStatService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(StructStatServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: StructStatService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(StructStatServiceServer).ToString(ctx, req.(*ToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// StructStatService_ServiceDesc is the grpc.ServiceDesc for StructStatService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var StructStatService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "system.StructStatService",
+	HandlerType: (*StructStatServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewStructStat",
+			Handler:    _StructStatService_NewStructStat_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _StructStatService_ToString_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

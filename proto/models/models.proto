@@ -21,6 +21,181 @@ message EqualsResponse {
   bool result = 1;
 }
 
+message GetClickPointRequest {
+}
+
+message GetClickPointResponse {
+  int64 result = 1;
+}
+
+message GetPageNumberRequest {
+}
+
+message GetPageNumberResponse {
+  int32 result = 1;
+}
+
+message GetSelectedIndicesRequest {
+}
+
+message GetSelectedIndicesResponse {
+  int64 result = 1;
+}
+
+message GetTextRequest {
+}
+
+message GetTextResponse {
+  string result = 1;
+}
+
+message GetTypeRequest {
+}
+
+message GetTypeResponse {
+  int32 result = 1;
+}
+
+message GetWidgetIndexRequest {
+}
+
+message GetWidgetIndexResponse {
+  int32 result = 1;
+}
+
+message HashCodeRequest {
+}
+
+message HashCodeResponse {
+  int32 result = 1;
+}
+
+message WriteToParcelRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message WriteToParcelResponse {
+}
+
+message BuildRequest {
+}
+
+message BuildResponse {
+  int64 result = 1;
+}
+
+message SetClickPointRequest {
+  int64 arg0 = 1;
+}
+
+message SetClickPointResponse {
+  int64 result = 1;
+}
+
+message SetSelectedIndicesRequest {
+  int64 arg0 = 1;
+}
+
+message SetSelectedIndicesResponse {
+  int64 result = 1;
+}
+
+message SetTextRequest {
+  string arg0 = 1;
+}
+
+message SetTextResponse {
+  int64 result = 1;
+}
+
+message NewPageMatchBoundsRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message NewPageMatchBoundsResponse {
+  int64 result = 1;
+}
+
+message PageMatchBoundsDescribeContentsRequest {
+  int64 handle = 1;
+}
+
+message GetBoundsRequest {
+  int64 handle = 1;
+}
+
+message GetBoundsResponse {
+  int64 result = 1;
+}
+
+message GetTextStartIndexRequest {
+  int64 handle = 1;
+}
+
+message GetTextStartIndexResponse {
+  int32 result = 1;
+}
+
+message PageMatchBoundsWriteToParcelRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message NewListItemRequest {
+  string arg0 = 1;
+  bool arg1 = 2;
+}
+
+message NewListItemResponse {
+  int64 result = 1;
+}
+
+message ListItemDescribeContentsRequest {
+  int64 handle = 1;
+}
+
+message ListItemEqualsRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message GetLabelRequest {
+  int64 handle = 1;
+}
+
+message GetLabelResponse {
+  string result = 1;
+}
+
+message ListItemHashCodeRequest {
+  int64 handle = 1;
+}
+
+message IsSelectedRequest {
+  int64 handle = 1;
+}
+
+message IsSelectedResponse {
+  bool result = 1;
+}
+
+message ToStringRequest {
+  int64 handle = 1;
+}
+
+message ToStringResponse {
+  string result = 1;
+}
+
+message ListItemWriteToParcelRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
 message GetAccessibilityLabelRequest {
 }
 
@@ -33,6 +208,13 @@ message GetFontSizeRequest {
 
 message GetFontSizeResponse {
   float result = 1;
+}
+
+message GetListItemsRequest {
+}
+
+message GetListItemsResponse {
+  int64 result = 1;
 }
 
 message GetMaxLengthRequest {
@@ -49,13 +231,6 @@ message GetTextValueResponse {
   string result = 1;
 }
 
-message GetWidgetIndexRequest {
-}
-
-message GetWidgetIndexResponse {
-  int32 result = 1;
-}
-
 message GetWidgetRectRequest {
 }
 
@@ -67,13 +242,6 @@ message GetWidgetTypeRequest {
 }
 
 message GetWidgetTypeResponse {
-  int32 result = 1;
-}
-
-message HashCodeRequest {
-}
-
-message HashCodeResponse {
   int32 result = 1;
 }
 
@@ -105,26 +273,7 @@ message IsReadOnlyResponse {
   bool result = 1;
 }
 
-message ToStringRequest {
-}
-
-message ToStringResponse {
-  string result = 1;
-}
-
-message WriteToParcelRequest {
-  int64 arg0 = 1;
-  int32 arg1 = 2;
-}
-
-message WriteToParcelResponse {
-}
-
-message BuildRequest {
-}
-
-message BuildResponse {
-  int64 result = 1;
+message FormWidgetInfoToStringRequest {
 }
 
 message SetEditableTextRequest {
@@ -175,180 +324,6 @@ message SetReadOnlyResponse {
   int64 result = 1;
 }
 
-message NewListItemRequest {
-  string arg0 = 1;
-  bool arg1 = 2;
-}
-
-message NewListItemResponse {
-  int64 result = 1;
-}
-
-message ListItemDescribeContentsRequest {
-  int64 handle = 1;
-}
-
-message ListItemEqualsRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-}
-
-message GetLabelRequest {
-  int64 handle = 1;
-}
-
-message GetLabelResponse {
-  string result = 1;
-}
-
-message ListItemHashCodeRequest {
-  int64 handle = 1;
-}
-
-message IsSelectedRequest {
-  int64 handle = 1;
-}
-
-message IsSelectedResponse {
-  bool result = 1;
-}
-
-message ListItemToStringRequest {
-  int64 handle = 1;
-}
-
-message ListItemWriteToParcelRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-  int32 arg1 = 3;
-}
-
-message GetClickPointRequest {
-}
-
-message GetClickPointResponse {
-  int64 result = 1;
-}
-
-message GetPageNumberRequest {
-}
-
-message GetPageNumberResponse {
-  int32 result = 1;
-}
-
-message GetSelectedIndicesRequest {
-}
-
-message GetSelectedIndicesResponse {
-  int64 result = 1;
-}
-
-message GetTextRequest {
-}
-
-message GetTextResponse {
-  string result = 1;
-}
-
-message GetTypeRequest {
-}
-
-message GetTypeResponse {
-  int32 result = 1;
-}
-
-message SetClickPointRequest {
-  int64 arg0 = 1;
-}
-
-message SetClickPointResponse {
-  int64 result = 1;
-}
-
-message SetSelectedIndicesRequest {
-  int64 arg0 = 1;
-}
-
-message SetSelectedIndicesResponse {
-  int64 result = 1;
-}
-
-message SetTextRequest {
-  string arg0 = 1;
-}
-
-message SetTextResponse {
-  int64 result = 1;
-}
-
-message NewPageMatchBoundsRequest {
-  int64 arg0 = 1;
-  int32 arg1 = 2;
-}
-
-message NewPageMatchBoundsResponse {
-  int64 result = 1;
-}
-
-message PageMatchBoundsDescribeContentsRequest {
-  int64 handle = 1;
-}
-
-message GetTextStartIndexRequest {
-  int64 handle = 1;
-}
-
-message GetTextStartIndexResponse {
-  int32 result = 1;
-}
-
-message PageMatchBoundsWriteToParcelRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-  int32 arg1 = 3;
-}
-
-service FormWidgetInfoService {
-  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc Equals (EqualsRequest) returns (EqualsResponse);
-  rpc GetAccessibilityLabel (GetAccessibilityLabelRequest) returns (GetAccessibilityLabelResponse);
-  rpc GetFontSize (GetFontSizeRequest) returns (GetFontSizeResponse);
-  rpc GetMaxLength (GetMaxLengthRequest) returns (GetMaxLengthResponse);
-  rpc GetTextValue (GetTextValueRequest) returns (GetTextValueResponse);
-  rpc GetWidgetIndex (GetWidgetIndexRequest) returns (GetWidgetIndexResponse);
-  rpc GetWidgetRect (GetWidgetRectRequest) returns (GetWidgetRectResponse);
-  rpc GetWidgetType (GetWidgetTypeRequest) returns (GetWidgetTypeResponse);
-  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
-  rpc IsEditableText (IsEditableTextRequest) returns (IsEditableTextResponse);
-  rpc IsMultiLineText (IsMultiLineTextRequest) returns (IsMultiLineTextResponse);
-  rpc IsMultiSelect (IsMultiSelectRequest) returns (IsMultiSelectResponse);
-  rpc IsReadOnly (IsReadOnlyRequest) returns (IsReadOnlyResponse);
-  rpc ToString (ToStringRequest) returns (ToStringResponse);
-  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
-}
-
-service FormWidgetInfoBuilderService {
-  rpc Build (BuildRequest) returns (BuildResponse);
-  rpc SetEditableText (SetEditableTextRequest) returns (SetEditableTextResponse);
-  rpc SetFontSize (SetFontSizeRequest) returns (SetFontSizeResponse);
-  rpc SetMaxLength (SetMaxLengthRequest) returns (SetMaxLengthResponse);
-  rpc SetMultiLineText (SetMultiLineTextRequest) returns (SetMultiLineTextResponse);
-  rpc SetMultiSelect (SetMultiSelectRequest) returns (SetMultiSelectResponse);
-  rpc SetReadOnly (SetReadOnlyRequest) returns (SetReadOnlyResponse);
-}
-
-service ListItemService {
-  rpc NewListItem (NewListItemRequest) returns (NewListItemResponse);
-  rpc DescribeContents (ListItemDescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc Equals (ListItemEqualsRequest) returns (EqualsResponse);
-  rpc GetLabel (GetLabelRequest) returns (GetLabelResponse);
-  rpc HashCode (ListItemHashCodeRequest) returns (HashCodeResponse);
-  rpc IsSelected (IsSelectedRequest) returns (IsSelectedResponse);
-  rpc ToString (ListItemToStringRequest) returns (ToStringResponse);
-  rpc WriteToParcel (ListItemWriteToParcelRequest) returns (WriteToParcelResponse);
-}
-
 service FormEditRecordService {
   rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
   rpc Equals (EqualsRequest) returns (EqualsResponse);
@@ -372,6 +347,48 @@ service FormEditRecordBuilderService {
 service PageMatchBoundsService {
   rpc NewPageMatchBounds (NewPageMatchBoundsRequest) returns (NewPageMatchBoundsResponse);
   rpc DescribeContents (PageMatchBoundsDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetBounds (GetBoundsRequest) returns (GetBoundsResponse);
   rpc GetTextStartIndex (GetTextStartIndexRequest) returns (GetTextStartIndexResponse);
   rpc WriteToParcel (PageMatchBoundsWriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service ListItemService {
+  rpc NewListItem (NewListItemRequest) returns (NewListItemResponse);
+  rpc DescribeContents (ListItemDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (ListItemEqualsRequest) returns (EqualsResponse);
+  rpc GetLabel (GetLabelRequest) returns (GetLabelResponse);
+  rpc HashCode (ListItemHashCodeRequest) returns (HashCodeResponse);
+  rpc IsSelected (IsSelectedRequest) returns (IsSelectedResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (ListItemWriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service FormWidgetInfoService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetAccessibilityLabel (GetAccessibilityLabelRequest) returns (GetAccessibilityLabelResponse);
+  rpc GetFontSize (GetFontSizeRequest) returns (GetFontSizeResponse);
+  rpc GetListItems (GetListItemsRequest) returns (GetListItemsResponse);
+  rpc GetMaxLength (GetMaxLengthRequest) returns (GetMaxLengthResponse);
+  rpc GetTextValue (GetTextValueRequest) returns (GetTextValueResponse);
+  rpc GetWidgetIndex (GetWidgetIndexRequest) returns (GetWidgetIndexResponse);
+  rpc GetWidgetRect (GetWidgetRectRequest) returns (GetWidgetRectResponse);
+  rpc GetWidgetType (GetWidgetTypeRequest) returns (GetWidgetTypeResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc IsEditableText (IsEditableTextRequest) returns (IsEditableTextResponse);
+  rpc IsMultiLineText (IsMultiLineTextRequest) returns (IsMultiLineTextResponse);
+  rpc IsMultiSelect (IsMultiSelectRequest) returns (IsMultiSelectResponse);
+  rpc IsReadOnly (IsReadOnlyRequest) returns (IsReadOnlyResponse);
+  rpc ToString (FormWidgetInfoToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service FormWidgetInfoBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetEditableText (SetEditableTextRequest) returns (SetEditableTextResponse);
+  rpc SetFontSize (SetFontSizeRequest) returns (SetFontSizeResponse);
+  rpc SetMaxLength (SetMaxLengthRequest) returns (SetMaxLengthResponse);
+  rpc SetMultiLineText (SetMultiLineTextRequest) returns (SetMultiLineTextResponse);
+  rpc SetMultiSelect (SetMultiSelectRequest) returns (SetMultiSelectResponse);
+  rpc SetReadOnly (SetReadOnlyRequest) returns (SetReadOnlyResponse);
 }

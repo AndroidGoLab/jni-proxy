@@ -9,6 +9,36 @@ import (
 	"google.golang.org/grpc"
 )
 
+// StreamingServiceInfoClient wraps the gRPC StreamingServiceInfoService client.
+type StreamingServiceInfoClient struct {
+	svc pb.StreamingServiceInfoServiceClient
+}
+
+// NewStreamingServiceInfoClient creates a new StreamingServiceInfo client.
+func NewStreamingServiceInfoClient(cc grpc.ClientConnInterface) *StreamingServiceInfoClient {
+	return &StreamingServiceInfoClient{
+		svc: pb.NewStreamingServiceInfoServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *StreamingServiceInfoClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *StreamingServiceInfoClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
 // StreamingSessionCallbackClient wraps the gRPC StreamingSessionCallbackService client.
 type StreamingSessionCallbackClient struct {
 	svc pb.StreamingSessionCallbackServiceClient
@@ -35,6 +65,240 @@ func (c *StreamingSessionCallbackClient) OnError(ctx context.Context, handle int
 func (c *StreamingSessionCallbackClient) OnMiddlewareReady(ctx context.Context, handle int64) error {
 	_, err := c.svc.OnMiddlewareReady(ctx, &pb.OnMiddlewareReadyRequest{
 		Handle: handle,
+	})
+	return err
+}
+
+// DownloadProgressListenerClient wraps the gRPC DownloadProgressListenerService client.
+type DownloadProgressListenerClient struct {
+	svc pb.DownloadProgressListenerServiceClient
+}
+
+// NewDownloadProgressListenerClient creates a new DownloadProgressListener client.
+func NewDownloadProgressListenerClient(cc grpc.ClientConnInterface) *DownloadProgressListenerClient {
+	return &DownloadProgressListenerClient{
+		svc: pb.NewDownloadProgressListenerServiceClient(cc),
+	}
+}
+
+// OnProgressUpdated calls the OnProgressUpdated RPC.
+func (c *DownloadProgressListenerClient) OnProgressUpdated(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int32, arg3 int32, arg4 int32, arg5 int32) error {
+	_, err := c.svc.OnProgressUpdated(ctx, &pb.OnProgressUpdatedRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+		Arg4:   arg4,
+		Arg5:   arg5,
+	})
+	return err
+}
+
+// ServiceInfoClient wraps the gRPC ServiceInfoService client.
+type ServiceInfoClient struct {
+	svc pb.ServiceInfoServiceClient
+}
+
+// NewServiceInfoClient creates a new ServiceInfo client.
+func NewServiceInfoClient(cc grpc.ClientConnInterface) *ServiceInfoClient {
+	return &ServiceInfoClient{
+		svc: pb.NewServiceInfoServiceClient(cc),
+	}
+}
+
+// Equals calls the Equals RPC.
+func (c *ServiceInfoClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLocales calls the GetLocales RPC.
+func (c *ServiceInfoClient) GetLocales(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetLocales(ctx, &pb.GetLocalesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetNameForLocale calls the GetNameForLocale RPC.
+func (c *ServiceInfoClient) GetNameForLocale(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.GetNameForLocale(ctx, &pb.GetNameForLocaleRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetNamedContentLocales calls the GetNamedContentLocales RPC.
+func (c *ServiceInfoClient) GetNamedContentLocales(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetNamedContentLocales(ctx, &pb.GetNamedContentLocalesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetServiceClassName calls the GetServiceClassName RPC.
+func (c *ServiceInfoClient) GetServiceClassName(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetServiceClassName(ctx, &pb.GetServiceClassNameRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetServiceId calls the GetServiceId RPC.
+func (c *ServiceInfoClient) GetServiceId(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetServiceId(ctx, &pb.GetServiceIdRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSessionEndTime calls the GetSessionEndTime RPC.
+func (c *ServiceInfoClient) GetSessionEndTime(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetSessionEndTime(ctx, &pb.GetSessionEndTimeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSessionStartTime calls the GetSessionStartTime RPC.
+func (c *ServiceInfoClient) GetSessionStartTime(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetSessionStartTime(ctx, &pb.GetSessionStartTimeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *ServiceInfoClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// StreamingServiceClient wraps the gRPC StreamingServiceService client.
+type StreamingServiceClient struct {
+	svc pb.StreamingServiceServiceClient
+}
+
+// NewStreamingServiceClient creates a new StreamingService client.
+func NewStreamingServiceClient(cc grpc.ClientConnInterface) *StreamingServiceClient {
+	return &StreamingServiceClient{
+		svc: pb.NewStreamingServiceServiceClient(cc),
+	}
+}
+
+// Close calls the Close RPC.
+func (c *StreamingServiceClient) Close(ctx context.Context) error {
+	_, err := c.svc.Close(ctx, &pb.CloseRequest{})
+	return err
+}
+
+// GetInfo calls the GetInfo RPC.
+func (c *StreamingServiceClient) GetInfo(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetInfo(ctx, &pb.GetInfoRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPlaybackUri calls the GetPlaybackUri RPC.
+func (c *StreamingServiceClient) GetPlaybackUri(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetPlaybackUri(ctx, &pb.GetPlaybackUriRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// DownloadReceiverClient wraps the gRPC DownloadReceiverService client.
+type DownloadReceiverClient struct {
+	svc pb.DownloadReceiverServiceClient
+}
+
+// NewDownloadReceiverClient creates a new DownloadReceiver client.
+func NewDownloadReceiverClient(cc grpc.ClientConnInterface) *DownloadReceiverClient {
+	return &DownloadReceiverClient{
+		svc: pb.NewDownloadReceiverServiceClient(cc),
+	}
+}
+
+// OnReceive calls the OnReceive RPC.
+func (c *DownloadReceiverClient) OnReceive(ctx context.Context, handle int64, arg0 int64, arg1 int64) error {
+	_, err := c.svc.OnReceive(ctx, &pb.OnReceiveRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// DownloadSessionCallbackClient wraps the gRPC DownloadSessionCallbackService client.
+type DownloadSessionCallbackClient struct {
+	svc pb.DownloadSessionCallbackServiceClient
+}
+
+// NewDownloadSessionCallbackClient creates a new DownloadSessionCallback client.
+func NewDownloadSessionCallbackClient(cc grpc.ClientConnInterface) *DownloadSessionCallbackClient {
+	return &DownloadSessionCallbackClient{
+		svc: pb.NewDownloadSessionCallbackServiceClient(cc),
+	}
+}
+
+// OnError calls the OnError RPC.
+func (c *DownloadSessionCallbackClient) OnError(ctx context.Context, handle int64, arg0 int32, arg1 string) error {
+	_, err := c.svc.OnError(ctx, &pb.OnErrorRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// OnMiddlewareReady calls the OnMiddlewareReady RPC.
+func (c *DownloadSessionCallbackClient) OnMiddlewareReady(ctx context.Context, handle int64) error {
+	_, err := c.svc.OnMiddlewareReady(ctx, &pb.OnMiddlewareReadyRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// DownloadStatusListenerClient wraps the gRPC DownloadStatusListenerService client.
+type DownloadStatusListenerClient struct {
+	svc pb.DownloadStatusListenerServiceClient
+}
+
+// NewDownloadStatusListenerClient creates a new DownloadStatusListener client.
+func NewDownloadStatusListenerClient(cc grpc.ClientConnInterface) *DownloadStatusListenerClient {
+	return &DownloadStatusListenerClient{
+		svc: pb.NewDownloadStatusListenerServiceClient(cc),
+	}
+}
+
+// OnStatusUpdated calls the OnStatusUpdated RPC.
+func (c *DownloadStatusListenerClient) OnStatusUpdated(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int32) error {
+	_, err := c.svc.OnStatusUpdated(ctx, &pb.OnStatusUpdatedRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
 	})
 	return err
 }
@@ -97,20 +361,68 @@ func (c *StreamingServiceCallbackClient) OnStreamStateUpdated(ctx context.Contex
 	return err
 }
 
-// ServiceInfoClient wraps the gRPC ServiceInfoService client.
-type ServiceInfoClient struct {
-	svc pb.ServiceInfoServiceClient
+// FileServiceInfoClient wraps the gRPC FileServiceInfoService client.
+type FileServiceInfoClient struct {
+	svc pb.FileServiceInfoServiceClient
 }
 
-// NewServiceInfoClient creates a new ServiceInfo client.
-func NewServiceInfoClient(cc grpc.ClientConnInterface) *ServiceInfoClient {
-	return &ServiceInfoClient{
-		svc: pb.NewServiceInfoServiceClient(cc),
+// NewFileServiceInfoClient creates a new FileServiceInfo client.
+func NewFileServiceInfoClient(cc grpc.ClientConnInterface) *FileServiceInfoClient {
+	return &FileServiceInfoClient{
+		svc: pb.NewFileServiceInfoServiceClient(cc),
 	}
 }
 
+// DescribeContents calls the DescribeContents RPC.
+func (c *FileServiceInfoClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetFiles calls the GetFiles RPC.
+func (c *FileServiceInfoClient) GetFiles(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetFiles(ctx, &pb.GetFilesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *FileServiceInfoClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// FileInfoClient wraps the gRPC FileInfoService client.
+type FileInfoClient struct {
+	svc pb.FileInfoServiceClient
+}
+
+// NewFileInfoClient creates a new FileInfo client.
+func NewFileInfoClient(cc grpc.ClientConnInterface) *FileInfoClient {
+	return &FileInfoClient{
+		svc: pb.NewFileInfoServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *FileInfoClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // Equals calls the Equals RPC.
-func (c *ServiceInfoClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+func (c *FileInfoClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
 	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
 		Arg0: arg0,
 	})
@@ -120,47 +432,18 @@ func (c *ServiceInfoClient) Equals(ctx context.Context, arg0 int64) (bool, error
 	return resp.GetResult(), nil
 }
 
-// GetNameForLocale calls the GetNameForLocale RPC.
-func (c *ServiceInfoClient) GetNameForLocale(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.GetNameForLocale(ctx, &pb.GetNameForLocaleRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetServiceClassName calls the GetServiceClassName RPC.
-func (c *ServiceInfoClient) GetServiceClassName(ctx context.Context) (string, error) {
-	resp, err := c.svc.GetServiceClassName(ctx, &pb.GetServiceClassNameRequest{})
+// GetMimeType calls the GetMimeType RPC.
+func (c *FileInfoClient) GetMimeType(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetMimeType(ctx, &pb.GetMimeTypeRequest{})
 	if err != nil {
 		return "", err
 	}
 	return resp.GetResult(), nil
 }
 
-// GetServiceId calls the GetServiceId RPC.
-func (c *ServiceInfoClient) GetServiceId(ctx context.Context) (string, error) {
-	resp, err := c.svc.GetServiceId(ctx, &pb.GetServiceIdRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetSessionEndTime calls the GetSessionEndTime RPC.
-func (c *ServiceInfoClient) GetSessionEndTime(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetSessionEndTime(ctx, &pb.GetSessionEndTimeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetSessionStartTime calls the GetSessionStartTime RPC.
-func (c *ServiceInfoClient) GetSessionStartTime(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetSessionStartTime(ctx, &pb.GetSessionStartTimeRequest{})
+// GetUri calls the GetUri RPC.
+func (c *FileInfoClient) GetUri(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetUri(ctx, &pb.GetUriRequest{})
 	if err != nil {
 		return 0, err
 	}
@@ -168,7 +451,7 @@ func (c *ServiceInfoClient) GetSessionStartTime(ctx context.Context) (int64, err
 }
 
 // HashCode calls the HashCode RPC.
-func (c *ServiceInfoClient) HashCode(ctx context.Context) (int32, error) {
+func (c *FileInfoClient) HashCode(ctx context.Context) (int32, error) {
 	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
 	if err != nil {
 		return 0, err
@@ -176,32 +459,11 @@ func (c *ServiceInfoClient) HashCode(ctx context.Context) (int32, error) {
 	return resp.GetResult(), nil
 }
 
-// DownloadSessionCallbackClient wraps the gRPC DownloadSessionCallbackService client.
-type DownloadSessionCallbackClient struct {
-	svc pb.DownloadSessionCallbackServiceClient
-}
-
-// NewDownloadSessionCallbackClient creates a new DownloadSessionCallback client.
-func NewDownloadSessionCallbackClient(cc grpc.ClientConnInterface) *DownloadSessionCallbackClient {
-	return &DownloadSessionCallbackClient{
-		svc: pb.NewDownloadSessionCallbackServiceClient(cc),
-	}
-}
-
-// OnError calls the OnError RPC.
-func (c *DownloadSessionCallbackClient) OnError(ctx context.Context, handle int64, arg0 int32, arg1 string) error {
-	_, err := c.svc.OnError(ctx, &pb.OnErrorRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// OnMiddlewareReady calls the OnMiddlewareReady RPC.
-func (c *DownloadSessionCallbackClient) OnMiddlewareReady(ctx context.Context, handle int64) error {
-	_, err := c.svc.OnMiddlewareReady(ctx, &pb.OnMiddlewareReadyRequest{
-		Handle: handle,
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *FileInfoClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
 	})
 	return err
 }
@@ -420,239 +682,4 @@ func (c *GroupCallClient) GetTmgi(ctx context.Context) (int64, error) {
 		return 0, err
 	}
 	return resp.GetResult(), nil
-}
-
-// FileServiceInfoClient wraps the gRPC FileServiceInfoService client.
-type FileServiceInfoClient struct {
-	svc pb.FileServiceInfoServiceClient
-}
-
-// NewFileServiceInfoClient creates a new FileServiceInfo client.
-func NewFileServiceInfoClient(cc grpc.ClientConnInterface) *FileServiceInfoClient {
-	return &FileServiceInfoClient{
-		svc: pb.NewFileServiceInfoServiceClient(cc),
-	}
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *FileServiceInfoClient) DescribeContents(ctx context.Context) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *FileServiceInfoClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// DownloadProgressListenerClient wraps the gRPC DownloadProgressListenerService client.
-type DownloadProgressListenerClient struct {
-	svc pb.DownloadProgressListenerServiceClient
-}
-
-// NewDownloadProgressListenerClient creates a new DownloadProgressListener client.
-func NewDownloadProgressListenerClient(cc grpc.ClientConnInterface) *DownloadProgressListenerClient {
-	return &DownloadProgressListenerClient{
-		svc: pb.NewDownloadProgressListenerServiceClient(cc),
-	}
-}
-
-// OnProgressUpdated calls the OnProgressUpdated RPC.
-func (c *DownloadProgressListenerClient) OnProgressUpdated(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int32, arg3 int32, arg4 int32, arg5 int32) error {
-	_, err := c.svc.OnProgressUpdated(ctx, &pb.OnProgressUpdatedRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-		Arg4:   arg4,
-		Arg5:   arg5,
-	})
-	return err
-}
-
-// StreamingServiceClient wraps the gRPC StreamingServiceService client.
-type StreamingServiceClient struct {
-	svc pb.StreamingServiceServiceClient
-}
-
-// NewStreamingServiceClient creates a new StreamingService client.
-func NewStreamingServiceClient(cc grpc.ClientConnInterface) *StreamingServiceClient {
-	return &StreamingServiceClient{
-		svc: pb.NewStreamingServiceServiceClient(cc),
-	}
-}
-
-// Close calls the Close RPC.
-func (c *StreamingServiceClient) Close(ctx context.Context) error {
-	_, err := c.svc.Close(ctx, &pb.CloseRequest{})
-	return err
-}
-
-// GetInfo calls the GetInfo RPC.
-func (c *StreamingServiceClient) GetInfo(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetInfo(ctx, &pb.GetInfoRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetPlaybackUri calls the GetPlaybackUri RPC.
-func (c *StreamingServiceClient) GetPlaybackUri(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetPlaybackUri(ctx, &pb.GetPlaybackUriRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// DownloadStatusListenerClient wraps the gRPC DownloadStatusListenerService client.
-type DownloadStatusListenerClient struct {
-	svc pb.DownloadStatusListenerServiceClient
-}
-
-// NewDownloadStatusListenerClient creates a new DownloadStatusListener client.
-func NewDownloadStatusListenerClient(cc grpc.ClientConnInterface) *DownloadStatusListenerClient {
-	return &DownloadStatusListenerClient{
-		svc: pb.NewDownloadStatusListenerServiceClient(cc),
-	}
-}
-
-// OnStatusUpdated calls the OnStatusUpdated RPC.
-func (c *DownloadStatusListenerClient) OnStatusUpdated(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int32) error {
-	_, err := c.svc.OnStatusUpdated(ctx, &pb.OnStatusUpdatedRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	return err
-}
-
-// StreamingServiceInfoClient wraps the gRPC StreamingServiceInfoService client.
-type StreamingServiceInfoClient struct {
-	svc pb.StreamingServiceInfoServiceClient
-}
-
-// NewStreamingServiceInfoClient creates a new StreamingServiceInfo client.
-func NewStreamingServiceInfoClient(cc grpc.ClientConnInterface) *StreamingServiceInfoClient {
-	return &StreamingServiceInfoClient{
-		svc: pb.NewStreamingServiceInfoServiceClient(cc),
-	}
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *StreamingServiceInfoClient) DescribeContents(ctx context.Context) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *StreamingServiceInfoClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// DownloadReceiverClient wraps the gRPC DownloadReceiverService client.
-type DownloadReceiverClient struct {
-	svc pb.DownloadReceiverServiceClient
-}
-
-// NewDownloadReceiverClient creates a new DownloadReceiver client.
-func NewDownloadReceiverClient(cc grpc.ClientConnInterface) *DownloadReceiverClient {
-	return &DownloadReceiverClient{
-		svc: pb.NewDownloadReceiverServiceClient(cc),
-	}
-}
-
-// OnReceive calls the OnReceive RPC.
-func (c *DownloadReceiverClient) OnReceive(ctx context.Context, handle int64, arg0 int64, arg1 int64) error {
-	_, err := c.svc.OnReceive(ctx, &pb.OnReceiveRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// FileInfoClient wraps the gRPC FileInfoService client.
-type FileInfoClient struct {
-	svc pb.FileInfoServiceClient
-}
-
-// NewFileInfoClient creates a new FileInfo client.
-func NewFileInfoClient(cc grpc.ClientConnInterface) *FileInfoClient {
-	return &FileInfoClient{
-		svc: pb.NewFileInfoServiceClient(cc),
-	}
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *FileInfoClient) DescribeContents(ctx context.Context) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Equals calls the Equals RPC.
-func (c *FileInfoClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetMimeType calls the GetMimeType RPC.
-func (c *FileInfoClient) GetMimeType(ctx context.Context) (string, error) {
-	resp, err := c.svc.GetMimeType(ctx, &pb.GetMimeTypeRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetUri calls the GetUri RPC.
-func (c *FileInfoClient) GetUri(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetUri(ctx, &pb.GetUriRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *FileInfoClient) HashCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *FileInfoClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
 }

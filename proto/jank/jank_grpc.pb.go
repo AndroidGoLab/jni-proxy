@@ -21,223 +21,6 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	RelativeFrameTimeHistogramService_NewRelativeFrameTimeHistogram_FullMethodName = "/jank.RelativeFrameTimeHistogramService/NewRelativeFrameTimeHistogram"
-	RelativeFrameTimeHistogramService_AddRelativeFrameTimeMillis_FullMethodName    = "/jank.RelativeFrameTimeHistogramService/AddRelativeFrameTimeMillis"
-	RelativeFrameTimeHistogramService_GetBucketCounters_FullMethodName             = "/jank.RelativeFrameTimeHistogramService/GetBucketCounters"
-	RelativeFrameTimeHistogramService_GetBucketEndpointsMillis_FullMethodName      = "/jank.RelativeFrameTimeHistogramService/GetBucketEndpointsMillis"
-)
-
-// RelativeFrameTimeHistogramServiceClient is the client API for RelativeFrameTimeHistogramService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type RelativeFrameTimeHistogramServiceClient interface {
-	NewRelativeFrameTimeHistogram(ctx context.Context, in *NewRelativeFrameTimeHistogramRequest, opts ...grpc.CallOption) (*NewRelativeFrameTimeHistogramResponse, error)
-	AddRelativeFrameTimeMillis(ctx context.Context, in *AddRelativeFrameTimeMillisRequest, opts ...grpc.CallOption) (*AddRelativeFrameTimeMillisResponse, error)
-	GetBucketCounters(ctx context.Context, in *GetBucketCountersRequest, opts ...grpc.CallOption) (*GetBucketCountersResponse, error)
-	GetBucketEndpointsMillis(ctx context.Context, in *GetBucketEndpointsMillisRequest, opts ...grpc.CallOption) (*GetBucketEndpointsMillisResponse, error)
-}
-
-type relativeFrameTimeHistogramServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewRelativeFrameTimeHistogramServiceClient(cc grpc.ClientConnInterface) RelativeFrameTimeHistogramServiceClient {
-	return &relativeFrameTimeHistogramServiceClient{cc}
-}
-
-func (c *relativeFrameTimeHistogramServiceClient) NewRelativeFrameTimeHistogram(ctx context.Context, in *NewRelativeFrameTimeHistogramRequest, opts ...grpc.CallOption) (*NewRelativeFrameTimeHistogramResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewRelativeFrameTimeHistogramResponse)
-	err := c.cc.Invoke(ctx, RelativeFrameTimeHistogramService_NewRelativeFrameTimeHistogram_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *relativeFrameTimeHistogramServiceClient) AddRelativeFrameTimeMillis(ctx context.Context, in *AddRelativeFrameTimeMillisRequest, opts ...grpc.CallOption) (*AddRelativeFrameTimeMillisResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(AddRelativeFrameTimeMillisResponse)
-	err := c.cc.Invoke(ctx, RelativeFrameTimeHistogramService_AddRelativeFrameTimeMillis_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *relativeFrameTimeHistogramServiceClient) GetBucketCounters(ctx context.Context, in *GetBucketCountersRequest, opts ...grpc.CallOption) (*GetBucketCountersResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetBucketCountersResponse)
-	err := c.cc.Invoke(ctx, RelativeFrameTimeHistogramService_GetBucketCounters_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *relativeFrameTimeHistogramServiceClient) GetBucketEndpointsMillis(ctx context.Context, in *GetBucketEndpointsMillisRequest, opts ...grpc.CallOption) (*GetBucketEndpointsMillisResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetBucketEndpointsMillisResponse)
-	err := c.cc.Invoke(ctx, RelativeFrameTimeHistogramService_GetBucketEndpointsMillis_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// RelativeFrameTimeHistogramServiceServer is the server API for RelativeFrameTimeHistogramService service.
-// All implementations must embed UnimplementedRelativeFrameTimeHistogramServiceServer
-// for forward compatibility.
-type RelativeFrameTimeHistogramServiceServer interface {
-	NewRelativeFrameTimeHistogram(context.Context, *NewRelativeFrameTimeHistogramRequest) (*NewRelativeFrameTimeHistogramResponse, error)
-	AddRelativeFrameTimeMillis(context.Context, *AddRelativeFrameTimeMillisRequest) (*AddRelativeFrameTimeMillisResponse, error)
-	GetBucketCounters(context.Context, *GetBucketCountersRequest) (*GetBucketCountersResponse, error)
-	GetBucketEndpointsMillis(context.Context, *GetBucketEndpointsMillisRequest) (*GetBucketEndpointsMillisResponse, error)
-	mustEmbedUnimplementedRelativeFrameTimeHistogramServiceServer()
-}
-
-// UnimplementedRelativeFrameTimeHistogramServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedRelativeFrameTimeHistogramServiceServer struct{}
-
-func (UnimplementedRelativeFrameTimeHistogramServiceServer) NewRelativeFrameTimeHistogram(context.Context, *NewRelativeFrameTimeHistogramRequest) (*NewRelativeFrameTimeHistogramResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewRelativeFrameTimeHistogram not implemented")
-}
-func (UnimplementedRelativeFrameTimeHistogramServiceServer) AddRelativeFrameTimeMillis(context.Context, *AddRelativeFrameTimeMillisRequest) (*AddRelativeFrameTimeMillisResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method AddRelativeFrameTimeMillis not implemented")
-}
-func (UnimplementedRelativeFrameTimeHistogramServiceServer) GetBucketCounters(context.Context, *GetBucketCountersRequest) (*GetBucketCountersResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetBucketCounters not implemented")
-}
-func (UnimplementedRelativeFrameTimeHistogramServiceServer) GetBucketEndpointsMillis(context.Context, *GetBucketEndpointsMillisRequest) (*GetBucketEndpointsMillisResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetBucketEndpointsMillis not implemented")
-}
-func (UnimplementedRelativeFrameTimeHistogramServiceServer) mustEmbedUnimplementedRelativeFrameTimeHistogramServiceServer() {
-}
-func (UnimplementedRelativeFrameTimeHistogramServiceServer) testEmbeddedByValue() {}
-
-// UnsafeRelativeFrameTimeHistogramServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to RelativeFrameTimeHistogramServiceServer will
-// result in compilation errors.
-type UnsafeRelativeFrameTimeHistogramServiceServer interface {
-	mustEmbedUnimplementedRelativeFrameTimeHistogramServiceServer()
-}
-
-func RegisterRelativeFrameTimeHistogramServiceServer(s grpc.ServiceRegistrar, srv RelativeFrameTimeHistogramServiceServer) {
-	// If the following call panics, it indicates UnimplementedRelativeFrameTimeHistogramServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&RelativeFrameTimeHistogramService_ServiceDesc, srv)
-}
-
-func _RelativeFrameTimeHistogramService_NewRelativeFrameTimeHistogram_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewRelativeFrameTimeHistogramRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(RelativeFrameTimeHistogramServiceServer).NewRelativeFrameTimeHistogram(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: RelativeFrameTimeHistogramService_NewRelativeFrameTimeHistogram_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RelativeFrameTimeHistogramServiceServer).NewRelativeFrameTimeHistogram(ctx, req.(*NewRelativeFrameTimeHistogramRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _RelativeFrameTimeHistogramService_AddRelativeFrameTimeMillis_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AddRelativeFrameTimeMillisRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(RelativeFrameTimeHistogramServiceServer).AddRelativeFrameTimeMillis(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: RelativeFrameTimeHistogramService_AddRelativeFrameTimeMillis_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RelativeFrameTimeHistogramServiceServer).AddRelativeFrameTimeMillis(ctx, req.(*AddRelativeFrameTimeMillisRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _RelativeFrameTimeHistogramService_GetBucketCounters_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetBucketCountersRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(RelativeFrameTimeHistogramServiceServer).GetBucketCounters(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: RelativeFrameTimeHistogramService_GetBucketCounters_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RelativeFrameTimeHistogramServiceServer).GetBucketCounters(ctx, req.(*GetBucketCountersRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _RelativeFrameTimeHistogramService_GetBucketEndpointsMillis_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetBucketEndpointsMillisRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(RelativeFrameTimeHistogramServiceServer).GetBucketEndpointsMillis(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: RelativeFrameTimeHistogramService_GetBucketEndpointsMillis_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RelativeFrameTimeHistogramServiceServer).GetBucketEndpointsMillis(ctx, req.(*GetBucketEndpointsMillisRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// RelativeFrameTimeHistogramService_ServiceDesc is the grpc.ServiceDesc for RelativeFrameTimeHistogramService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var RelativeFrameTimeHistogramService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "jank.RelativeFrameTimeHistogramService",
-	HandlerType: (*RelativeFrameTimeHistogramServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "NewRelativeFrameTimeHistogram",
-			Handler:    _RelativeFrameTimeHistogramService_NewRelativeFrameTimeHistogram_Handler,
-		},
-		{
-			MethodName: "AddRelativeFrameTimeMillis",
-			Handler:    _RelativeFrameTimeHistogramService_AddRelativeFrameTimeMillis_Handler,
-		},
-		{
-			MethodName: "GetBucketCounters",
-			Handler:    _RelativeFrameTimeHistogramService_GetBucketCounters_Handler,
-		},
-		{
-			MethodName: "GetBucketEndpointsMillis",
-			Handler:    _RelativeFrameTimeHistogramService_GetBucketEndpointsMillis_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/jank/jank.proto",
-}
-
-const (
 	AppJankStatsService_NewAppJankStats_FullMethodName               = "/jank.AppJankStatsService/NewAppJankStats"
 	AppJankStatsService_GetJankyFrameCount_FullMethodName            = "/jank.AppJankStatsService/GetJankyFrameCount"
 	AppJankStatsService_GetNavigationComponent_FullMethodName        = "/jank.AppJankStatsService/GetNavigationComponent"
@@ -637,6 +420,223 @@ var AppJankStatsService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetWidgetState",
 			Handler:    _AppJankStatsService_GetWidgetState_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/jank/jank.proto",
+}
+
+const (
+	RelativeFrameTimeHistogramService_NewRelativeFrameTimeHistogram_FullMethodName = "/jank.RelativeFrameTimeHistogramService/NewRelativeFrameTimeHistogram"
+	RelativeFrameTimeHistogramService_AddRelativeFrameTimeMillis_FullMethodName    = "/jank.RelativeFrameTimeHistogramService/AddRelativeFrameTimeMillis"
+	RelativeFrameTimeHistogramService_GetBucketCounters_FullMethodName             = "/jank.RelativeFrameTimeHistogramService/GetBucketCounters"
+	RelativeFrameTimeHistogramService_GetBucketEndpointsMillis_FullMethodName      = "/jank.RelativeFrameTimeHistogramService/GetBucketEndpointsMillis"
+)
+
+// RelativeFrameTimeHistogramServiceClient is the client API for RelativeFrameTimeHistogramService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type RelativeFrameTimeHistogramServiceClient interface {
+	NewRelativeFrameTimeHistogram(ctx context.Context, in *NewRelativeFrameTimeHistogramRequest, opts ...grpc.CallOption) (*NewRelativeFrameTimeHistogramResponse, error)
+	AddRelativeFrameTimeMillis(ctx context.Context, in *AddRelativeFrameTimeMillisRequest, opts ...grpc.CallOption) (*AddRelativeFrameTimeMillisResponse, error)
+	GetBucketCounters(ctx context.Context, in *GetBucketCountersRequest, opts ...grpc.CallOption) (*GetBucketCountersResponse, error)
+	GetBucketEndpointsMillis(ctx context.Context, in *GetBucketEndpointsMillisRequest, opts ...grpc.CallOption) (*GetBucketEndpointsMillisResponse, error)
+}
+
+type relativeFrameTimeHistogramServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewRelativeFrameTimeHistogramServiceClient(cc grpc.ClientConnInterface) RelativeFrameTimeHistogramServiceClient {
+	return &relativeFrameTimeHistogramServiceClient{cc}
+}
+
+func (c *relativeFrameTimeHistogramServiceClient) NewRelativeFrameTimeHistogram(ctx context.Context, in *NewRelativeFrameTimeHistogramRequest, opts ...grpc.CallOption) (*NewRelativeFrameTimeHistogramResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewRelativeFrameTimeHistogramResponse)
+	err := c.cc.Invoke(ctx, RelativeFrameTimeHistogramService_NewRelativeFrameTimeHistogram_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *relativeFrameTimeHistogramServiceClient) AddRelativeFrameTimeMillis(ctx context.Context, in *AddRelativeFrameTimeMillisRequest, opts ...grpc.CallOption) (*AddRelativeFrameTimeMillisResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(AddRelativeFrameTimeMillisResponse)
+	err := c.cc.Invoke(ctx, RelativeFrameTimeHistogramService_AddRelativeFrameTimeMillis_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *relativeFrameTimeHistogramServiceClient) GetBucketCounters(ctx context.Context, in *GetBucketCountersRequest, opts ...grpc.CallOption) (*GetBucketCountersResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetBucketCountersResponse)
+	err := c.cc.Invoke(ctx, RelativeFrameTimeHistogramService_GetBucketCounters_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *relativeFrameTimeHistogramServiceClient) GetBucketEndpointsMillis(ctx context.Context, in *GetBucketEndpointsMillisRequest, opts ...grpc.CallOption) (*GetBucketEndpointsMillisResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetBucketEndpointsMillisResponse)
+	err := c.cc.Invoke(ctx, RelativeFrameTimeHistogramService_GetBucketEndpointsMillis_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// RelativeFrameTimeHistogramServiceServer is the server API for RelativeFrameTimeHistogramService service.
+// All implementations must embed UnimplementedRelativeFrameTimeHistogramServiceServer
+// for forward compatibility.
+type RelativeFrameTimeHistogramServiceServer interface {
+	NewRelativeFrameTimeHistogram(context.Context, *NewRelativeFrameTimeHistogramRequest) (*NewRelativeFrameTimeHistogramResponse, error)
+	AddRelativeFrameTimeMillis(context.Context, *AddRelativeFrameTimeMillisRequest) (*AddRelativeFrameTimeMillisResponse, error)
+	GetBucketCounters(context.Context, *GetBucketCountersRequest) (*GetBucketCountersResponse, error)
+	GetBucketEndpointsMillis(context.Context, *GetBucketEndpointsMillisRequest) (*GetBucketEndpointsMillisResponse, error)
+	mustEmbedUnimplementedRelativeFrameTimeHistogramServiceServer()
+}
+
+// UnimplementedRelativeFrameTimeHistogramServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedRelativeFrameTimeHistogramServiceServer struct{}
+
+func (UnimplementedRelativeFrameTimeHistogramServiceServer) NewRelativeFrameTimeHistogram(context.Context, *NewRelativeFrameTimeHistogramRequest) (*NewRelativeFrameTimeHistogramResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewRelativeFrameTimeHistogram not implemented")
+}
+func (UnimplementedRelativeFrameTimeHistogramServiceServer) AddRelativeFrameTimeMillis(context.Context, *AddRelativeFrameTimeMillisRequest) (*AddRelativeFrameTimeMillisResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method AddRelativeFrameTimeMillis not implemented")
+}
+func (UnimplementedRelativeFrameTimeHistogramServiceServer) GetBucketCounters(context.Context, *GetBucketCountersRequest) (*GetBucketCountersResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetBucketCounters not implemented")
+}
+func (UnimplementedRelativeFrameTimeHistogramServiceServer) GetBucketEndpointsMillis(context.Context, *GetBucketEndpointsMillisRequest) (*GetBucketEndpointsMillisResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetBucketEndpointsMillis not implemented")
+}
+func (UnimplementedRelativeFrameTimeHistogramServiceServer) mustEmbedUnimplementedRelativeFrameTimeHistogramServiceServer() {
+}
+func (UnimplementedRelativeFrameTimeHistogramServiceServer) testEmbeddedByValue() {}
+
+// UnsafeRelativeFrameTimeHistogramServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to RelativeFrameTimeHistogramServiceServer will
+// result in compilation errors.
+type UnsafeRelativeFrameTimeHistogramServiceServer interface {
+	mustEmbedUnimplementedRelativeFrameTimeHistogramServiceServer()
+}
+
+func RegisterRelativeFrameTimeHistogramServiceServer(s grpc.ServiceRegistrar, srv RelativeFrameTimeHistogramServiceServer) {
+	// If the following call panics, it indicates UnimplementedRelativeFrameTimeHistogramServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&RelativeFrameTimeHistogramService_ServiceDesc, srv)
+}
+
+func _RelativeFrameTimeHistogramService_NewRelativeFrameTimeHistogram_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewRelativeFrameTimeHistogramRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RelativeFrameTimeHistogramServiceServer).NewRelativeFrameTimeHistogram(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RelativeFrameTimeHistogramService_NewRelativeFrameTimeHistogram_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RelativeFrameTimeHistogramServiceServer).NewRelativeFrameTimeHistogram(ctx, req.(*NewRelativeFrameTimeHistogramRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RelativeFrameTimeHistogramService_AddRelativeFrameTimeMillis_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AddRelativeFrameTimeMillisRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RelativeFrameTimeHistogramServiceServer).AddRelativeFrameTimeMillis(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RelativeFrameTimeHistogramService_AddRelativeFrameTimeMillis_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RelativeFrameTimeHistogramServiceServer).AddRelativeFrameTimeMillis(ctx, req.(*AddRelativeFrameTimeMillisRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RelativeFrameTimeHistogramService_GetBucketCounters_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetBucketCountersRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RelativeFrameTimeHistogramServiceServer).GetBucketCounters(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RelativeFrameTimeHistogramService_GetBucketCounters_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RelativeFrameTimeHistogramServiceServer).GetBucketCounters(ctx, req.(*GetBucketCountersRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RelativeFrameTimeHistogramService_GetBucketEndpointsMillis_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetBucketEndpointsMillisRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RelativeFrameTimeHistogramServiceServer).GetBucketEndpointsMillis(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RelativeFrameTimeHistogramService_GetBucketEndpointsMillis_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RelativeFrameTimeHistogramServiceServer).GetBucketEndpointsMillis(ctx, req.(*GetBucketEndpointsMillisRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// RelativeFrameTimeHistogramService_ServiceDesc is the grpc.ServiceDesc for RelativeFrameTimeHistogramService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var RelativeFrameTimeHistogramService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "jank.RelativeFrameTimeHistogramService",
+	HandlerType: (*RelativeFrameTimeHistogramServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewRelativeFrameTimeHistogram",
+			Handler:    _RelativeFrameTimeHistogramService_NewRelativeFrameTimeHistogram_Handler,
+		},
+		{
+			MethodName: "AddRelativeFrameTimeMillis",
+			Handler:    _RelativeFrameTimeHistogramService_AddRelativeFrameTimeMillis_Handler,
+		},
+		{
+			MethodName: "GetBucketCounters",
+			Handler:    _RelativeFrameTimeHistogramService_GetBucketCounters_Handler,
+		},
+		{
+			MethodName: "GetBucketEndpointsMillis",
+			Handler:    _RelativeFrameTimeHistogramService_GetBucketEndpointsMillis_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

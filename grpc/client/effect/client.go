@@ -9,6 +9,76 @@ import (
 	"google.golang.org/grpc"
 )
 
+// FactoryClient wraps the gRPC FactoryService client.
+type FactoryClient struct {
+	svc pb.FactoryServiceClient
+}
+
+// NewFactoryClient creates a new Factory client.
+func NewFactoryClient(cc grpc.ClientConnInterface) *FactoryClient {
+	return &FactoryClient{
+		svc: pb.NewFactoryServiceClient(cc),
+	}
+}
+
+// CreateEffect calls the CreateEffect RPC.
+func (c *FactoryClient) CreateEffect(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.CreateEffect(ctx, &pb.CreateEffectRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsEffectSupported calls the IsEffectSupported RPC.
+func (c *FactoryClient) IsEffectSupported(ctx context.Context, arg0 string) (bool, error) {
+	resp, err := c.svc.IsEffectSupported(ctx, &pb.IsEffectSupportedRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ContextClient wraps the gRPC ContextService client.
+type ContextClient struct {
+	svc pb.ContextServiceClient
+}
+
+// NewContextClient creates a new Context client.
+func NewContextClient(cc grpc.ClientConnInterface) *ContextClient {
+	return &ContextClient{
+		svc: pb.NewContextServiceClient(cc),
+	}
+}
+
+// GetFactory calls the GetFactory RPC.
+func (c *ContextClient) GetFactory(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetFactory(ctx, &pb.GetFactoryRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Release calls the Release RPC.
+func (c *ContextClient) Release(ctx context.Context) error {
+	_, err := c.svc.Release(ctx, &pb.ReleaseRequest{})
+	return err
+}
+
+// CreateWithCurrentGlContext calls the CreateWithCurrentGlContext RPC.
+func (c *ContextClient) CreateWithCurrentGlContext(ctx context.Context) (int64, error) {
+	resp, err := c.svc.CreateWithCurrentGlContext(ctx, &pb.CreateWithCurrentGlContextRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // EffectClient wraps the gRPC EffectService client.
 type EffectClient struct {
 	svc pb.EffectServiceClient
@@ -83,74 +153,4 @@ func (c *UpdateListenerClient) OnEffectUpdated(ctx context.Context, arg0 int64, 
 		Arg1: arg1,
 	})
 	return err
-}
-
-// FactoryClient wraps the gRPC FactoryService client.
-type FactoryClient struct {
-	svc pb.FactoryServiceClient
-}
-
-// NewFactoryClient creates a new Factory client.
-func NewFactoryClient(cc grpc.ClientConnInterface) *FactoryClient {
-	return &FactoryClient{
-		svc: pb.NewFactoryServiceClient(cc),
-	}
-}
-
-// CreateEffect calls the CreateEffect RPC.
-func (c *FactoryClient) CreateEffect(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.CreateEffect(ctx, &pb.CreateEffectRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsEffectSupported calls the IsEffectSupported RPC.
-func (c *FactoryClient) IsEffectSupported(ctx context.Context, arg0 string) (bool, error) {
-	resp, err := c.svc.IsEffectSupported(ctx, &pb.IsEffectSupportedRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ContextClient wraps the gRPC ContextService client.
-type ContextClient struct {
-	svc pb.ContextServiceClient
-}
-
-// NewContextClient creates a new Context client.
-func NewContextClient(cc grpc.ClientConnInterface) *ContextClient {
-	return &ContextClient{
-		svc: pb.NewContextServiceClient(cc),
-	}
-}
-
-// GetFactory calls the GetFactory RPC.
-func (c *ContextClient) GetFactory(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetFactory(ctx, &pb.GetFactoryRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Release calls the Release RPC.
-func (c *ContextClient) Release(ctx context.Context) error {
-	_, err := c.svc.Release(ctx, &pb.ReleaseRequest{})
-	return err
-}
-
-// CreateWithCurrentGlContext calls the CreateWithCurrentGlContext RPC.
-func (c *ContextClient) CreateWithCurrentGlContext(ctx context.Context) (int64, error) {
-	resp, err := c.svc.CreateWithCurrentGlContext(ctx, &pb.CreateWithCurrentGlContextRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
 }

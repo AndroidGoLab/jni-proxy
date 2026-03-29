@@ -9,6 +9,149 @@ import (
 	"google.golang.org/grpc"
 )
 
+// HostNfcFServiceClient wraps the gRPC HostNfcFServiceService client.
+type HostNfcFServiceClient struct {
+	svc pb.HostNfcFServiceServiceClient
+}
+
+// NewHostNfcFServiceClient creates a new HostNfcFService client.
+func NewHostNfcFServiceClient(cc grpc.ClientConnInterface) *HostNfcFServiceClient {
+	return &HostNfcFServiceClient{
+		svc: pb.NewHostNfcFServiceServiceClient(cc),
+	}
+}
+
+// OnBind calls the OnBind RPC.
+func (c *HostNfcFServiceClient) OnBind(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.OnBind(ctx, &pb.OnBindRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnDeactivated calls the OnDeactivated RPC.
+func (c *HostNfcFServiceClient) OnDeactivated(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.OnDeactivated(ctx, &pb.OnDeactivatedRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// ProcessNfcFPacket calls the ProcessNfcFPacket RPC.
+func (c *HostNfcFServiceClient) ProcessNfcFPacket(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
+	resp, err := c.svc.ProcessNfcFPacket(ctx, &pb.ProcessNfcFPacketRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SendResponsePacket calls the SendResponsePacket RPC.
+func (c *HostNfcFServiceClient) SendResponsePacket(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SendResponsePacket(ctx, &pb.SendResponsePacketRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// NfcFCardEmulationClient wraps the gRPC NfcFCardEmulationService client.
+type NfcFCardEmulationClient struct {
+	svc pb.NfcFCardEmulationServiceClient
+}
+
+// NewNfcFCardEmulationClient creates a new NfcFCardEmulation client.
+func NewNfcFCardEmulationClient(cc grpc.ClientConnInterface) *NfcFCardEmulationClient {
+	return &NfcFCardEmulationClient{
+		svc: pb.NewNfcFCardEmulationServiceClient(cc),
+	}
+}
+
+// DisableService calls the DisableService RPC.
+func (c *NfcFCardEmulationClient) DisableService(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.DisableService(ctx, &pb.DisableServiceRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// EnableService calls the EnableService RPC.
+func (c *NfcFCardEmulationClient) EnableService(ctx context.Context, arg0 int64, arg1 int64) (bool, error) {
+	resp, err := c.svc.EnableService(ctx, &pb.EnableServiceRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetNfcid2ForService calls the GetNfcid2ForService RPC.
+func (c *NfcFCardEmulationClient) GetNfcid2ForService(ctx context.Context, arg0 int64) (string, error) {
+	resp, err := c.svc.GetNfcid2ForService(ctx, &pb.GetNfcid2ForServiceRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSystemCodeForService calls the GetSystemCodeForService RPC.
+func (c *NfcFCardEmulationClient) GetSystemCodeForService(ctx context.Context, arg0 int64) (string, error) {
+	resp, err := c.svc.GetSystemCodeForService(ctx, &pb.GetSystemCodeForServiceRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// RegisterSystemCodeForService calls the RegisterSystemCodeForService RPC.
+func (c *NfcFCardEmulationClient) RegisterSystemCodeForService(ctx context.Context, arg0 int64, arg1 string) (bool, error) {
+	resp, err := c.svc.RegisterSystemCodeForService(ctx, &pb.RegisterSystemCodeForServiceRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetNfcid2ForService calls the SetNfcid2ForService RPC.
+func (c *NfcFCardEmulationClient) SetNfcid2ForService(ctx context.Context, arg0 int64, arg1 string) (bool, error) {
+	resp, err := c.svc.SetNfcid2ForService(ctx, &pb.SetNfcid2ForServiceRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// UnregisterSystemCodeForService calls the UnregisterSystemCodeForService RPC.
+func (c *NfcFCardEmulationClient) UnregisterSystemCodeForService(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.UnregisterSystemCodeForService(ctx, &pb.UnregisterSystemCodeForServiceRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
 // HostApduServiceClient wraps the gRPC HostApduServiceService client.
 type HostApduServiceClient struct {
 	svc pb.HostApduServiceServiceClient
@@ -66,164 +209,6 @@ func (c *HostApduServiceClient) SendResponseApdu(ctx context.Context, arg0 int64
 	return err
 }
 
-// PollingFrameClient wraps the gRPC PollingFrameService client.
-type PollingFrameClient struct {
-	svc pb.PollingFrameServiceClient
-}
-
-// NewPollingFrameClient creates a new PollingFrame client.
-func NewPollingFrameClient(cc grpc.ClientConnInterface) *PollingFrameClient {
-	return &PollingFrameClient{
-		svc: pb.NewPollingFrameServiceClient(cc),
-	}
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *PollingFrameClient) DescribeContents(ctx context.Context) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetData calls the GetData RPC.
-func (c *PollingFrameClient) GetData(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetData(ctx, &pb.GetDataRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetTimestamp calls the GetTimestamp RPC.
-func (c *PollingFrameClient) GetTimestamp(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetTimestamp(ctx, &pb.GetTimestampRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetTriggeredAutoTransact calls the GetTriggeredAutoTransact RPC.
-func (c *PollingFrameClient) GetTriggeredAutoTransact(ctx context.Context) (bool, error) {
-	resp, err := c.svc.GetTriggeredAutoTransact(ctx, &pb.GetTriggeredAutoTransactRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetType calls the GetType RPC.
-func (c *PollingFrameClient) GetType(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetType(ctx, &pb.GetTypeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetVendorSpecificGain calls the GetVendorSpecificGain RPC.
-func (c *PollingFrameClient) GetVendorSpecificGain(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetVendorSpecificGain(ctx, &pb.GetVendorSpecificGainRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToString calls the ToString RPC.
-func (c *PollingFrameClient) ToString(ctx context.Context) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *PollingFrameClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// HostNfcFServiceClient wraps the gRPC HostNfcFServiceService client.
-type HostNfcFServiceClient struct {
-	svc pb.HostNfcFServiceServiceClient
-}
-
-// NewHostNfcFServiceClient creates a new HostNfcFService client.
-func NewHostNfcFServiceClient(cc grpc.ClientConnInterface) *HostNfcFServiceClient {
-	return &HostNfcFServiceClient{
-		svc: pb.NewHostNfcFServiceServiceClient(cc),
-	}
-}
-
-// OnBind calls the OnBind RPC.
-func (c *HostNfcFServiceClient) OnBind(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.OnBind(ctx, &pb.OnBindRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// OnDeactivated calls the OnDeactivated RPC.
-func (c *HostNfcFServiceClient) OnDeactivated(ctx context.Context, arg0 int32) error {
-	_, err := c.svc.OnDeactivated(ctx, &pb.OnDeactivatedRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// ProcessNfcFPacket calls the ProcessNfcFPacket RPC.
-func (c *HostNfcFServiceClient) ProcessNfcFPacket(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
-	resp, err := c.svc.ProcessNfcFPacket(ctx, &pb.ProcessNfcFPacketRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SendResponsePacket calls the SendResponsePacket RPC.
-func (c *HostNfcFServiceClient) SendResponsePacket(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.SendResponsePacket(ctx, &pb.SendResponsePacketRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// OffHostApduServiceClient wraps the gRPC OffHostApduServiceService client.
-type OffHostApduServiceClient struct {
-	svc pb.OffHostApduServiceServiceClient
-}
-
-// NewOffHostApduServiceClient creates a new OffHostApduService client.
-func NewOffHostApduServiceClient(cc grpc.ClientConnInterface) *OffHostApduServiceClient {
-	return &OffHostApduServiceClient{
-		svc: pb.NewOffHostApduServiceServiceClient(cc),
-	}
-}
-
-// OnBind calls the OnBind RPC.
-func (c *OffHostApduServiceClient) OnBind(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.OnBind(ctx, &pb.OnBindRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
 // CardEmulationClient wraps the gRPC CardEmulationService client.
 type CardEmulationClient struct {
 	svc pb.CardEmulationServiceClient
@@ -243,6 +228,27 @@ func (c *CardEmulationClient) CategoryAllowsForegroundPreference(ctx context.Con
 	})
 	if err != nil {
 		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAidsForPreferredPaymentService calls the GetAidsForPreferredPaymentService RPC.
+func (c *CardEmulationClient) GetAidsForPreferredPaymentService(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetAidsForPreferredPaymentService(ctx, &pb.GetAidsForPreferredPaymentServiceRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAidsForService calls the GetAidsForService RPC.
+func (c *CardEmulationClient) GetAidsForService(ctx context.Context, arg0 int64, arg1 string) (int64, error) {
+	resp, err := c.svc.GetAidsForService(ctx, &pb.GetAidsForServiceRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
 	}
 	return resp.GetResult(), nil
 }
@@ -464,94 +470,109 @@ func (c *CardEmulationClient) UnsetPreferredService(ctx context.Context, arg0 in
 	return resp.GetResult(), nil
 }
 
-// NfcFCardEmulationClient wraps the gRPC NfcFCardEmulationService client.
-type NfcFCardEmulationClient struct {
-	svc pb.NfcFCardEmulationServiceClient
+// OffHostApduServiceClient wraps the gRPC OffHostApduServiceService client.
+type OffHostApduServiceClient struct {
+	svc pb.OffHostApduServiceServiceClient
 }
 
-// NewNfcFCardEmulationClient creates a new NfcFCardEmulation client.
-func NewNfcFCardEmulationClient(cc grpc.ClientConnInterface) *NfcFCardEmulationClient {
-	return &NfcFCardEmulationClient{
-		svc: pb.NewNfcFCardEmulationServiceClient(cc),
+// NewOffHostApduServiceClient creates a new OffHostApduService client.
+func NewOffHostApduServiceClient(cc grpc.ClientConnInterface) *OffHostApduServiceClient {
+	return &OffHostApduServiceClient{
+		svc: pb.NewOffHostApduServiceServiceClient(cc),
 	}
 }
 
-// DisableService calls the DisableService RPC.
-func (c *NfcFCardEmulationClient) DisableService(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.DisableService(ctx, &pb.DisableServiceRequest{
+// OnBind calls the OnBind RPC.
+func (c *OffHostApduServiceClient) OnBind(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.OnBind(ctx, &pb.OnBindRequest{
 		Arg0: arg0,
 	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// PollingFrameClient wraps the gRPC PollingFrameService client.
+type PollingFrameClient struct {
+	svc pb.PollingFrameServiceClient
+}
+
+// NewPollingFrameClient creates a new PollingFrame client.
+func NewPollingFrameClient(cc grpc.ClientConnInterface) *PollingFrameClient {
+	return &PollingFrameClient{
+		svc: pb.NewPollingFrameServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *PollingFrameClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetData calls the GetData RPC.
+func (c *PollingFrameClient) GetData(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetData(ctx, &pb.GetDataRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTimestamp calls the GetTimestamp RPC.
+func (c *PollingFrameClient) GetTimestamp(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetTimestamp(ctx, &pb.GetTimestampRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTriggeredAutoTransact calls the GetTriggeredAutoTransact RPC.
+func (c *PollingFrameClient) GetTriggeredAutoTransact(ctx context.Context) (bool, error) {
+	resp, err := c.svc.GetTriggeredAutoTransact(ctx, &pb.GetTriggeredAutoTransactRequest{})
 	if err != nil {
 		return false, err
 	}
 	return resp.GetResult(), nil
 }
 
-// EnableService calls the EnableService RPC.
-func (c *NfcFCardEmulationClient) EnableService(ctx context.Context, arg0 int64, arg1 int64) (bool, error) {
-	resp, err := c.svc.EnableService(ctx, &pb.EnableServiceRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
+// GetType calls the GetType RPC.
+func (c *PollingFrameClient) GetType(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetType(ctx, &pb.GetTypeRequest{})
 	if err != nil {
-		return false, err
+		return 0, err
 	}
 	return resp.GetResult(), nil
 }
 
-// GetNfcid2ForService calls the GetNfcid2ForService RPC.
-func (c *NfcFCardEmulationClient) GetNfcid2ForService(ctx context.Context, arg0 int64) (string, error) {
-	resp, err := c.svc.GetNfcid2ForService(ctx, &pb.GetNfcid2ForServiceRequest{
-		Arg0: arg0,
-	})
+// GetVendorSpecificGain calls the GetVendorSpecificGain RPC.
+func (c *PollingFrameClient) GetVendorSpecificGain(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetVendorSpecificGain(ctx, &pb.GetVendorSpecificGainRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *PollingFrameClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
 	if err != nil {
 		return "", err
 	}
 	return resp.GetResult(), nil
 }
 
-// GetSystemCodeForService calls the GetSystemCodeForService RPC.
-func (c *NfcFCardEmulationClient) GetSystemCodeForService(ctx context.Context, arg0 int64) (string, error) {
-	resp, err := c.svc.GetSystemCodeForService(ctx, &pb.GetSystemCodeForServiceRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// RegisterSystemCodeForService calls the RegisterSystemCodeForService RPC.
-func (c *NfcFCardEmulationClient) RegisterSystemCodeForService(ctx context.Context, arg0 int64, arg1 string) (bool, error) {
-	resp, err := c.svc.RegisterSystemCodeForService(ctx, &pb.RegisterSystemCodeForServiceRequest{
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *PollingFrameClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
 		Arg0: arg0,
 		Arg1: arg1,
 	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetNfcid2ForService calls the SetNfcid2ForService RPC.
-func (c *NfcFCardEmulationClient) SetNfcid2ForService(ctx context.Context, arg0 int64, arg1 string) (bool, error) {
-	resp, err := c.svc.SetNfcid2ForService(ctx, &pb.SetNfcid2ForServiceRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// UnregisterSystemCodeForService calls the UnregisterSystemCodeForService RPC.
-func (c *NfcFCardEmulationClient) UnregisterSystemCodeForService(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.UnregisterSystemCodeForService(ctx, &pb.UnregisterSystemCodeForServiceRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
+	return err
 }

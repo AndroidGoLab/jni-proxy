@@ -15,15 +15,15 @@ import (
 	"google.golang.org/grpc/status"
 )
 
-// GestureServer implements pb.GestureServiceServer.
-type GestureServer struct {
-	pb.UnimplementedGestureServiceServer
+// PointServer implements pb.PointServiceServer.
+type PointServer struct {
+	pb.UnimplementedPointServiceServer
 	Ctx     *app.Context
 	Handles *handlestore.HandleStore
 }
 
-func (s *GestureServer) NewGesture(_ context.Context, req *pb.NewGestureRequest) (*pb.NewGestureResponse, error) {
-	obj, err := jnipkg.NewGesture(s.Ctx.VM)
+func (s *PointServer) NewPoint(_ context.Context, req *pb.NewPointRequest) (*pb.NewPointResponse, error) {
+	obj, err := jnipkg.NewPoint(s.Ctx.VM, req.GetArg0(), req.GetArg1(), req.GetArg2())
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create object: %v", err)
 	}
@@ -34,28 +34,15 @@ func (s *GestureServer) NewGesture(_ context.Context, req *pb.NewGestureRequest)
 	}); doErr != nil {
 		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
 	}
-	return &pb.NewGestureResponse{Result: handle}, nil
+	return &pb.NewPointResponse{Result: handle}, nil
 }
 
-func (s *GestureServer) AddStroke(_ context.Context, req *pb.AddStrokeRequest) (*pb.AddStrokeResponse, error) {
+func (s *PointServer) Clone(_ context.Context, req *pb.CloneRequest) (*pb.CloneResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.Gesture{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.AddStroke(s.Handles.Get(req.GetArg0())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.AddStrokeResponse{}, nil
-}
-
-func (s *GestureServer) Clone(_ context.Context, req *pb.CloneRequest) (*pb.CloneResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Gesture{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.Point{VM: s.Ctx.VM, Obj: rawObj}
 
 	result, err := mgr.Clone()
 	if err != nil {
@@ -73,245 +60,15 @@ func (s *GestureServer) Clone(_ context.Context, req *pb.CloneRequest) (*pb.Clon
 	return &pb.CloneResponse{Result: handle}, nil
 }
 
-func (s *GestureServer) DescribeContents(_ context.Context, req *pb.DescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Gesture{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.DescribeContents()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.DescribeContentsResponse{Result: result}, nil
-}
-
-func (s *GestureServer) GetBoundingBox(_ context.Context, req *pb.GetBoundingBoxRequest) (*pb.GetBoundingBoxResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Gesture{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetBoundingBox()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetBoundingBoxResponse{Result: handle}, nil
-}
-
-func (s *GestureServer) GetID(_ context.Context, req *pb.GetIDRequest) (*pb.GetIDResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Gesture{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetID()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetIDResponse{Result: result}, nil
-}
-
-func (s *GestureServer) GetLength(_ context.Context, req *pb.GetLengthRequest) (*pb.GetLengthResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Gesture{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetLength()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetLengthResponse{Result: result}, nil
-}
-
-func (s *GestureServer) GetStrokesCount(_ context.Context, req *pb.GetStrokesCountRequest) (*pb.GetStrokesCountResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Gesture{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetStrokesCount()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetStrokesCountResponse{Result: result}, nil
-}
-
-func (s *GestureServer) ToBitmap4(_ context.Context, req *pb.ToBitmap4Request) (*pb.ToBitmap4Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Gesture{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.ToBitmap4(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.ToBitmap4Response{Result: handle}, nil
-}
-
-func (s *GestureServer) ToBitmap5_1(_ context.Context, req *pb.ToBitmap5_1Request) (*pb.ToBitmap5_1Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Gesture{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.ToBitmap5_1(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3(), req.GetArg4())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.ToBitmap5_1Response{Result: handle}, nil
-}
-
-func (s *GestureServer) ToPath0(_ context.Context, req *pb.ToPath0Request) (*pb.ToPath0Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Gesture{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.ToPath0()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.ToPath0Response{Result: handle}, nil
-}
-
-func (s *GestureServer) ToPath1_1(_ context.Context, req *pb.ToPath1_1Request) (*pb.ToPath1_1Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Gesture{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.ToPath1_1(s.Handles.Get(req.GetArg0()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.ToPath1_1Response{Result: handle}, nil
-}
-
-func (s *GestureServer) ToPath5_2(_ context.Context, req *pb.ToPath5_2Request) (*pb.ToPath5_2Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Gesture{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.ToPath5_2(s.Handles.Get(req.GetArg0()), req.GetArg1(), req.GetArg2(), req.GetArg3(), req.GetArg4())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.ToPath5_2Response{Result: handle}, nil
-}
-
-func (s *GestureServer) ToPath4_3(_ context.Context, req *pb.ToPath4_3Request) (*pb.ToPath4_3Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Gesture{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.ToPath4_3(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.ToPath4_3Response{Result: handle}, nil
-}
-
-func (s *GestureServer) WriteToParcel(_ context.Context, req *pb.WriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Gesture{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.WriteToParcel(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.WriteToParcelResponse{}, nil
-}
-
-// StoreServer implements pb.StoreServiceServer.
-type StoreServer struct {
-	pb.UnimplementedStoreServiceServer
+// StrokeServer implements pb.StrokeServiceServer.
+type StrokeServer struct {
+	pb.UnimplementedStrokeServiceServer
 	Ctx     *app.Context
 	Handles *handlestore.HandleStore
 }
 
-func (s *StoreServer) NewStore(_ context.Context, req *pb.NewStoreRequest) (*pb.NewStoreResponse, error) {
-	obj, err := jnipkg.NewStore(s.Ctx.VM)
+func (s *StrokeServer) NewStroke(_ context.Context, req *pb.NewStrokeRequest) (*pb.NewStrokeResponse, error) {
+	obj, err := jnipkg.NewStroke(s.Ctx.VM, s.Handles.Get(req.GetArg0()))
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create object: %v", err)
 	}
@@ -322,166 +79,112 @@ func (s *StoreServer) NewStore(_ context.Context, req *pb.NewStoreRequest) (*pb.
 	}); doErr != nil {
 		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
 	}
-	return &pb.NewStoreResponse{Result: handle}, nil
+	return &pb.NewStrokeResponse{Result: handle}, nil
 }
 
-func (s *StoreServer) AddGesture(_ context.Context, req *pb.AddGestureRequest) (*pb.AddGestureResponse, error) {
+func (s *StrokeServer) ClearPath(_ context.Context, req *pb.ClearPathRequest) (*pb.ClearPathResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.Store{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.Stroke{VM: s.Ctx.VM, Obj: rawObj}
 
-	if err := mgr.AddGesture(req.GetArg0(), s.Handles.Get(req.GetArg1())); err != nil {
+	if err := mgr.ClearPath(); err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.AddGestureResponse{}, nil
+	return &pb.ClearPathResponse{}, nil
 }
 
-func (s *StoreServer) GetOrientationStyle(_ context.Context, req *pb.GetOrientationStyleRequest) (*pb.GetOrientationStyleResponse, error) {
+func (s *StrokeServer) Clone(_ context.Context, req *pb.CloneRequest) (*pb.CloneResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.Store{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.Stroke{VM: s.Ctx.VM, Obj: rawObj}
 
-	result, err := mgr.GetOrientationStyle()
+	result, err := mgr.Clone()
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.GetOrientationStyleResponse{Result: result}, nil
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.CloneResponse{Result: handle}, nil
 }
 
-func (s *StoreServer) GetSequenceType(_ context.Context, req *pb.GetSequenceTypeRequest) (*pb.GetSequenceTypeResponse, error) {
+func (s *StrokeServer) ComputeOrientedBoundingBox(_ context.Context, req *pb.StrokeComputeOrientedBoundingBoxRequest) (*pb.ComputeOrientedBoundingBoxResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.Store{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.Stroke{VM: s.Ctx.VM, Obj: rawObj}
 
-	result, err := mgr.GetSequenceType()
+	result, err := mgr.ComputeOrientedBoundingBox()
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.GetSequenceTypeResponse{Result: result}, nil
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.ComputeOrientedBoundingBoxResponse{Result: handle}, nil
 }
 
-func (s *StoreServer) HasChanged(_ context.Context, req *pb.HasChangedRequest) (*pb.HasChangedResponse, error) {
+func (s *StrokeServer) GetPath(_ context.Context, req *pb.GetPathRequest) (*pb.GetPathResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.Store{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.Stroke{VM: s.Ctx.VM, Obj: rawObj}
 
-	result, err := mgr.HasChanged()
+	result, err := mgr.GetPath()
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.HasChangedResponse{Result: result}, nil
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetPathResponse{Result: handle}, nil
 }
 
-func (s *StoreServer) Load1(_ context.Context, req *pb.Load1Request) (*pb.Load1Response, error) {
+func (s *StrokeServer) ToPath(_ context.Context, req *pb.ToPathRequest) (*pb.ToPathResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.Store{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.Stroke{VM: s.Ctx.VM, Obj: rawObj}
 
-	if err := mgr.Load1(s.Handles.Get(req.GetArg0())); err != nil {
+	result, err := mgr.ToPath(req.GetArg0(), req.GetArg1(), req.GetArg2())
+	if err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.Load1Response{}, nil
-}
-
-func (s *StoreServer) Load2_1(_ context.Context, req *pb.Load2_1Request) (*pb.Load2_1Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
 	}
-	mgr := &jnipkg.Store{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.Load2_1(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.Load2_1Response{}, nil
-}
-
-func (s *StoreServer) RemoveEntry(_ context.Context, req *pb.RemoveEntryRequest) (*pb.RemoveEntryResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Store{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.RemoveEntry(req.GetArg0()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.RemoveEntryResponse{}, nil
-}
-
-func (s *StoreServer) RemoveGesture(_ context.Context, req *pb.RemoveGestureRequest) (*pb.RemoveGestureResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Store{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.RemoveGesture(req.GetArg0(), s.Handles.Get(req.GetArg1())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.RemoveGestureResponse{}, nil
-}
-
-func (s *StoreServer) Save1(_ context.Context, req *pb.Save1Request) (*pb.Save1Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Store{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.Save1(s.Handles.Get(req.GetArg0())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.Save1Response{}, nil
-}
-
-func (s *StoreServer) Save2_1(_ context.Context, req *pb.Save2_1Request) (*pb.Save2_1Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Store{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.Save2_1(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.Save2_1Response{}, nil
-}
-
-func (s *StoreServer) SetOrientationStyle(_ context.Context, req *pb.SetOrientationStyleRequest) (*pb.SetOrientationStyleResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Store{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.SetOrientationStyle(req.GetArg0()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SetOrientationStyleResponse{}, nil
-}
-
-func (s *StoreServer) SetSequenceType(_ context.Context, req *pb.SetSequenceTypeRequest) (*pb.SetSequenceTypeResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Store{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.SetSequenceType(req.GetArg0()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SetSequenceTypeResponse{}, nil
+	return &pb.ToPathResponse{Result: handle}, nil
 }
 
 // OverlayViewServer implements pb.OverlayViewServiceServer.
@@ -609,6 +312,29 @@ func (s *OverlayViewServer) Draw(_ context.Context, req *pb.DrawRequest) (*pb.Dr
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
 	return &pb.DrawResponse{}, nil
+}
+
+func (s *OverlayViewServer) GetCurrentStroke(_ context.Context, req *pb.GetCurrentStrokeRequest) (*pb.GetCurrentStrokeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.OverlayView{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetCurrentStroke()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetCurrentStrokeResponse{Result: handle}, nil
 }
 
 func (s *OverlayViewServer) GetFadeOffset(_ context.Context, req *pb.GetFadeOffsetRequest) (*pb.GetFadeOffsetResponse, error) {
@@ -1109,15 +835,15 @@ func (s *OverlayViewServer) SetUncertainGestureColor(_ context.Context, req *pb.
 	return &pb.SetUncertainGestureColorResponse{}, nil
 }
 
-// StrokeServer implements pb.StrokeServiceServer.
-type StrokeServer struct {
-	pb.UnimplementedStrokeServiceServer
+// StoreServer implements pb.StoreServiceServer.
+type StoreServer struct {
+	pb.UnimplementedStoreServiceServer
 	Ctx     *app.Context
 	Handles *handlestore.HandleStore
 }
 
-func (s *StrokeServer) NewStroke(_ context.Context, req *pb.NewStrokeRequest) (*pb.NewStrokeResponse, error) {
-	obj, err := jnipkg.NewStroke(s.Ctx.VM, s.Handles.Get(req.GetArg0()))
+func (s *StoreServer) NewStore(_ context.Context, req *pb.NewStoreRequest) (*pb.NewStoreResponse, error) {
+	obj, err := jnipkg.NewStore(s.Ctx.VM)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create object: %v", err)
 	}
@@ -1128,28 +854,278 @@ func (s *StrokeServer) NewStroke(_ context.Context, req *pb.NewStrokeRequest) (*
 	}); doErr != nil {
 		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
 	}
-	return &pb.NewStrokeResponse{Result: handle}, nil
+	return &pb.NewStoreResponse{Result: handle}, nil
 }
 
-func (s *StrokeServer) ClearPath(_ context.Context, req *pb.ClearPathRequest) (*pb.ClearPathResponse, error) {
+func (s *StoreServer) AddGesture(_ context.Context, req *pb.StoreAddGestureRequest) (*pb.AddGestureResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.Stroke{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.Store{VM: s.Ctx.VM, Obj: rawObj}
 
-	if err := mgr.ClearPath(); err != nil {
+	if err := mgr.AddGesture(req.GetArg0(), s.Handles.Get(req.GetArg1())); err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.ClearPathResponse{}, nil
+	return &pb.AddGestureResponse{}, nil
 }
 
-func (s *StrokeServer) Clone(_ context.Context, req *pb.CloneRequest) (*pb.CloneResponse, error) {
+func (s *StoreServer) GetGestureEntries(_ context.Context, req *pb.StoreGetGestureEntriesRequest) (*pb.GetGestureEntriesResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.Stroke{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.Store{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetGestureEntries()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetGestureEntriesResponse{Result: handle}, nil
+}
+
+func (s *StoreServer) GetGestures(_ context.Context, req *pb.StoreGetGesturesRequest) (*pb.GetGesturesResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Store{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetGestures(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetGesturesResponse{Result: handle}, nil
+}
+
+func (s *StoreServer) GetOrientationStyle(_ context.Context, req *pb.StoreGetOrientationStyleRequest) (*pb.GetOrientationStyleResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Store{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetOrientationStyle()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetOrientationStyleResponse{Result: result}, nil
+}
+
+func (s *StoreServer) GetSequenceType(_ context.Context, req *pb.StoreGetSequenceTypeRequest) (*pb.GetSequenceTypeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Store{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetSequenceType()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetSequenceTypeResponse{Result: result}, nil
+}
+
+func (s *StoreServer) HasChanged(_ context.Context, req *pb.HasChangedRequest) (*pb.HasChangedResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Store{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.HasChanged()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.HasChangedResponse{Result: result}, nil
+}
+
+func (s *StoreServer) Load1(_ context.Context, req *pb.Load1Request) (*pb.Load1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Store{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.Load1(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.Load1Response{}, nil
+}
+
+func (s *StoreServer) Load2_1(_ context.Context, req *pb.Load2_1Request) (*pb.Load2_1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Store{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.Load2_1(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.Load2_1Response{}, nil
+}
+
+func (s *StoreServer) Recognize(_ context.Context, req *pb.StoreRecognizeRequest) (*pb.RecognizeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Store{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.Recognize(s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.RecognizeResponse{Result: handle}, nil
+}
+
+func (s *StoreServer) RemoveEntry(_ context.Context, req *pb.StoreRemoveEntryRequest) (*pb.RemoveEntryResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Store{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.RemoveEntry(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.RemoveEntryResponse{}, nil
+}
+
+func (s *StoreServer) RemoveGesture(_ context.Context, req *pb.StoreRemoveGestureRequest) (*pb.RemoveGestureResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Store{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.RemoveGesture(req.GetArg0(), s.Handles.Get(req.GetArg1())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.RemoveGestureResponse{}, nil
+}
+
+func (s *StoreServer) Save1(_ context.Context, req *pb.Save1Request) (*pb.Save1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Store{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.Save1(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.Save1Response{}, nil
+}
+
+func (s *StoreServer) Save2_1(_ context.Context, req *pb.Save2_1Request) (*pb.Save2_1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Store{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.Save2_1(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.Save2_1Response{}, nil
+}
+
+func (s *StoreServer) SetOrientationStyle(_ context.Context, req *pb.StoreSetOrientationStyleRequest) (*pb.SetOrientationStyleResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Store{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetOrientationStyle(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetOrientationStyleResponse{}, nil
+}
+
+func (s *StoreServer) SetSequenceType(_ context.Context, req *pb.StoreSetSequenceTypeRequest) (*pb.SetSequenceTypeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Store{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetSequenceType(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetSequenceTypeResponse{}, nil
+}
+
+// GestureServer implements pb.GestureServiceServer.
+type GestureServer struct {
+	pb.UnimplementedGestureServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *GestureServer) NewGesture(_ context.Context, req *pb.NewGestureRequest) (*pb.NewGestureResponse, error) {
+	obj, err := jnipkg.NewGesture(s.Ctx.VM)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewGestureResponse{Result: handle}, nil
+}
+
+func (s *GestureServer) AddStroke(_ context.Context, req *pb.AddStrokeRequest) (*pb.AddStrokeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Gesture{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.AddStroke(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.AddStrokeResponse{}, nil
+}
+
+func (s *GestureServer) Clone(_ context.Context, req *pb.CloneRequest) (*pb.CloneResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Gesture{VM: s.Ctx.VM, Obj: rawObj}
 
 	result, err := mgr.Clone()
 	if err != nil {
@@ -1167,14 +1143,28 @@ func (s *StrokeServer) Clone(_ context.Context, req *pb.CloneRequest) (*pb.Clone
 	return &pb.CloneResponse{Result: handle}, nil
 }
 
-func (s *StrokeServer) ComputeOrientedBoundingBox(_ context.Context, req *pb.ComputeOrientedBoundingBoxRequest) (*pb.ComputeOrientedBoundingBoxResponse, error) {
+func (s *GestureServer) DescribeContents(_ context.Context, req *pb.DescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.Stroke{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.Gesture{VM: s.Ctx.VM, Obj: rawObj}
 
-	result, err := mgr.ComputeOrientedBoundingBox()
+	result, err := mgr.DescribeContents()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.DescribeContentsResponse{Result: result}, nil
+}
+
+func (s *GestureServer) GetBoundingBox(_ context.Context, req *pb.GetBoundingBoxRequest) (*pb.GetBoundingBoxResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Gesture{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetBoundingBox()
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
@@ -1187,17 +1177,45 @@ func (s *StrokeServer) ComputeOrientedBoundingBox(_ context.Context, req *pb.Com
 			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
 		}
 	}
-	return &pb.ComputeOrientedBoundingBoxResponse{Result: handle}, nil
+	return &pb.GetBoundingBoxResponse{Result: handle}, nil
 }
 
-func (s *StrokeServer) GetPath(_ context.Context, req *pb.GetPathRequest) (*pb.GetPathResponse, error) {
+func (s *GestureServer) GetID(_ context.Context, req *pb.GetIDRequest) (*pb.GetIDResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.Stroke{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.Gesture{VM: s.Ctx.VM, Obj: rawObj}
 
-	result, err := mgr.GetPath()
+	result, err := mgr.GetID()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetIDResponse{Result: result}, nil
+}
+
+func (s *GestureServer) GetLength(_ context.Context, req *pb.GetLengthRequest) (*pb.GetLengthResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Gesture{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetLength()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetLengthResponse{Result: result}, nil
+}
+
+func (s *GestureServer) GetStrokes(_ context.Context, req *pb.GetStrokesRequest) (*pb.GetStrokesResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Gesture{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetStrokes()
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
@@ -1210,17 +1228,31 @@ func (s *StrokeServer) GetPath(_ context.Context, req *pb.GetPathRequest) (*pb.G
 			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
 		}
 	}
-	return &pb.GetPathResponse{Result: handle}, nil
+	return &pb.GetStrokesResponse{Result: handle}, nil
 }
 
-func (s *StrokeServer) ToPath(_ context.Context, req *pb.ToPathRequest) (*pb.ToPathResponse, error) {
+func (s *GestureServer) GetStrokesCount(_ context.Context, req *pb.GetStrokesCountRequest) (*pb.GetStrokesCountResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.Stroke{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.Gesture{VM: s.Ctx.VM, Obj: rawObj}
 
-	result, err := mgr.ToPath(req.GetArg0(), req.GetArg1(), req.GetArg2())
+	result, err := mgr.GetStrokesCount()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetStrokesCountResponse{Result: result}, nil
+}
+
+func (s *GestureServer) ToBitmap4(_ context.Context, req *pb.ToBitmap4Request) (*pb.ToBitmap4Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Gesture{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.ToBitmap4(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3())
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
@@ -1233,39 +1265,17 @@ func (s *StrokeServer) ToPath(_ context.Context, req *pb.ToPathRequest) (*pb.ToP
 			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
 		}
 	}
-	return &pb.ToPathResponse{Result: handle}, nil
+	return &pb.ToBitmap4Response{Result: handle}, nil
 }
 
-// PointServer implements pb.PointServiceServer.
-type PointServer struct {
-	pb.UnimplementedPointServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *PointServer) NewPoint(_ context.Context, req *pb.NewPointRequest) (*pb.NewPointResponse, error) {
-	obj, err := jnipkg.NewPoint(s.Ctx.VM, req.GetArg0(), req.GetArg1(), req.GetArg2())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
-	}
-	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-	}
-	return &pb.NewPointResponse{Result: handle}, nil
-}
-
-func (s *PointServer) Clone(_ context.Context, req *pb.CloneRequest) (*pb.CloneResponse, error) {
+func (s *GestureServer) ToBitmap5_1(_ context.Context, req *pb.ToBitmap5_1Request) (*pb.ToBitmap5_1Response, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.Point{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.Gesture{VM: s.Ctx.VM, Obj: rawObj}
 
-	result, err := mgr.Clone()
+	result, err := mgr.ToBitmap5_1(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3(), req.GetArg4())
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
@@ -1278,5 +1288,110 @@ func (s *PointServer) Clone(_ context.Context, req *pb.CloneRequest) (*pb.CloneR
 			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
 		}
 	}
-	return &pb.CloneResponse{Result: handle}, nil
+	return &pb.ToBitmap5_1Response{Result: handle}, nil
+}
+
+func (s *GestureServer) ToPath0(_ context.Context, req *pb.ToPath0Request) (*pb.ToPath0Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Gesture{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.ToPath0()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.ToPath0Response{Result: handle}, nil
+}
+
+func (s *GestureServer) ToPath1_1(_ context.Context, req *pb.ToPath1_1Request) (*pb.ToPath1_1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Gesture{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.ToPath1_1(s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.ToPath1_1Response{Result: handle}, nil
+}
+
+func (s *GestureServer) ToPath5_2(_ context.Context, req *pb.ToPath5_2Request) (*pb.ToPath5_2Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Gesture{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.ToPath5_2(s.Handles.Get(req.GetArg0()), req.GetArg1(), req.GetArg2(), req.GetArg3(), req.GetArg4())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.ToPath5_2Response{Result: handle}, nil
+}
+
+func (s *GestureServer) ToPath4_3(_ context.Context, req *pb.ToPath4_3Request) (*pb.ToPath4_3Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Gesture{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.ToPath4_3(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.ToPath4_3Response{Result: handle}, nil
+}
+
+func (s *GestureServer) WriteToParcel(_ context.Context, req *pb.WriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Gesture{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.WriteToParcel(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.WriteToParcelResponse{}, nil
 }

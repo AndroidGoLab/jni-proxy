@@ -17,15 +17,15 @@ import (
 	"google.golang.org/grpc/status"
 )
 
-// GregorianCalendarServer implements pb.GregorianCalendarServiceServer.
-type GregorianCalendarServer struct {
-	pb.UnimplementedGregorianCalendarServiceServer
+// CurrencyAmountServer implements pb.CurrencyAmountServiceServer.
+type CurrencyAmountServer struct {
+	pb.UnimplementedCurrencyAmountServiceServer
 	Ctx     *app.Context
 	Handles *handlestore.HandleStore
 }
 
-func (s *GregorianCalendarServer) NewGregorianCalendar(_ context.Context, req *pb.NewGregorianCalendarRequest) (*pb.NewGregorianCalendarResponse, error) {
-	obj, err := jnipkg.NewGregorianCalendar(s.Ctx.VM)
+func (s *CurrencyAmountServer) NewCurrencyAmount(_ context.Context, req *pb.NewCurrencyAmountRequest) (*pb.NewCurrencyAmountResponse, error) {
+	obj, err := jnipkg.NewCurrencyAmount(s.Ctx.VM, req.GetArg0(), s.Handles.Get(req.GetArg1()))
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create object: %v", err)
 	}
@@ -36,45 +36,17 @@ func (s *GregorianCalendarServer) NewGregorianCalendar(_ context.Context, req *p
 	}); doErr != nil {
 		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
 	}
-	return &pb.NewGregorianCalendarResponse{Result: handle}, nil
+	return &pb.NewCurrencyAmountResponse{Result: handle}, nil
 }
 
-func (s *GregorianCalendarServer) GetActualMaximum(_ context.Context, req *pb.GetActualMaximumRequest) (*pb.GetActualMaximumResponse, error) {
+func (s *CurrencyAmountServer) GetCurrency(_ context.Context, req *pb.GetCurrencyRequest) (*pb.GetCurrencyResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.GregorianCalendar{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.CurrencyAmount{VM: s.Ctx.VM, Obj: rawObj}
 
-	result, err := mgr.GetActualMaximum(req.GetArg0())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetActualMaximumResponse{Result: result}, nil
-}
-
-func (s *GregorianCalendarServer) GetActualMinimum(_ context.Context, req *pb.GetActualMinimumRequest) (*pb.GetActualMinimumResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GregorianCalendar{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetActualMinimum(req.GetArg0())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetActualMinimumResponse{Result: result}, nil
-}
-
-func (s *GregorianCalendarServer) GetGregorianChange(_ context.Context, req *pb.GetGregorianChangeRequest) (*pb.GetGregorianChangeResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GregorianCalendar{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetGregorianChange()
+	result, err := mgr.GetCurrency()
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
@@ -87,15 +59,37 @@ func (s *GregorianCalendarServer) GetGregorianChange(_ context.Context, req *pb.
 			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
 		}
 	}
-	return &pb.GetGregorianChangeResponse{Result: handle}, nil
+	return &pb.GetCurrencyResponse{Result: handle}, nil
 }
 
-func (s *GregorianCalendarServer) GetType(_ context.Context, req *pb.GetTypeRequest) (*pb.GetTypeResponse, error) {
+// IndianCalendarServer implements pb.IndianCalendarServiceServer.
+type IndianCalendarServer struct {
+	pb.UnimplementedIndianCalendarServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *IndianCalendarServer) NewIndianCalendar(_ context.Context, req *pb.NewIndianCalendarRequest) (*pb.NewIndianCalendarResponse, error) {
+	obj, err := jnipkg.NewIndianCalendar(s.Ctx.VM)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewIndianCalendarResponse{Result: handle}, nil
+}
+
+func (s *IndianCalendarServer) GetType(_ context.Context, req *pb.GetTypeRequest) (*pb.GetTypeResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.GregorianCalendar{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.IndianCalendar{VM: s.Ctx.VM, Obj: rawObj}
 
 	result, err := mgr.GetType()
 	if err != nil {
@@ -104,72 +98,40 @@ func (s *GregorianCalendarServer) GetType(_ context.Context, req *pb.GetTypeRequ
 	return &pb.GetTypeResponse{Result: result}, nil
 }
 
-func (s *GregorianCalendarServer) HashCode(_ context.Context, req *pb.HashCodeRequest) (*pb.HashCodeResponse, error) {
+// OutputServer implements pb.OutputServiceServer.
+type OutputServer struct {
+	pb.UnimplementedOutputServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *OutputServer) NewOutput(_ context.Context, req *pb.NewOutputRequest) (*pb.NewOutputResponse, error) {
+	obj, err := jnipkg.NewOutput(s.Ctx.VM)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewOutputResponse{Result: handle}, nil
+}
+
+func (s *OutputServer) ToString(_ context.Context, req *pb.ToStringRequest) (*pb.ToStringResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.GregorianCalendar{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.Output{VM: s.Ctx.VM, Obj: rawObj}
 
-	result, err := mgr.HashCode()
+	result, err := mgr.ToString()
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.HashCodeResponse{Result: result}, nil
-}
-
-func (s *GregorianCalendarServer) IsEquivalentTo(_ context.Context, req *pb.IsEquivalentToRequest) (*pb.IsEquivalentToResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GregorianCalendar{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.IsEquivalentTo(s.Handles.Get(req.GetArg0()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.IsEquivalentToResponse{Result: result}, nil
-}
-
-func (s *GregorianCalendarServer) IsLeapYear(_ context.Context, req *pb.IsLeapYearRequest) (*pb.IsLeapYearResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GregorianCalendar{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.IsLeapYear(req.GetArg0())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.IsLeapYearResponse{Result: result}, nil
-}
-
-func (s *GregorianCalendarServer) Roll(_ context.Context, req *pb.RollRequest) (*pb.RollResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GregorianCalendar{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.Roll(req.GetArg0(), req.GetArg1()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.RollResponse{}, nil
-}
-
-func (s *GregorianCalendarServer) SetGregorianChange(_ context.Context, req *pb.SetGregorianChangeRequest) (*pb.SetGregorianChangeResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GregorianCalendar{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.SetGregorianChange(s.Handles.Get(req.GetArg0())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SetGregorianChangeResponse{}, nil
+	return &pb.ToStringResponse{Result: result}, nil
 }
 
 // IllformedLocaleExceptionServer implements pb.IllformedLocaleExceptionServiceServer.
@@ -230,7 +192,7 @@ func (s *CopticCalendarServer) NewCopticCalendar(_ context.Context, req *pb.NewC
 	return &pb.NewCopticCalendarResponse{Result: handle}, nil
 }
 
-func (s *CopticCalendarServer) GetTemporalMonthCode(_ context.Context, req *pb.GetTemporalMonthCodeRequest) (*pb.GetTemporalMonthCodeResponse, error) {
+func (s *CopticCalendarServer) GetTemporalMonthCode(_ context.Context, req *pb.CopticCalendarGetTemporalMonthCodeRequest) (*pb.GetTemporalMonthCodeResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -258,7 +220,7 @@ func (s *CopticCalendarServer) GetType(_ context.Context, req *pb.GetTypeRequest
 	return &pb.GetTypeResponse{Result: result}, nil
 }
 
-func (s *CopticCalendarServer) SetTemporalMonthCode(_ context.Context, req *pb.SetTemporalMonthCodeRequest) (*pb.SetTemporalMonthCodeResponse, error) {
+func (s *CopticCalendarServer) SetTemporalMonthCode(_ context.Context, req *pb.CopticCalendarSetTemporalMonthCodeRequest) (*pb.SetTemporalMonthCodeResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -271,15 +233,15 @@ func (s *CopticCalendarServer) SetTemporalMonthCode(_ context.Context, req *pb.S
 	return &pb.SetTemporalMonthCodeResponse{}, nil
 }
 
-// TaiwanCalendarServer implements pb.TaiwanCalendarServiceServer.
-type TaiwanCalendarServer struct {
-	pb.UnimplementedTaiwanCalendarServiceServer
+// BuddhistCalendarServer implements pb.BuddhistCalendarServiceServer.
+type BuddhistCalendarServer struct {
+	pb.UnimplementedBuddhistCalendarServiceServer
 	Ctx     *app.Context
 	Handles *handlestore.HandleStore
 }
 
-func (s *TaiwanCalendarServer) NewTaiwanCalendar(_ context.Context, req *pb.NewTaiwanCalendarRequest) (*pb.NewTaiwanCalendarResponse, error) {
-	obj, err := jnipkg.NewTaiwanCalendar(s.Ctx.VM)
+func (s *BuddhistCalendarServer) NewBuddhistCalendar(_ context.Context, req *pb.NewBuddhistCalendarRequest) (*pb.NewBuddhistCalendarResponse, error) {
+	obj, err := jnipkg.NewBuddhistCalendar(s.Ctx.VM)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create object: %v", err)
 	}
@@ -290,21 +252,124 @@ func (s *TaiwanCalendarServer) NewTaiwanCalendar(_ context.Context, req *pb.NewT
 	}); doErr != nil {
 		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
 	}
-	return &pb.NewTaiwanCalendarResponse{Result: handle}, nil
+	return &pb.NewBuddhistCalendarResponse{Result: handle}, nil
 }
 
-func (s *TaiwanCalendarServer) GetType(_ context.Context, req *pb.GetTypeRequest) (*pb.GetTypeResponse, error) {
+func (s *BuddhistCalendarServer) GetType(_ context.Context, req *pb.GetTypeRequest) (*pb.GetTypeResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.TaiwanCalendar{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.BuddhistCalendar{VM: s.Ctx.VM, Obj: rawObj}
 
 	result, err := mgr.GetType()
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
 	return &pb.GetTypeResponse{Result: result}, nil
+}
+
+// ChineseCalendarServer implements pb.ChineseCalendarServiceServer.
+type ChineseCalendarServer struct {
+	pb.UnimplementedChineseCalendarServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *ChineseCalendarServer) NewChineseCalendar(_ context.Context, req *pb.NewChineseCalendarRequest) (*pb.NewChineseCalendarResponse, error) {
+	obj, err := jnipkg.NewChineseCalendar(s.Ctx.VM)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewChineseCalendarResponse{Result: handle}, nil
+}
+
+func (s *ChineseCalendarServer) Add(_ context.Context, req *pb.ChineseCalendarAddRequest) (*pb.AddResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ChineseCalendar{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.Add(req.GetArg0(), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.AddResponse{}, nil
+}
+
+func (s *ChineseCalendarServer) GetTemporalMonthCode(_ context.Context, req *pb.ChineseCalendarGetTemporalMonthCodeRequest) (*pb.GetTemporalMonthCodeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ChineseCalendar{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetTemporalMonthCode()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetTemporalMonthCodeResponse{Result: result}, nil
+}
+
+func (s *ChineseCalendarServer) GetType(_ context.Context, req *pb.GetTypeRequest) (*pb.GetTypeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ChineseCalendar{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetType()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetTypeResponse{Result: result}, nil
+}
+
+func (s *ChineseCalendarServer) InTemporalLeapYear(_ context.Context, req *pb.ChineseCalendarInTemporalLeapYearRequest) (*pb.InTemporalLeapYearResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ChineseCalendar{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.InTemporalLeapYear()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.InTemporalLeapYearResponse{Result: result}, nil
+}
+
+func (s *ChineseCalendarServer) Roll(_ context.Context, req *pb.RollRequest) (*pb.RollResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ChineseCalendar{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.Roll(req.GetArg0(), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.RollResponse{}, nil
+}
+
+func (s *ChineseCalendarServer) SetTemporalMonthCode(_ context.Context, req *pb.ChineseCalendarSetTemporalMonthCodeRequest) (*pb.SetTemporalMonthCodeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ChineseCalendar{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetTemporalMonthCode(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetTemporalMonthCodeResponse{}, nil
 }
 
 // JapaneseCalendarServer implements pb.JapaneseCalendarServiceServer.
@@ -329,7 +394,7 @@ func (s *JapaneseCalendarServer) NewJapaneseCalendar(_ context.Context, req *pb.
 	return &pb.NewJapaneseCalendarResponse{Result: handle}, nil
 }
 
-func (s *JapaneseCalendarServer) GetActualMaximum(_ context.Context, req *pb.GetActualMaximumRequest) (*pb.GetActualMaximumResponse, error) {
+func (s *JapaneseCalendarServer) GetActualMaximum(_ context.Context, req *pb.JapaneseCalendarGetActualMaximumRequest) (*pb.GetActualMaximumResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -357,6 +422,109 @@ func (s *JapaneseCalendarServer) GetType(_ context.Context, req *pb.GetTypeReque
 	return &pb.GetTypeResponse{Result: result}, nil
 }
 
+// HebrewCalendarServer implements pb.HebrewCalendarServiceServer.
+type HebrewCalendarServer struct {
+	pb.UnimplementedHebrewCalendarServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *HebrewCalendarServer) NewHebrewCalendar(_ context.Context, req *pb.NewHebrewCalendarRequest) (*pb.NewHebrewCalendarResponse, error) {
+	obj, err := jnipkg.NewHebrewCalendar(s.Ctx.VM)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewHebrewCalendarResponse{Result: handle}, nil
+}
+
+func (s *HebrewCalendarServer) Add(_ context.Context, req *pb.HebrewCalendarAddRequest) (*pb.AddResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.HebrewCalendar{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.Add(req.GetArg0(), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.AddResponse{}, nil
+}
+
+func (s *HebrewCalendarServer) GetTemporalMonthCode(_ context.Context, req *pb.HebrewCalendarGetTemporalMonthCodeRequest) (*pb.GetTemporalMonthCodeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.HebrewCalendar{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetTemporalMonthCode()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetTemporalMonthCodeResponse{Result: result}, nil
+}
+
+func (s *HebrewCalendarServer) GetType(_ context.Context, req *pb.GetTypeRequest) (*pb.GetTypeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.HebrewCalendar{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetType()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetTypeResponse{Result: result}, nil
+}
+
+func (s *HebrewCalendarServer) InTemporalLeapYear(_ context.Context, req *pb.HebrewCalendarInTemporalLeapYearRequest) (*pb.InTemporalLeapYearResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.HebrewCalendar{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.InTemporalLeapYear()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.InTemporalLeapYearResponse{Result: result}, nil
+}
+
+func (s *HebrewCalendarServer) Roll(_ context.Context, req *pb.RollRequest) (*pb.RollResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.HebrewCalendar{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.Roll(req.GetArg0(), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.RollResponse{}, nil
+}
+
+func (s *HebrewCalendarServer) SetTemporalMonthCode(_ context.Context, req *pb.HebrewCalendarSetTemporalMonthCodeRequest) (*pb.SetTemporalMonthCodeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.HebrewCalendar{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetTemporalMonthCode(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetTemporalMonthCodeResponse{}, nil
+}
+
 // EthiopicCalendarServer implements pb.EthiopicCalendarServiceServer.
 type EthiopicCalendarServer struct {
 	pb.UnimplementedEthiopicCalendarServiceServer
@@ -379,7 +547,7 @@ func (s *EthiopicCalendarServer) NewEthiopicCalendar(_ context.Context, req *pb.
 	return &pb.NewEthiopicCalendarResponse{Result: handle}, nil
 }
 
-func (s *EthiopicCalendarServer) GetTemporalMonthCode(_ context.Context, req *pb.GetTemporalMonthCodeRequest) (*pb.GetTemporalMonthCodeResponse, error) {
+func (s *EthiopicCalendarServer) GetTemporalMonthCode(_ context.Context, req *pb.EthiopicCalendarGetTemporalMonthCodeRequest) (*pb.GetTemporalMonthCodeResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -434,7 +602,7 @@ func (s *EthiopicCalendarServer) SetAmeteAlemEra(_ context.Context, req *pb.SetA
 	return &pb.SetAmeteAlemEraResponse{}, nil
 }
 
-func (s *EthiopicCalendarServer) SetTemporalMonthCode(_ context.Context, req *pb.SetTemporalMonthCodeRequest) (*pb.SetTemporalMonthCodeResponse, error) {
+func (s *EthiopicCalendarServer) SetTemporalMonthCode(_ context.Context, req *pb.EthiopicCalendarSetTemporalMonthCodeRequest) (*pb.SetTemporalMonthCodeResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -445,6 +613,92 @@ func (s *EthiopicCalendarServer) SetTemporalMonthCode(_ context.Context, req *pb
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
 	return &pb.SetTemporalMonthCodeResponse{}, nil
+}
+
+// IslamicCalendarServer implements pb.IslamicCalendarServiceServer.
+type IslamicCalendarServer struct {
+	pb.UnimplementedIslamicCalendarServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *IslamicCalendarServer) NewIslamicCalendar(_ context.Context, req *pb.NewIslamicCalendarRequest) (*pb.NewIslamicCalendarResponse, error) {
+	obj, err := jnipkg.NewIslamicCalendar(s.Ctx.VM)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewIslamicCalendarResponse{Result: handle}, nil
+}
+
+func (s *IslamicCalendarServer) GetCalculationType(_ context.Context, req *pb.GetCalculationTypeRequest) (*pb.GetCalculationTypeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.IslamicCalendar{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetCalculationType()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetCalculationTypeResponse{Result: handle}, nil
+}
+
+func (s *IslamicCalendarServer) GetType(_ context.Context, req *pb.GetTypeRequest) (*pb.GetTypeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.IslamicCalendar{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetType()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetTypeResponse{Result: result}, nil
+}
+
+func (s *IslamicCalendarServer) InTemporalLeapYear(_ context.Context, req *pb.IslamicCalendarInTemporalLeapYearRequest) (*pb.InTemporalLeapYearResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.IslamicCalendar{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.InTemporalLeapYear()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.InTemporalLeapYearResponse{Result: result}, nil
+}
+
+func (s *IslamicCalendarServer) SetCalculationType(_ context.Context, req *pb.SetCalculationTypeRequest) (*pb.SetCalculationTypeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.IslamicCalendar{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetCalculationType(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetCalculationTypeResponse{}, nil
 }
 
 // MeasureServer implements pb.MeasureServiceServer.
@@ -469,7 +723,7 @@ func (s *MeasureServer) NewMeasure(_ context.Context, req *pb.NewMeasureRequest)
 	return &pb.NewMeasureResponse{Result: handle}, nil
 }
 
-func (s *MeasureServer) Equals(_ context.Context, req *pb.EqualsRequest) (*pb.EqualsResponse, error) {
+func (s *MeasureServer) Equals(_ context.Context, req *pb.MeasureEqualsRequest) (*pb.EqualsResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -529,7 +783,7 @@ func (s *MeasureServer) GetUnit(_ context.Context, req *pb.GetUnitRequest) (*pb.
 	return &pb.GetUnitResponse{Result: handle}, nil
 }
 
-func (s *MeasureServer) HashCode(_ context.Context, req *pb.HashCodeRequest) (*pb.HashCodeResponse, error) {
+func (s *MeasureServer) HashCode(_ context.Context, req *pb.MeasureHashCodeRequest) (*pb.HashCodeResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -543,7 +797,7 @@ func (s *MeasureServer) HashCode(_ context.Context, req *pb.HashCodeRequest) (*p
 	return &pb.HashCodeResponse{Result: result}, nil
 }
 
-func (s *MeasureServer) ToString(_ context.Context, req *pb.MeasureToStringRequest) (*pb.ToStringResponse, error) {
+func (s *MeasureServer) ToString(_ context.Context, req *pb.ToStringRequest) (*pb.ToStringResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -557,15 +811,15 @@ func (s *MeasureServer) ToString(_ context.Context, req *pb.MeasureToStringReque
 	return &pb.ToStringResponse{Result: result}, nil
 }
 
-// ChineseCalendarServer implements pb.ChineseCalendarServiceServer.
-type ChineseCalendarServer struct {
-	pb.UnimplementedChineseCalendarServiceServer
+// GregorianCalendarServer implements pb.GregorianCalendarServiceServer.
+type GregorianCalendarServer struct {
+	pb.UnimplementedGregorianCalendarServiceServer
 	Ctx     *app.Context
 	Handles *handlestore.HandleStore
 }
 
-func (s *ChineseCalendarServer) NewChineseCalendar(_ context.Context, req *pb.NewChineseCalendarRequest) (*pb.NewChineseCalendarResponse, error) {
-	obj, err := jnipkg.NewChineseCalendar(s.Ctx.VM)
+func (s *GregorianCalendarServer) NewGregorianCalendar(_ context.Context, req *pb.NewGregorianCalendarRequest) (*pb.NewGregorianCalendarResponse, error) {
+	obj, err := jnipkg.NewGregorianCalendar(s.Ctx.VM)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create object: %v", err)
 	}
@@ -576,42 +830,66 @@ func (s *ChineseCalendarServer) NewChineseCalendar(_ context.Context, req *pb.Ne
 	}); doErr != nil {
 		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
 	}
-	return &pb.NewChineseCalendarResponse{Result: handle}, nil
+	return &pb.NewGregorianCalendarResponse{Result: handle}, nil
 }
 
-func (s *ChineseCalendarServer) Add(_ context.Context, req *pb.AddRequest) (*pb.AddResponse, error) {
+func (s *GregorianCalendarServer) GetActualMaximum(_ context.Context, req *pb.GregorianCalendarGetActualMaximumRequest) (*pb.GetActualMaximumResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.ChineseCalendar{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.GregorianCalendar{VM: s.Ctx.VM, Obj: rawObj}
 
-	if err := mgr.Add(req.GetArg0(), req.GetArg1()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.AddResponse{}, nil
-}
-
-func (s *ChineseCalendarServer) GetTemporalMonthCode(_ context.Context, req *pb.GetTemporalMonthCodeRequest) (*pb.GetTemporalMonthCodeResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.ChineseCalendar{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetTemporalMonthCode()
+	result, err := mgr.GetActualMaximum(req.GetArg0())
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.GetTemporalMonthCodeResponse{Result: result}, nil
+	return &pb.GetActualMaximumResponse{Result: result}, nil
 }
 
-func (s *ChineseCalendarServer) GetType(_ context.Context, req *pb.GetTypeRequest) (*pb.GetTypeResponse, error) {
+func (s *GregorianCalendarServer) GetActualMinimum(_ context.Context, req *pb.GregorianCalendarGetActualMinimumRequest) (*pb.GetActualMinimumResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.ChineseCalendar{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.GregorianCalendar{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetActualMinimum(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetActualMinimumResponse{Result: result}, nil
+}
+
+func (s *GregorianCalendarServer) GetGregorianChange(_ context.Context, req *pb.GetGregorianChangeRequest) (*pb.GetGregorianChangeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GregorianCalendar{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetGregorianChange()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetGregorianChangeResponse{Result: handle}, nil
+}
+
+func (s *GregorianCalendarServer) GetType(_ context.Context, req *pb.GetTypeRequest) (*pb.GetTypeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GregorianCalendar{VM: s.Ctx.VM, Obj: rawObj}
 
 	result, err := mgr.GetType()
 	if err != nil {
@@ -620,26 +898,54 @@ func (s *ChineseCalendarServer) GetType(_ context.Context, req *pb.GetTypeReques
 	return &pb.GetTypeResponse{Result: result}, nil
 }
 
-func (s *ChineseCalendarServer) InTemporalLeapYear(_ context.Context, req *pb.InTemporalLeapYearRequest) (*pb.InTemporalLeapYearResponse, error) {
+func (s *GregorianCalendarServer) HashCode(_ context.Context, req *pb.GregorianCalendarHashCodeRequest) (*pb.HashCodeResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.ChineseCalendar{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.GregorianCalendar{VM: s.Ctx.VM, Obj: rawObj}
 
-	result, err := mgr.InTemporalLeapYear()
+	result, err := mgr.HashCode()
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.InTemporalLeapYearResponse{Result: result}, nil
+	return &pb.HashCodeResponse{Result: result}, nil
 }
 
-func (s *ChineseCalendarServer) Roll(_ context.Context, req *pb.RollRequest) (*pb.RollResponse, error) {
+func (s *GregorianCalendarServer) IsEquivalentTo(_ context.Context, req *pb.GregorianCalendarIsEquivalentToRequest) (*pb.IsEquivalentToResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.ChineseCalendar{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.GregorianCalendar{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.IsEquivalentTo(s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.IsEquivalentToResponse{Result: result}, nil
+}
+
+func (s *GregorianCalendarServer) IsLeapYear(_ context.Context, req *pb.IsLeapYearRequest) (*pb.IsLeapYearResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GregorianCalendar{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.IsLeapYear(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.IsLeapYearResponse{Result: result}, nil
+}
+
+func (s *GregorianCalendarServer) Roll(_ context.Context, req *pb.RollRequest) (*pb.RollResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GregorianCalendar{VM: s.Ctx.VM, Obj: rawObj}
 
 	if err := mgr.Roll(req.GetArg0(), req.GetArg1()); err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
@@ -647,17 +953,17 @@ func (s *ChineseCalendarServer) Roll(_ context.Context, req *pb.RollRequest) (*p
 	return &pb.RollResponse{}, nil
 }
 
-func (s *ChineseCalendarServer) SetTemporalMonthCode(_ context.Context, req *pb.SetTemporalMonthCodeRequest) (*pb.SetTemporalMonthCodeResponse, error) {
+func (s *GregorianCalendarServer) SetGregorianChange(_ context.Context, req *pb.SetGregorianChangeRequest) (*pb.SetGregorianChangeResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.ChineseCalendar{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.GregorianCalendar{VM: s.Ctx.VM, Obj: rawObj}
 
-	if err := mgr.SetTemporalMonthCode(req.GetArg0()); err != nil {
+	if err := mgr.SetGregorianChange(s.Handles.Get(req.GetArg0())); err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.SetTemporalMonthCodeResponse{}, nil
+	return &pb.SetGregorianChangeResponse{}, nil
 }
 
 // ULocaleServer implements pb.ULocaleServiceServer.
@@ -705,7 +1011,7 @@ func (s *ULocaleServer) Clone(_ context.Context, req *pb.ULocaleCloneRequest) (*
 	return &pb.CloneResponse{Result: handle}, nil
 }
 
-func (s *ULocaleServer) CompareTo1(_ context.Context, req *pb.CompareTo1Request) (*pb.CompareTo1Response, error) {
+func (s *ULocaleServer) CompareTo1(_ context.Context, req *pb.ULocaleCompareTo1Request) (*pb.CompareTo1Response, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -719,7 +1025,7 @@ func (s *ULocaleServer) CompareTo1(_ context.Context, req *pb.CompareTo1Request)
 	return &pb.CompareTo1Response{Result: result}, nil
 }
 
-func (s *ULocaleServer) Equals(_ context.Context, req *pb.EqualsRequest) (*pb.EqualsResponse, error) {
+func (s *ULocaleServer) Equals(_ context.Context, req *pb.ULocaleEqualsRequest) (*pb.EqualsResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -1013,6 +1319,29 @@ func (s *ULocaleServer) GetExtension(_ context.Context, req *pb.GetExtensionRequ
 	return &pb.GetExtensionResponse{Result: result}, nil
 }
 
+func (s *ULocaleServer) GetExtensionKeys(_ context.Context, req *pb.GetExtensionKeysRequest) (*pb.GetExtensionKeysResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ULocale{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetExtensionKeys()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetExtensionKeysResponse{Result: handle}, nil
+}
+
 func (s *ULocaleServer) GetFallback0(_ context.Context, req *pb.GetFallback0Request) (*pb.GetFallback0Response, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
@@ -1078,6 +1407,29 @@ func (s *ULocaleServer) GetKeywordValue1(_ context.Context, req *pb.GetKeywordVa
 	return &pb.GetKeywordValue1Response{Result: result}, nil
 }
 
+func (s *ULocaleServer) GetKeywords0(_ context.Context, req *pb.GetKeywords0Request) (*pb.GetKeywords0Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ULocale{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetKeywords0()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetKeywords0Response{Result: handle}, nil
+}
+
 func (s *ULocaleServer) GetLanguage0(_ context.Context, req *pb.GetLanguage0Request) (*pb.GetLanguage0Response, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
@@ -1134,6 +1486,52 @@ func (s *ULocaleServer) GetScript0(_ context.Context, req *pb.GetScript0Request)
 	return &pb.GetScript0Response{Result: result}, nil
 }
 
+func (s *ULocaleServer) GetUnicodeLocaleAttributes(_ context.Context, req *pb.GetUnicodeLocaleAttributesRequest) (*pb.GetUnicodeLocaleAttributesResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ULocale{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetUnicodeLocaleAttributes()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetUnicodeLocaleAttributesResponse{Result: handle}, nil
+}
+
+func (s *ULocaleServer) GetUnicodeLocaleKeys(_ context.Context, req *pb.GetUnicodeLocaleKeysRequest) (*pb.GetUnicodeLocaleKeysResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ULocale{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetUnicodeLocaleKeys()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetUnicodeLocaleKeysResponse{Result: handle}, nil
+}
+
 func (s *ULocaleServer) GetUnicodeLocaleType(_ context.Context, req *pb.GetUnicodeLocaleTypeRequest) (*pb.GetUnicodeLocaleTypeResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
@@ -1162,7 +1560,7 @@ func (s *ULocaleServer) GetVariant0(_ context.Context, req *pb.GetVariant0Reques
 	return &pb.GetVariant0Response{Result: result}, nil
 }
 
-func (s *ULocaleServer) HashCode(_ context.Context, req *pb.HashCodeRequest) (*pb.HashCodeResponse, error) {
+func (s *ULocaleServer) HashCode(_ context.Context, req *pb.ULocaleHashCodeRequest) (*pb.HashCodeResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -1250,7 +1648,7 @@ func (s *ULocaleServer) ToLocale(_ context.Context, req *pb.ToLocaleRequest) (*p
 	return &pb.ToLocaleResponse{Result: handle}, nil
 }
 
-func (s *ULocaleServer) ToString(_ context.Context, req *pb.ULocaleToStringRequest) (*pb.ToStringResponse, error) {
+func (s *ULocaleServer) ToString(_ context.Context, req *pb.ToStringRequest) (*pb.ToStringResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -1264,7 +1662,7 @@ func (s *ULocaleServer) ToString(_ context.Context, req *pb.ULocaleToStringReque
 	return &pb.ToStringResponse{Result: result}, nil
 }
 
-func (s *ULocaleServer) CompareTo1_1(_ context.Context, req *pb.CompareTo1_1Request) (*pb.CompareTo1_1Response, error) {
+func (s *ULocaleServer) CompareTo1_1(_ context.Context, req *pb.ULocaleCompareTo1_1Request) (*pb.CompareTo1_1Response, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -1520,6 +1918,29 @@ func (s *ULocaleServer) GetAvailableLocales(_ context.Context, req *pb.ULocaleGe
 		}
 	}
 	return &pb.GetAvailableLocalesResponse{Result: handle}, nil
+}
+
+func (s *ULocaleServer) GetAvailableLocalesByType(_ context.Context, req *pb.GetAvailableLocalesByTypeRequest) (*pb.GetAvailableLocalesByTypeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ULocale{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetAvailableLocalesByType(s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetAvailableLocalesByTypeResponse{Result: handle}, nil
 }
 
 func (s *ULocaleServer) GetBaseName1_1(_ context.Context, req *pb.GetBaseName1_1Request) (*pb.GetBaseName1_1Response, error) {
@@ -1964,6 +2385,29 @@ func (s *ULocaleServer) GetKeywordValue2_1(_ context.Context, req *pb.GetKeyword
 	return &pb.GetKeywordValue2_1Response{Result: result}, nil
 }
 
+func (s *ULocaleServer) GetKeywords1_1(_ context.Context, req *pb.GetKeywords1_1Request) (*pb.GetKeywords1_1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ULocale{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetKeywords1_1(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetKeywords1_1Response{Result: handle}, nil
+}
+
 func (s *ULocaleServer) GetLanguage1_1(_ context.Context, req *pb.GetLanguage1_1Request) (*pb.GetLanguage1_1Response, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
@@ -2113,42 +2557,6 @@ func (s *ULocaleServer) ToUnicodeLocaleType(_ context.Context, req *pb.ToUnicode
 	return &pb.ToUnicodeLocaleTypeResponse{Result: result}, nil
 }
 
-// OutputServer implements pb.OutputServiceServer.
-type OutputServer struct {
-	pb.UnimplementedOutputServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *OutputServer) NewOutput(_ context.Context, req *pb.NewOutputRequest) (*pb.NewOutputResponse, error) {
-	obj, err := jnipkg.NewOutput(s.Ctx.VM)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
-	}
-	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-	}
-	return &pb.NewOutputResponse{Result: handle}, nil
-}
-
-func (s *OutputServer) ToString(_ context.Context, req *pb.OutputToStringRequest) (*pb.ToStringResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Output{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.ToString()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.ToStringResponse{Result: result}, nil
-}
-
 // DateIntervalServer implements pb.DateIntervalServiceServer.
 type DateIntervalServer struct {
 	pb.UnimplementedDateIntervalServiceServer
@@ -2171,7 +2579,7 @@ func (s *DateIntervalServer) NewDateInterval(_ context.Context, req *pb.NewDateI
 	return &pb.NewDateIntervalResponse{Result: handle}, nil
 }
 
-func (s *DateIntervalServer) Equals(_ context.Context, req *pb.EqualsRequest) (*pb.EqualsResponse, error) {
+func (s *DateIntervalServer) Equals(_ context.Context, req *pb.DateIntervalEqualsRequest) (*pb.EqualsResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -2213,7 +2621,7 @@ func (s *DateIntervalServer) GetToDate(_ context.Context, req *pb.GetToDateReque
 	return &pb.GetToDateResponse{Result: result}, nil
 }
 
-func (s *DateIntervalServer) HashCode(_ context.Context, req *pb.HashCodeRequest) (*pb.HashCodeResponse, error) {
+func (s *DateIntervalServer) HashCode(_ context.Context, req *pb.DateIntervalHashCodeRequest) (*pb.HashCodeResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -2227,7 +2635,7 @@ func (s *DateIntervalServer) HashCode(_ context.Context, req *pb.HashCodeRequest
 	return &pb.HashCodeResponse{Result: result}, nil
 }
 
-func (s *DateIntervalServer) ToString(_ context.Context, req *pb.DateIntervalToStringRequest) (*pb.ToStringResponse, error) {
+func (s *DateIntervalServer) ToString(_ context.Context, req *pb.ToStringRequest) (*pb.ToStringResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -2241,15 +2649,15 @@ func (s *DateIntervalServer) ToString(_ context.Context, req *pb.DateIntervalToS
 	return &pb.ToStringResponse{Result: result}, nil
 }
 
-// IndianCalendarServer implements pb.IndianCalendarServiceServer.
-type IndianCalendarServer struct {
-	pb.UnimplementedIndianCalendarServiceServer
+// TaiwanCalendarServer implements pb.TaiwanCalendarServiceServer.
+type TaiwanCalendarServer struct {
+	pb.UnimplementedTaiwanCalendarServiceServer
 	Ctx     *app.Context
 	Handles *handlestore.HandleStore
 }
 
-func (s *IndianCalendarServer) NewIndianCalendar(_ context.Context, req *pb.NewIndianCalendarRequest) (*pb.NewIndianCalendarResponse, error) {
-	obj, err := jnipkg.NewIndianCalendar(s.Ctx.VM)
+func (s *TaiwanCalendarServer) NewTaiwanCalendar(_ context.Context, req *pb.NewTaiwanCalendarRequest) (*pb.NewTaiwanCalendarResponse, error) {
+	obj, err := jnipkg.NewTaiwanCalendar(s.Ctx.VM)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create object: %v", err)
 	}
@@ -2260,291 +2668,21 @@ func (s *IndianCalendarServer) NewIndianCalendar(_ context.Context, req *pb.NewI
 	}); doErr != nil {
 		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
 	}
-	return &pb.NewIndianCalendarResponse{Result: handle}, nil
+	return &pb.NewTaiwanCalendarResponse{Result: handle}, nil
 }
 
-func (s *IndianCalendarServer) GetType(_ context.Context, req *pb.GetTypeRequest) (*pb.GetTypeResponse, error) {
+func (s *TaiwanCalendarServer) GetType(_ context.Context, req *pb.GetTypeRequest) (*pb.GetTypeResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.IndianCalendar{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.TaiwanCalendar{VM: s.Ctx.VM, Obj: rawObj}
 
 	result, err := mgr.GetType()
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
 	return &pb.GetTypeResponse{Result: result}, nil
-}
-
-// CurrencyAmountServer implements pb.CurrencyAmountServiceServer.
-type CurrencyAmountServer struct {
-	pb.UnimplementedCurrencyAmountServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *CurrencyAmountServer) NewCurrencyAmount(_ context.Context, req *pb.NewCurrencyAmountRequest) (*pb.NewCurrencyAmountResponse, error) {
-	obj, err := jnipkg.NewCurrencyAmount(s.Ctx.VM, req.GetArg0(), s.Handles.Get(req.GetArg1()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
-	}
-	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-	}
-	return &pb.NewCurrencyAmountResponse{Result: handle}, nil
-}
-
-func (s *CurrencyAmountServer) GetCurrency(_ context.Context, req *pb.GetCurrencyRequest) (*pb.GetCurrencyResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.CurrencyAmount{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetCurrency()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetCurrencyResponse{Result: handle}, nil
-}
-
-// HebrewCalendarServer implements pb.HebrewCalendarServiceServer.
-type HebrewCalendarServer struct {
-	pb.UnimplementedHebrewCalendarServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *HebrewCalendarServer) NewHebrewCalendar(_ context.Context, req *pb.NewHebrewCalendarRequest) (*pb.NewHebrewCalendarResponse, error) {
-	obj, err := jnipkg.NewHebrewCalendar(s.Ctx.VM)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
-	}
-	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-	}
-	return &pb.NewHebrewCalendarResponse{Result: handle}, nil
-}
-
-func (s *HebrewCalendarServer) Add(_ context.Context, req *pb.AddRequest) (*pb.AddResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.HebrewCalendar{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.Add(req.GetArg0(), req.GetArg1()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.AddResponse{}, nil
-}
-
-func (s *HebrewCalendarServer) GetTemporalMonthCode(_ context.Context, req *pb.GetTemporalMonthCodeRequest) (*pb.GetTemporalMonthCodeResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.HebrewCalendar{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetTemporalMonthCode()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetTemporalMonthCodeResponse{Result: result}, nil
-}
-
-func (s *HebrewCalendarServer) GetType(_ context.Context, req *pb.GetTypeRequest) (*pb.GetTypeResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.HebrewCalendar{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetType()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetTypeResponse{Result: result}, nil
-}
-
-func (s *HebrewCalendarServer) InTemporalLeapYear(_ context.Context, req *pb.InTemporalLeapYearRequest) (*pb.InTemporalLeapYearResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.HebrewCalendar{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.InTemporalLeapYear()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.InTemporalLeapYearResponse{Result: result}, nil
-}
-
-func (s *HebrewCalendarServer) Roll(_ context.Context, req *pb.RollRequest) (*pb.RollResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.HebrewCalendar{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.Roll(req.GetArg0(), req.GetArg1()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.RollResponse{}, nil
-}
-
-func (s *HebrewCalendarServer) SetTemporalMonthCode(_ context.Context, req *pb.SetTemporalMonthCodeRequest) (*pb.SetTemporalMonthCodeResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.HebrewCalendar{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.SetTemporalMonthCode(req.GetArg0()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SetTemporalMonthCodeResponse{}, nil
-}
-
-// BuddhistCalendarServer implements pb.BuddhistCalendarServiceServer.
-type BuddhistCalendarServer struct {
-	pb.UnimplementedBuddhistCalendarServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *BuddhistCalendarServer) NewBuddhistCalendar(_ context.Context, req *pb.NewBuddhistCalendarRequest) (*pb.NewBuddhistCalendarResponse, error) {
-	obj, err := jnipkg.NewBuddhistCalendar(s.Ctx.VM)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
-	}
-	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-	}
-	return &pb.NewBuddhistCalendarResponse{Result: handle}, nil
-}
-
-func (s *BuddhistCalendarServer) GetType(_ context.Context, req *pb.GetTypeRequest) (*pb.GetTypeResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.BuddhistCalendar{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetType()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetTypeResponse{Result: result}, nil
-}
-
-// IslamicCalendarServer implements pb.IslamicCalendarServiceServer.
-type IslamicCalendarServer struct {
-	pb.UnimplementedIslamicCalendarServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *IslamicCalendarServer) NewIslamicCalendar(_ context.Context, req *pb.NewIslamicCalendarRequest) (*pb.NewIslamicCalendarResponse, error) {
-	obj, err := jnipkg.NewIslamicCalendar(s.Ctx.VM)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
-	}
-	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-	}
-	return &pb.NewIslamicCalendarResponse{Result: handle}, nil
-}
-
-func (s *IslamicCalendarServer) GetCalculationType(_ context.Context, req *pb.GetCalculationTypeRequest) (*pb.GetCalculationTypeResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.IslamicCalendar{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetCalculationType()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetCalculationTypeResponse{Result: handle}, nil
-}
-
-func (s *IslamicCalendarServer) GetType(_ context.Context, req *pb.GetTypeRequest) (*pb.GetTypeResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.IslamicCalendar{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetType()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetTypeResponse{Result: result}, nil
-}
-
-func (s *IslamicCalendarServer) InTemporalLeapYear(_ context.Context, req *pb.InTemporalLeapYearRequest) (*pb.InTemporalLeapYearResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.IslamicCalendar{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.InTemporalLeapYear()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.InTemporalLeapYearResponse{Result: result}, nil
-}
-
-func (s *IslamicCalendarServer) SetCalculationType(_ context.Context, req *pb.SetCalculationTypeRequest) (*pb.SetCalculationTypeResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.IslamicCalendar{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.SetCalculationType(s.Handles.Get(req.GetArg0())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SetCalculationTypeResponse{}, nil
 }
 
 // LinkifyServer implements pb.LinkifyServiceServer.
@@ -2700,7 +2838,7 @@ func (s *Rfc822TokenServer) NewRfc822Token(_ context.Context, req *pb.NewRfc822T
 	return &pb.NewRfc822TokenResponse{Result: handle}, nil
 }
 
-func (s *Rfc822TokenServer) Equals(_ context.Context, req *pb.EqualsRequest) (*pb.EqualsResponse, error) {
+func (s *Rfc822TokenServer) Equals(_ context.Context, req *pb.Rfc822TokenEqualsRequest) (*pb.EqualsResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -2756,7 +2894,7 @@ func (s *Rfc822TokenServer) GetName(_ context.Context, req *pb.GetNameRequest) (
 	return &pb.GetNameResponse{Result: result}, nil
 }
 
-func (s *Rfc822TokenServer) HashCode(_ context.Context, req *pb.HashCodeRequest) (*pb.HashCodeResponse, error) {
+func (s *Rfc822TokenServer) HashCode(_ context.Context, req *pb.Rfc822TokenHashCodeRequest) (*pb.HashCodeResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -2809,7 +2947,7 @@ func (s *Rfc822TokenServer) SetName(_ context.Context, req *pb.SetNameRequest) (
 	return &pb.SetNameResponse{}, nil
 }
 
-func (s *Rfc822TokenServer) ToString(_ context.Context, req *pb.Rfc822TokenToStringRequest) (*pb.ToStringResponse, error) {
+func (s *Rfc822TokenServer) ToString(_ context.Context, req *pb.ToStringRequest) (*pb.ToStringResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -2961,15 +3099,15 @@ func (s *Rfc822TokenizerServer) Tokenize(_ context.Context, req *pb.TokenizeRequ
 	return &pb.TokenizeResponse{Result: handle}, nil
 }
 
-// SparseIntArrayServer implements pb.SparseIntArrayServiceServer.
-type SparseIntArrayServer struct {
-	pb.UnimplementedSparseIntArrayServiceServer
+// SparseBooleanArrayServer implements pb.SparseBooleanArrayServiceServer.
+type SparseBooleanArrayServer struct {
+	pb.UnimplementedSparseBooleanArrayServiceServer
 	Ctx     *app.Context
 	Handles *handlestore.HandleStore
 }
 
-func (s *SparseIntArrayServer) NewSparseIntArray(_ context.Context, req *pb.NewSparseIntArrayRequest) (*pb.NewSparseIntArrayResponse, error) {
-	obj, err := jnipkg3.NewSparseIntArray(s.Ctx.VM)
+func (s *SparseBooleanArrayServer) NewSparseBooleanArray(_ context.Context, req *pb.NewSparseBooleanArrayRequest) (*pb.NewSparseBooleanArrayResponse, error) {
+	obj, err := jnipkg3.NewSparseBooleanArray(s.Ctx.VM)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create object: %v", err)
 	}
@@ -2980,15 +3118,15 @@ func (s *SparseIntArrayServer) NewSparseIntArray(_ context.Context, req *pb.NewS
 	}); doErr != nil {
 		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
 	}
-	return &pb.NewSparseIntArrayResponse{Result: handle}, nil
+	return &pb.NewSparseBooleanArrayResponse{Result: handle}, nil
 }
 
-func (s *SparseIntArrayServer) Append(_ context.Context, req *pb.AppendRequest) (*pb.AppendResponse, error) {
+func (s *SparseBooleanArrayServer) Append(_ context.Context, req *pb.AppendRequest) (*pb.AppendResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg3.SparseIntArray{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg3.SparseBooleanArray{VM: s.Ctx.VM, Obj: rawObj}
 
 	if err := mgr.Append(req.GetArg0(), req.GetArg1()); err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
@@ -2996,25 +3134,25 @@ func (s *SparseIntArrayServer) Append(_ context.Context, req *pb.AppendRequest) 
 	return &pb.AppendResponse{}, nil
 }
 
-func (s *SparseIntArrayServer) Clear(_ context.Context, req *pb.SparseIntArrayClearRequest) (*pb.SparseIntArrayClearResponse, error) {
+func (s *SparseBooleanArrayServer) Clear(_ context.Context, req *pb.SparseBooleanArrayClearRequest) (*pb.SparseBooleanArrayClearResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg3.SparseIntArray{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg3.SparseBooleanArray{VM: s.Ctx.VM, Obj: rawObj}
 
 	if err := mgr.Clear(); err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.SparseIntArrayClearResponse{}, nil
+	return &pb.SparseBooleanArrayClearResponse{}, nil
 }
 
-func (s *SparseIntArrayServer) Clone0(_ context.Context, req *pb.Clone0Request) (*pb.Clone0Response, error) {
+func (s *SparseBooleanArrayServer) Clone0(_ context.Context, req *pb.Clone0Request) (*pb.Clone0Response, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg3.SparseIntArray{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg3.SparseBooleanArray{VM: s.Ctx.VM, Obj: rawObj}
 
 	result, err := mgr.Clone0()
 	if err != nil {
@@ -3032,12 +3170,12 @@ func (s *SparseIntArrayServer) Clone0(_ context.Context, req *pb.Clone0Request) 
 	return &pb.Clone0Response{Result: handle}, nil
 }
 
-func (s *SparseIntArrayServer) Delete(_ context.Context, req *pb.DeleteRequest) (*pb.DeleteResponse, error) {
+func (s *SparseBooleanArrayServer) Delete(_ context.Context, req *pb.DeleteRequest) (*pb.DeleteResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg3.SparseIntArray{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg3.SparseBooleanArray{VM: s.Ctx.VM, Obj: rawObj}
 
 	if err := mgr.Delete(req.GetArg0()); err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
@@ -3045,12 +3183,26 @@ func (s *SparseIntArrayServer) Delete(_ context.Context, req *pb.DeleteRequest) 
 	return &pb.DeleteResponse{}, nil
 }
 
-func (s *SparseIntArrayServer) Get1(_ context.Context, req *pb.Get1Request) (*pb.Get1Response, error) {
+func (s *SparseBooleanArrayServer) Equals(_ context.Context, req *pb.SparseBooleanArrayEqualsRequest) (*pb.EqualsResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg3.SparseIntArray{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg3.SparseBooleanArray{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.Equals(s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.EqualsResponse{Result: result}, nil
+}
+
+func (s *SparseBooleanArrayServer) Get1(_ context.Context, req *pb.Get1Request) (*pb.Get1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg3.SparseBooleanArray{VM: s.Ctx.VM, Obj: rawObj}
 
 	result, err := mgr.Get1(req.GetArg0())
 	if err != nil {
@@ -3059,12 +3211,12 @@ func (s *SparseIntArrayServer) Get1(_ context.Context, req *pb.Get1Request) (*pb
 	return &pb.Get1Response{Result: result}, nil
 }
 
-func (s *SparseIntArrayServer) Get2_1(_ context.Context, req *pb.Get2_1Request) (*pb.Get2_1Response, error) {
+func (s *SparseBooleanArrayServer) Get2_1(_ context.Context, req *pb.Get2_1Request) (*pb.Get2_1Response, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg3.SparseIntArray{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg3.SparseBooleanArray{VM: s.Ctx.VM, Obj: rawObj}
 
 	result, err := mgr.Get2_1(req.GetArg0(), req.GetArg1())
 	if err != nil {
@@ -3073,12 +3225,26 @@ func (s *SparseIntArrayServer) Get2_1(_ context.Context, req *pb.Get2_1Request) 
 	return &pb.Get2_1Response{Result: result}, nil
 }
 
-func (s *SparseIntArrayServer) IndexOfKey(_ context.Context, req *pb.IndexOfKeyRequest) (*pb.IndexOfKeyResponse, error) {
+func (s *SparseBooleanArrayServer) HashCode(_ context.Context, req *pb.SparseBooleanArrayHashCodeRequest) (*pb.HashCodeResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg3.SparseIntArray{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg3.SparseBooleanArray{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.HashCode()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.HashCodeResponse{Result: result}, nil
+}
+
+func (s *SparseBooleanArrayServer) IndexOfKey(_ context.Context, req *pb.IndexOfKeyRequest) (*pb.IndexOfKeyResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg3.SparseBooleanArray{VM: s.Ctx.VM, Obj: rawObj}
 
 	result, err := mgr.IndexOfKey(req.GetArg0())
 	if err != nil {
@@ -3087,12 +3253,12 @@ func (s *SparseIntArrayServer) IndexOfKey(_ context.Context, req *pb.IndexOfKeyR
 	return &pb.IndexOfKeyResponse{Result: result}, nil
 }
 
-func (s *SparseIntArrayServer) IndexOfValue(_ context.Context, req *pb.IndexOfValueRequest) (*pb.IndexOfValueResponse, error) {
+func (s *SparseBooleanArrayServer) IndexOfValue(_ context.Context, req *pb.IndexOfValueRequest) (*pb.IndexOfValueResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg3.SparseIntArray{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg3.SparseBooleanArray{VM: s.Ctx.VM, Obj: rawObj}
 
 	result, err := mgr.IndexOfValue(req.GetArg0())
 	if err != nil {
@@ -3101,12 +3267,12 @@ func (s *SparseIntArrayServer) IndexOfValue(_ context.Context, req *pb.IndexOfVa
 	return &pb.IndexOfValueResponse{Result: result}, nil
 }
 
-func (s *SparseIntArrayServer) KeyAt(_ context.Context, req *pb.KeyAtRequest) (*pb.KeyAtResponse, error) {
+func (s *SparseBooleanArrayServer) KeyAt(_ context.Context, req *pb.KeyAtRequest) (*pb.KeyAtResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg3.SparseIntArray{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg3.SparseBooleanArray{VM: s.Ctx.VM, Obj: rawObj}
 
 	result, err := mgr.KeyAt(req.GetArg0())
 	if err != nil {
@@ -3115,12 +3281,12 @@ func (s *SparseIntArrayServer) KeyAt(_ context.Context, req *pb.KeyAtRequest) (*
 	return &pb.KeyAtResponse{Result: result}, nil
 }
 
-func (s *SparseIntArrayServer) Put(_ context.Context, req *pb.PutRequest) (*pb.PutResponse, error) {
+func (s *SparseBooleanArrayServer) Put(_ context.Context, req *pb.PutRequest) (*pb.PutResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg3.SparseIntArray{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg3.SparseBooleanArray{VM: s.Ctx.VM, Obj: rawObj}
 
 	if err := mgr.Put(req.GetArg0(), req.GetArg1()); err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
@@ -3128,12 +3294,12 @@ func (s *SparseIntArrayServer) Put(_ context.Context, req *pb.PutRequest) (*pb.P
 	return &pb.PutResponse{}, nil
 }
 
-func (s *SparseIntArrayServer) RemoveAt(_ context.Context, req *pb.RemoveAtRequest) (*pb.RemoveAtResponse, error) {
+func (s *SparseBooleanArrayServer) RemoveAt(_ context.Context, req *pb.RemoveAtRequest) (*pb.RemoveAtResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg3.SparseIntArray{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg3.SparseBooleanArray{VM: s.Ctx.VM, Obj: rawObj}
 
 	if err := mgr.RemoveAt(req.GetArg0()); err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
@@ -3141,12 +3307,12 @@ func (s *SparseIntArrayServer) RemoveAt(_ context.Context, req *pb.RemoveAtReque
 	return &pb.RemoveAtResponse{}, nil
 }
 
-func (s *SparseIntArrayServer) SetValueAt(_ context.Context, req *pb.SetValueAtRequest) (*pb.SetValueAtResponse, error) {
+func (s *SparseBooleanArrayServer) SetValueAt(_ context.Context, req *pb.SetValueAtRequest) (*pb.SetValueAtResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg3.SparseIntArray{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg3.SparseBooleanArray{VM: s.Ctx.VM, Obj: rawObj}
 
 	if err := mgr.SetValueAt(req.GetArg0(), req.GetArg1()); err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
@@ -3154,12 +3320,12 @@ func (s *SparseIntArrayServer) SetValueAt(_ context.Context, req *pb.SetValueAtR
 	return &pb.SetValueAtResponse{}, nil
 }
 
-func (s *SparseIntArrayServer) Size(_ context.Context, req *pb.SizeRequest) (*pb.SizeResponse, error) {
+func (s *SparseBooleanArrayServer) Size(_ context.Context, req *pb.SizeRequest) (*pb.SizeResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg3.SparseIntArray{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg3.SparseBooleanArray{VM: s.Ctx.VM, Obj: rawObj}
 
 	result, err := mgr.Size()
 	if err != nil {
@@ -3168,12 +3334,12 @@ func (s *SparseIntArrayServer) Size(_ context.Context, req *pb.SizeRequest) (*pb
 	return &pb.SizeResponse{Result: result}, nil
 }
 
-func (s *SparseIntArrayServer) ToString(_ context.Context, req *pb.SparseIntArrayToStringRequest) (*pb.ToStringResponse, error) {
+func (s *SparseBooleanArrayServer) ToString(_ context.Context, req *pb.ToStringRequest) (*pb.ToStringResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg3.SparseIntArray{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg3.SparseBooleanArray{VM: s.Ctx.VM, Obj: rawObj}
 
 	result, err := mgr.ToString()
 	if err != nil {
@@ -3182,12 +3348,12 @@ func (s *SparseIntArrayServer) ToString(_ context.Context, req *pb.SparseIntArra
 	return &pb.ToStringResponse{Result: result}, nil
 }
 
-func (s *SparseIntArrayServer) ValueAt(_ context.Context, req *pb.ValueAtRequest) (*pb.ValueAtResponse, error) {
+func (s *SparseBooleanArrayServer) ValueAt(_ context.Context, req *pb.ValueAtRequest) (*pb.ValueAtResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg3.SparseIntArray{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg3.SparseBooleanArray{VM: s.Ctx.VM, Obj: rawObj}
 
 	result, err := mgr.ValueAt(req.GetArg0())
 	if err != nil {
@@ -3196,12 +3362,12 @@ func (s *SparseIntArrayServer) ValueAt(_ context.Context, req *pb.ValueAtRequest
 	return &pb.ValueAtResponse{Result: result}, nil
 }
 
-func (s *SparseIntArrayServer) Clone0_1(_ context.Context, req *pb.Clone0_1Request) (*pb.Clone0_1Response, error) {
+func (s *SparseBooleanArrayServer) Clone0_1(_ context.Context, req *pb.Clone0_1Request) (*pb.Clone0_1Response, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg3.SparseIntArray{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg3.SparseBooleanArray{VM: s.Ctx.VM, Obj: rawObj}
 
 	result, err := mgr.Clone0_1()
 	if err != nil {
@@ -3217,6 +3383,530 @@ func (s *SparseIntArrayServer) Clone0_1(_ context.Context, req *pb.Clone0_1Reque
 		}
 	}
 	return &pb.Clone0_1Response{Result: handle}, nil
+}
+
+// AtomicFileServer implements pb.AtomicFileServiceServer.
+type AtomicFileServer struct {
+	pb.UnimplementedAtomicFileServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *AtomicFileServer) NewAtomicFile(_ context.Context, req *pb.NewAtomicFileRequest) (*pb.NewAtomicFileResponse, error) {
+	obj, err := jnipkg3.NewAtomicFile(s.Ctx.VM, s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewAtomicFileResponse{Result: handle}, nil
+}
+
+func (s *AtomicFileServer) Delete(_ context.Context, req *pb.AtomicFileDeleteRequest) (*pb.DeleteResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg3.AtomicFile{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.Delete(); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.DeleteResponse{}, nil
+}
+
+func (s *AtomicFileServer) FailWrite(_ context.Context, req *pb.FailWriteRequest) (*pb.FailWriteResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg3.AtomicFile{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.FailWrite(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.FailWriteResponse{}, nil
+}
+
+func (s *AtomicFileServer) FinishWrite(_ context.Context, req *pb.FinishWriteRequest) (*pb.FinishWriteResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg3.AtomicFile{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.FinishWrite(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.FinishWriteResponse{}, nil
+}
+
+func (s *AtomicFileServer) GetBaseFile(_ context.Context, req *pb.GetBaseFileRequest) (*pb.GetBaseFileResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg3.AtomicFile{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetBaseFile()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetBaseFileResponse{Result: handle}, nil
+}
+
+func (s *AtomicFileServer) GetLastModifiedTime(_ context.Context, req *pb.GetLastModifiedTimeRequest) (*pb.GetLastModifiedTimeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg3.AtomicFile{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetLastModifiedTime()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetLastModifiedTimeResponse{Result: result}, nil
+}
+
+func (s *AtomicFileServer) OpenRead(_ context.Context, req *pb.OpenReadRequest) (*pb.OpenReadResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg3.AtomicFile{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.OpenRead()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.OpenReadResponse{Result: handle}, nil
+}
+
+func (s *AtomicFileServer) ReadFully(_ context.Context, req *pb.ReadFullyRequest) (*pb.ReadFullyResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg3.AtomicFile{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.ReadFully()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.ReadFullyResponse{Result: handle}, nil
+}
+
+func (s *AtomicFileServer) StartWrite(_ context.Context, req *pb.StartWriteRequest) (*pb.StartWriteResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg3.AtomicFile{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.StartWrite()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.StartWriteResponse{Result: handle}, nil
+}
+
+func (s *AtomicFileServer) ToString(_ context.Context, req *pb.ToStringRequest) (*pb.ToStringResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg3.AtomicFile{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.ToString()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ToStringResponse{Result: result}, nil
+}
+
+// TypedValueServer implements pb.TypedValueServiceServer.
+type TypedValueServer struct {
+	pb.UnimplementedTypedValueServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *TypedValueServer) NewTypedValue(_ context.Context, req *pb.NewTypedValueRequest) (*pb.NewTypedValueResponse, error) {
+	obj, err := jnipkg3.NewTypedValue(s.Ctx.VM)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewTypedValueResponse{Result: handle}, nil
+}
+
+func (s *TypedValueServer) CoerceToString0(_ context.Context, req *pb.CoerceToString0Request) (*pb.CoerceToString0Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg3.TypedValue{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.CoerceToString0()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.CoerceToString0Response{Result: handle}, nil
+}
+
+func (s *TypedValueServer) GetComplexUnit(_ context.Context, req *pb.GetComplexUnitRequest) (*pb.GetComplexUnitResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg3.TypedValue{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetComplexUnit()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetComplexUnitResponse{Result: result}, nil
+}
+
+func (s *TypedValueServer) GetDimension(_ context.Context, req *pb.GetDimensionRequest) (*pb.GetDimensionResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg3.TypedValue{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetDimension(s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetDimensionResponse{Result: result}, nil
+}
+
+func (s *TypedValueServer) GetFloat(_ context.Context, req *pb.GetFloatRequest) (*pb.GetFloatResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg3.TypedValue{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetFloat()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetFloatResponse{Result: result}, nil
+}
+
+func (s *TypedValueServer) GetFraction(_ context.Context, req *pb.GetFractionRequest) (*pb.GetFractionResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg3.TypedValue{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetFraction(req.GetArg0(), req.GetArg1())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetFractionResponse{Result: result}, nil
+}
+
+func (s *TypedValueServer) IsColorType(_ context.Context, req *pb.IsColorTypeRequest) (*pb.IsColorTypeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg3.TypedValue{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.IsColorType()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.IsColorTypeResponse{Result: result}, nil
+}
+
+func (s *TypedValueServer) SetTo(_ context.Context, req *pb.SetToRequest) (*pb.SetToResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg3.TypedValue{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetTo(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetToResponse{}, nil
+}
+
+func (s *TypedValueServer) ToString(_ context.Context, req *pb.ToStringRequest) (*pb.ToStringResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg3.TypedValue{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.ToString()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ToStringResponse{Result: result}, nil
+}
+
+func (s *TypedValueServer) ApplyDimension(_ context.Context, req *pb.ApplyDimensionRequest) (*pb.ApplyDimensionResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg3.TypedValue{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.ApplyDimension(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ApplyDimensionResponse{Result: result}, nil
+}
+
+func (s *TypedValueServer) CoerceToString2_1(_ context.Context, req *pb.CoerceToString2_1Request) (*pb.CoerceToString2_1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg3.TypedValue{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.CoerceToString2_1(req.GetArg0(), req.GetArg1())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.CoerceToString2_1Response{Result: result}, nil
+}
+
+func (s *TypedValueServer) ComplexToDimension(_ context.Context, req *pb.ComplexToDimensionRequest) (*pb.ComplexToDimensionResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg3.TypedValue{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.ComplexToDimension(req.GetArg0(), s.Handles.Get(req.GetArg1()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ComplexToDimensionResponse{Result: result}, nil
+}
+
+func (s *TypedValueServer) ComplexToDimensionPixelOffset(_ context.Context, req *pb.ComplexToDimensionPixelOffsetRequest) (*pb.ComplexToDimensionPixelOffsetResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg3.TypedValue{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.ComplexToDimensionPixelOffset(req.GetArg0(), s.Handles.Get(req.GetArg1()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ComplexToDimensionPixelOffsetResponse{Result: result}, nil
+}
+
+func (s *TypedValueServer) ComplexToDimensionPixelSize(_ context.Context, req *pb.ComplexToDimensionPixelSizeRequest) (*pb.ComplexToDimensionPixelSizeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg3.TypedValue{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.ComplexToDimensionPixelSize(req.GetArg0(), s.Handles.Get(req.GetArg1()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ComplexToDimensionPixelSizeResponse{Result: result}, nil
+}
+
+func (s *TypedValueServer) ComplexToFloat(_ context.Context, req *pb.ComplexToFloatRequest) (*pb.ComplexToFloatResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg3.TypedValue{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.ComplexToFloat(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ComplexToFloatResponse{Result: result}, nil
+}
+
+func (s *TypedValueServer) ComplexToFraction(_ context.Context, req *pb.ComplexToFractionRequest) (*pb.ComplexToFractionResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg3.TypedValue{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.ComplexToFraction(req.GetArg0(), req.GetArg1(), req.GetArg2())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ComplexToFractionResponse{Result: result}, nil
+}
+
+func (s *TypedValueServer) ConvertDimensionToPixels(_ context.Context, req *pb.ConvertDimensionToPixelsRequest) (*pb.ConvertDimensionToPixelsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg3.TypedValue{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.ConvertDimensionToPixels(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ConvertDimensionToPixelsResponse{Result: result}, nil
+}
+
+func (s *TypedValueServer) ConvertPixelsToDimension(_ context.Context, req *pb.ConvertPixelsToDimensionRequest) (*pb.ConvertPixelsToDimensionResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg3.TypedValue{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.ConvertPixelsToDimension(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ConvertPixelsToDimensionResponse{Result: result}, nil
+}
+
+func (s *TypedValueServer) DeriveDimension(_ context.Context, req *pb.DeriveDimensionRequest) (*pb.DeriveDimensionResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg3.TypedValue{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.DeriveDimension(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.DeriveDimensionResponse{Result: result}, nil
+}
+
+// CloseGuardServer implements pb.CloseGuardServiceServer.
+type CloseGuardServer struct {
+	pb.UnimplementedCloseGuardServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *CloseGuardServer) NewCloseGuard(_ context.Context, req *pb.NewCloseGuardRequest) (*pb.NewCloseGuardResponse, error) {
+	obj, err := jnipkg3.NewCloseGuard(s.Ctx.VM)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewCloseGuardResponse{Result: handle}, nil
+}
+
+func (s *CloseGuardServer) Close(_ context.Context, req *pb.CloseRequest) (*pb.CloseResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg3.CloseGuard{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.Close(); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.CloseResponse{}, nil
+}
+
+func (s *CloseGuardServer) Open(_ context.Context, req *pb.OpenRequest) (*pb.OpenResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg3.CloseGuard{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.Open(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.OpenResponse{}, nil
+}
+
+func (s *CloseGuardServer) WarnIfOpen(_ context.Context, req *pb.WarnIfOpenRequest) (*pb.WarnIfOpenResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg3.CloseGuard{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.WarnIfOpen(); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.WarnIfOpenResponse{}, nil
 }
 
 // RangeServer implements pb.RangeServiceServer.
@@ -3241,7 +3931,7 @@ func (s *RangeServer) NewRange(_ context.Context, req *pb.NewRangeRequest) (*pb.
 	return &pb.NewRangeResponse{Result: handle}, nil
 }
 
-func (s *RangeServer) Equals(_ context.Context, req *pb.EqualsRequest) (*pb.EqualsResponse, error) {
+func (s *RangeServer) Equals(_ context.Context, req *pb.SparseBooleanArrayEqualsRequest) (*pb.EqualsResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -3255,7 +3945,7 @@ func (s *RangeServer) Equals(_ context.Context, req *pb.EqualsRequest) (*pb.Equa
 	return &pb.EqualsResponse{Result: result}, nil
 }
 
-func (s *RangeServer) HashCode(_ context.Context, req *pb.HashCodeRequest) (*pb.HashCodeResponse, error) {
+func (s *RangeServer) HashCode(_ context.Context, req *pb.SparseBooleanArrayHashCodeRequest) (*pb.HashCodeResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -3269,7 +3959,7 @@ func (s *RangeServer) HashCode(_ context.Context, req *pb.HashCodeRequest) (*pb.
 	return &pb.HashCodeResponse{Result: result}, nil
 }
 
-func (s *RangeServer) ToString(_ context.Context, req *pb.SparseIntArrayToStringRequest) (*pb.ToStringResponse, error) {
+func (s *RangeServer) ToString(_ context.Context, req *pb.ToStringRequest) (*pb.ToStringResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -3281,1416 +3971,6 @@ func (s *RangeServer) ToString(_ context.Context, req *pb.SparseIntArrayToString
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
 	return &pb.ToStringResponse{Result: result}, nil
-}
-
-// SizeFServer implements pb.SizeFServiceServer.
-type SizeFServer struct {
-	pb.UnimplementedSizeFServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *SizeFServer) NewSizeF(_ context.Context, req *pb.NewSizeFRequest) (*pb.NewSizeFResponse, error) {
-	obj, err := jnipkg3.NewSizeF(s.Ctx.VM, req.GetArg0(), req.GetArg1())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
-	}
-	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-	}
-	return &pb.NewSizeFResponse{Result: handle}, nil
-}
-
-func (s *SizeFServer) DescribeContents(_ context.Context, req *pb.DescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg3.SizeF{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.DescribeContents()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.DescribeContentsResponse{Result: result}, nil
-}
-
-func (s *SizeFServer) Equals(_ context.Context, req *pb.EqualsRequest) (*pb.EqualsResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg3.SizeF{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.Equals(s.Handles.Get(req.GetArg0()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.EqualsResponse{Result: result}, nil
-}
-
-func (s *SizeFServer) GetHeight(_ context.Context, req *pb.SizeFGetHeightRequest) (*pb.SizeFGetHeightResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg3.SizeF{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetHeight()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SizeFGetHeightResponse{Result: result}, nil
-}
-
-func (s *SizeFServer) GetWidth(_ context.Context, req *pb.SizeFGetWidthRequest) (*pb.SizeFGetWidthResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg3.SizeF{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetWidth()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SizeFGetWidthResponse{Result: result}, nil
-}
-
-func (s *SizeFServer) HashCode(_ context.Context, req *pb.HashCodeRequest) (*pb.HashCodeResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg3.SizeF{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.HashCode()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.HashCodeResponse{Result: result}, nil
-}
-
-func (s *SizeFServer) ToString(_ context.Context, req *pb.SparseIntArrayToStringRequest) (*pb.ToStringResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg3.SizeF{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.ToString()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.ToStringResponse{Result: result}, nil
-}
-
-func (s *SizeFServer) WriteToParcel(_ context.Context, req *pb.WriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg3.SizeF{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.WriteToParcel(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.WriteToParcelResponse{}, nil
-}
-
-func (s *SizeFServer) ParseSizeF(_ context.Context, req *pb.ParseSizeFRequest) (*pb.ParseSizeFResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg3.SizeF{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.ParseSizeF(req.GetArg0())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.ParseSizeFResponse{Result: handle}, nil
-}
-
-// PrintStreamPrinterServer implements pb.PrintStreamPrinterServiceServer.
-type PrintStreamPrinterServer struct {
-	pb.UnimplementedPrintStreamPrinterServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *PrintStreamPrinterServer) NewPrintStreamPrinter(_ context.Context, req *pb.NewPrintStreamPrinterRequest) (*pb.NewPrintStreamPrinterResponse, error) {
-	obj, err := jnipkg3.NewPrintStreamPrinter(s.Ctx.VM, s.Handles.Get(req.GetArg0()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
-	}
-	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-	}
-	return &pb.NewPrintStreamPrinterResponse{Result: handle}, nil
-}
-
-func (s *PrintStreamPrinterServer) Println(_ context.Context, req *pb.PrintlnRequest) (*pb.PrintlnResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg3.PrintStreamPrinter{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.Println(req.GetArg0()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.PrintlnResponse{}, nil
-}
-
-// ArrayMapServer implements pb.ArrayMapServiceServer.
-type ArrayMapServer struct {
-	pb.UnimplementedArrayMapServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *ArrayMapServer) NewArrayMap(_ context.Context, req *pb.NewArrayMapRequest) (*pb.NewArrayMapResponse, error) {
-	obj, err := jnipkg3.NewArrayMap(s.Ctx.VM)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
-	}
-	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-	}
-	return &pb.NewArrayMapResponse{Result: handle}, nil
-}
-
-func (s *ArrayMapServer) Clear(_ context.Context, req *pb.SparseIntArrayClearRequest) (*pb.SparseIntArrayClearResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg3.ArrayMap{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.Clear(); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SparseIntArrayClearResponse{}, nil
-}
-
-func (s *ArrayMapServer) ContainsKey(_ context.Context, req *pb.ContainsKeyRequest) (*pb.ContainsKeyResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg3.ArrayMap{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.ContainsKey(s.Handles.Get(req.GetArg0()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.ContainsKeyResponse{Result: result}, nil
-}
-
-func (s *ArrayMapServer) ContainsValue(_ context.Context, req *pb.ContainsValueRequest) (*pb.ContainsValueResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg3.ArrayMap{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.ContainsValue(s.Handles.Get(req.GetArg0()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.ContainsValueResponse{Result: result}, nil
-}
-
-func (s *ArrayMapServer) EnsureCapacity(_ context.Context, req *pb.EnsureCapacityRequest) (*pb.EnsureCapacityResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg3.ArrayMap{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.EnsureCapacity(req.GetArg0()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.EnsureCapacityResponse{}, nil
-}
-
-func (s *ArrayMapServer) Equals(_ context.Context, req *pb.EqualsRequest) (*pb.EqualsResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg3.ArrayMap{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.Equals(s.Handles.Get(req.GetArg0()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.EqualsResponse{Result: result}, nil
-}
-
-func (s *ArrayMapServer) HashCode(_ context.Context, req *pb.HashCodeRequest) (*pb.HashCodeResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg3.ArrayMap{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.HashCode()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.HashCodeResponse{Result: result}, nil
-}
-
-func (s *ArrayMapServer) IndexOfKey(_ context.Context, req *pb.ArrayMapIndexOfKeyRequest) (*pb.IndexOfKeyResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg3.ArrayMap{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.IndexOfKey(s.Handles.Get(req.GetArg0()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.IndexOfKeyResponse{Result: result}, nil
-}
-
-func (s *ArrayMapServer) IndexOfValue(_ context.Context, req *pb.ArrayMapIndexOfValueRequest) (*pb.IndexOfValueResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg3.ArrayMap{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.IndexOfValue(s.Handles.Get(req.GetArg0()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.IndexOfValueResponse{Result: result}, nil
-}
-
-func (s *ArrayMapServer) IsEmpty(_ context.Context, req *pb.IsEmptyRequest) (*pb.IsEmptyResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg3.ArrayMap{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.IsEmpty()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.IsEmptyResponse{Result: result}, nil
-}
-
-func (s *ArrayMapServer) Size(_ context.Context, req *pb.SizeRequest) (*pb.SizeResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg3.ArrayMap{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.Size()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SizeResponse{Result: result}, nil
-}
-
-func (s *ArrayMapServer) ToString(_ context.Context, req *pb.SparseIntArrayToStringRequest) (*pb.ToStringResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg3.ArrayMap{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.ToString()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.ToStringResponse{Result: result}, nil
-}
-
-// LruCacheServer implements pb.LruCacheServiceServer.
-type LruCacheServer struct {
-	pb.UnimplementedLruCacheServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *LruCacheServer) NewLruCache(_ context.Context, req *pb.NewLruCacheRequest) (*pb.NewLruCacheResponse, error) {
-	obj, err := jnipkg3.NewLruCache(s.Ctx.VM, req.GetArg0())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
-	}
-	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-	}
-	return &pb.NewLruCacheResponse{Result: handle}, nil
-}
-
-func (s *LruCacheServer) EvictAll(_ context.Context, req *pb.EvictAllRequest) (*pb.EvictAllResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg3.LruCache{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.EvictAll(); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.EvictAllResponse{}, nil
-}
-
-func (s *LruCacheServer) Resize(_ context.Context, req *pb.ResizeRequest) (*pb.ResizeResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg3.LruCache{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.Resize(req.GetArg0()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.ResizeResponse{}, nil
-}
-
-func (s *LruCacheServer) TrimToSize(_ context.Context, req *pb.TrimToSizeRequest) (*pb.TrimToSizeResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg3.LruCache{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.TrimToSize(req.GetArg0()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.TrimToSizeResponse{}, nil
-}
-
-// MonthDisplayHelperServer implements pb.MonthDisplayHelperServiceServer.
-type MonthDisplayHelperServer struct {
-	pb.UnimplementedMonthDisplayHelperServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *MonthDisplayHelperServer) NewMonthDisplayHelper(_ context.Context, req *pb.NewMonthDisplayHelperRequest) (*pb.NewMonthDisplayHelperResponse, error) {
-	obj, err := jnipkg3.NewMonthDisplayHelper(s.Ctx.VM, req.GetArg0(), req.GetArg1())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
-	}
-	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-	}
-	return &pb.NewMonthDisplayHelperResponse{Result: handle}, nil
-}
-
-func (s *MonthDisplayHelperServer) GetColumnOf(_ context.Context, req *pb.GetColumnOfRequest) (*pb.GetColumnOfResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg3.MonthDisplayHelper{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetColumnOf(req.GetArg0())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetColumnOfResponse{Result: result}, nil
-}
-
-func (s *MonthDisplayHelperServer) GetDayAt(_ context.Context, req *pb.GetDayAtRequest) (*pb.GetDayAtResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg3.MonthDisplayHelper{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetDayAt(req.GetArg0(), req.GetArg1())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetDayAtResponse{Result: result}, nil
-}
-
-func (s *MonthDisplayHelperServer) GetDigitsForRow(_ context.Context, req *pb.GetDigitsForRowRequest) (*pb.GetDigitsForRowResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg3.MonthDisplayHelper{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetDigitsForRow(req.GetArg0())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetDigitsForRowResponse{Result: handle}, nil
-}
-
-func (s *MonthDisplayHelperServer) GetFirstDayOfMonth(_ context.Context, req *pb.GetFirstDayOfMonthRequest) (*pb.GetFirstDayOfMonthResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg3.MonthDisplayHelper{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetFirstDayOfMonth()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetFirstDayOfMonthResponse{Result: result}, nil
-}
-
-func (s *MonthDisplayHelperServer) GetMonth(_ context.Context, req *pb.GetMonthRequest) (*pb.GetMonthResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg3.MonthDisplayHelper{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetMonth()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetMonthResponse{Result: result}, nil
-}
-
-func (s *MonthDisplayHelperServer) GetNumberOfDaysInMonth(_ context.Context, req *pb.GetNumberOfDaysInMonthRequest) (*pb.GetNumberOfDaysInMonthResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg3.MonthDisplayHelper{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetNumberOfDaysInMonth()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetNumberOfDaysInMonthResponse{Result: result}, nil
-}
-
-func (s *MonthDisplayHelperServer) GetOffset(_ context.Context, req *pb.GetOffsetRequest) (*pb.GetOffsetResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg3.MonthDisplayHelper{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetOffset()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetOffsetResponse{Result: result}, nil
-}
-
-func (s *MonthDisplayHelperServer) GetRowOf(_ context.Context, req *pb.GetRowOfRequest) (*pb.GetRowOfResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg3.MonthDisplayHelper{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetRowOf(req.GetArg0())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetRowOfResponse{Result: result}, nil
-}
-
-func (s *MonthDisplayHelperServer) GetWeekStartDay(_ context.Context, req *pb.GetWeekStartDayRequest) (*pb.GetWeekStartDayResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg3.MonthDisplayHelper{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetWeekStartDay()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetWeekStartDayResponse{Result: result}, nil
-}
-
-func (s *MonthDisplayHelperServer) GetYear(_ context.Context, req *pb.GetYearRequest) (*pb.GetYearResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg3.MonthDisplayHelper{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetYear()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetYearResponse{Result: result}, nil
-}
-
-func (s *MonthDisplayHelperServer) IsWithinCurrentMonth(_ context.Context, req *pb.IsWithinCurrentMonthRequest) (*pb.IsWithinCurrentMonthResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg3.MonthDisplayHelper{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.IsWithinCurrentMonth(req.GetArg0(), req.GetArg1())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.IsWithinCurrentMonthResponse{Result: result}, nil
-}
-
-func (s *MonthDisplayHelperServer) NextMonth(_ context.Context, req *pb.NextMonthRequest) (*pb.NextMonthResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg3.MonthDisplayHelper{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.NextMonth(); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.NextMonthResponse{}, nil
-}
-
-func (s *MonthDisplayHelperServer) PreviousMonth(_ context.Context, req *pb.PreviousMonthRequest) (*pb.PreviousMonthResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg3.MonthDisplayHelper{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.PreviousMonth(); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.PreviousMonthResponse{}, nil
-}
-
-// TimingLoggerServer implements pb.TimingLoggerServiceServer.
-type TimingLoggerServer struct {
-	pb.UnimplementedTimingLoggerServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *TimingLoggerServer) NewTimingLogger(_ context.Context, req *pb.NewTimingLoggerRequest) (*pb.NewTimingLoggerResponse, error) {
-	obj, err := jnipkg3.NewTimingLogger(s.Ctx.VM, req.GetArg0(), req.GetArg1())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
-	}
-	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-	}
-	return &pb.NewTimingLoggerResponse{Result: handle}, nil
-}
-
-func (s *TimingLoggerServer) AddSplit(_ context.Context, req *pb.AddSplitRequest) (*pb.AddSplitResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg3.TimingLogger{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.AddSplit(req.GetArg0()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.AddSplitResponse{}, nil
-}
-
-func (s *TimingLoggerServer) DumpToLog(_ context.Context, req *pb.DumpToLogRequest) (*pb.DumpToLogResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg3.TimingLogger{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.DumpToLog(); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.DumpToLogResponse{}, nil
-}
-
-func (s *TimingLoggerServer) Reset0(_ context.Context, req *pb.Reset0Request) (*pb.Reset0Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg3.TimingLogger{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.Reset0(); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.Reset0Response{}, nil
-}
-
-func (s *TimingLoggerServer) Reset2_1(_ context.Context, req *pb.Reset2_1Request) (*pb.Reset2_1Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg3.TimingLogger{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.Reset2_1(req.GetArg0(), req.GetArg1()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.Reset2_1Response{}, nil
-}
-
-// JsonReaderServer implements pb.JsonReaderServiceServer.
-type JsonReaderServer struct {
-	pb.UnimplementedJsonReaderServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *JsonReaderServer) NewJsonReader(_ context.Context, req *pb.NewJsonReaderRequest) (*pb.NewJsonReaderResponse, error) {
-	obj, err := jnipkg3.NewJsonReader(s.Ctx.VM, s.Handles.Get(req.GetArg0()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
-	}
-	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-	}
-	return &pb.NewJsonReaderResponse{Result: handle}, nil
-}
-
-func (s *JsonReaderServer) BeginArray(_ context.Context, req *pb.BeginArrayRequest) (*pb.BeginArrayResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg3.JsonReader{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.BeginArray(); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.BeginArrayResponse{}, nil
-}
-
-func (s *JsonReaderServer) BeginObject(_ context.Context, req *pb.BeginObjectRequest) (*pb.BeginObjectResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg3.JsonReader{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.BeginObject(); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.BeginObjectResponse{}, nil
-}
-
-func (s *JsonReaderServer) Close(_ context.Context, req *pb.CloseRequest) (*pb.CloseResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg3.JsonReader{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.Close(); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.CloseResponse{}, nil
-}
-
-func (s *JsonReaderServer) EndArray(_ context.Context, req *pb.EndArrayRequest) (*pb.EndArrayResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg3.JsonReader{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.EndArray(); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.EndArrayResponse{}, nil
-}
-
-func (s *JsonReaderServer) EndObject(_ context.Context, req *pb.EndObjectRequest) (*pb.EndObjectResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg3.JsonReader{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.EndObject(); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.EndObjectResponse{}, nil
-}
-
-func (s *JsonReaderServer) HasNext(_ context.Context, req *pb.HasNextRequest) (*pb.HasNextResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg3.JsonReader{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.HasNext()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.HasNextResponse{Result: result}, nil
-}
-
-func (s *JsonReaderServer) IsLenient(_ context.Context, req *pb.JsonReaderIsLenientRequest) (*pb.IsLenientResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg3.JsonReader{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.IsLenient()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.IsLenientResponse{Result: result}, nil
-}
-
-func (s *JsonReaderServer) NextBoolean(_ context.Context, req *pb.NextBooleanRequest) (*pb.NextBooleanResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg3.JsonReader{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.NextBoolean()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.NextBooleanResponse{Result: result}, nil
-}
-
-func (s *JsonReaderServer) NextDouble(_ context.Context, req *pb.NextDoubleRequest) (*pb.NextDoubleResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg3.JsonReader{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.NextDouble()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.NextDoubleResponse{Result: result}, nil
-}
-
-func (s *JsonReaderServer) NextInt(_ context.Context, req *pb.NextIntRequest) (*pb.NextIntResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg3.JsonReader{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.NextInt()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.NextIntResponse{Result: result}, nil
-}
-
-func (s *JsonReaderServer) NextLong(_ context.Context, req *pb.NextLongRequest) (*pb.NextLongResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg3.JsonReader{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.NextLong()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.NextLongResponse{Result: result}, nil
-}
-
-func (s *JsonReaderServer) NextName(_ context.Context, req *pb.NextNameRequest) (*pb.NextNameResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg3.JsonReader{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.NextName()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.NextNameResponse{Result: result}, nil
-}
-
-func (s *JsonReaderServer) NextNull(_ context.Context, req *pb.NextNullRequest) (*pb.NextNullResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg3.JsonReader{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.NextNull(); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.NextNullResponse{}, nil
-}
-
-func (s *JsonReaderServer) NextString(_ context.Context, req *pb.NextStringRequest) (*pb.NextStringResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg3.JsonReader{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.NextString()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.NextStringResponse{Result: result}, nil
-}
-
-func (s *JsonReaderServer) Peek(_ context.Context, req *pb.PeekRequest) (*pb.PeekResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg3.JsonReader{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.Peek()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.PeekResponse{Result: handle}, nil
-}
-
-func (s *JsonReaderServer) SetLenient(_ context.Context, req *pb.JsonReaderSetLenientRequest) (*pb.SetLenientResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg3.JsonReader{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.SetLenient(req.GetArg0()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SetLenientResponse{}, nil
-}
-
-func (s *JsonReaderServer) SkipValue(_ context.Context, req *pb.SkipValueRequest) (*pb.SkipValueResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg3.JsonReader{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.SkipValue(); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SkipValueResponse{}, nil
-}
-
-func (s *JsonReaderServer) ToString(_ context.Context, req *pb.SparseIntArrayToStringRequest) (*pb.ToStringResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg3.JsonReader{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.ToString()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.ToStringResponse{Result: result}, nil
-}
-
-// ArraySetServer implements pb.ArraySetServiceServer.
-type ArraySetServer struct {
-	pb.UnimplementedArraySetServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *ArraySetServer) NewArraySet(_ context.Context, req *pb.NewArraySetRequest) (*pb.NewArraySetResponse, error) {
-	obj, err := jnipkg3.NewArraySet(s.Ctx.VM)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
-	}
-	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-	}
-	return &pb.NewArraySetResponse{Result: handle}, nil
-}
-
-func (s *ArraySetServer) Clear(_ context.Context, req *pb.SparseIntArrayClearRequest) (*pb.SparseIntArrayClearResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg3.ArraySet{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.Clear(); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SparseIntArrayClearResponse{}, nil
-}
-
-func (s *ArraySetServer) Contains(_ context.Context, req *pb.ContainsRequest) (*pb.ContainsResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg3.ArraySet{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.Contains(s.Handles.Get(req.GetArg0()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.ContainsResponse{Result: result}, nil
-}
-
-func (s *ArraySetServer) EnsureCapacity(_ context.Context, req *pb.EnsureCapacityRequest) (*pb.EnsureCapacityResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg3.ArraySet{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.EnsureCapacity(req.GetArg0()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.EnsureCapacityResponse{}, nil
-}
-
-func (s *ArraySetServer) Equals(_ context.Context, req *pb.EqualsRequest) (*pb.EqualsResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg3.ArraySet{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.Equals(s.Handles.Get(req.GetArg0()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.EqualsResponse{Result: result}, nil
-}
-
-func (s *ArraySetServer) HashCode(_ context.Context, req *pb.HashCodeRequest) (*pb.HashCodeResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg3.ArraySet{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.HashCode()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.HashCodeResponse{Result: result}, nil
-}
-
-func (s *ArraySetServer) IndexOf(_ context.Context, req *pb.IndexOfRequest) (*pb.IndexOfResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg3.ArraySet{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.IndexOf(s.Handles.Get(req.GetArg0()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.IndexOfResponse{Result: result}, nil
-}
-
-func (s *ArraySetServer) IsEmpty(_ context.Context, req *pb.IsEmptyRequest) (*pb.IsEmptyResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg3.ArraySet{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.IsEmpty()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.IsEmptyResponse{Result: result}, nil
-}
-
-func (s *ArraySetServer) Remove(_ context.Context, req *pb.RemoveRequest) (*pb.RemoveResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg3.ArraySet{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.Remove(s.Handles.Get(req.GetArg0()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.RemoveResponse{Result: result}, nil
-}
-
-func (s *ArraySetServer) Size(_ context.Context, req *pb.SizeRequest) (*pb.SizeResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg3.ArraySet{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.Size()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SizeResponse{Result: result}, nil
-}
-
-func (s *ArraySetServer) ToArray(_ context.Context, req *pb.ToArrayRequest) (*pb.ToArrayResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg3.ArraySet{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.ToArray()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.ToArrayResponse{Result: handle}, nil
-}
-
-func (s *ArraySetServer) ToString(_ context.Context, req *pb.SparseIntArrayToStringRequest) (*pb.ToStringResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg3.ArraySet{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.ToString()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.ToStringResponse{Result: result}, nil
-}
-
-// Base64OutputStreamServer implements pb.Base64OutputStreamServiceServer.
-type Base64OutputStreamServer struct {
-	pb.UnimplementedBase64OutputStreamServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *Base64OutputStreamServer) NewBase64OutputStream(_ context.Context, req *pb.NewBase64OutputStreamRequest) (*pb.NewBase64OutputStreamResponse, error) {
-	obj, err := jnipkg3.NewBase64OutputStream(s.Ctx.VM, s.Handles.Get(req.GetArg0()), req.GetArg1())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
-	}
-	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-	}
-	return &pb.NewBase64OutputStreamResponse{Result: handle}, nil
-}
-
-func (s *Base64OutputStreamServer) Close(_ context.Context, req *pb.CloseRequest) (*pb.CloseResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg3.Base64OutputStream{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.Close(); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.CloseResponse{}, nil
-}
-
-func (s *Base64OutputStreamServer) Write3(_ context.Context, req *pb.Write3Request) (*pb.Write3Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg3.Base64OutputStream{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.Write3(s.Handles.Get(req.GetArg0()), req.GetArg1(), req.GetArg2()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.Write3Response{}, nil
-}
-
-func (s *Base64OutputStreamServer) Write1_1(_ context.Context, req *pb.Write1_1Request) (*pb.Write1_1Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg3.Base64OutputStream{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.Write1_1(req.GetArg0()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.Write1_1Response{}, nil
-}
-
-// SparseArrayServer implements pb.SparseArrayServiceServer.
-type SparseArrayServer struct {
-	pb.UnimplementedSparseArrayServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *SparseArrayServer) NewSparseArray(_ context.Context, req *pb.NewSparseArrayRequest) (*pb.NewSparseArrayResponse, error) {
-	obj, err := jnipkg3.NewSparseArray(s.Ctx.VM)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
-	}
-	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-	}
-	return &pb.NewSparseArrayResponse{Result: handle}, nil
-}
-
-func (s *SparseArrayServer) Clear(_ context.Context, req *pb.SparseIntArrayClearRequest) (*pb.SparseIntArrayClearResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg3.SparseArray{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.Clear(); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SparseIntArrayClearResponse{}, nil
-}
-
-func (s *SparseArrayServer) Contains(_ context.Context, req *pb.SparseArrayContainsRequest) (*pb.ContainsResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg3.SparseArray{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.Contains(req.GetArg0())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.ContainsResponse{Result: result}, nil
-}
-
-func (s *SparseArrayServer) ContentHashCode(_ context.Context, req *pb.ContentHashCodeRequest) (*pb.ContentHashCodeResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg3.SparseArray{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.ContentHashCode()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.ContentHashCodeResponse{Result: result}, nil
-}
-
-func (s *SparseArrayServer) Delete(_ context.Context, req *pb.DeleteRequest) (*pb.DeleteResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg3.SparseArray{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.Delete(req.GetArg0()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.DeleteResponse{}, nil
-}
-
-func (s *SparseArrayServer) IndexOfKey(_ context.Context, req *pb.IndexOfKeyRequest) (*pb.IndexOfKeyResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg3.SparseArray{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.IndexOfKey(req.GetArg0())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.IndexOfKeyResponse{Result: result}, nil
-}
-
-func (s *SparseArrayServer) KeyAt(_ context.Context, req *pb.KeyAtRequest) (*pb.KeyAtResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg3.SparseArray{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.KeyAt(req.GetArg0())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.KeyAtResponse{Result: result}, nil
-}
-
-func (s *SparseArrayServer) Remove(_ context.Context, req *pb.SparseArrayRemoveRequest) (*pb.SparseArrayRemoveResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg3.SparseArray{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.Remove(req.GetArg0()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SparseArrayRemoveResponse{}, nil
-}
-
-func (s *SparseArrayServer) RemoveAt(_ context.Context, req *pb.RemoveAtRequest) (*pb.RemoveAtResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg3.SparseArray{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.RemoveAt(req.GetArg0()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.RemoveAtResponse{}, nil
-}
-
-func (s *SparseArrayServer) RemoveAtRange(_ context.Context, req *pb.RemoveAtRangeRequest) (*pb.RemoveAtRangeResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg3.SparseArray{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.RemoveAtRange(req.GetArg0(), req.GetArg1()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.RemoveAtRangeResponse{}, nil
-}
-
-func (s *SparseArrayServer) Size(_ context.Context, req *pb.SizeRequest) (*pb.SizeResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg3.SparseArray{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.Size()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SizeResponse{Result: result}, nil
-}
-
-func (s *SparseArrayServer) ToString(_ context.Context, req *pb.SparseIntArrayToStringRequest) (*pb.ToStringResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg3.SparseArray{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.ToString()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.ToStringResponse{Result: result}, nil
-}
-
-func (s *SparseArrayServer) Clone(_ context.Context, req *pb.SparseArrayCloneRequest) (*pb.CloneResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg3.SparseArray{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.Clone()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.CloneResponse{Result: handle}, nil
 }
 
 // HalfServer implements pb.HalfServiceServer.
@@ -4729,7 +4009,7 @@ func (s *HalfServer) ByteValue(_ context.Context, req *pb.ByteValueRequest) (*pb
 	return &pb.ByteValueResponse{Result: uint32(result)}, nil
 }
 
-func (s *HalfServer) CompareTo1(_ context.Context, req *pb.CompareTo1Request) (*pb.CompareTo1Response, error) {
+func (s *HalfServer) CompareTo1(_ context.Context, req *pb.HalfCompareTo1Request) (*pb.CompareTo1Response, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -4883,7 +4163,7 @@ func (s *HalfServer) ToString0(_ context.Context, req *pb.ToString0Request) (*pb
 	return &pb.ToString0Response{Result: result}, nil
 }
 
-func (s *HalfServer) CompareTo1_1(_ context.Context, req *pb.CompareTo1_1Request) (*pb.CompareTo1_1Response, error) {
+func (s *HalfServer) CompareTo1_1(_ context.Context, req *pb.HalfCompareTo1_1Request) (*pb.CompareTo1_1Response, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -5386,15 +4666,15 @@ func (s *HalfServer) ValueOf1_2(_ context.Context, req *pb.ValueOf1_2Request) (*
 	return &pb.ValueOf1_2Response{Result: handle}, nil
 }
 
-// PairServer implements pb.PairServiceServer.
-type PairServer struct {
-	pb.UnimplementedPairServiceServer
+// LogPrinterServer implements pb.LogPrinterServiceServer.
+type LogPrinterServer struct {
+	pb.UnimplementedLogPrinterServiceServer
 	Ctx     *app.Context
 	Handles *handlestore.HandleStore
 }
 
-func (s *PairServer) NewPair(_ context.Context, req *pb.NewPairRequest) (*pb.NewPairResponse, error) {
-	obj, err := jnipkg3.NewPair(s.Ctx.VM, s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()))
+func (s *LogPrinterServer) NewLogPrinter(_ context.Context, req *pb.NewLogPrinterRequest) (*pb.NewLogPrinterResponse, error) {
+	obj, err := jnipkg3.NewLogPrinter(s.Ctx.VM, req.GetArg0(), req.GetArg1())
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create object: %v", err)
 	}
@@ -5405,60 +4685,31 @@ func (s *PairServer) NewPair(_ context.Context, req *pb.NewPairRequest) (*pb.New
 	}); doErr != nil {
 		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
 	}
-	return &pb.NewPairResponse{Result: handle}, nil
+	return &pb.NewLogPrinterResponse{Result: handle}, nil
 }
 
-func (s *PairServer) Equals(_ context.Context, req *pb.EqualsRequest) (*pb.EqualsResponse, error) {
+func (s *LogPrinterServer) Println(_ context.Context, req *pb.PrintlnRequest) (*pb.PrintlnResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg3.Pair{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg3.LogPrinter{VM: s.Ctx.VM, Obj: rawObj}
 
-	result, err := mgr.Equals(s.Handles.Get(req.GetArg0()))
-	if err != nil {
+	if err := mgr.Println(req.GetArg0()); err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.EqualsResponse{Result: result}, nil
+	return &pb.PrintlnResponse{}, nil
 }
 
-func (s *PairServer) HashCode(_ context.Context, req *pb.HashCodeRequest) (*pb.HashCodeResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg3.Pair{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.HashCode()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.HashCodeResponse{Result: result}, nil
-}
-
-func (s *PairServer) ToString(_ context.Context, req *pb.SparseIntArrayToStringRequest) (*pb.ToStringResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg3.Pair{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.ToString()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.ToStringResponse{Result: result}, nil
-}
-
-// SizeServer implements pb.SizeServiceServer.
-type SizeServer struct {
-	pb.UnimplementedSizeServiceServer
+// PrintWriterPrinterServer implements pb.PrintWriterPrinterServiceServer.
+type PrintWriterPrinterServer struct {
+	pb.UnimplementedPrintWriterPrinterServiceServer
 	Ctx     *app.Context
 	Handles *handlestore.HandleStore
 }
 
-func (s *SizeServer) NewSize(_ context.Context, req *pb.NewSizeRequest) (*pb.NewSizeResponse, error) {
-	obj, err := jnipkg3.NewSize(s.Ctx.VM, req.GetArg0(), req.GetArg1())
+func (s *PrintWriterPrinterServer) NewPrintWriterPrinter(_ context.Context, req *pb.NewPrintWriterPrinterRequest) (*pb.NewPrintWriterPrinterResponse, error) {
+	obj, err := jnipkg3.NewPrintWriterPrinter(s.Ctx.VM, s.Handles.Get(req.GetArg0()))
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create object: %v", err)
 	}
@@ -5469,111 +4720,31 @@ func (s *SizeServer) NewSize(_ context.Context, req *pb.NewSizeRequest) (*pb.New
 	}); doErr != nil {
 		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
 	}
-	return &pb.NewSizeResponse{Result: handle}, nil
+	return &pb.NewPrintWriterPrinterResponse{Result: handle}, nil
 }
 
-func (s *SizeServer) Equals(_ context.Context, req *pb.EqualsRequest) (*pb.EqualsResponse, error) {
+func (s *PrintWriterPrinterServer) Println(_ context.Context, req *pb.PrintlnRequest) (*pb.PrintlnResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg3.Size{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg3.PrintWriterPrinter{VM: s.Ctx.VM, Obj: rawObj}
 
-	result, err := mgr.Equals(s.Handles.Get(req.GetArg0()))
-	if err != nil {
+	if err := mgr.Println(req.GetArg0()); err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.EqualsResponse{Result: result}, nil
+	return &pb.PrintlnResponse{}, nil
 }
 
-func (s *SizeServer) GetHeight(_ context.Context, req *pb.SizeFGetHeightRequest) (*pb.SizeGetHeightResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg3.Size{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetHeight()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SizeGetHeightResponse{Result: result}, nil
-}
-
-func (s *SizeServer) GetWidth(_ context.Context, req *pb.SizeFGetWidthRequest) (*pb.SizeGetWidthResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg3.Size{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetWidth()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SizeGetWidthResponse{Result: result}, nil
-}
-
-func (s *SizeServer) HashCode(_ context.Context, req *pb.HashCodeRequest) (*pb.HashCodeResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg3.Size{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.HashCode()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.HashCodeResponse{Result: result}, nil
-}
-
-func (s *SizeServer) ToString(_ context.Context, req *pb.SparseIntArrayToStringRequest) (*pb.ToStringResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg3.Size{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.ToString()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.ToStringResponse{Result: result}, nil
-}
-
-func (s *SizeServer) ParseSize(_ context.Context, req *pb.ParseSizeRequest) (*pb.ParseSizeResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg3.Size{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.ParseSize(req.GetArg0())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.ParseSizeResponse{Result: handle}, nil
-}
-
-// AtomicFileServer implements pb.AtomicFileServiceServer.
-type AtomicFileServer struct {
-	pb.UnimplementedAtomicFileServiceServer
+// TimingLoggerServer implements pb.TimingLoggerServiceServer.
+type TimingLoggerServer struct {
+	pb.UnimplementedTimingLoggerServiceServer
 	Ctx     *app.Context
 	Handles *handlestore.HandleStore
 }
 
-func (s *AtomicFileServer) NewAtomicFile(_ context.Context, req *pb.NewAtomicFileRequest) (*pb.NewAtomicFileResponse, error) {
-	obj, err := jnipkg3.NewAtomicFile(s.Ctx.VM, s.Handles.Get(req.GetArg0()))
+func (s *TimingLoggerServer) NewTimingLogger(_ context.Context, req *pb.NewTimingLoggerRequest) (*pb.NewTimingLoggerResponse, error) {
+	obj, err := jnipkg3.NewTimingLogger(s.Ctx.VM, req.GetArg0(), req.GetArg1())
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create object: %v", err)
 	}
@@ -5584,177 +4755,70 @@ func (s *AtomicFileServer) NewAtomicFile(_ context.Context, req *pb.NewAtomicFil
 	}); doErr != nil {
 		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
 	}
-	return &pb.NewAtomicFileResponse{Result: handle}, nil
+	return &pb.NewTimingLoggerResponse{Result: handle}, nil
 }
 
-func (s *AtomicFileServer) Delete(_ context.Context, req *pb.AtomicFileDeleteRequest) (*pb.DeleteResponse, error) {
+func (s *TimingLoggerServer) AddSplit(_ context.Context, req *pb.AddSplitRequest) (*pb.AddSplitResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg3.AtomicFile{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg3.TimingLogger{VM: s.Ctx.VM, Obj: rawObj}
 
-	if err := mgr.Delete(); err != nil {
+	if err := mgr.AddSplit(req.GetArg0()); err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.DeleteResponse{}, nil
+	return &pb.AddSplitResponse{}, nil
 }
 
-func (s *AtomicFileServer) FailWrite(_ context.Context, req *pb.FailWriteRequest) (*pb.FailWriteResponse, error) {
+func (s *TimingLoggerServer) DumpToLog(_ context.Context, req *pb.DumpToLogRequest) (*pb.DumpToLogResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg3.AtomicFile{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg3.TimingLogger{VM: s.Ctx.VM, Obj: rawObj}
 
-	if err := mgr.FailWrite(s.Handles.Get(req.GetArg0())); err != nil {
+	if err := mgr.DumpToLog(); err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.FailWriteResponse{}, nil
+	return &pb.DumpToLogResponse{}, nil
 }
 
-func (s *AtomicFileServer) FinishWrite(_ context.Context, req *pb.FinishWriteRequest) (*pb.FinishWriteResponse, error) {
+func (s *TimingLoggerServer) Reset0(_ context.Context, req *pb.Reset0Request) (*pb.Reset0Response, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg3.AtomicFile{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg3.TimingLogger{VM: s.Ctx.VM, Obj: rawObj}
 
-	if err := mgr.FinishWrite(s.Handles.Get(req.GetArg0())); err != nil {
+	if err := mgr.Reset0(); err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.FinishWriteResponse{}, nil
+	return &pb.Reset0Response{}, nil
 }
 
-func (s *AtomicFileServer) GetBaseFile(_ context.Context, req *pb.GetBaseFileRequest) (*pb.GetBaseFileResponse, error) {
+func (s *TimingLoggerServer) Reset2_1(_ context.Context, req *pb.Reset2_1Request) (*pb.Reset2_1Response, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg3.AtomicFile{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg3.TimingLogger{VM: s.Ctx.VM, Obj: rawObj}
 
-	result, err := mgr.GetBaseFile()
-	if err != nil {
+	if err := mgr.Reset2_1(req.GetArg0(), req.GetArg1()); err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetBaseFileResponse{Result: handle}, nil
+	return &pb.Reset2_1Response{}, nil
 }
 
-func (s *AtomicFileServer) GetLastModifiedTime(_ context.Context, req *pb.GetLastModifiedTimeRequest) (*pb.GetLastModifiedTimeResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg3.AtomicFile{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetLastModifiedTime()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetLastModifiedTimeResponse{Result: result}, nil
-}
-
-func (s *AtomicFileServer) OpenRead(_ context.Context, req *pb.OpenReadRequest) (*pb.OpenReadResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg3.AtomicFile{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.OpenRead()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.OpenReadResponse{Result: handle}, nil
-}
-
-func (s *AtomicFileServer) ReadFully(_ context.Context, req *pb.ReadFullyRequest) (*pb.ReadFullyResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg3.AtomicFile{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.ReadFully()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.ReadFullyResponse{Result: handle}, nil
-}
-
-func (s *AtomicFileServer) StartWrite(_ context.Context, req *pb.StartWriteRequest) (*pb.StartWriteResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg3.AtomicFile{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.StartWrite()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.StartWriteResponse{Result: handle}, nil
-}
-
-func (s *AtomicFileServer) ToString(_ context.Context, req *pb.SparseIntArrayToStringRequest) (*pb.ToStringResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg3.AtomicFile{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.ToString()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.ToStringResponse{Result: result}, nil
-}
-
-// CloseGuardServer implements pb.CloseGuardServiceServer.
-type CloseGuardServer struct {
-	pb.UnimplementedCloseGuardServiceServer
+// JsonReaderServer implements pb.JsonReaderServiceServer.
+type JsonReaderServer struct {
+	pb.UnimplementedJsonReaderServiceServer
 	Ctx     *app.Context
 	Handles *handlestore.HandleStore
 }
 
-func (s *CloseGuardServer) NewCloseGuard(_ context.Context, req *pb.NewCloseGuardRequest) (*pb.NewCloseGuardResponse, error) {
-	obj, err := jnipkg3.NewCloseGuard(s.Ctx.VM)
+func (s *JsonReaderServer) NewJsonReader(_ context.Context, req *pb.NewJsonReaderRequest) (*pb.NewJsonReaderResponse, error) {
+	obj, err := jnipkg3.NewJsonReader(s.Ctx.VM, s.Handles.Get(req.GetArg0()))
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create object: %v", err)
 	}
@@ -5765,15 +4829,41 @@ func (s *CloseGuardServer) NewCloseGuard(_ context.Context, req *pb.NewCloseGuar
 	}); doErr != nil {
 		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
 	}
-	return &pb.NewCloseGuardResponse{Result: handle}, nil
+	return &pb.NewJsonReaderResponse{Result: handle}, nil
 }
 
-func (s *CloseGuardServer) Close(_ context.Context, req *pb.CloseRequest) (*pb.CloseResponse, error) {
+func (s *JsonReaderServer) BeginArray(_ context.Context, req *pb.BeginArrayRequest) (*pb.BeginArrayResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg3.CloseGuard{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg3.JsonReader{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.BeginArray(); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.BeginArrayResponse{}, nil
+}
+
+func (s *JsonReaderServer) BeginObject(_ context.Context, req *pb.BeginObjectRequest) (*pb.BeginObjectResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg3.JsonReader{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.BeginObject(); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.BeginObjectResponse{}, nil
+}
+
+func (s *JsonReaderServer) Close(_ context.Context, req *pb.CloseRequest) (*pb.CloseResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg3.JsonReader{VM: s.Ctx.VM, Obj: rawObj}
 
 	if err := mgr.Close(); err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
@@ -5781,41 +4871,229 @@ func (s *CloseGuardServer) Close(_ context.Context, req *pb.CloseRequest) (*pb.C
 	return &pb.CloseResponse{}, nil
 }
 
-func (s *CloseGuardServer) Open(_ context.Context, req *pb.OpenRequest) (*pb.OpenResponse, error) {
+func (s *JsonReaderServer) EndArray(_ context.Context, req *pb.EndArrayRequest) (*pb.EndArrayResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg3.CloseGuard{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg3.JsonReader{VM: s.Ctx.VM, Obj: rawObj}
 
-	if err := mgr.Open(req.GetArg0()); err != nil {
+	if err := mgr.EndArray(); err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.OpenResponse{}, nil
+	return &pb.EndArrayResponse{}, nil
 }
 
-func (s *CloseGuardServer) WarnIfOpen(_ context.Context, req *pb.WarnIfOpenRequest) (*pb.WarnIfOpenResponse, error) {
+func (s *JsonReaderServer) EndObject(_ context.Context, req *pb.EndObjectRequest) (*pb.EndObjectResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg3.CloseGuard{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg3.JsonReader{VM: s.Ctx.VM, Obj: rawObj}
 
-	if err := mgr.WarnIfOpen(); err != nil {
+	if err := mgr.EndObject(); err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.WarnIfOpenResponse{}, nil
+	return &pb.EndObjectResponse{}, nil
 }
 
-// SparseBooleanArrayServer implements pb.SparseBooleanArrayServiceServer.
-type SparseBooleanArrayServer struct {
-	pb.UnimplementedSparseBooleanArrayServiceServer
+func (s *JsonReaderServer) HasNext(_ context.Context, req *pb.HasNextRequest) (*pb.HasNextResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg3.JsonReader{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.HasNext()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.HasNextResponse{Result: result}, nil
+}
+
+func (s *JsonReaderServer) IsLenient(_ context.Context, req *pb.JsonReaderIsLenientRequest) (*pb.IsLenientResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg3.JsonReader{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.IsLenient()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.IsLenientResponse{Result: result}, nil
+}
+
+func (s *JsonReaderServer) NextBoolean(_ context.Context, req *pb.NextBooleanRequest) (*pb.NextBooleanResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg3.JsonReader{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.NextBoolean()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.NextBooleanResponse{Result: result}, nil
+}
+
+func (s *JsonReaderServer) NextDouble(_ context.Context, req *pb.NextDoubleRequest) (*pb.NextDoubleResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg3.JsonReader{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.NextDouble()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.NextDoubleResponse{Result: result}, nil
+}
+
+func (s *JsonReaderServer) NextInt(_ context.Context, req *pb.NextIntRequest) (*pb.NextIntResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg3.JsonReader{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.NextInt()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.NextIntResponse{Result: result}, nil
+}
+
+func (s *JsonReaderServer) NextLong(_ context.Context, req *pb.NextLongRequest) (*pb.NextLongResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg3.JsonReader{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.NextLong()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.NextLongResponse{Result: result}, nil
+}
+
+func (s *JsonReaderServer) NextName(_ context.Context, req *pb.NextNameRequest) (*pb.NextNameResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg3.JsonReader{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.NextName()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.NextNameResponse{Result: result}, nil
+}
+
+func (s *JsonReaderServer) NextNull(_ context.Context, req *pb.NextNullRequest) (*pb.NextNullResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg3.JsonReader{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.NextNull(); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.NextNullResponse{}, nil
+}
+
+func (s *JsonReaderServer) NextString(_ context.Context, req *pb.NextStringRequest) (*pb.NextStringResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg3.JsonReader{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.NextString()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.NextStringResponse{Result: result}, nil
+}
+
+func (s *JsonReaderServer) Peek(_ context.Context, req *pb.PeekRequest) (*pb.PeekResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg3.JsonReader{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.Peek()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.PeekResponse{Result: handle}, nil
+}
+
+func (s *JsonReaderServer) SetLenient(_ context.Context, req *pb.JsonReaderSetLenientRequest) (*pb.SetLenientResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg3.JsonReader{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetLenient(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetLenientResponse{}, nil
+}
+
+func (s *JsonReaderServer) SkipValue(_ context.Context, req *pb.SkipValueRequest) (*pb.SkipValueResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg3.JsonReader{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SkipValue(); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SkipValueResponse{}, nil
+}
+
+func (s *JsonReaderServer) ToString(_ context.Context, req *pb.ToStringRequest) (*pb.ToStringResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg3.JsonReader{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.ToString()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ToStringResponse{Result: result}, nil
+}
+
+// SparseLongArrayServer implements pb.SparseLongArrayServiceServer.
+type SparseLongArrayServer struct {
+	pb.UnimplementedSparseLongArrayServiceServer
 	Ctx     *app.Context
 	Handles *handlestore.HandleStore
 }
 
-func (s *SparseBooleanArrayServer) NewSparseBooleanArray(_ context.Context, req *pb.NewSparseBooleanArrayRequest) (*pb.NewSparseBooleanArrayResponse, error) {
-	obj, err := jnipkg3.NewSparseBooleanArray(s.Ctx.VM)
+func (s *SparseLongArrayServer) NewSparseLongArray(_ context.Context, req *pb.NewSparseLongArrayRequest) (*pb.NewSparseLongArrayResponse, error) {
+	obj, err := jnipkg3.NewSparseLongArray(s.Ctx.VM)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create object: %v", err)
 	}
@@ -5826,15 +5104,15 @@ func (s *SparseBooleanArrayServer) NewSparseBooleanArray(_ context.Context, req 
 	}); doErr != nil {
 		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
 	}
-	return &pb.NewSparseBooleanArrayResponse{Result: handle}, nil
+	return &pb.NewSparseLongArrayResponse{Result: handle}, nil
 }
 
-func (s *SparseBooleanArrayServer) Append(_ context.Context, req *pb.SparseBooleanArrayAppendRequest) (*pb.AppendResponse, error) {
+func (s *SparseLongArrayServer) Append(_ context.Context, req *pb.SparseLongArrayAppendRequest) (*pb.AppendResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg3.SparseBooleanArray{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg3.SparseLongArray{VM: s.Ctx.VM, Obj: rawObj}
 
 	if err := mgr.Append(req.GetArg0(), req.GetArg1()); err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
@@ -5842,25 +5120,25 @@ func (s *SparseBooleanArrayServer) Append(_ context.Context, req *pb.SparseBoole
 	return &pb.AppendResponse{}, nil
 }
 
-func (s *SparseBooleanArrayServer) Clear(_ context.Context, req *pb.SparseIntArrayClearRequest) (*pb.SparseIntArrayClearResponse, error) {
+func (s *SparseLongArrayServer) Clear(_ context.Context, req *pb.SparseBooleanArrayClearRequest) (*pb.SparseBooleanArrayClearResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg3.SparseBooleanArray{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg3.SparseLongArray{VM: s.Ctx.VM, Obj: rawObj}
 
 	if err := mgr.Clear(); err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.SparseIntArrayClearResponse{}, nil
+	return &pb.SparseBooleanArrayClearResponse{}, nil
 }
 
-func (s *SparseBooleanArrayServer) Clone0(_ context.Context, req *pb.Clone0Request) (*pb.Clone0Response, error) {
+func (s *SparseLongArrayServer) Clone0(_ context.Context, req *pb.Clone0Request) (*pb.Clone0Response, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg3.SparseBooleanArray{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg3.SparseLongArray{VM: s.Ctx.VM, Obj: rawObj}
 
 	result, err := mgr.Clone0()
 	if err != nil {
@@ -5878,12 +5156,12 @@ func (s *SparseBooleanArrayServer) Clone0(_ context.Context, req *pb.Clone0Reque
 	return &pb.Clone0Response{Result: handle}, nil
 }
 
-func (s *SparseBooleanArrayServer) Delete(_ context.Context, req *pb.DeleteRequest) (*pb.DeleteResponse, error) {
+func (s *SparseLongArrayServer) Delete(_ context.Context, req *pb.DeleteRequest) (*pb.DeleteResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg3.SparseBooleanArray{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg3.SparseLongArray{VM: s.Ctx.VM, Obj: rawObj}
 
 	if err := mgr.Delete(req.GetArg0()); err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
@@ -5891,68 +5169,40 @@ func (s *SparseBooleanArrayServer) Delete(_ context.Context, req *pb.DeleteReque
 	return &pb.DeleteResponse{}, nil
 }
 
-func (s *SparseBooleanArrayServer) Equals(_ context.Context, req *pb.EqualsRequest) (*pb.EqualsResponse, error) {
+func (s *SparseLongArrayServer) Get1(_ context.Context, req *pb.Get1Request) (*pb.SparseLongArrayGet1Response, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg3.SparseBooleanArray{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.Equals(s.Handles.Get(req.GetArg0()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.EqualsResponse{Result: result}, nil
-}
-
-func (s *SparseBooleanArrayServer) Get1(_ context.Context, req *pb.Get1Request) (*pb.SparseBooleanArrayGet1Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg3.SparseBooleanArray{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg3.SparseLongArray{VM: s.Ctx.VM, Obj: rawObj}
 
 	result, err := mgr.Get1(req.GetArg0())
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.SparseBooleanArrayGet1Response{Result: result}, nil
+	return &pb.SparseLongArrayGet1Response{Result: result}, nil
 }
 
-func (s *SparseBooleanArrayServer) Get2_1(_ context.Context, req *pb.SparseBooleanArrayGet2_1Request) (*pb.SparseBooleanArrayGet2_1Response, error) {
+func (s *SparseLongArrayServer) Get2_1(_ context.Context, req *pb.SparseLongArrayGet2_1Request) (*pb.SparseLongArrayGet2_1Response, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg3.SparseBooleanArray{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg3.SparseLongArray{VM: s.Ctx.VM, Obj: rawObj}
 
 	result, err := mgr.Get2_1(req.GetArg0(), req.GetArg1())
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.SparseBooleanArrayGet2_1Response{Result: result}, nil
+	return &pb.SparseLongArrayGet2_1Response{Result: result}, nil
 }
 
-func (s *SparseBooleanArrayServer) HashCode(_ context.Context, req *pb.HashCodeRequest) (*pb.HashCodeResponse, error) {
+func (s *SparseLongArrayServer) IndexOfKey(_ context.Context, req *pb.IndexOfKeyRequest) (*pb.IndexOfKeyResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg3.SparseBooleanArray{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.HashCode()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.HashCodeResponse{Result: result}, nil
-}
-
-func (s *SparseBooleanArrayServer) IndexOfKey(_ context.Context, req *pb.IndexOfKeyRequest) (*pb.IndexOfKeyResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg3.SparseBooleanArray{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg3.SparseLongArray{VM: s.Ctx.VM, Obj: rawObj}
 
 	result, err := mgr.IndexOfKey(req.GetArg0())
 	if err != nil {
@@ -5961,12 +5211,12 @@ func (s *SparseBooleanArrayServer) IndexOfKey(_ context.Context, req *pb.IndexOf
 	return &pb.IndexOfKeyResponse{Result: result}, nil
 }
 
-func (s *SparseBooleanArrayServer) IndexOfValue(_ context.Context, req *pb.SparseBooleanArrayIndexOfValueRequest) (*pb.IndexOfValueResponse, error) {
+func (s *SparseLongArrayServer) IndexOfValue(_ context.Context, req *pb.SparseLongArrayIndexOfValueRequest) (*pb.IndexOfValueResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg3.SparseBooleanArray{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg3.SparseLongArray{VM: s.Ctx.VM, Obj: rawObj}
 
 	result, err := mgr.IndexOfValue(req.GetArg0())
 	if err != nil {
@@ -5975,12 +5225,12 @@ func (s *SparseBooleanArrayServer) IndexOfValue(_ context.Context, req *pb.Spars
 	return &pb.IndexOfValueResponse{Result: result}, nil
 }
 
-func (s *SparseBooleanArrayServer) KeyAt(_ context.Context, req *pb.KeyAtRequest) (*pb.KeyAtResponse, error) {
+func (s *SparseLongArrayServer) KeyAt(_ context.Context, req *pb.KeyAtRequest) (*pb.KeyAtResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg3.SparseBooleanArray{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg3.SparseLongArray{VM: s.Ctx.VM, Obj: rawObj}
 
 	result, err := mgr.KeyAt(req.GetArg0())
 	if err != nil {
@@ -5989,12 +5239,12 @@ func (s *SparseBooleanArrayServer) KeyAt(_ context.Context, req *pb.KeyAtRequest
 	return &pb.KeyAtResponse{Result: result}, nil
 }
 
-func (s *SparseBooleanArrayServer) Put(_ context.Context, req *pb.SparseBooleanArrayPutRequest) (*pb.PutResponse, error) {
+func (s *SparseLongArrayServer) Put(_ context.Context, req *pb.SparseLongArrayPutRequest) (*pb.PutResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg3.SparseBooleanArray{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg3.SparseLongArray{VM: s.Ctx.VM, Obj: rawObj}
 
 	if err := mgr.Put(req.GetArg0(), req.GetArg1()); err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
@@ -6002,12 +5252,12 @@ func (s *SparseBooleanArrayServer) Put(_ context.Context, req *pb.SparseBooleanA
 	return &pb.PutResponse{}, nil
 }
 
-func (s *SparseBooleanArrayServer) RemoveAt(_ context.Context, req *pb.RemoveAtRequest) (*pb.RemoveAtResponse, error) {
+func (s *SparseLongArrayServer) RemoveAt(_ context.Context, req *pb.RemoveAtRequest) (*pb.RemoveAtResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg3.SparseBooleanArray{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg3.SparseLongArray{VM: s.Ctx.VM, Obj: rawObj}
 
 	if err := mgr.RemoveAt(req.GetArg0()); err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
@@ -6015,25 +5265,12 @@ func (s *SparseBooleanArrayServer) RemoveAt(_ context.Context, req *pb.RemoveAtR
 	return &pb.RemoveAtResponse{}, nil
 }
 
-func (s *SparseBooleanArrayServer) SetValueAt(_ context.Context, req *pb.SparseBooleanArraySetValueAtRequest) (*pb.SetValueAtResponse, error) {
+func (s *SparseLongArrayServer) Size(_ context.Context, req *pb.SizeRequest) (*pb.SizeResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg3.SparseBooleanArray{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.SetValueAt(req.GetArg0(), req.GetArg1()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SetValueAtResponse{}, nil
-}
-
-func (s *SparseBooleanArrayServer) Size(_ context.Context, req *pb.SizeRequest) (*pb.SizeResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg3.SparseBooleanArray{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg3.SparseLongArray{VM: s.Ctx.VM, Obj: rawObj}
 
 	result, err := mgr.Size()
 	if err != nil {
@@ -6042,12 +5279,12 @@ func (s *SparseBooleanArrayServer) Size(_ context.Context, req *pb.SizeRequest) 
 	return &pb.SizeResponse{Result: result}, nil
 }
 
-func (s *SparseBooleanArrayServer) ToString(_ context.Context, req *pb.SparseIntArrayToStringRequest) (*pb.ToStringResponse, error) {
+func (s *SparseLongArrayServer) ToString(_ context.Context, req *pb.ToStringRequest) (*pb.ToStringResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg3.SparseBooleanArray{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg3.SparseLongArray{VM: s.Ctx.VM, Obj: rawObj}
 
 	result, err := mgr.ToString()
 	if err != nil {
@@ -6056,26 +5293,26 @@ func (s *SparseBooleanArrayServer) ToString(_ context.Context, req *pb.SparseInt
 	return &pb.ToStringResponse{Result: result}, nil
 }
 
-func (s *SparseBooleanArrayServer) ValueAt(_ context.Context, req *pb.ValueAtRequest) (*pb.SparseBooleanArrayValueAtResponse, error) {
+func (s *SparseLongArrayServer) ValueAt(_ context.Context, req *pb.ValueAtRequest) (*pb.SparseLongArrayValueAtResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg3.SparseBooleanArray{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg3.SparseLongArray{VM: s.Ctx.VM, Obj: rawObj}
 
 	result, err := mgr.ValueAt(req.GetArg0())
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.SparseBooleanArrayValueAtResponse{Result: result}, nil
+	return &pb.SparseLongArrayValueAtResponse{Result: result}, nil
 }
 
-func (s *SparseBooleanArrayServer) Clone0_1(_ context.Context, req *pb.Clone0_1Request) (*pb.Clone0_1Response, error) {
+func (s *SparseLongArrayServer) Clone0_1(_ context.Context, req *pb.Clone0_1Request) (*pb.Clone0_1Response, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg3.SparseBooleanArray{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg3.SparseLongArray{VM: s.Ctx.VM, Obj: rawObj}
 
 	result, err := mgr.Clone0_1()
 	if err != nil {
@@ -6159,6 +5396,1344 @@ func (s *EventLogTagsServer) Get1_1(_ context.Context, req *pb.Get1_1Request) (*
 		}
 	}
 	return &pb.Get1_1Response{Result: handle}, nil
+}
+
+// SizeFServer implements pb.SizeFServiceServer.
+type SizeFServer struct {
+	pb.UnimplementedSizeFServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *SizeFServer) NewSizeF(_ context.Context, req *pb.NewSizeFRequest) (*pb.NewSizeFResponse, error) {
+	obj, err := jnipkg3.NewSizeF(s.Ctx.VM, req.GetArg0(), req.GetArg1())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewSizeFResponse{Result: handle}, nil
+}
+
+func (s *SizeFServer) DescribeContents(_ context.Context, req *pb.DescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg3.SizeF{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.DescribeContents()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.DescribeContentsResponse{Result: result}, nil
+}
+
+func (s *SizeFServer) Equals(_ context.Context, req *pb.SparseBooleanArrayEqualsRequest) (*pb.EqualsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg3.SizeF{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.Equals(s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.EqualsResponse{Result: result}, nil
+}
+
+func (s *SizeFServer) GetHeight(_ context.Context, req *pb.SizeFGetHeightRequest) (*pb.SizeFGetHeightResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg3.SizeF{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetHeight()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SizeFGetHeightResponse{Result: result}, nil
+}
+
+func (s *SizeFServer) GetWidth(_ context.Context, req *pb.SizeFGetWidthRequest) (*pb.SizeFGetWidthResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg3.SizeF{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetWidth()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SizeFGetWidthResponse{Result: result}, nil
+}
+
+func (s *SizeFServer) HashCode(_ context.Context, req *pb.SparseBooleanArrayHashCodeRequest) (*pb.HashCodeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg3.SizeF{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.HashCode()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.HashCodeResponse{Result: result}, nil
+}
+
+func (s *SizeFServer) ToString(_ context.Context, req *pb.ToStringRequest) (*pb.ToStringResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg3.SizeF{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.ToString()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ToStringResponse{Result: result}, nil
+}
+
+func (s *SizeFServer) WriteToParcel(_ context.Context, req *pb.WriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg3.SizeF{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.WriteToParcel(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.WriteToParcelResponse{}, nil
+}
+
+func (s *SizeFServer) ParseSizeF(_ context.Context, req *pb.ParseSizeFRequest) (*pb.ParseSizeFResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg3.SizeF{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.ParseSizeF(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.ParseSizeFResponse{Result: handle}, nil
+}
+
+// SparseArrayServer implements pb.SparseArrayServiceServer.
+type SparseArrayServer struct {
+	pb.UnimplementedSparseArrayServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *SparseArrayServer) NewSparseArray(_ context.Context, req *pb.NewSparseArrayRequest) (*pb.NewSparseArrayResponse, error) {
+	obj, err := jnipkg3.NewSparseArray(s.Ctx.VM)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewSparseArrayResponse{Result: handle}, nil
+}
+
+func (s *SparseArrayServer) Clear(_ context.Context, req *pb.SparseBooleanArrayClearRequest) (*pb.SparseBooleanArrayClearResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg3.SparseArray{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.Clear(); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SparseBooleanArrayClearResponse{}, nil
+}
+
+func (s *SparseArrayServer) Clone0(_ context.Context, req *pb.Clone0Request) (*pb.Clone0Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg3.SparseArray{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.Clone0()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.Clone0Response{Result: handle}, nil
+}
+
+func (s *SparseArrayServer) Contains(_ context.Context, req *pb.ContainsRequest) (*pb.ContainsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg3.SparseArray{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.Contains(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ContainsResponse{Result: result}, nil
+}
+
+func (s *SparseArrayServer) ContentHashCode(_ context.Context, req *pb.ContentHashCodeRequest) (*pb.ContentHashCodeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg3.SparseArray{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.ContentHashCode()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ContentHashCodeResponse{Result: result}, nil
+}
+
+func (s *SparseArrayServer) Delete(_ context.Context, req *pb.DeleteRequest) (*pb.DeleteResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg3.SparseArray{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.Delete(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.DeleteResponse{}, nil
+}
+
+func (s *SparseArrayServer) IndexOfKey(_ context.Context, req *pb.IndexOfKeyRequest) (*pb.IndexOfKeyResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg3.SparseArray{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.IndexOfKey(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.IndexOfKeyResponse{Result: result}, nil
+}
+
+func (s *SparseArrayServer) KeyAt(_ context.Context, req *pb.KeyAtRequest) (*pb.KeyAtResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg3.SparseArray{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.KeyAt(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.KeyAtResponse{Result: result}, nil
+}
+
+func (s *SparseArrayServer) Remove(_ context.Context, req *pb.RemoveRequest) (*pb.RemoveResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg3.SparseArray{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.Remove(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.RemoveResponse{}, nil
+}
+
+func (s *SparseArrayServer) RemoveAt(_ context.Context, req *pb.RemoveAtRequest) (*pb.RemoveAtResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg3.SparseArray{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.RemoveAt(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.RemoveAtResponse{}, nil
+}
+
+func (s *SparseArrayServer) RemoveAtRange(_ context.Context, req *pb.RemoveAtRangeRequest) (*pb.RemoveAtRangeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg3.SparseArray{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.RemoveAtRange(req.GetArg0(), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.RemoveAtRangeResponse{}, nil
+}
+
+func (s *SparseArrayServer) Size(_ context.Context, req *pb.SizeRequest) (*pb.SizeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg3.SparseArray{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.Size()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SizeResponse{Result: result}, nil
+}
+
+func (s *SparseArrayServer) ToString(_ context.Context, req *pb.ToStringRequest) (*pb.ToStringResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg3.SparseArray{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.ToString()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ToStringResponse{Result: result}, nil
+}
+
+func (s *SparseArrayServer) Clone0_1(_ context.Context, req *pb.Clone0_1Request) (*pb.Clone0_1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg3.SparseArray{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.Clone0_1()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.Clone0_1Response{Result: handle}, nil
+}
+
+// ArraySetServer implements pb.ArraySetServiceServer.
+type ArraySetServer struct {
+	pb.UnimplementedArraySetServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *ArraySetServer) NewArraySet(_ context.Context, req *pb.NewArraySetRequest) (*pb.NewArraySetResponse, error) {
+	obj, err := jnipkg3.NewArraySet(s.Ctx.VM)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewArraySetResponse{Result: handle}, nil
+}
+
+func (s *ArraySetServer) Clear(_ context.Context, req *pb.SparseBooleanArrayClearRequest) (*pb.SparseBooleanArrayClearResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg3.ArraySet{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.Clear(); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SparseBooleanArrayClearResponse{}, nil
+}
+
+func (s *ArraySetServer) Contains(_ context.Context, req *pb.ArraySetContainsRequest) (*pb.ContainsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg3.ArraySet{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.Contains(s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ContainsResponse{Result: result}, nil
+}
+
+func (s *ArraySetServer) EnsureCapacity(_ context.Context, req *pb.EnsureCapacityRequest) (*pb.EnsureCapacityResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg3.ArraySet{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.EnsureCapacity(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.EnsureCapacityResponse{}, nil
+}
+
+func (s *ArraySetServer) Equals(_ context.Context, req *pb.SparseBooleanArrayEqualsRequest) (*pb.EqualsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg3.ArraySet{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.Equals(s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.EqualsResponse{Result: result}, nil
+}
+
+func (s *ArraySetServer) HashCode(_ context.Context, req *pb.SparseBooleanArrayHashCodeRequest) (*pb.HashCodeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg3.ArraySet{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.HashCode()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.HashCodeResponse{Result: result}, nil
+}
+
+func (s *ArraySetServer) IndexOf(_ context.Context, req *pb.IndexOfRequest) (*pb.IndexOfResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg3.ArraySet{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.IndexOf(s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.IndexOfResponse{Result: result}, nil
+}
+
+func (s *ArraySetServer) IsEmpty(_ context.Context, req *pb.IsEmptyRequest) (*pb.IsEmptyResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg3.ArraySet{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.IsEmpty()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.IsEmptyResponse{Result: result}, nil
+}
+
+func (s *ArraySetServer) Iterator(_ context.Context, req *pb.IteratorRequest) (*pb.IteratorResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg3.ArraySet{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.Iterator()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.IteratorResponse{Result: handle}, nil
+}
+
+func (s *ArraySetServer) Remove(_ context.Context, req *pb.ArraySetRemoveRequest) (*pb.ArraySetRemoveResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg3.ArraySet{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.Remove(s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ArraySetRemoveResponse{Result: result}, nil
+}
+
+func (s *ArraySetServer) Size(_ context.Context, req *pb.SizeRequest) (*pb.SizeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg3.ArraySet{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.Size()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SizeResponse{Result: result}, nil
+}
+
+func (s *ArraySetServer) ToArray(_ context.Context, req *pb.ToArrayRequest) (*pb.ToArrayResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg3.ArraySet{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.ToArray()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.ToArrayResponse{Result: handle}, nil
+}
+
+func (s *ArraySetServer) ToString(_ context.Context, req *pb.ToStringRequest) (*pb.ToStringResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg3.ArraySet{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.ToString()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ToStringResponse{Result: result}, nil
+}
+
+// SparseIntArrayServer implements pb.SparseIntArrayServiceServer.
+type SparseIntArrayServer struct {
+	pb.UnimplementedSparseIntArrayServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *SparseIntArrayServer) NewSparseIntArray(_ context.Context, req *pb.NewSparseIntArrayRequest) (*pb.NewSparseIntArrayResponse, error) {
+	obj, err := jnipkg3.NewSparseIntArray(s.Ctx.VM)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewSparseIntArrayResponse{Result: handle}, nil
+}
+
+func (s *SparseIntArrayServer) Append(_ context.Context, req *pb.SparseIntArrayAppendRequest) (*pb.AppendResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg3.SparseIntArray{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.Append(req.GetArg0(), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.AppendResponse{}, nil
+}
+
+func (s *SparseIntArrayServer) Clear(_ context.Context, req *pb.SparseBooleanArrayClearRequest) (*pb.SparseBooleanArrayClearResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg3.SparseIntArray{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.Clear(); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SparseBooleanArrayClearResponse{}, nil
+}
+
+func (s *SparseIntArrayServer) Clone0(_ context.Context, req *pb.Clone0Request) (*pb.Clone0Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg3.SparseIntArray{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.Clone0()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.Clone0Response{Result: handle}, nil
+}
+
+func (s *SparseIntArrayServer) Delete(_ context.Context, req *pb.DeleteRequest) (*pb.DeleteResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg3.SparseIntArray{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.Delete(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.DeleteResponse{}, nil
+}
+
+func (s *SparseIntArrayServer) Get1(_ context.Context, req *pb.Get1Request) (*pb.SparseIntArrayGet1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg3.SparseIntArray{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.Get1(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SparseIntArrayGet1Response{Result: result}, nil
+}
+
+func (s *SparseIntArrayServer) Get2_1(_ context.Context, req *pb.SparseIntArrayGet2_1Request) (*pb.SparseIntArrayGet2_1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg3.SparseIntArray{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.Get2_1(req.GetArg0(), req.GetArg1())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SparseIntArrayGet2_1Response{Result: result}, nil
+}
+
+func (s *SparseIntArrayServer) IndexOfKey(_ context.Context, req *pb.IndexOfKeyRequest) (*pb.IndexOfKeyResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg3.SparseIntArray{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.IndexOfKey(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.IndexOfKeyResponse{Result: result}, nil
+}
+
+func (s *SparseIntArrayServer) IndexOfValue(_ context.Context, req *pb.SparseIntArrayIndexOfValueRequest) (*pb.IndexOfValueResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg3.SparseIntArray{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.IndexOfValue(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.IndexOfValueResponse{Result: result}, nil
+}
+
+func (s *SparseIntArrayServer) KeyAt(_ context.Context, req *pb.KeyAtRequest) (*pb.KeyAtResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg3.SparseIntArray{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.KeyAt(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.KeyAtResponse{Result: result}, nil
+}
+
+func (s *SparseIntArrayServer) Put(_ context.Context, req *pb.SparseIntArrayPutRequest) (*pb.PutResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg3.SparseIntArray{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.Put(req.GetArg0(), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.PutResponse{}, nil
+}
+
+func (s *SparseIntArrayServer) RemoveAt(_ context.Context, req *pb.RemoveAtRequest) (*pb.RemoveAtResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg3.SparseIntArray{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.RemoveAt(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.RemoveAtResponse{}, nil
+}
+
+func (s *SparseIntArrayServer) SetValueAt(_ context.Context, req *pb.SparseIntArraySetValueAtRequest) (*pb.SetValueAtResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg3.SparseIntArray{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetValueAt(req.GetArg0(), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetValueAtResponse{}, nil
+}
+
+func (s *SparseIntArrayServer) Size(_ context.Context, req *pb.SizeRequest) (*pb.SizeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg3.SparseIntArray{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.Size()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SizeResponse{Result: result}, nil
+}
+
+func (s *SparseIntArrayServer) ToString(_ context.Context, req *pb.ToStringRequest) (*pb.ToStringResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg3.SparseIntArray{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.ToString()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ToStringResponse{Result: result}, nil
+}
+
+func (s *SparseIntArrayServer) ValueAt(_ context.Context, req *pb.ValueAtRequest) (*pb.SparseIntArrayValueAtResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg3.SparseIntArray{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.ValueAt(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SparseIntArrayValueAtResponse{Result: result}, nil
+}
+
+func (s *SparseIntArrayServer) Clone0_1(_ context.Context, req *pb.Clone0_1Request) (*pb.Clone0_1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg3.SparseIntArray{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.Clone0_1()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.Clone0_1Response{Result: handle}, nil
+}
+
+// PrintStreamPrinterServer implements pb.PrintStreamPrinterServiceServer.
+type PrintStreamPrinterServer struct {
+	pb.UnimplementedPrintStreamPrinterServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *PrintStreamPrinterServer) NewPrintStreamPrinter(_ context.Context, req *pb.NewPrintStreamPrinterRequest) (*pb.NewPrintStreamPrinterResponse, error) {
+	obj, err := jnipkg3.NewPrintStreamPrinter(s.Ctx.VM, s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewPrintStreamPrinterResponse{Result: handle}, nil
+}
+
+func (s *PrintStreamPrinterServer) Println(_ context.Context, req *pb.PrintlnRequest) (*pb.PrintlnResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg3.PrintStreamPrinter{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.Println(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.PrintlnResponse{}, nil
+}
+
+// MonthDisplayHelperServer implements pb.MonthDisplayHelperServiceServer.
+type MonthDisplayHelperServer struct {
+	pb.UnimplementedMonthDisplayHelperServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *MonthDisplayHelperServer) NewMonthDisplayHelper(_ context.Context, req *pb.NewMonthDisplayHelperRequest) (*pb.NewMonthDisplayHelperResponse, error) {
+	obj, err := jnipkg3.NewMonthDisplayHelper(s.Ctx.VM, req.GetArg0(), req.GetArg1())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewMonthDisplayHelperResponse{Result: handle}, nil
+}
+
+func (s *MonthDisplayHelperServer) GetColumnOf(_ context.Context, req *pb.GetColumnOfRequest) (*pb.GetColumnOfResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg3.MonthDisplayHelper{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetColumnOf(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetColumnOfResponse{Result: result}, nil
+}
+
+func (s *MonthDisplayHelperServer) GetDayAt(_ context.Context, req *pb.GetDayAtRequest) (*pb.GetDayAtResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg3.MonthDisplayHelper{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetDayAt(req.GetArg0(), req.GetArg1())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetDayAtResponse{Result: result}, nil
+}
+
+func (s *MonthDisplayHelperServer) GetDigitsForRow(_ context.Context, req *pb.GetDigitsForRowRequest) (*pb.GetDigitsForRowResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg3.MonthDisplayHelper{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetDigitsForRow(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetDigitsForRowResponse{Result: handle}, nil
+}
+
+func (s *MonthDisplayHelperServer) GetFirstDayOfMonth(_ context.Context, req *pb.GetFirstDayOfMonthRequest) (*pb.GetFirstDayOfMonthResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg3.MonthDisplayHelper{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetFirstDayOfMonth()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetFirstDayOfMonthResponse{Result: result}, nil
+}
+
+func (s *MonthDisplayHelperServer) GetMonth(_ context.Context, req *pb.GetMonthRequest) (*pb.GetMonthResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg3.MonthDisplayHelper{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetMonth()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetMonthResponse{Result: result}, nil
+}
+
+func (s *MonthDisplayHelperServer) GetNumberOfDaysInMonth(_ context.Context, req *pb.GetNumberOfDaysInMonthRequest) (*pb.GetNumberOfDaysInMonthResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg3.MonthDisplayHelper{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetNumberOfDaysInMonth()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetNumberOfDaysInMonthResponse{Result: result}, nil
+}
+
+func (s *MonthDisplayHelperServer) GetOffset(_ context.Context, req *pb.GetOffsetRequest) (*pb.GetOffsetResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg3.MonthDisplayHelper{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetOffset()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetOffsetResponse{Result: result}, nil
+}
+
+func (s *MonthDisplayHelperServer) GetRowOf(_ context.Context, req *pb.GetRowOfRequest) (*pb.GetRowOfResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg3.MonthDisplayHelper{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetRowOf(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetRowOfResponse{Result: result}, nil
+}
+
+func (s *MonthDisplayHelperServer) GetWeekStartDay(_ context.Context, req *pb.GetWeekStartDayRequest) (*pb.GetWeekStartDayResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg3.MonthDisplayHelper{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetWeekStartDay()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetWeekStartDayResponse{Result: result}, nil
+}
+
+func (s *MonthDisplayHelperServer) GetYear(_ context.Context, req *pb.GetYearRequest) (*pb.GetYearResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg3.MonthDisplayHelper{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetYear()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetYearResponse{Result: result}, nil
+}
+
+func (s *MonthDisplayHelperServer) IsWithinCurrentMonth(_ context.Context, req *pb.IsWithinCurrentMonthRequest) (*pb.IsWithinCurrentMonthResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg3.MonthDisplayHelper{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.IsWithinCurrentMonth(req.GetArg0(), req.GetArg1())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.IsWithinCurrentMonthResponse{Result: result}, nil
+}
+
+func (s *MonthDisplayHelperServer) NextMonth(_ context.Context, req *pb.NextMonthRequest) (*pb.NextMonthResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg3.MonthDisplayHelper{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.NextMonth(); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.NextMonthResponse{}, nil
+}
+
+func (s *MonthDisplayHelperServer) PreviousMonth(_ context.Context, req *pb.PreviousMonthRequest) (*pb.PreviousMonthResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg3.MonthDisplayHelper{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.PreviousMonth(); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.PreviousMonthResponse{}, nil
+}
+
+// RationalServer implements pb.RationalServiceServer.
+type RationalServer struct {
+	pb.UnimplementedRationalServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *RationalServer) NewRational(_ context.Context, req *pb.NewRationalRequest) (*pb.NewRationalResponse, error) {
+	obj, err := jnipkg3.NewRational(s.Ctx.VM, req.GetArg0(), req.GetArg1())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewRationalResponse{Result: handle}, nil
+}
+
+func (s *RationalServer) CompareTo1(_ context.Context, req *pb.HalfCompareTo1Request) (*pb.CompareTo1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg3.Rational{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.CompareTo1(s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.CompareTo1Response{Result: result}, nil
+}
+
+func (s *RationalServer) DoubleValue(_ context.Context, req *pb.DoubleValueRequest) (*pb.DoubleValueResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg3.Rational{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.DoubleValue()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.DoubleValueResponse{Result: result}, nil
+}
+
+func (s *RationalServer) Equals(_ context.Context, req *pb.SparseBooleanArrayEqualsRequest) (*pb.EqualsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg3.Rational{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.Equals(s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.EqualsResponse{Result: result}, nil
+}
+
+func (s *RationalServer) FloatValue(_ context.Context, req *pb.FloatValueRequest) (*pb.FloatValueResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg3.Rational{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.FloatValue()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.FloatValueResponse{Result: result}, nil
+}
+
+func (s *RationalServer) GetDenominator(_ context.Context, req *pb.GetDenominatorRequest) (*pb.GetDenominatorResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg3.Rational{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetDenominator()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetDenominatorResponse{Result: result}, nil
+}
+
+func (s *RationalServer) GetNumerator(_ context.Context, req *pb.GetNumeratorRequest) (*pb.GetNumeratorResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg3.Rational{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetNumerator()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetNumeratorResponse{Result: result}, nil
+}
+
+func (s *RationalServer) HashCode(_ context.Context, req *pb.SparseBooleanArrayHashCodeRequest) (*pb.HashCodeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg3.Rational{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.HashCode()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.HashCodeResponse{Result: result}, nil
+}
+
+func (s *RationalServer) IntValue(_ context.Context, req *pb.IntValueRequest) (*pb.IntValueResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg3.Rational{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.IntValue()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.IntValueResponse{Result: result}, nil
+}
+
+func (s *RationalServer) IsFinite(_ context.Context, req *pb.IsFiniteRequest) (*pb.IsFiniteResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg3.Rational{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.IsFinite()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.IsFiniteResponse{Result: result}, nil
+}
+
+func (s *RationalServer) IsInfinite(_ context.Context, req *pb.RationalIsInfiniteRequest) (*pb.IsInfiniteResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg3.Rational{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.IsInfinite()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.IsInfiniteResponse{Result: result}, nil
+}
+
+func (s *RationalServer) IsNaN(_ context.Context, req *pb.IsNaNRequest) (*pb.IsNaNResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg3.Rational{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.IsNaN()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.IsNaNResponse{Result: result}, nil
+}
+
+func (s *RationalServer) IsZero(_ context.Context, req *pb.IsZeroRequest) (*pb.IsZeroResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg3.Rational{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.IsZero()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.IsZeroResponse{Result: result}, nil
+}
+
+func (s *RationalServer) LongValue(_ context.Context, req *pb.LongValueRequest) (*pb.LongValueResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg3.Rational{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.LongValue()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.LongValueResponse{Result: result}, nil
+}
+
+func (s *RationalServer) ShortValue(_ context.Context, req *pb.ShortValueRequest) (*pb.ShortValueResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg3.Rational{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.ShortValue()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ShortValueResponse{Result: int32(result)}, nil
+}
+
+func (s *RationalServer) ToString(_ context.Context, req *pb.ToStringRequest) (*pb.ToStringResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg3.Rational{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.ToString()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ToStringResponse{Result: result}, nil
+}
+
+func (s *RationalServer) CompareTo1_1(_ context.Context, req *pb.HalfCompareTo1_1Request) (*pb.CompareTo1_1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg3.Rational{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.CompareTo1_1(s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.CompareTo1_1Response{Result: result}, nil
+}
+
+func (s *RationalServer) ParseRational(_ context.Context, req *pb.ParseRationalRequest) (*pb.ParseRationalResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg3.Rational{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.ParseRational(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.ParseRationalResponse{Result: handle}, nil
 }
 
 // JsonWriterServer implements pb.JsonWriterServiceServer.
@@ -6502,15 +7077,15 @@ func (s *JsonWriterServer) Value1_4(_ context.Context, req *pb.Value1_4Request) 
 	return &pb.Value1_4Response{Result: handle}, nil
 }
 
-// PrintWriterPrinterServer implements pb.PrintWriterPrinterServiceServer.
-type PrintWriterPrinterServer struct {
-	pb.UnimplementedPrintWriterPrinterServiceServer
+// Base64OutputStreamServer implements pb.Base64OutputStreamServiceServer.
+type Base64OutputStreamServer struct {
+	pb.UnimplementedBase64OutputStreamServiceServer
 	Ctx     *app.Context
 	Handles *handlestore.HandleStore
 }
 
-func (s *PrintWriterPrinterServer) NewPrintWriterPrinter(_ context.Context, req *pb.NewPrintWriterPrinterRequest) (*pb.NewPrintWriterPrinterResponse, error) {
-	obj, err := jnipkg3.NewPrintWriterPrinter(s.Ctx.VM, s.Handles.Get(req.GetArg0()))
+func (s *Base64OutputStreamServer) NewBase64OutputStream(_ context.Context, req *pb.NewBase64OutputStreamRequest) (*pb.NewBase64OutputStreamResponse, error) {
+	obj, err := jnipkg3.NewBase64OutputStream(s.Ctx.VM, s.Handles.Get(req.GetArg0()), req.GetArg1())
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create object: %v", err)
 	}
@@ -6521,20 +7096,381 @@ func (s *PrintWriterPrinterServer) NewPrintWriterPrinter(_ context.Context, req 
 	}); doErr != nil {
 		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
 	}
-	return &pb.NewPrintWriterPrinterResponse{Result: handle}, nil
+	return &pb.NewBase64OutputStreamResponse{Result: handle}, nil
 }
 
-func (s *PrintWriterPrinterServer) Println(_ context.Context, req *pb.PrintlnRequest) (*pb.PrintlnResponse, error) {
+func (s *Base64OutputStreamServer) Close(_ context.Context, req *pb.CloseRequest) (*pb.CloseResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg3.PrintWriterPrinter{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg3.Base64OutputStream{VM: s.Ctx.VM, Obj: rawObj}
 
-	if err := mgr.Println(req.GetArg0()); err != nil {
+	if err := mgr.Close(); err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.PrintlnResponse{}, nil
+	return &pb.CloseResponse{}, nil
+}
+
+func (s *Base64OutputStreamServer) Write3(_ context.Context, req *pb.Write3Request) (*pb.Write3Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg3.Base64OutputStream{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.Write3(s.Handles.Get(req.GetArg0()), req.GetArg1(), req.GetArg2()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.Write3Response{}, nil
+}
+
+func (s *Base64OutputStreamServer) Write1_1(_ context.Context, req *pb.Write1_1Request) (*pb.Write1_1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg3.Base64OutputStream{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.Write1_1(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.Write1_1Response{}, nil
+}
+
+// SizeServer implements pb.SizeServiceServer.
+type SizeServer struct {
+	pb.UnimplementedSizeServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *SizeServer) NewSize(_ context.Context, req *pb.NewSizeRequest) (*pb.NewSizeResponse, error) {
+	obj, err := jnipkg3.NewSize(s.Ctx.VM, req.GetArg0(), req.GetArg1())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewSizeResponse{Result: handle}, nil
+}
+
+func (s *SizeServer) Equals(_ context.Context, req *pb.SparseBooleanArrayEqualsRequest) (*pb.EqualsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg3.Size{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.Equals(s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.EqualsResponse{Result: result}, nil
+}
+
+func (s *SizeServer) GetHeight(_ context.Context, req *pb.SizeFGetHeightRequest) (*pb.SizeGetHeightResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg3.Size{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetHeight()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SizeGetHeightResponse{Result: result}, nil
+}
+
+func (s *SizeServer) GetWidth(_ context.Context, req *pb.SizeFGetWidthRequest) (*pb.SizeGetWidthResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg3.Size{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetWidth()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SizeGetWidthResponse{Result: result}, nil
+}
+
+func (s *SizeServer) HashCode(_ context.Context, req *pb.SparseBooleanArrayHashCodeRequest) (*pb.HashCodeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg3.Size{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.HashCode()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.HashCodeResponse{Result: result}, nil
+}
+
+func (s *SizeServer) ToString(_ context.Context, req *pb.ToStringRequest) (*pb.ToStringResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg3.Size{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.ToString()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ToStringResponse{Result: result}, nil
+}
+
+func (s *SizeServer) ParseSize(_ context.Context, req *pb.ParseSizeRequest) (*pb.ParseSizeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg3.Size{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.ParseSize(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.ParseSizeResponse{Result: handle}, nil
+}
+
+// ArrayMapServer implements pb.ArrayMapServiceServer.
+type ArrayMapServer struct {
+	pb.UnimplementedArrayMapServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *ArrayMapServer) NewArrayMap(_ context.Context, req *pb.NewArrayMapRequest) (*pb.NewArrayMapResponse, error) {
+	obj, err := jnipkg3.NewArrayMap(s.Ctx.VM)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewArrayMapResponse{Result: handle}, nil
+}
+
+func (s *ArrayMapServer) Clear(_ context.Context, req *pb.SparseBooleanArrayClearRequest) (*pb.SparseBooleanArrayClearResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg3.ArrayMap{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.Clear(); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SparseBooleanArrayClearResponse{}, nil
+}
+
+func (s *ArrayMapServer) ContainsKey(_ context.Context, req *pb.ContainsKeyRequest) (*pb.ContainsKeyResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg3.ArrayMap{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.ContainsKey(s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ContainsKeyResponse{Result: result}, nil
+}
+
+func (s *ArrayMapServer) ContainsValue(_ context.Context, req *pb.ContainsValueRequest) (*pb.ContainsValueResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg3.ArrayMap{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.ContainsValue(s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ContainsValueResponse{Result: result}, nil
+}
+
+func (s *ArrayMapServer) EnsureCapacity(_ context.Context, req *pb.EnsureCapacityRequest) (*pb.EnsureCapacityResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg3.ArrayMap{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.EnsureCapacity(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.EnsureCapacityResponse{}, nil
+}
+
+func (s *ArrayMapServer) Equals(_ context.Context, req *pb.SparseBooleanArrayEqualsRequest) (*pb.EqualsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg3.ArrayMap{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.Equals(s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.EqualsResponse{Result: result}, nil
+}
+
+func (s *ArrayMapServer) HashCode(_ context.Context, req *pb.SparseBooleanArrayHashCodeRequest) (*pb.HashCodeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg3.ArrayMap{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.HashCode()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.HashCodeResponse{Result: result}, nil
+}
+
+func (s *ArrayMapServer) IndexOfKey(_ context.Context, req *pb.ArrayMapIndexOfKeyRequest) (*pb.IndexOfKeyResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg3.ArrayMap{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.IndexOfKey(s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.IndexOfKeyResponse{Result: result}, nil
+}
+
+func (s *ArrayMapServer) IndexOfValue(_ context.Context, req *pb.ArrayMapIndexOfValueRequest) (*pb.IndexOfValueResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg3.ArrayMap{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.IndexOfValue(s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.IndexOfValueResponse{Result: result}, nil
+}
+
+func (s *ArrayMapServer) IsEmpty(_ context.Context, req *pb.IsEmptyRequest) (*pb.IsEmptyResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg3.ArrayMap{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.IsEmpty()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.IsEmptyResponse{Result: result}, nil
+}
+
+func (s *ArrayMapServer) KeySet(_ context.Context, req *pb.KeySetRequest) (*pb.KeySetResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg3.ArrayMap{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.KeySet()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.KeySetResponse{Result: handle}, nil
+}
+
+func (s *ArrayMapServer) Size(_ context.Context, req *pb.SizeRequest) (*pb.SizeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg3.ArrayMap{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.Size()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SizeResponse{Result: result}, nil
+}
+
+func (s *ArrayMapServer) ToString(_ context.Context, req *pb.ToStringRequest) (*pb.ToStringResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg3.ArrayMap{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.ToString()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ToStringResponse{Result: result}, nil
+}
+
+func (s *ArrayMapServer) Values(_ context.Context, req *pb.ArrayMapValuesRequest) (*pb.ValuesResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg3.ArrayMap{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.Values()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.ValuesResponse{Result: handle}, nil
 }
 
 // LongSparseArrayServer implements pb.LongSparseArrayServiceServer.
@@ -6559,7 +7495,7 @@ func (s *LongSparseArrayServer) NewLongSparseArray(_ context.Context, req *pb.Ne
 	return &pb.NewLongSparseArrayResponse{Result: handle}, nil
 }
 
-func (s *LongSparseArrayServer) Clear(_ context.Context, req *pb.SparseIntArrayClearRequest) (*pb.SparseIntArrayClearResponse, error) {
+func (s *LongSparseArrayServer) Clear(_ context.Context, req *pb.SparseBooleanArrayClearRequest) (*pb.SparseBooleanArrayClearResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -6569,7 +7505,30 @@ func (s *LongSparseArrayServer) Clear(_ context.Context, req *pb.SparseIntArrayC
 	if err := mgr.Clear(); err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.SparseIntArrayClearResponse{}, nil
+	return &pb.SparseBooleanArrayClearResponse{}, nil
+}
+
+func (s *LongSparseArrayServer) Clone0(_ context.Context, req *pb.Clone0Request) (*pb.Clone0Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg3.LongSparseArray{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.Clone0()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.Clone0Response{Result: handle}, nil
 }
 
 func (s *LongSparseArrayServer) Delete(_ context.Context, req *pb.LongSparseArrayDeleteRequest) (*pb.DeleteResponse, error) {
@@ -6613,7 +7572,7 @@ func (s *LongSparseArrayServer) KeyAt(_ context.Context, req *pb.KeyAtRequest) (
 	return &pb.LongSparseArrayKeyAtResponse{Result: result}, nil
 }
 
-func (s *LongSparseArrayServer) Remove(_ context.Context, req *pb.RemoveRequest) (*pb.LongSparseArrayRemoveResponse, error) {
+func (s *LongSparseArrayServer) Remove(_ context.Context, req *pb.LongSparseArrayRemoveRequest) (*pb.RemoveResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -6623,7 +7582,7 @@ func (s *LongSparseArrayServer) Remove(_ context.Context, req *pb.RemoveRequest)
 	if err := mgr.Remove(req.GetArg0()); err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.LongSparseArrayRemoveResponse{}, nil
+	return &pb.RemoveResponse{}, nil
 }
 
 func (s *LongSparseArrayServer) RemoveAt(_ context.Context, req *pb.RemoveAtRequest) (*pb.RemoveAtResponse, error) {
@@ -6653,7 +7612,7 @@ func (s *LongSparseArrayServer) Size(_ context.Context, req *pb.SizeRequest) (*p
 	return &pb.SizeResponse{Result: result}, nil
 }
 
-func (s *LongSparseArrayServer) ToString(_ context.Context, req *pb.SparseIntArrayToStringRequest) (*pb.ToStringResponse, error) {
+func (s *LongSparseArrayServer) ToString(_ context.Context, req *pb.ToStringRequest) (*pb.ToStringResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -6667,14 +7626,14 @@ func (s *LongSparseArrayServer) ToString(_ context.Context, req *pb.SparseIntArr
 	return &pb.ToStringResponse{Result: result}, nil
 }
 
-func (s *LongSparseArrayServer) Clone(_ context.Context, req *pb.SparseArrayCloneRequest) (*pb.CloneResponse, error) {
+func (s *LongSparseArrayServer) Clone0_1(_ context.Context, req *pb.Clone0_1Request) (*pb.Clone0_1Response, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
 	mgr := &jnipkg3.LongSparseArray{VM: s.Ctx.VM, Obj: rawObj}
 
-	result, err := mgr.Clone()
+	result, err := mgr.Clone0_1()
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
@@ -6687,558 +7646,7 @@ func (s *LongSparseArrayServer) Clone(_ context.Context, req *pb.SparseArrayClon
 			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
 		}
 	}
-	return &pb.CloneResponse{Result: handle}, nil
-}
-
-// RationalServer implements pb.RationalServiceServer.
-type RationalServer struct {
-	pb.UnimplementedRationalServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *RationalServer) NewRational(_ context.Context, req *pb.NewRationalRequest) (*pb.NewRationalResponse, error) {
-	obj, err := jnipkg3.NewRational(s.Ctx.VM, req.GetArg0(), req.GetArg1())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
-	}
-	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-	}
-	return &pb.NewRationalResponse{Result: handle}, nil
-}
-
-func (s *RationalServer) CompareTo1(_ context.Context, req *pb.CompareTo1Request) (*pb.CompareTo1Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg3.Rational{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.CompareTo1(s.Handles.Get(req.GetArg0()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.CompareTo1Response{Result: result}, nil
-}
-
-func (s *RationalServer) DoubleValue(_ context.Context, req *pb.DoubleValueRequest) (*pb.DoubleValueResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg3.Rational{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.DoubleValue()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.DoubleValueResponse{Result: result}, nil
-}
-
-func (s *RationalServer) Equals(_ context.Context, req *pb.EqualsRequest) (*pb.EqualsResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg3.Rational{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.Equals(s.Handles.Get(req.GetArg0()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.EqualsResponse{Result: result}, nil
-}
-
-func (s *RationalServer) FloatValue(_ context.Context, req *pb.FloatValueRequest) (*pb.FloatValueResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg3.Rational{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.FloatValue()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.FloatValueResponse{Result: result}, nil
-}
-
-func (s *RationalServer) GetDenominator(_ context.Context, req *pb.GetDenominatorRequest) (*pb.GetDenominatorResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg3.Rational{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetDenominator()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetDenominatorResponse{Result: result}, nil
-}
-
-func (s *RationalServer) GetNumerator(_ context.Context, req *pb.GetNumeratorRequest) (*pb.GetNumeratorResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg3.Rational{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetNumerator()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetNumeratorResponse{Result: result}, nil
-}
-
-func (s *RationalServer) HashCode(_ context.Context, req *pb.HashCodeRequest) (*pb.HashCodeResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg3.Rational{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.HashCode()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.HashCodeResponse{Result: result}, nil
-}
-
-func (s *RationalServer) IntValue(_ context.Context, req *pb.IntValueRequest) (*pb.IntValueResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg3.Rational{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.IntValue()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.IntValueResponse{Result: result}, nil
-}
-
-func (s *RationalServer) IsFinite(_ context.Context, req *pb.IsFiniteRequest) (*pb.IsFiniteResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg3.Rational{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.IsFinite()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.IsFiniteResponse{Result: result}, nil
-}
-
-func (s *RationalServer) IsInfinite(_ context.Context, req *pb.RationalIsInfiniteRequest) (*pb.IsInfiniteResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg3.Rational{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.IsInfinite()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.IsInfiniteResponse{Result: result}, nil
-}
-
-func (s *RationalServer) IsNaN(_ context.Context, req *pb.IsNaNRequest) (*pb.IsNaNResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg3.Rational{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.IsNaN()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.IsNaNResponse{Result: result}, nil
-}
-
-func (s *RationalServer) IsZero(_ context.Context, req *pb.IsZeroRequest) (*pb.IsZeroResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg3.Rational{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.IsZero()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.IsZeroResponse{Result: result}, nil
-}
-
-func (s *RationalServer) LongValue(_ context.Context, req *pb.LongValueRequest) (*pb.LongValueResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg3.Rational{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.LongValue()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.LongValueResponse{Result: result}, nil
-}
-
-func (s *RationalServer) ShortValue(_ context.Context, req *pb.ShortValueRequest) (*pb.ShortValueResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg3.Rational{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.ShortValue()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.ShortValueResponse{Result: int32(result)}, nil
-}
-
-func (s *RationalServer) ToString(_ context.Context, req *pb.SparseIntArrayToStringRequest) (*pb.ToStringResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg3.Rational{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.ToString()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.ToStringResponse{Result: result}, nil
-}
-
-func (s *RationalServer) CompareTo1_1(_ context.Context, req *pb.CompareTo1_1Request) (*pb.CompareTo1_1Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg3.Rational{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.CompareTo1_1(s.Handles.Get(req.GetArg0()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.CompareTo1_1Response{Result: result}, nil
-}
-
-func (s *RationalServer) ParseRational(_ context.Context, req *pb.ParseRationalRequest) (*pb.ParseRationalResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg3.Rational{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.ParseRational(req.GetArg0())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.ParseRationalResponse{Result: handle}, nil
-}
-
-// TypedValueServer implements pb.TypedValueServiceServer.
-type TypedValueServer struct {
-	pb.UnimplementedTypedValueServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *TypedValueServer) NewTypedValue(_ context.Context, req *pb.NewTypedValueRequest) (*pb.NewTypedValueResponse, error) {
-	obj, err := jnipkg3.NewTypedValue(s.Ctx.VM)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
-	}
-	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-	}
-	return &pb.NewTypedValueResponse{Result: handle}, nil
-}
-
-func (s *TypedValueServer) CoerceToString0(_ context.Context, req *pb.CoerceToString0Request) (*pb.CoerceToString0Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg3.TypedValue{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.CoerceToString0()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.CoerceToString0Response{Result: handle}, nil
-}
-
-func (s *TypedValueServer) GetComplexUnit(_ context.Context, req *pb.GetComplexUnitRequest) (*pb.GetComplexUnitResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg3.TypedValue{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetComplexUnit()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetComplexUnitResponse{Result: result}, nil
-}
-
-func (s *TypedValueServer) GetDimension(_ context.Context, req *pb.GetDimensionRequest) (*pb.GetDimensionResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg3.TypedValue{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetDimension(s.Handles.Get(req.GetArg0()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetDimensionResponse{Result: result}, nil
-}
-
-func (s *TypedValueServer) GetFloat(_ context.Context, req *pb.GetFloatRequest) (*pb.GetFloatResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg3.TypedValue{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetFloat()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetFloatResponse{Result: result}, nil
-}
-
-func (s *TypedValueServer) GetFraction(_ context.Context, req *pb.GetFractionRequest) (*pb.GetFractionResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg3.TypedValue{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetFraction(req.GetArg0(), req.GetArg1())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetFractionResponse{Result: result}, nil
-}
-
-func (s *TypedValueServer) IsColorType(_ context.Context, req *pb.IsColorTypeRequest) (*pb.IsColorTypeResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg3.TypedValue{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.IsColorType()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.IsColorTypeResponse{Result: result}, nil
-}
-
-func (s *TypedValueServer) SetTo(_ context.Context, req *pb.SetToRequest) (*pb.SetToResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg3.TypedValue{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.SetTo(s.Handles.Get(req.GetArg0())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SetToResponse{}, nil
-}
-
-func (s *TypedValueServer) ToString(_ context.Context, req *pb.SparseIntArrayToStringRequest) (*pb.ToStringResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg3.TypedValue{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.ToString()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.ToStringResponse{Result: result}, nil
-}
-
-func (s *TypedValueServer) ApplyDimension(_ context.Context, req *pb.ApplyDimensionRequest) (*pb.ApplyDimensionResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg3.TypedValue{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.ApplyDimension(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.ApplyDimensionResponse{Result: result}, nil
-}
-
-func (s *TypedValueServer) CoerceToString2_1(_ context.Context, req *pb.CoerceToString2_1Request) (*pb.CoerceToString2_1Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg3.TypedValue{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.CoerceToString2_1(req.GetArg0(), req.GetArg1())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.CoerceToString2_1Response{Result: result}, nil
-}
-
-func (s *TypedValueServer) ComplexToDimension(_ context.Context, req *pb.ComplexToDimensionRequest) (*pb.ComplexToDimensionResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg3.TypedValue{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.ComplexToDimension(req.GetArg0(), s.Handles.Get(req.GetArg1()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.ComplexToDimensionResponse{Result: result}, nil
-}
-
-func (s *TypedValueServer) ComplexToDimensionPixelOffset(_ context.Context, req *pb.ComplexToDimensionPixelOffsetRequest) (*pb.ComplexToDimensionPixelOffsetResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg3.TypedValue{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.ComplexToDimensionPixelOffset(req.GetArg0(), s.Handles.Get(req.GetArg1()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.ComplexToDimensionPixelOffsetResponse{Result: result}, nil
-}
-
-func (s *TypedValueServer) ComplexToDimensionPixelSize(_ context.Context, req *pb.ComplexToDimensionPixelSizeRequest) (*pb.ComplexToDimensionPixelSizeResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg3.TypedValue{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.ComplexToDimensionPixelSize(req.GetArg0(), s.Handles.Get(req.GetArg1()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.ComplexToDimensionPixelSizeResponse{Result: result}, nil
-}
-
-func (s *TypedValueServer) ComplexToFloat(_ context.Context, req *pb.ComplexToFloatRequest) (*pb.ComplexToFloatResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg3.TypedValue{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.ComplexToFloat(req.GetArg0())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.ComplexToFloatResponse{Result: result}, nil
-}
-
-func (s *TypedValueServer) ComplexToFraction(_ context.Context, req *pb.ComplexToFractionRequest) (*pb.ComplexToFractionResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg3.TypedValue{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.ComplexToFraction(req.GetArg0(), req.GetArg1(), req.GetArg2())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.ComplexToFractionResponse{Result: result}, nil
-}
-
-func (s *TypedValueServer) ConvertDimensionToPixels(_ context.Context, req *pb.ConvertDimensionToPixelsRequest) (*pb.ConvertDimensionToPixelsResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg3.TypedValue{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.ConvertDimensionToPixels(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.ConvertDimensionToPixelsResponse{Result: result}, nil
-}
-
-func (s *TypedValueServer) ConvertPixelsToDimension(_ context.Context, req *pb.ConvertPixelsToDimensionRequest) (*pb.ConvertPixelsToDimensionResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg3.TypedValue{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.ConvertPixelsToDimension(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.ConvertPixelsToDimensionResponse{Result: result}, nil
-}
-
-func (s *TypedValueServer) DeriveDimension(_ context.Context, req *pb.DeriveDimensionRequest) (*pb.DeriveDimensionResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg3.TypedValue{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.DeriveDimension(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.DeriveDimensionResponse{Result: result}, nil
+	return &pb.Clone0_1Response{Result: handle}, nil
 }
 
 // Base64InputStreamServer implements pb.Base64InputStreamServiceServer.
@@ -7407,15 +7815,15 @@ func (s *StringBuilderPrinterServer) Println(_ context.Context, req *pb.PrintlnR
 	return &pb.PrintlnResponse{}, nil
 }
 
-// SparseLongArrayServer implements pb.SparseLongArrayServiceServer.
-type SparseLongArrayServer struct {
-	pb.UnimplementedSparseLongArrayServiceServer
+// LruCacheServer implements pb.LruCacheServiceServer.
+type LruCacheServer struct {
+	pb.UnimplementedLruCacheServiceServer
 	Ctx     *app.Context
 	Handles *handlestore.HandleStore
 }
 
-func (s *SparseLongArrayServer) NewSparseLongArray(_ context.Context, req *pb.NewSparseLongArrayRequest) (*pb.NewSparseLongArrayResponse, error) {
-	obj, err := jnipkg3.NewSparseLongArray(s.Ctx.VM)
+func (s *LruCacheServer) NewLruCache(_ context.Context, req *pb.NewLruCacheRequest) (*pb.NewLruCacheResponse, error) {
+	obj, err := jnipkg3.NewLruCache(s.Ctx.VM, req.GetArg0())
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create object: %v", err)
 	}
@@ -7426,263 +7834,108 @@ func (s *SparseLongArrayServer) NewSparseLongArray(_ context.Context, req *pb.Ne
 	}); doErr != nil {
 		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
 	}
-	return &pb.NewSparseLongArrayResponse{Result: handle}, nil
+	return &pb.NewLruCacheResponse{Result: handle}, nil
 }
 
-func (s *SparseLongArrayServer) Append(_ context.Context, req *pb.SparseLongArrayAppendRequest) (*pb.AppendResponse, error) {
+func (s *LruCacheServer) EvictAll(_ context.Context, req *pb.EvictAllRequest) (*pb.EvictAllResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg3.SparseLongArray{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg3.LruCache{VM: s.Ctx.VM, Obj: rawObj}
 
-	if err := mgr.Append(req.GetArg0(), req.GetArg1()); err != nil {
+	if err := mgr.EvictAll(); err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.AppendResponse{}, nil
+	return &pb.EvictAllResponse{}, nil
 }
 
-func (s *SparseLongArrayServer) Clear(_ context.Context, req *pb.SparseIntArrayClearRequest) (*pb.SparseIntArrayClearResponse, error) {
+func (s *LruCacheServer) Resize(_ context.Context, req *pb.ResizeRequest) (*pb.ResizeResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg3.SparseLongArray{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg3.LruCache{VM: s.Ctx.VM, Obj: rawObj}
 
-	if err := mgr.Clear(); err != nil {
+	if err := mgr.Resize(req.GetArg0()); err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.SparseIntArrayClearResponse{}, nil
+	return &pb.ResizeResponse{}, nil
 }
 
-func (s *SparseLongArrayServer) Clone0(_ context.Context, req *pb.Clone0Request) (*pb.Clone0Response, error) {
+func (s *LruCacheServer) TrimToSize(_ context.Context, req *pb.TrimToSizeRequest) (*pb.TrimToSizeResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg3.SparseLongArray{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg3.LruCache{VM: s.Ctx.VM, Obj: rawObj}
 
-	result, err := mgr.Clone0()
+	if err := mgr.TrimToSize(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.TrimToSizeResponse{}, nil
+}
+
+// PairServer implements pb.PairServiceServer.
+type PairServer struct {
+	pb.UnimplementedPairServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *PairServer) NewPair(_ context.Context, req *pb.NewPairRequest) (*pb.NewPairResponse, error) {
+	obj, err := jnipkg3.NewPair(s.Ctx.VM, s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()))
 	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
 	}
 	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
 	}
-	return &pb.Clone0Response{Result: handle}, nil
+	return &pb.NewPairResponse{Result: handle}, nil
 }
 
-func (s *SparseLongArrayServer) Delete(_ context.Context, req *pb.DeleteRequest) (*pb.DeleteResponse, error) {
+func (s *PairServer) Equals(_ context.Context, req *pb.SparseBooleanArrayEqualsRequest) (*pb.EqualsResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg3.SparseLongArray{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg3.Pair{VM: s.Ctx.VM, Obj: rawObj}
 
-	if err := mgr.Delete(req.GetArg0()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.DeleteResponse{}, nil
-}
-
-func (s *SparseLongArrayServer) Get1(_ context.Context, req *pb.Get1Request) (*pb.SparseLongArrayGet1Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg3.SparseLongArray{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.Get1(req.GetArg0())
+	result, err := mgr.Equals(s.Handles.Get(req.GetArg0()))
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.SparseLongArrayGet1Response{Result: result}, nil
+	return &pb.EqualsResponse{Result: result}, nil
 }
 
-func (s *SparseLongArrayServer) Get2_1(_ context.Context, req *pb.SparseLongArrayGet2_1Request) (*pb.SparseLongArrayGet2_1Response, error) {
+func (s *PairServer) HashCode(_ context.Context, req *pb.SparseBooleanArrayHashCodeRequest) (*pb.HashCodeResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg3.SparseLongArray{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg3.Pair{VM: s.Ctx.VM, Obj: rawObj}
 
-	result, err := mgr.Get2_1(req.GetArg0(), req.GetArg1())
+	result, err := mgr.HashCode()
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.SparseLongArrayGet2_1Response{Result: result}, nil
+	return &pb.HashCodeResponse{Result: result}, nil
 }
 
-func (s *SparseLongArrayServer) IndexOfKey(_ context.Context, req *pb.IndexOfKeyRequest) (*pb.IndexOfKeyResponse, error) {
+func (s *PairServer) ToString(_ context.Context, req *pb.ToStringRequest) (*pb.ToStringResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg3.SparseLongArray{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.IndexOfKey(req.GetArg0())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.IndexOfKeyResponse{Result: result}, nil
-}
-
-func (s *SparseLongArrayServer) IndexOfValue(_ context.Context, req *pb.SparseLongArrayIndexOfValueRequest) (*pb.IndexOfValueResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg3.SparseLongArray{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.IndexOfValue(req.GetArg0())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.IndexOfValueResponse{Result: result}, nil
-}
-
-func (s *SparseLongArrayServer) KeyAt(_ context.Context, req *pb.KeyAtRequest) (*pb.KeyAtResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg3.SparseLongArray{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.KeyAt(req.GetArg0())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.KeyAtResponse{Result: result}, nil
-}
-
-func (s *SparseLongArrayServer) Put(_ context.Context, req *pb.SparseLongArrayPutRequest) (*pb.PutResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg3.SparseLongArray{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.Put(req.GetArg0(), req.GetArg1()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.PutResponse{}, nil
-}
-
-func (s *SparseLongArrayServer) RemoveAt(_ context.Context, req *pb.RemoveAtRequest) (*pb.RemoveAtResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg3.SparseLongArray{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.RemoveAt(req.GetArg0()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.RemoveAtResponse{}, nil
-}
-
-func (s *SparseLongArrayServer) Size(_ context.Context, req *pb.SizeRequest) (*pb.SizeResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg3.SparseLongArray{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.Size()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SizeResponse{Result: result}, nil
-}
-
-func (s *SparseLongArrayServer) ToString(_ context.Context, req *pb.SparseIntArrayToStringRequest) (*pb.ToStringResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg3.SparseLongArray{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg3.Pair{VM: s.Ctx.VM, Obj: rawObj}
 
 	result, err := mgr.ToString()
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
 	return &pb.ToStringResponse{Result: result}, nil
-}
-
-func (s *SparseLongArrayServer) ValueAt(_ context.Context, req *pb.ValueAtRequest) (*pb.SparseLongArrayValueAtResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg3.SparseLongArray{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.ValueAt(req.GetArg0())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SparseLongArrayValueAtResponse{Result: result}, nil
-}
-
-func (s *SparseLongArrayServer) Clone0_1(_ context.Context, req *pb.Clone0_1Request) (*pb.Clone0_1Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg3.SparseLongArray{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.Clone0_1()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.Clone0_1Response{Result: handle}, nil
-}
-
-// LogPrinterServer implements pb.LogPrinterServiceServer.
-type LogPrinterServer struct {
-	pb.UnimplementedLogPrinterServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *LogPrinterServer) NewLogPrinter(_ context.Context, req *pb.NewLogPrinterRequest) (*pb.NewLogPrinterResponse, error) {
-	obj, err := jnipkg3.NewLogPrinter(s.Ctx.VM, req.GetArg0(), req.GetArg1())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
-	}
-	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-	}
-	return &pb.NewLogPrinterResponse{Result: handle}, nil
-}
-
-func (s *LogPrinterServer) Println(_ context.Context, req *pb.PrintlnRequest) (*pb.PrintlnResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg3.LogPrinter{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.Println(req.GetArg0()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.PrintlnResponse{}, nil
 }

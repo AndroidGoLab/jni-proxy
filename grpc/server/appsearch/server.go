@@ -15,55 +15,6 @@ import (
 	"google.golang.org/grpc/status"
 )
 
-// RemoveBlobResponseServer implements pb.RemoveBlobResponseServiceServer.
-type RemoveBlobResponseServer struct {
-	pb.UnimplementedRemoveBlobResponseServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *RemoveBlobResponseServer) NewRemoveBlobResponse(_ context.Context, req *pb.NewRemoveBlobResponseRequest) (*pb.NewRemoveBlobResponseResponse, error) {
-	obj, err := jnipkg.NewRemoveBlobResponse(s.Ctx.VM, s.Handles.Get(req.GetArg0()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
-	}
-	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-	}
-	return &pb.NewRemoveBlobResponseResponse{Result: handle}, nil
-}
-
-func (s *RemoveBlobResponseServer) DescribeContents(_ context.Context, req *pb.RemoveBlobResponseDescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.RemoveBlobResponse{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.DescribeContents()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.DescribeContentsResponse{Result: result}, nil
-}
-
-func (s *RemoveBlobResponseServer) WriteToParcel(_ context.Context, req *pb.RemoveBlobResponseWriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.RemoveBlobResponse{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.WriteToParcel(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.WriteToParcelResponse{}, nil
-}
-
 // CommitBlobResponseServer implements pb.CommitBlobResponseServiceServer.
 type CommitBlobResponseServer struct {
 	pb.UnimplementedCommitBlobResponseServiceServer
@@ -86,7 +37,7 @@ func (s *CommitBlobResponseServer) NewCommitBlobResponse(_ context.Context, req 
 	return &pb.NewCommitBlobResponseResponse{Result: handle}, nil
 }
 
-func (s *CommitBlobResponseServer) DescribeContents(_ context.Context, req *pb.CommitBlobResponseDescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
+func (s *CommitBlobResponseServer) DescribeContents(_ context.Context, req *pb.DescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -100,7 +51,7 @@ func (s *CommitBlobResponseServer) DescribeContents(_ context.Context, req *pb.C
 	return &pb.DescribeContentsResponse{Result: result}, nil
 }
 
-func (s *CommitBlobResponseServer) WriteToParcel(_ context.Context, req *pb.CommitBlobResponseWriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
+func (s *CommitBlobResponseServer) WriteToParcel(_ context.Context, req *pb.WriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -113,15 +64,15 @@ func (s *CommitBlobResponseServer) WriteToParcel(_ context.Context, req *pb.Comm
 	return &pb.WriteToParcelResponse{}, nil
 }
 
-// OpenBlobForReadResponseServer implements pb.OpenBlobForReadResponseServiceServer.
-type OpenBlobForReadResponseServer struct {
-	pb.UnimplementedOpenBlobForReadResponseServiceServer
+// RemoveBlobResponseServer implements pb.RemoveBlobResponseServiceServer.
+type RemoveBlobResponseServer struct {
+	pb.UnimplementedRemoveBlobResponseServiceServer
 	Ctx     *app.Context
 	Handles *handlestore.HandleStore
 }
 
-func (s *OpenBlobForReadResponseServer) NewOpenBlobForReadResponse(_ context.Context, req *pb.NewOpenBlobForReadResponseRequest) (*pb.NewOpenBlobForReadResponseResponse, error) {
-	obj, err := jnipkg.NewOpenBlobForReadResponse(s.Ctx.VM, s.Handles.Get(req.GetArg0()))
+func (s *RemoveBlobResponseServer) NewRemoveBlobResponse(_ context.Context, req *pb.NewRemoveBlobResponseRequest) (*pb.NewRemoveBlobResponseResponse, error) {
+	obj, err := jnipkg.NewRemoveBlobResponse(s.Ctx.VM, s.Handles.Get(req.GetArg0()))
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create object: %v", err)
 	}
@@ -132,28 +83,15 @@ func (s *OpenBlobForReadResponseServer) NewOpenBlobForReadResponse(_ context.Con
 	}); doErr != nil {
 		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
 	}
-	return &pb.NewOpenBlobForReadResponseResponse{Result: handle}, nil
+	return &pb.NewRemoveBlobResponseResponse{Result: handle}, nil
 }
 
-func (s *OpenBlobForReadResponseServer) Close(_ context.Context, req *pb.OpenBlobForReadResponseCloseRequest) (*pb.CloseResponse, error) {
+func (s *RemoveBlobResponseServer) DescribeContents(_ context.Context, req *pb.DescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.OpenBlobForReadResponse{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.Close(); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.CloseResponse{}, nil
-}
-
-func (s *OpenBlobForReadResponseServer) DescribeContents(_ context.Context, req *pb.OpenBlobForReadResponseDescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.OpenBlobForReadResponse{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.RemoveBlobResponse{VM: s.Ctx.VM, Obj: rawObj}
 
 	result, err := mgr.DescribeContents()
 	if err != nil {
@@ -162,12 +100,12 @@ func (s *OpenBlobForReadResponseServer) DescribeContents(_ context.Context, req 
 	return &pb.DescribeContentsResponse{Result: result}, nil
 }
 
-func (s *OpenBlobForReadResponseServer) WriteToParcel(_ context.Context, req *pb.OpenBlobForReadResponseWriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
+func (s *RemoveBlobResponseServer) WriteToParcel(_ context.Context, req *pb.WriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.OpenBlobForReadResponse{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.RemoveBlobResponse{VM: s.Ctx.VM, Obj: rawObj}
 
 	if err := mgr.WriteToParcel(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
@@ -262,68 +200,6 @@ func (s *PackageIdentifierServer) HashCode(_ context.Context, req *pb.PackageIde
 	return &pb.HashCodeResponse{Result: result}, nil
 }
 
-// OpenBlobForWriteResponseServer implements pb.OpenBlobForWriteResponseServiceServer.
-type OpenBlobForWriteResponseServer struct {
-	pb.UnimplementedOpenBlobForWriteResponseServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *OpenBlobForWriteResponseServer) NewOpenBlobForWriteResponse(_ context.Context, req *pb.NewOpenBlobForWriteResponseRequest) (*pb.NewOpenBlobForWriteResponseResponse, error) {
-	obj, err := jnipkg.NewOpenBlobForWriteResponse(s.Ctx.VM, s.Handles.Get(req.GetArg0()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
-	}
-	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-	}
-	return &pb.NewOpenBlobForWriteResponseResponse{Result: handle}, nil
-}
-
-func (s *OpenBlobForWriteResponseServer) Close(_ context.Context, req *pb.OpenBlobForWriteResponseCloseRequest) (*pb.CloseResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.OpenBlobForWriteResponse{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.Close(); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.CloseResponse{}, nil
-}
-
-func (s *OpenBlobForWriteResponseServer) DescribeContents(_ context.Context, req *pb.OpenBlobForWriteResponseDescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.OpenBlobForWriteResponse{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.DescribeContents()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.DescribeContentsResponse{Result: result}, nil
-}
-
-func (s *OpenBlobForWriteResponseServer) WriteToParcel(_ context.Context, req *pb.OpenBlobForWriteResponseWriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.OpenBlobForWriteResponse{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.WriteToParcel(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.WriteToParcelResponse{}, nil
-}
-
 // EmbeddingVectorServer implements pb.EmbeddingVectorServiceServer.
 type EmbeddingVectorServer struct {
 	pb.UnimplementedEmbeddingVectorServiceServer
@@ -346,7 +222,7 @@ func (s *EmbeddingVectorServer) NewEmbeddingVector(_ context.Context, req *pb.Ne
 	return &pb.NewEmbeddingVectorResponse{Result: handle}, nil
 }
 
-func (s *EmbeddingVectorServer) DescribeContents(_ context.Context, req *pb.EmbeddingVectorDescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
+func (s *EmbeddingVectorServer) DescribeContents(_ context.Context, req *pb.DescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -425,12 +301,136 @@ func (s *EmbeddingVectorServer) HashCode(_ context.Context, req *pb.EmbeddingVec
 	return &pb.HashCodeResponse{Result: result}, nil
 }
 
-func (s *EmbeddingVectorServer) WriteToParcel(_ context.Context, req *pb.EmbeddingVectorWriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
+func (s *EmbeddingVectorServer) WriteToParcel(_ context.Context, req *pb.WriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
 	mgr := &jnipkg.EmbeddingVector{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.WriteToParcel(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.WriteToParcelResponse{}, nil
+}
+
+// OpenBlobForWriteResponseServer implements pb.OpenBlobForWriteResponseServiceServer.
+type OpenBlobForWriteResponseServer struct {
+	pb.UnimplementedOpenBlobForWriteResponseServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *OpenBlobForWriteResponseServer) NewOpenBlobForWriteResponse(_ context.Context, req *pb.NewOpenBlobForWriteResponseRequest) (*pb.NewOpenBlobForWriteResponseResponse, error) {
+	obj, err := jnipkg.NewOpenBlobForWriteResponse(s.Ctx.VM, s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewOpenBlobForWriteResponseResponse{Result: handle}, nil
+}
+
+func (s *OpenBlobForWriteResponseServer) Close(_ context.Context, req *pb.OpenBlobForWriteResponseCloseRequest) (*pb.CloseResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.OpenBlobForWriteResponse{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.Close(); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.CloseResponse{}, nil
+}
+
+func (s *OpenBlobForWriteResponseServer) DescribeContents(_ context.Context, req *pb.DescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.OpenBlobForWriteResponse{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.DescribeContents()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.DescribeContentsResponse{Result: result}, nil
+}
+
+func (s *OpenBlobForWriteResponseServer) WriteToParcel(_ context.Context, req *pb.WriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.OpenBlobForWriteResponse{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.WriteToParcel(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.WriteToParcelResponse{}, nil
+}
+
+// OpenBlobForReadResponseServer implements pb.OpenBlobForReadResponseServiceServer.
+type OpenBlobForReadResponseServer struct {
+	pb.UnimplementedOpenBlobForReadResponseServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *OpenBlobForReadResponseServer) NewOpenBlobForReadResponse(_ context.Context, req *pb.NewOpenBlobForReadResponseRequest) (*pb.NewOpenBlobForReadResponseResponse, error) {
+	obj, err := jnipkg.NewOpenBlobForReadResponse(s.Ctx.VM, s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewOpenBlobForReadResponseResponse{Result: handle}, nil
+}
+
+func (s *OpenBlobForReadResponseServer) Close(_ context.Context, req *pb.OpenBlobForReadResponseCloseRequest) (*pb.CloseResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.OpenBlobForReadResponse{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.Close(); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.CloseResponse{}, nil
+}
+
+func (s *OpenBlobForReadResponseServer) DescribeContents(_ context.Context, req *pb.DescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.OpenBlobForReadResponse{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.DescribeContents()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.DescribeContentsResponse{Result: result}, nil
+}
+
+func (s *OpenBlobForReadResponseServer) WriteToParcel(_ context.Context, req *pb.WriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.OpenBlobForReadResponse{VM: s.Ctx.VM, Obj: rawObj}
 
 	if err := mgr.WriteToParcel(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
@@ -509,6 +509,29 @@ func (s *PropertyPathServer) HashCode(_ context.Context, req *pb.PropertyPathHas
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
 	return &pb.HashCodeResponse{Result: result}, nil
+}
+
+func (s *PropertyPathServer) Iterator(_ context.Context, req *pb.IteratorRequest) (*pb.IteratorResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.PropertyPath{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.Iterator()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.IteratorResponse{Result: handle}, nil
 }
 
 func (s *PropertyPathServer) Size(_ context.Context, req *pb.SizeRequest) (*pb.SizeResponse, error) {

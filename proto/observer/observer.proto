@@ -6,34 +6,18 @@ package observer;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/observer";
 
-message DescribeContentsRequest {
-}
-
-message DescribeContentsResponse {
-  int32 result = 1;
-}
-
-message WriteToParcelRequest {
-  int64 arg0 = 1;
-  int32 arg1 = 2;
-}
-
-message WriteToParcelResponse {
-}
-
-message AddFilterSchemasRequest {
+message OnDocumentChangedRequest {
   int64 arg0 = 1;
 }
 
-message AddFilterSchemasResponse {
-  int64 result = 1;
+message OnDocumentChangedResponse {
 }
 
-message BuildRequest {
+message OnSchemaChangedRequest {
+  int64 arg0 = 1;
 }
 
-message BuildResponse {
-  int64 result = 1;
+message OnSchemaChangedResponse {
 }
 
 message NewDocumentChangeInfoRequest {
@@ -55,6 +39,14 @@ message EqualsRequest {
 
 message EqualsResponse {
   bool result = 1;
+}
+
+message GetChangedDocumentIdsRequest {
+  int64 handle = 1;
+}
+
+message GetChangedDocumentIdsResponse {
+  int64 result = 1;
 }
 
 message GetDatabaseNameRequest {
@@ -115,33 +107,60 @@ message NewSchemaChangeInfoResponse {
   int64 result = 1;
 }
 
-message OnDocumentChangedRequest {
+message GetChangedSchemaNamesRequest {
+  int64 handle = 1;
+}
+
+message GetChangedSchemaNamesResponse {
+  int64 result = 1;
+}
+
+message DescribeContentsRequest {
+}
+
+message DescribeContentsResponse {
+  int32 result = 1;
+}
+
+message GetFilterSchemasRequest {
+}
+
+message GetFilterSchemasResponse {
+  int64 result = 1;
+}
+
+message WriteToParcelRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message WriteToParcelResponse {
+}
+
+message AddFilterSchemasRequest {
   int64 arg0 = 1;
 }
 
-message OnDocumentChangedResponse {
+message AddFilterSchemasResponse {
+  int64 result = 1;
 }
 
-message OnSchemaChangedRequest {
-  int64 arg0 = 1;
+message BuildRequest {
 }
 
-message OnSchemaChangedResponse {
+message BuildResponse {
+  int64 result = 1;
 }
 
-service SpecService {
-  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
-}
-
-service SpecBuilderService {
-  rpc AddFilterSchemas (AddFilterSchemasRequest) returns (AddFilterSchemasResponse);
-  rpc Build (BuildRequest) returns (BuildResponse);
+service CallbackService {
+  rpc OnDocumentChanged (OnDocumentChangedRequest) returns (OnDocumentChangedResponse);
+  rpc OnSchemaChanged (OnSchemaChangedRequest) returns (OnSchemaChangedResponse);
 }
 
 service DocumentChangeInfoService {
   rpc NewDocumentChangeInfo (NewDocumentChangeInfoRequest) returns (NewDocumentChangeInfoResponse);
   rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetChangedDocumentIds (GetChangedDocumentIdsRequest) returns (GetChangedDocumentIdsResponse);
   rpc GetDatabaseName (GetDatabaseNameRequest) returns (GetDatabaseNameResponse);
   rpc GetNamespace (GetNamespaceRequest) returns (GetNamespaceResponse);
   rpc GetPackageName (GetPackageNameRequest) returns (GetPackageNameResponse);
@@ -153,13 +172,20 @@ service DocumentChangeInfoService {
 service SchemaChangeInfoService {
   rpc NewSchemaChangeInfo (NewSchemaChangeInfoRequest) returns (NewSchemaChangeInfoResponse);
   rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetChangedSchemaNames (GetChangedSchemaNamesRequest) returns (GetChangedSchemaNamesResponse);
   rpc GetDatabaseName (GetDatabaseNameRequest) returns (GetDatabaseNameResponse);
   rpc GetPackageName (GetPackageNameRequest) returns (GetPackageNameResponse);
   rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
   rpc ToString (ToStringRequest) returns (ToStringResponse);
 }
 
-service CallbackService {
-  rpc OnDocumentChanged (OnDocumentChangedRequest) returns (OnDocumentChangedResponse);
-  rpc OnSchemaChanged (OnSchemaChangedRequest) returns (OnSchemaChangedResponse);
+service SpecService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetFilterSchemas (GetFilterSchemasRequest) returns (GetFilterSchemasResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service SpecBuilderService {
+  rpc AddFilterSchemas (AddFilterSchemasRequest) returns (AddFilterSchemasResponse);
+  rpc Build (BuildRequest) returns (BuildResponse);
 }

@@ -4463,6 +4463,166 @@ func (x *Delete3_1Response) GetResult() int32 {
 	return 0
 }
 
+type GetOutgoingPersistedUriPermissionsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetOutgoingPersistedUriPermissionsRequest) Reset() {
+	*x = GetOutgoingPersistedUriPermissionsRequest{}
+	mi := &file_proto_resolver_resolver_proto_msgTypes[104]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetOutgoingPersistedUriPermissionsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetOutgoingPersistedUriPermissionsRequest) ProtoMessage() {}
+
+func (x *GetOutgoingPersistedUriPermissionsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_resolver_resolver_proto_msgTypes[104]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetOutgoingPersistedUriPermissionsRequest.ProtoReflect.Descriptor instead.
+func (*GetOutgoingPersistedUriPermissionsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{104}
+}
+
+type GetOutgoingPersistedUriPermissionsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetOutgoingPersistedUriPermissionsResponse) Reset() {
+	*x = GetOutgoingPersistedUriPermissionsResponse{}
+	mi := &file_proto_resolver_resolver_proto_msgTypes[105]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetOutgoingPersistedUriPermissionsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetOutgoingPersistedUriPermissionsResponse) ProtoMessage() {}
+
+func (x *GetOutgoingPersistedUriPermissionsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_resolver_resolver_proto_msgTypes[105]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetOutgoingPersistedUriPermissionsResponse.ProtoReflect.Descriptor instead.
+func (*GetOutgoingPersistedUriPermissionsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{105}
+}
+
+func (x *GetOutgoingPersistedUriPermissionsResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetPersistedUriPermissionsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPersistedUriPermissionsRequest) Reset() {
+	*x = GetPersistedUriPermissionsRequest{}
+	mi := &file_proto_resolver_resolver_proto_msgTypes[106]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPersistedUriPermissionsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPersistedUriPermissionsRequest) ProtoMessage() {}
+
+func (x *GetPersistedUriPermissionsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_resolver_resolver_proto_msgTypes[106]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPersistedUriPermissionsRequest.ProtoReflect.Descriptor instead.
+func (*GetPersistedUriPermissionsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{106}
+}
+
+type GetPersistedUriPermissionsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPersistedUriPermissionsResponse) Reset() {
+	*x = GetPersistedUriPermissionsResponse{}
+	mi := &file_proto_resolver_resolver_proto_msgTypes[107]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPersistedUriPermissionsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPersistedUriPermissionsResponse) ProtoMessage() {}
+
+func (x *GetPersistedUriPermissionsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_resolver_resolver_proto_msgTypes[107]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPersistedUriPermissionsResponse.ProtoReflect.Descriptor instead.
+func (*GetPersistedUriPermissionsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{107}
+}
+
+func (x *GetPersistedUriPermissionsResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
 type GetStreamTypesRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
@@ -4473,7 +4633,7 @@ type GetStreamTypesRequest struct {
 
 func (x *GetStreamTypesRequest) Reset() {
 	*x = GetStreamTypesRequest{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[104]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[108]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4485,7 +4645,7 @@ func (x *GetStreamTypesRequest) String() string {
 func (*GetStreamTypesRequest) ProtoMessage() {}
 
 func (x *GetStreamTypesRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[104]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[108]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4498,7 +4658,7 @@ func (x *GetStreamTypesRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetStreamTypesRequest.ProtoReflect.Descriptor instead.
 func (*GetStreamTypesRequest) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{104}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{108}
 }
 
 func (x *GetStreamTypesRequest) GetArg0() int64 {
@@ -4524,7 +4684,7 @@ type GetStreamTypesResponse struct {
 
 func (x *GetStreamTypesResponse) Reset() {
 	*x = GetStreamTypesResponse{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[105]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[109]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4536,7 +4696,7 @@ func (x *GetStreamTypesResponse) String() string {
 func (*GetStreamTypesResponse) ProtoMessage() {}
 
 func (x *GetStreamTypesResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[105]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[109]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4549,7 +4709,7 @@ func (x *GetStreamTypesResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetStreamTypesResponse.ProtoReflect.Descriptor instead.
 func (*GetStreamTypesResponse) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{105}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{109}
 }
 
 func (x *GetStreamTypesResponse) GetResult() int64 {
@@ -4568,7 +4728,7 @@ type ContentResolverGetTypeRequest struct {
 
 func (x *ContentResolverGetTypeRequest) Reset() {
 	*x = ContentResolverGetTypeRequest{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[106]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[110]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4580,7 +4740,7 @@ func (x *ContentResolverGetTypeRequest) String() string {
 func (*ContentResolverGetTypeRequest) ProtoMessage() {}
 
 func (x *ContentResolverGetTypeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[106]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[110]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4593,7 +4753,7 @@ func (x *ContentResolverGetTypeRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ContentResolverGetTypeRequest.ProtoReflect.Descriptor instead.
 func (*ContentResolverGetTypeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{106}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{110}
 }
 
 func (x *ContentResolverGetTypeRequest) GetArg0() int64 {
@@ -4612,7 +4772,7 @@ type ContentResolverGetTypeResponse struct {
 
 func (x *ContentResolverGetTypeResponse) Reset() {
 	*x = ContentResolverGetTypeResponse{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[107]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[111]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4624,7 +4784,7 @@ func (x *ContentResolverGetTypeResponse) String() string {
 func (*ContentResolverGetTypeResponse) ProtoMessage() {}
 
 func (x *ContentResolverGetTypeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[107]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[111]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4637,7 +4797,7 @@ func (x *ContentResolverGetTypeResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ContentResolverGetTypeResponse.ProtoReflect.Descriptor instead.
 func (*ContentResolverGetTypeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{107}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{111}
 }
 
 func (x *ContentResolverGetTypeResponse) GetResult() string {
@@ -4656,7 +4816,7 @@ type GetTypeInfoRequest struct {
 
 func (x *GetTypeInfoRequest) Reset() {
 	*x = GetTypeInfoRequest{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[108]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[112]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4668,7 +4828,7 @@ func (x *GetTypeInfoRequest) String() string {
 func (*GetTypeInfoRequest) ProtoMessage() {}
 
 func (x *GetTypeInfoRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[108]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[112]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4681,7 +4841,7 @@ func (x *GetTypeInfoRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetTypeInfoRequest.ProtoReflect.Descriptor instead.
 func (*GetTypeInfoRequest) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{108}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{112}
 }
 
 func (x *GetTypeInfoRequest) GetArg0() string {
@@ -4700,7 +4860,7 @@ type GetTypeInfoResponse struct {
 
 func (x *GetTypeInfoResponse) Reset() {
 	*x = GetTypeInfoResponse{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[109]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[113]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4712,7 +4872,7 @@ func (x *GetTypeInfoResponse) String() string {
 func (*GetTypeInfoResponse) ProtoMessage() {}
 
 func (x *GetTypeInfoResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[109]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[113]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4725,7 +4885,7 @@ func (x *GetTypeInfoResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetTypeInfoResponse.ProtoReflect.Descriptor instead.
 func (*GetTypeInfoResponse) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{109}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{113}
 }
 
 func (x *GetTypeInfoResponse) GetResult() int64 {
@@ -4745,7 +4905,7 @@ type Insert2Request struct {
 
 func (x *Insert2Request) Reset() {
 	*x = Insert2Request{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[110]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[114]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4757,7 +4917,7 @@ func (x *Insert2Request) String() string {
 func (*Insert2Request) ProtoMessage() {}
 
 func (x *Insert2Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[110]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[114]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4770,7 +4930,7 @@ func (x *Insert2Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Insert2Request.ProtoReflect.Descriptor instead.
 func (*Insert2Request) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{110}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{114}
 }
 
 func (x *Insert2Request) GetArg0() int64 {
@@ -4796,7 +4956,7 @@ type Insert2Response struct {
 
 func (x *Insert2Response) Reset() {
 	*x = Insert2Response{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[111]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[115]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4808,7 +4968,7 @@ func (x *Insert2Response) String() string {
 func (*Insert2Response) ProtoMessage() {}
 
 func (x *Insert2Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[111]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[115]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4821,7 +4981,7 @@ func (x *Insert2Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Insert2Response.ProtoReflect.Descriptor instead.
 func (*Insert2Response) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{111}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{115}
 }
 
 func (x *Insert2Response) GetResult() int64 {
@@ -4842,7 +5002,7 @@ type Insert3_1Request struct {
 
 func (x *Insert3_1Request) Reset() {
 	*x = Insert3_1Request{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[112]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[116]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4854,7 +5014,7 @@ func (x *Insert3_1Request) String() string {
 func (*Insert3_1Request) ProtoMessage() {}
 
 func (x *Insert3_1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[112]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[116]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4867,7 +5027,7 @@ func (x *Insert3_1Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Insert3_1Request.ProtoReflect.Descriptor instead.
 func (*Insert3_1Request) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{112}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{116}
 }
 
 func (x *Insert3_1Request) GetArg0() int64 {
@@ -4900,7 +5060,7 @@ type Insert3_1Response struct {
 
 func (x *Insert3_1Response) Reset() {
 	*x = Insert3_1Response{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[113]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[117]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4912,7 +5072,7 @@ func (x *Insert3_1Response) String() string {
 func (*Insert3_1Response) ProtoMessage() {}
 
 func (x *Insert3_1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[113]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[117]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4925,7 +5085,7 @@ func (x *Insert3_1Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Insert3_1Response.ProtoReflect.Descriptor instead.
 func (*Insert3_1Response) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{113}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{117}
 }
 
 func (x *Insert3_1Response) GetResult() int64 {
@@ -4946,7 +5106,7 @@ type LoadThumbnailRequest struct {
 
 func (x *LoadThumbnailRequest) Reset() {
 	*x = LoadThumbnailRequest{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[114]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[118]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4958,7 +5118,7 @@ func (x *LoadThumbnailRequest) String() string {
 func (*LoadThumbnailRequest) ProtoMessage() {}
 
 func (x *LoadThumbnailRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[114]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[118]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4971,7 +5131,7 @@ func (x *LoadThumbnailRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use LoadThumbnailRequest.ProtoReflect.Descriptor instead.
 func (*LoadThumbnailRequest) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{114}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{118}
 }
 
 func (x *LoadThumbnailRequest) GetArg0() int64 {
@@ -5004,7 +5164,7 @@ type LoadThumbnailResponse struct {
 
 func (x *LoadThumbnailResponse) Reset() {
 	*x = LoadThumbnailResponse{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[115]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[119]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5016,7 +5176,7 @@ func (x *LoadThumbnailResponse) String() string {
 func (*LoadThumbnailResponse) ProtoMessage() {}
 
 func (x *LoadThumbnailResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[115]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[119]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5029,7 +5189,7 @@ func (x *LoadThumbnailResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use LoadThumbnailResponse.ProtoReflect.Descriptor instead.
 func (*LoadThumbnailResponse) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{115}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{119}
 }
 
 func (x *LoadThumbnailResponse) GetResult() int64 {
@@ -5049,7 +5209,7 @@ type NotifyChange2Request struct {
 
 func (x *NotifyChange2Request) Reset() {
 	*x = NotifyChange2Request{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[116]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[120]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5061,7 +5221,7 @@ func (x *NotifyChange2Request) String() string {
 func (*NotifyChange2Request) ProtoMessage() {}
 
 func (x *NotifyChange2Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[116]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[120]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5074,7 +5234,7 @@ func (x *NotifyChange2Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NotifyChange2Request.ProtoReflect.Descriptor instead.
 func (*NotifyChange2Request) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{116}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{120}
 }
 
 func (x *NotifyChange2Request) GetArg0() int64 {
@@ -5099,7 +5259,7 @@ type NotifyChange2Response struct {
 
 func (x *NotifyChange2Response) Reset() {
 	*x = NotifyChange2Response{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[117]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[121]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5111,7 +5271,7 @@ func (x *NotifyChange2Response) String() string {
 func (*NotifyChange2Response) ProtoMessage() {}
 
 func (x *NotifyChange2Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[117]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[121]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5124,7 +5284,7 @@ func (x *NotifyChange2Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NotifyChange2Response.ProtoReflect.Descriptor instead.
 func (*NotifyChange2Response) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{117}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{121}
 }
 
 type NotifyChange3_1Request struct {
@@ -5138,7 +5298,7 @@ type NotifyChange3_1Request struct {
 
 func (x *NotifyChange3_1Request) Reset() {
 	*x = NotifyChange3_1Request{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[118]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[122]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5150,7 +5310,7 @@ func (x *NotifyChange3_1Request) String() string {
 func (*NotifyChange3_1Request) ProtoMessage() {}
 
 func (x *NotifyChange3_1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[118]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[122]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5163,7 +5323,7 @@ func (x *NotifyChange3_1Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NotifyChange3_1Request.ProtoReflect.Descriptor instead.
 func (*NotifyChange3_1Request) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{118}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{122}
 }
 
 func (x *NotifyChange3_1Request) GetArg0() int64 {
@@ -5195,7 +5355,7 @@ type NotifyChange3_1Response struct {
 
 func (x *NotifyChange3_1Response) Reset() {
 	*x = NotifyChange3_1Response{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[119]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[123]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5207,7 +5367,7 @@ func (x *NotifyChange3_1Response) String() string {
 func (*NotifyChange3_1Response) ProtoMessage() {}
 
 func (x *NotifyChange3_1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[119]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[123]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5220,7 +5380,7 @@ func (x *NotifyChange3_1Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NotifyChange3_1Response.ProtoReflect.Descriptor instead.
 func (*NotifyChange3_1Response) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{119}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{123}
 }
 
 type NotifyChange3_2Request struct {
@@ -5234,7 +5394,7 @@ type NotifyChange3_2Request struct {
 
 func (x *NotifyChange3_2Request) Reset() {
 	*x = NotifyChange3_2Request{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[120]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[124]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5246,7 +5406,7 @@ func (x *NotifyChange3_2Request) String() string {
 func (*NotifyChange3_2Request) ProtoMessage() {}
 
 func (x *NotifyChange3_2Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[120]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[124]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5259,7 +5419,7 @@ func (x *NotifyChange3_2Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NotifyChange3_2Request.ProtoReflect.Descriptor instead.
 func (*NotifyChange3_2Request) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{120}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{124}
 }
 
 func (x *NotifyChange3_2Request) GetArg0() int64 {
@@ -5291,7 +5451,7 @@ type NotifyChange3_2Response struct {
 
 func (x *NotifyChange3_2Response) Reset() {
 	*x = NotifyChange3_2Response{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[121]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[125]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5303,7 +5463,7 @@ func (x *NotifyChange3_2Response) String() string {
 func (*NotifyChange3_2Response) ProtoMessage() {}
 
 func (x *NotifyChange3_2Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[121]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[125]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5316,7 +5476,7 @@ func (x *NotifyChange3_2Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NotifyChange3_2Response.ProtoReflect.Descriptor instead.
 func (*NotifyChange3_2Response) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{121}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{125}
 }
 
 type OpenAssetFileRequest struct {
@@ -5330,7 +5490,7 @@ type OpenAssetFileRequest struct {
 
 func (x *OpenAssetFileRequest) Reset() {
 	*x = OpenAssetFileRequest{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[122]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[126]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5342,7 +5502,7 @@ func (x *OpenAssetFileRequest) String() string {
 func (*OpenAssetFileRequest) ProtoMessage() {}
 
 func (x *OpenAssetFileRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[122]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[126]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5355,7 +5515,7 @@ func (x *OpenAssetFileRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OpenAssetFileRequest.ProtoReflect.Descriptor instead.
 func (*OpenAssetFileRequest) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{122}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{126}
 }
 
 func (x *OpenAssetFileRequest) GetArg0() int64 {
@@ -5388,7 +5548,7 @@ type OpenAssetFileResponse struct {
 
 func (x *OpenAssetFileResponse) Reset() {
 	*x = OpenAssetFileResponse{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[123]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[127]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5400,7 +5560,7 @@ func (x *OpenAssetFileResponse) String() string {
 func (*OpenAssetFileResponse) ProtoMessage() {}
 
 func (x *OpenAssetFileResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[123]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[127]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5413,7 +5573,7 @@ func (x *OpenAssetFileResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OpenAssetFileResponse.ProtoReflect.Descriptor instead.
 func (*OpenAssetFileResponse) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{123}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{127}
 }
 
 func (x *OpenAssetFileResponse) GetResult() int64 {
@@ -5433,7 +5593,7 @@ type OpenAssetFileDescriptor2Request struct {
 
 func (x *OpenAssetFileDescriptor2Request) Reset() {
 	*x = OpenAssetFileDescriptor2Request{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[124]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[128]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5445,7 +5605,7 @@ func (x *OpenAssetFileDescriptor2Request) String() string {
 func (*OpenAssetFileDescriptor2Request) ProtoMessage() {}
 
 func (x *OpenAssetFileDescriptor2Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[124]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[128]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5458,7 +5618,7 @@ func (x *OpenAssetFileDescriptor2Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OpenAssetFileDescriptor2Request.ProtoReflect.Descriptor instead.
 func (*OpenAssetFileDescriptor2Request) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{124}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{128}
 }
 
 func (x *OpenAssetFileDescriptor2Request) GetArg0() int64 {
@@ -5484,7 +5644,7 @@ type OpenAssetFileDescriptor2Response struct {
 
 func (x *OpenAssetFileDescriptor2Response) Reset() {
 	*x = OpenAssetFileDescriptor2Response{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[125]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[129]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5496,7 +5656,7 @@ func (x *OpenAssetFileDescriptor2Response) String() string {
 func (*OpenAssetFileDescriptor2Response) ProtoMessage() {}
 
 func (x *OpenAssetFileDescriptor2Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[125]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[129]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5509,7 +5669,7 @@ func (x *OpenAssetFileDescriptor2Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OpenAssetFileDescriptor2Response.ProtoReflect.Descriptor instead.
 func (*OpenAssetFileDescriptor2Response) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{125}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{129}
 }
 
 func (x *OpenAssetFileDescriptor2Response) GetResult() int64 {
@@ -5530,7 +5690,7 @@ type OpenAssetFileDescriptor3_1Request struct {
 
 func (x *OpenAssetFileDescriptor3_1Request) Reset() {
 	*x = OpenAssetFileDescriptor3_1Request{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[126]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[130]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5542,7 +5702,7 @@ func (x *OpenAssetFileDescriptor3_1Request) String() string {
 func (*OpenAssetFileDescriptor3_1Request) ProtoMessage() {}
 
 func (x *OpenAssetFileDescriptor3_1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[126]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[130]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5555,7 +5715,7 @@ func (x *OpenAssetFileDescriptor3_1Request) ProtoReflect() protoreflect.Message 
 
 // Deprecated: Use OpenAssetFileDescriptor3_1Request.ProtoReflect.Descriptor instead.
 func (*OpenAssetFileDescriptor3_1Request) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{126}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{130}
 }
 
 func (x *OpenAssetFileDescriptor3_1Request) GetArg0() int64 {
@@ -5588,7 +5748,7 @@ type OpenAssetFileDescriptor3_1Response struct {
 
 func (x *OpenAssetFileDescriptor3_1Response) Reset() {
 	*x = OpenAssetFileDescriptor3_1Response{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[127]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[131]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5600,7 +5760,7 @@ func (x *OpenAssetFileDescriptor3_1Response) String() string {
 func (*OpenAssetFileDescriptor3_1Response) ProtoMessage() {}
 
 func (x *OpenAssetFileDescriptor3_1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[127]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[131]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5613,7 +5773,7 @@ func (x *OpenAssetFileDescriptor3_1Response) ProtoReflect() protoreflect.Message
 
 // Deprecated: Use OpenAssetFileDescriptor3_1Response.ProtoReflect.Descriptor instead.
 func (*OpenAssetFileDescriptor3_1Response) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{127}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{131}
 }
 
 func (x *OpenAssetFileDescriptor3_1Response) GetResult() int64 {
@@ -5634,7 +5794,7 @@ type OpenFileRequest struct {
 
 func (x *OpenFileRequest) Reset() {
 	*x = OpenFileRequest{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[128]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[132]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5646,7 +5806,7 @@ func (x *OpenFileRequest) String() string {
 func (*OpenFileRequest) ProtoMessage() {}
 
 func (x *OpenFileRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[128]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[132]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5659,7 +5819,7 @@ func (x *OpenFileRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OpenFileRequest.ProtoReflect.Descriptor instead.
 func (*OpenFileRequest) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{128}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{132}
 }
 
 func (x *OpenFileRequest) GetArg0() int64 {
@@ -5692,7 +5852,7 @@ type OpenFileResponse struct {
 
 func (x *OpenFileResponse) Reset() {
 	*x = OpenFileResponse{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[129]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[133]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5704,7 +5864,7 @@ func (x *OpenFileResponse) String() string {
 func (*OpenFileResponse) ProtoMessage() {}
 
 func (x *OpenFileResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[129]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[133]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5717,7 +5877,7 @@ func (x *OpenFileResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OpenFileResponse.ProtoReflect.Descriptor instead.
 func (*OpenFileResponse) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{129}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{133}
 }
 
 func (x *OpenFileResponse) GetResult() int64 {
@@ -5737,7 +5897,7 @@ type OpenFileDescriptor2Request struct {
 
 func (x *OpenFileDescriptor2Request) Reset() {
 	*x = OpenFileDescriptor2Request{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[130]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[134]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5749,7 +5909,7 @@ func (x *OpenFileDescriptor2Request) String() string {
 func (*OpenFileDescriptor2Request) ProtoMessage() {}
 
 func (x *OpenFileDescriptor2Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[130]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[134]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5762,7 +5922,7 @@ func (x *OpenFileDescriptor2Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OpenFileDescriptor2Request.ProtoReflect.Descriptor instead.
 func (*OpenFileDescriptor2Request) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{130}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{134}
 }
 
 func (x *OpenFileDescriptor2Request) GetArg0() int64 {
@@ -5788,7 +5948,7 @@ type OpenFileDescriptor2Response struct {
 
 func (x *OpenFileDescriptor2Response) Reset() {
 	*x = OpenFileDescriptor2Response{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[131]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[135]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5800,7 +5960,7 @@ func (x *OpenFileDescriptor2Response) String() string {
 func (*OpenFileDescriptor2Response) ProtoMessage() {}
 
 func (x *OpenFileDescriptor2Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[131]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[135]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5813,7 +5973,7 @@ func (x *OpenFileDescriptor2Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OpenFileDescriptor2Response.ProtoReflect.Descriptor instead.
 func (*OpenFileDescriptor2Response) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{131}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{135}
 }
 
 func (x *OpenFileDescriptor2Response) GetResult() int64 {
@@ -5834,7 +5994,7 @@ type OpenFileDescriptor3_1Request struct {
 
 func (x *OpenFileDescriptor3_1Request) Reset() {
 	*x = OpenFileDescriptor3_1Request{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[132]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[136]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5846,7 +6006,7 @@ func (x *OpenFileDescriptor3_1Request) String() string {
 func (*OpenFileDescriptor3_1Request) ProtoMessage() {}
 
 func (x *OpenFileDescriptor3_1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[132]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[136]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5859,7 +6019,7 @@ func (x *OpenFileDescriptor3_1Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OpenFileDescriptor3_1Request.ProtoReflect.Descriptor instead.
 func (*OpenFileDescriptor3_1Request) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{132}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{136}
 }
 
 func (x *OpenFileDescriptor3_1Request) GetArg0() int64 {
@@ -5892,7 +6052,7 @@ type OpenFileDescriptor3_1Response struct {
 
 func (x *OpenFileDescriptor3_1Response) Reset() {
 	*x = OpenFileDescriptor3_1Response{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[133]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[137]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5904,7 +6064,7 @@ func (x *OpenFileDescriptor3_1Response) String() string {
 func (*OpenFileDescriptor3_1Response) ProtoMessage() {}
 
 func (x *OpenFileDescriptor3_1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[133]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[137]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5917,7 +6077,7 @@ func (x *OpenFileDescriptor3_1Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OpenFileDescriptor3_1Response.ProtoReflect.Descriptor instead.
 func (*OpenFileDescriptor3_1Response) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{133}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{137}
 }
 
 func (x *OpenFileDescriptor3_1Response) GetResult() int64 {
@@ -5936,7 +6096,7 @@ type OpenInputStreamRequest struct {
 
 func (x *OpenInputStreamRequest) Reset() {
 	*x = OpenInputStreamRequest{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[134]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[138]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5948,7 +6108,7 @@ func (x *OpenInputStreamRequest) String() string {
 func (*OpenInputStreamRequest) ProtoMessage() {}
 
 func (x *OpenInputStreamRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[134]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[138]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5961,7 +6121,7 @@ func (x *OpenInputStreamRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OpenInputStreamRequest.ProtoReflect.Descriptor instead.
 func (*OpenInputStreamRequest) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{134}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{138}
 }
 
 func (x *OpenInputStreamRequest) GetArg0() int64 {
@@ -5980,7 +6140,7 @@ type OpenInputStreamResponse struct {
 
 func (x *OpenInputStreamResponse) Reset() {
 	*x = OpenInputStreamResponse{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[135]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[139]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5992,7 +6152,7 @@ func (x *OpenInputStreamResponse) String() string {
 func (*OpenInputStreamResponse) ProtoMessage() {}
 
 func (x *OpenInputStreamResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[135]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[139]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6005,7 +6165,7 @@ func (x *OpenInputStreamResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OpenInputStreamResponse.ProtoReflect.Descriptor instead.
 func (*OpenInputStreamResponse) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{135}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{139}
 }
 
 func (x *OpenInputStreamResponse) GetResult() int64 {
@@ -6024,7 +6184,7 @@ type OpenOutputStream1Request struct {
 
 func (x *OpenOutputStream1Request) Reset() {
 	*x = OpenOutputStream1Request{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[136]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[140]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6036,7 +6196,7 @@ func (x *OpenOutputStream1Request) String() string {
 func (*OpenOutputStream1Request) ProtoMessage() {}
 
 func (x *OpenOutputStream1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[136]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[140]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6049,7 +6209,7 @@ func (x *OpenOutputStream1Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OpenOutputStream1Request.ProtoReflect.Descriptor instead.
 func (*OpenOutputStream1Request) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{136}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{140}
 }
 
 func (x *OpenOutputStream1Request) GetArg0() int64 {
@@ -6068,7 +6228,7 @@ type OpenOutputStream1Response struct {
 
 func (x *OpenOutputStream1Response) Reset() {
 	*x = OpenOutputStream1Response{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[137]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[141]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6080,7 +6240,7 @@ func (x *OpenOutputStream1Response) String() string {
 func (*OpenOutputStream1Response) ProtoMessage() {}
 
 func (x *OpenOutputStream1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[137]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[141]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6093,7 +6253,7 @@ func (x *OpenOutputStream1Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OpenOutputStream1Response.ProtoReflect.Descriptor instead.
 func (*OpenOutputStream1Response) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{137}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{141}
 }
 
 func (x *OpenOutputStream1Response) GetResult() int64 {
@@ -6113,7 +6273,7 @@ type OpenOutputStream2_1Request struct {
 
 func (x *OpenOutputStream2_1Request) Reset() {
 	*x = OpenOutputStream2_1Request{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[138]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[142]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6125,7 +6285,7 @@ func (x *OpenOutputStream2_1Request) String() string {
 func (*OpenOutputStream2_1Request) ProtoMessage() {}
 
 func (x *OpenOutputStream2_1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[138]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[142]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6138,7 +6298,7 @@ func (x *OpenOutputStream2_1Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OpenOutputStream2_1Request.ProtoReflect.Descriptor instead.
 func (*OpenOutputStream2_1Request) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{138}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{142}
 }
 
 func (x *OpenOutputStream2_1Request) GetArg0() int64 {
@@ -6164,7 +6324,7 @@ type OpenOutputStream2_1Response struct {
 
 func (x *OpenOutputStream2_1Response) Reset() {
 	*x = OpenOutputStream2_1Response{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[139]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[143]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6176,7 +6336,7 @@ func (x *OpenOutputStream2_1Response) String() string {
 func (*OpenOutputStream2_1Response) ProtoMessage() {}
 
 func (x *OpenOutputStream2_1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[139]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[143]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6189,7 +6349,7 @@ func (x *OpenOutputStream2_1Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OpenOutputStream2_1Response.ProtoReflect.Descriptor instead.
 func (*OpenOutputStream2_1Response) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{139}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{143}
 }
 
 func (x *OpenOutputStream2_1Response) GetResult() int64 {
@@ -6211,7 +6371,7 @@ type OpenTypedAssetFileRequest struct {
 
 func (x *OpenTypedAssetFileRequest) Reset() {
 	*x = OpenTypedAssetFileRequest{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[140]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[144]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6223,7 +6383,7 @@ func (x *OpenTypedAssetFileRequest) String() string {
 func (*OpenTypedAssetFileRequest) ProtoMessage() {}
 
 func (x *OpenTypedAssetFileRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[140]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[144]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6236,7 +6396,7 @@ func (x *OpenTypedAssetFileRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OpenTypedAssetFileRequest.ProtoReflect.Descriptor instead.
 func (*OpenTypedAssetFileRequest) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{140}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{144}
 }
 
 func (x *OpenTypedAssetFileRequest) GetArg0() int64 {
@@ -6276,7 +6436,7 @@ type OpenTypedAssetFileResponse struct {
 
 func (x *OpenTypedAssetFileResponse) Reset() {
 	*x = OpenTypedAssetFileResponse{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[141]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[145]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6288,7 +6448,7 @@ func (x *OpenTypedAssetFileResponse) String() string {
 func (*OpenTypedAssetFileResponse) ProtoMessage() {}
 
 func (x *OpenTypedAssetFileResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[141]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[145]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6301,7 +6461,7 @@ func (x *OpenTypedAssetFileResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OpenTypedAssetFileResponse.ProtoReflect.Descriptor instead.
 func (*OpenTypedAssetFileResponse) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{141}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{145}
 }
 
 func (x *OpenTypedAssetFileResponse) GetResult() int64 {
@@ -6322,7 +6482,7 @@ type OpenTypedAssetFileDescriptor3Request struct {
 
 func (x *OpenTypedAssetFileDescriptor3Request) Reset() {
 	*x = OpenTypedAssetFileDescriptor3Request{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[142]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[146]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6334,7 +6494,7 @@ func (x *OpenTypedAssetFileDescriptor3Request) String() string {
 func (*OpenTypedAssetFileDescriptor3Request) ProtoMessage() {}
 
 func (x *OpenTypedAssetFileDescriptor3Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[142]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[146]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6347,7 +6507,7 @@ func (x *OpenTypedAssetFileDescriptor3Request) ProtoReflect() protoreflect.Messa
 
 // Deprecated: Use OpenTypedAssetFileDescriptor3Request.ProtoReflect.Descriptor instead.
 func (*OpenTypedAssetFileDescriptor3Request) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{142}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{146}
 }
 
 func (x *OpenTypedAssetFileDescriptor3Request) GetArg0() int64 {
@@ -6380,7 +6540,7 @@ type OpenTypedAssetFileDescriptor3Response struct {
 
 func (x *OpenTypedAssetFileDescriptor3Response) Reset() {
 	*x = OpenTypedAssetFileDescriptor3Response{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[143]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[147]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6392,7 +6552,7 @@ func (x *OpenTypedAssetFileDescriptor3Response) String() string {
 func (*OpenTypedAssetFileDescriptor3Response) ProtoMessage() {}
 
 func (x *OpenTypedAssetFileDescriptor3Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[143]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[147]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6405,7 +6565,7 @@ func (x *OpenTypedAssetFileDescriptor3Response) ProtoReflect() protoreflect.Mess
 
 // Deprecated: Use OpenTypedAssetFileDescriptor3Response.ProtoReflect.Descriptor instead.
 func (*OpenTypedAssetFileDescriptor3Response) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{143}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{147}
 }
 
 func (x *OpenTypedAssetFileDescriptor3Response) GetResult() int64 {
@@ -6427,7 +6587,7 @@ type OpenTypedAssetFileDescriptor4_1Request struct {
 
 func (x *OpenTypedAssetFileDescriptor4_1Request) Reset() {
 	*x = OpenTypedAssetFileDescriptor4_1Request{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[144]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[148]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6439,7 +6599,7 @@ func (x *OpenTypedAssetFileDescriptor4_1Request) String() string {
 func (*OpenTypedAssetFileDescriptor4_1Request) ProtoMessage() {}
 
 func (x *OpenTypedAssetFileDescriptor4_1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[144]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[148]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6452,7 +6612,7 @@ func (x *OpenTypedAssetFileDescriptor4_1Request) ProtoReflect() protoreflect.Mes
 
 // Deprecated: Use OpenTypedAssetFileDescriptor4_1Request.ProtoReflect.Descriptor instead.
 func (*OpenTypedAssetFileDescriptor4_1Request) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{144}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{148}
 }
 
 func (x *OpenTypedAssetFileDescriptor4_1Request) GetArg0() int64 {
@@ -6492,7 +6652,7 @@ type OpenTypedAssetFileDescriptor4_1Response struct {
 
 func (x *OpenTypedAssetFileDescriptor4_1Response) Reset() {
 	*x = OpenTypedAssetFileDescriptor4_1Response{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[145]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[149]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6504,7 +6664,7 @@ func (x *OpenTypedAssetFileDescriptor4_1Response) String() string {
 func (*OpenTypedAssetFileDescriptor4_1Response) ProtoMessage() {}
 
 func (x *OpenTypedAssetFileDescriptor4_1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[145]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[149]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6517,7 +6677,7 @@ func (x *OpenTypedAssetFileDescriptor4_1Response) ProtoReflect() protoreflect.Me
 
 // Deprecated: Use OpenTypedAssetFileDescriptor4_1Response.ProtoReflect.Descriptor instead.
 func (*OpenTypedAssetFileDescriptor4_1Response) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{145}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{149}
 }
 
 func (x *OpenTypedAssetFileDescriptor4_1Response) GetResult() int64 {
@@ -6539,7 +6699,7 @@ type Query4Request struct {
 
 func (x *Query4Request) Reset() {
 	*x = Query4Request{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[146]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[150]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6551,7 +6711,7 @@ func (x *Query4Request) String() string {
 func (*Query4Request) ProtoMessage() {}
 
 func (x *Query4Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[146]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[150]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6564,7 +6724,7 @@ func (x *Query4Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Query4Request.ProtoReflect.Descriptor instead.
 func (*Query4Request) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{146}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{150}
 }
 
 func (x *Query4Request) GetArg0() int64 {
@@ -6604,7 +6764,7 @@ type Query4Response struct {
 
 func (x *Query4Response) Reset() {
 	*x = Query4Response{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[147]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[151]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6616,7 +6776,7 @@ func (x *Query4Response) String() string {
 func (*Query4Response) ProtoMessage() {}
 
 func (x *Query4Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[147]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[151]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6629,7 +6789,7 @@ func (x *Query4Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Query4Response.ProtoReflect.Descriptor instead.
 func (*Query4Response) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{147}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{151}
 }
 
 func (x *Query4Response) GetResult() int64 {
@@ -6652,7 +6812,7 @@ type Query5_1Request struct {
 
 func (x *Query5_1Request) Reset() {
 	*x = Query5_1Request{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[148]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[152]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6664,7 +6824,7 @@ func (x *Query5_1Request) String() string {
 func (*Query5_1Request) ProtoMessage() {}
 
 func (x *Query5_1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[148]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[152]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6677,7 +6837,7 @@ func (x *Query5_1Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Query5_1Request.ProtoReflect.Descriptor instead.
 func (*Query5_1Request) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{148}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{152}
 }
 
 func (x *Query5_1Request) GetArg0() int64 {
@@ -6724,7 +6884,7 @@ type Query5_1Response struct {
 
 func (x *Query5_1Response) Reset() {
 	*x = Query5_1Response{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[149]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[153]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6736,7 +6896,7 @@ func (x *Query5_1Response) String() string {
 func (*Query5_1Response) ProtoMessage() {}
 
 func (x *Query5_1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[149]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[153]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6749,7 +6909,7 @@ func (x *Query5_1Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Query5_1Response.ProtoReflect.Descriptor instead.
 func (*Query5_1Response) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{149}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{153}
 }
 
 func (x *Query5_1Response) GetResult() int64 {
@@ -6773,7 +6933,7 @@ type Query6_2Request struct {
 
 func (x *Query6_2Request) Reset() {
 	*x = Query6_2Request{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[150]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[154]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6785,7 +6945,7 @@ func (x *Query6_2Request) String() string {
 func (*Query6_2Request) ProtoMessage() {}
 
 func (x *Query6_2Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[150]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[154]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6798,7 +6958,7 @@ func (x *Query6_2Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Query6_2Request.ProtoReflect.Descriptor instead.
 func (*Query6_2Request) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{150}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{154}
 }
 
 func (x *Query6_2Request) GetArg0() int64 {
@@ -6852,7 +7012,7 @@ type Query6_2Response struct {
 
 func (x *Query6_2Response) Reset() {
 	*x = Query6_2Response{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[151]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[155]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6864,7 +7024,7 @@ func (x *Query6_2Response) String() string {
 func (*Query6_2Response) ProtoMessage() {}
 
 func (x *Query6_2Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[151]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[155]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6877,7 +7037,7 @@ func (x *Query6_2Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Query6_2Response.ProtoReflect.Descriptor instead.
 func (*Query6_2Response) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{151}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{155}
 }
 
 func (x *Query6_2Response) GetResult() int64 {
@@ -6898,7 +7058,7 @@ type RefreshRequest struct {
 
 func (x *RefreshRequest) Reset() {
 	*x = RefreshRequest{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[152]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[156]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6910,7 +7070,7 @@ func (x *RefreshRequest) String() string {
 func (*RefreshRequest) ProtoMessage() {}
 
 func (x *RefreshRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[152]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[156]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6923,7 +7083,7 @@ func (x *RefreshRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RefreshRequest.ProtoReflect.Descriptor instead.
 func (*RefreshRequest) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{152}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{156}
 }
 
 func (x *RefreshRequest) GetArg0() int64 {
@@ -6956,7 +7116,7 @@ type RefreshResponse struct {
 
 func (x *RefreshResponse) Reset() {
 	*x = RefreshResponse{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[153]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[157]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6968,7 +7128,7 @@ func (x *RefreshResponse) String() string {
 func (*RefreshResponse) ProtoMessage() {}
 
 func (x *RefreshResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[153]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[157]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6981,7 +7141,7 @@ func (x *RefreshResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RefreshResponse.ProtoReflect.Descriptor instead.
 func (*RefreshResponse) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{153}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{157}
 }
 
 func (x *RefreshResponse) GetResult() bool {
@@ -7002,7 +7162,7 @@ type ContentResolverRegisterContentObserverRequest struct {
 
 func (x *ContentResolverRegisterContentObserverRequest) Reset() {
 	*x = ContentResolverRegisterContentObserverRequest{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[154]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[158]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7014,7 +7174,7 @@ func (x *ContentResolverRegisterContentObserverRequest) String() string {
 func (*ContentResolverRegisterContentObserverRequest) ProtoMessage() {}
 
 func (x *ContentResolverRegisterContentObserverRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[154]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[158]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7027,7 +7187,7 @@ func (x *ContentResolverRegisterContentObserverRequest) ProtoReflect() protorefl
 
 // Deprecated: Use ContentResolverRegisterContentObserverRequest.ProtoReflect.Descriptor instead.
 func (*ContentResolverRegisterContentObserverRequest) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{154}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{158}
 }
 
 func (x *ContentResolverRegisterContentObserverRequest) GetArg0() int64 {
@@ -7061,7 +7221,7 @@ type ReleasePersistableUriPermissionRequest struct {
 
 func (x *ReleasePersistableUriPermissionRequest) Reset() {
 	*x = ReleasePersistableUriPermissionRequest{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[155]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[159]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7073,7 +7233,7 @@ func (x *ReleasePersistableUriPermissionRequest) String() string {
 func (*ReleasePersistableUriPermissionRequest) ProtoMessage() {}
 
 func (x *ReleasePersistableUriPermissionRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[155]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[159]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7086,7 +7246,7 @@ func (x *ReleasePersistableUriPermissionRequest) ProtoReflect() protoreflect.Mes
 
 // Deprecated: Use ReleasePersistableUriPermissionRequest.ProtoReflect.Descriptor instead.
 func (*ReleasePersistableUriPermissionRequest) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{155}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{159}
 }
 
 func (x *ReleasePersistableUriPermissionRequest) GetArg0() int64 {
@@ -7111,7 +7271,7 @@ type ReleasePersistableUriPermissionResponse struct {
 
 func (x *ReleasePersistableUriPermissionResponse) Reset() {
 	*x = ReleasePersistableUriPermissionResponse{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[156]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[160]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7123,7 +7283,7 @@ func (x *ReleasePersistableUriPermissionResponse) String() string {
 func (*ReleasePersistableUriPermissionResponse) ProtoMessage() {}
 
 func (x *ReleasePersistableUriPermissionResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[156]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[160]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7136,7 +7296,7 @@ func (x *ReleasePersistableUriPermissionResponse) ProtoReflect() protoreflect.Me
 
 // Deprecated: Use ReleasePersistableUriPermissionResponse.ProtoReflect.Descriptor instead.
 func (*ReleasePersistableUriPermissionResponse) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{156}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{160}
 }
 
 type StartSyncRequest struct {
@@ -7149,7 +7309,7 @@ type StartSyncRequest struct {
 
 func (x *StartSyncRequest) Reset() {
 	*x = StartSyncRequest{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[157]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[161]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7161,7 +7321,7 @@ func (x *StartSyncRequest) String() string {
 func (*StartSyncRequest) ProtoMessage() {}
 
 func (x *StartSyncRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[157]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[161]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7174,7 +7334,7 @@ func (x *StartSyncRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use StartSyncRequest.ProtoReflect.Descriptor instead.
 func (*StartSyncRequest) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{157}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{161}
 }
 
 func (x *StartSyncRequest) GetArg0() int64 {
@@ -7199,7 +7359,7 @@ type StartSyncResponse struct {
 
 func (x *StartSyncResponse) Reset() {
 	*x = StartSyncResponse{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[158]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[162]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7211,7 +7371,7 @@ func (x *StartSyncResponse) String() string {
 func (*StartSyncResponse) ProtoMessage() {}
 
 func (x *StartSyncResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[158]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[162]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7224,7 +7384,7 @@ func (x *StartSyncResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use StartSyncResponse.ProtoReflect.Descriptor instead.
 func (*StartSyncResponse) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{158}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{162}
 }
 
 type TakePersistableUriPermissionRequest struct {
@@ -7237,7 +7397,7 @@ type TakePersistableUriPermissionRequest struct {
 
 func (x *TakePersistableUriPermissionRequest) Reset() {
 	*x = TakePersistableUriPermissionRequest{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[159]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[163]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7249,7 +7409,7 @@ func (x *TakePersistableUriPermissionRequest) String() string {
 func (*TakePersistableUriPermissionRequest) ProtoMessage() {}
 
 func (x *TakePersistableUriPermissionRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[159]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[163]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7262,7 +7422,7 @@ func (x *TakePersistableUriPermissionRequest) ProtoReflect() protoreflect.Messag
 
 // Deprecated: Use TakePersistableUriPermissionRequest.ProtoReflect.Descriptor instead.
 func (*TakePersistableUriPermissionRequest) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{159}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{163}
 }
 
 func (x *TakePersistableUriPermissionRequest) GetArg0() int64 {
@@ -7287,7 +7447,7 @@ type TakePersistableUriPermissionResponse struct {
 
 func (x *TakePersistableUriPermissionResponse) Reset() {
 	*x = TakePersistableUriPermissionResponse{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[160]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[164]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7299,7 +7459,7 @@ func (x *TakePersistableUriPermissionResponse) String() string {
 func (*TakePersistableUriPermissionResponse) ProtoMessage() {}
 
 func (x *TakePersistableUriPermissionResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[160]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[164]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7312,7 +7472,7 @@ func (x *TakePersistableUriPermissionResponse) ProtoReflect() protoreflect.Messa
 
 // Deprecated: Use TakePersistableUriPermissionResponse.ProtoReflect.Descriptor instead.
 func (*TakePersistableUriPermissionResponse) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{160}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{164}
 }
 
 type UncanonicalizeRequest struct {
@@ -7324,7 +7484,7 @@ type UncanonicalizeRequest struct {
 
 func (x *UncanonicalizeRequest) Reset() {
 	*x = UncanonicalizeRequest{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[161]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[165]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7336,7 +7496,7 @@ func (x *UncanonicalizeRequest) String() string {
 func (*UncanonicalizeRequest) ProtoMessage() {}
 
 func (x *UncanonicalizeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[161]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[165]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7349,7 +7509,7 @@ func (x *UncanonicalizeRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UncanonicalizeRequest.ProtoReflect.Descriptor instead.
 func (*UncanonicalizeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{161}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{165}
 }
 
 func (x *UncanonicalizeRequest) GetArg0() int64 {
@@ -7368,7 +7528,7 @@ type UncanonicalizeResponse struct {
 
 func (x *UncanonicalizeResponse) Reset() {
 	*x = UncanonicalizeResponse{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[162]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[166]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7380,7 +7540,7 @@ func (x *UncanonicalizeResponse) String() string {
 func (*UncanonicalizeResponse) ProtoMessage() {}
 
 func (x *UncanonicalizeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[162]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[166]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7393,7 +7553,7 @@ func (x *UncanonicalizeResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UncanonicalizeResponse.ProtoReflect.Descriptor instead.
 func (*UncanonicalizeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{162}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{166}
 }
 
 func (x *UncanonicalizeResponse) GetResult() int64 {
@@ -7414,7 +7574,7 @@ type Update3Request struct {
 
 func (x *Update3Request) Reset() {
 	*x = Update3Request{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[163]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[167]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7426,7 +7586,7 @@ func (x *Update3Request) String() string {
 func (*Update3Request) ProtoMessage() {}
 
 func (x *Update3Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[163]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[167]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7439,7 +7599,7 @@ func (x *Update3Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Update3Request.ProtoReflect.Descriptor instead.
 func (*Update3Request) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{163}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{167}
 }
 
 func (x *Update3Request) GetArg0() int64 {
@@ -7472,7 +7632,7 @@ type Update3Response struct {
 
 func (x *Update3Response) Reset() {
 	*x = Update3Response{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[164]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[168]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7484,7 +7644,7 @@ func (x *Update3Response) String() string {
 func (*Update3Response) ProtoMessage() {}
 
 func (x *Update3Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[164]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[168]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7497,7 +7657,7 @@ func (x *Update3Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Update3Response.ProtoReflect.Descriptor instead.
 func (*Update3Response) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{164}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{168}
 }
 
 func (x *Update3Response) GetResult() int32 {
@@ -7519,7 +7679,7 @@ type Update4_1Request struct {
 
 func (x *Update4_1Request) Reset() {
 	*x = Update4_1Request{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[165]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[169]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7531,7 +7691,7 @@ func (x *Update4_1Request) String() string {
 func (*Update4_1Request) ProtoMessage() {}
 
 func (x *Update4_1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[165]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[169]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7544,7 +7704,7 @@ func (x *Update4_1Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Update4_1Request.ProtoReflect.Descriptor instead.
 func (*Update4_1Request) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{165}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{169}
 }
 
 func (x *Update4_1Request) GetArg0() int64 {
@@ -7584,7 +7744,7 @@ type Update4_1Response struct {
 
 func (x *Update4_1Response) Reset() {
 	*x = Update4_1Response{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[166]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[170]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7596,7 +7756,7 @@ func (x *Update4_1Response) String() string {
 func (*Update4_1Response) ProtoMessage() {}
 
 func (x *Update4_1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[166]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[170]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7609,7 +7769,7 @@ func (x *Update4_1Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Update4_1Response.ProtoReflect.Descriptor instead.
 func (*Update4_1Response) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{166}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{170}
 }
 
 func (x *Update4_1Response) GetResult() int32 {
@@ -7631,7 +7791,7 @@ type AddPeriodicSyncRequest struct {
 
 func (x *AddPeriodicSyncRequest) Reset() {
 	*x = AddPeriodicSyncRequest{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[167]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[171]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7643,7 +7803,7 @@ func (x *AddPeriodicSyncRequest) String() string {
 func (*AddPeriodicSyncRequest) ProtoMessage() {}
 
 func (x *AddPeriodicSyncRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[167]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[171]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7656,7 +7816,7 @@ func (x *AddPeriodicSyncRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AddPeriodicSyncRequest.ProtoReflect.Descriptor instead.
 func (*AddPeriodicSyncRequest) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{167}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{171}
 }
 
 func (x *AddPeriodicSyncRequest) GetArg0() int64 {
@@ -7695,7 +7855,7 @@ type AddPeriodicSyncResponse struct {
 
 func (x *AddPeriodicSyncResponse) Reset() {
 	*x = AddPeriodicSyncResponse{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[168]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[172]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7707,7 +7867,7 @@ func (x *AddPeriodicSyncResponse) String() string {
 func (*AddPeriodicSyncResponse) ProtoMessage() {}
 
 func (x *AddPeriodicSyncResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[168]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[172]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7720,7 +7880,7 @@ func (x *AddPeriodicSyncResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AddPeriodicSyncResponse.ProtoReflect.Descriptor instead.
 func (*AddPeriodicSyncResponse) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{168}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{172}
 }
 
 type AddStatusChangeListenerRequest struct {
@@ -7733,7 +7893,7 @@ type AddStatusChangeListenerRequest struct {
 
 func (x *AddStatusChangeListenerRequest) Reset() {
 	*x = AddStatusChangeListenerRequest{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[169]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[173]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7745,7 +7905,7 @@ func (x *AddStatusChangeListenerRequest) String() string {
 func (*AddStatusChangeListenerRequest) ProtoMessage() {}
 
 func (x *AddStatusChangeListenerRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[169]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[173]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7758,7 +7918,7 @@ func (x *AddStatusChangeListenerRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AddStatusChangeListenerRequest.ProtoReflect.Descriptor instead.
 func (*AddStatusChangeListenerRequest) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{169}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{173}
 }
 
 func (x *AddStatusChangeListenerRequest) GetArg0() int32 {
@@ -7784,7 +7944,7 @@ type AddStatusChangeListenerResponse struct {
 
 func (x *AddStatusChangeListenerResponse) Reset() {
 	*x = AddStatusChangeListenerResponse{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[170]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[174]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7796,7 +7956,7 @@ func (x *AddStatusChangeListenerResponse) String() string {
 func (*AddStatusChangeListenerResponse) ProtoMessage() {}
 
 func (x *AddStatusChangeListenerResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[170]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[174]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7809,7 +7969,7 @@ func (x *AddStatusChangeListenerResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AddStatusChangeListenerResponse.ProtoReflect.Descriptor instead.
 func (*AddStatusChangeListenerResponse) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{170}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{174}
 }
 
 func (x *AddStatusChangeListenerResponse) GetResult() int64 {
@@ -7829,7 +7989,7 @@ type CancelSync2Request struct {
 
 func (x *CancelSync2Request) Reset() {
 	*x = CancelSync2Request{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[171]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[175]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7841,7 +8001,7 @@ func (x *CancelSync2Request) String() string {
 func (*CancelSync2Request) ProtoMessage() {}
 
 func (x *CancelSync2Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[171]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[175]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7854,7 +8014,7 @@ func (x *CancelSync2Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CancelSync2Request.ProtoReflect.Descriptor instead.
 func (*CancelSync2Request) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{171}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{175}
 }
 
 func (x *CancelSync2Request) GetArg0() int64 {
@@ -7879,7 +8039,7 @@ type CancelSync2Response struct {
 
 func (x *CancelSync2Response) Reset() {
 	*x = CancelSync2Response{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[172]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[176]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7891,7 +8051,7 @@ func (x *CancelSync2Response) String() string {
 func (*CancelSync2Response) ProtoMessage() {}
 
 func (x *CancelSync2Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[172]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[176]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7904,7 +8064,7 @@ func (x *CancelSync2Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CancelSync2Response.ProtoReflect.Descriptor instead.
 func (*CancelSync2Response) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{172}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{176}
 }
 
 type CancelSync1_1Request struct {
@@ -7916,7 +8076,7 @@ type CancelSync1_1Request struct {
 
 func (x *CancelSync1_1Request) Reset() {
 	*x = CancelSync1_1Request{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[173]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[177]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7928,7 +8088,7 @@ func (x *CancelSync1_1Request) String() string {
 func (*CancelSync1_1Request) ProtoMessage() {}
 
 func (x *CancelSync1_1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[173]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[177]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7941,7 +8101,7 @@ func (x *CancelSync1_1Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CancelSync1_1Request.ProtoReflect.Descriptor instead.
 func (*CancelSync1_1Request) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{173}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{177}
 }
 
 func (x *CancelSync1_1Request) GetArg0() int64 {
@@ -7959,7 +8119,7 @@ type CancelSync1_1Response struct {
 
 func (x *CancelSync1_1Response) Reset() {
 	*x = CancelSync1_1Response{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[174]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[178]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7971,7 +8131,7 @@ func (x *CancelSync1_1Response) String() string {
 func (*CancelSync1_1Response) ProtoMessage() {}
 
 func (x *CancelSync1_1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[174]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[178]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7984,7 +8144,7 @@ func (x *CancelSync1_1Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CancelSync1_1Response.ProtoReflect.Descriptor instead.
 func (*CancelSync1_1Response) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{174}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{178}
 }
 
 type GetCurrentSyncRequest struct {
@@ -7995,7 +8155,7 @@ type GetCurrentSyncRequest struct {
 
 func (x *GetCurrentSyncRequest) Reset() {
 	*x = GetCurrentSyncRequest{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[175]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[179]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8007,7 +8167,7 @@ func (x *GetCurrentSyncRequest) String() string {
 func (*GetCurrentSyncRequest) ProtoMessage() {}
 
 func (x *GetCurrentSyncRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[175]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[179]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8020,7 +8180,7 @@ func (x *GetCurrentSyncRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetCurrentSyncRequest.ProtoReflect.Descriptor instead.
 func (*GetCurrentSyncRequest) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{175}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{179}
 }
 
 type GetCurrentSyncResponse struct {
@@ -8032,7 +8192,7 @@ type GetCurrentSyncResponse struct {
 
 func (x *GetCurrentSyncResponse) Reset() {
 	*x = GetCurrentSyncResponse{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[176]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[180]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8044,7 +8204,7 @@ func (x *GetCurrentSyncResponse) String() string {
 func (*GetCurrentSyncResponse) ProtoMessage() {}
 
 func (x *GetCurrentSyncResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[176]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[180]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8057,10 +8217,90 @@ func (x *GetCurrentSyncResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetCurrentSyncResponse.ProtoReflect.Descriptor instead.
 func (*GetCurrentSyncResponse) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{176}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{180}
 }
 
 func (x *GetCurrentSyncResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetCurrentSyncsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetCurrentSyncsRequest) Reset() {
+	*x = GetCurrentSyncsRequest{}
+	mi := &file_proto_resolver_resolver_proto_msgTypes[181]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetCurrentSyncsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetCurrentSyncsRequest) ProtoMessage() {}
+
+func (x *GetCurrentSyncsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_resolver_resolver_proto_msgTypes[181]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetCurrentSyncsRequest.ProtoReflect.Descriptor instead.
+func (*GetCurrentSyncsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{181}
+}
+
+type GetCurrentSyncsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetCurrentSyncsResponse) Reset() {
+	*x = GetCurrentSyncsResponse{}
+	mi := &file_proto_resolver_resolver_proto_msgTypes[182]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetCurrentSyncsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetCurrentSyncsResponse) ProtoMessage() {}
+
+func (x *GetCurrentSyncsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_resolver_resolver_proto_msgTypes[182]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetCurrentSyncsResponse.ProtoReflect.Descriptor instead.
+func (*GetCurrentSyncsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{182}
+}
+
+func (x *GetCurrentSyncsResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
@@ -8077,7 +8317,7 @@ type GetIsSyncableRequest struct {
 
 func (x *GetIsSyncableRequest) Reset() {
 	*x = GetIsSyncableRequest{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[177]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[183]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8089,7 +8329,7 @@ func (x *GetIsSyncableRequest) String() string {
 func (*GetIsSyncableRequest) ProtoMessage() {}
 
 func (x *GetIsSyncableRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[177]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[183]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8102,7 +8342,7 @@ func (x *GetIsSyncableRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetIsSyncableRequest.ProtoReflect.Descriptor instead.
 func (*GetIsSyncableRequest) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{177}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{183}
 }
 
 func (x *GetIsSyncableRequest) GetArg0() int64 {
@@ -8128,7 +8368,7 @@ type GetIsSyncableResponse struct {
 
 func (x *GetIsSyncableResponse) Reset() {
 	*x = GetIsSyncableResponse{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[178]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[184]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8140,7 +8380,7 @@ func (x *GetIsSyncableResponse) String() string {
 func (*GetIsSyncableResponse) ProtoMessage() {}
 
 func (x *GetIsSyncableResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[178]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[184]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8153,7 +8393,7 @@ func (x *GetIsSyncableResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetIsSyncableResponse.ProtoReflect.Descriptor instead.
 func (*GetIsSyncableResponse) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{178}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{184}
 }
 
 func (x *GetIsSyncableResponse) GetResult() int32 {
@@ -8171,7 +8411,7 @@ type GetMasterSyncAutomaticallyRequest struct {
 
 func (x *GetMasterSyncAutomaticallyRequest) Reset() {
 	*x = GetMasterSyncAutomaticallyRequest{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[179]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[185]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8183,7 +8423,7 @@ func (x *GetMasterSyncAutomaticallyRequest) String() string {
 func (*GetMasterSyncAutomaticallyRequest) ProtoMessage() {}
 
 func (x *GetMasterSyncAutomaticallyRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[179]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[185]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8196,7 +8436,7 @@ func (x *GetMasterSyncAutomaticallyRequest) ProtoReflect() protoreflect.Message 
 
 // Deprecated: Use GetMasterSyncAutomaticallyRequest.ProtoReflect.Descriptor instead.
 func (*GetMasterSyncAutomaticallyRequest) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{179}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{185}
 }
 
 type GetMasterSyncAutomaticallyResponse struct {
@@ -8208,7 +8448,7 @@ type GetMasterSyncAutomaticallyResponse struct {
 
 func (x *GetMasterSyncAutomaticallyResponse) Reset() {
 	*x = GetMasterSyncAutomaticallyResponse{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[180]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[186]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8220,7 +8460,7 @@ func (x *GetMasterSyncAutomaticallyResponse) String() string {
 func (*GetMasterSyncAutomaticallyResponse) ProtoMessage() {}
 
 func (x *GetMasterSyncAutomaticallyResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[180]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[186]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8233,7 +8473,7 @@ func (x *GetMasterSyncAutomaticallyResponse) ProtoReflect() protoreflect.Message
 
 // Deprecated: Use GetMasterSyncAutomaticallyResponse.ProtoReflect.Descriptor instead.
 func (*GetMasterSyncAutomaticallyResponse) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{180}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{186}
 }
 
 func (x *GetMasterSyncAutomaticallyResponse) GetResult() bool {
@@ -8241,6 +8481,102 @@ func (x *GetMasterSyncAutomaticallyResponse) GetResult() bool {
 		return x.Result
 	}
 	return false
+}
+
+type GetPeriodicSyncsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          string                 `protobuf:"bytes,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPeriodicSyncsRequest) Reset() {
+	*x = GetPeriodicSyncsRequest{}
+	mi := &file_proto_resolver_resolver_proto_msgTypes[187]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPeriodicSyncsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPeriodicSyncsRequest) ProtoMessage() {}
+
+func (x *GetPeriodicSyncsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_resolver_resolver_proto_msgTypes[187]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPeriodicSyncsRequest.ProtoReflect.Descriptor instead.
+func (*GetPeriodicSyncsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{187}
+}
+
+func (x *GetPeriodicSyncsRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *GetPeriodicSyncsRequest) GetArg1() string {
+	if x != nil {
+		return x.Arg1
+	}
+	return ""
+}
+
+type GetPeriodicSyncsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPeriodicSyncsResponse) Reset() {
+	*x = GetPeriodicSyncsResponse{}
+	mi := &file_proto_resolver_resolver_proto_msgTypes[188]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPeriodicSyncsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPeriodicSyncsResponse) ProtoMessage() {}
+
+func (x *GetPeriodicSyncsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_resolver_resolver_proto_msgTypes[188]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPeriodicSyncsResponse.ProtoReflect.Descriptor instead.
+func (*GetPeriodicSyncsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{188}
+}
+
+func (x *GetPeriodicSyncsResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
 }
 
 type GetSyncAdapterTypesRequest struct {
@@ -8251,7 +8587,7 @@ type GetSyncAdapterTypesRequest struct {
 
 func (x *GetSyncAdapterTypesRequest) Reset() {
 	*x = GetSyncAdapterTypesRequest{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[181]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[189]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8263,7 +8599,7 @@ func (x *GetSyncAdapterTypesRequest) String() string {
 func (*GetSyncAdapterTypesRequest) ProtoMessage() {}
 
 func (x *GetSyncAdapterTypesRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[181]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[189]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8276,7 +8612,7 @@ func (x *GetSyncAdapterTypesRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetSyncAdapterTypesRequest.ProtoReflect.Descriptor instead.
 func (*GetSyncAdapterTypesRequest) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{181}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{189}
 }
 
 type GetSyncAdapterTypesResponse struct {
@@ -8288,7 +8624,7 @@ type GetSyncAdapterTypesResponse struct {
 
 func (x *GetSyncAdapterTypesResponse) Reset() {
 	*x = GetSyncAdapterTypesResponse{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[182]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[190]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8300,7 +8636,7 @@ func (x *GetSyncAdapterTypesResponse) String() string {
 func (*GetSyncAdapterTypesResponse) ProtoMessage() {}
 
 func (x *GetSyncAdapterTypesResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[182]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[190]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8313,7 +8649,7 @@ func (x *GetSyncAdapterTypesResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetSyncAdapterTypesResponse.ProtoReflect.Descriptor instead.
 func (*GetSyncAdapterTypesResponse) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{182}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{190}
 }
 
 func (x *GetSyncAdapterTypesResponse) GetResult() int64 {
@@ -8333,7 +8669,7 @@ type GetSyncAutomaticallyRequest struct {
 
 func (x *GetSyncAutomaticallyRequest) Reset() {
 	*x = GetSyncAutomaticallyRequest{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[183]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[191]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8345,7 +8681,7 @@ func (x *GetSyncAutomaticallyRequest) String() string {
 func (*GetSyncAutomaticallyRequest) ProtoMessage() {}
 
 func (x *GetSyncAutomaticallyRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[183]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[191]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8358,7 +8694,7 @@ func (x *GetSyncAutomaticallyRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetSyncAutomaticallyRequest.ProtoReflect.Descriptor instead.
 func (*GetSyncAutomaticallyRequest) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{183}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{191}
 }
 
 func (x *GetSyncAutomaticallyRequest) GetArg0() int64 {
@@ -8384,7 +8720,7 @@ type GetSyncAutomaticallyResponse struct {
 
 func (x *GetSyncAutomaticallyResponse) Reset() {
 	*x = GetSyncAutomaticallyResponse{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[184]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[192]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8396,7 +8732,7 @@ func (x *GetSyncAutomaticallyResponse) String() string {
 func (*GetSyncAutomaticallyResponse) ProtoMessage() {}
 
 func (x *GetSyncAutomaticallyResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[184]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[192]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8409,7 +8745,7 @@ func (x *GetSyncAutomaticallyResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetSyncAutomaticallyResponse.ProtoReflect.Descriptor instead.
 func (*GetSyncAutomaticallyResponse) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{184}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{192}
 }
 
 func (x *GetSyncAutomaticallyResponse) GetResult() bool {
@@ -8429,7 +8765,7 @@ type IsSyncActiveRequest struct {
 
 func (x *IsSyncActiveRequest) Reset() {
 	*x = IsSyncActiveRequest{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[185]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[193]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8441,7 +8777,7 @@ func (x *IsSyncActiveRequest) String() string {
 func (*IsSyncActiveRequest) ProtoMessage() {}
 
 func (x *IsSyncActiveRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[185]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[193]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8454,7 +8790,7 @@ func (x *IsSyncActiveRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsSyncActiveRequest.ProtoReflect.Descriptor instead.
 func (*IsSyncActiveRequest) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{185}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{193}
 }
 
 func (x *IsSyncActiveRequest) GetArg0() int64 {
@@ -8480,7 +8816,7 @@ type IsSyncActiveResponse struct {
 
 func (x *IsSyncActiveResponse) Reset() {
 	*x = IsSyncActiveResponse{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[186]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[194]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8492,7 +8828,7 @@ func (x *IsSyncActiveResponse) String() string {
 func (*IsSyncActiveResponse) ProtoMessage() {}
 
 func (x *IsSyncActiveResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[186]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[194]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8505,7 +8841,7 @@ func (x *IsSyncActiveResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsSyncActiveResponse.ProtoReflect.Descriptor instead.
 func (*IsSyncActiveResponse) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{186}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{194}
 }
 
 func (x *IsSyncActiveResponse) GetResult() bool {
@@ -8525,7 +8861,7 @@ type IsSyncPendingRequest struct {
 
 func (x *IsSyncPendingRequest) Reset() {
 	*x = IsSyncPendingRequest{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[187]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[195]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8537,7 +8873,7 @@ func (x *IsSyncPendingRequest) String() string {
 func (*IsSyncPendingRequest) ProtoMessage() {}
 
 func (x *IsSyncPendingRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[187]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[195]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8550,7 +8886,7 @@ func (x *IsSyncPendingRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsSyncPendingRequest.ProtoReflect.Descriptor instead.
 func (*IsSyncPendingRequest) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{187}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{195}
 }
 
 func (x *IsSyncPendingRequest) GetArg0() int64 {
@@ -8576,7 +8912,7 @@ type IsSyncPendingResponse struct {
 
 func (x *IsSyncPendingResponse) Reset() {
 	*x = IsSyncPendingResponse{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[188]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[196]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8588,7 +8924,7 @@ func (x *IsSyncPendingResponse) String() string {
 func (*IsSyncPendingResponse) ProtoMessage() {}
 
 func (x *IsSyncPendingResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[188]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[196]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8601,7 +8937,7 @@ func (x *IsSyncPendingResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsSyncPendingResponse.ProtoReflect.Descriptor instead.
 func (*IsSyncPendingResponse) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{188}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{196}
 }
 
 func (x *IsSyncPendingResponse) GetResult() bool {
@@ -8622,7 +8958,7 @@ type RemovePeriodicSyncRequest struct {
 
 func (x *RemovePeriodicSyncRequest) Reset() {
 	*x = RemovePeriodicSyncRequest{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[189]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[197]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8634,7 +8970,7 @@ func (x *RemovePeriodicSyncRequest) String() string {
 func (*RemovePeriodicSyncRequest) ProtoMessage() {}
 
 func (x *RemovePeriodicSyncRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[189]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[197]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8647,7 +8983,7 @@ func (x *RemovePeriodicSyncRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RemovePeriodicSyncRequest.ProtoReflect.Descriptor instead.
 func (*RemovePeriodicSyncRequest) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{189}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{197}
 }
 
 func (x *RemovePeriodicSyncRequest) GetArg0() int64 {
@@ -8679,7 +9015,7 @@ type RemovePeriodicSyncResponse struct {
 
 func (x *RemovePeriodicSyncResponse) Reset() {
 	*x = RemovePeriodicSyncResponse{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[190]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[198]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8691,7 +9027,7 @@ func (x *RemovePeriodicSyncResponse) String() string {
 func (*RemovePeriodicSyncResponse) ProtoMessage() {}
 
 func (x *RemovePeriodicSyncResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[190]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[198]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8704,7 +9040,7 @@ func (x *RemovePeriodicSyncResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RemovePeriodicSyncResponse.ProtoReflect.Descriptor instead.
 func (*RemovePeriodicSyncResponse) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{190}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{198}
 }
 
 type RemoveStatusChangeListenerRequest struct {
@@ -8716,7 +9052,7 @@ type RemoveStatusChangeListenerRequest struct {
 
 func (x *RemoveStatusChangeListenerRequest) Reset() {
 	*x = RemoveStatusChangeListenerRequest{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[191]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[199]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8728,7 +9064,7 @@ func (x *RemoveStatusChangeListenerRequest) String() string {
 func (*RemoveStatusChangeListenerRequest) ProtoMessage() {}
 
 func (x *RemoveStatusChangeListenerRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[191]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[199]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8741,7 +9077,7 @@ func (x *RemoveStatusChangeListenerRequest) ProtoReflect() protoreflect.Message 
 
 // Deprecated: Use RemoveStatusChangeListenerRequest.ProtoReflect.Descriptor instead.
 func (*RemoveStatusChangeListenerRequest) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{191}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{199}
 }
 
 func (x *RemoveStatusChangeListenerRequest) GetArg0() int64 {
@@ -8759,7 +9095,7 @@ type RemoveStatusChangeListenerResponse struct {
 
 func (x *RemoveStatusChangeListenerResponse) Reset() {
 	*x = RemoveStatusChangeListenerResponse{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[192]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[200]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8771,7 +9107,7 @@ func (x *RemoveStatusChangeListenerResponse) String() string {
 func (*RemoveStatusChangeListenerResponse) ProtoMessage() {}
 
 func (x *RemoveStatusChangeListenerResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[192]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[200]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8784,7 +9120,7 @@ func (x *RemoveStatusChangeListenerResponse) ProtoReflect() protoreflect.Message
 
 // Deprecated: Use RemoveStatusChangeListenerResponse.ProtoReflect.Descriptor instead.
 func (*RemoveStatusChangeListenerResponse) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{192}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{200}
 }
 
 type RequestSync3Request struct {
@@ -8798,7 +9134,7 @@ type RequestSync3Request struct {
 
 func (x *RequestSync3Request) Reset() {
 	*x = RequestSync3Request{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[193]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[201]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8810,7 +9146,7 @@ func (x *RequestSync3Request) String() string {
 func (*RequestSync3Request) ProtoMessage() {}
 
 func (x *RequestSync3Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[193]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[201]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8823,7 +9159,7 @@ func (x *RequestSync3Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RequestSync3Request.ProtoReflect.Descriptor instead.
 func (*RequestSync3Request) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{193}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{201}
 }
 
 func (x *RequestSync3Request) GetArg0() int64 {
@@ -8855,7 +9191,7 @@ type RequestSync3Response struct {
 
 func (x *RequestSync3Response) Reset() {
 	*x = RequestSync3Response{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[194]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[202]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8867,7 +9203,7 @@ func (x *RequestSync3Response) String() string {
 func (*RequestSync3Response) ProtoMessage() {}
 
 func (x *RequestSync3Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[194]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[202]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8880,7 +9216,7 @@ func (x *RequestSync3Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RequestSync3Response.ProtoReflect.Descriptor instead.
 func (*RequestSync3Response) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{194}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{202}
 }
 
 type RequestSync1_1Request struct {
@@ -8892,7 +9228,7 @@ type RequestSync1_1Request struct {
 
 func (x *RequestSync1_1Request) Reset() {
 	*x = RequestSync1_1Request{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[195]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[203]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8904,7 +9240,7 @@ func (x *RequestSync1_1Request) String() string {
 func (*RequestSync1_1Request) ProtoMessage() {}
 
 func (x *RequestSync1_1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[195]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[203]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8917,7 +9253,7 @@ func (x *RequestSync1_1Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RequestSync1_1Request.ProtoReflect.Descriptor instead.
 func (*RequestSync1_1Request) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{195}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{203}
 }
 
 func (x *RequestSync1_1Request) GetArg0() int64 {
@@ -8935,7 +9271,7 @@ type RequestSync1_1Response struct {
 
 func (x *RequestSync1_1Response) Reset() {
 	*x = RequestSync1_1Response{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[196]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[204]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8947,7 +9283,7 @@ func (x *RequestSync1_1Response) String() string {
 func (*RequestSync1_1Response) ProtoMessage() {}
 
 func (x *RequestSync1_1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[196]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[204]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8960,7 +9296,7 @@ func (x *RequestSync1_1Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RequestSync1_1Response.ProtoReflect.Descriptor instead.
 func (*RequestSync1_1Response) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{196}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{204}
 }
 
 type SetIsSyncableRequest struct {
@@ -8974,7 +9310,7 @@ type SetIsSyncableRequest struct {
 
 func (x *SetIsSyncableRequest) Reset() {
 	*x = SetIsSyncableRequest{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[197]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[205]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8986,7 +9322,7 @@ func (x *SetIsSyncableRequest) String() string {
 func (*SetIsSyncableRequest) ProtoMessage() {}
 
 func (x *SetIsSyncableRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[197]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[205]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8999,7 +9335,7 @@ func (x *SetIsSyncableRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetIsSyncableRequest.ProtoReflect.Descriptor instead.
 func (*SetIsSyncableRequest) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{197}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{205}
 }
 
 func (x *SetIsSyncableRequest) GetArg0() int64 {
@@ -9031,7 +9367,7 @@ type SetIsSyncableResponse struct {
 
 func (x *SetIsSyncableResponse) Reset() {
 	*x = SetIsSyncableResponse{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[198]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[206]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9043,7 +9379,7 @@ func (x *SetIsSyncableResponse) String() string {
 func (*SetIsSyncableResponse) ProtoMessage() {}
 
 func (x *SetIsSyncableResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[198]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[206]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9056,7 +9392,7 @@ func (x *SetIsSyncableResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetIsSyncableResponse.ProtoReflect.Descriptor instead.
 func (*SetIsSyncableResponse) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{198}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{206}
 }
 
 type SetMasterSyncAutomaticallyRequest struct {
@@ -9068,7 +9404,7 @@ type SetMasterSyncAutomaticallyRequest struct {
 
 func (x *SetMasterSyncAutomaticallyRequest) Reset() {
 	*x = SetMasterSyncAutomaticallyRequest{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[199]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[207]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9080,7 +9416,7 @@ func (x *SetMasterSyncAutomaticallyRequest) String() string {
 func (*SetMasterSyncAutomaticallyRequest) ProtoMessage() {}
 
 func (x *SetMasterSyncAutomaticallyRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[199]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[207]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9093,7 +9429,7 @@ func (x *SetMasterSyncAutomaticallyRequest) ProtoReflect() protoreflect.Message 
 
 // Deprecated: Use SetMasterSyncAutomaticallyRequest.ProtoReflect.Descriptor instead.
 func (*SetMasterSyncAutomaticallyRequest) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{199}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{207}
 }
 
 func (x *SetMasterSyncAutomaticallyRequest) GetArg0() bool {
@@ -9111,7 +9447,7 @@ type SetMasterSyncAutomaticallyResponse struct {
 
 func (x *SetMasterSyncAutomaticallyResponse) Reset() {
 	*x = SetMasterSyncAutomaticallyResponse{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[200]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[208]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9123,7 +9459,7 @@ func (x *SetMasterSyncAutomaticallyResponse) String() string {
 func (*SetMasterSyncAutomaticallyResponse) ProtoMessage() {}
 
 func (x *SetMasterSyncAutomaticallyResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[200]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[208]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9136,7 +9472,7 @@ func (x *SetMasterSyncAutomaticallyResponse) ProtoReflect() protoreflect.Message
 
 // Deprecated: Use SetMasterSyncAutomaticallyResponse.ProtoReflect.Descriptor instead.
 func (*SetMasterSyncAutomaticallyResponse) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{200}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{208}
 }
 
 type SetSyncAutomaticallyRequest struct {
@@ -9150,7 +9486,7 @@ type SetSyncAutomaticallyRequest struct {
 
 func (x *SetSyncAutomaticallyRequest) Reset() {
 	*x = SetSyncAutomaticallyRequest{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[201]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[209]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9162,7 +9498,7 @@ func (x *SetSyncAutomaticallyRequest) String() string {
 func (*SetSyncAutomaticallyRequest) ProtoMessage() {}
 
 func (x *SetSyncAutomaticallyRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[201]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[209]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9175,7 +9511,7 @@ func (x *SetSyncAutomaticallyRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetSyncAutomaticallyRequest.ProtoReflect.Descriptor instead.
 func (*SetSyncAutomaticallyRequest) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{201}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{209}
 }
 
 func (x *SetSyncAutomaticallyRequest) GetArg0() int64 {
@@ -9207,7 +9543,7 @@ type SetSyncAutomaticallyResponse struct {
 
 func (x *SetSyncAutomaticallyResponse) Reset() {
 	*x = SetSyncAutomaticallyResponse{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[202]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[210]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9219,7 +9555,7 @@ func (x *SetSyncAutomaticallyResponse) String() string {
 func (*SetSyncAutomaticallyResponse) ProtoMessage() {}
 
 func (x *SetSyncAutomaticallyResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[202]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[210]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9232,7 +9568,7 @@ func (x *SetSyncAutomaticallyResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetSyncAutomaticallyResponse.ProtoReflect.Descriptor instead.
 func (*SetSyncAutomaticallyResponse) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{202}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{210}
 }
 
 type ValidateSyncExtrasBundleRequest struct {
@@ -9244,7 +9580,7 @@ type ValidateSyncExtrasBundleRequest struct {
 
 func (x *ValidateSyncExtrasBundleRequest) Reset() {
 	*x = ValidateSyncExtrasBundleRequest{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[203]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[211]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9256,7 +9592,7 @@ func (x *ValidateSyncExtrasBundleRequest) String() string {
 func (*ValidateSyncExtrasBundleRequest) ProtoMessage() {}
 
 func (x *ValidateSyncExtrasBundleRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[203]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[211]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9269,7 +9605,7 @@ func (x *ValidateSyncExtrasBundleRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ValidateSyncExtrasBundleRequest.ProtoReflect.Descriptor instead.
 func (*ValidateSyncExtrasBundleRequest) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{203}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{211}
 }
 
 func (x *ValidateSyncExtrasBundleRequest) GetArg0() int64 {
@@ -9287,7 +9623,7 @@ type ValidateSyncExtrasBundleResponse struct {
 
 func (x *ValidateSyncExtrasBundleResponse) Reset() {
 	*x = ValidateSyncExtrasBundleResponse{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[204]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[212]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9299,7 +9635,7 @@ func (x *ValidateSyncExtrasBundleResponse) String() string {
 func (*ValidateSyncExtrasBundleResponse) ProtoMessage() {}
 
 func (x *ValidateSyncExtrasBundleResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[204]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[212]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9312,7 +9648,7 @@ func (x *ValidateSyncExtrasBundleResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ValidateSyncExtrasBundleResponse.ProtoReflect.Descriptor instead.
 func (*ValidateSyncExtrasBundleResponse) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{204}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{212}
 }
 
 type Wrap1Request struct {
@@ -9324,7 +9660,7 @@ type Wrap1Request struct {
 
 func (x *Wrap1Request) Reset() {
 	*x = Wrap1Request{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[205]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[213]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9336,7 +9672,7 @@ func (x *Wrap1Request) String() string {
 func (*Wrap1Request) ProtoMessage() {}
 
 func (x *Wrap1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[205]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[213]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9349,7 +9685,7 @@ func (x *Wrap1Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Wrap1Request.ProtoReflect.Descriptor instead.
 func (*Wrap1Request) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{205}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{213}
 }
 
 func (x *Wrap1Request) GetArg0() int64 {
@@ -9368,7 +9704,7 @@ type Wrap1Response struct {
 
 func (x *Wrap1Response) Reset() {
 	*x = Wrap1Response{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[206]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[214]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9380,7 +9716,7 @@ func (x *Wrap1Response) String() string {
 func (*Wrap1Response) ProtoMessage() {}
 
 func (x *Wrap1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[206]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[214]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9393,7 +9729,7 @@ func (x *Wrap1Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Wrap1Response.ProtoReflect.Descriptor instead.
 func (*Wrap1Response) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{206}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{214}
 }
 
 func (x *Wrap1Response) GetResult() int64 {
@@ -9412,7 +9748,7 @@ type Wrap1_1Request struct {
 
 func (x *Wrap1_1Request) Reset() {
 	*x = Wrap1_1Request{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[207]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[215]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9424,7 +9760,7 @@ func (x *Wrap1_1Request) String() string {
 func (*Wrap1_1Request) ProtoMessage() {}
 
 func (x *Wrap1_1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[207]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[215]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9437,7 +9773,7 @@ func (x *Wrap1_1Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Wrap1_1Request.ProtoReflect.Descriptor instead.
 func (*Wrap1_1Request) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{207}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{215}
 }
 
 func (x *Wrap1_1Request) GetArg0() int64 {
@@ -9456,7 +9792,7 @@ type Wrap1_1Response struct {
 
 func (x *Wrap1_1Response) Reset() {
 	*x = Wrap1_1Response{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[208]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[216]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9468,7 +9804,7 @@ func (x *Wrap1_1Response) String() string {
 func (*Wrap1_1Response) ProtoMessage() {}
 
 func (x *Wrap1_1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[208]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[216]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9481,7 +9817,7 @@ func (x *Wrap1_1Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Wrap1_1Response.ProtoReflect.Descriptor instead.
 func (*Wrap1_1Response) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{208}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{216}
 }
 
 func (x *Wrap1_1Response) GetResult() int64 {
@@ -9499,7 +9835,7 @@ type GetContentDescriptionRequest struct {
 
 func (x *GetContentDescriptionRequest) Reset() {
 	*x = GetContentDescriptionRequest{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[209]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[217]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9511,7 +9847,7 @@ func (x *GetContentDescriptionRequest) String() string {
 func (*GetContentDescriptionRequest) ProtoMessage() {}
 
 func (x *GetContentDescriptionRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[209]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[217]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9524,7 +9860,7 @@ func (x *GetContentDescriptionRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetContentDescriptionRequest.ProtoReflect.Descriptor instead.
 func (*GetContentDescriptionRequest) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{209}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{217}
 }
 
 type GetContentDescriptionResponse struct {
@@ -9536,7 +9872,7 @@ type GetContentDescriptionResponse struct {
 
 func (x *GetContentDescriptionResponse) Reset() {
 	*x = GetContentDescriptionResponse{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[210]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[218]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9548,7 +9884,7 @@ func (x *GetContentDescriptionResponse) String() string {
 func (*GetContentDescriptionResponse) ProtoMessage() {}
 
 func (x *GetContentDescriptionResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[210]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[218]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9561,7 +9897,7 @@ func (x *GetContentDescriptionResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetContentDescriptionResponse.ProtoReflect.Descriptor instead.
 func (*GetContentDescriptionResponse) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{210}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{218}
 }
 
 func (x *GetContentDescriptionResponse) GetResult() int64 {
@@ -9579,7 +9915,7 @@ type GetIconRequest struct {
 
 func (x *GetIconRequest) Reset() {
 	*x = GetIconRequest{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[211]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[219]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9591,7 +9927,7 @@ func (x *GetIconRequest) String() string {
 func (*GetIconRequest) ProtoMessage() {}
 
 func (x *GetIconRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[211]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[219]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9604,7 +9940,7 @@ func (x *GetIconRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetIconRequest.ProtoReflect.Descriptor instead.
 func (*GetIconRequest) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{211}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{219}
 }
 
 type GetIconResponse struct {
@@ -9616,7 +9952,7 @@ type GetIconResponse struct {
 
 func (x *GetIconResponse) Reset() {
 	*x = GetIconResponse{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[212]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[220]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9628,7 +9964,7 @@ func (x *GetIconResponse) String() string {
 func (*GetIconResponse) ProtoMessage() {}
 
 func (x *GetIconResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[212]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[220]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9641,7 +9977,7 @@ func (x *GetIconResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetIconResponse.ProtoReflect.Descriptor instead.
 func (*GetIconResponse) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{212}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{220}
 }
 
 func (x *GetIconResponse) GetResult() int64 {
@@ -9659,7 +9995,7 @@ type GetLabelRequest struct {
 
 func (x *GetLabelRequest) Reset() {
 	*x = GetLabelRequest{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[213]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[221]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9671,7 +10007,7 @@ func (x *GetLabelRequest) String() string {
 func (*GetLabelRequest) ProtoMessage() {}
 
 func (x *GetLabelRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[213]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[221]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9684,7 +10020,7 @@ func (x *GetLabelRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetLabelRequest.ProtoReflect.Descriptor instead.
 func (*GetLabelRequest) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{213}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{221}
 }
 
 type GetLabelResponse struct {
@@ -9696,7 +10032,7 @@ type GetLabelResponse struct {
 
 func (x *GetLabelResponse) Reset() {
 	*x = GetLabelResponse{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[214]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[222]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9708,7 +10044,7 @@ func (x *GetLabelResponse) String() string {
 func (*GetLabelResponse) ProtoMessage() {}
 
 func (x *GetLabelResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[214]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[222]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9721,7 +10057,7 @@ func (x *GetLabelResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetLabelResponse.ProtoReflect.Descriptor instead.
 func (*GetLabelResponse) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{214}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{222}
 }
 
 func (x *GetLabelResponse) GetResult() int64 {
@@ -9739,7 +10075,7 @@ type BuildUponRequest struct {
 
 func (x *BuildUponRequest) Reset() {
 	*x = BuildUponRequest{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[215]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[223]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9751,7 +10087,7 @@ func (x *BuildUponRequest) String() string {
 func (*BuildUponRequest) ProtoMessage() {}
 
 func (x *BuildUponRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[215]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[223]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9764,7 +10100,7 @@ func (x *BuildUponRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use BuildUponRequest.ProtoReflect.Descriptor instead.
 func (*BuildUponRequest) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{215}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{223}
 }
 
 type BuildUponResponse struct {
@@ -9776,7 +10112,7 @@ type BuildUponResponse struct {
 
 func (x *BuildUponResponse) Reset() {
 	*x = BuildUponResponse{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[216]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[224]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9788,7 +10124,7 @@ func (x *BuildUponResponse) String() string {
 func (*BuildUponResponse) ProtoMessage() {}
 
 func (x *BuildUponResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[216]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[224]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9801,7 +10137,7 @@ func (x *BuildUponResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use BuildUponResponse.ProtoReflect.Descriptor instead.
 func (*BuildUponResponse) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{216}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{224}
 }
 
 func (x *BuildUponResponse) GetResult() int64 {
@@ -9820,7 +10156,7 @@ type CompareTo1Request struct {
 
 func (x *CompareTo1Request) Reset() {
 	*x = CompareTo1Request{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[217]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[225]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9832,7 +10168,7 @@ func (x *CompareTo1Request) String() string {
 func (*CompareTo1Request) ProtoMessage() {}
 
 func (x *CompareTo1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[217]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[225]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9845,7 +10181,7 @@ func (x *CompareTo1Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CompareTo1Request.ProtoReflect.Descriptor instead.
 func (*CompareTo1Request) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{217}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{225}
 }
 
 func (x *CompareTo1Request) GetArg0() int64 {
@@ -9864,7 +10200,7 @@ type CompareTo1Response struct {
 
 func (x *CompareTo1Response) Reset() {
 	*x = CompareTo1Response{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[218]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[226]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9876,7 +10212,7 @@ func (x *CompareTo1Response) String() string {
 func (*CompareTo1Response) ProtoMessage() {}
 
 func (x *CompareTo1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[218]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[226]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9889,7 +10225,7 @@ func (x *CompareTo1Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CompareTo1Response.ProtoReflect.Descriptor instead.
 func (*CompareTo1Response) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{218}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{226}
 }
 
 func (x *CompareTo1Response) GetResult() int32 {
@@ -9908,7 +10244,7 @@ type EqualsRequest struct {
 
 func (x *EqualsRequest) Reset() {
 	*x = EqualsRequest{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[219]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[227]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9920,7 +10256,7 @@ func (x *EqualsRequest) String() string {
 func (*EqualsRequest) ProtoMessage() {}
 
 func (x *EqualsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[219]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[227]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9933,7 +10269,7 @@ func (x *EqualsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use EqualsRequest.ProtoReflect.Descriptor instead.
 func (*EqualsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{219}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{227}
 }
 
 func (x *EqualsRequest) GetArg0() int64 {
@@ -9952,7 +10288,7 @@ type EqualsResponse struct {
 
 func (x *EqualsResponse) Reset() {
 	*x = EqualsResponse{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[220]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[228]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9964,7 +10300,7 @@ func (x *EqualsResponse) String() string {
 func (*EqualsResponse) ProtoMessage() {}
 
 func (x *EqualsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[220]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[228]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9977,7 +10313,7 @@ func (x *EqualsResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use EqualsResponse.ProtoReflect.Descriptor instead.
 func (*EqualsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{220}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{228}
 }
 
 func (x *EqualsResponse) GetResult() bool {
@@ -9995,7 +10331,7 @@ type GetAuthorityRequest struct {
 
 func (x *GetAuthorityRequest) Reset() {
 	*x = GetAuthorityRequest{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[221]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[229]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -10007,7 +10343,7 @@ func (x *GetAuthorityRequest) String() string {
 func (*GetAuthorityRequest) ProtoMessage() {}
 
 func (x *GetAuthorityRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[221]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[229]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -10020,7 +10356,7 @@ func (x *GetAuthorityRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetAuthorityRequest.ProtoReflect.Descriptor instead.
 func (*GetAuthorityRequest) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{221}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{229}
 }
 
 type GetAuthorityResponse struct {
@@ -10032,7 +10368,7 @@ type GetAuthorityResponse struct {
 
 func (x *GetAuthorityResponse) Reset() {
 	*x = GetAuthorityResponse{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[222]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[230]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -10044,7 +10380,7 @@ func (x *GetAuthorityResponse) String() string {
 func (*GetAuthorityResponse) ProtoMessage() {}
 
 func (x *GetAuthorityResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[222]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[230]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -10057,7 +10393,7 @@ func (x *GetAuthorityResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetAuthorityResponse.ProtoReflect.Descriptor instead.
 func (*GetAuthorityResponse) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{222}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{230}
 }
 
 func (x *GetAuthorityResponse) GetResult() string {
@@ -10077,7 +10413,7 @@ type GetBooleanQueryParameterRequest struct {
 
 func (x *GetBooleanQueryParameterRequest) Reset() {
 	*x = GetBooleanQueryParameterRequest{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[223]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[231]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -10089,7 +10425,7 @@ func (x *GetBooleanQueryParameterRequest) String() string {
 func (*GetBooleanQueryParameterRequest) ProtoMessage() {}
 
 func (x *GetBooleanQueryParameterRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[223]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[231]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -10102,7 +10438,7 @@ func (x *GetBooleanQueryParameterRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetBooleanQueryParameterRequest.ProtoReflect.Descriptor instead.
 func (*GetBooleanQueryParameterRequest) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{223}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{231}
 }
 
 func (x *GetBooleanQueryParameterRequest) GetArg0() string {
@@ -10128,7 +10464,7 @@ type GetBooleanQueryParameterResponse struct {
 
 func (x *GetBooleanQueryParameterResponse) Reset() {
 	*x = GetBooleanQueryParameterResponse{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[224]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[232]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -10140,7 +10476,7 @@ func (x *GetBooleanQueryParameterResponse) String() string {
 func (*GetBooleanQueryParameterResponse) ProtoMessage() {}
 
 func (x *GetBooleanQueryParameterResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[224]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[232]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -10153,7 +10489,7 @@ func (x *GetBooleanQueryParameterResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetBooleanQueryParameterResponse.ProtoReflect.Descriptor instead.
 func (*GetBooleanQueryParameterResponse) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{224}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{232}
 }
 
 func (x *GetBooleanQueryParameterResponse) GetResult() bool {
@@ -10171,7 +10507,7 @@ type GetEncodedAuthorityRequest struct {
 
 func (x *GetEncodedAuthorityRequest) Reset() {
 	*x = GetEncodedAuthorityRequest{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[225]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[233]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -10183,7 +10519,7 @@ func (x *GetEncodedAuthorityRequest) String() string {
 func (*GetEncodedAuthorityRequest) ProtoMessage() {}
 
 func (x *GetEncodedAuthorityRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[225]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[233]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -10196,7 +10532,7 @@ func (x *GetEncodedAuthorityRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetEncodedAuthorityRequest.ProtoReflect.Descriptor instead.
 func (*GetEncodedAuthorityRequest) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{225}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{233}
 }
 
 type GetEncodedAuthorityResponse struct {
@@ -10208,7 +10544,7 @@ type GetEncodedAuthorityResponse struct {
 
 func (x *GetEncodedAuthorityResponse) Reset() {
 	*x = GetEncodedAuthorityResponse{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[226]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[234]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -10220,7 +10556,7 @@ func (x *GetEncodedAuthorityResponse) String() string {
 func (*GetEncodedAuthorityResponse) ProtoMessage() {}
 
 func (x *GetEncodedAuthorityResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[226]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[234]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -10233,7 +10569,7 @@ func (x *GetEncodedAuthorityResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetEncodedAuthorityResponse.ProtoReflect.Descriptor instead.
 func (*GetEncodedAuthorityResponse) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{226}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{234}
 }
 
 func (x *GetEncodedAuthorityResponse) GetResult() string {
@@ -10251,7 +10587,7 @@ type GetEncodedFragmentRequest struct {
 
 func (x *GetEncodedFragmentRequest) Reset() {
 	*x = GetEncodedFragmentRequest{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[227]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[235]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -10263,7 +10599,7 @@ func (x *GetEncodedFragmentRequest) String() string {
 func (*GetEncodedFragmentRequest) ProtoMessage() {}
 
 func (x *GetEncodedFragmentRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[227]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[235]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -10276,7 +10612,7 @@ func (x *GetEncodedFragmentRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetEncodedFragmentRequest.ProtoReflect.Descriptor instead.
 func (*GetEncodedFragmentRequest) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{227}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{235}
 }
 
 type GetEncodedFragmentResponse struct {
@@ -10288,7 +10624,7 @@ type GetEncodedFragmentResponse struct {
 
 func (x *GetEncodedFragmentResponse) Reset() {
 	*x = GetEncodedFragmentResponse{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[228]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[236]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -10300,7 +10636,7 @@ func (x *GetEncodedFragmentResponse) String() string {
 func (*GetEncodedFragmentResponse) ProtoMessage() {}
 
 func (x *GetEncodedFragmentResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[228]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[236]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -10313,7 +10649,7 @@ func (x *GetEncodedFragmentResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetEncodedFragmentResponse.ProtoReflect.Descriptor instead.
 func (*GetEncodedFragmentResponse) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{228}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{236}
 }
 
 func (x *GetEncodedFragmentResponse) GetResult() string {
@@ -10331,7 +10667,7 @@ type GetEncodedPathRequest struct {
 
 func (x *GetEncodedPathRequest) Reset() {
 	*x = GetEncodedPathRequest{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[229]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[237]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -10343,7 +10679,7 @@ func (x *GetEncodedPathRequest) String() string {
 func (*GetEncodedPathRequest) ProtoMessage() {}
 
 func (x *GetEncodedPathRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[229]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[237]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -10356,7 +10692,7 @@ func (x *GetEncodedPathRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetEncodedPathRequest.ProtoReflect.Descriptor instead.
 func (*GetEncodedPathRequest) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{229}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{237}
 }
 
 type GetEncodedPathResponse struct {
@@ -10368,7 +10704,7 @@ type GetEncodedPathResponse struct {
 
 func (x *GetEncodedPathResponse) Reset() {
 	*x = GetEncodedPathResponse{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[230]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[238]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -10380,7 +10716,7 @@ func (x *GetEncodedPathResponse) String() string {
 func (*GetEncodedPathResponse) ProtoMessage() {}
 
 func (x *GetEncodedPathResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[230]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[238]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -10393,7 +10729,7 @@ func (x *GetEncodedPathResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetEncodedPathResponse.ProtoReflect.Descriptor instead.
 func (*GetEncodedPathResponse) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{230}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{238}
 }
 
 func (x *GetEncodedPathResponse) GetResult() string {
@@ -10411,7 +10747,7 @@ type GetEncodedQueryRequest struct {
 
 func (x *GetEncodedQueryRequest) Reset() {
 	*x = GetEncodedQueryRequest{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[231]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[239]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -10423,7 +10759,7 @@ func (x *GetEncodedQueryRequest) String() string {
 func (*GetEncodedQueryRequest) ProtoMessage() {}
 
 func (x *GetEncodedQueryRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[231]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[239]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -10436,7 +10772,7 @@ func (x *GetEncodedQueryRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetEncodedQueryRequest.ProtoReflect.Descriptor instead.
 func (*GetEncodedQueryRequest) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{231}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{239}
 }
 
 type GetEncodedQueryResponse struct {
@@ -10448,7 +10784,7 @@ type GetEncodedQueryResponse struct {
 
 func (x *GetEncodedQueryResponse) Reset() {
 	*x = GetEncodedQueryResponse{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[232]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[240]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -10460,7 +10796,7 @@ func (x *GetEncodedQueryResponse) String() string {
 func (*GetEncodedQueryResponse) ProtoMessage() {}
 
 func (x *GetEncodedQueryResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[232]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[240]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -10473,7 +10809,7 @@ func (x *GetEncodedQueryResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetEncodedQueryResponse.ProtoReflect.Descriptor instead.
 func (*GetEncodedQueryResponse) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{232}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{240}
 }
 
 func (x *GetEncodedQueryResponse) GetResult() string {
@@ -10491,7 +10827,7 @@ type GetEncodedSchemeSpecificPartRequest struct {
 
 func (x *GetEncodedSchemeSpecificPartRequest) Reset() {
 	*x = GetEncodedSchemeSpecificPartRequest{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[233]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[241]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -10503,7 +10839,7 @@ func (x *GetEncodedSchemeSpecificPartRequest) String() string {
 func (*GetEncodedSchemeSpecificPartRequest) ProtoMessage() {}
 
 func (x *GetEncodedSchemeSpecificPartRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[233]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[241]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -10516,7 +10852,7 @@ func (x *GetEncodedSchemeSpecificPartRequest) ProtoReflect() protoreflect.Messag
 
 // Deprecated: Use GetEncodedSchemeSpecificPartRequest.ProtoReflect.Descriptor instead.
 func (*GetEncodedSchemeSpecificPartRequest) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{233}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{241}
 }
 
 type GetEncodedSchemeSpecificPartResponse struct {
@@ -10528,7 +10864,7 @@ type GetEncodedSchemeSpecificPartResponse struct {
 
 func (x *GetEncodedSchemeSpecificPartResponse) Reset() {
 	*x = GetEncodedSchemeSpecificPartResponse{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[234]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[242]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -10540,7 +10876,7 @@ func (x *GetEncodedSchemeSpecificPartResponse) String() string {
 func (*GetEncodedSchemeSpecificPartResponse) ProtoMessage() {}
 
 func (x *GetEncodedSchemeSpecificPartResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[234]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[242]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -10553,7 +10889,7 @@ func (x *GetEncodedSchemeSpecificPartResponse) ProtoReflect() protoreflect.Messa
 
 // Deprecated: Use GetEncodedSchemeSpecificPartResponse.ProtoReflect.Descriptor instead.
 func (*GetEncodedSchemeSpecificPartResponse) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{234}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{242}
 }
 
 func (x *GetEncodedSchemeSpecificPartResponse) GetResult() string {
@@ -10571,7 +10907,7 @@ type GetEncodedUserInfoRequest struct {
 
 func (x *GetEncodedUserInfoRequest) Reset() {
 	*x = GetEncodedUserInfoRequest{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[235]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[243]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -10583,7 +10919,7 @@ func (x *GetEncodedUserInfoRequest) String() string {
 func (*GetEncodedUserInfoRequest) ProtoMessage() {}
 
 func (x *GetEncodedUserInfoRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[235]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[243]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -10596,7 +10932,7 @@ func (x *GetEncodedUserInfoRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetEncodedUserInfoRequest.ProtoReflect.Descriptor instead.
 func (*GetEncodedUserInfoRequest) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{235}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{243}
 }
 
 type GetEncodedUserInfoResponse struct {
@@ -10608,7 +10944,7 @@ type GetEncodedUserInfoResponse struct {
 
 func (x *GetEncodedUserInfoResponse) Reset() {
 	*x = GetEncodedUserInfoResponse{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[236]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[244]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -10620,7 +10956,7 @@ func (x *GetEncodedUserInfoResponse) String() string {
 func (*GetEncodedUserInfoResponse) ProtoMessage() {}
 
 func (x *GetEncodedUserInfoResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[236]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[244]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -10633,7 +10969,7 @@ func (x *GetEncodedUserInfoResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetEncodedUserInfoResponse.ProtoReflect.Descriptor instead.
 func (*GetEncodedUserInfoResponse) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{236}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{244}
 }
 
 func (x *GetEncodedUserInfoResponse) GetResult() string {
@@ -10651,7 +10987,7 @@ type GetFragmentRequest struct {
 
 func (x *GetFragmentRequest) Reset() {
 	*x = GetFragmentRequest{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[237]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[245]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -10663,7 +10999,7 @@ func (x *GetFragmentRequest) String() string {
 func (*GetFragmentRequest) ProtoMessage() {}
 
 func (x *GetFragmentRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[237]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[245]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -10676,7 +11012,7 @@ func (x *GetFragmentRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetFragmentRequest.ProtoReflect.Descriptor instead.
 func (*GetFragmentRequest) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{237}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{245}
 }
 
 type GetFragmentResponse struct {
@@ -10688,7 +11024,7 @@ type GetFragmentResponse struct {
 
 func (x *GetFragmentResponse) Reset() {
 	*x = GetFragmentResponse{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[238]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[246]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -10700,7 +11036,7 @@ func (x *GetFragmentResponse) String() string {
 func (*GetFragmentResponse) ProtoMessage() {}
 
 func (x *GetFragmentResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[238]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[246]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -10713,7 +11049,7 @@ func (x *GetFragmentResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetFragmentResponse.ProtoReflect.Descriptor instead.
 func (*GetFragmentResponse) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{238}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{246}
 }
 
 func (x *GetFragmentResponse) GetResult() string {
@@ -10731,7 +11067,7 @@ type GetHostRequest struct {
 
 func (x *GetHostRequest) Reset() {
 	*x = GetHostRequest{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[239]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[247]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -10743,7 +11079,7 @@ func (x *GetHostRequest) String() string {
 func (*GetHostRequest) ProtoMessage() {}
 
 func (x *GetHostRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[239]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[247]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -10756,7 +11092,7 @@ func (x *GetHostRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetHostRequest.ProtoReflect.Descriptor instead.
 func (*GetHostRequest) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{239}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{247}
 }
 
 type GetHostResponse struct {
@@ -10768,7 +11104,7 @@ type GetHostResponse struct {
 
 func (x *GetHostResponse) Reset() {
 	*x = GetHostResponse{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[240]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[248]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -10780,7 +11116,7 @@ func (x *GetHostResponse) String() string {
 func (*GetHostResponse) ProtoMessage() {}
 
 func (x *GetHostResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[240]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[248]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -10793,7 +11129,7 @@ func (x *GetHostResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetHostResponse.ProtoReflect.Descriptor instead.
 func (*GetHostResponse) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{240}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{248}
 }
 
 func (x *GetHostResponse) GetResult() string {
@@ -10811,7 +11147,7 @@ type GetLastPathSegmentRequest struct {
 
 func (x *GetLastPathSegmentRequest) Reset() {
 	*x = GetLastPathSegmentRequest{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[241]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[249]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -10823,7 +11159,7 @@ func (x *GetLastPathSegmentRequest) String() string {
 func (*GetLastPathSegmentRequest) ProtoMessage() {}
 
 func (x *GetLastPathSegmentRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[241]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[249]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -10836,7 +11172,7 @@ func (x *GetLastPathSegmentRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetLastPathSegmentRequest.ProtoReflect.Descriptor instead.
 func (*GetLastPathSegmentRequest) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{241}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{249}
 }
 
 type GetLastPathSegmentResponse struct {
@@ -10848,7 +11184,7 @@ type GetLastPathSegmentResponse struct {
 
 func (x *GetLastPathSegmentResponse) Reset() {
 	*x = GetLastPathSegmentResponse{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[242]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[250]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -10860,7 +11196,7 @@ func (x *GetLastPathSegmentResponse) String() string {
 func (*GetLastPathSegmentResponse) ProtoMessage() {}
 
 func (x *GetLastPathSegmentResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[242]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[250]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -10873,7 +11209,7 @@ func (x *GetLastPathSegmentResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetLastPathSegmentResponse.ProtoReflect.Descriptor instead.
 func (*GetLastPathSegmentResponse) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{242}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{250}
 }
 
 func (x *GetLastPathSegmentResponse) GetResult() string {
@@ -10891,7 +11227,7 @@ type GetPathRequest struct {
 
 func (x *GetPathRequest) Reset() {
 	*x = GetPathRequest{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[243]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[251]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -10903,7 +11239,7 @@ func (x *GetPathRequest) String() string {
 func (*GetPathRequest) ProtoMessage() {}
 
 func (x *GetPathRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[243]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[251]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -10916,7 +11252,7 @@ func (x *GetPathRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetPathRequest.ProtoReflect.Descriptor instead.
 func (*GetPathRequest) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{243}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{251}
 }
 
 type GetPathResponse struct {
@@ -10928,7 +11264,7 @@ type GetPathResponse struct {
 
 func (x *GetPathResponse) Reset() {
 	*x = GetPathResponse{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[244]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[252]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -10940,7 +11276,7 @@ func (x *GetPathResponse) String() string {
 func (*GetPathResponse) ProtoMessage() {}
 
 func (x *GetPathResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[244]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[252]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -10953,7 +11289,7 @@ func (x *GetPathResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetPathResponse.ProtoReflect.Descriptor instead.
 func (*GetPathResponse) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{244}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{252}
 }
 
 func (x *GetPathResponse) GetResult() string {
@@ -10961,6 +11297,86 @@ func (x *GetPathResponse) GetResult() string {
 		return x.Result
 	}
 	return ""
+}
+
+type GetPathSegmentsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPathSegmentsRequest) Reset() {
+	*x = GetPathSegmentsRequest{}
+	mi := &file_proto_resolver_resolver_proto_msgTypes[253]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPathSegmentsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPathSegmentsRequest) ProtoMessage() {}
+
+func (x *GetPathSegmentsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_resolver_resolver_proto_msgTypes[253]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPathSegmentsRequest.ProtoReflect.Descriptor instead.
+func (*GetPathSegmentsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{253}
+}
+
+type GetPathSegmentsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPathSegmentsResponse) Reset() {
+	*x = GetPathSegmentsResponse{}
+	mi := &file_proto_resolver_resolver_proto_msgTypes[254]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPathSegmentsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPathSegmentsResponse) ProtoMessage() {}
+
+func (x *GetPathSegmentsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_resolver_resolver_proto_msgTypes[254]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPathSegmentsResponse.ProtoReflect.Descriptor instead.
+func (*GetPathSegmentsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{254}
+}
+
+func (x *GetPathSegmentsResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
 }
 
 type GetPortRequest struct {
@@ -10971,7 +11387,7 @@ type GetPortRequest struct {
 
 func (x *GetPortRequest) Reset() {
 	*x = GetPortRequest{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[245]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[255]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -10983,7 +11399,7 @@ func (x *GetPortRequest) String() string {
 func (*GetPortRequest) ProtoMessage() {}
 
 func (x *GetPortRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[245]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[255]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -10996,7 +11412,7 @@ func (x *GetPortRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetPortRequest.ProtoReflect.Descriptor instead.
 func (*GetPortRequest) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{245}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{255}
 }
 
 type GetPortResponse struct {
@@ -11008,7 +11424,7 @@ type GetPortResponse struct {
 
 func (x *GetPortResponse) Reset() {
 	*x = GetPortResponse{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[246]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[256]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -11020,7 +11436,7 @@ func (x *GetPortResponse) String() string {
 func (*GetPortResponse) ProtoMessage() {}
 
 func (x *GetPortResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[246]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[256]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -11033,7 +11449,7 @@ func (x *GetPortResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetPortResponse.ProtoReflect.Descriptor instead.
 func (*GetPortResponse) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{246}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{256}
 }
 
 func (x *GetPortResponse) GetResult() int32 {
@@ -11051,7 +11467,7 @@ type GetQueryRequest struct {
 
 func (x *GetQueryRequest) Reset() {
 	*x = GetQueryRequest{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[247]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[257]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -11063,7 +11479,7 @@ func (x *GetQueryRequest) String() string {
 func (*GetQueryRequest) ProtoMessage() {}
 
 func (x *GetQueryRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[247]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[257]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -11076,7 +11492,7 @@ func (x *GetQueryRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetQueryRequest.ProtoReflect.Descriptor instead.
 func (*GetQueryRequest) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{247}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{257}
 }
 
 type GetQueryResponse struct {
@@ -11088,7 +11504,7 @@ type GetQueryResponse struct {
 
 func (x *GetQueryResponse) Reset() {
 	*x = GetQueryResponse{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[248]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[258]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -11100,7 +11516,7 @@ func (x *GetQueryResponse) String() string {
 func (*GetQueryResponse) ProtoMessage() {}
 
 func (x *GetQueryResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[248]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[258]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -11113,7 +11529,7 @@ func (x *GetQueryResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetQueryResponse.ProtoReflect.Descriptor instead.
 func (*GetQueryResponse) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{248}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{258}
 }
 
 func (x *GetQueryResponse) GetResult() string {
@@ -11132,7 +11548,7 @@ type GetQueryParameterRequest struct {
 
 func (x *GetQueryParameterRequest) Reset() {
 	*x = GetQueryParameterRequest{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[249]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[259]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -11144,7 +11560,7 @@ func (x *GetQueryParameterRequest) String() string {
 func (*GetQueryParameterRequest) ProtoMessage() {}
 
 func (x *GetQueryParameterRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[249]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[259]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -11157,7 +11573,7 @@ func (x *GetQueryParameterRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetQueryParameterRequest.ProtoReflect.Descriptor instead.
 func (*GetQueryParameterRequest) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{249}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{259}
 }
 
 func (x *GetQueryParameterRequest) GetArg0() string {
@@ -11176,7 +11592,7 @@ type GetQueryParameterResponse struct {
 
 func (x *GetQueryParameterResponse) Reset() {
 	*x = GetQueryParameterResponse{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[250]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[260]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -11188,7 +11604,7 @@ func (x *GetQueryParameterResponse) String() string {
 func (*GetQueryParameterResponse) ProtoMessage() {}
 
 func (x *GetQueryParameterResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[250]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[260]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -11201,7 +11617,7 @@ func (x *GetQueryParameterResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetQueryParameterResponse.ProtoReflect.Descriptor instead.
 func (*GetQueryParameterResponse) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{250}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{260}
 }
 
 func (x *GetQueryParameterResponse) GetResult() string {
@@ -11209,6 +11625,174 @@ func (x *GetQueryParameterResponse) GetResult() string {
 		return x.Result
 	}
 	return ""
+}
+
+type GetQueryParameterNamesRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetQueryParameterNamesRequest) Reset() {
+	*x = GetQueryParameterNamesRequest{}
+	mi := &file_proto_resolver_resolver_proto_msgTypes[261]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetQueryParameterNamesRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetQueryParameterNamesRequest) ProtoMessage() {}
+
+func (x *GetQueryParameterNamesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_resolver_resolver_proto_msgTypes[261]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetQueryParameterNamesRequest.ProtoReflect.Descriptor instead.
+func (*GetQueryParameterNamesRequest) Descriptor() ([]byte, []int) {
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{261}
+}
+
+type GetQueryParameterNamesResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetQueryParameterNamesResponse) Reset() {
+	*x = GetQueryParameterNamesResponse{}
+	mi := &file_proto_resolver_resolver_proto_msgTypes[262]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetQueryParameterNamesResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetQueryParameterNamesResponse) ProtoMessage() {}
+
+func (x *GetQueryParameterNamesResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_resolver_resolver_proto_msgTypes[262]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetQueryParameterNamesResponse.ProtoReflect.Descriptor instead.
+func (*GetQueryParameterNamesResponse) Descriptor() ([]byte, []int) {
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{262}
+}
+
+func (x *GetQueryParameterNamesResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetQueryParametersRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetQueryParametersRequest) Reset() {
+	*x = GetQueryParametersRequest{}
+	mi := &file_proto_resolver_resolver_proto_msgTypes[263]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetQueryParametersRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetQueryParametersRequest) ProtoMessage() {}
+
+func (x *GetQueryParametersRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_resolver_resolver_proto_msgTypes[263]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetQueryParametersRequest.ProtoReflect.Descriptor instead.
+func (*GetQueryParametersRequest) Descriptor() ([]byte, []int) {
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{263}
+}
+
+func (x *GetQueryParametersRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type GetQueryParametersResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetQueryParametersResponse) Reset() {
+	*x = GetQueryParametersResponse{}
+	mi := &file_proto_resolver_resolver_proto_msgTypes[264]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetQueryParametersResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetQueryParametersResponse) ProtoMessage() {}
+
+func (x *GetQueryParametersResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_resolver_resolver_proto_msgTypes[264]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetQueryParametersResponse.ProtoReflect.Descriptor instead.
+func (*GetQueryParametersResponse) Descriptor() ([]byte, []int) {
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{264}
+}
+
+func (x *GetQueryParametersResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
 }
 
 type GetSchemeRequest struct {
@@ -11219,7 +11803,7 @@ type GetSchemeRequest struct {
 
 func (x *GetSchemeRequest) Reset() {
 	*x = GetSchemeRequest{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[251]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[265]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -11231,7 +11815,7 @@ func (x *GetSchemeRequest) String() string {
 func (*GetSchemeRequest) ProtoMessage() {}
 
 func (x *GetSchemeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[251]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[265]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -11244,7 +11828,7 @@ func (x *GetSchemeRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetSchemeRequest.ProtoReflect.Descriptor instead.
 func (*GetSchemeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{251}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{265}
 }
 
 type GetSchemeResponse struct {
@@ -11256,7 +11840,7 @@ type GetSchemeResponse struct {
 
 func (x *GetSchemeResponse) Reset() {
 	*x = GetSchemeResponse{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[252]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[266]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -11268,7 +11852,7 @@ func (x *GetSchemeResponse) String() string {
 func (*GetSchemeResponse) ProtoMessage() {}
 
 func (x *GetSchemeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[252]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[266]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -11281,7 +11865,7 @@ func (x *GetSchemeResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetSchemeResponse.ProtoReflect.Descriptor instead.
 func (*GetSchemeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{252}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{266}
 }
 
 func (x *GetSchemeResponse) GetResult() string {
@@ -11299,7 +11883,7 @@ type GetSchemeSpecificPartRequest struct {
 
 func (x *GetSchemeSpecificPartRequest) Reset() {
 	*x = GetSchemeSpecificPartRequest{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[253]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[267]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -11311,7 +11895,7 @@ func (x *GetSchemeSpecificPartRequest) String() string {
 func (*GetSchemeSpecificPartRequest) ProtoMessage() {}
 
 func (x *GetSchemeSpecificPartRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[253]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[267]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -11324,7 +11908,7 @@ func (x *GetSchemeSpecificPartRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetSchemeSpecificPartRequest.ProtoReflect.Descriptor instead.
 func (*GetSchemeSpecificPartRequest) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{253}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{267}
 }
 
 type GetSchemeSpecificPartResponse struct {
@@ -11336,7 +11920,7 @@ type GetSchemeSpecificPartResponse struct {
 
 func (x *GetSchemeSpecificPartResponse) Reset() {
 	*x = GetSchemeSpecificPartResponse{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[254]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[268]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -11348,7 +11932,7 @@ func (x *GetSchemeSpecificPartResponse) String() string {
 func (*GetSchemeSpecificPartResponse) ProtoMessage() {}
 
 func (x *GetSchemeSpecificPartResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[254]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[268]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -11361,7 +11945,7 @@ func (x *GetSchemeSpecificPartResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetSchemeSpecificPartResponse.ProtoReflect.Descriptor instead.
 func (*GetSchemeSpecificPartResponse) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{254}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{268}
 }
 
 func (x *GetSchemeSpecificPartResponse) GetResult() string {
@@ -11379,7 +11963,7 @@ type GetUserInfoRequest struct {
 
 func (x *GetUserInfoRequest) Reset() {
 	*x = GetUserInfoRequest{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[255]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[269]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -11391,7 +11975,7 @@ func (x *GetUserInfoRequest) String() string {
 func (*GetUserInfoRequest) ProtoMessage() {}
 
 func (x *GetUserInfoRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[255]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[269]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -11404,7 +11988,7 @@ func (x *GetUserInfoRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetUserInfoRequest.ProtoReflect.Descriptor instead.
 func (*GetUserInfoRequest) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{255}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{269}
 }
 
 type GetUserInfoResponse struct {
@@ -11416,7 +12000,7 @@ type GetUserInfoResponse struct {
 
 func (x *GetUserInfoResponse) Reset() {
 	*x = GetUserInfoResponse{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[256]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[270]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -11428,7 +12012,7 @@ func (x *GetUserInfoResponse) String() string {
 func (*GetUserInfoResponse) ProtoMessage() {}
 
 func (x *GetUserInfoResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[256]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[270]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -11441,7 +12025,7 @@ func (x *GetUserInfoResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetUserInfoResponse.ProtoReflect.Descriptor instead.
 func (*GetUserInfoResponse) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{256}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{270}
 }
 
 func (x *GetUserInfoResponse) GetResult() string {
@@ -11459,7 +12043,7 @@ type HashCodeRequest struct {
 
 func (x *HashCodeRequest) Reset() {
 	*x = HashCodeRequest{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[257]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[271]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -11471,7 +12055,7 @@ func (x *HashCodeRequest) String() string {
 func (*HashCodeRequest) ProtoMessage() {}
 
 func (x *HashCodeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[257]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[271]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -11484,7 +12068,7 @@ func (x *HashCodeRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use HashCodeRequest.ProtoReflect.Descriptor instead.
 func (*HashCodeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{257}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{271}
 }
 
 type HashCodeResponse struct {
@@ -11496,7 +12080,7 @@ type HashCodeResponse struct {
 
 func (x *HashCodeResponse) Reset() {
 	*x = HashCodeResponse{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[258]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[272]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -11508,7 +12092,7 @@ func (x *HashCodeResponse) String() string {
 func (*HashCodeResponse) ProtoMessage() {}
 
 func (x *HashCodeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[258]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[272]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -11521,7 +12105,7 @@ func (x *HashCodeResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use HashCodeResponse.ProtoReflect.Descriptor instead.
 func (*HashCodeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{258}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{272}
 }
 
 func (x *HashCodeResponse) GetResult() int32 {
@@ -11539,7 +12123,7 @@ type IsAbsoluteRequest struct {
 
 func (x *IsAbsoluteRequest) Reset() {
 	*x = IsAbsoluteRequest{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[259]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[273]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -11551,7 +12135,7 @@ func (x *IsAbsoluteRequest) String() string {
 func (*IsAbsoluteRequest) ProtoMessage() {}
 
 func (x *IsAbsoluteRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[259]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[273]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -11564,7 +12148,7 @@ func (x *IsAbsoluteRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsAbsoluteRequest.ProtoReflect.Descriptor instead.
 func (*IsAbsoluteRequest) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{259}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{273}
 }
 
 type IsAbsoluteResponse struct {
@@ -11576,7 +12160,7 @@ type IsAbsoluteResponse struct {
 
 func (x *IsAbsoluteResponse) Reset() {
 	*x = IsAbsoluteResponse{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[260]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[274]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -11588,7 +12172,7 @@ func (x *IsAbsoluteResponse) String() string {
 func (*IsAbsoluteResponse) ProtoMessage() {}
 
 func (x *IsAbsoluteResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[260]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[274]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -11601,7 +12185,7 @@ func (x *IsAbsoluteResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsAbsoluteResponse.ProtoReflect.Descriptor instead.
 func (*IsAbsoluteResponse) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{260}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{274}
 }
 
 func (x *IsAbsoluteResponse) GetResult() bool {
@@ -11619,7 +12203,7 @@ type IsHierarchicalRequest struct {
 
 func (x *IsHierarchicalRequest) Reset() {
 	*x = IsHierarchicalRequest{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[261]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[275]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -11631,7 +12215,7 @@ func (x *IsHierarchicalRequest) String() string {
 func (*IsHierarchicalRequest) ProtoMessage() {}
 
 func (x *IsHierarchicalRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[261]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[275]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -11644,7 +12228,7 @@ func (x *IsHierarchicalRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsHierarchicalRequest.ProtoReflect.Descriptor instead.
 func (*IsHierarchicalRequest) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{261}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{275}
 }
 
 type IsHierarchicalResponse struct {
@@ -11656,7 +12240,7 @@ type IsHierarchicalResponse struct {
 
 func (x *IsHierarchicalResponse) Reset() {
 	*x = IsHierarchicalResponse{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[262]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[276]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -11668,7 +12252,7 @@ func (x *IsHierarchicalResponse) String() string {
 func (*IsHierarchicalResponse) ProtoMessage() {}
 
 func (x *IsHierarchicalResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[262]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[276]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -11681,7 +12265,7 @@ func (x *IsHierarchicalResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsHierarchicalResponse.ProtoReflect.Descriptor instead.
 func (*IsHierarchicalResponse) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{262}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{276}
 }
 
 func (x *IsHierarchicalResponse) GetResult() bool {
@@ -11699,7 +12283,7 @@ type IsOpaqueRequest struct {
 
 func (x *IsOpaqueRequest) Reset() {
 	*x = IsOpaqueRequest{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[263]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[277]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -11711,7 +12295,7 @@ func (x *IsOpaqueRequest) String() string {
 func (*IsOpaqueRequest) ProtoMessage() {}
 
 func (x *IsOpaqueRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[263]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[277]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -11724,7 +12308,7 @@ func (x *IsOpaqueRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsOpaqueRequest.ProtoReflect.Descriptor instead.
 func (*IsOpaqueRequest) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{263}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{277}
 }
 
 type IsOpaqueResponse struct {
@@ -11736,7 +12320,7 @@ type IsOpaqueResponse struct {
 
 func (x *IsOpaqueResponse) Reset() {
 	*x = IsOpaqueResponse{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[264]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[278]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -11748,7 +12332,7 @@ func (x *IsOpaqueResponse) String() string {
 func (*IsOpaqueResponse) ProtoMessage() {}
 
 func (x *IsOpaqueResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[264]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[278]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -11761,7 +12345,7 @@ func (x *IsOpaqueResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsOpaqueResponse.ProtoReflect.Descriptor instead.
 func (*IsOpaqueResponse) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{264}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{278}
 }
 
 func (x *IsOpaqueResponse) GetResult() bool {
@@ -11779,7 +12363,7 @@ type IsRelativeRequest struct {
 
 func (x *IsRelativeRequest) Reset() {
 	*x = IsRelativeRequest{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[265]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[279]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -11791,7 +12375,7 @@ func (x *IsRelativeRequest) String() string {
 func (*IsRelativeRequest) ProtoMessage() {}
 
 func (x *IsRelativeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[265]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[279]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -11804,7 +12388,7 @@ func (x *IsRelativeRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsRelativeRequest.ProtoReflect.Descriptor instead.
 func (*IsRelativeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{265}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{279}
 }
 
 type IsRelativeResponse struct {
@@ -11816,7 +12400,7 @@ type IsRelativeResponse struct {
 
 func (x *IsRelativeResponse) Reset() {
 	*x = IsRelativeResponse{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[266]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[280]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -11828,7 +12412,7 @@ func (x *IsRelativeResponse) String() string {
 func (*IsRelativeResponse) ProtoMessage() {}
 
 func (x *IsRelativeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[266]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[280]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -11841,7 +12425,7 @@ func (x *IsRelativeResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsRelativeResponse.ProtoReflect.Descriptor instead.
 func (*IsRelativeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{266}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{280}
 }
 
 func (x *IsRelativeResponse) GetResult() bool {
@@ -11859,7 +12443,7 @@ type NormalizeSchemeRequest struct {
 
 func (x *NormalizeSchemeRequest) Reset() {
 	*x = NormalizeSchemeRequest{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[267]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[281]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -11871,7 +12455,7 @@ func (x *NormalizeSchemeRequest) String() string {
 func (*NormalizeSchemeRequest) ProtoMessage() {}
 
 func (x *NormalizeSchemeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[267]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[281]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -11884,7 +12468,7 @@ func (x *NormalizeSchemeRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NormalizeSchemeRequest.ProtoReflect.Descriptor instead.
 func (*NormalizeSchemeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{267}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{281}
 }
 
 type NormalizeSchemeResponse struct {
@@ -11896,7 +12480,7 @@ type NormalizeSchemeResponse struct {
 
 func (x *NormalizeSchemeResponse) Reset() {
 	*x = NormalizeSchemeResponse{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[268]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[282]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -11908,7 +12492,7 @@ func (x *NormalizeSchemeResponse) String() string {
 func (*NormalizeSchemeResponse) ProtoMessage() {}
 
 func (x *NormalizeSchemeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[268]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[282]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -11921,7 +12505,7 @@ func (x *NormalizeSchemeResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NormalizeSchemeResponse.ProtoReflect.Descriptor instead.
 func (*NormalizeSchemeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{268}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{282}
 }
 
 func (x *NormalizeSchemeResponse) GetResult() int64 {
@@ -11939,7 +12523,7 @@ type ToStringRequest struct {
 
 func (x *ToStringRequest) Reset() {
 	*x = ToStringRequest{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[269]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[283]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -11951,7 +12535,7 @@ func (x *ToStringRequest) String() string {
 func (*ToStringRequest) ProtoMessage() {}
 
 func (x *ToStringRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[269]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[283]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -11964,7 +12548,7 @@ func (x *ToStringRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ToStringRequest.ProtoReflect.Descriptor instead.
 func (*ToStringRequest) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{269}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{283}
 }
 
 type ToStringResponse struct {
@@ -11976,7 +12560,7 @@ type ToStringResponse struct {
 
 func (x *ToStringResponse) Reset() {
 	*x = ToStringResponse{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[270]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[284]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -11988,7 +12572,7 @@ func (x *ToStringResponse) String() string {
 func (*ToStringResponse) ProtoMessage() {}
 
 func (x *ToStringResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[270]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[284]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -12001,7 +12585,7 @@ func (x *ToStringResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ToStringResponse.ProtoReflect.Descriptor instead.
 func (*ToStringResponse) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{270}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{284}
 }
 
 func (x *ToStringResponse) GetResult() string {
@@ -12020,7 +12604,7 @@ type CompareTo1_1Request struct {
 
 func (x *CompareTo1_1Request) Reset() {
 	*x = CompareTo1_1Request{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[271]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[285]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -12032,7 +12616,7 @@ func (x *CompareTo1_1Request) String() string {
 func (*CompareTo1_1Request) ProtoMessage() {}
 
 func (x *CompareTo1_1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[271]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[285]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -12045,7 +12629,7 @@ func (x *CompareTo1_1Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CompareTo1_1Request.ProtoReflect.Descriptor instead.
 func (*CompareTo1_1Request) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{271}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{285}
 }
 
 func (x *CompareTo1_1Request) GetArg0() int64 {
@@ -12064,7 +12648,7 @@ type CompareTo1_1Response struct {
 
 func (x *CompareTo1_1Response) Reset() {
 	*x = CompareTo1_1Response{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[272]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[286]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -12076,7 +12660,7 @@ func (x *CompareTo1_1Response) String() string {
 func (*CompareTo1_1Response) ProtoMessage() {}
 
 func (x *CompareTo1_1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[272]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[286]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -12089,7 +12673,7 @@ func (x *CompareTo1_1Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CompareTo1_1Response.ProtoReflect.Descriptor instead.
 func (*CompareTo1_1Response) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{272}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{286}
 }
 
 func (x *CompareTo1_1Response) GetResult() int32 {
@@ -12108,7 +12692,7 @@ type DecodeRequest struct {
 
 func (x *DecodeRequest) Reset() {
 	*x = DecodeRequest{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[273]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[287]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -12120,7 +12704,7 @@ func (x *DecodeRequest) String() string {
 func (*DecodeRequest) ProtoMessage() {}
 
 func (x *DecodeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[273]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[287]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -12133,7 +12717,7 @@ func (x *DecodeRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DecodeRequest.ProtoReflect.Descriptor instead.
 func (*DecodeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{273}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{287}
 }
 
 func (x *DecodeRequest) GetArg0() string {
@@ -12152,7 +12736,7 @@ type DecodeResponse struct {
 
 func (x *DecodeResponse) Reset() {
 	*x = DecodeResponse{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[274]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[288]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -12164,7 +12748,7 @@ func (x *DecodeResponse) String() string {
 func (*DecodeResponse) ProtoMessage() {}
 
 func (x *DecodeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[274]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[288]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -12177,7 +12761,7 @@ func (x *DecodeResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DecodeResponse.ProtoReflect.Descriptor instead.
 func (*DecodeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{274}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{288}
 }
 
 func (x *DecodeResponse) GetResult() string {
@@ -12196,7 +12780,7 @@ type Encode1Request struct {
 
 func (x *Encode1Request) Reset() {
 	*x = Encode1Request{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[275]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[289]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -12208,7 +12792,7 @@ func (x *Encode1Request) String() string {
 func (*Encode1Request) ProtoMessage() {}
 
 func (x *Encode1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[275]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[289]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -12221,7 +12805,7 @@ func (x *Encode1Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Encode1Request.ProtoReflect.Descriptor instead.
 func (*Encode1Request) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{275}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{289}
 }
 
 func (x *Encode1Request) GetArg0() string {
@@ -12240,7 +12824,7 @@ type Encode1Response struct {
 
 func (x *Encode1Response) Reset() {
 	*x = Encode1Response{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[276]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[290]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -12252,7 +12836,7 @@ func (x *Encode1Response) String() string {
 func (*Encode1Response) ProtoMessage() {}
 
 func (x *Encode1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[276]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[290]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -12265,7 +12849,7 @@ func (x *Encode1Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Encode1Response.ProtoReflect.Descriptor instead.
 func (*Encode1Response) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{276}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{290}
 }
 
 func (x *Encode1Response) GetResult() string {
@@ -12285,7 +12869,7 @@ type Encode2_1Request struct {
 
 func (x *Encode2_1Request) Reset() {
 	*x = Encode2_1Request{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[277]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[291]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -12297,7 +12881,7 @@ func (x *Encode2_1Request) String() string {
 func (*Encode2_1Request) ProtoMessage() {}
 
 func (x *Encode2_1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[277]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[291]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -12310,7 +12894,7 @@ func (x *Encode2_1Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Encode2_1Request.ProtoReflect.Descriptor instead.
 func (*Encode2_1Request) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{277}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{291}
 }
 
 func (x *Encode2_1Request) GetArg0() string {
@@ -12336,7 +12920,7 @@ type Encode2_1Response struct {
 
 func (x *Encode2_1Response) Reset() {
 	*x = Encode2_1Response{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[278]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[292]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -12348,7 +12932,7 @@ func (x *Encode2_1Response) String() string {
 func (*Encode2_1Response) ProtoMessage() {}
 
 func (x *Encode2_1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[278]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[292]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -12361,7 +12945,7 @@ func (x *Encode2_1Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Encode2_1Response.ProtoReflect.Descriptor instead.
 func (*Encode2_1Response) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{278}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{292}
 }
 
 func (x *Encode2_1Response) GetResult() string {
@@ -12380,7 +12964,7 @@ type FromFileRequest struct {
 
 func (x *FromFileRequest) Reset() {
 	*x = FromFileRequest{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[279]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[293]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -12392,7 +12976,7 @@ func (x *FromFileRequest) String() string {
 func (*FromFileRequest) ProtoMessage() {}
 
 func (x *FromFileRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[279]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[293]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -12405,7 +12989,7 @@ func (x *FromFileRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use FromFileRequest.ProtoReflect.Descriptor instead.
 func (*FromFileRequest) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{279}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{293}
 }
 
 func (x *FromFileRequest) GetArg0() int64 {
@@ -12424,7 +13008,7 @@ type FromFileResponse struct {
 
 func (x *FromFileResponse) Reset() {
 	*x = FromFileResponse{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[280]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[294]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -12436,7 +13020,7 @@ func (x *FromFileResponse) String() string {
 func (*FromFileResponse) ProtoMessage() {}
 
 func (x *FromFileResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[280]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[294]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -12449,7 +13033,7 @@ func (x *FromFileResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use FromFileResponse.ProtoReflect.Descriptor instead.
 func (*FromFileResponse) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{280}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{294}
 }
 
 func (x *FromFileResponse) GetResult() int64 {
@@ -12470,7 +13054,7 @@ type FromPartsRequest struct {
 
 func (x *FromPartsRequest) Reset() {
 	*x = FromPartsRequest{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[281]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[295]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -12482,7 +13066,7 @@ func (x *FromPartsRequest) String() string {
 func (*FromPartsRequest) ProtoMessage() {}
 
 func (x *FromPartsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[281]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[295]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -12495,7 +13079,7 @@ func (x *FromPartsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use FromPartsRequest.ProtoReflect.Descriptor instead.
 func (*FromPartsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{281}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{295}
 }
 
 func (x *FromPartsRequest) GetArg0() string {
@@ -12528,7 +13112,7 @@ type FromPartsResponse struct {
 
 func (x *FromPartsResponse) Reset() {
 	*x = FromPartsResponse{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[282]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[296]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -12540,7 +13124,7 @@ func (x *FromPartsResponse) String() string {
 func (*FromPartsResponse) ProtoMessage() {}
 
 func (x *FromPartsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[282]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[296]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -12553,7 +13137,7 @@ func (x *FromPartsResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use FromPartsResponse.ProtoReflect.Descriptor instead.
 func (*FromPartsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{282}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{296}
 }
 
 func (x *FromPartsResponse) GetResult() int64 {
@@ -12572,7 +13156,7 @@ type ParseRequest struct {
 
 func (x *ParseRequest) Reset() {
 	*x = ParseRequest{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[283]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[297]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -12584,7 +13168,7 @@ func (x *ParseRequest) String() string {
 func (*ParseRequest) ProtoMessage() {}
 
 func (x *ParseRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[283]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[297]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -12597,7 +13181,7 @@ func (x *ParseRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ParseRequest.ProtoReflect.Descriptor instead.
 func (*ParseRequest) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{283}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{297}
 }
 
 func (x *ParseRequest) GetArg0() string {
@@ -12616,7 +13200,7 @@ type ParseResponse struct {
 
 func (x *ParseResponse) Reset() {
 	*x = ParseResponse{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[284]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[298]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -12628,7 +13212,7 @@ func (x *ParseResponse) String() string {
 func (*ParseResponse) ProtoMessage() {}
 
 func (x *ParseResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[284]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[298]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -12641,7 +13225,7 @@ func (x *ParseResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ParseResponse.ProtoReflect.Descriptor instead.
 func (*ParseResponse) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{284}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{298}
 }
 
 func (x *ParseResponse) GetResult() int64 {
@@ -12661,7 +13245,7 @@ type WithAppendedPathRequest struct {
 
 func (x *WithAppendedPathRequest) Reset() {
 	*x = WithAppendedPathRequest{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[285]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[299]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -12673,7 +13257,7 @@ func (x *WithAppendedPathRequest) String() string {
 func (*WithAppendedPathRequest) ProtoMessage() {}
 
 func (x *WithAppendedPathRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[285]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[299]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -12686,7 +13270,7 @@ func (x *WithAppendedPathRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use WithAppendedPathRequest.ProtoReflect.Descriptor instead.
 func (*WithAppendedPathRequest) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{285}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{299}
 }
 
 func (x *WithAppendedPathRequest) GetArg0() int64 {
@@ -12712,7 +13296,7 @@ type WithAppendedPathResponse struct {
 
 func (x *WithAppendedPathResponse) Reset() {
 	*x = WithAppendedPathResponse{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[286]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[300]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -12724,7 +13308,7 @@ func (x *WithAppendedPathResponse) String() string {
 func (*WithAppendedPathResponse) ProtoMessage() {}
 
 func (x *WithAppendedPathResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[286]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[300]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -12737,7 +13321,7 @@ func (x *WithAppendedPathResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use WithAppendedPathResponse.ProtoReflect.Descriptor instead.
 func (*WithAppendedPathResponse) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{286}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{300}
 }
 
 func (x *WithAppendedPathResponse) GetResult() int64 {
@@ -12757,7 +13341,7 @@ type WriteToParcelRequest struct {
 
 func (x *WriteToParcelRequest) Reset() {
 	*x = WriteToParcelRequest{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[287]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[301]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -12769,7 +13353,7 @@ func (x *WriteToParcelRequest) String() string {
 func (*WriteToParcelRequest) ProtoMessage() {}
 
 func (x *WriteToParcelRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[287]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[301]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -12782,7 +13366,7 @@ func (x *WriteToParcelRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use WriteToParcelRequest.ProtoReflect.Descriptor instead.
 func (*WriteToParcelRequest) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{287}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{301}
 }
 
 func (x *WriteToParcelRequest) GetArg0() int64 {
@@ -12807,7 +13391,7 @@ type WriteToParcelResponse struct {
 
 func (x *WriteToParcelResponse) Reset() {
 	*x = WriteToParcelResponse{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[288]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[302]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -12819,7 +13403,7 @@ func (x *WriteToParcelResponse) String() string {
 func (*WriteToParcelResponse) ProtoMessage() {}
 
 func (x *WriteToParcelResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[288]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[302]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -12832,7 +13416,7 @@ func (x *WriteToParcelResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use WriteToParcelResponse.ProtoReflect.Descriptor instead.
 func (*WriteToParcelResponse) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{288}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{302}
 }
 
 type AppendEncodedPathRequest struct {
@@ -12844,7 +13428,7 @@ type AppendEncodedPathRequest struct {
 
 func (x *AppendEncodedPathRequest) Reset() {
 	*x = AppendEncodedPathRequest{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[289]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[303]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -12856,7 +13440,7 @@ func (x *AppendEncodedPathRequest) String() string {
 func (*AppendEncodedPathRequest) ProtoMessage() {}
 
 func (x *AppendEncodedPathRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[289]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[303]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -12869,7 +13453,7 @@ func (x *AppendEncodedPathRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AppendEncodedPathRequest.ProtoReflect.Descriptor instead.
 func (*AppendEncodedPathRequest) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{289}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{303}
 }
 
 func (x *AppendEncodedPathRequest) GetArg0() string {
@@ -12888,7 +13472,7 @@ type AppendEncodedPathResponse struct {
 
 func (x *AppendEncodedPathResponse) Reset() {
 	*x = AppendEncodedPathResponse{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[290]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[304]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -12900,7 +13484,7 @@ func (x *AppendEncodedPathResponse) String() string {
 func (*AppendEncodedPathResponse) ProtoMessage() {}
 
 func (x *AppendEncodedPathResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[290]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[304]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -12913,7 +13497,7 @@ func (x *AppendEncodedPathResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AppendEncodedPathResponse.ProtoReflect.Descriptor instead.
 func (*AppendEncodedPathResponse) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{290}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{304}
 }
 
 func (x *AppendEncodedPathResponse) GetResult() int64 {
@@ -12932,7 +13516,7 @@ type AppendPathRequest struct {
 
 func (x *AppendPathRequest) Reset() {
 	*x = AppendPathRequest{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[291]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[305]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -12944,7 +13528,7 @@ func (x *AppendPathRequest) String() string {
 func (*AppendPathRequest) ProtoMessage() {}
 
 func (x *AppendPathRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[291]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[305]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -12957,7 +13541,7 @@ func (x *AppendPathRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AppendPathRequest.ProtoReflect.Descriptor instead.
 func (*AppendPathRequest) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{291}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{305}
 }
 
 func (x *AppendPathRequest) GetArg0() string {
@@ -12976,7 +13560,7 @@ type AppendPathResponse struct {
 
 func (x *AppendPathResponse) Reset() {
 	*x = AppendPathResponse{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[292]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[306]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -12988,7 +13572,7 @@ func (x *AppendPathResponse) String() string {
 func (*AppendPathResponse) ProtoMessage() {}
 
 func (x *AppendPathResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[292]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[306]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -13001,7 +13585,7 @@ func (x *AppendPathResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AppendPathResponse.ProtoReflect.Descriptor instead.
 func (*AppendPathResponse) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{292}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{306}
 }
 
 func (x *AppendPathResponse) GetResult() int64 {
@@ -13021,7 +13605,7 @@ type AppendQueryParameterRequest struct {
 
 func (x *AppendQueryParameterRequest) Reset() {
 	*x = AppendQueryParameterRequest{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[293]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[307]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -13033,7 +13617,7 @@ func (x *AppendQueryParameterRequest) String() string {
 func (*AppendQueryParameterRequest) ProtoMessage() {}
 
 func (x *AppendQueryParameterRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[293]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[307]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -13046,7 +13630,7 @@ func (x *AppendQueryParameterRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AppendQueryParameterRequest.ProtoReflect.Descriptor instead.
 func (*AppendQueryParameterRequest) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{293}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{307}
 }
 
 func (x *AppendQueryParameterRequest) GetArg0() string {
@@ -13072,7 +13656,7 @@ type AppendQueryParameterResponse struct {
 
 func (x *AppendQueryParameterResponse) Reset() {
 	*x = AppendQueryParameterResponse{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[294]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[308]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -13084,7 +13668,7 @@ func (x *AppendQueryParameterResponse) String() string {
 func (*AppendQueryParameterResponse) ProtoMessage() {}
 
 func (x *AppendQueryParameterResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[294]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[308]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -13097,7 +13681,7 @@ func (x *AppendQueryParameterResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AppendQueryParameterResponse.ProtoReflect.Descriptor instead.
 func (*AppendQueryParameterResponse) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{294}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{308}
 }
 
 func (x *AppendQueryParameterResponse) GetResult() int64 {
@@ -13116,7 +13700,7 @@ type AuthorityRequest struct {
 
 func (x *AuthorityRequest) Reset() {
 	*x = AuthorityRequest{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[295]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[309]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -13128,7 +13712,7 @@ func (x *AuthorityRequest) String() string {
 func (*AuthorityRequest) ProtoMessage() {}
 
 func (x *AuthorityRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[295]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[309]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -13141,7 +13725,7 @@ func (x *AuthorityRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AuthorityRequest.ProtoReflect.Descriptor instead.
 func (*AuthorityRequest) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{295}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{309}
 }
 
 func (x *AuthorityRequest) GetArg0() string {
@@ -13160,7 +13744,7 @@ type AuthorityResponse struct {
 
 func (x *AuthorityResponse) Reset() {
 	*x = AuthorityResponse{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[296]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[310]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -13172,7 +13756,7 @@ func (x *AuthorityResponse) String() string {
 func (*AuthorityResponse) ProtoMessage() {}
 
 func (x *AuthorityResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[296]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[310]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -13185,7 +13769,7 @@ func (x *AuthorityResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AuthorityResponse.ProtoReflect.Descriptor instead.
 func (*AuthorityResponse) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{296}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{310}
 }
 
 func (x *AuthorityResponse) GetResult() int64 {
@@ -13203,7 +13787,7 @@ type BuildRequest struct {
 
 func (x *BuildRequest) Reset() {
 	*x = BuildRequest{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[297]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[311]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -13215,7 +13799,7 @@ func (x *BuildRequest) String() string {
 func (*BuildRequest) ProtoMessage() {}
 
 func (x *BuildRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[297]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[311]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -13228,7 +13812,7 @@ func (x *BuildRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use BuildRequest.ProtoReflect.Descriptor instead.
 func (*BuildRequest) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{297}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{311}
 }
 
 type BuildResponse struct {
@@ -13240,7 +13824,7 @@ type BuildResponse struct {
 
 func (x *BuildResponse) Reset() {
 	*x = BuildResponse{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[298]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[312]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -13252,7 +13836,7 @@ func (x *BuildResponse) String() string {
 func (*BuildResponse) ProtoMessage() {}
 
 func (x *BuildResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[298]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[312]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -13265,7 +13849,7 @@ func (x *BuildResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use BuildResponse.ProtoReflect.Descriptor instead.
 func (*BuildResponse) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{298}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{312}
 }
 
 func (x *BuildResponse) GetResult() int64 {
@@ -13283,7 +13867,7 @@ type ClearQueryRequest struct {
 
 func (x *ClearQueryRequest) Reset() {
 	*x = ClearQueryRequest{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[299]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[313]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -13295,7 +13879,7 @@ func (x *ClearQueryRequest) String() string {
 func (*ClearQueryRequest) ProtoMessage() {}
 
 func (x *ClearQueryRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[299]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[313]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -13308,7 +13892,7 @@ func (x *ClearQueryRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ClearQueryRequest.ProtoReflect.Descriptor instead.
 func (*ClearQueryRequest) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{299}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{313}
 }
 
 type ClearQueryResponse struct {
@@ -13320,7 +13904,7 @@ type ClearQueryResponse struct {
 
 func (x *ClearQueryResponse) Reset() {
 	*x = ClearQueryResponse{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[300]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[314]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -13332,7 +13916,7 @@ func (x *ClearQueryResponse) String() string {
 func (*ClearQueryResponse) ProtoMessage() {}
 
 func (x *ClearQueryResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[300]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[314]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -13345,7 +13929,7 @@ func (x *ClearQueryResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ClearQueryResponse.ProtoReflect.Descriptor instead.
 func (*ClearQueryResponse) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{300}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{314}
 }
 
 func (x *ClearQueryResponse) GetResult() int64 {
@@ -13364,7 +13948,7 @@ type EncodedAuthorityRequest struct {
 
 func (x *EncodedAuthorityRequest) Reset() {
 	*x = EncodedAuthorityRequest{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[301]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[315]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -13376,7 +13960,7 @@ func (x *EncodedAuthorityRequest) String() string {
 func (*EncodedAuthorityRequest) ProtoMessage() {}
 
 func (x *EncodedAuthorityRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[301]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[315]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -13389,7 +13973,7 @@ func (x *EncodedAuthorityRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use EncodedAuthorityRequest.ProtoReflect.Descriptor instead.
 func (*EncodedAuthorityRequest) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{301}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{315}
 }
 
 func (x *EncodedAuthorityRequest) GetArg0() string {
@@ -13408,7 +13992,7 @@ type EncodedAuthorityResponse struct {
 
 func (x *EncodedAuthorityResponse) Reset() {
 	*x = EncodedAuthorityResponse{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[302]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[316]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -13420,7 +14004,7 @@ func (x *EncodedAuthorityResponse) String() string {
 func (*EncodedAuthorityResponse) ProtoMessage() {}
 
 func (x *EncodedAuthorityResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[302]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[316]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -13433,7 +14017,7 @@ func (x *EncodedAuthorityResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use EncodedAuthorityResponse.ProtoReflect.Descriptor instead.
 func (*EncodedAuthorityResponse) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{302}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{316}
 }
 
 func (x *EncodedAuthorityResponse) GetResult() int64 {
@@ -13452,7 +14036,7 @@ type EncodedFragmentRequest struct {
 
 func (x *EncodedFragmentRequest) Reset() {
 	*x = EncodedFragmentRequest{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[303]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[317]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -13464,7 +14048,7 @@ func (x *EncodedFragmentRequest) String() string {
 func (*EncodedFragmentRequest) ProtoMessage() {}
 
 func (x *EncodedFragmentRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[303]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[317]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -13477,7 +14061,7 @@ func (x *EncodedFragmentRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use EncodedFragmentRequest.ProtoReflect.Descriptor instead.
 func (*EncodedFragmentRequest) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{303}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{317}
 }
 
 func (x *EncodedFragmentRequest) GetArg0() string {
@@ -13496,7 +14080,7 @@ type EncodedFragmentResponse struct {
 
 func (x *EncodedFragmentResponse) Reset() {
 	*x = EncodedFragmentResponse{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[304]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[318]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -13508,7 +14092,7 @@ func (x *EncodedFragmentResponse) String() string {
 func (*EncodedFragmentResponse) ProtoMessage() {}
 
 func (x *EncodedFragmentResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[304]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[318]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -13521,7 +14105,7 @@ func (x *EncodedFragmentResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use EncodedFragmentResponse.ProtoReflect.Descriptor instead.
 func (*EncodedFragmentResponse) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{304}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{318}
 }
 
 func (x *EncodedFragmentResponse) GetResult() int64 {
@@ -13540,7 +14124,7 @@ type EncodedOpaquePartRequest struct {
 
 func (x *EncodedOpaquePartRequest) Reset() {
 	*x = EncodedOpaquePartRequest{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[305]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[319]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -13552,7 +14136,7 @@ func (x *EncodedOpaquePartRequest) String() string {
 func (*EncodedOpaquePartRequest) ProtoMessage() {}
 
 func (x *EncodedOpaquePartRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[305]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[319]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -13565,7 +14149,7 @@ func (x *EncodedOpaquePartRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use EncodedOpaquePartRequest.ProtoReflect.Descriptor instead.
 func (*EncodedOpaquePartRequest) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{305}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{319}
 }
 
 func (x *EncodedOpaquePartRequest) GetArg0() string {
@@ -13584,7 +14168,7 @@ type EncodedOpaquePartResponse struct {
 
 func (x *EncodedOpaquePartResponse) Reset() {
 	*x = EncodedOpaquePartResponse{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[306]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[320]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -13596,7 +14180,7 @@ func (x *EncodedOpaquePartResponse) String() string {
 func (*EncodedOpaquePartResponse) ProtoMessage() {}
 
 func (x *EncodedOpaquePartResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[306]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[320]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -13609,7 +14193,7 @@ func (x *EncodedOpaquePartResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use EncodedOpaquePartResponse.ProtoReflect.Descriptor instead.
 func (*EncodedOpaquePartResponse) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{306}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{320}
 }
 
 func (x *EncodedOpaquePartResponse) GetResult() int64 {
@@ -13628,7 +14212,7 @@ type EncodedPathRequest struct {
 
 func (x *EncodedPathRequest) Reset() {
 	*x = EncodedPathRequest{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[307]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[321]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -13640,7 +14224,7 @@ func (x *EncodedPathRequest) String() string {
 func (*EncodedPathRequest) ProtoMessage() {}
 
 func (x *EncodedPathRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[307]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[321]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -13653,7 +14237,7 @@ func (x *EncodedPathRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use EncodedPathRequest.ProtoReflect.Descriptor instead.
 func (*EncodedPathRequest) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{307}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{321}
 }
 
 func (x *EncodedPathRequest) GetArg0() string {
@@ -13672,7 +14256,7 @@ type EncodedPathResponse struct {
 
 func (x *EncodedPathResponse) Reset() {
 	*x = EncodedPathResponse{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[308]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[322]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -13684,7 +14268,7 @@ func (x *EncodedPathResponse) String() string {
 func (*EncodedPathResponse) ProtoMessage() {}
 
 func (x *EncodedPathResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[308]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[322]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -13697,7 +14281,7 @@ func (x *EncodedPathResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use EncodedPathResponse.ProtoReflect.Descriptor instead.
 func (*EncodedPathResponse) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{308}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{322}
 }
 
 func (x *EncodedPathResponse) GetResult() int64 {
@@ -13716,7 +14300,7 @@ type EncodedQueryRequest struct {
 
 func (x *EncodedQueryRequest) Reset() {
 	*x = EncodedQueryRequest{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[309]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[323]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -13728,7 +14312,7 @@ func (x *EncodedQueryRequest) String() string {
 func (*EncodedQueryRequest) ProtoMessage() {}
 
 func (x *EncodedQueryRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[309]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[323]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -13741,7 +14325,7 @@ func (x *EncodedQueryRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use EncodedQueryRequest.ProtoReflect.Descriptor instead.
 func (*EncodedQueryRequest) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{309}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{323}
 }
 
 func (x *EncodedQueryRequest) GetArg0() string {
@@ -13760,7 +14344,7 @@ type EncodedQueryResponse struct {
 
 func (x *EncodedQueryResponse) Reset() {
 	*x = EncodedQueryResponse{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[310]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[324]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -13772,7 +14356,7 @@ func (x *EncodedQueryResponse) String() string {
 func (*EncodedQueryResponse) ProtoMessage() {}
 
 func (x *EncodedQueryResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[310]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[324]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -13785,7 +14369,7 @@ func (x *EncodedQueryResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use EncodedQueryResponse.ProtoReflect.Descriptor instead.
 func (*EncodedQueryResponse) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{310}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{324}
 }
 
 func (x *EncodedQueryResponse) GetResult() int64 {
@@ -13804,7 +14388,7 @@ type FragmentRequest struct {
 
 func (x *FragmentRequest) Reset() {
 	*x = FragmentRequest{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[311]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[325]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -13816,7 +14400,7 @@ func (x *FragmentRequest) String() string {
 func (*FragmentRequest) ProtoMessage() {}
 
 func (x *FragmentRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[311]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[325]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -13829,7 +14413,7 @@ func (x *FragmentRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use FragmentRequest.ProtoReflect.Descriptor instead.
 func (*FragmentRequest) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{311}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{325}
 }
 
 func (x *FragmentRequest) GetArg0() string {
@@ -13848,7 +14432,7 @@ type FragmentResponse struct {
 
 func (x *FragmentResponse) Reset() {
 	*x = FragmentResponse{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[312]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[326]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -13860,7 +14444,7 @@ func (x *FragmentResponse) String() string {
 func (*FragmentResponse) ProtoMessage() {}
 
 func (x *FragmentResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[312]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[326]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -13873,7 +14457,7 @@ func (x *FragmentResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use FragmentResponse.ProtoReflect.Descriptor instead.
 func (*FragmentResponse) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{312}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{326}
 }
 
 func (x *FragmentResponse) GetResult() int64 {
@@ -13892,7 +14476,7 @@ type OpaquePartRequest struct {
 
 func (x *OpaquePartRequest) Reset() {
 	*x = OpaquePartRequest{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[313]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[327]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -13904,7 +14488,7 @@ func (x *OpaquePartRequest) String() string {
 func (*OpaquePartRequest) ProtoMessage() {}
 
 func (x *OpaquePartRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[313]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[327]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -13917,7 +14501,7 @@ func (x *OpaquePartRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OpaquePartRequest.ProtoReflect.Descriptor instead.
 func (*OpaquePartRequest) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{313}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{327}
 }
 
 func (x *OpaquePartRequest) GetArg0() string {
@@ -13936,7 +14520,7 @@ type OpaquePartResponse struct {
 
 func (x *OpaquePartResponse) Reset() {
 	*x = OpaquePartResponse{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[314]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[328]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -13948,7 +14532,7 @@ func (x *OpaquePartResponse) String() string {
 func (*OpaquePartResponse) ProtoMessage() {}
 
 func (x *OpaquePartResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[314]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[328]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -13961,7 +14545,7 @@ func (x *OpaquePartResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OpaquePartResponse.ProtoReflect.Descriptor instead.
 func (*OpaquePartResponse) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{314}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{328}
 }
 
 func (x *OpaquePartResponse) GetResult() int64 {
@@ -13980,7 +14564,7 @@ type PathRequest struct {
 
 func (x *PathRequest) Reset() {
 	*x = PathRequest{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[315]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[329]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -13992,7 +14576,7 @@ func (x *PathRequest) String() string {
 func (*PathRequest) ProtoMessage() {}
 
 func (x *PathRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[315]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[329]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -14005,7 +14589,7 @@ func (x *PathRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use PathRequest.ProtoReflect.Descriptor instead.
 func (*PathRequest) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{315}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{329}
 }
 
 func (x *PathRequest) GetArg0() string {
@@ -14024,7 +14608,7 @@ type PathResponse struct {
 
 func (x *PathResponse) Reset() {
 	*x = PathResponse{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[316]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[330]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -14036,7 +14620,7 @@ func (x *PathResponse) String() string {
 func (*PathResponse) ProtoMessage() {}
 
 func (x *PathResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[316]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[330]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -14049,7 +14633,7 @@ func (x *PathResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use PathResponse.ProtoReflect.Descriptor instead.
 func (*PathResponse) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{316}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{330}
 }
 
 func (x *PathResponse) GetResult() int64 {
@@ -14068,7 +14652,7 @@ type QueryRequest struct {
 
 func (x *QueryRequest) Reset() {
 	*x = QueryRequest{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[317]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[331]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -14080,7 +14664,7 @@ func (x *QueryRequest) String() string {
 func (*QueryRequest) ProtoMessage() {}
 
 func (x *QueryRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[317]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[331]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -14093,7 +14677,7 @@ func (x *QueryRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use QueryRequest.ProtoReflect.Descriptor instead.
 func (*QueryRequest) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{317}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{331}
 }
 
 func (x *QueryRequest) GetArg0() string {
@@ -14112,7 +14696,7 @@ type QueryResponse struct {
 
 func (x *QueryResponse) Reset() {
 	*x = QueryResponse{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[318]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[332]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -14124,7 +14708,7 @@ func (x *QueryResponse) String() string {
 func (*QueryResponse) ProtoMessage() {}
 
 func (x *QueryResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[318]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[332]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -14137,7 +14721,7 @@ func (x *QueryResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use QueryResponse.ProtoReflect.Descriptor instead.
 func (*QueryResponse) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{318}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{332}
 }
 
 func (x *QueryResponse) GetResult() int64 {
@@ -14156,7 +14740,7 @@ type SchemeRequest struct {
 
 func (x *SchemeRequest) Reset() {
 	*x = SchemeRequest{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[319]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[333]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -14168,7 +14752,7 @@ func (x *SchemeRequest) String() string {
 func (*SchemeRequest) ProtoMessage() {}
 
 func (x *SchemeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[319]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[333]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -14181,7 +14765,7 @@ func (x *SchemeRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SchemeRequest.ProtoReflect.Descriptor instead.
 func (*SchemeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{319}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{333}
 }
 
 func (x *SchemeRequest) GetArg0() string {
@@ -14200,7 +14784,7 @@ type SchemeResponse struct {
 
 func (x *SchemeResponse) Reset() {
 	*x = SchemeResponse{}
-	mi := &file_proto_resolver_resolver_proto_msgTypes[320]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[334]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -14212,7 +14796,7 @@ func (x *SchemeResponse) String() string {
 func (*SchemeResponse) ProtoMessage() {}
 
 func (x *SchemeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resolver_resolver_proto_msgTypes[320]
+	mi := &file_proto_resolver_resolver_proto_msgTypes[334]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -14225,7 +14809,7 @@ func (x *SchemeResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SchemeResponse.ProtoReflect.Descriptor instead.
 func (*SchemeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{320}
+	return file_proto_resolver_resolver_proto_rawDescGZIP(), []int{334}
 }
 
 func (x *SchemeResponse) GetResult() int64 {
@@ -14430,7 +15014,13 @@ const file_proto_resolver_resolver_proto_rawDesc = "" +
 	"\x04arg1\x18\x02 \x01(\tR\x04arg1\x12\x12\n" +
 	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\"+\n" +
 	"\x11Delete3_1Response\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\"?\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"+\n" +
+	")GetOutgoingPersistedUriPermissionsRequest\"D\n" +
+	"*GetOutgoingPersistedUriPermissionsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"#\n" +
+	"!GetPersistedUriPermissionsRequest\"<\n" +
+	"\"GetPersistedUriPermissionsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"?\n" +
 	"\x15GetStreamTypesRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
 	"\x04arg1\x18\x02 \x01(\tR\x04arg1\"0\n" +
@@ -14625,6 +15215,9 @@ const file_proto_resolver_resolver_proto_rawDesc = "" +
 	"\x15CancelSync1_1Response\"\x17\n" +
 	"\x15GetCurrentSyncRequest\"0\n" +
 	"\x16GetCurrentSyncResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x18\n" +
+	"\x16GetCurrentSyncsRequest\"1\n" +
+	"\x17GetCurrentSyncsResponse\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\x03R\x06result\">\n" +
 	"\x14GetIsSyncableRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
@@ -14633,7 +15226,12 @@ const file_proto_resolver_resolver_proto_rawDesc = "" +
 	"\x06result\x18\x01 \x01(\x05R\x06result\"#\n" +
 	"!GetMasterSyncAutomaticallyRequest\"<\n" +
 	"\"GetMasterSyncAutomaticallyResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\bR\x06result\"\x1c\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"A\n" +
+	"\x17GetPeriodicSyncsRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\tR\x04arg1\"2\n" +
+	"\x18GetPeriodicSyncsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1c\n" +
 	"\x1aGetSyncAdapterTypesRequest\"5\n" +
 	"\x1bGetSyncAdapterTypesResponse\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\x03R\x06result\"E\n" +
@@ -14749,7 +15347,10 @@ const file_proto_resolver_resolver_proto_rawDesc = "" +
 	"\x06result\x18\x01 \x01(\tR\x06result\"\x10\n" +
 	"\x0eGetPathRequest\")\n" +
 	"\x0fGetPathResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\tR\x06result\"\x10\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"\x18\n" +
+	"\x16GetPathSegmentsRequest\"1\n" +
+	"\x17GetPathSegmentsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x10\n" +
 	"\x0eGetPortRequest\")\n" +
 	"\x0fGetPortResponse\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\x05R\x06result\"\x11\n" +
@@ -14759,7 +15360,14 @@ const file_proto_resolver_resolver_proto_rawDesc = "" +
 	"\x18GetQueryParameterRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"3\n" +
 	"\x19GetQueryParameterResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\tR\x06result\"\x12\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"\x1f\n" +
+	"\x1dGetQueryParameterNamesRequest\"8\n" +
+	"\x1eGetQueryParameterNamesResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"/\n" +
+	"\x19GetQueryParametersRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"4\n" +
+	"\x1aGetQueryParametersResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x12\n" +
 	"\x10GetSchemeRequest\"+\n" +
 	"\x11GetSchemeResponse\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\tR\x06result\"\x1e\n" +
@@ -14937,7 +15545,7 @@ const file_proto_resolver_resolver_proto_rawDesc = "" +
 	"\tSetExtras\x12\x1a.resolver.SetExtrasRequest\x1a\x1b.resolver.SetExtrasResponse\x12_\n" +
 	"\x12SetNotificationUri\x12#.resolver.SetNotificationUriRequest\x1a$.resolver.SetNotificationUriResponse\x12t\n" +
 	"\x19UnregisterContentObserver\x12*.resolver.UnregisterContentObserverRequest\x1a+.resolver.UnregisterContentObserverResponse\x12t\n" +
-	"\x19UnregisterDataSetObserver\x12*.resolver.UnregisterDataSetObserverRequest\x1a+.resolver.UnregisterDataSetObserverResponse2\xa9/\n" +
+	"\x19UnregisterDataSetObserver\x12*.resolver.UnregisterDataSetObserverRequest\x1a+.resolver.UnregisterDataSetObserverResponse2\xe72\n" +
 	"\x16ContentResolverService\x12\x80\x01\n" +
 	"\x1dAcquireContentProviderClient1\x12..resolver.AcquireContentProviderClient1Request\x1a/.resolver.AcquireContentProviderClient1Response\x12\x86\x01\n" +
 	"\x1fAcquireContentProviderClient1_1\x120.resolver.AcquireContentProviderClient1_1Request\x1a1.resolver.AcquireContentProviderClient1_1Response\x12\x98\x01\n" +
@@ -14950,7 +15558,9 @@ const file_proto_resolver_resolver_proto_rawDesc = "" +
 	"\rCancelSync1_2\x12\x1e.resolver.CancelSync1_2Request\x1a\x1f.resolver.CancelSync1_2Response\x12M\n" +
 	"\fCanonicalize\x12\x1d.resolver.CanonicalizeRequest\x1a\x1e.resolver.CanonicalizeResponse\x12>\n" +
 	"\aDelete2\x12\x18.resolver.Delete2Request\x1a\x19.resolver.Delete2Response\x12D\n" +
-	"\tDelete3_1\x12\x1a.resolver.Delete3_1Request\x1a\x1b.resolver.Delete3_1Response\x12S\n" +
+	"\tDelete3_1\x12\x1a.resolver.Delete3_1Request\x1a\x1b.resolver.Delete3_1Response\x12\x8f\x01\n" +
+	"\"GetOutgoingPersistedUriPermissions\x123.resolver.GetOutgoingPersistedUriPermissionsRequest\x1a4.resolver.GetOutgoingPersistedUriPermissionsResponse\x12w\n" +
+	"\x1aGetPersistedUriPermissions\x12+.resolver.GetPersistedUriPermissionsRequest\x1a,.resolver.GetPersistedUriPermissionsResponse\x12S\n" +
 	"\x0eGetStreamTypes\x12\x1f.resolver.GetStreamTypesRequest\x1a .resolver.GetStreamTypesResponse\x12\\\n" +
 	"\aGetType\x12'.resolver.ContentResolverGetTypeRequest\x1a(.resolver.ContentResolverGetTypeResponse\x12J\n" +
 	"\vGetTypeInfo\x12\x1c.resolver.GetTypeInfoRequest\x1a\x1d.resolver.GetTypeInfoResponse\x12>\n" +
@@ -14988,9 +15598,11 @@ const file_proto_resolver_resolver_proto_rawDesc = "" +
 	"\x17AddStatusChangeListener\x12(.resolver.AddStatusChangeListenerRequest\x1a).resolver.AddStatusChangeListenerResponse\x12J\n" +
 	"\vCancelSync2\x12\x1c.resolver.CancelSync2Request\x1a\x1d.resolver.CancelSync2Response\x12P\n" +
 	"\rCancelSync1_1\x12\x1e.resolver.CancelSync1_1Request\x1a\x1f.resolver.CancelSync1_1Response\x12S\n" +
-	"\x0eGetCurrentSync\x12\x1f.resolver.GetCurrentSyncRequest\x1a .resolver.GetCurrentSyncResponse\x12P\n" +
+	"\x0eGetCurrentSync\x12\x1f.resolver.GetCurrentSyncRequest\x1a .resolver.GetCurrentSyncResponse\x12V\n" +
+	"\x0fGetCurrentSyncs\x12 .resolver.GetCurrentSyncsRequest\x1a!.resolver.GetCurrentSyncsResponse\x12P\n" +
 	"\rGetIsSyncable\x12\x1e.resolver.GetIsSyncableRequest\x1a\x1f.resolver.GetIsSyncableResponse\x12w\n" +
-	"\x1aGetMasterSyncAutomatically\x12+.resolver.GetMasterSyncAutomaticallyRequest\x1a,.resolver.GetMasterSyncAutomaticallyResponse\x12b\n" +
+	"\x1aGetMasterSyncAutomatically\x12+.resolver.GetMasterSyncAutomaticallyRequest\x1a,.resolver.GetMasterSyncAutomaticallyResponse\x12Y\n" +
+	"\x10GetPeriodicSyncs\x12!.resolver.GetPeriodicSyncsRequest\x1a\".resolver.GetPeriodicSyncsResponse\x12b\n" +
 	"\x13GetSyncAdapterTypes\x12$.resolver.GetSyncAdapterTypesRequest\x1a%.resolver.GetSyncAdapterTypesResponse\x12e\n" +
 	"\x14GetSyncAutomatically\x12%.resolver.GetSyncAutomaticallyRequest\x1a&.resolver.GetSyncAutomaticallyResponse\x12M\n" +
 	"\fIsSyncActive\x12\x1d.resolver.IsSyncActiveRequest\x1a\x1e.resolver.IsSyncActiveResponse\x12P\n" +
@@ -15008,7 +15620,7 @@ const file_proto_resolver_resolver_proto_rawDesc = "" +
 	"\"ContentResolverMimeTypeInfoService\x12h\n" +
 	"\x15GetContentDescription\x12&.resolver.GetContentDescriptionRequest\x1a'.resolver.GetContentDescriptionResponse\x12>\n" +
 	"\aGetIcon\x12\x18.resolver.GetIconRequest\x1a\x19.resolver.GetIconResponse\x12A\n" +
-	"\bGetLabel\x12\x19.resolver.GetLabelRequest\x1a\x1a.resolver.GetLabelResponse2\x80\x17\n" +
+	"\bGetLabel\x12\x19.resolver.GetLabelRequest\x1a\x1a.resolver.GetLabelResponse2\xa6\x19\n" +
 	"\n" +
 	"UriService\x12D\n" +
 	"\tBuildUpon\x12\x1a.resolver.BuildUponRequest\x1a\x1b.resolver.BuildUponResponse\x12G\n" +
@@ -15026,10 +15638,13 @@ const file_proto_resolver_resolver_proto_rawDesc = "" +
 	"\vGetFragment\x12\x1c.resolver.GetFragmentRequest\x1a\x1d.resolver.GetFragmentResponse\x12>\n" +
 	"\aGetHost\x12\x18.resolver.GetHostRequest\x1a\x19.resolver.GetHostResponse\x12_\n" +
 	"\x12GetLastPathSegment\x12#.resolver.GetLastPathSegmentRequest\x1a$.resolver.GetLastPathSegmentResponse\x12>\n" +
-	"\aGetPath\x12\x18.resolver.GetPathRequest\x1a\x19.resolver.GetPathResponse\x12>\n" +
+	"\aGetPath\x12\x18.resolver.GetPathRequest\x1a\x19.resolver.GetPathResponse\x12V\n" +
+	"\x0fGetPathSegments\x12 .resolver.GetPathSegmentsRequest\x1a!.resolver.GetPathSegmentsResponse\x12>\n" +
 	"\aGetPort\x12\x18.resolver.GetPortRequest\x1a\x19.resolver.GetPortResponse\x12A\n" +
 	"\bGetQuery\x12\x19.resolver.GetQueryRequest\x1a\x1a.resolver.GetQueryResponse\x12\\\n" +
-	"\x11GetQueryParameter\x12\".resolver.GetQueryParameterRequest\x1a#.resolver.GetQueryParameterResponse\x12D\n" +
+	"\x11GetQueryParameter\x12\".resolver.GetQueryParameterRequest\x1a#.resolver.GetQueryParameterResponse\x12k\n" +
+	"\x16GetQueryParameterNames\x12'.resolver.GetQueryParameterNamesRequest\x1a(.resolver.GetQueryParameterNamesResponse\x12_\n" +
+	"\x12GetQueryParameters\x12#.resolver.GetQueryParametersRequest\x1a$.resolver.GetQueryParametersResponse\x12D\n" +
 	"\tGetScheme\x12\x1a.resolver.GetSchemeRequest\x1a\x1b.resolver.GetSchemeResponse\x12h\n" +
 	"\x15GetSchemeSpecificPart\x12&.resolver.GetSchemeSpecificPartRequest\x1a'.resolver.GetSchemeSpecificPartResponse\x12J\n" +
 	"\vGetUserInfo\x12\x1c.resolver.GetUserInfoRequest\x1a\x1d.resolver.GetUserInfoResponse\x12A\n" +
@@ -15086,7 +15701,7 @@ func file_proto_resolver_resolver_proto_rawDescGZIP() []byte {
 	return file_proto_resolver_resolver_proto_rawDescData
 }
 
-var file_proto_resolver_resolver_proto_msgTypes = make([]protoimpl.MessageInfo, 321)
+var file_proto_resolver_resolver_proto_msgTypes = make([]protoimpl.MessageInfo, 335)
 var file_proto_resolver_resolver_proto_goTypes = []any{
 	(*CloseRequest)(nil),                                    // 0: resolver.CloseRequest
 	(*CloseResponse)(nil),                                   // 1: resolver.CloseResponse
@@ -15192,223 +15807,237 @@ var file_proto_resolver_resolver_proto_goTypes = []any{
 	(*Delete2Response)(nil),                                 // 101: resolver.Delete2Response
 	(*Delete3_1Request)(nil),                                // 102: resolver.Delete3_1Request
 	(*Delete3_1Response)(nil),                               // 103: resolver.Delete3_1Response
-	(*GetStreamTypesRequest)(nil),                           // 104: resolver.GetStreamTypesRequest
-	(*GetStreamTypesResponse)(nil),                          // 105: resolver.GetStreamTypesResponse
-	(*ContentResolverGetTypeRequest)(nil),                   // 106: resolver.ContentResolverGetTypeRequest
-	(*ContentResolverGetTypeResponse)(nil),                  // 107: resolver.ContentResolverGetTypeResponse
-	(*GetTypeInfoRequest)(nil),                              // 108: resolver.GetTypeInfoRequest
-	(*GetTypeInfoResponse)(nil),                             // 109: resolver.GetTypeInfoResponse
-	(*Insert2Request)(nil),                                  // 110: resolver.Insert2Request
-	(*Insert2Response)(nil),                                 // 111: resolver.Insert2Response
-	(*Insert3_1Request)(nil),                                // 112: resolver.Insert3_1Request
-	(*Insert3_1Response)(nil),                               // 113: resolver.Insert3_1Response
-	(*LoadThumbnailRequest)(nil),                            // 114: resolver.LoadThumbnailRequest
-	(*LoadThumbnailResponse)(nil),                           // 115: resolver.LoadThumbnailResponse
-	(*NotifyChange2Request)(nil),                            // 116: resolver.NotifyChange2Request
-	(*NotifyChange2Response)(nil),                           // 117: resolver.NotifyChange2Response
-	(*NotifyChange3_1Request)(nil),                          // 118: resolver.NotifyChange3_1Request
-	(*NotifyChange3_1Response)(nil),                         // 119: resolver.NotifyChange3_1Response
-	(*NotifyChange3_2Request)(nil),                          // 120: resolver.NotifyChange3_2Request
-	(*NotifyChange3_2Response)(nil),                         // 121: resolver.NotifyChange3_2Response
-	(*OpenAssetFileRequest)(nil),                            // 122: resolver.OpenAssetFileRequest
-	(*OpenAssetFileResponse)(nil),                           // 123: resolver.OpenAssetFileResponse
-	(*OpenAssetFileDescriptor2Request)(nil),                 // 124: resolver.OpenAssetFileDescriptor2Request
-	(*OpenAssetFileDescriptor2Response)(nil),                // 125: resolver.OpenAssetFileDescriptor2Response
-	(*OpenAssetFileDescriptor3_1Request)(nil),               // 126: resolver.OpenAssetFileDescriptor3_1Request
-	(*OpenAssetFileDescriptor3_1Response)(nil),              // 127: resolver.OpenAssetFileDescriptor3_1Response
-	(*OpenFileRequest)(nil),                                 // 128: resolver.OpenFileRequest
-	(*OpenFileResponse)(nil),                                // 129: resolver.OpenFileResponse
-	(*OpenFileDescriptor2Request)(nil),                      // 130: resolver.OpenFileDescriptor2Request
-	(*OpenFileDescriptor2Response)(nil),                     // 131: resolver.OpenFileDescriptor2Response
-	(*OpenFileDescriptor3_1Request)(nil),                    // 132: resolver.OpenFileDescriptor3_1Request
-	(*OpenFileDescriptor3_1Response)(nil),                   // 133: resolver.OpenFileDescriptor3_1Response
-	(*OpenInputStreamRequest)(nil),                          // 134: resolver.OpenInputStreamRequest
-	(*OpenInputStreamResponse)(nil),                         // 135: resolver.OpenInputStreamResponse
-	(*OpenOutputStream1Request)(nil),                        // 136: resolver.OpenOutputStream1Request
-	(*OpenOutputStream1Response)(nil),                       // 137: resolver.OpenOutputStream1Response
-	(*OpenOutputStream2_1Request)(nil),                      // 138: resolver.OpenOutputStream2_1Request
-	(*OpenOutputStream2_1Response)(nil),                     // 139: resolver.OpenOutputStream2_1Response
-	(*OpenTypedAssetFileRequest)(nil),                       // 140: resolver.OpenTypedAssetFileRequest
-	(*OpenTypedAssetFileResponse)(nil),                      // 141: resolver.OpenTypedAssetFileResponse
-	(*OpenTypedAssetFileDescriptor3Request)(nil),            // 142: resolver.OpenTypedAssetFileDescriptor3Request
-	(*OpenTypedAssetFileDescriptor3Response)(nil),           // 143: resolver.OpenTypedAssetFileDescriptor3Response
-	(*OpenTypedAssetFileDescriptor4_1Request)(nil),          // 144: resolver.OpenTypedAssetFileDescriptor4_1Request
-	(*OpenTypedAssetFileDescriptor4_1Response)(nil),         // 145: resolver.OpenTypedAssetFileDescriptor4_1Response
-	(*Query4Request)(nil),                                   // 146: resolver.Query4Request
-	(*Query4Response)(nil),                                  // 147: resolver.Query4Response
-	(*Query5_1Request)(nil),                                 // 148: resolver.Query5_1Request
-	(*Query5_1Response)(nil),                                // 149: resolver.Query5_1Response
-	(*Query6_2Request)(nil),                                 // 150: resolver.Query6_2Request
-	(*Query6_2Response)(nil),                                // 151: resolver.Query6_2Response
-	(*RefreshRequest)(nil),                                  // 152: resolver.RefreshRequest
-	(*RefreshResponse)(nil),                                 // 153: resolver.RefreshResponse
-	(*ContentResolverRegisterContentObserverRequest)(nil),   // 154: resolver.ContentResolverRegisterContentObserverRequest
-	(*ReleasePersistableUriPermissionRequest)(nil),          // 155: resolver.ReleasePersistableUriPermissionRequest
-	(*ReleasePersistableUriPermissionResponse)(nil),         // 156: resolver.ReleasePersistableUriPermissionResponse
-	(*StartSyncRequest)(nil),                                // 157: resolver.StartSyncRequest
-	(*StartSyncResponse)(nil),                               // 158: resolver.StartSyncResponse
-	(*TakePersistableUriPermissionRequest)(nil),             // 159: resolver.TakePersistableUriPermissionRequest
-	(*TakePersistableUriPermissionResponse)(nil),            // 160: resolver.TakePersistableUriPermissionResponse
-	(*UncanonicalizeRequest)(nil),                           // 161: resolver.UncanonicalizeRequest
-	(*UncanonicalizeResponse)(nil),                          // 162: resolver.UncanonicalizeResponse
-	(*Update3Request)(nil),                                  // 163: resolver.Update3Request
-	(*Update3Response)(nil),                                 // 164: resolver.Update3Response
-	(*Update4_1Request)(nil),                                // 165: resolver.Update4_1Request
-	(*Update4_1Response)(nil),                               // 166: resolver.Update4_1Response
-	(*AddPeriodicSyncRequest)(nil),                          // 167: resolver.AddPeriodicSyncRequest
-	(*AddPeriodicSyncResponse)(nil),                         // 168: resolver.AddPeriodicSyncResponse
-	(*AddStatusChangeListenerRequest)(nil),                  // 169: resolver.AddStatusChangeListenerRequest
-	(*AddStatusChangeListenerResponse)(nil),                 // 170: resolver.AddStatusChangeListenerResponse
-	(*CancelSync2Request)(nil),                              // 171: resolver.CancelSync2Request
-	(*CancelSync2Response)(nil),                             // 172: resolver.CancelSync2Response
-	(*CancelSync1_1Request)(nil),                            // 173: resolver.CancelSync1_1Request
-	(*CancelSync1_1Response)(nil),                           // 174: resolver.CancelSync1_1Response
-	(*GetCurrentSyncRequest)(nil),                           // 175: resolver.GetCurrentSyncRequest
-	(*GetCurrentSyncResponse)(nil),                          // 176: resolver.GetCurrentSyncResponse
-	(*GetIsSyncableRequest)(nil),                            // 177: resolver.GetIsSyncableRequest
-	(*GetIsSyncableResponse)(nil),                           // 178: resolver.GetIsSyncableResponse
-	(*GetMasterSyncAutomaticallyRequest)(nil),               // 179: resolver.GetMasterSyncAutomaticallyRequest
-	(*GetMasterSyncAutomaticallyResponse)(nil),              // 180: resolver.GetMasterSyncAutomaticallyResponse
-	(*GetSyncAdapterTypesRequest)(nil),                      // 181: resolver.GetSyncAdapterTypesRequest
-	(*GetSyncAdapterTypesResponse)(nil),                     // 182: resolver.GetSyncAdapterTypesResponse
-	(*GetSyncAutomaticallyRequest)(nil),                     // 183: resolver.GetSyncAutomaticallyRequest
-	(*GetSyncAutomaticallyResponse)(nil),                    // 184: resolver.GetSyncAutomaticallyResponse
-	(*IsSyncActiveRequest)(nil),                             // 185: resolver.IsSyncActiveRequest
-	(*IsSyncActiveResponse)(nil),                            // 186: resolver.IsSyncActiveResponse
-	(*IsSyncPendingRequest)(nil),                            // 187: resolver.IsSyncPendingRequest
-	(*IsSyncPendingResponse)(nil),                           // 188: resolver.IsSyncPendingResponse
-	(*RemovePeriodicSyncRequest)(nil),                       // 189: resolver.RemovePeriodicSyncRequest
-	(*RemovePeriodicSyncResponse)(nil),                      // 190: resolver.RemovePeriodicSyncResponse
-	(*RemoveStatusChangeListenerRequest)(nil),               // 191: resolver.RemoveStatusChangeListenerRequest
-	(*RemoveStatusChangeListenerResponse)(nil),              // 192: resolver.RemoveStatusChangeListenerResponse
-	(*RequestSync3Request)(nil),                             // 193: resolver.RequestSync3Request
-	(*RequestSync3Response)(nil),                            // 194: resolver.RequestSync3Response
-	(*RequestSync1_1Request)(nil),                           // 195: resolver.RequestSync1_1Request
-	(*RequestSync1_1Response)(nil),                          // 196: resolver.RequestSync1_1Response
-	(*SetIsSyncableRequest)(nil),                            // 197: resolver.SetIsSyncableRequest
-	(*SetIsSyncableResponse)(nil),                           // 198: resolver.SetIsSyncableResponse
-	(*SetMasterSyncAutomaticallyRequest)(nil),               // 199: resolver.SetMasterSyncAutomaticallyRequest
-	(*SetMasterSyncAutomaticallyResponse)(nil),              // 200: resolver.SetMasterSyncAutomaticallyResponse
-	(*SetSyncAutomaticallyRequest)(nil),                     // 201: resolver.SetSyncAutomaticallyRequest
-	(*SetSyncAutomaticallyResponse)(nil),                    // 202: resolver.SetSyncAutomaticallyResponse
-	(*ValidateSyncExtrasBundleRequest)(nil),                 // 203: resolver.ValidateSyncExtrasBundleRequest
-	(*ValidateSyncExtrasBundleResponse)(nil),                // 204: resolver.ValidateSyncExtrasBundleResponse
-	(*Wrap1Request)(nil),                                    // 205: resolver.Wrap1Request
-	(*Wrap1Response)(nil),                                   // 206: resolver.Wrap1Response
-	(*Wrap1_1Request)(nil),                                  // 207: resolver.Wrap1_1Request
-	(*Wrap1_1Response)(nil),                                 // 208: resolver.Wrap1_1Response
-	(*GetContentDescriptionRequest)(nil),                    // 209: resolver.GetContentDescriptionRequest
-	(*GetContentDescriptionResponse)(nil),                   // 210: resolver.GetContentDescriptionResponse
-	(*GetIconRequest)(nil),                                  // 211: resolver.GetIconRequest
-	(*GetIconResponse)(nil),                                 // 212: resolver.GetIconResponse
-	(*GetLabelRequest)(nil),                                 // 213: resolver.GetLabelRequest
-	(*GetLabelResponse)(nil),                                // 214: resolver.GetLabelResponse
-	(*BuildUponRequest)(nil),                                // 215: resolver.BuildUponRequest
-	(*BuildUponResponse)(nil),                               // 216: resolver.BuildUponResponse
-	(*CompareTo1Request)(nil),                               // 217: resolver.CompareTo1Request
-	(*CompareTo1Response)(nil),                              // 218: resolver.CompareTo1Response
-	(*EqualsRequest)(nil),                                   // 219: resolver.EqualsRequest
-	(*EqualsResponse)(nil),                                  // 220: resolver.EqualsResponse
-	(*GetAuthorityRequest)(nil),                             // 221: resolver.GetAuthorityRequest
-	(*GetAuthorityResponse)(nil),                            // 222: resolver.GetAuthorityResponse
-	(*GetBooleanQueryParameterRequest)(nil),                 // 223: resolver.GetBooleanQueryParameterRequest
-	(*GetBooleanQueryParameterResponse)(nil),                // 224: resolver.GetBooleanQueryParameterResponse
-	(*GetEncodedAuthorityRequest)(nil),                      // 225: resolver.GetEncodedAuthorityRequest
-	(*GetEncodedAuthorityResponse)(nil),                     // 226: resolver.GetEncodedAuthorityResponse
-	(*GetEncodedFragmentRequest)(nil),                       // 227: resolver.GetEncodedFragmentRequest
-	(*GetEncodedFragmentResponse)(nil),                      // 228: resolver.GetEncodedFragmentResponse
-	(*GetEncodedPathRequest)(nil),                           // 229: resolver.GetEncodedPathRequest
-	(*GetEncodedPathResponse)(nil),                          // 230: resolver.GetEncodedPathResponse
-	(*GetEncodedQueryRequest)(nil),                          // 231: resolver.GetEncodedQueryRequest
-	(*GetEncodedQueryResponse)(nil),                         // 232: resolver.GetEncodedQueryResponse
-	(*GetEncodedSchemeSpecificPartRequest)(nil),             // 233: resolver.GetEncodedSchemeSpecificPartRequest
-	(*GetEncodedSchemeSpecificPartResponse)(nil),            // 234: resolver.GetEncodedSchemeSpecificPartResponse
-	(*GetEncodedUserInfoRequest)(nil),                       // 235: resolver.GetEncodedUserInfoRequest
-	(*GetEncodedUserInfoResponse)(nil),                      // 236: resolver.GetEncodedUserInfoResponse
-	(*GetFragmentRequest)(nil),                              // 237: resolver.GetFragmentRequest
-	(*GetFragmentResponse)(nil),                             // 238: resolver.GetFragmentResponse
-	(*GetHostRequest)(nil),                                  // 239: resolver.GetHostRequest
-	(*GetHostResponse)(nil),                                 // 240: resolver.GetHostResponse
-	(*GetLastPathSegmentRequest)(nil),                       // 241: resolver.GetLastPathSegmentRequest
-	(*GetLastPathSegmentResponse)(nil),                      // 242: resolver.GetLastPathSegmentResponse
-	(*GetPathRequest)(nil),                                  // 243: resolver.GetPathRequest
-	(*GetPathResponse)(nil),                                 // 244: resolver.GetPathResponse
-	(*GetPortRequest)(nil),                                  // 245: resolver.GetPortRequest
-	(*GetPortResponse)(nil),                                 // 246: resolver.GetPortResponse
-	(*GetQueryRequest)(nil),                                 // 247: resolver.GetQueryRequest
-	(*GetQueryResponse)(nil),                                // 248: resolver.GetQueryResponse
-	(*GetQueryParameterRequest)(nil),                        // 249: resolver.GetQueryParameterRequest
-	(*GetQueryParameterResponse)(nil),                       // 250: resolver.GetQueryParameterResponse
-	(*GetSchemeRequest)(nil),                                // 251: resolver.GetSchemeRequest
-	(*GetSchemeResponse)(nil),                               // 252: resolver.GetSchemeResponse
-	(*GetSchemeSpecificPartRequest)(nil),                    // 253: resolver.GetSchemeSpecificPartRequest
-	(*GetSchemeSpecificPartResponse)(nil),                   // 254: resolver.GetSchemeSpecificPartResponse
-	(*GetUserInfoRequest)(nil),                              // 255: resolver.GetUserInfoRequest
-	(*GetUserInfoResponse)(nil),                             // 256: resolver.GetUserInfoResponse
-	(*HashCodeRequest)(nil),                                 // 257: resolver.HashCodeRequest
-	(*HashCodeResponse)(nil),                                // 258: resolver.HashCodeResponse
-	(*IsAbsoluteRequest)(nil),                               // 259: resolver.IsAbsoluteRequest
-	(*IsAbsoluteResponse)(nil),                              // 260: resolver.IsAbsoluteResponse
-	(*IsHierarchicalRequest)(nil),                           // 261: resolver.IsHierarchicalRequest
-	(*IsHierarchicalResponse)(nil),                          // 262: resolver.IsHierarchicalResponse
-	(*IsOpaqueRequest)(nil),                                 // 263: resolver.IsOpaqueRequest
-	(*IsOpaqueResponse)(nil),                                // 264: resolver.IsOpaqueResponse
-	(*IsRelativeRequest)(nil),                               // 265: resolver.IsRelativeRequest
-	(*IsRelativeResponse)(nil),                              // 266: resolver.IsRelativeResponse
-	(*NormalizeSchemeRequest)(nil),                          // 267: resolver.NormalizeSchemeRequest
-	(*NormalizeSchemeResponse)(nil),                         // 268: resolver.NormalizeSchemeResponse
-	(*ToStringRequest)(nil),                                 // 269: resolver.ToStringRequest
-	(*ToStringResponse)(nil),                                // 270: resolver.ToStringResponse
-	(*CompareTo1_1Request)(nil),                             // 271: resolver.CompareTo1_1Request
-	(*CompareTo1_1Response)(nil),                            // 272: resolver.CompareTo1_1Response
-	(*DecodeRequest)(nil),                                   // 273: resolver.DecodeRequest
-	(*DecodeResponse)(nil),                                  // 274: resolver.DecodeResponse
-	(*Encode1Request)(nil),                                  // 275: resolver.Encode1Request
-	(*Encode1Response)(nil),                                 // 276: resolver.Encode1Response
-	(*Encode2_1Request)(nil),                                // 277: resolver.Encode2_1Request
-	(*Encode2_1Response)(nil),                               // 278: resolver.Encode2_1Response
-	(*FromFileRequest)(nil),                                 // 279: resolver.FromFileRequest
-	(*FromFileResponse)(nil),                                // 280: resolver.FromFileResponse
-	(*FromPartsRequest)(nil),                                // 281: resolver.FromPartsRequest
-	(*FromPartsResponse)(nil),                               // 282: resolver.FromPartsResponse
-	(*ParseRequest)(nil),                                    // 283: resolver.ParseRequest
-	(*ParseResponse)(nil),                                   // 284: resolver.ParseResponse
-	(*WithAppendedPathRequest)(nil),                         // 285: resolver.WithAppendedPathRequest
-	(*WithAppendedPathResponse)(nil),                        // 286: resolver.WithAppendedPathResponse
-	(*WriteToParcelRequest)(nil),                            // 287: resolver.WriteToParcelRequest
-	(*WriteToParcelResponse)(nil),                           // 288: resolver.WriteToParcelResponse
-	(*AppendEncodedPathRequest)(nil),                        // 289: resolver.AppendEncodedPathRequest
-	(*AppendEncodedPathResponse)(nil),                       // 290: resolver.AppendEncodedPathResponse
-	(*AppendPathRequest)(nil),                               // 291: resolver.AppendPathRequest
-	(*AppendPathResponse)(nil),                              // 292: resolver.AppendPathResponse
-	(*AppendQueryParameterRequest)(nil),                     // 293: resolver.AppendQueryParameterRequest
-	(*AppendQueryParameterResponse)(nil),                    // 294: resolver.AppendQueryParameterResponse
-	(*AuthorityRequest)(nil),                                // 295: resolver.AuthorityRequest
-	(*AuthorityResponse)(nil),                               // 296: resolver.AuthorityResponse
-	(*BuildRequest)(nil),                                    // 297: resolver.BuildRequest
-	(*BuildResponse)(nil),                                   // 298: resolver.BuildResponse
-	(*ClearQueryRequest)(nil),                               // 299: resolver.ClearQueryRequest
-	(*ClearQueryResponse)(nil),                              // 300: resolver.ClearQueryResponse
-	(*EncodedAuthorityRequest)(nil),                         // 301: resolver.EncodedAuthorityRequest
-	(*EncodedAuthorityResponse)(nil),                        // 302: resolver.EncodedAuthorityResponse
-	(*EncodedFragmentRequest)(nil),                          // 303: resolver.EncodedFragmentRequest
-	(*EncodedFragmentResponse)(nil),                         // 304: resolver.EncodedFragmentResponse
-	(*EncodedOpaquePartRequest)(nil),                        // 305: resolver.EncodedOpaquePartRequest
-	(*EncodedOpaquePartResponse)(nil),                       // 306: resolver.EncodedOpaquePartResponse
-	(*EncodedPathRequest)(nil),                              // 307: resolver.EncodedPathRequest
-	(*EncodedPathResponse)(nil),                             // 308: resolver.EncodedPathResponse
-	(*EncodedQueryRequest)(nil),                             // 309: resolver.EncodedQueryRequest
-	(*EncodedQueryResponse)(nil),                            // 310: resolver.EncodedQueryResponse
-	(*FragmentRequest)(nil),                                 // 311: resolver.FragmentRequest
-	(*FragmentResponse)(nil),                                // 312: resolver.FragmentResponse
-	(*OpaquePartRequest)(nil),                               // 313: resolver.OpaquePartRequest
-	(*OpaquePartResponse)(nil),                              // 314: resolver.OpaquePartResponse
-	(*PathRequest)(nil),                                     // 315: resolver.PathRequest
-	(*PathResponse)(nil),                                    // 316: resolver.PathResponse
-	(*QueryRequest)(nil),                                    // 317: resolver.QueryRequest
-	(*QueryResponse)(nil),                                   // 318: resolver.QueryResponse
-	(*SchemeRequest)(nil),                                   // 319: resolver.SchemeRequest
-	(*SchemeResponse)(nil),                                  // 320: resolver.SchemeResponse
+	(*GetOutgoingPersistedUriPermissionsRequest)(nil),       // 104: resolver.GetOutgoingPersistedUriPermissionsRequest
+	(*GetOutgoingPersistedUriPermissionsResponse)(nil),      // 105: resolver.GetOutgoingPersistedUriPermissionsResponse
+	(*GetPersistedUriPermissionsRequest)(nil),               // 106: resolver.GetPersistedUriPermissionsRequest
+	(*GetPersistedUriPermissionsResponse)(nil),              // 107: resolver.GetPersistedUriPermissionsResponse
+	(*GetStreamTypesRequest)(nil),                           // 108: resolver.GetStreamTypesRequest
+	(*GetStreamTypesResponse)(nil),                          // 109: resolver.GetStreamTypesResponse
+	(*ContentResolverGetTypeRequest)(nil),                   // 110: resolver.ContentResolverGetTypeRequest
+	(*ContentResolverGetTypeResponse)(nil),                  // 111: resolver.ContentResolverGetTypeResponse
+	(*GetTypeInfoRequest)(nil),                              // 112: resolver.GetTypeInfoRequest
+	(*GetTypeInfoResponse)(nil),                             // 113: resolver.GetTypeInfoResponse
+	(*Insert2Request)(nil),                                  // 114: resolver.Insert2Request
+	(*Insert2Response)(nil),                                 // 115: resolver.Insert2Response
+	(*Insert3_1Request)(nil),                                // 116: resolver.Insert3_1Request
+	(*Insert3_1Response)(nil),                               // 117: resolver.Insert3_1Response
+	(*LoadThumbnailRequest)(nil),                            // 118: resolver.LoadThumbnailRequest
+	(*LoadThumbnailResponse)(nil),                           // 119: resolver.LoadThumbnailResponse
+	(*NotifyChange2Request)(nil),                            // 120: resolver.NotifyChange2Request
+	(*NotifyChange2Response)(nil),                           // 121: resolver.NotifyChange2Response
+	(*NotifyChange3_1Request)(nil),                          // 122: resolver.NotifyChange3_1Request
+	(*NotifyChange3_1Response)(nil),                         // 123: resolver.NotifyChange3_1Response
+	(*NotifyChange3_2Request)(nil),                          // 124: resolver.NotifyChange3_2Request
+	(*NotifyChange3_2Response)(nil),                         // 125: resolver.NotifyChange3_2Response
+	(*OpenAssetFileRequest)(nil),                            // 126: resolver.OpenAssetFileRequest
+	(*OpenAssetFileResponse)(nil),                           // 127: resolver.OpenAssetFileResponse
+	(*OpenAssetFileDescriptor2Request)(nil),                 // 128: resolver.OpenAssetFileDescriptor2Request
+	(*OpenAssetFileDescriptor2Response)(nil),                // 129: resolver.OpenAssetFileDescriptor2Response
+	(*OpenAssetFileDescriptor3_1Request)(nil),               // 130: resolver.OpenAssetFileDescriptor3_1Request
+	(*OpenAssetFileDescriptor3_1Response)(nil),              // 131: resolver.OpenAssetFileDescriptor3_1Response
+	(*OpenFileRequest)(nil),                                 // 132: resolver.OpenFileRequest
+	(*OpenFileResponse)(nil),                                // 133: resolver.OpenFileResponse
+	(*OpenFileDescriptor2Request)(nil),                      // 134: resolver.OpenFileDescriptor2Request
+	(*OpenFileDescriptor2Response)(nil),                     // 135: resolver.OpenFileDescriptor2Response
+	(*OpenFileDescriptor3_1Request)(nil),                    // 136: resolver.OpenFileDescriptor3_1Request
+	(*OpenFileDescriptor3_1Response)(nil),                   // 137: resolver.OpenFileDescriptor3_1Response
+	(*OpenInputStreamRequest)(nil),                          // 138: resolver.OpenInputStreamRequest
+	(*OpenInputStreamResponse)(nil),                         // 139: resolver.OpenInputStreamResponse
+	(*OpenOutputStream1Request)(nil),                        // 140: resolver.OpenOutputStream1Request
+	(*OpenOutputStream1Response)(nil),                       // 141: resolver.OpenOutputStream1Response
+	(*OpenOutputStream2_1Request)(nil),                      // 142: resolver.OpenOutputStream2_1Request
+	(*OpenOutputStream2_1Response)(nil),                     // 143: resolver.OpenOutputStream2_1Response
+	(*OpenTypedAssetFileRequest)(nil),                       // 144: resolver.OpenTypedAssetFileRequest
+	(*OpenTypedAssetFileResponse)(nil),                      // 145: resolver.OpenTypedAssetFileResponse
+	(*OpenTypedAssetFileDescriptor3Request)(nil),            // 146: resolver.OpenTypedAssetFileDescriptor3Request
+	(*OpenTypedAssetFileDescriptor3Response)(nil),           // 147: resolver.OpenTypedAssetFileDescriptor3Response
+	(*OpenTypedAssetFileDescriptor4_1Request)(nil),          // 148: resolver.OpenTypedAssetFileDescriptor4_1Request
+	(*OpenTypedAssetFileDescriptor4_1Response)(nil),         // 149: resolver.OpenTypedAssetFileDescriptor4_1Response
+	(*Query4Request)(nil),                                   // 150: resolver.Query4Request
+	(*Query4Response)(nil),                                  // 151: resolver.Query4Response
+	(*Query5_1Request)(nil),                                 // 152: resolver.Query5_1Request
+	(*Query5_1Response)(nil),                                // 153: resolver.Query5_1Response
+	(*Query6_2Request)(nil),                                 // 154: resolver.Query6_2Request
+	(*Query6_2Response)(nil),                                // 155: resolver.Query6_2Response
+	(*RefreshRequest)(nil),                                  // 156: resolver.RefreshRequest
+	(*RefreshResponse)(nil),                                 // 157: resolver.RefreshResponse
+	(*ContentResolverRegisterContentObserverRequest)(nil),   // 158: resolver.ContentResolverRegisterContentObserverRequest
+	(*ReleasePersistableUriPermissionRequest)(nil),          // 159: resolver.ReleasePersistableUriPermissionRequest
+	(*ReleasePersistableUriPermissionResponse)(nil),         // 160: resolver.ReleasePersistableUriPermissionResponse
+	(*StartSyncRequest)(nil),                                // 161: resolver.StartSyncRequest
+	(*StartSyncResponse)(nil),                               // 162: resolver.StartSyncResponse
+	(*TakePersistableUriPermissionRequest)(nil),             // 163: resolver.TakePersistableUriPermissionRequest
+	(*TakePersistableUriPermissionResponse)(nil),            // 164: resolver.TakePersistableUriPermissionResponse
+	(*UncanonicalizeRequest)(nil),                           // 165: resolver.UncanonicalizeRequest
+	(*UncanonicalizeResponse)(nil),                          // 166: resolver.UncanonicalizeResponse
+	(*Update3Request)(nil),                                  // 167: resolver.Update3Request
+	(*Update3Response)(nil),                                 // 168: resolver.Update3Response
+	(*Update4_1Request)(nil),                                // 169: resolver.Update4_1Request
+	(*Update4_1Response)(nil),                               // 170: resolver.Update4_1Response
+	(*AddPeriodicSyncRequest)(nil),                          // 171: resolver.AddPeriodicSyncRequest
+	(*AddPeriodicSyncResponse)(nil),                         // 172: resolver.AddPeriodicSyncResponse
+	(*AddStatusChangeListenerRequest)(nil),                  // 173: resolver.AddStatusChangeListenerRequest
+	(*AddStatusChangeListenerResponse)(nil),                 // 174: resolver.AddStatusChangeListenerResponse
+	(*CancelSync2Request)(nil),                              // 175: resolver.CancelSync2Request
+	(*CancelSync2Response)(nil),                             // 176: resolver.CancelSync2Response
+	(*CancelSync1_1Request)(nil),                            // 177: resolver.CancelSync1_1Request
+	(*CancelSync1_1Response)(nil),                           // 178: resolver.CancelSync1_1Response
+	(*GetCurrentSyncRequest)(nil),                           // 179: resolver.GetCurrentSyncRequest
+	(*GetCurrentSyncResponse)(nil),                          // 180: resolver.GetCurrentSyncResponse
+	(*GetCurrentSyncsRequest)(nil),                          // 181: resolver.GetCurrentSyncsRequest
+	(*GetCurrentSyncsResponse)(nil),                         // 182: resolver.GetCurrentSyncsResponse
+	(*GetIsSyncableRequest)(nil),                            // 183: resolver.GetIsSyncableRequest
+	(*GetIsSyncableResponse)(nil),                           // 184: resolver.GetIsSyncableResponse
+	(*GetMasterSyncAutomaticallyRequest)(nil),               // 185: resolver.GetMasterSyncAutomaticallyRequest
+	(*GetMasterSyncAutomaticallyResponse)(nil),              // 186: resolver.GetMasterSyncAutomaticallyResponse
+	(*GetPeriodicSyncsRequest)(nil),                         // 187: resolver.GetPeriodicSyncsRequest
+	(*GetPeriodicSyncsResponse)(nil),                        // 188: resolver.GetPeriodicSyncsResponse
+	(*GetSyncAdapterTypesRequest)(nil),                      // 189: resolver.GetSyncAdapterTypesRequest
+	(*GetSyncAdapterTypesResponse)(nil),                     // 190: resolver.GetSyncAdapterTypesResponse
+	(*GetSyncAutomaticallyRequest)(nil),                     // 191: resolver.GetSyncAutomaticallyRequest
+	(*GetSyncAutomaticallyResponse)(nil),                    // 192: resolver.GetSyncAutomaticallyResponse
+	(*IsSyncActiveRequest)(nil),                             // 193: resolver.IsSyncActiveRequest
+	(*IsSyncActiveResponse)(nil),                            // 194: resolver.IsSyncActiveResponse
+	(*IsSyncPendingRequest)(nil),                            // 195: resolver.IsSyncPendingRequest
+	(*IsSyncPendingResponse)(nil),                           // 196: resolver.IsSyncPendingResponse
+	(*RemovePeriodicSyncRequest)(nil),                       // 197: resolver.RemovePeriodicSyncRequest
+	(*RemovePeriodicSyncResponse)(nil),                      // 198: resolver.RemovePeriodicSyncResponse
+	(*RemoveStatusChangeListenerRequest)(nil),               // 199: resolver.RemoveStatusChangeListenerRequest
+	(*RemoveStatusChangeListenerResponse)(nil),              // 200: resolver.RemoveStatusChangeListenerResponse
+	(*RequestSync3Request)(nil),                             // 201: resolver.RequestSync3Request
+	(*RequestSync3Response)(nil),                            // 202: resolver.RequestSync3Response
+	(*RequestSync1_1Request)(nil),                           // 203: resolver.RequestSync1_1Request
+	(*RequestSync1_1Response)(nil),                          // 204: resolver.RequestSync1_1Response
+	(*SetIsSyncableRequest)(nil),                            // 205: resolver.SetIsSyncableRequest
+	(*SetIsSyncableResponse)(nil),                           // 206: resolver.SetIsSyncableResponse
+	(*SetMasterSyncAutomaticallyRequest)(nil),               // 207: resolver.SetMasterSyncAutomaticallyRequest
+	(*SetMasterSyncAutomaticallyResponse)(nil),              // 208: resolver.SetMasterSyncAutomaticallyResponse
+	(*SetSyncAutomaticallyRequest)(nil),                     // 209: resolver.SetSyncAutomaticallyRequest
+	(*SetSyncAutomaticallyResponse)(nil),                    // 210: resolver.SetSyncAutomaticallyResponse
+	(*ValidateSyncExtrasBundleRequest)(nil),                 // 211: resolver.ValidateSyncExtrasBundleRequest
+	(*ValidateSyncExtrasBundleResponse)(nil),                // 212: resolver.ValidateSyncExtrasBundleResponse
+	(*Wrap1Request)(nil),                                    // 213: resolver.Wrap1Request
+	(*Wrap1Response)(nil),                                   // 214: resolver.Wrap1Response
+	(*Wrap1_1Request)(nil),                                  // 215: resolver.Wrap1_1Request
+	(*Wrap1_1Response)(nil),                                 // 216: resolver.Wrap1_1Response
+	(*GetContentDescriptionRequest)(nil),                    // 217: resolver.GetContentDescriptionRequest
+	(*GetContentDescriptionResponse)(nil),                   // 218: resolver.GetContentDescriptionResponse
+	(*GetIconRequest)(nil),                                  // 219: resolver.GetIconRequest
+	(*GetIconResponse)(nil),                                 // 220: resolver.GetIconResponse
+	(*GetLabelRequest)(nil),                                 // 221: resolver.GetLabelRequest
+	(*GetLabelResponse)(nil),                                // 222: resolver.GetLabelResponse
+	(*BuildUponRequest)(nil),                                // 223: resolver.BuildUponRequest
+	(*BuildUponResponse)(nil),                               // 224: resolver.BuildUponResponse
+	(*CompareTo1Request)(nil),                               // 225: resolver.CompareTo1Request
+	(*CompareTo1Response)(nil),                              // 226: resolver.CompareTo1Response
+	(*EqualsRequest)(nil),                                   // 227: resolver.EqualsRequest
+	(*EqualsResponse)(nil),                                  // 228: resolver.EqualsResponse
+	(*GetAuthorityRequest)(nil),                             // 229: resolver.GetAuthorityRequest
+	(*GetAuthorityResponse)(nil),                            // 230: resolver.GetAuthorityResponse
+	(*GetBooleanQueryParameterRequest)(nil),                 // 231: resolver.GetBooleanQueryParameterRequest
+	(*GetBooleanQueryParameterResponse)(nil),                // 232: resolver.GetBooleanQueryParameterResponse
+	(*GetEncodedAuthorityRequest)(nil),                      // 233: resolver.GetEncodedAuthorityRequest
+	(*GetEncodedAuthorityResponse)(nil),                     // 234: resolver.GetEncodedAuthorityResponse
+	(*GetEncodedFragmentRequest)(nil),                       // 235: resolver.GetEncodedFragmentRequest
+	(*GetEncodedFragmentResponse)(nil),                      // 236: resolver.GetEncodedFragmentResponse
+	(*GetEncodedPathRequest)(nil),                           // 237: resolver.GetEncodedPathRequest
+	(*GetEncodedPathResponse)(nil),                          // 238: resolver.GetEncodedPathResponse
+	(*GetEncodedQueryRequest)(nil),                          // 239: resolver.GetEncodedQueryRequest
+	(*GetEncodedQueryResponse)(nil),                         // 240: resolver.GetEncodedQueryResponse
+	(*GetEncodedSchemeSpecificPartRequest)(nil),             // 241: resolver.GetEncodedSchemeSpecificPartRequest
+	(*GetEncodedSchemeSpecificPartResponse)(nil),            // 242: resolver.GetEncodedSchemeSpecificPartResponse
+	(*GetEncodedUserInfoRequest)(nil),                       // 243: resolver.GetEncodedUserInfoRequest
+	(*GetEncodedUserInfoResponse)(nil),                      // 244: resolver.GetEncodedUserInfoResponse
+	(*GetFragmentRequest)(nil),                              // 245: resolver.GetFragmentRequest
+	(*GetFragmentResponse)(nil),                             // 246: resolver.GetFragmentResponse
+	(*GetHostRequest)(nil),                                  // 247: resolver.GetHostRequest
+	(*GetHostResponse)(nil),                                 // 248: resolver.GetHostResponse
+	(*GetLastPathSegmentRequest)(nil),                       // 249: resolver.GetLastPathSegmentRequest
+	(*GetLastPathSegmentResponse)(nil),                      // 250: resolver.GetLastPathSegmentResponse
+	(*GetPathRequest)(nil),                                  // 251: resolver.GetPathRequest
+	(*GetPathResponse)(nil),                                 // 252: resolver.GetPathResponse
+	(*GetPathSegmentsRequest)(nil),                          // 253: resolver.GetPathSegmentsRequest
+	(*GetPathSegmentsResponse)(nil),                         // 254: resolver.GetPathSegmentsResponse
+	(*GetPortRequest)(nil),                                  // 255: resolver.GetPortRequest
+	(*GetPortResponse)(nil),                                 // 256: resolver.GetPortResponse
+	(*GetQueryRequest)(nil),                                 // 257: resolver.GetQueryRequest
+	(*GetQueryResponse)(nil),                                // 258: resolver.GetQueryResponse
+	(*GetQueryParameterRequest)(nil),                        // 259: resolver.GetQueryParameterRequest
+	(*GetQueryParameterResponse)(nil),                       // 260: resolver.GetQueryParameterResponse
+	(*GetQueryParameterNamesRequest)(nil),                   // 261: resolver.GetQueryParameterNamesRequest
+	(*GetQueryParameterNamesResponse)(nil),                  // 262: resolver.GetQueryParameterNamesResponse
+	(*GetQueryParametersRequest)(nil),                       // 263: resolver.GetQueryParametersRequest
+	(*GetQueryParametersResponse)(nil),                      // 264: resolver.GetQueryParametersResponse
+	(*GetSchemeRequest)(nil),                                // 265: resolver.GetSchemeRequest
+	(*GetSchemeResponse)(nil),                               // 266: resolver.GetSchemeResponse
+	(*GetSchemeSpecificPartRequest)(nil),                    // 267: resolver.GetSchemeSpecificPartRequest
+	(*GetSchemeSpecificPartResponse)(nil),                   // 268: resolver.GetSchemeSpecificPartResponse
+	(*GetUserInfoRequest)(nil),                              // 269: resolver.GetUserInfoRequest
+	(*GetUserInfoResponse)(nil),                             // 270: resolver.GetUserInfoResponse
+	(*HashCodeRequest)(nil),                                 // 271: resolver.HashCodeRequest
+	(*HashCodeResponse)(nil),                                // 272: resolver.HashCodeResponse
+	(*IsAbsoluteRequest)(nil),                               // 273: resolver.IsAbsoluteRequest
+	(*IsAbsoluteResponse)(nil),                              // 274: resolver.IsAbsoluteResponse
+	(*IsHierarchicalRequest)(nil),                           // 275: resolver.IsHierarchicalRequest
+	(*IsHierarchicalResponse)(nil),                          // 276: resolver.IsHierarchicalResponse
+	(*IsOpaqueRequest)(nil),                                 // 277: resolver.IsOpaqueRequest
+	(*IsOpaqueResponse)(nil),                                // 278: resolver.IsOpaqueResponse
+	(*IsRelativeRequest)(nil),                               // 279: resolver.IsRelativeRequest
+	(*IsRelativeResponse)(nil),                              // 280: resolver.IsRelativeResponse
+	(*NormalizeSchemeRequest)(nil),                          // 281: resolver.NormalizeSchemeRequest
+	(*NormalizeSchemeResponse)(nil),                         // 282: resolver.NormalizeSchemeResponse
+	(*ToStringRequest)(nil),                                 // 283: resolver.ToStringRequest
+	(*ToStringResponse)(nil),                                // 284: resolver.ToStringResponse
+	(*CompareTo1_1Request)(nil),                             // 285: resolver.CompareTo1_1Request
+	(*CompareTo1_1Response)(nil),                            // 286: resolver.CompareTo1_1Response
+	(*DecodeRequest)(nil),                                   // 287: resolver.DecodeRequest
+	(*DecodeResponse)(nil),                                  // 288: resolver.DecodeResponse
+	(*Encode1Request)(nil),                                  // 289: resolver.Encode1Request
+	(*Encode1Response)(nil),                                 // 290: resolver.Encode1Response
+	(*Encode2_1Request)(nil),                                // 291: resolver.Encode2_1Request
+	(*Encode2_1Response)(nil),                               // 292: resolver.Encode2_1Response
+	(*FromFileRequest)(nil),                                 // 293: resolver.FromFileRequest
+	(*FromFileResponse)(nil),                                // 294: resolver.FromFileResponse
+	(*FromPartsRequest)(nil),                                // 295: resolver.FromPartsRequest
+	(*FromPartsResponse)(nil),                               // 296: resolver.FromPartsResponse
+	(*ParseRequest)(nil),                                    // 297: resolver.ParseRequest
+	(*ParseResponse)(nil),                                   // 298: resolver.ParseResponse
+	(*WithAppendedPathRequest)(nil),                         // 299: resolver.WithAppendedPathRequest
+	(*WithAppendedPathResponse)(nil),                        // 300: resolver.WithAppendedPathResponse
+	(*WriteToParcelRequest)(nil),                            // 301: resolver.WriteToParcelRequest
+	(*WriteToParcelResponse)(nil),                           // 302: resolver.WriteToParcelResponse
+	(*AppendEncodedPathRequest)(nil),                        // 303: resolver.AppendEncodedPathRequest
+	(*AppendEncodedPathResponse)(nil),                       // 304: resolver.AppendEncodedPathResponse
+	(*AppendPathRequest)(nil),                               // 305: resolver.AppendPathRequest
+	(*AppendPathResponse)(nil),                              // 306: resolver.AppendPathResponse
+	(*AppendQueryParameterRequest)(nil),                     // 307: resolver.AppendQueryParameterRequest
+	(*AppendQueryParameterResponse)(nil),                    // 308: resolver.AppendQueryParameterResponse
+	(*AuthorityRequest)(nil),                                // 309: resolver.AuthorityRequest
+	(*AuthorityResponse)(nil),                               // 310: resolver.AuthorityResponse
+	(*BuildRequest)(nil),                                    // 311: resolver.BuildRequest
+	(*BuildResponse)(nil),                                   // 312: resolver.BuildResponse
+	(*ClearQueryRequest)(nil),                               // 313: resolver.ClearQueryRequest
+	(*ClearQueryResponse)(nil),                              // 314: resolver.ClearQueryResponse
+	(*EncodedAuthorityRequest)(nil),                         // 315: resolver.EncodedAuthorityRequest
+	(*EncodedAuthorityResponse)(nil),                        // 316: resolver.EncodedAuthorityResponse
+	(*EncodedFragmentRequest)(nil),                          // 317: resolver.EncodedFragmentRequest
+	(*EncodedFragmentResponse)(nil),                         // 318: resolver.EncodedFragmentResponse
+	(*EncodedOpaquePartRequest)(nil),                        // 319: resolver.EncodedOpaquePartRequest
+	(*EncodedOpaquePartResponse)(nil),                       // 320: resolver.EncodedOpaquePartResponse
+	(*EncodedPathRequest)(nil),                              // 321: resolver.EncodedPathRequest
+	(*EncodedPathResponse)(nil),                             // 322: resolver.EncodedPathResponse
+	(*EncodedQueryRequest)(nil),                             // 323: resolver.EncodedQueryRequest
+	(*EncodedQueryResponse)(nil),                            // 324: resolver.EncodedQueryResponse
+	(*FragmentRequest)(nil),                                 // 325: resolver.FragmentRequest
+	(*FragmentResponse)(nil),                                // 326: resolver.FragmentResponse
+	(*OpaquePartRequest)(nil),                               // 327: resolver.OpaquePartRequest
+	(*OpaquePartResponse)(nil),                              // 328: resolver.OpaquePartResponse
+	(*PathRequest)(nil),                                     // 329: resolver.PathRequest
+	(*PathResponse)(nil),                                    // 330: resolver.PathResponse
+	(*QueryRequest)(nil),                                    // 331: resolver.QueryRequest
+	(*QueryResponse)(nil),                                   // 332: resolver.QueryResponse
+	(*SchemeRequest)(nil),                                   // 333: resolver.SchemeRequest
+	(*SchemeResponse)(nil),                                  // 334: resolver.SchemeResponse
 }
 var file_proto_resolver_resolver_proto_depIdxs = []int32{
 	0,   // 0: resolver.CursorService.Close:input_type -> resolver.CloseRequest
@@ -15463,282 +16092,296 @@ var file_proto_resolver_resolver_proto_depIdxs = []int32{
 	98,  // 49: resolver.ContentResolverService.Canonicalize:input_type -> resolver.CanonicalizeRequest
 	100, // 50: resolver.ContentResolverService.Delete2:input_type -> resolver.Delete2Request
 	102, // 51: resolver.ContentResolverService.Delete3_1:input_type -> resolver.Delete3_1Request
-	104, // 52: resolver.ContentResolverService.GetStreamTypes:input_type -> resolver.GetStreamTypesRequest
-	106, // 53: resolver.ContentResolverService.GetType:input_type -> resolver.ContentResolverGetTypeRequest
-	108, // 54: resolver.ContentResolverService.GetTypeInfo:input_type -> resolver.GetTypeInfoRequest
-	110, // 55: resolver.ContentResolverService.Insert2:input_type -> resolver.Insert2Request
-	112, // 56: resolver.ContentResolverService.Insert3_1:input_type -> resolver.Insert3_1Request
-	114, // 57: resolver.ContentResolverService.LoadThumbnail:input_type -> resolver.LoadThumbnailRequest
-	116, // 58: resolver.ContentResolverService.NotifyChange2:input_type -> resolver.NotifyChange2Request
-	118, // 59: resolver.ContentResolverService.NotifyChange3_1:input_type -> resolver.NotifyChange3_1Request
-	120, // 60: resolver.ContentResolverService.NotifyChange3_2:input_type -> resolver.NotifyChange3_2Request
-	122, // 61: resolver.ContentResolverService.OpenAssetFile:input_type -> resolver.OpenAssetFileRequest
-	124, // 62: resolver.ContentResolverService.OpenAssetFileDescriptor2:input_type -> resolver.OpenAssetFileDescriptor2Request
-	126, // 63: resolver.ContentResolverService.OpenAssetFileDescriptor3_1:input_type -> resolver.OpenAssetFileDescriptor3_1Request
-	128, // 64: resolver.ContentResolverService.OpenFile:input_type -> resolver.OpenFileRequest
-	130, // 65: resolver.ContentResolverService.OpenFileDescriptor2:input_type -> resolver.OpenFileDescriptor2Request
-	132, // 66: resolver.ContentResolverService.OpenFileDescriptor3_1:input_type -> resolver.OpenFileDescriptor3_1Request
-	134, // 67: resolver.ContentResolverService.OpenInputStream:input_type -> resolver.OpenInputStreamRequest
-	136, // 68: resolver.ContentResolverService.OpenOutputStream1:input_type -> resolver.OpenOutputStream1Request
-	138, // 69: resolver.ContentResolverService.OpenOutputStream2_1:input_type -> resolver.OpenOutputStream2_1Request
-	140, // 70: resolver.ContentResolverService.OpenTypedAssetFile:input_type -> resolver.OpenTypedAssetFileRequest
-	142, // 71: resolver.ContentResolverService.OpenTypedAssetFileDescriptor3:input_type -> resolver.OpenTypedAssetFileDescriptor3Request
-	144, // 72: resolver.ContentResolverService.OpenTypedAssetFileDescriptor4_1:input_type -> resolver.OpenTypedAssetFileDescriptor4_1Request
-	146, // 73: resolver.ContentResolverService.Query4:input_type -> resolver.Query4Request
-	148, // 74: resolver.ContentResolverService.Query5_1:input_type -> resolver.Query5_1Request
-	150, // 75: resolver.ContentResolverService.Query6_2:input_type -> resolver.Query6_2Request
-	152, // 76: resolver.ContentResolverService.Refresh:input_type -> resolver.RefreshRequest
-	154, // 77: resolver.ContentResolverService.RegisterContentObserver:input_type -> resolver.ContentResolverRegisterContentObserverRequest
-	155, // 78: resolver.ContentResolverService.ReleasePersistableUriPermission:input_type -> resolver.ReleasePersistableUriPermissionRequest
-	157, // 79: resolver.ContentResolverService.StartSync:input_type -> resolver.StartSyncRequest
-	159, // 80: resolver.ContentResolverService.TakePersistableUriPermission:input_type -> resolver.TakePersistableUriPermissionRequest
-	161, // 81: resolver.ContentResolverService.Uncanonicalize:input_type -> resolver.UncanonicalizeRequest
-	78,  // 82: resolver.ContentResolverService.UnregisterContentObserver:input_type -> resolver.UnregisterContentObserverRequest
-	163, // 83: resolver.ContentResolverService.Update3:input_type -> resolver.Update3Request
-	165, // 84: resolver.ContentResolverService.Update4_1:input_type -> resolver.Update4_1Request
-	167, // 85: resolver.ContentResolverService.AddPeriodicSync:input_type -> resolver.AddPeriodicSyncRequest
-	169, // 86: resolver.ContentResolverService.AddStatusChangeListener:input_type -> resolver.AddStatusChangeListenerRequest
-	171, // 87: resolver.ContentResolverService.CancelSync2:input_type -> resolver.CancelSync2Request
-	173, // 88: resolver.ContentResolverService.CancelSync1_1:input_type -> resolver.CancelSync1_1Request
-	175, // 89: resolver.ContentResolverService.GetCurrentSync:input_type -> resolver.GetCurrentSyncRequest
-	177, // 90: resolver.ContentResolverService.GetIsSyncable:input_type -> resolver.GetIsSyncableRequest
-	179, // 91: resolver.ContentResolverService.GetMasterSyncAutomatically:input_type -> resolver.GetMasterSyncAutomaticallyRequest
-	181, // 92: resolver.ContentResolverService.GetSyncAdapterTypes:input_type -> resolver.GetSyncAdapterTypesRequest
-	183, // 93: resolver.ContentResolverService.GetSyncAutomatically:input_type -> resolver.GetSyncAutomaticallyRequest
-	185, // 94: resolver.ContentResolverService.IsSyncActive:input_type -> resolver.IsSyncActiveRequest
-	187, // 95: resolver.ContentResolverService.IsSyncPending:input_type -> resolver.IsSyncPendingRequest
-	189, // 96: resolver.ContentResolverService.RemovePeriodicSync:input_type -> resolver.RemovePeriodicSyncRequest
-	191, // 97: resolver.ContentResolverService.RemoveStatusChangeListener:input_type -> resolver.RemoveStatusChangeListenerRequest
-	193, // 98: resolver.ContentResolverService.RequestSync3:input_type -> resolver.RequestSync3Request
-	195, // 99: resolver.ContentResolverService.RequestSync1_1:input_type -> resolver.RequestSync1_1Request
-	197, // 100: resolver.ContentResolverService.SetIsSyncable:input_type -> resolver.SetIsSyncableRequest
-	199, // 101: resolver.ContentResolverService.SetMasterSyncAutomatically:input_type -> resolver.SetMasterSyncAutomaticallyRequest
-	201, // 102: resolver.ContentResolverService.SetSyncAutomatically:input_type -> resolver.SetSyncAutomaticallyRequest
-	203, // 103: resolver.ContentResolverService.ValidateSyncExtrasBundle:input_type -> resolver.ValidateSyncExtrasBundleRequest
-	205, // 104: resolver.ContentResolverService.Wrap1:input_type -> resolver.Wrap1Request
-	207, // 105: resolver.ContentResolverService.Wrap1_1:input_type -> resolver.Wrap1_1Request
-	209, // 106: resolver.ContentResolverMimeTypeInfoService.GetContentDescription:input_type -> resolver.GetContentDescriptionRequest
-	211, // 107: resolver.ContentResolverMimeTypeInfoService.GetIcon:input_type -> resolver.GetIconRequest
-	213, // 108: resolver.ContentResolverMimeTypeInfoService.GetLabel:input_type -> resolver.GetLabelRequest
-	215, // 109: resolver.UriService.BuildUpon:input_type -> resolver.BuildUponRequest
-	217, // 110: resolver.UriService.CompareTo1:input_type -> resolver.CompareTo1Request
-	219, // 111: resolver.UriService.Equals:input_type -> resolver.EqualsRequest
-	221, // 112: resolver.UriService.GetAuthority:input_type -> resolver.GetAuthorityRequest
-	223, // 113: resolver.UriService.GetBooleanQueryParameter:input_type -> resolver.GetBooleanQueryParameterRequest
-	225, // 114: resolver.UriService.GetEncodedAuthority:input_type -> resolver.GetEncodedAuthorityRequest
-	227, // 115: resolver.UriService.GetEncodedFragment:input_type -> resolver.GetEncodedFragmentRequest
-	229, // 116: resolver.UriService.GetEncodedPath:input_type -> resolver.GetEncodedPathRequest
-	231, // 117: resolver.UriService.GetEncodedQuery:input_type -> resolver.GetEncodedQueryRequest
-	233, // 118: resolver.UriService.GetEncodedSchemeSpecificPart:input_type -> resolver.GetEncodedSchemeSpecificPartRequest
-	235, // 119: resolver.UriService.GetEncodedUserInfo:input_type -> resolver.GetEncodedUserInfoRequest
-	237, // 120: resolver.UriService.GetFragment:input_type -> resolver.GetFragmentRequest
-	239, // 121: resolver.UriService.GetHost:input_type -> resolver.GetHostRequest
-	241, // 122: resolver.UriService.GetLastPathSegment:input_type -> resolver.GetLastPathSegmentRequest
-	243, // 123: resolver.UriService.GetPath:input_type -> resolver.GetPathRequest
-	245, // 124: resolver.UriService.GetPort:input_type -> resolver.GetPortRequest
-	247, // 125: resolver.UriService.GetQuery:input_type -> resolver.GetQueryRequest
-	249, // 126: resolver.UriService.GetQueryParameter:input_type -> resolver.GetQueryParameterRequest
-	251, // 127: resolver.UriService.GetScheme:input_type -> resolver.GetSchemeRequest
-	253, // 128: resolver.UriService.GetSchemeSpecificPart:input_type -> resolver.GetSchemeSpecificPartRequest
-	255, // 129: resolver.UriService.GetUserInfo:input_type -> resolver.GetUserInfoRequest
-	257, // 130: resolver.UriService.HashCode:input_type -> resolver.HashCodeRequest
-	259, // 131: resolver.UriService.IsAbsolute:input_type -> resolver.IsAbsoluteRequest
-	261, // 132: resolver.UriService.IsHierarchical:input_type -> resolver.IsHierarchicalRequest
-	263, // 133: resolver.UriService.IsOpaque:input_type -> resolver.IsOpaqueRequest
-	265, // 134: resolver.UriService.IsRelative:input_type -> resolver.IsRelativeRequest
-	267, // 135: resolver.UriService.NormalizeScheme:input_type -> resolver.NormalizeSchemeRequest
-	269, // 136: resolver.UriService.ToString:input_type -> resolver.ToStringRequest
-	271, // 137: resolver.UriService.CompareTo1_1:input_type -> resolver.CompareTo1_1Request
-	273, // 138: resolver.UriService.Decode:input_type -> resolver.DecodeRequest
-	275, // 139: resolver.UriService.Encode1:input_type -> resolver.Encode1Request
-	277, // 140: resolver.UriService.Encode2_1:input_type -> resolver.Encode2_1Request
-	279, // 141: resolver.UriService.FromFile:input_type -> resolver.FromFileRequest
-	281, // 142: resolver.UriService.FromParts:input_type -> resolver.FromPartsRequest
-	283, // 143: resolver.UriService.Parse:input_type -> resolver.ParseRequest
-	285, // 144: resolver.UriService.WithAppendedPath:input_type -> resolver.WithAppendedPathRequest
-	287, // 145: resolver.UriService.WriteToParcel:input_type -> resolver.WriteToParcelRequest
-	289, // 146: resolver.UriBuilderService.AppendEncodedPath:input_type -> resolver.AppendEncodedPathRequest
-	291, // 147: resolver.UriBuilderService.AppendPath:input_type -> resolver.AppendPathRequest
-	293, // 148: resolver.UriBuilderService.AppendQueryParameter:input_type -> resolver.AppendQueryParameterRequest
-	295, // 149: resolver.UriBuilderService.Authority:input_type -> resolver.AuthorityRequest
-	297, // 150: resolver.UriBuilderService.Build:input_type -> resolver.BuildRequest
-	299, // 151: resolver.UriBuilderService.ClearQuery:input_type -> resolver.ClearQueryRequest
-	301, // 152: resolver.UriBuilderService.EncodedAuthority:input_type -> resolver.EncodedAuthorityRequest
-	303, // 153: resolver.UriBuilderService.EncodedFragment:input_type -> resolver.EncodedFragmentRequest
-	305, // 154: resolver.UriBuilderService.EncodedOpaquePart:input_type -> resolver.EncodedOpaquePartRequest
-	307, // 155: resolver.UriBuilderService.EncodedPath:input_type -> resolver.EncodedPathRequest
-	309, // 156: resolver.UriBuilderService.EncodedQuery:input_type -> resolver.EncodedQueryRequest
-	311, // 157: resolver.UriBuilderService.Fragment:input_type -> resolver.FragmentRequest
-	313, // 158: resolver.UriBuilderService.OpaquePart:input_type -> resolver.OpaquePartRequest
-	315, // 159: resolver.UriBuilderService.Path:input_type -> resolver.PathRequest
-	317, // 160: resolver.UriBuilderService.Query:input_type -> resolver.QueryRequest
-	319, // 161: resolver.UriBuilderService.Scheme:input_type -> resolver.SchemeRequest
-	269, // 162: resolver.UriBuilderService.ToString:input_type -> resolver.ToStringRequest
-	1,   // 163: resolver.CursorService.Close:output_type -> resolver.CloseResponse
-	3,   // 164: resolver.CursorService.CopyStringToBuffer:output_type -> resolver.CopyStringToBufferResponse
-	5,   // 165: resolver.CursorService.Deactivate:output_type -> resolver.DeactivateResponse
-	7,   // 166: resolver.CursorService.GetBlob:output_type -> resolver.GetBlobResponse
-	9,   // 167: resolver.CursorService.GetColumnCount:output_type -> resolver.GetColumnCountResponse
-	11,  // 168: resolver.CursorService.GetColumnIndex:output_type -> resolver.GetColumnIndexResponse
-	13,  // 169: resolver.CursorService.GetColumnIndexOrThrow:output_type -> resolver.GetColumnIndexOrThrowResponse
-	15,  // 170: resolver.CursorService.GetColumnName:output_type -> resolver.GetColumnNameResponse
-	17,  // 171: resolver.CursorService.GetColumnNames:output_type -> resolver.GetColumnNamesResponse
-	19,  // 172: resolver.CursorService.GetCount:output_type -> resolver.GetCountResponse
-	21,  // 173: resolver.CursorService.GetDouble:output_type -> resolver.GetDoubleResponse
-	23,  // 174: resolver.CursorService.GetExtras:output_type -> resolver.GetExtrasResponse
-	25,  // 175: resolver.CursorService.GetFloat:output_type -> resolver.GetFloatResponse
-	27,  // 176: resolver.CursorService.GetInt:output_type -> resolver.GetIntResponse
-	29,  // 177: resolver.CursorService.GetLong:output_type -> resolver.GetLongResponse
-	31,  // 178: resolver.CursorService.GetNotificationUri:output_type -> resolver.GetNotificationUriResponse
-	33,  // 179: resolver.CursorService.GetPosition:output_type -> resolver.GetPositionResponse
-	35,  // 180: resolver.CursorService.GetShort:output_type -> resolver.GetShortResponse
-	37,  // 181: resolver.CursorService.GetString:output_type -> resolver.GetStringResponse
-	39,  // 182: resolver.CursorService.GetType:output_type -> resolver.GetTypeResponse
-	41,  // 183: resolver.CursorService.GetWantsAllOnMoveCalls:output_type -> resolver.GetWantsAllOnMoveCallsResponse
-	43,  // 184: resolver.CursorService.IsAfterLast:output_type -> resolver.IsAfterLastResponse
-	45,  // 185: resolver.CursorService.IsBeforeFirst:output_type -> resolver.IsBeforeFirstResponse
-	47,  // 186: resolver.CursorService.IsClosed:output_type -> resolver.IsClosedResponse
-	49,  // 187: resolver.CursorService.IsFirst:output_type -> resolver.IsFirstResponse
-	51,  // 188: resolver.CursorService.IsLast:output_type -> resolver.IsLastResponse
-	53,  // 189: resolver.CursorService.IsNull:output_type -> resolver.IsNullResponse
-	55,  // 190: resolver.CursorService.Move:output_type -> resolver.MoveResponse
-	57,  // 191: resolver.CursorService.MoveToFirst:output_type -> resolver.MoveToFirstResponse
-	59,  // 192: resolver.CursorService.MoveToLast:output_type -> resolver.MoveToLastResponse
-	61,  // 193: resolver.CursorService.MoveToNext:output_type -> resolver.MoveToNextResponse
-	63,  // 194: resolver.CursorService.MoveToPosition:output_type -> resolver.MoveToPositionResponse
-	65,  // 195: resolver.CursorService.MoveToPrevious:output_type -> resolver.MoveToPreviousResponse
-	67,  // 196: resolver.CursorService.RegisterContentObserver:output_type -> resolver.RegisterContentObserverResponse
-	69,  // 197: resolver.CursorService.RegisterDataSetObserver:output_type -> resolver.RegisterDataSetObserverResponse
-	71,  // 198: resolver.CursorService.Requery:output_type -> resolver.RequeryResponse
-	73,  // 199: resolver.CursorService.Respond:output_type -> resolver.RespondResponse
-	75,  // 200: resolver.CursorService.SetExtras:output_type -> resolver.SetExtrasResponse
-	77,  // 201: resolver.CursorService.SetNotificationUri:output_type -> resolver.SetNotificationUriResponse
-	79,  // 202: resolver.CursorService.UnregisterContentObserver:output_type -> resolver.UnregisterContentObserverResponse
-	81,  // 203: resolver.CursorService.UnregisterDataSetObserver:output_type -> resolver.UnregisterDataSetObserverResponse
-	83,  // 204: resolver.ContentResolverService.AcquireContentProviderClient1:output_type -> resolver.AcquireContentProviderClient1Response
-	85,  // 205: resolver.ContentResolverService.AcquireContentProviderClient1_1:output_type -> resolver.AcquireContentProviderClient1_1Response
-	87,  // 206: resolver.ContentResolverService.AcquireUnstableContentProviderClient1:output_type -> resolver.AcquireUnstableContentProviderClient1Response
-	89,  // 207: resolver.ContentResolverService.AcquireUnstableContentProviderClient1_1:output_type -> resolver.AcquireUnstableContentProviderClient1_1Response
-	91,  // 208: resolver.ContentResolverService.BulkInsert:output_type -> resolver.BulkInsertResponse
-	93,  // 209: resolver.ContentResolverService.Call4:output_type -> resolver.Call4Response
-	95,  // 210: resolver.ContentResolverService.Call4_1:output_type -> resolver.Call4_1Response
-	97,  // 211: resolver.ContentResolverService.CancelSync1_2:output_type -> resolver.CancelSync1_2Response
-	99,  // 212: resolver.ContentResolverService.Canonicalize:output_type -> resolver.CanonicalizeResponse
-	101, // 213: resolver.ContentResolverService.Delete2:output_type -> resolver.Delete2Response
-	103, // 214: resolver.ContentResolverService.Delete3_1:output_type -> resolver.Delete3_1Response
-	105, // 215: resolver.ContentResolverService.GetStreamTypes:output_type -> resolver.GetStreamTypesResponse
-	107, // 216: resolver.ContentResolverService.GetType:output_type -> resolver.ContentResolverGetTypeResponse
-	109, // 217: resolver.ContentResolverService.GetTypeInfo:output_type -> resolver.GetTypeInfoResponse
-	111, // 218: resolver.ContentResolverService.Insert2:output_type -> resolver.Insert2Response
-	113, // 219: resolver.ContentResolverService.Insert3_1:output_type -> resolver.Insert3_1Response
-	115, // 220: resolver.ContentResolverService.LoadThumbnail:output_type -> resolver.LoadThumbnailResponse
-	117, // 221: resolver.ContentResolverService.NotifyChange2:output_type -> resolver.NotifyChange2Response
-	119, // 222: resolver.ContentResolverService.NotifyChange3_1:output_type -> resolver.NotifyChange3_1Response
-	121, // 223: resolver.ContentResolverService.NotifyChange3_2:output_type -> resolver.NotifyChange3_2Response
-	123, // 224: resolver.ContentResolverService.OpenAssetFile:output_type -> resolver.OpenAssetFileResponse
-	125, // 225: resolver.ContentResolverService.OpenAssetFileDescriptor2:output_type -> resolver.OpenAssetFileDescriptor2Response
-	127, // 226: resolver.ContentResolverService.OpenAssetFileDescriptor3_1:output_type -> resolver.OpenAssetFileDescriptor3_1Response
-	129, // 227: resolver.ContentResolverService.OpenFile:output_type -> resolver.OpenFileResponse
-	131, // 228: resolver.ContentResolverService.OpenFileDescriptor2:output_type -> resolver.OpenFileDescriptor2Response
-	133, // 229: resolver.ContentResolverService.OpenFileDescriptor3_1:output_type -> resolver.OpenFileDescriptor3_1Response
-	135, // 230: resolver.ContentResolverService.OpenInputStream:output_type -> resolver.OpenInputStreamResponse
-	137, // 231: resolver.ContentResolverService.OpenOutputStream1:output_type -> resolver.OpenOutputStream1Response
-	139, // 232: resolver.ContentResolverService.OpenOutputStream2_1:output_type -> resolver.OpenOutputStream2_1Response
-	141, // 233: resolver.ContentResolverService.OpenTypedAssetFile:output_type -> resolver.OpenTypedAssetFileResponse
-	143, // 234: resolver.ContentResolverService.OpenTypedAssetFileDescriptor3:output_type -> resolver.OpenTypedAssetFileDescriptor3Response
-	145, // 235: resolver.ContentResolverService.OpenTypedAssetFileDescriptor4_1:output_type -> resolver.OpenTypedAssetFileDescriptor4_1Response
-	147, // 236: resolver.ContentResolverService.Query4:output_type -> resolver.Query4Response
-	149, // 237: resolver.ContentResolverService.Query5_1:output_type -> resolver.Query5_1Response
-	151, // 238: resolver.ContentResolverService.Query6_2:output_type -> resolver.Query6_2Response
-	153, // 239: resolver.ContentResolverService.Refresh:output_type -> resolver.RefreshResponse
-	67,  // 240: resolver.ContentResolverService.RegisterContentObserver:output_type -> resolver.RegisterContentObserverResponse
-	156, // 241: resolver.ContentResolverService.ReleasePersistableUriPermission:output_type -> resolver.ReleasePersistableUriPermissionResponse
-	158, // 242: resolver.ContentResolverService.StartSync:output_type -> resolver.StartSyncResponse
-	160, // 243: resolver.ContentResolverService.TakePersistableUriPermission:output_type -> resolver.TakePersistableUriPermissionResponse
-	162, // 244: resolver.ContentResolverService.Uncanonicalize:output_type -> resolver.UncanonicalizeResponse
-	79,  // 245: resolver.ContentResolverService.UnregisterContentObserver:output_type -> resolver.UnregisterContentObserverResponse
-	164, // 246: resolver.ContentResolverService.Update3:output_type -> resolver.Update3Response
-	166, // 247: resolver.ContentResolverService.Update4_1:output_type -> resolver.Update4_1Response
-	168, // 248: resolver.ContentResolverService.AddPeriodicSync:output_type -> resolver.AddPeriodicSyncResponse
-	170, // 249: resolver.ContentResolverService.AddStatusChangeListener:output_type -> resolver.AddStatusChangeListenerResponse
-	172, // 250: resolver.ContentResolverService.CancelSync2:output_type -> resolver.CancelSync2Response
-	174, // 251: resolver.ContentResolverService.CancelSync1_1:output_type -> resolver.CancelSync1_1Response
-	176, // 252: resolver.ContentResolverService.GetCurrentSync:output_type -> resolver.GetCurrentSyncResponse
-	178, // 253: resolver.ContentResolverService.GetIsSyncable:output_type -> resolver.GetIsSyncableResponse
-	180, // 254: resolver.ContentResolverService.GetMasterSyncAutomatically:output_type -> resolver.GetMasterSyncAutomaticallyResponse
-	182, // 255: resolver.ContentResolverService.GetSyncAdapterTypes:output_type -> resolver.GetSyncAdapterTypesResponse
-	184, // 256: resolver.ContentResolverService.GetSyncAutomatically:output_type -> resolver.GetSyncAutomaticallyResponse
-	186, // 257: resolver.ContentResolverService.IsSyncActive:output_type -> resolver.IsSyncActiveResponse
-	188, // 258: resolver.ContentResolverService.IsSyncPending:output_type -> resolver.IsSyncPendingResponse
-	190, // 259: resolver.ContentResolverService.RemovePeriodicSync:output_type -> resolver.RemovePeriodicSyncResponse
-	192, // 260: resolver.ContentResolverService.RemoveStatusChangeListener:output_type -> resolver.RemoveStatusChangeListenerResponse
-	194, // 261: resolver.ContentResolverService.RequestSync3:output_type -> resolver.RequestSync3Response
-	196, // 262: resolver.ContentResolverService.RequestSync1_1:output_type -> resolver.RequestSync1_1Response
-	198, // 263: resolver.ContentResolverService.SetIsSyncable:output_type -> resolver.SetIsSyncableResponse
-	200, // 264: resolver.ContentResolverService.SetMasterSyncAutomatically:output_type -> resolver.SetMasterSyncAutomaticallyResponse
-	202, // 265: resolver.ContentResolverService.SetSyncAutomatically:output_type -> resolver.SetSyncAutomaticallyResponse
-	204, // 266: resolver.ContentResolverService.ValidateSyncExtrasBundle:output_type -> resolver.ValidateSyncExtrasBundleResponse
-	206, // 267: resolver.ContentResolverService.Wrap1:output_type -> resolver.Wrap1Response
-	208, // 268: resolver.ContentResolverService.Wrap1_1:output_type -> resolver.Wrap1_1Response
-	210, // 269: resolver.ContentResolverMimeTypeInfoService.GetContentDescription:output_type -> resolver.GetContentDescriptionResponse
-	212, // 270: resolver.ContentResolverMimeTypeInfoService.GetIcon:output_type -> resolver.GetIconResponse
-	214, // 271: resolver.ContentResolverMimeTypeInfoService.GetLabel:output_type -> resolver.GetLabelResponse
-	216, // 272: resolver.UriService.BuildUpon:output_type -> resolver.BuildUponResponse
-	218, // 273: resolver.UriService.CompareTo1:output_type -> resolver.CompareTo1Response
-	220, // 274: resolver.UriService.Equals:output_type -> resolver.EqualsResponse
-	222, // 275: resolver.UriService.GetAuthority:output_type -> resolver.GetAuthorityResponse
-	224, // 276: resolver.UriService.GetBooleanQueryParameter:output_type -> resolver.GetBooleanQueryParameterResponse
-	226, // 277: resolver.UriService.GetEncodedAuthority:output_type -> resolver.GetEncodedAuthorityResponse
-	228, // 278: resolver.UriService.GetEncodedFragment:output_type -> resolver.GetEncodedFragmentResponse
-	230, // 279: resolver.UriService.GetEncodedPath:output_type -> resolver.GetEncodedPathResponse
-	232, // 280: resolver.UriService.GetEncodedQuery:output_type -> resolver.GetEncodedQueryResponse
-	234, // 281: resolver.UriService.GetEncodedSchemeSpecificPart:output_type -> resolver.GetEncodedSchemeSpecificPartResponse
-	236, // 282: resolver.UriService.GetEncodedUserInfo:output_type -> resolver.GetEncodedUserInfoResponse
-	238, // 283: resolver.UriService.GetFragment:output_type -> resolver.GetFragmentResponse
-	240, // 284: resolver.UriService.GetHost:output_type -> resolver.GetHostResponse
-	242, // 285: resolver.UriService.GetLastPathSegment:output_type -> resolver.GetLastPathSegmentResponse
-	244, // 286: resolver.UriService.GetPath:output_type -> resolver.GetPathResponse
-	246, // 287: resolver.UriService.GetPort:output_type -> resolver.GetPortResponse
-	248, // 288: resolver.UriService.GetQuery:output_type -> resolver.GetQueryResponse
-	250, // 289: resolver.UriService.GetQueryParameter:output_type -> resolver.GetQueryParameterResponse
-	252, // 290: resolver.UriService.GetScheme:output_type -> resolver.GetSchemeResponse
-	254, // 291: resolver.UriService.GetSchemeSpecificPart:output_type -> resolver.GetSchemeSpecificPartResponse
-	256, // 292: resolver.UriService.GetUserInfo:output_type -> resolver.GetUserInfoResponse
-	258, // 293: resolver.UriService.HashCode:output_type -> resolver.HashCodeResponse
-	260, // 294: resolver.UriService.IsAbsolute:output_type -> resolver.IsAbsoluteResponse
-	262, // 295: resolver.UriService.IsHierarchical:output_type -> resolver.IsHierarchicalResponse
-	264, // 296: resolver.UriService.IsOpaque:output_type -> resolver.IsOpaqueResponse
-	266, // 297: resolver.UriService.IsRelative:output_type -> resolver.IsRelativeResponse
-	268, // 298: resolver.UriService.NormalizeScheme:output_type -> resolver.NormalizeSchemeResponse
-	270, // 299: resolver.UriService.ToString:output_type -> resolver.ToStringResponse
-	272, // 300: resolver.UriService.CompareTo1_1:output_type -> resolver.CompareTo1_1Response
-	274, // 301: resolver.UriService.Decode:output_type -> resolver.DecodeResponse
-	276, // 302: resolver.UriService.Encode1:output_type -> resolver.Encode1Response
-	278, // 303: resolver.UriService.Encode2_1:output_type -> resolver.Encode2_1Response
-	280, // 304: resolver.UriService.FromFile:output_type -> resolver.FromFileResponse
-	282, // 305: resolver.UriService.FromParts:output_type -> resolver.FromPartsResponse
-	284, // 306: resolver.UriService.Parse:output_type -> resolver.ParseResponse
-	286, // 307: resolver.UriService.WithAppendedPath:output_type -> resolver.WithAppendedPathResponse
-	288, // 308: resolver.UriService.WriteToParcel:output_type -> resolver.WriteToParcelResponse
-	290, // 309: resolver.UriBuilderService.AppendEncodedPath:output_type -> resolver.AppendEncodedPathResponse
-	292, // 310: resolver.UriBuilderService.AppendPath:output_type -> resolver.AppendPathResponse
-	294, // 311: resolver.UriBuilderService.AppendQueryParameter:output_type -> resolver.AppendQueryParameterResponse
-	296, // 312: resolver.UriBuilderService.Authority:output_type -> resolver.AuthorityResponse
-	298, // 313: resolver.UriBuilderService.Build:output_type -> resolver.BuildResponse
-	300, // 314: resolver.UriBuilderService.ClearQuery:output_type -> resolver.ClearQueryResponse
-	302, // 315: resolver.UriBuilderService.EncodedAuthority:output_type -> resolver.EncodedAuthorityResponse
-	304, // 316: resolver.UriBuilderService.EncodedFragment:output_type -> resolver.EncodedFragmentResponse
-	306, // 317: resolver.UriBuilderService.EncodedOpaquePart:output_type -> resolver.EncodedOpaquePartResponse
-	308, // 318: resolver.UriBuilderService.EncodedPath:output_type -> resolver.EncodedPathResponse
-	310, // 319: resolver.UriBuilderService.EncodedQuery:output_type -> resolver.EncodedQueryResponse
-	312, // 320: resolver.UriBuilderService.Fragment:output_type -> resolver.FragmentResponse
-	314, // 321: resolver.UriBuilderService.OpaquePart:output_type -> resolver.OpaquePartResponse
-	316, // 322: resolver.UriBuilderService.Path:output_type -> resolver.PathResponse
-	318, // 323: resolver.UriBuilderService.Query:output_type -> resolver.QueryResponse
-	320, // 324: resolver.UriBuilderService.Scheme:output_type -> resolver.SchemeResponse
-	270, // 325: resolver.UriBuilderService.ToString:output_type -> resolver.ToStringResponse
-	163, // [163:326] is the sub-list for method output_type
-	0,   // [0:163] is the sub-list for method input_type
+	104, // 52: resolver.ContentResolverService.GetOutgoingPersistedUriPermissions:input_type -> resolver.GetOutgoingPersistedUriPermissionsRequest
+	106, // 53: resolver.ContentResolverService.GetPersistedUriPermissions:input_type -> resolver.GetPersistedUriPermissionsRequest
+	108, // 54: resolver.ContentResolverService.GetStreamTypes:input_type -> resolver.GetStreamTypesRequest
+	110, // 55: resolver.ContentResolverService.GetType:input_type -> resolver.ContentResolverGetTypeRequest
+	112, // 56: resolver.ContentResolverService.GetTypeInfo:input_type -> resolver.GetTypeInfoRequest
+	114, // 57: resolver.ContentResolverService.Insert2:input_type -> resolver.Insert2Request
+	116, // 58: resolver.ContentResolverService.Insert3_1:input_type -> resolver.Insert3_1Request
+	118, // 59: resolver.ContentResolverService.LoadThumbnail:input_type -> resolver.LoadThumbnailRequest
+	120, // 60: resolver.ContentResolverService.NotifyChange2:input_type -> resolver.NotifyChange2Request
+	122, // 61: resolver.ContentResolverService.NotifyChange3_1:input_type -> resolver.NotifyChange3_1Request
+	124, // 62: resolver.ContentResolverService.NotifyChange3_2:input_type -> resolver.NotifyChange3_2Request
+	126, // 63: resolver.ContentResolverService.OpenAssetFile:input_type -> resolver.OpenAssetFileRequest
+	128, // 64: resolver.ContentResolverService.OpenAssetFileDescriptor2:input_type -> resolver.OpenAssetFileDescriptor2Request
+	130, // 65: resolver.ContentResolverService.OpenAssetFileDescriptor3_1:input_type -> resolver.OpenAssetFileDescriptor3_1Request
+	132, // 66: resolver.ContentResolverService.OpenFile:input_type -> resolver.OpenFileRequest
+	134, // 67: resolver.ContentResolverService.OpenFileDescriptor2:input_type -> resolver.OpenFileDescriptor2Request
+	136, // 68: resolver.ContentResolverService.OpenFileDescriptor3_1:input_type -> resolver.OpenFileDescriptor3_1Request
+	138, // 69: resolver.ContentResolverService.OpenInputStream:input_type -> resolver.OpenInputStreamRequest
+	140, // 70: resolver.ContentResolverService.OpenOutputStream1:input_type -> resolver.OpenOutputStream1Request
+	142, // 71: resolver.ContentResolverService.OpenOutputStream2_1:input_type -> resolver.OpenOutputStream2_1Request
+	144, // 72: resolver.ContentResolverService.OpenTypedAssetFile:input_type -> resolver.OpenTypedAssetFileRequest
+	146, // 73: resolver.ContentResolverService.OpenTypedAssetFileDescriptor3:input_type -> resolver.OpenTypedAssetFileDescriptor3Request
+	148, // 74: resolver.ContentResolverService.OpenTypedAssetFileDescriptor4_1:input_type -> resolver.OpenTypedAssetFileDescriptor4_1Request
+	150, // 75: resolver.ContentResolverService.Query4:input_type -> resolver.Query4Request
+	152, // 76: resolver.ContentResolverService.Query5_1:input_type -> resolver.Query5_1Request
+	154, // 77: resolver.ContentResolverService.Query6_2:input_type -> resolver.Query6_2Request
+	156, // 78: resolver.ContentResolverService.Refresh:input_type -> resolver.RefreshRequest
+	158, // 79: resolver.ContentResolverService.RegisterContentObserver:input_type -> resolver.ContentResolverRegisterContentObserverRequest
+	159, // 80: resolver.ContentResolverService.ReleasePersistableUriPermission:input_type -> resolver.ReleasePersistableUriPermissionRequest
+	161, // 81: resolver.ContentResolverService.StartSync:input_type -> resolver.StartSyncRequest
+	163, // 82: resolver.ContentResolverService.TakePersistableUriPermission:input_type -> resolver.TakePersistableUriPermissionRequest
+	165, // 83: resolver.ContentResolverService.Uncanonicalize:input_type -> resolver.UncanonicalizeRequest
+	78,  // 84: resolver.ContentResolverService.UnregisterContentObserver:input_type -> resolver.UnregisterContentObserverRequest
+	167, // 85: resolver.ContentResolverService.Update3:input_type -> resolver.Update3Request
+	169, // 86: resolver.ContentResolverService.Update4_1:input_type -> resolver.Update4_1Request
+	171, // 87: resolver.ContentResolverService.AddPeriodicSync:input_type -> resolver.AddPeriodicSyncRequest
+	173, // 88: resolver.ContentResolverService.AddStatusChangeListener:input_type -> resolver.AddStatusChangeListenerRequest
+	175, // 89: resolver.ContentResolverService.CancelSync2:input_type -> resolver.CancelSync2Request
+	177, // 90: resolver.ContentResolverService.CancelSync1_1:input_type -> resolver.CancelSync1_1Request
+	179, // 91: resolver.ContentResolverService.GetCurrentSync:input_type -> resolver.GetCurrentSyncRequest
+	181, // 92: resolver.ContentResolverService.GetCurrentSyncs:input_type -> resolver.GetCurrentSyncsRequest
+	183, // 93: resolver.ContentResolverService.GetIsSyncable:input_type -> resolver.GetIsSyncableRequest
+	185, // 94: resolver.ContentResolverService.GetMasterSyncAutomatically:input_type -> resolver.GetMasterSyncAutomaticallyRequest
+	187, // 95: resolver.ContentResolverService.GetPeriodicSyncs:input_type -> resolver.GetPeriodicSyncsRequest
+	189, // 96: resolver.ContentResolverService.GetSyncAdapterTypes:input_type -> resolver.GetSyncAdapterTypesRequest
+	191, // 97: resolver.ContentResolverService.GetSyncAutomatically:input_type -> resolver.GetSyncAutomaticallyRequest
+	193, // 98: resolver.ContentResolverService.IsSyncActive:input_type -> resolver.IsSyncActiveRequest
+	195, // 99: resolver.ContentResolverService.IsSyncPending:input_type -> resolver.IsSyncPendingRequest
+	197, // 100: resolver.ContentResolverService.RemovePeriodicSync:input_type -> resolver.RemovePeriodicSyncRequest
+	199, // 101: resolver.ContentResolverService.RemoveStatusChangeListener:input_type -> resolver.RemoveStatusChangeListenerRequest
+	201, // 102: resolver.ContentResolverService.RequestSync3:input_type -> resolver.RequestSync3Request
+	203, // 103: resolver.ContentResolverService.RequestSync1_1:input_type -> resolver.RequestSync1_1Request
+	205, // 104: resolver.ContentResolverService.SetIsSyncable:input_type -> resolver.SetIsSyncableRequest
+	207, // 105: resolver.ContentResolverService.SetMasterSyncAutomatically:input_type -> resolver.SetMasterSyncAutomaticallyRequest
+	209, // 106: resolver.ContentResolverService.SetSyncAutomatically:input_type -> resolver.SetSyncAutomaticallyRequest
+	211, // 107: resolver.ContentResolverService.ValidateSyncExtrasBundle:input_type -> resolver.ValidateSyncExtrasBundleRequest
+	213, // 108: resolver.ContentResolverService.Wrap1:input_type -> resolver.Wrap1Request
+	215, // 109: resolver.ContentResolverService.Wrap1_1:input_type -> resolver.Wrap1_1Request
+	217, // 110: resolver.ContentResolverMimeTypeInfoService.GetContentDescription:input_type -> resolver.GetContentDescriptionRequest
+	219, // 111: resolver.ContentResolverMimeTypeInfoService.GetIcon:input_type -> resolver.GetIconRequest
+	221, // 112: resolver.ContentResolverMimeTypeInfoService.GetLabel:input_type -> resolver.GetLabelRequest
+	223, // 113: resolver.UriService.BuildUpon:input_type -> resolver.BuildUponRequest
+	225, // 114: resolver.UriService.CompareTo1:input_type -> resolver.CompareTo1Request
+	227, // 115: resolver.UriService.Equals:input_type -> resolver.EqualsRequest
+	229, // 116: resolver.UriService.GetAuthority:input_type -> resolver.GetAuthorityRequest
+	231, // 117: resolver.UriService.GetBooleanQueryParameter:input_type -> resolver.GetBooleanQueryParameterRequest
+	233, // 118: resolver.UriService.GetEncodedAuthority:input_type -> resolver.GetEncodedAuthorityRequest
+	235, // 119: resolver.UriService.GetEncodedFragment:input_type -> resolver.GetEncodedFragmentRequest
+	237, // 120: resolver.UriService.GetEncodedPath:input_type -> resolver.GetEncodedPathRequest
+	239, // 121: resolver.UriService.GetEncodedQuery:input_type -> resolver.GetEncodedQueryRequest
+	241, // 122: resolver.UriService.GetEncodedSchemeSpecificPart:input_type -> resolver.GetEncodedSchemeSpecificPartRequest
+	243, // 123: resolver.UriService.GetEncodedUserInfo:input_type -> resolver.GetEncodedUserInfoRequest
+	245, // 124: resolver.UriService.GetFragment:input_type -> resolver.GetFragmentRequest
+	247, // 125: resolver.UriService.GetHost:input_type -> resolver.GetHostRequest
+	249, // 126: resolver.UriService.GetLastPathSegment:input_type -> resolver.GetLastPathSegmentRequest
+	251, // 127: resolver.UriService.GetPath:input_type -> resolver.GetPathRequest
+	253, // 128: resolver.UriService.GetPathSegments:input_type -> resolver.GetPathSegmentsRequest
+	255, // 129: resolver.UriService.GetPort:input_type -> resolver.GetPortRequest
+	257, // 130: resolver.UriService.GetQuery:input_type -> resolver.GetQueryRequest
+	259, // 131: resolver.UriService.GetQueryParameter:input_type -> resolver.GetQueryParameterRequest
+	261, // 132: resolver.UriService.GetQueryParameterNames:input_type -> resolver.GetQueryParameterNamesRequest
+	263, // 133: resolver.UriService.GetQueryParameters:input_type -> resolver.GetQueryParametersRequest
+	265, // 134: resolver.UriService.GetScheme:input_type -> resolver.GetSchemeRequest
+	267, // 135: resolver.UriService.GetSchemeSpecificPart:input_type -> resolver.GetSchemeSpecificPartRequest
+	269, // 136: resolver.UriService.GetUserInfo:input_type -> resolver.GetUserInfoRequest
+	271, // 137: resolver.UriService.HashCode:input_type -> resolver.HashCodeRequest
+	273, // 138: resolver.UriService.IsAbsolute:input_type -> resolver.IsAbsoluteRequest
+	275, // 139: resolver.UriService.IsHierarchical:input_type -> resolver.IsHierarchicalRequest
+	277, // 140: resolver.UriService.IsOpaque:input_type -> resolver.IsOpaqueRequest
+	279, // 141: resolver.UriService.IsRelative:input_type -> resolver.IsRelativeRequest
+	281, // 142: resolver.UriService.NormalizeScheme:input_type -> resolver.NormalizeSchemeRequest
+	283, // 143: resolver.UriService.ToString:input_type -> resolver.ToStringRequest
+	285, // 144: resolver.UriService.CompareTo1_1:input_type -> resolver.CompareTo1_1Request
+	287, // 145: resolver.UriService.Decode:input_type -> resolver.DecodeRequest
+	289, // 146: resolver.UriService.Encode1:input_type -> resolver.Encode1Request
+	291, // 147: resolver.UriService.Encode2_1:input_type -> resolver.Encode2_1Request
+	293, // 148: resolver.UriService.FromFile:input_type -> resolver.FromFileRequest
+	295, // 149: resolver.UriService.FromParts:input_type -> resolver.FromPartsRequest
+	297, // 150: resolver.UriService.Parse:input_type -> resolver.ParseRequest
+	299, // 151: resolver.UriService.WithAppendedPath:input_type -> resolver.WithAppendedPathRequest
+	301, // 152: resolver.UriService.WriteToParcel:input_type -> resolver.WriteToParcelRequest
+	303, // 153: resolver.UriBuilderService.AppendEncodedPath:input_type -> resolver.AppendEncodedPathRequest
+	305, // 154: resolver.UriBuilderService.AppendPath:input_type -> resolver.AppendPathRequest
+	307, // 155: resolver.UriBuilderService.AppendQueryParameter:input_type -> resolver.AppendQueryParameterRequest
+	309, // 156: resolver.UriBuilderService.Authority:input_type -> resolver.AuthorityRequest
+	311, // 157: resolver.UriBuilderService.Build:input_type -> resolver.BuildRequest
+	313, // 158: resolver.UriBuilderService.ClearQuery:input_type -> resolver.ClearQueryRequest
+	315, // 159: resolver.UriBuilderService.EncodedAuthority:input_type -> resolver.EncodedAuthorityRequest
+	317, // 160: resolver.UriBuilderService.EncodedFragment:input_type -> resolver.EncodedFragmentRequest
+	319, // 161: resolver.UriBuilderService.EncodedOpaquePart:input_type -> resolver.EncodedOpaquePartRequest
+	321, // 162: resolver.UriBuilderService.EncodedPath:input_type -> resolver.EncodedPathRequest
+	323, // 163: resolver.UriBuilderService.EncodedQuery:input_type -> resolver.EncodedQueryRequest
+	325, // 164: resolver.UriBuilderService.Fragment:input_type -> resolver.FragmentRequest
+	327, // 165: resolver.UriBuilderService.OpaquePart:input_type -> resolver.OpaquePartRequest
+	329, // 166: resolver.UriBuilderService.Path:input_type -> resolver.PathRequest
+	331, // 167: resolver.UriBuilderService.Query:input_type -> resolver.QueryRequest
+	333, // 168: resolver.UriBuilderService.Scheme:input_type -> resolver.SchemeRequest
+	283, // 169: resolver.UriBuilderService.ToString:input_type -> resolver.ToStringRequest
+	1,   // 170: resolver.CursorService.Close:output_type -> resolver.CloseResponse
+	3,   // 171: resolver.CursorService.CopyStringToBuffer:output_type -> resolver.CopyStringToBufferResponse
+	5,   // 172: resolver.CursorService.Deactivate:output_type -> resolver.DeactivateResponse
+	7,   // 173: resolver.CursorService.GetBlob:output_type -> resolver.GetBlobResponse
+	9,   // 174: resolver.CursorService.GetColumnCount:output_type -> resolver.GetColumnCountResponse
+	11,  // 175: resolver.CursorService.GetColumnIndex:output_type -> resolver.GetColumnIndexResponse
+	13,  // 176: resolver.CursorService.GetColumnIndexOrThrow:output_type -> resolver.GetColumnIndexOrThrowResponse
+	15,  // 177: resolver.CursorService.GetColumnName:output_type -> resolver.GetColumnNameResponse
+	17,  // 178: resolver.CursorService.GetColumnNames:output_type -> resolver.GetColumnNamesResponse
+	19,  // 179: resolver.CursorService.GetCount:output_type -> resolver.GetCountResponse
+	21,  // 180: resolver.CursorService.GetDouble:output_type -> resolver.GetDoubleResponse
+	23,  // 181: resolver.CursorService.GetExtras:output_type -> resolver.GetExtrasResponse
+	25,  // 182: resolver.CursorService.GetFloat:output_type -> resolver.GetFloatResponse
+	27,  // 183: resolver.CursorService.GetInt:output_type -> resolver.GetIntResponse
+	29,  // 184: resolver.CursorService.GetLong:output_type -> resolver.GetLongResponse
+	31,  // 185: resolver.CursorService.GetNotificationUri:output_type -> resolver.GetNotificationUriResponse
+	33,  // 186: resolver.CursorService.GetPosition:output_type -> resolver.GetPositionResponse
+	35,  // 187: resolver.CursorService.GetShort:output_type -> resolver.GetShortResponse
+	37,  // 188: resolver.CursorService.GetString:output_type -> resolver.GetStringResponse
+	39,  // 189: resolver.CursorService.GetType:output_type -> resolver.GetTypeResponse
+	41,  // 190: resolver.CursorService.GetWantsAllOnMoveCalls:output_type -> resolver.GetWantsAllOnMoveCallsResponse
+	43,  // 191: resolver.CursorService.IsAfterLast:output_type -> resolver.IsAfterLastResponse
+	45,  // 192: resolver.CursorService.IsBeforeFirst:output_type -> resolver.IsBeforeFirstResponse
+	47,  // 193: resolver.CursorService.IsClosed:output_type -> resolver.IsClosedResponse
+	49,  // 194: resolver.CursorService.IsFirst:output_type -> resolver.IsFirstResponse
+	51,  // 195: resolver.CursorService.IsLast:output_type -> resolver.IsLastResponse
+	53,  // 196: resolver.CursorService.IsNull:output_type -> resolver.IsNullResponse
+	55,  // 197: resolver.CursorService.Move:output_type -> resolver.MoveResponse
+	57,  // 198: resolver.CursorService.MoveToFirst:output_type -> resolver.MoveToFirstResponse
+	59,  // 199: resolver.CursorService.MoveToLast:output_type -> resolver.MoveToLastResponse
+	61,  // 200: resolver.CursorService.MoveToNext:output_type -> resolver.MoveToNextResponse
+	63,  // 201: resolver.CursorService.MoveToPosition:output_type -> resolver.MoveToPositionResponse
+	65,  // 202: resolver.CursorService.MoveToPrevious:output_type -> resolver.MoveToPreviousResponse
+	67,  // 203: resolver.CursorService.RegisterContentObserver:output_type -> resolver.RegisterContentObserverResponse
+	69,  // 204: resolver.CursorService.RegisterDataSetObserver:output_type -> resolver.RegisterDataSetObserverResponse
+	71,  // 205: resolver.CursorService.Requery:output_type -> resolver.RequeryResponse
+	73,  // 206: resolver.CursorService.Respond:output_type -> resolver.RespondResponse
+	75,  // 207: resolver.CursorService.SetExtras:output_type -> resolver.SetExtrasResponse
+	77,  // 208: resolver.CursorService.SetNotificationUri:output_type -> resolver.SetNotificationUriResponse
+	79,  // 209: resolver.CursorService.UnregisterContentObserver:output_type -> resolver.UnregisterContentObserverResponse
+	81,  // 210: resolver.CursorService.UnregisterDataSetObserver:output_type -> resolver.UnregisterDataSetObserverResponse
+	83,  // 211: resolver.ContentResolverService.AcquireContentProviderClient1:output_type -> resolver.AcquireContentProviderClient1Response
+	85,  // 212: resolver.ContentResolverService.AcquireContentProviderClient1_1:output_type -> resolver.AcquireContentProviderClient1_1Response
+	87,  // 213: resolver.ContentResolverService.AcquireUnstableContentProviderClient1:output_type -> resolver.AcquireUnstableContentProviderClient1Response
+	89,  // 214: resolver.ContentResolverService.AcquireUnstableContentProviderClient1_1:output_type -> resolver.AcquireUnstableContentProviderClient1_1Response
+	91,  // 215: resolver.ContentResolverService.BulkInsert:output_type -> resolver.BulkInsertResponse
+	93,  // 216: resolver.ContentResolverService.Call4:output_type -> resolver.Call4Response
+	95,  // 217: resolver.ContentResolverService.Call4_1:output_type -> resolver.Call4_1Response
+	97,  // 218: resolver.ContentResolverService.CancelSync1_2:output_type -> resolver.CancelSync1_2Response
+	99,  // 219: resolver.ContentResolverService.Canonicalize:output_type -> resolver.CanonicalizeResponse
+	101, // 220: resolver.ContentResolverService.Delete2:output_type -> resolver.Delete2Response
+	103, // 221: resolver.ContentResolverService.Delete3_1:output_type -> resolver.Delete3_1Response
+	105, // 222: resolver.ContentResolverService.GetOutgoingPersistedUriPermissions:output_type -> resolver.GetOutgoingPersistedUriPermissionsResponse
+	107, // 223: resolver.ContentResolverService.GetPersistedUriPermissions:output_type -> resolver.GetPersistedUriPermissionsResponse
+	109, // 224: resolver.ContentResolverService.GetStreamTypes:output_type -> resolver.GetStreamTypesResponse
+	111, // 225: resolver.ContentResolverService.GetType:output_type -> resolver.ContentResolverGetTypeResponse
+	113, // 226: resolver.ContentResolverService.GetTypeInfo:output_type -> resolver.GetTypeInfoResponse
+	115, // 227: resolver.ContentResolverService.Insert2:output_type -> resolver.Insert2Response
+	117, // 228: resolver.ContentResolverService.Insert3_1:output_type -> resolver.Insert3_1Response
+	119, // 229: resolver.ContentResolverService.LoadThumbnail:output_type -> resolver.LoadThumbnailResponse
+	121, // 230: resolver.ContentResolverService.NotifyChange2:output_type -> resolver.NotifyChange2Response
+	123, // 231: resolver.ContentResolverService.NotifyChange3_1:output_type -> resolver.NotifyChange3_1Response
+	125, // 232: resolver.ContentResolverService.NotifyChange3_2:output_type -> resolver.NotifyChange3_2Response
+	127, // 233: resolver.ContentResolverService.OpenAssetFile:output_type -> resolver.OpenAssetFileResponse
+	129, // 234: resolver.ContentResolverService.OpenAssetFileDescriptor2:output_type -> resolver.OpenAssetFileDescriptor2Response
+	131, // 235: resolver.ContentResolverService.OpenAssetFileDescriptor3_1:output_type -> resolver.OpenAssetFileDescriptor3_1Response
+	133, // 236: resolver.ContentResolverService.OpenFile:output_type -> resolver.OpenFileResponse
+	135, // 237: resolver.ContentResolverService.OpenFileDescriptor2:output_type -> resolver.OpenFileDescriptor2Response
+	137, // 238: resolver.ContentResolverService.OpenFileDescriptor3_1:output_type -> resolver.OpenFileDescriptor3_1Response
+	139, // 239: resolver.ContentResolverService.OpenInputStream:output_type -> resolver.OpenInputStreamResponse
+	141, // 240: resolver.ContentResolverService.OpenOutputStream1:output_type -> resolver.OpenOutputStream1Response
+	143, // 241: resolver.ContentResolverService.OpenOutputStream2_1:output_type -> resolver.OpenOutputStream2_1Response
+	145, // 242: resolver.ContentResolverService.OpenTypedAssetFile:output_type -> resolver.OpenTypedAssetFileResponse
+	147, // 243: resolver.ContentResolverService.OpenTypedAssetFileDescriptor3:output_type -> resolver.OpenTypedAssetFileDescriptor3Response
+	149, // 244: resolver.ContentResolverService.OpenTypedAssetFileDescriptor4_1:output_type -> resolver.OpenTypedAssetFileDescriptor4_1Response
+	151, // 245: resolver.ContentResolverService.Query4:output_type -> resolver.Query4Response
+	153, // 246: resolver.ContentResolverService.Query5_1:output_type -> resolver.Query5_1Response
+	155, // 247: resolver.ContentResolverService.Query6_2:output_type -> resolver.Query6_2Response
+	157, // 248: resolver.ContentResolverService.Refresh:output_type -> resolver.RefreshResponse
+	67,  // 249: resolver.ContentResolverService.RegisterContentObserver:output_type -> resolver.RegisterContentObserverResponse
+	160, // 250: resolver.ContentResolverService.ReleasePersistableUriPermission:output_type -> resolver.ReleasePersistableUriPermissionResponse
+	162, // 251: resolver.ContentResolverService.StartSync:output_type -> resolver.StartSyncResponse
+	164, // 252: resolver.ContentResolverService.TakePersistableUriPermission:output_type -> resolver.TakePersistableUriPermissionResponse
+	166, // 253: resolver.ContentResolverService.Uncanonicalize:output_type -> resolver.UncanonicalizeResponse
+	79,  // 254: resolver.ContentResolverService.UnregisterContentObserver:output_type -> resolver.UnregisterContentObserverResponse
+	168, // 255: resolver.ContentResolverService.Update3:output_type -> resolver.Update3Response
+	170, // 256: resolver.ContentResolverService.Update4_1:output_type -> resolver.Update4_1Response
+	172, // 257: resolver.ContentResolverService.AddPeriodicSync:output_type -> resolver.AddPeriodicSyncResponse
+	174, // 258: resolver.ContentResolverService.AddStatusChangeListener:output_type -> resolver.AddStatusChangeListenerResponse
+	176, // 259: resolver.ContentResolverService.CancelSync2:output_type -> resolver.CancelSync2Response
+	178, // 260: resolver.ContentResolverService.CancelSync1_1:output_type -> resolver.CancelSync1_1Response
+	180, // 261: resolver.ContentResolverService.GetCurrentSync:output_type -> resolver.GetCurrentSyncResponse
+	182, // 262: resolver.ContentResolverService.GetCurrentSyncs:output_type -> resolver.GetCurrentSyncsResponse
+	184, // 263: resolver.ContentResolverService.GetIsSyncable:output_type -> resolver.GetIsSyncableResponse
+	186, // 264: resolver.ContentResolverService.GetMasterSyncAutomatically:output_type -> resolver.GetMasterSyncAutomaticallyResponse
+	188, // 265: resolver.ContentResolverService.GetPeriodicSyncs:output_type -> resolver.GetPeriodicSyncsResponse
+	190, // 266: resolver.ContentResolverService.GetSyncAdapterTypes:output_type -> resolver.GetSyncAdapterTypesResponse
+	192, // 267: resolver.ContentResolverService.GetSyncAutomatically:output_type -> resolver.GetSyncAutomaticallyResponse
+	194, // 268: resolver.ContentResolverService.IsSyncActive:output_type -> resolver.IsSyncActiveResponse
+	196, // 269: resolver.ContentResolverService.IsSyncPending:output_type -> resolver.IsSyncPendingResponse
+	198, // 270: resolver.ContentResolverService.RemovePeriodicSync:output_type -> resolver.RemovePeriodicSyncResponse
+	200, // 271: resolver.ContentResolverService.RemoveStatusChangeListener:output_type -> resolver.RemoveStatusChangeListenerResponse
+	202, // 272: resolver.ContentResolverService.RequestSync3:output_type -> resolver.RequestSync3Response
+	204, // 273: resolver.ContentResolverService.RequestSync1_1:output_type -> resolver.RequestSync1_1Response
+	206, // 274: resolver.ContentResolverService.SetIsSyncable:output_type -> resolver.SetIsSyncableResponse
+	208, // 275: resolver.ContentResolverService.SetMasterSyncAutomatically:output_type -> resolver.SetMasterSyncAutomaticallyResponse
+	210, // 276: resolver.ContentResolverService.SetSyncAutomatically:output_type -> resolver.SetSyncAutomaticallyResponse
+	212, // 277: resolver.ContentResolverService.ValidateSyncExtrasBundle:output_type -> resolver.ValidateSyncExtrasBundleResponse
+	214, // 278: resolver.ContentResolverService.Wrap1:output_type -> resolver.Wrap1Response
+	216, // 279: resolver.ContentResolverService.Wrap1_1:output_type -> resolver.Wrap1_1Response
+	218, // 280: resolver.ContentResolverMimeTypeInfoService.GetContentDescription:output_type -> resolver.GetContentDescriptionResponse
+	220, // 281: resolver.ContentResolverMimeTypeInfoService.GetIcon:output_type -> resolver.GetIconResponse
+	222, // 282: resolver.ContentResolverMimeTypeInfoService.GetLabel:output_type -> resolver.GetLabelResponse
+	224, // 283: resolver.UriService.BuildUpon:output_type -> resolver.BuildUponResponse
+	226, // 284: resolver.UriService.CompareTo1:output_type -> resolver.CompareTo1Response
+	228, // 285: resolver.UriService.Equals:output_type -> resolver.EqualsResponse
+	230, // 286: resolver.UriService.GetAuthority:output_type -> resolver.GetAuthorityResponse
+	232, // 287: resolver.UriService.GetBooleanQueryParameter:output_type -> resolver.GetBooleanQueryParameterResponse
+	234, // 288: resolver.UriService.GetEncodedAuthority:output_type -> resolver.GetEncodedAuthorityResponse
+	236, // 289: resolver.UriService.GetEncodedFragment:output_type -> resolver.GetEncodedFragmentResponse
+	238, // 290: resolver.UriService.GetEncodedPath:output_type -> resolver.GetEncodedPathResponse
+	240, // 291: resolver.UriService.GetEncodedQuery:output_type -> resolver.GetEncodedQueryResponse
+	242, // 292: resolver.UriService.GetEncodedSchemeSpecificPart:output_type -> resolver.GetEncodedSchemeSpecificPartResponse
+	244, // 293: resolver.UriService.GetEncodedUserInfo:output_type -> resolver.GetEncodedUserInfoResponse
+	246, // 294: resolver.UriService.GetFragment:output_type -> resolver.GetFragmentResponse
+	248, // 295: resolver.UriService.GetHost:output_type -> resolver.GetHostResponse
+	250, // 296: resolver.UriService.GetLastPathSegment:output_type -> resolver.GetLastPathSegmentResponse
+	252, // 297: resolver.UriService.GetPath:output_type -> resolver.GetPathResponse
+	254, // 298: resolver.UriService.GetPathSegments:output_type -> resolver.GetPathSegmentsResponse
+	256, // 299: resolver.UriService.GetPort:output_type -> resolver.GetPortResponse
+	258, // 300: resolver.UriService.GetQuery:output_type -> resolver.GetQueryResponse
+	260, // 301: resolver.UriService.GetQueryParameter:output_type -> resolver.GetQueryParameterResponse
+	262, // 302: resolver.UriService.GetQueryParameterNames:output_type -> resolver.GetQueryParameterNamesResponse
+	264, // 303: resolver.UriService.GetQueryParameters:output_type -> resolver.GetQueryParametersResponse
+	266, // 304: resolver.UriService.GetScheme:output_type -> resolver.GetSchemeResponse
+	268, // 305: resolver.UriService.GetSchemeSpecificPart:output_type -> resolver.GetSchemeSpecificPartResponse
+	270, // 306: resolver.UriService.GetUserInfo:output_type -> resolver.GetUserInfoResponse
+	272, // 307: resolver.UriService.HashCode:output_type -> resolver.HashCodeResponse
+	274, // 308: resolver.UriService.IsAbsolute:output_type -> resolver.IsAbsoluteResponse
+	276, // 309: resolver.UriService.IsHierarchical:output_type -> resolver.IsHierarchicalResponse
+	278, // 310: resolver.UriService.IsOpaque:output_type -> resolver.IsOpaqueResponse
+	280, // 311: resolver.UriService.IsRelative:output_type -> resolver.IsRelativeResponse
+	282, // 312: resolver.UriService.NormalizeScheme:output_type -> resolver.NormalizeSchemeResponse
+	284, // 313: resolver.UriService.ToString:output_type -> resolver.ToStringResponse
+	286, // 314: resolver.UriService.CompareTo1_1:output_type -> resolver.CompareTo1_1Response
+	288, // 315: resolver.UriService.Decode:output_type -> resolver.DecodeResponse
+	290, // 316: resolver.UriService.Encode1:output_type -> resolver.Encode1Response
+	292, // 317: resolver.UriService.Encode2_1:output_type -> resolver.Encode2_1Response
+	294, // 318: resolver.UriService.FromFile:output_type -> resolver.FromFileResponse
+	296, // 319: resolver.UriService.FromParts:output_type -> resolver.FromPartsResponse
+	298, // 320: resolver.UriService.Parse:output_type -> resolver.ParseResponse
+	300, // 321: resolver.UriService.WithAppendedPath:output_type -> resolver.WithAppendedPathResponse
+	302, // 322: resolver.UriService.WriteToParcel:output_type -> resolver.WriteToParcelResponse
+	304, // 323: resolver.UriBuilderService.AppendEncodedPath:output_type -> resolver.AppendEncodedPathResponse
+	306, // 324: resolver.UriBuilderService.AppendPath:output_type -> resolver.AppendPathResponse
+	308, // 325: resolver.UriBuilderService.AppendQueryParameter:output_type -> resolver.AppendQueryParameterResponse
+	310, // 326: resolver.UriBuilderService.Authority:output_type -> resolver.AuthorityResponse
+	312, // 327: resolver.UriBuilderService.Build:output_type -> resolver.BuildResponse
+	314, // 328: resolver.UriBuilderService.ClearQuery:output_type -> resolver.ClearQueryResponse
+	316, // 329: resolver.UriBuilderService.EncodedAuthority:output_type -> resolver.EncodedAuthorityResponse
+	318, // 330: resolver.UriBuilderService.EncodedFragment:output_type -> resolver.EncodedFragmentResponse
+	320, // 331: resolver.UriBuilderService.EncodedOpaquePart:output_type -> resolver.EncodedOpaquePartResponse
+	322, // 332: resolver.UriBuilderService.EncodedPath:output_type -> resolver.EncodedPathResponse
+	324, // 333: resolver.UriBuilderService.EncodedQuery:output_type -> resolver.EncodedQueryResponse
+	326, // 334: resolver.UriBuilderService.Fragment:output_type -> resolver.FragmentResponse
+	328, // 335: resolver.UriBuilderService.OpaquePart:output_type -> resolver.OpaquePartResponse
+	330, // 336: resolver.UriBuilderService.Path:output_type -> resolver.PathResponse
+	332, // 337: resolver.UriBuilderService.Query:output_type -> resolver.QueryResponse
+	334, // 338: resolver.UriBuilderService.Scheme:output_type -> resolver.SchemeResponse
+	284, // 339: resolver.UriBuilderService.ToString:output_type -> resolver.ToStringResponse
+	170, // [170:340] is the sub-list for method output_type
+	0,   // [0:170] is the sub-list for method input_type
 	0,   // [0:0] is the sub-list for extension type_name
 	0,   // [0:0] is the sub-list for extension extendee
 	0,   // [0:0] is the sub-list for field type_name
@@ -15755,7 +16398,7 @@ func file_proto_resolver_resolver_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_proto_resolver_resolver_proto_rawDesc), len(file_proto_resolver_resolver_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   321,
+			NumMessages:   335,
 			NumExtensions: 0,
 			NumServices:   5,
 		},

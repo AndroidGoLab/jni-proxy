@@ -6,6 +6,208 @@ package res;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/res";
 
+message ConvertDpToSpRequest {
+  float arg0 = 1;
+}
+
+message ConvertDpToSpResponse {
+  float result = 1;
+}
+
+message ConvertSpToDpRequest {
+  float arg0 = 1;
+}
+
+message ConvertSpToDpResponse {
+  float result = 1;
+}
+
+message ForScaleRequest {
+  float arg0 = 1;
+}
+
+message ForScaleResponse {
+  int64 result = 1;
+}
+
+message IsNonLinearFontScalingActiveRequest {
+  float arg0 = 1;
+}
+
+message IsNonLinearFontScalingActiveResponse {
+  bool result = 1;
+}
+
+message GetObbInfoRequest {
+  string arg0 = 1;
+}
+
+message GetObbInfoResponse {
+  int64 result = 1;
+}
+
+message DescribeContentsRequest {
+}
+
+message DescribeContentsResponse {
+  int32 result = 1;
+}
+
+message ToStringRequest {
+}
+
+message ToStringResponse {
+  string result = 1;
+}
+
+message WriteToParcelRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message WriteToParcelResponse {
+}
+
+message CloseRequest {
+}
+
+message CloseResponse {
+}
+
+message GetLocalesRequest {
+}
+
+message GetLocalesResponse {
+  int64 result = 1;
+}
+
+message ListRequest {
+  string arg0 = 1;
+}
+
+message ListResponse {
+  int64 result = 1;
+}
+
+message Open1Request {
+  string arg0 = 1;
+}
+
+message Open1Response {
+  int64 result = 1;
+}
+
+message Open2_1Request {
+  string arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message Open2_1Response {
+  int64 result = 1;
+}
+
+message OpenFdRequest {
+  string arg0 = 1;
+}
+
+message OpenFdResponse {
+  int64 result = 1;
+}
+
+message OpenNonAssetFd2Request {
+  int32 arg0 = 1;
+  string arg1 = 2;
+}
+
+message OpenNonAssetFd2Response {
+  int64 result = 1;
+}
+
+message OpenNonAssetFd1_1Request {
+  string arg0 = 1;
+}
+
+message OpenNonAssetFd1_1Response {
+  int64 result = 1;
+}
+
+message OpenXmlResourceParser2Request {
+  int32 arg0 = 1;
+  string arg1 = 2;
+}
+
+message OpenXmlResourceParser2Response {
+  int64 result = 1;
+}
+
+message OpenXmlResourceParser1_1Request {
+  string arg0 = 1;
+}
+
+message OpenXmlResourceParser1_1Response {
+  int64 result = 1;
+}
+
+message AvailableRequest {
+}
+
+message AvailableResponse {
+  int32 result = 1;
+}
+
+message MarkRequest {
+  int32 arg0 = 1;
+}
+
+message MarkResponse {
+}
+
+message MarkSupportedRequest {
+}
+
+message MarkSupportedResponse {
+  bool result = 1;
+}
+
+message Read0Request {
+}
+
+message Read0Response {
+  int32 result = 1;
+}
+
+message Read1_1Request {
+  int64 arg0 = 1;
+}
+
+message Read1_1Response {
+  int32 result = 1;
+}
+
+message Read3_2Request {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+}
+
+message Read3_2Response {
+  int32 result = 1;
+}
+
+message ResetRequest {
+}
+
+message ResetResponse {
+}
+
+message SkipRequest {
+  int64 arg0 = 1;
+}
+
+message SkipResponse {
+  int64 result = 1;
+}
+
 message NewConfigurationRequest {
 }
 
@@ -22,12 +224,8 @@ message CompareTo1Response {
   int32 result = 1;
 }
 
-message DescribeContentsRequest {
+message ConfigurationDescribeContentsRequest {
   int64 handle = 1;
-}
-
-message DescribeContentsResponse {
-  int32 result = 1;
 }
 
 message DiffRequest {
@@ -73,12 +271,8 @@ message GetLayoutDirectionResponse {
   int32 result = 1;
 }
 
-message GetLocalesRequest {
+message ConfigurationGetLocalesRequest {
   int64 handle = 1;
-}
-
-message GetLocalesResponse {
-  int64 result = 1;
 }
 
 message HashCodeRequest {
@@ -177,12 +371,8 @@ message SetToDefaultsRequest {
 message SetToDefaultsResponse {
 }
 
-message ToStringRequest {
+message ConfigurationToStringRequest {
   int64 handle = 1;
-}
-
-message ToStringResponse {
-  string result = 1;
 }
 
 message UpdateFromRequest {
@@ -194,13 +384,10 @@ message UpdateFromResponse {
   int32 result = 1;
 }
 
-message WriteToParcelRequest {
+message ConfigurationWriteToParcelRequest {
   int64 handle = 1;
   int64 arg0 = 2;
   int32 arg1 = 3;
-}
-
-message WriteToParcelResponse {
 }
 
 message CompareTo1_1Request {
@@ -232,418 +419,12 @@ message NeedNewResourcesResponse {
   bool result = 1;
 }
 
-message NewAssetFileDescriptorRequest {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-  int64 arg2 = 3;
-}
-
-message NewAssetFileDescriptorResponse {
-  int64 result = 1;
-}
-
-message CloseRequest {
-  int64 handle = 1;
-}
-
-message CloseResponse {
-}
-
-message CreateInputStreamRequest {
-  int64 handle = 1;
-}
-
-message CreateInputStreamResponse {
-  int64 result = 1;
-}
-
-message CreateOutputStreamRequest {
-  int64 handle = 1;
-}
-
-message CreateOutputStreamResponse {
-  int64 result = 1;
-}
-
-message GetDeclaredLengthRequest {
-  int64 handle = 1;
-}
-
-message GetDeclaredLengthResponse {
-  int64 result = 1;
-}
-
-message GetExtrasRequest {
-  int64 handle = 1;
-}
-
-message GetExtrasResponse {
-  int64 result = 1;
-}
-
-message GetFileDescriptorRequest {
-  int64 handle = 1;
-}
-
-message GetFileDescriptorResponse {
-  int64 result = 1;
-}
-
-message GetLengthRequest {
-  int64 handle = 1;
-}
-
-message GetLengthResponse {
-  int64 result = 1;
-}
-
-message GetParcelFileDescriptorRequest {
-  int64 handle = 1;
-}
-
-message GetParcelFileDescriptorResponse {
-  int64 result = 1;
-}
-
-message GetStartOffsetRequest {
-  int64 handle = 1;
-}
-
-message GetStartOffsetResponse {
-  int64 result = 1;
-}
-
-message AvailableRequest {
-}
-
-message AvailableResponse {
-  int32 result = 1;
-}
-
-message AssetFileDescriptorAutoCloseInputStreamCloseRequest {
-}
-
-message GetChannelRequest {
-}
-
-message GetChannelResponse {
-  int64 result = 1;
-}
-
-message MarkRequest {
-  int32 arg0 = 1;
-}
-
-message MarkResponse {
-}
-
-message MarkSupportedRequest {
-}
-
-message MarkSupportedResponse {
-  bool result = 1;
-}
-
-message Read0Request {
-}
-
-message Read0Response {
-  int32 result = 1;
-}
-
-message Read1_1Request {
-  int64 arg0 = 1;
-}
-
-message Read1_1Response {
-  int32 result = 1;
-}
-
-message Read3_2Request {
-  int64 arg0 = 1;
-  int32 arg1 = 2;
-  int32 arg2 = 3;
-}
-
-message Read3_2Response {
-  int32 result = 1;
-}
-
-message SkipRequest {
-  int64 arg0 = 1;
-}
-
-message SkipResponse {
-  int64 result = 1;
-}
-
-message Write1Request {
-  int64 arg0 = 1;
-}
-
-message Write1Response {
-}
-
-message Write3_1Request {
-  int64 arg0 = 1;
-  int32 arg1 = 2;
-  int32 arg2 = 3;
-}
-
-message Write3_1Response {
-}
-
-message Write1_2Request {
-  int32 arg0 = 1;
-}
-
-message Write1_2Response {
-}
-
-message ConvertDpToSpRequest {
-  float arg0 = 1;
-}
-
-message ConvertDpToSpResponse {
-  float result = 1;
-}
-
-message ConvertSpToDpRequest {
-  float arg0 = 1;
-}
-
-message ConvertSpToDpResponse {
-  float result = 1;
-}
-
-message ForScaleRequest {
-  float arg0 = 1;
-}
-
-message ForScaleResponse {
-  int64 result = 1;
-}
-
-message IsNonLinearFontScalingActiveRequest {
-  float arg0 = 1;
-}
-
-message IsNonLinearFontScalingActiveResponse {
-  bool result = 1;
-}
-
-message GetObbInfoRequest {
-  string arg0 = 1;
-}
-
-message GetObbInfoResponse {
-  int64 result = 1;
-}
-
-message ObbInfoDescribeContentsRequest {
-}
-
-message ObbInfoToStringRequest {
-}
-
-message ObbInfoWriteToParcelRequest {
-  int64 arg0 = 1;
-  int32 arg1 = 2;
-}
-
-message XmlResourceParserCloseRequest {
-}
-
 message GetAttributeNamespaceRequest {
   int32 arg0 = 1;
 }
 
 message GetAttributeNamespaceResponse {
   string result = 1;
-}
-
-message NewColorStateListRequest {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-}
-
-message NewColorStateListResponse {
-  int64 result = 1;
-}
-
-message GetChangingConfigurationsRequest {
-  int64 handle = 1;
-}
-
-message GetChangingConfigurationsResponse {
-  int32 result = 1;
-}
-
-message GetColorForStateRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-  int32 arg1 = 3;
-}
-
-message GetColorForStateResponse {
-  int32 result = 1;
-}
-
-message GetDefaultColorRequest {
-  int64 handle = 1;
-}
-
-message GetDefaultColorResponse {
-  int32 result = 1;
-}
-
-message IsOpaqueRequest {
-  int64 handle = 1;
-}
-
-message IsOpaqueResponse {
-  bool result = 1;
-}
-
-message IsStatefulRequest {
-  int64 handle = 1;
-}
-
-message IsStatefulResponse {
-  bool result = 1;
-}
-
-message WithAlphaRequest {
-  int64 handle = 1;
-  int32 arg0 = 2;
-}
-
-message WithAlphaResponse {
-  int64 result = 1;
-}
-
-message WithLStarRequest {
-  int64 handle = 1;
-  float arg0 = 2;
-}
-
-message WithLStarResponse {
-  int64 result = 1;
-}
-
-message CreateFromXml2Request {
-  int64 handle = 1;
-  int64 arg0 = 2;
-  int64 arg1 = 3;
-}
-
-message CreateFromXml2Response {
-  int64 result = 1;
-}
-
-message CreateFromXml3_1Request {
-  int64 handle = 1;
-  int64 arg0 = 2;
-  int64 arg1 = 3;
-  int64 arg2 = 4;
-}
-
-message CreateFromXml3_1Response {
-  int64 result = 1;
-}
-
-message ValueOfRequest {
-  int64 handle = 1;
-  int32 arg0 = 2;
-}
-
-message ValueOfResponse {
-  int64 result = 1;
-}
-
-message AssetManagerCloseRequest {
-}
-
-message AssetManagerGetLocalesRequest {
-}
-
-message ListRequest {
-  string arg0 = 1;
-}
-
-message ListResponse {
-  int64 result = 1;
-}
-
-message Open1Request {
-  string arg0 = 1;
-}
-
-message Open1Response {
-  int64 result = 1;
-}
-
-message Open2_1Request {
-  string arg0 = 1;
-  int32 arg1 = 2;
-}
-
-message Open2_1Response {
-  int64 result = 1;
-}
-
-message OpenFdRequest {
-  string arg0 = 1;
-}
-
-message OpenFdResponse {
-  int64 result = 1;
-}
-
-message OpenNonAssetFd2Request {
-  int32 arg0 = 1;
-  string arg1 = 2;
-}
-
-message OpenNonAssetFd2Response {
-  int64 result = 1;
-}
-
-message OpenNonAssetFd1_1Request {
-  string arg0 = 1;
-}
-
-message OpenNonAssetFd1_1Response {
-  int64 result = 1;
-}
-
-message OpenXmlResourceParser2Request {
-  int32 arg0 = 1;
-  string arg1 = 2;
-}
-
-message OpenXmlResourceParser2Response {
-  int64 result = 1;
-}
-
-message OpenXmlResourceParser1_1Request {
-  string arg0 = 1;
-}
-
-message OpenXmlResourceParser1_1Response {
-  int64 result = 1;
-}
-
-message AssetManagerAssetInputStreamCloseRequest {
-}
-
-message ResetRequest {
-}
-
-message ResetResponse {
-}
-
-message TypedArrayCloseRequest {
 }
 
 message GetBooleanRequest {
@@ -655,7 +436,11 @@ message GetBooleanResponse {
   bool result = 1;
 }
 
-message TypedArrayGetChangingConfigurationsRequest {
+message GetChangingConfigurationsRequest {
+}
+
+message GetChangingConfigurationsResponse {
+  int32 result = 1;
 }
 
 message GetColorRequest {
@@ -907,71 +692,235 @@ message RecycleRequest {
 message RecycleResponse {
 }
 
-message TypedArrayToStringRequest {
+message NewColorStateListRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
 }
 
-service ConfigurationService {
-  rpc NewConfiguration (NewConfigurationRequest) returns (NewConfigurationResponse);
-  rpc CompareTo1 (CompareTo1Request) returns (CompareTo1Response);
-  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc Diff (DiffRequest) returns (DiffResponse);
-  rpc Equals1 (Equals1Request) returns (Equals1Response);
-  rpc Equals1_1 (Equals1_1Request) returns (Equals1_1Response);
-  rpc GetGrammaticalGender (GetGrammaticalGenderRequest) returns (GetGrammaticalGenderResponse);
-  rpc GetLayoutDirection (GetLayoutDirectionRequest) returns (GetLayoutDirectionResponse);
-  rpc GetLocales (GetLocalesRequest) returns (GetLocalesResponse);
-  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
-  rpc IsLayoutSizeAtLeast (IsLayoutSizeAtLeastRequest) returns (IsLayoutSizeAtLeastResponse);
-  rpc IsNightModeActive (IsNightModeActiveRequest) returns (IsNightModeActiveResponse);
-  rpc IsScreenHdr (IsScreenHdrRequest) returns (IsScreenHdrResponse);
-  rpc IsScreenRound (IsScreenRoundRequest) returns (IsScreenRoundResponse);
-  rpc IsScreenWideColorGamut (IsScreenWideColorGamutRequest) returns (IsScreenWideColorGamutResponse);
-  rpc ReadFromParcel (ReadFromParcelRequest) returns (ReadFromParcelResponse);
-  rpc SetLayoutDirection (SetLayoutDirectionRequest) returns (SetLayoutDirectionResponse);
-  rpc SetLocale (SetLocaleRequest) returns (SetLocaleResponse);
-  rpc SetLocales (SetLocalesRequest) returns (SetLocalesResponse);
-  rpc SetTo (SetToRequest) returns (SetToResponse);
-  rpc SetToDefaults (SetToDefaultsRequest) returns (SetToDefaultsResponse);
-  rpc ToString (ToStringRequest) returns (ToStringResponse);
-  rpc UpdateFrom (UpdateFromRequest) returns (UpdateFromResponse);
-  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
-  rpc CompareTo1_1 (CompareTo1_1Request) returns (CompareTo1_1Response);
-  rpc GenerateDelta (GenerateDeltaRequest) returns (GenerateDeltaResponse);
-  rpc NeedNewResources (NeedNewResourcesRequest) returns (NeedNewResourcesResponse);
+message NewColorStateListResponse {
+  int64 result = 1;
 }
 
-service AssetFileDescriptorService {
-  rpc NewAssetFileDescriptor (NewAssetFileDescriptorRequest) returns (NewAssetFileDescriptorResponse);
-  rpc Close (CloseRequest) returns (CloseResponse);
-  rpc CreateInputStream (CreateInputStreamRequest) returns (CreateInputStreamResponse);
-  rpc CreateOutputStream (CreateOutputStreamRequest) returns (CreateOutputStreamResponse);
-  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc GetDeclaredLength (GetDeclaredLengthRequest) returns (GetDeclaredLengthResponse);
-  rpc GetExtras (GetExtrasRequest) returns (GetExtrasResponse);
-  rpc GetFileDescriptor (GetFileDescriptorRequest) returns (GetFileDescriptorResponse);
-  rpc GetLength (GetLengthRequest) returns (GetLengthResponse);
-  rpc GetParcelFileDescriptor (GetParcelFileDescriptorRequest) returns (GetParcelFileDescriptorResponse);
-  rpc GetStartOffset (GetStartOffsetRequest) returns (GetStartOffsetResponse);
-  rpc ToString (ToStringRequest) returns (ToStringResponse);
-  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+message ColorStateListDescribeContentsRequest {
+  int64 handle = 1;
 }
 
-service AssetFileDescriptorAutoCloseInputStreamService {
-  rpc Available (AvailableRequest) returns (AvailableResponse);
-  rpc Close (AssetFileDescriptorAutoCloseInputStreamCloseRequest) returns (CloseResponse);
-  rpc GetChannel (GetChannelRequest) returns (GetChannelResponse);
-  rpc Mark (MarkRequest) returns (MarkResponse);
-  rpc MarkSupported (MarkSupportedRequest) returns (MarkSupportedResponse);
-  rpc Read0 (Read0Request) returns (Read0Response);
-  rpc Read1_1 (Read1_1Request) returns (Read1_1Response);
-  rpc Read3_2 (Read3_2Request) returns (Read3_2Response);
-  rpc Skip (SkipRequest) returns (SkipResponse);
+message ColorStateListGetChangingConfigurationsRequest {
+  int64 handle = 1;
 }
 
-service AssetFileDescriptorAutoCloseOutputStreamService {
-  rpc Write1 (Write1Request) returns (Write1Response);
-  rpc Write3_1 (Write3_1Request) returns (Write3_1Response);
-  rpc Write1_2 (Write1_2Request) returns (Write1_2Response);
+message GetColorForStateRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message GetColorForStateResponse {
+  int32 result = 1;
+}
+
+message GetDefaultColorRequest {
+  int64 handle = 1;
+}
+
+message GetDefaultColorResponse {
+  int32 result = 1;
+}
+
+message IsOpaqueRequest {
+  int64 handle = 1;
+}
+
+message IsOpaqueResponse {
+  bool result = 1;
+}
+
+message IsStatefulRequest {
+  int64 handle = 1;
+}
+
+message IsStatefulResponse {
+  bool result = 1;
+}
+
+message ColorStateListToStringRequest {
+  int64 handle = 1;
+}
+
+message WithAlphaRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message WithAlphaResponse {
+  int64 result = 1;
+}
+
+message WithLStarRequest {
+  int64 handle = 1;
+  float arg0 = 2;
+}
+
+message WithLStarResponse {
+  int64 result = 1;
+}
+
+message ColorStateListWriteToParcelRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message CreateFromXml2Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message CreateFromXml2Response {
+  int64 result = 1;
+}
+
+message CreateFromXml3_1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+  int64 arg2 = 4;
+}
+
+message CreateFromXml3_1Response {
+  int64 result = 1;
+}
+
+message ValueOfRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message ValueOfResponse {
+  int64 result = 1;
+}
+
+message NewAssetFileDescriptorRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message NewAssetFileDescriptorResponse {
+  int64 result = 1;
+}
+
+message AssetFileDescriptorCloseRequest {
+  int64 handle = 1;
+}
+
+message CreateInputStreamRequest {
+  int64 handle = 1;
+}
+
+message CreateInputStreamResponse {
+  int64 result = 1;
+}
+
+message CreateOutputStreamRequest {
+  int64 handle = 1;
+}
+
+message CreateOutputStreamResponse {
+  int64 result = 1;
+}
+
+message AssetFileDescriptorDescribeContentsRequest {
+  int64 handle = 1;
+}
+
+message GetDeclaredLengthRequest {
+  int64 handle = 1;
+}
+
+message GetDeclaredLengthResponse {
+  int64 result = 1;
+}
+
+message GetExtrasRequest {
+  int64 handle = 1;
+}
+
+message GetExtrasResponse {
+  int64 result = 1;
+}
+
+message GetFileDescriptorRequest {
+  int64 handle = 1;
+}
+
+message GetFileDescriptorResponse {
+  int64 result = 1;
+}
+
+message GetLengthRequest {
+  int64 handle = 1;
+}
+
+message GetLengthResponse {
+  int64 result = 1;
+}
+
+message GetParcelFileDescriptorRequest {
+  int64 handle = 1;
+}
+
+message GetParcelFileDescriptorResponse {
+  int64 result = 1;
+}
+
+message GetStartOffsetRequest {
+  int64 handle = 1;
+}
+
+message GetStartOffsetResponse {
+  int64 result = 1;
+}
+
+message AssetFileDescriptorToStringRequest {
+  int64 handle = 1;
+}
+
+message AssetFileDescriptorWriteToParcelRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message GetChannelRequest {
+}
+
+message GetChannelResponse {
+  int64 result = 1;
+}
+
+message Write1Request {
+  int64 arg0 = 1;
+}
+
+message Write1Response {
+}
+
+message Write3_1Request {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+}
+
+message Write3_1Response {
+}
+
+message Write1_2Request {
+  int32 arg0 = 1;
+}
+
+message Write1_2Response {
 }
 
 service FontScaleConverterService {
@@ -986,36 +935,14 @@ service ObbScannerService {
 }
 
 service ObbInfoService {
-  rpc DescribeContents (ObbInfoDescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc ToString (ObbInfoToStringRequest) returns (ToStringResponse);
-  rpc WriteToParcel (ObbInfoWriteToParcelRequest) returns (WriteToParcelResponse);
-}
-
-service XmlResourceParserService {
-  rpc Close (XmlResourceParserCloseRequest) returns (CloseResponse);
-  rpc GetAttributeNamespace (GetAttributeNamespaceRequest) returns (GetAttributeNamespaceResponse);
-}
-
-service ColorStateListService {
-  rpc NewColorStateList (NewColorStateListRequest) returns (NewColorStateListResponse);
   rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc GetChangingConfigurations (GetChangingConfigurationsRequest) returns (GetChangingConfigurationsResponse);
-  rpc GetColorForState (GetColorForStateRequest) returns (GetColorForStateResponse);
-  rpc GetDefaultColor (GetDefaultColorRequest) returns (GetDefaultColorResponse);
-  rpc IsOpaque (IsOpaqueRequest) returns (IsOpaqueResponse);
-  rpc IsStateful (IsStatefulRequest) returns (IsStatefulResponse);
   rpc ToString (ToStringRequest) returns (ToStringResponse);
-  rpc WithAlpha (WithAlphaRequest) returns (WithAlphaResponse);
-  rpc WithLStar (WithLStarRequest) returns (WithLStarResponse);
   rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
-  rpc CreateFromXml2 (CreateFromXml2Request) returns (CreateFromXml2Response);
-  rpc CreateFromXml3_1 (CreateFromXml3_1Request) returns (CreateFromXml3_1Response);
-  rpc ValueOf (ValueOfRequest) returns (ValueOfResponse);
 }
 
 service AssetManagerService {
-  rpc Close (AssetManagerCloseRequest) returns (CloseResponse);
-  rpc GetLocales (AssetManagerGetLocalesRequest) returns (GetLocalesResponse);
+  rpc Close (CloseRequest) returns (CloseResponse);
+  rpc GetLocales (GetLocalesRequest) returns (GetLocalesResponse);
   rpc List (ListRequest) returns (ListResponse);
   rpc Open1 (Open1Request) returns (Open1Response);
   rpc Open2_1 (Open2_1Request) returns (Open2_1Response);
@@ -1028,7 +955,7 @@ service AssetManagerService {
 
 service AssetManagerAssetInputStreamService {
   rpc Available (AvailableRequest) returns (AvailableResponse);
-  rpc Close (AssetManagerAssetInputStreamCloseRequest) returns (CloseResponse);
+  rpc Close (CloseRequest) returns (CloseResponse);
   rpc Mark (MarkRequest) returns (MarkResponse);
   rpc MarkSupported (MarkSupportedRequest) returns (MarkSupportedResponse);
   rpc Read0 (Read0Request) returns (Read0Response);
@@ -1038,10 +965,45 @@ service AssetManagerAssetInputStreamService {
   rpc Skip (SkipRequest) returns (SkipResponse);
 }
 
+service ConfigurationService {
+  rpc NewConfiguration (NewConfigurationRequest) returns (NewConfigurationResponse);
+  rpc CompareTo1 (CompareTo1Request) returns (CompareTo1Response);
+  rpc DescribeContents (ConfigurationDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Diff (DiffRequest) returns (DiffResponse);
+  rpc Equals1 (Equals1Request) returns (Equals1Response);
+  rpc Equals1_1 (Equals1_1Request) returns (Equals1_1Response);
+  rpc GetGrammaticalGender (GetGrammaticalGenderRequest) returns (GetGrammaticalGenderResponse);
+  rpc GetLayoutDirection (GetLayoutDirectionRequest) returns (GetLayoutDirectionResponse);
+  rpc GetLocales (ConfigurationGetLocalesRequest) returns (GetLocalesResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc IsLayoutSizeAtLeast (IsLayoutSizeAtLeastRequest) returns (IsLayoutSizeAtLeastResponse);
+  rpc IsNightModeActive (IsNightModeActiveRequest) returns (IsNightModeActiveResponse);
+  rpc IsScreenHdr (IsScreenHdrRequest) returns (IsScreenHdrResponse);
+  rpc IsScreenRound (IsScreenRoundRequest) returns (IsScreenRoundResponse);
+  rpc IsScreenWideColorGamut (IsScreenWideColorGamutRequest) returns (IsScreenWideColorGamutResponse);
+  rpc ReadFromParcel (ReadFromParcelRequest) returns (ReadFromParcelResponse);
+  rpc SetLayoutDirection (SetLayoutDirectionRequest) returns (SetLayoutDirectionResponse);
+  rpc SetLocale (SetLocaleRequest) returns (SetLocaleResponse);
+  rpc SetLocales (SetLocalesRequest) returns (SetLocalesResponse);
+  rpc SetTo (SetToRequest) returns (SetToResponse);
+  rpc SetToDefaults (SetToDefaultsRequest) returns (SetToDefaultsResponse);
+  rpc ToString (ConfigurationToStringRequest) returns (ToStringResponse);
+  rpc UpdateFrom (UpdateFromRequest) returns (UpdateFromResponse);
+  rpc WriteToParcel (ConfigurationWriteToParcelRequest) returns (WriteToParcelResponse);
+  rpc CompareTo1_1 (CompareTo1_1Request) returns (CompareTo1_1Response);
+  rpc GenerateDelta (GenerateDeltaRequest) returns (GenerateDeltaResponse);
+  rpc NeedNewResources (NeedNewResourcesRequest) returns (NeedNewResourcesResponse);
+}
+
+service XmlResourceParserService {
+  rpc Close (CloseRequest) returns (CloseResponse);
+  rpc GetAttributeNamespace (GetAttributeNamespaceRequest) returns (GetAttributeNamespaceResponse);
+}
+
 service TypedArrayService {
-  rpc Close (TypedArrayCloseRequest) returns (CloseResponse);
+  rpc Close (CloseRequest) returns (CloseResponse);
   rpc GetBoolean (GetBooleanRequest) returns (GetBooleanResponse);
-  rpc GetChangingConfigurations (TypedArrayGetChangingConfigurationsRequest) returns (GetChangingConfigurationsResponse);
+  rpc GetChangingConfigurations (GetChangingConfigurationsRequest) returns (GetChangingConfigurationsResponse);
   rpc GetColor (GetColorRequest) returns (GetColorResponse);
   rpc GetColorStateList (GetColorStateListRequest) returns (GetColorStateListResponse);
   rpc GetDimension (GetDimensionRequest) returns (GetDimensionResponse);
@@ -1072,5 +1034,56 @@ service TypedArrayService {
   rpc Length (LengthRequest) returns (LengthResponse);
   rpc PeekValue (PeekValueRequest) returns (PeekValueResponse);
   rpc Recycle (RecycleRequest) returns (RecycleResponse);
-  rpc ToString (TypedArrayToStringRequest) returns (ToStringResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+}
+
+service ColorStateListService {
+  rpc NewColorStateList (NewColorStateListRequest) returns (NewColorStateListResponse);
+  rpc DescribeContents (ColorStateListDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetChangingConfigurations (ColorStateListGetChangingConfigurationsRequest) returns (GetChangingConfigurationsResponse);
+  rpc GetColorForState (GetColorForStateRequest) returns (GetColorForStateResponse);
+  rpc GetDefaultColor (GetDefaultColorRequest) returns (GetDefaultColorResponse);
+  rpc IsOpaque (IsOpaqueRequest) returns (IsOpaqueResponse);
+  rpc IsStateful (IsStatefulRequest) returns (IsStatefulResponse);
+  rpc ToString (ColorStateListToStringRequest) returns (ToStringResponse);
+  rpc WithAlpha (WithAlphaRequest) returns (WithAlphaResponse);
+  rpc WithLStar (WithLStarRequest) returns (WithLStarResponse);
+  rpc WriteToParcel (ColorStateListWriteToParcelRequest) returns (WriteToParcelResponse);
+  rpc CreateFromXml2 (CreateFromXml2Request) returns (CreateFromXml2Response);
+  rpc CreateFromXml3_1 (CreateFromXml3_1Request) returns (CreateFromXml3_1Response);
+  rpc ValueOf (ValueOfRequest) returns (ValueOfResponse);
+}
+
+service AssetFileDescriptorService {
+  rpc NewAssetFileDescriptor (NewAssetFileDescriptorRequest) returns (NewAssetFileDescriptorResponse);
+  rpc Close (AssetFileDescriptorCloseRequest) returns (CloseResponse);
+  rpc CreateInputStream (CreateInputStreamRequest) returns (CreateInputStreamResponse);
+  rpc CreateOutputStream (CreateOutputStreamRequest) returns (CreateOutputStreamResponse);
+  rpc DescribeContents (AssetFileDescriptorDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetDeclaredLength (GetDeclaredLengthRequest) returns (GetDeclaredLengthResponse);
+  rpc GetExtras (GetExtrasRequest) returns (GetExtrasResponse);
+  rpc GetFileDescriptor (GetFileDescriptorRequest) returns (GetFileDescriptorResponse);
+  rpc GetLength (GetLengthRequest) returns (GetLengthResponse);
+  rpc GetParcelFileDescriptor (GetParcelFileDescriptorRequest) returns (GetParcelFileDescriptorResponse);
+  rpc GetStartOffset (GetStartOffsetRequest) returns (GetStartOffsetResponse);
+  rpc ToString (AssetFileDescriptorToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (AssetFileDescriptorWriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service AssetFileDescriptorAutoCloseInputStreamService {
+  rpc Available (AvailableRequest) returns (AvailableResponse);
+  rpc Close (CloseRequest) returns (CloseResponse);
+  rpc GetChannel (GetChannelRequest) returns (GetChannelResponse);
+  rpc Mark (MarkRequest) returns (MarkResponse);
+  rpc MarkSupported (MarkSupportedRequest) returns (MarkSupportedResponse);
+  rpc Read0 (Read0Request) returns (Read0Response);
+  rpc Read1_1 (Read1_1Request) returns (Read1_1Response);
+  rpc Read3_2 (Read3_2Request) returns (Read3_2Response);
+  rpc Skip (SkipRequest) returns (SkipResponse);
+}
+
+service AssetFileDescriptorAutoCloseOutputStreamService {
+  rpc Write1 (Write1Request) returns (Write1Response);
+  rpc Write3_1 (Write3_1Request) returns (Write3_1Response);
+  rpc Write1_2 (Write1_2Request) returns (Write1_2Response);
 }

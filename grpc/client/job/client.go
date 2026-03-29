@@ -185,238 +185,6 @@ func (c *WorkItemBuilderClient) SetMinimumNetworkChunkBytes(ctx context.Context,
 	return resp.GetResult(), nil
 }
 
-// SchedulerClient wraps the gRPC SchedulerService client.
-type SchedulerClient struct {
-	svc pb.SchedulerServiceClient
-}
-
-// NewSchedulerClient creates a new Scheduler client.
-func NewSchedulerClient(cc grpc.ClientConnInterface) *SchedulerClient {
-	return &SchedulerClient{
-		svc: pb.NewSchedulerServiceClient(cc),
-	}
-}
-
-// CanRunUserInitiatedJobs calls the CanRunUserInitiatedJobs RPC.
-func (c *SchedulerClient) CanRunUserInitiatedJobs(ctx context.Context) (bool, error) {
-	resp, err := c.svc.CanRunUserInitiatedJobs(ctx, &pb.CanRunUserInitiatedJobsRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Cancel calls the Cancel RPC.
-func (c *SchedulerClient) Cancel(ctx context.Context, arg0 int32) error {
-	_, err := c.svc.Cancel(ctx, &pb.CancelRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// CancelAll calls the CancelAll RPC.
-func (c *SchedulerClient) CancelAll(ctx context.Context) error {
-	_, err := c.svc.CancelAll(ctx, &pb.CancelAllRequest{})
-	return err
-}
-
-// CancelInAllNamespaces calls the CancelInAllNamespaces RPC.
-func (c *SchedulerClient) CancelInAllNamespaces(ctx context.Context) error {
-	_, err := c.svc.CancelInAllNamespaces(ctx, &pb.CancelInAllNamespacesRequest{})
-	return err
-}
-
-// Enqueue calls the Enqueue RPC.
-func (c *SchedulerClient) Enqueue(ctx context.Context, arg0 int64, arg1 int64) (int32, error) {
-	resp, err := c.svc.Enqueue(ctx, &pb.EnqueueRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ForNamespace calls the ForNamespace RPC.
-func (c *SchedulerClient) ForNamespace(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.ForNamespace(ctx, &pb.ForNamespaceRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetNamespace calls the GetNamespace RPC.
-func (c *SchedulerClient) GetNamespace(ctx context.Context) (string, error) {
-	resp, err := c.svc.GetNamespace(ctx, &pb.GetNamespaceRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetPendingJob calls the GetPendingJob RPC.
-func (c *SchedulerClient) GetPendingJob(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.GetPendingJob(ctx, &pb.GetPendingJobRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetPendingJobReason calls the GetPendingJobReason RPC.
-func (c *SchedulerClient) GetPendingJobReason(ctx context.Context, arg0 int32) (int32, error) {
-	resp, err := c.svc.GetPendingJobReason(ctx, &pb.GetPendingJobReasonRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetPendingJobReasons calls the GetPendingJobReasons RPC.
-func (c *SchedulerClient) GetPendingJobReasons(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.GetPendingJobReasons(ctx, &pb.GetPendingJobReasonsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Schedule calls the Schedule RPC.
-func (c *SchedulerClient) Schedule(ctx context.Context, arg0 int64) (int32, error) {
-	resp, err := c.svc.Schedule(ctx, &pb.ScheduleRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ServiceClient wraps the gRPC ServiceService client.
-type ServiceClient struct {
-	svc pb.ServiceServiceClient
-}
-
-// NewServiceClient creates a new Service client.
-func NewServiceClient(cc grpc.ClientConnInterface) *ServiceClient {
-	return &ServiceClient{
-		svc: pb.NewServiceServiceClient(cc),
-	}
-}
-
-// JobFinished calls the JobFinished RPC.
-func (c *ServiceClient) JobFinished(ctx context.Context, arg0 int64, arg1 bool) error {
-	_, err := c.svc.JobFinished(ctx, &pb.JobFinishedRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// OnBind calls the OnBind RPC.
-func (c *ServiceClient) OnBind(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.OnBind(ctx, &pb.OnBindRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// OnNetworkChanged calls the OnNetworkChanged RPC.
-func (c *ServiceClient) OnNetworkChanged(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.OnNetworkChanged(ctx, &pb.OnNetworkChangedRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// OnStartJob calls the OnStartJob RPC.
-func (c *ServiceClient) OnStartJob(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.OnStartJob(ctx, &pb.OnStartJobRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// OnStopJob calls the OnStopJob RPC.
-func (c *ServiceClient) OnStopJob(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.OnStopJob(ctx, &pb.OnStopJobRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetNotification calls the SetNotification RPC.
-func (c *ServiceClient) SetNotification(ctx context.Context, arg0 int64, arg1 int32, arg2 int64, arg3 int32) error {
-	_, err := c.svc.SetNotification(ctx, &pb.SetNotificationRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-	})
-	return err
-}
-
-// UpdateEstimatedNetworkBytes4 calls the UpdateEstimatedNetworkBytes4 RPC.
-func (c *ServiceClient) UpdateEstimatedNetworkBytes4(ctx context.Context, arg0 int64, arg1 int64, arg2 int64, arg3 int64) error {
-	_, err := c.svc.UpdateEstimatedNetworkBytes4(ctx, &pb.UpdateEstimatedNetworkBytes4Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-	})
-	return err
-}
-
-// UpdateEstimatedNetworkBytes3_1 calls the UpdateEstimatedNetworkBytes3_1 RPC.
-func (c *ServiceClient) UpdateEstimatedNetworkBytes3_1(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) error {
-	_, err := c.svc.UpdateEstimatedNetworkBytes3_1(ctx, &pb.UpdateEstimatedNetworkBytes3_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	return err
-}
-
-// UpdateTransferredNetworkBytes4 calls the UpdateTransferredNetworkBytes4 RPC.
-func (c *ServiceClient) UpdateTransferredNetworkBytes4(ctx context.Context, arg0 int64, arg1 int64, arg2 int64, arg3 int64) error {
-	_, err := c.svc.UpdateTransferredNetworkBytes4(ctx, &pb.UpdateTransferredNetworkBytes4Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-	})
-	return err
-}
-
-// UpdateTransferredNetworkBytes3_1 calls the UpdateTransferredNetworkBytes3_1 RPC.
-func (c *ServiceClient) UpdateTransferredNetworkBytes3_1(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) error {
-	_, err := c.svc.UpdateTransferredNetworkBytes3_1(ctx, &pb.UpdateTransferredNetworkBytes3_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	return err
-}
-
 // PendingJobReasonsInfoClient wraps the gRPC PendingJobReasonsInfoService client.
 type PendingJobReasonsInfoClient struct {
 	svc pb.PendingJobReasonsInfoServiceClient
@@ -442,7 +210,7 @@ func (c *PendingJobReasonsInfoClient) DescribeContents(ctx context.Context, hand
 
 // GetPendingJobReasons calls the GetPendingJobReasons RPC.
 func (c *PendingJobReasonsInfoClient) GetPendingJobReasons(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetPendingJobReasons(ctx, &pb.PendingJobReasonsInfoGetPendingJobReasonsRequest{
+	resp, err := c.svc.GetPendingJobReasons(ctx, &pb.GetPendingJobReasonsRequest{
 		Handle: handle,
 	})
 	if err != nil {
@@ -468,99 +236,6 @@ func (c *PendingJobReasonsInfoClient) WriteToParcel(ctx context.Context, handle 
 		Handle: handle,
 		Arg0:   arg0,
 		Arg1:   arg1,
-	})
-	return err
-}
-
-// ServiceEngineClient wraps the gRPC ServiceEngineService client.
-type ServiceEngineClient struct {
-	svc pb.ServiceEngineServiceClient
-}
-
-// NewServiceEngineClient creates a new ServiceEngine client.
-func NewServiceEngineClient(cc grpc.ClientConnInterface) *ServiceEngineClient {
-	return &ServiceEngineClient{
-		svc: pb.NewServiceEngineServiceClient(cc),
-	}
-}
-
-// GetBinder calls the GetBinder RPC.
-func (c *ServiceEngineClient) GetBinder(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetBinder(ctx, &pb.GetBinderRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// JobFinished calls the JobFinished RPC.
-func (c *ServiceEngineClient) JobFinished(ctx context.Context, arg0 int64, arg1 bool) error {
-	_, err := c.svc.JobFinished(ctx, &pb.JobFinishedRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// OnNetworkChanged calls the OnNetworkChanged RPC.
-func (c *ServiceEngineClient) OnNetworkChanged(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.OnNetworkChanged(ctx, &pb.OnNetworkChangedRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// OnStartJob calls the OnStartJob RPC.
-func (c *ServiceEngineClient) OnStartJob(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.OnStartJob(ctx, &pb.OnStartJobRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// OnStopJob calls the OnStopJob RPC.
-func (c *ServiceEngineClient) OnStopJob(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.OnStopJob(ctx, &pb.OnStopJobRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetNotification calls the SetNotification RPC.
-func (c *ServiceEngineClient) SetNotification(ctx context.Context, arg0 int64, arg1 int32, arg2 int64, arg3 int32) error {
-	_, err := c.svc.SetNotification(ctx, &pb.SetNotificationRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-	})
-	return err
-}
-
-// UpdateEstimatedNetworkBytes calls the UpdateEstimatedNetworkBytes RPC.
-func (c *ServiceEngineClient) UpdateEstimatedNetworkBytes(ctx context.Context, arg0 int64, arg1 int64, arg2 int64, arg3 int64) error {
-	_, err := c.svc.UpdateEstimatedNetworkBytes(ctx, &pb.UpdateEstimatedNetworkBytesRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-	})
-	return err
-}
-
-// UpdateTransferredNetworkBytes calls the UpdateTransferredNetworkBytes RPC.
-func (c *ServiceEngineClient) UpdateTransferredNetworkBytes(ctx context.Context, arg0 int64, arg1 int64, arg2 int64, arg3 int64) error {
-	_, err := c.svc.UpdateTransferredNetworkBytes(ctx, &pb.UpdateTransferredNetworkBytesRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
 	})
 	return err
 }
@@ -618,6 +293,15 @@ func (c *InfoClient) GetClipData(ctx context.Context) (int64, error) {
 // GetClipGrantFlags calls the GetClipGrantFlags RPC.
 func (c *InfoClient) GetClipGrantFlags(ctx context.Context) (int32, error) {
 	resp, err := c.svc.GetClipGrantFlags(ctx, &pb.GetClipGrantFlagsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDebugTags calls the GetDebugTags RPC.
+func (c *InfoClient) GetDebugTags(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetDebugTags(ctx, &pb.GetDebugTagsRequest{})
 	if err != nil {
 		return 0, err
 	}
@@ -1331,6 +1015,258 @@ func (c *InfoTriggerContentUriClient) WriteToParcel(ctx context.Context, arg0 in
 	return err
 }
 
+// ServiceClient wraps the gRPC ServiceService client.
+type ServiceClient struct {
+	svc pb.ServiceServiceClient
+}
+
+// NewServiceClient creates a new Service client.
+func NewServiceClient(cc grpc.ClientConnInterface) *ServiceClient {
+	return &ServiceClient{
+		svc: pb.NewServiceServiceClient(cc),
+	}
+}
+
+// JobFinished calls the JobFinished RPC.
+func (c *ServiceClient) JobFinished(ctx context.Context, arg0 int64, arg1 bool) error {
+	_, err := c.svc.JobFinished(ctx, &pb.JobFinishedRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// OnBind calls the OnBind RPC.
+func (c *ServiceClient) OnBind(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.OnBind(ctx, &pb.OnBindRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnNetworkChanged calls the OnNetworkChanged RPC.
+func (c *ServiceClient) OnNetworkChanged(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnNetworkChanged(ctx, &pb.OnNetworkChangedRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnStartJob calls the OnStartJob RPC.
+func (c *ServiceClient) OnStartJob(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.OnStartJob(ctx, &pb.OnStartJobRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnStopJob calls the OnStopJob RPC.
+func (c *ServiceClient) OnStopJob(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.OnStopJob(ctx, &pb.OnStopJobRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetNotification calls the SetNotification RPC.
+func (c *ServiceClient) SetNotification(ctx context.Context, arg0 int64, arg1 int32, arg2 int64, arg3 int32) error {
+	_, err := c.svc.SetNotification(ctx, &pb.SetNotificationRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	return err
+}
+
+// UpdateEstimatedNetworkBytes4 calls the UpdateEstimatedNetworkBytes4 RPC.
+func (c *ServiceClient) UpdateEstimatedNetworkBytes4(ctx context.Context, arg0 int64, arg1 int64, arg2 int64, arg3 int64) error {
+	_, err := c.svc.UpdateEstimatedNetworkBytes4(ctx, &pb.UpdateEstimatedNetworkBytes4Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	return err
+}
+
+// UpdateEstimatedNetworkBytes3_1 calls the UpdateEstimatedNetworkBytes3_1 RPC.
+func (c *ServiceClient) UpdateEstimatedNetworkBytes3_1(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) error {
+	_, err := c.svc.UpdateEstimatedNetworkBytes3_1(ctx, &pb.UpdateEstimatedNetworkBytes3_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// UpdateTransferredNetworkBytes4 calls the UpdateTransferredNetworkBytes4 RPC.
+func (c *ServiceClient) UpdateTransferredNetworkBytes4(ctx context.Context, arg0 int64, arg1 int64, arg2 int64, arg3 int64) error {
+	_, err := c.svc.UpdateTransferredNetworkBytes4(ctx, &pb.UpdateTransferredNetworkBytes4Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	return err
+}
+
+// UpdateTransferredNetworkBytes3_1 calls the UpdateTransferredNetworkBytes3_1 RPC.
+func (c *ServiceClient) UpdateTransferredNetworkBytes3_1(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) error {
+	_, err := c.svc.UpdateTransferredNetworkBytes3_1(ctx, &pb.UpdateTransferredNetworkBytes3_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// SchedulerClient wraps the gRPC SchedulerService client.
+type SchedulerClient struct {
+	svc pb.SchedulerServiceClient
+}
+
+// NewSchedulerClient creates a new Scheduler client.
+func NewSchedulerClient(cc grpc.ClientConnInterface) *SchedulerClient {
+	return &SchedulerClient{
+		svc: pb.NewSchedulerServiceClient(cc),
+	}
+}
+
+// CanRunUserInitiatedJobs calls the CanRunUserInitiatedJobs RPC.
+func (c *SchedulerClient) CanRunUserInitiatedJobs(ctx context.Context) (bool, error) {
+	resp, err := c.svc.CanRunUserInitiatedJobs(ctx, &pb.CanRunUserInitiatedJobsRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Cancel calls the Cancel RPC.
+func (c *SchedulerClient) Cancel(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.Cancel(ctx, &pb.CancelRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// CancelAll calls the CancelAll RPC.
+func (c *SchedulerClient) CancelAll(ctx context.Context) error {
+	_, err := c.svc.CancelAll(ctx, &pb.CancelAllRequest{})
+	return err
+}
+
+// CancelInAllNamespaces calls the CancelInAllNamespaces RPC.
+func (c *SchedulerClient) CancelInAllNamespaces(ctx context.Context) error {
+	_, err := c.svc.CancelInAllNamespaces(ctx, &pb.CancelInAllNamespacesRequest{})
+	return err
+}
+
+// Enqueue calls the Enqueue RPC.
+func (c *SchedulerClient) Enqueue(ctx context.Context, arg0 int64, arg1 int64) (int32, error) {
+	resp, err := c.svc.Enqueue(ctx, &pb.EnqueueRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ForNamespace calls the ForNamespace RPC.
+func (c *SchedulerClient) ForNamespace(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.ForNamespace(ctx, &pb.ForNamespaceRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAllPendingJobs calls the GetAllPendingJobs RPC.
+func (c *SchedulerClient) GetAllPendingJobs(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetAllPendingJobs(ctx, &pb.GetAllPendingJobsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetNamespace calls the GetNamespace RPC.
+func (c *SchedulerClient) GetNamespace(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetNamespace(ctx, &pb.GetNamespaceRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPendingJob calls the GetPendingJob RPC.
+func (c *SchedulerClient) GetPendingJob(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.GetPendingJob(ctx, &pb.GetPendingJobRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPendingJobReason calls the GetPendingJobReason RPC.
+func (c *SchedulerClient) GetPendingJobReason(ctx context.Context, arg0 int32) (int32, error) {
+	resp, err := c.svc.GetPendingJobReason(ctx, &pb.GetPendingJobReasonRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPendingJobReasons calls the GetPendingJobReasons RPC.
+func (c *SchedulerClient) GetPendingJobReasons(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.GetPendingJobReasons(ctx, &pb.SchedulerGetPendingJobReasonsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPendingJobReasonsHistory calls the GetPendingJobReasonsHistory RPC.
+func (c *SchedulerClient) GetPendingJobReasonsHistory(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.GetPendingJobReasonsHistory(ctx, &pb.GetPendingJobReasonsHistoryRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Schedule calls the Schedule RPC.
+func (c *SchedulerClient) Schedule(ctx context.Context, arg0 int64) (int32, error) {
+	resp, err := c.svc.Schedule(ctx, &pb.ScheduleRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // ParametersClient wraps the gRPC ParametersService client.
 type ParametersClient struct {
 	svc pb.ParametersServiceClient
@@ -1491,6 +1427,99 @@ func (c *ParametersClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 i
 	_, err := c.svc.WriteToParcel(ctx, &pb.ParametersWriteToParcelRequest{
 		Arg0: arg0,
 		Arg1: arg1,
+	})
+	return err
+}
+
+// ServiceEngineClient wraps the gRPC ServiceEngineService client.
+type ServiceEngineClient struct {
+	svc pb.ServiceEngineServiceClient
+}
+
+// NewServiceEngineClient creates a new ServiceEngine client.
+func NewServiceEngineClient(cc grpc.ClientConnInterface) *ServiceEngineClient {
+	return &ServiceEngineClient{
+		svc: pb.NewServiceEngineServiceClient(cc),
+	}
+}
+
+// GetBinder calls the GetBinder RPC.
+func (c *ServiceEngineClient) GetBinder(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetBinder(ctx, &pb.GetBinderRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// JobFinished calls the JobFinished RPC.
+func (c *ServiceEngineClient) JobFinished(ctx context.Context, arg0 int64, arg1 bool) error {
+	_, err := c.svc.JobFinished(ctx, &pb.JobFinishedRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// OnNetworkChanged calls the OnNetworkChanged RPC.
+func (c *ServiceEngineClient) OnNetworkChanged(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnNetworkChanged(ctx, &pb.OnNetworkChangedRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnStartJob calls the OnStartJob RPC.
+func (c *ServiceEngineClient) OnStartJob(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.OnStartJob(ctx, &pb.OnStartJobRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnStopJob calls the OnStopJob RPC.
+func (c *ServiceEngineClient) OnStopJob(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.OnStopJob(ctx, &pb.OnStopJobRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetNotification calls the SetNotification RPC.
+func (c *ServiceEngineClient) SetNotification(ctx context.Context, arg0 int64, arg1 int32, arg2 int64, arg3 int32) error {
+	_, err := c.svc.SetNotification(ctx, &pb.SetNotificationRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	return err
+}
+
+// UpdateEstimatedNetworkBytes calls the UpdateEstimatedNetworkBytes RPC.
+func (c *ServiceEngineClient) UpdateEstimatedNetworkBytes(ctx context.Context, arg0 int64, arg1 int64, arg2 int64, arg3 int64) error {
+	_, err := c.svc.UpdateEstimatedNetworkBytes(ctx, &pb.UpdateEstimatedNetworkBytesRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	return err
+}
+
+// UpdateTransferredNetworkBytes calls the UpdateTransferredNetworkBytes RPC.
+func (c *ServiceEngineClient) UpdateTransferredNetworkBytes(ctx context.Context, arg0 int64, arg1 int64, arg2 int64, arg3 int64) error {
+	_, err := c.svc.UpdateTransferredNetworkBytes(ctx, &pb.UpdateTransferredNetworkBytesRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
 	})
 	return err
 }

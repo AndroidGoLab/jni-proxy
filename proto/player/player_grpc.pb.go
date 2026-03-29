@@ -40,6 +40,7 @@ const (
 	MediaPlayerService_GetPlaybackParams_FullMethodName                     = "/player.MediaPlayerService/GetPlaybackParams"
 	MediaPlayerService_GetPreferredDevice_FullMethodName                    = "/player.MediaPlayerService/GetPreferredDevice"
 	MediaPlayerService_GetRoutedDevice_FullMethodName                       = "/player.MediaPlayerService/GetRoutedDevice"
+	MediaPlayerService_GetRoutedDevices_FullMethodName                      = "/player.MediaPlayerService/GetRoutedDevices"
 	MediaPlayerService_GetSelectedTrack_FullMethodName                      = "/player.MediaPlayerService/GetSelectedTrack"
 	MediaPlayerService_GetSyncParams_FullMethodName                         = "/player.MediaPlayerService/GetSyncParams"
 	MediaPlayerService_GetTimestamp_FullMethodName                          = "/player.MediaPlayerService/GetTimestamp"
@@ -129,6 +130,7 @@ type MediaPlayerServiceClient interface {
 	GetPlaybackParams(ctx context.Context, in *GetPlaybackParamsRequest, opts ...grpc.CallOption) (*GetPlaybackParamsResponse, error)
 	GetPreferredDevice(ctx context.Context, in *GetPreferredDeviceRequest, opts ...grpc.CallOption) (*GetPreferredDeviceResponse, error)
 	GetRoutedDevice(ctx context.Context, in *GetRoutedDeviceRequest, opts ...grpc.CallOption) (*GetRoutedDeviceResponse, error)
+	GetRoutedDevices(ctx context.Context, in *GetRoutedDevicesRequest, opts ...grpc.CallOption) (*GetRoutedDevicesResponse, error)
 	GetSelectedTrack(ctx context.Context, in *GetSelectedTrackRequest, opts ...grpc.CallOption) (*GetSelectedTrackResponse, error)
 	GetSyncParams(ctx context.Context, in *GetSyncParamsRequest, opts ...grpc.CallOption) (*GetSyncParamsResponse, error)
 	GetTimestamp(ctx context.Context, in *GetTimestampRequest, opts ...grpc.CallOption) (*GetTimestampResponse, error)
@@ -387,6 +389,16 @@ func (c *mediaPlayerServiceClient) GetRoutedDevice(ctx context.Context, in *GetR
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetRoutedDeviceResponse)
 	err := c.cc.Invoke(ctx, MediaPlayerService_GetRoutedDevice_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *mediaPlayerServiceClient) GetRoutedDevices(ctx context.Context, in *GetRoutedDevicesRequest, opts ...grpc.CallOption) (*GetRoutedDevicesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetRoutedDevicesResponse)
+	err := c.cc.Invoke(ctx, MediaPlayerService_GetRoutedDevices_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -1056,6 +1068,7 @@ type MediaPlayerServiceServer interface {
 	GetPlaybackParams(context.Context, *GetPlaybackParamsRequest) (*GetPlaybackParamsResponse, error)
 	GetPreferredDevice(context.Context, *GetPreferredDeviceRequest) (*GetPreferredDeviceResponse, error)
 	GetRoutedDevice(context.Context, *GetRoutedDeviceRequest) (*GetRoutedDeviceResponse, error)
+	GetRoutedDevices(context.Context, *GetRoutedDevicesRequest) (*GetRoutedDevicesResponse, error)
 	GetSelectedTrack(context.Context, *GetSelectedTrackRequest) (*GetSelectedTrackResponse, error)
 	GetSyncParams(context.Context, *GetSyncParamsRequest) (*GetSyncParamsResponse, error)
 	GetTimestamp(context.Context, *GetTimestampRequest) (*GetTimestampResponse, error)
@@ -1186,6 +1199,9 @@ func (UnimplementedMediaPlayerServiceServer) GetPreferredDevice(context.Context,
 }
 func (UnimplementedMediaPlayerServiceServer) GetRoutedDevice(context.Context, *GetRoutedDeviceRequest) (*GetRoutedDeviceResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetRoutedDevice not implemented")
+}
+func (UnimplementedMediaPlayerServiceServer) GetRoutedDevices(context.Context, *GetRoutedDevicesRequest) (*GetRoutedDevicesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetRoutedDevices not implemented")
 }
 func (UnimplementedMediaPlayerServiceServer) GetSelectedTrack(context.Context, *GetSelectedTrackRequest) (*GetSelectedTrackResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetSelectedTrack not implemented")
@@ -1738,6 +1754,24 @@ func _MediaPlayerService_GetRoutedDevice_Handler(srv interface{}, ctx context.Co
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(MediaPlayerServiceServer).GetRoutedDevice(ctx, req.(*GetRoutedDeviceRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _MediaPlayerService_GetRoutedDevices_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetRoutedDevicesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MediaPlayerServiceServer).GetRoutedDevices(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: MediaPlayerService_GetRoutedDevices_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MediaPlayerServiceServer).GetRoutedDevices(ctx, req.(*GetRoutedDevicesRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -2976,6 +3010,10 @@ var MediaPlayerService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetRoutedDevice",
 			Handler:    _MediaPlayerService_GetRoutedDevice_Handler,
+		},
+		{
+			MethodName: "GetRoutedDevices",
+			Handler:    _MediaPlayerService_GetRoutedDevices_Handler,
 		},
 		{
 			MethodName: "GetSelectedTrack",

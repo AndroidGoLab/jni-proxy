@@ -6,6 +6,20 @@ package sdkprovider;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/sdkprovider";
 
+message OnActivityCreatedRequest {
+  int64 arg0 = 1;
+}
+
+message OnActivityCreatedResponse {
+}
+
+message GetAppOwnedSdkSandboxInterfacesRequest {
+}
+
+message GetAppOwnedSdkSandboxInterfacesResponse {
+  int64 result = 1;
+}
+
 message GetClientPackageNameRequest {
 }
 
@@ -17,6 +31,13 @@ message GetClientSharedPreferencesRequest {
 }
 
 message GetClientSharedPreferencesResponse {
+  int64 result = 1;
+}
+
+message GetSandboxedSdksRequest {
+}
+
+message GetSandboxedSdksResponse {
   int64 result = 1;
 }
 
@@ -42,24 +63,19 @@ message OnForegroundImportanceChangedRequest {
 message OnForegroundImportanceChangedResponse {
 }
 
-message OnActivityCreatedRequest {
-  int64 arg0 = 1;
-}
-
-message OnActivityCreatedResponse {
+service SdkSandboxActivityHandlerService {
+  rpc OnActivityCreated (OnActivityCreatedRequest) returns (OnActivityCreatedResponse);
 }
 
 service SdkSandboxControllerService {
+  rpc GetAppOwnedSdkSandboxInterfaces (GetAppOwnedSdkSandboxInterfacesRequest) returns (GetAppOwnedSdkSandboxInterfacesResponse);
   rpc GetClientPackageName (GetClientPackageNameRequest) returns (GetClientPackageNameResponse);
   rpc GetClientSharedPreferences (GetClientSharedPreferencesRequest) returns (GetClientSharedPreferencesResponse);
+  rpc GetSandboxedSdks (GetSandboxedSdksRequest) returns (GetSandboxedSdksResponse);
   rpc RegisterSdkSandboxClientImportanceListener (RegisterSdkSandboxClientImportanceListenerRequest) returns (RegisterSdkSandboxClientImportanceListenerResponse);
   rpc UnregisterSdkSandboxClientImportanceListener (UnregisterSdkSandboxClientImportanceListenerRequest) returns (UnregisterSdkSandboxClientImportanceListenerResponse);
 }
 
 service SdkSandboxClientImportanceListenerService {
   rpc OnForegroundImportanceChanged (OnForegroundImportanceChangedRequest) returns (OnForegroundImportanceChangedResponse);
-}
-
-service SdkSandboxActivityHandlerService {
-  rpc OnActivityCreated (OnActivityCreatedRequest) returns (OnActivityCreatedResponse);
 }

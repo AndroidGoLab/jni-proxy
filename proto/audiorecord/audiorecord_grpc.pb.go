@@ -22,6 +22,7 @@ const _ = grpc.SupportPackageIsVersion9
 
 const (
 	AudioRecordService_NewAudioRecord_FullMethodName                       = "/audiorecord.AudioRecordService/NewAudioRecord"
+	AudioRecordService_GetActiveMicrophones_FullMethodName                 = "/audiorecord.AudioRecordService/GetActiveMicrophones"
 	AudioRecordService_GetActiveRecordingConfiguration_FullMethodName      = "/audiorecord.AudioRecordService/GetActiveRecordingConfiguration"
 	AudioRecordService_GetAudioFormat_FullMethodName                       = "/audiorecord.AudioRecordService/GetAudioFormat"
 	AudioRecordService_GetAudioSessionId_FullMethodName                    = "/audiorecord.AudioRecordService/GetAudioSessionId"
@@ -37,6 +38,7 @@ const (
 	AudioRecordService_GetPreferredDevice_FullMethodName                   = "/audiorecord.AudioRecordService/GetPreferredDevice"
 	AudioRecordService_GetRecordingState_FullMethodName                    = "/audiorecord.AudioRecordService/GetRecordingState"
 	AudioRecordService_GetRoutedDevice_FullMethodName                      = "/audiorecord.AudioRecordService/GetRoutedDevice"
+	AudioRecordService_GetRoutedDevices_FullMethodName                     = "/audiorecord.AudioRecordService/GetRoutedDevices"
 	AudioRecordService_GetSampleRate_FullMethodName                        = "/audiorecord.AudioRecordService/GetSampleRate"
 	AudioRecordService_GetState_FullMethodName                             = "/audiorecord.AudioRecordService/GetState"
 	AudioRecordService_GetTimestamp_FullMethodName                         = "/audiorecord.AudioRecordService/GetTimestamp"
@@ -69,6 +71,7 @@ const (
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type AudioRecordServiceClient interface {
 	NewAudioRecord(ctx context.Context, in *NewAudioRecordRequest, opts ...grpc.CallOption) (*NewAudioRecordResponse, error)
+	GetActiveMicrophones(ctx context.Context, in *GetActiveMicrophonesRequest, opts ...grpc.CallOption) (*GetActiveMicrophonesResponse, error)
 	GetActiveRecordingConfiguration(ctx context.Context, in *GetActiveRecordingConfigurationRequest, opts ...grpc.CallOption) (*GetActiveRecordingConfigurationResponse, error)
 	GetAudioFormat(ctx context.Context, in *GetAudioFormatRequest, opts ...grpc.CallOption) (*GetAudioFormatResponse, error)
 	GetAudioSessionId(ctx context.Context, in *GetAudioSessionIdRequest, opts ...grpc.CallOption) (*GetAudioSessionIdResponse, error)
@@ -84,6 +87,7 @@ type AudioRecordServiceClient interface {
 	GetPreferredDevice(ctx context.Context, in *GetPreferredDeviceRequest, opts ...grpc.CallOption) (*GetPreferredDeviceResponse, error)
 	GetRecordingState(ctx context.Context, in *GetRecordingStateRequest, opts ...grpc.CallOption) (*GetRecordingStateResponse, error)
 	GetRoutedDevice(ctx context.Context, in *GetRoutedDeviceRequest, opts ...grpc.CallOption) (*GetRoutedDeviceResponse, error)
+	GetRoutedDevices(ctx context.Context, in *GetRoutedDevicesRequest, opts ...grpc.CallOption) (*GetRoutedDevicesResponse, error)
 	GetSampleRate(ctx context.Context, in *GetSampleRateRequest, opts ...grpc.CallOption) (*GetSampleRateResponse, error)
 	GetState(ctx context.Context, in *GetStateRequest, opts ...grpc.CallOption) (*GetStateResponse, error)
 	GetTimestamp(ctx context.Context, in *GetTimestampRequest, opts ...grpc.CallOption) (*GetTimestampResponse, error)
@@ -123,6 +127,16 @@ func (c *audioRecordServiceClient) NewAudioRecord(ctx context.Context, in *NewAu
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(NewAudioRecordResponse)
 	err := c.cc.Invoke(ctx, AudioRecordService_NewAudioRecord_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *audioRecordServiceClient) GetActiveMicrophones(ctx context.Context, in *GetActiveMicrophonesRequest, opts ...grpc.CallOption) (*GetActiveMicrophonesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetActiveMicrophonesResponse)
+	err := c.cc.Invoke(ctx, AudioRecordService_GetActiveMicrophones_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -273,6 +287,16 @@ func (c *audioRecordServiceClient) GetRoutedDevice(ctx context.Context, in *GetR
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetRoutedDeviceResponse)
 	err := c.cc.Invoke(ctx, AudioRecordService_GetRoutedDevice_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *audioRecordServiceClient) GetRoutedDevices(ctx context.Context, in *GetRoutedDevicesRequest, opts ...grpc.CallOption) (*GetRoutedDevicesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetRoutedDevicesResponse)
+	err := c.cc.Invoke(ctx, AudioRecordService_GetRoutedDevices_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -534,6 +558,7 @@ func (c *audioRecordServiceClient) GetMinBufferSize(ctx context.Context, in *Get
 // for forward compatibility.
 type AudioRecordServiceServer interface {
 	NewAudioRecord(context.Context, *NewAudioRecordRequest) (*NewAudioRecordResponse, error)
+	GetActiveMicrophones(context.Context, *GetActiveMicrophonesRequest) (*GetActiveMicrophonesResponse, error)
 	GetActiveRecordingConfiguration(context.Context, *GetActiveRecordingConfigurationRequest) (*GetActiveRecordingConfigurationResponse, error)
 	GetAudioFormat(context.Context, *GetAudioFormatRequest) (*GetAudioFormatResponse, error)
 	GetAudioSessionId(context.Context, *GetAudioSessionIdRequest) (*GetAudioSessionIdResponse, error)
@@ -549,6 +574,7 @@ type AudioRecordServiceServer interface {
 	GetPreferredDevice(context.Context, *GetPreferredDeviceRequest) (*GetPreferredDeviceResponse, error)
 	GetRecordingState(context.Context, *GetRecordingStateRequest) (*GetRecordingStateResponse, error)
 	GetRoutedDevice(context.Context, *GetRoutedDeviceRequest) (*GetRoutedDeviceResponse, error)
+	GetRoutedDevices(context.Context, *GetRoutedDevicesRequest) (*GetRoutedDevicesResponse, error)
 	GetSampleRate(context.Context, *GetSampleRateRequest) (*GetSampleRateResponse, error)
 	GetState(context.Context, *GetStateRequest) (*GetStateResponse, error)
 	GetTimestamp(context.Context, *GetTimestampRequest) (*GetTimestampResponse, error)
@@ -586,6 +612,9 @@ type UnimplementedAudioRecordServiceServer struct{}
 
 func (UnimplementedAudioRecordServiceServer) NewAudioRecord(context.Context, *NewAudioRecordRequest) (*NewAudioRecordResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method NewAudioRecord not implemented")
+}
+func (UnimplementedAudioRecordServiceServer) GetActiveMicrophones(context.Context, *GetActiveMicrophonesRequest) (*GetActiveMicrophonesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetActiveMicrophones not implemented")
 }
 func (UnimplementedAudioRecordServiceServer) GetActiveRecordingConfiguration(context.Context, *GetActiveRecordingConfigurationRequest) (*GetActiveRecordingConfigurationResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetActiveRecordingConfiguration not implemented")
@@ -631,6 +660,9 @@ func (UnimplementedAudioRecordServiceServer) GetRecordingState(context.Context, 
 }
 func (UnimplementedAudioRecordServiceServer) GetRoutedDevice(context.Context, *GetRoutedDeviceRequest) (*GetRoutedDeviceResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetRoutedDevice not implemented")
+}
+func (UnimplementedAudioRecordServiceServer) GetRoutedDevices(context.Context, *GetRoutedDevicesRequest) (*GetRoutedDevicesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetRoutedDevices not implemented")
 }
 func (UnimplementedAudioRecordServiceServer) GetSampleRate(context.Context, *GetSampleRateRequest) (*GetSampleRateResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetSampleRate not implemented")
@@ -742,6 +774,24 @@ func _AudioRecordService_NewAudioRecord_Handler(srv interface{}, ctx context.Con
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(AudioRecordServiceServer).NewAudioRecord(ctx, req.(*NewAudioRecordRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AudioRecordService_GetActiveMicrophones_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetActiveMicrophonesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AudioRecordServiceServer).GetActiveMicrophones(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AudioRecordService_GetActiveMicrophones_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AudioRecordServiceServer).GetActiveMicrophones(ctx, req.(*GetActiveMicrophonesRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -1012,6 +1062,24 @@ func _AudioRecordService_GetRoutedDevice_Handler(srv interface{}, ctx context.Co
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(AudioRecordServiceServer).GetRoutedDevice(ctx, req.(*GetRoutedDeviceRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AudioRecordService_GetRoutedDevices_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetRoutedDevicesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AudioRecordServiceServer).GetRoutedDevices(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AudioRecordService_GetRoutedDevices_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AudioRecordServiceServer).GetRoutedDevices(ctx, req.(*GetRoutedDevicesRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -1478,6 +1546,10 @@ var AudioRecordService_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _AudioRecordService_NewAudioRecord_Handler,
 		},
 		{
+			MethodName: "GetActiveMicrophones",
+			Handler:    _AudioRecordService_GetActiveMicrophones_Handler,
+		},
+		{
 			MethodName: "GetActiveRecordingConfiguration",
 			Handler:    _AudioRecordService_GetActiveRecordingConfiguration_Handler,
 		},
@@ -1536,6 +1608,10 @@ var AudioRecordService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetRoutedDevice",
 			Handler:    _AudioRecordService_GetRoutedDevice_Handler,
+		},
+		{
+			MethodName: "GetRoutedDevices",
+			Handler:    _AudioRecordService_GetRoutedDevices_Handler,
 		},
 		{
 			MethodName: "GetSampleRate",

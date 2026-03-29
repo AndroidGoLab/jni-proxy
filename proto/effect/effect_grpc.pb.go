@@ -21,6 +21,324 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
+	FactoryService_CreateEffect_FullMethodName      = "/effect.FactoryService/CreateEffect"
+	FactoryService_IsEffectSupported_FullMethodName = "/effect.FactoryService/IsEffectSupported"
+)
+
+// FactoryServiceClient is the client API for FactoryService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type FactoryServiceClient interface {
+	CreateEffect(ctx context.Context, in *CreateEffectRequest, opts ...grpc.CallOption) (*CreateEffectResponse, error)
+	IsEffectSupported(ctx context.Context, in *IsEffectSupportedRequest, opts ...grpc.CallOption) (*IsEffectSupportedResponse, error)
+}
+
+type factoryServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewFactoryServiceClient(cc grpc.ClientConnInterface) FactoryServiceClient {
+	return &factoryServiceClient{cc}
+}
+
+func (c *factoryServiceClient) CreateEffect(ctx context.Context, in *CreateEffectRequest, opts ...grpc.CallOption) (*CreateEffectResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CreateEffectResponse)
+	err := c.cc.Invoke(ctx, FactoryService_CreateEffect_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *factoryServiceClient) IsEffectSupported(ctx context.Context, in *IsEffectSupportedRequest, opts ...grpc.CallOption) (*IsEffectSupportedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsEffectSupportedResponse)
+	err := c.cc.Invoke(ctx, FactoryService_IsEffectSupported_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// FactoryServiceServer is the server API for FactoryService service.
+// All implementations must embed UnimplementedFactoryServiceServer
+// for forward compatibility.
+type FactoryServiceServer interface {
+	CreateEffect(context.Context, *CreateEffectRequest) (*CreateEffectResponse, error)
+	IsEffectSupported(context.Context, *IsEffectSupportedRequest) (*IsEffectSupportedResponse, error)
+	mustEmbedUnimplementedFactoryServiceServer()
+}
+
+// UnimplementedFactoryServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedFactoryServiceServer struct{}
+
+func (UnimplementedFactoryServiceServer) CreateEffect(context.Context, *CreateEffectRequest) (*CreateEffectResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method CreateEffect not implemented")
+}
+func (UnimplementedFactoryServiceServer) IsEffectSupported(context.Context, *IsEffectSupportedRequest) (*IsEffectSupportedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsEffectSupported not implemented")
+}
+func (UnimplementedFactoryServiceServer) mustEmbedUnimplementedFactoryServiceServer() {}
+func (UnimplementedFactoryServiceServer) testEmbeddedByValue()                        {}
+
+// UnsafeFactoryServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to FactoryServiceServer will
+// result in compilation errors.
+type UnsafeFactoryServiceServer interface {
+	mustEmbedUnimplementedFactoryServiceServer()
+}
+
+func RegisterFactoryServiceServer(s grpc.ServiceRegistrar, srv FactoryServiceServer) {
+	// If the following call panics, it indicates UnimplementedFactoryServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&FactoryService_ServiceDesc, srv)
+}
+
+func _FactoryService_CreateEffect_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreateEffectRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FactoryServiceServer).CreateEffect(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: FactoryService_CreateEffect_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FactoryServiceServer).CreateEffect(ctx, req.(*CreateEffectRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _FactoryService_IsEffectSupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsEffectSupportedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FactoryServiceServer).IsEffectSupported(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: FactoryService_IsEffectSupported_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FactoryServiceServer).IsEffectSupported(ctx, req.(*IsEffectSupportedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// FactoryService_ServiceDesc is the grpc.ServiceDesc for FactoryService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var FactoryService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "effect.FactoryService",
+	HandlerType: (*FactoryServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "CreateEffect",
+			Handler:    _FactoryService_CreateEffect_Handler,
+		},
+		{
+			MethodName: "IsEffectSupported",
+			Handler:    _FactoryService_IsEffectSupported_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/effect/effect.proto",
+}
+
+const (
+	ContextService_GetFactory_FullMethodName                 = "/effect.ContextService/GetFactory"
+	ContextService_Release_FullMethodName                    = "/effect.ContextService/Release"
+	ContextService_CreateWithCurrentGlContext_FullMethodName = "/effect.ContextService/CreateWithCurrentGlContext"
+)
+
+// ContextServiceClient is the client API for ContextService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ContextServiceClient interface {
+	GetFactory(ctx context.Context, in *GetFactoryRequest, opts ...grpc.CallOption) (*GetFactoryResponse, error)
+	Release(ctx context.Context, in *ReleaseRequest, opts ...grpc.CallOption) (*ReleaseResponse, error)
+	CreateWithCurrentGlContext(ctx context.Context, in *CreateWithCurrentGlContextRequest, opts ...grpc.CallOption) (*CreateWithCurrentGlContextResponse, error)
+}
+
+type contextServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewContextServiceClient(cc grpc.ClientConnInterface) ContextServiceClient {
+	return &contextServiceClient{cc}
+}
+
+func (c *contextServiceClient) GetFactory(ctx context.Context, in *GetFactoryRequest, opts ...grpc.CallOption) (*GetFactoryResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetFactoryResponse)
+	err := c.cc.Invoke(ctx, ContextService_GetFactory_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *contextServiceClient) Release(ctx context.Context, in *ReleaseRequest, opts ...grpc.CallOption) (*ReleaseResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ReleaseResponse)
+	err := c.cc.Invoke(ctx, ContextService_Release_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *contextServiceClient) CreateWithCurrentGlContext(ctx context.Context, in *CreateWithCurrentGlContextRequest, opts ...grpc.CallOption) (*CreateWithCurrentGlContextResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CreateWithCurrentGlContextResponse)
+	err := c.cc.Invoke(ctx, ContextService_CreateWithCurrentGlContext_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ContextServiceServer is the server API for ContextService service.
+// All implementations must embed UnimplementedContextServiceServer
+// for forward compatibility.
+type ContextServiceServer interface {
+	GetFactory(context.Context, *GetFactoryRequest) (*GetFactoryResponse, error)
+	Release(context.Context, *ReleaseRequest) (*ReleaseResponse, error)
+	CreateWithCurrentGlContext(context.Context, *CreateWithCurrentGlContextRequest) (*CreateWithCurrentGlContextResponse, error)
+	mustEmbedUnimplementedContextServiceServer()
+}
+
+// UnimplementedContextServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedContextServiceServer struct{}
+
+func (UnimplementedContextServiceServer) GetFactory(context.Context, *GetFactoryRequest) (*GetFactoryResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetFactory not implemented")
+}
+func (UnimplementedContextServiceServer) Release(context.Context, *ReleaseRequest) (*ReleaseResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Release not implemented")
+}
+func (UnimplementedContextServiceServer) CreateWithCurrentGlContext(context.Context, *CreateWithCurrentGlContextRequest) (*CreateWithCurrentGlContextResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method CreateWithCurrentGlContext not implemented")
+}
+func (UnimplementedContextServiceServer) mustEmbedUnimplementedContextServiceServer() {}
+func (UnimplementedContextServiceServer) testEmbeddedByValue()                        {}
+
+// UnsafeContextServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ContextServiceServer will
+// result in compilation errors.
+type UnsafeContextServiceServer interface {
+	mustEmbedUnimplementedContextServiceServer()
+}
+
+func RegisterContextServiceServer(s grpc.ServiceRegistrar, srv ContextServiceServer) {
+	// If the following call panics, it indicates UnimplementedContextServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&ContextService_ServiceDesc, srv)
+}
+
+func _ContextService_GetFactory_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetFactoryRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ContextServiceServer).GetFactory(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ContextService_GetFactory_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ContextServiceServer).GetFactory(ctx, req.(*GetFactoryRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ContextService_Release_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ReleaseRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ContextServiceServer).Release(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ContextService_Release_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ContextServiceServer).Release(ctx, req.(*ReleaseRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ContextService_CreateWithCurrentGlContext_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreateWithCurrentGlContextRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ContextServiceServer).CreateWithCurrentGlContext(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ContextService_CreateWithCurrentGlContext_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ContextServiceServer).CreateWithCurrentGlContext(ctx, req.(*CreateWithCurrentGlContextRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ContextService_ServiceDesc is the grpc.ServiceDesc for ContextService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ContextService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "effect.ContextService",
+	HandlerType: (*ContextServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "GetFactory",
+			Handler:    _ContextService_GetFactory_Handler,
+		},
+		{
+			MethodName: "Release",
+			Handler:    _ContextService_Release_Handler,
+		},
+		{
+			MethodName: "CreateWithCurrentGlContext",
+			Handler:    _ContextService_CreateWithCurrentGlContext_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/effect/effect.proto",
+}
+
+const (
 	EffectService_Apply_FullMethodName             = "/effect.EffectService/Apply"
 	EffectService_GetName_FullMethodName           = "/effect.EffectService/GetName"
 	EffectService_Release_FullMethodName           = "/effect.EffectService/Release"
@@ -370,324 +688,6 @@ var UpdateListenerService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "OnEffectUpdated",
 			Handler:    _UpdateListenerService_OnEffectUpdated_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/effect/effect.proto",
-}
-
-const (
-	FactoryService_CreateEffect_FullMethodName      = "/effect.FactoryService/CreateEffect"
-	FactoryService_IsEffectSupported_FullMethodName = "/effect.FactoryService/IsEffectSupported"
-)
-
-// FactoryServiceClient is the client API for FactoryService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type FactoryServiceClient interface {
-	CreateEffect(ctx context.Context, in *CreateEffectRequest, opts ...grpc.CallOption) (*CreateEffectResponse, error)
-	IsEffectSupported(ctx context.Context, in *IsEffectSupportedRequest, opts ...grpc.CallOption) (*IsEffectSupportedResponse, error)
-}
-
-type factoryServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewFactoryServiceClient(cc grpc.ClientConnInterface) FactoryServiceClient {
-	return &factoryServiceClient{cc}
-}
-
-func (c *factoryServiceClient) CreateEffect(ctx context.Context, in *CreateEffectRequest, opts ...grpc.CallOption) (*CreateEffectResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CreateEffectResponse)
-	err := c.cc.Invoke(ctx, FactoryService_CreateEffect_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *factoryServiceClient) IsEffectSupported(ctx context.Context, in *IsEffectSupportedRequest, opts ...grpc.CallOption) (*IsEffectSupportedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsEffectSupportedResponse)
-	err := c.cc.Invoke(ctx, FactoryService_IsEffectSupported_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// FactoryServiceServer is the server API for FactoryService service.
-// All implementations must embed UnimplementedFactoryServiceServer
-// for forward compatibility.
-type FactoryServiceServer interface {
-	CreateEffect(context.Context, *CreateEffectRequest) (*CreateEffectResponse, error)
-	IsEffectSupported(context.Context, *IsEffectSupportedRequest) (*IsEffectSupportedResponse, error)
-	mustEmbedUnimplementedFactoryServiceServer()
-}
-
-// UnimplementedFactoryServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedFactoryServiceServer struct{}
-
-func (UnimplementedFactoryServiceServer) CreateEffect(context.Context, *CreateEffectRequest) (*CreateEffectResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method CreateEffect not implemented")
-}
-func (UnimplementedFactoryServiceServer) IsEffectSupported(context.Context, *IsEffectSupportedRequest) (*IsEffectSupportedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsEffectSupported not implemented")
-}
-func (UnimplementedFactoryServiceServer) mustEmbedUnimplementedFactoryServiceServer() {}
-func (UnimplementedFactoryServiceServer) testEmbeddedByValue()                        {}
-
-// UnsafeFactoryServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to FactoryServiceServer will
-// result in compilation errors.
-type UnsafeFactoryServiceServer interface {
-	mustEmbedUnimplementedFactoryServiceServer()
-}
-
-func RegisterFactoryServiceServer(s grpc.ServiceRegistrar, srv FactoryServiceServer) {
-	// If the following call panics, it indicates UnimplementedFactoryServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&FactoryService_ServiceDesc, srv)
-}
-
-func _FactoryService_CreateEffect_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CreateEffectRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(FactoryServiceServer).CreateEffect(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: FactoryService_CreateEffect_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FactoryServiceServer).CreateEffect(ctx, req.(*CreateEffectRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _FactoryService_IsEffectSupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsEffectSupportedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(FactoryServiceServer).IsEffectSupported(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: FactoryService_IsEffectSupported_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FactoryServiceServer).IsEffectSupported(ctx, req.(*IsEffectSupportedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// FactoryService_ServiceDesc is the grpc.ServiceDesc for FactoryService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var FactoryService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "effect.FactoryService",
-	HandlerType: (*FactoryServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "CreateEffect",
-			Handler:    _FactoryService_CreateEffect_Handler,
-		},
-		{
-			MethodName: "IsEffectSupported",
-			Handler:    _FactoryService_IsEffectSupported_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/effect/effect.proto",
-}
-
-const (
-	ContextService_GetFactory_FullMethodName                 = "/effect.ContextService/GetFactory"
-	ContextService_Release_FullMethodName                    = "/effect.ContextService/Release"
-	ContextService_CreateWithCurrentGlContext_FullMethodName = "/effect.ContextService/CreateWithCurrentGlContext"
-)
-
-// ContextServiceClient is the client API for ContextService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type ContextServiceClient interface {
-	GetFactory(ctx context.Context, in *GetFactoryRequest, opts ...grpc.CallOption) (*GetFactoryResponse, error)
-	Release(ctx context.Context, in *ReleaseRequest, opts ...grpc.CallOption) (*ReleaseResponse, error)
-	CreateWithCurrentGlContext(ctx context.Context, in *CreateWithCurrentGlContextRequest, opts ...grpc.CallOption) (*CreateWithCurrentGlContextResponse, error)
-}
-
-type contextServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewContextServiceClient(cc grpc.ClientConnInterface) ContextServiceClient {
-	return &contextServiceClient{cc}
-}
-
-func (c *contextServiceClient) GetFactory(ctx context.Context, in *GetFactoryRequest, opts ...grpc.CallOption) (*GetFactoryResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetFactoryResponse)
-	err := c.cc.Invoke(ctx, ContextService_GetFactory_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *contextServiceClient) Release(ctx context.Context, in *ReleaseRequest, opts ...grpc.CallOption) (*ReleaseResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ReleaseResponse)
-	err := c.cc.Invoke(ctx, ContextService_Release_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *contextServiceClient) CreateWithCurrentGlContext(ctx context.Context, in *CreateWithCurrentGlContextRequest, opts ...grpc.CallOption) (*CreateWithCurrentGlContextResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CreateWithCurrentGlContextResponse)
-	err := c.cc.Invoke(ctx, ContextService_CreateWithCurrentGlContext_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// ContextServiceServer is the server API for ContextService service.
-// All implementations must embed UnimplementedContextServiceServer
-// for forward compatibility.
-type ContextServiceServer interface {
-	GetFactory(context.Context, *GetFactoryRequest) (*GetFactoryResponse, error)
-	Release(context.Context, *ReleaseRequest) (*ReleaseResponse, error)
-	CreateWithCurrentGlContext(context.Context, *CreateWithCurrentGlContextRequest) (*CreateWithCurrentGlContextResponse, error)
-	mustEmbedUnimplementedContextServiceServer()
-}
-
-// UnimplementedContextServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedContextServiceServer struct{}
-
-func (UnimplementedContextServiceServer) GetFactory(context.Context, *GetFactoryRequest) (*GetFactoryResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetFactory not implemented")
-}
-func (UnimplementedContextServiceServer) Release(context.Context, *ReleaseRequest) (*ReleaseResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Release not implemented")
-}
-func (UnimplementedContextServiceServer) CreateWithCurrentGlContext(context.Context, *CreateWithCurrentGlContextRequest) (*CreateWithCurrentGlContextResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method CreateWithCurrentGlContext not implemented")
-}
-func (UnimplementedContextServiceServer) mustEmbedUnimplementedContextServiceServer() {}
-func (UnimplementedContextServiceServer) testEmbeddedByValue()                        {}
-
-// UnsafeContextServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to ContextServiceServer will
-// result in compilation errors.
-type UnsafeContextServiceServer interface {
-	mustEmbedUnimplementedContextServiceServer()
-}
-
-func RegisterContextServiceServer(s grpc.ServiceRegistrar, srv ContextServiceServer) {
-	// If the following call panics, it indicates UnimplementedContextServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&ContextService_ServiceDesc, srv)
-}
-
-func _ContextService_GetFactory_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetFactoryRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ContextServiceServer).GetFactory(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ContextService_GetFactory_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ContextServiceServer).GetFactory(ctx, req.(*GetFactoryRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ContextService_Release_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ReleaseRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ContextServiceServer).Release(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ContextService_Release_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ContextServiceServer).Release(ctx, req.(*ReleaseRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ContextService_CreateWithCurrentGlContext_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CreateWithCurrentGlContextRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ContextServiceServer).CreateWithCurrentGlContext(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ContextService_CreateWithCurrentGlContext_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ContextServiceServer).CreateWithCurrentGlContext(ctx, req.(*CreateWithCurrentGlContextRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// ContextService_ServiceDesc is the grpc.ServiceDesc for ContextService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var ContextService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "effect.ContextService",
-	HandlerType: (*ContextServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "GetFactory",
-			Handler:    _ContextService_GetFactory_Handler,
-		},
-		{
-			MethodName: "Release",
-			Handler:    _ContextService_Release_Handler,
-		},
-		{
-			MethodName: "CreateWithCurrentGlContext",
-			Handler:    _ContextService_CreateWithCurrentGlContext_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

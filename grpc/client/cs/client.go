@@ -9,45 +9,6 @@ import (
 	"google.golang.org/grpc"
 )
 
-// BleCsRangingCapabilitiesClient wraps the gRPC BleCsRangingCapabilitiesService client.
-type BleCsRangingCapabilitiesClient struct {
-	svc pb.BleCsRangingCapabilitiesServiceClient
-}
-
-// NewBleCsRangingCapabilitiesClient creates a new BleCsRangingCapabilities client.
-func NewBleCsRangingCapabilitiesClient(cc grpc.ClientConnInterface) *BleCsRangingCapabilitiesClient {
-	return &BleCsRangingCapabilitiesClient{
-		svc: pb.NewBleCsRangingCapabilitiesServiceClient(cc),
-	}
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *BleCsRangingCapabilitiesClient) DescribeContents(ctx context.Context) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToString calls the ToString RPC.
-func (c *BleCsRangingCapabilitiesClient) ToString(ctx context.Context) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *BleCsRangingCapabilitiesClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
 // BleCsRangingParamsClient wraps the gRPC BleCsRangingParamsService client.
 type BleCsRangingParamsClient struct {
 	svc pb.BleCsRangingParamsServiceClient
@@ -206,4 +167,52 @@ func (c *BleCsRangingParamsBuilderClient) SetSightType(ctx context.Context, arg0
 		return 0, err
 	}
 	return resp.GetResult(), nil
+}
+
+// BleCsRangingCapabilitiesClient wraps the gRPC BleCsRangingCapabilitiesService client.
+type BleCsRangingCapabilitiesClient struct {
+	svc pb.BleCsRangingCapabilitiesServiceClient
+}
+
+// NewBleCsRangingCapabilitiesClient creates a new BleCsRangingCapabilities client.
+func NewBleCsRangingCapabilitiesClient(cc grpc.ClientConnInterface) *BleCsRangingCapabilitiesClient {
+	return &BleCsRangingCapabilitiesClient{
+		svc: pb.NewBleCsRangingCapabilitiesServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *BleCsRangingCapabilitiesClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSupportedSecurityLevels calls the GetSupportedSecurityLevels RPC.
+func (c *BleCsRangingCapabilitiesClient) GetSupportedSecurityLevels(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetSupportedSecurityLevels(ctx, &pb.GetSupportedSecurityLevelsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *BleCsRangingCapabilitiesClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *BleCsRangingCapabilitiesClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
 }

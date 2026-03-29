@@ -12,132 +12,6 @@ var inputCmd = &cobra.Command{
 	Short: "input service operations",
 }
 
-var inputHostUsiVersionCmd = &cobra.Command{
-	Use:   "host-usi-version",
-	Short: "HostUsiVersionService operations",
-}
-
-var inputHostUsiVersionDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewHostUsiVersionServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var inputHostUsiVersionEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewHostUsiVersionServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var inputHostUsiVersionGetMajorVersionCmd = &cobra.Command{
-	Use:   "get-major-version",
-	Short: "GetMajorVersion RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewHostUsiVersionServiceClient(grpcConn)
-		req := &pb.GetMajorVersionRequest{}
-		resp, err := client.GetMajorVersion(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var inputHostUsiVersionGetMinorVersionCmd = &cobra.Command{
-	Use:   "get-minor-version",
-	Short: "GetMinorVersion RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewHostUsiVersionServiceClient(grpcConn)
-		req := &pb.GetMinorVersionRequest{}
-		resp, err := client.GetMinorVersion(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var inputHostUsiVersionHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewHostUsiVersionServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var inputHostUsiVersionToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewHostUsiVersionServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var inputHostUsiVersionWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewHostUsiVersionServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
 var inputManagerCmd = &cobra.Command{
 	Use:   "manager",
 	Short: "ManagerService operations",
@@ -348,18 +222,133 @@ var inputManagerInputDeviceListenerOnInputDeviceRemovedCmd = &cobra.Command{
 	},
 }
 
+var inputHostUsiVersionCmd = &cobra.Command{
+	Use:   "host-usi-version",
+	Short: "HostUsiVersionService operations",
+}
+
+var inputHostUsiVersionDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewHostUsiVersionServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputHostUsiVersionEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewHostUsiVersionServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputHostUsiVersionGetMajorVersionCmd = &cobra.Command{
+	Use:   "get-major-version",
+	Short: "GetMajorVersion RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewHostUsiVersionServiceClient(grpcConn)
+		req := &pb.GetMajorVersionRequest{}
+		resp, err := client.GetMajorVersion(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputHostUsiVersionGetMinorVersionCmd = &cobra.Command{
+	Use:   "get-minor-version",
+	Short: "GetMinorVersion RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewHostUsiVersionServiceClient(grpcConn)
+		req := &pb.GetMinorVersionRequest{}
+		resp, err := client.GetMinorVersion(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputHostUsiVersionHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewHostUsiVersionServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputHostUsiVersionToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewHostUsiVersionServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputHostUsiVersionWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewHostUsiVersionServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 func init() {
-	inputHostUsiVersionCmd.AddCommand(inputHostUsiVersionDescribeContentsCmd)
-	inputHostUsiVersionEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	inputHostUsiVersionCmd.AddCommand(inputHostUsiVersionEqualsCmd)
-	inputHostUsiVersionCmd.AddCommand(inputHostUsiVersionGetMajorVersionCmd)
-	inputHostUsiVersionCmd.AddCommand(inputHostUsiVersionGetMinorVersionCmd)
-	inputHostUsiVersionCmd.AddCommand(inputHostUsiVersionHashCodeCmd)
-	inputHostUsiVersionCmd.AddCommand(inputHostUsiVersionToStringCmd)
-	inputHostUsiVersionWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	inputHostUsiVersionWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	inputHostUsiVersionCmd.AddCommand(inputHostUsiVersionWriteToParcelCmd)
-	inputCmd.AddCommand(inputHostUsiVersionCmd)
 	inputManagerGetHostUsiVersionCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	inputManagerCmd.AddCommand(inputManagerGetHostUsiVersionCmd)
 	inputManagerGetInputDeviceCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
@@ -381,5 +370,16 @@ func init() {
 	inputManagerInputDeviceListenerOnInputDeviceRemovedCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
 	inputManagerInputDeviceListenerCmd.AddCommand(inputManagerInputDeviceListenerOnInputDeviceRemovedCmd)
 	inputCmd.AddCommand(inputManagerInputDeviceListenerCmd)
+	inputHostUsiVersionCmd.AddCommand(inputHostUsiVersionDescribeContentsCmd)
+	inputHostUsiVersionEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	inputHostUsiVersionCmd.AddCommand(inputHostUsiVersionEqualsCmd)
+	inputHostUsiVersionCmd.AddCommand(inputHostUsiVersionGetMajorVersionCmd)
+	inputHostUsiVersionCmd.AddCommand(inputHostUsiVersionGetMinorVersionCmd)
+	inputHostUsiVersionCmd.AddCommand(inputHostUsiVersionHashCodeCmd)
+	inputHostUsiVersionCmd.AddCommand(inputHostUsiVersionToStringCmd)
+	inputHostUsiVersionWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	inputHostUsiVersionWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	inputHostUsiVersionCmd.AddCommand(inputHostUsiVersionWriteToParcelCmd)
+	inputCmd.AddCommand(inputHostUsiVersionCmd)
 	rootCmd.AddCommand(inputCmd)
 }

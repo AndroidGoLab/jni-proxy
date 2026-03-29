@@ -15,6 +15,385 @@ import (
 	"google.golang.org/grpc/status"
 )
 
+// TimeServer implements pb.TimeServiceServer.
+type TimeServer struct {
+	pb.UnimplementedTimeServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *TimeServer) NewTime(_ context.Context, req *pb.NewTimeRequest) (*pb.NewTimeResponse, error) {
+	obj, err := jnipkg.NewTime(s.Ctx.VM)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewTimeResponse{Result: handle}, nil
+}
+
+func (s *TimeServer) After(_ context.Context, req *pb.AfterRequest) (*pb.AfterResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Time{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.After(s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.AfterResponse{Result: result}, nil
+}
+
+func (s *TimeServer) Before(_ context.Context, req *pb.BeforeRequest) (*pb.BeforeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Time{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.Before(s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.BeforeResponse{Result: result}, nil
+}
+
+func (s *TimeServer) Clear(_ context.Context, req *pb.ClearRequest) (*pb.ClearResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Time{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.Clear(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ClearResponse{}, nil
+}
+
+func (s *TimeServer) Format(_ context.Context, req *pb.FormatRequest) (*pb.FormatResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Time{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.Format(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.FormatResponse{Result: result}, nil
+}
+
+func (s *TimeServer) Format2445(_ context.Context, req *pb.Format2445Request) (*pb.Format2445Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Time{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.Format2445()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.Format2445Response{Result: result}, nil
+}
+
+func (s *TimeServer) Format3339(_ context.Context, req *pb.Format3339Request) (*pb.Format3339Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Time{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.Format3339(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.Format3339Response{Result: result}, nil
+}
+
+func (s *TimeServer) GetActualMaximum(_ context.Context, req *pb.GetActualMaximumRequest) (*pb.GetActualMaximumResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Time{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetActualMaximum(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetActualMaximumResponse{Result: result}, nil
+}
+
+func (s *TimeServer) GetWeekNumber(_ context.Context, req *pb.GetWeekNumberRequest) (*pb.GetWeekNumberResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Time{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetWeekNumber()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetWeekNumberResponse{Result: result}, nil
+}
+
+func (s *TimeServer) Normalize(_ context.Context, req *pb.NormalizeRequest) (*pb.NormalizeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Time{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.Normalize(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.NormalizeResponse{Result: result}, nil
+}
+
+func (s *TimeServer) Parse(_ context.Context, req *pb.ParseRequest) (*pb.ParseResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Time{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.Parse(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ParseResponse{Result: result}, nil
+}
+
+func (s *TimeServer) Parse3339(_ context.Context, req *pb.Parse3339Request) (*pb.Parse3339Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Time{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.Parse3339(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.Parse3339Response{Result: result}, nil
+}
+
+func (s *TimeServer) Set1(_ context.Context, req *pb.Set1Request) (*pb.Set1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Time{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.Set1(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.Set1Response{}, nil
+}
+
+func (s *TimeServer) Set3_1(_ context.Context, req *pb.Set3_1Request) (*pb.Set3_1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Time{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.Set3_1(req.GetArg0(), req.GetArg1(), req.GetArg2()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.Set3_1Response{}, nil
+}
+
+func (s *TimeServer) Set6_2(_ context.Context, req *pb.Set6_2Request) (*pb.Set6_2Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Time{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.Set6_2(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3(), req.GetArg4(), req.GetArg5()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.Set6_2Response{}, nil
+}
+
+func (s *TimeServer) Set1_3(_ context.Context, req *pb.Set1_3Request) (*pb.Set1_3Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Time{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.Set1_3(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.Set1_3Response{}, nil
+}
+
+func (s *TimeServer) SetJulianDay(_ context.Context, req *pb.SetJulianDayRequest) (*pb.SetJulianDayResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Time{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.SetJulianDay(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetJulianDayResponse{Result: result}, nil
+}
+
+func (s *TimeServer) SetToNow(_ context.Context, req *pb.SetToNowRequest) (*pb.SetToNowResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Time{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetToNow(); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetToNowResponse{}, nil
+}
+
+func (s *TimeServer) SwitchTimezone(_ context.Context, req *pb.SwitchTimezoneRequest) (*pb.SwitchTimezoneResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Time{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SwitchTimezone(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SwitchTimezoneResponse{}, nil
+}
+
+func (s *TimeServer) ToMillis(_ context.Context, req *pb.ToMillisRequest) (*pb.ToMillisResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Time{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.ToMillis(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ToMillisResponse{Result: result}, nil
+}
+
+func (s *TimeServer) ToString(_ context.Context, req *pb.ToStringRequest) (*pb.ToStringResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Time{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.ToString()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ToStringResponse{Result: result}, nil
+}
+
+func (s *TimeServer) Compare(_ context.Context, req *pb.CompareRequest) (*pb.CompareResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Time{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.Compare(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.CompareResponse{Result: result}, nil
+}
+
+func (s *TimeServer) GetCurrentTimezone(_ context.Context, req *pb.GetCurrentTimezoneRequest) (*pb.GetCurrentTimezoneResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Time{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetCurrentTimezone()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetCurrentTimezoneResponse{Result: result}, nil
+}
+
+func (s *TimeServer) GetJulianDay(_ context.Context, req *pb.GetJulianDayRequest) (*pb.GetJulianDayResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Time{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetJulianDay(req.GetArg0(), req.GetArg1())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetJulianDayResponse{Result: result}, nil
+}
+
+func (s *TimeServer) GetJulianMondayFromWeeksSinceEpoch(_ context.Context, req *pb.GetJulianMondayFromWeeksSinceEpochRequest) (*pb.GetJulianMondayFromWeeksSinceEpochResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Time{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetJulianMondayFromWeeksSinceEpoch(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetJulianMondayFromWeeksSinceEpochResponse{Result: result}, nil
+}
+
+func (s *TimeServer) GetWeeksSinceEpochFromJulianDay(_ context.Context, req *pb.GetWeeksSinceEpochFromJulianDayRequest) (*pb.GetWeeksSinceEpochFromJulianDayResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Time{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetWeeksSinceEpochFromJulianDay(req.GetArg0(), req.GetArg1())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetWeeksSinceEpochFromJulianDayResponse{Result: result}, nil
+}
+
+func (s *TimeServer) IsEpoch(_ context.Context, req *pb.IsEpochRequest) (*pb.IsEpochResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Time{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.IsEpoch(s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.IsEpochResponse{Result: result}, nil
+}
+
 // DateFormatServer implements pb.DateFormatServiceServer.
 type DateFormatServer struct {
 	pb.UnimplementedDateFormatServiceServer
@@ -588,383 +967,4 @@ func (s *DateUtilsServer) IsToday(_ context.Context, req *pb.IsTodayRequest) (*p
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
 	return &pb.IsTodayResponse{Result: result}, nil
-}
-
-// TimeServer implements pb.TimeServiceServer.
-type TimeServer struct {
-	pb.UnimplementedTimeServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *TimeServer) NewTime(_ context.Context, req *pb.NewTimeRequest) (*pb.NewTimeResponse, error) {
-	obj, err := jnipkg.NewTime(s.Ctx.VM)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
-	}
-	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-	}
-	return &pb.NewTimeResponse{Result: handle}, nil
-}
-
-func (s *TimeServer) After(_ context.Context, req *pb.AfterRequest) (*pb.AfterResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Time{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.After(s.Handles.Get(req.GetArg0()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.AfterResponse{Result: result}, nil
-}
-
-func (s *TimeServer) Before(_ context.Context, req *pb.BeforeRequest) (*pb.BeforeResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Time{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.Before(s.Handles.Get(req.GetArg0()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.BeforeResponse{Result: result}, nil
-}
-
-func (s *TimeServer) Clear(_ context.Context, req *pb.ClearRequest) (*pb.ClearResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Time{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.Clear(req.GetArg0()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.ClearResponse{}, nil
-}
-
-func (s *TimeServer) Format(_ context.Context, req *pb.FormatRequest) (*pb.FormatResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Time{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.Format(req.GetArg0())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.FormatResponse{Result: result}, nil
-}
-
-func (s *TimeServer) Format2445(_ context.Context, req *pb.Format2445Request) (*pb.Format2445Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Time{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.Format2445()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.Format2445Response{Result: result}, nil
-}
-
-func (s *TimeServer) Format3339(_ context.Context, req *pb.Format3339Request) (*pb.Format3339Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Time{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.Format3339(req.GetArg0())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.Format3339Response{Result: result}, nil
-}
-
-func (s *TimeServer) GetActualMaximum(_ context.Context, req *pb.GetActualMaximumRequest) (*pb.GetActualMaximumResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Time{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetActualMaximum(req.GetArg0())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetActualMaximumResponse{Result: result}, nil
-}
-
-func (s *TimeServer) GetWeekNumber(_ context.Context, req *pb.GetWeekNumberRequest) (*pb.GetWeekNumberResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Time{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetWeekNumber()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetWeekNumberResponse{Result: result}, nil
-}
-
-func (s *TimeServer) Normalize(_ context.Context, req *pb.NormalizeRequest) (*pb.NormalizeResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Time{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.Normalize(req.GetArg0())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.NormalizeResponse{Result: result}, nil
-}
-
-func (s *TimeServer) Parse(_ context.Context, req *pb.ParseRequest) (*pb.ParseResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Time{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.Parse(req.GetArg0())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.ParseResponse{Result: result}, nil
-}
-
-func (s *TimeServer) Parse3339(_ context.Context, req *pb.Parse3339Request) (*pb.Parse3339Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Time{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.Parse3339(req.GetArg0())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.Parse3339Response{Result: result}, nil
-}
-
-func (s *TimeServer) Set1(_ context.Context, req *pb.Set1Request) (*pb.Set1Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Time{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.Set1(s.Handles.Get(req.GetArg0())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.Set1Response{}, nil
-}
-
-func (s *TimeServer) Set3_1(_ context.Context, req *pb.Set3_1Request) (*pb.Set3_1Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Time{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.Set3_1(req.GetArg0(), req.GetArg1(), req.GetArg2()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.Set3_1Response{}, nil
-}
-
-func (s *TimeServer) Set6_2(_ context.Context, req *pb.Set6_2Request) (*pb.Set6_2Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Time{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.Set6_2(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3(), req.GetArg4(), req.GetArg5()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.Set6_2Response{}, nil
-}
-
-func (s *TimeServer) Set1_3(_ context.Context, req *pb.Set1_3Request) (*pb.Set1_3Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Time{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.Set1_3(req.GetArg0()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.Set1_3Response{}, nil
-}
-
-func (s *TimeServer) SetJulianDay(_ context.Context, req *pb.SetJulianDayRequest) (*pb.SetJulianDayResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Time{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.SetJulianDay(req.GetArg0())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SetJulianDayResponse{Result: result}, nil
-}
-
-func (s *TimeServer) SetToNow(_ context.Context, req *pb.SetToNowRequest) (*pb.SetToNowResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Time{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.SetToNow(); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SetToNowResponse{}, nil
-}
-
-func (s *TimeServer) SwitchTimezone(_ context.Context, req *pb.SwitchTimezoneRequest) (*pb.SwitchTimezoneResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Time{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.SwitchTimezone(req.GetArg0()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SwitchTimezoneResponse{}, nil
-}
-
-func (s *TimeServer) ToMillis(_ context.Context, req *pb.ToMillisRequest) (*pb.ToMillisResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Time{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.ToMillis(req.GetArg0())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.ToMillisResponse{Result: result}, nil
-}
-
-func (s *TimeServer) ToString(_ context.Context, req *pb.ToStringRequest) (*pb.ToStringResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Time{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.ToString()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.ToStringResponse{Result: result}, nil
-}
-
-func (s *TimeServer) Compare(_ context.Context, req *pb.CompareRequest) (*pb.CompareResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Time{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.Compare(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.CompareResponse{Result: result}, nil
-}
-
-func (s *TimeServer) GetCurrentTimezone(_ context.Context, req *pb.GetCurrentTimezoneRequest) (*pb.GetCurrentTimezoneResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Time{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetCurrentTimezone()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetCurrentTimezoneResponse{Result: result}, nil
-}
-
-func (s *TimeServer) GetJulianDay(_ context.Context, req *pb.GetJulianDayRequest) (*pb.GetJulianDayResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Time{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetJulianDay(req.GetArg0(), req.GetArg1())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetJulianDayResponse{Result: result}, nil
-}
-
-func (s *TimeServer) GetJulianMondayFromWeeksSinceEpoch(_ context.Context, req *pb.GetJulianMondayFromWeeksSinceEpochRequest) (*pb.GetJulianMondayFromWeeksSinceEpochResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Time{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetJulianMondayFromWeeksSinceEpoch(req.GetArg0())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetJulianMondayFromWeeksSinceEpochResponse{Result: result}, nil
-}
-
-func (s *TimeServer) GetWeeksSinceEpochFromJulianDay(_ context.Context, req *pb.GetWeeksSinceEpochFromJulianDayRequest) (*pb.GetWeeksSinceEpochFromJulianDayResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Time{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetWeeksSinceEpochFromJulianDay(req.GetArg0(), req.GetArg1())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetWeeksSinceEpochFromJulianDayResponse{Result: result}, nil
-}
-
-func (s *TimeServer) IsEpoch(_ context.Context, req *pb.IsEpochRequest) (*pb.IsEpochResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Time{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.IsEpoch(s.Handles.Get(req.GetArg0()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.IsEpochResponse{Result: result}, nil
 }

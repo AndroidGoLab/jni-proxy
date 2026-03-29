@@ -60,188 +60,6 @@ func (s *DeviceAdminServiceServer) OnBind(_ context.Context, req *pb.OnBindReque
 	return &pb.OnBindResponse{Result: handle}, nil
 }
 
-// WifiSsidPolicyServer implements pb.WifiSsidPolicyServiceServer.
-type WifiSsidPolicyServer struct {
-	pb.UnimplementedWifiSsidPolicyServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *WifiSsidPolicyServer) NewWifiSsidPolicy(_ context.Context, req *pb.NewWifiSsidPolicyRequest) (*pb.NewWifiSsidPolicyResponse, error) {
-	obj, err := jnipkg.NewWifiSsidPolicy(s.Ctx.VM, req.GetArg0(), s.Handles.Get(req.GetArg1()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
-	}
-	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-	}
-	return &pb.NewWifiSsidPolicyResponse{Result: handle}, nil
-}
-
-func (s *WifiSsidPolicyServer) DescribeContents(_ context.Context, req *pb.WifiSsidPolicyDescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.WifiSsidPolicy{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.DescribeContents()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.DescribeContentsResponse{Result: result}, nil
-}
-
-func (s *WifiSsidPolicyServer) Equals(_ context.Context, req *pb.EqualsRequest) (*pb.EqualsResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.WifiSsidPolicy{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.Equals(s.Handles.Get(req.GetArg0()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.EqualsResponse{Result: result}, nil
-}
-
-func (s *WifiSsidPolicyServer) GetPolicyType(_ context.Context, req *pb.GetPolicyTypeRequest) (*pb.GetPolicyTypeResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.WifiSsidPolicy{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetPolicyType()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetPolicyTypeResponse{Result: result}, nil
-}
-
-func (s *WifiSsidPolicyServer) HashCode(_ context.Context, req *pb.HashCodeRequest) (*pb.HashCodeResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.WifiSsidPolicy{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.HashCode()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.HashCodeResponse{Result: result}, nil
-}
-
-func (s *WifiSsidPolicyServer) WriteToParcel(_ context.Context, req *pb.WifiSsidPolicyWriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.WifiSsidPolicy{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.WriteToParcel(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.WriteToParcelResponse{}, nil
-}
-
-// PackagePolicyServer implements pb.PackagePolicyServiceServer.
-type PackagePolicyServer struct {
-	pb.UnimplementedPackagePolicyServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *PackagePolicyServer) NewPackagePolicy(_ context.Context, req *pb.NewPackagePolicyRequest) (*pb.NewPackagePolicyResponse, error) {
-	obj, err := jnipkg.NewPackagePolicy(s.Ctx.VM, req.GetArg0())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
-	}
-	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-	}
-	return &pb.NewPackagePolicyResponse{Result: handle}, nil
-}
-
-func (s *PackagePolicyServer) DescribeContents(_ context.Context, req *pb.PackagePolicyDescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.PackagePolicy{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.DescribeContents()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.DescribeContentsResponse{Result: result}, nil
-}
-
-func (s *PackagePolicyServer) Equals(_ context.Context, req *pb.EqualsRequest) (*pb.EqualsResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.PackagePolicy{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.Equals(s.Handles.Get(req.GetArg0()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.EqualsResponse{Result: result}, nil
-}
-
-func (s *PackagePolicyServer) GetPolicyType(_ context.Context, req *pb.GetPolicyTypeRequest) (*pb.GetPolicyTypeResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.PackagePolicy{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetPolicyType()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetPolicyTypeResponse{Result: result}, nil
-}
-
-func (s *PackagePolicyServer) HashCode(_ context.Context, req *pb.HashCodeRequest) (*pb.HashCodeResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.PackagePolicy{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.HashCode()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.HashCodeResponse{Result: result}, nil
-}
-
-func (s *PackagePolicyServer) WriteToParcel(_ context.Context, req *pb.PackagePolicyWriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.PackagePolicy{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.WriteToParcel(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.WriteToParcelResponse{}, nil
-}
-
 // FreezePeriodServer implements pb.FreezePeriodServiceServer.
 type FreezePeriodServer struct {
 	pb.UnimplementedFreezePeriodServiceServer
@@ -310,7 +128,7 @@ func (s *FreezePeriodServer) GetStart(_ context.Context, req *pb.GetStartRequest
 	return &pb.GetStartResponse{Result: handle}, nil
 }
 
-func (s *FreezePeriodServer) ToString(_ context.Context, req *pb.FreezePeriodToStringRequest) (*pb.ToStringResponse, error) {
+func (s *FreezePeriodServer) ToString(_ context.Context, req *pb.ToStringRequest) (*pb.ToStringResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -324,15 +142,15 @@ func (s *FreezePeriodServer) ToString(_ context.Context, req *pb.FreezePeriodToS
 	return &pb.ToStringResponse{Result: result}, nil
 }
 
-// PolicyUpdateResultServer implements pb.PolicyUpdateResultServiceServer.
-type PolicyUpdateResultServer struct {
-	pb.UnimplementedPolicyUpdateResultServiceServer
+// PackagePolicyServer implements pb.PackagePolicyServiceServer.
+type PackagePolicyServer struct {
+	pb.UnimplementedPackagePolicyServiceServer
 	Ctx     *app.Context
 	Handles *handlestore.HandleStore
 }
 
-func (s *PolicyUpdateResultServer) NewPolicyUpdateResult(_ context.Context, req *pb.NewPolicyUpdateResultRequest) (*pb.NewPolicyUpdateResultResponse, error) {
-	obj, err := jnipkg.NewPolicyUpdateResult(s.Ctx.VM, req.GetArg0())
+func (s *PackagePolicyServer) NewPackagePolicy(_ context.Context, req *pb.NewPackagePolicyRequest) (*pb.NewPackagePolicyResponse, error) {
+	obj, err := jnipkg.NewPackagePolicy(s.Ctx.VM, req.GetArg0())
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create object: %v", err)
 	}
@@ -343,21 +161,99 @@ func (s *PolicyUpdateResultServer) NewPolicyUpdateResult(_ context.Context, req 
 	}); doErr != nil {
 		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
 	}
-	return &pb.NewPolicyUpdateResultResponse{Result: handle}, nil
+	return &pb.NewPackagePolicyResponse{Result: handle}, nil
 }
 
-func (s *PolicyUpdateResultServer) GetResultCode(_ context.Context, req *pb.GetResultCodeRequest) (*pb.GetResultCodeResponse, error) {
+func (s *PackagePolicyServer) DescribeContents(_ context.Context, req *pb.DescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.PolicyUpdateResult{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.PackagePolicy{VM: s.Ctx.VM, Obj: rawObj}
 
-	result, err := mgr.GetResultCode()
+	result, err := mgr.DescribeContents()
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.GetResultCodeResponse{Result: result}, nil
+	return &pb.DescribeContentsResponse{Result: result}, nil
+}
+
+func (s *PackagePolicyServer) Equals(_ context.Context, req *pb.EqualsRequest) (*pb.EqualsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.PackagePolicy{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.Equals(s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.EqualsResponse{Result: result}, nil
+}
+
+func (s *PackagePolicyServer) GetPackageNames(_ context.Context, req *pb.GetPackageNamesRequest) (*pb.GetPackageNamesResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.PackagePolicy{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetPackageNames()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetPackageNamesResponse{Result: handle}, nil
+}
+
+func (s *PackagePolicyServer) GetPolicyType(_ context.Context, req *pb.GetPolicyTypeRequest) (*pb.GetPolicyTypeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.PackagePolicy{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetPolicyType()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetPolicyTypeResponse{Result: result}, nil
+}
+
+func (s *PackagePolicyServer) HashCode(_ context.Context, req *pb.HashCodeRequest) (*pb.HashCodeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.PackagePolicy{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.HashCode()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.HashCodeResponse{Result: result}, nil
+}
+
+func (s *PackagePolicyServer) WriteToParcel(_ context.Context, req *pb.WriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.PackagePolicy{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.WriteToParcel(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.WriteToParcelResponse{}, nil
 }
 
 // DevicePolicyManagerServer implements pb.DevicePolicyManagerServiceServer.
@@ -727,6 +623,75 @@ func (s *DevicePolicyManagerServer) GetAccountTypesWithManagementDisabled(_ cont
 	return &pb.GetAccountTypesWithManagementDisabledResponse{Result: handle}, nil
 }
 
+func (s *DevicePolicyManagerServer) GetActiveAdmins(_ context.Context, req *pb.GetActiveAdminsRequest) (*pb.GetActiveAdminsResponse, error) {
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.GetActiveAdmins()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetActiveAdminsResponse{Result: handle}, nil
+}
+
+func (s *DevicePolicyManagerServer) GetAffiliationIds(_ context.Context, req *pb.GetAffiliationIdsRequest) (*pb.GetAffiliationIdsResponse, error) {
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.GetAffiliationIds(s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetAffiliationIdsResponse{Result: handle}, nil
+}
+
+func (s *DevicePolicyManagerServer) GetAlwaysOnVpnLockdownWhitelist(_ context.Context, req *pb.GetAlwaysOnVpnLockdownWhitelistRequest) (*pb.GetAlwaysOnVpnLockdownWhitelistResponse, error) {
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.GetAlwaysOnVpnLockdownWhitelist(s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetAlwaysOnVpnLockdownWhitelistResponse{Result: handle}, nil
+}
+
 func (s *DevicePolicyManagerServer) GetAlwaysOnVpnPackage(_ context.Context, req *pb.GetAlwaysOnVpnPackageRequest) (*pb.GetAlwaysOnVpnPackageResponse, error) {
 	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
@@ -862,6 +827,29 @@ func (s *DevicePolicyManagerServer) GetAutoTimeZonePolicy(_ context.Context, req
 	return &pb.GetAutoTimeZonePolicyResponse{Result: result}, nil
 }
 
+func (s *DevicePolicyManagerServer) GetBindDeviceAdminTargetUsers(_ context.Context, req *pb.GetBindDeviceAdminTargetUsersRequest) (*pb.GetBindDeviceAdminTargetUsersResponse, error) {
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.GetBindDeviceAdminTargetUsers(s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetBindDeviceAdminTargetUsersResponse{Result: handle}, nil
+}
+
 func (s *DevicePolicyManagerServer) GetBluetoothContactSharingDisabled(_ context.Context, req *pb.GetBluetoothContactSharingDisabledRequest) (*pb.GetBluetoothContactSharingDisabledResponse, error) {
 	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
@@ -941,6 +929,29 @@ func (s *DevicePolicyManagerServer) GetCredentialManagerPolicy(_ context.Context
 	return &pb.GetCredentialManagerPolicyResponse{Result: handle}, nil
 }
 
+func (s *DevicePolicyManagerServer) GetCrossProfileCalendarPackages(_ context.Context, req *pb.GetCrossProfileCalendarPackagesRequest) (*pb.GetCrossProfileCalendarPackagesResponse, error) {
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.GetCrossProfileCalendarPackages(s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetCrossProfileCalendarPackagesResponse{Result: handle}, nil
+}
+
 func (s *DevicePolicyManagerServer) GetCrossProfileCallerIdDisabled(_ context.Context, req *pb.GetCrossProfileCallerIdDisabledRequest) (*pb.GetCrossProfileCallerIdDisabledResponse, error) {
 	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
@@ -969,6 +980,52 @@ func (s *DevicePolicyManagerServer) GetCrossProfileContactsSearchDisabled(_ cont
 	return &pb.GetCrossProfileContactsSearchDisabledResponse{Result: result}, nil
 }
 
+func (s *DevicePolicyManagerServer) GetCrossProfilePackages(_ context.Context, req *pb.GetCrossProfilePackagesRequest) (*pb.GetCrossProfilePackagesResponse, error) {
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.GetCrossProfilePackages(s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetCrossProfilePackagesResponse{Result: handle}, nil
+}
+
+func (s *DevicePolicyManagerServer) GetCrossProfileWidgetProviders(_ context.Context, req *pb.GetCrossProfileWidgetProvidersRequest) (*pb.GetCrossProfileWidgetProvidersResponse, error) {
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.GetCrossProfileWidgetProviders(s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetCrossProfileWidgetProvidersResponse{Result: handle}, nil
+}
+
 func (s *DevicePolicyManagerServer) GetCurrentFailedPasswordAttempts(_ context.Context, req *pb.GetCurrentFailedPasswordAttemptsRequest) (*pb.GetCurrentFailedPasswordAttemptsResponse, error) {
 	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
@@ -981,6 +1038,52 @@ func (s *DevicePolicyManagerServer) GetCurrentFailedPasswordAttempts(_ context.C
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
 	return &pb.GetCurrentFailedPasswordAttemptsResponse{Result: result}, nil
+}
+
+func (s *DevicePolicyManagerServer) GetDelegatePackages(_ context.Context, req *pb.GetDelegatePackagesRequest) (*pb.GetDelegatePackagesResponse, error) {
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.GetDelegatePackages(s.Handles.Get(req.GetArg0()), req.GetArg1())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetDelegatePackagesResponse{Result: handle}, nil
+}
+
+func (s *DevicePolicyManagerServer) GetDelegatedScopes(_ context.Context, req *pb.GetDelegatedScopesRequest) (*pb.GetDelegatedScopesResponse, error) {
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.GetDelegatedScopes(s.Handles.Get(req.GetArg0()), req.GetArg1())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetDelegatedScopesResponse{Result: handle}, nil
 }
 
 func (s *DevicePolicyManagerServer) GetDeviceOwnerLockScreenInfo(_ context.Context, req *pb.GetDeviceOwnerLockScreenInfoRequest) (*pb.GetDeviceOwnerLockScreenInfoResponse, error) {
@@ -1106,6 +1209,52 @@ func (s *DevicePolicyManagerServer) GetGlobalPrivateDnsMode(_ context.Context, r
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
 	return &pb.GetGlobalPrivateDnsModeResponse{Result: result}, nil
+}
+
+func (s *DevicePolicyManagerServer) GetInstalledCaCerts(_ context.Context, req *pb.GetInstalledCaCertsRequest) (*pb.GetInstalledCaCertsResponse, error) {
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.GetInstalledCaCerts(s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetInstalledCaCertsResponse{Result: handle}, nil
+}
+
+func (s *DevicePolicyManagerServer) GetKeepUninstalledPackages(_ context.Context, req *pb.GetKeepUninstalledPackagesRequest) (*pb.GetKeepUninstalledPackagesResponse, error) {
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.GetKeepUninstalledPackages(s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetKeepUninstalledPackagesResponse{Result: handle}, nil
 }
 
 func (s *DevicePolicyManagerServer) GetKeyguardDisabledFeatures(_ context.Context, req *pb.GetKeyguardDisabledFeaturesRequest) (*pb.GetKeyguardDisabledFeaturesResponse, error) {
@@ -1293,6 +1442,29 @@ func (s *DevicePolicyManagerServer) GetMaximumTimeToLock(_ context.Context, req 
 	return &pb.GetMaximumTimeToLockResponse{Result: result}, nil
 }
 
+func (s *DevicePolicyManagerServer) GetMeteredDataDisabledPackages(_ context.Context, req *pb.GetMeteredDataDisabledPackagesRequest) (*pb.GetMeteredDataDisabledPackagesResponse, error) {
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.GetMeteredDataDisabledPackages(s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetMeteredDataDisabledPackagesResponse{Result: handle}, nil
+}
+
 func (s *DevicePolicyManagerServer) GetMinimumRequiredWifiSecurityLevel(_ context.Context, req *pb.GetMinimumRequiredWifiSecurityLevelRequest) (*pb.GetMinimumRequiredWifiSecurityLevelResponse, error) {
 	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
@@ -1384,6 +1556,29 @@ func (s *DevicePolicyManagerServer) GetOrganizationName(_ context.Context, req *
 		}
 	}
 	return &pb.GetOrganizationNameResponse{Result: handle}, nil
+}
+
+func (s *DevicePolicyManagerServer) GetOverrideApns(_ context.Context, req *pb.GetOverrideApnsRequest) (*pb.GetOverrideApnsResponse, error) {
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.GetOverrideApns(s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetOverrideApnsResponse{Result: handle}, nil
 }
 
 func (s *DevicePolicyManagerServer) GetParentProfileInstance(_ context.Context, req *pb.GetParentProfileInstanceRequest) (*pb.GetParentProfileInstanceResponse, error) {
@@ -1642,6 +1837,75 @@ func (s *DevicePolicyManagerServer) GetPermissionPolicy(_ context.Context, req *
 	return &pb.GetPermissionPolicyResponse{Result: result}, nil
 }
 
+func (s *DevicePolicyManagerServer) GetPermittedAccessibilityServices(_ context.Context, req *pb.GetPermittedAccessibilityServicesRequest) (*pb.GetPermittedAccessibilityServicesResponse, error) {
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.GetPermittedAccessibilityServices(s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetPermittedAccessibilityServicesResponse{Result: handle}, nil
+}
+
+func (s *DevicePolicyManagerServer) GetPermittedCrossProfileNotificationListeners(_ context.Context, req *pb.GetPermittedCrossProfileNotificationListenersRequest) (*pb.GetPermittedCrossProfileNotificationListenersResponse, error) {
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.GetPermittedCrossProfileNotificationListeners(s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetPermittedCrossProfileNotificationListenersResponse{Result: handle}, nil
+}
+
+func (s *DevicePolicyManagerServer) GetPermittedInputMethods(_ context.Context, req *pb.GetPermittedInputMethodsRequest) (*pb.GetPermittedInputMethodsResponse, error) {
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.GetPermittedInputMethods(s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetPermittedInputMethodsResponse{Result: handle}, nil
+}
+
 func (s *DevicePolicyManagerServer) GetPersonalAppsSuspendedReasons(_ context.Context, req *pb.GetPersonalAppsSuspendedReasonsRequest) (*pb.GetPersonalAppsSuspendedReasonsResponse, error) {
 	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
@@ -1654,6 +1918,29 @@ func (s *DevicePolicyManagerServer) GetPersonalAppsSuspendedReasons(_ context.Co
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
 	return &pb.GetPersonalAppsSuspendedReasonsResponse{Result: result}, nil
+}
+
+func (s *DevicePolicyManagerServer) GetPreferentialNetworkServiceConfigs(_ context.Context, req *pb.GetPreferentialNetworkServiceConfigsRequest) (*pb.GetPreferentialNetworkServiceConfigsResponse, error) {
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.GetPreferentialNetworkServiceConfigs()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetPreferentialNetworkServiceConfigsResponse{Result: handle}, nil
 }
 
 func (s *DevicePolicyManagerServer) GetRequiredPasswordComplexity(_ context.Context, req *pb.GetRequiredPasswordComplexityRequest) (*pb.GetRequiredPasswordComplexityResponse, error) {
@@ -1719,6 +2006,29 @@ func (s *DevicePolicyManagerServer) GetScreenCaptureDisabled(_ context.Context, 
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
 	return &pb.GetScreenCaptureDisabledResponse{Result: result}, nil
+}
+
+func (s *DevicePolicyManagerServer) GetSecondaryUsers(_ context.Context, req *pb.GetSecondaryUsersRequest) (*pb.GetSecondaryUsersResponse, error) {
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.GetSecondaryUsers(s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetSecondaryUsersResponse{Result: handle}, nil
 }
 
 func (s *DevicePolicyManagerServer) GetShortSupportMessage(_ context.Context, req *pb.GetShortSupportMessageRequest) (*pb.GetShortSupportMessageResponse, error) {
@@ -1795,6 +2105,29 @@ func (s *DevicePolicyManagerServer) GetStorageEncryptionStatus(_ context.Context
 	return &pb.GetStorageEncryptionStatusResponse{Result: result}, nil
 }
 
+func (s *DevicePolicyManagerServer) GetSubscriptionIds(_ context.Context, req *pb.GetSubscriptionIdsRequest) (*pb.GetSubscriptionIdsResponse, error) {
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.GetSubscriptionIds()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetSubscriptionIdsResponse{Result: handle}, nil
+}
+
 func (s *DevicePolicyManagerServer) GetSystemUpdatePolicy(_ context.Context, req *pb.GetSystemUpdatePolicyRequest) (*pb.GetSystemUpdatePolicyResponse, error) {
 	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
@@ -1839,6 +2172,52 @@ func (s *DevicePolicyManagerServer) GetTransferOwnershipBundle(_ context.Context
 		}
 	}
 	return &pb.GetTransferOwnershipBundleResponse{Result: handle}, nil
+}
+
+func (s *DevicePolicyManagerServer) GetTrustAgentConfiguration(_ context.Context, req *pb.GetTrustAgentConfigurationRequest) (*pb.GetTrustAgentConfigurationResponse, error) {
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.GetTrustAgentConfiguration(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetTrustAgentConfigurationResponse{Result: handle}, nil
+}
+
+func (s *DevicePolicyManagerServer) GetUserControlDisabledPackages(_ context.Context, req *pb.GetUserControlDisabledPackagesRequest) (*pb.GetUserControlDisabledPackagesResponse, error) {
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.GetUserControlDisabledPackages(s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetUserControlDisabledPackagesResponse{Result: handle}, nil
 }
 
 func (s *DevicePolicyManagerServer) GetUserRestrictions(_ context.Context, req *pb.GetUserRestrictionsRequest) (*pb.GetUserRestrictionsResponse, error) {
@@ -2567,6 +2946,29 @@ func (s *DevicePolicyManagerServer) IsUsingUnifiedPassword(_ context.Context, re
 	return &pb.IsUsingUnifiedPasswordResponse{Result: result}, nil
 }
 
+func (s *DevicePolicyManagerServer) ListForegroundAffiliatedUsers(_ context.Context, req *pb.ListForegroundAffiliatedUsersRequest) (*pb.ListForegroundAffiliatedUsersResponse, error) {
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.ListForegroundAffiliatedUsers()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.ListForegroundAffiliatedUsersResponse{Result: handle}, nil
+}
+
 func (s *DevicePolicyManagerServer) LockNow0(_ context.Context, req *pb.LockNow0Request) (*pb.LockNow0Response, error) {
 	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
@@ -2729,6 +3131,75 @@ func (s *DevicePolicyManagerServer) ResetPasswordWithToken(_ context.Context, re
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
 	return &pb.ResetPasswordWithTokenResponse{Result: result}, nil
+}
+
+func (s *DevicePolicyManagerServer) RetrieveNetworkLogs(_ context.Context, req *pb.RetrieveNetworkLogsRequest) (*pb.RetrieveNetworkLogsResponse, error) {
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.RetrieveNetworkLogs(s.Handles.Get(req.GetArg0()), req.GetArg1())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.RetrieveNetworkLogsResponse{Result: handle}, nil
+}
+
+func (s *DevicePolicyManagerServer) RetrievePreRebootSecurityLogs(_ context.Context, req *pb.RetrievePreRebootSecurityLogsRequest) (*pb.RetrievePreRebootSecurityLogsResponse, error) {
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.RetrievePreRebootSecurityLogs(s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.RetrievePreRebootSecurityLogsResponse{Result: handle}, nil
+}
+
+func (s *DevicePolicyManagerServer) RetrieveSecurityLogs(_ context.Context, req *pb.RetrieveSecurityLogsRequest) (*pb.RetrieveSecurityLogsResponse, error) {
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.RetrieveSecurityLogs(s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.RetrieveSecurityLogsResponse{Result: handle}, nil
 }
 
 func (s *DevicePolicyManagerServer) RevokeKeyPairFromApp(_ context.Context, req *pb.RevokeKeyPairFromAppRequest) (*pb.RevokeKeyPairFromAppResponse, error) {
@@ -4097,6 +4568,147 @@ func (s *DevicePolicyManagerServer) IsMtePolicyEnforced(_ context.Context, req *
 	return &pb.IsMtePolicyEnforcedResponse{Result: result}, nil
 }
 
+// ManagedSubscriptionsPolicyServer implements pb.ManagedSubscriptionsPolicyServiceServer.
+type ManagedSubscriptionsPolicyServer struct {
+	pb.UnimplementedManagedSubscriptionsPolicyServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *ManagedSubscriptionsPolicyServer) NewManagedSubscriptionsPolicy(_ context.Context, req *pb.NewManagedSubscriptionsPolicyRequest) (*pb.NewManagedSubscriptionsPolicyResponse, error) {
+	obj, err := jnipkg.NewManagedSubscriptionsPolicy(s.Ctx.VM, req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewManagedSubscriptionsPolicyResponse{Result: handle}, nil
+}
+
+func (s *ManagedSubscriptionsPolicyServer) DescribeContents(_ context.Context, req *pb.DescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ManagedSubscriptionsPolicy{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.DescribeContents()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.DescribeContentsResponse{Result: result}, nil
+}
+
+func (s *ManagedSubscriptionsPolicyServer) Equals(_ context.Context, req *pb.EqualsRequest) (*pb.EqualsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ManagedSubscriptionsPolicy{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.Equals(s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.EqualsResponse{Result: result}, nil
+}
+
+func (s *ManagedSubscriptionsPolicyServer) GetPolicyType(_ context.Context, req *pb.GetPolicyTypeRequest) (*pb.GetPolicyTypeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ManagedSubscriptionsPolicy{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetPolicyType()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetPolicyTypeResponse{Result: result}, nil
+}
+
+func (s *ManagedSubscriptionsPolicyServer) HashCode(_ context.Context, req *pb.HashCodeRequest) (*pb.HashCodeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ManagedSubscriptionsPolicy{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.HashCode()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.HashCodeResponse{Result: result}, nil
+}
+
+func (s *ManagedSubscriptionsPolicyServer) ToString(_ context.Context, req *pb.ToStringRequest) (*pb.ToStringResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ManagedSubscriptionsPolicy{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.ToString()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ToStringResponse{Result: result}, nil
+}
+
+func (s *ManagedSubscriptionsPolicyServer) WriteToParcel(_ context.Context, req *pb.WriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ManagedSubscriptionsPolicy{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.WriteToParcel(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.WriteToParcelResponse{}, nil
+}
+
+// PolicyUpdateResultServer implements pb.PolicyUpdateResultServiceServer.
+type PolicyUpdateResultServer struct {
+	pb.UnimplementedPolicyUpdateResultServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *PolicyUpdateResultServer) NewPolicyUpdateResult(_ context.Context, req *pb.NewPolicyUpdateResultRequest) (*pb.NewPolicyUpdateResultResponse, error) {
+	obj, err := jnipkg.NewPolicyUpdateResult(s.Ctx.VM, req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewPolicyUpdateResultResponse{Result: handle}, nil
+}
+
+func (s *PolicyUpdateResultServer) GetResultCode(_ context.Context, req *pb.GetResultCodeRequest) (*pb.GetResultCodeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.PolicyUpdateResult{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetResultCode()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetResultCodeResponse{Result: result}, nil
+}
+
 // DeviceAdminReceiverServer implements pb.DeviceAdminReceiverServiceServer.
 type DeviceAdminReceiverServer struct {
 	pb.UnimplementedDeviceAdminReceiverServiceServer
@@ -4592,15 +5204,15 @@ func (s *DeviceAdminReceiverServer) OnUserSwitched(_ context.Context, req *pb.On
 	return &pb.OnUserSwitchedResponse{}, nil
 }
 
-// ManagedSubscriptionsPolicyServer implements pb.ManagedSubscriptionsPolicyServiceServer.
-type ManagedSubscriptionsPolicyServer struct {
-	pb.UnimplementedManagedSubscriptionsPolicyServiceServer
+// DelegatedAdminReceiverServer implements pb.DelegatedAdminReceiverServiceServer.
+type DelegatedAdminReceiverServer struct {
+	pb.UnimplementedDelegatedAdminReceiverServiceServer
 	Ctx     *app.Context
 	Handles *handlestore.HandleStore
 }
 
-func (s *ManagedSubscriptionsPolicyServer) NewManagedSubscriptionsPolicy(_ context.Context, req *pb.NewManagedSubscriptionsPolicyRequest) (*pb.NewManagedSubscriptionsPolicyResponse, error) {
-	obj, err := jnipkg.NewManagedSubscriptionsPolicy(s.Ctx.VM, req.GetArg0())
+func (s *DelegatedAdminReceiverServer) NewDelegatedAdminReceiver(_ context.Context, req *pb.NewDelegatedAdminReceiverRequest) (*pb.NewDelegatedAdminReceiverResponse, error) {
+	obj, err := jnipkg.NewDelegatedAdminReceiver(s.Ctx.VM)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create object: %v", err)
 	}
@@ -4611,15 +5223,90 @@ func (s *ManagedSubscriptionsPolicyServer) NewManagedSubscriptionsPolicy(_ conte
 	}); doErr != nil {
 		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
 	}
-	return &pb.NewManagedSubscriptionsPolicyResponse{Result: handle}, nil
+	return &pb.NewDelegatedAdminReceiverResponse{Result: handle}, nil
 }
 
-func (s *ManagedSubscriptionsPolicyServer) DescribeContents(_ context.Context, req *pb.ManagedSubscriptionsPolicyDescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
+func (s *DelegatedAdminReceiverServer) OnChoosePrivateKeyAlias(_ context.Context, req *pb.OnChoosePrivateKeyAliasRequest) (*pb.OnChoosePrivateKeyAliasResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.ManagedSubscriptionsPolicy{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.DelegatedAdminReceiver{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.OnChoosePrivateKeyAlias(s.Ctx.Obj, s.Handles.Get(req.GetArg1()), req.GetArg2(), s.Handles.Get(req.GetArg3()), req.GetArg4())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.OnChoosePrivateKeyAliasResponse{Result: result}, nil
+}
+
+func (s *DelegatedAdminReceiverServer) OnNetworkLogsAvailable(_ context.Context, req *pb.OnNetworkLogsAvailableRequest) (*pb.OnNetworkLogsAvailableResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.DelegatedAdminReceiver{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.OnNetworkLogsAvailable(s.Ctx.Obj, s.Handles.Get(req.GetArg1()), req.GetArg2(), req.GetArg3()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.OnNetworkLogsAvailableResponse{}, nil
+}
+
+func (s *DelegatedAdminReceiverServer) OnReceive(_ context.Context, req *pb.DelegatedAdminReceiverOnReceiveRequest) (*pb.OnReceiveResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.DelegatedAdminReceiver{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.OnReceive(s.Ctx.Obj, s.Handles.Get(req.GetArg1())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.OnReceiveResponse{}, nil
+}
+
+func (s *DelegatedAdminReceiverServer) OnSecurityLogsAvailable(_ context.Context, req *pb.OnSecurityLogsAvailableRequest) (*pb.OnSecurityLogsAvailableResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.DelegatedAdminReceiver{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.OnSecurityLogsAvailable(s.Ctx.Obj, s.Handles.Get(req.GetArg1())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.OnSecurityLogsAvailableResponse{}, nil
+}
+
+// WifiSsidPolicyServer implements pb.WifiSsidPolicyServiceServer.
+type WifiSsidPolicyServer struct {
+	pb.UnimplementedWifiSsidPolicyServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *WifiSsidPolicyServer) NewWifiSsidPolicy(_ context.Context, req *pb.NewWifiSsidPolicyRequest) (*pb.NewWifiSsidPolicyResponse, error) {
+	obj, err := jnipkg.NewWifiSsidPolicy(s.Ctx.VM, req.GetArg0(), s.Handles.Get(req.GetArg1()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewWifiSsidPolicyResponse{Result: handle}, nil
+}
+
+func (s *WifiSsidPolicyServer) DescribeContents(_ context.Context, req *pb.DescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WifiSsidPolicy{VM: s.Ctx.VM, Obj: rawObj}
 
 	result, err := mgr.DescribeContents()
 	if err != nil {
@@ -4628,12 +5315,12 @@ func (s *ManagedSubscriptionsPolicyServer) DescribeContents(_ context.Context, r
 	return &pb.DescribeContentsResponse{Result: result}, nil
 }
 
-func (s *ManagedSubscriptionsPolicyServer) Equals(_ context.Context, req *pb.EqualsRequest) (*pb.EqualsResponse, error) {
+func (s *WifiSsidPolicyServer) Equals(_ context.Context, req *pb.EqualsRequest) (*pb.EqualsResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.ManagedSubscriptionsPolicy{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.WifiSsidPolicy{VM: s.Ctx.VM, Obj: rawObj}
 
 	result, err := mgr.Equals(s.Handles.Get(req.GetArg0()))
 	if err != nil {
@@ -4642,12 +5329,12 @@ func (s *ManagedSubscriptionsPolicyServer) Equals(_ context.Context, req *pb.Equ
 	return &pb.EqualsResponse{Result: result}, nil
 }
 
-func (s *ManagedSubscriptionsPolicyServer) GetPolicyType(_ context.Context, req *pb.GetPolicyTypeRequest) (*pb.GetPolicyTypeResponse, error) {
+func (s *WifiSsidPolicyServer) GetPolicyType(_ context.Context, req *pb.GetPolicyTypeRequest) (*pb.GetPolicyTypeResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.ManagedSubscriptionsPolicy{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.WifiSsidPolicy{VM: s.Ctx.VM, Obj: rawObj}
 
 	result, err := mgr.GetPolicyType()
 	if err != nil {
@@ -4656,12 +5343,35 @@ func (s *ManagedSubscriptionsPolicyServer) GetPolicyType(_ context.Context, req 
 	return &pb.GetPolicyTypeResponse{Result: result}, nil
 }
 
-func (s *ManagedSubscriptionsPolicyServer) HashCode(_ context.Context, req *pb.HashCodeRequest) (*pb.HashCodeResponse, error) {
+func (s *WifiSsidPolicyServer) GetSsids(_ context.Context, req *pb.GetSsidsRequest) (*pb.GetSsidsResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.ManagedSubscriptionsPolicy{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.WifiSsidPolicy{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetSsids()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetSsidsResponse{Result: handle}, nil
+}
+
+func (s *WifiSsidPolicyServer) HashCode(_ context.Context, req *pb.HashCodeRequest) (*pb.HashCodeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WifiSsidPolicy{VM: s.Ctx.VM, Obj: rawObj}
 
 	result, err := mgr.HashCode()
 	if err != nil {
@@ -4670,26 +5380,12 @@ func (s *ManagedSubscriptionsPolicyServer) HashCode(_ context.Context, req *pb.H
 	return &pb.HashCodeResponse{Result: result}, nil
 }
 
-func (s *ManagedSubscriptionsPolicyServer) ToString(_ context.Context, req *pb.ManagedSubscriptionsPolicyToStringRequest) (*pb.ToStringResponse, error) {
+func (s *WifiSsidPolicyServer) WriteToParcel(_ context.Context, req *pb.WriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.ManagedSubscriptionsPolicy{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.ToString()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.ToStringResponse{Result: result}, nil
-}
-
-func (s *ManagedSubscriptionsPolicyServer) WriteToParcel(_ context.Context, req *pb.ManagedSubscriptionsPolicyWriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.ManagedSubscriptionsPolicy{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.WifiSsidPolicy{VM: s.Ctx.VM, Obj: rawObj}
 
 	if err := mgr.WriteToParcel(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
@@ -4719,7 +5415,7 @@ func (s *DeviceAdminInfoServer) NewDeviceAdminInfo(_ context.Context, req *pb.Ne
 	return &pb.NewDeviceAdminInfoResponse{Result: handle}, nil
 }
 
-func (s *DeviceAdminInfoServer) DescribeContents(_ context.Context, req *pb.DeviceAdminInfoDescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
+func (s *DeviceAdminInfoServer) DescribeContents(_ context.Context, req *pb.DescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -4945,7 +5641,7 @@ func (s *DeviceAdminInfoServer) SupportsTransferOwnership(_ context.Context, req
 	return &pb.SupportsTransferOwnershipResponse{Result: result}, nil
 }
 
-func (s *DeviceAdminInfoServer) ToString(_ context.Context, req *pb.DeviceAdminInfoToStringRequest) (*pb.ToStringResponse, error) {
+func (s *DeviceAdminInfoServer) ToString(_ context.Context, req *pb.ToStringRequest) (*pb.ToStringResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -4973,7 +5669,7 @@ func (s *DeviceAdminInfoServer) UsesPolicy(_ context.Context, req *pb.UsesPolicy
 	return &pb.UsesPolicyResponse{Result: result}, nil
 }
 
-func (s *DeviceAdminInfoServer) WriteToParcel(_ context.Context, req *pb.DeviceAdminInfoWriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
+func (s *DeviceAdminInfoServer) WriteToParcel(_ context.Context, req *pb.WriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -4984,79 +5680,4 @@ func (s *DeviceAdminInfoServer) WriteToParcel(_ context.Context, req *pb.DeviceA
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
 	return &pb.WriteToParcelResponse{}, nil
-}
-
-// DelegatedAdminReceiverServer implements pb.DelegatedAdminReceiverServiceServer.
-type DelegatedAdminReceiverServer struct {
-	pb.UnimplementedDelegatedAdminReceiverServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *DelegatedAdminReceiverServer) NewDelegatedAdminReceiver(_ context.Context, req *pb.NewDelegatedAdminReceiverRequest) (*pb.NewDelegatedAdminReceiverResponse, error) {
-	obj, err := jnipkg.NewDelegatedAdminReceiver(s.Ctx.VM)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
-	}
-	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-	}
-	return &pb.NewDelegatedAdminReceiverResponse{Result: handle}, nil
-}
-
-func (s *DelegatedAdminReceiverServer) OnChoosePrivateKeyAlias(_ context.Context, req *pb.OnChoosePrivateKeyAliasRequest) (*pb.OnChoosePrivateKeyAliasResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.DelegatedAdminReceiver{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.OnChoosePrivateKeyAlias(s.Ctx.Obj, s.Handles.Get(req.GetArg1()), req.GetArg2(), s.Handles.Get(req.GetArg3()), req.GetArg4())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.OnChoosePrivateKeyAliasResponse{Result: result}, nil
-}
-
-func (s *DelegatedAdminReceiverServer) OnNetworkLogsAvailable(_ context.Context, req *pb.OnNetworkLogsAvailableRequest) (*pb.OnNetworkLogsAvailableResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.DelegatedAdminReceiver{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.OnNetworkLogsAvailable(s.Ctx.Obj, s.Handles.Get(req.GetArg1()), req.GetArg2(), req.GetArg3()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.OnNetworkLogsAvailableResponse{}, nil
-}
-
-func (s *DelegatedAdminReceiverServer) OnReceive(_ context.Context, req *pb.DelegatedAdminReceiverOnReceiveRequest) (*pb.OnReceiveResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.DelegatedAdminReceiver{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.OnReceive(s.Ctx.Obj, s.Handles.Get(req.GetArg1())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.OnReceiveResponse{}, nil
-}
-
-func (s *DelegatedAdminReceiverServer) OnSecurityLogsAvailable(_ context.Context, req *pb.OnSecurityLogsAvailableRequest) (*pb.OnSecurityLogsAvailableResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.DelegatedAdminReceiver{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.OnSecurityLogsAvailable(s.Ctx.Obj, s.Handles.Get(req.GetArg1())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.OnSecurityLogsAvailableResponse{}, nil
 }

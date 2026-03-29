@@ -9,6 +9,126 @@ import (
 	"google.golang.org/grpc"
 )
 
+// ComplexChannelClient wraps the gRPC ComplexChannelService client.
+type ComplexChannelClient struct {
+	svc pb.ComplexChannelServiceClient
+}
+
+// NewComplexChannelClient creates a new ComplexChannel client.
+func NewComplexChannelClient(cc grpc.ClientConnInterface) *ComplexChannelClient {
+	return &ComplexChannelClient{
+		svc: pb.NewComplexChannelServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *ComplexChannelClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *ComplexChannelClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetChannel calls the GetChannel RPC.
+func (c *ComplexChannelClient) GetChannel(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetChannel(ctx, &pb.GetChannelRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPreambleIndex calls the GetPreambleIndex RPC.
+func (c *ComplexChannelClient) GetPreambleIndex(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetPreambleIndex(ctx, &pb.GetPreambleIndexRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *ComplexChannelClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *ComplexChannelClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *ComplexChannelClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// ComplexChannelBuilderClient wraps the gRPC ComplexChannelBuilderService client.
+type ComplexChannelBuilderClient struct {
+	svc pb.ComplexChannelBuilderServiceClient
+}
+
+// NewComplexChannelBuilderClient creates a new ComplexChannelBuilder client.
+func NewComplexChannelBuilderClient(cc grpc.ClientConnInterface) *ComplexChannelBuilderClient {
+	return &ComplexChannelBuilderClient{
+		svc: pb.NewComplexChannelBuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *ComplexChannelBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetChannel calls the SetChannel RPC.
+func (c *ComplexChannelBuilderClient) SetChannel(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetChannel(ctx, &pb.SetChannelRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetPreambleIndex calls the SetPreambleIndex RPC.
+func (c *ComplexChannelBuilderClient) SetPreambleIndex(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetPreambleIndex(ctx, &pb.SetPreambleIndexRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // AddressClient wraps the gRPC AddressService client.
 type AddressClient struct {
 	svc pb.AddressServiceClient
@@ -333,126 +453,6 @@ func (c *RangingParamsBuilderClient) SetSubSessionKeyInfo(ctx context.Context, a
 	return resp.GetResult(), nil
 }
 
-// ComplexChannelClient wraps the gRPC ComplexChannelService client.
-type ComplexChannelClient struct {
-	svc pb.ComplexChannelServiceClient
-}
-
-// NewComplexChannelClient creates a new ComplexChannel client.
-func NewComplexChannelClient(cc grpc.ClientConnInterface) *ComplexChannelClient {
-	return &ComplexChannelClient{
-		svc: pb.NewComplexChannelServiceClient(cc),
-	}
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *ComplexChannelClient) DescribeContents(ctx context.Context) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Equals calls the Equals RPC.
-func (c *ComplexChannelClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetChannel calls the GetChannel RPC.
-func (c *ComplexChannelClient) GetChannel(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetChannel(ctx, &pb.GetChannelRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetPreambleIndex calls the GetPreambleIndex RPC.
-func (c *ComplexChannelClient) GetPreambleIndex(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetPreambleIndex(ctx, &pb.GetPreambleIndexRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *ComplexChannelClient) HashCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToString calls the ToString RPC.
-func (c *ComplexChannelClient) ToString(ctx context.Context) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *ComplexChannelClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// ComplexChannelBuilderClient wraps the gRPC ComplexChannelBuilderService client.
-type ComplexChannelBuilderClient struct {
-	svc pb.ComplexChannelBuilderServiceClient
-}
-
-// NewComplexChannelBuilderClient creates a new ComplexChannelBuilder client.
-func NewComplexChannelBuilderClient(cc grpc.ClientConnInterface) *ComplexChannelBuilderClient {
-	return &ComplexChannelBuilderClient{
-		svc: pb.NewComplexChannelBuilderServiceClient(cc),
-	}
-}
-
-// Build calls the Build RPC.
-func (c *ComplexChannelBuilderClient) Build(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetChannel calls the SetChannel RPC.
-func (c *ComplexChannelBuilderClient) SetChannel(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.SetChannel(ctx, &pb.SetChannelRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetPreambleIndex calls the SetPreambleIndex RPC.
-func (c *ComplexChannelBuilderClient) SetPreambleIndex(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.SetPreambleIndex(ctx, &pb.SetPreambleIndexRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
 // RangingCapabilitiesClient wraps the gRPC RangingCapabilitiesService client.
 type RangingCapabilitiesClient struct {
 	svc pb.RangingCapabilitiesServiceClient
@@ -477,6 +477,60 @@ func (c *RangingCapabilitiesClient) DescribeContents(ctx context.Context) (int32
 // GetMinimumRangingInterval calls the GetMinimumRangingInterval RPC.
 func (c *RangingCapabilitiesClient) GetMinimumRangingInterval(ctx context.Context) (int64, error) {
 	resp, err := c.svc.GetMinimumRangingInterval(ctx, &pb.GetMinimumRangingIntervalRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSupportedChannels calls the GetSupportedChannels RPC.
+func (c *RangingCapabilitiesClient) GetSupportedChannels(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetSupportedChannels(ctx, &pb.GetSupportedChannelsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSupportedConfigIds calls the GetSupportedConfigIds RPC.
+func (c *RangingCapabilitiesClient) GetSupportedConfigIds(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetSupportedConfigIds(ctx, &pb.GetSupportedConfigIdsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSupportedNotificationConfigurations calls the GetSupportedNotificationConfigurations RPC.
+func (c *RangingCapabilitiesClient) GetSupportedNotificationConfigurations(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetSupportedNotificationConfigurations(ctx, &pb.GetSupportedNotificationConfigurationsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSupportedPreambleIndexes calls the GetSupportedPreambleIndexes RPC.
+func (c *RangingCapabilitiesClient) GetSupportedPreambleIndexes(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetSupportedPreambleIndexes(ctx, &pb.GetSupportedPreambleIndexesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSupportedRangingUpdateRates calls the GetSupportedRangingUpdateRates RPC.
+func (c *RangingCapabilitiesClient) GetSupportedRangingUpdateRates(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetSupportedRangingUpdateRates(ctx, &pb.GetSupportedRangingUpdateRatesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSupportedSlotDurations calls the GetSupportedSlotDurations RPC.
+func (c *RangingCapabilitiesClient) GetSupportedSlotDurations(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetSupportedSlotDurations(ctx, &pb.GetSupportedSlotDurationsRequest{})
 	if err != nil {
 		return 0, err
 	}

@@ -1654,6 +1654,8 @@ const (
 	ContentResolverService_Canonicalize_FullMethodName                            = "/resolver.ContentResolverService/Canonicalize"
 	ContentResolverService_Delete2_FullMethodName                                 = "/resolver.ContentResolverService/Delete2"
 	ContentResolverService_Delete3_1_FullMethodName                               = "/resolver.ContentResolverService/Delete3_1"
+	ContentResolverService_GetOutgoingPersistedUriPermissions_FullMethodName      = "/resolver.ContentResolverService/GetOutgoingPersistedUriPermissions"
+	ContentResolverService_GetPersistedUriPermissions_FullMethodName              = "/resolver.ContentResolverService/GetPersistedUriPermissions"
 	ContentResolverService_GetStreamTypes_FullMethodName                          = "/resolver.ContentResolverService/GetStreamTypes"
 	ContentResolverService_GetType_FullMethodName                                 = "/resolver.ContentResolverService/GetType"
 	ContentResolverService_GetTypeInfo_FullMethodName                             = "/resolver.ContentResolverService/GetTypeInfo"
@@ -1692,8 +1694,10 @@ const (
 	ContentResolverService_CancelSync2_FullMethodName                             = "/resolver.ContentResolverService/CancelSync2"
 	ContentResolverService_CancelSync1_1_FullMethodName                           = "/resolver.ContentResolverService/CancelSync1_1"
 	ContentResolverService_GetCurrentSync_FullMethodName                          = "/resolver.ContentResolverService/GetCurrentSync"
+	ContentResolverService_GetCurrentSyncs_FullMethodName                         = "/resolver.ContentResolverService/GetCurrentSyncs"
 	ContentResolverService_GetIsSyncable_FullMethodName                           = "/resolver.ContentResolverService/GetIsSyncable"
 	ContentResolverService_GetMasterSyncAutomatically_FullMethodName              = "/resolver.ContentResolverService/GetMasterSyncAutomatically"
+	ContentResolverService_GetPeriodicSyncs_FullMethodName                        = "/resolver.ContentResolverService/GetPeriodicSyncs"
 	ContentResolverService_GetSyncAdapterTypes_FullMethodName                     = "/resolver.ContentResolverService/GetSyncAdapterTypes"
 	ContentResolverService_GetSyncAutomatically_FullMethodName                    = "/resolver.ContentResolverService/GetSyncAutomatically"
 	ContentResolverService_IsSyncActive_FullMethodName                            = "/resolver.ContentResolverService/IsSyncActive"
@@ -1725,6 +1729,8 @@ type ContentResolverServiceClient interface {
 	Canonicalize(ctx context.Context, in *CanonicalizeRequest, opts ...grpc.CallOption) (*CanonicalizeResponse, error)
 	Delete2(ctx context.Context, in *Delete2Request, opts ...grpc.CallOption) (*Delete2Response, error)
 	Delete3_1(ctx context.Context, in *Delete3_1Request, opts ...grpc.CallOption) (*Delete3_1Response, error)
+	GetOutgoingPersistedUriPermissions(ctx context.Context, in *GetOutgoingPersistedUriPermissionsRequest, opts ...grpc.CallOption) (*GetOutgoingPersistedUriPermissionsResponse, error)
+	GetPersistedUriPermissions(ctx context.Context, in *GetPersistedUriPermissionsRequest, opts ...grpc.CallOption) (*GetPersistedUriPermissionsResponse, error)
 	GetStreamTypes(ctx context.Context, in *GetStreamTypesRequest, opts ...grpc.CallOption) (*GetStreamTypesResponse, error)
 	GetType(ctx context.Context, in *ContentResolverGetTypeRequest, opts ...grpc.CallOption) (*ContentResolverGetTypeResponse, error)
 	GetTypeInfo(ctx context.Context, in *GetTypeInfoRequest, opts ...grpc.CallOption) (*GetTypeInfoResponse, error)
@@ -1763,8 +1769,10 @@ type ContentResolverServiceClient interface {
 	CancelSync2(ctx context.Context, in *CancelSync2Request, opts ...grpc.CallOption) (*CancelSync2Response, error)
 	CancelSync1_1(ctx context.Context, in *CancelSync1_1Request, opts ...grpc.CallOption) (*CancelSync1_1Response, error)
 	GetCurrentSync(ctx context.Context, in *GetCurrentSyncRequest, opts ...grpc.CallOption) (*GetCurrentSyncResponse, error)
+	GetCurrentSyncs(ctx context.Context, in *GetCurrentSyncsRequest, opts ...grpc.CallOption) (*GetCurrentSyncsResponse, error)
 	GetIsSyncable(ctx context.Context, in *GetIsSyncableRequest, opts ...grpc.CallOption) (*GetIsSyncableResponse, error)
 	GetMasterSyncAutomatically(ctx context.Context, in *GetMasterSyncAutomaticallyRequest, opts ...grpc.CallOption) (*GetMasterSyncAutomaticallyResponse, error)
+	GetPeriodicSyncs(ctx context.Context, in *GetPeriodicSyncsRequest, opts ...grpc.CallOption) (*GetPeriodicSyncsResponse, error)
 	GetSyncAdapterTypes(ctx context.Context, in *GetSyncAdapterTypesRequest, opts ...grpc.CallOption) (*GetSyncAdapterTypesResponse, error)
 	GetSyncAutomatically(ctx context.Context, in *GetSyncAutomaticallyRequest, opts ...grpc.CallOption) (*GetSyncAutomaticallyResponse, error)
 	IsSyncActive(ctx context.Context, in *IsSyncActiveRequest, opts ...grpc.CallOption) (*IsSyncActiveResponse, error)
@@ -1893,6 +1901,26 @@ func (c *contentResolverServiceClient) Delete3_1(ctx context.Context, in *Delete
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(Delete3_1Response)
 	err := c.cc.Invoke(ctx, ContentResolverService_Delete3_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *contentResolverServiceClient) GetOutgoingPersistedUriPermissions(ctx context.Context, in *GetOutgoingPersistedUriPermissionsRequest, opts ...grpc.CallOption) (*GetOutgoingPersistedUriPermissionsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetOutgoingPersistedUriPermissionsResponse)
+	err := c.cc.Invoke(ctx, ContentResolverService_GetOutgoingPersistedUriPermissions_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *contentResolverServiceClient) GetPersistedUriPermissions(ctx context.Context, in *GetPersistedUriPermissionsRequest, opts ...grpc.CallOption) (*GetPersistedUriPermissionsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetPersistedUriPermissionsResponse)
+	err := c.cc.Invoke(ctx, ContentResolverService_GetPersistedUriPermissions_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -2279,6 +2307,16 @@ func (c *contentResolverServiceClient) GetCurrentSync(ctx context.Context, in *G
 	return out, nil
 }
 
+func (c *contentResolverServiceClient) GetCurrentSyncs(ctx context.Context, in *GetCurrentSyncsRequest, opts ...grpc.CallOption) (*GetCurrentSyncsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetCurrentSyncsResponse)
+	err := c.cc.Invoke(ctx, ContentResolverService_GetCurrentSyncs_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *contentResolverServiceClient) GetIsSyncable(ctx context.Context, in *GetIsSyncableRequest, opts ...grpc.CallOption) (*GetIsSyncableResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetIsSyncableResponse)
@@ -2293,6 +2331,16 @@ func (c *contentResolverServiceClient) GetMasterSyncAutomatically(ctx context.Co
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetMasterSyncAutomaticallyResponse)
 	err := c.cc.Invoke(ctx, ContentResolverService_GetMasterSyncAutomatically_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *contentResolverServiceClient) GetPeriodicSyncs(ctx context.Context, in *GetPeriodicSyncsRequest, opts ...grpc.CallOption) (*GetPeriodicSyncsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetPeriodicSyncsResponse)
+	err := c.cc.Invoke(ctx, ContentResolverService_GetPeriodicSyncs_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -2454,6 +2502,8 @@ type ContentResolverServiceServer interface {
 	Canonicalize(context.Context, *CanonicalizeRequest) (*CanonicalizeResponse, error)
 	Delete2(context.Context, *Delete2Request) (*Delete2Response, error)
 	Delete3_1(context.Context, *Delete3_1Request) (*Delete3_1Response, error)
+	GetOutgoingPersistedUriPermissions(context.Context, *GetOutgoingPersistedUriPermissionsRequest) (*GetOutgoingPersistedUriPermissionsResponse, error)
+	GetPersistedUriPermissions(context.Context, *GetPersistedUriPermissionsRequest) (*GetPersistedUriPermissionsResponse, error)
 	GetStreamTypes(context.Context, *GetStreamTypesRequest) (*GetStreamTypesResponse, error)
 	GetType(context.Context, *ContentResolverGetTypeRequest) (*ContentResolverGetTypeResponse, error)
 	GetTypeInfo(context.Context, *GetTypeInfoRequest) (*GetTypeInfoResponse, error)
@@ -2492,8 +2542,10 @@ type ContentResolverServiceServer interface {
 	CancelSync2(context.Context, *CancelSync2Request) (*CancelSync2Response, error)
 	CancelSync1_1(context.Context, *CancelSync1_1Request) (*CancelSync1_1Response, error)
 	GetCurrentSync(context.Context, *GetCurrentSyncRequest) (*GetCurrentSyncResponse, error)
+	GetCurrentSyncs(context.Context, *GetCurrentSyncsRequest) (*GetCurrentSyncsResponse, error)
 	GetIsSyncable(context.Context, *GetIsSyncableRequest) (*GetIsSyncableResponse, error)
 	GetMasterSyncAutomatically(context.Context, *GetMasterSyncAutomaticallyRequest) (*GetMasterSyncAutomaticallyResponse, error)
+	GetPeriodicSyncs(context.Context, *GetPeriodicSyncsRequest) (*GetPeriodicSyncsResponse, error)
 	GetSyncAdapterTypes(context.Context, *GetSyncAdapterTypesRequest) (*GetSyncAdapterTypesResponse, error)
 	GetSyncAutomatically(context.Context, *GetSyncAutomaticallyRequest) (*GetSyncAutomaticallyResponse, error)
 	IsSyncActive(context.Context, *IsSyncActiveRequest) (*IsSyncActiveResponse, error)
@@ -2550,6 +2602,12 @@ func (UnimplementedContentResolverServiceServer) Delete2(context.Context, *Delet
 }
 func (UnimplementedContentResolverServiceServer) Delete3_1(context.Context, *Delete3_1Request) (*Delete3_1Response, error) {
 	return nil, status.Error(codes.Unimplemented, "method Delete3_1 not implemented")
+}
+func (UnimplementedContentResolverServiceServer) GetOutgoingPersistedUriPermissions(context.Context, *GetOutgoingPersistedUriPermissionsRequest) (*GetOutgoingPersistedUriPermissionsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetOutgoingPersistedUriPermissions not implemented")
+}
+func (UnimplementedContentResolverServiceServer) GetPersistedUriPermissions(context.Context, *GetPersistedUriPermissionsRequest) (*GetPersistedUriPermissionsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetPersistedUriPermissions not implemented")
 }
 func (UnimplementedContentResolverServiceServer) GetStreamTypes(context.Context, *GetStreamTypesRequest) (*GetStreamTypesResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetStreamTypes not implemented")
@@ -2665,11 +2723,17 @@ func (UnimplementedContentResolverServiceServer) CancelSync1_1(context.Context, 
 func (UnimplementedContentResolverServiceServer) GetCurrentSync(context.Context, *GetCurrentSyncRequest) (*GetCurrentSyncResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetCurrentSync not implemented")
 }
+func (UnimplementedContentResolverServiceServer) GetCurrentSyncs(context.Context, *GetCurrentSyncsRequest) (*GetCurrentSyncsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetCurrentSyncs not implemented")
+}
 func (UnimplementedContentResolverServiceServer) GetIsSyncable(context.Context, *GetIsSyncableRequest) (*GetIsSyncableResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetIsSyncable not implemented")
 }
 func (UnimplementedContentResolverServiceServer) GetMasterSyncAutomatically(context.Context, *GetMasterSyncAutomaticallyRequest) (*GetMasterSyncAutomaticallyResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetMasterSyncAutomatically not implemented")
+}
+func (UnimplementedContentResolverServiceServer) GetPeriodicSyncs(context.Context, *GetPeriodicSyncsRequest) (*GetPeriodicSyncsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetPeriodicSyncs not implemented")
 }
 func (UnimplementedContentResolverServiceServer) GetSyncAdapterTypes(context.Context, *GetSyncAdapterTypesRequest) (*GetSyncAdapterTypesResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetSyncAdapterTypes not implemented")
@@ -2929,6 +2993,42 @@ func _ContentResolverService_Delete3_1_Handler(srv interface{}, ctx context.Cont
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(ContentResolverServiceServer).Delete3_1(ctx, req.(*Delete3_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ContentResolverService_GetOutgoingPersistedUriPermissions_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetOutgoingPersistedUriPermissionsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ContentResolverServiceServer).GetOutgoingPersistedUriPermissions(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ContentResolverService_GetOutgoingPersistedUriPermissions_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ContentResolverServiceServer).GetOutgoingPersistedUriPermissions(ctx, req.(*GetOutgoingPersistedUriPermissionsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ContentResolverService_GetPersistedUriPermissions_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPersistedUriPermissionsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ContentResolverServiceServer).GetPersistedUriPermissions(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ContentResolverService_GetPersistedUriPermissions_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ContentResolverServiceServer).GetPersistedUriPermissions(ctx, req.(*GetPersistedUriPermissionsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -3617,6 +3717,24 @@ func _ContentResolverService_GetCurrentSync_Handler(srv interface{}, ctx context
 	return interceptor(ctx, in, info, handler)
 }
 
+func _ContentResolverService_GetCurrentSyncs_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetCurrentSyncsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ContentResolverServiceServer).GetCurrentSyncs(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ContentResolverService_GetCurrentSyncs_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ContentResolverServiceServer).GetCurrentSyncs(ctx, req.(*GetCurrentSyncsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _ContentResolverService_GetIsSyncable_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetIsSyncableRequest)
 	if err := dec(in); err != nil {
@@ -3649,6 +3767,24 @@ func _ContentResolverService_GetMasterSyncAutomatically_Handler(srv interface{},
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(ContentResolverServiceServer).GetMasterSyncAutomatically(ctx, req.(*GetMasterSyncAutomaticallyRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ContentResolverService_GetPeriodicSyncs_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPeriodicSyncsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ContentResolverServiceServer).GetPeriodicSyncs(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ContentResolverService_GetPeriodicSyncs_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ContentResolverServiceServer).GetPeriodicSyncs(ctx, req.(*GetPeriodicSyncsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -3957,6 +4093,14 @@ var ContentResolverService_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _ContentResolverService_Delete3_1_Handler,
 		},
 		{
+			MethodName: "GetOutgoingPersistedUriPermissions",
+			Handler:    _ContentResolverService_GetOutgoingPersistedUriPermissions_Handler,
+		},
+		{
+			MethodName: "GetPersistedUriPermissions",
+			Handler:    _ContentResolverService_GetPersistedUriPermissions_Handler,
+		},
+		{
 			MethodName: "GetStreamTypes",
 			Handler:    _ContentResolverService_GetStreamTypes_Handler,
 		},
@@ -4109,12 +4253,20 @@ var ContentResolverService_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _ContentResolverService_GetCurrentSync_Handler,
 		},
 		{
+			MethodName: "GetCurrentSyncs",
+			Handler:    _ContentResolverService_GetCurrentSyncs_Handler,
+		},
+		{
 			MethodName: "GetIsSyncable",
 			Handler:    _ContentResolverService_GetIsSyncable_Handler,
 		},
 		{
 			MethodName: "GetMasterSyncAutomatically",
 			Handler:    _ContentResolverService_GetMasterSyncAutomatically_Handler,
+		},
+		{
+			MethodName: "GetPeriodicSyncs",
+			Handler:    _ContentResolverService_GetPeriodicSyncs_Handler,
 		},
 		{
 			MethodName: "GetSyncAdapterTypes",
@@ -4372,9 +4524,12 @@ const (
 	UriService_GetHost_FullMethodName                      = "/resolver.UriService/GetHost"
 	UriService_GetLastPathSegment_FullMethodName           = "/resolver.UriService/GetLastPathSegment"
 	UriService_GetPath_FullMethodName                      = "/resolver.UriService/GetPath"
+	UriService_GetPathSegments_FullMethodName              = "/resolver.UriService/GetPathSegments"
 	UriService_GetPort_FullMethodName                      = "/resolver.UriService/GetPort"
 	UriService_GetQuery_FullMethodName                     = "/resolver.UriService/GetQuery"
 	UriService_GetQueryParameter_FullMethodName            = "/resolver.UriService/GetQueryParameter"
+	UriService_GetQueryParameterNames_FullMethodName       = "/resolver.UriService/GetQueryParameterNames"
+	UriService_GetQueryParameters_FullMethodName           = "/resolver.UriService/GetQueryParameters"
 	UriService_GetScheme_FullMethodName                    = "/resolver.UriService/GetScheme"
 	UriService_GetSchemeSpecificPart_FullMethodName        = "/resolver.UriService/GetSchemeSpecificPart"
 	UriService_GetUserInfo_FullMethodName                  = "/resolver.UriService/GetUserInfo"
@@ -4415,9 +4570,12 @@ type UriServiceClient interface {
 	GetHost(ctx context.Context, in *GetHostRequest, opts ...grpc.CallOption) (*GetHostResponse, error)
 	GetLastPathSegment(ctx context.Context, in *GetLastPathSegmentRequest, opts ...grpc.CallOption) (*GetLastPathSegmentResponse, error)
 	GetPath(ctx context.Context, in *GetPathRequest, opts ...grpc.CallOption) (*GetPathResponse, error)
+	GetPathSegments(ctx context.Context, in *GetPathSegmentsRequest, opts ...grpc.CallOption) (*GetPathSegmentsResponse, error)
 	GetPort(ctx context.Context, in *GetPortRequest, opts ...grpc.CallOption) (*GetPortResponse, error)
 	GetQuery(ctx context.Context, in *GetQueryRequest, opts ...grpc.CallOption) (*GetQueryResponse, error)
 	GetQueryParameter(ctx context.Context, in *GetQueryParameterRequest, opts ...grpc.CallOption) (*GetQueryParameterResponse, error)
+	GetQueryParameterNames(ctx context.Context, in *GetQueryParameterNamesRequest, opts ...grpc.CallOption) (*GetQueryParameterNamesResponse, error)
+	GetQueryParameters(ctx context.Context, in *GetQueryParametersRequest, opts ...grpc.CallOption) (*GetQueryParametersResponse, error)
 	GetScheme(ctx context.Context, in *GetSchemeRequest, opts ...grpc.CallOption) (*GetSchemeResponse, error)
 	GetSchemeSpecificPart(ctx context.Context, in *GetSchemeSpecificPartRequest, opts ...grpc.CallOption) (*GetSchemeSpecificPartResponse, error)
 	GetUserInfo(ctx context.Context, in *GetUserInfoRequest, opts ...grpc.CallOption) (*GetUserInfoResponse, error)
@@ -4597,6 +4755,16 @@ func (c *uriServiceClient) GetPath(ctx context.Context, in *GetPathRequest, opts
 	return out, nil
 }
 
+func (c *uriServiceClient) GetPathSegments(ctx context.Context, in *GetPathSegmentsRequest, opts ...grpc.CallOption) (*GetPathSegmentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetPathSegmentsResponse)
+	err := c.cc.Invoke(ctx, UriService_GetPathSegments_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *uriServiceClient) GetPort(ctx context.Context, in *GetPortRequest, opts ...grpc.CallOption) (*GetPortResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetPortResponse)
@@ -4621,6 +4789,26 @@ func (c *uriServiceClient) GetQueryParameter(ctx context.Context, in *GetQueryPa
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetQueryParameterResponse)
 	err := c.cc.Invoke(ctx, UriService_GetQueryParameter_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *uriServiceClient) GetQueryParameterNames(ctx context.Context, in *GetQueryParameterNamesRequest, opts ...grpc.CallOption) (*GetQueryParameterNamesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetQueryParameterNamesResponse)
+	err := c.cc.Invoke(ctx, UriService_GetQueryParameterNames_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *uriServiceClient) GetQueryParameters(ctx context.Context, in *GetQueryParametersRequest, opts ...grpc.CallOption) (*GetQueryParametersResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetQueryParametersResponse)
+	err := c.cc.Invoke(ctx, UriService_GetQueryParameters_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -4836,9 +5024,12 @@ type UriServiceServer interface {
 	GetHost(context.Context, *GetHostRequest) (*GetHostResponse, error)
 	GetLastPathSegment(context.Context, *GetLastPathSegmentRequest) (*GetLastPathSegmentResponse, error)
 	GetPath(context.Context, *GetPathRequest) (*GetPathResponse, error)
+	GetPathSegments(context.Context, *GetPathSegmentsRequest) (*GetPathSegmentsResponse, error)
 	GetPort(context.Context, *GetPortRequest) (*GetPortResponse, error)
 	GetQuery(context.Context, *GetQueryRequest) (*GetQueryResponse, error)
 	GetQueryParameter(context.Context, *GetQueryParameterRequest) (*GetQueryParameterResponse, error)
+	GetQueryParameterNames(context.Context, *GetQueryParameterNamesRequest) (*GetQueryParameterNamesResponse, error)
+	GetQueryParameters(context.Context, *GetQueryParametersRequest) (*GetQueryParametersResponse, error)
 	GetScheme(context.Context, *GetSchemeRequest) (*GetSchemeResponse, error)
 	GetSchemeSpecificPart(context.Context, *GetSchemeSpecificPartRequest) (*GetSchemeSpecificPartResponse, error)
 	GetUserInfo(context.Context, *GetUserInfoRequest) (*GetUserInfoResponse, error)
@@ -4913,6 +5104,9 @@ func (UnimplementedUriServiceServer) GetLastPathSegment(context.Context, *GetLas
 func (UnimplementedUriServiceServer) GetPath(context.Context, *GetPathRequest) (*GetPathResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetPath not implemented")
 }
+func (UnimplementedUriServiceServer) GetPathSegments(context.Context, *GetPathSegmentsRequest) (*GetPathSegmentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetPathSegments not implemented")
+}
 func (UnimplementedUriServiceServer) GetPort(context.Context, *GetPortRequest) (*GetPortResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetPort not implemented")
 }
@@ -4921,6 +5115,12 @@ func (UnimplementedUriServiceServer) GetQuery(context.Context, *GetQueryRequest)
 }
 func (UnimplementedUriServiceServer) GetQueryParameter(context.Context, *GetQueryParameterRequest) (*GetQueryParameterResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetQueryParameter not implemented")
+}
+func (UnimplementedUriServiceServer) GetQueryParameterNames(context.Context, *GetQueryParameterNamesRequest) (*GetQueryParameterNamesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetQueryParameterNames not implemented")
+}
+func (UnimplementedUriServiceServer) GetQueryParameters(context.Context, *GetQueryParametersRequest) (*GetQueryParametersResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetQueryParameters not implemented")
 }
 func (UnimplementedUriServiceServer) GetScheme(context.Context, *GetSchemeRequest) (*GetSchemeResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetScheme not implemented")
@@ -5270,6 +5470,24 @@ func _UriService_GetPath_Handler(srv interface{}, ctx context.Context, dec func(
 	return interceptor(ctx, in, info, handler)
 }
 
+func _UriService_GetPathSegments_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPathSegmentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(UriServiceServer).GetPathSegments(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: UriService_GetPathSegments_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(UriServiceServer).GetPathSegments(ctx, req.(*GetPathSegmentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _UriService_GetPort_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetPortRequest)
 	if err := dec(in); err != nil {
@@ -5320,6 +5538,42 @@ func _UriService_GetQueryParameter_Handler(srv interface{}, ctx context.Context,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(UriServiceServer).GetQueryParameter(ctx, req.(*GetQueryParameterRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _UriService_GetQueryParameterNames_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetQueryParameterNamesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(UriServiceServer).GetQueryParameterNames(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: UriService_GetQueryParameterNames_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(UriServiceServer).GetQueryParameterNames(ctx, req.(*GetQueryParameterNamesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _UriService_GetQueryParameters_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetQueryParametersRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(UriServiceServer).GetQueryParameters(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: UriService_GetQueryParameters_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(UriServiceServer).GetQueryParameters(ctx, req.(*GetQueryParametersRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -5734,6 +5988,10 @@ var UriService_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _UriService_GetPath_Handler,
 		},
 		{
+			MethodName: "GetPathSegments",
+			Handler:    _UriService_GetPathSegments_Handler,
+		},
+		{
 			MethodName: "GetPort",
 			Handler:    _UriService_GetPort_Handler,
 		},
@@ -5744,6 +6002,14 @@ var UriService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetQueryParameter",
 			Handler:    _UriService_GetQueryParameter_Handler,
+		},
+		{
+			MethodName: "GetQueryParameterNames",
+			Handler:    _UriService_GetQueryParameterNames_Handler,
+		},
+		{
+			MethodName: "GetQueryParameters",
+			Handler:    _UriService_GetQueryParameters_Handler,
 		},
 		{
 			MethodName: "GetScheme",

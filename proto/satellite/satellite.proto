@@ -6,6 +6,13 @@ package satellite;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/satellite";
 
+message OnEnabledStateChangedRequest {
+  bool arg0 = 1;
+}
+
+message OnEnabledStateChangedResponse {
+}
+
 message RegisterStateChangeListenerRequest {
   int64 arg0 = 1;
   int64 arg1 = 2;
@@ -21,18 +28,11 @@ message UnregisterStateChangeListenerRequest {
 message UnregisterStateChangeListenerResponse {
 }
 
-message OnEnabledStateChangedRequest {
-  bool arg0 = 1;
-}
-
-message OnEnabledStateChangedResponse {
+service StateChangeListenerService {
+  rpc OnEnabledStateChanged (OnEnabledStateChangedRequest) returns (OnEnabledStateChangedResponse);
 }
 
 service ManagerService {
   rpc RegisterStateChangeListener (RegisterStateChangeListenerRequest) returns (RegisterStateChangeListenerResponse);
   rpc UnregisterStateChangeListener (UnregisterStateChangeListenerRequest) returns (UnregisterStateChangeListenerResponse);
-}
-
-service StateChangeListenerService {
-  rpc OnEnabledStateChanged (OnEnabledStateChangedRequest) returns (OnEnabledStateChangedResponse);
 }

@@ -55,6 +55,13 @@ message CreateSessionResponse {
   int64 result = 1;
 }
 
+message GetLeasedBlobsRequest {
+}
+
+message GetLeasedBlobsResponse {
+  int64 result = 1;
+}
+
 message GetRemainingLeaseQuotaBytesRequest {
 }
 
@@ -246,6 +253,7 @@ service StoreManagerService {
   rpc AcquireLease2_2 (AcquireLease2_2Request) returns (AcquireLease2_2Response);
   rpc AcquireLease3_3 (AcquireLease3_3Request) returns (AcquireLease3_3Response);
   rpc CreateSession (CreateSessionRequest) returns (CreateSessionResponse);
+  rpc GetLeasedBlobs (GetLeasedBlobsRequest) returns (GetLeasedBlobsResponse);
   rpc GetRemainingLeaseQuotaBytes (GetRemainingLeaseQuotaBytesRequest) returns (GetRemainingLeaseQuotaBytesResponse);
   rpc OpenBlob (OpenBlobRequest) returns (OpenBlobResponse);
   rpc OpenSession (OpenSessionRequest) returns (OpenSessionResponse);

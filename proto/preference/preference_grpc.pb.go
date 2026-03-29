@@ -834,1394 +834,6 @@ var FragmentOnPreferenceStartFragmentCallbackService_ServiceDesc = grpc.ServiceD
 }
 
 const (
-	MultiSelectListPreferenceService_NewMultiSelectListPreference_FullMethodName = "/preference.MultiSelectListPreferenceService/NewMultiSelectListPreference"
-	MultiSelectListPreferenceService_FindIndexOfValue_FullMethodName             = "/preference.MultiSelectListPreferenceService/FindIndexOfValue"
-	MultiSelectListPreferenceService_GetEntries_FullMethodName                   = "/preference.MultiSelectListPreferenceService/GetEntries"
-	MultiSelectListPreferenceService_GetEntryValues_FullMethodName               = "/preference.MultiSelectListPreferenceService/GetEntryValues"
-	MultiSelectListPreferenceService_SetEntries1_FullMethodName                  = "/preference.MultiSelectListPreferenceService/SetEntries1"
-	MultiSelectListPreferenceService_SetEntries1_1_FullMethodName                = "/preference.MultiSelectListPreferenceService/SetEntries1_1"
-	MultiSelectListPreferenceService_SetEntryValues1_FullMethodName              = "/preference.MultiSelectListPreferenceService/SetEntryValues1"
-	MultiSelectListPreferenceService_SetEntryValues1_1_FullMethodName            = "/preference.MultiSelectListPreferenceService/SetEntryValues1_1"
-)
-
-// MultiSelectListPreferenceServiceClient is the client API for MultiSelectListPreferenceService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type MultiSelectListPreferenceServiceClient interface {
-	NewMultiSelectListPreference(ctx context.Context, in *NewMultiSelectListPreferenceRequest, opts ...grpc.CallOption) (*NewMultiSelectListPreferenceResponse, error)
-	FindIndexOfValue(ctx context.Context, in *FindIndexOfValueRequest, opts ...grpc.CallOption) (*FindIndexOfValueResponse, error)
-	GetEntries(ctx context.Context, in *GetEntriesRequest, opts ...grpc.CallOption) (*GetEntriesResponse, error)
-	GetEntryValues(ctx context.Context, in *GetEntryValuesRequest, opts ...grpc.CallOption) (*GetEntryValuesResponse, error)
-	SetEntries1(ctx context.Context, in *SetEntries1Request, opts ...grpc.CallOption) (*SetEntries1Response, error)
-	SetEntries1_1(ctx context.Context, in *SetEntries1_1Request, opts ...grpc.CallOption) (*SetEntries1_1Response, error)
-	SetEntryValues1(ctx context.Context, in *SetEntryValues1Request, opts ...grpc.CallOption) (*SetEntryValues1Response, error)
-	SetEntryValues1_1(ctx context.Context, in *SetEntryValues1_1Request, opts ...grpc.CallOption) (*SetEntryValues1_1Response, error)
-}
-
-type multiSelectListPreferenceServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewMultiSelectListPreferenceServiceClient(cc grpc.ClientConnInterface) MultiSelectListPreferenceServiceClient {
-	return &multiSelectListPreferenceServiceClient{cc}
-}
-
-func (c *multiSelectListPreferenceServiceClient) NewMultiSelectListPreference(ctx context.Context, in *NewMultiSelectListPreferenceRequest, opts ...grpc.CallOption) (*NewMultiSelectListPreferenceResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewMultiSelectListPreferenceResponse)
-	err := c.cc.Invoke(ctx, MultiSelectListPreferenceService_NewMultiSelectListPreference_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *multiSelectListPreferenceServiceClient) FindIndexOfValue(ctx context.Context, in *FindIndexOfValueRequest, opts ...grpc.CallOption) (*FindIndexOfValueResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(FindIndexOfValueResponse)
-	err := c.cc.Invoke(ctx, MultiSelectListPreferenceService_FindIndexOfValue_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *multiSelectListPreferenceServiceClient) GetEntries(ctx context.Context, in *GetEntriesRequest, opts ...grpc.CallOption) (*GetEntriesResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetEntriesResponse)
-	err := c.cc.Invoke(ctx, MultiSelectListPreferenceService_GetEntries_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *multiSelectListPreferenceServiceClient) GetEntryValues(ctx context.Context, in *GetEntryValuesRequest, opts ...grpc.CallOption) (*GetEntryValuesResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetEntryValuesResponse)
-	err := c.cc.Invoke(ctx, MultiSelectListPreferenceService_GetEntryValues_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *multiSelectListPreferenceServiceClient) SetEntries1(ctx context.Context, in *SetEntries1Request, opts ...grpc.CallOption) (*SetEntries1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetEntries1Response)
-	err := c.cc.Invoke(ctx, MultiSelectListPreferenceService_SetEntries1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *multiSelectListPreferenceServiceClient) SetEntries1_1(ctx context.Context, in *SetEntries1_1Request, opts ...grpc.CallOption) (*SetEntries1_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetEntries1_1Response)
-	err := c.cc.Invoke(ctx, MultiSelectListPreferenceService_SetEntries1_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *multiSelectListPreferenceServiceClient) SetEntryValues1(ctx context.Context, in *SetEntryValues1Request, opts ...grpc.CallOption) (*SetEntryValues1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetEntryValues1Response)
-	err := c.cc.Invoke(ctx, MultiSelectListPreferenceService_SetEntryValues1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *multiSelectListPreferenceServiceClient) SetEntryValues1_1(ctx context.Context, in *SetEntryValues1_1Request, opts ...grpc.CallOption) (*SetEntryValues1_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetEntryValues1_1Response)
-	err := c.cc.Invoke(ctx, MultiSelectListPreferenceService_SetEntryValues1_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// MultiSelectListPreferenceServiceServer is the server API for MultiSelectListPreferenceService service.
-// All implementations must embed UnimplementedMultiSelectListPreferenceServiceServer
-// for forward compatibility.
-type MultiSelectListPreferenceServiceServer interface {
-	NewMultiSelectListPreference(context.Context, *NewMultiSelectListPreferenceRequest) (*NewMultiSelectListPreferenceResponse, error)
-	FindIndexOfValue(context.Context, *FindIndexOfValueRequest) (*FindIndexOfValueResponse, error)
-	GetEntries(context.Context, *GetEntriesRequest) (*GetEntriesResponse, error)
-	GetEntryValues(context.Context, *GetEntryValuesRequest) (*GetEntryValuesResponse, error)
-	SetEntries1(context.Context, *SetEntries1Request) (*SetEntries1Response, error)
-	SetEntries1_1(context.Context, *SetEntries1_1Request) (*SetEntries1_1Response, error)
-	SetEntryValues1(context.Context, *SetEntryValues1Request) (*SetEntryValues1Response, error)
-	SetEntryValues1_1(context.Context, *SetEntryValues1_1Request) (*SetEntryValues1_1Response, error)
-	mustEmbedUnimplementedMultiSelectListPreferenceServiceServer()
-}
-
-// UnimplementedMultiSelectListPreferenceServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedMultiSelectListPreferenceServiceServer struct{}
-
-func (UnimplementedMultiSelectListPreferenceServiceServer) NewMultiSelectListPreference(context.Context, *NewMultiSelectListPreferenceRequest) (*NewMultiSelectListPreferenceResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewMultiSelectListPreference not implemented")
-}
-func (UnimplementedMultiSelectListPreferenceServiceServer) FindIndexOfValue(context.Context, *FindIndexOfValueRequest) (*FindIndexOfValueResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method FindIndexOfValue not implemented")
-}
-func (UnimplementedMultiSelectListPreferenceServiceServer) GetEntries(context.Context, *GetEntriesRequest) (*GetEntriesResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetEntries not implemented")
-}
-func (UnimplementedMultiSelectListPreferenceServiceServer) GetEntryValues(context.Context, *GetEntryValuesRequest) (*GetEntryValuesResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetEntryValues not implemented")
-}
-func (UnimplementedMultiSelectListPreferenceServiceServer) SetEntries1(context.Context, *SetEntries1Request) (*SetEntries1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetEntries1 not implemented")
-}
-func (UnimplementedMultiSelectListPreferenceServiceServer) SetEntries1_1(context.Context, *SetEntries1_1Request) (*SetEntries1_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetEntries1_1 not implemented")
-}
-func (UnimplementedMultiSelectListPreferenceServiceServer) SetEntryValues1(context.Context, *SetEntryValues1Request) (*SetEntryValues1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetEntryValues1 not implemented")
-}
-func (UnimplementedMultiSelectListPreferenceServiceServer) SetEntryValues1_1(context.Context, *SetEntryValues1_1Request) (*SetEntryValues1_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetEntryValues1_1 not implemented")
-}
-func (UnimplementedMultiSelectListPreferenceServiceServer) mustEmbedUnimplementedMultiSelectListPreferenceServiceServer() {
-}
-func (UnimplementedMultiSelectListPreferenceServiceServer) testEmbeddedByValue() {}
-
-// UnsafeMultiSelectListPreferenceServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to MultiSelectListPreferenceServiceServer will
-// result in compilation errors.
-type UnsafeMultiSelectListPreferenceServiceServer interface {
-	mustEmbedUnimplementedMultiSelectListPreferenceServiceServer()
-}
-
-func RegisterMultiSelectListPreferenceServiceServer(s grpc.ServiceRegistrar, srv MultiSelectListPreferenceServiceServer) {
-	// If the following call panics, it indicates UnimplementedMultiSelectListPreferenceServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&MultiSelectListPreferenceService_ServiceDesc, srv)
-}
-
-func _MultiSelectListPreferenceService_NewMultiSelectListPreference_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewMultiSelectListPreferenceRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(MultiSelectListPreferenceServiceServer).NewMultiSelectListPreference(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: MultiSelectListPreferenceService_NewMultiSelectListPreference_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MultiSelectListPreferenceServiceServer).NewMultiSelectListPreference(ctx, req.(*NewMultiSelectListPreferenceRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _MultiSelectListPreferenceService_FindIndexOfValue_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(FindIndexOfValueRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(MultiSelectListPreferenceServiceServer).FindIndexOfValue(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: MultiSelectListPreferenceService_FindIndexOfValue_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MultiSelectListPreferenceServiceServer).FindIndexOfValue(ctx, req.(*FindIndexOfValueRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _MultiSelectListPreferenceService_GetEntries_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetEntriesRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(MultiSelectListPreferenceServiceServer).GetEntries(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: MultiSelectListPreferenceService_GetEntries_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MultiSelectListPreferenceServiceServer).GetEntries(ctx, req.(*GetEntriesRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _MultiSelectListPreferenceService_GetEntryValues_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetEntryValuesRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(MultiSelectListPreferenceServiceServer).GetEntryValues(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: MultiSelectListPreferenceService_GetEntryValues_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MultiSelectListPreferenceServiceServer).GetEntryValues(ctx, req.(*GetEntryValuesRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _MultiSelectListPreferenceService_SetEntries1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetEntries1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(MultiSelectListPreferenceServiceServer).SetEntries1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: MultiSelectListPreferenceService_SetEntries1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MultiSelectListPreferenceServiceServer).SetEntries1(ctx, req.(*SetEntries1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _MultiSelectListPreferenceService_SetEntries1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetEntries1_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(MultiSelectListPreferenceServiceServer).SetEntries1_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: MultiSelectListPreferenceService_SetEntries1_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MultiSelectListPreferenceServiceServer).SetEntries1_1(ctx, req.(*SetEntries1_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _MultiSelectListPreferenceService_SetEntryValues1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetEntryValues1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(MultiSelectListPreferenceServiceServer).SetEntryValues1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: MultiSelectListPreferenceService_SetEntryValues1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MultiSelectListPreferenceServiceServer).SetEntryValues1(ctx, req.(*SetEntryValues1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _MultiSelectListPreferenceService_SetEntryValues1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetEntryValues1_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(MultiSelectListPreferenceServiceServer).SetEntryValues1_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: MultiSelectListPreferenceService_SetEntryValues1_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MultiSelectListPreferenceServiceServer).SetEntryValues1_1(ctx, req.(*SetEntryValues1_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// MultiSelectListPreferenceService_ServiceDesc is the grpc.ServiceDesc for MultiSelectListPreferenceService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var MultiSelectListPreferenceService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "preference.MultiSelectListPreferenceService",
-	HandlerType: (*MultiSelectListPreferenceServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "NewMultiSelectListPreference",
-			Handler:    _MultiSelectListPreferenceService_NewMultiSelectListPreference_Handler,
-		},
-		{
-			MethodName: "FindIndexOfValue",
-			Handler:    _MultiSelectListPreferenceService_FindIndexOfValue_Handler,
-		},
-		{
-			MethodName: "GetEntries",
-			Handler:    _MultiSelectListPreferenceService_GetEntries_Handler,
-		},
-		{
-			MethodName: "GetEntryValues",
-			Handler:    _MultiSelectListPreferenceService_GetEntryValues_Handler,
-		},
-		{
-			MethodName: "SetEntries1",
-			Handler:    _MultiSelectListPreferenceService_SetEntries1_Handler,
-		},
-		{
-			MethodName: "SetEntries1_1",
-			Handler:    _MultiSelectListPreferenceService_SetEntries1_1_Handler,
-		},
-		{
-			MethodName: "SetEntryValues1",
-			Handler:    _MultiSelectListPreferenceService_SetEntryValues1_Handler,
-		},
-		{
-			MethodName: "SetEntryValues1_1",
-			Handler:    _MultiSelectListPreferenceService_SetEntryValues1_1_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/preference/preference.proto",
-}
-
-const (
-	ManagerService_CreatePreferenceScreen_FullMethodName          = "/preference.ManagerService/CreatePreferenceScreen"
-	ManagerService_FindPreference_FullMethodName                  = "/preference.ManagerService/FindPreference"
-	ManagerService_GetPreferenceDataStore_FullMethodName          = "/preference.ManagerService/GetPreferenceDataStore"
-	ManagerService_GetSharedPreferences_FullMethodName            = "/preference.ManagerService/GetSharedPreferences"
-	ManagerService_GetSharedPreferencesMode_FullMethodName        = "/preference.ManagerService/GetSharedPreferencesMode"
-	ManagerService_GetSharedPreferencesName_FullMethodName        = "/preference.ManagerService/GetSharedPreferencesName"
-	ManagerService_IsStorageDefault_FullMethodName                = "/preference.ManagerService/IsStorageDefault"
-	ManagerService_IsStorageDeviceProtected_FullMethodName        = "/preference.ManagerService/IsStorageDeviceProtected"
-	ManagerService_SetPreferenceDataStore_FullMethodName          = "/preference.ManagerService/SetPreferenceDataStore"
-	ManagerService_SetSharedPreferencesMode_FullMethodName        = "/preference.ManagerService/SetSharedPreferencesMode"
-	ManagerService_SetSharedPreferencesName_FullMethodName        = "/preference.ManagerService/SetSharedPreferencesName"
-	ManagerService_SetStorageDefault_FullMethodName               = "/preference.ManagerService/SetStorageDefault"
-	ManagerService_SetStorageDeviceProtected_FullMethodName       = "/preference.ManagerService/SetStorageDeviceProtected"
-	ManagerService_GetDefaultSharedPreferences_FullMethodName     = "/preference.ManagerService/GetDefaultSharedPreferences"
-	ManagerService_GetDefaultSharedPreferencesName_FullMethodName = "/preference.ManagerService/GetDefaultSharedPreferencesName"
-	ManagerService_SetDefaultValues3_FullMethodName               = "/preference.ManagerService/SetDefaultValues3"
-	ManagerService_SetDefaultValues5_1_FullMethodName             = "/preference.ManagerService/SetDefaultValues5_1"
-)
-
-// ManagerServiceClient is the client API for ManagerService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type ManagerServiceClient interface {
-	CreatePreferenceScreen(ctx context.Context, in *CreatePreferenceScreenRequest, opts ...grpc.CallOption) (*CreatePreferenceScreenResponse, error)
-	FindPreference(ctx context.Context, in *FindPreferenceRequest, opts ...grpc.CallOption) (*FindPreferenceResponse, error)
-	GetPreferenceDataStore(ctx context.Context, in *GetPreferenceDataStoreRequest, opts ...grpc.CallOption) (*GetPreferenceDataStoreResponse, error)
-	GetSharedPreferences(ctx context.Context, in *GetSharedPreferencesRequest, opts ...grpc.CallOption) (*GetSharedPreferencesResponse, error)
-	GetSharedPreferencesMode(ctx context.Context, in *GetSharedPreferencesModeRequest, opts ...grpc.CallOption) (*GetSharedPreferencesModeResponse, error)
-	GetSharedPreferencesName(ctx context.Context, in *GetSharedPreferencesNameRequest, opts ...grpc.CallOption) (*GetSharedPreferencesNameResponse, error)
-	IsStorageDefault(ctx context.Context, in *IsStorageDefaultRequest, opts ...grpc.CallOption) (*IsStorageDefaultResponse, error)
-	IsStorageDeviceProtected(ctx context.Context, in *IsStorageDeviceProtectedRequest, opts ...grpc.CallOption) (*IsStorageDeviceProtectedResponse, error)
-	SetPreferenceDataStore(ctx context.Context, in *SetPreferenceDataStoreRequest, opts ...grpc.CallOption) (*SetPreferenceDataStoreResponse, error)
-	SetSharedPreferencesMode(ctx context.Context, in *SetSharedPreferencesModeRequest, opts ...grpc.CallOption) (*SetSharedPreferencesModeResponse, error)
-	SetSharedPreferencesName(ctx context.Context, in *SetSharedPreferencesNameRequest, opts ...grpc.CallOption) (*SetSharedPreferencesNameResponse, error)
-	SetStorageDefault(ctx context.Context, in *SetStorageDefaultRequest, opts ...grpc.CallOption) (*SetStorageDefaultResponse, error)
-	SetStorageDeviceProtected(ctx context.Context, in *SetStorageDeviceProtectedRequest, opts ...grpc.CallOption) (*SetStorageDeviceProtectedResponse, error)
-	GetDefaultSharedPreferences(ctx context.Context, in *GetDefaultSharedPreferencesRequest, opts ...grpc.CallOption) (*GetDefaultSharedPreferencesResponse, error)
-	GetDefaultSharedPreferencesName(ctx context.Context, in *GetDefaultSharedPreferencesNameRequest, opts ...grpc.CallOption) (*GetDefaultSharedPreferencesNameResponse, error)
-	SetDefaultValues3(ctx context.Context, in *SetDefaultValues3Request, opts ...grpc.CallOption) (*SetDefaultValues3Response, error)
-	SetDefaultValues5_1(ctx context.Context, in *SetDefaultValues5_1Request, opts ...grpc.CallOption) (*SetDefaultValues5_1Response, error)
-}
-
-type managerServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewManagerServiceClient(cc grpc.ClientConnInterface) ManagerServiceClient {
-	return &managerServiceClient{cc}
-}
-
-func (c *managerServiceClient) CreatePreferenceScreen(ctx context.Context, in *CreatePreferenceScreenRequest, opts ...grpc.CallOption) (*CreatePreferenceScreenResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CreatePreferenceScreenResponse)
-	err := c.cc.Invoke(ctx, ManagerService_CreatePreferenceScreen_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *managerServiceClient) FindPreference(ctx context.Context, in *FindPreferenceRequest, opts ...grpc.CallOption) (*FindPreferenceResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(FindPreferenceResponse)
-	err := c.cc.Invoke(ctx, ManagerService_FindPreference_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *managerServiceClient) GetPreferenceDataStore(ctx context.Context, in *GetPreferenceDataStoreRequest, opts ...grpc.CallOption) (*GetPreferenceDataStoreResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetPreferenceDataStoreResponse)
-	err := c.cc.Invoke(ctx, ManagerService_GetPreferenceDataStore_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *managerServiceClient) GetSharedPreferences(ctx context.Context, in *GetSharedPreferencesRequest, opts ...grpc.CallOption) (*GetSharedPreferencesResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetSharedPreferencesResponse)
-	err := c.cc.Invoke(ctx, ManagerService_GetSharedPreferences_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *managerServiceClient) GetSharedPreferencesMode(ctx context.Context, in *GetSharedPreferencesModeRequest, opts ...grpc.CallOption) (*GetSharedPreferencesModeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetSharedPreferencesModeResponse)
-	err := c.cc.Invoke(ctx, ManagerService_GetSharedPreferencesMode_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *managerServiceClient) GetSharedPreferencesName(ctx context.Context, in *GetSharedPreferencesNameRequest, opts ...grpc.CallOption) (*GetSharedPreferencesNameResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetSharedPreferencesNameResponse)
-	err := c.cc.Invoke(ctx, ManagerService_GetSharedPreferencesName_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *managerServiceClient) IsStorageDefault(ctx context.Context, in *IsStorageDefaultRequest, opts ...grpc.CallOption) (*IsStorageDefaultResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsStorageDefaultResponse)
-	err := c.cc.Invoke(ctx, ManagerService_IsStorageDefault_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *managerServiceClient) IsStorageDeviceProtected(ctx context.Context, in *IsStorageDeviceProtectedRequest, opts ...grpc.CallOption) (*IsStorageDeviceProtectedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsStorageDeviceProtectedResponse)
-	err := c.cc.Invoke(ctx, ManagerService_IsStorageDeviceProtected_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *managerServiceClient) SetPreferenceDataStore(ctx context.Context, in *SetPreferenceDataStoreRequest, opts ...grpc.CallOption) (*SetPreferenceDataStoreResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetPreferenceDataStoreResponse)
-	err := c.cc.Invoke(ctx, ManagerService_SetPreferenceDataStore_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *managerServiceClient) SetSharedPreferencesMode(ctx context.Context, in *SetSharedPreferencesModeRequest, opts ...grpc.CallOption) (*SetSharedPreferencesModeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetSharedPreferencesModeResponse)
-	err := c.cc.Invoke(ctx, ManagerService_SetSharedPreferencesMode_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *managerServiceClient) SetSharedPreferencesName(ctx context.Context, in *SetSharedPreferencesNameRequest, opts ...grpc.CallOption) (*SetSharedPreferencesNameResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetSharedPreferencesNameResponse)
-	err := c.cc.Invoke(ctx, ManagerService_SetSharedPreferencesName_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *managerServiceClient) SetStorageDefault(ctx context.Context, in *SetStorageDefaultRequest, opts ...grpc.CallOption) (*SetStorageDefaultResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetStorageDefaultResponse)
-	err := c.cc.Invoke(ctx, ManagerService_SetStorageDefault_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *managerServiceClient) SetStorageDeviceProtected(ctx context.Context, in *SetStorageDeviceProtectedRequest, opts ...grpc.CallOption) (*SetStorageDeviceProtectedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetStorageDeviceProtectedResponse)
-	err := c.cc.Invoke(ctx, ManagerService_SetStorageDeviceProtected_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *managerServiceClient) GetDefaultSharedPreferences(ctx context.Context, in *GetDefaultSharedPreferencesRequest, opts ...grpc.CallOption) (*GetDefaultSharedPreferencesResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetDefaultSharedPreferencesResponse)
-	err := c.cc.Invoke(ctx, ManagerService_GetDefaultSharedPreferences_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *managerServiceClient) GetDefaultSharedPreferencesName(ctx context.Context, in *GetDefaultSharedPreferencesNameRequest, opts ...grpc.CallOption) (*GetDefaultSharedPreferencesNameResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetDefaultSharedPreferencesNameResponse)
-	err := c.cc.Invoke(ctx, ManagerService_GetDefaultSharedPreferencesName_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *managerServiceClient) SetDefaultValues3(ctx context.Context, in *SetDefaultValues3Request, opts ...grpc.CallOption) (*SetDefaultValues3Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetDefaultValues3Response)
-	err := c.cc.Invoke(ctx, ManagerService_SetDefaultValues3_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *managerServiceClient) SetDefaultValues5_1(ctx context.Context, in *SetDefaultValues5_1Request, opts ...grpc.CallOption) (*SetDefaultValues5_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetDefaultValues5_1Response)
-	err := c.cc.Invoke(ctx, ManagerService_SetDefaultValues5_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// ManagerServiceServer is the server API for ManagerService service.
-// All implementations must embed UnimplementedManagerServiceServer
-// for forward compatibility.
-type ManagerServiceServer interface {
-	CreatePreferenceScreen(context.Context, *CreatePreferenceScreenRequest) (*CreatePreferenceScreenResponse, error)
-	FindPreference(context.Context, *FindPreferenceRequest) (*FindPreferenceResponse, error)
-	GetPreferenceDataStore(context.Context, *GetPreferenceDataStoreRequest) (*GetPreferenceDataStoreResponse, error)
-	GetSharedPreferences(context.Context, *GetSharedPreferencesRequest) (*GetSharedPreferencesResponse, error)
-	GetSharedPreferencesMode(context.Context, *GetSharedPreferencesModeRequest) (*GetSharedPreferencesModeResponse, error)
-	GetSharedPreferencesName(context.Context, *GetSharedPreferencesNameRequest) (*GetSharedPreferencesNameResponse, error)
-	IsStorageDefault(context.Context, *IsStorageDefaultRequest) (*IsStorageDefaultResponse, error)
-	IsStorageDeviceProtected(context.Context, *IsStorageDeviceProtectedRequest) (*IsStorageDeviceProtectedResponse, error)
-	SetPreferenceDataStore(context.Context, *SetPreferenceDataStoreRequest) (*SetPreferenceDataStoreResponse, error)
-	SetSharedPreferencesMode(context.Context, *SetSharedPreferencesModeRequest) (*SetSharedPreferencesModeResponse, error)
-	SetSharedPreferencesName(context.Context, *SetSharedPreferencesNameRequest) (*SetSharedPreferencesNameResponse, error)
-	SetStorageDefault(context.Context, *SetStorageDefaultRequest) (*SetStorageDefaultResponse, error)
-	SetStorageDeviceProtected(context.Context, *SetStorageDeviceProtectedRequest) (*SetStorageDeviceProtectedResponse, error)
-	GetDefaultSharedPreferences(context.Context, *GetDefaultSharedPreferencesRequest) (*GetDefaultSharedPreferencesResponse, error)
-	GetDefaultSharedPreferencesName(context.Context, *GetDefaultSharedPreferencesNameRequest) (*GetDefaultSharedPreferencesNameResponse, error)
-	SetDefaultValues3(context.Context, *SetDefaultValues3Request) (*SetDefaultValues3Response, error)
-	SetDefaultValues5_1(context.Context, *SetDefaultValues5_1Request) (*SetDefaultValues5_1Response, error)
-	mustEmbedUnimplementedManagerServiceServer()
-}
-
-// UnimplementedManagerServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedManagerServiceServer struct{}
-
-func (UnimplementedManagerServiceServer) CreatePreferenceScreen(context.Context, *CreatePreferenceScreenRequest) (*CreatePreferenceScreenResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method CreatePreferenceScreen not implemented")
-}
-func (UnimplementedManagerServiceServer) FindPreference(context.Context, *FindPreferenceRequest) (*FindPreferenceResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method FindPreference not implemented")
-}
-func (UnimplementedManagerServiceServer) GetPreferenceDataStore(context.Context, *GetPreferenceDataStoreRequest) (*GetPreferenceDataStoreResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetPreferenceDataStore not implemented")
-}
-func (UnimplementedManagerServiceServer) GetSharedPreferences(context.Context, *GetSharedPreferencesRequest) (*GetSharedPreferencesResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetSharedPreferences not implemented")
-}
-func (UnimplementedManagerServiceServer) GetSharedPreferencesMode(context.Context, *GetSharedPreferencesModeRequest) (*GetSharedPreferencesModeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetSharedPreferencesMode not implemented")
-}
-func (UnimplementedManagerServiceServer) GetSharedPreferencesName(context.Context, *GetSharedPreferencesNameRequest) (*GetSharedPreferencesNameResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetSharedPreferencesName not implemented")
-}
-func (UnimplementedManagerServiceServer) IsStorageDefault(context.Context, *IsStorageDefaultRequest) (*IsStorageDefaultResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsStorageDefault not implemented")
-}
-func (UnimplementedManagerServiceServer) IsStorageDeviceProtected(context.Context, *IsStorageDeviceProtectedRequest) (*IsStorageDeviceProtectedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsStorageDeviceProtected not implemented")
-}
-func (UnimplementedManagerServiceServer) SetPreferenceDataStore(context.Context, *SetPreferenceDataStoreRequest) (*SetPreferenceDataStoreResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetPreferenceDataStore not implemented")
-}
-func (UnimplementedManagerServiceServer) SetSharedPreferencesMode(context.Context, *SetSharedPreferencesModeRequest) (*SetSharedPreferencesModeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetSharedPreferencesMode not implemented")
-}
-func (UnimplementedManagerServiceServer) SetSharedPreferencesName(context.Context, *SetSharedPreferencesNameRequest) (*SetSharedPreferencesNameResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetSharedPreferencesName not implemented")
-}
-func (UnimplementedManagerServiceServer) SetStorageDefault(context.Context, *SetStorageDefaultRequest) (*SetStorageDefaultResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetStorageDefault not implemented")
-}
-func (UnimplementedManagerServiceServer) SetStorageDeviceProtected(context.Context, *SetStorageDeviceProtectedRequest) (*SetStorageDeviceProtectedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetStorageDeviceProtected not implemented")
-}
-func (UnimplementedManagerServiceServer) GetDefaultSharedPreferences(context.Context, *GetDefaultSharedPreferencesRequest) (*GetDefaultSharedPreferencesResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetDefaultSharedPreferences not implemented")
-}
-func (UnimplementedManagerServiceServer) GetDefaultSharedPreferencesName(context.Context, *GetDefaultSharedPreferencesNameRequest) (*GetDefaultSharedPreferencesNameResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetDefaultSharedPreferencesName not implemented")
-}
-func (UnimplementedManagerServiceServer) SetDefaultValues3(context.Context, *SetDefaultValues3Request) (*SetDefaultValues3Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetDefaultValues3 not implemented")
-}
-func (UnimplementedManagerServiceServer) SetDefaultValues5_1(context.Context, *SetDefaultValues5_1Request) (*SetDefaultValues5_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetDefaultValues5_1 not implemented")
-}
-func (UnimplementedManagerServiceServer) mustEmbedUnimplementedManagerServiceServer() {}
-func (UnimplementedManagerServiceServer) testEmbeddedByValue()                        {}
-
-// UnsafeManagerServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to ManagerServiceServer will
-// result in compilation errors.
-type UnsafeManagerServiceServer interface {
-	mustEmbedUnimplementedManagerServiceServer()
-}
-
-func RegisterManagerServiceServer(s grpc.ServiceRegistrar, srv ManagerServiceServer) {
-	// If the following call panics, it indicates UnimplementedManagerServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&ManagerService_ServiceDesc, srv)
-}
-
-func _ManagerService_CreatePreferenceScreen_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CreatePreferenceScreenRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerServiceServer).CreatePreferenceScreen(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerService_CreatePreferenceScreen_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).CreatePreferenceScreen(ctx, req.(*CreatePreferenceScreenRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ManagerService_FindPreference_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(FindPreferenceRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerServiceServer).FindPreference(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerService_FindPreference_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).FindPreference(ctx, req.(*FindPreferenceRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ManagerService_GetPreferenceDataStore_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetPreferenceDataStoreRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerServiceServer).GetPreferenceDataStore(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerService_GetPreferenceDataStore_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).GetPreferenceDataStore(ctx, req.(*GetPreferenceDataStoreRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ManagerService_GetSharedPreferences_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetSharedPreferencesRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerServiceServer).GetSharedPreferences(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerService_GetSharedPreferences_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).GetSharedPreferences(ctx, req.(*GetSharedPreferencesRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ManagerService_GetSharedPreferencesMode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetSharedPreferencesModeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerServiceServer).GetSharedPreferencesMode(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerService_GetSharedPreferencesMode_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).GetSharedPreferencesMode(ctx, req.(*GetSharedPreferencesModeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ManagerService_GetSharedPreferencesName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetSharedPreferencesNameRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerServiceServer).GetSharedPreferencesName(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerService_GetSharedPreferencesName_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).GetSharedPreferencesName(ctx, req.(*GetSharedPreferencesNameRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ManagerService_IsStorageDefault_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsStorageDefaultRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerServiceServer).IsStorageDefault(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerService_IsStorageDefault_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).IsStorageDefault(ctx, req.(*IsStorageDefaultRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ManagerService_IsStorageDeviceProtected_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsStorageDeviceProtectedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerServiceServer).IsStorageDeviceProtected(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerService_IsStorageDeviceProtected_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).IsStorageDeviceProtected(ctx, req.(*IsStorageDeviceProtectedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ManagerService_SetPreferenceDataStore_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetPreferenceDataStoreRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerServiceServer).SetPreferenceDataStore(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerService_SetPreferenceDataStore_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).SetPreferenceDataStore(ctx, req.(*SetPreferenceDataStoreRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ManagerService_SetSharedPreferencesMode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetSharedPreferencesModeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerServiceServer).SetSharedPreferencesMode(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerService_SetSharedPreferencesMode_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).SetSharedPreferencesMode(ctx, req.(*SetSharedPreferencesModeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ManagerService_SetSharedPreferencesName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetSharedPreferencesNameRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerServiceServer).SetSharedPreferencesName(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerService_SetSharedPreferencesName_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).SetSharedPreferencesName(ctx, req.(*SetSharedPreferencesNameRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ManagerService_SetStorageDefault_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetStorageDefaultRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerServiceServer).SetStorageDefault(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerService_SetStorageDefault_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).SetStorageDefault(ctx, req.(*SetStorageDefaultRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ManagerService_SetStorageDeviceProtected_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetStorageDeviceProtectedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerServiceServer).SetStorageDeviceProtected(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerService_SetStorageDeviceProtected_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).SetStorageDeviceProtected(ctx, req.(*SetStorageDeviceProtectedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ManagerService_GetDefaultSharedPreferences_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetDefaultSharedPreferencesRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerServiceServer).GetDefaultSharedPreferences(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerService_GetDefaultSharedPreferences_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).GetDefaultSharedPreferences(ctx, req.(*GetDefaultSharedPreferencesRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ManagerService_GetDefaultSharedPreferencesName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetDefaultSharedPreferencesNameRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerServiceServer).GetDefaultSharedPreferencesName(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerService_GetDefaultSharedPreferencesName_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).GetDefaultSharedPreferencesName(ctx, req.(*GetDefaultSharedPreferencesNameRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ManagerService_SetDefaultValues3_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetDefaultValues3Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerServiceServer).SetDefaultValues3(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerService_SetDefaultValues3_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).SetDefaultValues3(ctx, req.(*SetDefaultValues3Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ManagerService_SetDefaultValues5_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetDefaultValues5_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerServiceServer).SetDefaultValues5_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerService_SetDefaultValues5_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).SetDefaultValues5_1(ctx, req.(*SetDefaultValues5_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// ManagerService_ServiceDesc is the grpc.ServiceDesc for ManagerService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var ManagerService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "preference.ManagerService",
-	HandlerType: (*ManagerServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "CreatePreferenceScreen",
-			Handler:    _ManagerService_CreatePreferenceScreen_Handler,
-		},
-		{
-			MethodName: "FindPreference",
-			Handler:    _ManagerService_FindPreference_Handler,
-		},
-		{
-			MethodName: "GetPreferenceDataStore",
-			Handler:    _ManagerService_GetPreferenceDataStore_Handler,
-		},
-		{
-			MethodName: "GetSharedPreferences",
-			Handler:    _ManagerService_GetSharedPreferences_Handler,
-		},
-		{
-			MethodName: "GetSharedPreferencesMode",
-			Handler:    _ManagerService_GetSharedPreferencesMode_Handler,
-		},
-		{
-			MethodName: "GetSharedPreferencesName",
-			Handler:    _ManagerService_GetSharedPreferencesName_Handler,
-		},
-		{
-			MethodName: "IsStorageDefault",
-			Handler:    _ManagerService_IsStorageDefault_Handler,
-		},
-		{
-			MethodName: "IsStorageDeviceProtected",
-			Handler:    _ManagerService_IsStorageDeviceProtected_Handler,
-		},
-		{
-			MethodName: "SetPreferenceDataStore",
-			Handler:    _ManagerService_SetPreferenceDataStore_Handler,
-		},
-		{
-			MethodName: "SetSharedPreferencesMode",
-			Handler:    _ManagerService_SetSharedPreferencesMode_Handler,
-		},
-		{
-			MethodName: "SetSharedPreferencesName",
-			Handler:    _ManagerService_SetSharedPreferencesName_Handler,
-		},
-		{
-			MethodName: "SetStorageDefault",
-			Handler:    _ManagerService_SetStorageDefault_Handler,
-		},
-		{
-			MethodName: "SetStorageDeviceProtected",
-			Handler:    _ManagerService_SetStorageDeviceProtected_Handler,
-		},
-		{
-			MethodName: "GetDefaultSharedPreferences",
-			Handler:    _ManagerService_GetDefaultSharedPreferences_Handler,
-		},
-		{
-			MethodName: "GetDefaultSharedPreferencesName",
-			Handler:    _ManagerService_GetDefaultSharedPreferencesName_Handler,
-		},
-		{
-			MethodName: "SetDefaultValues3",
-			Handler:    _ManagerService_SetDefaultValues3_Handler,
-		},
-		{
-			MethodName: "SetDefaultValues5_1",
-			Handler:    _ManagerService_SetDefaultValues5_1_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/preference/preference.proto",
-}
-
-const (
-	ManagerOnActivityDestroyListenerService_OnActivityDestroy_FullMethodName = "/preference.ManagerOnActivityDestroyListenerService/OnActivityDestroy"
-)
-
-// ManagerOnActivityDestroyListenerServiceClient is the client API for ManagerOnActivityDestroyListenerService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type ManagerOnActivityDestroyListenerServiceClient interface {
-	OnActivityDestroy(ctx context.Context, in *OnActivityDestroyRequest, opts ...grpc.CallOption) (*OnActivityDestroyResponse, error)
-}
-
-type managerOnActivityDestroyListenerServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewManagerOnActivityDestroyListenerServiceClient(cc grpc.ClientConnInterface) ManagerOnActivityDestroyListenerServiceClient {
-	return &managerOnActivityDestroyListenerServiceClient{cc}
-}
-
-func (c *managerOnActivityDestroyListenerServiceClient) OnActivityDestroy(ctx context.Context, in *OnActivityDestroyRequest, opts ...grpc.CallOption) (*OnActivityDestroyResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnActivityDestroyResponse)
-	err := c.cc.Invoke(ctx, ManagerOnActivityDestroyListenerService_OnActivityDestroy_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// ManagerOnActivityDestroyListenerServiceServer is the server API for ManagerOnActivityDestroyListenerService service.
-// All implementations must embed UnimplementedManagerOnActivityDestroyListenerServiceServer
-// for forward compatibility.
-type ManagerOnActivityDestroyListenerServiceServer interface {
-	OnActivityDestroy(context.Context, *OnActivityDestroyRequest) (*OnActivityDestroyResponse, error)
-	mustEmbedUnimplementedManagerOnActivityDestroyListenerServiceServer()
-}
-
-// UnimplementedManagerOnActivityDestroyListenerServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedManagerOnActivityDestroyListenerServiceServer struct{}
-
-func (UnimplementedManagerOnActivityDestroyListenerServiceServer) OnActivityDestroy(context.Context, *OnActivityDestroyRequest) (*OnActivityDestroyResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnActivityDestroy not implemented")
-}
-func (UnimplementedManagerOnActivityDestroyListenerServiceServer) mustEmbedUnimplementedManagerOnActivityDestroyListenerServiceServer() {
-}
-func (UnimplementedManagerOnActivityDestroyListenerServiceServer) testEmbeddedByValue() {}
-
-// UnsafeManagerOnActivityDestroyListenerServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to ManagerOnActivityDestroyListenerServiceServer will
-// result in compilation errors.
-type UnsafeManagerOnActivityDestroyListenerServiceServer interface {
-	mustEmbedUnimplementedManagerOnActivityDestroyListenerServiceServer()
-}
-
-func RegisterManagerOnActivityDestroyListenerServiceServer(s grpc.ServiceRegistrar, srv ManagerOnActivityDestroyListenerServiceServer) {
-	// If the following call panics, it indicates UnimplementedManagerOnActivityDestroyListenerServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&ManagerOnActivityDestroyListenerService_ServiceDesc, srv)
-}
-
-func _ManagerOnActivityDestroyListenerService_OnActivityDestroy_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnActivityDestroyRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerOnActivityDestroyListenerServiceServer).OnActivityDestroy(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerOnActivityDestroyListenerService_OnActivityDestroy_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerOnActivityDestroyListenerServiceServer).OnActivityDestroy(ctx, req.(*OnActivityDestroyRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// ManagerOnActivityDestroyListenerService_ServiceDesc is the grpc.ServiceDesc for ManagerOnActivityDestroyListenerService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var ManagerOnActivityDestroyListenerService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "preference.ManagerOnActivityDestroyListenerService",
-	HandlerType: (*ManagerOnActivityDestroyListenerServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "OnActivityDestroy",
-			Handler:    _ManagerOnActivityDestroyListenerService_OnActivityDestroy_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/preference/preference.proto",
-}
-
-const (
-	ManagerOnActivityResultListenerService_OnActivityResult_FullMethodName = "/preference.ManagerOnActivityResultListenerService/OnActivityResult"
-)
-
-// ManagerOnActivityResultListenerServiceClient is the client API for ManagerOnActivityResultListenerService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type ManagerOnActivityResultListenerServiceClient interface {
-	OnActivityResult(ctx context.Context, in *OnActivityResultRequest, opts ...grpc.CallOption) (*ManagerOnActivityResultListenerOnActivityResultResponse, error)
-}
-
-type managerOnActivityResultListenerServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewManagerOnActivityResultListenerServiceClient(cc grpc.ClientConnInterface) ManagerOnActivityResultListenerServiceClient {
-	return &managerOnActivityResultListenerServiceClient{cc}
-}
-
-func (c *managerOnActivityResultListenerServiceClient) OnActivityResult(ctx context.Context, in *OnActivityResultRequest, opts ...grpc.CallOption) (*ManagerOnActivityResultListenerOnActivityResultResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ManagerOnActivityResultListenerOnActivityResultResponse)
-	err := c.cc.Invoke(ctx, ManagerOnActivityResultListenerService_OnActivityResult_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// ManagerOnActivityResultListenerServiceServer is the server API for ManagerOnActivityResultListenerService service.
-// All implementations must embed UnimplementedManagerOnActivityResultListenerServiceServer
-// for forward compatibility.
-type ManagerOnActivityResultListenerServiceServer interface {
-	OnActivityResult(context.Context, *OnActivityResultRequest) (*ManagerOnActivityResultListenerOnActivityResultResponse, error)
-	mustEmbedUnimplementedManagerOnActivityResultListenerServiceServer()
-}
-
-// UnimplementedManagerOnActivityResultListenerServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedManagerOnActivityResultListenerServiceServer struct{}
-
-func (UnimplementedManagerOnActivityResultListenerServiceServer) OnActivityResult(context.Context, *OnActivityResultRequest) (*ManagerOnActivityResultListenerOnActivityResultResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnActivityResult not implemented")
-}
-func (UnimplementedManagerOnActivityResultListenerServiceServer) mustEmbedUnimplementedManagerOnActivityResultListenerServiceServer() {
-}
-func (UnimplementedManagerOnActivityResultListenerServiceServer) testEmbeddedByValue() {}
-
-// UnsafeManagerOnActivityResultListenerServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to ManagerOnActivityResultListenerServiceServer will
-// result in compilation errors.
-type UnsafeManagerOnActivityResultListenerServiceServer interface {
-	mustEmbedUnimplementedManagerOnActivityResultListenerServiceServer()
-}
-
-func RegisterManagerOnActivityResultListenerServiceServer(s grpc.ServiceRegistrar, srv ManagerOnActivityResultListenerServiceServer) {
-	// If the following call panics, it indicates UnimplementedManagerOnActivityResultListenerServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&ManagerOnActivityResultListenerService_ServiceDesc, srv)
-}
-
-func _ManagerOnActivityResultListenerService_OnActivityResult_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnActivityResultRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerOnActivityResultListenerServiceServer).OnActivityResult(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerOnActivityResultListenerService_OnActivityResult_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerOnActivityResultListenerServiceServer).OnActivityResult(ctx, req.(*OnActivityResultRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// ManagerOnActivityResultListenerService_ServiceDesc is the grpc.ServiceDesc for ManagerOnActivityResultListenerService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var ManagerOnActivityResultListenerService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "preference.ManagerOnActivityResultListenerService",
-	HandlerType: (*ManagerOnActivityResultListenerServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "OnActivityResult",
-			Handler:    _ManagerOnActivityResultListenerService_OnActivityResult_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/preference/preference.proto",
-}
-
-const (
-	ManagerOnActivityStopListenerService_OnActivityStop_FullMethodName = "/preference.ManagerOnActivityStopListenerService/OnActivityStop"
-)
-
-// ManagerOnActivityStopListenerServiceClient is the client API for ManagerOnActivityStopListenerService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type ManagerOnActivityStopListenerServiceClient interface {
-	OnActivityStop(ctx context.Context, in *OnActivityStopRequest, opts ...grpc.CallOption) (*OnActivityStopResponse, error)
-}
-
-type managerOnActivityStopListenerServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewManagerOnActivityStopListenerServiceClient(cc grpc.ClientConnInterface) ManagerOnActivityStopListenerServiceClient {
-	return &managerOnActivityStopListenerServiceClient{cc}
-}
-
-func (c *managerOnActivityStopListenerServiceClient) OnActivityStop(ctx context.Context, in *OnActivityStopRequest, opts ...grpc.CallOption) (*OnActivityStopResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnActivityStopResponse)
-	err := c.cc.Invoke(ctx, ManagerOnActivityStopListenerService_OnActivityStop_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// ManagerOnActivityStopListenerServiceServer is the server API for ManagerOnActivityStopListenerService service.
-// All implementations must embed UnimplementedManagerOnActivityStopListenerServiceServer
-// for forward compatibility.
-type ManagerOnActivityStopListenerServiceServer interface {
-	OnActivityStop(context.Context, *OnActivityStopRequest) (*OnActivityStopResponse, error)
-	mustEmbedUnimplementedManagerOnActivityStopListenerServiceServer()
-}
-
-// UnimplementedManagerOnActivityStopListenerServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedManagerOnActivityStopListenerServiceServer struct{}
-
-func (UnimplementedManagerOnActivityStopListenerServiceServer) OnActivityStop(context.Context, *OnActivityStopRequest) (*OnActivityStopResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnActivityStop not implemented")
-}
-func (UnimplementedManagerOnActivityStopListenerServiceServer) mustEmbedUnimplementedManagerOnActivityStopListenerServiceServer() {
-}
-func (UnimplementedManagerOnActivityStopListenerServiceServer) testEmbeddedByValue() {}
-
-// UnsafeManagerOnActivityStopListenerServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to ManagerOnActivityStopListenerServiceServer will
-// result in compilation errors.
-type UnsafeManagerOnActivityStopListenerServiceServer interface {
-	mustEmbedUnimplementedManagerOnActivityStopListenerServiceServer()
-}
-
-func RegisterManagerOnActivityStopListenerServiceServer(s grpc.ServiceRegistrar, srv ManagerOnActivityStopListenerServiceServer) {
-	// If the following call panics, it indicates UnimplementedManagerOnActivityStopListenerServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&ManagerOnActivityStopListenerService_ServiceDesc, srv)
-}
-
-func _ManagerOnActivityStopListenerService_OnActivityStop_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnActivityStopRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerOnActivityStopListenerServiceServer).OnActivityStop(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerOnActivityStopListenerService_OnActivityStop_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerOnActivityStopListenerServiceServer).OnActivityStop(ctx, req.(*OnActivityStopRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// ManagerOnActivityStopListenerService_ServiceDesc is the grpc.ServiceDesc for ManagerOnActivityStopListenerService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var ManagerOnActivityStopListenerService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "preference.ManagerOnActivityStopListenerService",
-	HandlerType: (*ManagerOnActivityStopListenerServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "OnActivityStop",
-			Handler:    _ManagerOnActivityStopListenerService_OnActivityStop_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/preference/preference.proto",
-}
-
-const (
 	SwitchPreferenceService_NewSwitchPreference_FullMethodName = "/preference.SwitchPreferenceService/NewSwitchPreference"
 	SwitchPreferenceService_GetSwitchTextOff_FullMethodName    = "/preference.SwitchPreferenceService/GetSwitchTextOff"
 	SwitchPreferenceService_GetSwitchTextOn_FullMethodName     = "/preference.SwitchPreferenceService/GetSwitchTextOn"
@@ -2553,254 +1165,2533 @@ var SwitchPreferenceService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	EditTextPreferenceService_NewEditTextPreference_FullMethodName   = "/preference.EditTextPreferenceService/NewEditTextPreference"
-	EditTextPreferenceService_GetEditText_FullMethodName             = "/preference.EditTextPreferenceService/GetEditText"
-	EditTextPreferenceService_GetText_FullMethodName                 = "/preference.EditTextPreferenceService/GetText"
-	EditTextPreferenceService_SetText_FullMethodName                 = "/preference.EditTextPreferenceService/SetText"
-	EditTextPreferenceService_ShouldDisableDependents_FullMethodName = "/preference.EditTextPreferenceService/ShouldDisableDependents"
+	PreferenceService_NewPreference_FullMethodName                 = "/preference.PreferenceService/NewPreference"
+	PreferenceService_CompareTo1_FullMethodName                    = "/preference.PreferenceService/CompareTo1"
+	PreferenceService_GetContext_FullMethodName                    = "/preference.PreferenceService/GetContext"
+	PreferenceService_GetDependency_FullMethodName                 = "/preference.PreferenceService/GetDependency"
+	PreferenceService_GetEditor_FullMethodName                     = "/preference.PreferenceService/GetEditor"
+	PreferenceService_GetExtras_FullMethodName                     = "/preference.PreferenceService/GetExtras"
+	PreferenceService_GetFragment_FullMethodName                   = "/preference.PreferenceService/GetFragment"
+	PreferenceService_GetIcon_FullMethodName                       = "/preference.PreferenceService/GetIcon"
+	PreferenceService_GetIntent_FullMethodName                     = "/preference.PreferenceService/GetIntent"
+	PreferenceService_GetKey_FullMethodName                        = "/preference.PreferenceService/GetKey"
+	PreferenceService_GetLayoutResource_FullMethodName             = "/preference.PreferenceService/GetLayoutResource"
+	PreferenceService_GetOnPreferenceChangeListener_FullMethodName = "/preference.PreferenceService/GetOnPreferenceChangeListener"
+	PreferenceService_GetOnPreferenceClickListener_FullMethodName  = "/preference.PreferenceService/GetOnPreferenceClickListener"
+	PreferenceService_GetOrder_FullMethodName                      = "/preference.PreferenceService/GetOrder"
+	PreferenceService_GetParent_FullMethodName                     = "/preference.PreferenceService/GetParent"
+	PreferenceService_GetPreferenceDataStore_FullMethodName        = "/preference.PreferenceService/GetPreferenceDataStore"
+	PreferenceService_GetPreferenceManager_FullMethodName          = "/preference.PreferenceService/GetPreferenceManager"
+	PreferenceService_GetSharedPreferences_FullMethodName          = "/preference.PreferenceService/GetSharedPreferences"
+	PreferenceService_GetShouldDisableView_FullMethodName          = "/preference.PreferenceService/GetShouldDisableView"
+	PreferenceService_GetSummary_FullMethodName                    = "/preference.PreferenceService/GetSummary"
+	PreferenceService_GetTitle_FullMethodName                      = "/preference.PreferenceService/GetTitle"
+	PreferenceService_GetTitleRes_FullMethodName                   = "/preference.PreferenceService/GetTitleRes"
+	PreferenceService_GetView_FullMethodName                       = "/preference.PreferenceService/GetView"
+	PreferenceService_GetWidgetLayoutResource_FullMethodName       = "/preference.PreferenceService/GetWidgetLayoutResource"
+	PreferenceService_HasKey_FullMethodName                        = "/preference.PreferenceService/HasKey"
+	PreferenceService_IsEnabled_FullMethodName                     = "/preference.PreferenceService/IsEnabled"
+	PreferenceService_IsIconSpaceReserved_FullMethodName           = "/preference.PreferenceService/IsIconSpaceReserved"
+	PreferenceService_IsPersistent_FullMethodName                  = "/preference.PreferenceService/IsPersistent"
+	PreferenceService_IsRecycleEnabled_FullMethodName              = "/preference.PreferenceService/IsRecycleEnabled"
+	PreferenceService_IsSelectable_FullMethodName                  = "/preference.PreferenceService/IsSelectable"
+	PreferenceService_IsSingleLineTitle_FullMethodName             = "/preference.PreferenceService/IsSingleLineTitle"
+	PreferenceService_NotifyDependencyChange_FullMethodName        = "/preference.PreferenceService/NotifyDependencyChange"
+	PreferenceService_OnDependencyChanged_FullMethodName           = "/preference.PreferenceService/OnDependencyChanged"
+	PreferenceService_OnParentChanged_FullMethodName               = "/preference.PreferenceService/OnParentChanged"
+	PreferenceService_PeekExtras_FullMethodName                    = "/preference.PreferenceService/PeekExtras"
+	PreferenceService_RestoreHierarchyState_FullMethodName         = "/preference.PreferenceService/RestoreHierarchyState"
+	PreferenceService_SaveHierarchyState_FullMethodName            = "/preference.PreferenceService/SaveHierarchyState"
+	PreferenceService_SetDefaultValue_FullMethodName               = "/preference.PreferenceService/SetDefaultValue"
+	PreferenceService_SetDependency_FullMethodName                 = "/preference.PreferenceService/SetDependency"
+	PreferenceService_SetEnabled_FullMethodName                    = "/preference.PreferenceService/SetEnabled"
+	PreferenceService_SetFragment_FullMethodName                   = "/preference.PreferenceService/SetFragment"
+	PreferenceService_SetIcon1_FullMethodName                      = "/preference.PreferenceService/SetIcon1"
+	PreferenceService_SetIcon1_1_FullMethodName                    = "/preference.PreferenceService/SetIcon1_1"
+	PreferenceService_SetIconSpaceReserved_FullMethodName          = "/preference.PreferenceService/SetIconSpaceReserved"
+	PreferenceService_SetIntent_FullMethodName                     = "/preference.PreferenceService/SetIntent"
+	PreferenceService_SetKey_FullMethodName                        = "/preference.PreferenceService/SetKey"
+	PreferenceService_SetLayoutResource_FullMethodName             = "/preference.PreferenceService/SetLayoutResource"
+	PreferenceService_SetOnPreferenceChangeListener_FullMethodName = "/preference.PreferenceService/SetOnPreferenceChangeListener"
+	PreferenceService_SetOnPreferenceClickListener_FullMethodName  = "/preference.PreferenceService/SetOnPreferenceClickListener"
+	PreferenceService_SetOrder_FullMethodName                      = "/preference.PreferenceService/SetOrder"
+	PreferenceService_SetPersistent_FullMethodName                 = "/preference.PreferenceService/SetPersistent"
+	PreferenceService_SetPreferenceDataStore_FullMethodName        = "/preference.PreferenceService/SetPreferenceDataStore"
+	PreferenceService_SetRecycleEnabled_FullMethodName             = "/preference.PreferenceService/SetRecycleEnabled"
+	PreferenceService_SetSelectable_FullMethodName                 = "/preference.PreferenceService/SetSelectable"
+	PreferenceService_SetShouldDisableView_FullMethodName          = "/preference.PreferenceService/SetShouldDisableView"
+	PreferenceService_SetSingleLineTitle_FullMethodName            = "/preference.PreferenceService/SetSingleLineTitle"
+	PreferenceService_SetSummary1_FullMethodName                   = "/preference.PreferenceService/SetSummary1"
+	PreferenceService_SetSummary1_1_FullMethodName                 = "/preference.PreferenceService/SetSummary1_1"
+	PreferenceService_SetTitle1_FullMethodName                     = "/preference.PreferenceService/SetTitle1"
+	PreferenceService_SetTitle1_1_FullMethodName                   = "/preference.PreferenceService/SetTitle1_1"
+	PreferenceService_SetWidgetLayoutResource_FullMethodName       = "/preference.PreferenceService/SetWidgetLayoutResource"
+	PreferenceService_ShouldCommit_FullMethodName                  = "/preference.PreferenceService/ShouldCommit"
+	PreferenceService_ShouldDisableDependents_FullMethodName       = "/preference.PreferenceService/ShouldDisableDependents"
+	PreferenceService_ToString_FullMethodName                      = "/preference.PreferenceService/ToString"
+	PreferenceService_CompareTo1_1_FullMethodName                  = "/preference.PreferenceService/CompareTo1_1"
 )
 
-// EditTextPreferenceServiceClient is the client API for EditTextPreferenceService service.
+// PreferenceServiceClient is the client API for PreferenceService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type EditTextPreferenceServiceClient interface {
-	NewEditTextPreference(ctx context.Context, in *NewEditTextPreferenceRequest, opts ...grpc.CallOption) (*NewEditTextPreferenceResponse, error)
-	GetEditText(ctx context.Context, in *GetEditTextRequest, opts ...grpc.CallOption) (*GetEditTextResponse, error)
-	GetText(ctx context.Context, in *GetTextRequest, opts ...grpc.CallOption) (*GetTextResponse, error)
-	SetText(ctx context.Context, in *SetTextRequest, opts ...grpc.CallOption) (*SetTextResponse, error)
+type PreferenceServiceClient interface {
+	NewPreference(ctx context.Context, in *NewPreferenceRequest, opts ...grpc.CallOption) (*NewPreferenceResponse, error)
+	CompareTo1(ctx context.Context, in *CompareTo1Request, opts ...grpc.CallOption) (*CompareTo1Response, error)
+	GetContext(ctx context.Context, in *GetContextRequest, opts ...grpc.CallOption) (*GetContextResponse, error)
+	GetDependency(ctx context.Context, in *GetDependencyRequest, opts ...grpc.CallOption) (*GetDependencyResponse, error)
+	GetEditor(ctx context.Context, in *GetEditorRequest, opts ...grpc.CallOption) (*GetEditorResponse, error)
+	GetExtras(ctx context.Context, in *GetExtrasRequest, opts ...grpc.CallOption) (*GetExtrasResponse, error)
+	GetFragment(ctx context.Context, in *GetFragmentRequest, opts ...grpc.CallOption) (*GetFragmentResponse, error)
+	GetIcon(ctx context.Context, in *GetIconRequest, opts ...grpc.CallOption) (*GetIconResponse, error)
+	GetIntent(ctx context.Context, in *GetIntentRequest, opts ...grpc.CallOption) (*GetIntentResponse, error)
+	GetKey(ctx context.Context, in *GetKeyRequest, opts ...grpc.CallOption) (*GetKeyResponse, error)
+	GetLayoutResource(ctx context.Context, in *GetLayoutResourceRequest, opts ...grpc.CallOption) (*GetLayoutResourceResponse, error)
+	GetOnPreferenceChangeListener(ctx context.Context, in *GetOnPreferenceChangeListenerRequest, opts ...grpc.CallOption) (*GetOnPreferenceChangeListenerResponse, error)
+	GetOnPreferenceClickListener(ctx context.Context, in *GetOnPreferenceClickListenerRequest, opts ...grpc.CallOption) (*GetOnPreferenceClickListenerResponse, error)
+	GetOrder(ctx context.Context, in *GetOrderRequest, opts ...grpc.CallOption) (*GetOrderResponse, error)
+	GetParent(ctx context.Context, in *GetParentRequest, opts ...grpc.CallOption) (*GetParentResponse, error)
+	GetPreferenceDataStore(ctx context.Context, in *GetPreferenceDataStoreRequest, opts ...grpc.CallOption) (*GetPreferenceDataStoreResponse, error)
+	GetPreferenceManager(ctx context.Context, in *PreferenceGetPreferenceManagerRequest, opts ...grpc.CallOption) (*GetPreferenceManagerResponse, error)
+	GetSharedPreferences(ctx context.Context, in *GetSharedPreferencesRequest, opts ...grpc.CallOption) (*GetSharedPreferencesResponse, error)
+	GetShouldDisableView(ctx context.Context, in *GetShouldDisableViewRequest, opts ...grpc.CallOption) (*GetShouldDisableViewResponse, error)
+	GetSummary(ctx context.Context, in *GetSummaryRequest, opts ...grpc.CallOption) (*GetSummaryResponse, error)
+	GetTitle(ctx context.Context, in *GetTitleRequest, opts ...grpc.CallOption) (*GetTitleResponse, error)
+	GetTitleRes(ctx context.Context, in *GetTitleResRequest, opts ...grpc.CallOption) (*GetTitleResResponse, error)
+	GetView(ctx context.Context, in *GetViewRequest, opts ...grpc.CallOption) (*GetViewResponse, error)
+	GetWidgetLayoutResource(ctx context.Context, in *GetWidgetLayoutResourceRequest, opts ...grpc.CallOption) (*GetWidgetLayoutResourceResponse, error)
+	HasKey(ctx context.Context, in *HasKeyRequest, opts ...grpc.CallOption) (*HasKeyResponse, error)
+	IsEnabled(ctx context.Context, in *IsEnabledRequest, opts ...grpc.CallOption) (*IsEnabledResponse, error)
+	IsIconSpaceReserved(ctx context.Context, in *IsIconSpaceReservedRequest, opts ...grpc.CallOption) (*IsIconSpaceReservedResponse, error)
+	IsPersistent(ctx context.Context, in *IsPersistentRequest, opts ...grpc.CallOption) (*IsPersistentResponse, error)
+	IsRecycleEnabled(ctx context.Context, in *IsRecycleEnabledRequest, opts ...grpc.CallOption) (*IsRecycleEnabledResponse, error)
+	IsSelectable(ctx context.Context, in *IsSelectableRequest, opts ...grpc.CallOption) (*IsSelectableResponse, error)
+	IsSingleLineTitle(ctx context.Context, in *IsSingleLineTitleRequest, opts ...grpc.CallOption) (*IsSingleLineTitleResponse, error)
+	NotifyDependencyChange(ctx context.Context, in *NotifyDependencyChangeRequest, opts ...grpc.CallOption) (*NotifyDependencyChangeResponse, error)
+	OnDependencyChanged(ctx context.Context, in *OnDependencyChangedRequest, opts ...grpc.CallOption) (*OnDependencyChangedResponse, error)
+	OnParentChanged(ctx context.Context, in *OnParentChangedRequest, opts ...grpc.CallOption) (*OnParentChangedResponse, error)
+	PeekExtras(ctx context.Context, in *PeekExtrasRequest, opts ...grpc.CallOption) (*PeekExtrasResponse, error)
+	RestoreHierarchyState(ctx context.Context, in *RestoreHierarchyStateRequest, opts ...grpc.CallOption) (*RestoreHierarchyStateResponse, error)
+	SaveHierarchyState(ctx context.Context, in *SaveHierarchyStateRequest, opts ...grpc.CallOption) (*SaveHierarchyStateResponse, error)
+	SetDefaultValue(ctx context.Context, in *SetDefaultValueRequest, opts ...grpc.CallOption) (*SetDefaultValueResponse, error)
+	SetDependency(ctx context.Context, in *SetDependencyRequest, opts ...grpc.CallOption) (*SetDependencyResponse, error)
+	SetEnabled(ctx context.Context, in *SetEnabledRequest, opts ...grpc.CallOption) (*SetEnabledResponse, error)
+	SetFragment(ctx context.Context, in *SetFragmentRequest, opts ...grpc.CallOption) (*SetFragmentResponse, error)
+	SetIcon1(ctx context.Context, in *SetIcon1Request, opts ...grpc.CallOption) (*SetIcon1Response, error)
+	SetIcon1_1(ctx context.Context, in *SetIcon1_1Request, opts ...grpc.CallOption) (*SetIcon1_1Response, error)
+	SetIconSpaceReserved(ctx context.Context, in *SetIconSpaceReservedRequest, opts ...grpc.CallOption) (*SetIconSpaceReservedResponse, error)
+	SetIntent(ctx context.Context, in *SetIntentRequest, opts ...grpc.CallOption) (*SetIntentResponse, error)
+	SetKey(ctx context.Context, in *SetKeyRequest, opts ...grpc.CallOption) (*SetKeyResponse, error)
+	SetLayoutResource(ctx context.Context, in *SetLayoutResourceRequest, opts ...grpc.CallOption) (*SetLayoutResourceResponse, error)
+	SetOnPreferenceChangeListener(ctx context.Context, in *SetOnPreferenceChangeListenerRequest, opts ...grpc.CallOption) (*SetOnPreferenceChangeListenerResponse, error)
+	SetOnPreferenceClickListener(ctx context.Context, in *SetOnPreferenceClickListenerRequest, opts ...grpc.CallOption) (*SetOnPreferenceClickListenerResponse, error)
+	SetOrder(ctx context.Context, in *SetOrderRequest, opts ...grpc.CallOption) (*SetOrderResponse, error)
+	SetPersistent(ctx context.Context, in *SetPersistentRequest, opts ...grpc.CallOption) (*SetPersistentResponse, error)
+	SetPreferenceDataStore(ctx context.Context, in *SetPreferenceDataStoreRequest, opts ...grpc.CallOption) (*SetPreferenceDataStoreResponse, error)
+	SetRecycleEnabled(ctx context.Context, in *SetRecycleEnabledRequest, opts ...grpc.CallOption) (*SetRecycleEnabledResponse, error)
+	SetSelectable(ctx context.Context, in *SetSelectableRequest, opts ...grpc.CallOption) (*SetSelectableResponse, error)
+	SetShouldDisableView(ctx context.Context, in *SetShouldDisableViewRequest, opts ...grpc.CallOption) (*SetShouldDisableViewResponse, error)
+	SetSingleLineTitle(ctx context.Context, in *SetSingleLineTitleRequest, opts ...grpc.CallOption) (*SetSingleLineTitleResponse, error)
+	SetSummary1(ctx context.Context, in *SetSummary1Request, opts ...grpc.CallOption) (*SetSummary1Response, error)
+	SetSummary1_1(ctx context.Context, in *SetSummary1_1Request, opts ...grpc.CallOption) (*SetSummary1_1Response, error)
+	SetTitle1(ctx context.Context, in *SetTitle1Request, opts ...grpc.CallOption) (*SetTitle1Response, error)
+	SetTitle1_1(ctx context.Context, in *SetTitle1_1Request, opts ...grpc.CallOption) (*SetTitle1_1Response, error)
+	SetWidgetLayoutResource(ctx context.Context, in *SetWidgetLayoutResourceRequest, opts ...grpc.CallOption) (*SetWidgetLayoutResourceResponse, error)
+	ShouldCommit(ctx context.Context, in *ShouldCommitRequest, opts ...grpc.CallOption) (*ShouldCommitResponse, error)
 	ShouldDisableDependents(ctx context.Context, in *ShouldDisableDependentsRequest, opts ...grpc.CallOption) (*ShouldDisableDependentsResponse, error)
+	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+	CompareTo1_1(ctx context.Context, in *CompareTo1_1Request, opts ...grpc.CallOption) (*CompareTo1_1Response, error)
 }
 
-type editTextPreferenceServiceClient struct {
+type preferenceServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewEditTextPreferenceServiceClient(cc grpc.ClientConnInterface) EditTextPreferenceServiceClient {
-	return &editTextPreferenceServiceClient{cc}
+func NewPreferenceServiceClient(cc grpc.ClientConnInterface) PreferenceServiceClient {
+	return &preferenceServiceClient{cc}
 }
 
-func (c *editTextPreferenceServiceClient) NewEditTextPreference(ctx context.Context, in *NewEditTextPreferenceRequest, opts ...grpc.CallOption) (*NewEditTextPreferenceResponse, error) {
+func (c *preferenceServiceClient) NewPreference(ctx context.Context, in *NewPreferenceRequest, opts ...grpc.CallOption) (*NewPreferenceResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewEditTextPreferenceResponse)
-	err := c.cc.Invoke(ctx, EditTextPreferenceService_NewEditTextPreference_FullMethodName, in, out, cOpts...)
+	out := new(NewPreferenceResponse)
+	err := c.cc.Invoke(ctx, PreferenceService_NewPreference_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *editTextPreferenceServiceClient) GetEditText(ctx context.Context, in *GetEditTextRequest, opts ...grpc.CallOption) (*GetEditTextResponse, error) {
+func (c *preferenceServiceClient) CompareTo1(ctx context.Context, in *CompareTo1Request, opts ...grpc.CallOption) (*CompareTo1Response, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetEditTextResponse)
-	err := c.cc.Invoke(ctx, EditTextPreferenceService_GetEditText_FullMethodName, in, out, cOpts...)
+	out := new(CompareTo1Response)
+	err := c.cc.Invoke(ctx, PreferenceService_CompareTo1_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *editTextPreferenceServiceClient) GetText(ctx context.Context, in *GetTextRequest, opts ...grpc.CallOption) (*GetTextResponse, error) {
+func (c *preferenceServiceClient) GetContext(ctx context.Context, in *GetContextRequest, opts ...grpc.CallOption) (*GetContextResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetTextResponse)
-	err := c.cc.Invoke(ctx, EditTextPreferenceService_GetText_FullMethodName, in, out, cOpts...)
+	out := new(GetContextResponse)
+	err := c.cc.Invoke(ctx, PreferenceService_GetContext_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *editTextPreferenceServiceClient) SetText(ctx context.Context, in *SetTextRequest, opts ...grpc.CallOption) (*SetTextResponse, error) {
+func (c *preferenceServiceClient) GetDependency(ctx context.Context, in *GetDependencyRequest, opts ...grpc.CallOption) (*GetDependencyResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetTextResponse)
-	err := c.cc.Invoke(ctx, EditTextPreferenceService_SetText_FullMethodName, in, out, cOpts...)
+	out := new(GetDependencyResponse)
+	err := c.cc.Invoke(ctx, PreferenceService_GetDependency_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *editTextPreferenceServiceClient) ShouldDisableDependents(ctx context.Context, in *ShouldDisableDependentsRequest, opts ...grpc.CallOption) (*ShouldDisableDependentsResponse, error) {
+func (c *preferenceServiceClient) GetEditor(ctx context.Context, in *GetEditorRequest, opts ...grpc.CallOption) (*GetEditorResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetEditorResponse)
+	err := c.cc.Invoke(ctx, PreferenceService_GetEditor_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *preferenceServiceClient) GetExtras(ctx context.Context, in *GetExtrasRequest, opts ...grpc.CallOption) (*GetExtrasResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetExtrasResponse)
+	err := c.cc.Invoke(ctx, PreferenceService_GetExtras_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *preferenceServiceClient) GetFragment(ctx context.Context, in *GetFragmentRequest, opts ...grpc.CallOption) (*GetFragmentResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetFragmentResponse)
+	err := c.cc.Invoke(ctx, PreferenceService_GetFragment_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *preferenceServiceClient) GetIcon(ctx context.Context, in *GetIconRequest, opts ...grpc.CallOption) (*GetIconResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetIconResponse)
+	err := c.cc.Invoke(ctx, PreferenceService_GetIcon_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *preferenceServiceClient) GetIntent(ctx context.Context, in *GetIntentRequest, opts ...grpc.CallOption) (*GetIntentResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetIntentResponse)
+	err := c.cc.Invoke(ctx, PreferenceService_GetIntent_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *preferenceServiceClient) GetKey(ctx context.Context, in *GetKeyRequest, opts ...grpc.CallOption) (*GetKeyResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetKeyResponse)
+	err := c.cc.Invoke(ctx, PreferenceService_GetKey_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *preferenceServiceClient) GetLayoutResource(ctx context.Context, in *GetLayoutResourceRequest, opts ...grpc.CallOption) (*GetLayoutResourceResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetLayoutResourceResponse)
+	err := c.cc.Invoke(ctx, PreferenceService_GetLayoutResource_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *preferenceServiceClient) GetOnPreferenceChangeListener(ctx context.Context, in *GetOnPreferenceChangeListenerRequest, opts ...grpc.CallOption) (*GetOnPreferenceChangeListenerResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetOnPreferenceChangeListenerResponse)
+	err := c.cc.Invoke(ctx, PreferenceService_GetOnPreferenceChangeListener_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *preferenceServiceClient) GetOnPreferenceClickListener(ctx context.Context, in *GetOnPreferenceClickListenerRequest, opts ...grpc.CallOption) (*GetOnPreferenceClickListenerResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetOnPreferenceClickListenerResponse)
+	err := c.cc.Invoke(ctx, PreferenceService_GetOnPreferenceClickListener_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *preferenceServiceClient) GetOrder(ctx context.Context, in *GetOrderRequest, opts ...grpc.CallOption) (*GetOrderResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetOrderResponse)
+	err := c.cc.Invoke(ctx, PreferenceService_GetOrder_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *preferenceServiceClient) GetParent(ctx context.Context, in *GetParentRequest, opts ...grpc.CallOption) (*GetParentResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetParentResponse)
+	err := c.cc.Invoke(ctx, PreferenceService_GetParent_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *preferenceServiceClient) GetPreferenceDataStore(ctx context.Context, in *GetPreferenceDataStoreRequest, opts ...grpc.CallOption) (*GetPreferenceDataStoreResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetPreferenceDataStoreResponse)
+	err := c.cc.Invoke(ctx, PreferenceService_GetPreferenceDataStore_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *preferenceServiceClient) GetPreferenceManager(ctx context.Context, in *PreferenceGetPreferenceManagerRequest, opts ...grpc.CallOption) (*GetPreferenceManagerResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetPreferenceManagerResponse)
+	err := c.cc.Invoke(ctx, PreferenceService_GetPreferenceManager_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *preferenceServiceClient) GetSharedPreferences(ctx context.Context, in *GetSharedPreferencesRequest, opts ...grpc.CallOption) (*GetSharedPreferencesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSharedPreferencesResponse)
+	err := c.cc.Invoke(ctx, PreferenceService_GetSharedPreferences_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *preferenceServiceClient) GetShouldDisableView(ctx context.Context, in *GetShouldDisableViewRequest, opts ...grpc.CallOption) (*GetShouldDisableViewResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetShouldDisableViewResponse)
+	err := c.cc.Invoke(ctx, PreferenceService_GetShouldDisableView_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *preferenceServiceClient) GetSummary(ctx context.Context, in *GetSummaryRequest, opts ...grpc.CallOption) (*GetSummaryResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSummaryResponse)
+	err := c.cc.Invoke(ctx, PreferenceService_GetSummary_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *preferenceServiceClient) GetTitle(ctx context.Context, in *GetTitleRequest, opts ...grpc.CallOption) (*GetTitleResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTitleResponse)
+	err := c.cc.Invoke(ctx, PreferenceService_GetTitle_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *preferenceServiceClient) GetTitleRes(ctx context.Context, in *GetTitleResRequest, opts ...grpc.CallOption) (*GetTitleResResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTitleResResponse)
+	err := c.cc.Invoke(ctx, PreferenceService_GetTitleRes_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *preferenceServiceClient) GetView(ctx context.Context, in *GetViewRequest, opts ...grpc.CallOption) (*GetViewResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetViewResponse)
+	err := c.cc.Invoke(ctx, PreferenceService_GetView_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *preferenceServiceClient) GetWidgetLayoutResource(ctx context.Context, in *GetWidgetLayoutResourceRequest, opts ...grpc.CallOption) (*GetWidgetLayoutResourceResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetWidgetLayoutResourceResponse)
+	err := c.cc.Invoke(ctx, PreferenceService_GetWidgetLayoutResource_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *preferenceServiceClient) HasKey(ctx context.Context, in *HasKeyRequest, opts ...grpc.CallOption) (*HasKeyResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HasKeyResponse)
+	err := c.cc.Invoke(ctx, PreferenceService_HasKey_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *preferenceServiceClient) IsEnabled(ctx context.Context, in *IsEnabledRequest, opts ...grpc.CallOption) (*IsEnabledResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsEnabledResponse)
+	err := c.cc.Invoke(ctx, PreferenceService_IsEnabled_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *preferenceServiceClient) IsIconSpaceReserved(ctx context.Context, in *IsIconSpaceReservedRequest, opts ...grpc.CallOption) (*IsIconSpaceReservedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsIconSpaceReservedResponse)
+	err := c.cc.Invoke(ctx, PreferenceService_IsIconSpaceReserved_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *preferenceServiceClient) IsPersistent(ctx context.Context, in *IsPersistentRequest, opts ...grpc.CallOption) (*IsPersistentResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsPersistentResponse)
+	err := c.cc.Invoke(ctx, PreferenceService_IsPersistent_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *preferenceServiceClient) IsRecycleEnabled(ctx context.Context, in *IsRecycleEnabledRequest, opts ...grpc.CallOption) (*IsRecycleEnabledResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsRecycleEnabledResponse)
+	err := c.cc.Invoke(ctx, PreferenceService_IsRecycleEnabled_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *preferenceServiceClient) IsSelectable(ctx context.Context, in *IsSelectableRequest, opts ...grpc.CallOption) (*IsSelectableResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsSelectableResponse)
+	err := c.cc.Invoke(ctx, PreferenceService_IsSelectable_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *preferenceServiceClient) IsSingleLineTitle(ctx context.Context, in *IsSingleLineTitleRequest, opts ...grpc.CallOption) (*IsSingleLineTitleResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsSingleLineTitleResponse)
+	err := c.cc.Invoke(ctx, PreferenceService_IsSingleLineTitle_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *preferenceServiceClient) NotifyDependencyChange(ctx context.Context, in *NotifyDependencyChangeRequest, opts ...grpc.CallOption) (*NotifyDependencyChangeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NotifyDependencyChangeResponse)
+	err := c.cc.Invoke(ctx, PreferenceService_NotifyDependencyChange_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *preferenceServiceClient) OnDependencyChanged(ctx context.Context, in *OnDependencyChangedRequest, opts ...grpc.CallOption) (*OnDependencyChangedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnDependencyChangedResponse)
+	err := c.cc.Invoke(ctx, PreferenceService_OnDependencyChanged_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *preferenceServiceClient) OnParentChanged(ctx context.Context, in *OnParentChangedRequest, opts ...grpc.CallOption) (*OnParentChangedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnParentChangedResponse)
+	err := c.cc.Invoke(ctx, PreferenceService_OnParentChanged_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *preferenceServiceClient) PeekExtras(ctx context.Context, in *PeekExtrasRequest, opts ...grpc.CallOption) (*PeekExtrasResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(PeekExtrasResponse)
+	err := c.cc.Invoke(ctx, PreferenceService_PeekExtras_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *preferenceServiceClient) RestoreHierarchyState(ctx context.Context, in *RestoreHierarchyStateRequest, opts ...grpc.CallOption) (*RestoreHierarchyStateResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(RestoreHierarchyStateResponse)
+	err := c.cc.Invoke(ctx, PreferenceService_RestoreHierarchyState_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *preferenceServiceClient) SaveHierarchyState(ctx context.Context, in *SaveHierarchyStateRequest, opts ...grpc.CallOption) (*SaveHierarchyStateResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SaveHierarchyStateResponse)
+	err := c.cc.Invoke(ctx, PreferenceService_SaveHierarchyState_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *preferenceServiceClient) SetDefaultValue(ctx context.Context, in *SetDefaultValueRequest, opts ...grpc.CallOption) (*SetDefaultValueResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetDefaultValueResponse)
+	err := c.cc.Invoke(ctx, PreferenceService_SetDefaultValue_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *preferenceServiceClient) SetDependency(ctx context.Context, in *SetDependencyRequest, opts ...grpc.CallOption) (*SetDependencyResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetDependencyResponse)
+	err := c.cc.Invoke(ctx, PreferenceService_SetDependency_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *preferenceServiceClient) SetEnabled(ctx context.Context, in *SetEnabledRequest, opts ...grpc.CallOption) (*SetEnabledResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetEnabledResponse)
+	err := c.cc.Invoke(ctx, PreferenceService_SetEnabled_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *preferenceServiceClient) SetFragment(ctx context.Context, in *SetFragmentRequest, opts ...grpc.CallOption) (*SetFragmentResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetFragmentResponse)
+	err := c.cc.Invoke(ctx, PreferenceService_SetFragment_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *preferenceServiceClient) SetIcon1(ctx context.Context, in *SetIcon1Request, opts ...grpc.CallOption) (*SetIcon1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetIcon1Response)
+	err := c.cc.Invoke(ctx, PreferenceService_SetIcon1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *preferenceServiceClient) SetIcon1_1(ctx context.Context, in *SetIcon1_1Request, opts ...grpc.CallOption) (*SetIcon1_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetIcon1_1Response)
+	err := c.cc.Invoke(ctx, PreferenceService_SetIcon1_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *preferenceServiceClient) SetIconSpaceReserved(ctx context.Context, in *SetIconSpaceReservedRequest, opts ...grpc.CallOption) (*SetIconSpaceReservedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetIconSpaceReservedResponse)
+	err := c.cc.Invoke(ctx, PreferenceService_SetIconSpaceReserved_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *preferenceServiceClient) SetIntent(ctx context.Context, in *SetIntentRequest, opts ...grpc.CallOption) (*SetIntentResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetIntentResponse)
+	err := c.cc.Invoke(ctx, PreferenceService_SetIntent_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *preferenceServiceClient) SetKey(ctx context.Context, in *SetKeyRequest, opts ...grpc.CallOption) (*SetKeyResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetKeyResponse)
+	err := c.cc.Invoke(ctx, PreferenceService_SetKey_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *preferenceServiceClient) SetLayoutResource(ctx context.Context, in *SetLayoutResourceRequest, opts ...grpc.CallOption) (*SetLayoutResourceResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetLayoutResourceResponse)
+	err := c.cc.Invoke(ctx, PreferenceService_SetLayoutResource_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *preferenceServiceClient) SetOnPreferenceChangeListener(ctx context.Context, in *SetOnPreferenceChangeListenerRequest, opts ...grpc.CallOption) (*SetOnPreferenceChangeListenerResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetOnPreferenceChangeListenerResponse)
+	err := c.cc.Invoke(ctx, PreferenceService_SetOnPreferenceChangeListener_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *preferenceServiceClient) SetOnPreferenceClickListener(ctx context.Context, in *SetOnPreferenceClickListenerRequest, opts ...grpc.CallOption) (*SetOnPreferenceClickListenerResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetOnPreferenceClickListenerResponse)
+	err := c.cc.Invoke(ctx, PreferenceService_SetOnPreferenceClickListener_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *preferenceServiceClient) SetOrder(ctx context.Context, in *SetOrderRequest, opts ...grpc.CallOption) (*SetOrderResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetOrderResponse)
+	err := c.cc.Invoke(ctx, PreferenceService_SetOrder_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *preferenceServiceClient) SetPersistent(ctx context.Context, in *SetPersistentRequest, opts ...grpc.CallOption) (*SetPersistentResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetPersistentResponse)
+	err := c.cc.Invoke(ctx, PreferenceService_SetPersistent_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *preferenceServiceClient) SetPreferenceDataStore(ctx context.Context, in *SetPreferenceDataStoreRequest, opts ...grpc.CallOption) (*SetPreferenceDataStoreResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetPreferenceDataStoreResponse)
+	err := c.cc.Invoke(ctx, PreferenceService_SetPreferenceDataStore_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *preferenceServiceClient) SetRecycleEnabled(ctx context.Context, in *SetRecycleEnabledRequest, opts ...grpc.CallOption) (*SetRecycleEnabledResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetRecycleEnabledResponse)
+	err := c.cc.Invoke(ctx, PreferenceService_SetRecycleEnabled_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *preferenceServiceClient) SetSelectable(ctx context.Context, in *SetSelectableRequest, opts ...grpc.CallOption) (*SetSelectableResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetSelectableResponse)
+	err := c.cc.Invoke(ctx, PreferenceService_SetSelectable_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *preferenceServiceClient) SetShouldDisableView(ctx context.Context, in *SetShouldDisableViewRequest, opts ...grpc.CallOption) (*SetShouldDisableViewResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetShouldDisableViewResponse)
+	err := c.cc.Invoke(ctx, PreferenceService_SetShouldDisableView_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *preferenceServiceClient) SetSingleLineTitle(ctx context.Context, in *SetSingleLineTitleRequest, opts ...grpc.CallOption) (*SetSingleLineTitleResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetSingleLineTitleResponse)
+	err := c.cc.Invoke(ctx, PreferenceService_SetSingleLineTitle_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *preferenceServiceClient) SetSummary1(ctx context.Context, in *SetSummary1Request, opts ...grpc.CallOption) (*SetSummary1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetSummary1Response)
+	err := c.cc.Invoke(ctx, PreferenceService_SetSummary1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *preferenceServiceClient) SetSummary1_1(ctx context.Context, in *SetSummary1_1Request, opts ...grpc.CallOption) (*SetSummary1_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetSummary1_1Response)
+	err := c.cc.Invoke(ctx, PreferenceService_SetSummary1_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *preferenceServiceClient) SetTitle1(ctx context.Context, in *SetTitle1Request, opts ...grpc.CallOption) (*SetTitle1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetTitle1Response)
+	err := c.cc.Invoke(ctx, PreferenceService_SetTitle1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *preferenceServiceClient) SetTitle1_1(ctx context.Context, in *SetTitle1_1Request, opts ...grpc.CallOption) (*SetTitle1_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetTitle1_1Response)
+	err := c.cc.Invoke(ctx, PreferenceService_SetTitle1_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *preferenceServiceClient) SetWidgetLayoutResource(ctx context.Context, in *SetWidgetLayoutResourceRequest, opts ...grpc.CallOption) (*SetWidgetLayoutResourceResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetWidgetLayoutResourceResponse)
+	err := c.cc.Invoke(ctx, PreferenceService_SetWidgetLayoutResource_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *preferenceServiceClient) ShouldCommit(ctx context.Context, in *ShouldCommitRequest, opts ...grpc.CallOption) (*ShouldCommitResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ShouldCommitResponse)
+	err := c.cc.Invoke(ctx, PreferenceService_ShouldCommit_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *preferenceServiceClient) ShouldDisableDependents(ctx context.Context, in *ShouldDisableDependentsRequest, opts ...grpc.CallOption) (*ShouldDisableDependentsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(ShouldDisableDependentsResponse)
-	err := c.cc.Invoke(ctx, EditTextPreferenceService_ShouldDisableDependents_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, PreferenceService_ShouldDisableDependents_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// EditTextPreferenceServiceServer is the server API for EditTextPreferenceService service.
-// All implementations must embed UnimplementedEditTextPreferenceServiceServer
-// for forward compatibility.
-type EditTextPreferenceServiceServer interface {
-	NewEditTextPreference(context.Context, *NewEditTextPreferenceRequest) (*NewEditTextPreferenceResponse, error)
-	GetEditText(context.Context, *GetEditTextRequest) (*GetEditTextResponse, error)
-	GetText(context.Context, *GetTextRequest) (*GetTextResponse, error)
-	SetText(context.Context, *SetTextRequest) (*SetTextResponse, error)
-	ShouldDisableDependents(context.Context, *ShouldDisableDependentsRequest) (*ShouldDisableDependentsResponse, error)
-	mustEmbedUnimplementedEditTextPreferenceServiceServer()
+func (c *preferenceServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, PreferenceService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
 }
 
-// UnimplementedEditTextPreferenceServiceServer must be embedded to have
+func (c *preferenceServiceClient) CompareTo1_1(ctx context.Context, in *CompareTo1_1Request, opts ...grpc.CallOption) (*CompareTo1_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CompareTo1_1Response)
+	err := c.cc.Invoke(ctx, PreferenceService_CompareTo1_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// PreferenceServiceServer is the server API for PreferenceService service.
+// All implementations must embed UnimplementedPreferenceServiceServer
+// for forward compatibility.
+type PreferenceServiceServer interface {
+	NewPreference(context.Context, *NewPreferenceRequest) (*NewPreferenceResponse, error)
+	CompareTo1(context.Context, *CompareTo1Request) (*CompareTo1Response, error)
+	GetContext(context.Context, *GetContextRequest) (*GetContextResponse, error)
+	GetDependency(context.Context, *GetDependencyRequest) (*GetDependencyResponse, error)
+	GetEditor(context.Context, *GetEditorRequest) (*GetEditorResponse, error)
+	GetExtras(context.Context, *GetExtrasRequest) (*GetExtrasResponse, error)
+	GetFragment(context.Context, *GetFragmentRequest) (*GetFragmentResponse, error)
+	GetIcon(context.Context, *GetIconRequest) (*GetIconResponse, error)
+	GetIntent(context.Context, *GetIntentRequest) (*GetIntentResponse, error)
+	GetKey(context.Context, *GetKeyRequest) (*GetKeyResponse, error)
+	GetLayoutResource(context.Context, *GetLayoutResourceRequest) (*GetLayoutResourceResponse, error)
+	GetOnPreferenceChangeListener(context.Context, *GetOnPreferenceChangeListenerRequest) (*GetOnPreferenceChangeListenerResponse, error)
+	GetOnPreferenceClickListener(context.Context, *GetOnPreferenceClickListenerRequest) (*GetOnPreferenceClickListenerResponse, error)
+	GetOrder(context.Context, *GetOrderRequest) (*GetOrderResponse, error)
+	GetParent(context.Context, *GetParentRequest) (*GetParentResponse, error)
+	GetPreferenceDataStore(context.Context, *GetPreferenceDataStoreRequest) (*GetPreferenceDataStoreResponse, error)
+	GetPreferenceManager(context.Context, *PreferenceGetPreferenceManagerRequest) (*GetPreferenceManagerResponse, error)
+	GetSharedPreferences(context.Context, *GetSharedPreferencesRequest) (*GetSharedPreferencesResponse, error)
+	GetShouldDisableView(context.Context, *GetShouldDisableViewRequest) (*GetShouldDisableViewResponse, error)
+	GetSummary(context.Context, *GetSummaryRequest) (*GetSummaryResponse, error)
+	GetTitle(context.Context, *GetTitleRequest) (*GetTitleResponse, error)
+	GetTitleRes(context.Context, *GetTitleResRequest) (*GetTitleResResponse, error)
+	GetView(context.Context, *GetViewRequest) (*GetViewResponse, error)
+	GetWidgetLayoutResource(context.Context, *GetWidgetLayoutResourceRequest) (*GetWidgetLayoutResourceResponse, error)
+	HasKey(context.Context, *HasKeyRequest) (*HasKeyResponse, error)
+	IsEnabled(context.Context, *IsEnabledRequest) (*IsEnabledResponse, error)
+	IsIconSpaceReserved(context.Context, *IsIconSpaceReservedRequest) (*IsIconSpaceReservedResponse, error)
+	IsPersistent(context.Context, *IsPersistentRequest) (*IsPersistentResponse, error)
+	IsRecycleEnabled(context.Context, *IsRecycleEnabledRequest) (*IsRecycleEnabledResponse, error)
+	IsSelectable(context.Context, *IsSelectableRequest) (*IsSelectableResponse, error)
+	IsSingleLineTitle(context.Context, *IsSingleLineTitleRequest) (*IsSingleLineTitleResponse, error)
+	NotifyDependencyChange(context.Context, *NotifyDependencyChangeRequest) (*NotifyDependencyChangeResponse, error)
+	OnDependencyChanged(context.Context, *OnDependencyChangedRequest) (*OnDependencyChangedResponse, error)
+	OnParentChanged(context.Context, *OnParentChangedRequest) (*OnParentChangedResponse, error)
+	PeekExtras(context.Context, *PeekExtrasRequest) (*PeekExtrasResponse, error)
+	RestoreHierarchyState(context.Context, *RestoreHierarchyStateRequest) (*RestoreHierarchyStateResponse, error)
+	SaveHierarchyState(context.Context, *SaveHierarchyStateRequest) (*SaveHierarchyStateResponse, error)
+	SetDefaultValue(context.Context, *SetDefaultValueRequest) (*SetDefaultValueResponse, error)
+	SetDependency(context.Context, *SetDependencyRequest) (*SetDependencyResponse, error)
+	SetEnabled(context.Context, *SetEnabledRequest) (*SetEnabledResponse, error)
+	SetFragment(context.Context, *SetFragmentRequest) (*SetFragmentResponse, error)
+	SetIcon1(context.Context, *SetIcon1Request) (*SetIcon1Response, error)
+	SetIcon1_1(context.Context, *SetIcon1_1Request) (*SetIcon1_1Response, error)
+	SetIconSpaceReserved(context.Context, *SetIconSpaceReservedRequest) (*SetIconSpaceReservedResponse, error)
+	SetIntent(context.Context, *SetIntentRequest) (*SetIntentResponse, error)
+	SetKey(context.Context, *SetKeyRequest) (*SetKeyResponse, error)
+	SetLayoutResource(context.Context, *SetLayoutResourceRequest) (*SetLayoutResourceResponse, error)
+	SetOnPreferenceChangeListener(context.Context, *SetOnPreferenceChangeListenerRequest) (*SetOnPreferenceChangeListenerResponse, error)
+	SetOnPreferenceClickListener(context.Context, *SetOnPreferenceClickListenerRequest) (*SetOnPreferenceClickListenerResponse, error)
+	SetOrder(context.Context, *SetOrderRequest) (*SetOrderResponse, error)
+	SetPersistent(context.Context, *SetPersistentRequest) (*SetPersistentResponse, error)
+	SetPreferenceDataStore(context.Context, *SetPreferenceDataStoreRequest) (*SetPreferenceDataStoreResponse, error)
+	SetRecycleEnabled(context.Context, *SetRecycleEnabledRequest) (*SetRecycleEnabledResponse, error)
+	SetSelectable(context.Context, *SetSelectableRequest) (*SetSelectableResponse, error)
+	SetShouldDisableView(context.Context, *SetShouldDisableViewRequest) (*SetShouldDisableViewResponse, error)
+	SetSingleLineTitle(context.Context, *SetSingleLineTitleRequest) (*SetSingleLineTitleResponse, error)
+	SetSummary1(context.Context, *SetSummary1Request) (*SetSummary1Response, error)
+	SetSummary1_1(context.Context, *SetSummary1_1Request) (*SetSummary1_1Response, error)
+	SetTitle1(context.Context, *SetTitle1Request) (*SetTitle1Response, error)
+	SetTitle1_1(context.Context, *SetTitle1_1Request) (*SetTitle1_1Response, error)
+	SetWidgetLayoutResource(context.Context, *SetWidgetLayoutResourceRequest) (*SetWidgetLayoutResourceResponse, error)
+	ShouldCommit(context.Context, *ShouldCommitRequest) (*ShouldCommitResponse, error)
+	ShouldDisableDependents(context.Context, *ShouldDisableDependentsRequest) (*ShouldDisableDependentsResponse, error)
+	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
+	CompareTo1_1(context.Context, *CompareTo1_1Request) (*CompareTo1_1Response, error)
+	mustEmbedUnimplementedPreferenceServiceServer()
+}
+
+// UnimplementedPreferenceServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedEditTextPreferenceServiceServer struct{}
+type UnimplementedPreferenceServiceServer struct{}
 
-func (UnimplementedEditTextPreferenceServiceServer) NewEditTextPreference(context.Context, *NewEditTextPreferenceRequest) (*NewEditTextPreferenceResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewEditTextPreference not implemented")
+func (UnimplementedPreferenceServiceServer) NewPreference(context.Context, *NewPreferenceRequest) (*NewPreferenceResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewPreference not implemented")
 }
-func (UnimplementedEditTextPreferenceServiceServer) GetEditText(context.Context, *GetEditTextRequest) (*GetEditTextResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetEditText not implemented")
+func (UnimplementedPreferenceServiceServer) CompareTo1(context.Context, *CompareTo1Request) (*CompareTo1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method CompareTo1 not implemented")
 }
-func (UnimplementedEditTextPreferenceServiceServer) GetText(context.Context, *GetTextRequest) (*GetTextResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetText not implemented")
+func (UnimplementedPreferenceServiceServer) GetContext(context.Context, *GetContextRequest) (*GetContextResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetContext not implemented")
 }
-func (UnimplementedEditTextPreferenceServiceServer) SetText(context.Context, *SetTextRequest) (*SetTextResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetText not implemented")
+func (UnimplementedPreferenceServiceServer) GetDependency(context.Context, *GetDependencyRequest) (*GetDependencyResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetDependency not implemented")
 }
-func (UnimplementedEditTextPreferenceServiceServer) ShouldDisableDependents(context.Context, *ShouldDisableDependentsRequest) (*ShouldDisableDependentsResponse, error) {
+func (UnimplementedPreferenceServiceServer) GetEditor(context.Context, *GetEditorRequest) (*GetEditorResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetEditor not implemented")
+}
+func (UnimplementedPreferenceServiceServer) GetExtras(context.Context, *GetExtrasRequest) (*GetExtrasResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetExtras not implemented")
+}
+func (UnimplementedPreferenceServiceServer) GetFragment(context.Context, *GetFragmentRequest) (*GetFragmentResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetFragment not implemented")
+}
+func (UnimplementedPreferenceServiceServer) GetIcon(context.Context, *GetIconRequest) (*GetIconResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetIcon not implemented")
+}
+func (UnimplementedPreferenceServiceServer) GetIntent(context.Context, *GetIntentRequest) (*GetIntentResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetIntent not implemented")
+}
+func (UnimplementedPreferenceServiceServer) GetKey(context.Context, *GetKeyRequest) (*GetKeyResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetKey not implemented")
+}
+func (UnimplementedPreferenceServiceServer) GetLayoutResource(context.Context, *GetLayoutResourceRequest) (*GetLayoutResourceResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetLayoutResource not implemented")
+}
+func (UnimplementedPreferenceServiceServer) GetOnPreferenceChangeListener(context.Context, *GetOnPreferenceChangeListenerRequest) (*GetOnPreferenceChangeListenerResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetOnPreferenceChangeListener not implemented")
+}
+func (UnimplementedPreferenceServiceServer) GetOnPreferenceClickListener(context.Context, *GetOnPreferenceClickListenerRequest) (*GetOnPreferenceClickListenerResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetOnPreferenceClickListener not implemented")
+}
+func (UnimplementedPreferenceServiceServer) GetOrder(context.Context, *GetOrderRequest) (*GetOrderResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetOrder not implemented")
+}
+func (UnimplementedPreferenceServiceServer) GetParent(context.Context, *GetParentRequest) (*GetParentResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetParent not implemented")
+}
+func (UnimplementedPreferenceServiceServer) GetPreferenceDataStore(context.Context, *GetPreferenceDataStoreRequest) (*GetPreferenceDataStoreResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetPreferenceDataStore not implemented")
+}
+func (UnimplementedPreferenceServiceServer) GetPreferenceManager(context.Context, *PreferenceGetPreferenceManagerRequest) (*GetPreferenceManagerResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetPreferenceManager not implemented")
+}
+func (UnimplementedPreferenceServiceServer) GetSharedPreferences(context.Context, *GetSharedPreferencesRequest) (*GetSharedPreferencesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSharedPreferences not implemented")
+}
+func (UnimplementedPreferenceServiceServer) GetShouldDisableView(context.Context, *GetShouldDisableViewRequest) (*GetShouldDisableViewResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetShouldDisableView not implemented")
+}
+func (UnimplementedPreferenceServiceServer) GetSummary(context.Context, *GetSummaryRequest) (*GetSummaryResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSummary not implemented")
+}
+func (UnimplementedPreferenceServiceServer) GetTitle(context.Context, *GetTitleRequest) (*GetTitleResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTitle not implemented")
+}
+func (UnimplementedPreferenceServiceServer) GetTitleRes(context.Context, *GetTitleResRequest) (*GetTitleResResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTitleRes not implemented")
+}
+func (UnimplementedPreferenceServiceServer) GetView(context.Context, *GetViewRequest) (*GetViewResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetView not implemented")
+}
+func (UnimplementedPreferenceServiceServer) GetWidgetLayoutResource(context.Context, *GetWidgetLayoutResourceRequest) (*GetWidgetLayoutResourceResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetWidgetLayoutResource not implemented")
+}
+func (UnimplementedPreferenceServiceServer) HasKey(context.Context, *HasKeyRequest) (*HasKeyResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HasKey not implemented")
+}
+func (UnimplementedPreferenceServiceServer) IsEnabled(context.Context, *IsEnabledRequest) (*IsEnabledResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsEnabled not implemented")
+}
+func (UnimplementedPreferenceServiceServer) IsIconSpaceReserved(context.Context, *IsIconSpaceReservedRequest) (*IsIconSpaceReservedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsIconSpaceReserved not implemented")
+}
+func (UnimplementedPreferenceServiceServer) IsPersistent(context.Context, *IsPersistentRequest) (*IsPersistentResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsPersistent not implemented")
+}
+func (UnimplementedPreferenceServiceServer) IsRecycleEnabled(context.Context, *IsRecycleEnabledRequest) (*IsRecycleEnabledResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsRecycleEnabled not implemented")
+}
+func (UnimplementedPreferenceServiceServer) IsSelectable(context.Context, *IsSelectableRequest) (*IsSelectableResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsSelectable not implemented")
+}
+func (UnimplementedPreferenceServiceServer) IsSingleLineTitle(context.Context, *IsSingleLineTitleRequest) (*IsSingleLineTitleResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsSingleLineTitle not implemented")
+}
+func (UnimplementedPreferenceServiceServer) NotifyDependencyChange(context.Context, *NotifyDependencyChangeRequest) (*NotifyDependencyChangeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NotifyDependencyChange not implemented")
+}
+func (UnimplementedPreferenceServiceServer) OnDependencyChanged(context.Context, *OnDependencyChangedRequest) (*OnDependencyChangedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnDependencyChanged not implemented")
+}
+func (UnimplementedPreferenceServiceServer) OnParentChanged(context.Context, *OnParentChangedRequest) (*OnParentChangedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnParentChanged not implemented")
+}
+func (UnimplementedPreferenceServiceServer) PeekExtras(context.Context, *PeekExtrasRequest) (*PeekExtrasResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method PeekExtras not implemented")
+}
+func (UnimplementedPreferenceServiceServer) RestoreHierarchyState(context.Context, *RestoreHierarchyStateRequest) (*RestoreHierarchyStateResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method RestoreHierarchyState not implemented")
+}
+func (UnimplementedPreferenceServiceServer) SaveHierarchyState(context.Context, *SaveHierarchyStateRequest) (*SaveHierarchyStateResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SaveHierarchyState not implemented")
+}
+func (UnimplementedPreferenceServiceServer) SetDefaultValue(context.Context, *SetDefaultValueRequest) (*SetDefaultValueResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetDefaultValue not implemented")
+}
+func (UnimplementedPreferenceServiceServer) SetDependency(context.Context, *SetDependencyRequest) (*SetDependencyResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetDependency not implemented")
+}
+func (UnimplementedPreferenceServiceServer) SetEnabled(context.Context, *SetEnabledRequest) (*SetEnabledResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetEnabled not implemented")
+}
+func (UnimplementedPreferenceServiceServer) SetFragment(context.Context, *SetFragmentRequest) (*SetFragmentResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetFragment not implemented")
+}
+func (UnimplementedPreferenceServiceServer) SetIcon1(context.Context, *SetIcon1Request) (*SetIcon1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetIcon1 not implemented")
+}
+func (UnimplementedPreferenceServiceServer) SetIcon1_1(context.Context, *SetIcon1_1Request) (*SetIcon1_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetIcon1_1 not implemented")
+}
+func (UnimplementedPreferenceServiceServer) SetIconSpaceReserved(context.Context, *SetIconSpaceReservedRequest) (*SetIconSpaceReservedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetIconSpaceReserved not implemented")
+}
+func (UnimplementedPreferenceServiceServer) SetIntent(context.Context, *SetIntentRequest) (*SetIntentResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetIntent not implemented")
+}
+func (UnimplementedPreferenceServiceServer) SetKey(context.Context, *SetKeyRequest) (*SetKeyResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetKey not implemented")
+}
+func (UnimplementedPreferenceServiceServer) SetLayoutResource(context.Context, *SetLayoutResourceRequest) (*SetLayoutResourceResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetLayoutResource not implemented")
+}
+func (UnimplementedPreferenceServiceServer) SetOnPreferenceChangeListener(context.Context, *SetOnPreferenceChangeListenerRequest) (*SetOnPreferenceChangeListenerResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetOnPreferenceChangeListener not implemented")
+}
+func (UnimplementedPreferenceServiceServer) SetOnPreferenceClickListener(context.Context, *SetOnPreferenceClickListenerRequest) (*SetOnPreferenceClickListenerResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetOnPreferenceClickListener not implemented")
+}
+func (UnimplementedPreferenceServiceServer) SetOrder(context.Context, *SetOrderRequest) (*SetOrderResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetOrder not implemented")
+}
+func (UnimplementedPreferenceServiceServer) SetPersistent(context.Context, *SetPersistentRequest) (*SetPersistentResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetPersistent not implemented")
+}
+func (UnimplementedPreferenceServiceServer) SetPreferenceDataStore(context.Context, *SetPreferenceDataStoreRequest) (*SetPreferenceDataStoreResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetPreferenceDataStore not implemented")
+}
+func (UnimplementedPreferenceServiceServer) SetRecycleEnabled(context.Context, *SetRecycleEnabledRequest) (*SetRecycleEnabledResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetRecycleEnabled not implemented")
+}
+func (UnimplementedPreferenceServiceServer) SetSelectable(context.Context, *SetSelectableRequest) (*SetSelectableResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetSelectable not implemented")
+}
+func (UnimplementedPreferenceServiceServer) SetShouldDisableView(context.Context, *SetShouldDisableViewRequest) (*SetShouldDisableViewResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetShouldDisableView not implemented")
+}
+func (UnimplementedPreferenceServiceServer) SetSingleLineTitle(context.Context, *SetSingleLineTitleRequest) (*SetSingleLineTitleResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetSingleLineTitle not implemented")
+}
+func (UnimplementedPreferenceServiceServer) SetSummary1(context.Context, *SetSummary1Request) (*SetSummary1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetSummary1 not implemented")
+}
+func (UnimplementedPreferenceServiceServer) SetSummary1_1(context.Context, *SetSummary1_1Request) (*SetSummary1_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetSummary1_1 not implemented")
+}
+func (UnimplementedPreferenceServiceServer) SetTitle1(context.Context, *SetTitle1Request) (*SetTitle1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetTitle1 not implemented")
+}
+func (UnimplementedPreferenceServiceServer) SetTitle1_1(context.Context, *SetTitle1_1Request) (*SetTitle1_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetTitle1_1 not implemented")
+}
+func (UnimplementedPreferenceServiceServer) SetWidgetLayoutResource(context.Context, *SetWidgetLayoutResourceRequest) (*SetWidgetLayoutResourceResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetWidgetLayoutResource not implemented")
+}
+func (UnimplementedPreferenceServiceServer) ShouldCommit(context.Context, *ShouldCommitRequest) (*ShouldCommitResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ShouldCommit not implemented")
+}
+func (UnimplementedPreferenceServiceServer) ShouldDisableDependents(context.Context, *ShouldDisableDependentsRequest) (*ShouldDisableDependentsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method ShouldDisableDependents not implemented")
 }
-func (UnimplementedEditTextPreferenceServiceServer) mustEmbedUnimplementedEditTextPreferenceServiceServer() {
+func (UnimplementedPreferenceServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
 }
-func (UnimplementedEditTextPreferenceServiceServer) testEmbeddedByValue() {}
+func (UnimplementedPreferenceServiceServer) CompareTo1_1(context.Context, *CompareTo1_1Request) (*CompareTo1_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method CompareTo1_1 not implemented")
+}
+func (UnimplementedPreferenceServiceServer) mustEmbedUnimplementedPreferenceServiceServer() {}
+func (UnimplementedPreferenceServiceServer) testEmbeddedByValue()                           {}
 
-// UnsafeEditTextPreferenceServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to EditTextPreferenceServiceServer will
+// UnsafePreferenceServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to PreferenceServiceServer will
 // result in compilation errors.
-type UnsafeEditTextPreferenceServiceServer interface {
-	mustEmbedUnimplementedEditTextPreferenceServiceServer()
+type UnsafePreferenceServiceServer interface {
+	mustEmbedUnimplementedPreferenceServiceServer()
 }
 
-func RegisterEditTextPreferenceServiceServer(s grpc.ServiceRegistrar, srv EditTextPreferenceServiceServer) {
-	// If the following call panics, it indicates UnimplementedEditTextPreferenceServiceServer was
+func RegisterPreferenceServiceServer(s grpc.ServiceRegistrar, srv PreferenceServiceServer) {
+	// If the following call panics, it indicates UnimplementedPreferenceServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&EditTextPreferenceService_ServiceDesc, srv)
+	s.RegisterService(&PreferenceService_ServiceDesc, srv)
 }
 
-func _EditTextPreferenceService_NewEditTextPreference_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewEditTextPreferenceRequest)
+func _PreferenceService_NewPreference_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewPreferenceRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(EditTextPreferenceServiceServer).NewEditTextPreference(ctx, in)
+		return srv.(PreferenceServiceServer).NewPreference(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: EditTextPreferenceService_NewEditTextPreference_FullMethodName,
+		FullMethod: PreferenceService_NewPreference_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(EditTextPreferenceServiceServer).NewEditTextPreference(ctx, req.(*NewEditTextPreferenceRequest))
+		return srv.(PreferenceServiceServer).NewPreference(ctx, req.(*NewPreferenceRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _EditTextPreferenceService_GetEditText_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetEditTextRequest)
+func _PreferenceService_CompareTo1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CompareTo1Request)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(EditTextPreferenceServiceServer).GetEditText(ctx, in)
+		return srv.(PreferenceServiceServer).CompareTo1(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: EditTextPreferenceService_GetEditText_FullMethodName,
+		FullMethod: PreferenceService_CompareTo1_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(EditTextPreferenceServiceServer).GetEditText(ctx, req.(*GetEditTextRequest))
+		return srv.(PreferenceServiceServer).CompareTo1(ctx, req.(*CompareTo1Request))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _EditTextPreferenceService_GetText_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetTextRequest)
+func _PreferenceService_GetContext_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetContextRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(EditTextPreferenceServiceServer).GetText(ctx, in)
+		return srv.(PreferenceServiceServer).GetContext(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: EditTextPreferenceService_GetText_FullMethodName,
+		FullMethod: PreferenceService_GetContext_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(EditTextPreferenceServiceServer).GetText(ctx, req.(*GetTextRequest))
+		return srv.(PreferenceServiceServer).GetContext(ctx, req.(*GetContextRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _EditTextPreferenceService_SetText_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetTextRequest)
+func _PreferenceService_GetDependency_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetDependencyRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(EditTextPreferenceServiceServer).SetText(ctx, in)
+		return srv.(PreferenceServiceServer).GetDependency(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: EditTextPreferenceService_SetText_FullMethodName,
+		FullMethod: PreferenceService_GetDependency_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(EditTextPreferenceServiceServer).SetText(ctx, req.(*SetTextRequest))
+		return srv.(PreferenceServiceServer).GetDependency(ctx, req.(*GetDependencyRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _EditTextPreferenceService_ShouldDisableDependents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _PreferenceService_GetEditor_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetEditorRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PreferenceServiceServer).GetEditor(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PreferenceService_GetEditor_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PreferenceServiceServer).GetEditor(ctx, req.(*GetEditorRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PreferenceService_GetExtras_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetExtrasRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PreferenceServiceServer).GetExtras(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PreferenceService_GetExtras_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PreferenceServiceServer).GetExtras(ctx, req.(*GetExtrasRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PreferenceService_GetFragment_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetFragmentRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PreferenceServiceServer).GetFragment(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PreferenceService_GetFragment_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PreferenceServiceServer).GetFragment(ctx, req.(*GetFragmentRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PreferenceService_GetIcon_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetIconRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PreferenceServiceServer).GetIcon(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PreferenceService_GetIcon_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PreferenceServiceServer).GetIcon(ctx, req.(*GetIconRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PreferenceService_GetIntent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetIntentRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PreferenceServiceServer).GetIntent(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PreferenceService_GetIntent_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PreferenceServiceServer).GetIntent(ctx, req.(*GetIntentRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PreferenceService_GetKey_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetKeyRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PreferenceServiceServer).GetKey(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PreferenceService_GetKey_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PreferenceServiceServer).GetKey(ctx, req.(*GetKeyRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PreferenceService_GetLayoutResource_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetLayoutResourceRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PreferenceServiceServer).GetLayoutResource(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PreferenceService_GetLayoutResource_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PreferenceServiceServer).GetLayoutResource(ctx, req.(*GetLayoutResourceRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PreferenceService_GetOnPreferenceChangeListener_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetOnPreferenceChangeListenerRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PreferenceServiceServer).GetOnPreferenceChangeListener(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PreferenceService_GetOnPreferenceChangeListener_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PreferenceServiceServer).GetOnPreferenceChangeListener(ctx, req.(*GetOnPreferenceChangeListenerRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PreferenceService_GetOnPreferenceClickListener_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetOnPreferenceClickListenerRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PreferenceServiceServer).GetOnPreferenceClickListener(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PreferenceService_GetOnPreferenceClickListener_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PreferenceServiceServer).GetOnPreferenceClickListener(ctx, req.(*GetOnPreferenceClickListenerRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PreferenceService_GetOrder_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetOrderRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PreferenceServiceServer).GetOrder(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PreferenceService_GetOrder_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PreferenceServiceServer).GetOrder(ctx, req.(*GetOrderRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PreferenceService_GetParent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetParentRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PreferenceServiceServer).GetParent(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PreferenceService_GetParent_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PreferenceServiceServer).GetParent(ctx, req.(*GetParentRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PreferenceService_GetPreferenceDataStore_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPreferenceDataStoreRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PreferenceServiceServer).GetPreferenceDataStore(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PreferenceService_GetPreferenceDataStore_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PreferenceServiceServer).GetPreferenceDataStore(ctx, req.(*GetPreferenceDataStoreRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PreferenceService_GetPreferenceManager_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(PreferenceGetPreferenceManagerRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PreferenceServiceServer).GetPreferenceManager(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PreferenceService_GetPreferenceManager_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PreferenceServiceServer).GetPreferenceManager(ctx, req.(*PreferenceGetPreferenceManagerRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PreferenceService_GetSharedPreferences_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSharedPreferencesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PreferenceServiceServer).GetSharedPreferences(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PreferenceService_GetSharedPreferences_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PreferenceServiceServer).GetSharedPreferences(ctx, req.(*GetSharedPreferencesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PreferenceService_GetShouldDisableView_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetShouldDisableViewRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PreferenceServiceServer).GetShouldDisableView(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PreferenceService_GetShouldDisableView_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PreferenceServiceServer).GetShouldDisableView(ctx, req.(*GetShouldDisableViewRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PreferenceService_GetSummary_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSummaryRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PreferenceServiceServer).GetSummary(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PreferenceService_GetSummary_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PreferenceServiceServer).GetSummary(ctx, req.(*GetSummaryRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PreferenceService_GetTitle_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTitleRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PreferenceServiceServer).GetTitle(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PreferenceService_GetTitle_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PreferenceServiceServer).GetTitle(ctx, req.(*GetTitleRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PreferenceService_GetTitleRes_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTitleResRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PreferenceServiceServer).GetTitleRes(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PreferenceService_GetTitleRes_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PreferenceServiceServer).GetTitleRes(ctx, req.(*GetTitleResRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PreferenceService_GetView_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetViewRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PreferenceServiceServer).GetView(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PreferenceService_GetView_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PreferenceServiceServer).GetView(ctx, req.(*GetViewRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PreferenceService_GetWidgetLayoutResource_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetWidgetLayoutResourceRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PreferenceServiceServer).GetWidgetLayoutResource(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PreferenceService_GetWidgetLayoutResource_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PreferenceServiceServer).GetWidgetLayoutResource(ctx, req.(*GetWidgetLayoutResourceRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PreferenceService_HasKey_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HasKeyRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PreferenceServiceServer).HasKey(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PreferenceService_HasKey_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PreferenceServiceServer).HasKey(ctx, req.(*HasKeyRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PreferenceService_IsEnabled_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsEnabledRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PreferenceServiceServer).IsEnabled(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PreferenceService_IsEnabled_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PreferenceServiceServer).IsEnabled(ctx, req.(*IsEnabledRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PreferenceService_IsIconSpaceReserved_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsIconSpaceReservedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PreferenceServiceServer).IsIconSpaceReserved(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PreferenceService_IsIconSpaceReserved_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PreferenceServiceServer).IsIconSpaceReserved(ctx, req.(*IsIconSpaceReservedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PreferenceService_IsPersistent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsPersistentRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PreferenceServiceServer).IsPersistent(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PreferenceService_IsPersistent_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PreferenceServiceServer).IsPersistent(ctx, req.(*IsPersistentRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PreferenceService_IsRecycleEnabled_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsRecycleEnabledRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PreferenceServiceServer).IsRecycleEnabled(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PreferenceService_IsRecycleEnabled_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PreferenceServiceServer).IsRecycleEnabled(ctx, req.(*IsRecycleEnabledRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PreferenceService_IsSelectable_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsSelectableRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PreferenceServiceServer).IsSelectable(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PreferenceService_IsSelectable_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PreferenceServiceServer).IsSelectable(ctx, req.(*IsSelectableRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PreferenceService_IsSingleLineTitle_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsSingleLineTitleRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PreferenceServiceServer).IsSingleLineTitle(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PreferenceService_IsSingleLineTitle_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PreferenceServiceServer).IsSingleLineTitle(ctx, req.(*IsSingleLineTitleRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PreferenceService_NotifyDependencyChange_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NotifyDependencyChangeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PreferenceServiceServer).NotifyDependencyChange(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PreferenceService_NotifyDependencyChange_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PreferenceServiceServer).NotifyDependencyChange(ctx, req.(*NotifyDependencyChangeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PreferenceService_OnDependencyChanged_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnDependencyChangedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PreferenceServiceServer).OnDependencyChanged(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PreferenceService_OnDependencyChanged_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PreferenceServiceServer).OnDependencyChanged(ctx, req.(*OnDependencyChangedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PreferenceService_OnParentChanged_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnParentChangedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PreferenceServiceServer).OnParentChanged(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PreferenceService_OnParentChanged_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PreferenceServiceServer).OnParentChanged(ctx, req.(*OnParentChangedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PreferenceService_PeekExtras_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(PeekExtrasRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PreferenceServiceServer).PeekExtras(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PreferenceService_PeekExtras_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PreferenceServiceServer).PeekExtras(ctx, req.(*PeekExtrasRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PreferenceService_RestoreHierarchyState_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RestoreHierarchyStateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PreferenceServiceServer).RestoreHierarchyState(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PreferenceService_RestoreHierarchyState_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PreferenceServiceServer).RestoreHierarchyState(ctx, req.(*RestoreHierarchyStateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PreferenceService_SaveHierarchyState_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SaveHierarchyStateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PreferenceServiceServer).SaveHierarchyState(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PreferenceService_SaveHierarchyState_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PreferenceServiceServer).SaveHierarchyState(ctx, req.(*SaveHierarchyStateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PreferenceService_SetDefaultValue_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetDefaultValueRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PreferenceServiceServer).SetDefaultValue(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PreferenceService_SetDefaultValue_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PreferenceServiceServer).SetDefaultValue(ctx, req.(*SetDefaultValueRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PreferenceService_SetDependency_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetDependencyRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PreferenceServiceServer).SetDependency(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PreferenceService_SetDependency_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PreferenceServiceServer).SetDependency(ctx, req.(*SetDependencyRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PreferenceService_SetEnabled_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetEnabledRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PreferenceServiceServer).SetEnabled(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PreferenceService_SetEnabled_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PreferenceServiceServer).SetEnabled(ctx, req.(*SetEnabledRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PreferenceService_SetFragment_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetFragmentRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PreferenceServiceServer).SetFragment(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PreferenceService_SetFragment_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PreferenceServiceServer).SetFragment(ctx, req.(*SetFragmentRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PreferenceService_SetIcon1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetIcon1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PreferenceServiceServer).SetIcon1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PreferenceService_SetIcon1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PreferenceServiceServer).SetIcon1(ctx, req.(*SetIcon1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PreferenceService_SetIcon1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetIcon1_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PreferenceServiceServer).SetIcon1_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PreferenceService_SetIcon1_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PreferenceServiceServer).SetIcon1_1(ctx, req.(*SetIcon1_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PreferenceService_SetIconSpaceReserved_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetIconSpaceReservedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PreferenceServiceServer).SetIconSpaceReserved(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PreferenceService_SetIconSpaceReserved_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PreferenceServiceServer).SetIconSpaceReserved(ctx, req.(*SetIconSpaceReservedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PreferenceService_SetIntent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetIntentRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PreferenceServiceServer).SetIntent(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PreferenceService_SetIntent_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PreferenceServiceServer).SetIntent(ctx, req.(*SetIntentRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PreferenceService_SetKey_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetKeyRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PreferenceServiceServer).SetKey(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PreferenceService_SetKey_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PreferenceServiceServer).SetKey(ctx, req.(*SetKeyRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PreferenceService_SetLayoutResource_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetLayoutResourceRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PreferenceServiceServer).SetLayoutResource(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PreferenceService_SetLayoutResource_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PreferenceServiceServer).SetLayoutResource(ctx, req.(*SetLayoutResourceRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PreferenceService_SetOnPreferenceChangeListener_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetOnPreferenceChangeListenerRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PreferenceServiceServer).SetOnPreferenceChangeListener(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PreferenceService_SetOnPreferenceChangeListener_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PreferenceServiceServer).SetOnPreferenceChangeListener(ctx, req.(*SetOnPreferenceChangeListenerRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PreferenceService_SetOnPreferenceClickListener_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetOnPreferenceClickListenerRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PreferenceServiceServer).SetOnPreferenceClickListener(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PreferenceService_SetOnPreferenceClickListener_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PreferenceServiceServer).SetOnPreferenceClickListener(ctx, req.(*SetOnPreferenceClickListenerRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PreferenceService_SetOrder_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetOrderRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PreferenceServiceServer).SetOrder(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PreferenceService_SetOrder_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PreferenceServiceServer).SetOrder(ctx, req.(*SetOrderRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PreferenceService_SetPersistent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetPersistentRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PreferenceServiceServer).SetPersistent(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PreferenceService_SetPersistent_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PreferenceServiceServer).SetPersistent(ctx, req.(*SetPersistentRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PreferenceService_SetPreferenceDataStore_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetPreferenceDataStoreRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PreferenceServiceServer).SetPreferenceDataStore(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PreferenceService_SetPreferenceDataStore_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PreferenceServiceServer).SetPreferenceDataStore(ctx, req.(*SetPreferenceDataStoreRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PreferenceService_SetRecycleEnabled_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetRecycleEnabledRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PreferenceServiceServer).SetRecycleEnabled(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PreferenceService_SetRecycleEnabled_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PreferenceServiceServer).SetRecycleEnabled(ctx, req.(*SetRecycleEnabledRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PreferenceService_SetSelectable_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetSelectableRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PreferenceServiceServer).SetSelectable(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PreferenceService_SetSelectable_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PreferenceServiceServer).SetSelectable(ctx, req.(*SetSelectableRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PreferenceService_SetShouldDisableView_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetShouldDisableViewRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PreferenceServiceServer).SetShouldDisableView(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PreferenceService_SetShouldDisableView_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PreferenceServiceServer).SetShouldDisableView(ctx, req.(*SetShouldDisableViewRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PreferenceService_SetSingleLineTitle_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetSingleLineTitleRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PreferenceServiceServer).SetSingleLineTitle(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PreferenceService_SetSingleLineTitle_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PreferenceServiceServer).SetSingleLineTitle(ctx, req.(*SetSingleLineTitleRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PreferenceService_SetSummary1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetSummary1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PreferenceServiceServer).SetSummary1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PreferenceService_SetSummary1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PreferenceServiceServer).SetSummary1(ctx, req.(*SetSummary1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PreferenceService_SetSummary1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetSummary1_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PreferenceServiceServer).SetSummary1_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PreferenceService_SetSummary1_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PreferenceServiceServer).SetSummary1_1(ctx, req.(*SetSummary1_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PreferenceService_SetTitle1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetTitle1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PreferenceServiceServer).SetTitle1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PreferenceService_SetTitle1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PreferenceServiceServer).SetTitle1(ctx, req.(*SetTitle1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PreferenceService_SetTitle1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetTitle1_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PreferenceServiceServer).SetTitle1_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PreferenceService_SetTitle1_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PreferenceServiceServer).SetTitle1_1(ctx, req.(*SetTitle1_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PreferenceService_SetWidgetLayoutResource_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetWidgetLayoutResourceRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PreferenceServiceServer).SetWidgetLayoutResource(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PreferenceService_SetWidgetLayoutResource_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PreferenceServiceServer).SetWidgetLayoutResource(ctx, req.(*SetWidgetLayoutResourceRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PreferenceService_ShouldCommit_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ShouldCommitRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PreferenceServiceServer).ShouldCommit(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PreferenceService_ShouldCommit_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PreferenceServiceServer).ShouldCommit(ctx, req.(*ShouldCommitRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PreferenceService_ShouldDisableDependents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(ShouldDisableDependentsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(EditTextPreferenceServiceServer).ShouldDisableDependents(ctx, in)
+		return srv.(PreferenceServiceServer).ShouldDisableDependents(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: EditTextPreferenceService_ShouldDisableDependents_FullMethodName,
+		FullMethod: PreferenceService_ShouldDisableDependents_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(EditTextPreferenceServiceServer).ShouldDisableDependents(ctx, req.(*ShouldDisableDependentsRequest))
+		return srv.(PreferenceServiceServer).ShouldDisableDependents(ctx, req.(*ShouldDisableDependentsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// EditTextPreferenceService_ServiceDesc is the grpc.ServiceDesc for EditTextPreferenceService service.
+func _PreferenceService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PreferenceServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PreferenceService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PreferenceServiceServer).ToString(ctx, req.(*ToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PreferenceService_CompareTo1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CompareTo1_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PreferenceServiceServer).CompareTo1_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PreferenceService_CompareTo1_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PreferenceServiceServer).CompareTo1_1(ctx, req.(*CompareTo1_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// PreferenceService_ServiceDesc is the grpc.ServiceDesc for PreferenceService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var EditTextPreferenceService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "preference.EditTextPreferenceService",
-	HandlerType: (*EditTextPreferenceServiceServer)(nil),
+var PreferenceService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "preference.PreferenceService",
+	HandlerType: (*PreferenceServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "NewEditTextPreference",
-			Handler:    _EditTextPreferenceService_NewEditTextPreference_Handler,
+			MethodName: "NewPreference",
+			Handler:    _PreferenceService_NewPreference_Handler,
 		},
 		{
-			MethodName: "GetEditText",
-			Handler:    _EditTextPreferenceService_GetEditText_Handler,
+			MethodName: "CompareTo1",
+			Handler:    _PreferenceService_CompareTo1_Handler,
 		},
 		{
-			MethodName: "GetText",
-			Handler:    _EditTextPreferenceService_GetText_Handler,
+			MethodName: "GetContext",
+			Handler:    _PreferenceService_GetContext_Handler,
 		},
 		{
-			MethodName: "SetText",
-			Handler:    _EditTextPreferenceService_SetText_Handler,
+			MethodName: "GetDependency",
+			Handler:    _PreferenceService_GetDependency_Handler,
+		},
+		{
+			MethodName: "GetEditor",
+			Handler:    _PreferenceService_GetEditor_Handler,
+		},
+		{
+			MethodName: "GetExtras",
+			Handler:    _PreferenceService_GetExtras_Handler,
+		},
+		{
+			MethodName: "GetFragment",
+			Handler:    _PreferenceService_GetFragment_Handler,
+		},
+		{
+			MethodName: "GetIcon",
+			Handler:    _PreferenceService_GetIcon_Handler,
+		},
+		{
+			MethodName: "GetIntent",
+			Handler:    _PreferenceService_GetIntent_Handler,
+		},
+		{
+			MethodName: "GetKey",
+			Handler:    _PreferenceService_GetKey_Handler,
+		},
+		{
+			MethodName: "GetLayoutResource",
+			Handler:    _PreferenceService_GetLayoutResource_Handler,
+		},
+		{
+			MethodName: "GetOnPreferenceChangeListener",
+			Handler:    _PreferenceService_GetOnPreferenceChangeListener_Handler,
+		},
+		{
+			MethodName: "GetOnPreferenceClickListener",
+			Handler:    _PreferenceService_GetOnPreferenceClickListener_Handler,
+		},
+		{
+			MethodName: "GetOrder",
+			Handler:    _PreferenceService_GetOrder_Handler,
+		},
+		{
+			MethodName: "GetParent",
+			Handler:    _PreferenceService_GetParent_Handler,
+		},
+		{
+			MethodName: "GetPreferenceDataStore",
+			Handler:    _PreferenceService_GetPreferenceDataStore_Handler,
+		},
+		{
+			MethodName: "GetPreferenceManager",
+			Handler:    _PreferenceService_GetPreferenceManager_Handler,
+		},
+		{
+			MethodName: "GetSharedPreferences",
+			Handler:    _PreferenceService_GetSharedPreferences_Handler,
+		},
+		{
+			MethodName: "GetShouldDisableView",
+			Handler:    _PreferenceService_GetShouldDisableView_Handler,
+		},
+		{
+			MethodName: "GetSummary",
+			Handler:    _PreferenceService_GetSummary_Handler,
+		},
+		{
+			MethodName: "GetTitle",
+			Handler:    _PreferenceService_GetTitle_Handler,
+		},
+		{
+			MethodName: "GetTitleRes",
+			Handler:    _PreferenceService_GetTitleRes_Handler,
+		},
+		{
+			MethodName: "GetView",
+			Handler:    _PreferenceService_GetView_Handler,
+		},
+		{
+			MethodName: "GetWidgetLayoutResource",
+			Handler:    _PreferenceService_GetWidgetLayoutResource_Handler,
+		},
+		{
+			MethodName: "HasKey",
+			Handler:    _PreferenceService_HasKey_Handler,
+		},
+		{
+			MethodName: "IsEnabled",
+			Handler:    _PreferenceService_IsEnabled_Handler,
+		},
+		{
+			MethodName: "IsIconSpaceReserved",
+			Handler:    _PreferenceService_IsIconSpaceReserved_Handler,
+		},
+		{
+			MethodName: "IsPersistent",
+			Handler:    _PreferenceService_IsPersistent_Handler,
+		},
+		{
+			MethodName: "IsRecycleEnabled",
+			Handler:    _PreferenceService_IsRecycleEnabled_Handler,
+		},
+		{
+			MethodName: "IsSelectable",
+			Handler:    _PreferenceService_IsSelectable_Handler,
+		},
+		{
+			MethodName: "IsSingleLineTitle",
+			Handler:    _PreferenceService_IsSingleLineTitle_Handler,
+		},
+		{
+			MethodName: "NotifyDependencyChange",
+			Handler:    _PreferenceService_NotifyDependencyChange_Handler,
+		},
+		{
+			MethodName: "OnDependencyChanged",
+			Handler:    _PreferenceService_OnDependencyChanged_Handler,
+		},
+		{
+			MethodName: "OnParentChanged",
+			Handler:    _PreferenceService_OnParentChanged_Handler,
+		},
+		{
+			MethodName: "PeekExtras",
+			Handler:    _PreferenceService_PeekExtras_Handler,
+		},
+		{
+			MethodName: "RestoreHierarchyState",
+			Handler:    _PreferenceService_RestoreHierarchyState_Handler,
+		},
+		{
+			MethodName: "SaveHierarchyState",
+			Handler:    _PreferenceService_SaveHierarchyState_Handler,
+		},
+		{
+			MethodName: "SetDefaultValue",
+			Handler:    _PreferenceService_SetDefaultValue_Handler,
+		},
+		{
+			MethodName: "SetDependency",
+			Handler:    _PreferenceService_SetDependency_Handler,
+		},
+		{
+			MethodName: "SetEnabled",
+			Handler:    _PreferenceService_SetEnabled_Handler,
+		},
+		{
+			MethodName: "SetFragment",
+			Handler:    _PreferenceService_SetFragment_Handler,
+		},
+		{
+			MethodName: "SetIcon1",
+			Handler:    _PreferenceService_SetIcon1_Handler,
+		},
+		{
+			MethodName: "SetIcon1_1",
+			Handler:    _PreferenceService_SetIcon1_1_Handler,
+		},
+		{
+			MethodName: "SetIconSpaceReserved",
+			Handler:    _PreferenceService_SetIconSpaceReserved_Handler,
+		},
+		{
+			MethodName: "SetIntent",
+			Handler:    _PreferenceService_SetIntent_Handler,
+		},
+		{
+			MethodName: "SetKey",
+			Handler:    _PreferenceService_SetKey_Handler,
+		},
+		{
+			MethodName: "SetLayoutResource",
+			Handler:    _PreferenceService_SetLayoutResource_Handler,
+		},
+		{
+			MethodName: "SetOnPreferenceChangeListener",
+			Handler:    _PreferenceService_SetOnPreferenceChangeListener_Handler,
+		},
+		{
+			MethodName: "SetOnPreferenceClickListener",
+			Handler:    _PreferenceService_SetOnPreferenceClickListener_Handler,
+		},
+		{
+			MethodName: "SetOrder",
+			Handler:    _PreferenceService_SetOrder_Handler,
+		},
+		{
+			MethodName: "SetPersistent",
+			Handler:    _PreferenceService_SetPersistent_Handler,
+		},
+		{
+			MethodName: "SetPreferenceDataStore",
+			Handler:    _PreferenceService_SetPreferenceDataStore_Handler,
+		},
+		{
+			MethodName: "SetRecycleEnabled",
+			Handler:    _PreferenceService_SetRecycleEnabled_Handler,
+		},
+		{
+			MethodName: "SetSelectable",
+			Handler:    _PreferenceService_SetSelectable_Handler,
+		},
+		{
+			MethodName: "SetShouldDisableView",
+			Handler:    _PreferenceService_SetShouldDisableView_Handler,
+		},
+		{
+			MethodName: "SetSingleLineTitle",
+			Handler:    _PreferenceService_SetSingleLineTitle_Handler,
+		},
+		{
+			MethodName: "SetSummary1",
+			Handler:    _PreferenceService_SetSummary1_Handler,
+		},
+		{
+			MethodName: "SetSummary1_1",
+			Handler:    _PreferenceService_SetSummary1_1_Handler,
+		},
+		{
+			MethodName: "SetTitle1",
+			Handler:    _PreferenceService_SetTitle1_Handler,
+		},
+		{
+			MethodName: "SetTitle1_1",
+			Handler:    _PreferenceService_SetTitle1_1_Handler,
+		},
+		{
+			MethodName: "SetWidgetLayoutResource",
+			Handler:    _PreferenceService_SetWidgetLayoutResource_Handler,
+		},
+		{
+			MethodName: "ShouldCommit",
+			Handler:    _PreferenceService_ShouldCommit_Handler,
 		},
 		{
 			MethodName: "ShouldDisableDependents",
-			Handler:    _EditTextPreferenceService_ShouldDisableDependents_Handler,
+			Handler:    _PreferenceService_ShouldDisableDependents_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _PreferenceService_ToString_Handler,
+		},
+		{
+			MethodName: "CompareTo1_1",
+			Handler:    _PreferenceService_CompareTo1_1_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -2808,595 +3699,574 @@ var EditTextPreferenceService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	ListPreferenceService_NewListPreference_FullMethodName = "/preference.ListPreferenceService/NewListPreference"
-	ListPreferenceService_FindIndexOfValue_FullMethodName  = "/preference.ListPreferenceService/FindIndexOfValue"
-	ListPreferenceService_GetEntries_FullMethodName        = "/preference.ListPreferenceService/GetEntries"
-	ListPreferenceService_GetEntry_FullMethodName          = "/preference.ListPreferenceService/GetEntry"
-	ListPreferenceService_GetEntryValues_FullMethodName    = "/preference.ListPreferenceService/GetEntryValues"
-	ListPreferenceService_GetSummary_FullMethodName        = "/preference.ListPreferenceService/GetSummary"
-	ListPreferenceService_GetValue_FullMethodName          = "/preference.ListPreferenceService/GetValue"
-	ListPreferenceService_SetEntries1_FullMethodName       = "/preference.ListPreferenceService/SetEntries1"
-	ListPreferenceService_SetEntries1_1_FullMethodName     = "/preference.ListPreferenceService/SetEntries1_1"
-	ListPreferenceService_SetEntryValues1_FullMethodName   = "/preference.ListPreferenceService/SetEntryValues1"
-	ListPreferenceService_SetEntryValues1_1_FullMethodName = "/preference.ListPreferenceService/SetEntryValues1_1"
-	ListPreferenceService_SetSummary_FullMethodName        = "/preference.ListPreferenceService/SetSummary"
-	ListPreferenceService_SetValue_FullMethodName          = "/preference.ListPreferenceService/SetValue"
-	ListPreferenceService_SetValueIndex_FullMethodName     = "/preference.ListPreferenceService/SetValueIndex"
+	OnPreferenceChangeListenerService_OnPreferenceChange_FullMethodName = "/preference.OnPreferenceChangeListenerService/OnPreferenceChange"
 )
 
-// ListPreferenceServiceClient is the client API for ListPreferenceService service.
+// OnPreferenceChangeListenerServiceClient is the client API for OnPreferenceChangeListenerService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type ListPreferenceServiceClient interface {
-	NewListPreference(ctx context.Context, in *NewListPreferenceRequest, opts ...grpc.CallOption) (*NewListPreferenceResponse, error)
-	FindIndexOfValue(ctx context.Context, in *FindIndexOfValueRequest, opts ...grpc.CallOption) (*FindIndexOfValueResponse, error)
-	GetEntries(ctx context.Context, in *GetEntriesRequest, opts ...grpc.CallOption) (*GetEntriesResponse, error)
-	GetEntry(ctx context.Context, in *GetEntryRequest, opts ...grpc.CallOption) (*GetEntryResponse, error)
-	GetEntryValues(ctx context.Context, in *GetEntryValuesRequest, opts ...grpc.CallOption) (*GetEntryValuesResponse, error)
-	GetSummary(ctx context.Context, in *GetSummaryRequest, opts ...grpc.CallOption) (*GetSummaryResponse, error)
-	GetValue(ctx context.Context, in *GetValueRequest, opts ...grpc.CallOption) (*GetValueResponse, error)
-	SetEntries1(ctx context.Context, in *SetEntries1Request, opts ...grpc.CallOption) (*SetEntries1Response, error)
-	SetEntries1_1(ctx context.Context, in *SetEntries1_1Request, opts ...grpc.CallOption) (*SetEntries1_1Response, error)
-	SetEntryValues1(ctx context.Context, in *SetEntryValues1Request, opts ...grpc.CallOption) (*SetEntryValues1Response, error)
-	SetEntryValues1_1(ctx context.Context, in *SetEntryValues1_1Request, opts ...grpc.CallOption) (*SetEntryValues1_1Response, error)
-	SetSummary(ctx context.Context, in *SetSummaryRequest, opts ...grpc.CallOption) (*SetSummaryResponse, error)
-	SetValue(ctx context.Context, in *SetValueRequest, opts ...grpc.CallOption) (*SetValueResponse, error)
-	SetValueIndex(ctx context.Context, in *SetValueIndexRequest, opts ...grpc.CallOption) (*SetValueIndexResponse, error)
+type OnPreferenceChangeListenerServiceClient interface {
+	OnPreferenceChange(ctx context.Context, in *OnPreferenceChangeRequest, opts ...grpc.CallOption) (*OnPreferenceChangeResponse, error)
 }
 
-type listPreferenceServiceClient struct {
+type onPreferenceChangeListenerServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewListPreferenceServiceClient(cc grpc.ClientConnInterface) ListPreferenceServiceClient {
-	return &listPreferenceServiceClient{cc}
+func NewOnPreferenceChangeListenerServiceClient(cc grpc.ClientConnInterface) OnPreferenceChangeListenerServiceClient {
+	return &onPreferenceChangeListenerServiceClient{cc}
 }
 
-func (c *listPreferenceServiceClient) NewListPreference(ctx context.Context, in *NewListPreferenceRequest, opts ...grpc.CallOption) (*NewListPreferenceResponse, error) {
+func (c *onPreferenceChangeListenerServiceClient) OnPreferenceChange(ctx context.Context, in *OnPreferenceChangeRequest, opts ...grpc.CallOption) (*OnPreferenceChangeResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewListPreferenceResponse)
-	err := c.cc.Invoke(ctx, ListPreferenceService_NewListPreference_FullMethodName, in, out, cOpts...)
+	out := new(OnPreferenceChangeResponse)
+	err := c.cc.Invoke(ctx, OnPreferenceChangeListenerService_OnPreferenceChange_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *listPreferenceServiceClient) FindIndexOfValue(ctx context.Context, in *FindIndexOfValueRequest, opts ...grpc.CallOption) (*FindIndexOfValueResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(FindIndexOfValueResponse)
-	err := c.cc.Invoke(ctx, ListPreferenceService_FindIndexOfValue_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *listPreferenceServiceClient) GetEntries(ctx context.Context, in *GetEntriesRequest, opts ...grpc.CallOption) (*GetEntriesResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetEntriesResponse)
-	err := c.cc.Invoke(ctx, ListPreferenceService_GetEntries_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *listPreferenceServiceClient) GetEntry(ctx context.Context, in *GetEntryRequest, opts ...grpc.CallOption) (*GetEntryResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetEntryResponse)
-	err := c.cc.Invoke(ctx, ListPreferenceService_GetEntry_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *listPreferenceServiceClient) GetEntryValues(ctx context.Context, in *GetEntryValuesRequest, opts ...grpc.CallOption) (*GetEntryValuesResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetEntryValuesResponse)
-	err := c.cc.Invoke(ctx, ListPreferenceService_GetEntryValues_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *listPreferenceServiceClient) GetSummary(ctx context.Context, in *GetSummaryRequest, opts ...grpc.CallOption) (*GetSummaryResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetSummaryResponse)
-	err := c.cc.Invoke(ctx, ListPreferenceService_GetSummary_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *listPreferenceServiceClient) GetValue(ctx context.Context, in *GetValueRequest, opts ...grpc.CallOption) (*GetValueResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetValueResponse)
-	err := c.cc.Invoke(ctx, ListPreferenceService_GetValue_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *listPreferenceServiceClient) SetEntries1(ctx context.Context, in *SetEntries1Request, opts ...grpc.CallOption) (*SetEntries1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetEntries1Response)
-	err := c.cc.Invoke(ctx, ListPreferenceService_SetEntries1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *listPreferenceServiceClient) SetEntries1_1(ctx context.Context, in *SetEntries1_1Request, opts ...grpc.CallOption) (*SetEntries1_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetEntries1_1Response)
-	err := c.cc.Invoke(ctx, ListPreferenceService_SetEntries1_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *listPreferenceServiceClient) SetEntryValues1(ctx context.Context, in *SetEntryValues1Request, opts ...grpc.CallOption) (*SetEntryValues1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetEntryValues1Response)
-	err := c.cc.Invoke(ctx, ListPreferenceService_SetEntryValues1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *listPreferenceServiceClient) SetEntryValues1_1(ctx context.Context, in *SetEntryValues1_1Request, opts ...grpc.CallOption) (*SetEntryValues1_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetEntryValues1_1Response)
-	err := c.cc.Invoke(ctx, ListPreferenceService_SetEntryValues1_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *listPreferenceServiceClient) SetSummary(ctx context.Context, in *SetSummaryRequest, opts ...grpc.CallOption) (*SetSummaryResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetSummaryResponse)
-	err := c.cc.Invoke(ctx, ListPreferenceService_SetSummary_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *listPreferenceServiceClient) SetValue(ctx context.Context, in *SetValueRequest, opts ...grpc.CallOption) (*SetValueResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetValueResponse)
-	err := c.cc.Invoke(ctx, ListPreferenceService_SetValue_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *listPreferenceServiceClient) SetValueIndex(ctx context.Context, in *SetValueIndexRequest, opts ...grpc.CallOption) (*SetValueIndexResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetValueIndexResponse)
-	err := c.cc.Invoke(ctx, ListPreferenceService_SetValueIndex_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// ListPreferenceServiceServer is the server API for ListPreferenceService service.
-// All implementations must embed UnimplementedListPreferenceServiceServer
+// OnPreferenceChangeListenerServiceServer is the server API for OnPreferenceChangeListenerService service.
+// All implementations must embed UnimplementedOnPreferenceChangeListenerServiceServer
 // for forward compatibility.
-type ListPreferenceServiceServer interface {
-	NewListPreference(context.Context, *NewListPreferenceRequest) (*NewListPreferenceResponse, error)
-	FindIndexOfValue(context.Context, *FindIndexOfValueRequest) (*FindIndexOfValueResponse, error)
-	GetEntries(context.Context, *GetEntriesRequest) (*GetEntriesResponse, error)
-	GetEntry(context.Context, *GetEntryRequest) (*GetEntryResponse, error)
-	GetEntryValues(context.Context, *GetEntryValuesRequest) (*GetEntryValuesResponse, error)
-	GetSummary(context.Context, *GetSummaryRequest) (*GetSummaryResponse, error)
-	GetValue(context.Context, *GetValueRequest) (*GetValueResponse, error)
-	SetEntries1(context.Context, *SetEntries1Request) (*SetEntries1Response, error)
-	SetEntries1_1(context.Context, *SetEntries1_1Request) (*SetEntries1_1Response, error)
-	SetEntryValues1(context.Context, *SetEntryValues1Request) (*SetEntryValues1Response, error)
-	SetEntryValues1_1(context.Context, *SetEntryValues1_1Request) (*SetEntryValues1_1Response, error)
-	SetSummary(context.Context, *SetSummaryRequest) (*SetSummaryResponse, error)
-	SetValue(context.Context, *SetValueRequest) (*SetValueResponse, error)
-	SetValueIndex(context.Context, *SetValueIndexRequest) (*SetValueIndexResponse, error)
-	mustEmbedUnimplementedListPreferenceServiceServer()
+type OnPreferenceChangeListenerServiceServer interface {
+	OnPreferenceChange(context.Context, *OnPreferenceChangeRequest) (*OnPreferenceChangeResponse, error)
+	mustEmbedUnimplementedOnPreferenceChangeListenerServiceServer()
 }
 
-// UnimplementedListPreferenceServiceServer must be embedded to have
+// UnimplementedOnPreferenceChangeListenerServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedListPreferenceServiceServer struct{}
+type UnimplementedOnPreferenceChangeListenerServiceServer struct{}
 
-func (UnimplementedListPreferenceServiceServer) NewListPreference(context.Context, *NewListPreferenceRequest) (*NewListPreferenceResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewListPreference not implemented")
+func (UnimplementedOnPreferenceChangeListenerServiceServer) OnPreferenceChange(context.Context, *OnPreferenceChangeRequest) (*OnPreferenceChangeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnPreferenceChange not implemented")
 }
-func (UnimplementedListPreferenceServiceServer) FindIndexOfValue(context.Context, *FindIndexOfValueRequest) (*FindIndexOfValueResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method FindIndexOfValue not implemented")
+func (UnimplementedOnPreferenceChangeListenerServiceServer) mustEmbedUnimplementedOnPreferenceChangeListenerServiceServer() {
 }
-func (UnimplementedListPreferenceServiceServer) GetEntries(context.Context, *GetEntriesRequest) (*GetEntriesResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetEntries not implemented")
-}
-func (UnimplementedListPreferenceServiceServer) GetEntry(context.Context, *GetEntryRequest) (*GetEntryResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetEntry not implemented")
-}
-func (UnimplementedListPreferenceServiceServer) GetEntryValues(context.Context, *GetEntryValuesRequest) (*GetEntryValuesResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetEntryValues not implemented")
-}
-func (UnimplementedListPreferenceServiceServer) GetSummary(context.Context, *GetSummaryRequest) (*GetSummaryResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetSummary not implemented")
-}
-func (UnimplementedListPreferenceServiceServer) GetValue(context.Context, *GetValueRequest) (*GetValueResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetValue not implemented")
-}
-func (UnimplementedListPreferenceServiceServer) SetEntries1(context.Context, *SetEntries1Request) (*SetEntries1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetEntries1 not implemented")
-}
-func (UnimplementedListPreferenceServiceServer) SetEntries1_1(context.Context, *SetEntries1_1Request) (*SetEntries1_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetEntries1_1 not implemented")
-}
-func (UnimplementedListPreferenceServiceServer) SetEntryValues1(context.Context, *SetEntryValues1Request) (*SetEntryValues1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetEntryValues1 not implemented")
-}
-func (UnimplementedListPreferenceServiceServer) SetEntryValues1_1(context.Context, *SetEntryValues1_1Request) (*SetEntryValues1_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetEntryValues1_1 not implemented")
-}
-func (UnimplementedListPreferenceServiceServer) SetSummary(context.Context, *SetSummaryRequest) (*SetSummaryResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetSummary not implemented")
-}
-func (UnimplementedListPreferenceServiceServer) SetValue(context.Context, *SetValueRequest) (*SetValueResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetValue not implemented")
-}
-func (UnimplementedListPreferenceServiceServer) SetValueIndex(context.Context, *SetValueIndexRequest) (*SetValueIndexResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetValueIndex not implemented")
-}
-func (UnimplementedListPreferenceServiceServer) mustEmbedUnimplementedListPreferenceServiceServer() {}
-func (UnimplementedListPreferenceServiceServer) testEmbeddedByValue()                               {}
+func (UnimplementedOnPreferenceChangeListenerServiceServer) testEmbeddedByValue() {}
 
-// UnsafeListPreferenceServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to ListPreferenceServiceServer will
+// UnsafeOnPreferenceChangeListenerServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to OnPreferenceChangeListenerServiceServer will
 // result in compilation errors.
-type UnsafeListPreferenceServiceServer interface {
-	mustEmbedUnimplementedListPreferenceServiceServer()
+type UnsafeOnPreferenceChangeListenerServiceServer interface {
+	mustEmbedUnimplementedOnPreferenceChangeListenerServiceServer()
 }
 
-func RegisterListPreferenceServiceServer(s grpc.ServiceRegistrar, srv ListPreferenceServiceServer) {
-	// If the following call panics, it indicates UnimplementedListPreferenceServiceServer was
+func RegisterOnPreferenceChangeListenerServiceServer(s grpc.ServiceRegistrar, srv OnPreferenceChangeListenerServiceServer) {
+	// If the following call panics, it indicates UnimplementedOnPreferenceChangeListenerServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&ListPreferenceService_ServiceDesc, srv)
+	s.RegisterService(&OnPreferenceChangeListenerService_ServiceDesc, srv)
 }
 
-func _ListPreferenceService_NewListPreference_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewListPreferenceRequest)
+func _OnPreferenceChangeListenerService_OnPreferenceChange_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnPreferenceChangeRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ListPreferenceServiceServer).NewListPreference(ctx, in)
+		return srv.(OnPreferenceChangeListenerServiceServer).OnPreferenceChange(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: ListPreferenceService_NewListPreference_FullMethodName,
+		FullMethod: OnPreferenceChangeListenerService_OnPreferenceChange_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ListPreferenceServiceServer).NewListPreference(ctx, req.(*NewListPreferenceRequest))
+		return srv.(OnPreferenceChangeListenerServiceServer).OnPreferenceChange(ctx, req.(*OnPreferenceChangeRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ListPreferenceService_FindIndexOfValue_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(FindIndexOfValueRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ListPreferenceServiceServer).FindIndexOfValue(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ListPreferenceService_FindIndexOfValue_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ListPreferenceServiceServer).FindIndexOfValue(ctx, req.(*FindIndexOfValueRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ListPreferenceService_GetEntries_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetEntriesRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ListPreferenceServiceServer).GetEntries(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ListPreferenceService_GetEntries_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ListPreferenceServiceServer).GetEntries(ctx, req.(*GetEntriesRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ListPreferenceService_GetEntry_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetEntryRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ListPreferenceServiceServer).GetEntry(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ListPreferenceService_GetEntry_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ListPreferenceServiceServer).GetEntry(ctx, req.(*GetEntryRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ListPreferenceService_GetEntryValues_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetEntryValuesRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ListPreferenceServiceServer).GetEntryValues(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ListPreferenceService_GetEntryValues_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ListPreferenceServiceServer).GetEntryValues(ctx, req.(*GetEntryValuesRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ListPreferenceService_GetSummary_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetSummaryRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ListPreferenceServiceServer).GetSummary(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ListPreferenceService_GetSummary_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ListPreferenceServiceServer).GetSummary(ctx, req.(*GetSummaryRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ListPreferenceService_GetValue_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetValueRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ListPreferenceServiceServer).GetValue(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ListPreferenceService_GetValue_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ListPreferenceServiceServer).GetValue(ctx, req.(*GetValueRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ListPreferenceService_SetEntries1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetEntries1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ListPreferenceServiceServer).SetEntries1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ListPreferenceService_SetEntries1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ListPreferenceServiceServer).SetEntries1(ctx, req.(*SetEntries1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ListPreferenceService_SetEntries1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetEntries1_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ListPreferenceServiceServer).SetEntries1_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ListPreferenceService_SetEntries1_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ListPreferenceServiceServer).SetEntries1_1(ctx, req.(*SetEntries1_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ListPreferenceService_SetEntryValues1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetEntryValues1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ListPreferenceServiceServer).SetEntryValues1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ListPreferenceService_SetEntryValues1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ListPreferenceServiceServer).SetEntryValues1(ctx, req.(*SetEntryValues1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ListPreferenceService_SetEntryValues1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetEntryValues1_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ListPreferenceServiceServer).SetEntryValues1_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ListPreferenceService_SetEntryValues1_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ListPreferenceServiceServer).SetEntryValues1_1(ctx, req.(*SetEntryValues1_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ListPreferenceService_SetSummary_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetSummaryRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ListPreferenceServiceServer).SetSummary(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ListPreferenceService_SetSummary_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ListPreferenceServiceServer).SetSummary(ctx, req.(*SetSummaryRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ListPreferenceService_SetValue_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetValueRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ListPreferenceServiceServer).SetValue(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ListPreferenceService_SetValue_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ListPreferenceServiceServer).SetValue(ctx, req.(*SetValueRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ListPreferenceService_SetValueIndex_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetValueIndexRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ListPreferenceServiceServer).SetValueIndex(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ListPreferenceService_SetValueIndex_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ListPreferenceServiceServer).SetValueIndex(ctx, req.(*SetValueIndexRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// ListPreferenceService_ServiceDesc is the grpc.ServiceDesc for ListPreferenceService service.
+// OnPreferenceChangeListenerService_ServiceDesc is the grpc.ServiceDesc for OnPreferenceChangeListenerService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var ListPreferenceService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "preference.ListPreferenceService",
-	HandlerType: (*ListPreferenceServiceServer)(nil),
+var OnPreferenceChangeListenerService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "preference.OnPreferenceChangeListenerService",
+	HandlerType: (*OnPreferenceChangeListenerServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "NewListPreference",
-			Handler:    _ListPreferenceService_NewListPreference_Handler,
+			MethodName: "OnPreferenceChange",
+			Handler:    _OnPreferenceChangeListenerService_OnPreferenceChange_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/preference/preference.proto",
+}
+
+const (
+	OnPreferenceClickListenerService_OnPreferenceClick_FullMethodName = "/preference.OnPreferenceClickListenerService/OnPreferenceClick"
+)
+
+// OnPreferenceClickListenerServiceClient is the client API for OnPreferenceClickListenerService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type OnPreferenceClickListenerServiceClient interface {
+	OnPreferenceClick(ctx context.Context, in *OnPreferenceClickRequest, opts ...grpc.CallOption) (*OnPreferenceClickResponse, error)
+}
+
+type onPreferenceClickListenerServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewOnPreferenceClickListenerServiceClient(cc grpc.ClientConnInterface) OnPreferenceClickListenerServiceClient {
+	return &onPreferenceClickListenerServiceClient{cc}
+}
+
+func (c *onPreferenceClickListenerServiceClient) OnPreferenceClick(ctx context.Context, in *OnPreferenceClickRequest, opts ...grpc.CallOption) (*OnPreferenceClickResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnPreferenceClickResponse)
+	err := c.cc.Invoke(ctx, OnPreferenceClickListenerService_OnPreferenceClick_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// OnPreferenceClickListenerServiceServer is the server API for OnPreferenceClickListenerService service.
+// All implementations must embed UnimplementedOnPreferenceClickListenerServiceServer
+// for forward compatibility.
+type OnPreferenceClickListenerServiceServer interface {
+	OnPreferenceClick(context.Context, *OnPreferenceClickRequest) (*OnPreferenceClickResponse, error)
+	mustEmbedUnimplementedOnPreferenceClickListenerServiceServer()
+}
+
+// UnimplementedOnPreferenceClickListenerServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedOnPreferenceClickListenerServiceServer struct{}
+
+func (UnimplementedOnPreferenceClickListenerServiceServer) OnPreferenceClick(context.Context, *OnPreferenceClickRequest) (*OnPreferenceClickResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnPreferenceClick not implemented")
+}
+func (UnimplementedOnPreferenceClickListenerServiceServer) mustEmbedUnimplementedOnPreferenceClickListenerServiceServer() {
+}
+func (UnimplementedOnPreferenceClickListenerServiceServer) testEmbeddedByValue() {}
+
+// UnsafeOnPreferenceClickListenerServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to OnPreferenceClickListenerServiceServer will
+// result in compilation errors.
+type UnsafeOnPreferenceClickListenerServiceServer interface {
+	mustEmbedUnimplementedOnPreferenceClickListenerServiceServer()
+}
+
+func RegisterOnPreferenceClickListenerServiceServer(s grpc.ServiceRegistrar, srv OnPreferenceClickListenerServiceServer) {
+	// If the following call panics, it indicates UnimplementedOnPreferenceClickListenerServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&OnPreferenceClickListenerService_ServiceDesc, srv)
+}
+
+func _OnPreferenceClickListenerService_OnPreferenceClick_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnPreferenceClickRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(OnPreferenceClickListenerServiceServer).OnPreferenceClick(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: OnPreferenceClickListenerService_OnPreferenceClick_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(OnPreferenceClickListenerServiceServer).OnPreferenceClick(ctx, req.(*OnPreferenceClickRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// OnPreferenceClickListenerService_ServiceDesc is the grpc.ServiceDesc for OnPreferenceClickListenerService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var OnPreferenceClickListenerService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "preference.OnPreferenceClickListenerService",
+	HandlerType: (*OnPreferenceClickListenerServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "OnPreferenceClick",
+			Handler:    _OnPreferenceClickListenerService_OnPreferenceClick_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/preference/preference.proto",
+}
+
+const (
+	RingtonePreferenceService_NewRingtonePreference_FullMethodName = "/preference.RingtonePreferenceService/NewRingtonePreference"
+	RingtonePreferenceService_GetRingtoneType_FullMethodName       = "/preference.RingtonePreferenceService/GetRingtoneType"
+	RingtonePreferenceService_GetShowDefault_FullMethodName        = "/preference.RingtonePreferenceService/GetShowDefault"
+	RingtonePreferenceService_GetShowSilent_FullMethodName         = "/preference.RingtonePreferenceService/GetShowSilent"
+	RingtonePreferenceService_OnActivityResult_FullMethodName      = "/preference.RingtonePreferenceService/OnActivityResult"
+	RingtonePreferenceService_SetRingtoneType_FullMethodName       = "/preference.RingtonePreferenceService/SetRingtoneType"
+	RingtonePreferenceService_SetShowDefault_FullMethodName        = "/preference.RingtonePreferenceService/SetShowDefault"
+	RingtonePreferenceService_SetShowSilent_FullMethodName         = "/preference.RingtonePreferenceService/SetShowSilent"
+)
+
+// RingtonePreferenceServiceClient is the client API for RingtonePreferenceService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type RingtonePreferenceServiceClient interface {
+	NewRingtonePreference(ctx context.Context, in *NewRingtonePreferenceRequest, opts ...grpc.CallOption) (*NewRingtonePreferenceResponse, error)
+	GetRingtoneType(ctx context.Context, in *GetRingtoneTypeRequest, opts ...grpc.CallOption) (*GetRingtoneTypeResponse, error)
+	GetShowDefault(ctx context.Context, in *GetShowDefaultRequest, opts ...grpc.CallOption) (*GetShowDefaultResponse, error)
+	GetShowSilent(ctx context.Context, in *GetShowSilentRequest, opts ...grpc.CallOption) (*GetShowSilentResponse, error)
+	OnActivityResult(ctx context.Context, in *RingtonePreferenceOnActivityResultRequest, opts ...grpc.CallOption) (*RingtonePreferenceOnActivityResultResponse, error)
+	SetRingtoneType(ctx context.Context, in *SetRingtoneTypeRequest, opts ...grpc.CallOption) (*SetRingtoneTypeResponse, error)
+	SetShowDefault(ctx context.Context, in *SetShowDefaultRequest, opts ...grpc.CallOption) (*SetShowDefaultResponse, error)
+	SetShowSilent(ctx context.Context, in *SetShowSilentRequest, opts ...grpc.CallOption) (*SetShowSilentResponse, error)
+}
+
+type ringtonePreferenceServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewRingtonePreferenceServiceClient(cc grpc.ClientConnInterface) RingtonePreferenceServiceClient {
+	return &ringtonePreferenceServiceClient{cc}
+}
+
+func (c *ringtonePreferenceServiceClient) NewRingtonePreference(ctx context.Context, in *NewRingtonePreferenceRequest, opts ...grpc.CallOption) (*NewRingtonePreferenceResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewRingtonePreferenceResponse)
+	err := c.cc.Invoke(ctx, RingtonePreferenceService_NewRingtonePreference_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ringtonePreferenceServiceClient) GetRingtoneType(ctx context.Context, in *GetRingtoneTypeRequest, opts ...grpc.CallOption) (*GetRingtoneTypeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetRingtoneTypeResponse)
+	err := c.cc.Invoke(ctx, RingtonePreferenceService_GetRingtoneType_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ringtonePreferenceServiceClient) GetShowDefault(ctx context.Context, in *GetShowDefaultRequest, opts ...grpc.CallOption) (*GetShowDefaultResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetShowDefaultResponse)
+	err := c.cc.Invoke(ctx, RingtonePreferenceService_GetShowDefault_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ringtonePreferenceServiceClient) GetShowSilent(ctx context.Context, in *GetShowSilentRequest, opts ...grpc.CallOption) (*GetShowSilentResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetShowSilentResponse)
+	err := c.cc.Invoke(ctx, RingtonePreferenceService_GetShowSilent_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ringtonePreferenceServiceClient) OnActivityResult(ctx context.Context, in *RingtonePreferenceOnActivityResultRequest, opts ...grpc.CallOption) (*RingtonePreferenceOnActivityResultResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(RingtonePreferenceOnActivityResultResponse)
+	err := c.cc.Invoke(ctx, RingtonePreferenceService_OnActivityResult_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ringtonePreferenceServiceClient) SetRingtoneType(ctx context.Context, in *SetRingtoneTypeRequest, opts ...grpc.CallOption) (*SetRingtoneTypeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetRingtoneTypeResponse)
+	err := c.cc.Invoke(ctx, RingtonePreferenceService_SetRingtoneType_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ringtonePreferenceServiceClient) SetShowDefault(ctx context.Context, in *SetShowDefaultRequest, opts ...grpc.CallOption) (*SetShowDefaultResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetShowDefaultResponse)
+	err := c.cc.Invoke(ctx, RingtonePreferenceService_SetShowDefault_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ringtonePreferenceServiceClient) SetShowSilent(ctx context.Context, in *SetShowSilentRequest, opts ...grpc.CallOption) (*SetShowSilentResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetShowSilentResponse)
+	err := c.cc.Invoke(ctx, RingtonePreferenceService_SetShowSilent_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// RingtonePreferenceServiceServer is the server API for RingtonePreferenceService service.
+// All implementations must embed UnimplementedRingtonePreferenceServiceServer
+// for forward compatibility.
+type RingtonePreferenceServiceServer interface {
+	NewRingtonePreference(context.Context, *NewRingtonePreferenceRequest) (*NewRingtonePreferenceResponse, error)
+	GetRingtoneType(context.Context, *GetRingtoneTypeRequest) (*GetRingtoneTypeResponse, error)
+	GetShowDefault(context.Context, *GetShowDefaultRequest) (*GetShowDefaultResponse, error)
+	GetShowSilent(context.Context, *GetShowSilentRequest) (*GetShowSilentResponse, error)
+	OnActivityResult(context.Context, *RingtonePreferenceOnActivityResultRequest) (*RingtonePreferenceOnActivityResultResponse, error)
+	SetRingtoneType(context.Context, *SetRingtoneTypeRequest) (*SetRingtoneTypeResponse, error)
+	SetShowDefault(context.Context, *SetShowDefaultRequest) (*SetShowDefaultResponse, error)
+	SetShowSilent(context.Context, *SetShowSilentRequest) (*SetShowSilentResponse, error)
+	mustEmbedUnimplementedRingtonePreferenceServiceServer()
+}
+
+// UnimplementedRingtonePreferenceServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedRingtonePreferenceServiceServer struct{}
+
+func (UnimplementedRingtonePreferenceServiceServer) NewRingtonePreference(context.Context, *NewRingtonePreferenceRequest) (*NewRingtonePreferenceResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewRingtonePreference not implemented")
+}
+func (UnimplementedRingtonePreferenceServiceServer) GetRingtoneType(context.Context, *GetRingtoneTypeRequest) (*GetRingtoneTypeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetRingtoneType not implemented")
+}
+func (UnimplementedRingtonePreferenceServiceServer) GetShowDefault(context.Context, *GetShowDefaultRequest) (*GetShowDefaultResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetShowDefault not implemented")
+}
+func (UnimplementedRingtonePreferenceServiceServer) GetShowSilent(context.Context, *GetShowSilentRequest) (*GetShowSilentResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetShowSilent not implemented")
+}
+func (UnimplementedRingtonePreferenceServiceServer) OnActivityResult(context.Context, *RingtonePreferenceOnActivityResultRequest) (*RingtonePreferenceOnActivityResultResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnActivityResult not implemented")
+}
+func (UnimplementedRingtonePreferenceServiceServer) SetRingtoneType(context.Context, *SetRingtoneTypeRequest) (*SetRingtoneTypeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetRingtoneType not implemented")
+}
+func (UnimplementedRingtonePreferenceServiceServer) SetShowDefault(context.Context, *SetShowDefaultRequest) (*SetShowDefaultResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetShowDefault not implemented")
+}
+func (UnimplementedRingtonePreferenceServiceServer) SetShowSilent(context.Context, *SetShowSilentRequest) (*SetShowSilentResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetShowSilent not implemented")
+}
+func (UnimplementedRingtonePreferenceServiceServer) mustEmbedUnimplementedRingtonePreferenceServiceServer() {
+}
+func (UnimplementedRingtonePreferenceServiceServer) testEmbeddedByValue() {}
+
+// UnsafeRingtonePreferenceServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to RingtonePreferenceServiceServer will
+// result in compilation errors.
+type UnsafeRingtonePreferenceServiceServer interface {
+	mustEmbedUnimplementedRingtonePreferenceServiceServer()
+}
+
+func RegisterRingtonePreferenceServiceServer(s grpc.ServiceRegistrar, srv RingtonePreferenceServiceServer) {
+	// If the following call panics, it indicates UnimplementedRingtonePreferenceServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&RingtonePreferenceService_ServiceDesc, srv)
+}
+
+func _RingtonePreferenceService_NewRingtonePreference_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewRingtonePreferenceRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RingtonePreferenceServiceServer).NewRingtonePreference(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RingtonePreferenceService_NewRingtonePreference_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RingtonePreferenceServiceServer).NewRingtonePreference(ctx, req.(*NewRingtonePreferenceRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RingtonePreferenceService_GetRingtoneType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetRingtoneTypeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RingtonePreferenceServiceServer).GetRingtoneType(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RingtonePreferenceService_GetRingtoneType_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RingtonePreferenceServiceServer).GetRingtoneType(ctx, req.(*GetRingtoneTypeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RingtonePreferenceService_GetShowDefault_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetShowDefaultRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RingtonePreferenceServiceServer).GetShowDefault(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RingtonePreferenceService_GetShowDefault_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RingtonePreferenceServiceServer).GetShowDefault(ctx, req.(*GetShowDefaultRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RingtonePreferenceService_GetShowSilent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetShowSilentRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RingtonePreferenceServiceServer).GetShowSilent(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RingtonePreferenceService_GetShowSilent_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RingtonePreferenceServiceServer).GetShowSilent(ctx, req.(*GetShowSilentRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RingtonePreferenceService_OnActivityResult_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RingtonePreferenceOnActivityResultRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RingtonePreferenceServiceServer).OnActivityResult(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RingtonePreferenceService_OnActivityResult_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RingtonePreferenceServiceServer).OnActivityResult(ctx, req.(*RingtonePreferenceOnActivityResultRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RingtonePreferenceService_SetRingtoneType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetRingtoneTypeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RingtonePreferenceServiceServer).SetRingtoneType(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RingtonePreferenceService_SetRingtoneType_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RingtonePreferenceServiceServer).SetRingtoneType(ctx, req.(*SetRingtoneTypeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RingtonePreferenceService_SetShowDefault_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetShowDefaultRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RingtonePreferenceServiceServer).SetShowDefault(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RingtonePreferenceService_SetShowDefault_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RingtonePreferenceServiceServer).SetShowDefault(ctx, req.(*SetShowDefaultRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RingtonePreferenceService_SetShowSilent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetShowSilentRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RingtonePreferenceServiceServer).SetShowSilent(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RingtonePreferenceService_SetShowSilent_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RingtonePreferenceServiceServer).SetShowSilent(ctx, req.(*SetShowSilentRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// RingtonePreferenceService_ServiceDesc is the grpc.ServiceDesc for RingtonePreferenceService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var RingtonePreferenceService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "preference.RingtonePreferenceService",
+	HandlerType: (*RingtonePreferenceServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewRingtonePreference",
+			Handler:    _RingtonePreferenceService_NewRingtonePreference_Handler,
 		},
 		{
-			MethodName: "FindIndexOfValue",
-			Handler:    _ListPreferenceService_FindIndexOfValue_Handler,
+			MethodName: "GetRingtoneType",
+			Handler:    _RingtonePreferenceService_GetRingtoneType_Handler,
 		},
 		{
-			MethodName: "GetEntries",
-			Handler:    _ListPreferenceService_GetEntries_Handler,
+			MethodName: "GetShowDefault",
+			Handler:    _RingtonePreferenceService_GetShowDefault_Handler,
 		},
 		{
-			MethodName: "GetEntry",
-			Handler:    _ListPreferenceService_GetEntry_Handler,
+			MethodName: "GetShowSilent",
+			Handler:    _RingtonePreferenceService_GetShowSilent_Handler,
 		},
 		{
-			MethodName: "GetEntryValues",
-			Handler:    _ListPreferenceService_GetEntryValues_Handler,
+			MethodName: "OnActivityResult",
+			Handler:    _RingtonePreferenceService_OnActivityResult_Handler,
 		},
 		{
-			MethodName: "GetSummary",
-			Handler:    _ListPreferenceService_GetSummary_Handler,
+			MethodName: "SetRingtoneType",
+			Handler:    _RingtonePreferenceService_SetRingtoneType_Handler,
 		},
 		{
-			MethodName: "GetValue",
-			Handler:    _ListPreferenceService_GetValue_Handler,
+			MethodName: "SetShowDefault",
+			Handler:    _RingtonePreferenceService_SetShowDefault_Handler,
 		},
 		{
-			MethodName: "SetEntries1",
-			Handler:    _ListPreferenceService_SetEntries1_Handler,
-		},
-		{
-			MethodName: "SetEntries1_1",
-			Handler:    _ListPreferenceService_SetEntries1_1_Handler,
-		},
-		{
-			MethodName: "SetEntryValues1",
-			Handler:    _ListPreferenceService_SetEntryValues1_Handler,
-		},
-		{
-			MethodName: "SetEntryValues1_1",
-			Handler:    _ListPreferenceService_SetEntryValues1_1_Handler,
-		},
-		{
-			MethodName: "SetSummary",
-			Handler:    _ListPreferenceService_SetSummary_Handler,
-		},
-		{
-			MethodName: "SetValue",
-			Handler:    _ListPreferenceService_SetValue_Handler,
-		},
-		{
-			MethodName: "SetValueIndex",
-			Handler:    _ListPreferenceService_SetValueIndex_Handler,
+			MethodName: "SetShowSilent",
+			Handler:    _RingtonePreferenceService_SetShowSilent_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -4625,7 +5495,7 @@ type ActivityHeaderServiceClient interface {
 	GetBreadCrumbShortTitle(ctx context.Context, in *GetBreadCrumbShortTitleRequest, opts ...grpc.CallOption) (*GetBreadCrumbShortTitleResponse, error)
 	GetBreadCrumbTitle(ctx context.Context, in *GetBreadCrumbTitleRequest, opts ...grpc.CallOption) (*GetBreadCrumbTitleResponse, error)
 	GetSummary(ctx context.Context, in *ActivityHeaderGetSummaryRequest, opts ...grpc.CallOption) (*GetSummaryResponse, error)
-	GetTitle(ctx context.Context, in *GetTitleRequest, opts ...grpc.CallOption) (*GetTitleResponse, error)
+	GetTitle(ctx context.Context, in *ActivityHeaderGetTitleRequest, opts ...grpc.CallOption) (*GetTitleResponse, error)
 	ReadFromParcel(ctx context.Context, in *ReadFromParcelRequest, opts ...grpc.CallOption) (*ReadFromParcelResponse, error)
 	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
 }
@@ -4678,7 +5548,7 @@ func (c *activityHeaderServiceClient) GetSummary(ctx context.Context, in *Activi
 	return out, nil
 }
 
-func (c *activityHeaderServiceClient) GetTitle(ctx context.Context, in *GetTitleRequest, opts ...grpc.CallOption) (*GetTitleResponse, error) {
+func (c *activityHeaderServiceClient) GetTitle(ctx context.Context, in *ActivityHeaderGetTitleRequest, opts ...grpc.CallOption) (*GetTitleResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetTitleResponse)
 	err := c.cc.Invoke(ctx, ActivityHeaderService_GetTitle_FullMethodName, in, out, cOpts...)
@@ -4716,7 +5586,7 @@ type ActivityHeaderServiceServer interface {
 	GetBreadCrumbShortTitle(context.Context, *GetBreadCrumbShortTitleRequest) (*GetBreadCrumbShortTitleResponse, error)
 	GetBreadCrumbTitle(context.Context, *GetBreadCrumbTitleRequest) (*GetBreadCrumbTitleResponse, error)
 	GetSummary(context.Context, *ActivityHeaderGetSummaryRequest) (*GetSummaryResponse, error)
-	GetTitle(context.Context, *GetTitleRequest) (*GetTitleResponse, error)
+	GetTitle(context.Context, *ActivityHeaderGetTitleRequest) (*GetTitleResponse, error)
 	ReadFromParcel(context.Context, *ReadFromParcelRequest) (*ReadFromParcelResponse, error)
 	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
 	mustEmbedUnimplementedActivityHeaderServiceServer()
@@ -4741,7 +5611,7 @@ func (UnimplementedActivityHeaderServiceServer) GetBreadCrumbTitle(context.Conte
 func (UnimplementedActivityHeaderServiceServer) GetSummary(context.Context, *ActivityHeaderGetSummaryRequest) (*GetSummaryResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetSummary not implemented")
 }
-func (UnimplementedActivityHeaderServiceServer) GetTitle(context.Context, *GetTitleRequest) (*GetTitleResponse, error) {
+func (UnimplementedActivityHeaderServiceServer) GetTitle(context.Context, *ActivityHeaderGetTitleRequest) (*GetTitleResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetTitle not implemented")
 }
 func (UnimplementedActivityHeaderServiceServer) ReadFromParcel(context.Context, *ReadFromParcelRequest) (*ReadFromParcelResponse, error) {
@@ -4844,7 +5714,7 @@ func _ActivityHeaderService_GetSummary_Handler(srv interface{}, ctx context.Cont
 }
 
 func _ActivityHeaderService_GetTitle_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetTitleRequest)
+	in := new(ActivityHeaderGetTitleRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -4856,7 +5726,7 @@ func _ActivityHeaderService_GetTitle_Handler(srv interface{}, ctx context.Contex
 		FullMethod: ActivityHeaderService_GetTitle_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ActivityHeaderServiceServer).GetTitle(ctx, req.(*GetTitleRequest))
+		return srv.(ActivityHeaderServiceServer).GetTitle(ctx, req.(*ActivityHeaderGetTitleRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -5414,6 +6284,3159 @@ var TwoStatePreferenceService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "ShouldDisableDependents",
 			Handler:    _TwoStatePreferenceService_ShouldDisableDependents_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/preference/preference.proto",
+}
+
+const (
+	MultiSelectListPreferenceService_NewMultiSelectListPreference_FullMethodName = "/preference.MultiSelectListPreferenceService/NewMultiSelectListPreference"
+	MultiSelectListPreferenceService_FindIndexOfValue_FullMethodName             = "/preference.MultiSelectListPreferenceService/FindIndexOfValue"
+	MultiSelectListPreferenceService_GetEntries_FullMethodName                   = "/preference.MultiSelectListPreferenceService/GetEntries"
+	MultiSelectListPreferenceService_GetEntryValues_FullMethodName               = "/preference.MultiSelectListPreferenceService/GetEntryValues"
+	MultiSelectListPreferenceService_GetValues_FullMethodName                    = "/preference.MultiSelectListPreferenceService/GetValues"
+	MultiSelectListPreferenceService_SetEntries1_FullMethodName                  = "/preference.MultiSelectListPreferenceService/SetEntries1"
+	MultiSelectListPreferenceService_SetEntries1_1_FullMethodName                = "/preference.MultiSelectListPreferenceService/SetEntries1_1"
+	MultiSelectListPreferenceService_SetEntryValues1_FullMethodName              = "/preference.MultiSelectListPreferenceService/SetEntryValues1"
+	MultiSelectListPreferenceService_SetEntryValues1_1_FullMethodName            = "/preference.MultiSelectListPreferenceService/SetEntryValues1_1"
+)
+
+// MultiSelectListPreferenceServiceClient is the client API for MultiSelectListPreferenceService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type MultiSelectListPreferenceServiceClient interface {
+	NewMultiSelectListPreference(ctx context.Context, in *NewMultiSelectListPreferenceRequest, opts ...grpc.CallOption) (*NewMultiSelectListPreferenceResponse, error)
+	FindIndexOfValue(ctx context.Context, in *FindIndexOfValueRequest, opts ...grpc.CallOption) (*FindIndexOfValueResponse, error)
+	GetEntries(ctx context.Context, in *GetEntriesRequest, opts ...grpc.CallOption) (*GetEntriesResponse, error)
+	GetEntryValues(ctx context.Context, in *GetEntryValuesRequest, opts ...grpc.CallOption) (*GetEntryValuesResponse, error)
+	GetValues(ctx context.Context, in *GetValuesRequest, opts ...grpc.CallOption) (*GetValuesResponse, error)
+	SetEntries1(ctx context.Context, in *SetEntries1Request, opts ...grpc.CallOption) (*SetEntries1Response, error)
+	SetEntries1_1(ctx context.Context, in *SetEntries1_1Request, opts ...grpc.CallOption) (*SetEntries1_1Response, error)
+	SetEntryValues1(ctx context.Context, in *SetEntryValues1Request, opts ...grpc.CallOption) (*SetEntryValues1Response, error)
+	SetEntryValues1_1(ctx context.Context, in *SetEntryValues1_1Request, opts ...grpc.CallOption) (*SetEntryValues1_1Response, error)
+}
+
+type multiSelectListPreferenceServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewMultiSelectListPreferenceServiceClient(cc grpc.ClientConnInterface) MultiSelectListPreferenceServiceClient {
+	return &multiSelectListPreferenceServiceClient{cc}
+}
+
+func (c *multiSelectListPreferenceServiceClient) NewMultiSelectListPreference(ctx context.Context, in *NewMultiSelectListPreferenceRequest, opts ...grpc.CallOption) (*NewMultiSelectListPreferenceResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewMultiSelectListPreferenceResponse)
+	err := c.cc.Invoke(ctx, MultiSelectListPreferenceService_NewMultiSelectListPreference_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *multiSelectListPreferenceServiceClient) FindIndexOfValue(ctx context.Context, in *FindIndexOfValueRequest, opts ...grpc.CallOption) (*FindIndexOfValueResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(FindIndexOfValueResponse)
+	err := c.cc.Invoke(ctx, MultiSelectListPreferenceService_FindIndexOfValue_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *multiSelectListPreferenceServiceClient) GetEntries(ctx context.Context, in *GetEntriesRequest, opts ...grpc.CallOption) (*GetEntriesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetEntriesResponse)
+	err := c.cc.Invoke(ctx, MultiSelectListPreferenceService_GetEntries_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *multiSelectListPreferenceServiceClient) GetEntryValues(ctx context.Context, in *GetEntryValuesRequest, opts ...grpc.CallOption) (*GetEntryValuesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetEntryValuesResponse)
+	err := c.cc.Invoke(ctx, MultiSelectListPreferenceService_GetEntryValues_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *multiSelectListPreferenceServiceClient) GetValues(ctx context.Context, in *GetValuesRequest, opts ...grpc.CallOption) (*GetValuesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetValuesResponse)
+	err := c.cc.Invoke(ctx, MultiSelectListPreferenceService_GetValues_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *multiSelectListPreferenceServiceClient) SetEntries1(ctx context.Context, in *SetEntries1Request, opts ...grpc.CallOption) (*SetEntries1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetEntries1Response)
+	err := c.cc.Invoke(ctx, MultiSelectListPreferenceService_SetEntries1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *multiSelectListPreferenceServiceClient) SetEntries1_1(ctx context.Context, in *SetEntries1_1Request, opts ...grpc.CallOption) (*SetEntries1_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetEntries1_1Response)
+	err := c.cc.Invoke(ctx, MultiSelectListPreferenceService_SetEntries1_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *multiSelectListPreferenceServiceClient) SetEntryValues1(ctx context.Context, in *SetEntryValues1Request, opts ...grpc.CallOption) (*SetEntryValues1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetEntryValues1Response)
+	err := c.cc.Invoke(ctx, MultiSelectListPreferenceService_SetEntryValues1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *multiSelectListPreferenceServiceClient) SetEntryValues1_1(ctx context.Context, in *SetEntryValues1_1Request, opts ...grpc.CallOption) (*SetEntryValues1_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetEntryValues1_1Response)
+	err := c.cc.Invoke(ctx, MultiSelectListPreferenceService_SetEntryValues1_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// MultiSelectListPreferenceServiceServer is the server API for MultiSelectListPreferenceService service.
+// All implementations must embed UnimplementedMultiSelectListPreferenceServiceServer
+// for forward compatibility.
+type MultiSelectListPreferenceServiceServer interface {
+	NewMultiSelectListPreference(context.Context, *NewMultiSelectListPreferenceRequest) (*NewMultiSelectListPreferenceResponse, error)
+	FindIndexOfValue(context.Context, *FindIndexOfValueRequest) (*FindIndexOfValueResponse, error)
+	GetEntries(context.Context, *GetEntriesRequest) (*GetEntriesResponse, error)
+	GetEntryValues(context.Context, *GetEntryValuesRequest) (*GetEntryValuesResponse, error)
+	GetValues(context.Context, *GetValuesRequest) (*GetValuesResponse, error)
+	SetEntries1(context.Context, *SetEntries1Request) (*SetEntries1Response, error)
+	SetEntries1_1(context.Context, *SetEntries1_1Request) (*SetEntries1_1Response, error)
+	SetEntryValues1(context.Context, *SetEntryValues1Request) (*SetEntryValues1Response, error)
+	SetEntryValues1_1(context.Context, *SetEntryValues1_1Request) (*SetEntryValues1_1Response, error)
+	mustEmbedUnimplementedMultiSelectListPreferenceServiceServer()
+}
+
+// UnimplementedMultiSelectListPreferenceServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedMultiSelectListPreferenceServiceServer struct{}
+
+func (UnimplementedMultiSelectListPreferenceServiceServer) NewMultiSelectListPreference(context.Context, *NewMultiSelectListPreferenceRequest) (*NewMultiSelectListPreferenceResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewMultiSelectListPreference not implemented")
+}
+func (UnimplementedMultiSelectListPreferenceServiceServer) FindIndexOfValue(context.Context, *FindIndexOfValueRequest) (*FindIndexOfValueResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method FindIndexOfValue not implemented")
+}
+func (UnimplementedMultiSelectListPreferenceServiceServer) GetEntries(context.Context, *GetEntriesRequest) (*GetEntriesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetEntries not implemented")
+}
+func (UnimplementedMultiSelectListPreferenceServiceServer) GetEntryValues(context.Context, *GetEntryValuesRequest) (*GetEntryValuesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetEntryValues not implemented")
+}
+func (UnimplementedMultiSelectListPreferenceServiceServer) GetValues(context.Context, *GetValuesRequest) (*GetValuesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetValues not implemented")
+}
+func (UnimplementedMultiSelectListPreferenceServiceServer) SetEntries1(context.Context, *SetEntries1Request) (*SetEntries1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetEntries1 not implemented")
+}
+func (UnimplementedMultiSelectListPreferenceServiceServer) SetEntries1_1(context.Context, *SetEntries1_1Request) (*SetEntries1_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetEntries1_1 not implemented")
+}
+func (UnimplementedMultiSelectListPreferenceServiceServer) SetEntryValues1(context.Context, *SetEntryValues1Request) (*SetEntryValues1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetEntryValues1 not implemented")
+}
+func (UnimplementedMultiSelectListPreferenceServiceServer) SetEntryValues1_1(context.Context, *SetEntryValues1_1Request) (*SetEntryValues1_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetEntryValues1_1 not implemented")
+}
+func (UnimplementedMultiSelectListPreferenceServiceServer) mustEmbedUnimplementedMultiSelectListPreferenceServiceServer() {
+}
+func (UnimplementedMultiSelectListPreferenceServiceServer) testEmbeddedByValue() {}
+
+// UnsafeMultiSelectListPreferenceServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to MultiSelectListPreferenceServiceServer will
+// result in compilation errors.
+type UnsafeMultiSelectListPreferenceServiceServer interface {
+	mustEmbedUnimplementedMultiSelectListPreferenceServiceServer()
+}
+
+func RegisterMultiSelectListPreferenceServiceServer(s grpc.ServiceRegistrar, srv MultiSelectListPreferenceServiceServer) {
+	// If the following call panics, it indicates UnimplementedMultiSelectListPreferenceServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&MultiSelectListPreferenceService_ServiceDesc, srv)
+}
+
+func _MultiSelectListPreferenceService_NewMultiSelectListPreference_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewMultiSelectListPreferenceRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MultiSelectListPreferenceServiceServer).NewMultiSelectListPreference(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: MultiSelectListPreferenceService_NewMultiSelectListPreference_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MultiSelectListPreferenceServiceServer).NewMultiSelectListPreference(ctx, req.(*NewMultiSelectListPreferenceRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _MultiSelectListPreferenceService_FindIndexOfValue_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(FindIndexOfValueRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MultiSelectListPreferenceServiceServer).FindIndexOfValue(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: MultiSelectListPreferenceService_FindIndexOfValue_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MultiSelectListPreferenceServiceServer).FindIndexOfValue(ctx, req.(*FindIndexOfValueRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _MultiSelectListPreferenceService_GetEntries_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetEntriesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MultiSelectListPreferenceServiceServer).GetEntries(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: MultiSelectListPreferenceService_GetEntries_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MultiSelectListPreferenceServiceServer).GetEntries(ctx, req.(*GetEntriesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _MultiSelectListPreferenceService_GetEntryValues_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetEntryValuesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MultiSelectListPreferenceServiceServer).GetEntryValues(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: MultiSelectListPreferenceService_GetEntryValues_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MultiSelectListPreferenceServiceServer).GetEntryValues(ctx, req.(*GetEntryValuesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _MultiSelectListPreferenceService_GetValues_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetValuesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MultiSelectListPreferenceServiceServer).GetValues(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: MultiSelectListPreferenceService_GetValues_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MultiSelectListPreferenceServiceServer).GetValues(ctx, req.(*GetValuesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _MultiSelectListPreferenceService_SetEntries1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetEntries1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MultiSelectListPreferenceServiceServer).SetEntries1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: MultiSelectListPreferenceService_SetEntries1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MultiSelectListPreferenceServiceServer).SetEntries1(ctx, req.(*SetEntries1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _MultiSelectListPreferenceService_SetEntries1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetEntries1_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MultiSelectListPreferenceServiceServer).SetEntries1_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: MultiSelectListPreferenceService_SetEntries1_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MultiSelectListPreferenceServiceServer).SetEntries1_1(ctx, req.(*SetEntries1_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _MultiSelectListPreferenceService_SetEntryValues1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetEntryValues1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MultiSelectListPreferenceServiceServer).SetEntryValues1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: MultiSelectListPreferenceService_SetEntryValues1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MultiSelectListPreferenceServiceServer).SetEntryValues1(ctx, req.(*SetEntryValues1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _MultiSelectListPreferenceService_SetEntryValues1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetEntryValues1_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MultiSelectListPreferenceServiceServer).SetEntryValues1_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: MultiSelectListPreferenceService_SetEntryValues1_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MultiSelectListPreferenceServiceServer).SetEntryValues1_1(ctx, req.(*SetEntryValues1_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// MultiSelectListPreferenceService_ServiceDesc is the grpc.ServiceDesc for MultiSelectListPreferenceService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var MultiSelectListPreferenceService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "preference.MultiSelectListPreferenceService",
+	HandlerType: (*MultiSelectListPreferenceServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewMultiSelectListPreference",
+			Handler:    _MultiSelectListPreferenceService_NewMultiSelectListPreference_Handler,
+		},
+		{
+			MethodName: "FindIndexOfValue",
+			Handler:    _MultiSelectListPreferenceService_FindIndexOfValue_Handler,
+		},
+		{
+			MethodName: "GetEntries",
+			Handler:    _MultiSelectListPreferenceService_GetEntries_Handler,
+		},
+		{
+			MethodName: "GetEntryValues",
+			Handler:    _MultiSelectListPreferenceService_GetEntryValues_Handler,
+		},
+		{
+			MethodName: "GetValues",
+			Handler:    _MultiSelectListPreferenceService_GetValues_Handler,
+		},
+		{
+			MethodName: "SetEntries1",
+			Handler:    _MultiSelectListPreferenceService_SetEntries1_Handler,
+		},
+		{
+			MethodName: "SetEntries1_1",
+			Handler:    _MultiSelectListPreferenceService_SetEntries1_1_Handler,
+		},
+		{
+			MethodName: "SetEntryValues1",
+			Handler:    _MultiSelectListPreferenceService_SetEntryValues1_Handler,
+		},
+		{
+			MethodName: "SetEntryValues1_1",
+			Handler:    _MultiSelectListPreferenceService_SetEntryValues1_1_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/preference/preference.proto",
+}
+
+const (
+	EditTextPreferenceService_NewEditTextPreference_FullMethodName   = "/preference.EditTextPreferenceService/NewEditTextPreference"
+	EditTextPreferenceService_GetEditText_FullMethodName             = "/preference.EditTextPreferenceService/GetEditText"
+	EditTextPreferenceService_GetText_FullMethodName                 = "/preference.EditTextPreferenceService/GetText"
+	EditTextPreferenceService_SetText_FullMethodName                 = "/preference.EditTextPreferenceService/SetText"
+	EditTextPreferenceService_ShouldDisableDependents_FullMethodName = "/preference.EditTextPreferenceService/ShouldDisableDependents"
+)
+
+// EditTextPreferenceServiceClient is the client API for EditTextPreferenceService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type EditTextPreferenceServiceClient interface {
+	NewEditTextPreference(ctx context.Context, in *NewEditTextPreferenceRequest, opts ...grpc.CallOption) (*NewEditTextPreferenceResponse, error)
+	GetEditText(ctx context.Context, in *GetEditTextRequest, opts ...grpc.CallOption) (*GetEditTextResponse, error)
+	GetText(ctx context.Context, in *GetTextRequest, opts ...grpc.CallOption) (*GetTextResponse, error)
+	SetText(ctx context.Context, in *SetTextRequest, opts ...grpc.CallOption) (*SetTextResponse, error)
+	ShouldDisableDependents(ctx context.Context, in *ShouldDisableDependentsRequest, opts ...grpc.CallOption) (*ShouldDisableDependentsResponse, error)
+}
+
+type editTextPreferenceServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewEditTextPreferenceServiceClient(cc grpc.ClientConnInterface) EditTextPreferenceServiceClient {
+	return &editTextPreferenceServiceClient{cc}
+}
+
+func (c *editTextPreferenceServiceClient) NewEditTextPreference(ctx context.Context, in *NewEditTextPreferenceRequest, opts ...grpc.CallOption) (*NewEditTextPreferenceResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewEditTextPreferenceResponse)
+	err := c.cc.Invoke(ctx, EditTextPreferenceService_NewEditTextPreference_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *editTextPreferenceServiceClient) GetEditText(ctx context.Context, in *GetEditTextRequest, opts ...grpc.CallOption) (*GetEditTextResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetEditTextResponse)
+	err := c.cc.Invoke(ctx, EditTextPreferenceService_GetEditText_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *editTextPreferenceServiceClient) GetText(ctx context.Context, in *GetTextRequest, opts ...grpc.CallOption) (*GetTextResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTextResponse)
+	err := c.cc.Invoke(ctx, EditTextPreferenceService_GetText_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *editTextPreferenceServiceClient) SetText(ctx context.Context, in *SetTextRequest, opts ...grpc.CallOption) (*SetTextResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetTextResponse)
+	err := c.cc.Invoke(ctx, EditTextPreferenceService_SetText_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *editTextPreferenceServiceClient) ShouldDisableDependents(ctx context.Context, in *ShouldDisableDependentsRequest, opts ...grpc.CallOption) (*ShouldDisableDependentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ShouldDisableDependentsResponse)
+	err := c.cc.Invoke(ctx, EditTextPreferenceService_ShouldDisableDependents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// EditTextPreferenceServiceServer is the server API for EditTextPreferenceService service.
+// All implementations must embed UnimplementedEditTextPreferenceServiceServer
+// for forward compatibility.
+type EditTextPreferenceServiceServer interface {
+	NewEditTextPreference(context.Context, *NewEditTextPreferenceRequest) (*NewEditTextPreferenceResponse, error)
+	GetEditText(context.Context, *GetEditTextRequest) (*GetEditTextResponse, error)
+	GetText(context.Context, *GetTextRequest) (*GetTextResponse, error)
+	SetText(context.Context, *SetTextRequest) (*SetTextResponse, error)
+	ShouldDisableDependents(context.Context, *ShouldDisableDependentsRequest) (*ShouldDisableDependentsResponse, error)
+	mustEmbedUnimplementedEditTextPreferenceServiceServer()
+}
+
+// UnimplementedEditTextPreferenceServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedEditTextPreferenceServiceServer struct{}
+
+func (UnimplementedEditTextPreferenceServiceServer) NewEditTextPreference(context.Context, *NewEditTextPreferenceRequest) (*NewEditTextPreferenceResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewEditTextPreference not implemented")
+}
+func (UnimplementedEditTextPreferenceServiceServer) GetEditText(context.Context, *GetEditTextRequest) (*GetEditTextResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetEditText not implemented")
+}
+func (UnimplementedEditTextPreferenceServiceServer) GetText(context.Context, *GetTextRequest) (*GetTextResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetText not implemented")
+}
+func (UnimplementedEditTextPreferenceServiceServer) SetText(context.Context, *SetTextRequest) (*SetTextResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetText not implemented")
+}
+func (UnimplementedEditTextPreferenceServiceServer) ShouldDisableDependents(context.Context, *ShouldDisableDependentsRequest) (*ShouldDisableDependentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ShouldDisableDependents not implemented")
+}
+func (UnimplementedEditTextPreferenceServiceServer) mustEmbedUnimplementedEditTextPreferenceServiceServer() {
+}
+func (UnimplementedEditTextPreferenceServiceServer) testEmbeddedByValue() {}
+
+// UnsafeEditTextPreferenceServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to EditTextPreferenceServiceServer will
+// result in compilation errors.
+type UnsafeEditTextPreferenceServiceServer interface {
+	mustEmbedUnimplementedEditTextPreferenceServiceServer()
+}
+
+func RegisterEditTextPreferenceServiceServer(s grpc.ServiceRegistrar, srv EditTextPreferenceServiceServer) {
+	// If the following call panics, it indicates UnimplementedEditTextPreferenceServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&EditTextPreferenceService_ServiceDesc, srv)
+}
+
+func _EditTextPreferenceService_NewEditTextPreference_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewEditTextPreferenceRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EditTextPreferenceServiceServer).NewEditTextPreference(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: EditTextPreferenceService_NewEditTextPreference_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EditTextPreferenceServiceServer).NewEditTextPreference(ctx, req.(*NewEditTextPreferenceRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _EditTextPreferenceService_GetEditText_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetEditTextRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EditTextPreferenceServiceServer).GetEditText(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: EditTextPreferenceService_GetEditText_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EditTextPreferenceServiceServer).GetEditText(ctx, req.(*GetEditTextRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _EditTextPreferenceService_GetText_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTextRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EditTextPreferenceServiceServer).GetText(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: EditTextPreferenceService_GetText_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EditTextPreferenceServiceServer).GetText(ctx, req.(*GetTextRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _EditTextPreferenceService_SetText_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetTextRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EditTextPreferenceServiceServer).SetText(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: EditTextPreferenceService_SetText_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EditTextPreferenceServiceServer).SetText(ctx, req.(*SetTextRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _EditTextPreferenceService_ShouldDisableDependents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ShouldDisableDependentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EditTextPreferenceServiceServer).ShouldDisableDependents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: EditTextPreferenceService_ShouldDisableDependents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EditTextPreferenceServiceServer).ShouldDisableDependents(ctx, req.(*ShouldDisableDependentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// EditTextPreferenceService_ServiceDesc is the grpc.ServiceDesc for EditTextPreferenceService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var EditTextPreferenceService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "preference.EditTextPreferenceService",
+	HandlerType: (*EditTextPreferenceServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewEditTextPreference",
+			Handler:    _EditTextPreferenceService_NewEditTextPreference_Handler,
+		},
+		{
+			MethodName: "GetEditText",
+			Handler:    _EditTextPreferenceService_GetEditText_Handler,
+		},
+		{
+			MethodName: "GetText",
+			Handler:    _EditTextPreferenceService_GetText_Handler,
+		},
+		{
+			MethodName: "SetText",
+			Handler:    _EditTextPreferenceService_SetText_Handler,
+		},
+		{
+			MethodName: "ShouldDisableDependents",
+			Handler:    _EditTextPreferenceService_ShouldDisableDependents_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/preference/preference.proto",
+}
+
+const (
+	ManagerService_CreatePreferenceScreen_FullMethodName          = "/preference.ManagerService/CreatePreferenceScreen"
+	ManagerService_FindPreference_FullMethodName                  = "/preference.ManagerService/FindPreference"
+	ManagerService_GetPreferenceDataStore_FullMethodName          = "/preference.ManagerService/GetPreferenceDataStore"
+	ManagerService_GetSharedPreferences_FullMethodName            = "/preference.ManagerService/GetSharedPreferences"
+	ManagerService_GetSharedPreferencesMode_FullMethodName        = "/preference.ManagerService/GetSharedPreferencesMode"
+	ManagerService_GetSharedPreferencesName_FullMethodName        = "/preference.ManagerService/GetSharedPreferencesName"
+	ManagerService_IsStorageDefault_FullMethodName                = "/preference.ManagerService/IsStorageDefault"
+	ManagerService_IsStorageDeviceProtected_FullMethodName        = "/preference.ManagerService/IsStorageDeviceProtected"
+	ManagerService_SetPreferenceDataStore_FullMethodName          = "/preference.ManagerService/SetPreferenceDataStore"
+	ManagerService_SetSharedPreferencesMode_FullMethodName        = "/preference.ManagerService/SetSharedPreferencesMode"
+	ManagerService_SetSharedPreferencesName_FullMethodName        = "/preference.ManagerService/SetSharedPreferencesName"
+	ManagerService_SetStorageDefault_FullMethodName               = "/preference.ManagerService/SetStorageDefault"
+	ManagerService_SetStorageDeviceProtected_FullMethodName       = "/preference.ManagerService/SetStorageDeviceProtected"
+	ManagerService_GetDefaultSharedPreferences_FullMethodName     = "/preference.ManagerService/GetDefaultSharedPreferences"
+	ManagerService_GetDefaultSharedPreferencesName_FullMethodName = "/preference.ManagerService/GetDefaultSharedPreferencesName"
+	ManagerService_SetDefaultValues3_FullMethodName               = "/preference.ManagerService/SetDefaultValues3"
+	ManagerService_SetDefaultValues5_1_FullMethodName             = "/preference.ManagerService/SetDefaultValues5_1"
+)
+
+// ManagerServiceClient is the client API for ManagerService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ManagerServiceClient interface {
+	CreatePreferenceScreen(ctx context.Context, in *CreatePreferenceScreenRequest, opts ...grpc.CallOption) (*CreatePreferenceScreenResponse, error)
+	FindPreference(ctx context.Context, in *FindPreferenceRequest, opts ...grpc.CallOption) (*FindPreferenceResponse, error)
+	GetPreferenceDataStore(ctx context.Context, in *ManagerGetPreferenceDataStoreRequest, opts ...grpc.CallOption) (*GetPreferenceDataStoreResponse, error)
+	GetSharedPreferences(ctx context.Context, in *ManagerGetSharedPreferencesRequest, opts ...grpc.CallOption) (*GetSharedPreferencesResponse, error)
+	GetSharedPreferencesMode(ctx context.Context, in *GetSharedPreferencesModeRequest, opts ...grpc.CallOption) (*GetSharedPreferencesModeResponse, error)
+	GetSharedPreferencesName(ctx context.Context, in *GetSharedPreferencesNameRequest, opts ...grpc.CallOption) (*GetSharedPreferencesNameResponse, error)
+	IsStorageDefault(ctx context.Context, in *IsStorageDefaultRequest, opts ...grpc.CallOption) (*IsStorageDefaultResponse, error)
+	IsStorageDeviceProtected(ctx context.Context, in *IsStorageDeviceProtectedRequest, opts ...grpc.CallOption) (*IsStorageDeviceProtectedResponse, error)
+	SetPreferenceDataStore(ctx context.Context, in *ManagerSetPreferenceDataStoreRequest, opts ...grpc.CallOption) (*SetPreferenceDataStoreResponse, error)
+	SetSharedPreferencesMode(ctx context.Context, in *SetSharedPreferencesModeRequest, opts ...grpc.CallOption) (*SetSharedPreferencesModeResponse, error)
+	SetSharedPreferencesName(ctx context.Context, in *SetSharedPreferencesNameRequest, opts ...grpc.CallOption) (*SetSharedPreferencesNameResponse, error)
+	SetStorageDefault(ctx context.Context, in *SetStorageDefaultRequest, opts ...grpc.CallOption) (*SetStorageDefaultResponse, error)
+	SetStorageDeviceProtected(ctx context.Context, in *SetStorageDeviceProtectedRequest, opts ...grpc.CallOption) (*SetStorageDeviceProtectedResponse, error)
+	GetDefaultSharedPreferences(ctx context.Context, in *GetDefaultSharedPreferencesRequest, opts ...grpc.CallOption) (*GetDefaultSharedPreferencesResponse, error)
+	GetDefaultSharedPreferencesName(ctx context.Context, in *GetDefaultSharedPreferencesNameRequest, opts ...grpc.CallOption) (*GetDefaultSharedPreferencesNameResponse, error)
+	SetDefaultValues3(ctx context.Context, in *SetDefaultValues3Request, opts ...grpc.CallOption) (*SetDefaultValues3Response, error)
+	SetDefaultValues5_1(ctx context.Context, in *SetDefaultValues5_1Request, opts ...grpc.CallOption) (*SetDefaultValues5_1Response, error)
+}
+
+type managerServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewManagerServiceClient(cc grpc.ClientConnInterface) ManagerServiceClient {
+	return &managerServiceClient{cc}
+}
+
+func (c *managerServiceClient) CreatePreferenceScreen(ctx context.Context, in *CreatePreferenceScreenRequest, opts ...grpc.CallOption) (*CreatePreferenceScreenResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CreatePreferenceScreenResponse)
+	err := c.cc.Invoke(ctx, ManagerService_CreatePreferenceScreen_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *managerServiceClient) FindPreference(ctx context.Context, in *FindPreferenceRequest, opts ...grpc.CallOption) (*FindPreferenceResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(FindPreferenceResponse)
+	err := c.cc.Invoke(ctx, ManagerService_FindPreference_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *managerServiceClient) GetPreferenceDataStore(ctx context.Context, in *ManagerGetPreferenceDataStoreRequest, opts ...grpc.CallOption) (*GetPreferenceDataStoreResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetPreferenceDataStoreResponse)
+	err := c.cc.Invoke(ctx, ManagerService_GetPreferenceDataStore_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *managerServiceClient) GetSharedPreferences(ctx context.Context, in *ManagerGetSharedPreferencesRequest, opts ...grpc.CallOption) (*GetSharedPreferencesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSharedPreferencesResponse)
+	err := c.cc.Invoke(ctx, ManagerService_GetSharedPreferences_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *managerServiceClient) GetSharedPreferencesMode(ctx context.Context, in *GetSharedPreferencesModeRequest, opts ...grpc.CallOption) (*GetSharedPreferencesModeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSharedPreferencesModeResponse)
+	err := c.cc.Invoke(ctx, ManagerService_GetSharedPreferencesMode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *managerServiceClient) GetSharedPreferencesName(ctx context.Context, in *GetSharedPreferencesNameRequest, opts ...grpc.CallOption) (*GetSharedPreferencesNameResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSharedPreferencesNameResponse)
+	err := c.cc.Invoke(ctx, ManagerService_GetSharedPreferencesName_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *managerServiceClient) IsStorageDefault(ctx context.Context, in *IsStorageDefaultRequest, opts ...grpc.CallOption) (*IsStorageDefaultResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsStorageDefaultResponse)
+	err := c.cc.Invoke(ctx, ManagerService_IsStorageDefault_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *managerServiceClient) IsStorageDeviceProtected(ctx context.Context, in *IsStorageDeviceProtectedRequest, opts ...grpc.CallOption) (*IsStorageDeviceProtectedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsStorageDeviceProtectedResponse)
+	err := c.cc.Invoke(ctx, ManagerService_IsStorageDeviceProtected_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *managerServiceClient) SetPreferenceDataStore(ctx context.Context, in *ManagerSetPreferenceDataStoreRequest, opts ...grpc.CallOption) (*SetPreferenceDataStoreResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetPreferenceDataStoreResponse)
+	err := c.cc.Invoke(ctx, ManagerService_SetPreferenceDataStore_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *managerServiceClient) SetSharedPreferencesMode(ctx context.Context, in *SetSharedPreferencesModeRequest, opts ...grpc.CallOption) (*SetSharedPreferencesModeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetSharedPreferencesModeResponse)
+	err := c.cc.Invoke(ctx, ManagerService_SetSharedPreferencesMode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *managerServiceClient) SetSharedPreferencesName(ctx context.Context, in *SetSharedPreferencesNameRequest, opts ...grpc.CallOption) (*SetSharedPreferencesNameResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetSharedPreferencesNameResponse)
+	err := c.cc.Invoke(ctx, ManagerService_SetSharedPreferencesName_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *managerServiceClient) SetStorageDefault(ctx context.Context, in *SetStorageDefaultRequest, opts ...grpc.CallOption) (*SetStorageDefaultResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetStorageDefaultResponse)
+	err := c.cc.Invoke(ctx, ManagerService_SetStorageDefault_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *managerServiceClient) SetStorageDeviceProtected(ctx context.Context, in *SetStorageDeviceProtectedRequest, opts ...grpc.CallOption) (*SetStorageDeviceProtectedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetStorageDeviceProtectedResponse)
+	err := c.cc.Invoke(ctx, ManagerService_SetStorageDeviceProtected_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *managerServiceClient) GetDefaultSharedPreferences(ctx context.Context, in *GetDefaultSharedPreferencesRequest, opts ...grpc.CallOption) (*GetDefaultSharedPreferencesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetDefaultSharedPreferencesResponse)
+	err := c.cc.Invoke(ctx, ManagerService_GetDefaultSharedPreferences_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *managerServiceClient) GetDefaultSharedPreferencesName(ctx context.Context, in *GetDefaultSharedPreferencesNameRequest, opts ...grpc.CallOption) (*GetDefaultSharedPreferencesNameResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetDefaultSharedPreferencesNameResponse)
+	err := c.cc.Invoke(ctx, ManagerService_GetDefaultSharedPreferencesName_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *managerServiceClient) SetDefaultValues3(ctx context.Context, in *SetDefaultValues3Request, opts ...grpc.CallOption) (*SetDefaultValues3Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetDefaultValues3Response)
+	err := c.cc.Invoke(ctx, ManagerService_SetDefaultValues3_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *managerServiceClient) SetDefaultValues5_1(ctx context.Context, in *SetDefaultValues5_1Request, opts ...grpc.CallOption) (*SetDefaultValues5_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetDefaultValues5_1Response)
+	err := c.cc.Invoke(ctx, ManagerService_SetDefaultValues5_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ManagerServiceServer is the server API for ManagerService service.
+// All implementations must embed UnimplementedManagerServiceServer
+// for forward compatibility.
+type ManagerServiceServer interface {
+	CreatePreferenceScreen(context.Context, *CreatePreferenceScreenRequest) (*CreatePreferenceScreenResponse, error)
+	FindPreference(context.Context, *FindPreferenceRequest) (*FindPreferenceResponse, error)
+	GetPreferenceDataStore(context.Context, *ManagerGetPreferenceDataStoreRequest) (*GetPreferenceDataStoreResponse, error)
+	GetSharedPreferences(context.Context, *ManagerGetSharedPreferencesRequest) (*GetSharedPreferencesResponse, error)
+	GetSharedPreferencesMode(context.Context, *GetSharedPreferencesModeRequest) (*GetSharedPreferencesModeResponse, error)
+	GetSharedPreferencesName(context.Context, *GetSharedPreferencesNameRequest) (*GetSharedPreferencesNameResponse, error)
+	IsStorageDefault(context.Context, *IsStorageDefaultRequest) (*IsStorageDefaultResponse, error)
+	IsStorageDeviceProtected(context.Context, *IsStorageDeviceProtectedRequest) (*IsStorageDeviceProtectedResponse, error)
+	SetPreferenceDataStore(context.Context, *ManagerSetPreferenceDataStoreRequest) (*SetPreferenceDataStoreResponse, error)
+	SetSharedPreferencesMode(context.Context, *SetSharedPreferencesModeRequest) (*SetSharedPreferencesModeResponse, error)
+	SetSharedPreferencesName(context.Context, *SetSharedPreferencesNameRequest) (*SetSharedPreferencesNameResponse, error)
+	SetStorageDefault(context.Context, *SetStorageDefaultRequest) (*SetStorageDefaultResponse, error)
+	SetStorageDeviceProtected(context.Context, *SetStorageDeviceProtectedRequest) (*SetStorageDeviceProtectedResponse, error)
+	GetDefaultSharedPreferences(context.Context, *GetDefaultSharedPreferencesRequest) (*GetDefaultSharedPreferencesResponse, error)
+	GetDefaultSharedPreferencesName(context.Context, *GetDefaultSharedPreferencesNameRequest) (*GetDefaultSharedPreferencesNameResponse, error)
+	SetDefaultValues3(context.Context, *SetDefaultValues3Request) (*SetDefaultValues3Response, error)
+	SetDefaultValues5_1(context.Context, *SetDefaultValues5_1Request) (*SetDefaultValues5_1Response, error)
+	mustEmbedUnimplementedManagerServiceServer()
+}
+
+// UnimplementedManagerServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedManagerServiceServer struct{}
+
+func (UnimplementedManagerServiceServer) CreatePreferenceScreen(context.Context, *CreatePreferenceScreenRequest) (*CreatePreferenceScreenResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method CreatePreferenceScreen not implemented")
+}
+func (UnimplementedManagerServiceServer) FindPreference(context.Context, *FindPreferenceRequest) (*FindPreferenceResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method FindPreference not implemented")
+}
+func (UnimplementedManagerServiceServer) GetPreferenceDataStore(context.Context, *ManagerGetPreferenceDataStoreRequest) (*GetPreferenceDataStoreResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetPreferenceDataStore not implemented")
+}
+func (UnimplementedManagerServiceServer) GetSharedPreferences(context.Context, *ManagerGetSharedPreferencesRequest) (*GetSharedPreferencesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSharedPreferences not implemented")
+}
+func (UnimplementedManagerServiceServer) GetSharedPreferencesMode(context.Context, *GetSharedPreferencesModeRequest) (*GetSharedPreferencesModeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSharedPreferencesMode not implemented")
+}
+func (UnimplementedManagerServiceServer) GetSharedPreferencesName(context.Context, *GetSharedPreferencesNameRequest) (*GetSharedPreferencesNameResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSharedPreferencesName not implemented")
+}
+func (UnimplementedManagerServiceServer) IsStorageDefault(context.Context, *IsStorageDefaultRequest) (*IsStorageDefaultResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsStorageDefault not implemented")
+}
+func (UnimplementedManagerServiceServer) IsStorageDeviceProtected(context.Context, *IsStorageDeviceProtectedRequest) (*IsStorageDeviceProtectedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsStorageDeviceProtected not implemented")
+}
+func (UnimplementedManagerServiceServer) SetPreferenceDataStore(context.Context, *ManagerSetPreferenceDataStoreRequest) (*SetPreferenceDataStoreResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetPreferenceDataStore not implemented")
+}
+func (UnimplementedManagerServiceServer) SetSharedPreferencesMode(context.Context, *SetSharedPreferencesModeRequest) (*SetSharedPreferencesModeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetSharedPreferencesMode not implemented")
+}
+func (UnimplementedManagerServiceServer) SetSharedPreferencesName(context.Context, *SetSharedPreferencesNameRequest) (*SetSharedPreferencesNameResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetSharedPreferencesName not implemented")
+}
+func (UnimplementedManagerServiceServer) SetStorageDefault(context.Context, *SetStorageDefaultRequest) (*SetStorageDefaultResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetStorageDefault not implemented")
+}
+func (UnimplementedManagerServiceServer) SetStorageDeviceProtected(context.Context, *SetStorageDeviceProtectedRequest) (*SetStorageDeviceProtectedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetStorageDeviceProtected not implemented")
+}
+func (UnimplementedManagerServiceServer) GetDefaultSharedPreferences(context.Context, *GetDefaultSharedPreferencesRequest) (*GetDefaultSharedPreferencesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetDefaultSharedPreferences not implemented")
+}
+func (UnimplementedManagerServiceServer) GetDefaultSharedPreferencesName(context.Context, *GetDefaultSharedPreferencesNameRequest) (*GetDefaultSharedPreferencesNameResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetDefaultSharedPreferencesName not implemented")
+}
+func (UnimplementedManagerServiceServer) SetDefaultValues3(context.Context, *SetDefaultValues3Request) (*SetDefaultValues3Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetDefaultValues3 not implemented")
+}
+func (UnimplementedManagerServiceServer) SetDefaultValues5_1(context.Context, *SetDefaultValues5_1Request) (*SetDefaultValues5_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetDefaultValues5_1 not implemented")
+}
+func (UnimplementedManagerServiceServer) mustEmbedUnimplementedManagerServiceServer() {}
+func (UnimplementedManagerServiceServer) testEmbeddedByValue()                        {}
+
+// UnsafeManagerServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ManagerServiceServer will
+// result in compilation errors.
+type UnsafeManagerServiceServer interface {
+	mustEmbedUnimplementedManagerServiceServer()
+}
+
+func RegisterManagerServiceServer(s grpc.ServiceRegistrar, srv ManagerServiceServer) {
+	// If the following call panics, it indicates UnimplementedManagerServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&ManagerService_ServiceDesc, srv)
+}
+
+func _ManagerService_CreatePreferenceScreen_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreatePreferenceScreenRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerServiceServer).CreatePreferenceScreen(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerService_CreatePreferenceScreen_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerServiceServer).CreatePreferenceScreen(ctx, req.(*CreatePreferenceScreenRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ManagerService_FindPreference_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(FindPreferenceRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerServiceServer).FindPreference(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerService_FindPreference_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerServiceServer).FindPreference(ctx, req.(*FindPreferenceRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ManagerService_GetPreferenceDataStore_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ManagerGetPreferenceDataStoreRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerServiceServer).GetPreferenceDataStore(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerService_GetPreferenceDataStore_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerServiceServer).GetPreferenceDataStore(ctx, req.(*ManagerGetPreferenceDataStoreRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ManagerService_GetSharedPreferences_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ManagerGetSharedPreferencesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerServiceServer).GetSharedPreferences(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerService_GetSharedPreferences_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerServiceServer).GetSharedPreferences(ctx, req.(*ManagerGetSharedPreferencesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ManagerService_GetSharedPreferencesMode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSharedPreferencesModeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerServiceServer).GetSharedPreferencesMode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerService_GetSharedPreferencesMode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerServiceServer).GetSharedPreferencesMode(ctx, req.(*GetSharedPreferencesModeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ManagerService_GetSharedPreferencesName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSharedPreferencesNameRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerServiceServer).GetSharedPreferencesName(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerService_GetSharedPreferencesName_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerServiceServer).GetSharedPreferencesName(ctx, req.(*GetSharedPreferencesNameRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ManagerService_IsStorageDefault_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsStorageDefaultRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerServiceServer).IsStorageDefault(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerService_IsStorageDefault_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerServiceServer).IsStorageDefault(ctx, req.(*IsStorageDefaultRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ManagerService_IsStorageDeviceProtected_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsStorageDeviceProtectedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerServiceServer).IsStorageDeviceProtected(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerService_IsStorageDeviceProtected_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerServiceServer).IsStorageDeviceProtected(ctx, req.(*IsStorageDeviceProtectedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ManagerService_SetPreferenceDataStore_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ManagerSetPreferenceDataStoreRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerServiceServer).SetPreferenceDataStore(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerService_SetPreferenceDataStore_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerServiceServer).SetPreferenceDataStore(ctx, req.(*ManagerSetPreferenceDataStoreRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ManagerService_SetSharedPreferencesMode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetSharedPreferencesModeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerServiceServer).SetSharedPreferencesMode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerService_SetSharedPreferencesMode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerServiceServer).SetSharedPreferencesMode(ctx, req.(*SetSharedPreferencesModeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ManagerService_SetSharedPreferencesName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetSharedPreferencesNameRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerServiceServer).SetSharedPreferencesName(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerService_SetSharedPreferencesName_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerServiceServer).SetSharedPreferencesName(ctx, req.(*SetSharedPreferencesNameRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ManagerService_SetStorageDefault_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetStorageDefaultRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerServiceServer).SetStorageDefault(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerService_SetStorageDefault_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerServiceServer).SetStorageDefault(ctx, req.(*SetStorageDefaultRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ManagerService_SetStorageDeviceProtected_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetStorageDeviceProtectedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerServiceServer).SetStorageDeviceProtected(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerService_SetStorageDeviceProtected_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerServiceServer).SetStorageDeviceProtected(ctx, req.(*SetStorageDeviceProtectedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ManagerService_GetDefaultSharedPreferences_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetDefaultSharedPreferencesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerServiceServer).GetDefaultSharedPreferences(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerService_GetDefaultSharedPreferences_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerServiceServer).GetDefaultSharedPreferences(ctx, req.(*GetDefaultSharedPreferencesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ManagerService_GetDefaultSharedPreferencesName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetDefaultSharedPreferencesNameRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerServiceServer).GetDefaultSharedPreferencesName(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerService_GetDefaultSharedPreferencesName_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerServiceServer).GetDefaultSharedPreferencesName(ctx, req.(*GetDefaultSharedPreferencesNameRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ManagerService_SetDefaultValues3_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetDefaultValues3Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerServiceServer).SetDefaultValues3(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerService_SetDefaultValues3_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerServiceServer).SetDefaultValues3(ctx, req.(*SetDefaultValues3Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ManagerService_SetDefaultValues5_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetDefaultValues5_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerServiceServer).SetDefaultValues5_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerService_SetDefaultValues5_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerServiceServer).SetDefaultValues5_1(ctx, req.(*SetDefaultValues5_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ManagerService_ServiceDesc is the grpc.ServiceDesc for ManagerService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ManagerService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "preference.ManagerService",
+	HandlerType: (*ManagerServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "CreatePreferenceScreen",
+			Handler:    _ManagerService_CreatePreferenceScreen_Handler,
+		},
+		{
+			MethodName: "FindPreference",
+			Handler:    _ManagerService_FindPreference_Handler,
+		},
+		{
+			MethodName: "GetPreferenceDataStore",
+			Handler:    _ManagerService_GetPreferenceDataStore_Handler,
+		},
+		{
+			MethodName: "GetSharedPreferences",
+			Handler:    _ManagerService_GetSharedPreferences_Handler,
+		},
+		{
+			MethodName: "GetSharedPreferencesMode",
+			Handler:    _ManagerService_GetSharedPreferencesMode_Handler,
+		},
+		{
+			MethodName: "GetSharedPreferencesName",
+			Handler:    _ManagerService_GetSharedPreferencesName_Handler,
+		},
+		{
+			MethodName: "IsStorageDefault",
+			Handler:    _ManagerService_IsStorageDefault_Handler,
+		},
+		{
+			MethodName: "IsStorageDeviceProtected",
+			Handler:    _ManagerService_IsStorageDeviceProtected_Handler,
+		},
+		{
+			MethodName: "SetPreferenceDataStore",
+			Handler:    _ManagerService_SetPreferenceDataStore_Handler,
+		},
+		{
+			MethodName: "SetSharedPreferencesMode",
+			Handler:    _ManagerService_SetSharedPreferencesMode_Handler,
+		},
+		{
+			MethodName: "SetSharedPreferencesName",
+			Handler:    _ManagerService_SetSharedPreferencesName_Handler,
+		},
+		{
+			MethodName: "SetStorageDefault",
+			Handler:    _ManagerService_SetStorageDefault_Handler,
+		},
+		{
+			MethodName: "SetStorageDeviceProtected",
+			Handler:    _ManagerService_SetStorageDeviceProtected_Handler,
+		},
+		{
+			MethodName: "GetDefaultSharedPreferences",
+			Handler:    _ManagerService_GetDefaultSharedPreferences_Handler,
+		},
+		{
+			MethodName: "GetDefaultSharedPreferencesName",
+			Handler:    _ManagerService_GetDefaultSharedPreferencesName_Handler,
+		},
+		{
+			MethodName: "SetDefaultValues3",
+			Handler:    _ManagerService_SetDefaultValues3_Handler,
+		},
+		{
+			MethodName: "SetDefaultValues5_1",
+			Handler:    _ManagerService_SetDefaultValues5_1_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/preference/preference.proto",
+}
+
+const (
+	ManagerOnActivityDestroyListenerService_OnActivityDestroy_FullMethodName = "/preference.ManagerOnActivityDestroyListenerService/OnActivityDestroy"
+)
+
+// ManagerOnActivityDestroyListenerServiceClient is the client API for ManagerOnActivityDestroyListenerService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ManagerOnActivityDestroyListenerServiceClient interface {
+	OnActivityDestroy(ctx context.Context, in *OnActivityDestroyRequest, opts ...grpc.CallOption) (*OnActivityDestroyResponse, error)
+}
+
+type managerOnActivityDestroyListenerServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewManagerOnActivityDestroyListenerServiceClient(cc grpc.ClientConnInterface) ManagerOnActivityDestroyListenerServiceClient {
+	return &managerOnActivityDestroyListenerServiceClient{cc}
+}
+
+func (c *managerOnActivityDestroyListenerServiceClient) OnActivityDestroy(ctx context.Context, in *OnActivityDestroyRequest, opts ...grpc.CallOption) (*OnActivityDestroyResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnActivityDestroyResponse)
+	err := c.cc.Invoke(ctx, ManagerOnActivityDestroyListenerService_OnActivityDestroy_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ManagerOnActivityDestroyListenerServiceServer is the server API for ManagerOnActivityDestroyListenerService service.
+// All implementations must embed UnimplementedManagerOnActivityDestroyListenerServiceServer
+// for forward compatibility.
+type ManagerOnActivityDestroyListenerServiceServer interface {
+	OnActivityDestroy(context.Context, *OnActivityDestroyRequest) (*OnActivityDestroyResponse, error)
+	mustEmbedUnimplementedManagerOnActivityDestroyListenerServiceServer()
+}
+
+// UnimplementedManagerOnActivityDestroyListenerServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedManagerOnActivityDestroyListenerServiceServer struct{}
+
+func (UnimplementedManagerOnActivityDestroyListenerServiceServer) OnActivityDestroy(context.Context, *OnActivityDestroyRequest) (*OnActivityDestroyResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnActivityDestroy not implemented")
+}
+func (UnimplementedManagerOnActivityDestroyListenerServiceServer) mustEmbedUnimplementedManagerOnActivityDestroyListenerServiceServer() {
+}
+func (UnimplementedManagerOnActivityDestroyListenerServiceServer) testEmbeddedByValue() {}
+
+// UnsafeManagerOnActivityDestroyListenerServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ManagerOnActivityDestroyListenerServiceServer will
+// result in compilation errors.
+type UnsafeManagerOnActivityDestroyListenerServiceServer interface {
+	mustEmbedUnimplementedManagerOnActivityDestroyListenerServiceServer()
+}
+
+func RegisterManagerOnActivityDestroyListenerServiceServer(s grpc.ServiceRegistrar, srv ManagerOnActivityDestroyListenerServiceServer) {
+	// If the following call panics, it indicates UnimplementedManagerOnActivityDestroyListenerServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&ManagerOnActivityDestroyListenerService_ServiceDesc, srv)
+}
+
+func _ManagerOnActivityDestroyListenerService_OnActivityDestroy_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnActivityDestroyRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerOnActivityDestroyListenerServiceServer).OnActivityDestroy(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerOnActivityDestroyListenerService_OnActivityDestroy_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerOnActivityDestroyListenerServiceServer).OnActivityDestroy(ctx, req.(*OnActivityDestroyRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ManagerOnActivityDestroyListenerService_ServiceDesc is the grpc.ServiceDesc for ManagerOnActivityDestroyListenerService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ManagerOnActivityDestroyListenerService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "preference.ManagerOnActivityDestroyListenerService",
+	HandlerType: (*ManagerOnActivityDestroyListenerServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "OnActivityDestroy",
+			Handler:    _ManagerOnActivityDestroyListenerService_OnActivityDestroy_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/preference/preference.proto",
+}
+
+const (
+	ManagerOnActivityResultListenerService_OnActivityResult_FullMethodName = "/preference.ManagerOnActivityResultListenerService/OnActivityResult"
+)
+
+// ManagerOnActivityResultListenerServiceClient is the client API for ManagerOnActivityResultListenerService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ManagerOnActivityResultListenerServiceClient interface {
+	OnActivityResult(ctx context.Context, in *OnActivityResultRequest, opts ...grpc.CallOption) (*ManagerOnActivityResultListenerOnActivityResultResponse, error)
+}
+
+type managerOnActivityResultListenerServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewManagerOnActivityResultListenerServiceClient(cc grpc.ClientConnInterface) ManagerOnActivityResultListenerServiceClient {
+	return &managerOnActivityResultListenerServiceClient{cc}
+}
+
+func (c *managerOnActivityResultListenerServiceClient) OnActivityResult(ctx context.Context, in *OnActivityResultRequest, opts ...grpc.CallOption) (*ManagerOnActivityResultListenerOnActivityResultResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ManagerOnActivityResultListenerOnActivityResultResponse)
+	err := c.cc.Invoke(ctx, ManagerOnActivityResultListenerService_OnActivityResult_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ManagerOnActivityResultListenerServiceServer is the server API for ManagerOnActivityResultListenerService service.
+// All implementations must embed UnimplementedManagerOnActivityResultListenerServiceServer
+// for forward compatibility.
+type ManagerOnActivityResultListenerServiceServer interface {
+	OnActivityResult(context.Context, *OnActivityResultRequest) (*ManagerOnActivityResultListenerOnActivityResultResponse, error)
+	mustEmbedUnimplementedManagerOnActivityResultListenerServiceServer()
+}
+
+// UnimplementedManagerOnActivityResultListenerServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedManagerOnActivityResultListenerServiceServer struct{}
+
+func (UnimplementedManagerOnActivityResultListenerServiceServer) OnActivityResult(context.Context, *OnActivityResultRequest) (*ManagerOnActivityResultListenerOnActivityResultResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnActivityResult not implemented")
+}
+func (UnimplementedManagerOnActivityResultListenerServiceServer) mustEmbedUnimplementedManagerOnActivityResultListenerServiceServer() {
+}
+func (UnimplementedManagerOnActivityResultListenerServiceServer) testEmbeddedByValue() {}
+
+// UnsafeManagerOnActivityResultListenerServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ManagerOnActivityResultListenerServiceServer will
+// result in compilation errors.
+type UnsafeManagerOnActivityResultListenerServiceServer interface {
+	mustEmbedUnimplementedManagerOnActivityResultListenerServiceServer()
+}
+
+func RegisterManagerOnActivityResultListenerServiceServer(s grpc.ServiceRegistrar, srv ManagerOnActivityResultListenerServiceServer) {
+	// If the following call panics, it indicates UnimplementedManagerOnActivityResultListenerServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&ManagerOnActivityResultListenerService_ServiceDesc, srv)
+}
+
+func _ManagerOnActivityResultListenerService_OnActivityResult_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnActivityResultRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerOnActivityResultListenerServiceServer).OnActivityResult(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerOnActivityResultListenerService_OnActivityResult_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerOnActivityResultListenerServiceServer).OnActivityResult(ctx, req.(*OnActivityResultRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ManagerOnActivityResultListenerService_ServiceDesc is the grpc.ServiceDesc for ManagerOnActivityResultListenerService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ManagerOnActivityResultListenerService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "preference.ManagerOnActivityResultListenerService",
+	HandlerType: (*ManagerOnActivityResultListenerServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "OnActivityResult",
+			Handler:    _ManagerOnActivityResultListenerService_OnActivityResult_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/preference/preference.proto",
+}
+
+const (
+	ManagerOnActivityStopListenerService_OnActivityStop_FullMethodName = "/preference.ManagerOnActivityStopListenerService/OnActivityStop"
+)
+
+// ManagerOnActivityStopListenerServiceClient is the client API for ManagerOnActivityStopListenerService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ManagerOnActivityStopListenerServiceClient interface {
+	OnActivityStop(ctx context.Context, in *OnActivityStopRequest, opts ...grpc.CallOption) (*OnActivityStopResponse, error)
+}
+
+type managerOnActivityStopListenerServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewManagerOnActivityStopListenerServiceClient(cc grpc.ClientConnInterface) ManagerOnActivityStopListenerServiceClient {
+	return &managerOnActivityStopListenerServiceClient{cc}
+}
+
+func (c *managerOnActivityStopListenerServiceClient) OnActivityStop(ctx context.Context, in *OnActivityStopRequest, opts ...grpc.CallOption) (*OnActivityStopResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnActivityStopResponse)
+	err := c.cc.Invoke(ctx, ManagerOnActivityStopListenerService_OnActivityStop_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ManagerOnActivityStopListenerServiceServer is the server API for ManagerOnActivityStopListenerService service.
+// All implementations must embed UnimplementedManagerOnActivityStopListenerServiceServer
+// for forward compatibility.
+type ManagerOnActivityStopListenerServiceServer interface {
+	OnActivityStop(context.Context, *OnActivityStopRequest) (*OnActivityStopResponse, error)
+	mustEmbedUnimplementedManagerOnActivityStopListenerServiceServer()
+}
+
+// UnimplementedManagerOnActivityStopListenerServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedManagerOnActivityStopListenerServiceServer struct{}
+
+func (UnimplementedManagerOnActivityStopListenerServiceServer) OnActivityStop(context.Context, *OnActivityStopRequest) (*OnActivityStopResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnActivityStop not implemented")
+}
+func (UnimplementedManagerOnActivityStopListenerServiceServer) mustEmbedUnimplementedManagerOnActivityStopListenerServiceServer() {
+}
+func (UnimplementedManagerOnActivityStopListenerServiceServer) testEmbeddedByValue() {}
+
+// UnsafeManagerOnActivityStopListenerServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ManagerOnActivityStopListenerServiceServer will
+// result in compilation errors.
+type UnsafeManagerOnActivityStopListenerServiceServer interface {
+	mustEmbedUnimplementedManagerOnActivityStopListenerServiceServer()
+}
+
+func RegisterManagerOnActivityStopListenerServiceServer(s grpc.ServiceRegistrar, srv ManagerOnActivityStopListenerServiceServer) {
+	// If the following call panics, it indicates UnimplementedManagerOnActivityStopListenerServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&ManagerOnActivityStopListenerService_ServiceDesc, srv)
+}
+
+func _ManagerOnActivityStopListenerService_OnActivityStop_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnActivityStopRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerOnActivityStopListenerServiceServer).OnActivityStop(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerOnActivityStopListenerService_OnActivityStop_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerOnActivityStopListenerServiceServer).OnActivityStop(ctx, req.(*OnActivityStopRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ManagerOnActivityStopListenerService_ServiceDesc is the grpc.ServiceDesc for ManagerOnActivityStopListenerService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ManagerOnActivityStopListenerService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "preference.ManagerOnActivityStopListenerService",
+	HandlerType: (*ManagerOnActivityStopListenerServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "OnActivityStop",
+			Handler:    _ManagerOnActivityStopListenerService_OnActivityStop_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/preference/preference.proto",
+}
+
+const (
+	ListPreferenceService_NewListPreference_FullMethodName = "/preference.ListPreferenceService/NewListPreference"
+	ListPreferenceService_FindIndexOfValue_FullMethodName  = "/preference.ListPreferenceService/FindIndexOfValue"
+	ListPreferenceService_GetEntries_FullMethodName        = "/preference.ListPreferenceService/GetEntries"
+	ListPreferenceService_GetEntry_FullMethodName          = "/preference.ListPreferenceService/GetEntry"
+	ListPreferenceService_GetEntryValues_FullMethodName    = "/preference.ListPreferenceService/GetEntryValues"
+	ListPreferenceService_GetSummary_FullMethodName        = "/preference.ListPreferenceService/GetSummary"
+	ListPreferenceService_GetValue_FullMethodName          = "/preference.ListPreferenceService/GetValue"
+	ListPreferenceService_SetEntries1_FullMethodName       = "/preference.ListPreferenceService/SetEntries1"
+	ListPreferenceService_SetEntries1_1_FullMethodName     = "/preference.ListPreferenceService/SetEntries1_1"
+	ListPreferenceService_SetEntryValues1_FullMethodName   = "/preference.ListPreferenceService/SetEntryValues1"
+	ListPreferenceService_SetEntryValues1_1_FullMethodName = "/preference.ListPreferenceService/SetEntryValues1_1"
+	ListPreferenceService_SetSummary_FullMethodName        = "/preference.ListPreferenceService/SetSummary"
+	ListPreferenceService_SetValue_FullMethodName          = "/preference.ListPreferenceService/SetValue"
+	ListPreferenceService_SetValueIndex_FullMethodName     = "/preference.ListPreferenceService/SetValueIndex"
+)
+
+// ListPreferenceServiceClient is the client API for ListPreferenceService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ListPreferenceServiceClient interface {
+	NewListPreference(ctx context.Context, in *NewListPreferenceRequest, opts ...grpc.CallOption) (*NewListPreferenceResponse, error)
+	FindIndexOfValue(ctx context.Context, in *FindIndexOfValueRequest, opts ...grpc.CallOption) (*FindIndexOfValueResponse, error)
+	GetEntries(ctx context.Context, in *GetEntriesRequest, opts ...grpc.CallOption) (*GetEntriesResponse, error)
+	GetEntry(ctx context.Context, in *GetEntryRequest, opts ...grpc.CallOption) (*GetEntryResponse, error)
+	GetEntryValues(ctx context.Context, in *GetEntryValuesRequest, opts ...grpc.CallOption) (*GetEntryValuesResponse, error)
+	GetSummary(ctx context.Context, in *GetSummaryRequest, opts ...grpc.CallOption) (*GetSummaryResponse, error)
+	GetValue(ctx context.Context, in *GetValueRequest, opts ...grpc.CallOption) (*GetValueResponse, error)
+	SetEntries1(ctx context.Context, in *SetEntries1Request, opts ...grpc.CallOption) (*SetEntries1Response, error)
+	SetEntries1_1(ctx context.Context, in *SetEntries1_1Request, opts ...grpc.CallOption) (*SetEntries1_1Response, error)
+	SetEntryValues1(ctx context.Context, in *SetEntryValues1Request, opts ...grpc.CallOption) (*SetEntryValues1Response, error)
+	SetEntryValues1_1(ctx context.Context, in *SetEntryValues1_1Request, opts ...grpc.CallOption) (*SetEntryValues1_1Response, error)
+	SetSummary(ctx context.Context, in *SetSummaryRequest, opts ...grpc.CallOption) (*SetSummaryResponse, error)
+	SetValue(ctx context.Context, in *SetValueRequest, opts ...grpc.CallOption) (*SetValueResponse, error)
+	SetValueIndex(ctx context.Context, in *SetValueIndexRequest, opts ...grpc.CallOption) (*SetValueIndexResponse, error)
+}
+
+type listPreferenceServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewListPreferenceServiceClient(cc grpc.ClientConnInterface) ListPreferenceServiceClient {
+	return &listPreferenceServiceClient{cc}
+}
+
+func (c *listPreferenceServiceClient) NewListPreference(ctx context.Context, in *NewListPreferenceRequest, opts ...grpc.CallOption) (*NewListPreferenceResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewListPreferenceResponse)
+	err := c.cc.Invoke(ctx, ListPreferenceService_NewListPreference_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *listPreferenceServiceClient) FindIndexOfValue(ctx context.Context, in *FindIndexOfValueRequest, opts ...grpc.CallOption) (*FindIndexOfValueResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(FindIndexOfValueResponse)
+	err := c.cc.Invoke(ctx, ListPreferenceService_FindIndexOfValue_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *listPreferenceServiceClient) GetEntries(ctx context.Context, in *GetEntriesRequest, opts ...grpc.CallOption) (*GetEntriesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetEntriesResponse)
+	err := c.cc.Invoke(ctx, ListPreferenceService_GetEntries_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *listPreferenceServiceClient) GetEntry(ctx context.Context, in *GetEntryRequest, opts ...grpc.CallOption) (*GetEntryResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetEntryResponse)
+	err := c.cc.Invoke(ctx, ListPreferenceService_GetEntry_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *listPreferenceServiceClient) GetEntryValues(ctx context.Context, in *GetEntryValuesRequest, opts ...grpc.CallOption) (*GetEntryValuesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetEntryValuesResponse)
+	err := c.cc.Invoke(ctx, ListPreferenceService_GetEntryValues_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *listPreferenceServiceClient) GetSummary(ctx context.Context, in *GetSummaryRequest, opts ...grpc.CallOption) (*GetSummaryResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSummaryResponse)
+	err := c.cc.Invoke(ctx, ListPreferenceService_GetSummary_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *listPreferenceServiceClient) GetValue(ctx context.Context, in *GetValueRequest, opts ...grpc.CallOption) (*GetValueResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetValueResponse)
+	err := c.cc.Invoke(ctx, ListPreferenceService_GetValue_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *listPreferenceServiceClient) SetEntries1(ctx context.Context, in *SetEntries1Request, opts ...grpc.CallOption) (*SetEntries1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetEntries1Response)
+	err := c.cc.Invoke(ctx, ListPreferenceService_SetEntries1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *listPreferenceServiceClient) SetEntries1_1(ctx context.Context, in *SetEntries1_1Request, opts ...grpc.CallOption) (*SetEntries1_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetEntries1_1Response)
+	err := c.cc.Invoke(ctx, ListPreferenceService_SetEntries1_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *listPreferenceServiceClient) SetEntryValues1(ctx context.Context, in *SetEntryValues1Request, opts ...grpc.CallOption) (*SetEntryValues1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetEntryValues1Response)
+	err := c.cc.Invoke(ctx, ListPreferenceService_SetEntryValues1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *listPreferenceServiceClient) SetEntryValues1_1(ctx context.Context, in *SetEntryValues1_1Request, opts ...grpc.CallOption) (*SetEntryValues1_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetEntryValues1_1Response)
+	err := c.cc.Invoke(ctx, ListPreferenceService_SetEntryValues1_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *listPreferenceServiceClient) SetSummary(ctx context.Context, in *SetSummaryRequest, opts ...grpc.CallOption) (*SetSummaryResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetSummaryResponse)
+	err := c.cc.Invoke(ctx, ListPreferenceService_SetSummary_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *listPreferenceServiceClient) SetValue(ctx context.Context, in *SetValueRequest, opts ...grpc.CallOption) (*SetValueResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetValueResponse)
+	err := c.cc.Invoke(ctx, ListPreferenceService_SetValue_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *listPreferenceServiceClient) SetValueIndex(ctx context.Context, in *SetValueIndexRequest, opts ...grpc.CallOption) (*SetValueIndexResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetValueIndexResponse)
+	err := c.cc.Invoke(ctx, ListPreferenceService_SetValueIndex_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ListPreferenceServiceServer is the server API for ListPreferenceService service.
+// All implementations must embed UnimplementedListPreferenceServiceServer
+// for forward compatibility.
+type ListPreferenceServiceServer interface {
+	NewListPreference(context.Context, *NewListPreferenceRequest) (*NewListPreferenceResponse, error)
+	FindIndexOfValue(context.Context, *FindIndexOfValueRequest) (*FindIndexOfValueResponse, error)
+	GetEntries(context.Context, *GetEntriesRequest) (*GetEntriesResponse, error)
+	GetEntry(context.Context, *GetEntryRequest) (*GetEntryResponse, error)
+	GetEntryValues(context.Context, *GetEntryValuesRequest) (*GetEntryValuesResponse, error)
+	GetSummary(context.Context, *GetSummaryRequest) (*GetSummaryResponse, error)
+	GetValue(context.Context, *GetValueRequest) (*GetValueResponse, error)
+	SetEntries1(context.Context, *SetEntries1Request) (*SetEntries1Response, error)
+	SetEntries1_1(context.Context, *SetEntries1_1Request) (*SetEntries1_1Response, error)
+	SetEntryValues1(context.Context, *SetEntryValues1Request) (*SetEntryValues1Response, error)
+	SetEntryValues1_1(context.Context, *SetEntryValues1_1Request) (*SetEntryValues1_1Response, error)
+	SetSummary(context.Context, *SetSummaryRequest) (*SetSummaryResponse, error)
+	SetValue(context.Context, *SetValueRequest) (*SetValueResponse, error)
+	SetValueIndex(context.Context, *SetValueIndexRequest) (*SetValueIndexResponse, error)
+	mustEmbedUnimplementedListPreferenceServiceServer()
+}
+
+// UnimplementedListPreferenceServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedListPreferenceServiceServer struct{}
+
+func (UnimplementedListPreferenceServiceServer) NewListPreference(context.Context, *NewListPreferenceRequest) (*NewListPreferenceResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewListPreference not implemented")
+}
+func (UnimplementedListPreferenceServiceServer) FindIndexOfValue(context.Context, *FindIndexOfValueRequest) (*FindIndexOfValueResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method FindIndexOfValue not implemented")
+}
+func (UnimplementedListPreferenceServiceServer) GetEntries(context.Context, *GetEntriesRequest) (*GetEntriesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetEntries not implemented")
+}
+func (UnimplementedListPreferenceServiceServer) GetEntry(context.Context, *GetEntryRequest) (*GetEntryResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetEntry not implemented")
+}
+func (UnimplementedListPreferenceServiceServer) GetEntryValues(context.Context, *GetEntryValuesRequest) (*GetEntryValuesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetEntryValues not implemented")
+}
+func (UnimplementedListPreferenceServiceServer) GetSummary(context.Context, *GetSummaryRequest) (*GetSummaryResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSummary not implemented")
+}
+func (UnimplementedListPreferenceServiceServer) GetValue(context.Context, *GetValueRequest) (*GetValueResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetValue not implemented")
+}
+func (UnimplementedListPreferenceServiceServer) SetEntries1(context.Context, *SetEntries1Request) (*SetEntries1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetEntries1 not implemented")
+}
+func (UnimplementedListPreferenceServiceServer) SetEntries1_1(context.Context, *SetEntries1_1Request) (*SetEntries1_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetEntries1_1 not implemented")
+}
+func (UnimplementedListPreferenceServiceServer) SetEntryValues1(context.Context, *SetEntryValues1Request) (*SetEntryValues1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetEntryValues1 not implemented")
+}
+func (UnimplementedListPreferenceServiceServer) SetEntryValues1_1(context.Context, *SetEntryValues1_1Request) (*SetEntryValues1_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetEntryValues1_1 not implemented")
+}
+func (UnimplementedListPreferenceServiceServer) SetSummary(context.Context, *SetSummaryRequest) (*SetSummaryResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetSummary not implemented")
+}
+func (UnimplementedListPreferenceServiceServer) SetValue(context.Context, *SetValueRequest) (*SetValueResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetValue not implemented")
+}
+func (UnimplementedListPreferenceServiceServer) SetValueIndex(context.Context, *SetValueIndexRequest) (*SetValueIndexResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetValueIndex not implemented")
+}
+func (UnimplementedListPreferenceServiceServer) mustEmbedUnimplementedListPreferenceServiceServer() {}
+func (UnimplementedListPreferenceServiceServer) testEmbeddedByValue()                               {}
+
+// UnsafeListPreferenceServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ListPreferenceServiceServer will
+// result in compilation errors.
+type UnsafeListPreferenceServiceServer interface {
+	mustEmbedUnimplementedListPreferenceServiceServer()
+}
+
+func RegisterListPreferenceServiceServer(s grpc.ServiceRegistrar, srv ListPreferenceServiceServer) {
+	// If the following call panics, it indicates UnimplementedListPreferenceServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&ListPreferenceService_ServiceDesc, srv)
+}
+
+func _ListPreferenceService_NewListPreference_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewListPreferenceRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ListPreferenceServiceServer).NewListPreference(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ListPreferenceService_NewListPreference_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ListPreferenceServiceServer).NewListPreference(ctx, req.(*NewListPreferenceRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ListPreferenceService_FindIndexOfValue_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(FindIndexOfValueRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ListPreferenceServiceServer).FindIndexOfValue(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ListPreferenceService_FindIndexOfValue_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ListPreferenceServiceServer).FindIndexOfValue(ctx, req.(*FindIndexOfValueRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ListPreferenceService_GetEntries_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetEntriesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ListPreferenceServiceServer).GetEntries(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ListPreferenceService_GetEntries_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ListPreferenceServiceServer).GetEntries(ctx, req.(*GetEntriesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ListPreferenceService_GetEntry_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetEntryRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ListPreferenceServiceServer).GetEntry(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ListPreferenceService_GetEntry_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ListPreferenceServiceServer).GetEntry(ctx, req.(*GetEntryRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ListPreferenceService_GetEntryValues_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetEntryValuesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ListPreferenceServiceServer).GetEntryValues(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ListPreferenceService_GetEntryValues_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ListPreferenceServiceServer).GetEntryValues(ctx, req.(*GetEntryValuesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ListPreferenceService_GetSummary_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSummaryRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ListPreferenceServiceServer).GetSummary(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ListPreferenceService_GetSummary_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ListPreferenceServiceServer).GetSummary(ctx, req.(*GetSummaryRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ListPreferenceService_GetValue_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetValueRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ListPreferenceServiceServer).GetValue(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ListPreferenceService_GetValue_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ListPreferenceServiceServer).GetValue(ctx, req.(*GetValueRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ListPreferenceService_SetEntries1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetEntries1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ListPreferenceServiceServer).SetEntries1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ListPreferenceService_SetEntries1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ListPreferenceServiceServer).SetEntries1(ctx, req.(*SetEntries1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ListPreferenceService_SetEntries1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetEntries1_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ListPreferenceServiceServer).SetEntries1_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ListPreferenceService_SetEntries1_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ListPreferenceServiceServer).SetEntries1_1(ctx, req.(*SetEntries1_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ListPreferenceService_SetEntryValues1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetEntryValues1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ListPreferenceServiceServer).SetEntryValues1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ListPreferenceService_SetEntryValues1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ListPreferenceServiceServer).SetEntryValues1(ctx, req.(*SetEntryValues1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ListPreferenceService_SetEntryValues1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetEntryValues1_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ListPreferenceServiceServer).SetEntryValues1_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ListPreferenceService_SetEntryValues1_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ListPreferenceServiceServer).SetEntryValues1_1(ctx, req.(*SetEntryValues1_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ListPreferenceService_SetSummary_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetSummaryRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ListPreferenceServiceServer).SetSummary(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ListPreferenceService_SetSummary_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ListPreferenceServiceServer).SetSummary(ctx, req.(*SetSummaryRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ListPreferenceService_SetValue_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetValueRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ListPreferenceServiceServer).SetValue(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ListPreferenceService_SetValue_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ListPreferenceServiceServer).SetValue(ctx, req.(*SetValueRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ListPreferenceService_SetValueIndex_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetValueIndexRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ListPreferenceServiceServer).SetValueIndex(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ListPreferenceService_SetValueIndex_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ListPreferenceServiceServer).SetValueIndex(ctx, req.(*SetValueIndexRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ListPreferenceService_ServiceDesc is the grpc.ServiceDesc for ListPreferenceService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ListPreferenceService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "preference.ListPreferenceService",
+	HandlerType: (*ListPreferenceServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewListPreference",
+			Handler:    _ListPreferenceService_NewListPreference_Handler,
+		},
+		{
+			MethodName: "FindIndexOfValue",
+			Handler:    _ListPreferenceService_FindIndexOfValue_Handler,
+		},
+		{
+			MethodName: "GetEntries",
+			Handler:    _ListPreferenceService_GetEntries_Handler,
+		},
+		{
+			MethodName: "GetEntry",
+			Handler:    _ListPreferenceService_GetEntry_Handler,
+		},
+		{
+			MethodName: "GetEntryValues",
+			Handler:    _ListPreferenceService_GetEntryValues_Handler,
+		},
+		{
+			MethodName: "GetSummary",
+			Handler:    _ListPreferenceService_GetSummary_Handler,
+		},
+		{
+			MethodName: "GetValue",
+			Handler:    _ListPreferenceService_GetValue_Handler,
+		},
+		{
+			MethodName: "SetEntries1",
+			Handler:    _ListPreferenceService_SetEntries1_Handler,
+		},
+		{
+			MethodName: "SetEntries1_1",
+			Handler:    _ListPreferenceService_SetEntries1_1_Handler,
+		},
+		{
+			MethodName: "SetEntryValues1",
+			Handler:    _ListPreferenceService_SetEntryValues1_Handler,
+		},
+		{
+			MethodName: "SetEntryValues1_1",
+			Handler:    _ListPreferenceService_SetEntryValues1_1_Handler,
+		},
+		{
+			MethodName: "SetSummary",
+			Handler:    _ListPreferenceService_SetSummary_Handler,
+		},
+		{
+			MethodName: "SetValue",
+			Handler:    _ListPreferenceService_SetValue_Handler,
+		},
+		{
+			MethodName: "SetValueIndex",
+			Handler:    _ListPreferenceService_SetValueIndex_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/preference/preference.proto",
+}
+
+const (
+	GroupService_AddItemFromInflater_FullMethodName    = "/preference.GroupService/AddItemFromInflater"
+	GroupService_AddPreference_FullMethodName          = "/preference.GroupService/AddPreference"
+	GroupService_FindPreference_FullMethodName         = "/preference.GroupService/FindPreference"
+	GroupService_GetPreference_FullMethodName          = "/preference.GroupService/GetPreference"
+	GroupService_GetPreferenceCount_FullMethodName     = "/preference.GroupService/GetPreferenceCount"
+	GroupService_IsOrderingAsAdded_FullMethodName      = "/preference.GroupService/IsOrderingAsAdded"
+	GroupService_NotifyDependencyChange_FullMethodName = "/preference.GroupService/NotifyDependencyChange"
+	GroupService_RemoveAll_FullMethodName              = "/preference.GroupService/RemoveAll"
+	GroupService_RemovePreference_FullMethodName       = "/preference.GroupService/RemovePreference"
+	GroupService_SetOrderingAsAdded_FullMethodName     = "/preference.GroupService/SetOrderingAsAdded"
+)
+
+// GroupServiceClient is the client API for GroupService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type GroupServiceClient interface {
+	AddItemFromInflater(ctx context.Context, in *AddItemFromInflaterRequest, opts ...grpc.CallOption) (*AddItemFromInflaterResponse, error)
+	AddPreference(ctx context.Context, in *AddPreferenceRequest, opts ...grpc.CallOption) (*AddPreferenceResponse, error)
+	FindPreference(ctx context.Context, in *FindPreferenceRequest, opts ...grpc.CallOption) (*FindPreferenceResponse, error)
+	GetPreference(ctx context.Context, in *GetPreferenceRequest, opts ...grpc.CallOption) (*GetPreferenceResponse, error)
+	GetPreferenceCount(ctx context.Context, in *GetPreferenceCountRequest, opts ...grpc.CallOption) (*GetPreferenceCountResponse, error)
+	IsOrderingAsAdded(ctx context.Context, in *IsOrderingAsAddedRequest, opts ...grpc.CallOption) (*IsOrderingAsAddedResponse, error)
+	NotifyDependencyChange(ctx context.Context, in *GroupNotifyDependencyChangeRequest, opts ...grpc.CallOption) (*NotifyDependencyChangeResponse, error)
+	RemoveAll(ctx context.Context, in *RemoveAllRequest, opts ...grpc.CallOption) (*RemoveAllResponse, error)
+	RemovePreference(ctx context.Context, in *RemovePreferenceRequest, opts ...grpc.CallOption) (*RemovePreferenceResponse, error)
+	SetOrderingAsAdded(ctx context.Context, in *SetOrderingAsAddedRequest, opts ...grpc.CallOption) (*SetOrderingAsAddedResponse, error)
+}
+
+type groupServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewGroupServiceClient(cc grpc.ClientConnInterface) GroupServiceClient {
+	return &groupServiceClient{cc}
+}
+
+func (c *groupServiceClient) AddItemFromInflater(ctx context.Context, in *AddItemFromInflaterRequest, opts ...grpc.CallOption) (*AddItemFromInflaterResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(AddItemFromInflaterResponse)
+	err := c.cc.Invoke(ctx, GroupService_AddItemFromInflater_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *groupServiceClient) AddPreference(ctx context.Context, in *AddPreferenceRequest, opts ...grpc.CallOption) (*AddPreferenceResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(AddPreferenceResponse)
+	err := c.cc.Invoke(ctx, GroupService_AddPreference_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *groupServiceClient) FindPreference(ctx context.Context, in *FindPreferenceRequest, opts ...grpc.CallOption) (*FindPreferenceResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(FindPreferenceResponse)
+	err := c.cc.Invoke(ctx, GroupService_FindPreference_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *groupServiceClient) GetPreference(ctx context.Context, in *GetPreferenceRequest, opts ...grpc.CallOption) (*GetPreferenceResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetPreferenceResponse)
+	err := c.cc.Invoke(ctx, GroupService_GetPreference_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *groupServiceClient) GetPreferenceCount(ctx context.Context, in *GetPreferenceCountRequest, opts ...grpc.CallOption) (*GetPreferenceCountResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetPreferenceCountResponse)
+	err := c.cc.Invoke(ctx, GroupService_GetPreferenceCount_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *groupServiceClient) IsOrderingAsAdded(ctx context.Context, in *IsOrderingAsAddedRequest, opts ...grpc.CallOption) (*IsOrderingAsAddedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsOrderingAsAddedResponse)
+	err := c.cc.Invoke(ctx, GroupService_IsOrderingAsAdded_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *groupServiceClient) NotifyDependencyChange(ctx context.Context, in *GroupNotifyDependencyChangeRequest, opts ...grpc.CallOption) (*NotifyDependencyChangeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NotifyDependencyChangeResponse)
+	err := c.cc.Invoke(ctx, GroupService_NotifyDependencyChange_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *groupServiceClient) RemoveAll(ctx context.Context, in *RemoveAllRequest, opts ...grpc.CallOption) (*RemoveAllResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(RemoveAllResponse)
+	err := c.cc.Invoke(ctx, GroupService_RemoveAll_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *groupServiceClient) RemovePreference(ctx context.Context, in *RemovePreferenceRequest, opts ...grpc.CallOption) (*RemovePreferenceResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(RemovePreferenceResponse)
+	err := c.cc.Invoke(ctx, GroupService_RemovePreference_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *groupServiceClient) SetOrderingAsAdded(ctx context.Context, in *SetOrderingAsAddedRequest, opts ...grpc.CallOption) (*SetOrderingAsAddedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetOrderingAsAddedResponse)
+	err := c.cc.Invoke(ctx, GroupService_SetOrderingAsAdded_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// GroupServiceServer is the server API for GroupService service.
+// All implementations must embed UnimplementedGroupServiceServer
+// for forward compatibility.
+type GroupServiceServer interface {
+	AddItemFromInflater(context.Context, *AddItemFromInflaterRequest) (*AddItemFromInflaterResponse, error)
+	AddPreference(context.Context, *AddPreferenceRequest) (*AddPreferenceResponse, error)
+	FindPreference(context.Context, *FindPreferenceRequest) (*FindPreferenceResponse, error)
+	GetPreference(context.Context, *GetPreferenceRequest) (*GetPreferenceResponse, error)
+	GetPreferenceCount(context.Context, *GetPreferenceCountRequest) (*GetPreferenceCountResponse, error)
+	IsOrderingAsAdded(context.Context, *IsOrderingAsAddedRequest) (*IsOrderingAsAddedResponse, error)
+	NotifyDependencyChange(context.Context, *GroupNotifyDependencyChangeRequest) (*NotifyDependencyChangeResponse, error)
+	RemoveAll(context.Context, *RemoveAllRequest) (*RemoveAllResponse, error)
+	RemovePreference(context.Context, *RemovePreferenceRequest) (*RemovePreferenceResponse, error)
+	SetOrderingAsAdded(context.Context, *SetOrderingAsAddedRequest) (*SetOrderingAsAddedResponse, error)
+	mustEmbedUnimplementedGroupServiceServer()
+}
+
+// UnimplementedGroupServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedGroupServiceServer struct{}
+
+func (UnimplementedGroupServiceServer) AddItemFromInflater(context.Context, *AddItemFromInflaterRequest) (*AddItemFromInflaterResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method AddItemFromInflater not implemented")
+}
+func (UnimplementedGroupServiceServer) AddPreference(context.Context, *AddPreferenceRequest) (*AddPreferenceResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method AddPreference not implemented")
+}
+func (UnimplementedGroupServiceServer) FindPreference(context.Context, *FindPreferenceRequest) (*FindPreferenceResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method FindPreference not implemented")
+}
+func (UnimplementedGroupServiceServer) GetPreference(context.Context, *GetPreferenceRequest) (*GetPreferenceResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetPreference not implemented")
+}
+func (UnimplementedGroupServiceServer) GetPreferenceCount(context.Context, *GetPreferenceCountRequest) (*GetPreferenceCountResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetPreferenceCount not implemented")
+}
+func (UnimplementedGroupServiceServer) IsOrderingAsAdded(context.Context, *IsOrderingAsAddedRequest) (*IsOrderingAsAddedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsOrderingAsAdded not implemented")
+}
+func (UnimplementedGroupServiceServer) NotifyDependencyChange(context.Context, *GroupNotifyDependencyChangeRequest) (*NotifyDependencyChangeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NotifyDependencyChange not implemented")
+}
+func (UnimplementedGroupServiceServer) RemoveAll(context.Context, *RemoveAllRequest) (*RemoveAllResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method RemoveAll not implemented")
+}
+func (UnimplementedGroupServiceServer) RemovePreference(context.Context, *RemovePreferenceRequest) (*RemovePreferenceResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method RemovePreference not implemented")
+}
+func (UnimplementedGroupServiceServer) SetOrderingAsAdded(context.Context, *SetOrderingAsAddedRequest) (*SetOrderingAsAddedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetOrderingAsAdded not implemented")
+}
+func (UnimplementedGroupServiceServer) mustEmbedUnimplementedGroupServiceServer() {}
+func (UnimplementedGroupServiceServer) testEmbeddedByValue()                      {}
+
+// UnsafeGroupServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to GroupServiceServer will
+// result in compilation errors.
+type UnsafeGroupServiceServer interface {
+	mustEmbedUnimplementedGroupServiceServer()
+}
+
+func RegisterGroupServiceServer(s grpc.ServiceRegistrar, srv GroupServiceServer) {
+	// If the following call panics, it indicates UnimplementedGroupServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&GroupService_ServiceDesc, srv)
+}
+
+func _GroupService_AddItemFromInflater_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AddItemFromInflaterRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GroupServiceServer).AddItemFromInflater(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: GroupService_AddItemFromInflater_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GroupServiceServer).AddItemFromInflater(ctx, req.(*AddItemFromInflaterRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _GroupService_AddPreference_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AddPreferenceRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GroupServiceServer).AddPreference(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: GroupService_AddPreference_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GroupServiceServer).AddPreference(ctx, req.(*AddPreferenceRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _GroupService_FindPreference_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(FindPreferenceRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GroupServiceServer).FindPreference(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: GroupService_FindPreference_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GroupServiceServer).FindPreference(ctx, req.(*FindPreferenceRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _GroupService_GetPreference_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPreferenceRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GroupServiceServer).GetPreference(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: GroupService_GetPreference_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GroupServiceServer).GetPreference(ctx, req.(*GetPreferenceRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _GroupService_GetPreferenceCount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPreferenceCountRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GroupServiceServer).GetPreferenceCount(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: GroupService_GetPreferenceCount_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GroupServiceServer).GetPreferenceCount(ctx, req.(*GetPreferenceCountRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _GroupService_IsOrderingAsAdded_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsOrderingAsAddedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GroupServiceServer).IsOrderingAsAdded(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: GroupService_IsOrderingAsAdded_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GroupServiceServer).IsOrderingAsAdded(ctx, req.(*IsOrderingAsAddedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _GroupService_NotifyDependencyChange_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GroupNotifyDependencyChangeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GroupServiceServer).NotifyDependencyChange(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: GroupService_NotifyDependencyChange_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GroupServiceServer).NotifyDependencyChange(ctx, req.(*GroupNotifyDependencyChangeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _GroupService_RemoveAll_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RemoveAllRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GroupServiceServer).RemoveAll(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: GroupService_RemoveAll_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GroupServiceServer).RemoveAll(ctx, req.(*RemoveAllRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _GroupService_RemovePreference_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RemovePreferenceRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GroupServiceServer).RemovePreference(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: GroupService_RemovePreference_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GroupServiceServer).RemovePreference(ctx, req.(*RemovePreferenceRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _GroupService_SetOrderingAsAdded_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetOrderingAsAddedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GroupServiceServer).SetOrderingAsAdded(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: GroupService_SetOrderingAsAdded_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GroupServiceServer).SetOrderingAsAdded(ctx, req.(*SetOrderingAsAddedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// GroupService_ServiceDesc is the grpc.ServiceDesc for GroupService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var GroupService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "preference.GroupService",
+	HandlerType: (*GroupServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "AddItemFromInflater",
+			Handler:    _GroupService_AddItemFromInflater_Handler,
+		},
+		{
+			MethodName: "AddPreference",
+			Handler:    _GroupService_AddPreference_Handler,
+		},
+		{
+			MethodName: "FindPreference",
+			Handler:    _GroupService_FindPreference_Handler,
+		},
+		{
+			MethodName: "GetPreference",
+			Handler:    _GroupService_GetPreference_Handler,
+		},
+		{
+			MethodName: "GetPreferenceCount",
+			Handler:    _GroupService_GetPreferenceCount_Handler,
+		},
+		{
+			MethodName: "IsOrderingAsAdded",
+			Handler:    _GroupService_IsOrderingAsAdded_Handler,
+		},
+		{
+			MethodName: "NotifyDependencyChange",
+			Handler:    _GroupService_NotifyDependencyChange_Handler,
+		},
+		{
+			MethodName: "RemoveAll",
+			Handler:    _GroupService_RemoveAll_Handler,
+		},
+		{
+			MethodName: "RemovePreference",
+			Handler:    _GroupService_RemovePreference_Handler,
+		},
+		{
+			MethodName: "SetOrderingAsAdded",
+			Handler:    _GroupService_SetOrderingAsAdded_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/preference/preference.proto",
+}
+
+const (
+	CategoryService_NewCategory_FullMethodName             = "/preference.CategoryService/NewCategory"
+	CategoryService_IsEnabled_FullMethodName               = "/preference.CategoryService/IsEnabled"
+	CategoryService_ShouldDisableDependents_FullMethodName = "/preference.CategoryService/ShouldDisableDependents"
+)
+
+// CategoryServiceClient is the client API for CategoryService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type CategoryServiceClient interface {
+	NewCategory(ctx context.Context, in *NewCategoryRequest, opts ...grpc.CallOption) (*NewCategoryResponse, error)
+	IsEnabled(ctx context.Context, in *IsEnabledRequest, opts ...grpc.CallOption) (*IsEnabledResponse, error)
+	ShouldDisableDependents(ctx context.Context, in *ShouldDisableDependentsRequest, opts ...grpc.CallOption) (*ShouldDisableDependentsResponse, error)
+}
+
+type categoryServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewCategoryServiceClient(cc grpc.ClientConnInterface) CategoryServiceClient {
+	return &categoryServiceClient{cc}
+}
+
+func (c *categoryServiceClient) NewCategory(ctx context.Context, in *NewCategoryRequest, opts ...grpc.CallOption) (*NewCategoryResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewCategoryResponse)
+	err := c.cc.Invoke(ctx, CategoryService_NewCategory_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *categoryServiceClient) IsEnabled(ctx context.Context, in *IsEnabledRequest, opts ...grpc.CallOption) (*IsEnabledResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsEnabledResponse)
+	err := c.cc.Invoke(ctx, CategoryService_IsEnabled_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *categoryServiceClient) ShouldDisableDependents(ctx context.Context, in *ShouldDisableDependentsRequest, opts ...grpc.CallOption) (*ShouldDisableDependentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ShouldDisableDependentsResponse)
+	err := c.cc.Invoke(ctx, CategoryService_ShouldDisableDependents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// CategoryServiceServer is the server API for CategoryService service.
+// All implementations must embed UnimplementedCategoryServiceServer
+// for forward compatibility.
+type CategoryServiceServer interface {
+	NewCategory(context.Context, *NewCategoryRequest) (*NewCategoryResponse, error)
+	IsEnabled(context.Context, *IsEnabledRequest) (*IsEnabledResponse, error)
+	ShouldDisableDependents(context.Context, *ShouldDisableDependentsRequest) (*ShouldDisableDependentsResponse, error)
+	mustEmbedUnimplementedCategoryServiceServer()
+}
+
+// UnimplementedCategoryServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedCategoryServiceServer struct{}
+
+func (UnimplementedCategoryServiceServer) NewCategory(context.Context, *NewCategoryRequest) (*NewCategoryResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewCategory not implemented")
+}
+func (UnimplementedCategoryServiceServer) IsEnabled(context.Context, *IsEnabledRequest) (*IsEnabledResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsEnabled not implemented")
+}
+func (UnimplementedCategoryServiceServer) ShouldDisableDependents(context.Context, *ShouldDisableDependentsRequest) (*ShouldDisableDependentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ShouldDisableDependents not implemented")
+}
+func (UnimplementedCategoryServiceServer) mustEmbedUnimplementedCategoryServiceServer() {}
+func (UnimplementedCategoryServiceServer) testEmbeddedByValue()                         {}
+
+// UnsafeCategoryServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to CategoryServiceServer will
+// result in compilation errors.
+type UnsafeCategoryServiceServer interface {
+	mustEmbedUnimplementedCategoryServiceServer()
+}
+
+func RegisterCategoryServiceServer(s grpc.ServiceRegistrar, srv CategoryServiceServer) {
+	// If the following call panics, it indicates UnimplementedCategoryServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&CategoryService_ServiceDesc, srv)
+}
+
+func _CategoryService_NewCategory_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewCategoryRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CategoryServiceServer).NewCategory(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CategoryService_NewCategory_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CategoryServiceServer).NewCategory(ctx, req.(*NewCategoryRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CategoryService_IsEnabled_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsEnabledRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CategoryServiceServer).IsEnabled(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CategoryService_IsEnabled_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CategoryServiceServer).IsEnabled(ctx, req.(*IsEnabledRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CategoryService_ShouldDisableDependents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ShouldDisableDependentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CategoryServiceServer).ShouldDisableDependents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CategoryService_ShouldDisableDependents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CategoryServiceServer).ShouldDisableDependents(ctx, req.(*ShouldDisableDependentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// CategoryService_ServiceDesc is the grpc.ServiceDesc for CategoryService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var CategoryService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "preference.CategoryService",
+	HandlerType: (*CategoryServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewCategory",
+			Handler:    _CategoryService_NewCategory_Handler,
+		},
+		{
+			MethodName: "IsEnabled",
+			Handler:    _CategoryService_IsEnabled_Handler,
+		},
+		{
+			MethodName: "ShouldDisableDependents",
+			Handler:    _CategoryService_ShouldDisableDependents_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/preference/preference.proto",
+}
+
+const (
+	ScreenService_Bind_FullMethodName           = "/preference.ScreenService/Bind"
+	ScreenService_GetDialog_FullMethodName      = "/preference.ScreenService/GetDialog"
+	ScreenService_GetRootAdapter_FullMethodName = "/preference.ScreenService/GetRootAdapter"
+	ScreenService_OnDismiss_FullMethodName      = "/preference.ScreenService/OnDismiss"
+	ScreenService_OnItemClick_FullMethodName    = "/preference.ScreenService/OnItemClick"
+)
+
+// ScreenServiceClient is the client API for ScreenService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ScreenServiceClient interface {
+	Bind(ctx context.Context, in *BindRequest, opts ...grpc.CallOption) (*BindResponse, error)
+	GetDialog(ctx context.Context, in *GetDialogRequest, opts ...grpc.CallOption) (*GetDialogResponse, error)
+	GetRootAdapter(ctx context.Context, in *GetRootAdapterRequest, opts ...grpc.CallOption) (*GetRootAdapterResponse, error)
+	OnDismiss(ctx context.Context, in *OnDismissRequest, opts ...grpc.CallOption) (*OnDismissResponse, error)
+	OnItemClick(ctx context.Context, in *OnItemClickRequest, opts ...grpc.CallOption) (*OnItemClickResponse, error)
+}
+
+type screenServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewScreenServiceClient(cc grpc.ClientConnInterface) ScreenServiceClient {
+	return &screenServiceClient{cc}
+}
+
+func (c *screenServiceClient) Bind(ctx context.Context, in *BindRequest, opts ...grpc.CallOption) (*BindResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(BindResponse)
+	err := c.cc.Invoke(ctx, ScreenService_Bind_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *screenServiceClient) GetDialog(ctx context.Context, in *GetDialogRequest, opts ...grpc.CallOption) (*GetDialogResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetDialogResponse)
+	err := c.cc.Invoke(ctx, ScreenService_GetDialog_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *screenServiceClient) GetRootAdapter(ctx context.Context, in *GetRootAdapterRequest, opts ...grpc.CallOption) (*GetRootAdapterResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetRootAdapterResponse)
+	err := c.cc.Invoke(ctx, ScreenService_GetRootAdapter_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *screenServiceClient) OnDismiss(ctx context.Context, in *OnDismissRequest, opts ...grpc.CallOption) (*OnDismissResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnDismissResponse)
+	err := c.cc.Invoke(ctx, ScreenService_OnDismiss_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *screenServiceClient) OnItemClick(ctx context.Context, in *OnItemClickRequest, opts ...grpc.CallOption) (*OnItemClickResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnItemClickResponse)
+	err := c.cc.Invoke(ctx, ScreenService_OnItemClick_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ScreenServiceServer is the server API for ScreenService service.
+// All implementations must embed UnimplementedScreenServiceServer
+// for forward compatibility.
+type ScreenServiceServer interface {
+	Bind(context.Context, *BindRequest) (*BindResponse, error)
+	GetDialog(context.Context, *GetDialogRequest) (*GetDialogResponse, error)
+	GetRootAdapter(context.Context, *GetRootAdapterRequest) (*GetRootAdapterResponse, error)
+	OnDismiss(context.Context, *OnDismissRequest) (*OnDismissResponse, error)
+	OnItemClick(context.Context, *OnItemClickRequest) (*OnItemClickResponse, error)
+	mustEmbedUnimplementedScreenServiceServer()
+}
+
+// UnimplementedScreenServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedScreenServiceServer struct{}
+
+func (UnimplementedScreenServiceServer) Bind(context.Context, *BindRequest) (*BindResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Bind not implemented")
+}
+func (UnimplementedScreenServiceServer) GetDialog(context.Context, *GetDialogRequest) (*GetDialogResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetDialog not implemented")
+}
+func (UnimplementedScreenServiceServer) GetRootAdapter(context.Context, *GetRootAdapterRequest) (*GetRootAdapterResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetRootAdapter not implemented")
+}
+func (UnimplementedScreenServiceServer) OnDismiss(context.Context, *OnDismissRequest) (*OnDismissResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnDismiss not implemented")
+}
+func (UnimplementedScreenServiceServer) OnItemClick(context.Context, *OnItemClickRequest) (*OnItemClickResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnItemClick not implemented")
+}
+func (UnimplementedScreenServiceServer) mustEmbedUnimplementedScreenServiceServer() {}
+func (UnimplementedScreenServiceServer) testEmbeddedByValue()                       {}
+
+// UnsafeScreenServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ScreenServiceServer will
+// result in compilation errors.
+type UnsafeScreenServiceServer interface {
+	mustEmbedUnimplementedScreenServiceServer()
+}
+
+func RegisterScreenServiceServer(s grpc.ServiceRegistrar, srv ScreenServiceServer) {
+	// If the following call panics, it indicates UnimplementedScreenServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&ScreenService_ServiceDesc, srv)
+}
+
+func _ScreenService_Bind_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BindRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ScreenServiceServer).Bind(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ScreenService_Bind_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ScreenServiceServer).Bind(ctx, req.(*BindRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ScreenService_GetDialog_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetDialogRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ScreenServiceServer).GetDialog(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ScreenService_GetDialog_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ScreenServiceServer).GetDialog(ctx, req.(*GetDialogRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ScreenService_GetRootAdapter_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetRootAdapterRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ScreenServiceServer).GetRootAdapter(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ScreenService_GetRootAdapter_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ScreenServiceServer).GetRootAdapter(ctx, req.(*GetRootAdapterRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ScreenService_OnDismiss_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnDismissRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ScreenServiceServer).OnDismiss(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ScreenService_OnDismiss_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ScreenServiceServer).OnDismiss(ctx, req.(*OnDismissRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ScreenService_OnItemClick_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnItemClickRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ScreenServiceServer).OnItemClick(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ScreenService_OnItemClick_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ScreenServiceServer).OnItemClick(ctx, req.(*OnItemClickRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ScreenService_ServiceDesc is the grpc.ServiceDesc for ScreenService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ScreenService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "preference.ScreenService",
+	HandlerType: (*ScreenServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Bind",
+			Handler:    _ScreenService_Bind_Handler,
+		},
+		{
+			MethodName: "GetDialog",
+			Handler:    _ScreenService_GetDialog_Handler,
+		},
+		{
+			MethodName: "GetRootAdapter",
+			Handler:    _ScreenService_GetRootAdapter_Handler,
+		},
+		{
+			MethodName: "OnDismiss",
+			Handler:    _ScreenService_OnDismiss_Handler,
+		},
+		{
+			MethodName: "OnItemClick",
+			Handler:    _ScreenService_OnItemClick_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -6277,3991 +10300,6 @@ var DialogPreferenceService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "SetPositiveButtonText1_1",
 			Handler:    _DialogPreferenceService_SetPositiveButtonText1_1_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/preference/preference.proto",
-}
-
-const (
-	ScreenService_Bind_FullMethodName           = "/preference.ScreenService/Bind"
-	ScreenService_GetDialog_FullMethodName      = "/preference.ScreenService/GetDialog"
-	ScreenService_GetRootAdapter_FullMethodName = "/preference.ScreenService/GetRootAdapter"
-	ScreenService_OnDismiss_FullMethodName      = "/preference.ScreenService/OnDismiss"
-	ScreenService_OnItemClick_FullMethodName    = "/preference.ScreenService/OnItemClick"
-)
-
-// ScreenServiceClient is the client API for ScreenService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type ScreenServiceClient interface {
-	Bind(ctx context.Context, in *BindRequest, opts ...grpc.CallOption) (*BindResponse, error)
-	GetDialog(ctx context.Context, in *GetDialogRequest, opts ...grpc.CallOption) (*GetDialogResponse, error)
-	GetRootAdapter(ctx context.Context, in *GetRootAdapterRequest, opts ...grpc.CallOption) (*GetRootAdapterResponse, error)
-	OnDismiss(ctx context.Context, in *OnDismissRequest, opts ...grpc.CallOption) (*OnDismissResponse, error)
-	OnItemClick(ctx context.Context, in *OnItemClickRequest, opts ...grpc.CallOption) (*OnItemClickResponse, error)
-}
-
-type screenServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewScreenServiceClient(cc grpc.ClientConnInterface) ScreenServiceClient {
-	return &screenServiceClient{cc}
-}
-
-func (c *screenServiceClient) Bind(ctx context.Context, in *BindRequest, opts ...grpc.CallOption) (*BindResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(BindResponse)
-	err := c.cc.Invoke(ctx, ScreenService_Bind_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *screenServiceClient) GetDialog(ctx context.Context, in *GetDialogRequest, opts ...grpc.CallOption) (*GetDialogResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetDialogResponse)
-	err := c.cc.Invoke(ctx, ScreenService_GetDialog_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *screenServiceClient) GetRootAdapter(ctx context.Context, in *GetRootAdapterRequest, opts ...grpc.CallOption) (*GetRootAdapterResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetRootAdapterResponse)
-	err := c.cc.Invoke(ctx, ScreenService_GetRootAdapter_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *screenServiceClient) OnDismiss(ctx context.Context, in *OnDismissRequest, opts ...grpc.CallOption) (*OnDismissResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnDismissResponse)
-	err := c.cc.Invoke(ctx, ScreenService_OnDismiss_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *screenServiceClient) OnItemClick(ctx context.Context, in *OnItemClickRequest, opts ...grpc.CallOption) (*OnItemClickResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnItemClickResponse)
-	err := c.cc.Invoke(ctx, ScreenService_OnItemClick_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// ScreenServiceServer is the server API for ScreenService service.
-// All implementations must embed UnimplementedScreenServiceServer
-// for forward compatibility.
-type ScreenServiceServer interface {
-	Bind(context.Context, *BindRequest) (*BindResponse, error)
-	GetDialog(context.Context, *GetDialogRequest) (*GetDialogResponse, error)
-	GetRootAdapter(context.Context, *GetRootAdapterRequest) (*GetRootAdapterResponse, error)
-	OnDismiss(context.Context, *OnDismissRequest) (*OnDismissResponse, error)
-	OnItemClick(context.Context, *OnItemClickRequest) (*OnItemClickResponse, error)
-	mustEmbedUnimplementedScreenServiceServer()
-}
-
-// UnimplementedScreenServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedScreenServiceServer struct{}
-
-func (UnimplementedScreenServiceServer) Bind(context.Context, *BindRequest) (*BindResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Bind not implemented")
-}
-func (UnimplementedScreenServiceServer) GetDialog(context.Context, *GetDialogRequest) (*GetDialogResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetDialog not implemented")
-}
-func (UnimplementedScreenServiceServer) GetRootAdapter(context.Context, *GetRootAdapterRequest) (*GetRootAdapterResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetRootAdapter not implemented")
-}
-func (UnimplementedScreenServiceServer) OnDismiss(context.Context, *OnDismissRequest) (*OnDismissResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnDismiss not implemented")
-}
-func (UnimplementedScreenServiceServer) OnItemClick(context.Context, *OnItemClickRequest) (*OnItemClickResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnItemClick not implemented")
-}
-func (UnimplementedScreenServiceServer) mustEmbedUnimplementedScreenServiceServer() {}
-func (UnimplementedScreenServiceServer) testEmbeddedByValue()                       {}
-
-// UnsafeScreenServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to ScreenServiceServer will
-// result in compilation errors.
-type UnsafeScreenServiceServer interface {
-	mustEmbedUnimplementedScreenServiceServer()
-}
-
-func RegisterScreenServiceServer(s grpc.ServiceRegistrar, srv ScreenServiceServer) {
-	// If the following call panics, it indicates UnimplementedScreenServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&ScreenService_ServiceDesc, srv)
-}
-
-func _ScreenService_Bind_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(BindRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ScreenServiceServer).Bind(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ScreenService_Bind_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ScreenServiceServer).Bind(ctx, req.(*BindRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ScreenService_GetDialog_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetDialogRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ScreenServiceServer).GetDialog(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ScreenService_GetDialog_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ScreenServiceServer).GetDialog(ctx, req.(*GetDialogRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ScreenService_GetRootAdapter_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetRootAdapterRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ScreenServiceServer).GetRootAdapter(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ScreenService_GetRootAdapter_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ScreenServiceServer).GetRootAdapter(ctx, req.(*GetRootAdapterRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ScreenService_OnDismiss_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnDismissRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ScreenServiceServer).OnDismiss(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ScreenService_OnDismiss_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ScreenServiceServer).OnDismiss(ctx, req.(*OnDismissRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ScreenService_OnItemClick_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnItemClickRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ScreenServiceServer).OnItemClick(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ScreenService_OnItemClick_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ScreenServiceServer).OnItemClick(ctx, req.(*OnItemClickRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// ScreenService_ServiceDesc is the grpc.ServiceDesc for ScreenService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var ScreenService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "preference.ScreenService",
-	HandlerType: (*ScreenServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "Bind",
-			Handler:    _ScreenService_Bind_Handler,
-		},
-		{
-			MethodName: "GetDialog",
-			Handler:    _ScreenService_GetDialog_Handler,
-		},
-		{
-			MethodName: "GetRootAdapter",
-			Handler:    _ScreenService_GetRootAdapter_Handler,
-		},
-		{
-			MethodName: "OnDismiss",
-			Handler:    _ScreenService_OnDismiss_Handler,
-		},
-		{
-			MethodName: "OnItemClick",
-			Handler:    _ScreenService_OnItemClick_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/preference/preference.proto",
-}
-
-const (
-	GroupService_AddItemFromInflater_FullMethodName    = "/preference.GroupService/AddItemFromInflater"
-	GroupService_AddPreference_FullMethodName          = "/preference.GroupService/AddPreference"
-	GroupService_FindPreference_FullMethodName         = "/preference.GroupService/FindPreference"
-	GroupService_GetPreference_FullMethodName          = "/preference.GroupService/GetPreference"
-	GroupService_GetPreferenceCount_FullMethodName     = "/preference.GroupService/GetPreferenceCount"
-	GroupService_IsOrderingAsAdded_FullMethodName      = "/preference.GroupService/IsOrderingAsAdded"
-	GroupService_NotifyDependencyChange_FullMethodName = "/preference.GroupService/NotifyDependencyChange"
-	GroupService_RemoveAll_FullMethodName              = "/preference.GroupService/RemoveAll"
-	GroupService_RemovePreference_FullMethodName       = "/preference.GroupService/RemovePreference"
-	GroupService_SetOrderingAsAdded_FullMethodName     = "/preference.GroupService/SetOrderingAsAdded"
-)
-
-// GroupServiceClient is the client API for GroupService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type GroupServiceClient interface {
-	AddItemFromInflater(ctx context.Context, in *AddItemFromInflaterRequest, opts ...grpc.CallOption) (*AddItemFromInflaterResponse, error)
-	AddPreference(ctx context.Context, in *AddPreferenceRequest, opts ...grpc.CallOption) (*AddPreferenceResponse, error)
-	FindPreference(ctx context.Context, in *FindPreferenceRequest, opts ...grpc.CallOption) (*FindPreferenceResponse, error)
-	GetPreference(ctx context.Context, in *GetPreferenceRequest, opts ...grpc.CallOption) (*GetPreferenceResponse, error)
-	GetPreferenceCount(ctx context.Context, in *GetPreferenceCountRequest, opts ...grpc.CallOption) (*GetPreferenceCountResponse, error)
-	IsOrderingAsAdded(ctx context.Context, in *IsOrderingAsAddedRequest, opts ...grpc.CallOption) (*IsOrderingAsAddedResponse, error)
-	NotifyDependencyChange(ctx context.Context, in *NotifyDependencyChangeRequest, opts ...grpc.CallOption) (*NotifyDependencyChangeResponse, error)
-	RemoveAll(ctx context.Context, in *RemoveAllRequest, opts ...grpc.CallOption) (*RemoveAllResponse, error)
-	RemovePreference(ctx context.Context, in *RemovePreferenceRequest, opts ...grpc.CallOption) (*RemovePreferenceResponse, error)
-	SetOrderingAsAdded(ctx context.Context, in *SetOrderingAsAddedRequest, opts ...grpc.CallOption) (*SetOrderingAsAddedResponse, error)
-}
-
-type groupServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewGroupServiceClient(cc grpc.ClientConnInterface) GroupServiceClient {
-	return &groupServiceClient{cc}
-}
-
-func (c *groupServiceClient) AddItemFromInflater(ctx context.Context, in *AddItemFromInflaterRequest, opts ...grpc.CallOption) (*AddItemFromInflaterResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(AddItemFromInflaterResponse)
-	err := c.cc.Invoke(ctx, GroupService_AddItemFromInflater_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *groupServiceClient) AddPreference(ctx context.Context, in *AddPreferenceRequest, opts ...grpc.CallOption) (*AddPreferenceResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(AddPreferenceResponse)
-	err := c.cc.Invoke(ctx, GroupService_AddPreference_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *groupServiceClient) FindPreference(ctx context.Context, in *FindPreferenceRequest, opts ...grpc.CallOption) (*FindPreferenceResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(FindPreferenceResponse)
-	err := c.cc.Invoke(ctx, GroupService_FindPreference_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *groupServiceClient) GetPreference(ctx context.Context, in *GetPreferenceRequest, opts ...grpc.CallOption) (*GetPreferenceResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetPreferenceResponse)
-	err := c.cc.Invoke(ctx, GroupService_GetPreference_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *groupServiceClient) GetPreferenceCount(ctx context.Context, in *GetPreferenceCountRequest, opts ...grpc.CallOption) (*GetPreferenceCountResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetPreferenceCountResponse)
-	err := c.cc.Invoke(ctx, GroupService_GetPreferenceCount_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *groupServiceClient) IsOrderingAsAdded(ctx context.Context, in *IsOrderingAsAddedRequest, opts ...grpc.CallOption) (*IsOrderingAsAddedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsOrderingAsAddedResponse)
-	err := c.cc.Invoke(ctx, GroupService_IsOrderingAsAdded_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *groupServiceClient) NotifyDependencyChange(ctx context.Context, in *NotifyDependencyChangeRequest, opts ...grpc.CallOption) (*NotifyDependencyChangeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NotifyDependencyChangeResponse)
-	err := c.cc.Invoke(ctx, GroupService_NotifyDependencyChange_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *groupServiceClient) RemoveAll(ctx context.Context, in *RemoveAllRequest, opts ...grpc.CallOption) (*RemoveAllResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(RemoveAllResponse)
-	err := c.cc.Invoke(ctx, GroupService_RemoveAll_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *groupServiceClient) RemovePreference(ctx context.Context, in *RemovePreferenceRequest, opts ...grpc.CallOption) (*RemovePreferenceResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(RemovePreferenceResponse)
-	err := c.cc.Invoke(ctx, GroupService_RemovePreference_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *groupServiceClient) SetOrderingAsAdded(ctx context.Context, in *SetOrderingAsAddedRequest, opts ...grpc.CallOption) (*SetOrderingAsAddedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetOrderingAsAddedResponse)
-	err := c.cc.Invoke(ctx, GroupService_SetOrderingAsAdded_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// GroupServiceServer is the server API for GroupService service.
-// All implementations must embed UnimplementedGroupServiceServer
-// for forward compatibility.
-type GroupServiceServer interface {
-	AddItemFromInflater(context.Context, *AddItemFromInflaterRequest) (*AddItemFromInflaterResponse, error)
-	AddPreference(context.Context, *AddPreferenceRequest) (*AddPreferenceResponse, error)
-	FindPreference(context.Context, *FindPreferenceRequest) (*FindPreferenceResponse, error)
-	GetPreference(context.Context, *GetPreferenceRequest) (*GetPreferenceResponse, error)
-	GetPreferenceCount(context.Context, *GetPreferenceCountRequest) (*GetPreferenceCountResponse, error)
-	IsOrderingAsAdded(context.Context, *IsOrderingAsAddedRequest) (*IsOrderingAsAddedResponse, error)
-	NotifyDependencyChange(context.Context, *NotifyDependencyChangeRequest) (*NotifyDependencyChangeResponse, error)
-	RemoveAll(context.Context, *RemoveAllRequest) (*RemoveAllResponse, error)
-	RemovePreference(context.Context, *RemovePreferenceRequest) (*RemovePreferenceResponse, error)
-	SetOrderingAsAdded(context.Context, *SetOrderingAsAddedRequest) (*SetOrderingAsAddedResponse, error)
-	mustEmbedUnimplementedGroupServiceServer()
-}
-
-// UnimplementedGroupServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedGroupServiceServer struct{}
-
-func (UnimplementedGroupServiceServer) AddItemFromInflater(context.Context, *AddItemFromInflaterRequest) (*AddItemFromInflaterResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method AddItemFromInflater not implemented")
-}
-func (UnimplementedGroupServiceServer) AddPreference(context.Context, *AddPreferenceRequest) (*AddPreferenceResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method AddPreference not implemented")
-}
-func (UnimplementedGroupServiceServer) FindPreference(context.Context, *FindPreferenceRequest) (*FindPreferenceResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method FindPreference not implemented")
-}
-func (UnimplementedGroupServiceServer) GetPreference(context.Context, *GetPreferenceRequest) (*GetPreferenceResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetPreference not implemented")
-}
-func (UnimplementedGroupServiceServer) GetPreferenceCount(context.Context, *GetPreferenceCountRequest) (*GetPreferenceCountResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetPreferenceCount not implemented")
-}
-func (UnimplementedGroupServiceServer) IsOrderingAsAdded(context.Context, *IsOrderingAsAddedRequest) (*IsOrderingAsAddedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsOrderingAsAdded not implemented")
-}
-func (UnimplementedGroupServiceServer) NotifyDependencyChange(context.Context, *NotifyDependencyChangeRequest) (*NotifyDependencyChangeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NotifyDependencyChange not implemented")
-}
-func (UnimplementedGroupServiceServer) RemoveAll(context.Context, *RemoveAllRequest) (*RemoveAllResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method RemoveAll not implemented")
-}
-func (UnimplementedGroupServiceServer) RemovePreference(context.Context, *RemovePreferenceRequest) (*RemovePreferenceResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method RemovePreference not implemented")
-}
-func (UnimplementedGroupServiceServer) SetOrderingAsAdded(context.Context, *SetOrderingAsAddedRequest) (*SetOrderingAsAddedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetOrderingAsAdded not implemented")
-}
-func (UnimplementedGroupServiceServer) mustEmbedUnimplementedGroupServiceServer() {}
-func (UnimplementedGroupServiceServer) testEmbeddedByValue()                      {}
-
-// UnsafeGroupServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to GroupServiceServer will
-// result in compilation errors.
-type UnsafeGroupServiceServer interface {
-	mustEmbedUnimplementedGroupServiceServer()
-}
-
-func RegisterGroupServiceServer(s grpc.ServiceRegistrar, srv GroupServiceServer) {
-	// If the following call panics, it indicates UnimplementedGroupServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&GroupService_ServiceDesc, srv)
-}
-
-func _GroupService_AddItemFromInflater_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AddItemFromInflaterRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(GroupServiceServer).AddItemFromInflater(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: GroupService_AddItemFromInflater_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(GroupServiceServer).AddItemFromInflater(ctx, req.(*AddItemFromInflaterRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _GroupService_AddPreference_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AddPreferenceRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(GroupServiceServer).AddPreference(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: GroupService_AddPreference_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(GroupServiceServer).AddPreference(ctx, req.(*AddPreferenceRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _GroupService_FindPreference_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(FindPreferenceRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(GroupServiceServer).FindPreference(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: GroupService_FindPreference_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(GroupServiceServer).FindPreference(ctx, req.(*FindPreferenceRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _GroupService_GetPreference_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetPreferenceRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(GroupServiceServer).GetPreference(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: GroupService_GetPreference_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(GroupServiceServer).GetPreference(ctx, req.(*GetPreferenceRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _GroupService_GetPreferenceCount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetPreferenceCountRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(GroupServiceServer).GetPreferenceCount(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: GroupService_GetPreferenceCount_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(GroupServiceServer).GetPreferenceCount(ctx, req.(*GetPreferenceCountRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _GroupService_IsOrderingAsAdded_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsOrderingAsAddedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(GroupServiceServer).IsOrderingAsAdded(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: GroupService_IsOrderingAsAdded_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(GroupServiceServer).IsOrderingAsAdded(ctx, req.(*IsOrderingAsAddedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _GroupService_NotifyDependencyChange_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NotifyDependencyChangeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(GroupServiceServer).NotifyDependencyChange(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: GroupService_NotifyDependencyChange_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(GroupServiceServer).NotifyDependencyChange(ctx, req.(*NotifyDependencyChangeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _GroupService_RemoveAll_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(RemoveAllRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(GroupServiceServer).RemoveAll(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: GroupService_RemoveAll_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(GroupServiceServer).RemoveAll(ctx, req.(*RemoveAllRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _GroupService_RemovePreference_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(RemovePreferenceRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(GroupServiceServer).RemovePreference(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: GroupService_RemovePreference_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(GroupServiceServer).RemovePreference(ctx, req.(*RemovePreferenceRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _GroupService_SetOrderingAsAdded_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetOrderingAsAddedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(GroupServiceServer).SetOrderingAsAdded(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: GroupService_SetOrderingAsAdded_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(GroupServiceServer).SetOrderingAsAdded(ctx, req.(*SetOrderingAsAddedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// GroupService_ServiceDesc is the grpc.ServiceDesc for GroupService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var GroupService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "preference.GroupService",
-	HandlerType: (*GroupServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "AddItemFromInflater",
-			Handler:    _GroupService_AddItemFromInflater_Handler,
-		},
-		{
-			MethodName: "AddPreference",
-			Handler:    _GroupService_AddPreference_Handler,
-		},
-		{
-			MethodName: "FindPreference",
-			Handler:    _GroupService_FindPreference_Handler,
-		},
-		{
-			MethodName: "GetPreference",
-			Handler:    _GroupService_GetPreference_Handler,
-		},
-		{
-			MethodName: "GetPreferenceCount",
-			Handler:    _GroupService_GetPreferenceCount_Handler,
-		},
-		{
-			MethodName: "IsOrderingAsAdded",
-			Handler:    _GroupService_IsOrderingAsAdded_Handler,
-		},
-		{
-			MethodName: "NotifyDependencyChange",
-			Handler:    _GroupService_NotifyDependencyChange_Handler,
-		},
-		{
-			MethodName: "RemoveAll",
-			Handler:    _GroupService_RemoveAll_Handler,
-		},
-		{
-			MethodName: "RemovePreference",
-			Handler:    _GroupService_RemovePreference_Handler,
-		},
-		{
-			MethodName: "SetOrderingAsAdded",
-			Handler:    _GroupService_SetOrderingAsAdded_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/preference/preference.proto",
-}
-
-const (
-	RingtonePreferenceService_NewRingtonePreference_FullMethodName = "/preference.RingtonePreferenceService/NewRingtonePreference"
-	RingtonePreferenceService_GetRingtoneType_FullMethodName       = "/preference.RingtonePreferenceService/GetRingtoneType"
-	RingtonePreferenceService_GetShowDefault_FullMethodName        = "/preference.RingtonePreferenceService/GetShowDefault"
-	RingtonePreferenceService_GetShowSilent_FullMethodName         = "/preference.RingtonePreferenceService/GetShowSilent"
-	RingtonePreferenceService_OnActivityResult_FullMethodName      = "/preference.RingtonePreferenceService/OnActivityResult"
-	RingtonePreferenceService_SetRingtoneType_FullMethodName       = "/preference.RingtonePreferenceService/SetRingtoneType"
-	RingtonePreferenceService_SetShowDefault_FullMethodName        = "/preference.RingtonePreferenceService/SetShowDefault"
-	RingtonePreferenceService_SetShowSilent_FullMethodName         = "/preference.RingtonePreferenceService/SetShowSilent"
-)
-
-// RingtonePreferenceServiceClient is the client API for RingtonePreferenceService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type RingtonePreferenceServiceClient interface {
-	NewRingtonePreference(ctx context.Context, in *NewRingtonePreferenceRequest, opts ...grpc.CallOption) (*NewRingtonePreferenceResponse, error)
-	GetRingtoneType(ctx context.Context, in *GetRingtoneTypeRequest, opts ...grpc.CallOption) (*GetRingtoneTypeResponse, error)
-	GetShowDefault(ctx context.Context, in *GetShowDefaultRequest, opts ...grpc.CallOption) (*GetShowDefaultResponse, error)
-	GetShowSilent(ctx context.Context, in *GetShowSilentRequest, opts ...grpc.CallOption) (*GetShowSilentResponse, error)
-	OnActivityResult(ctx context.Context, in *RingtonePreferenceOnActivityResultRequest, opts ...grpc.CallOption) (*RingtonePreferenceOnActivityResultResponse, error)
-	SetRingtoneType(ctx context.Context, in *SetRingtoneTypeRequest, opts ...grpc.CallOption) (*SetRingtoneTypeResponse, error)
-	SetShowDefault(ctx context.Context, in *SetShowDefaultRequest, opts ...grpc.CallOption) (*SetShowDefaultResponse, error)
-	SetShowSilent(ctx context.Context, in *SetShowSilentRequest, opts ...grpc.CallOption) (*SetShowSilentResponse, error)
-}
-
-type ringtonePreferenceServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewRingtonePreferenceServiceClient(cc grpc.ClientConnInterface) RingtonePreferenceServiceClient {
-	return &ringtonePreferenceServiceClient{cc}
-}
-
-func (c *ringtonePreferenceServiceClient) NewRingtonePreference(ctx context.Context, in *NewRingtonePreferenceRequest, opts ...grpc.CallOption) (*NewRingtonePreferenceResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewRingtonePreferenceResponse)
-	err := c.cc.Invoke(ctx, RingtonePreferenceService_NewRingtonePreference_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *ringtonePreferenceServiceClient) GetRingtoneType(ctx context.Context, in *GetRingtoneTypeRequest, opts ...grpc.CallOption) (*GetRingtoneTypeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetRingtoneTypeResponse)
-	err := c.cc.Invoke(ctx, RingtonePreferenceService_GetRingtoneType_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *ringtonePreferenceServiceClient) GetShowDefault(ctx context.Context, in *GetShowDefaultRequest, opts ...grpc.CallOption) (*GetShowDefaultResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetShowDefaultResponse)
-	err := c.cc.Invoke(ctx, RingtonePreferenceService_GetShowDefault_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *ringtonePreferenceServiceClient) GetShowSilent(ctx context.Context, in *GetShowSilentRequest, opts ...grpc.CallOption) (*GetShowSilentResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetShowSilentResponse)
-	err := c.cc.Invoke(ctx, RingtonePreferenceService_GetShowSilent_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *ringtonePreferenceServiceClient) OnActivityResult(ctx context.Context, in *RingtonePreferenceOnActivityResultRequest, opts ...grpc.CallOption) (*RingtonePreferenceOnActivityResultResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(RingtonePreferenceOnActivityResultResponse)
-	err := c.cc.Invoke(ctx, RingtonePreferenceService_OnActivityResult_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *ringtonePreferenceServiceClient) SetRingtoneType(ctx context.Context, in *SetRingtoneTypeRequest, opts ...grpc.CallOption) (*SetRingtoneTypeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetRingtoneTypeResponse)
-	err := c.cc.Invoke(ctx, RingtonePreferenceService_SetRingtoneType_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *ringtonePreferenceServiceClient) SetShowDefault(ctx context.Context, in *SetShowDefaultRequest, opts ...grpc.CallOption) (*SetShowDefaultResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetShowDefaultResponse)
-	err := c.cc.Invoke(ctx, RingtonePreferenceService_SetShowDefault_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *ringtonePreferenceServiceClient) SetShowSilent(ctx context.Context, in *SetShowSilentRequest, opts ...grpc.CallOption) (*SetShowSilentResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetShowSilentResponse)
-	err := c.cc.Invoke(ctx, RingtonePreferenceService_SetShowSilent_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// RingtonePreferenceServiceServer is the server API for RingtonePreferenceService service.
-// All implementations must embed UnimplementedRingtonePreferenceServiceServer
-// for forward compatibility.
-type RingtonePreferenceServiceServer interface {
-	NewRingtonePreference(context.Context, *NewRingtonePreferenceRequest) (*NewRingtonePreferenceResponse, error)
-	GetRingtoneType(context.Context, *GetRingtoneTypeRequest) (*GetRingtoneTypeResponse, error)
-	GetShowDefault(context.Context, *GetShowDefaultRequest) (*GetShowDefaultResponse, error)
-	GetShowSilent(context.Context, *GetShowSilentRequest) (*GetShowSilentResponse, error)
-	OnActivityResult(context.Context, *RingtonePreferenceOnActivityResultRequest) (*RingtonePreferenceOnActivityResultResponse, error)
-	SetRingtoneType(context.Context, *SetRingtoneTypeRequest) (*SetRingtoneTypeResponse, error)
-	SetShowDefault(context.Context, *SetShowDefaultRequest) (*SetShowDefaultResponse, error)
-	SetShowSilent(context.Context, *SetShowSilentRequest) (*SetShowSilentResponse, error)
-	mustEmbedUnimplementedRingtonePreferenceServiceServer()
-}
-
-// UnimplementedRingtonePreferenceServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedRingtonePreferenceServiceServer struct{}
-
-func (UnimplementedRingtonePreferenceServiceServer) NewRingtonePreference(context.Context, *NewRingtonePreferenceRequest) (*NewRingtonePreferenceResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewRingtonePreference not implemented")
-}
-func (UnimplementedRingtonePreferenceServiceServer) GetRingtoneType(context.Context, *GetRingtoneTypeRequest) (*GetRingtoneTypeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetRingtoneType not implemented")
-}
-func (UnimplementedRingtonePreferenceServiceServer) GetShowDefault(context.Context, *GetShowDefaultRequest) (*GetShowDefaultResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetShowDefault not implemented")
-}
-func (UnimplementedRingtonePreferenceServiceServer) GetShowSilent(context.Context, *GetShowSilentRequest) (*GetShowSilentResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetShowSilent not implemented")
-}
-func (UnimplementedRingtonePreferenceServiceServer) OnActivityResult(context.Context, *RingtonePreferenceOnActivityResultRequest) (*RingtonePreferenceOnActivityResultResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnActivityResult not implemented")
-}
-func (UnimplementedRingtonePreferenceServiceServer) SetRingtoneType(context.Context, *SetRingtoneTypeRequest) (*SetRingtoneTypeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetRingtoneType not implemented")
-}
-func (UnimplementedRingtonePreferenceServiceServer) SetShowDefault(context.Context, *SetShowDefaultRequest) (*SetShowDefaultResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetShowDefault not implemented")
-}
-func (UnimplementedRingtonePreferenceServiceServer) SetShowSilent(context.Context, *SetShowSilentRequest) (*SetShowSilentResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetShowSilent not implemented")
-}
-func (UnimplementedRingtonePreferenceServiceServer) mustEmbedUnimplementedRingtonePreferenceServiceServer() {
-}
-func (UnimplementedRingtonePreferenceServiceServer) testEmbeddedByValue() {}
-
-// UnsafeRingtonePreferenceServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to RingtonePreferenceServiceServer will
-// result in compilation errors.
-type UnsafeRingtonePreferenceServiceServer interface {
-	mustEmbedUnimplementedRingtonePreferenceServiceServer()
-}
-
-func RegisterRingtonePreferenceServiceServer(s grpc.ServiceRegistrar, srv RingtonePreferenceServiceServer) {
-	// If the following call panics, it indicates UnimplementedRingtonePreferenceServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&RingtonePreferenceService_ServiceDesc, srv)
-}
-
-func _RingtonePreferenceService_NewRingtonePreference_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewRingtonePreferenceRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(RingtonePreferenceServiceServer).NewRingtonePreference(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: RingtonePreferenceService_NewRingtonePreference_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RingtonePreferenceServiceServer).NewRingtonePreference(ctx, req.(*NewRingtonePreferenceRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _RingtonePreferenceService_GetRingtoneType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetRingtoneTypeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(RingtonePreferenceServiceServer).GetRingtoneType(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: RingtonePreferenceService_GetRingtoneType_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RingtonePreferenceServiceServer).GetRingtoneType(ctx, req.(*GetRingtoneTypeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _RingtonePreferenceService_GetShowDefault_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetShowDefaultRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(RingtonePreferenceServiceServer).GetShowDefault(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: RingtonePreferenceService_GetShowDefault_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RingtonePreferenceServiceServer).GetShowDefault(ctx, req.(*GetShowDefaultRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _RingtonePreferenceService_GetShowSilent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetShowSilentRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(RingtonePreferenceServiceServer).GetShowSilent(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: RingtonePreferenceService_GetShowSilent_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RingtonePreferenceServiceServer).GetShowSilent(ctx, req.(*GetShowSilentRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _RingtonePreferenceService_OnActivityResult_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(RingtonePreferenceOnActivityResultRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(RingtonePreferenceServiceServer).OnActivityResult(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: RingtonePreferenceService_OnActivityResult_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RingtonePreferenceServiceServer).OnActivityResult(ctx, req.(*RingtonePreferenceOnActivityResultRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _RingtonePreferenceService_SetRingtoneType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetRingtoneTypeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(RingtonePreferenceServiceServer).SetRingtoneType(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: RingtonePreferenceService_SetRingtoneType_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RingtonePreferenceServiceServer).SetRingtoneType(ctx, req.(*SetRingtoneTypeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _RingtonePreferenceService_SetShowDefault_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetShowDefaultRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(RingtonePreferenceServiceServer).SetShowDefault(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: RingtonePreferenceService_SetShowDefault_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RingtonePreferenceServiceServer).SetShowDefault(ctx, req.(*SetShowDefaultRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _RingtonePreferenceService_SetShowSilent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetShowSilentRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(RingtonePreferenceServiceServer).SetShowSilent(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: RingtonePreferenceService_SetShowSilent_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RingtonePreferenceServiceServer).SetShowSilent(ctx, req.(*SetShowSilentRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// RingtonePreferenceService_ServiceDesc is the grpc.ServiceDesc for RingtonePreferenceService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var RingtonePreferenceService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "preference.RingtonePreferenceService",
-	HandlerType: (*RingtonePreferenceServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "NewRingtonePreference",
-			Handler:    _RingtonePreferenceService_NewRingtonePreference_Handler,
-		},
-		{
-			MethodName: "GetRingtoneType",
-			Handler:    _RingtonePreferenceService_GetRingtoneType_Handler,
-		},
-		{
-			MethodName: "GetShowDefault",
-			Handler:    _RingtonePreferenceService_GetShowDefault_Handler,
-		},
-		{
-			MethodName: "GetShowSilent",
-			Handler:    _RingtonePreferenceService_GetShowSilent_Handler,
-		},
-		{
-			MethodName: "OnActivityResult",
-			Handler:    _RingtonePreferenceService_OnActivityResult_Handler,
-		},
-		{
-			MethodName: "SetRingtoneType",
-			Handler:    _RingtonePreferenceService_SetRingtoneType_Handler,
-		},
-		{
-			MethodName: "SetShowDefault",
-			Handler:    _RingtonePreferenceService_SetShowDefault_Handler,
-		},
-		{
-			MethodName: "SetShowSilent",
-			Handler:    _RingtonePreferenceService_SetShowSilent_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/preference/preference.proto",
-}
-
-const (
-	PreferenceService_NewPreference_FullMethodName                 = "/preference.PreferenceService/NewPreference"
-	PreferenceService_CompareTo1_FullMethodName                    = "/preference.PreferenceService/CompareTo1"
-	PreferenceService_GetContext_FullMethodName                    = "/preference.PreferenceService/GetContext"
-	PreferenceService_GetDependency_FullMethodName                 = "/preference.PreferenceService/GetDependency"
-	PreferenceService_GetEditor_FullMethodName                     = "/preference.PreferenceService/GetEditor"
-	PreferenceService_GetExtras_FullMethodName                     = "/preference.PreferenceService/GetExtras"
-	PreferenceService_GetFragment_FullMethodName                   = "/preference.PreferenceService/GetFragment"
-	PreferenceService_GetIcon_FullMethodName                       = "/preference.PreferenceService/GetIcon"
-	PreferenceService_GetIntent_FullMethodName                     = "/preference.PreferenceService/GetIntent"
-	PreferenceService_GetKey_FullMethodName                        = "/preference.PreferenceService/GetKey"
-	PreferenceService_GetLayoutResource_FullMethodName             = "/preference.PreferenceService/GetLayoutResource"
-	PreferenceService_GetOnPreferenceChangeListener_FullMethodName = "/preference.PreferenceService/GetOnPreferenceChangeListener"
-	PreferenceService_GetOnPreferenceClickListener_FullMethodName  = "/preference.PreferenceService/GetOnPreferenceClickListener"
-	PreferenceService_GetOrder_FullMethodName                      = "/preference.PreferenceService/GetOrder"
-	PreferenceService_GetParent_FullMethodName                     = "/preference.PreferenceService/GetParent"
-	PreferenceService_GetPreferenceDataStore_FullMethodName        = "/preference.PreferenceService/GetPreferenceDataStore"
-	PreferenceService_GetPreferenceManager_FullMethodName          = "/preference.PreferenceService/GetPreferenceManager"
-	PreferenceService_GetSharedPreferences_FullMethodName          = "/preference.PreferenceService/GetSharedPreferences"
-	PreferenceService_GetShouldDisableView_FullMethodName          = "/preference.PreferenceService/GetShouldDisableView"
-	PreferenceService_GetSummary_FullMethodName                    = "/preference.PreferenceService/GetSummary"
-	PreferenceService_GetTitle_FullMethodName                      = "/preference.PreferenceService/GetTitle"
-	PreferenceService_GetTitleRes_FullMethodName                   = "/preference.PreferenceService/GetTitleRes"
-	PreferenceService_GetView_FullMethodName                       = "/preference.PreferenceService/GetView"
-	PreferenceService_GetWidgetLayoutResource_FullMethodName       = "/preference.PreferenceService/GetWidgetLayoutResource"
-	PreferenceService_HasKey_FullMethodName                        = "/preference.PreferenceService/HasKey"
-	PreferenceService_IsEnabled_FullMethodName                     = "/preference.PreferenceService/IsEnabled"
-	PreferenceService_IsIconSpaceReserved_FullMethodName           = "/preference.PreferenceService/IsIconSpaceReserved"
-	PreferenceService_IsPersistent_FullMethodName                  = "/preference.PreferenceService/IsPersistent"
-	PreferenceService_IsRecycleEnabled_FullMethodName              = "/preference.PreferenceService/IsRecycleEnabled"
-	PreferenceService_IsSelectable_FullMethodName                  = "/preference.PreferenceService/IsSelectable"
-	PreferenceService_IsSingleLineTitle_FullMethodName             = "/preference.PreferenceService/IsSingleLineTitle"
-	PreferenceService_NotifyDependencyChange_FullMethodName        = "/preference.PreferenceService/NotifyDependencyChange"
-	PreferenceService_OnDependencyChanged_FullMethodName           = "/preference.PreferenceService/OnDependencyChanged"
-	PreferenceService_OnParentChanged_FullMethodName               = "/preference.PreferenceService/OnParentChanged"
-	PreferenceService_PeekExtras_FullMethodName                    = "/preference.PreferenceService/PeekExtras"
-	PreferenceService_RestoreHierarchyState_FullMethodName         = "/preference.PreferenceService/RestoreHierarchyState"
-	PreferenceService_SaveHierarchyState_FullMethodName            = "/preference.PreferenceService/SaveHierarchyState"
-	PreferenceService_SetDefaultValue_FullMethodName               = "/preference.PreferenceService/SetDefaultValue"
-	PreferenceService_SetDependency_FullMethodName                 = "/preference.PreferenceService/SetDependency"
-	PreferenceService_SetEnabled_FullMethodName                    = "/preference.PreferenceService/SetEnabled"
-	PreferenceService_SetFragment_FullMethodName                   = "/preference.PreferenceService/SetFragment"
-	PreferenceService_SetIcon1_FullMethodName                      = "/preference.PreferenceService/SetIcon1"
-	PreferenceService_SetIcon1_1_FullMethodName                    = "/preference.PreferenceService/SetIcon1_1"
-	PreferenceService_SetIconSpaceReserved_FullMethodName          = "/preference.PreferenceService/SetIconSpaceReserved"
-	PreferenceService_SetIntent_FullMethodName                     = "/preference.PreferenceService/SetIntent"
-	PreferenceService_SetKey_FullMethodName                        = "/preference.PreferenceService/SetKey"
-	PreferenceService_SetLayoutResource_FullMethodName             = "/preference.PreferenceService/SetLayoutResource"
-	PreferenceService_SetOnPreferenceChangeListener_FullMethodName = "/preference.PreferenceService/SetOnPreferenceChangeListener"
-	PreferenceService_SetOnPreferenceClickListener_FullMethodName  = "/preference.PreferenceService/SetOnPreferenceClickListener"
-	PreferenceService_SetOrder_FullMethodName                      = "/preference.PreferenceService/SetOrder"
-	PreferenceService_SetPersistent_FullMethodName                 = "/preference.PreferenceService/SetPersistent"
-	PreferenceService_SetPreferenceDataStore_FullMethodName        = "/preference.PreferenceService/SetPreferenceDataStore"
-	PreferenceService_SetRecycleEnabled_FullMethodName             = "/preference.PreferenceService/SetRecycleEnabled"
-	PreferenceService_SetSelectable_FullMethodName                 = "/preference.PreferenceService/SetSelectable"
-	PreferenceService_SetShouldDisableView_FullMethodName          = "/preference.PreferenceService/SetShouldDisableView"
-	PreferenceService_SetSingleLineTitle_FullMethodName            = "/preference.PreferenceService/SetSingleLineTitle"
-	PreferenceService_SetSummary1_FullMethodName                   = "/preference.PreferenceService/SetSummary1"
-	PreferenceService_SetSummary1_1_FullMethodName                 = "/preference.PreferenceService/SetSummary1_1"
-	PreferenceService_SetTitle1_FullMethodName                     = "/preference.PreferenceService/SetTitle1"
-	PreferenceService_SetTitle1_1_FullMethodName                   = "/preference.PreferenceService/SetTitle1_1"
-	PreferenceService_SetWidgetLayoutResource_FullMethodName       = "/preference.PreferenceService/SetWidgetLayoutResource"
-	PreferenceService_ShouldCommit_FullMethodName                  = "/preference.PreferenceService/ShouldCommit"
-	PreferenceService_ShouldDisableDependents_FullMethodName       = "/preference.PreferenceService/ShouldDisableDependents"
-	PreferenceService_ToString_FullMethodName                      = "/preference.PreferenceService/ToString"
-	PreferenceService_CompareTo1_1_FullMethodName                  = "/preference.PreferenceService/CompareTo1_1"
-)
-
-// PreferenceServiceClient is the client API for PreferenceService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type PreferenceServiceClient interface {
-	NewPreference(ctx context.Context, in *NewPreferenceRequest, opts ...grpc.CallOption) (*NewPreferenceResponse, error)
-	CompareTo1(ctx context.Context, in *CompareTo1Request, opts ...grpc.CallOption) (*CompareTo1Response, error)
-	GetContext(ctx context.Context, in *GetContextRequest, opts ...grpc.CallOption) (*GetContextResponse, error)
-	GetDependency(ctx context.Context, in *GetDependencyRequest, opts ...grpc.CallOption) (*GetDependencyResponse, error)
-	GetEditor(ctx context.Context, in *GetEditorRequest, opts ...grpc.CallOption) (*GetEditorResponse, error)
-	GetExtras(ctx context.Context, in *GetExtrasRequest, opts ...grpc.CallOption) (*GetExtrasResponse, error)
-	GetFragment(ctx context.Context, in *GetFragmentRequest, opts ...grpc.CallOption) (*GetFragmentResponse, error)
-	GetIcon(ctx context.Context, in *GetIconRequest, opts ...grpc.CallOption) (*GetIconResponse, error)
-	GetIntent(ctx context.Context, in *GetIntentRequest, opts ...grpc.CallOption) (*GetIntentResponse, error)
-	GetKey(ctx context.Context, in *GetKeyRequest, opts ...grpc.CallOption) (*GetKeyResponse, error)
-	GetLayoutResource(ctx context.Context, in *GetLayoutResourceRequest, opts ...grpc.CallOption) (*GetLayoutResourceResponse, error)
-	GetOnPreferenceChangeListener(ctx context.Context, in *GetOnPreferenceChangeListenerRequest, opts ...grpc.CallOption) (*GetOnPreferenceChangeListenerResponse, error)
-	GetOnPreferenceClickListener(ctx context.Context, in *GetOnPreferenceClickListenerRequest, opts ...grpc.CallOption) (*GetOnPreferenceClickListenerResponse, error)
-	GetOrder(ctx context.Context, in *GetOrderRequest, opts ...grpc.CallOption) (*GetOrderResponse, error)
-	GetParent(ctx context.Context, in *GetParentRequest, opts ...grpc.CallOption) (*GetParentResponse, error)
-	GetPreferenceDataStore(ctx context.Context, in *PreferenceGetPreferenceDataStoreRequest, opts ...grpc.CallOption) (*GetPreferenceDataStoreResponse, error)
-	GetPreferenceManager(ctx context.Context, in *PreferenceGetPreferenceManagerRequest, opts ...grpc.CallOption) (*GetPreferenceManagerResponse, error)
-	GetSharedPreferences(ctx context.Context, in *PreferenceGetSharedPreferencesRequest, opts ...grpc.CallOption) (*GetSharedPreferencesResponse, error)
-	GetShouldDisableView(ctx context.Context, in *GetShouldDisableViewRequest, opts ...grpc.CallOption) (*GetShouldDisableViewResponse, error)
-	GetSummary(ctx context.Context, in *GetSummaryRequest, opts ...grpc.CallOption) (*GetSummaryResponse, error)
-	GetTitle(ctx context.Context, in *PreferenceGetTitleRequest, opts ...grpc.CallOption) (*GetTitleResponse, error)
-	GetTitleRes(ctx context.Context, in *GetTitleResRequest, opts ...grpc.CallOption) (*GetTitleResResponse, error)
-	GetView(ctx context.Context, in *GetViewRequest, opts ...grpc.CallOption) (*GetViewResponse, error)
-	GetWidgetLayoutResource(ctx context.Context, in *GetWidgetLayoutResourceRequest, opts ...grpc.CallOption) (*GetWidgetLayoutResourceResponse, error)
-	HasKey(ctx context.Context, in *HasKeyRequest, opts ...grpc.CallOption) (*HasKeyResponse, error)
-	IsEnabled(ctx context.Context, in *IsEnabledRequest, opts ...grpc.CallOption) (*IsEnabledResponse, error)
-	IsIconSpaceReserved(ctx context.Context, in *IsIconSpaceReservedRequest, opts ...grpc.CallOption) (*IsIconSpaceReservedResponse, error)
-	IsPersistent(ctx context.Context, in *IsPersistentRequest, opts ...grpc.CallOption) (*IsPersistentResponse, error)
-	IsRecycleEnabled(ctx context.Context, in *IsRecycleEnabledRequest, opts ...grpc.CallOption) (*IsRecycleEnabledResponse, error)
-	IsSelectable(ctx context.Context, in *IsSelectableRequest, opts ...grpc.CallOption) (*IsSelectableResponse, error)
-	IsSingleLineTitle(ctx context.Context, in *IsSingleLineTitleRequest, opts ...grpc.CallOption) (*IsSingleLineTitleResponse, error)
-	NotifyDependencyChange(ctx context.Context, in *PreferenceNotifyDependencyChangeRequest, opts ...grpc.CallOption) (*NotifyDependencyChangeResponse, error)
-	OnDependencyChanged(ctx context.Context, in *OnDependencyChangedRequest, opts ...grpc.CallOption) (*OnDependencyChangedResponse, error)
-	OnParentChanged(ctx context.Context, in *OnParentChangedRequest, opts ...grpc.CallOption) (*OnParentChangedResponse, error)
-	PeekExtras(ctx context.Context, in *PeekExtrasRequest, opts ...grpc.CallOption) (*PeekExtrasResponse, error)
-	RestoreHierarchyState(ctx context.Context, in *RestoreHierarchyStateRequest, opts ...grpc.CallOption) (*RestoreHierarchyStateResponse, error)
-	SaveHierarchyState(ctx context.Context, in *SaveHierarchyStateRequest, opts ...grpc.CallOption) (*SaveHierarchyStateResponse, error)
-	SetDefaultValue(ctx context.Context, in *SetDefaultValueRequest, opts ...grpc.CallOption) (*SetDefaultValueResponse, error)
-	SetDependency(ctx context.Context, in *SetDependencyRequest, opts ...grpc.CallOption) (*SetDependencyResponse, error)
-	SetEnabled(ctx context.Context, in *SetEnabledRequest, opts ...grpc.CallOption) (*SetEnabledResponse, error)
-	SetFragment(ctx context.Context, in *SetFragmentRequest, opts ...grpc.CallOption) (*SetFragmentResponse, error)
-	SetIcon1(ctx context.Context, in *SetIcon1Request, opts ...grpc.CallOption) (*SetIcon1Response, error)
-	SetIcon1_1(ctx context.Context, in *SetIcon1_1Request, opts ...grpc.CallOption) (*SetIcon1_1Response, error)
-	SetIconSpaceReserved(ctx context.Context, in *SetIconSpaceReservedRequest, opts ...grpc.CallOption) (*SetIconSpaceReservedResponse, error)
-	SetIntent(ctx context.Context, in *SetIntentRequest, opts ...grpc.CallOption) (*SetIntentResponse, error)
-	SetKey(ctx context.Context, in *SetKeyRequest, opts ...grpc.CallOption) (*SetKeyResponse, error)
-	SetLayoutResource(ctx context.Context, in *SetLayoutResourceRequest, opts ...grpc.CallOption) (*SetLayoutResourceResponse, error)
-	SetOnPreferenceChangeListener(ctx context.Context, in *SetOnPreferenceChangeListenerRequest, opts ...grpc.CallOption) (*SetOnPreferenceChangeListenerResponse, error)
-	SetOnPreferenceClickListener(ctx context.Context, in *SetOnPreferenceClickListenerRequest, opts ...grpc.CallOption) (*SetOnPreferenceClickListenerResponse, error)
-	SetOrder(ctx context.Context, in *SetOrderRequest, opts ...grpc.CallOption) (*SetOrderResponse, error)
-	SetPersistent(ctx context.Context, in *SetPersistentRequest, opts ...grpc.CallOption) (*SetPersistentResponse, error)
-	SetPreferenceDataStore(ctx context.Context, in *PreferenceSetPreferenceDataStoreRequest, opts ...grpc.CallOption) (*SetPreferenceDataStoreResponse, error)
-	SetRecycleEnabled(ctx context.Context, in *SetRecycleEnabledRequest, opts ...grpc.CallOption) (*SetRecycleEnabledResponse, error)
-	SetSelectable(ctx context.Context, in *SetSelectableRequest, opts ...grpc.CallOption) (*SetSelectableResponse, error)
-	SetShouldDisableView(ctx context.Context, in *SetShouldDisableViewRequest, opts ...grpc.CallOption) (*SetShouldDisableViewResponse, error)
-	SetSingleLineTitle(ctx context.Context, in *SetSingleLineTitleRequest, opts ...grpc.CallOption) (*SetSingleLineTitleResponse, error)
-	SetSummary1(ctx context.Context, in *SetSummary1Request, opts ...grpc.CallOption) (*SetSummary1Response, error)
-	SetSummary1_1(ctx context.Context, in *SetSummary1_1Request, opts ...grpc.CallOption) (*SetSummary1_1Response, error)
-	SetTitle1(ctx context.Context, in *SetTitle1Request, opts ...grpc.CallOption) (*SetTitle1Response, error)
-	SetTitle1_1(ctx context.Context, in *SetTitle1_1Request, opts ...grpc.CallOption) (*SetTitle1_1Response, error)
-	SetWidgetLayoutResource(ctx context.Context, in *SetWidgetLayoutResourceRequest, opts ...grpc.CallOption) (*SetWidgetLayoutResourceResponse, error)
-	ShouldCommit(ctx context.Context, in *ShouldCommitRequest, opts ...grpc.CallOption) (*ShouldCommitResponse, error)
-	ShouldDisableDependents(ctx context.Context, in *ShouldDisableDependentsRequest, opts ...grpc.CallOption) (*ShouldDisableDependentsResponse, error)
-	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
-	CompareTo1_1(ctx context.Context, in *CompareTo1_1Request, opts ...grpc.CallOption) (*CompareTo1_1Response, error)
-}
-
-type preferenceServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewPreferenceServiceClient(cc grpc.ClientConnInterface) PreferenceServiceClient {
-	return &preferenceServiceClient{cc}
-}
-
-func (c *preferenceServiceClient) NewPreference(ctx context.Context, in *NewPreferenceRequest, opts ...grpc.CallOption) (*NewPreferenceResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewPreferenceResponse)
-	err := c.cc.Invoke(ctx, PreferenceService_NewPreference_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *preferenceServiceClient) CompareTo1(ctx context.Context, in *CompareTo1Request, opts ...grpc.CallOption) (*CompareTo1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CompareTo1Response)
-	err := c.cc.Invoke(ctx, PreferenceService_CompareTo1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *preferenceServiceClient) GetContext(ctx context.Context, in *GetContextRequest, opts ...grpc.CallOption) (*GetContextResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetContextResponse)
-	err := c.cc.Invoke(ctx, PreferenceService_GetContext_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *preferenceServiceClient) GetDependency(ctx context.Context, in *GetDependencyRequest, opts ...grpc.CallOption) (*GetDependencyResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetDependencyResponse)
-	err := c.cc.Invoke(ctx, PreferenceService_GetDependency_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *preferenceServiceClient) GetEditor(ctx context.Context, in *GetEditorRequest, opts ...grpc.CallOption) (*GetEditorResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetEditorResponse)
-	err := c.cc.Invoke(ctx, PreferenceService_GetEditor_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *preferenceServiceClient) GetExtras(ctx context.Context, in *GetExtrasRequest, opts ...grpc.CallOption) (*GetExtrasResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetExtrasResponse)
-	err := c.cc.Invoke(ctx, PreferenceService_GetExtras_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *preferenceServiceClient) GetFragment(ctx context.Context, in *GetFragmentRequest, opts ...grpc.CallOption) (*GetFragmentResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetFragmentResponse)
-	err := c.cc.Invoke(ctx, PreferenceService_GetFragment_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *preferenceServiceClient) GetIcon(ctx context.Context, in *GetIconRequest, opts ...grpc.CallOption) (*GetIconResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetIconResponse)
-	err := c.cc.Invoke(ctx, PreferenceService_GetIcon_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *preferenceServiceClient) GetIntent(ctx context.Context, in *GetIntentRequest, opts ...grpc.CallOption) (*GetIntentResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetIntentResponse)
-	err := c.cc.Invoke(ctx, PreferenceService_GetIntent_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *preferenceServiceClient) GetKey(ctx context.Context, in *GetKeyRequest, opts ...grpc.CallOption) (*GetKeyResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetKeyResponse)
-	err := c.cc.Invoke(ctx, PreferenceService_GetKey_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *preferenceServiceClient) GetLayoutResource(ctx context.Context, in *GetLayoutResourceRequest, opts ...grpc.CallOption) (*GetLayoutResourceResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetLayoutResourceResponse)
-	err := c.cc.Invoke(ctx, PreferenceService_GetLayoutResource_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *preferenceServiceClient) GetOnPreferenceChangeListener(ctx context.Context, in *GetOnPreferenceChangeListenerRequest, opts ...grpc.CallOption) (*GetOnPreferenceChangeListenerResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetOnPreferenceChangeListenerResponse)
-	err := c.cc.Invoke(ctx, PreferenceService_GetOnPreferenceChangeListener_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *preferenceServiceClient) GetOnPreferenceClickListener(ctx context.Context, in *GetOnPreferenceClickListenerRequest, opts ...grpc.CallOption) (*GetOnPreferenceClickListenerResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetOnPreferenceClickListenerResponse)
-	err := c.cc.Invoke(ctx, PreferenceService_GetOnPreferenceClickListener_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *preferenceServiceClient) GetOrder(ctx context.Context, in *GetOrderRequest, opts ...grpc.CallOption) (*GetOrderResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetOrderResponse)
-	err := c.cc.Invoke(ctx, PreferenceService_GetOrder_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *preferenceServiceClient) GetParent(ctx context.Context, in *GetParentRequest, opts ...grpc.CallOption) (*GetParentResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetParentResponse)
-	err := c.cc.Invoke(ctx, PreferenceService_GetParent_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *preferenceServiceClient) GetPreferenceDataStore(ctx context.Context, in *PreferenceGetPreferenceDataStoreRequest, opts ...grpc.CallOption) (*GetPreferenceDataStoreResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetPreferenceDataStoreResponse)
-	err := c.cc.Invoke(ctx, PreferenceService_GetPreferenceDataStore_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *preferenceServiceClient) GetPreferenceManager(ctx context.Context, in *PreferenceGetPreferenceManagerRequest, opts ...grpc.CallOption) (*GetPreferenceManagerResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetPreferenceManagerResponse)
-	err := c.cc.Invoke(ctx, PreferenceService_GetPreferenceManager_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *preferenceServiceClient) GetSharedPreferences(ctx context.Context, in *PreferenceGetSharedPreferencesRequest, opts ...grpc.CallOption) (*GetSharedPreferencesResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetSharedPreferencesResponse)
-	err := c.cc.Invoke(ctx, PreferenceService_GetSharedPreferences_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *preferenceServiceClient) GetShouldDisableView(ctx context.Context, in *GetShouldDisableViewRequest, opts ...grpc.CallOption) (*GetShouldDisableViewResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetShouldDisableViewResponse)
-	err := c.cc.Invoke(ctx, PreferenceService_GetShouldDisableView_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *preferenceServiceClient) GetSummary(ctx context.Context, in *GetSummaryRequest, opts ...grpc.CallOption) (*GetSummaryResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetSummaryResponse)
-	err := c.cc.Invoke(ctx, PreferenceService_GetSummary_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *preferenceServiceClient) GetTitle(ctx context.Context, in *PreferenceGetTitleRequest, opts ...grpc.CallOption) (*GetTitleResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetTitleResponse)
-	err := c.cc.Invoke(ctx, PreferenceService_GetTitle_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *preferenceServiceClient) GetTitleRes(ctx context.Context, in *GetTitleResRequest, opts ...grpc.CallOption) (*GetTitleResResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetTitleResResponse)
-	err := c.cc.Invoke(ctx, PreferenceService_GetTitleRes_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *preferenceServiceClient) GetView(ctx context.Context, in *GetViewRequest, opts ...grpc.CallOption) (*GetViewResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetViewResponse)
-	err := c.cc.Invoke(ctx, PreferenceService_GetView_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *preferenceServiceClient) GetWidgetLayoutResource(ctx context.Context, in *GetWidgetLayoutResourceRequest, opts ...grpc.CallOption) (*GetWidgetLayoutResourceResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetWidgetLayoutResourceResponse)
-	err := c.cc.Invoke(ctx, PreferenceService_GetWidgetLayoutResource_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *preferenceServiceClient) HasKey(ctx context.Context, in *HasKeyRequest, opts ...grpc.CallOption) (*HasKeyResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(HasKeyResponse)
-	err := c.cc.Invoke(ctx, PreferenceService_HasKey_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *preferenceServiceClient) IsEnabled(ctx context.Context, in *IsEnabledRequest, opts ...grpc.CallOption) (*IsEnabledResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsEnabledResponse)
-	err := c.cc.Invoke(ctx, PreferenceService_IsEnabled_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *preferenceServiceClient) IsIconSpaceReserved(ctx context.Context, in *IsIconSpaceReservedRequest, opts ...grpc.CallOption) (*IsIconSpaceReservedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsIconSpaceReservedResponse)
-	err := c.cc.Invoke(ctx, PreferenceService_IsIconSpaceReserved_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *preferenceServiceClient) IsPersistent(ctx context.Context, in *IsPersistentRequest, opts ...grpc.CallOption) (*IsPersistentResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsPersistentResponse)
-	err := c.cc.Invoke(ctx, PreferenceService_IsPersistent_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *preferenceServiceClient) IsRecycleEnabled(ctx context.Context, in *IsRecycleEnabledRequest, opts ...grpc.CallOption) (*IsRecycleEnabledResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsRecycleEnabledResponse)
-	err := c.cc.Invoke(ctx, PreferenceService_IsRecycleEnabled_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *preferenceServiceClient) IsSelectable(ctx context.Context, in *IsSelectableRequest, opts ...grpc.CallOption) (*IsSelectableResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsSelectableResponse)
-	err := c.cc.Invoke(ctx, PreferenceService_IsSelectable_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *preferenceServiceClient) IsSingleLineTitle(ctx context.Context, in *IsSingleLineTitleRequest, opts ...grpc.CallOption) (*IsSingleLineTitleResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsSingleLineTitleResponse)
-	err := c.cc.Invoke(ctx, PreferenceService_IsSingleLineTitle_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *preferenceServiceClient) NotifyDependencyChange(ctx context.Context, in *PreferenceNotifyDependencyChangeRequest, opts ...grpc.CallOption) (*NotifyDependencyChangeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NotifyDependencyChangeResponse)
-	err := c.cc.Invoke(ctx, PreferenceService_NotifyDependencyChange_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *preferenceServiceClient) OnDependencyChanged(ctx context.Context, in *OnDependencyChangedRequest, opts ...grpc.CallOption) (*OnDependencyChangedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnDependencyChangedResponse)
-	err := c.cc.Invoke(ctx, PreferenceService_OnDependencyChanged_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *preferenceServiceClient) OnParentChanged(ctx context.Context, in *OnParentChangedRequest, opts ...grpc.CallOption) (*OnParentChangedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnParentChangedResponse)
-	err := c.cc.Invoke(ctx, PreferenceService_OnParentChanged_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *preferenceServiceClient) PeekExtras(ctx context.Context, in *PeekExtrasRequest, opts ...grpc.CallOption) (*PeekExtrasResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(PeekExtrasResponse)
-	err := c.cc.Invoke(ctx, PreferenceService_PeekExtras_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *preferenceServiceClient) RestoreHierarchyState(ctx context.Context, in *RestoreHierarchyStateRequest, opts ...grpc.CallOption) (*RestoreHierarchyStateResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(RestoreHierarchyStateResponse)
-	err := c.cc.Invoke(ctx, PreferenceService_RestoreHierarchyState_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *preferenceServiceClient) SaveHierarchyState(ctx context.Context, in *SaveHierarchyStateRequest, opts ...grpc.CallOption) (*SaveHierarchyStateResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SaveHierarchyStateResponse)
-	err := c.cc.Invoke(ctx, PreferenceService_SaveHierarchyState_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *preferenceServiceClient) SetDefaultValue(ctx context.Context, in *SetDefaultValueRequest, opts ...grpc.CallOption) (*SetDefaultValueResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetDefaultValueResponse)
-	err := c.cc.Invoke(ctx, PreferenceService_SetDefaultValue_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *preferenceServiceClient) SetDependency(ctx context.Context, in *SetDependencyRequest, opts ...grpc.CallOption) (*SetDependencyResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetDependencyResponse)
-	err := c.cc.Invoke(ctx, PreferenceService_SetDependency_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *preferenceServiceClient) SetEnabled(ctx context.Context, in *SetEnabledRequest, opts ...grpc.CallOption) (*SetEnabledResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetEnabledResponse)
-	err := c.cc.Invoke(ctx, PreferenceService_SetEnabled_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *preferenceServiceClient) SetFragment(ctx context.Context, in *SetFragmentRequest, opts ...grpc.CallOption) (*SetFragmentResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetFragmentResponse)
-	err := c.cc.Invoke(ctx, PreferenceService_SetFragment_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *preferenceServiceClient) SetIcon1(ctx context.Context, in *SetIcon1Request, opts ...grpc.CallOption) (*SetIcon1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetIcon1Response)
-	err := c.cc.Invoke(ctx, PreferenceService_SetIcon1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *preferenceServiceClient) SetIcon1_1(ctx context.Context, in *SetIcon1_1Request, opts ...grpc.CallOption) (*SetIcon1_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetIcon1_1Response)
-	err := c.cc.Invoke(ctx, PreferenceService_SetIcon1_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *preferenceServiceClient) SetIconSpaceReserved(ctx context.Context, in *SetIconSpaceReservedRequest, opts ...grpc.CallOption) (*SetIconSpaceReservedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetIconSpaceReservedResponse)
-	err := c.cc.Invoke(ctx, PreferenceService_SetIconSpaceReserved_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *preferenceServiceClient) SetIntent(ctx context.Context, in *SetIntentRequest, opts ...grpc.CallOption) (*SetIntentResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetIntentResponse)
-	err := c.cc.Invoke(ctx, PreferenceService_SetIntent_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *preferenceServiceClient) SetKey(ctx context.Context, in *SetKeyRequest, opts ...grpc.CallOption) (*SetKeyResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetKeyResponse)
-	err := c.cc.Invoke(ctx, PreferenceService_SetKey_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *preferenceServiceClient) SetLayoutResource(ctx context.Context, in *SetLayoutResourceRequest, opts ...grpc.CallOption) (*SetLayoutResourceResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetLayoutResourceResponse)
-	err := c.cc.Invoke(ctx, PreferenceService_SetLayoutResource_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *preferenceServiceClient) SetOnPreferenceChangeListener(ctx context.Context, in *SetOnPreferenceChangeListenerRequest, opts ...grpc.CallOption) (*SetOnPreferenceChangeListenerResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetOnPreferenceChangeListenerResponse)
-	err := c.cc.Invoke(ctx, PreferenceService_SetOnPreferenceChangeListener_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *preferenceServiceClient) SetOnPreferenceClickListener(ctx context.Context, in *SetOnPreferenceClickListenerRequest, opts ...grpc.CallOption) (*SetOnPreferenceClickListenerResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetOnPreferenceClickListenerResponse)
-	err := c.cc.Invoke(ctx, PreferenceService_SetOnPreferenceClickListener_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *preferenceServiceClient) SetOrder(ctx context.Context, in *SetOrderRequest, opts ...grpc.CallOption) (*SetOrderResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetOrderResponse)
-	err := c.cc.Invoke(ctx, PreferenceService_SetOrder_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *preferenceServiceClient) SetPersistent(ctx context.Context, in *SetPersistentRequest, opts ...grpc.CallOption) (*SetPersistentResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetPersistentResponse)
-	err := c.cc.Invoke(ctx, PreferenceService_SetPersistent_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *preferenceServiceClient) SetPreferenceDataStore(ctx context.Context, in *PreferenceSetPreferenceDataStoreRequest, opts ...grpc.CallOption) (*SetPreferenceDataStoreResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetPreferenceDataStoreResponse)
-	err := c.cc.Invoke(ctx, PreferenceService_SetPreferenceDataStore_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *preferenceServiceClient) SetRecycleEnabled(ctx context.Context, in *SetRecycleEnabledRequest, opts ...grpc.CallOption) (*SetRecycleEnabledResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetRecycleEnabledResponse)
-	err := c.cc.Invoke(ctx, PreferenceService_SetRecycleEnabled_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *preferenceServiceClient) SetSelectable(ctx context.Context, in *SetSelectableRequest, opts ...grpc.CallOption) (*SetSelectableResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetSelectableResponse)
-	err := c.cc.Invoke(ctx, PreferenceService_SetSelectable_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *preferenceServiceClient) SetShouldDisableView(ctx context.Context, in *SetShouldDisableViewRequest, opts ...grpc.CallOption) (*SetShouldDisableViewResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetShouldDisableViewResponse)
-	err := c.cc.Invoke(ctx, PreferenceService_SetShouldDisableView_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *preferenceServiceClient) SetSingleLineTitle(ctx context.Context, in *SetSingleLineTitleRequest, opts ...grpc.CallOption) (*SetSingleLineTitleResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetSingleLineTitleResponse)
-	err := c.cc.Invoke(ctx, PreferenceService_SetSingleLineTitle_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *preferenceServiceClient) SetSummary1(ctx context.Context, in *SetSummary1Request, opts ...grpc.CallOption) (*SetSummary1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetSummary1Response)
-	err := c.cc.Invoke(ctx, PreferenceService_SetSummary1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *preferenceServiceClient) SetSummary1_1(ctx context.Context, in *SetSummary1_1Request, opts ...grpc.CallOption) (*SetSummary1_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetSummary1_1Response)
-	err := c.cc.Invoke(ctx, PreferenceService_SetSummary1_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *preferenceServiceClient) SetTitle1(ctx context.Context, in *SetTitle1Request, opts ...grpc.CallOption) (*SetTitle1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetTitle1Response)
-	err := c.cc.Invoke(ctx, PreferenceService_SetTitle1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *preferenceServiceClient) SetTitle1_1(ctx context.Context, in *SetTitle1_1Request, opts ...grpc.CallOption) (*SetTitle1_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetTitle1_1Response)
-	err := c.cc.Invoke(ctx, PreferenceService_SetTitle1_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *preferenceServiceClient) SetWidgetLayoutResource(ctx context.Context, in *SetWidgetLayoutResourceRequest, opts ...grpc.CallOption) (*SetWidgetLayoutResourceResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetWidgetLayoutResourceResponse)
-	err := c.cc.Invoke(ctx, PreferenceService_SetWidgetLayoutResource_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *preferenceServiceClient) ShouldCommit(ctx context.Context, in *ShouldCommitRequest, opts ...grpc.CallOption) (*ShouldCommitResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ShouldCommitResponse)
-	err := c.cc.Invoke(ctx, PreferenceService_ShouldCommit_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *preferenceServiceClient) ShouldDisableDependents(ctx context.Context, in *ShouldDisableDependentsRequest, opts ...grpc.CallOption) (*ShouldDisableDependentsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ShouldDisableDependentsResponse)
-	err := c.cc.Invoke(ctx, PreferenceService_ShouldDisableDependents_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *preferenceServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ToStringResponse)
-	err := c.cc.Invoke(ctx, PreferenceService_ToString_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *preferenceServiceClient) CompareTo1_1(ctx context.Context, in *CompareTo1_1Request, opts ...grpc.CallOption) (*CompareTo1_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CompareTo1_1Response)
-	err := c.cc.Invoke(ctx, PreferenceService_CompareTo1_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// PreferenceServiceServer is the server API for PreferenceService service.
-// All implementations must embed UnimplementedPreferenceServiceServer
-// for forward compatibility.
-type PreferenceServiceServer interface {
-	NewPreference(context.Context, *NewPreferenceRequest) (*NewPreferenceResponse, error)
-	CompareTo1(context.Context, *CompareTo1Request) (*CompareTo1Response, error)
-	GetContext(context.Context, *GetContextRequest) (*GetContextResponse, error)
-	GetDependency(context.Context, *GetDependencyRequest) (*GetDependencyResponse, error)
-	GetEditor(context.Context, *GetEditorRequest) (*GetEditorResponse, error)
-	GetExtras(context.Context, *GetExtrasRequest) (*GetExtrasResponse, error)
-	GetFragment(context.Context, *GetFragmentRequest) (*GetFragmentResponse, error)
-	GetIcon(context.Context, *GetIconRequest) (*GetIconResponse, error)
-	GetIntent(context.Context, *GetIntentRequest) (*GetIntentResponse, error)
-	GetKey(context.Context, *GetKeyRequest) (*GetKeyResponse, error)
-	GetLayoutResource(context.Context, *GetLayoutResourceRequest) (*GetLayoutResourceResponse, error)
-	GetOnPreferenceChangeListener(context.Context, *GetOnPreferenceChangeListenerRequest) (*GetOnPreferenceChangeListenerResponse, error)
-	GetOnPreferenceClickListener(context.Context, *GetOnPreferenceClickListenerRequest) (*GetOnPreferenceClickListenerResponse, error)
-	GetOrder(context.Context, *GetOrderRequest) (*GetOrderResponse, error)
-	GetParent(context.Context, *GetParentRequest) (*GetParentResponse, error)
-	GetPreferenceDataStore(context.Context, *PreferenceGetPreferenceDataStoreRequest) (*GetPreferenceDataStoreResponse, error)
-	GetPreferenceManager(context.Context, *PreferenceGetPreferenceManagerRequest) (*GetPreferenceManagerResponse, error)
-	GetSharedPreferences(context.Context, *PreferenceGetSharedPreferencesRequest) (*GetSharedPreferencesResponse, error)
-	GetShouldDisableView(context.Context, *GetShouldDisableViewRequest) (*GetShouldDisableViewResponse, error)
-	GetSummary(context.Context, *GetSummaryRequest) (*GetSummaryResponse, error)
-	GetTitle(context.Context, *PreferenceGetTitleRequest) (*GetTitleResponse, error)
-	GetTitleRes(context.Context, *GetTitleResRequest) (*GetTitleResResponse, error)
-	GetView(context.Context, *GetViewRequest) (*GetViewResponse, error)
-	GetWidgetLayoutResource(context.Context, *GetWidgetLayoutResourceRequest) (*GetWidgetLayoutResourceResponse, error)
-	HasKey(context.Context, *HasKeyRequest) (*HasKeyResponse, error)
-	IsEnabled(context.Context, *IsEnabledRequest) (*IsEnabledResponse, error)
-	IsIconSpaceReserved(context.Context, *IsIconSpaceReservedRequest) (*IsIconSpaceReservedResponse, error)
-	IsPersistent(context.Context, *IsPersistentRequest) (*IsPersistentResponse, error)
-	IsRecycleEnabled(context.Context, *IsRecycleEnabledRequest) (*IsRecycleEnabledResponse, error)
-	IsSelectable(context.Context, *IsSelectableRequest) (*IsSelectableResponse, error)
-	IsSingleLineTitle(context.Context, *IsSingleLineTitleRequest) (*IsSingleLineTitleResponse, error)
-	NotifyDependencyChange(context.Context, *PreferenceNotifyDependencyChangeRequest) (*NotifyDependencyChangeResponse, error)
-	OnDependencyChanged(context.Context, *OnDependencyChangedRequest) (*OnDependencyChangedResponse, error)
-	OnParentChanged(context.Context, *OnParentChangedRequest) (*OnParentChangedResponse, error)
-	PeekExtras(context.Context, *PeekExtrasRequest) (*PeekExtrasResponse, error)
-	RestoreHierarchyState(context.Context, *RestoreHierarchyStateRequest) (*RestoreHierarchyStateResponse, error)
-	SaveHierarchyState(context.Context, *SaveHierarchyStateRequest) (*SaveHierarchyStateResponse, error)
-	SetDefaultValue(context.Context, *SetDefaultValueRequest) (*SetDefaultValueResponse, error)
-	SetDependency(context.Context, *SetDependencyRequest) (*SetDependencyResponse, error)
-	SetEnabled(context.Context, *SetEnabledRequest) (*SetEnabledResponse, error)
-	SetFragment(context.Context, *SetFragmentRequest) (*SetFragmentResponse, error)
-	SetIcon1(context.Context, *SetIcon1Request) (*SetIcon1Response, error)
-	SetIcon1_1(context.Context, *SetIcon1_1Request) (*SetIcon1_1Response, error)
-	SetIconSpaceReserved(context.Context, *SetIconSpaceReservedRequest) (*SetIconSpaceReservedResponse, error)
-	SetIntent(context.Context, *SetIntentRequest) (*SetIntentResponse, error)
-	SetKey(context.Context, *SetKeyRequest) (*SetKeyResponse, error)
-	SetLayoutResource(context.Context, *SetLayoutResourceRequest) (*SetLayoutResourceResponse, error)
-	SetOnPreferenceChangeListener(context.Context, *SetOnPreferenceChangeListenerRequest) (*SetOnPreferenceChangeListenerResponse, error)
-	SetOnPreferenceClickListener(context.Context, *SetOnPreferenceClickListenerRequest) (*SetOnPreferenceClickListenerResponse, error)
-	SetOrder(context.Context, *SetOrderRequest) (*SetOrderResponse, error)
-	SetPersistent(context.Context, *SetPersistentRequest) (*SetPersistentResponse, error)
-	SetPreferenceDataStore(context.Context, *PreferenceSetPreferenceDataStoreRequest) (*SetPreferenceDataStoreResponse, error)
-	SetRecycleEnabled(context.Context, *SetRecycleEnabledRequest) (*SetRecycleEnabledResponse, error)
-	SetSelectable(context.Context, *SetSelectableRequest) (*SetSelectableResponse, error)
-	SetShouldDisableView(context.Context, *SetShouldDisableViewRequest) (*SetShouldDisableViewResponse, error)
-	SetSingleLineTitle(context.Context, *SetSingleLineTitleRequest) (*SetSingleLineTitleResponse, error)
-	SetSummary1(context.Context, *SetSummary1Request) (*SetSummary1Response, error)
-	SetSummary1_1(context.Context, *SetSummary1_1Request) (*SetSummary1_1Response, error)
-	SetTitle1(context.Context, *SetTitle1Request) (*SetTitle1Response, error)
-	SetTitle1_1(context.Context, *SetTitle1_1Request) (*SetTitle1_1Response, error)
-	SetWidgetLayoutResource(context.Context, *SetWidgetLayoutResourceRequest) (*SetWidgetLayoutResourceResponse, error)
-	ShouldCommit(context.Context, *ShouldCommitRequest) (*ShouldCommitResponse, error)
-	ShouldDisableDependents(context.Context, *ShouldDisableDependentsRequest) (*ShouldDisableDependentsResponse, error)
-	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
-	CompareTo1_1(context.Context, *CompareTo1_1Request) (*CompareTo1_1Response, error)
-	mustEmbedUnimplementedPreferenceServiceServer()
-}
-
-// UnimplementedPreferenceServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedPreferenceServiceServer struct{}
-
-func (UnimplementedPreferenceServiceServer) NewPreference(context.Context, *NewPreferenceRequest) (*NewPreferenceResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewPreference not implemented")
-}
-func (UnimplementedPreferenceServiceServer) CompareTo1(context.Context, *CompareTo1Request) (*CompareTo1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method CompareTo1 not implemented")
-}
-func (UnimplementedPreferenceServiceServer) GetContext(context.Context, *GetContextRequest) (*GetContextResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetContext not implemented")
-}
-func (UnimplementedPreferenceServiceServer) GetDependency(context.Context, *GetDependencyRequest) (*GetDependencyResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetDependency not implemented")
-}
-func (UnimplementedPreferenceServiceServer) GetEditor(context.Context, *GetEditorRequest) (*GetEditorResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetEditor not implemented")
-}
-func (UnimplementedPreferenceServiceServer) GetExtras(context.Context, *GetExtrasRequest) (*GetExtrasResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetExtras not implemented")
-}
-func (UnimplementedPreferenceServiceServer) GetFragment(context.Context, *GetFragmentRequest) (*GetFragmentResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetFragment not implemented")
-}
-func (UnimplementedPreferenceServiceServer) GetIcon(context.Context, *GetIconRequest) (*GetIconResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetIcon not implemented")
-}
-func (UnimplementedPreferenceServiceServer) GetIntent(context.Context, *GetIntentRequest) (*GetIntentResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetIntent not implemented")
-}
-func (UnimplementedPreferenceServiceServer) GetKey(context.Context, *GetKeyRequest) (*GetKeyResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetKey not implemented")
-}
-func (UnimplementedPreferenceServiceServer) GetLayoutResource(context.Context, *GetLayoutResourceRequest) (*GetLayoutResourceResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetLayoutResource not implemented")
-}
-func (UnimplementedPreferenceServiceServer) GetOnPreferenceChangeListener(context.Context, *GetOnPreferenceChangeListenerRequest) (*GetOnPreferenceChangeListenerResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetOnPreferenceChangeListener not implemented")
-}
-func (UnimplementedPreferenceServiceServer) GetOnPreferenceClickListener(context.Context, *GetOnPreferenceClickListenerRequest) (*GetOnPreferenceClickListenerResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetOnPreferenceClickListener not implemented")
-}
-func (UnimplementedPreferenceServiceServer) GetOrder(context.Context, *GetOrderRequest) (*GetOrderResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetOrder not implemented")
-}
-func (UnimplementedPreferenceServiceServer) GetParent(context.Context, *GetParentRequest) (*GetParentResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetParent not implemented")
-}
-func (UnimplementedPreferenceServiceServer) GetPreferenceDataStore(context.Context, *PreferenceGetPreferenceDataStoreRequest) (*GetPreferenceDataStoreResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetPreferenceDataStore not implemented")
-}
-func (UnimplementedPreferenceServiceServer) GetPreferenceManager(context.Context, *PreferenceGetPreferenceManagerRequest) (*GetPreferenceManagerResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetPreferenceManager not implemented")
-}
-func (UnimplementedPreferenceServiceServer) GetSharedPreferences(context.Context, *PreferenceGetSharedPreferencesRequest) (*GetSharedPreferencesResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetSharedPreferences not implemented")
-}
-func (UnimplementedPreferenceServiceServer) GetShouldDisableView(context.Context, *GetShouldDisableViewRequest) (*GetShouldDisableViewResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetShouldDisableView not implemented")
-}
-func (UnimplementedPreferenceServiceServer) GetSummary(context.Context, *GetSummaryRequest) (*GetSummaryResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetSummary not implemented")
-}
-func (UnimplementedPreferenceServiceServer) GetTitle(context.Context, *PreferenceGetTitleRequest) (*GetTitleResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetTitle not implemented")
-}
-func (UnimplementedPreferenceServiceServer) GetTitleRes(context.Context, *GetTitleResRequest) (*GetTitleResResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetTitleRes not implemented")
-}
-func (UnimplementedPreferenceServiceServer) GetView(context.Context, *GetViewRequest) (*GetViewResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetView not implemented")
-}
-func (UnimplementedPreferenceServiceServer) GetWidgetLayoutResource(context.Context, *GetWidgetLayoutResourceRequest) (*GetWidgetLayoutResourceResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetWidgetLayoutResource not implemented")
-}
-func (UnimplementedPreferenceServiceServer) HasKey(context.Context, *HasKeyRequest) (*HasKeyResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method HasKey not implemented")
-}
-func (UnimplementedPreferenceServiceServer) IsEnabled(context.Context, *IsEnabledRequest) (*IsEnabledResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsEnabled not implemented")
-}
-func (UnimplementedPreferenceServiceServer) IsIconSpaceReserved(context.Context, *IsIconSpaceReservedRequest) (*IsIconSpaceReservedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsIconSpaceReserved not implemented")
-}
-func (UnimplementedPreferenceServiceServer) IsPersistent(context.Context, *IsPersistentRequest) (*IsPersistentResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsPersistent not implemented")
-}
-func (UnimplementedPreferenceServiceServer) IsRecycleEnabled(context.Context, *IsRecycleEnabledRequest) (*IsRecycleEnabledResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsRecycleEnabled not implemented")
-}
-func (UnimplementedPreferenceServiceServer) IsSelectable(context.Context, *IsSelectableRequest) (*IsSelectableResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsSelectable not implemented")
-}
-func (UnimplementedPreferenceServiceServer) IsSingleLineTitle(context.Context, *IsSingleLineTitleRequest) (*IsSingleLineTitleResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsSingleLineTitle not implemented")
-}
-func (UnimplementedPreferenceServiceServer) NotifyDependencyChange(context.Context, *PreferenceNotifyDependencyChangeRequest) (*NotifyDependencyChangeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NotifyDependencyChange not implemented")
-}
-func (UnimplementedPreferenceServiceServer) OnDependencyChanged(context.Context, *OnDependencyChangedRequest) (*OnDependencyChangedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnDependencyChanged not implemented")
-}
-func (UnimplementedPreferenceServiceServer) OnParentChanged(context.Context, *OnParentChangedRequest) (*OnParentChangedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnParentChanged not implemented")
-}
-func (UnimplementedPreferenceServiceServer) PeekExtras(context.Context, *PeekExtrasRequest) (*PeekExtrasResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method PeekExtras not implemented")
-}
-func (UnimplementedPreferenceServiceServer) RestoreHierarchyState(context.Context, *RestoreHierarchyStateRequest) (*RestoreHierarchyStateResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method RestoreHierarchyState not implemented")
-}
-func (UnimplementedPreferenceServiceServer) SaveHierarchyState(context.Context, *SaveHierarchyStateRequest) (*SaveHierarchyStateResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SaveHierarchyState not implemented")
-}
-func (UnimplementedPreferenceServiceServer) SetDefaultValue(context.Context, *SetDefaultValueRequest) (*SetDefaultValueResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetDefaultValue not implemented")
-}
-func (UnimplementedPreferenceServiceServer) SetDependency(context.Context, *SetDependencyRequest) (*SetDependencyResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetDependency not implemented")
-}
-func (UnimplementedPreferenceServiceServer) SetEnabled(context.Context, *SetEnabledRequest) (*SetEnabledResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetEnabled not implemented")
-}
-func (UnimplementedPreferenceServiceServer) SetFragment(context.Context, *SetFragmentRequest) (*SetFragmentResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetFragment not implemented")
-}
-func (UnimplementedPreferenceServiceServer) SetIcon1(context.Context, *SetIcon1Request) (*SetIcon1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetIcon1 not implemented")
-}
-func (UnimplementedPreferenceServiceServer) SetIcon1_1(context.Context, *SetIcon1_1Request) (*SetIcon1_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetIcon1_1 not implemented")
-}
-func (UnimplementedPreferenceServiceServer) SetIconSpaceReserved(context.Context, *SetIconSpaceReservedRequest) (*SetIconSpaceReservedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetIconSpaceReserved not implemented")
-}
-func (UnimplementedPreferenceServiceServer) SetIntent(context.Context, *SetIntentRequest) (*SetIntentResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetIntent not implemented")
-}
-func (UnimplementedPreferenceServiceServer) SetKey(context.Context, *SetKeyRequest) (*SetKeyResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetKey not implemented")
-}
-func (UnimplementedPreferenceServiceServer) SetLayoutResource(context.Context, *SetLayoutResourceRequest) (*SetLayoutResourceResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetLayoutResource not implemented")
-}
-func (UnimplementedPreferenceServiceServer) SetOnPreferenceChangeListener(context.Context, *SetOnPreferenceChangeListenerRequest) (*SetOnPreferenceChangeListenerResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetOnPreferenceChangeListener not implemented")
-}
-func (UnimplementedPreferenceServiceServer) SetOnPreferenceClickListener(context.Context, *SetOnPreferenceClickListenerRequest) (*SetOnPreferenceClickListenerResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetOnPreferenceClickListener not implemented")
-}
-func (UnimplementedPreferenceServiceServer) SetOrder(context.Context, *SetOrderRequest) (*SetOrderResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetOrder not implemented")
-}
-func (UnimplementedPreferenceServiceServer) SetPersistent(context.Context, *SetPersistentRequest) (*SetPersistentResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetPersistent not implemented")
-}
-func (UnimplementedPreferenceServiceServer) SetPreferenceDataStore(context.Context, *PreferenceSetPreferenceDataStoreRequest) (*SetPreferenceDataStoreResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetPreferenceDataStore not implemented")
-}
-func (UnimplementedPreferenceServiceServer) SetRecycleEnabled(context.Context, *SetRecycleEnabledRequest) (*SetRecycleEnabledResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetRecycleEnabled not implemented")
-}
-func (UnimplementedPreferenceServiceServer) SetSelectable(context.Context, *SetSelectableRequest) (*SetSelectableResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetSelectable not implemented")
-}
-func (UnimplementedPreferenceServiceServer) SetShouldDisableView(context.Context, *SetShouldDisableViewRequest) (*SetShouldDisableViewResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetShouldDisableView not implemented")
-}
-func (UnimplementedPreferenceServiceServer) SetSingleLineTitle(context.Context, *SetSingleLineTitleRequest) (*SetSingleLineTitleResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetSingleLineTitle not implemented")
-}
-func (UnimplementedPreferenceServiceServer) SetSummary1(context.Context, *SetSummary1Request) (*SetSummary1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetSummary1 not implemented")
-}
-func (UnimplementedPreferenceServiceServer) SetSummary1_1(context.Context, *SetSummary1_1Request) (*SetSummary1_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetSummary1_1 not implemented")
-}
-func (UnimplementedPreferenceServiceServer) SetTitle1(context.Context, *SetTitle1Request) (*SetTitle1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetTitle1 not implemented")
-}
-func (UnimplementedPreferenceServiceServer) SetTitle1_1(context.Context, *SetTitle1_1Request) (*SetTitle1_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetTitle1_1 not implemented")
-}
-func (UnimplementedPreferenceServiceServer) SetWidgetLayoutResource(context.Context, *SetWidgetLayoutResourceRequest) (*SetWidgetLayoutResourceResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetWidgetLayoutResource not implemented")
-}
-func (UnimplementedPreferenceServiceServer) ShouldCommit(context.Context, *ShouldCommitRequest) (*ShouldCommitResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ShouldCommit not implemented")
-}
-func (UnimplementedPreferenceServiceServer) ShouldDisableDependents(context.Context, *ShouldDisableDependentsRequest) (*ShouldDisableDependentsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ShouldDisableDependents not implemented")
-}
-func (UnimplementedPreferenceServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
-}
-func (UnimplementedPreferenceServiceServer) CompareTo1_1(context.Context, *CompareTo1_1Request) (*CompareTo1_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method CompareTo1_1 not implemented")
-}
-func (UnimplementedPreferenceServiceServer) mustEmbedUnimplementedPreferenceServiceServer() {}
-func (UnimplementedPreferenceServiceServer) testEmbeddedByValue()                           {}
-
-// UnsafePreferenceServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to PreferenceServiceServer will
-// result in compilation errors.
-type UnsafePreferenceServiceServer interface {
-	mustEmbedUnimplementedPreferenceServiceServer()
-}
-
-func RegisterPreferenceServiceServer(s grpc.ServiceRegistrar, srv PreferenceServiceServer) {
-	// If the following call panics, it indicates UnimplementedPreferenceServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&PreferenceService_ServiceDesc, srv)
-}
-
-func _PreferenceService_NewPreference_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewPreferenceRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PreferenceServiceServer).NewPreference(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PreferenceService_NewPreference_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PreferenceServiceServer).NewPreference(ctx, req.(*NewPreferenceRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PreferenceService_CompareTo1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CompareTo1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PreferenceServiceServer).CompareTo1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PreferenceService_CompareTo1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PreferenceServiceServer).CompareTo1(ctx, req.(*CompareTo1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PreferenceService_GetContext_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetContextRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PreferenceServiceServer).GetContext(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PreferenceService_GetContext_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PreferenceServiceServer).GetContext(ctx, req.(*GetContextRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PreferenceService_GetDependency_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetDependencyRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PreferenceServiceServer).GetDependency(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PreferenceService_GetDependency_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PreferenceServiceServer).GetDependency(ctx, req.(*GetDependencyRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PreferenceService_GetEditor_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetEditorRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PreferenceServiceServer).GetEditor(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PreferenceService_GetEditor_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PreferenceServiceServer).GetEditor(ctx, req.(*GetEditorRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PreferenceService_GetExtras_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetExtrasRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PreferenceServiceServer).GetExtras(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PreferenceService_GetExtras_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PreferenceServiceServer).GetExtras(ctx, req.(*GetExtrasRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PreferenceService_GetFragment_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetFragmentRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PreferenceServiceServer).GetFragment(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PreferenceService_GetFragment_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PreferenceServiceServer).GetFragment(ctx, req.(*GetFragmentRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PreferenceService_GetIcon_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetIconRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PreferenceServiceServer).GetIcon(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PreferenceService_GetIcon_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PreferenceServiceServer).GetIcon(ctx, req.(*GetIconRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PreferenceService_GetIntent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetIntentRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PreferenceServiceServer).GetIntent(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PreferenceService_GetIntent_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PreferenceServiceServer).GetIntent(ctx, req.(*GetIntentRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PreferenceService_GetKey_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetKeyRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PreferenceServiceServer).GetKey(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PreferenceService_GetKey_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PreferenceServiceServer).GetKey(ctx, req.(*GetKeyRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PreferenceService_GetLayoutResource_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetLayoutResourceRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PreferenceServiceServer).GetLayoutResource(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PreferenceService_GetLayoutResource_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PreferenceServiceServer).GetLayoutResource(ctx, req.(*GetLayoutResourceRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PreferenceService_GetOnPreferenceChangeListener_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetOnPreferenceChangeListenerRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PreferenceServiceServer).GetOnPreferenceChangeListener(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PreferenceService_GetOnPreferenceChangeListener_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PreferenceServiceServer).GetOnPreferenceChangeListener(ctx, req.(*GetOnPreferenceChangeListenerRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PreferenceService_GetOnPreferenceClickListener_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetOnPreferenceClickListenerRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PreferenceServiceServer).GetOnPreferenceClickListener(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PreferenceService_GetOnPreferenceClickListener_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PreferenceServiceServer).GetOnPreferenceClickListener(ctx, req.(*GetOnPreferenceClickListenerRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PreferenceService_GetOrder_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetOrderRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PreferenceServiceServer).GetOrder(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PreferenceService_GetOrder_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PreferenceServiceServer).GetOrder(ctx, req.(*GetOrderRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PreferenceService_GetParent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetParentRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PreferenceServiceServer).GetParent(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PreferenceService_GetParent_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PreferenceServiceServer).GetParent(ctx, req.(*GetParentRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PreferenceService_GetPreferenceDataStore_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(PreferenceGetPreferenceDataStoreRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PreferenceServiceServer).GetPreferenceDataStore(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PreferenceService_GetPreferenceDataStore_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PreferenceServiceServer).GetPreferenceDataStore(ctx, req.(*PreferenceGetPreferenceDataStoreRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PreferenceService_GetPreferenceManager_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(PreferenceGetPreferenceManagerRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PreferenceServiceServer).GetPreferenceManager(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PreferenceService_GetPreferenceManager_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PreferenceServiceServer).GetPreferenceManager(ctx, req.(*PreferenceGetPreferenceManagerRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PreferenceService_GetSharedPreferences_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(PreferenceGetSharedPreferencesRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PreferenceServiceServer).GetSharedPreferences(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PreferenceService_GetSharedPreferences_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PreferenceServiceServer).GetSharedPreferences(ctx, req.(*PreferenceGetSharedPreferencesRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PreferenceService_GetShouldDisableView_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetShouldDisableViewRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PreferenceServiceServer).GetShouldDisableView(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PreferenceService_GetShouldDisableView_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PreferenceServiceServer).GetShouldDisableView(ctx, req.(*GetShouldDisableViewRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PreferenceService_GetSummary_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetSummaryRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PreferenceServiceServer).GetSummary(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PreferenceService_GetSummary_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PreferenceServiceServer).GetSummary(ctx, req.(*GetSummaryRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PreferenceService_GetTitle_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(PreferenceGetTitleRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PreferenceServiceServer).GetTitle(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PreferenceService_GetTitle_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PreferenceServiceServer).GetTitle(ctx, req.(*PreferenceGetTitleRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PreferenceService_GetTitleRes_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetTitleResRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PreferenceServiceServer).GetTitleRes(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PreferenceService_GetTitleRes_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PreferenceServiceServer).GetTitleRes(ctx, req.(*GetTitleResRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PreferenceService_GetView_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetViewRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PreferenceServiceServer).GetView(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PreferenceService_GetView_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PreferenceServiceServer).GetView(ctx, req.(*GetViewRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PreferenceService_GetWidgetLayoutResource_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetWidgetLayoutResourceRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PreferenceServiceServer).GetWidgetLayoutResource(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PreferenceService_GetWidgetLayoutResource_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PreferenceServiceServer).GetWidgetLayoutResource(ctx, req.(*GetWidgetLayoutResourceRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PreferenceService_HasKey_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(HasKeyRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PreferenceServiceServer).HasKey(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PreferenceService_HasKey_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PreferenceServiceServer).HasKey(ctx, req.(*HasKeyRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PreferenceService_IsEnabled_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsEnabledRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PreferenceServiceServer).IsEnabled(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PreferenceService_IsEnabled_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PreferenceServiceServer).IsEnabled(ctx, req.(*IsEnabledRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PreferenceService_IsIconSpaceReserved_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsIconSpaceReservedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PreferenceServiceServer).IsIconSpaceReserved(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PreferenceService_IsIconSpaceReserved_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PreferenceServiceServer).IsIconSpaceReserved(ctx, req.(*IsIconSpaceReservedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PreferenceService_IsPersistent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsPersistentRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PreferenceServiceServer).IsPersistent(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PreferenceService_IsPersistent_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PreferenceServiceServer).IsPersistent(ctx, req.(*IsPersistentRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PreferenceService_IsRecycleEnabled_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsRecycleEnabledRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PreferenceServiceServer).IsRecycleEnabled(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PreferenceService_IsRecycleEnabled_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PreferenceServiceServer).IsRecycleEnabled(ctx, req.(*IsRecycleEnabledRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PreferenceService_IsSelectable_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsSelectableRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PreferenceServiceServer).IsSelectable(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PreferenceService_IsSelectable_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PreferenceServiceServer).IsSelectable(ctx, req.(*IsSelectableRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PreferenceService_IsSingleLineTitle_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsSingleLineTitleRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PreferenceServiceServer).IsSingleLineTitle(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PreferenceService_IsSingleLineTitle_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PreferenceServiceServer).IsSingleLineTitle(ctx, req.(*IsSingleLineTitleRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PreferenceService_NotifyDependencyChange_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(PreferenceNotifyDependencyChangeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PreferenceServiceServer).NotifyDependencyChange(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PreferenceService_NotifyDependencyChange_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PreferenceServiceServer).NotifyDependencyChange(ctx, req.(*PreferenceNotifyDependencyChangeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PreferenceService_OnDependencyChanged_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnDependencyChangedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PreferenceServiceServer).OnDependencyChanged(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PreferenceService_OnDependencyChanged_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PreferenceServiceServer).OnDependencyChanged(ctx, req.(*OnDependencyChangedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PreferenceService_OnParentChanged_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnParentChangedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PreferenceServiceServer).OnParentChanged(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PreferenceService_OnParentChanged_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PreferenceServiceServer).OnParentChanged(ctx, req.(*OnParentChangedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PreferenceService_PeekExtras_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(PeekExtrasRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PreferenceServiceServer).PeekExtras(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PreferenceService_PeekExtras_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PreferenceServiceServer).PeekExtras(ctx, req.(*PeekExtrasRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PreferenceService_RestoreHierarchyState_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(RestoreHierarchyStateRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PreferenceServiceServer).RestoreHierarchyState(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PreferenceService_RestoreHierarchyState_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PreferenceServiceServer).RestoreHierarchyState(ctx, req.(*RestoreHierarchyStateRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PreferenceService_SaveHierarchyState_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SaveHierarchyStateRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PreferenceServiceServer).SaveHierarchyState(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PreferenceService_SaveHierarchyState_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PreferenceServiceServer).SaveHierarchyState(ctx, req.(*SaveHierarchyStateRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PreferenceService_SetDefaultValue_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetDefaultValueRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PreferenceServiceServer).SetDefaultValue(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PreferenceService_SetDefaultValue_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PreferenceServiceServer).SetDefaultValue(ctx, req.(*SetDefaultValueRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PreferenceService_SetDependency_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetDependencyRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PreferenceServiceServer).SetDependency(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PreferenceService_SetDependency_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PreferenceServiceServer).SetDependency(ctx, req.(*SetDependencyRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PreferenceService_SetEnabled_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetEnabledRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PreferenceServiceServer).SetEnabled(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PreferenceService_SetEnabled_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PreferenceServiceServer).SetEnabled(ctx, req.(*SetEnabledRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PreferenceService_SetFragment_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetFragmentRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PreferenceServiceServer).SetFragment(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PreferenceService_SetFragment_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PreferenceServiceServer).SetFragment(ctx, req.(*SetFragmentRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PreferenceService_SetIcon1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetIcon1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PreferenceServiceServer).SetIcon1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PreferenceService_SetIcon1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PreferenceServiceServer).SetIcon1(ctx, req.(*SetIcon1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PreferenceService_SetIcon1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetIcon1_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PreferenceServiceServer).SetIcon1_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PreferenceService_SetIcon1_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PreferenceServiceServer).SetIcon1_1(ctx, req.(*SetIcon1_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PreferenceService_SetIconSpaceReserved_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetIconSpaceReservedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PreferenceServiceServer).SetIconSpaceReserved(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PreferenceService_SetIconSpaceReserved_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PreferenceServiceServer).SetIconSpaceReserved(ctx, req.(*SetIconSpaceReservedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PreferenceService_SetIntent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetIntentRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PreferenceServiceServer).SetIntent(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PreferenceService_SetIntent_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PreferenceServiceServer).SetIntent(ctx, req.(*SetIntentRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PreferenceService_SetKey_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetKeyRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PreferenceServiceServer).SetKey(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PreferenceService_SetKey_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PreferenceServiceServer).SetKey(ctx, req.(*SetKeyRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PreferenceService_SetLayoutResource_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetLayoutResourceRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PreferenceServiceServer).SetLayoutResource(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PreferenceService_SetLayoutResource_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PreferenceServiceServer).SetLayoutResource(ctx, req.(*SetLayoutResourceRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PreferenceService_SetOnPreferenceChangeListener_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetOnPreferenceChangeListenerRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PreferenceServiceServer).SetOnPreferenceChangeListener(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PreferenceService_SetOnPreferenceChangeListener_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PreferenceServiceServer).SetOnPreferenceChangeListener(ctx, req.(*SetOnPreferenceChangeListenerRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PreferenceService_SetOnPreferenceClickListener_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetOnPreferenceClickListenerRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PreferenceServiceServer).SetOnPreferenceClickListener(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PreferenceService_SetOnPreferenceClickListener_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PreferenceServiceServer).SetOnPreferenceClickListener(ctx, req.(*SetOnPreferenceClickListenerRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PreferenceService_SetOrder_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetOrderRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PreferenceServiceServer).SetOrder(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PreferenceService_SetOrder_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PreferenceServiceServer).SetOrder(ctx, req.(*SetOrderRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PreferenceService_SetPersistent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetPersistentRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PreferenceServiceServer).SetPersistent(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PreferenceService_SetPersistent_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PreferenceServiceServer).SetPersistent(ctx, req.(*SetPersistentRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PreferenceService_SetPreferenceDataStore_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(PreferenceSetPreferenceDataStoreRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PreferenceServiceServer).SetPreferenceDataStore(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PreferenceService_SetPreferenceDataStore_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PreferenceServiceServer).SetPreferenceDataStore(ctx, req.(*PreferenceSetPreferenceDataStoreRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PreferenceService_SetRecycleEnabled_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetRecycleEnabledRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PreferenceServiceServer).SetRecycleEnabled(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PreferenceService_SetRecycleEnabled_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PreferenceServiceServer).SetRecycleEnabled(ctx, req.(*SetRecycleEnabledRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PreferenceService_SetSelectable_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetSelectableRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PreferenceServiceServer).SetSelectable(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PreferenceService_SetSelectable_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PreferenceServiceServer).SetSelectable(ctx, req.(*SetSelectableRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PreferenceService_SetShouldDisableView_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetShouldDisableViewRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PreferenceServiceServer).SetShouldDisableView(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PreferenceService_SetShouldDisableView_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PreferenceServiceServer).SetShouldDisableView(ctx, req.(*SetShouldDisableViewRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PreferenceService_SetSingleLineTitle_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetSingleLineTitleRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PreferenceServiceServer).SetSingleLineTitle(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PreferenceService_SetSingleLineTitle_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PreferenceServiceServer).SetSingleLineTitle(ctx, req.(*SetSingleLineTitleRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PreferenceService_SetSummary1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetSummary1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PreferenceServiceServer).SetSummary1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PreferenceService_SetSummary1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PreferenceServiceServer).SetSummary1(ctx, req.(*SetSummary1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PreferenceService_SetSummary1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetSummary1_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PreferenceServiceServer).SetSummary1_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PreferenceService_SetSummary1_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PreferenceServiceServer).SetSummary1_1(ctx, req.(*SetSummary1_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PreferenceService_SetTitle1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetTitle1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PreferenceServiceServer).SetTitle1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PreferenceService_SetTitle1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PreferenceServiceServer).SetTitle1(ctx, req.(*SetTitle1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PreferenceService_SetTitle1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetTitle1_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PreferenceServiceServer).SetTitle1_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PreferenceService_SetTitle1_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PreferenceServiceServer).SetTitle1_1(ctx, req.(*SetTitle1_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PreferenceService_SetWidgetLayoutResource_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetWidgetLayoutResourceRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PreferenceServiceServer).SetWidgetLayoutResource(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PreferenceService_SetWidgetLayoutResource_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PreferenceServiceServer).SetWidgetLayoutResource(ctx, req.(*SetWidgetLayoutResourceRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PreferenceService_ShouldCommit_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ShouldCommitRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PreferenceServiceServer).ShouldCommit(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PreferenceService_ShouldCommit_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PreferenceServiceServer).ShouldCommit(ctx, req.(*ShouldCommitRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PreferenceService_ShouldDisableDependents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ShouldDisableDependentsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PreferenceServiceServer).ShouldDisableDependents(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PreferenceService_ShouldDisableDependents_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PreferenceServiceServer).ShouldDisableDependents(ctx, req.(*ShouldDisableDependentsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PreferenceService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ToStringRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PreferenceServiceServer).ToString(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PreferenceService_ToString_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PreferenceServiceServer).ToString(ctx, req.(*ToStringRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PreferenceService_CompareTo1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CompareTo1_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PreferenceServiceServer).CompareTo1_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PreferenceService_CompareTo1_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PreferenceServiceServer).CompareTo1_1(ctx, req.(*CompareTo1_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// PreferenceService_ServiceDesc is the grpc.ServiceDesc for PreferenceService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var PreferenceService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "preference.PreferenceService",
-	HandlerType: (*PreferenceServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "NewPreference",
-			Handler:    _PreferenceService_NewPreference_Handler,
-		},
-		{
-			MethodName: "CompareTo1",
-			Handler:    _PreferenceService_CompareTo1_Handler,
-		},
-		{
-			MethodName: "GetContext",
-			Handler:    _PreferenceService_GetContext_Handler,
-		},
-		{
-			MethodName: "GetDependency",
-			Handler:    _PreferenceService_GetDependency_Handler,
-		},
-		{
-			MethodName: "GetEditor",
-			Handler:    _PreferenceService_GetEditor_Handler,
-		},
-		{
-			MethodName: "GetExtras",
-			Handler:    _PreferenceService_GetExtras_Handler,
-		},
-		{
-			MethodName: "GetFragment",
-			Handler:    _PreferenceService_GetFragment_Handler,
-		},
-		{
-			MethodName: "GetIcon",
-			Handler:    _PreferenceService_GetIcon_Handler,
-		},
-		{
-			MethodName: "GetIntent",
-			Handler:    _PreferenceService_GetIntent_Handler,
-		},
-		{
-			MethodName: "GetKey",
-			Handler:    _PreferenceService_GetKey_Handler,
-		},
-		{
-			MethodName: "GetLayoutResource",
-			Handler:    _PreferenceService_GetLayoutResource_Handler,
-		},
-		{
-			MethodName: "GetOnPreferenceChangeListener",
-			Handler:    _PreferenceService_GetOnPreferenceChangeListener_Handler,
-		},
-		{
-			MethodName: "GetOnPreferenceClickListener",
-			Handler:    _PreferenceService_GetOnPreferenceClickListener_Handler,
-		},
-		{
-			MethodName: "GetOrder",
-			Handler:    _PreferenceService_GetOrder_Handler,
-		},
-		{
-			MethodName: "GetParent",
-			Handler:    _PreferenceService_GetParent_Handler,
-		},
-		{
-			MethodName: "GetPreferenceDataStore",
-			Handler:    _PreferenceService_GetPreferenceDataStore_Handler,
-		},
-		{
-			MethodName: "GetPreferenceManager",
-			Handler:    _PreferenceService_GetPreferenceManager_Handler,
-		},
-		{
-			MethodName: "GetSharedPreferences",
-			Handler:    _PreferenceService_GetSharedPreferences_Handler,
-		},
-		{
-			MethodName: "GetShouldDisableView",
-			Handler:    _PreferenceService_GetShouldDisableView_Handler,
-		},
-		{
-			MethodName: "GetSummary",
-			Handler:    _PreferenceService_GetSummary_Handler,
-		},
-		{
-			MethodName: "GetTitle",
-			Handler:    _PreferenceService_GetTitle_Handler,
-		},
-		{
-			MethodName: "GetTitleRes",
-			Handler:    _PreferenceService_GetTitleRes_Handler,
-		},
-		{
-			MethodName: "GetView",
-			Handler:    _PreferenceService_GetView_Handler,
-		},
-		{
-			MethodName: "GetWidgetLayoutResource",
-			Handler:    _PreferenceService_GetWidgetLayoutResource_Handler,
-		},
-		{
-			MethodName: "HasKey",
-			Handler:    _PreferenceService_HasKey_Handler,
-		},
-		{
-			MethodName: "IsEnabled",
-			Handler:    _PreferenceService_IsEnabled_Handler,
-		},
-		{
-			MethodName: "IsIconSpaceReserved",
-			Handler:    _PreferenceService_IsIconSpaceReserved_Handler,
-		},
-		{
-			MethodName: "IsPersistent",
-			Handler:    _PreferenceService_IsPersistent_Handler,
-		},
-		{
-			MethodName: "IsRecycleEnabled",
-			Handler:    _PreferenceService_IsRecycleEnabled_Handler,
-		},
-		{
-			MethodName: "IsSelectable",
-			Handler:    _PreferenceService_IsSelectable_Handler,
-		},
-		{
-			MethodName: "IsSingleLineTitle",
-			Handler:    _PreferenceService_IsSingleLineTitle_Handler,
-		},
-		{
-			MethodName: "NotifyDependencyChange",
-			Handler:    _PreferenceService_NotifyDependencyChange_Handler,
-		},
-		{
-			MethodName: "OnDependencyChanged",
-			Handler:    _PreferenceService_OnDependencyChanged_Handler,
-		},
-		{
-			MethodName: "OnParentChanged",
-			Handler:    _PreferenceService_OnParentChanged_Handler,
-		},
-		{
-			MethodName: "PeekExtras",
-			Handler:    _PreferenceService_PeekExtras_Handler,
-		},
-		{
-			MethodName: "RestoreHierarchyState",
-			Handler:    _PreferenceService_RestoreHierarchyState_Handler,
-		},
-		{
-			MethodName: "SaveHierarchyState",
-			Handler:    _PreferenceService_SaveHierarchyState_Handler,
-		},
-		{
-			MethodName: "SetDefaultValue",
-			Handler:    _PreferenceService_SetDefaultValue_Handler,
-		},
-		{
-			MethodName: "SetDependency",
-			Handler:    _PreferenceService_SetDependency_Handler,
-		},
-		{
-			MethodName: "SetEnabled",
-			Handler:    _PreferenceService_SetEnabled_Handler,
-		},
-		{
-			MethodName: "SetFragment",
-			Handler:    _PreferenceService_SetFragment_Handler,
-		},
-		{
-			MethodName: "SetIcon1",
-			Handler:    _PreferenceService_SetIcon1_Handler,
-		},
-		{
-			MethodName: "SetIcon1_1",
-			Handler:    _PreferenceService_SetIcon1_1_Handler,
-		},
-		{
-			MethodName: "SetIconSpaceReserved",
-			Handler:    _PreferenceService_SetIconSpaceReserved_Handler,
-		},
-		{
-			MethodName: "SetIntent",
-			Handler:    _PreferenceService_SetIntent_Handler,
-		},
-		{
-			MethodName: "SetKey",
-			Handler:    _PreferenceService_SetKey_Handler,
-		},
-		{
-			MethodName: "SetLayoutResource",
-			Handler:    _PreferenceService_SetLayoutResource_Handler,
-		},
-		{
-			MethodName: "SetOnPreferenceChangeListener",
-			Handler:    _PreferenceService_SetOnPreferenceChangeListener_Handler,
-		},
-		{
-			MethodName: "SetOnPreferenceClickListener",
-			Handler:    _PreferenceService_SetOnPreferenceClickListener_Handler,
-		},
-		{
-			MethodName: "SetOrder",
-			Handler:    _PreferenceService_SetOrder_Handler,
-		},
-		{
-			MethodName: "SetPersistent",
-			Handler:    _PreferenceService_SetPersistent_Handler,
-		},
-		{
-			MethodName: "SetPreferenceDataStore",
-			Handler:    _PreferenceService_SetPreferenceDataStore_Handler,
-		},
-		{
-			MethodName: "SetRecycleEnabled",
-			Handler:    _PreferenceService_SetRecycleEnabled_Handler,
-		},
-		{
-			MethodName: "SetSelectable",
-			Handler:    _PreferenceService_SetSelectable_Handler,
-		},
-		{
-			MethodName: "SetShouldDisableView",
-			Handler:    _PreferenceService_SetShouldDisableView_Handler,
-		},
-		{
-			MethodName: "SetSingleLineTitle",
-			Handler:    _PreferenceService_SetSingleLineTitle_Handler,
-		},
-		{
-			MethodName: "SetSummary1",
-			Handler:    _PreferenceService_SetSummary1_Handler,
-		},
-		{
-			MethodName: "SetSummary1_1",
-			Handler:    _PreferenceService_SetSummary1_1_Handler,
-		},
-		{
-			MethodName: "SetTitle1",
-			Handler:    _PreferenceService_SetTitle1_Handler,
-		},
-		{
-			MethodName: "SetTitle1_1",
-			Handler:    _PreferenceService_SetTitle1_1_Handler,
-		},
-		{
-			MethodName: "SetWidgetLayoutResource",
-			Handler:    _PreferenceService_SetWidgetLayoutResource_Handler,
-		},
-		{
-			MethodName: "ShouldCommit",
-			Handler:    _PreferenceService_ShouldCommit_Handler,
-		},
-		{
-			MethodName: "ShouldDisableDependents",
-			Handler:    _PreferenceService_ShouldDisableDependents_Handler,
-		},
-		{
-			MethodName: "ToString",
-			Handler:    _PreferenceService_ToString_Handler,
-		},
-		{
-			MethodName: "CompareTo1_1",
-			Handler:    _PreferenceService_CompareTo1_1_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/preference/preference.proto",
-}
-
-const (
-	OnPreferenceChangeListenerService_OnPreferenceChange_FullMethodName = "/preference.OnPreferenceChangeListenerService/OnPreferenceChange"
-)
-
-// OnPreferenceChangeListenerServiceClient is the client API for OnPreferenceChangeListenerService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type OnPreferenceChangeListenerServiceClient interface {
-	OnPreferenceChange(ctx context.Context, in *OnPreferenceChangeRequest, opts ...grpc.CallOption) (*OnPreferenceChangeResponse, error)
-}
-
-type onPreferenceChangeListenerServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewOnPreferenceChangeListenerServiceClient(cc grpc.ClientConnInterface) OnPreferenceChangeListenerServiceClient {
-	return &onPreferenceChangeListenerServiceClient{cc}
-}
-
-func (c *onPreferenceChangeListenerServiceClient) OnPreferenceChange(ctx context.Context, in *OnPreferenceChangeRequest, opts ...grpc.CallOption) (*OnPreferenceChangeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnPreferenceChangeResponse)
-	err := c.cc.Invoke(ctx, OnPreferenceChangeListenerService_OnPreferenceChange_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// OnPreferenceChangeListenerServiceServer is the server API for OnPreferenceChangeListenerService service.
-// All implementations must embed UnimplementedOnPreferenceChangeListenerServiceServer
-// for forward compatibility.
-type OnPreferenceChangeListenerServiceServer interface {
-	OnPreferenceChange(context.Context, *OnPreferenceChangeRequest) (*OnPreferenceChangeResponse, error)
-	mustEmbedUnimplementedOnPreferenceChangeListenerServiceServer()
-}
-
-// UnimplementedOnPreferenceChangeListenerServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedOnPreferenceChangeListenerServiceServer struct{}
-
-func (UnimplementedOnPreferenceChangeListenerServiceServer) OnPreferenceChange(context.Context, *OnPreferenceChangeRequest) (*OnPreferenceChangeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnPreferenceChange not implemented")
-}
-func (UnimplementedOnPreferenceChangeListenerServiceServer) mustEmbedUnimplementedOnPreferenceChangeListenerServiceServer() {
-}
-func (UnimplementedOnPreferenceChangeListenerServiceServer) testEmbeddedByValue() {}
-
-// UnsafeOnPreferenceChangeListenerServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to OnPreferenceChangeListenerServiceServer will
-// result in compilation errors.
-type UnsafeOnPreferenceChangeListenerServiceServer interface {
-	mustEmbedUnimplementedOnPreferenceChangeListenerServiceServer()
-}
-
-func RegisterOnPreferenceChangeListenerServiceServer(s grpc.ServiceRegistrar, srv OnPreferenceChangeListenerServiceServer) {
-	// If the following call panics, it indicates UnimplementedOnPreferenceChangeListenerServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&OnPreferenceChangeListenerService_ServiceDesc, srv)
-}
-
-func _OnPreferenceChangeListenerService_OnPreferenceChange_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnPreferenceChangeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(OnPreferenceChangeListenerServiceServer).OnPreferenceChange(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: OnPreferenceChangeListenerService_OnPreferenceChange_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(OnPreferenceChangeListenerServiceServer).OnPreferenceChange(ctx, req.(*OnPreferenceChangeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// OnPreferenceChangeListenerService_ServiceDesc is the grpc.ServiceDesc for OnPreferenceChangeListenerService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var OnPreferenceChangeListenerService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "preference.OnPreferenceChangeListenerService",
-	HandlerType: (*OnPreferenceChangeListenerServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "OnPreferenceChange",
-			Handler:    _OnPreferenceChangeListenerService_OnPreferenceChange_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/preference/preference.proto",
-}
-
-const (
-	OnPreferenceClickListenerService_OnPreferenceClick_FullMethodName = "/preference.OnPreferenceClickListenerService/OnPreferenceClick"
-)
-
-// OnPreferenceClickListenerServiceClient is the client API for OnPreferenceClickListenerService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type OnPreferenceClickListenerServiceClient interface {
-	OnPreferenceClick(ctx context.Context, in *OnPreferenceClickRequest, opts ...grpc.CallOption) (*OnPreferenceClickResponse, error)
-}
-
-type onPreferenceClickListenerServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewOnPreferenceClickListenerServiceClient(cc grpc.ClientConnInterface) OnPreferenceClickListenerServiceClient {
-	return &onPreferenceClickListenerServiceClient{cc}
-}
-
-func (c *onPreferenceClickListenerServiceClient) OnPreferenceClick(ctx context.Context, in *OnPreferenceClickRequest, opts ...grpc.CallOption) (*OnPreferenceClickResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnPreferenceClickResponse)
-	err := c.cc.Invoke(ctx, OnPreferenceClickListenerService_OnPreferenceClick_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// OnPreferenceClickListenerServiceServer is the server API for OnPreferenceClickListenerService service.
-// All implementations must embed UnimplementedOnPreferenceClickListenerServiceServer
-// for forward compatibility.
-type OnPreferenceClickListenerServiceServer interface {
-	OnPreferenceClick(context.Context, *OnPreferenceClickRequest) (*OnPreferenceClickResponse, error)
-	mustEmbedUnimplementedOnPreferenceClickListenerServiceServer()
-}
-
-// UnimplementedOnPreferenceClickListenerServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedOnPreferenceClickListenerServiceServer struct{}
-
-func (UnimplementedOnPreferenceClickListenerServiceServer) OnPreferenceClick(context.Context, *OnPreferenceClickRequest) (*OnPreferenceClickResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnPreferenceClick not implemented")
-}
-func (UnimplementedOnPreferenceClickListenerServiceServer) mustEmbedUnimplementedOnPreferenceClickListenerServiceServer() {
-}
-func (UnimplementedOnPreferenceClickListenerServiceServer) testEmbeddedByValue() {}
-
-// UnsafeOnPreferenceClickListenerServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to OnPreferenceClickListenerServiceServer will
-// result in compilation errors.
-type UnsafeOnPreferenceClickListenerServiceServer interface {
-	mustEmbedUnimplementedOnPreferenceClickListenerServiceServer()
-}
-
-func RegisterOnPreferenceClickListenerServiceServer(s grpc.ServiceRegistrar, srv OnPreferenceClickListenerServiceServer) {
-	// If the following call panics, it indicates UnimplementedOnPreferenceClickListenerServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&OnPreferenceClickListenerService_ServiceDesc, srv)
-}
-
-func _OnPreferenceClickListenerService_OnPreferenceClick_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnPreferenceClickRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(OnPreferenceClickListenerServiceServer).OnPreferenceClick(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: OnPreferenceClickListenerService_OnPreferenceClick_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(OnPreferenceClickListenerServiceServer).OnPreferenceClick(ctx, req.(*OnPreferenceClickRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// OnPreferenceClickListenerService_ServiceDesc is the grpc.ServiceDesc for OnPreferenceClickListenerService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var OnPreferenceClickListenerService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "preference.OnPreferenceClickListenerService",
-	HandlerType: (*OnPreferenceClickListenerServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "OnPreferenceClick",
-			Handler:    _OnPreferenceClickListenerService_OnPreferenceClick_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/preference/preference.proto",
-}
-
-const (
-	CategoryService_NewCategory_FullMethodName             = "/preference.CategoryService/NewCategory"
-	CategoryService_IsEnabled_FullMethodName               = "/preference.CategoryService/IsEnabled"
-	CategoryService_ShouldDisableDependents_FullMethodName = "/preference.CategoryService/ShouldDisableDependents"
-)
-
-// CategoryServiceClient is the client API for CategoryService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type CategoryServiceClient interface {
-	NewCategory(ctx context.Context, in *NewCategoryRequest, opts ...grpc.CallOption) (*NewCategoryResponse, error)
-	IsEnabled(ctx context.Context, in *IsEnabledRequest, opts ...grpc.CallOption) (*IsEnabledResponse, error)
-	ShouldDisableDependents(ctx context.Context, in *ShouldDisableDependentsRequest, opts ...grpc.CallOption) (*ShouldDisableDependentsResponse, error)
-}
-
-type categoryServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewCategoryServiceClient(cc grpc.ClientConnInterface) CategoryServiceClient {
-	return &categoryServiceClient{cc}
-}
-
-func (c *categoryServiceClient) NewCategory(ctx context.Context, in *NewCategoryRequest, opts ...grpc.CallOption) (*NewCategoryResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewCategoryResponse)
-	err := c.cc.Invoke(ctx, CategoryService_NewCategory_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *categoryServiceClient) IsEnabled(ctx context.Context, in *IsEnabledRequest, opts ...grpc.CallOption) (*IsEnabledResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsEnabledResponse)
-	err := c.cc.Invoke(ctx, CategoryService_IsEnabled_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *categoryServiceClient) ShouldDisableDependents(ctx context.Context, in *ShouldDisableDependentsRequest, opts ...grpc.CallOption) (*ShouldDisableDependentsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ShouldDisableDependentsResponse)
-	err := c.cc.Invoke(ctx, CategoryService_ShouldDisableDependents_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// CategoryServiceServer is the server API for CategoryService service.
-// All implementations must embed UnimplementedCategoryServiceServer
-// for forward compatibility.
-type CategoryServiceServer interface {
-	NewCategory(context.Context, *NewCategoryRequest) (*NewCategoryResponse, error)
-	IsEnabled(context.Context, *IsEnabledRequest) (*IsEnabledResponse, error)
-	ShouldDisableDependents(context.Context, *ShouldDisableDependentsRequest) (*ShouldDisableDependentsResponse, error)
-	mustEmbedUnimplementedCategoryServiceServer()
-}
-
-// UnimplementedCategoryServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedCategoryServiceServer struct{}
-
-func (UnimplementedCategoryServiceServer) NewCategory(context.Context, *NewCategoryRequest) (*NewCategoryResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewCategory not implemented")
-}
-func (UnimplementedCategoryServiceServer) IsEnabled(context.Context, *IsEnabledRequest) (*IsEnabledResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsEnabled not implemented")
-}
-func (UnimplementedCategoryServiceServer) ShouldDisableDependents(context.Context, *ShouldDisableDependentsRequest) (*ShouldDisableDependentsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ShouldDisableDependents not implemented")
-}
-func (UnimplementedCategoryServiceServer) mustEmbedUnimplementedCategoryServiceServer() {}
-func (UnimplementedCategoryServiceServer) testEmbeddedByValue()                         {}
-
-// UnsafeCategoryServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to CategoryServiceServer will
-// result in compilation errors.
-type UnsafeCategoryServiceServer interface {
-	mustEmbedUnimplementedCategoryServiceServer()
-}
-
-func RegisterCategoryServiceServer(s grpc.ServiceRegistrar, srv CategoryServiceServer) {
-	// If the following call panics, it indicates UnimplementedCategoryServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&CategoryService_ServiceDesc, srv)
-}
-
-func _CategoryService_NewCategory_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewCategoryRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CategoryServiceServer).NewCategory(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CategoryService_NewCategory_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CategoryServiceServer).NewCategory(ctx, req.(*NewCategoryRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CategoryService_IsEnabled_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsEnabledRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CategoryServiceServer).IsEnabled(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CategoryService_IsEnabled_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CategoryServiceServer).IsEnabled(ctx, req.(*IsEnabledRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CategoryService_ShouldDisableDependents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ShouldDisableDependentsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CategoryServiceServer).ShouldDisableDependents(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CategoryService_ShouldDisableDependents_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CategoryServiceServer).ShouldDisableDependents(ctx, req.(*ShouldDisableDependentsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// CategoryService_ServiceDesc is the grpc.ServiceDesc for CategoryService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var CategoryService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "preference.CategoryService",
-	HandlerType: (*CategoryServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "NewCategory",
-			Handler:    _CategoryService_NewCategory_Handler,
-		},
-		{
-			MethodName: "IsEnabled",
-			Handler:    _CategoryService_IsEnabled_Handler,
-		},
-		{
-			MethodName: "ShouldDisableDependents",
-			Handler:    _CategoryService_ShouldDisableDependents_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

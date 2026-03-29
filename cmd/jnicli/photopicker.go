@@ -12,174 +12,41 @@ var photopickerCmd = &cobra.Command{
 	Short: "photopicker service operations",
 }
 
-var photopickerEmbeddedPhotoPickerClientCmd = &cobra.Command{
-	Use:   "embedded-photo-picker-client",
-	Short: "EmbeddedPhotoPickerClientService operations",
+var photopickerEmbeddedPhotoPickerProviderCmd = &cobra.Command{
+	Use:   "embedded-photo-picker-provider",
+	Short: "EmbeddedPhotoPickerProviderService operations",
 }
 
-var photopickerEmbeddedPhotoPickerClientOnSelectionCompleteCmd = &cobra.Command{
-	Use:   "on-selection-complete",
-	Short: "OnSelectionComplete RPC",
+var photopickerEmbeddedPhotoPickerProviderOpenSessionCmd = &cobra.Command{
+	Use:   "open-session",
+	Short: "OpenSession RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewEmbeddedPhotoPickerClientServiceClient(grpcConn)
-		req := &pb.OnSelectionCompleteRequest{}
-		resp, err := client.OnSelectionComplete(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var photopickerEmbeddedPhotoPickerClientOnSessionErrorCmd = &cobra.Command{
-	Use:   "on-session-error",
-	Short: "OnSessionError RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewEmbeddedPhotoPickerClientServiceClient(grpcConn)
-		req := &pb.OnSessionErrorRequest{}
+		client := pb.NewEmbeddedPhotoPickerProviderServiceClient(grpcConn)
+		req := &pb.OpenSessionRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.OnSessionError(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var photopickerEmbeddedPhotoPickerClientOnSessionOpenedCmd = &cobra.Command{
-	Use:   "on-session-opened",
-	Short: "OnSessionOpened RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewEmbeddedPhotoPickerClientServiceClient(grpcConn)
-		req := &pb.OnSessionOpenedRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.OnSessionOpened(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var photopickerEmbeddedPhotoPickerSessionCmd = &cobra.Command{
-	Use:   "embedded-photo-picker-session",
-	Short: "EmbeddedPhotoPickerSessionService operations",
-}
-
-var photopickerEmbeddedPhotoPickerSessionCloseCmd = &cobra.Command{
-	Use:   "close",
-	Short: "Close RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewEmbeddedPhotoPickerSessionServiceClient(grpcConn)
-		req := &pb.CloseRequest{}
-		resp, err := client.Close(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var photopickerEmbeddedPhotoPickerSessionGetSurfacePackageCmd = &cobra.Command{
-	Use:   "get-surface-package",
-	Short: "GetSurfacePackage RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewEmbeddedPhotoPickerSessionServiceClient(grpcConn)
-		req := &pb.GetSurfacePackageRequest{}
-		resp, err := client.GetSurfacePackage(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var photopickerEmbeddedPhotoPickerSessionNotifyConfigurationChangedCmd = &cobra.Command{
-	Use:   "notify-configuration-changed",
-	Short: "NotifyConfigurationChanged RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewEmbeddedPhotoPickerSessionServiceClient(grpcConn)
-		req := &pb.NotifyConfigurationChangedRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.NotifyConfigurationChanged(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var photopickerEmbeddedPhotoPickerSessionNotifyPhotoPickerExpandedCmd = &cobra.Command{
-	Use:   "notify-photo-picker-expanded",
-	Short: "NotifyPhotoPickerExpanded RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewEmbeddedPhotoPickerSessionServiceClient(grpcConn)
-		req := &pb.NotifyPhotoPickerExpandedRequest{}
-		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.NotifyPhotoPickerExpanded(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var photopickerEmbeddedPhotoPickerSessionNotifyResizedCmd = &cobra.Command{
-	Use:   "notify-resized",
-	Short: "NotifyResized RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewEmbeddedPhotoPickerSessionServiceClient(grpcConn)
-		req := &pb.NotifyResizedRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
 			req.Arg0 = v
 		}
 		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
 			req.Arg1 = v
 		}
-		resp, err := client.NotifyResized(ctx, req)
-		if err != nil {
-			return err
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
 		}
-		return printProtoMessage(resp)
-	},
-}
-
-var photopickerEmbeddedPhotoPickerSessionNotifyVisibilityChangedCmd = &cobra.Command{
-	Use:   "notify-visibility-changed",
-	Short: "NotifyVisibilityChanged RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewEmbeddedPhotoPickerSessionServiceClient(grpcConn)
-		req := &pb.NotifyVisibilityChangedRequest{}
-		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
-			req.Arg0 = v
+		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
+			req.Arg3 = v
 		}
-		resp, err := client.NotifyVisibilityChanged(ctx, req)
+		if v, err := cmd.Flags().GetInt64("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg5"); err == nil {
+			req.Arg5 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg6"); err == nil {
+			req.Arg6 = v
+		}
+		resp, err := client.OpenSession(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -233,6 +100,38 @@ var photopickerEmbeddedPhotoPickerFeatureInfoGetMaxSelectionLimitCmd = &cobra.Co
 		client := pb.NewEmbeddedPhotoPickerFeatureInfoServiceClient(grpcConn)
 		req := &pb.GetMaxSelectionLimitRequest{}
 		resp, err := client.GetMaxSelectionLimit(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var photopickerEmbeddedPhotoPickerFeatureInfoGetMimeTypesCmd = &cobra.Command{
+	Use:   "get-mime-types",
+	Short: "GetMimeTypes RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEmbeddedPhotoPickerFeatureInfoServiceClient(grpcConn)
+		req := &pb.GetMimeTypesRequest{}
+		resp, err := client.GetMimeTypes(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var photopickerEmbeddedPhotoPickerFeatureInfoGetPreSelectedUrisCmd = &cobra.Command{
+	Use:   "get-pre-selected-uris",
+	Short: "GetPreSelectedUris RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEmbeddedPhotoPickerFeatureInfoServiceClient(grpcConn)
+		req := &pb.GetPreSelectedUrisRequest{}
+		resp, err := client.GetPreSelectedUris(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -407,6 +306,122 @@ var photopickerEmbeddedPhotoPickerFeatureInfoBuilderSetThemeNightModeCmd = &cobr
 	},
 }
 
+var photopickerEmbeddedPhotoPickerSessionCmd = &cobra.Command{
+	Use:   "embedded-photo-picker-session",
+	Short: "EmbeddedPhotoPickerSessionService operations",
+}
+
+var photopickerEmbeddedPhotoPickerSessionCloseCmd = &cobra.Command{
+	Use:   "close",
+	Short: "Close RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEmbeddedPhotoPickerSessionServiceClient(grpcConn)
+		req := &pb.CloseRequest{}
+		resp, err := client.Close(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var photopickerEmbeddedPhotoPickerSessionGetSurfacePackageCmd = &cobra.Command{
+	Use:   "get-surface-package",
+	Short: "GetSurfacePackage RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEmbeddedPhotoPickerSessionServiceClient(grpcConn)
+		req := &pb.GetSurfacePackageRequest{}
+		resp, err := client.GetSurfacePackage(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var photopickerEmbeddedPhotoPickerSessionNotifyConfigurationChangedCmd = &cobra.Command{
+	Use:   "notify-configuration-changed",
+	Short: "NotifyConfigurationChanged RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEmbeddedPhotoPickerSessionServiceClient(grpcConn)
+		req := &pb.NotifyConfigurationChangedRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.NotifyConfigurationChanged(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var photopickerEmbeddedPhotoPickerSessionNotifyPhotoPickerExpandedCmd = &cobra.Command{
+	Use:   "notify-photo-picker-expanded",
+	Short: "NotifyPhotoPickerExpanded RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEmbeddedPhotoPickerSessionServiceClient(grpcConn)
+		req := &pb.NotifyPhotoPickerExpandedRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.NotifyPhotoPickerExpanded(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var photopickerEmbeddedPhotoPickerSessionNotifyResizedCmd = &cobra.Command{
+	Use:   "notify-resized",
+	Short: "NotifyResized RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEmbeddedPhotoPickerSessionServiceClient(grpcConn)
+		req := &pb.NotifyResizedRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.NotifyResized(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var photopickerEmbeddedPhotoPickerSessionNotifyVisibilityChangedCmd = &cobra.Command{
+	Use:   "notify-visibility-changed",
+	Short: "NotifyVisibilityChanged RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEmbeddedPhotoPickerSessionServiceClient(grpcConn)
+		req := &pb.NotifyVisibilityChangedRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.NotifyVisibilityChanged(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var photopickerEmbeddedPhotoPickerProviderFactoryCmd = &cobra.Command{
 	Use:   "embedded-photo-picker-provider-factory",
 	Short: "EmbeddedPhotoPickerProviderFactoryService operations",
@@ -431,41 +446,58 @@ var photopickerEmbeddedPhotoPickerProviderFactoryCreateCmd = &cobra.Command{
 	},
 }
 
-var photopickerEmbeddedPhotoPickerProviderCmd = &cobra.Command{
-	Use:   "embedded-photo-picker-provider",
-	Short: "EmbeddedPhotoPickerProviderService operations",
+var photopickerEmbeddedPhotoPickerClientCmd = &cobra.Command{
+	Use:   "embedded-photo-picker-client",
+	Short: "EmbeddedPhotoPickerClientService operations",
 }
 
-var photopickerEmbeddedPhotoPickerProviderOpenSessionCmd = &cobra.Command{
-	Use:   "open-session",
-	Short: "OpenSession RPC",
+var photopickerEmbeddedPhotoPickerClientOnSelectionCompleteCmd = &cobra.Command{
+	Use:   "on-selection-complete",
+	Short: "OnSelectionComplete RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewEmbeddedPhotoPickerProviderServiceClient(grpcConn)
-		req := &pb.OpenSessionRequest{}
+		client := pb.NewEmbeddedPhotoPickerClientServiceClient(grpcConn)
+		req := &pb.OnSelectionCompleteRequest{}
+		resp, err := client.OnSelectionComplete(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var photopickerEmbeddedPhotoPickerClientOnSessionErrorCmd = &cobra.Command{
+	Use:   "on-session-error",
+	Short: "OnSessionError RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEmbeddedPhotoPickerClientServiceClient(grpcConn)
+		req := &pb.OnSessionErrorRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
+		resp, err := client.OnSessionError(ctx, req)
+		if err != nil {
+			return err
 		}
-		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
-			req.Arg2 = v
+		return printProtoMessage(resp)
+	},
+}
+
+var photopickerEmbeddedPhotoPickerClientOnSessionOpenedCmd = &cobra.Command{
+	Use:   "on-session-opened",
+	Short: "OnSessionOpened RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEmbeddedPhotoPickerClientServiceClient(grpcConn)
+		req := &pb.OnSessionOpenedRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
 		}
-		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg4"); err == nil {
-			req.Arg4 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg5"); err == nil {
-			req.Arg5 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg6"); err == nil {
-			req.Arg6 = v
-		}
-		resp, err := client.OpenSession(ctx, req)
+		resp, err := client.OnSessionOpened(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -474,27 +506,20 @@ var photopickerEmbeddedPhotoPickerProviderOpenSessionCmd = &cobra.Command{
 }
 
 func init() {
-	photopickerEmbeddedPhotoPickerClientCmd.AddCommand(photopickerEmbeddedPhotoPickerClientOnSelectionCompleteCmd)
-	photopickerEmbeddedPhotoPickerClientOnSessionErrorCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	photopickerEmbeddedPhotoPickerClientCmd.AddCommand(photopickerEmbeddedPhotoPickerClientOnSessionErrorCmd)
-	photopickerEmbeddedPhotoPickerClientOnSessionOpenedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	photopickerEmbeddedPhotoPickerClientCmd.AddCommand(photopickerEmbeddedPhotoPickerClientOnSessionOpenedCmd)
-	photopickerCmd.AddCommand(photopickerEmbeddedPhotoPickerClientCmd)
-	photopickerEmbeddedPhotoPickerSessionCmd.AddCommand(photopickerEmbeddedPhotoPickerSessionCloseCmd)
-	photopickerEmbeddedPhotoPickerSessionCmd.AddCommand(photopickerEmbeddedPhotoPickerSessionGetSurfacePackageCmd)
-	photopickerEmbeddedPhotoPickerSessionNotifyConfigurationChangedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	photopickerEmbeddedPhotoPickerSessionCmd.AddCommand(photopickerEmbeddedPhotoPickerSessionNotifyConfigurationChangedCmd)
-	photopickerEmbeddedPhotoPickerSessionNotifyPhotoPickerExpandedCmd.Flags().Bool("arg0", false, "arg0 (bool)")
-	photopickerEmbeddedPhotoPickerSessionCmd.AddCommand(photopickerEmbeddedPhotoPickerSessionNotifyPhotoPickerExpandedCmd)
-	photopickerEmbeddedPhotoPickerSessionNotifyResizedCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	photopickerEmbeddedPhotoPickerSessionNotifyResizedCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	photopickerEmbeddedPhotoPickerSessionCmd.AddCommand(photopickerEmbeddedPhotoPickerSessionNotifyResizedCmd)
-	photopickerEmbeddedPhotoPickerSessionNotifyVisibilityChangedCmd.Flags().Bool("arg0", false, "arg0 (bool)")
-	photopickerEmbeddedPhotoPickerSessionCmd.AddCommand(photopickerEmbeddedPhotoPickerSessionNotifyVisibilityChangedCmd)
-	photopickerCmd.AddCommand(photopickerEmbeddedPhotoPickerSessionCmd)
+	photopickerEmbeddedPhotoPickerProviderOpenSessionCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	photopickerEmbeddedPhotoPickerProviderOpenSessionCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	photopickerEmbeddedPhotoPickerProviderOpenSessionCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	photopickerEmbeddedPhotoPickerProviderOpenSessionCmd.Flags().Int32("arg3", 0, "arg3 (int32)")
+	photopickerEmbeddedPhotoPickerProviderOpenSessionCmd.Flags().Int64("arg4", 0, "arg4 (int64)")
+	photopickerEmbeddedPhotoPickerProviderOpenSessionCmd.Flags().Int64("arg5", 0, "arg5 (int64)")
+	photopickerEmbeddedPhotoPickerProviderOpenSessionCmd.Flags().Int64("arg6", 0, "arg6 (int64)")
+	photopickerEmbeddedPhotoPickerProviderCmd.AddCommand(photopickerEmbeddedPhotoPickerProviderOpenSessionCmd)
+	photopickerCmd.AddCommand(photopickerEmbeddedPhotoPickerProviderCmd)
 	photopickerEmbeddedPhotoPickerFeatureInfoCmd.AddCommand(photopickerEmbeddedPhotoPickerFeatureInfoDescribeContentsCmd)
 	photopickerEmbeddedPhotoPickerFeatureInfoCmd.AddCommand(photopickerEmbeddedPhotoPickerFeatureInfoGetAccentColorCmd)
 	photopickerEmbeddedPhotoPickerFeatureInfoCmd.AddCommand(photopickerEmbeddedPhotoPickerFeatureInfoGetMaxSelectionLimitCmd)
+	photopickerEmbeddedPhotoPickerFeatureInfoCmd.AddCommand(photopickerEmbeddedPhotoPickerFeatureInfoGetMimeTypesCmd)
+	photopickerEmbeddedPhotoPickerFeatureInfoCmd.AddCommand(photopickerEmbeddedPhotoPickerFeatureInfoGetPreSelectedUrisCmd)
 	photopickerEmbeddedPhotoPickerFeatureInfoCmd.AddCommand(photopickerEmbeddedPhotoPickerFeatureInfoGetThemeNightModeCmd)
 	photopickerEmbeddedPhotoPickerFeatureInfoCmd.AddCommand(photopickerEmbeddedPhotoPickerFeatureInfoIsOrderedSelectionCmd)
 	photopickerEmbeddedPhotoPickerFeatureInfoCmd.AddCommand(photopickerEmbeddedPhotoPickerFeatureInfoToStringCmd)
@@ -512,17 +537,26 @@ func init() {
 	photopickerEmbeddedPhotoPickerFeatureInfoBuilderSetThemeNightModeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
 	photopickerEmbeddedPhotoPickerFeatureInfoBuilderCmd.AddCommand(photopickerEmbeddedPhotoPickerFeatureInfoBuilderSetThemeNightModeCmd)
 	photopickerCmd.AddCommand(photopickerEmbeddedPhotoPickerFeatureInfoBuilderCmd)
+	photopickerEmbeddedPhotoPickerSessionCmd.AddCommand(photopickerEmbeddedPhotoPickerSessionCloseCmd)
+	photopickerEmbeddedPhotoPickerSessionCmd.AddCommand(photopickerEmbeddedPhotoPickerSessionGetSurfacePackageCmd)
+	photopickerEmbeddedPhotoPickerSessionNotifyConfigurationChangedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	photopickerEmbeddedPhotoPickerSessionCmd.AddCommand(photopickerEmbeddedPhotoPickerSessionNotifyConfigurationChangedCmd)
+	photopickerEmbeddedPhotoPickerSessionNotifyPhotoPickerExpandedCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	photopickerEmbeddedPhotoPickerSessionCmd.AddCommand(photopickerEmbeddedPhotoPickerSessionNotifyPhotoPickerExpandedCmd)
+	photopickerEmbeddedPhotoPickerSessionNotifyResizedCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	photopickerEmbeddedPhotoPickerSessionNotifyResizedCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	photopickerEmbeddedPhotoPickerSessionCmd.AddCommand(photopickerEmbeddedPhotoPickerSessionNotifyResizedCmd)
+	photopickerEmbeddedPhotoPickerSessionNotifyVisibilityChangedCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	photopickerEmbeddedPhotoPickerSessionCmd.AddCommand(photopickerEmbeddedPhotoPickerSessionNotifyVisibilityChangedCmd)
+	photopickerCmd.AddCommand(photopickerEmbeddedPhotoPickerSessionCmd)
 	photopickerEmbeddedPhotoPickerProviderFactoryCreateCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	photopickerEmbeddedPhotoPickerProviderFactoryCmd.AddCommand(photopickerEmbeddedPhotoPickerProviderFactoryCreateCmd)
 	photopickerCmd.AddCommand(photopickerEmbeddedPhotoPickerProviderFactoryCmd)
-	photopickerEmbeddedPhotoPickerProviderOpenSessionCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	photopickerEmbeddedPhotoPickerProviderOpenSessionCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	photopickerEmbeddedPhotoPickerProviderOpenSessionCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
-	photopickerEmbeddedPhotoPickerProviderOpenSessionCmd.Flags().Int32("arg3", 0, "arg3 (int32)")
-	photopickerEmbeddedPhotoPickerProviderOpenSessionCmd.Flags().Int64("arg4", 0, "arg4 (int64)")
-	photopickerEmbeddedPhotoPickerProviderOpenSessionCmd.Flags().Int64("arg5", 0, "arg5 (int64)")
-	photopickerEmbeddedPhotoPickerProviderOpenSessionCmd.Flags().Int64("arg6", 0, "arg6 (int64)")
-	photopickerEmbeddedPhotoPickerProviderCmd.AddCommand(photopickerEmbeddedPhotoPickerProviderOpenSessionCmd)
-	photopickerCmd.AddCommand(photopickerEmbeddedPhotoPickerProviderCmd)
+	photopickerEmbeddedPhotoPickerClientCmd.AddCommand(photopickerEmbeddedPhotoPickerClientOnSelectionCompleteCmd)
+	photopickerEmbeddedPhotoPickerClientOnSessionErrorCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	photopickerEmbeddedPhotoPickerClientCmd.AddCommand(photopickerEmbeddedPhotoPickerClientOnSessionErrorCmd)
+	photopickerEmbeddedPhotoPickerClientOnSessionOpenedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	photopickerEmbeddedPhotoPickerClientCmd.AddCommand(photopickerEmbeddedPhotoPickerClientOnSessionOpenedCmd)
+	photopickerCmd.AddCommand(photopickerEmbeddedPhotoPickerClientCmd)
 	rootCmd.AddCommand(photopickerCmd)
 }

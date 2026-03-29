@@ -390,6 +390,526 @@ var SynthesisCallbackService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
+	VoiceService_NewVoice_FullMethodName                    = "/tts.VoiceService/NewVoice"
+	VoiceService_DescribeContents_FullMethodName            = "/tts.VoiceService/DescribeContents"
+	VoiceService_Equals_FullMethodName                      = "/tts.VoiceService/Equals"
+	VoiceService_GetFeatures_FullMethodName                 = "/tts.VoiceService/GetFeatures"
+	VoiceService_GetLatency_FullMethodName                  = "/tts.VoiceService/GetLatency"
+	VoiceService_GetLocale_FullMethodName                   = "/tts.VoiceService/GetLocale"
+	VoiceService_GetName_FullMethodName                     = "/tts.VoiceService/GetName"
+	VoiceService_GetQuality_FullMethodName                  = "/tts.VoiceService/GetQuality"
+	VoiceService_HashCode_FullMethodName                    = "/tts.VoiceService/HashCode"
+	VoiceService_IsNetworkConnectionRequired_FullMethodName = "/tts.VoiceService/IsNetworkConnectionRequired"
+	VoiceService_ToString_FullMethodName                    = "/tts.VoiceService/ToString"
+	VoiceService_WriteToParcel_FullMethodName               = "/tts.VoiceService/WriteToParcel"
+)
+
+// VoiceServiceClient is the client API for VoiceService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type VoiceServiceClient interface {
+	NewVoice(ctx context.Context, in *NewVoiceRequest, opts ...grpc.CallOption) (*NewVoiceResponse, error)
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	GetFeatures(ctx context.Context, in *GetFeaturesRequest, opts ...grpc.CallOption) (*GetFeaturesResponse, error)
+	GetLatency(ctx context.Context, in *GetLatencyRequest, opts ...grpc.CallOption) (*GetLatencyResponse, error)
+	GetLocale(ctx context.Context, in *GetLocaleRequest, opts ...grpc.CallOption) (*GetLocaleResponse, error)
+	GetName(ctx context.Context, in *GetNameRequest, opts ...grpc.CallOption) (*GetNameResponse, error)
+	GetQuality(ctx context.Context, in *GetQualityRequest, opts ...grpc.CallOption) (*GetQualityResponse, error)
+	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+	IsNetworkConnectionRequired(ctx context.Context, in *IsNetworkConnectionRequiredRequest, opts ...grpc.CallOption) (*IsNetworkConnectionRequiredResponse, error)
+	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type voiceServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewVoiceServiceClient(cc grpc.ClientConnInterface) VoiceServiceClient {
+	return &voiceServiceClient{cc}
+}
+
+func (c *voiceServiceClient) NewVoice(ctx context.Context, in *NewVoiceRequest, opts ...grpc.CallOption) (*NewVoiceResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewVoiceResponse)
+	err := c.cc.Invoke(ctx, VoiceService_NewVoice_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *voiceServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, VoiceService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *voiceServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(EqualsResponse)
+	err := c.cc.Invoke(ctx, VoiceService_Equals_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *voiceServiceClient) GetFeatures(ctx context.Context, in *GetFeaturesRequest, opts ...grpc.CallOption) (*GetFeaturesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetFeaturesResponse)
+	err := c.cc.Invoke(ctx, VoiceService_GetFeatures_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *voiceServiceClient) GetLatency(ctx context.Context, in *GetLatencyRequest, opts ...grpc.CallOption) (*GetLatencyResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetLatencyResponse)
+	err := c.cc.Invoke(ctx, VoiceService_GetLatency_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *voiceServiceClient) GetLocale(ctx context.Context, in *GetLocaleRequest, opts ...grpc.CallOption) (*GetLocaleResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetLocaleResponse)
+	err := c.cc.Invoke(ctx, VoiceService_GetLocale_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *voiceServiceClient) GetName(ctx context.Context, in *GetNameRequest, opts ...grpc.CallOption) (*GetNameResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetNameResponse)
+	err := c.cc.Invoke(ctx, VoiceService_GetName_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *voiceServiceClient) GetQuality(ctx context.Context, in *GetQualityRequest, opts ...grpc.CallOption) (*GetQualityResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetQualityResponse)
+	err := c.cc.Invoke(ctx, VoiceService_GetQuality_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *voiceServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HashCodeResponse)
+	err := c.cc.Invoke(ctx, VoiceService_HashCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *voiceServiceClient) IsNetworkConnectionRequired(ctx context.Context, in *IsNetworkConnectionRequiredRequest, opts ...grpc.CallOption) (*IsNetworkConnectionRequiredResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsNetworkConnectionRequiredResponse)
+	err := c.cc.Invoke(ctx, VoiceService_IsNetworkConnectionRequired_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *voiceServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, VoiceService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *voiceServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, VoiceService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// VoiceServiceServer is the server API for VoiceService service.
+// All implementations must embed UnimplementedVoiceServiceServer
+// for forward compatibility.
+type VoiceServiceServer interface {
+	NewVoice(context.Context, *NewVoiceRequest) (*NewVoiceResponse, error)
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
+	GetFeatures(context.Context, *GetFeaturesRequest) (*GetFeaturesResponse, error)
+	GetLatency(context.Context, *GetLatencyRequest) (*GetLatencyResponse, error)
+	GetLocale(context.Context, *GetLocaleRequest) (*GetLocaleResponse, error)
+	GetName(context.Context, *GetNameRequest) (*GetNameResponse, error)
+	GetQuality(context.Context, *GetQualityRequest) (*GetQualityResponse, error)
+	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
+	IsNetworkConnectionRequired(context.Context, *IsNetworkConnectionRequiredRequest) (*IsNetworkConnectionRequiredResponse, error)
+	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedVoiceServiceServer()
+}
+
+// UnimplementedVoiceServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedVoiceServiceServer struct{}
+
+func (UnimplementedVoiceServiceServer) NewVoice(context.Context, *NewVoiceRequest) (*NewVoiceResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewVoice not implemented")
+}
+func (UnimplementedVoiceServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedVoiceServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
+}
+func (UnimplementedVoiceServiceServer) GetFeatures(context.Context, *GetFeaturesRequest) (*GetFeaturesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetFeatures not implemented")
+}
+func (UnimplementedVoiceServiceServer) GetLatency(context.Context, *GetLatencyRequest) (*GetLatencyResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetLatency not implemented")
+}
+func (UnimplementedVoiceServiceServer) GetLocale(context.Context, *GetLocaleRequest) (*GetLocaleResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetLocale not implemented")
+}
+func (UnimplementedVoiceServiceServer) GetName(context.Context, *GetNameRequest) (*GetNameResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetName not implemented")
+}
+func (UnimplementedVoiceServiceServer) GetQuality(context.Context, *GetQualityRequest) (*GetQualityResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetQuality not implemented")
+}
+func (UnimplementedVoiceServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
+}
+func (UnimplementedVoiceServiceServer) IsNetworkConnectionRequired(context.Context, *IsNetworkConnectionRequiredRequest) (*IsNetworkConnectionRequiredResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsNetworkConnectionRequired not implemented")
+}
+func (UnimplementedVoiceServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedVoiceServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedVoiceServiceServer) mustEmbedUnimplementedVoiceServiceServer() {}
+func (UnimplementedVoiceServiceServer) testEmbeddedByValue()                      {}
+
+// UnsafeVoiceServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to VoiceServiceServer will
+// result in compilation errors.
+type UnsafeVoiceServiceServer interface {
+	mustEmbedUnimplementedVoiceServiceServer()
+}
+
+func RegisterVoiceServiceServer(s grpc.ServiceRegistrar, srv VoiceServiceServer) {
+	// If the following call panics, it indicates UnimplementedVoiceServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&VoiceService_ServiceDesc, srv)
+}
+
+func _VoiceService_NewVoice_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewVoiceRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(VoiceServiceServer).NewVoice(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: VoiceService_NewVoice_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(VoiceServiceServer).NewVoice(ctx, req.(*NewVoiceRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _VoiceService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(VoiceServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: VoiceService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(VoiceServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _VoiceService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EqualsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(VoiceServiceServer).Equals(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: VoiceService_Equals_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(VoiceServiceServer).Equals(ctx, req.(*EqualsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _VoiceService_GetFeatures_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetFeaturesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(VoiceServiceServer).GetFeatures(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: VoiceService_GetFeatures_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(VoiceServiceServer).GetFeatures(ctx, req.(*GetFeaturesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _VoiceService_GetLatency_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetLatencyRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(VoiceServiceServer).GetLatency(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: VoiceService_GetLatency_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(VoiceServiceServer).GetLatency(ctx, req.(*GetLatencyRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _VoiceService_GetLocale_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetLocaleRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(VoiceServiceServer).GetLocale(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: VoiceService_GetLocale_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(VoiceServiceServer).GetLocale(ctx, req.(*GetLocaleRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _VoiceService_GetName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetNameRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(VoiceServiceServer).GetName(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: VoiceService_GetName_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(VoiceServiceServer).GetName(ctx, req.(*GetNameRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _VoiceService_GetQuality_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetQualityRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(VoiceServiceServer).GetQuality(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: VoiceService_GetQuality_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(VoiceServiceServer).GetQuality(ctx, req.(*GetQualityRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _VoiceService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HashCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(VoiceServiceServer).HashCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: VoiceService_HashCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(VoiceServiceServer).HashCode(ctx, req.(*HashCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _VoiceService_IsNetworkConnectionRequired_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsNetworkConnectionRequiredRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(VoiceServiceServer).IsNetworkConnectionRequired(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: VoiceService_IsNetworkConnectionRequired_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(VoiceServiceServer).IsNetworkConnectionRequired(ctx, req.(*IsNetworkConnectionRequiredRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _VoiceService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(VoiceServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: VoiceService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(VoiceServiceServer).ToString(ctx, req.(*ToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _VoiceService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(VoiceServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: VoiceService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(VoiceServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// VoiceService_ServiceDesc is the grpc.ServiceDesc for VoiceService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var VoiceService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "tts.VoiceService",
+	HandlerType: (*VoiceServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewVoice",
+			Handler:    _VoiceService_NewVoice_Handler,
+		},
+		{
+			MethodName: "DescribeContents",
+			Handler:    _VoiceService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "Equals",
+			Handler:    _VoiceService_Equals_Handler,
+		},
+		{
+			MethodName: "GetFeatures",
+			Handler:    _VoiceService_GetFeatures_Handler,
+		},
+		{
+			MethodName: "GetLatency",
+			Handler:    _VoiceService_GetLatency_Handler,
+		},
+		{
+			MethodName: "GetLocale",
+			Handler:    _VoiceService_GetLocale_Handler,
+		},
+		{
+			MethodName: "GetName",
+			Handler:    _VoiceService_GetName_Handler,
+		},
+		{
+			MethodName: "GetQuality",
+			Handler:    _VoiceService_GetQuality_Handler,
+		},
+		{
+			MethodName: "HashCode",
+			Handler:    _VoiceService_HashCode_Handler,
+		},
+		{
+			MethodName: "IsNetworkConnectionRequired",
+			Handler:    _VoiceService_IsNetworkConnectionRequired_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _VoiceService_ToString_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _VoiceService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/tts/tts.proto",
+}
+
+const (
 	SynthesisRequestService_NewSynthesisRequest_FullMethodName = "/tts.SynthesisRequestService/NewSynthesisRequest"
 	SynthesisRequestService_GetCallerUid_FullMethodName        = "/tts.SynthesisRequestService/GetCallerUid"
 	SynthesisRequestService_GetCharSequenceText_FullMethodName = "/tts.SynthesisRequestService/GetCharSequenceText"
@@ -1246,6 +1766,7 @@ const (
 	TextToSpeechServiceService_OnCreate_FullMethodName                 = "/tts.TextToSpeechServiceService/OnCreate"
 	TextToSpeechServiceService_OnDestroy_FullMethodName                = "/tts.TextToSpeechServiceService/OnDestroy"
 	TextToSpeechServiceService_OnGetDefaultVoiceNameFor_FullMethodName = "/tts.TextToSpeechServiceService/OnGetDefaultVoiceNameFor"
+	TextToSpeechServiceService_OnGetVoices_FullMethodName              = "/tts.TextToSpeechServiceService/OnGetVoices"
 	TextToSpeechServiceService_OnIsValidVoiceName_FullMethodName       = "/tts.TextToSpeechServiceService/OnIsValidVoiceName"
 	TextToSpeechServiceService_OnLoadVoice_FullMethodName              = "/tts.TextToSpeechServiceService/OnLoadVoice"
 )
@@ -1258,6 +1779,7 @@ type TextToSpeechServiceServiceClient interface {
 	OnCreate(ctx context.Context, in *OnCreateRequest, opts ...grpc.CallOption) (*OnCreateResponse, error)
 	OnDestroy(ctx context.Context, in *OnDestroyRequest, opts ...grpc.CallOption) (*OnDestroyResponse, error)
 	OnGetDefaultVoiceNameFor(ctx context.Context, in *OnGetDefaultVoiceNameForRequest, opts ...grpc.CallOption) (*OnGetDefaultVoiceNameForResponse, error)
+	OnGetVoices(ctx context.Context, in *OnGetVoicesRequest, opts ...grpc.CallOption) (*OnGetVoicesResponse, error)
 	OnIsValidVoiceName(ctx context.Context, in *OnIsValidVoiceNameRequest, opts ...grpc.CallOption) (*OnIsValidVoiceNameResponse, error)
 	OnLoadVoice(ctx context.Context, in *OnLoadVoiceRequest, opts ...grpc.CallOption) (*OnLoadVoiceResponse, error)
 }
@@ -1310,6 +1832,16 @@ func (c *textToSpeechServiceServiceClient) OnGetDefaultVoiceNameFor(ctx context.
 	return out, nil
 }
 
+func (c *textToSpeechServiceServiceClient) OnGetVoices(ctx context.Context, in *OnGetVoicesRequest, opts ...grpc.CallOption) (*OnGetVoicesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnGetVoicesResponse)
+	err := c.cc.Invoke(ctx, TextToSpeechServiceService_OnGetVoices_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *textToSpeechServiceServiceClient) OnIsValidVoiceName(ctx context.Context, in *OnIsValidVoiceNameRequest, opts ...grpc.CallOption) (*OnIsValidVoiceNameResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(OnIsValidVoiceNameResponse)
@@ -1338,6 +1870,7 @@ type TextToSpeechServiceServiceServer interface {
 	OnCreate(context.Context, *OnCreateRequest) (*OnCreateResponse, error)
 	OnDestroy(context.Context, *OnDestroyRequest) (*OnDestroyResponse, error)
 	OnGetDefaultVoiceNameFor(context.Context, *OnGetDefaultVoiceNameForRequest) (*OnGetDefaultVoiceNameForResponse, error)
+	OnGetVoices(context.Context, *OnGetVoicesRequest) (*OnGetVoicesResponse, error)
 	OnIsValidVoiceName(context.Context, *OnIsValidVoiceNameRequest) (*OnIsValidVoiceNameResponse, error)
 	OnLoadVoice(context.Context, *OnLoadVoiceRequest) (*OnLoadVoiceResponse, error)
 	mustEmbedUnimplementedTextToSpeechServiceServiceServer()
@@ -1361,6 +1894,9 @@ func (UnimplementedTextToSpeechServiceServiceServer) OnDestroy(context.Context, 
 }
 func (UnimplementedTextToSpeechServiceServiceServer) OnGetDefaultVoiceNameFor(context.Context, *OnGetDefaultVoiceNameForRequest) (*OnGetDefaultVoiceNameForResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method OnGetDefaultVoiceNameFor not implemented")
+}
+func (UnimplementedTextToSpeechServiceServiceServer) OnGetVoices(context.Context, *OnGetVoicesRequest) (*OnGetVoicesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnGetVoices not implemented")
 }
 func (UnimplementedTextToSpeechServiceServiceServer) OnIsValidVoiceName(context.Context, *OnIsValidVoiceNameRequest) (*OnIsValidVoiceNameResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method OnIsValidVoiceName not implemented")
@@ -1462,6 +1998,24 @@ func _TextToSpeechServiceService_OnGetDefaultVoiceNameFor_Handler(srv interface{
 	return interceptor(ctx, in, info, handler)
 }
 
+func _TextToSpeechServiceService_OnGetVoices_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnGetVoicesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TextToSpeechServiceServiceServer).OnGetVoices(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TextToSpeechServiceService_OnGetVoices_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TextToSpeechServiceServiceServer).OnGetVoices(ctx, req.(*OnGetVoicesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _TextToSpeechServiceService_OnIsValidVoiceName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(OnIsValidVoiceNameRequest)
 	if err := dec(in); err != nil {
@@ -1522,494 +2076,16 @@ var TextToSpeechServiceService_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _TextToSpeechServiceService_OnGetDefaultVoiceNameFor_Handler,
 		},
 		{
+			MethodName: "OnGetVoices",
+			Handler:    _TextToSpeechServiceService_OnGetVoices_Handler,
+		},
+		{
 			MethodName: "OnIsValidVoiceName",
 			Handler:    _TextToSpeechServiceService_OnIsValidVoiceName_Handler,
 		},
 		{
 			MethodName: "OnLoadVoice",
 			Handler:    _TextToSpeechServiceService_OnLoadVoice_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/tts/tts.proto",
-}
-
-const (
-	VoiceService_NewVoice_FullMethodName                    = "/tts.VoiceService/NewVoice"
-	VoiceService_DescribeContents_FullMethodName            = "/tts.VoiceService/DescribeContents"
-	VoiceService_Equals_FullMethodName                      = "/tts.VoiceService/Equals"
-	VoiceService_GetLatency_FullMethodName                  = "/tts.VoiceService/GetLatency"
-	VoiceService_GetLocale_FullMethodName                   = "/tts.VoiceService/GetLocale"
-	VoiceService_GetName_FullMethodName                     = "/tts.VoiceService/GetName"
-	VoiceService_GetQuality_FullMethodName                  = "/tts.VoiceService/GetQuality"
-	VoiceService_HashCode_FullMethodName                    = "/tts.VoiceService/HashCode"
-	VoiceService_IsNetworkConnectionRequired_FullMethodName = "/tts.VoiceService/IsNetworkConnectionRequired"
-	VoiceService_ToString_FullMethodName                    = "/tts.VoiceService/ToString"
-	VoiceService_WriteToParcel_FullMethodName               = "/tts.VoiceService/WriteToParcel"
-)
-
-// VoiceServiceClient is the client API for VoiceService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type VoiceServiceClient interface {
-	NewVoice(ctx context.Context, in *NewVoiceRequest, opts ...grpc.CallOption) (*NewVoiceResponse, error)
-	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
-	GetLatency(ctx context.Context, in *GetLatencyRequest, opts ...grpc.CallOption) (*GetLatencyResponse, error)
-	GetLocale(ctx context.Context, in *GetLocaleRequest, opts ...grpc.CallOption) (*GetLocaleResponse, error)
-	GetName(ctx context.Context, in *GetNameRequest, opts ...grpc.CallOption) (*GetNameResponse, error)
-	GetQuality(ctx context.Context, in *GetQualityRequest, opts ...grpc.CallOption) (*GetQualityResponse, error)
-	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
-	IsNetworkConnectionRequired(ctx context.Context, in *IsNetworkConnectionRequiredRequest, opts ...grpc.CallOption) (*IsNetworkConnectionRequiredResponse, error)
-	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
-	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
-}
-
-type voiceServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewVoiceServiceClient(cc grpc.ClientConnInterface) VoiceServiceClient {
-	return &voiceServiceClient{cc}
-}
-
-func (c *voiceServiceClient) NewVoice(ctx context.Context, in *NewVoiceRequest, opts ...grpc.CallOption) (*NewVoiceResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewVoiceResponse)
-	err := c.cc.Invoke(ctx, VoiceService_NewVoice_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *voiceServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, VoiceService_DescribeContents_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *voiceServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(EqualsResponse)
-	err := c.cc.Invoke(ctx, VoiceService_Equals_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *voiceServiceClient) GetLatency(ctx context.Context, in *GetLatencyRequest, opts ...grpc.CallOption) (*GetLatencyResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetLatencyResponse)
-	err := c.cc.Invoke(ctx, VoiceService_GetLatency_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *voiceServiceClient) GetLocale(ctx context.Context, in *GetLocaleRequest, opts ...grpc.CallOption) (*GetLocaleResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetLocaleResponse)
-	err := c.cc.Invoke(ctx, VoiceService_GetLocale_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *voiceServiceClient) GetName(ctx context.Context, in *GetNameRequest, opts ...grpc.CallOption) (*GetNameResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetNameResponse)
-	err := c.cc.Invoke(ctx, VoiceService_GetName_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *voiceServiceClient) GetQuality(ctx context.Context, in *GetQualityRequest, opts ...grpc.CallOption) (*GetQualityResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetQualityResponse)
-	err := c.cc.Invoke(ctx, VoiceService_GetQuality_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *voiceServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(HashCodeResponse)
-	err := c.cc.Invoke(ctx, VoiceService_HashCode_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *voiceServiceClient) IsNetworkConnectionRequired(ctx context.Context, in *IsNetworkConnectionRequiredRequest, opts ...grpc.CallOption) (*IsNetworkConnectionRequiredResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsNetworkConnectionRequiredResponse)
-	err := c.cc.Invoke(ctx, VoiceService_IsNetworkConnectionRequired_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *voiceServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ToStringResponse)
-	err := c.cc.Invoke(ctx, VoiceService_ToString_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *voiceServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, VoiceService_WriteToParcel_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// VoiceServiceServer is the server API for VoiceService service.
-// All implementations must embed UnimplementedVoiceServiceServer
-// for forward compatibility.
-type VoiceServiceServer interface {
-	NewVoice(context.Context, *NewVoiceRequest) (*NewVoiceResponse, error)
-	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
-	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
-	GetLatency(context.Context, *GetLatencyRequest) (*GetLatencyResponse, error)
-	GetLocale(context.Context, *GetLocaleRequest) (*GetLocaleResponse, error)
-	GetName(context.Context, *GetNameRequest) (*GetNameResponse, error)
-	GetQuality(context.Context, *GetQualityRequest) (*GetQualityResponse, error)
-	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
-	IsNetworkConnectionRequired(context.Context, *IsNetworkConnectionRequiredRequest) (*IsNetworkConnectionRequiredResponse, error)
-	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
-	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
-	mustEmbedUnimplementedVoiceServiceServer()
-}
-
-// UnimplementedVoiceServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedVoiceServiceServer struct{}
-
-func (UnimplementedVoiceServiceServer) NewVoice(context.Context, *NewVoiceRequest) (*NewVoiceResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewVoice not implemented")
-}
-func (UnimplementedVoiceServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
-}
-func (UnimplementedVoiceServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
-}
-func (UnimplementedVoiceServiceServer) GetLatency(context.Context, *GetLatencyRequest) (*GetLatencyResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetLatency not implemented")
-}
-func (UnimplementedVoiceServiceServer) GetLocale(context.Context, *GetLocaleRequest) (*GetLocaleResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetLocale not implemented")
-}
-func (UnimplementedVoiceServiceServer) GetName(context.Context, *GetNameRequest) (*GetNameResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetName not implemented")
-}
-func (UnimplementedVoiceServiceServer) GetQuality(context.Context, *GetQualityRequest) (*GetQualityResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetQuality not implemented")
-}
-func (UnimplementedVoiceServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
-}
-func (UnimplementedVoiceServiceServer) IsNetworkConnectionRequired(context.Context, *IsNetworkConnectionRequiredRequest) (*IsNetworkConnectionRequiredResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsNetworkConnectionRequired not implemented")
-}
-func (UnimplementedVoiceServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
-}
-func (UnimplementedVoiceServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
-}
-func (UnimplementedVoiceServiceServer) mustEmbedUnimplementedVoiceServiceServer() {}
-func (UnimplementedVoiceServiceServer) testEmbeddedByValue()                      {}
-
-// UnsafeVoiceServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to VoiceServiceServer will
-// result in compilation errors.
-type UnsafeVoiceServiceServer interface {
-	mustEmbedUnimplementedVoiceServiceServer()
-}
-
-func RegisterVoiceServiceServer(s grpc.ServiceRegistrar, srv VoiceServiceServer) {
-	// If the following call panics, it indicates UnimplementedVoiceServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&VoiceService_ServiceDesc, srv)
-}
-
-func _VoiceService_NewVoice_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewVoiceRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(VoiceServiceServer).NewVoice(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: VoiceService_NewVoice_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(VoiceServiceServer).NewVoice(ctx, req.(*NewVoiceRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _VoiceService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DescribeContentsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(VoiceServiceServer).DescribeContents(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: VoiceService_DescribeContents_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(VoiceServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _VoiceService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(EqualsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(VoiceServiceServer).Equals(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: VoiceService_Equals_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(VoiceServiceServer).Equals(ctx, req.(*EqualsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _VoiceService_GetLatency_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetLatencyRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(VoiceServiceServer).GetLatency(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: VoiceService_GetLatency_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(VoiceServiceServer).GetLatency(ctx, req.(*GetLatencyRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _VoiceService_GetLocale_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetLocaleRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(VoiceServiceServer).GetLocale(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: VoiceService_GetLocale_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(VoiceServiceServer).GetLocale(ctx, req.(*GetLocaleRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _VoiceService_GetName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetNameRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(VoiceServiceServer).GetName(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: VoiceService_GetName_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(VoiceServiceServer).GetName(ctx, req.(*GetNameRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _VoiceService_GetQuality_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetQualityRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(VoiceServiceServer).GetQuality(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: VoiceService_GetQuality_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(VoiceServiceServer).GetQuality(ctx, req.(*GetQualityRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _VoiceService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(HashCodeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(VoiceServiceServer).HashCode(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: VoiceService_HashCode_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(VoiceServiceServer).HashCode(ctx, req.(*HashCodeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _VoiceService_IsNetworkConnectionRequired_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsNetworkConnectionRequiredRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(VoiceServiceServer).IsNetworkConnectionRequired(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: VoiceService_IsNetworkConnectionRequired_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(VoiceServiceServer).IsNetworkConnectionRequired(ctx, req.(*IsNetworkConnectionRequiredRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _VoiceService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ToStringRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(VoiceServiceServer).ToString(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: VoiceService_ToString_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(VoiceServiceServer).ToString(ctx, req.(*ToStringRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _VoiceService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WriteToParcelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(VoiceServiceServer).WriteToParcel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: VoiceService_WriteToParcel_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(VoiceServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// VoiceService_ServiceDesc is the grpc.ServiceDesc for VoiceService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var VoiceService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "tts.VoiceService",
-	HandlerType: (*VoiceServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "NewVoice",
-			Handler:    _VoiceService_NewVoice_Handler,
-		},
-		{
-			MethodName: "DescribeContents",
-			Handler:    _VoiceService_DescribeContents_Handler,
-		},
-		{
-			MethodName: "Equals",
-			Handler:    _VoiceService_Equals_Handler,
-		},
-		{
-			MethodName: "GetLatency",
-			Handler:    _VoiceService_GetLatency_Handler,
-		},
-		{
-			MethodName: "GetLocale",
-			Handler:    _VoiceService_GetLocale_Handler,
-		},
-		{
-			MethodName: "GetName",
-			Handler:    _VoiceService_GetName_Handler,
-		},
-		{
-			MethodName: "GetQuality",
-			Handler:    _VoiceService_GetQuality_Handler,
-		},
-		{
-			MethodName: "HashCode",
-			Handler:    _VoiceService_HashCode_Handler,
-		},
-		{
-			MethodName: "IsNetworkConnectionRequired",
-			Handler:    _VoiceService_IsNetworkConnectionRequired_Handler,
-		},
-		{
-			MethodName: "ToString",
-			Handler:    _VoiceService_ToString_Handler,
-		},
-		{
-			MethodName: "WriteToParcel",
-			Handler:    _VoiceService_WriteToParcel_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

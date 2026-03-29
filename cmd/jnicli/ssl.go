@@ -12,80 +12,6 @@ var sslCmd = &cobra.Command{
 	Short: "ssl service operations",
 }
 
-var sslSSLSocketsCmd = &cobra.Command{
-	Use:   "ssl-sockets",
-	Short: "SSLSocketsService operations",
-}
-
-var sslSSLSocketsExportKeyingMaterialCmd = &cobra.Command{
-	Use:   "export-keying-material",
-	Short: "ExportKeyingMaterial RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSSLSocketsServiceClient(grpcConn)
-		req := &pb.ExportKeyingMaterialRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetString("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		resp, err := client.ExportKeyingMaterial(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sslSSLSocketsIsSupportedSocketCmd = &cobra.Command{
-	Use:   "is-supported-socket",
-	Short: "IsSupportedSocket RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSSLSocketsServiceClient(grpcConn)
-		req := &pb.IsSupportedSocketRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.IsSupportedSocket(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sslSSLSocketsSetUseSessionTicketsCmd = &cobra.Command{
-	Use:   "set-use-session-tickets",
-	Short: "SetUseSessionTickets RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSSLSocketsServiceClient(grpcConn)
-		req := &pb.SetUseSessionTicketsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetBool("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.SetUseSessionTickets(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
 var sslSSLEnginesCmd = &cobra.Command{
 	Use:   "ssl-engines",
 	Short: "SSLEnginesService operations",
@@ -160,18 +86,81 @@ var sslSSLEnginesSetUseSessionTicketsCmd = &cobra.Command{
 	},
 }
 
+var sslSSLSocketsCmd = &cobra.Command{
+	Use:   "ssl-sockets",
+	Short: "SSLSocketsService operations",
+}
+
+var sslSSLSocketsExportKeyingMaterialCmd = &cobra.Command{
+	Use:   "export-keying-material",
+	Short: "ExportKeyingMaterial RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSSLSocketsServiceClient(grpcConn)
+		req := &pb.ExportKeyingMaterialRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.ExportKeyingMaterial(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sslSSLSocketsIsSupportedSocketCmd = &cobra.Command{
+	Use:   "is-supported-socket",
+	Short: "IsSupportedSocket RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSSLSocketsServiceClient(grpcConn)
+		req := &pb.IsSupportedSocketRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.IsSupportedSocket(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sslSSLSocketsSetUseSessionTicketsCmd = &cobra.Command{
+	Use:   "set-use-session-tickets",
+	Short: "SetUseSessionTickets RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSSLSocketsServiceClient(grpcConn)
+		req := &pb.SetUseSessionTicketsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetBool("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.SetUseSessionTickets(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 func init() {
-	sslSSLSocketsExportKeyingMaterialCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	sslSSLSocketsExportKeyingMaterialCmd.Flags().String("arg1", "", "arg1 (string)")
-	sslSSLSocketsExportKeyingMaterialCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	sslSSLSocketsExportKeyingMaterialCmd.Flags().Int32("arg3", 0, "arg3 (int32)")
-	sslSSLSocketsCmd.AddCommand(sslSSLSocketsExportKeyingMaterialCmd)
-	sslSSLSocketsIsSupportedSocketCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	sslSSLSocketsCmd.AddCommand(sslSSLSocketsIsSupportedSocketCmd)
-	sslSSLSocketsSetUseSessionTicketsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	sslSSLSocketsSetUseSessionTicketsCmd.Flags().Bool("arg1", false, "arg1 (bool)")
-	sslSSLSocketsCmd.AddCommand(sslSSLSocketsSetUseSessionTicketsCmd)
-	sslCmd.AddCommand(sslSSLSocketsCmd)
 	sslSSLEnginesExportKeyingMaterialCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	sslSSLEnginesExportKeyingMaterialCmd.Flags().String("arg1", "", "arg1 (string)")
 	sslSSLEnginesExportKeyingMaterialCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
@@ -183,5 +172,16 @@ func init() {
 	sslSSLEnginesSetUseSessionTicketsCmd.Flags().Bool("arg1", false, "arg1 (bool)")
 	sslSSLEnginesCmd.AddCommand(sslSSLEnginesSetUseSessionTicketsCmd)
 	sslCmd.AddCommand(sslSSLEnginesCmd)
+	sslSSLSocketsExportKeyingMaterialCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	sslSSLSocketsExportKeyingMaterialCmd.Flags().String("arg1", "", "arg1 (string)")
+	sslSSLSocketsExportKeyingMaterialCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	sslSSLSocketsExportKeyingMaterialCmd.Flags().Int32("arg3", 0, "arg3 (int32)")
+	sslSSLSocketsCmd.AddCommand(sslSSLSocketsExportKeyingMaterialCmd)
+	sslSSLSocketsIsSupportedSocketCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	sslSSLSocketsCmd.AddCommand(sslSSLSocketsIsSupportedSocketCmd)
+	sslSSLSocketsSetUseSessionTicketsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	sslSSLSocketsSetUseSessionTicketsCmd.Flags().Bool("arg1", false, "arg1 (bool)")
+	sslSSLSocketsCmd.AddCommand(sslSSLSocketsSetUseSessionTicketsCmd)
+	sslCmd.AddCommand(sslSSLSocketsCmd)
 	rootCmd.AddCommand(sslCmd)
 }

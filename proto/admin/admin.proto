@@ -6,50 +6,6 @@ package admin;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/admin";
 
-message DescribeContentsRequest {
-}
-
-message DescribeContentsResponse {
-  int32 result = 1;
-}
-
-message IsFactoryResetProtectionEnabledRequest {
-}
-
-message IsFactoryResetProtectionEnabledResponse {
-  bool result = 1;
-}
-
-message ToStringRequest {
-}
-
-message ToStringResponse {
-  string result = 1;
-}
-
-message WriteToParcelRequest {
-  int64 arg0 = 1;
-  int32 arg1 = 2;
-}
-
-message WriteToParcelResponse {
-}
-
-message BuildRequest {
-}
-
-message BuildResponse {
-  int64 result = 1;
-}
-
-message SetFactoryResetProtectionEnabledRequest {
-  bool arg0 = 1;
-}
-
-message SetFactoryResetProtectionEnabledResponse {
-  int64 result = 1;
-}
-
 message NewDeviceAdminServiceRequest {
 }
 
@@ -64,105 +20,6 @@ message OnBindRequest {
 
 message OnBindResponse {
   int64 result = 1;
-}
-
-message OnPolicyChangedRequest {
-  int64 arg0 = 1;
-  string arg1 = 2;
-  int64 arg2 = 3;
-  int64 arg3 = 4;
-  int64 arg4 = 5;
-}
-
-message OnPolicyChangedResponse {
-}
-
-message OnPolicySetResultRequest {
-  int64 arg0 = 1;
-  string arg1 = 2;
-  int64 arg2 = 3;
-  int64 arg3 = 4;
-  int64 arg4 = 5;
-}
-
-message OnPolicySetResultResponse {
-}
-
-message OnReceiveRequest {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-}
-
-message OnReceiveResponse {
-}
-
-message NewWifiSsidPolicyRequest {
-  int32 arg0 = 1;
-  int64 arg1 = 2;
-}
-
-message NewWifiSsidPolicyResponse {
-  int64 result = 1;
-}
-
-message WifiSsidPolicyDescribeContentsRequest {
-  int64 handle = 1;
-}
-
-message EqualsRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-}
-
-message EqualsResponse {
-  bool result = 1;
-}
-
-message GetPolicyTypeRequest {
-  int64 handle = 1;
-}
-
-message GetPolicyTypeResponse {
-  int32 result = 1;
-}
-
-message HashCodeRequest {
-  int64 handle = 1;
-}
-
-message HashCodeResponse {
-  int32 result = 1;
-}
-
-message WifiSsidPolicyWriteToParcelRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-  int32 arg1 = 3;
-}
-
-message NewPackagePolicyRequest {
-  int32 arg0 = 1;
-}
-
-message NewPackagePolicyResponse {
-  int64 result = 1;
-}
-
-message PackagePolicyDescribeContentsRequest {
-  int64 handle = 1;
-}
-
-message PackagePolicyWriteToParcelRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-  int32 arg1 = 3;
-}
-
-message GetMessageRequest {
-}
-
-message GetMessageResponse {
-  string result = 1;
 }
 
 message NewFreezePeriodRequest {
@@ -190,24 +47,94 @@ message GetStartResponse {
   int64 result = 1;
 }
 
-message FreezePeriodToStringRequest {
+message ToStringRequest {
   int64 handle = 1;
 }
 
-message NewPolicyUpdateResultRequest {
-  int32 arg0 = 1;
+message ToStringResponse {
+  string result = 1;
 }
 
-message NewPolicyUpdateResultResponse {
+message GetDrawableAsIcon3Request {
+  string arg0 = 1;
+  string arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message GetDrawableAsIcon3Response {
   int64 result = 1;
 }
 
-message GetResultCodeRequest {
+message GetDrawableAsIcon4_1Request {
+  string arg0 = 1;
+  string arg1 = 2;
+  string arg2 = 3;
+  int64 arg3 = 4;
+}
+
+message GetDrawableAsIcon4_1Response {
+  int64 result = 1;
+}
+
+message NewPackagePolicyRequest {
+  int32 arg0 = 1;
+}
+
+message NewPackagePolicyResponse {
+  int64 result = 1;
+}
+
+message DescribeContentsRequest {
   int64 handle = 1;
 }
 
-message GetResultCodeResponse {
+message DescribeContentsResponse {
   int32 result = 1;
+}
+
+message EqualsRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message EqualsResponse {
+  bool result = 1;
+}
+
+message GetPackageNamesRequest {
+  int64 handle = 1;
+}
+
+message GetPackageNamesResponse {
+  int64 result = 1;
+}
+
+message GetPolicyTypeRequest {
+  int64 handle = 1;
+}
+
+message GetPolicyTypeResponse {
+  int32 result = 1;
+}
+
+message HashCodeRequest {
+  int64 handle = 1;
+}
+
+message HashCodeResponse {
+  int32 result = 1;
+}
+
+message WriteToParcelRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message WriteToParcelResponse {
+}
+
+message PreferentialNetworkServiceConfigDescribeContentsRequest {
 }
 
 message PreferentialNetworkServiceConfigEqualsRequest {
@@ -259,6 +186,21 @@ message ShouldBlockNonMatchingNetworksResponse {
   bool result = 1;
 }
 
+message PreferentialNetworkServiceConfigToStringRequest {
+}
+
+message PreferentialNetworkServiceConfigWriteToParcelRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message BuildRequest {
+}
+
+message BuildResponse {
+  int64 result = 1;
+}
+
 message SetEnabledRequest {
   bool arg0 = 1;
 }
@@ -307,107 +249,101 @@ message SetShouldBlockNonMatchingNetworksResponse {
   int64 result = 1;
 }
 
-message SecurityLogSecurityEventEqualsRequest {
+message DnsEventDescribeContentsRequest {
+}
+
+message GetHostnameRequest {
+}
+
+message GetHostnameResponse {
+  string result = 1;
+}
+
+message GetInetAddressesRequest {
+}
+
+message GetInetAddressesResponse {
+  int64 result = 1;
+}
+
+message GetTotalResolvedAddressCountRequest {
+}
+
+message GetTotalResolvedAddressCountResponse {
+  int32 result = 1;
+}
+
+message DnsEventToStringRequest {
+}
+
+message DnsEventWriteToParcelRequest {
   int64 arg0 = 1;
-}
-
-message GetDataRequest {
-}
-
-message GetDataResponse {
-  int64 result = 1;
-}
-
-message GetIdRequest {
-}
-
-message GetIdResponse {
-  int64 result = 1;
-}
-
-message GetLogLevelRequest {
-}
-
-message GetLogLevelResponse {
-  int32 result = 1;
-}
-
-message GetTagRequest {
-}
-
-message GetTagResponse {
-  int32 result = 1;
-}
-
-message GetTimeNanosRequest {
-}
-
-message GetTimeNanosResponse {
-  int64 result = 1;
-}
-
-message SecurityLogSecurityEventHashCodeRequest {
-}
-
-message GetInstallWindowEndRequest {
-}
-
-message GetInstallWindowEndResponse {
-  int32 result = 1;
-}
-
-message GetInstallWindowStartRequest {
-}
-
-message GetInstallWindowStartResponse {
-  int32 result = 1;
-}
-
-message SystemUpdatePolicyGetPolicyTypeRequest {
-}
-
-message CreateAutomaticInstallPolicyRequest {
-}
-
-message CreateAutomaticInstallPolicyResponse {
-  int64 result = 1;
-}
-
-message CreatePostponeInstallPolicyRequest {
-}
-
-message CreatePostponeInstallPolicyResponse {
-  int64 result = 1;
-}
-
-message CreateWindowedInstallPolicyRequest {
-  int32 arg0 = 1;
   int32 arg1 = 2;
 }
 
-message CreateWindowedInstallPolicyResponse {
+message SystemUpdateInfoDescribeContentsRequest {
+}
+
+message SystemUpdateInfoEqualsRequest {
+  int64 arg0 = 1;
+}
+
+message GetReceivedTimeRequest {
+}
+
+message GetReceivedTimeResponse {
   int64 result = 1;
 }
 
-message GetErrorCodeRequest {
+message GetSecurityPatchStateRequest {
 }
 
-message GetErrorCodeResponse {
+message GetSecurityPatchStateResponse {
   int32 result = 1;
 }
 
-message GetInetAddressRequest {
+message SystemUpdateInfoHashCodeRequest {
 }
 
-message GetInetAddressResponse {
+message SystemUpdateInfoToStringRequest {
+}
+
+message SystemUpdateInfoWriteToParcelRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message FactoryResetProtectionPolicyDescribeContentsRequest {
+}
+
+message GetFactoryResetProtectionAccountsRequest {
+}
+
+message GetFactoryResetProtectionAccountsResponse {
   int64 result = 1;
 }
 
-message GetPortRequest {
+message IsFactoryResetProtectionEnabledRequest {
 }
 
-message GetPortResponse {
-  int32 result = 1;
+message IsFactoryResetProtectionEnabledResponse {
+  bool result = 1;
+}
+
+message FactoryResetProtectionPolicyToStringRequest {
+}
+
+message FactoryResetProtectionPolicyWriteToParcelRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message SetFactoryResetProtectionEnabledRequest {
+  bool arg0 = 1;
+}
+
+message SetFactoryResetProtectionEnabledResponse {
+  int64 result = 1;
 }
 
 message AcknowledgeDeviceCompliantRequest {
@@ -615,6 +551,29 @@ message GetAccountTypesWithManagementDisabledResponse {
   int64 result = 1;
 }
 
+message GetActiveAdminsRequest {
+}
+
+message GetActiveAdminsResponse {
+  int64 result = 1;
+}
+
+message GetAffiliationIdsRequest {
+  int64 arg0 = 1;
+}
+
+message GetAffiliationIdsResponse {
+  int64 result = 1;
+}
+
+message GetAlwaysOnVpnLockdownWhitelistRequest {
+  int64 arg0 = 1;
+}
+
+message GetAlwaysOnVpnLockdownWhitelistResponse {
+  int64 result = 1;
+}
+
 message GetAlwaysOnVpnPackageRequest {
   int64 arg0 = 1;
 }
@@ -684,6 +643,14 @@ message GetAutoTimeZonePolicyResponse {
   int32 result = 1;
 }
 
+message GetBindDeviceAdminTargetUsersRequest {
+  int64 arg0 = 1;
+}
+
+message GetBindDeviceAdminTargetUsersResponse {
+  int64 result = 1;
+}
+
 message GetBluetoothContactSharingDisabledRequest {
   int64 arg0 = 1;
 }
@@ -723,6 +690,14 @@ message GetCredentialManagerPolicyResponse {
   int64 result = 1;
 }
 
+message GetCrossProfileCalendarPackagesRequest {
+  int64 arg0 = 1;
+}
+
+message GetCrossProfileCalendarPackagesResponse {
+  int64 result = 1;
+}
+
 message GetCrossProfileCallerIdDisabledRequest {
   int64 arg0 = 1;
 }
@@ -739,11 +714,45 @@ message GetCrossProfileContactsSearchDisabledResponse {
   bool result = 1;
 }
 
+message GetCrossProfilePackagesRequest {
+  int64 arg0 = 1;
+}
+
+message GetCrossProfilePackagesResponse {
+  int64 result = 1;
+}
+
+message GetCrossProfileWidgetProvidersRequest {
+  int64 arg0 = 1;
+}
+
+message GetCrossProfileWidgetProvidersResponse {
+  int64 result = 1;
+}
+
 message GetCurrentFailedPasswordAttemptsRequest {
 }
 
 message GetCurrentFailedPasswordAttemptsResponse {
   int32 result = 1;
+}
+
+message GetDelegatePackagesRequest {
+  int64 arg0 = 1;
+  string arg1 = 2;
+}
+
+message GetDelegatePackagesResponse {
+  int64 result = 1;
+}
+
+message GetDelegatedScopesRequest {
+  int64 arg0 = 1;
+  string arg1 = 2;
+}
+
+message GetDelegatedScopesResponse {
+  int64 result = 1;
 }
 
 message GetDeviceOwnerLockScreenInfoRequest {
@@ -797,6 +806,22 @@ message GetGlobalPrivateDnsModeRequest {
 
 message GetGlobalPrivateDnsModeResponse {
   int32 result = 1;
+}
+
+message GetInstalledCaCertsRequest {
+  int64 arg0 = 1;
+}
+
+message GetInstalledCaCertsResponse {
+  int64 result = 1;
+}
+
+message GetKeepUninstalledPackagesRequest {
+  int64 arg0 = 1;
+}
+
+message GetKeepUninstalledPackagesResponse {
+  int64 result = 1;
 }
 
 message GetKeyguardDisabledFeaturesRequest {
@@ -876,6 +901,14 @@ message GetMaximumTimeToLockResponse {
   int64 result = 1;
 }
 
+message GetMeteredDataDisabledPackagesRequest {
+  int64 arg0 = 1;
+}
+
+message GetMeteredDataDisabledPackagesResponse {
+  int64 result = 1;
+}
+
 message GetMinimumRequiredWifiSecurityLevelRequest {
 }
 
@@ -917,6 +950,14 @@ message GetOrganizationNameRequest {
 }
 
 message GetOrganizationNameResponse {
+  int64 result = 1;
+}
+
+message GetOverrideApnsRequest {
+  int64 arg0 = 1;
+}
+
+message GetOverrideApnsResponse {
   int64 result = 1;
 }
 
@@ -1057,12 +1098,43 @@ message GetPermissionPolicyResponse {
   int32 result = 1;
 }
 
+message GetPermittedAccessibilityServicesRequest {
+  int64 arg0 = 1;
+}
+
+message GetPermittedAccessibilityServicesResponse {
+  int64 result = 1;
+}
+
+message GetPermittedCrossProfileNotificationListenersRequest {
+  int64 arg0 = 1;
+}
+
+message GetPermittedCrossProfileNotificationListenersResponse {
+  int64 result = 1;
+}
+
+message GetPermittedInputMethodsRequest {
+  int64 arg0 = 1;
+}
+
+message GetPermittedInputMethodsResponse {
+  int64 result = 1;
+}
+
 message GetPersonalAppsSuspendedReasonsRequest {
   int64 arg0 = 1;
 }
 
 message GetPersonalAppsSuspendedReasonsResponse {
   int32 result = 1;
+}
+
+message GetPreferentialNetworkServiceConfigsRequest {
+}
+
+message GetPreferentialNetworkServiceConfigsResponse {
+  int64 result = 1;
 }
 
 message GetRequiredPasswordComplexityRequest {
@@ -1093,6 +1165,14 @@ message GetScreenCaptureDisabledRequest {
 
 message GetScreenCaptureDisabledResponse {
   bool result = 1;
+}
+
+message GetSecondaryUsersRequest {
+  int64 arg0 = 1;
+}
+
+message GetSecondaryUsersResponse {
+  int64 result = 1;
 }
 
 message GetShortSupportMessageRequest {
@@ -1126,6 +1206,13 @@ message GetStorageEncryptionStatusResponse {
   int32 result = 1;
 }
 
+message GetSubscriptionIdsRequest {
+}
+
+message GetSubscriptionIdsResponse {
+  int64 result = 1;
+}
+
 message GetSystemUpdatePolicyRequest {
 }
 
@@ -1137,6 +1224,23 @@ message GetTransferOwnershipBundleRequest {
 }
 
 message GetTransferOwnershipBundleResponse {
+  int64 result = 1;
+}
+
+message GetTrustAgentConfigurationRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message GetTrustAgentConfigurationResponse {
+  int64 result = 1;
+}
+
+message GetUserControlDisabledPackagesRequest {
+  int64 arg0 = 1;
+}
+
+message GetUserControlDisabledPackagesResponse {
   int64 result = 1;
 }
 
@@ -1547,6 +1651,13 @@ message IsUsingUnifiedPasswordResponse {
   bool result = 1;
 }
 
+message ListForegroundAffiliatedUsersRequest {
+}
+
+message ListForegroundAffiliatedUsersResponse {
+  int64 result = 1;
+}
+
 message LockNow0Request {
 }
 
@@ -1644,6 +1755,31 @@ message ResetPasswordWithTokenRequest {
 
 message ResetPasswordWithTokenResponse {
   bool result = 1;
+}
+
+message RetrieveNetworkLogsRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message RetrieveNetworkLogsResponse {
+  int64 result = 1;
+}
+
+message RetrievePreRebootSecurityLogsRequest {
+  int64 arg0 = 1;
+}
+
+message RetrievePreRebootSecurityLogsResponse {
+  int64 result = 1;
+}
+
+message RetrieveSecurityLogsRequest {
+  int64 arg0 = 1;
+}
+
+message RetrieveSecurityLogsResponse {
+  int64 result = 1;
 }
 
 message RevokeKeyPairFromAppRequest {
@@ -2494,6 +2630,110 @@ message OnApplicationUserDataClearedRequest {
 message OnApplicationUserDataClearedResponse {
 }
 
+message SecurityLogSecurityEventDescribeContentsRequest {
+}
+
+message SecurityLogSecurityEventEqualsRequest {
+  int64 arg0 = 1;
+}
+
+message GetDataRequest {
+}
+
+message GetDataResponse {
+  int64 result = 1;
+}
+
+message GetIdRequest {
+}
+
+message GetIdResponse {
+  int64 result = 1;
+}
+
+message GetLogLevelRequest {
+}
+
+message GetLogLevelResponse {
+  int32 result = 1;
+}
+
+message GetTagRequest {
+}
+
+message GetTagResponse {
+  int32 result = 1;
+}
+
+message GetTimeNanosRequest {
+}
+
+message GetTimeNanosResponse {
+  int64 result = 1;
+}
+
+message SecurityLogSecurityEventHashCodeRequest {
+}
+
+message SecurityLogSecurityEventWriteToParcelRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message NewManagedSubscriptionsPolicyRequest {
+  int32 arg0 = 1;
+}
+
+message NewManagedSubscriptionsPolicyResponse {
+  int64 result = 1;
+}
+
+message OnPolicyChangedRequest {
+  int64 arg0 = 1;
+  string arg1 = 2;
+  int64 arg2 = 3;
+  int64 arg3 = 4;
+  int64 arg4 = 5;
+}
+
+message OnPolicyChangedResponse {
+}
+
+message OnPolicySetResultRequest {
+  int64 arg0 = 1;
+  string arg1 = 2;
+  int64 arg2 = 3;
+  int64 arg3 = 4;
+  int64 arg4 = 5;
+}
+
+message OnPolicySetResultResponse {
+}
+
+message OnReceiveRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message OnReceiveResponse {
+}
+
+message NewPolicyUpdateResultRequest {
+  int32 arg0 = 1;
+}
+
+message NewPolicyUpdateResultResponse {
+  int64 result = 1;
+}
+
+message GetResultCodeRequest {
+  int64 handle = 1;
+}
+
+message GetResultCodeResponse {
+  int32 result = 1;
+}
+
 message NewDeviceAdminReceiverRequest {
 }
 
@@ -2825,18 +3065,63 @@ message OnUserSwitchedRequest {
 message OnUserSwitchedResponse {
 }
 
-message GetHostnameRequest {
+message UnsafeStateExceptionDescribeContentsRequest {
 }
 
-message GetHostnameResponse {
+message GetMessageRequest {
+}
+
+message GetMessageResponse {
   string result = 1;
 }
 
-message GetTotalResolvedAddressCountRequest {
+message GetReasonsRequest {
 }
 
-message GetTotalResolvedAddressCountResponse {
-  int32 result = 1;
+message GetReasonsResponse {
+  int64 result = 1;
+}
+
+message UnsafeStateExceptionWriteToParcelRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message NewDelegatedAdminReceiverRequest {
+}
+
+message NewDelegatedAdminReceiverResponse {
+  int64 result = 1;
+}
+
+message DelegatedAdminReceiverOnReceiveRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message TargetUserEqualsRequest {
+  int64 arg0 = 1;
+}
+
+message TargetUserHashCodeRequest {
+}
+
+message NewWifiSsidPolicyRequest {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message NewWifiSsidPolicyResponse {
+  int64 result = 1;
+}
+
+message GetSsidsRequest {
+  int64 handle = 1;
+}
+
+message GetSsidsResponse {
+  int64 result = 1;
 }
 
 message GetIdentifierForUserRestrictionRequest {
@@ -2847,75 +3132,29 @@ message GetIdentifierForUserRestrictionResponse {
   string result = 1;
 }
 
-message GetDrawableAsIcon3Request {
-  string arg0 = 1;
-  string arg1 = 2;
-  int64 arg2 = 3;
+message ConnectEventDescribeContentsRequest {
 }
 
-message GetDrawableAsIcon3Response {
+message GetInetAddressRequest {
+}
+
+message GetInetAddressResponse {
   int64 result = 1;
 }
 
-message GetDrawableAsIcon4_1Request {
-  string arg0 = 1;
-  string arg1 = 2;
-  string arg2 = 3;
-  int64 arg3 = 4;
+message GetPortRequest {
 }
 
-message GetDrawableAsIcon4_1Response {
-  int64 result = 1;
-}
-
-message SystemUpdateInfoEqualsRequest {
-  int64 arg0 = 1;
-}
-
-message GetReceivedTimeRequest {
-}
-
-message GetReceivedTimeResponse {
-  int64 result = 1;
-}
-
-message GetSecurityPatchStateRequest {
-}
-
-message GetSecurityPatchStateResponse {
+message GetPortResponse {
   int32 result = 1;
 }
 
-message SystemUpdateInfoHashCodeRequest {
+message ConnectEventToStringRequest {
 }
 
-message NewManagedSubscriptionsPolicyRequest {
-  int32 arg0 = 1;
-}
-
-message NewManagedSubscriptionsPolicyResponse {
-  int64 result = 1;
-}
-
-message ManagedSubscriptionsPolicyDescribeContentsRequest {
-  int64 handle = 1;
-}
-
-message ManagedSubscriptionsPolicyToStringRequest {
-  int64 handle = 1;
-}
-
-message ManagedSubscriptionsPolicyWriteToParcelRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-  int32 arg1 = 3;
-}
-
-message TargetUserEqualsRequest {
+message ConnectEventWriteToParcelRequest {
   int64 arg0 = 1;
-}
-
-message TargetUserHashCodeRequest {
+  int32 arg1 = 2;
 }
 
 message NewDeviceAdminInfoRequest {
@@ -2925,10 +3164,6 @@ message NewDeviceAdminInfoRequest {
 
 message NewDeviceAdminInfoResponse {
   int64 result = 1;
-}
-
-message DeviceAdminInfoDescribeContentsRequest {
-  int64 handle = 1;
 }
 
 message DumpRequest {
@@ -3032,10 +3267,6 @@ message SupportsTransferOwnershipResponse {
   bool result = 1;
 }
 
-message DeviceAdminInfoToStringRequest {
-  int64 handle = 1;
-}
-
 message UsesPolicyRequest {
   int64 handle = 1;
   int32 arg0 = 2;
@@ -3045,23 +3276,7 @@ message UsesPolicyResponse {
   bool result = 1;
 }
 
-message DeviceAdminInfoWriteToParcelRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-  int32 arg1 = 3;
-}
-
-message NewDelegatedAdminReceiverRequest {
-}
-
-message NewDelegatedAdminReceiverResponse {
-  int64 result = 1;
-}
-
-message DelegatedAdminReceiverOnReceiveRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-  int64 arg1 = 3;
+message NetworkEventDescribeContentsRequest {
 }
 
 message NetworkEventGetPackageNameRequest {
@@ -3074,16 +3289,82 @@ message GetTimestampResponse {
   int64 result = 1;
 }
 
-service FactoryResetProtectionPolicyService {
-  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc IsFactoryResetProtectionEnabled (IsFactoryResetProtectionEnabledRequest) returns (IsFactoryResetProtectionEnabledResponse);
-  rpc ToString (ToStringRequest) returns (ToStringResponse);
-  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+message NetworkEventWriteToParcelRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
 }
 
-service FactoryResetProtectionPolicyBuilderService {
-  rpc Build (BuildRequest) returns (BuildResponse);
-  rpc SetFactoryResetProtectionEnabled (SetFactoryResetProtectionEnabledRequest) returns (SetFactoryResetProtectionEnabledResponse);
+message SystemUpdatePolicyDescribeContentsRequest {
+}
+
+message GetFreezePeriodsRequest {
+}
+
+message GetFreezePeriodsResponse {
+  int64 result = 1;
+}
+
+message GetInstallWindowEndRequest {
+}
+
+message GetInstallWindowEndResponse {
+  int32 result = 1;
+}
+
+message GetInstallWindowStartRequest {
+}
+
+message GetInstallWindowStartResponse {
+  int32 result = 1;
+}
+
+message SystemUpdatePolicyGetPolicyTypeRequest {
+}
+
+message SystemUpdatePolicyToStringRequest {
+}
+
+message SystemUpdatePolicyWriteToParcelRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message CreateAutomaticInstallPolicyRequest {
+}
+
+message CreateAutomaticInstallPolicyResponse {
+  int64 result = 1;
+}
+
+message CreatePostponeInstallPolicyRequest {
+}
+
+message CreatePostponeInstallPolicyResponse {
+  int64 result = 1;
+}
+
+message CreateWindowedInstallPolicyRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message CreateWindowedInstallPolicyResponse {
+  int64 result = 1;
+}
+
+message SystemUpdatePolicyValidationFailedExceptionDescribeContentsRequest {
+}
+
+message GetErrorCodeRequest {
+}
+
+message GetErrorCodeResponse {
+  int32 result = 1;
+}
+
+message SystemUpdatePolicyValidationFailedExceptionWriteToParcelRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
 }
 
 service DeviceAdminServiceService {
@@ -3091,50 +3372,30 @@ service DeviceAdminServiceService {
   rpc OnBind (OnBindRequest) returns (OnBindResponse);
 }
 
-service PolicyUpdateReceiverService {
-  rpc OnPolicyChanged (OnPolicyChangedRequest) returns (OnPolicyChangedResponse);
-  rpc OnPolicySetResult (OnPolicySetResultRequest) returns (OnPolicySetResultResponse);
-  rpc OnReceive (OnReceiveRequest) returns (OnReceiveResponse);
-}
-
-service WifiSsidPolicyService {
-  rpc NewWifiSsidPolicy (NewWifiSsidPolicyRequest) returns (NewWifiSsidPolicyResponse);
-  rpc DescribeContents (WifiSsidPolicyDescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc Equals (EqualsRequest) returns (EqualsResponse);
-  rpc GetPolicyType (GetPolicyTypeRequest) returns (GetPolicyTypeResponse);
-  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
-  rpc WriteToParcel (WifiSsidPolicyWriteToParcelRequest) returns (WriteToParcelResponse);
-}
-
-service PackagePolicyService {
-  rpc NewPackagePolicy (NewPackagePolicyRequest) returns (NewPackagePolicyResponse);
-  rpc DescribeContents (PackagePolicyDescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc Equals (EqualsRequest) returns (EqualsResponse);
-  rpc GetPolicyType (GetPolicyTypeRequest) returns (GetPolicyTypeResponse);
-  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
-  rpc WriteToParcel (PackagePolicyWriteToParcelRequest) returns (WriteToParcelResponse);
-}
-
-service UnsafeStateExceptionService {
-  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc GetMessage (GetMessageRequest) returns (GetMessageResponse);
-  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
-}
-
 service FreezePeriodService {
   rpc NewFreezePeriod (NewFreezePeriodRequest) returns (NewFreezePeriodResponse);
   rpc GetEnd (GetEndRequest) returns (GetEndResponse);
   rpc GetStart (GetStartRequest) returns (GetStartResponse);
-  rpc ToString (FreezePeriodToStringRequest) returns (ToStringResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
 }
 
-service PolicyUpdateResultService {
-  rpc NewPolicyUpdateResult (NewPolicyUpdateResultRequest) returns (NewPolicyUpdateResultResponse);
-  rpc GetResultCode (GetResultCodeRequest) returns (GetResultCodeResponse);
+service DevicePolicyResourcesManagerService {
+  rpc GetDrawableAsIcon3 (GetDrawableAsIcon3Request) returns (GetDrawableAsIcon3Response);
+  rpc GetDrawableAsIcon4_1 (GetDrawableAsIcon4_1Request) returns (GetDrawableAsIcon4_1Response);
+}
+
+service PackagePolicyService {
+  rpc NewPackagePolicy (NewPackagePolicyRequest) returns (NewPackagePolicyResponse);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetPackageNames (GetPackageNamesRequest) returns (GetPackageNamesResponse);
+  rpc GetPolicyType (GetPolicyTypeRequest) returns (GetPolicyTypeResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
 }
 
 service PreferentialNetworkServiceConfigService {
-  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc DescribeContents (PreferentialNetworkServiceConfigDescribeContentsRequest) returns (DescribeContentsResponse);
   rpc Equals (PreferentialNetworkServiceConfigEqualsRequest) returns (EqualsResponse);
   rpc GetExcludedUids (GetExcludedUidsRequest) returns (GetExcludedUidsResponse);
   rpc GetIncludedUids (GetIncludedUidsRequest) returns (GetIncludedUidsResponse);
@@ -3143,8 +3404,8 @@ service PreferentialNetworkServiceConfigService {
   rpc IsEnabled (IsEnabledRequest) returns (IsEnabledResponse);
   rpc IsFallbackToDefaultConnectionAllowed (IsFallbackToDefaultConnectionAllowedRequest) returns (IsFallbackToDefaultConnectionAllowedResponse);
   rpc ShouldBlockNonMatchingNetworks (ShouldBlockNonMatchingNetworksRequest) returns (ShouldBlockNonMatchingNetworksResponse);
-  rpc ToString (ToStringRequest) returns (ToStringResponse);
-  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+  rpc ToString (PreferentialNetworkServiceConfigToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (PreferentialNetworkServiceConfigWriteToParcelRequest) returns (WriteToParcelResponse);
 }
 
 service PreferentialNetworkServiceConfigBuilderService {
@@ -3157,42 +3418,36 @@ service PreferentialNetworkServiceConfigBuilderService {
   rpc SetShouldBlockNonMatchingNetworks (SetShouldBlockNonMatchingNetworksRequest) returns (SetShouldBlockNonMatchingNetworksResponse);
 }
 
-service SecurityLogSecurityEventService {
-  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc Equals (SecurityLogSecurityEventEqualsRequest) returns (EqualsResponse);
-  rpc GetData (GetDataRequest) returns (GetDataResponse);
-  rpc GetId (GetIdRequest) returns (GetIdResponse);
-  rpc GetLogLevel (GetLogLevelRequest) returns (GetLogLevelResponse);
-  rpc GetTag (GetTagRequest) returns (GetTagResponse);
-  rpc GetTimeNanos (GetTimeNanosRequest) returns (GetTimeNanosResponse);
-  rpc HashCode (SecurityLogSecurityEventHashCodeRequest) returns (HashCodeResponse);
-  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+service DnsEventService {
+  rpc DescribeContents (DnsEventDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetHostname (GetHostnameRequest) returns (GetHostnameResponse);
+  rpc GetInetAddresses (GetInetAddressesRequest) returns (GetInetAddressesResponse);
+  rpc GetTotalResolvedAddressCount (GetTotalResolvedAddressCountRequest) returns (GetTotalResolvedAddressCountResponse);
+  rpc ToString (DnsEventToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (DnsEventWriteToParcelRequest) returns (WriteToParcelResponse);
 }
 
-service SystemUpdatePolicyService {
-  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc GetInstallWindowEnd (GetInstallWindowEndRequest) returns (GetInstallWindowEndResponse);
-  rpc GetInstallWindowStart (GetInstallWindowStartRequest) returns (GetInstallWindowStartResponse);
-  rpc GetPolicyType (SystemUpdatePolicyGetPolicyTypeRequest) returns (GetPolicyTypeResponse);
-  rpc ToString (ToStringRequest) returns (ToStringResponse);
-  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
-  rpc CreateAutomaticInstallPolicy (CreateAutomaticInstallPolicyRequest) returns (CreateAutomaticInstallPolicyResponse);
-  rpc CreatePostponeInstallPolicy (CreatePostponeInstallPolicyRequest) returns (CreatePostponeInstallPolicyResponse);
-  rpc CreateWindowedInstallPolicy (CreateWindowedInstallPolicyRequest) returns (CreateWindowedInstallPolicyResponse);
+service SystemUpdateInfoService {
+  rpc DescribeContents (SystemUpdateInfoDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (SystemUpdateInfoEqualsRequest) returns (EqualsResponse);
+  rpc GetReceivedTime (GetReceivedTimeRequest) returns (GetReceivedTimeResponse);
+  rpc GetSecurityPatchState (GetSecurityPatchStateRequest) returns (GetSecurityPatchStateResponse);
+  rpc HashCode (SystemUpdateInfoHashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (SystemUpdateInfoToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (SystemUpdateInfoWriteToParcelRequest) returns (WriteToParcelResponse);
 }
 
-service SystemUpdatePolicyValidationFailedExceptionService {
-  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc GetErrorCode (GetErrorCodeRequest) returns (GetErrorCodeResponse);
-  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+service FactoryResetProtectionPolicyService {
+  rpc DescribeContents (FactoryResetProtectionPolicyDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetFactoryResetProtectionAccounts (GetFactoryResetProtectionAccountsRequest) returns (GetFactoryResetProtectionAccountsResponse);
+  rpc IsFactoryResetProtectionEnabled (IsFactoryResetProtectionEnabledRequest) returns (IsFactoryResetProtectionEnabledResponse);
+  rpc ToString (FactoryResetProtectionPolicyToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (FactoryResetProtectionPolicyWriteToParcelRequest) returns (WriteToParcelResponse);
 }
 
-service ConnectEventService {
-  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc GetInetAddress (GetInetAddressRequest) returns (GetInetAddressResponse);
-  rpc GetPort (GetPortRequest) returns (GetPortResponse);
-  rpc ToString (ToStringRequest) returns (ToStringResponse);
-  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+service FactoryResetProtectionPolicyBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetFactoryResetProtectionEnabled (SetFactoryResetProtectionEnabledRequest) returns (SetFactoryResetProtectionEnabledResponse);
 }
 
 service DevicePolicyManagerService {
@@ -3220,6 +3475,9 @@ service DevicePolicyManagerService {
   rpc EnableSystemApp2_1 (EnableSystemApp2_1Request) returns (EnableSystemApp2_1Response);
   rpc GenerateKeyPair (GenerateKeyPairRequest) returns (GenerateKeyPairResponse);
   rpc GetAccountTypesWithManagementDisabled (GetAccountTypesWithManagementDisabledRequest) returns (GetAccountTypesWithManagementDisabledResponse);
+  rpc GetActiveAdmins (GetActiveAdminsRequest) returns (GetActiveAdminsResponse);
+  rpc GetAffiliationIds (GetAffiliationIdsRequest) returns (GetAffiliationIdsResponse);
+  rpc GetAlwaysOnVpnLockdownWhitelist (GetAlwaysOnVpnLockdownWhitelistRequest) returns (GetAlwaysOnVpnLockdownWhitelistResponse);
   rpc GetAlwaysOnVpnPackage (GetAlwaysOnVpnPackageRequest) returns (GetAlwaysOnVpnPackageResponse);
   rpc GetAppFunctionsPolicy (GetAppFunctionsPolicyRequest) returns (GetAppFunctionsPolicyResponse);
   rpc GetApplicationRestrictions (GetApplicationRestrictionsRequest) returns (GetApplicationRestrictionsResponse);
@@ -3229,14 +3487,20 @@ service DevicePolicyManagerService {
   rpc GetAutoTimeRequired (GetAutoTimeRequiredRequest) returns (GetAutoTimeRequiredResponse);
   rpc GetAutoTimeZoneEnabled (GetAutoTimeZoneEnabledRequest) returns (GetAutoTimeZoneEnabledResponse);
   rpc GetAutoTimeZonePolicy (GetAutoTimeZonePolicyRequest) returns (GetAutoTimeZonePolicyResponse);
+  rpc GetBindDeviceAdminTargetUsers (GetBindDeviceAdminTargetUsersRequest) returns (GetBindDeviceAdminTargetUsersResponse);
   rpc GetBluetoothContactSharingDisabled (GetBluetoothContactSharingDisabledRequest) returns (GetBluetoothContactSharingDisabledResponse);
   rpc GetCameraDisabled (GetCameraDisabledRequest) returns (GetCameraDisabledResponse);
   rpc GetCertInstallerPackage (GetCertInstallerPackageRequest) returns (GetCertInstallerPackageResponse);
   rpc GetContentProtectionPolicy (GetContentProtectionPolicyRequest) returns (GetContentProtectionPolicyResponse);
   rpc GetCredentialManagerPolicy (GetCredentialManagerPolicyRequest) returns (GetCredentialManagerPolicyResponse);
+  rpc GetCrossProfileCalendarPackages (GetCrossProfileCalendarPackagesRequest) returns (GetCrossProfileCalendarPackagesResponse);
   rpc GetCrossProfileCallerIdDisabled (GetCrossProfileCallerIdDisabledRequest) returns (GetCrossProfileCallerIdDisabledResponse);
   rpc GetCrossProfileContactsSearchDisabled (GetCrossProfileContactsSearchDisabledRequest) returns (GetCrossProfileContactsSearchDisabledResponse);
+  rpc GetCrossProfilePackages (GetCrossProfilePackagesRequest) returns (GetCrossProfilePackagesResponse);
+  rpc GetCrossProfileWidgetProviders (GetCrossProfileWidgetProvidersRequest) returns (GetCrossProfileWidgetProvidersResponse);
   rpc GetCurrentFailedPasswordAttempts (GetCurrentFailedPasswordAttemptsRequest) returns (GetCurrentFailedPasswordAttemptsResponse);
+  rpc GetDelegatePackages (GetDelegatePackagesRequest) returns (GetDelegatePackagesResponse);
+  rpc GetDelegatedScopes (GetDelegatedScopesRequest) returns (GetDelegatedScopesResponse);
   rpc GetDeviceOwnerLockScreenInfo (GetDeviceOwnerLockScreenInfoRequest) returns (GetDeviceOwnerLockScreenInfoResponse);
   rpc GetDevicePolicyManagementRoleHolderPackage (GetDevicePolicyManagementRoleHolderPackageRequest) returns (GetDevicePolicyManagementRoleHolderPackageResponse);
   rpc GetEndUserSessionMessage (GetEndUserSessionMessageRequest) returns (GetEndUserSessionMessageResponse);
@@ -3244,6 +3508,8 @@ service DevicePolicyManagerService {
   rpc GetFactoryResetProtectionPolicy (GetFactoryResetProtectionPolicyRequest) returns (GetFactoryResetProtectionPolicyResponse);
   rpc GetGlobalPrivateDnsHost (GetGlobalPrivateDnsHostRequest) returns (GetGlobalPrivateDnsHostResponse);
   rpc GetGlobalPrivateDnsMode (GetGlobalPrivateDnsModeRequest) returns (GetGlobalPrivateDnsModeResponse);
+  rpc GetInstalledCaCerts (GetInstalledCaCertsRequest) returns (GetInstalledCaCertsResponse);
+  rpc GetKeepUninstalledPackages (GetKeepUninstalledPackagesRequest) returns (GetKeepUninstalledPackagesResponse);
   rpc GetKeyguardDisabledFeatures (GetKeyguardDisabledFeaturesRequest) returns (GetKeyguardDisabledFeaturesResponse);
   rpc GetLockTaskFeatures (GetLockTaskFeaturesRequest) returns (GetLockTaskFeaturesResponse);
   rpc GetLockTaskPackages (GetLockTaskPackagesRequest) returns (GetLockTaskPackagesResponse);
@@ -3254,12 +3520,14 @@ service DevicePolicyManagerService {
   rpc GetManagedSubscriptionsPolicy (GetManagedSubscriptionsPolicyRequest) returns (GetManagedSubscriptionsPolicyResponse);
   rpc GetMaximumFailedPasswordsForWipe (GetMaximumFailedPasswordsForWipeRequest) returns (GetMaximumFailedPasswordsForWipeResponse);
   rpc GetMaximumTimeToLock (GetMaximumTimeToLockRequest) returns (GetMaximumTimeToLockResponse);
+  rpc GetMeteredDataDisabledPackages (GetMeteredDataDisabledPackagesRequest) returns (GetMeteredDataDisabledPackagesResponse);
   rpc GetMinimumRequiredWifiSecurityLevel (GetMinimumRequiredWifiSecurityLevelRequest) returns (GetMinimumRequiredWifiSecurityLevelResponse);
   rpc GetMtePolicy (GetMtePolicyRequest) returns (GetMtePolicyResponse);
   rpc GetNearbyAppStreamingPolicy (GetNearbyAppStreamingPolicyRequest) returns (GetNearbyAppStreamingPolicyResponse);
   rpc GetNearbyNotificationStreamingPolicy (GetNearbyNotificationStreamingPolicyRequest) returns (GetNearbyNotificationStreamingPolicyResponse);
   rpc GetOrganizationColor (GetOrganizationColorRequest) returns (GetOrganizationColorResponse);
   rpc GetOrganizationName (GetOrganizationNameRequest) returns (GetOrganizationNameResponse);
+  rpc GetOverrideApns (GetOverrideApnsRequest) returns (GetOverrideApnsResponse);
   rpc GetParentProfileInstance (GetParentProfileInstanceRequest) returns (GetParentProfileInstanceResponse);
   rpc GetPasswordComplexity (GetPasswordComplexityRequest) returns (GetPasswordComplexityResponse);
   rpc GetPasswordExpiration (GetPasswordExpirationRequest) returns (GetPasswordExpirationResponse);
@@ -3277,17 +3545,25 @@ service DevicePolicyManagerService {
   rpc GetPendingSystemUpdate (GetPendingSystemUpdateRequest) returns (GetPendingSystemUpdateResponse);
   rpc GetPermissionGrantState (GetPermissionGrantStateRequest) returns (GetPermissionGrantStateResponse);
   rpc GetPermissionPolicy (GetPermissionPolicyRequest) returns (GetPermissionPolicyResponse);
+  rpc GetPermittedAccessibilityServices (GetPermittedAccessibilityServicesRequest) returns (GetPermittedAccessibilityServicesResponse);
+  rpc GetPermittedCrossProfileNotificationListeners (GetPermittedCrossProfileNotificationListenersRequest) returns (GetPermittedCrossProfileNotificationListenersResponse);
+  rpc GetPermittedInputMethods (GetPermittedInputMethodsRequest) returns (GetPermittedInputMethodsResponse);
   rpc GetPersonalAppsSuspendedReasons (GetPersonalAppsSuspendedReasonsRequest) returns (GetPersonalAppsSuspendedReasonsResponse);
+  rpc GetPreferentialNetworkServiceConfigs (GetPreferentialNetworkServiceConfigsRequest) returns (GetPreferentialNetworkServiceConfigsResponse);
   rpc GetRequiredPasswordComplexity (GetRequiredPasswordComplexityRequest) returns (GetRequiredPasswordComplexityResponse);
   rpc GetRequiredStrongAuthTimeout (GetRequiredStrongAuthTimeoutRequest) returns (GetRequiredStrongAuthTimeoutResponse);
   rpc GetResources (GetResourcesRequest) returns (GetResourcesResponse);
   rpc GetScreenCaptureDisabled (GetScreenCaptureDisabledRequest) returns (GetScreenCaptureDisabledResponse);
+  rpc GetSecondaryUsers (GetSecondaryUsersRequest) returns (GetSecondaryUsersResponse);
   rpc GetShortSupportMessage (GetShortSupportMessageRequest) returns (GetShortSupportMessageResponse);
   rpc GetStartUserSessionMessage (GetStartUserSessionMessageRequest) returns (GetStartUserSessionMessageResponse);
   rpc GetStorageEncryption (GetStorageEncryptionRequest) returns (GetStorageEncryptionResponse);
   rpc GetStorageEncryptionStatus (GetStorageEncryptionStatusRequest) returns (GetStorageEncryptionStatusResponse);
+  rpc GetSubscriptionIds (GetSubscriptionIdsRequest) returns (GetSubscriptionIdsResponse);
   rpc GetSystemUpdatePolicy (GetSystemUpdatePolicyRequest) returns (GetSystemUpdatePolicyResponse);
   rpc GetTransferOwnershipBundle (GetTransferOwnershipBundleRequest) returns (GetTransferOwnershipBundleResponse);
+  rpc GetTrustAgentConfiguration (GetTrustAgentConfigurationRequest) returns (GetTrustAgentConfigurationResponse);
+  rpc GetUserControlDisabledPackages (GetUserControlDisabledPackagesRequest) returns (GetUserControlDisabledPackagesResponse);
   rpc GetUserRestrictions (GetUserRestrictionsRequest) returns (GetUserRestrictionsResponse);
   rpc GetUserRestrictionsGlobally (GetUserRestrictionsGloballyRequest) returns (GetUserRestrictionsGloballyResponse);
   rpc GetWifiMacAddress (GetWifiMacAddressRequest) returns (GetWifiMacAddressResponse);
@@ -3338,6 +3614,7 @@ service DevicePolicyManagerService {
   rpc IsUniqueDeviceAttestationSupported (IsUniqueDeviceAttestationSupportedRequest) returns (IsUniqueDeviceAttestationSupportedResponse);
   rpc IsUsbDataSignalingEnabled (IsUsbDataSignalingEnabledRequest) returns (IsUsbDataSignalingEnabledResponse);
   rpc IsUsingUnifiedPassword (IsUsingUnifiedPasswordRequest) returns (IsUsingUnifiedPasswordResponse);
+  rpc ListForegroundAffiliatedUsers (ListForegroundAffiliatedUsersRequest) returns (ListForegroundAffiliatedUsersResponse);
   rpc LockNow0 (LockNow0Request) returns (LockNow0Response);
   rpc LockNow1_1 (LockNow1_1Request) returns (LockNow1_1Response);
   rpc LogoutUser (LogoutUserRequest) returns (LogoutUserResponse);
@@ -3350,6 +3627,9 @@ service DevicePolicyManagerService {
   rpc RequestBugreport (RequestBugreportRequest) returns (RequestBugreportResponse);
   rpc ResetPassword (ResetPasswordRequest) returns (ResetPasswordResponse);
   rpc ResetPasswordWithToken (ResetPasswordWithTokenRequest) returns (ResetPasswordWithTokenResponse);
+  rpc RetrieveNetworkLogs (RetrieveNetworkLogsRequest) returns (RetrieveNetworkLogsResponse);
+  rpc RetrievePreRebootSecurityLogs (RetrievePreRebootSecurityLogsRequest) returns (RetrievePreRebootSecurityLogsResponse);
+  rpc RetrieveSecurityLogs (RetrieveSecurityLogsRequest) returns (RetrieveSecurityLogsResponse);
   rpc RevokeKeyPairFromApp (RevokeKeyPairFromAppRequest) returns (RevokeKeyPairFromAppResponse);
   rpc RevokeKeyPairFromWifiAuth (RevokeKeyPairFromWifiAuthRequest) returns (RevokeKeyPairFromWifiAuthResponse);
   rpc SetAccountManagementDisabled (SetAccountManagementDisabledRequest) returns (SetAccountManagementDisabledResponse);
@@ -3463,6 +3743,39 @@ service DevicePolicyManagerOnClearApplicationUserDataListenerService {
   rpc OnApplicationUserDataCleared (OnApplicationUserDataClearedRequest) returns (OnApplicationUserDataClearedResponse);
 }
 
+service SecurityLogSecurityEventService {
+  rpc DescribeContents (SecurityLogSecurityEventDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (SecurityLogSecurityEventEqualsRequest) returns (EqualsResponse);
+  rpc GetData (GetDataRequest) returns (GetDataResponse);
+  rpc GetId (GetIdRequest) returns (GetIdResponse);
+  rpc GetLogLevel (GetLogLevelRequest) returns (GetLogLevelResponse);
+  rpc GetTag (GetTagRequest) returns (GetTagResponse);
+  rpc GetTimeNanos (GetTimeNanosRequest) returns (GetTimeNanosResponse);
+  rpc HashCode (SecurityLogSecurityEventHashCodeRequest) returns (HashCodeResponse);
+  rpc WriteToParcel (SecurityLogSecurityEventWriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service ManagedSubscriptionsPolicyService {
+  rpc NewManagedSubscriptionsPolicy (NewManagedSubscriptionsPolicyRequest) returns (NewManagedSubscriptionsPolicyResponse);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetPolicyType (GetPolicyTypeRequest) returns (GetPolicyTypeResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service PolicyUpdateReceiverService {
+  rpc OnPolicyChanged (OnPolicyChangedRequest) returns (OnPolicyChangedResponse);
+  rpc OnPolicySetResult (OnPolicySetResultRequest) returns (OnPolicySetResultResponse);
+  rpc OnReceive (OnReceiveRequest) returns (OnReceiveResponse);
+}
+
+service PolicyUpdateResultService {
+  rpc NewPolicyUpdateResult (NewPolicyUpdateResultRequest) returns (NewPolicyUpdateResultResponse);
+  rpc GetResultCode (GetResultCodeRequest) returns (GetResultCodeResponse);
+}
+
 service DeviceAdminReceiverService {
   rpc NewDeviceAdminReceiver (NewDeviceAdminReceiverRequest) returns (NewDeviceAdminReceiverResponse);
   rpc GetManager (GetManagerRequest) returns (GetManagerResponse);
@@ -3501,41 +3814,19 @@ service DeviceAdminReceiverService {
   rpc OnUserSwitched (OnUserSwitchedRequest) returns (OnUserSwitchedResponse);
 }
 
-service DnsEventService {
-  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc GetHostname (GetHostnameRequest) returns (GetHostnameResponse);
-  rpc GetTotalResolvedAddressCount (GetTotalResolvedAddressCountRequest) returns (GetTotalResolvedAddressCountResponse);
-  rpc ToString (ToStringRequest) returns (ToStringResponse);
-  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+service UnsafeStateExceptionService {
+  rpc DescribeContents (UnsafeStateExceptionDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetMessage (GetMessageRequest) returns (GetMessageResponse);
+  rpc GetReasons (GetReasonsRequest) returns (GetReasonsResponse);
+  rpc WriteToParcel (UnsafeStateExceptionWriteToParcelRequest) returns (WriteToParcelResponse);
 }
 
-service DevicePolicyIdentifiersService {
-  rpc GetIdentifierForUserRestriction (GetIdentifierForUserRestrictionRequest) returns (GetIdentifierForUserRestrictionResponse);
-}
-
-service DevicePolicyResourcesManagerService {
-  rpc GetDrawableAsIcon3 (GetDrawableAsIcon3Request) returns (GetDrawableAsIcon3Response);
-  rpc GetDrawableAsIcon4_1 (GetDrawableAsIcon4_1Request) returns (GetDrawableAsIcon4_1Response);
-}
-
-service SystemUpdateInfoService {
-  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc Equals (SystemUpdateInfoEqualsRequest) returns (EqualsResponse);
-  rpc GetReceivedTime (GetReceivedTimeRequest) returns (GetReceivedTimeResponse);
-  rpc GetSecurityPatchState (GetSecurityPatchStateRequest) returns (GetSecurityPatchStateResponse);
-  rpc HashCode (SystemUpdateInfoHashCodeRequest) returns (HashCodeResponse);
-  rpc ToString (ToStringRequest) returns (ToStringResponse);
-  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
-}
-
-service ManagedSubscriptionsPolicyService {
-  rpc NewManagedSubscriptionsPolicy (NewManagedSubscriptionsPolicyRequest) returns (NewManagedSubscriptionsPolicyResponse);
-  rpc DescribeContents (ManagedSubscriptionsPolicyDescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc Equals (EqualsRequest) returns (EqualsResponse);
-  rpc GetPolicyType (GetPolicyTypeRequest) returns (GetPolicyTypeResponse);
-  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
-  rpc ToString (ManagedSubscriptionsPolicyToStringRequest) returns (ToStringResponse);
-  rpc WriteToParcel (ManagedSubscriptionsPolicyWriteToParcelRequest) returns (WriteToParcelResponse);
+service DelegatedAdminReceiverService {
+  rpc NewDelegatedAdminReceiver (NewDelegatedAdminReceiverRequest) returns (NewDelegatedAdminReceiverResponse);
+  rpc OnChoosePrivateKeyAlias (OnChoosePrivateKeyAliasRequest) returns (OnChoosePrivateKeyAliasResponse);
+  rpc OnNetworkLogsAvailable (OnNetworkLogsAvailableRequest) returns (OnNetworkLogsAvailableResponse);
+  rpc OnReceive (DelegatedAdminReceiverOnReceiveRequest) returns (OnReceiveResponse);
+  rpc OnSecurityLogsAvailable (OnSecurityLogsAvailableRequest) returns (OnSecurityLogsAvailableResponse);
 }
 
 service TargetUserService {
@@ -3543,9 +3834,31 @@ service TargetUserService {
   rpc HashCode (TargetUserHashCodeRequest) returns (HashCodeResponse);
 }
 
+service WifiSsidPolicyService {
+  rpc NewWifiSsidPolicy (NewWifiSsidPolicyRequest) returns (NewWifiSsidPolicyResponse);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetPolicyType (GetPolicyTypeRequest) returns (GetPolicyTypeResponse);
+  rpc GetSsids (GetSsidsRequest) returns (GetSsidsResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service DevicePolicyIdentifiersService {
+  rpc GetIdentifierForUserRestriction (GetIdentifierForUserRestrictionRequest) returns (GetIdentifierForUserRestrictionResponse);
+}
+
+service ConnectEventService {
+  rpc DescribeContents (ConnectEventDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetInetAddress (GetInetAddressRequest) returns (GetInetAddressResponse);
+  rpc GetPort (GetPortRequest) returns (GetPortResponse);
+  rpc ToString (ConnectEventToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (ConnectEventWriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
 service DeviceAdminInfoService {
   rpc NewDeviceAdminInfo (NewDeviceAdminInfoRequest) returns (NewDeviceAdminInfoResponse);
-  rpc DescribeContents (DeviceAdminInfoDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
   rpc Dump (DumpRequest) returns (DumpResponse);
   rpc GetActivityInfo (GetActivityInfoRequest) returns (GetActivityInfoResponse);
   rpc GetComponent (GetComponentRequest) returns (GetComponentResponse);
@@ -3558,23 +3871,34 @@ service DeviceAdminInfoService {
   rpc LoadIcon (LoadIconRequest) returns (LoadIconResponse);
   rpc LoadLabel (LoadLabelRequest) returns (LoadLabelResponse);
   rpc SupportsTransferOwnership (SupportsTransferOwnershipRequest) returns (SupportsTransferOwnershipResponse);
-  rpc ToString (DeviceAdminInfoToStringRequest) returns (ToStringResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
   rpc UsesPolicy (UsesPolicyRequest) returns (UsesPolicyResponse);
-  rpc WriteToParcel (DeviceAdminInfoWriteToParcelRequest) returns (WriteToParcelResponse);
-}
-
-service DelegatedAdminReceiverService {
-  rpc NewDelegatedAdminReceiver (NewDelegatedAdminReceiverRequest) returns (NewDelegatedAdminReceiverResponse);
-  rpc OnChoosePrivateKeyAlias (OnChoosePrivateKeyAliasRequest) returns (OnChoosePrivateKeyAliasResponse);
-  rpc OnNetworkLogsAvailable (OnNetworkLogsAvailableRequest) returns (OnNetworkLogsAvailableResponse);
-  rpc OnReceive (DelegatedAdminReceiverOnReceiveRequest) returns (OnReceiveResponse);
-  rpc OnSecurityLogsAvailable (OnSecurityLogsAvailableRequest) returns (OnSecurityLogsAvailableResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
 }
 
 service NetworkEventService {
-  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc DescribeContents (NetworkEventDescribeContentsRequest) returns (DescribeContentsResponse);
   rpc GetId (GetIdRequest) returns (GetIdResponse);
   rpc GetPackageName (NetworkEventGetPackageNameRequest) returns (GetPackageNameResponse);
   rpc GetTimestamp (GetTimestampRequest) returns (GetTimestampResponse);
-  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+  rpc WriteToParcel (NetworkEventWriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service SystemUpdatePolicyService {
+  rpc DescribeContents (SystemUpdatePolicyDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetFreezePeriods (GetFreezePeriodsRequest) returns (GetFreezePeriodsResponse);
+  rpc GetInstallWindowEnd (GetInstallWindowEndRequest) returns (GetInstallWindowEndResponse);
+  rpc GetInstallWindowStart (GetInstallWindowStartRequest) returns (GetInstallWindowStartResponse);
+  rpc GetPolicyType (SystemUpdatePolicyGetPolicyTypeRequest) returns (GetPolicyTypeResponse);
+  rpc ToString (SystemUpdatePolicyToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (SystemUpdatePolicyWriteToParcelRequest) returns (WriteToParcelResponse);
+  rpc CreateAutomaticInstallPolicy (CreateAutomaticInstallPolicyRequest) returns (CreateAutomaticInstallPolicyResponse);
+  rpc CreatePostponeInstallPolicy (CreatePostponeInstallPolicyRequest) returns (CreatePostponeInstallPolicyResponse);
+  rpc CreateWindowedInstallPolicy (CreateWindowedInstallPolicyRequest) returns (CreateWindowedInstallPolicyResponse);
+}
+
+service SystemUpdatePolicyValidationFailedExceptionService {
+  rpc DescribeContents (SystemUpdatePolicyValidationFailedExceptionDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetErrorCode (GetErrorCodeRequest) returns (GetErrorCodeResponse);
+  rpc WriteToParcel (SystemUpdatePolicyValidationFailedExceptionWriteToParcelRequest) returns (WriteToParcelResponse);
 }

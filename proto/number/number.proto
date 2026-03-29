@@ -6,6 +6,52 @@ package number;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/number";
 
+message Format1Request {
+  int64 arg0 = 1;
+}
+
+message Format1Response {
+  int64 result = 1;
+}
+
+message Format1_1Request {
+  double arg0 = 1;
+}
+
+message Format1_1Response {
+  int64 result = 1;
+}
+
+message Format1_2Request {
+  int64 arg0 = 1;
+}
+
+message Format1_2Response {
+  int64 result = 1;
+}
+
+message Format1_3Request {
+  int64 arg0 = 1;
+}
+
+message Format1_3Response {
+  int64 result = 1;
+}
+
+message ToFormatRequest {
+}
+
+message ToFormatResponse {
+  int64 result = 1;
+}
+
+message WithoutLocaleRequest {
+}
+
+message WithoutLocaleResponse {
+  int64 result = 1;
+}
+
 message WithExponentSignDisplayRequest {
   int64 arg0 = 1;
 }
@@ -22,69 +68,35 @@ message WithMinExponentDigitsResponse {
   int64 result = 1;
 }
 
-message ByBigDecimalRequest {
+message Locale1Request {
   int64 arg0 = 1;
 }
 
-message ByBigDecimalResponse {
+message Locale1Response {
   int64 result = 1;
 }
 
-message ByDoubleRequest {
-  double arg0 = 1;
+message Locale1_1Request {
+  int64 arg0 = 1;
 }
 
-message ByDoubleResponse {
+message Locale1_1Response {
   int64 result = 1;
 }
 
-message ByDoubleAndPowerOfTenRequest {
-  double arg0 = 1;
-  int32 arg1 = 2;
-}
-
-message ByDoubleAndPowerOfTenResponse {
-  int64 result = 1;
-}
-
-message NoneRequest {
-}
-
-message NoneResponse {
-  int64 result = 1;
-}
-
-message PowerOfTenRequest {
+message TruncateAtRequest {
   int32 arg0 = 1;
 }
 
-message PowerOfTenResponse {
+message TruncateAtResponse {
   int64 result = 1;
 }
 
-message WithMaxDigitsRequest {
+message ZeroFillToRequest {
   int32 arg0 = 1;
 }
 
-message WithMaxDigitsResponse {
-  int64 result = 1;
-}
-
-message WithMinDigitsRequest {
-  int32 arg0 = 1;
-}
-
-message WithMinDigitsResponse {
-  int64 result = 1;
-}
-
-message WithSignificantDigitsRequest {
-  int32 arg0 = 1;
-  int32 arg1 = 2;
-  int64 arg2 = 3;
-}
-
-message WithSignificantDigitsResponse {
+message ZeroFillToResponse {
   int64 result = 1;
 }
 
@@ -192,38 +204,71 @@ message UnlimitedResponse {
   int64 result = 1;
 }
 
-message FormatRange2Request {
-  double arg0 = 1;
-  double arg1 = 2;
+message CharAtRequest {
+  int32 arg0 = 1;
 }
 
-message FormatRange2Response {
+message CharAtResponse {
+  int32 result = 1;
+}
+
+message GetNounClassRequest {
+}
+
+message GetNounClassResponse {
   int64 result = 1;
 }
 
-message FormatRange2_1Request {
+message GetOutputUnitRequest {
+}
+
+message GetOutputUnitResponse {
+  int64 result = 1;
+}
+
+message LengthRequest {
+}
+
+message LengthResponse {
+  int32 result = 1;
+}
+
+message NextPositionRequest {
+  int64 arg0 = 1;
+}
+
+message NextPositionResponse {
+  bool result = 1;
+}
+
+message SubSequenceRequest {
   int32 arg0 = 1;
   int32 arg1 = 2;
 }
 
-message FormatRange2_1Response {
+message SubSequenceResponse {
   int64 result = 1;
 }
 
-message FormatRange2_2Request {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
+message ToBigDecimalRequest {
 }
 
-message FormatRange2_2Response {
+message ToBigDecimalResponse {
   int64 result = 1;
 }
 
-message WithoutLocaleRequest {
+message ToCharacterIteratorRequest {
 }
 
-message WithoutLocaleResponse {
+message ToCharacterIteratorResponse {
   int64 result = 1;
+}
+
+message ToStringRequest {
+}
+
+message ToStringResponse {
+  string result = 1;
 }
 
 message WithRequest {
@@ -264,45 +309,6 @@ message ValueOfResponse {
   int64 result = 1;
 }
 
-message Format1Request {
-  int64 arg0 = 1;
-}
-
-message Format1Response {
-  int64 result = 1;
-}
-
-message Format1_1Request {
-  double arg0 = 1;
-}
-
-message Format1_1Response {
-  int64 result = 1;
-}
-
-message Format1_2Request {
-  int64 arg0 = 1;
-}
-
-message Format1_2Response {
-  int64 result = 1;
-}
-
-message Format1_3Request {
-  int64 arg0 = 1;
-}
-
-message Format1_3Response {
-  int64 result = 1;
-}
-
-message ToFormatRequest {
-}
-
-message ToFormatResponse {
-  int64 result = 1;
-}
-
 message EqualsRequest {
   int64 arg0 = 1;
 }
@@ -318,35 +324,59 @@ message HashCodeResponse {
   int32 result = 1;
 }
 
-message TruncateAtRequest {
-  int32 arg0 = 1;
+message FormatRange2Request {
+  double arg0 = 1;
+  double arg1 = 2;
 }
 
-message TruncateAtResponse {
+message FormatRange2Response {
   int64 result = 1;
 }
 
-message ZeroFillToRequest {
+message FormatRange2_1Request {
   int32 arg0 = 1;
+  int32 arg1 = 2;
 }
 
-message ZeroFillToResponse {
+message FormatRange2_1Response {
   int64 result = 1;
 }
 
-message Locale1Request {
+message FormatRange2_2Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message FormatRange2_2Response {
+  int64 result = 1;
+}
+
+message GetFirstBigDecimalRequest {
+}
+
+message GetFirstBigDecimalResponse {
+  int64 result = 1;
+}
+
+message GetIdentityResultRequest {
+}
+
+message GetIdentityResultResponse {
+  int64 result = 1;
+}
+
+message GetSecondBigDecimalRequest {
+}
+
+message GetSecondBigDecimalResponse {
+  int64 result = 1;
+}
+
+message WithCurrencyRequest {
   int64 arg0 = 1;
 }
 
-message Locale1Response {
-  int64 result = 1;
-}
-
-message Locale1_1Request {
-  int64 arg0 = 1;
-}
-
-message Locale1_1Response {
+message WithCurrencyResponse {
   int64 result = 1;
 }
 
@@ -385,100 +415,79 @@ message SimpleResponse {
   int64 result = 1;
 }
 
-message CharAtRequest {
-  int32 arg0 = 1;
-}
-
-message CharAtResponse {
-  int32 result = 1;
-}
-
-message GetFirstBigDecimalRequest {
-}
-
-message GetFirstBigDecimalResponse {
-  int64 result = 1;
-}
-
-message GetIdentityResultRequest {
-}
-
-message GetIdentityResultResponse {
-  int64 result = 1;
-}
-
-message GetSecondBigDecimalRequest {
-}
-
-message GetSecondBigDecimalResponse {
-  int64 result = 1;
-}
-
-message LengthRequest {
-}
-
-message LengthResponse {
-  int32 result = 1;
-}
-
-message NextPositionRequest {
+message ByBigDecimalRequest {
   int64 arg0 = 1;
 }
 
-message NextPositionResponse {
-  bool result = 1;
+message ByBigDecimalResponse {
+  int64 result = 1;
 }
 
-message SubSequenceRequest {
-  int32 arg0 = 1;
+message ByDoubleRequest {
+  double arg0 = 1;
+}
+
+message ByDoubleResponse {
+  int64 result = 1;
+}
+
+message ByDoubleAndPowerOfTenRequest {
+  double arg0 = 1;
   int32 arg1 = 2;
 }
 
-message SubSequenceResponse {
+message ByDoubleAndPowerOfTenResponse {
   int64 result = 1;
 }
 
-message ToCharacterIteratorRequest {
+message NoneRequest {
 }
 
-message ToCharacterIteratorResponse {
+message NoneResponse {
   int64 result = 1;
 }
 
-message ToStringRequest {
+message PowerOfTenRequest {
+  int32 arg0 = 1;
 }
 
-message ToStringResponse {
-  string result = 1;
-}
-
-message GetNounClassRequest {
-}
-
-message GetNounClassResponse {
+message PowerOfTenResponse {
   int64 result = 1;
 }
 
-message GetOutputUnitRequest {
+message WithMaxDigitsRequest {
+  int32 arg0 = 1;
 }
 
-message GetOutputUnitResponse {
+message WithMaxDigitsResponse {
   int64 result = 1;
 }
 
-message ToBigDecimalRequest {
+message WithMinDigitsRequest {
+  int32 arg0 = 1;
 }
 
-message ToBigDecimalResponse {
+message WithMinDigitsResponse {
   int64 result = 1;
 }
 
-message WithCurrencyRequest {
-  int64 arg0 = 1;
+message WithSignificantDigitsRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int64 arg2 = 3;
 }
 
-message WithCurrencyResponse {
+message WithSignificantDigitsResponse {
   int64 result = 1;
+}
+
+service LocalizedNumberFormatterService {
+  rpc Format1 (Format1Request) returns (Format1Response);
+  rpc Format1_1 (Format1_1Request) returns (Format1_1Response);
+  rpc Format1_2 (Format1_2Request) returns (Format1_2Response);
+  rpc Format1_3 (Format1_3Request) returns (Format1_3Response);
+  rpc ToFormat (ToFormatRequest) returns (ToFormatResponse);
+  rpc WithoutLocale (WithoutLocaleRequest) returns (WithoutLocaleResponse);
 }
 
 service ScientificNotationService {
@@ -486,18 +495,14 @@ service ScientificNotationService {
   rpc WithMinExponentDigits (WithMinExponentDigitsRequest) returns (WithMinExponentDigitsResponse);
 }
 
-service ScaleService {
-  rpc ByBigDecimal (ByBigDecimalRequest) returns (ByBigDecimalResponse);
-  rpc ByDouble (ByDoubleRequest) returns (ByDoubleResponse);
-  rpc ByDoubleAndPowerOfTen (ByDoubleAndPowerOfTenRequest) returns (ByDoubleAndPowerOfTenResponse);
-  rpc None (NoneRequest) returns (NoneResponse);
-  rpc PowerOfTen (PowerOfTenRequest) returns (PowerOfTenResponse);
+service UnlocalizedNumberRangeFormatterService {
+  rpc Locale1 (Locale1Request) returns (Locale1Response);
+  rpc Locale1_1 (Locale1_1Request) returns (Locale1_1Response);
 }
 
-service FractionPrecisionService {
-  rpc WithMaxDigits (WithMaxDigitsRequest) returns (WithMaxDigitsResponse);
-  rpc WithMinDigits (WithMinDigitsRequest) returns (WithMinDigitsResponse);
-  rpc WithSignificantDigits (WithSignificantDigitsRequest) returns (WithSignificantDigitsResponse);
+service IntegerWidthService {
+  rpc TruncateAt (TruncateAtRequest) returns (TruncateAtResponse);
+  rpc ZeroFillTo (ZeroFillToRequest) returns (ZeroFillToResponse);
 }
 
 service PrecisionService {
@@ -516,11 +521,93 @@ service PrecisionService {
   rpc Unlimited (UnlimitedRequest) returns (UnlimitedResponse);
 }
 
+service FormattedNumberService {
+  rpc CharAt (CharAtRequest) returns (CharAtResponse);
+  rpc GetNounClass (GetNounClassRequest) returns (GetNounClassResponse);
+  rpc GetOutputUnit (GetOutputUnitRequest) returns (GetOutputUnitResponse);
+  rpc Length (LengthRequest) returns (LengthResponse);
+  rpc NextPosition (NextPositionRequest) returns (NextPositionResponse);
+  rpc SubSequence (SubSequenceRequest) returns (SubSequenceResponse);
+  rpc ToBigDecimal (ToBigDecimalRequest) returns (ToBigDecimalResponse);
+  rpc ToCharacterIterator (ToCharacterIteratorRequest) returns (ToCharacterIteratorResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+}
+
+service RangeFormatterService {
+  rpc With (WithRequest) returns (WithResponse);
+  rpc WithLocale1 (WithLocale1Request) returns (WithLocale1Response);
+  rpc WithLocale1_1 (WithLocale1_1Request) returns (WithLocale1_1Response);
+}
+
+service RangeFormatterRangeCollapseService {
+  rpc Values (ValuesRequest) returns (ValuesResponse);
+  rpc ValueOf (ValueOfRequest) returns (ValueOfResponse);
+}
+
+service RangeFormatterRangeIdentityFallbackService {
+  rpc Values (ValuesRequest) returns (ValuesResponse);
+  rpc ValueOf (ValueOfRequest) returns (ValueOfResponse);
+}
+
+service RangeFormatterRangeIdentityResultService {
+  rpc Values (ValuesRequest) returns (ValuesResponse);
+  rpc ValueOf (ValueOfRequest) returns (ValueOfResponse);
+}
+
+service RangeFormatterSettingsService {
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+}
+
 service LocalizedNumberRangeFormatterService {
   rpc FormatRange2 (FormatRange2Request) returns (FormatRange2Response);
   rpc FormatRange2_1 (FormatRange2_1Request) returns (FormatRange2_1Response);
   rpc FormatRange2_2 (FormatRange2_2Request) returns (FormatRange2_2Response);
   rpc WithoutLocale (WithoutLocaleRequest) returns (WithoutLocaleResponse);
+}
+
+service FormattedNumberRangeService {
+  rpc CharAt (CharAtRequest) returns (CharAtResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetFirstBigDecimal (GetFirstBigDecimalRequest) returns (GetFirstBigDecimalResponse);
+  rpc GetIdentityResult (GetIdentityResultRequest) returns (GetIdentityResultResponse);
+  rpc GetSecondBigDecimal (GetSecondBigDecimalRequest) returns (GetSecondBigDecimalResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc Length (LengthRequest) returns (LengthResponse);
+  rpc NextPosition (NextPositionRequest) returns (NextPositionResponse);
+  rpc SubSequence (SubSequenceRequest) returns (SubSequenceResponse);
+  rpc ToCharacterIterator (ToCharacterIteratorRequest) returns (ToCharacterIteratorResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+}
+
+service FormatterSettingsService {
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+}
+
+service CurrencyPrecisionService {
+  rpc WithCurrency (WithCurrencyRequest) returns (WithCurrencyResponse);
+}
+
+service NotationService {
+  rpc CompactLong (CompactLongRequest) returns (CompactLongResponse);
+  rpc CompactShort (CompactShortRequest) returns (CompactShortResponse);
+  rpc Engineering (EngineeringRequest) returns (EngineeringResponse);
+  rpc Scientific (ScientificRequest) returns (ScientificResponse);
+  rpc Simple (SimpleRequest) returns (SimpleResponse);
+}
+
+service ScaleService {
+  rpc ByBigDecimal (ByBigDecimalRequest) returns (ByBigDecimalResponse);
+  rpc ByDouble (ByDoubleRequest) returns (ByDoubleResponse);
+  rpc ByDoubleAndPowerOfTen (ByDoubleAndPowerOfTenRequest) returns (ByDoubleAndPowerOfTenResponse);
+  rpc None (NoneRequest) returns (NoneResponse);
+  rpc PowerOfTen (PowerOfTenRequest) returns (PowerOfTenResponse);
+}
+
+service UnlocalizedNumberFormatterService {
+  rpc Locale1 (Locale1Request) returns (Locale1Response);
+  rpc Locale1_1 (Locale1_1Request) returns (Locale1_1Response);
 }
 
 service FormatterService {
@@ -559,95 +646,8 @@ service FormatterUnitWidthService {
   rpc ValueOf (ValueOfRequest) returns (ValueOfResponse);
 }
 
-service LocalizedNumberFormatterService {
-  rpc Format1 (Format1Request) returns (Format1Response);
-  rpc Format1_1 (Format1_1Request) returns (Format1_1Response);
-  rpc Format1_2 (Format1_2Request) returns (Format1_2Response);
-  rpc Format1_3 (Format1_3Request) returns (Format1_3Response);
-  rpc ToFormat (ToFormatRequest) returns (ToFormatResponse);
-  rpc WithoutLocale (WithoutLocaleRequest) returns (WithoutLocaleResponse);
-}
-
-service RangeFormatterSettingsService {
-  rpc Equals (EqualsRequest) returns (EqualsResponse);
-  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
-}
-
-service IntegerWidthService {
-  rpc TruncateAt (TruncateAtRequest) returns (TruncateAtResponse);
-  rpc ZeroFillTo (ZeroFillToRequest) returns (ZeroFillToResponse);
-}
-
-service UnlocalizedNumberFormatterService {
-  rpc Locale1 (Locale1Request) returns (Locale1Response);
-  rpc Locale1_1 (Locale1_1Request) returns (Locale1_1Response);
-}
-
-service NotationService {
-  rpc CompactLong (CompactLongRequest) returns (CompactLongResponse);
-  rpc CompactShort (CompactShortRequest) returns (CompactShortResponse);
-  rpc Engineering (EngineeringRequest) returns (EngineeringResponse);
-  rpc Scientific (ScientificRequest) returns (ScientificResponse);
-  rpc Simple (SimpleRequest) returns (SimpleResponse);
-}
-
-service FormattedNumberRangeService {
-  rpc CharAt (CharAtRequest) returns (CharAtResponse);
-  rpc Equals (EqualsRequest) returns (EqualsResponse);
-  rpc GetFirstBigDecimal (GetFirstBigDecimalRequest) returns (GetFirstBigDecimalResponse);
-  rpc GetIdentityResult (GetIdentityResultRequest) returns (GetIdentityResultResponse);
-  rpc GetSecondBigDecimal (GetSecondBigDecimalRequest) returns (GetSecondBigDecimalResponse);
-  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
-  rpc Length (LengthRequest) returns (LengthResponse);
-  rpc NextPosition (NextPositionRequest) returns (NextPositionResponse);
-  rpc SubSequence (SubSequenceRequest) returns (SubSequenceResponse);
-  rpc ToCharacterIterator (ToCharacterIteratorRequest) returns (ToCharacterIteratorResponse);
-  rpc ToString (ToStringRequest) returns (ToStringResponse);
-}
-
-service RangeFormatterService {
-  rpc With (WithRequest) returns (WithResponse);
-  rpc WithLocale1 (WithLocale1Request) returns (WithLocale1Response);
-  rpc WithLocale1_1 (WithLocale1_1Request) returns (WithLocale1_1Response);
-}
-
-service RangeFormatterRangeCollapseService {
-  rpc Values (ValuesRequest) returns (ValuesResponse);
-  rpc ValueOf (ValueOfRequest) returns (ValueOfResponse);
-}
-
-service RangeFormatterRangeIdentityFallbackService {
-  rpc Values (ValuesRequest) returns (ValuesResponse);
-  rpc ValueOf (ValueOfRequest) returns (ValueOfResponse);
-}
-
-service RangeFormatterRangeIdentityResultService {
-  rpc Values (ValuesRequest) returns (ValuesResponse);
-  rpc ValueOf (ValueOfRequest) returns (ValueOfResponse);
-}
-
-service UnlocalizedNumberRangeFormatterService {
-  rpc Locale1 (Locale1Request) returns (Locale1Response);
-  rpc Locale1_1 (Locale1_1Request) returns (Locale1_1Response);
-}
-
-service FormattedNumberService {
-  rpc CharAt (CharAtRequest) returns (CharAtResponse);
-  rpc GetNounClass (GetNounClassRequest) returns (GetNounClassResponse);
-  rpc GetOutputUnit (GetOutputUnitRequest) returns (GetOutputUnitResponse);
-  rpc Length (LengthRequest) returns (LengthResponse);
-  rpc NextPosition (NextPositionRequest) returns (NextPositionResponse);
-  rpc SubSequence (SubSequenceRequest) returns (SubSequenceResponse);
-  rpc ToBigDecimal (ToBigDecimalRequest) returns (ToBigDecimalResponse);
-  rpc ToCharacterIterator (ToCharacterIteratorRequest) returns (ToCharacterIteratorResponse);
-  rpc ToString (ToStringRequest) returns (ToStringResponse);
-}
-
-service FormatterSettingsService {
-  rpc Equals (EqualsRequest) returns (EqualsResponse);
-  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
-}
-
-service CurrencyPrecisionService {
-  rpc WithCurrency (WithCurrencyRequest) returns (WithCurrencyResponse);
+service FractionPrecisionService {
+  rpc WithMaxDigits (WithMaxDigitsRequest) returns (WithMaxDigitsResponse);
+  rpc WithMinDigits (WithMinDigitsRequest) returns (WithMinDigitsResponse);
+  rpc WithSignificantDigits (WithSignificantDigitsRequest) returns (WithSignificantDigitsResponse);
 }

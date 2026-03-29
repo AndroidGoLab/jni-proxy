@@ -21,6 +21,147 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
+	StreamingServiceInfoService_DescribeContents_FullMethodName = "/mbms.StreamingServiceInfoService/DescribeContents"
+	StreamingServiceInfoService_WriteToParcel_FullMethodName    = "/mbms.StreamingServiceInfoService/WriteToParcel"
+)
+
+// StreamingServiceInfoServiceClient is the client API for StreamingServiceInfoService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type StreamingServiceInfoServiceClient interface {
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type streamingServiceInfoServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewStreamingServiceInfoServiceClient(cc grpc.ClientConnInterface) StreamingServiceInfoServiceClient {
+	return &streamingServiceInfoServiceClient{cc}
+}
+
+func (c *streamingServiceInfoServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, StreamingServiceInfoService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *streamingServiceInfoServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, StreamingServiceInfoService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// StreamingServiceInfoServiceServer is the server API for StreamingServiceInfoService service.
+// All implementations must embed UnimplementedStreamingServiceInfoServiceServer
+// for forward compatibility.
+type StreamingServiceInfoServiceServer interface {
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedStreamingServiceInfoServiceServer()
+}
+
+// UnimplementedStreamingServiceInfoServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedStreamingServiceInfoServiceServer struct{}
+
+func (UnimplementedStreamingServiceInfoServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedStreamingServiceInfoServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedStreamingServiceInfoServiceServer) mustEmbedUnimplementedStreamingServiceInfoServiceServer() {
+}
+func (UnimplementedStreamingServiceInfoServiceServer) testEmbeddedByValue() {}
+
+// UnsafeStreamingServiceInfoServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to StreamingServiceInfoServiceServer will
+// result in compilation errors.
+type UnsafeStreamingServiceInfoServiceServer interface {
+	mustEmbedUnimplementedStreamingServiceInfoServiceServer()
+}
+
+func RegisterStreamingServiceInfoServiceServer(s grpc.ServiceRegistrar, srv StreamingServiceInfoServiceServer) {
+	// If the following call panics, it indicates UnimplementedStreamingServiceInfoServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&StreamingServiceInfoService_ServiceDesc, srv)
+}
+
+func _StreamingServiceInfoService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(StreamingServiceInfoServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: StreamingServiceInfoService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(StreamingServiceInfoServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _StreamingServiceInfoService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(StreamingServiceInfoServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: StreamingServiceInfoService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(StreamingServiceInfoServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// StreamingServiceInfoService_ServiceDesc is the grpc.ServiceDesc for StreamingServiceInfoService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var StreamingServiceInfoService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "mbms.StreamingServiceInfoService",
+	HandlerType: (*StreamingServiceInfoServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "DescribeContents",
+			Handler:    _StreamingServiceInfoService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _StreamingServiceInfoService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/mbms/mbms.proto",
+}
+
+const (
 	StreamingSessionCallbackService_NewStreamingSessionCallback_FullMethodName = "/mbms.StreamingSessionCallbackService/NewStreamingSessionCallback"
 	StreamingSessionCallbackService_OnError_FullMethodName                     = "/mbms.StreamingSessionCallbackService/OnError"
 	StreamingSessionCallbackService_OnMiddlewareReady_FullMethodName           = "/mbms.StreamingSessionCallbackService/OnMiddlewareReady"
@@ -193,6 +334,1193 @@ var StreamingSessionCallbackService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "OnMiddlewareReady",
 			Handler:    _StreamingSessionCallbackService_OnMiddlewareReady_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/mbms/mbms.proto",
+}
+
+const (
+	DownloadProgressListenerService_NewDownloadProgressListener_FullMethodName = "/mbms.DownloadProgressListenerService/NewDownloadProgressListener"
+	DownloadProgressListenerService_OnProgressUpdated_FullMethodName           = "/mbms.DownloadProgressListenerService/OnProgressUpdated"
+)
+
+// DownloadProgressListenerServiceClient is the client API for DownloadProgressListenerService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type DownloadProgressListenerServiceClient interface {
+	NewDownloadProgressListener(ctx context.Context, in *NewDownloadProgressListenerRequest, opts ...grpc.CallOption) (*NewDownloadProgressListenerResponse, error)
+	OnProgressUpdated(ctx context.Context, in *OnProgressUpdatedRequest, opts ...grpc.CallOption) (*OnProgressUpdatedResponse, error)
+}
+
+type downloadProgressListenerServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewDownloadProgressListenerServiceClient(cc grpc.ClientConnInterface) DownloadProgressListenerServiceClient {
+	return &downloadProgressListenerServiceClient{cc}
+}
+
+func (c *downloadProgressListenerServiceClient) NewDownloadProgressListener(ctx context.Context, in *NewDownloadProgressListenerRequest, opts ...grpc.CallOption) (*NewDownloadProgressListenerResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewDownloadProgressListenerResponse)
+	err := c.cc.Invoke(ctx, DownloadProgressListenerService_NewDownloadProgressListener_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *downloadProgressListenerServiceClient) OnProgressUpdated(ctx context.Context, in *OnProgressUpdatedRequest, opts ...grpc.CallOption) (*OnProgressUpdatedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnProgressUpdatedResponse)
+	err := c.cc.Invoke(ctx, DownloadProgressListenerService_OnProgressUpdated_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// DownloadProgressListenerServiceServer is the server API for DownloadProgressListenerService service.
+// All implementations must embed UnimplementedDownloadProgressListenerServiceServer
+// for forward compatibility.
+type DownloadProgressListenerServiceServer interface {
+	NewDownloadProgressListener(context.Context, *NewDownloadProgressListenerRequest) (*NewDownloadProgressListenerResponse, error)
+	OnProgressUpdated(context.Context, *OnProgressUpdatedRequest) (*OnProgressUpdatedResponse, error)
+	mustEmbedUnimplementedDownloadProgressListenerServiceServer()
+}
+
+// UnimplementedDownloadProgressListenerServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedDownloadProgressListenerServiceServer struct{}
+
+func (UnimplementedDownloadProgressListenerServiceServer) NewDownloadProgressListener(context.Context, *NewDownloadProgressListenerRequest) (*NewDownloadProgressListenerResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewDownloadProgressListener not implemented")
+}
+func (UnimplementedDownloadProgressListenerServiceServer) OnProgressUpdated(context.Context, *OnProgressUpdatedRequest) (*OnProgressUpdatedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnProgressUpdated not implemented")
+}
+func (UnimplementedDownloadProgressListenerServiceServer) mustEmbedUnimplementedDownloadProgressListenerServiceServer() {
+}
+func (UnimplementedDownloadProgressListenerServiceServer) testEmbeddedByValue() {}
+
+// UnsafeDownloadProgressListenerServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to DownloadProgressListenerServiceServer will
+// result in compilation errors.
+type UnsafeDownloadProgressListenerServiceServer interface {
+	mustEmbedUnimplementedDownloadProgressListenerServiceServer()
+}
+
+func RegisterDownloadProgressListenerServiceServer(s grpc.ServiceRegistrar, srv DownloadProgressListenerServiceServer) {
+	// If the following call panics, it indicates UnimplementedDownloadProgressListenerServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&DownloadProgressListenerService_ServiceDesc, srv)
+}
+
+func _DownloadProgressListenerService_NewDownloadProgressListener_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewDownloadProgressListenerRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DownloadProgressListenerServiceServer).NewDownloadProgressListener(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DownloadProgressListenerService_NewDownloadProgressListener_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DownloadProgressListenerServiceServer).NewDownloadProgressListener(ctx, req.(*NewDownloadProgressListenerRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DownloadProgressListenerService_OnProgressUpdated_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnProgressUpdatedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DownloadProgressListenerServiceServer).OnProgressUpdated(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DownloadProgressListenerService_OnProgressUpdated_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DownloadProgressListenerServiceServer).OnProgressUpdated(ctx, req.(*OnProgressUpdatedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// DownloadProgressListenerService_ServiceDesc is the grpc.ServiceDesc for DownloadProgressListenerService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var DownloadProgressListenerService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "mbms.DownloadProgressListenerService",
+	HandlerType: (*DownloadProgressListenerServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewDownloadProgressListener",
+			Handler:    _DownloadProgressListenerService_NewDownloadProgressListener_Handler,
+		},
+		{
+			MethodName: "OnProgressUpdated",
+			Handler:    _DownloadProgressListenerService_OnProgressUpdated_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/mbms/mbms.proto",
+}
+
+const (
+	ServiceInfoService_Equals_FullMethodName                 = "/mbms.ServiceInfoService/Equals"
+	ServiceInfoService_GetLocales_FullMethodName             = "/mbms.ServiceInfoService/GetLocales"
+	ServiceInfoService_GetNameForLocale_FullMethodName       = "/mbms.ServiceInfoService/GetNameForLocale"
+	ServiceInfoService_GetNamedContentLocales_FullMethodName = "/mbms.ServiceInfoService/GetNamedContentLocales"
+	ServiceInfoService_GetServiceClassName_FullMethodName    = "/mbms.ServiceInfoService/GetServiceClassName"
+	ServiceInfoService_GetServiceId_FullMethodName           = "/mbms.ServiceInfoService/GetServiceId"
+	ServiceInfoService_GetSessionEndTime_FullMethodName      = "/mbms.ServiceInfoService/GetSessionEndTime"
+	ServiceInfoService_GetSessionStartTime_FullMethodName    = "/mbms.ServiceInfoService/GetSessionStartTime"
+	ServiceInfoService_HashCode_FullMethodName               = "/mbms.ServiceInfoService/HashCode"
+)
+
+// ServiceInfoServiceClient is the client API for ServiceInfoService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ServiceInfoServiceClient interface {
+	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	GetLocales(ctx context.Context, in *GetLocalesRequest, opts ...grpc.CallOption) (*GetLocalesResponse, error)
+	GetNameForLocale(ctx context.Context, in *GetNameForLocaleRequest, opts ...grpc.CallOption) (*GetNameForLocaleResponse, error)
+	GetNamedContentLocales(ctx context.Context, in *GetNamedContentLocalesRequest, opts ...grpc.CallOption) (*GetNamedContentLocalesResponse, error)
+	GetServiceClassName(ctx context.Context, in *GetServiceClassNameRequest, opts ...grpc.CallOption) (*GetServiceClassNameResponse, error)
+	GetServiceId(ctx context.Context, in *GetServiceIdRequest, opts ...grpc.CallOption) (*GetServiceIdResponse, error)
+	GetSessionEndTime(ctx context.Context, in *GetSessionEndTimeRequest, opts ...grpc.CallOption) (*GetSessionEndTimeResponse, error)
+	GetSessionStartTime(ctx context.Context, in *GetSessionStartTimeRequest, opts ...grpc.CallOption) (*GetSessionStartTimeResponse, error)
+	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+}
+
+type serviceInfoServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewServiceInfoServiceClient(cc grpc.ClientConnInterface) ServiceInfoServiceClient {
+	return &serviceInfoServiceClient{cc}
+}
+
+func (c *serviceInfoServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(EqualsResponse)
+	err := c.cc.Invoke(ctx, ServiceInfoService_Equals_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceInfoServiceClient) GetLocales(ctx context.Context, in *GetLocalesRequest, opts ...grpc.CallOption) (*GetLocalesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetLocalesResponse)
+	err := c.cc.Invoke(ctx, ServiceInfoService_GetLocales_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceInfoServiceClient) GetNameForLocale(ctx context.Context, in *GetNameForLocaleRequest, opts ...grpc.CallOption) (*GetNameForLocaleResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetNameForLocaleResponse)
+	err := c.cc.Invoke(ctx, ServiceInfoService_GetNameForLocale_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceInfoServiceClient) GetNamedContentLocales(ctx context.Context, in *GetNamedContentLocalesRequest, opts ...grpc.CallOption) (*GetNamedContentLocalesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetNamedContentLocalesResponse)
+	err := c.cc.Invoke(ctx, ServiceInfoService_GetNamedContentLocales_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceInfoServiceClient) GetServiceClassName(ctx context.Context, in *GetServiceClassNameRequest, opts ...grpc.CallOption) (*GetServiceClassNameResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetServiceClassNameResponse)
+	err := c.cc.Invoke(ctx, ServiceInfoService_GetServiceClassName_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceInfoServiceClient) GetServiceId(ctx context.Context, in *GetServiceIdRequest, opts ...grpc.CallOption) (*GetServiceIdResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetServiceIdResponse)
+	err := c.cc.Invoke(ctx, ServiceInfoService_GetServiceId_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceInfoServiceClient) GetSessionEndTime(ctx context.Context, in *GetSessionEndTimeRequest, opts ...grpc.CallOption) (*GetSessionEndTimeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSessionEndTimeResponse)
+	err := c.cc.Invoke(ctx, ServiceInfoService_GetSessionEndTime_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceInfoServiceClient) GetSessionStartTime(ctx context.Context, in *GetSessionStartTimeRequest, opts ...grpc.CallOption) (*GetSessionStartTimeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSessionStartTimeResponse)
+	err := c.cc.Invoke(ctx, ServiceInfoService_GetSessionStartTime_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceInfoServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HashCodeResponse)
+	err := c.cc.Invoke(ctx, ServiceInfoService_HashCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ServiceInfoServiceServer is the server API for ServiceInfoService service.
+// All implementations must embed UnimplementedServiceInfoServiceServer
+// for forward compatibility.
+type ServiceInfoServiceServer interface {
+	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
+	GetLocales(context.Context, *GetLocalesRequest) (*GetLocalesResponse, error)
+	GetNameForLocale(context.Context, *GetNameForLocaleRequest) (*GetNameForLocaleResponse, error)
+	GetNamedContentLocales(context.Context, *GetNamedContentLocalesRequest) (*GetNamedContentLocalesResponse, error)
+	GetServiceClassName(context.Context, *GetServiceClassNameRequest) (*GetServiceClassNameResponse, error)
+	GetServiceId(context.Context, *GetServiceIdRequest) (*GetServiceIdResponse, error)
+	GetSessionEndTime(context.Context, *GetSessionEndTimeRequest) (*GetSessionEndTimeResponse, error)
+	GetSessionStartTime(context.Context, *GetSessionStartTimeRequest) (*GetSessionStartTimeResponse, error)
+	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
+	mustEmbedUnimplementedServiceInfoServiceServer()
+}
+
+// UnimplementedServiceInfoServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedServiceInfoServiceServer struct{}
+
+func (UnimplementedServiceInfoServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
+}
+func (UnimplementedServiceInfoServiceServer) GetLocales(context.Context, *GetLocalesRequest) (*GetLocalesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetLocales not implemented")
+}
+func (UnimplementedServiceInfoServiceServer) GetNameForLocale(context.Context, *GetNameForLocaleRequest) (*GetNameForLocaleResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetNameForLocale not implemented")
+}
+func (UnimplementedServiceInfoServiceServer) GetNamedContentLocales(context.Context, *GetNamedContentLocalesRequest) (*GetNamedContentLocalesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetNamedContentLocales not implemented")
+}
+func (UnimplementedServiceInfoServiceServer) GetServiceClassName(context.Context, *GetServiceClassNameRequest) (*GetServiceClassNameResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetServiceClassName not implemented")
+}
+func (UnimplementedServiceInfoServiceServer) GetServiceId(context.Context, *GetServiceIdRequest) (*GetServiceIdResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetServiceId not implemented")
+}
+func (UnimplementedServiceInfoServiceServer) GetSessionEndTime(context.Context, *GetSessionEndTimeRequest) (*GetSessionEndTimeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSessionEndTime not implemented")
+}
+func (UnimplementedServiceInfoServiceServer) GetSessionStartTime(context.Context, *GetSessionStartTimeRequest) (*GetSessionStartTimeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSessionStartTime not implemented")
+}
+func (UnimplementedServiceInfoServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
+}
+func (UnimplementedServiceInfoServiceServer) mustEmbedUnimplementedServiceInfoServiceServer() {}
+func (UnimplementedServiceInfoServiceServer) testEmbeddedByValue()                            {}
+
+// UnsafeServiceInfoServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ServiceInfoServiceServer will
+// result in compilation errors.
+type UnsafeServiceInfoServiceServer interface {
+	mustEmbedUnimplementedServiceInfoServiceServer()
+}
+
+func RegisterServiceInfoServiceServer(s grpc.ServiceRegistrar, srv ServiceInfoServiceServer) {
+	// If the following call panics, it indicates UnimplementedServiceInfoServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&ServiceInfoService_ServiceDesc, srv)
+}
+
+func _ServiceInfoService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EqualsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceInfoServiceServer).Equals(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ServiceInfoService_Equals_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceInfoServiceServer).Equals(ctx, req.(*EqualsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ServiceInfoService_GetLocales_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetLocalesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceInfoServiceServer).GetLocales(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ServiceInfoService_GetLocales_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceInfoServiceServer).GetLocales(ctx, req.(*GetLocalesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ServiceInfoService_GetNameForLocale_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetNameForLocaleRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceInfoServiceServer).GetNameForLocale(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ServiceInfoService_GetNameForLocale_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceInfoServiceServer).GetNameForLocale(ctx, req.(*GetNameForLocaleRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ServiceInfoService_GetNamedContentLocales_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetNamedContentLocalesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceInfoServiceServer).GetNamedContentLocales(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ServiceInfoService_GetNamedContentLocales_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceInfoServiceServer).GetNamedContentLocales(ctx, req.(*GetNamedContentLocalesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ServiceInfoService_GetServiceClassName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetServiceClassNameRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceInfoServiceServer).GetServiceClassName(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ServiceInfoService_GetServiceClassName_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceInfoServiceServer).GetServiceClassName(ctx, req.(*GetServiceClassNameRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ServiceInfoService_GetServiceId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetServiceIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceInfoServiceServer).GetServiceId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ServiceInfoService_GetServiceId_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceInfoServiceServer).GetServiceId(ctx, req.(*GetServiceIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ServiceInfoService_GetSessionEndTime_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSessionEndTimeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceInfoServiceServer).GetSessionEndTime(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ServiceInfoService_GetSessionEndTime_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceInfoServiceServer).GetSessionEndTime(ctx, req.(*GetSessionEndTimeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ServiceInfoService_GetSessionStartTime_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSessionStartTimeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceInfoServiceServer).GetSessionStartTime(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ServiceInfoService_GetSessionStartTime_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceInfoServiceServer).GetSessionStartTime(ctx, req.(*GetSessionStartTimeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ServiceInfoService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HashCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceInfoServiceServer).HashCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ServiceInfoService_HashCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceInfoServiceServer).HashCode(ctx, req.(*HashCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ServiceInfoService_ServiceDesc is the grpc.ServiceDesc for ServiceInfoService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ServiceInfoService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "mbms.ServiceInfoService",
+	HandlerType: (*ServiceInfoServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Equals",
+			Handler:    _ServiceInfoService_Equals_Handler,
+		},
+		{
+			MethodName: "GetLocales",
+			Handler:    _ServiceInfoService_GetLocales_Handler,
+		},
+		{
+			MethodName: "GetNameForLocale",
+			Handler:    _ServiceInfoService_GetNameForLocale_Handler,
+		},
+		{
+			MethodName: "GetNamedContentLocales",
+			Handler:    _ServiceInfoService_GetNamedContentLocales_Handler,
+		},
+		{
+			MethodName: "GetServiceClassName",
+			Handler:    _ServiceInfoService_GetServiceClassName_Handler,
+		},
+		{
+			MethodName: "GetServiceId",
+			Handler:    _ServiceInfoService_GetServiceId_Handler,
+		},
+		{
+			MethodName: "GetSessionEndTime",
+			Handler:    _ServiceInfoService_GetSessionEndTime_Handler,
+		},
+		{
+			MethodName: "GetSessionStartTime",
+			Handler:    _ServiceInfoService_GetSessionStartTime_Handler,
+		},
+		{
+			MethodName: "HashCode",
+			Handler:    _ServiceInfoService_HashCode_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/mbms/mbms.proto",
+}
+
+const (
+	StreamingServiceService_Close_FullMethodName          = "/mbms.StreamingServiceService/Close"
+	StreamingServiceService_GetInfo_FullMethodName        = "/mbms.StreamingServiceService/GetInfo"
+	StreamingServiceService_GetPlaybackUri_FullMethodName = "/mbms.StreamingServiceService/GetPlaybackUri"
+)
+
+// StreamingServiceServiceClient is the client API for StreamingServiceService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type StreamingServiceServiceClient interface {
+	Close(ctx context.Context, in *CloseRequest, opts ...grpc.CallOption) (*CloseResponse, error)
+	GetInfo(ctx context.Context, in *GetInfoRequest, opts ...grpc.CallOption) (*GetInfoResponse, error)
+	GetPlaybackUri(ctx context.Context, in *GetPlaybackUriRequest, opts ...grpc.CallOption) (*GetPlaybackUriResponse, error)
+}
+
+type streamingServiceServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewStreamingServiceServiceClient(cc grpc.ClientConnInterface) StreamingServiceServiceClient {
+	return &streamingServiceServiceClient{cc}
+}
+
+func (c *streamingServiceServiceClient) Close(ctx context.Context, in *CloseRequest, opts ...grpc.CallOption) (*CloseResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CloseResponse)
+	err := c.cc.Invoke(ctx, StreamingServiceService_Close_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *streamingServiceServiceClient) GetInfo(ctx context.Context, in *GetInfoRequest, opts ...grpc.CallOption) (*GetInfoResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetInfoResponse)
+	err := c.cc.Invoke(ctx, StreamingServiceService_GetInfo_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *streamingServiceServiceClient) GetPlaybackUri(ctx context.Context, in *GetPlaybackUriRequest, opts ...grpc.CallOption) (*GetPlaybackUriResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetPlaybackUriResponse)
+	err := c.cc.Invoke(ctx, StreamingServiceService_GetPlaybackUri_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// StreamingServiceServiceServer is the server API for StreamingServiceService service.
+// All implementations must embed UnimplementedStreamingServiceServiceServer
+// for forward compatibility.
+type StreamingServiceServiceServer interface {
+	Close(context.Context, *CloseRequest) (*CloseResponse, error)
+	GetInfo(context.Context, *GetInfoRequest) (*GetInfoResponse, error)
+	GetPlaybackUri(context.Context, *GetPlaybackUriRequest) (*GetPlaybackUriResponse, error)
+	mustEmbedUnimplementedStreamingServiceServiceServer()
+}
+
+// UnimplementedStreamingServiceServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedStreamingServiceServiceServer struct{}
+
+func (UnimplementedStreamingServiceServiceServer) Close(context.Context, *CloseRequest) (*CloseResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Close not implemented")
+}
+func (UnimplementedStreamingServiceServiceServer) GetInfo(context.Context, *GetInfoRequest) (*GetInfoResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetInfo not implemented")
+}
+func (UnimplementedStreamingServiceServiceServer) GetPlaybackUri(context.Context, *GetPlaybackUriRequest) (*GetPlaybackUriResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetPlaybackUri not implemented")
+}
+func (UnimplementedStreamingServiceServiceServer) mustEmbedUnimplementedStreamingServiceServiceServer() {
+}
+func (UnimplementedStreamingServiceServiceServer) testEmbeddedByValue() {}
+
+// UnsafeStreamingServiceServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to StreamingServiceServiceServer will
+// result in compilation errors.
+type UnsafeStreamingServiceServiceServer interface {
+	mustEmbedUnimplementedStreamingServiceServiceServer()
+}
+
+func RegisterStreamingServiceServiceServer(s grpc.ServiceRegistrar, srv StreamingServiceServiceServer) {
+	// If the following call panics, it indicates UnimplementedStreamingServiceServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&StreamingServiceService_ServiceDesc, srv)
+}
+
+func _StreamingServiceService_Close_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CloseRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(StreamingServiceServiceServer).Close(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: StreamingServiceService_Close_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(StreamingServiceServiceServer).Close(ctx, req.(*CloseRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _StreamingServiceService_GetInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetInfoRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(StreamingServiceServiceServer).GetInfo(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: StreamingServiceService_GetInfo_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(StreamingServiceServiceServer).GetInfo(ctx, req.(*GetInfoRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _StreamingServiceService_GetPlaybackUri_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPlaybackUriRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(StreamingServiceServiceServer).GetPlaybackUri(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: StreamingServiceService_GetPlaybackUri_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(StreamingServiceServiceServer).GetPlaybackUri(ctx, req.(*GetPlaybackUriRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// StreamingServiceService_ServiceDesc is the grpc.ServiceDesc for StreamingServiceService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var StreamingServiceService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "mbms.StreamingServiceService",
+	HandlerType: (*StreamingServiceServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Close",
+			Handler:    _StreamingServiceService_Close_Handler,
+		},
+		{
+			MethodName: "GetInfo",
+			Handler:    _StreamingServiceService_GetInfo_Handler,
+		},
+		{
+			MethodName: "GetPlaybackUri",
+			Handler:    _StreamingServiceService_GetPlaybackUri_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/mbms/mbms.proto",
+}
+
+const (
+	DownloadReceiverService_NewDownloadReceiver_FullMethodName = "/mbms.DownloadReceiverService/NewDownloadReceiver"
+	DownloadReceiverService_OnReceive_FullMethodName           = "/mbms.DownloadReceiverService/OnReceive"
+)
+
+// DownloadReceiverServiceClient is the client API for DownloadReceiverService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type DownloadReceiverServiceClient interface {
+	NewDownloadReceiver(ctx context.Context, in *NewDownloadReceiverRequest, opts ...grpc.CallOption) (*NewDownloadReceiverResponse, error)
+	OnReceive(ctx context.Context, in *OnReceiveRequest, opts ...grpc.CallOption) (*OnReceiveResponse, error)
+}
+
+type downloadReceiverServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewDownloadReceiverServiceClient(cc grpc.ClientConnInterface) DownloadReceiverServiceClient {
+	return &downloadReceiverServiceClient{cc}
+}
+
+func (c *downloadReceiverServiceClient) NewDownloadReceiver(ctx context.Context, in *NewDownloadReceiverRequest, opts ...grpc.CallOption) (*NewDownloadReceiverResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewDownloadReceiverResponse)
+	err := c.cc.Invoke(ctx, DownloadReceiverService_NewDownloadReceiver_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *downloadReceiverServiceClient) OnReceive(ctx context.Context, in *OnReceiveRequest, opts ...grpc.CallOption) (*OnReceiveResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnReceiveResponse)
+	err := c.cc.Invoke(ctx, DownloadReceiverService_OnReceive_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// DownloadReceiverServiceServer is the server API for DownloadReceiverService service.
+// All implementations must embed UnimplementedDownloadReceiverServiceServer
+// for forward compatibility.
+type DownloadReceiverServiceServer interface {
+	NewDownloadReceiver(context.Context, *NewDownloadReceiverRequest) (*NewDownloadReceiverResponse, error)
+	OnReceive(context.Context, *OnReceiveRequest) (*OnReceiveResponse, error)
+	mustEmbedUnimplementedDownloadReceiverServiceServer()
+}
+
+// UnimplementedDownloadReceiverServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedDownloadReceiverServiceServer struct{}
+
+func (UnimplementedDownloadReceiverServiceServer) NewDownloadReceiver(context.Context, *NewDownloadReceiverRequest) (*NewDownloadReceiverResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewDownloadReceiver not implemented")
+}
+func (UnimplementedDownloadReceiverServiceServer) OnReceive(context.Context, *OnReceiveRequest) (*OnReceiveResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnReceive not implemented")
+}
+func (UnimplementedDownloadReceiverServiceServer) mustEmbedUnimplementedDownloadReceiverServiceServer() {
+}
+func (UnimplementedDownloadReceiverServiceServer) testEmbeddedByValue() {}
+
+// UnsafeDownloadReceiverServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to DownloadReceiverServiceServer will
+// result in compilation errors.
+type UnsafeDownloadReceiverServiceServer interface {
+	mustEmbedUnimplementedDownloadReceiverServiceServer()
+}
+
+func RegisterDownloadReceiverServiceServer(s grpc.ServiceRegistrar, srv DownloadReceiverServiceServer) {
+	// If the following call panics, it indicates UnimplementedDownloadReceiverServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&DownloadReceiverService_ServiceDesc, srv)
+}
+
+func _DownloadReceiverService_NewDownloadReceiver_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewDownloadReceiverRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DownloadReceiverServiceServer).NewDownloadReceiver(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DownloadReceiverService_NewDownloadReceiver_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DownloadReceiverServiceServer).NewDownloadReceiver(ctx, req.(*NewDownloadReceiverRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DownloadReceiverService_OnReceive_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnReceiveRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DownloadReceiverServiceServer).OnReceive(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DownloadReceiverService_OnReceive_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DownloadReceiverServiceServer).OnReceive(ctx, req.(*OnReceiveRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// DownloadReceiverService_ServiceDesc is the grpc.ServiceDesc for DownloadReceiverService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var DownloadReceiverService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "mbms.DownloadReceiverService",
+	HandlerType: (*DownloadReceiverServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewDownloadReceiver",
+			Handler:    _DownloadReceiverService_NewDownloadReceiver_Handler,
+		},
+		{
+			MethodName: "OnReceive",
+			Handler:    _DownloadReceiverService_OnReceive_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/mbms/mbms.proto",
+}
+
+const (
+	DownloadSessionCallbackService_NewDownloadSessionCallback_FullMethodName = "/mbms.DownloadSessionCallbackService/NewDownloadSessionCallback"
+	DownloadSessionCallbackService_OnError_FullMethodName                    = "/mbms.DownloadSessionCallbackService/OnError"
+	DownloadSessionCallbackService_OnMiddlewareReady_FullMethodName          = "/mbms.DownloadSessionCallbackService/OnMiddlewareReady"
+)
+
+// DownloadSessionCallbackServiceClient is the client API for DownloadSessionCallbackService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type DownloadSessionCallbackServiceClient interface {
+	NewDownloadSessionCallback(ctx context.Context, in *NewDownloadSessionCallbackRequest, opts ...grpc.CallOption) (*NewDownloadSessionCallbackResponse, error)
+	OnError(ctx context.Context, in *OnErrorRequest, opts ...grpc.CallOption) (*OnErrorResponse, error)
+	OnMiddlewareReady(ctx context.Context, in *OnMiddlewareReadyRequest, opts ...grpc.CallOption) (*OnMiddlewareReadyResponse, error)
+}
+
+type downloadSessionCallbackServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewDownloadSessionCallbackServiceClient(cc grpc.ClientConnInterface) DownloadSessionCallbackServiceClient {
+	return &downloadSessionCallbackServiceClient{cc}
+}
+
+func (c *downloadSessionCallbackServiceClient) NewDownloadSessionCallback(ctx context.Context, in *NewDownloadSessionCallbackRequest, opts ...grpc.CallOption) (*NewDownloadSessionCallbackResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewDownloadSessionCallbackResponse)
+	err := c.cc.Invoke(ctx, DownloadSessionCallbackService_NewDownloadSessionCallback_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *downloadSessionCallbackServiceClient) OnError(ctx context.Context, in *OnErrorRequest, opts ...grpc.CallOption) (*OnErrorResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnErrorResponse)
+	err := c.cc.Invoke(ctx, DownloadSessionCallbackService_OnError_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *downloadSessionCallbackServiceClient) OnMiddlewareReady(ctx context.Context, in *OnMiddlewareReadyRequest, opts ...grpc.CallOption) (*OnMiddlewareReadyResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnMiddlewareReadyResponse)
+	err := c.cc.Invoke(ctx, DownloadSessionCallbackService_OnMiddlewareReady_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// DownloadSessionCallbackServiceServer is the server API for DownloadSessionCallbackService service.
+// All implementations must embed UnimplementedDownloadSessionCallbackServiceServer
+// for forward compatibility.
+type DownloadSessionCallbackServiceServer interface {
+	NewDownloadSessionCallback(context.Context, *NewDownloadSessionCallbackRequest) (*NewDownloadSessionCallbackResponse, error)
+	OnError(context.Context, *OnErrorRequest) (*OnErrorResponse, error)
+	OnMiddlewareReady(context.Context, *OnMiddlewareReadyRequest) (*OnMiddlewareReadyResponse, error)
+	mustEmbedUnimplementedDownloadSessionCallbackServiceServer()
+}
+
+// UnimplementedDownloadSessionCallbackServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedDownloadSessionCallbackServiceServer struct{}
+
+func (UnimplementedDownloadSessionCallbackServiceServer) NewDownloadSessionCallback(context.Context, *NewDownloadSessionCallbackRequest) (*NewDownloadSessionCallbackResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewDownloadSessionCallback not implemented")
+}
+func (UnimplementedDownloadSessionCallbackServiceServer) OnError(context.Context, *OnErrorRequest) (*OnErrorResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnError not implemented")
+}
+func (UnimplementedDownloadSessionCallbackServiceServer) OnMiddlewareReady(context.Context, *OnMiddlewareReadyRequest) (*OnMiddlewareReadyResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnMiddlewareReady not implemented")
+}
+func (UnimplementedDownloadSessionCallbackServiceServer) mustEmbedUnimplementedDownloadSessionCallbackServiceServer() {
+}
+func (UnimplementedDownloadSessionCallbackServiceServer) testEmbeddedByValue() {}
+
+// UnsafeDownloadSessionCallbackServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to DownloadSessionCallbackServiceServer will
+// result in compilation errors.
+type UnsafeDownloadSessionCallbackServiceServer interface {
+	mustEmbedUnimplementedDownloadSessionCallbackServiceServer()
+}
+
+func RegisterDownloadSessionCallbackServiceServer(s grpc.ServiceRegistrar, srv DownloadSessionCallbackServiceServer) {
+	// If the following call panics, it indicates UnimplementedDownloadSessionCallbackServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&DownloadSessionCallbackService_ServiceDesc, srv)
+}
+
+func _DownloadSessionCallbackService_NewDownloadSessionCallback_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewDownloadSessionCallbackRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DownloadSessionCallbackServiceServer).NewDownloadSessionCallback(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DownloadSessionCallbackService_NewDownloadSessionCallback_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DownloadSessionCallbackServiceServer).NewDownloadSessionCallback(ctx, req.(*NewDownloadSessionCallbackRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DownloadSessionCallbackService_OnError_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnErrorRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DownloadSessionCallbackServiceServer).OnError(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DownloadSessionCallbackService_OnError_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DownloadSessionCallbackServiceServer).OnError(ctx, req.(*OnErrorRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DownloadSessionCallbackService_OnMiddlewareReady_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnMiddlewareReadyRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DownloadSessionCallbackServiceServer).OnMiddlewareReady(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DownloadSessionCallbackService_OnMiddlewareReady_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DownloadSessionCallbackServiceServer).OnMiddlewareReady(ctx, req.(*OnMiddlewareReadyRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// DownloadSessionCallbackService_ServiceDesc is the grpc.ServiceDesc for DownloadSessionCallbackService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var DownloadSessionCallbackService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "mbms.DownloadSessionCallbackService",
+	HandlerType: (*DownloadSessionCallbackServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewDownloadSessionCallback",
+			Handler:    _DownloadSessionCallbackService_NewDownloadSessionCallback_Handler,
+		},
+		{
+			MethodName: "OnError",
+			Handler:    _DownloadSessionCallbackService_OnError_Handler,
+		},
+		{
+			MethodName: "OnMiddlewareReady",
+			Handler:    _DownloadSessionCallbackService_OnMiddlewareReady_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/mbms/mbms.proto",
+}
+
+const (
+	DownloadStatusListenerService_NewDownloadStatusListener_FullMethodName = "/mbms.DownloadStatusListenerService/NewDownloadStatusListener"
+	DownloadStatusListenerService_OnStatusUpdated_FullMethodName           = "/mbms.DownloadStatusListenerService/OnStatusUpdated"
+)
+
+// DownloadStatusListenerServiceClient is the client API for DownloadStatusListenerService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type DownloadStatusListenerServiceClient interface {
+	NewDownloadStatusListener(ctx context.Context, in *NewDownloadStatusListenerRequest, opts ...grpc.CallOption) (*NewDownloadStatusListenerResponse, error)
+	OnStatusUpdated(ctx context.Context, in *OnStatusUpdatedRequest, opts ...grpc.CallOption) (*OnStatusUpdatedResponse, error)
+}
+
+type downloadStatusListenerServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewDownloadStatusListenerServiceClient(cc grpc.ClientConnInterface) DownloadStatusListenerServiceClient {
+	return &downloadStatusListenerServiceClient{cc}
+}
+
+func (c *downloadStatusListenerServiceClient) NewDownloadStatusListener(ctx context.Context, in *NewDownloadStatusListenerRequest, opts ...grpc.CallOption) (*NewDownloadStatusListenerResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewDownloadStatusListenerResponse)
+	err := c.cc.Invoke(ctx, DownloadStatusListenerService_NewDownloadStatusListener_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *downloadStatusListenerServiceClient) OnStatusUpdated(ctx context.Context, in *OnStatusUpdatedRequest, opts ...grpc.CallOption) (*OnStatusUpdatedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnStatusUpdatedResponse)
+	err := c.cc.Invoke(ctx, DownloadStatusListenerService_OnStatusUpdated_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// DownloadStatusListenerServiceServer is the server API for DownloadStatusListenerService service.
+// All implementations must embed UnimplementedDownloadStatusListenerServiceServer
+// for forward compatibility.
+type DownloadStatusListenerServiceServer interface {
+	NewDownloadStatusListener(context.Context, *NewDownloadStatusListenerRequest) (*NewDownloadStatusListenerResponse, error)
+	OnStatusUpdated(context.Context, *OnStatusUpdatedRequest) (*OnStatusUpdatedResponse, error)
+	mustEmbedUnimplementedDownloadStatusListenerServiceServer()
+}
+
+// UnimplementedDownloadStatusListenerServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedDownloadStatusListenerServiceServer struct{}
+
+func (UnimplementedDownloadStatusListenerServiceServer) NewDownloadStatusListener(context.Context, *NewDownloadStatusListenerRequest) (*NewDownloadStatusListenerResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewDownloadStatusListener not implemented")
+}
+func (UnimplementedDownloadStatusListenerServiceServer) OnStatusUpdated(context.Context, *OnStatusUpdatedRequest) (*OnStatusUpdatedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnStatusUpdated not implemented")
+}
+func (UnimplementedDownloadStatusListenerServiceServer) mustEmbedUnimplementedDownloadStatusListenerServiceServer() {
+}
+func (UnimplementedDownloadStatusListenerServiceServer) testEmbeddedByValue() {}
+
+// UnsafeDownloadStatusListenerServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to DownloadStatusListenerServiceServer will
+// result in compilation errors.
+type UnsafeDownloadStatusListenerServiceServer interface {
+	mustEmbedUnimplementedDownloadStatusListenerServiceServer()
+}
+
+func RegisterDownloadStatusListenerServiceServer(s grpc.ServiceRegistrar, srv DownloadStatusListenerServiceServer) {
+	// If the following call panics, it indicates UnimplementedDownloadStatusListenerServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&DownloadStatusListenerService_ServiceDesc, srv)
+}
+
+func _DownloadStatusListenerService_NewDownloadStatusListener_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewDownloadStatusListenerRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DownloadStatusListenerServiceServer).NewDownloadStatusListener(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DownloadStatusListenerService_NewDownloadStatusListener_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DownloadStatusListenerServiceServer).NewDownloadStatusListener(ctx, req.(*NewDownloadStatusListenerRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DownloadStatusListenerService_OnStatusUpdated_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnStatusUpdatedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DownloadStatusListenerServiceServer).OnStatusUpdated(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DownloadStatusListenerService_OnStatusUpdated_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DownloadStatusListenerServiceServer).OnStatusUpdated(ctx, req.(*OnStatusUpdatedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// DownloadStatusListenerService_ServiceDesc is the grpc.ServiceDesc for DownloadStatusListenerService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var DownloadStatusListenerService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "mbms.DownloadStatusListenerService",
+	HandlerType: (*DownloadStatusListenerServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewDownloadStatusListener",
+			Handler:    _DownloadStatusListenerService_NewDownloadStatusListener_Handler,
+		},
+		{
+			MethodName: "OnStatusUpdated",
+			Handler:    _DownloadStatusListenerService_OnStatusUpdated_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -493,329 +1821,178 @@ var StreamingServiceCallbackService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	ServiceInfoService_Equals_FullMethodName              = "/mbms.ServiceInfoService/Equals"
-	ServiceInfoService_GetNameForLocale_FullMethodName    = "/mbms.ServiceInfoService/GetNameForLocale"
-	ServiceInfoService_GetServiceClassName_FullMethodName = "/mbms.ServiceInfoService/GetServiceClassName"
-	ServiceInfoService_GetServiceId_FullMethodName        = "/mbms.ServiceInfoService/GetServiceId"
-	ServiceInfoService_GetSessionEndTime_FullMethodName   = "/mbms.ServiceInfoService/GetSessionEndTime"
-	ServiceInfoService_GetSessionStartTime_FullMethodName = "/mbms.ServiceInfoService/GetSessionStartTime"
-	ServiceInfoService_HashCode_FullMethodName            = "/mbms.ServiceInfoService/HashCode"
+	FileServiceInfoService_DescribeContents_FullMethodName = "/mbms.FileServiceInfoService/DescribeContents"
+	FileServiceInfoService_GetFiles_FullMethodName         = "/mbms.FileServiceInfoService/GetFiles"
+	FileServiceInfoService_WriteToParcel_FullMethodName    = "/mbms.FileServiceInfoService/WriteToParcel"
 )
 
-// ServiceInfoServiceClient is the client API for ServiceInfoService service.
+// FileServiceInfoServiceClient is the client API for FileServiceInfoService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type ServiceInfoServiceClient interface {
-	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
-	GetNameForLocale(ctx context.Context, in *GetNameForLocaleRequest, opts ...grpc.CallOption) (*GetNameForLocaleResponse, error)
-	GetServiceClassName(ctx context.Context, in *GetServiceClassNameRequest, opts ...grpc.CallOption) (*GetServiceClassNameResponse, error)
-	GetServiceId(ctx context.Context, in *GetServiceIdRequest, opts ...grpc.CallOption) (*GetServiceIdResponse, error)
-	GetSessionEndTime(ctx context.Context, in *GetSessionEndTimeRequest, opts ...grpc.CallOption) (*GetSessionEndTimeResponse, error)
-	GetSessionStartTime(ctx context.Context, in *GetSessionStartTimeRequest, opts ...grpc.CallOption) (*GetSessionStartTimeResponse, error)
-	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+type FileServiceInfoServiceClient interface {
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	GetFiles(ctx context.Context, in *GetFilesRequest, opts ...grpc.CallOption) (*GetFilesResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
 }
 
-type serviceInfoServiceClient struct {
+type fileServiceInfoServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewServiceInfoServiceClient(cc grpc.ClientConnInterface) ServiceInfoServiceClient {
-	return &serviceInfoServiceClient{cc}
+func NewFileServiceInfoServiceClient(cc grpc.ClientConnInterface) FileServiceInfoServiceClient {
+	return &fileServiceInfoServiceClient{cc}
 }
 
-func (c *serviceInfoServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+func (c *fileServiceInfoServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(EqualsResponse)
-	err := c.cc.Invoke(ctx, ServiceInfoService_Equals_FullMethodName, in, out, cOpts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, FileServiceInfoService_DescribeContents_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *serviceInfoServiceClient) GetNameForLocale(ctx context.Context, in *GetNameForLocaleRequest, opts ...grpc.CallOption) (*GetNameForLocaleResponse, error) {
+func (c *fileServiceInfoServiceClient) GetFiles(ctx context.Context, in *GetFilesRequest, opts ...grpc.CallOption) (*GetFilesResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetNameForLocaleResponse)
-	err := c.cc.Invoke(ctx, ServiceInfoService_GetNameForLocale_FullMethodName, in, out, cOpts...)
+	out := new(GetFilesResponse)
+	err := c.cc.Invoke(ctx, FileServiceInfoService_GetFiles_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *serviceInfoServiceClient) GetServiceClassName(ctx context.Context, in *GetServiceClassNameRequest, opts ...grpc.CallOption) (*GetServiceClassNameResponse, error) {
+func (c *fileServiceInfoServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetServiceClassNameResponse)
-	err := c.cc.Invoke(ctx, ServiceInfoService_GetServiceClassName_FullMethodName, in, out, cOpts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, FileServiceInfoService_WriteToParcel_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *serviceInfoServiceClient) GetServiceId(ctx context.Context, in *GetServiceIdRequest, opts ...grpc.CallOption) (*GetServiceIdResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetServiceIdResponse)
-	err := c.cc.Invoke(ctx, ServiceInfoService_GetServiceId_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *serviceInfoServiceClient) GetSessionEndTime(ctx context.Context, in *GetSessionEndTimeRequest, opts ...grpc.CallOption) (*GetSessionEndTimeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetSessionEndTimeResponse)
-	err := c.cc.Invoke(ctx, ServiceInfoService_GetSessionEndTime_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *serviceInfoServiceClient) GetSessionStartTime(ctx context.Context, in *GetSessionStartTimeRequest, opts ...grpc.CallOption) (*GetSessionStartTimeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetSessionStartTimeResponse)
-	err := c.cc.Invoke(ctx, ServiceInfoService_GetSessionStartTime_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *serviceInfoServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(HashCodeResponse)
-	err := c.cc.Invoke(ctx, ServiceInfoService_HashCode_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// ServiceInfoServiceServer is the server API for ServiceInfoService service.
-// All implementations must embed UnimplementedServiceInfoServiceServer
+// FileServiceInfoServiceServer is the server API for FileServiceInfoService service.
+// All implementations must embed UnimplementedFileServiceInfoServiceServer
 // for forward compatibility.
-type ServiceInfoServiceServer interface {
-	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
-	GetNameForLocale(context.Context, *GetNameForLocaleRequest) (*GetNameForLocaleResponse, error)
-	GetServiceClassName(context.Context, *GetServiceClassNameRequest) (*GetServiceClassNameResponse, error)
-	GetServiceId(context.Context, *GetServiceIdRequest) (*GetServiceIdResponse, error)
-	GetSessionEndTime(context.Context, *GetSessionEndTimeRequest) (*GetSessionEndTimeResponse, error)
-	GetSessionStartTime(context.Context, *GetSessionStartTimeRequest) (*GetSessionStartTimeResponse, error)
-	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
-	mustEmbedUnimplementedServiceInfoServiceServer()
+type FileServiceInfoServiceServer interface {
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	GetFiles(context.Context, *GetFilesRequest) (*GetFilesResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedFileServiceInfoServiceServer()
 }
 
-// UnimplementedServiceInfoServiceServer must be embedded to have
+// UnimplementedFileServiceInfoServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedServiceInfoServiceServer struct{}
+type UnimplementedFileServiceInfoServiceServer struct{}
 
-func (UnimplementedServiceInfoServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
+func (UnimplementedFileServiceInfoServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
 }
-func (UnimplementedServiceInfoServiceServer) GetNameForLocale(context.Context, *GetNameForLocaleRequest) (*GetNameForLocaleResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetNameForLocale not implemented")
+func (UnimplementedFileServiceInfoServiceServer) GetFiles(context.Context, *GetFilesRequest) (*GetFilesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetFiles not implemented")
 }
-func (UnimplementedServiceInfoServiceServer) GetServiceClassName(context.Context, *GetServiceClassNameRequest) (*GetServiceClassNameResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetServiceClassName not implemented")
+func (UnimplementedFileServiceInfoServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
 }
-func (UnimplementedServiceInfoServiceServer) GetServiceId(context.Context, *GetServiceIdRequest) (*GetServiceIdResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetServiceId not implemented")
+func (UnimplementedFileServiceInfoServiceServer) mustEmbedUnimplementedFileServiceInfoServiceServer() {
 }
-func (UnimplementedServiceInfoServiceServer) GetSessionEndTime(context.Context, *GetSessionEndTimeRequest) (*GetSessionEndTimeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetSessionEndTime not implemented")
-}
-func (UnimplementedServiceInfoServiceServer) GetSessionStartTime(context.Context, *GetSessionStartTimeRequest) (*GetSessionStartTimeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetSessionStartTime not implemented")
-}
-func (UnimplementedServiceInfoServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
-}
-func (UnimplementedServiceInfoServiceServer) mustEmbedUnimplementedServiceInfoServiceServer() {}
-func (UnimplementedServiceInfoServiceServer) testEmbeddedByValue()                            {}
+func (UnimplementedFileServiceInfoServiceServer) testEmbeddedByValue() {}
 
-// UnsafeServiceInfoServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to ServiceInfoServiceServer will
+// UnsafeFileServiceInfoServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to FileServiceInfoServiceServer will
 // result in compilation errors.
-type UnsafeServiceInfoServiceServer interface {
-	mustEmbedUnimplementedServiceInfoServiceServer()
+type UnsafeFileServiceInfoServiceServer interface {
+	mustEmbedUnimplementedFileServiceInfoServiceServer()
 }
 
-func RegisterServiceInfoServiceServer(s grpc.ServiceRegistrar, srv ServiceInfoServiceServer) {
-	// If the following call panics, it indicates UnimplementedServiceInfoServiceServer was
+func RegisterFileServiceInfoServiceServer(s grpc.ServiceRegistrar, srv FileServiceInfoServiceServer) {
+	// If the following call panics, it indicates UnimplementedFileServiceInfoServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&ServiceInfoService_ServiceDesc, srv)
+	s.RegisterService(&FileServiceInfoService_ServiceDesc, srv)
 }
 
-func _ServiceInfoService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(EqualsRequest)
+func _FileServiceInfoService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ServiceInfoServiceServer).Equals(ctx, in)
+		return srv.(FileServiceInfoServiceServer).DescribeContents(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: ServiceInfoService_Equals_FullMethodName,
+		FullMethod: FileServiceInfoService_DescribeContents_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ServiceInfoServiceServer).Equals(ctx, req.(*EqualsRequest))
+		return srv.(FileServiceInfoServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ServiceInfoService_GetNameForLocale_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetNameForLocaleRequest)
+func _FileServiceInfoService_GetFiles_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetFilesRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ServiceInfoServiceServer).GetNameForLocale(ctx, in)
+		return srv.(FileServiceInfoServiceServer).GetFiles(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: ServiceInfoService_GetNameForLocale_FullMethodName,
+		FullMethod: FileServiceInfoService_GetFiles_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ServiceInfoServiceServer).GetNameForLocale(ctx, req.(*GetNameForLocaleRequest))
+		return srv.(FileServiceInfoServiceServer).GetFiles(ctx, req.(*GetFilesRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ServiceInfoService_GetServiceClassName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetServiceClassNameRequest)
+func _FileServiceInfoService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ServiceInfoServiceServer).GetServiceClassName(ctx, in)
+		return srv.(FileServiceInfoServiceServer).WriteToParcel(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: ServiceInfoService_GetServiceClassName_FullMethodName,
+		FullMethod: FileServiceInfoService_WriteToParcel_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ServiceInfoServiceServer).GetServiceClassName(ctx, req.(*GetServiceClassNameRequest))
+		return srv.(FileServiceInfoServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ServiceInfoService_GetServiceId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetServiceIdRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ServiceInfoServiceServer).GetServiceId(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ServiceInfoService_GetServiceId_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ServiceInfoServiceServer).GetServiceId(ctx, req.(*GetServiceIdRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ServiceInfoService_GetSessionEndTime_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetSessionEndTimeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ServiceInfoServiceServer).GetSessionEndTime(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ServiceInfoService_GetSessionEndTime_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ServiceInfoServiceServer).GetSessionEndTime(ctx, req.(*GetSessionEndTimeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ServiceInfoService_GetSessionStartTime_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetSessionStartTimeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ServiceInfoServiceServer).GetSessionStartTime(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ServiceInfoService_GetSessionStartTime_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ServiceInfoServiceServer).GetSessionStartTime(ctx, req.(*GetSessionStartTimeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ServiceInfoService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(HashCodeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ServiceInfoServiceServer).HashCode(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ServiceInfoService_HashCode_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ServiceInfoServiceServer).HashCode(ctx, req.(*HashCodeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// ServiceInfoService_ServiceDesc is the grpc.ServiceDesc for ServiceInfoService service.
+// FileServiceInfoService_ServiceDesc is the grpc.ServiceDesc for FileServiceInfoService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var ServiceInfoService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "mbms.ServiceInfoService",
-	HandlerType: (*ServiceInfoServiceServer)(nil),
+var FileServiceInfoService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "mbms.FileServiceInfoService",
+	HandlerType: (*FileServiceInfoServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "Equals",
-			Handler:    _ServiceInfoService_Equals_Handler,
+			MethodName: "DescribeContents",
+			Handler:    _FileServiceInfoService_DescribeContents_Handler,
 		},
 		{
-			MethodName: "GetNameForLocale",
-			Handler:    _ServiceInfoService_GetNameForLocale_Handler,
+			MethodName: "GetFiles",
+			Handler:    _FileServiceInfoService_GetFiles_Handler,
 		},
 		{
-			MethodName: "GetServiceClassName",
-			Handler:    _ServiceInfoService_GetServiceClassName_Handler,
-		},
-		{
-			MethodName: "GetServiceId",
-			Handler:    _ServiceInfoService_GetServiceId_Handler,
-		},
-		{
-			MethodName: "GetSessionEndTime",
-			Handler:    _ServiceInfoService_GetSessionEndTime_Handler,
-		},
-		{
-			MethodName: "GetSessionStartTime",
-			Handler:    _ServiceInfoService_GetSessionStartTime_Handler,
-		},
-		{
-			MethodName: "HashCode",
-			Handler:    _ServiceInfoService_HashCode_Handler,
+			MethodName: "WriteToParcel",
+			Handler:    _FileServiceInfoService_WriteToParcel_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -823,178 +2000,291 @@ var ServiceInfoService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	DownloadSessionCallbackService_NewDownloadSessionCallback_FullMethodName = "/mbms.DownloadSessionCallbackService/NewDownloadSessionCallback"
-	DownloadSessionCallbackService_OnError_FullMethodName                    = "/mbms.DownloadSessionCallbackService/OnError"
-	DownloadSessionCallbackService_OnMiddlewareReady_FullMethodName          = "/mbms.DownloadSessionCallbackService/OnMiddlewareReady"
+	FileInfoService_DescribeContents_FullMethodName = "/mbms.FileInfoService/DescribeContents"
+	FileInfoService_Equals_FullMethodName           = "/mbms.FileInfoService/Equals"
+	FileInfoService_GetMimeType_FullMethodName      = "/mbms.FileInfoService/GetMimeType"
+	FileInfoService_GetUri_FullMethodName           = "/mbms.FileInfoService/GetUri"
+	FileInfoService_HashCode_FullMethodName         = "/mbms.FileInfoService/HashCode"
+	FileInfoService_WriteToParcel_FullMethodName    = "/mbms.FileInfoService/WriteToParcel"
 )
 
-// DownloadSessionCallbackServiceClient is the client API for DownloadSessionCallbackService service.
+// FileInfoServiceClient is the client API for FileInfoService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type DownloadSessionCallbackServiceClient interface {
-	NewDownloadSessionCallback(ctx context.Context, in *NewDownloadSessionCallbackRequest, opts ...grpc.CallOption) (*NewDownloadSessionCallbackResponse, error)
-	OnError(ctx context.Context, in *OnErrorRequest, opts ...grpc.CallOption) (*OnErrorResponse, error)
-	OnMiddlewareReady(ctx context.Context, in *OnMiddlewareReadyRequest, opts ...grpc.CallOption) (*OnMiddlewareReadyResponse, error)
+type FileInfoServiceClient interface {
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	GetMimeType(ctx context.Context, in *GetMimeTypeRequest, opts ...grpc.CallOption) (*GetMimeTypeResponse, error)
+	GetUri(ctx context.Context, in *GetUriRequest, opts ...grpc.CallOption) (*GetUriResponse, error)
+	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
 }
 
-type downloadSessionCallbackServiceClient struct {
+type fileInfoServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewDownloadSessionCallbackServiceClient(cc grpc.ClientConnInterface) DownloadSessionCallbackServiceClient {
-	return &downloadSessionCallbackServiceClient{cc}
+func NewFileInfoServiceClient(cc grpc.ClientConnInterface) FileInfoServiceClient {
+	return &fileInfoServiceClient{cc}
 }
 
-func (c *downloadSessionCallbackServiceClient) NewDownloadSessionCallback(ctx context.Context, in *NewDownloadSessionCallbackRequest, opts ...grpc.CallOption) (*NewDownloadSessionCallbackResponse, error) {
+func (c *fileInfoServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewDownloadSessionCallbackResponse)
-	err := c.cc.Invoke(ctx, DownloadSessionCallbackService_NewDownloadSessionCallback_FullMethodName, in, out, cOpts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, FileInfoService_DescribeContents_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *downloadSessionCallbackServiceClient) OnError(ctx context.Context, in *OnErrorRequest, opts ...grpc.CallOption) (*OnErrorResponse, error) {
+func (c *fileInfoServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnErrorResponse)
-	err := c.cc.Invoke(ctx, DownloadSessionCallbackService_OnError_FullMethodName, in, out, cOpts...)
+	out := new(EqualsResponse)
+	err := c.cc.Invoke(ctx, FileInfoService_Equals_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *downloadSessionCallbackServiceClient) OnMiddlewareReady(ctx context.Context, in *OnMiddlewareReadyRequest, opts ...grpc.CallOption) (*OnMiddlewareReadyResponse, error) {
+func (c *fileInfoServiceClient) GetMimeType(ctx context.Context, in *GetMimeTypeRequest, opts ...grpc.CallOption) (*GetMimeTypeResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnMiddlewareReadyResponse)
-	err := c.cc.Invoke(ctx, DownloadSessionCallbackService_OnMiddlewareReady_FullMethodName, in, out, cOpts...)
+	out := new(GetMimeTypeResponse)
+	err := c.cc.Invoke(ctx, FileInfoService_GetMimeType_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// DownloadSessionCallbackServiceServer is the server API for DownloadSessionCallbackService service.
-// All implementations must embed UnimplementedDownloadSessionCallbackServiceServer
+func (c *fileInfoServiceClient) GetUri(ctx context.Context, in *GetUriRequest, opts ...grpc.CallOption) (*GetUriResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetUriResponse)
+	err := c.cc.Invoke(ctx, FileInfoService_GetUri_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *fileInfoServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HashCodeResponse)
+	err := c.cc.Invoke(ctx, FileInfoService_HashCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *fileInfoServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, FileInfoService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// FileInfoServiceServer is the server API for FileInfoService service.
+// All implementations must embed UnimplementedFileInfoServiceServer
 // for forward compatibility.
-type DownloadSessionCallbackServiceServer interface {
-	NewDownloadSessionCallback(context.Context, *NewDownloadSessionCallbackRequest) (*NewDownloadSessionCallbackResponse, error)
-	OnError(context.Context, *OnErrorRequest) (*OnErrorResponse, error)
-	OnMiddlewareReady(context.Context, *OnMiddlewareReadyRequest) (*OnMiddlewareReadyResponse, error)
-	mustEmbedUnimplementedDownloadSessionCallbackServiceServer()
+type FileInfoServiceServer interface {
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
+	GetMimeType(context.Context, *GetMimeTypeRequest) (*GetMimeTypeResponse, error)
+	GetUri(context.Context, *GetUriRequest) (*GetUriResponse, error)
+	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedFileInfoServiceServer()
 }
 
-// UnimplementedDownloadSessionCallbackServiceServer must be embedded to have
+// UnimplementedFileInfoServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedDownloadSessionCallbackServiceServer struct{}
+type UnimplementedFileInfoServiceServer struct{}
 
-func (UnimplementedDownloadSessionCallbackServiceServer) NewDownloadSessionCallback(context.Context, *NewDownloadSessionCallbackRequest) (*NewDownloadSessionCallbackResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewDownloadSessionCallback not implemented")
+func (UnimplementedFileInfoServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
 }
-func (UnimplementedDownloadSessionCallbackServiceServer) OnError(context.Context, *OnErrorRequest) (*OnErrorResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnError not implemented")
+func (UnimplementedFileInfoServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
 }
-func (UnimplementedDownloadSessionCallbackServiceServer) OnMiddlewareReady(context.Context, *OnMiddlewareReadyRequest) (*OnMiddlewareReadyResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnMiddlewareReady not implemented")
+func (UnimplementedFileInfoServiceServer) GetMimeType(context.Context, *GetMimeTypeRequest) (*GetMimeTypeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetMimeType not implemented")
 }
-func (UnimplementedDownloadSessionCallbackServiceServer) mustEmbedUnimplementedDownloadSessionCallbackServiceServer() {
+func (UnimplementedFileInfoServiceServer) GetUri(context.Context, *GetUriRequest) (*GetUriResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetUri not implemented")
 }
-func (UnimplementedDownloadSessionCallbackServiceServer) testEmbeddedByValue() {}
+func (UnimplementedFileInfoServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
+}
+func (UnimplementedFileInfoServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedFileInfoServiceServer) mustEmbedUnimplementedFileInfoServiceServer() {}
+func (UnimplementedFileInfoServiceServer) testEmbeddedByValue()                         {}
 
-// UnsafeDownloadSessionCallbackServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to DownloadSessionCallbackServiceServer will
+// UnsafeFileInfoServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to FileInfoServiceServer will
 // result in compilation errors.
-type UnsafeDownloadSessionCallbackServiceServer interface {
-	mustEmbedUnimplementedDownloadSessionCallbackServiceServer()
+type UnsafeFileInfoServiceServer interface {
+	mustEmbedUnimplementedFileInfoServiceServer()
 }
 
-func RegisterDownloadSessionCallbackServiceServer(s grpc.ServiceRegistrar, srv DownloadSessionCallbackServiceServer) {
-	// If the following call panics, it indicates UnimplementedDownloadSessionCallbackServiceServer was
+func RegisterFileInfoServiceServer(s grpc.ServiceRegistrar, srv FileInfoServiceServer) {
+	// If the following call panics, it indicates UnimplementedFileInfoServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&DownloadSessionCallbackService_ServiceDesc, srv)
+	s.RegisterService(&FileInfoService_ServiceDesc, srv)
 }
 
-func _DownloadSessionCallbackService_NewDownloadSessionCallback_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewDownloadSessionCallbackRequest)
+func _FileInfoService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(DownloadSessionCallbackServiceServer).NewDownloadSessionCallback(ctx, in)
+		return srv.(FileInfoServiceServer).DescribeContents(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: DownloadSessionCallbackService_NewDownloadSessionCallback_FullMethodName,
+		FullMethod: FileInfoService_DescribeContents_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DownloadSessionCallbackServiceServer).NewDownloadSessionCallback(ctx, req.(*NewDownloadSessionCallbackRequest))
+		return srv.(FileInfoServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _DownloadSessionCallbackService_OnError_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnErrorRequest)
+func _FileInfoService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EqualsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(DownloadSessionCallbackServiceServer).OnError(ctx, in)
+		return srv.(FileInfoServiceServer).Equals(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: DownloadSessionCallbackService_OnError_FullMethodName,
+		FullMethod: FileInfoService_Equals_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DownloadSessionCallbackServiceServer).OnError(ctx, req.(*OnErrorRequest))
+		return srv.(FileInfoServiceServer).Equals(ctx, req.(*EqualsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _DownloadSessionCallbackService_OnMiddlewareReady_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnMiddlewareReadyRequest)
+func _FileInfoService_GetMimeType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetMimeTypeRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(DownloadSessionCallbackServiceServer).OnMiddlewareReady(ctx, in)
+		return srv.(FileInfoServiceServer).GetMimeType(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: DownloadSessionCallbackService_OnMiddlewareReady_FullMethodName,
+		FullMethod: FileInfoService_GetMimeType_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DownloadSessionCallbackServiceServer).OnMiddlewareReady(ctx, req.(*OnMiddlewareReadyRequest))
+		return srv.(FileInfoServiceServer).GetMimeType(ctx, req.(*GetMimeTypeRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// DownloadSessionCallbackService_ServiceDesc is the grpc.ServiceDesc for DownloadSessionCallbackService service.
+func _FileInfoService_GetUri_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetUriRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FileInfoServiceServer).GetUri(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: FileInfoService_GetUri_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FileInfoServiceServer).GetUri(ctx, req.(*GetUriRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _FileInfoService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HashCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FileInfoServiceServer).HashCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: FileInfoService_HashCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FileInfoServiceServer).HashCode(ctx, req.(*HashCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _FileInfoService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FileInfoServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: FileInfoService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FileInfoServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// FileInfoService_ServiceDesc is the grpc.ServiceDesc for FileInfoService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var DownloadSessionCallbackService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "mbms.DownloadSessionCallbackService",
-	HandlerType: (*DownloadSessionCallbackServiceServer)(nil),
+var FileInfoService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "mbms.FileInfoService",
+	HandlerType: (*FileInfoServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "NewDownloadSessionCallback",
-			Handler:    _DownloadSessionCallbackService_NewDownloadSessionCallback_Handler,
+			MethodName: "DescribeContents",
+			Handler:    _FileInfoService_DescribeContents_Handler,
 		},
 		{
-			MethodName: "OnError",
-			Handler:    _DownloadSessionCallbackService_OnError_Handler,
+			MethodName: "Equals",
+			Handler:    _FileInfoService_Equals_Handler,
 		},
 		{
-			MethodName: "OnMiddlewareReady",
-			Handler:    _DownloadSessionCallbackService_OnMiddlewareReady_Handler,
+			MethodName: "GetMimeType",
+			Handler:    _FileInfoService_GetMimeType_Handler,
+		},
+		{
+			MethodName: "GetUri",
+			Handler:    _FileInfoService_GetUri_Handler,
+		},
+		{
+			MethodName: "HashCode",
+			Handler:    _FileInfoService_HashCode_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _FileInfoService_WriteToParcel_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -1911,1182 +3201,6 @@ var GroupCallService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetTmgi",
 			Handler:    _GroupCallService_GetTmgi_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/mbms/mbms.proto",
-}
-
-const (
-	FileServiceInfoService_DescribeContents_FullMethodName = "/mbms.FileServiceInfoService/DescribeContents"
-	FileServiceInfoService_WriteToParcel_FullMethodName    = "/mbms.FileServiceInfoService/WriteToParcel"
-)
-
-// FileServiceInfoServiceClient is the client API for FileServiceInfoService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type FileServiceInfoServiceClient interface {
-	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
-}
-
-type fileServiceInfoServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewFileServiceInfoServiceClient(cc grpc.ClientConnInterface) FileServiceInfoServiceClient {
-	return &fileServiceInfoServiceClient{cc}
-}
-
-func (c *fileServiceInfoServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, FileServiceInfoService_DescribeContents_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *fileServiceInfoServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, FileServiceInfoService_WriteToParcel_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// FileServiceInfoServiceServer is the server API for FileServiceInfoService service.
-// All implementations must embed UnimplementedFileServiceInfoServiceServer
-// for forward compatibility.
-type FileServiceInfoServiceServer interface {
-	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
-	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
-	mustEmbedUnimplementedFileServiceInfoServiceServer()
-}
-
-// UnimplementedFileServiceInfoServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedFileServiceInfoServiceServer struct{}
-
-func (UnimplementedFileServiceInfoServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
-}
-func (UnimplementedFileServiceInfoServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
-}
-func (UnimplementedFileServiceInfoServiceServer) mustEmbedUnimplementedFileServiceInfoServiceServer() {
-}
-func (UnimplementedFileServiceInfoServiceServer) testEmbeddedByValue() {}
-
-// UnsafeFileServiceInfoServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to FileServiceInfoServiceServer will
-// result in compilation errors.
-type UnsafeFileServiceInfoServiceServer interface {
-	mustEmbedUnimplementedFileServiceInfoServiceServer()
-}
-
-func RegisterFileServiceInfoServiceServer(s grpc.ServiceRegistrar, srv FileServiceInfoServiceServer) {
-	// If the following call panics, it indicates UnimplementedFileServiceInfoServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&FileServiceInfoService_ServiceDesc, srv)
-}
-
-func _FileServiceInfoService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DescribeContentsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(FileServiceInfoServiceServer).DescribeContents(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: FileServiceInfoService_DescribeContents_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FileServiceInfoServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _FileServiceInfoService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WriteToParcelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(FileServiceInfoServiceServer).WriteToParcel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: FileServiceInfoService_WriteToParcel_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FileServiceInfoServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// FileServiceInfoService_ServiceDesc is the grpc.ServiceDesc for FileServiceInfoService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var FileServiceInfoService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "mbms.FileServiceInfoService",
-	HandlerType: (*FileServiceInfoServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "DescribeContents",
-			Handler:    _FileServiceInfoService_DescribeContents_Handler,
-		},
-		{
-			MethodName: "WriteToParcel",
-			Handler:    _FileServiceInfoService_WriteToParcel_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/mbms/mbms.proto",
-}
-
-const (
-	DownloadProgressListenerService_NewDownloadProgressListener_FullMethodName = "/mbms.DownloadProgressListenerService/NewDownloadProgressListener"
-	DownloadProgressListenerService_OnProgressUpdated_FullMethodName           = "/mbms.DownloadProgressListenerService/OnProgressUpdated"
-)
-
-// DownloadProgressListenerServiceClient is the client API for DownloadProgressListenerService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type DownloadProgressListenerServiceClient interface {
-	NewDownloadProgressListener(ctx context.Context, in *NewDownloadProgressListenerRequest, opts ...grpc.CallOption) (*NewDownloadProgressListenerResponse, error)
-	OnProgressUpdated(ctx context.Context, in *OnProgressUpdatedRequest, opts ...grpc.CallOption) (*OnProgressUpdatedResponse, error)
-}
-
-type downloadProgressListenerServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewDownloadProgressListenerServiceClient(cc grpc.ClientConnInterface) DownloadProgressListenerServiceClient {
-	return &downloadProgressListenerServiceClient{cc}
-}
-
-func (c *downloadProgressListenerServiceClient) NewDownloadProgressListener(ctx context.Context, in *NewDownloadProgressListenerRequest, opts ...grpc.CallOption) (*NewDownloadProgressListenerResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewDownloadProgressListenerResponse)
-	err := c.cc.Invoke(ctx, DownloadProgressListenerService_NewDownloadProgressListener_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *downloadProgressListenerServiceClient) OnProgressUpdated(ctx context.Context, in *OnProgressUpdatedRequest, opts ...grpc.CallOption) (*OnProgressUpdatedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnProgressUpdatedResponse)
-	err := c.cc.Invoke(ctx, DownloadProgressListenerService_OnProgressUpdated_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// DownloadProgressListenerServiceServer is the server API for DownloadProgressListenerService service.
-// All implementations must embed UnimplementedDownloadProgressListenerServiceServer
-// for forward compatibility.
-type DownloadProgressListenerServiceServer interface {
-	NewDownloadProgressListener(context.Context, *NewDownloadProgressListenerRequest) (*NewDownloadProgressListenerResponse, error)
-	OnProgressUpdated(context.Context, *OnProgressUpdatedRequest) (*OnProgressUpdatedResponse, error)
-	mustEmbedUnimplementedDownloadProgressListenerServiceServer()
-}
-
-// UnimplementedDownloadProgressListenerServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedDownloadProgressListenerServiceServer struct{}
-
-func (UnimplementedDownloadProgressListenerServiceServer) NewDownloadProgressListener(context.Context, *NewDownloadProgressListenerRequest) (*NewDownloadProgressListenerResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewDownloadProgressListener not implemented")
-}
-func (UnimplementedDownloadProgressListenerServiceServer) OnProgressUpdated(context.Context, *OnProgressUpdatedRequest) (*OnProgressUpdatedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnProgressUpdated not implemented")
-}
-func (UnimplementedDownloadProgressListenerServiceServer) mustEmbedUnimplementedDownloadProgressListenerServiceServer() {
-}
-func (UnimplementedDownloadProgressListenerServiceServer) testEmbeddedByValue() {}
-
-// UnsafeDownloadProgressListenerServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to DownloadProgressListenerServiceServer will
-// result in compilation errors.
-type UnsafeDownloadProgressListenerServiceServer interface {
-	mustEmbedUnimplementedDownloadProgressListenerServiceServer()
-}
-
-func RegisterDownloadProgressListenerServiceServer(s grpc.ServiceRegistrar, srv DownloadProgressListenerServiceServer) {
-	// If the following call panics, it indicates UnimplementedDownloadProgressListenerServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&DownloadProgressListenerService_ServiceDesc, srv)
-}
-
-func _DownloadProgressListenerService_NewDownloadProgressListener_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewDownloadProgressListenerRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DownloadProgressListenerServiceServer).NewDownloadProgressListener(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DownloadProgressListenerService_NewDownloadProgressListener_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DownloadProgressListenerServiceServer).NewDownloadProgressListener(ctx, req.(*NewDownloadProgressListenerRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DownloadProgressListenerService_OnProgressUpdated_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnProgressUpdatedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DownloadProgressListenerServiceServer).OnProgressUpdated(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DownloadProgressListenerService_OnProgressUpdated_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DownloadProgressListenerServiceServer).OnProgressUpdated(ctx, req.(*OnProgressUpdatedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// DownloadProgressListenerService_ServiceDesc is the grpc.ServiceDesc for DownloadProgressListenerService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var DownloadProgressListenerService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "mbms.DownloadProgressListenerService",
-	HandlerType: (*DownloadProgressListenerServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "NewDownloadProgressListener",
-			Handler:    _DownloadProgressListenerService_NewDownloadProgressListener_Handler,
-		},
-		{
-			MethodName: "OnProgressUpdated",
-			Handler:    _DownloadProgressListenerService_OnProgressUpdated_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/mbms/mbms.proto",
-}
-
-const (
-	StreamingServiceService_Close_FullMethodName          = "/mbms.StreamingServiceService/Close"
-	StreamingServiceService_GetInfo_FullMethodName        = "/mbms.StreamingServiceService/GetInfo"
-	StreamingServiceService_GetPlaybackUri_FullMethodName = "/mbms.StreamingServiceService/GetPlaybackUri"
-)
-
-// StreamingServiceServiceClient is the client API for StreamingServiceService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type StreamingServiceServiceClient interface {
-	Close(ctx context.Context, in *CloseRequest, opts ...grpc.CallOption) (*CloseResponse, error)
-	GetInfo(ctx context.Context, in *GetInfoRequest, opts ...grpc.CallOption) (*GetInfoResponse, error)
-	GetPlaybackUri(ctx context.Context, in *GetPlaybackUriRequest, opts ...grpc.CallOption) (*GetPlaybackUriResponse, error)
-}
-
-type streamingServiceServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewStreamingServiceServiceClient(cc grpc.ClientConnInterface) StreamingServiceServiceClient {
-	return &streamingServiceServiceClient{cc}
-}
-
-func (c *streamingServiceServiceClient) Close(ctx context.Context, in *CloseRequest, opts ...grpc.CallOption) (*CloseResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CloseResponse)
-	err := c.cc.Invoke(ctx, StreamingServiceService_Close_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *streamingServiceServiceClient) GetInfo(ctx context.Context, in *GetInfoRequest, opts ...grpc.CallOption) (*GetInfoResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetInfoResponse)
-	err := c.cc.Invoke(ctx, StreamingServiceService_GetInfo_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *streamingServiceServiceClient) GetPlaybackUri(ctx context.Context, in *GetPlaybackUriRequest, opts ...grpc.CallOption) (*GetPlaybackUriResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetPlaybackUriResponse)
-	err := c.cc.Invoke(ctx, StreamingServiceService_GetPlaybackUri_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// StreamingServiceServiceServer is the server API for StreamingServiceService service.
-// All implementations must embed UnimplementedStreamingServiceServiceServer
-// for forward compatibility.
-type StreamingServiceServiceServer interface {
-	Close(context.Context, *CloseRequest) (*CloseResponse, error)
-	GetInfo(context.Context, *GetInfoRequest) (*GetInfoResponse, error)
-	GetPlaybackUri(context.Context, *GetPlaybackUriRequest) (*GetPlaybackUriResponse, error)
-	mustEmbedUnimplementedStreamingServiceServiceServer()
-}
-
-// UnimplementedStreamingServiceServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedStreamingServiceServiceServer struct{}
-
-func (UnimplementedStreamingServiceServiceServer) Close(context.Context, *CloseRequest) (*CloseResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Close not implemented")
-}
-func (UnimplementedStreamingServiceServiceServer) GetInfo(context.Context, *GetInfoRequest) (*GetInfoResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetInfo not implemented")
-}
-func (UnimplementedStreamingServiceServiceServer) GetPlaybackUri(context.Context, *GetPlaybackUriRequest) (*GetPlaybackUriResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetPlaybackUri not implemented")
-}
-func (UnimplementedStreamingServiceServiceServer) mustEmbedUnimplementedStreamingServiceServiceServer() {
-}
-func (UnimplementedStreamingServiceServiceServer) testEmbeddedByValue() {}
-
-// UnsafeStreamingServiceServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to StreamingServiceServiceServer will
-// result in compilation errors.
-type UnsafeStreamingServiceServiceServer interface {
-	mustEmbedUnimplementedStreamingServiceServiceServer()
-}
-
-func RegisterStreamingServiceServiceServer(s grpc.ServiceRegistrar, srv StreamingServiceServiceServer) {
-	// If the following call panics, it indicates UnimplementedStreamingServiceServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&StreamingServiceService_ServiceDesc, srv)
-}
-
-func _StreamingServiceService_Close_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CloseRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(StreamingServiceServiceServer).Close(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: StreamingServiceService_Close_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(StreamingServiceServiceServer).Close(ctx, req.(*CloseRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _StreamingServiceService_GetInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetInfoRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(StreamingServiceServiceServer).GetInfo(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: StreamingServiceService_GetInfo_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(StreamingServiceServiceServer).GetInfo(ctx, req.(*GetInfoRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _StreamingServiceService_GetPlaybackUri_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetPlaybackUriRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(StreamingServiceServiceServer).GetPlaybackUri(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: StreamingServiceService_GetPlaybackUri_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(StreamingServiceServiceServer).GetPlaybackUri(ctx, req.(*GetPlaybackUriRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// StreamingServiceService_ServiceDesc is the grpc.ServiceDesc for StreamingServiceService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var StreamingServiceService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "mbms.StreamingServiceService",
-	HandlerType: (*StreamingServiceServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "Close",
-			Handler:    _StreamingServiceService_Close_Handler,
-		},
-		{
-			MethodName: "GetInfo",
-			Handler:    _StreamingServiceService_GetInfo_Handler,
-		},
-		{
-			MethodName: "GetPlaybackUri",
-			Handler:    _StreamingServiceService_GetPlaybackUri_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/mbms/mbms.proto",
-}
-
-const (
-	DownloadStatusListenerService_NewDownloadStatusListener_FullMethodName = "/mbms.DownloadStatusListenerService/NewDownloadStatusListener"
-	DownloadStatusListenerService_OnStatusUpdated_FullMethodName           = "/mbms.DownloadStatusListenerService/OnStatusUpdated"
-)
-
-// DownloadStatusListenerServiceClient is the client API for DownloadStatusListenerService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type DownloadStatusListenerServiceClient interface {
-	NewDownloadStatusListener(ctx context.Context, in *NewDownloadStatusListenerRequest, opts ...grpc.CallOption) (*NewDownloadStatusListenerResponse, error)
-	OnStatusUpdated(ctx context.Context, in *OnStatusUpdatedRequest, opts ...grpc.CallOption) (*OnStatusUpdatedResponse, error)
-}
-
-type downloadStatusListenerServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewDownloadStatusListenerServiceClient(cc grpc.ClientConnInterface) DownloadStatusListenerServiceClient {
-	return &downloadStatusListenerServiceClient{cc}
-}
-
-func (c *downloadStatusListenerServiceClient) NewDownloadStatusListener(ctx context.Context, in *NewDownloadStatusListenerRequest, opts ...grpc.CallOption) (*NewDownloadStatusListenerResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewDownloadStatusListenerResponse)
-	err := c.cc.Invoke(ctx, DownloadStatusListenerService_NewDownloadStatusListener_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *downloadStatusListenerServiceClient) OnStatusUpdated(ctx context.Context, in *OnStatusUpdatedRequest, opts ...grpc.CallOption) (*OnStatusUpdatedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnStatusUpdatedResponse)
-	err := c.cc.Invoke(ctx, DownloadStatusListenerService_OnStatusUpdated_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// DownloadStatusListenerServiceServer is the server API for DownloadStatusListenerService service.
-// All implementations must embed UnimplementedDownloadStatusListenerServiceServer
-// for forward compatibility.
-type DownloadStatusListenerServiceServer interface {
-	NewDownloadStatusListener(context.Context, *NewDownloadStatusListenerRequest) (*NewDownloadStatusListenerResponse, error)
-	OnStatusUpdated(context.Context, *OnStatusUpdatedRequest) (*OnStatusUpdatedResponse, error)
-	mustEmbedUnimplementedDownloadStatusListenerServiceServer()
-}
-
-// UnimplementedDownloadStatusListenerServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedDownloadStatusListenerServiceServer struct{}
-
-func (UnimplementedDownloadStatusListenerServiceServer) NewDownloadStatusListener(context.Context, *NewDownloadStatusListenerRequest) (*NewDownloadStatusListenerResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewDownloadStatusListener not implemented")
-}
-func (UnimplementedDownloadStatusListenerServiceServer) OnStatusUpdated(context.Context, *OnStatusUpdatedRequest) (*OnStatusUpdatedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnStatusUpdated not implemented")
-}
-func (UnimplementedDownloadStatusListenerServiceServer) mustEmbedUnimplementedDownloadStatusListenerServiceServer() {
-}
-func (UnimplementedDownloadStatusListenerServiceServer) testEmbeddedByValue() {}
-
-// UnsafeDownloadStatusListenerServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to DownloadStatusListenerServiceServer will
-// result in compilation errors.
-type UnsafeDownloadStatusListenerServiceServer interface {
-	mustEmbedUnimplementedDownloadStatusListenerServiceServer()
-}
-
-func RegisterDownloadStatusListenerServiceServer(s grpc.ServiceRegistrar, srv DownloadStatusListenerServiceServer) {
-	// If the following call panics, it indicates UnimplementedDownloadStatusListenerServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&DownloadStatusListenerService_ServiceDesc, srv)
-}
-
-func _DownloadStatusListenerService_NewDownloadStatusListener_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewDownloadStatusListenerRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DownloadStatusListenerServiceServer).NewDownloadStatusListener(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DownloadStatusListenerService_NewDownloadStatusListener_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DownloadStatusListenerServiceServer).NewDownloadStatusListener(ctx, req.(*NewDownloadStatusListenerRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DownloadStatusListenerService_OnStatusUpdated_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnStatusUpdatedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DownloadStatusListenerServiceServer).OnStatusUpdated(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DownloadStatusListenerService_OnStatusUpdated_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DownloadStatusListenerServiceServer).OnStatusUpdated(ctx, req.(*OnStatusUpdatedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// DownloadStatusListenerService_ServiceDesc is the grpc.ServiceDesc for DownloadStatusListenerService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var DownloadStatusListenerService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "mbms.DownloadStatusListenerService",
-	HandlerType: (*DownloadStatusListenerServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "NewDownloadStatusListener",
-			Handler:    _DownloadStatusListenerService_NewDownloadStatusListener_Handler,
-		},
-		{
-			MethodName: "OnStatusUpdated",
-			Handler:    _DownloadStatusListenerService_OnStatusUpdated_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/mbms/mbms.proto",
-}
-
-const (
-	StreamingServiceInfoService_DescribeContents_FullMethodName = "/mbms.StreamingServiceInfoService/DescribeContents"
-	StreamingServiceInfoService_WriteToParcel_FullMethodName    = "/mbms.StreamingServiceInfoService/WriteToParcel"
-)
-
-// StreamingServiceInfoServiceClient is the client API for StreamingServiceInfoService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type StreamingServiceInfoServiceClient interface {
-	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
-}
-
-type streamingServiceInfoServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewStreamingServiceInfoServiceClient(cc grpc.ClientConnInterface) StreamingServiceInfoServiceClient {
-	return &streamingServiceInfoServiceClient{cc}
-}
-
-func (c *streamingServiceInfoServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, StreamingServiceInfoService_DescribeContents_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *streamingServiceInfoServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, StreamingServiceInfoService_WriteToParcel_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// StreamingServiceInfoServiceServer is the server API for StreamingServiceInfoService service.
-// All implementations must embed UnimplementedStreamingServiceInfoServiceServer
-// for forward compatibility.
-type StreamingServiceInfoServiceServer interface {
-	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
-	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
-	mustEmbedUnimplementedStreamingServiceInfoServiceServer()
-}
-
-// UnimplementedStreamingServiceInfoServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedStreamingServiceInfoServiceServer struct{}
-
-func (UnimplementedStreamingServiceInfoServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
-}
-func (UnimplementedStreamingServiceInfoServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
-}
-func (UnimplementedStreamingServiceInfoServiceServer) mustEmbedUnimplementedStreamingServiceInfoServiceServer() {
-}
-func (UnimplementedStreamingServiceInfoServiceServer) testEmbeddedByValue() {}
-
-// UnsafeStreamingServiceInfoServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to StreamingServiceInfoServiceServer will
-// result in compilation errors.
-type UnsafeStreamingServiceInfoServiceServer interface {
-	mustEmbedUnimplementedStreamingServiceInfoServiceServer()
-}
-
-func RegisterStreamingServiceInfoServiceServer(s grpc.ServiceRegistrar, srv StreamingServiceInfoServiceServer) {
-	// If the following call panics, it indicates UnimplementedStreamingServiceInfoServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&StreamingServiceInfoService_ServiceDesc, srv)
-}
-
-func _StreamingServiceInfoService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DescribeContentsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(StreamingServiceInfoServiceServer).DescribeContents(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: StreamingServiceInfoService_DescribeContents_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(StreamingServiceInfoServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _StreamingServiceInfoService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WriteToParcelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(StreamingServiceInfoServiceServer).WriteToParcel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: StreamingServiceInfoService_WriteToParcel_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(StreamingServiceInfoServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// StreamingServiceInfoService_ServiceDesc is the grpc.ServiceDesc for StreamingServiceInfoService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var StreamingServiceInfoService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "mbms.StreamingServiceInfoService",
-	HandlerType: (*StreamingServiceInfoServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "DescribeContents",
-			Handler:    _StreamingServiceInfoService_DescribeContents_Handler,
-		},
-		{
-			MethodName: "WriteToParcel",
-			Handler:    _StreamingServiceInfoService_WriteToParcel_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/mbms/mbms.proto",
-}
-
-const (
-	DownloadReceiverService_NewDownloadReceiver_FullMethodName = "/mbms.DownloadReceiverService/NewDownloadReceiver"
-	DownloadReceiverService_OnReceive_FullMethodName           = "/mbms.DownloadReceiverService/OnReceive"
-)
-
-// DownloadReceiverServiceClient is the client API for DownloadReceiverService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type DownloadReceiverServiceClient interface {
-	NewDownloadReceiver(ctx context.Context, in *NewDownloadReceiverRequest, opts ...grpc.CallOption) (*NewDownloadReceiverResponse, error)
-	OnReceive(ctx context.Context, in *OnReceiveRequest, opts ...grpc.CallOption) (*OnReceiveResponse, error)
-}
-
-type downloadReceiverServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewDownloadReceiverServiceClient(cc grpc.ClientConnInterface) DownloadReceiverServiceClient {
-	return &downloadReceiverServiceClient{cc}
-}
-
-func (c *downloadReceiverServiceClient) NewDownloadReceiver(ctx context.Context, in *NewDownloadReceiverRequest, opts ...grpc.CallOption) (*NewDownloadReceiverResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewDownloadReceiverResponse)
-	err := c.cc.Invoke(ctx, DownloadReceiverService_NewDownloadReceiver_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *downloadReceiverServiceClient) OnReceive(ctx context.Context, in *OnReceiveRequest, opts ...grpc.CallOption) (*OnReceiveResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnReceiveResponse)
-	err := c.cc.Invoke(ctx, DownloadReceiverService_OnReceive_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// DownloadReceiverServiceServer is the server API for DownloadReceiverService service.
-// All implementations must embed UnimplementedDownloadReceiverServiceServer
-// for forward compatibility.
-type DownloadReceiverServiceServer interface {
-	NewDownloadReceiver(context.Context, *NewDownloadReceiverRequest) (*NewDownloadReceiverResponse, error)
-	OnReceive(context.Context, *OnReceiveRequest) (*OnReceiveResponse, error)
-	mustEmbedUnimplementedDownloadReceiverServiceServer()
-}
-
-// UnimplementedDownloadReceiverServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedDownloadReceiverServiceServer struct{}
-
-func (UnimplementedDownloadReceiverServiceServer) NewDownloadReceiver(context.Context, *NewDownloadReceiverRequest) (*NewDownloadReceiverResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewDownloadReceiver not implemented")
-}
-func (UnimplementedDownloadReceiverServiceServer) OnReceive(context.Context, *OnReceiveRequest) (*OnReceiveResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnReceive not implemented")
-}
-func (UnimplementedDownloadReceiverServiceServer) mustEmbedUnimplementedDownloadReceiverServiceServer() {
-}
-func (UnimplementedDownloadReceiverServiceServer) testEmbeddedByValue() {}
-
-// UnsafeDownloadReceiverServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to DownloadReceiverServiceServer will
-// result in compilation errors.
-type UnsafeDownloadReceiverServiceServer interface {
-	mustEmbedUnimplementedDownloadReceiverServiceServer()
-}
-
-func RegisterDownloadReceiverServiceServer(s grpc.ServiceRegistrar, srv DownloadReceiverServiceServer) {
-	// If the following call panics, it indicates UnimplementedDownloadReceiverServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&DownloadReceiverService_ServiceDesc, srv)
-}
-
-func _DownloadReceiverService_NewDownloadReceiver_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewDownloadReceiverRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DownloadReceiverServiceServer).NewDownloadReceiver(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DownloadReceiverService_NewDownloadReceiver_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DownloadReceiverServiceServer).NewDownloadReceiver(ctx, req.(*NewDownloadReceiverRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DownloadReceiverService_OnReceive_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnReceiveRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DownloadReceiverServiceServer).OnReceive(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DownloadReceiverService_OnReceive_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DownloadReceiverServiceServer).OnReceive(ctx, req.(*OnReceiveRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// DownloadReceiverService_ServiceDesc is the grpc.ServiceDesc for DownloadReceiverService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var DownloadReceiverService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "mbms.DownloadReceiverService",
-	HandlerType: (*DownloadReceiverServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "NewDownloadReceiver",
-			Handler:    _DownloadReceiverService_NewDownloadReceiver_Handler,
-		},
-		{
-			MethodName: "OnReceive",
-			Handler:    _DownloadReceiverService_OnReceive_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/mbms/mbms.proto",
-}
-
-const (
-	FileInfoService_DescribeContents_FullMethodName = "/mbms.FileInfoService/DescribeContents"
-	FileInfoService_Equals_FullMethodName           = "/mbms.FileInfoService/Equals"
-	FileInfoService_GetMimeType_FullMethodName      = "/mbms.FileInfoService/GetMimeType"
-	FileInfoService_GetUri_FullMethodName           = "/mbms.FileInfoService/GetUri"
-	FileInfoService_HashCode_FullMethodName         = "/mbms.FileInfoService/HashCode"
-	FileInfoService_WriteToParcel_FullMethodName    = "/mbms.FileInfoService/WriteToParcel"
-)
-
-// FileInfoServiceClient is the client API for FileInfoService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type FileInfoServiceClient interface {
-	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
-	GetMimeType(ctx context.Context, in *GetMimeTypeRequest, opts ...grpc.CallOption) (*GetMimeTypeResponse, error)
-	GetUri(ctx context.Context, in *GetUriRequest, opts ...grpc.CallOption) (*GetUriResponse, error)
-	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
-	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
-}
-
-type fileInfoServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewFileInfoServiceClient(cc grpc.ClientConnInterface) FileInfoServiceClient {
-	return &fileInfoServiceClient{cc}
-}
-
-func (c *fileInfoServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, FileInfoService_DescribeContents_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *fileInfoServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(EqualsResponse)
-	err := c.cc.Invoke(ctx, FileInfoService_Equals_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *fileInfoServiceClient) GetMimeType(ctx context.Context, in *GetMimeTypeRequest, opts ...grpc.CallOption) (*GetMimeTypeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetMimeTypeResponse)
-	err := c.cc.Invoke(ctx, FileInfoService_GetMimeType_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *fileInfoServiceClient) GetUri(ctx context.Context, in *GetUriRequest, opts ...grpc.CallOption) (*GetUriResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetUriResponse)
-	err := c.cc.Invoke(ctx, FileInfoService_GetUri_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *fileInfoServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(HashCodeResponse)
-	err := c.cc.Invoke(ctx, FileInfoService_HashCode_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *fileInfoServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, FileInfoService_WriteToParcel_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// FileInfoServiceServer is the server API for FileInfoService service.
-// All implementations must embed UnimplementedFileInfoServiceServer
-// for forward compatibility.
-type FileInfoServiceServer interface {
-	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
-	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
-	GetMimeType(context.Context, *GetMimeTypeRequest) (*GetMimeTypeResponse, error)
-	GetUri(context.Context, *GetUriRequest) (*GetUriResponse, error)
-	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
-	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
-	mustEmbedUnimplementedFileInfoServiceServer()
-}
-
-// UnimplementedFileInfoServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedFileInfoServiceServer struct{}
-
-func (UnimplementedFileInfoServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
-}
-func (UnimplementedFileInfoServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
-}
-func (UnimplementedFileInfoServiceServer) GetMimeType(context.Context, *GetMimeTypeRequest) (*GetMimeTypeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetMimeType not implemented")
-}
-func (UnimplementedFileInfoServiceServer) GetUri(context.Context, *GetUriRequest) (*GetUriResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetUri not implemented")
-}
-func (UnimplementedFileInfoServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
-}
-func (UnimplementedFileInfoServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
-}
-func (UnimplementedFileInfoServiceServer) mustEmbedUnimplementedFileInfoServiceServer() {}
-func (UnimplementedFileInfoServiceServer) testEmbeddedByValue()                         {}
-
-// UnsafeFileInfoServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to FileInfoServiceServer will
-// result in compilation errors.
-type UnsafeFileInfoServiceServer interface {
-	mustEmbedUnimplementedFileInfoServiceServer()
-}
-
-func RegisterFileInfoServiceServer(s grpc.ServiceRegistrar, srv FileInfoServiceServer) {
-	// If the following call panics, it indicates UnimplementedFileInfoServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&FileInfoService_ServiceDesc, srv)
-}
-
-func _FileInfoService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DescribeContentsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(FileInfoServiceServer).DescribeContents(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: FileInfoService_DescribeContents_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FileInfoServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _FileInfoService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(EqualsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(FileInfoServiceServer).Equals(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: FileInfoService_Equals_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FileInfoServiceServer).Equals(ctx, req.(*EqualsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _FileInfoService_GetMimeType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetMimeTypeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(FileInfoServiceServer).GetMimeType(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: FileInfoService_GetMimeType_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FileInfoServiceServer).GetMimeType(ctx, req.(*GetMimeTypeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _FileInfoService_GetUri_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetUriRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(FileInfoServiceServer).GetUri(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: FileInfoService_GetUri_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FileInfoServiceServer).GetUri(ctx, req.(*GetUriRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _FileInfoService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(HashCodeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(FileInfoServiceServer).HashCode(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: FileInfoService_HashCode_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FileInfoServiceServer).HashCode(ctx, req.(*HashCodeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _FileInfoService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WriteToParcelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(FileInfoServiceServer).WriteToParcel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: FileInfoService_WriteToParcel_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FileInfoServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// FileInfoService_ServiceDesc is the grpc.ServiceDesc for FileInfoService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var FileInfoService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "mbms.FileInfoService",
-	HandlerType: (*FileInfoServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "DescribeContents",
-			Handler:    _FileInfoService_DescribeContents_Handler,
-		},
-		{
-			MethodName: "Equals",
-			Handler:    _FileInfoService_Equals_Handler,
-		},
-		{
-			MethodName: "GetMimeType",
-			Handler:    _FileInfoService_GetMimeType_Handler,
-		},
-		{
-			MethodName: "GetUri",
-			Handler:    _FileInfoService_GetUri_Handler,
-		},
-		{
-			MethodName: "HashCode",
-			Handler:    _FileInfoService_HashCode_Handler,
-		},
-		{
-			MethodName: "WriteToParcel",
-			Handler:    _FileInfoService_WriteToParcel_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

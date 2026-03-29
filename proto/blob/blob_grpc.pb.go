@@ -27,6 +27,7 @@ const (
 	StoreManagerService_AcquireLease2_2_FullMethodName             = "/blob.StoreManagerService/AcquireLease2_2"
 	StoreManagerService_AcquireLease3_3_FullMethodName             = "/blob.StoreManagerService/AcquireLease3_3"
 	StoreManagerService_CreateSession_FullMethodName               = "/blob.StoreManagerService/CreateSession"
+	StoreManagerService_GetLeasedBlobs_FullMethodName              = "/blob.StoreManagerService/GetLeasedBlobs"
 	StoreManagerService_GetRemainingLeaseQuotaBytes_FullMethodName = "/blob.StoreManagerService/GetRemainingLeaseQuotaBytes"
 	StoreManagerService_OpenBlob_FullMethodName                    = "/blob.StoreManagerService/OpenBlob"
 	StoreManagerService_OpenSession_FullMethodName                 = "/blob.StoreManagerService/OpenSession"
@@ -43,6 +44,7 @@ type StoreManagerServiceClient interface {
 	AcquireLease2_2(ctx context.Context, in *AcquireLease2_2Request, opts ...grpc.CallOption) (*AcquireLease2_2Response, error)
 	AcquireLease3_3(ctx context.Context, in *AcquireLease3_3Request, opts ...grpc.CallOption) (*AcquireLease3_3Response, error)
 	CreateSession(ctx context.Context, in *CreateSessionRequest, opts ...grpc.CallOption) (*CreateSessionResponse, error)
+	GetLeasedBlobs(ctx context.Context, in *GetLeasedBlobsRequest, opts ...grpc.CallOption) (*GetLeasedBlobsResponse, error)
 	GetRemainingLeaseQuotaBytes(ctx context.Context, in *GetRemainingLeaseQuotaBytesRequest, opts ...grpc.CallOption) (*GetRemainingLeaseQuotaBytesResponse, error)
 	OpenBlob(ctx context.Context, in *OpenBlobRequest, opts ...grpc.CallOption) (*OpenBlobResponse, error)
 	OpenSession(ctx context.Context, in *OpenSessionRequest, opts ...grpc.CallOption) (*OpenSessionResponse, error)
@@ -117,6 +119,16 @@ func (c *storeManagerServiceClient) CreateSession(ctx context.Context, in *Creat
 	return out, nil
 }
 
+func (c *storeManagerServiceClient) GetLeasedBlobs(ctx context.Context, in *GetLeasedBlobsRequest, opts ...grpc.CallOption) (*GetLeasedBlobsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetLeasedBlobsResponse)
+	err := c.cc.Invoke(ctx, StoreManagerService_GetLeasedBlobs_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *storeManagerServiceClient) GetRemainingLeaseQuotaBytes(ctx context.Context, in *GetRemainingLeaseQuotaBytesRequest, opts ...grpc.CallOption) (*GetRemainingLeaseQuotaBytesResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetRemainingLeaseQuotaBytesResponse)
@@ -167,6 +179,7 @@ type StoreManagerServiceServer interface {
 	AcquireLease2_2(context.Context, *AcquireLease2_2Request) (*AcquireLease2_2Response, error)
 	AcquireLease3_3(context.Context, *AcquireLease3_3Request) (*AcquireLease3_3Response, error)
 	CreateSession(context.Context, *CreateSessionRequest) (*CreateSessionResponse, error)
+	GetLeasedBlobs(context.Context, *GetLeasedBlobsRequest) (*GetLeasedBlobsResponse, error)
 	GetRemainingLeaseQuotaBytes(context.Context, *GetRemainingLeaseQuotaBytesRequest) (*GetRemainingLeaseQuotaBytesResponse, error)
 	OpenBlob(context.Context, *OpenBlobRequest) (*OpenBlobResponse, error)
 	OpenSession(context.Context, *OpenSessionRequest) (*OpenSessionResponse, error)
@@ -198,6 +211,9 @@ func (UnimplementedStoreManagerServiceServer) AcquireLease3_3(context.Context, *
 }
 func (UnimplementedStoreManagerServiceServer) CreateSession(context.Context, *CreateSessionRequest) (*CreateSessionResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method CreateSession not implemented")
+}
+func (UnimplementedStoreManagerServiceServer) GetLeasedBlobs(context.Context, *GetLeasedBlobsRequest) (*GetLeasedBlobsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetLeasedBlobs not implemented")
 }
 func (UnimplementedStoreManagerServiceServer) GetRemainingLeaseQuotaBytes(context.Context, *GetRemainingLeaseQuotaBytesRequest) (*GetRemainingLeaseQuotaBytesResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetRemainingLeaseQuotaBytes not implemented")
@@ -340,6 +356,24 @@ func _StoreManagerService_CreateSession_Handler(srv interface{}, ctx context.Con
 	return interceptor(ctx, in, info, handler)
 }
 
+func _StoreManagerService_GetLeasedBlobs_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetLeasedBlobsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(StoreManagerServiceServer).GetLeasedBlobs(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: StoreManagerService_GetLeasedBlobs_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(StoreManagerServiceServer).GetLeasedBlobs(ctx, req.(*GetLeasedBlobsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _StoreManagerService_GetRemainingLeaseQuotaBytes_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetRemainingLeaseQuotaBytesRequest)
 	if err := dec(in); err != nil {
@@ -442,6 +476,10 @@ var StoreManagerService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "CreateSession",
 			Handler:    _StoreManagerService_CreateSession_Handler,
+		},
+		{
+			MethodName: "GetLeasedBlobs",
+			Handler:    _StoreManagerService_GetLeasedBlobs_Handler,
 		},
 		{
 			MethodName: "GetRemainingLeaseQuotaBytes",

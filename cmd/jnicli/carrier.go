@@ -12,23 +12,23 @@ var carrierCmd = &cobra.Command{
 	Short: "carrier service operations",
 }
 
-var carrierMessagePduCmd = &cobra.Command{
-	Use:   "message-pdu",
-	Short: "MessagePduService operations",
+var carrierServiceCmd = &cobra.Command{
+	Use:   "service",
+	Short: "ServiceService operations",
 }
 
-var carrierMessagePduNewMessagePduCmd = &cobra.Command{
-	Use:   "new-message-pdu",
-	Short: "NewMessagePdu RPC",
+var carrierServiceNotifyCarrierNetworkChange1Cmd = &cobra.Command{
+	Use:   "notify-carrier-network-change1",
+	Short: "NotifyCarrierNetworkChange1 RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewMessagePduServiceClient(grpcConn)
-		req := &pb.NewMessagePduRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+		client := pb.NewServiceServiceClient(grpcConn)
+		req := &pb.NotifyCarrierNetworkChange1Request{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		resp, err := client.NewMessagePdu(ctx, req)
+		resp, err := client.NotifyCarrierNetworkChange1(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -36,43 +36,81 @@ var carrierMessagePduNewMessagePduCmd = &cobra.Command{
 	},
 }
 
-var carrierMessagePduDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
+var carrierServiceNotifyCarrierNetworkChange2_1Cmd = &cobra.Command{
+	Use:   "notify-carrier-network-change2_1",
+	Short: "NotifyCarrierNetworkChange2_1 RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewMessagePduServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var carrierMessagePduWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMessagePduServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+		client := pb.NewServiceServiceClient(grpcConn)
+		req := &pb.NotifyCarrierNetworkChange2_1Request{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+		if v, err := cmd.Flags().GetBool("arg1"); err == nil {
 			req.Arg1 = v
 		}
-		resp, err := client.WriteToParcel(ctx, req)
+		resp, err := client.NotifyCarrierNetworkChange2_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var carrierServiceOnBindCmd = &cobra.Command{
+	Use:   "on-bind",
+	Short: "OnBind RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewServiceServiceClient(grpcConn)
+		req := &pb.OnBindRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnBind(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var carrierServiceOnLoadConfig1Cmd = &cobra.Command{
+	Use:   "on-load-config1",
+	Short: "OnLoadConfig1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewServiceServiceClient(grpcConn)
+		req := &pb.OnLoadConfig1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnLoadConfig1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var carrierServiceOnLoadConfig2_1Cmd = &cobra.Command{
+	Use:   "on-load-config2_1",
+	Short: "OnLoadConfig2_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewServiceServiceClient(grpcConn)
+		req := &pb.OnLoadConfig2_1Request{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.OnLoadConfig2_1(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -208,49 +246,6 @@ var carrierMessagingServiceSendSmsResultGetSendStatusCmd = &cobra.Command{
 		client := pb.NewMessagingServiceSendSmsResultServiceClient(grpcConn)
 		req := &pb.GetSendStatusRequest{}
 		resp, err := client.GetSendStatus(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var carrierMessagingClientServiceCmd = &cobra.Command{
-	Use:   "messaging-client-service",
-	Short: "MessagingClientServiceService operations",
-}
-
-var carrierMessagingClientServiceNewMessagingClientServiceCmd = &cobra.Command{
-	Use:   "new-messaging-client-service",
-	Short: "NewMessagingClientService RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMessagingClientServiceServiceClient(grpcConn)
-		req := &pb.NewMessagingClientServiceRequest{}
-		resp, err := client.NewMessagingClientService(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var carrierMessagingClientServiceOnBindCmd = &cobra.Command{
-	Use:   "on-bind",
-	Short: "OnBind RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMessagingClientServiceServiceClient(grpcConn)
-		req := &pb.MessagingClientServiceOnBindRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.OnBind(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -544,23 +539,20 @@ var carrierIdentifierWriteToParcelCmd = &cobra.Command{
 	},
 }
 
-var carrierServiceCmd = &cobra.Command{
-	Use:   "service",
-	Short: "ServiceService operations",
+var carrierMessagingClientServiceCmd = &cobra.Command{
+	Use:   "messaging-client-service",
+	Short: "MessagingClientServiceService operations",
 }
 
-var carrierServiceNotifyCarrierNetworkChange1Cmd = &cobra.Command{
-	Use:   "notify-carrier-network-change1",
-	Short: "NotifyCarrierNetworkChange1 RPC",
+var carrierMessagingClientServiceNewMessagingClientServiceCmd = &cobra.Command{
+	Use:   "new-messaging-client-service",
+	Short: "NewMessagingClientService RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewServiceServiceClient(grpcConn)
-		req := &pb.NotifyCarrierNetworkChange1Request{}
-		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.NotifyCarrierNetworkChange1(ctx, req)
+		client := pb.NewMessagingClientServiceServiceClient(grpcConn)
+		req := &pb.NewMessagingClientServiceRequest{}
+		resp, err := client.NewMessagingClientService(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -568,36 +560,17 @@ var carrierServiceNotifyCarrierNetworkChange1Cmd = &cobra.Command{
 	},
 }
 
-var carrierServiceNotifyCarrierNetworkChange2_1Cmd = &cobra.Command{
-	Use:   "notify-carrier-network-change2_1",
-	Short: "NotifyCarrierNetworkChange2_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewServiceServiceClient(grpcConn)
-		req := &pb.NotifyCarrierNetworkChange2_1Request{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetBool("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.NotifyCarrierNetworkChange2_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var carrierServiceOnBindCmd = &cobra.Command{
+var carrierMessagingClientServiceOnBindCmd = &cobra.Command{
 	Use:   "on-bind",
 	Short: "OnBind RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewServiceServiceClient(grpcConn)
-		req := &pb.OnBindRequest{}
+		client := pb.NewMessagingClientServiceServiceClient(grpcConn)
+		req := &pb.MessagingClientServiceOnBindRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
@@ -609,18 +582,23 @@ var carrierServiceOnBindCmd = &cobra.Command{
 	},
 }
 
-var carrierServiceOnLoadConfig1Cmd = &cobra.Command{
-	Use:   "on-load-config1",
-	Short: "OnLoadConfig1 RPC",
+var carrierMessagePduCmd = &cobra.Command{
+	Use:   "message-pdu",
+	Short: "MessagePduService operations",
+}
+
+var carrierMessagePduNewMessagePduCmd = &cobra.Command{
+	Use:   "new-message-pdu",
+	Short: "NewMessagePdu RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewServiceServiceClient(grpcConn)
-		req := &pb.OnLoadConfig1Request{}
+		client := pb.NewMessagePduServiceClient(grpcConn)
+		req := &pb.NewMessagePduRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		resp, err := client.OnLoadConfig1(ctx, req)
+		resp, err := client.NewMessagePdu(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -628,21 +606,62 @@ var carrierServiceOnLoadConfig1Cmd = &cobra.Command{
 	},
 }
 
-var carrierServiceOnLoadConfig2_1Cmd = &cobra.Command{
-	Use:   "on-load-config2_1",
-	Short: "OnLoadConfig2_1 RPC",
+var carrierMessagePduDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewServiceServiceClient(grpcConn)
-		req := &pb.OnLoadConfig2_1Request{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+		client := pb.NewMessagePduServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var carrierMessagePduGetPdusCmd = &cobra.Command{
+	Use:   "get-pdus",
+	Short: "GetPdus RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMessagePduServiceClient(grpcConn)
+		req := &pb.GetPdusRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetPdus(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var carrierMessagePduWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMessagePduServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
 			req.Arg1 = v
 		}
-		resp, err := client.OnLoadConfig2_1(ctx, req)
+		resp, err := client.WriteToParcel(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -651,15 +670,19 @@ var carrierServiceOnLoadConfig2_1Cmd = &cobra.Command{
 }
 
 func init() {
-	carrierMessagePduNewMessagePduCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	carrierMessagePduCmd.AddCommand(carrierMessagePduNewMessagePduCmd)
-	carrierMessagePduDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	carrierMessagePduCmd.AddCommand(carrierMessagePduDescribeContentsCmd)
-	carrierMessagePduWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
-	carrierMessagePduWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	carrierMessagePduWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	carrierMessagePduCmd.AddCommand(carrierMessagePduWriteToParcelCmd)
-	carrierCmd.AddCommand(carrierMessagePduCmd)
+	carrierServiceNotifyCarrierNetworkChange1Cmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	carrierServiceCmd.AddCommand(carrierServiceNotifyCarrierNetworkChange1Cmd)
+	carrierServiceNotifyCarrierNetworkChange2_1Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	carrierServiceNotifyCarrierNetworkChange2_1Cmd.Flags().Bool("arg1", false, "arg1 (bool)")
+	carrierServiceCmd.AddCommand(carrierServiceNotifyCarrierNetworkChange2_1Cmd)
+	carrierServiceOnBindCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	carrierServiceCmd.AddCommand(carrierServiceOnBindCmd)
+	carrierServiceOnLoadConfig1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	carrierServiceCmd.AddCommand(carrierServiceOnLoadConfig1Cmd)
+	carrierServiceOnLoadConfig2_1Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	carrierServiceOnLoadConfig2_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	carrierServiceCmd.AddCommand(carrierServiceOnLoadConfig2_1Cmd)
+	carrierCmd.AddCommand(carrierServiceCmd)
 	carrierMessagingServiceOnBindCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	carrierMessagingServiceCmd.AddCommand(carrierMessagingServiceOnBindCmd)
 	carrierCmd.AddCommand(carrierMessagingServiceCmd)
@@ -672,11 +695,6 @@ func init() {
 	carrierMessagingServiceSendSmsResultCmd.AddCommand(carrierMessagingServiceSendSmsResultGetMessageRefCmd)
 	carrierMessagingServiceSendSmsResultCmd.AddCommand(carrierMessagingServiceSendSmsResultGetSendStatusCmd)
 	carrierCmd.AddCommand(carrierMessagingServiceSendSmsResultCmd)
-	carrierMessagingClientServiceCmd.AddCommand(carrierMessagingClientServiceNewMessagingClientServiceCmd)
-	carrierMessagingClientServiceOnBindCmd.Flags().Int64("handle", 0, "handle (int64)")
-	carrierMessagingClientServiceOnBindCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	carrierMessagingClientServiceCmd.AddCommand(carrierMessagingClientServiceOnBindCmd)
-	carrierCmd.AddCommand(carrierMessagingClientServiceCmd)
 	carrierIdentifierNewIdentifierCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	carrierIdentifierNewIdentifierCmd.Flags().String("arg1", "", "arg1 (string)")
 	carrierIdentifierNewIdentifierCmd.Flags().String("arg2", "", "arg2 (string)")
@@ -711,18 +729,21 @@ func init() {
 	carrierIdentifierWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
 	carrierIdentifierCmd.AddCommand(carrierIdentifierWriteToParcelCmd)
 	carrierCmd.AddCommand(carrierIdentifierCmd)
-	carrierServiceNotifyCarrierNetworkChange1Cmd.Flags().Bool("arg0", false, "arg0 (bool)")
-	carrierServiceCmd.AddCommand(carrierServiceNotifyCarrierNetworkChange1Cmd)
-	carrierServiceNotifyCarrierNetworkChange2_1Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	carrierServiceNotifyCarrierNetworkChange2_1Cmd.Flags().Bool("arg1", false, "arg1 (bool)")
-	carrierServiceCmd.AddCommand(carrierServiceNotifyCarrierNetworkChange2_1Cmd)
-	carrierServiceOnBindCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	carrierServiceCmd.AddCommand(carrierServiceOnBindCmd)
-	carrierServiceOnLoadConfig1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	carrierServiceCmd.AddCommand(carrierServiceOnLoadConfig1Cmd)
-	carrierServiceOnLoadConfig2_1Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	carrierServiceOnLoadConfig2_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	carrierServiceCmd.AddCommand(carrierServiceOnLoadConfig2_1Cmd)
-	carrierCmd.AddCommand(carrierServiceCmd)
+	carrierMessagingClientServiceCmd.AddCommand(carrierMessagingClientServiceNewMessagingClientServiceCmd)
+	carrierMessagingClientServiceOnBindCmd.Flags().Int64("handle", 0, "handle (int64)")
+	carrierMessagingClientServiceOnBindCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	carrierMessagingClientServiceCmd.AddCommand(carrierMessagingClientServiceOnBindCmd)
+	carrierCmd.AddCommand(carrierMessagingClientServiceCmd)
+	carrierMessagePduNewMessagePduCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	carrierMessagePduCmd.AddCommand(carrierMessagePduNewMessagePduCmd)
+	carrierMessagePduDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	carrierMessagePduCmd.AddCommand(carrierMessagePduDescribeContentsCmd)
+	carrierMessagePduGetPdusCmd.Flags().Int64("handle", 0, "handle (int64)")
+	carrierMessagePduCmd.AddCommand(carrierMessagePduGetPdusCmd)
+	carrierMessagePduWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	carrierMessagePduWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	carrierMessagePduWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	carrierMessagePduCmd.AddCommand(carrierMessagePduWriteToParcelCmd)
+	carrierCmd.AddCommand(carrierMessagePduCmd)
 	rootCmd.AddCommand(carrierCmd)
 }

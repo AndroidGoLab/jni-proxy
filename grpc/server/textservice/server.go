@@ -15,342 +15,6 @@ import (
 	"google.golang.org/grpc/status"
 )
 
-// SuggestionsInfoServer implements pb.SuggestionsInfoServiceServer.
-type SuggestionsInfoServer struct {
-	pb.UnimplementedSuggestionsInfoServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *SuggestionsInfoServer) NewSuggestionsInfo(_ context.Context, req *pb.NewSuggestionsInfoRequest) (*pb.NewSuggestionsInfoResponse, error) {
-	obj, err := jnipkg.NewSuggestionsInfo(s.Ctx.VM, s.Handles.Get(req.GetArg0()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
-	}
-	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-	}
-	return &pb.NewSuggestionsInfoResponse{Result: handle}, nil
-}
-
-func (s *SuggestionsInfoServer) DescribeContents(_ context.Context, req *pb.DescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.SuggestionsInfo{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.DescribeContents()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.DescribeContentsResponse{Result: result}, nil
-}
-
-func (s *SuggestionsInfoServer) GetCookie(_ context.Context, req *pb.GetCookieRequest) (*pb.GetCookieResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.SuggestionsInfo{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetCookie()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetCookieResponse{Result: result}, nil
-}
-
-func (s *SuggestionsInfoServer) GetSequence(_ context.Context, req *pb.GetSequenceRequest) (*pb.GetSequenceResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.SuggestionsInfo{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetSequence()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetSequenceResponse{Result: result}, nil
-}
-
-func (s *SuggestionsInfoServer) GetSuggestionAt(_ context.Context, req *pb.GetSuggestionAtRequest) (*pb.GetSuggestionAtResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.SuggestionsInfo{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetSuggestionAt(req.GetArg0())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetSuggestionAtResponse{Result: result}, nil
-}
-
-func (s *SuggestionsInfoServer) GetSuggestionsAttributes(_ context.Context, req *pb.GetSuggestionsAttributesRequest) (*pb.GetSuggestionsAttributesResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.SuggestionsInfo{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetSuggestionsAttributes()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetSuggestionsAttributesResponse{Result: result}, nil
-}
-
-func (s *SuggestionsInfoServer) GetSuggestionsCount(_ context.Context, req *pb.GetSuggestionsCountRequest) (*pb.GetSuggestionsCountResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.SuggestionsInfo{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetSuggestionsCount()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetSuggestionsCountResponse{Result: result}, nil
-}
-
-func (s *SuggestionsInfoServer) SetCookieAndSequence(_ context.Context, req *pb.SetCookieAndSequenceRequest) (*pb.SetCookieAndSequenceResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.SuggestionsInfo{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.SetCookieAndSequence(req.GetArg0(), req.GetArg1()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SetCookieAndSequenceResponse{}, nil
-}
-
-func (s *SuggestionsInfoServer) WriteToParcel(_ context.Context, req *pb.WriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.SuggestionsInfo{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.WriteToParcel(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.WriteToParcelResponse{}, nil
-}
-
-// TextServicesManagerServer implements pb.TextServicesManagerServiceServer.
-type TextServicesManagerServer struct {
-	pb.UnimplementedTextServicesManagerServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *TextServicesManagerServer) GetCurrentSpellCheckerInfo(_ context.Context, req *pb.GetCurrentSpellCheckerInfoRequest) (*pb.GetCurrentSpellCheckerInfoResponse, error) {
-	mgr, err := jnipkg.NewTextServicesManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.GetCurrentSpellCheckerInfo()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetCurrentSpellCheckerInfoResponse{Result: handle}, nil
-}
-
-func (s *TextServicesManagerServer) IsSpellCheckerEnabled(_ context.Context, req *pb.IsSpellCheckerEnabledRequest) (*pb.IsSpellCheckerEnabledResponse, error) {
-	mgr, err := jnipkg.NewTextServicesManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.IsSpellCheckerEnabled()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.IsSpellCheckerEnabledResponse{Result: result}, nil
-}
-
-func (s *TextServicesManagerServer) NewSpellCheckerSession4(_ context.Context, req *pb.NewSpellCheckerSession4Request) (*pb.NewSpellCheckerSession4Response, error) {
-	mgr, err := jnipkg.NewTextServicesManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.NewSpellCheckerSession4(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()), s.Handles.Get(req.GetArg2()), req.GetArg3())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.NewSpellCheckerSession4Response{Result: handle}, nil
-}
-
-func (s *TextServicesManagerServer) NewSpellCheckerSession3_1(_ context.Context, req *pb.NewSpellCheckerSession3_1Request) (*pb.NewSpellCheckerSession3_1Response, error) {
-	mgr, err := jnipkg.NewTextServicesManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.NewSpellCheckerSession3_1(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()), s.Handles.Get(req.GetArg2()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.NewSpellCheckerSession3_1Response{Result: handle}, nil
-}
-
-// SentenceSuggestionsInfoServer implements pb.SentenceSuggestionsInfoServiceServer.
-type SentenceSuggestionsInfoServer struct {
-	pb.UnimplementedSentenceSuggestionsInfoServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *SentenceSuggestionsInfoServer) NewSentenceSuggestionsInfo(_ context.Context, req *pb.NewSentenceSuggestionsInfoRequest) (*pb.NewSentenceSuggestionsInfoResponse, error) {
-	obj, err := jnipkg.NewSentenceSuggestionsInfo(s.Ctx.VM, s.Handles.Get(req.GetArg0()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
-	}
-	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-	}
-	return &pb.NewSentenceSuggestionsInfoResponse{Result: handle}, nil
-}
-
-func (s *SentenceSuggestionsInfoServer) DescribeContents(_ context.Context, req *pb.DescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.SentenceSuggestionsInfo{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.DescribeContents()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.DescribeContentsResponse{Result: result}, nil
-}
-
-func (s *SentenceSuggestionsInfoServer) GetLengthAt(_ context.Context, req *pb.GetLengthAtRequest) (*pb.GetLengthAtResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.SentenceSuggestionsInfo{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetLengthAt(req.GetArg0())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetLengthAtResponse{Result: result}, nil
-}
-
-func (s *SentenceSuggestionsInfoServer) GetOffsetAt(_ context.Context, req *pb.GetOffsetAtRequest) (*pb.GetOffsetAtResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.SentenceSuggestionsInfo{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetOffsetAt(req.GetArg0())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetOffsetAtResponse{Result: result}, nil
-}
-
-func (s *SentenceSuggestionsInfoServer) GetSuggestionsCount(_ context.Context, req *pb.GetSuggestionsCountRequest) (*pb.GetSuggestionsCountResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.SentenceSuggestionsInfo{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetSuggestionsCount()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetSuggestionsCountResponse{Result: result}, nil
-}
-
-func (s *SentenceSuggestionsInfoServer) GetSuggestionsInfoAt(_ context.Context, req *pb.GetSuggestionsInfoAtRequest) (*pb.GetSuggestionsInfoAtResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.SentenceSuggestionsInfo{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetSuggestionsInfoAt(req.GetArg0())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetSuggestionsInfoAtResponse{Result: handle}, nil
-}
-
-func (s *SentenceSuggestionsInfoServer) WriteToParcel(_ context.Context, req *pb.WriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.SentenceSuggestionsInfo{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.WriteToParcel(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.WriteToParcelResponse{}, nil
-}
-
 // TextInfoServer implements pb.TextInfoServiceServer.
 type TextInfoServer struct {
 	pb.UnimplementedTextInfoServiceServer
@@ -642,6 +306,365 @@ func (s *SpellCheckerSubtypeServer) WriteToParcel(_ context.Context, req *pb.Wri
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
 	mgr := &jnipkg.SpellCheckerSubtype{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.WriteToParcel(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.WriteToParcelResponse{}, nil
+}
+
+// SentenceSuggestionsInfoServer implements pb.SentenceSuggestionsInfoServiceServer.
+type SentenceSuggestionsInfoServer struct {
+	pb.UnimplementedSentenceSuggestionsInfoServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *SentenceSuggestionsInfoServer) NewSentenceSuggestionsInfo(_ context.Context, req *pb.NewSentenceSuggestionsInfoRequest) (*pb.NewSentenceSuggestionsInfoResponse, error) {
+	obj, err := jnipkg.NewSentenceSuggestionsInfo(s.Ctx.VM, s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewSentenceSuggestionsInfoResponse{Result: handle}, nil
+}
+
+func (s *SentenceSuggestionsInfoServer) DescribeContents(_ context.Context, req *pb.DescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.SentenceSuggestionsInfo{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.DescribeContents()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.DescribeContentsResponse{Result: result}, nil
+}
+
+func (s *SentenceSuggestionsInfoServer) GetLengthAt(_ context.Context, req *pb.GetLengthAtRequest) (*pb.GetLengthAtResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.SentenceSuggestionsInfo{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetLengthAt(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetLengthAtResponse{Result: result}, nil
+}
+
+func (s *SentenceSuggestionsInfoServer) GetOffsetAt(_ context.Context, req *pb.GetOffsetAtRequest) (*pb.GetOffsetAtResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.SentenceSuggestionsInfo{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetOffsetAt(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetOffsetAtResponse{Result: result}, nil
+}
+
+func (s *SentenceSuggestionsInfoServer) GetSuggestionsCount(_ context.Context, req *pb.GetSuggestionsCountRequest) (*pb.GetSuggestionsCountResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.SentenceSuggestionsInfo{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetSuggestionsCount()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetSuggestionsCountResponse{Result: result}, nil
+}
+
+func (s *SentenceSuggestionsInfoServer) GetSuggestionsInfoAt(_ context.Context, req *pb.GetSuggestionsInfoAtRequest) (*pb.GetSuggestionsInfoAtResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.SentenceSuggestionsInfo{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetSuggestionsInfoAt(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetSuggestionsInfoAtResponse{Result: handle}, nil
+}
+
+func (s *SentenceSuggestionsInfoServer) WriteToParcel(_ context.Context, req *pb.WriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.SentenceSuggestionsInfo{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.WriteToParcel(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.WriteToParcelResponse{}, nil
+}
+
+// TextServicesManagerServer implements pb.TextServicesManagerServiceServer.
+type TextServicesManagerServer struct {
+	pb.UnimplementedTextServicesManagerServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *TextServicesManagerServer) GetCurrentSpellCheckerInfo(_ context.Context, req *pb.GetCurrentSpellCheckerInfoRequest) (*pb.GetCurrentSpellCheckerInfoResponse, error) {
+	mgr, err := jnipkg.NewTextServicesManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.GetCurrentSpellCheckerInfo()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetCurrentSpellCheckerInfoResponse{Result: handle}, nil
+}
+
+func (s *TextServicesManagerServer) GetEnabledSpellCheckerInfos(_ context.Context, req *pb.GetEnabledSpellCheckerInfosRequest) (*pb.GetEnabledSpellCheckerInfosResponse, error) {
+	mgr, err := jnipkg.NewTextServicesManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.GetEnabledSpellCheckerInfos()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetEnabledSpellCheckerInfosResponse{Result: handle}, nil
+}
+
+func (s *TextServicesManagerServer) IsSpellCheckerEnabled(_ context.Context, req *pb.IsSpellCheckerEnabledRequest) (*pb.IsSpellCheckerEnabledResponse, error) {
+	mgr, err := jnipkg.NewTextServicesManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.IsSpellCheckerEnabled()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.IsSpellCheckerEnabledResponse{Result: result}, nil
+}
+
+func (s *TextServicesManagerServer) NewSpellCheckerSession4(_ context.Context, req *pb.NewSpellCheckerSession4Request) (*pb.NewSpellCheckerSession4Response, error) {
+	mgr, err := jnipkg.NewTextServicesManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.NewSpellCheckerSession4(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()), s.Handles.Get(req.GetArg2()), req.GetArg3())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.NewSpellCheckerSession4Response{Result: handle}, nil
+}
+
+func (s *TextServicesManagerServer) NewSpellCheckerSession3_1(_ context.Context, req *pb.NewSpellCheckerSession3_1Request) (*pb.NewSpellCheckerSession3_1Response, error) {
+	mgr, err := jnipkg.NewTextServicesManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.NewSpellCheckerSession3_1(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()), s.Handles.Get(req.GetArg2()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.NewSpellCheckerSession3_1Response{Result: handle}, nil
+}
+
+// SuggestionsInfoServer implements pb.SuggestionsInfoServiceServer.
+type SuggestionsInfoServer struct {
+	pb.UnimplementedSuggestionsInfoServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *SuggestionsInfoServer) NewSuggestionsInfo(_ context.Context, req *pb.NewSuggestionsInfoRequest) (*pb.NewSuggestionsInfoResponse, error) {
+	obj, err := jnipkg.NewSuggestionsInfo(s.Ctx.VM, s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewSuggestionsInfoResponse{Result: handle}, nil
+}
+
+func (s *SuggestionsInfoServer) DescribeContents(_ context.Context, req *pb.DescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.SuggestionsInfo{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.DescribeContents()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.DescribeContentsResponse{Result: result}, nil
+}
+
+func (s *SuggestionsInfoServer) GetCookie(_ context.Context, req *pb.GetCookieRequest) (*pb.GetCookieResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.SuggestionsInfo{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetCookie()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetCookieResponse{Result: result}, nil
+}
+
+func (s *SuggestionsInfoServer) GetSequence(_ context.Context, req *pb.GetSequenceRequest) (*pb.GetSequenceResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.SuggestionsInfo{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetSequence()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetSequenceResponse{Result: result}, nil
+}
+
+func (s *SuggestionsInfoServer) GetSuggestionAt(_ context.Context, req *pb.GetSuggestionAtRequest) (*pb.GetSuggestionAtResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.SuggestionsInfo{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetSuggestionAt(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetSuggestionAtResponse{Result: result}, nil
+}
+
+func (s *SuggestionsInfoServer) GetSuggestionsAttributes(_ context.Context, req *pb.GetSuggestionsAttributesRequest) (*pb.GetSuggestionsAttributesResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.SuggestionsInfo{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetSuggestionsAttributes()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetSuggestionsAttributesResponse{Result: result}, nil
+}
+
+func (s *SuggestionsInfoServer) GetSuggestionsCount(_ context.Context, req *pb.GetSuggestionsCountRequest) (*pb.GetSuggestionsCountResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.SuggestionsInfo{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetSuggestionsCount()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetSuggestionsCountResponse{Result: result}, nil
+}
+
+func (s *SuggestionsInfoServer) SetCookieAndSequence(_ context.Context, req *pb.SetCookieAndSequenceRequest) (*pb.SetCookieAndSequenceResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.SuggestionsInfo{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetCookieAndSequence(req.GetArg0(), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetCookieAndSequenceResponse{}, nil
+}
+
+func (s *SuggestionsInfoServer) WriteToParcel(_ context.Context, req *pb.WriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.SuggestionsInfo{VM: s.Ctx.VM, Obj: rawObj}
 
 	if err := mgr.WriteToParcel(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)

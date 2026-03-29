@@ -86,6 +86,107 @@ func (c *MediaProjectionConfigClient) CreateConfigForUserChoice(ctx context.Cont
 	return resp.GetResult(), nil
 }
 
+// VirtualDisplayClient wraps the gRPC VirtualDisplayService client.
+type VirtualDisplayClient struct {
+	svc pb.VirtualDisplayServiceClient
+}
+
+// NewVirtualDisplayClient creates a new VirtualDisplay client.
+func NewVirtualDisplayClient(cc grpc.ClientConnInterface) *VirtualDisplayClient {
+	return &VirtualDisplayClient{
+		svc: pb.NewVirtualDisplayServiceClient(cc),
+	}
+}
+
+// GetDisplay calls the GetDisplay RPC.
+func (c *VirtualDisplayClient) GetDisplay(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetDisplay(ctx, &pb.GetDisplayRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSurface calls the GetSurface RPC.
+func (c *VirtualDisplayClient) GetSurface(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetSurface(ctx, &pb.GetSurfaceRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Release calls the Release RPC.
+func (c *VirtualDisplayClient) Release(ctx context.Context) error {
+	_, err := c.svc.Release(ctx, &pb.ReleaseRequest{})
+	return err
+}
+
+// Resize calls the Resize RPC.
+func (c *VirtualDisplayClient) Resize(ctx context.Context, arg0 int32, arg1 int32, arg2 int32) error {
+	_, err := c.svc.Resize(ctx, &pb.ResizeRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// SetRotation calls the SetRotation RPC.
+func (c *VirtualDisplayClient) SetRotation(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.SetRotation(ctx, &pb.SetRotationRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetSurface calls the SetSurface RPC.
+func (c *VirtualDisplayClient) SetSurface(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetSurface(ctx, &pb.SetSurfaceRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// ToString calls the ToString RPC.
+func (c *VirtualDisplayClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// VirtualDisplayCallbackClient wraps the gRPC VirtualDisplayCallbackService client.
+type VirtualDisplayCallbackClient struct {
+	svc pb.VirtualDisplayCallbackServiceClient
+}
+
+// NewVirtualDisplayCallbackClient creates a new VirtualDisplayCallback client.
+func NewVirtualDisplayCallbackClient(cc grpc.ClientConnInterface) *VirtualDisplayCallbackClient {
+	return &VirtualDisplayCallbackClient{
+		svc: pb.NewVirtualDisplayCallbackServiceClient(cc),
+	}
+}
+
+// OnPaused calls the OnPaused RPC.
+func (c *VirtualDisplayCallbackClient) OnPaused(ctx context.Context) error {
+	_, err := c.svc.OnPaused(ctx, &pb.OnPausedRequest{})
+	return err
+}
+
+// OnResumed calls the OnResumed RPC.
+func (c *VirtualDisplayCallbackClient) OnResumed(ctx context.Context) error {
+	_, err := c.svc.OnResumed(ctx, &pb.OnResumedRequest{})
+	return err
+}
+
+// OnStopped calls the OnStopped RPC.
+func (c *VirtualDisplayCallbackClient) OnStopped(ctx context.Context) error {
+	_, err := c.svc.OnStopped(ctx, &pb.OnStoppedRequest{})
+	return err
+}
+
 // MediaProjectionManagerClient wraps the gRPC MediaProjectionManagerService client.
 type MediaProjectionManagerClient struct {
 	svc pb.MediaProjectionManagerServiceClient
@@ -188,106 +289,5 @@ func (c *MediaProjectionCallbackClient) OnCapturedContentVisibilityChanged(ctx c
 // OnStop calls the OnStop RPC.
 func (c *MediaProjectionCallbackClient) OnStop(ctx context.Context) error {
 	_, err := c.svc.OnStop(ctx, &pb.OnStopRequest{})
-	return err
-}
-
-// VirtualDisplayClient wraps the gRPC VirtualDisplayService client.
-type VirtualDisplayClient struct {
-	svc pb.VirtualDisplayServiceClient
-}
-
-// NewVirtualDisplayClient creates a new VirtualDisplay client.
-func NewVirtualDisplayClient(cc grpc.ClientConnInterface) *VirtualDisplayClient {
-	return &VirtualDisplayClient{
-		svc: pb.NewVirtualDisplayServiceClient(cc),
-	}
-}
-
-// GetDisplay calls the GetDisplay RPC.
-func (c *VirtualDisplayClient) GetDisplay(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetDisplay(ctx, &pb.GetDisplayRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetSurface calls the GetSurface RPC.
-func (c *VirtualDisplayClient) GetSurface(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetSurface(ctx, &pb.GetSurfaceRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Release calls the Release RPC.
-func (c *VirtualDisplayClient) Release(ctx context.Context) error {
-	_, err := c.svc.Release(ctx, &pb.ReleaseRequest{})
-	return err
-}
-
-// Resize calls the Resize RPC.
-func (c *VirtualDisplayClient) Resize(ctx context.Context, arg0 int32, arg1 int32, arg2 int32) error {
-	_, err := c.svc.Resize(ctx, &pb.ResizeRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	return err
-}
-
-// SetRotation calls the SetRotation RPC.
-func (c *VirtualDisplayClient) SetRotation(ctx context.Context, arg0 int32) error {
-	_, err := c.svc.SetRotation(ctx, &pb.SetRotationRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetSurface calls the SetSurface RPC.
-func (c *VirtualDisplayClient) SetSurface(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.SetSurface(ctx, &pb.SetSurfaceRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// ToString calls the ToString RPC.
-func (c *VirtualDisplayClient) ToString(ctx context.Context) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// VirtualDisplayCallbackClient wraps the gRPC VirtualDisplayCallbackService client.
-type VirtualDisplayCallbackClient struct {
-	svc pb.VirtualDisplayCallbackServiceClient
-}
-
-// NewVirtualDisplayCallbackClient creates a new VirtualDisplayCallback client.
-func NewVirtualDisplayCallbackClient(cc grpc.ClientConnInterface) *VirtualDisplayCallbackClient {
-	return &VirtualDisplayCallbackClient{
-		svc: pb.NewVirtualDisplayCallbackServiceClient(cc),
-	}
-}
-
-// OnPaused calls the OnPaused RPC.
-func (c *VirtualDisplayCallbackClient) OnPaused(ctx context.Context) error {
-	_, err := c.svc.OnPaused(ctx, &pb.OnPausedRequest{})
-	return err
-}
-
-// OnResumed calls the OnResumed RPC.
-func (c *VirtualDisplayCallbackClient) OnResumed(ctx context.Context) error {
-	_, err := c.svc.OnResumed(ctx, &pb.OnResumedRequest{})
-	return err
-}
-
-// OnStopped calls the OnStopped RPC.
-func (c *VirtualDisplayCallbackClient) OnStopped(ctx context.Context) error {
-	_, err := c.svc.OnStopped(ctx, &pb.OnStoppedRequest{})
 	return err
 }

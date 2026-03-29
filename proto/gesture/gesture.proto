@@ -6,19 +6,152 @@ package gesture;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/gesture";
 
-message NewGestureRequest {
+message ComputeOrientedBoundingBoxRequest {
+  int64 arg0 = 1;
 }
 
-message NewGestureResponse {
+message ComputeOrientedBoundingBoxResponse {
   int64 result = 1;
 }
 
-message AddStrokeRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
+message SpatialSampling2Request {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
 }
 
-message AddStrokeResponse {
+message SpatialSampling2Response {
+  int64 result = 1;
+}
+
+message SpatialSampling3_1Request {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+  bool arg2 = 3;
+}
+
+message SpatialSampling3_1Response {
+  int64 result = 1;
+}
+
+message TemporalSamplingRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message TemporalSamplingResponse {
+  int64 result = 1;
+}
+
+message AddGestureRequest {
+  string arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message AddGestureResponse {
+}
+
+message GetGestureEntriesRequest {
+}
+
+message GetGestureEntriesResponse {
+  int64 result = 1;
+}
+
+message GetGesturesRequest {
+  string arg0 = 1;
+}
+
+message GetGesturesResponse {
+  int64 result = 1;
+}
+
+message GetOrientationStyleRequest {
+}
+
+message GetOrientationStyleResponse {
+  int32 result = 1;
+}
+
+message GetSequenceTypeRequest {
+}
+
+message GetSequenceTypeResponse {
+  int32 result = 1;
+}
+
+message IsReadOnlyRequest {
+}
+
+message IsReadOnlyResponse {
+  bool result = 1;
+}
+
+message LoadRequest {
+}
+
+message LoadResponse {
+  bool result = 1;
+}
+
+message RecognizeRequest {
+  int64 arg0 = 1;
+}
+
+message RecognizeResponse {
+  int64 result = 1;
+}
+
+message RemoveEntryRequest {
+  string arg0 = 1;
+}
+
+message RemoveEntryResponse {
+}
+
+message RemoveGestureRequest {
+  string arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message RemoveGestureResponse {
+}
+
+message SaveRequest {
+}
+
+message SaveResponse {
+  bool result = 1;
+}
+
+message SetOrientationStyleRequest {
+  int32 arg0 = 1;
+}
+
+message SetOrientationStyleResponse {
+}
+
+message SetSequenceTypeRequest {
+  int32 arg0 = 1;
+}
+
+message SetSequenceTypeResponse {
+}
+
+message ToStringRequest {
+}
+
+message ToStringResponse {
+  string result = 1;
+}
+
+message NewPointRequest {
+  float arg0 = 1;
+  float arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message NewPointResponse {
+  int64 result = 1;
 }
 
 message CloneRequest {
@@ -29,227 +162,84 @@ message CloneResponse {
   int64 result = 1;
 }
 
-message DescribeContentsRequest {
-  int64 handle = 1;
+message NewStrokeRequest {
+  int64 arg0 = 1;
 }
 
-message DescribeContentsResponse {
-  int32 result = 1;
-}
-
-message GetBoundingBoxRequest {
-  int64 handle = 1;
-}
-
-message GetBoundingBoxResponse {
+message NewStrokeResponse {
   int64 result = 1;
 }
 
-message GetIDRequest {
+message ClearPathRequest {
   int64 handle = 1;
 }
 
-message GetIDResponse {
+message ClearPathResponse {
+}
+
+message StrokeComputeOrientedBoundingBoxRequest {
+  int64 handle = 1;
+}
+
+message GetPathRequest {
+  int64 handle = 1;
+}
+
+message GetPathResponse {
   int64 result = 1;
 }
 
-message GetLengthRequest {
+message ToPathRequest {
   int64 handle = 1;
-}
-
-message GetLengthResponse {
-  float result = 1;
-}
-
-message GetStrokesCountRequest {
-  int64 handle = 1;
-}
-
-message GetStrokesCountResponse {
-  int32 result = 1;
-}
-
-message ToBitmap4Request {
-  int64 handle = 1;
-  int32 arg0 = 2;
-  int32 arg1 = 3;
+  float arg0 = 2;
+  float arg1 = 3;
   int32 arg2 = 4;
-  int32 arg3 = 5;
 }
 
-message ToBitmap4Response {
+message ToPathResponse {
   int64 result = 1;
 }
 
-message ToBitmap5_1Request {
-  int64 handle = 1;
-  int32 arg0 = 2;
-  int32 arg1 = 3;
-  int32 arg2 = 4;
-  int32 arg3 = 5;
-  int32 arg4 = 6;
+message FromFile1Request {
+  int64 arg0 = 1;
 }
 
-message ToBitmap5_1Response {
+message FromFile1Response {
   int64 result = 1;
 }
 
-message ToPath0Request {
-  int64 handle = 1;
+message FromFile1_1Request {
+  string arg0 = 1;
 }
 
-message ToPath0Response {
+message FromFile1_1Response {
   int64 result = 1;
 }
 
-message ToPath1_1Request {
-  int64 handle = 1;
-  int64 arg0 = 2;
+message FromFileDescriptorRequest {
+  int64 arg0 = 1;
 }
 
-message ToPath1_1Response {
+message FromFileDescriptorResponse {
   int64 result = 1;
 }
 
-message ToPath5_2Request {
-  int64 handle = 1;
-  int64 arg0 = 2;
-  int32 arg1 = 3;
-  int32 arg2 = 4;
-  int32 arg3 = 5;
-  int32 arg4 = 6;
+message FromPrivateFileRequest {
+  int64 arg0 = 1;
+  string arg1 = 2;
 }
 
-message ToPath5_2Response {
+message FromPrivateFileResponse {
   int64 result = 1;
 }
 
-message ToPath4_3Request {
-  int64 handle = 1;
-  int32 arg0 = 2;
-  int32 arg1 = 3;
-  int32 arg2 = 4;
-  int32 arg3 = 5;
+message FromRawResourceRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
 }
 
-message ToPath4_3Response {
+message FromRawResourceResponse {
   int64 result = 1;
-}
-
-message WriteToParcelRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-  int32 arg1 = 3;
-}
-
-message WriteToParcelResponse {
-}
-
-message NewStoreRequest {
-}
-
-message NewStoreResponse {
-  int64 result = 1;
-}
-
-message AddGestureRequest {
-  int64 handle = 1;
-  string arg0 = 2;
-  int64 arg1 = 3;
-}
-
-message AddGestureResponse {
-}
-
-message GetOrientationStyleRequest {
-  int64 handle = 1;
-}
-
-message GetOrientationStyleResponse {
-  int32 result = 1;
-}
-
-message GetSequenceTypeRequest {
-  int64 handle = 1;
-}
-
-message GetSequenceTypeResponse {
-  int32 result = 1;
-}
-
-message HasChangedRequest {
-  int64 handle = 1;
-}
-
-message HasChangedResponse {
-  bool result = 1;
-}
-
-message Load1Request {
-  int64 handle = 1;
-  int64 arg0 = 2;
-}
-
-message Load1Response {
-}
-
-message Load2_1Request {
-  int64 handle = 1;
-  int64 arg0 = 2;
-  bool arg1 = 3;
-}
-
-message Load2_1Response {
-}
-
-message RemoveEntryRequest {
-  int64 handle = 1;
-  string arg0 = 2;
-}
-
-message RemoveEntryResponse {
-}
-
-message RemoveGestureRequest {
-  int64 handle = 1;
-  string arg0 = 2;
-  int64 arg1 = 3;
-}
-
-message RemoveGestureResponse {
-}
-
-message Save1Request {
-  int64 handle = 1;
-  int64 arg0 = 2;
-}
-
-message Save1Response {
-}
-
-message Save2_1Request {
-  int64 handle = 1;
-  int64 arg0 = 2;
-  bool arg1 = 3;
-}
-
-message Save2_1Response {
-}
-
-message SetOrientationStyleRequest {
-  int64 handle = 1;
-  int32 arg0 = 2;
-}
-
-message SetOrientationStyleResponse {
-}
-
-message SetSequenceTypeRequest {
-  int64 handle = 1;
-  int32 arg0 = 2;
-}
-
-message SetSequenceTypeResponse {
 }
 
 message NewOverlayViewRequest {
@@ -321,6 +311,14 @@ message DrawRequest {
 }
 
 message DrawResponse {
+}
+
+message GetCurrentStrokeRequest {
+  int64 handle = 1;
+}
+
+message GetCurrentStrokeResponse {
+  int64 result = 1;
 }
 
 message GetFadeOffsetRequest {
@@ -655,220 +653,290 @@ message OnGesturingStartedRequest {
 message OnGesturingStartedResponse {
 }
 
-message LibraryAddGestureRequest {
-  string arg0 = 1;
-  int64 arg1 = 2;
+message NewStoreRequest {
 }
 
-message LibraryGetOrientationStyleRequest {
-}
-
-message LibraryGetSequenceTypeRequest {
-}
-
-message IsReadOnlyRequest {
-}
-
-message IsReadOnlyResponse {
-  bool result = 1;
-}
-
-message LoadRequest {
-}
-
-message LoadResponse {
-  bool result = 1;
-}
-
-message LibraryRemoveEntryRequest {
-  string arg0 = 1;
-}
-
-message LibraryRemoveGestureRequest {
-  string arg0 = 1;
-  int64 arg1 = 2;
-}
-
-message SaveRequest {
-}
-
-message SaveResponse {
-  bool result = 1;
-}
-
-message LibrarySetOrientationStyleRequest {
-  int32 arg0 = 1;
-}
-
-message LibrarySetSequenceTypeRequest {
-  int32 arg0 = 1;
-}
-
-message ToStringRequest {
-}
-
-message ToStringResponse {
-  string result = 1;
-}
-
-message NewStrokeRequest {
-  int64 arg0 = 1;
-}
-
-message NewStrokeResponse {
+message NewStoreResponse {
   int64 result = 1;
 }
 
-message ClearPathRequest {
+message StoreAddGestureRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message StoreGetGestureEntriesRequest {
   int64 handle = 1;
 }
 
-message ClearPathResponse {
+message StoreGetGesturesRequest {
+  int64 handle = 1;
+  string arg0 = 2;
 }
 
-message ComputeOrientedBoundingBoxRequest {
+message StoreGetOrientationStyleRequest {
   int64 handle = 1;
 }
 
-message ComputeOrientedBoundingBoxResponse {
+message StoreGetSequenceTypeRequest {
+  int64 handle = 1;
+}
+
+message HasChangedRequest {
+  int64 handle = 1;
+}
+
+message HasChangedResponse {
+  bool result = 1;
+}
+
+message Load1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message Load1Response {
+}
+
+message Load2_1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  bool arg1 = 3;
+}
+
+message Load2_1Response {
+}
+
+message StoreRecognizeRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message StoreRemoveEntryRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message StoreRemoveGestureRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message Save1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message Save1Response {
+}
+
+message Save2_1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  bool arg1 = 3;
+}
+
+message Save2_1Response {
+}
+
+message StoreSetOrientationStyleRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message StoreSetSequenceTypeRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message NewGestureRequest {
+}
+
+message NewGestureResponse {
   int64 result = 1;
 }
 
-message GetPathRequest {
+message AddStrokeRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message AddStrokeResponse {
+}
+
+message DescribeContentsRequest {
   int64 handle = 1;
 }
 
-message GetPathResponse {
+message DescribeContentsResponse {
+  int32 result = 1;
+}
+
+message GetBoundingBoxRequest {
+  int64 handle = 1;
+}
+
+message GetBoundingBoxResponse {
   int64 result = 1;
 }
 
-message ToPathRequest {
+message GetIDRequest {
   int64 handle = 1;
-  float arg0 = 2;
-  float arg1 = 3;
+}
+
+message GetIDResponse {
+  int64 result = 1;
+}
+
+message GetLengthRequest {
+  int64 handle = 1;
+}
+
+message GetLengthResponse {
+  float result = 1;
+}
+
+message GetStrokesRequest {
+  int64 handle = 1;
+}
+
+message GetStrokesResponse {
+  int64 result = 1;
+}
+
+message GetStrokesCountRequest {
+  int64 handle = 1;
+}
+
+message GetStrokesCountResponse {
+  int32 result = 1;
+}
+
+message ToBitmap4Request {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
   int32 arg2 = 4;
+  int32 arg3 = 5;
 }
 
-message ToPathResponse {
+message ToBitmap4Response {
   int64 result = 1;
 }
 
-message NewPointRequest {
-  float arg0 = 1;
-  float arg1 = 2;
-  int64 arg2 = 3;
+message ToBitmap5_1Request {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+  int32 arg2 = 4;
+  int32 arg3 = 5;
+  int32 arg4 = 6;
 }
 
-message NewPointResponse {
+message ToBitmap5_1Response {
   int64 result = 1;
 }
 
-message UtilsComputeOrientedBoundingBoxRequest {
-  int64 arg0 = 1;
+message ToPath0Request {
+  int64 handle = 1;
 }
 
-message SpatialSampling2Request {
-  int64 arg0 = 1;
-  int32 arg1 = 2;
-}
-
-message SpatialSampling2Response {
+message ToPath0Response {
   int64 result = 1;
 }
 
-message SpatialSampling3_1Request {
-  int64 arg0 = 1;
-  int32 arg1 = 2;
-  bool arg2 = 3;
+message ToPath1_1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
 }
 
-message SpatialSampling3_1Response {
+message ToPath1_1Response {
   int64 result = 1;
 }
 
-message TemporalSamplingRequest {
-  int64 arg0 = 1;
-  int32 arg1 = 2;
+message ToPath5_2Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+  int32 arg2 = 4;
+  int32 arg3 = 5;
+  int32 arg4 = 6;
 }
 
-message TemporalSamplingResponse {
+message ToPath5_2Response {
   int64 result = 1;
 }
 
-message FromFile1Request {
-  int64 arg0 = 1;
+message ToPath4_3Request {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+  int32 arg2 = 4;
+  int32 arg3 = 5;
 }
 
-message FromFile1Response {
+message ToPath4_3Response {
   int64 result = 1;
 }
 
-message FromFile1_1Request {
-  string arg0 = 1;
+message WriteToParcelRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
 }
 
-message FromFile1_1Response {
-  int64 result = 1;
+message WriteToParcelResponse {
 }
 
-message FromFileDescriptorRequest {
-  int64 arg0 = 1;
+service UtilsService {
+  rpc ComputeOrientedBoundingBox (ComputeOrientedBoundingBoxRequest) returns (ComputeOrientedBoundingBoxResponse);
+  rpc SpatialSampling2 (SpatialSampling2Request) returns (SpatialSampling2Response);
+  rpc SpatialSampling3_1 (SpatialSampling3_1Request) returns (SpatialSampling3_1Response);
+  rpc TemporalSampling (TemporalSamplingRequest) returns (TemporalSamplingResponse);
 }
 
-message FromFileDescriptorResponse {
-  int64 result = 1;
-}
-
-message FromPrivateFileRequest {
-  int64 arg0 = 1;
-  string arg1 = 2;
-}
-
-message FromPrivateFileResponse {
-  int64 result = 1;
-}
-
-message FromRawResourceRequest {
-  int64 arg0 = 1;
-  int32 arg1 = 2;
-}
-
-message FromRawResourceResponse {
-  int64 result = 1;
-}
-
-service GestureService {
-  rpc NewGesture (NewGestureRequest) returns (NewGestureResponse);
-  rpc AddStroke (AddStrokeRequest) returns (AddStrokeResponse);
-  rpc Clone (CloneRequest) returns (CloneResponse);
-  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc GetBoundingBox (GetBoundingBoxRequest) returns (GetBoundingBoxResponse);
-  rpc GetID (GetIDRequest) returns (GetIDResponse);
-  rpc GetLength (GetLengthRequest) returns (GetLengthResponse);
-  rpc GetStrokesCount (GetStrokesCountRequest) returns (GetStrokesCountResponse);
-  rpc ToBitmap4 (ToBitmap4Request) returns (ToBitmap4Response);
-  rpc ToBitmap5_1 (ToBitmap5_1Request) returns (ToBitmap5_1Response);
-  rpc ToPath0 (ToPath0Request) returns (ToPath0Response);
-  rpc ToPath1_1 (ToPath1_1Request) returns (ToPath1_1Response);
-  rpc ToPath5_2 (ToPath5_2Request) returns (ToPath5_2Response);
-  rpc ToPath4_3 (ToPath4_3Request) returns (ToPath4_3Response);
-  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
-}
-
-service StoreService {
-  rpc NewStore (NewStoreRequest) returns (NewStoreResponse);
+service LibraryService {
   rpc AddGesture (AddGestureRequest) returns (AddGestureResponse);
+  rpc GetGestureEntries (GetGestureEntriesRequest) returns (GetGestureEntriesResponse);
+  rpc GetGestures (GetGesturesRequest) returns (GetGesturesResponse);
   rpc GetOrientationStyle (GetOrientationStyleRequest) returns (GetOrientationStyleResponse);
   rpc GetSequenceType (GetSequenceTypeRequest) returns (GetSequenceTypeResponse);
-  rpc HasChanged (HasChangedRequest) returns (HasChangedResponse);
-  rpc Load1 (Load1Request) returns (Load1Response);
-  rpc Load2_1 (Load2_1Request) returns (Load2_1Response);
+  rpc IsReadOnly (IsReadOnlyRequest) returns (IsReadOnlyResponse);
+  rpc Load (LoadRequest) returns (LoadResponse);
+  rpc Recognize (RecognizeRequest) returns (RecognizeResponse);
   rpc RemoveEntry (RemoveEntryRequest) returns (RemoveEntryResponse);
   rpc RemoveGesture (RemoveGestureRequest) returns (RemoveGestureResponse);
-  rpc Save1 (Save1Request) returns (Save1Response);
-  rpc Save2_1 (Save2_1Request) returns (Save2_1Response);
+  rpc Save (SaveRequest) returns (SaveResponse);
   rpc SetOrientationStyle (SetOrientationStyleRequest) returns (SetOrientationStyleResponse);
   rpc SetSequenceType (SetSequenceTypeRequest) returns (SetSequenceTypeResponse);
+}
+
+service PredictionService {
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+}
+
+service PointService {
+  rpc NewPoint (NewPointRequest) returns (NewPointResponse);
+  rpc Clone (CloneRequest) returns (CloneResponse);
+}
+
+service StrokeService {
+  rpc NewStroke (NewStrokeRequest) returns (NewStrokeResponse);
+  rpc ClearPath (ClearPathRequest) returns (ClearPathResponse);
+  rpc Clone (CloneRequest) returns (CloneResponse);
+  rpc ComputeOrientedBoundingBox (StrokeComputeOrientedBoundingBoxRequest) returns (ComputeOrientedBoundingBoxResponse);
+  rpc GetPath (GetPathRequest) returns (GetPathResponse);
+  rpc ToPath (ToPathRequest) returns (ToPathResponse);
+}
+
+service LibrariesService {
+  rpc FromFile1 (FromFile1Request) returns (FromFile1Response);
+  rpc FromFile1_1 (FromFile1_1Request) returns (FromFile1_1Response);
+  rpc FromFileDescriptor (FromFileDescriptorRequest) returns (FromFileDescriptorResponse);
+  rpc FromPrivateFile (FromPrivateFileRequest) returns (FromPrivateFileResponse);
+  rpc FromRawResource (FromRawResourceRequest) returns (FromRawResourceResponse);
 }
 
 service OverlayViewService {
@@ -881,6 +949,7 @@ service OverlayViewService {
   rpc Clear (ClearRequest) returns (ClearResponse);
   rpc DispatchTouchEvent (DispatchTouchEventRequest) returns (DispatchTouchEventResponse);
   rpc Draw (DrawRequest) returns (DrawResponse);
+  rpc GetCurrentStroke (GetCurrentStrokeRequest) returns (GetCurrentStrokeResponse);
   rpc GetFadeOffset (GetFadeOffsetRequest) returns (GetFadeOffsetResponse);
   rpc GetGesture (GetGestureRequest) returns (GetGestureResponse);
   rpc GetGestureColor (GetGestureColorRequest) returns (GetGestureColorResponse);
@@ -934,48 +1003,40 @@ service OverlayViewOnGesturingListenerService {
   rpc OnGesturingStarted (OnGesturingStartedRequest) returns (OnGesturingStartedResponse);
 }
 
-service LibraryService {
-  rpc AddGesture (LibraryAddGestureRequest) returns (AddGestureResponse);
-  rpc GetOrientationStyle (LibraryGetOrientationStyleRequest) returns (GetOrientationStyleResponse);
-  rpc GetSequenceType (LibraryGetSequenceTypeRequest) returns (GetSequenceTypeResponse);
-  rpc IsReadOnly (IsReadOnlyRequest) returns (IsReadOnlyResponse);
-  rpc Load (LoadRequest) returns (LoadResponse);
-  rpc RemoveEntry (LibraryRemoveEntryRequest) returns (RemoveEntryResponse);
-  rpc RemoveGesture (LibraryRemoveGestureRequest) returns (RemoveGestureResponse);
-  rpc Save (SaveRequest) returns (SaveResponse);
-  rpc SetOrientationStyle (LibrarySetOrientationStyleRequest) returns (SetOrientationStyleResponse);
-  rpc SetSequenceType (LibrarySetSequenceTypeRequest) returns (SetSequenceTypeResponse);
+service StoreService {
+  rpc NewStore (NewStoreRequest) returns (NewStoreResponse);
+  rpc AddGesture (StoreAddGestureRequest) returns (AddGestureResponse);
+  rpc GetGestureEntries (StoreGetGestureEntriesRequest) returns (GetGestureEntriesResponse);
+  rpc GetGestures (StoreGetGesturesRequest) returns (GetGesturesResponse);
+  rpc GetOrientationStyle (StoreGetOrientationStyleRequest) returns (GetOrientationStyleResponse);
+  rpc GetSequenceType (StoreGetSequenceTypeRequest) returns (GetSequenceTypeResponse);
+  rpc HasChanged (HasChangedRequest) returns (HasChangedResponse);
+  rpc Load1 (Load1Request) returns (Load1Response);
+  rpc Load2_1 (Load2_1Request) returns (Load2_1Response);
+  rpc Recognize (StoreRecognizeRequest) returns (RecognizeResponse);
+  rpc RemoveEntry (StoreRemoveEntryRequest) returns (RemoveEntryResponse);
+  rpc RemoveGesture (StoreRemoveGestureRequest) returns (RemoveGestureResponse);
+  rpc Save1 (Save1Request) returns (Save1Response);
+  rpc Save2_1 (Save2_1Request) returns (Save2_1Response);
+  rpc SetOrientationStyle (StoreSetOrientationStyleRequest) returns (SetOrientationStyleResponse);
+  rpc SetSequenceType (StoreSetSequenceTypeRequest) returns (SetSequenceTypeResponse);
 }
 
-service PredictionService {
-  rpc ToString (ToStringRequest) returns (ToStringResponse);
-}
-
-service StrokeService {
-  rpc NewStroke (NewStrokeRequest) returns (NewStrokeResponse);
-  rpc ClearPath (ClearPathRequest) returns (ClearPathResponse);
+service GestureService {
+  rpc NewGesture (NewGestureRequest) returns (NewGestureResponse);
+  rpc AddStroke (AddStrokeRequest) returns (AddStrokeResponse);
   rpc Clone (CloneRequest) returns (CloneResponse);
-  rpc ComputeOrientedBoundingBox (ComputeOrientedBoundingBoxRequest) returns (ComputeOrientedBoundingBoxResponse);
-  rpc GetPath (GetPathRequest) returns (GetPathResponse);
-  rpc ToPath (ToPathRequest) returns (ToPathResponse);
-}
-
-service PointService {
-  rpc NewPoint (NewPointRequest) returns (NewPointResponse);
-  rpc Clone (CloneRequest) returns (CloneResponse);
-}
-
-service UtilsService {
-  rpc ComputeOrientedBoundingBox (UtilsComputeOrientedBoundingBoxRequest) returns (ComputeOrientedBoundingBoxResponse);
-  rpc SpatialSampling2 (SpatialSampling2Request) returns (SpatialSampling2Response);
-  rpc SpatialSampling3_1 (SpatialSampling3_1Request) returns (SpatialSampling3_1Response);
-  rpc TemporalSampling (TemporalSamplingRequest) returns (TemporalSamplingResponse);
-}
-
-service LibrariesService {
-  rpc FromFile1 (FromFile1Request) returns (FromFile1Response);
-  rpc FromFile1_1 (FromFile1_1Request) returns (FromFile1_1Response);
-  rpc FromFileDescriptor (FromFileDescriptorRequest) returns (FromFileDescriptorResponse);
-  rpc FromPrivateFile (FromPrivateFileRequest) returns (FromPrivateFileResponse);
-  rpc FromRawResource (FromRawResourceRequest) returns (FromRawResourceResponse);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetBoundingBox (GetBoundingBoxRequest) returns (GetBoundingBoxResponse);
+  rpc GetID (GetIDRequest) returns (GetIDResponse);
+  rpc GetLength (GetLengthRequest) returns (GetLengthResponse);
+  rpc GetStrokes (GetStrokesRequest) returns (GetStrokesResponse);
+  rpc GetStrokesCount (GetStrokesCountRequest) returns (GetStrokesCountResponse);
+  rpc ToBitmap4 (ToBitmap4Request) returns (ToBitmap4Response);
+  rpc ToBitmap5_1 (ToBitmap5_1Request) returns (ToBitmap5_1Response);
+  rpc ToPath0 (ToPath0Request) returns (ToPath0Response);
+  rpc ToPath1_1 (ToPath1_1Request) returns (ToPath1_1Response);
+  rpc ToPath5_2 (ToPath5_2Request) returns (ToPath5_2Response);
+  rpc ToPath4_3 (ToPath4_3Request) returns (ToPath4_3Response);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
 }

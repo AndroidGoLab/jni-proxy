@@ -127,175 +127,6 @@ message SetMinimumNetworkChunkBytesResponse {
   int64 result = 1;
 }
 
-message CanRunUserInitiatedJobsRequest {
-}
-
-message CanRunUserInitiatedJobsResponse {
-  bool result = 1;
-}
-
-message CancelRequest {
-  int32 arg0 = 1;
-}
-
-message CancelResponse {
-}
-
-message CancelAllRequest {
-}
-
-message CancelAllResponse {
-}
-
-message CancelInAllNamespacesRequest {
-}
-
-message CancelInAllNamespacesResponse {
-}
-
-message EnqueueRequest {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-}
-
-message EnqueueResponse {
-  int32 result = 1;
-}
-
-message ForNamespaceRequest {
-  string arg0 = 1;
-}
-
-message ForNamespaceResponse {
-  int64 result = 1;
-}
-
-message GetNamespaceRequest {
-}
-
-message GetNamespaceResponse {
-  string result = 1;
-}
-
-message GetPendingJobRequest {
-  int32 arg0 = 1;
-}
-
-message GetPendingJobResponse {
-  int64 result = 1;
-}
-
-message GetPendingJobReasonRequest {
-  int32 arg0 = 1;
-}
-
-message GetPendingJobReasonResponse {
-  int32 result = 1;
-}
-
-message GetPendingJobReasonsRequest {
-  int32 arg0 = 1;
-}
-
-message GetPendingJobReasonsResponse {
-  int64 result = 1;
-}
-
-message ScheduleRequest {
-  int64 arg0 = 1;
-}
-
-message ScheduleResponse {
-  int32 result = 1;
-}
-
-message JobFinishedRequest {
-  int64 arg0 = 1;
-  bool arg1 = 2;
-}
-
-message JobFinishedResponse {
-}
-
-message OnBindRequest {
-  int64 arg0 = 1;
-}
-
-message OnBindResponse {
-  int64 result = 1;
-}
-
-message OnNetworkChangedRequest {
-  int64 arg0 = 1;
-}
-
-message OnNetworkChangedResponse {
-}
-
-message OnStartJobRequest {
-  int64 arg0 = 1;
-}
-
-message OnStartJobResponse {
-  bool result = 1;
-}
-
-message OnStopJobRequest {
-  int64 arg0 = 1;
-}
-
-message OnStopJobResponse {
-  bool result = 1;
-}
-
-message SetNotificationRequest {
-  int64 arg0 = 1;
-  int32 arg1 = 2;
-  int64 arg2 = 3;
-  int32 arg3 = 4;
-}
-
-message SetNotificationResponse {
-}
-
-message UpdateEstimatedNetworkBytes4Request {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-  int64 arg2 = 3;
-  int64 arg3 = 4;
-}
-
-message UpdateEstimatedNetworkBytes4Response {
-}
-
-message UpdateEstimatedNetworkBytes3_1Request {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-  int64 arg2 = 3;
-}
-
-message UpdateEstimatedNetworkBytes3_1Response {
-}
-
-message UpdateTransferredNetworkBytes4Request {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-  int64 arg2 = 3;
-  int64 arg3 = 4;
-}
-
-message UpdateTransferredNetworkBytes4Response {
-}
-
-message UpdateTransferredNetworkBytes3_1Request {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-  int64 arg2 = 3;
-}
-
-message UpdateTransferredNetworkBytes3_1Response {
-}
-
 message NewPendingJobReasonsInfoRequest {
   int64 arg0 = 1;
   int64 arg1 = 2;
@@ -305,8 +136,12 @@ message NewPendingJobReasonsInfoResponse {
   int64 result = 1;
 }
 
-message PendingJobReasonsInfoGetPendingJobReasonsRequest {
+message GetPendingJobReasonsRequest {
   int64 handle = 1;
+}
+
+message GetPendingJobReasonsResponse {
+  int64 result = 1;
 }
 
 message GetTimestampMillisRequest {
@@ -315,33 +150,6 @@ message GetTimestampMillisRequest {
 
 message GetTimestampMillisResponse {
   int64 result = 1;
-}
-
-message GetBinderRequest {
-}
-
-message GetBinderResponse {
-  int64 result = 1;
-}
-
-message UpdateEstimatedNetworkBytesRequest {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-  int64 arg2 = 3;
-  int64 arg3 = 4;
-}
-
-message UpdateEstimatedNetworkBytesResponse {
-}
-
-message UpdateTransferredNetworkBytesRequest {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-  int64 arg2 = 3;
-  int64 arg3 = 4;
-}
-
-message UpdateTransferredNetworkBytesResponse {
 }
 
 message InfoDescribeContentsRequest {
@@ -374,6 +182,13 @@ message GetClipGrantFlagsRequest {
 
 message GetClipGrantFlagsResponse {
   int32 result = 1;
+}
+
+message GetDebugTagsRequest {
+}
+
+message GetDebugTagsResponse {
+  int64 result = 1;
 }
 
 message InfoGetEstimatedNetworkDownloadBytesRequest {
@@ -817,6 +632,186 @@ message InfoTriggerContentUriWriteToParcelRequest {
   int32 arg1 = 2;
 }
 
+message JobFinishedRequest {
+  int64 arg0 = 1;
+  bool arg1 = 2;
+}
+
+message JobFinishedResponse {
+}
+
+message OnBindRequest {
+  int64 arg0 = 1;
+}
+
+message OnBindResponse {
+  int64 result = 1;
+}
+
+message OnNetworkChangedRequest {
+  int64 arg0 = 1;
+}
+
+message OnNetworkChangedResponse {
+}
+
+message OnStartJobRequest {
+  int64 arg0 = 1;
+}
+
+message OnStartJobResponse {
+  bool result = 1;
+}
+
+message OnStopJobRequest {
+  int64 arg0 = 1;
+}
+
+message OnStopJobResponse {
+  bool result = 1;
+}
+
+message SetNotificationRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+  int64 arg2 = 3;
+  int32 arg3 = 4;
+}
+
+message SetNotificationResponse {
+}
+
+message UpdateEstimatedNetworkBytes4Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+  int64 arg3 = 4;
+}
+
+message UpdateEstimatedNetworkBytes4Response {
+}
+
+message UpdateEstimatedNetworkBytes3_1Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message UpdateEstimatedNetworkBytes3_1Response {
+}
+
+message UpdateTransferredNetworkBytes4Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+  int64 arg3 = 4;
+}
+
+message UpdateTransferredNetworkBytes4Response {
+}
+
+message UpdateTransferredNetworkBytes3_1Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message UpdateTransferredNetworkBytes3_1Response {
+}
+
+message CanRunUserInitiatedJobsRequest {
+}
+
+message CanRunUserInitiatedJobsResponse {
+  bool result = 1;
+}
+
+message CancelRequest {
+  int32 arg0 = 1;
+}
+
+message CancelResponse {
+}
+
+message CancelAllRequest {
+}
+
+message CancelAllResponse {
+}
+
+message CancelInAllNamespacesRequest {
+}
+
+message CancelInAllNamespacesResponse {
+}
+
+message EnqueueRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message EnqueueResponse {
+  int32 result = 1;
+}
+
+message ForNamespaceRequest {
+  string arg0 = 1;
+}
+
+message ForNamespaceResponse {
+  int64 result = 1;
+}
+
+message GetAllPendingJobsRequest {
+}
+
+message GetAllPendingJobsResponse {
+  int64 result = 1;
+}
+
+message GetNamespaceRequest {
+}
+
+message GetNamespaceResponse {
+  string result = 1;
+}
+
+message GetPendingJobRequest {
+  int32 arg0 = 1;
+}
+
+message GetPendingJobResponse {
+  int64 result = 1;
+}
+
+message GetPendingJobReasonRequest {
+  int32 arg0 = 1;
+}
+
+message GetPendingJobReasonResponse {
+  int32 result = 1;
+}
+
+message SchedulerGetPendingJobReasonsRequest {
+  int32 arg0 = 1;
+}
+
+message GetPendingJobReasonsHistoryRequest {
+  int32 arg0 = 1;
+}
+
+message GetPendingJobReasonsHistoryResponse {
+  int64 result = 1;
+}
+
+message ScheduleRequest {
+  int64 arg0 = 1;
+}
+
+message ScheduleResponse {
+  int32 result = 1;
+}
+
 message CompleteWorkRequest {
   int64 arg0 = 1;
 }
@@ -905,6 +900,33 @@ message ParametersWriteToParcelRequest {
   int32 arg1 = 2;
 }
 
+message GetBinderRequest {
+}
+
+message GetBinderResponse {
+  int64 result = 1;
+}
+
+message UpdateEstimatedNetworkBytesRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+  int64 arg3 = 4;
+}
+
+message UpdateEstimatedNetworkBytesResponse {
+}
+
+message UpdateTransferredNetworkBytesRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+  int64 arg3 = 4;
+}
+
+message UpdateTransferredNetworkBytesResponse {
+}
+
 service WorkItemService {
   rpc NewWorkItem (NewWorkItemRequest) returns (NewWorkItemResponse);
   rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
@@ -926,50 +948,12 @@ service WorkItemBuilderService {
   rpc SetMinimumNetworkChunkBytes (SetMinimumNetworkChunkBytesRequest) returns (SetMinimumNetworkChunkBytesResponse);
 }
 
-service SchedulerService {
-  rpc CanRunUserInitiatedJobs (CanRunUserInitiatedJobsRequest) returns (CanRunUserInitiatedJobsResponse);
-  rpc Cancel (CancelRequest) returns (CancelResponse);
-  rpc CancelAll (CancelAllRequest) returns (CancelAllResponse);
-  rpc CancelInAllNamespaces (CancelInAllNamespacesRequest) returns (CancelInAllNamespacesResponse);
-  rpc Enqueue (EnqueueRequest) returns (EnqueueResponse);
-  rpc ForNamespace (ForNamespaceRequest) returns (ForNamespaceResponse);
-  rpc GetNamespace (GetNamespaceRequest) returns (GetNamespaceResponse);
-  rpc GetPendingJob (GetPendingJobRequest) returns (GetPendingJobResponse);
-  rpc GetPendingJobReason (GetPendingJobReasonRequest) returns (GetPendingJobReasonResponse);
-  rpc GetPendingJobReasons (GetPendingJobReasonsRequest) returns (GetPendingJobReasonsResponse);
-  rpc Schedule (ScheduleRequest) returns (ScheduleResponse);
-}
-
-service ServiceService {
-  rpc JobFinished (JobFinishedRequest) returns (JobFinishedResponse);
-  rpc OnBind (OnBindRequest) returns (OnBindResponse);
-  rpc OnNetworkChanged (OnNetworkChangedRequest) returns (OnNetworkChangedResponse);
-  rpc OnStartJob (OnStartJobRequest) returns (OnStartJobResponse);
-  rpc OnStopJob (OnStopJobRequest) returns (OnStopJobResponse);
-  rpc SetNotification (SetNotificationRequest) returns (SetNotificationResponse);
-  rpc UpdateEstimatedNetworkBytes4 (UpdateEstimatedNetworkBytes4Request) returns (UpdateEstimatedNetworkBytes4Response);
-  rpc UpdateEstimatedNetworkBytes3_1 (UpdateEstimatedNetworkBytes3_1Request) returns (UpdateEstimatedNetworkBytes3_1Response);
-  rpc UpdateTransferredNetworkBytes4 (UpdateTransferredNetworkBytes4Request) returns (UpdateTransferredNetworkBytes4Response);
-  rpc UpdateTransferredNetworkBytes3_1 (UpdateTransferredNetworkBytes3_1Request) returns (UpdateTransferredNetworkBytes3_1Response);
-}
-
 service PendingJobReasonsInfoService {
   rpc NewPendingJobReasonsInfo (NewPendingJobReasonsInfoRequest) returns (NewPendingJobReasonsInfoResponse);
   rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc GetPendingJobReasons (PendingJobReasonsInfoGetPendingJobReasonsRequest) returns (GetPendingJobReasonsResponse);
+  rpc GetPendingJobReasons (GetPendingJobReasonsRequest) returns (GetPendingJobReasonsResponse);
   rpc GetTimestampMillis (GetTimestampMillisRequest) returns (GetTimestampMillisResponse);
   rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
-}
-
-service ServiceEngineService {
-  rpc GetBinder (GetBinderRequest) returns (GetBinderResponse);
-  rpc JobFinished (JobFinishedRequest) returns (JobFinishedResponse);
-  rpc OnNetworkChanged (OnNetworkChangedRequest) returns (OnNetworkChangedResponse);
-  rpc OnStartJob (OnStartJobRequest) returns (OnStartJobResponse);
-  rpc OnStopJob (OnStopJobRequest) returns (OnStopJobResponse);
-  rpc SetNotification (SetNotificationRequest) returns (SetNotificationResponse);
-  rpc UpdateEstimatedNetworkBytes (UpdateEstimatedNetworkBytesRequest) returns (UpdateEstimatedNetworkBytesResponse);
-  rpc UpdateTransferredNetworkBytes (UpdateTransferredNetworkBytesRequest) returns (UpdateTransferredNetworkBytesResponse);
 }
 
 service InfoService {
@@ -978,6 +962,7 @@ service InfoService {
   rpc GetBackoffPolicy (GetBackoffPolicyRequest) returns (GetBackoffPolicyResponse);
   rpc GetClipData (GetClipDataRequest) returns (GetClipDataResponse);
   rpc GetClipGrantFlags (GetClipGrantFlagsRequest) returns (GetClipGrantFlagsResponse);
+  rpc GetDebugTags (GetDebugTagsRequest) returns (GetDebugTagsResponse);
   rpc GetEstimatedNetworkDownloadBytes (InfoGetEstimatedNetworkDownloadBytesRequest) returns (GetEstimatedNetworkDownloadBytesResponse);
   rpc GetEstimatedNetworkUploadBytes (InfoGetEstimatedNetworkUploadBytesRequest) returns (GetEstimatedNetworkUploadBytesResponse);
   rpc GetExtras (InfoGetExtrasRequest) returns (GetExtrasResponse);
@@ -1055,6 +1040,35 @@ service InfoTriggerContentUriService {
   rpc WriteToParcel (InfoTriggerContentUriWriteToParcelRequest) returns (WriteToParcelResponse);
 }
 
+service ServiceService {
+  rpc JobFinished (JobFinishedRequest) returns (JobFinishedResponse);
+  rpc OnBind (OnBindRequest) returns (OnBindResponse);
+  rpc OnNetworkChanged (OnNetworkChangedRequest) returns (OnNetworkChangedResponse);
+  rpc OnStartJob (OnStartJobRequest) returns (OnStartJobResponse);
+  rpc OnStopJob (OnStopJobRequest) returns (OnStopJobResponse);
+  rpc SetNotification (SetNotificationRequest) returns (SetNotificationResponse);
+  rpc UpdateEstimatedNetworkBytes4 (UpdateEstimatedNetworkBytes4Request) returns (UpdateEstimatedNetworkBytes4Response);
+  rpc UpdateEstimatedNetworkBytes3_1 (UpdateEstimatedNetworkBytes3_1Request) returns (UpdateEstimatedNetworkBytes3_1Response);
+  rpc UpdateTransferredNetworkBytes4 (UpdateTransferredNetworkBytes4Request) returns (UpdateTransferredNetworkBytes4Response);
+  rpc UpdateTransferredNetworkBytes3_1 (UpdateTransferredNetworkBytes3_1Request) returns (UpdateTransferredNetworkBytes3_1Response);
+}
+
+service SchedulerService {
+  rpc CanRunUserInitiatedJobs (CanRunUserInitiatedJobsRequest) returns (CanRunUserInitiatedJobsResponse);
+  rpc Cancel (CancelRequest) returns (CancelResponse);
+  rpc CancelAll (CancelAllRequest) returns (CancelAllResponse);
+  rpc CancelInAllNamespaces (CancelInAllNamespacesRequest) returns (CancelInAllNamespacesResponse);
+  rpc Enqueue (EnqueueRequest) returns (EnqueueResponse);
+  rpc ForNamespace (ForNamespaceRequest) returns (ForNamespaceResponse);
+  rpc GetAllPendingJobs (GetAllPendingJobsRequest) returns (GetAllPendingJobsResponse);
+  rpc GetNamespace (GetNamespaceRequest) returns (GetNamespaceResponse);
+  rpc GetPendingJob (GetPendingJobRequest) returns (GetPendingJobResponse);
+  rpc GetPendingJobReason (GetPendingJobReasonRequest) returns (GetPendingJobReasonResponse);
+  rpc GetPendingJobReasons (SchedulerGetPendingJobReasonsRequest) returns (GetPendingJobReasonsResponse);
+  rpc GetPendingJobReasonsHistory (GetPendingJobReasonsHistoryRequest) returns (GetPendingJobReasonsHistoryResponse);
+  rpc Schedule (ScheduleRequest) returns (ScheduleResponse);
+}
+
 service ParametersService {
   rpc CompleteWork (CompleteWorkRequest) returns (CompleteWorkResponse);
   rpc DequeueWork (DequeueWorkRequest) returns (DequeueWorkResponse);
@@ -1073,4 +1087,15 @@ service ParametersService {
   rpc IsOverrideDeadlineExpired (IsOverrideDeadlineExpiredRequest) returns (IsOverrideDeadlineExpiredResponse);
   rpc IsUserInitiatedJob (IsUserInitiatedJobRequest) returns (IsUserInitiatedJobResponse);
   rpc WriteToParcel (ParametersWriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service ServiceEngineService {
+  rpc GetBinder (GetBinderRequest) returns (GetBinderResponse);
+  rpc JobFinished (JobFinishedRequest) returns (JobFinishedResponse);
+  rpc OnNetworkChanged (OnNetworkChangedRequest) returns (OnNetworkChangedResponse);
+  rpc OnStartJob (OnStartJobRequest) returns (OnStartJobResponse);
+  rpc OnStopJob (OnStopJobRequest) returns (OnStopJobResponse);
+  rpc SetNotification (SetNotificationRequest) returns (SetNotificationResponse);
+  rpc UpdateEstimatedNetworkBytes (UpdateEstimatedNetworkBytesRequest) returns (UpdateEstimatedNetworkBytesResponse);
+  rpc UpdateTransferredNetworkBytes (UpdateTransferredNetworkBytesRequest) returns (UpdateTransferredNetworkBytesResponse);
 }

@@ -23,94 +23,6 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-type GetRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetRequest) Reset() {
-	*x = GetRequest{}
-	mi := &file_proto_measurement_measurement_proto_msgTypes[0]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetRequest) ProtoMessage() {}
-
-func (x *GetRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_measurement_measurement_proto_msgTypes[0]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetRequest.ProtoReflect.Descriptor instead.
-func (*GetRequest) Descriptor() ([]byte, []int) {
-	return file_proto_measurement_measurement_proto_rawDescGZIP(), []int{0}
-}
-
-func (x *GetRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type GetResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetResponse) Reset() {
-	*x = GetResponse{}
-	mi := &file_proto_measurement_measurement_proto_msgTypes[1]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetResponse) ProtoMessage() {}
-
-func (x *GetResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_measurement_measurement_proto_msgTypes[1]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetResponse.ProtoReflect.Descriptor instead.
-func (*GetResponse) Descriptor() ([]byte, []int) {
-	return file_proto_measurement_measurement_proto_rawDescGZIP(), []int{1}
-}
-
-func (x *GetResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
 type DescribeContentsRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	unknownFields protoimpl.UnknownFields
@@ -119,7 +31,7 @@ type DescribeContentsRequest struct {
 
 func (x *DescribeContentsRequest) Reset() {
 	*x = DescribeContentsRequest{}
-	mi := &file_proto_measurement_measurement_proto_msgTypes[2]
+	mi := &file_proto_measurement_measurement_proto_msgTypes[0]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -131,7 +43,7 @@ func (x *DescribeContentsRequest) String() string {
 func (*DescribeContentsRequest) ProtoMessage() {}
 
 func (x *DescribeContentsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_measurement_measurement_proto_msgTypes[2]
+	mi := &file_proto_measurement_measurement_proto_msgTypes[0]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -144,7 +56,7 @@ func (x *DescribeContentsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DescribeContentsRequest.ProtoReflect.Descriptor instead.
 func (*DescribeContentsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_measurement_measurement_proto_rawDescGZIP(), []int{2}
+	return file_proto_measurement_measurement_proto_rawDescGZIP(), []int{0}
 }
 
 type DescribeContentsResponse struct {
@@ -156,7 +68,7 @@ type DescribeContentsResponse struct {
 
 func (x *DescribeContentsResponse) Reset() {
 	*x = DescribeContentsResponse{}
-	mi := &file_proto_measurement_measurement_proto_msgTypes[3]
+	mi := &file_proto_measurement_measurement_proto_msgTypes[1]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -168,7 +80,7 @@ func (x *DescribeContentsResponse) String() string {
 func (*DescribeContentsResponse) ProtoMessage() {}
 
 func (x *DescribeContentsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_measurement_measurement_proto_msgTypes[3]
+	mi := &file_proto_measurement_measurement_proto_msgTypes[1]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -181,7 +93,7 @@ func (x *DescribeContentsResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DescribeContentsResponse.ProtoReflect.Descriptor instead.
 func (*DescribeContentsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_measurement_measurement_proto_rawDescGZIP(), []int{3}
+	return file_proto_measurement_measurement_proto_rawDescGZIP(), []int{1}
 }
 
 func (x *DescribeContentsResponse) GetResult() int32 {
@@ -200,7 +112,7 @@ type EqualsRequest struct {
 
 func (x *EqualsRequest) Reset() {
 	*x = EqualsRequest{}
-	mi := &file_proto_measurement_measurement_proto_msgTypes[4]
+	mi := &file_proto_measurement_measurement_proto_msgTypes[2]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -212,7 +124,7 @@ func (x *EqualsRequest) String() string {
 func (*EqualsRequest) ProtoMessage() {}
 
 func (x *EqualsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_measurement_measurement_proto_msgTypes[4]
+	mi := &file_proto_measurement_measurement_proto_msgTypes[2]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -225,7 +137,7 @@ func (x *EqualsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use EqualsRequest.ProtoReflect.Descriptor instead.
 func (*EqualsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_measurement_measurement_proto_rawDescGZIP(), []int{4}
+	return file_proto_measurement_measurement_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *EqualsRequest) GetArg0() int64 {
@@ -244,7 +156,7 @@ type EqualsResponse struct {
 
 func (x *EqualsResponse) Reset() {
 	*x = EqualsResponse{}
-	mi := &file_proto_measurement_measurement_proto_msgTypes[5]
+	mi := &file_proto_measurement_measurement_proto_msgTypes[3]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -256,7 +168,7 @@ func (x *EqualsResponse) String() string {
 func (*EqualsResponse) ProtoMessage() {}
 
 func (x *EqualsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_measurement_measurement_proto_msgTypes[5]
+	mi := &file_proto_measurement_measurement_proto_msgTypes[3]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -269,7 +181,7 @@ func (x *EqualsResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use EqualsResponse.ProtoReflect.Descriptor instead.
 func (*EqualsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_measurement_measurement_proto_rawDescGZIP(), []int{5}
+	return file_proto_measurement_measurement_proto_rawDescGZIP(), []int{3}
 }
 
 func (x *EqualsResponse) GetResult() bool {
@@ -279,27 +191,27 @@ func (x *EqualsResponse) GetResult() bool {
 	return false
 }
 
-type GetInputEventRequest struct {
+type GetRegistrationUriRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetInputEventRequest) Reset() {
-	*x = GetInputEventRequest{}
-	mi := &file_proto_measurement_measurement_proto_msgTypes[6]
+func (x *GetRegistrationUriRequest) Reset() {
+	*x = GetRegistrationUriRequest{}
+	mi := &file_proto_measurement_measurement_proto_msgTypes[4]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetInputEventRequest) String() string {
+func (x *GetRegistrationUriRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetInputEventRequest) ProtoMessage() {}
+func (*GetRegistrationUriRequest) ProtoMessage() {}
 
-func (x *GetInputEventRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_measurement_measurement_proto_msgTypes[6]
+func (x *GetRegistrationUriRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_measurement_measurement_proto_msgTypes[4]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -310,33 +222,33 @@ func (x *GetInputEventRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetInputEventRequest.ProtoReflect.Descriptor instead.
-func (*GetInputEventRequest) Descriptor() ([]byte, []int) {
-	return file_proto_measurement_measurement_proto_rawDescGZIP(), []int{6}
+// Deprecated: Use GetRegistrationUriRequest.ProtoReflect.Descriptor instead.
+func (*GetRegistrationUriRequest) Descriptor() ([]byte, []int) {
+	return file_proto_measurement_measurement_proto_rawDescGZIP(), []int{4}
 }
 
-type GetInputEventResponse struct {
+type GetRegistrationUriResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetInputEventResponse) Reset() {
-	*x = GetInputEventResponse{}
-	mi := &file_proto_measurement_measurement_proto_msgTypes[7]
+func (x *GetRegistrationUriResponse) Reset() {
+	*x = GetRegistrationUriResponse{}
+	mi := &file_proto_measurement_measurement_proto_msgTypes[5]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetInputEventResponse) String() string {
+func (x *GetRegistrationUriResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetInputEventResponse) ProtoMessage() {}
+func (*GetRegistrationUriResponse) ProtoMessage() {}
 
-func (x *GetInputEventResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_measurement_measurement_proto_msgTypes[7]
+func (x *GetRegistrationUriResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_measurement_measurement_proto_msgTypes[5]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -347,12 +259,12 @@ func (x *GetInputEventResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetInputEventResponse.ProtoReflect.Descriptor instead.
-func (*GetInputEventResponse) Descriptor() ([]byte, []int) {
-	return file_proto_measurement_measurement_proto_rawDescGZIP(), []int{7}
+// Deprecated: Use GetRegistrationUriResponse.ProtoReflect.Descriptor instead.
+func (*GetRegistrationUriResponse) Descriptor() ([]byte, []int) {
+	return file_proto_measurement_measurement_proto_rawDescGZIP(), []int{5}
 }
 
-func (x *GetInputEventResponse) GetResult() int64 {
+func (x *GetRegistrationUriResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
@@ -367,7 +279,7 @@ type HashCodeRequest struct {
 
 func (x *HashCodeRequest) Reset() {
 	*x = HashCodeRequest{}
-	mi := &file_proto_measurement_measurement_proto_msgTypes[8]
+	mi := &file_proto_measurement_measurement_proto_msgTypes[6]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -379,7 +291,7 @@ func (x *HashCodeRequest) String() string {
 func (*HashCodeRequest) ProtoMessage() {}
 
 func (x *HashCodeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_measurement_measurement_proto_msgTypes[8]
+	mi := &file_proto_measurement_measurement_proto_msgTypes[6]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -392,7 +304,7 @@ func (x *HashCodeRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use HashCodeRequest.ProtoReflect.Descriptor instead.
 func (*HashCodeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_measurement_measurement_proto_rawDescGZIP(), []int{8}
+	return file_proto_measurement_measurement_proto_rawDescGZIP(), []int{6}
 }
 
 type HashCodeResponse struct {
@@ -404,7 +316,7 @@ type HashCodeResponse struct {
 
 func (x *HashCodeResponse) Reset() {
 	*x = HashCodeResponse{}
-	mi := &file_proto_measurement_measurement_proto_msgTypes[9]
+	mi := &file_proto_measurement_measurement_proto_msgTypes[7]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -416,7 +328,7 @@ func (x *HashCodeResponse) String() string {
 func (*HashCodeResponse) ProtoMessage() {}
 
 func (x *HashCodeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_measurement_measurement_proto_msgTypes[9]
+	mi := &file_proto_measurement_measurement_proto_msgTypes[7]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -429,7 +341,7 @@ func (x *HashCodeResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use HashCodeResponse.ProtoReflect.Descriptor instead.
 func (*HashCodeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_measurement_measurement_proto_rawDescGZIP(), []int{9}
+	return file_proto_measurement_measurement_proto_rawDescGZIP(), []int{7}
 }
 
 func (x *HashCodeResponse) GetResult() int32 {
@@ -437,6 +349,86 @@ func (x *HashCodeResponse) GetResult() int32 {
 		return x.Result
 	}
 	return 0
+}
+
+type IsDebugKeyAllowedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsDebugKeyAllowedRequest) Reset() {
+	*x = IsDebugKeyAllowedRequest{}
+	mi := &file_proto_measurement_measurement_proto_msgTypes[8]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsDebugKeyAllowedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsDebugKeyAllowedRequest) ProtoMessage() {}
+
+func (x *IsDebugKeyAllowedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_measurement_measurement_proto_msgTypes[8]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsDebugKeyAllowedRequest.ProtoReflect.Descriptor instead.
+func (*IsDebugKeyAllowedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_measurement_measurement_proto_rawDescGZIP(), []int{8}
+}
+
+type IsDebugKeyAllowedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsDebugKeyAllowedResponse) Reset() {
+	*x = IsDebugKeyAllowedResponse{}
+	mi := &file_proto_measurement_measurement_proto_msgTypes[9]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsDebugKeyAllowedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsDebugKeyAllowedResponse) ProtoMessage() {}
+
+func (x *IsDebugKeyAllowedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_measurement_measurement_proto_msgTypes[9]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsDebugKeyAllowedResponse.ProtoReflect.Descriptor instead.
+func (*IsDebugKeyAllowedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_measurement_measurement_proto_rawDescGZIP(), []int{9}
+}
+
+func (x *IsDebugKeyAllowedResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
 }
 
 type WriteToParcelRequest struct {
@@ -607,27 +599,27 @@ func (x *BuildResponse) GetResult() int64 {
 	return 0
 }
 
-type SetInputEventRequest struct {
+type SetDebugKeyAllowedRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg0          bool                   `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *SetInputEventRequest) Reset() {
-	*x = SetInputEventRequest{}
+func (x *SetDebugKeyAllowedRequest) Reset() {
+	*x = SetDebugKeyAllowedRequest{}
 	mi := &file_proto_measurement_measurement_proto_msgTypes[14]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *SetInputEventRequest) String() string {
+func (x *SetDebugKeyAllowedRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*SetInputEventRequest) ProtoMessage() {}
+func (*SetDebugKeyAllowedRequest) ProtoMessage() {}
 
-func (x *SetInputEventRequest) ProtoReflect() protoreflect.Message {
+func (x *SetDebugKeyAllowedRequest) ProtoReflect() protoreflect.Message {
 	mi := &file_proto_measurement_measurement_proto_msgTypes[14]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -639,39 +631,39 @@ func (x *SetInputEventRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use SetInputEventRequest.ProtoReflect.Descriptor instead.
-func (*SetInputEventRequest) Descriptor() ([]byte, []int) {
+// Deprecated: Use SetDebugKeyAllowedRequest.ProtoReflect.Descriptor instead.
+func (*SetDebugKeyAllowedRequest) Descriptor() ([]byte, []int) {
 	return file_proto_measurement_measurement_proto_rawDescGZIP(), []int{14}
 }
 
-func (x *SetInputEventRequest) GetArg0() int64 {
+func (x *SetDebugKeyAllowedRequest) GetArg0() bool {
 	if x != nil {
 		return x.Arg0
 	}
-	return 0
+	return false
 }
 
-type SetInputEventResponse struct {
+type SetDebugKeyAllowedResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *SetInputEventResponse) Reset() {
-	*x = SetInputEventResponse{}
+func (x *SetDebugKeyAllowedResponse) Reset() {
+	*x = SetDebugKeyAllowedResponse{}
 	mi := &file_proto_measurement_measurement_proto_msgTypes[15]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *SetInputEventResponse) String() string {
+func (x *SetDebugKeyAllowedResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*SetInputEventResponse) ProtoMessage() {}
+func (*SetDebugKeyAllowedResponse) ProtoMessage() {}
 
-func (x *SetInputEventResponse) ProtoReflect() protoreflect.Message {
+func (x *SetDebugKeyAllowedResponse) ProtoReflect() protoreflect.Message {
 	mi := &file_proto_measurement_measurement_proto_msgTypes[15]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -683,12 +675,12 @@ func (x *SetInputEventResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use SetInputEventResponse.ProtoReflect.Descriptor instead.
-func (*SetInputEventResponse) Descriptor() ([]byte, []int) {
+// Deprecated: Use SetDebugKeyAllowedResponse.ProtoReflect.Descriptor instead.
+func (*SetDebugKeyAllowedResponse) Descriptor() ([]byte, []int) {
 	return file_proto_measurement_measurement_proto_rawDescGZIP(), []int{15}
 }
 
-func (x *SetInputEventResponse) GetResult() int64 {
+func (x *SetDebugKeyAllowedResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
@@ -775,6 +767,86 @@ func (x *GetDeletionModeResponse) GetResult() int32 {
 	return 0
 }
 
+type GetDomainUrisRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetDomainUrisRequest) Reset() {
+	*x = GetDomainUrisRequest{}
+	mi := &file_proto_measurement_measurement_proto_msgTypes[18]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetDomainUrisRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetDomainUrisRequest) ProtoMessage() {}
+
+func (x *GetDomainUrisRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_measurement_measurement_proto_msgTypes[18]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetDomainUrisRequest.ProtoReflect.Descriptor instead.
+func (*GetDomainUrisRequest) Descriptor() ([]byte, []int) {
+	return file_proto_measurement_measurement_proto_rawDescGZIP(), []int{18}
+}
+
+type GetDomainUrisResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetDomainUrisResponse) Reset() {
+	*x = GetDomainUrisResponse{}
+	mi := &file_proto_measurement_measurement_proto_msgTypes[19]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetDomainUrisResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetDomainUrisResponse) ProtoMessage() {}
+
+func (x *GetDomainUrisResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_measurement_measurement_proto_msgTypes[19]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetDomainUrisResponse.ProtoReflect.Descriptor instead.
+func (*GetDomainUrisResponse) Descriptor() ([]byte, []int) {
+	return file_proto_measurement_measurement_proto_rawDescGZIP(), []int{19}
+}
+
+func (x *GetDomainUrisResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
 type GetEndRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	unknownFields protoimpl.UnknownFields
@@ -783,7 +855,7 @@ type GetEndRequest struct {
 
 func (x *GetEndRequest) Reset() {
 	*x = GetEndRequest{}
-	mi := &file_proto_measurement_measurement_proto_msgTypes[18]
+	mi := &file_proto_measurement_measurement_proto_msgTypes[20]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -795,7 +867,7 @@ func (x *GetEndRequest) String() string {
 func (*GetEndRequest) ProtoMessage() {}
 
 func (x *GetEndRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_measurement_measurement_proto_msgTypes[18]
+	mi := &file_proto_measurement_measurement_proto_msgTypes[20]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -808,7 +880,7 @@ func (x *GetEndRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetEndRequest.ProtoReflect.Descriptor instead.
 func (*GetEndRequest) Descriptor() ([]byte, []int) {
-	return file_proto_measurement_measurement_proto_rawDescGZIP(), []int{18}
+	return file_proto_measurement_measurement_proto_rawDescGZIP(), []int{20}
 }
 
 type GetEndResponse struct {
@@ -820,7 +892,7 @@ type GetEndResponse struct {
 
 func (x *GetEndResponse) Reset() {
 	*x = GetEndResponse{}
-	mi := &file_proto_measurement_measurement_proto_msgTypes[19]
+	mi := &file_proto_measurement_measurement_proto_msgTypes[21]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -832,7 +904,7 @@ func (x *GetEndResponse) String() string {
 func (*GetEndResponse) ProtoMessage() {}
 
 func (x *GetEndResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_measurement_measurement_proto_msgTypes[19]
+	mi := &file_proto_measurement_measurement_proto_msgTypes[21]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -845,7 +917,7 @@ func (x *GetEndResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetEndResponse.ProtoReflect.Descriptor instead.
 func (*GetEndResponse) Descriptor() ([]byte, []int) {
-	return file_proto_measurement_measurement_proto_rawDescGZIP(), []int{19}
+	return file_proto_measurement_measurement_proto_rawDescGZIP(), []int{21}
 }
 
 func (x *GetEndResponse) GetResult() int64 {
@@ -863,7 +935,7 @@ type GetMatchBehaviorRequest struct {
 
 func (x *GetMatchBehaviorRequest) Reset() {
 	*x = GetMatchBehaviorRequest{}
-	mi := &file_proto_measurement_measurement_proto_msgTypes[20]
+	mi := &file_proto_measurement_measurement_proto_msgTypes[22]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -875,7 +947,7 @@ func (x *GetMatchBehaviorRequest) String() string {
 func (*GetMatchBehaviorRequest) ProtoMessage() {}
 
 func (x *GetMatchBehaviorRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_measurement_measurement_proto_msgTypes[20]
+	mi := &file_proto_measurement_measurement_proto_msgTypes[22]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -888,7 +960,7 @@ func (x *GetMatchBehaviorRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetMatchBehaviorRequest.ProtoReflect.Descriptor instead.
 func (*GetMatchBehaviorRequest) Descriptor() ([]byte, []int) {
-	return file_proto_measurement_measurement_proto_rawDescGZIP(), []int{20}
+	return file_proto_measurement_measurement_proto_rawDescGZIP(), []int{22}
 }
 
 type GetMatchBehaviorResponse struct {
@@ -900,7 +972,7 @@ type GetMatchBehaviorResponse struct {
 
 func (x *GetMatchBehaviorResponse) Reset() {
 	*x = GetMatchBehaviorResponse{}
-	mi := &file_proto_measurement_measurement_proto_msgTypes[21]
+	mi := &file_proto_measurement_measurement_proto_msgTypes[23]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -912,7 +984,7 @@ func (x *GetMatchBehaviorResponse) String() string {
 func (*GetMatchBehaviorResponse) ProtoMessage() {}
 
 func (x *GetMatchBehaviorResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_measurement_measurement_proto_msgTypes[21]
+	mi := &file_proto_measurement_measurement_proto_msgTypes[23]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -925,10 +997,90 @@ func (x *GetMatchBehaviorResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetMatchBehaviorResponse.ProtoReflect.Descriptor instead.
 func (*GetMatchBehaviorResponse) Descriptor() ([]byte, []int) {
-	return file_proto_measurement_measurement_proto_rawDescGZIP(), []int{21}
+	return file_proto_measurement_measurement_proto_rawDescGZIP(), []int{23}
 }
 
 func (x *GetMatchBehaviorResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetOriginUrisRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetOriginUrisRequest) Reset() {
+	*x = GetOriginUrisRequest{}
+	mi := &file_proto_measurement_measurement_proto_msgTypes[24]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetOriginUrisRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetOriginUrisRequest) ProtoMessage() {}
+
+func (x *GetOriginUrisRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_measurement_measurement_proto_msgTypes[24]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetOriginUrisRequest.ProtoReflect.Descriptor instead.
+func (*GetOriginUrisRequest) Descriptor() ([]byte, []int) {
+	return file_proto_measurement_measurement_proto_rawDescGZIP(), []int{24}
+}
+
+type GetOriginUrisResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetOriginUrisResponse) Reset() {
+	*x = GetOriginUrisResponse{}
+	mi := &file_proto_measurement_measurement_proto_msgTypes[25]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetOriginUrisResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetOriginUrisResponse) ProtoMessage() {}
+
+func (x *GetOriginUrisResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_measurement_measurement_proto_msgTypes[25]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetOriginUrisResponse.ProtoReflect.Descriptor instead.
+func (*GetOriginUrisResponse) Descriptor() ([]byte, []int) {
+	return file_proto_measurement_measurement_proto_rawDescGZIP(), []int{25}
+}
+
+func (x *GetOriginUrisResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
@@ -943,7 +1095,7 @@ type GetStartRequest struct {
 
 func (x *GetStartRequest) Reset() {
 	*x = GetStartRequest{}
-	mi := &file_proto_measurement_measurement_proto_msgTypes[22]
+	mi := &file_proto_measurement_measurement_proto_msgTypes[26]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -955,7 +1107,7 @@ func (x *GetStartRequest) String() string {
 func (*GetStartRequest) ProtoMessage() {}
 
 func (x *GetStartRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_measurement_measurement_proto_msgTypes[22]
+	mi := &file_proto_measurement_measurement_proto_msgTypes[26]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -968,7 +1120,7 @@ func (x *GetStartRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetStartRequest.ProtoReflect.Descriptor instead.
 func (*GetStartRequest) Descriptor() ([]byte, []int) {
-	return file_proto_measurement_measurement_proto_rawDescGZIP(), []int{22}
+	return file_proto_measurement_measurement_proto_rawDescGZIP(), []int{26}
 }
 
 type GetStartResponse struct {
@@ -980,7 +1132,7 @@ type GetStartResponse struct {
 
 func (x *GetStartResponse) Reset() {
 	*x = GetStartResponse{}
-	mi := &file_proto_measurement_measurement_proto_msgTypes[23]
+	mi := &file_proto_measurement_measurement_proto_msgTypes[27]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -992,7 +1144,7 @@ func (x *GetStartResponse) String() string {
 func (*GetStartResponse) ProtoMessage() {}
 
 func (x *GetStartResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_measurement_measurement_proto_msgTypes[23]
+	mi := &file_proto_measurement_measurement_proto_msgTypes[27]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1005,7 +1157,7 @@ func (x *GetStartResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetStartResponse.ProtoReflect.Descriptor instead.
 func (*GetStartResponse) Descriptor() ([]byte, []int) {
-	return file_proto_measurement_measurement_proto_rawDescGZIP(), []int{23}
+	return file_proto_measurement_measurement_proto_rawDescGZIP(), []int{27}
 }
 
 func (x *GetStartResponse) GetResult() int64 {
@@ -1024,7 +1176,7 @@ type SetDeletionModeRequest struct {
 
 func (x *SetDeletionModeRequest) Reset() {
 	*x = SetDeletionModeRequest{}
-	mi := &file_proto_measurement_measurement_proto_msgTypes[24]
+	mi := &file_proto_measurement_measurement_proto_msgTypes[28]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1036,7 +1188,7 @@ func (x *SetDeletionModeRequest) String() string {
 func (*SetDeletionModeRequest) ProtoMessage() {}
 
 func (x *SetDeletionModeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_measurement_measurement_proto_msgTypes[24]
+	mi := &file_proto_measurement_measurement_proto_msgTypes[28]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1049,7 +1201,7 @@ func (x *SetDeletionModeRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetDeletionModeRequest.ProtoReflect.Descriptor instead.
 func (*SetDeletionModeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_measurement_measurement_proto_rawDescGZIP(), []int{24}
+	return file_proto_measurement_measurement_proto_rawDescGZIP(), []int{28}
 }
 
 func (x *SetDeletionModeRequest) GetArg0() int32 {
@@ -1068,7 +1220,7 @@ type SetDeletionModeResponse struct {
 
 func (x *SetDeletionModeResponse) Reset() {
 	*x = SetDeletionModeResponse{}
-	mi := &file_proto_measurement_measurement_proto_msgTypes[25]
+	mi := &file_proto_measurement_measurement_proto_msgTypes[29]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1080,7 +1232,7 @@ func (x *SetDeletionModeResponse) String() string {
 func (*SetDeletionModeResponse) ProtoMessage() {}
 
 func (x *SetDeletionModeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_measurement_measurement_proto_msgTypes[25]
+	mi := &file_proto_measurement_measurement_proto_msgTypes[29]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1093,7 +1245,7 @@ func (x *SetDeletionModeResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetDeletionModeResponse.ProtoReflect.Descriptor instead.
 func (*SetDeletionModeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_measurement_measurement_proto_rawDescGZIP(), []int{25}
+	return file_proto_measurement_measurement_proto_rawDescGZIP(), []int{29}
 }
 
 func (x *SetDeletionModeResponse) GetResult() int64 {
@@ -1112,7 +1264,7 @@ type SetEndRequest struct {
 
 func (x *SetEndRequest) Reset() {
 	*x = SetEndRequest{}
-	mi := &file_proto_measurement_measurement_proto_msgTypes[26]
+	mi := &file_proto_measurement_measurement_proto_msgTypes[30]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1124,7 +1276,7 @@ func (x *SetEndRequest) String() string {
 func (*SetEndRequest) ProtoMessage() {}
 
 func (x *SetEndRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_measurement_measurement_proto_msgTypes[26]
+	mi := &file_proto_measurement_measurement_proto_msgTypes[30]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1137,7 +1289,7 @@ func (x *SetEndRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetEndRequest.ProtoReflect.Descriptor instead.
 func (*SetEndRequest) Descriptor() ([]byte, []int) {
-	return file_proto_measurement_measurement_proto_rawDescGZIP(), []int{26}
+	return file_proto_measurement_measurement_proto_rawDescGZIP(), []int{30}
 }
 
 func (x *SetEndRequest) GetArg0() int64 {
@@ -1156,7 +1308,7 @@ type SetEndResponse struct {
 
 func (x *SetEndResponse) Reset() {
 	*x = SetEndResponse{}
-	mi := &file_proto_measurement_measurement_proto_msgTypes[27]
+	mi := &file_proto_measurement_measurement_proto_msgTypes[31]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1168,7 +1320,7 @@ func (x *SetEndResponse) String() string {
 func (*SetEndResponse) ProtoMessage() {}
 
 func (x *SetEndResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_measurement_measurement_proto_msgTypes[27]
+	mi := &file_proto_measurement_measurement_proto_msgTypes[31]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1181,7 +1333,7 @@ func (x *SetEndResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetEndResponse.ProtoReflect.Descriptor instead.
 func (*SetEndResponse) Descriptor() ([]byte, []int) {
-	return file_proto_measurement_measurement_proto_rawDescGZIP(), []int{27}
+	return file_proto_measurement_measurement_proto_rawDescGZIP(), []int{31}
 }
 
 func (x *SetEndResponse) GetResult() int64 {
@@ -1200,7 +1352,7 @@ type SetMatchBehaviorRequest struct {
 
 func (x *SetMatchBehaviorRequest) Reset() {
 	*x = SetMatchBehaviorRequest{}
-	mi := &file_proto_measurement_measurement_proto_msgTypes[28]
+	mi := &file_proto_measurement_measurement_proto_msgTypes[32]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1212,7 +1364,7 @@ func (x *SetMatchBehaviorRequest) String() string {
 func (*SetMatchBehaviorRequest) ProtoMessage() {}
 
 func (x *SetMatchBehaviorRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_measurement_measurement_proto_msgTypes[28]
+	mi := &file_proto_measurement_measurement_proto_msgTypes[32]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1225,7 +1377,7 @@ func (x *SetMatchBehaviorRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetMatchBehaviorRequest.ProtoReflect.Descriptor instead.
 func (*SetMatchBehaviorRequest) Descriptor() ([]byte, []int) {
-	return file_proto_measurement_measurement_proto_rawDescGZIP(), []int{28}
+	return file_proto_measurement_measurement_proto_rawDescGZIP(), []int{32}
 }
 
 func (x *SetMatchBehaviorRequest) GetArg0() int32 {
@@ -1244,7 +1396,7 @@ type SetMatchBehaviorResponse struct {
 
 func (x *SetMatchBehaviorResponse) Reset() {
 	*x = SetMatchBehaviorResponse{}
-	mi := &file_proto_measurement_measurement_proto_msgTypes[29]
+	mi := &file_proto_measurement_measurement_proto_msgTypes[33]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1256,7 +1408,7 @@ func (x *SetMatchBehaviorResponse) String() string {
 func (*SetMatchBehaviorResponse) ProtoMessage() {}
 
 func (x *SetMatchBehaviorResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_measurement_measurement_proto_msgTypes[29]
+	mi := &file_proto_measurement_measurement_proto_msgTypes[33]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1269,7 +1421,7 @@ func (x *SetMatchBehaviorResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetMatchBehaviorResponse.ProtoReflect.Descriptor instead.
 func (*SetMatchBehaviorResponse) Descriptor() ([]byte, []int) {
-	return file_proto_measurement_measurement_proto_rawDescGZIP(), []int{29}
+	return file_proto_measurement_measurement_proto_rawDescGZIP(), []int{33}
 }
 
 func (x *SetMatchBehaviorResponse) GetResult() int64 {
@@ -1288,7 +1440,7 @@ type SetStartRequest struct {
 
 func (x *SetStartRequest) Reset() {
 	*x = SetStartRequest{}
-	mi := &file_proto_measurement_measurement_proto_msgTypes[30]
+	mi := &file_proto_measurement_measurement_proto_msgTypes[34]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1300,7 +1452,7 @@ func (x *SetStartRequest) String() string {
 func (*SetStartRequest) ProtoMessage() {}
 
 func (x *SetStartRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_measurement_measurement_proto_msgTypes[30]
+	mi := &file_proto_measurement_measurement_proto_msgTypes[34]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1313,7 +1465,7 @@ func (x *SetStartRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetStartRequest.ProtoReflect.Descriptor instead.
 func (*SetStartRequest) Descriptor() ([]byte, []int) {
-	return file_proto_measurement_measurement_proto_rawDescGZIP(), []int{30}
+	return file_proto_measurement_measurement_proto_rawDescGZIP(), []int{34}
 }
 
 func (x *SetStartRequest) GetArg0() int64 {
@@ -1332,7 +1484,7 @@ type SetStartResponse struct {
 
 func (x *SetStartResponse) Reset() {
 	*x = SetStartResponse{}
-	mi := &file_proto_measurement_measurement_proto_msgTypes[31]
+	mi := &file_proto_measurement_measurement_proto_msgTypes[35]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1344,7 +1496,7 @@ func (x *SetStartResponse) String() string {
 func (*SetStartResponse) ProtoMessage() {}
 
 func (x *SetStartResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_measurement_measurement_proto_msgTypes[31]
+	mi := &file_proto_measurement_measurement_proto_msgTypes[35]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1357,258 +1509,10 @@ func (x *SetStartResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetStartResponse.ProtoReflect.Descriptor instead.
 func (*SetStartResponse) Descriptor() ([]byte, []int) {
-	return file_proto_measurement_measurement_proto_rawDescGZIP(), []int{31}
-}
-
-func (x *SetStartResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetRegistrationUriRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetRegistrationUriRequest) Reset() {
-	*x = GetRegistrationUriRequest{}
-	mi := &file_proto_measurement_measurement_proto_msgTypes[32]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetRegistrationUriRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetRegistrationUriRequest) ProtoMessage() {}
-
-func (x *GetRegistrationUriRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_measurement_measurement_proto_msgTypes[32]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetRegistrationUriRequest.ProtoReflect.Descriptor instead.
-func (*GetRegistrationUriRequest) Descriptor() ([]byte, []int) {
-	return file_proto_measurement_measurement_proto_rawDescGZIP(), []int{32}
-}
-
-type GetRegistrationUriResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetRegistrationUriResponse) Reset() {
-	*x = GetRegistrationUriResponse{}
-	mi := &file_proto_measurement_measurement_proto_msgTypes[33]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetRegistrationUriResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetRegistrationUriResponse) ProtoMessage() {}
-
-func (x *GetRegistrationUriResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_measurement_measurement_proto_msgTypes[33]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetRegistrationUriResponse.ProtoReflect.Descriptor instead.
-func (*GetRegistrationUriResponse) Descriptor() ([]byte, []int) {
-	return file_proto_measurement_measurement_proto_rawDescGZIP(), []int{33}
-}
-
-func (x *GetRegistrationUriResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type IsDebugKeyAllowedRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *IsDebugKeyAllowedRequest) Reset() {
-	*x = IsDebugKeyAllowedRequest{}
-	mi := &file_proto_measurement_measurement_proto_msgTypes[34]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *IsDebugKeyAllowedRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*IsDebugKeyAllowedRequest) ProtoMessage() {}
-
-func (x *IsDebugKeyAllowedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_measurement_measurement_proto_msgTypes[34]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use IsDebugKeyAllowedRequest.ProtoReflect.Descriptor instead.
-func (*IsDebugKeyAllowedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_measurement_measurement_proto_rawDescGZIP(), []int{34}
-}
-
-type IsDebugKeyAllowedResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *IsDebugKeyAllowedResponse) Reset() {
-	*x = IsDebugKeyAllowedResponse{}
-	mi := &file_proto_measurement_measurement_proto_msgTypes[35]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *IsDebugKeyAllowedResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*IsDebugKeyAllowedResponse) ProtoMessage() {}
-
-func (x *IsDebugKeyAllowedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_measurement_measurement_proto_msgTypes[35]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use IsDebugKeyAllowedResponse.ProtoReflect.Descriptor instead.
-func (*IsDebugKeyAllowedResponse) Descriptor() ([]byte, []int) {
 	return file_proto_measurement_measurement_proto_rawDescGZIP(), []int{35}
 }
 
-func (x *IsDebugKeyAllowedResponse) GetResult() bool {
-	if x != nil {
-		return x.Result
-	}
-	return false
-}
-
-type SetDebugKeyAllowedRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          bool                   `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetDebugKeyAllowedRequest) Reset() {
-	*x = SetDebugKeyAllowedRequest{}
-	mi := &file_proto_measurement_measurement_proto_msgTypes[36]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetDebugKeyAllowedRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetDebugKeyAllowedRequest) ProtoMessage() {}
-
-func (x *SetDebugKeyAllowedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_measurement_measurement_proto_msgTypes[36]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetDebugKeyAllowedRequest.ProtoReflect.Descriptor instead.
-func (*SetDebugKeyAllowedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_measurement_measurement_proto_rawDescGZIP(), []int{36}
-}
-
-func (x *SetDebugKeyAllowedRequest) GetArg0() bool {
-	if x != nil {
-		return x.Arg0
-	}
-	return false
-}
-
-type SetDebugKeyAllowedResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetDebugKeyAllowedResponse) Reset() {
-	*x = SetDebugKeyAllowedResponse{}
-	mi := &file_proto_measurement_measurement_proto_msgTypes[37]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetDebugKeyAllowedResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetDebugKeyAllowedResponse) ProtoMessage() {}
-
-func (x *SetDebugKeyAllowedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_measurement_measurement_proto_msgTypes[37]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetDebugKeyAllowedResponse.ProtoReflect.Descriptor instead.
-func (*SetDebugKeyAllowedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_measurement_measurement_proto_rawDescGZIP(), []int{37}
-}
-
-func (x *SetDebugKeyAllowedResponse) GetResult() int64 {
+func (x *SetStartResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
@@ -1623,7 +1527,7 @@ type GetDestinationRequest struct {
 
 func (x *GetDestinationRequest) Reset() {
 	*x = GetDestinationRequest{}
-	mi := &file_proto_measurement_measurement_proto_msgTypes[38]
+	mi := &file_proto_measurement_measurement_proto_msgTypes[36]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1635,7 +1539,7 @@ func (x *GetDestinationRequest) String() string {
 func (*GetDestinationRequest) ProtoMessage() {}
 
 func (x *GetDestinationRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_measurement_measurement_proto_msgTypes[38]
+	mi := &file_proto_measurement_measurement_proto_msgTypes[36]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1648,7 +1552,7 @@ func (x *GetDestinationRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetDestinationRequest.ProtoReflect.Descriptor instead.
 func (*GetDestinationRequest) Descriptor() ([]byte, []int) {
-	return file_proto_measurement_measurement_proto_rawDescGZIP(), []int{38}
+	return file_proto_measurement_measurement_proto_rawDescGZIP(), []int{36}
 }
 
 type GetDestinationResponse struct {
@@ -1660,7 +1564,7 @@ type GetDestinationResponse struct {
 
 func (x *GetDestinationResponse) Reset() {
 	*x = GetDestinationResponse{}
-	mi := &file_proto_measurement_measurement_proto_msgTypes[39]
+	mi := &file_proto_measurement_measurement_proto_msgTypes[37]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1672,7 +1576,7 @@ func (x *GetDestinationResponse) String() string {
 func (*GetDestinationResponse) ProtoMessage() {}
 
 func (x *GetDestinationResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_measurement_measurement_proto_msgTypes[39]
+	mi := &file_proto_measurement_measurement_proto_msgTypes[37]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1685,10 +1589,178 @@ func (x *GetDestinationResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetDestinationResponse.ProtoReflect.Descriptor instead.
 func (*GetDestinationResponse) Descriptor() ([]byte, []int) {
-	return file_proto_measurement_measurement_proto_rawDescGZIP(), []int{39}
+	return file_proto_measurement_measurement_proto_rawDescGZIP(), []int{37}
 }
 
 func (x *GetDestinationResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetTriggerParamsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTriggerParamsRequest) Reset() {
+	*x = GetTriggerParamsRequest{}
+	mi := &file_proto_measurement_measurement_proto_msgTypes[38]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTriggerParamsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTriggerParamsRequest) ProtoMessage() {}
+
+func (x *GetTriggerParamsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_measurement_measurement_proto_msgTypes[38]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTriggerParamsRequest.ProtoReflect.Descriptor instead.
+func (*GetTriggerParamsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_measurement_measurement_proto_rawDescGZIP(), []int{38}
+}
+
+type GetTriggerParamsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTriggerParamsResponse) Reset() {
+	*x = GetTriggerParamsResponse{}
+	mi := &file_proto_measurement_measurement_proto_msgTypes[39]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTriggerParamsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTriggerParamsResponse) ProtoMessage() {}
+
+func (x *GetTriggerParamsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_measurement_measurement_proto_msgTypes[39]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTriggerParamsResponse.ProtoReflect.Descriptor instead.
+func (*GetTriggerParamsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_measurement_measurement_proto_rawDescGZIP(), []int{39}
+}
+
+func (x *GetTriggerParamsResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetRequest) Reset() {
+	*x = GetRequest{}
+	mi := &file_proto_measurement_measurement_proto_msgTypes[40]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetRequest) ProtoMessage() {}
+
+func (x *GetRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_measurement_measurement_proto_msgTypes[40]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetRequest.ProtoReflect.Descriptor instead.
+func (*GetRequest) Descriptor() ([]byte, []int) {
+	return file_proto_measurement_measurement_proto_rawDescGZIP(), []int{40}
+}
+
+func (x *GetRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type GetResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetResponse) Reset() {
+	*x = GetResponse{}
+	mi := &file_proto_measurement_measurement_proto_msgTypes[41]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetResponse) ProtoMessage() {}
+
+func (x *GetResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_measurement_measurement_proto_msgTypes[41]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetResponse.ProtoReflect.Descriptor instead.
+func (*GetResponse) Descriptor() ([]byte, []int) {
+	return file_proto_measurement_measurement_proto_rawDescGZIP(), []int{41}
+}
+
+func (x *GetResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
@@ -1703,7 +1775,7 @@ type GetAppDestinationRequest struct {
 
 func (x *GetAppDestinationRequest) Reset() {
 	*x = GetAppDestinationRequest{}
-	mi := &file_proto_measurement_measurement_proto_msgTypes[40]
+	mi := &file_proto_measurement_measurement_proto_msgTypes[42]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1715,7 +1787,7 @@ func (x *GetAppDestinationRequest) String() string {
 func (*GetAppDestinationRequest) ProtoMessage() {}
 
 func (x *GetAppDestinationRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_measurement_measurement_proto_msgTypes[40]
+	mi := &file_proto_measurement_measurement_proto_msgTypes[42]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1728,7 +1800,7 @@ func (x *GetAppDestinationRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetAppDestinationRequest.ProtoReflect.Descriptor instead.
 func (*GetAppDestinationRequest) Descriptor() ([]byte, []int) {
-	return file_proto_measurement_measurement_proto_rawDescGZIP(), []int{40}
+	return file_proto_measurement_measurement_proto_rawDescGZIP(), []int{42}
 }
 
 type GetAppDestinationResponse struct {
@@ -1740,7 +1812,7 @@ type GetAppDestinationResponse struct {
 
 func (x *GetAppDestinationResponse) Reset() {
 	*x = GetAppDestinationResponse{}
-	mi := &file_proto_measurement_measurement_proto_msgTypes[41]
+	mi := &file_proto_measurement_measurement_proto_msgTypes[43]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1752,7 +1824,7 @@ func (x *GetAppDestinationResponse) String() string {
 func (*GetAppDestinationResponse) ProtoMessage() {}
 
 func (x *GetAppDestinationResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_measurement_measurement_proto_msgTypes[41]
+	mi := &file_proto_measurement_measurement_proto_msgTypes[43]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1765,10 +1837,170 @@ func (x *GetAppDestinationResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetAppDestinationResponse.ProtoReflect.Descriptor instead.
 func (*GetAppDestinationResponse) Descriptor() ([]byte, []int) {
-	return file_proto_measurement_measurement_proto_rawDescGZIP(), []int{41}
+	return file_proto_measurement_measurement_proto_rawDescGZIP(), []int{43}
 }
 
 func (x *GetAppDestinationResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetInputEventRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetInputEventRequest) Reset() {
+	*x = GetInputEventRequest{}
+	mi := &file_proto_measurement_measurement_proto_msgTypes[44]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetInputEventRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetInputEventRequest) ProtoMessage() {}
+
+func (x *GetInputEventRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_measurement_measurement_proto_msgTypes[44]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetInputEventRequest.ProtoReflect.Descriptor instead.
+func (*GetInputEventRequest) Descriptor() ([]byte, []int) {
+	return file_proto_measurement_measurement_proto_rawDescGZIP(), []int{44}
+}
+
+type GetInputEventResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetInputEventResponse) Reset() {
+	*x = GetInputEventResponse{}
+	mi := &file_proto_measurement_measurement_proto_msgTypes[45]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetInputEventResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetInputEventResponse) ProtoMessage() {}
+
+func (x *GetInputEventResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_measurement_measurement_proto_msgTypes[45]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetInputEventResponse.ProtoReflect.Descriptor instead.
+func (*GetInputEventResponse) Descriptor() ([]byte, []int) {
+	return file_proto_measurement_measurement_proto_rawDescGZIP(), []int{45}
+}
+
+func (x *GetInputEventResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetSourceParamsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSourceParamsRequest) Reset() {
+	*x = GetSourceParamsRequest{}
+	mi := &file_proto_measurement_measurement_proto_msgTypes[46]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSourceParamsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSourceParamsRequest) ProtoMessage() {}
+
+func (x *GetSourceParamsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_measurement_measurement_proto_msgTypes[46]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSourceParamsRequest.ProtoReflect.Descriptor instead.
+func (*GetSourceParamsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_measurement_measurement_proto_rawDescGZIP(), []int{46}
+}
+
+type GetSourceParamsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSourceParamsResponse) Reset() {
+	*x = GetSourceParamsResponse{}
+	mi := &file_proto_measurement_measurement_proto_msgTypes[47]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSourceParamsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSourceParamsResponse) ProtoMessage() {}
+
+func (x *GetSourceParamsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_measurement_measurement_proto_msgTypes[47]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSourceParamsResponse.ProtoReflect.Descriptor instead.
+func (*GetSourceParamsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_measurement_measurement_proto_rawDescGZIP(), []int{47}
+}
+
+func (x *GetSourceParamsResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
@@ -1783,7 +2015,7 @@ type GetTopOriginUriRequest struct {
 
 func (x *GetTopOriginUriRequest) Reset() {
 	*x = GetTopOriginUriRequest{}
-	mi := &file_proto_measurement_measurement_proto_msgTypes[42]
+	mi := &file_proto_measurement_measurement_proto_msgTypes[48]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1795,7 +2027,7 @@ func (x *GetTopOriginUriRequest) String() string {
 func (*GetTopOriginUriRequest) ProtoMessage() {}
 
 func (x *GetTopOriginUriRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_measurement_measurement_proto_msgTypes[42]
+	mi := &file_proto_measurement_measurement_proto_msgTypes[48]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1808,7 +2040,7 @@ func (x *GetTopOriginUriRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetTopOriginUriRequest.ProtoReflect.Descriptor instead.
 func (*GetTopOriginUriRequest) Descriptor() ([]byte, []int) {
-	return file_proto_measurement_measurement_proto_rawDescGZIP(), []int{42}
+	return file_proto_measurement_measurement_proto_rawDescGZIP(), []int{48}
 }
 
 type GetTopOriginUriResponse struct {
@@ -1820,7 +2052,7 @@ type GetTopOriginUriResponse struct {
 
 func (x *GetTopOriginUriResponse) Reset() {
 	*x = GetTopOriginUriResponse{}
-	mi := &file_proto_measurement_measurement_proto_msgTypes[43]
+	mi := &file_proto_measurement_measurement_proto_msgTypes[49]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1832,7 +2064,7 @@ func (x *GetTopOriginUriResponse) String() string {
 func (*GetTopOriginUriResponse) ProtoMessage() {}
 
 func (x *GetTopOriginUriResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_measurement_measurement_proto_msgTypes[43]
+	mi := &file_proto_measurement_measurement_proto_msgTypes[49]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1845,7 +2077,7 @@ func (x *GetTopOriginUriResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetTopOriginUriResponse.ProtoReflect.Descriptor instead.
 func (*GetTopOriginUriResponse) Descriptor() ([]byte, []int) {
-	return file_proto_measurement_measurement_proto_rawDescGZIP(), []int{43}
+	return file_proto_measurement_measurement_proto_rawDescGZIP(), []int{49}
 }
 
 func (x *GetTopOriginUriResponse) GetResult() int64 {
@@ -1863,7 +2095,7 @@ type GetVerifiedDestinationRequest struct {
 
 func (x *GetVerifiedDestinationRequest) Reset() {
 	*x = GetVerifiedDestinationRequest{}
-	mi := &file_proto_measurement_measurement_proto_msgTypes[44]
+	mi := &file_proto_measurement_measurement_proto_msgTypes[50]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1875,7 +2107,7 @@ func (x *GetVerifiedDestinationRequest) String() string {
 func (*GetVerifiedDestinationRequest) ProtoMessage() {}
 
 func (x *GetVerifiedDestinationRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_measurement_measurement_proto_msgTypes[44]
+	mi := &file_proto_measurement_measurement_proto_msgTypes[50]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1888,7 +2120,7 @@ func (x *GetVerifiedDestinationRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetVerifiedDestinationRequest.ProtoReflect.Descriptor instead.
 func (*GetVerifiedDestinationRequest) Descriptor() ([]byte, []int) {
-	return file_proto_measurement_measurement_proto_rawDescGZIP(), []int{44}
+	return file_proto_measurement_measurement_proto_rawDescGZIP(), []int{50}
 }
 
 type GetVerifiedDestinationResponse struct {
@@ -1900,7 +2132,7 @@ type GetVerifiedDestinationResponse struct {
 
 func (x *GetVerifiedDestinationResponse) Reset() {
 	*x = GetVerifiedDestinationResponse{}
-	mi := &file_proto_measurement_measurement_proto_msgTypes[45]
+	mi := &file_proto_measurement_measurement_proto_msgTypes[51]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1912,7 +2144,7 @@ func (x *GetVerifiedDestinationResponse) String() string {
 func (*GetVerifiedDestinationResponse) ProtoMessage() {}
 
 func (x *GetVerifiedDestinationResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_measurement_measurement_proto_msgTypes[45]
+	mi := &file_proto_measurement_measurement_proto_msgTypes[51]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1925,7 +2157,7 @@ func (x *GetVerifiedDestinationResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetVerifiedDestinationResponse.ProtoReflect.Descriptor instead.
 func (*GetVerifiedDestinationResponse) Descriptor() ([]byte, []int) {
-	return file_proto_measurement_measurement_proto_rawDescGZIP(), []int{45}
+	return file_proto_measurement_measurement_proto_rawDescGZIP(), []int{51}
 }
 
 func (x *GetVerifiedDestinationResponse) GetResult() int64 {
@@ -1943,7 +2175,7 @@ type GetWebDestinationRequest struct {
 
 func (x *GetWebDestinationRequest) Reset() {
 	*x = GetWebDestinationRequest{}
-	mi := &file_proto_measurement_measurement_proto_msgTypes[46]
+	mi := &file_proto_measurement_measurement_proto_msgTypes[52]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1955,7 +2187,7 @@ func (x *GetWebDestinationRequest) String() string {
 func (*GetWebDestinationRequest) ProtoMessage() {}
 
 func (x *GetWebDestinationRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_measurement_measurement_proto_msgTypes[46]
+	mi := &file_proto_measurement_measurement_proto_msgTypes[52]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1968,7 +2200,7 @@ func (x *GetWebDestinationRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetWebDestinationRequest.ProtoReflect.Descriptor instead.
 func (*GetWebDestinationRequest) Descriptor() ([]byte, []int) {
-	return file_proto_measurement_measurement_proto_rawDescGZIP(), []int{46}
+	return file_proto_measurement_measurement_proto_rawDescGZIP(), []int{52}
 }
 
 type GetWebDestinationResponse struct {
@@ -1980,7 +2212,7 @@ type GetWebDestinationResponse struct {
 
 func (x *GetWebDestinationResponse) Reset() {
 	*x = GetWebDestinationResponse{}
-	mi := &file_proto_measurement_measurement_proto_msgTypes[47]
+	mi := &file_proto_measurement_measurement_proto_msgTypes[53]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1992,7 +2224,7 @@ func (x *GetWebDestinationResponse) String() string {
 func (*GetWebDestinationResponse) ProtoMessage() {}
 
 func (x *GetWebDestinationResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_measurement_measurement_proto_msgTypes[47]
+	mi := &file_proto_measurement_measurement_proto_msgTypes[53]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2005,7 +2237,7 @@ func (x *GetWebDestinationResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetWebDestinationResponse.ProtoReflect.Descriptor instead.
 func (*GetWebDestinationResponse) Descriptor() ([]byte, []int) {
-	return file_proto_measurement_measurement_proto_rawDescGZIP(), []int{47}
+	return file_proto_measurement_measurement_proto_rawDescGZIP(), []int{53}
 }
 
 func (x *GetWebDestinationResponse) GetResult() int64 {
@@ -2024,7 +2256,7 @@ type SetAppDestinationRequest struct {
 
 func (x *SetAppDestinationRequest) Reset() {
 	*x = SetAppDestinationRequest{}
-	mi := &file_proto_measurement_measurement_proto_msgTypes[48]
+	mi := &file_proto_measurement_measurement_proto_msgTypes[54]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2036,7 +2268,7 @@ func (x *SetAppDestinationRequest) String() string {
 func (*SetAppDestinationRequest) ProtoMessage() {}
 
 func (x *SetAppDestinationRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_measurement_measurement_proto_msgTypes[48]
+	mi := &file_proto_measurement_measurement_proto_msgTypes[54]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2049,7 +2281,7 @@ func (x *SetAppDestinationRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetAppDestinationRequest.ProtoReflect.Descriptor instead.
 func (*SetAppDestinationRequest) Descriptor() ([]byte, []int) {
-	return file_proto_measurement_measurement_proto_rawDescGZIP(), []int{48}
+	return file_proto_measurement_measurement_proto_rawDescGZIP(), []int{54}
 }
 
 func (x *SetAppDestinationRequest) GetArg0() int64 {
@@ -2068,7 +2300,7 @@ type SetAppDestinationResponse struct {
 
 func (x *SetAppDestinationResponse) Reset() {
 	*x = SetAppDestinationResponse{}
-	mi := &file_proto_measurement_measurement_proto_msgTypes[49]
+	mi := &file_proto_measurement_measurement_proto_msgTypes[55]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2080,7 +2312,7 @@ func (x *SetAppDestinationResponse) String() string {
 func (*SetAppDestinationResponse) ProtoMessage() {}
 
 func (x *SetAppDestinationResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_measurement_measurement_proto_msgTypes[49]
+	mi := &file_proto_measurement_measurement_proto_msgTypes[55]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2093,10 +2325,98 @@ func (x *SetAppDestinationResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetAppDestinationResponse.ProtoReflect.Descriptor instead.
 func (*SetAppDestinationResponse) Descriptor() ([]byte, []int) {
-	return file_proto_measurement_measurement_proto_rawDescGZIP(), []int{49}
+	return file_proto_measurement_measurement_proto_rawDescGZIP(), []int{55}
 }
 
 func (x *SetAppDestinationResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetInputEventRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetInputEventRequest) Reset() {
+	*x = SetInputEventRequest{}
+	mi := &file_proto_measurement_measurement_proto_msgTypes[56]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetInputEventRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetInputEventRequest) ProtoMessage() {}
+
+func (x *SetInputEventRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_measurement_measurement_proto_msgTypes[56]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetInputEventRequest.ProtoReflect.Descriptor instead.
+func (*SetInputEventRequest) Descriptor() ([]byte, []int) {
+	return file_proto_measurement_measurement_proto_rawDescGZIP(), []int{56}
+}
+
+func (x *SetInputEventRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetInputEventResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetInputEventResponse) Reset() {
+	*x = SetInputEventResponse{}
+	mi := &file_proto_measurement_measurement_proto_msgTypes[57]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetInputEventResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetInputEventResponse) ProtoMessage() {}
+
+func (x *SetInputEventResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_measurement_measurement_proto_msgTypes[57]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetInputEventResponse.ProtoReflect.Descriptor instead.
+func (*SetInputEventResponse) Descriptor() ([]byte, []int) {
+	return file_proto_measurement_measurement_proto_rawDescGZIP(), []int{57}
+}
+
+func (x *SetInputEventResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
@@ -2112,7 +2432,7 @@ type SetVerifiedDestinationRequest struct {
 
 func (x *SetVerifiedDestinationRequest) Reset() {
 	*x = SetVerifiedDestinationRequest{}
-	mi := &file_proto_measurement_measurement_proto_msgTypes[50]
+	mi := &file_proto_measurement_measurement_proto_msgTypes[58]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2124,7 +2444,7 @@ func (x *SetVerifiedDestinationRequest) String() string {
 func (*SetVerifiedDestinationRequest) ProtoMessage() {}
 
 func (x *SetVerifiedDestinationRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_measurement_measurement_proto_msgTypes[50]
+	mi := &file_proto_measurement_measurement_proto_msgTypes[58]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2137,7 +2457,7 @@ func (x *SetVerifiedDestinationRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetVerifiedDestinationRequest.ProtoReflect.Descriptor instead.
 func (*SetVerifiedDestinationRequest) Descriptor() ([]byte, []int) {
-	return file_proto_measurement_measurement_proto_rawDescGZIP(), []int{50}
+	return file_proto_measurement_measurement_proto_rawDescGZIP(), []int{58}
 }
 
 func (x *SetVerifiedDestinationRequest) GetArg0() int64 {
@@ -2156,7 +2476,7 @@ type SetVerifiedDestinationResponse struct {
 
 func (x *SetVerifiedDestinationResponse) Reset() {
 	*x = SetVerifiedDestinationResponse{}
-	mi := &file_proto_measurement_measurement_proto_msgTypes[51]
+	mi := &file_proto_measurement_measurement_proto_msgTypes[59]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2168,7 +2488,7 @@ func (x *SetVerifiedDestinationResponse) String() string {
 func (*SetVerifiedDestinationResponse) ProtoMessage() {}
 
 func (x *SetVerifiedDestinationResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_measurement_measurement_proto_msgTypes[51]
+	mi := &file_proto_measurement_measurement_proto_msgTypes[59]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2181,7 +2501,7 @@ func (x *SetVerifiedDestinationResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetVerifiedDestinationResponse.ProtoReflect.Descriptor instead.
 func (*SetVerifiedDestinationResponse) Descriptor() ([]byte, []int) {
-	return file_proto_measurement_measurement_proto_rawDescGZIP(), []int{51}
+	return file_proto_measurement_measurement_proto_rawDescGZIP(), []int{59}
 }
 
 func (x *SetVerifiedDestinationResponse) GetResult() int64 {
@@ -2200,7 +2520,7 @@ type SetWebDestinationRequest struct {
 
 func (x *SetWebDestinationRequest) Reset() {
 	*x = SetWebDestinationRequest{}
-	mi := &file_proto_measurement_measurement_proto_msgTypes[52]
+	mi := &file_proto_measurement_measurement_proto_msgTypes[60]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2212,7 +2532,7 @@ func (x *SetWebDestinationRequest) String() string {
 func (*SetWebDestinationRequest) ProtoMessage() {}
 
 func (x *SetWebDestinationRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_measurement_measurement_proto_msgTypes[52]
+	mi := &file_proto_measurement_measurement_proto_msgTypes[60]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2225,7 +2545,7 @@ func (x *SetWebDestinationRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetWebDestinationRequest.ProtoReflect.Descriptor instead.
 func (*SetWebDestinationRequest) Descriptor() ([]byte, []int) {
-	return file_proto_measurement_measurement_proto_rawDescGZIP(), []int{52}
+	return file_proto_measurement_measurement_proto_rawDescGZIP(), []int{60}
 }
 
 func (x *SetWebDestinationRequest) GetArg0() int64 {
@@ -2244,7 +2564,7 @@ type SetWebDestinationResponse struct {
 
 func (x *SetWebDestinationResponse) Reset() {
 	*x = SetWebDestinationResponse{}
-	mi := &file_proto_measurement_measurement_proto_msgTypes[53]
+	mi := &file_proto_measurement_measurement_proto_msgTypes[61]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2256,7 +2576,7 @@ func (x *SetWebDestinationResponse) String() string {
 func (*SetWebDestinationResponse) ProtoMessage() {}
 
 func (x *SetWebDestinationResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_measurement_measurement_proto_msgTypes[53]
+	mi := &file_proto_measurement_measurement_proto_msgTypes[61]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2269,10 +2589,90 @@ func (x *SetWebDestinationResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetWebDestinationResponse.ProtoReflect.Descriptor instead.
 func (*SetWebDestinationResponse) Descriptor() ([]byte, []int) {
-	return file_proto_measurement_measurement_proto_rawDescGZIP(), []int{53}
+	return file_proto_measurement_measurement_proto_rawDescGZIP(), []int{61}
 }
 
 func (x *SetWebDestinationResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetRegistrationUrisRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetRegistrationUrisRequest) Reset() {
+	*x = GetRegistrationUrisRequest{}
+	mi := &file_proto_measurement_measurement_proto_msgTypes[62]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetRegistrationUrisRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetRegistrationUrisRequest) ProtoMessage() {}
+
+func (x *GetRegistrationUrisRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_measurement_measurement_proto_msgTypes[62]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetRegistrationUrisRequest.ProtoReflect.Descriptor instead.
+func (*GetRegistrationUrisRequest) Descriptor() ([]byte, []int) {
+	return file_proto_measurement_measurement_proto_rawDescGZIP(), []int{62}
+}
+
+type GetRegistrationUrisResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetRegistrationUrisResponse) Reset() {
+	*x = GetRegistrationUrisResponse{}
+	mi := &file_proto_measurement_measurement_proto_msgTypes[63]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetRegistrationUrisResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetRegistrationUrisResponse) ProtoMessage() {}
+
+func (x *GetRegistrationUrisResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_measurement_measurement_proto_msgTypes[63]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetRegistrationUrisResponse.ProtoReflect.Descriptor instead.
+func (*GetRegistrationUrisResponse) Descriptor() ([]byte, []int) {
+	return file_proto_measurement_measurement_proto_rawDescGZIP(), []int{63}
+}
+
+func (x *GetRegistrationUrisResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
@@ -2283,45 +2683,49 @@ var File_proto_measurement_measurement_proto protoreflect.FileDescriptor
 
 const file_proto_measurement_measurement_proto_rawDesc = "" +
 	"\n" +
-	"#proto/measurement/measurement.proto\x12\vmeasurement\" \n" +
-	"\n" +
-	"GetRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"%\n" +
-	"\vGetResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\x19\n" +
+	"#proto/measurement/measurement.proto\x12\vmeasurement\"\x19\n" +
 	"\x17DescribeContentsRequest\"2\n" +
 	"\x18DescribeContentsResponse\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\x05R\x06result\"#\n" +
 	"\rEqualsRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"(\n" +
 	"\x0eEqualsResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\bR\x06result\"\x16\n" +
-	"\x14GetInputEventRequest\"/\n" +
-	"\x15GetInputEventResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"\x1b\n" +
+	"\x19GetRegistrationUriRequest\"4\n" +
+	"\x1aGetRegistrationUriResponse\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\x03R\x06result\"\x11\n" +
 	"\x0fHashCodeRequest\"*\n" +
 	"\x10HashCodeResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\">\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x1a\n" +
+	"\x18IsDebugKeyAllowedRequest\"3\n" +
+	"\x19IsDebugKeyAllowedResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\">\n" +
 	"\x14WriteToParcelRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
 	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\"\x17\n" +
 	"\x15WriteToParcelResponse\"\x0e\n" +
 	"\fBuildRequest\"'\n" +
 	"\rBuildResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"*\n" +
-	"\x14SetInputEventRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"/\n" +
-	"\x15SetInputEventResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"/\n" +
+	"\x19SetDebugKeyAllowedRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\bR\x04arg0\"4\n" +
+	"\x1aSetDebugKeyAllowedResponse\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\x03R\x06result\"\x18\n" +
 	"\x16GetDeletionModeRequest\"1\n" +
 	"\x17GetDeletionModeResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\"\x0f\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x16\n" +
+	"\x14GetDomainUrisRequest\"/\n" +
+	"\x15GetDomainUrisResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x0f\n" +
 	"\rGetEndRequest\"(\n" +
 	"\x0eGetEndResponse\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\x03R\x06result\"\x19\n" +
 	"\x17GetMatchBehaviorRequest\"2\n" +
 	"\x18GetMatchBehaviorResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\"\x11\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x16\n" +
+	"\x14GetOriginUrisRequest\"/\n" +
+	"\x15GetOriginUrisResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x11\n" +
 	"\x0fGetStartRequest\"*\n" +
 	"\x10GetStartResponse\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\x03R\x06result\",\n" +
@@ -2340,22 +2744,26 @@ const file_proto_measurement_measurement_proto_rawDesc = "" +
 	"\x0fSetStartRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"*\n" +
 	"\x10SetStartResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1b\n" +
-	"\x19GetRegistrationUriRequest\"4\n" +
-	"\x1aGetRegistrationUriResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1a\n" +
-	"\x18IsDebugKeyAllowedRequest\"3\n" +
-	"\x19IsDebugKeyAllowedResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\bR\x06result\"/\n" +
-	"\x19SetDebugKeyAllowedRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\bR\x04arg0\"4\n" +
-	"\x1aSetDebugKeyAllowedResponse\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\x03R\x06result\"\x17\n" +
 	"\x15GetDestinationRequest\"0\n" +
 	"\x16GetDestinationResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x19\n" +
+	"\x17GetTriggerParamsRequest\"2\n" +
+	"\x18GetTriggerParamsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\" \n" +
+	"\n" +
+	"GetRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"%\n" +
+	"\vGetResponse\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1a\n" +
 	"\x18GetAppDestinationRequest\"3\n" +
 	"\x19GetAppDestinationResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x16\n" +
+	"\x14GetInputEventRequest\"/\n" +
+	"\x15GetInputEventResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x18\n" +
+	"\x16GetSourceParamsRequest\"1\n" +
+	"\x17GetSourceParamsResponse\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\x03R\x06result\"\x18\n" +
 	"\x16GetTopOriginUriRequest\"1\n" +
 	"\x17GetTopOriginUriResponse\x12\x16\n" +
@@ -2369,6 +2777,10 @@ const file_proto_measurement_measurement_proto_rawDesc = "" +
 	"\x18SetAppDestinationRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"3\n" +
 	"\x19SetAppDestinationResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"*\n" +
+	"\x14SetInputEventRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"/\n" +
+	"\x15SetInputEventResponse\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\x03R\x06result\"3\n" +
 	"\x1dSetVerifiedDestinationRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"8\n" +
@@ -2377,22 +2789,26 @@ const file_proto_measurement_measurement_proto_rawDesc = "" +
 	"\x18SetWebDestinationRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"3\n" +
 	"\x19SetWebDestinationResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result2J\n" +
-	"\x0eManagerService\x128\n" +
-	"\x03Get\x12\x17.measurement.GetRequest\x1a\x18.measurement.GetResponse2\xbf\x03\n" +
-	" SourceRegistrationRequestService\x12_\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1c\n" +
+	"\x1aGetRegistrationUrisRequest\"5\n" +
+	"\x1bGetRegistrationUrisResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result2\xa8\x04\n" +
+	"\x16WebSourceParamsService\x12_\n" +
 	"\x10DescribeContents\x12$.measurement.DescribeContentsRequest\x1a%.measurement.DescribeContentsResponse\x12A\n" +
-	"\x06Equals\x12\x1a.measurement.EqualsRequest\x1a\x1b.measurement.EqualsResponse\x12V\n" +
-	"\rGetInputEvent\x12!.measurement.GetInputEventRequest\x1a\".measurement.GetInputEventResponse\x12G\n" +
-	"\bHashCode\x12\x1c.measurement.HashCodeRequest\x1a\x1d.measurement.HashCodeResponse\x12V\n" +
-	"\rWriteToParcel\x12!.measurement.WriteToParcelRequest\x1a\".measurement.WriteToParcelResponse2\xc1\x01\n" +
-	"'SourceRegistrationRequestBuilderService\x12>\n" +
-	"\x05Build\x12\x19.measurement.BuildRequest\x1a\x1a.measurement.BuildResponse\x12V\n" +
-	"\rSetInputEvent\x12!.measurement.SetInputEventRequest\x1a\".measurement.SetInputEventResponse2\xe3\x02\n" +
+	"\x06Equals\x12\x1a.measurement.EqualsRequest\x1a\x1b.measurement.EqualsResponse\x12e\n" +
+	"\x12GetRegistrationUri\x12&.measurement.GetRegistrationUriRequest\x1a'.measurement.GetRegistrationUriResponse\x12G\n" +
+	"\bHashCode\x12\x1c.measurement.HashCodeRequest\x1a\x1d.measurement.HashCodeResponse\x12b\n" +
+	"\x11IsDebugKeyAllowed\x12%.measurement.IsDebugKeyAllowedRequest\x1a&.measurement.IsDebugKeyAllowedResponse\x12V\n" +
+	"\rWriteToParcel\x12!.measurement.WriteToParcelRequest\x1a\".measurement.WriteToParcelResponse2\xc6\x01\n" +
+	"\x1dWebSourceParamsBuilderService\x12>\n" +
+	"\x05Build\x12\x19.measurement.BuildRequest\x1a\x1a.measurement.BuildResponse\x12e\n" +
+	"\x12SetDebugKeyAllowed\x12&.measurement.SetDebugKeyAllowedRequest\x1a'.measurement.SetDebugKeyAllowedResponse2\x93\x04\n" +
 	"\x16DeletionRequestService\x12\\\n" +
-	"\x0fGetDeletionMode\x12#.measurement.GetDeletionModeRequest\x1a$.measurement.GetDeletionModeResponse\x12A\n" +
+	"\x0fGetDeletionMode\x12#.measurement.GetDeletionModeRequest\x1a$.measurement.GetDeletionModeResponse\x12V\n" +
+	"\rGetDomainUris\x12!.measurement.GetDomainUrisRequest\x1a\".measurement.GetDomainUrisResponse\x12A\n" +
 	"\x06GetEnd\x12\x1a.measurement.GetEndRequest\x1a\x1b.measurement.GetEndResponse\x12_\n" +
-	"\x10GetMatchBehavior\x12$.measurement.GetMatchBehaviorRequest\x1a%.measurement.GetMatchBehaviorResponse\x12G\n" +
+	"\x10GetMatchBehavior\x12$.measurement.GetMatchBehaviorRequest\x1a%.measurement.GetMatchBehaviorResponse\x12V\n" +
+	"\rGetOriginUris\x12!.measurement.GetOriginUrisRequest\x1a\".measurement.GetOriginUrisResponse\x12G\n" +
 	"\bGetStart\x12\x1c.measurement.GetStartRequest\x1a\x1d.measurement.GetStartResponse2\xaa\x03\n" +
 	"\x1dDeletionRequestBuilderService\x12>\n" +
 	"\x05Build\x12\x19.measurement.BuildRequest\x1a\x1a.measurement.BuildResponse\x12\\\n" +
@@ -2409,30 +2825,24 @@ const file_proto_measurement_measurement_proto_rawDesc = "" +
 	"\rWriteToParcel\x12!.measurement.WriteToParcelRequest\x1a\".measurement.WriteToParcelResponse2\xc7\x01\n" +
 	"\x1eWebTriggerParamsBuilderService\x12>\n" +
 	"\x05Build\x12\x19.measurement.BuildRequest\x1a\x1a.measurement.BuildResponse\x12e\n" +
-	"\x12SetDebugKeyAllowed\x12&.measurement.SetDebugKeyAllowedRequest\x1a'.measurement.SetDebugKeyAllowedResponse2\xa8\x04\n" +
-	"\x16WebSourceParamsService\x12_\n" +
-	"\x10DescribeContents\x12$.measurement.DescribeContentsRequest\x1a%.measurement.DescribeContentsResponse\x12A\n" +
-	"\x06Equals\x12\x1a.measurement.EqualsRequest\x1a\x1b.measurement.EqualsResponse\x12e\n" +
-	"\x12GetRegistrationUri\x12&.measurement.GetRegistrationUriRequest\x1a'.measurement.GetRegistrationUriResponse\x12G\n" +
-	"\bHashCode\x12\x1c.measurement.HashCodeRequest\x1a\x1d.measurement.HashCodeResponse\x12b\n" +
-	"\x11IsDebugKeyAllowed\x12%.measurement.IsDebugKeyAllowedRequest\x1a&.measurement.IsDebugKeyAllowedResponse\x12V\n" +
-	"\rWriteToParcel\x12!.measurement.WriteToParcelRequest\x1a\".measurement.WriteToParcelResponse2\xc6\x01\n" +
-	"\x1dWebSourceParamsBuilderService\x12>\n" +
-	"\x05Build\x12\x19.measurement.BuildRequest\x1a\x1a.measurement.BuildResponse\x12e\n" +
-	"\x12SetDebugKeyAllowed\x12&.measurement.SetDebugKeyAllowedRequest\x1a'.measurement.SetDebugKeyAllowedResponse2\xc6\x03\n" +
+	"\x12SetDebugKeyAllowed\x12&.measurement.SetDebugKeyAllowedRequest\x1a'.measurement.SetDebugKeyAllowedResponse2\xa7\x04\n" +
 	"$WebTriggerRegistrationRequestService\x12_\n" +
 	"\x10DescribeContents\x12$.measurement.DescribeContentsRequest\x1a%.measurement.DescribeContentsResponse\x12A\n" +
 	"\x06Equals\x12\x1a.measurement.EqualsRequest\x1a\x1b.measurement.EqualsResponse\x12Y\n" +
-	"\x0eGetDestination\x12\".measurement.GetDestinationRequest\x1a#.measurement.GetDestinationResponse\x12G\n" +
+	"\x0eGetDestination\x12\".measurement.GetDestinationRequest\x1a#.measurement.GetDestinationResponse\x12_\n" +
+	"\x10GetTriggerParams\x12$.measurement.GetTriggerParamsRequest\x1a%.measurement.GetTriggerParamsResponse\x12G\n" +
 	"\bHashCode\x12\x1c.measurement.HashCodeRequest\x1a\x1d.measurement.HashCodeResponse\x12V\n" +
 	"\rWriteToParcel\x12!.measurement.WriteToParcelRequest\x1a\".measurement.WriteToParcelResponse2m\n" +
 	"+WebTriggerRegistrationRequestBuilderService\x12>\n" +
-	"\x05Build\x12\x19.measurement.BuildRequest\x1a\x1a.measurement.BuildResponse2\xdb\x06\n" +
+	"\x05Build\x12\x19.measurement.BuildRequest\x1a\x1a.measurement.BuildResponse2J\n" +
+	"\x0eManagerService\x128\n" +
+	"\x03Get\x12\x17.measurement.GetRequest\x1a\x18.measurement.GetResponse2\xb9\a\n" +
 	"#WebSourceRegistrationRequestService\x12_\n" +
 	"\x10DescribeContents\x12$.measurement.DescribeContentsRequest\x1a%.measurement.DescribeContentsResponse\x12A\n" +
 	"\x06Equals\x12\x1a.measurement.EqualsRequest\x1a\x1b.measurement.EqualsResponse\x12b\n" +
 	"\x11GetAppDestination\x12%.measurement.GetAppDestinationRequest\x1a&.measurement.GetAppDestinationResponse\x12V\n" +
 	"\rGetInputEvent\x12!.measurement.GetInputEventRequest\x1a\".measurement.GetInputEventResponse\x12\\\n" +
+	"\x0fGetSourceParams\x12#.measurement.GetSourceParamsRequest\x1a$.measurement.GetSourceParamsResponse\x12\\\n" +
 	"\x0fGetTopOriginUri\x12#.measurement.GetTopOriginUriRequest\x1a$.measurement.GetTopOriginUriResponse\x12q\n" +
 	"\x16GetVerifiedDestination\x12*.measurement.GetVerifiedDestinationRequest\x1a+.measurement.GetVerifiedDestinationResponse\x12b\n" +
 	"\x11GetWebDestination\x12%.measurement.GetWebDestinationRequest\x1a&.measurement.GetWebDestinationResponse\x12G\n" +
@@ -2443,7 +2853,17 @@ const file_proto_measurement_measurement_proto_rawDesc = "" +
 	"\x11SetAppDestination\x12%.measurement.SetAppDestinationRequest\x1a&.measurement.SetAppDestinationResponse\x12V\n" +
 	"\rSetInputEvent\x12!.measurement.SetInputEventRequest\x1a\".measurement.SetInputEventResponse\x12q\n" +
 	"\x16SetVerifiedDestination\x12*.measurement.SetVerifiedDestinationRequest\x1a+.measurement.SetVerifiedDestinationResponse\x12b\n" +
-	"\x11SetWebDestination\x12%.measurement.SetWebDestinationRequest\x1a&.measurement.SetWebDestinationResponseB5Z3github.com/AndroidGoLab/jni-proxy/proto/measurementb\x06proto3"
+	"\x11SetWebDestination\x12%.measurement.SetWebDestinationRequest\x1a&.measurement.SetWebDestinationResponse2\xa9\x04\n" +
+	" SourceRegistrationRequestService\x12_\n" +
+	"\x10DescribeContents\x12$.measurement.DescribeContentsRequest\x1a%.measurement.DescribeContentsResponse\x12A\n" +
+	"\x06Equals\x12\x1a.measurement.EqualsRequest\x1a\x1b.measurement.EqualsResponse\x12V\n" +
+	"\rGetInputEvent\x12!.measurement.GetInputEventRequest\x1a\".measurement.GetInputEventResponse\x12h\n" +
+	"\x13GetRegistrationUris\x12'.measurement.GetRegistrationUrisRequest\x1a(.measurement.GetRegistrationUrisResponse\x12G\n" +
+	"\bHashCode\x12\x1c.measurement.HashCodeRequest\x1a\x1d.measurement.HashCodeResponse\x12V\n" +
+	"\rWriteToParcel\x12!.measurement.WriteToParcelRequest\x1a\".measurement.WriteToParcelResponse2\xc1\x01\n" +
+	"'SourceRegistrationRequestBuilderService\x12>\n" +
+	"\x05Build\x12\x19.measurement.BuildRequest\x1a\x1a.measurement.BuildResponse\x12V\n" +
+	"\rSetInputEvent\x12!.measurement.SetInputEventRequest\x1a\".measurement.SetInputEventResponseB5Z3github.com/AndroidGoLab/jni-proxy/proto/measurementb\x06proto3"
 
 var (
 	file_proto_measurement_measurement_proto_rawDescOnce sync.Once
@@ -2457,172 +2877,192 @@ func file_proto_measurement_measurement_proto_rawDescGZIP() []byte {
 	return file_proto_measurement_measurement_proto_rawDescData
 }
 
-var file_proto_measurement_measurement_proto_msgTypes = make([]protoimpl.MessageInfo, 54)
+var file_proto_measurement_measurement_proto_msgTypes = make([]protoimpl.MessageInfo, 64)
 var file_proto_measurement_measurement_proto_goTypes = []any{
-	(*GetRequest)(nil),                     // 0: measurement.GetRequest
-	(*GetResponse)(nil),                    // 1: measurement.GetResponse
-	(*DescribeContentsRequest)(nil),        // 2: measurement.DescribeContentsRequest
-	(*DescribeContentsResponse)(nil),       // 3: measurement.DescribeContentsResponse
-	(*EqualsRequest)(nil),                  // 4: measurement.EqualsRequest
-	(*EqualsResponse)(nil),                 // 5: measurement.EqualsResponse
-	(*GetInputEventRequest)(nil),           // 6: measurement.GetInputEventRequest
-	(*GetInputEventResponse)(nil),          // 7: measurement.GetInputEventResponse
-	(*HashCodeRequest)(nil),                // 8: measurement.HashCodeRequest
-	(*HashCodeResponse)(nil),               // 9: measurement.HashCodeResponse
+	(*DescribeContentsRequest)(nil),        // 0: measurement.DescribeContentsRequest
+	(*DescribeContentsResponse)(nil),       // 1: measurement.DescribeContentsResponse
+	(*EqualsRequest)(nil),                  // 2: measurement.EqualsRequest
+	(*EqualsResponse)(nil),                 // 3: measurement.EqualsResponse
+	(*GetRegistrationUriRequest)(nil),      // 4: measurement.GetRegistrationUriRequest
+	(*GetRegistrationUriResponse)(nil),     // 5: measurement.GetRegistrationUriResponse
+	(*HashCodeRequest)(nil),                // 6: measurement.HashCodeRequest
+	(*HashCodeResponse)(nil),               // 7: measurement.HashCodeResponse
+	(*IsDebugKeyAllowedRequest)(nil),       // 8: measurement.IsDebugKeyAllowedRequest
+	(*IsDebugKeyAllowedResponse)(nil),      // 9: measurement.IsDebugKeyAllowedResponse
 	(*WriteToParcelRequest)(nil),           // 10: measurement.WriteToParcelRequest
 	(*WriteToParcelResponse)(nil),          // 11: measurement.WriteToParcelResponse
 	(*BuildRequest)(nil),                   // 12: measurement.BuildRequest
 	(*BuildResponse)(nil),                  // 13: measurement.BuildResponse
-	(*SetInputEventRequest)(nil),           // 14: measurement.SetInputEventRequest
-	(*SetInputEventResponse)(nil),          // 15: measurement.SetInputEventResponse
+	(*SetDebugKeyAllowedRequest)(nil),      // 14: measurement.SetDebugKeyAllowedRequest
+	(*SetDebugKeyAllowedResponse)(nil),     // 15: measurement.SetDebugKeyAllowedResponse
 	(*GetDeletionModeRequest)(nil),         // 16: measurement.GetDeletionModeRequest
 	(*GetDeletionModeResponse)(nil),        // 17: measurement.GetDeletionModeResponse
-	(*GetEndRequest)(nil),                  // 18: measurement.GetEndRequest
-	(*GetEndResponse)(nil),                 // 19: measurement.GetEndResponse
-	(*GetMatchBehaviorRequest)(nil),        // 20: measurement.GetMatchBehaviorRequest
-	(*GetMatchBehaviorResponse)(nil),       // 21: measurement.GetMatchBehaviorResponse
-	(*GetStartRequest)(nil),                // 22: measurement.GetStartRequest
-	(*GetStartResponse)(nil),               // 23: measurement.GetStartResponse
-	(*SetDeletionModeRequest)(nil),         // 24: measurement.SetDeletionModeRequest
-	(*SetDeletionModeResponse)(nil),        // 25: measurement.SetDeletionModeResponse
-	(*SetEndRequest)(nil),                  // 26: measurement.SetEndRequest
-	(*SetEndResponse)(nil),                 // 27: measurement.SetEndResponse
-	(*SetMatchBehaviorRequest)(nil),        // 28: measurement.SetMatchBehaviorRequest
-	(*SetMatchBehaviorResponse)(nil),       // 29: measurement.SetMatchBehaviorResponse
-	(*SetStartRequest)(nil),                // 30: measurement.SetStartRequest
-	(*SetStartResponse)(nil),               // 31: measurement.SetStartResponse
-	(*GetRegistrationUriRequest)(nil),      // 32: measurement.GetRegistrationUriRequest
-	(*GetRegistrationUriResponse)(nil),     // 33: measurement.GetRegistrationUriResponse
-	(*IsDebugKeyAllowedRequest)(nil),       // 34: measurement.IsDebugKeyAllowedRequest
-	(*IsDebugKeyAllowedResponse)(nil),      // 35: measurement.IsDebugKeyAllowedResponse
-	(*SetDebugKeyAllowedRequest)(nil),      // 36: measurement.SetDebugKeyAllowedRequest
-	(*SetDebugKeyAllowedResponse)(nil),     // 37: measurement.SetDebugKeyAllowedResponse
-	(*GetDestinationRequest)(nil),          // 38: measurement.GetDestinationRequest
-	(*GetDestinationResponse)(nil),         // 39: measurement.GetDestinationResponse
-	(*GetAppDestinationRequest)(nil),       // 40: measurement.GetAppDestinationRequest
-	(*GetAppDestinationResponse)(nil),      // 41: measurement.GetAppDestinationResponse
-	(*GetTopOriginUriRequest)(nil),         // 42: measurement.GetTopOriginUriRequest
-	(*GetTopOriginUriResponse)(nil),        // 43: measurement.GetTopOriginUriResponse
-	(*GetVerifiedDestinationRequest)(nil),  // 44: measurement.GetVerifiedDestinationRequest
-	(*GetVerifiedDestinationResponse)(nil), // 45: measurement.GetVerifiedDestinationResponse
-	(*GetWebDestinationRequest)(nil),       // 46: measurement.GetWebDestinationRequest
-	(*GetWebDestinationResponse)(nil),      // 47: measurement.GetWebDestinationResponse
-	(*SetAppDestinationRequest)(nil),       // 48: measurement.SetAppDestinationRequest
-	(*SetAppDestinationResponse)(nil),      // 49: measurement.SetAppDestinationResponse
-	(*SetVerifiedDestinationRequest)(nil),  // 50: measurement.SetVerifiedDestinationRequest
-	(*SetVerifiedDestinationResponse)(nil), // 51: measurement.SetVerifiedDestinationResponse
-	(*SetWebDestinationRequest)(nil),       // 52: measurement.SetWebDestinationRequest
-	(*SetWebDestinationResponse)(nil),      // 53: measurement.SetWebDestinationResponse
+	(*GetDomainUrisRequest)(nil),           // 18: measurement.GetDomainUrisRequest
+	(*GetDomainUrisResponse)(nil),          // 19: measurement.GetDomainUrisResponse
+	(*GetEndRequest)(nil),                  // 20: measurement.GetEndRequest
+	(*GetEndResponse)(nil),                 // 21: measurement.GetEndResponse
+	(*GetMatchBehaviorRequest)(nil),        // 22: measurement.GetMatchBehaviorRequest
+	(*GetMatchBehaviorResponse)(nil),       // 23: measurement.GetMatchBehaviorResponse
+	(*GetOriginUrisRequest)(nil),           // 24: measurement.GetOriginUrisRequest
+	(*GetOriginUrisResponse)(nil),          // 25: measurement.GetOriginUrisResponse
+	(*GetStartRequest)(nil),                // 26: measurement.GetStartRequest
+	(*GetStartResponse)(nil),               // 27: measurement.GetStartResponse
+	(*SetDeletionModeRequest)(nil),         // 28: measurement.SetDeletionModeRequest
+	(*SetDeletionModeResponse)(nil),        // 29: measurement.SetDeletionModeResponse
+	(*SetEndRequest)(nil),                  // 30: measurement.SetEndRequest
+	(*SetEndResponse)(nil),                 // 31: measurement.SetEndResponse
+	(*SetMatchBehaviorRequest)(nil),        // 32: measurement.SetMatchBehaviorRequest
+	(*SetMatchBehaviorResponse)(nil),       // 33: measurement.SetMatchBehaviorResponse
+	(*SetStartRequest)(nil),                // 34: measurement.SetStartRequest
+	(*SetStartResponse)(nil),               // 35: measurement.SetStartResponse
+	(*GetDestinationRequest)(nil),          // 36: measurement.GetDestinationRequest
+	(*GetDestinationResponse)(nil),         // 37: measurement.GetDestinationResponse
+	(*GetTriggerParamsRequest)(nil),        // 38: measurement.GetTriggerParamsRequest
+	(*GetTriggerParamsResponse)(nil),       // 39: measurement.GetTriggerParamsResponse
+	(*GetRequest)(nil),                     // 40: measurement.GetRequest
+	(*GetResponse)(nil),                    // 41: measurement.GetResponse
+	(*GetAppDestinationRequest)(nil),       // 42: measurement.GetAppDestinationRequest
+	(*GetAppDestinationResponse)(nil),      // 43: measurement.GetAppDestinationResponse
+	(*GetInputEventRequest)(nil),           // 44: measurement.GetInputEventRequest
+	(*GetInputEventResponse)(nil),          // 45: measurement.GetInputEventResponse
+	(*GetSourceParamsRequest)(nil),         // 46: measurement.GetSourceParamsRequest
+	(*GetSourceParamsResponse)(nil),        // 47: measurement.GetSourceParamsResponse
+	(*GetTopOriginUriRequest)(nil),         // 48: measurement.GetTopOriginUriRequest
+	(*GetTopOriginUriResponse)(nil),        // 49: measurement.GetTopOriginUriResponse
+	(*GetVerifiedDestinationRequest)(nil),  // 50: measurement.GetVerifiedDestinationRequest
+	(*GetVerifiedDestinationResponse)(nil), // 51: measurement.GetVerifiedDestinationResponse
+	(*GetWebDestinationRequest)(nil),       // 52: measurement.GetWebDestinationRequest
+	(*GetWebDestinationResponse)(nil),      // 53: measurement.GetWebDestinationResponse
+	(*SetAppDestinationRequest)(nil),       // 54: measurement.SetAppDestinationRequest
+	(*SetAppDestinationResponse)(nil),      // 55: measurement.SetAppDestinationResponse
+	(*SetInputEventRequest)(nil),           // 56: measurement.SetInputEventRequest
+	(*SetInputEventResponse)(nil),          // 57: measurement.SetInputEventResponse
+	(*SetVerifiedDestinationRequest)(nil),  // 58: measurement.SetVerifiedDestinationRequest
+	(*SetVerifiedDestinationResponse)(nil), // 59: measurement.SetVerifiedDestinationResponse
+	(*SetWebDestinationRequest)(nil),       // 60: measurement.SetWebDestinationRequest
+	(*SetWebDestinationResponse)(nil),      // 61: measurement.SetWebDestinationResponse
+	(*GetRegistrationUrisRequest)(nil),     // 62: measurement.GetRegistrationUrisRequest
+	(*GetRegistrationUrisResponse)(nil),    // 63: measurement.GetRegistrationUrisResponse
 }
 var file_proto_measurement_measurement_proto_depIdxs = []int32{
-	0,  // 0: measurement.ManagerService.Get:input_type -> measurement.GetRequest
-	2,  // 1: measurement.SourceRegistrationRequestService.DescribeContents:input_type -> measurement.DescribeContentsRequest
-	4,  // 2: measurement.SourceRegistrationRequestService.Equals:input_type -> measurement.EqualsRequest
-	6,  // 3: measurement.SourceRegistrationRequestService.GetInputEvent:input_type -> measurement.GetInputEventRequest
-	8,  // 4: measurement.SourceRegistrationRequestService.HashCode:input_type -> measurement.HashCodeRequest
-	10, // 5: measurement.SourceRegistrationRequestService.WriteToParcel:input_type -> measurement.WriteToParcelRequest
-	12, // 6: measurement.SourceRegistrationRequestBuilderService.Build:input_type -> measurement.BuildRequest
-	14, // 7: measurement.SourceRegistrationRequestBuilderService.SetInputEvent:input_type -> measurement.SetInputEventRequest
+	0,  // 0: measurement.WebSourceParamsService.DescribeContents:input_type -> measurement.DescribeContentsRequest
+	2,  // 1: measurement.WebSourceParamsService.Equals:input_type -> measurement.EqualsRequest
+	4,  // 2: measurement.WebSourceParamsService.GetRegistrationUri:input_type -> measurement.GetRegistrationUriRequest
+	6,  // 3: measurement.WebSourceParamsService.HashCode:input_type -> measurement.HashCodeRequest
+	8,  // 4: measurement.WebSourceParamsService.IsDebugKeyAllowed:input_type -> measurement.IsDebugKeyAllowedRequest
+	10, // 5: measurement.WebSourceParamsService.WriteToParcel:input_type -> measurement.WriteToParcelRequest
+	12, // 6: measurement.WebSourceParamsBuilderService.Build:input_type -> measurement.BuildRequest
+	14, // 7: measurement.WebSourceParamsBuilderService.SetDebugKeyAllowed:input_type -> measurement.SetDebugKeyAllowedRequest
 	16, // 8: measurement.DeletionRequestService.GetDeletionMode:input_type -> measurement.GetDeletionModeRequest
-	18, // 9: measurement.DeletionRequestService.GetEnd:input_type -> measurement.GetEndRequest
-	20, // 10: measurement.DeletionRequestService.GetMatchBehavior:input_type -> measurement.GetMatchBehaviorRequest
-	22, // 11: measurement.DeletionRequestService.GetStart:input_type -> measurement.GetStartRequest
-	12, // 12: measurement.DeletionRequestBuilderService.Build:input_type -> measurement.BuildRequest
-	24, // 13: measurement.DeletionRequestBuilderService.SetDeletionMode:input_type -> measurement.SetDeletionModeRequest
-	26, // 14: measurement.DeletionRequestBuilderService.SetEnd:input_type -> measurement.SetEndRequest
-	28, // 15: measurement.DeletionRequestBuilderService.SetMatchBehavior:input_type -> measurement.SetMatchBehaviorRequest
-	30, // 16: measurement.DeletionRequestBuilderService.SetStart:input_type -> measurement.SetStartRequest
-	2,  // 17: measurement.WebTriggerParamsService.DescribeContents:input_type -> measurement.DescribeContentsRequest
-	4,  // 18: measurement.WebTriggerParamsService.Equals:input_type -> measurement.EqualsRequest
-	32, // 19: measurement.WebTriggerParamsService.GetRegistrationUri:input_type -> measurement.GetRegistrationUriRequest
-	8,  // 20: measurement.WebTriggerParamsService.HashCode:input_type -> measurement.HashCodeRequest
-	34, // 21: measurement.WebTriggerParamsService.IsDebugKeyAllowed:input_type -> measurement.IsDebugKeyAllowedRequest
-	10, // 22: measurement.WebTriggerParamsService.WriteToParcel:input_type -> measurement.WriteToParcelRequest
-	12, // 23: measurement.WebTriggerParamsBuilderService.Build:input_type -> measurement.BuildRequest
-	36, // 24: measurement.WebTriggerParamsBuilderService.SetDebugKeyAllowed:input_type -> measurement.SetDebugKeyAllowedRequest
-	2,  // 25: measurement.WebSourceParamsService.DescribeContents:input_type -> measurement.DescribeContentsRequest
-	4,  // 26: measurement.WebSourceParamsService.Equals:input_type -> measurement.EqualsRequest
-	32, // 27: measurement.WebSourceParamsService.GetRegistrationUri:input_type -> measurement.GetRegistrationUriRequest
-	8,  // 28: measurement.WebSourceParamsService.HashCode:input_type -> measurement.HashCodeRequest
-	34, // 29: measurement.WebSourceParamsService.IsDebugKeyAllowed:input_type -> measurement.IsDebugKeyAllowedRequest
-	10, // 30: measurement.WebSourceParamsService.WriteToParcel:input_type -> measurement.WriteToParcelRequest
-	12, // 31: measurement.WebSourceParamsBuilderService.Build:input_type -> measurement.BuildRequest
-	36, // 32: measurement.WebSourceParamsBuilderService.SetDebugKeyAllowed:input_type -> measurement.SetDebugKeyAllowedRequest
-	2,  // 33: measurement.WebTriggerRegistrationRequestService.DescribeContents:input_type -> measurement.DescribeContentsRequest
-	4,  // 34: measurement.WebTriggerRegistrationRequestService.Equals:input_type -> measurement.EqualsRequest
-	38, // 35: measurement.WebTriggerRegistrationRequestService.GetDestination:input_type -> measurement.GetDestinationRequest
-	8,  // 36: measurement.WebTriggerRegistrationRequestService.HashCode:input_type -> measurement.HashCodeRequest
-	10, // 37: measurement.WebTriggerRegistrationRequestService.WriteToParcel:input_type -> measurement.WriteToParcelRequest
-	12, // 38: measurement.WebTriggerRegistrationRequestBuilderService.Build:input_type -> measurement.BuildRequest
-	2,  // 39: measurement.WebSourceRegistrationRequestService.DescribeContents:input_type -> measurement.DescribeContentsRequest
-	4,  // 40: measurement.WebSourceRegistrationRequestService.Equals:input_type -> measurement.EqualsRequest
-	40, // 41: measurement.WebSourceRegistrationRequestService.GetAppDestination:input_type -> measurement.GetAppDestinationRequest
-	6,  // 42: measurement.WebSourceRegistrationRequestService.GetInputEvent:input_type -> measurement.GetInputEventRequest
-	42, // 43: measurement.WebSourceRegistrationRequestService.GetTopOriginUri:input_type -> measurement.GetTopOriginUriRequest
-	44, // 44: measurement.WebSourceRegistrationRequestService.GetVerifiedDestination:input_type -> measurement.GetVerifiedDestinationRequest
-	46, // 45: measurement.WebSourceRegistrationRequestService.GetWebDestination:input_type -> measurement.GetWebDestinationRequest
-	8,  // 46: measurement.WebSourceRegistrationRequestService.HashCode:input_type -> measurement.HashCodeRequest
-	10, // 47: measurement.WebSourceRegistrationRequestService.WriteToParcel:input_type -> measurement.WriteToParcelRequest
-	12, // 48: measurement.WebSourceRegistrationRequestBuilderService.Build:input_type -> measurement.BuildRequest
-	48, // 49: measurement.WebSourceRegistrationRequestBuilderService.SetAppDestination:input_type -> measurement.SetAppDestinationRequest
-	14, // 50: measurement.WebSourceRegistrationRequestBuilderService.SetInputEvent:input_type -> measurement.SetInputEventRequest
-	50, // 51: measurement.WebSourceRegistrationRequestBuilderService.SetVerifiedDestination:input_type -> measurement.SetVerifiedDestinationRequest
-	52, // 52: measurement.WebSourceRegistrationRequestBuilderService.SetWebDestination:input_type -> measurement.SetWebDestinationRequest
-	1,  // 53: measurement.ManagerService.Get:output_type -> measurement.GetResponse
-	3,  // 54: measurement.SourceRegistrationRequestService.DescribeContents:output_type -> measurement.DescribeContentsResponse
-	5,  // 55: measurement.SourceRegistrationRequestService.Equals:output_type -> measurement.EqualsResponse
-	7,  // 56: measurement.SourceRegistrationRequestService.GetInputEvent:output_type -> measurement.GetInputEventResponse
-	9,  // 57: measurement.SourceRegistrationRequestService.HashCode:output_type -> measurement.HashCodeResponse
-	11, // 58: measurement.SourceRegistrationRequestService.WriteToParcel:output_type -> measurement.WriteToParcelResponse
-	13, // 59: measurement.SourceRegistrationRequestBuilderService.Build:output_type -> measurement.BuildResponse
-	15, // 60: measurement.SourceRegistrationRequestBuilderService.SetInputEvent:output_type -> measurement.SetInputEventResponse
-	17, // 61: measurement.DeletionRequestService.GetDeletionMode:output_type -> measurement.GetDeletionModeResponse
-	19, // 62: measurement.DeletionRequestService.GetEnd:output_type -> measurement.GetEndResponse
-	21, // 63: measurement.DeletionRequestService.GetMatchBehavior:output_type -> measurement.GetMatchBehaviorResponse
-	23, // 64: measurement.DeletionRequestService.GetStart:output_type -> measurement.GetStartResponse
-	13, // 65: measurement.DeletionRequestBuilderService.Build:output_type -> measurement.BuildResponse
-	25, // 66: measurement.DeletionRequestBuilderService.SetDeletionMode:output_type -> measurement.SetDeletionModeResponse
-	27, // 67: measurement.DeletionRequestBuilderService.SetEnd:output_type -> measurement.SetEndResponse
-	29, // 68: measurement.DeletionRequestBuilderService.SetMatchBehavior:output_type -> measurement.SetMatchBehaviorResponse
-	31, // 69: measurement.DeletionRequestBuilderService.SetStart:output_type -> measurement.SetStartResponse
-	3,  // 70: measurement.WebTriggerParamsService.DescribeContents:output_type -> measurement.DescribeContentsResponse
-	5,  // 71: measurement.WebTriggerParamsService.Equals:output_type -> measurement.EqualsResponse
-	33, // 72: measurement.WebTriggerParamsService.GetRegistrationUri:output_type -> measurement.GetRegistrationUriResponse
-	9,  // 73: measurement.WebTriggerParamsService.HashCode:output_type -> measurement.HashCodeResponse
-	35, // 74: measurement.WebTriggerParamsService.IsDebugKeyAllowed:output_type -> measurement.IsDebugKeyAllowedResponse
-	11, // 75: measurement.WebTriggerParamsService.WriteToParcel:output_type -> measurement.WriteToParcelResponse
-	13, // 76: measurement.WebTriggerParamsBuilderService.Build:output_type -> measurement.BuildResponse
-	37, // 77: measurement.WebTriggerParamsBuilderService.SetDebugKeyAllowed:output_type -> measurement.SetDebugKeyAllowedResponse
-	3,  // 78: measurement.WebSourceParamsService.DescribeContents:output_type -> measurement.DescribeContentsResponse
-	5,  // 79: measurement.WebSourceParamsService.Equals:output_type -> measurement.EqualsResponse
-	33, // 80: measurement.WebSourceParamsService.GetRegistrationUri:output_type -> measurement.GetRegistrationUriResponse
-	9,  // 81: measurement.WebSourceParamsService.HashCode:output_type -> measurement.HashCodeResponse
-	35, // 82: measurement.WebSourceParamsService.IsDebugKeyAllowed:output_type -> measurement.IsDebugKeyAllowedResponse
-	11, // 83: measurement.WebSourceParamsService.WriteToParcel:output_type -> measurement.WriteToParcelResponse
-	13, // 84: measurement.WebSourceParamsBuilderService.Build:output_type -> measurement.BuildResponse
-	37, // 85: measurement.WebSourceParamsBuilderService.SetDebugKeyAllowed:output_type -> measurement.SetDebugKeyAllowedResponse
-	3,  // 86: measurement.WebTriggerRegistrationRequestService.DescribeContents:output_type -> measurement.DescribeContentsResponse
-	5,  // 87: measurement.WebTriggerRegistrationRequestService.Equals:output_type -> measurement.EqualsResponse
-	39, // 88: measurement.WebTriggerRegistrationRequestService.GetDestination:output_type -> measurement.GetDestinationResponse
-	9,  // 89: measurement.WebTriggerRegistrationRequestService.HashCode:output_type -> measurement.HashCodeResponse
+	18, // 9: measurement.DeletionRequestService.GetDomainUris:input_type -> measurement.GetDomainUrisRequest
+	20, // 10: measurement.DeletionRequestService.GetEnd:input_type -> measurement.GetEndRequest
+	22, // 11: measurement.DeletionRequestService.GetMatchBehavior:input_type -> measurement.GetMatchBehaviorRequest
+	24, // 12: measurement.DeletionRequestService.GetOriginUris:input_type -> measurement.GetOriginUrisRequest
+	26, // 13: measurement.DeletionRequestService.GetStart:input_type -> measurement.GetStartRequest
+	12, // 14: measurement.DeletionRequestBuilderService.Build:input_type -> measurement.BuildRequest
+	28, // 15: measurement.DeletionRequestBuilderService.SetDeletionMode:input_type -> measurement.SetDeletionModeRequest
+	30, // 16: measurement.DeletionRequestBuilderService.SetEnd:input_type -> measurement.SetEndRequest
+	32, // 17: measurement.DeletionRequestBuilderService.SetMatchBehavior:input_type -> measurement.SetMatchBehaviorRequest
+	34, // 18: measurement.DeletionRequestBuilderService.SetStart:input_type -> measurement.SetStartRequest
+	0,  // 19: measurement.WebTriggerParamsService.DescribeContents:input_type -> measurement.DescribeContentsRequest
+	2,  // 20: measurement.WebTriggerParamsService.Equals:input_type -> measurement.EqualsRequest
+	4,  // 21: measurement.WebTriggerParamsService.GetRegistrationUri:input_type -> measurement.GetRegistrationUriRequest
+	6,  // 22: measurement.WebTriggerParamsService.HashCode:input_type -> measurement.HashCodeRequest
+	8,  // 23: measurement.WebTriggerParamsService.IsDebugKeyAllowed:input_type -> measurement.IsDebugKeyAllowedRequest
+	10, // 24: measurement.WebTriggerParamsService.WriteToParcel:input_type -> measurement.WriteToParcelRequest
+	12, // 25: measurement.WebTriggerParamsBuilderService.Build:input_type -> measurement.BuildRequest
+	14, // 26: measurement.WebTriggerParamsBuilderService.SetDebugKeyAllowed:input_type -> measurement.SetDebugKeyAllowedRequest
+	0,  // 27: measurement.WebTriggerRegistrationRequestService.DescribeContents:input_type -> measurement.DescribeContentsRequest
+	2,  // 28: measurement.WebTriggerRegistrationRequestService.Equals:input_type -> measurement.EqualsRequest
+	36, // 29: measurement.WebTriggerRegistrationRequestService.GetDestination:input_type -> measurement.GetDestinationRequest
+	38, // 30: measurement.WebTriggerRegistrationRequestService.GetTriggerParams:input_type -> measurement.GetTriggerParamsRequest
+	6,  // 31: measurement.WebTriggerRegistrationRequestService.HashCode:input_type -> measurement.HashCodeRequest
+	10, // 32: measurement.WebTriggerRegistrationRequestService.WriteToParcel:input_type -> measurement.WriteToParcelRequest
+	12, // 33: measurement.WebTriggerRegistrationRequestBuilderService.Build:input_type -> measurement.BuildRequest
+	40, // 34: measurement.ManagerService.Get:input_type -> measurement.GetRequest
+	0,  // 35: measurement.WebSourceRegistrationRequestService.DescribeContents:input_type -> measurement.DescribeContentsRequest
+	2,  // 36: measurement.WebSourceRegistrationRequestService.Equals:input_type -> measurement.EqualsRequest
+	42, // 37: measurement.WebSourceRegistrationRequestService.GetAppDestination:input_type -> measurement.GetAppDestinationRequest
+	44, // 38: measurement.WebSourceRegistrationRequestService.GetInputEvent:input_type -> measurement.GetInputEventRequest
+	46, // 39: measurement.WebSourceRegistrationRequestService.GetSourceParams:input_type -> measurement.GetSourceParamsRequest
+	48, // 40: measurement.WebSourceRegistrationRequestService.GetTopOriginUri:input_type -> measurement.GetTopOriginUriRequest
+	50, // 41: measurement.WebSourceRegistrationRequestService.GetVerifiedDestination:input_type -> measurement.GetVerifiedDestinationRequest
+	52, // 42: measurement.WebSourceRegistrationRequestService.GetWebDestination:input_type -> measurement.GetWebDestinationRequest
+	6,  // 43: measurement.WebSourceRegistrationRequestService.HashCode:input_type -> measurement.HashCodeRequest
+	10, // 44: measurement.WebSourceRegistrationRequestService.WriteToParcel:input_type -> measurement.WriteToParcelRequest
+	12, // 45: measurement.WebSourceRegistrationRequestBuilderService.Build:input_type -> measurement.BuildRequest
+	54, // 46: measurement.WebSourceRegistrationRequestBuilderService.SetAppDestination:input_type -> measurement.SetAppDestinationRequest
+	56, // 47: measurement.WebSourceRegistrationRequestBuilderService.SetInputEvent:input_type -> measurement.SetInputEventRequest
+	58, // 48: measurement.WebSourceRegistrationRequestBuilderService.SetVerifiedDestination:input_type -> measurement.SetVerifiedDestinationRequest
+	60, // 49: measurement.WebSourceRegistrationRequestBuilderService.SetWebDestination:input_type -> measurement.SetWebDestinationRequest
+	0,  // 50: measurement.SourceRegistrationRequestService.DescribeContents:input_type -> measurement.DescribeContentsRequest
+	2,  // 51: measurement.SourceRegistrationRequestService.Equals:input_type -> measurement.EqualsRequest
+	44, // 52: measurement.SourceRegistrationRequestService.GetInputEvent:input_type -> measurement.GetInputEventRequest
+	62, // 53: measurement.SourceRegistrationRequestService.GetRegistrationUris:input_type -> measurement.GetRegistrationUrisRequest
+	6,  // 54: measurement.SourceRegistrationRequestService.HashCode:input_type -> measurement.HashCodeRequest
+	10, // 55: measurement.SourceRegistrationRequestService.WriteToParcel:input_type -> measurement.WriteToParcelRequest
+	12, // 56: measurement.SourceRegistrationRequestBuilderService.Build:input_type -> measurement.BuildRequest
+	56, // 57: measurement.SourceRegistrationRequestBuilderService.SetInputEvent:input_type -> measurement.SetInputEventRequest
+	1,  // 58: measurement.WebSourceParamsService.DescribeContents:output_type -> measurement.DescribeContentsResponse
+	3,  // 59: measurement.WebSourceParamsService.Equals:output_type -> measurement.EqualsResponse
+	5,  // 60: measurement.WebSourceParamsService.GetRegistrationUri:output_type -> measurement.GetRegistrationUriResponse
+	7,  // 61: measurement.WebSourceParamsService.HashCode:output_type -> measurement.HashCodeResponse
+	9,  // 62: measurement.WebSourceParamsService.IsDebugKeyAllowed:output_type -> measurement.IsDebugKeyAllowedResponse
+	11, // 63: measurement.WebSourceParamsService.WriteToParcel:output_type -> measurement.WriteToParcelResponse
+	13, // 64: measurement.WebSourceParamsBuilderService.Build:output_type -> measurement.BuildResponse
+	15, // 65: measurement.WebSourceParamsBuilderService.SetDebugKeyAllowed:output_type -> measurement.SetDebugKeyAllowedResponse
+	17, // 66: measurement.DeletionRequestService.GetDeletionMode:output_type -> measurement.GetDeletionModeResponse
+	19, // 67: measurement.DeletionRequestService.GetDomainUris:output_type -> measurement.GetDomainUrisResponse
+	21, // 68: measurement.DeletionRequestService.GetEnd:output_type -> measurement.GetEndResponse
+	23, // 69: measurement.DeletionRequestService.GetMatchBehavior:output_type -> measurement.GetMatchBehaviorResponse
+	25, // 70: measurement.DeletionRequestService.GetOriginUris:output_type -> measurement.GetOriginUrisResponse
+	27, // 71: measurement.DeletionRequestService.GetStart:output_type -> measurement.GetStartResponse
+	13, // 72: measurement.DeletionRequestBuilderService.Build:output_type -> measurement.BuildResponse
+	29, // 73: measurement.DeletionRequestBuilderService.SetDeletionMode:output_type -> measurement.SetDeletionModeResponse
+	31, // 74: measurement.DeletionRequestBuilderService.SetEnd:output_type -> measurement.SetEndResponse
+	33, // 75: measurement.DeletionRequestBuilderService.SetMatchBehavior:output_type -> measurement.SetMatchBehaviorResponse
+	35, // 76: measurement.DeletionRequestBuilderService.SetStart:output_type -> measurement.SetStartResponse
+	1,  // 77: measurement.WebTriggerParamsService.DescribeContents:output_type -> measurement.DescribeContentsResponse
+	3,  // 78: measurement.WebTriggerParamsService.Equals:output_type -> measurement.EqualsResponse
+	5,  // 79: measurement.WebTriggerParamsService.GetRegistrationUri:output_type -> measurement.GetRegistrationUriResponse
+	7,  // 80: measurement.WebTriggerParamsService.HashCode:output_type -> measurement.HashCodeResponse
+	9,  // 81: measurement.WebTriggerParamsService.IsDebugKeyAllowed:output_type -> measurement.IsDebugKeyAllowedResponse
+	11, // 82: measurement.WebTriggerParamsService.WriteToParcel:output_type -> measurement.WriteToParcelResponse
+	13, // 83: measurement.WebTriggerParamsBuilderService.Build:output_type -> measurement.BuildResponse
+	15, // 84: measurement.WebTriggerParamsBuilderService.SetDebugKeyAllowed:output_type -> measurement.SetDebugKeyAllowedResponse
+	1,  // 85: measurement.WebTriggerRegistrationRequestService.DescribeContents:output_type -> measurement.DescribeContentsResponse
+	3,  // 86: measurement.WebTriggerRegistrationRequestService.Equals:output_type -> measurement.EqualsResponse
+	37, // 87: measurement.WebTriggerRegistrationRequestService.GetDestination:output_type -> measurement.GetDestinationResponse
+	39, // 88: measurement.WebTriggerRegistrationRequestService.GetTriggerParams:output_type -> measurement.GetTriggerParamsResponse
+	7,  // 89: measurement.WebTriggerRegistrationRequestService.HashCode:output_type -> measurement.HashCodeResponse
 	11, // 90: measurement.WebTriggerRegistrationRequestService.WriteToParcel:output_type -> measurement.WriteToParcelResponse
 	13, // 91: measurement.WebTriggerRegistrationRequestBuilderService.Build:output_type -> measurement.BuildResponse
-	3,  // 92: measurement.WebSourceRegistrationRequestService.DescribeContents:output_type -> measurement.DescribeContentsResponse
-	5,  // 93: measurement.WebSourceRegistrationRequestService.Equals:output_type -> measurement.EqualsResponse
-	41, // 94: measurement.WebSourceRegistrationRequestService.GetAppDestination:output_type -> measurement.GetAppDestinationResponse
-	7,  // 95: measurement.WebSourceRegistrationRequestService.GetInputEvent:output_type -> measurement.GetInputEventResponse
-	43, // 96: measurement.WebSourceRegistrationRequestService.GetTopOriginUri:output_type -> measurement.GetTopOriginUriResponse
-	45, // 97: measurement.WebSourceRegistrationRequestService.GetVerifiedDestination:output_type -> measurement.GetVerifiedDestinationResponse
-	47, // 98: measurement.WebSourceRegistrationRequestService.GetWebDestination:output_type -> measurement.GetWebDestinationResponse
-	9,  // 99: measurement.WebSourceRegistrationRequestService.HashCode:output_type -> measurement.HashCodeResponse
-	11, // 100: measurement.WebSourceRegistrationRequestService.WriteToParcel:output_type -> measurement.WriteToParcelResponse
-	13, // 101: measurement.WebSourceRegistrationRequestBuilderService.Build:output_type -> measurement.BuildResponse
-	49, // 102: measurement.WebSourceRegistrationRequestBuilderService.SetAppDestination:output_type -> measurement.SetAppDestinationResponse
-	15, // 103: measurement.WebSourceRegistrationRequestBuilderService.SetInputEvent:output_type -> measurement.SetInputEventResponse
-	51, // 104: measurement.WebSourceRegistrationRequestBuilderService.SetVerifiedDestination:output_type -> measurement.SetVerifiedDestinationResponse
-	53, // 105: measurement.WebSourceRegistrationRequestBuilderService.SetWebDestination:output_type -> measurement.SetWebDestinationResponse
-	53, // [53:106] is the sub-list for method output_type
-	0,  // [0:53] is the sub-list for method input_type
+	41, // 92: measurement.ManagerService.Get:output_type -> measurement.GetResponse
+	1,  // 93: measurement.WebSourceRegistrationRequestService.DescribeContents:output_type -> measurement.DescribeContentsResponse
+	3,  // 94: measurement.WebSourceRegistrationRequestService.Equals:output_type -> measurement.EqualsResponse
+	43, // 95: measurement.WebSourceRegistrationRequestService.GetAppDestination:output_type -> measurement.GetAppDestinationResponse
+	45, // 96: measurement.WebSourceRegistrationRequestService.GetInputEvent:output_type -> measurement.GetInputEventResponse
+	47, // 97: measurement.WebSourceRegistrationRequestService.GetSourceParams:output_type -> measurement.GetSourceParamsResponse
+	49, // 98: measurement.WebSourceRegistrationRequestService.GetTopOriginUri:output_type -> measurement.GetTopOriginUriResponse
+	51, // 99: measurement.WebSourceRegistrationRequestService.GetVerifiedDestination:output_type -> measurement.GetVerifiedDestinationResponse
+	53, // 100: measurement.WebSourceRegistrationRequestService.GetWebDestination:output_type -> measurement.GetWebDestinationResponse
+	7,  // 101: measurement.WebSourceRegistrationRequestService.HashCode:output_type -> measurement.HashCodeResponse
+	11, // 102: measurement.WebSourceRegistrationRequestService.WriteToParcel:output_type -> measurement.WriteToParcelResponse
+	13, // 103: measurement.WebSourceRegistrationRequestBuilderService.Build:output_type -> measurement.BuildResponse
+	55, // 104: measurement.WebSourceRegistrationRequestBuilderService.SetAppDestination:output_type -> measurement.SetAppDestinationResponse
+	57, // 105: measurement.WebSourceRegistrationRequestBuilderService.SetInputEvent:output_type -> measurement.SetInputEventResponse
+	59, // 106: measurement.WebSourceRegistrationRequestBuilderService.SetVerifiedDestination:output_type -> measurement.SetVerifiedDestinationResponse
+	61, // 107: measurement.WebSourceRegistrationRequestBuilderService.SetWebDestination:output_type -> measurement.SetWebDestinationResponse
+	1,  // 108: measurement.SourceRegistrationRequestService.DescribeContents:output_type -> measurement.DescribeContentsResponse
+	3,  // 109: measurement.SourceRegistrationRequestService.Equals:output_type -> measurement.EqualsResponse
+	45, // 110: measurement.SourceRegistrationRequestService.GetInputEvent:output_type -> measurement.GetInputEventResponse
+	63, // 111: measurement.SourceRegistrationRequestService.GetRegistrationUris:output_type -> measurement.GetRegistrationUrisResponse
+	7,  // 112: measurement.SourceRegistrationRequestService.HashCode:output_type -> measurement.HashCodeResponse
+	11, // 113: measurement.SourceRegistrationRequestService.WriteToParcel:output_type -> measurement.WriteToParcelResponse
+	13, // 114: measurement.SourceRegistrationRequestBuilderService.Build:output_type -> measurement.BuildResponse
+	57, // 115: measurement.SourceRegistrationRequestBuilderService.SetInputEvent:output_type -> measurement.SetInputEventResponse
+	58, // [58:116] is the sub-list for method output_type
+	0,  // [0:58] is the sub-list for method input_type
 	0,  // [0:0] is the sub-list for extension type_name
 	0,  // [0:0] is the sub-list for extension extendee
 	0,  // [0:0] is the sub-list for field type_name
@@ -2639,7 +3079,7 @@ func file_proto_measurement_measurement_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_proto_measurement_measurement_proto_rawDesc), len(file_proto_measurement_measurement_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   54,
+			NumMessages:   64,
 			NumExtensions: 0,
 			NumServices:   13,
 		},

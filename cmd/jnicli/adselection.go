@@ -12,1582 +12,6 @@ var adselectionCmd = &cobra.Command{
 	Short: "adselection service operations",
 }
 
-var adselectionPersistAdSelectionResultRequestCmd = &cobra.Command{
-	Use:   "persist-ad-selection-result-request",
-	Short: "PersistAdSelectionResultRequestService operations",
-}
-
-var adselectionPersistAdSelectionResultRequestGetAdSelectionDataIdCmd = &cobra.Command{
-	Use:   "get-ad-selection-data-id",
-	Short: "GetAdSelectionDataId RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPersistAdSelectionResultRequestServiceClient(grpcConn)
-		req := &pb.GetAdSelectionDataIdRequest{}
-		resp, err := client.GetAdSelectionDataId(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var adselectionPersistAdSelectionResultRequestGetAdSelectionIdCmd = &cobra.Command{
-	Use:   "get-ad-selection-id",
-	Short: "GetAdSelectionId RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPersistAdSelectionResultRequestServiceClient(grpcConn)
-		req := &pb.GetAdSelectionIdRequest{}
-		resp, err := client.GetAdSelectionId(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var adselectionPersistAdSelectionResultRequestGetAdSelectionResultCmd = &cobra.Command{
-	Use:   "get-ad-selection-result",
-	Short: "GetAdSelectionResult RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPersistAdSelectionResultRequestServiceClient(grpcConn)
-		req := &pb.GetAdSelectionResultRequest{}
-		resp, err := client.GetAdSelectionResult(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var adselectionPersistAdSelectionResultRequestGetSellerCmd = &cobra.Command{
-	Use:   "get-seller",
-	Short: "GetSeller RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPersistAdSelectionResultRequestServiceClient(grpcConn)
-		req := &pb.GetSellerRequest{}
-		resp, err := client.GetSeller(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var adselectionPersistAdSelectionResultRequestBuilderCmd = &cobra.Command{
-	Use:   "persist-ad-selection-result-request-builder",
-	Short: "PersistAdSelectionResultRequestBuilderService operations",
-}
-
-var adselectionPersistAdSelectionResultRequestBuilderBuildCmd = &cobra.Command{
-	Use:   "build",
-	Short: "Build RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPersistAdSelectionResultRequestBuilderServiceClient(grpcConn)
-		req := &pb.BuildRequest{}
-		resp, err := client.Build(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var adselectionPersistAdSelectionResultRequestBuilderSetAdSelectionDataIdCmd = &cobra.Command{
-	Use:   "set-ad-selection-data-id",
-	Short: "SetAdSelectionDataId RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPersistAdSelectionResultRequestBuilderServiceClient(grpcConn)
-		req := &pb.SetAdSelectionDataIdRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetAdSelectionDataId(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var adselectionPersistAdSelectionResultRequestBuilderSetAdSelectionIdCmd = &cobra.Command{
-	Use:   "set-ad-selection-id",
-	Short: "SetAdSelectionId RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPersistAdSelectionResultRequestBuilderServiceClient(grpcConn)
-		req := &pb.SetAdSelectionIdRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetAdSelectionId(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var adselectionPersistAdSelectionResultRequestBuilderSetAdSelectionResultCmd = &cobra.Command{
-	Use:   "set-ad-selection-result",
-	Short: "SetAdSelectionResult RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPersistAdSelectionResultRequestBuilderServiceClient(grpcConn)
-		req := &pb.SetAdSelectionResultRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetAdSelectionResult(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var adselectionPersistAdSelectionResultRequestBuilderSetSellerCmd = &cobra.Command{
-	Use:   "set-seller",
-	Short: "SetSeller RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPersistAdSelectionResultRequestBuilderServiceClient(grpcConn)
-		req := &pb.SetSellerRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetSeller(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var adselectionSellerConfigurationCmd = &cobra.Command{
-	Use:   "seller-configuration",
-	Short: "SellerConfigurationService operations",
-}
-
-var adselectionSellerConfigurationDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSellerConfigurationServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var adselectionSellerConfigurationEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSellerConfigurationServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var adselectionSellerConfigurationGetMaximumPayloadSizeBytesCmd = &cobra.Command{
-	Use:   "get-maximum-payload-size-bytes",
-	Short: "GetMaximumPayloadSizeBytes RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSellerConfigurationServiceClient(grpcConn)
-		req := &pb.GetMaximumPayloadSizeBytesRequest{}
-		resp, err := client.GetMaximumPayloadSizeBytes(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var adselectionSellerConfigurationHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSellerConfigurationServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var adselectionSellerConfigurationWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSellerConfigurationServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var adselectionSellerConfigurationBuilderCmd = &cobra.Command{
-	Use:   "seller-configuration-builder",
-	Short: "SellerConfigurationBuilderService operations",
-}
-
-var adselectionSellerConfigurationBuilderBuildCmd = &cobra.Command{
-	Use:   "build",
-	Short: "Build RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSellerConfigurationBuilderServiceClient(grpcConn)
-		req := &pb.BuildRequest{}
-		resp, err := client.Build(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var adselectionSellerConfigurationBuilderSetMaximumPayloadSizeBytesCmd = &cobra.Command{
-	Use:   "set-maximum-payload-size-bytes",
-	Short: "SetMaximumPayloadSizeBytes RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSellerConfigurationBuilderServiceClient(grpcConn)
-		req := &pb.SetMaximumPayloadSizeBytesRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetMaximumPayloadSizeBytes(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var adselectionRemoveAdSelectionFromOutcomesOverrideRequestCmd = &cobra.Command{
-	Use:   "remove-ad-selection-from-outcomes-override-request",
-	Short: "RemoveAdSelectionFromOutcomesOverrideRequestService operations",
-}
-
-var adselectionRemoveAdSelectionFromOutcomesOverrideRequestNewRemoveAdSelectionFromOutcomesOverrideRequestCmd = &cobra.Command{
-	Use:   "new-remove-ad-selection-from-outcomes-override-request",
-	Short: "NewRemoveAdSelectionFromOutcomesOverrideRequest RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRemoveAdSelectionFromOutcomesOverrideRequestServiceClient(grpcConn)
-		req := &pb.NewRemoveAdSelectionFromOutcomesOverrideRequestRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.NewRemoveAdSelectionFromOutcomesOverrideRequest(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var adselectionRemoveAdSelectionFromOutcomesOverrideRequestGetAdSelectionFromOutcomesConfigCmd = &cobra.Command{
-	Use:   "get-ad-selection-from-outcomes-config",
-	Short: "GetAdSelectionFromOutcomesConfig RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRemoveAdSelectionFromOutcomesOverrideRequestServiceClient(grpcConn)
-		req := &pb.GetAdSelectionFromOutcomesConfigRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetAdSelectionFromOutcomesConfig(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var adselectionSetAppInstallAdvertisersRequestBuilderCmd = &cobra.Command{
-	Use:   "set-app-install-advertisers-request-builder",
-	Short: "SetAppInstallAdvertisersRequestBuilderService operations",
-}
-
-var adselectionSetAppInstallAdvertisersRequestBuilderBuildCmd = &cobra.Command{
-	Use:   "build",
-	Short: "Build RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSetAppInstallAdvertisersRequestBuilderServiceClient(grpcConn)
-		req := &pb.BuildRequest{}
-		resp, err := client.Build(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var adselectionUpdateAdCounterHistogramRequestCmd = &cobra.Command{
-	Use:   "update-ad-counter-histogram-request",
-	Short: "UpdateAdCounterHistogramRequestService operations",
-}
-
-var adselectionUpdateAdCounterHistogramRequestEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewUpdateAdCounterHistogramRequestServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var adselectionUpdateAdCounterHistogramRequestGetAdEventTypeCmd = &cobra.Command{
-	Use:   "get-ad-event-type",
-	Short: "GetAdEventType RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewUpdateAdCounterHistogramRequestServiceClient(grpcConn)
-		req := &pb.GetAdEventTypeRequest{}
-		resp, err := client.GetAdEventType(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var adselectionUpdateAdCounterHistogramRequestGetAdSelectionIdCmd = &cobra.Command{
-	Use:   "get-ad-selection-id",
-	Short: "GetAdSelectionId RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewUpdateAdCounterHistogramRequestServiceClient(grpcConn)
-		req := &pb.GetAdSelectionIdRequest{}
-		resp, err := client.GetAdSelectionId(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var adselectionUpdateAdCounterHistogramRequestGetCallerAdTechCmd = &cobra.Command{
-	Use:   "get-caller-ad-tech",
-	Short: "GetCallerAdTech RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewUpdateAdCounterHistogramRequestServiceClient(grpcConn)
-		req := &pb.GetCallerAdTechRequest{}
-		resp, err := client.GetCallerAdTech(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var adselectionUpdateAdCounterHistogramRequestHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewUpdateAdCounterHistogramRequestServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var adselectionUpdateAdCounterHistogramRequestToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewUpdateAdCounterHistogramRequestServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var adselectionUpdateAdCounterHistogramRequestBuilderCmd = &cobra.Command{
-	Use:   "update-ad-counter-histogram-request-builder",
-	Short: "UpdateAdCounterHistogramRequestBuilderService operations",
-}
-
-var adselectionUpdateAdCounterHistogramRequestBuilderBuildCmd = &cobra.Command{
-	Use:   "build",
-	Short: "Build RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewUpdateAdCounterHistogramRequestBuilderServiceClient(grpcConn)
-		req := &pb.BuildRequest{}
-		resp, err := client.Build(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var adselectionUpdateAdCounterHistogramRequestBuilderSetAdEventTypeCmd = &cobra.Command{
-	Use:   "set-ad-event-type",
-	Short: "SetAdEventType RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewUpdateAdCounterHistogramRequestBuilderServiceClient(grpcConn)
-		req := &pb.SetAdEventTypeRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetAdEventType(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var adselectionUpdateAdCounterHistogramRequestBuilderSetAdSelectionIdCmd = &cobra.Command{
-	Use:   "set-ad-selection-id",
-	Short: "SetAdSelectionId RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewUpdateAdCounterHistogramRequestBuilderServiceClient(grpcConn)
-		req := &pb.SetAdSelectionIdRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetAdSelectionId(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var adselectionUpdateAdCounterHistogramRequestBuilderSetCallerAdTechCmd = &cobra.Command{
-	Use:   "set-caller-ad-tech",
-	Short: "SetCallerAdTech RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewUpdateAdCounterHistogramRequestBuilderServiceClient(grpcConn)
-		req := &pb.SetCallerAdTechRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetCallerAdTech(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var adselectionPerBuyerConfigurationCmd = &cobra.Command{
-	Use:   "per-buyer-configuration",
-	Short: "PerBuyerConfigurationService operations",
-}
-
-var adselectionPerBuyerConfigurationDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPerBuyerConfigurationServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var adselectionPerBuyerConfigurationEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPerBuyerConfigurationServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var adselectionPerBuyerConfigurationGetBuyerCmd = &cobra.Command{
-	Use:   "get-buyer",
-	Short: "GetBuyer RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPerBuyerConfigurationServiceClient(grpcConn)
-		req := &pb.GetBuyerRequest{}
-		resp, err := client.GetBuyer(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var adselectionPerBuyerConfigurationGetTargetInputSizeBytesCmd = &cobra.Command{
-	Use:   "get-target-input-size-bytes",
-	Short: "GetTargetInputSizeBytes RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPerBuyerConfigurationServiceClient(grpcConn)
-		req := &pb.GetTargetInputSizeBytesRequest{}
-		resp, err := client.GetTargetInputSizeBytes(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var adselectionPerBuyerConfigurationHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPerBuyerConfigurationServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var adselectionPerBuyerConfigurationWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPerBuyerConfigurationServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var adselectionPerBuyerConfigurationBuilderCmd = &cobra.Command{
-	Use:   "per-buyer-configuration-builder",
-	Short: "PerBuyerConfigurationBuilderService operations",
-}
-
-var adselectionPerBuyerConfigurationBuilderBuildCmd = &cobra.Command{
-	Use:   "build",
-	Short: "Build RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPerBuyerConfigurationBuilderServiceClient(grpcConn)
-		req := &pb.BuildRequest{}
-		resp, err := client.Build(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var adselectionPerBuyerConfigurationBuilderSetBuyerCmd = &cobra.Command{
-	Use:   "set-buyer",
-	Short: "SetBuyer RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPerBuyerConfigurationBuilderServiceClient(grpcConn)
-		req := &pb.SetBuyerRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetBuyer(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var adselectionPerBuyerConfigurationBuilderSetTargetInputSizeBytesCmd = &cobra.Command{
-	Use:   "set-target-input-size-bytes",
-	Short: "SetTargetInputSizeBytes RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPerBuyerConfigurationBuilderServiceClient(grpcConn)
-		req := &pb.SetTargetInputSizeBytesRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetTargetInputSizeBytes(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var adselectionAdSelectionManagerCmd = &cobra.Command{
-	Use:   "ad-selection-manager",
-	Short: "AdSelectionManagerService operations",
-}
-
-var adselectionAdSelectionManagerGetTestAdSelectionManagerCmd = &cobra.Command{
-	Use:   "get-test-ad-selection-manager",
-	Short: "GetTestAdSelectionManager RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAdSelectionManagerServiceClient(grpcConn)
-		req := &pb.GetTestAdSelectionManagerRequest{}
-		resp, err := client.GetTestAdSelectionManager(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var adselectionAdSelectionManagerGetCmd = &cobra.Command{
-	Use:   "get",
-	Short: "Get RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAdSelectionManagerServiceClient(grpcConn)
-		req := &pb.GetRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Get(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var adselectionReportEventRequestCmd = &cobra.Command{
-	Use:   "report-event-request",
-	Short: "ReportEventRequestService operations",
-}
-
-var adselectionReportEventRequestGetAdSelectionIdCmd = &cobra.Command{
-	Use:   "get-ad-selection-id",
-	Short: "GetAdSelectionId RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewReportEventRequestServiceClient(grpcConn)
-		req := &pb.GetAdSelectionIdRequest{}
-		resp, err := client.GetAdSelectionId(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var adselectionReportEventRequestGetDataCmd = &cobra.Command{
-	Use:   "get-data",
-	Short: "GetData RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewReportEventRequestServiceClient(grpcConn)
-		req := &pb.GetDataRequest{}
-		resp, err := client.GetData(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var adselectionReportEventRequestGetInputEventCmd = &cobra.Command{
-	Use:   "get-input-event",
-	Short: "GetInputEvent RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewReportEventRequestServiceClient(grpcConn)
-		req := &pb.GetInputEventRequest{}
-		resp, err := client.GetInputEvent(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var adselectionReportEventRequestGetKeyCmd = &cobra.Command{
-	Use:   "get-key",
-	Short: "GetKey RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewReportEventRequestServiceClient(grpcConn)
-		req := &pb.GetKeyRequest{}
-		resp, err := client.GetKey(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var adselectionReportEventRequestGetReportingDestinationsCmd = &cobra.Command{
-	Use:   "get-reporting-destinations",
-	Short: "GetReportingDestinations RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewReportEventRequestServiceClient(grpcConn)
-		req := &pb.GetReportingDestinationsRequest{}
-		resp, err := client.GetReportingDestinations(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var adselectionReportEventRequestBuilderCmd = &cobra.Command{
-	Use:   "report-event-request-builder",
-	Short: "ReportEventRequestBuilderService operations",
-}
-
-var adselectionReportEventRequestBuilderBuildCmd = &cobra.Command{
-	Use:   "build",
-	Short: "Build RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewReportEventRequestBuilderServiceClient(grpcConn)
-		req := &pb.BuildRequest{}
-		resp, err := client.Build(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var adselectionReportEventRequestBuilderSetAdSelectionIdCmd = &cobra.Command{
-	Use:   "set-ad-selection-id",
-	Short: "SetAdSelectionId RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewReportEventRequestBuilderServiceClient(grpcConn)
-		req := &pb.SetAdSelectionIdRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetAdSelectionId(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var adselectionReportEventRequestBuilderSetDataCmd = &cobra.Command{
-	Use:   "set-data",
-	Short: "SetData RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewReportEventRequestBuilderServiceClient(grpcConn)
-		req := &pb.SetDataRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetData(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var adselectionReportEventRequestBuilderSetInputEventCmd = &cobra.Command{
-	Use:   "set-input-event",
-	Short: "SetInputEvent RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewReportEventRequestBuilderServiceClient(grpcConn)
-		req := &pb.SetInputEventRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetInputEvent(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var adselectionReportEventRequestBuilderSetKeyCmd = &cobra.Command{
-	Use:   "set-key",
-	Short: "SetKey RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewReportEventRequestBuilderServiceClient(grpcConn)
-		req := &pb.SetKeyRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetKey(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var adselectionReportEventRequestBuilderSetReportingDestinationsCmd = &cobra.Command{
-	Use:   "set-reporting-destinations",
-	Short: "SetReportingDestinations RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewReportEventRequestBuilderServiceClient(grpcConn)
-		req := &pb.SetReportingDestinationsRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetReportingDestinations(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var adselectionSignedContextualAdsCmd = &cobra.Command{
-	Use:   "signed-contextual-ads",
-	Short: "SignedContextualAdsService operations",
-}
-
-var adselectionSignedContextualAdsDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSignedContextualAdsServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var adselectionSignedContextualAdsEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSignedContextualAdsServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var adselectionSignedContextualAdsGetBuyerCmd = &cobra.Command{
-	Use:   "get-buyer",
-	Short: "GetBuyer RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSignedContextualAdsServiceClient(grpcConn)
-		req := &pb.GetBuyerRequest{}
-		resp, err := client.GetBuyer(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var adselectionSignedContextualAdsGetDecisionLogicUriCmd = &cobra.Command{
-	Use:   "get-decision-logic-uri",
-	Short: "GetDecisionLogicUri RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSignedContextualAdsServiceClient(grpcConn)
-		req := &pb.GetDecisionLogicUriRequest{}
-		resp, err := client.GetDecisionLogicUri(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var adselectionSignedContextualAdsGetSignatureCmd = &cobra.Command{
-	Use:   "get-signature",
-	Short: "GetSignature RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSignedContextualAdsServiceClient(grpcConn)
-		req := &pb.GetSignatureRequest{}
-		resp, err := client.GetSignature(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var adselectionSignedContextualAdsHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSignedContextualAdsServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var adselectionSignedContextualAdsToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSignedContextualAdsServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var adselectionSignedContextualAdsWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSignedContextualAdsServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var adselectionSignedContextualAdsBuilderCmd = &cobra.Command{
-	Use:   "signed-contextual-ads-builder",
-	Short: "SignedContextualAdsBuilderService operations",
-}
-
-var adselectionSignedContextualAdsBuilderBuildCmd = &cobra.Command{
-	Use:   "build",
-	Short: "Build RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSignedContextualAdsBuilderServiceClient(grpcConn)
-		req := &pb.BuildRequest{}
-		resp, err := client.Build(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var adselectionSignedContextualAdsBuilderSetBuyerCmd = &cobra.Command{
-	Use:   "set-buyer",
-	Short: "SetBuyer RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSignedContextualAdsBuilderServiceClient(grpcConn)
-		req := &pb.SetBuyerRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetBuyer(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var adselectionSignedContextualAdsBuilderSetDecisionLogicUriCmd = &cobra.Command{
-	Use:   "set-decision-logic-uri",
-	Short: "SetDecisionLogicUri RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSignedContextualAdsBuilderServiceClient(grpcConn)
-		req := &pb.SetDecisionLogicUriRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetDecisionLogicUri(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var adselectionSignedContextualAdsBuilderSetSignatureCmd = &cobra.Command{
-	Use:   "set-signature",
-	Short: "SetSignature RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSignedContextualAdsBuilderServiceClient(grpcConn)
-		req := &pb.SetSignatureRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetSignature(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var adselectionAdSelectionFromOutcomesConfigCmd = &cobra.Command{
-	Use:   "ad-selection-from-outcomes-config",
-	Short: "AdSelectionFromOutcomesConfigService operations",
-}
-
-var adselectionAdSelectionFromOutcomesConfigDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAdSelectionFromOutcomesConfigServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var adselectionAdSelectionFromOutcomesConfigEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAdSelectionFromOutcomesConfigServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var adselectionAdSelectionFromOutcomesConfigGetSelectionLogicUriCmd = &cobra.Command{
-	Use:   "get-selection-logic-uri",
-	Short: "GetSelectionLogicUri RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAdSelectionFromOutcomesConfigServiceClient(grpcConn)
-		req := &pb.GetSelectionLogicUriRequest{}
-		resp, err := client.GetSelectionLogicUri(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var adselectionAdSelectionFromOutcomesConfigGetSelectionSignalsCmd = &cobra.Command{
-	Use:   "get-selection-signals",
-	Short: "GetSelectionSignals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAdSelectionFromOutcomesConfigServiceClient(grpcConn)
-		req := &pb.GetSelectionSignalsRequest{}
-		resp, err := client.GetSelectionSignals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var adselectionAdSelectionFromOutcomesConfigGetSellerCmd = &cobra.Command{
-	Use:   "get-seller",
-	Short: "GetSeller RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAdSelectionFromOutcomesConfigServiceClient(grpcConn)
-		req := &pb.GetSellerRequest{}
-		resp, err := client.GetSeller(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var adselectionAdSelectionFromOutcomesConfigHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAdSelectionFromOutcomesConfigServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var adselectionAdSelectionFromOutcomesConfigWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAdSelectionFromOutcomesConfigServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var adselectionAdSelectionFromOutcomesConfigBuilderCmd = &cobra.Command{
-	Use:   "ad-selection-from-outcomes-config-builder",
-	Short: "AdSelectionFromOutcomesConfigBuilderService operations",
-}
-
-var adselectionAdSelectionFromOutcomesConfigBuilderBuildCmd = &cobra.Command{
-	Use:   "build",
-	Short: "Build RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAdSelectionFromOutcomesConfigBuilderServiceClient(grpcConn)
-		req := &pb.BuildRequest{}
-		resp, err := client.Build(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var adselectionAdSelectionFromOutcomesConfigBuilderSetSelectionLogicUriCmd = &cobra.Command{
-	Use:   "set-selection-logic-uri",
-	Short: "SetSelectionLogicUri RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAdSelectionFromOutcomesConfigBuilderServiceClient(grpcConn)
-		req := &pb.SetSelectionLogicUriRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetSelectionLogicUri(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var adselectionAdSelectionFromOutcomesConfigBuilderSetSelectionSignalsCmd = &cobra.Command{
-	Use:   "set-selection-signals",
-	Short: "SetSelectionSignals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAdSelectionFromOutcomesConfigBuilderServiceClient(grpcConn)
-		req := &pb.SetSelectionSignalsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetSelectionSignals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var adselectionAdSelectionFromOutcomesConfigBuilderSetSellerCmd = &cobra.Command{
-	Use:   "set-seller",
-	Short: "SetSeller RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAdSelectionFromOutcomesConfigBuilderServiceClient(grpcConn)
-		req := &pb.SetSellerRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetSeller(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var adselectionAddAdSelectionFromOutcomesOverrideRequestCmd = &cobra.Command{
-	Use:   "add-ad-selection-from-outcomes-override-request",
-	Short: "AddAdSelectionFromOutcomesOverrideRequestService operations",
-}
-
-var adselectionAddAdSelectionFromOutcomesOverrideRequestNewAddAdSelectionFromOutcomesOverrideRequestCmd = &cobra.Command{
-	Use:   "new-add-ad-selection-from-outcomes-override-request",
-	Short: "NewAddAdSelectionFromOutcomesOverrideRequest RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAddAdSelectionFromOutcomesOverrideRequestServiceClient(grpcConn)
-		req := &pb.NewAddAdSelectionFromOutcomesOverrideRequestRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetString("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.NewAddAdSelectionFromOutcomesOverrideRequest(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var adselectionAddAdSelectionFromOutcomesOverrideRequestGetAdSelectionFromOutcomesConfigCmd = &cobra.Command{
-	Use:   "get-ad-selection-from-outcomes-config",
-	Short: "GetAdSelectionFromOutcomesConfig RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAddAdSelectionFromOutcomesOverrideRequestServiceClient(grpcConn)
-		req := &pb.GetAdSelectionFromOutcomesConfigRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetAdSelectionFromOutcomesConfig(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var adselectionAddAdSelectionFromOutcomesOverrideRequestGetOutcomeSelectionLogicJsCmd = &cobra.Command{
-	Use:   "get-outcome-selection-logic-js",
-	Short: "GetOutcomeSelectionLogicJs RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAddAdSelectionFromOutcomesOverrideRequestServiceClient(grpcConn)
-		req := &pb.GetOutcomeSelectionLogicJsRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetOutcomeSelectionLogicJs(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var adselectionAddAdSelectionFromOutcomesOverrideRequestGetOutcomeSelectionTrustedSignalsCmd = &cobra.Command{
-	Use:   "get-outcome-selection-trusted-signals",
-	Short: "GetOutcomeSelectionTrustedSignals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAddAdSelectionFromOutcomesOverrideRequestServiceClient(grpcConn)
-		req := &pb.GetOutcomeSelectionTrustedSignalsRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetOutcomeSelectionTrustedSignals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var adselectionPerBuyerDecisionLogicCmd = &cobra.Command{
-	Use:   "per-buyer-decision-logic",
-	Short: "PerBuyerDecisionLogicService operations",
-}
-
-var adselectionPerBuyerDecisionLogicNewPerBuyerDecisionLogicCmd = &cobra.Command{
-	Use:   "new-per-buyer-decision-logic",
-	Short: "NewPerBuyerDecisionLogic RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPerBuyerDecisionLogicServiceClient(grpcConn)
-		req := &pb.NewPerBuyerDecisionLogicRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.NewPerBuyerDecisionLogic(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var adselectionPerBuyerDecisionLogicDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPerBuyerDecisionLogicServiceClient(grpcConn)
-		req := &pb.PerBuyerDecisionLogicDescribeContentsRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var adselectionPerBuyerDecisionLogicEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPerBuyerDecisionLogicServiceClient(grpcConn)
-		req := &pb.PerBuyerDecisionLogicEqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var adselectionPerBuyerDecisionLogicHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPerBuyerDecisionLogicServiceClient(grpcConn)
-		req := &pb.PerBuyerDecisionLogicHashCodeRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var adselectionPerBuyerDecisionLogicWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPerBuyerDecisionLogicServiceClient(grpcConn)
-		req := &pb.PerBuyerDecisionLogicWriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
 var adselectionAdSelectionConfigCmd = &cobra.Command{
 	Use:   "ad-selection-config",
 	Short: "AdSelectionConfigService operations",
@@ -1637,6 +61,22 @@ var adselectionAdSelectionConfigGetAdSelectionSignalsCmd = &cobra.Command{
 		client := pb.NewAdSelectionConfigServiceClient(grpcConn)
 		req := &pb.GetAdSelectionSignalsRequest{}
 		resp, err := client.GetAdSelectionSignals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adselectionAdSelectionConfigGetCustomAudienceBuyersCmd = &cobra.Command{
+	Use:   "get-custom-audience-buyers",
+	Short: "GetCustomAudienceBuyers RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAdSelectionConfigServiceClient(grpcConn)
+		req := &pb.GetCustomAudienceBuyersRequest{}
+		resp, err := client.GetCustomAudienceBuyers(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1862,6 +302,207 @@ var adselectionAdSelectionConfigBuilderSetTrustedScoringSignalsUriCmd = &cobra.C
 	},
 }
 
+var adselectionReportEventRequestCmd = &cobra.Command{
+	Use:   "report-event-request",
+	Short: "ReportEventRequestService operations",
+}
+
+var adselectionReportEventRequestGetAdSelectionIdCmd = &cobra.Command{
+	Use:   "get-ad-selection-id",
+	Short: "GetAdSelectionId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewReportEventRequestServiceClient(grpcConn)
+		req := &pb.GetAdSelectionIdRequest{}
+		resp, err := client.GetAdSelectionId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adselectionReportEventRequestGetDataCmd = &cobra.Command{
+	Use:   "get-data",
+	Short: "GetData RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewReportEventRequestServiceClient(grpcConn)
+		req := &pb.GetDataRequest{}
+		resp, err := client.GetData(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adselectionReportEventRequestGetInputEventCmd = &cobra.Command{
+	Use:   "get-input-event",
+	Short: "GetInputEvent RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewReportEventRequestServiceClient(grpcConn)
+		req := &pb.GetInputEventRequest{}
+		resp, err := client.GetInputEvent(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adselectionReportEventRequestGetKeyCmd = &cobra.Command{
+	Use:   "get-key",
+	Short: "GetKey RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewReportEventRequestServiceClient(grpcConn)
+		req := &pb.GetKeyRequest{}
+		resp, err := client.GetKey(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adselectionReportEventRequestGetReportingDestinationsCmd = &cobra.Command{
+	Use:   "get-reporting-destinations",
+	Short: "GetReportingDestinations RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewReportEventRequestServiceClient(grpcConn)
+		req := &pb.GetReportingDestinationsRequest{}
+		resp, err := client.GetReportingDestinations(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adselectionReportEventRequestBuilderCmd = &cobra.Command{
+	Use:   "report-event-request-builder",
+	Short: "ReportEventRequestBuilderService operations",
+}
+
+var adselectionReportEventRequestBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewReportEventRequestBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adselectionReportEventRequestBuilderSetAdSelectionIdCmd = &cobra.Command{
+	Use:   "set-ad-selection-id",
+	Short: "SetAdSelectionId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewReportEventRequestBuilderServiceClient(grpcConn)
+		req := &pb.SetAdSelectionIdRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetAdSelectionId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adselectionReportEventRequestBuilderSetDataCmd = &cobra.Command{
+	Use:   "set-data",
+	Short: "SetData RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewReportEventRequestBuilderServiceClient(grpcConn)
+		req := &pb.SetDataRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetData(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adselectionReportEventRequestBuilderSetInputEventCmd = &cobra.Command{
+	Use:   "set-input-event",
+	Short: "SetInputEvent RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewReportEventRequestBuilderServiceClient(grpcConn)
+		req := &pb.SetInputEventRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetInputEvent(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adselectionReportEventRequestBuilderSetKeyCmd = &cobra.Command{
+	Use:   "set-key",
+	Short: "SetKey RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewReportEventRequestBuilderServiceClient(grpcConn)
+		req := &pb.SetKeyRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetKey(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adselectionReportEventRequestBuilderSetReportingDestinationsCmd = &cobra.Command{
+	Use:   "set-reporting-destinations",
+	Short: "SetReportingDestinations RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewReportEventRequestBuilderServiceClient(grpcConn)
+		req := &pb.SetReportingDestinationsRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetReportingDestinations(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var adselectionAddAdSelectionOverrideRequestCmd = &cobra.Command{
 	Use:   "add-ad-selection-override-request",
 	Short: "AddAdSelectionOverrideRequestService operations",
@@ -1961,6 +602,1883 @@ var adselectionAddAdSelectionOverrideRequestGetTrustedScoringSignalsCmd = &cobra
 			req.Handle = v
 		}
 		resp, err := client.GetTrustedScoringSignals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adselectionAdSelectionManagerCmd = &cobra.Command{
+	Use:   "ad-selection-manager",
+	Short: "AdSelectionManagerService operations",
+}
+
+var adselectionAdSelectionManagerGetTestAdSelectionManagerCmd = &cobra.Command{
+	Use:   "get-test-ad-selection-manager",
+	Short: "GetTestAdSelectionManager RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAdSelectionManagerServiceClient(grpcConn)
+		req := &pb.GetTestAdSelectionManagerRequest{}
+		resp, err := client.GetTestAdSelectionManager(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adselectionAdSelectionManagerGetCmd = &cobra.Command{
+	Use:   "get",
+	Short: "Get RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAdSelectionManagerServiceClient(grpcConn)
+		req := &pb.GetRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Get(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adselectionDecisionLogicCmd = &cobra.Command{
+	Use:   "decision-logic",
+	Short: "DecisionLogicService operations",
+}
+
+var adselectionDecisionLogicNewDecisionLogicCmd = &cobra.Command{
+	Use:   "new-decision-logic",
+	Short: "NewDecisionLogic RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDecisionLogicServiceClient(grpcConn)
+		req := &pb.NewDecisionLogicRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.NewDecisionLogic(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adselectionDecisionLogicDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDecisionLogicServiceClient(grpcConn)
+		req := &pb.DecisionLogicDescribeContentsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adselectionDecisionLogicEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDecisionLogicServiceClient(grpcConn)
+		req := &pb.DecisionLogicEqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adselectionDecisionLogicGetLogicCmd = &cobra.Command{
+	Use:   "get-logic",
+	Short: "GetLogic RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDecisionLogicServiceClient(grpcConn)
+		req := &pb.GetLogicRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetLogic(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adselectionDecisionLogicHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDecisionLogicServiceClient(grpcConn)
+		req := &pb.DecisionLogicHashCodeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adselectionDecisionLogicToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDecisionLogicServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adselectionDecisionLogicWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDecisionLogicServiceClient(grpcConn)
+		req := &pb.DecisionLogicWriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adselectionSetAppInstallAdvertisersRequestCmd = &cobra.Command{
+	Use:   "set-app-install-advertisers-request",
+	Short: "SetAppInstallAdvertisersRequestService operations",
+}
+
+var adselectionSetAppInstallAdvertisersRequestGetAdvertisersCmd = &cobra.Command{
+	Use:   "get-advertisers",
+	Short: "GetAdvertisers RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSetAppInstallAdvertisersRequestServiceClient(grpcConn)
+		req := &pb.GetAdvertisersRequest{}
+		resp, err := client.GetAdvertisers(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adselectionSetAppInstallAdvertisersRequestBuilderCmd = &cobra.Command{
+	Use:   "set-app-install-advertisers-request-builder",
+	Short: "SetAppInstallAdvertisersRequestBuilderService operations",
+}
+
+var adselectionSetAppInstallAdvertisersRequestBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSetAppInstallAdvertisersRequestBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adselectionSignedContextualAdsCmd = &cobra.Command{
+	Use:   "signed-contextual-ads",
+	Short: "SignedContextualAdsService operations",
+}
+
+var adselectionSignedContextualAdsDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSignedContextualAdsServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adselectionSignedContextualAdsEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSignedContextualAdsServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adselectionSignedContextualAdsGetAdsWithBidCmd = &cobra.Command{
+	Use:   "get-ads-with-bid",
+	Short: "GetAdsWithBid RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSignedContextualAdsServiceClient(grpcConn)
+		req := &pb.GetAdsWithBidRequest{}
+		resp, err := client.GetAdsWithBid(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adselectionSignedContextualAdsGetBuyerCmd = &cobra.Command{
+	Use:   "get-buyer",
+	Short: "GetBuyer RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSignedContextualAdsServiceClient(grpcConn)
+		req := &pb.GetBuyerRequest{}
+		resp, err := client.GetBuyer(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adselectionSignedContextualAdsGetDecisionLogicUriCmd = &cobra.Command{
+	Use:   "get-decision-logic-uri",
+	Short: "GetDecisionLogicUri RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSignedContextualAdsServiceClient(grpcConn)
+		req := &pb.GetDecisionLogicUriRequest{}
+		resp, err := client.GetDecisionLogicUri(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adselectionSignedContextualAdsGetSignatureCmd = &cobra.Command{
+	Use:   "get-signature",
+	Short: "GetSignature RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSignedContextualAdsServiceClient(grpcConn)
+		req := &pb.GetSignatureRequest{}
+		resp, err := client.GetSignature(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adselectionSignedContextualAdsHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSignedContextualAdsServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adselectionSignedContextualAdsToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSignedContextualAdsServiceClient(grpcConn)
+		req := &pb.SignedContextualAdsToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adselectionSignedContextualAdsWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSignedContextualAdsServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adselectionSignedContextualAdsBuilderCmd = &cobra.Command{
+	Use:   "signed-contextual-ads-builder",
+	Short: "SignedContextualAdsBuilderService operations",
+}
+
+var adselectionSignedContextualAdsBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSignedContextualAdsBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adselectionSignedContextualAdsBuilderSetBuyerCmd = &cobra.Command{
+	Use:   "set-buyer",
+	Short: "SetBuyer RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSignedContextualAdsBuilderServiceClient(grpcConn)
+		req := &pb.SetBuyerRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetBuyer(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adselectionSignedContextualAdsBuilderSetDecisionLogicUriCmd = &cobra.Command{
+	Use:   "set-decision-logic-uri",
+	Short: "SetDecisionLogicUri RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSignedContextualAdsBuilderServiceClient(grpcConn)
+		req := &pb.SetDecisionLogicUriRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetDecisionLogicUri(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adselectionSignedContextualAdsBuilderSetSignatureCmd = &cobra.Command{
+	Use:   "set-signature",
+	Short: "SetSignature RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSignedContextualAdsBuilderServiceClient(grpcConn)
+		req := &pb.SetSignatureRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetSignature(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adselectionSellerConfigurationCmd = &cobra.Command{
+	Use:   "seller-configuration",
+	Short: "SellerConfigurationService operations",
+}
+
+var adselectionSellerConfigurationDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSellerConfigurationServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adselectionSellerConfigurationEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSellerConfigurationServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adselectionSellerConfigurationGetMaximumPayloadSizeBytesCmd = &cobra.Command{
+	Use:   "get-maximum-payload-size-bytes",
+	Short: "GetMaximumPayloadSizeBytes RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSellerConfigurationServiceClient(grpcConn)
+		req := &pb.GetMaximumPayloadSizeBytesRequest{}
+		resp, err := client.GetMaximumPayloadSizeBytes(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adselectionSellerConfigurationGetPerBuyerConfigurationsCmd = &cobra.Command{
+	Use:   "get-per-buyer-configurations",
+	Short: "GetPerBuyerConfigurations RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSellerConfigurationServiceClient(grpcConn)
+		req := &pb.GetPerBuyerConfigurationsRequest{}
+		resp, err := client.GetPerBuyerConfigurations(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adselectionSellerConfigurationHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSellerConfigurationServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adselectionSellerConfigurationWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSellerConfigurationServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adselectionSellerConfigurationBuilderCmd = &cobra.Command{
+	Use:   "seller-configuration-builder",
+	Short: "SellerConfigurationBuilderService operations",
+}
+
+var adselectionSellerConfigurationBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSellerConfigurationBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adselectionSellerConfigurationBuilderSetMaximumPayloadSizeBytesCmd = &cobra.Command{
+	Use:   "set-maximum-payload-size-bytes",
+	Short: "SetMaximumPayloadSizeBytes RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSellerConfigurationBuilderServiceClient(grpcConn)
+		req := &pb.SetMaximumPayloadSizeBytesRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetMaximumPayloadSizeBytes(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adselectionAdSelectionOutcomeCmd = &cobra.Command{
+	Use:   "ad-selection-outcome",
+	Short: "AdSelectionOutcomeService operations",
+}
+
+var adselectionAdSelectionOutcomeEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAdSelectionOutcomeServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adselectionAdSelectionOutcomeGetAdSelectionIdCmd = &cobra.Command{
+	Use:   "get-ad-selection-id",
+	Short: "GetAdSelectionId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAdSelectionOutcomeServiceClient(grpcConn)
+		req := &pb.GetAdSelectionIdRequest{}
+		resp, err := client.GetAdSelectionId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adselectionAdSelectionOutcomeGetComponentAdUrisCmd = &cobra.Command{
+	Use:   "get-component-ad-uris",
+	Short: "GetComponentAdUris RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAdSelectionOutcomeServiceClient(grpcConn)
+		req := &pb.GetComponentAdUrisRequest{}
+		resp, err := client.GetComponentAdUris(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adselectionAdSelectionOutcomeGetRenderUriCmd = &cobra.Command{
+	Use:   "get-render-uri",
+	Short: "GetRenderUri RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAdSelectionOutcomeServiceClient(grpcConn)
+		req := &pb.GetRenderUriRequest{}
+		resp, err := client.GetRenderUri(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adselectionAdSelectionOutcomeGetWinningSellerCmd = &cobra.Command{
+	Use:   "get-winning-seller",
+	Short: "GetWinningSeller RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAdSelectionOutcomeServiceClient(grpcConn)
+		req := &pb.GetWinningSellerRequest{}
+		resp, err := client.GetWinningSeller(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adselectionAdSelectionOutcomeHasOutcomeCmd = &cobra.Command{
+	Use:   "has-outcome",
+	Short: "HasOutcome RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAdSelectionOutcomeServiceClient(grpcConn)
+		req := &pb.HasOutcomeRequest{}
+		resp, err := client.HasOutcome(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adselectionAdSelectionOutcomeHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAdSelectionOutcomeServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adselectionAdSelectionOutcomeBuilderCmd = &cobra.Command{
+	Use:   "ad-selection-outcome-builder",
+	Short: "AdSelectionOutcomeBuilderService operations",
+}
+
+var adselectionAdSelectionOutcomeBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAdSelectionOutcomeBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adselectionAdSelectionOutcomeBuilderSetAdSelectionIdCmd = &cobra.Command{
+	Use:   "set-ad-selection-id",
+	Short: "SetAdSelectionId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAdSelectionOutcomeBuilderServiceClient(grpcConn)
+		req := &pb.SetAdSelectionIdRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetAdSelectionId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adselectionAdSelectionOutcomeBuilderSetRenderUriCmd = &cobra.Command{
+	Use:   "set-render-uri",
+	Short: "SetRenderUri RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAdSelectionOutcomeBuilderServiceClient(grpcConn)
+		req := &pb.SetRenderUriRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetRenderUri(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adselectionPerBuyerConfigurationCmd = &cobra.Command{
+	Use:   "per-buyer-configuration",
+	Short: "PerBuyerConfigurationService operations",
+}
+
+var adselectionPerBuyerConfigurationDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPerBuyerConfigurationServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adselectionPerBuyerConfigurationEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPerBuyerConfigurationServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adselectionPerBuyerConfigurationGetBuyerCmd = &cobra.Command{
+	Use:   "get-buyer",
+	Short: "GetBuyer RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPerBuyerConfigurationServiceClient(grpcConn)
+		req := &pb.GetBuyerRequest{}
+		resp, err := client.GetBuyer(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adselectionPerBuyerConfigurationGetTargetInputSizeBytesCmd = &cobra.Command{
+	Use:   "get-target-input-size-bytes",
+	Short: "GetTargetInputSizeBytes RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPerBuyerConfigurationServiceClient(grpcConn)
+		req := &pb.GetTargetInputSizeBytesRequest{}
+		resp, err := client.GetTargetInputSizeBytes(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adselectionPerBuyerConfigurationHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPerBuyerConfigurationServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adselectionPerBuyerConfigurationWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPerBuyerConfigurationServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adselectionPerBuyerConfigurationBuilderCmd = &cobra.Command{
+	Use:   "per-buyer-configuration-builder",
+	Short: "PerBuyerConfigurationBuilderService operations",
+}
+
+var adselectionPerBuyerConfigurationBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPerBuyerConfigurationBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adselectionPerBuyerConfigurationBuilderSetBuyerCmd = &cobra.Command{
+	Use:   "set-buyer",
+	Short: "SetBuyer RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPerBuyerConfigurationBuilderServiceClient(grpcConn)
+		req := &pb.SetBuyerRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetBuyer(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adselectionPerBuyerConfigurationBuilderSetTargetInputSizeBytesCmd = &cobra.Command{
+	Use:   "set-target-input-size-bytes",
+	Short: "SetTargetInputSizeBytes RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPerBuyerConfigurationBuilderServiceClient(grpcConn)
+		req := &pb.SetTargetInputSizeBytesRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetTargetInputSizeBytes(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adselectionPerBuyerDecisionLogicCmd = &cobra.Command{
+	Use:   "per-buyer-decision-logic",
+	Short: "PerBuyerDecisionLogicService operations",
+}
+
+var adselectionPerBuyerDecisionLogicNewPerBuyerDecisionLogicCmd = &cobra.Command{
+	Use:   "new-per-buyer-decision-logic",
+	Short: "NewPerBuyerDecisionLogic RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPerBuyerDecisionLogicServiceClient(grpcConn)
+		req := &pb.NewPerBuyerDecisionLogicRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.NewPerBuyerDecisionLogic(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adselectionPerBuyerDecisionLogicDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPerBuyerDecisionLogicServiceClient(grpcConn)
+		req := &pb.PerBuyerDecisionLogicDescribeContentsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adselectionPerBuyerDecisionLogicEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPerBuyerDecisionLogicServiceClient(grpcConn)
+		req := &pb.PerBuyerDecisionLogicEqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adselectionPerBuyerDecisionLogicHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPerBuyerDecisionLogicServiceClient(grpcConn)
+		req := &pb.PerBuyerDecisionLogicHashCodeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adselectionPerBuyerDecisionLogicWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPerBuyerDecisionLogicServiceClient(grpcConn)
+		req := &pb.PerBuyerDecisionLogicWriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adselectionRemoveAdSelectionOverrideRequestCmd = &cobra.Command{
+	Use:   "remove-ad-selection-override-request",
+	Short: "RemoveAdSelectionOverrideRequestService operations",
+}
+
+var adselectionRemoveAdSelectionOverrideRequestNewRemoveAdSelectionOverrideRequestCmd = &cobra.Command{
+	Use:   "new-remove-ad-selection-override-request",
+	Short: "NewRemoveAdSelectionOverrideRequest RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRemoveAdSelectionOverrideRequestServiceClient(grpcConn)
+		req := &pb.NewRemoveAdSelectionOverrideRequestRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.NewRemoveAdSelectionOverrideRequest(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adselectionRemoveAdSelectionOverrideRequestGetAdSelectionConfigCmd = &cobra.Command{
+	Use:   "get-ad-selection-config",
+	Short: "GetAdSelectionConfig RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRemoveAdSelectionOverrideRequestServiceClient(grpcConn)
+		req := &pb.GetAdSelectionConfigRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetAdSelectionConfig(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adselectionReportImpressionRequestCmd = &cobra.Command{
+	Use:   "report-impression-request",
+	Short: "ReportImpressionRequestService operations",
+}
+
+var adselectionReportImpressionRequestNewReportImpressionRequestCmd = &cobra.Command{
+	Use:   "new-report-impression-request",
+	Short: "NewReportImpressionRequest RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewReportImpressionRequestServiceClient(grpcConn)
+		req := &pb.NewReportImpressionRequestRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.NewReportImpressionRequest(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adselectionReportImpressionRequestGetAdSelectionConfigCmd = &cobra.Command{
+	Use:   "get-ad-selection-config",
+	Short: "GetAdSelectionConfig RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewReportImpressionRequestServiceClient(grpcConn)
+		req := &pb.GetAdSelectionConfigRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetAdSelectionConfig(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adselectionReportImpressionRequestGetAdSelectionIdCmd = &cobra.Command{
+	Use:   "get-ad-selection-id",
+	Short: "GetAdSelectionId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewReportImpressionRequestServiceClient(grpcConn)
+		req := &pb.ReportImpressionRequestGetAdSelectionIdRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetAdSelectionId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adselectionAddAdSelectionFromOutcomesOverrideRequestCmd = &cobra.Command{
+	Use:   "add-ad-selection-from-outcomes-override-request",
+	Short: "AddAdSelectionFromOutcomesOverrideRequestService operations",
+}
+
+var adselectionAddAdSelectionFromOutcomesOverrideRequestNewAddAdSelectionFromOutcomesOverrideRequestCmd = &cobra.Command{
+	Use:   "new-add-ad-selection-from-outcomes-override-request",
+	Short: "NewAddAdSelectionFromOutcomesOverrideRequest RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAddAdSelectionFromOutcomesOverrideRequestServiceClient(grpcConn)
+		req := &pb.NewAddAdSelectionFromOutcomesOverrideRequestRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.NewAddAdSelectionFromOutcomesOverrideRequest(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adselectionAddAdSelectionFromOutcomesOverrideRequestGetAdSelectionFromOutcomesConfigCmd = &cobra.Command{
+	Use:   "get-ad-selection-from-outcomes-config",
+	Short: "GetAdSelectionFromOutcomesConfig RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAddAdSelectionFromOutcomesOverrideRequestServiceClient(grpcConn)
+		req := &pb.GetAdSelectionFromOutcomesConfigRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetAdSelectionFromOutcomesConfig(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adselectionAddAdSelectionFromOutcomesOverrideRequestGetOutcomeSelectionLogicJsCmd = &cobra.Command{
+	Use:   "get-outcome-selection-logic-js",
+	Short: "GetOutcomeSelectionLogicJs RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAddAdSelectionFromOutcomesOverrideRequestServiceClient(grpcConn)
+		req := &pb.GetOutcomeSelectionLogicJsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetOutcomeSelectionLogicJs(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adselectionAddAdSelectionFromOutcomesOverrideRequestGetOutcomeSelectionTrustedSignalsCmd = &cobra.Command{
+	Use:   "get-outcome-selection-trusted-signals",
+	Short: "GetOutcomeSelectionTrustedSignals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAddAdSelectionFromOutcomesOverrideRequestServiceClient(grpcConn)
+		req := &pb.GetOutcomeSelectionTrustedSignalsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetOutcomeSelectionTrustedSignals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adselectionGetAdSelectionDataOutcomeCmd = &cobra.Command{
+	Use:   "get-ad-selection-data-outcome",
+	Short: "GetAdSelectionDataOutcomeService operations",
+}
+
+var adselectionGetAdSelectionDataOutcomeGetAdSelectionDataCmd = &cobra.Command{
+	Use:   "get-ad-selection-data",
+	Short: "GetAdSelectionData RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGetAdSelectionDataOutcomeServiceClient(grpcConn)
+		req := &pb.GetAdSelectionDataRequest{}
+		resp, err := client.GetAdSelectionData(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adselectionGetAdSelectionDataOutcomeGetAdSelectionDataIdCmd = &cobra.Command{
+	Use:   "get-ad-selection-data-id",
+	Short: "GetAdSelectionDataId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGetAdSelectionDataOutcomeServiceClient(grpcConn)
+		req := &pb.GetAdSelectionDataIdRequest{}
+		resp, err := client.GetAdSelectionDataId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adselectionGetAdSelectionDataOutcomeGetAdSelectionIdCmd = &cobra.Command{
+	Use:   "get-ad-selection-id",
+	Short: "GetAdSelectionId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGetAdSelectionDataOutcomeServiceClient(grpcConn)
+		req := &pb.GetAdSelectionIdRequest{}
+		resp, err := client.GetAdSelectionId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adselectionRemoveAdSelectionFromOutcomesOverrideRequestCmd = &cobra.Command{
+	Use:   "remove-ad-selection-from-outcomes-override-request",
+	Short: "RemoveAdSelectionFromOutcomesOverrideRequestService operations",
+}
+
+var adselectionRemoveAdSelectionFromOutcomesOverrideRequestNewRemoveAdSelectionFromOutcomesOverrideRequestCmd = &cobra.Command{
+	Use:   "new-remove-ad-selection-from-outcomes-override-request",
+	Short: "NewRemoveAdSelectionFromOutcomesOverrideRequest RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRemoveAdSelectionFromOutcomesOverrideRequestServiceClient(grpcConn)
+		req := &pb.NewRemoveAdSelectionFromOutcomesOverrideRequestRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.NewRemoveAdSelectionFromOutcomesOverrideRequest(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adselectionRemoveAdSelectionFromOutcomesOverrideRequestGetAdSelectionFromOutcomesConfigCmd = &cobra.Command{
+	Use:   "get-ad-selection-from-outcomes-config",
+	Short: "GetAdSelectionFromOutcomesConfig RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRemoveAdSelectionFromOutcomesOverrideRequestServiceClient(grpcConn)
+		req := &pb.GetAdSelectionFromOutcomesConfigRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetAdSelectionFromOutcomesConfig(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adselectionPersistAdSelectionResultRequestCmd = &cobra.Command{
+	Use:   "persist-ad-selection-result-request",
+	Short: "PersistAdSelectionResultRequestService operations",
+}
+
+var adselectionPersistAdSelectionResultRequestGetAdSelectionDataIdCmd = &cobra.Command{
+	Use:   "get-ad-selection-data-id",
+	Short: "GetAdSelectionDataId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPersistAdSelectionResultRequestServiceClient(grpcConn)
+		req := &pb.GetAdSelectionDataIdRequest{}
+		resp, err := client.GetAdSelectionDataId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adselectionPersistAdSelectionResultRequestGetAdSelectionIdCmd = &cobra.Command{
+	Use:   "get-ad-selection-id",
+	Short: "GetAdSelectionId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPersistAdSelectionResultRequestServiceClient(grpcConn)
+		req := &pb.GetAdSelectionIdRequest{}
+		resp, err := client.GetAdSelectionId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adselectionPersistAdSelectionResultRequestGetAdSelectionResultCmd = &cobra.Command{
+	Use:   "get-ad-selection-result",
+	Short: "GetAdSelectionResult RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPersistAdSelectionResultRequestServiceClient(grpcConn)
+		req := &pb.GetAdSelectionResultRequest{}
+		resp, err := client.GetAdSelectionResult(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adselectionPersistAdSelectionResultRequestGetSellerCmd = &cobra.Command{
+	Use:   "get-seller",
+	Short: "GetSeller RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPersistAdSelectionResultRequestServiceClient(grpcConn)
+		req := &pb.GetSellerRequest{}
+		resp, err := client.GetSeller(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adselectionPersistAdSelectionResultRequestBuilderCmd = &cobra.Command{
+	Use:   "persist-ad-selection-result-request-builder",
+	Short: "PersistAdSelectionResultRequestBuilderService operations",
+}
+
+var adselectionPersistAdSelectionResultRequestBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPersistAdSelectionResultRequestBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adselectionPersistAdSelectionResultRequestBuilderSetAdSelectionDataIdCmd = &cobra.Command{
+	Use:   "set-ad-selection-data-id",
+	Short: "SetAdSelectionDataId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPersistAdSelectionResultRequestBuilderServiceClient(grpcConn)
+		req := &pb.SetAdSelectionDataIdRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetAdSelectionDataId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adselectionPersistAdSelectionResultRequestBuilderSetAdSelectionIdCmd = &cobra.Command{
+	Use:   "set-ad-selection-id",
+	Short: "SetAdSelectionId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPersistAdSelectionResultRequestBuilderServiceClient(grpcConn)
+		req := &pb.SetAdSelectionIdRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetAdSelectionId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adselectionPersistAdSelectionResultRequestBuilderSetAdSelectionResultCmd = &cobra.Command{
+	Use:   "set-ad-selection-result",
+	Short: "SetAdSelectionResult RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPersistAdSelectionResultRequestBuilderServiceClient(grpcConn)
+		req := &pb.SetAdSelectionResultRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetAdSelectionResult(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adselectionPersistAdSelectionResultRequestBuilderSetSellerCmd = &cobra.Command{
+	Use:   "set-seller",
+	Short: "SetSeller RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPersistAdSelectionResultRequestBuilderServiceClient(grpcConn)
+		req := &pb.SetSellerRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetSeller(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adselectionAdSelectionFromOutcomesConfigCmd = &cobra.Command{
+	Use:   "ad-selection-from-outcomes-config",
+	Short: "AdSelectionFromOutcomesConfigService operations",
+}
+
+var adselectionAdSelectionFromOutcomesConfigDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAdSelectionFromOutcomesConfigServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adselectionAdSelectionFromOutcomesConfigEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAdSelectionFromOutcomesConfigServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adselectionAdSelectionFromOutcomesConfigGetAdSelectionIdsCmd = &cobra.Command{
+	Use:   "get-ad-selection-ids",
+	Short: "GetAdSelectionIds RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAdSelectionFromOutcomesConfigServiceClient(grpcConn)
+		req := &pb.GetAdSelectionIdsRequest{}
+		resp, err := client.GetAdSelectionIds(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adselectionAdSelectionFromOutcomesConfigGetSelectionLogicUriCmd = &cobra.Command{
+	Use:   "get-selection-logic-uri",
+	Short: "GetSelectionLogicUri RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAdSelectionFromOutcomesConfigServiceClient(grpcConn)
+		req := &pb.GetSelectionLogicUriRequest{}
+		resp, err := client.GetSelectionLogicUri(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adselectionAdSelectionFromOutcomesConfigGetSelectionSignalsCmd = &cobra.Command{
+	Use:   "get-selection-signals",
+	Short: "GetSelectionSignals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAdSelectionFromOutcomesConfigServiceClient(grpcConn)
+		req := &pb.GetSelectionSignalsRequest{}
+		resp, err := client.GetSelectionSignals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adselectionAdSelectionFromOutcomesConfigGetSellerCmd = &cobra.Command{
+	Use:   "get-seller",
+	Short: "GetSeller RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAdSelectionFromOutcomesConfigServiceClient(grpcConn)
+		req := &pb.GetSellerRequest{}
+		resp, err := client.GetSeller(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adselectionAdSelectionFromOutcomesConfigHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAdSelectionFromOutcomesConfigServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adselectionAdSelectionFromOutcomesConfigWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAdSelectionFromOutcomesConfigServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adselectionAdSelectionFromOutcomesConfigBuilderCmd = &cobra.Command{
+	Use:   "ad-selection-from-outcomes-config-builder",
+	Short: "AdSelectionFromOutcomesConfigBuilderService operations",
+}
+
+var adselectionAdSelectionFromOutcomesConfigBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAdSelectionFromOutcomesConfigBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adselectionAdSelectionFromOutcomesConfigBuilderSetSelectionLogicUriCmd = &cobra.Command{
+	Use:   "set-selection-logic-uri",
+	Short: "SetSelectionLogicUri RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAdSelectionFromOutcomesConfigBuilderServiceClient(grpcConn)
+		req := &pb.SetSelectionLogicUriRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetSelectionLogicUri(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adselectionAdSelectionFromOutcomesConfigBuilderSetSelectionSignalsCmd = &cobra.Command{
+	Use:   "set-selection-signals",
+	Short: "SetSelectionSignals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAdSelectionFromOutcomesConfigBuilderServiceClient(grpcConn)
+		req := &pb.SetSelectionSignalsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetSelectionSignals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adselectionAdSelectionFromOutcomesConfigBuilderSetSellerCmd = &cobra.Command{
+	Use:   "set-seller",
+	Short: "SetSeller RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAdSelectionFromOutcomesConfigBuilderServiceClient(grpcConn)
+		req := &pb.SetSellerRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetSeller(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adselectionGetAdSelectionDataRequestCmd = &cobra.Command{
+	Use:   "get-ad-selection-data-request",
+	Short: "GetAdSelectionDataRequestService operations",
+}
+
+var adselectionGetAdSelectionDataRequestGetCoordinatorOriginUriCmd = &cobra.Command{
+	Use:   "get-coordinator-origin-uri",
+	Short: "GetCoordinatorOriginUri RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGetAdSelectionDataRequestServiceClient(grpcConn)
+		req := &pb.GetCoordinatorOriginUriRequest{}
+		resp, err := client.GetCoordinatorOriginUri(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adselectionGetAdSelectionDataRequestGetSellerCmd = &cobra.Command{
+	Use:   "get-seller",
+	Short: "GetSeller RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGetAdSelectionDataRequestServiceClient(grpcConn)
+		req := &pb.GetSellerRequest{}
+		resp, err := client.GetSeller(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adselectionGetAdSelectionDataRequestGetSellerConfigurationCmd = &cobra.Command{
+	Use:   "get-seller-configuration",
+	Short: "GetSellerConfiguration RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGetAdSelectionDataRequestServiceClient(grpcConn)
+		req := &pb.GetSellerConfigurationRequest{}
+		resp, err := client.GetSellerConfiguration(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adselectionGetAdSelectionDataRequestBuilderCmd = &cobra.Command{
+	Use:   "get-ad-selection-data-request-builder",
+	Short: "GetAdSelectionDataRequestBuilderService operations",
+}
+
+var adselectionGetAdSelectionDataRequestBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGetAdSelectionDataRequestBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adselectionGetAdSelectionDataRequestBuilderSetCoordinatorOriginUriCmd = &cobra.Command{
+	Use:   "set-coordinator-origin-uri",
+	Short: "SetCoordinatorOriginUri RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGetAdSelectionDataRequestBuilderServiceClient(grpcConn)
+		req := &pb.SetCoordinatorOriginUriRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetCoordinatorOriginUri(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adselectionGetAdSelectionDataRequestBuilderSetSellerCmd = &cobra.Command{
+	Use:   "set-seller",
+	Short: "SetSeller RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGetAdSelectionDataRequestBuilderServiceClient(grpcConn)
+		req := &pb.SetSellerRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetSeller(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adselectionGetAdSelectionDataRequestBuilderSetSellerConfigurationCmd = &cobra.Command{
+	Use:   "set-seller-configuration",
+	Short: "SetSellerConfiguration RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGetAdSelectionDataRequestBuilderServiceClient(grpcConn)
+		req := &pb.SetSellerConfigurationRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetSellerConfiguration(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -2118,392 +2636,18 @@ var adselectionAdWithBidWriteToParcelCmd = &cobra.Command{
 	},
 }
 
-var adselectionRemoveAdSelectionOverrideRequestCmd = &cobra.Command{
-	Use:   "remove-ad-selection-override-request",
-	Short: "RemoveAdSelectionOverrideRequestService operations",
+var adselectionUpdateAdCounterHistogramRequestCmd = &cobra.Command{
+	Use:   "update-ad-counter-histogram-request",
+	Short: "UpdateAdCounterHistogramRequestService operations",
 }
 
-var adselectionRemoveAdSelectionOverrideRequestNewRemoveAdSelectionOverrideRequestCmd = &cobra.Command{
-	Use:   "new-remove-ad-selection-override-request",
-	Short: "NewRemoveAdSelectionOverrideRequest RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRemoveAdSelectionOverrideRequestServiceClient(grpcConn)
-		req := &pb.NewRemoveAdSelectionOverrideRequestRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.NewRemoveAdSelectionOverrideRequest(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var adselectionRemoveAdSelectionOverrideRequestGetAdSelectionConfigCmd = &cobra.Command{
-	Use:   "get-ad-selection-config",
-	Short: "GetAdSelectionConfig RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRemoveAdSelectionOverrideRequestServiceClient(grpcConn)
-		req := &pb.GetAdSelectionConfigRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetAdSelectionConfig(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var adselectionGetAdSelectionDataOutcomeCmd = &cobra.Command{
-	Use:   "get-ad-selection-data-outcome",
-	Short: "GetAdSelectionDataOutcomeService operations",
-}
-
-var adselectionGetAdSelectionDataOutcomeGetAdSelectionDataCmd = &cobra.Command{
-	Use:   "get-ad-selection-data",
-	Short: "GetAdSelectionData RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewGetAdSelectionDataOutcomeServiceClient(grpcConn)
-		req := &pb.GetAdSelectionDataRequest{}
-		resp, err := client.GetAdSelectionData(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var adselectionGetAdSelectionDataOutcomeGetAdSelectionDataIdCmd = &cobra.Command{
-	Use:   "get-ad-selection-data-id",
-	Short: "GetAdSelectionDataId RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewGetAdSelectionDataOutcomeServiceClient(grpcConn)
-		req := &pb.GetAdSelectionDataIdRequest{}
-		resp, err := client.GetAdSelectionDataId(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var adselectionGetAdSelectionDataOutcomeGetAdSelectionIdCmd = &cobra.Command{
-	Use:   "get-ad-selection-id",
-	Short: "GetAdSelectionId RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewGetAdSelectionDataOutcomeServiceClient(grpcConn)
-		req := &pb.GetAdSelectionIdRequest{}
-		resp, err := client.GetAdSelectionId(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var adselectionDecisionLogicCmd = &cobra.Command{
-	Use:   "decision-logic",
-	Short: "DecisionLogicService operations",
-}
-
-var adselectionDecisionLogicNewDecisionLogicCmd = &cobra.Command{
-	Use:   "new-decision-logic",
-	Short: "NewDecisionLogic RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDecisionLogicServiceClient(grpcConn)
-		req := &pb.NewDecisionLogicRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.NewDecisionLogic(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var adselectionDecisionLogicDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDecisionLogicServiceClient(grpcConn)
-		req := &pb.DecisionLogicDescribeContentsRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var adselectionDecisionLogicEqualsCmd = &cobra.Command{
+var adselectionUpdateAdCounterHistogramRequestEqualsCmd = &cobra.Command{
 	Use:   "equals",
 	Short: "Equals RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewDecisionLogicServiceClient(grpcConn)
-		req := &pb.DecisionLogicEqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var adselectionDecisionLogicGetLogicCmd = &cobra.Command{
-	Use:   "get-logic",
-	Short: "GetLogic RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDecisionLogicServiceClient(grpcConn)
-		req := &pb.GetLogicRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetLogic(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var adselectionDecisionLogicHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDecisionLogicServiceClient(grpcConn)
-		req := &pb.DecisionLogicHashCodeRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var adselectionDecisionLogicToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDecisionLogicServiceClient(grpcConn)
-		req := &pb.DecisionLogicToStringRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var adselectionDecisionLogicWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDecisionLogicServiceClient(grpcConn)
-		req := &pb.DecisionLogicWriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var adselectionGetAdSelectionDataRequestCmd = &cobra.Command{
-	Use:   "get-ad-selection-data-request",
-	Short: "GetAdSelectionDataRequestService operations",
-}
-
-var adselectionGetAdSelectionDataRequestGetCoordinatorOriginUriCmd = &cobra.Command{
-	Use:   "get-coordinator-origin-uri",
-	Short: "GetCoordinatorOriginUri RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewGetAdSelectionDataRequestServiceClient(grpcConn)
-		req := &pb.GetCoordinatorOriginUriRequest{}
-		resp, err := client.GetCoordinatorOriginUri(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var adselectionGetAdSelectionDataRequestGetSellerCmd = &cobra.Command{
-	Use:   "get-seller",
-	Short: "GetSeller RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewGetAdSelectionDataRequestServiceClient(grpcConn)
-		req := &pb.GetSellerRequest{}
-		resp, err := client.GetSeller(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var adselectionGetAdSelectionDataRequestGetSellerConfigurationCmd = &cobra.Command{
-	Use:   "get-seller-configuration",
-	Short: "GetSellerConfiguration RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewGetAdSelectionDataRequestServiceClient(grpcConn)
-		req := &pb.GetSellerConfigurationRequest{}
-		resp, err := client.GetSellerConfiguration(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var adselectionGetAdSelectionDataRequestBuilderCmd = &cobra.Command{
-	Use:   "get-ad-selection-data-request-builder",
-	Short: "GetAdSelectionDataRequestBuilderService operations",
-}
-
-var adselectionGetAdSelectionDataRequestBuilderBuildCmd = &cobra.Command{
-	Use:   "build",
-	Short: "Build RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewGetAdSelectionDataRequestBuilderServiceClient(grpcConn)
-		req := &pb.BuildRequest{}
-		resp, err := client.Build(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var adselectionGetAdSelectionDataRequestBuilderSetCoordinatorOriginUriCmd = &cobra.Command{
-	Use:   "set-coordinator-origin-uri",
-	Short: "SetCoordinatorOriginUri RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewGetAdSelectionDataRequestBuilderServiceClient(grpcConn)
-		req := &pb.SetCoordinatorOriginUriRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetCoordinatorOriginUri(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var adselectionGetAdSelectionDataRequestBuilderSetSellerCmd = &cobra.Command{
-	Use:   "set-seller",
-	Short: "SetSeller RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewGetAdSelectionDataRequestBuilderServiceClient(grpcConn)
-		req := &pb.SetSellerRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetSeller(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var adselectionGetAdSelectionDataRequestBuilderSetSellerConfigurationCmd = &cobra.Command{
-	Use:   "set-seller-configuration",
-	Short: "SetSellerConfiguration RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewGetAdSelectionDataRequestBuilderServiceClient(grpcConn)
-		req := &pb.SetSellerConfigurationRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetSellerConfiguration(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var adselectionAdSelectionOutcomeCmd = &cobra.Command{
-	Use:   "ad-selection-outcome",
-	Short: "AdSelectionOutcomeService operations",
-}
-
-var adselectionAdSelectionOutcomeEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAdSelectionOutcomeServiceClient(grpcConn)
+		client := pb.NewUpdateAdCounterHistogramRequestServiceClient(grpcConn)
 		req := &pb.EqualsRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -2516,13 +2660,29 @@ var adselectionAdSelectionOutcomeEqualsCmd = &cobra.Command{
 	},
 }
 
-var adselectionAdSelectionOutcomeGetAdSelectionIdCmd = &cobra.Command{
+var adselectionUpdateAdCounterHistogramRequestGetAdEventTypeCmd = &cobra.Command{
+	Use:   "get-ad-event-type",
+	Short: "GetAdEventType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewUpdateAdCounterHistogramRequestServiceClient(grpcConn)
+		req := &pb.GetAdEventTypeRequest{}
+		resp, err := client.GetAdEventType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adselectionUpdateAdCounterHistogramRequestGetAdSelectionIdCmd = &cobra.Command{
 	Use:   "get-ad-selection-id",
 	Short: "GetAdSelectionId RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewAdSelectionOutcomeServiceClient(grpcConn)
+		client := pb.NewUpdateAdCounterHistogramRequestServiceClient(grpcConn)
 		req := &pb.GetAdSelectionIdRequest{}
 		resp, err := client.GetAdSelectionId(ctx, req)
 		if err != nil {
@@ -2532,15 +2692,15 @@ var adselectionAdSelectionOutcomeGetAdSelectionIdCmd = &cobra.Command{
 	},
 }
 
-var adselectionAdSelectionOutcomeGetRenderUriCmd = &cobra.Command{
-	Use:   "get-render-uri",
-	Short: "GetRenderUri RPC",
+var adselectionUpdateAdCounterHistogramRequestGetCallerAdTechCmd = &cobra.Command{
+	Use:   "get-caller-ad-tech",
+	Short: "GetCallerAdTech RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewAdSelectionOutcomeServiceClient(grpcConn)
-		req := &pb.GetRenderUriRequest{}
-		resp, err := client.GetRenderUri(ctx, req)
+		client := pb.NewUpdateAdCounterHistogramRequestServiceClient(grpcConn)
+		req := &pb.GetCallerAdTechRequest{}
+		resp, err := client.GetCallerAdTech(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -2548,45 +2708,13 @@ var adselectionAdSelectionOutcomeGetRenderUriCmd = &cobra.Command{
 	},
 }
 
-var adselectionAdSelectionOutcomeGetWinningSellerCmd = &cobra.Command{
-	Use:   "get-winning-seller",
-	Short: "GetWinningSeller RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAdSelectionOutcomeServiceClient(grpcConn)
-		req := &pb.GetWinningSellerRequest{}
-		resp, err := client.GetWinningSeller(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var adselectionAdSelectionOutcomeHasOutcomeCmd = &cobra.Command{
-	Use:   "has-outcome",
-	Short: "HasOutcome RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAdSelectionOutcomeServiceClient(grpcConn)
-		req := &pb.HasOutcomeRequest{}
-		resp, err := client.HasOutcome(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var adselectionAdSelectionOutcomeHashCodeCmd = &cobra.Command{
+var adselectionUpdateAdCounterHistogramRequestHashCodeCmd = &cobra.Command{
 	Use:   "hash-code",
 	Short: "HashCode RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewAdSelectionOutcomeServiceClient(grpcConn)
+		client := pb.NewUpdateAdCounterHistogramRequestServiceClient(grpcConn)
 		req := &pb.HashCodeRequest{}
 		resp, err := client.HashCode(ctx, req)
 		if err != nil {
@@ -2596,18 +2724,34 @@ var adselectionAdSelectionOutcomeHashCodeCmd = &cobra.Command{
 	},
 }
 
-var adselectionAdSelectionOutcomeBuilderCmd = &cobra.Command{
-	Use:   "ad-selection-outcome-builder",
-	Short: "AdSelectionOutcomeBuilderService operations",
+var adselectionUpdateAdCounterHistogramRequestToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewUpdateAdCounterHistogramRequestServiceClient(grpcConn)
+		req := &pb.UpdateAdCounterHistogramRequestToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
 }
 
-var adselectionAdSelectionOutcomeBuilderBuildCmd = &cobra.Command{
+var adselectionUpdateAdCounterHistogramRequestBuilderCmd = &cobra.Command{
+	Use:   "update-ad-counter-histogram-request-builder",
+	Short: "UpdateAdCounterHistogramRequestBuilderService operations",
+}
+
+var adselectionUpdateAdCounterHistogramRequestBuilderBuildCmd = &cobra.Command{
 	Use:   "build",
 	Short: "Build RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewAdSelectionOutcomeBuilderServiceClient(grpcConn)
+		client := pb.NewUpdateAdCounterHistogramRequestBuilderServiceClient(grpcConn)
 		req := &pb.BuildRequest{}
 		resp, err := client.Build(ctx, req)
 		if err != nil {
@@ -2617,13 +2761,32 @@ var adselectionAdSelectionOutcomeBuilderBuildCmd = &cobra.Command{
 	},
 }
 
-var adselectionAdSelectionOutcomeBuilderSetAdSelectionIdCmd = &cobra.Command{
+var adselectionUpdateAdCounterHistogramRequestBuilderSetAdEventTypeCmd = &cobra.Command{
+	Use:   "set-ad-event-type",
+	Short: "SetAdEventType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewUpdateAdCounterHistogramRequestBuilderServiceClient(grpcConn)
+		req := &pb.SetAdEventTypeRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetAdEventType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adselectionUpdateAdCounterHistogramRequestBuilderSetAdSelectionIdCmd = &cobra.Command{
 	Use:   "set-ad-selection-id",
 	Short: "SetAdSelectionId RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewAdSelectionOutcomeBuilderServiceClient(grpcConn)
+		client := pb.NewUpdateAdCounterHistogramRequestBuilderServiceClient(grpcConn)
 		req := &pb.SetAdSelectionIdRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -2636,80 +2799,18 @@ var adselectionAdSelectionOutcomeBuilderSetAdSelectionIdCmd = &cobra.Command{
 	},
 }
 
-var adselectionAdSelectionOutcomeBuilderSetRenderUriCmd = &cobra.Command{
-	Use:   "set-render-uri",
-	Short: "SetRenderUri RPC",
+var adselectionUpdateAdCounterHistogramRequestBuilderSetCallerAdTechCmd = &cobra.Command{
+	Use:   "set-caller-ad-tech",
+	Short: "SetCallerAdTech RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewAdSelectionOutcomeBuilderServiceClient(grpcConn)
-		req := &pb.SetRenderUriRequest{}
+		client := pb.NewUpdateAdCounterHistogramRequestBuilderServiceClient(grpcConn)
+		req := &pb.SetCallerAdTechRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		resp, err := client.SetRenderUri(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var adselectionReportImpressionRequestCmd = &cobra.Command{
-	Use:   "report-impression-request",
-	Short: "ReportImpressionRequestService operations",
-}
-
-var adselectionReportImpressionRequestNewReportImpressionRequestCmd = &cobra.Command{
-	Use:   "new-report-impression-request",
-	Short: "NewReportImpressionRequest RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewReportImpressionRequestServiceClient(grpcConn)
-		req := &pb.NewReportImpressionRequestRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.NewReportImpressionRequest(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var adselectionReportImpressionRequestGetAdSelectionConfigCmd = &cobra.Command{
-	Use:   "get-ad-selection-config",
-	Short: "GetAdSelectionConfig RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewReportImpressionRequestServiceClient(grpcConn)
-		req := &pb.GetAdSelectionConfigRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetAdSelectionConfig(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var adselectionReportImpressionRequestGetAdSelectionIdCmd = &cobra.Command{
-	Use:   "get-ad-selection-id",
-	Short: "GetAdSelectionId RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewReportImpressionRequestServiceClient(grpcConn)
-		req := &pb.ReportImpressionRequestGetAdSelectionIdRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetAdSelectionId(ctx, req)
+		resp, err := client.SetCallerAdTech(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -2718,163 +2819,11 @@ var adselectionReportImpressionRequestGetAdSelectionIdCmd = &cobra.Command{
 }
 
 func init() {
-	adselectionPersistAdSelectionResultRequestCmd.AddCommand(adselectionPersistAdSelectionResultRequestGetAdSelectionDataIdCmd)
-	adselectionPersistAdSelectionResultRequestCmd.AddCommand(adselectionPersistAdSelectionResultRequestGetAdSelectionIdCmd)
-	adselectionPersistAdSelectionResultRequestCmd.AddCommand(adselectionPersistAdSelectionResultRequestGetAdSelectionResultCmd)
-	adselectionPersistAdSelectionResultRequestCmd.AddCommand(adselectionPersistAdSelectionResultRequestGetSellerCmd)
-	adselectionCmd.AddCommand(adselectionPersistAdSelectionResultRequestCmd)
-	adselectionPersistAdSelectionResultRequestBuilderCmd.AddCommand(adselectionPersistAdSelectionResultRequestBuilderBuildCmd)
-	adselectionPersistAdSelectionResultRequestBuilderSetAdSelectionDataIdCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	adselectionPersistAdSelectionResultRequestBuilderCmd.AddCommand(adselectionPersistAdSelectionResultRequestBuilderSetAdSelectionDataIdCmd)
-	adselectionPersistAdSelectionResultRequestBuilderSetAdSelectionIdCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	adselectionPersistAdSelectionResultRequestBuilderCmd.AddCommand(adselectionPersistAdSelectionResultRequestBuilderSetAdSelectionIdCmd)
-	adselectionPersistAdSelectionResultRequestBuilderSetAdSelectionResultCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	adselectionPersistAdSelectionResultRequestBuilderCmd.AddCommand(adselectionPersistAdSelectionResultRequestBuilderSetAdSelectionResultCmd)
-	adselectionPersistAdSelectionResultRequestBuilderSetSellerCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	adselectionPersistAdSelectionResultRequestBuilderCmd.AddCommand(adselectionPersistAdSelectionResultRequestBuilderSetSellerCmd)
-	adselectionCmd.AddCommand(adselectionPersistAdSelectionResultRequestBuilderCmd)
-	adselectionSellerConfigurationCmd.AddCommand(adselectionSellerConfigurationDescribeContentsCmd)
-	adselectionSellerConfigurationEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	adselectionSellerConfigurationCmd.AddCommand(adselectionSellerConfigurationEqualsCmd)
-	adselectionSellerConfigurationCmd.AddCommand(adselectionSellerConfigurationGetMaximumPayloadSizeBytesCmd)
-	adselectionSellerConfigurationCmd.AddCommand(adselectionSellerConfigurationHashCodeCmd)
-	adselectionSellerConfigurationWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	adselectionSellerConfigurationWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	adselectionSellerConfigurationCmd.AddCommand(adselectionSellerConfigurationWriteToParcelCmd)
-	adselectionCmd.AddCommand(adselectionSellerConfigurationCmd)
-	adselectionSellerConfigurationBuilderCmd.AddCommand(adselectionSellerConfigurationBuilderBuildCmd)
-	adselectionSellerConfigurationBuilderSetMaximumPayloadSizeBytesCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	adselectionSellerConfigurationBuilderCmd.AddCommand(adselectionSellerConfigurationBuilderSetMaximumPayloadSizeBytesCmd)
-	adselectionCmd.AddCommand(adselectionSellerConfigurationBuilderCmd)
-	adselectionRemoveAdSelectionFromOutcomesOverrideRequestNewRemoveAdSelectionFromOutcomesOverrideRequestCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	adselectionRemoveAdSelectionFromOutcomesOverrideRequestCmd.AddCommand(adselectionRemoveAdSelectionFromOutcomesOverrideRequestNewRemoveAdSelectionFromOutcomesOverrideRequestCmd)
-	adselectionRemoveAdSelectionFromOutcomesOverrideRequestGetAdSelectionFromOutcomesConfigCmd.Flags().Int64("handle", 0, "handle (int64)")
-	adselectionRemoveAdSelectionFromOutcomesOverrideRequestCmd.AddCommand(adselectionRemoveAdSelectionFromOutcomesOverrideRequestGetAdSelectionFromOutcomesConfigCmd)
-	adselectionCmd.AddCommand(adselectionRemoveAdSelectionFromOutcomesOverrideRequestCmd)
-	adselectionSetAppInstallAdvertisersRequestBuilderCmd.AddCommand(adselectionSetAppInstallAdvertisersRequestBuilderBuildCmd)
-	adselectionCmd.AddCommand(adselectionSetAppInstallAdvertisersRequestBuilderCmd)
-	adselectionUpdateAdCounterHistogramRequestEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	adselectionUpdateAdCounterHistogramRequestCmd.AddCommand(adselectionUpdateAdCounterHistogramRequestEqualsCmd)
-	adselectionUpdateAdCounterHistogramRequestCmd.AddCommand(adselectionUpdateAdCounterHistogramRequestGetAdEventTypeCmd)
-	adselectionUpdateAdCounterHistogramRequestCmd.AddCommand(adselectionUpdateAdCounterHistogramRequestGetAdSelectionIdCmd)
-	adselectionUpdateAdCounterHistogramRequestCmd.AddCommand(adselectionUpdateAdCounterHistogramRequestGetCallerAdTechCmd)
-	adselectionUpdateAdCounterHistogramRequestCmd.AddCommand(adselectionUpdateAdCounterHistogramRequestHashCodeCmd)
-	adselectionUpdateAdCounterHistogramRequestCmd.AddCommand(adselectionUpdateAdCounterHistogramRequestToStringCmd)
-	adselectionCmd.AddCommand(adselectionUpdateAdCounterHistogramRequestCmd)
-	adselectionUpdateAdCounterHistogramRequestBuilderCmd.AddCommand(adselectionUpdateAdCounterHistogramRequestBuilderBuildCmd)
-	adselectionUpdateAdCounterHistogramRequestBuilderSetAdEventTypeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	adselectionUpdateAdCounterHistogramRequestBuilderCmd.AddCommand(adselectionUpdateAdCounterHistogramRequestBuilderSetAdEventTypeCmd)
-	adselectionUpdateAdCounterHistogramRequestBuilderSetAdSelectionIdCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	adselectionUpdateAdCounterHistogramRequestBuilderCmd.AddCommand(adselectionUpdateAdCounterHistogramRequestBuilderSetAdSelectionIdCmd)
-	adselectionUpdateAdCounterHistogramRequestBuilderSetCallerAdTechCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	adselectionUpdateAdCounterHistogramRequestBuilderCmd.AddCommand(adselectionUpdateAdCounterHistogramRequestBuilderSetCallerAdTechCmd)
-	adselectionCmd.AddCommand(adselectionUpdateAdCounterHistogramRequestBuilderCmd)
-	adselectionPerBuyerConfigurationCmd.AddCommand(adselectionPerBuyerConfigurationDescribeContentsCmd)
-	adselectionPerBuyerConfigurationEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	adselectionPerBuyerConfigurationCmd.AddCommand(adselectionPerBuyerConfigurationEqualsCmd)
-	adselectionPerBuyerConfigurationCmd.AddCommand(adselectionPerBuyerConfigurationGetBuyerCmd)
-	adselectionPerBuyerConfigurationCmd.AddCommand(adselectionPerBuyerConfigurationGetTargetInputSizeBytesCmd)
-	adselectionPerBuyerConfigurationCmd.AddCommand(adselectionPerBuyerConfigurationHashCodeCmd)
-	adselectionPerBuyerConfigurationWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	adselectionPerBuyerConfigurationWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	adselectionPerBuyerConfigurationCmd.AddCommand(adselectionPerBuyerConfigurationWriteToParcelCmd)
-	adselectionCmd.AddCommand(adselectionPerBuyerConfigurationCmd)
-	adselectionPerBuyerConfigurationBuilderCmd.AddCommand(adselectionPerBuyerConfigurationBuilderBuildCmd)
-	adselectionPerBuyerConfigurationBuilderSetBuyerCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	adselectionPerBuyerConfigurationBuilderCmd.AddCommand(adselectionPerBuyerConfigurationBuilderSetBuyerCmd)
-	adselectionPerBuyerConfigurationBuilderSetTargetInputSizeBytesCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	adselectionPerBuyerConfigurationBuilderCmd.AddCommand(adselectionPerBuyerConfigurationBuilderSetTargetInputSizeBytesCmd)
-	adselectionCmd.AddCommand(adselectionPerBuyerConfigurationBuilderCmd)
-	adselectionAdSelectionManagerCmd.AddCommand(adselectionAdSelectionManagerGetTestAdSelectionManagerCmd)
-	adselectionAdSelectionManagerGetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	adselectionAdSelectionManagerCmd.AddCommand(adselectionAdSelectionManagerGetCmd)
-	adselectionCmd.AddCommand(adselectionAdSelectionManagerCmd)
-	adselectionReportEventRequestCmd.AddCommand(adselectionReportEventRequestGetAdSelectionIdCmd)
-	adselectionReportEventRequestCmd.AddCommand(adselectionReportEventRequestGetDataCmd)
-	adselectionReportEventRequestCmd.AddCommand(adselectionReportEventRequestGetInputEventCmd)
-	adselectionReportEventRequestCmd.AddCommand(adselectionReportEventRequestGetKeyCmd)
-	adselectionReportEventRequestCmd.AddCommand(adselectionReportEventRequestGetReportingDestinationsCmd)
-	adselectionCmd.AddCommand(adselectionReportEventRequestCmd)
-	adselectionReportEventRequestBuilderCmd.AddCommand(adselectionReportEventRequestBuilderBuildCmd)
-	adselectionReportEventRequestBuilderSetAdSelectionIdCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	adselectionReportEventRequestBuilderCmd.AddCommand(adselectionReportEventRequestBuilderSetAdSelectionIdCmd)
-	adselectionReportEventRequestBuilderSetDataCmd.Flags().String("arg0", "", "arg0 (string)")
-	adselectionReportEventRequestBuilderCmd.AddCommand(adselectionReportEventRequestBuilderSetDataCmd)
-	adselectionReportEventRequestBuilderSetInputEventCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	adselectionReportEventRequestBuilderCmd.AddCommand(adselectionReportEventRequestBuilderSetInputEventCmd)
-	adselectionReportEventRequestBuilderSetKeyCmd.Flags().String("arg0", "", "arg0 (string)")
-	adselectionReportEventRequestBuilderCmd.AddCommand(adselectionReportEventRequestBuilderSetKeyCmd)
-	adselectionReportEventRequestBuilderSetReportingDestinationsCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	adselectionReportEventRequestBuilderCmd.AddCommand(adselectionReportEventRequestBuilderSetReportingDestinationsCmd)
-	adselectionCmd.AddCommand(adselectionReportEventRequestBuilderCmd)
-	adselectionSignedContextualAdsCmd.AddCommand(adselectionSignedContextualAdsDescribeContentsCmd)
-	adselectionSignedContextualAdsEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	adselectionSignedContextualAdsCmd.AddCommand(adselectionSignedContextualAdsEqualsCmd)
-	adselectionSignedContextualAdsCmd.AddCommand(adselectionSignedContextualAdsGetBuyerCmd)
-	adselectionSignedContextualAdsCmd.AddCommand(adselectionSignedContextualAdsGetDecisionLogicUriCmd)
-	adselectionSignedContextualAdsCmd.AddCommand(adselectionSignedContextualAdsGetSignatureCmd)
-	adselectionSignedContextualAdsCmd.AddCommand(adselectionSignedContextualAdsHashCodeCmd)
-	adselectionSignedContextualAdsCmd.AddCommand(adselectionSignedContextualAdsToStringCmd)
-	adselectionSignedContextualAdsWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	adselectionSignedContextualAdsWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	adselectionSignedContextualAdsCmd.AddCommand(adselectionSignedContextualAdsWriteToParcelCmd)
-	adselectionCmd.AddCommand(adselectionSignedContextualAdsCmd)
-	adselectionSignedContextualAdsBuilderCmd.AddCommand(adselectionSignedContextualAdsBuilderBuildCmd)
-	adselectionSignedContextualAdsBuilderSetBuyerCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	adselectionSignedContextualAdsBuilderCmd.AddCommand(adselectionSignedContextualAdsBuilderSetBuyerCmd)
-	adselectionSignedContextualAdsBuilderSetDecisionLogicUriCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	adselectionSignedContextualAdsBuilderCmd.AddCommand(adselectionSignedContextualAdsBuilderSetDecisionLogicUriCmd)
-	adselectionSignedContextualAdsBuilderSetSignatureCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	adselectionSignedContextualAdsBuilderCmd.AddCommand(adselectionSignedContextualAdsBuilderSetSignatureCmd)
-	adselectionCmd.AddCommand(adselectionSignedContextualAdsBuilderCmd)
-	adselectionAdSelectionFromOutcomesConfigCmd.AddCommand(adselectionAdSelectionFromOutcomesConfigDescribeContentsCmd)
-	adselectionAdSelectionFromOutcomesConfigEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	adselectionAdSelectionFromOutcomesConfigCmd.AddCommand(adselectionAdSelectionFromOutcomesConfigEqualsCmd)
-	adselectionAdSelectionFromOutcomesConfigCmd.AddCommand(adselectionAdSelectionFromOutcomesConfigGetSelectionLogicUriCmd)
-	adselectionAdSelectionFromOutcomesConfigCmd.AddCommand(adselectionAdSelectionFromOutcomesConfigGetSelectionSignalsCmd)
-	adselectionAdSelectionFromOutcomesConfigCmd.AddCommand(adselectionAdSelectionFromOutcomesConfigGetSellerCmd)
-	adselectionAdSelectionFromOutcomesConfigCmd.AddCommand(adselectionAdSelectionFromOutcomesConfigHashCodeCmd)
-	adselectionAdSelectionFromOutcomesConfigWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	adselectionAdSelectionFromOutcomesConfigWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	adselectionAdSelectionFromOutcomesConfigCmd.AddCommand(adselectionAdSelectionFromOutcomesConfigWriteToParcelCmd)
-	adselectionCmd.AddCommand(adselectionAdSelectionFromOutcomesConfigCmd)
-	adselectionAdSelectionFromOutcomesConfigBuilderCmd.AddCommand(adselectionAdSelectionFromOutcomesConfigBuilderBuildCmd)
-	adselectionAdSelectionFromOutcomesConfigBuilderSetSelectionLogicUriCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	adselectionAdSelectionFromOutcomesConfigBuilderCmd.AddCommand(adselectionAdSelectionFromOutcomesConfigBuilderSetSelectionLogicUriCmd)
-	adselectionAdSelectionFromOutcomesConfigBuilderSetSelectionSignalsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	adselectionAdSelectionFromOutcomesConfigBuilderCmd.AddCommand(adselectionAdSelectionFromOutcomesConfigBuilderSetSelectionSignalsCmd)
-	adselectionAdSelectionFromOutcomesConfigBuilderSetSellerCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	adselectionAdSelectionFromOutcomesConfigBuilderCmd.AddCommand(adselectionAdSelectionFromOutcomesConfigBuilderSetSellerCmd)
-	adselectionCmd.AddCommand(adselectionAdSelectionFromOutcomesConfigBuilderCmd)
-	adselectionAddAdSelectionFromOutcomesOverrideRequestNewAddAdSelectionFromOutcomesOverrideRequestCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	adselectionAddAdSelectionFromOutcomesOverrideRequestNewAddAdSelectionFromOutcomesOverrideRequestCmd.Flags().String("arg1", "", "arg1 (string)")
-	adselectionAddAdSelectionFromOutcomesOverrideRequestNewAddAdSelectionFromOutcomesOverrideRequestCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	adselectionAddAdSelectionFromOutcomesOverrideRequestCmd.AddCommand(adselectionAddAdSelectionFromOutcomesOverrideRequestNewAddAdSelectionFromOutcomesOverrideRequestCmd)
-	adselectionAddAdSelectionFromOutcomesOverrideRequestGetAdSelectionFromOutcomesConfigCmd.Flags().Int64("handle", 0, "handle (int64)")
-	adselectionAddAdSelectionFromOutcomesOverrideRequestCmd.AddCommand(adselectionAddAdSelectionFromOutcomesOverrideRequestGetAdSelectionFromOutcomesConfigCmd)
-	adselectionAddAdSelectionFromOutcomesOverrideRequestGetOutcomeSelectionLogicJsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	adselectionAddAdSelectionFromOutcomesOverrideRequestCmd.AddCommand(adselectionAddAdSelectionFromOutcomesOverrideRequestGetOutcomeSelectionLogicJsCmd)
-	adselectionAddAdSelectionFromOutcomesOverrideRequestGetOutcomeSelectionTrustedSignalsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	adselectionAddAdSelectionFromOutcomesOverrideRequestCmd.AddCommand(adselectionAddAdSelectionFromOutcomesOverrideRequestGetOutcomeSelectionTrustedSignalsCmd)
-	adselectionCmd.AddCommand(adselectionAddAdSelectionFromOutcomesOverrideRequestCmd)
-	adselectionPerBuyerDecisionLogicNewPerBuyerDecisionLogicCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	adselectionPerBuyerDecisionLogicCmd.AddCommand(adselectionPerBuyerDecisionLogicNewPerBuyerDecisionLogicCmd)
-	adselectionPerBuyerDecisionLogicDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	adselectionPerBuyerDecisionLogicCmd.AddCommand(adselectionPerBuyerDecisionLogicDescribeContentsCmd)
-	adselectionPerBuyerDecisionLogicEqualsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	adselectionPerBuyerDecisionLogicEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	adselectionPerBuyerDecisionLogicCmd.AddCommand(adselectionPerBuyerDecisionLogicEqualsCmd)
-	adselectionPerBuyerDecisionLogicHashCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
-	adselectionPerBuyerDecisionLogicCmd.AddCommand(adselectionPerBuyerDecisionLogicHashCodeCmd)
-	adselectionPerBuyerDecisionLogicWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
-	adselectionPerBuyerDecisionLogicWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	adselectionPerBuyerDecisionLogicWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	adselectionPerBuyerDecisionLogicCmd.AddCommand(adselectionPerBuyerDecisionLogicWriteToParcelCmd)
-	adselectionCmd.AddCommand(adselectionPerBuyerDecisionLogicCmd)
 	adselectionAdSelectionConfigCmd.AddCommand(adselectionAdSelectionConfigDescribeContentsCmd)
 	adselectionAdSelectionConfigEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	adselectionAdSelectionConfigCmd.AddCommand(adselectionAdSelectionConfigEqualsCmd)
 	adselectionAdSelectionConfigCmd.AddCommand(adselectionAdSelectionConfigGetAdSelectionSignalsCmd)
+	adselectionAdSelectionConfigCmd.AddCommand(adselectionAdSelectionConfigGetCustomAudienceBuyersCmd)
 	adselectionAdSelectionConfigCmd.AddCommand(adselectionAdSelectionConfigGetDecisionLogicUriCmd)
 	adselectionAdSelectionConfigCmd.AddCommand(adselectionAdSelectionConfigGetSellerCmd)
 	adselectionAdSelectionConfigCmd.AddCommand(adselectionAdSelectionConfigGetSellerSignalsCmd)
@@ -2896,6 +2845,24 @@ func init() {
 	adselectionAdSelectionConfigBuilderSetTrustedScoringSignalsUriCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	adselectionAdSelectionConfigBuilderCmd.AddCommand(adselectionAdSelectionConfigBuilderSetTrustedScoringSignalsUriCmd)
 	adselectionCmd.AddCommand(adselectionAdSelectionConfigBuilderCmd)
+	adselectionReportEventRequestCmd.AddCommand(adselectionReportEventRequestGetAdSelectionIdCmd)
+	adselectionReportEventRequestCmd.AddCommand(adselectionReportEventRequestGetDataCmd)
+	adselectionReportEventRequestCmd.AddCommand(adselectionReportEventRequestGetInputEventCmd)
+	adselectionReportEventRequestCmd.AddCommand(adselectionReportEventRequestGetKeyCmd)
+	adselectionReportEventRequestCmd.AddCommand(adselectionReportEventRequestGetReportingDestinationsCmd)
+	adselectionCmd.AddCommand(adselectionReportEventRequestCmd)
+	adselectionReportEventRequestBuilderCmd.AddCommand(adselectionReportEventRequestBuilderBuildCmd)
+	adselectionReportEventRequestBuilderSetAdSelectionIdCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	adselectionReportEventRequestBuilderCmd.AddCommand(adselectionReportEventRequestBuilderSetAdSelectionIdCmd)
+	adselectionReportEventRequestBuilderSetDataCmd.Flags().String("arg0", "", "arg0 (string)")
+	adselectionReportEventRequestBuilderCmd.AddCommand(adselectionReportEventRequestBuilderSetDataCmd)
+	adselectionReportEventRequestBuilderSetInputEventCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	adselectionReportEventRequestBuilderCmd.AddCommand(adselectionReportEventRequestBuilderSetInputEventCmd)
+	adselectionReportEventRequestBuilderSetKeyCmd.Flags().String("arg0", "", "arg0 (string)")
+	adselectionReportEventRequestBuilderCmd.AddCommand(adselectionReportEventRequestBuilderSetKeyCmd)
+	adselectionReportEventRequestBuilderSetReportingDestinationsCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	adselectionReportEventRequestBuilderCmd.AddCommand(adselectionReportEventRequestBuilderSetReportingDestinationsCmd)
+	adselectionCmd.AddCommand(adselectionReportEventRequestBuilderCmd)
 	adselectionAddAdSelectionOverrideRequestNewAddAdSelectionOverrideRequestCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	adselectionAddAdSelectionOverrideRequestNewAddAdSelectionOverrideRequestCmd.Flags().String("arg1", "", "arg1 (string)")
 	adselectionAddAdSelectionOverrideRequestNewAddAdSelectionOverrideRequestCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
@@ -2909,6 +2876,191 @@ func init() {
 	adselectionAddAdSelectionOverrideRequestGetTrustedScoringSignalsCmd.Flags().Int64("handle", 0, "handle (int64)")
 	adselectionAddAdSelectionOverrideRequestCmd.AddCommand(adselectionAddAdSelectionOverrideRequestGetTrustedScoringSignalsCmd)
 	adselectionCmd.AddCommand(adselectionAddAdSelectionOverrideRequestCmd)
+	adselectionAdSelectionManagerCmd.AddCommand(adselectionAdSelectionManagerGetTestAdSelectionManagerCmd)
+	adselectionAdSelectionManagerGetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	adselectionAdSelectionManagerCmd.AddCommand(adselectionAdSelectionManagerGetCmd)
+	adselectionCmd.AddCommand(adselectionAdSelectionManagerCmd)
+	adselectionDecisionLogicNewDecisionLogicCmd.Flags().String("arg0", "", "arg0 (string)")
+	adselectionDecisionLogicCmd.AddCommand(adselectionDecisionLogicNewDecisionLogicCmd)
+	adselectionDecisionLogicDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	adselectionDecisionLogicCmd.AddCommand(adselectionDecisionLogicDescribeContentsCmd)
+	adselectionDecisionLogicEqualsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	adselectionDecisionLogicEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	adselectionDecisionLogicCmd.AddCommand(adselectionDecisionLogicEqualsCmd)
+	adselectionDecisionLogicGetLogicCmd.Flags().Int64("handle", 0, "handle (int64)")
+	adselectionDecisionLogicCmd.AddCommand(adselectionDecisionLogicGetLogicCmd)
+	adselectionDecisionLogicHashCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	adselectionDecisionLogicCmd.AddCommand(adselectionDecisionLogicHashCodeCmd)
+	adselectionDecisionLogicToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
+	adselectionDecisionLogicCmd.AddCommand(adselectionDecisionLogicToStringCmd)
+	adselectionDecisionLogicWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	adselectionDecisionLogicWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	adselectionDecisionLogicWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	adselectionDecisionLogicCmd.AddCommand(adselectionDecisionLogicWriteToParcelCmd)
+	adselectionCmd.AddCommand(adselectionDecisionLogicCmd)
+	adselectionSetAppInstallAdvertisersRequestCmd.AddCommand(adselectionSetAppInstallAdvertisersRequestGetAdvertisersCmd)
+	adselectionCmd.AddCommand(adselectionSetAppInstallAdvertisersRequestCmd)
+	adselectionSetAppInstallAdvertisersRequestBuilderCmd.AddCommand(adselectionSetAppInstallAdvertisersRequestBuilderBuildCmd)
+	adselectionCmd.AddCommand(adselectionSetAppInstallAdvertisersRequestBuilderCmd)
+	adselectionSignedContextualAdsCmd.AddCommand(adselectionSignedContextualAdsDescribeContentsCmd)
+	adselectionSignedContextualAdsEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	adselectionSignedContextualAdsCmd.AddCommand(adselectionSignedContextualAdsEqualsCmd)
+	adselectionSignedContextualAdsCmd.AddCommand(adselectionSignedContextualAdsGetAdsWithBidCmd)
+	adselectionSignedContextualAdsCmd.AddCommand(adselectionSignedContextualAdsGetBuyerCmd)
+	adselectionSignedContextualAdsCmd.AddCommand(adselectionSignedContextualAdsGetDecisionLogicUriCmd)
+	adselectionSignedContextualAdsCmd.AddCommand(adselectionSignedContextualAdsGetSignatureCmd)
+	adselectionSignedContextualAdsCmd.AddCommand(adselectionSignedContextualAdsHashCodeCmd)
+	adselectionSignedContextualAdsCmd.AddCommand(adselectionSignedContextualAdsToStringCmd)
+	adselectionSignedContextualAdsWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	adselectionSignedContextualAdsWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	adselectionSignedContextualAdsCmd.AddCommand(adselectionSignedContextualAdsWriteToParcelCmd)
+	adselectionCmd.AddCommand(adselectionSignedContextualAdsCmd)
+	adselectionSignedContextualAdsBuilderCmd.AddCommand(adselectionSignedContextualAdsBuilderBuildCmd)
+	adselectionSignedContextualAdsBuilderSetBuyerCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	adselectionSignedContextualAdsBuilderCmd.AddCommand(adselectionSignedContextualAdsBuilderSetBuyerCmd)
+	adselectionSignedContextualAdsBuilderSetDecisionLogicUriCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	adselectionSignedContextualAdsBuilderCmd.AddCommand(adselectionSignedContextualAdsBuilderSetDecisionLogicUriCmd)
+	adselectionSignedContextualAdsBuilderSetSignatureCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	adselectionSignedContextualAdsBuilderCmd.AddCommand(adselectionSignedContextualAdsBuilderSetSignatureCmd)
+	adselectionCmd.AddCommand(adselectionSignedContextualAdsBuilderCmd)
+	adselectionSellerConfigurationCmd.AddCommand(adselectionSellerConfigurationDescribeContentsCmd)
+	adselectionSellerConfigurationEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	adselectionSellerConfigurationCmd.AddCommand(adselectionSellerConfigurationEqualsCmd)
+	adselectionSellerConfigurationCmd.AddCommand(adselectionSellerConfigurationGetMaximumPayloadSizeBytesCmd)
+	adselectionSellerConfigurationCmd.AddCommand(adselectionSellerConfigurationGetPerBuyerConfigurationsCmd)
+	adselectionSellerConfigurationCmd.AddCommand(adselectionSellerConfigurationHashCodeCmd)
+	adselectionSellerConfigurationWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	adselectionSellerConfigurationWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	adselectionSellerConfigurationCmd.AddCommand(adselectionSellerConfigurationWriteToParcelCmd)
+	adselectionCmd.AddCommand(adselectionSellerConfigurationCmd)
+	adselectionSellerConfigurationBuilderCmd.AddCommand(adselectionSellerConfigurationBuilderBuildCmd)
+	adselectionSellerConfigurationBuilderSetMaximumPayloadSizeBytesCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	adselectionSellerConfigurationBuilderCmd.AddCommand(adselectionSellerConfigurationBuilderSetMaximumPayloadSizeBytesCmd)
+	adselectionCmd.AddCommand(adselectionSellerConfigurationBuilderCmd)
+	adselectionAdSelectionOutcomeEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	adselectionAdSelectionOutcomeCmd.AddCommand(adselectionAdSelectionOutcomeEqualsCmd)
+	adselectionAdSelectionOutcomeCmd.AddCommand(adselectionAdSelectionOutcomeGetAdSelectionIdCmd)
+	adselectionAdSelectionOutcomeCmd.AddCommand(adselectionAdSelectionOutcomeGetComponentAdUrisCmd)
+	adselectionAdSelectionOutcomeCmd.AddCommand(adselectionAdSelectionOutcomeGetRenderUriCmd)
+	adselectionAdSelectionOutcomeCmd.AddCommand(adselectionAdSelectionOutcomeGetWinningSellerCmd)
+	adselectionAdSelectionOutcomeCmd.AddCommand(adselectionAdSelectionOutcomeHasOutcomeCmd)
+	adselectionAdSelectionOutcomeCmd.AddCommand(adselectionAdSelectionOutcomeHashCodeCmd)
+	adselectionCmd.AddCommand(adselectionAdSelectionOutcomeCmd)
+	adselectionAdSelectionOutcomeBuilderCmd.AddCommand(adselectionAdSelectionOutcomeBuilderBuildCmd)
+	adselectionAdSelectionOutcomeBuilderSetAdSelectionIdCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	adselectionAdSelectionOutcomeBuilderCmd.AddCommand(adselectionAdSelectionOutcomeBuilderSetAdSelectionIdCmd)
+	adselectionAdSelectionOutcomeBuilderSetRenderUriCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	adselectionAdSelectionOutcomeBuilderCmd.AddCommand(adselectionAdSelectionOutcomeBuilderSetRenderUriCmd)
+	adselectionCmd.AddCommand(adselectionAdSelectionOutcomeBuilderCmd)
+	adselectionPerBuyerConfigurationCmd.AddCommand(adselectionPerBuyerConfigurationDescribeContentsCmd)
+	adselectionPerBuyerConfigurationEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	adselectionPerBuyerConfigurationCmd.AddCommand(adselectionPerBuyerConfigurationEqualsCmd)
+	adselectionPerBuyerConfigurationCmd.AddCommand(adselectionPerBuyerConfigurationGetBuyerCmd)
+	adselectionPerBuyerConfigurationCmd.AddCommand(adselectionPerBuyerConfigurationGetTargetInputSizeBytesCmd)
+	adselectionPerBuyerConfigurationCmd.AddCommand(adselectionPerBuyerConfigurationHashCodeCmd)
+	adselectionPerBuyerConfigurationWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	adselectionPerBuyerConfigurationWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	adselectionPerBuyerConfigurationCmd.AddCommand(adselectionPerBuyerConfigurationWriteToParcelCmd)
+	adselectionCmd.AddCommand(adselectionPerBuyerConfigurationCmd)
+	adselectionPerBuyerConfigurationBuilderCmd.AddCommand(adselectionPerBuyerConfigurationBuilderBuildCmd)
+	adselectionPerBuyerConfigurationBuilderSetBuyerCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	adselectionPerBuyerConfigurationBuilderCmd.AddCommand(adselectionPerBuyerConfigurationBuilderSetBuyerCmd)
+	adselectionPerBuyerConfigurationBuilderSetTargetInputSizeBytesCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	adselectionPerBuyerConfigurationBuilderCmd.AddCommand(adselectionPerBuyerConfigurationBuilderSetTargetInputSizeBytesCmd)
+	adselectionCmd.AddCommand(adselectionPerBuyerConfigurationBuilderCmd)
+	adselectionPerBuyerDecisionLogicNewPerBuyerDecisionLogicCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	adselectionPerBuyerDecisionLogicCmd.AddCommand(adselectionPerBuyerDecisionLogicNewPerBuyerDecisionLogicCmd)
+	adselectionPerBuyerDecisionLogicDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	adselectionPerBuyerDecisionLogicCmd.AddCommand(adselectionPerBuyerDecisionLogicDescribeContentsCmd)
+	adselectionPerBuyerDecisionLogicEqualsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	adselectionPerBuyerDecisionLogicEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	adselectionPerBuyerDecisionLogicCmd.AddCommand(adselectionPerBuyerDecisionLogicEqualsCmd)
+	adselectionPerBuyerDecisionLogicHashCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	adselectionPerBuyerDecisionLogicCmd.AddCommand(adselectionPerBuyerDecisionLogicHashCodeCmd)
+	adselectionPerBuyerDecisionLogicWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	adselectionPerBuyerDecisionLogicWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	adselectionPerBuyerDecisionLogicWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	adselectionPerBuyerDecisionLogicCmd.AddCommand(adselectionPerBuyerDecisionLogicWriteToParcelCmd)
+	adselectionCmd.AddCommand(adselectionPerBuyerDecisionLogicCmd)
+	adselectionRemoveAdSelectionOverrideRequestNewRemoveAdSelectionOverrideRequestCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	adselectionRemoveAdSelectionOverrideRequestCmd.AddCommand(adselectionRemoveAdSelectionOverrideRequestNewRemoveAdSelectionOverrideRequestCmd)
+	adselectionRemoveAdSelectionOverrideRequestGetAdSelectionConfigCmd.Flags().Int64("handle", 0, "handle (int64)")
+	adselectionRemoveAdSelectionOverrideRequestCmd.AddCommand(adselectionRemoveAdSelectionOverrideRequestGetAdSelectionConfigCmd)
+	adselectionCmd.AddCommand(adselectionRemoveAdSelectionOverrideRequestCmd)
+	adselectionReportImpressionRequestNewReportImpressionRequestCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	adselectionReportImpressionRequestCmd.AddCommand(adselectionReportImpressionRequestNewReportImpressionRequestCmd)
+	adselectionReportImpressionRequestGetAdSelectionConfigCmd.Flags().Int64("handle", 0, "handle (int64)")
+	adselectionReportImpressionRequestCmd.AddCommand(adselectionReportImpressionRequestGetAdSelectionConfigCmd)
+	adselectionReportImpressionRequestGetAdSelectionIdCmd.Flags().Int64("handle", 0, "handle (int64)")
+	adselectionReportImpressionRequestCmd.AddCommand(adselectionReportImpressionRequestGetAdSelectionIdCmd)
+	adselectionCmd.AddCommand(adselectionReportImpressionRequestCmd)
+	adselectionAddAdSelectionFromOutcomesOverrideRequestNewAddAdSelectionFromOutcomesOverrideRequestCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	adselectionAddAdSelectionFromOutcomesOverrideRequestNewAddAdSelectionFromOutcomesOverrideRequestCmd.Flags().String("arg1", "", "arg1 (string)")
+	adselectionAddAdSelectionFromOutcomesOverrideRequestNewAddAdSelectionFromOutcomesOverrideRequestCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	adselectionAddAdSelectionFromOutcomesOverrideRequestCmd.AddCommand(adselectionAddAdSelectionFromOutcomesOverrideRequestNewAddAdSelectionFromOutcomesOverrideRequestCmd)
+	adselectionAddAdSelectionFromOutcomesOverrideRequestGetAdSelectionFromOutcomesConfigCmd.Flags().Int64("handle", 0, "handle (int64)")
+	adselectionAddAdSelectionFromOutcomesOverrideRequestCmd.AddCommand(adselectionAddAdSelectionFromOutcomesOverrideRequestGetAdSelectionFromOutcomesConfigCmd)
+	adselectionAddAdSelectionFromOutcomesOverrideRequestGetOutcomeSelectionLogicJsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	adselectionAddAdSelectionFromOutcomesOverrideRequestCmd.AddCommand(adselectionAddAdSelectionFromOutcomesOverrideRequestGetOutcomeSelectionLogicJsCmd)
+	adselectionAddAdSelectionFromOutcomesOverrideRequestGetOutcomeSelectionTrustedSignalsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	adselectionAddAdSelectionFromOutcomesOverrideRequestCmd.AddCommand(adselectionAddAdSelectionFromOutcomesOverrideRequestGetOutcomeSelectionTrustedSignalsCmd)
+	adselectionCmd.AddCommand(adselectionAddAdSelectionFromOutcomesOverrideRequestCmd)
+	adselectionGetAdSelectionDataOutcomeCmd.AddCommand(adselectionGetAdSelectionDataOutcomeGetAdSelectionDataCmd)
+	adselectionGetAdSelectionDataOutcomeCmd.AddCommand(adselectionGetAdSelectionDataOutcomeGetAdSelectionDataIdCmd)
+	adselectionGetAdSelectionDataOutcomeCmd.AddCommand(adselectionGetAdSelectionDataOutcomeGetAdSelectionIdCmd)
+	adselectionCmd.AddCommand(adselectionGetAdSelectionDataOutcomeCmd)
+	adselectionRemoveAdSelectionFromOutcomesOverrideRequestNewRemoveAdSelectionFromOutcomesOverrideRequestCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	adselectionRemoveAdSelectionFromOutcomesOverrideRequestCmd.AddCommand(adselectionRemoveAdSelectionFromOutcomesOverrideRequestNewRemoveAdSelectionFromOutcomesOverrideRequestCmd)
+	adselectionRemoveAdSelectionFromOutcomesOverrideRequestGetAdSelectionFromOutcomesConfigCmd.Flags().Int64("handle", 0, "handle (int64)")
+	adselectionRemoveAdSelectionFromOutcomesOverrideRequestCmd.AddCommand(adselectionRemoveAdSelectionFromOutcomesOverrideRequestGetAdSelectionFromOutcomesConfigCmd)
+	adselectionCmd.AddCommand(adselectionRemoveAdSelectionFromOutcomesOverrideRequestCmd)
+	adselectionPersistAdSelectionResultRequestCmd.AddCommand(adselectionPersistAdSelectionResultRequestGetAdSelectionDataIdCmd)
+	adselectionPersistAdSelectionResultRequestCmd.AddCommand(adselectionPersistAdSelectionResultRequestGetAdSelectionIdCmd)
+	adselectionPersistAdSelectionResultRequestCmd.AddCommand(adselectionPersistAdSelectionResultRequestGetAdSelectionResultCmd)
+	adselectionPersistAdSelectionResultRequestCmd.AddCommand(adselectionPersistAdSelectionResultRequestGetSellerCmd)
+	adselectionCmd.AddCommand(adselectionPersistAdSelectionResultRequestCmd)
+	adselectionPersistAdSelectionResultRequestBuilderCmd.AddCommand(adselectionPersistAdSelectionResultRequestBuilderBuildCmd)
+	adselectionPersistAdSelectionResultRequestBuilderSetAdSelectionDataIdCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	adselectionPersistAdSelectionResultRequestBuilderCmd.AddCommand(adselectionPersistAdSelectionResultRequestBuilderSetAdSelectionDataIdCmd)
+	adselectionPersistAdSelectionResultRequestBuilderSetAdSelectionIdCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	adselectionPersistAdSelectionResultRequestBuilderCmd.AddCommand(adselectionPersistAdSelectionResultRequestBuilderSetAdSelectionIdCmd)
+	adselectionPersistAdSelectionResultRequestBuilderSetAdSelectionResultCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	adselectionPersistAdSelectionResultRequestBuilderCmd.AddCommand(adselectionPersistAdSelectionResultRequestBuilderSetAdSelectionResultCmd)
+	adselectionPersistAdSelectionResultRequestBuilderSetSellerCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	adselectionPersistAdSelectionResultRequestBuilderCmd.AddCommand(adselectionPersistAdSelectionResultRequestBuilderSetSellerCmd)
+	adselectionCmd.AddCommand(adselectionPersistAdSelectionResultRequestBuilderCmd)
+	adselectionAdSelectionFromOutcomesConfigCmd.AddCommand(adselectionAdSelectionFromOutcomesConfigDescribeContentsCmd)
+	adselectionAdSelectionFromOutcomesConfigEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	adselectionAdSelectionFromOutcomesConfigCmd.AddCommand(adselectionAdSelectionFromOutcomesConfigEqualsCmd)
+	adselectionAdSelectionFromOutcomesConfigCmd.AddCommand(adselectionAdSelectionFromOutcomesConfigGetAdSelectionIdsCmd)
+	adselectionAdSelectionFromOutcomesConfigCmd.AddCommand(adselectionAdSelectionFromOutcomesConfigGetSelectionLogicUriCmd)
+	adselectionAdSelectionFromOutcomesConfigCmd.AddCommand(adselectionAdSelectionFromOutcomesConfigGetSelectionSignalsCmd)
+	adselectionAdSelectionFromOutcomesConfigCmd.AddCommand(adselectionAdSelectionFromOutcomesConfigGetSellerCmd)
+	adselectionAdSelectionFromOutcomesConfigCmd.AddCommand(adselectionAdSelectionFromOutcomesConfigHashCodeCmd)
+	adselectionAdSelectionFromOutcomesConfigWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	adselectionAdSelectionFromOutcomesConfigWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	adselectionAdSelectionFromOutcomesConfigCmd.AddCommand(adselectionAdSelectionFromOutcomesConfigWriteToParcelCmd)
+	adselectionCmd.AddCommand(adselectionAdSelectionFromOutcomesConfigCmd)
+	adselectionAdSelectionFromOutcomesConfigBuilderCmd.AddCommand(adselectionAdSelectionFromOutcomesConfigBuilderBuildCmd)
+	adselectionAdSelectionFromOutcomesConfigBuilderSetSelectionLogicUriCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	adselectionAdSelectionFromOutcomesConfigBuilderCmd.AddCommand(adselectionAdSelectionFromOutcomesConfigBuilderSetSelectionLogicUriCmd)
+	adselectionAdSelectionFromOutcomesConfigBuilderSetSelectionSignalsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	adselectionAdSelectionFromOutcomesConfigBuilderCmd.AddCommand(adselectionAdSelectionFromOutcomesConfigBuilderSetSelectionSignalsCmd)
+	adselectionAdSelectionFromOutcomesConfigBuilderSetSellerCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	adselectionAdSelectionFromOutcomesConfigBuilderCmd.AddCommand(adselectionAdSelectionFromOutcomesConfigBuilderSetSellerCmd)
+	adselectionCmd.AddCommand(adselectionAdSelectionFromOutcomesConfigBuilderCmd)
+	adselectionGetAdSelectionDataRequestCmd.AddCommand(adselectionGetAdSelectionDataRequestGetCoordinatorOriginUriCmd)
+	adselectionGetAdSelectionDataRequestCmd.AddCommand(adselectionGetAdSelectionDataRequestGetSellerCmd)
+	adselectionGetAdSelectionDataRequestCmd.AddCommand(adselectionGetAdSelectionDataRequestGetSellerConfigurationCmd)
+	adselectionCmd.AddCommand(adselectionGetAdSelectionDataRequestCmd)
+	adselectionGetAdSelectionDataRequestBuilderCmd.AddCommand(adselectionGetAdSelectionDataRequestBuilderBuildCmd)
+	adselectionGetAdSelectionDataRequestBuilderSetCoordinatorOriginUriCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	adselectionGetAdSelectionDataRequestBuilderCmd.AddCommand(adselectionGetAdSelectionDataRequestBuilderSetCoordinatorOriginUriCmd)
+	adselectionGetAdSelectionDataRequestBuilderSetSellerCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	adselectionGetAdSelectionDataRequestBuilderCmd.AddCommand(adselectionGetAdSelectionDataRequestBuilderSetSellerCmd)
+	adselectionGetAdSelectionDataRequestBuilderSetSellerConfigurationCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	adselectionGetAdSelectionDataRequestBuilderCmd.AddCommand(adselectionGetAdSelectionDataRequestBuilderSetSellerConfigurationCmd)
+	adselectionCmd.AddCommand(adselectionGetAdSelectionDataRequestBuilderCmd)
 	adselectionAdWithBidNewAdWithBidCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	adselectionAdWithBidNewAdWithBidCmd.Flags().Float64("arg1", 0, "arg1 (float64)")
 	adselectionAdWithBidCmd.AddCommand(adselectionAdWithBidNewAdWithBidCmd)
@@ -2928,65 +3080,21 @@ func init() {
 	adselectionAdWithBidWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
 	adselectionAdWithBidCmd.AddCommand(adselectionAdWithBidWriteToParcelCmd)
 	adselectionCmd.AddCommand(adselectionAdWithBidCmd)
-	adselectionRemoveAdSelectionOverrideRequestNewRemoveAdSelectionOverrideRequestCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	adselectionRemoveAdSelectionOverrideRequestCmd.AddCommand(adselectionRemoveAdSelectionOverrideRequestNewRemoveAdSelectionOverrideRequestCmd)
-	adselectionRemoveAdSelectionOverrideRequestGetAdSelectionConfigCmd.Flags().Int64("handle", 0, "handle (int64)")
-	adselectionRemoveAdSelectionOverrideRequestCmd.AddCommand(adselectionRemoveAdSelectionOverrideRequestGetAdSelectionConfigCmd)
-	adselectionCmd.AddCommand(adselectionRemoveAdSelectionOverrideRequestCmd)
-	adselectionGetAdSelectionDataOutcomeCmd.AddCommand(adselectionGetAdSelectionDataOutcomeGetAdSelectionDataCmd)
-	adselectionGetAdSelectionDataOutcomeCmd.AddCommand(adselectionGetAdSelectionDataOutcomeGetAdSelectionDataIdCmd)
-	adselectionGetAdSelectionDataOutcomeCmd.AddCommand(adselectionGetAdSelectionDataOutcomeGetAdSelectionIdCmd)
-	adselectionCmd.AddCommand(adselectionGetAdSelectionDataOutcomeCmd)
-	adselectionDecisionLogicNewDecisionLogicCmd.Flags().String("arg0", "", "arg0 (string)")
-	adselectionDecisionLogicCmd.AddCommand(adselectionDecisionLogicNewDecisionLogicCmd)
-	adselectionDecisionLogicDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	adselectionDecisionLogicCmd.AddCommand(adselectionDecisionLogicDescribeContentsCmd)
-	adselectionDecisionLogicEqualsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	adselectionDecisionLogicEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	adselectionDecisionLogicCmd.AddCommand(adselectionDecisionLogicEqualsCmd)
-	adselectionDecisionLogicGetLogicCmd.Flags().Int64("handle", 0, "handle (int64)")
-	adselectionDecisionLogicCmd.AddCommand(adselectionDecisionLogicGetLogicCmd)
-	adselectionDecisionLogicHashCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
-	adselectionDecisionLogicCmd.AddCommand(adselectionDecisionLogicHashCodeCmd)
-	adselectionDecisionLogicToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
-	adselectionDecisionLogicCmd.AddCommand(adselectionDecisionLogicToStringCmd)
-	adselectionDecisionLogicWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
-	adselectionDecisionLogicWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	adselectionDecisionLogicWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	adselectionDecisionLogicCmd.AddCommand(adselectionDecisionLogicWriteToParcelCmd)
-	adselectionCmd.AddCommand(adselectionDecisionLogicCmd)
-	adselectionGetAdSelectionDataRequestCmd.AddCommand(adselectionGetAdSelectionDataRequestGetCoordinatorOriginUriCmd)
-	adselectionGetAdSelectionDataRequestCmd.AddCommand(adselectionGetAdSelectionDataRequestGetSellerCmd)
-	adselectionGetAdSelectionDataRequestCmd.AddCommand(adselectionGetAdSelectionDataRequestGetSellerConfigurationCmd)
-	adselectionCmd.AddCommand(adselectionGetAdSelectionDataRequestCmd)
-	adselectionGetAdSelectionDataRequestBuilderCmd.AddCommand(adselectionGetAdSelectionDataRequestBuilderBuildCmd)
-	adselectionGetAdSelectionDataRequestBuilderSetCoordinatorOriginUriCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	adselectionGetAdSelectionDataRequestBuilderCmd.AddCommand(adselectionGetAdSelectionDataRequestBuilderSetCoordinatorOriginUriCmd)
-	adselectionGetAdSelectionDataRequestBuilderSetSellerCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	adselectionGetAdSelectionDataRequestBuilderCmd.AddCommand(adselectionGetAdSelectionDataRequestBuilderSetSellerCmd)
-	adselectionGetAdSelectionDataRequestBuilderSetSellerConfigurationCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	adselectionGetAdSelectionDataRequestBuilderCmd.AddCommand(adselectionGetAdSelectionDataRequestBuilderSetSellerConfigurationCmd)
-	adselectionCmd.AddCommand(adselectionGetAdSelectionDataRequestBuilderCmd)
-	adselectionAdSelectionOutcomeEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	adselectionAdSelectionOutcomeCmd.AddCommand(adselectionAdSelectionOutcomeEqualsCmd)
-	adselectionAdSelectionOutcomeCmd.AddCommand(adselectionAdSelectionOutcomeGetAdSelectionIdCmd)
-	adselectionAdSelectionOutcomeCmd.AddCommand(adselectionAdSelectionOutcomeGetRenderUriCmd)
-	adselectionAdSelectionOutcomeCmd.AddCommand(adselectionAdSelectionOutcomeGetWinningSellerCmd)
-	adselectionAdSelectionOutcomeCmd.AddCommand(adselectionAdSelectionOutcomeHasOutcomeCmd)
-	adselectionAdSelectionOutcomeCmd.AddCommand(adselectionAdSelectionOutcomeHashCodeCmd)
-	adselectionCmd.AddCommand(adselectionAdSelectionOutcomeCmd)
-	adselectionAdSelectionOutcomeBuilderCmd.AddCommand(adselectionAdSelectionOutcomeBuilderBuildCmd)
-	adselectionAdSelectionOutcomeBuilderSetAdSelectionIdCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	adselectionAdSelectionOutcomeBuilderCmd.AddCommand(adselectionAdSelectionOutcomeBuilderSetAdSelectionIdCmd)
-	adselectionAdSelectionOutcomeBuilderSetRenderUriCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	adselectionAdSelectionOutcomeBuilderCmd.AddCommand(adselectionAdSelectionOutcomeBuilderSetRenderUriCmd)
-	adselectionCmd.AddCommand(adselectionAdSelectionOutcomeBuilderCmd)
-	adselectionReportImpressionRequestNewReportImpressionRequestCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	adselectionReportImpressionRequestCmd.AddCommand(adselectionReportImpressionRequestNewReportImpressionRequestCmd)
-	adselectionReportImpressionRequestGetAdSelectionConfigCmd.Flags().Int64("handle", 0, "handle (int64)")
-	adselectionReportImpressionRequestCmd.AddCommand(adselectionReportImpressionRequestGetAdSelectionConfigCmd)
-	adselectionReportImpressionRequestGetAdSelectionIdCmd.Flags().Int64("handle", 0, "handle (int64)")
-	adselectionReportImpressionRequestCmd.AddCommand(adselectionReportImpressionRequestGetAdSelectionIdCmd)
-	adselectionCmd.AddCommand(adselectionReportImpressionRequestCmd)
+	adselectionUpdateAdCounterHistogramRequestEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	adselectionUpdateAdCounterHistogramRequestCmd.AddCommand(adselectionUpdateAdCounterHistogramRequestEqualsCmd)
+	adselectionUpdateAdCounterHistogramRequestCmd.AddCommand(adselectionUpdateAdCounterHistogramRequestGetAdEventTypeCmd)
+	adselectionUpdateAdCounterHistogramRequestCmd.AddCommand(adselectionUpdateAdCounterHistogramRequestGetAdSelectionIdCmd)
+	adselectionUpdateAdCounterHistogramRequestCmd.AddCommand(adselectionUpdateAdCounterHistogramRequestGetCallerAdTechCmd)
+	adselectionUpdateAdCounterHistogramRequestCmd.AddCommand(adselectionUpdateAdCounterHistogramRequestHashCodeCmd)
+	adselectionUpdateAdCounterHistogramRequestCmd.AddCommand(adselectionUpdateAdCounterHistogramRequestToStringCmd)
+	adselectionCmd.AddCommand(adselectionUpdateAdCounterHistogramRequestCmd)
+	adselectionUpdateAdCounterHistogramRequestBuilderCmd.AddCommand(adselectionUpdateAdCounterHistogramRequestBuilderBuildCmd)
+	adselectionUpdateAdCounterHistogramRequestBuilderSetAdEventTypeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	adselectionUpdateAdCounterHistogramRequestBuilderCmd.AddCommand(adselectionUpdateAdCounterHistogramRequestBuilderSetAdEventTypeCmd)
+	adselectionUpdateAdCounterHistogramRequestBuilderSetAdSelectionIdCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	adselectionUpdateAdCounterHistogramRequestBuilderCmd.AddCommand(adselectionUpdateAdCounterHistogramRequestBuilderSetAdSelectionIdCmd)
+	adselectionUpdateAdCounterHistogramRequestBuilderSetCallerAdTechCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	adselectionUpdateAdCounterHistogramRequestBuilderCmd.AddCommand(adselectionUpdateAdCounterHistogramRequestBuilderSetCallerAdTechCmd)
+	adselectionCmd.AddCommand(adselectionUpdateAdCounterHistogramRequestBuilderCmd)
 	rootCmd.AddCommand(adselectionCmd)
 }

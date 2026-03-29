@@ -6,66 +6,17 @@ package photopicker;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/photopicker";
 
-message OnSelectionCompleteRequest {
-}
-
-message OnSelectionCompleteResponse {
-}
-
-message OnSessionErrorRequest {
+message OpenSessionRequest {
   int64 arg0 = 1;
-}
-
-message OnSessionErrorResponse {
-}
-
-message OnSessionOpenedRequest {
-  int64 arg0 = 1;
-}
-
-message OnSessionOpenedResponse {
-}
-
-message CloseRequest {
-}
-
-message CloseResponse {
-}
-
-message GetSurfacePackageRequest {
-}
-
-message GetSurfacePackageResponse {
-  int64 result = 1;
-}
-
-message NotifyConfigurationChangedRequest {
-  int64 arg0 = 1;
-}
-
-message NotifyConfigurationChangedResponse {
-}
-
-message NotifyPhotoPickerExpandedRequest {
-  bool arg0 = 1;
-}
-
-message NotifyPhotoPickerExpandedResponse {
-}
-
-message NotifyResizedRequest {
-  int32 arg0 = 1;
   int32 arg1 = 2;
+  int32 arg2 = 3;
+  int32 arg3 = 4;
+  int64 arg4 = 5;
+  int64 arg5 = 6;
+  int64 arg6 = 7;
 }
 
-message NotifyResizedResponse {
-}
-
-message NotifyVisibilityChangedRequest {
-  bool arg0 = 1;
-}
-
-message NotifyVisibilityChangedResponse {
+message OpenSessionResponse {
 }
 
 message DescribeContentsRequest {
@@ -87,6 +38,20 @@ message GetMaxSelectionLimitRequest {
 
 message GetMaxSelectionLimitResponse {
   int32 result = 1;
+}
+
+message GetMimeTypesRequest {
+}
+
+message GetMimeTypesResponse {
+  int64 result = 1;
+}
+
+message GetPreSelectedUrisRequest {
+}
+
+message GetPreSelectedUrisResponse {
+  int64 result = 1;
 }
 
 message GetThemeNightModeRequest {
@@ -157,6 +122,48 @@ message SetThemeNightModeResponse {
   int64 result = 1;
 }
 
+message CloseRequest {
+}
+
+message CloseResponse {
+}
+
+message GetSurfacePackageRequest {
+}
+
+message GetSurfacePackageResponse {
+  int64 result = 1;
+}
+
+message NotifyConfigurationChangedRequest {
+  int64 arg0 = 1;
+}
+
+message NotifyConfigurationChangedResponse {
+}
+
+message NotifyPhotoPickerExpandedRequest {
+  bool arg0 = 1;
+}
+
+message NotifyPhotoPickerExpandedResponse {
+}
+
+message NotifyResizedRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message NotifyResizedResponse {
+}
+
+message NotifyVisibilityChangedRequest {
+  bool arg0 = 1;
+}
+
+message NotifyVisibilityChangedResponse {
+}
+
 message CreateRequest {
   int64 arg0 = 1;
 }
@@ -165,38 +172,36 @@ message CreateResponse {
   int64 result = 1;
 }
 
-message OpenSessionRequest {
+message OnSelectionCompleteRequest {
+}
+
+message OnSelectionCompleteResponse {
+}
+
+message OnSessionErrorRequest {
   int64 arg0 = 1;
-  int32 arg1 = 2;
-  int32 arg2 = 3;
-  int32 arg3 = 4;
-  int64 arg4 = 5;
-  int64 arg5 = 6;
-  int64 arg6 = 7;
 }
 
-message OpenSessionResponse {
+message OnSessionErrorResponse {
 }
 
-service EmbeddedPhotoPickerClientService {
-  rpc OnSelectionComplete (OnSelectionCompleteRequest) returns (OnSelectionCompleteResponse);
-  rpc OnSessionError (OnSessionErrorRequest) returns (OnSessionErrorResponse);
-  rpc OnSessionOpened (OnSessionOpenedRequest) returns (OnSessionOpenedResponse);
+message OnSessionOpenedRequest {
+  int64 arg0 = 1;
 }
 
-service EmbeddedPhotoPickerSessionService {
-  rpc Close (CloseRequest) returns (CloseResponse);
-  rpc GetSurfacePackage (GetSurfacePackageRequest) returns (GetSurfacePackageResponse);
-  rpc NotifyConfigurationChanged (NotifyConfigurationChangedRequest) returns (NotifyConfigurationChangedResponse);
-  rpc NotifyPhotoPickerExpanded (NotifyPhotoPickerExpandedRequest) returns (NotifyPhotoPickerExpandedResponse);
-  rpc NotifyResized (NotifyResizedRequest) returns (NotifyResizedResponse);
-  rpc NotifyVisibilityChanged (NotifyVisibilityChangedRequest) returns (NotifyVisibilityChangedResponse);
+message OnSessionOpenedResponse {
+}
+
+service EmbeddedPhotoPickerProviderService {
+  rpc OpenSession (OpenSessionRequest) returns (OpenSessionResponse);
 }
 
 service EmbeddedPhotoPickerFeatureInfoService {
   rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
   rpc GetAccentColor (GetAccentColorRequest) returns (GetAccentColorResponse);
   rpc GetMaxSelectionLimit (GetMaxSelectionLimitRequest) returns (GetMaxSelectionLimitResponse);
+  rpc GetMimeTypes (GetMimeTypesRequest) returns (GetMimeTypesResponse);
+  rpc GetPreSelectedUris (GetPreSelectedUrisRequest) returns (GetPreSelectedUrisResponse);
   rpc GetThemeNightMode (GetThemeNightModeRequest) returns (GetThemeNightModeResponse);
   rpc IsOrderedSelection (IsOrderedSelectionRequest) returns (IsOrderedSelectionResponse);
   rpc ToString (ToStringRequest) returns (ToStringResponse);
@@ -211,10 +216,21 @@ service EmbeddedPhotoPickerFeatureInfoBuilderService {
   rpc SetThemeNightMode (SetThemeNightModeRequest) returns (SetThemeNightModeResponse);
 }
 
+service EmbeddedPhotoPickerSessionService {
+  rpc Close (CloseRequest) returns (CloseResponse);
+  rpc GetSurfacePackage (GetSurfacePackageRequest) returns (GetSurfacePackageResponse);
+  rpc NotifyConfigurationChanged (NotifyConfigurationChangedRequest) returns (NotifyConfigurationChangedResponse);
+  rpc NotifyPhotoPickerExpanded (NotifyPhotoPickerExpandedRequest) returns (NotifyPhotoPickerExpandedResponse);
+  rpc NotifyResized (NotifyResizedRequest) returns (NotifyResizedResponse);
+  rpc NotifyVisibilityChanged (NotifyVisibilityChangedRequest) returns (NotifyVisibilityChangedResponse);
+}
+
 service EmbeddedPhotoPickerProviderFactoryService {
   rpc Create (CreateRequest) returns (CreateResponse);
 }
 
-service EmbeddedPhotoPickerProviderService {
-  rpc OpenSession (OpenSessionRequest) returns (OpenSessionResponse);
+service EmbeddedPhotoPickerClientService {
+  rpc OnSelectionComplete (OnSelectionCompleteRequest) returns (OnSelectionCompleteResponse);
+  rpc OnSessionError (OnSessionErrorRequest) returns (OnSessionErrorResponse);
+  rpc OnSessionOpened (OnSessionOpenedRequest) returns (OnSessionOpenedResponse);
 }

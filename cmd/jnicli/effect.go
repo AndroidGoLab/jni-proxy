@@ -12,6 +12,102 @@ var effectCmd = &cobra.Command{
 	Short: "effect service operations",
 }
 
+var effectFactoryCmd = &cobra.Command{
+	Use:   "factory",
+	Short: "FactoryService operations",
+}
+
+var effectFactoryCreateEffectCmd = &cobra.Command{
+	Use:   "create-effect",
+	Short: "CreateEffect RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFactoryServiceClient(grpcConn)
+		req := &pb.CreateEffectRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.CreateEffect(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var effectFactoryIsEffectSupportedCmd = &cobra.Command{
+	Use:   "is-effect-supported",
+	Short: "IsEffectSupported RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFactoryServiceClient(grpcConn)
+		req := &pb.IsEffectSupportedRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.IsEffectSupported(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var effectContextCmd = &cobra.Command{
+	Use:   "context",
+	Short: "ContextService operations",
+}
+
+var effectContextGetFactoryCmd = &cobra.Command{
+	Use:   "get-factory",
+	Short: "GetFactory RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContextServiceClient(grpcConn)
+		req := &pb.GetFactoryRequest{}
+		resp, err := client.GetFactory(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var effectContextReleaseCmd = &cobra.Command{
+	Use:   "release",
+	Short: "Release RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContextServiceClient(grpcConn)
+		req := &pb.ReleaseRequest{}
+		resp, err := client.Release(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var effectContextCreateWithCurrentGlContextCmd = &cobra.Command{
+	Use:   "create-with-current-gl-context",
+	Short: "CreateWithCurrentGlContext RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContextServiceClient(grpcConn)
+		req := &pb.CreateWithCurrentGlContextRequest{}
+		resp, err := client.CreateWithCurrentGlContext(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var effectEffectCmd = &cobra.Command{
 	Use:   "effect",
 	Short: "EffectService operations",
@@ -145,103 +241,16 @@ var effectUpdateListenerOnEffectUpdatedCmd = &cobra.Command{
 	},
 }
 
-var effectFactoryCmd = &cobra.Command{
-	Use:   "factory",
-	Short: "FactoryService operations",
-}
-
-var effectFactoryCreateEffectCmd = &cobra.Command{
-	Use:   "create-effect",
-	Short: "CreateEffect RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFactoryServiceClient(grpcConn)
-		req := &pb.CreateEffectRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.CreateEffect(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var effectFactoryIsEffectSupportedCmd = &cobra.Command{
-	Use:   "is-effect-supported",
-	Short: "IsEffectSupported RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFactoryServiceClient(grpcConn)
-		req := &pb.IsEffectSupportedRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.IsEffectSupported(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var effectContextCmd = &cobra.Command{
-	Use:   "context",
-	Short: "ContextService operations",
-}
-
-var effectContextGetFactoryCmd = &cobra.Command{
-	Use:   "get-factory",
-	Short: "GetFactory RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewContextServiceClient(grpcConn)
-		req := &pb.GetFactoryRequest{}
-		resp, err := client.GetFactory(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var effectContextReleaseCmd = &cobra.Command{
-	Use:   "release",
-	Short: "Release RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewContextServiceClient(grpcConn)
-		req := &pb.ReleaseRequest{}
-		resp, err := client.Release(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var effectContextCreateWithCurrentGlContextCmd = &cobra.Command{
-	Use:   "create-with-current-gl-context",
-	Short: "CreateWithCurrentGlContext RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewContextServiceClient(grpcConn)
-		req := &pb.CreateWithCurrentGlContextRequest{}
-		resp, err := client.CreateWithCurrentGlContext(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
 func init() {
+	effectFactoryCreateEffectCmd.Flags().String("arg0", "", "arg0 (string)")
+	effectFactoryCmd.AddCommand(effectFactoryCreateEffectCmd)
+	effectFactoryIsEffectSupportedCmd.Flags().String("arg0", "", "arg0 (string)")
+	effectFactoryCmd.AddCommand(effectFactoryIsEffectSupportedCmd)
+	effectCmd.AddCommand(effectFactoryCmd)
+	effectContextCmd.AddCommand(effectContextGetFactoryCmd)
+	effectContextCmd.AddCommand(effectContextReleaseCmd)
+	effectContextCmd.AddCommand(effectContextCreateWithCurrentGlContextCmd)
+	effectCmd.AddCommand(effectContextCmd)
 	effectEffectApplyCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
 	effectEffectApplyCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
 	effectEffectApplyCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
@@ -259,14 +268,5 @@ func init() {
 	effectUpdateListenerOnEffectUpdatedCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
 	effectUpdateListenerCmd.AddCommand(effectUpdateListenerOnEffectUpdatedCmd)
 	effectCmd.AddCommand(effectUpdateListenerCmd)
-	effectFactoryCreateEffectCmd.Flags().String("arg0", "", "arg0 (string)")
-	effectFactoryCmd.AddCommand(effectFactoryCreateEffectCmd)
-	effectFactoryIsEffectSupportedCmd.Flags().String("arg0", "", "arg0 (string)")
-	effectFactoryCmd.AddCommand(effectFactoryIsEffectSupportedCmd)
-	effectCmd.AddCommand(effectFactoryCmd)
-	effectContextCmd.AddCommand(effectContextGetFactoryCmd)
-	effectContextCmd.AddCommand(effectContextReleaseCmd)
-	effectContextCmd.AddCommand(effectContextCreateWithCurrentGlContextCmd)
-	effectCmd.AddCommand(effectContextCmd)
 	rootCmd.AddCommand(effectCmd)
 }

@@ -12,428 +12,6 @@ var connectCmd = &cobra.Command{
 	Short: "connect service operations",
 }
 
-var connectDeleteMedicalResourcesRequestCmd = &cobra.Command{
-	Use:   "delete-medical-resources-request",
-	Short: "DeleteMedicalResourcesRequestService operations",
-}
-
-var connectDeleteMedicalResourcesRequestDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDeleteMedicalResourcesRequestServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var connectDeleteMedicalResourcesRequestEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDeleteMedicalResourcesRequestServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var connectDeleteMedicalResourcesRequestHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDeleteMedicalResourcesRequestServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var connectDeleteMedicalResourcesRequestToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDeleteMedicalResourcesRequestServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var connectDeleteMedicalResourcesRequestWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDeleteMedicalResourcesRequestServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var connectDeleteMedicalResourcesRequestBuilderCmd = &cobra.Command{
-	Use:   "delete-medical-resources-request-builder",
-	Short: "DeleteMedicalResourcesRequestBuilderService operations",
-}
-
-var connectDeleteMedicalResourcesRequestBuilderAddDataSourceIdCmd = &cobra.Command{
-	Use:   "add-data-source-id",
-	Short: "AddDataSourceId RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDeleteMedicalResourcesRequestBuilderServiceClient(grpcConn)
-		req := &pb.AddDataSourceIdRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.AddDataSourceId(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var connectDeleteMedicalResourcesRequestBuilderAddMedicalResourceTypeCmd = &cobra.Command{
-	Use:   "add-medical-resource-type",
-	Short: "AddMedicalResourceType RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDeleteMedicalResourcesRequestBuilderServiceClient(grpcConn)
-		req := &pb.AddMedicalResourceTypeRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.AddMedicalResourceType(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var connectDeleteMedicalResourcesRequestBuilderBuildCmd = &cobra.Command{
-	Use:   "build",
-	Short: "Build RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDeleteMedicalResourcesRequestBuilderServiceClient(grpcConn)
-		req := &pb.BuildRequest{}
-		resp, err := client.Build(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var connectDeleteMedicalResourcesRequestBuilderClearDataSourceIdsCmd = &cobra.Command{
-	Use:   "clear-data-source-ids",
-	Short: "ClearDataSourceIds RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDeleteMedicalResourcesRequestBuilderServiceClient(grpcConn)
-		req := &pb.ClearDataSourceIdsRequest{}
-		resp, err := client.ClearDataSourceIds(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var connectDeleteMedicalResourcesRequestBuilderClearMedicalResourceTypesCmd = &cobra.Command{
-	Use:   "clear-medical-resource-types",
-	Short: "ClearMedicalResourceTypes RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDeleteMedicalResourcesRequestBuilderServiceClient(grpcConn)
-		req := &pb.ClearMedicalResourceTypesRequest{}
-		resp, err := client.ClearMedicalResourceTypes(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var connectTimeInstantRangeFilterCmd = &cobra.Command{
-	Use:   "time-instant-range-filter",
-	Short: "TimeInstantRangeFilterService operations",
-}
-
-var connectTimeInstantRangeFilterEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTimeInstantRangeFilterServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var connectTimeInstantRangeFilterGetEndTimeCmd = &cobra.Command{
-	Use:   "get-end-time",
-	Short: "GetEndTime RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTimeInstantRangeFilterServiceClient(grpcConn)
-		req := &pb.GetEndTimeRequest{}
-		resp, err := client.GetEndTime(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var connectTimeInstantRangeFilterGetStartTimeCmd = &cobra.Command{
-	Use:   "get-start-time",
-	Short: "GetStartTime RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTimeInstantRangeFilterServiceClient(grpcConn)
-		req := &pb.GetStartTimeRequest{}
-		resp, err := client.GetStartTime(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var connectTimeInstantRangeFilterHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTimeInstantRangeFilterServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var connectTimeInstantRangeFilterIsBoundedCmd = &cobra.Command{
-	Use:   "is-bounded",
-	Short: "IsBounded RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTimeInstantRangeFilterServiceClient(grpcConn)
-		req := &pb.IsBoundedRequest{}
-		resp, err := client.IsBounded(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var connectTimeInstantRangeFilterBuilderCmd = &cobra.Command{
-	Use:   "time-instant-range-filter-builder",
-	Short: "TimeInstantRangeFilterBuilderService operations",
-}
-
-var connectTimeInstantRangeFilterBuilderBuildCmd = &cobra.Command{
-	Use:   "build",
-	Short: "Build RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTimeInstantRangeFilterBuilderServiceClient(grpcConn)
-		req := &pb.BuildRequest{}
-		resp, err := client.Build(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var connectTimeInstantRangeFilterBuilderSetEndTimeCmd = &cobra.Command{
-	Use:   "set-end-time",
-	Short: "SetEndTime RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTimeInstantRangeFilterBuilderServiceClient(grpcConn)
-		req := &pb.SetEndTimeRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetEndTime(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var connectTimeInstantRangeFilterBuilderSetStartTimeCmd = &cobra.Command{
-	Use:   "set-start-time",
-	Short: "SetStartTime RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTimeInstantRangeFilterBuilderServiceClient(grpcConn)
-		req := &pb.SetStartTimeRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetStartTime(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var connectAggregateRecordsRequestCmd = &cobra.Command{
-	Use:   "aggregate-records-request",
-	Short: "AggregateRecordsRequestService operations",
-}
-
-var connectAggregateRecordsRequestGetTimeRangeFilterCmd = &cobra.Command{
-	Use:   "get-time-range-filter",
-	Short: "GetTimeRangeFilter RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAggregateRecordsRequestServiceClient(grpcConn)
-		req := &pb.GetTimeRangeFilterRequest{}
-		resp, err := client.GetTimeRangeFilter(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var connectReadRecordsRequestUsingFiltersCmd = &cobra.Command{
-	Use:   "read-records-request-using-filters",
-	Short: "ReadRecordsRequestUsingFiltersService operations",
-}
-
-var connectReadRecordsRequestUsingFiltersGetPageSizeCmd = &cobra.Command{
-	Use:   "get-page-size",
-	Short: "GetPageSize RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewReadRecordsRequestUsingFiltersServiceClient(grpcConn)
-		req := &pb.GetPageSizeRequest{}
-		resp, err := client.GetPageSize(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var connectReadRecordsRequestUsingFiltersGetPageTokenCmd = &cobra.Command{
-	Use:   "get-page-token",
-	Short: "GetPageToken RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewReadRecordsRequestUsingFiltersServiceClient(grpcConn)
-		req := &pb.GetPageTokenRequest{}
-		resp, err := client.GetPageToken(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var connectReadRecordsRequestUsingFiltersGetTimeRangeFilterCmd = &cobra.Command{
-	Use:   "get-time-range-filter",
-	Short: "GetTimeRangeFilter RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewReadRecordsRequestUsingFiltersServiceClient(grpcConn)
-		req := &pb.GetTimeRangeFilterRequest{}
-		resp, err := client.GetTimeRangeFilter(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var connectReadRecordsRequestUsingFiltersIsAscendingCmd = &cobra.Command{
-	Use:   "is-ascending",
-	Short: "IsAscending RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewReadRecordsRequestUsingFiltersServiceClient(grpcConn)
-		req := &pb.IsAscendingRequest{}
-		resp, err := client.IsAscending(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
 var connectReadRecordsResponseCmd = &cobra.Command{
 	Use:   "read-records-response",
 	Short: "ReadRecordsResponseService operations",
@@ -455,782 +33,15 @@ var connectReadRecordsResponseGetNextPageTokenCmd = &cobra.Command{
 	},
 }
 
-var connectReadMedicalResourcesInitialRequestCmd = &cobra.Command{
-	Use:   "read-medical-resources-initial-request",
-	Short: "ReadMedicalResourcesInitialRequestService operations",
-}
-
-var connectReadMedicalResourcesInitialRequestEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
+var connectReadRecordsResponseGetRecordsCmd = &cobra.Command{
+	Use:   "get-records",
+	Short: "GetRecords RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewReadMedicalResourcesInitialRequestServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var connectReadMedicalResourcesInitialRequestGetMedicalResourceTypeCmd = &cobra.Command{
-	Use:   "get-medical-resource-type",
-	Short: "GetMedicalResourceType RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewReadMedicalResourcesInitialRequestServiceClient(grpcConn)
-		req := &pb.GetMedicalResourceTypeRequest{}
-		resp, err := client.GetMedicalResourceType(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var connectReadMedicalResourcesInitialRequestHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewReadMedicalResourcesInitialRequestServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var connectReadMedicalResourcesInitialRequestToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewReadMedicalResourcesInitialRequestServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var connectReadMedicalResourcesInitialRequestBuilderCmd = &cobra.Command{
-	Use:   "read-medical-resources-initial-request-builder",
-	Short: "ReadMedicalResourcesInitialRequestBuilderService operations",
-}
-
-var connectReadMedicalResourcesInitialRequestBuilderAddDataSourceIdCmd = &cobra.Command{
-	Use:   "add-data-source-id",
-	Short: "AddDataSourceId RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewReadMedicalResourcesInitialRequestBuilderServiceClient(grpcConn)
-		req := &pb.AddDataSourceIdRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.AddDataSourceId(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var connectReadMedicalResourcesInitialRequestBuilderBuildCmd = &cobra.Command{
-	Use:   "build",
-	Short: "Build RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewReadMedicalResourcesInitialRequestBuilderServiceClient(grpcConn)
-		req := &pb.BuildRequest{}
-		resp, err := client.Build(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var connectReadMedicalResourcesInitialRequestBuilderClearDataSourceIdsCmd = &cobra.Command{
-	Use:   "clear-data-source-ids",
-	Short: "ClearDataSourceIds RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewReadMedicalResourcesInitialRequestBuilderServiceClient(grpcConn)
-		req := &pb.ClearDataSourceIdsRequest{}
-		resp, err := client.ClearDataSourceIds(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var connectReadMedicalResourcesInitialRequestBuilderSetMedicalResourceTypeCmd = &cobra.Command{
-	Use:   "set-medical-resource-type",
-	Short: "SetMedicalResourceType RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewReadMedicalResourcesInitialRequestBuilderServiceClient(grpcConn)
-		req := &pb.SetMedicalResourceTypeRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetMedicalResourceType(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var connectReadMedicalResourcesInitialRequestBuilderSetPageSizeCmd = &cobra.Command{
-	Use:   "set-page-size",
-	Short: "SetPageSize RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewReadMedicalResourcesInitialRequestBuilderServiceClient(grpcConn)
-		req := &pb.SetPageSizeRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetPageSize(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var connectAggregateRecordsGroupedByPeriodResponseCmd = &cobra.Command{
-	Use:   "aggregate-records-grouped-by-period-response",
-	Short: "AggregateRecordsGroupedByPeriodResponseService operations",
-}
-
-var connectAggregateRecordsGroupedByPeriodResponseGetEndTimeCmd = &cobra.Command{
-	Use:   "get-end-time",
-	Short: "GetEndTime RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAggregateRecordsGroupedByPeriodResponseServiceClient(grpcConn)
-		req := &pb.GetEndTimeRequest{}
-		resp, err := client.GetEndTime(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var connectAggregateRecordsGroupedByPeriodResponseGetStartTimeCmd = &cobra.Command{
-	Use:   "get-start-time",
-	Short: "GetStartTime RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAggregateRecordsGroupedByPeriodResponseServiceClient(grpcConn)
-		req := &pb.GetStartTimeRequest{}
-		resp, err := client.GetStartTime(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var connectCreateMedicalDataSourceRequestCmd = &cobra.Command{
-	Use:   "create-medical-data-source-request",
-	Short: "CreateMedicalDataSourceRequestService operations",
-}
-
-var connectCreateMedicalDataSourceRequestDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCreateMedicalDataSourceRequestServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var connectCreateMedicalDataSourceRequestEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCreateMedicalDataSourceRequestServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var connectCreateMedicalDataSourceRequestGetDisplayNameCmd = &cobra.Command{
-	Use:   "get-display-name",
-	Short: "GetDisplayName RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCreateMedicalDataSourceRequestServiceClient(grpcConn)
-		req := &pb.GetDisplayNameRequest{}
-		resp, err := client.GetDisplayName(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var connectCreateMedicalDataSourceRequestGetFhirBaseUriCmd = &cobra.Command{
-	Use:   "get-fhir-base-uri",
-	Short: "GetFhirBaseUri RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCreateMedicalDataSourceRequestServiceClient(grpcConn)
-		req := &pb.GetFhirBaseUriRequest{}
-		resp, err := client.GetFhirBaseUri(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var connectCreateMedicalDataSourceRequestGetFhirVersionCmd = &cobra.Command{
-	Use:   "get-fhir-version",
-	Short: "GetFhirVersion RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCreateMedicalDataSourceRequestServiceClient(grpcConn)
-		req := &pb.GetFhirVersionRequest{}
-		resp, err := client.GetFhirVersion(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var connectCreateMedicalDataSourceRequestHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCreateMedicalDataSourceRequestServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var connectCreateMedicalDataSourceRequestToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCreateMedicalDataSourceRequestServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var connectCreateMedicalDataSourceRequestWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCreateMedicalDataSourceRequestServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var connectCreateMedicalDataSourceRequestBuilderCmd = &cobra.Command{
-	Use:   "create-medical-data-source-request-builder",
-	Short: "CreateMedicalDataSourceRequestBuilderService operations",
-}
-
-var connectCreateMedicalDataSourceRequestBuilderBuildCmd = &cobra.Command{
-	Use:   "build",
-	Short: "Build RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCreateMedicalDataSourceRequestBuilderServiceClient(grpcConn)
-		req := &pb.BuildRequest{}
-		resp, err := client.Build(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var connectCreateMedicalDataSourceRequestBuilderSetDisplayNameCmd = &cobra.Command{
-	Use:   "set-display-name",
-	Short: "SetDisplayName RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCreateMedicalDataSourceRequestBuilderServiceClient(grpcConn)
-		req := &pb.SetDisplayNameRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetDisplayName(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var connectCreateMedicalDataSourceRequestBuilderSetFhirBaseUriCmd = &cobra.Command{
-	Use:   "set-fhir-base-uri",
-	Short: "SetFhirBaseUri RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCreateMedicalDataSourceRequestBuilderServiceClient(grpcConn)
-		req := &pb.SetFhirBaseUriRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetFhirBaseUri(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var connectCreateMedicalDataSourceRequestBuilderSetFhirVersionCmd = &cobra.Command{
-	Use:   "set-fhir-version",
-	Short: "SetFhirVersion RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCreateMedicalDataSourceRequestBuilderServiceClient(grpcConn)
-		req := &pb.SetFhirVersionRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetFhirVersion(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var connectReadMedicalResourcesRequestCmd = &cobra.Command{
-	Use:   "read-medical-resources-request",
-	Short: "ReadMedicalResourcesRequestService operations",
-}
-
-var connectReadMedicalResourcesRequestGetPageSizeCmd = &cobra.Command{
-	Use:   "get-page-size",
-	Short: "GetPageSize RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewReadMedicalResourcesRequestServiceClient(grpcConn)
-		req := &pb.GetPageSizeRequest{}
-		resp, err := client.GetPageSize(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var connectHealthConnectExceptionCmd = &cobra.Command{
-	Use:   "health-connect-exception",
-	Short: "HealthConnectExceptionService operations",
-}
-
-var connectHealthConnectExceptionGetErrorCodeCmd = &cobra.Command{
-	Use:   "get-error-code",
-	Short: "GetErrorCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewHealthConnectExceptionServiceClient(grpcConn)
-		req := &pb.GetErrorCodeRequest{}
-		resp, err := client.GetErrorCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var connectReadMedicalResourcesPageRequestCmd = &cobra.Command{
-	Use:   "read-medical-resources-page-request",
-	Short: "ReadMedicalResourcesPageRequestService operations",
-}
-
-var connectReadMedicalResourcesPageRequestEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewReadMedicalResourcesPageRequestServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var connectReadMedicalResourcesPageRequestGetPageTokenCmd = &cobra.Command{
-	Use:   "get-page-token",
-	Short: "GetPageToken RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewReadMedicalResourcesPageRequestServiceClient(grpcConn)
-		req := &pb.GetPageTokenRequest{}
-		resp, err := client.GetPageToken(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var connectReadMedicalResourcesPageRequestHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewReadMedicalResourcesPageRequestServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var connectReadMedicalResourcesPageRequestToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewReadMedicalResourcesPageRequestServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var connectReadMedicalResourcesPageRequestBuilderCmd = &cobra.Command{
-	Use:   "read-medical-resources-page-request-builder",
-	Short: "ReadMedicalResourcesPageRequestBuilderService operations",
-}
-
-var connectReadMedicalResourcesPageRequestBuilderBuildCmd = &cobra.Command{
-	Use:   "build",
-	Short: "Build RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewReadMedicalResourcesPageRequestBuilderServiceClient(grpcConn)
-		req := &pb.BuildRequest{}
-		resp, err := client.Build(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var connectReadMedicalResourcesPageRequestBuilderSetPageSizeCmd = &cobra.Command{
-	Use:   "set-page-size",
-	Short: "SetPageSize RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewReadMedicalResourcesPageRequestBuilderServiceClient(grpcConn)
-		req := &pb.SetPageSizeRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetPageSize(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var connectReadMedicalResourcesPageRequestBuilderSetPageTokenCmd = &cobra.Command{
-	Use:   "set-page-token",
-	Short: "SetPageToken RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewReadMedicalResourcesPageRequestBuilderServiceClient(grpcConn)
-		req := &pb.SetPageTokenRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetPageToken(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var connectRecordIdFilterCmd = &cobra.Command{
-	Use:   "record-id-filter",
-	Short: "RecordIdFilterService operations",
-}
-
-var connectRecordIdFilterGetClientRecordIdCmd = &cobra.Command{
-	Use:   "get-client-record-id",
-	Short: "GetClientRecordId RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRecordIdFilterServiceClient(grpcConn)
-		req := &pb.GetClientRecordIdRequest{}
-		resp, err := client.GetClientRecordId(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var connectRecordIdFilterGetIdCmd = &cobra.Command{
-	Use:   "get-id",
-	Short: "GetId RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRecordIdFilterServiceClient(grpcConn)
-		req := &pb.GetIdRequest{}
-		resp, err := client.GetId(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var connectGetMedicalDataSourcesRequestCmd = &cobra.Command{
-	Use:   "get-medical-data-sources-request",
-	Short: "GetMedicalDataSourcesRequestService operations",
-}
-
-var connectGetMedicalDataSourcesRequestDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewGetMedicalDataSourcesRequestServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var connectGetMedicalDataSourcesRequestEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewGetMedicalDataSourcesRequestServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var connectGetMedicalDataSourcesRequestHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewGetMedicalDataSourcesRequestServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var connectGetMedicalDataSourcesRequestToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewGetMedicalDataSourcesRequestServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var connectGetMedicalDataSourcesRequestWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewGetMedicalDataSourcesRequestServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var connectGetMedicalDataSourcesRequestBuilderCmd = &cobra.Command{
-	Use:   "get-medical-data-sources-request-builder",
-	Short: "GetMedicalDataSourcesRequestBuilderService operations",
-}
-
-var connectGetMedicalDataSourcesRequestBuilderAddPackageNameCmd = &cobra.Command{
-	Use:   "add-package-name",
-	Short: "AddPackageName RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewGetMedicalDataSourcesRequestBuilderServiceClient(grpcConn)
-		req := &pb.AddPackageNameRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.AddPackageName(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var connectGetMedicalDataSourcesRequestBuilderBuildCmd = &cobra.Command{
-	Use:   "build",
-	Short: "Build RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewGetMedicalDataSourcesRequestBuilderServiceClient(grpcConn)
-		req := &pb.BuildRequest{}
-		resp, err := client.Build(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var connectGetMedicalDataSourcesRequestBuilderClearPackageNamesCmd = &cobra.Command{
-	Use:   "clear-package-names",
-	Short: "ClearPackageNames RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewGetMedicalDataSourcesRequestBuilderServiceClient(grpcConn)
-		req := &pb.ClearPackageNamesRequest{}
-		resp, err := client.ClearPackageNames(ctx, req)
+		client := pb.NewReadRecordsResponseServiceClient(grpcConn)
+		req := &pb.GetRecordsRequest{}
+		resp, err := client.GetRecords(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1385,215 +196,6 @@ var connectLocalTimeRangeFilterBuilderSetStartTimeCmd = &cobra.Command{
 	},
 }
 
-var connectReadMedicalResourcesResponseCmd = &cobra.Command{
-	Use:   "read-medical-resources-response",
-	Short: "ReadMedicalResourcesResponseService operations",
-}
-
-var connectReadMedicalResourcesResponseNewReadMedicalResourcesResponseCmd = &cobra.Command{
-	Use:   "new-read-medical-resources-response",
-	Short: "NewReadMedicalResourcesResponse RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewReadMedicalResourcesResponseServiceClient(grpcConn)
-		req := &pb.NewReadMedicalResourcesResponseRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetString("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.NewReadMedicalResourcesResponse(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var connectReadMedicalResourcesResponseDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewReadMedicalResourcesResponseServiceClient(grpcConn)
-		req := &pb.ReadMedicalResourcesResponseDescribeContentsRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var connectReadMedicalResourcesResponseEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewReadMedicalResourcesResponseServiceClient(grpcConn)
-		req := &pb.ReadMedicalResourcesResponseEqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var connectReadMedicalResourcesResponseGetNextPageTokenCmd = &cobra.Command{
-	Use:   "get-next-page-token",
-	Short: "GetNextPageToken RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewReadMedicalResourcesResponseServiceClient(grpcConn)
-		req := &pb.ReadMedicalResourcesResponseGetNextPageTokenRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetNextPageToken(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var connectReadMedicalResourcesResponseGetRemainingCountCmd = &cobra.Command{
-	Use:   "get-remaining-count",
-	Short: "GetRemainingCount RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewReadMedicalResourcesResponseServiceClient(grpcConn)
-		req := &pb.GetRemainingCountRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetRemainingCount(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var connectReadMedicalResourcesResponseHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewReadMedicalResourcesResponseServiceClient(grpcConn)
-		req := &pb.ReadMedicalResourcesResponseHashCodeRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var connectReadMedicalResourcesResponseToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewReadMedicalResourcesResponseServiceClient(grpcConn)
-		req := &pb.ReadMedicalResourcesResponseToStringRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var connectReadMedicalResourcesResponseWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewReadMedicalResourcesResponseServiceClient(grpcConn)
-		req := &pb.ReadMedicalResourcesResponseWriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var connectAggregateRecordsGroupedByDurationResponseCmd = &cobra.Command{
-	Use:   "aggregate-records-grouped-by-duration-response",
-	Short: "AggregateRecordsGroupedByDurationResponseService operations",
-}
-
-var connectAggregateRecordsGroupedByDurationResponseGetEndTimeCmd = &cobra.Command{
-	Use:   "get-end-time",
-	Short: "GetEndTime RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAggregateRecordsGroupedByDurationResponseServiceClient(grpcConn)
-		req := &pb.GetEndTimeRequest{}
-		resp, err := client.GetEndTime(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var connectAggregateRecordsGroupedByDurationResponseGetStartTimeCmd = &cobra.Command{
-	Use:   "get-start-time",
-	Short: "GetStartTime RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAggregateRecordsGroupedByDurationResponseServiceClient(grpcConn)
-		req := &pb.GetStartTimeRequest{}
-		resp, err := client.GetStartTime(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
 var connectMedicalResourceIdCmd = &cobra.Command{
 	Use:   "medical-resource-id",
 	Short: "MedicalResourceIdService operations",
@@ -1631,7 +233,7 @@ var connectMedicalResourceIdDescribeContentsCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewMedicalResourceIdServiceClient(grpcConn)
-		req := &pb.MedicalResourceIdDescribeContentsRequest{}
+		req := &pb.DescribeContentsRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
@@ -1748,7 +350,7 @@ var connectMedicalResourceIdToStringCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewMedicalResourceIdServiceClient(grpcConn)
-		req := &pb.MedicalResourceIdToStringRequest{}
+		req := &pb.ToStringRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
@@ -1767,7 +369,7 @@ var connectMedicalResourceIdWriteToParcelCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewMedicalResourceIdServiceClient(grpcConn)
-		req := &pb.MedicalResourceIdWriteToParcelRequest{}
+		req := &pb.WriteToParcelRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
@@ -1810,6 +412,1078 @@ var connectMedicalResourceIdFromFhirReferenceCmd = &cobra.Command{
 	},
 }
 
+var connectReadMedicalResourcesPageRequestCmd = &cobra.Command{
+	Use:   "read-medical-resources-page-request",
+	Short: "ReadMedicalResourcesPageRequestService operations",
+}
+
+var connectReadMedicalResourcesPageRequestEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewReadMedicalResourcesPageRequestServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var connectReadMedicalResourcesPageRequestGetPageTokenCmd = &cobra.Command{
+	Use:   "get-page-token",
+	Short: "GetPageToken RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewReadMedicalResourcesPageRequestServiceClient(grpcConn)
+		req := &pb.GetPageTokenRequest{}
+		resp, err := client.GetPageToken(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var connectReadMedicalResourcesPageRequestHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewReadMedicalResourcesPageRequestServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var connectReadMedicalResourcesPageRequestToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewReadMedicalResourcesPageRequestServiceClient(grpcConn)
+		req := &pb.ReadMedicalResourcesPageRequestToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var connectReadMedicalResourcesPageRequestBuilderCmd = &cobra.Command{
+	Use:   "read-medical-resources-page-request-builder",
+	Short: "ReadMedicalResourcesPageRequestBuilderService operations",
+}
+
+var connectReadMedicalResourcesPageRequestBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewReadMedicalResourcesPageRequestBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var connectReadMedicalResourcesPageRequestBuilderSetPageSizeCmd = &cobra.Command{
+	Use:   "set-page-size",
+	Short: "SetPageSize RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewReadMedicalResourcesPageRequestBuilderServiceClient(grpcConn)
+		req := &pb.SetPageSizeRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetPageSize(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var connectReadMedicalResourcesPageRequestBuilderSetPageTokenCmd = &cobra.Command{
+	Use:   "set-page-token",
+	Short: "SetPageToken RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewReadMedicalResourcesPageRequestBuilderServiceClient(grpcConn)
+		req := &pb.SetPageTokenRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetPageToken(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var connectReadRecordsRequestCmd = &cobra.Command{
+	Use:   "read-records-request",
+	Short: "ReadRecordsRequestService operations",
+}
+
+var connectReadRecordsRequestGetRecordTypeCmd = &cobra.Command{
+	Use:   "get-record-type",
+	Short: "GetRecordType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewReadRecordsRequestServiceClient(grpcConn)
+		req := &pb.GetRecordTypeRequest{}
+		resp, err := client.GetRecordType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var connectReadRecordsRequestUsingFiltersCmd = &cobra.Command{
+	Use:   "read-records-request-using-filters",
+	Short: "ReadRecordsRequestUsingFiltersService operations",
+}
+
+var connectReadRecordsRequestUsingFiltersGetDataOriginsCmd = &cobra.Command{
+	Use:   "get-data-origins",
+	Short: "GetDataOrigins RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewReadRecordsRequestUsingFiltersServiceClient(grpcConn)
+		req := &pb.GetDataOriginsRequest{}
+		resp, err := client.GetDataOrigins(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var connectReadRecordsRequestUsingFiltersGetPageSizeCmd = &cobra.Command{
+	Use:   "get-page-size",
+	Short: "GetPageSize RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewReadRecordsRequestUsingFiltersServiceClient(grpcConn)
+		req := &pb.GetPageSizeRequest{}
+		resp, err := client.GetPageSize(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var connectReadRecordsRequestUsingFiltersGetPageTokenCmd = &cobra.Command{
+	Use:   "get-page-token",
+	Short: "GetPageToken RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewReadRecordsRequestUsingFiltersServiceClient(grpcConn)
+		req := &pb.GetPageTokenRequest{}
+		resp, err := client.GetPageToken(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var connectReadRecordsRequestUsingFiltersGetTimeRangeFilterCmd = &cobra.Command{
+	Use:   "get-time-range-filter",
+	Short: "GetTimeRangeFilter RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewReadRecordsRequestUsingFiltersServiceClient(grpcConn)
+		req := &pb.GetTimeRangeFilterRequest{}
+		resp, err := client.GetTimeRangeFilter(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var connectReadRecordsRequestUsingFiltersIsAscendingCmd = &cobra.Command{
+	Use:   "is-ascending",
+	Short: "IsAscending RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewReadRecordsRequestUsingFiltersServiceClient(grpcConn)
+		req := &pb.IsAscendingRequest{}
+		resp, err := client.IsAscending(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var connectReadRecordsRequestUsingFiltersBuilderCmd = &cobra.Command{
+	Use:   "read-records-request-using-filters-builder",
+	Short: "ReadRecordsRequestUsingFiltersBuilderService operations",
+}
+
+var connectReadRecordsRequestUsingFiltersBuilderAddDataOriginsCmd = &cobra.Command{
+	Use:   "add-data-origins",
+	Short: "AddDataOrigins RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewReadRecordsRequestUsingFiltersBuilderServiceClient(grpcConn)
+		req := &pb.AddDataOriginsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddDataOrigins(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var connectReadRecordsRequestUsingFiltersBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewReadRecordsRequestUsingFiltersBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var connectReadRecordsRequestUsingFiltersBuilderSetAscendingCmd = &cobra.Command{
+	Use:   "set-ascending",
+	Short: "SetAscending RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewReadRecordsRequestUsingFiltersBuilderServiceClient(grpcConn)
+		req := &pb.SetAscendingRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetAscending(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var connectReadRecordsRequestUsingFiltersBuilderSetPageSizeCmd = &cobra.Command{
+	Use:   "set-page-size",
+	Short: "SetPageSize RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewReadRecordsRequestUsingFiltersBuilderServiceClient(grpcConn)
+		req := &pb.SetPageSizeRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetPageSize(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var connectReadRecordsRequestUsingFiltersBuilderSetPageTokenCmd = &cobra.Command{
+	Use:   "set-page-token",
+	Short: "SetPageToken RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewReadRecordsRequestUsingFiltersBuilderServiceClient(grpcConn)
+		req := &pb.ReadRecordsRequestUsingFiltersBuilderSetPageTokenRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetPageToken(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var connectReadRecordsRequestUsingFiltersBuilderSetTimeRangeFilterCmd = &cobra.Command{
+	Use:   "set-time-range-filter",
+	Short: "SetTimeRangeFilter RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewReadRecordsRequestUsingFiltersBuilderServiceClient(grpcConn)
+		req := &pb.SetTimeRangeFilterRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetTimeRangeFilter(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var connectAggregateRecordsGroupedByDurationResponseCmd = &cobra.Command{
+	Use:   "aggregate-records-grouped-by-duration-response",
+	Short: "AggregateRecordsGroupedByDurationResponseService operations",
+}
+
+var connectAggregateRecordsGroupedByDurationResponseGetEndTimeCmd = &cobra.Command{
+	Use:   "get-end-time",
+	Short: "GetEndTime RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAggregateRecordsGroupedByDurationResponseServiceClient(grpcConn)
+		req := &pb.GetEndTimeRequest{}
+		resp, err := client.GetEndTime(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var connectAggregateRecordsGroupedByDurationResponseGetStartTimeCmd = &cobra.Command{
+	Use:   "get-start-time",
+	Short: "GetStartTime RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAggregateRecordsGroupedByDurationResponseServiceClient(grpcConn)
+		req := &pb.GetStartTimeRequest{}
+		resp, err := client.GetStartTime(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var connectHealthConnectExceptionCmd = &cobra.Command{
+	Use:   "health-connect-exception",
+	Short: "HealthConnectExceptionService operations",
+}
+
+var connectHealthConnectExceptionGetErrorCodeCmd = &cobra.Command{
+	Use:   "get-error-code",
+	Short: "GetErrorCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewHealthConnectExceptionServiceClient(grpcConn)
+		req := &pb.GetErrorCodeRequest{}
+		resp, err := client.GetErrorCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var connectDeleteMedicalResourcesRequestCmd = &cobra.Command{
+	Use:   "delete-medical-resources-request",
+	Short: "DeleteMedicalResourcesRequestService operations",
+}
+
+var connectDeleteMedicalResourcesRequestDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeleteMedicalResourcesRequestServiceClient(grpcConn)
+		req := &pb.DeleteMedicalResourcesRequestDescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var connectDeleteMedicalResourcesRequestEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeleteMedicalResourcesRequestServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var connectDeleteMedicalResourcesRequestGetDataSourceIdsCmd = &cobra.Command{
+	Use:   "get-data-source-ids",
+	Short: "GetDataSourceIds RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeleteMedicalResourcesRequestServiceClient(grpcConn)
+		req := &pb.GetDataSourceIdsRequest{}
+		resp, err := client.GetDataSourceIds(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var connectDeleteMedicalResourcesRequestGetMedicalResourceTypesCmd = &cobra.Command{
+	Use:   "get-medical-resource-types",
+	Short: "GetMedicalResourceTypes RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeleteMedicalResourcesRequestServiceClient(grpcConn)
+		req := &pb.GetMedicalResourceTypesRequest{}
+		resp, err := client.GetMedicalResourceTypes(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var connectDeleteMedicalResourcesRequestHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeleteMedicalResourcesRequestServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var connectDeleteMedicalResourcesRequestToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeleteMedicalResourcesRequestServiceClient(grpcConn)
+		req := &pb.DeleteMedicalResourcesRequestToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var connectDeleteMedicalResourcesRequestWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeleteMedicalResourcesRequestServiceClient(grpcConn)
+		req := &pb.DeleteMedicalResourcesRequestWriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var connectDeleteMedicalResourcesRequestBuilderCmd = &cobra.Command{
+	Use:   "delete-medical-resources-request-builder",
+	Short: "DeleteMedicalResourcesRequestBuilderService operations",
+}
+
+var connectDeleteMedicalResourcesRequestBuilderAddDataSourceIdCmd = &cobra.Command{
+	Use:   "add-data-source-id",
+	Short: "AddDataSourceId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeleteMedicalResourcesRequestBuilderServiceClient(grpcConn)
+		req := &pb.AddDataSourceIdRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddDataSourceId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var connectDeleteMedicalResourcesRequestBuilderAddMedicalResourceTypeCmd = &cobra.Command{
+	Use:   "add-medical-resource-type",
+	Short: "AddMedicalResourceType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeleteMedicalResourcesRequestBuilderServiceClient(grpcConn)
+		req := &pb.AddMedicalResourceTypeRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddMedicalResourceType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var connectDeleteMedicalResourcesRequestBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeleteMedicalResourcesRequestBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var connectDeleteMedicalResourcesRequestBuilderClearDataSourceIdsCmd = &cobra.Command{
+	Use:   "clear-data-source-ids",
+	Short: "ClearDataSourceIds RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeleteMedicalResourcesRequestBuilderServiceClient(grpcConn)
+		req := &pb.ClearDataSourceIdsRequest{}
+		resp, err := client.ClearDataSourceIds(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var connectDeleteMedicalResourcesRequestBuilderClearMedicalResourceTypesCmd = &cobra.Command{
+	Use:   "clear-medical-resource-types",
+	Short: "ClearMedicalResourceTypes RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeleteMedicalResourcesRequestBuilderServiceClient(grpcConn)
+		req := &pb.ClearMedicalResourceTypesRequest{}
+		resp, err := client.ClearMedicalResourceTypes(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var connectCreateMedicalDataSourceRequestCmd = &cobra.Command{
+	Use:   "create-medical-data-source-request",
+	Short: "CreateMedicalDataSourceRequestService operations",
+}
+
+var connectCreateMedicalDataSourceRequestDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCreateMedicalDataSourceRequestServiceClient(grpcConn)
+		req := &pb.CreateMedicalDataSourceRequestDescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var connectCreateMedicalDataSourceRequestEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCreateMedicalDataSourceRequestServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var connectCreateMedicalDataSourceRequestGetDisplayNameCmd = &cobra.Command{
+	Use:   "get-display-name",
+	Short: "GetDisplayName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCreateMedicalDataSourceRequestServiceClient(grpcConn)
+		req := &pb.GetDisplayNameRequest{}
+		resp, err := client.GetDisplayName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var connectCreateMedicalDataSourceRequestGetFhirBaseUriCmd = &cobra.Command{
+	Use:   "get-fhir-base-uri",
+	Short: "GetFhirBaseUri RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCreateMedicalDataSourceRequestServiceClient(grpcConn)
+		req := &pb.GetFhirBaseUriRequest{}
+		resp, err := client.GetFhirBaseUri(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var connectCreateMedicalDataSourceRequestGetFhirVersionCmd = &cobra.Command{
+	Use:   "get-fhir-version",
+	Short: "GetFhirVersion RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCreateMedicalDataSourceRequestServiceClient(grpcConn)
+		req := &pb.GetFhirVersionRequest{}
+		resp, err := client.GetFhirVersion(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var connectCreateMedicalDataSourceRequestHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCreateMedicalDataSourceRequestServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var connectCreateMedicalDataSourceRequestToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCreateMedicalDataSourceRequestServiceClient(grpcConn)
+		req := &pb.CreateMedicalDataSourceRequestToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var connectCreateMedicalDataSourceRequestWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCreateMedicalDataSourceRequestServiceClient(grpcConn)
+		req := &pb.CreateMedicalDataSourceRequestWriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var connectCreateMedicalDataSourceRequestBuilderCmd = &cobra.Command{
+	Use:   "create-medical-data-source-request-builder",
+	Short: "CreateMedicalDataSourceRequestBuilderService operations",
+}
+
+var connectCreateMedicalDataSourceRequestBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCreateMedicalDataSourceRequestBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var connectCreateMedicalDataSourceRequestBuilderSetDisplayNameCmd = &cobra.Command{
+	Use:   "set-display-name",
+	Short: "SetDisplayName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCreateMedicalDataSourceRequestBuilderServiceClient(grpcConn)
+		req := &pb.SetDisplayNameRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetDisplayName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var connectCreateMedicalDataSourceRequestBuilderSetFhirBaseUriCmd = &cobra.Command{
+	Use:   "set-fhir-base-uri",
+	Short: "SetFhirBaseUri RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCreateMedicalDataSourceRequestBuilderServiceClient(grpcConn)
+		req := &pb.SetFhirBaseUriRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetFhirBaseUri(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var connectCreateMedicalDataSourceRequestBuilderSetFhirVersionCmd = &cobra.Command{
+	Use:   "set-fhir-version",
+	Short: "SetFhirVersion RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCreateMedicalDataSourceRequestBuilderServiceClient(grpcConn)
+		req := &pb.SetFhirVersionRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetFhirVersion(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var connectAggregateRecordsGroupedByPeriodResponseCmd = &cobra.Command{
+	Use:   "aggregate-records-grouped-by-period-response",
+	Short: "AggregateRecordsGroupedByPeriodResponseService operations",
+}
+
+var connectAggregateRecordsGroupedByPeriodResponseGetEndTimeCmd = &cobra.Command{
+	Use:   "get-end-time",
+	Short: "GetEndTime RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAggregateRecordsGroupedByPeriodResponseServiceClient(grpcConn)
+		req := &pb.GetEndTimeRequest{}
+		resp, err := client.GetEndTime(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var connectAggregateRecordsGroupedByPeriodResponseGetStartTimeCmd = &cobra.Command{
+	Use:   "get-start-time",
+	Short: "GetStartTime RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAggregateRecordsGroupedByPeriodResponseServiceClient(grpcConn)
+		req := &pb.GetStartTimeRequest{}
+		resp, err := client.GetStartTime(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var connectInsertRecordsResponseCmd = &cobra.Command{
+	Use:   "insert-records-response",
+	Short: "InsertRecordsResponseService operations",
+}
+
+var connectInsertRecordsResponseGetRecordsCmd = &cobra.Command{
+	Use:   "get-records",
+	Short: "GetRecords RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInsertRecordsResponseServiceClient(grpcConn)
+		req := &pb.GetRecordsRequest{}
+		resp, err := client.GetRecords(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var connectGetMedicalDataSourcesRequestCmd = &cobra.Command{
+	Use:   "get-medical-data-sources-request",
+	Short: "GetMedicalDataSourcesRequestService operations",
+}
+
+var connectGetMedicalDataSourcesRequestDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGetMedicalDataSourcesRequestServiceClient(grpcConn)
+		req := &pb.GetMedicalDataSourcesRequestDescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var connectGetMedicalDataSourcesRequestEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGetMedicalDataSourcesRequestServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var connectGetMedicalDataSourcesRequestGetPackageNamesCmd = &cobra.Command{
+	Use:   "get-package-names",
+	Short: "GetPackageNames RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGetMedicalDataSourcesRequestServiceClient(grpcConn)
+		req := &pb.GetPackageNamesRequest{}
+		resp, err := client.GetPackageNames(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var connectGetMedicalDataSourcesRequestHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGetMedicalDataSourcesRequestServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var connectGetMedicalDataSourcesRequestToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGetMedicalDataSourcesRequestServiceClient(grpcConn)
+		req := &pb.GetMedicalDataSourcesRequestToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var connectGetMedicalDataSourcesRequestWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGetMedicalDataSourcesRequestServiceClient(grpcConn)
+		req := &pb.GetMedicalDataSourcesRequestWriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var connectGetMedicalDataSourcesRequestBuilderCmd = &cobra.Command{
+	Use:   "get-medical-data-sources-request-builder",
+	Short: "GetMedicalDataSourcesRequestBuilderService operations",
+}
+
+var connectGetMedicalDataSourcesRequestBuilderAddPackageNameCmd = &cobra.Command{
+	Use:   "add-package-name",
+	Short: "AddPackageName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGetMedicalDataSourcesRequestBuilderServiceClient(grpcConn)
+		req := &pb.AddPackageNameRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddPackageName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var connectGetMedicalDataSourcesRequestBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGetMedicalDataSourcesRequestBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var connectGetMedicalDataSourcesRequestBuilderClearPackageNamesCmd = &cobra.Command{
+	Use:   "clear-package-names",
+	Short: "ClearPackageNames RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGetMedicalDataSourcesRequestBuilderServiceClient(grpcConn)
+		req := &pb.ClearPackageNamesRequest{}
+		resp, err := client.ClearPackageNames(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var connectUpsertMedicalResourceRequestCmd = &cobra.Command{
 	Use:   "upsert-medical-resource-request",
 	Short: "UpsertMedicalResourceRequestService operations",
@@ -1822,7 +1496,7 @@ var connectUpsertMedicalResourceRequestDescribeContentsCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewUpsertMedicalResourceRequestServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
+		req := &pb.UpsertMedicalResourceRequestDescribeContentsRequest{}
 		resp, err := client.DescribeContents(ctx, req)
 		if err != nil {
 			return err
@@ -1921,7 +1595,7 @@ var connectUpsertMedicalResourceRequestToStringCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewUpsertMedicalResourceRequestServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
+		req := &pb.UpsertMedicalResourceRequestToStringRequest{}
 		resp, err := client.ToString(ctx, req)
 		if err != nil {
 			return err
@@ -1937,7 +1611,7 @@ var connectUpsertMedicalResourceRequestWriteToParcelCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewUpsertMedicalResourceRequestServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
+		req := &pb.UpsertMedicalResourceRequestWriteToParcelRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
@@ -2030,117 +1704,761 @@ var connectUpsertMedicalResourceRequestBuilderSetFhirVersionCmd = &cobra.Command
 	},
 }
 
+var connectAggregateRecordsRequestCmd = &cobra.Command{
+	Use:   "aggregate-records-request",
+	Short: "AggregateRecordsRequestService operations",
+}
+
+var connectAggregateRecordsRequestGetAggregationTypesCmd = &cobra.Command{
+	Use:   "get-aggregation-types",
+	Short: "GetAggregationTypes RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAggregateRecordsRequestServiceClient(grpcConn)
+		req := &pb.GetAggregationTypesRequest{}
+		resp, err := client.GetAggregationTypes(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var connectAggregateRecordsRequestGetDataOriginsFiltersCmd = &cobra.Command{
+	Use:   "get-data-origins-filters",
+	Short: "GetDataOriginsFilters RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAggregateRecordsRequestServiceClient(grpcConn)
+		req := &pb.GetDataOriginsFiltersRequest{}
+		resp, err := client.GetDataOriginsFilters(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var connectAggregateRecordsRequestGetTimeRangeFilterCmd = &cobra.Command{
+	Use:   "get-time-range-filter",
+	Short: "GetTimeRangeFilter RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAggregateRecordsRequestServiceClient(grpcConn)
+		req := &pb.GetTimeRangeFilterRequest{}
+		resp, err := client.GetTimeRangeFilter(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var connectAggregateRecordsRequestBuilderCmd = &cobra.Command{
+	Use:   "aggregate-records-request-builder",
+	Short: "AggregateRecordsRequestBuilderService operations",
+}
+
+var connectAggregateRecordsRequestBuilderAddDataOriginsFilterCmd = &cobra.Command{
+	Use:   "add-data-origins-filter",
+	Short: "AddDataOriginsFilter RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAggregateRecordsRequestBuilderServiceClient(grpcConn)
+		req := &pb.AddDataOriginsFilterRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddDataOriginsFilter(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var connectAggregateRecordsRequestBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAggregateRecordsRequestBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var connectTimeInstantRangeFilterCmd = &cobra.Command{
+	Use:   "time-instant-range-filter",
+	Short: "TimeInstantRangeFilterService operations",
+}
+
+var connectTimeInstantRangeFilterEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTimeInstantRangeFilterServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var connectTimeInstantRangeFilterGetEndTimeCmd = &cobra.Command{
+	Use:   "get-end-time",
+	Short: "GetEndTime RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTimeInstantRangeFilterServiceClient(grpcConn)
+		req := &pb.GetEndTimeRequest{}
+		resp, err := client.GetEndTime(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var connectTimeInstantRangeFilterGetStartTimeCmd = &cobra.Command{
+	Use:   "get-start-time",
+	Short: "GetStartTime RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTimeInstantRangeFilterServiceClient(grpcConn)
+		req := &pb.GetStartTimeRequest{}
+		resp, err := client.GetStartTime(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var connectTimeInstantRangeFilterHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTimeInstantRangeFilterServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var connectTimeInstantRangeFilterIsBoundedCmd = &cobra.Command{
+	Use:   "is-bounded",
+	Short: "IsBounded RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTimeInstantRangeFilterServiceClient(grpcConn)
+		req := &pb.IsBoundedRequest{}
+		resp, err := client.IsBounded(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var connectTimeInstantRangeFilterBuilderCmd = &cobra.Command{
+	Use:   "time-instant-range-filter-builder",
+	Short: "TimeInstantRangeFilterBuilderService operations",
+}
+
+var connectTimeInstantRangeFilterBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTimeInstantRangeFilterBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var connectTimeInstantRangeFilterBuilderSetEndTimeCmd = &cobra.Command{
+	Use:   "set-end-time",
+	Short: "SetEndTime RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTimeInstantRangeFilterBuilderServiceClient(grpcConn)
+		req := &pb.SetEndTimeRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetEndTime(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var connectTimeInstantRangeFilterBuilderSetStartTimeCmd = &cobra.Command{
+	Use:   "set-start-time",
+	Short: "SetStartTime RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTimeInstantRangeFilterBuilderServiceClient(grpcConn)
+		req := &pb.SetStartTimeRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetStartTime(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var connectReadMedicalResourcesRequestCmd = &cobra.Command{
+	Use:   "read-medical-resources-request",
+	Short: "ReadMedicalResourcesRequestService operations",
+}
+
+var connectReadMedicalResourcesRequestGetPageSizeCmd = &cobra.Command{
+	Use:   "get-page-size",
+	Short: "GetPageSize RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewReadMedicalResourcesRequestServiceClient(grpcConn)
+		req := &pb.GetPageSizeRequest{}
+		resp, err := client.GetPageSize(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var connectReadMedicalResourcesInitialRequestCmd = &cobra.Command{
+	Use:   "read-medical-resources-initial-request",
+	Short: "ReadMedicalResourcesInitialRequestService operations",
+}
+
+var connectReadMedicalResourcesInitialRequestEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewReadMedicalResourcesInitialRequestServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var connectReadMedicalResourcesInitialRequestGetDataSourceIdsCmd = &cobra.Command{
+	Use:   "get-data-source-ids",
+	Short: "GetDataSourceIds RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewReadMedicalResourcesInitialRequestServiceClient(grpcConn)
+		req := &pb.GetDataSourceIdsRequest{}
+		resp, err := client.GetDataSourceIds(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var connectReadMedicalResourcesInitialRequestGetMedicalResourceTypeCmd = &cobra.Command{
+	Use:   "get-medical-resource-type",
+	Short: "GetMedicalResourceType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewReadMedicalResourcesInitialRequestServiceClient(grpcConn)
+		req := &pb.GetMedicalResourceTypeRequest{}
+		resp, err := client.GetMedicalResourceType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var connectReadMedicalResourcesInitialRequestHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewReadMedicalResourcesInitialRequestServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var connectReadMedicalResourcesInitialRequestToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewReadMedicalResourcesInitialRequestServiceClient(grpcConn)
+		req := &pb.ReadMedicalResourcesInitialRequestToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var connectReadMedicalResourcesInitialRequestBuilderCmd = &cobra.Command{
+	Use:   "read-medical-resources-initial-request-builder",
+	Short: "ReadMedicalResourcesInitialRequestBuilderService operations",
+}
+
+var connectReadMedicalResourcesInitialRequestBuilderAddDataSourceIdCmd = &cobra.Command{
+	Use:   "add-data-source-id",
+	Short: "AddDataSourceId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewReadMedicalResourcesInitialRequestBuilderServiceClient(grpcConn)
+		req := &pb.AddDataSourceIdRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddDataSourceId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var connectReadMedicalResourcesInitialRequestBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewReadMedicalResourcesInitialRequestBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var connectReadMedicalResourcesInitialRequestBuilderClearDataSourceIdsCmd = &cobra.Command{
+	Use:   "clear-data-source-ids",
+	Short: "ClearDataSourceIds RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewReadMedicalResourcesInitialRequestBuilderServiceClient(grpcConn)
+		req := &pb.ClearDataSourceIdsRequest{}
+		resp, err := client.ClearDataSourceIds(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var connectReadMedicalResourcesInitialRequestBuilderSetMedicalResourceTypeCmd = &cobra.Command{
+	Use:   "set-medical-resource-type",
+	Short: "SetMedicalResourceType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewReadMedicalResourcesInitialRequestBuilderServiceClient(grpcConn)
+		req := &pb.SetMedicalResourceTypeRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetMedicalResourceType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var connectReadMedicalResourcesInitialRequestBuilderSetPageSizeCmd = &cobra.Command{
+	Use:   "set-page-size",
+	Short: "SetPageSize RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewReadMedicalResourcesInitialRequestBuilderServiceClient(grpcConn)
+		req := &pb.SetPageSizeRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetPageSize(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var connectReadMedicalResourcesResponseCmd = &cobra.Command{
+	Use:   "read-medical-resources-response",
+	Short: "ReadMedicalResourcesResponseService operations",
+}
+
+var connectReadMedicalResourcesResponseNewReadMedicalResourcesResponseCmd = &cobra.Command{
+	Use:   "new-read-medical-resources-response",
+	Short: "NewReadMedicalResourcesResponse RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewReadMedicalResourcesResponseServiceClient(grpcConn)
+		req := &pb.NewReadMedicalResourcesResponseRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.NewReadMedicalResourcesResponse(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var connectReadMedicalResourcesResponseDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewReadMedicalResourcesResponseServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var connectReadMedicalResourcesResponseEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewReadMedicalResourcesResponseServiceClient(grpcConn)
+		req := &pb.ReadMedicalResourcesResponseEqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var connectReadMedicalResourcesResponseGetMedicalResourcesCmd = &cobra.Command{
+	Use:   "get-medical-resources",
+	Short: "GetMedicalResources RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewReadMedicalResourcesResponseServiceClient(grpcConn)
+		req := &pb.GetMedicalResourcesRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetMedicalResources(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var connectReadMedicalResourcesResponseGetNextPageTokenCmd = &cobra.Command{
+	Use:   "get-next-page-token",
+	Short: "GetNextPageToken RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewReadMedicalResourcesResponseServiceClient(grpcConn)
+		req := &pb.ReadMedicalResourcesResponseGetNextPageTokenRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetNextPageToken(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var connectReadMedicalResourcesResponseGetRemainingCountCmd = &cobra.Command{
+	Use:   "get-remaining-count",
+	Short: "GetRemainingCount RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewReadMedicalResourcesResponseServiceClient(grpcConn)
+		req := &pb.GetRemainingCountRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetRemainingCount(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var connectReadMedicalResourcesResponseHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewReadMedicalResourcesResponseServiceClient(grpcConn)
+		req := &pb.ReadMedicalResourcesResponseHashCodeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var connectReadMedicalResourcesResponseToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewReadMedicalResourcesResponseServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var connectReadMedicalResourcesResponseWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewReadMedicalResourcesResponseServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var connectReadRecordsRequestUsingIdsCmd = &cobra.Command{
+	Use:   "read-records-request-using-ids",
+	Short: "ReadRecordsRequestUsingIdsService operations",
+}
+
+var connectReadRecordsRequestUsingIdsGetRecordIdFiltersCmd = &cobra.Command{
+	Use:   "get-record-id-filters",
+	Short: "GetRecordIdFilters RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewReadRecordsRequestUsingIdsServiceClient(grpcConn)
+		req := &pb.GetRecordIdFiltersRequest{}
+		resp, err := client.GetRecordIdFilters(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var connectReadRecordsRequestUsingIdsBuilderCmd = &cobra.Command{
+	Use:   "read-records-request-using-ids-builder",
+	Short: "ReadRecordsRequestUsingIdsBuilderService operations",
+}
+
+var connectReadRecordsRequestUsingIdsBuilderAddClientRecordIdCmd = &cobra.Command{
+	Use:   "add-client-record-id",
+	Short: "AddClientRecordId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewReadRecordsRequestUsingIdsBuilderServiceClient(grpcConn)
+		req := &pb.AddClientRecordIdRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddClientRecordId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var connectReadRecordsRequestUsingIdsBuilderAddIdCmd = &cobra.Command{
+	Use:   "add-id",
+	Short: "AddId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewReadRecordsRequestUsingIdsBuilderServiceClient(grpcConn)
+		req := &pb.AddIdRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var connectReadRecordsRequestUsingIdsBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewReadRecordsRequestUsingIdsBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var connectRecordIdFilterCmd = &cobra.Command{
+	Use:   "record-id-filter",
+	Short: "RecordIdFilterService operations",
+}
+
+var connectRecordIdFilterGetClientRecordIdCmd = &cobra.Command{
+	Use:   "get-client-record-id",
+	Short: "GetClientRecordId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRecordIdFilterServiceClient(grpcConn)
+		req := &pb.GetClientRecordIdRequest{}
+		resp, err := client.GetClientRecordId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var connectRecordIdFilterGetIdCmd = &cobra.Command{
+	Use:   "get-id",
+	Short: "GetId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRecordIdFilterServiceClient(grpcConn)
+		req := &pb.GetIdRequest{}
+		resp, err := client.GetId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 func init() {
-	connectDeleteMedicalResourcesRequestCmd.AddCommand(connectDeleteMedicalResourcesRequestDescribeContentsCmd)
-	connectDeleteMedicalResourcesRequestEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	connectDeleteMedicalResourcesRequestCmd.AddCommand(connectDeleteMedicalResourcesRequestEqualsCmd)
-	connectDeleteMedicalResourcesRequestCmd.AddCommand(connectDeleteMedicalResourcesRequestHashCodeCmd)
-	connectDeleteMedicalResourcesRequestCmd.AddCommand(connectDeleteMedicalResourcesRequestToStringCmd)
-	connectDeleteMedicalResourcesRequestWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	connectDeleteMedicalResourcesRequestWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	connectDeleteMedicalResourcesRequestCmd.AddCommand(connectDeleteMedicalResourcesRequestWriteToParcelCmd)
-	connectCmd.AddCommand(connectDeleteMedicalResourcesRequestCmd)
-	connectDeleteMedicalResourcesRequestBuilderAddDataSourceIdCmd.Flags().String("arg0", "", "arg0 (string)")
-	connectDeleteMedicalResourcesRequestBuilderCmd.AddCommand(connectDeleteMedicalResourcesRequestBuilderAddDataSourceIdCmd)
-	connectDeleteMedicalResourcesRequestBuilderAddMedicalResourceTypeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	connectDeleteMedicalResourcesRequestBuilderCmd.AddCommand(connectDeleteMedicalResourcesRequestBuilderAddMedicalResourceTypeCmd)
-	connectDeleteMedicalResourcesRequestBuilderCmd.AddCommand(connectDeleteMedicalResourcesRequestBuilderBuildCmd)
-	connectDeleteMedicalResourcesRequestBuilderCmd.AddCommand(connectDeleteMedicalResourcesRequestBuilderClearDataSourceIdsCmd)
-	connectDeleteMedicalResourcesRequestBuilderCmd.AddCommand(connectDeleteMedicalResourcesRequestBuilderClearMedicalResourceTypesCmd)
-	connectCmd.AddCommand(connectDeleteMedicalResourcesRequestBuilderCmd)
-	connectTimeInstantRangeFilterEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	connectTimeInstantRangeFilterCmd.AddCommand(connectTimeInstantRangeFilterEqualsCmd)
-	connectTimeInstantRangeFilterCmd.AddCommand(connectTimeInstantRangeFilterGetEndTimeCmd)
-	connectTimeInstantRangeFilterCmd.AddCommand(connectTimeInstantRangeFilterGetStartTimeCmd)
-	connectTimeInstantRangeFilterCmd.AddCommand(connectTimeInstantRangeFilterHashCodeCmd)
-	connectTimeInstantRangeFilterCmd.AddCommand(connectTimeInstantRangeFilterIsBoundedCmd)
-	connectCmd.AddCommand(connectTimeInstantRangeFilterCmd)
-	connectTimeInstantRangeFilterBuilderCmd.AddCommand(connectTimeInstantRangeFilterBuilderBuildCmd)
-	connectTimeInstantRangeFilterBuilderSetEndTimeCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	connectTimeInstantRangeFilterBuilderCmd.AddCommand(connectTimeInstantRangeFilterBuilderSetEndTimeCmd)
-	connectTimeInstantRangeFilterBuilderSetStartTimeCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	connectTimeInstantRangeFilterBuilderCmd.AddCommand(connectTimeInstantRangeFilterBuilderSetStartTimeCmd)
-	connectCmd.AddCommand(connectTimeInstantRangeFilterBuilderCmd)
-	connectAggregateRecordsRequestCmd.AddCommand(connectAggregateRecordsRequestGetTimeRangeFilterCmd)
-	connectCmd.AddCommand(connectAggregateRecordsRequestCmd)
-	connectReadRecordsRequestUsingFiltersCmd.AddCommand(connectReadRecordsRequestUsingFiltersGetPageSizeCmd)
-	connectReadRecordsRequestUsingFiltersCmd.AddCommand(connectReadRecordsRequestUsingFiltersGetPageTokenCmd)
-	connectReadRecordsRequestUsingFiltersCmd.AddCommand(connectReadRecordsRequestUsingFiltersGetTimeRangeFilterCmd)
-	connectReadRecordsRequestUsingFiltersCmd.AddCommand(connectReadRecordsRequestUsingFiltersIsAscendingCmd)
-	connectCmd.AddCommand(connectReadRecordsRequestUsingFiltersCmd)
 	connectReadRecordsResponseCmd.AddCommand(connectReadRecordsResponseGetNextPageTokenCmd)
+	connectReadRecordsResponseCmd.AddCommand(connectReadRecordsResponseGetRecordsCmd)
 	connectCmd.AddCommand(connectReadRecordsResponseCmd)
-	connectReadMedicalResourcesInitialRequestEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	connectReadMedicalResourcesInitialRequestCmd.AddCommand(connectReadMedicalResourcesInitialRequestEqualsCmd)
-	connectReadMedicalResourcesInitialRequestCmd.AddCommand(connectReadMedicalResourcesInitialRequestGetMedicalResourceTypeCmd)
-	connectReadMedicalResourcesInitialRequestCmd.AddCommand(connectReadMedicalResourcesInitialRequestHashCodeCmd)
-	connectReadMedicalResourcesInitialRequestCmd.AddCommand(connectReadMedicalResourcesInitialRequestToStringCmd)
-	connectCmd.AddCommand(connectReadMedicalResourcesInitialRequestCmd)
-	connectReadMedicalResourcesInitialRequestBuilderAddDataSourceIdCmd.Flags().String("arg0", "", "arg0 (string)")
-	connectReadMedicalResourcesInitialRequestBuilderCmd.AddCommand(connectReadMedicalResourcesInitialRequestBuilderAddDataSourceIdCmd)
-	connectReadMedicalResourcesInitialRequestBuilderCmd.AddCommand(connectReadMedicalResourcesInitialRequestBuilderBuildCmd)
-	connectReadMedicalResourcesInitialRequestBuilderCmd.AddCommand(connectReadMedicalResourcesInitialRequestBuilderClearDataSourceIdsCmd)
-	connectReadMedicalResourcesInitialRequestBuilderSetMedicalResourceTypeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	connectReadMedicalResourcesInitialRequestBuilderCmd.AddCommand(connectReadMedicalResourcesInitialRequestBuilderSetMedicalResourceTypeCmd)
-	connectReadMedicalResourcesInitialRequestBuilderSetPageSizeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	connectReadMedicalResourcesInitialRequestBuilderCmd.AddCommand(connectReadMedicalResourcesInitialRequestBuilderSetPageSizeCmd)
-	connectCmd.AddCommand(connectReadMedicalResourcesInitialRequestBuilderCmd)
-	connectAggregateRecordsGroupedByPeriodResponseCmd.AddCommand(connectAggregateRecordsGroupedByPeriodResponseGetEndTimeCmd)
-	connectAggregateRecordsGroupedByPeriodResponseCmd.AddCommand(connectAggregateRecordsGroupedByPeriodResponseGetStartTimeCmd)
-	connectCmd.AddCommand(connectAggregateRecordsGroupedByPeriodResponseCmd)
-	connectCreateMedicalDataSourceRequestCmd.AddCommand(connectCreateMedicalDataSourceRequestDescribeContentsCmd)
-	connectCreateMedicalDataSourceRequestEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	connectCreateMedicalDataSourceRequestCmd.AddCommand(connectCreateMedicalDataSourceRequestEqualsCmd)
-	connectCreateMedicalDataSourceRequestCmd.AddCommand(connectCreateMedicalDataSourceRequestGetDisplayNameCmd)
-	connectCreateMedicalDataSourceRequestCmd.AddCommand(connectCreateMedicalDataSourceRequestGetFhirBaseUriCmd)
-	connectCreateMedicalDataSourceRequestCmd.AddCommand(connectCreateMedicalDataSourceRequestGetFhirVersionCmd)
-	connectCreateMedicalDataSourceRequestCmd.AddCommand(connectCreateMedicalDataSourceRequestHashCodeCmd)
-	connectCreateMedicalDataSourceRequestCmd.AddCommand(connectCreateMedicalDataSourceRequestToStringCmd)
-	connectCreateMedicalDataSourceRequestWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	connectCreateMedicalDataSourceRequestWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	connectCreateMedicalDataSourceRequestCmd.AddCommand(connectCreateMedicalDataSourceRequestWriteToParcelCmd)
-	connectCmd.AddCommand(connectCreateMedicalDataSourceRequestCmd)
-	connectCreateMedicalDataSourceRequestBuilderCmd.AddCommand(connectCreateMedicalDataSourceRequestBuilderBuildCmd)
-	connectCreateMedicalDataSourceRequestBuilderSetDisplayNameCmd.Flags().String("arg0", "", "arg0 (string)")
-	connectCreateMedicalDataSourceRequestBuilderCmd.AddCommand(connectCreateMedicalDataSourceRequestBuilderSetDisplayNameCmd)
-	connectCreateMedicalDataSourceRequestBuilderSetFhirBaseUriCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	connectCreateMedicalDataSourceRequestBuilderCmd.AddCommand(connectCreateMedicalDataSourceRequestBuilderSetFhirBaseUriCmd)
-	connectCreateMedicalDataSourceRequestBuilderSetFhirVersionCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	connectCreateMedicalDataSourceRequestBuilderCmd.AddCommand(connectCreateMedicalDataSourceRequestBuilderSetFhirVersionCmd)
-	connectCmd.AddCommand(connectCreateMedicalDataSourceRequestBuilderCmd)
-	connectReadMedicalResourcesRequestCmd.AddCommand(connectReadMedicalResourcesRequestGetPageSizeCmd)
-	connectCmd.AddCommand(connectReadMedicalResourcesRequestCmd)
-	connectHealthConnectExceptionCmd.AddCommand(connectHealthConnectExceptionGetErrorCodeCmd)
-	connectCmd.AddCommand(connectHealthConnectExceptionCmd)
-	connectReadMedicalResourcesPageRequestEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	connectReadMedicalResourcesPageRequestCmd.AddCommand(connectReadMedicalResourcesPageRequestEqualsCmd)
-	connectReadMedicalResourcesPageRequestCmd.AddCommand(connectReadMedicalResourcesPageRequestGetPageTokenCmd)
-	connectReadMedicalResourcesPageRequestCmd.AddCommand(connectReadMedicalResourcesPageRequestHashCodeCmd)
-	connectReadMedicalResourcesPageRequestCmd.AddCommand(connectReadMedicalResourcesPageRequestToStringCmd)
-	connectCmd.AddCommand(connectReadMedicalResourcesPageRequestCmd)
-	connectReadMedicalResourcesPageRequestBuilderCmd.AddCommand(connectReadMedicalResourcesPageRequestBuilderBuildCmd)
-	connectReadMedicalResourcesPageRequestBuilderSetPageSizeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	connectReadMedicalResourcesPageRequestBuilderCmd.AddCommand(connectReadMedicalResourcesPageRequestBuilderSetPageSizeCmd)
-	connectReadMedicalResourcesPageRequestBuilderSetPageTokenCmd.Flags().String("arg0", "", "arg0 (string)")
-	connectReadMedicalResourcesPageRequestBuilderCmd.AddCommand(connectReadMedicalResourcesPageRequestBuilderSetPageTokenCmd)
-	connectCmd.AddCommand(connectReadMedicalResourcesPageRequestBuilderCmd)
-	connectRecordIdFilterCmd.AddCommand(connectRecordIdFilterGetClientRecordIdCmd)
-	connectRecordIdFilterCmd.AddCommand(connectRecordIdFilterGetIdCmd)
-	connectCmd.AddCommand(connectRecordIdFilterCmd)
-	connectGetMedicalDataSourcesRequestCmd.AddCommand(connectGetMedicalDataSourcesRequestDescribeContentsCmd)
-	connectGetMedicalDataSourcesRequestEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	connectGetMedicalDataSourcesRequestCmd.AddCommand(connectGetMedicalDataSourcesRequestEqualsCmd)
-	connectGetMedicalDataSourcesRequestCmd.AddCommand(connectGetMedicalDataSourcesRequestHashCodeCmd)
-	connectGetMedicalDataSourcesRequestCmd.AddCommand(connectGetMedicalDataSourcesRequestToStringCmd)
-	connectGetMedicalDataSourcesRequestWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	connectGetMedicalDataSourcesRequestWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	connectGetMedicalDataSourcesRequestCmd.AddCommand(connectGetMedicalDataSourcesRequestWriteToParcelCmd)
-	connectCmd.AddCommand(connectGetMedicalDataSourcesRequestCmd)
-	connectGetMedicalDataSourcesRequestBuilderAddPackageNameCmd.Flags().String("arg0", "", "arg0 (string)")
-	connectGetMedicalDataSourcesRequestBuilderCmd.AddCommand(connectGetMedicalDataSourcesRequestBuilderAddPackageNameCmd)
-	connectGetMedicalDataSourcesRequestBuilderCmd.AddCommand(connectGetMedicalDataSourcesRequestBuilderBuildCmd)
-	connectGetMedicalDataSourcesRequestBuilderCmd.AddCommand(connectGetMedicalDataSourcesRequestBuilderClearPackageNamesCmd)
-	connectCmd.AddCommand(connectGetMedicalDataSourcesRequestBuilderCmd)
 	connectLocalTimeRangeFilterEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	connectLocalTimeRangeFilterCmd.AddCommand(connectLocalTimeRangeFilterEqualsCmd)
 	connectLocalTimeRangeFilterCmd.AddCommand(connectLocalTimeRangeFilterGetEndTimeCmd)
@@ -2154,31 +2472,6 @@ func init() {
 	connectLocalTimeRangeFilterBuilderSetStartTimeCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	connectLocalTimeRangeFilterBuilderCmd.AddCommand(connectLocalTimeRangeFilterBuilderSetStartTimeCmd)
 	connectCmd.AddCommand(connectLocalTimeRangeFilterBuilderCmd)
-	connectReadMedicalResourcesResponseNewReadMedicalResourcesResponseCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	connectReadMedicalResourcesResponseNewReadMedicalResourcesResponseCmd.Flags().String("arg1", "", "arg1 (string)")
-	connectReadMedicalResourcesResponseNewReadMedicalResourcesResponseCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
-	connectReadMedicalResourcesResponseCmd.AddCommand(connectReadMedicalResourcesResponseNewReadMedicalResourcesResponseCmd)
-	connectReadMedicalResourcesResponseDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	connectReadMedicalResourcesResponseCmd.AddCommand(connectReadMedicalResourcesResponseDescribeContentsCmd)
-	connectReadMedicalResourcesResponseEqualsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	connectReadMedicalResourcesResponseEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	connectReadMedicalResourcesResponseCmd.AddCommand(connectReadMedicalResourcesResponseEqualsCmd)
-	connectReadMedicalResourcesResponseGetNextPageTokenCmd.Flags().Int64("handle", 0, "handle (int64)")
-	connectReadMedicalResourcesResponseCmd.AddCommand(connectReadMedicalResourcesResponseGetNextPageTokenCmd)
-	connectReadMedicalResourcesResponseGetRemainingCountCmd.Flags().Int64("handle", 0, "handle (int64)")
-	connectReadMedicalResourcesResponseCmd.AddCommand(connectReadMedicalResourcesResponseGetRemainingCountCmd)
-	connectReadMedicalResourcesResponseHashCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
-	connectReadMedicalResourcesResponseCmd.AddCommand(connectReadMedicalResourcesResponseHashCodeCmd)
-	connectReadMedicalResourcesResponseToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
-	connectReadMedicalResourcesResponseCmd.AddCommand(connectReadMedicalResourcesResponseToStringCmd)
-	connectReadMedicalResourcesResponseWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
-	connectReadMedicalResourcesResponseWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	connectReadMedicalResourcesResponseWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	connectReadMedicalResourcesResponseCmd.AddCommand(connectReadMedicalResourcesResponseWriteToParcelCmd)
-	connectCmd.AddCommand(connectReadMedicalResourcesResponseCmd)
-	connectAggregateRecordsGroupedByDurationResponseCmd.AddCommand(connectAggregateRecordsGroupedByDurationResponseGetEndTimeCmd)
-	connectAggregateRecordsGroupedByDurationResponseCmd.AddCommand(connectAggregateRecordsGroupedByDurationResponseGetStartTimeCmd)
-	connectCmd.AddCommand(connectAggregateRecordsGroupedByDurationResponseCmd)
 	connectMedicalResourceIdNewMedicalResourceIdCmd.Flags().String("arg0", "", "arg0 (string)")
 	connectMedicalResourceIdNewMedicalResourceIdCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
 	connectMedicalResourceIdNewMedicalResourceIdCmd.Flags().String("arg2", "", "arg2 (string)")
@@ -2207,6 +2500,102 @@ func init() {
 	connectMedicalResourceIdFromFhirReferenceCmd.Flags().String("arg1", "", "arg1 (string)")
 	connectMedicalResourceIdCmd.AddCommand(connectMedicalResourceIdFromFhirReferenceCmd)
 	connectCmd.AddCommand(connectMedicalResourceIdCmd)
+	connectReadMedicalResourcesPageRequestEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	connectReadMedicalResourcesPageRequestCmd.AddCommand(connectReadMedicalResourcesPageRequestEqualsCmd)
+	connectReadMedicalResourcesPageRequestCmd.AddCommand(connectReadMedicalResourcesPageRequestGetPageTokenCmd)
+	connectReadMedicalResourcesPageRequestCmd.AddCommand(connectReadMedicalResourcesPageRequestHashCodeCmd)
+	connectReadMedicalResourcesPageRequestCmd.AddCommand(connectReadMedicalResourcesPageRequestToStringCmd)
+	connectCmd.AddCommand(connectReadMedicalResourcesPageRequestCmd)
+	connectReadMedicalResourcesPageRequestBuilderCmd.AddCommand(connectReadMedicalResourcesPageRequestBuilderBuildCmd)
+	connectReadMedicalResourcesPageRequestBuilderSetPageSizeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	connectReadMedicalResourcesPageRequestBuilderCmd.AddCommand(connectReadMedicalResourcesPageRequestBuilderSetPageSizeCmd)
+	connectReadMedicalResourcesPageRequestBuilderSetPageTokenCmd.Flags().String("arg0", "", "arg0 (string)")
+	connectReadMedicalResourcesPageRequestBuilderCmd.AddCommand(connectReadMedicalResourcesPageRequestBuilderSetPageTokenCmd)
+	connectCmd.AddCommand(connectReadMedicalResourcesPageRequestBuilderCmd)
+	connectReadRecordsRequestCmd.AddCommand(connectReadRecordsRequestGetRecordTypeCmd)
+	connectCmd.AddCommand(connectReadRecordsRequestCmd)
+	connectReadRecordsRequestUsingFiltersCmd.AddCommand(connectReadRecordsRequestUsingFiltersGetDataOriginsCmd)
+	connectReadRecordsRequestUsingFiltersCmd.AddCommand(connectReadRecordsRequestUsingFiltersGetPageSizeCmd)
+	connectReadRecordsRequestUsingFiltersCmd.AddCommand(connectReadRecordsRequestUsingFiltersGetPageTokenCmd)
+	connectReadRecordsRequestUsingFiltersCmd.AddCommand(connectReadRecordsRequestUsingFiltersGetTimeRangeFilterCmd)
+	connectReadRecordsRequestUsingFiltersCmd.AddCommand(connectReadRecordsRequestUsingFiltersIsAscendingCmd)
+	connectCmd.AddCommand(connectReadRecordsRequestUsingFiltersCmd)
+	connectReadRecordsRequestUsingFiltersBuilderAddDataOriginsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	connectReadRecordsRequestUsingFiltersBuilderCmd.AddCommand(connectReadRecordsRequestUsingFiltersBuilderAddDataOriginsCmd)
+	connectReadRecordsRequestUsingFiltersBuilderCmd.AddCommand(connectReadRecordsRequestUsingFiltersBuilderBuildCmd)
+	connectReadRecordsRequestUsingFiltersBuilderSetAscendingCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	connectReadRecordsRequestUsingFiltersBuilderCmd.AddCommand(connectReadRecordsRequestUsingFiltersBuilderSetAscendingCmd)
+	connectReadRecordsRequestUsingFiltersBuilderSetPageSizeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	connectReadRecordsRequestUsingFiltersBuilderCmd.AddCommand(connectReadRecordsRequestUsingFiltersBuilderSetPageSizeCmd)
+	connectReadRecordsRequestUsingFiltersBuilderSetPageTokenCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	connectReadRecordsRequestUsingFiltersBuilderCmd.AddCommand(connectReadRecordsRequestUsingFiltersBuilderSetPageTokenCmd)
+	connectReadRecordsRequestUsingFiltersBuilderSetTimeRangeFilterCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	connectReadRecordsRequestUsingFiltersBuilderCmd.AddCommand(connectReadRecordsRequestUsingFiltersBuilderSetTimeRangeFilterCmd)
+	connectCmd.AddCommand(connectReadRecordsRequestUsingFiltersBuilderCmd)
+	connectAggregateRecordsGroupedByDurationResponseCmd.AddCommand(connectAggregateRecordsGroupedByDurationResponseGetEndTimeCmd)
+	connectAggregateRecordsGroupedByDurationResponseCmd.AddCommand(connectAggregateRecordsGroupedByDurationResponseGetStartTimeCmd)
+	connectCmd.AddCommand(connectAggregateRecordsGroupedByDurationResponseCmd)
+	connectHealthConnectExceptionCmd.AddCommand(connectHealthConnectExceptionGetErrorCodeCmd)
+	connectCmd.AddCommand(connectHealthConnectExceptionCmd)
+	connectDeleteMedicalResourcesRequestCmd.AddCommand(connectDeleteMedicalResourcesRequestDescribeContentsCmd)
+	connectDeleteMedicalResourcesRequestEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	connectDeleteMedicalResourcesRequestCmd.AddCommand(connectDeleteMedicalResourcesRequestEqualsCmd)
+	connectDeleteMedicalResourcesRequestCmd.AddCommand(connectDeleteMedicalResourcesRequestGetDataSourceIdsCmd)
+	connectDeleteMedicalResourcesRequestCmd.AddCommand(connectDeleteMedicalResourcesRequestGetMedicalResourceTypesCmd)
+	connectDeleteMedicalResourcesRequestCmd.AddCommand(connectDeleteMedicalResourcesRequestHashCodeCmd)
+	connectDeleteMedicalResourcesRequestCmd.AddCommand(connectDeleteMedicalResourcesRequestToStringCmd)
+	connectDeleteMedicalResourcesRequestWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	connectDeleteMedicalResourcesRequestWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	connectDeleteMedicalResourcesRequestCmd.AddCommand(connectDeleteMedicalResourcesRequestWriteToParcelCmd)
+	connectCmd.AddCommand(connectDeleteMedicalResourcesRequestCmd)
+	connectDeleteMedicalResourcesRequestBuilderAddDataSourceIdCmd.Flags().String("arg0", "", "arg0 (string)")
+	connectDeleteMedicalResourcesRequestBuilderCmd.AddCommand(connectDeleteMedicalResourcesRequestBuilderAddDataSourceIdCmd)
+	connectDeleteMedicalResourcesRequestBuilderAddMedicalResourceTypeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	connectDeleteMedicalResourcesRequestBuilderCmd.AddCommand(connectDeleteMedicalResourcesRequestBuilderAddMedicalResourceTypeCmd)
+	connectDeleteMedicalResourcesRequestBuilderCmd.AddCommand(connectDeleteMedicalResourcesRequestBuilderBuildCmd)
+	connectDeleteMedicalResourcesRequestBuilderCmd.AddCommand(connectDeleteMedicalResourcesRequestBuilderClearDataSourceIdsCmd)
+	connectDeleteMedicalResourcesRequestBuilderCmd.AddCommand(connectDeleteMedicalResourcesRequestBuilderClearMedicalResourceTypesCmd)
+	connectCmd.AddCommand(connectDeleteMedicalResourcesRequestBuilderCmd)
+	connectCreateMedicalDataSourceRequestCmd.AddCommand(connectCreateMedicalDataSourceRequestDescribeContentsCmd)
+	connectCreateMedicalDataSourceRequestEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	connectCreateMedicalDataSourceRequestCmd.AddCommand(connectCreateMedicalDataSourceRequestEqualsCmd)
+	connectCreateMedicalDataSourceRequestCmd.AddCommand(connectCreateMedicalDataSourceRequestGetDisplayNameCmd)
+	connectCreateMedicalDataSourceRequestCmd.AddCommand(connectCreateMedicalDataSourceRequestGetFhirBaseUriCmd)
+	connectCreateMedicalDataSourceRequestCmd.AddCommand(connectCreateMedicalDataSourceRequestGetFhirVersionCmd)
+	connectCreateMedicalDataSourceRequestCmd.AddCommand(connectCreateMedicalDataSourceRequestHashCodeCmd)
+	connectCreateMedicalDataSourceRequestCmd.AddCommand(connectCreateMedicalDataSourceRequestToStringCmd)
+	connectCreateMedicalDataSourceRequestWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	connectCreateMedicalDataSourceRequestWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	connectCreateMedicalDataSourceRequestCmd.AddCommand(connectCreateMedicalDataSourceRequestWriteToParcelCmd)
+	connectCmd.AddCommand(connectCreateMedicalDataSourceRequestCmd)
+	connectCreateMedicalDataSourceRequestBuilderCmd.AddCommand(connectCreateMedicalDataSourceRequestBuilderBuildCmd)
+	connectCreateMedicalDataSourceRequestBuilderSetDisplayNameCmd.Flags().String("arg0", "", "arg0 (string)")
+	connectCreateMedicalDataSourceRequestBuilderCmd.AddCommand(connectCreateMedicalDataSourceRequestBuilderSetDisplayNameCmd)
+	connectCreateMedicalDataSourceRequestBuilderSetFhirBaseUriCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	connectCreateMedicalDataSourceRequestBuilderCmd.AddCommand(connectCreateMedicalDataSourceRequestBuilderSetFhirBaseUriCmd)
+	connectCreateMedicalDataSourceRequestBuilderSetFhirVersionCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	connectCreateMedicalDataSourceRequestBuilderCmd.AddCommand(connectCreateMedicalDataSourceRequestBuilderSetFhirVersionCmd)
+	connectCmd.AddCommand(connectCreateMedicalDataSourceRequestBuilderCmd)
+	connectAggregateRecordsGroupedByPeriodResponseCmd.AddCommand(connectAggregateRecordsGroupedByPeriodResponseGetEndTimeCmd)
+	connectAggregateRecordsGroupedByPeriodResponseCmd.AddCommand(connectAggregateRecordsGroupedByPeriodResponseGetStartTimeCmd)
+	connectCmd.AddCommand(connectAggregateRecordsGroupedByPeriodResponseCmd)
+	connectInsertRecordsResponseCmd.AddCommand(connectInsertRecordsResponseGetRecordsCmd)
+	connectCmd.AddCommand(connectInsertRecordsResponseCmd)
+	connectGetMedicalDataSourcesRequestCmd.AddCommand(connectGetMedicalDataSourcesRequestDescribeContentsCmd)
+	connectGetMedicalDataSourcesRequestEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	connectGetMedicalDataSourcesRequestCmd.AddCommand(connectGetMedicalDataSourcesRequestEqualsCmd)
+	connectGetMedicalDataSourcesRequestCmd.AddCommand(connectGetMedicalDataSourcesRequestGetPackageNamesCmd)
+	connectGetMedicalDataSourcesRequestCmd.AddCommand(connectGetMedicalDataSourcesRequestHashCodeCmd)
+	connectGetMedicalDataSourcesRequestCmd.AddCommand(connectGetMedicalDataSourcesRequestToStringCmd)
+	connectGetMedicalDataSourcesRequestWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	connectGetMedicalDataSourcesRequestWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	connectGetMedicalDataSourcesRequestCmd.AddCommand(connectGetMedicalDataSourcesRequestWriteToParcelCmd)
+	connectCmd.AddCommand(connectGetMedicalDataSourcesRequestCmd)
+	connectGetMedicalDataSourcesRequestBuilderAddPackageNameCmd.Flags().String("arg0", "", "arg0 (string)")
+	connectGetMedicalDataSourcesRequestBuilderCmd.AddCommand(connectGetMedicalDataSourcesRequestBuilderAddPackageNameCmd)
+	connectGetMedicalDataSourcesRequestBuilderCmd.AddCommand(connectGetMedicalDataSourcesRequestBuilderBuildCmd)
+	connectGetMedicalDataSourcesRequestBuilderCmd.AddCommand(connectGetMedicalDataSourcesRequestBuilderClearPackageNamesCmd)
+	connectCmd.AddCommand(connectGetMedicalDataSourcesRequestBuilderCmd)
 	connectUpsertMedicalResourceRequestCmd.AddCommand(connectUpsertMedicalResourceRequestDescribeContentsCmd)
 	connectUpsertMedicalResourceRequestEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	connectUpsertMedicalResourceRequestCmd.AddCommand(connectUpsertMedicalResourceRequestEqualsCmd)
@@ -2227,5 +2616,79 @@ func init() {
 	connectUpsertMedicalResourceRequestBuilderSetFhirVersionCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	connectUpsertMedicalResourceRequestBuilderCmd.AddCommand(connectUpsertMedicalResourceRequestBuilderSetFhirVersionCmd)
 	connectCmd.AddCommand(connectUpsertMedicalResourceRequestBuilderCmd)
+	connectAggregateRecordsRequestCmd.AddCommand(connectAggregateRecordsRequestGetAggregationTypesCmd)
+	connectAggregateRecordsRequestCmd.AddCommand(connectAggregateRecordsRequestGetDataOriginsFiltersCmd)
+	connectAggregateRecordsRequestCmd.AddCommand(connectAggregateRecordsRequestGetTimeRangeFilterCmd)
+	connectCmd.AddCommand(connectAggregateRecordsRequestCmd)
+	connectAggregateRecordsRequestBuilderAddDataOriginsFilterCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	connectAggregateRecordsRequestBuilderCmd.AddCommand(connectAggregateRecordsRequestBuilderAddDataOriginsFilterCmd)
+	connectAggregateRecordsRequestBuilderCmd.AddCommand(connectAggregateRecordsRequestBuilderBuildCmd)
+	connectCmd.AddCommand(connectAggregateRecordsRequestBuilderCmd)
+	connectTimeInstantRangeFilterEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	connectTimeInstantRangeFilterCmd.AddCommand(connectTimeInstantRangeFilterEqualsCmd)
+	connectTimeInstantRangeFilterCmd.AddCommand(connectTimeInstantRangeFilterGetEndTimeCmd)
+	connectTimeInstantRangeFilterCmd.AddCommand(connectTimeInstantRangeFilterGetStartTimeCmd)
+	connectTimeInstantRangeFilterCmd.AddCommand(connectTimeInstantRangeFilterHashCodeCmd)
+	connectTimeInstantRangeFilterCmd.AddCommand(connectTimeInstantRangeFilterIsBoundedCmd)
+	connectCmd.AddCommand(connectTimeInstantRangeFilterCmd)
+	connectTimeInstantRangeFilterBuilderCmd.AddCommand(connectTimeInstantRangeFilterBuilderBuildCmd)
+	connectTimeInstantRangeFilterBuilderSetEndTimeCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	connectTimeInstantRangeFilterBuilderCmd.AddCommand(connectTimeInstantRangeFilterBuilderSetEndTimeCmd)
+	connectTimeInstantRangeFilterBuilderSetStartTimeCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	connectTimeInstantRangeFilterBuilderCmd.AddCommand(connectTimeInstantRangeFilterBuilderSetStartTimeCmd)
+	connectCmd.AddCommand(connectTimeInstantRangeFilterBuilderCmd)
+	connectReadMedicalResourcesRequestCmd.AddCommand(connectReadMedicalResourcesRequestGetPageSizeCmd)
+	connectCmd.AddCommand(connectReadMedicalResourcesRequestCmd)
+	connectReadMedicalResourcesInitialRequestEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	connectReadMedicalResourcesInitialRequestCmd.AddCommand(connectReadMedicalResourcesInitialRequestEqualsCmd)
+	connectReadMedicalResourcesInitialRequestCmd.AddCommand(connectReadMedicalResourcesInitialRequestGetDataSourceIdsCmd)
+	connectReadMedicalResourcesInitialRequestCmd.AddCommand(connectReadMedicalResourcesInitialRequestGetMedicalResourceTypeCmd)
+	connectReadMedicalResourcesInitialRequestCmd.AddCommand(connectReadMedicalResourcesInitialRequestHashCodeCmd)
+	connectReadMedicalResourcesInitialRequestCmd.AddCommand(connectReadMedicalResourcesInitialRequestToStringCmd)
+	connectCmd.AddCommand(connectReadMedicalResourcesInitialRequestCmd)
+	connectReadMedicalResourcesInitialRequestBuilderAddDataSourceIdCmd.Flags().String("arg0", "", "arg0 (string)")
+	connectReadMedicalResourcesInitialRequestBuilderCmd.AddCommand(connectReadMedicalResourcesInitialRequestBuilderAddDataSourceIdCmd)
+	connectReadMedicalResourcesInitialRequestBuilderCmd.AddCommand(connectReadMedicalResourcesInitialRequestBuilderBuildCmd)
+	connectReadMedicalResourcesInitialRequestBuilderCmd.AddCommand(connectReadMedicalResourcesInitialRequestBuilderClearDataSourceIdsCmd)
+	connectReadMedicalResourcesInitialRequestBuilderSetMedicalResourceTypeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	connectReadMedicalResourcesInitialRequestBuilderCmd.AddCommand(connectReadMedicalResourcesInitialRequestBuilderSetMedicalResourceTypeCmd)
+	connectReadMedicalResourcesInitialRequestBuilderSetPageSizeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	connectReadMedicalResourcesInitialRequestBuilderCmd.AddCommand(connectReadMedicalResourcesInitialRequestBuilderSetPageSizeCmd)
+	connectCmd.AddCommand(connectReadMedicalResourcesInitialRequestBuilderCmd)
+	connectReadMedicalResourcesResponseNewReadMedicalResourcesResponseCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	connectReadMedicalResourcesResponseNewReadMedicalResourcesResponseCmd.Flags().String("arg1", "", "arg1 (string)")
+	connectReadMedicalResourcesResponseNewReadMedicalResourcesResponseCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	connectReadMedicalResourcesResponseCmd.AddCommand(connectReadMedicalResourcesResponseNewReadMedicalResourcesResponseCmd)
+	connectReadMedicalResourcesResponseDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	connectReadMedicalResourcesResponseCmd.AddCommand(connectReadMedicalResourcesResponseDescribeContentsCmd)
+	connectReadMedicalResourcesResponseEqualsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	connectReadMedicalResourcesResponseEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	connectReadMedicalResourcesResponseCmd.AddCommand(connectReadMedicalResourcesResponseEqualsCmd)
+	connectReadMedicalResourcesResponseGetMedicalResourcesCmd.Flags().Int64("handle", 0, "handle (int64)")
+	connectReadMedicalResourcesResponseCmd.AddCommand(connectReadMedicalResourcesResponseGetMedicalResourcesCmd)
+	connectReadMedicalResourcesResponseGetNextPageTokenCmd.Flags().Int64("handle", 0, "handle (int64)")
+	connectReadMedicalResourcesResponseCmd.AddCommand(connectReadMedicalResourcesResponseGetNextPageTokenCmd)
+	connectReadMedicalResourcesResponseGetRemainingCountCmd.Flags().Int64("handle", 0, "handle (int64)")
+	connectReadMedicalResourcesResponseCmd.AddCommand(connectReadMedicalResourcesResponseGetRemainingCountCmd)
+	connectReadMedicalResourcesResponseHashCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	connectReadMedicalResourcesResponseCmd.AddCommand(connectReadMedicalResourcesResponseHashCodeCmd)
+	connectReadMedicalResourcesResponseToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
+	connectReadMedicalResourcesResponseCmd.AddCommand(connectReadMedicalResourcesResponseToStringCmd)
+	connectReadMedicalResourcesResponseWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	connectReadMedicalResourcesResponseWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	connectReadMedicalResourcesResponseWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	connectReadMedicalResourcesResponseCmd.AddCommand(connectReadMedicalResourcesResponseWriteToParcelCmd)
+	connectCmd.AddCommand(connectReadMedicalResourcesResponseCmd)
+	connectReadRecordsRequestUsingIdsCmd.AddCommand(connectReadRecordsRequestUsingIdsGetRecordIdFiltersCmd)
+	connectCmd.AddCommand(connectReadRecordsRequestUsingIdsCmd)
+	connectReadRecordsRequestUsingIdsBuilderAddClientRecordIdCmd.Flags().String("arg0", "", "arg0 (string)")
+	connectReadRecordsRequestUsingIdsBuilderCmd.AddCommand(connectReadRecordsRequestUsingIdsBuilderAddClientRecordIdCmd)
+	connectReadRecordsRequestUsingIdsBuilderAddIdCmd.Flags().String("arg0", "", "arg0 (string)")
+	connectReadRecordsRequestUsingIdsBuilderCmd.AddCommand(connectReadRecordsRequestUsingIdsBuilderAddIdCmd)
+	connectReadRecordsRequestUsingIdsBuilderCmd.AddCommand(connectReadRecordsRequestUsingIdsBuilderBuildCmd)
+	connectCmd.AddCommand(connectReadRecordsRequestUsingIdsBuilderCmd)
+	connectRecordIdFilterCmd.AddCommand(connectRecordIdFilterGetClientRecordIdCmd)
+	connectRecordIdFilterCmd.AddCommand(connectRecordIdFilterGetIdCmd)
+	connectCmd.AddCommand(connectRecordIdFilterCmd)
 	rootCmd.AddCommand(connectCmd)
 }

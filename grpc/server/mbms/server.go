@@ -63,6 +63,159 @@ func (s *StreamingSessionCallbackServer) OnMiddlewareReady(_ context.Context, re
 	return &pb.OnMiddlewareReadyResponse{}, nil
 }
 
+// DownloadProgressListenerServer implements pb.DownloadProgressListenerServiceServer.
+type DownloadProgressListenerServer struct {
+	pb.UnimplementedDownloadProgressListenerServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *DownloadProgressListenerServer) NewDownloadProgressListener(_ context.Context, req *pb.NewDownloadProgressListenerRequest) (*pb.NewDownloadProgressListenerResponse, error) {
+	obj, err := jnipkg.NewDownloadProgressListener(s.Ctx.VM)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewDownloadProgressListenerResponse{Result: handle}, nil
+}
+
+func (s *DownloadProgressListenerServer) OnProgressUpdated(_ context.Context, req *pb.OnProgressUpdatedRequest) (*pb.OnProgressUpdatedResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.DownloadProgressListener{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.OnProgressUpdated(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()), req.GetArg2(), req.GetArg3(), req.GetArg4(), req.GetArg5()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.OnProgressUpdatedResponse{}, nil
+}
+
+// DownloadReceiverServer implements pb.DownloadReceiverServiceServer.
+type DownloadReceiverServer struct {
+	pb.UnimplementedDownloadReceiverServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *DownloadReceiverServer) NewDownloadReceiver(_ context.Context, req *pb.NewDownloadReceiverRequest) (*pb.NewDownloadReceiverResponse, error) {
+	obj, err := jnipkg.NewDownloadReceiver(s.Ctx.VM)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewDownloadReceiverResponse{Result: handle}, nil
+}
+
+func (s *DownloadReceiverServer) OnReceive(_ context.Context, req *pb.OnReceiveRequest) (*pb.OnReceiveResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.DownloadReceiver{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.OnReceive(s.Ctx.Obj, s.Handles.Get(req.GetArg1())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.OnReceiveResponse{}, nil
+}
+
+// DownloadSessionCallbackServer implements pb.DownloadSessionCallbackServiceServer.
+type DownloadSessionCallbackServer struct {
+	pb.UnimplementedDownloadSessionCallbackServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *DownloadSessionCallbackServer) NewDownloadSessionCallback(_ context.Context, req *pb.NewDownloadSessionCallbackRequest) (*pb.NewDownloadSessionCallbackResponse, error) {
+	obj, err := jnipkg.NewDownloadSessionCallback(s.Ctx.VM)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewDownloadSessionCallbackResponse{Result: handle}, nil
+}
+
+func (s *DownloadSessionCallbackServer) OnError(_ context.Context, req *pb.OnErrorRequest) (*pb.OnErrorResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.DownloadSessionCallback{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.OnError(req.GetArg0(), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.OnErrorResponse{}, nil
+}
+
+func (s *DownloadSessionCallbackServer) OnMiddlewareReady(_ context.Context, req *pb.OnMiddlewareReadyRequest) (*pb.OnMiddlewareReadyResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.DownloadSessionCallback{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.OnMiddlewareReady(); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.OnMiddlewareReadyResponse{}, nil
+}
+
+// DownloadStatusListenerServer implements pb.DownloadStatusListenerServiceServer.
+type DownloadStatusListenerServer struct {
+	pb.UnimplementedDownloadStatusListenerServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *DownloadStatusListenerServer) NewDownloadStatusListener(_ context.Context, req *pb.NewDownloadStatusListenerRequest) (*pb.NewDownloadStatusListenerResponse, error) {
+	obj, err := jnipkg.NewDownloadStatusListener(s.Ctx.VM)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewDownloadStatusListenerResponse{Result: handle}, nil
+}
+
+func (s *DownloadStatusListenerServer) OnStatusUpdated(_ context.Context, req *pb.OnStatusUpdatedRequest) (*pb.OnStatusUpdatedResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.DownloadStatusListener{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.OnStatusUpdated(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()), req.GetArg2()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.OnStatusUpdatedResponse{}, nil
+}
+
 // StreamingServiceCallbackServer implements pb.StreamingServiceCallbackServiceServer.
 type StreamingServiceCallbackServer struct {
 	pb.UnimplementedStreamingServiceCallbackServiceServer
@@ -148,157 +301,4 @@ func (s *StreamingServiceCallbackServer) OnStreamStateUpdated(_ context.Context,
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
 	return &pb.OnStreamStateUpdatedResponse{}, nil
-}
-
-// DownloadSessionCallbackServer implements pb.DownloadSessionCallbackServiceServer.
-type DownloadSessionCallbackServer struct {
-	pb.UnimplementedDownloadSessionCallbackServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *DownloadSessionCallbackServer) NewDownloadSessionCallback(_ context.Context, req *pb.NewDownloadSessionCallbackRequest) (*pb.NewDownloadSessionCallbackResponse, error) {
-	obj, err := jnipkg.NewDownloadSessionCallback(s.Ctx.VM)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
-	}
-	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-	}
-	return &pb.NewDownloadSessionCallbackResponse{Result: handle}, nil
-}
-
-func (s *DownloadSessionCallbackServer) OnError(_ context.Context, req *pb.OnErrorRequest) (*pb.OnErrorResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.DownloadSessionCallback{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.OnError(req.GetArg0(), req.GetArg1()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.OnErrorResponse{}, nil
-}
-
-func (s *DownloadSessionCallbackServer) OnMiddlewareReady(_ context.Context, req *pb.OnMiddlewareReadyRequest) (*pb.OnMiddlewareReadyResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.DownloadSessionCallback{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.OnMiddlewareReady(); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.OnMiddlewareReadyResponse{}, nil
-}
-
-// DownloadProgressListenerServer implements pb.DownloadProgressListenerServiceServer.
-type DownloadProgressListenerServer struct {
-	pb.UnimplementedDownloadProgressListenerServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *DownloadProgressListenerServer) NewDownloadProgressListener(_ context.Context, req *pb.NewDownloadProgressListenerRequest) (*pb.NewDownloadProgressListenerResponse, error) {
-	obj, err := jnipkg.NewDownloadProgressListener(s.Ctx.VM)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
-	}
-	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-	}
-	return &pb.NewDownloadProgressListenerResponse{Result: handle}, nil
-}
-
-func (s *DownloadProgressListenerServer) OnProgressUpdated(_ context.Context, req *pb.OnProgressUpdatedRequest) (*pb.OnProgressUpdatedResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.DownloadProgressListener{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.OnProgressUpdated(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()), req.GetArg2(), req.GetArg3(), req.GetArg4(), req.GetArg5()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.OnProgressUpdatedResponse{}, nil
-}
-
-// DownloadStatusListenerServer implements pb.DownloadStatusListenerServiceServer.
-type DownloadStatusListenerServer struct {
-	pb.UnimplementedDownloadStatusListenerServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *DownloadStatusListenerServer) NewDownloadStatusListener(_ context.Context, req *pb.NewDownloadStatusListenerRequest) (*pb.NewDownloadStatusListenerResponse, error) {
-	obj, err := jnipkg.NewDownloadStatusListener(s.Ctx.VM)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
-	}
-	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-	}
-	return &pb.NewDownloadStatusListenerResponse{Result: handle}, nil
-}
-
-func (s *DownloadStatusListenerServer) OnStatusUpdated(_ context.Context, req *pb.OnStatusUpdatedRequest) (*pb.OnStatusUpdatedResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.DownloadStatusListener{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.OnStatusUpdated(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()), req.GetArg2()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.OnStatusUpdatedResponse{}, nil
-}
-
-// DownloadReceiverServer implements pb.DownloadReceiverServiceServer.
-type DownloadReceiverServer struct {
-	pb.UnimplementedDownloadReceiverServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *DownloadReceiverServer) NewDownloadReceiver(_ context.Context, req *pb.NewDownloadReceiverRequest) (*pb.NewDownloadReceiverResponse, error) {
-	obj, err := jnipkg.NewDownloadReceiver(s.Ctx.VM)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
-	}
-	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-	}
-	return &pb.NewDownloadReceiverResponse{Result: handle}, nil
-}
-
-func (s *DownloadReceiverServer) OnReceive(_ context.Context, req *pb.OnReceiveRequest) (*pb.OnReceiveResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.DownloadReceiver{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.OnReceive(s.Ctx.Obj, s.Handles.Get(req.GetArg1())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.OnReceiveResponse{}, nil
 }

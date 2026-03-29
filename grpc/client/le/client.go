@@ -9,1160 +9,6 @@ import (
 	"google.golang.org/grpc"
 )
 
-// AdvertiseSettingsClient wraps the gRPC AdvertiseSettingsService client.
-type AdvertiseSettingsClient struct {
-	svc pb.AdvertiseSettingsServiceClient
-}
-
-// NewAdvertiseSettingsClient creates a new AdvertiseSettings client.
-func NewAdvertiseSettingsClient(cc grpc.ClientConnInterface) *AdvertiseSettingsClient {
-	return &AdvertiseSettingsClient{
-		svc: pb.NewAdvertiseSettingsServiceClient(cc),
-	}
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *AdvertiseSettingsClient) DescribeContents(ctx context.Context) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetMode calls the GetMode RPC.
-func (c *AdvertiseSettingsClient) GetMode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetMode(ctx, &pb.GetModeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetTimeout calls the GetTimeout RPC.
-func (c *AdvertiseSettingsClient) GetTimeout(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetTimeout(ctx, &pb.GetTimeoutRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetTxPowerLevel calls the GetTxPowerLevel RPC.
-func (c *AdvertiseSettingsClient) GetTxPowerLevel(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetTxPowerLevel(ctx, &pb.GetTxPowerLevelRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsConnectable calls the IsConnectable RPC.
-func (c *AdvertiseSettingsClient) IsConnectable(ctx context.Context) (bool, error) {
-	resp, err := c.svc.IsConnectable(ctx, &pb.IsConnectableRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsDiscoverable calls the IsDiscoverable RPC.
-func (c *AdvertiseSettingsClient) IsDiscoverable(ctx context.Context) (bool, error) {
-	resp, err := c.svc.IsDiscoverable(ctx, &pb.IsDiscoverableRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToString calls the ToString RPC.
-func (c *AdvertiseSettingsClient) ToString(ctx context.Context) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *AdvertiseSettingsClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// AdvertiseSettingsBuilderClient wraps the gRPC AdvertiseSettingsBuilderService client.
-type AdvertiseSettingsBuilderClient struct {
-	svc pb.AdvertiseSettingsBuilderServiceClient
-}
-
-// NewAdvertiseSettingsBuilderClient creates a new AdvertiseSettingsBuilder client.
-func NewAdvertiseSettingsBuilderClient(cc grpc.ClientConnInterface) *AdvertiseSettingsBuilderClient {
-	return &AdvertiseSettingsBuilderClient{
-		svc: pb.NewAdvertiseSettingsBuilderServiceClient(cc),
-	}
-}
-
-// Build calls the Build RPC.
-func (c *AdvertiseSettingsBuilderClient) Build(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetAdvertiseMode calls the SetAdvertiseMode RPC.
-func (c *AdvertiseSettingsBuilderClient) SetAdvertiseMode(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.SetAdvertiseMode(ctx, &pb.SetAdvertiseModeRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetConnectable calls the SetConnectable RPC.
-func (c *AdvertiseSettingsBuilderClient) SetConnectable(ctx context.Context, arg0 bool) (int64, error) {
-	resp, err := c.svc.SetConnectable(ctx, &pb.SetConnectableRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetDiscoverable calls the SetDiscoverable RPC.
-func (c *AdvertiseSettingsBuilderClient) SetDiscoverable(ctx context.Context, arg0 bool) (int64, error) {
-	resp, err := c.svc.SetDiscoverable(ctx, &pb.SetDiscoverableRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetTimeout calls the SetTimeout RPC.
-func (c *AdvertiseSettingsBuilderClient) SetTimeout(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.SetTimeout(ctx, &pb.SetTimeoutRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetTxPowerLevel calls the SetTxPowerLevel RPC.
-func (c *AdvertiseSettingsBuilderClient) SetTxPowerLevel(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.SetTxPowerLevel(ctx, &pb.SetTxPowerLevelRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ScanCallbackClient wraps the gRPC ScanCallbackService client.
-type ScanCallbackClient struct {
-	svc pb.ScanCallbackServiceClient
-}
-
-// NewScanCallbackClient creates a new ScanCallback client.
-func NewScanCallbackClient(cc grpc.ClientConnInterface) *ScanCallbackClient {
-	return &ScanCallbackClient{
-		svc: pb.NewScanCallbackServiceClient(cc),
-	}
-}
-
-// OnScanFailed calls the OnScanFailed RPC.
-func (c *ScanCallbackClient) OnScanFailed(ctx context.Context, arg0 int32) error {
-	_, err := c.svc.OnScanFailed(ctx, &pb.OnScanFailedRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// OnScanResult calls the OnScanResult RPC.
-func (c *ScanCallbackClient) OnScanResult(ctx context.Context, arg0 int32, arg1 int64) error {
-	_, err := c.svc.OnScanResult(ctx, &pb.OnScanResultRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// AdvertiseDataClient wraps the gRPC AdvertiseDataService client.
-type AdvertiseDataClient struct {
-	svc pb.AdvertiseDataServiceClient
-}
-
-// NewAdvertiseDataClient creates a new AdvertiseData client.
-func NewAdvertiseDataClient(cc grpc.ClientConnInterface) *AdvertiseDataClient {
-	return &AdvertiseDataClient{
-		svc: pb.NewAdvertiseDataServiceClient(cc),
-	}
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *AdvertiseDataClient) DescribeContents(ctx context.Context) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Equals calls the Equals RPC.
-func (c *AdvertiseDataClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetIncludeDeviceName calls the GetIncludeDeviceName RPC.
-func (c *AdvertiseDataClient) GetIncludeDeviceName(ctx context.Context) (bool, error) {
-	resp, err := c.svc.GetIncludeDeviceName(ctx, &pb.GetIncludeDeviceNameRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetIncludeTxPowerLevel calls the GetIncludeTxPowerLevel RPC.
-func (c *AdvertiseDataClient) GetIncludeTxPowerLevel(ctx context.Context) (bool, error) {
-	resp, err := c.svc.GetIncludeTxPowerLevel(ctx, &pb.GetIncludeTxPowerLevelRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *AdvertiseDataClient) HashCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToString calls the ToString RPC.
-func (c *AdvertiseDataClient) ToString(ctx context.Context) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *AdvertiseDataClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// AdvertiseDataBuilderClient wraps the gRPC AdvertiseDataBuilderService client.
-type AdvertiseDataBuilderClient struct {
-	svc pb.AdvertiseDataBuilderServiceClient
-}
-
-// NewAdvertiseDataBuilderClient creates a new AdvertiseDataBuilder client.
-func NewAdvertiseDataBuilderClient(cc grpc.ClientConnInterface) *AdvertiseDataBuilderClient {
-	return &AdvertiseDataBuilderClient{
-		svc: pb.NewAdvertiseDataBuilderServiceClient(cc),
-	}
-}
-
-// AddManufacturerData calls the AddManufacturerData RPC.
-func (c *AdvertiseDataBuilderClient) AddManufacturerData(ctx context.Context, arg0 int32, arg1 int64) (int64, error) {
-	resp, err := c.svc.AddManufacturerData(ctx, &pb.AddManufacturerDataRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// AddServiceData calls the AddServiceData RPC.
-func (c *AdvertiseDataBuilderClient) AddServiceData(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
-	resp, err := c.svc.AddServiceData(ctx, &pb.AddServiceDataRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// AddServiceSolicitationUuid calls the AddServiceSolicitationUuid RPC.
-func (c *AdvertiseDataBuilderClient) AddServiceSolicitationUuid(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.AddServiceSolicitationUuid(ctx, &pb.AddServiceSolicitationUuidRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// AddServiceUuid calls the AddServiceUuid RPC.
-func (c *AdvertiseDataBuilderClient) AddServiceUuid(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.AddServiceUuid(ctx, &pb.AddServiceUuidRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// AddTransportDiscoveryData calls the AddTransportDiscoveryData RPC.
-func (c *AdvertiseDataBuilderClient) AddTransportDiscoveryData(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.AddTransportDiscoveryData(ctx, &pb.AddTransportDiscoveryDataRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Build calls the Build RPC.
-func (c *AdvertiseDataBuilderClient) Build(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetIncludeDeviceName calls the SetIncludeDeviceName RPC.
-func (c *AdvertiseDataBuilderClient) SetIncludeDeviceName(ctx context.Context, arg0 bool) (int64, error) {
-	resp, err := c.svc.SetIncludeDeviceName(ctx, &pb.SetIncludeDeviceNameRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetIncludeTxPowerLevel calls the SetIncludeTxPowerLevel RPC.
-func (c *AdvertiseDataBuilderClient) SetIncludeTxPowerLevel(ctx context.Context, arg0 bool) (int64, error) {
-	resp, err := c.svc.SetIncludeTxPowerLevel(ctx, &pb.SetIncludeTxPowerLevelRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ScanResultClient wraps the gRPC ScanResultService client.
-type ScanResultClient struct {
-	svc pb.ScanResultServiceClient
-}
-
-// NewScanResultClient creates a new ScanResult client.
-func NewScanResultClient(cc grpc.ClientConnInterface) *ScanResultClient {
-	return &ScanResultClient{
-		svc: pb.NewScanResultServiceClient(cc),
-	}
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *ScanResultClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.ScanResultDescribeContentsRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Equals calls the Equals RPC.
-func (c *ScanResultClient) Equals(ctx context.Context, handle int64, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.ScanResultEqualsRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetAdvertisingSid calls the GetAdvertisingSid RPC.
-func (c *ScanResultClient) GetAdvertisingSid(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetAdvertisingSid(ctx, &pb.GetAdvertisingSidRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetDataStatus calls the GetDataStatus RPC.
-func (c *ScanResultClient) GetDataStatus(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetDataStatus(ctx, &pb.GetDataStatusRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetDevice calls the GetDevice RPC.
-func (c *ScanResultClient) GetDevice(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetDevice(ctx, &pb.GetDeviceRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetPeriodicAdvertisingInterval calls the GetPeriodicAdvertisingInterval RPC.
-func (c *ScanResultClient) GetPeriodicAdvertisingInterval(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetPeriodicAdvertisingInterval(ctx, &pb.GetPeriodicAdvertisingIntervalRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetPrimaryPhy calls the GetPrimaryPhy RPC.
-func (c *ScanResultClient) GetPrimaryPhy(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetPrimaryPhy(ctx, &pb.GetPrimaryPhyRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetRssi calls the GetRssi RPC.
-func (c *ScanResultClient) GetRssi(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetRssi(ctx, &pb.GetRssiRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetScanRecord calls the GetScanRecord RPC.
-func (c *ScanResultClient) GetScanRecord(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetScanRecord(ctx, &pb.GetScanRecordRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetSecondaryPhy calls the GetSecondaryPhy RPC.
-func (c *ScanResultClient) GetSecondaryPhy(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetSecondaryPhy(ctx, &pb.GetSecondaryPhyRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetTimestampNanos calls the GetTimestampNanos RPC.
-func (c *ScanResultClient) GetTimestampNanos(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetTimestampNanos(ctx, &pb.GetTimestampNanosRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetTxPower calls the GetTxPower RPC.
-func (c *ScanResultClient) GetTxPower(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetTxPower(ctx, &pb.GetTxPowerRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *ScanResultClient) HashCode(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.ScanResultHashCodeRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsConnectable calls the IsConnectable RPC.
-func (c *ScanResultClient) IsConnectable(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.IsConnectable(ctx, &pb.ScanResultIsConnectableRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsLegacy calls the IsLegacy RPC.
-func (c *ScanResultClient) IsLegacy(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.IsLegacy(ctx, &pb.IsLegacyRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToString calls the ToString RPC.
-func (c *ScanResultClient) ToString(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ScanResultToStringRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *ScanResultClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.ScanResultWriteToParcelRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// ScanSettingsClient wraps the gRPC ScanSettingsService client.
-type ScanSettingsClient struct {
-	svc pb.ScanSettingsServiceClient
-}
-
-// NewScanSettingsClient creates a new ScanSettings client.
-func NewScanSettingsClient(cc grpc.ClientConnInterface) *ScanSettingsClient {
-	return &ScanSettingsClient{
-		svc: pb.NewScanSettingsServiceClient(cc),
-	}
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *ScanSettingsClient) DescribeContents(ctx context.Context) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetCallbackType calls the GetCallbackType RPC.
-func (c *ScanSettingsClient) GetCallbackType(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetCallbackType(ctx, &pb.GetCallbackTypeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetLegacy calls the GetLegacy RPC.
-func (c *ScanSettingsClient) GetLegacy(ctx context.Context) (bool, error) {
-	resp, err := c.svc.GetLegacy(ctx, &pb.GetLegacyRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetPhy calls the GetPhy RPC.
-func (c *ScanSettingsClient) GetPhy(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetPhy(ctx, &pb.GetPhyRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetReportDelayMillis calls the GetReportDelayMillis RPC.
-func (c *ScanSettingsClient) GetReportDelayMillis(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetReportDelayMillis(ctx, &pb.GetReportDelayMillisRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetScanMode calls the GetScanMode RPC.
-func (c *ScanSettingsClient) GetScanMode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetScanMode(ctx, &pb.GetScanModeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetScanResultType calls the GetScanResultType RPC.
-func (c *ScanSettingsClient) GetScanResultType(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetScanResultType(ctx, &pb.GetScanResultTypeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *ScanSettingsClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// ScanSettingsBuilderClient wraps the gRPC ScanSettingsBuilderService client.
-type ScanSettingsBuilderClient struct {
-	svc pb.ScanSettingsBuilderServiceClient
-}
-
-// NewScanSettingsBuilderClient creates a new ScanSettingsBuilder client.
-func NewScanSettingsBuilderClient(cc grpc.ClientConnInterface) *ScanSettingsBuilderClient {
-	return &ScanSettingsBuilderClient{
-		svc: pb.NewScanSettingsBuilderServiceClient(cc),
-	}
-}
-
-// Build calls the Build RPC.
-func (c *ScanSettingsBuilderClient) Build(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetCallbackType calls the SetCallbackType RPC.
-func (c *ScanSettingsBuilderClient) SetCallbackType(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.SetCallbackType(ctx, &pb.SetCallbackTypeRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetLegacy calls the SetLegacy RPC.
-func (c *ScanSettingsBuilderClient) SetLegacy(ctx context.Context, arg0 bool) (int64, error) {
-	resp, err := c.svc.SetLegacy(ctx, &pb.SetLegacyRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetMatchMode calls the SetMatchMode RPC.
-func (c *ScanSettingsBuilderClient) SetMatchMode(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.SetMatchMode(ctx, &pb.SetMatchModeRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetNumOfMatches calls the SetNumOfMatches RPC.
-func (c *ScanSettingsBuilderClient) SetNumOfMatches(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.SetNumOfMatches(ctx, &pb.SetNumOfMatchesRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetPhy calls the SetPhy RPC.
-func (c *ScanSettingsBuilderClient) SetPhy(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.SetPhy(ctx, &pb.SetPhyRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetReportDelay calls the SetReportDelay RPC.
-func (c *ScanSettingsBuilderClient) SetReportDelay(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetReportDelay(ctx, &pb.SetReportDelayRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetScanMode calls the SetScanMode RPC.
-func (c *ScanSettingsBuilderClient) SetScanMode(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.SetScanMode(ctx, &pb.SetScanModeRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// AdvertisingSetParametersClient wraps the gRPC AdvertisingSetParametersService client.
-type AdvertisingSetParametersClient struct {
-	svc pb.AdvertisingSetParametersServiceClient
-}
-
-// NewAdvertisingSetParametersClient creates a new AdvertisingSetParameters client.
-func NewAdvertisingSetParametersClient(cc grpc.ClientConnInterface) *AdvertisingSetParametersClient {
-	return &AdvertisingSetParametersClient{
-		svc: pb.NewAdvertisingSetParametersServiceClient(cc),
-	}
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *AdvertisingSetParametersClient) DescribeContents(ctx context.Context) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetInterval calls the GetInterval RPC.
-func (c *AdvertisingSetParametersClient) GetInterval(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetInterval(ctx, &pb.GetIntervalRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetPrimaryPhy calls the GetPrimaryPhy RPC.
-func (c *AdvertisingSetParametersClient) GetPrimaryPhy(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetPrimaryPhy(ctx, &pb.AdvertisingSetParametersGetPrimaryPhyRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetSecondaryPhy calls the GetSecondaryPhy RPC.
-func (c *AdvertisingSetParametersClient) GetSecondaryPhy(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetSecondaryPhy(ctx, &pb.AdvertisingSetParametersGetSecondaryPhyRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetTxPowerLevel calls the GetTxPowerLevel RPC.
-func (c *AdvertisingSetParametersClient) GetTxPowerLevel(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetTxPowerLevel(ctx, &pb.GetTxPowerLevelRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IncludeTxPower calls the IncludeTxPower RPC.
-func (c *AdvertisingSetParametersClient) IncludeTxPower(ctx context.Context) (bool, error) {
-	resp, err := c.svc.IncludeTxPower(ctx, &pb.IncludeTxPowerRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsAnonymous calls the IsAnonymous RPC.
-func (c *AdvertisingSetParametersClient) IsAnonymous(ctx context.Context) (bool, error) {
-	resp, err := c.svc.IsAnonymous(ctx, &pb.IsAnonymousRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsConnectable calls the IsConnectable RPC.
-func (c *AdvertisingSetParametersClient) IsConnectable(ctx context.Context) (bool, error) {
-	resp, err := c.svc.IsConnectable(ctx, &pb.IsConnectableRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsDiscoverable calls the IsDiscoverable RPC.
-func (c *AdvertisingSetParametersClient) IsDiscoverable(ctx context.Context) (bool, error) {
-	resp, err := c.svc.IsDiscoverable(ctx, &pb.IsDiscoverableRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsLegacy calls the IsLegacy RPC.
-func (c *AdvertisingSetParametersClient) IsLegacy(ctx context.Context) (bool, error) {
-	resp, err := c.svc.IsLegacy(ctx, &pb.AdvertisingSetParametersIsLegacyRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsScannable calls the IsScannable RPC.
-func (c *AdvertisingSetParametersClient) IsScannable(ctx context.Context) (bool, error) {
-	resp, err := c.svc.IsScannable(ctx, &pb.IsScannableRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToString calls the ToString RPC.
-func (c *AdvertisingSetParametersClient) ToString(ctx context.Context) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *AdvertisingSetParametersClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// AdvertisingSetParametersBuilderClient wraps the gRPC AdvertisingSetParametersBuilderService client.
-type AdvertisingSetParametersBuilderClient struct {
-	svc pb.AdvertisingSetParametersBuilderServiceClient
-}
-
-// NewAdvertisingSetParametersBuilderClient creates a new AdvertisingSetParametersBuilder client.
-func NewAdvertisingSetParametersBuilderClient(cc grpc.ClientConnInterface) *AdvertisingSetParametersBuilderClient {
-	return &AdvertisingSetParametersBuilderClient{
-		svc: pb.NewAdvertisingSetParametersBuilderServiceClient(cc),
-	}
-}
-
-// Build calls the Build RPC.
-func (c *AdvertisingSetParametersBuilderClient) Build(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetAnonymous calls the SetAnonymous RPC.
-func (c *AdvertisingSetParametersBuilderClient) SetAnonymous(ctx context.Context, arg0 bool) (int64, error) {
-	resp, err := c.svc.SetAnonymous(ctx, &pb.SetAnonymousRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetConnectable calls the SetConnectable RPC.
-func (c *AdvertisingSetParametersBuilderClient) SetConnectable(ctx context.Context, arg0 bool) (int64, error) {
-	resp, err := c.svc.SetConnectable(ctx, &pb.SetConnectableRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetDiscoverable calls the SetDiscoverable RPC.
-func (c *AdvertisingSetParametersBuilderClient) SetDiscoverable(ctx context.Context, arg0 bool) (int64, error) {
-	resp, err := c.svc.SetDiscoverable(ctx, &pb.SetDiscoverableRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetIncludeTxPower calls the SetIncludeTxPower RPC.
-func (c *AdvertisingSetParametersBuilderClient) SetIncludeTxPower(ctx context.Context, arg0 bool) (int64, error) {
-	resp, err := c.svc.SetIncludeTxPower(ctx, &pb.SetIncludeTxPowerRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetInterval calls the SetInterval RPC.
-func (c *AdvertisingSetParametersBuilderClient) SetInterval(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.SetInterval(ctx, &pb.SetIntervalRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetLegacyMode calls the SetLegacyMode RPC.
-func (c *AdvertisingSetParametersBuilderClient) SetLegacyMode(ctx context.Context, arg0 bool) (int64, error) {
-	resp, err := c.svc.SetLegacyMode(ctx, &pb.SetLegacyModeRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetPrimaryPhy calls the SetPrimaryPhy RPC.
-func (c *AdvertisingSetParametersBuilderClient) SetPrimaryPhy(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.SetPrimaryPhy(ctx, &pb.SetPrimaryPhyRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetScannable calls the SetScannable RPC.
-func (c *AdvertisingSetParametersBuilderClient) SetScannable(ctx context.Context, arg0 bool) (int64, error) {
-	resp, err := c.svc.SetScannable(ctx, &pb.SetScannableRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetSecondaryPhy calls the SetSecondaryPhy RPC.
-func (c *AdvertisingSetParametersBuilderClient) SetSecondaryPhy(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.SetSecondaryPhy(ctx, &pb.SetSecondaryPhyRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetTxPowerLevel calls the SetTxPowerLevel RPC.
-func (c *AdvertisingSetParametersBuilderClient) SetTxPowerLevel(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.SetTxPowerLevel(ctx, &pb.SetTxPowerLevelRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// BluetoothLeAdvertiserClient wraps the gRPC BluetoothLeAdvertiserService client.
-type BluetoothLeAdvertiserClient struct {
-	svc pb.BluetoothLeAdvertiserServiceClient
-}
-
-// NewBluetoothLeAdvertiserClient creates a new BluetoothLeAdvertiser client.
-func NewBluetoothLeAdvertiserClient(cc grpc.ClientConnInterface) *BluetoothLeAdvertiserClient {
-	return &BluetoothLeAdvertiserClient{
-		svc: pb.NewBluetoothLeAdvertiserServiceClient(cc),
-	}
-}
-
-// StartAdvertising3 calls the StartAdvertising3 RPC.
-func (c *BluetoothLeAdvertiserClient) StartAdvertising3(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) error {
-	_, err := c.svc.StartAdvertising3(ctx, &pb.StartAdvertising3Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	return err
-}
-
-// StartAdvertising4_1 calls the StartAdvertising4_1 RPC.
-func (c *BluetoothLeAdvertiserClient) StartAdvertising4_1(ctx context.Context, arg0 int64, arg1 int64, arg2 int64, arg3 int64) error {
-	_, err := c.svc.StartAdvertising4_1(ctx, &pb.StartAdvertising4_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-	})
-	return err
-}
-
-// StartAdvertisingSet6 calls the StartAdvertisingSet6 RPC.
-func (c *BluetoothLeAdvertiserClient) StartAdvertisingSet6(ctx context.Context, arg0 int64, arg1 int64, arg2 int64, arg3 int64, arg4 int64, arg5 int64) error {
-	_, err := c.svc.StartAdvertisingSet6(ctx, &pb.StartAdvertisingSet6Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-		Arg4: arg4,
-		Arg5: arg5,
-	})
-	return err
-}
-
-// StartAdvertisingSet8_1 calls the StartAdvertisingSet8_1 RPC.
-func (c *BluetoothLeAdvertiserClient) StartAdvertisingSet8_1(ctx context.Context, arg0 int64, arg1 int64, arg2 int64, arg3 int64, arg4 int64, arg5 int32, arg6 int32, arg7 int64) error {
-	_, err := c.svc.StartAdvertisingSet8_1(ctx, &pb.StartAdvertisingSet8_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-		Arg4: arg4,
-		Arg5: arg5,
-		Arg6: arg6,
-		Arg7: arg7,
-	})
-	return err
-}
-
-// StopAdvertising calls the StopAdvertising RPC.
-func (c *BluetoothLeAdvertiserClient) StopAdvertising(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.StopAdvertising(ctx, &pb.StopAdvertisingRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// StopAdvertisingSet calls the StopAdvertisingSet RPC.
-func (c *BluetoothLeAdvertiserClient) StopAdvertisingSet(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.StopAdvertisingSet(ctx, &pb.StopAdvertisingSetRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// AdvertisingSetClient wraps the gRPC AdvertisingSetService client.
-type AdvertisingSetClient struct {
-	svc pb.AdvertisingSetServiceClient
-}
-
-// NewAdvertisingSetClient creates a new AdvertisingSet client.
-func NewAdvertisingSetClient(cc grpc.ClientConnInterface) *AdvertisingSetClient {
-	return &AdvertisingSetClient{
-		svc: pb.NewAdvertisingSetServiceClient(cc),
-	}
-}
-
-// EnableAdvertising calls the EnableAdvertising RPC.
-func (c *AdvertisingSetClient) EnableAdvertising(ctx context.Context, arg0 bool, arg1 int32, arg2 int32) error {
-	_, err := c.svc.EnableAdvertising(ctx, &pb.EnableAdvertisingRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	return err
-}
-
-// SetAdvertisingData calls the SetAdvertisingData RPC.
-func (c *AdvertisingSetClient) SetAdvertisingData(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.SetAdvertisingData(ctx, &pb.SetAdvertisingDataRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetAdvertisingParameters calls the SetAdvertisingParameters RPC.
-func (c *AdvertisingSetClient) SetAdvertisingParameters(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.SetAdvertisingParameters(ctx, &pb.SetAdvertisingParametersRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetPeriodicAdvertisingData calls the SetPeriodicAdvertisingData RPC.
-func (c *AdvertisingSetClient) SetPeriodicAdvertisingData(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.SetPeriodicAdvertisingData(ctx, &pb.SetPeriodicAdvertisingDataRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetPeriodicAdvertisingEnabled calls the SetPeriodicAdvertisingEnabled RPC.
-func (c *AdvertisingSetClient) SetPeriodicAdvertisingEnabled(ctx context.Context, arg0 bool) error {
-	_, err := c.svc.SetPeriodicAdvertisingEnabled(ctx, &pb.SetPeriodicAdvertisingEnabledRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetPeriodicAdvertisingParameters calls the SetPeriodicAdvertisingParameters RPC.
-func (c *AdvertisingSetClient) SetPeriodicAdvertisingParameters(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.SetPeriodicAdvertisingParameters(ctx, &pb.SetPeriodicAdvertisingParametersRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetScanResponseData calls the SetScanResponseData RPC.
-func (c *AdvertisingSetClient) SetScanResponseData(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.SetScanResponseData(ctx, &pb.SetScanResponseDataRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
 // ScanFilterClient wraps the gRPC ScanFilterService client.
 type ScanFilterClient struct {
 	svc pb.ScanFilterServiceClient
@@ -1531,6 +377,50 @@ func (c *ScanFilterBuilderClient) SetServiceUuid2_1(ctx context.Context, arg0 in
 	return resp.GetResult(), nil
 }
 
+// BluetoothLeScannerClient wraps the gRPC BluetoothLeScannerService client.
+type BluetoothLeScannerClient struct {
+	svc pb.BluetoothLeScannerServiceClient
+}
+
+// NewBluetoothLeScannerClient creates a new BluetoothLeScanner client.
+func NewBluetoothLeScannerClient(cc grpc.ClientConnInterface) *BluetoothLeScannerClient {
+	return &BluetoothLeScannerClient{
+		svc: pb.NewBluetoothLeScannerServiceClient(cc),
+	}
+}
+
+// FlushPendingScanResults calls the FlushPendingScanResults RPC.
+func (c *BluetoothLeScannerClient) FlushPendingScanResults(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.FlushPendingScanResults(ctx, &pb.FlushPendingScanResultsRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// StartScan calls the StartScan RPC.
+func (c *BluetoothLeScannerClient) StartScan(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.StartScan(ctx, &pb.StartScanRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// StopScan1 calls the StopScan1 RPC.
+func (c *BluetoothLeScannerClient) StopScan1(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.StopScan1(ctx, &pb.StopScan1Request{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// StopScan1_1 calls the StopScan1_1 RPC.
+func (c *BluetoothLeScannerClient) StopScan1_1(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.StopScan1_1(ctx, &pb.StopScan1_1Request{
+		Arg0: arg0,
+	})
+	return err
+}
+
 // AdvertiseCallbackClient wraps the gRPC AdvertiseCallbackService client.
 type AdvertiseCallbackClient struct {
 	svc pb.AdvertiseCallbackServiceClient
@@ -1557,193 +447,6 @@ func (c *AdvertiseCallbackClient) OnStartSuccess(ctx context.Context, arg0 int64
 		Arg0: arg0,
 	})
 	return err
-}
-
-// AdvertisingSetCallbackClient wraps the gRPC AdvertisingSetCallbackService client.
-type AdvertisingSetCallbackClient struct {
-	svc pb.AdvertisingSetCallbackServiceClient
-}
-
-// NewAdvertisingSetCallbackClient creates a new AdvertisingSetCallback client.
-func NewAdvertisingSetCallbackClient(cc grpc.ClientConnInterface) *AdvertisingSetCallbackClient {
-	return &AdvertisingSetCallbackClient{
-		svc: pb.NewAdvertisingSetCallbackServiceClient(cc),
-	}
-}
-
-// OnAdvertisingDataSet calls the OnAdvertisingDataSet RPC.
-func (c *AdvertisingSetCallbackClient) OnAdvertisingDataSet(ctx context.Context, arg0 int64, arg1 int32) error {
-	_, err := c.svc.OnAdvertisingDataSet(ctx, &pb.OnAdvertisingDataSetRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// OnAdvertisingEnabled calls the OnAdvertisingEnabled RPC.
-func (c *AdvertisingSetCallbackClient) OnAdvertisingEnabled(ctx context.Context, arg0 int64, arg1 bool, arg2 int32) error {
-	_, err := c.svc.OnAdvertisingEnabled(ctx, &pb.OnAdvertisingEnabledRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	return err
-}
-
-// OnAdvertisingParametersUpdated calls the OnAdvertisingParametersUpdated RPC.
-func (c *AdvertisingSetCallbackClient) OnAdvertisingParametersUpdated(ctx context.Context, arg0 int64, arg1 int32, arg2 int32) error {
-	_, err := c.svc.OnAdvertisingParametersUpdated(ctx, &pb.OnAdvertisingParametersUpdatedRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	return err
-}
-
-// OnAdvertisingSetStarted calls the OnAdvertisingSetStarted RPC.
-func (c *AdvertisingSetCallbackClient) OnAdvertisingSetStarted(ctx context.Context, arg0 int64, arg1 int32, arg2 int32) error {
-	_, err := c.svc.OnAdvertisingSetStarted(ctx, &pb.OnAdvertisingSetStartedRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	return err
-}
-
-// OnAdvertisingSetStopped calls the OnAdvertisingSetStopped RPC.
-func (c *AdvertisingSetCallbackClient) OnAdvertisingSetStopped(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.OnAdvertisingSetStopped(ctx, &pb.OnAdvertisingSetStoppedRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// OnPeriodicAdvertisingDataSet calls the OnPeriodicAdvertisingDataSet RPC.
-func (c *AdvertisingSetCallbackClient) OnPeriodicAdvertisingDataSet(ctx context.Context, arg0 int64, arg1 int32) error {
-	_, err := c.svc.OnPeriodicAdvertisingDataSet(ctx, &pb.OnPeriodicAdvertisingDataSetRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// OnPeriodicAdvertisingEnabled calls the OnPeriodicAdvertisingEnabled RPC.
-func (c *AdvertisingSetCallbackClient) OnPeriodicAdvertisingEnabled(ctx context.Context, arg0 int64, arg1 bool, arg2 int32) error {
-	_, err := c.svc.OnPeriodicAdvertisingEnabled(ctx, &pb.OnPeriodicAdvertisingEnabledRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	return err
-}
-
-// OnPeriodicAdvertisingParametersUpdated calls the OnPeriodicAdvertisingParametersUpdated RPC.
-func (c *AdvertisingSetCallbackClient) OnPeriodicAdvertisingParametersUpdated(ctx context.Context, arg0 int64, arg1 int32) error {
-	_, err := c.svc.OnPeriodicAdvertisingParametersUpdated(ctx, &pb.OnPeriodicAdvertisingParametersUpdatedRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// OnScanResponseDataSet calls the OnScanResponseDataSet RPC.
-func (c *AdvertisingSetCallbackClient) OnScanResponseDataSet(ctx context.Context, arg0 int64, arg1 int32) error {
-	_, err := c.svc.OnScanResponseDataSet(ctx, &pb.OnScanResponseDataSetRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// PeriodicAdvertisingParametersClient wraps the gRPC PeriodicAdvertisingParametersService client.
-type PeriodicAdvertisingParametersClient struct {
-	svc pb.PeriodicAdvertisingParametersServiceClient
-}
-
-// NewPeriodicAdvertisingParametersClient creates a new PeriodicAdvertisingParameters client.
-func NewPeriodicAdvertisingParametersClient(cc grpc.ClientConnInterface) *PeriodicAdvertisingParametersClient {
-	return &PeriodicAdvertisingParametersClient{
-		svc: pb.NewPeriodicAdvertisingParametersServiceClient(cc),
-	}
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *PeriodicAdvertisingParametersClient) DescribeContents(ctx context.Context) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetIncludeTxPower calls the GetIncludeTxPower RPC.
-func (c *PeriodicAdvertisingParametersClient) GetIncludeTxPower(ctx context.Context) (bool, error) {
-	resp, err := c.svc.GetIncludeTxPower(ctx, &pb.GetIncludeTxPowerRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetInterval calls the GetInterval RPC.
-func (c *PeriodicAdvertisingParametersClient) GetInterval(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetInterval(ctx, &pb.GetIntervalRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *PeriodicAdvertisingParametersClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// PeriodicAdvertisingParametersBuilderClient wraps the gRPC PeriodicAdvertisingParametersBuilderService client.
-type PeriodicAdvertisingParametersBuilderClient struct {
-	svc pb.PeriodicAdvertisingParametersBuilderServiceClient
-}
-
-// NewPeriodicAdvertisingParametersBuilderClient creates a new PeriodicAdvertisingParametersBuilder client.
-func NewPeriodicAdvertisingParametersBuilderClient(cc grpc.ClientConnInterface) *PeriodicAdvertisingParametersBuilderClient {
-	return &PeriodicAdvertisingParametersBuilderClient{
-		svc: pb.NewPeriodicAdvertisingParametersBuilderServiceClient(cc),
-	}
-}
-
-// Build calls the Build RPC.
-func (c *PeriodicAdvertisingParametersBuilderClient) Build(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetIncludeTxPower calls the SetIncludeTxPower RPC.
-func (c *PeriodicAdvertisingParametersBuilderClient) SetIncludeTxPower(ctx context.Context, arg0 bool) (int64, error) {
-	resp, err := c.svc.SetIncludeTxPower(ctx, &pb.SetIncludeTxPowerRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetInterval calls the SetInterval RPC.
-func (c *PeriodicAdvertisingParametersBuilderClient) SetInterval(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.SetInterval(ctx, &pb.SetIntervalRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
 }
 
 // TransportDiscoveryDataClient wraps the gRPC TransportDiscoveryDataService client.
@@ -1777,6 +480,17 @@ func (c *TransportDiscoveryDataClient) Equals(ctx context.Context, handle int64,
 	})
 	if err != nil {
 		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTransportBlocks calls the GetTransportBlocks RPC.
+func (c *TransportDiscoveryDataClient) GetTransportBlocks(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetTransportBlocks(ctx, &pb.GetTransportBlocksRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
 	}
 	return resp.GetResult(), nil
 }
@@ -1885,9 +599,18 @@ func (c *ScanRecordClient) GetDeviceName(ctx context.Context) (string, error) {
 	return resp.GetResult(), nil
 }
 
-// GetManufacturerSpecificData calls the GetManufacturerSpecificData RPC.
-func (c *ScanRecordClient) GetManufacturerSpecificData(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.GetManufacturerSpecificData(ctx, &pb.GetManufacturerSpecificDataRequest{
+// GetManufacturerSpecificData0 calls the GetManufacturerSpecificData0 RPC.
+func (c *ScanRecordClient) GetManufacturerSpecificData0(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetManufacturerSpecificData0(ctx, &pb.GetManufacturerSpecificData0Request{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetManufacturerSpecificData1_1 calls the GetManufacturerSpecificData1_1 RPC.
+func (c *ScanRecordClient) GetManufacturerSpecificData1_1(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.GetManufacturerSpecificData1_1(ctx, &pb.GetManufacturerSpecificData1_1Request{
 		Arg0: arg0,
 	})
 	if err != nil {
@@ -1901,6 +624,24 @@ func (c *ScanRecordClient) GetServiceData(ctx context.Context, arg0 int64) (int6
 	resp, err := c.svc.GetServiceData(ctx, &pb.ScanRecordGetServiceDataRequest{
 		Arg0: arg0,
 	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetServiceSolicitationUuids calls the GetServiceSolicitationUuids RPC.
+func (c *ScanRecordClient) GetServiceSolicitationUuids(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetServiceSolicitationUuids(ctx, &pb.GetServiceSolicitationUuidsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetServiceUuids calls the GetServiceUuids RPC.
+func (c *ScanRecordClient) GetServiceUuids(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetServiceUuids(ctx, &pb.GetServiceUuidsRequest{})
 	if err != nil {
 		return 0, err
 	}
@@ -1921,6 +662,711 @@ func (c *ScanRecordClient) ToString(ctx context.Context) (string, error) {
 	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
 	if err != nil {
 		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// AdvertisingSetCallbackClient wraps the gRPC AdvertisingSetCallbackService client.
+type AdvertisingSetCallbackClient struct {
+	svc pb.AdvertisingSetCallbackServiceClient
+}
+
+// NewAdvertisingSetCallbackClient creates a new AdvertisingSetCallback client.
+func NewAdvertisingSetCallbackClient(cc grpc.ClientConnInterface) *AdvertisingSetCallbackClient {
+	return &AdvertisingSetCallbackClient{
+		svc: pb.NewAdvertisingSetCallbackServiceClient(cc),
+	}
+}
+
+// OnAdvertisingDataSet calls the OnAdvertisingDataSet RPC.
+func (c *AdvertisingSetCallbackClient) OnAdvertisingDataSet(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.OnAdvertisingDataSet(ctx, &pb.OnAdvertisingDataSetRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// OnAdvertisingEnabled calls the OnAdvertisingEnabled RPC.
+func (c *AdvertisingSetCallbackClient) OnAdvertisingEnabled(ctx context.Context, arg0 int64, arg1 bool, arg2 int32) error {
+	_, err := c.svc.OnAdvertisingEnabled(ctx, &pb.OnAdvertisingEnabledRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// OnAdvertisingParametersUpdated calls the OnAdvertisingParametersUpdated RPC.
+func (c *AdvertisingSetCallbackClient) OnAdvertisingParametersUpdated(ctx context.Context, arg0 int64, arg1 int32, arg2 int32) error {
+	_, err := c.svc.OnAdvertisingParametersUpdated(ctx, &pb.OnAdvertisingParametersUpdatedRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// OnAdvertisingSetStarted calls the OnAdvertisingSetStarted RPC.
+func (c *AdvertisingSetCallbackClient) OnAdvertisingSetStarted(ctx context.Context, arg0 int64, arg1 int32, arg2 int32) error {
+	_, err := c.svc.OnAdvertisingSetStarted(ctx, &pb.OnAdvertisingSetStartedRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// OnAdvertisingSetStopped calls the OnAdvertisingSetStopped RPC.
+func (c *AdvertisingSetCallbackClient) OnAdvertisingSetStopped(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnAdvertisingSetStopped(ctx, &pb.OnAdvertisingSetStoppedRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnPeriodicAdvertisingDataSet calls the OnPeriodicAdvertisingDataSet RPC.
+func (c *AdvertisingSetCallbackClient) OnPeriodicAdvertisingDataSet(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.OnPeriodicAdvertisingDataSet(ctx, &pb.OnPeriodicAdvertisingDataSetRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// OnPeriodicAdvertisingEnabled calls the OnPeriodicAdvertisingEnabled RPC.
+func (c *AdvertisingSetCallbackClient) OnPeriodicAdvertisingEnabled(ctx context.Context, arg0 int64, arg1 bool, arg2 int32) error {
+	_, err := c.svc.OnPeriodicAdvertisingEnabled(ctx, &pb.OnPeriodicAdvertisingEnabledRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// OnPeriodicAdvertisingParametersUpdated calls the OnPeriodicAdvertisingParametersUpdated RPC.
+func (c *AdvertisingSetCallbackClient) OnPeriodicAdvertisingParametersUpdated(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.OnPeriodicAdvertisingParametersUpdated(ctx, &pb.OnPeriodicAdvertisingParametersUpdatedRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// OnScanResponseDataSet calls the OnScanResponseDataSet RPC.
+func (c *AdvertisingSetCallbackClient) OnScanResponseDataSet(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.OnScanResponseDataSet(ctx, &pb.OnScanResponseDataSetRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// ScanResultClient wraps the gRPC ScanResultService client.
+type ScanResultClient struct {
+	svc pb.ScanResultServiceClient
+}
+
+// NewScanResultClient creates a new ScanResult client.
+func NewScanResultClient(cc grpc.ClientConnInterface) *ScanResultClient {
+	return &ScanResultClient{
+		svc: pb.NewScanResultServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *ScanResultClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.ScanResultDescribeContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *ScanResultClient) Equals(ctx context.Context, handle int64, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.ScanResultEqualsRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAdvertisingSid calls the GetAdvertisingSid RPC.
+func (c *ScanResultClient) GetAdvertisingSid(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetAdvertisingSid(ctx, &pb.GetAdvertisingSidRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDataStatus calls the GetDataStatus RPC.
+func (c *ScanResultClient) GetDataStatus(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetDataStatus(ctx, &pb.GetDataStatusRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDevice calls the GetDevice RPC.
+func (c *ScanResultClient) GetDevice(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetDevice(ctx, &pb.GetDeviceRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPeriodicAdvertisingInterval calls the GetPeriodicAdvertisingInterval RPC.
+func (c *ScanResultClient) GetPeriodicAdvertisingInterval(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetPeriodicAdvertisingInterval(ctx, &pb.GetPeriodicAdvertisingIntervalRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPrimaryPhy calls the GetPrimaryPhy RPC.
+func (c *ScanResultClient) GetPrimaryPhy(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetPrimaryPhy(ctx, &pb.GetPrimaryPhyRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetRssi calls the GetRssi RPC.
+func (c *ScanResultClient) GetRssi(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetRssi(ctx, &pb.GetRssiRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetScanRecord calls the GetScanRecord RPC.
+func (c *ScanResultClient) GetScanRecord(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetScanRecord(ctx, &pb.GetScanRecordRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSecondaryPhy calls the GetSecondaryPhy RPC.
+func (c *ScanResultClient) GetSecondaryPhy(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetSecondaryPhy(ctx, &pb.GetSecondaryPhyRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTimestampNanos calls the GetTimestampNanos RPC.
+func (c *ScanResultClient) GetTimestampNanos(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetTimestampNanos(ctx, &pb.GetTimestampNanosRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTxPower calls the GetTxPower RPC.
+func (c *ScanResultClient) GetTxPower(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetTxPower(ctx, &pb.GetTxPowerRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *ScanResultClient) HashCode(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.ScanResultHashCodeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsConnectable calls the IsConnectable RPC.
+func (c *ScanResultClient) IsConnectable(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsConnectable(ctx, &pb.IsConnectableRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsLegacy calls the IsLegacy RPC.
+func (c *ScanResultClient) IsLegacy(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsLegacy(ctx, &pb.IsLegacyRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *ScanResultClient) ToString(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ScanResultToStringRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *ScanResultClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.ScanResultWriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// BluetoothLeAdvertiserClient wraps the gRPC BluetoothLeAdvertiserService client.
+type BluetoothLeAdvertiserClient struct {
+	svc pb.BluetoothLeAdvertiserServiceClient
+}
+
+// NewBluetoothLeAdvertiserClient creates a new BluetoothLeAdvertiser client.
+func NewBluetoothLeAdvertiserClient(cc grpc.ClientConnInterface) *BluetoothLeAdvertiserClient {
+	return &BluetoothLeAdvertiserClient{
+		svc: pb.NewBluetoothLeAdvertiserServiceClient(cc),
+	}
+}
+
+// StartAdvertising3 calls the StartAdvertising3 RPC.
+func (c *BluetoothLeAdvertiserClient) StartAdvertising3(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) error {
+	_, err := c.svc.StartAdvertising3(ctx, &pb.StartAdvertising3Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// StartAdvertising4_1 calls the StartAdvertising4_1 RPC.
+func (c *BluetoothLeAdvertiserClient) StartAdvertising4_1(ctx context.Context, arg0 int64, arg1 int64, arg2 int64, arg3 int64) error {
+	_, err := c.svc.StartAdvertising4_1(ctx, &pb.StartAdvertising4_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	return err
+}
+
+// StartAdvertisingSet6 calls the StartAdvertisingSet6 RPC.
+func (c *BluetoothLeAdvertiserClient) StartAdvertisingSet6(ctx context.Context, arg0 int64, arg1 int64, arg2 int64, arg3 int64, arg4 int64, arg5 int64) error {
+	_, err := c.svc.StartAdvertisingSet6(ctx, &pb.StartAdvertisingSet6Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+		Arg5: arg5,
+	})
+	return err
+}
+
+// StartAdvertisingSet8_1 calls the StartAdvertisingSet8_1 RPC.
+func (c *BluetoothLeAdvertiserClient) StartAdvertisingSet8_1(ctx context.Context, arg0 int64, arg1 int64, arg2 int64, arg3 int64, arg4 int64, arg5 int32, arg6 int32, arg7 int64) error {
+	_, err := c.svc.StartAdvertisingSet8_1(ctx, &pb.StartAdvertisingSet8_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+		Arg5: arg5,
+		Arg6: arg6,
+		Arg7: arg7,
+	})
+	return err
+}
+
+// StopAdvertising calls the StopAdvertising RPC.
+func (c *BluetoothLeAdvertiserClient) StopAdvertising(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.StopAdvertising(ctx, &pb.StopAdvertisingRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// StopAdvertisingSet calls the StopAdvertisingSet RPC.
+func (c *BluetoothLeAdvertiserClient) StopAdvertisingSet(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.StopAdvertisingSet(ctx, &pb.StopAdvertisingSetRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// AdvertiseDataClient wraps the gRPC AdvertiseDataService client.
+type AdvertiseDataClient struct {
+	svc pb.AdvertiseDataServiceClient
+}
+
+// NewAdvertiseDataClient creates a new AdvertiseData client.
+func NewAdvertiseDataClient(cc grpc.ClientConnInterface) *AdvertiseDataClient {
+	return &AdvertiseDataClient{
+		svc: pb.NewAdvertiseDataServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *AdvertiseDataClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *AdvertiseDataClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetIncludeDeviceName calls the GetIncludeDeviceName RPC.
+func (c *AdvertiseDataClient) GetIncludeDeviceName(ctx context.Context) (bool, error) {
+	resp, err := c.svc.GetIncludeDeviceName(ctx, &pb.GetIncludeDeviceNameRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetIncludeTxPowerLevel calls the GetIncludeTxPowerLevel RPC.
+func (c *AdvertiseDataClient) GetIncludeTxPowerLevel(ctx context.Context) (bool, error) {
+	resp, err := c.svc.GetIncludeTxPowerLevel(ctx, &pb.GetIncludeTxPowerLevelRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetManufacturerSpecificData calls the GetManufacturerSpecificData RPC.
+func (c *AdvertiseDataClient) GetManufacturerSpecificData(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetManufacturerSpecificData(ctx, &pb.GetManufacturerSpecificDataRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetServiceSolicitationUuids calls the GetServiceSolicitationUuids RPC.
+func (c *AdvertiseDataClient) GetServiceSolicitationUuids(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetServiceSolicitationUuids(ctx, &pb.GetServiceSolicitationUuidsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetServiceUuids calls the GetServiceUuids RPC.
+func (c *AdvertiseDataClient) GetServiceUuids(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetServiceUuids(ctx, &pb.GetServiceUuidsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTransportDiscoveryData calls the GetTransportDiscoveryData RPC.
+func (c *AdvertiseDataClient) GetTransportDiscoveryData(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetTransportDiscoveryData(ctx, &pb.GetTransportDiscoveryDataRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *AdvertiseDataClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *AdvertiseDataClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *AdvertiseDataClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// AdvertiseDataBuilderClient wraps the gRPC AdvertiseDataBuilderService client.
+type AdvertiseDataBuilderClient struct {
+	svc pb.AdvertiseDataBuilderServiceClient
+}
+
+// NewAdvertiseDataBuilderClient creates a new AdvertiseDataBuilder client.
+func NewAdvertiseDataBuilderClient(cc grpc.ClientConnInterface) *AdvertiseDataBuilderClient {
+	return &AdvertiseDataBuilderClient{
+		svc: pb.NewAdvertiseDataBuilderServiceClient(cc),
+	}
+}
+
+// AddManufacturerData calls the AddManufacturerData RPC.
+func (c *AdvertiseDataBuilderClient) AddManufacturerData(ctx context.Context, arg0 int32, arg1 int64) (int64, error) {
+	resp, err := c.svc.AddManufacturerData(ctx, &pb.AddManufacturerDataRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AddServiceData calls the AddServiceData RPC.
+func (c *AdvertiseDataBuilderClient) AddServiceData(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
+	resp, err := c.svc.AddServiceData(ctx, &pb.AddServiceDataRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AddServiceSolicitationUuid calls the AddServiceSolicitationUuid RPC.
+func (c *AdvertiseDataBuilderClient) AddServiceSolicitationUuid(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.AddServiceSolicitationUuid(ctx, &pb.AddServiceSolicitationUuidRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AddServiceUuid calls the AddServiceUuid RPC.
+func (c *AdvertiseDataBuilderClient) AddServiceUuid(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.AddServiceUuid(ctx, &pb.AddServiceUuidRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AddTransportDiscoveryData calls the AddTransportDiscoveryData RPC.
+func (c *AdvertiseDataBuilderClient) AddTransportDiscoveryData(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.AddTransportDiscoveryData(ctx, &pb.AddTransportDiscoveryDataRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Build calls the Build RPC.
+func (c *AdvertiseDataBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetIncludeDeviceName calls the SetIncludeDeviceName RPC.
+func (c *AdvertiseDataBuilderClient) SetIncludeDeviceName(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetIncludeDeviceName(ctx, &pb.SetIncludeDeviceNameRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetIncludeTxPowerLevel calls the SetIncludeTxPowerLevel RPC.
+func (c *AdvertiseDataBuilderClient) SetIncludeTxPowerLevel(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetIncludeTxPowerLevel(ctx, &pb.SetIncludeTxPowerLevelRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ScanCallbackClient wraps the gRPC ScanCallbackService client.
+type ScanCallbackClient struct {
+	svc pb.ScanCallbackServiceClient
+}
+
+// NewScanCallbackClient creates a new ScanCallback client.
+func NewScanCallbackClient(cc grpc.ClientConnInterface) *ScanCallbackClient {
+	return &ScanCallbackClient{
+		svc: pb.NewScanCallbackServiceClient(cc),
+	}
+}
+
+// OnScanFailed calls the OnScanFailed RPC.
+func (c *ScanCallbackClient) OnScanFailed(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.OnScanFailed(ctx, &pb.OnScanFailedRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnScanResult calls the OnScanResult RPC.
+func (c *ScanCallbackClient) OnScanResult(ctx context.Context, arg0 int32, arg1 int64) error {
+	_, err := c.svc.OnScanResult(ctx, &pb.OnScanResultRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// PeriodicAdvertisingParametersClient wraps the gRPC PeriodicAdvertisingParametersService client.
+type PeriodicAdvertisingParametersClient struct {
+	svc pb.PeriodicAdvertisingParametersServiceClient
+}
+
+// NewPeriodicAdvertisingParametersClient creates a new PeriodicAdvertisingParameters client.
+func NewPeriodicAdvertisingParametersClient(cc grpc.ClientConnInterface) *PeriodicAdvertisingParametersClient {
+	return &PeriodicAdvertisingParametersClient{
+		svc: pb.NewPeriodicAdvertisingParametersServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *PeriodicAdvertisingParametersClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetIncludeTxPower calls the GetIncludeTxPower RPC.
+func (c *PeriodicAdvertisingParametersClient) GetIncludeTxPower(ctx context.Context) (bool, error) {
+	resp, err := c.svc.GetIncludeTxPower(ctx, &pb.GetIncludeTxPowerRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInterval calls the GetInterval RPC.
+func (c *PeriodicAdvertisingParametersClient) GetInterval(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetInterval(ctx, &pb.GetIntervalRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *PeriodicAdvertisingParametersClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// PeriodicAdvertisingParametersBuilderClient wraps the gRPC PeriodicAdvertisingParametersBuilderService client.
+type PeriodicAdvertisingParametersBuilderClient struct {
+	svc pb.PeriodicAdvertisingParametersBuilderServiceClient
+}
+
+// NewPeriodicAdvertisingParametersBuilderClient creates a new PeriodicAdvertisingParametersBuilder client.
+func NewPeriodicAdvertisingParametersBuilderClient(cc grpc.ClientConnInterface) *PeriodicAdvertisingParametersBuilderClient {
+	return &PeriodicAdvertisingParametersBuilderClient{
+		svc: pb.NewPeriodicAdvertisingParametersBuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *PeriodicAdvertisingParametersBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetIncludeTxPower calls the SetIncludeTxPower RPC.
+func (c *PeriodicAdvertisingParametersBuilderClient) SetIncludeTxPower(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetIncludeTxPower(ctx, &pb.SetIncludeTxPowerRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetInterval calls the SetInterval RPC.
+func (c *PeriodicAdvertisingParametersBuilderClient) SetInterval(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetInterval(ctx, &pb.SetIntervalRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
 	}
 	return resp.GetResult(), nil
 }
@@ -2047,46 +1493,674 @@ func (c *TransportBlockClient) WriteToParcel(ctx context.Context, handle int64, 
 	return err
 }
 
-// BluetoothLeScannerClient wraps the gRPC BluetoothLeScannerService client.
-type BluetoothLeScannerClient struct {
-	svc pb.BluetoothLeScannerServiceClient
+// AdvertisingSetClient wraps the gRPC AdvertisingSetService client.
+type AdvertisingSetClient struct {
+	svc pb.AdvertisingSetServiceClient
 }
 
-// NewBluetoothLeScannerClient creates a new BluetoothLeScanner client.
-func NewBluetoothLeScannerClient(cc grpc.ClientConnInterface) *BluetoothLeScannerClient {
-	return &BluetoothLeScannerClient{
-		svc: pb.NewBluetoothLeScannerServiceClient(cc),
+// NewAdvertisingSetClient creates a new AdvertisingSet client.
+func NewAdvertisingSetClient(cc grpc.ClientConnInterface) *AdvertisingSetClient {
+	return &AdvertisingSetClient{
+		svc: pb.NewAdvertisingSetServiceClient(cc),
 	}
 }
 
-// FlushPendingScanResults calls the FlushPendingScanResults RPC.
-func (c *BluetoothLeScannerClient) FlushPendingScanResults(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.FlushPendingScanResults(ctx, &pb.FlushPendingScanResultsRequest{
+// EnableAdvertising calls the EnableAdvertising RPC.
+func (c *AdvertisingSetClient) EnableAdvertising(ctx context.Context, arg0 bool, arg1 int32, arg2 int32) error {
+	_, err := c.svc.EnableAdvertising(ctx, &pb.EnableAdvertisingRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// SetAdvertisingData calls the SetAdvertisingData RPC.
+func (c *AdvertisingSetClient) SetAdvertisingData(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetAdvertisingData(ctx, &pb.SetAdvertisingDataRequest{
 		Arg0: arg0,
 	})
 	return err
 }
 
-// StartScan calls the StartScan RPC.
-func (c *BluetoothLeScannerClient) StartScan(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.StartScan(ctx, &pb.StartScanRequest{
+// SetAdvertisingParameters calls the SetAdvertisingParameters RPC.
+func (c *AdvertisingSetClient) SetAdvertisingParameters(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetAdvertisingParameters(ctx, &pb.SetAdvertisingParametersRequest{
 		Arg0: arg0,
 	})
 	return err
 }
 
-// StopScan1 calls the StopScan1 RPC.
-func (c *BluetoothLeScannerClient) StopScan1(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.StopScan1(ctx, &pb.StopScan1Request{
+// SetPeriodicAdvertisingData calls the SetPeriodicAdvertisingData RPC.
+func (c *AdvertisingSetClient) SetPeriodicAdvertisingData(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetPeriodicAdvertisingData(ctx, &pb.SetPeriodicAdvertisingDataRequest{
 		Arg0: arg0,
 	})
 	return err
 }
 
-// StopScan1_1 calls the StopScan1_1 RPC.
-func (c *BluetoothLeScannerClient) StopScan1_1(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.StopScan1_1(ctx, &pb.StopScan1_1Request{
+// SetPeriodicAdvertisingEnabled calls the SetPeriodicAdvertisingEnabled RPC.
+func (c *AdvertisingSetClient) SetPeriodicAdvertisingEnabled(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.SetPeriodicAdvertisingEnabled(ctx, &pb.SetPeriodicAdvertisingEnabledRequest{
 		Arg0: arg0,
 	})
 	return err
+}
+
+// SetPeriodicAdvertisingParameters calls the SetPeriodicAdvertisingParameters RPC.
+func (c *AdvertisingSetClient) SetPeriodicAdvertisingParameters(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetPeriodicAdvertisingParameters(ctx, &pb.SetPeriodicAdvertisingParametersRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetScanResponseData calls the SetScanResponseData RPC.
+func (c *AdvertisingSetClient) SetScanResponseData(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetScanResponseData(ctx, &pb.SetScanResponseDataRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// AdvertiseSettingsClient wraps the gRPC AdvertiseSettingsService client.
+type AdvertiseSettingsClient struct {
+	svc pb.AdvertiseSettingsServiceClient
+}
+
+// NewAdvertiseSettingsClient creates a new AdvertiseSettings client.
+func NewAdvertiseSettingsClient(cc grpc.ClientConnInterface) *AdvertiseSettingsClient {
+	return &AdvertiseSettingsClient{
+		svc: pb.NewAdvertiseSettingsServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *AdvertiseSettingsClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMode calls the GetMode RPC.
+func (c *AdvertiseSettingsClient) GetMode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetMode(ctx, &pb.GetModeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTimeout calls the GetTimeout RPC.
+func (c *AdvertiseSettingsClient) GetTimeout(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetTimeout(ctx, &pb.GetTimeoutRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTxPowerLevel calls the GetTxPowerLevel RPC.
+func (c *AdvertiseSettingsClient) GetTxPowerLevel(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetTxPowerLevel(ctx, &pb.GetTxPowerLevelRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsConnectable calls the IsConnectable RPC.
+func (c *AdvertiseSettingsClient) IsConnectable(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsConnectable(ctx, &pb.AdvertiseSettingsIsConnectableRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsDiscoverable calls the IsDiscoverable RPC.
+func (c *AdvertiseSettingsClient) IsDiscoverable(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsDiscoverable(ctx, &pb.IsDiscoverableRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *AdvertiseSettingsClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *AdvertiseSettingsClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// AdvertiseSettingsBuilderClient wraps the gRPC AdvertiseSettingsBuilderService client.
+type AdvertiseSettingsBuilderClient struct {
+	svc pb.AdvertiseSettingsBuilderServiceClient
+}
+
+// NewAdvertiseSettingsBuilderClient creates a new AdvertiseSettingsBuilder client.
+func NewAdvertiseSettingsBuilderClient(cc grpc.ClientConnInterface) *AdvertiseSettingsBuilderClient {
+	return &AdvertiseSettingsBuilderClient{
+		svc: pb.NewAdvertiseSettingsBuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *AdvertiseSettingsBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetAdvertiseMode calls the SetAdvertiseMode RPC.
+func (c *AdvertiseSettingsBuilderClient) SetAdvertiseMode(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetAdvertiseMode(ctx, &pb.SetAdvertiseModeRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetConnectable calls the SetConnectable RPC.
+func (c *AdvertiseSettingsBuilderClient) SetConnectable(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetConnectable(ctx, &pb.SetConnectableRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetDiscoverable calls the SetDiscoverable RPC.
+func (c *AdvertiseSettingsBuilderClient) SetDiscoverable(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetDiscoverable(ctx, &pb.SetDiscoverableRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetTimeout calls the SetTimeout RPC.
+func (c *AdvertiseSettingsBuilderClient) SetTimeout(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetTimeout(ctx, &pb.SetTimeoutRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetTxPowerLevel calls the SetTxPowerLevel RPC.
+func (c *AdvertiseSettingsBuilderClient) SetTxPowerLevel(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetTxPowerLevel(ctx, &pb.SetTxPowerLevelRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ScanSettingsClient wraps the gRPC ScanSettingsService client.
+type ScanSettingsClient struct {
+	svc pb.ScanSettingsServiceClient
+}
+
+// NewScanSettingsClient creates a new ScanSettings client.
+func NewScanSettingsClient(cc grpc.ClientConnInterface) *ScanSettingsClient {
+	return &ScanSettingsClient{
+		svc: pb.NewScanSettingsServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *ScanSettingsClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCallbackType calls the GetCallbackType RPC.
+func (c *ScanSettingsClient) GetCallbackType(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetCallbackType(ctx, &pb.GetCallbackTypeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLegacy calls the GetLegacy RPC.
+func (c *ScanSettingsClient) GetLegacy(ctx context.Context) (bool, error) {
+	resp, err := c.svc.GetLegacy(ctx, &pb.GetLegacyRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPhy calls the GetPhy RPC.
+func (c *ScanSettingsClient) GetPhy(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetPhy(ctx, &pb.GetPhyRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetReportDelayMillis calls the GetReportDelayMillis RPC.
+func (c *ScanSettingsClient) GetReportDelayMillis(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetReportDelayMillis(ctx, &pb.GetReportDelayMillisRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetScanMode calls the GetScanMode RPC.
+func (c *ScanSettingsClient) GetScanMode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetScanMode(ctx, &pb.GetScanModeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetScanResultType calls the GetScanResultType RPC.
+func (c *ScanSettingsClient) GetScanResultType(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetScanResultType(ctx, &pb.GetScanResultTypeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *ScanSettingsClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// ScanSettingsBuilderClient wraps the gRPC ScanSettingsBuilderService client.
+type ScanSettingsBuilderClient struct {
+	svc pb.ScanSettingsBuilderServiceClient
+}
+
+// NewScanSettingsBuilderClient creates a new ScanSettingsBuilder client.
+func NewScanSettingsBuilderClient(cc grpc.ClientConnInterface) *ScanSettingsBuilderClient {
+	return &ScanSettingsBuilderClient{
+		svc: pb.NewScanSettingsBuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *ScanSettingsBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetCallbackType calls the SetCallbackType RPC.
+func (c *ScanSettingsBuilderClient) SetCallbackType(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetCallbackType(ctx, &pb.SetCallbackTypeRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetLegacy calls the SetLegacy RPC.
+func (c *ScanSettingsBuilderClient) SetLegacy(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetLegacy(ctx, &pb.SetLegacyRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetMatchMode calls the SetMatchMode RPC.
+func (c *ScanSettingsBuilderClient) SetMatchMode(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetMatchMode(ctx, &pb.SetMatchModeRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetNumOfMatches calls the SetNumOfMatches RPC.
+func (c *ScanSettingsBuilderClient) SetNumOfMatches(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetNumOfMatches(ctx, &pb.SetNumOfMatchesRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetPhy calls the SetPhy RPC.
+func (c *ScanSettingsBuilderClient) SetPhy(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetPhy(ctx, &pb.SetPhyRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetReportDelay calls the SetReportDelay RPC.
+func (c *ScanSettingsBuilderClient) SetReportDelay(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetReportDelay(ctx, &pb.SetReportDelayRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetScanMode calls the SetScanMode RPC.
+func (c *ScanSettingsBuilderClient) SetScanMode(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetScanMode(ctx, &pb.SetScanModeRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AdvertisingSetParametersClient wraps the gRPC AdvertisingSetParametersService client.
+type AdvertisingSetParametersClient struct {
+	svc pb.AdvertisingSetParametersServiceClient
+}
+
+// NewAdvertisingSetParametersClient creates a new AdvertisingSetParameters client.
+func NewAdvertisingSetParametersClient(cc grpc.ClientConnInterface) *AdvertisingSetParametersClient {
+	return &AdvertisingSetParametersClient{
+		svc: pb.NewAdvertisingSetParametersServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *AdvertisingSetParametersClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInterval calls the GetInterval RPC.
+func (c *AdvertisingSetParametersClient) GetInterval(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetInterval(ctx, &pb.GetIntervalRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPrimaryPhy calls the GetPrimaryPhy RPC.
+func (c *AdvertisingSetParametersClient) GetPrimaryPhy(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetPrimaryPhy(ctx, &pb.AdvertisingSetParametersGetPrimaryPhyRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSecondaryPhy calls the GetSecondaryPhy RPC.
+func (c *AdvertisingSetParametersClient) GetSecondaryPhy(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetSecondaryPhy(ctx, &pb.AdvertisingSetParametersGetSecondaryPhyRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTxPowerLevel calls the GetTxPowerLevel RPC.
+func (c *AdvertisingSetParametersClient) GetTxPowerLevel(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetTxPowerLevel(ctx, &pb.GetTxPowerLevelRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IncludeTxPower calls the IncludeTxPower RPC.
+func (c *AdvertisingSetParametersClient) IncludeTxPower(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IncludeTxPower(ctx, &pb.IncludeTxPowerRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsAnonymous calls the IsAnonymous RPC.
+func (c *AdvertisingSetParametersClient) IsAnonymous(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsAnonymous(ctx, &pb.IsAnonymousRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsConnectable calls the IsConnectable RPC.
+func (c *AdvertisingSetParametersClient) IsConnectable(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsConnectable(ctx, &pb.AdvertisingSetParametersIsConnectableRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsDiscoverable calls the IsDiscoverable RPC.
+func (c *AdvertisingSetParametersClient) IsDiscoverable(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsDiscoverable(ctx, &pb.IsDiscoverableRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsLegacy calls the IsLegacy RPC.
+func (c *AdvertisingSetParametersClient) IsLegacy(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsLegacy(ctx, &pb.AdvertisingSetParametersIsLegacyRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsScannable calls the IsScannable RPC.
+func (c *AdvertisingSetParametersClient) IsScannable(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsScannable(ctx, &pb.IsScannableRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *AdvertisingSetParametersClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *AdvertisingSetParametersClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// AdvertisingSetParametersBuilderClient wraps the gRPC AdvertisingSetParametersBuilderService client.
+type AdvertisingSetParametersBuilderClient struct {
+	svc pb.AdvertisingSetParametersBuilderServiceClient
+}
+
+// NewAdvertisingSetParametersBuilderClient creates a new AdvertisingSetParametersBuilder client.
+func NewAdvertisingSetParametersBuilderClient(cc grpc.ClientConnInterface) *AdvertisingSetParametersBuilderClient {
+	return &AdvertisingSetParametersBuilderClient{
+		svc: pb.NewAdvertisingSetParametersBuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *AdvertisingSetParametersBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetAnonymous calls the SetAnonymous RPC.
+func (c *AdvertisingSetParametersBuilderClient) SetAnonymous(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetAnonymous(ctx, &pb.SetAnonymousRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetConnectable calls the SetConnectable RPC.
+func (c *AdvertisingSetParametersBuilderClient) SetConnectable(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetConnectable(ctx, &pb.SetConnectableRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetDiscoverable calls the SetDiscoverable RPC.
+func (c *AdvertisingSetParametersBuilderClient) SetDiscoverable(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetDiscoverable(ctx, &pb.SetDiscoverableRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetIncludeTxPower calls the SetIncludeTxPower RPC.
+func (c *AdvertisingSetParametersBuilderClient) SetIncludeTxPower(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetIncludeTxPower(ctx, &pb.SetIncludeTxPowerRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetInterval calls the SetInterval RPC.
+func (c *AdvertisingSetParametersBuilderClient) SetInterval(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetInterval(ctx, &pb.SetIntervalRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetLegacyMode calls the SetLegacyMode RPC.
+func (c *AdvertisingSetParametersBuilderClient) SetLegacyMode(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetLegacyMode(ctx, &pb.SetLegacyModeRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetPrimaryPhy calls the SetPrimaryPhy RPC.
+func (c *AdvertisingSetParametersBuilderClient) SetPrimaryPhy(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetPrimaryPhy(ctx, &pb.SetPrimaryPhyRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetScannable calls the SetScannable RPC.
+func (c *AdvertisingSetParametersBuilderClient) SetScannable(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetScannable(ctx, &pb.SetScannableRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetSecondaryPhy calls the SetSecondaryPhy RPC.
+func (c *AdvertisingSetParametersBuilderClient) SetSecondaryPhy(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetSecondaryPhy(ctx, &pb.SetSecondaryPhyRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetTxPowerLevel calls the SetTxPowerLevel RPC.
+func (c *AdvertisingSetParametersBuilderClient) SetTxPowerLevel(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetTxPowerLevel(ctx, &pb.SetTxPowerLevelRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
 }

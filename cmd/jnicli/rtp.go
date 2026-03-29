@@ -12,6 +12,177 @@ var rtpCmd = &cobra.Command{
 	Short: "rtp service operations",
 }
 
+var rtpAudioCodecCmd = &cobra.Command{
+	Use:   "audio-codec",
+	Short: "AudioCodecService operations",
+}
+
+var rtpAudioCodecGetCodecCmd = &cobra.Command{
+	Use:   "get-codec",
+	Short: "GetCodec RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAudioCodecServiceClient(grpcConn)
+		req := &pb.GetCodecRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetString("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.GetCodec(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var rtpAudioCodecGetCodecsCmd = &cobra.Command{
+	Use:   "get-codecs",
+	Short: "GetCodecs RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAudioCodecServiceClient(grpcConn)
+		req := &pb.GetCodecsRequest{}
+		resp, err := client.GetCodecs(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var rtpAudioGroupCmd = &cobra.Command{
+	Use:   "audio-group",
+	Short: "AudioGroupService operations",
+}
+
+var rtpAudioGroupNewAudioGroupCmd = &cobra.Command{
+	Use:   "new-audio-group",
+	Short: "NewAudioGroup RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAudioGroupServiceClient(grpcConn)
+		req := &pb.NewAudioGroupRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.NewAudioGroup(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var rtpAudioGroupClearCmd = &cobra.Command{
+	Use:   "clear",
+	Short: "Clear RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAudioGroupServiceClient(grpcConn)
+		req := &pb.ClearRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.Clear(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var rtpAudioGroupGetModeCmd = &cobra.Command{
+	Use:   "get-mode",
+	Short: "GetMode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAudioGroupServiceClient(grpcConn)
+		req := &pb.GetModeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetMode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var rtpAudioGroupGetStreamsCmd = &cobra.Command{
+	Use:   "get-streams",
+	Short: "GetStreams RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAudioGroupServiceClient(grpcConn)
+		req := &pb.GetStreamsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetStreams(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var rtpAudioGroupSendDtmfCmd = &cobra.Command{
+	Use:   "send-dtmf",
+	Short: "SendDtmf RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAudioGroupServiceClient(grpcConn)
+		req := &pb.SendDtmfRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SendDtmf(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var rtpAudioGroupSetModeCmd = &cobra.Command{
+	Use:   "set-mode",
+	Short: "SetMode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAudioGroupServiceClient(grpcConn)
+		req := &pb.SetModeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetMode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var rtpAudioStreamCmd = &cobra.Command{
 	Use:   "audio-stream",
 	Short: "AudioStreamService operations",
@@ -43,7 +214,7 @@ var rtpAudioStreamGetCodecCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewAudioStreamServiceClient(grpcConn)
-		req := &pb.GetCodecRequest{}
+		req := &pb.AudioStreamGetCodecRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
@@ -244,7 +415,7 @@ var rtpStreamGetModeCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewStreamServiceClient(grpcConn)
-		req := &pb.GetModeRequest{}
+		req := &pb.StreamGetModeRequest{}
 		resp, err := client.GetMode(ctx, req)
 		if err != nil {
 			return err
@@ -324,182 +495,11 @@ var rtpStreamSetModeCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewStreamServiceClient(grpcConn)
-		req := &pb.SetModeRequest{}
+		req := &pb.StreamSetModeRequest{}
 		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
 			req.Arg0 = v
 		}
 		resp, err := client.SetMode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var rtpAudioGroupCmd = &cobra.Command{
-	Use:   "audio-group",
-	Short: "AudioGroupService operations",
-}
-
-var rtpAudioGroupNewAudioGroupCmd = &cobra.Command{
-	Use:   "new-audio-group",
-	Short: "NewAudioGroup RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAudioGroupServiceClient(grpcConn)
-		req := &pb.NewAudioGroupRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.NewAudioGroup(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var rtpAudioGroupClearCmd = &cobra.Command{
-	Use:   "clear",
-	Short: "Clear RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAudioGroupServiceClient(grpcConn)
-		req := &pb.ClearRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.Clear(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var rtpAudioGroupGetModeCmd = &cobra.Command{
-	Use:   "get-mode",
-	Short: "GetMode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAudioGroupServiceClient(grpcConn)
-		req := &pb.AudioGroupGetModeRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetMode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var rtpAudioGroupGetStreamsCmd = &cobra.Command{
-	Use:   "get-streams",
-	Short: "GetStreams RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAudioGroupServiceClient(grpcConn)
-		req := &pb.GetStreamsRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetStreams(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var rtpAudioGroupSendDtmfCmd = &cobra.Command{
-	Use:   "send-dtmf",
-	Short: "SendDtmf RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAudioGroupServiceClient(grpcConn)
-		req := &pb.SendDtmfRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SendDtmf(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var rtpAudioGroupSetModeCmd = &cobra.Command{
-	Use:   "set-mode",
-	Short: "SetMode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAudioGroupServiceClient(grpcConn)
-		req := &pb.AudioGroupSetModeRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetMode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var rtpAudioCodecCmd = &cobra.Command{
-	Use:   "audio-codec",
-	Short: "AudioCodecService operations",
-}
-
-var rtpAudioCodecGetCodecCmd = &cobra.Command{
-	Use:   "get-codec",
-	Short: "GetCodec RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAudioCodecServiceClient(grpcConn)
-		req := &pb.AudioCodecGetCodecRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetString("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetString("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.GetCodec(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var rtpAudioCodecGetCodecsCmd = &cobra.Command{
-	Use:   "get-codecs",
-	Short: "GetCodecs RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAudioCodecServiceClient(grpcConn)
-		req := &pb.GetCodecsRequest{}
-		resp, err := client.GetCodecs(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -508,6 +508,27 @@ var rtpAudioCodecGetCodecsCmd = &cobra.Command{
 }
 
 func init() {
+	rtpAudioCodecGetCodecCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	rtpAudioCodecGetCodecCmd.Flags().String("arg1", "", "arg1 (string)")
+	rtpAudioCodecGetCodecCmd.Flags().String("arg2", "", "arg2 (string)")
+	rtpAudioCodecCmd.AddCommand(rtpAudioCodecGetCodecCmd)
+	rtpAudioCodecCmd.AddCommand(rtpAudioCodecGetCodecsCmd)
+	rtpCmd.AddCommand(rtpAudioCodecCmd)
+	rtpAudioGroupNewAudioGroupCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	rtpAudioGroupCmd.AddCommand(rtpAudioGroupNewAudioGroupCmd)
+	rtpAudioGroupClearCmd.Flags().Int64("handle", 0, "handle (int64)")
+	rtpAudioGroupCmd.AddCommand(rtpAudioGroupClearCmd)
+	rtpAudioGroupGetModeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	rtpAudioGroupCmd.AddCommand(rtpAudioGroupGetModeCmd)
+	rtpAudioGroupGetStreamsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	rtpAudioGroupCmd.AddCommand(rtpAudioGroupGetStreamsCmd)
+	rtpAudioGroupSendDtmfCmd.Flags().Int64("handle", 0, "handle (int64)")
+	rtpAudioGroupSendDtmfCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	rtpAudioGroupCmd.AddCommand(rtpAudioGroupSendDtmfCmd)
+	rtpAudioGroupSetModeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	rtpAudioGroupSetModeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	rtpAudioGroupCmd.AddCommand(rtpAudioGroupSetModeCmd)
+	rtpCmd.AddCommand(rtpAudioGroupCmd)
 	rtpAudioStreamNewAudioStreamCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	rtpAudioStreamCmd.AddCommand(rtpAudioStreamNewAudioStreamCmd)
 	rtpAudioStreamGetCodecCmd.Flags().Int64("handle", 0, "handle (int64)")
@@ -541,26 +562,5 @@ func init() {
 	rtpStreamSetModeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
 	rtpStreamCmd.AddCommand(rtpStreamSetModeCmd)
 	rtpCmd.AddCommand(rtpStreamCmd)
-	rtpAudioGroupNewAudioGroupCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	rtpAudioGroupCmd.AddCommand(rtpAudioGroupNewAudioGroupCmd)
-	rtpAudioGroupClearCmd.Flags().Int64("handle", 0, "handle (int64)")
-	rtpAudioGroupCmd.AddCommand(rtpAudioGroupClearCmd)
-	rtpAudioGroupGetModeCmd.Flags().Int64("handle", 0, "handle (int64)")
-	rtpAudioGroupCmd.AddCommand(rtpAudioGroupGetModeCmd)
-	rtpAudioGroupGetStreamsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	rtpAudioGroupCmd.AddCommand(rtpAudioGroupGetStreamsCmd)
-	rtpAudioGroupSendDtmfCmd.Flags().Int64("handle", 0, "handle (int64)")
-	rtpAudioGroupSendDtmfCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	rtpAudioGroupCmd.AddCommand(rtpAudioGroupSendDtmfCmd)
-	rtpAudioGroupSetModeCmd.Flags().Int64("handle", 0, "handle (int64)")
-	rtpAudioGroupSetModeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	rtpAudioGroupCmd.AddCommand(rtpAudioGroupSetModeCmd)
-	rtpCmd.AddCommand(rtpAudioGroupCmd)
-	rtpAudioCodecGetCodecCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	rtpAudioCodecGetCodecCmd.Flags().String("arg1", "", "arg1 (string)")
-	rtpAudioCodecGetCodecCmd.Flags().String("arg2", "", "arg2 (string)")
-	rtpAudioCodecCmd.AddCommand(rtpAudioCodecGetCodecCmd)
-	rtpAudioCodecCmd.AddCommand(rtpAudioCodecGetCodecsCmd)
-	rtpCmd.AddCommand(rtpAudioCodecCmd)
 	rootCmd.AddCommand(rtpCmd)
 }

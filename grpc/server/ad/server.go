@@ -15,52 +15,6 @@ import (
 	"google.golang.org/grpc/status"
 )
 
-// TvAdManagerServer implements pb.TvAdManagerServiceServer.
-type TvAdManagerServer struct {
-	pb.UnimplementedTvAdManagerServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *TvAdManagerServer) RegisterCallback(_ context.Context, req *pb.RegisterCallbackRequest) (*pb.RegisterCallbackResponse, error) {
-	mgr, err := jnipkg.NewTvAdManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	if err := mgr.RegisterCallback(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.RegisterCallbackResponse{}, nil
-}
-
-func (s *TvAdManagerServer) SendAppLinkCommand(_ context.Context, req *pb.SendAppLinkCommandRequest) (*pb.SendAppLinkCommandResponse, error) {
-	mgr, err := jnipkg.NewTvAdManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	if err := mgr.SendAppLinkCommand(req.GetArg0(), s.Handles.Get(req.GetArg1())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SendAppLinkCommandResponse{}, nil
-}
-
-func (s *TvAdManagerServer) UnregisterCallback(_ context.Context, req *pb.UnregisterCallbackRequest) (*pb.UnregisterCallbackResponse, error) {
-	mgr, err := jnipkg.NewTvAdManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	if err := mgr.UnregisterCallback(s.Handles.Get(req.GetArg0())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.UnregisterCallbackResponse{}, nil
-}
-
 // TvAdServiceInfoServer implements pb.TvAdServiceInfoServiceServer.
 type TvAdServiceInfoServer struct {
 	pb.UnimplementedTvAdServiceInfoServiceServer
@@ -132,6 +86,29 @@ func (s *TvAdServiceInfoServer) GetServiceInfo(_ context.Context, req *pb.GetSer
 		}
 	}
 	return &pb.GetServiceInfoResponse{Result: handle}, nil
+}
+
+func (s *TvAdServiceInfoServer) GetSupportedTypes(_ context.Context, req *pb.GetSupportedTypesRequest) (*pb.GetSupportedTypesResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.TvAdServiceInfo{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetSupportedTypes()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetSupportedTypesResponse{Result: handle}, nil
 }
 
 func (s *TvAdServiceInfoServer) WriteToParcel(_ context.Context, req *pb.WriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
@@ -532,4 +509,73 @@ func (s *TvAdViewServer) StopAdService(_ context.Context, req *pb.StopAdServiceR
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
 	return &pb.StopAdServiceResponse{}, nil
+}
+
+// TvAdManagerServer implements pb.TvAdManagerServiceServer.
+type TvAdManagerServer struct {
+	pb.UnimplementedTvAdManagerServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *TvAdManagerServer) GetTvAdServiceList(_ context.Context, req *pb.GetTvAdServiceListRequest) (*pb.GetTvAdServiceListResponse, error) {
+	mgr, err := jnipkg.NewTvAdManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.GetTvAdServiceList()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetTvAdServiceListResponse{Result: handle}, nil
+}
+
+func (s *TvAdManagerServer) RegisterCallback(_ context.Context, req *pb.RegisterCallbackRequest) (*pb.RegisterCallbackResponse, error) {
+	mgr, err := jnipkg.NewTvAdManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	if err := mgr.RegisterCallback(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.RegisterCallbackResponse{}, nil
+}
+
+func (s *TvAdManagerServer) SendAppLinkCommand(_ context.Context, req *pb.SendAppLinkCommandRequest) (*pb.SendAppLinkCommandResponse, error) {
+	mgr, err := jnipkg.NewTvAdManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	if err := mgr.SendAppLinkCommand(req.GetArg0(), s.Handles.Get(req.GetArg1())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SendAppLinkCommandResponse{}, nil
+}
+
+func (s *TvAdManagerServer) UnregisterCallback(_ context.Context, req *pb.UnregisterCallbackRequest) (*pb.UnregisterCallbackResponse, error) {
+	mgr, err := jnipkg.NewTvAdManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	if err := mgr.UnregisterCallback(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.UnregisterCallbackResponse{}, nil
 }

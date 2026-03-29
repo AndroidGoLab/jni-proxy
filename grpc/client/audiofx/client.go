@@ -9,122 +9,6 @@ import (
 	"google.golang.org/grpc"
 )
 
-// BassBoostClient wraps the gRPC BassBoostService client.
-type BassBoostClient struct {
-	svc pb.BassBoostServiceClient
-}
-
-// NewBassBoostClient creates a new BassBoost client.
-func NewBassBoostClient(cc grpc.ClientConnInterface) *BassBoostClient {
-	return &BassBoostClient{
-		svc: pb.NewBassBoostServiceClient(cc),
-	}
-}
-
-// GetProperties calls the GetProperties RPC.
-func (c *BassBoostClient) GetProperties(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetProperties(ctx, &pb.GetPropertiesRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetRoundedStrength calls the GetRoundedStrength RPC.
-func (c *BassBoostClient) GetRoundedStrength(ctx context.Context, handle int64) (int16, error) {
-	resp, err := c.svc.GetRoundedStrength(ctx, &pb.GetRoundedStrengthRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return int16(resp.GetResult()), nil
-}
-
-// GetStrengthSupported calls the GetStrengthSupported RPC.
-func (c *BassBoostClient) GetStrengthSupported(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.GetStrengthSupported(ctx, &pb.GetStrengthSupportedRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetParameterListener calls the SetParameterListener RPC.
-func (c *BassBoostClient) SetParameterListener(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.SetParameterListener(ctx, &pb.SetParameterListenerRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetProperties calls the SetProperties RPC.
-func (c *BassBoostClient) SetProperties(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.SetProperties(ctx, &pb.SetPropertiesRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetStrength calls the SetStrength RPC.
-func (c *BassBoostClient) SetStrength(ctx context.Context, handle int64, arg0 int16) error {
-	_, err := c.svc.SetStrength(ctx, &pb.SetStrengthRequest{
-		Handle: handle,
-		Arg0:   int32(arg0),
-	})
-	return err
-}
-
-// BassBoostOnParameterChangeListenerClient wraps the gRPC BassBoostOnParameterChangeListenerService client.
-type BassBoostOnParameterChangeListenerClient struct {
-	svc pb.BassBoostOnParameterChangeListenerServiceClient
-}
-
-// NewBassBoostOnParameterChangeListenerClient creates a new BassBoostOnParameterChangeListener client.
-func NewBassBoostOnParameterChangeListenerClient(cc grpc.ClientConnInterface) *BassBoostOnParameterChangeListenerClient {
-	return &BassBoostOnParameterChangeListenerClient{
-		svc: pb.NewBassBoostOnParameterChangeListenerServiceClient(cc),
-	}
-}
-
-// OnParameterChange calls the OnParameterChange RPC.
-func (c *BassBoostOnParameterChangeListenerClient) OnParameterChange(ctx context.Context, arg0 int64, arg1 int32, arg2 int32, arg3 int16) error {
-	_, err := c.svc.OnParameterChange(ctx, &pb.OnParameterChangeRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: int32(arg3),
-	})
-	return err
-}
-
-// BassBoostSettingsClient wraps the gRPC BassBoostSettingsService client.
-type BassBoostSettingsClient struct {
-	svc pb.BassBoostSettingsServiceClient
-}
-
-// NewBassBoostSettingsClient creates a new BassBoostSettings client.
-func NewBassBoostSettingsClient(cc grpc.ClientConnInterface) *BassBoostSettingsClient {
-	return &BassBoostSettingsClient{
-		svc: pb.NewBassBoostSettingsServiceClient(cc),
-	}
-}
-
-// ToString calls the ToString RPC.
-func (c *BassBoostSettingsClient) ToString(ctx context.Context) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
 // AutomaticGainControlClient wraps the gRPC AutomaticGainControlService client.
 type AutomaticGainControlClient struct {
 	svc pb.AutomaticGainControlServiceClient
@@ -157,21 +41,32 @@ func (c *AutomaticGainControlClient) IsAvailable(ctx context.Context) (bool, err
 	return resp.GetResult(), nil
 }
 
-// VisualizerClient wraps the gRPC VisualizerService client.
-type VisualizerClient struct {
-	svc pb.VisualizerServiceClient
+// PresetReverbClient wraps the gRPC PresetReverbService client.
+type PresetReverbClient struct {
+	svc pb.PresetReverbServiceClient
 }
 
-// NewVisualizerClient creates a new Visualizer client.
-func NewVisualizerClient(cc grpc.ClientConnInterface) *VisualizerClient {
-	return &VisualizerClient{
-		svc: pb.NewVisualizerServiceClient(cc),
+// NewPresetReverbClient creates a new PresetReverb client.
+func NewPresetReverbClient(cc grpc.ClientConnInterface) *PresetReverbClient {
+	return &PresetReverbClient{
+		svc: pb.NewPresetReverbServiceClient(cc),
 	}
 }
 
-// GetCaptureSize calls the GetCaptureSize RPC.
-func (c *VisualizerClient) GetCaptureSize(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetCaptureSize(ctx, &pb.GetCaptureSizeRequest{
+// GetPreset calls the GetPreset RPC.
+func (c *PresetReverbClient) GetPreset(ctx context.Context, handle int64) (int16, error) {
+	resp, err := c.svc.GetPreset(ctx, &pb.GetPresetRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return int16(resp.GetResult()), nil
+}
+
+// GetProperties calls the GetProperties RPC.
+func (c *PresetReverbClient) GetProperties(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetProperties(ctx, &pb.GetPropertiesRequest{
 		Handle: handle,
 	})
 	if err != nil {
@@ -180,209 +75,107 @@ func (c *VisualizerClient) GetCaptureSize(ctx context.Context, handle int64) (in
 	return resp.GetResult(), nil
 }
 
-// GetEnabled calls the GetEnabled RPC.
-func (c *VisualizerClient) GetEnabled(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.GetEnabled(ctx, &pb.GetEnabledRequest{
+// SetParameterListener calls the SetParameterListener RPC.
+func (c *PresetReverbClient) SetParameterListener(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetParameterListener(ctx, &pb.SetParameterListenerRequest{
 		Handle: handle,
+		Arg0:   arg0,
 	})
+	return err
+}
+
+// SetPreset calls the SetPreset RPC.
+func (c *PresetReverbClient) SetPreset(ctx context.Context, handle int64, arg0 int16) error {
+	_, err := c.svc.SetPreset(ctx, &pb.SetPresetRequest{
+		Handle: handle,
+		Arg0:   int32(arg0),
+	})
+	return err
+}
+
+// SetProperties calls the SetProperties RPC.
+func (c *PresetReverbClient) SetProperties(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetProperties(ctx, &pb.SetPropertiesRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// PresetReverbOnParameterChangeListenerClient wraps the gRPC PresetReverbOnParameterChangeListenerService client.
+type PresetReverbOnParameterChangeListenerClient struct {
+	svc pb.PresetReverbOnParameterChangeListenerServiceClient
+}
+
+// NewPresetReverbOnParameterChangeListenerClient creates a new PresetReverbOnParameterChangeListener client.
+func NewPresetReverbOnParameterChangeListenerClient(cc grpc.ClientConnInterface) *PresetReverbOnParameterChangeListenerClient {
+	return &PresetReverbOnParameterChangeListenerClient{
+		svc: pb.NewPresetReverbOnParameterChangeListenerServiceClient(cc),
+	}
+}
+
+// OnParameterChange calls the OnParameterChange RPC.
+func (c *PresetReverbOnParameterChangeListenerClient) OnParameterChange(ctx context.Context, arg0 int64, arg1 int32, arg2 int32, arg3 int16) error {
+	_, err := c.svc.OnParameterChange(ctx, &pb.OnParameterChangeRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: int32(arg3),
+	})
+	return err
+}
+
+// PresetReverbSettingsClient wraps the gRPC PresetReverbSettingsService client.
+type PresetReverbSettingsClient struct {
+	svc pb.PresetReverbSettingsServiceClient
+}
+
+// NewPresetReverbSettingsClient creates a new PresetReverbSettings client.
+func NewPresetReverbSettingsClient(cc grpc.ClientConnInterface) *PresetReverbSettingsClient {
+	return &PresetReverbSettingsClient{
+		svc: pb.NewPresetReverbSettingsServiceClient(cc),
+	}
+}
+
+// ToString calls the ToString RPC.
+func (c *PresetReverbSettingsClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// AcousticEchoCancelerClient wraps the gRPC AcousticEchoCancelerService client.
+type AcousticEchoCancelerClient struct {
+	svc pb.AcousticEchoCancelerServiceClient
+}
+
+// NewAcousticEchoCancelerClient creates a new AcousticEchoCanceler client.
+func NewAcousticEchoCancelerClient(cc grpc.ClientConnInterface) *AcousticEchoCancelerClient {
+	return &AcousticEchoCancelerClient{
+		svc: pb.NewAcousticEchoCancelerServiceClient(cc),
+	}
+}
+
+// Create calls the Create RPC.
+func (c *AcousticEchoCancelerClient) Create(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.Create(ctx, &pb.CreateRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsAvailable calls the IsAvailable RPC.
+func (c *AcousticEchoCancelerClient) IsAvailable(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsAvailable(ctx, &pb.IsAvailableRequest{})
 	if err != nil {
 		return false, err
 	}
 	return resp.GetResult(), nil
-}
-
-// GetFft calls the GetFft RPC.
-func (c *VisualizerClient) GetFft(ctx context.Context, handle int64, arg0 int64) (int32, error) {
-	resp, err := c.svc.GetFft(ctx, &pb.GetFftRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetMeasurementMode calls the GetMeasurementMode RPC.
-func (c *VisualizerClient) GetMeasurementMode(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetMeasurementMode(ctx, &pb.GetMeasurementModeRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetMeasurementPeakRms calls the GetMeasurementPeakRms RPC.
-func (c *VisualizerClient) GetMeasurementPeakRms(ctx context.Context, handle int64, arg0 int64) (int32, error) {
-	resp, err := c.svc.GetMeasurementPeakRms(ctx, &pb.GetMeasurementPeakRmsRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetSamplingRate calls the GetSamplingRate RPC.
-func (c *VisualizerClient) GetSamplingRate(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetSamplingRate(ctx, &pb.GetSamplingRateRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetScalingMode calls the GetScalingMode RPC.
-func (c *VisualizerClient) GetScalingMode(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetScalingMode(ctx, &pb.GetScalingModeRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetWaveForm calls the GetWaveForm RPC.
-func (c *VisualizerClient) GetWaveForm(ctx context.Context, handle int64, arg0 int64) (int32, error) {
-	resp, err := c.svc.GetWaveForm(ctx, &pb.GetWaveFormRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Release calls the Release RPC.
-func (c *VisualizerClient) Release(ctx context.Context, handle int64) error {
-	_, err := c.svc.Release(ctx, &pb.ReleaseRequest{
-		Handle: handle,
-	})
-	return err
-}
-
-// SetCaptureSize calls the SetCaptureSize RPC.
-func (c *VisualizerClient) SetCaptureSize(ctx context.Context, handle int64, arg0 int32) (int32, error) {
-	resp, err := c.svc.SetCaptureSize(ctx, &pb.SetCaptureSizeRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetDataCaptureListener calls the SetDataCaptureListener RPC.
-func (c *VisualizerClient) SetDataCaptureListener(ctx context.Context, handle int64, arg0 int64, arg1 int32, arg2 bool, arg3 bool) (int32, error) {
-	resp, err := c.svc.SetDataCaptureListener(ctx, &pb.SetDataCaptureListenerRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetEnabled calls the SetEnabled RPC.
-func (c *VisualizerClient) SetEnabled(ctx context.Context, handle int64, arg0 bool) (int32, error) {
-	resp, err := c.svc.SetEnabled(ctx, &pb.SetEnabledRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetMeasurementMode calls the SetMeasurementMode RPC.
-func (c *VisualizerClient) SetMeasurementMode(ctx context.Context, handle int64, arg0 int32) (int32, error) {
-	resp, err := c.svc.SetMeasurementMode(ctx, &pb.SetMeasurementModeRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetScalingMode calls the SetScalingMode RPC.
-func (c *VisualizerClient) SetScalingMode(ctx context.Context, handle int64, arg0 int32) (int32, error) {
-	resp, err := c.svc.SetScalingMode(ctx, &pb.SetScalingModeRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetCaptureSizeRange calls the GetCaptureSizeRange RPC.
-func (c *VisualizerClient) GetCaptureSizeRange(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetCaptureSizeRange(ctx, &pb.GetCaptureSizeRangeRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetMaxCaptureRate calls the GetMaxCaptureRate RPC.
-func (c *VisualizerClient) GetMaxCaptureRate(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetMaxCaptureRate(ctx, &pb.GetMaxCaptureRateRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// VisualizerOnDataCaptureListenerClient wraps the gRPC VisualizerOnDataCaptureListenerService client.
-type VisualizerOnDataCaptureListenerClient struct {
-	svc pb.VisualizerOnDataCaptureListenerServiceClient
-}
-
-// NewVisualizerOnDataCaptureListenerClient creates a new VisualizerOnDataCaptureListener client.
-func NewVisualizerOnDataCaptureListenerClient(cc grpc.ClientConnInterface) *VisualizerOnDataCaptureListenerClient {
-	return &VisualizerOnDataCaptureListenerClient{
-		svc: pb.NewVisualizerOnDataCaptureListenerServiceClient(cc),
-	}
-}
-
-// OnFftDataCapture calls the OnFftDataCapture RPC.
-func (c *VisualizerOnDataCaptureListenerClient) OnFftDataCapture(ctx context.Context, arg0 int64, arg1 int64, arg2 int32) error {
-	_, err := c.svc.OnFftDataCapture(ctx, &pb.OnFftDataCaptureRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	return err
-}
-
-// OnWaveFormDataCapture calls the OnWaveFormDataCapture RPC.
-func (c *VisualizerOnDataCaptureListenerClient) OnWaveFormDataCapture(ctx context.Context, arg0 int64, arg1 int64, arg2 int32) error {
-	_, err := c.svc.OnWaveFormDataCapture(ctx, &pb.OnWaveFormDataCaptureRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	return err
 }
 
 // EnvironmentalReverbClient wraps the gRPC EnvironmentalReverbService client.
@@ -670,514 +463,36 @@ func (c *EnvironmentalReverbSettingsClient) ToString(ctx context.Context) (strin
 	return resp.GetResult(), nil
 }
 
-// AudioEffectClient wraps the gRPC AudioEffectService client.
-type AudioEffectClient struct {
-	svc pb.AudioEffectServiceClient
+// NoiseSuppressorClient wraps the gRPC NoiseSuppressorService client.
+type NoiseSuppressorClient struct {
+	svc pb.NoiseSuppressorServiceClient
 }
 
-// NewAudioEffectClient creates a new AudioEffect client.
-func NewAudioEffectClient(cc grpc.ClientConnInterface) *AudioEffectClient {
-	return &AudioEffectClient{
-		svc: pb.NewAudioEffectServiceClient(cc),
+// NewNoiseSuppressorClient creates a new NoiseSuppressor client.
+func NewNoiseSuppressorClient(cc grpc.ClientConnInterface) *NoiseSuppressorClient {
+	return &NoiseSuppressorClient{
+		svc: pb.NewNoiseSuppressorServiceClient(cc),
 	}
 }
 
-// GetDescriptor calls the GetDescriptor RPC.
-func (c *AudioEffectClient) GetDescriptor(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetDescriptor(ctx, &pb.GetDescriptorRequest{})
+// Create calls the Create RPC.
+func (c *NoiseSuppressorClient) Create(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.Create(ctx, &pb.CreateRequest{
+		Arg0: arg0,
+	})
 	if err != nil {
 		return 0, err
 	}
 	return resp.GetResult(), nil
 }
 
-// GetEnabled calls the GetEnabled RPC.
-func (c *AudioEffectClient) GetEnabled(ctx context.Context) (bool, error) {
-	resp, err := c.svc.GetEnabled(ctx, &pb.AudioEffectGetEnabledRequest{})
+// IsAvailable calls the IsAvailable RPC.
+func (c *NoiseSuppressorClient) IsAvailable(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsAvailable(ctx, &pb.IsAvailableRequest{})
 	if err != nil {
 		return false, err
 	}
 	return resp.GetResult(), nil
-}
-
-// GetId calls the GetId RPC.
-func (c *AudioEffectClient) GetId(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetId(ctx, &pb.GetIdRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HasControl calls the HasControl RPC.
-func (c *AudioEffectClient) HasControl(ctx context.Context) (bool, error) {
-	resp, err := c.svc.HasControl(ctx, &pb.HasControlRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Release calls the Release RPC.
-func (c *AudioEffectClient) Release(ctx context.Context) error {
-	_, err := c.svc.Release(ctx, &pb.AudioEffectReleaseRequest{})
-	return err
-}
-
-// SetControlStatusListener calls the SetControlStatusListener RPC.
-func (c *AudioEffectClient) SetControlStatusListener(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.SetControlStatusListener(ctx, &pb.SetControlStatusListenerRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetEnableStatusListener calls the SetEnableStatusListener RPC.
-func (c *AudioEffectClient) SetEnableStatusListener(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.SetEnableStatusListener(ctx, &pb.SetEnableStatusListenerRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetEnabled calls the SetEnabled RPC.
-func (c *AudioEffectClient) SetEnabled(ctx context.Context, arg0 bool) (int32, error) {
-	resp, err := c.svc.SetEnabled(ctx, &pb.AudioEffectSetEnabledRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// QueryEffects calls the QueryEffects RPC.
-func (c *AudioEffectClient) QueryEffects(ctx context.Context) (int64, error) {
-	resp, err := c.svc.QueryEffects(ctx, &pb.QueryEffectsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// AudioEffectDescriptorClient wraps the gRPC AudioEffectDescriptorService client.
-type AudioEffectDescriptorClient struct {
-	svc pb.AudioEffectDescriptorServiceClient
-}
-
-// NewAudioEffectDescriptorClient creates a new AudioEffectDescriptor client.
-func NewAudioEffectDescriptorClient(cc grpc.ClientConnInterface) *AudioEffectDescriptorClient {
-	return &AudioEffectDescriptorClient{
-		svc: pb.NewAudioEffectDescriptorServiceClient(cc),
-	}
-}
-
-// Equals calls the Equals RPC.
-func (c *AudioEffectDescriptorClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *AudioEffectDescriptorClient) HashCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// AudioEffectOnControlStatusChangeListenerClient wraps the gRPC AudioEffectOnControlStatusChangeListenerService client.
-type AudioEffectOnControlStatusChangeListenerClient struct {
-	svc pb.AudioEffectOnControlStatusChangeListenerServiceClient
-}
-
-// NewAudioEffectOnControlStatusChangeListenerClient creates a new AudioEffectOnControlStatusChangeListener client.
-func NewAudioEffectOnControlStatusChangeListenerClient(cc grpc.ClientConnInterface) *AudioEffectOnControlStatusChangeListenerClient {
-	return &AudioEffectOnControlStatusChangeListenerClient{
-		svc: pb.NewAudioEffectOnControlStatusChangeListenerServiceClient(cc),
-	}
-}
-
-// OnControlStatusChange calls the OnControlStatusChange RPC.
-func (c *AudioEffectOnControlStatusChangeListenerClient) OnControlStatusChange(ctx context.Context, arg0 int64, arg1 bool) error {
-	_, err := c.svc.OnControlStatusChange(ctx, &pb.OnControlStatusChangeRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// AudioEffectOnEnableStatusChangeListenerClient wraps the gRPC AudioEffectOnEnableStatusChangeListenerService client.
-type AudioEffectOnEnableStatusChangeListenerClient struct {
-	svc pb.AudioEffectOnEnableStatusChangeListenerServiceClient
-}
-
-// NewAudioEffectOnEnableStatusChangeListenerClient creates a new AudioEffectOnEnableStatusChangeListener client.
-func NewAudioEffectOnEnableStatusChangeListenerClient(cc grpc.ClientConnInterface) *AudioEffectOnEnableStatusChangeListenerClient {
-	return &AudioEffectOnEnableStatusChangeListenerClient{
-		svc: pb.NewAudioEffectOnEnableStatusChangeListenerServiceClient(cc),
-	}
-}
-
-// OnEnableStatusChange calls the OnEnableStatusChange RPC.
-func (c *AudioEffectOnEnableStatusChangeListenerClient) OnEnableStatusChange(ctx context.Context, arg0 int64, arg1 bool) error {
-	_, err := c.svc.OnEnableStatusChange(ctx, &pb.OnEnableStatusChangeRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// EqualizerClient wraps the gRPC EqualizerService client.
-type EqualizerClient struct {
-	svc pb.EqualizerServiceClient
-}
-
-// NewEqualizerClient creates a new Equalizer client.
-func NewEqualizerClient(cc grpc.ClientConnInterface) *EqualizerClient {
-	return &EqualizerClient{
-		svc: pb.NewEqualizerServiceClient(cc),
-	}
-}
-
-// GetBand calls the GetBand RPC.
-func (c *EqualizerClient) GetBand(ctx context.Context, handle int64, arg0 int32) (int16, error) {
-	resp, err := c.svc.GetBand(ctx, &pb.GetBandRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return int16(resp.GetResult()), nil
-}
-
-// GetBandFreqRange calls the GetBandFreqRange RPC.
-func (c *EqualizerClient) GetBandFreqRange(ctx context.Context, handle int64, arg0 int16) (int64, error) {
-	resp, err := c.svc.GetBandFreqRange(ctx, &pb.GetBandFreqRangeRequest{
-		Handle: handle,
-		Arg0:   int32(arg0),
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetBandLevel calls the GetBandLevel RPC.
-func (c *EqualizerClient) GetBandLevel(ctx context.Context, handle int64, arg0 int16) (int16, error) {
-	resp, err := c.svc.GetBandLevel(ctx, &pb.GetBandLevelRequest{
-		Handle: handle,
-		Arg0:   int32(arg0),
-	})
-	if err != nil {
-		return 0, err
-	}
-	return int16(resp.GetResult()), nil
-}
-
-// GetBandLevelRange calls the GetBandLevelRange RPC.
-func (c *EqualizerClient) GetBandLevelRange(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetBandLevelRange(ctx, &pb.GetBandLevelRangeRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetCenterFreq calls the GetCenterFreq RPC.
-func (c *EqualizerClient) GetCenterFreq(ctx context.Context, handle int64, arg0 int16) (int32, error) {
-	resp, err := c.svc.GetCenterFreq(ctx, &pb.GetCenterFreqRequest{
-		Handle: handle,
-		Arg0:   int32(arg0),
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetCurrentPreset calls the GetCurrentPreset RPC.
-func (c *EqualizerClient) GetCurrentPreset(ctx context.Context, handle int64) (int16, error) {
-	resp, err := c.svc.GetCurrentPreset(ctx, &pb.GetCurrentPresetRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return int16(resp.GetResult()), nil
-}
-
-// GetNumberOfBands calls the GetNumberOfBands RPC.
-func (c *EqualizerClient) GetNumberOfBands(ctx context.Context, handle int64) (int16, error) {
-	resp, err := c.svc.GetNumberOfBands(ctx, &pb.GetNumberOfBandsRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return int16(resp.GetResult()), nil
-}
-
-// GetNumberOfPresets calls the GetNumberOfPresets RPC.
-func (c *EqualizerClient) GetNumberOfPresets(ctx context.Context, handle int64) (int16, error) {
-	resp, err := c.svc.GetNumberOfPresets(ctx, &pb.GetNumberOfPresetsRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return int16(resp.GetResult()), nil
-}
-
-// GetPresetName calls the GetPresetName RPC.
-func (c *EqualizerClient) GetPresetName(ctx context.Context, handle int64, arg0 int16) (string, error) {
-	resp, err := c.svc.GetPresetName(ctx, &pb.GetPresetNameRequest{
-		Handle: handle,
-		Arg0:   int32(arg0),
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetProperties calls the GetProperties RPC.
-func (c *EqualizerClient) GetProperties(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetProperties(ctx, &pb.GetPropertiesRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetBandLevel calls the SetBandLevel RPC.
-func (c *EqualizerClient) SetBandLevel(ctx context.Context, handle int64, arg0 int16, arg1 int16) error {
-	_, err := c.svc.SetBandLevel(ctx, &pb.SetBandLevelRequest{
-		Handle: handle,
-		Arg0:   int32(arg0),
-		Arg1:   int32(arg1),
-	})
-	return err
-}
-
-// SetParameterListener calls the SetParameterListener RPC.
-func (c *EqualizerClient) SetParameterListener(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.SetParameterListener(ctx, &pb.SetParameterListenerRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetProperties calls the SetProperties RPC.
-func (c *EqualizerClient) SetProperties(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.SetProperties(ctx, &pb.SetPropertiesRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// UsePreset calls the UsePreset RPC.
-func (c *EqualizerClient) UsePreset(ctx context.Context, handle int64, arg0 int16) error {
-	_, err := c.svc.UsePreset(ctx, &pb.UsePresetRequest{
-		Handle: handle,
-		Arg0:   int32(arg0),
-	})
-	return err
-}
-
-// EqualizerOnParameterChangeListenerClient wraps the gRPC EqualizerOnParameterChangeListenerService client.
-type EqualizerOnParameterChangeListenerClient struct {
-	svc pb.EqualizerOnParameterChangeListenerServiceClient
-}
-
-// NewEqualizerOnParameterChangeListenerClient creates a new EqualizerOnParameterChangeListener client.
-func NewEqualizerOnParameterChangeListenerClient(cc grpc.ClientConnInterface) *EqualizerOnParameterChangeListenerClient {
-	return &EqualizerOnParameterChangeListenerClient{
-		svc: pb.NewEqualizerOnParameterChangeListenerServiceClient(cc),
-	}
-}
-
-// OnParameterChange calls the OnParameterChange RPC.
-func (c *EqualizerOnParameterChangeListenerClient) OnParameterChange(ctx context.Context, arg0 int64, arg1 int32, arg2 int32, arg3 int32, arg4 int32) error {
-	_, err := c.svc.OnParameterChange(ctx, &pb.EqualizerOnParameterChangeListenerOnParameterChangeRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-		Arg4: arg4,
-	})
-	return err
-}
-
-// EqualizerSettingsClient wraps the gRPC EqualizerSettingsService client.
-type EqualizerSettingsClient struct {
-	svc pb.EqualizerSettingsServiceClient
-}
-
-// NewEqualizerSettingsClient creates a new EqualizerSettings client.
-func NewEqualizerSettingsClient(cc grpc.ClientConnInterface) *EqualizerSettingsClient {
-	return &EqualizerSettingsClient{
-		svc: pb.NewEqualizerSettingsServiceClient(cc),
-	}
-}
-
-// ToString calls the ToString RPC.
-func (c *EqualizerSettingsClient) ToString(ctx context.Context) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// PresetReverbClient wraps the gRPC PresetReverbService client.
-type PresetReverbClient struct {
-	svc pb.PresetReverbServiceClient
-}
-
-// NewPresetReverbClient creates a new PresetReverb client.
-func NewPresetReverbClient(cc grpc.ClientConnInterface) *PresetReverbClient {
-	return &PresetReverbClient{
-		svc: pb.NewPresetReverbServiceClient(cc),
-	}
-}
-
-// GetPreset calls the GetPreset RPC.
-func (c *PresetReverbClient) GetPreset(ctx context.Context, handle int64) (int16, error) {
-	resp, err := c.svc.GetPreset(ctx, &pb.GetPresetRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return int16(resp.GetResult()), nil
-}
-
-// GetProperties calls the GetProperties RPC.
-func (c *PresetReverbClient) GetProperties(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetProperties(ctx, &pb.GetPropertiesRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetParameterListener calls the SetParameterListener RPC.
-func (c *PresetReverbClient) SetParameterListener(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.SetParameterListener(ctx, &pb.SetParameterListenerRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetPreset calls the SetPreset RPC.
-func (c *PresetReverbClient) SetPreset(ctx context.Context, handle int64, arg0 int16) error {
-	_, err := c.svc.SetPreset(ctx, &pb.SetPresetRequest{
-		Handle: handle,
-		Arg0:   int32(arg0),
-	})
-	return err
-}
-
-// SetProperties calls the SetProperties RPC.
-func (c *PresetReverbClient) SetProperties(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.SetProperties(ctx, &pb.SetPropertiesRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// PresetReverbOnParameterChangeListenerClient wraps the gRPC PresetReverbOnParameterChangeListenerService client.
-type PresetReverbOnParameterChangeListenerClient struct {
-	svc pb.PresetReverbOnParameterChangeListenerServiceClient
-}
-
-// NewPresetReverbOnParameterChangeListenerClient creates a new PresetReverbOnParameterChangeListener client.
-func NewPresetReverbOnParameterChangeListenerClient(cc grpc.ClientConnInterface) *PresetReverbOnParameterChangeListenerClient {
-	return &PresetReverbOnParameterChangeListenerClient{
-		svc: pb.NewPresetReverbOnParameterChangeListenerServiceClient(cc),
-	}
-}
-
-// OnParameterChange calls the OnParameterChange RPC.
-func (c *PresetReverbOnParameterChangeListenerClient) OnParameterChange(ctx context.Context, arg0 int64, arg1 int32, arg2 int32, arg3 int16) error {
-	_, err := c.svc.OnParameterChange(ctx, &pb.OnParameterChangeRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: int32(arg3),
-	})
-	return err
-}
-
-// PresetReverbSettingsClient wraps the gRPC PresetReverbSettingsService client.
-type PresetReverbSettingsClient struct {
-	svc pb.PresetReverbSettingsServiceClient
-}
-
-// NewPresetReverbSettingsClient creates a new PresetReverbSettings client.
-func NewPresetReverbSettingsClient(cc grpc.ClientConnInterface) *PresetReverbSettingsClient {
-	return &PresetReverbSettingsClient{
-		svc: pb.NewPresetReverbSettingsServiceClient(cc),
-	}
-}
-
-// ToString calls the ToString RPC.
-func (c *PresetReverbSettingsClient) ToString(ctx context.Context) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// LoudnessEnhancerClient wraps the gRPC LoudnessEnhancerService client.
-type LoudnessEnhancerClient struct {
-	svc pb.LoudnessEnhancerServiceClient
-}
-
-// NewLoudnessEnhancerClient creates a new LoudnessEnhancer client.
-func NewLoudnessEnhancerClient(cc grpc.ClientConnInterface) *LoudnessEnhancerClient {
-	return &LoudnessEnhancerClient{
-		svc: pb.NewLoudnessEnhancerServiceClient(cc),
-	}
-}
-
-// GetTargetGain calls the GetTargetGain RPC.
-func (c *LoudnessEnhancerClient) GetTargetGain(ctx context.Context, handle int64) (float32, error) {
-	resp, err := c.svc.GetTargetGain(ctx, &pb.GetTargetGainRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetTargetGain calls the SetTargetGain RPC.
-func (c *LoudnessEnhancerClient) SetTargetGain(ctx context.Context, handle int64, arg0 int32) error {
-	_, err := c.svc.SetTargetGain(ctx, &pb.SetTargetGainRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
 }
 
 // DynamicsProcessingClient wraps the gRPC DynamicsProcessingService client.
@@ -1542,7 +857,7 @@ func (c *DynamicsProcessingBandBaseClient) SetCutoffFrequency(ctx context.Contex
 
 // SetEnabled calls the SetEnabled RPC.
 func (c *DynamicsProcessingBandBaseClient) SetEnabled(ctx context.Context, arg0 bool) error {
-	_, err := c.svc.SetEnabled(ctx, &pb.DynamicsProcessingBandBaseSetEnabledRequest{
+	_, err := c.svc.SetEnabled(ctx, &pb.SetEnabledRequest{
 		Arg0: arg0,
 	})
 	return err
@@ -2130,7 +1445,7 @@ func NewDynamicsProcessingEqClient(cc grpc.ClientConnInterface) *DynamicsProcess
 
 // GetBand calls the GetBand RPC.
 func (c *DynamicsProcessingEqClient) GetBand(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.GetBand(ctx, &pb.DynamicsProcessingEqGetBandRequest{
+	resp, err := c.svc.GetBand(ctx, &pb.GetBandRequest{
 		Arg0: arg0,
 	})
 	if err != nil {
@@ -2332,7 +1647,7 @@ func NewDynamicsProcessingMbcClient(cc grpc.ClientConnInterface) *DynamicsProces
 
 // GetBand calls the GetBand RPC.
 func (c *DynamicsProcessingMbcClient) GetBand(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.GetBand(ctx, &pb.DynamicsProcessingMbcGetBandRequest{
+	resp, err := c.svc.GetBand(ctx, &pb.GetBandRequest{
 		Arg0: arg0,
 	})
 	if err != nil {
@@ -2565,7 +1880,7 @@ func (c *DynamicsProcessingStageClient) IsInUse(ctx context.Context) (bool, erro
 
 // SetEnabled calls the SetEnabled RPC.
 func (c *DynamicsProcessingStageClient) SetEnabled(ctx context.Context, arg0 bool) error {
-	_, err := c.svc.SetEnabled(ctx, &pb.DynamicsProcessingStageSetEnabledRequest{
+	_, err := c.svc.SetEnabled(ctx, &pb.SetEnabledRequest{
 		Arg0: arg0,
 	})
 	return err
@@ -2580,20 +1895,159 @@ func (c *DynamicsProcessingStageClient) ToString(ctx context.Context) (string, e
 	return resp.GetResult(), nil
 }
 
-// NoiseSuppressorClient wraps the gRPC NoiseSuppressorService client.
-type NoiseSuppressorClient struct {
-	svc pb.NoiseSuppressorServiceClient
+// BassBoostClient wraps the gRPC BassBoostService client.
+type BassBoostClient struct {
+	svc pb.BassBoostServiceClient
 }
 
-// NewNoiseSuppressorClient creates a new NoiseSuppressor client.
-func NewNoiseSuppressorClient(cc grpc.ClientConnInterface) *NoiseSuppressorClient {
-	return &NoiseSuppressorClient{
-		svc: pb.NewNoiseSuppressorServiceClient(cc),
+// NewBassBoostClient creates a new BassBoost client.
+func NewBassBoostClient(cc grpc.ClientConnInterface) *BassBoostClient {
+	return &BassBoostClient{
+		svc: pb.NewBassBoostServiceClient(cc),
 	}
 }
 
+// GetProperties calls the GetProperties RPC.
+func (c *BassBoostClient) GetProperties(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetProperties(ctx, &pb.GetPropertiesRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetRoundedStrength calls the GetRoundedStrength RPC.
+func (c *BassBoostClient) GetRoundedStrength(ctx context.Context, handle int64) (int16, error) {
+	resp, err := c.svc.GetRoundedStrength(ctx, &pb.GetRoundedStrengthRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return int16(resp.GetResult()), nil
+}
+
+// GetStrengthSupported calls the GetStrengthSupported RPC.
+func (c *BassBoostClient) GetStrengthSupported(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.GetStrengthSupported(ctx, &pb.GetStrengthSupportedRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetParameterListener calls the SetParameterListener RPC.
+func (c *BassBoostClient) SetParameterListener(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetParameterListener(ctx, &pb.SetParameterListenerRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetProperties calls the SetProperties RPC.
+func (c *BassBoostClient) SetProperties(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetProperties(ctx, &pb.SetPropertiesRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetStrength calls the SetStrength RPC.
+func (c *BassBoostClient) SetStrength(ctx context.Context, handle int64, arg0 int16) error {
+	_, err := c.svc.SetStrength(ctx, &pb.SetStrengthRequest{
+		Handle: handle,
+		Arg0:   int32(arg0),
+	})
+	return err
+}
+
+// BassBoostOnParameterChangeListenerClient wraps the gRPC BassBoostOnParameterChangeListenerService client.
+type BassBoostOnParameterChangeListenerClient struct {
+	svc pb.BassBoostOnParameterChangeListenerServiceClient
+}
+
+// NewBassBoostOnParameterChangeListenerClient creates a new BassBoostOnParameterChangeListener client.
+func NewBassBoostOnParameterChangeListenerClient(cc grpc.ClientConnInterface) *BassBoostOnParameterChangeListenerClient {
+	return &BassBoostOnParameterChangeListenerClient{
+		svc: pb.NewBassBoostOnParameterChangeListenerServiceClient(cc),
+	}
+}
+
+// OnParameterChange calls the OnParameterChange RPC.
+func (c *BassBoostOnParameterChangeListenerClient) OnParameterChange(ctx context.Context, arg0 int64, arg1 int32, arg2 int32, arg3 int16) error {
+	_, err := c.svc.OnParameterChange(ctx, &pb.OnParameterChangeRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: int32(arg3),
+	})
+	return err
+}
+
+// BassBoostSettingsClient wraps the gRPC BassBoostSettingsService client.
+type BassBoostSettingsClient struct {
+	svc pb.BassBoostSettingsServiceClient
+}
+
+// NewBassBoostSettingsClient creates a new BassBoostSettings client.
+func NewBassBoostSettingsClient(cc grpc.ClientConnInterface) *BassBoostSettingsClient {
+	return &BassBoostSettingsClient{
+		svc: pb.NewBassBoostSettingsServiceClient(cc),
+	}
+}
+
+// ToString calls the ToString RPC.
+func (c *BassBoostSettingsClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// HapticGeneratorClient wraps the gRPC HapticGeneratorService client.
+type HapticGeneratorClient struct {
+	svc pb.HapticGeneratorServiceClient
+}
+
+// NewHapticGeneratorClient creates a new HapticGenerator client.
+func NewHapticGeneratorClient(cc grpc.ClientConnInterface) *HapticGeneratorClient {
+	return &HapticGeneratorClient{
+		svc: pb.NewHapticGeneratorServiceClient(cc),
+	}
+}
+
+// Close calls the Close RPC.
+func (c *HapticGeneratorClient) Close(ctx context.Context) error {
+	_, err := c.svc.Close(ctx, &pb.CloseRequest{})
+	return err
+}
+
+// Release calls the Release RPC.
+func (c *HapticGeneratorClient) Release(ctx context.Context) error {
+	_, err := c.svc.Release(ctx, &pb.ReleaseRequest{})
+	return err
+}
+
+// SetEnabled calls the SetEnabled RPC.
+func (c *HapticGeneratorClient) SetEnabled(ctx context.Context, arg0 bool) (int32, error) {
+	resp, err := c.svc.SetEnabled(ctx, &pb.SetEnabledRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // Create calls the Create RPC.
-func (c *NoiseSuppressorClient) Create(ctx context.Context, arg0 int32) (int64, error) {
+func (c *HapticGeneratorClient) Create(ctx context.Context, arg0 int32) (int64, error) {
 	resp, err := c.svc.Create(ctx, &pb.CreateRequest{
 		Arg0: arg0,
 	})
@@ -2604,12 +2058,645 @@ func (c *NoiseSuppressorClient) Create(ctx context.Context, arg0 int32) (int64, 
 }
 
 // IsAvailable calls the IsAvailable RPC.
-func (c *NoiseSuppressorClient) IsAvailable(ctx context.Context) (bool, error) {
+func (c *HapticGeneratorClient) IsAvailable(ctx context.Context) (bool, error) {
 	resp, err := c.svc.IsAvailable(ctx, &pb.IsAvailableRequest{})
 	if err != nil {
 		return false, err
 	}
 	return resp.GetResult(), nil
+}
+
+// LoudnessEnhancerClient wraps the gRPC LoudnessEnhancerService client.
+type LoudnessEnhancerClient struct {
+	svc pb.LoudnessEnhancerServiceClient
+}
+
+// NewLoudnessEnhancerClient creates a new LoudnessEnhancer client.
+func NewLoudnessEnhancerClient(cc grpc.ClientConnInterface) *LoudnessEnhancerClient {
+	return &LoudnessEnhancerClient{
+		svc: pb.NewLoudnessEnhancerServiceClient(cc),
+	}
+}
+
+// GetTargetGain calls the GetTargetGain RPC.
+func (c *LoudnessEnhancerClient) GetTargetGain(ctx context.Context, handle int64) (float32, error) {
+	resp, err := c.svc.GetTargetGain(ctx, &pb.GetTargetGainRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetTargetGain calls the SetTargetGain RPC.
+func (c *LoudnessEnhancerClient) SetTargetGain(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.SetTargetGain(ctx, &pb.SetTargetGainRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// AudioEffectClient wraps the gRPC AudioEffectService client.
+type AudioEffectClient struct {
+	svc pb.AudioEffectServiceClient
+}
+
+// NewAudioEffectClient creates a new AudioEffect client.
+func NewAudioEffectClient(cc grpc.ClientConnInterface) *AudioEffectClient {
+	return &AudioEffectClient{
+		svc: pb.NewAudioEffectServiceClient(cc),
+	}
+}
+
+// GetDescriptor calls the GetDescriptor RPC.
+func (c *AudioEffectClient) GetDescriptor(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetDescriptor(ctx, &pb.GetDescriptorRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetEnabled calls the GetEnabled RPC.
+func (c *AudioEffectClient) GetEnabled(ctx context.Context) (bool, error) {
+	resp, err := c.svc.GetEnabled(ctx, &pb.GetEnabledRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetId calls the GetId RPC.
+func (c *AudioEffectClient) GetId(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetId(ctx, &pb.GetIdRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasControl calls the HasControl RPC.
+func (c *AudioEffectClient) HasControl(ctx context.Context) (bool, error) {
+	resp, err := c.svc.HasControl(ctx, &pb.HasControlRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Release calls the Release RPC.
+func (c *AudioEffectClient) Release(ctx context.Context) error {
+	_, err := c.svc.Release(ctx, &pb.ReleaseRequest{})
+	return err
+}
+
+// SetControlStatusListener calls the SetControlStatusListener RPC.
+func (c *AudioEffectClient) SetControlStatusListener(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetControlStatusListener(ctx, &pb.SetControlStatusListenerRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetEnableStatusListener calls the SetEnableStatusListener RPC.
+func (c *AudioEffectClient) SetEnableStatusListener(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetEnableStatusListener(ctx, &pb.SetEnableStatusListenerRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetEnabled calls the SetEnabled RPC.
+func (c *AudioEffectClient) SetEnabled(ctx context.Context, arg0 bool) (int32, error) {
+	resp, err := c.svc.SetEnabled(ctx, &pb.SetEnabledRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// QueryEffects calls the QueryEffects RPC.
+func (c *AudioEffectClient) QueryEffects(ctx context.Context) (int64, error) {
+	resp, err := c.svc.QueryEffects(ctx, &pb.QueryEffectsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AudioEffectDescriptorClient wraps the gRPC AudioEffectDescriptorService client.
+type AudioEffectDescriptorClient struct {
+	svc pb.AudioEffectDescriptorServiceClient
+}
+
+// NewAudioEffectDescriptorClient creates a new AudioEffectDescriptor client.
+func NewAudioEffectDescriptorClient(cc grpc.ClientConnInterface) *AudioEffectDescriptorClient {
+	return &AudioEffectDescriptorClient{
+		svc: pb.NewAudioEffectDescriptorServiceClient(cc),
+	}
+}
+
+// Equals calls the Equals RPC.
+func (c *AudioEffectDescriptorClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *AudioEffectDescriptorClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AudioEffectOnControlStatusChangeListenerClient wraps the gRPC AudioEffectOnControlStatusChangeListenerService client.
+type AudioEffectOnControlStatusChangeListenerClient struct {
+	svc pb.AudioEffectOnControlStatusChangeListenerServiceClient
+}
+
+// NewAudioEffectOnControlStatusChangeListenerClient creates a new AudioEffectOnControlStatusChangeListener client.
+func NewAudioEffectOnControlStatusChangeListenerClient(cc grpc.ClientConnInterface) *AudioEffectOnControlStatusChangeListenerClient {
+	return &AudioEffectOnControlStatusChangeListenerClient{
+		svc: pb.NewAudioEffectOnControlStatusChangeListenerServiceClient(cc),
+	}
+}
+
+// OnControlStatusChange calls the OnControlStatusChange RPC.
+func (c *AudioEffectOnControlStatusChangeListenerClient) OnControlStatusChange(ctx context.Context, arg0 int64, arg1 bool) error {
+	_, err := c.svc.OnControlStatusChange(ctx, &pb.OnControlStatusChangeRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// AudioEffectOnEnableStatusChangeListenerClient wraps the gRPC AudioEffectOnEnableStatusChangeListenerService client.
+type AudioEffectOnEnableStatusChangeListenerClient struct {
+	svc pb.AudioEffectOnEnableStatusChangeListenerServiceClient
+}
+
+// NewAudioEffectOnEnableStatusChangeListenerClient creates a new AudioEffectOnEnableStatusChangeListener client.
+func NewAudioEffectOnEnableStatusChangeListenerClient(cc grpc.ClientConnInterface) *AudioEffectOnEnableStatusChangeListenerClient {
+	return &AudioEffectOnEnableStatusChangeListenerClient{
+		svc: pb.NewAudioEffectOnEnableStatusChangeListenerServiceClient(cc),
+	}
+}
+
+// OnEnableStatusChange calls the OnEnableStatusChange RPC.
+func (c *AudioEffectOnEnableStatusChangeListenerClient) OnEnableStatusChange(ctx context.Context, arg0 int64, arg1 bool) error {
+	_, err := c.svc.OnEnableStatusChange(ctx, &pb.OnEnableStatusChangeRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// EqualizerClient wraps the gRPC EqualizerService client.
+type EqualizerClient struct {
+	svc pb.EqualizerServiceClient
+}
+
+// NewEqualizerClient creates a new Equalizer client.
+func NewEqualizerClient(cc grpc.ClientConnInterface) *EqualizerClient {
+	return &EqualizerClient{
+		svc: pb.NewEqualizerServiceClient(cc),
+	}
+}
+
+// GetBand calls the GetBand RPC.
+func (c *EqualizerClient) GetBand(ctx context.Context, handle int64, arg0 int32) (int16, error) {
+	resp, err := c.svc.GetBand(ctx, &pb.EqualizerGetBandRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return int16(resp.GetResult()), nil
+}
+
+// GetBandFreqRange calls the GetBandFreqRange RPC.
+func (c *EqualizerClient) GetBandFreqRange(ctx context.Context, handle int64, arg0 int16) (int64, error) {
+	resp, err := c.svc.GetBandFreqRange(ctx, &pb.GetBandFreqRangeRequest{
+		Handle: handle,
+		Arg0:   int32(arg0),
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetBandLevel calls the GetBandLevel RPC.
+func (c *EqualizerClient) GetBandLevel(ctx context.Context, handle int64, arg0 int16) (int16, error) {
+	resp, err := c.svc.GetBandLevel(ctx, &pb.GetBandLevelRequest{
+		Handle: handle,
+		Arg0:   int32(arg0),
+	})
+	if err != nil {
+		return 0, err
+	}
+	return int16(resp.GetResult()), nil
+}
+
+// GetBandLevelRange calls the GetBandLevelRange RPC.
+func (c *EqualizerClient) GetBandLevelRange(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetBandLevelRange(ctx, &pb.GetBandLevelRangeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCenterFreq calls the GetCenterFreq RPC.
+func (c *EqualizerClient) GetCenterFreq(ctx context.Context, handle int64, arg0 int16) (int32, error) {
+	resp, err := c.svc.GetCenterFreq(ctx, &pb.GetCenterFreqRequest{
+		Handle: handle,
+		Arg0:   int32(arg0),
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCurrentPreset calls the GetCurrentPreset RPC.
+func (c *EqualizerClient) GetCurrentPreset(ctx context.Context, handle int64) (int16, error) {
+	resp, err := c.svc.GetCurrentPreset(ctx, &pb.GetCurrentPresetRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return int16(resp.GetResult()), nil
+}
+
+// GetNumberOfBands calls the GetNumberOfBands RPC.
+func (c *EqualizerClient) GetNumberOfBands(ctx context.Context, handle int64) (int16, error) {
+	resp, err := c.svc.GetNumberOfBands(ctx, &pb.GetNumberOfBandsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return int16(resp.GetResult()), nil
+}
+
+// GetNumberOfPresets calls the GetNumberOfPresets RPC.
+func (c *EqualizerClient) GetNumberOfPresets(ctx context.Context, handle int64) (int16, error) {
+	resp, err := c.svc.GetNumberOfPresets(ctx, &pb.GetNumberOfPresetsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return int16(resp.GetResult()), nil
+}
+
+// GetPresetName calls the GetPresetName RPC.
+func (c *EqualizerClient) GetPresetName(ctx context.Context, handle int64, arg0 int16) (string, error) {
+	resp, err := c.svc.GetPresetName(ctx, &pb.GetPresetNameRequest{
+		Handle: handle,
+		Arg0:   int32(arg0),
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetProperties calls the GetProperties RPC.
+func (c *EqualizerClient) GetProperties(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetProperties(ctx, &pb.GetPropertiesRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetBandLevel calls the SetBandLevel RPC.
+func (c *EqualizerClient) SetBandLevel(ctx context.Context, handle int64, arg0 int16, arg1 int16) error {
+	_, err := c.svc.SetBandLevel(ctx, &pb.SetBandLevelRequest{
+		Handle: handle,
+		Arg0:   int32(arg0),
+		Arg1:   int32(arg1),
+	})
+	return err
+}
+
+// SetParameterListener calls the SetParameterListener RPC.
+func (c *EqualizerClient) SetParameterListener(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetParameterListener(ctx, &pb.SetParameterListenerRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetProperties calls the SetProperties RPC.
+func (c *EqualizerClient) SetProperties(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetProperties(ctx, &pb.SetPropertiesRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// UsePreset calls the UsePreset RPC.
+func (c *EqualizerClient) UsePreset(ctx context.Context, handle int64, arg0 int16) error {
+	_, err := c.svc.UsePreset(ctx, &pb.UsePresetRequest{
+		Handle: handle,
+		Arg0:   int32(arg0),
+	})
+	return err
+}
+
+// EqualizerOnParameterChangeListenerClient wraps the gRPC EqualizerOnParameterChangeListenerService client.
+type EqualizerOnParameterChangeListenerClient struct {
+	svc pb.EqualizerOnParameterChangeListenerServiceClient
+}
+
+// NewEqualizerOnParameterChangeListenerClient creates a new EqualizerOnParameterChangeListener client.
+func NewEqualizerOnParameterChangeListenerClient(cc grpc.ClientConnInterface) *EqualizerOnParameterChangeListenerClient {
+	return &EqualizerOnParameterChangeListenerClient{
+		svc: pb.NewEqualizerOnParameterChangeListenerServiceClient(cc),
+	}
+}
+
+// OnParameterChange calls the OnParameterChange RPC.
+func (c *EqualizerOnParameterChangeListenerClient) OnParameterChange(ctx context.Context, arg0 int64, arg1 int32, arg2 int32, arg3 int32, arg4 int32) error {
+	_, err := c.svc.OnParameterChange(ctx, &pb.EqualizerOnParameterChangeListenerOnParameterChangeRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+	})
+	return err
+}
+
+// EqualizerSettingsClient wraps the gRPC EqualizerSettingsService client.
+type EqualizerSettingsClient struct {
+	svc pb.EqualizerSettingsServiceClient
+}
+
+// NewEqualizerSettingsClient creates a new EqualizerSettings client.
+func NewEqualizerSettingsClient(cc grpc.ClientConnInterface) *EqualizerSettingsClient {
+	return &EqualizerSettingsClient{
+		svc: pb.NewEqualizerSettingsServiceClient(cc),
+	}
+}
+
+// ToString calls the ToString RPC.
+func (c *EqualizerSettingsClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// VisualizerClient wraps the gRPC VisualizerService client.
+type VisualizerClient struct {
+	svc pb.VisualizerServiceClient
+}
+
+// NewVisualizerClient creates a new Visualizer client.
+func NewVisualizerClient(cc grpc.ClientConnInterface) *VisualizerClient {
+	return &VisualizerClient{
+		svc: pb.NewVisualizerServiceClient(cc),
+	}
+}
+
+// GetCaptureSize calls the GetCaptureSize RPC.
+func (c *VisualizerClient) GetCaptureSize(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetCaptureSize(ctx, &pb.GetCaptureSizeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetEnabled calls the GetEnabled RPC.
+func (c *VisualizerClient) GetEnabled(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.GetEnabled(ctx, &pb.VisualizerGetEnabledRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetFft calls the GetFft RPC.
+func (c *VisualizerClient) GetFft(ctx context.Context, handle int64, arg0 int64) (int32, error) {
+	resp, err := c.svc.GetFft(ctx, &pb.GetFftRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMeasurementMode calls the GetMeasurementMode RPC.
+func (c *VisualizerClient) GetMeasurementMode(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetMeasurementMode(ctx, &pb.GetMeasurementModeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMeasurementPeakRms calls the GetMeasurementPeakRms RPC.
+func (c *VisualizerClient) GetMeasurementPeakRms(ctx context.Context, handle int64, arg0 int64) (int32, error) {
+	resp, err := c.svc.GetMeasurementPeakRms(ctx, &pb.GetMeasurementPeakRmsRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSamplingRate calls the GetSamplingRate RPC.
+func (c *VisualizerClient) GetSamplingRate(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetSamplingRate(ctx, &pb.GetSamplingRateRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetScalingMode calls the GetScalingMode RPC.
+func (c *VisualizerClient) GetScalingMode(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetScalingMode(ctx, &pb.GetScalingModeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetWaveForm calls the GetWaveForm RPC.
+func (c *VisualizerClient) GetWaveForm(ctx context.Context, handle int64, arg0 int64) (int32, error) {
+	resp, err := c.svc.GetWaveForm(ctx, &pb.GetWaveFormRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Release calls the Release RPC.
+func (c *VisualizerClient) Release(ctx context.Context, handle int64) error {
+	_, err := c.svc.Release(ctx, &pb.VisualizerReleaseRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// SetCaptureSize calls the SetCaptureSize RPC.
+func (c *VisualizerClient) SetCaptureSize(ctx context.Context, handle int64, arg0 int32) (int32, error) {
+	resp, err := c.svc.SetCaptureSize(ctx, &pb.SetCaptureSizeRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetDataCaptureListener calls the SetDataCaptureListener RPC.
+func (c *VisualizerClient) SetDataCaptureListener(ctx context.Context, handle int64, arg0 int64, arg1 int32, arg2 bool, arg3 bool) (int32, error) {
+	resp, err := c.svc.SetDataCaptureListener(ctx, &pb.SetDataCaptureListenerRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetEnabled calls the SetEnabled RPC.
+func (c *VisualizerClient) SetEnabled(ctx context.Context, handle int64, arg0 bool) (int32, error) {
+	resp, err := c.svc.SetEnabled(ctx, &pb.VisualizerSetEnabledRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetMeasurementMode calls the SetMeasurementMode RPC.
+func (c *VisualizerClient) SetMeasurementMode(ctx context.Context, handle int64, arg0 int32) (int32, error) {
+	resp, err := c.svc.SetMeasurementMode(ctx, &pb.SetMeasurementModeRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetScalingMode calls the SetScalingMode RPC.
+func (c *VisualizerClient) SetScalingMode(ctx context.Context, handle int64, arg0 int32) (int32, error) {
+	resp, err := c.svc.SetScalingMode(ctx, &pb.SetScalingModeRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCaptureSizeRange calls the GetCaptureSizeRange RPC.
+func (c *VisualizerClient) GetCaptureSizeRange(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetCaptureSizeRange(ctx, &pb.GetCaptureSizeRangeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMaxCaptureRate calls the GetMaxCaptureRate RPC.
+func (c *VisualizerClient) GetMaxCaptureRate(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetMaxCaptureRate(ctx, &pb.GetMaxCaptureRateRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// VisualizerOnDataCaptureListenerClient wraps the gRPC VisualizerOnDataCaptureListenerService client.
+type VisualizerOnDataCaptureListenerClient struct {
+	svc pb.VisualizerOnDataCaptureListenerServiceClient
+}
+
+// NewVisualizerOnDataCaptureListenerClient creates a new VisualizerOnDataCaptureListener client.
+func NewVisualizerOnDataCaptureListenerClient(cc grpc.ClientConnInterface) *VisualizerOnDataCaptureListenerClient {
+	return &VisualizerOnDataCaptureListenerClient{
+		svc: pb.NewVisualizerOnDataCaptureListenerServiceClient(cc),
+	}
+}
+
+// OnFftDataCapture calls the OnFftDataCapture RPC.
+func (c *VisualizerOnDataCaptureListenerClient) OnFftDataCapture(ctx context.Context, arg0 int64, arg1 int64, arg2 int32) error {
+	_, err := c.svc.OnFftDataCapture(ctx, &pb.OnFftDataCaptureRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// OnWaveFormDataCapture calls the OnWaveFormDataCapture RPC.
+func (c *VisualizerOnDataCaptureListenerClient) OnWaveFormDataCapture(ctx context.Context, arg0 int64, arg1 int64, arg2 int32) error {
+	_, err := c.svc.OnWaveFormDataCapture(ctx, &pb.OnWaveFormDataCaptureRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
 }
 
 // VirtualizerClient wraps the gRPC VirtualizerService client.
@@ -2774,93 +2861,6 @@ func (c *VirtualizerSettingsClient) ToString(ctx context.Context) (string, error
 	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
 	if err != nil {
 		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// AcousticEchoCancelerClient wraps the gRPC AcousticEchoCancelerService client.
-type AcousticEchoCancelerClient struct {
-	svc pb.AcousticEchoCancelerServiceClient
-}
-
-// NewAcousticEchoCancelerClient creates a new AcousticEchoCanceler client.
-func NewAcousticEchoCancelerClient(cc grpc.ClientConnInterface) *AcousticEchoCancelerClient {
-	return &AcousticEchoCancelerClient{
-		svc: pb.NewAcousticEchoCancelerServiceClient(cc),
-	}
-}
-
-// Create calls the Create RPC.
-func (c *AcousticEchoCancelerClient) Create(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.Create(ctx, &pb.CreateRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsAvailable calls the IsAvailable RPC.
-func (c *AcousticEchoCancelerClient) IsAvailable(ctx context.Context) (bool, error) {
-	resp, err := c.svc.IsAvailable(ctx, &pb.IsAvailableRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HapticGeneratorClient wraps the gRPC HapticGeneratorService client.
-type HapticGeneratorClient struct {
-	svc pb.HapticGeneratorServiceClient
-}
-
-// NewHapticGeneratorClient creates a new HapticGenerator client.
-func NewHapticGeneratorClient(cc grpc.ClientConnInterface) *HapticGeneratorClient {
-	return &HapticGeneratorClient{
-		svc: pb.NewHapticGeneratorServiceClient(cc),
-	}
-}
-
-// Close calls the Close RPC.
-func (c *HapticGeneratorClient) Close(ctx context.Context) error {
-	_, err := c.svc.Close(ctx, &pb.CloseRequest{})
-	return err
-}
-
-// Release calls the Release RPC.
-func (c *HapticGeneratorClient) Release(ctx context.Context) error {
-	_, err := c.svc.Release(ctx, &pb.HapticGeneratorReleaseRequest{})
-	return err
-}
-
-// SetEnabled calls the SetEnabled RPC.
-func (c *HapticGeneratorClient) SetEnabled(ctx context.Context, arg0 bool) (int32, error) {
-	resp, err := c.svc.SetEnabled(ctx, &pb.HapticGeneratorSetEnabledRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Create calls the Create RPC.
-func (c *HapticGeneratorClient) Create(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.Create(ctx, &pb.CreateRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsAvailable calls the IsAvailable RPC.
-func (c *HapticGeneratorClient) IsAvailable(ctx context.Context) (bool, error) {
-	resp, err := c.svc.IsAvailable(ctx, &pb.IsAvailableRequest{})
-	if err != nil {
-		return false, err
 	}
 	return resp.GetResult(), nil
 }

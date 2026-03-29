@@ -12,2427 +12,6 @@ var transitionCmd = &cobra.Command{
 	Short: "transition service operations",
 }
 
-var transitionSetCmd = &cobra.Command{
-	Use:   "set",
-	Short: "SetService operations",
-}
-
-var transitionSetNewSetCmd = &cobra.Command{
-	Use:   "new-set",
-	Short: "NewSet RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSetServiceClient(grpcConn)
-		req := &pb.NewSetRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.NewSet(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var transitionSetAddListener1Cmd = &cobra.Command{
-	Use:   "add-listener1",
-	Short: "AddListener1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSetServiceClient(grpcConn)
-		req := &pb.AddListener1Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.AddListener1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var transitionSetAddTarget1Cmd = &cobra.Command{
-	Use:   "add-target1",
-	Short: "AddTarget1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSetServiceClient(grpcConn)
-		req := &pb.AddTarget1Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.AddTarget1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var transitionSetAddTarget1_1Cmd = &cobra.Command{
-	Use:   "add-target1_1",
-	Short: "AddTarget1_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSetServiceClient(grpcConn)
-		req := &pb.AddTarget1_1Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.AddTarget1_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var transitionSetAddTarget1_2Cmd = &cobra.Command{
-	Use:   "add-target1_2",
-	Short: "AddTarget1_2 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSetServiceClient(grpcConn)
-		req := &pb.AddTarget1_2Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.AddTarget1_2(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var transitionSetAddTarget1_3Cmd = &cobra.Command{
-	Use:   "add-target1_3",
-	Short: "AddTarget1_3 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSetServiceClient(grpcConn)
-		req := &pb.AddTarget1_3Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.AddTarget1_3(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var transitionSetAddTransitionCmd = &cobra.Command{
-	Use:   "add-transition",
-	Short: "AddTransition RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSetServiceClient(grpcConn)
-		req := &pb.AddTransitionRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.AddTransition(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var transitionSetCaptureEndValuesCmd = &cobra.Command{
-	Use:   "capture-end-values",
-	Short: "CaptureEndValues RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSetServiceClient(grpcConn)
-		req := &pb.CaptureEndValuesRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.CaptureEndValues(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var transitionSetCaptureStartValuesCmd = &cobra.Command{
-	Use:   "capture-start-values",
-	Short: "CaptureStartValues RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSetServiceClient(grpcConn)
-		req := &pb.CaptureStartValuesRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.CaptureStartValues(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var transitionSetClone0Cmd = &cobra.Command{
-	Use:   "clone0",
-	Short: "Clone0 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSetServiceClient(grpcConn)
-		req := &pb.Clone0Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.Clone0(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var transitionSetExcludeTarget2Cmd = &cobra.Command{
-	Use:   "exclude-target2",
-	Short: "ExcludeTarget2 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSetServiceClient(grpcConn)
-		req := &pb.ExcludeTarget2Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetBool("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.ExcludeTarget2(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var transitionSetExcludeTarget2_1Cmd = &cobra.Command{
-	Use:   "exclude-target2_1",
-	Short: "ExcludeTarget2_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSetServiceClient(grpcConn)
-		req := &pb.ExcludeTarget2_1Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetBool("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.ExcludeTarget2_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var transitionSetExcludeTarget2_2Cmd = &cobra.Command{
-	Use:   "exclude-target2_2",
-	Short: "ExcludeTarget2_2 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSetServiceClient(grpcConn)
-		req := &pb.ExcludeTarget2_2Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetBool("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.ExcludeTarget2_2(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var transitionSetExcludeTarget2_3Cmd = &cobra.Command{
-	Use:   "exclude-target2_3",
-	Short: "ExcludeTarget2_3 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSetServiceClient(grpcConn)
-		req := &pb.ExcludeTarget2_3Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetBool("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.ExcludeTarget2_3(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var transitionSetGetOrderingCmd = &cobra.Command{
-	Use:   "get-ordering",
-	Short: "GetOrdering RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSetServiceClient(grpcConn)
-		req := &pb.GetOrderingRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetOrdering(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var transitionSetGetTransitionAtCmd = &cobra.Command{
-	Use:   "get-transition-at",
-	Short: "GetTransitionAt RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSetServiceClient(grpcConn)
-		req := &pb.GetTransitionAtRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetTransitionAt(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var transitionSetGetTransitionCountCmd = &cobra.Command{
-	Use:   "get-transition-count",
-	Short: "GetTransitionCount RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSetServiceClient(grpcConn)
-		req := &pb.GetTransitionCountRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetTransitionCount(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var transitionSetRemoveListener1Cmd = &cobra.Command{
-	Use:   "remove-listener1",
-	Short: "RemoveListener1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSetServiceClient(grpcConn)
-		req := &pb.RemoveListener1Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.RemoveListener1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var transitionSetRemoveTarget1Cmd = &cobra.Command{
-	Use:   "remove-target1",
-	Short: "RemoveTarget1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSetServiceClient(grpcConn)
-		req := &pb.RemoveTarget1Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.RemoveTarget1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var transitionSetRemoveTarget1_1Cmd = &cobra.Command{
-	Use:   "remove-target1_1",
-	Short: "RemoveTarget1_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSetServiceClient(grpcConn)
-		req := &pb.RemoveTarget1_1Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.RemoveTarget1_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var transitionSetRemoveTarget1_2Cmd = &cobra.Command{
-	Use:   "remove-target1_2",
-	Short: "RemoveTarget1_2 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSetServiceClient(grpcConn)
-		req := &pb.RemoveTarget1_2Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.RemoveTarget1_2(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var transitionSetRemoveTarget1_3Cmd = &cobra.Command{
-	Use:   "remove-target1_3",
-	Short: "RemoveTarget1_3 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSetServiceClient(grpcConn)
-		req := &pb.RemoveTarget1_3Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.RemoveTarget1_3(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var transitionSetRemoveTransitionCmd = &cobra.Command{
-	Use:   "remove-transition",
-	Short: "RemoveTransition RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSetServiceClient(grpcConn)
-		req := &pb.RemoveTransitionRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.RemoveTransition(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var transitionSetSetDuration1Cmd = &cobra.Command{
-	Use:   "set-duration1",
-	Short: "SetDuration1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSetServiceClient(grpcConn)
-		req := &pb.SetDuration1Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetDuration1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var transitionSetSetEpicenterCallbackCmd = &cobra.Command{
-	Use:   "set-epicenter-callback",
-	Short: "SetEpicenterCallback RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSetServiceClient(grpcConn)
-		req := &pb.SetEpicenterCallbackRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetEpicenterCallback(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var transitionSetSetInterpolator1Cmd = &cobra.Command{
-	Use:   "set-interpolator1",
-	Short: "SetInterpolator1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSetServiceClient(grpcConn)
-		req := &pb.SetInterpolator1Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetInterpolator1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var transitionSetSetOrderingCmd = &cobra.Command{
-	Use:   "set-ordering",
-	Short: "SetOrdering RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSetServiceClient(grpcConn)
-		req := &pb.SetOrderingRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetOrdering(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var transitionSetSetPathMotionCmd = &cobra.Command{
-	Use:   "set-path-motion",
-	Short: "SetPathMotion RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSetServiceClient(grpcConn)
-		req := &pb.SetPathMotionRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetPathMotion(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var transitionSetSetPropagationCmd = &cobra.Command{
-	Use:   "set-propagation",
-	Short: "SetPropagation RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSetServiceClient(grpcConn)
-		req := &pb.SetPropagationRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetPropagation(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var transitionSetSetStartDelay1Cmd = &cobra.Command{
-	Use:   "set-start-delay1",
-	Short: "SetStartDelay1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSetServiceClient(grpcConn)
-		req := &pb.SetStartDelay1Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetStartDelay1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var transitionSetSetStartDelay1_1Cmd = &cobra.Command{
-	Use:   "set-start-delay1_1",
-	Short: "SetStartDelay1_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSetServiceClient(grpcConn)
-		req := &pb.SetStartDelay1_1Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetStartDelay1_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var transitionSetSetInterpolator1_1Cmd = &cobra.Command{
-	Use:   "set-interpolator1_1",
-	Short: "SetInterpolator1_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSetServiceClient(grpcConn)
-		req := &pb.SetInterpolator1_1Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetInterpolator1_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var transitionSetSetDuration1_1Cmd = &cobra.Command{
-	Use:   "set-duration1_1",
-	Short: "SetDuration1_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSetServiceClient(grpcConn)
-		req := &pb.SetDuration1_1Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetDuration1_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var transitionSetRemoveTarget1_4Cmd = &cobra.Command{
-	Use:   "remove-target1_4",
-	Short: "RemoveTarget1_4 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSetServiceClient(grpcConn)
-		req := &pb.RemoveTarget1_4Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.RemoveTarget1_4(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var transitionSetRemoveTarget1_5Cmd = &cobra.Command{
-	Use:   "remove-target1_5",
-	Short: "RemoveTarget1_5 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSetServiceClient(grpcConn)
-		req := &pb.RemoveTarget1_5Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.RemoveTarget1_5(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var transitionSetRemoveTarget1_6Cmd = &cobra.Command{
-	Use:   "remove-target1_6",
-	Short: "RemoveTarget1_6 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSetServiceClient(grpcConn)
-		req := &pb.RemoveTarget1_6Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.RemoveTarget1_6(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var transitionSetRemoveTarget1_7Cmd = &cobra.Command{
-	Use:   "remove-target1_7",
-	Short: "RemoveTarget1_7 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSetServiceClient(grpcConn)
-		req := &pb.RemoveTarget1_7Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.RemoveTarget1_7(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var transitionSetRemoveListener1_1Cmd = &cobra.Command{
-	Use:   "remove-listener1_1",
-	Short: "RemoveListener1_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSetServiceClient(grpcConn)
-		req := &pb.RemoveListener1_1Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.RemoveListener1_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var transitionSetClone0_1Cmd = &cobra.Command{
-	Use:   "clone0_1",
-	Short: "Clone0_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSetServiceClient(grpcConn)
-		req := &pb.Clone0_1Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.Clone0_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var transitionSetAddTarget1_4Cmd = &cobra.Command{
-	Use:   "add-target1_4",
-	Short: "AddTarget1_4 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSetServiceClient(grpcConn)
-		req := &pb.AddTarget1_4Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.AddTarget1_4(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var transitionSetAddTarget1_5Cmd = &cobra.Command{
-	Use:   "add-target1_5",
-	Short: "AddTarget1_5 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSetServiceClient(grpcConn)
-		req := &pb.AddTarget1_5Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.AddTarget1_5(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var transitionSetAddTarget1_6Cmd = &cobra.Command{
-	Use:   "add-target1_6",
-	Short: "AddTarget1_6 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSetServiceClient(grpcConn)
-		req := &pb.AddTarget1_6Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.AddTarget1_6(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var transitionSetAddTarget1_7Cmd = &cobra.Command{
-	Use:   "add-target1_7",
-	Short: "AddTarget1_7 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSetServiceClient(grpcConn)
-		req := &pb.AddTarget1_7Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.AddTarget1_7(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var transitionSetAddListener1_1Cmd = &cobra.Command{
-	Use:   "add-listener1_1",
-	Short: "AddListener1_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSetServiceClient(grpcConn)
-		req := &pb.AddListener1_1Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.AddListener1_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var transitionSetClone0_2Cmd = &cobra.Command{
-	Use:   "clone0_2",
-	Short: "Clone0_2 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSetServiceClient(grpcConn)
-		req := &pb.Clone0_2Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.Clone0_2(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var transitionVisibilityPropagationCmd = &cobra.Command{
-	Use:   "visibility-propagation",
-	Short: "VisibilityPropagationService operations",
-}
-
-var transitionVisibilityPropagationCaptureValuesCmd = &cobra.Command{
-	Use:   "capture-values",
-	Short: "CaptureValues RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewVisibilityPropagationServiceClient(grpcConn)
-		req := &pb.CaptureValuesRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.CaptureValues(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var transitionVisibilityPropagationGetPropagationPropertiesCmd = &cobra.Command{
-	Use:   "get-propagation-properties",
-	Short: "GetPropagationProperties RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewVisibilityPropagationServiceClient(grpcConn)
-		req := &pb.GetPropagationPropertiesRequest{}
-		resp, err := client.GetPropagationProperties(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var transitionVisibilityPropagationGetViewVisibilityCmd = &cobra.Command{
-	Use:   "get-view-visibility",
-	Short: "GetViewVisibility RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewVisibilityPropagationServiceClient(grpcConn)
-		req := &pb.GetViewVisibilityRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetViewVisibility(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var transitionVisibilityPropagationGetViewXCmd = &cobra.Command{
-	Use:   "get-view-x",
-	Short: "GetViewX RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewVisibilityPropagationServiceClient(grpcConn)
-		req := &pb.GetViewXRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetViewX(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var transitionVisibilityPropagationGetViewYCmd = &cobra.Command{
-	Use:   "get-view-y",
-	Short: "GetViewY RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewVisibilityPropagationServiceClient(grpcConn)
-		req := &pb.GetViewYRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetViewY(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var transitionChangeClipBoundsCmd = &cobra.Command{
-	Use:   "change-clip-bounds",
-	Short: "ChangeClipBoundsService operations",
-}
-
-var transitionChangeClipBoundsNewChangeClipBoundsCmd = &cobra.Command{
-	Use:   "new-change-clip-bounds",
-	Short: "NewChangeClipBounds RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewChangeClipBoundsServiceClient(grpcConn)
-		req := &pb.NewChangeClipBoundsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.NewChangeClipBounds(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var transitionChangeClipBoundsCaptureEndValuesCmd = &cobra.Command{
-	Use:   "capture-end-values",
-	Short: "CaptureEndValues RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewChangeClipBoundsServiceClient(grpcConn)
-		req := &pb.CaptureEndValuesRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.CaptureEndValues(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var transitionChangeClipBoundsCaptureStartValuesCmd = &cobra.Command{
-	Use:   "capture-start-values",
-	Short: "CaptureStartValues RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewChangeClipBoundsServiceClient(grpcConn)
-		req := &pb.CaptureStartValuesRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.CaptureStartValues(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var transitionChangeClipBoundsCreateAnimatorCmd = &cobra.Command{
-	Use:   "create-animator",
-	Short: "CreateAnimator RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewChangeClipBoundsServiceClient(grpcConn)
-		req := &pb.CreateAnimatorRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.CreateAnimator(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var transitionChangeClipBoundsGetTransitionPropertiesCmd = &cobra.Command{
-	Use:   "get-transition-properties",
-	Short: "GetTransitionProperties RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewChangeClipBoundsServiceClient(grpcConn)
-		req := &pb.GetTransitionPropertiesRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetTransitionProperties(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var transitionChangeScrollCmd = &cobra.Command{
-	Use:   "change-scroll",
-	Short: "ChangeScrollService operations",
-}
-
-var transitionChangeScrollNewChangeScrollCmd = &cobra.Command{
-	Use:   "new-change-scroll",
-	Short: "NewChangeScroll RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewChangeScrollServiceClient(grpcConn)
-		req := &pb.NewChangeScrollRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.NewChangeScroll(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var transitionChangeScrollCaptureEndValuesCmd = &cobra.Command{
-	Use:   "capture-end-values",
-	Short: "CaptureEndValues RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewChangeScrollServiceClient(grpcConn)
-		req := &pb.CaptureEndValuesRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.CaptureEndValues(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var transitionChangeScrollCaptureStartValuesCmd = &cobra.Command{
-	Use:   "capture-start-values",
-	Short: "CaptureStartValues RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewChangeScrollServiceClient(grpcConn)
-		req := &pb.CaptureStartValuesRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.CaptureStartValues(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var transitionChangeScrollCreateAnimatorCmd = &cobra.Command{
-	Use:   "create-animator",
-	Short: "CreateAnimator RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewChangeScrollServiceClient(grpcConn)
-		req := &pb.CreateAnimatorRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.CreateAnimator(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var transitionChangeScrollGetTransitionPropertiesCmd = &cobra.Command{
-	Use:   "get-transition-properties",
-	Short: "GetTransitionProperties RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewChangeScrollServiceClient(grpcConn)
-		req := &pb.GetTransitionPropertiesRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetTransitionProperties(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var transitionSceneCmd = &cobra.Command{
-	Use:   "scene",
-	Short: "SceneService operations",
-}
-
-var transitionSceneNewSceneCmd = &cobra.Command{
-	Use:   "new-scene",
-	Short: "NewScene RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSceneServiceClient(grpcConn)
-		req := &pb.NewSceneRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.NewScene(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var transitionSceneEnterCmd = &cobra.Command{
-	Use:   "enter",
-	Short: "Enter RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSceneServiceClient(grpcConn)
-		req := &pb.EnterRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.Enter(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var transitionSceneExitCmd = &cobra.Command{
-	Use:   "exit",
-	Short: "Exit RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSceneServiceClient(grpcConn)
-		req := &pb.ExitRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.Exit(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var transitionSceneGetSceneRootCmd = &cobra.Command{
-	Use:   "get-scene-root",
-	Short: "GetSceneRoot RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSceneServiceClient(grpcConn)
-		req := &pb.GetSceneRootRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetSceneRoot(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var transitionSceneSetEnterActionCmd = &cobra.Command{
-	Use:   "set-enter-action",
-	Short: "SetEnterAction RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSceneServiceClient(grpcConn)
-		req := &pb.SetEnterActionRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetEnterAction(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var transitionSceneSetExitActionCmd = &cobra.Command{
-	Use:   "set-exit-action",
-	Short: "SetExitAction RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSceneServiceClient(grpcConn)
-		req := &pb.SetExitActionRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetExitAction(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var transitionSceneGetCurrentSceneCmd = &cobra.Command{
-	Use:   "get-current-scene",
-	Short: "GetCurrentScene RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSceneServiceClient(grpcConn)
-		req := &pb.GetCurrentSceneRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetCurrentScene(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var transitionSceneGetSceneForLayoutCmd = &cobra.Command{
-	Use:   "get-scene-for-layout",
-	Short: "GetSceneForLayout RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSceneServiceClient(grpcConn)
-		req := &pb.GetSceneForLayoutRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.GetSceneForLayout(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var transitionTransitionCmd = &cobra.Command{
-	Use:   "transition",
-	Short: "TransitionService operations",
-}
-
-var transitionTransitionAddListenerCmd = &cobra.Command{
-	Use:   "add-listener",
-	Short: "AddListener RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTransitionServiceClient(grpcConn)
-		req := &pb.AddListenerRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.AddListener(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var transitionTransitionAddTarget1Cmd = &cobra.Command{
-	Use:   "add-target1",
-	Short: "AddTarget1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTransitionServiceClient(grpcConn)
-		req := &pb.TransitionAddTarget1Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.AddTarget1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var transitionTransitionAddTarget1_1Cmd = &cobra.Command{
-	Use:   "add-target1_1",
-	Short: "AddTarget1_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTransitionServiceClient(grpcConn)
-		req := &pb.TransitionAddTarget1_1Request{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.AddTarget1_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var transitionTransitionAddTarget1_2Cmd = &cobra.Command{
-	Use:   "add-target1_2",
-	Short: "AddTarget1_2 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTransitionServiceClient(grpcConn)
-		req := &pb.TransitionAddTarget1_2Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.AddTarget1_2(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var transitionTransitionAddTarget1_3Cmd = &cobra.Command{
-	Use:   "add-target1_3",
-	Short: "AddTarget1_3 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTransitionServiceClient(grpcConn)
-		req := &pb.TransitionAddTarget1_3Request{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.AddTarget1_3(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var transitionTransitionCanRemoveViewsCmd = &cobra.Command{
-	Use:   "can-remove-views",
-	Short: "CanRemoveViews RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTransitionServiceClient(grpcConn)
-		req := &pb.CanRemoveViewsRequest{}
-		resp, err := client.CanRemoveViews(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var transitionTransitionCaptureEndValuesCmd = &cobra.Command{
-	Use:   "capture-end-values",
-	Short: "CaptureEndValues RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTransitionServiceClient(grpcConn)
-		req := &pb.TransitionCaptureEndValuesRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.CaptureEndValues(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var transitionTransitionCaptureStartValuesCmd = &cobra.Command{
-	Use:   "capture-start-values",
-	Short: "CaptureStartValues RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTransitionServiceClient(grpcConn)
-		req := &pb.TransitionCaptureStartValuesRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.CaptureStartValues(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var transitionTransitionClone0Cmd = &cobra.Command{
-	Use:   "clone0",
-	Short: "Clone0 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTransitionServiceClient(grpcConn)
-		req := &pb.TransitionClone0Request{}
-		resp, err := client.Clone0(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var transitionTransitionCreateAnimatorCmd = &cobra.Command{
-	Use:   "create-animator",
-	Short: "CreateAnimator RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTransitionServiceClient(grpcConn)
-		req := &pb.TransitionCreateAnimatorRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.CreateAnimator(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var transitionTransitionExcludeChildren2Cmd = &cobra.Command{
-	Use:   "exclude-children2",
-	Short: "ExcludeChildren2 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTransitionServiceClient(grpcConn)
-		req := &pb.ExcludeChildren2Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetBool("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.ExcludeChildren2(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var transitionTransitionExcludeChildren2_1Cmd = &cobra.Command{
-	Use:   "exclude-children2_1",
-	Short: "ExcludeChildren2_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTransitionServiceClient(grpcConn)
-		req := &pb.ExcludeChildren2_1Request{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetBool("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.ExcludeChildren2_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var transitionTransitionExcludeChildren2_2Cmd = &cobra.Command{
-	Use:   "exclude-children2_2",
-	Short: "ExcludeChildren2_2 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTransitionServiceClient(grpcConn)
-		req := &pb.ExcludeChildren2_2Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetBool("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.ExcludeChildren2_2(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var transitionTransitionExcludeTarget2Cmd = &cobra.Command{
-	Use:   "exclude-target2",
-	Short: "ExcludeTarget2 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTransitionServiceClient(grpcConn)
-		req := &pb.TransitionExcludeTarget2Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetBool("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.ExcludeTarget2(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var transitionTransitionExcludeTarget2_1Cmd = &cobra.Command{
-	Use:   "exclude-target2_1",
-	Short: "ExcludeTarget2_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTransitionServiceClient(grpcConn)
-		req := &pb.TransitionExcludeTarget2_1Request{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetBool("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.ExcludeTarget2_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var transitionTransitionExcludeTarget2_2Cmd = &cobra.Command{
-	Use:   "exclude-target2_2",
-	Short: "ExcludeTarget2_2 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTransitionServiceClient(grpcConn)
-		req := &pb.TransitionExcludeTarget2_2Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetBool("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.ExcludeTarget2_2(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var transitionTransitionExcludeTarget2_3Cmd = &cobra.Command{
-	Use:   "exclude-target2_3",
-	Short: "ExcludeTarget2_3 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTransitionServiceClient(grpcConn)
-		req := &pb.TransitionExcludeTarget2_3Request{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetBool("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.ExcludeTarget2_3(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var transitionTransitionGetDurationCmd = &cobra.Command{
-	Use:   "get-duration",
-	Short: "GetDuration RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTransitionServiceClient(grpcConn)
-		req := &pb.GetDurationRequest{}
-		resp, err := client.GetDuration(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var transitionTransitionGetEpicenterCmd = &cobra.Command{
-	Use:   "get-epicenter",
-	Short: "GetEpicenter RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTransitionServiceClient(grpcConn)
-		req := &pb.GetEpicenterRequest{}
-		resp, err := client.GetEpicenter(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var transitionTransitionGetEpicenterCallbackCmd = &cobra.Command{
-	Use:   "get-epicenter-callback",
-	Short: "GetEpicenterCallback RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTransitionServiceClient(grpcConn)
-		req := &pb.GetEpicenterCallbackRequest{}
-		resp, err := client.GetEpicenterCallback(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var transitionTransitionGetInterpolatorCmd = &cobra.Command{
-	Use:   "get-interpolator",
-	Short: "GetInterpolator RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTransitionServiceClient(grpcConn)
-		req := &pb.GetInterpolatorRequest{}
-		resp, err := client.GetInterpolator(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var transitionTransitionGetNameCmd = &cobra.Command{
-	Use:   "get-name",
-	Short: "GetName RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTransitionServiceClient(grpcConn)
-		req := &pb.GetNameRequest{}
-		resp, err := client.GetName(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var transitionTransitionGetPathMotionCmd = &cobra.Command{
-	Use:   "get-path-motion",
-	Short: "GetPathMotion RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTransitionServiceClient(grpcConn)
-		req := &pb.GetPathMotionRequest{}
-		resp, err := client.GetPathMotion(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var transitionTransitionGetPropagationCmd = &cobra.Command{
-	Use:   "get-propagation",
-	Short: "GetPropagation RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTransitionServiceClient(grpcConn)
-		req := &pb.GetPropagationRequest{}
-		resp, err := client.GetPropagation(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var transitionTransitionGetStartDelayCmd = &cobra.Command{
-	Use:   "get-start-delay",
-	Short: "GetStartDelay RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTransitionServiceClient(grpcConn)
-		req := &pb.GetStartDelayRequest{}
-		resp, err := client.GetStartDelay(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var transitionTransitionGetTransitionPropertiesCmd = &cobra.Command{
-	Use:   "get-transition-properties",
-	Short: "GetTransitionProperties RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTransitionServiceClient(grpcConn)
-		req := &pb.TransitionGetTransitionPropertiesRequest{}
-		resp, err := client.GetTransitionProperties(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var transitionTransitionGetTransitionValuesCmd = &cobra.Command{
-	Use:   "get-transition-values",
-	Short: "GetTransitionValues RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTransitionServiceClient(grpcConn)
-		req := &pb.GetTransitionValuesRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetBool("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.GetTransitionValues(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var transitionTransitionIsTransitionRequiredCmd = &cobra.Command{
-	Use:   "is-transition-required",
-	Short: "IsTransitionRequired RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTransitionServiceClient(grpcConn)
-		req := &pb.IsTransitionRequiredRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.IsTransitionRequired(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var transitionTransitionRemoveListenerCmd = &cobra.Command{
-	Use:   "remove-listener",
-	Short: "RemoveListener RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTransitionServiceClient(grpcConn)
-		req := &pb.RemoveListenerRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.RemoveListener(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var transitionTransitionRemoveTarget1Cmd = &cobra.Command{
-	Use:   "remove-target1",
-	Short: "RemoveTarget1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTransitionServiceClient(grpcConn)
-		req := &pb.TransitionRemoveTarget1Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.RemoveTarget1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var transitionTransitionRemoveTarget1_1Cmd = &cobra.Command{
-	Use:   "remove-target1_1",
-	Short: "RemoveTarget1_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTransitionServiceClient(grpcConn)
-		req := &pb.TransitionRemoveTarget1_1Request{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.RemoveTarget1_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var transitionTransitionRemoveTarget1_2Cmd = &cobra.Command{
-	Use:   "remove-target1_2",
-	Short: "RemoveTarget1_2 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTransitionServiceClient(grpcConn)
-		req := &pb.TransitionRemoveTarget1_2Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.RemoveTarget1_2(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var transitionTransitionRemoveTarget1_3Cmd = &cobra.Command{
-	Use:   "remove-target1_3",
-	Short: "RemoveTarget1_3 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTransitionServiceClient(grpcConn)
-		req := &pb.TransitionRemoveTarget1_3Request{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.RemoveTarget1_3(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var transitionTransitionSetDurationCmd = &cobra.Command{
-	Use:   "set-duration",
-	Short: "SetDuration RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTransitionServiceClient(grpcConn)
-		req := &pb.SetDurationRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetDuration(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var transitionTransitionSetEpicenterCallbackCmd = &cobra.Command{
-	Use:   "set-epicenter-callback",
-	Short: "SetEpicenterCallback RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTransitionServiceClient(grpcConn)
-		req := &pb.TransitionSetEpicenterCallbackRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetEpicenterCallback(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var transitionTransitionSetInterpolatorCmd = &cobra.Command{
-	Use:   "set-interpolator",
-	Short: "SetInterpolator RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTransitionServiceClient(grpcConn)
-		req := &pb.SetInterpolatorRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetInterpolator(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var transitionTransitionSetMatchOrderCmd = &cobra.Command{
-	Use:   "set-match-order",
-	Short: "SetMatchOrder RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTransitionServiceClient(grpcConn)
-		req := &pb.SetMatchOrderRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetMatchOrder(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var transitionTransitionSetPathMotionCmd = &cobra.Command{
-	Use:   "set-path-motion",
-	Short: "SetPathMotion RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTransitionServiceClient(grpcConn)
-		req := &pb.TransitionSetPathMotionRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetPathMotion(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var transitionTransitionSetPropagationCmd = &cobra.Command{
-	Use:   "set-propagation",
-	Short: "SetPropagation RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTransitionServiceClient(grpcConn)
-		req := &pb.TransitionSetPropagationRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetPropagation(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var transitionTransitionSetStartDelayCmd = &cobra.Command{
-	Use:   "set-start-delay",
-	Short: "SetStartDelay RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTransitionServiceClient(grpcConn)
-		req := &pb.SetStartDelayRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetStartDelay(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var transitionTransitionToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTransitionServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var transitionTransitionClone0_1Cmd = &cobra.Command{
-	Use:   "clone0_1",
-	Short: "Clone0_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTransitionServiceClient(grpcConn)
-		req := &pb.TransitionClone0_1Request{}
-		resp, err := client.Clone0_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var transitionEpicenterCallbackCmd = &cobra.Command{
-	Use:   "epicenter-callback",
-	Short: "EpicenterCallbackService operations",
-}
-
-var transitionEpicenterCallbackOnGetEpicenterCmd = &cobra.Command{
-	Use:   "on-get-epicenter",
-	Short: "OnGetEpicenter RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewEpicenterCallbackServiceClient(grpcConn)
-		req := &pb.OnGetEpicenterRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.OnGetEpicenter(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var transitionTransitionListenerCmd = &cobra.Command{
-	Use:   "transition-listener",
-	Short: "TransitionListenerService operations",
-}
-
-var transitionTransitionListenerOnTransitionCancelCmd = &cobra.Command{
-	Use:   "on-transition-cancel",
-	Short: "OnTransitionCancel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTransitionListenerServiceClient(grpcConn)
-		req := &pb.OnTransitionCancelRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.OnTransitionCancel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var transitionTransitionListenerOnTransitionEndCmd = &cobra.Command{
-	Use:   "on-transition-end",
-	Short: "OnTransitionEnd RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTransitionListenerServiceClient(grpcConn)
-		req := &pb.OnTransitionEndRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.OnTransitionEnd(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var transitionTransitionListenerOnTransitionPauseCmd = &cobra.Command{
-	Use:   "on-transition-pause",
-	Short: "OnTransitionPause RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTransitionListenerServiceClient(grpcConn)
-		req := &pb.OnTransitionPauseRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.OnTransitionPause(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var transitionTransitionListenerOnTransitionResumeCmd = &cobra.Command{
-	Use:   "on-transition-resume",
-	Short: "OnTransitionResume RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTransitionListenerServiceClient(grpcConn)
-		req := &pb.OnTransitionResumeRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.OnTransitionResume(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var transitionTransitionListenerOnTransitionStartCmd = &cobra.Command{
-	Use:   "on-transition-start",
-	Short: "OnTransitionStart RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTransitionListenerServiceClient(grpcConn)
-		req := &pb.OnTransitionStartRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.OnTransitionStart(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
 var transitionArcMotionCmd = &cobra.Command{
 	Use:   "arc-motion",
 	Short: "ArcMotionService operations",
@@ -2614,277 +193,23 @@ var transitionArcMotionSetMinimumVerticalAngleCmd = &cobra.Command{
 	},
 }
 
-var transitionVisibilityCmd = &cobra.Command{
-	Use:   "visibility",
-	Short: "VisibilityService operations",
+var transitionInflaterCmd = &cobra.Command{
+	Use:   "inflater",
+	Short: "InflaterService operations",
 }
 
-var transitionVisibilityCaptureEndValuesCmd = &cobra.Command{
-	Use:   "capture-end-values",
-	Short: "CaptureEndValues RPC",
+var transitionInflaterInflateTransitionCmd = &cobra.Command{
+	Use:   "inflate-transition",
+	Short: "InflateTransition RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewVisibilityServiceClient(grpcConn)
-		req := &pb.VisibilityCaptureEndValuesRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.CaptureEndValues(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var transitionVisibilityCaptureStartValuesCmd = &cobra.Command{
-	Use:   "capture-start-values",
-	Short: "CaptureStartValues RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewVisibilityServiceClient(grpcConn)
-		req := &pb.VisibilityCaptureStartValuesRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.CaptureStartValues(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var transitionVisibilityCreateAnimatorCmd = &cobra.Command{
-	Use:   "create-animator",
-	Short: "CreateAnimator RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewVisibilityServiceClient(grpcConn)
-		req := &pb.VisibilityCreateAnimatorRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.CreateAnimator(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var transitionVisibilityGetModeCmd = &cobra.Command{
-	Use:   "get-mode",
-	Short: "GetMode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewVisibilityServiceClient(grpcConn)
-		req := &pb.GetModeRequest{}
-		resp, err := client.GetMode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var transitionVisibilityGetTransitionPropertiesCmd = &cobra.Command{
-	Use:   "get-transition-properties",
-	Short: "GetTransitionProperties RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewVisibilityServiceClient(grpcConn)
-		req := &pb.VisibilityGetTransitionPropertiesRequest{}
-		resp, err := client.GetTransitionProperties(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var transitionVisibilityIsTransitionRequiredCmd = &cobra.Command{
-	Use:   "is-transition-required",
-	Short: "IsTransitionRequired RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewVisibilityServiceClient(grpcConn)
-		req := &pb.IsTransitionRequiredRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.IsTransitionRequired(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var transitionVisibilityIsVisibleCmd = &cobra.Command{
-	Use:   "is-visible",
-	Short: "IsVisible RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewVisibilityServiceClient(grpcConn)
-		req := &pb.IsVisibleRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.IsVisible(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var transitionVisibilityOnAppear5Cmd = &cobra.Command{
-	Use:   "on-appear5",
-	Short: "OnAppear5 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewVisibilityServiceClient(grpcConn)
-		req := &pb.OnAppear5Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg4"); err == nil {
-			req.Arg4 = v
-		}
-		resp, err := client.OnAppear5(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var transitionVisibilityOnAppear4_1Cmd = &cobra.Command{
-	Use:   "on-appear4_1",
-	Short: "OnAppear4_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewVisibilityServiceClient(grpcConn)
-		req := &pb.OnAppear4_1Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		resp, err := client.OnAppear4_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var transitionVisibilityOnDisappear5Cmd = &cobra.Command{
-	Use:   "on-disappear5",
-	Short: "OnDisappear5 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewVisibilityServiceClient(grpcConn)
-		req := &pb.OnDisappear5Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg4"); err == nil {
-			req.Arg4 = v
-		}
-		resp, err := client.OnDisappear5(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var transitionVisibilityOnDisappear4_1Cmd = &cobra.Command{
-	Use:   "on-disappear4_1",
-	Short: "OnDisappear4_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewVisibilityServiceClient(grpcConn)
-		req := &pb.OnDisappear4_1Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		resp, err := client.OnDisappear4_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var transitionVisibilitySetModeCmd = &cobra.Command{
-	Use:   "set-mode",
-	Short: "SetMode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewVisibilityServiceClient(grpcConn)
-		req := &pb.SetModeRequest{}
+		client := pb.NewInflaterServiceClient(grpcConn)
+		req := &pb.InflateTransitionRequest{}
 		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		resp, err := client.SetMode(ctx, req)
+		resp, err := client.InflateTransition(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -2892,26 +217,21 @@ var transitionVisibilitySetModeCmd = &cobra.Command{
 	},
 }
 
-var transitionExplodeCmd = &cobra.Command{
-	Use:   "explode",
-	Short: "ExplodeService operations",
-}
-
-var transitionExplodeNewExplodeCmd = &cobra.Command{
-	Use:   "new-explode",
-	Short: "NewExplode RPC",
+var transitionInflaterInflateTransitionManagerCmd = &cobra.Command{
+	Use:   "inflate-transition-manager",
+	Short: "InflateTransitionManager RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewExplodeServiceClient(grpcConn)
-		req := &pb.NewExplodeRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+		client := pb.NewInflaterServiceClient(grpcConn)
+		req := &pb.InflateTransitionManagerRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
 			req.Arg0 = v
 		}
 		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
 			req.Arg1 = v
 		}
-		resp, err := client.NewExplode(ctx, req)
+		resp, err := client.InflateTransitionManager(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -2919,21 +239,61 @@ var transitionExplodeNewExplodeCmd = &cobra.Command{
 	},
 }
 
-var transitionExplodeCaptureEndValuesCmd = &cobra.Command{
-	Use:   "capture-end-values",
-	Short: "CaptureEndValues RPC",
+var transitionInflaterFromCmd = &cobra.Command{
+	Use:   "from",
+	Short: "From RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewExplodeServiceClient(grpcConn)
-		req := &pb.CaptureEndValuesRequest{}
+		client := pb.NewInflaterServiceClient(grpcConn)
+		req := &pb.FromRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.From(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionValuesCmd = &cobra.Command{
+	Use:   "values",
+	Short: "ValuesService operations",
+}
+
+var transitionValuesNewValuesCmd = &cobra.Command{
+	Use:   "new-values",
+	Short: "NewValues RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewValuesServiceClient(grpcConn)
+		req := &pb.NewValuesRequest{}
+		resp, err := client.NewValues(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionValuesEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewValuesServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		resp, err := client.CaptureEndValues(ctx, req)
+		resp, err := client.Equals(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -2941,21 +301,61 @@ var transitionExplodeCaptureEndValuesCmd = &cobra.Command{
 	},
 }
 
-var transitionExplodeCaptureStartValuesCmd = &cobra.Command{
-	Use:   "capture-start-values",
-	Short: "CaptureStartValues RPC",
+var transitionValuesHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewExplodeServiceClient(grpcConn)
-		req := &pb.CaptureStartValuesRequest{}
+		client := pb.NewValuesServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionValuesToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewValuesServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionPropagationCmd = &cobra.Command{
+	Use:   "propagation",
+	Short: "PropagationService operations",
+}
+
+var transitionPropagationCaptureValuesCmd = &cobra.Command{
+	Use:   "capture-values",
+	Short: "CaptureValues RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPropagationServiceClient(grpcConn)
+		req := &pb.CaptureValuesRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		resp, err := client.CaptureStartValues(ctx, req)
+		resp, err := client.CaptureValues(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -2963,17 +363,30 @@ var transitionExplodeCaptureStartValuesCmd = &cobra.Command{
 	},
 }
 
-var transitionExplodeOnAppearCmd = &cobra.Command{
-	Use:   "on-appear",
-	Short: "OnAppear RPC",
+var transitionPropagationGetPropagationPropertiesCmd = &cobra.Command{
+	Use:   "get-propagation-properties",
+	Short: "GetPropagationProperties RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewExplodeServiceClient(grpcConn)
-		req := &pb.OnAppearRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
+		client := pb.NewPropagationServiceClient(grpcConn)
+		req := &pb.GetPropagationPropertiesRequest{}
+		resp, err := client.GetPropagationProperties(ctx, req)
+		if err != nil {
+			return err
 		}
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionPropagationGetStartDelayCmd = &cobra.Command{
+	Use:   "get-start-delay",
+	Short: "GetStartDelay RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPropagationServiceClient(grpcConn)
+		req := &pb.GetStartDelayRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
@@ -2986,338 +399,7 @@ var transitionExplodeOnAppearCmd = &cobra.Command{
 		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
 			req.Arg3 = v
 		}
-		resp, err := client.OnAppear(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var transitionExplodeOnDisappearCmd = &cobra.Command{
-	Use:   "on-disappear",
-	Short: "OnDisappear RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewExplodeServiceClient(grpcConn)
-		req := &pb.OnDisappearRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		resp, err := client.OnDisappear(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var transitionListenerAdapterCmd = &cobra.Command{
-	Use:   "listener-adapter",
-	Short: "ListenerAdapterService operations",
-}
-
-var transitionListenerAdapterOnTransitionCancelCmd = &cobra.Command{
-	Use:   "on-transition-cancel",
-	Short: "OnTransitionCancel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewListenerAdapterServiceClient(grpcConn)
-		req := &pb.OnTransitionCancelRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.OnTransitionCancel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var transitionListenerAdapterOnTransitionEndCmd = &cobra.Command{
-	Use:   "on-transition-end",
-	Short: "OnTransitionEnd RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewListenerAdapterServiceClient(grpcConn)
-		req := &pb.OnTransitionEndRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.OnTransitionEnd(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var transitionListenerAdapterOnTransitionPauseCmd = &cobra.Command{
-	Use:   "on-transition-pause",
-	Short: "OnTransitionPause RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewListenerAdapterServiceClient(grpcConn)
-		req := &pb.OnTransitionPauseRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.OnTransitionPause(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var transitionListenerAdapterOnTransitionResumeCmd = &cobra.Command{
-	Use:   "on-transition-resume",
-	Short: "OnTransitionResume RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewListenerAdapterServiceClient(grpcConn)
-		req := &pb.OnTransitionResumeRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.OnTransitionResume(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var transitionListenerAdapterOnTransitionStartCmd = &cobra.Command{
-	Use:   "on-transition-start",
-	Short: "OnTransitionStart RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewListenerAdapterServiceClient(grpcConn)
-		req := &pb.OnTransitionStartRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.OnTransitionStart(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var transitionChangeTransformCmd = &cobra.Command{
-	Use:   "change-transform",
-	Short: "ChangeTransformService operations",
-}
-
-var transitionChangeTransformNewChangeTransformCmd = &cobra.Command{
-	Use:   "new-change-transform",
-	Short: "NewChangeTransform RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewChangeTransformServiceClient(grpcConn)
-		req := &pb.NewChangeTransformRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.NewChangeTransform(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var transitionChangeTransformCaptureEndValuesCmd = &cobra.Command{
-	Use:   "capture-end-values",
-	Short: "CaptureEndValues RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewChangeTransformServiceClient(grpcConn)
-		req := &pb.CaptureEndValuesRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.CaptureEndValues(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var transitionChangeTransformCaptureStartValuesCmd = &cobra.Command{
-	Use:   "capture-start-values",
-	Short: "CaptureStartValues RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewChangeTransformServiceClient(grpcConn)
-		req := &pb.CaptureStartValuesRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.CaptureStartValues(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var transitionChangeTransformCreateAnimatorCmd = &cobra.Command{
-	Use:   "create-animator",
-	Short: "CreateAnimator RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewChangeTransformServiceClient(grpcConn)
-		req := &pb.CreateAnimatorRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.CreateAnimator(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var transitionChangeTransformGetReparentCmd = &cobra.Command{
-	Use:   "get-reparent",
-	Short: "GetReparent RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewChangeTransformServiceClient(grpcConn)
-		req := &pb.GetReparentRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetReparent(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var transitionChangeTransformGetReparentWithOverlayCmd = &cobra.Command{
-	Use:   "get-reparent-with-overlay",
-	Short: "GetReparentWithOverlay RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewChangeTransformServiceClient(grpcConn)
-		req := &pb.GetReparentWithOverlayRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetReparentWithOverlay(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var transitionChangeTransformGetTransitionPropertiesCmd = &cobra.Command{
-	Use:   "get-transition-properties",
-	Short: "GetTransitionProperties RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewChangeTransformServiceClient(grpcConn)
-		req := &pb.GetTransitionPropertiesRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetTransitionProperties(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var transitionChangeTransformSetReparentCmd = &cobra.Command{
-	Use:   "set-reparent",
-	Short: "SetReparent RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewChangeTransformServiceClient(grpcConn)
-		req := &pb.SetReparentRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetReparent(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var transitionChangeTransformSetReparentWithOverlayCmd = &cobra.Command{
-	Use:   "set-reparent-with-overlay",
-	Short: "SetReparentWithOverlay RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewChangeTransformServiceClient(grpcConn)
-		req := &pb.SetReparentWithOverlayRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetReparentWithOverlay(ctx, req)
+		resp, err := client.GetStartDelay(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -3488,6 +570,991 @@ var transitionSidePropagationSetSideCmd = &cobra.Command{
 			req.Arg0 = v
 		}
 		resp, err := client.SetSide(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionTransitionCmd = &cobra.Command{
+	Use:   "transition",
+	Short: "TransitionService operations",
+}
+
+var transitionTransitionAddListenerCmd = &cobra.Command{
+	Use:   "add-listener",
+	Short: "AddListener RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTransitionServiceClient(grpcConn)
+		req := &pb.AddListenerRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddListener(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionTransitionAddTarget1Cmd = &cobra.Command{
+	Use:   "add-target1",
+	Short: "AddTarget1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTransitionServiceClient(grpcConn)
+		req := &pb.AddTarget1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddTarget1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionTransitionAddTarget1_1Cmd = &cobra.Command{
+	Use:   "add-target1_1",
+	Short: "AddTarget1_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTransitionServiceClient(grpcConn)
+		req := &pb.AddTarget1_1Request{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddTarget1_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionTransitionAddTarget1_2Cmd = &cobra.Command{
+	Use:   "add-target1_2",
+	Short: "AddTarget1_2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTransitionServiceClient(grpcConn)
+		req := &pb.AddTarget1_2Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddTarget1_2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionTransitionAddTarget1_3Cmd = &cobra.Command{
+	Use:   "add-target1_3",
+	Short: "AddTarget1_3 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTransitionServiceClient(grpcConn)
+		req := &pb.AddTarget1_3Request{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddTarget1_3(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionTransitionCanRemoveViewsCmd = &cobra.Command{
+	Use:   "can-remove-views",
+	Short: "CanRemoveViews RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTransitionServiceClient(grpcConn)
+		req := &pb.CanRemoveViewsRequest{}
+		resp, err := client.CanRemoveViews(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionTransitionCaptureEndValuesCmd = &cobra.Command{
+	Use:   "capture-end-values",
+	Short: "CaptureEndValues RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTransitionServiceClient(grpcConn)
+		req := &pb.CaptureEndValuesRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.CaptureEndValues(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionTransitionCaptureStartValuesCmd = &cobra.Command{
+	Use:   "capture-start-values",
+	Short: "CaptureStartValues RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTransitionServiceClient(grpcConn)
+		req := &pb.CaptureStartValuesRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.CaptureStartValues(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionTransitionClone0Cmd = &cobra.Command{
+	Use:   "clone0",
+	Short: "Clone0 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTransitionServiceClient(grpcConn)
+		req := &pb.Clone0Request{}
+		resp, err := client.Clone0(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionTransitionCreateAnimatorCmd = &cobra.Command{
+	Use:   "create-animator",
+	Short: "CreateAnimator RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTransitionServiceClient(grpcConn)
+		req := &pb.CreateAnimatorRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.CreateAnimator(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionTransitionExcludeChildren2Cmd = &cobra.Command{
+	Use:   "exclude-children2",
+	Short: "ExcludeChildren2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTransitionServiceClient(grpcConn)
+		req := &pb.ExcludeChildren2Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetBool("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.ExcludeChildren2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionTransitionExcludeChildren2_1Cmd = &cobra.Command{
+	Use:   "exclude-children2_1",
+	Short: "ExcludeChildren2_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTransitionServiceClient(grpcConn)
+		req := &pb.ExcludeChildren2_1Request{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetBool("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.ExcludeChildren2_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionTransitionExcludeChildren2_2Cmd = &cobra.Command{
+	Use:   "exclude-children2_2",
+	Short: "ExcludeChildren2_2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTransitionServiceClient(grpcConn)
+		req := &pb.ExcludeChildren2_2Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetBool("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.ExcludeChildren2_2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionTransitionExcludeTarget2Cmd = &cobra.Command{
+	Use:   "exclude-target2",
+	Short: "ExcludeTarget2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTransitionServiceClient(grpcConn)
+		req := &pb.ExcludeTarget2Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetBool("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.ExcludeTarget2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionTransitionExcludeTarget2_1Cmd = &cobra.Command{
+	Use:   "exclude-target2_1",
+	Short: "ExcludeTarget2_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTransitionServiceClient(grpcConn)
+		req := &pb.ExcludeTarget2_1Request{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetBool("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.ExcludeTarget2_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionTransitionExcludeTarget2_2Cmd = &cobra.Command{
+	Use:   "exclude-target2_2",
+	Short: "ExcludeTarget2_2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTransitionServiceClient(grpcConn)
+		req := &pb.ExcludeTarget2_2Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetBool("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.ExcludeTarget2_2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionTransitionExcludeTarget2_3Cmd = &cobra.Command{
+	Use:   "exclude-target2_3",
+	Short: "ExcludeTarget2_3 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTransitionServiceClient(grpcConn)
+		req := &pb.ExcludeTarget2_3Request{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetBool("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.ExcludeTarget2_3(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionTransitionGetDurationCmd = &cobra.Command{
+	Use:   "get-duration",
+	Short: "GetDuration RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTransitionServiceClient(grpcConn)
+		req := &pb.GetDurationRequest{}
+		resp, err := client.GetDuration(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionTransitionGetEpicenterCmd = &cobra.Command{
+	Use:   "get-epicenter",
+	Short: "GetEpicenter RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTransitionServiceClient(grpcConn)
+		req := &pb.GetEpicenterRequest{}
+		resp, err := client.GetEpicenter(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionTransitionGetEpicenterCallbackCmd = &cobra.Command{
+	Use:   "get-epicenter-callback",
+	Short: "GetEpicenterCallback RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTransitionServiceClient(grpcConn)
+		req := &pb.GetEpicenterCallbackRequest{}
+		resp, err := client.GetEpicenterCallback(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionTransitionGetInterpolatorCmd = &cobra.Command{
+	Use:   "get-interpolator",
+	Short: "GetInterpolator RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTransitionServiceClient(grpcConn)
+		req := &pb.GetInterpolatorRequest{}
+		resp, err := client.GetInterpolator(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionTransitionGetNameCmd = &cobra.Command{
+	Use:   "get-name",
+	Short: "GetName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTransitionServiceClient(grpcConn)
+		req := &pb.GetNameRequest{}
+		resp, err := client.GetName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionTransitionGetPathMotionCmd = &cobra.Command{
+	Use:   "get-path-motion",
+	Short: "GetPathMotion RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTransitionServiceClient(grpcConn)
+		req := &pb.GetPathMotionRequest{}
+		resp, err := client.GetPathMotion(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionTransitionGetPropagationCmd = &cobra.Command{
+	Use:   "get-propagation",
+	Short: "GetPropagation RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTransitionServiceClient(grpcConn)
+		req := &pb.GetPropagationRequest{}
+		resp, err := client.GetPropagation(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionTransitionGetStartDelayCmd = &cobra.Command{
+	Use:   "get-start-delay",
+	Short: "GetStartDelay RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTransitionServiceClient(grpcConn)
+		req := &pb.TransitionGetStartDelayRequest{}
+		resp, err := client.GetStartDelay(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionTransitionGetTargetIdsCmd = &cobra.Command{
+	Use:   "get-target-ids",
+	Short: "GetTargetIds RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTransitionServiceClient(grpcConn)
+		req := &pb.GetTargetIdsRequest{}
+		resp, err := client.GetTargetIds(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionTransitionGetTargetNamesCmd = &cobra.Command{
+	Use:   "get-target-names",
+	Short: "GetTargetNames RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTransitionServiceClient(grpcConn)
+		req := &pb.GetTargetNamesRequest{}
+		resp, err := client.GetTargetNames(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionTransitionGetTargetTypesCmd = &cobra.Command{
+	Use:   "get-target-types",
+	Short: "GetTargetTypes RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTransitionServiceClient(grpcConn)
+		req := &pb.GetTargetTypesRequest{}
+		resp, err := client.GetTargetTypes(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionTransitionGetTargetsCmd = &cobra.Command{
+	Use:   "get-targets",
+	Short: "GetTargets RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTransitionServiceClient(grpcConn)
+		req := &pb.GetTargetsRequest{}
+		resp, err := client.GetTargets(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionTransitionGetTransitionPropertiesCmd = &cobra.Command{
+	Use:   "get-transition-properties",
+	Short: "GetTransitionProperties RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTransitionServiceClient(grpcConn)
+		req := &pb.GetTransitionPropertiesRequest{}
+		resp, err := client.GetTransitionProperties(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionTransitionGetTransitionValuesCmd = &cobra.Command{
+	Use:   "get-transition-values",
+	Short: "GetTransitionValues RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTransitionServiceClient(grpcConn)
+		req := &pb.GetTransitionValuesRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetBool("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.GetTransitionValues(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionTransitionIsTransitionRequiredCmd = &cobra.Command{
+	Use:   "is-transition-required",
+	Short: "IsTransitionRequired RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTransitionServiceClient(grpcConn)
+		req := &pb.IsTransitionRequiredRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.IsTransitionRequired(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionTransitionRemoveListenerCmd = &cobra.Command{
+	Use:   "remove-listener",
+	Short: "RemoveListener RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTransitionServiceClient(grpcConn)
+		req := &pb.RemoveListenerRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.RemoveListener(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionTransitionRemoveTarget1Cmd = &cobra.Command{
+	Use:   "remove-target1",
+	Short: "RemoveTarget1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTransitionServiceClient(grpcConn)
+		req := &pb.RemoveTarget1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.RemoveTarget1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionTransitionRemoveTarget1_1Cmd = &cobra.Command{
+	Use:   "remove-target1_1",
+	Short: "RemoveTarget1_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTransitionServiceClient(grpcConn)
+		req := &pb.RemoveTarget1_1Request{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.RemoveTarget1_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionTransitionRemoveTarget1_2Cmd = &cobra.Command{
+	Use:   "remove-target1_2",
+	Short: "RemoveTarget1_2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTransitionServiceClient(grpcConn)
+		req := &pb.RemoveTarget1_2Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.RemoveTarget1_2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionTransitionRemoveTarget1_3Cmd = &cobra.Command{
+	Use:   "remove-target1_3",
+	Short: "RemoveTarget1_3 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTransitionServiceClient(grpcConn)
+		req := &pb.RemoveTarget1_3Request{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.RemoveTarget1_3(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionTransitionSetDurationCmd = &cobra.Command{
+	Use:   "set-duration",
+	Short: "SetDuration RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTransitionServiceClient(grpcConn)
+		req := &pb.SetDurationRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetDuration(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionTransitionSetEpicenterCallbackCmd = &cobra.Command{
+	Use:   "set-epicenter-callback",
+	Short: "SetEpicenterCallback RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTransitionServiceClient(grpcConn)
+		req := &pb.SetEpicenterCallbackRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetEpicenterCallback(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionTransitionSetInterpolatorCmd = &cobra.Command{
+	Use:   "set-interpolator",
+	Short: "SetInterpolator RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTransitionServiceClient(grpcConn)
+		req := &pb.SetInterpolatorRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetInterpolator(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionTransitionSetMatchOrderCmd = &cobra.Command{
+	Use:   "set-match-order",
+	Short: "SetMatchOrder RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTransitionServiceClient(grpcConn)
+		req := &pb.SetMatchOrderRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetMatchOrder(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionTransitionSetPathMotionCmd = &cobra.Command{
+	Use:   "set-path-motion",
+	Short: "SetPathMotion RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTransitionServiceClient(grpcConn)
+		req := &pb.SetPathMotionRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetPathMotion(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionTransitionSetPropagationCmd = &cobra.Command{
+	Use:   "set-propagation",
+	Short: "SetPropagation RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTransitionServiceClient(grpcConn)
+		req := &pb.SetPropagationRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetPropagation(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionTransitionSetStartDelayCmd = &cobra.Command{
+	Use:   "set-start-delay",
+	Short: "SetStartDelay RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTransitionServiceClient(grpcConn)
+		req := &pb.SetStartDelayRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetStartDelay(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionTransitionToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTransitionServiceClient(grpcConn)
+		req := &pb.TransitionToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionTransitionClone0_1Cmd = &cobra.Command{
+	Use:   "clone0_1",
+	Short: "Clone0_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTransitionServiceClient(grpcConn)
+		req := &pb.Clone0_1Request{}
+		resp, err := client.Clone0_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionEpicenterCallbackCmd = &cobra.Command{
+	Use:   "epicenter-callback",
+	Short: "EpicenterCallbackService operations",
+}
+
+var transitionEpicenterCallbackOnGetEpicenterCmd = &cobra.Command{
+	Use:   "on-get-epicenter",
+	Short: "OnGetEpicenter RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEpicenterCallbackServiceClient(grpcConn)
+		req := &pb.OnGetEpicenterRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnGetEpicenter(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionTransitionListenerCmd = &cobra.Command{
+	Use:   "transition-listener",
+	Short: "TransitionListenerService operations",
+}
+
+var transitionTransitionListenerOnTransitionCancelCmd = &cobra.Command{
+	Use:   "on-transition-cancel",
+	Short: "OnTransitionCancel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTransitionListenerServiceClient(grpcConn)
+		req := &pb.OnTransitionCancelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnTransitionCancel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionTransitionListenerOnTransitionEndCmd = &cobra.Command{
+	Use:   "on-transition-end",
+	Short: "OnTransitionEnd RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTransitionListenerServiceClient(grpcConn)
+		req := &pb.OnTransitionEndRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnTransitionEnd(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionTransitionListenerOnTransitionPauseCmd = &cobra.Command{
+	Use:   "on-transition-pause",
+	Short: "OnTransitionPause RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTransitionListenerServiceClient(grpcConn)
+		req := &pb.OnTransitionPauseRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnTransitionPause(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionTransitionListenerOnTransitionResumeCmd = &cobra.Command{
+	Use:   "on-transition-resume",
+	Short: "OnTransitionResume RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTransitionListenerServiceClient(grpcConn)
+		req := &pb.OnTransitionResumeRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnTransitionResume(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionTransitionListenerOnTransitionStartCmd = &cobra.Command{
+	Use:   "on-transition-start",
+	Short: "OnTransitionStart RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTransitionListenerServiceClient(grpcConn)
+		req := &pb.OnTransitionStartRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnTransitionStart(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -3707,106 +1774,494 @@ var transitionManagerGo2_1Cmd = &cobra.Command{
 	},
 }
 
-var transitionInflaterCmd = &cobra.Command{
-	Use:   "inflater",
-	Short: "InflaterService operations",
+var transitionVisibilityCmd = &cobra.Command{
+	Use:   "visibility",
+	Short: "VisibilityService operations",
 }
 
-var transitionInflaterInflateTransitionCmd = &cobra.Command{
-	Use:   "inflate-transition",
-	Short: "InflateTransition RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewInflaterServiceClient(grpcConn)
-		req := &pb.InflateTransitionRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.InflateTransition(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var transitionInflaterInflateTransitionManagerCmd = &cobra.Command{
-	Use:   "inflate-transition-manager",
-	Short: "InflateTransitionManager RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewInflaterServiceClient(grpcConn)
-		req := &pb.InflateTransitionManagerRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.InflateTransitionManager(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var transitionInflaterFromCmd = &cobra.Command{
-	Use:   "from",
-	Short: "From RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewInflaterServiceClient(grpcConn)
-		req := &pb.FromRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.From(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var transitionChangeImageTransformCmd = &cobra.Command{
-	Use:   "change-image-transform",
-	Short: "ChangeImageTransformService operations",
-}
-
-var transitionChangeImageTransformNewChangeImageTransformCmd = &cobra.Command{
-	Use:   "new-change-image-transform",
-	Short: "NewChangeImageTransform RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewChangeImageTransformServiceClient(grpcConn)
-		req := &pb.NewChangeImageTransformRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.NewChangeImageTransform(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var transitionChangeImageTransformCaptureEndValuesCmd = &cobra.Command{
+var transitionVisibilityCaptureEndValuesCmd = &cobra.Command{
 	Use:   "capture-end-values",
 	Short: "CaptureEndValues RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewChangeImageTransformServiceClient(grpcConn)
+		client := pb.NewVisibilityServiceClient(grpcConn)
 		req := &pb.CaptureEndValuesRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.CaptureEndValues(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionVisibilityCaptureStartValuesCmd = &cobra.Command{
+	Use:   "capture-start-values",
+	Short: "CaptureStartValues RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVisibilityServiceClient(grpcConn)
+		req := &pb.CaptureStartValuesRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.CaptureStartValues(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionVisibilityCreateAnimatorCmd = &cobra.Command{
+	Use:   "create-animator",
+	Short: "CreateAnimator RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVisibilityServiceClient(grpcConn)
+		req := &pb.CreateAnimatorRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.CreateAnimator(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionVisibilityGetModeCmd = &cobra.Command{
+	Use:   "get-mode",
+	Short: "GetMode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVisibilityServiceClient(grpcConn)
+		req := &pb.GetModeRequest{}
+		resp, err := client.GetMode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionVisibilityGetTransitionPropertiesCmd = &cobra.Command{
+	Use:   "get-transition-properties",
+	Short: "GetTransitionProperties RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVisibilityServiceClient(grpcConn)
+		req := &pb.GetTransitionPropertiesRequest{}
+		resp, err := client.GetTransitionProperties(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionVisibilityIsTransitionRequiredCmd = &cobra.Command{
+	Use:   "is-transition-required",
+	Short: "IsTransitionRequired RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVisibilityServiceClient(grpcConn)
+		req := &pb.IsTransitionRequiredRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.IsTransitionRequired(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionVisibilityIsVisibleCmd = &cobra.Command{
+	Use:   "is-visible",
+	Short: "IsVisible RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVisibilityServiceClient(grpcConn)
+		req := &pb.IsVisibleRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.IsVisible(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionVisibilityOnAppear5Cmd = &cobra.Command{
+	Use:   "on-appear5",
+	Short: "OnAppear5 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVisibilityServiceClient(grpcConn)
+		req := &pb.OnAppear5Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		resp, err := client.OnAppear5(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionVisibilityOnAppear4_1Cmd = &cobra.Command{
+	Use:   "on-appear4_1",
+	Short: "OnAppear4_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVisibilityServiceClient(grpcConn)
+		req := &pb.OnAppear4_1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.OnAppear4_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionVisibilityOnDisappear5Cmd = &cobra.Command{
+	Use:   "on-disappear5",
+	Short: "OnDisappear5 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVisibilityServiceClient(grpcConn)
+		req := &pb.OnDisappear5Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		resp, err := client.OnDisappear5(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionVisibilityOnDisappear4_1Cmd = &cobra.Command{
+	Use:   "on-disappear4_1",
+	Short: "OnDisappear4_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVisibilityServiceClient(grpcConn)
+		req := &pb.OnDisappear4_1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.OnDisappear4_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionVisibilitySetModeCmd = &cobra.Command{
+	Use:   "set-mode",
+	Short: "SetMode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVisibilityServiceClient(grpcConn)
+		req := &pb.SetModeRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetMode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionSceneCmd = &cobra.Command{
+	Use:   "scene",
+	Short: "SceneService operations",
+}
+
+var transitionSceneNewSceneCmd = &cobra.Command{
+	Use:   "new-scene",
+	Short: "NewScene RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSceneServiceClient(grpcConn)
+		req := &pb.NewSceneRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.NewScene(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionSceneEnterCmd = &cobra.Command{
+	Use:   "enter",
+	Short: "Enter RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSceneServiceClient(grpcConn)
+		req := &pb.EnterRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.Enter(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionSceneExitCmd = &cobra.Command{
+	Use:   "exit",
+	Short: "Exit RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSceneServiceClient(grpcConn)
+		req := &pb.ExitRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.Exit(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionSceneGetSceneRootCmd = &cobra.Command{
+	Use:   "get-scene-root",
+	Short: "GetSceneRoot RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSceneServiceClient(grpcConn)
+		req := &pb.GetSceneRootRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetSceneRoot(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionSceneSetEnterActionCmd = &cobra.Command{
+	Use:   "set-enter-action",
+	Short: "SetEnterAction RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSceneServiceClient(grpcConn)
+		req := &pb.SetEnterActionRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetEnterAction(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionSceneSetExitActionCmd = &cobra.Command{
+	Use:   "set-exit-action",
+	Short: "SetExitAction RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSceneServiceClient(grpcConn)
+		req := &pb.SetExitActionRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetExitAction(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionSceneGetCurrentSceneCmd = &cobra.Command{
+	Use:   "get-current-scene",
+	Short: "GetCurrentScene RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSceneServiceClient(grpcConn)
+		req := &pb.GetCurrentSceneRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetCurrentScene(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionSceneGetSceneForLayoutCmd = &cobra.Command{
+	Use:   "get-scene-for-layout",
+	Short: "GetSceneForLayout RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSceneServiceClient(grpcConn)
+		req := &pb.GetSceneForLayoutRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.GetSceneForLayout(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionChangeTransformCmd = &cobra.Command{
+	Use:   "change-transform",
+	Short: "ChangeTransformService operations",
+}
+
+var transitionChangeTransformNewChangeTransformCmd = &cobra.Command{
+	Use:   "new-change-transform",
+	Short: "NewChangeTransform RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewChangeTransformServiceClient(grpcConn)
+		req := &pb.NewChangeTransformRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.NewChangeTransform(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionChangeTransformCaptureEndValuesCmd = &cobra.Command{
+	Use:   "capture-end-values",
+	Short: "CaptureEndValues RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewChangeTransformServiceClient(grpcConn)
+		req := &pb.ChangeTransformCaptureEndValuesRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
@@ -3821,14 +2276,14 @@ var transitionChangeImageTransformCaptureEndValuesCmd = &cobra.Command{
 	},
 }
 
-var transitionChangeImageTransformCaptureStartValuesCmd = &cobra.Command{
+var transitionChangeTransformCaptureStartValuesCmd = &cobra.Command{
 	Use:   "capture-start-values",
 	Short: "CaptureStartValues RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewChangeImageTransformServiceClient(grpcConn)
-		req := &pb.CaptureStartValuesRequest{}
+		client := pb.NewChangeTransformServiceClient(grpcConn)
+		req := &pb.ChangeTransformCaptureStartValuesRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
@@ -3843,14 +2298,14 @@ var transitionChangeImageTransformCaptureStartValuesCmd = &cobra.Command{
 	},
 }
 
-var transitionChangeImageTransformCreateAnimatorCmd = &cobra.Command{
+var transitionChangeTransformCreateAnimatorCmd = &cobra.Command{
 	Use:   "create-animator",
 	Short: "CreateAnimator RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewChangeImageTransformServiceClient(grpcConn)
-		req := &pb.CreateAnimatorRequest{}
+		client := pb.NewChangeTransformServiceClient(grpcConn)
+		req := &pb.ChangeTransformCreateAnimatorRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
@@ -3871,14 +2326,52 @@ var transitionChangeImageTransformCreateAnimatorCmd = &cobra.Command{
 	},
 }
 
-var transitionChangeImageTransformGetTransitionPropertiesCmd = &cobra.Command{
+var transitionChangeTransformGetReparentCmd = &cobra.Command{
+	Use:   "get-reparent",
+	Short: "GetReparent RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewChangeTransformServiceClient(grpcConn)
+		req := &pb.GetReparentRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetReparent(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionChangeTransformGetReparentWithOverlayCmd = &cobra.Command{
+	Use:   "get-reparent-with-overlay",
+	Short: "GetReparentWithOverlay RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewChangeTransformServiceClient(grpcConn)
+		req := &pb.GetReparentWithOverlayRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetReparentWithOverlay(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionChangeTransformGetTransitionPropertiesCmd = &cobra.Command{
 	Use:   "get-transition-properties",
 	Short: "GetTransitionProperties RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewChangeImageTransformServiceClient(grpcConn)
-		req := &pb.GetTransitionPropertiesRequest{}
+		client := pb.NewChangeTransformServiceClient(grpcConn)
+		req := &pb.ChangeTransformGetTransitionPropertiesRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
@@ -3890,32 +2383,342 @@ var transitionChangeImageTransformGetTransitionPropertiesCmd = &cobra.Command{
 	},
 }
 
-var transitionPathMotionCmd = &cobra.Command{
-	Use:   "path-motion",
-	Short: "PathMotionService operations",
-}
-
-var transitionPathMotionGetPathCmd = &cobra.Command{
-	Use:   "get-path",
-	Short: "GetPath RPC",
+var transitionChangeTransformSetReparentCmd = &cobra.Command{
+	Use:   "set-reparent",
+	Short: "SetReparent RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewPathMotionServiceClient(grpcConn)
-		req := &pb.PathMotionGetPathRequest{}
-		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
+		client := pb.NewChangeTransformServiceClient(grpcConn)
+		req := &pb.SetReparentRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		if v, err := cmd.Flags().GetFloat32("arg1"); err == nil {
+		resp, err := client.SetReparent(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionChangeTransformSetReparentWithOverlayCmd = &cobra.Command{
+	Use:   "set-reparent-with-overlay",
+	Short: "SetReparentWithOverlay RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewChangeTransformServiceClient(grpcConn)
+		req := &pb.SetReparentWithOverlayRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetReparentWithOverlay(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionChangeScrollCmd = &cobra.Command{
+	Use:   "change-scroll",
+	Short: "ChangeScrollService operations",
+}
+
+var transitionChangeScrollNewChangeScrollCmd = &cobra.Command{
+	Use:   "new-change-scroll",
+	Short: "NewChangeScroll RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewChangeScrollServiceClient(grpcConn)
+		req := &pb.NewChangeScrollRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
 			req.Arg1 = v
 		}
-		if v, err := cmd.Flags().GetFloat32("arg2"); err == nil {
+		resp, err := client.NewChangeScroll(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionChangeScrollCaptureEndValuesCmd = &cobra.Command{
+	Use:   "capture-end-values",
+	Short: "CaptureEndValues RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewChangeScrollServiceClient(grpcConn)
+		req := &pb.ChangeScrollCaptureEndValuesRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.CaptureEndValues(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionChangeScrollCaptureStartValuesCmd = &cobra.Command{
+	Use:   "capture-start-values",
+	Short: "CaptureStartValues RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewChangeScrollServiceClient(grpcConn)
+		req := &pb.ChangeScrollCaptureStartValuesRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.CaptureStartValues(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionChangeScrollCreateAnimatorCmd = &cobra.Command{
+	Use:   "create-animator",
+	Short: "CreateAnimator RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewChangeScrollServiceClient(grpcConn)
+		req := &pb.ChangeScrollCreateAnimatorRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
 			req.Arg2 = v
 		}
-		if v, err := cmd.Flags().GetFloat32("arg3"); err == nil {
-			req.Arg3 = v
+		resp, err := client.CreateAnimator(ctx, req)
+		if err != nil {
+			return err
 		}
-		resp, err := client.GetPath(ctx, req)
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionChangeScrollGetTransitionPropertiesCmd = &cobra.Command{
+	Use:   "get-transition-properties",
+	Short: "GetTransitionProperties RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewChangeScrollServiceClient(grpcConn)
+		req := &pb.ChangeScrollGetTransitionPropertiesRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetTransitionProperties(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionChangeBoundsCmd = &cobra.Command{
+	Use:   "change-bounds",
+	Short: "ChangeBoundsService operations",
+}
+
+var transitionChangeBoundsNewChangeBoundsCmd = &cobra.Command{
+	Use:   "new-change-bounds",
+	Short: "NewChangeBounds RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewChangeBoundsServiceClient(grpcConn)
+		req := &pb.NewChangeBoundsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.NewChangeBounds(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionChangeBoundsCaptureEndValuesCmd = &cobra.Command{
+	Use:   "capture-end-values",
+	Short: "CaptureEndValues RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewChangeBoundsServiceClient(grpcConn)
+		req := &pb.ChangeBoundsCaptureEndValuesRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.CaptureEndValues(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionChangeBoundsCaptureStartValuesCmd = &cobra.Command{
+	Use:   "capture-start-values",
+	Short: "CaptureStartValues RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewChangeBoundsServiceClient(grpcConn)
+		req := &pb.ChangeBoundsCaptureStartValuesRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.CaptureStartValues(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionChangeBoundsCreateAnimatorCmd = &cobra.Command{
+	Use:   "create-animator",
+	Short: "CreateAnimator RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewChangeBoundsServiceClient(grpcConn)
+		req := &pb.ChangeBoundsCreateAnimatorRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.CreateAnimator(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionChangeBoundsGetResizeClipCmd = &cobra.Command{
+	Use:   "get-resize-clip",
+	Short: "GetResizeClip RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewChangeBoundsServiceClient(grpcConn)
+		req := &pb.GetResizeClipRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetResizeClip(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionChangeBoundsGetTransitionPropertiesCmd = &cobra.Command{
+	Use:   "get-transition-properties",
+	Short: "GetTransitionProperties RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewChangeBoundsServiceClient(grpcConn)
+		req := &pb.ChangeBoundsGetTransitionPropertiesRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetTransitionProperties(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionChangeBoundsSetReparentCmd = &cobra.Command{
+	Use:   "set-reparent",
+	Short: "SetReparent RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewChangeBoundsServiceClient(grpcConn)
+		req := &pb.SetReparentRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetReparent(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionChangeBoundsSetResizeClipCmd = &cobra.Command{
+	Use:   "set-resize-clip",
+	Short: "SetResizeClip RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewChangeBoundsServiceClient(grpcConn)
+		req := &pb.SetResizeClipRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetResizeClip(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -3957,7 +2760,7 @@ var transitionFadeCaptureStartValuesCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewFadeServiceClient(grpcConn)
-		req := &pb.CaptureStartValuesRequest{}
+		req := &pb.FadeCaptureStartValuesRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
@@ -4034,42 +2837,23 @@ var transitionFadeOnDisappearCmd = &cobra.Command{
 	},
 }
 
-var transitionValuesCmd = &cobra.Command{
-	Use:   "values",
-	Short: "ValuesService operations",
+var transitionListenerAdapterCmd = &cobra.Command{
+	Use:   "listener-adapter",
+	Short: "ListenerAdapterService operations",
 }
 
-var transitionValuesNewValuesCmd = &cobra.Command{
-	Use:   "new-values",
-	Short: "NewValues RPC",
+var transitionListenerAdapterOnTransitionCancelCmd = &cobra.Command{
+	Use:   "on-transition-cancel",
+	Short: "OnTransitionCancel RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewValuesServiceClient(grpcConn)
-		req := &pb.NewValuesRequest{}
-		resp, err := client.NewValues(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var transitionValuesEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewValuesServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
+		client := pb.NewListenerAdapterServiceClient(grpcConn)
+		req := &pb.OnTransitionCancelRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		resp, err := client.Equals(ctx, req)
+		resp, err := client.OnTransitionCancel(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -4077,18 +2861,18 @@ var transitionValuesEqualsCmd = &cobra.Command{
 	},
 }
 
-var transitionValuesHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
+var transitionListenerAdapterOnTransitionEndCmd = &cobra.Command{
+	Use:   "on-transition-end",
+	Short: "OnTransitionEnd RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewValuesServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
+		client := pb.NewListenerAdapterServiceClient(grpcConn)
+		req := &pb.OnTransitionEndRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
 		}
-		resp, err := client.HashCode(ctx, req)
+		resp, err := client.OnTransitionEnd(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -4096,18 +2880,18 @@ var transitionValuesHashCodeCmd = &cobra.Command{
 	},
 }
 
-var transitionValuesToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
+var transitionListenerAdapterOnTransitionPauseCmd = &cobra.Command{
+	Use:   "on-transition-pause",
+	Short: "OnTransitionPause RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewValuesServiceClient(grpcConn)
-		req := &pb.ValuesToStringRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
+		client := pb.NewListenerAdapterServiceClient(grpcConn)
+		req := &pb.OnTransitionPauseRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
 		}
-		resp, err := client.ToString(ctx, req)
+		resp, err := client.OnTransitionPause(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -4115,26 +2899,194 @@ var transitionValuesToStringCmd = &cobra.Command{
 	},
 }
 
-var transitionChangeBoundsCmd = &cobra.Command{
-	Use:   "change-bounds",
-	Short: "ChangeBoundsService operations",
-}
-
-var transitionChangeBoundsNewChangeBoundsCmd = &cobra.Command{
-	Use:   "new-change-bounds",
-	Short: "NewChangeBounds RPC",
+var transitionListenerAdapterOnTransitionResumeCmd = &cobra.Command{
+	Use:   "on-transition-resume",
+	Short: "OnTransitionResume RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewChangeBoundsServiceClient(grpcConn)
-		req := &pb.NewChangeBoundsRequest{}
+		client := pb.NewListenerAdapterServiceClient(grpcConn)
+		req := &pb.OnTransitionResumeRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnTransitionResume(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionListenerAdapterOnTransitionStartCmd = &cobra.Command{
+	Use:   "on-transition-start",
+	Short: "OnTransitionStart RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewListenerAdapterServiceClient(grpcConn)
+		req := &pb.OnTransitionStartRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnTransitionStart(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionPathMotionCmd = &cobra.Command{
+	Use:   "path-motion",
+	Short: "PathMotionService operations",
+}
+
+var transitionPathMotionGetPathCmd = &cobra.Command{
+	Use:   "get-path",
+	Short: "GetPath RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPathMotionServiceClient(grpcConn)
+		req := &pb.PathMotionGetPathRequest{}
+		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.GetPath(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionVisibilityPropagationCmd = &cobra.Command{
+	Use:   "visibility-propagation",
+	Short: "VisibilityPropagationService operations",
+}
+
+var transitionVisibilityPropagationCaptureValuesCmd = &cobra.Command{
+	Use:   "capture-values",
+	Short: "CaptureValues RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVisibilityPropagationServiceClient(grpcConn)
+		req := &pb.CaptureValuesRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.CaptureValues(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionVisibilityPropagationGetPropagationPropertiesCmd = &cobra.Command{
+	Use:   "get-propagation-properties",
+	Short: "GetPropagationProperties RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVisibilityPropagationServiceClient(grpcConn)
+		req := &pb.GetPropagationPropertiesRequest{}
+		resp, err := client.GetPropagationProperties(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionVisibilityPropagationGetViewVisibilityCmd = &cobra.Command{
+	Use:   "get-view-visibility",
+	Short: "GetViewVisibility RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVisibilityPropagationServiceClient(grpcConn)
+		req := &pb.GetViewVisibilityRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetViewVisibility(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionVisibilityPropagationGetViewXCmd = &cobra.Command{
+	Use:   "get-view-x",
+	Short: "GetViewX RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVisibilityPropagationServiceClient(grpcConn)
+		req := &pb.GetViewXRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetViewX(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionVisibilityPropagationGetViewYCmd = &cobra.Command{
+	Use:   "get-view-y",
+	Short: "GetViewY RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVisibilityPropagationServiceClient(grpcConn)
+		req := &pb.GetViewYRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetViewY(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionChangeImageTransformCmd = &cobra.Command{
+	Use:   "change-image-transform",
+	Short: "ChangeImageTransformService operations",
+}
+
+var transitionChangeImageTransformNewChangeImageTransformCmd = &cobra.Command{
+	Use:   "new-change-image-transform",
+	Short: "NewChangeImageTransform RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewChangeImageTransformServiceClient(grpcConn)
+		req := &pb.NewChangeImageTransformRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
 		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
 			req.Arg1 = v
 		}
-		resp, err := client.NewChangeBounds(ctx, req)
+		resp, err := client.NewChangeImageTransform(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -4142,14 +3094,14 @@ var transitionChangeBoundsNewChangeBoundsCmd = &cobra.Command{
 	},
 }
 
-var transitionChangeBoundsCaptureEndValuesCmd = &cobra.Command{
+var transitionChangeImageTransformCaptureEndValuesCmd = &cobra.Command{
 	Use:   "capture-end-values",
 	Short: "CaptureEndValues RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewChangeBoundsServiceClient(grpcConn)
-		req := &pb.CaptureEndValuesRequest{}
+		client := pb.NewChangeImageTransformServiceClient(grpcConn)
+		req := &pb.ChangeImageTransformCaptureEndValuesRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
@@ -4164,14 +3116,14 @@ var transitionChangeBoundsCaptureEndValuesCmd = &cobra.Command{
 	},
 }
 
-var transitionChangeBoundsCaptureStartValuesCmd = &cobra.Command{
+var transitionChangeImageTransformCaptureStartValuesCmd = &cobra.Command{
 	Use:   "capture-start-values",
 	Short: "CaptureStartValues RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewChangeBoundsServiceClient(grpcConn)
-		req := &pb.CaptureStartValuesRequest{}
+		client := pb.NewChangeImageTransformServiceClient(grpcConn)
+		req := &pb.ChangeImageTransformCaptureStartValuesRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
@@ -4186,14 +3138,14 @@ var transitionChangeBoundsCaptureStartValuesCmd = &cobra.Command{
 	},
 }
 
-var transitionChangeBoundsCreateAnimatorCmd = &cobra.Command{
+var transitionChangeImageTransformCreateAnimatorCmd = &cobra.Command{
 	Use:   "create-animator",
 	Short: "CreateAnimator RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewChangeBoundsServiceClient(grpcConn)
-		req := &pb.CreateAnimatorRequest{}
+		client := pb.NewChangeImageTransformServiceClient(grpcConn)
+		req := &pb.ChangeImageTransformCreateAnimatorRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
@@ -4214,33 +3166,14 @@ var transitionChangeBoundsCreateAnimatorCmd = &cobra.Command{
 	},
 }
 
-var transitionChangeBoundsGetResizeClipCmd = &cobra.Command{
-	Use:   "get-resize-clip",
-	Short: "GetResizeClip RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewChangeBoundsServiceClient(grpcConn)
-		req := &pb.GetResizeClipRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetResizeClip(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var transitionChangeBoundsGetTransitionPropertiesCmd = &cobra.Command{
+var transitionChangeImageTransformGetTransitionPropertiesCmd = &cobra.Command{
 	Use:   "get-transition-properties",
 	Short: "GetTransitionProperties RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewChangeBoundsServiceClient(grpcConn)
-		req := &pb.GetTransitionPropertiesRequest{}
+		client := pb.NewChangeImageTransformServiceClient(grpcConn)
+		req := &pb.ChangeImageTransformGetTransitionPropertiesRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
@@ -4252,67 +3185,26 @@ var transitionChangeBoundsGetTransitionPropertiesCmd = &cobra.Command{
 	},
 }
 
-var transitionChangeBoundsSetReparentCmd = &cobra.Command{
-	Use:   "set-reparent",
-	Short: "SetReparent RPC",
+var transitionPatternPathMotionCmd = &cobra.Command{
+	Use:   "pattern-path-motion",
+	Short: "PatternPathMotionService operations",
+}
+
+var transitionPatternPathMotionNewPatternPathMotionCmd = &cobra.Command{
+	Use:   "new-pattern-path-motion",
+	Short: "NewPatternPathMotion RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewChangeBoundsServiceClient(grpcConn)
-		req := &pb.SetReparentRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetReparent(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var transitionChangeBoundsSetResizeClipCmd = &cobra.Command{
-	Use:   "set-resize-clip",
-	Short: "SetResizeClip RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewChangeBoundsServiceClient(grpcConn)
-		req := &pb.SetResizeClipRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetResizeClip(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var transitionPropagationCmd = &cobra.Command{
-	Use:   "propagation",
-	Short: "PropagationService operations",
-}
-
-var transitionPropagationCaptureValuesCmd = &cobra.Command{
-	Use:   "capture-values",
-	Short: "CaptureValues RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPropagationServiceClient(grpcConn)
-		req := &pb.CaptureValuesRequest{}
+		client := pb.NewPatternPathMotionServiceClient(grpcConn)
+		req := &pb.NewPatternPathMotionRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		resp, err := client.CaptureValues(ctx, req)
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.NewPatternPathMotion(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -4320,15 +3212,30 @@ var transitionPropagationCaptureValuesCmd = &cobra.Command{
 	},
 }
 
-var transitionPropagationGetPropagationPropertiesCmd = &cobra.Command{
-	Use:   "get-propagation-properties",
-	Short: "GetPropagationProperties RPC",
+var transitionPatternPathMotionGetPathCmd = &cobra.Command{
+	Use:   "get-path",
+	Short: "GetPath RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewPropagationServiceClient(grpcConn)
-		req := &pb.GetPropagationPropertiesRequest{}
-		resp, err := client.GetPropagationProperties(ctx, req)
+		client := pb.NewPatternPathMotionServiceClient(grpcConn)
+		req := &pb.GetPathRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.GetPath(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -4336,14 +3243,129 @@ var transitionPropagationGetPropagationPropertiesCmd = &cobra.Command{
 	},
 }
 
-var transitionPropagationGetStartDelayCmd = &cobra.Command{
-	Use:   "get-start-delay",
-	Short: "GetStartDelay RPC",
+var transitionPatternPathMotionGetPatternPathCmd = &cobra.Command{
+	Use:   "get-pattern-path",
+	Short: "GetPatternPath RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewPropagationServiceClient(grpcConn)
-		req := &pb.PropagationGetStartDelayRequest{}
+		client := pb.NewPatternPathMotionServiceClient(grpcConn)
+		req := &pb.GetPatternPathRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetPatternPath(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionPatternPathMotionSetPatternPathCmd = &cobra.Command{
+	Use:   "set-pattern-path",
+	Short: "SetPatternPath RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPatternPathMotionServiceClient(grpcConn)
+		req := &pb.SetPatternPathRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetPatternPath(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionChangeClipBoundsCmd = &cobra.Command{
+	Use:   "change-clip-bounds",
+	Short: "ChangeClipBoundsService operations",
+}
+
+var transitionChangeClipBoundsNewChangeClipBoundsCmd = &cobra.Command{
+	Use:   "new-change-clip-bounds",
+	Short: "NewChangeClipBounds RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewChangeClipBoundsServiceClient(grpcConn)
+		req := &pb.NewChangeClipBoundsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.NewChangeClipBounds(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionChangeClipBoundsCaptureEndValuesCmd = &cobra.Command{
+	Use:   "capture-end-values",
+	Short: "CaptureEndValues RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewChangeClipBoundsServiceClient(grpcConn)
+		req := &pb.ChangeClipBoundsCaptureEndValuesRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.CaptureEndValues(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionChangeClipBoundsCaptureStartValuesCmd = &cobra.Command{
+	Use:   "capture-start-values",
+	Short: "CaptureStartValues RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewChangeClipBoundsServiceClient(grpcConn)
+		req := &pb.ChangeClipBoundsCaptureStartValuesRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.CaptureStartValues(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionChangeClipBoundsCreateAnimatorCmd = &cobra.Command{
+	Use:   "create-animator",
+	Short: "CreateAnimator RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewChangeClipBoundsServiceClient(grpcConn)
+		req := &pb.ChangeClipBoundsCreateAnimatorRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
@@ -4353,10 +3375,1018 @@ var transitionPropagationGetStartDelayCmd = &cobra.Command{
 		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
 			req.Arg2 = v
 		}
-		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
-			req.Arg3 = v
+		resp, err := client.CreateAnimator(ctx, req)
+		if err != nil {
+			return err
 		}
-		resp, err := client.GetStartDelay(ctx, req)
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionChangeClipBoundsGetTransitionPropertiesCmd = &cobra.Command{
+	Use:   "get-transition-properties",
+	Short: "GetTransitionProperties RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewChangeClipBoundsServiceClient(grpcConn)
+		req := &pb.ChangeClipBoundsGetTransitionPropertiesRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetTransitionProperties(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionSetCmd = &cobra.Command{
+	Use:   "set",
+	Short: "SetService operations",
+}
+
+var transitionSetNewSetCmd = &cobra.Command{
+	Use:   "new-set",
+	Short: "NewSet RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSetServiceClient(grpcConn)
+		req := &pb.NewSetRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.NewSet(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionSetAddListener1Cmd = &cobra.Command{
+	Use:   "add-listener1",
+	Short: "AddListener1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSetServiceClient(grpcConn)
+		req := &pb.AddListener1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddListener1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionSetAddTarget1Cmd = &cobra.Command{
+	Use:   "add-target1",
+	Short: "AddTarget1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSetServiceClient(grpcConn)
+		req := &pb.SetAddTarget1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddTarget1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionSetAddTarget1_1Cmd = &cobra.Command{
+	Use:   "add-target1_1",
+	Short: "AddTarget1_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSetServiceClient(grpcConn)
+		req := &pb.SetAddTarget1_1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddTarget1_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionSetAddTarget1_2Cmd = &cobra.Command{
+	Use:   "add-target1_2",
+	Short: "AddTarget1_2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSetServiceClient(grpcConn)
+		req := &pb.SetAddTarget1_2Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddTarget1_2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionSetAddTarget1_3Cmd = &cobra.Command{
+	Use:   "add-target1_3",
+	Short: "AddTarget1_3 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSetServiceClient(grpcConn)
+		req := &pb.SetAddTarget1_3Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddTarget1_3(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionSetAddTransitionCmd = &cobra.Command{
+	Use:   "add-transition",
+	Short: "AddTransition RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSetServiceClient(grpcConn)
+		req := &pb.AddTransitionRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddTransition(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionSetCaptureEndValuesCmd = &cobra.Command{
+	Use:   "capture-end-values",
+	Short: "CaptureEndValues RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSetServiceClient(grpcConn)
+		req := &pb.SetCaptureEndValuesRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.CaptureEndValues(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionSetCaptureStartValuesCmd = &cobra.Command{
+	Use:   "capture-start-values",
+	Short: "CaptureStartValues RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSetServiceClient(grpcConn)
+		req := &pb.SetCaptureStartValuesRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.CaptureStartValues(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionSetClone0Cmd = &cobra.Command{
+	Use:   "clone0",
+	Short: "Clone0 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSetServiceClient(grpcConn)
+		req := &pb.SetClone0Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.Clone0(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionSetExcludeTarget2Cmd = &cobra.Command{
+	Use:   "exclude-target2",
+	Short: "ExcludeTarget2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSetServiceClient(grpcConn)
+		req := &pb.SetExcludeTarget2Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetBool("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.ExcludeTarget2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionSetExcludeTarget2_1Cmd = &cobra.Command{
+	Use:   "exclude-target2_1",
+	Short: "ExcludeTarget2_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSetServiceClient(grpcConn)
+		req := &pb.SetExcludeTarget2_1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetBool("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.ExcludeTarget2_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionSetExcludeTarget2_2Cmd = &cobra.Command{
+	Use:   "exclude-target2_2",
+	Short: "ExcludeTarget2_2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSetServiceClient(grpcConn)
+		req := &pb.SetExcludeTarget2_2Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetBool("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.ExcludeTarget2_2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionSetExcludeTarget2_3Cmd = &cobra.Command{
+	Use:   "exclude-target2_3",
+	Short: "ExcludeTarget2_3 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSetServiceClient(grpcConn)
+		req := &pb.SetExcludeTarget2_3Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetBool("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.ExcludeTarget2_3(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionSetGetOrderingCmd = &cobra.Command{
+	Use:   "get-ordering",
+	Short: "GetOrdering RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSetServiceClient(grpcConn)
+		req := &pb.GetOrderingRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetOrdering(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionSetGetTransitionAtCmd = &cobra.Command{
+	Use:   "get-transition-at",
+	Short: "GetTransitionAt RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSetServiceClient(grpcConn)
+		req := &pb.GetTransitionAtRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetTransitionAt(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionSetGetTransitionCountCmd = &cobra.Command{
+	Use:   "get-transition-count",
+	Short: "GetTransitionCount RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSetServiceClient(grpcConn)
+		req := &pb.GetTransitionCountRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetTransitionCount(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionSetRemoveListener1Cmd = &cobra.Command{
+	Use:   "remove-listener1",
+	Short: "RemoveListener1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSetServiceClient(grpcConn)
+		req := &pb.RemoveListener1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.RemoveListener1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionSetRemoveTarget1Cmd = &cobra.Command{
+	Use:   "remove-target1",
+	Short: "RemoveTarget1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSetServiceClient(grpcConn)
+		req := &pb.SetRemoveTarget1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.RemoveTarget1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionSetRemoveTarget1_1Cmd = &cobra.Command{
+	Use:   "remove-target1_1",
+	Short: "RemoveTarget1_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSetServiceClient(grpcConn)
+		req := &pb.SetRemoveTarget1_1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.RemoveTarget1_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionSetRemoveTarget1_2Cmd = &cobra.Command{
+	Use:   "remove-target1_2",
+	Short: "RemoveTarget1_2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSetServiceClient(grpcConn)
+		req := &pb.SetRemoveTarget1_2Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.RemoveTarget1_2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionSetRemoveTarget1_3Cmd = &cobra.Command{
+	Use:   "remove-target1_3",
+	Short: "RemoveTarget1_3 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSetServiceClient(grpcConn)
+		req := &pb.SetRemoveTarget1_3Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.RemoveTarget1_3(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionSetRemoveTransitionCmd = &cobra.Command{
+	Use:   "remove-transition",
+	Short: "RemoveTransition RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSetServiceClient(grpcConn)
+		req := &pb.RemoveTransitionRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.RemoveTransition(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionSetSetDuration1Cmd = &cobra.Command{
+	Use:   "set-duration1",
+	Short: "SetDuration1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSetServiceClient(grpcConn)
+		req := &pb.SetDuration1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetDuration1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionSetSetEpicenterCallbackCmd = &cobra.Command{
+	Use:   "set-epicenter-callback",
+	Short: "SetEpicenterCallback RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSetServiceClient(grpcConn)
+		req := &pb.SetSetEpicenterCallbackRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetEpicenterCallback(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionSetSetInterpolator1Cmd = &cobra.Command{
+	Use:   "set-interpolator1",
+	Short: "SetInterpolator1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSetServiceClient(grpcConn)
+		req := &pb.SetInterpolator1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetInterpolator1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionSetSetOrderingCmd = &cobra.Command{
+	Use:   "set-ordering",
+	Short: "SetOrdering RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSetServiceClient(grpcConn)
+		req := &pb.SetOrderingRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetOrdering(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionSetSetPathMotionCmd = &cobra.Command{
+	Use:   "set-path-motion",
+	Short: "SetPathMotion RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSetServiceClient(grpcConn)
+		req := &pb.SetSetPathMotionRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetPathMotion(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionSetSetPropagationCmd = &cobra.Command{
+	Use:   "set-propagation",
+	Short: "SetPropagation RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSetServiceClient(grpcConn)
+		req := &pb.SetSetPropagationRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetPropagation(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionSetSetStartDelay1Cmd = &cobra.Command{
+	Use:   "set-start-delay1",
+	Short: "SetStartDelay1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSetServiceClient(grpcConn)
+		req := &pb.SetStartDelay1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetStartDelay1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionSetSetStartDelay1_1Cmd = &cobra.Command{
+	Use:   "set-start-delay1_1",
+	Short: "SetStartDelay1_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSetServiceClient(grpcConn)
+		req := &pb.SetStartDelay1_1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetStartDelay1_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionSetSetInterpolator1_1Cmd = &cobra.Command{
+	Use:   "set-interpolator1_1",
+	Short: "SetInterpolator1_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSetServiceClient(grpcConn)
+		req := &pb.SetInterpolator1_1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetInterpolator1_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionSetSetDuration1_1Cmd = &cobra.Command{
+	Use:   "set-duration1_1",
+	Short: "SetDuration1_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSetServiceClient(grpcConn)
+		req := &pb.SetDuration1_1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetDuration1_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionSetRemoveTarget1_4Cmd = &cobra.Command{
+	Use:   "remove-target1_4",
+	Short: "RemoveTarget1_4 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSetServiceClient(grpcConn)
+		req := &pb.RemoveTarget1_4Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.RemoveTarget1_4(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionSetRemoveTarget1_5Cmd = &cobra.Command{
+	Use:   "remove-target1_5",
+	Short: "RemoveTarget1_5 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSetServiceClient(grpcConn)
+		req := &pb.RemoveTarget1_5Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.RemoveTarget1_5(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionSetRemoveTarget1_6Cmd = &cobra.Command{
+	Use:   "remove-target1_6",
+	Short: "RemoveTarget1_6 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSetServiceClient(grpcConn)
+		req := &pb.RemoveTarget1_6Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.RemoveTarget1_6(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionSetRemoveTarget1_7Cmd = &cobra.Command{
+	Use:   "remove-target1_7",
+	Short: "RemoveTarget1_7 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSetServiceClient(grpcConn)
+		req := &pb.RemoveTarget1_7Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.RemoveTarget1_7(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionSetRemoveListener1_1Cmd = &cobra.Command{
+	Use:   "remove-listener1_1",
+	Short: "RemoveListener1_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSetServiceClient(grpcConn)
+		req := &pb.RemoveListener1_1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.RemoveListener1_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionSetClone0_1Cmd = &cobra.Command{
+	Use:   "clone0_1",
+	Short: "Clone0_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSetServiceClient(grpcConn)
+		req := &pb.SetClone0_1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.Clone0_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionSetAddTarget1_4Cmd = &cobra.Command{
+	Use:   "add-target1_4",
+	Short: "AddTarget1_4 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSetServiceClient(grpcConn)
+		req := &pb.AddTarget1_4Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddTarget1_4(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionSetAddTarget1_5Cmd = &cobra.Command{
+	Use:   "add-target1_5",
+	Short: "AddTarget1_5 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSetServiceClient(grpcConn)
+		req := &pb.AddTarget1_5Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddTarget1_5(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionSetAddTarget1_6Cmd = &cobra.Command{
+	Use:   "add-target1_6",
+	Short: "AddTarget1_6 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSetServiceClient(grpcConn)
+		req := &pb.AddTarget1_6Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddTarget1_6(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionSetAddTarget1_7Cmd = &cobra.Command{
+	Use:   "add-target1_7",
+	Short: "AddTarget1_7 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSetServiceClient(grpcConn)
+		req := &pb.AddTarget1_7Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddTarget1_7(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionSetAddListener1_1Cmd = &cobra.Command{
+	Use:   "add-listener1_1",
+	Short: "AddListener1_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSetServiceClient(grpcConn)
+		req := &pb.AddListener1_1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddListener1_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionSetClone0_2Cmd = &cobra.Command{
+	Use:   "clone0_2",
+	Short: "Clone0_2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSetServiceClient(grpcConn)
+		req := &pb.Clone0_2Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.Clone0_2(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -4398,7 +4428,7 @@ var transitionSlideCaptureEndValuesCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewSlideServiceClient(grpcConn)
-		req := &pb.CaptureEndValuesRequest{}
+		req := &pb.SlideCaptureEndValuesRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
@@ -4420,7 +4450,7 @@ var transitionSlideCaptureStartValuesCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewSlideServiceClient(grpcConn)
-		req := &pb.CaptureStartValuesRequest{}
+		req := &pb.SlideCaptureStartValuesRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
@@ -4538,26 +4568,26 @@ var transitionSlideSetSlideEdgeCmd = &cobra.Command{
 	},
 }
 
-var transitionPatternPathMotionCmd = &cobra.Command{
-	Use:   "pattern-path-motion",
-	Short: "PatternPathMotionService operations",
+var transitionExplodeCmd = &cobra.Command{
+	Use:   "explode",
+	Short: "ExplodeService operations",
 }
 
-var transitionPatternPathMotionNewPatternPathMotionCmd = &cobra.Command{
-	Use:   "new-pattern-path-motion",
-	Short: "NewPatternPathMotion RPC",
+var transitionExplodeNewExplodeCmd = &cobra.Command{
+	Use:   "new-explode",
+	Short: "NewExplode RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewPatternPathMotionServiceClient(grpcConn)
-		req := &pb.NewPatternPathMotionRequest{}
+		client := pb.NewExplodeServiceClient(grpcConn)
+		req := &pb.NewExplodeRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
 		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
 			req.Arg1 = v
 		}
-		resp, err := client.NewPatternPathMotion(ctx, req)
+		resp, err := client.NewExplode(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -4565,71 +4595,105 @@ var transitionPatternPathMotionNewPatternPathMotionCmd = &cobra.Command{
 	},
 }
 
-var transitionPatternPathMotionGetPathCmd = &cobra.Command{
-	Use:   "get-path",
-	Short: "GetPath RPC",
+var transitionExplodeCaptureEndValuesCmd = &cobra.Command{
+	Use:   "capture-end-values",
+	Short: "CaptureEndValues RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewPatternPathMotionServiceClient(grpcConn)
-		req := &pb.GetPathRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetFloat32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetFloat32("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetFloat32("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		resp, err := client.GetPath(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var transitionPatternPathMotionGetPatternPathCmd = &cobra.Command{
-	Use:   "get-pattern-path",
-	Short: "GetPatternPath RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPatternPathMotionServiceClient(grpcConn)
-		req := &pb.GetPatternPathRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetPatternPath(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var transitionPatternPathMotionSetPatternPathCmd = &cobra.Command{
-	Use:   "set-pattern-path",
-	Short: "SetPatternPath RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPatternPathMotionServiceClient(grpcConn)
-		req := &pb.SetPatternPathRequest{}
+		client := pb.NewExplodeServiceClient(grpcConn)
+		req := &pb.ExplodeCaptureEndValuesRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		resp, err := client.SetPatternPath(ctx, req)
+		resp, err := client.CaptureEndValues(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionExplodeCaptureStartValuesCmd = &cobra.Command{
+	Use:   "capture-start-values",
+	Short: "CaptureStartValues RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewExplodeServiceClient(grpcConn)
+		req := &pb.ExplodeCaptureStartValuesRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.CaptureStartValues(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionExplodeOnAppearCmd = &cobra.Command{
+	Use:   "on-appear",
+	Short: "OnAppear RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewExplodeServiceClient(grpcConn)
+		req := &pb.OnAppearRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.OnAppear(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var transitionExplodeOnDisappearCmd = &cobra.Command{
+	Use:   "on-disappear",
+	Short: "OnDisappear RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewExplodeServiceClient(grpcConn)
+		req := &pb.OnDisappearRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.OnDisappear(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -4638,6 +4702,441 @@ var transitionPatternPathMotionSetPatternPathCmd = &cobra.Command{
 }
 
 func init() {
+	transitionArcMotionNewArcMotionCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	transitionArcMotionNewArcMotionCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	transitionArcMotionCmd.AddCommand(transitionArcMotionNewArcMotionCmd)
+	transitionArcMotionGetMaximumAngleCmd.Flags().Int64("handle", 0, "handle (int64)")
+	transitionArcMotionCmd.AddCommand(transitionArcMotionGetMaximumAngleCmd)
+	transitionArcMotionGetMinimumHorizontalAngleCmd.Flags().Int64("handle", 0, "handle (int64)")
+	transitionArcMotionCmd.AddCommand(transitionArcMotionGetMinimumHorizontalAngleCmd)
+	transitionArcMotionGetMinimumVerticalAngleCmd.Flags().Int64("handle", 0, "handle (int64)")
+	transitionArcMotionCmd.AddCommand(transitionArcMotionGetMinimumVerticalAngleCmd)
+	transitionArcMotionGetPathCmd.Flags().Int64("handle", 0, "handle (int64)")
+	transitionArcMotionGetPathCmd.Flags().Float32("arg0", 0, "arg0 (float32)")
+	transitionArcMotionGetPathCmd.Flags().Float32("arg1", 0, "arg1 (float32)")
+	transitionArcMotionGetPathCmd.Flags().Float32("arg2", 0, "arg2 (float32)")
+	transitionArcMotionGetPathCmd.Flags().Float32("arg3", 0, "arg3 (float32)")
+	transitionArcMotionCmd.AddCommand(transitionArcMotionGetPathCmd)
+	transitionArcMotionSetMaximumAngleCmd.Flags().Int64("handle", 0, "handle (int64)")
+	transitionArcMotionSetMaximumAngleCmd.Flags().Float32("arg0", 0, "arg0 (float32)")
+	transitionArcMotionCmd.AddCommand(transitionArcMotionSetMaximumAngleCmd)
+	transitionArcMotionSetMinimumHorizontalAngleCmd.Flags().Int64("handle", 0, "handle (int64)")
+	transitionArcMotionSetMinimumHorizontalAngleCmd.Flags().Float32("arg0", 0, "arg0 (float32)")
+	transitionArcMotionCmd.AddCommand(transitionArcMotionSetMinimumHorizontalAngleCmd)
+	transitionArcMotionSetMinimumVerticalAngleCmd.Flags().Int64("handle", 0, "handle (int64)")
+	transitionArcMotionSetMinimumVerticalAngleCmd.Flags().Float32("arg0", 0, "arg0 (float32)")
+	transitionArcMotionCmd.AddCommand(transitionArcMotionSetMinimumVerticalAngleCmd)
+	transitionCmd.AddCommand(transitionArcMotionCmd)
+	transitionInflaterInflateTransitionCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	transitionInflaterCmd.AddCommand(transitionInflaterInflateTransitionCmd)
+	transitionInflaterInflateTransitionManagerCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	transitionInflaterInflateTransitionManagerCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	transitionInflaterCmd.AddCommand(transitionInflaterInflateTransitionManagerCmd)
+	transitionInflaterFromCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	transitionInflaterCmd.AddCommand(transitionInflaterFromCmd)
+	transitionCmd.AddCommand(transitionInflaterCmd)
+	transitionValuesCmd.AddCommand(transitionValuesNewValuesCmd)
+	transitionValuesEqualsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	transitionValuesEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	transitionValuesCmd.AddCommand(transitionValuesEqualsCmd)
+	transitionValuesHashCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	transitionValuesCmd.AddCommand(transitionValuesHashCodeCmd)
+	transitionValuesToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
+	transitionValuesCmd.AddCommand(transitionValuesToStringCmd)
+	transitionCmd.AddCommand(transitionValuesCmd)
+	transitionPropagationCaptureValuesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	transitionPropagationCmd.AddCommand(transitionPropagationCaptureValuesCmd)
+	transitionPropagationCmd.AddCommand(transitionPropagationGetPropagationPropertiesCmd)
+	transitionPropagationGetStartDelayCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	transitionPropagationGetStartDelayCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	transitionPropagationGetStartDelayCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	transitionPropagationGetStartDelayCmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	transitionPropagationCmd.AddCommand(transitionPropagationGetStartDelayCmd)
+	transitionCmd.AddCommand(transitionPropagationCmd)
+	transitionCircularPropagationCmd.AddCommand(transitionCircularPropagationNewCircularPropagationCmd)
+	transitionCircularPropagationGetStartDelayCmd.Flags().Int64("handle", 0, "handle (int64)")
+	transitionCircularPropagationGetStartDelayCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	transitionCircularPropagationGetStartDelayCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	transitionCircularPropagationGetStartDelayCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	transitionCircularPropagationGetStartDelayCmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	transitionCircularPropagationCmd.AddCommand(transitionCircularPropagationGetStartDelayCmd)
+	transitionCircularPropagationSetPropagationSpeedCmd.Flags().Int64("handle", 0, "handle (int64)")
+	transitionCircularPropagationSetPropagationSpeedCmd.Flags().Float32("arg0", 0, "arg0 (float32)")
+	transitionCircularPropagationCmd.AddCommand(transitionCircularPropagationSetPropagationSpeedCmd)
+	transitionCmd.AddCommand(transitionCircularPropagationCmd)
+	transitionSidePropagationCmd.AddCommand(transitionSidePropagationNewSidePropagationCmd)
+	transitionSidePropagationGetStartDelayCmd.Flags().Int64("handle", 0, "handle (int64)")
+	transitionSidePropagationGetStartDelayCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	transitionSidePropagationGetStartDelayCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	transitionSidePropagationGetStartDelayCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	transitionSidePropagationGetStartDelayCmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	transitionSidePropagationCmd.AddCommand(transitionSidePropagationGetStartDelayCmd)
+	transitionSidePropagationSetPropagationSpeedCmd.Flags().Int64("handle", 0, "handle (int64)")
+	transitionSidePropagationSetPropagationSpeedCmd.Flags().Float32("arg0", 0, "arg0 (float32)")
+	transitionSidePropagationCmd.AddCommand(transitionSidePropagationSetPropagationSpeedCmd)
+	transitionSidePropagationSetSideCmd.Flags().Int64("handle", 0, "handle (int64)")
+	transitionSidePropagationSetSideCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	transitionSidePropagationCmd.AddCommand(transitionSidePropagationSetSideCmd)
+	transitionCmd.AddCommand(transitionSidePropagationCmd)
+	transitionTransitionAddListenerCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	transitionTransitionCmd.AddCommand(transitionTransitionAddListenerCmd)
+	transitionTransitionAddTarget1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	transitionTransitionCmd.AddCommand(transitionTransitionAddTarget1Cmd)
+	transitionTransitionAddTarget1_1Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	transitionTransitionCmd.AddCommand(transitionTransitionAddTarget1_1Cmd)
+	transitionTransitionAddTarget1_2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	transitionTransitionCmd.AddCommand(transitionTransitionAddTarget1_2Cmd)
+	transitionTransitionAddTarget1_3Cmd.Flags().String("arg0", "", "arg0 (string)")
+	transitionTransitionCmd.AddCommand(transitionTransitionAddTarget1_3Cmd)
+	transitionTransitionCmd.AddCommand(transitionTransitionCanRemoveViewsCmd)
+	transitionTransitionCaptureEndValuesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	transitionTransitionCmd.AddCommand(transitionTransitionCaptureEndValuesCmd)
+	transitionTransitionCaptureStartValuesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	transitionTransitionCmd.AddCommand(transitionTransitionCaptureStartValuesCmd)
+	transitionTransitionCmd.AddCommand(transitionTransitionClone0Cmd)
+	transitionTransitionCreateAnimatorCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	transitionTransitionCreateAnimatorCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	transitionTransitionCreateAnimatorCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	transitionTransitionCmd.AddCommand(transitionTransitionCreateAnimatorCmd)
+	transitionTransitionExcludeChildren2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	transitionTransitionExcludeChildren2Cmd.Flags().Bool("arg1", false, "arg1 (bool)")
+	transitionTransitionCmd.AddCommand(transitionTransitionExcludeChildren2Cmd)
+	transitionTransitionExcludeChildren2_1Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	transitionTransitionExcludeChildren2_1Cmd.Flags().Bool("arg1", false, "arg1 (bool)")
+	transitionTransitionCmd.AddCommand(transitionTransitionExcludeChildren2_1Cmd)
+	transitionTransitionExcludeChildren2_2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	transitionTransitionExcludeChildren2_2Cmd.Flags().Bool("arg1", false, "arg1 (bool)")
+	transitionTransitionCmd.AddCommand(transitionTransitionExcludeChildren2_2Cmd)
+	transitionTransitionExcludeTarget2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	transitionTransitionExcludeTarget2Cmd.Flags().Bool("arg1", false, "arg1 (bool)")
+	transitionTransitionCmd.AddCommand(transitionTransitionExcludeTarget2Cmd)
+	transitionTransitionExcludeTarget2_1Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	transitionTransitionExcludeTarget2_1Cmd.Flags().Bool("arg1", false, "arg1 (bool)")
+	transitionTransitionCmd.AddCommand(transitionTransitionExcludeTarget2_1Cmd)
+	transitionTransitionExcludeTarget2_2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	transitionTransitionExcludeTarget2_2Cmd.Flags().Bool("arg1", false, "arg1 (bool)")
+	transitionTransitionCmd.AddCommand(transitionTransitionExcludeTarget2_2Cmd)
+	transitionTransitionExcludeTarget2_3Cmd.Flags().String("arg0", "", "arg0 (string)")
+	transitionTransitionExcludeTarget2_3Cmd.Flags().Bool("arg1", false, "arg1 (bool)")
+	transitionTransitionCmd.AddCommand(transitionTransitionExcludeTarget2_3Cmd)
+	transitionTransitionCmd.AddCommand(transitionTransitionGetDurationCmd)
+	transitionTransitionCmd.AddCommand(transitionTransitionGetEpicenterCmd)
+	transitionTransitionCmd.AddCommand(transitionTransitionGetEpicenterCallbackCmd)
+	transitionTransitionCmd.AddCommand(transitionTransitionGetInterpolatorCmd)
+	transitionTransitionCmd.AddCommand(transitionTransitionGetNameCmd)
+	transitionTransitionCmd.AddCommand(transitionTransitionGetPathMotionCmd)
+	transitionTransitionCmd.AddCommand(transitionTransitionGetPropagationCmd)
+	transitionTransitionCmd.AddCommand(transitionTransitionGetStartDelayCmd)
+	transitionTransitionCmd.AddCommand(transitionTransitionGetTargetIdsCmd)
+	transitionTransitionCmd.AddCommand(transitionTransitionGetTargetNamesCmd)
+	transitionTransitionCmd.AddCommand(transitionTransitionGetTargetTypesCmd)
+	transitionTransitionCmd.AddCommand(transitionTransitionGetTargetsCmd)
+	transitionTransitionCmd.AddCommand(transitionTransitionGetTransitionPropertiesCmd)
+	transitionTransitionGetTransitionValuesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	transitionTransitionGetTransitionValuesCmd.Flags().Bool("arg1", false, "arg1 (bool)")
+	transitionTransitionCmd.AddCommand(transitionTransitionGetTransitionValuesCmd)
+	transitionTransitionIsTransitionRequiredCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	transitionTransitionIsTransitionRequiredCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	transitionTransitionCmd.AddCommand(transitionTransitionIsTransitionRequiredCmd)
+	transitionTransitionRemoveListenerCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	transitionTransitionCmd.AddCommand(transitionTransitionRemoveListenerCmd)
+	transitionTransitionRemoveTarget1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	transitionTransitionCmd.AddCommand(transitionTransitionRemoveTarget1Cmd)
+	transitionTransitionRemoveTarget1_1Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	transitionTransitionCmd.AddCommand(transitionTransitionRemoveTarget1_1Cmd)
+	transitionTransitionRemoveTarget1_2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	transitionTransitionCmd.AddCommand(transitionTransitionRemoveTarget1_2Cmd)
+	transitionTransitionRemoveTarget1_3Cmd.Flags().String("arg0", "", "arg0 (string)")
+	transitionTransitionCmd.AddCommand(transitionTransitionRemoveTarget1_3Cmd)
+	transitionTransitionSetDurationCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	transitionTransitionCmd.AddCommand(transitionTransitionSetDurationCmd)
+	transitionTransitionSetEpicenterCallbackCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	transitionTransitionCmd.AddCommand(transitionTransitionSetEpicenterCallbackCmd)
+	transitionTransitionSetInterpolatorCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	transitionTransitionCmd.AddCommand(transitionTransitionSetInterpolatorCmd)
+	transitionTransitionSetMatchOrderCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	transitionTransitionCmd.AddCommand(transitionTransitionSetMatchOrderCmd)
+	transitionTransitionSetPathMotionCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	transitionTransitionCmd.AddCommand(transitionTransitionSetPathMotionCmd)
+	transitionTransitionSetPropagationCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	transitionTransitionCmd.AddCommand(transitionTransitionSetPropagationCmd)
+	transitionTransitionSetStartDelayCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	transitionTransitionCmd.AddCommand(transitionTransitionSetStartDelayCmd)
+	transitionTransitionCmd.AddCommand(transitionTransitionToStringCmd)
+	transitionTransitionCmd.AddCommand(transitionTransitionClone0_1Cmd)
+	transitionCmd.AddCommand(transitionTransitionCmd)
+	transitionEpicenterCallbackOnGetEpicenterCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	transitionEpicenterCallbackCmd.AddCommand(transitionEpicenterCallbackOnGetEpicenterCmd)
+	transitionCmd.AddCommand(transitionEpicenterCallbackCmd)
+	transitionTransitionListenerOnTransitionCancelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	transitionTransitionListenerCmd.AddCommand(transitionTransitionListenerOnTransitionCancelCmd)
+	transitionTransitionListenerOnTransitionEndCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	transitionTransitionListenerCmd.AddCommand(transitionTransitionListenerOnTransitionEndCmd)
+	transitionTransitionListenerOnTransitionPauseCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	transitionTransitionListenerCmd.AddCommand(transitionTransitionListenerOnTransitionPauseCmd)
+	transitionTransitionListenerOnTransitionResumeCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	transitionTransitionListenerCmd.AddCommand(transitionTransitionListenerOnTransitionResumeCmd)
+	transitionTransitionListenerOnTransitionStartCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	transitionTransitionListenerCmd.AddCommand(transitionTransitionListenerOnTransitionStartCmd)
+	transitionCmd.AddCommand(transitionTransitionListenerCmd)
+	transitionManagerCmd.AddCommand(transitionManagerNewManagerCmd)
+	transitionManagerSetTransition3Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	transitionManagerSetTransition3Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	transitionManagerSetTransition3Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	transitionManagerSetTransition3Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	transitionManagerCmd.AddCommand(transitionManagerSetTransition3Cmd)
+	transitionManagerSetTransition2_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	transitionManagerSetTransition2_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	transitionManagerSetTransition2_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	transitionManagerCmd.AddCommand(transitionManagerSetTransition2_1Cmd)
+	transitionManagerTransitionToCmd.Flags().Int64("handle", 0, "handle (int64)")
+	transitionManagerTransitionToCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	transitionManagerCmd.AddCommand(transitionManagerTransitionToCmd)
+	transitionManagerBeginDelayedTransition1Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	transitionManagerBeginDelayedTransition1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	transitionManagerCmd.AddCommand(transitionManagerBeginDelayedTransition1Cmd)
+	transitionManagerBeginDelayedTransition2_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	transitionManagerBeginDelayedTransition2_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	transitionManagerBeginDelayedTransition2_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	transitionManagerCmd.AddCommand(transitionManagerBeginDelayedTransition2_1Cmd)
+	transitionManagerEndTransitionsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	transitionManagerEndTransitionsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	transitionManagerCmd.AddCommand(transitionManagerEndTransitionsCmd)
+	transitionManagerGo1Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	transitionManagerGo1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	transitionManagerCmd.AddCommand(transitionManagerGo1Cmd)
+	transitionManagerGo2_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	transitionManagerGo2_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	transitionManagerGo2_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	transitionManagerCmd.AddCommand(transitionManagerGo2_1Cmd)
+	transitionCmd.AddCommand(transitionManagerCmd)
+	transitionVisibilityCaptureEndValuesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	transitionVisibilityCmd.AddCommand(transitionVisibilityCaptureEndValuesCmd)
+	transitionVisibilityCaptureStartValuesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	transitionVisibilityCmd.AddCommand(transitionVisibilityCaptureStartValuesCmd)
+	transitionVisibilityCreateAnimatorCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	transitionVisibilityCreateAnimatorCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	transitionVisibilityCreateAnimatorCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	transitionVisibilityCmd.AddCommand(transitionVisibilityCreateAnimatorCmd)
+	transitionVisibilityCmd.AddCommand(transitionVisibilityGetModeCmd)
+	transitionVisibilityCmd.AddCommand(transitionVisibilityGetTransitionPropertiesCmd)
+	transitionVisibilityIsTransitionRequiredCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	transitionVisibilityIsTransitionRequiredCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	transitionVisibilityCmd.AddCommand(transitionVisibilityIsTransitionRequiredCmd)
+	transitionVisibilityIsVisibleCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	transitionVisibilityCmd.AddCommand(transitionVisibilityIsVisibleCmd)
+	transitionVisibilityOnAppear5Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	transitionVisibilityOnAppear5Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	transitionVisibilityOnAppear5Cmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	transitionVisibilityOnAppear5Cmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	transitionVisibilityOnAppear5Cmd.Flags().Int32("arg4", 0, "arg4 (int32)")
+	transitionVisibilityCmd.AddCommand(transitionVisibilityOnAppear5Cmd)
+	transitionVisibilityOnAppear4_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	transitionVisibilityOnAppear4_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	transitionVisibilityOnAppear4_1Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	transitionVisibilityOnAppear4_1Cmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	transitionVisibilityCmd.AddCommand(transitionVisibilityOnAppear4_1Cmd)
+	transitionVisibilityOnDisappear5Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	transitionVisibilityOnDisappear5Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	transitionVisibilityOnDisappear5Cmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	transitionVisibilityOnDisappear5Cmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	transitionVisibilityOnDisappear5Cmd.Flags().Int32("arg4", 0, "arg4 (int32)")
+	transitionVisibilityCmd.AddCommand(transitionVisibilityOnDisappear5Cmd)
+	transitionVisibilityOnDisappear4_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	transitionVisibilityOnDisappear4_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	transitionVisibilityOnDisappear4_1Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	transitionVisibilityOnDisappear4_1Cmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	transitionVisibilityCmd.AddCommand(transitionVisibilityOnDisappear4_1Cmd)
+	transitionVisibilitySetModeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	transitionVisibilityCmd.AddCommand(transitionVisibilitySetModeCmd)
+	transitionCmd.AddCommand(transitionVisibilityCmd)
+	transitionSceneNewSceneCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	transitionSceneCmd.AddCommand(transitionSceneNewSceneCmd)
+	transitionSceneEnterCmd.Flags().Int64("handle", 0, "handle (int64)")
+	transitionSceneCmd.AddCommand(transitionSceneEnterCmd)
+	transitionSceneExitCmd.Flags().Int64("handle", 0, "handle (int64)")
+	transitionSceneCmd.AddCommand(transitionSceneExitCmd)
+	transitionSceneGetSceneRootCmd.Flags().Int64("handle", 0, "handle (int64)")
+	transitionSceneCmd.AddCommand(transitionSceneGetSceneRootCmd)
+	transitionSceneSetEnterActionCmd.Flags().Int64("handle", 0, "handle (int64)")
+	transitionSceneSetEnterActionCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	transitionSceneCmd.AddCommand(transitionSceneSetEnterActionCmd)
+	transitionSceneSetExitActionCmd.Flags().Int64("handle", 0, "handle (int64)")
+	transitionSceneSetExitActionCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	transitionSceneCmd.AddCommand(transitionSceneSetExitActionCmd)
+	transitionSceneGetCurrentSceneCmd.Flags().Int64("handle", 0, "handle (int64)")
+	transitionSceneGetCurrentSceneCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	transitionSceneCmd.AddCommand(transitionSceneGetCurrentSceneCmd)
+	transitionSceneGetSceneForLayoutCmd.Flags().Int64("handle", 0, "handle (int64)")
+	transitionSceneGetSceneForLayoutCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	transitionSceneGetSceneForLayoutCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	transitionSceneGetSceneForLayoutCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	transitionSceneCmd.AddCommand(transitionSceneGetSceneForLayoutCmd)
+	transitionCmd.AddCommand(transitionSceneCmd)
+	transitionChangeTransformNewChangeTransformCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	transitionChangeTransformNewChangeTransformCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	transitionChangeTransformCmd.AddCommand(transitionChangeTransformNewChangeTransformCmd)
+	transitionChangeTransformCaptureEndValuesCmd.Flags().Int64("handle", 0, "handle (int64)")
+	transitionChangeTransformCaptureEndValuesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	transitionChangeTransformCmd.AddCommand(transitionChangeTransformCaptureEndValuesCmd)
+	transitionChangeTransformCaptureStartValuesCmd.Flags().Int64("handle", 0, "handle (int64)")
+	transitionChangeTransformCaptureStartValuesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	transitionChangeTransformCmd.AddCommand(transitionChangeTransformCaptureStartValuesCmd)
+	transitionChangeTransformCreateAnimatorCmd.Flags().Int64("handle", 0, "handle (int64)")
+	transitionChangeTransformCreateAnimatorCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	transitionChangeTransformCreateAnimatorCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	transitionChangeTransformCreateAnimatorCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	transitionChangeTransformCmd.AddCommand(transitionChangeTransformCreateAnimatorCmd)
+	transitionChangeTransformGetReparentCmd.Flags().Int64("handle", 0, "handle (int64)")
+	transitionChangeTransformCmd.AddCommand(transitionChangeTransformGetReparentCmd)
+	transitionChangeTransformGetReparentWithOverlayCmd.Flags().Int64("handle", 0, "handle (int64)")
+	transitionChangeTransformCmd.AddCommand(transitionChangeTransformGetReparentWithOverlayCmd)
+	transitionChangeTransformGetTransitionPropertiesCmd.Flags().Int64("handle", 0, "handle (int64)")
+	transitionChangeTransformCmd.AddCommand(transitionChangeTransformGetTransitionPropertiesCmd)
+	transitionChangeTransformSetReparentCmd.Flags().Int64("handle", 0, "handle (int64)")
+	transitionChangeTransformSetReparentCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	transitionChangeTransformCmd.AddCommand(transitionChangeTransformSetReparentCmd)
+	transitionChangeTransformSetReparentWithOverlayCmd.Flags().Int64("handle", 0, "handle (int64)")
+	transitionChangeTransformSetReparentWithOverlayCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	transitionChangeTransformCmd.AddCommand(transitionChangeTransformSetReparentWithOverlayCmd)
+	transitionCmd.AddCommand(transitionChangeTransformCmd)
+	transitionChangeScrollNewChangeScrollCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	transitionChangeScrollNewChangeScrollCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	transitionChangeScrollCmd.AddCommand(transitionChangeScrollNewChangeScrollCmd)
+	transitionChangeScrollCaptureEndValuesCmd.Flags().Int64("handle", 0, "handle (int64)")
+	transitionChangeScrollCaptureEndValuesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	transitionChangeScrollCmd.AddCommand(transitionChangeScrollCaptureEndValuesCmd)
+	transitionChangeScrollCaptureStartValuesCmd.Flags().Int64("handle", 0, "handle (int64)")
+	transitionChangeScrollCaptureStartValuesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	transitionChangeScrollCmd.AddCommand(transitionChangeScrollCaptureStartValuesCmd)
+	transitionChangeScrollCreateAnimatorCmd.Flags().Int64("handle", 0, "handle (int64)")
+	transitionChangeScrollCreateAnimatorCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	transitionChangeScrollCreateAnimatorCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	transitionChangeScrollCreateAnimatorCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	transitionChangeScrollCmd.AddCommand(transitionChangeScrollCreateAnimatorCmd)
+	transitionChangeScrollGetTransitionPropertiesCmd.Flags().Int64("handle", 0, "handle (int64)")
+	transitionChangeScrollCmd.AddCommand(transitionChangeScrollGetTransitionPropertiesCmd)
+	transitionCmd.AddCommand(transitionChangeScrollCmd)
+	transitionChangeBoundsNewChangeBoundsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	transitionChangeBoundsNewChangeBoundsCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	transitionChangeBoundsCmd.AddCommand(transitionChangeBoundsNewChangeBoundsCmd)
+	transitionChangeBoundsCaptureEndValuesCmd.Flags().Int64("handle", 0, "handle (int64)")
+	transitionChangeBoundsCaptureEndValuesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	transitionChangeBoundsCmd.AddCommand(transitionChangeBoundsCaptureEndValuesCmd)
+	transitionChangeBoundsCaptureStartValuesCmd.Flags().Int64("handle", 0, "handle (int64)")
+	transitionChangeBoundsCaptureStartValuesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	transitionChangeBoundsCmd.AddCommand(transitionChangeBoundsCaptureStartValuesCmd)
+	transitionChangeBoundsCreateAnimatorCmd.Flags().Int64("handle", 0, "handle (int64)")
+	transitionChangeBoundsCreateAnimatorCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	transitionChangeBoundsCreateAnimatorCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	transitionChangeBoundsCreateAnimatorCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	transitionChangeBoundsCmd.AddCommand(transitionChangeBoundsCreateAnimatorCmd)
+	transitionChangeBoundsGetResizeClipCmd.Flags().Int64("handle", 0, "handle (int64)")
+	transitionChangeBoundsCmd.AddCommand(transitionChangeBoundsGetResizeClipCmd)
+	transitionChangeBoundsGetTransitionPropertiesCmd.Flags().Int64("handle", 0, "handle (int64)")
+	transitionChangeBoundsCmd.AddCommand(transitionChangeBoundsGetTransitionPropertiesCmd)
+	transitionChangeBoundsSetReparentCmd.Flags().Int64("handle", 0, "handle (int64)")
+	transitionChangeBoundsSetReparentCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	transitionChangeBoundsCmd.AddCommand(transitionChangeBoundsSetReparentCmd)
+	transitionChangeBoundsSetResizeClipCmd.Flags().Int64("handle", 0, "handle (int64)")
+	transitionChangeBoundsSetResizeClipCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	transitionChangeBoundsCmd.AddCommand(transitionChangeBoundsSetResizeClipCmd)
+	transitionCmd.AddCommand(transitionChangeBoundsCmd)
+	transitionFadeNewFadeCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	transitionFadeNewFadeCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	transitionFadeCmd.AddCommand(transitionFadeNewFadeCmd)
+	transitionFadeCaptureStartValuesCmd.Flags().Int64("handle", 0, "handle (int64)")
+	transitionFadeCaptureStartValuesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	transitionFadeCmd.AddCommand(transitionFadeCaptureStartValuesCmd)
+	transitionFadeOnAppearCmd.Flags().Int64("handle", 0, "handle (int64)")
+	transitionFadeOnAppearCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	transitionFadeOnAppearCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	transitionFadeOnAppearCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	transitionFadeOnAppearCmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	transitionFadeCmd.AddCommand(transitionFadeOnAppearCmd)
+	transitionFadeOnDisappearCmd.Flags().Int64("handle", 0, "handle (int64)")
+	transitionFadeOnDisappearCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	transitionFadeOnDisappearCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	transitionFadeOnDisappearCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	transitionFadeOnDisappearCmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	transitionFadeCmd.AddCommand(transitionFadeOnDisappearCmd)
+	transitionCmd.AddCommand(transitionFadeCmd)
+	transitionListenerAdapterOnTransitionCancelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	transitionListenerAdapterCmd.AddCommand(transitionListenerAdapterOnTransitionCancelCmd)
+	transitionListenerAdapterOnTransitionEndCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	transitionListenerAdapterCmd.AddCommand(transitionListenerAdapterOnTransitionEndCmd)
+	transitionListenerAdapterOnTransitionPauseCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	transitionListenerAdapterCmd.AddCommand(transitionListenerAdapterOnTransitionPauseCmd)
+	transitionListenerAdapterOnTransitionResumeCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	transitionListenerAdapterCmd.AddCommand(transitionListenerAdapterOnTransitionResumeCmd)
+	transitionListenerAdapterOnTransitionStartCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	transitionListenerAdapterCmd.AddCommand(transitionListenerAdapterOnTransitionStartCmd)
+	transitionCmd.AddCommand(transitionListenerAdapterCmd)
+	transitionPathMotionGetPathCmd.Flags().Float32("arg0", 0, "arg0 (float32)")
+	transitionPathMotionGetPathCmd.Flags().Float32("arg1", 0, "arg1 (float32)")
+	transitionPathMotionGetPathCmd.Flags().Float32("arg2", 0, "arg2 (float32)")
+	transitionPathMotionGetPathCmd.Flags().Float32("arg3", 0, "arg3 (float32)")
+	transitionPathMotionCmd.AddCommand(transitionPathMotionGetPathCmd)
+	transitionCmd.AddCommand(transitionPathMotionCmd)
+	transitionVisibilityPropagationCaptureValuesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	transitionVisibilityPropagationCmd.AddCommand(transitionVisibilityPropagationCaptureValuesCmd)
+	transitionVisibilityPropagationCmd.AddCommand(transitionVisibilityPropagationGetPropagationPropertiesCmd)
+	transitionVisibilityPropagationGetViewVisibilityCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	transitionVisibilityPropagationCmd.AddCommand(transitionVisibilityPropagationGetViewVisibilityCmd)
+	transitionVisibilityPropagationGetViewXCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	transitionVisibilityPropagationCmd.AddCommand(transitionVisibilityPropagationGetViewXCmd)
+	transitionVisibilityPropagationGetViewYCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	transitionVisibilityPropagationCmd.AddCommand(transitionVisibilityPropagationGetViewYCmd)
+	transitionCmd.AddCommand(transitionVisibilityPropagationCmd)
+	transitionChangeImageTransformNewChangeImageTransformCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	transitionChangeImageTransformNewChangeImageTransformCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	transitionChangeImageTransformCmd.AddCommand(transitionChangeImageTransformNewChangeImageTransformCmd)
+	transitionChangeImageTransformCaptureEndValuesCmd.Flags().Int64("handle", 0, "handle (int64)")
+	transitionChangeImageTransformCaptureEndValuesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	transitionChangeImageTransformCmd.AddCommand(transitionChangeImageTransformCaptureEndValuesCmd)
+	transitionChangeImageTransformCaptureStartValuesCmd.Flags().Int64("handle", 0, "handle (int64)")
+	transitionChangeImageTransformCaptureStartValuesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	transitionChangeImageTransformCmd.AddCommand(transitionChangeImageTransformCaptureStartValuesCmd)
+	transitionChangeImageTransformCreateAnimatorCmd.Flags().Int64("handle", 0, "handle (int64)")
+	transitionChangeImageTransformCreateAnimatorCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	transitionChangeImageTransformCreateAnimatorCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	transitionChangeImageTransformCreateAnimatorCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	transitionChangeImageTransformCmd.AddCommand(transitionChangeImageTransformCreateAnimatorCmd)
+	transitionChangeImageTransformGetTransitionPropertiesCmd.Flags().Int64("handle", 0, "handle (int64)")
+	transitionChangeImageTransformCmd.AddCommand(transitionChangeImageTransformGetTransitionPropertiesCmd)
+	transitionCmd.AddCommand(transitionChangeImageTransformCmd)
+	transitionPatternPathMotionNewPatternPathMotionCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	transitionPatternPathMotionNewPatternPathMotionCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	transitionPatternPathMotionCmd.AddCommand(transitionPatternPathMotionNewPatternPathMotionCmd)
+	transitionPatternPathMotionGetPathCmd.Flags().Int64("handle", 0, "handle (int64)")
+	transitionPatternPathMotionGetPathCmd.Flags().Float32("arg0", 0, "arg0 (float32)")
+	transitionPatternPathMotionGetPathCmd.Flags().Float32("arg1", 0, "arg1 (float32)")
+	transitionPatternPathMotionGetPathCmd.Flags().Float32("arg2", 0, "arg2 (float32)")
+	transitionPatternPathMotionGetPathCmd.Flags().Float32("arg3", 0, "arg3 (float32)")
+	transitionPatternPathMotionCmd.AddCommand(transitionPatternPathMotionGetPathCmd)
+	transitionPatternPathMotionGetPatternPathCmd.Flags().Int64("handle", 0, "handle (int64)")
+	transitionPatternPathMotionCmd.AddCommand(transitionPatternPathMotionGetPatternPathCmd)
+	transitionPatternPathMotionSetPatternPathCmd.Flags().Int64("handle", 0, "handle (int64)")
+	transitionPatternPathMotionSetPatternPathCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	transitionPatternPathMotionCmd.AddCommand(transitionPatternPathMotionSetPatternPathCmd)
+	transitionCmd.AddCommand(transitionPatternPathMotionCmd)
+	transitionChangeClipBoundsNewChangeClipBoundsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	transitionChangeClipBoundsNewChangeClipBoundsCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	transitionChangeClipBoundsCmd.AddCommand(transitionChangeClipBoundsNewChangeClipBoundsCmd)
+	transitionChangeClipBoundsCaptureEndValuesCmd.Flags().Int64("handle", 0, "handle (int64)")
+	transitionChangeClipBoundsCaptureEndValuesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	transitionChangeClipBoundsCmd.AddCommand(transitionChangeClipBoundsCaptureEndValuesCmd)
+	transitionChangeClipBoundsCaptureStartValuesCmd.Flags().Int64("handle", 0, "handle (int64)")
+	transitionChangeClipBoundsCaptureStartValuesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	transitionChangeClipBoundsCmd.AddCommand(transitionChangeClipBoundsCaptureStartValuesCmd)
+	transitionChangeClipBoundsCreateAnimatorCmd.Flags().Int64("handle", 0, "handle (int64)")
+	transitionChangeClipBoundsCreateAnimatorCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	transitionChangeClipBoundsCreateAnimatorCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	transitionChangeClipBoundsCreateAnimatorCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	transitionChangeClipBoundsCmd.AddCommand(transitionChangeClipBoundsCreateAnimatorCmd)
+	transitionChangeClipBoundsGetTransitionPropertiesCmd.Flags().Int64("handle", 0, "handle (int64)")
+	transitionChangeClipBoundsCmd.AddCommand(transitionChangeClipBoundsGetTransitionPropertiesCmd)
+	transitionCmd.AddCommand(transitionChangeClipBoundsCmd)
 	transitionSetNewSetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	transitionSetNewSetCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
 	transitionSetCmd.AddCommand(transitionSetNewSetCmd)
@@ -4773,444 +5272,6 @@ func init() {
 	transitionSetClone0_2Cmd.Flags().Int64("handle", 0, "handle (int64)")
 	transitionSetCmd.AddCommand(transitionSetClone0_2Cmd)
 	transitionCmd.AddCommand(transitionSetCmd)
-	transitionVisibilityPropagationCaptureValuesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	transitionVisibilityPropagationCmd.AddCommand(transitionVisibilityPropagationCaptureValuesCmd)
-	transitionVisibilityPropagationCmd.AddCommand(transitionVisibilityPropagationGetPropagationPropertiesCmd)
-	transitionVisibilityPropagationGetViewVisibilityCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	transitionVisibilityPropagationCmd.AddCommand(transitionVisibilityPropagationGetViewVisibilityCmd)
-	transitionVisibilityPropagationGetViewXCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	transitionVisibilityPropagationCmd.AddCommand(transitionVisibilityPropagationGetViewXCmd)
-	transitionVisibilityPropagationGetViewYCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	transitionVisibilityPropagationCmd.AddCommand(transitionVisibilityPropagationGetViewYCmd)
-	transitionCmd.AddCommand(transitionVisibilityPropagationCmd)
-	transitionChangeClipBoundsNewChangeClipBoundsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	transitionChangeClipBoundsNewChangeClipBoundsCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	transitionChangeClipBoundsCmd.AddCommand(transitionChangeClipBoundsNewChangeClipBoundsCmd)
-	transitionChangeClipBoundsCaptureEndValuesCmd.Flags().Int64("handle", 0, "handle (int64)")
-	transitionChangeClipBoundsCaptureEndValuesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	transitionChangeClipBoundsCmd.AddCommand(transitionChangeClipBoundsCaptureEndValuesCmd)
-	transitionChangeClipBoundsCaptureStartValuesCmd.Flags().Int64("handle", 0, "handle (int64)")
-	transitionChangeClipBoundsCaptureStartValuesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	transitionChangeClipBoundsCmd.AddCommand(transitionChangeClipBoundsCaptureStartValuesCmd)
-	transitionChangeClipBoundsCreateAnimatorCmd.Flags().Int64("handle", 0, "handle (int64)")
-	transitionChangeClipBoundsCreateAnimatorCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	transitionChangeClipBoundsCreateAnimatorCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	transitionChangeClipBoundsCreateAnimatorCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	transitionChangeClipBoundsCmd.AddCommand(transitionChangeClipBoundsCreateAnimatorCmd)
-	transitionChangeClipBoundsGetTransitionPropertiesCmd.Flags().Int64("handle", 0, "handle (int64)")
-	transitionChangeClipBoundsCmd.AddCommand(transitionChangeClipBoundsGetTransitionPropertiesCmd)
-	transitionCmd.AddCommand(transitionChangeClipBoundsCmd)
-	transitionChangeScrollNewChangeScrollCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	transitionChangeScrollNewChangeScrollCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	transitionChangeScrollCmd.AddCommand(transitionChangeScrollNewChangeScrollCmd)
-	transitionChangeScrollCaptureEndValuesCmd.Flags().Int64("handle", 0, "handle (int64)")
-	transitionChangeScrollCaptureEndValuesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	transitionChangeScrollCmd.AddCommand(transitionChangeScrollCaptureEndValuesCmd)
-	transitionChangeScrollCaptureStartValuesCmd.Flags().Int64("handle", 0, "handle (int64)")
-	transitionChangeScrollCaptureStartValuesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	transitionChangeScrollCmd.AddCommand(transitionChangeScrollCaptureStartValuesCmd)
-	transitionChangeScrollCreateAnimatorCmd.Flags().Int64("handle", 0, "handle (int64)")
-	transitionChangeScrollCreateAnimatorCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	transitionChangeScrollCreateAnimatorCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	transitionChangeScrollCreateAnimatorCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	transitionChangeScrollCmd.AddCommand(transitionChangeScrollCreateAnimatorCmd)
-	transitionChangeScrollGetTransitionPropertiesCmd.Flags().Int64("handle", 0, "handle (int64)")
-	transitionChangeScrollCmd.AddCommand(transitionChangeScrollGetTransitionPropertiesCmd)
-	transitionCmd.AddCommand(transitionChangeScrollCmd)
-	transitionSceneNewSceneCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	transitionSceneCmd.AddCommand(transitionSceneNewSceneCmd)
-	transitionSceneEnterCmd.Flags().Int64("handle", 0, "handle (int64)")
-	transitionSceneCmd.AddCommand(transitionSceneEnterCmd)
-	transitionSceneExitCmd.Flags().Int64("handle", 0, "handle (int64)")
-	transitionSceneCmd.AddCommand(transitionSceneExitCmd)
-	transitionSceneGetSceneRootCmd.Flags().Int64("handle", 0, "handle (int64)")
-	transitionSceneCmd.AddCommand(transitionSceneGetSceneRootCmd)
-	transitionSceneSetEnterActionCmd.Flags().Int64("handle", 0, "handle (int64)")
-	transitionSceneSetEnterActionCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	transitionSceneCmd.AddCommand(transitionSceneSetEnterActionCmd)
-	transitionSceneSetExitActionCmd.Flags().Int64("handle", 0, "handle (int64)")
-	transitionSceneSetExitActionCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	transitionSceneCmd.AddCommand(transitionSceneSetExitActionCmd)
-	transitionSceneGetCurrentSceneCmd.Flags().Int64("handle", 0, "handle (int64)")
-	transitionSceneGetCurrentSceneCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	transitionSceneCmd.AddCommand(transitionSceneGetCurrentSceneCmd)
-	transitionSceneGetSceneForLayoutCmd.Flags().Int64("handle", 0, "handle (int64)")
-	transitionSceneGetSceneForLayoutCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	transitionSceneGetSceneForLayoutCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	transitionSceneGetSceneForLayoutCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	transitionSceneCmd.AddCommand(transitionSceneGetSceneForLayoutCmd)
-	transitionCmd.AddCommand(transitionSceneCmd)
-	transitionTransitionAddListenerCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	transitionTransitionCmd.AddCommand(transitionTransitionAddListenerCmd)
-	transitionTransitionAddTarget1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	transitionTransitionCmd.AddCommand(transitionTransitionAddTarget1Cmd)
-	transitionTransitionAddTarget1_1Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	transitionTransitionCmd.AddCommand(transitionTransitionAddTarget1_1Cmd)
-	transitionTransitionAddTarget1_2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	transitionTransitionCmd.AddCommand(transitionTransitionAddTarget1_2Cmd)
-	transitionTransitionAddTarget1_3Cmd.Flags().String("arg0", "", "arg0 (string)")
-	transitionTransitionCmd.AddCommand(transitionTransitionAddTarget1_3Cmd)
-	transitionTransitionCmd.AddCommand(transitionTransitionCanRemoveViewsCmd)
-	transitionTransitionCaptureEndValuesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	transitionTransitionCmd.AddCommand(transitionTransitionCaptureEndValuesCmd)
-	transitionTransitionCaptureStartValuesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	transitionTransitionCmd.AddCommand(transitionTransitionCaptureStartValuesCmd)
-	transitionTransitionCmd.AddCommand(transitionTransitionClone0Cmd)
-	transitionTransitionCreateAnimatorCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	transitionTransitionCreateAnimatorCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	transitionTransitionCreateAnimatorCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	transitionTransitionCmd.AddCommand(transitionTransitionCreateAnimatorCmd)
-	transitionTransitionExcludeChildren2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	transitionTransitionExcludeChildren2Cmd.Flags().Bool("arg1", false, "arg1 (bool)")
-	transitionTransitionCmd.AddCommand(transitionTransitionExcludeChildren2Cmd)
-	transitionTransitionExcludeChildren2_1Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	transitionTransitionExcludeChildren2_1Cmd.Flags().Bool("arg1", false, "arg1 (bool)")
-	transitionTransitionCmd.AddCommand(transitionTransitionExcludeChildren2_1Cmd)
-	transitionTransitionExcludeChildren2_2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	transitionTransitionExcludeChildren2_2Cmd.Flags().Bool("arg1", false, "arg1 (bool)")
-	transitionTransitionCmd.AddCommand(transitionTransitionExcludeChildren2_2Cmd)
-	transitionTransitionExcludeTarget2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	transitionTransitionExcludeTarget2Cmd.Flags().Bool("arg1", false, "arg1 (bool)")
-	transitionTransitionCmd.AddCommand(transitionTransitionExcludeTarget2Cmd)
-	transitionTransitionExcludeTarget2_1Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	transitionTransitionExcludeTarget2_1Cmd.Flags().Bool("arg1", false, "arg1 (bool)")
-	transitionTransitionCmd.AddCommand(transitionTransitionExcludeTarget2_1Cmd)
-	transitionTransitionExcludeTarget2_2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	transitionTransitionExcludeTarget2_2Cmd.Flags().Bool("arg1", false, "arg1 (bool)")
-	transitionTransitionCmd.AddCommand(transitionTransitionExcludeTarget2_2Cmd)
-	transitionTransitionExcludeTarget2_3Cmd.Flags().String("arg0", "", "arg0 (string)")
-	transitionTransitionExcludeTarget2_3Cmd.Flags().Bool("arg1", false, "arg1 (bool)")
-	transitionTransitionCmd.AddCommand(transitionTransitionExcludeTarget2_3Cmd)
-	transitionTransitionCmd.AddCommand(transitionTransitionGetDurationCmd)
-	transitionTransitionCmd.AddCommand(transitionTransitionGetEpicenterCmd)
-	transitionTransitionCmd.AddCommand(transitionTransitionGetEpicenterCallbackCmd)
-	transitionTransitionCmd.AddCommand(transitionTransitionGetInterpolatorCmd)
-	transitionTransitionCmd.AddCommand(transitionTransitionGetNameCmd)
-	transitionTransitionCmd.AddCommand(transitionTransitionGetPathMotionCmd)
-	transitionTransitionCmd.AddCommand(transitionTransitionGetPropagationCmd)
-	transitionTransitionCmd.AddCommand(transitionTransitionGetStartDelayCmd)
-	transitionTransitionCmd.AddCommand(transitionTransitionGetTransitionPropertiesCmd)
-	transitionTransitionGetTransitionValuesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	transitionTransitionGetTransitionValuesCmd.Flags().Bool("arg1", false, "arg1 (bool)")
-	transitionTransitionCmd.AddCommand(transitionTransitionGetTransitionValuesCmd)
-	transitionTransitionIsTransitionRequiredCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	transitionTransitionIsTransitionRequiredCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	transitionTransitionCmd.AddCommand(transitionTransitionIsTransitionRequiredCmd)
-	transitionTransitionRemoveListenerCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	transitionTransitionCmd.AddCommand(transitionTransitionRemoveListenerCmd)
-	transitionTransitionRemoveTarget1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	transitionTransitionCmd.AddCommand(transitionTransitionRemoveTarget1Cmd)
-	transitionTransitionRemoveTarget1_1Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	transitionTransitionCmd.AddCommand(transitionTransitionRemoveTarget1_1Cmd)
-	transitionTransitionRemoveTarget1_2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	transitionTransitionCmd.AddCommand(transitionTransitionRemoveTarget1_2Cmd)
-	transitionTransitionRemoveTarget1_3Cmd.Flags().String("arg0", "", "arg0 (string)")
-	transitionTransitionCmd.AddCommand(transitionTransitionRemoveTarget1_3Cmd)
-	transitionTransitionSetDurationCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	transitionTransitionCmd.AddCommand(transitionTransitionSetDurationCmd)
-	transitionTransitionSetEpicenterCallbackCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	transitionTransitionCmd.AddCommand(transitionTransitionSetEpicenterCallbackCmd)
-	transitionTransitionSetInterpolatorCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	transitionTransitionCmd.AddCommand(transitionTransitionSetInterpolatorCmd)
-	transitionTransitionSetMatchOrderCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	transitionTransitionCmd.AddCommand(transitionTransitionSetMatchOrderCmd)
-	transitionTransitionSetPathMotionCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	transitionTransitionCmd.AddCommand(transitionTransitionSetPathMotionCmd)
-	transitionTransitionSetPropagationCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	transitionTransitionCmd.AddCommand(transitionTransitionSetPropagationCmd)
-	transitionTransitionSetStartDelayCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	transitionTransitionCmd.AddCommand(transitionTransitionSetStartDelayCmd)
-	transitionTransitionCmd.AddCommand(transitionTransitionToStringCmd)
-	transitionTransitionCmd.AddCommand(transitionTransitionClone0_1Cmd)
-	transitionCmd.AddCommand(transitionTransitionCmd)
-	transitionEpicenterCallbackOnGetEpicenterCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	transitionEpicenterCallbackCmd.AddCommand(transitionEpicenterCallbackOnGetEpicenterCmd)
-	transitionCmd.AddCommand(transitionEpicenterCallbackCmd)
-	transitionTransitionListenerOnTransitionCancelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	transitionTransitionListenerCmd.AddCommand(transitionTransitionListenerOnTransitionCancelCmd)
-	transitionTransitionListenerOnTransitionEndCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	transitionTransitionListenerCmd.AddCommand(transitionTransitionListenerOnTransitionEndCmd)
-	transitionTransitionListenerOnTransitionPauseCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	transitionTransitionListenerCmd.AddCommand(transitionTransitionListenerOnTransitionPauseCmd)
-	transitionTransitionListenerOnTransitionResumeCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	transitionTransitionListenerCmd.AddCommand(transitionTransitionListenerOnTransitionResumeCmd)
-	transitionTransitionListenerOnTransitionStartCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	transitionTransitionListenerCmd.AddCommand(transitionTransitionListenerOnTransitionStartCmd)
-	transitionCmd.AddCommand(transitionTransitionListenerCmd)
-	transitionArcMotionNewArcMotionCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	transitionArcMotionNewArcMotionCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	transitionArcMotionCmd.AddCommand(transitionArcMotionNewArcMotionCmd)
-	transitionArcMotionGetMaximumAngleCmd.Flags().Int64("handle", 0, "handle (int64)")
-	transitionArcMotionCmd.AddCommand(transitionArcMotionGetMaximumAngleCmd)
-	transitionArcMotionGetMinimumHorizontalAngleCmd.Flags().Int64("handle", 0, "handle (int64)")
-	transitionArcMotionCmd.AddCommand(transitionArcMotionGetMinimumHorizontalAngleCmd)
-	transitionArcMotionGetMinimumVerticalAngleCmd.Flags().Int64("handle", 0, "handle (int64)")
-	transitionArcMotionCmd.AddCommand(transitionArcMotionGetMinimumVerticalAngleCmd)
-	transitionArcMotionGetPathCmd.Flags().Int64("handle", 0, "handle (int64)")
-	transitionArcMotionGetPathCmd.Flags().Float32("arg0", 0, "arg0 (float32)")
-	transitionArcMotionGetPathCmd.Flags().Float32("arg1", 0, "arg1 (float32)")
-	transitionArcMotionGetPathCmd.Flags().Float32("arg2", 0, "arg2 (float32)")
-	transitionArcMotionGetPathCmd.Flags().Float32("arg3", 0, "arg3 (float32)")
-	transitionArcMotionCmd.AddCommand(transitionArcMotionGetPathCmd)
-	transitionArcMotionSetMaximumAngleCmd.Flags().Int64("handle", 0, "handle (int64)")
-	transitionArcMotionSetMaximumAngleCmd.Flags().Float32("arg0", 0, "arg0 (float32)")
-	transitionArcMotionCmd.AddCommand(transitionArcMotionSetMaximumAngleCmd)
-	transitionArcMotionSetMinimumHorizontalAngleCmd.Flags().Int64("handle", 0, "handle (int64)")
-	transitionArcMotionSetMinimumHorizontalAngleCmd.Flags().Float32("arg0", 0, "arg0 (float32)")
-	transitionArcMotionCmd.AddCommand(transitionArcMotionSetMinimumHorizontalAngleCmd)
-	transitionArcMotionSetMinimumVerticalAngleCmd.Flags().Int64("handle", 0, "handle (int64)")
-	transitionArcMotionSetMinimumVerticalAngleCmd.Flags().Float32("arg0", 0, "arg0 (float32)")
-	transitionArcMotionCmd.AddCommand(transitionArcMotionSetMinimumVerticalAngleCmd)
-	transitionCmd.AddCommand(transitionArcMotionCmd)
-	transitionVisibilityCaptureEndValuesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	transitionVisibilityCmd.AddCommand(transitionVisibilityCaptureEndValuesCmd)
-	transitionVisibilityCaptureStartValuesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	transitionVisibilityCmd.AddCommand(transitionVisibilityCaptureStartValuesCmd)
-	transitionVisibilityCreateAnimatorCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	transitionVisibilityCreateAnimatorCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	transitionVisibilityCreateAnimatorCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	transitionVisibilityCmd.AddCommand(transitionVisibilityCreateAnimatorCmd)
-	transitionVisibilityCmd.AddCommand(transitionVisibilityGetModeCmd)
-	transitionVisibilityCmd.AddCommand(transitionVisibilityGetTransitionPropertiesCmd)
-	transitionVisibilityIsTransitionRequiredCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	transitionVisibilityIsTransitionRequiredCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	transitionVisibilityCmd.AddCommand(transitionVisibilityIsTransitionRequiredCmd)
-	transitionVisibilityIsVisibleCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	transitionVisibilityCmd.AddCommand(transitionVisibilityIsVisibleCmd)
-	transitionVisibilityOnAppear5Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	transitionVisibilityOnAppear5Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	transitionVisibilityOnAppear5Cmd.Flags().Int32("arg2", 0, "arg2 (int32)")
-	transitionVisibilityOnAppear5Cmd.Flags().Int64("arg3", 0, "arg3 (int64)")
-	transitionVisibilityOnAppear5Cmd.Flags().Int32("arg4", 0, "arg4 (int32)")
-	transitionVisibilityCmd.AddCommand(transitionVisibilityOnAppear5Cmd)
-	transitionVisibilityOnAppear4_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	transitionVisibilityOnAppear4_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	transitionVisibilityOnAppear4_1Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	transitionVisibilityOnAppear4_1Cmd.Flags().Int64("arg3", 0, "arg3 (int64)")
-	transitionVisibilityCmd.AddCommand(transitionVisibilityOnAppear4_1Cmd)
-	transitionVisibilityOnDisappear5Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	transitionVisibilityOnDisappear5Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	transitionVisibilityOnDisappear5Cmd.Flags().Int32("arg2", 0, "arg2 (int32)")
-	transitionVisibilityOnDisappear5Cmd.Flags().Int64("arg3", 0, "arg3 (int64)")
-	transitionVisibilityOnDisappear5Cmd.Flags().Int32("arg4", 0, "arg4 (int32)")
-	transitionVisibilityCmd.AddCommand(transitionVisibilityOnDisappear5Cmd)
-	transitionVisibilityOnDisappear4_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	transitionVisibilityOnDisappear4_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	transitionVisibilityOnDisappear4_1Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	transitionVisibilityOnDisappear4_1Cmd.Flags().Int64("arg3", 0, "arg3 (int64)")
-	transitionVisibilityCmd.AddCommand(transitionVisibilityOnDisappear4_1Cmd)
-	transitionVisibilitySetModeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	transitionVisibilityCmd.AddCommand(transitionVisibilitySetModeCmd)
-	transitionCmd.AddCommand(transitionVisibilityCmd)
-	transitionExplodeNewExplodeCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	transitionExplodeNewExplodeCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	transitionExplodeCmd.AddCommand(transitionExplodeNewExplodeCmd)
-	transitionExplodeCaptureEndValuesCmd.Flags().Int64("handle", 0, "handle (int64)")
-	transitionExplodeCaptureEndValuesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	transitionExplodeCmd.AddCommand(transitionExplodeCaptureEndValuesCmd)
-	transitionExplodeCaptureStartValuesCmd.Flags().Int64("handle", 0, "handle (int64)")
-	transitionExplodeCaptureStartValuesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	transitionExplodeCmd.AddCommand(transitionExplodeCaptureStartValuesCmd)
-	transitionExplodeOnAppearCmd.Flags().Int64("handle", 0, "handle (int64)")
-	transitionExplodeOnAppearCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	transitionExplodeOnAppearCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	transitionExplodeOnAppearCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	transitionExplodeOnAppearCmd.Flags().Int64("arg3", 0, "arg3 (int64)")
-	transitionExplodeCmd.AddCommand(transitionExplodeOnAppearCmd)
-	transitionExplodeOnDisappearCmd.Flags().Int64("handle", 0, "handle (int64)")
-	transitionExplodeOnDisappearCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	transitionExplodeOnDisappearCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	transitionExplodeOnDisappearCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	transitionExplodeOnDisappearCmd.Flags().Int64("arg3", 0, "arg3 (int64)")
-	transitionExplodeCmd.AddCommand(transitionExplodeOnDisappearCmd)
-	transitionCmd.AddCommand(transitionExplodeCmd)
-	transitionListenerAdapterOnTransitionCancelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	transitionListenerAdapterCmd.AddCommand(transitionListenerAdapterOnTransitionCancelCmd)
-	transitionListenerAdapterOnTransitionEndCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	transitionListenerAdapterCmd.AddCommand(transitionListenerAdapterOnTransitionEndCmd)
-	transitionListenerAdapterOnTransitionPauseCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	transitionListenerAdapterCmd.AddCommand(transitionListenerAdapterOnTransitionPauseCmd)
-	transitionListenerAdapterOnTransitionResumeCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	transitionListenerAdapterCmd.AddCommand(transitionListenerAdapterOnTransitionResumeCmd)
-	transitionListenerAdapterOnTransitionStartCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	transitionListenerAdapterCmd.AddCommand(transitionListenerAdapterOnTransitionStartCmd)
-	transitionCmd.AddCommand(transitionListenerAdapterCmd)
-	transitionChangeTransformNewChangeTransformCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	transitionChangeTransformNewChangeTransformCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	transitionChangeTransformCmd.AddCommand(transitionChangeTransformNewChangeTransformCmd)
-	transitionChangeTransformCaptureEndValuesCmd.Flags().Int64("handle", 0, "handle (int64)")
-	transitionChangeTransformCaptureEndValuesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	transitionChangeTransformCmd.AddCommand(transitionChangeTransformCaptureEndValuesCmd)
-	transitionChangeTransformCaptureStartValuesCmd.Flags().Int64("handle", 0, "handle (int64)")
-	transitionChangeTransformCaptureStartValuesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	transitionChangeTransformCmd.AddCommand(transitionChangeTransformCaptureStartValuesCmd)
-	transitionChangeTransformCreateAnimatorCmd.Flags().Int64("handle", 0, "handle (int64)")
-	transitionChangeTransformCreateAnimatorCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	transitionChangeTransformCreateAnimatorCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	transitionChangeTransformCreateAnimatorCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	transitionChangeTransformCmd.AddCommand(transitionChangeTransformCreateAnimatorCmd)
-	transitionChangeTransformGetReparentCmd.Flags().Int64("handle", 0, "handle (int64)")
-	transitionChangeTransformCmd.AddCommand(transitionChangeTransformGetReparentCmd)
-	transitionChangeTransformGetReparentWithOverlayCmd.Flags().Int64("handle", 0, "handle (int64)")
-	transitionChangeTransformCmd.AddCommand(transitionChangeTransformGetReparentWithOverlayCmd)
-	transitionChangeTransformGetTransitionPropertiesCmd.Flags().Int64("handle", 0, "handle (int64)")
-	transitionChangeTransformCmd.AddCommand(transitionChangeTransformGetTransitionPropertiesCmd)
-	transitionChangeTransformSetReparentCmd.Flags().Int64("handle", 0, "handle (int64)")
-	transitionChangeTransformSetReparentCmd.Flags().Bool("arg0", false, "arg0 (bool)")
-	transitionChangeTransformCmd.AddCommand(transitionChangeTransformSetReparentCmd)
-	transitionChangeTransformSetReparentWithOverlayCmd.Flags().Int64("handle", 0, "handle (int64)")
-	transitionChangeTransformSetReparentWithOverlayCmd.Flags().Bool("arg0", false, "arg0 (bool)")
-	transitionChangeTransformCmd.AddCommand(transitionChangeTransformSetReparentWithOverlayCmd)
-	transitionCmd.AddCommand(transitionChangeTransformCmd)
-	transitionCircularPropagationCmd.AddCommand(transitionCircularPropagationNewCircularPropagationCmd)
-	transitionCircularPropagationGetStartDelayCmd.Flags().Int64("handle", 0, "handle (int64)")
-	transitionCircularPropagationGetStartDelayCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	transitionCircularPropagationGetStartDelayCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	transitionCircularPropagationGetStartDelayCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	transitionCircularPropagationGetStartDelayCmd.Flags().Int64("arg3", 0, "arg3 (int64)")
-	transitionCircularPropagationCmd.AddCommand(transitionCircularPropagationGetStartDelayCmd)
-	transitionCircularPropagationSetPropagationSpeedCmd.Flags().Int64("handle", 0, "handle (int64)")
-	transitionCircularPropagationSetPropagationSpeedCmd.Flags().Float32("arg0", 0, "arg0 (float32)")
-	transitionCircularPropagationCmd.AddCommand(transitionCircularPropagationSetPropagationSpeedCmd)
-	transitionCmd.AddCommand(transitionCircularPropagationCmd)
-	transitionSidePropagationCmd.AddCommand(transitionSidePropagationNewSidePropagationCmd)
-	transitionSidePropagationGetStartDelayCmd.Flags().Int64("handle", 0, "handle (int64)")
-	transitionSidePropagationGetStartDelayCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	transitionSidePropagationGetStartDelayCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	transitionSidePropagationGetStartDelayCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	transitionSidePropagationGetStartDelayCmd.Flags().Int64("arg3", 0, "arg3 (int64)")
-	transitionSidePropagationCmd.AddCommand(transitionSidePropagationGetStartDelayCmd)
-	transitionSidePropagationSetPropagationSpeedCmd.Flags().Int64("handle", 0, "handle (int64)")
-	transitionSidePropagationSetPropagationSpeedCmd.Flags().Float32("arg0", 0, "arg0 (float32)")
-	transitionSidePropagationCmd.AddCommand(transitionSidePropagationSetPropagationSpeedCmd)
-	transitionSidePropagationSetSideCmd.Flags().Int64("handle", 0, "handle (int64)")
-	transitionSidePropagationSetSideCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	transitionSidePropagationCmd.AddCommand(transitionSidePropagationSetSideCmd)
-	transitionCmd.AddCommand(transitionSidePropagationCmd)
-	transitionManagerCmd.AddCommand(transitionManagerNewManagerCmd)
-	transitionManagerSetTransition3Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	transitionManagerSetTransition3Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	transitionManagerSetTransition3Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	transitionManagerSetTransition3Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	transitionManagerCmd.AddCommand(transitionManagerSetTransition3Cmd)
-	transitionManagerSetTransition2_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	transitionManagerSetTransition2_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	transitionManagerSetTransition2_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	transitionManagerCmd.AddCommand(transitionManagerSetTransition2_1Cmd)
-	transitionManagerTransitionToCmd.Flags().Int64("handle", 0, "handle (int64)")
-	transitionManagerTransitionToCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	transitionManagerCmd.AddCommand(transitionManagerTransitionToCmd)
-	transitionManagerBeginDelayedTransition1Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	transitionManagerBeginDelayedTransition1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	transitionManagerCmd.AddCommand(transitionManagerBeginDelayedTransition1Cmd)
-	transitionManagerBeginDelayedTransition2_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	transitionManagerBeginDelayedTransition2_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	transitionManagerBeginDelayedTransition2_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	transitionManagerCmd.AddCommand(transitionManagerBeginDelayedTransition2_1Cmd)
-	transitionManagerEndTransitionsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	transitionManagerEndTransitionsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	transitionManagerCmd.AddCommand(transitionManagerEndTransitionsCmd)
-	transitionManagerGo1Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	transitionManagerGo1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	transitionManagerCmd.AddCommand(transitionManagerGo1Cmd)
-	transitionManagerGo2_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	transitionManagerGo2_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	transitionManagerGo2_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	transitionManagerCmd.AddCommand(transitionManagerGo2_1Cmd)
-	transitionCmd.AddCommand(transitionManagerCmd)
-	transitionInflaterInflateTransitionCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	transitionInflaterCmd.AddCommand(transitionInflaterInflateTransitionCmd)
-	transitionInflaterInflateTransitionManagerCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	transitionInflaterInflateTransitionManagerCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	transitionInflaterCmd.AddCommand(transitionInflaterInflateTransitionManagerCmd)
-	transitionInflaterFromCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	transitionInflaterCmd.AddCommand(transitionInflaterFromCmd)
-	transitionCmd.AddCommand(transitionInflaterCmd)
-	transitionChangeImageTransformNewChangeImageTransformCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	transitionChangeImageTransformNewChangeImageTransformCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	transitionChangeImageTransformCmd.AddCommand(transitionChangeImageTransformNewChangeImageTransformCmd)
-	transitionChangeImageTransformCaptureEndValuesCmd.Flags().Int64("handle", 0, "handle (int64)")
-	transitionChangeImageTransformCaptureEndValuesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	transitionChangeImageTransformCmd.AddCommand(transitionChangeImageTransformCaptureEndValuesCmd)
-	transitionChangeImageTransformCaptureStartValuesCmd.Flags().Int64("handle", 0, "handle (int64)")
-	transitionChangeImageTransformCaptureStartValuesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	transitionChangeImageTransformCmd.AddCommand(transitionChangeImageTransformCaptureStartValuesCmd)
-	transitionChangeImageTransformCreateAnimatorCmd.Flags().Int64("handle", 0, "handle (int64)")
-	transitionChangeImageTransformCreateAnimatorCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	transitionChangeImageTransformCreateAnimatorCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	transitionChangeImageTransformCreateAnimatorCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	transitionChangeImageTransformCmd.AddCommand(transitionChangeImageTransformCreateAnimatorCmd)
-	transitionChangeImageTransformGetTransitionPropertiesCmd.Flags().Int64("handle", 0, "handle (int64)")
-	transitionChangeImageTransformCmd.AddCommand(transitionChangeImageTransformGetTransitionPropertiesCmd)
-	transitionCmd.AddCommand(transitionChangeImageTransformCmd)
-	transitionPathMotionGetPathCmd.Flags().Float32("arg0", 0, "arg0 (float32)")
-	transitionPathMotionGetPathCmd.Flags().Float32("arg1", 0, "arg1 (float32)")
-	transitionPathMotionGetPathCmd.Flags().Float32("arg2", 0, "arg2 (float32)")
-	transitionPathMotionGetPathCmd.Flags().Float32("arg3", 0, "arg3 (float32)")
-	transitionPathMotionCmd.AddCommand(transitionPathMotionGetPathCmd)
-	transitionCmd.AddCommand(transitionPathMotionCmd)
-	transitionFadeNewFadeCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	transitionFadeNewFadeCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	transitionFadeCmd.AddCommand(transitionFadeNewFadeCmd)
-	transitionFadeCaptureStartValuesCmd.Flags().Int64("handle", 0, "handle (int64)")
-	transitionFadeCaptureStartValuesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	transitionFadeCmd.AddCommand(transitionFadeCaptureStartValuesCmd)
-	transitionFadeOnAppearCmd.Flags().Int64("handle", 0, "handle (int64)")
-	transitionFadeOnAppearCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	transitionFadeOnAppearCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	transitionFadeOnAppearCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	transitionFadeOnAppearCmd.Flags().Int64("arg3", 0, "arg3 (int64)")
-	transitionFadeCmd.AddCommand(transitionFadeOnAppearCmd)
-	transitionFadeOnDisappearCmd.Flags().Int64("handle", 0, "handle (int64)")
-	transitionFadeOnDisappearCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	transitionFadeOnDisappearCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	transitionFadeOnDisappearCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	transitionFadeOnDisappearCmd.Flags().Int64("arg3", 0, "arg3 (int64)")
-	transitionFadeCmd.AddCommand(transitionFadeOnDisappearCmd)
-	transitionCmd.AddCommand(transitionFadeCmd)
-	transitionValuesCmd.AddCommand(transitionValuesNewValuesCmd)
-	transitionValuesEqualsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	transitionValuesEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	transitionValuesCmd.AddCommand(transitionValuesEqualsCmd)
-	transitionValuesHashCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
-	transitionValuesCmd.AddCommand(transitionValuesHashCodeCmd)
-	transitionValuesToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
-	transitionValuesCmd.AddCommand(transitionValuesToStringCmd)
-	transitionCmd.AddCommand(transitionValuesCmd)
-	transitionChangeBoundsNewChangeBoundsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	transitionChangeBoundsNewChangeBoundsCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	transitionChangeBoundsCmd.AddCommand(transitionChangeBoundsNewChangeBoundsCmd)
-	transitionChangeBoundsCaptureEndValuesCmd.Flags().Int64("handle", 0, "handle (int64)")
-	transitionChangeBoundsCaptureEndValuesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	transitionChangeBoundsCmd.AddCommand(transitionChangeBoundsCaptureEndValuesCmd)
-	transitionChangeBoundsCaptureStartValuesCmd.Flags().Int64("handle", 0, "handle (int64)")
-	transitionChangeBoundsCaptureStartValuesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	transitionChangeBoundsCmd.AddCommand(transitionChangeBoundsCaptureStartValuesCmd)
-	transitionChangeBoundsCreateAnimatorCmd.Flags().Int64("handle", 0, "handle (int64)")
-	transitionChangeBoundsCreateAnimatorCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	transitionChangeBoundsCreateAnimatorCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	transitionChangeBoundsCreateAnimatorCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	transitionChangeBoundsCmd.AddCommand(transitionChangeBoundsCreateAnimatorCmd)
-	transitionChangeBoundsGetResizeClipCmd.Flags().Int64("handle", 0, "handle (int64)")
-	transitionChangeBoundsCmd.AddCommand(transitionChangeBoundsGetResizeClipCmd)
-	transitionChangeBoundsGetTransitionPropertiesCmd.Flags().Int64("handle", 0, "handle (int64)")
-	transitionChangeBoundsCmd.AddCommand(transitionChangeBoundsGetTransitionPropertiesCmd)
-	transitionChangeBoundsSetReparentCmd.Flags().Int64("handle", 0, "handle (int64)")
-	transitionChangeBoundsSetReparentCmd.Flags().Bool("arg0", false, "arg0 (bool)")
-	transitionChangeBoundsCmd.AddCommand(transitionChangeBoundsSetReparentCmd)
-	transitionChangeBoundsSetResizeClipCmd.Flags().Int64("handle", 0, "handle (int64)")
-	transitionChangeBoundsSetResizeClipCmd.Flags().Bool("arg0", false, "arg0 (bool)")
-	transitionChangeBoundsCmd.AddCommand(transitionChangeBoundsSetResizeClipCmd)
-	transitionCmd.AddCommand(transitionChangeBoundsCmd)
-	transitionPropagationCaptureValuesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	transitionPropagationCmd.AddCommand(transitionPropagationCaptureValuesCmd)
-	transitionPropagationCmd.AddCommand(transitionPropagationGetPropagationPropertiesCmd)
-	transitionPropagationGetStartDelayCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	transitionPropagationGetStartDelayCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	transitionPropagationGetStartDelayCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	transitionPropagationGetStartDelayCmd.Flags().Int64("arg3", 0, "arg3 (int64)")
-	transitionPropagationCmd.AddCommand(transitionPropagationGetStartDelayCmd)
-	transitionCmd.AddCommand(transitionPropagationCmd)
 	transitionSlideNewSlideCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	transitionSlideNewSlideCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
 	transitionSlideCmd.AddCommand(transitionSlideNewSlideCmd)
@@ -5238,20 +5299,27 @@ func init() {
 	transitionSlideSetSlideEdgeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
 	transitionSlideCmd.AddCommand(transitionSlideSetSlideEdgeCmd)
 	transitionCmd.AddCommand(transitionSlideCmd)
-	transitionPatternPathMotionNewPatternPathMotionCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	transitionPatternPathMotionNewPatternPathMotionCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	transitionPatternPathMotionCmd.AddCommand(transitionPatternPathMotionNewPatternPathMotionCmd)
-	transitionPatternPathMotionGetPathCmd.Flags().Int64("handle", 0, "handle (int64)")
-	transitionPatternPathMotionGetPathCmd.Flags().Float32("arg0", 0, "arg0 (float32)")
-	transitionPatternPathMotionGetPathCmd.Flags().Float32("arg1", 0, "arg1 (float32)")
-	transitionPatternPathMotionGetPathCmd.Flags().Float32("arg2", 0, "arg2 (float32)")
-	transitionPatternPathMotionGetPathCmd.Flags().Float32("arg3", 0, "arg3 (float32)")
-	transitionPatternPathMotionCmd.AddCommand(transitionPatternPathMotionGetPathCmd)
-	transitionPatternPathMotionGetPatternPathCmd.Flags().Int64("handle", 0, "handle (int64)")
-	transitionPatternPathMotionCmd.AddCommand(transitionPatternPathMotionGetPatternPathCmd)
-	transitionPatternPathMotionSetPatternPathCmd.Flags().Int64("handle", 0, "handle (int64)")
-	transitionPatternPathMotionSetPatternPathCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	transitionPatternPathMotionCmd.AddCommand(transitionPatternPathMotionSetPatternPathCmd)
-	transitionCmd.AddCommand(transitionPatternPathMotionCmd)
+	transitionExplodeNewExplodeCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	transitionExplodeNewExplodeCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	transitionExplodeCmd.AddCommand(transitionExplodeNewExplodeCmd)
+	transitionExplodeCaptureEndValuesCmd.Flags().Int64("handle", 0, "handle (int64)")
+	transitionExplodeCaptureEndValuesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	transitionExplodeCmd.AddCommand(transitionExplodeCaptureEndValuesCmd)
+	transitionExplodeCaptureStartValuesCmd.Flags().Int64("handle", 0, "handle (int64)")
+	transitionExplodeCaptureStartValuesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	transitionExplodeCmd.AddCommand(transitionExplodeCaptureStartValuesCmd)
+	transitionExplodeOnAppearCmd.Flags().Int64("handle", 0, "handle (int64)")
+	transitionExplodeOnAppearCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	transitionExplodeOnAppearCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	transitionExplodeOnAppearCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	transitionExplodeOnAppearCmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	transitionExplodeCmd.AddCommand(transitionExplodeOnAppearCmd)
+	transitionExplodeOnDisappearCmd.Flags().Int64("handle", 0, "handle (int64)")
+	transitionExplodeOnDisappearCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	transitionExplodeOnDisappearCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	transitionExplodeOnDisappearCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	transitionExplodeOnDisappearCmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	transitionExplodeCmd.AddCommand(transitionExplodeOnDisappearCmd)
+	transitionCmd.AddCommand(transitionExplodeCmd)
 	rootCmd.AddCommand(transitionCmd)
 }

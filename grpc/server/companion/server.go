@@ -37,7 +37,7 @@ func (s *DevicePresenceEventServer) NewDevicePresenceEvent(_ context.Context, re
 	return &pb.NewDevicePresenceEventResponse{Result: handle}, nil
 }
 
-func (s *DevicePresenceEventServer) DescribeContents(_ context.Context, req *pb.DescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
+func (s *DevicePresenceEventServer) DescribeContents(_ context.Context, req *pb.DevicePresenceEventDescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -51,7 +51,7 @@ func (s *DevicePresenceEventServer) DescribeContents(_ context.Context, req *pb.
 	return &pb.DescribeContentsResponse{Result: result}, nil
 }
 
-func (s *DevicePresenceEventServer) Equals(_ context.Context, req *pb.EqualsRequest) (*pb.EqualsResponse, error) {
+func (s *DevicePresenceEventServer) Equals(_ context.Context, req *pb.DevicePresenceEventEqualsRequest) (*pb.EqualsResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -116,7 +116,7 @@ func (s *DevicePresenceEventServer) GetUuid(_ context.Context, req *pb.GetUuidRe
 	return &pb.GetUuidResponse{Result: handle}, nil
 }
 
-func (s *DevicePresenceEventServer) HashCode(_ context.Context, req *pb.HashCodeRequest) (*pb.HashCodeResponse, error) {
+func (s *DevicePresenceEventServer) HashCode(_ context.Context, req *pb.DevicePresenceEventHashCodeRequest) (*pb.HashCodeResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -130,7 +130,7 @@ func (s *DevicePresenceEventServer) HashCode(_ context.Context, req *pb.HashCode
 	return &pb.HashCodeResponse{Result: result}, nil
 }
 
-func (s *DevicePresenceEventServer) ToString(_ context.Context, req *pb.ToStringRequest) (*pb.ToStringResponse, error) {
+func (s *DevicePresenceEventServer) ToString(_ context.Context, req *pb.DevicePresenceEventToStringRequest) (*pb.ToStringResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -144,7 +144,7 @@ func (s *DevicePresenceEventServer) ToString(_ context.Context, req *pb.ToString
 	return &pb.ToStringResponse{Result: result}, nil
 }
 
-func (s *DevicePresenceEventServer) WriteToParcel(_ context.Context, req *pb.WriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
+func (s *DevicePresenceEventServer) WriteToParcel(_ context.Context, req *pb.DevicePresenceEventWriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -299,6 +299,52 @@ func (s *DeviceManagerServer) EnableSystemDataSyncForTypes(_ context.Context, re
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
 	return &pb.EnableSystemDataSyncForTypesResponse{}, nil
+}
+
+func (s *DeviceManagerServer) GetAssociations(_ context.Context, req *pb.GetAssociationsRequest) (*pb.GetAssociationsResponse, error) {
+	mgr, err := jnipkg.NewDeviceManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.GetAssociations()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetAssociationsResponse{Result: handle}, nil
+}
+
+func (s *DeviceManagerServer) GetMyAssociations(_ context.Context, req *pb.GetMyAssociationsRequest) (*pb.GetMyAssociationsResponse, error) {
+	mgr, err := jnipkg.NewDeviceManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.GetMyAssociations()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetMyAssociationsResponse{Result: handle}, nil
 }
 
 func (s *DeviceManagerServer) HasNotificationAccess(_ context.Context, req *pb.HasNotificationAccessRequest) (*pb.HasNotificationAccessResponse, error) {

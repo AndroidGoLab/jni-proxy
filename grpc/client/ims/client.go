@@ -9,6 +9,83 @@ import (
 	"google.golang.org/grpc"
 )
 
+// StateCallbackClient wraps the gRPC StateCallbackService client.
+type StateCallbackClient struct {
+	svc pb.StateCallbackServiceClient
+}
+
+// NewStateCallbackClient creates a new StateCallback client.
+func NewStateCallbackClient(cc grpc.ClientConnInterface) *StateCallbackClient {
+	return &StateCallbackClient{
+		svc: pb.NewStateCallbackServiceClient(cc),
+	}
+}
+
+// OnAvailable calls the OnAvailable RPC.
+func (c *StateCallbackClient) OnAvailable(ctx context.Context) error {
+	_, err := c.svc.OnAvailable(ctx, &pb.OnAvailableRequest{})
+	return err
+}
+
+// OnError calls the OnError RPC.
+func (c *StateCallbackClient) OnError(ctx context.Context) error {
+	_, err := c.svc.OnError(ctx, &pb.OnErrorRequest{})
+	return err
+}
+
+// OnUnavailable calls the OnUnavailable RPC.
+func (c *StateCallbackClient) OnUnavailable(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.OnUnavailable(ctx, &pb.OnUnavailableRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// ManagerClient wraps the gRPC ManagerService client.
+type ManagerClient struct {
+	svc pb.ManagerServiceClient
+}
+
+// NewManagerClient creates a new Manager client.
+func NewManagerClient(cc grpc.ClientConnInterface) *ManagerClient {
+	return &ManagerClient{
+		svc: pb.NewManagerServiceClient(cc),
+	}
+}
+
+// GetImsMmTelManager calls the GetImsMmTelManager RPC.
+func (c *ManagerClient) GetImsMmTelManager(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.GetImsMmTelManager(ctx, &pb.GetImsMmTelManagerRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetImsRcsManager calls the GetImsRcsManager RPC.
+func (c *ManagerClient) GetImsRcsManager(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.GetImsRcsManager(ctx, &pb.GetImsRcsManagerRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetProvisioningManager calls the GetProvisioningManager RPC.
+func (c *ManagerClient) GetProvisioningManager(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.GetProvisioningManager(ctx, &pb.GetProvisioningManagerRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // RegistrationManagerClient wraps the gRPC RegistrationManagerService client.
 type RegistrationManagerClient struct {
 	svc pb.RegistrationManagerServiceClient
@@ -99,20 +176,41 @@ func (c *RegistrationManagerRegistrationCallbackClient) OnUnregistered(ctx conte
 	return err
 }
 
-// RegistrationAttributesClient wraps the gRPC RegistrationAttributesService client.
-type RegistrationAttributesClient struct {
-	svc pb.RegistrationAttributesServiceClient
+// RcsUceAdapterClient wraps the gRPC RcsUceAdapterService client.
+type RcsUceAdapterClient struct {
+	svc pb.RcsUceAdapterServiceClient
 }
 
-// NewRegistrationAttributesClient creates a new RegistrationAttributes client.
-func NewRegistrationAttributesClient(cc grpc.ClientConnInterface) *RegistrationAttributesClient {
-	return &RegistrationAttributesClient{
-		svc: pb.NewRegistrationAttributesServiceClient(cc),
+// NewRcsUceAdapterClient creates a new RcsUceAdapter client.
+func NewRcsUceAdapterClient(cc grpc.ClientConnInterface) *RcsUceAdapterClient {
+	return &RcsUceAdapterClient{
+		svc: pb.NewRcsUceAdapterServiceClient(cc),
+	}
+}
+
+// IsUceSettingEnabled calls the IsUceSettingEnabled RPC.
+func (c *RcsUceAdapterClient) IsUceSettingEnabled(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsUceSettingEnabled(ctx, &pb.IsUceSettingEnabledRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SipDetailsClient wraps the gRPC SipDetailsService client.
+type SipDetailsClient struct {
+	svc pb.SipDetailsServiceClient
+}
+
+// NewSipDetailsClient creates a new SipDetails client.
+func NewSipDetailsClient(cc grpc.ClientConnInterface) *SipDetailsClient {
+	return &SipDetailsClient{
+		svc: pb.NewSipDetailsServiceClient(cc),
 	}
 }
 
 // DescribeContents calls the DescribeContents RPC.
-func (c *RegistrationAttributesClient) DescribeContents(ctx context.Context) (int32, error) {
+func (c *SipDetailsClient) DescribeContents(ctx context.Context) (int32, error) {
 	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
 	if err != nil {
 		return 0, err
@@ -121,7 +219,7 @@ func (c *RegistrationAttributesClient) DescribeContents(ctx context.Context) (in
 }
 
 // Equals calls the Equals RPC.
-func (c *RegistrationAttributesClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+func (c *SipDetailsClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
 	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
 		Arg0: arg0,
 	})
@@ -131,35 +229,71 @@ func (c *RegistrationAttributesClient) Equals(ctx context.Context, arg0 int64) (
 	return resp.GetResult(), nil
 }
 
-// GetAttributeFlags calls the GetAttributeFlags RPC.
-func (c *RegistrationAttributesClient) GetAttributeFlags(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetAttributeFlags(ctx, &pb.GetAttributeFlagsRequest{})
+// GetCSeq calls the GetCSeq RPC.
+func (c *SipDetailsClient) GetCSeq(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetCSeq(ctx, &pb.GetCSeqRequest{})
 	if err != nil {
 		return 0, err
 	}
 	return resp.GetResult(), nil
 }
 
-// GetSipDetails calls the GetSipDetails RPC.
-func (c *RegistrationAttributesClient) GetSipDetails(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetSipDetails(ctx, &pb.GetSipDetailsRequest{})
+// GetCallId calls the GetCallId RPC.
+func (c *SipDetailsClient) GetCallId(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetCallId(ctx, &pb.GetCallIdRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMethod calls the GetMethod RPC.
+func (c *SipDetailsClient) GetMethod(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetMethod(ctx, &pb.GetMethodRequest{})
 	if err != nil {
 		return 0, err
 	}
 	return resp.GetResult(), nil
 }
 
-// GetTransportType calls the GetTransportType RPC.
-func (c *RegistrationAttributesClient) GetTransportType(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetTransportType(ctx, &pb.GetTransportTypeRequest{})
+// GetReasonHeaderCause calls the GetReasonHeaderCause RPC.
+func (c *SipDetailsClient) GetReasonHeaderCause(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetReasonHeaderCause(ctx, &pb.GetReasonHeaderCauseRequest{})
 	if err != nil {
 		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetReasonHeaderText calls the GetReasonHeaderText RPC.
+func (c *SipDetailsClient) GetReasonHeaderText(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetReasonHeaderText(ctx, &pb.GetReasonHeaderTextRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetResponseCode calls the GetResponseCode RPC.
+func (c *SipDetailsClient) GetResponseCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetResponseCode(ctx, &pb.GetResponseCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetResponsePhrase calls the GetResponsePhrase RPC.
+func (c *SipDetailsClient) GetResponsePhrase(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetResponsePhrase(ctx, &pb.GetResponsePhraseRequest{})
+	if err != nil {
+		return "", err
 	}
 	return resp.GetResult(), nil
 }
 
 // HashCode calls the HashCode RPC.
-func (c *RegistrationAttributesClient) HashCode(ctx context.Context) (int32, error) {
+func (c *SipDetailsClient) HashCode(ctx context.Context) (int32, error) {
 	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
 	if err != nil {
 		return 0, err
@@ -168,7 +302,7 @@ func (c *RegistrationAttributesClient) HashCode(ctx context.Context) (int32, err
 }
 
 // ToString calls the ToString RPC.
-func (c *RegistrationAttributesClient) ToString(ctx context.Context) (string, error) {
+func (c *SipDetailsClient) ToString(ctx context.Context) (string, error) {
 	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
 	if err != nil {
 		return "", err
@@ -177,7 +311,7 @@ func (c *RegistrationAttributesClient) ToString(ctx context.Context) (string, er
 }
 
 // WriteToParcel calls the WriteToParcel RPC.
-func (c *RegistrationAttributesClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+func (c *SipDetailsClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
 	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -236,136 +370,6 @@ func (c *RcsManagerClient) UnregisterImsRegistrationCallback(ctx context.Context
 func (c *RcsManagerClient) UnregisterImsStateCallback(ctx context.Context, arg0 int64) error {
 	_, err := c.svc.UnregisterImsStateCallback(ctx, &pb.UnregisterImsStateCallbackRequest{
 		Arg0: arg0,
-	})
-	return err
-}
-
-// StateCallbackClient wraps the gRPC StateCallbackService client.
-type StateCallbackClient struct {
-	svc pb.StateCallbackServiceClient
-}
-
-// NewStateCallbackClient creates a new StateCallback client.
-func NewStateCallbackClient(cc grpc.ClientConnInterface) *StateCallbackClient {
-	return &StateCallbackClient{
-		svc: pb.NewStateCallbackServiceClient(cc),
-	}
-}
-
-// OnAvailable calls the OnAvailable RPC.
-func (c *StateCallbackClient) OnAvailable(ctx context.Context) error {
-	_, err := c.svc.OnAvailable(ctx, &pb.OnAvailableRequest{})
-	return err
-}
-
-// OnError calls the OnError RPC.
-func (c *StateCallbackClient) OnError(ctx context.Context) error {
-	_, err := c.svc.OnError(ctx, &pb.OnErrorRequest{})
-	return err
-}
-
-// OnUnavailable calls the OnUnavailable RPC.
-func (c *StateCallbackClient) OnUnavailable(ctx context.Context, arg0 int32) error {
-	_, err := c.svc.OnUnavailable(ctx, &pb.OnUnavailableRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// RcsUceAdapterClient wraps the gRPC RcsUceAdapterService client.
-type RcsUceAdapterClient struct {
-	svc pb.RcsUceAdapterServiceClient
-}
-
-// NewRcsUceAdapterClient creates a new RcsUceAdapter client.
-func NewRcsUceAdapterClient(cc grpc.ClientConnInterface) *RcsUceAdapterClient {
-	return &RcsUceAdapterClient{
-		svc: pb.NewRcsUceAdapterServiceClient(cc),
-	}
-}
-
-// IsUceSettingEnabled calls the IsUceSettingEnabled RPC.
-func (c *RcsUceAdapterClient) IsUceSettingEnabled(ctx context.Context) (bool, error) {
-	resp, err := c.svc.IsUceSettingEnabled(ctx, &pb.IsUceSettingEnabledRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ReasonInfoClient wraps the gRPC ReasonInfoService client.
-type ReasonInfoClient struct {
-	svc pb.ReasonInfoServiceClient
-}
-
-// NewReasonInfoClient creates a new ReasonInfo client.
-func NewReasonInfoClient(cc grpc.ClientConnInterface) *ReasonInfoClient {
-	return &ReasonInfoClient{
-		svc: pb.NewReasonInfoServiceClient(cc),
-	}
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *ReasonInfoClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.ReasonInfoDescribeContentsRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetCode calls the GetCode RPC.
-func (c *ReasonInfoClient) GetCode(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetCode(ctx, &pb.GetCodeRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetExtraCode calls the GetExtraCode RPC.
-func (c *ReasonInfoClient) GetExtraCode(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetExtraCode(ctx, &pb.GetExtraCodeRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetExtraMessage calls the GetExtraMessage RPC.
-func (c *ReasonInfoClient) GetExtraMessage(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.GetExtraMessage(ctx, &pb.GetExtraMessageRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToString calls the ToString RPC.
-func (c *ReasonInfoClient) ToString(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ReasonInfoToStringRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *ReasonInfoClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.ReasonInfoWriteToParcelRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
 	})
 	return err
 }
@@ -516,128 +520,6 @@ func (c *MmTelManagerCapabilityCallbackClient) OnCapabilitiesStatusChanged(ctx c
 	return err
 }
 
-// SipDetailsClient wraps the gRPC SipDetailsService client.
-type SipDetailsClient struct {
-	svc pb.SipDetailsServiceClient
-}
-
-// NewSipDetailsClient creates a new SipDetails client.
-func NewSipDetailsClient(cc grpc.ClientConnInterface) *SipDetailsClient {
-	return &SipDetailsClient{
-		svc: pb.NewSipDetailsServiceClient(cc),
-	}
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *SipDetailsClient) DescribeContents(ctx context.Context) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Equals calls the Equals RPC.
-func (c *SipDetailsClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetCSeq calls the GetCSeq RPC.
-func (c *SipDetailsClient) GetCSeq(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetCSeq(ctx, &pb.GetCSeqRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetCallId calls the GetCallId RPC.
-func (c *SipDetailsClient) GetCallId(ctx context.Context) (string, error) {
-	resp, err := c.svc.GetCallId(ctx, &pb.GetCallIdRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetMethod calls the GetMethod RPC.
-func (c *SipDetailsClient) GetMethod(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetMethod(ctx, &pb.GetMethodRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetReasonHeaderCause calls the GetReasonHeaderCause RPC.
-func (c *SipDetailsClient) GetReasonHeaderCause(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetReasonHeaderCause(ctx, &pb.GetReasonHeaderCauseRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetReasonHeaderText calls the GetReasonHeaderText RPC.
-func (c *SipDetailsClient) GetReasonHeaderText(ctx context.Context) (string, error) {
-	resp, err := c.svc.GetReasonHeaderText(ctx, &pb.GetReasonHeaderTextRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetResponseCode calls the GetResponseCode RPC.
-func (c *SipDetailsClient) GetResponseCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetResponseCode(ctx, &pb.GetResponseCodeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetResponsePhrase calls the GetResponsePhrase RPC.
-func (c *SipDetailsClient) GetResponsePhrase(ctx context.Context) (string, error) {
-	resp, err := c.svc.GetResponsePhrase(ctx, &pb.GetResponsePhraseRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *SipDetailsClient) HashCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToString calls the ToString RPC.
-func (c *SipDetailsClient) ToString(ctx context.Context) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *SipDetailsClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
 // ExceptionClient wraps the gRPC ExceptionService client.
 type ExceptionClient struct {
 	svc pb.ExceptionServiceClient
@@ -652,52 +534,7 @@ func NewExceptionClient(cc grpc.ClientConnInterface) *ExceptionClient {
 
 // GetCode calls the GetCode RPC.
 func (c *ExceptionClient) GetCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetCode(ctx, &pb.ExceptionGetCodeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ManagerClient wraps the gRPC ManagerService client.
-type ManagerClient struct {
-	svc pb.ManagerServiceClient
-}
-
-// NewManagerClient creates a new Manager client.
-func NewManagerClient(cc grpc.ClientConnInterface) *ManagerClient {
-	return &ManagerClient{
-		svc: pb.NewManagerServiceClient(cc),
-	}
-}
-
-// GetImsMmTelManager calls the GetImsMmTelManager RPC.
-func (c *ManagerClient) GetImsMmTelManager(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.GetImsMmTelManager(ctx, &pb.GetImsMmTelManagerRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetImsRcsManager calls the GetImsRcsManager RPC.
-func (c *ManagerClient) GetImsRcsManager(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.GetImsRcsManager(ctx, &pb.GetImsRcsManagerRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetProvisioningManager calls the GetProvisioningManager RPC.
-func (c *ManagerClient) GetProvisioningManager(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.GetProvisioningManager(ctx, &pb.GetProvisioningManagerRequest{
-		Arg0: arg0,
-	})
+	resp, err := c.svc.GetCode(ctx, &pb.GetCodeRequest{})
 	if err != nil {
 		return 0, err
 	}
@@ -829,6 +666,178 @@ func (c *ProvisioningManagerFeatureProvisioningCallbackClient) OnRcsFeatureProvi
 		Arg0: arg0,
 		Arg1: arg1,
 		Arg2: arg2,
+	})
+	return err
+}
+
+// ReasonInfoClient wraps the gRPC ReasonInfoService client.
+type ReasonInfoClient struct {
+	svc pb.ReasonInfoServiceClient
+}
+
+// NewReasonInfoClient creates a new ReasonInfo client.
+func NewReasonInfoClient(cc grpc.ClientConnInterface) *ReasonInfoClient {
+	return &ReasonInfoClient{
+		svc: pb.NewReasonInfoServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *ReasonInfoClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.ReasonInfoDescribeContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCode calls the GetCode RPC.
+func (c *ReasonInfoClient) GetCode(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetCode(ctx, &pb.ReasonInfoGetCodeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetExtraCode calls the GetExtraCode RPC.
+func (c *ReasonInfoClient) GetExtraCode(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetExtraCode(ctx, &pb.GetExtraCodeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetExtraMessage calls the GetExtraMessage RPC.
+func (c *ReasonInfoClient) GetExtraMessage(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetExtraMessage(ctx, &pb.GetExtraMessageRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *ReasonInfoClient) ToString(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ReasonInfoToStringRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *ReasonInfoClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.ReasonInfoWriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// RegistrationAttributesClient wraps the gRPC RegistrationAttributesService client.
+type RegistrationAttributesClient struct {
+	svc pb.RegistrationAttributesServiceClient
+}
+
+// NewRegistrationAttributesClient creates a new RegistrationAttributes client.
+func NewRegistrationAttributesClient(cc grpc.ClientConnInterface) *RegistrationAttributesClient {
+	return &RegistrationAttributesClient{
+		svc: pb.NewRegistrationAttributesServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *RegistrationAttributesClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *RegistrationAttributesClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAttributeFlags calls the GetAttributeFlags RPC.
+func (c *RegistrationAttributesClient) GetAttributeFlags(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetAttributeFlags(ctx, &pb.GetAttributeFlagsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetFeatureTags calls the GetFeatureTags RPC.
+func (c *RegistrationAttributesClient) GetFeatureTags(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetFeatureTags(ctx, &pb.GetFeatureTagsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSipDetails calls the GetSipDetails RPC.
+func (c *RegistrationAttributesClient) GetSipDetails(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetSipDetails(ctx, &pb.GetSipDetailsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTransportType calls the GetTransportType RPC.
+func (c *RegistrationAttributesClient) GetTransportType(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetTransportType(ctx, &pb.GetTransportTypeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *RegistrationAttributesClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *RegistrationAttributesClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *RegistrationAttributesClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
 	})
 	return err
 }

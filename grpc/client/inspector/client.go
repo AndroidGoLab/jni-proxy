@@ -29,160 +29,39 @@ func (c *InspectionCompanionClient) MapProperties(ctx context.Context, arg0 int6
 	return err
 }
 
-// PropertyReaderClient wraps the gRPC PropertyReaderService client.
-type PropertyReaderClient struct {
-	svc pb.PropertyReaderServiceClient
+// IntFlagMappingClient wraps the gRPC IntFlagMappingService client.
+type IntFlagMappingClient struct {
+	svc pb.IntFlagMappingServiceClient
 }
 
-// NewPropertyReaderClient creates a new PropertyReader client.
-func NewPropertyReaderClient(cc grpc.ClientConnInterface) *PropertyReaderClient {
-	return &PropertyReaderClient{
-		svc: pb.NewPropertyReaderServiceClient(cc),
+// NewIntFlagMappingClient creates a new IntFlagMapping client.
+func NewIntFlagMappingClient(cc grpc.ClientConnInterface) *IntFlagMappingClient {
+	return &IntFlagMappingClient{
+		svc: pb.NewIntFlagMappingServiceClient(cc),
 	}
 }
 
-// ReadBoolean calls the ReadBoolean RPC.
-func (c *PropertyReaderClient) ReadBoolean(ctx context.Context, arg0 int32, arg1 bool) error {
-	_, err := c.svc.ReadBoolean(ctx, &pb.ReadBooleanRequest{
-		Arg0: arg0,
-		Arg1: arg1,
+// Add calls the Add RPC.
+func (c *IntFlagMappingClient) Add(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 string) error {
+	_, err := c.svc.Add(ctx, &pb.AddRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
 	})
 	return err
 }
 
-// ReadByteValue calls the ReadByteValue RPC.
-func (c *PropertyReaderClient) ReadByteValue(ctx context.Context, arg0 int32, arg1 int8) error {
-	_, err := c.svc.ReadByteValue(ctx, &pb.ReadByteValueRequest{
-		Arg0: arg0,
-		Arg1: int64(arg1),
+// Get calls the Get RPC.
+func (c *IntFlagMappingClient) Get(ctx context.Context, handle int64, arg0 int32) (int64, error) {
+	resp, err := c.svc.Get(ctx, &pb.GetRequest{
+		Handle: handle,
+		Arg0:   arg0,
 	})
-	return err
-}
-
-// ReadChar calls the ReadChar RPC.
-func (c *PropertyReaderClient) ReadChar(ctx context.Context, arg0 int32, arg1 uint16) error {
-	_, err := c.svc.ReadChar(ctx, &pb.ReadCharRequest{
-		Arg0: arg0,
-		Arg1: uint32(arg1),
-	})
-	return err
-}
-
-// ReadColor2 calls the ReadColor2 RPC.
-func (c *PropertyReaderClient) ReadColor2(ctx context.Context, arg0 int32, arg1 int64) error {
-	_, err := c.svc.ReadColor2(ctx, &pb.ReadColor2Request{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// ReadColor2_1 calls the ReadColor2_1 RPC.
-func (c *PropertyReaderClient) ReadColor2_1(ctx context.Context, arg0 int32, arg1 int32) error {
-	_, err := c.svc.ReadColor2_1(ctx, &pb.ReadColor2_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// ReadColor2_2 calls the ReadColor2_2 RPC.
-func (c *PropertyReaderClient) ReadColor2_2(ctx context.Context, arg0 int32, arg1 int64) error {
-	_, err := c.svc.ReadColor2_2(ctx, &pb.ReadColor2_2Request{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// ReadDouble calls the ReadDouble RPC.
-func (c *PropertyReaderClient) ReadDouble(ctx context.Context, arg0 int32, arg1 float64) error {
-	_, err := c.svc.ReadDouble(ctx, &pb.ReadDoubleRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// ReadFloat calls the ReadFloat RPC.
-func (c *PropertyReaderClient) ReadFloat(ctx context.Context, arg0 int32, arg1 float32) error {
-	_, err := c.svc.ReadFloat(ctx, &pb.ReadFloatRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// ReadGravity calls the ReadGravity RPC.
-func (c *PropertyReaderClient) ReadGravity(ctx context.Context, arg0 int32, arg1 int32) error {
-	_, err := c.svc.ReadGravity(ctx, &pb.ReadGravityRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// ReadInt calls the ReadInt RPC.
-func (c *PropertyReaderClient) ReadInt(ctx context.Context, arg0 int32, arg1 int32) error {
-	_, err := c.svc.ReadInt(ctx, &pb.ReadIntRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// ReadIntEnum calls the ReadIntEnum RPC.
-func (c *PropertyReaderClient) ReadIntEnum(ctx context.Context, arg0 int32, arg1 int32) error {
-	_, err := c.svc.ReadIntEnum(ctx, &pb.ReadIntEnumRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// ReadIntFlag calls the ReadIntFlag RPC.
-func (c *PropertyReaderClient) ReadIntFlag(ctx context.Context, arg0 int32, arg1 int32) error {
-	_, err := c.svc.ReadIntFlag(ctx, &pb.ReadIntFlagRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// ReadLong calls the ReadLong RPC.
-func (c *PropertyReaderClient) ReadLong(ctx context.Context, arg0 int32, arg1 int64) error {
-	_, err := c.svc.ReadLong(ctx, &pb.ReadLongRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// ReadObject calls the ReadObject RPC.
-func (c *PropertyReaderClient) ReadObject(ctx context.Context, arg0 int32, arg1 int64) error {
-	_, err := c.svc.ReadObject(ctx, &pb.ReadObjectRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// ReadResourceId calls the ReadResourceId RPC.
-func (c *PropertyReaderClient) ReadResourceId(ctx context.Context, arg0 int32, arg1 int32) error {
-	_, err := c.svc.ReadResourceId(ctx, &pb.ReadResourceIdRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// ReadShort calls the ReadShort RPC.
-func (c *PropertyReaderClient) ReadShort(ctx context.Context, arg0 int32, arg1 int16) error {
-	_, err := c.svc.ReadShort(ctx, &pb.ReadShortRequest{
-		Arg0: arg0,
-		Arg1: int32(arg1),
-	})
-	return err
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
 }
 
 // PropertyMapperClient wraps the gRPC PropertyMapperService client.
@@ -341,25 +220,179 @@ func (c *PropertyMapperClient) MapShort(ctx context.Context, arg0 string, arg1 i
 	return resp.GetResult(), nil
 }
 
-// IntFlagMappingClient wraps the gRPC IntFlagMappingService client.
-type IntFlagMappingClient struct {
-	svc pb.IntFlagMappingServiceClient
+// WindowInspectorClient wraps the gRPC WindowInspectorService client.
+type WindowInspectorClient struct {
+	svc pb.WindowInspectorServiceClient
 }
 
-// NewIntFlagMappingClient creates a new IntFlagMapping client.
-func NewIntFlagMappingClient(cc grpc.ClientConnInterface) *IntFlagMappingClient {
-	return &IntFlagMappingClient{
-		svc: pb.NewIntFlagMappingServiceClient(cc),
+// NewWindowInspectorClient creates a new WindowInspector client.
+func NewWindowInspectorClient(cc grpc.ClientConnInterface) *WindowInspectorClient {
+	return &WindowInspectorClient{
+		svc: pb.NewWindowInspectorServiceClient(cc),
 	}
 }
 
-// Add calls the Add RPC.
-func (c *IntFlagMappingClient) Add(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 string) error {
-	_, err := c.svc.Add(ctx, &pb.AddRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
+// GetGlobalWindowViews calls the GetGlobalWindowViews RPC.
+func (c *WindowInspectorClient) GetGlobalWindowViews(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetGlobalWindowViews(ctx, &pb.GetGlobalWindowViewsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// PropertyReaderClient wraps the gRPC PropertyReaderService client.
+type PropertyReaderClient struct {
+	svc pb.PropertyReaderServiceClient
+}
+
+// NewPropertyReaderClient creates a new PropertyReader client.
+func NewPropertyReaderClient(cc grpc.ClientConnInterface) *PropertyReaderClient {
+	return &PropertyReaderClient{
+		svc: pb.NewPropertyReaderServiceClient(cc),
+	}
+}
+
+// ReadBoolean calls the ReadBoolean RPC.
+func (c *PropertyReaderClient) ReadBoolean(ctx context.Context, arg0 int32, arg1 bool) error {
+	_, err := c.svc.ReadBoolean(ctx, &pb.ReadBooleanRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// ReadByteValue calls the ReadByteValue RPC.
+func (c *PropertyReaderClient) ReadByteValue(ctx context.Context, arg0 int32, arg1 int8) error {
+	_, err := c.svc.ReadByteValue(ctx, &pb.ReadByteValueRequest{
+		Arg0: arg0,
+		Arg1: int64(arg1),
+	})
+	return err
+}
+
+// ReadChar calls the ReadChar RPC.
+func (c *PropertyReaderClient) ReadChar(ctx context.Context, arg0 int32, arg1 uint16) error {
+	_, err := c.svc.ReadChar(ctx, &pb.ReadCharRequest{
+		Arg0: arg0,
+		Arg1: uint32(arg1),
+	})
+	return err
+}
+
+// ReadColor2 calls the ReadColor2 RPC.
+func (c *PropertyReaderClient) ReadColor2(ctx context.Context, arg0 int32, arg1 int64) error {
+	_, err := c.svc.ReadColor2(ctx, &pb.ReadColor2Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// ReadColor2_1 calls the ReadColor2_1 RPC.
+func (c *PropertyReaderClient) ReadColor2_1(ctx context.Context, arg0 int32, arg1 int32) error {
+	_, err := c.svc.ReadColor2_1(ctx, &pb.ReadColor2_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// ReadColor2_2 calls the ReadColor2_2 RPC.
+func (c *PropertyReaderClient) ReadColor2_2(ctx context.Context, arg0 int32, arg1 int64) error {
+	_, err := c.svc.ReadColor2_2(ctx, &pb.ReadColor2_2Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// ReadDouble calls the ReadDouble RPC.
+func (c *PropertyReaderClient) ReadDouble(ctx context.Context, arg0 int32, arg1 float64) error {
+	_, err := c.svc.ReadDouble(ctx, &pb.ReadDoubleRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// ReadFloat calls the ReadFloat RPC.
+func (c *PropertyReaderClient) ReadFloat(ctx context.Context, arg0 int32, arg1 float32) error {
+	_, err := c.svc.ReadFloat(ctx, &pb.ReadFloatRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// ReadGravity calls the ReadGravity RPC.
+func (c *PropertyReaderClient) ReadGravity(ctx context.Context, arg0 int32, arg1 int32) error {
+	_, err := c.svc.ReadGravity(ctx, &pb.ReadGravityRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// ReadInt calls the ReadInt RPC.
+func (c *PropertyReaderClient) ReadInt(ctx context.Context, arg0 int32, arg1 int32) error {
+	_, err := c.svc.ReadInt(ctx, &pb.ReadIntRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// ReadIntEnum calls the ReadIntEnum RPC.
+func (c *PropertyReaderClient) ReadIntEnum(ctx context.Context, arg0 int32, arg1 int32) error {
+	_, err := c.svc.ReadIntEnum(ctx, &pb.ReadIntEnumRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// ReadIntFlag calls the ReadIntFlag RPC.
+func (c *PropertyReaderClient) ReadIntFlag(ctx context.Context, arg0 int32, arg1 int32) error {
+	_, err := c.svc.ReadIntFlag(ctx, &pb.ReadIntFlagRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// ReadLong calls the ReadLong RPC.
+func (c *PropertyReaderClient) ReadLong(ctx context.Context, arg0 int32, arg1 int64) error {
+	_, err := c.svc.ReadLong(ctx, &pb.ReadLongRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// ReadObject calls the ReadObject RPC.
+func (c *PropertyReaderClient) ReadObject(ctx context.Context, arg0 int32, arg1 int64) error {
+	_, err := c.svc.ReadObject(ctx, &pb.ReadObjectRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// ReadResourceId calls the ReadResourceId RPC.
+func (c *PropertyReaderClient) ReadResourceId(ctx context.Context, arg0 int32, arg1 int32) error {
+	_, err := c.svc.ReadResourceId(ctx, &pb.ReadResourceIdRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// ReadShort calls the ReadShort RPC.
+func (c *PropertyReaderClient) ReadShort(ctx context.Context, arg0 int32, arg1 int16) error {
+	_, err := c.svc.ReadShort(ctx, &pb.ReadShortRequest{
+		Arg0: arg0,
+		Arg1: int32(arg1),
 	})
 	return err
 }

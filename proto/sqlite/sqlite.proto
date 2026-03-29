@@ -6,22 +6,19 @@ package sqlite;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/sqlite";
 
-message BindBlob2Request {
+message BindAllArgsAsStringsRequest {
+  int64 arg0 = 1;
+}
+
+message BindAllArgsAsStringsResponse {
+}
+
+message BindBlobRequest {
   int32 arg0 = 1;
   int64 arg1 = 2;
 }
 
-message BindBlob2Response {
-}
-
-message BindBlob4_1Request {
-  int32 arg0 = 1;
-  int64 arg1 = 2;
-  int32 arg2 = 3;
-  int32 arg3 = 4;
-}
-
-message BindBlob4_1Response {
+message BindBlobResponse {
 }
 
 message BindDoubleRequest {
@@ -30,14 +27,6 @@ message BindDoubleRequest {
 }
 
 message BindDoubleResponse {
-}
-
-message BindIntRequest {
-  int32 arg0 = 1;
-  int32 arg1 = 2;
-}
-
-message BindIntResponse {
 }
 
 message BindLongRequest {
@@ -55,401 +44,18 @@ message BindNullRequest {
 message BindNullResponse {
 }
 
-message BindTextRequest {
-  int32 arg0 = 1;
-  string arg1 = 2;
-}
-
-message BindTextResponse {
-}
-
-message ClearBindingsRequest {
-}
-
-message ClearBindingsResponse {
-}
-
-message CloseRequest {
-}
-
-message CloseResponse {
-}
-
-message GetColumnBlobRequest {
-  int32 arg0 = 1;
-}
-
-message GetColumnBlobResponse {
-  int64 result = 1;
-}
-
-message GetColumnDoubleRequest {
-  int32 arg0 = 1;
-}
-
-message GetColumnDoubleResponse {
-  double result = 1;
-}
-
-message GetColumnIntRequest {
-  int32 arg0 = 1;
-}
-
-message GetColumnIntResponse {
-  int32 result = 1;
-}
-
-message GetColumnLengthRequest {
-  int32 arg0 = 1;
-}
-
-message GetColumnLengthResponse {
-  int32 result = 1;
-}
-
-message GetColumnLongRequest {
-  int32 arg0 = 1;
-}
-
-message GetColumnLongResponse {
-  int64 result = 1;
-}
-
-message GetColumnNameRequest {
-  int32 arg0 = 1;
-}
-
-message GetColumnNameResponse {
-  string result = 1;
-}
-
-message GetColumnTextRequest {
-  int32 arg0 = 1;
-}
-
-message GetColumnTextResponse {
-  string result = 1;
-}
-
-message GetColumnTypeRequest {
-  int32 arg0 = 1;
-}
-
-message GetColumnTypeResponse {
-  int32 result = 1;
-}
-
-message GetParameterCountRequest {
-}
-
-message GetParameterCountResponse {
-  int32 result = 1;
-}
-
-message GetParameterIndexRequest {
-  string arg0 = 1;
-}
-
-message GetParameterIndexResponse {
-  int32 result = 1;
-}
-
-message GetParameterNameRequest {
-  int32 arg0 = 1;
-}
-
-message GetParameterNameResponse {
-  string result = 1;
-}
-
-message GetResultColumnCountRequest {
-}
-
-message GetResultColumnCountResponse {
-  int32 result = 1;
-}
-
-message IsOpenRequest {
-}
-
-message IsOpenResponse {
-  bool result = 1;
-}
-
-message ReadColumnBlobRequest {
-  int32 arg0 = 1;
-  int64 arg1 = 2;
-  int32 arg2 = 3;
-  int32 arg3 = 4;
-  int32 arg4 = 5;
-}
-
-message ReadColumnBlobResponse {
-  int32 result = 1;
-}
-
-message ResetRequest {
-}
-
-message ResetResponse {
-}
-
-message StepRequest {
-}
-
-message StepResponse {
-  bool result = 1;
-}
-
-message ToStringRequest {
-}
-
-message ToStringResponse {
-  string result = 1;
-}
-
-message NewSQLiteCursorRequest {
-  int64 arg0 = 1;
-  string arg1 = 2;
-  int64 arg2 = 3;
-}
-
-message NewSQLiteCursorResponse {
-  int64 result = 1;
-}
-
-message SQLiteCursorCloseRequest {
-  int64 handle = 1;
-}
-
-message DeactivateRequest {
-  int64 handle = 1;
-}
-
-message DeactivateResponse {
-}
-
-message GetColumnIndexRequest {
-  int64 handle = 1;
-  string arg0 = 2;
-}
-
-message GetColumnIndexResponse {
-  int32 result = 1;
-}
-
-message GetColumnNamesRequest {
-  int64 handle = 1;
-}
-
-message GetColumnNamesResponse {
-  int64 result = 1;
-}
-
-message GetCountRequest {
-  int64 handle = 1;
-}
-
-message GetCountResponse {
-  int32 result = 1;
-}
-
-message GetDatabaseRequest {
-  int64 handle = 1;
-}
-
-message GetDatabaseResponse {
-  int64 result = 1;
-}
-
-message OnMoveRequest {
-  int64 handle = 1;
-  int32 arg0 = 2;
-  int32 arg1 = 3;
-}
-
-message OnMoveResponse {
-  bool result = 1;
-}
-
-message RequeryRequest {
-  int64 handle = 1;
-}
-
-message RequeryResponse {
-  bool result = 1;
-}
-
-message SetFillWindowForwardOnlyRequest {
-  int64 handle = 1;
-  bool arg0 = 2;
-}
-
-message SetFillWindowForwardOnlyResponse {
-}
-
-message SetSelectionArgumentsRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-}
-
-message SetSelectionArgumentsResponse {
-}
-
-message SetWindowRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-}
-
-message SetWindowResponse {
-}
-
-message AcquireReferenceRequest {
-}
-
-message AcquireReferenceResponse {
-}
-
-message ReleaseReferenceRequest {
-}
-
-message ReleaseReferenceResponse {
-}
-
-message ReleaseReferenceFromContainerRequest {
-}
-
-message ReleaseReferenceFromContainerResponse {
-}
-
-message OnBeginRequest {
-}
-
-message OnBeginResponse {
-}
-
-message OnCommitRequest {
-}
-
-message OnCommitResponse {
-}
-
-message OnRollbackRequest {
-}
-
-message OnRollbackResponse {
-}
-
-message GetDatabaseNameRequest {
-}
-
-message GetDatabaseNameResponse {
-  string result = 1;
-}
-
-message GetReadableDatabaseRequest {
-}
-
-message GetReadableDatabaseResponse {
-  int64 result = 1;
-}
-
-message GetWritableDatabaseRequest {
-}
-
-message GetWritableDatabaseResponse {
-  int64 result = 1;
-}
-
-message OnConfigureRequest {
-  int64 arg0 = 1;
-}
-
-message OnConfigureResponse {
-}
-
-message OnCreateRequest {
-  int64 arg0 = 1;
-}
-
-message OnCreateResponse {
-}
-
-message OnDowngradeRequest {
-  int64 arg0 = 1;
-  int32 arg1 = 2;
-  int32 arg2 = 3;
-}
-
-message OnDowngradeResponse {
-}
-
-message OnOpenRequest {
-  int64 arg0 = 1;
-}
-
-message OnOpenResponse {
-}
-
-message OnUpgradeRequest {
-  int64 arg0 = 1;
-  int32 arg1 = 2;
-  int32 arg2 = 3;
-}
-
-message OnUpgradeResponse {
-}
-
-message SetIdleConnectionTimeoutRequest {
-  int64 arg0 = 1;
-}
-
-message SetIdleConnectionTimeoutResponse {
-}
-
-message SetLookasideConfigRequest {
-  int32 arg0 = 1;
-  int32 arg1 = 2;
-}
-
-message SetLookasideConfigResponse {
-}
-
-message SetOpenParamsRequest {
-  int64 arg0 = 1;
-}
-
-message SetOpenParamsResponse {
-}
-
-message SetWriteAheadLoggingEnabledRequest {
-  bool arg0 = 1;
-}
-
-message SetWriteAheadLoggingEnabledResponse {
-}
-
-message BindAllArgsAsStringsRequest {
-  int64 arg0 = 1;
-}
-
-message BindAllArgsAsStringsResponse {
-}
-
-message BindBlobRequest {
-  int32 arg0 = 1;
-  int64 arg1 = 2;
-}
-
-message BindBlobResponse {
-}
-
 message BindStringRequest {
   int32 arg0 = 1;
   string arg1 = 2;
 }
 
 message BindStringResponse {
+}
+
+message ClearBindingsRequest {
+}
+
+message ClearBindingsResponse {
 }
 
 message GetUniqueIdRequest {
@@ -671,6 +277,13 @@ message IsDbLockedByOtherThreadsRequest {
 }
 
 message IsDbLockedByOtherThreadsResponse {
+  bool result = 1;
+}
+
+message IsOpenRequest {
+}
+
+message IsOpenResponse {
   bool result = 1;
 }
 
@@ -928,6 +541,13 @@ message SetVersionRequest {
 message SetVersionResponse {
 }
 
+message ToStringRequest {
+}
+
+message ToStringResponse {
+  string result = 1;
+}
+
 message UpdateRequest {
   string arg0 = 1;
   int64 arg1 = 2;
@@ -1124,6 +744,462 @@ message GetSynchronousModeResponse {
   string result = 1;
 }
 
+message ExecuteRequest {
+}
+
+message ExecuteResponse {
+}
+
+message ExecuteInsertRequest {
+}
+
+message ExecuteInsertResponse {
+  int64 result = 1;
+}
+
+message ExecuteUpdateDeleteRequest {
+}
+
+message ExecuteUpdateDeleteResponse {
+  int32 result = 1;
+}
+
+message SimpleQueryForBlobFileDescriptorRequest {
+}
+
+message SimpleQueryForBlobFileDescriptorResponse {
+  int64 result = 1;
+}
+
+message SimpleQueryForLongRequest {
+}
+
+message SimpleQueryForLongResponse {
+  int64 result = 1;
+}
+
+message SimpleQueryForStringRequest {
+}
+
+message SimpleQueryForStringResponse {
+  string result = 1;
+}
+
+message GetDatabaseNameRequest {
+}
+
+message GetDatabaseNameResponse {
+  string result = 1;
+}
+
+message GetReadableDatabaseRequest {
+}
+
+message GetReadableDatabaseResponse {
+  int64 result = 1;
+}
+
+message GetWritableDatabaseRequest {
+}
+
+message GetWritableDatabaseResponse {
+  int64 result = 1;
+}
+
+message OnConfigureRequest {
+  int64 arg0 = 1;
+}
+
+message OnConfigureResponse {
+}
+
+message OnCreateRequest {
+  int64 arg0 = 1;
+}
+
+message OnCreateResponse {
+}
+
+message OnDowngradeRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+}
+
+message OnDowngradeResponse {
+}
+
+message OnOpenRequest {
+  int64 arg0 = 1;
+}
+
+message OnOpenResponse {
+}
+
+message OnUpgradeRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+}
+
+message OnUpgradeResponse {
+}
+
+message SetIdleConnectionTimeoutRequest {
+  int64 arg0 = 1;
+}
+
+message SetIdleConnectionTimeoutResponse {
+}
+
+message SetLookasideConfigRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message SetLookasideConfigResponse {
+}
+
+message SetOpenParamsRequest {
+  int64 arg0 = 1;
+}
+
+message SetOpenParamsResponse {
+}
+
+message SetWriteAheadLoggingEnabledRequest {
+  bool arg0 = 1;
+}
+
+message SetWriteAheadLoggingEnabledResponse {
+}
+
+message OnBeginRequest {
+}
+
+message OnBeginResponse {
+}
+
+message OnCommitRequest {
+}
+
+message OnCommitResponse {
+}
+
+message OnRollbackRequest {
+}
+
+message OnRollbackResponse {
+}
+
+message CursorClosedRequest {
+}
+
+message CursorClosedResponse {
+}
+
+message CursorDeactivatedRequest {
+}
+
+message CursorDeactivatedResponse {
+}
+
+message CursorRequeriedRequest {
+  int64 arg0 = 1;
+}
+
+message CursorRequeriedResponse {
+}
+
+message QueryRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message QueryResponse {
+  int64 result = 1;
+}
+
+message SetBindArgumentsRequest {
+  int64 arg0 = 1;
+}
+
+message SetBindArgumentsResponse {
+}
+
+message AcquireReferenceRequest {
+}
+
+message AcquireReferenceResponse {
+}
+
+message CloseRequest {
+}
+
+message CloseResponse {
+}
+
+message ReleaseReferenceRequest {
+}
+
+message ReleaseReferenceResponse {
+}
+
+message ReleaseReferenceFromContainerRequest {
+}
+
+message ReleaseReferenceFromContainerResponse {
+}
+
+message BindBlob2Request {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message BindBlob2Response {
+}
+
+message BindBlob4_1Request {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+  int32 arg2 = 3;
+  int32 arg3 = 4;
+}
+
+message BindBlob4_1Response {
+}
+
+message BindIntRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message BindIntResponse {
+}
+
+message BindTextRequest {
+  int32 arg0 = 1;
+  string arg1 = 2;
+}
+
+message BindTextResponse {
+}
+
+message GetColumnBlobRequest {
+  int32 arg0 = 1;
+}
+
+message GetColumnBlobResponse {
+  int64 result = 1;
+}
+
+message GetColumnDoubleRequest {
+  int32 arg0 = 1;
+}
+
+message GetColumnDoubleResponse {
+  double result = 1;
+}
+
+message GetColumnIntRequest {
+  int32 arg0 = 1;
+}
+
+message GetColumnIntResponse {
+  int32 result = 1;
+}
+
+message GetColumnLengthRequest {
+  int32 arg0 = 1;
+}
+
+message GetColumnLengthResponse {
+  int32 result = 1;
+}
+
+message GetColumnLongRequest {
+  int32 arg0 = 1;
+}
+
+message GetColumnLongResponse {
+  int64 result = 1;
+}
+
+message GetColumnNameRequest {
+  int32 arg0 = 1;
+}
+
+message GetColumnNameResponse {
+  string result = 1;
+}
+
+message GetColumnTextRequest {
+  int32 arg0 = 1;
+}
+
+message GetColumnTextResponse {
+  string result = 1;
+}
+
+message GetColumnTypeRequest {
+  int32 arg0 = 1;
+}
+
+message GetColumnTypeResponse {
+  int32 result = 1;
+}
+
+message GetParameterCountRequest {
+}
+
+message GetParameterCountResponse {
+  int32 result = 1;
+}
+
+message GetParameterIndexRequest {
+  string arg0 = 1;
+}
+
+message GetParameterIndexResponse {
+  int32 result = 1;
+}
+
+message GetParameterNameRequest {
+  int32 arg0 = 1;
+}
+
+message GetParameterNameResponse {
+  string result = 1;
+}
+
+message GetResultColumnCountRequest {
+}
+
+message GetResultColumnCountResponse {
+  int32 result = 1;
+}
+
+message ReadColumnBlobRequest {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+  int32 arg2 = 3;
+  int32 arg3 = 4;
+  int32 arg4 = 5;
+}
+
+message ReadColumnBlobResponse {
+  int32 result = 1;
+}
+
+message ResetRequest {
+}
+
+message ResetResponse {
+}
+
+message StepRequest {
+}
+
+message StepResponse {
+  bool result = 1;
+}
+
+message NewSQLiteCursorRequest {
+  int64 arg0 = 1;
+  string arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message NewSQLiteCursorResponse {
+  int64 result = 1;
+}
+
+message SQLiteCursorCloseRequest {
+  int64 handle = 1;
+}
+
+message DeactivateRequest {
+  int64 handle = 1;
+}
+
+message DeactivateResponse {
+}
+
+message GetColumnIndexRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message GetColumnIndexResponse {
+  int32 result = 1;
+}
+
+message GetColumnNamesRequest {
+  int64 handle = 1;
+}
+
+message GetColumnNamesResponse {
+  int64 result = 1;
+}
+
+message GetCountRequest {
+  int64 handle = 1;
+}
+
+message GetCountResponse {
+  int32 result = 1;
+}
+
+message GetDatabaseRequest {
+  int64 handle = 1;
+}
+
+message GetDatabaseResponse {
+  int64 result = 1;
+}
+
+message OnMoveRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message OnMoveResponse {
+  bool result = 1;
+}
+
+message RequeryRequest {
+  int64 handle = 1;
+}
+
+message RequeryResponse {
+  bool result = 1;
+}
+
+message SetFillWindowForwardOnlyRequest {
+  int64 handle = 1;
+  bool arg0 = 2;
+}
+
+message SetFillWindowForwardOnlyResponse {
+}
+
+message SetSelectionArgumentsRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetSelectionArgumentsResponse {
+}
+
+message SetWindowRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetWindowResponse {
+}
+
 message NewSQLiteQueryBuilderRequest {
 }
 
@@ -1204,6 +1280,14 @@ message SQLiteQueryBuilderDeleteRequest {
 
 message SQLiteQueryBuilderGetCursorFactoryRequest {
   int64 handle = 1;
+}
+
+message GetProjectionGreylistRequest {
+  int64 handle = 1;
+}
+
+message GetProjectionGreylistResponse {
+  int64 result = 1;
 }
 
 message GetTablesRequest {
@@ -1381,154 +1465,6 @@ message BuildQueryStringResponse {
   string result = 1;
 }
 
-message CursorClosedRequest {
-}
-
-message CursorClosedResponse {
-}
-
-message CursorDeactivatedRequest {
-}
-
-message CursorDeactivatedResponse {
-}
-
-message CursorRequeriedRequest {
-  int64 arg0 = 1;
-}
-
-message CursorRequeriedResponse {
-}
-
-message QueryRequest {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-}
-
-message QueryResponse {
-  int64 result = 1;
-}
-
-message SetBindArgumentsRequest {
-  int64 arg0 = 1;
-}
-
-message SetBindArgumentsResponse {
-}
-
-message ExecuteRequest {
-}
-
-message ExecuteResponse {
-}
-
-message ExecuteInsertRequest {
-}
-
-message ExecuteInsertResponse {
-  int64 result = 1;
-}
-
-message ExecuteUpdateDeleteRequest {
-}
-
-message ExecuteUpdateDeleteResponse {
-  int32 result = 1;
-}
-
-message SimpleQueryForBlobFileDescriptorRequest {
-}
-
-message SimpleQueryForBlobFileDescriptorResponse {
-  int64 result = 1;
-}
-
-message SimpleQueryForLongRequest {
-}
-
-message SimpleQueryForLongResponse {
-  int64 result = 1;
-}
-
-message SimpleQueryForStringRequest {
-}
-
-message SimpleQueryForStringResponse {
-  string result = 1;
-}
-
-service SQLiteRawStatementService {
-  rpc BindBlob2 (BindBlob2Request) returns (BindBlob2Response);
-  rpc BindBlob4_1 (BindBlob4_1Request) returns (BindBlob4_1Response);
-  rpc BindDouble (BindDoubleRequest) returns (BindDoubleResponse);
-  rpc BindInt (BindIntRequest) returns (BindIntResponse);
-  rpc BindLong (BindLongRequest) returns (BindLongResponse);
-  rpc BindNull (BindNullRequest) returns (BindNullResponse);
-  rpc BindText (BindTextRequest) returns (BindTextResponse);
-  rpc ClearBindings (ClearBindingsRequest) returns (ClearBindingsResponse);
-  rpc Close (CloseRequest) returns (CloseResponse);
-  rpc GetColumnBlob (GetColumnBlobRequest) returns (GetColumnBlobResponse);
-  rpc GetColumnDouble (GetColumnDoubleRequest) returns (GetColumnDoubleResponse);
-  rpc GetColumnInt (GetColumnIntRequest) returns (GetColumnIntResponse);
-  rpc GetColumnLength (GetColumnLengthRequest) returns (GetColumnLengthResponse);
-  rpc GetColumnLong (GetColumnLongRequest) returns (GetColumnLongResponse);
-  rpc GetColumnName (GetColumnNameRequest) returns (GetColumnNameResponse);
-  rpc GetColumnText (GetColumnTextRequest) returns (GetColumnTextResponse);
-  rpc GetColumnType (GetColumnTypeRequest) returns (GetColumnTypeResponse);
-  rpc GetParameterCount (GetParameterCountRequest) returns (GetParameterCountResponse);
-  rpc GetParameterIndex (GetParameterIndexRequest) returns (GetParameterIndexResponse);
-  rpc GetParameterName (GetParameterNameRequest) returns (GetParameterNameResponse);
-  rpc GetResultColumnCount (GetResultColumnCountRequest) returns (GetResultColumnCountResponse);
-  rpc IsOpen (IsOpenRequest) returns (IsOpenResponse);
-  rpc ReadColumnBlob (ReadColumnBlobRequest) returns (ReadColumnBlobResponse);
-  rpc Reset (ResetRequest) returns (ResetResponse);
-  rpc Step (StepRequest) returns (StepResponse);
-  rpc ToString (ToStringRequest) returns (ToStringResponse);
-}
-
-service SQLiteCursorService {
-  rpc NewSQLiteCursor (NewSQLiteCursorRequest) returns (NewSQLiteCursorResponse);
-  rpc Close (SQLiteCursorCloseRequest) returns (CloseResponse);
-  rpc Deactivate (DeactivateRequest) returns (DeactivateResponse);
-  rpc GetColumnIndex (GetColumnIndexRequest) returns (GetColumnIndexResponse);
-  rpc GetColumnNames (GetColumnNamesRequest) returns (GetColumnNamesResponse);
-  rpc GetCount (GetCountRequest) returns (GetCountResponse);
-  rpc GetDatabase (GetDatabaseRequest) returns (GetDatabaseResponse);
-  rpc OnMove (OnMoveRequest) returns (OnMoveResponse);
-  rpc Requery (RequeryRequest) returns (RequeryResponse);
-  rpc SetFillWindowForwardOnly (SetFillWindowForwardOnlyRequest) returns (SetFillWindowForwardOnlyResponse);
-  rpc SetSelectionArguments (SetSelectionArgumentsRequest) returns (SetSelectionArgumentsResponse);
-  rpc SetWindow (SetWindowRequest) returns (SetWindowResponse);
-}
-
-service SQLiteClosableService {
-  rpc AcquireReference (AcquireReferenceRequest) returns (AcquireReferenceResponse);
-  rpc Close (CloseRequest) returns (CloseResponse);
-  rpc ReleaseReference (ReleaseReferenceRequest) returns (ReleaseReferenceResponse);
-  rpc ReleaseReferenceFromContainer (ReleaseReferenceFromContainerRequest) returns (ReleaseReferenceFromContainerResponse);
-}
-
-service SQLiteTransactionListenerService {
-  rpc OnBegin (OnBeginRequest) returns (OnBeginResponse);
-  rpc OnCommit (OnCommitRequest) returns (OnCommitResponse);
-  rpc OnRollback (OnRollbackRequest) returns (OnRollbackResponse);
-}
-
-service SQLiteOpenHelperService {
-  rpc GetDatabaseName (GetDatabaseNameRequest) returns (GetDatabaseNameResponse);
-  rpc GetReadableDatabase (GetReadableDatabaseRequest) returns (GetReadableDatabaseResponse);
-  rpc GetWritableDatabase (GetWritableDatabaseRequest) returns (GetWritableDatabaseResponse);
-  rpc OnConfigure (OnConfigureRequest) returns (OnConfigureResponse);
-  rpc OnCreate (OnCreateRequest) returns (OnCreateResponse);
-  rpc OnDowngrade (OnDowngradeRequest) returns (OnDowngradeResponse);
-  rpc OnOpen (OnOpenRequest) returns (OnOpenResponse);
-  rpc OnUpgrade (OnUpgradeRequest) returns (OnUpgradeResponse);
-  rpc SetIdleConnectionTimeout (SetIdleConnectionTimeoutRequest) returns (SetIdleConnectionTimeoutResponse);
-  rpc SetLookasideConfig (SetLookasideConfigRequest) returns (SetLookasideConfigResponse);
-  rpc SetOpenParams (SetOpenParamsRequest) returns (SetOpenParamsResponse);
-  rpc SetWriteAheadLoggingEnabled (SetWriteAheadLoggingEnabledRequest) returns (SetWriteAheadLoggingEnabledResponse);
-}
-
 service SQLiteProgramService {
   rpc BindAllArgsAsStrings (BindAllArgsAsStringsRequest) returns (BindAllArgsAsStringsResponse);
   rpc BindBlob (BindBlobRequest) returns (BindBlobResponse);
@@ -1629,6 +1565,100 @@ service SQLiteDatabaseOpenParamsService {
   rpc GetSynchronousMode (GetSynchronousModeRequest) returns (GetSynchronousModeResponse);
 }
 
+service SQLiteStatementService {
+  rpc Execute (ExecuteRequest) returns (ExecuteResponse);
+  rpc ExecuteInsert (ExecuteInsertRequest) returns (ExecuteInsertResponse);
+  rpc ExecuteUpdateDelete (ExecuteUpdateDeleteRequest) returns (ExecuteUpdateDeleteResponse);
+  rpc SimpleQueryForBlobFileDescriptor (SimpleQueryForBlobFileDescriptorRequest) returns (SimpleQueryForBlobFileDescriptorResponse);
+  rpc SimpleQueryForLong (SimpleQueryForLongRequest) returns (SimpleQueryForLongResponse);
+  rpc SimpleQueryForString (SimpleQueryForStringRequest) returns (SimpleQueryForStringResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+}
+
+service SQLiteOpenHelperService {
+  rpc GetDatabaseName (GetDatabaseNameRequest) returns (GetDatabaseNameResponse);
+  rpc GetReadableDatabase (GetReadableDatabaseRequest) returns (GetReadableDatabaseResponse);
+  rpc GetWritableDatabase (GetWritableDatabaseRequest) returns (GetWritableDatabaseResponse);
+  rpc OnConfigure (OnConfigureRequest) returns (OnConfigureResponse);
+  rpc OnCreate (OnCreateRequest) returns (OnCreateResponse);
+  rpc OnDowngrade (OnDowngradeRequest) returns (OnDowngradeResponse);
+  rpc OnOpen (OnOpenRequest) returns (OnOpenResponse);
+  rpc OnUpgrade (OnUpgradeRequest) returns (OnUpgradeResponse);
+  rpc SetIdleConnectionTimeout (SetIdleConnectionTimeoutRequest) returns (SetIdleConnectionTimeoutResponse);
+  rpc SetLookasideConfig (SetLookasideConfigRequest) returns (SetLookasideConfigResponse);
+  rpc SetOpenParams (SetOpenParamsRequest) returns (SetOpenParamsResponse);
+  rpc SetWriteAheadLoggingEnabled (SetWriteAheadLoggingEnabledRequest) returns (SetWriteAheadLoggingEnabledResponse);
+}
+
+service SQLiteTransactionListenerService {
+  rpc OnBegin (OnBeginRequest) returns (OnBeginResponse);
+  rpc OnCommit (OnCommitRequest) returns (OnCommitResponse);
+  rpc OnRollback (OnRollbackRequest) returns (OnRollbackResponse);
+}
+
+service SQLiteCursorDriverService {
+  rpc CursorClosed (CursorClosedRequest) returns (CursorClosedResponse);
+  rpc CursorDeactivated (CursorDeactivatedRequest) returns (CursorDeactivatedResponse);
+  rpc CursorRequeried (CursorRequeriedRequest) returns (CursorRequeriedResponse);
+  rpc Query (QueryRequest) returns (QueryResponse);
+  rpc SetBindArguments (SetBindArgumentsRequest) returns (SetBindArgumentsResponse);
+}
+
+service SQLiteClosableService {
+  rpc AcquireReference (AcquireReferenceRequest) returns (AcquireReferenceResponse);
+  rpc Close (CloseRequest) returns (CloseResponse);
+  rpc ReleaseReference (ReleaseReferenceRequest) returns (ReleaseReferenceResponse);
+  rpc ReleaseReferenceFromContainer (ReleaseReferenceFromContainerRequest) returns (ReleaseReferenceFromContainerResponse);
+}
+
+service SQLiteRawStatementService {
+  rpc BindBlob2 (BindBlob2Request) returns (BindBlob2Response);
+  rpc BindBlob4_1 (BindBlob4_1Request) returns (BindBlob4_1Response);
+  rpc BindDouble (BindDoubleRequest) returns (BindDoubleResponse);
+  rpc BindInt (BindIntRequest) returns (BindIntResponse);
+  rpc BindLong (BindLongRequest) returns (BindLongResponse);
+  rpc BindNull (BindNullRequest) returns (BindNullResponse);
+  rpc BindText (BindTextRequest) returns (BindTextResponse);
+  rpc ClearBindings (ClearBindingsRequest) returns (ClearBindingsResponse);
+  rpc Close (CloseRequest) returns (CloseResponse);
+  rpc GetColumnBlob (GetColumnBlobRequest) returns (GetColumnBlobResponse);
+  rpc GetColumnDouble (GetColumnDoubleRequest) returns (GetColumnDoubleResponse);
+  rpc GetColumnInt (GetColumnIntRequest) returns (GetColumnIntResponse);
+  rpc GetColumnLength (GetColumnLengthRequest) returns (GetColumnLengthResponse);
+  rpc GetColumnLong (GetColumnLongRequest) returns (GetColumnLongResponse);
+  rpc GetColumnName (GetColumnNameRequest) returns (GetColumnNameResponse);
+  rpc GetColumnText (GetColumnTextRequest) returns (GetColumnTextResponse);
+  rpc GetColumnType (GetColumnTypeRequest) returns (GetColumnTypeResponse);
+  rpc GetParameterCount (GetParameterCountRequest) returns (GetParameterCountResponse);
+  rpc GetParameterIndex (GetParameterIndexRequest) returns (GetParameterIndexResponse);
+  rpc GetParameterName (GetParameterNameRequest) returns (GetParameterNameResponse);
+  rpc GetResultColumnCount (GetResultColumnCountRequest) returns (GetResultColumnCountResponse);
+  rpc IsOpen (IsOpenRequest) returns (IsOpenResponse);
+  rpc ReadColumnBlob (ReadColumnBlobRequest) returns (ReadColumnBlobResponse);
+  rpc Reset (ResetRequest) returns (ResetResponse);
+  rpc Step (StepRequest) returns (StepResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+}
+
+service SQLiteQueryService {
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+}
+
+service SQLiteCursorService {
+  rpc NewSQLiteCursor (NewSQLiteCursorRequest) returns (NewSQLiteCursorResponse);
+  rpc Close (SQLiteCursorCloseRequest) returns (CloseResponse);
+  rpc Deactivate (DeactivateRequest) returns (DeactivateResponse);
+  rpc GetColumnIndex (GetColumnIndexRequest) returns (GetColumnIndexResponse);
+  rpc GetColumnNames (GetColumnNamesRequest) returns (GetColumnNamesResponse);
+  rpc GetCount (GetCountRequest) returns (GetCountResponse);
+  rpc GetDatabase (GetDatabaseRequest) returns (GetDatabaseResponse);
+  rpc OnMove (OnMoveRequest) returns (OnMoveResponse);
+  rpc Requery (RequeryRequest) returns (RequeryResponse);
+  rpc SetFillWindowForwardOnly (SetFillWindowForwardOnlyRequest) returns (SetFillWindowForwardOnlyResponse);
+  rpc SetSelectionArguments (SetSelectionArgumentsRequest) returns (SetSelectionArgumentsResponse);
+  rpc SetWindow (SetWindowRequest) returns (SetWindowResponse);
+}
+
 service SQLiteQueryBuilderService {
   rpc NewSQLiteQueryBuilder (NewSQLiteQueryBuilderRequest) returns (NewSQLiteQueryBuilderResponse);
   rpc AppendWhere (AppendWhereRequest) returns (AppendWhereResponse);
@@ -1639,6 +1669,7 @@ service SQLiteQueryBuilderService {
   rpc BuildUnionQuery (BuildUnionQueryRequest) returns (BuildUnionQueryResponse);
   rpc Delete (SQLiteQueryBuilderDeleteRequest) returns (DeleteResponse);
   rpc GetCursorFactory (SQLiteQueryBuilderGetCursorFactoryRequest) returns (GetCursorFactoryResponse);
+  rpc GetProjectionGreylist (GetProjectionGreylistRequest) returns (GetProjectionGreylistResponse);
   rpc GetTables (GetTablesRequest) returns (GetTablesResponse);
   rpc Insert (SQLiteQueryBuilderInsertRequest) returns (InsertResponse);
   rpc IsDistinct (IsDistinctRequest) returns (IsDistinctResponse);
@@ -1657,26 +1688,4 @@ service SQLiteQueryBuilderService {
   rpc Update (SQLiteQueryBuilderUpdateRequest) returns (UpdateResponse);
   rpc AppendColumns (AppendColumnsRequest) returns (AppendColumnsResponse);
   rpc BuildQueryString (BuildQueryStringRequest) returns (BuildQueryStringResponse);
-}
-
-service SQLiteCursorDriverService {
-  rpc CursorClosed (CursorClosedRequest) returns (CursorClosedResponse);
-  rpc CursorDeactivated (CursorDeactivatedRequest) returns (CursorDeactivatedResponse);
-  rpc CursorRequeried (CursorRequeriedRequest) returns (CursorRequeriedResponse);
-  rpc Query (QueryRequest) returns (QueryResponse);
-  rpc SetBindArguments (SetBindArgumentsRequest) returns (SetBindArgumentsResponse);
-}
-
-service SQLiteQueryService {
-  rpc ToString (ToStringRequest) returns (ToStringResponse);
-}
-
-service SQLiteStatementService {
-  rpc Execute (ExecuteRequest) returns (ExecuteResponse);
-  rpc ExecuteInsert (ExecuteInsertRequest) returns (ExecuteInsertResponse);
-  rpc ExecuteUpdateDelete (ExecuteUpdateDeleteRequest) returns (ExecuteUpdateDeleteResponse);
-  rpc SimpleQueryForBlobFileDescriptor (SimpleQueryForBlobFileDescriptorRequest) returns (SimpleQueryForBlobFileDescriptorResponse);
-  rpc SimpleQueryForLong (SimpleQueryForLongRequest) returns (SimpleQueryForLongResponse);
-  rpc SimpleQueryForString (SimpleQueryForStringRequest) returns (SimpleQueryForStringResponse);
-  rpc ToString (ToStringRequest) returns (ToStringResponse);
 }

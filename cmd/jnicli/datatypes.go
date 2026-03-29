@@ -12,18 +12,18 @@ var datatypesCmd = &cobra.Command{
 	Short: "datatypes service operations",
 }
 
-var datatypesSleepSessionRecordCmd = &cobra.Command{
-	Use:   "sleep-session-record",
-	Short: "SleepSessionRecordService operations",
+var datatypesPowerRecordCmd = &cobra.Command{
+	Use:   "power-record",
+	Short: "PowerRecordService operations",
 }
 
-var datatypesSleepSessionRecordEqualsCmd = &cobra.Command{
+var datatypesPowerRecordEqualsCmd = &cobra.Command{
 	Use:   "equals",
 	Short: "Equals RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewSleepSessionRecordServiceClient(grpcConn)
+		client := pb.NewPowerRecordServiceClient(grpcConn)
 		req := &pb.EqualsRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -36,15 +36,15 @@ var datatypesSleepSessionRecordEqualsCmd = &cobra.Command{
 	},
 }
 
-var datatypesSleepSessionRecordGetNotesCmd = &cobra.Command{
-	Use:   "get-notes",
-	Short: "GetNotes RPC",
+var datatypesPowerRecordGetSamplesCmd = &cobra.Command{
+	Use:   "get-samples",
+	Short: "GetSamples RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewSleepSessionRecordServiceClient(grpcConn)
-		req := &pb.GetNotesRequest{}
-		resp, err := client.GetNotes(ctx, req)
+		client := pb.NewPowerRecordServiceClient(grpcConn)
+		req := &pb.GetSamplesRequest{}
+		resp, err := client.GetSamples(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -52,29 +52,13 @@ var datatypesSleepSessionRecordGetNotesCmd = &cobra.Command{
 	},
 }
 
-var datatypesSleepSessionRecordGetTitleCmd = &cobra.Command{
-	Use:   "get-title",
-	Short: "GetTitle RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSleepSessionRecordServiceClient(grpcConn)
-		req := &pb.GetTitleRequest{}
-		resp, err := client.GetTitle(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesSleepSessionRecordHashCodeCmd = &cobra.Command{
+var datatypesPowerRecordHashCodeCmd = &cobra.Command{
 	Use:   "hash-code",
 	Short: "HashCode RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewSleepSessionRecordServiceClient(grpcConn)
+		client := pb.NewPowerRecordServiceClient(grpcConn)
 		req := &pb.HashCodeRequest{}
 		resp, err := client.HashCode(ctx, req)
 		if err != nil {
@@ -84,18 +68,18 @@ var datatypesSleepSessionRecordHashCodeCmd = &cobra.Command{
 	},
 }
 
-var datatypesSleepSessionRecordBuilderCmd = &cobra.Command{
-	Use:   "sleep-session-record-builder",
-	Short: "SleepSessionRecordBuilderService operations",
+var datatypesPowerRecordBuilderCmd = &cobra.Command{
+	Use:   "power-record-builder",
+	Short: "PowerRecordBuilderService operations",
 }
 
-var datatypesSleepSessionRecordBuilderBuildCmd = &cobra.Command{
+var datatypesPowerRecordBuilderBuildCmd = &cobra.Command{
 	Use:   "build",
 	Short: "Build RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewSleepSessionRecordBuilderServiceClient(grpcConn)
+		client := pb.NewPowerRecordBuilderServiceClient(grpcConn)
 		req := &pb.BuildRequest{}
 		resp, err := client.Build(ctx, req)
 		if err != nil {
@@ -105,13 +89,13 @@ var datatypesSleepSessionRecordBuilderBuildCmd = &cobra.Command{
 	},
 }
 
-var datatypesSleepSessionRecordBuilderClearEndZoneOffsetCmd = &cobra.Command{
+var datatypesPowerRecordBuilderClearEndZoneOffsetCmd = &cobra.Command{
 	Use:   "clear-end-zone-offset",
 	Short: "ClearEndZoneOffset RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewSleepSessionRecordBuilderServiceClient(grpcConn)
+		client := pb.NewPowerRecordBuilderServiceClient(grpcConn)
 		req := &pb.ClearEndZoneOffsetRequest{}
 		resp, err := client.ClearEndZoneOffset(ctx, req)
 		if err != nil {
@@ -121,13 +105,13 @@ var datatypesSleepSessionRecordBuilderClearEndZoneOffsetCmd = &cobra.Command{
 	},
 }
 
-var datatypesSleepSessionRecordBuilderClearStartZoneOffsetCmd = &cobra.Command{
+var datatypesPowerRecordBuilderClearStartZoneOffsetCmd = &cobra.Command{
 	Use:   "clear-start-zone-offset",
 	Short: "ClearStartZoneOffset RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewSleepSessionRecordBuilderServiceClient(grpcConn)
+		client := pb.NewPowerRecordBuilderServiceClient(grpcConn)
 		req := &pb.ClearStartZoneOffsetRequest{}
 		resp, err := client.ClearStartZoneOffset(ctx, req)
 		if err != nil {
@@ -137,13 +121,13 @@ var datatypesSleepSessionRecordBuilderClearStartZoneOffsetCmd = &cobra.Command{
 	},
 }
 
-var datatypesSleepSessionRecordBuilderSetEndZoneOffsetCmd = &cobra.Command{
+var datatypesPowerRecordBuilderSetEndZoneOffsetCmd = &cobra.Command{
 	Use:   "set-end-zone-offset",
 	Short: "SetEndZoneOffset RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewSleepSessionRecordBuilderServiceClient(grpcConn)
+		client := pb.NewPowerRecordBuilderServiceClient(grpcConn)
 		req := &pb.SetEndZoneOffsetRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -156,32 +140,13 @@ var datatypesSleepSessionRecordBuilderSetEndZoneOffsetCmd = &cobra.Command{
 	},
 }
 
-var datatypesSleepSessionRecordBuilderSetNotesCmd = &cobra.Command{
-	Use:   "set-notes",
-	Short: "SetNotes RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSleepSessionRecordBuilderServiceClient(grpcConn)
-		req := &pb.SetNotesRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetNotes(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesSleepSessionRecordBuilderSetStartZoneOffsetCmd = &cobra.Command{
+var datatypesPowerRecordBuilderSetStartZoneOffsetCmd = &cobra.Command{
 	Use:   "set-start-zone-offset",
 	Short: "SetStartZoneOffset RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewSleepSessionRecordBuilderServiceClient(grpcConn)
+		client := pb.NewPowerRecordBuilderServiceClient(grpcConn)
 		req := &pb.SetStartZoneOffsetRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -194,37 +159,18 @@ var datatypesSleepSessionRecordBuilderSetStartZoneOffsetCmd = &cobra.Command{
 	},
 }
 
-var datatypesSleepSessionRecordBuilderSetTitleCmd = &cobra.Command{
-	Use:   "set-title",
-	Short: "SetTitle RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSleepSessionRecordBuilderServiceClient(grpcConn)
-		req := &pb.SetTitleRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetTitle(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
+var datatypesPowerRecordPowerRecordSampleCmd = &cobra.Command{
+	Use:   "power-record-power-record-sample",
+	Short: "PowerRecordPowerRecordSampleService operations",
 }
 
-var datatypesSleepSessionRecordStageCmd = &cobra.Command{
-	Use:   "sleep-session-record-stage",
-	Short: "SleepSessionRecordStageService operations",
-}
-
-var datatypesSleepSessionRecordStageEqualsCmd = &cobra.Command{
+var datatypesPowerRecordPowerRecordSampleEqualsCmd = &cobra.Command{
 	Use:   "equals",
 	Short: "Equals RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewSleepSessionRecordStageServiceClient(grpcConn)
+		client := pb.NewPowerRecordPowerRecordSampleServiceClient(grpcConn)
 		req := &pb.EqualsRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -237,15 +183,15 @@ var datatypesSleepSessionRecordStageEqualsCmd = &cobra.Command{
 	},
 }
 
-var datatypesSleepSessionRecordStageGetEndTimeCmd = &cobra.Command{
-	Use:   "get-end-time",
-	Short: "GetEndTime RPC",
+var datatypesPowerRecordPowerRecordSampleGetPowerCmd = &cobra.Command{
+	Use:   "get-power",
+	Short: "GetPower RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewSleepSessionRecordStageServiceClient(grpcConn)
-		req := &pb.GetEndTimeRequest{}
-		resp, err := client.GetEndTime(ctx, req)
+		client := pb.NewPowerRecordPowerRecordSampleServiceClient(grpcConn)
+		req := &pb.GetPowerRequest{}
+		resp, err := client.GetPower(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -253,15 +199,15 @@ var datatypesSleepSessionRecordStageGetEndTimeCmd = &cobra.Command{
 	},
 }
 
-var datatypesSleepSessionRecordStageGetStartTimeCmd = &cobra.Command{
-	Use:   "get-start-time",
-	Short: "GetStartTime RPC",
+var datatypesPowerRecordPowerRecordSampleGetTimeCmd = &cobra.Command{
+	Use:   "get-time",
+	Short: "GetTime RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewSleepSessionRecordStageServiceClient(grpcConn)
-		req := &pb.GetStartTimeRequest{}
-		resp, err := client.GetStartTime(ctx, req)
+		client := pb.NewPowerRecordPowerRecordSampleServiceClient(grpcConn)
+		req := &pb.GetTimeRequest{}
+		resp, err := client.GetTime(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -269,13 +215,101 @@ var datatypesSleepSessionRecordStageGetStartTimeCmd = &cobra.Command{
 	},
 }
 
-var datatypesSleepSessionRecordStageGetTypeCmd = &cobra.Command{
+var datatypesPowerRecordPowerRecordSampleHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPowerRecordPowerRecordSampleServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesFhirResourceCmd = &cobra.Command{
+	Use:   "fhir-resource",
+	Short: "FhirResourceService operations",
+}
+
+var datatypesFhirResourceDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFhirResourceServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesFhirResourceEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFhirResourceServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesFhirResourceGetDataCmd = &cobra.Command{
+	Use:   "get-data",
+	Short: "GetData RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFhirResourceServiceClient(grpcConn)
+		req := &pb.GetDataRequest{}
+		resp, err := client.GetData(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesFhirResourceGetIdCmd = &cobra.Command{
+	Use:   "get-id",
+	Short: "GetId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFhirResourceServiceClient(grpcConn)
+		req := &pb.GetIdRequest{}
+		resp, err := client.GetId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesFhirResourceGetTypeCmd = &cobra.Command{
 	Use:   "get-type",
 	Short: "GetType RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewSleepSessionRecordStageServiceClient(grpcConn)
+		client := pb.NewFhirResourceServiceClient(grpcConn)
 		req := &pb.GetTypeRequest{}
 		resp, err := client.GetType(ctx, req)
 		if err != nil {
@@ -285,13 +319,13 @@ var datatypesSleepSessionRecordStageGetTypeCmd = &cobra.Command{
 	},
 }
 
-var datatypesSleepSessionRecordStageHashCodeCmd = &cobra.Command{
+var datatypesFhirResourceHashCodeCmd = &cobra.Command{
 	Use:   "hash-code",
 	Short: "HashCode RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewSleepSessionRecordStageServiceClient(grpcConn)
+		client := pb.NewFhirResourceServiceClient(grpcConn)
 		req := &pb.HashCodeRequest{}
 		resp, err := client.HashCode(ctx, req)
 		if err != nil {
@@ -301,23 +335,37 @@ var datatypesSleepSessionRecordStageHashCodeCmd = &cobra.Command{
 	},
 }
 
-var datatypesBodyWaterMassRecordCmd = &cobra.Command{
-	Use:   "body-water-mass-record",
-	Short: "BodyWaterMassRecordService operations",
-}
-
-var datatypesBodyWaterMassRecordEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
+var datatypesFhirResourceToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewBodyWaterMassRecordServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
+		client := pb.NewFhirResourceServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesFhirResourceWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFhirResourceServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		resp, err := client.Equals(ctx, req)
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -325,50 +373,18 @@ var datatypesBodyWaterMassRecordEqualsCmd = &cobra.Command{
 	},
 }
 
-var datatypesBodyWaterMassRecordGetBodyWaterMassCmd = &cobra.Command{
-	Use:   "get-body-water-mass",
-	Short: "GetBodyWaterMass RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewBodyWaterMassRecordServiceClient(grpcConn)
-		req := &pb.GetBodyWaterMassRequest{}
-		resp, err := client.GetBodyWaterMass(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
+var datatypesFhirResourceBuilderCmd = &cobra.Command{
+	Use:   "fhir-resource-builder",
+	Short: "FhirResourceBuilderService operations",
 }
 
-var datatypesBodyWaterMassRecordHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewBodyWaterMassRecordServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesBodyWaterMassRecordBuilderCmd = &cobra.Command{
-	Use:   "body-water-mass-record-builder",
-	Short: "BodyWaterMassRecordBuilderService operations",
-}
-
-var datatypesBodyWaterMassRecordBuilderBuildCmd = &cobra.Command{
+var datatypesFhirResourceBuilderBuildCmd = &cobra.Command{
 	Use:   "build",
 	Short: "Build RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewBodyWaterMassRecordBuilderServiceClient(grpcConn)
+		client := pb.NewFhirResourceBuilderServiceClient(grpcConn)
 		req := &pb.BuildRequest{}
 		resp, err := client.Build(ctx, req)
 		if err != nil {
@@ -378,34 +394,18 @@ var datatypesBodyWaterMassRecordBuilderBuildCmd = &cobra.Command{
 	},
 }
 
-var datatypesBodyWaterMassRecordBuilderClearZoneOffsetCmd = &cobra.Command{
-	Use:   "clear-zone-offset",
-	Short: "ClearZoneOffset RPC",
+var datatypesFhirResourceBuilderSetDataCmd = &cobra.Command{
+	Use:   "set-data",
+	Short: "SetData RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewBodyWaterMassRecordBuilderServiceClient(grpcConn)
-		req := &pb.ClearZoneOffsetRequest{}
-		resp, err := client.ClearZoneOffset(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesBodyWaterMassRecordBuilderSetZoneOffsetCmd = &cobra.Command{
-	Use:   "set-zone-offset",
-	Short: "SetZoneOffset RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewBodyWaterMassRecordBuilderServiceClient(grpcConn)
-		req := &pb.SetZoneOffsetRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+		client := pb.NewFhirResourceBuilderServiceClient(grpcConn)
+		req := &pb.SetDataRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		resp, err := client.SetZoneOffset(ctx, req)
+		resp, err := client.SetData(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -413,18 +413,56 @@ var datatypesBodyWaterMassRecordBuilderSetZoneOffsetCmd = &cobra.Command{
 	},
 }
 
-var datatypesExerciseSegmentCmd = &cobra.Command{
-	Use:   "exercise-segment",
-	Short: "ExerciseSegmentService operations",
+var datatypesFhirResourceBuilderSetIdCmd = &cobra.Command{
+	Use:   "set-id",
+	Short: "SetId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFhirResourceBuilderServiceClient(grpcConn)
+		req := &pb.SetIdRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
 }
 
-var datatypesExerciseSegmentEqualsCmd = &cobra.Command{
+var datatypesFhirResourceBuilderSetTypeCmd = &cobra.Command{
+	Use:   "set-type",
+	Short: "SetType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFhirResourceBuilderServiceClient(grpcConn)
+		req := &pb.SetTypeRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesIntervalRecordCmd = &cobra.Command{
+	Use:   "interval-record",
+	Short: "IntervalRecordService operations",
+}
+
+var datatypesIntervalRecordEqualsCmd = &cobra.Command{
 	Use:   "equals",
 	Short: "Equals RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewExerciseSegmentServiceClient(grpcConn)
+		client := pb.NewIntervalRecordServiceClient(grpcConn)
 		req := &pb.EqualsRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -437,13 +475,13 @@ var datatypesExerciseSegmentEqualsCmd = &cobra.Command{
 	},
 }
 
-var datatypesExerciseSegmentGetEndTimeCmd = &cobra.Command{
+var datatypesIntervalRecordGetEndTimeCmd = &cobra.Command{
 	Use:   "get-end-time",
 	Short: "GetEndTime RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewExerciseSegmentServiceClient(grpcConn)
+		client := pb.NewIntervalRecordServiceClient(grpcConn)
 		req := &pb.GetEndTimeRequest{}
 		resp, err := client.GetEndTime(ctx, req)
 		if err != nil {
@@ -453,15 +491,15 @@ var datatypesExerciseSegmentGetEndTimeCmd = &cobra.Command{
 	},
 }
 
-var datatypesExerciseSegmentGetRepetitionsCountCmd = &cobra.Command{
-	Use:   "get-repetitions-count",
-	Short: "GetRepetitionsCount RPC",
+var datatypesIntervalRecordGetEndZoneOffsetCmd = &cobra.Command{
+	Use:   "get-end-zone-offset",
+	Short: "GetEndZoneOffset RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewExerciseSegmentServiceClient(grpcConn)
-		req := &pb.GetRepetitionsCountRequest{}
-		resp, err := client.GetRepetitionsCount(ctx, req)
+		client := pb.NewIntervalRecordServiceClient(grpcConn)
+		req := &pb.GetEndZoneOffsetRequest{}
+		resp, err := client.GetEndZoneOffset(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -469,29 +507,13 @@ var datatypesExerciseSegmentGetRepetitionsCountCmd = &cobra.Command{
 	},
 }
 
-var datatypesExerciseSegmentGetSegmentTypeCmd = &cobra.Command{
-	Use:   "get-segment-type",
-	Short: "GetSegmentType RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewExerciseSegmentServiceClient(grpcConn)
-		req := &pb.GetSegmentTypeRequest{}
-		resp, err := client.GetSegmentType(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesExerciseSegmentGetStartTimeCmd = &cobra.Command{
+var datatypesIntervalRecordGetStartTimeCmd = &cobra.Command{
 	Use:   "get-start-time",
 	Short: "GetStartTime RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewExerciseSegmentServiceClient(grpcConn)
+		client := pb.NewIntervalRecordServiceClient(grpcConn)
 		req := &pb.GetStartTimeRequest{}
 		resp, err := client.GetStartTime(ctx, req)
 		if err != nil {
@@ -501,957 +523,31 @@ var datatypesExerciseSegmentGetStartTimeCmd = &cobra.Command{
 	},
 }
 
-var datatypesExerciseSegmentHashCodeCmd = &cobra.Command{
+var datatypesIntervalRecordGetStartZoneOffsetCmd = &cobra.Command{
+	Use:   "get-start-zone-offset",
+	Short: "GetStartZoneOffset RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewIntervalRecordServiceClient(grpcConn)
+		req := &pb.GetStartZoneOffsetRequest{}
+		resp, err := client.GetStartZoneOffset(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesIntervalRecordHashCodeCmd = &cobra.Command{
 	Use:   "hash-code",
 	Short: "HashCode RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewExerciseSegmentServiceClient(grpcConn)
+		client := pb.NewIntervalRecordServiceClient(grpcConn)
 		req := &pb.HashCodeRequest{}
 		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesExerciseSegmentBuilderCmd = &cobra.Command{
-	Use:   "exercise-segment-builder",
-	Short: "ExerciseSegmentBuilderService operations",
-}
-
-var datatypesExerciseSegmentBuilderBuildCmd = &cobra.Command{
-	Use:   "build",
-	Short: "Build RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewExerciseSegmentBuilderServiceClient(grpcConn)
-		req := &pb.BuildRequest{}
-		resp, err := client.Build(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesExerciseSegmentBuilderSetRepetitionsCountCmd = &cobra.Command{
-	Use:   "set-repetitions-count",
-	Short: "SetRepetitionsCount RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewExerciseSegmentBuilderServiceClient(grpcConn)
-		req := &pb.SetRepetitionsCountRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetRepetitionsCount(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesDistanceRecordCmd = &cobra.Command{
-	Use:   "distance-record",
-	Short: "DistanceRecordService operations",
-}
-
-var datatypesDistanceRecordEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDistanceRecordServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesDistanceRecordGetDistanceCmd = &cobra.Command{
-	Use:   "get-distance",
-	Short: "GetDistance RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDistanceRecordServiceClient(grpcConn)
-		req := &pb.GetDistanceRequest{}
-		resp, err := client.GetDistance(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesDistanceRecordHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDistanceRecordServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesDistanceRecordBuilderCmd = &cobra.Command{
-	Use:   "distance-record-builder",
-	Short: "DistanceRecordBuilderService operations",
-}
-
-var datatypesDistanceRecordBuilderBuildCmd = &cobra.Command{
-	Use:   "build",
-	Short: "Build RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDistanceRecordBuilderServiceClient(grpcConn)
-		req := &pb.BuildRequest{}
-		resp, err := client.Build(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesDistanceRecordBuilderClearEndZoneOffsetCmd = &cobra.Command{
-	Use:   "clear-end-zone-offset",
-	Short: "ClearEndZoneOffset RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDistanceRecordBuilderServiceClient(grpcConn)
-		req := &pb.ClearEndZoneOffsetRequest{}
-		resp, err := client.ClearEndZoneOffset(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesDistanceRecordBuilderClearStartZoneOffsetCmd = &cobra.Command{
-	Use:   "clear-start-zone-offset",
-	Short: "ClearStartZoneOffset RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDistanceRecordBuilderServiceClient(grpcConn)
-		req := &pb.ClearStartZoneOffsetRequest{}
-		resp, err := client.ClearStartZoneOffset(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesDistanceRecordBuilderSetEndZoneOffsetCmd = &cobra.Command{
-	Use:   "set-end-zone-offset",
-	Short: "SetEndZoneOffset RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDistanceRecordBuilderServiceClient(grpcConn)
-		req := &pb.SetEndZoneOffsetRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetEndZoneOffset(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesDistanceRecordBuilderSetStartZoneOffsetCmd = &cobra.Command{
-	Use:   "set-start-zone-offset",
-	Short: "SetStartZoneOffset RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDistanceRecordBuilderServiceClient(grpcConn)
-		req := &pb.SetStartZoneOffsetRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetStartZoneOffset(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesBodyTemperatureRecordCmd = &cobra.Command{
-	Use:   "body-temperature-record",
-	Short: "BodyTemperatureRecordService operations",
-}
-
-var datatypesBodyTemperatureRecordEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewBodyTemperatureRecordServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesBodyTemperatureRecordGetMeasurementLocationCmd = &cobra.Command{
-	Use:   "get-measurement-location",
-	Short: "GetMeasurementLocation RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewBodyTemperatureRecordServiceClient(grpcConn)
-		req := &pb.GetMeasurementLocationRequest{}
-		resp, err := client.GetMeasurementLocation(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesBodyTemperatureRecordGetTemperatureCmd = &cobra.Command{
-	Use:   "get-temperature",
-	Short: "GetTemperature RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewBodyTemperatureRecordServiceClient(grpcConn)
-		req := &pb.GetTemperatureRequest{}
-		resp, err := client.GetTemperature(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesBodyTemperatureRecordHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewBodyTemperatureRecordServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesBodyTemperatureRecordBuilderCmd = &cobra.Command{
-	Use:   "body-temperature-record-builder",
-	Short: "BodyTemperatureRecordBuilderService operations",
-}
-
-var datatypesBodyTemperatureRecordBuilderBuildCmd = &cobra.Command{
-	Use:   "build",
-	Short: "Build RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewBodyTemperatureRecordBuilderServiceClient(grpcConn)
-		req := &pb.BuildRequest{}
-		resp, err := client.Build(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesBodyTemperatureRecordBuilderClearZoneOffsetCmd = &cobra.Command{
-	Use:   "clear-zone-offset",
-	Short: "ClearZoneOffset RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewBodyTemperatureRecordBuilderServiceClient(grpcConn)
-		req := &pb.ClearZoneOffsetRequest{}
-		resp, err := client.ClearZoneOffset(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesBodyTemperatureRecordBuilderSetZoneOffsetCmd = &cobra.Command{
-	Use:   "set-zone-offset",
-	Short: "SetZoneOffset RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewBodyTemperatureRecordBuilderServiceClient(grpcConn)
-		req := &pb.SetZoneOffsetRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetZoneOffset(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesActiveCaloriesBurnedRecordCmd = &cobra.Command{
-	Use:   "active-calories-burned-record",
-	Short: "ActiveCaloriesBurnedRecordService operations",
-}
-
-var datatypesActiveCaloriesBurnedRecordEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewActiveCaloriesBurnedRecordServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesActiveCaloriesBurnedRecordGetEnergyCmd = &cobra.Command{
-	Use:   "get-energy",
-	Short: "GetEnergy RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewActiveCaloriesBurnedRecordServiceClient(grpcConn)
-		req := &pb.GetEnergyRequest{}
-		resp, err := client.GetEnergy(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesActiveCaloriesBurnedRecordHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewActiveCaloriesBurnedRecordServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesActiveCaloriesBurnedRecordBuilderCmd = &cobra.Command{
-	Use:   "active-calories-burned-record-builder",
-	Short: "ActiveCaloriesBurnedRecordBuilderService operations",
-}
-
-var datatypesActiveCaloriesBurnedRecordBuilderBuildCmd = &cobra.Command{
-	Use:   "build",
-	Short: "Build RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewActiveCaloriesBurnedRecordBuilderServiceClient(grpcConn)
-		req := &pb.BuildRequest{}
-		resp, err := client.Build(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesActiveCaloriesBurnedRecordBuilderClearEndZoneOffsetCmd = &cobra.Command{
-	Use:   "clear-end-zone-offset",
-	Short: "ClearEndZoneOffset RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewActiveCaloriesBurnedRecordBuilderServiceClient(grpcConn)
-		req := &pb.ClearEndZoneOffsetRequest{}
-		resp, err := client.ClearEndZoneOffset(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesActiveCaloriesBurnedRecordBuilderClearStartZoneOffsetCmd = &cobra.Command{
-	Use:   "clear-start-zone-offset",
-	Short: "ClearStartZoneOffset RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewActiveCaloriesBurnedRecordBuilderServiceClient(grpcConn)
-		req := &pb.ClearStartZoneOffsetRequest{}
-		resp, err := client.ClearStartZoneOffset(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesActiveCaloriesBurnedRecordBuilderSetEndZoneOffsetCmd = &cobra.Command{
-	Use:   "set-end-zone-offset",
-	Short: "SetEndZoneOffset RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewActiveCaloriesBurnedRecordBuilderServiceClient(grpcConn)
-		req := &pb.SetEndZoneOffsetRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetEndZoneOffset(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesActiveCaloriesBurnedRecordBuilderSetStartZoneOffsetCmd = &cobra.Command{
-	Use:   "set-start-zone-offset",
-	Short: "SetStartZoneOffset RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewActiveCaloriesBurnedRecordBuilderServiceClient(grpcConn)
-		req := &pb.SetStartZoneOffsetRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetStartZoneOffset(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesSexualActivityRecordCmd = &cobra.Command{
-	Use:   "sexual-activity-record",
-	Short: "SexualActivityRecordService operations",
-}
-
-var datatypesSexualActivityRecordEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSexualActivityRecordServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesSexualActivityRecordGetProtectionUsedCmd = &cobra.Command{
-	Use:   "get-protection-used",
-	Short: "GetProtectionUsed RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSexualActivityRecordServiceClient(grpcConn)
-		req := &pb.GetProtectionUsedRequest{}
-		resp, err := client.GetProtectionUsed(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesSexualActivityRecordHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSexualActivityRecordServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesSexualActivityRecordBuilderCmd = &cobra.Command{
-	Use:   "sexual-activity-record-builder",
-	Short: "SexualActivityRecordBuilderService operations",
-}
-
-var datatypesSexualActivityRecordBuilderBuildCmd = &cobra.Command{
-	Use:   "build",
-	Short: "Build RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSexualActivityRecordBuilderServiceClient(grpcConn)
-		req := &pb.BuildRequest{}
-		resp, err := client.Build(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesSexualActivityRecordBuilderClearZoneOffsetCmd = &cobra.Command{
-	Use:   "clear-zone-offset",
-	Short: "ClearZoneOffset RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSexualActivityRecordBuilderServiceClient(grpcConn)
-		req := &pb.ClearZoneOffsetRequest{}
-		resp, err := client.ClearZoneOffset(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesSexualActivityRecordBuilderSetZoneOffsetCmd = &cobra.Command{
-	Use:   "set-zone-offset",
-	Short: "SetZoneOffset RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSexualActivityRecordBuilderServiceClient(grpcConn)
-		req := &pb.SetZoneOffsetRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetZoneOffset(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesWeightRecordCmd = &cobra.Command{
-	Use:   "weight-record",
-	Short: "WeightRecordService operations",
-}
-
-var datatypesWeightRecordEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWeightRecordServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesWeightRecordGetWeightCmd = &cobra.Command{
-	Use:   "get-weight",
-	Short: "GetWeight RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWeightRecordServiceClient(grpcConn)
-		req := &pb.GetWeightRequest{}
-		resp, err := client.GetWeight(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesWeightRecordHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWeightRecordServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesWeightRecordBuilderCmd = &cobra.Command{
-	Use:   "weight-record-builder",
-	Short: "WeightRecordBuilderService operations",
-}
-
-var datatypesWeightRecordBuilderBuildCmd = &cobra.Command{
-	Use:   "build",
-	Short: "Build RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWeightRecordBuilderServiceClient(grpcConn)
-		req := &pb.BuildRequest{}
-		resp, err := client.Build(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesWeightRecordBuilderClearZoneOffsetCmd = &cobra.Command{
-	Use:   "clear-zone-offset",
-	Short: "ClearZoneOffset RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWeightRecordBuilderServiceClient(grpcConn)
-		req := &pb.ClearZoneOffsetRequest{}
-		resp, err := client.ClearZoneOffset(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesWeightRecordBuilderSetZoneOffsetCmd = &cobra.Command{
-	Use:   "set-zone-offset",
-	Short: "SetZoneOffset RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWeightRecordBuilderServiceClient(grpcConn)
-		req := &pb.SetZoneOffsetRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetZoneOffset(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesBloodPressureRecordCmd = &cobra.Command{
-	Use:   "blood-pressure-record",
-	Short: "BloodPressureRecordService operations",
-}
-
-var datatypesBloodPressureRecordEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewBloodPressureRecordServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesBloodPressureRecordGetBodyPositionCmd = &cobra.Command{
-	Use:   "get-body-position",
-	Short: "GetBodyPosition RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewBloodPressureRecordServiceClient(grpcConn)
-		req := &pb.GetBodyPositionRequest{}
-		resp, err := client.GetBodyPosition(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesBloodPressureRecordGetDiastolicCmd = &cobra.Command{
-	Use:   "get-diastolic",
-	Short: "GetDiastolic RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewBloodPressureRecordServiceClient(grpcConn)
-		req := &pb.GetDiastolicRequest{}
-		resp, err := client.GetDiastolic(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesBloodPressureRecordGetMeasurementLocationCmd = &cobra.Command{
-	Use:   "get-measurement-location",
-	Short: "GetMeasurementLocation RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewBloodPressureRecordServiceClient(grpcConn)
-		req := &pb.GetMeasurementLocationRequest{}
-		resp, err := client.GetMeasurementLocation(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesBloodPressureRecordGetSystolicCmd = &cobra.Command{
-	Use:   "get-systolic",
-	Short: "GetSystolic RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewBloodPressureRecordServiceClient(grpcConn)
-		req := &pb.GetSystolicRequest{}
-		resp, err := client.GetSystolic(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesBloodPressureRecordHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewBloodPressureRecordServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesBloodPressureRecordBuilderCmd = &cobra.Command{
-	Use:   "blood-pressure-record-builder",
-	Short: "BloodPressureRecordBuilderService operations",
-}
-
-var datatypesBloodPressureRecordBuilderBuildCmd = &cobra.Command{
-	Use:   "build",
-	Short: "Build RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewBloodPressureRecordBuilderServiceClient(grpcConn)
-		req := &pb.BuildRequest{}
-		resp, err := client.Build(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesBloodPressureRecordBuilderClearZoneOffsetCmd = &cobra.Command{
-	Use:   "clear-zone-offset",
-	Short: "ClearZoneOffset RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewBloodPressureRecordBuilderServiceClient(grpcConn)
-		req := &pb.ClearZoneOffsetRequest{}
-		resp, err := client.ClearZoneOffset(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesBloodPressureRecordBuilderSetZoneOffsetCmd = &cobra.Command{
-	Use:   "set-zone-offset",
-	Short: "SetZoneOffset RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewBloodPressureRecordBuilderServiceClient(grpcConn)
-		req := &pb.SetZoneOffsetRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetZoneOffset(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesIntermenstrualBleedingRecordCmd = &cobra.Command{
-	Use:   "intermenstrual-bleeding-record",
-	Short: "IntermenstrualBleedingRecordService operations",
-}
-
-var datatypesIntermenstrualBleedingRecordEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewIntermenstrualBleedingRecordServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesIntermenstrualBleedingRecordHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewIntermenstrualBleedingRecordServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesIntermenstrualBleedingRecordBuilderCmd = &cobra.Command{
-	Use:   "intermenstrual-bleeding-record-builder",
-	Short: "IntermenstrualBleedingRecordBuilderService operations",
-}
-
-var datatypesIntermenstrualBleedingRecordBuilderBuildCmd = &cobra.Command{
-	Use:   "build",
-	Short: "Build RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewIntermenstrualBleedingRecordBuilderServiceClient(grpcConn)
-		req := &pb.BuildRequest{}
-		resp, err := client.Build(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesIntermenstrualBleedingRecordBuilderClearZoneOffsetCmd = &cobra.Command{
-	Use:   "clear-zone-offset",
-	Short: "ClearZoneOffset RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewIntermenstrualBleedingRecordBuilderServiceClient(grpcConn)
-		req := &pb.ClearZoneOffsetRequest{}
-		resp, err := client.ClearZoneOffset(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesIntermenstrualBleedingRecordBuilderSetZoneOffsetCmd = &cobra.Command{
-	Use:   "set-zone-offset",
-	Short: "SetZoneOffset RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewIntermenstrualBleedingRecordBuilderServiceClient(grpcConn)
-		req := &pb.SetZoneOffsetRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetZoneOffset(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1619,18 +715,34 @@ var datatypesBloodGlucoseRecordBuilderSetZoneOffsetCmd = &cobra.Command{
 	},
 }
 
-var datatypesBoneMassRecordCmd = &cobra.Command{
-	Use:   "bone-mass-record",
-	Short: "BoneMassRecordService operations",
+var datatypesMedicalResourceCmd = &cobra.Command{
+	Use:   "medical-resource",
+	Short: "MedicalResourceService operations",
 }
 
-var datatypesBoneMassRecordEqualsCmd = &cobra.Command{
+var datatypesMedicalResourceDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMedicalResourceServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesMedicalResourceEqualsCmd = &cobra.Command{
 	Use:   "equals",
 	Short: "Equals RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewBoneMassRecordServiceClient(grpcConn)
+		client := pb.NewMedicalResourceServiceClient(grpcConn)
 		req := &pb.EqualsRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -1643,15 +755,15 @@ var datatypesBoneMassRecordEqualsCmd = &cobra.Command{
 	},
 }
 
-var datatypesBoneMassRecordGetMassCmd = &cobra.Command{
-	Use:   "get-mass",
-	Short: "GetMass RPC",
+var datatypesMedicalResourceGetDataSourceIdCmd = &cobra.Command{
+	Use:   "get-data-source-id",
+	Short: "GetDataSourceId RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewBoneMassRecordServiceClient(grpcConn)
-		req := &pb.GetMassRequest{}
-		resp, err := client.GetMass(ctx, req)
+		client := pb.NewMedicalResourceServiceClient(grpcConn)
+		req := &pb.GetDataSourceIdRequest{}
+		resp, err := client.GetDataSourceId(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1659,13 +771,77 @@ var datatypesBoneMassRecordGetMassCmd = &cobra.Command{
 	},
 }
 
-var datatypesBoneMassRecordHashCodeCmd = &cobra.Command{
+var datatypesMedicalResourceGetFhirResourceCmd = &cobra.Command{
+	Use:   "get-fhir-resource",
+	Short: "GetFhirResource RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMedicalResourceServiceClient(grpcConn)
+		req := &pb.GetFhirResourceRequest{}
+		resp, err := client.GetFhirResource(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesMedicalResourceGetFhirVersionCmd = &cobra.Command{
+	Use:   "get-fhir-version",
+	Short: "GetFhirVersion RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMedicalResourceServiceClient(grpcConn)
+		req := &pb.GetFhirVersionRequest{}
+		resp, err := client.GetFhirVersion(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesMedicalResourceGetIdCmd = &cobra.Command{
+	Use:   "get-id",
+	Short: "GetId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMedicalResourceServiceClient(grpcConn)
+		req := &pb.GetIdRequest{}
+		resp, err := client.GetId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesMedicalResourceGetTypeCmd = &cobra.Command{
+	Use:   "get-type",
+	Short: "GetType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMedicalResourceServiceClient(grpcConn)
+		req := &pb.GetTypeRequest{}
+		resp, err := client.GetType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesMedicalResourceHashCodeCmd = &cobra.Command{
 	Use:   "hash-code",
 	Short: "HashCode RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewBoneMassRecordServiceClient(grpcConn)
+		client := pb.NewMedicalResourceServiceClient(grpcConn)
 		req := &pb.HashCodeRequest{}
 		resp, err := client.HashCode(ctx, req)
 		if err != nil {
@@ -1675,18 +851,56 @@ var datatypesBoneMassRecordHashCodeCmd = &cobra.Command{
 	},
 }
 
-var datatypesBoneMassRecordBuilderCmd = &cobra.Command{
-	Use:   "bone-mass-record-builder",
-	Short: "BoneMassRecordBuilderService operations",
+var datatypesMedicalResourceToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMedicalResourceServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
 }
 
-var datatypesBoneMassRecordBuilderBuildCmd = &cobra.Command{
+var datatypesMedicalResourceWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMedicalResourceServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesMedicalResourceBuilderCmd = &cobra.Command{
+	Use:   "medical-resource-builder",
+	Short: "MedicalResourceBuilderService operations",
+}
+
+var datatypesMedicalResourceBuilderBuildCmd = &cobra.Command{
 	Use:   "build",
 	Short: "Build RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewBoneMassRecordBuilderServiceClient(grpcConn)
+		client := pb.NewMedicalResourceBuilderServiceClient(grpcConn)
 		req := &pb.BuildRequest{}
 		resp, err := client.Build(ctx, req)
 		if err != nil {
@@ -1696,15 +910,18 @@ var datatypesBoneMassRecordBuilderBuildCmd = &cobra.Command{
 	},
 }
 
-var datatypesBoneMassRecordBuilderClearZoneOffsetCmd = &cobra.Command{
-	Use:   "clear-zone-offset",
-	Short: "ClearZoneOffset RPC",
+var datatypesMedicalResourceBuilderSetDataSourceIdCmd = &cobra.Command{
+	Use:   "set-data-source-id",
+	Short: "SetDataSourceId RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewBoneMassRecordBuilderServiceClient(grpcConn)
-		req := &pb.ClearZoneOffsetRequest{}
-		resp, err := client.ClearZoneOffset(ctx, req)
+		client := pb.NewMedicalResourceBuilderServiceClient(grpcConn)
+		req := &pb.SetDataSourceIdRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetDataSourceId(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1712,18 +929,18 @@ var datatypesBoneMassRecordBuilderClearZoneOffsetCmd = &cobra.Command{
 	},
 }
 
-var datatypesBoneMassRecordBuilderSetZoneOffsetCmd = &cobra.Command{
-	Use:   "set-zone-offset",
-	Short: "SetZoneOffset RPC",
+var datatypesMedicalResourceBuilderSetFhirResourceCmd = &cobra.Command{
+	Use:   "set-fhir-resource",
+	Short: "SetFhirResource RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewBoneMassRecordBuilderServiceClient(grpcConn)
-		req := &pb.SetZoneOffsetRequest{}
+		client := pb.NewMedicalResourceBuilderServiceClient(grpcConn)
+		req := &pb.SetFhirResourceRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		resp, err := client.SetZoneOffset(ctx, req)
+		resp, err := client.SetFhirResource(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1731,18 +948,56 @@ var datatypesBoneMassRecordBuilderSetZoneOffsetCmd = &cobra.Command{
 	},
 }
 
-var datatypesCervicalMucusRecordCmd = &cobra.Command{
-	Use:   "cervical-mucus-record",
-	Short: "CervicalMucusRecordService operations",
+var datatypesMedicalResourceBuilderSetFhirVersionCmd = &cobra.Command{
+	Use:   "set-fhir-version",
+	Short: "SetFhirVersion RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMedicalResourceBuilderServiceClient(grpcConn)
+		req := &pb.SetFhirVersionRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetFhirVersion(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
 }
 
-var datatypesCervicalMucusRecordEqualsCmd = &cobra.Command{
+var datatypesMedicalResourceBuilderSetTypeCmd = &cobra.Command{
+	Use:   "set-type",
+	Short: "SetType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMedicalResourceBuilderServiceClient(grpcConn)
+		req := &pb.SetTypeRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesWheelchairPushesRecordCmd = &cobra.Command{
+	Use:   "wheelchair-pushes-record",
+	Short: "WheelchairPushesRecordService operations",
+}
+
+var datatypesWheelchairPushesRecordEqualsCmd = &cobra.Command{
 	Use:   "equals",
 	Short: "Equals RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewCervicalMucusRecordServiceClient(grpcConn)
+		client := pb.NewWheelchairPushesRecordServiceClient(grpcConn)
 		req := &pb.EqualsRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -1755,15 +1010,15 @@ var datatypesCervicalMucusRecordEqualsCmd = &cobra.Command{
 	},
 }
 
-var datatypesCervicalMucusRecordGetAppearanceCmd = &cobra.Command{
-	Use:   "get-appearance",
-	Short: "GetAppearance RPC",
+var datatypesWheelchairPushesRecordGetCountCmd = &cobra.Command{
+	Use:   "get-count",
+	Short: "GetCount RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewCervicalMucusRecordServiceClient(grpcConn)
-		req := &pb.GetAppearanceRequest{}
-		resp, err := client.GetAppearance(ctx, req)
+		client := pb.NewWheelchairPushesRecordServiceClient(grpcConn)
+		req := &pb.GetCountRequest{}
+		resp, err := client.GetCount(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1771,29 +1026,13 @@ var datatypesCervicalMucusRecordGetAppearanceCmd = &cobra.Command{
 	},
 }
 
-var datatypesCervicalMucusRecordGetSensationCmd = &cobra.Command{
-	Use:   "get-sensation",
-	Short: "GetSensation RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCervicalMucusRecordServiceClient(grpcConn)
-		req := &pb.GetSensationRequest{}
-		resp, err := client.GetSensation(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesCervicalMucusRecordHashCodeCmd = &cobra.Command{
+var datatypesWheelchairPushesRecordHashCodeCmd = &cobra.Command{
 	Use:   "hash-code",
 	Short: "HashCode RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewCervicalMucusRecordServiceClient(grpcConn)
+		client := pb.NewWheelchairPushesRecordServiceClient(grpcConn)
 		req := &pb.HashCodeRequest{}
 		resp, err := client.HashCode(ctx, req)
 		if err != nil {
@@ -1803,18 +1042,18 @@ var datatypesCervicalMucusRecordHashCodeCmd = &cobra.Command{
 	},
 }
 
-var datatypesCervicalMucusRecordBuilderCmd = &cobra.Command{
-	Use:   "cervical-mucus-record-builder",
-	Short: "CervicalMucusRecordBuilderService operations",
+var datatypesWheelchairPushesRecordBuilderCmd = &cobra.Command{
+	Use:   "wheelchair-pushes-record-builder",
+	Short: "WheelchairPushesRecordBuilderService operations",
 }
 
-var datatypesCervicalMucusRecordBuilderBuildCmd = &cobra.Command{
+var datatypesWheelchairPushesRecordBuilderBuildCmd = &cobra.Command{
 	Use:   "build",
 	Short: "Build RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewCervicalMucusRecordBuilderServiceClient(grpcConn)
+		client := pb.NewWheelchairPushesRecordBuilderServiceClient(grpcConn)
 		req := &pb.BuildRequest{}
 		resp, err := client.Build(ctx, req)
 		if err != nil {
@@ -1824,15 +1063,15 @@ var datatypesCervicalMucusRecordBuilderBuildCmd = &cobra.Command{
 	},
 }
 
-var datatypesCervicalMucusRecordBuilderClearZoneOffsetCmd = &cobra.Command{
-	Use:   "clear-zone-offset",
-	Short: "ClearZoneOffset RPC",
+var datatypesWheelchairPushesRecordBuilderClearEndZoneOffsetCmd = &cobra.Command{
+	Use:   "clear-end-zone-offset",
+	Short: "ClearEndZoneOffset RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewCervicalMucusRecordBuilderServiceClient(grpcConn)
-		req := &pb.ClearZoneOffsetRequest{}
-		resp, err := client.ClearZoneOffset(ctx, req)
+		client := pb.NewWheelchairPushesRecordBuilderServiceClient(grpcConn)
+		req := &pb.ClearEndZoneOffsetRequest{}
+		resp, err := client.ClearEndZoneOffset(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1840,18 +1079,355 @@ var datatypesCervicalMucusRecordBuilderClearZoneOffsetCmd = &cobra.Command{
 	},
 }
 
-var datatypesCervicalMucusRecordBuilderSetZoneOffsetCmd = &cobra.Command{
-	Use:   "set-zone-offset",
-	Short: "SetZoneOffset RPC",
+var datatypesWheelchairPushesRecordBuilderClearStartZoneOffsetCmd = &cobra.Command{
+	Use:   "clear-start-zone-offset",
+	Short: "ClearStartZoneOffset RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewCervicalMucusRecordBuilderServiceClient(grpcConn)
-		req := &pb.SetZoneOffsetRequest{}
+		client := pb.NewWheelchairPushesRecordBuilderServiceClient(grpcConn)
+		req := &pb.ClearStartZoneOffsetRequest{}
+		resp, err := client.ClearStartZoneOffset(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesWheelchairPushesRecordBuilderSetEndZoneOffsetCmd = &cobra.Command{
+	Use:   "set-end-zone-offset",
+	Short: "SetEndZoneOffset RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWheelchairPushesRecordBuilderServiceClient(grpcConn)
+		req := &pb.SetEndZoneOffsetRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		resp, err := client.SetZoneOffset(ctx, req)
+		resp, err := client.SetEndZoneOffset(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesWheelchairPushesRecordBuilderSetStartZoneOffsetCmd = &cobra.Command{
+	Use:   "set-start-zone-offset",
+	Short: "SetStartZoneOffset RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWheelchairPushesRecordBuilderServiceClient(grpcConn)
+		req := &pb.SetStartZoneOffsetRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetStartZoneOffset(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesExerciseRouteCmd = &cobra.Command{
+	Use:   "exercise-route",
+	Short: "ExerciseRouteService operations",
+}
+
+var datatypesExerciseRouteNewExerciseRouteCmd = &cobra.Command{
+	Use:   "new-exercise-route",
+	Short: "NewExerciseRoute RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewExerciseRouteServiceClient(grpcConn)
+		req := &pb.NewExerciseRouteRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.NewExerciseRoute(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesExerciseRouteDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewExerciseRouteServiceClient(grpcConn)
+		req := &pb.ExerciseRouteDescribeContentsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesExerciseRouteEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewExerciseRouteServiceClient(grpcConn)
+		req := &pb.ExerciseRouteEqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesExerciseRouteGetRouteLocationsCmd = &cobra.Command{
+	Use:   "get-route-locations",
+	Short: "GetRouteLocations RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewExerciseRouteServiceClient(grpcConn)
+		req := &pb.GetRouteLocationsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetRouteLocations(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesExerciseRouteHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewExerciseRouteServiceClient(grpcConn)
+		req := &pb.ExerciseRouteHashCodeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesExerciseRouteWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewExerciseRouteServiceClient(grpcConn)
+		req := &pb.ExerciseRouteWriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesExerciseRouteLocationCmd = &cobra.Command{
+	Use:   "exercise-route-location",
+	Short: "ExerciseRouteLocationService operations",
+}
+
+var datatypesExerciseRouteLocationDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewExerciseRouteLocationServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesExerciseRouteLocationEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewExerciseRouteLocationServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesExerciseRouteLocationGetAltitudeCmd = &cobra.Command{
+	Use:   "get-altitude",
+	Short: "GetAltitude RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewExerciseRouteLocationServiceClient(grpcConn)
+		req := &pb.GetAltitudeRequest{}
+		resp, err := client.GetAltitude(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesExerciseRouteLocationGetHorizontalAccuracyCmd = &cobra.Command{
+	Use:   "get-horizontal-accuracy",
+	Short: "GetHorizontalAccuracy RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewExerciseRouteLocationServiceClient(grpcConn)
+		req := &pb.GetHorizontalAccuracyRequest{}
+		resp, err := client.GetHorizontalAccuracy(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesExerciseRouteLocationGetLatitudeCmd = &cobra.Command{
+	Use:   "get-latitude",
+	Short: "GetLatitude RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewExerciseRouteLocationServiceClient(grpcConn)
+		req := &pb.GetLatitudeRequest{}
+		resp, err := client.GetLatitude(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesExerciseRouteLocationGetLongitudeCmd = &cobra.Command{
+	Use:   "get-longitude",
+	Short: "GetLongitude RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewExerciseRouteLocationServiceClient(grpcConn)
+		req := &pb.GetLongitudeRequest{}
+		resp, err := client.GetLongitude(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesExerciseRouteLocationGetTimeCmd = &cobra.Command{
+	Use:   "get-time",
+	Short: "GetTime RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewExerciseRouteLocationServiceClient(grpcConn)
+		req := &pb.GetTimeRequest{}
+		resp, err := client.GetTime(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesExerciseRouteLocationGetVerticalAccuracyCmd = &cobra.Command{
+	Use:   "get-vertical-accuracy",
+	Short: "GetVerticalAccuracy RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewExerciseRouteLocationServiceClient(grpcConn)
+		req := &pb.GetVerticalAccuracyRequest{}
+		resp, err := client.GetVerticalAccuracy(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesExerciseRouteLocationHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewExerciseRouteLocationServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesExerciseRouteLocationWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewExerciseRouteLocationServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1964,6 +1540,868 @@ var datatypesMenstruationFlowRecordBuilderSetZoneOffsetCmd = &cobra.Command{
 			req.Arg0 = v
 		}
 		resp, err := client.SetZoneOffset(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesDistanceRecordCmd = &cobra.Command{
+	Use:   "distance-record",
+	Short: "DistanceRecordService operations",
+}
+
+var datatypesDistanceRecordEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDistanceRecordServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesDistanceRecordGetDistanceCmd = &cobra.Command{
+	Use:   "get-distance",
+	Short: "GetDistance RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDistanceRecordServiceClient(grpcConn)
+		req := &pb.GetDistanceRequest{}
+		resp, err := client.GetDistance(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesDistanceRecordHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDistanceRecordServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesDistanceRecordBuilderCmd = &cobra.Command{
+	Use:   "distance-record-builder",
+	Short: "DistanceRecordBuilderService operations",
+}
+
+var datatypesDistanceRecordBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDistanceRecordBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesDistanceRecordBuilderClearEndZoneOffsetCmd = &cobra.Command{
+	Use:   "clear-end-zone-offset",
+	Short: "ClearEndZoneOffset RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDistanceRecordBuilderServiceClient(grpcConn)
+		req := &pb.ClearEndZoneOffsetRequest{}
+		resp, err := client.ClearEndZoneOffset(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesDistanceRecordBuilderClearStartZoneOffsetCmd = &cobra.Command{
+	Use:   "clear-start-zone-offset",
+	Short: "ClearStartZoneOffset RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDistanceRecordBuilderServiceClient(grpcConn)
+		req := &pb.ClearStartZoneOffsetRequest{}
+		resp, err := client.ClearStartZoneOffset(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesDistanceRecordBuilderSetEndZoneOffsetCmd = &cobra.Command{
+	Use:   "set-end-zone-offset",
+	Short: "SetEndZoneOffset RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDistanceRecordBuilderServiceClient(grpcConn)
+		req := &pb.SetEndZoneOffsetRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetEndZoneOffset(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesDistanceRecordBuilderSetStartZoneOffsetCmd = &cobra.Command{
+	Use:   "set-start-zone-offset",
+	Short: "SetStartZoneOffset RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDistanceRecordBuilderServiceClient(grpcConn)
+		req := &pb.SetStartZoneOffsetRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetStartZoneOffset(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesAppInfoCmd = &cobra.Command{
+	Use:   "app-info",
+	Short: "AppInfoService operations",
+}
+
+var datatypesAppInfoGetIconCmd = &cobra.Command{
+	Use:   "get-icon",
+	Short: "GetIcon RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAppInfoServiceClient(grpcConn)
+		req := &pb.GetIconRequest{}
+		resp, err := client.GetIcon(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesAppInfoGetNameCmd = &cobra.Command{
+	Use:   "get-name",
+	Short: "GetName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAppInfoServiceClient(grpcConn)
+		req := &pb.GetNameRequest{}
+		resp, err := client.GetName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesAppInfoGetPackageNameCmd = &cobra.Command{
+	Use:   "get-package-name",
+	Short: "GetPackageName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAppInfoServiceClient(grpcConn)
+		req := &pb.GetPackageNameRequest{}
+		resp, err := client.GetPackageName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesRespiratoryRateRecordCmd = &cobra.Command{
+	Use:   "respiratory-rate-record",
+	Short: "RespiratoryRateRecordService operations",
+}
+
+var datatypesRespiratoryRateRecordEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRespiratoryRateRecordServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesRespiratoryRateRecordGetRateCmd = &cobra.Command{
+	Use:   "get-rate",
+	Short: "GetRate RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRespiratoryRateRecordServiceClient(grpcConn)
+		req := &pb.GetRateRequest{}
+		resp, err := client.GetRate(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesRespiratoryRateRecordHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRespiratoryRateRecordServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesRespiratoryRateRecordBuilderCmd = &cobra.Command{
+	Use:   "respiratory-rate-record-builder",
+	Short: "RespiratoryRateRecordBuilderService operations",
+}
+
+var datatypesRespiratoryRateRecordBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRespiratoryRateRecordBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesRespiratoryRateRecordBuilderClearZoneOffsetCmd = &cobra.Command{
+	Use:   "clear-zone-offset",
+	Short: "ClearZoneOffset RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRespiratoryRateRecordBuilderServiceClient(grpcConn)
+		req := &pb.ClearZoneOffsetRequest{}
+		resp, err := client.ClearZoneOffset(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesRespiratoryRateRecordBuilderSetZoneOffsetCmd = &cobra.Command{
+	Use:   "set-zone-offset",
+	Short: "SetZoneOffset RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRespiratoryRateRecordBuilderServiceClient(grpcConn)
+		req := &pb.SetZoneOffsetRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetZoneOffset(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesCyclingPedalingCadenceRecordCmd = &cobra.Command{
+	Use:   "cycling-pedaling-cadence-record",
+	Short: "CyclingPedalingCadenceRecordService operations",
+}
+
+var datatypesCyclingPedalingCadenceRecordEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCyclingPedalingCadenceRecordServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesCyclingPedalingCadenceRecordGetSamplesCmd = &cobra.Command{
+	Use:   "get-samples",
+	Short: "GetSamples RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCyclingPedalingCadenceRecordServiceClient(grpcConn)
+		req := &pb.GetSamplesRequest{}
+		resp, err := client.GetSamples(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesCyclingPedalingCadenceRecordHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCyclingPedalingCadenceRecordServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesCyclingPedalingCadenceRecordBuilderCmd = &cobra.Command{
+	Use:   "cycling-pedaling-cadence-record-builder",
+	Short: "CyclingPedalingCadenceRecordBuilderService operations",
+}
+
+var datatypesCyclingPedalingCadenceRecordBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCyclingPedalingCadenceRecordBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesCyclingPedalingCadenceRecordBuilderClearEndZoneOffsetCmd = &cobra.Command{
+	Use:   "clear-end-zone-offset",
+	Short: "ClearEndZoneOffset RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCyclingPedalingCadenceRecordBuilderServiceClient(grpcConn)
+		req := &pb.ClearEndZoneOffsetRequest{}
+		resp, err := client.ClearEndZoneOffset(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesCyclingPedalingCadenceRecordBuilderClearStartZoneOffsetCmd = &cobra.Command{
+	Use:   "clear-start-zone-offset",
+	Short: "ClearStartZoneOffset RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCyclingPedalingCadenceRecordBuilderServiceClient(grpcConn)
+		req := &pb.ClearStartZoneOffsetRequest{}
+		resp, err := client.ClearStartZoneOffset(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesCyclingPedalingCadenceRecordBuilderSetEndZoneOffsetCmd = &cobra.Command{
+	Use:   "set-end-zone-offset",
+	Short: "SetEndZoneOffset RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCyclingPedalingCadenceRecordBuilderServiceClient(grpcConn)
+		req := &pb.SetEndZoneOffsetRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetEndZoneOffset(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesCyclingPedalingCadenceRecordBuilderSetStartZoneOffsetCmd = &cobra.Command{
+	Use:   "set-start-zone-offset",
+	Short: "SetStartZoneOffset RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCyclingPedalingCadenceRecordBuilderServiceClient(grpcConn)
+		req := &pb.SetStartZoneOffsetRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetStartZoneOffset(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesCyclingPedalingCadenceRecordCyclingPedalingCadenceRecordSampleCmd = &cobra.Command{
+	Use:   "cycling-pedaling-cadence-record-cycling-pedaling-cadence-record-sample",
+	Short: "CyclingPedalingCadenceRecordCyclingPedalingCadenceRecordSampleService operations",
+}
+
+var datatypesCyclingPedalingCadenceRecordCyclingPedalingCadenceRecordSampleEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCyclingPedalingCadenceRecordCyclingPedalingCadenceRecordSampleServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesCyclingPedalingCadenceRecordCyclingPedalingCadenceRecordSampleGetRevolutionsPerMinuteCmd = &cobra.Command{
+	Use:   "get-revolutions-per-minute",
+	Short: "GetRevolutionsPerMinute RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCyclingPedalingCadenceRecordCyclingPedalingCadenceRecordSampleServiceClient(grpcConn)
+		req := &pb.GetRevolutionsPerMinuteRequest{}
+		resp, err := client.GetRevolutionsPerMinute(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesCyclingPedalingCadenceRecordCyclingPedalingCadenceRecordSampleGetTimeCmd = &cobra.Command{
+	Use:   "get-time",
+	Short: "GetTime RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCyclingPedalingCadenceRecordCyclingPedalingCadenceRecordSampleServiceClient(grpcConn)
+		req := &pb.GetTimeRequest{}
+		resp, err := client.GetTime(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesCyclingPedalingCadenceRecordCyclingPedalingCadenceRecordSampleHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCyclingPedalingCadenceRecordCyclingPedalingCadenceRecordSampleServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesInstantRecordCmd = &cobra.Command{
+	Use:   "instant-record",
+	Short: "InstantRecordService operations",
+}
+
+var datatypesInstantRecordEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInstantRecordServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesInstantRecordGetTimeCmd = &cobra.Command{
+	Use:   "get-time",
+	Short: "GetTime RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInstantRecordServiceClient(grpcConn)
+		req := &pb.GetTimeRequest{}
+		resp, err := client.GetTime(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesInstantRecordGetZoneOffsetCmd = &cobra.Command{
+	Use:   "get-zone-offset",
+	Short: "GetZoneOffset RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInstantRecordServiceClient(grpcConn)
+		req := &pb.GetZoneOffsetRequest{}
+		resp, err := client.GetZoneOffset(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesInstantRecordHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInstantRecordServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesBoneMassRecordCmd = &cobra.Command{
+	Use:   "bone-mass-record",
+	Short: "BoneMassRecordService operations",
+}
+
+var datatypesBoneMassRecordEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBoneMassRecordServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesBoneMassRecordGetMassCmd = &cobra.Command{
+	Use:   "get-mass",
+	Short: "GetMass RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBoneMassRecordServiceClient(grpcConn)
+		req := &pb.GetMassRequest{}
+		resp, err := client.GetMass(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesBoneMassRecordHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBoneMassRecordServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesBoneMassRecordBuilderCmd = &cobra.Command{
+	Use:   "bone-mass-record-builder",
+	Short: "BoneMassRecordBuilderService operations",
+}
+
+var datatypesBoneMassRecordBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBoneMassRecordBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesBoneMassRecordBuilderClearZoneOffsetCmd = &cobra.Command{
+	Use:   "clear-zone-offset",
+	Short: "ClearZoneOffset RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBoneMassRecordBuilderServiceClient(grpcConn)
+		req := &pb.ClearZoneOffsetRequest{}
+		resp, err := client.ClearZoneOffset(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesBoneMassRecordBuilderSetZoneOffsetCmd = &cobra.Command{
+	Use:   "set-zone-offset",
+	Short: "SetZoneOffset RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBoneMassRecordBuilderServiceClient(grpcConn)
+		req := &pb.SetZoneOffsetRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetZoneOffset(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesHydrationRecordCmd = &cobra.Command{
+	Use:   "hydration-record",
+	Short: "HydrationRecordService operations",
+}
+
+var datatypesHydrationRecordEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewHydrationRecordServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesHydrationRecordGetVolumeCmd = &cobra.Command{
+	Use:   "get-volume",
+	Short: "GetVolume RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewHydrationRecordServiceClient(grpcConn)
+		req := &pb.GetVolumeRequest{}
+		resp, err := client.GetVolume(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesHydrationRecordHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewHydrationRecordServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesHydrationRecordBuilderCmd = &cobra.Command{
+	Use:   "hydration-record-builder",
+	Short: "HydrationRecordBuilderService operations",
+}
+
+var datatypesHydrationRecordBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewHydrationRecordBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesHydrationRecordBuilderClearEndZoneOffsetCmd = &cobra.Command{
+	Use:   "clear-end-zone-offset",
+	Short: "ClearEndZoneOffset RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewHydrationRecordBuilderServiceClient(grpcConn)
+		req := &pb.ClearEndZoneOffsetRequest{}
+		resp, err := client.ClearEndZoneOffset(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesHydrationRecordBuilderClearStartZoneOffsetCmd = &cobra.Command{
+	Use:   "clear-start-zone-offset",
+	Short: "ClearStartZoneOffset RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewHydrationRecordBuilderServiceClient(grpcConn)
+		req := &pb.ClearStartZoneOffsetRequest{}
+		resp, err := client.ClearStartZoneOffset(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesHydrationRecordBuilderSetEndZoneOffsetCmd = &cobra.Command{
+	Use:   "set-end-zone-offset",
+	Short: "SetEndZoneOffset RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewHydrationRecordBuilderServiceClient(grpcConn)
+		req := &pb.SetEndZoneOffsetRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetEndZoneOffset(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesHydrationRecordBuilderSetStartZoneOffsetCmd = &cobra.Command{
+	Use:   "set-start-zone-offset",
+	Short: "SetStartZoneOffset RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewHydrationRecordBuilderServiceClient(grpcConn)
+		req := &pb.SetStartZoneOffsetRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetStartZoneOffset(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -2270,5194 +2708,6 @@ var datatypesMetadataBuilderSetRecordingMethodCmd = &cobra.Command{
 			req.Arg0 = v
 		}
 		resp, err := client.SetRecordingMethod(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesPowerRecordCmd = &cobra.Command{
-	Use:   "power-record",
-	Short: "PowerRecordService operations",
-}
-
-var datatypesPowerRecordEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPowerRecordServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesPowerRecordHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPowerRecordServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesPowerRecordBuilderCmd = &cobra.Command{
-	Use:   "power-record-builder",
-	Short: "PowerRecordBuilderService operations",
-}
-
-var datatypesPowerRecordBuilderBuildCmd = &cobra.Command{
-	Use:   "build",
-	Short: "Build RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPowerRecordBuilderServiceClient(grpcConn)
-		req := &pb.BuildRequest{}
-		resp, err := client.Build(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesPowerRecordBuilderClearEndZoneOffsetCmd = &cobra.Command{
-	Use:   "clear-end-zone-offset",
-	Short: "ClearEndZoneOffset RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPowerRecordBuilderServiceClient(grpcConn)
-		req := &pb.ClearEndZoneOffsetRequest{}
-		resp, err := client.ClearEndZoneOffset(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesPowerRecordBuilderClearStartZoneOffsetCmd = &cobra.Command{
-	Use:   "clear-start-zone-offset",
-	Short: "ClearStartZoneOffset RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPowerRecordBuilderServiceClient(grpcConn)
-		req := &pb.ClearStartZoneOffsetRequest{}
-		resp, err := client.ClearStartZoneOffset(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesPowerRecordBuilderSetEndZoneOffsetCmd = &cobra.Command{
-	Use:   "set-end-zone-offset",
-	Short: "SetEndZoneOffset RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPowerRecordBuilderServiceClient(grpcConn)
-		req := &pb.SetEndZoneOffsetRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetEndZoneOffset(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesPowerRecordBuilderSetStartZoneOffsetCmd = &cobra.Command{
-	Use:   "set-start-zone-offset",
-	Short: "SetStartZoneOffset RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPowerRecordBuilderServiceClient(grpcConn)
-		req := &pb.SetStartZoneOffsetRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetStartZoneOffset(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesPowerRecordPowerRecordSampleCmd = &cobra.Command{
-	Use:   "power-record-power-record-sample",
-	Short: "PowerRecordPowerRecordSampleService operations",
-}
-
-var datatypesPowerRecordPowerRecordSampleEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPowerRecordPowerRecordSampleServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesPowerRecordPowerRecordSampleGetPowerCmd = &cobra.Command{
-	Use:   "get-power",
-	Short: "GetPower RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPowerRecordPowerRecordSampleServiceClient(grpcConn)
-		req := &pb.GetPowerRequest{}
-		resp, err := client.GetPower(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesPowerRecordPowerRecordSampleGetTimeCmd = &cobra.Command{
-	Use:   "get-time",
-	Short: "GetTime RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPowerRecordPowerRecordSampleServiceClient(grpcConn)
-		req := &pb.GetTimeRequest{}
-		resp, err := client.GetTime(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesPowerRecordPowerRecordSampleHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPowerRecordPowerRecordSampleServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesExerciseRouteCmd = &cobra.Command{
-	Use:   "exercise-route",
-	Short: "ExerciseRouteService operations",
-}
-
-var datatypesExerciseRouteNewExerciseRouteCmd = &cobra.Command{
-	Use:   "new-exercise-route",
-	Short: "NewExerciseRoute RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewExerciseRouteServiceClient(grpcConn)
-		req := &pb.NewExerciseRouteRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.NewExerciseRoute(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesExerciseRouteDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewExerciseRouteServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesExerciseRouteEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewExerciseRouteServiceClient(grpcConn)
-		req := &pb.ExerciseRouteEqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesExerciseRouteHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewExerciseRouteServiceClient(grpcConn)
-		req := &pb.ExerciseRouteHashCodeRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesExerciseRouteWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewExerciseRouteServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesExerciseRouteLocationCmd = &cobra.Command{
-	Use:   "exercise-route-location",
-	Short: "ExerciseRouteLocationService operations",
-}
-
-var datatypesExerciseRouteLocationDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewExerciseRouteLocationServiceClient(grpcConn)
-		req := &pb.ExerciseRouteLocationDescribeContentsRequest{}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesExerciseRouteLocationEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewExerciseRouteLocationServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesExerciseRouteLocationGetAltitudeCmd = &cobra.Command{
-	Use:   "get-altitude",
-	Short: "GetAltitude RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewExerciseRouteLocationServiceClient(grpcConn)
-		req := &pb.GetAltitudeRequest{}
-		resp, err := client.GetAltitude(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesExerciseRouteLocationGetHorizontalAccuracyCmd = &cobra.Command{
-	Use:   "get-horizontal-accuracy",
-	Short: "GetHorizontalAccuracy RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewExerciseRouteLocationServiceClient(grpcConn)
-		req := &pb.GetHorizontalAccuracyRequest{}
-		resp, err := client.GetHorizontalAccuracy(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesExerciseRouteLocationGetLatitudeCmd = &cobra.Command{
-	Use:   "get-latitude",
-	Short: "GetLatitude RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewExerciseRouteLocationServiceClient(grpcConn)
-		req := &pb.GetLatitudeRequest{}
-		resp, err := client.GetLatitude(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesExerciseRouteLocationGetLongitudeCmd = &cobra.Command{
-	Use:   "get-longitude",
-	Short: "GetLongitude RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewExerciseRouteLocationServiceClient(grpcConn)
-		req := &pb.GetLongitudeRequest{}
-		resp, err := client.GetLongitude(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesExerciseRouteLocationGetTimeCmd = &cobra.Command{
-	Use:   "get-time",
-	Short: "GetTime RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewExerciseRouteLocationServiceClient(grpcConn)
-		req := &pb.GetTimeRequest{}
-		resp, err := client.GetTime(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesExerciseRouteLocationGetVerticalAccuracyCmd = &cobra.Command{
-	Use:   "get-vertical-accuracy",
-	Short: "GetVerticalAccuracy RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewExerciseRouteLocationServiceClient(grpcConn)
-		req := &pb.GetVerticalAccuracyRequest{}
-		resp, err := client.GetVerticalAccuracy(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesExerciseRouteLocationHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewExerciseRouteLocationServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesExerciseRouteLocationWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewExerciseRouteLocationServiceClient(grpcConn)
-		req := &pb.ExerciseRouteLocationWriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesPlannedExerciseSessionRecordCmd = &cobra.Command{
-	Use:   "planned-exercise-session-record",
-	Short: "PlannedExerciseSessionRecordService operations",
-}
-
-var datatypesPlannedExerciseSessionRecordEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPlannedExerciseSessionRecordServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesPlannedExerciseSessionRecordGetCompletedExerciseSessionIdCmd = &cobra.Command{
-	Use:   "get-completed-exercise-session-id",
-	Short: "GetCompletedExerciseSessionId RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPlannedExerciseSessionRecordServiceClient(grpcConn)
-		req := &pb.GetCompletedExerciseSessionIdRequest{}
-		resp, err := client.GetCompletedExerciseSessionId(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesPlannedExerciseSessionRecordGetDurationCmd = &cobra.Command{
-	Use:   "get-duration",
-	Short: "GetDuration RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPlannedExerciseSessionRecordServiceClient(grpcConn)
-		req := &pb.GetDurationRequest{}
-		resp, err := client.GetDuration(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesPlannedExerciseSessionRecordGetExerciseTypeCmd = &cobra.Command{
-	Use:   "get-exercise-type",
-	Short: "GetExerciseType RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPlannedExerciseSessionRecordServiceClient(grpcConn)
-		req := &pb.GetExerciseTypeRequest{}
-		resp, err := client.GetExerciseType(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesPlannedExerciseSessionRecordGetNotesCmd = &cobra.Command{
-	Use:   "get-notes",
-	Short: "GetNotes RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPlannedExerciseSessionRecordServiceClient(grpcConn)
-		req := &pb.GetNotesRequest{}
-		resp, err := client.GetNotes(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesPlannedExerciseSessionRecordGetStartDateCmd = &cobra.Command{
-	Use:   "get-start-date",
-	Short: "GetStartDate RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPlannedExerciseSessionRecordServiceClient(grpcConn)
-		req := &pb.GetStartDateRequest{}
-		resp, err := client.GetStartDate(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesPlannedExerciseSessionRecordGetTitleCmd = &cobra.Command{
-	Use:   "get-title",
-	Short: "GetTitle RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPlannedExerciseSessionRecordServiceClient(grpcConn)
-		req := &pb.GetTitleRequest{}
-		resp, err := client.GetTitle(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesPlannedExerciseSessionRecordHasExplicitTimeCmd = &cobra.Command{
-	Use:   "has-explicit-time",
-	Short: "HasExplicitTime RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPlannedExerciseSessionRecordServiceClient(grpcConn)
-		req := &pb.HasExplicitTimeRequest{}
-		resp, err := client.HasExplicitTime(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesPlannedExerciseSessionRecordHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPlannedExerciseSessionRecordServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesPlannedExerciseSessionRecordBuilderCmd = &cobra.Command{
-	Use:   "planned-exercise-session-record-builder",
-	Short: "PlannedExerciseSessionRecordBuilderService operations",
-}
-
-var datatypesPlannedExerciseSessionRecordBuilderAddBlockCmd = &cobra.Command{
-	Use:   "add-block",
-	Short: "AddBlock RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPlannedExerciseSessionRecordBuilderServiceClient(grpcConn)
-		req := &pb.AddBlockRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.AddBlock(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesPlannedExerciseSessionRecordBuilderBuildCmd = &cobra.Command{
-	Use:   "build",
-	Short: "Build RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPlannedExerciseSessionRecordBuilderServiceClient(grpcConn)
-		req := &pb.BuildRequest{}
-		resp, err := client.Build(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesPlannedExerciseSessionRecordBuilderClearBlocksCmd = &cobra.Command{
-	Use:   "clear-blocks",
-	Short: "ClearBlocks RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPlannedExerciseSessionRecordBuilderServiceClient(grpcConn)
-		req := &pb.ClearBlocksRequest{}
-		resp, err := client.ClearBlocks(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesPlannedExerciseSessionRecordBuilderClearEndZoneOffsetCmd = &cobra.Command{
-	Use:   "clear-end-zone-offset",
-	Short: "ClearEndZoneOffset RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPlannedExerciseSessionRecordBuilderServiceClient(grpcConn)
-		req := &pb.ClearEndZoneOffsetRequest{}
-		resp, err := client.ClearEndZoneOffset(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesPlannedExerciseSessionRecordBuilderClearStartZoneOffsetCmd = &cobra.Command{
-	Use:   "clear-start-zone-offset",
-	Short: "ClearStartZoneOffset RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPlannedExerciseSessionRecordBuilderServiceClient(grpcConn)
-		req := &pb.ClearStartZoneOffsetRequest{}
-		resp, err := client.ClearStartZoneOffset(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesPlannedExerciseSessionRecordBuilderSetEndTimeCmd = &cobra.Command{
-	Use:   "set-end-time",
-	Short: "SetEndTime RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPlannedExerciseSessionRecordBuilderServiceClient(grpcConn)
-		req := &pb.SetEndTimeRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetEndTime(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesPlannedExerciseSessionRecordBuilderSetEndZoneOffsetCmd = &cobra.Command{
-	Use:   "set-end-zone-offset",
-	Short: "SetEndZoneOffset RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPlannedExerciseSessionRecordBuilderServiceClient(grpcConn)
-		req := &pb.SetEndZoneOffsetRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetEndZoneOffset(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesPlannedExerciseSessionRecordBuilderSetExerciseTypeCmd = &cobra.Command{
-	Use:   "set-exercise-type",
-	Short: "SetExerciseType RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPlannedExerciseSessionRecordBuilderServiceClient(grpcConn)
-		req := &pb.SetExerciseTypeRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetExerciseType(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesPlannedExerciseSessionRecordBuilderSetMetadataCmd = &cobra.Command{
-	Use:   "set-metadata",
-	Short: "SetMetadata RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPlannedExerciseSessionRecordBuilderServiceClient(grpcConn)
-		req := &pb.SetMetadataRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetMetadata(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesPlannedExerciseSessionRecordBuilderSetNotesCmd = &cobra.Command{
-	Use:   "set-notes",
-	Short: "SetNotes RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPlannedExerciseSessionRecordBuilderServiceClient(grpcConn)
-		req := &pb.SetNotesRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetNotes(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesPlannedExerciseSessionRecordBuilderSetStartTimeCmd = &cobra.Command{
-	Use:   "set-start-time",
-	Short: "SetStartTime RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPlannedExerciseSessionRecordBuilderServiceClient(grpcConn)
-		req := &pb.SetStartTimeRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetStartTime(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesPlannedExerciseSessionRecordBuilderSetStartZoneOffsetCmd = &cobra.Command{
-	Use:   "set-start-zone-offset",
-	Short: "SetStartZoneOffset RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPlannedExerciseSessionRecordBuilderServiceClient(grpcConn)
-		req := &pb.SetStartZoneOffsetRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetStartZoneOffset(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesPlannedExerciseSessionRecordBuilderSetTitleCmd = &cobra.Command{
-	Use:   "set-title",
-	Short: "SetTitle RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPlannedExerciseSessionRecordBuilderServiceClient(grpcConn)
-		req := &pb.SetTitleRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetTitle(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesMedicalResourceCmd = &cobra.Command{
-	Use:   "medical-resource",
-	Short: "MedicalResourceService operations",
-}
-
-var datatypesMedicalResourceDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMedicalResourceServiceClient(grpcConn)
-		req := &pb.MedicalResourceDescribeContentsRequest{}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesMedicalResourceEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMedicalResourceServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesMedicalResourceGetDataSourceIdCmd = &cobra.Command{
-	Use:   "get-data-source-id",
-	Short: "GetDataSourceId RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMedicalResourceServiceClient(grpcConn)
-		req := &pb.GetDataSourceIdRequest{}
-		resp, err := client.GetDataSourceId(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesMedicalResourceGetFhirResourceCmd = &cobra.Command{
-	Use:   "get-fhir-resource",
-	Short: "GetFhirResource RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMedicalResourceServiceClient(grpcConn)
-		req := &pb.GetFhirResourceRequest{}
-		resp, err := client.GetFhirResource(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesMedicalResourceGetFhirVersionCmd = &cobra.Command{
-	Use:   "get-fhir-version",
-	Short: "GetFhirVersion RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMedicalResourceServiceClient(grpcConn)
-		req := &pb.GetFhirVersionRequest{}
-		resp, err := client.GetFhirVersion(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesMedicalResourceGetIdCmd = &cobra.Command{
-	Use:   "get-id",
-	Short: "GetId RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMedicalResourceServiceClient(grpcConn)
-		req := &pb.GetIdRequest{}
-		resp, err := client.GetId(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesMedicalResourceGetTypeCmd = &cobra.Command{
-	Use:   "get-type",
-	Short: "GetType RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMedicalResourceServiceClient(grpcConn)
-		req := &pb.GetTypeRequest{}
-		resp, err := client.GetType(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesMedicalResourceHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMedicalResourceServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesMedicalResourceToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMedicalResourceServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesMedicalResourceWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMedicalResourceServiceClient(grpcConn)
-		req := &pb.MedicalResourceWriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesMedicalResourceBuilderCmd = &cobra.Command{
-	Use:   "medical-resource-builder",
-	Short: "MedicalResourceBuilderService operations",
-}
-
-var datatypesMedicalResourceBuilderBuildCmd = &cobra.Command{
-	Use:   "build",
-	Short: "Build RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMedicalResourceBuilderServiceClient(grpcConn)
-		req := &pb.BuildRequest{}
-		resp, err := client.Build(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesMedicalResourceBuilderSetDataSourceIdCmd = &cobra.Command{
-	Use:   "set-data-source-id",
-	Short: "SetDataSourceId RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMedicalResourceBuilderServiceClient(grpcConn)
-		req := &pb.SetDataSourceIdRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetDataSourceId(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesMedicalResourceBuilderSetFhirResourceCmd = &cobra.Command{
-	Use:   "set-fhir-resource",
-	Short: "SetFhirResource RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMedicalResourceBuilderServiceClient(grpcConn)
-		req := &pb.SetFhirResourceRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetFhirResource(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesMedicalResourceBuilderSetFhirVersionCmd = &cobra.Command{
-	Use:   "set-fhir-version",
-	Short: "SetFhirVersion RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMedicalResourceBuilderServiceClient(grpcConn)
-		req := &pb.SetFhirVersionRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetFhirVersion(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesMedicalResourceBuilderSetTypeCmd = &cobra.Command{
-	Use:   "set-type",
-	Short: "SetType RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMedicalResourceBuilderServiceClient(grpcConn)
-		req := &pb.SetTypeRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetType(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesMedicalDataSourceCmd = &cobra.Command{
-	Use:   "medical-data-source",
-	Short: "MedicalDataSourceService operations",
-}
-
-var datatypesMedicalDataSourceDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMedicalDataSourceServiceClient(grpcConn)
-		req := &pb.MedicalDataSourceDescribeContentsRequest{}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesMedicalDataSourceEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMedicalDataSourceServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesMedicalDataSourceGetDisplayNameCmd = &cobra.Command{
-	Use:   "get-display-name",
-	Short: "GetDisplayName RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMedicalDataSourceServiceClient(grpcConn)
-		req := &pb.GetDisplayNameRequest{}
-		resp, err := client.GetDisplayName(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesMedicalDataSourceGetFhirBaseUriCmd = &cobra.Command{
-	Use:   "get-fhir-base-uri",
-	Short: "GetFhirBaseUri RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMedicalDataSourceServiceClient(grpcConn)
-		req := &pb.GetFhirBaseUriRequest{}
-		resp, err := client.GetFhirBaseUri(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesMedicalDataSourceGetFhirVersionCmd = &cobra.Command{
-	Use:   "get-fhir-version",
-	Short: "GetFhirVersion RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMedicalDataSourceServiceClient(grpcConn)
-		req := &pb.GetFhirVersionRequest{}
-		resp, err := client.GetFhirVersion(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesMedicalDataSourceGetIdCmd = &cobra.Command{
-	Use:   "get-id",
-	Short: "GetId RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMedicalDataSourceServiceClient(grpcConn)
-		req := &pb.GetIdRequest{}
-		resp, err := client.GetId(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesMedicalDataSourceGetLastDataUpdateTimeCmd = &cobra.Command{
-	Use:   "get-last-data-update-time",
-	Short: "GetLastDataUpdateTime RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMedicalDataSourceServiceClient(grpcConn)
-		req := &pb.GetLastDataUpdateTimeRequest{}
-		resp, err := client.GetLastDataUpdateTime(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesMedicalDataSourceGetPackageNameCmd = &cobra.Command{
-	Use:   "get-package-name",
-	Short: "GetPackageName RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMedicalDataSourceServiceClient(grpcConn)
-		req := &pb.GetPackageNameRequest{}
-		resp, err := client.GetPackageName(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesMedicalDataSourceHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMedicalDataSourceServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesMedicalDataSourceToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMedicalDataSourceServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesMedicalDataSourceWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMedicalDataSourceServiceClient(grpcConn)
-		req := &pb.MedicalDataSourceWriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesMedicalDataSourceBuilderCmd = &cobra.Command{
-	Use:   "medical-data-source-builder",
-	Short: "MedicalDataSourceBuilderService operations",
-}
-
-var datatypesMedicalDataSourceBuilderBuildCmd = &cobra.Command{
-	Use:   "build",
-	Short: "Build RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMedicalDataSourceBuilderServiceClient(grpcConn)
-		req := &pb.BuildRequest{}
-		resp, err := client.Build(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesMedicalDataSourceBuilderSetDisplayNameCmd = &cobra.Command{
-	Use:   "set-display-name",
-	Short: "SetDisplayName RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMedicalDataSourceBuilderServiceClient(grpcConn)
-		req := &pb.SetDisplayNameRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetDisplayName(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesMedicalDataSourceBuilderSetFhirBaseUriCmd = &cobra.Command{
-	Use:   "set-fhir-base-uri",
-	Short: "SetFhirBaseUri RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMedicalDataSourceBuilderServiceClient(grpcConn)
-		req := &pb.SetFhirBaseUriRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetFhirBaseUri(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesMedicalDataSourceBuilderSetFhirVersionCmd = &cobra.Command{
-	Use:   "set-fhir-version",
-	Short: "SetFhirVersion RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMedicalDataSourceBuilderServiceClient(grpcConn)
-		req := &pb.SetFhirVersionRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetFhirVersion(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesMedicalDataSourceBuilderSetIdCmd = &cobra.Command{
-	Use:   "set-id",
-	Short: "SetId RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMedicalDataSourceBuilderServiceClient(grpcConn)
-		req := &pb.SetIdRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetId(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesMedicalDataSourceBuilderSetLastDataUpdateTimeCmd = &cobra.Command{
-	Use:   "set-last-data-update-time",
-	Short: "SetLastDataUpdateTime RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMedicalDataSourceBuilderServiceClient(grpcConn)
-		req := &pb.SetLastDataUpdateTimeRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetLastDataUpdateTime(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesMedicalDataSourceBuilderSetPackageNameCmd = &cobra.Command{
-	Use:   "set-package-name",
-	Short: "SetPackageName RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMedicalDataSourceBuilderServiceClient(grpcConn)
-		req := &pb.SetPackageNameRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetPackageName(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesPlannedExerciseStepCmd = &cobra.Command{
-	Use:   "planned-exercise-step",
-	Short: "PlannedExerciseStepService operations",
-}
-
-var datatypesPlannedExerciseStepEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPlannedExerciseStepServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesPlannedExerciseStepGetCompletionGoalCmd = &cobra.Command{
-	Use:   "get-completion-goal",
-	Short: "GetCompletionGoal RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPlannedExerciseStepServiceClient(grpcConn)
-		req := &pb.GetCompletionGoalRequest{}
-		resp, err := client.GetCompletionGoal(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesPlannedExerciseStepGetDescriptionCmd = &cobra.Command{
-	Use:   "get-description",
-	Short: "GetDescription RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPlannedExerciseStepServiceClient(grpcConn)
-		req := &pb.GetDescriptionRequest{}
-		resp, err := client.GetDescription(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesPlannedExerciseStepGetExerciseCategoryCmd = &cobra.Command{
-	Use:   "get-exercise-category",
-	Short: "GetExerciseCategory RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPlannedExerciseStepServiceClient(grpcConn)
-		req := &pb.GetExerciseCategoryRequest{}
-		resp, err := client.GetExerciseCategory(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesPlannedExerciseStepGetExerciseTypeCmd = &cobra.Command{
-	Use:   "get-exercise-type",
-	Short: "GetExerciseType RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPlannedExerciseStepServiceClient(grpcConn)
-		req := &pb.GetExerciseTypeRequest{}
-		resp, err := client.GetExerciseType(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesPlannedExerciseStepHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPlannedExerciseStepServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesPlannedExerciseStepBuilderCmd = &cobra.Command{
-	Use:   "planned-exercise-step-builder",
-	Short: "PlannedExerciseStepBuilderService operations",
-}
-
-var datatypesPlannedExerciseStepBuilderAddPerformanceGoalCmd = &cobra.Command{
-	Use:   "add-performance-goal",
-	Short: "AddPerformanceGoal RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPlannedExerciseStepBuilderServiceClient(grpcConn)
-		req := &pb.AddPerformanceGoalRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.AddPerformanceGoal(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesPlannedExerciseStepBuilderBuildCmd = &cobra.Command{
-	Use:   "build",
-	Short: "Build RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPlannedExerciseStepBuilderServiceClient(grpcConn)
-		req := &pb.BuildRequest{}
-		resp, err := client.Build(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesPlannedExerciseStepBuilderClearPerformanceGoalsCmd = &cobra.Command{
-	Use:   "clear-performance-goals",
-	Short: "ClearPerformanceGoals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPlannedExerciseStepBuilderServiceClient(grpcConn)
-		req := &pb.ClearPerformanceGoalsRequest{}
-		resp, err := client.ClearPerformanceGoals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesPlannedExerciseStepBuilderSetCompletionGoalCmd = &cobra.Command{
-	Use:   "set-completion-goal",
-	Short: "SetCompletionGoal RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPlannedExerciseStepBuilderServiceClient(grpcConn)
-		req := &pb.SetCompletionGoalRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetCompletionGoal(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesPlannedExerciseStepBuilderSetDescriptionCmd = &cobra.Command{
-	Use:   "set-description",
-	Short: "SetDescription RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPlannedExerciseStepBuilderServiceClient(grpcConn)
-		req := &pb.SetDescriptionRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetDescription(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesPlannedExerciseStepBuilderSetExerciseCategoryCmd = &cobra.Command{
-	Use:   "set-exercise-category",
-	Short: "SetExerciseCategory RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPlannedExerciseStepBuilderServiceClient(grpcConn)
-		req := &pb.SetExerciseCategoryRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetExerciseCategory(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesPlannedExerciseStepBuilderSetExerciseTypeCmd = &cobra.Command{
-	Use:   "set-exercise-type",
-	Short: "SetExerciseType RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPlannedExerciseStepBuilderServiceClient(grpcConn)
-		req := &pb.SetExerciseTypeRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetExerciseType(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesMenstruationPeriodRecordCmd = &cobra.Command{
-	Use:   "menstruation-period-record",
-	Short: "MenstruationPeriodRecordService operations",
-}
-
-var datatypesMenstruationPeriodRecordEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMenstruationPeriodRecordServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesMenstruationPeriodRecordHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMenstruationPeriodRecordServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesMenstruationPeriodRecordBuilderCmd = &cobra.Command{
-	Use:   "menstruation-period-record-builder",
-	Short: "MenstruationPeriodRecordBuilderService operations",
-}
-
-var datatypesMenstruationPeriodRecordBuilderBuildCmd = &cobra.Command{
-	Use:   "build",
-	Short: "Build RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMenstruationPeriodRecordBuilderServiceClient(grpcConn)
-		req := &pb.BuildRequest{}
-		resp, err := client.Build(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesMenstruationPeriodRecordBuilderClearEndZoneOffsetCmd = &cobra.Command{
-	Use:   "clear-end-zone-offset",
-	Short: "ClearEndZoneOffset RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMenstruationPeriodRecordBuilderServiceClient(grpcConn)
-		req := &pb.ClearEndZoneOffsetRequest{}
-		resp, err := client.ClearEndZoneOffset(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesMenstruationPeriodRecordBuilderClearStartZoneOffsetCmd = &cobra.Command{
-	Use:   "clear-start-zone-offset",
-	Short: "ClearStartZoneOffset RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMenstruationPeriodRecordBuilderServiceClient(grpcConn)
-		req := &pb.ClearStartZoneOffsetRequest{}
-		resp, err := client.ClearStartZoneOffset(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesMenstruationPeriodRecordBuilderSetEndZoneOffsetCmd = &cobra.Command{
-	Use:   "set-end-zone-offset",
-	Short: "SetEndZoneOffset RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMenstruationPeriodRecordBuilderServiceClient(grpcConn)
-		req := &pb.SetEndZoneOffsetRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetEndZoneOffset(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesMenstruationPeriodRecordBuilderSetStartZoneOffsetCmd = &cobra.Command{
-	Use:   "set-start-zone-offset",
-	Short: "SetStartZoneOffset RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMenstruationPeriodRecordBuilderServiceClient(grpcConn)
-		req := &pb.SetStartZoneOffsetRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetStartZoneOffset(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesActivityIntensityRecordCmd = &cobra.Command{
-	Use:   "activity-intensity-record",
-	Short: "ActivityIntensityRecordService operations",
-}
-
-var datatypesActivityIntensityRecordEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewActivityIntensityRecordServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesActivityIntensityRecordGetActivityIntensityTypeCmd = &cobra.Command{
-	Use:   "get-activity-intensity-type",
-	Short: "GetActivityIntensityType RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewActivityIntensityRecordServiceClient(grpcConn)
-		req := &pb.GetActivityIntensityTypeRequest{}
-		resp, err := client.GetActivityIntensityType(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesActivityIntensityRecordHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewActivityIntensityRecordServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesActivityIntensityRecordBuilderCmd = &cobra.Command{
-	Use:   "activity-intensity-record-builder",
-	Short: "ActivityIntensityRecordBuilderService operations",
-}
-
-var datatypesActivityIntensityRecordBuilderBuildCmd = &cobra.Command{
-	Use:   "build",
-	Short: "Build RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewActivityIntensityRecordBuilderServiceClient(grpcConn)
-		req := &pb.BuildRequest{}
-		resp, err := client.Build(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesActivityIntensityRecordBuilderSetEndZoneOffsetCmd = &cobra.Command{
-	Use:   "set-end-zone-offset",
-	Short: "SetEndZoneOffset RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewActivityIntensityRecordBuilderServiceClient(grpcConn)
-		req := &pb.SetEndZoneOffsetRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetEndZoneOffset(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesActivityIntensityRecordBuilderSetStartZoneOffsetCmd = &cobra.Command{
-	Use:   "set-start-zone-offset",
-	Short: "SetStartZoneOffset RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewActivityIntensityRecordBuilderServiceClient(grpcConn)
-		req := &pb.SetStartZoneOffsetRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetStartZoneOffset(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesExerciseLapCmd = &cobra.Command{
-	Use:   "exercise-lap",
-	Short: "ExerciseLapService operations",
-}
-
-var datatypesExerciseLapEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewExerciseLapServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesExerciseLapGetEndTimeCmd = &cobra.Command{
-	Use:   "get-end-time",
-	Short: "GetEndTime RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewExerciseLapServiceClient(grpcConn)
-		req := &pb.GetEndTimeRequest{}
-		resp, err := client.GetEndTime(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesExerciseLapGetLengthCmd = &cobra.Command{
-	Use:   "get-length",
-	Short: "GetLength RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewExerciseLapServiceClient(grpcConn)
-		req := &pb.GetLengthRequest{}
-		resp, err := client.GetLength(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesExerciseLapGetStartTimeCmd = &cobra.Command{
-	Use:   "get-start-time",
-	Short: "GetStartTime RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewExerciseLapServiceClient(grpcConn)
-		req := &pb.GetStartTimeRequest{}
-		resp, err := client.GetStartTime(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesExerciseLapHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewExerciseLapServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesExerciseLapBuilderCmd = &cobra.Command{
-	Use:   "exercise-lap-builder",
-	Short: "ExerciseLapBuilderService operations",
-}
-
-var datatypesExerciseLapBuilderBuildCmd = &cobra.Command{
-	Use:   "build",
-	Short: "Build RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewExerciseLapBuilderServiceClient(grpcConn)
-		req := &pb.BuildRequest{}
-		resp, err := client.Build(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesExerciseLapBuilderSetLengthCmd = &cobra.Command{
-	Use:   "set-length",
-	Short: "SetLength RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewExerciseLapBuilderServiceClient(grpcConn)
-		req := &pb.SetLengthRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetLength(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesDataOriginCmd = &cobra.Command{
-	Use:   "data-origin",
-	Short: "DataOriginService operations",
-}
-
-var datatypesDataOriginEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDataOriginServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesDataOriginGetPackageNameCmd = &cobra.Command{
-	Use:   "get-package-name",
-	Short: "GetPackageName RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDataOriginServiceClient(grpcConn)
-		req := &pb.GetPackageNameRequest{}
-		resp, err := client.GetPackageName(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesDataOriginHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDataOriginServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesDataOriginBuilderCmd = &cobra.Command{
-	Use:   "data-origin-builder",
-	Short: "DataOriginBuilderService operations",
-}
-
-var datatypesDataOriginBuilderBuildCmd = &cobra.Command{
-	Use:   "build",
-	Short: "Build RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDataOriginBuilderServiceClient(grpcConn)
-		req := &pb.BuildRequest{}
-		resp, err := client.Build(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesDataOriginBuilderSetPackageNameCmd = &cobra.Command{
-	Use:   "set-package-name",
-	Short: "SetPackageName RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDataOriginBuilderServiceClient(grpcConn)
-		req := &pb.SetPackageNameRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetPackageName(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesExerciseSessionRecordCmd = &cobra.Command{
-	Use:   "exercise-session-record",
-	Short: "ExerciseSessionRecordService operations",
-}
-
-var datatypesExerciseSessionRecordEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewExerciseSessionRecordServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesExerciseSessionRecordGetExerciseTypeCmd = &cobra.Command{
-	Use:   "get-exercise-type",
-	Short: "GetExerciseType RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewExerciseSessionRecordServiceClient(grpcConn)
-		req := &pb.GetExerciseTypeRequest{}
-		resp, err := client.GetExerciseType(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesExerciseSessionRecordGetNotesCmd = &cobra.Command{
-	Use:   "get-notes",
-	Short: "GetNotes RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewExerciseSessionRecordServiceClient(grpcConn)
-		req := &pb.GetNotesRequest{}
-		resp, err := client.GetNotes(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesExerciseSessionRecordGetPlannedExerciseSessionIdCmd = &cobra.Command{
-	Use:   "get-planned-exercise-session-id",
-	Short: "GetPlannedExerciseSessionId RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewExerciseSessionRecordServiceClient(grpcConn)
-		req := &pb.GetPlannedExerciseSessionIdRequest{}
-		resp, err := client.GetPlannedExerciseSessionId(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesExerciseSessionRecordGetRouteCmd = &cobra.Command{
-	Use:   "get-route",
-	Short: "GetRoute RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewExerciseSessionRecordServiceClient(grpcConn)
-		req := &pb.GetRouteRequest{}
-		resp, err := client.GetRoute(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesExerciseSessionRecordGetTitleCmd = &cobra.Command{
-	Use:   "get-title",
-	Short: "GetTitle RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewExerciseSessionRecordServiceClient(grpcConn)
-		req := &pb.GetTitleRequest{}
-		resp, err := client.GetTitle(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesExerciseSessionRecordHasRouteCmd = &cobra.Command{
-	Use:   "has-route",
-	Short: "HasRoute RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewExerciseSessionRecordServiceClient(grpcConn)
-		req := &pb.HasRouteRequest{}
-		resp, err := client.HasRoute(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesExerciseSessionRecordHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewExerciseSessionRecordServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesExerciseSessionRecordBuilderCmd = &cobra.Command{
-	Use:   "exercise-session-record-builder",
-	Short: "ExerciseSessionRecordBuilderService operations",
-}
-
-var datatypesExerciseSessionRecordBuilderBuildCmd = &cobra.Command{
-	Use:   "build",
-	Short: "Build RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewExerciseSessionRecordBuilderServiceClient(grpcConn)
-		req := &pb.BuildRequest{}
-		resp, err := client.Build(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesExerciseSessionRecordBuilderClearEndZoneOffsetCmd = &cobra.Command{
-	Use:   "clear-end-zone-offset",
-	Short: "ClearEndZoneOffset RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewExerciseSessionRecordBuilderServiceClient(grpcConn)
-		req := &pb.ClearEndZoneOffsetRequest{}
-		resp, err := client.ClearEndZoneOffset(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesExerciseSessionRecordBuilderClearStartZoneOffsetCmd = &cobra.Command{
-	Use:   "clear-start-zone-offset",
-	Short: "ClearStartZoneOffset RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewExerciseSessionRecordBuilderServiceClient(grpcConn)
-		req := &pb.ClearStartZoneOffsetRequest{}
-		resp, err := client.ClearStartZoneOffset(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesExerciseSessionRecordBuilderSetEndZoneOffsetCmd = &cobra.Command{
-	Use:   "set-end-zone-offset",
-	Short: "SetEndZoneOffset RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewExerciseSessionRecordBuilderServiceClient(grpcConn)
-		req := &pb.SetEndZoneOffsetRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetEndZoneOffset(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesExerciseSessionRecordBuilderSetNotesCmd = &cobra.Command{
-	Use:   "set-notes",
-	Short: "SetNotes RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewExerciseSessionRecordBuilderServiceClient(grpcConn)
-		req := &pb.SetNotesRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetNotes(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesExerciseSessionRecordBuilderSetPlannedExerciseSessionIdCmd = &cobra.Command{
-	Use:   "set-planned-exercise-session-id",
-	Short: "SetPlannedExerciseSessionId RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewExerciseSessionRecordBuilderServiceClient(grpcConn)
-		req := &pb.SetPlannedExerciseSessionIdRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetPlannedExerciseSessionId(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesExerciseSessionRecordBuilderSetRouteCmd = &cobra.Command{
-	Use:   "set-route",
-	Short: "SetRoute RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewExerciseSessionRecordBuilderServiceClient(grpcConn)
-		req := &pb.SetRouteRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetRoute(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesExerciseSessionRecordBuilderSetStartZoneOffsetCmd = &cobra.Command{
-	Use:   "set-start-zone-offset",
-	Short: "SetStartZoneOffset RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewExerciseSessionRecordBuilderServiceClient(grpcConn)
-		req := &pb.SetStartZoneOffsetRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetStartZoneOffset(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesExerciseSessionRecordBuilderSetTitleCmd = &cobra.Command{
-	Use:   "set-title",
-	Short: "SetTitle RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewExerciseSessionRecordBuilderServiceClient(grpcConn)
-		req := &pb.SetTitleRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetTitle(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesMindfulnessSessionRecordCmd = &cobra.Command{
-	Use:   "mindfulness-session-record",
-	Short: "MindfulnessSessionRecordService operations",
-}
-
-var datatypesMindfulnessSessionRecordEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMindfulnessSessionRecordServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesMindfulnessSessionRecordGetMindfulnessSessionTypeCmd = &cobra.Command{
-	Use:   "get-mindfulness-session-type",
-	Short: "GetMindfulnessSessionType RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMindfulnessSessionRecordServiceClient(grpcConn)
-		req := &pb.GetMindfulnessSessionTypeRequest{}
-		resp, err := client.GetMindfulnessSessionType(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesMindfulnessSessionRecordGetNotesCmd = &cobra.Command{
-	Use:   "get-notes",
-	Short: "GetNotes RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMindfulnessSessionRecordServiceClient(grpcConn)
-		req := &pb.GetNotesRequest{}
-		resp, err := client.GetNotes(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesMindfulnessSessionRecordGetTitleCmd = &cobra.Command{
-	Use:   "get-title",
-	Short: "GetTitle RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMindfulnessSessionRecordServiceClient(grpcConn)
-		req := &pb.GetTitleRequest{}
-		resp, err := client.GetTitle(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesMindfulnessSessionRecordHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMindfulnessSessionRecordServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesMindfulnessSessionRecordBuilderCmd = &cobra.Command{
-	Use:   "mindfulness-session-record-builder",
-	Short: "MindfulnessSessionRecordBuilderService operations",
-}
-
-var datatypesMindfulnessSessionRecordBuilderBuildCmd = &cobra.Command{
-	Use:   "build",
-	Short: "Build RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMindfulnessSessionRecordBuilderServiceClient(grpcConn)
-		req := &pb.BuildRequest{}
-		resp, err := client.Build(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesMindfulnessSessionRecordBuilderSetEndZoneOffsetCmd = &cobra.Command{
-	Use:   "set-end-zone-offset",
-	Short: "SetEndZoneOffset RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMindfulnessSessionRecordBuilderServiceClient(grpcConn)
-		req := &pb.SetEndZoneOffsetRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetEndZoneOffset(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesMindfulnessSessionRecordBuilderSetNotesCmd = &cobra.Command{
-	Use:   "set-notes",
-	Short: "SetNotes RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMindfulnessSessionRecordBuilderServiceClient(grpcConn)
-		req := &pb.SetNotesRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetNotes(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesMindfulnessSessionRecordBuilderSetStartZoneOffsetCmd = &cobra.Command{
-	Use:   "set-start-zone-offset",
-	Short: "SetStartZoneOffset RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMindfulnessSessionRecordBuilderServiceClient(grpcConn)
-		req := &pb.SetStartZoneOffsetRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetStartZoneOffset(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesMindfulnessSessionRecordBuilderSetTitleCmd = &cobra.Command{
-	Use:   "set-title",
-	Short: "SetTitle RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMindfulnessSessionRecordBuilderServiceClient(grpcConn)
-		req := &pb.SetTitleRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetTitle(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesElevationGainedRecordCmd = &cobra.Command{
-	Use:   "elevation-gained-record",
-	Short: "ElevationGainedRecordService operations",
-}
-
-var datatypesElevationGainedRecordEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewElevationGainedRecordServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesElevationGainedRecordGetElevationCmd = &cobra.Command{
-	Use:   "get-elevation",
-	Short: "GetElevation RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewElevationGainedRecordServiceClient(grpcConn)
-		req := &pb.GetElevationRequest{}
-		resp, err := client.GetElevation(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesElevationGainedRecordHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewElevationGainedRecordServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesElevationGainedRecordBuilderCmd = &cobra.Command{
-	Use:   "elevation-gained-record-builder",
-	Short: "ElevationGainedRecordBuilderService operations",
-}
-
-var datatypesElevationGainedRecordBuilderBuildCmd = &cobra.Command{
-	Use:   "build",
-	Short: "Build RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewElevationGainedRecordBuilderServiceClient(grpcConn)
-		req := &pb.BuildRequest{}
-		resp, err := client.Build(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesElevationGainedRecordBuilderClearEndZoneOffsetCmd = &cobra.Command{
-	Use:   "clear-end-zone-offset",
-	Short: "ClearEndZoneOffset RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewElevationGainedRecordBuilderServiceClient(grpcConn)
-		req := &pb.ClearEndZoneOffsetRequest{}
-		resp, err := client.ClearEndZoneOffset(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesElevationGainedRecordBuilderClearStartZoneOffsetCmd = &cobra.Command{
-	Use:   "clear-start-zone-offset",
-	Short: "ClearStartZoneOffset RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewElevationGainedRecordBuilderServiceClient(grpcConn)
-		req := &pb.ClearStartZoneOffsetRequest{}
-		resp, err := client.ClearStartZoneOffset(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesElevationGainedRecordBuilderSetEndZoneOffsetCmd = &cobra.Command{
-	Use:   "set-end-zone-offset",
-	Short: "SetEndZoneOffset RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewElevationGainedRecordBuilderServiceClient(grpcConn)
-		req := &pb.SetEndZoneOffsetRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetEndZoneOffset(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesElevationGainedRecordBuilderSetStartZoneOffsetCmd = &cobra.Command{
-	Use:   "set-start-zone-offset",
-	Short: "SetStartZoneOffset RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewElevationGainedRecordBuilderServiceClient(grpcConn)
-		req := &pb.SetStartZoneOffsetRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetStartZoneOffset(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesHeightRecordCmd = &cobra.Command{
-	Use:   "height-record",
-	Short: "HeightRecordService operations",
-}
-
-var datatypesHeightRecordEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewHeightRecordServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesHeightRecordGetHeightCmd = &cobra.Command{
-	Use:   "get-height",
-	Short: "GetHeight RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewHeightRecordServiceClient(grpcConn)
-		req := &pb.GetHeightRequest{}
-		resp, err := client.GetHeight(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesHeightRecordHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewHeightRecordServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesHeightRecordBuilderCmd = &cobra.Command{
-	Use:   "height-record-builder",
-	Short: "HeightRecordBuilderService operations",
-}
-
-var datatypesHeightRecordBuilderBuildCmd = &cobra.Command{
-	Use:   "build",
-	Short: "Build RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewHeightRecordBuilderServiceClient(grpcConn)
-		req := &pb.BuildRequest{}
-		resp, err := client.Build(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesHeightRecordBuilderClearZoneOffsetCmd = &cobra.Command{
-	Use:   "clear-zone-offset",
-	Short: "ClearZoneOffset RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewHeightRecordBuilderServiceClient(grpcConn)
-		req := &pb.ClearZoneOffsetRequest{}
-		resp, err := client.ClearZoneOffset(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesHeightRecordBuilderSetZoneOffsetCmd = &cobra.Command{
-	Use:   "set-zone-offset",
-	Short: "SetZoneOffset RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewHeightRecordBuilderServiceClient(grpcConn)
-		req := &pb.SetZoneOffsetRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetZoneOffset(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesSpeedRecordCmd = &cobra.Command{
-	Use:   "speed-record",
-	Short: "SpeedRecordService operations",
-}
-
-var datatypesSpeedRecordEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSpeedRecordServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesSpeedRecordHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSpeedRecordServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesSpeedRecordBuilderCmd = &cobra.Command{
-	Use:   "speed-record-builder",
-	Short: "SpeedRecordBuilderService operations",
-}
-
-var datatypesSpeedRecordBuilderBuildCmd = &cobra.Command{
-	Use:   "build",
-	Short: "Build RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSpeedRecordBuilderServiceClient(grpcConn)
-		req := &pb.BuildRequest{}
-		resp, err := client.Build(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesSpeedRecordBuilderClearEndZoneOffsetCmd = &cobra.Command{
-	Use:   "clear-end-zone-offset",
-	Short: "ClearEndZoneOffset RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSpeedRecordBuilderServiceClient(grpcConn)
-		req := &pb.ClearEndZoneOffsetRequest{}
-		resp, err := client.ClearEndZoneOffset(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesSpeedRecordBuilderClearStartZoneOffsetCmd = &cobra.Command{
-	Use:   "clear-start-zone-offset",
-	Short: "ClearStartZoneOffset RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSpeedRecordBuilderServiceClient(grpcConn)
-		req := &pb.ClearStartZoneOffsetRequest{}
-		resp, err := client.ClearStartZoneOffset(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesSpeedRecordBuilderSetEndZoneOffsetCmd = &cobra.Command{
-	Use:   "set-end-zone-offset",
-	Short: "SetEndZoneOffset RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSpeedRecordBuilderServiceClient(grpcConn)
-		req := &pb.SetEndZoneOffsetRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetEndZoneOffset(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesSpeedRecordBuilderSetStartZoneOffsetCmd = &cobra.Command{
-	Use:   "set-start-zone-offset",
-	Short: "SetStartZoneOffset RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSpeedRecordBuilderServiceClient(grpcConn)
-		req := &pb.SetStartZoneOffsetRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetStartZoneOffset(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesSpeedRecordSpeedRecordSampleCmd = &cobra.Command{
-	Use:   "speed-record-speed-record-sample",
-	Short: "SpeedRecordSpeedRecordSampleService operations",
-}
-
-var datatypesSpeedRecordSpeedRecordSampleEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSpeedRecordSpeedRecordSampleServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesSpeedRecordSpeedRecordSampleGetSpeedCmd = &cobra.Command{
-	Use:   "get-speed",
-	Short: "GetSpeed RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSpeedRecordSpeedRecordSampleServiceClient(grpcConn)
-		req := &pb.GetSpeedRequest{}
-		resp, err := client.GetSpeed(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesSpeedRecordSpeedRecordSampleGetTimeCmd = &cobra.Command{
-	Use:   "get-time",
-	Short: "GetTime RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSpeedRecordSpeedRecordSampleServiceClient(grpcConn)
-		req := &pb.GetTimeRequest{}
-		resp, err := client.GetTime(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesSpeedRecordSpeedRecordSampleHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSpeedRecordSpeedRecordSampleServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesInstantRecordCmd = &cobra.Command{
-	Use:   "instant-record",
-	Short: "InstantRecordService operations",
-}
-
-var datatypesInstantRecordEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewInstantRecordServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesInstantRecordGetTimeCmd = &cobra.Command{
-	Use:   "get-time",
-	Short: "GetTime RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewInstantRecordServiceClient(grpcConn)
-		req := &pb.GetTimeRequest{}
-		resp, err := client.GetTime(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesInstantRecordGetZoneOffsetCmd = &cobra.Command{
-	Use:   "get-zone-offset",
-	Short: "GetZoneOffset RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewInstantRecordServiceClient(grpcConn)
-		req := &pb.GetZoneOffsetRequest{}
-		resp, err := client.GetZoneOffset(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesInstantRecordHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewInstantRecordServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesAppInfoCmd = &cobra.Command{
-	Use:   "app-info",
-	Short: "AppInfoService operations",
-}
-
-var datatypesAppInfoGetIconCmd = &cobra.Command{
-	Use:   "get-icon",
-	Short: "GetIcon RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAppInfoServiceClient(grpcConn)
-		req := &pb.GetIconRequest{}
-		resp, err := client.GetIcon(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesAppInfoGetNameCmd = &cobra.Command{
-	Use:   "get-name",
-	Short: "GetName RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAppInfoServiceClient(grpcConn)
-		req := &pb.GetNameRequest{}
-		resp, err := client.GetName(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesAppInfoGetPackageNameCmd = &cobra.Command{
-	Use:   "get-package-name",
-	Short: "GetPackageName RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAppInfoServiceClient(grpcConn)
-		req := &pb.GetPackageNameRequest{}
-		resp, err := client.GetPackageName(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesVo2MaxRecordCmd = &cobra.Command{
-	Use:   "vo2max-record",
-	Short: "Vo2MaxRecordService operations",
-}
-
-var datatypesVo2MaxRecordEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewVo2MaxRecordServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesVo2MaxRecordGetMeasurementMethodCmd = &cobra.Command{
-	Use:   "get-measurement-method",
-	Short: "GetMeasurementMethod RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewVo2MaxRecordServiceClient(grpcConn)
-		req := &pb.GetMeasurementMethodRequest{}
-		resp, err := client.GetMeasurementMethod(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesVo2MaxRecordGetVo2MillilitersPerMinuteKilogramCmd = &cobra.Command{
-	Use:   "get-vo2milliliters-per-minute-kilogram",
-	Short: "GetVo2MillilitersPerMinuteKilogram RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewVo2MaxRecordServiceClient(grpcConn)
-		req := &pb.GetVo2MillilitersPerMinuteKilogramRequest{}
-		resp, err := client.GetVo2MillilitersPerMinuteKilogram(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesVo2MaxRecordHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewVo2MaxRecordServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesVo2MaxRecordBuilderCmd = &cobra.Command{
-	Use:   "vo2max-record-builder",
-	Short: "Vo2MaxRecordBuilderService operations",
-}
-
-var datatypesVo2MaxRecordBuilderBuildCmd = &cobra.Command{
-	Use:   "build",
-	Short: "Build RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewVo2MaxRecordBuilderServiceClient(grpcConn)
-		req := &pb.BuildRequest{}
-		resp, err := client.Build(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesVo2MaxRecordBuilderClearZoneOffsetCmd = &cobra.Command{
-	Use:   "clear-zone-offset",
-	Short: "ClearZoneOffset RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewVo2MaxRecordBuilderServiceClient(grpcConn)
-		req := &pb.ClearZoneOffsetRequest{}
-		resp, err := client.ClearZoneOffset(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesVo2MaxRecordBuilderSetZoneOffsetCmd = &cobra.Command{
-	Use:   "set-zone-offset",
-	Short: "SetZoneOffset RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewVo2MaxRecordBuilderServiceClient(grpcConn)
-		req := &pb.SetZoneOffsetRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetZoneOffset(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesFloorsClimbedRecordCmd = &cobra.Command{
-	Use:   "floors-climbed-record",
-	Short: "FloorsClimbedRecordService operations",
-}
-
-var datatypesFloorsClimbedRecordEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFloorsClimbedRecordServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesFloorsClimbedRecordGetFloorsCmd = &cobra.Command{
-	Use:   "get-floors",
-	Short: "GetFloors RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFloorsClimbedRecordServiceClient(grpcConn)
-		req := &pb.GetFloorsRequest{}
-		resp, err := client.GetFloors(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesFloorsClimbedRecordHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFloorsClimbedRecordServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesFloorsClimbedRecordBuilderCmd = &cobra.Command{
-	Use:   "floors-climbed-record-builder",
-	Short: "FloorsClimbedRecordBuilderService operations",
-}
-
-var datatypesFloorsClimbedRecordBuilderBuildCmd = &cobra.Command{
-	Use:   "build",
-	Short: "Build RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFloorsClimbedRecordBuilderServiceClient(grpcConn)
-		req := &pb.BuildRequest{}
-		resp, err := client.Build(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesFloorsClimbedRecordBuilderClearEndZoneOffsetCmd = &cobra.Command{
-	Use:   "clear-end-zone-offset",
-	Short: "ClearEndZoneOffset RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFloorsClimbedRecordBuilderServiceClient(grpcConn)
-		req := &pb.ClearEndZoneOffsetRequest{}
-		resp, err := client.ClearEndZoneOffset(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesFloorsClimbedRecordBuilderClearStartZoneOffsetCmd = &cobra.Command{
-	Use:   "clear-start-zone-offset",
-	Short: "ClearStartZoneOffset RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFloorsClimbedRecordBuilderServiceClient(grpcConn)
-		req := &pb.ClearStartZoneOffsetRequest{}
-		resp, err := client.ClearStartZoneOffset(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesFloorsClimbedRecordBuilderSetEndZoneOffsetCmd = &cobra.Command{
-	Use:   "set-end-zone-offset",
-	Short: "SetEndZoneOffset RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFloorsClimbedRecordBuilderServiceClient(grpcConn)
-		req := &pb.SetEndZoneOffsetRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetEndZoneOffset(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesFloorsClimbedRecordBuilderSetStartZoneOffsetCmd = &cobra.Command{
-	Use:   "set-start-zone-offset",
-	Short: "SetStartZoneOffset RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFloorsClimbedRecordBuilderServiceClient(grpcConn)
-		req := &pb.SetStartZoneOffsetRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetStartZoneOffset(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesStepsCadenceRecordCmd = &cobra.Command{
-	Use:   "steps-cadence-record",
-	Short: "StepsCadenceRecordService operations",
-}
-
-var datatypesStepsCadenceRecordEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewStepsCadenceRecordServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesStepsCadenceRecordHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewStepsCadenceRecordServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesStepsCadenceRecordBuilderCmd = &cobra.Command{
-	Use:   "steps-cadence-record-builder",
-	Short: "StepsCadenceRecordBuilderService operations",
-}
-
-var datatypesStepsCadenceRecordBuilderBuildCmd = &cobra.Command{
-	Use:   "build",
-	Short: "Build RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewStepsCadenceRecordBuilderServiceClient(grpcConn)
-		req := &pb.BuildRequest{}
-		resp, err := client.Build(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesStepsCadenceRecordBuilderClearEndZoneOffsetCmd = &cobra.Command{
-	Use:   "clear-end-zone-offset",
-	Short: "ClearEndZoneOffset RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewStepsCadenceRecordBuilderServiceClient(grpcConn)
-		req := &pb.ClearEndZoneOffsetRequest{}
-		resp, err := client.ClearEndZoneOffset(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesStepsCadenceRecordBuilderClearStartZoneOffsetCmd = &cobra.Command{
-	Use:   "clear-start-zone-offset",
-	Short: "ClearStartZoneOffset RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewStepsCadenceRecordBuilderServiceClient(grpcConn)
-		req := &pb.ClearStartZoneOffsetRequest{}
-		resp, err := client.ClearStartZoneOffset(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesStepsCadenceRecordBuilderSetEndZoneOffsetCmd = &cobra.Command{
-	Use:   "set-end-zone-offset",
-	Short: "SetEndZoneOffset RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewStepsCadenceRecordBuilderServiceClient(grpcConn)
-		req := &pb.SetEndZoneOffsetRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetEndZoneOffset(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesStepsCadenceRecordBuilderSetStartZoneOffsetCmd = &cobra.Command{
-	Use:   "set-start-zone-offset",
-	Short: "SetStartZoneOffset RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewStepsCadenceRecordBuilderServiceClient(grpcConn)
-		req := &pb.SetStartZoneOffsetRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetStartZoneOffset(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesStepsCadenceRecordStepsCadenceRecordSampleCmd = &cobra.Command{
-	Use:   "steps-cadence-record-steps-cadence-record-sample",
-	Short: "StepsCadenceRecordStepsCadenceRecordSampleService operations",
-}
-
-var datatypesStepsCadenceRecordStepsCadenceRecordSampleEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewStepsCadenceRecordStepsCadenceRecordSampleServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesStepsCadenceRecordStepsCadenceRecordSampleGetRateCmd = &cobra.Command{
-	Use:   "get-rate",
-	Short: "GetRate RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewStepsCadenceRecordStepsCadenceRecordSampleServiceClient(grpcConn)
-		req := &pb.GetRateRequest{}
-		resp, err := client.GetRate(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesStepsCadenceRecordStepsCadenceRecordSampleGetTimeCmd = &cobra.Command{
-	Use:   "get-time",
-	Short: "GetTime RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewStepsCadenceRecordStepsCadenceRecordSampleServiceClient(grpcConn)
-		req := &pb.GetTimeRequest{}
-		resp, err := client.GetTime(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesStepsCadenceRecordStepsCadenceRecordSampleHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewStepsCadenceRecordStepsCadenceRecordSampleServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesFhirResourceCmd = &cobra.Command{
-	Use:   "fhir-resource",
-	Short: "FhirResourceService operations",
-}
-
-var datatypesFhirResourceDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFhirResourceServiceClient(grpcConn)
-		req := &pb.FhirResourceDescribeContentsRequest{}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesFhirResourceEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFhirResourceServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesFhirResourceGetDataCmd = &cobra.Command{
-	Use:   "get-data",
-	Short: "GetData RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFhirResourceServiceClient(grpcConn)
-		req := &pb.GetDataRequest{}
-		resp, err := client.GetData(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesFhirResourceGetIdCmd = &cobra.Command{
-	Use:   "get-id",
-	Short: "GetId RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFhirResourceServiceClient(grpcConn)
-		req := &pb.GetIdRequest{}
-		resp, err := client.GetId(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesFhirResourceGetTypeCmd = &cobra.Command{
-	Use:   "get-type",
-	Short: "GetType RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFhirResourceServiceClient(grpcConn)
-		req := &pb.GetTypeRequest{}
-		resp, err := client.GetType(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesFhirResourceHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFhirResourceServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesFhirResourceToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFhirResourceServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesFhirResourceWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFhirResourceServiceClient(grpcConn)
-		req := &pb.FhirResourceWriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesFhirResourceBuilderCmd = &cobra.Command{
-	Use:   "fhir-resource-builder",
-	Short: "FhirResourceBuilderService operations",
-}
-
-var datatypesFhirResourceBuilderBuildCmd = &cobra.Command{
-	Use:   "build",
-	Short: "Build RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFhirResourceBuilderServiceClient(grpcConn)
-		req := &pb.BuildRequest{}
-		resp, err := client.Build(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesFhirResourceBuilderSetDataCmd = &cobra.Command{
-	Use:   "set-data",
-	Short: "SetData RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFhirResourceBuilderServiceClient(grpcConn)
-		req := &pb.SetDataRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetData(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesFhirResourceBuilderSetIdCmd = &cobra.Command{
-	Use:   "set-id",
-	Short: "SetId RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFhirResourceBuilderServiceClient(grpcConn)
-		req := &pb.SetIdRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetId(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesFhirResourceBuilderSetTypeCmd = &cobra.Command{
-	Use:   "set-type",
-	Short: "SetType RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFhirResourceBuilderServiceClient(grpcConn)
-		req := &pb.SetTypeRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetType(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesHeartRateVariabilityRmssdRecordCmd = &cobra.Command{
-	Use:   "heart-rate-variability-rmssd-record",
-	Short: "HeartRateVariabilityRmssdRecordService operations",
-}
-
-var datatypesHeartRateVariabilityRmssdRecordEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewHeartRateVariabilityRmssdRecordServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesHeartRateVariabilityRmssdRecordGetHeartRateVariabilityMillisCmd = &cobra.Command{
-	Use:   "get-heart-rate-variability-millis",
-	Short: "GetHeartRateVariabilityMillis RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewHeartRateVariabilityRmssdRecordServiceClient(grpcConn)
-		req := &pb.GetHeartRateVariabilityMillisRequest{}
-		resp, err := client.GetHeartRateVariabilityMillis(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesHeartRateVariabilityRmssdRecordHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewHeartRateVariabilityRmssdRecordServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesHeartRateVariabilityRmssdRecordBuilderCmd = &cobra.Command{
-	Use:   "heart-rate-variability-rmssd-record-builder",
-	Short: "HeartRateVariabilityRmssdRecordBuilderService operations",
-}
-
-var datatypesHeartRateVariabilityRmssdRecordBuilderBuildCmd = &cobra.Command{
-	Use:   "build",
-	Short: "Build RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewHeartRateVariabilityRmssdRecordBuilderServiceClient(grpcConn)
-		req := &pb.BuildRequest{}
-		resp, err := client.Build(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesHeartRateVariabilityRmssdRecordBuilderClearZoneOffsetCmd = &cobra.Command{
-	Use:   "clear-zone-offset",
-	Short: "ClearZoneOffset RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewHeartRateVariabilityRmssdRecordBuilderServiceClient(grpcConn)
-		req := &pb.ClearZoneOffsetRequest{}
-		resp, err := client.ClearZoneOffset(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesHeartRateVariabilityRmssdRecordBuilderSetZoneOffsetCmd = &cobra.Command{
-	Use:   "set-zone-offset",
-	Short: "SetZoneOffset RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewHeartRateVariabilityRmssdRecordBuilderServiceClient(grpcConn)
-		req := &pb.SetZoneOffsetRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetZoneOffset(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesRespiratoryRateRecordCmd = &cobra.Command{
-	Use:   "respiratory-rate-record",
-	Short: "RespiratoryRateRecordService operations",
-}
-
-var datatypesRespiratoryRateRecordEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRespiratoryRateRecordServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesRespiratoryRateRecordGetRateCmd = &cobra.Command{
-	Use:   "get-rate",
-	Short: "GetRate RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRespiratoryRateRecordServiceClient(grpcConn)
-		req := &pb.GetRateRequest{}
-		resp, err := client.GetRate(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesRespiratoryRateRecordHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRespiratoryRateRecordServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesRespiratoryRateRecordBuilderCmd = &cobra.Command{
-	Use:   "respiratory-rate-record-builder",
-	Short: "RespiratoryRateRecordBuilderService operations",
-}
-
-var datatypesRespiratoryRateRecordBuilderBuildCmd = &cobra.Command{
-	Use:   "build",
-	Short: "Build RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRespiratoryRateRecordBuilderServiceClient(grpcConn)
-		req := &pb.BuildRequest{}
-		resp, err := client.Build(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesRespiratoryRateRecordBuilderClearZoneOffsetCmd = &cobra.Command{
-	Use:   "clear-zone-offset",
-	Short: "ClearZoneOffset RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRespiratoryRateRecordBuilderServiceClient(grpcConn)
-		req := &pb.ClearZoneOffsetRequest{}
-		resp, err := client.ClearZoneOffset(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesRespiratoryRateRecordBuilderSetZoneOffsetCmd = &cobra.Command{
-	Use:   "set-zone-offset",
-	Short: "SetZoneOffset RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRespiratoryRateRecordBuilderServiceClient(grpcConn)
-		req := &pb.SetZoneOffsetRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetZoneOffset(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesRecordCmd = &cobra.Command{
-	Use:   "record",
-	Short: "RecordService operations",
-}
-
-var datatypesRecordEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRecordServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesRecordGetMetadataCmd = &cobra.Command{
-	Use:   "get-metadata",
-	Short: "GetMetadata RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRecordServiceClient(grpcConn)
-		req := &pb.GetMetadataRequest{}
-		resp, err := client.GetMetadata(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesRecordHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRecordServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesBasalBodyTemperatureRecordCmd = &cobra.Command{
-	Use:   "basal-body-temperature-record",
-	Short: "BasalBodyTemperatureRecordService operations",
-}
-
-var datatypesBasalBodyTemperatureRecordEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewBasalBodyTemperatureRecordServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesBasalBodyTemperatureRecordGetMeasurementLocationCmd = &cobra.Command{
-	Use:   "get-measurement-location",
-	Short: "GetMeasurementLocation RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewBasalBodyTemperatureRecordServiceClient(grpcConn)
-		req := &pb.GetMeasurementLocationRequest{}
-		resp, err := client.GetMeasurementLocation(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesBasalBodyTemperatureRecordGetTemperatureCmd = &cobra.Command{
-	Use:   "get-temperature",
-	Short: "GetTemperature RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewBasalBodyTemperatureRecordServiceClient(grpcConn)
-		req := &pb.GetTemperatureRequest{}
-		resp, err := client.GetTemperature(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesBasalBodyTemperatureRecordHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewBasalBodyTemperatureRecordServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesBasalBodyTemperatureRecordBuilderCmd = &cobra.Command{
-	Use:   "basal-body-temperature-record-builder",
-	Short: "BasalBodyTemperatureRecordBuilderService operations",
-}
-
-var datatypesBasalBodyTemperatureRecordBuilderBuildCmd = &cobra.Command{
-	Use:   "build",
-	Short: "Build RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewBasalBodyTemperatureRecordBuilderServiceClient(grpcConn)
-		req := &pb.BuildRequest{}
-		resp, err := client.Build(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesBasalBodyTemperatureRecordBuilderClearZoneOffsetCmd = &cobra.Command{
-	Use:   "clear-zone-offset",
-	Short: "ClearZoneOffset RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewBasalBodyTemperatureRecordBuilderServiceClient(grpcConn)
-		req := &pb.ClearZoneOffsetRequest{}
-		resp, err := client.ClearZoneOffset(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesBasalBodyTemperatureRecordBuilderSetZoneOffsetCmd = &cobra.Command{
-	Use:   "set-zone-offset",
-	Short: "SetZoneOffset RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewBasalBodyTemperatureRecordBuilderServiceClient(grpcConn)
-		req := &pb.SetZoneOffsetRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetZoneOffset(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesExercisePerformanceGoalCadenceGoalCmd = &cobra.Command{
-	Use:   "exercise-performance-goal-cadence-goal",
-	Short: "ExercisePerformanceGoalCadenceGoalService operations",
-}
-
-var datatypesExercisePerformanceGoalCadenceGoalEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewExercisePerformanceGoalCadenceGoalServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesExercisePerformanceGoalCadenceGoalGetMaxRpmCmd = &cobra.Command{
-	Use:   "get-max-rpm",
-	Short: "GetMaxRpm RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewExercisePerformanceGoalCadenceGoalServiceClient(grpcConn)
-		req := &pb.GetMaxRpmRequest{}
-		resp, err := client.GetMaxRpm(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesExercisePerformanceGoalCadenceGoalGetMinRpmCmd = &cobra.Command{
-	Use:   "get-min-rpm",
-	Short: "GetMinRpm RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewExercisePerformanceGoalCadenceGoalServiceClient(grpcConn)
-		req := &pb.GetMinRpmRequest{}
-		resp, err := client.GetMinRpm(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesExercisePerformanceGoalCadenceGoalHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewExercisePerformanceGoalCadenceGoalServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesExercisePerformanceGoalHeartRateGoalCmd = &cobra.Command{
-	Use:   "exercise-performance-goal-heart-rate-goal",
-	Short: "ExercisePerformanceGoalHeartRateGoalService operations",
-}
-
-var datatypesExercisePerformanceGoalHeartRateGoalEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewExercisePerformanceGoalHeartRateGoalServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesExercisePerformanceGoalHeartRateGoalGetMaxBpmCmd = &cobra.Command{
-	Use:   "get-max-bpm",
-	Short: "GetMaxBpm RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewExercisePerformanceGoalHeartRateGoalServiceClient(grpcConn)
-		req := &pb.GetMaxBpmRequest{}
-		resp, err := client.GetMaxBpm(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesExercisePerformanceGoalHeartRateGoalGetMinBpmCmd = &cobra.Command{
-	Use:   "get-min-bpm",
-	Short: "GetMinBpm RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewExercisePerformanceGoalHeartRateGoalServiceClient(grpcConn)
-		req := &pb.GetMinBpmRequest{}
-		resp, err := client.GetMinBpm(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesExercisePerformanceGoalHeartRateGoalHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewExercisePerformanceGoalHeartRateGoalServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesExercisePerformanceGoalPowerGoalCmd = &cobra.Command{
-	Use:   "exercise-performance-goal-power-goal",
-	Short: "ExercisePerformanceGoalPowerGoalService operations",
-}
-
-var datatypesExercisePerformanceGoalPowerGoalEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewExercisePerformanceGoalPowerGoalServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesExercisePerformanceGoalPowerGoalGetMaxPowerCmd = &cobra.Command{
-	Use:   "get-max-power",
-	Short: "GetMaxPower RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewExercisePerformanceGoalPowerGoalServiceClient(grpcConn)
-		req := &pb.GetMaxPowerRequest{}
-		resp, err := client.GetMaxPower(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesExercisePerformanceGoalPowerGoalGetMinPowerCmd = &cobra.Command{
-	Use:   "get-min-power",
-	Short: "GetMinPower RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewExercisePerformanceGoalPowerGoalServiceClient(grpcConn)
-		req := &pb.GetMinPowerRequest{}
-		resp, err := client.GetMinPower(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesExercisePerformanceGoalPowerGoalHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewExercisePerformanceGoalPowerGoalServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesExercisePerformanceGoalRateOfPerceivedExertionGoalCmd = &cobra.Command{
-	Use:   "exercise-performance-goal-rate-of-perceived-exertion-goal",
-	Short: "ExercisePerformanceGoalRateOfPerceivedExertionGoalService operations",
-}
-
-var datatypesExercisePerformanceGoalRateOfPerceivedExertionGoalEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewExercisePerformanceGoalRateOfPerceivedExertionGoalServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesExercisePerformanceGoalRateOfPerceivedExertionGoalGetRpeCmd = &cobra.Command{
-	Use:   "get-rpe",
-	Short: "GetRpe RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewExercisePerformanceGoalRateOfPerceivedExertionGoalServiceClient(grpcConn)
-		req := &pb.GetRpeRequest{}
-		resp, err := client.GetRpe(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesExercisePerformanceGoalRateOfPerceivedExertionGoalHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewExercisePerformanceGoalRateOfPerceivedExertionGoalServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesExercisePerformanceGoalSpeedGoalCmd = &cobra.Command{
-	Use:   "exercise-performance-goal-speed-goal",
-	Short: "ExercisePerformanceGoalSpeedGoalService operations",
-}
-
-var datatypesExercisePerformanceGoalSpeedGoalEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewExercisePerformanceGoalSpeedGoalServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesExercisePerformanceGoalSpeedGoalGetMaxSpeedCmd = &cobra.Command{
-	Use:   "get-max-speed",
-	Short: "GetMaxSpeed RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewExercisePerformanceGoalSpeedGoalServiceClient(grpcConn)
-		req := &pb.GetMaxSpeedRequest{}
-		resp, err := client.GetMaxSpeed(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesExercisePerformanceGoalSpeedGoalGetMinSpeedCmd = &cobra.Command{
-	Use:   "get-min-speed",
-	Short: "GetMinSpeed RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewExercisePerformanceGoalSpeedGoalServiceClient(grpcConn)
-		req := &pb.GetMinSpeedRequest{}
-		resp, err := client.GetMinSpeed(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesExercisePerformanceGoalSpeedGoalHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewExercisePerformanceGoalSpeedGoalServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesExercisePerformanceGoalWeightGoalCmd = &cobra.Command{
-	Use:   "exercise-performance-goal-weight-goal",
-	Short: "ExercisePerformanceGoalWeightGoalService operations",
-}
-
-var datatypesExercisePerformanceGoalWeightGoalEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewExercisePerformanceGoalWeightGoalServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesExercisePerformanceGoalWeightGoalGetMassCmd = &cobra.Command{
-	Use:   "get-mass",
-	Short: "GetMass RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewExercisePerformanceGoalWeightGoalServiceClient(grpcConn)
-		req := &pb.GetMassRequest{}
-		resp, err := client.GetMass(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesExercisePerformanceGoalWeightGoalHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewExercisePerformanceGoalWeightGoalServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesCyclingPedalingCadenceRecordCmd = &cobra.Command{
-	Use:   "cycling-pedaling-cadence-record",
-	Short: "CyclingPedalingCadenceRecordService operations",
-}
-
-var datatypesCyclingPedalingCadenceRecordEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCyclingPedalingCadenceRecordServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesCyclingPedalingCadenceRecordHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCyclingPedalingCadenceRecordServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesCyclingPedalingCadenceRecordBuilderCmd = &cobra.Command{
-	Use:   "cycling-pedaling-cadence-record-builder",
-	Short: "CyclingPedalingCadenceRecordBuilderService operations",
-}
-
-var datatypesCyclingPedalingCadenceRecordBuilderBuildCmd = &cobra.Command{
-	Use:   "build",
-	Short: "Build RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCyclingPedalingCadenceRecordBuilderServiceClient(grpcConn)
-		req := &pb.BuildRequest{}
-		resp, err := client.Build(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesCyclingPedalingCadenceRecordBuilderClearEndZoneOffsetCmd = &cobra.Command{
-	Use:   "clear-end-zone-offset",
-	Short: "ClearEndZoneOffset RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCyclingPedalingCadenceRecordBuilderServiceClient(grpcConn)
-		req := &pb.ClearEndZoneOffsetRequest{}
-		resp, err := client.ClearEndZoneOffset(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesCyclingPedalingCadenceRecordBuilderClearStartZoneOffsetCmd = &cobra.Command{
-	Use:   "clear-start-zone-offset",
-	Short: "ClearStartZoneOffset RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCyclingPedalingCadenceRecordBuilderServiceClient(grpcConn)
-		req := &pb.ClearStartZoneOffsetRequest{}
-		resp, err := client.ClearStartZoneOffset(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesCyclingPedalingCadenceRecordBuilderSetEndZoneOffsetCmd = &cobra.Command{
-	Use:   "set-end-zone-offset",
-	Short: "SetEndZoneOffset RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCyclingPedalingCadenceRecordBuilderServiceClient(grpcConn)
-		req := &pb.SetEndZoneOffsetRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetEndZoneOffset(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesCyclingPedalingCadenceRecordBuilderSetStartZoneOffsetCmd = &cobra.Command{
-	Use:   "set-start-zone-offset",
-	Short: "SetStartZoneOffset RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCyclingPedalingCadenceRecordBuilderServiceClient(grpcConn)
-		req := &pb.SetStartZoneOffsetRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetStartZoneOffset(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesCyclingPedalingCadenceRecordCyclingPedalingCadenceRecordSampleCmd = &cobra.Command{
-	Use:   "cycling-pedaling-cadence-record-cycling-pedaling-cadence-record-sample",
-	Short: "CyclingPedalingCadenceRecordCyclingPedalingCadenceRecordSampleService operations",
-}
-
-var datatypesCyclingPedalingCadenceRecordCyclingPedalingCadenceRecordSampleEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCyclingPedalingCadenceRecordCyclingPedalingCadenceRecordSampleServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesCyclingPedalingCadenceRecordCyclingPedalingCadenceRecordSampleGetRevolutionsPerMinuteCmd = &cobra.Command{
-	Use:   "get-revolutions-per-minute",
-	Short: "GetRevolutionsPerMinute RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCyclingPedalingCadenceRecordCyclingPedalingCadenceRecordSampleServiceClient(grpcConn)
-		req := &pb.GetRevolutionsPerMinuteRequest{}
-		resp, err := client.GetRevolutionsPerMinute(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesCyclingPedalingCadenceRecordCyclingPedalingCadenceRecordSampleGetTimeCmd = &cobra.Command{
-	Use:   "get-time",
-	Short: "GetTime RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCyclingPedalingCadenceRecordCyclingPedalingCadenceRecordSampleServiceClient(grpcConn)
-		req := &pb.GetTimeRequest{}
-		resp, err := client.GetTime(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesCyclingPedalingCadenceRecordCyclingPedalingCadenceRecordSampleHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCyclingPedalingCadenceRecordCyclingPedalingCadenceRecordSampleServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesBasalMetabolicRateRecordCmd = &cobra.Command{
-	Use:   "basal-metabolic-rate-record",
-	Short: "BasalMetabolicRateRecordService operations",
-}
-
-var datatypesBasalMetabolicRateRecordEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewBasalMetabolicRateRecordServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesBasalMetabolicRateRecordGetBasalMetabolicRateCmd = &cobra.Command{
-	Use:   "get-basal-metabolic-rate",
-	Short: "GetBasalMetabolicRate RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewBasalMetabolicRateRecordServiceClient(grpcConn)
-		req := &pb.GetBasalMetabolicRateRequest{}
-		resp, err := client.GetBasalMetabolicRate(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesBasalMetabolicRateRecordHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewBasalMetabolicRateRecordServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesBasalMetabolicRateRecordBuilderCmd = &cobra.Command{
-	Use:   "basal-metabolic-rate-record-builder",
-	Short: "BasalMetabolicRateRecordBuilderService operations",
-}
-
-var datatypesBasalMetabolicRateRecordBuilderBuildCmd = &cobra.Command{
-	Use:   "build",
-	Short: "Build RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewBasalMetabolicRateRecordBuilderServiceClient(grpcConn)
-		req := &pb.BuildRequest{}
-		resp, err := client.Build(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesBasalMetabolicRateRecordBuilderClearZoneOffsetCmd = &cobra.Command{
-	Use:   "clear-zone-offset",
-	Short: "ClearZoneOffset RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewBasalMetabolicRateRecordBuilderServiceClient(grpcConn)
-		req := &pb.ClearZoneOffsetRequest{}
-		resp, err := client.ClearZoneOffset(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesBasalMetabolicRateRecordBuilderSetZoneOffsetCmd = &cobra.Command{
-	Use:   "set-zone-offset",
-	Short: "SetZoneOffset RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewBasalMetabolicRateRecordBuilderServiceClient(grpcConn)
-		req := &pb.SetZoneOffsetRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetZoneOffset(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesBodyFatRecordCmd = &cobra.Command{
-	Use:   "body-fat-record",
-	Short: "BodyFatRecordService operations",
-}
-
-var datatypesBodyFatRecordEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewBodyFatRecordServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesBodyFatRecordGetPercentageCmd = &cobra.Command{
-	Use:   "get-percentage",
-	Short: "GetPercentage RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewBodyFatRecordServiceClient(grpcConn)
-		req := &pb.GetPercentageRequest{}
-		resp, err := client.GetPercentage(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesBodyFatRecordHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewBodyFatRecordServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesBodyFatRecordBuilderCmd = &cobra.Command{
-	Use:   "body-fat-record-builder",
-	Short: "BodyFatRecordBuilderService operations",
-}
-
-var datatypesBodyFatRecordBuilderBuildCmd = &cobra.Command{
-	Use:   "build",
-	Short: "Build RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewBodyFatRecordBuilderServiceClient(grpcConn)
-		req := &pb.BuildRequest{}
-		resp, err := client.Build(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesBodyFatRecordBuilderClearZoneOffsetCmd = &cobra.Command{
-	Use:   "clear-zone-offset",
-	Short: "ClearZoneOffset RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewBodyFatRecordBuilderServiceClient(grpcConn)
-		req := &pb.ClearZoneOffsetRequest{}
-		resp, err := client.ClearZoneOffset(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesBodyFatRecordBuilderSetZoneOffsetCmd = &cobra.Command{
-	Use:   "set-zone-offset",
-	Short: "SetZoneOffset RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewBodyFatRecordBuilderServiceClient(grpcConn)
-		req := &pb.SetZoneOffsetRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetZoneOffset(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -7873,6 +3123,268 @@ var datatypesExerciseCompletionGoalTotalCaloriesBurnedGoalHashCodeCmd = &cobra.C
 	},
 }
 
+var datatypesActivityIntensityRecordCmd = &cobra.Command{
+	Use:   "activity-intensity-record",
+	Short: "ActivityIntensityRecordService operations",
+}
+
+var datatypesActivityIntensityRecordEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewActivityIntensityRecordServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesActivityIntensityRecordGetActivityIntensityTypeCmd = &cobra.Command{
+	Use:   "get-activity-intensity-type",
+	Short: "GetActivityIntensityType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewActivityIntensityRecordServiceClient(grpcConn)
+		req := &pb.GetActivityIntensityTypeRequest{}
+		resp, err := client.GetActivityIntensityType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesActivityIntensityRecordHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewActivityIntensityRecordServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesActivityIntensityRecordBuilderCmd = &cobra.Command{
+	Use:   "activity-intensity-record-builder",
+	Short: "ActivityIntensityRecordBuilderService operations",
+}
+
+var datatypesActivityIntensityRecordBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewActivityIntensityRecordBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesActivityIntensityRecordBuilderSetEndZoneOffsetCmd = &cobra.Command{
+	Use:   "set-end-zone-offset",
+	Short: "SetEndZoneOffset RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewActivityIntensityRecordBuilderServiceClient(grpcConn)
+		req := &pb.SetEndZoneOffsetRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetEndZoneOffset(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesActivityIntensityRecordBuilderSetStartZoneOffsetCmd = &cobra.Command{
+	Use:   "set-start-zone-offset",
+	Short: "SetStartZoneOffset RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewActivityIntensityRecordBuilderServiceClient(grpcConn)
+		req := &pb.SetStartZoneOffsetRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetStartZoneOffset(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesStepsRecordCmd = &cobra.Command{
+	Use:   "steps-record",
+	Short: "StepsRecordService operations",
+}
+
+var datatypesStepsRecordEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStepsRecordServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesStepsRecordGetCountCmd = &cobra.Command{
+	Use:   "get-count",
+	Short: "GetCount RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStepsRecordServiceClient(grpcConn)
+		req := &pb.GetCountRequest{}
+		resp, err := client.GetCount(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesStepsRecordHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStepsRecordServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesStepsRecordBuilderCmd = &cobra.Command{
+	Use:   "steps-record-builder",
+	Short: "StepsRecordBuilderService operations",
+}
+
+var datatypesStepsRecordBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStepsRecordBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesStepsRecordBuilderClearEndZoneOffsetCmd = &cobra.Command{
+	Use:   "clear-end-zone-offset",
+	Short: "ClearEndZoneOffset RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStepsRecordBuilderServiceClient(grpcConn)
+		req := &pb.ClearEndZoneOffsetRequest{}
+		resp, err := client.ClearEndZoneOffset(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesStepsRecordBuilderClearStartZoneOffsetCmd = &cobra.Command{
+	Use:   "clear-start-zone-offset",
+	Short: "ClearStartZoneOffset RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStepsRecordBuilderServiceClient(grpcConn)
+		req := &pb.ClearStartZoneOffsetRequest{}
+		resp, err := client.ClearStartZoneOffset(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesStepsRecordBuilderSetEndZoneOffsetCmd = &cobra.Command{
+	Use:   "set-end-zone-offset",
+	Short: "SetEndZoneOffset RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStepsRecordBuilderServiceClient(grpcConn)
+		req := &pb.SetEndZoneOffsetRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetEndZoneOffset(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesStepsRecordBuilderSetStartZoneOffsetCmd = &cobra.Command{
+	Use:   "set-start-zone-offset",
+	Short: "SetStartZoneOffset RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStepsRecordBuilderServiceClient(grpcConn)
+		req := &pb.SetStartZoneOffsetRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetStartZoneOffset(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var datatypesHeartRateRecordCmd = &cobra.Command{
 	Use:   "heart-rate-record",
 	Short: "HeartRateRecordService operations",
@@ -7890,6 +3402,22 @@ var datatypesHeartRateRecordEqualsCmd = &cobra.Command{
 			req.Arg0 = v
 		}
 		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesHeartRateRecordGetSamplesCmd = &cobra.Command{
+	Use:   "get-samples",
+	Short: "GetSamples RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewHeartRateRecordServiceClient(grpcConn)
+		req := &pb.GetSamplesRequest{}
+		resp, err := client.GetSamples(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -8076,18 +3604,18 @@ var datatypesHeartRateRecordHeartRateSampleHashCodeCmd = &cobra.Command{
 	},
 }
 
-var datatypesLeanBodyMassRecordCmd = &cobra.Command{
-	Use:   "lean-body-mass-record",
-	Short: "LeanBodyMassRecordService operations",
+var datatypesBodyFatRecordCmd = &cobra.Command{
+	Use:   "body-fat-record",
+	Short: "BodyFatRecordService operations",
 }
 
-var datatypesLeanBodyMassRecordEqualsCmd = &cobra.Command{
+var datatypesBodyFatRecordEqualsCmd = &cobra.Command{
 	Use:   "equals",
 	Short: "Equals RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewLeanBodyMassRecordServiceClient(grpcConn)
+		client := pb.NewBodyFatRecordServiceClient(grpcConn)
 		req := &pb.EqualsRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -8100,125 +3628,13 @@ var datatypesLeanBodyMassRecordEqualsCmd = &cobra.Command{
 	},
 }
 
-var datatypesLeanBodyMassRecordGetMassCmd = &cobra.Command{
-	Use:   "get-mass",
-	Short: "GetMass RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewLeanBodyMassRecordServiceClient(grpcConn)
-		req := &pb.GetMassRequest{}
-		resp, err := client.GetMass(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesLeanBodyMassRecordHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewLeanBodyMassRecordServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesLeanBodyMassRecordBuilderCmd = &cobra.Command{
-	Use:   "lean-body-mass-record-builder",
-	Short: "LeanBodyMassRecordBuilderService operations",
-}
-
-var datatypesLeanBodyMassRecordBuilderBuildCmd = &cobra.Command{
-	Use:   "build",
-	Short: "Build RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewLeanBodyMassRecordBuilderServiceClient(grpcConn)
-		req := &pb.BuildRequest{}
-		resp, err := client.Build(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesLeanBodyMassRecordBuilderClearZoneOffsetCmd = &cobra.Command{
-	Use:   "clear-zone-offset",
-	Short: "ClearZoneOffset RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewLeanBodyMassRecordBuilderServiceClient(grpcConn)
-		req := &pb.ClearZoneOffsetRequest{}
-		resp, err := client.ClearZoneOffset(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesLeanBodyMassRecordBuilderSetZoneOffsetCmd = &cobra.Command{
-	Use:   "set-zone-offset",
-	Short: "SetZoneOffset RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewLeanBodyMassRecordBuilderServiceClient(grpcConn)
-		req := &pb.SetZoneOffsetRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetZoneOffset(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesOxygenSaturationRecordCmd = &cobra.Command{
-	Use:   "oxygen-saturation-record",
-	Short: "OxygenSaturationRecordService operations",
-}
-
-var datatypesOxygenSaturationRecordEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewOxygenSaturationRecordServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesOxygenSaturationRecordGetPercentageCmd = &cobra.Command{
+var datatypesBodyFatRecordGetPercentageCmd = &cobra.Command{
 	Use:   "get-percentage",
 	Short: "GetPercentage RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewOxygenSaturationRecordServiceClient(grpcConn)
+		client := pb.NewBodyFatRecordServiceClient(grpcConn)
 		req := &pb.GetPercentageRequest{}
 		resp, err := client.GetPercentage(ctx, req)
 		if err != nil {
@@ -8228,13 +3644,13 @@ var datatypesOxygenSaturationRecordGetPercentageCmd = &cobra.Command{
 	},
 }
 
-var datatypesOxygenSaturationRecordHashCodeCmd = &cobra.Command{
+var datatypesBodyFatRecordHashCodeCmd = &cobra.Command{
 	Use:   "hash-code",
 	Short: "HashCode RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewOxygenSaturationRecordServiceClient(grpcConn)
+		client := pb.NewBodyFatRecordServiceClient(grpcConn)
 		req := &pb.HashCodeRequest{}
 		resp, err := client.HashCode(ctx, req)
 		if err != nil {
@@ -8244,18 +3660,18 @@ var datatypesOxygenSaturationRecordHashCodeCmd = &cobra.Command{
 	},
 }
 
-var datatypesOxygenSaturationRecordBuilderCmd = &cobra.Command{
-	Use:   "oxygen-saturation-record-builder",
-	Short: "OxygenSaturationRecordBuilderService operations",
+var datatypesBodyFatRecordBuilderCmd = &cobra.Command{
+	Use:   "body-fat-record-builder",
+	Short: "BodyFatRecordBuilderService operations",
 }
 
-var datatypesOxygenSaturationRecordBuilderBuildCmd = &cobra.Command{
+var datatypesBodyFatRecordBuilderBuildCmd = &cobra.Command{
 	Use:   "build",
 	Short: "Build RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewOxygenSaturationRecordBuilderServiceClient(grpcConn)
+		client := pb.NewBodyFatRecordBuilderServiceClient(grpcConn)
 		req := &pb.BuildRequest{}
 		resp, err := client.Build(ctx, req)
 		if err != nil {
@@ -8265,13 +3681,13 @@ var datatypesOxygenSaturationRecordBuilderBuildCmd = &cobra.Command{
 	},
 }
 
-var datatypesOxygenSaturationRecordBuilderClearZoneOffsetCmd = &cobra.Command{
+var datatypesBodyFatRecordBuilderClearZoneOffsetCmd = &cobra.Command{
 	Use:   "clear-zone-offset",
 	Short: "ClearZoneOffset RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewOxygenSaturationRecordBuilderServiceClient(grpcConn)
+		client := pb.NewBodyFatRecordBuilderServiceClient(grpcConn)
 		req := &pb.ClearZoneOffsetRequest{}
 		resp, err := client.ClearZoneOffset(ctx, req)
 		if err != nil {
@@ -8281,13 +3697,13 @@ var datatypesOxygenSaturationRecordBuilderClearZoneOffsetCmd = &cobra.Command{
 	},
 }
 
-var datatypesOxygenSaturationRecordBuilderSetZoneOffsetCmd = &cobra.Command{
+var datatypesBodyFatRecordBuilderSetZoneOffsetCmd = &cobra.Command{
 	Use:   "set-zone-offset",
 	Short: "SetZoneOffset RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewOxygenSaturationRecordBuilderServiceClient(grpcConn)
+		client := pb.NewBodyFatRecordBuilderServiceClient(grpcConn)
 		req := &pb.SetZoneOffsetRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -8300,18 +3716,18 @@ var datatypesOxygenSaturationRecordBuilderSetZoneOffsetCmd = &cobra.Command{
 	},
 }
 
-var datatypesIntervalRecordCmd = &cobra.Command{
-	Use:   "interval-record",
-	Short: "IntervalRecordService operations",
+var datatypesPlannedExerciseStepCmd = &cobra.Command{
+	Use:   "planned-exercise-step",
+	Short: "PlannedExerciseStepService operations",
 }
 
-var datatypesIntervalRecordEqualsCmd = &cobra.Command{
+var datatypesPlannedExerciseStepEqualsCmd = &cobra.Command{
 	Use:   "equals",
 	Short: "Equals RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewIntervalRecordServiceClient(grpcConn)
+		client := pb.NewPlannedExerciseStepServiceClient(grpcConn)
 		req := &pb.EqualsRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -8324,15 +3740,15 @@ var datatypesIntervalRecordEqualsCmd = &cobra.Command{
 	},
 }
 
-var datatypesIntervalRecordGetEndTimeCmd = &cobra.Command{
-	Use:   "get-end-time",
-	Short: "GetEndTime RPC",
+var datatypesPlannedExerciseStepGetCompletionGoalCmd = &cobra.Command{
+	Use:   "get-completion-goal",
+	Short: "GetCompletionGoal RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewIntervalRecordServiceClient(grpcConn)
-		req := &pb.GetEndTimeRequest{}
-		resp, err := client.GetEndTime(ctx, req)
+		client := pb.NewPlannedExerciseStepServiceClient(grpcConn)
+		req := &pb.GetCompletionGoalRequest{}
+		resp, err := client.GetCompletionGoal(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -8340,15 +3756,15 @@ var datatypesIntervalRecordGetEndTimeCmd = &cobra.Command{
 	},
 }
 
-var datatypesIntervalRecordGetEndZoneOffsetCmd = &cobra.Command{
-	Use:   "get-end-zone-offset",
-	Short: "GetEndZoneOffset RPC",
+var datatypesPlannedExerciseStepGetDescriptionCmd = &cobra.Command{
+	Use:   "get-description",
+	Short: "GetDescription RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewIntervalRecordServiceClient(grpcConn)
-		req := &pb.GetEndZoneOffsetRequest{}
-		resp, err := client.GetEndZoneOffset(ctx, req)
+		client := pb.NewPlannedExerciseStepServiceClient(grpcConn)
+		req := &pb.GetDescriptionRequest{}
+		resp, err := client.GetDescription(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -8356,15 +3772,15 @@ var datatypesIntervalRecordGetEndZoneOffsetCmd = &cobra.Command{
 	},
 }
 
-var datatypesIntervalRecordGetStartTimeCmd = &cobra.Command{
-	Use:   "get-start-time",
-	Short: "GetStartTime RPC",
+var datatypesPlannedExerciseStepGetExerciseCategoryCmd = &cobra.Command{
+	Use:   "get-exercise-category",
+	Short: "GetExerciseCategory RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewIntervalRecordServiceClient(grpcConn)
-		req := &pb.GetStartTimeRequest{}
-		resp, err := client.GetStartTime(ctx, req)
+		client := pb.NewPlannedExerciseStepServiceClient(grpcConn)
+		req := &pb.GetExerciseCategoryRequest{}
+		resp, err := client.GetExerciseCategory(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -8372,15 +3788,15 @@ var datatypesIntervalRecordGetStartTimeCmd = &cobra.Command{
 	},
 }
 
-var datatypesIntervalRecordGetStartZoneOffsetCmd = &cobra.Command{
-	Use:   "get-start-zone-offset",
-	Short: "GetStartZoneOffset RPC",
+var datatypesPlannedExerciseStepGetExerciseTypeCmd = &cobra.Command{
+	Use:   "get-exercise-type",
+	Short: "GetExerciseType RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewIntervalRecordServiceClient(grpcConn)
-		req := &pb.GetStartZoneOffsetRequest{}
-		resp, err := client.GetStartZoneOffset(ctx, req)
+		client := pb.NewPlannedExerciseStepServiceClient(grpcConn)
+		req := &pb.GetExerciseTypeRequest{}
+		resp, err := client.GetExerciseType(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -8388,13 +3804,29 @@ var datatypesIntervalRecordGetStartZoneOffsetCmd = &cobra.Command{
 	},
 }
 
-var datatypesIntervalRecordHashCodeCmd = &cobra.Command{
+var datatypesPlannedExerciseStepGetPerformanceGoalsCmd = &cobra.Command{
+	Use:   "get-performance-goals",
+	Short: "GetPerformanceGoals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPlannedExerciseStepServiceClient(grpcConn)
+		req := &pb.GetPerformanceGoalsRequest{}
+		resp, err := client.GetPerformanceGoals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesPlannedExerciseStepHashCodeCmd = &cobra.Command{
 	Use:   "hash-code",
 	Short: "HashCode RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewIntervalRecordServiceClient(grpcConn)
+		client := pb.NewPlannedExerciseStepServiceClient(grpcConn)
 		req := &pb.HashCodeRequest{}
 		resp, err := client.HashCode(ctx, req)
 		if err != nil {
@@ -8404,23 +3836,23 @@ var datatypesIntervalRecordHashCodeCmd = &cobra.Command{
 	},
 }
 
-var datatypesSkinTemperatureRecordCmd = &cobra.Command{
-	Use:   "skin-temperature-record",
-	Short: "SkinTemperatureRecordService operations",
+var datatypesPlannedExerciseStepBuilderCmd = &cobra.Command{
+	Use:   "planned-exercise-step-builder",
+	Short: "PlannedExerciseStepBuilderService operations",
 }
 
-var datatypesSkinTemperatureRecordEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
+var datatypesPlannedExerciseStepBuilderAddPerformanceGoalCmd = &cobra.Command{
+	Use:   "add-performance-goal",
+	Short: "AddPerformanceGoal RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewSkinTemperatureRecordServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
+		client := pb.NewPlannedExerciseStepBuilderServiceClient(grpcConn)
+		req := &pb.AddPerformanceGoalRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		resp, err := client.Equals(ctx, req)
+		resp, err := client.AddPerformanceGoal(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -8428,66 +3860,13 @@ var datatypesSkinTemperatureRecordEqualsCmd = &cobra.Command{
 	},
 }
 
-var datatypesSkinTemperatureRecordGetBaselineCmd = &cobra.Command{
-	Use:   "get-baseline",
-	Short: "GetBaseline RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSkinTemperatureRecordServiceClient(grpcConn)
-		req := &pb.GetBaselineRequest{}
-		resp, err := client.GetBaseline(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesSkinTemperatureRecordGetMeasurementLocationCmd = &cobra.Command{
-	Use:   "get-measurement-location",
-	Short: "GetMeasurementLocation RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSkinTemperatureRecordServiceClient(grpcConn)
-		req := &pb.GetMeasurementLocationRequest{}
-		resp, err := client.GetMeasurementLocation(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesSkinTemperatureRecordHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSkinTemperatureRecordServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesSkinTemperatureRecordBuilderCmd = &cobra.Command{
-	Use:   "skin-temperature-record-builder",
-	Short: "SkinTemperatureRecordBuilderService operations",
-}
-
-var datatypesSkinTemperatureRecordBuilderBuildCmd = &cobra.Command{
+var datatypesPlannedExerciseStepBuilderBuildCmd = &cobra.Command{
 	Use:   "build",
 	Short: "Build RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewSkinTemperatureRecordBuilderServiceClient(grpcConn)
+		client := pb.NewPlannedExerciseStepBuilderServiceClient(grpcConn)
 		req := &pb.BuildRequest{}
 		resp, err := client.Build(ctx, req)
 		if err != nil {
@@ -8497,13 +3876,406 @@ var datatypesSkinTemperatureRecordBuilderBuildCmd = &cobra.Command{
 	},
 }
 
-var datatypesSkinTemperatureRecordBuilderClearEndZoneOffsetCmd = &cobra.Command{
+var datatypesPlannedExerciseStepBuilderClearPerformanceGoalsCmd = &cobra.Command{
+	Use:   "clear-performance-goals",
+	Short: "ClearPerformanceGoals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPlannedExerciseStepBuilderServiceClient(grpcConn)
+		req := &pb.ClearPerformanceGoalsRequest{}
+		resp, err := client.ClearPerformanceGoals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesPlannedExerciseStepBuilderSetCompletionGoalCmd = &cobra.Command{
+	Use:   "set-completion-goal",
+	Short: "SetCompletionGoal RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPlannedExerciseStepBuilderServiceClient(grpcConn)
+		req := &pb.SetCompletionGoalRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetCompletionGoal(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesPlannedExerciseStepBuilderSetDescriptionCmd = &cobra.Command{
+	Use:   "set-description",
+	Short: "SetDescription RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPlannedExerciseStepBuilderServiceClient(grpcConn)
+		req := &pb.SetDescriptionRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetDescription(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesPlannedExerciseStepBuilderSetExerciseCategoryCmd = &cobra.Command{
+	Use:   "set-exercise-category",
+	Short: "SetExerciseCategory RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPlannedExerciseStepBuilderServiceClient(grpcConn)
+		req := &pb.SetExerciseCategoryRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetExerciseCategory(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesPlannedExerciseStepBuilderSetExerciseTypeCmd = &cobra.Command{
+	Use:   "set-exercise-type",
+	Short: "SetExerciseType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPlannedExerciseStepBuilderServiceClient(grpcConn)
+		req := &pb.SetExerciseTypeRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetExerciseType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesBasalMetabolicRateRecordCmd = &cobra.Command{
+	Use:   "basal-metabolic-rate-record",
+	Short: "BasalMetabolicRateRecordService operations",
+}
+
+var datatypesBasalMetabolicRateRecordEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBasalMetabolicRateRecordServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesBasalMetabolicRateRecordGetBasalMetabolicRateCmd = &cobra.Command{
+	Use:   "get-basal-metabolic-rate",
+	Short: "GetBasalMetabolicRate RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBasalMetabolicRateRecordServiceClient(grpcConn)
+		req := &pb.GetBasalMetabolicRateRequest{}
+		resp, err := client.GetBasalMetabolicRate(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesBasalMetabolicRateRecordHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBasalMetabolicRateRecordServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesBasalMetabolicRateRecordBuilderCmd = &cobra.Command{
+	Use:   "basal-metabolic-rate-record-builder",
+	Short: "BasalMetabolicRateRecordBuilderService operations",
+}
+
+var datatypesBasalMetabolicRateRecordBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBasalMetabolicRateRecordBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesBasalMetabolicRateRecordBuilderClearZoneOffsetCmd = &cobra.Command{
+	Use:   "clear-zone-offset",
+	Short: "ClearZoneOffset RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBasalMetabolicRateRecordBuilderServiceClient(grpcConn)
+		req := &pb.ClearZoneOffsetRequest{}
+		resp, err := client.ClearZoneOffset(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesBasalMetabolicRateRecordBuilderSetZoneOffsetCmd = &cobra.Command{
+	Use:   "set-zone-offset",
+	Short: "SetZoneOffset RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBasalMetabolicRateRecordBuilderServiceClient(grpcConn)
+		req := &pb.SetZoneOffsetRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetZoneOffset(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesHeightRecordCmd = &cobra.Command{
+	Use:   "height-record",
+	Short: "HeightRecordService operations",
+}
+
+var datatypesHeightRecordEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewHeightRecordServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesHeightRecordGetHeightCmd = &cobra.Command{
+	Use:   "get-height",
+	Short: "GetHeight RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewHeightRecordServiceClient(grpcConn)
+		req := &pb.GetHeightRequest{}
+		resp, err := client.GetHeight(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesHeightRecordHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewHeightRecordServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesHeightRecordBuilderCmd = &cobra.Command{
+	Use:   "height-record-builder",
+	Short: "HeightRecordBuilderService operations",
+}
+
+var datatypesHeightRecordBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewHeightRecordBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesHeightRecordBuilderClearZoneOffsetCmd = &cobra.Command{
+	Use:   "clear-zone-offset",
+	Short: "ClearZoneOffset RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewHeightRecordBuilderServiceClient(grpcConn)
+		req := &pb.ClearZoneOffsetRequest{}
+		resp, err := client.ClearZoneOffset(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesHeightRecordBuilderSetZoneOffsetCmd = &cobra.Command{
+	Use:   "set-zone-offset",
+	Short: "SetZoneOffset RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewHeightRecordBuilderServiceClient(grpcConn)
+		req := &pb.SetZoneOffsetRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetZoneOffset(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesElevationGainedRecordCmd = &cobra.Command{
+	Use:   "elevation-gained-record",
+	Short: "ElevationGainedRecordService operations",
+}
+
+var datatypesElevationGainedRecordEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewElevationGainedRecordServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesElevationGainedRecordGetElevationCmd = &cobra.Command{
+	Use:   "get-elevation",
+	Short: "GetElevation RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewElevationGainedRecordServiceClient(grpcConn)
+		req := &pb.GetElevationRequest{}
+		resp, err := client.GetElevation(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesElevationGainedRecordHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewElevationGainedRecordServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesElevationGainedRecordBuilderCmd = &cobra.Command{
+	Use:   "elevation-gained-record-builder",
+	Short: "ElevationGainedRecordBuilderService operations",
+}
+
+var datatypesElevationGainedRecordBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewElevationGainedRecordBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesElevationGainedRecordBuilderClearEndZoneOffsetCmd = &cobra.Command{
 	Use:   "clear-end-zone-offset",
 	Short: "ClearEndZoneOffset RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewSkinTemperatureRecordBuilderServiceClient(grpcConn)
+		client := pb.NewElevationGainedRecordBuilderServiceClient(grpcConn)
 		req := &pb.ClearEndZoneOffsetRequest{}
 		resp, err := client.ClearEndZoneOffset(ctx, req)
 		if err != nil {
@@ -8513,13 +4285,13 @@ var datatypesSkinTemperatureRecordBuilderClearEndZoneOffsetCmd = &cobra.Command{
 	},
 }
 
-var datatypesSkinTemperatureRecordBuilderClearStartZoneOffsetCmd = &cobra.Command{
+var datatypesElevationGainedRecordBuilderClearStartZoneOffsetCmd = &cobra.Command{
 	Use:   "clear-start-zone-offset",
 	Short: "ClearStartZoneOffset RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewSkinTemperatureRecordBuilderServiceClient(grpcConn)
+		client := pb.NewElevationGainedRecordBuilderServiceClient(grpcConn)
 		req := &pb.ClearStartZoneOffsetRequest{}
 		resp, err := client.ClearStartZoneOffset(ctx, req)
 		if err != nil {
@@ -8529,32 +4301,13 @@ var datatypesSkinTemperatureRecordBuilderClearStartZoneOffsetCmd = &cobra.Comman
 	},
 }
 
-var datatypesSkinTemperatureRecordBuilderSetBaselineCmd = &cobra.Command{
-	Use:   "set-baseline",
-	Short: "SetBaseline RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSkinTemperatureRecordBuilderServiceClient(grpcConn)
-		req := &pb.SetBaselineRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetBaseline(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesSkinTemperatureRecordBuilderSetEndZoneOffsetCmd = &cobra.Command{
+var datatypesElevationGainedRecordBuilderSetEndZoneOffsetCmd = &cobra.Command{
 	Use:   "set-end-zone-offset",
 	Short: "SetEndZoneOffset RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewSkinTemperatureRecordBuilderServiceClient(grpcConn)
+		client := pb.NewElevationGainedRecordBuilderServiceClient(grpcConn)
 		req := &pb.SetEndZoneOffsetRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -8567,32 +4320,13 @@ var datatypesSkinTemperatureRecordBuilderSetEndZoneOffsetCmd = &cobra.Command{
 	},
 }
 
-var datatypesSkinTemperatureRecordBuilderSetMeasurementLocationCmd = &cobra.Command{
-	Use:   "set-measurement-location",
-	Short: "SetMeasurementLocation RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSkinTemperatureRecordBuilderServiceClient(grpcConn)
-		req := &pb.SetMeasurementLocationRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetMeasurementLocation(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesSkinTemperatureRecordBuilderSetStartZoneOffsetCmd = &cobra.Command{
+var datatypesElevationGainedRecordBuilderSetStartZoneOffsetCmd = &cobra.Command{
 	Use:   "set-start-zone-offset",
 	Short: "SetStartZoneOffset RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewSkinTemperatureRecordBuilderServiceClient(grpcConn)
+		client := pb.NewElevationGainedRecordBuilderServiceClient(grpcConn)
 		req := &pb.SetStartZoneOffsetRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -8605,18 +4339,18 @@ var datatypesSkinTemperatureRecordBuilderSetStartZoneOffsetCmd = &cobra.Command{
 	},
 }
 
-var datatypesSkinTemperatureRecordDeltaCmd = &cobra.Command{
-	Use:   "skin-temperature-record-delta",
-	Short: "SkinTemperatureRecordDeltaService operations",
+var datatypesSpeedRecordCmd = &cobra.Command{
+	Use:   "speed-record",
+	Short: "SpeedRecordService operations",
 }
 
-var datatypesSkinTemperatureRecordDeltaEqualsCmd = &cobra.Command{
+var datatypesSpeedRecordEqualsCmd = &cobra.Command{
 	Use:   "equals",
 	Short: "Equals RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewSkinTemperatureRecordDeltaServiceClient(grpcConn)
+		client := pb.NewSpeedRecordServiceClient(grpcConn)
 		req := &pb.EqualsRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -8629,15 +4363,15 @@ var datatypesSkinTemperatureRecordDeltaEqualsCmd = &cobra.Command{
 	},
 }
 
-var datatypesSkinTemperatureRecordDeltaGetDeltaCmd = &cobra.Command{
-	Use:   "get-delta",
-	Short: "GetDelta RPC",
+var datatypesSpeedRecordGetSamplesCmd = &cobra.Command{
+	Use:   "get-samples",
+	Short: "GetSamples RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewSkinTemperatureRecordDeltaServiceClient(grpcConn)
-		req := &pb.GetDeltaRequest{}
-		resp, err := client.GetDelta(ctx, req)
+		client := pb.NewSpeedRecordServiceClient(grpcConn)
+		req := &pb.GetSamplesRequest{}
+		resp, err := client.GetSamples(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -8645,13 +4379,160 @@ var datatypesSkinTemperatureRecordDeltaGetDeltaCmd = &cobra.Command{
 	},
 }
 
-var datatypesSkinTemperatureRecordDeltaGetTimeCmd = &cobra.Command{
+var datatypesSpeedRecordHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSpeedRecordServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesSpeedRecordBuilderCmd = &cobra.Command{
+	Use:   "speed-record-builder",
+	Short: "SpeedRecordBuilderService operations",
+}
+
+var datatypesSpeedRecordBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSpeedRecordBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesSpeedRecordBuilderClearEndZoneOffsetCmd = &cobra.Command{
+	Use:   "clear-end-zone-offset",
+	Short: "ClearEndZoneOffset RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSpeedRecordBuilderServiceClient(grpcConn)
+		req := &pb.ClearEndZoneOffsetRequest{}
+		resp, err := client.ClearEndZoneOffset(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesSpeedRecordBuilderClearStartZoneOffsetCmd = &cobra.Command{
+	Use:   "clear-start-zone-offset",
+	Short: "ClearStartZoneOffset RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSpeedRecordBuilderServiceClient(grpcConn)
+		req := &pb.ClearStartZoneOffsetRequest{}
+		resp, err := client.ClearStartZoneOffset(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesSpeedRecordBuilderSetEndZoneOffsetCmd = &cobra.Command{
+	Use:   "set-end-zone-offset",
+	Short: "SetEndZoneOffset RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSpeedRecordBuilderServiceClient(grpcConn)
+		req := &pb.SetEndZoneOffsetRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetEndZoneOffset(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesSpeedRecordBuilderSetStartZoneOffsetCmd = &cobra.Command{
+	Use:   "set-start-zone-offset",
+	Short: "SetStartZoneOffset RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSpeedRecordBuilderServiceClient(grpcConn)
+		req := &pb.SetStartZoneOffsetRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetStartZoneOffset(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesSpeedRecordSpeedRecordSampleCmd = &cobra.Command{
+	Use:   "speed-record-speed-record-sample",
+	Short: "SpeedRecordSpeedRecordSampleService operations",
+}
+
+var datatypesSpeedRecordSpeedRecordSampleEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSpeedRecordSpeedRecordSampleServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesSpeedRecordSpeedRecordSampleGetSpeedCmd = &cobra.Command{
+	Use:   "get-speed",
+	Short: "GetSpeed RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSpeedRecordSpeedRecordSampleServiceClient(grpcConn)
+		req := &pb.GetSpeedRequest{}
+		resp, err := client.GetSpeed(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesSpeedRecordSpeedRecordSampleGetTimeCmd = &cobra.Command{
 	Use:   "get-time",
 	Short: "GetTime RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewSkinTemperatureRecordDeltaServiceClient(grpcConn)
+		client := pb.NewSpeedRecordSpeedRecordSampleServiceClient(grpcConn)
 		req := &pb.GetTimeRequest{}
 		resp, err := client.GetTime(ctx, req)
 		if err != nil {
@@ -8661,13 +4542,13 @@ var datatypesSkinTemperatureRecordDeltaGetTimeCmd = &cobra.Command{
 	},
 }
 
-var datatypesSkinTemperatureRecordDeltaHashCodeCmd = &cobra.Command{
+var datatypesSpeedRecordSpeedRecordSampleHashCodeCmd = &cobra.Command{
 	Use:   "hash-code",
 	Short: "HashCode RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewSkinTemperatureRecordDeltaServiceClient(grpcConn)
+		client := pb.NewSpeedRecordSpeedRecordSampleServiceClient(grpcConn)
 		req := &pb.HashCodeRequest{}
 		resp, err := client.HashCode(ctx, req)
 		if err != nil {
@@ -8677,18 +4558,18 @@ var datatypesSkinTemperatureRecordDeltaHashCodeCmd = &cobra.Command{
 	},
 }
 
-var datatypesRestingHeartRateRecordCmd = &cobra.Command{
-	Use:   "resting-heart-rate-record",
-	Short: "RestingHeartRateRecordService operations",
+var datatypesBasalBodyTemperatureRecordCmd = &cobra.Command{
+	Use:   "basal-body-temperature-record",
+	Short: "BasalBodyTemperatureRecordService operations",
 }
 
-var datatypesRestingHeartRateRecordEqualsCmd = &cobra.Command{
+var datatypesBasalBodyTemperatureRecordEqualsCmd = &cobra.Command{
 	Use:   "equals",
 	Short: "Equals RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewRestingHeartRateRecordServiceClient(grpcConn)
+		client := pb.NewBasalBodyTemperatureRecordServiceClient(grpcConn)
 		req := &pb.EqualsRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -8701,15 +4582,15 @@ var datatypesRestingHeartRateRecordEqualsCmd = &cobra.Command{
 	},
 }
 
-var datatypesRestingHeartRateRecordGetBeatsPerMinuteCmd = &cobra.Command{
-	Use:   "get-beats-per-minute",
-	Short: "GetBeatsPerMinute RPC",
+var datatypesBasalBodyTemperatureRecordGetMeasurementLocationCmd = &cobra.Command{
+	Use:   "get-measurement-location",
+	Short: "GetMeasurementLocation RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewRestingHeartRateRecordServiceClient(grpcConn)
-		req := &pb.GetBeatsPerMinuteRequest{}
-		resp, err := client.GetBeatsPerMinute(ctx, req)
+		client := pb.NewBasalBodyTemperatureRecordServiceClient(grpcConn)
+		req := &pb.GetMeasurementLocationRequest{}
+		resp, err := client.GetMeasurementLocation(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -8717,13 +4598,29 @@ var datatypesRestingHeartRateRecordGetBeatsPerMinuteCmd = &cobra.Command{
 	},
 }
 
-var datatypesRestingHeartRateRecordHashCodeCmd = &cobra.Command{
+var datatypesBasalBodyTemperatureRecordGetTemperatureCmd = &cobra.Command{
+	Use:   "get-temperature",
+	Short: "GetTemperature RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBasalBodyTemperatureRecordServiceClient(grpcConn)
+		req := &pb.GetTemperatureRequest{}
+		resp, err := client.GetTemperature(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesBasalBodyTemperatureRecordHashCodeCmd = &cobra.Command{
 	Use:   "hash-code",
 	Short: "HashCode RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewRestingHeartRateRecordServiceClient(grpcConn)
+		client := pb.NewBasalBodyTemperatureRecordServiceClient(grpcConn)
 		req := &pb.HashCodeRequest{}
 		resp, err := client.HashCode(ctx, req)
 		if err != nil {
@@ -8733,18 +4630,18 @@ var datatypesRestingHeartRateRecordHashCodeCmd = &cobra.Command{
 	},
 }
 
-var datatypesRestingHeartRateRecordBuilderCmd = &cobra.Command{
-	Use:   "resting-heart-rate-record-builder",
-	Short: "RestingHeartRateRecordBuilderService operations",
+var datatypesBasalBodyTemperatureRecordBuilderCmd = &cobra.Command{
+	Use:   "basal-body-temperature-record-builder",
+	Short: "BasalBodyTemperatureRecordBuilderService operations",
 }
 
-var datatypesRestingHeartRateRecordBuilderBuildCmd = &cobra.Command{
+var datatypesBasalBodyTemperatureRecordBuilderBuildCmd = &cobra.Command{
 	Use:   "build",
 	Short: "Build RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewRestingHeartRateRecordBuilderServiceClient(grpcConn)
+		client := pb.NewBasalBodyTemperatureRecordBuilderServiceClient(grpcConn)
 		req := &pb.BuildRequest{}
 		resp, err := client.Build(ctx, req)
 		if err != nil {
@@ -8754,13 +4651,13 @@ var datatypesRestingHeartRateRecordBuilderBuildCmd = &cobra.Command{
 	},
 }
 
-var datatypesRestingHeartRateRecordBuilderClearZoneOffsetCmd = &cobra.Command{
+var datatypesBasalBodyTemperatureRecordBuilderClearZoneOffsetCmd = &cobra.Command{
 	Use:   "clear-zone-offset",
 	Short: "ClearZoneOffset RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewRestingHeartRateRecordBuilderServiceClient(grpcConn)
+		client := pb.NewBasalBodyTemperatureRecordBuilderServiceClient(grpcConn)
 		req := &pb.ClearZoneOffsetRequest{}
 		resp, err := client.ClearZoneOffset(ctx, req)
 		if err != nil {
@@ -8770,13 +4667,13 @@ var datatypesRestingHeartRateRecordBuilderClearZoneOffsetCmd = &cobra.Command{
 	},
 }
 
-var datatypesRestingHeartRateRecordBuilderSetZoneOffsetCmd = &cobra.Command{
+var datatypesBasalBodyTemperatureRecordBuilderSetZoneOffsetCmd = &cobra.Command{
 	Use:   "set-zone-offset",
 	Short: "SetZoneOffset RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewRestingHeartRateRecordBuilderServiceClient(grpcConn)
+		client := pb.NewBasalBodyTemperatureRecordBuilderServiceClient(grpcConn)
 		req := &pb.SetZoneOffsetRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -8789,18 +4686,18 @@ var datatypesRestingHeartRateRecordBuilderSetZoneOffsetCmd = &cobra.Command{
 	},
 }
 
-var datatypesStepsRecordCmd = &cobra.Command{
-	Use:   "steps-record",
-	Short: "StepsRecordService operations",
+var datatypesExerciseSegmentCmd = &cobra.Command{
+	Use:   "exercise-segment",
+	Short: "ExerciseSegmentService operations",
 }
 
-var datatypesStepsRecordEqualsCmd = &cobra.Command{
+var datatypesExerciseSegmentEqualsCmd = &cobra.Command{
 	Use:   "equals",
 	Short: "Equals RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewStepsRecordServiceClient(grpcConn)
+		client := pb.NewExerciseSegmentServiceClient(grpcConn)
 		req := &pb.EqualsRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -8813,15 +4710,15 @@ var datatypesStepsRecordEqualsCmd = &cobra.Command{
 	},
 }
 
-var datatypesStepsRecordGetCountCmd = &cobra.Command{
-	Use:   "get-count",
-	Short: "GetCount RPC",
+var datatypesExerciseSegmentGetEndTimeCmd = &cobra.Command{
+	Use:   "get-end-time",
+	Short: "GetEndTime RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewStepsRecordServiceClient(grpcConn)
-		req := &pb.GetCountRequest{}
-		resp, err := client.GetCount(ctx, req)
+		client := pb.NewExerciseSegmentServiceClient(grpcConn)
+		req := &pb.GetEndTimeRequest{}
+		resp, err := client.GetEndTime(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -8829,13 +4726,61 @@ var datatypesStepsRecordGetCountCmd = &cobra.Command{
 	},
 }
 
-var datatypesStepsRecordHashCodeCmd = &cobra.Command{
+var datatypesExerciseSegmentGetRepetitionsCountCmd = &cobra.Command{
+	Use:   "get-repetitions-count",
+	Short: "GetRepetitionsCount RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewExerciseSegmentServiceClient(grpcConn)
+		req := &pb.GetRepetitionsCountRequest{}
+		resp, err := client.GetRepetitionsCount(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesExerciseSegmentGetSegmentTypeCmd = &cobra.Command{
+	Use:   "get-segment-type",
+	Short: "GetSegmentType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewExerciseSegmentServiceClient(grpcConn)
+		req := &pb.GetSegmentTypeRequest{}
+		resp, err := client.GetSegmentType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesExerciseSegmentGetStartTimeCmd = &cobra.Command{
+	Use:   "get-start-time",
+	Short: "GetStartTime RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewExerciseSegmentServiceClient(grpcConn)
+		req := &pb.GetStartTimeRequest{}
+		resp, err := client.GetStartTime(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesExerciseSegmentHashCodeCmd = &cobra.Command{
 	Use:   "hash-code",
 	Short: "HashCode RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewStepsRecordServiceClient(grpcConn)
+		client := pb.NewExerciseSegmentServiceClient(grpcConn)
 		req := &pb.HashCodeRequest{}
 		resp, err := client.HashCode(ctx, req)
 		if err != nil {
@@ -8845,18 +4790,18 @@ var datatypesStepsRecordHashCodeCmd = &cobra.Command{
 	},
 }
 
-var datatypesStepsRecordBuilderCmd = &cobra.Command{
-	Use:   "steps-record-builder",
-	Short: "StepsRecordBuilderService operations",
+var datatypesExerciseSegmentBuilderCmd = &cobra.Command{
+	Use:   "exercise-segment-builder",
+	Short: "ExerciseSegmentBuilderService operations",
 }
 
-var datatypesStepsRecordBuilderBuildCmd = &cobra.Command{
+var datatypesExerciseSegmentBuilderBuildCmd = &cobra.Command{
 	Use:   "build",
 	Short: "Build RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewStepsRecordBuilderServiceClient(grpcConn)
+		client := pb.NewExerciseSegmentBuilderServiceClient(grpcConn)
 		req := &pb.BuildRequest{}
 		resp, err := client.Build(ctx, req)
 		if err != nil {
@@ -8866,50 +4811,18 @@ var datatypesStepsRecordBuilderBuildCmd = &cobra.Command{
 	},
 }
 
-var datatypesStepsRecordBuilderClearEndZoneOffsetCmd = &cobra.Command{
-	Use:   "clear-end-zone-offset",
-	Short: "ClearEndZoneOffset RPC",
+var datatypesExerciseSegmentBuilderSetRepetitionsCountCmd = &cobra.Command{
+	Use:   "set-repetitions-count",
+	Short: "SetRepetitionsCount RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewStepsRecordBuilderServiceClient(grpcConn)
-		req := &pb.ClearEndZoneOffsetRequest{}
-		resp, err := client.ClearEndZoneOffset(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesStepsRecordBuilderClearStartZoneOffsetCmd = &cobra.Command{
-	Use:   "clear-start-zone-offset",
-	Short: "ClearStartZoneOffset RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewStepsRecordBuilderServiceClient(grpcConn)
-		req := &pb.ClearStartZoneOffsetRequest{}
-		resp, err := client.ClearStartZoneOffset(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesStepsRecordBuilderSetEndZoneOffsetCmd = &cobra.Command{
-	Use:   "set-end-zone-offset",
-	Short: "SetEndZoneOffset RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewStepsRecordBuilderServiceClient(grpcConn)
-		req := &pb.SetEndZoneOffsetRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+		client := pb.NewExerciseSegmentBuilderServiceClient(grpcConn)
+		req := &pb.SetRepetitionsCountRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		resp, err := client.SetEndZoneOffset(ctx, req)
+		resp, err := client.SetRepetitionsCount(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -8917,18 +4830,20 @@ var datatypesStepsRecordBuilderSetEndZoneOffsetCmd = &cobra.Command{
 	},
 }
 
-var datatypesStepsRecordBuilderSetStartZoneOffsetCmd = &cobra.Command{
-	Use:   "set-start-zone-offset",
-	Short: "SetStartZoneOffset RPC",
+var datatypesMedicalDataSourceCmd = &cobra.Command{
+	Use:   "medical-data-source",
+	Short: "MedicalDataSourceService operations",
+}
+
+var datatypesMedicalDataSourceDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewStepsRecordBuilderServiceClient(grpcConn)
-		req := &pb.SetStartZoneOffsetRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetStartZoneOffset(ctx, req)
+		client := pb.NewMedicalDataSourceServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -8936,18 +4851,13 @@ var datatypesStepsRecordBuilderSetStartZoneOffsetCmd = &cobra.Command{
 	},
 }
 
-var datatypesHydrationRecordCmd = &cobra.Command{
-	Use:   "hydration-record",
-	Short: "HydrationRecordService operations",
-}
-
-var datatypesHydrationRecordEqualsCmd = &cobra.Command{
+var datatypesMedicalDataSourceEqualsCmd = &cobra.Command{
 	Use:   "equals",
 	Short: "Equals RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewHydrationRecordServiceClient(grpcConn)
+		client := pb.NewMedicalDataSourceServiceClient(grpcConn)
 		req := &pb.EqualsRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -8960,15 +4870,15 @@ var datatypesHydrationRecordEqualsCmd = &cobra.Command{
 	},
 }
 
-var datatypesHydrationRecordGetVolumeCmd = &cobra.Command{
-	Use:   "get-volume",
-	Short: "GetVolume RPC",
+var datatypesMedicalDataSourceGetDisplayNameCmd = &cobra.Command{
+	Use:   "get-display-name",
+	Short: "GetDisplayName RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewHydrationRecordServiceClient(grpcConn)
-		req := &pb.GetVolumeRequest{}
-		resp, err := client.GetVolume(ctx, req)
+		client := pb.NewMedicalDataSourceServiceClient(grpcConn)
+		req := &pb.GetDisplayNameRequest{}
+		resp, err := client.GetDisplayName(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -8976,13 +4886,93 @@ var datatypesHydrationRecordGetVolumeCmd = &cobra.Command{
 	},
 }
 
-var datatypesHydrationRecordHashCodeCmd = &cobra.Command{
+var datatypesMedicalDataSourceGetFhirBaseUriCmd = &cobra.Command{
+	Use:   "get-fhir-base-uri",
+	Short: "GetFhirBaseUri RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMedicalDataSourceServiceClient(grpcConn)
+		req := &pb.GetFhirBaseUriRequest{}
+		resp, err := client.GetFhirBaseUri(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesMedicalDataSourceGetFhirVersionCmd = &cobra.Command{
+	Use:   "get-fhir-version",
+	Short: "GetFhirVersion RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMedicalDataSourceServiceClient(grpcConn)
+		req := &pb.GetFhirVersionRequest{}
+		resp, err := client.GetFhirVersion(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesMedicalDataSourceGetIdCmd = &cobra.Command{
+	Use:   "get-id",
+	Short: "GetId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMedicalDataSourceServiceClient(grpcConn)
+		req := &pb.GetIdRequest{}
+		resp, err := client.GetId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesMedicalDataSourceGetLastDataUpdateTimeCmd = &cobra.Command{
+	Use:   "get-last-data-update-time",
+	Short: "GetLastDataUpdateTime RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMedicalDataSourceServiceClient(grpcConn)
+		req := &pb.GetLastDataUpdateTimeRequest{}
+		resp, err := client.GetLastDataUpdateTime(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesMedicalDataSourceGetPackageNameCmd = &cobra.Command{
+	Use:   "get-package-name",
+	Short: "GetPackageName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMedicalDataSourceServiceClient(grpcConn)
+		req := &pb.GetPackageNameRequest{}
+		resp, err := client.GetPackageName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesMedicalDataSourceHashCodeCmd = &cobra.Command{
 	Use:   "hash-code",
 	Short: "HashCode RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewHydrationRecordServiceClient(grpcConn)
+		client := pb.NewMedicalDataSourceServiceClient(grpcConn)
 		req := &pb.HashCodeRequest{}
 		resp, err := client.HashCode(ctx, req)
 		if err != nil {
@@ -8992,18 +4982,56 @@ var datatypesHydrationRecordHashCodeCmd = &cobra.Command{
 	},
 }
 
-var datatypesHydrationRecordBuilderCmd = &cobra.Command{
-	Use:   "hydration-record-builder",
-	Short: "HydrationRecordBuilderService operations",
+var datatypesMedicalDataSourceToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMedicalDataSourceServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
 }
 
-var datatypesHydrationRecordBuilderBuildCmd = &cobra.Command{
+var datatypesMedicalDataSourceWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMedicalDataSourceServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesMedicalDataSourceBuilderCmd = &cobra.Command{
+	Use:   "medical-data-source-builder",
+	Short: "MedicalDataSourceBuilderService operations",
+}
+
+var datatypesMedicalDataSourceBuilderBuildCmd = &cobra.Command{
 	Use:   "build",
 	Short: "Build RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewHydrationRecordBuilderServiceClient(grpcConn)
+		client := pb.NewMedicalDataSourceBuilderServiceClient(grpcConn)
 		req := &pb.BuildRequest{}
 		resp, err := client.Build(ctx, req)
 		if err != nil {
@@ -9013,13 +5041,188 @@ var datatypesHydrationRecordBuilderBuildCmd = &cobra.Command{
 	},
 }
 
-var datatypesHydrationRecordBuilderClearEndZoneOffsetCmd = &cobra.Command{
+var datatypesMedicalDataSourceBuilderSetDisplayNameCmd = &cobra.Command{
+	Use:   "set-display-name",
+	Short: "SetDisplayName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMedicalDataSourceBuilderServiceClient(grpcConn)
+		req := &pb.SetDisplayNameRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetDisplayName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesMedicalDataSourceBuilderSetFhirBaseUriCmd = &cobra.Command{
+	Use:   "set-fhir-base-uri",
+	Short: "SetFhirBaseUri RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMedicalDataSourceBuilderServiceClient(grpcConn)
+		req := &pb.SetFhirBaseUriRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetFhirBaseUri(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesMedicalDataSourceBuilderSetFhirVersionCmd = &cobra.Command{
+	Use:   "set-fhir-version",
+	Short: "SetFhirVersion RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMedicalDataSourceBuilderServiceClient(grpcConn)
+		req := &pb.SetFhirVersionRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetFhirVersion(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesMedicalDataSourceBuilderSetIdCmd = &cobra.Command{
+	Use:   "set-id",
+	Short: "SetId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMedicalDataSourceBuilderServiceClient(grpcConn)
+		req := &pb.SetIdRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesMedicalDataSourceBuilderSetLastDataUpdateTimeCmd = &cobra.Command{
+	Use:   "set-last-data-update-time",
+	Short: "SetLastDataUpdateTime RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMedicalDataSourceBuilderServiceClient(grpcConn)
+		req := &pb.SetLastDataUpdateTimeRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetLastDataUpdateTime(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesMedicalDataSourceBuilderSetPackageNameCmd = &cobra.Command{
+	Use:   "set-package-name",
+	Short: "SetPackageName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMedicalDataSourceBuilderServiceClient(grpcConn)
+		req := &pb.SetPackageNameRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetPackageName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesMenstruationPeriodRecordCmd = &cobra.Command{
+	Use:   "menstruation-period-record",
+	Short: "MenstruationPeriodRecordService operations",
+}
+
+var datatypesMenstruationPeriodRecordEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMenstruationPeriodRecordServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesMenstruationPeriodRecordHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMenstruationPeriodRecordServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesMenstruationPeriodRecordBuilderCmd = &cobra.Command{
+	Use:   "menstruation-period-record-builder",
+	Short: "MenstruationPeriodRecordBuilderService operations",
+}
+
+var datatypesMenstruationPeriodRecordBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMenstruationPeriodRecordBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesMenstruationPeriodRecordBuilderClearEndZoneOffsetCmd = &cobra.Command{
 	Use:   "clear-end-zone-offset",
 	Short: "ClearEndZoneOffset RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewHydrationRecordBuilderServiceClient(grpcConn)
+		client := pb.NewMenstruationPeriodRecordBuilderServiceClient(grpcConn)
 		req := &pb.ClearEndZoneOffsetRequest{}
 		resp, err := client.ClearEndZoneOffset(ctx, req)
 		if err != nil {
@@ -9029,13 +5232,13 @@ var datatypesHydrationRecordBuilderClearEndZoneOffsetCmd = &cobra.Command{
 	},
 }
 
-var datatypesHydrationRecordBuilderClearStartZoneOffsetCmd = &cobra.Command{
+var datatypesMenstruationPeriodRecordBuilderClearStartZoneOffsetCmd = &cobra.Command{
 	Use:   "clear-start-zone-offset",
 	Short: "ClearStartZoneOffset RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewHydrationRecordBuilderServiceClient(grpcConn)
+		client := pb.NewMenstruationPeriodRecordBuilderServiceClient(grpcConn)
 		req := &pb.ClearStartZoneOffsetRequest{}
 		resp, err := client.ClearStartZoneOffset(ctx, req)
 		if err != nil {
@@ -9045,13 +5248,13 @@ var datatypesHydrationRecordBuilderClearStartZoneOffsetCmd = &cobra.Command{
 	},
 }
 
-var datatypesHydrationRecordBuilderSetEndZoneOffsetCmd = &cobra.Command{
+var datatypesMenstruationPeriodRecordBuilderSetEndZoneOffsetCmd = &cobra.Command{
 	Use:   "set-end-zone-offset",
 	Short: "SetEndZoneOffset RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewHydrationRecordBuilderServiceClient(grpcConn)
+		client := pb.NewMenstruationPeriodRecordBuilderServiceClient(grpcConn)
 		req := &pb.SetEndZoneOffsetRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -9064,18 +5267,1018 @@ var datatypesHydrationRecordBuilderSetEndZoneOffsetCmd = &cobra.Command{
 	},
 }
 
-var datatypesHydrationRecordBuilderSetStartZoneOffsetCmd = &cobra.Command{
+var datatypesMenstruationPeriodRecordBuilderSetStartZoneOffsetCmd = &cobra.Command{
 	Use:   "set-start-zone-offset",
 	Short: "SetStartZoneOffset RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewHydrationRecordBuilderServiceClient(grpcConn)
+		client := pb.NewMenstruationPeriodRecordBuilderServiceClient(grpcConn)
 		req := &pb.SetStartZoneOffsetRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
 		resp, err := client.SetStartZoneOffset(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesPlannedExerciseSessionRecordCmd = &cobra.Command{
+	Use:   "planned-exercise-session-record",
+	Short: "PlannedExerciseSessionRecordService operations",
+}
+
+var datatypesPlannedExerciseSessionRecordEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPlannedExerciseSessionRecordServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesPlannedExerciseSessionRecordGetBlocksCmd = &cobra.Command{
+	Use:   "get-blocks",
+	Short: "GetBlocks RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPlannedExerciseSessionRecordServiceClient(grpcConn)
+		req := &pb.GetBlocksRequest{}
+		resp, err := client.GetBlocks(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesPlannedExerciseSessionRecordGetCompletedExerciseSessionIdCmd = &cobra.Command{
+	Use:   "get-completed-exercise-session-id",
+	Short: "GetCompletedExerciseSessionId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPlannedExerciseSessionRecordServiceClient(grpcConn)
+		req := &pb.GetCompletedExerciseSessionIdRequest{}
+		resp, err := client.GetCompletedExerciseSessionId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesPlannedExerciseSessionRecordGetDurationCmd = &cobra.Command{
+	Use:   "get-duration",
+	Short: "GetDuration RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPlannedExerciseSessionRecordServiceClient(grpcConn)
+		req := &pb.GetDurationRequest{}
+		resp, err := client.GetDuration(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesPlannedExerciseSessionRecordGetExerciseTypeCmd = &cobra.Command{
+	Use:   "get-exercise-type",
+	Short: "GetExerciseType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPlannedExerciseSessionRecordServiceClient(grpcConn)
+		req := &pb.GetExerciseTypeRequest{}
+		resp, err := client.GetExerciseType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesPlannedExerciseSessionRecordGetNotesCmd = &cobra.Command{
+	Use:   "get-notes",
+	Short: "GetNotes RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPlannedExerciseSessionRecordServiceClient(grpcConn)
+		req := &pb.GetNotesRequest{}
+		resp, err := client.GetNotes(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesPlannedExerciseSessionRecordGetStartDateCmd = &cobra.Command{
+	Use:   "get-start-date",
+	Short: "GetStartDate RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPlannedExerciseSessionRecordServiceClient(grpcConn)
+		req := &pb.GetStartDateRequest{}
+		resp, err := client.GetStartDate(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesPlannedExerciseSessionRecordGetTitleCmd = &cobra.Command{
+	Use:   "get-title",
+	Short: "GetTitle RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPlannedExerciseSessionRecordServiceClient(grpcConn)
+		req := &pb.GetTitleRequest{}
+		resp, err := client.GetTitle(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesPlannedExerciseSessionRecordHasExplicitTimeCmd = &cobra.Command{
+	Use:   "has-explicit-time",
+	Short: "HasExplicitTime RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPlannedExerciseSessionRecordServiceClient(grpcConn)
+		req := &pb.HasExplicitTimeRequest{}
+		resp, err := client.HasExplicitTime(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesPlannedExerciseSessionRecordHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPlannedExerciseSessionRecordServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesPlannedExerciseSessionRecordBuilderCmd = &cobra.Command{
+	Use:   "planned-exercise-session-record-builder",
+	Short: "PlannedExerciseSessionRecordBuilderService operations",
+}
+
+var datatypesPlannedExerciseSessionRecordBuilderAddBlockCmd = &cobra.Command{
+	Use:   "add-block",
+	Short: "AddBlock RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPlannedExerciseSessionRecordBuilderServiceClient(grpcConn)
+		req := &pb.AddBlockRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddBlock(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesPlannedExerciseSessionRecordBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPlannedExerciseSessionRecordBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesPlannedExerciseSessionRecordBuilderClearBlocksCmd = &cobra.Command{
+	Use:   "clear-blocks",
+	Short: "ClearBlocks RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPlannedExerciseSessionRecordBuilderServiceClient(grpcConn)
+		req := &pb.ClearBlocksRequest{}
+		resp, err := client.ClearBlocks(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesPlannedExerciseSessionRecordBuilderClearEndZoneOffsetCmd = &cobra.Command{
+	Use:   "clear-end-zone-offset",
+	Short: "ClearEndZoneOffset RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPlannedExerciseSessionRecordBuilderServiceClient(grpcConn)
+		req := &pb.ClearEndZoneOffsetRequest{}
+		resp, err := client.ClearEndZoneOffset(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesPlannedExerciseSessionRecordBuilderClearStartZoneOffsetCmd = &cobra.Command{
+	Use:   "clear-start-zone-offset",
+	Short: "ClearStartZoneOffset RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPlannedExerciseSessionRecordBuilderServiceClient(grpcConn)
+		req := &pb.ClearStartZoneOffsetRequest{}
+		resp, err := client.ClearStartZoneOffset(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesPlannedExerciseSessionRecordBuilderSetEndTimeCmd = &cobra.Command{
+	Use:   "set-end-time",
+	Short: "SetEndTime RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPlannedExerciseSessionRecordBuilderServiceClient(grpcConn)
+		req := &pb.SetEndTimeRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetEndTime(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesPlannedExerciseSessionRecordBuilderSetEndZoneOffsetCmd = &cobra.Command{
+	Use:   "set-end-zone-offset",
+	Short: "SetEndZoneOffset RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPlannedExerciseSessionRecordBuilderServiceClient(grpcConn)
+		req := &pb.SetEndZoneOffsetRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetEndZoneOffset(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesPlannedExerciseSessionRecordBuilderSetExerciseTypeCmd = &cobra.Command{
+	Use:   "set-exercise-type",
+	Short: "SetExerciseType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPlannedExerciseSessionRecordBuilderServiceClient(grpcConn)
+		req := &pb.SetExerciseTypeRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetExerciseType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesPlannedExerciseSessionRecordBuilderSetMetadataCmd = &cobra.Command{
+	Use:   "set-metadata",
+	Short: "SetMetadata RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPlannedExerciseSessionRecordBuilderServiceClient(grpcConn)
+		req := &pb.SetMetadataRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetMetadata(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesPlannedExerciseSessionRecordBuilderSetNotesCmd = &cobra.Command{
+	Use:   "set-notes",
+	Short: "SetNotes RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPlannedExerciseSessionRecordBuilderServiceClient(grpcConn)
+		req := &pb.SetNotesRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetNotes(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesPlannedExerciseSessionRecordBuilderSetStartTimeCmd = &cobra.Command{
+	Use:   "set-start-time",
+	Short: "SetStartTime RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPlannedExerciseSessionRecordBuilderServiceClient(grpcConn)
+		req := &pb.SetStartTimeRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetStartTime(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesPlannedExerciseSessionRecordBuilderSetStartZoneOffsetCmd = &cobra.Command{
+	Use:   "set-start-zone-offset",
+	Short: "SetStartZoneOffset RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPlannedExerciseSessionRecordBuilderServiceClient(grpcConn)
+		req := &pb.SetStartZoneOffsetRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetStartZoneOffset(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesPlannedExerciseSessionRecordBuilderSetTitleCmd = &cobra.Command{
+	Use:   "set-title",
+	Short: "SetTitle RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPlannedExerciseSessionRecordBuilderServiceClient(grpcConn)
+		req := &pb.SetTitleRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetTitle(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesHeartRateVariabilityRmssdRecordCmd = &cobra.Command{
+	Use:   "heart-rate-variability-rmssd-record",
+	Short: "HeartRateVariabilityRmssdRecordService operations",
+}
+
+var datatypesHeartRateVariabilityRmssdRecordEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewHeartRateVariabilityRmssdRecordServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesHeartRateVariabilityRmssdRecordGetHeartRateVariabilityMillisCmd = &cobra.Command{
+	Use:   "get-heart-rate-variability-millis",
+	Short: "GetHeartRateVariabilityMillis RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewHeartRateVariabilityRmssdRecordServiceClient(grpcConn)
+		req := &pb.GetHeartRateVariabilityMillisRequest{}
+		resp, err := client.GetHeartRateVariabilityMillis(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesHeartRateVariabilityRmssdRecordHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewHeartRateVariabilityRmssdRecordServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesHeartRateVariabilityRmssdRecordBuilderCmd = &cobra.Command{
+	Use:   "heart-rate-variability-rmssd-record-builder",
+	Short: "HeartRateVariabilityRmssdRecordBuilderService operations",
+}
+
+var datatypesHeartRateVariabilityRmssdRecordBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewHeartRateVariabilityRmssdRecordBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesHeartRateVariabilityRmssdRecordBuilderClearZoneOffsetCmd = &cobra.Command{
+	Use:   "clear-zone-offset",
+	Short: "ClearZoneOffset RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewHeartRateVariabilityRmssdRecordBuilderServiceClient(grpcConn)
+		req := &pb.ClearZoneOffsetRequest{}
+		resp, err := client.ClearZoneOffset(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesHeartRateVariabilityRmssdRecordBuilderSetZoneOffsetCmd = &cobra.Command{
+	Use:   "set-zone-offset",
+	Short: "SetZoneOffset RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewHeartRateVariabilityRmssdRecordBuilderServiceClient(grpcConn)
+		req := &pb.SetZoneOffsetRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetZoneOffset(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesExerciseLapCmd = &cobra.Command{
+	Use:   "exercise-lap",
+	Short: "ExerciseLapService operations",
+}
+
+var datatypesExerciseLapEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewExerciseLapServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesExerciseLapGetEndTimeCmd = &cobra.Command{
+	Use:   "get-end-time",
+	Short: "GetEndTime RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewExerciseLapServiceClient(grpcConn)
+		req := &pb.GetEndTimeRequest{}
+		resp, err := client.GetEndTime(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesExerciseLapGetLengthCmd = &cobra.Command{
+	Use:   "get-length",
+	Short: "GetLength RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewExerciseLapServiceClient(grpcConn)
+		req := &pb.GetLengthRequest{}
+		resp, err := client.GetLength(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesExerciseLapGetStartTimeCmd = &cobra.Command{
+	Use:   "get-start-time",
+	Short: "GetStartTime RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewExerciseLapServiceClient(grpcConn)
+		req := &pb.GetStartTimeRequest{}
+		resp, err := client.GetStartTime(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesExerciseLapHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewExerciseLapServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesExerciseLapBuilderCmd = &cobra.Command{
+	Use:   "exercise-lap-builder",
+	Short: "ExerciseLapBuilderService operations",
+}
+
+var datatypesExerciseLapBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewExerciseLapBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesExerciseLapBuilderSetLengthCmd = &cobra.Command{
+	Use:   "set-length",
+	Short: "SetLength RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewExerciseLapBuilderServiceClient(grpcConn)
+		req := &pb.SetLengthRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetLength(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesDataOriginCmd = &cobra.Command{
+	Use:   "data-origin",
+	Short: "DataOriginService operations",
+}
+
+var datatypesDataOriginEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDataOriginServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesDataOriginGetPackageNameCmd = &cobra.Command{
+	Use:   "get-package-name",
+	Short: "GetPackageName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDataOriginServiceClient(grpcConn)
+		req := &pb.GetPackageNameRequest{}
+		resp, err := client.GetPackageName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesDataOriginHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDataOriginServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesDataOriginBuilderCmd = &cobra.Command{
+	Use:   "data-origin-builder",
+	Short: "DataOriginBuilderService operations",
+}
+
+var datatypesDataOriginBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDataOriginBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesDataOriginBuilderSetPackageNameCmd = &cobra.Command{
+	Use:   "set-package-name",
+	Short: "SetPackageName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDataOriginBuilderServiceClient(grpcConn)
+		req := &pb.SetPackageNameRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetPackageName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesBodyTemperatureRecordCmd = &cobra.Command{
+	Use:   "body-temperature-record",
+	Short: "BodyTemperatureRecordService operations",
+}
+
+var datatypesBodyTemperatureRecordEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBodyTemperatureRecordServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesBodyTemperatureRecordGetMeasurementLocationCmd = &cobra.Command{
+	Use:   "get-measurement-location",
+	Short: "GetMeasurementLocation RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBodyTemperatureRecordServiceClient(grpcConn)
+		req := &pb.GetMeasurementLocationRequest{}
+		resp, err := client.GetMeasurementLocation(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesBodyTemperatureRecordGetTemperatureCmd = &cobra.Command{
+	Use:   "get-temperature",
+	Short: "GetTemperature RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBodyTemperatureRecordServiceClient(grpcConn)
+		req := &pb.GetTemperatureRequest{}
+		resp, err := client.GetTemperature(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesBodyTemperatureRecordHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBodyTemperatureRecordServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesBodyTemperatureRecordBuilderCmd = &cobra.Command{
+	Use:   "body-temperature-record-builder",
+	Short: "BodyTemperatureRecordBuilderService operations",
+}
+
+var datatypesBodyTemperatureRecordBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBodyTemperatureRecordBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesBodyTemperatureRecordBuilderClearZoneOffsetCmd = &cobra.Command{
+	Use:   "clear-zone-offset",
+	Short: "ClearZoneOffset RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBodyTemperatureRecordBuilderServiceClient(grpcConn)
+		req := &pb.ClearZoneOffsetRequest{}
+		resp, err := client.ClearZoneOffset(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesBodyTemperatureRecordBuilderSetZoneOffsetCmd = &cobra.Command{
+	Use:   "set-zone-offset",
+	Short: "SetZoneOffset RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBodyTemperatureRecordBuilderServiceClient(grpcConn)
+		req := &pb.SetZoneOffsetRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetZoneOffset(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesCervicalMucusRecordCmd = &cobra.Command{
+	Use:   "cervical-mucus-record",
+	Short: "CervicalMucusRecordService operations",
+}
+
+var datatypesCervicalMucusRecordEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCervicalMucusRecordServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesCervicalMucusRecordGetAppearanceCmd = &cobra.Command{
+	Use:   "get-appearance",
+	Short: "GetAppearance RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCervicalMucusRecordServiceClient(grpcConn)
+		req := &pb.GetAppearanceRequest{}
+		resp, err := client.GetAppearance(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesCervicalMucusRecordGetSensationCmd = &cobra.Command{
+	Use:   "get-sensation",
+	Short: "GetSensation RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCervicalMucusRecordServiceClient(grpcConn)
+		req := &pb.GetSensationRequest{}
+		resp, err := client.GetSensation(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesCervicalMucusRecordHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCervicalMucusRecordServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesCervicalMucusRecordBuilderCmd = &cobra.Command{
+	Use:   "cervical-mucus-record-builder",
+	Short: "CervicalMucusRecordBuilderService operations",
+}
+
+var datatypesCervicalMucusRecordBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCervicalMucusRecordBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesCervicalMucusRecordBuilderClearZoneOffsetCmd = &cobra.Command{
+	Use:   "clear-zone-offset",
+	Short: "ClearZoneOffset RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCervicalMucusRecordBuilderServiceClient(grpcConn)
+		req := &pb.ClearZoneOffsetRequest{}
+		resp, err := client.ClearZoneOffset(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesCervicalMucusRecordBuilderSetZoneOffsetCmd = &cobra.Command{
+	Use:   "set-zone-offset",
+	Short: "SetZoneOffset RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCervicalMucusRecordBuilderServiceClient(grpcConn)
+		req := &pb.SetZoneOffsetRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetZoneOffset(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -10754,442 +7957,6 @@ var datatypesNutritionRecordBuilderSetZincCmd = &cobra.Command{
 	},
 }
 
-var datatypesOvulationTestRecordCmd = &cobra.Command{
-	Use:   "ovulation-test-record",
-	Short: "OvulationTestRecordService operations",
-}
-
-var datatypesOvulationTestRecordEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewOvulationTestRecordServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesOvulationTestRecordGetResultCmd = &cobra.Command{
-	Use:   "get-result",
-	Short: "GetResult RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewOvulationTestRecordServiceClient(grpcConn)
-		req := &pb.GetResultRequest{}
-		resp, err := client.GetResult(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesOvulationTestRecordHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewOvulationTestRecordServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesOvulationTestRecordBuilderCmd = &cobra.Command{
-	Use:   "ovulation-test-record-builder",
-	Short: "OvulationTestRecordBuilderService operations",
-}
-
-var datatypesOvulationTestRecordBuilderBuildCmd = &cobra.Command{
-	Use:   "build",
-	Short: "Build RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewOvulationTestRecordBuilderServiceClient(grpcConn)
-		req := &pb.BuildRequest{}
-		resp, err := client.Build(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesOvulationTestRecordBuilderClearZoneOffsetCmd = &cobra.Command{
-	Use:   "clear-zone-offset",
-	Short: "ClearZoneOffset RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewOvulationTestRecordBuilderServiceClient(grpcConn)
-		req := &pb.ClearZoneOffsetRequest{}
-		resp, err := client.ClearZoneOffset(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesOvulationTestRecordBuilderSetZoneOffsetCmd = &cobra.Command{
-	Use:   "set-zone-offset",
-	Short: "SetZoneOffset RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewOvulationTestRecordBuilderServiceClient(grpcConn)
-		req := &pb.SetZoneOffsetRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetZoneOffset(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesTotalCaloriesBurnedRecordCmd = &cobra.Command{
-	Use:   "total-calories-burned-record",
-	Short: "TotalCaloriesBurnedRecordService operations",
-}
-
-var datatypesTotalCaloriesBurnedRecordEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTotalCaloriesBurnedRecordServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesTotalCaloriesBurnedRecordGetEnergyCmd = &cobra.Command{
-	Use:   "get-energy",
-	Short: "GetEnergy RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTotalCaloriesBurnedRecordServiceClient(grpcConn)
-		req := &pb.GetEnergyRequest{}
-		resp, err := client.GetEnergy(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesTotalCaloriesBurnedRecordHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTotalCaloriesBurnedRecordServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesTotalCaloriesBurnedRecordBuilderCmd = &cobra.Command{
-	Use:   "total-calories-burned-record-builder",
-	Short: "TotalCaloriesBurnedRecordBuilderService operations",
-}
-
-var datatypesTotalCaloriesBurnedRecordBuilderBuildCmd = &cobra.Command{
-	Use:   "build",
-	Short: "Build RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTotalCaloriesBurnedRecordBuilderServiceClient(grpcConn)
-		req := &pb.BuildRequest{}
-		resp, err := client.Build(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesTotalCaloriesBurnedRecordBuilderClearEndZoneOffsetCmd = &cobra.Command{
-	Use:   "clear-end-zone-offset",
-	Short: "ClearEndZoneOffset RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTotalCaloriesBurnedRecordBuilderServiceClient(grpcConn)
-		req := &pb.ClearEndZoneOffsetRequest{}
-		resp, err := client.ClearEndZoneOffset(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesTotalCaloriesBurnedRecordBuilderClearStartZoneOffsetCmd = &cobra.Command{
-	Use:   "clear-start-zone-offset",
-	Short: "ClearStartZoneOffset RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTotalCaloriesBurnedRecordBuilderServiceClient(grpcConn)
-		req := &pb.ClearStartZoneOffsetRequest{}
-		resp, err := client.ClearStartZoneOffset(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesTotalCaloriesBurnedRecordBuilderSetEndZoneOffsetCmd = &cobra.Command{
-	Use:   "set-end-zone-offset",
-	Short: "SetEndZoneOffset RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTotalCaloriesBurnedRecordBuilderServiceClient(grpcConn)
-		req := &pb.SetEndZoneOffsetRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetEndZoneOffset(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesTotalCaloriesBurnedRecordBuilderSetStartZoneOffsetCmd = &cobra.Command{
-	Use:   "set-start-zone-offset",
-	Short: "SetStartZoneOffset RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTotalCaloriesBurnedRecordBuilderServiceClient(grpcConn)
-		req := &pb.SetStartZoneOffsetRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetStartZoneOffset(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesFhirVersionCmd = &cobra.Command{
-	Use:   "fhir-version",
-	Short: "FhirVersionService operations",
-}
-
-var datatypesFhirVersionDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFhirVersionServiceClient(grpcConn)
-		req := &pb.FhirVersionDescribeContentsRequest{}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesFhirVersionEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFhirVersionServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesFhirVersionGetMajorCmd = &cobra.Command{
-	Use:   "get-major",
-	Short: "GetMajor RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFhirVersionServiceClient(grpcConn)
-		req := &pb.GetMajorRequest{}
-		resp, err := client.GetMajor(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesFhirVersionGetMinorCmd = &cobra.Command{
-	Use:   "get-minor",
-	Short: "GetMinor RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFhirVersionServiceClient(grpcConn)
-		req := &pb.GetMinorRequest{}
-		resp, err := client.GetMinor(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesFhirVersionGetPatchCmd = &cobra.Command{
-	Use:   "get-patch",
-	Short: "GetPatch RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFhirVersionServiceClient(grpcConn)
-		req := &pb.GetPatchRequest{}
-		resp, err := client.GetPatch(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesFhirVersionHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFhirVersionServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesFhirVersionIsSupportedFhirVersionCmd = &cobra.Command{
-	Use:   "is-supported-fhir-version",
-	Short: "IsSupportedFhirVersion RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFhirVersionServiceClient(grpcConn)
-		req := &pb.IsSupportedFhirVersionRequest{}
-		resp, err := client.IsSupportedFhirVersion(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesFhirVersionToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFhirVersionServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesFhirVersionWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFhirVersionServiceClient(grpcConn)
-		req := &pb.FhirVersionWriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var datatypesFhirVersionParseFhirVersionCmd = &cobra.Command{
-	Use:   "parse-fhir-version",
-	Short: "ParseFhirVersion RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFhirVersionServiceClient(grpcConn)
-		req := &pb.ParseFhirVersionRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.ParseFhirVersion(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
 var datatypesDeviceCmd = &cobra.Command{
 	Use:   "device",
 	Short: "DeviceService operations",
@@ -11356,18 +8123,18 @@ var datatypesDeviceBuilderSetTypeCmd = &cobra.Command{
 	},
 }
 
-var datatypesWheelchairPushesRecordCmd = &cobra.Command{
-	Use:   "wheelchair-pushes-record",
-	Short: "WheelchairPushesRecordService operations",
+var datatypesExerciseSessionRecordCmd = &cobra.Command{
+	Use:   "exercise-session-record",
+	Short: "ExerciseSessionRecordService operations",
 }
 
-var datatypesWheelchairPushesRecordEqualsCmd = &cobra.Command{
+var datatypesExerciseSessionRecordEqualsCmd = &cobra.Command{
 	Use:   "equals",
 	Short: "Equals RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewWheelchairPushesRecordServiceClient(grpcConn)
+		client := pb.NewExerciseSessionRecordServiceClient(grpcConn)
 		req := &pb.EqualsRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -11380,15 +8147,15 @@ var datatypesWheelchairPushesRecordEqualsCmd = &cobra.Command{
 	},
 }
 
-var datatypesWheelchairPushesRecordGetCountCmd = &cobra.Command{
-	Use:   "get-count",
-	Short: "GetCount RPC",
+var datatypesExerciseSessionRecordGetExerciseTypeCmd = &cobra.Command{
+	Use:   "get-exercise-type",
+	Short: "GetExerciseType RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewWheelchairPushesRecordServiceClient(grpcConn)
-		req := &pb.GetCountRequest{}
-		resp, err := client.GetCount(ctx, req)
+		client := pb.NewExerciseSessionRecordServiceClient(grpcConn)
+		req := &pb.GetExerciseTypeRequest{}
+		resp, err := client.GetExerciseType(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -11396,13 +8163,125 @@ var datatypesWheelchairPushesRecordGetCountCmd = &cobra.Command{
 	},
 }
 
-var datatypesWheelchairPushesRecordHashCodeCmd = &cobra.Command{
+var datatypesExerciseSessionRecordGetLapsCmd = &cobra.Command{
+	Use:   "get-laps",
+	Short: "GetLaps RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewExerciseSessionRecordServiceClient(grpcConn)
+		req := &pb.GetLapsRequest{}
+		resp, err := client.GetLaps(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesExerciseSessionRecordGetNotesCmd = &cobra.Command{
+	Use:   "get-notes",
+	Short: "GetNotes RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewExerciseSessionRecordServiceClient(grpcConn)
+		req := &pb.GetNotesRequest{}
+		resp, err := client.GetNotes(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesExerciseSessionRecordGetPlannedExerciseSessionIdCmd = &cobra.Command{
+	Use:   "get-planned-exercise-session-id",
+	Short: "GetPlannedExerciseSessionId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewExerciseSessionRecordServiceClient(grpcConn)
+		req := &pb.GetPlannedExerciseSessionIdRequest{}
+		resp, err := client.GetPlannedExerciseSessionId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesExerciseSessionRecordGetRouteCmd = &cobra.Command{
+	Use:   "get-route",
+	Short: "GetRoute RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewExerciseSessionRecordServiceClient(grpcConn)
+		req := &pb.GetRouteRequest{}
+		resp, err := client.GetRoute(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesExerciseSessionRecordGetSegmentsCmd = &cobra.Command{
+	Use:   "get-segments",
+	Short: "GetSegments RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewExerciseSessionRecordServiceClient(grpcConn)
+		req := &pb.GetSegmentsRequest{}
+		resp, err := client.GetSegments(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesExerciseSessionRecordGetTitleCmd = &cobra.Command{
+	Use:   "get-title",
+	Short: "GetTitle RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewExerciseSessionRecordServiceClient(grpcConn)
+		req := &pb.GetTitleRequest{}
+		resp, err := client.GetTitle(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesExerciseSessionRecordHasRouteCmd = &cobra.Command{
+	Use:   "has-route",
+	Short: "HasRoute RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewExerciseSessionRecordServiceClient(grpcConn)
+		req := &pb.HasRouteRequest{}
+		resp, err := client.HasRoute(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesExerciseSessionRecordHashCodeCmd = &cobra.Command{
 	Use:   "hash-code",
 	Short: "HashCode RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewWheelchairPushesRecordServiceClient(grpcConn)
+		client := pb.NewExerciseSessionRecordServiceClient(grpcConn)
 		req := &pb.HashCodeRequest{}
 		resp, err := client.HashCode(ctx, req)
 		if err != nil {
@@ -11412,18 +8291,18 @@ var datatypesWheelchairPushesRecordHashCodeCmd = &cobra.Command{
 	},
 }
 
-var datatypesWheelchairPushesRecordBuilderCmd = &cobra.Command{
-	Use:   "wheelchair-pushes-record-builder",
-	Short: "WheelchairPushesRecordBuilderService operations",
+var datatypesExerciseSessionRecordBuilderCmd = &cobra.Command{
+	Use:   "exercise-session-record-builder",
+	Short: "ExerciseSessionRecordBuilderService operations",
 }
 
-var datatypesWheelchairPushesRecordBuilderBuildCmd = &cobra.Command{
+var datatypesExerciseSessionRecordBuilderBuildCmd = &cobra.Command{
 	Use:   "build",
 	Short: "Build RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewWheelchairPushesRecordBuilderServiceClient(grpcConn)
+		client := pb.NewExerciseSessionRecordBuilderServiceClient(grpcConn)
 		req := &pb.BuildRequest{}
 		resp, err := client.Build(ctx, req)
 		if err != nil {
@@ -11433,13 +8312,13 @@ var datatypesWheelchairPushesRecordBuilderBuildCmd = &cobra.Command{
 	},
 }
 
-var datatypesWheelchairPushesRecordBuilderClearEndZoneOffsetCmd = &cobra.Command{
+var datatypesExerciseSessionRecordBuilderClearEndZoneOffsetCmd = &cobra.Command{
 	Use:   "clear-end-zone-offset",
 	Short: "ClearEndZoneOffset RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewWheelchairPushesRecordBuilderServiceClient(grpcConn)
+		client := pb.NewExerciseSessionRecordBuilderServiceClient(grpcConn)
 		req := &pb.ClearEndZoneOffsetRequest{}
 		resp, err := client.ClearEndZoneOffset(ctx, req)
 		if err != nil {
@@ -11449,13 +8328,13 @@ var datatypesWheelchairPushesRecordBuilderClearEndZoneOffsetCmd = &cobra.Command
 	},
 }
 
-var datatypesWheelchairPushesRecordBuilderClearStartZoneOffsetCmd = &cobra.Command{
+var datatypesExerciseSessionRecordBuilderClearStartZoneOffsetCmd = &cobra.Command{
 	Use:   "clear-start-zone-offset",
 	Short: "ClearStartZoneOffset RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewWheelchairPushesRecordBuilderServiceClient(grpcConn)
+		client := pb.NewExerciseSessionRecordBuilderServiceClient(grpcConn)
 		req := &pb.ClearStartZoneOffsetRequest{}
 		resp, err := client.ClearStartZoneOffset(ctx, req)
 		if err != nil {
@@ -11465,13 +8344,13 @@ var datatypesWheelchairPushesRecordBuilderClearStartZoneOffsetCmd = &cobra.Comma
 	},
 }
 
-var datatypesWheelchairPushesRecordBuilderSetEndZoneOffsetCmd = &cobra.Command{
+var datatypesExerciseSessionRecordBuilderSetEndZoneOffsetCmd = &cobra.Command{
 	Use:   "set-end-zone-offset",
 	Short: "SetEndZoneOffset RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewWheelchairPushesRecordBuilderServiceClient(grpcConn)
+		client := pb.NewExerciseSessionRecordBuilderServiceClient(grpcConn)
 		req := &pb.SetEndZoneOffsetRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -11484,18 +8363,1723 @@ var datatypesWheelchairPushesRecordBuilderSetEndZoneOffsetCmd = &cobra.Command{
 	},
 }
 
-var datatypesWheelchairPushesRecordBuilderSetStartZoneOffsetCmd = &cobra.Command{
+var datatypesExerciseSessionRecordBuilderSetNotesCmd = &cobra.Command{
+	Use:   "set-notes",
+	Short: "SetNotes RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewExerciseSessionRecordBuilderServiceClient(grpcConn)
+		req := &pb.SetNotesRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetNotes(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesExerciseSessionRecordBuilderSetPlannedExerciseSessionIdCmd = &cobra.Command{
+	Use:   "set-planned-exercise-session-id",
+	Short: "SetPlannedExerciseSessionId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewExerciseSessionRecordBuilderServiceClient(grpcConn)
+		req := &pb.SetPlannedExerciseSessionIdRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetPlannedExerciseSessionId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesExerciseSessionRecordBuilderSetRouteCmd = &cobra.Command{
+	Use:   "set-route",
+	Short: "SetRoute RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewExerciseSessionRecordBuilderServiceClient(grpcConn)
+		req := &pb.SetRouteRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetRoute(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesExerciseSessionRecordBuilderSetStartZoneOffsetCmd = &cobra.Command{
 	Use:   "set-start-zone-offset",
 	Short: "SetStartZoneOffset RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewWheelchairPushesRecordBuilderServiceClient(grpcConn)
+		client := pb.NewExerciseSessionRecordBuilderServiceClient(grpcConn)
 		req := &pb.SetStartZoneOffsetRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
 		resp, err := client.SetStartZoneOffset(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesExerciseSessionRecordBuilderSetTitleCmd = &cobra.Command{
+	Use:   "set-title",
+	Short: "SetTitle RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewExerciseSessionRecordBuilderServiceClient(grpcConn)
+		req := &pb.SetTitleRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetTitle(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesExercisePerformanceGoalCadenceGoalCmd = &cobra.Command{
+	Use:   "exercise-performance-goal-cadence-goal",
+	Short: "ExercisePerformanceGoalCadenceGoalService operations",
+}
+
+var datatypesExercisePerformanceGoalCadenceGoalEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewExercisePerformanceGoalCadenceGoalServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesExercisePerformanceGoalCadenceGoalGetMaxRpmCmd = &cobra.Command{
+	Use:   "get-max-rpm",
+	Short: "GetMaxRpm RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewExercisePerformanceGoalCadenceGoalServiceClient(grpcConn)
+		req := &pb.GetMaxRpmRequest{}
+		resp, err := client.GetMaxRpm(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesExercisePerformanceGoalCadenceGoalGetMinRpmCmd = &cobra.Command{
+	Use:   "get-min-rpm",
+	Short: "GetMinRpm RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewExercisePerformanceGoalCadenceGoalServiceClient(grpcConn)
+		req := &pb.GetMinRpmRequest{}
+		resp, err := client.GetMinRpm(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesExercisePerformanceGoalCadenceGoalHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewExercisePerformanceGoalCadenceGoalServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesExercisePerformanceGoalHeartRateGoalCmd = &cobra.Command{
+	Use:   "exercise-performance-goal-heart-rate-goal",
+	Short: "ExercisePerformanceGoalHeartRateGoalService operations",
+}
+
+var datatypesExercisePerformanceGoalHeartRateGoalEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewExercisePerformanceGoalHeartRateGoalServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesExercisePerformanceGoalHeartRateGoalGetMaxBpmCmd = &cobra.Command{
+	Use:   "get-max-bpm",
+	Short: "GetMaxBpm RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewExercisePerformanceGoalHeartRateGoalServiceClient(grpcConn)
+		req := &pb.GetMaxBpmRequest{}
+		resp, err := client.GetMaxBpm(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesExercisePerformanceGoalHeartRateGoalGetMinBpmCmd = &cobra.Command{
+	Use:   "get-min-bpm",
+	Short: "GetMinBpm RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewExercisePerformanceGoalHeartRateGoalServiceClient(grpcConn)
+		req := &pb.GetMinBpmRequest{}
+		resp, err := client.GetMinBpm(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesExercisePerformanceGoalHeartRateGoalHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewExercisePerformanceGoalHeartRateGoalServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesExercisePerformanceGoalPowerGoalCmd = &cobra.Command{
+	Use:   "exercise-performance-goal-power-goal",
+	Short: "ExercisePerformanceGoalPowerGoalService operations",
+}
+
+var datatypesExercisePerformanceGoalPowerGoalEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewExercisePerformanceGoalPowerGoalServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesExercisePerformanceGoalPowerGoalGetMaxPowerCmd = &cobra.Command{
+	Use:   "get-max-power",
+	Short: "GetMaxPower RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewExercisePerformanceGoalPowerGoalServiceClient(grpcConn)
+		req := &pb.GetMaxPowerRequest{}
+		resp, err := client.GetMaxPower(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesExercisePerformanceGoalPowerGoalGetMinPowerCmd = &cobra.Command{
+	Use:   "get-min-power",
+	Short: "GetMinPower RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewExercisePerformanceGoalPowerGoalServiceClient(grpcConn)
+		req := &pb.GetMinPowerRequest{}
+		resp, err := client.GetMinPower(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesExercisePerformanceGoalPowerGoalHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewExercisePerformanceGoalPowerGoalServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesExercisePerformanceGoalRateOfPerceivedExertionGoalCmd = &cobra.Command{
+	Use:   "exercise-performance-goal-rate-of-perceived-exertion-goal",
+	Short: "ExercisePerformanceGoalRateOfPerceivedExertionGoalService operations",
+}
+
+var datatypesExercisePerformanceGoalRateOfPerceivedExertionGoalEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewExercisePerformanceGoalRateOfPerceivedExertionGoalServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesExercisePerformanceGoalRateOfPerceivedExertionGoalGetRpeCmd = &cobra.Command{
+	Use:   "get-rpe",
+	Short: "GetRpe RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewExercisePerformanceGoalRateOfPerceivedExertionGoalServiceClient(grpcConn)
+		req := &pb.GetRpeRequest{}
+		resp, err := client.GetRpe(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesExercisePerformanceGoalRateOfPerceivedExertionGoalHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewExercisePerformanceGoalRateOfPerceivedExertionGoalServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesExercisePerformanceGoalSpeedGoalCmd = &cobra.Command{
+	Use:   "exercise-performance-goal-speed-goal",
+	Short: "ExercisePerformanceGoalSpeedGoalService operations",
+}
+
+var datatypesExercisePerformanceGoalSpeedGoalEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewExercisePerformanceGoalSpeedGoalServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesExercisePerformanceGoalSpeedGoalGetMaxSpeedCmd = &cobra.Command{
+	Use:   "get-max-speed",
+	Short: "GetMaxSpeed RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewExercisePerformanceGoalSpeedGoalServiceClient(grpcConn)
+		req := &pb.GetMaxSpeedRequest{}
+		resp, err := client.GetMaxSpeed(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesExercisePerformanceGoalSpeedGoalGetMinSpeedCmd = &cobra.Command{
+	Use:   "get-min-speed",
+	Short: "GetMinSpeed RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewExercisePerformanceGoalSpeedGoalServiceClient(grpcConn)
+		req := &pb.GetMinSpeedRequest{}
+		resp, err := client.GetMinSpeed(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesExercisePerformanceGoalSpeedGoalHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewExercisePerformanceGoalSpeedGoalServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesExercisePerformanceGoalWeightGoalCmd = &cobra.Command{
+	Use:   "exercise-performance-goal-weight-goal",
+	Short: "ExercisePerformanceGoalWeightGoalService operations",
+}
+
+var datatypesExercisePerformanceGoalWeightGoalEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewExercisePerformanceGoalWeightGoalServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesExercisePerformanceGoalWeightGoalGetMassCmd = &cobra.Command{
+	Use:   "get-mass",
+	Short: "GetMass RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewExercisePerformanceGoalWeightGoalServiceClient(grpcConn)
+		req := &pb.GetMassRequest{}
+		resp, err := client.GetMass(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesExercisePerformanceGoalWeightGoalHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewExercisePerformanceGoalWeightGoalServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesFloorsClimbedRecordCmd = &cobra.Command{
+	Use:   "floors-climbed-record",
+	Short: "FloorsClimbedRecordService operations",
+}
+
+var datatypesFloorsClimbedRecordEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFloorsClimbedRecordServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesFloorsClimbedRecordGetFloorsCmd = &cobra.Command{
+	Use:   "get-floors",
+	Short: "GetFloors RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFloorsClimbedRecordServiceClient(grpcConn)
+		req := &pb.GetFloorsRequest{}
+		resp, err := client.GetFloors(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesFloorsClimbedRecordHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFloorsClimbedRecordServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesFloorsClimbedRecordBuilderCmd = &cobra.Command{
+	Use:   "floors-climbed-record-builder",
+	Short: "FloorsClimbedRecordBuilderService operations",
+}
+
+var datatypesFloorsClimbedRecordBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFloorsClimbedRecordBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesFloorsClimbedRecordBuilderClearEndZoneOffsetCmd = &cobra.Command{
+	Use:   "clear-end-zone-offset",
+	Short: "ClearEndZoneOffset RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFloorsClimbedRecordBuilderServiceClient(grpcConn)
+		req := &pb.ClearEndZoneOffsetRequest{}
+		resp, err := client.ClearEndZoneOffset(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesFloorsClimbedRecordBuilderClearStartZoneOffsetCmd = &cobra.Command{
+	Use:   "clear-start-zone-offset",
+	Short: "ClearStartZoneOffset RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFloorsClimbedRecordBuilderServiceClient(grpcConn)
+		req := &pb.ClearStartZoneOffsetRequest{}
+		resp, err := client.ClearStartZoneOffset(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesFloorsClimbedRecordBuilderSetEndZoneOffsetCmd = &cobra.Command{
+	Use:   "set-end-zone-offset",
+	Short: "SetEndZoneOffset RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFloorsClimbedRecordBuilderServiceClient(grpcConn)
+		req := &pb.SetEndZoneOffsetRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetEndZoneOffset(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesFloorsClimbedRecordBuilderSetStartZoneOffsetCmd = &cobra.Command{
+	Use:   "set-start-zone-offset",
+	Short: "SetStartZoneOffset RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFloorsClimbedRecordBuilderServiceClient(grpcConn)
+		req := &pb.SetStartZoneOffsetRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetStartZoneOffset(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesOxygenSaturationRecordCmd = &cobra.Command{
+	Use:   "oxygen-saturation-record",
+	Short: "OxygenSaturationRecordService operations",
+}
+
+var datatypesOxygenSaturationRecordEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewOxygenSaturationRecordServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesOxygenSaturationRecordGetPercentageCmd = &cobra.Command{
+	Use:   "get-percentage",
+	Short: "GetPercentage RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewOxygenSaturationRecordServiceClient(grpcConn)
+		req := &pb.GetPercentageRequest{}
+		resp, err := client.GetPercentage(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesOxygenSaturationRecordHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewOxygenSaturationRecordServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesOxygenSaturationRecordBuilderCmd = &cobra.Command{
+	Use:   "oxygen-saturation-record-builder",
+	Short: "OxygenSaturationRecordBuilderService operations",
+}
+
+var datatypesOxygenSaturationRecordBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewOxygenSaturationRecordBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesOxygenSaturationRecordBuilderClearZoneOffsetCmd = &cobra.Command{
+	Use:   "clear-zone-offset",
+	Short: "ClearZoneOffset RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewOxygenSaturationRecordBuilderServiceClient(grpcConn)
+		req := &pb.ClearZoneOffsetRequest{}
+		resp, err := client.ClearZoneOffset(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesOxygenSaturationRecordBuilderSetZoneOffsetCmd = &cobra.Command{
+	Use:   "set-zone-offset",
+	Short: "SetZoneOffset RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewOxygenSaturationRecordBuilderServiceClient(grpcConn)
+		req := &pb.SetZoneOffsetRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetZoneOffset(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesIntermenstrualBleedingRecordCmd = &cobra.Command{
+	Use:   "intermenstrual-bleeding-record",
+	Short: "IntermenstrualBleedingRecordService operations",
+}
+
+var datatypesIntermenstrualBleedingRecordEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewIntermenstrualBleedingRecordServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesIntermenstrualBleedingRecordHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewIntermenstrualBleedingRecordServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesIntermenstrualBleedingRecordBuilderCmd = &cobra.Command{
+	Use:   "intermenstrual-bleeding-record-builder",
+	Short: "IntermenstrualBleedingRecordBuilderService operations",
+}
+
+var datatypesIntermenstrualBleedingRecordBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewIntermenstrualBleedingRecordBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesIntermenstrualBleedingRecordBuilderClearZoneOffsetCmd = &cobra.Command{
+	Use:   "clear-zone-offset",
+	Short: "ClearZoneOffset RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewIntermenstrualBleedingRecordBuilderServiceClient(grpcConn)
+		req := &pb.ClearZoneOffsetRequest{}
+		resp, err := client.ClearZoneOffset(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesIntermenstrualBleedingRecordBuilderSetZoneOffsetCmd = &cobra.Command{
+	Use:   "set-zone-offset",
+	Short: "SetZoneOffset RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewIntermenstrualBleedingRecordBuilderServiceClient(grpcConn)
+		req := &pb.SetZoneOffsetRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetZoneOffset(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesRecordCmd = &cobra.Command{
+	Use:   "record",
+	Short: "RecordService operations",
+}
+
+var datatypesRecordEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRecordServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesRecordGetMetadataCmd = &cobra.Command{
+	Use:   "get-metadata",
+	Short: "GetMetadata RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRecordServiceClient(grpcConn)
+		req := &pb.GetMetadataRequest{}
+		resp, err := client.GetMetadata(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesRecordHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRecordServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesLeanBodyMassRecordCmd = &cobra.Command{
+	Use:   "lean-body-mass-record",
+	Short: "LeanBodyMassRecordService operations",
+}
+
+var datatypesLeanBodyMassRecordEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLeanBodyMassRecordServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesLeanBodyMassRecordGetMassCmd = &cobra.Command{
+	Use:   "get-mass",
+	Short: "GetMass RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLeanBodyMassRecordServiceClient(grpcConn)
+		req := &pb.GetMassRequest{}
+		resp, err := client.GetMass(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesLeanBodyMassRecordHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLeanBodyMassRecordServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesLeanBodyMassRecordBuilderCmd = &cobra.Command{
+	Use:   "lean-body-mass-record-builder",
+	Short: "LeanBodyMassRecordBuilderService operations",
+}
+
+var datatypesLeanBodyMassRecordBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLeanBodyMassRecordBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesLeanBodyMassRecordBuilderClearZoneOffsetCmd = &cobra.Command{
+	Use:   "clear-zone-offset",
+	Short: "ClearZoneOffset RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLeanBodyMassRecordBuilderServiceClient(grpcConn)
+		req := &pb.ClearZoneOffsetRequest{}
+		resp, err := client.ClearZoneOffset(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesLeanBodyMassRecordBuilderSetZoneOffsetCmd = &cobra.Command{
+	Use:   "set-zone-offset",
+	Short: "SetZoneOffset RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLeanBodyMassRecordBuilderServiceClient(grpcConn)
+		req := &pb.SetZoneOffsetRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetZoneOffset(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesSleepSessionRecordCmd = &cobra.Command{
+	Use:   "sleep-session-record",
+	Short: "SleepSessionRecordService operations",
+}
+
+var datatypesSleepSessionRecordEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSleepSessionRecordServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesSleepSessionRecordGetNotesCmd = &cobra.Command{
+	Use:   "get-notes",
+	Short: "GetNotes RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSleepSessionRecordServiceClient(grpcConn)
+		req := &pb.GetNotesRequest{}
+		resp, err := client.GetNotes(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesSleepSessionRecordGetStagesCmd = &cobra.Command{
+	Use:   "get-stages",
+	Short: "GetStages RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSleepSessionRecordServiceClient(grpcConn)
+		req := &pb.GetStagesRequest{}
+		resp, err := client.GetStages(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesSleepSessionRecordGetTitleCmd = &cobra.Command{
+	Use:   "get-title",
+	Short: "GetTitle RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSleepSessionRecordServiceClient(grpcConn)
+		req := &pb.GetTitleRequest{}
+		resp, err := client.GetTitle(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesSleepSessionRecordHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSleepSessionRecordServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesSleepSessionRecordBuilderCmd = &cobra.Command{
+	Use:   "sleep-session-record-builder",
+	Short: "SleepSessionRecordBuilderService operations",
+}
+
+var datatypesSleepSessionRecordBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSleepSessionRecordBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesSleepSessionRecordBuilderClearEndZoneOffsetCmd = &cobra.Command{
+	Use:   "clear-end-zone-offset",
+	Short: "ClearEndZoneOffset RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSleepSessionRecordBuilderServiceClient(grpcConn)
+		req := &pb.ClearEndZoneOffsetRequest{}
+		resp, err := client.ClearEndZoneOffset(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesSleepSessionRecordBuilderClearStartZoneOffsetCmd = &cobra.Command{
+	Use:   "clear-start-zone-offset",
+	Short: "ClearStartZoneOffset RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSleepSessionRecordBuilderServiceClient(grpcConn)
+		req := &pb.ClearStartZoneOffsetRequest{}
+		resp, err := client.ClearStartZoneOffset(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesSleepSessionRecordBuilderSetEndZoneOffsetCmd = &cobra.Command{
+	Use:   "set-end-zone-offset",
+	Short: "SetEndZoneOffset RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSleepSessionRecordBuilderServiceClient(grpcConn)
+		req := &pb.SetEndZoneOffsetRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetEndZoneOffset(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesSleepSessionRecordBuilderSetNotesCmd = &cobra.Command{
+	Use:   "set-notes",
+	Short: "SetNotes RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSleepSessionRecordBuilderServiceClient(grpcConn)
+		req := &pb.SetNotesRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetNotes(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesSleepSessionRecordBuilderSetStartZoneOffsetCmd = &cobra.Command{
+	Use:   "set-start-zone-offset",
+	Short: "SetStartZoneOffset RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSleepSessionRecordBuilderServiceClient(grpcConn)
+		req := &pb.SetStartZoneOffsetRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetStartZoneOffset(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesSleepSessionRecordBuilderSetTitleCmd = &cobra.Command{
+	Use:   "set-title",
+	Short: "SetTitle RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSleepSessionRecordBuilderServiceClient(grpcConn)
+		req := &pb.SetTitleRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetTitle(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesSleepSessionRecordStageCmd = &cobra.Command{
+	Use:   "sleep-session-record-stage",
+	Short: "SleepSessionRecordStageService operations",
+}
+
+var datatypesSleepSessionRecordStageEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSleepSessionRecordStageServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesSleepSessionRecordStageGetEndTimeCmd = &cobra.Command{
+	Use:   "get-end-time",
+	Short: "GetEndTime RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSleepSessionRecordStageServiceClient(grpcConn)
+		req := &pb.GetEndTimeRequest{}
+		resp, err := client.GetEndTime(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesSleepSessionRecordStageGetStartTimeCmd = &cobra.Command{
+	Use:   "get-start-time",
+	Short: "GetStartTime RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSleepSessionRecordStageServiceClient(grpcConn)
+		req := &pb.GetStartTimeRequest{}
+		resp, err := client.GetStartTime(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesSleepSessionRecordStageGetTypeCmd = &cobra.Command{
+	Use:   "get-type",
+	Short: "GetType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSleepSessionRecordStageServiceClient(grpcConn)
+		req := &pb.GetTypeRequest{}
+		resp, err := client.GetType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesSleepSessionRecordStageHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSleepSessionRecordStageServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesSkinTemperatureRecordCmd = &cobra.Command{
+	Use:   "skin-temperature-record",
+	Short: "SkinTemperatureRecordService operations",
+}
+
+var datatypesSkinTemperatureRecordEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSkinTemperatureRecordServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesSkinTemperatureRecordGetBaselineCmd = &cobra.Command{
+	Use:   "get-baseline",
+	Short: "GetBaseline RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSkinTemperatureRecordServiceClient(grpcConn)
+		req := &pb.GetBaselineRequest{}
+		resp, err := client.GetBaseline(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesSkinTemperatureRecordGetDeltasCmd = &cobra.Command{
+	Use:   "get-deltas",
+	Short: "GetDeltas RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSkinTemperatureRecordServiceClient(grpcConn)
+		req := &pb.GetDeltasRequest{}
+		resp, err := client.GetDeltas(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesSkinTemperatureRecordGetMeasurementLocationCmd = &cobra.Command{
+	Use:   "get-measurement-location",
+	Short: "GetMeasurementLocation RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSkinTemperatureRecordServiceClient(grpcConn)
+		req := &pb.GetMeasurementLocationRequest{}
+		resp, err := client.GetMeasurementLocation(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesSkinTemperatureRecordHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSkinTemperatureRecordServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesSkinTemperatureRecordBuilderCmd = &cobra.Command{
+	Use:   "skin-temperature-record-builder",
+	Short: "SkinTemperatureRecordBuilderService operations",
+}
+
+var datatypesSkinTemperatureRecordBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSkinTemperatureRecordBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesSkinTemperatureRecordBuilderClearEndZoneOffsetCmd = &cobra.Command{
+	Use:   "clear-end-zone-offset",
+	Short: "ClearEndZoneOffset RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSkinTemperatureRecordBuilderServiceClient(grpcConn)
+		req := &pb.ClearEndZoneOffsetRequest{}
+		resp, err := client.ClearEndZoneOffset(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesSkinTemperatureRecordBuilderClearStartZoneOffsetCmd = &cobra.Command{
+	Use:   "clear-start-zone-offset",
+	Short: "ClearStartZoneOffset RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSkinTemperatureRecordBuilderServiceClient(grpcConn)
+		req := &pb.ClearStartZoneOffsetRequest{}
+		resp, err := client.ClearStartZoneOffset(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesSkinTemperatureRecordBuilderSetBaselineCmd = &cobra.Command{
+	Use:   "set-baseline",
+	Short: "SetBaseline RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSkinTemperatureRecordBuilderServiceClient(grpcConn)
+		req := &pb.SetBaselineRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetBaseline(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesSkinTemperatureRecordBuilderSetEndZoneOffsetCmd = &cobra.Command{
+	Use:   "set-end-zone-offset",
+	Short: "SetEndZoneOffset RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSkinTemperatureRecordBuilderServiceClient(grpcConn)
+		req := &pb.SetEndZoneOffsetRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetEndZoneOffset(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesSkinTemperatureRecordBuilderSetMeasurementLocationCmd = &cobra.Command{
+	Use:   "set-measurement-location",
+	Short: "SetMeasurementLocation RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSkinTemperatureRecordBuilderServiceClient(grpcConn)
+		req := &pb.SetMeasurementLocationRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetMeasurementLocation(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesSkinTemperatureRecordBuilderSetStartZoneOffsetCmd = &cobra.Command{
+	Use:   "set-start-zone-offset",
+	Short: "SetStartZoneOffset RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSkinTemperatureRecordBuilderServiceClient(grpcConn)
+		req := &pb.SetStartZoneOffsetRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetStartZoneOffset(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesSkinTemperatureRecordDeltaCmd = &cobra.Command{
+	Use:   "skin-temperature-record-delta",
+	Short: "SkinTemperatureRecordDeltaService operations",
+}
+
+var datatypesSkinTemperatureRecordDeltaEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSkinTemperatureRecordDeltaServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesSkinTemperatureRecordDeltaGetDeltaCmd = &cobra.Command{
+	Use:   "get-delta",
+	Short: "GetDelta RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSkinTemperatureRecordDeltaServiceClient(grpcConn)
+		req := &pb.GetDeltaRequest{}
+		resp, err := client.GetDelta(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesSkinTemperatureRecordDeltaGetTimeCmd = &cobra.Command{
+	Use:   "get-time",
+	Short: "GetTime RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSkinTemperatureRecordDeltaServiceClient(grpcConn)
+		req := &pb.GetTimeRequest{}
+		resp, err := client.GetTime(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesSkinTemperatureRecordDeltaHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSkinTemperatureRecordDeltaServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesBodyWaterMassRecordCmd = &cobra.Command{
+	Use:   "body-water-mass-record",
+	Short: "BodyWaterMassRecordService operations",
+}
+
+var datatypesBodyWaterMassRecordEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBodyWaterMassRecordServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesBodyWaterMassRecordGetBodyWaterMassCmd = &cobra.Command{
+	Use:   "get-body-water-mass",
+	Short: "GetBodyWaterMass RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBodyWaterMassRecordServiceClient(grpcConn)
+		req := &pb.GetBodyWaterMassRequest{}
+		resp, err := client.GetBodyWaterMass(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesBodyWaterMassRecordHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBodyWaterMassRecordServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesBodyWaterMassRecordBuilderCmd = &cobra.Command{
+	Use:   "body-water-mass-record-builder",
+	Short: "BodyWaterMassRecordBuilderService operations",
+}
+
+var datatypesBodyWaterMassRecordBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBodyWaterMassRecordBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesBodyWaterMassRecordBuilderClearZoneOffsetCmd = &cobra.Command{
+	Use:   "clear-zone-offset",
+	Short: "ClearZoneOffset RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBodyWaterMassRecordBuilderServiceClient(grpcConn)
+		req := &pb.ClearZoneOffsetRequest{}
+		resp, err := client.ClearZoneOffset(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesBodyWaterMassRecordBuilderSetZoneOffsetCmd = &cobra.Command{
+	Use:   "set-zone-offset",
+	Short: "SetZoneOffset RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBodyWaterMassRecordBuilderServiceClient(grpcConn)
+		req := &pb.SetZoneOffsetRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetZoneOffset(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -11552,6 +10136,22 @@ var datatypesPlannedExerciseBlockGetRepetitionsCmd = &cobra.Command{
 		client := pb.NewPlannedExerciseBlockServiceClient(grpcConn)
 		req := &pb.GetRepetitionsRequest{}
 		resp, err := client.GetRepetitions(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesPlannedExerciseBlockGetStepsCmd = &cobra.Command{
+	Use:   "get-steps",
+	Short: "GetSteps RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPlannedExerciseBlockServiceClient(grpcConn)
+		req := &pb.GetStepsRequest{}
+		resp, err := client.GetSteps(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -11669,133 +10269,1665 @@ var datatypesPlannedExerciseBlockBuilderSetRepetitionsCmd = &cobra.Command{
 	},
 }
 
+var datatypesTotalCaloriesBurnedRecordCmd = &cobra.Command{
+	Use:   "total-calories-burned-record",
+	Short: "TotalCaloriesBurnedRecordService operations",
+}
+
+var datatypesTotalCaloriesBurnedRecordEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTotalCaloriesBurnedRecordServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesTotalCaloriesBurnedRecordGetEnergyCmd = &cobra.Command{
+	Use:   "get-energy",
+	Short: "GetEnergy RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTotalCaloriesBurnedRecordServiceClient(grpcConn)
+		req := &pb.GetEnergyRequest{}
+		resp, err := client.GetEnergy(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesTotalCaloriesBurnedRecordHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTotalCaloriesBurnedRecordServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesTotalCaloriesBurnedRecordBuilderCmd = &cobra.Command{
+	Use:   "total-calories-burned-record-builder",
+	Short: "TotalCaloriesBurnedRecordBuilderService operations",
+}
+
+var datatypesTotalCaloriesBurnedRecordBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTotalCaloriesBurnedRecordBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesTotalCaloriesBurnedRecordBuilderClearEndZoneOffsetCmd = &cobra.Command{
+	Use:   "clear-end-zone-offset",
+	Short: "ClearEndZoneOffset RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTotalCaloriesBurnedRecordBuilderServiceClient(grpcConn)
+		req := &pb.ClearEndZoneOffsetRequest{}
+		resp, err := client.ClearEndZoneOffset(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesTotalCaloriesBurnedRecordBuilderClearStartZoneOffsetCmd = &cobra.Command{
+	Use:   "clear-start-zone-offset",
+	Short: "ClearStartZoneOffset RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTotalCaloriesBurnedRecordBuilderServiceClient(grpcConn)
+		req := &pb.ClearStartZoneOffsetRequest{}
+		resp, err := client.ClearStartZoneOffset(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesTotalCaloriesBurnedRecordBuilderSetEndZoneOffsetCmd = &cobra.Command{
+	Use:   "set-end-zone-offset",
+	Short: "SetEndZoneOffset RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTotalCaloriesBurnedRecordBuilderServiceClient(grpcConn)
+		req := &pb.SetEndZoneOffsetRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetEndZoneOffset(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesTotalCaloriesBurnedRecordBuilderSetStartZoneOffsetCmd = &cobra.Command{
+	Use:   "set-start-zone-offset",
+	Short: "SetStartZoneOffset RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTotalCaloriesBurnedRecordBuilderServiceClient(grpcConn)
+		req := &pb.SetStartZoneOffsetRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetStartZoneOffset(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesFhirVersionCmd = &cobra.Command{
+	Use:   "fhir-version",
+	Short: "FhirVersionService operations",
+}
+
+var datatypesFhirVersionDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFhirVersionServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesFhirVersionEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFhirVersionServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesFhirVersionGetMajorCmd = &cobra.Command{
+	Use:   "get-major",
+	Short: "GetMajor RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFhirVersionServiceClient(grpcConn)
+		req := &pb.GetMajorRequest{}
+		resp, err := client.GetMajor(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesFhirVersionGetMinorCmd = &cobra.Command{
+	Use:   "get-minor",
+	Short: "GetMinor RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFhirVersionServiceClient(grpcConn)
+		req := &pb.GetMinorRequest{}
+		resp, err := client.GetMinor(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesFhirVersionGetPatchCmd = &cobra.Command{
+	Use:   "get-patch",
+	Short: "GetPatch RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFhirVersionServiceClient(grpcConn)
+		req := &pb.GetPatchRequest{}
+		resp, err := client.GetPatch(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesFhirVersionHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFhirVersionServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesFhirVersionIsSupportedFhirVersionCmd = &cobra.Command{
+	Use:   "is-supported-fhir-version",
+	Short: "IsSupportedFhirVersion RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFhirVersionServiceClient(grpcConn)
+		req := &pb.IsSupportedFhirVersionRequest{}
+		resp, err := client.IsSupportedFhirVersion(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesFhirVersionToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFhirVersionServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesFhirVersionWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFhirVersionServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesFhirVersionParseFhirVersionCmd = &cobra.Command{
+	Use:   "parse-fhir-version",
+	Short: "ParseFhirVersion RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFhirVersionServiceClient(grpcConn)
+		req := &pb.ParseFhirVersionRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.ParseFhirVersion(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesStepsCadenceRecordCmd = &cobra.Command{
+	Use:   "steps-cadence-record",
+	Short: "StepsCadenceRecordService operations",
+}
+
+var datatypesStepsCadenceRecordEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStepsCadenceRecordServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesStepsCadenceRecordGetSamplesCmd = &cobra.Command{
+	Use:   "get-samples",
+	Short: "GetSamples RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStepsCadenceRecordServiceClient(grpcConn)
+		req := &pb.GetSamplesRequest{}
+		resp, err := client.GetSamples(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesStepsCadenceRecordHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStepsCadenceRecordServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesStepsCadenceRecordBuilderCmd = &cobra.Command{
+	Use:   "steps-cadence-record-builder",
+	Short: "StepsCadenceRecordBuilderService operations",
+}
+
+var datatypesStepsCadenceRecordBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStepsCadenceRecordBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesStepsCadenceRecordBuilderClearEndZoneOffsetCmd = &cobra.Command{
+	Use:   "clear-end-zone-offset",
+	Short: "ClearEndZoneOffset RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStepsCadenceRecordBuilderServiceClient(grpcConn)
+		req := &pb.ClearEndZoneOffsetRequest{}
+		resp, err := client.ClearEndZoneOffset(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesStepsCadenceRecordBuilderClearStartZoneOffsetCmd = &cobra.Command{
+	Use:   "clear-start-zone-offset",
+	Short: "ClearStartZoneOffset RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStepsCadenceRecordBuilderServiceClient(grpcConn)
+		req := &pb.ClearStartZoneOffsetRequest{}
+		resp, err := client.ClearStartZoneOffset(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesStepsCadenceRecordBuilderSetEndZoneOffsetCmd = &cobra.Command{
+	Use:   "set-end-zone-offset",
+	Short: "SetEndZoneOffset RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStepsCadenceRecordBuilderServiceClient(grpcConn)
+		req := &pb.SetEndZoneOffsetRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetEndZoneOffset(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesStepsCadenceRecordBuilderSetStartZoneOffsetCmd = &cobra.Command{
+	Use:   "set-start-zone-offset",
+	Short: "SetStartZoneOffset RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStepsCadenceRecordBuilderServiceClient(grpcConn)
+		req := &pb.SetStartZoneOffsetRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetStartZoneOffset(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesStepsCadenceRecordStepsCadenceRecordSampleCmd = &cobra.Command{
+	Use:   "steps-cadence-record-steps-cadence-record-sample",
+	Short: "StepsCadenceRecordStepsCadenceRecordSampleService operations",
+}
+
+var datatypesStepsCadenceRecordStepsCadenceRecordSampleEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStepsCadenceRecordStepsCadenceRecordSampleServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesStepsCadenceRecordStepsCadenceRecordSampleGetRateCmd = &cobra.Command{
+	Use:   "get-rate",
+	Short: "GetRate RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStepsCadenceRecordStepsCadenceRecordSampleServiceClient(grpcConn)
+		req := &pb.GetRateRequest{}
+		resp, err := client.GetRate(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesStepsCadenceRecordStepsCadenceRecordSampleGetTimeCmd = &cobra.Command{
+	Use:   "get-time",
+	Short: "GetTime RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStepsCadenceRecordStepsCadenceRecordSampleServiceClient(grpcConn)
+		req := &pb.GetTimeRequest{}
+		resp, err := client.GetTime(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesStepsCadenceRecordStepsCadenceRecordSampleHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStepsCadenceRecordStepsCadenceRecordSampleServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesVo2MaxRecordCmd = &cobra.Command{
+	Use:   "vo2max-record",
+	Short: "Vo2MaxRecordService operations",
+}
+
+var datatypesVo2MaxRecordEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVo2MaxRecordServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesVo2MaxRecordGetMeasurementMethodCmd = &cobra.Command{
+	Use:   "get-measurement-method",
+	Short: "GetMeasurementMethod RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVo2MaxRecordServiceClient(grpcConn)
+		req := &pb.GetMeasurementMethodRequest{}
+		resp, err := client.GetMeasurementMethod(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesVo2MaxRecordGetVo2MillilitersPerMinuteKilogramCmd = &cobra.Command{
+	Use:   "get-vo2milliliters-per-minute-kilogram",
+	Short: "GetVo2MillilitersPerMinuteKilogram RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVo2MaxRecordServiceClient(grpcConn)
+		req := &pb.GetVo2MillilitersPerMinuteKilogramRequest{}
+		resp, err := client.GetVo2MillilitersPerMinuteKilogram(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesVo2MaxRecordHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVo2MaxRecordServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesVo2MaxRecordBuilderCmd = &cobra.Command{
+	Use:   "vo2max-record-builder",
+	Short: "Vo2MaxRecordBuilderService operations",
+}
+
+var datatypesVo2MaxRecordBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVo2MaxRecordBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesVo2MaxRecordBuilderClearZoneOffsetCmd = &cobra.Command{
+	Use:   "clear-zone-offset",
+	Short: "ClearZoneOffset RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVo2MaxRecordBuilderServiceClient(grpcConn)
+		req := &pb.ClearZoneOffsetRequest{}
+		resp, err := client.ClearZoneOffset(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesVo2MaxRecordBuilderSetZoneOffsetCmd = &cobra.Command{
+	Use:   "set-zone-offset",
+	Short: "SetZoneOffset RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVo2MaxRecordBuilderServiceClient(grpcConn)
+		req := &pb.SetZoneOffsetRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetZoneOffset(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesWeightRecordCmd = &cobra.Command{
+	Use:   "weight-record",
+	Short: "WeightRecordService operations",
+}
+
+var datatypesWeightRecordEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWeightRecordServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesWeightRecordGetWeightCmd = &cobra.Command{
+	Use:   "get-weight",
+	Short: "GetWeight RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWeightRecordServiceClient(grpcConn)
+		req := &pb.GetWeightRequest{}
+		resp, err := client.GetWeight(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesWeightRecordHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWeightRecordServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesWeightRecordBuilderCmd = &cobra.Command{
+	Use:   "weight-record-builder",
+	Short: "WeightRecordBuilderService operations",
+}
+
+var datatypesWeightRecordBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWeightRecordBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesWeightRecordBuilderClearZoneOffsetCmd = &cobra.Command{
+	Use:   "clear-zone-offset",
+	Short: "ClearZoneOffset RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWeightRecordBuilderServiceClient(grpcConn)
+		req := &pb.ClearZoneOffsetRequest{}
+		resp, err := client.ClearZoneOffset(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesWeightRecordBuilderSetZoneOffsetCmd = &cobra.Command{
+	Use:   "set-zone-offset",
+	Short: "SetZoneOffset RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWeightRecordBuilderServiceClient(grpcConn)
+		req := &pb.SetZoneOffsetRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetZoneOffset(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesRestingHeartRateRecordCmd = &cobra.Command{
+	Use:   "resting-heart-rate-record",
+	Short: "RestingHeartRateRecordService operations",
+}
+
+var datatypesRestingHeartRateRecordEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRestingHeartRateRecordServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesRestingHeartRateRecordGetBeatsPerMinuteCmd = &cobra.Command{
+	Use:   "get-beats-per-minute",
+	Short: "GetBeatsPerMinute RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRestingHeartRateRecordServiceClient(grpcConn)
+		req := &pb.GetBeatsPerMinuteRequest{}
+		resp, err := client.GetBeatsPerMinute(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesRestingHeartRateRecordHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRestingHeartRateRecordServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesRestingHeartRateRecordBuilderCmd = &cobra.Command{
+	Use:   "resting-heart-rate-record-builder",
+	Short: "RestingHeartRateRecordBuilderService operations",
+}
+
+var datatypesRestingHeartRateRecordBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRestingHeartRateRecordBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesRestingHeartRateRecordBuilderClearZoneOffsetCmd = &cobra.Command{
+	Use:   "clear-zone-offset",
+	Short: "ClearZoneOffset RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRestingHeartRateRecordBuilderServiceClient(grpcConn)
+		req := &pb.ClearZoneOffsetRequest{}
+		resp, err := client.ClearZoneOffset(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesRestingHeartRateRecordBuilderSetZoneOffsetCmd = &cobra.Command{
+	Use:   "set-zone-offset",
+	Short: "SetZoneOffset RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRestingHeartRateRecordBuilderServiceClient(grpcConn)
+		req := &pb.SetZoneOffsetRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetZoneOffset(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesActiveCaloriesBurnedRecordCmd = &cobra.Command{
+	Use:   "active-calories-burned-record",
+	Short: "ActiveCaloriesBurnedRecordService operations",
+}
+
+var datatypesActiveCaloriesBurnedRecordEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewActiveCaloriesBurnedRecordServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesActiveCaloriesBurnedRecordGetEnergyCmd = &cobra.Command{
+	Use:   "get-energy",
+	Short: "GetEnergy RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewActiveCaloriesBurnedRecordServiceClient(grpcConn)
+		req := &pb.GetEnergyRequest{}
+		resp, err := client.GetEnergy(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesActiveCaloriesBurnedRecordHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewActiveCaloriesBurnedRecordServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesActiveCaloriesBurnedRecordBuilderCmd = &cobra.Command{
+	Use:   "active-calories-burned-record-builder",
+	Short: "ActiveCaloriesBurnedRecordBuilderService operations",
+}
+
+var datatypesActiveCaloriesBurnedRecordBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewActiveCaloriesBurnedRecordBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesActiveCaloriesBurnedRecordBuilderClearEndZoneOffsetCmd = &cobra.Command{
+	Use:   "clear-end-zone-offset",
+	Short: "ClearEndZoneOffset RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewActiveCaloriesBurnedRecordBuilderServiceClient(grpcConn)
+		req := &pb.ClearEndZoneOffsetRequest{}
+		resp, err := client.ClearEndZoneOffset(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesActiveCaloriesBurnedRecordBuilderClearStartZoneOffsetCmd = &cobra.Command{
+	Use:   "clear-start-zone-offset",
+	Short: "ClearStartZoneOffset RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewActiveCaloriesBurnedRecordBuilderServiceClient(grpcConn)
+		req := &pb.ClearStartZoneOffsetRequest{}
+		resp, err := client.ClearStartZoneOffset(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesActiveCaloriesBurnedRecordBuilderSetEndZoneOffsetCmd = &cobra.Command{
+	Use:   "set-end-zone-offset",
+	Short: "SetEndZoneOffset RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewActiveCaloriesBurnedRecordBuilderServiceClient(grpcConn)
+		req := &pb.SetEndZoneOffsetRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetEndZoneOffset(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesActiveCaloriesBurnedRecordBuilderSetStartZoneOffsetCmd = &cobra.Command{
+	Use:   "set-start-zone-offset",
+	Short: "SetStartZoneOffset RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewActiveCaloriesBurnedRecordBuilderServiceClient(grpcConn)
+		req := &pb.SetStartZoneOffsetRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetStartZoneOffset(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesMindfulnessSessionRecordCmd = &cobra.Command{
+	Use:   "mindfulness-session-record",
+	Short: "MindfulnessSessionRecordService operations",
+}
+
+var datatypesMindfulnessSessionRecordEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMindfulnessSessionRecordServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesMindfulnessSessionRecordGetMindfulnessSessionTypeCmd = &cobra.Command{
+	Use:   "get-mindfulness-session-type",
+	Short: "GetMindfulnessSessionType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMindfulnessSessionRecordServiceClient(grpcConn)
+		req := &pb.GetMindfulnessSessionTypeRequest{}
+		resp, err := client.GetMindfulnessSessionType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesMindfulnessSessionRecordGetNotesCmd = &cobra.Command{
+	Use:   "get-notes",
+	Short: "GetNotes RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMindfulnessSessionRecordServiceClient(grpcConn)
+		req := &pb.GetNotesRequest{}
+		resp, err := client.GetNotes(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesMindfulnessSessionRecordGetTitleCmd = &cobra.Command{
+	Use:   "get-title",
+	Short: "GetTitle RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMindfulnessSessionRecordServiceClient(grpcConn)
+		req := &pb.GetTitleRequest{}
+		resp, err := client.GetTitle(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesMindfulnessSessionRecordHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMindfulnessSessionRecordServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesMindfulnessSessionRecordBuilderCmd = &cobra.Command{
+	Use:   "mindfulness-session-record-builder",
+	Short: "MindfulnessSessionRecordBuilderService operations",
+}
+
+var datatypesMindfulnessSessionRecordBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMindfulnessSessionRecordBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesMindfulnessSessionRecordBuilderSetEndZoneOffsetCmd = &cobra.Command{
+	Use:   "set-end-zone-offset",
+	Short: "SetEndZoneOffset RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMindfulnessSessionRecordBuilderServiceClient(grpcConn)
+		req := &pb.SetEndZoneOffsetRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetEndZoneOffset(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesMindfulnessSessionRecordBuilderSetNotesCmd = &cobra.Command{
+	Use:   "set-notes",
+	Short: "SetNotes RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMindfulnessSessionRecordBuilderServiceClient(grpcConn)
+		req := &pb.SetNotesRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetNotes(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesMindfulnessSessionRecordBuilderSetStartZoneOffsetCmd = &cobra.Command{
+	Use:   "set-start-zone-offset",
+	Short: "SetStartZoneOffset RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMindfulnessSessionRecordBuilderServiceClient(grpcConn)
+		req := &pb.SetStartZoneOffsetRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetStartZoneOffset(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesMindfulnessSessionRecordBuilderSetTitleCmd = &cobra.Command{
+	Use:   "set-title",
+	Short: "SetTitle RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMindfulnessSessionRecordBuilderServiceClient(grpcConn)
+		req := &pb.SetTitleRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetTitle(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesBloodPressureRecordCmd = &cobra.Command{
+	Use:   "blood-pressure-record",
+	Short: "BloodPressureRecordService operations",
+}
+
+var datatypesBloodPressureRecordEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBloodPressureRecordServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesBloodPressureRecordGetBodyPositionCmd = &cobra.Command{
+	Use:   "get-body-position",
+	Short: "GetBodyPosition RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBloodPressureRecordServiceClient(grpcConn)
+		req := &pb.GetBodyPositionRequest{}
+		resp, err := client.GetBodyPosition(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesBloodPressureRecordGetDiastolicCmd = &cobra.Command{
+	Use:   "get-diastolic",
+	Short: "GetDiastolic RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBloodPressureRecordServiceClient(grpcConn)
+		req := &pb.GetDiastolicRequest{}
+		resp, err := client.GetDiastolic(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesBloodPressureRecordGetMeasurementLocationCmd = &cobra.Command{
+	Use:   "get-measurement-location",
+	Short: "GetMeasurementLocation RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBloodPressureRecordServiceClient(grpcConn)
+		req := &pb.GetMeasurementLocationRequest{}
+		resp, err := client.GetMeasurementLocation(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesBloodPressureRecordGetSystolicCmd = &cobra.Command{
+	Use:   "get-systolic",
+	Short: "GetSystolic RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBloodPressureRecordServiceClient(grpcConn)
+		req := &pb.GetSystolicRequest{}
+		resp, err := client.GetSystolic(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesBloodPressureRecordHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBloodPressureRecordServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesBloodPressureRecordBuilderCmd = &cobra.Command{
+	Use:   "blood-pressure-record-builder",
+	Short: "BloodPressureRecordBuilderService operations",
+}
+
+var datatypesBloodPressureRecordBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBloodPressureRecordBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesBloodPressureRecordBuilderClearZoneOffsetCmd = &cobra.Command{
+	Use:   "clear-zone-offset",
+	Short: "ClearZoneOffset RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBloodPressureRecordBuilderServiceClient(grpcConn)
+		req := &pb.ClearZoneOffsetRequest{}
+		resp, err := client.ClearZoneOffset(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesBloodPressureRecordBuilderSetZoneOffsetCmd = &cobra.Command{
+	Use:   "set-zone-offset",
+	Short: "SetZoneOffset RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBloodPressureRecordBuilderServiceClient(grpcConn)
+		req := &pb.SetZoneOffsetRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetZoneOffset(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesSexualActivityRecordCmd = &cobra.Command{
+	Use:   "sexual-activity-record",
+	Short: "SexualActivityRecordService operations",
+}
+
+var datatypesSexualActivityRecordEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSexualActivityRecordServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesSexualActivityRecordGetProtectionUsedCmd = &cobra.Command{
+	Use:   "get-protection-used",
+	Short: "GetProtectionUsed RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSexualActivityRecordServiceClient(grpcConn)
+		req := &pb.GetProtectionUsedRequest{}
+		resp, err := client.GetProtectionUsed(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesSexualActivityRecordHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSexualActivityRecordServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesSexualActivityRecordBuilderCmd = &cobra.Command{
+	Use:   "sexual-activity-record-builder",
+	Short: "SexualActivityRecordBuilderService operations",
+}
+
+var datatypesSexualActivityRecordBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSexualActivityRecordBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesSexualActivityRecordBuilderClearZoneOffsetCmd = &cobra.Command{
+	Use:   "clear-zone-offset",
+	Short: "ClearZoneOffset RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSexualActivityRecordBuilderServiceClient(grpcConn)
+		req := &pb.ClearZoneOffsetRequest{}
+		resp, err := client.ClearZoneOffset(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesSexualActivityRecordBuilderSetZoneOffsetCmd = &cobra.Command{
+	Use:   "set-zone-offset",
+	Short: "SetZoneOffset RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSexualActivityRecordBuilderServiceClient(grpcConn)
+		req := &pb.SetZoneOffsetRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetZoneOffset(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesOvulationTestRecordCmd = &cobra.Command{
+	Use:   "ovulation-test-record",
+	Short: "OvulationTestRecordService operations",
+}
+
+var datatypesOvulationTestRecordEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewOvulationTestRecordServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesOvulationTestRecordGetResultCmd = &cobra.Command{
+	Use:   "get-result",
+	Short: "GetResult RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewOvulationTestRecordServiceClient(grpcConn)
+		req := &pb.GetResultRequest{}
+		resp, err := client.GetResult(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesOvulationTestRecordHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewOvulationTestRecordServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesOvulationTestRecordBuilderCmd = &cobra.Command{
+	Use:   "ovulation-test-record-builder",
+	Short: "OvulationTestRecordBuilderService operations",
+}
+
+var datatypesOvulationTestRecordBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewOvulationTestRecordBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesOvulationTestRecordBuilderClearZoneOffsetCmd = &cobra.Command{
+	Use:   "clear-zone-offset",
+	Short: "ClearZoneOffset RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewOvulationTestRecordBuilderServiceClient(grpcConn)
+		req := &pb.ClearZoneOffsetRequest{}
+		resp, err := client.ClearZoneOffset(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var datatypesOvulationTestRecordBuilderSetZoneOffsetCmd = &cobra.Command{
+	Use:   "set-zone-offset",
+	Short: "SetZoneOffset RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewOvulationTestRecordBuilderServiceClient(grpcConn)
+		req := &pb.SetZoneOffsetRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetZoneOffset(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 func init() {
-	datatypesSleepSessionRecordEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	datatypesSleepSessionRecordCmd.AddCommand(datatypesSleepSessionRecordEqualsCmd)
-	datatypesSleepSessionRecordCmd.AddCommand(datatypesSleepSessionRecordGetNotesCmd)
-	datatypesSleepSessionRecordCmd.AddCommand(datatypesSleepSessionRecordGetTitleCmd)
-	datatypesSleepSessionRecordCmd.AddCommand(datatypesSleepSessionRecordHashCodeCmd)
-	datatypesCmd.AddCommand(datatypesSleepSessionRecordCmd)
-	datatypesSleepSessionRecordBuilderCmd.AddCommand(datatypesSleepSessionRecordBuilderBuildCmd)
-	datatypesSleepSessionRecordBuilderCmd.AddCommand(datatypesSleepSessionRecordBuilderClearEndZoneOffsetCmd)
-	datatypesSleepSessionRecordBuilderCmd.AddCommand(datatypesSleepSessionRecordBuilderClearStartZoneOffsetCmd)
-	datatypesSleepSessionRecordBuilderSetEndZoneOffsetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	datatypesSleepSessionRecordBuilderCmd.AddCommand(datatypesSleepSessionRecordBuilderSetEndZoneOffsetCmd)
-	datatypesSleepSessionRecordBuilderSetNotesCmd.Flags().String("arg0", "", "arg0 (string)")
-	datatypesSleepSessionRecordBuilderCmd.AddCommand(datatypesSleepSessionRecordBuilderSetNotesCmd)
-	datatypesSleepSessionRecordBuilderSetStartZoneOffsetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	datatypesSleepSessionRecordBuilderCmd.AddCommand(datatypesSleepSessionRecordBuilderSetStartZoneOffsetCmd)
-	datatypesSleepSessionRecordBuilderSetTitleCmd.Flags().String("arg0", "", "arg0 (string)")
-	datatypesSleepSessionRecordBuilderCmd.AddCommand(datatypesSleepSessionRecordBuilderSetTitleCmd)
-	datatypesCmd.AddCommand(datatypesSleepSessionRecordBuilderCmd)
-	datatypesSleepSessionRecordStageEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	datatypesSleepSessionRecordStageCmd.AddCommand(datatypesSleepSessionRecordStageEqualsCmd)
-	datatypesSleepSessionRecordStageCmd.AddCommand(datatypesSleepSessionRecordStageGetEndTimeCmd)
-	datatypesSleepSessionRecordStageCmd.AddCommand(datatypesSleepSessionRecordStageGetStartTimeCmd)
-	datatypesSleepSessionRecordStageCmd.AddCommand(datatypesSleepSessionRecordStageGetTypeCmd)
-	datatypesSleepSessionRecordStageCmd.AddCommand(datatypesSleepSessionRecordStageHashCodeCmd)
-	datatypesCmd.AddCommand(datatypesSleepSessionRecordStageCmd)
-	datatypesBodyWaterMassRecordEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	datatypesBodyWaterMassRecordCmd.AddCommand(datatypesBodyWaterMassRecordEqualsCmd)
-	datatypesBodyWaterMassRecordCmd.AddCommand(datatypesBodyWaterMassRecordGetBodyWaterMassCmd)
-	datatypesBodyWaterMassRecordCmd.AddCommand(datatypesBodyWaterMassRecordHashCodeCmd)
-	datatypesCmd.AddCommand(datatypesBodyWaterMassRecordCmd)
-	datatypesBodyWaterMassRecordBuilderCmd.AddCommand(datatypesBodyWaterMassRecordBuilderBuildCmd)
-	datatypesBodyWaterMassRecordBuilderCmd.AddCommand(datatypesBodyWaterMassRecordBuilderClearZoneOffsetCmd)
-	datatypesBodyWaterMassRecordBuilderSetZoneOffsetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	datatypesBodyWaterMassRecordBuilderCmd.AddCommand(datatypesBodyWaterMassRecordBuilderSetZoneOffsetCmd)
-	datatypesCmd.AddCommand(datatypesBodyWaterMassRecordBuilderCmd)
-	datatypesExerciseSegmentEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	datatypesExerciseSegmentCmd.AddCommand(datatypesExerciseSegmentEqualsCmd)
-	datatypesExerciseSegmentCmd.AddCommand(datatypesExerciseSegmentGetEndTimeCmd)
-	datatypesExerciseSegmentCmd.AddCommand(datatypesExerciseSegmentGetRepetitionsCountCmd)
-	datatypesExerciseSegmentCmd.AddCommand(datatypesExerciseSegmentGetSegmentTypeCmd)
-	datatypesExerciseSegmentCmd.AddCommand(datatypesExerciseSegmentGetStartTimeCmd)
-	datatypesExerciseSegmentCmd.AddCommand(datatypesExerciseSegmentHashCodeCmd)
-	datatypesCmd.AddCommand(datatypesExerciseSegmentCmd)
-	datatypesExerciseSegmentBuilderCmd.AddCommand(datatypesExerciseSegmentBuilderBuildCmd)
-	datatypesExerciseSegmentBuilderSetRepetitionsCountCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	datatypesExerciseSegmentBuilderCmd.AddCommand(datatypesExerciseSegmentBuilderSetRepetitionsCountCmd)
-	datatypesCmd.AddCommand(datatypesExerciseSegmentBuilderCmd)
-	datatypesDistanceRecordEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	datatypesDistanceRecordCmd.AddCommand(datatypesDistanceRecordEqualsCmd)
-	datatypesDistanceRecordCmd.AddCommand(datatypesDistanceRecordGetDistanceCmd)
-	datatypesDistanceRecordCmd.AddCommand(datatypesDistanceRecordHashCodeCmd)
-	datatypesCmd.AddCommand(datatypesDistanceRecordCmd)
-	datatypesDistanceRecordBuilderCmd.AddCommand(datatypesDistanceRecordBuilderBuildCmd)
-	datatypesDistanceRecordBuilderCmd.AddCommand(datatypesDistanceRecordBuilderClearEndZoneOffsetCmd)
-	datatypesDistanceRecordBuilderCmd.AddCommand(datatypesDistanceRecordBuilderClearStartZoneOffsetCmd)
-	datatypesDistanceRecordBuilderSetEndZoneOffsetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	datatypesDistanceRecordBuilderCmd.AddCommand(datatypesDistanceRecordBuilderSetEndZoneOffsetCmd)
-	datatypesDistanceRecordBuilderSetStartZoneOffsetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	datatypesDistanceRecordBuilderCmd.AddCommand(datatypesDistanceRecordBuilderSetStartZoneOffsetCmd)
-	datatypesCmd.AddCommand(datatypesDistanceRecordBuilderCmd)
-	datatypesBodyTemperatureRecordEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	datatypesBodyTemperatureRecordCmd.AddCommand(datatypesBodyTemperatureRecordEqualsCmd)
-	datatypesBodyTemperatureRecordCmd.AddCommand(datatypesBodyTemperatureRecordGetMeasurementLocationCmd)
-	datatypesBodyTemperatureRecordCmd.AddCommand(datatypesBodyTemperatureRecordGetTemperatureCmd)
-	datatypesBodyTemperatureRecordCmd.AddCommand(datatypesBodyTemperatureRecordHashCodeCmd)
-	datatypesCmd.AddCommand(datatypesBodyTemperatureRecordCmd)
-	datatypesBodyTemperatureRecordBuilderCmd.AddCommand(datatypesBodyTemperatureRecordBuilderBuildCmd)
-	datatypesBodyTemperatureRecordBuilderCmd.AddCommand(datatypesBodyTemperatureRecordBuilderClearZoneOffsetCmd)
-	datatypesBodyTemperatureRecordBuilderSetZoneOffsetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	datatypesBodyTemperatureRecordBuilderCmd.AddCommand(datatypesBodyTemperatureRecordBuilderSetZoneOffsetCmd)
-	datatypesCmd.AddCommand(datatypesBodyTemperatureRecordBuilderCmd)
-	datatypesActiveCaloriesBurnedRecordEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	datatypesActiveCaloriesBurnedRecordCmd.AddCommand(datatypesActiveCaloriesBurnedRecordEqualsCmd)
-	datatypesActiveCaloriesBurnedRecordCmd.AddCommand(datatypesActiveCaloriesBurnedRecordGetEnergyCmd)
-	datatypesActiveCaloriesBurnedRecordCmd.AddCommand(datatypesActiveCaloriesBurnedRecordHashCodeCmd)
-	datatypesCmd.AddCommand(datatypesActiveCaloriesBurnedRecordCmd)
-	datatypesActiveCaloriesBurnedRecordBuilderCmd.AddCommand(datatypesActiveCaloriesBurnedRecordBuilderBuildCmd)
-	datatypesActiveCaloriesBurnedRecordBuilderCmd.AddCommand(datatypesActiveCaloriesBurnedRecordBuilderClearEndZoneOffsetCmd)
-	datatypesActiveCaloriesBurnedRecordBuilderCmd.AddCommand(datatypesActiveCaloriesBurnedRecordBuilderClearStartZoneOffsetCmd)
-	datatypesActiveCaloriesBurnedRecordBuilderSetEndZoneOffsetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	datatypesActiveCaloriesBurnedRecordBuilderCmd.AddCommand(datatypesActiveCaloriesBurnedRecordBuilderSetEndZoneOffsetCmd)
-	datatypesActiveCaloriesBurnedRecordBuilderSetStartZoneOffsetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	datatypesActiveCaloriesBurnedRecordBuilderCmd.AddCommand(datatypesActiveCaloriesBurnedRecordBuilderSetStartZoneOffsetCmd)
-	datatypesCmd.AddCommand(datatypesActiveCaloriesBurnedRecordBuilderCmd)
-	datatypesSexualActivityRecordEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	datatypesSexualActivityRecordCmd.AddCommand(datatypesSexualActivityRecordEqualsCmd)
-	datatypesSexualActivityRecordCmd.AddCommand(datatypesSexualActivityRecordGetProtectionUsedCmd)
-	datatypesSexualActivityRecordCmd.AddCommand(datatypesSexualActivityRecordHashCodeCmd)
-	datatypesCmd.AddCommand(datatypesSexualActivityRecordCmd)
-	datatypesSexualActivityRecordBuilderCmd.AddCommand(datatypesSexualActivityRecordBuilderBuildCmd)
-	datatypesSexualActivityRecordBuilderCmd.AddCommand(datatypesSexualActivityRecordBuilderClearZoneOffsetCmd)
-	datatypesSexualActivityRecordBuilderSetZoneOffsetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	datatypesSexualActivityRecordBuilderCmd.AddCommand(datatypesSexualActivityRecordBuilderSetZoneOffsetCmd)
-	datatypesCmd.AddCommand(datatypesSexualActivityRecordBuilderCmd)
-	datatypesWeightRecordEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	datatypesWeightRecordCmd.AddCommand(datatypesWeightRecordEqualsCmd)
-	datatypesWeightRecordCmd.AddCommand(datatypesWeightRecordGetWeightCmd)
-	datatypesWeightRecordCmd.AddCommand(datatypesWeightRecordHashCodeCmd)
-	datatypesCmd.AddCommand(datatypesWeightRecordCmd)
-	datatypesWeightRecordBuilderCmd.AddCommand(datatypesWeightRecordBuilderBuildCmd)
-	datatypesWeightRecordBuilderCmd.AddCommand(datatypesWeightRecordBuilderClearZoneOffsetCmd)
-	datatypesWeightRecordBuilderSetZoneOffsetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	datatypesWeightRecordBuilderCmd.AddCommand(datatypesWeightRecordBuilderSetZoneOffsetCmd)
-	datatypesCmd.AddCommand(datatypesWeightRecordBuilderCmd)
-	datatypesBloodPressureRecordEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	datatypesBloodPressureRecordCmd.AddCommand(datatypesBloodPressureRecordEqualsCmd)
-	datatypesBloodPressureRecordCmd.AddCommand(datatypesBloodPressureRecordGetBodyPositionCmd)
-	datatypesBloodPressureRecordCmd.AddCommand(datatypesBloodPressureRecordGetDiastolicCmd)
-	datatypesBloodPressureRecordCmd.AddCommand(datatypesBloodPressureRecordGetMeasurementLocationCmd)
-	datatypesBloodPressureRecordCmd.AddCommand(datatypesBloodPressureRecordGetSystolicCmd)
-	datatypesBloodPressureRecordCmd.AddCommand(datatypesBloodPressureRecordHashCodeCmd)
-	datatypesCmd.AddCommand(datatypesBloodPressureRecordCmd)
-	datatypesBloodPressureRecordBuilderCmd.AddCommand(datatypesBloodPressureRecordBuilderBuildCmd)
-	datatypesBloodPressureRecordBuilderCmd.AddCommand(datatypesBloodPressureRecordBuilderClearZoneOffsetCmd)
-	datatypesBloodPressureRecordBuilderSetZoneOffsetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	datatypesBloodPressureRecordBuilderCmd.AddCommand(datatypesBloodPressureRecordBuilderSetZoneOffsetCmd)
-	datatypesCmd.AddCommand(datatypesBloodPressureRecordBuilderCmd)
-	datatypesIntermenstrualBleedingRecordEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	datatypesIntermenstrualBleedingRecordCmd.AddCommand(datatypesIntermenstrualBleedingRecordEqualsCmd)
-	datatypesIntermenstrualBleedingRecordCmd.AddCommand(datatypesIntermenstrualBleedingRecordHashCodeCmd)
-	datatypesCmd.AddCommand(datatypesIntermenstrualBleedingRecordCmd)
-	datatypesIntermenstrualBleedingRecordBuilderCmd.AddCommand(datatypesIntermenstrualBleedingRecordBuilderBuildCmd)
-	datatypesIntermenstrualBleedingRecordBuilderCmd.AddCommand(datatypesIntermenstrualBleedingRecordBuilderClearZoneOffsetCmd)
-	datatypesIntermenstrualBleedingRecordBuilderSetZoneOffsetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	datatypesIntermenstrualBleedingRecordBuilderCmd.AddCommand(datatypesIntermenstrualBleedingRecordBuilderSetZoneOffsetCmd)
-	datatypesCmd.AddCommand(datatypesIntermenstrualBleedingRecordBuilderCmd)
+	datatypesPowerRecordEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	datatypesPowerRecordCmd.AddCommand(datatypesPowerRecordEqualsCmd)
+	datatypesPowerRecordCmd.AddCommand(datatypesPowerRecordGetSamplesCmd)
+	datatypesPowerRecordCmd.AddCommand(datatypesPowerRecordHashCodeCmd)
+	datatypesCmd.AddCommand(datatypesPowerRecordCmd)
+	datatypesPowerRecordBuilderCmd.AddCommand(datatypesPowerRecordBuilderBuildCmd)
+	datatypesPowerRecordBuilderCmd.AddCommand(datatypesPowerRecordBuilderClearEndZoneOffsetCmd)
+	datatypesPowerRecordBuilderCmd.AddCommand(datatypesPowerRecordBuilderClearStartZoneOffsetCmd)
+	datatypesPowerRecordBuilderSetEndZoneOffsetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	datatypesPowerRecordBuilderCmd.AddCommand(datatypesPowerRecordBuilderSetEndZoneOffsetCmd)
+	datatypesPowerRecordBuilderSetStartZoneOffsetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	datatypesPowerRecordBuilderCmd.AddCommand(datatypesPowerRecordBuilderSetStartZoneOffsetCmd)
+	datatypesCmd.AddCommand(datatypesPowerRecordBuilderCmd)
+	datatypesPowerRecordPowerRecordSampleEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	datatypesPowerRecordPowerRecordSampleCmd.AddCommand(datatypesPowerRecordPowerRecordSampleEqualsCmd)
+	datatypesPowerRecordPowerRecordSampleCmd.AddCommand(datatypesPowerRecordPowerRecordSampleGetPowerCmd)
+	datatypesPowerRecordPowerRecordSampleCmd.AddCommand(datatypesPowerRecordPowerRecordSampleGetTimeCmd)
+	datatypesPowerRecordPowerRecordSampleCmd.AddCommand(datatypesPowerRecordPowerRecordSampleHashCodeCmd)
+	datatypesCmd.AddCommand(datatypesPowerRecordPowerRecordSampleCmd)
+	datatypesFhirResourceCmd.AddCommand(datatypesFhirResourceDescribeContentsCmd)
+	datatypesFhirResourceEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	datatypesFhirResourceCmd.AddCommand(datatypesFhirResourceEqualsCmd)
+	datatypesFhirResourceCmd.AddCommand(datatypesFhirResourceGetDataCmd)
+	datatypesFhirResourceCmd.AddCommand(datatypesFhirResourceGetIdCmd)
+	datatypesFhirResourceCmd.AddCommand(datatypesFhirResourceGetTypeCmd)
+	datatypesFhirResourceCmd.AddCommand(datatypesFhirResourceHashCodeCmd)
+	datatypesFhirResourceCmd.AddCommand(datatypesFhirResourceToStringCmd)
+	datatypesFhirResourceWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	datatypesFhirResourceWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	datatypesFhirResourceCmd.AddCommand(datatypesFhirResourceWriteToParcelCmd)
+	datatypesCmd.AddCommand(datatypesFhirResourceCmd)
+	datatypesFhirResourceBuilderCmd.AddCommand(datatypesFhirResourceBuilderBuildCmd)
+	datatypesFhirResourceBuilderSetDataCmd.Flags().String("arg0", "", "arg0 (string)")
+	datatypesFhirResourceBuilderCmd.AddCommand(datatypesFhirResourceBuilderSetDataCmd)
+	datatypesFhirResourceBuilderSetIdCmd.Flags().String("arg0", "", "arg0 (string)")
+	datatypesFhirResourceBuilderCmd.AddCommand(datatypesFhirResourceBuilderSetIdCmd)
+	datatypesFhirResourceBuilderSetTypeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	datatypesFhirResourceBuilderCmd.AddCommand(datatypesFhirResourceBuilderSetTypeCmd)
+	datatypesCmd.AddCommand(datatypesFhirResourceBuilderCmd)
+	datatypesIntervalRecordEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	datatypesIntervalRecordCmd.AddCommand(datatypesIntervalRecordEqualsCmd)
+	datatypesIntervalRecordCmd.AddCommand(datatypesIntervalRecordGetEndTimeCmd)
+	datatypesIntervalRecordCmd.AddCommand(datatypesIntervalRecordGetEndZoneOffsetCmd)
+	datatypesIntervalRecordCmd.AddCommand(datatypesIntervalRecordGetStartTimeCmd)
+	datatypesIntervalRecordCmd.AddCommand(datatypesIntervalRecordGetStartZoneOffsetCmd)
+	datatypesIntervalRecordCmd.AddCommand(datatypesIntervalRecordHashCodeCmd)
+	datatypesCmd.AddCommand(datatypesIntervalRecordCmd)
 	datatypesBloodGlucoseRecordEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	datatypesBloodGlucoseRecordCmd.AddCommand(datatypesBloodGlucoseRecordEqualsCmd)
 	datatypesBloodGlucoseRecordCmd.AddCommand(datatypesBloodGlucoseRecordGetLevelCmd)
@@ -11809,27 +11941,73 @@ func init() {
 	datatypesBloodGlucoseRecordBuilderSetZoneOffsetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	datatypesBloodGlucoseRecordBuilderCmd.AddCommand(datatypesBloodGlucoseRecordBuilderSetZoneOffsetCmd)
 	datatypesCmd.AddCommand(datatypesBloodGlucoseRecordBuilderCmd)
-	datatypesBoneMassRecordEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	datatypesBoneMassRecordCmd.AddCommand(datatypesBoneMassRecordEqualsCmd)
-	datatypesBoneMassRecordCmd.AddCommand(datatypesBoneMassRecordGetMassCmd)
-	datatypesBoneMassRecordCmd.AddCommand(datatypesBoneMassRecordHashCodeCmd)
-	datatypesCmd.AddCommand(datatypesBoneMassRecordCmd)
-	datatypesBoneMassRecordBuilderCmd.AddCommand(datatypesBoneMassRecordBuilderBuildCmd)
-	datatypesBoneMassRecordBuilderCmd.AddCommand(datatypesBoneMassRecordBuilderClearZoneOffsetCmd)
-	datatypesBoneMassRecordBuilderSetZoneOffsetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	datatypesBoneMassRecordBuilderCmd.AddCommand(datatypesBoneMassRecordBuilderSetZoneOffsetCmd)
-	datatypesCmd.AddCommand(datatypesBoneMassRecordBuilderCmd)
-	datatypesCervicalMucusRecordEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	datatypesCervicalMucusRecordCmd.AddCommand(datatypesCervicalMucusRecordEqualsCmd)
-	datatypesCervicalMucusRecordCmd.AddCommand(datatypesCervicalMucusRecordGetAppearanceCmd)
-	datatypesCervicalMucusRecordCmd.AddCommand(datatypesCervicalMucusRecordGetSensationCmd)
-	datatypesCervicalMucusRecordCmd.AddCommand(datatypesCervicalMucusRecordHashCodeCmd)
-	datatypesCmd.AddCommand(datatypesCervicalMucusRecordCmd)
-	datatypesCervicalMucusRecordBuilderCmd.AddCommand(datatypesCervicalMucusRecordBuilderBuildCmd)
-	datatypesCervicalMucusRecordBuilderCmd.AddCommand(datatypesCervicalMucusRecordBuilderClearZoneOffsetCmd)
-	datatypesCervicalMucusRecordBuilderSetZoneOffsetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	datatypesCervicalMucusRecordBuilderCmd.AddCommand(datatypesCervicalMucusRecordBuilderSetZoneOffsetCmd)
-	datatypesCmd.AddCommand(datatypesCervicalMucusRecordBuilderCmd)
+	datatypesMedicalResourceCmd.AddCommand(datatypesMedicalResourceDescribeContentsCmd)
+	datatypesMedicalResourceEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	datatypesMedicalResourceCmd.AddCommand(datatypesMedicalResourceEqualsCmd)
+	datatypesMedicalResourceCmd.AddCommand(datatypesMedicalResourceGetDataSourceIdCmd)
+	datatypesMedicalResourceCmd.AddCommand(datatypesMedicalResourceGetFhirResourceCmd)
+	datatypesMedicalResourceCmd.AddCommand(datatypesMedicalResourceGetFhirVersionCmd)
+	datatypesMedicalResourceCmd.AddCommand(datatypesMedicalResourceGetIdCmd)
+	datatypesMedicalResourceCmd.AddCommand(datatypesMedicalResourceGetTypeCmd)
+	datatypesMedicalResourceCmd.AddCommand(datatypesMedicalResourceHashCodeCmd)
+	datatypesMedicalResourceCmd.AddCommand(datatypesMedicalResourceToStringCmd)
+	datatypesMedicalResourceWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	datatypesMedicalResourceWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	datatypesMedicalResourceCmd.AddCommand(datatypesMedicalResourceWriteToParcelCmd)
+	datatypesCmd.AddCommand(datatypesMedicalResourceCmd)
+	datatypesMedicalResourceBuilderCmd.AddCommand(datatypesMedicalResourceBuilderBuildCmd)
+	datatypesMedicalResourceBuilderSetDataSourceIdCmd.Flags().String("arg0", "", "arg0 (string)")
+	datatypesMedicalResourceBuilderCmd.AddCommand(datatypesMedicalResourceBuilderSetDataSourceIdCmd)
+	datatypesMedicalResourceBuilderSetFhirResourceCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	datatypesMedicalResourceBuilderCmd.AddCommand(datatypesMedicalResourceBuilderSetFhirResourceCmd)
+	datatypesMedicalResourceBuilderSetFhirVersionCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	datatypesMedicalResourceBuilderCmd.AddCommand(datatypesMedicalResourceBuilderSetFhirVersionCmd)
+	datatypesMedicalResourceBuilderSetTypeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	datatypesMedicalResourceBuilderCmd.AddCommand(datatypesMedicalResourceBuilderSetTypeCmd)
+	datatypesCmd.AddCommand(datatypesMedicalResourceBuilderCmd)
+	datatypesWheelchairPushesRecordEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	datatypesWheelchairPushesRecordCmd.AddCommand(datatypesWheelchairPushesRecordEqualsCmd)
+	datatypesWheelchairPushesRecordCmd.AddCommand(datatypesWheelchairPushesRecordGetCountCmd)
+	datatypesWheelchairPushesRecordCmd.AddCommand(datatypesWheelchairPushesRecordHashCodeCmd)
+	datatypesCmd.AddCommand(datatypesWheelchairPushesRecordCmd)
+	datatypesWheelchairPushesRecordBuilderCmd.AddCommand(datatypesWheelchairPushesRecordBuilderBuildCmd)
+	datatypesWheelchairPushesRecordBuilderCmd.AddCommand(datatypesWheelchairPushesRecordBuilderClearEndZoneOffsetCmd)
+	datatypesWheelchairPushesRecordBuilderCmd.AddCommand(datatypesWheelchairPushesRecordBuilderClearStartZoneOffsetCmd)
+	datatypesWheelchairPushesRecordBuilderSetEndZoneOffsetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	datatypesWheelchairPushesRecordBuilderCmd.AddCommand(datatypesWheelchairPushesRecordBuilderSetEndZoneOffsetCmd)
+	datatypesWheelchairPushesRecordBuilderSetStartZoneOffsetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	datatypesWheelchairPushesRecordBuilderCmd.AddCommand(datatypesWheelchairPushesRecordBuilderSetStartZoneOffsetCmd)
+	datatypesCmd.AddCommand(datatypesWheelchairPushesRecordBuilderCmd)
+	datatypesExerciseRouteNewExerciseRouteCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	datatypesExerciseRouteCmd.AddCommand(datatypesExerciseRouteNewExerciseRouteCmd)
+	datatypesExerciseRouteDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	datatypesExerciseRouteCmd.AddCommand(datatypesExerciseRouteDescribeContentsCmd)
+	datatypesExerciseRouteEqualsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	datatypesExerciseRouteEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	datatypesExerciseRouteCmd.AddCommand(datatypesExerciseRouteEqualsCmd)
+	datatypesExerciseRouteGetRouteLocationsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	datatypesExerciseRouteCmd.AddCommand(datatypesExerciseRouteGetRouteLocationsCmd)
+	datatypesExerciseRouteHashCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	datatypesExerciseRouteCmd.AddCommand(datatypesExerciseRouteHashCodeCmd)
+	datatypesExerciseRouteWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	datatypesExerciseRouteWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	datatypesExerciseRouteWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	datatypesExerciseRouteCmd.AddCommand(datatypesExerciseRouteWriteToParcelCmd)
+	datatypesCmd.AddCommand(datatypesExerciseRouteCmd)
+	datatypesExerciseRouteLocationCmd.AddCommand(datatypesExerciseRouteLocationDescribeContentsCmd)
+	datatypesExerciseRouteLocationEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	datatypesExerciseRouteLocationCmd.AddCommand(datatypesExerciseRouteLocationEqualsCmd)
+	datatypesExerciseRouteLocationCmd.AddCommand(datatypesExerciseRouteLocationGetAltitudeCmd)
+	datatypesExerciseRouteLocationCmd.AddCommand(datatypesExerciseRouteLocationGetHorizontalAccuracyCmd)
+	datatypesExerciseRouteLocationCmd.AddCommand(datatypesExerciseRouteLocationGetLatitudeCmd)
+	datatypesExerciseRouteLocationCmd.AddCommand(datatypesExerciseRouteLocationGetLongitudeCmd)
+	datatypesExerciseRouteLocationCmd.AddCommand(datatypesExerciseRouteLocationGetTimeCmd)
+	datatypesExerciseRouteLocationCmd.AddCommand(datatypesExerciseRouteLocationGetVerticalAccuracyCmd)
+	datatypesExerciseRouteLocationCmd.AddCommand(datatypesExerciseRouteLocationHashCodeCmd)
+	datatypesExerciseRouteLocationWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	datatypesExerciseRouteLocationWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	datatypesExerciseRouteLocationCmd.AddCommand(datatypesExerciseRouteLocationWriteToParcelCmd)
+	datatypesCmd.AddCommand(datatypesExerciseRouteLocationCmd)
 	datatypesMenstruationFlowRecordEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	datatypesMenstruationFlowRecordCmd.AddCommand(datatypesMenstruationFlowRecordEqualsCmd)
 	datatypesMenstruationFlowRecordCmd.AddCommand(datatypesMenstruationFlowRecordGetFlowCmd)
@@ -11840,6 +12018,81 @@ func init() {
 	datatypesMenstruationFlowRecordBuilderSetZoneOffsetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	datatypesMenstruationFlowRecordBuilderCmd.AddCommand(datatypesMenstruationFlowRecordBuilderSetZoneOffsetCmd)
 	datatypesCmd.AddCommand(datatypesMenstruationFlowRecordBuilderCmd)
+	datatypesDistanceRecordEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	datatypesDistanceRecordCmd.AddCommand(datatypesDistanceRecordEqualsCmd)
+	datatypesDistanceRecordCmd.AddCommand(datatypesDistanceRecordGetDistanceCmd)
+	datatypesDistanceRecordCmd.AddCommand(datatypesDistanceRecordHashCodeCmd)
+	datatypesCmd.AddCommand(datatypesDistanceRecordCmd)
+	datatypesDistanceRecordBuilderCmd.AddCommand(datatypesDistanceRecordBuilderBuildCmd)
+	datatypesDistanceRecordBuilderCmd.AddCommand(datatypesDistanceRecordBuilderClearEndZoneOffsetCmd)
+	datatypesDistanceRecordBuilderCmd.AddCommand(datatypesDistanceRecordBuilderClearStartZoneOffsetCmd)
+	datatypesDistanceRecordBuilderSetEndZoneOffsetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	datatypesDistanceRecordBuilderCmd.AddCommand(datatypesDistanceRecordBuilderSetEndZoneOffsetCmd)
+	datatypesDistanceRecordBuilderSetStartZoneOffsetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	datatypesDistanceRecordBuilderCmd.AddCommand(datatypesDistanceRecordBuilderSetStartZoneOffsetCmd)
+	datatypesCmd.AddCommand(datatypesDistanceRecordBuilderCmd)
+	datatypesAppInfoCmd.AddCommand(datatypesAppInfoGetIconCmd)
+	datatypesAppInfoCmd.AddCommand(datatypesAppInfoGetNameCmd)
+	datatypesAppInfoCmd.AddCommand(datatypesAppInfoGetPackageNameCmd)
+	datatypesCmd.AddCommand(datatypesAppInfoCmd)
+	datatypesRespiratoryRateRecordEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	datatypesRespiratoryRateRecordCmd.AddCommand(datatypesRespiratoryRateRecordEqualsCmd)
+	datatypesRespiratoryRateRecordCmd.AddCommand(datatypesRespiratoryRateRecordGetRateCmd)
+	datatypesRespiratoryRateRecordCmd.AddCommand(datatypesRespiratoryRateRecordHashCodeCmd)
+	datatypesCmd.AddCommand(datatypesRespiratoryRateRecordCmd)
+	datatypesRespiratoryRateRecordBuilderCmd.AddCommand(datatypesRespiratoryRateRecordBuilderBuildCmd)
+	datatypesRespiratoryRateRecordBuilderCmd.AddCommand(datatypesRespiratoryRateRecordBuilderClearZoneOffsetCmd)
+	datatypesRespiratoryRateRecordBuilderSetZoneOffsetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	datatypesRespiratoryRateRecordBuilderCmd.AddCommand(datatypesRespiratoryRateRecordBuilderSetZoneOffsetCmd)
+	datatypesCmd.AddCommand(datatypesRespiratoryRateRecordBuilderCmd)
+	datatypesCyclingPedalingCadenceRecordEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	datatypesCyclingPedalingCadenceRecordCmd.AddCommand(datatypesCyclingPedalingCadenceRecordEqualsCmd)
+	datatypesCyclingPedalingCadenceRecordCmd.AddCommand(datatypesCyclingPedalingCadenceRecordGetSamplesCmd)
+	datatypesCyclingPedalingCadenceRecordCmd.AddCommand(datatypesCyclingPedalingCadenceRecordHashCodeCmd)
+	datatypesCmd.AddCommand(datatypesCyclingPedalingCadenceRecordCmd)
+	datatypesCyclingPedalingCadenceRecordBuilderCmd.AddCommand(datatypesCyclingPedalingCadenceRecordBuilderBuildCmd)
+	datatypesCyclingPedalingCadenceRecordBuilderCmd.AddCommand(datatypesCyclingPedalingCadenceRecordBuilderClearEndZoneOffsetCmd)
+	datatypesCyclingPedalingCadenceRecordBuilderCmd.AddCommand(datatypesCyclingPedalingCadenceRecordBuilderClearStartZoneOffsetCmd)
+	datatypesCyclingPedalingCadenceRecordBuilderSetEndZoneOffsetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	datatypesCyclingPedalingCadenceRecordBuilderCmd.AddCommand(datatypesCyclingPedalingCadenceRecordBuilderSetEndZoneOffsetCmd)
+	datatypesCyclingPedalingCadenceRecordBuilderSetStartZoneOffsetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	datatypesCyclingPedalingCadenceRecordBuilderCmd.AddCommand(datatypesCyclingPedalingCadenceRecordBuilderSetStartZoneOffsetCmd)
+	datatypesCmd.AddCommand(datatypesCyclingPedalingCadenceRecordBuilderCmd)
+	datatypesCyclingPedalingCadenceRecordCyclingPedalingCadenceRecordSampleEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	datatypesCyclingPedalingCadenceRecordCyclingPedalingCadenceRecordSampleCmd.AddCommand(datatypesCyclingPedalingCadenceRecordCyclingPedalingCadenceRecordSampleEqualsCmd)
+	datatypesCyclingPedalingCadenceRecordCyclingPedalingCadenceRecordSampleCmd.AddCommand(datatypesCyclingPedalingCadenceRecordCyclingPedalingCadenceRecordSampleGetRevolutionsPerMinuteCmd)
+	datatypesCyclingPedalingCadenceRecordCyclingPedalingCadenceRecordSampleCmd.AddCommand(datatypesCyclingPedalingCadenceRecordCyclingPedalingCadenceRecordSampleGetTimeCmd)
+	datatypesCyclingPedalingCadenceRecordCyclingPedalingCadenceRecordSampleCmd.AddCommand(datatypesCyclingPedalingCadenceRecordCyclingPedalingCadenceRecordSampleHashCodeCmd)
+	datatypesCmd.AddCommand(datatypesCyclingPedalingCadenceRecordCyclingPedalingCadenceRecordSampleCmd)
+	datatypesInstantRecordEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	datatypesInstantRecordCmd.AddCommand(datatypesInstantRecordEqualsCmd)
+	datatypesInstantRecordCmd.AddCommand(datatypesInstantRecordGetTimeCmd)
+	datatypesInstantRecordCmd.AddCommand(datatypesInstantRecordGetZoneOffsetCmd)
+	datatypesInstantRecordCmd.AddCommand(datatypesInstantRecordHashCodeCmd)
+	datatypesCmd.AddCommand(datatypesInstantRecordCmd)
+	datatypesBoneMassRecordEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	datatypesBoneMassRecordCmd.AddCommand(datatypesBoneMassRecordEqualsCmd)
+	datatypesBoneMassRecordCmd.AddCommand(datatypesBoneMassRecordGetMassCmd)
+	datatypesBoneMassRecordCmd.AddCommand(datatypesBoneMassRecordHashCodeCmd)
+	datatypesCmd.AddCommand(datatypesBoneMassRecordCmd)
+	datatypesBoneMassRecordBuilderCmd.AddCommand(datatypesBoneMassRecordBuilderBuildCmd)
+	datatypesBoneMassRecordBuilderCmd.AddCommand(datatypesBoneMassRecordBuilderClearZoneOffsetCmd)
+	datatypesBoneMassRecordBuilderSetZoneOffsetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	datatypesBoneMassRecordBuilderCmd.AddCommand(datatypesBoneMassRecordBuilderSetZoneOffsetCmd)
+	datatypesCmd.AddCommand(datatypesBoneMassRecordBuilderCmd)
+	datatypesHydrationRecordEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	datatypesHydrationRecordCmd.AddCommand(datatypesHydrationRecordEqualsCmd)
+	datatypesHydrationRecordCmd.AddCommand(datatypesHydrationRecordGetVolumeCmd)
+	datatypesHydrationRecordCmd.AddCommand(datatypesHydrationRecordHashCodeCmd)
+	datatypesCmd.AddCommand(datatypesHydrationRecordCmd)
+	datatypesHydrationRecordBuilderCmd.AddCommand(datatypesHydrationRecordBuilderBuildCmd)
+	datatypesHydrationRecordBuilderCmd.AddCommand(datatypesHydrationRecordBuilderClearEndZoneOffsetCmd)
+	datatypesHydrationRecordBuilderCmd.AddCommand(datatypesHydrationRecordBuilderClearStartZoneOffsetCmd)
+	datatypesHydrationRecordBuilderSetEndZoneOffsetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	datatypesHydrationRecordBuilderCmd.AddCommand(datatypesHydrationRecordBuilderSetEndZoneOffsetCmd)
+	datatypesHydrationRecordBuilderSetStartZoneOffsetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	datatypesHydrationRecordBuilderCmd.AddCommand(datatypesHydrationRecordBuilderSetStartZoneOffsetCmd)
+	datatypesCmd.AddCommand(datatypesHydrationRecordBuilderCmd)
 	datatypesMetadataEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	datatypesMetadataCmd.AddCommand(datatypesMetadataEqualsCmd)
 	datatypesMetadataCmd.AddCommand(datatypesMetadataGetClientRecordIdCmd)
@@ -11867,467 +12120,6 @@ func init() {
 	datatypesMetadataBuilderSetRecordingMethodCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
 	datatypesMetadataBuilderCmd.AddCommand(datatypesMetadataBuilderSetRecordingMethodCmd)
 	datatypesCmd.AddCommand(datatypesMetadataBuilderCmd)
-	datatypesPowerRecordEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	datatypesPowerRecordCmd.AddCommand(datatypesPowerRecordEqualsCmd)
-	datatypesPowerRecordCmd.AddCommand(datatypesPowerRecordHashCodeCmd)
-	datatypesCmd.AddCommand(datatypesPowerRecordCmd)
-	datatypesPowerRecordBuilderCmd.AddCommand(datatypesPowerRecordBuilderBuildCmd)
-	datatypesPowerRecordBuilderCmd.AddCommand(datatypesPowerRecordBuilderClearEndZoneOffsetCmd)
-	datatypesPowerRecordBuilderCmd.AddCommand(datatypesPowerRecordBuilderClearStartZoneOffsetCmd)
-	datatypesPowerRecordBuilderSetEndZoneOffsetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	datatypesPowerRecordBuilderCmd.AddCommand(datatypesPowerRecordBuilderSetEndZoneOffsetCmd)
-	datatypesPowerRecordBuilderSetStartZoneOffsetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	datatypesPowerRecordBuilderCmd.AddCommand(datatypesPowerRecordBuilderSetStartZoneOffsetCmd)
-	datatypesCmd.AddCommand(datatypesPowerRecordBuilderCmd)
-	datatypesPowerRecordPowerRecordSampleEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	datatypesPowerRecordPowerRecordSampleCmd.AddCommand(datatypesPowerRecordPowerRecordSampleEqualsCmd)
-	datatypesPowerRecordPowerRecordSampleCmd.AddCommand(datatypesPowerRecordPowerRecordSampleGetPowerCmd)
-	datatypesPowerRecordPowerRecordSampleCmd.AddCommand(datatypesPowerRecordPowerRecordSampleGetTimeCmd)
-	datatypesPowerRecordPowerRecordSampleCmd.AddCommand(datatypesPowerRecordPowerRecordSampleHashCodeCmd)
-	datatypesCmd.AddCommand(datatypesPowerRecordPowerRecordSampleCmd)
-	datatypesExerciseRouteNewExerciseRouteCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	datatypesExerciseRouteCmd.AddCommand(datatypesExerciseRouteNewExerciseRouteCmd)
-	datatypesExerciseRouteDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	datatypesExerciseRouteCmd.AddCommand(datatypesExerciseRouteDescribeContentsCmd)
-	datatypesExerciseRouteEqualsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	datatypesExerciseRouteEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	datatypesExerciseRouteCmd.AddCommand(datatypesExerciseRouteEqualsCmd)
-	datatypesExerciseRouteHashCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
-	datatypesExerciseRouteCmd.AddCommand(datatypesExerciseRouteHashCodeCmd)
-	datatypesExerciseRouteWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
-	datatypesExerciseRouteWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	datatypesExerciseRouteWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	datatypesExerciseRouteCmd.AddCommand(datatypesExerciseRouteWriteToParcelCmd)
-	datatypesCmd.AddCommand(datatypesExerciseRouteCmd)
-	datatypesExerciseRouteLocationCmd.AddCommand(datatypesExerciseRouteLocationDescribeContentsCmd)
-	datatypesExerciseRouteLocationEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	datatypesExerciseRouteLocationCmd.AddCommand(datatypesExerciseRouteLocationEqualsCmd)
-	datatypesExerciseRouteLocationCmd.AddCommand(datatypesExerciseRouteLocationGetAltitudeCmd)
-	datatypesExerciseRouteLocationCmd.AddCommand(datatypesExerciseRouteLocationGetHorizontalAccuracyCmd)
-	datatypesExerciseRouteLocationCmd.AddCommand(datatypesExerciseRouteLocationGetLatitudeCmd)
-	datatypesExerciseRouteLocationCmd.AddCommand(datatypesExerciseRouteLocationGetLongitudeCmd)
-	datatypesExerciseRouteLocationCmd.AddCommand(datatypesExerciseRouteLocationGetTimeCmd)
-	datatypesExerciseRouteLocationCmd.AddCommand(datatypesExerciseRouteLocationGetVerticalAccuracyCmd)
-	datatypesExerciseRouteLocationCmd.AddCommand(datatypesExerciseRouteLocationHashCodeCmd)
-	datatypesExerciseRouteLocationWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	datatypesExerciseRouteLocationWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	datatypesExerciseRouteLocationCmd.AddCommand(datatypesExerciseRouteLocationWriteToParcelCmd)
-	datatypesCmd.AddCommand(datatypesExerciseRouteLocationCmd)
-	datatypesPlannedExerciseSessionRecordEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	datatypesPlannedExerciseSessionRecordCmd.AddCommand(datatypesPlannedExerciseSessionRecordEqualsCmd)
-	datatypesPlannedExerciseSessionRecordCmd.AddCommand(datatypesPlannedExerciseSessionRecordGetCompletedExerciseSessionIdCmd)
-	datatypesPlannedExerciseSessionRecordCmd.AddCommand(datatypesPlannedExerciseSessionRecordGetDurationCmd)
-	datatypesPlannedExerciseSessionRecordCmd.AddCommand(datatypesPlannedExerciseSessionRecordGetExerciseTypeCmd)
-	datatypesPlannedExerciseSessionRecordCmd.AddCommand(datatypesPlannedExerciseSessionRecordGetNotesCmd)
-	datatypesPlannedExerciseSessionRecordCmd.AddCommand(datatypesPlannedExerciseSessionRecordGetStartDateCmd)
-	datatypesPlannedExerciseSessionRecordCmd.AddCommand(datatypesPlannedExerciseSessionRecordGetTitleCmd)
-	datatypesPlannedExerciseSessionRecordCmd.AddCommand(datatypesPlannedExerciseSessionRecordHasExplicitTimeCmd)
-	datatypesPlannedExerciseSessionRecordCmd.AddCommand(datatypesPlannedExerciseSessionRecordHashCodeCmd)
-	datatypesCmd.AddCommand(datatypesPlannedExerciseSessionRecordCmd)
-	datatypesPlannedExerciseSessionRecordBuilderAddBlockCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	datatypesPlannedExerciseSessionRecordBuilderCmd.AddCommand(datatypesPlannedExerciseSessionRecordBuilderAddBlockCmd)
-	datatypesPlannedExerciseSessionRecordBuilderCmd.AddCommand(datatypesPlannedExerciseSessionRecordBuilderBuildCmd)
-	datatypesPlannedExerciseSessionRecordBuilderCmd.AddCommand(datatypesPlannedExerciseSessionRecordBuilderClearBlocksCmd)
-	datatypesPlannedExerciseSessionRecordBuilderCmd.AddCommand(datatypesPlannedExerciseSessionRecordBuilderClearEndZoneOffsetCmd)
-	datatypesPlannedExerciseSessionRecordBuilderCmd.AddCommand(datatypesPlannedExerciseSessionRecordBuilderClearStartZoneOffsetCmd)
-	datatypesPlannedExerciseSessionRecordBuilderSetEndTimeCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	datatypesPlannedExerciseSessionRecordBuilderCmd.AddCommand(datatypesPlannedExerciseSessionRecordBuilderSetEndTimeCmd)
-	datatypesPlannedExerciseSessionRecordBuilderSetEndZoneOffsetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	datatypesPlannedExerciseSessionRecordBuilderCmd.AddCommand(datatypesPlannedExerciseSessionRecordBuilderSetEndZoneOffsetCmd)
-	datatypesPlannedExerciseSessionRecordBuilderSetExerciseTypeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	datatypesPlannedExerciseSessionRecordBuilderCmd.AddCommand(datatypesPlannedExerciseSessionRecordBuilderSetExerciseTypeCmd)
-	datatypesPlannedExerciseSessionRecordBuilderSetMetadataCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	datatypesPlannedExerciseSessionRecordBuilderCmd.AddCommand(datatypesPlannedExerciseSessionRecordBuilderSetMetadataCmd)
-	datatypesPlannedExerciseSessionRecordBuilderSetNotesCmd.Flags().String("arg0", "", "arg0 (string)")
-	datatypesPlannedExerciseSessionRecordBuilderCmd.AddCommand(datatypesPlannedExerciseSessionRecordBuilderSetNotesCmd)
-	datatypesPlannedExerciseSessionRecordBuilderSetStartTimeCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	datatypesPlannedExerciseSessionRecordBuilderCmd.AddCommand(datatypesPlannedExerciseSessionRecordBuilderSetStartTimeCmd)
-	datatypesPlannedExerciseSessionRecordBuilderSetStartZoneOffsetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	datatypesPlannedExerciseSessionRecordBuilderCmd.AddCommand(datatypesPlannedExerciseSessionRecordBuilderSetStartZoneOffsetCmd)
-	datatypesPlannedExerciseSessionRecordBuilderSetTitleCmd.Flags().String("arg0", "", "arg0 (string)")
-	datatypesPlannedExerciseSessionRecordBuilderCmd.AddCommand(datatypesPlannedExerciseSessionRecordBuilderSetTitleCmd)
-	datatypesCmd.AddCommand(datatypesPlannedExerciseSessionRecordBuilderCmd)
-	datatypesMedicalResourceCmd.AddCommand(datatypesMedicalResourceDescribeContentsCmd)
-	datatypesMedicalResourceEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	datatypesMedicalResourceCmd.AddCommand(datatypesMedicalResourceEqualsCmd)
-	datatypesMedicalResourceCmd.AddCommand(datatypesMedicalResourceGetDataSourceIdCmd)
-	datatypesMedicalResourceCmd.AddCommand(datatypesMedicalResourceGetFhirResourceCmd)
-	datatypesMedicalResourceCmd.AddCommand(datatypesMedicalResourceGetFhirVersionCmd)
-	datatypesMedicalResourceCmd.AddCommand(datatypesMedicalResourceGetIdCmd)
-	datatypesMedicalResourceCmd.AddCommand(datatypesMedicalResourceGetTypeCmd)
-	datatypesMedicalResourceCmd.AddCommand(datatypesMedicalResourceHashCodeCmd)
-	datatypesMedicalResourceCmd.AddCommand(datatypesMedicalResourceToStringCmd)
-	datatypesMedicalResourceWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	datatypesMedicalResourceWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	datatypesMedicalResourceCmd.AddCommand(datatypesMedicalResourceWriteToParcelCmd)
-	datatypesCmd.AddCommand(datatypesMedicalResourceCmd)
-	datatypesMedicalResourceBuilderCmd.AddCommand(datatypesMedicalResourceBuilderBuildCmd)
-	datatypesMedicalResourceBuilderSetDataSourceIdCmd.Flags().String("arg0", "", "arg0 (string)")
-	datatypesMedicalResourceBuilderCmd.AddCommand(datatypesMedicalResourceBuilderSetDataSourceIdCmd)
-	datatypesMedicalResourceBuilderSetFhirResourceCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	datatypesMedicalResourceBuilderCmd.AddCommand(datatypesMedicalResourceBuilderSetFhirResourceCmd)
-	datatypesMedicalResourceBuilderSetFhirVersionCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	datatypesMedicalResourceBuilderCmd.AddCommand(datatypesMedicalResourceBuilderSetFhirVersionCmd)
-	datatypesMedicalResourceBuilderSetTypeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	datatypesMedicalResourceBuilderCmd.AddCommand(datatypesMedicalResourceBuilderSetTypeCmd)
-	datatypesCmd.AddCommand(datatypesMedicalResourceBuilderCmd)
-	datatypesMedicalDataSourceCmd.AddCommand(datatypesMedicalDataSourceDescribeContentsCmd)
-	datatypesMedicalDataSourceEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	datatypesMedicalDataSourceCmd.AddCommand(datatypesMedicalDataSourceEqualsCmd)
-	datatypesMedicalDataSourceCmd.AddCommand(datatypesMedicalDataSourceGetDisplayNameCmd)
-	datatypesMedicalDataSourceCmd.AddCommand(datatypesMedicalDataSourceGetFhirBaseUriCmd)
-	datatypesMedicalDataSourceCmd.AddCommand(datatypesMedicalDataSourceGetFhirVersionCmd)
-	datatypesMedicalDataSourceCmd.AddCommand(datatypesMedicalDataSourceGetIdCmd)
-	datatypesMedicalDataSourceCmd.AddCommand(datatypesMedicalDataSourceGetLastDataUpdateTimeCmd)
-	datatypesMedicalDataSourceCmd.AddCommand(datatypesMedicalDataSourceGetPackageNameCmd)
-	datatypesMedicalDataSourceCmd.AddCommand(datatypesMedicalDataSourceHashCodeCmd)
-	datatypesMedicalDataSourceCmd.AddCommand(datatypesMedicalDataSourceToStringCmd)
-	datatypesMedicalDataSourceWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	datatypesMedicalDataSourceWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	datatypesMedicalDataSourceCmd.AddCommand(datatypesMedicalDataSourceWriteToParcelCmd)
-	datatypesCmd.AddCommand(datatypesMedicalDataSourceCmd)
-	datatypesMedicalDataSourceBuilderCmd.AddCommand(datatypesMedicalDataSourceBuilderBuildCmd)
-	datatypesMedicalDataSourceBuilderSetDisplayNameCmd.Flags().String("arg0", "", "arg0 (string)")
-	datatypesMedicalDataSourceBuilderCmd.AddCommand(datatypesMedicalDataSourceBuilderSetDisplayNameCmd)
-	datatypesMedicalDataSourceBuilderSetFhirBaseUriCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	datatypesMedicalDataSourceBuilderCmd.AddCommand(datatypesMedicalDataSourceBuilderSetFhirBaseUriCmd)
-	datatypesMedicalDataSourceBuilderSetFhirVersionCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	datatypesMedicalDataSourceBuilderCmd.AddCommand(datatypesMedicalDataSourceBuilderSetFhirVersionCmd)
-	datatypesMedicalDataSourceBuilderSetIdCmd.Flags().String("arg0", "", "arg0 (string)")
-	datatypesMedicalDataSourceBuilderCmd.AddCommand(datatypesMedicalDataSourceBuilderSetIdCmd)
-	datatypesMedicalDataSourceBuilderSetLastDataUpdateTimeCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	datatypesMedicalDataSourceBuilderCmd.AddCommand(datatypesMedicalDataSourceBuilderSetLastDataUpdateTimeCmd)
-	datatypesMedicalDataSourceBuilderSetPackageNameCmd.Flags().String("arg0", "", "arg0 (string)")
-	datatypesMedicalDataSourceBuilderCmd.AddCommand(datatypesMedicalDataSourceBuilderSetPackageNameCmd)
-	datatypesCmd.AddCommand(datatypesMedicalDataSourceBuilderCmd)
-	datatypesPlannedExerciseStepEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	datatypesPlannedExerciseStepCmd.AddCommand(datatypesPlannedExerciseStepEqualsCmd)
-	datatypesPlannedExerciseStepCmd.AddCommand(datatypesPlannedExerciseStepGetCompletionGoalCmd)
-	datatypesPlannedExerciseStepCmd.AddCommand(datatypesPlannedExerciseStepGetDescriptionCmd)
-	datatypesPlannedExerciseStepCmd.AddCommand(datatypesPlannedExerciseStepGetExerciseCategoryCmd)
-	datatypesPlannedExerciseStepCmd.AddCommand(datatypesPlannedExerciseStepGetExerciseTypeCmd)
-	datatypesPlannedExerciseStepCmd.AddCommand(datatypesPlannedExerciseStepHashCodeCmd)
-	datatypesCmd.AddCommand(datatypesPlannedExerciseStepCmd)
-	datatypesPlannedExerciseStepBuilderAddPerformanceGoalCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	datatypesPlannedExerciseStepBuilderCmd.AddCommand(datatypesPlannedExerciseStepBuilderAddPerformanceGoalCmd)
-	datatypesPlannedExerciseStepBuilderCmd.AddCommand(datatypesPlannedExerciseStepBuilderBuildCmd)
-	datatypesPlannedExerciseStepBuilderCmd.AddCommand(datatypesPlannedExerciseStepBuilderClearPerformanceGoalsCmd)
-	datatypesPlannedExerciseStepBuilderSetCompletionGoalCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	datatypesPlannedExerciseStepBuilderCmd.AddCommand(datatypesPlannedExerciseStepBuilderSetCompletionGoalCmd)
-	datatypesPlannedExerciseStepBuilderSetDescriptionCmd.Flags().String("arg0", "", "arg0 (string)")
-	datatypesPlannedExerciseStepBuilderCmd.AddCommand(datatypesPlannedExerciseStepBuilderSetDescriptionCmd)
-	datatypesPlannedExerciseStepBuilderSetExerciseCategoryCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	datatypesPlannedExerciseStepBuilderCmd.AddCommand(datatypesPlannedExerciseStepBuilderSetExerciseCategoryCmd)
-	datatypesPlannedExerciseStepBuilderSetExerciseTypeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	datatypesPlannedExerciseStepBuilderCmd.AddCommand(datatypesPlannedExerciseStepBuilderSetExerciseTypeCmd)
-	datatypesCmd.AddCommand(datatypesPlannedExerciseStepBuilderCmd)
-	datatypesMenstruationPeriodRecordEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	datatypesMenstruationPeriodRecordCmd.AddCommand(datatypesMenstruationPeriodRecordEqualsCmd)
-	datatypesMenstruationPeriodRecordCmd.AddCommand(datatypesMenstruationPeriodRecordHashCodeCmd)
-	datatypesCmd.AddCommand(datatypesMenstruationPeriodRecordCmd)
-	datatypesMenstruationPeriodRecordBuilderCmd.AddCommand(datatypesMenstruationPeriodRecordBuilderBuildCmd)
-	datatypesMenstruationPeriodRecordBuilderCmd.AddCommand(datatypesMenstruationPeriodRecordBuilderClearEndZoneOffsetCmd)
-	datatypesMenstruationPeriodRecordBuilderCmd.AddCommand(datatypesMenstruationPeriodRecordBuilderClearStartZoneOffsetCmd)
-	datatypesMenstruationPeriodRecordBuilderSetEndZoneOffsetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	datatypesMenstruationPeriodRecordBuilderCmd.AddCommand(datatypesMenstruationPeriodRecordBuilderSetEndZoneOffsetCmd)
-	datatypesMenstruationPeriodRecordBuilderSetStartZoneOffsetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	datatypesMenstruationPeriodRecordBuilderCmd.AddCommand(datatypesMenstruationPeriodRecordBuilderSetStartZoneOffsetCmd)
-	datatypesCmd.AddCommand(datatypesMenstruationPeriodRecordBuilderCmd)
-	datatypesActivityIntensityRecordEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	datatypesActivityIntensityRecordCmd.AddCommand(datatypesActivityIntensityRecordEqualsCmd)
-	datatypesActivityIntensityRecordCmd.AddCommand(datatypesActivityIntensityRecordGetActivityIntensityTypeCmd)
-	datatypesActivityIntensityRecordCmd.AddCommand(datatypesActivityIntensityRecordHashCodeCmd)
-	datatypesCmd.AddCommand(datatypesActivityIntensityRecordCmd)
-	datatypesActivityIntensityRecordBuilderCmd.AddCommand(datatypesActivityIntensityRecordBuilderBuildCmd)
-	datatypesActivityIntensityRecordBuilderSetEndZoneOffsetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	datatypesActivityIntensityRecordBuilderCmd.AddCommand(datatypesActivityIntensityRecordBuilderSetEndZoneOffsetCmd)
-	datatypesActivityIntensityRecordBuilderSetStartZoneOffsetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	datatypesActivityIntensityRecordBuilderCmd.AddCommand(datatypesActivityIntensityRecordBuilderSetStartZoneOffsetCmd)
-	datatypesCmd.AddCommand(datatypesActivityIntensityRecordBuilderCmd)
-	datatypesExerciseLapEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	datatypesExerciseLapCmd.AddCommand(datatypesExerciseLapEqualsCmd)
-	datatypesExerciseLapCmd.AddCommand(datatypesExerciseLapGetEndTimeCmd)
-	datatypesExerciseLapCmd.AddCommand(datatypesExerciseLapGetLengthCmd)
-	datatypesExerciseLapCmd.AddCommand(datatypesExerciseLapGetStartTimeCmd)
-	datatypesExerciseLapCmd.AddCommand(datatypesExerciseLapHashCodeCmd)
-	datatypesCmd.AddCommand(datatypesExerciseLapCmd)
-	datatypesExerciseLapBuilderCmd.AddCommand(datatypesExerciseLapBuilderBuildCmd)
-	datatypesExerciseLapBuilderSetLengthCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	datatypesExerciseLapBuilderCmd.AddCommand(datatypesExerciseLapBuilderSetLengthCmd)
-	datatypesCmd.AddCommand(datatypesExerciseLapBuilderCmd)
-	datatypesDataOriginEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	datatypesDataOriginCmd.AddCommand(datatypesDataOriginEqualsCmd)
-	datatypesDataOriginCmd.AddCommand(datatypesDataOriginGetPackageNameCmd)
-	datatypesDataOriginCmd.AddCommand(datatypesDataOriginHashCodeCmd)
-	datatypesCmd.AddCommand(datatypesDataOriginCmd)
-	datatypesDataOriginBuilderCmd.AddCommand(datatypesDataOriginBuilderBuildCmd)
-	datatypesDataOriginBuilderSetPackageNameCmd.Flags().String("arg0", "", "arg0 (string)")
-	datatypesDataOriginBuilderCmd.AddCommand(datatypesDataOriginBuilderSetPackageNameCmd)
-	datatypesCmd.AddCommand(datatypesDataOriginBuilderCmd)
-	datatypesExerciseSessionRecordEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	datatypesExerciseSessionRecordCmd.AddCommand(datatypesExerciseSessionRecordEqualsCmd)
-	datatypesExerciseSessionRecordCmd.AddCommand(datatypesExerciseSessionRecordGetExerciseTypeCmd)
-	datatypesExerciseSessionRecordCmd.AddCommand(datatypesExerciseSessionRecordGetNotesCmd)
-	datatypesExerciseSessionRecordCmd.AddCommand(datatypesExerciseSessionRecordGetPlannedExerciseSessionIdCmd)
-	datatypesExerciseSessionRecordCmd.AddCommand(datatypesExerciseSessionRecordGetRouteCmd)
-	datatypesExerciseSessionRecordCmd.AddCommand(datatypesExerciseSessionRecordGetTitleCmd)
-	datatypesExerciseSessionRecordCmd.AddCommand(datatypesExerciseSessionRecordHasRouteCmd)
-	datatypesExerciseSessionRecordCmd.AddCommand(datatypesExerciseSessionRecordHashCodeCmd)
-	datatypesCmd.AddCommand(datatypesExerciseSessionRecordCmd)
-	datatypesExerciseSessionRecordBuilderCmd.AddCommand(datatypesExerciseSessionRecordBuilderBuildCmd)
-	datatypesExerciseSessionRecordBuilderCmd.AddCommand(datatypesExerciseSessionRecordBuilderClearEndZoneOffsetCmd)
-	datatypesExerciseSessionRecordBuilderCmd.AddCommand(datatypesExerciseSessionRecordBuilderClearStartZoneOffsetCmd)
-	datatypesExerciseSessionRecordBuilderSetEndZoneOffsetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	datatypesExerciseSessionRecordBuilderCmd.AddCommand(datatypesExerciseSessionRecordBuilderSetEndZoneOffsetCmd)
-	datatypesExerciseSessionRecordBuilderSetNotesCmd.Flags().String("arg0", "", "arg0 (string)")
-	datatypesExerciseSessionRecordBuilderCmd.AddCommand(datatypesExerciseSessionRecordBuilderSetNotesCmd)
-	datatypesExerciseSessionRecordBuilderSetPlannedExerciseSessionIdCmd.Flags().String("arg0", "", "arg0 (string)")
-	datatypesExerciseSessionRecordBuilderCmd.AddCommand(datatypesExerciseSessionRecordBuilderSetPlannedExerciseSessionIdCmd)
-	datatypesExerciseSessionRecordBuilderSetRouteCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	datatypesExerciseSessionRecordBuilderCmd.AddCommand(datatypesExerciseSessionRecordBuilderSetRouteCmd)
-	datatypesExerciseSessionRecordBuilderSetStartZoneOffsetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	datatypesExerciseSessionRecordBuilderCmd.AddCommand(datatypesExerciseSessionRecordBuilderSetStartZoneOffsetCmd)
-	datatypesExerciseSessionRecordBuilderSetTitleCmd.Flags().String("arg0", "", "arg0 (string)")
-	datatypesExerciseSessionRecordBuilderCmd.AddCommand(datatypesExerciseSessionRecordBuilderSetTitleCmd)
-	datatypesCmd.AddCommand(datatypesExerciseSessionRecordBuilderCmd)
-	datatypesMindfulnessSessionRecordEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	datatypesMindfulnessSessionRecordCmd.AddCommand(datatypesMindfulnessSessionRecordEqualsCmd)
-	datatypesMindfulnessSessionRecordCmd.AddCommand(datatypesMindfulnessSessionRecordGetMindfulnessSessionTypeCmd)
-	datatypesMindfulnessSessionRecordCmd.AddCommand(datatypesMindfulnessSessionRecordGetNotesCmd)
-	datatypesMindfulnessSessionRecordCmd.AddCommand(datatypesMindfulnessSessionRecordGetTitleCmd)
-	datatypesMindfulnessSessionRecordCmd.AddCommand(datatypesMindfulnessSessionRecordHashCodeCmd)
-	datatypesCmd.AddCommand(datatypesMindfulnessSessionRecordCmd)
-	datatypesMindfulnessSessionRecordBuilderCmd.AddCommand(datatypesMindfulnessSessionRecordBuilderBuildCmd)
-	datatypesMindfulnessSessionRecordBuilderSetEndZoneOffsetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	datatypesMindfulnessSessionRecordBuilderCmd.AddCommand(datatypesMindfulnessSessionRecordBuilderSetEndZoneOffsetCmd)
-	datatypesMindfulnessSessionRecordBuilderSetNotesCmd.Flags().String("arg0", "", "arg0 (string)")
-	datatypesMindfulnessSessionRecordBuilderCmd.AddCommand(datatypesMindfulnessSessionRecordBuilderSetNotesCmd)
-	datatypesMindfulnessSessionRecordBuilderSetStartZoneOffsetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	datatypesMindfulnessSessionRecordBuilderCmd.AddCommand(datatypesMindfulnessSessionRecordBuilderSetStartZoneOffsetCmd)
-	datatypesMindfulnessSessionRecordBuilderSetTitleCmd.Flags().String("arg0", "", "arg0 (string)")
-	datatypesMindfulnessSessionRecordBuilderCmd.AddCommand(datatypesMindfulnessSessionRecordBuilderSetTitleCmd)
-	datatypesCmd.AddCommand(datatypesMindfulnessSessionRecordBuilderCmd)
-	datatypesElevationGainedRecordEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	datatypesElevationGainedRecordCmd.AddCommand(datatypesElevationGainedRecordEqualsCmd)
-	datatypesElevationGainedRecordCmd.AddCommand(datatypesElevationGainedRecordGetElevationCmd)
-	datatypesElevationGainedRecordCmd.AddCommand(datatypesElevationGainedRecordHashCodeCmd)
-	datatypesCmd.AddCommand(datatypesElevationGainedRecordCmd)
-	datatypesElevationGainedRecordBuilderCmd.AddCommand(datatypesElevationGainedRecordBuilderBuildCmd)
-	datatypesElevationGainedRecordBuilderCmd.AddCommand(datatypesElevationGainedRecordBuilderClearEndZoneOffsetCmd)
-	datatypesElevationGainedRecordBuilderCmd.AddCommand(datatypesElevationGainedRecordBuilderClearStartZoneOffsetCmd)
-	datatypesElevationGainedRecordBuilderSetEndZoneOffsetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	datatypesElevationGainedRecordBuilderCmd.AddCommand(datatypesElevationGainedRecordBuilderSetEndZoneOffsetCmd)
-	datatypesElevationGainedRecordBuilderSetStartZoneOffsetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	datatypesElevationGainedRecordBuilderCmd.AddCommand(datatypesElevationGainedRecordBuilderSetStartZoneOffsetCmd)
-	datatypesCmd.AddCommand(datatypesElevationGainedRecordBuilderCmd)
-	datatypesHeightRecordEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	datatypesHeightRecordCmd.AddCommand(datatypesHeightRecordEqualsCmd)
-	datatypesHeightRecordCmd.AddCommand(datatypesHeightRecordGetHeightCmd)
-	datatypesHeightRecordCmd.AddCommand(datatypesHeightRecordHashCodeCmd)
-	datatypesCmd.AddCommand(datatypesHeightRecordCmd)
-	datatypesHeightRecordBuilderCmd.AddCommand(datatypesHeightRecordBuilderBuildCmd)
-	datatypesHeightRecordBuilderCmd.AddCommand(datatypesHeightRecordBuilderClearZoneOffsetCmd)
-	datatypesHeightRecordBuilderSetZoneOffsetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	datatypesHeightRecordBuilderCmd.AddCommand(datatypesHeightRecordBuilderSetZoneOffsetCmd)
-	datatypesCmd.AddCommand(datatypesHeightRecordBuilderCmd)
-	datatypesSpeedRecordEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	datatypesSpeedRecordCmd.AddCommand(datatypesSpeedRecordEqualsCmd)
-	datatypesSpeedRecordCmd.AddCommand(datatypesSpeedRecordHashCodeCmd)
-	datatypesCmd.AddCommand(datatypesSpeedRecordCmd)
-	datatypesSpeedRecordBuilderCmd.AddCommand(datatypesSpeedRecordBuilderBuildCmd)
-	datatypesSpeedRecordBuilderCmd.AddCommand(datatypesSpeedRecordBuilderClearEndZoneOffsetCmd)
-	datatypesSpeedRecordBuilderCmd.AddCommand(datatypesSpeedRecordBuilderClearStartZoneOffsetCmd)
-	datatypesSpeedRecordBuilderSetEndZoneOffsetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	datatypesSpeedRecordBuilderCmd.AddCommand(datatypesSpeedRecordBuilderSetEndZoneOffsetCmd)
-	datatypesSpeedRecordBuilderSetStartZoneOffsetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	datatypesSpeedRecordBuilderCmd.AddCommand(datatypesSpeedRecordBuilderSetStartZoneOffsetCmd)
-	datatypesCmd.AddCommand(datatypesSpeedRecordBuilderCmd)
-	datatypesSpeedRecordSpeedRecordSampleEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	datatypesSpeedRecordSpeedRecordSampleCmd.AddCommand(datatypesSpeedRecordSpeedRecordSampleEqualsCmd)
-	datatypesSpeedRecordSpeedRecordSampleCmd.AddCommand(datatypesSpeedRecordSpeedRecordSampleGetSpeedCmd)
-	datatypesSpeedRecordSpeedRecordSampleCmd.AddCommand(datatypesSpeedRecordSpeedRecordSampleGetTimeCmd)
-	datatypesSpeedRecordSpeedRecordSampleCmd.AddCommand(datatypesSpeedRecordSpeedRecordSampleHashCodeCmd)
-	datatypesCmd.AddCommand(datatypesSpeedRecordSpeedRecordSampleCmd)
-	datatypesInstantRecordEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	datatypesInstantRecordCmd.AddCommand(datatypesInstantRecordEqualsCmd)
-	datatypesInstantRecordCmd.AddCommand(datatypesInstantRecordGetTimeCmd)
-	datatypesInstantRecordCmd.AddCommand(datatypesInstantRecordGetZoneOffsetCmd)
-	datatypesInstantRecordCmd.AddCommand(datatypesInstantRecordHashCodeCmd)
-	datatypesCmd.AddCommand(datatypesInstantRecordCmd)
-	datatypesAppInfoCmd.AddCommand(datatypesAppInfoGetIconCmd)
-	datatypesAppInfoCmd.AddCommand(datatypesAppInfoGetNameCmd)
-	datatypesAppInfoCmd.AddCommand(datatypesAppInfoGetPackageNameCmd)
-	datatypesCmd.AddCommand(datatypesAppInfoCmd)
-	datatypesVo2MaxRecordEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	datatypesVo2MaxRecordCmd.AddCommand(datatypesVo2MaxRecordEqualsCmd)
-	datatypesVo2MaxRecordCmd.AddCommand(datatypesVo2MaxRecordGetMeasurementMethodCmd)
-	datatypesVo2MaxRecordCmd.AddCommand(datatypesVo2MaxRecordGetVo2MillilitersPerMinuteKilogramCmd)
-	datatypesVo2MaxRecordCmd.AddCommand(datatypesVo2MaxRecordHashCodeCmd)
-	datatypesCmd.AddCommand(datatypesVo2MaxRecordCmd)
-	datatypesVo2MaxRecordBuilderCmd.AddCommand(datatypesVo2MaxRecordBuilderBuildCmd)
-	datatypesVo2MaxRecordBuilderCmd.AddCommand(datatypesVo2MaxRecordBuilderClearZoneOffsetCmd)
-	datatypesVo2MaxRecordBuilderSetZoneOffsetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	datatypesVo2MaxRecordBuilderCmd.AddCommand(datatypesVo2MaxRecordBuilderSetZoneOffsetCmd)
-	datatypesCmd.AddCommand(datatypesVo2MaxRecordBuilderCmd)
-	datatypesFloorsClimbedRecordEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	datatypesFloorsClimbedRecordCmd.AddCommand(datatypesFloorsClimbedRecordEqualsCmd)
-	datatypesFloorsClimbedRecordCmd.AddCommand(datatypesFloorsClimbedRecordGetFloorsCmd)
-	datatypesFloorsClimbedRecordCmd.AddCommand(datatypesFloorsClimbedRecordHashCodeCmd)
-	datatypesCmd.AddCommand(datatypesFloorsClimbedRecordCmd)
-	datatypesFloorsClimbedRecordBuilderCmd.AddCommand(datatypesFloorsClimbedRecordBuilderBuildCmd)
-	datatypesFloorsClimbedRecordBuilderCmd.AddCommand(datatypesFloorsClimbedRecordBuilderClearEndZoneOffsetCmd)
-	datatypesFloorsClimbedRecordBuilderCmd.AddCommand(datatypesFloorsClimbedRecordBuilderClearStartZoneOffsetCmd)
-	datatypesFloorsClimbedRecordBuilderSetEndZoneOffsetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	datatypesFloorsClimbedRecordBuilderCmd.AddCommand(datatypesFloorsClimbedRecordBuilderSetEndZoneOffsetCmd)
-	datatypesFloorsClimbedRecordBuilderSetStartZoneOffsetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	datatypesFloorsClimbedRecordBuilderCmd.AddCommand(datatypesFloorsClimbedRecordBuilderSetStartZoneOffsetCmd)
-	datatypesCmd.AddCommand(datatypesFloorsClimbedRecordBuilderCmd)
-	datatypesStepsCadenceRecordEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	datatypesStepsCadenceRecordCmd.AddCommand(datatypesStepsCadenceRecordEqualsCmd)
-	datatypesStepsCadenceRecordCmd.AddCommand(datatypesStepsCadenceRecordHashCodeCmd)
-	datatypesCmd.AddCommand(datatypesStepsCadenceRecordCmd)
-	datatypesStepsCadenceRecordBuilderCmd.AddCommand(datatypesStepsCadenceRecordBuilderBuildCmd)
-	datatypesStepsCadenceRecordBuilderCmd.AddCommand(datatypesStepsCadenceRecordBuilderClearEndZoneOffsetCmd)
-	datatypesStepsCadenceRecordBuilderCmd.AddCommand(datatypesStepsCadenceRecordBuilderClearStartZoneOffsetCmd)
-	datatypesStepsCadenceRecordBuilderSetEndZoneOffsetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	datatypesStepsCadenceRecordBuilderCmd.AddCommand(datatypesStepsCadenceRecordBuilderSetEndZoneOffsetCmd)
-	datatypesStepsCadenceRecordBuilderSetStartZoneOffsetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	datatypesStepsCadenceRecordBuilderCmd.AddCommand(datatypesStepsCadenceRecordBuilderSetStartZoneOffsetCmd)
-	datatypesCmd.AddCommand(datatypesStepsCadenceRecordBuilderCmd)
-	datatypesStepsCadenceRecordStepsCadenceRecordSampleEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	datatypesStepsCadenceRecordStepsCadenceRecordSampleCmd.AddCommand(datatypesStepsCadenceRecordStepsCadenceRecordSampleEqualsCmd)
-	datatypesStepsCadenceRecordStepsCadenceRecordSampleCmd.AddCommand(datatypesStepsCadenceRecordStepsCadenceRecordSampleGetRateCmd)
-	datatypesStepsCadenceRecordStepsCadenceRecordSampleCmd.AddCommand(datatypesStepsCadenceRecordStepsCadenceRecordSampleGetTimeCmd)
-	datatypesStepsCadenceRecordStepsCadenceRecordSampleCmd.AddCommand(datatypesStepsCadenceRecordStepsCadenceRecordSampleHashCodeCmd)
-	datatypesCmd.AddCommand(datatypesStepsCadenceRecordStepsCadenceRecordSampleCmd)
-	datatypesFhirResourceCmd.AddCommand(datatypesFhirResourceDescribeContentsCmd)
-	datatypesFhirResourceEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	datatypesFhirResourceCmd.AddCommand(datatypesFhirResourceEqualsCmd)
-	datatypesFhirResourceCmd.AddCommand(datatypesFhirResourceGetDataCmd)
-	datatypesFhirResourceCmd.AddCommand(datatypesFhirResourceGetIdCmd)
-	datatypesFhirResourceCmd.AddCommand(datatypesFhirResourceGetTypeCmd)
-	datatypesFhirResourceCmd.AddCommand(datatypesFhirResourceHashCodeCmd)
-	datatypesFhirResourceCmd.AddCommand(datatypesFhirResourceToStringCmd)
-	datatypesFhirResourceWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	datatypesFhirResourceWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	datatypesFhirResourceCmd.AddCommand(datatypesFhirResourceWriteToParcelCmd)
-	datatypesCmd.AddCommand(datatypesFhirResourceCmd)
-	datatypesFhirResourceBuilderCmd.AddCommand(datatypesFhirResourceBuilderBuildCmd)
-	datatypesFhirResourceBuilderSetDataCmd.Flags().String("arg0", "", "arg0 (string)")
-	datatypesFhirResourceBuilderCmd.AddCommand(datatypesFhirResourceBuilderSetDataCmd)
-	datatypesFhirResourceBuilderSetIdCmd.Flags().String("arg0", "", "arg0 (string)")
-	datatypesFhirResourceBuilderCmd.AddCommand(datatypesFhirResourceBuilderSetIdCmd)
-	datatypesFhirResourceBuilderSetTypeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	datatypesFhirResourceBuilderCmd.AddCommand(datatypesFhirResourceBuilderSetTypeCmd)
-	datatypesCmd.AddCommand(datatypesFhirResourceBuilderCmd)
-	datatypesHeartRateVariabilityRmssdRecordEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	datatypesHeartRateVariabilityRmssdRecordCmd.AddCommand(datatypesHeartRateVariabilityRmssdRecordEqualsCmd)
-	datatypesHeartRateVariabilityRmssdRecordCmd.AddCommand(datatypesHeartRateVariabilityRmssdRecordGetHeartRateVariabilityMillisCmd)
-	datatypesHeartRateVariabilityRmssdRecordCmd.AddCommand(datatypesHeartRateVariabilityRmssdRecordHashCodeCmd)
-	datatypesCmd.AddCommand(datatypesHeartRateVariabilityRmssdRecordCmd)
-	datatypesHeartRateVariabilityRmssdRecordBuilderCmd.AddCommand(datatypesHeartRateVariabilityRmssdRecordBuilderBuildCmd)
-	datatypesHeartRateVariabilityRmssdRecordBuilderCmd.AddCommand(datatypesHeartRateVariabilityRmssdRecordBuilderClearZoneOffsetCmd)
-	datatypesHeartRateVariabilityRmssdRecordBuilderSetZoneOffsetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	datatypesHeartRateVariabilityRmssdRecordBuilderCmd.AddCommand(datatypesHeartRateVariabilityRmssdRecordBuilderSetZoneOffsetCmd)
-	datatypesCmd.AddCommand(datatypesHeartRateVariabilityRmssdRecordBuilderCmd)
-	datatypesRespiratoryRateRecordEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	datatypesRespiratoryRateRecordCmd.AddCommand(datatypesRespiratoryRateRecordEqualsCmd)
-	datatypesRespiratoryRateRecordCmd.AddCommand(datatypesRespiratoryRateRecordGetRateCmd)
-	datatypesRespiratoryRateRecordCmd.AddCommand(datatypesRespiratoryRateRecordHashCodeCmd)
-	datatypesCmd.AddCommand(datatypesRespiratoryRateRecordCmd)
-	datatypesRespiratoryRateRecordBuilderCmd.AddCommand(datatypesRespiratoryRateRecordBuilderBuildCmd)
-	datatypesRespiratoryRateRecordBuilderCmd.AddCommand(datatypesRespiratoryRateRecordBuilderClearZoneOffsetCmd)
-	datatypesRespiratoryRateRecordBuilderSetZoneOffsetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	datatypesRespiratoryRateRecordBuilderCmd.AddCommand(datatypesRespiratoryRateRecordBuilderSetZoneOffsetCmd)
-	datatypesCmd.AddCommand(datatypesRespiratoryRateRecordBuilderCmd)
-	datatypesRecordEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	datatypesRecordCmd.AddCommand(datatypesRecordEqualsCmd)
-	datatypesRecordCmd.AddCommand(datatypesRecordGetMetadataCmd)
-	datatypesRecordCmd.AddCommand(datatypesRecordHashCodeCmd)
-	datatypesCmd.AddCommand(datatypesRecordCmd)
-	datatypesBasalBodyTemperatureRecordEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	datatypesBasalBodyTemperatureRecordCmd.AddCommand(datatypesBasalBodyTemperatureRecordEqualsCmd)
-	datatypesBasalBodyTemperatureRecordCmd.AddCommand(datatypesBasalBodyTemperatureRecordGetMeasurementLocationCmd)
-	datatypesBasalBodyTemperatureRecordCmd.AddCommand(datatypesBasalBodyTemperatureRecordGetTemperatureCmd)
-	datatypesBasalBodyTemperatureRecordCmd.AddCommand(datatypesBasalBodyTemperatureRecordHashCodeCmd)
-	datatypesCmd.AddCommand(datatypesBasalBodyTemperatureRecordCmd)
-	datatypesBasalBodyTemperatureRecordBuilderCmd.AddCommand(datatypesBasalBodyTemperatureRecordBuilderBuildCmd)
-	datatypesBasalBodyTemperatureRecordBuilderCmd.AddCommand(datatypesBasalBodyTemperatureRecordBuilderClearZoneOffsetCmd)
-	datatypesBasalBodyTemperatureRecordBuilderSetZoneOffsetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	datatypesBasalBodyTemperatureRecordBuilderCmd.AddCommand(datatypesBasalBodyTemperatureRecordBuilderSetZoneOffsetCmd)
-	datatypesCmd.AddCommand(datatypesBasalBodyTemperatureRecordBuilderCmd)
-	datatypesExercisePerformanceGoalCadenceGoalEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	datatypesExercisePerformanceGoalCadenceGoalCmd.AddCommand(datatypesExercisePerformanceGoalCadenceGoalEqualsCmd)
-	datatypesExercisePerformanceGoalCadenceGoalCmd.AddCommand(datatypesExercisePerformanceGoalCadenceGoalGetMaxRpmCmd)
-	datatypesExercisePerformanceGoalCadenceGoalCmd.AddCommand(datatypesExercisePerformanceGoalCadenceGoalGetMinRpmCmd)
-	datatypesExercisePerformanceGoalCadenceGoalCmd.AddCommand(datatypesExercisePerformanceGoalCadenceGoalHashCodeCmd)
-	datatypesCmd.AddCommand(datatypesExercisePerformanceGoalCadenceGoalCmd)
-	datatypesExercisePerformanceGoalHeartRateGoalEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	datatypesExercisePerformanceGoalHeartRateGoalCmd.AddCommand(datatypesExercisePerformanceGoalHeartRateGoalEqualsCmd)
-	datatypesExercisePerformanceGoalHeartRateGoalCmd.AddCommand(datatypesExercisePerformanceGoalHeartRateGoalGetMaxBpmCmd)
-	datatypesExercisePerformanceGoalHeartRateGoalCmd.AddCommand(datatypesExercisePerformanceGoalHeartRateGoalGetMinBpmCmd)
-	datatypesExercisePerformanceGoalHeartRateGoalCmd.AddCommand(datatypesExercisePerformanceGoalHeartRateGoalHashCodeCmd)
-	datatypesCmd.AddCommand(datatypesExercisePerformanceGoalHeartRateGoalCmd)
-	datatypesExercisePerformanceGoalPowerGoalEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	datatypesExercisePerformanceGoalPowerGoalCmd.AddCommand(datatypesExercisePerformanceGoalPowerGoalEqualsCmd)
-	datatypesExercisePerformanceGoalPowerGoalCmd.AddCommand(datatypesExercisePerformanceGoalPowerGoalGetMaxPowerCmd)
-	datatypesExercisePerformanceGoalPowerGoalCmd.AddCommand(datatypesExercisePerformanceGoalPowerGoalGetMinPowerCmd)
-	datatypesExercisePerformanceGoalPowerGoalCmd.AddCommand(datatypesExercisePerformanceGoalPowerGoalHashCodeCmd)
-	datatypesCmd.AddCommand(datatypesExercisePerformanceGoalPowerGoalCmd)
-	datatypesExercisePerformanceGoalRateOfPerceivedExertionGoalEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	datatypesExercisePerformanceGoalRateOfPerceivedExertionGoalCmd.AddCommand(datatypesExercisePerformanceGoalRateOfPerceivedExertionGoalEqualsCmd)
-	datatypesExercisePerformanceGoalRateOfPerceivedExertionGoalCmd.AddCommand(datatypesExercisePerformanceGoalRateOfPerceivedExertionGoalGetRpeCmd)
-	datatypesExercisePerformanceGoalRateOfPerceivedExertionGoalCmd.AddCommand(datatypesExercisePerformanceGoalRateOfPerceivedExertionGoalHashCodeCmd)
-	datatypesCmd.AddCommand(datatypesExercisePerformanceGoalRateOfPerceivedExertionGoalCmd)
-	datatypesExercisePerformanceGoalSpeedGoalEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	datatypesExercisePerformanceGoalSpeedGoalCmd.AddCommand(datatypesExercisePerformanceGoalSpeedGoalEqualsCmd)
-	datatypesExercisePerformanceGoalSpeedGoalCmd.AddCommand(datatypesExercisePerformanceGoalSpeedGoalGetMaxSpeedCmd)
-	datatypesExercisePerformanceGoalSpeedGoalCmd.AddCommand(datatypesExercisePerformanceGoalSpeedGoalGetMinSpeedCmd)
-	datatypesExercisePerformanceGoalSpeedGoalCmd.AddCommand(datatypesExercisePerformanceGoalSpeedGoalHashCodeCmd)
-	datatypesCmd.AddCommand(datatypesExercisePerformanceGoalSpeedGoalCmd)
-	datatypesExercisePerformanceGoalWeightGoalEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	datatypesExercisePerformanceGoalWeightGoalCmd.AddCommand(datatypesExercisePerformanceGoalWeightGoalEqualsCmd)
-	datatypesExercisePerformanceGoalWeightGoalCmd.AddCommand(datatypesExercisePerformanceGoalWeightGoalGetMassCmd)
-	datatypesExercisePerformanceGoalWeightGoalCmd.AddCommand(datatypesExercisePerformanceGoalWeightGoalHashCodeCmd)
-	datatypesCmd.AddCommand(datatypesExercisePerformanceGoalWeightGoalCmd)
-	datatypesCyclingPedalingCadenceRecordEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	datatypesCyclingPedalingCadenceRecordCmd.AddCommand(datatypesCyclingPedalingCadenceRecordEqualsCmd)
-	datatypesCyclingPedalingCadenceRecordCmd.AddCommand(datatypesCyclingPedalingCadenceRecordHashCodeCmd)
-	datatypesCmd.AddCommand(datatypesCyclingPedalingCadenceRecordCmd)
-	datatypesCyclingPedalingCadenceRecordBuilderCmd.AddCommand(datatypesCyclingPedalingCadenceRecordBuilderBuildCmd)
-	datatypesCyclingPedalingCadenceRecordBuilderCmd.AddCommand(datatypesCyclingPedalingCadenceRecordBuilderClearEndZoneOffsetCmd)
-	datatypesCyclingPedalingCadenceRecordBuilderCmd.AddCommand(datatypesCyclingPedalingCadenceRecordBuilderClearStartZoneOffsetCmd)
-	datatypesCyclingPedalingCadenceRecordBuilderSetEndZoneOffsetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	datatypesCyclingPedalingCadenceRecordBuilderCmd.AddCommand(datatypesCyclingPedalingCadenceRecordBuilderSetEndZoneOffsetCmd)
-	datatypesCyclingPedalingCadenceRecordBuilderSetStartZoneOffsetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	datatypesCyclingPedalingCadenceRecordBuilderCmd.AddCommand(datatypesCyclingPedalingCadenceRecordBuilderSetStartZoneOffsetCmd)
-	datatypesCmd.AddCommand(datatypesCyclingPedalingCadenceRecordBuilderCmd)
-	datatypesCyclingPedalingCadenceRecordCyclingPedalingCadenceRecordSampleEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	datatypesCyclingPedalingCadenceRecordCyclingPedalingCadenceRecordSampleCmd.AddCommand(datatypesCyclingPedalingCadenceRecordCyclingPedalingCadenceRecordSampleEqualsCmd)
-	datatypesCyclingPedalingCadenceRecordCyclingPedalingCadenceRecordSampleCmd.AddCommand(datatypesCyclingPedalingCadenceRecordCyclingPedalingCadenceRecordSampleGetRevolutionsPerMinuteCmd)
-	datatypesCyclingPedalingCadenceRecordCyclingPedalingCadenceRecordSampleCmd.AddCommand(datatypesCyclingPedalingCadenceRecordCyclingPedalingCadenceRecordSampleGetTimeCmd)
-	datatypesCyclingPedalingCadenceRecordCyclingPedalingCadenceRecordSampleCmd.AddCommand(datatypesCyclingPedalingCadenceRecordCyclingPedalingCadenceRecordSampleHashCodeCmd)
-	datatypesCmd.AddCommand(datatypesCyclingPedalingCadenceRecordCyclingPedalingCadenceRecordSampleCmd)
-	datatypesBasalMetabolicRateRecordEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	datatypesBasalMetabolicRateRecordCmd.AddCommand(datatypesBasalMetabolicRateRecordEqualsCmd)
-	datatypesBasalMetabolicRateRecordCmd.AddCommand(datatypesBasalMetabolicRateRecordGetBasalMetabolicRateCmd)
-	datatypesBasalMetabolicRateRecordCmd.AddCommand(datatypesBasalMetabolicRateRecordHashCodeCmd)
-	datatypesCmd.AddCommand(datatypesBasalMetabolicRateRecordCmd)
-	datatypesBasalMetabolicRateRecordBuilderCmd.AddCommand(datatypesBasalMetabolicRateRecordBuilderBuildCmd)
-	datatypesBasalMetabolicRateRecordBuilderCmd.AddCommand(datatypesBasalMetabolicRateRecordBuilderClearZoneOffsetCmd)
-	datatypesBasalMetabolicRateRecordBuilderSetZoneOffsetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	datatypesBasalMetabolicRateRecordBuilderCmd.AddCommand(datatypesBasalMetabolicRateRecordBuilderSetZoneOffsetCmd)
-	datatypesCmd.AddCommand(datatypesBasalMetabolicRateRecordBuilderCmd)
-	datatypesBodyFatRecordEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	datatypesBodyFatRecordCmd.AddCommand(datatypesBodyFatRecordEqualsCmd)
-	datatypesBodyFatRecordCmd.AddCommand(datatypesBodyFatRecordGetPercentageCmd)
-	datatypesBodyFatRecordCmd.AddCommand(datatypesBodyFatRecordHashCodeCmd)
-	datatypesCmd.AddCommand(datatypesBodyFatRecordCmd)
-	datatypesBodyFatRecordBuilderCmd.AddCommand(datatypesBodyFatRecordBuilderBuildCmd)
-	datatypesBodyFatRecordBuilderCmd.AddCommand(datatypesBodyFatRecordBuilderClearZoneOffsetCmd)
-	datatypesBodyFatRecordBuilderSetZoneOffsetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	datatypesBodyFatRecordBuilderCmd.AddCommand(datatypesBodyFatRecordBuilderSetZoneOffsetCmd)
-	datatypesCmd.AddCommand(datatypesBodyFatRecordBuilderCmd)
 	datatypesExerciseCompletionGoalActiveCaloriesBurnedGoalEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	datatypesExerciseCompletionGoalActiveCaloriesBurnedGoalCmd.AddCommand(datatypesExerciseCompletionGoalActiveCaloriesBurnedGoalEqualsCmd)
 	datatypesExerciseCompletionGoalActiveCaloriesBurnedGoalCmd.AddCommand(datatypesExerciseCompletionGoalActiveCaloriesBurnedGoalGetActiveCaloriesCmd)
@@ -12364,8 +12156,33 @@ func init() {
 	datatypesExerciseCompletionGoalTotalCaloriesBurnedGoalCmd.AddCommand(datatypesExerciseCompletionGoalTotalCaloriesBurnedGoalGetTotalCaloriesCmd)
 	datatypesExerciseCompletionGoalTotalCaloriesBurnedGoalCmd.AddCommand(datatypesExerciseCompletionGoalTotalCaloriesBurnedGoalHashCodeCmd)
 	datatypesCmd.AddCommand(datatypesExerciseCompletionGoalTotalCaloriesBurnedGoalCmd)
+	datatypesActivityIntensityRecordEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	datatypesActivityIntensityRecordCmd.AddCommand(datatypesActivityIntensityRecordEqualsCmd)
+	datatypesActivityIntensityRecordCmd.AddCommand(datatypesActivityIntensityRecordGetActivityIntensityTypeCmd)
+	datatypesActivityIntensityRecordCmd.AddCommand(datatypesActivityIntensityRecordHashCodeCmd)
+	datatypesCmd.AddCommand(datatypesActivityIntensityRecordCmd)
+	datatypesActivityIntensityRecordBuilderCmd.AddCommand(datatypesActivityIntensityRecordBuilderBuildCmd)
+	datatypesActivityIntensityRecordBuilderSetEndZoneOffsetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	datatypesActivityIntensityRecordBuilderCmd.AddCommand(datatypesActivityIntensityRecordBuilderSetEndZoneOffsetCmd)
+	datatypesActivityIntensityRecordBuilderSetStartZoneOffsetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	datatypesActivityIntensityRecordBuilderCmd.AddCommand(datatypesActivityIntensityRecordBuilderSetStartZoneOffsetCmd)
+	datatypesCmd.AddCommand(datatypesActivityIntensityRecordBuilderCmd)
+	datatypesStepsRecordEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	datatypesStepsRecordCmd.AddCommand(datatypesStepsRecordEqualsCmd)
+	datatypesStepsRecordCmd.AddCommand(datatypesStepsRecordGetCountCmd)
+	datatypesStepsRecordCmd.AddCommand(datatypesStepsRecordHashCodeCmd)
+	datatypesCmd.AddCommand(datatypesStepsRecordCmd)
+	datatypesStepsRecordBuilderCmd.AddCommand(datatypesStepsRecordBuilderBuildCmd)
+	datatypesStepsRecordBuilderCmd.AddCommand(datatypesStepsRecordBuilderClearEndZoneOffsetCmd)
+	datatypesStepsRecordBuilderCmd.AddCommand(datatypesStepsRecordBuilderClearStartZoneOffsetCmd)
+	datatypesStepsRecordBuilderSetEndZoneOffsetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	datatypesStepsRecordBuilderCmd.AddCommand(datatypesStepsRecordBuilderSetEndZoneOffsetCmd)
+	datatypesStepsRecordBuilderSetStartZoneOffsetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	datatypesStepsRecordBuilderCmd.AddCommand(datatypesStepsRecordBuilderSetStartZoneOffsetCmd)
+	datatypesCmd.AddCommand(datatypesStepsRecordBuilderCmd)
 	datatypesHeartRateRecordEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	datatypesHeartRateRecordCmd.AddCommand(datatypesHeartRateRecordEqualsCmd)
+	datatypesHeartRateRecordCmd.AddCommand(datatypesHeartRateRecordGetSamplesCmd)
 	datatypesHeartRateRecordCmd.AddCommand(datatypesHeartRateRecordHashCodeCmd)
 	datatypesCmd.AddCommand(datatypesHeartRateRecordCmd)
 	datatypesHeartRateRecordBuilderCmd.AddCommand(datatypesHeartRateRecordBuilderBuildCmd)
@@ -12382,94 +12199,241 @@ func init() {
 	datatypesHeartRateRecordHeartRateSampleCmd.AddCommand(datatypesHeartRateRecordHeartRateSampleGetTimeCmd)
 	datatypesHeartRateRecordHeartRateSampleCmd.AddCommand(datatypesHeartRateRecordHeartRateSampleHashCodeCmd)
 	datatypesCmd.AddCommand(datatypesHeartRateRecordHeartRateSampleCmd)
-	datatypesLeanBodyMassRecordEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	datatypesLeanBodyMassRecordCmd.AddCommand(datatypesLeanBodyMassRecordEqualsCmd)
-	datatypesLeanBodyMassRecordCmd.AddCommand(datatypesLeanBodyMassRecordGetMassCmd)
-	datatypesLeanBodyMassRecordCmd.AddCommand(datatypesLeanBodyMassRecordHashCodeCmd)
-	datatypesCmd.AddCommand(datatypesLeanBodyMassRecordCmd)
-	datatypesLeanBodyMassRecordBuilderCmd.AddCommand(datatypesLeanBodyMassRecordBuilderBuildCmd)
-	datatypesLeanBodyMassRecordBuilderCmd.AddCommand(datatypesLeanBodyMassRecordBuilderClearZoneOffsetCmd)
-	datatypesLeanBodyMassRecordBuilderSetZoneOffsetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	datatypesLeanBodyMassRecordBuilderCmd.AddCommand(datatypesLeanBodyMassRecordBuilderSetZoneOffsetCmd)
-	datatypesCmd.AddCommand(datatypesLeanBodyMassRecordBuilderCmd)
-	datatypesOxygenSaturationRecordEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	datatypesOxygenSaturationRecordCmd.AddCommand(datatypesOxygenSaturationRecordEqualsCmd)
-	datatypesOxygenSaturationRecordCmd.AddCommand(datatypesOxygenSaturationRecordGetPercentageCmd)
-	datatypesOxygenSaturationRecordCmd.AddCommand(datatypesOxygenSaturationRecordHashCodeCmd)
-	datatypesCmd.AddCommand(datatypesOxygenSaturationRecordCmd)
-	datatypesOxygenSaturationRecordBuilderCmd.AddCommand(datatypesOxygenSaturationRecordBuilderBuildCmd)
-	datatypesOxygenSaturationRecordBuilderCmd.AddCommand(datatypesOxygenSaturationRecordBuilderClearZoneOffsetCmd)
-	datatypesOxygenSaturationRecordBuilderSetZoneOffsetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	datatypesOxygenSaturationRecordBuilderCmd.AddCommand(datatypesOxygenSaturationRecordBuilderSetZoneOffsetCmd)
-	datatypesCmd.AddCommand(datatypesOxygenSaturationRecordBuilderCmd)
-	datatypesIntervalRecordEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	datatypesIntervalRecordCmd.AddCommand(datatypesIntervalRecordEqualsCmd)
-	datatypesIntervalRecordCmd.AddCommand(datatypesIntervalRecordGetEndTimeCmd)
-	datatypesIntervalRecordCmd.AddCommand(datatypesIntervalRecordGetEndZoneOffsetCmd)
-	datatypesIntervalRecordCmd.AddCommand(datatypesIntervalRecordGetStartTimeCmd)
-	datatypesIntervalRecordCmd.AddCommand(datatypesIntervalRecordGetStartZoneOffsetCmd)
-	datatypesIntervalRecordCmd.AddCommand(datatypesIntervalRecordHashCodeCmd)
-	datatypesCmd.AddCommand(datatypesIntervalRecordCmd)
-	datatypesSkinTemperatureRecordEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	datatypesSkinTemperatureRecordCmd.AddCommand(datatypesSkinTemperatureRecordEqualsCmd)
-	datatypesSkinTemperatureRecordCmd.AddCommand(datatypesSkinTemperatureRecordGetBaselineCmd)
-	datatypesSkinTemperatureRecordCmd.AddCommand(datatypesSkinTemperatureRecordGetMeasurementLocationCmd)
-	datatypesSkinTemperatureRecordCmd.AddCommand(datatypesSkinTemperatureRecordHashCodeCmd)
-	datatypesCmd.AddCommand(datatypesSkinTemperatureRecordCmd)
-	datatypesSkinTemperatureRecordBuilderCmd.AddCommand(datatypesSkinTemperatureRecordBuilderBuildCmd)
-	datatypesSkinTemperatureRecordBuilderCmd.AddCommand(datatypesSkinTemperatureRecordBuilderClearEndZoneOffsetCmd)
-	datatypesSkinTemperatureRecordBuilderCmd.AddCommand(datatypesSkinTemperatureRecordBuilderClearStartZoneOffsetCmd)
-	datatypesSkinTemperatureRecordBuilderSetBaselineCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	datatypesSkinTemperatureRecordBuilderCmd.AddCommand(datatypesSkinTemperatureRecordBuilderSetBaselineCmd)
-	datatypesSkinTemperatureRecordBuilderSetEndZoneOffsetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	datatypesSkinTemperatureRecordBuilderCmd.AddCommand(datatypesSkinTemperatureRecordBuilderSetEndZoneOffsetCmd)
-	datatypesSkinTemperatureRecordBuilderSetMeasurementLocationCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	datatypesSkinTemperatureRecordBuilderCmd.AddCommand(datatypesSkinTemperatureRecordBuilderSetMeasurementLocationCmd)
-	datatypesSkinTemperatureRecordBuilderSetStartZoneOffsetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	datatypesSkinTemperatureRecordBuilderCmd.AddCommand(datatypesSkinTemperatureRecordBuilderSetStartZoneOffsetCmd)
-	datatypesCmd.AddCommand(datatypesSkinTemperatureRecordBuilderCmd)
-	datatypesSkinTemperatureRecordDeltaEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	datatypesSkinTemperatureRecordDeltaCmd.AddCommand(datatypesSkinTemperatureRecordDeltaEqualsCmd)
-	datatypesSkinTemperatureRecordDeltaCmd.AddCommand(datatypesSkinTemperatureRecordDeltaGetDeltaCmd)
-	datatypesSkinTemperatureRecordDeltaCmd.AddCommand(datatypesSkinTemperatureRecordDeltaGetTimeCmd)
-	datatypesSkinTemperatureRecordDeltaCmd.AddCommand(datatypesSkinTemperatureRecordDeltaHashCodeCmd)
-	datatypesCmd.AddCommand(datatypesSkinTemperatureRecordDeltaCmd)
-	datatypesRestingHeartRateRecordEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	datatypesRestingHeartRateRecordCmd.AddCommand(datatypesRestingHeartRateRecordEqualsCmd)
-	datatypesRestingHeartRateRecordCmd.AddCommand(datatypesRestingHeartRateRecordGetBeatsPerMinuteCmd)
-	datatypesRestingHeartRateRecordCmd.AddCommand(datatypesRestingHeartRateRecordHashCodeCmd)
-	datatypesCmd.AddCommand(datatypesRestingHeartRateRecordCmd)
-	datatypesRestingHeartRateRecordBuilderCmd.AddCommand(datatypesRestingHeartRateRecordBuilderBuildCmd)
-	datatypesRestingHeartRateRecordBuilderCmd.AddCommand(datatypesRestingHeartRateRecordBuilderClearZoneOffsetCmd)
-	datatypesRestingHeartRateRecordBuilderSetZoneOffsetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	datatypesRestingHeartRateRecordBuilderCmd.AddCommand(datatypesRestingHeartRateRecordBuilderSetZoneOffsetCmd)
-	datatypesCmd.AddCommand(datatypesRestingHeartRateRecordBuilderCmd)
-	datatypesStepsRecordEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	datatypesStepsRecordCmd.AddCommand(datatypesStepsRecordEqualsCmd)
-	datatypesStepsRecordCmd.AddCommand(datatypesStepsRecordGetCountCmd)
-	datatypesStepsRecordCmd.AddCommand(datatypesStepsRecordHashCodeCmd)
-	datatypesCmd.AddCommand(datatypesStepsRecordCmd)
-	datatypesStepsRecordBuilderCmd.AddCommand(datatypesStepsRecordBuilderBuildCmd)
-	datatypesStepsRecordBuilderCmd.AddCommand(datatypesStepsRecordBuilderClearEndZoneOffsetCmd)
-	datatypesStepsRecordBuilderCmd.AddCommand(datatypesStepsRecordBuilderClearStartZoneOffsetCmd)
-	datatypesStepsRecordBuilderSetEndZoneOffsetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	datatypesStepsRecordBuilderCmd.AddCommand(datatypesStepsRecordBuilderSetEndZoneOffsetCmd)
-	datatypesStepsRecordBuilderSetStartZoneOffsetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	datatypesStepsRecordBuilderCmd.AddCommand(datatypesStepsRecordBuilderSetStartZoneOffsetCmd)
-	datatypesCmd.AddCommand(datatypesStepsRecordBuilderCmd)
-	datatypesHydrationRecordEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	datatypesHydrationRecordCmd.AddCommand(datatypesHydrationRecordEqualsCmd)
-	datatypesHydrationRecordCmd.AddCommand(datatypesHydrationRecordGetVolumeCmd)
-	datatypesHydrationRecordCmd.AddCommand(datatypesHydrationRecordHashCodeCmd)
-	datatypesCmd.AddCommand(datatypesHydrationRecordCmd)
-	datatypesHydrationRecordBuilderCmd.AddCommand(datatypesHydrationRecordBuilderBuildCmd)
-	datatypesHydrationRecordBuilderCmd.AddCommand(datatypesHydrationRecordBuilderClearEndZoneOffsetCmd)
-	datatypesHydrationRecordBuilderCmd.AddCommand(datatypesHydrationRecordBuilderClearStartZoneOffsetCmd)
-	datatypesHydrationRecordBuilderSetEndZoneOffsetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	datatypesHydrationRecordBuilderCmd.AddCommand(datatypesHydrationRecordBuilderSetEndZoneOffsetCmd)
-	datatypesHydrationRecordBuilderSetStartZoneOffsetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	datatypesHydrationRecordBuilderCmd.AddCommand(datatypesHydrationRecordBuilderSetStartZoneOffsetCmd)
-	datatypesCmd.AddCommand(datatypesHydrationRecordBuilderCmd)
+	datatypesBodyFatRecordEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	datatypesBodyFatRecordCmd.AddCommand(datatypesBodyFatRecordEqualsCmd)
+	datatypesBodyFatRecordCmd.AddCommand(datatypesBodyFatRecordGetPercentageCmd)
+	datatypesBodyFatRecordCmd.AddCommand(datatypesBodyFatRecordHashCodeCmd)
+	datatypesCmd.AddCommand(datatypesBodyFatRecordCmd)
+	datatypesBodyFatRecordBuilderCmd.AddCommand(datatypesBodyFatRecordBuilderBuildCmd)
+	datatypesBodyFatRecordBuilderCmd.AddCommand(datatypesBodyFatRecordBuilderClearZoneOffsetCmd)
+	datatypesBodyFatRecordBuilderSetZoneOffsetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	datatypesBodyFatRecordBuilderCmd.AddCommand(datatypesBodyFatRecordBuilderSetZoneOffsetCmd)
+	datatypesCmd.AddCommand(datatypesBodyFatRecordBuilderCmd)
+	datatypesPlannedExerciseStepEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	datatypesPlannedExerciseStepCmd.AddCommand(datatypesPlannedExerciseStepEqualsCmd)
+	datatypesPlannedExerciseStepCmd.AddCommand(datatypesPlannedExerciseStepGetCompletionGoalCmd)
+	datatypesPlannedExerciseStepCmd.AddCommand(datatypesPlannedExerciseStepGetDescriptionCmd)
+	datatypesPlannedExerciseStepCmd.AddCommand(datatypesPlannedExerciseStepGetExerciseCategoryCmd)
+	datatypesPlannedExerciseStepCmd.AddCommand(datatypesPlannedExerciseStepGetExerciseTypeCmd)
+	datatypesPlannedExerciseStepCmd.AddCommand(datatypesPlannedExerciseStepGetPerformanceGoalsCmd)
+	datatypesPlannedExerciseStepCmd.AddCommand(datatypesPlannedExerciseStepHashCodeCmd)
+	datatypesCmd.AddCommand(datatypesPlannedExerciseStepCmd)
+	datatypesPlannedExerciseStepBuilderAddPerformanceGoalCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	datatypesPlannedExerciseStepBuilderCmd.AddCommand(datatypesPlannedExerciseStepBuilderAddPerformanceGoalCmd)
+	datatypesPlannedExerciseStepBuilderCmd.AddCommand(datatypesPlannedExerciseStepBuilderBuildCmd)
+	datatypesPlannedExerciseStepBuilderCmd.AddCommand(datatypesPlannedExerciseStepBuilderClearPerformanceGoalsCmd)
+	datatypesPlannedExerciseStepBuilderSetCompletionGoalCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	datatypesPlannedExerciseStepBuilderCmd.AddCommand(datatypesPlannedExerciseStepBuilderSetCompletionGoalCmd)
+	datatypesPlannedExerciseStepBuilderSetDescriptionCmd.Flags().String("arg0", "", "arg0 (string)")
+	datatypesPlannedExerciseStepBuilderCmd.AddCommand(datatypesPlannedExerciseStepBuilderSetDescriptionCmd)
+	datatypesPlannedExerciseStepBuilderSetExerciseCategoryCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	datatypesPlannedExerciseStepBuilderCmd.AddCommand(datatypesPlannedExerciseStepBuilderSetExerciseCategoryCmd)
+	datatypesPlannedExerciseStepBuilderSetExerciseTypeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	datatypesPlannedExerciseStepBuilderCmd.AddCommand(datatypesPlannedExerciseStepBuilderSetExerciseTypeCmd)
+	datatypesCmd.AddCommand(datatypesPlannedExerciseStepBuilderCmd)
+	datatypesBasalMetabolicRateRecordEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	datatypesBasalMetabolicRateRecordCmd.AddCommand(datatypesBasalMetabolicRateRecordEqualsCmd)
+	datatypesBasalMetabolicRateRecordCmd.AddCommand(datatypesBasalMetabolicRateRecordGetBasalMetabolicRateCmd)
+	datatypesBasalMetabolicRateRecordCmd.AddCommand(datatypesBasalMetabolicRateRecordHashCodeCmd)
+	datatypesCmd.AddCommand(datatypesBasalMetabolicRateRecordCmd)
+	datatypesBasalMetabolicRateRecordBuilderCmd.AddCommand(datatypesBasalMetabolicRateRecordBuilderBuildCmd)
+	datatypesBasalMetabolicRateRecordBuilderCmd.AddCommand(datatypesBasalMetabolicRateRecordBuilderClearZoneOffsetCmd)
+	datatypesBasalMetabolicRateRecordBuilderSetZoneOffsetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	datatypesBasalMetabolicRateRecordBuilderCmd.AddCommand(datatypesBasalMetabolicRateRecordBuilderSetZoneOffsetCmd)
+	datatypesCmd.AddCommand(datatypesBasalMetabolicRateRecordBuilderCmd)
+	datatypesHeightRecordEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	datatypesHeightRecordCmd.AddCommand(datatypesHeightRecordEqualsCmd)
+	datatypesHeightRecordCmd.AddCommand(datatypesHeightRecordGetHeightCmd)
+	datatypesHeightRecordCmd.AddCommand(datatypesHeightRecordHashCodeCmd)
+	datatypesCmd.AddCommand(datatypesHeightRecordCmd)
+	datatypesHeightRecordBuilderCmd.AddCommand(datatypesHeightRecordBuilderBuildCmd)
+	datatypesHeightRecordBuilderCmd.AddCommand(datatypesHeightRecordBuilderClearZoneOffsetCmd)
+	datatypesHeightRecordBuilderSetZoneOffsetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	datatypesHeightRecordBuilderCmd.AddCommand(datatypesHeightRecordBuilderSetZoneOffsetCmd)
+	datatypesCmd.AddCommand(datatypesHeightRecordBuilderCmd)
+	datatypesElevationGainedRecordEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	datatypesElevationGainedRecordCmd.AddCommand(datatypesElevationGainedRecordEqualsCmd)
+	datatypesElevationGainedRecordCmd.AddCommand(datatypesElevationGainedRecordGetElevationCmd)
+	datatypesElevationGainedRecordCmd.AddCommand(datatypesElevationGainedRecordHashCodeCmd)
+	datatypesCmd.AddCommand(datatypesElevationGainedRecordCmd)
+	datatypesElevationGainedRecordBuilderCmd.AddCommand(datatypesElevationGainedRecordBuilderBuildCmd)
+	datatypesElevationGainedRecordBuilderCmd.AddCommand(datatypesElevationGainedRecordBuilderClearEndZoneOffsetCmd)
+	datatypesElevationGainedRecordBuilderCmd.AddCommand(datatypesElevationGainedRecordBuilderClearStartZoneOffsetCmd)
+	datatypesElevationGainedRecordBuilderSetEndZoneOffsetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	datatypesElevationGainedRecordBuilderCmd.AddCommand(datatypesElevationGainedRecordBuilderSetEndZoneOffsetCmd)
+	datatypesElevationGainedRecordBuilderSetStartZoneOffsetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	datatypesElevationGainedRecordBuilderCmd.AddCommand(datatypesElevationGainedRecordBuilderSetStartZoneOffsetCmd)
+	datatypesCmd.AddCommand(datatypesElevationGainedRecordBuilderCmd)
+	datatypesSpeedRecordEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	datatypesSpeedRecordCmd.AddCommand(datatypesSpeedRecordEqualsCmd)
+	datatypesSpeedRecordCmd.AddCommand(datatypesSpeedRecordGetSamplesCmd)
+	datatypesSpeedRecordCmd.AddCommand(datatypesSpeedRecordHashCodeCmd)
+	datatypesCmd.AddCommand(datatypesSpeedRecordCmd)
+	datatypesSpeedRecordBuilderCmd.AddCommand(datatypesSpeedRecordBuilderBuildCmd)
+	datatypesSpeedRecordBuilderCmd.AddCommand(datatypesSpeedRecordBuilderClearEndZoneOffsetCmd)
+	datatypesSpeedRecordBuilderCmd.AddCommand(datatypesSpeedRecordBuilderClearStartZoneOffsetCmd)
+	datatypesSpeedRecordBuilderSetEndZoneOffsetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	datatypesSpeedRecordBuilderCmd.AddCommand(datatypesSpeedRecordBuilderSetEndZoneOffsetCmd)
+	datatypesSpeedRecordBuilderSetStartZoneOffsetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	datatypesSpeedRecordBuilderCmd.AddCommand(datatypesSpeedRecordBuilderSetStartZoneOffsetCmd)
+	datatypesCmd.AddCommand(datatypesSpeedRecordBuilderCmd)
+	datatypesSpeedRecordSpeedRecordSampleEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	datatypesSpeedRecordSpeedRecordSampleCmd.AddCommand(datatypesSpeedRecordSpeedRecordSampleEqualsCmd)
+	datatypesSpeedRecordSpeedRecordSampleCmd.AddCommand(datatypesSpeedRecordSpeedRecordSampleGetSpeedCmd)
+	datatypesSpeedRecordSpeedRecordSampleCmd.AddCommand(datatypesSpeedRecordSpeedRecordSampleGetTimeCmd)
+	datatypesSpeedRecordSpeedRecordSampleCmd.AddCommand(datatypesSpeedRecordSpeedRecordSampleHashCodeCmd)
+	datatypesCmd.AddCommand(datatypesSpeedRecordSpeedRecordSampleCmd)
+	datatypesBasalBodyTemperatureRecordEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	datatypesBasalBodyTemperatureRecordCmd.AddCommand(datatypesBasalBodyTemperatureRecordEqualsCmd)
+	datatypesBasalBodyTemperatureRecordCmd.AddCommand(datatypesBasalBodyTemperatureRecordGetMeasurementLocationCmd)
+	datatypesBasalBodyTemperatureRecordCmd.AddCommand(datatypesBasalBodyTemperatureRecordGetTemperatureCmd)
+	datatypesBasalBodyTemperatureRecordCmd.AddCommand(datatypesBasalBodyTemperatureRecordHashCodeCmd)
+	datatypesCmd.AddCommand(datatypesBasalBodyTemperatureRecordCmd)
+	datatypesBasalBodyTemperatureRecordBuilderCmd.AddCommand(datatypesBasalBodyTemperatureRecordBuilderBuildCmd)
+	datatypesBasalBodyTemperatureRecordBuilderCmd.AddCommand(datatypesBasalBodyTemperatureRecordBuilderClearZoneOffsetCmd)
+	datatypesBasalBodyTemperatureRecordBuilderSetZoneOffsetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	datatypesBasalBodyTemperatureRecordBuilderCmd.AddCommand(datatypesBasalBodyTemperatureRecordBuilderSetZoneOffsetCmd)
+	datatypesCmd.AddCommand(datatypesBasalBodyTemperatureRecordBuilderCmd)
+	datatypesExerciseSegmentEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	datatypesExerciseSegmentCmd.AddCommand(datatypesExerciseSegmentEqualsCmd)
+	datatypesExerciseSegmentCmd.AddCommand(datatypesExerciseSegmentGetEndTimeCmd)
+	datatypesExerciseSegmentCmd.AddCommand(datatypesExerciseSegmentGetRepetitionsCountCmd)
+	datatypesExerciseSegmentCmd.AddCommand(datatypesExerciseSegmentGetSegmentTypeCmd)
+	datatypesExerciseSegmentCmd.AddCommand(datatypesExerciseSegmentGetStartTimeCmd)
+	datatypesExerciseSegmentCmd.AddCommand(datatypesExerciseSegmentHashCodeCmd)
+	datatypesCmd.AddCommand(datatypesExerciseSegmentCmd)
+	datatypesExerciseSegmentBuilderCmd.AddCommand(datatypesExerciseSegmentBuilderBuildCmd)
+	datatypesExerciseSegmentBuilderSetRepetitionsCountCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	datatypesExerciseSegmentBuilderCmd.AddCommand(datatypesExerciseSegmentBuilderSetRepetitionsCountCmd)
+	datatypesCmd.AddCommand(datatypesExerciseSegmentBuilderCmd)
+	datatypesMedicalDataSourceCmd.AddCommand(datatypesMedicalDataSourceDescribeContentsCmd)
+	datatypesMedicalDataSourceEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	datatypesMedicalDataSourceCmd.AddCommand(datatypesMedicalDataSourceEqualsCmd)
+	datatypesMedicalDataSourceCmd.AddCommand(datatypesMedicalDataSourceGetDisplayNameCmd)
+	datatypesMedicalDataSourceCmd.AddCommand(datatypesMedicalDataSourceGetFhirBaseUriCmd)
+	datatypesMedicalDataSourceCmd.AddCommand(datatypesMedicalDataSourceGetFhirVersionCmd)
+	datatypesMedicalDataSourceCmd.AddCommand(datatypesMedicalDataSourceGetIdCmd)
+	datatypesMedicalDataSourceCmd.AddCommand(datatypesMedicalDataSourceGetLastDataUpdateTimeCmd)
+	datatypesMedicalDataSourceCmd.AddCommand(datatypesMedicalDataSourceGetPackageNameCmd)
+	datatypesMedicalDataSourceCmd.AddCommand(datatypesMedicalDataSourceHashCodeCmd)
+	datatypesMedicalDataSourceCmd.AddCommand(datatypesMedicalDataSourceToStringCmd)
+	datatypesMedicalDataSourceWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	datatypesMedicalDataSourceWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	datatypesMedicalDataSourceCmd.AddCommand(datatypesMedicalDataSourceWriteToParcelCmd)
+	datatypesCmd.AddCommand(datatypesMedicalDataSourceCmd)
+	datatypesMedicalDataSourceBuilderCmd.AddCommand(datatypesMedicalDataSourceBuilderBuildCmd)
+	datatypesMedicalDataSourceBuilderSetDisplayNameCmd.Flags().String("arg0", "", "arg0 (string)")
+	datatypesMedicalDataSourceBuilderCmd.AddCommand(datatypesMedicalDataSourceBuilderSetDisplayNameCmd)
+	datatypesMedicalDataSourceBuilderSetFhirBaseUriCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	datatypesMedicalDataSourceBuilderCmd.AddCommand(datatypesMedicalDataSourceBuilderSetFhirBaseUriCmd)
+	datatypesMedicalDataSourceBuilderSetFhirVersionCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	datatypesMedicalDataSourceBuilderCmd.AddCommand(datatypesMedicalDataSourceBuilderSetFhirVersionCmd)
+	datatypesMedicalDataSourceBuilderSetIdCmd.Flags().String("arg0", "", "arg0 (string)")
+	datatypesMedicalDataSourceBuilderCmd.AddCommand(datatypesMedicalDataSourceBuilderSetIdCmd)
+	datatypesMedicalDataSourceBuilderSetLastDataUpdateTimeCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	datatypesMedicalDataSourceBuilderCmd.AddCommand(datatypesMedicalDataSourceBuilderSetLastDataUpdateTimeCmd)
+	datatypesMedicalDataSourceBuilderSetPackageNameCmd.Flags().String("arg0", "", "arg0 (string)")
+	datatypesMedicalDataSourceBuilderCmd.AddCommand(datatypesMedicalDataSourceBuilderSetPackageNameCmd)
+	datatypesCmd.AddCommand(datatypesMedicalDataSourceBuilderCmd)
+	datatypesMenstruationPeriodRecordEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	datatypesMenstruationPeriodRecordCmd.AddCommand(datatypesMenstruationPeriodRecordEqualsCmd)
+	datatypesMenstruationPeriodRecordCmd.AddCommand(datatypesMenstruationPeriodRecordHashCodeCmd)
+	datatypesCmd.AddCommand(datatypesMenstruationPeriodRecordCmd)
+	datatypesMenstruationPeriodRecordBuilderCmd.AddCommand(datatypesMenstruationPeriodRecordBuilderBuildCmd)
+	datatypesMenstruationPeriodRecordBuilderCmd.AddCommand(datatypesMenstruationPeriodRecordBuilderClearEndZoneOffsetCmd)
+	datatypesMenstruationPeriodRecordBuilderCmd.AddCommand(datatypesMenstruationPeriodRecordBuilderClearStartZoneOffsetCmd)
+	datatypesMenstruationPeriodRecordBuilderSetEndZoneOffsetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	datatypesMenstruationPeriodRecordBuilderCmd.AddCommand(datatypesMenstruationPeriodRecordBuilderSetEndZoneOffsetCmd)
+	datatypesMenstruationPeriodRecordBuilderSetStartZoneOffsetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	datatypesMenstruationPeriodRecordBuilderCmd.AddCommand(datatypesMenstruationPeriodRecordBuilderSetStartZoneOffsetCmd)
+	datatypesCmd.AddCommand(datatypesMenstruationPeriodRecordBuilderCmd)
+	datatypesPlannedExerciseSessionRecordEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	datatypesPlannedExerciseSessionRecordCmd.AddCommand(datatypesPlannedExerciseSessionRecordEqualsCmd)
+	datatypesPlannedExerciseSessionRecordCmd.AddCommand(datatypesPlannedExerciseSessionRecordGetBlocksCmd)
+	datatypesPlannedExerciseSessionRecordCmd.AddCommand(datatypesPlannedExerciseSessionRecordGetCompletedExerciseSessionIdCmd)
+	datatypesPlannedExerciseSessionRecordCmd.AddCommand(datatypesPlannedExerciseSessionRecordGetDurationCmd)
+	datatypesPlannedExerciseSessionRecordCmd.AddCommand(datatypesPlannedExerciseSessionRecordGetExerciseTypeCmd)
+	datatypesPlannedExerciseSessionRecordCmd.AddCommand(datatypesPlannedExerciseSessionRecordGetNotesCmd)
+	datatypesPlannedExerciseSessionRecordCmd.AddCommand(datatypesPlannedExerciseSessionRecordGetStartDateCmd)
+	datatypesPlannedExerciseSessionRecordCmd.AddCommand(datatypesPlannedExerciseSessionRecordGetTitleCmd)
+	datatypesPlannedExerciseSessionRecordCmd.AddCommand(datatypesPlannedExerciseSessionRecordHasExplicitTimeCmd)
+	datatypesPlannedExerciseSessionRecordCmd.AddCommand(datatypesPlannedExerciseSessionRecordHashCodeCmd)
+	datatypesCmd.AddCommand(datatypesPlannedExerciseSessionRecordCmd)
+	datatypesPlannedExerciseSessionRecordBuilderAddBlockCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	datatypesPlannedExerciseSessionRecordBuilderCmd.AddCommand(datatypesPlannedExerciseSessionRecordBuilderAddBlockCmd)
+	datatypesPlannedExerciseSessionRecordBuilderCmd.AddCommand(datatypesPlannedExerciseSessionRecordBuilderBuildCmd)
+	datatypesPlannedExerciseSessionRecordBuilderCmd.AddCommand(datatypesPlannedExerciseSessionRecordBuilderClearBlocksCmd)
+	datatypesPlannedExerciseSessionRecordBuilderCmd.AddCommand(datatypesPlannedExerciseSessionRecordBuilderClearEndZoneOffsetCmd)
+	datatypesPlannedExerciseSessionRecordBuilderCmd.AddCommand(datatypesPlannedExerciseSessionRecordBuilderClearStartZoneOffsetCmd)
+	datatypesPlannedExerciseSessionRecordBuilderSetEndTimeCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	datatypesPlannedExerciseSessionRecordBuilderCmd.AddCommand(datatypesPlannedExerciseSessionRecordBuilderSetEndTimeCmd)
+	datatypesPlannedExerciseSessionRecordBuilderSetEndZoneOffsetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	datatypesPlannedExerciseSessionRecordBuilderCmd.AddCommand(datatypesPlannedExerciseSessionRecordBuilderSetEndZoneOffsetCmd)
+	datatypesPlannedExerciseSessionRecordBuilderSetExerciseTypeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	datatypesPlannedExerciseSessionRecordBuilderCmd.AddCommand(datatypesPlannedExerciseSessionRecordBuilderSetExerciseTypeCmd)
+	datatypesPlannedExerciseSessionRecordBuilderSetMetadataCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	datatypesPlannedExerciseSessionRecordBuilderCmd.AddCommand(datatypesPlannedExerciseSessionRecordBuilderSetMetadataCmd)
+	datatypesPlannedExerciseSessionRecordBuilderSetNotesCmd.Flags().String("arg0", "", "arg0 (string)")
+	datatypesPlannedExerciseSessionRecordBuilderCmd.AddCommand(datatypesPlannedExerciseSessionRecordBuilderSetNotesCmd)
+	datatypesPlannedExerciseSessionRecordBuilderSetStartTimeCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	datatypesPlannedExerciseSessionRecordBuilderCmd.AddCommand(datatypesPlannedExerciseSessionRecordBuilderSetStartTimeCmd)
+	datatypesPlannedExerciseSessionRecordBuilderSetStartZoneOffsetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	datatypesPlannedExerciseSessionRecordBuilderCmd.AddCommand(datatypesPlannedExerciseSessionRecordBuilderSetStartZoneOffsetCmd)
+	datatypesPlannedExerciseSessionRecordBuilderSetTitleCmd.Flags().String("arg0", "", "arg0 (string)")
+	datatypesPlannedExerciseSessionRecordBuilderCmd.AddCommand(datatypesPlannedExerciseSessionRecordBuilderSetTitleCmd)
+	datatypesCmd.AddCommand(datatypesPlannedExerciseSessionRecordBuilderCmd)
+	datatypesHeartRateVariabilityRmssdRecordEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	datatypesHeartRateVariabilityRmssdRecordCmd.AddCommand(datatypesHeartRateVariabilityRmssdRecordEqualsCmd)
+	datatypesHeartRateVariabilityRmssdRecordCmd.AddCommand(datatypesHeartRateVariabilityRmssdRecordGetHeartRateVariabilityMillisCmd)
+	datatypesHeartRateVariabilityRmssdRecordCmd.AddCommand(datatypesHeartRateVariabilityRmssdRecordHashCodeCmd)
+	datatypesCmd.AddCommand(datatypesHeartRateVariabilityRmssdRecordCmd)
+	datatypesHeartRateVariabilityRmssdRecordBuilderCmd.AddCommand(datatypesHeartRateVariabilityRmssdRecordBuilderBuildCmd)
+	datatypesHeartRateVariabilityRmssdRecordBuilderCmd.AddCommand(datatypesHeartRateVariabilityRmssdRecordBuilderClearZoneOffsetCmd)
+	datatypesHeartRateVariabilityRmssdRecordBuilderSetZoneOffsetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	datatypesHeartRateVariabilityRmssdRecordBuilderCmd.AddCommand(datatypesHeartRateVariabilityRmssdRecordBuilderSetZoneOffsetCmd)
+	datatypesCmd.AddCommand(datatypesHeartRateVariabilityRmssdRecordBuilderCmd)
+	datatypesExerciseLapEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	datatypesExerciseLapCmd.AddCommand(datatypesExerciseLapEqualsCmd)
+	datatypesExerciseLapCmd.AddCommand(datatypesExerciseLapGetEndTimeCmd)
+	datatypesExerciseLapCmd.AddCommand(datatypesExerciseLapGetLengthCmd)
+	datatypesExerciseLapCmd.AddCommand(datatypesExerciseLapGetStartTimeCmd)
+	datatypesExerciseLapCmd.AddCommand(datatypesExerciseLapHashCodeCmd)
+	datatypesCmd.AddCommand(datatypesExerciseLapCmd)
+	datatypesExerciseLapBuilderCmd.AddCommand(datatypesExerciseLapBuilderBuildCmd)
+	datatypesExerciseLapBuilderSetLengthCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	datatypesExerciseLapBuilderCmd.AddCommand(datatypesExerciseLapBuilderSetLengthCmd)
+	datatypesCmd.AddCommand(datatypesExerciseLapBuilderCmd)
+	datatypesDataOriginEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	datatypesDataOriginCmd.AddCommand(datatypesDataOriginEqualsCmd)
+	datatypesDataOriginCmd.AddCommand(datatypesDataOriginGetPackageNameCmd)
+	datatypesDataOriginCmd.AddCommand(datatypesDataOriginHashCodeCmd)
+	datatypesCmd.AddCommand(datatypesDataOriginCmd)
+	datatypesDataOriginBuilderCmd.AddCommand(datatypesDataOriginBuilderBuildCmd)
+	datatypesDataOriginBuilderSetPackageNameCmd.Flags().String("arg0", "", "arg0 (string)")
+	datatypesDataOriginBuilderCmd.AddCommand(datatypesDataOriginBuilderSetPackageNameCmd)
+	datatypesCmd.AddCommand(datatypesDataOriginBuilderCmd)
+	datatypesBodyTemperatureRecordEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	datatypesBodyTemperatureRecordCmd.AddCommand(datatypesBodyTemperatureRecordEqualsCmd)
+	datatypesBodyTemperatureRecordCmd.AddCommand(datatypesBodyTemperatureRecordGetMeasurementLocationCmd)
+	datatypesBodyTemperatureRecordCmd.AddCommand(datatypesBodyTemperatureRecordGetTemperatureCmd)
+	datatypesBodyTemperatureRecordCmd.AddCommand(datatypesBodyTemperatureRecordHashCodeCmd)
+	datatypesCmd.AddCommand(datatypesBodyTemperatureRecordCmd)
+	datatypesBodyTemperatureRecordBuilderCmd.AddCommand(datatypesBodyTemperatureRecordBuilderBuildCmd)
+	datatypesBodyTemperatureRecordBuilderCmd.AddCommand(datatypesBodyTemperatureRecordBuilderClearZoneOffsetCmd)
+	datatypesBodyTemperatureRecordBuilderSetZoneOffsetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	datatypesBodyTemperatureRecordBuilderCmd.AddCommand(datatypesBodyTemperatureRecordBuilderSetZoneOffsetCmd)
+	datatypesCmd.AddCommand(datatypesBodyTemperatureRecordBuilderCmd)
+	datatypesCervicalMucusRecordEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	datatypesCervicalMucusRecordCmd.AddCommand(datatypesCervicalMucusRecordEqualsCmd)
+	datatypesCervicalMucusRecordCmd.AddCommand(datatypesCervicalMucusRecordGetAppearanceCmd)
+	datatypesCervicalMucusRecordCmd.AddCommand(datatypesCervicalMucusRecordGetSensationCmd)
+	datatypesCervicalMucusRecordCmd.AddCommand(datatypesCervicalMucusRecordHashCodeCmd)
+	datatypesCmd.AddCommand(datatypesCervicalMucusRecordCmd)
+	datatypesCervicalMucusRecordBuilderCmd.AddCommand(datatypesCervicalMucusRecordBuilderBuildCmd)
+	datatypesCervicalMucusRecordBuilderCmd.AddCommand(datatypesCervicalMucusRecordBuilderClearZoneOffsetCmd)
+	datatypesCervicalMucusRecordBuilderSetZoneOffsetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	datatypesCervicalMucusRecordBuilderCmd.AddCommand(datatypesCervicalMucusRecordBuilderSetZoneOffsetCmd)
+	datatypesCmd.AddCommand(datatypesCervicalMucusRecordBuilderCmd)
 	datatypesNutritionRecordEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	datatypesNutritionRecordCmd.AddCommand(datatypesNutritionRecordEqualsCmd)
 	datatypesNutritionRecordCmd.AddCommand(datatypesNutritionRecordGetBiotinCmd)
@@ -12614,16 +12578,207 @@ func init() {
 	datatypesNutritionRecordBuilderSetZincCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	datatypesNutritionRecordBuilderCmd.AddCommand(datatypesNutritionRecordBuilderSetZincCmd)
 	datatypesCmd.AddCommand(datatypesNutritionRecordBuilderCmd)
-	datatypesOvulationTestRecordEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	datatypesOvulationTestRecordCmd.AddCommand(datatypesOvulationTestRecordEqualsCmd)
-	datatypesOvulationTestRecordCmd.AddCommand(datatypesOvulationTestRecordGetResultCmd)
-	datatypesOvulationTestRecordCmd.AddCommand(datatypesOvulationTestRecordHashCodeCmd)
-	datatypesCmd.AddCommand(datatypesOvulationTestRecordCmd)
-	datatypesOvulationTestRecordBuilderCmd.AddCommand(datatypesOvulationTestRecordBuilderBuildCmd)
-	datatypesOvulationTestRecordBuilderCmd.AddCommand(datatypesOvulationTestRecordBuilderClearZoneOffsetCmd)
-	datatypesOvulationTestRecordBuilderSetZoneOffsetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	datatypesOvulationTestRecordBuilderCmd.AddCommand(datatypesOvulationTestRecordBuilderSetZoneOffsetCmd)
-	datatypesCmd.AddCommand(datatypesOvulationTestRecordBuilderCmd)
+	datatypesDeviceEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	datatypesDeviceCmd.AddCommand(datatypesDeviceEqualsCmd)
+	datatypesDeviceCmd.AddCommand(datatypesDeviceGetManufacturerCmd)
+	datatypesDeviceCmd.AddCommand(datatypesDeviceGetModelCmd)
+	datatypesDeviceCmd.AddCommand(datatypesDeviceGetTypeCmd)
+	datatypesDeviceCmd.AddCommand(datatypesDeviceHashCodeCmd)
+	datatypesCmd.AddCommand(datatypesDeviceCmd)
+	datatypesDeviceBuilderCmd.AddCommand(datatypesDeviceBuilderBuildCmd)
+	datatypesDeviceBuilderSetManufacturerCmd.Flags().String("arg0", "", "arg0 (string)")
+	datatypesDeviceBuilderCmd.AddCommand(datatypesDeviceBuilderSetManufacturerCmd)
+	datatypesDeviceBuilderSetModelCmd.Flags().String("arg0", "", "arg0 (string)")
+	datatypesDeviceBuilderCmd.AddCommand(datatypesDeviceBuilderSetModelCmd)
+	datatypesDeviceBuilderSetTypeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	datatypesDeviceBuilderCmd.AddCommand(datatypesDeviceBuilderSetTypeCmd)
+	datatypesCmd.AddCommand(datatypesDeviceBuilderCmd)
+	datatypesExerciseSessionRecordEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	datatypesExerciseSessionRecordCmd.AddCommand(datatypesExerciseSessionRecordEqualsCmd)
+	datatypesExerciseSessionRecordCmd.AddCommand(datatypesExerciseSessionRecordGetExerciseTypeCmd)
+	datatypesExerciseSessionRecordCmd.AddCommand(datatypesExerciseSessionRecordGetLapsCmd)
+	datatypesExerciseSessionRecordCmd.AddCommand(datatypesExerciseSessionRecordGetNotesCmd)
+	datatypesExerciseSessionRecordCmd.AddCommand(datatypesExerciseSessionRecordGetPlannedExerciseSessionIdCmd)
+	datatypesExerciseSessionRecordCmd.AddCommand(datatypesExerciseSessionRecordGetRouteCmd)
+	datatypesExerciseSessionRecordCmd.AddCommand(datatypesExerciseSessionRecordGetSegmentsCmd)
+	datatypesExerciseSessionRecordCmd.AddCommand(datatypesExerciseSessionRecordGetTitleCmd)
+	datatypesExerciseSessionRecordCmd.AddCommand(datatypesExerciseSessionRecordHasRouteCmd)
+	datatypesExerciseSessionRecordCmd.AddCommand(datatypesExerciseSessionRecordHashCodeCmd)
+	datatypesCmd.AddCommand(datatypesExerciseSessionRecordCmd)
+	datatypesExerciseSessionRecordBuilderCmd.AddCommand(datatypesExerciseSessionRecordBuilderBuildCmd)
+	datatypesExerciseSessionRecordBuilderCmd.AddCommand(datatypesExerciseSessionRecordBuilderClearEndZoneOffsetCmd)
+	datatypesExerciseSessionRecordBuilderCmd.AddCommand(datatypesExerciseSessionRecordBuilderClearStartZoneOffsetCmd)
+	datatypesExerciseSessionRecordBuilderSetEndZoneOffsetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	datatypesExerciseSessionRecordBuilderCmd.AddCommand(datatypesExerciseSessionRecordBuilderSetEndZoneOffsetCmd)
+	datatypesExerciseSessionRecordBuilderSetNotesCmd.Flags().String("arg0", "", "arg0 (string)")
+	datatypesExerciseSessionRecordBuilderCmd.AddCommand(datatypesExerciseSessionRecordBuilderSetNotesCmd)
+	datatypesExerciseSessionRecordBuilderSetPlannedExerciseSessionIdCmd.Flags().String("arg0", "", "arg0 (string)")
+	datatypesExerciseSessionRecordBuilderCmd.AddCommand(datatypesExerciseSessionRecordBuilderSetPlannedExerciseSessionIdCmd)
+	datatypesExerciseSessionRecordBuilderSetRouteCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	datatypesExerciseSessionRecordBuilderCmd.AddCommand(datatypesExerciseSessionRecordBuilderSetRouteCmd)
+	datatypesExerciseSessionRecordBuilderSetStartZoneOffsetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	datatypesExerciseSessionRecordBuilderCmd.AddCommand(datatypesExerciseSessionRecordBuilderSetStartZoneOffsetCmd)
+	datatypesExerciseSessionRecordBuilderSetTitleCmd.Flags().String("arg0", "", "arg0 (string)")
+	datatypesExerciseSessionRecordBuilderCmd.AddCommand(datatypesExerciseSessionRecordBuilderSetTitleCmd)
+	datatypesCmd.AddCommand(datatypesExerciseSessionRecordBuilderCmd)
+	datatypesExercisePerformanceGoalCadenceGoalEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	datatypesExercisePerformanceGoalCadenceGoalCmd.AddCommand(datatypesExercisePerformanceGoalCadenceGoalEqualsCmd)
+	datatypesExercisePerformanceGoalCadenceGoalCmd.AddCommand(datatypesExercisePerformanceGoalCadenceGoalGetMaxRpmCmd)
+	datatypesExercisePerformanceGoalCadenceGoalCmd.AddCommand(datatypesExercisePerformanceGoalCadenceGoalGetMinRpmCmd)
+	datatypesExercisePerformanceGoalCadenceGoalCmd.AddCommand(datatypesExercisePerformanceGoalCadenceGoalHashCodeCmd)
+	datatypesCmd.AddCommand(datatypesExercisePerformanceGoalCadenceGoalCmd)
+	datatypesExercisePerformanceGoalHeartRateGoalEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	datatypesExercisePerformanceGoalHeartRateGoalCmd.AddCommand(datatypesExercisePerformanceGoalHeartRateGoalEqualsCmd)
+	datatypesExercisePerformanceGoalHeartRateGoalCmd.AddCommand(datatypesExercisePerformanceGoalHeartRateGoalGetMaxBpmCmd)
+	datatypesExercisePerformanceGoalHeartRateGoalCmd.AddCommand(datatypesExercisePerformanceGoalHeartRateGoalGetMinBpmCmd)
+	datatypesExercisePerformanceGoalHeartRateGoalCmd.AddCommand(datatypesExercisePerformanceGoalHeartRateGoalHashCodeCmd)
+	datatypesCmd.AddCommand(datatypesExercisePerformanceGoalHeartRateGoalCmd)
+	datatypesExercisePerformanceGoalPowerGoalEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	datatypesExercisePerformanceGoalPowerGoalCmd.AddCommand(datatypesExercisePerformanceGoalPowerGoalEqualsCmd)
+	datatypesExercisePerformanceGoalPowerGoalCmd.AddCommand(datatypesExercisePerformanceGoalPowerGoalGetMaxPowerCmd)
+	datatypesExercisePerformanceGoalPowerGoalCmd.AddCommand(datatypesExercisePerformanceGoalPowerGoalGetMinPowerCmd)
+	datatypesExercisePerformanceGoalPowerGoalCmd.AddCommand(datatypesExercisePerformanceGoalPowerGoalHashCodeCmd)
+	datatypesCmd.AddCommand(datatypesExercisePerformanceGoalPowerGoalCmd)
+	datatypesExercisePerformanceGoalRateOfPerceivedExertionGoalEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	datatypesExercisePerformanceGoalRateOfPerceivedExertionGoalCmd.AddCommand(datatypesExercisePerformanceGoalRateOfPerceivedExertionGoalEqualsCmd)
+	datatypesExercisePerformanceGoalRateOfPerceivedExertionGoalCmd.AddCommand(datatypesExercisePerformanceGoalRateOfPerceivedExertionGoalGetRpeCmd)
+	datatypesExercisePerformanceGoalRateOfPerceivedExertionGoalCmd.AddCommand(datatypesExercisePerformanceGoalRateOfPerceivedExertionGoalHashCodeCmd)
+	datatypesCmd.AddCommand(datatypesExercisePerformanceGoalRateOfPerceivedExertionGoalCmd)
+	datatypesExercisePerformanceGoalSpeedGoalEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	datatypesExercisePerformanceGoalSpeedGoalCmd.AddCommand(datatypesExercisePerformanceGoalSpeedGoalEqualsCmd)
+	datatypesExercisePerformanceGoalSpeedGoalCmd.AddCommand(datatypesExercisePerformanceGoalSpeedGoalGetMaxSpeedCmd)
+	datatypesExercisePerformanceGoalSpeedGoalCmd.AddCommand(datatypesExercisePerformanceGoalSpeedGoalGetMinSpeedCmd)
+	datatypesExercisePerformanceGoalSpeedGoalCmd.AddCommand(datatypesExercisePerformanceGoalSpeedGoalHashCodeCmd)
+	datatypesCmd.AddCommand(datatypesExercisePerformanceGoalSpeedGoalCmd)
+	datatypesExercisePerformanceGoalWeightGoalEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	datatypesExercisePerformanceGoalWeightGoalCmd.AddCommand(datatypesExercisePerformanceGoalWeightGoalEqualsCmd)
+	datatypesExercisePerformanceGoalWeightGoalCmd.AddCommand(datatypesExercisePerformanceGoalWeightGoalGetMassCmd)
+	datatypesExercisePerformanceGoalWeightGoalCmd.AddCommand(datatypesExercisePerformanceGoalWeightGoalHashCodeCmd)
+	datatypesCmd.AddCommand(datatypesExercisePerformanceGoalWeightGoalCmd)
+	datatypesFloorsClimbedRecordEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	datatypesFloorsClimbedRecordCmd.AddCommand(datatypesFloorsClimbedRecordEqualsCmd)
+	datatypesFloorsClimbedRecordCmd.AddCommand(datatypesFloorsClimbedRecordGetFloorsCmd)
+	datatypesFloorsClimbedRecordCmd.AddCommand(datatypesFloorsClimbedRecordHashCodeCmd)
+	datatypesCmd.AddCommand(datatypesFloorsClimbedRecordCmd)
+	datatypesFloorsClimbedRecordBuilderCmd.AddCommand(datatypesFloorsClimbedRecordBuilderBuildCmd)
+	datatypesFloorsClimbedRecordBuilderCmd.AddCommand(datatypesFloorsClimbedRecordBuilderClearEndZoneOffsetCmd)
+	datatypesFloorsClimbedRecordBuilderCmd.AddCommand(datatypesFloorsClimbedRecordBuilderClearStartZoneOffsetCmd)
+	datatypesFloorsClimbedRecordBuilderSetEndZoneOffsetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	datatypesFloorsClimbedRecordBuilderCmd.AddCommand(datatypesFloorsClimbedRecordBuilderSetEndZoneOffsetCmd)
+	datatypesFloorsClimbedRecordBuilderSetStartZoneOffsetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	datatypesFloorsClimbedRecordBuilderCmd.AddCommand(datatypesFloorsClimbedRecordBuilderSetStartZoneOffsetCmd)
+	datatypesCmd.AddCommand(datatypesFloorsClimbedRecordBuilderCmd)
+	datatypesOxygenSaturationRecordEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	datatypesOxygenSaturationRecordCmd.AddCommand(datatypesOxygenSaturationRecordEqualsCmd)
+	datatypesOxygenSaturationRecordCmd.AddCommand(datatypesOxygenSaturationRecordGetPercentageCmd)
+	datatypesOxygenSaturationRecordCmd.AddCommand(datatypesOxygenSaturationRecordHashCodeCmd)
+	datatypesCmd.AddCommand(datatypesOxygenSaturationRecordCmd)
+	datatypesOxygenSaturationRecordBuilderCmd.AddCommand(datatypesOxygenSaturationRecordBuilderBuildCmd)
+	datatypesOxygenSaturationRecordBuilderCmd.AddCommand(datatypesOxygenSaturationRecordBuilderClearZoneOffsetCmd)
+	datatypesOxygenSaturationRecordBuilderSetZoneOffsetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	datatypesOxygenSaturationRecordBuilderCmd.AddCommand(datatypesOxygenSaturationRecordBuilderSetZoneOffsetCmd)
+	datatypesCmd.AddCommand(datatypesOxygenSaturationRecordBuilderCmd)
+	datatypesIntermenstrualBleedingRecordEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	datatypesIntermenstrualBleedingRecordCmd.AddCommand(datatypesIntermenstrualBleedingRecordEqualsCmd)
+	datatypesIntermenstrualBleedingRecordCmd.AddCommand(datatypesIntermenstrualBleedingRecordHashCodeCmd)
+	datatypesCmd.AddCommand(datatypesIntermenstrualBleedingRecordCmd)
+	datatypesIntermenstrualBleedingRecordBuilderCmd.AddCommand(datatypesIntermenstrualBleedingRecordBuilderBuildCmd)
+	datatypesIntermenstrualBleedingRecordBuilderCmd.AddCommand(datatypesIntermenstrualBleedingRecordBuilderClearZoneOffsetCmd)
+	datatypesIntermenstrualBleedingRecordBuilderSetZoneOffsetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	datatypesIntermenstrualBleedingRecordBuilderCmd.AddCommand(datatypesIntermenstrualBleedingRecordBuilderSetZoneOffsetCmd)
+	datatypesCmd.AddCommand(datatypesIntermenstrualBleedingRecordBuilderCmd)
+	datatypesRecordEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	datatypesRecordCmd.AddCommand(datatypesRecordEqualsCmd)
+	datatypesRecordCmd.AddCommand(datatypesRecordGetMetadataCmd)
+	datatypesRecordCmd.AddCommand(datatypesRecordHashCodeCmd)
+	datatypesCmd.AddCommand(datatypesRecordCmd)
+	datatypesLeanBodyMassRecordEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	datatypesLeanBodyMassRecordCmd.AddCommand(datatypesLeanBodyMassRecordEqualsCmd)
+	datatypesLeanBodyMassRecordCmd.AddCommand(datatypesLeanBodyMassRecordGetMassCmd)
+	datatypesLeanBodyMassRecordCmd.AddCommand(datatypesLeanBodyMassRecordHashCodeCmd)
+	datatypesCmd.AddCommand(datatypesLeanBodyMassRecordCmd)
+	datatypesLeanBodyMassRecordBuilderCmd.AddCommand(datatypesLeanBodyMassRecordBuilderBuildCmd)
+	datatypesLeanBodyMassRecordBuilderCmd.AddCommand(datatypesLeanBodyMassRecordBuilderClearZoneOffsetCmd)
+	datatypesLeanBodyMassRecordBuilderSetZoneOffsetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	datatypesLeanBodyMassRecordBuilderCmd.AddCommand(datatypesLeanBodyMassRecordBuilderSetZoneOffsetCmd)
+	datatypesCmd.AddCommand(datatypesLeanBodyMassRecordBuilderCmd)
+	datatypesSleepSessionRecordEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	datatypesSleepSessionRecordCmd.AddCommand(datatypesSleepSessionRecordEqualsCmd)
+	datatypesSleepSessionRecordCmd.AddCommand(datatypesSleepSessionRecordGetNotesCmd)
+	datatypesSleepSessionRecordCmd.AddCommand(datatypesSleepSessionRecordGetStagesCmd)
+	datatypesSleepSessionRecordCmd.AddCommand(datatypesSleepSessionRecordGetTitleCmd)
+	datatypesSleepSessionRecordCmd.AddCommand(datatypesSleepSessionRecordHashCodeCmd)
+	datatypesCmd.AddCommand(datatypesSleepSessionRecordCmd)
+	datatypesSleepSessionRecordBuilderCmd.AddCommand(datatypesSleepSessionRecordBuilderBuildCmd)
+	datatypesSleepSessionRecordBuilderCmd.AddCommand(datatypesSleepSessionRecordBuilderClearEndZoneOffsetCmd)
+	datatypesSleepSessionRecordBuilderCmd.AddCommand(datatypesSleepSessionRecordBuilderClearStartZoneOffsetCmd)
+	datatypesSleepSessionRecordBuilderSetEndZoneOffsetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	datatypesSleepSessionRecordBuilderCmd.AddCommand(datatypesSleepSessionRecordBuilderSetEndZoneOffsetCmd)
+	datatypesSleepSessionRecordBuilderSetNotesCmd.Flags().String("arg0", "", "arg0 (string)")
+	datatypesSleepSessionRecordBuilderCmd.AddCommand(datatypesSleepSessionRecordBuilderSetNotesCmd)
+	datatypesSleepSessionRecordBuilderSetStartZoneOffsetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	datatypesSleepSessionRecordBuilderCmd.AddCommand(datatypesSleepSessionRecordBuilderSetStartZoneOffsetCmd)
+	datatypesSleepSessionRecordBuilderSetTitleCmd.Flags().String("arg0", "", "arg0 (string)")
+	datatypesSleepSessionRecordBuilderCmd.AddCommand(datatypesSleepSessionRecordBuilderSetTitleCmd)
+	datatypesCmd.AddCommand(datatypesSleepSessionRecordBuilderCmd)
+	datatypesSleepSessionRecordStageEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	datatypesSleepSessionRecordStageCmd.AddCommand(datatypesSleepSessionRecordStageEqualsCmd)
+	datatypesSleepSessionRecordStageCmd.AddCommand(datatypesSleepSessionRecordStageGetEndTimeCmd)
+	datatypesSleepSessionRecordStageCmd.AddCommand(datatypesSleepSessionRecordStageGetStartTimeCmd)
+	datatypesSleepSessionRecordStageCmd.AddCommand(datatypesSleepSessionRecordStageGetTypeCmd)
+	datatypesSleepSessionRecordStageCmd.AddCommand(datatypesSleepSessionRecordStageHashCodeCmd)
+	datatypesCmd.AddCommand(datatypesSleepSessionRecordStageCmd)
+	datatypesSkinTemperatureRecordEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	datatypesSkinTemperatureRecordCmd.AddCommand(datatypesSkinTemperatureRecordEqualsCmd)
+	datatypesSkinTemperatureRecordCmd.AddCommand(datatypesSkinTemperatureRecordGetBaselineCmd)
+	datatypesSkinTemperatureRecordCmd.AddCommand(datatypesSkinTemperatureRecordGetDeltasCmd)
+	datatypesSkinTemperatureRecordCmd.AddCommand(datatypesSkinTemperatureRecordGetMeasurementLocationCmd)
+	datatypesSkinTemperatureRecordCmd.AddCommand(datatypesSkinTemperatureRecordHashCodeCmd)
+	datatypesCmd.AddCommand(datatypesSkinTemperatureRecordCmd)
+	datatypesSkinTemperatureRecordBuilderCmd.AddCommand(datatypesSkinTemperatureRecordBuilderBuildCmd)
+	datatypesSkinTemperatureRecordBuilderCmd.AddCommand(datatypesSkinTemperatureRecordBuilderClearEndZoneOffsetCmd)
+	datatypesSkinTemperatureRecordBuilderCmd.AddCommand(datatypesSkinTemperatureRecordBuilderClearStartZoneOffsetCmd)
+	datatypesSkinTemperatureRecordBuilderSetBaselineCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	datatypesSkinTemperatureRecordBuilderCmd.AddCommand(datatypesSkinTemperatureRecordBuilderSetBaselineCmd)
+	datatypesSkinTemperatureRecordBuilderSetEndZoneOffsetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	datatypesSkinTemperatureRecordBuilderCmd.AddCommand(datatypesSkinTemperatureRecordBuilderSetEndZoneOffsetCmd)
+	datatypesSkinTemperatureRecordBuilderSetMeasurementLocationCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	datatypesSkinTemperatureRecordBuilderCmd.AddCommand(datatypesSkinTemperatureRecordBuilderSetMeasurementLocationCmd)
+	datatypesSkinTemperatureRecordBuilderSetStartZoneOffsetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	datatypesSkinTemperatureRecordBuilderCmd.AddCommand(datatypesSkinTemperatureRecordBuilderSetStartZoneOffsetCmd)
+	datatypesCmd.AddCommand(datatypesSkinTemperatureRecordBuilderCmd)
+	datatypesSkinTemperatureRecordDeltaEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	datatypesSkinTemperatureRecordDeltaCmd.AddCommand(datatypesSkinTemperatureRecordDeltaEqualsCmd)
+	datatypesSkinTemperatureRecordDeltaCmd.AddCommand(datatypesSkinTemperatureRecordDeltaGetDeltaCmd)
+	datatypesSkinTemperatureRecordDeltaCmd.AddCommand(datatypesSkinTemperatureRecordDeltaGetTimeCmd)
+	datatypesSkinTemperatureRecordDeltaCmd.AddCommand(datatypesSkinTemperatureRecordDeltaHashCodeCmd)
+	datatypesCmd.AddCommand(datatypesSkinTemperatureRecordDeltaCmd)
+	datatypesBodyWaterMassRecordEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	datatypesBodyWaterMassRecordCmd.AddCommand(datatypesBodyWaterMassRecordEqualsCmd)
+	datatypesBodyWaterMassRecordCmd.AddCommand(datatypesBodyWaterMassRecordGetBodyWaterMassCmd)
+	datatypesBodyWaterMassRecordCmd.AddCommand(datatypesBodyWaterMassRecordHashCodeCmd)
+	datatypesCmd.AddCommand(datatypesBodyWaterMassRecordCmd)
+	datatypesBodyWaterMassRecordBuilderCmd.AddCommand(datatypesBodyWaterMassRecordBuilderBuildCmd)
+	datatypesBodyWaterMassRecordBuilderCmd.AddCommand(datatypesBodyWaterMassRecordBuilderClearZoneOffsetCmd)
+	datatypesBodyWaterMassRecordBuilderSetZoneOffsetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	datatypesBodyWaterMassRecordBuilderCmd.AddCommand(datatypesBodyWaterMassRecordBuilderSetZoneOffsetCmd)
+	datatypesCmd.AddCommand(datatypesBodyWaterMassRecordBuilderCmd)
+	datatypesPlannedExerciseBlockEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	datatypesPlannedExerciseBlockCmd.AddCommand(datatypesPlannedExerciseBlockEqualsCmd)
+	datatypesPlannedExerciseBlockCmd.AddCommand(datatypesPlannedExerciseBlockGetDescriptionCmd)
+	datatypesPlannedExerciseBlockCmd.AddCommand(datatypesPlannedExerciseBlockGetRepetitionsCmd)
+	datatypesPlannedExerciseBlockCmd.AddCommand(datatypesPlannedExerciseBlockGetStepsCmd)
+	datatypesPlannedExerciseBlockCmd.AddCommand(datatypesPlannedExerciseBlockHashCodeCmd)
+	datatypesCmd.AddCommand(datatypesPlannedExerciseBlockCmd)
+	datatypesPlannedExerciseBlockBuilderAddStepCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	datatypesPlannedExerciseBlockBuilderCmd.AddCommand(datatypesPlannedExerciseBlockBuilderAddStepCmd)
+	datatypesPlannedExerciseBlockBuilderCmd.AddCommand(datatypesPlannedExerciseBlockBuilderBuildCmd)
+	datatypesPlannedExerciseBlockBuilderCmd.AddCommand(datatypesPlannedExerciseBlockBuilderClearStepsCmd)
+	datatypesPlannedExerciseBlockBuilderSetDescriptionCmd.Flags().String("arg0", "", "arg0 (string)")
+	datatypesPlannedExerciseBlockBuilderCmd.AddCommand(datatypesPlannedExerciseBlockBuilderSetDescriptionCmd)
+	datatypesPlannedExerciseBlockBuilderSetRepetitionsCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	datatypesPlannedExerciseBlockBuilderCmd.AddCommand(datatypesPlannedExerciseBlockBuilderSetRepetitionsCmd)
+	datatypesCmd.AddCommand(datatypesPlannedExerciseBlockBuilderCmd)
 	datatypesTotalCaloriesBurnedRecordEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	datatypesTotalCaloriesBurnedRecordCmd.AddCommand(datatypesTotalCaloriesBurnedRecordEqualsCmd)
 	datatypesTotalCaloriesBurnedRecordCmd.AddCommand(datatypesTotalCaloriesBurnedRecordGetEnergyCmd)
@@ -12652,48 +12807,118 @@ func init() {
 	datatypesFhirVersionParseFhirVersionCmd.Flags().String("arg0", "", "arg0 (string)")
 	datatypesFhirVersionCmd.AddCommand(datatypesFhirVersionParseFhirVersionCmd)
 	datatypesCmd.AddCommand(datatypesFhirVersionCmd)
-	datatypesDeviceEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	datatypesDeviceCmd.AddCommand(datatypesDeviceEqualsCmd)
-	datatypesDeviceCmd.AddCommand(datatypesDeviceGetManufacturerCmd)
-	datatypesDeviceCmd.AddCommand(datatypesDeviceGetModelCmd)
-	datatypesDeviceCmd.AddCommand(datatypesDeviceGetTypeCmd)
-	datatypesDeviceCmd.AddCommand(datatypesDeviceHashCodeCmd)
-	datatypesCmd.AddCommand(datatypesDeviceCmd)
-	datatypesDeviceBuilderCmd.AddCommand(datatypesDeviceBuilderBuildCmd)
-	datatypesDeviceBuilderSetManufacturerCmd.Flags().String("arg0", "", "arg0 (string)")
-	datatypesDeviceBuilderCmd.AddCommand(datatypesDeviceBuilderSetManufacturerCmd)
-	datatypesDeviceBuilderSetModelCmd.Flags().String("arg0", "", "arg0 (string)")
-	datatypesDeviceBuilderCmd.AddCommand(datatypesDeviceBuilderSetModelCmd)
-	datatypesDeviceBuilderSetTypeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	datatypesDeviceBuilderCmd.AddCommand(datatypesDeviceBuilderSetTypeCmd)
-	datatypesCmd.AddCommand(datatypesDeviceBuilderCmd)
-	datatypesWheelchairPushesRecordEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	datatypesWheelchairPushesRecordCmd.AddCommand(datatypesWheelchairPushesRecordEqualsCmd)
-	datatypesWheelchairPushesRecordCmd.AddCommand(datatypesWheelchairPushesRecordGetCountCmd)
-	datatypesWheelchairPushesRecordCmd.AddCommand(datatypesWheelchairPushesRecordHashCodeCmd)
-	datatypesCmd.AddCommand(datatypesWheelchairPushesRecordCmd)
-	datatypesWheelchairPushesRecordBuilderCmd.AddCommand(datatypesWheelchairPushesRecordBuilderBuildCmd)
-	datatypesWheelchairPushesRecordBuilderCmd.AddCommand(datatypesWheelchairPushesRecordBuilderClearEndZoneOffsetCmd)
-	datatypesWheelchairPushesRecordBuilderCmd.AddCommand(datatypesWheelchairPushesRecordBuilderClearStartZoneOffsetCmd)
-	datatypesWheelchairPushesRecordBuilderSetEndZoneOffsetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	datatypesWheelchairPushesRecordBuilderCmd.AddCommand(datatypesWheelchairPushesRecordBuilderSetEndZoneOffsetCmd)
-	datatypesWheelchairPushesRecordBuilderSetStartZoneOffsetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	datatypesWheelchairPushesRecordBuilderCmd.AddCommand(datatypesWheelchairPushesRecordBuilderSetStartZoneOffsetCmd)
-	datatypesCmd.AddCommand(datatypesWheelchairPushesRecordBuilderCmd)
-	datatypesPlannedExerciseBlockEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	datatypesPlannedExerciseBlockCmd.AddCommand(datatypesPlannedExerciseBlockEqualsCmd)
-	datatypesPlannedExerciseBlockCmd.AddCommand(datatypesPlannedExerciseBlockGetDescriptionCmd)
-	datatypesPlannedExerciseBlockCmd.AddCommand(datatypesPlannedExerciseBlockGetRepetitionsCmd)
-	datatypesPlannedExerciseBlockCmd.AddCommand(datatypesPlannedExerciseBlockHashCodeCmd)
-	datatypesCmd.AddCommand(datatypesPlannedExerciseBlockCmd)
-	datatypesPlannedExerciseBlockBuilderAddStepCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	datatypesPlannedExerciseBlockBuilderCmd.AddCommand(datatypesPlannedExerciseBlockBuilderAddStepCmd)
-	datatypesPlannedExerciseBlockBuilderCmd.AddCommand(datatypesPlannedExerciseBlockBuilderBuildCmd)
-	datatypesPlannedExerciseBlockBuilderCmd.AddCommand(datatypesPlannedExerciseBlockBuilderClearStepsCmd)
-	datatypesPlannedExerciseBlockBuilderSetDescriptionCmd.Flags().String("arg0", "", "arg0 (string)")
-	datatypesPlannedExerciseBlockBuilderCmd.AddCommand(datatypesPlannedExerciseBlockBuilderSetDescriptionCmd)
-	datatypesPlannedExerciseBlockBuilderSetRepetitionsCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	datatypesPlannedExerciseBlockBuilderCmd.AddCommand(datatypesPlannedExerciseBlockBuilderSetRepetitionsCmd)
-	datatypesCmd.AddCommand(datatypesPlannedExerciseBlockBuilderCmd)
+	datatypesStepsCadenceRecordEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	datatypesStepsCadenceRecordCmd.AddCommand(datatypesStepsCadenceRecordEqualsCmd)
+	datatypesStepsCadenceRecordCmd.AddCommand(datatypesStepsCadenceRecordGetSamplesCmd)
+	datatypesStepsCadenceRecordCmd.AddCommand(datatypesStepsCadenceRecordHashCodeCmd)
+	datatypesCmd.AddCommand(datatypesStepsCadenceRecordCmd)
+	datatypesStepsCadenceRecordBuilderCmd.AddCommand(datatypesStepsCadenceRecordBuilderBuildCmd)
+	datatypesStepsCadenceRecordBuilderCmd.AddCommand(datatypesStepsCadenceRecordBuilderClearEndZoneOffsetCmd)
+	datatypesStepsCadenceRecordBuilderCmd.AddCommand(datatypesStepsCadenceRecordBuilderClearStartZoneOffsetCmd)
+	datatypesStepsCadenceRecordBuilderSetEndZoneOffsetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	datatypesStepsCadenceRecordBuilderCmd.AddCommand(datatypesStepsCadenceRecordBuilderSetEndZoneOffsetCmd)
+	datatypesStepsCadenceRecordBuilderSetStartZoneOffsetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	datatypesStepsCadenceRecordBuilderCmd.AddCommand(datatypesStepsCadenceRecordBuilderSetStartZoneOffsetCmd)
+	datatypesCmd.AddCommand(datatypesStepsCadenceRecordBuilderCmd)
+	datatypesStepsCadenceRecordStepsCadenceRecordSampleEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	datatypesStepsCadenceRecordStepsCadenceRecordSampleCmd.AddCommand(datatypesStepsCadenceRecordStepsCadenceRecordSampleEqualsCmd)
+	datatypesStepsCadenceRecordStepsCadenceRecordSampleCmd.AddCommand(datatypesStepsCadenceRecordStepsCadenceRecordSampleGetRateCmd)
+	datatypesStepsCadenceRecordStepsCadenceRecordSampleCmd.AddCommand(datatypesStepsCadenceRecordStepsCadenceRecordSampleGetTimeCmd)
+	datatypesStepsCadenceRecordStepsCadenceRecordSampleCmd.AddCommand(datatypesStepsCadenceRecordStepsCadenceRecordSampleHashCodeCmd)
+	datatypesCmd.AddCommand(datatypesStepsCadenceRecordStepsCadenceRecordSampleCmd)
+	datatypesVo2MaxRecordEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	datatypesVo2MaxRecordCmd.AddCommand(datatypesVo2MaxRecordEqualsCmd)
+	datatypesVo2MaxRecordCmd.AddCommand(datatypesVo2MaxRecordGetMeasurementMethodCmd)
+	datatypesVo2MaxRecordCmd.AddCommand(datatypesVo2MaxRecordGetVo2MillilitersPerMinuteKilogramCmd)
+	datatypesVo2MaxRecordCmd.AddCommand(datatypesVo2MaxRecordHashCodeCmd)
+	datatypesCmd.AddCommand(datatypesVo2MaxRecordCmd)
+	datatypesVo2MaxRecordBuilderCmd.AddCommand(datatypesVo2MaxRecordBuilderBuildCmd)
+	datatypesVo2MaxRecordBuilderCmd.AddCommand(datatypesVo2MaxRecordBuilderClearZoneOffsetCmd)
+	datatypesVo2MaxRecordBuilderSetZoneOffsetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	datatypesVo2MaxRecordBuilderCmd.AddCommand(datatypesVo2MaxRecordBuilderSetZoneOffsetCmd)
+	datatypesCmd.AddCommand(datatypesVo2MaxRecordBuilderCmd)
+	datatypesWeightRecordEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	datatypesWeightRecordCmd.AddCommand(datatypesWeightRecordEqualsCmd)
+	datatypesWeightRecordCmd.AddCommand(datatypesWeightRecordGetWeightCmd)
+	datatypesWeightRecordCmd.AddCommand(datatypesWeightRecordHashCodeCmd)
+	datatypesCmd.AddCommand(datatypesWeightRecordCmd)
+	datatypesWeightRecordBuilderCmd.AddCommand(datatypesWeightRecordBuilderBuildCmd)
+	datatypesWeightRecordBuilderCmd.AddCommand(datatypesWeightRecordBuilderClearZoneOffsetCmd)
+	datatypesWeightRecordBuilderSetZoneOffsetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	datatypesWeightRecordBuilderCmd.AddCommand(datatypesWeightRecordBuilderSetZoneOffsetCmd)
+	datatypesCmd.AddCommand(datatypesWeightRecordBuilderCmd)
+	datatypesRestingHeartRateRecordEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	datatypesRestingHeartRateRecordCmd.AddCommand(datatypesRestingHeartRateRecordEqualsCmd)
+	datatypesRestingHeartRateRecordCmd.AddCommand(datatypesRestingHeartRateRecordGetBeatsPerMinuteCmd)
+	datatypesRestingHeartRateRecordCmd.AddCommand(datatypesRestingHeartRateRecordHashCodeCmd)
+	datatypesCmd.AddCommand(datatypesRestingHeartRateRecordCmd)
+	datatypesRestingHeartRateRecordBuilderCmd.AddCommand(datatypesRestingHeartRateRecordBuilderBuildCmd)
+	datatypesRestingHeartRateRecordBuilderCmd.AddCommand(datatypesRestingHeartRateRecordBuilderClearZoneOffsetCmd)
+	datatypesRestingHeartRateRecordBuilderSetZoneOffsetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	datatypesRestingHeartRateRecordBuilderCmd.AddCommand(datatypesRestingHeartRateRecordBuilderSetZoneOffsetCmd)
+	datatypesCmd.AddCommand(datatypesRestingHeartRateRecordBuilderCmd)
+	datatypesActiveCaloriesBurnedRecordEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	datatypesActiveCaloriesBurnedRecordCmd.AddCommand(datatypesActiveCaloriesBurnedRecordEqualsCmd)
+	datatypesActiveCaloriesBurnedRecordCmd.AddCommand(datatypesActiveCaloriesBurnedRecordGetEnergyCmd)
+	datatypesActiveCaloriesBurnedRecordCmd.AddCommand(datatypesActiveCaloriesBurnedRecordHashCodeCmd)
+	datatypesCmd.AddCommand(datatypesActiveCaloriesBurnedRecordCmd)
+	datatypesActiveCaloriesBurnedRecordBuilderCmd.AddCommand(datatypesActiveCaloriesBurnedRecordBuilderBuildCmd)
+	datatypesActiveCaloriesBurnedRecordBuilderCmd.AddCommand(datatypesActiveCaloriesBurnedRecordBuilderClearEndZoneOffsetCmd)
+	datatypesActiveCaloriesBurnedRecordBuilderCmd.AddCommand(datatypesActiveCaloriesBurnedRecordBuilderClearStartZoneOffsetCmd)
+	datatypesActiveCaloriesBurnedRecordBuilderSetEndZoneOffsetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	datatypesActiveCaloriesBurnedRecordBuilderCmd.AddCommand(datatypesActiveCaloriesBurnedRecordBuilderSetEndZoneOffsetCmd)
+	datatypesActiveCaloriesBurnedRecordBuilderSetStartZoneOffsetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	datatypesActiveCaloriesBurnedRecordBuilderCmd.AddCommand(datatypesActiveCaloriesBurnedRecordBuilderSetStartZoneOffsetCmd)
+	datatypesCmd.AddCommand(datatypesActiveCaloriesBurnedRecordBuilderCmd)
+	datatypesMindfulnessSessionRecordEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	datatypesMindfulnessSessionRecordCmd.AddCommand(datatypesMindfulnessSessionRecordEqualsCmd)
+	datatypesMindfulnessSessionRecordCmd.AddCommand(datatypesMindfulnessSessionRecordGetMindfulnessSessionTypeCmd)
+	datatypesMindfulnessSessionRecordCmd.AddCommand(datatypesMindfulnessSessionRecordGetNotesCmd)
+	datatypesMindfulnessSessionRecordCmd.AddCommand(datatypesMindfulnessSessionRecordGetTitleCmd)
+	datatypesMindfulnessSessionRecordCmd.AddCommand(datatypesMindfulnessSessionRecordHashCodeCmd)
+	datatypesCmd.AddCommand(datatypesMindfulnessSessionRecordCmd)
+	datatypesMindfulnessSessionRecordBuilderCmd.AddCommand(datatypesMindfulnessSessionRecordBuilderBuildCmd)
+	datatypesMindfulnessSessionRecordBuilderSetEndZoneOffsetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	datatypesMindfulnessSessionRecordBuilderCmd.AddCommand(datatypesMindfulnessSessionRecordBuilderSetEndZoneOffsetCmd)
+	datatypesMindfulnessSessionRecordBuilderSetNotesCmd.Flags().String("arg0", "", "arg0 (string)")
+	datatypesMindfulnessSessionRecordBuilderCmd.AddCommand(datatypesMindfulnessSessionRecordBuilderSetNotesCmd)
+	datatypesMindfulnessSessionRecordBuilderSetStartZoneOffsetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	datatypesMindfulnessSessionRecordBuilderCmd.AddCommand(datatypesMindfulnessSessionRecordBuilderSetStartZoneOffsetCmd)
+	datatypesMindfulnessSessionRecordBuilderSetTitleCmd.Flags().String("arg0", "", "arg0 (string)")
+	datatypesMindfulnessSessionRecordBuilderCmd.AddCommand(datatypesMindfulnessSessionRecordBuilderSetTitleCmd)
+	datatypesCmd.AddCommand(datatypesMindfulnessSessionRecordBuilderCmd)
+	datatypesBloodPressureRecordEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	datatypesBloodPressureRecordCmd.AddCommand(datatypesBloodPressureRecordEqualsCmd)
+	datatypesBloodPressureRecordCmd.AddCommand(datatypesBloodPressureRecordGetBodyPositionCmd)
+	datatypesBloodPressureRecordCmd.AddCommand(datatypesBloodPressureRecordGetDiastolicCmd)
+	datatypesBloodPressureRecordCmd.AddCommand(datatypesBloodPressureRecordGetMeasurementLocationCmd)
+	datatypesBloodPressureRecordCmd.AddCommand(datatypesBloodPressureRecordGetSystolicCmd)
+	datatypesBloodPressureRecordCmd.AddCommand(datatypesBloodPressureRecordHashCodeCmd)
+	datatypesCmd.AddCommand(datatypesBloodPressureRecordCmd)
+	datatypesBloodPressureRecordBuilderCmd.AddCommand(datatypesBloodPressureRecordBuilderBuildCmd)
+	datatypesBloodPressureRecordBuilderCmd.AddCommand(datatypesBloodPressureRecordBuilderClearZoneOffsetCmd)
+	datatypesBloodPressureRecordBuilderSetZoneOffsetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	datatypesBloodPressureRecordBuilderCmd.AddCommand(datatypesBloodPressureRecordBuilderSetZoneOffsetCmd)
+	datatypesCmd.AddCommand(datatypesBloodPressureRecordBuilderCmd)
+	datatypesSexualActivityRecordEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	datatypesSexualActivityRecordCmd.AddCommand(datatypesSexualActivityRecordEqualsCmd)
+	datatypesSexualActivityRecordCmd.AddCommand(datatypesSexualActivityRecordGetProtectionUsedCmd)
+	datatypesSexualActivityRecordCmd.AddCommand(datatypesSexualActivityRecordHashCodeCmd)
+	datatypesCmd.AddCommand(datatypesSexualActivityRecordCmd)
+	datatypesSexualActivityRecordBuilderCmd.AddCommand(datatypesSexualActivityRecordBuilderBuildCmd)
+	datatypesSexualActivityRecordBuilderCmd.AddCommand(datatypesSexualActivityRecordBuilderClearZoneOffsetCmd)
+	datatypesSexualActivityRecordBuilderSetZoneOffsetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	datatypesSexualActivityRecordBuilderCmd.AddCommand(datatypesSexualActivityRecordBuilderSetZoneOffsetCmd)
+	datatypesCmd.AddCommand(datatypesSexualActivityRecordBuilderCmd)
+	datatypesOvulationTestRecordEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	datatypesOvulationTestRecordCmd.AddCommand(datatypesOvulationTestRecordEqualsCmd)
+	datatypesOvulationTestRecordCmd.AddCommand(datatypesOvulationTestRecordGetResultCmd)
+	datatypesOvulationTestRecordCmd.AddCommand(datatypesOvulationTestRecordHashCodeCmd)
+	datatypesCmd.AddCommand(datatypesOvulationTestRecordCmd)
+	datatypesOvulationTestRecordBuilderCmd.AddCommand(datatypesOvulationTestRecordBuilderBuildCmd)
+	datatypesOvulationTestRecordBuilderCmd.AddCommand(datatypesOvulationTestRecordBuilderClearZoneOffsetCmd)
+	datatypesOvulationTestRecordBuilderSetZoneOffsetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	datatypesOvulationTestRecordBuilderCmd.AddCommand(datatypesOvulationTestRecordBuilderSetZoneOffsetCmd)
+	datatypesCmd.AddCommand(datatypesOvulationTestRecordBuilderCmd)
 	rootCmd.AddCommand(datatypesCmd)
 }

@@ -12,6 +12,707 @@ var formatCmd = &cobra.Command{
 	Short: "format service operations",
 }
 
+var formatTimeCmd = &cobra.Command{
+	Use:   "time",
+	Short: "TimeService operations",
+}
+
+var formatTimeNewTimeCmd = &cobra.Command{
+	Use:   "new-time",
+	Short: "NewTime RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTimeServiceClient(grpcConn)
+		req := &pb.NewTimeRequest{}
+		resp, err := client.NewTime(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var formatTimeAfterCmd = &cobra.Command{
+	Use:   "after",
+	Short: "After RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTimeServiceClient(grpcConn)
+		req := &pb.AfterRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.After(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var formatTimeBeforeCmd = &cobra.Command{
+	Use:   "before",
+	Short: "Before RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTimeServiceClient(grpcConn)
+		req := &pb.BeforeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Before(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var formatTimeClearCmd = &cobra.Command{
+	Use:   "clear",
+	Short: "Clear RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTimeServiceClient(grpcConn)
+		req := &pb.ClearRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Clear(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var formatTimeFormatCmd = &cobra.Command{
+	Use:   "format",
+	Short: "Format RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTimeServiceClient(grpcConn)
+		req := &pb.FormatRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Format(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var formatTimeFormat2445Cmd = &cobra.Command{
+	Use:   "format2445",
+	Short: "Format2445 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTimeServiceClient(grpcConn)
+		req := &pb.Format2445Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.Format2445(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var formatTimeFormat3339Cmd = &cobra.Command{
+	Use:   "format3339",
+	Short: "Format3339 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTimeServiceClient(grpcConn)
+		req := &pb.Format3339Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Format3339(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var formatTimeGetActualMaximumCmd = &cobra.Command{
+	Use:   "get-actual-maximum",
+	Short: "GetActualMaximum RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTimeServiceClient(grpcConn)
+		req := &pb.GetActualMaximumRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetActualMaximum(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var formatTimeGetWeekNumberCmd = &cobra.Command{
+	Use:   "get-week-number",
+	Short: "GetWeekNumber RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTimeServiceClient(grpcConn)
+		req := &pb.GetWeekNumberRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetWeekNumber(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var formatTimeNormalizeCmd = &cobra.Command{
+	Use:   "normalize",
+	Short: "Normalize RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTimeServiceClient(grpcConn)
+		req := &pb.NormalizeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Normalize(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var formatTimeParseCmd = &cobra.Command{
+	Use:   "parse",
+	Short: "Parse RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTimeServiceClient(grpcConn)
+		req := &pb.ParseRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Parse(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var formatTimeParse3339Cmd = &cobra.Command{
+	Use:   "parse3339",
+	Short: "Parse3339 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTimeServiceClient(grpcConn)
+		req := &pb.Parse3339Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Parse3339(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var formatTimeSet1Cmd = &cobra.Command{
+	Use:   "set1",
+	Short: "Set1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTimeServiceClient(grpcConn)
+		req := &pb.Set1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Set1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var formatTimeSet3_1Cmd = &cobra.Command{
+	Use:   "set3_1",
+	Short: "Set3_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTimeServiceClient(grpcConn)
+		req := &pb.Set3_1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.Set3_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var formatTimeSet6_2Cmd = &cobra.Command{
+	Use:   "set6_2",
+	Short: "Set6_2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTimeServiceClient(grpcConn)
+		req := &pb.Set6_2Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg5"); err == nil {
+			req.Arg5 = v
+		}
+		resp, err := client.Set6_2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var formatTimeSet1_3Cmd = &cobra.Command{
+	Use:   "set1_3",
+	Short: "Set1_3 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTimeServiceClient(grpcConn)
+		req := &pb.Set1_3Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Set1_3(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var formatTimeSetJulianDayCmd = &cobra.Command{
+	Use:   "set-julian-day",
+	Short: "SetJulianDay RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTimeServiceClient(grpcConn)
+		req := &pb.SetJulianDayRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetJulianDay(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var formatTimeSetToNowCmd = &cobra.Command{
+	Use:   "set-to-now",
+	Short: "SetToNow RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTimeServiceClient(grpcConn)
+		req := &pb.SetToNowRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.SetToNow(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var formatTimeSwitchTimezoneCmd = &cobra.Command{
+	Use:   "switch-timezone",
+	Short: "SwitchTimezone RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTimeServiceClient(grpcConn)
+		req := &pb.SwitchTimezoneRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SwitchTimezone(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var formatTimeToMillisCmd = &cobra.Command{
+	Use:   "to-millis",
+	Short: "ToMillis RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTimeServiceClient(grpcConn)
+		req := &pb.ToMillisRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.ToMillis(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var formatTimeToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTimeServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var formatTimeCompareCmd = &cobra.Command{
+	Use:   "compare",
+	Short: "Compare RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTimeServiceClient(grpcConn)
+		req := &pb.CompareRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.Compare(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var formatTimeGetCurrentTimezoneCmd = &cobra.Command{
+	Use:   "get-current-timezone",
+	Short: "GetCurrentTimezone RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTimeServiceClient(grpcConn)
+		req := &pb.GetCurrentTimezoneRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetCurrentTimezone(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var formatTimeGetJulianDayCmd = &cobra.Command{
+	Use:   "get-julian-day",
+	Short: "GetJulianDay RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTimeServiceClient(grpcConn)
+		req := &pb.GetJulianDayRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.GetJulianDay(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var formatTimeGetJulianMondayFromWeeksSinceEpochCmd = &cobra.Command{
+	Use:   "get-julian-monday-from-weeks-since-epoch",
+	Short: "GetJulianMondayFromWeeksSinceEpoch RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTimeServiceClient(grpcConn)
+		req := &pb.GetJulianMondayFromWeeksSinceEpochRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetJulianMondayFromWeeksSinceEpoch(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var formatTimeGetWeeksSinceEpochFromJulianDayCmd = &cobra.Command{
+	Use:   "get-weeks-since-epoch-from-julian-day",
+	Short: "GetWeeksSinceEpochFromJulianDay RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTimeServiceClient(grpcConn)
+		req := &pb.GetWeeksSinceEpochFromJulianDayRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.GetWeeksSinceEpochFromJulianDay(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var formatTimeIsEpochCmd = &cobra.Command{
+	Use:   "is-epoch",
+	Short: "IsEpoch RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTimeServiceClient(grpcConn)
+		req := &pb.IsEpochRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.IsEpoch(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var formatTerCmd = &cobra.Command{
+	Use:   "ter",
+	Short: "TerService operations",
+}
+
+var formatTerNewTerCmd = &cobra.Command{
+	Use:   "new-ter",
+	Short: "NewTer RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTerServiceClient(grpcConn)
+		req := &pb.NewTerRequest{}
+		resp, err := client.NewTer(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var formatTerFormatFileSizeCmd = &cobra.Command{
+	Use:   "format-file-size",
+	Short: "FormatFileSize RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTerServiceClient(grpcConn)
+		req := &pb.FormatFileSizeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.FormatFileSize(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var formatTerFormatIpAddressCmd = &cobra.Command{
+	Use:   "format-ip-address",
+	Short: "FormatIpAddress RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTerServiceClient(grpcConn)
+		req := &pb.FormatIpAddressRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.FormatIpAddress(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var formatTerFormatShortFileSizeCmd = &cobra.Command{
+	Use:   "format-short-file-size",
+	Short: "FormatShortFileSize RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTerServiceClient(grpcConn)
+		req := &pb.FormatShortFileSizeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.FormatShortFileSize(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var formatDateFormatCmd = &cobra.Command{
 	Use:   "date-format",
 	Short: "DateFormatService operations",
@@ -756,708 +1457,105 @@ var formatDateUtilsIsTodayCmd = &cobra.Command{
 	},
 }
 
-var formatTimeCmd = &cobra.Command{
-	Use:   "time",
-	Short: "TimeService operations",
-}
-
-var formatTimeNewTimeCmd = &cobra.Command{
-	Use:   "new-time",
-	Short: "NewTime RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTimeServiceClient(grpcConn)
-		req := &pb.NewTimeRequest{}
-		resp, err := client.NewTime(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var formatTimeAfterCmd = &cobra.Command{
-	Use:   "after",
-	Short: "After RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTimeServiceClient(grpcConn)
-		req := &pb.AfterRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.After(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var formatTimeBeforeCmd = &cobra.Command{
-	Use:   "before",
-	Short: "Before RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTimeServiceClient(grpcConn)
-		req := &pb.BeforeRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Before(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var formatTimeClearCmd = &cobra.Command{
-	Use:   "clear",
-	Short: "Clear RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTimeServiceClient(grpcConn)
-		req := &pb.ClearRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Clear(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var formatTimeFormatCmd = &cobra.Command{
-	Use:   "format",
-	Short: "Format RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTimeServiceClient(grpcConn)
-		req := &pb.FormatRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Format(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var formatTimeFormat2445Cmd = &cobra.Command{
-	Use:   "format2445",
-	Short: "Format2445 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTimeServiceClient(grpcConn)
-		req := &pb.Format2445Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.Format2445(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var formatTimeFormat3339Cmd = &cobra.Command{
-	Use:   "format3339",
-	Short: "Format3339 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTimeServiceClient(grpcConn)
-		req := &pb.Format3339Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Format3339(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var formatTimeGetActualMaximumCmd = &cobra.Command{
-	Use:   "get-actual-maximum",
-	Short: "GetActualMaximum RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTimeServiceClient(grpcConn)
-		req := &pb.GetActualMaximumRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetActualMaximum(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var formatTimeGetWeekNumberCmd = &cobra.Command{
-	Use:   "get-week-number",
-	Short: "GetWeekNumber RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTimeServiceClient(grpcConn)
-		req := &pb.GetWeekNumberRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetWeekNumber(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var formatTimeNormalizeCmd = &cobra.Command{
-	Use:   "normalize",
-	Short: "Normalize RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTimeServiceClient(grpcConn)
-		req := &pb.NormalizeRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Normalize(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var formatTimeParseCmd = &cobra.Command{
-	Use:   "parse",
-	Short: "Parse RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTimeServiceClient(grpcConn)
-		req := &pb.ParseRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Parse(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var formatTimeParse3339Cmd = &cobra.Command{
-	Use:   "parse3339",
-	Short: "Parse3339 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTimeServiceClient(grpcConn)
-		req := &pb.Parse3339Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Parse3339(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var formatTimeSet1Cmd = &cobra.Command{
-	Use:   "set1",
-	Short: "Set1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTimeServiceClient(grpcConn)
-		req := &pb.Set1Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Set1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var formatTimeSet3_1Cmd = &cobra.Command{
-	Use:   "set3_1",
-	Short: "Set3_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTimeServiceClient(grpcConn)
-		req := &pb.Set3_1Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.Set3_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var formatTimeSet6_2Cmd = &cobra.Command{
-	Use:   "set6_2",
-	Short: "Set6_2 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTimeServiceClient(grpcConn)
-		req := &pb.Set6_2Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg4"); err == nil {
-			req.Arg4 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg5"); err == nil {
-			req.Arg5 = v
-		}
-		resp, err := client.Set6_2(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var formatTimeSet1_3Cmd = &cobra.Command{
-	Use:   "set1_3",
-	Short: "Set1_3 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTimeServiceClient(grpcConn)
-		req := &pb.Set1_3Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Set1_3(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var formatTimeSetJulianDayCmd = &cobra.Command{
-	Use:   "set-julian-day",
-	Short: "SetJulianDay RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTimeServiceClient(grpcConn)
-		req := &pb.SetJulianDayRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetJulianDay(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var formatTimeSetToNowCmd = &cobra.Command{
-	Use:   "set-to-now",
-	Short: "SetToNow RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTimeServiceClient(grpcConn)
-		req := &pb.SetToNowRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.SetToNow(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var formatTimeSwitchTimezoneCmd = &cobra.Command{
-	Use:   "switch-timezone",
-	Short: "SwitchTimezone RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTimeServiceClient(grpcConn)
-		req := &pb.SwitchTimezoneRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SwitchTimezone(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var formatTimeToMillisCmd = &cobra.Command{
-	Use:   "to-millis",
-	Short: "ToMillis RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTimeServiceClient(grpcConn)
-		req := &pb.ToMillisRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.ToMillis(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var formatTimeToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTimeServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var formatTimeCompareCmd = &cobra.Command{
-	Use:   "compare",
-	Short: "Compare RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTimeServiceClient(grpcConn)
-		req := &pb.CompareRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.Compare(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var formatTimeGetCurrentTimezoneCmd = &cobra.Command{
-	Use:   "get-current-timezone",
-	Short: "GetCurrentTimezone RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTimeServiceClient(grpcConn)
-		req := &pb.GetCurrentTimezoneRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetCurrentTimezone(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var formatTimeGetJulianDayCmd = &cobra.Command{
-	Use:   "get-julian-day",
-	Short: "GetJulianDay RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTimeServiceClient(grpcConn)
-		req := &pb.GetJulianDayRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.GetJulianDay(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var formatTimeGetJulianMondayFromWeeksSinceEpochCmd = &cobra.Command{
-	Use:   "get-julian-monday-from-weeks-since-epoch",
-	Short: "GetJulianMondayFromWeeksSinceEpoch RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTimeServiceClient(grpcConn)
-		req := &pb.GetJulianMondayFromWeeksSinceEpochRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetJulianMondayFromWeeksSinceEpoch(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var formatTimeGetWeeksSinceEpochFromJulianDayCmd = &cobra.Command{
-	Use:   "get-weeks-since-epoch-from-julian-day",
-	Short: "GetWeeksSinceEpochFromJulianDay RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTimeServiceClient(grpcConn)
-		req := &pb.GetWeeksSinceEpochFromJulianDayRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.GetWeeksSinceEpochFromJulianDay(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var formatTimeIsEpochCmd = &cobra.Command{
-	Use:   "is-epoch",
-	Short: "IsEpoch RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTimeServiceClient(grpcConn)
-		req := &pb.IsEpochRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.IsEpoch(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var formatTerCmd = &cobra.Command{
-	Use:   "ter",
-	Short: "TerService operations",
-}
-
-var formatTerNewTerCmd = &cobra.Command{
-	Use:   "new-ter",
-	Short: "NewTer RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTerServiceClient(grpcConn)
-		req := &pb.NewTerRequest{}
-		resp, err := client.NewTer(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var formatTerFormatFileSizeCmd = &cobra.Command{
-	Use:   "format-file-size",
-	Short: "FormatFileSize RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTerServiceClient(grpcConn)
-		req := &pb.FormatFileSizeRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.FormatFileSize(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var formatTerFormatIpAddressCmd = &cobra.Command{
-	Use:   "format-ip-address",
-	Short: "FormatIpAddress RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTerServiceClient(grpcConn)
-		req := &pb.FormatIpAddressRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.FormatIpAddress(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var formatTerFormatShortFileSizeCmd = &cobra.Command{
-	Use:   "format-short-file-size",
-	Short: "FormatShortFileSize RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTerServiceClient(grpcConn)
-		req := &pb.FormatShortFileSizeRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.FormatShortFileSize(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
 func init() {
+	formatTimeCmd.AddCommand(formatTimeNewTimeCmd)
+	formatTimeAfterCmd.Flags().Int64("handle", 0, "handle (int64)")
+	formatTimeAfterCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	formatTimeCmd.AddCommand(formatTimeAfterCmd)
+	formatTimeBeforeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	formatTimeBeforeCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	formatTimeCmd.AddCommand(formatTimeBeforeCmd)
+	formatTimeClearCmd.Flags().Int64("handle", 0, "handle (int64)")
+	formatTimeClearCmd.Flags().String("arg0", "", "arg0 (string)")
+	formatTimeCmd.AddCommand(formatTimeClearCmd)
+	formatTimeFormatCmd.Flags().Int64("handle", 0, "handle (int64)")
+	formatTimeFormatCmd.Flags().String("arg0", "", "arg0 (string)")
+	formatTimeCmd.AddCommand(formatTimeFormatCmd)
+	formatTimeFormat2445Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	formatTimeCmd.AddCommand(formatTimeFormat2445Cmd)
+	formatTimeFormat3339Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	formatTimeFormat3339Cmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	formatTimeCmd.AddCommand(formatTimeFormat3339Cmd)
+	formatTimeGetActualMaximumCmd.Flags().Int64("handle", 0, "handle (int64)")
+	formatTimeGetActualMaximumCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	formatTimeCmd.AddCommand(formatTimeGetActualMaximumCmd)
+	formatTimeGetWeekNumberCmd.Flags().Int64("handle", 0, "handle (int64)")
+	formatTimeCmd.AddCommand(formatTimeGetWeekNumberCmd)
+	formatTimeNormalizeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	formatTimeNormalizeCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	formatTimeCmd.AddCommand(formatTimeNormalizeCmd)
+	formatTimeParseCmd.Flags().Int64("handle", 0, "handle (int64)")
+	formatTimeParseCmd.Flags().String("arg0", "", "arg0 (string)")
+	formatTimeCmd.AddCommand(formatTimeParseCmd)
+	formatTimeParse3339Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	formatTimeParse3339Cmd.Flags().String("arg0", "", "arg0 (string)")
+	formatTimeCmd.AddCommand(formatTimeParse3339Cmd)
+	formatTimeSet1Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	formatTimeSet1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	formatTimeCmd.AddCommand(formatTimeSet1Cmd)
+	formatTimeSet3_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	formatTimeSet3_1Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	formatTimeSet3_1Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	formatTimeSet3_1Cmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	formatTimeCmd.AddCommand(formatTimeSet3_1Cmd)
+	formatTimeSet6_2Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	formatTimeSet6_2Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	formatTimeSet6_2Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	formatTimeSet6_2Cmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	formatTimeSet6_2Cmd.Flags().Int32("arg3", 0, "arg3 (int32)")
+	formatTimeSet6_2Cmd.Flags().Int32("arg4", 0, "arg4 (int32)")
+	formatTimeSet6_2Cmd.Flags().Int32("arg5", 0, "arg5 (int32)")
+	formatTimeCmd.AddCommand(formatTimeSet6_2Cmd)
+	formatTimeSet1_3Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	formatTimeSet1_3Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	formatTimeCmd.AddCommand(formatTimeSet1_3Cmd)
+	formatTimeSetJulianDayCmd.Flags().Int64("handle", 0, "handle (int64)")
+	formatTimeSetJulianDayCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	formatTimeCmd.AddCommand(formatTimeSetJulianDayCmd)
+	formatTimeSetToNowCmd.Flags().Int64("handle", 0, "handle (int64)")
+	formatTimeCmd.AddCommand(formatTimeSetToNowCmd)
+	formatTimeSwitchTimezoneCmd.Flags().Int64("handle", 0, "handle (int64)")
+	formatTimeSwitchTimezoneCmd.Flags().String("arg0", "", "arg0 (string)")
+	formatTimeCmd.AddCommand(formatTimeSwitchTimezoneCmd)
+	formatTimeToMillisCmd.Flags().Int64("handle", 0, "handle (int64)")
+	formatTimeToMillisCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	formatTimeCmd.AddCommand(formatTimeToMillisCmd)
+	formatTimeToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
+	formatTimeCmd.AddCommand(formatTimeToStringCmd)
+	formatTimeCompareCmd.Flags().Int64("handle", 0, "handle (int64)")
+	formatTimeCompareCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	formatTimeCompareCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	formatTimeCmd.AddCommand(formatTimeCompareCmd)
+	formatTimeGetCurrentTimezoneCmd.Flags().Int64("handle", 0, "handle (int64)")
+	formatTimeCmd.AddCommand(formatTimeGetCurrentTimezoneCmd)
+	formatTimeGetJulianDayCmd.Flags().Int64("handle", 0, "handle (int64)")
+	formatTimeGetJulianDayCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	formatTimeGetJulianDayCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	formatTimeCmd.AddCommand(formatTimeGetJulianDayCmd)
+	formatTimeGetJulianMondayFromWeeksSinceEpochCmd.Flags().Int64("handle", 0, "handle (int64)")
+	formatTimeGetJulianMondayFromWeeksSinceEpochCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	formatTimeCmd.AddCommand(formatTimeGetJulianMondayFromWeeksSinceEpochCmd)
+	formatTimeGetWeeksSinceEpochFromJulianDayCmd.Flags().Int64("handle", 0, "handle (int64)")
+	formatTimeGetWeeksSinceEpochFromJulianDayCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	formatTimeGetWeeksSinceEpochFromJulianDayCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	formatTimeCmd.AddCommand(formatTimeGetWeeksSinceEpochFromJulianDayCmd)
+	formatTimeIsEpochCmd.Flags().Int64("handle", 0, "handle (int64)")
+	formatTimeIsEpochCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	formatTimeCmd.AddCommand(formatTimeIsEpochCmd)
+	formatCmd.AddCommand(formatTimeCmd)
+	formatTerCmd.AddCommand(formatTerNewTerCmd)
+	formatTerFormatFileSizeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	formatTerFormatFileSizeCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	formatTerFormatFileSizeCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	formatTerCmd.AddCommand(formatTerFormatFileSizeCmd)
+	formatTerFormatIpAddressCmd.Flags().Int64("handle", 0, "handle (int64)")
+	formatTerFormatIpAddressCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	formatTerCmd.AddCommand(formatTerFormatIpAddressCmd)
+	formatTerFormatShortFileSizeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	formatTerFormatShortFileSizeCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	formatTerFormatShortFileSizeCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	formatTerCmd.AddCommand(formatTerFormatShortFileSizeCmd)
+	formatCmd.AddCommand(formatTerCmd)
 	formatDateFormatCmd.AddCommand(formatDateFormatNewDateFormatCmd)
 	formatDateFormatFormat2Cmd.Flags().Int64("handle", 0, "handle (int64)")
 	formatDateFormatFormat2Cmd.Flags().String("arg0", "", "arg0 (string)")
@@ -1579,103 +1677,5 @@ func init() {
 	formatDateUtilsIsTodayCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	formatDateUtilsCmd.AddCommand(formatDateUtilsIsTodayCmd)
 	formatCmd.AddCommand(formatDateUtilsCmd)
-	formatTimeCmd.AddCommand(formatTimeNewTimeCmd)
-	formatTimeAfterCmd.Flags().Int64("handle", 0, "handle (int64)")
-	formatTimeAfterCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	formatTimeCmd.AddCommand(formatTimeAfterCmd)
-	formatTimeBeforeCmd.Flags().Int64("handle", 0, "handle (int64)")
-	formatTimeBeforeCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	formatTimeCmd.AddCommand(formatTimeBeforeCmd)
-	formatTimeClearCmd.Flags().Int64("handle", 0, "handle (int64)")
-	formatTimeClearCmd.Flags().String("arg0", "", "arg0 (string)")
-	formatTimeCmd.AddCommand(formatTimeClearCmd)
-	formatTimeFormatCmd.Flags().Int64("handle", 0, "handle (int64)")
-	formatTimeFormatCmd.Flags().String("arg0", "", "arg0 (string)")
-	formatTimeCmd.AddCommand(formatTimeFormatCmd)
-	formatTimeFormat2445Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	formatTimeCmd.AddCommand(formatTimeFormat2445Cmd)
-	formatTimeFormat3339Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	formatTimeFormat3339Cmd.Flags().Bool("arg0", false, "arg0 (bool)")
-	formatTimeCmd.AddCommand(formatTimeFormat3339Cmd)
-	formatTimeGetActualMaximumCmd.Flags().Int64("handle", 0, "handle (int64)")
-	formatTimeGetActualMaximumCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	formatTimeCmd.AddCommand(formatTimeGetActualMaximumCmd)
-	formatTimeGetWeekNumberCmd.Flags().Int64("handle", 0, "handle (int64)")
-	formatTimeCmd.AddCommand(formatTimeGetWeekNumberCmd)
-	formatTimeNormalizeCmd.Flags().Int64("handle", 0, "handle (int64)")
-	formatTimeNormalizeCmd.Flags().Bool("arg0", false, "arg0 (bool)")
-	formatTimeCmd.AddCommand(formatTimeNormalizeCmd)
-	formatTimeParseCmd.Flags().Int64("handle", 0, "handle (int64)")
-	formatTimeParseCmd.Flags().String("arg0", "", "arg0 (string)")
-	formatTimeCmd.AddCommand(formatTimeParseCmd)
-	formatTimeParse3339Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	formatTimeParse3339Cmd.Flags().String("arg0", "", "arg0 (string)")
-	formatTimeCmd.AddCommand(formatTimeParse3339Cmd)
-	formatTimeSet1Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	formatTimeSet1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	formatTimeCmd.AddCommand(formatTimeSet1Cmd)
-	formatTimeSet3_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	formatTimeSet3_1Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	formatTimeSet3_1Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	formatTimeSet3_1Cmd.Flags().Int32("arg2", 0, "arg2 (int32)")
-	formatTimeCmd.AddCommand(formatTimeSet3_1Cmd)
-	formatTimeSet6_2Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	formatTimeSet6_2Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	formatTimeSet6_2Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	formatTimeSet6_2Cmd.Flags().Int32("arg2", 0, "arg2 (int32)")
-	formatTimeSet6_2Cmd.Flags().Int32("arg3", 0, "arg3 (int32)")
-	formatTimeSet6_2Cmd.Flags().Int32("arg4", 0, "arg4 (int32)")
-	formatTimeSet6_2Cmd.Flags().Int32("arg5", 0, "arg5 (int32)")
-	formatTimeCmd.AddCommand(formatTimeSet6_2Cmd)
-	formatTimeSet1_3Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	formatTimeSet1_3Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	formatTimeCmd.AddCommand(formatTimeSet1_3Cmd)
-	formatTimeSetJulianDayCmd.Flags().Int64("handle", 0, "handle (int64)")
-	formatTimeSetJulianDayCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	formatTimeCmd.AddCommand(formatTimeSetJulianDayCmd)
-	formatTimeSetToNowCmd.Flags().Int64("handle", 0, "handle (int64)")
-	formatTimeCmd.AddCommand(formatTimeSetToNowCmd)
-	formatTimeSwitchTimezoneCmd.Flags().Int64("handle", 0, "handle (int64)")
-	formatTimeSwitchTimezoneCmd.Flags().String("arg0", "", "arg0 (string)")
-	formatTimeCmd.AddCommand(formatTimeSwitchTimezoneCmd)
-	formatTimeToMillisCmd.Flags().Int64("handle", 0, "handle (int64)")
-	formatTimeToMillisCmd.Flags().Bool("arg0", false, "arg0 (bool)")
-	formatTimeCmd.AddCommand(formatTimeToMillisCmd)
-	formatTimeToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
-	formatTimeCmd.AddCommand(formatTimeToStringCmd)
-	formatTimeCompareCmd.Flags().Int64("handle", 0, "handle (int64)")
-	formatTimeCompareCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	formatTimeCompareCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	formatTimeCmd.AddCommand(formatTimeCompareCmd)
-	formatTimeGetCurrentTimezoneCmd.Flags().Int64("handle", 0, "handle (int64)")
-	formatTimeCmd.AddCommand(formatTimeGetCurrentTimezoneCmd)
-	formatTimeGetJulianDayCmd.Flags().Int64("handle", 0, "handle (int64)")
-	formatTimeGetJulianDayCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	formatTimeGetJulianDayCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	formatTimeCmd.AddCommand(formatTimeGetJulianDayCmd)
-	formatTimeGetJulianMondayFromWeeksSinceEpochCmd.Flags().Int64("handle", 0, "handle (int64)")
-	formatTimeGetJulianMondayFromWeeksSinceEpochCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	formatTimeCmd.AddCommand(formatTimeGetJulianMondayFromWeeksSinceEpochCmd)
-	formatTimeGetWeeksSinceEpochFromJulianDayCmd.Flags().Int64("handle", 0, "handle (int64)")
-	formatTimeGetWeeksSinceEpochFromJulianDayCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	formatTimeGetWeeksSinceEpochFromJulianDayCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	formatTimeCmd.AddCommand(formatTimeGetWeeksSinceEpochFromJulianDayCmd)
-	formatTimeIsEpochCmd.Flags().Int64("handle", 0, "handle (int64)")
-	formatTimeIsEpochCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	formatTimeCmd.AddCommand(formatTimeIsEpochCmd)
-	formatCmd.AddCommand(formatTimeCmd)
-	formatTerCmd.AddCommand(formatTerNewTerCmd)
-	formatTerFormatFileSizeCmd.Flags().Int64("handle", 0, "handle (int64)")
-	formatTerFormatFileSizeCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	formatTerFormatFileSizeCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	formatTerCmd.AddCommand(formatTerFormatFileSizeCmd)
-	formatTerFormatIpAddressCmd.Flags().Int64("handle", 0, "handle (int64)")
-	formatTerFormatIpAddressCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	formatTerCmd.AddCommand(formatTerFormatIpAddressCmd)
-	formatTerFormatShortFileSizeCmd.Flags().Int64("handle", 0, "handle (int64)")
-	formatTerFormatShortFileSizeCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	formatTerFormatShortFileSizeCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	formatTerCmd.AddCommand(formatTerFormatShortFileSizeCmd)
-	formatCmd.AddCommand(formatTerCmd)
 	rootCmd.AddCommand(formatCmd)
 }

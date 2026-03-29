@@ -9,6 +9,190 @@ import (
 	"google.golang.org/grpc"
 )
 
+// InputPortClient wraps the gRPC InputPortService client.
+type InputPortClient struct {
+	svc pb.InputPortServiceClient
+}
+
+// NewInputPortClient creates a new InputPort client.
+func NewInputPortClient(cc grpc.ClientConnInterface) *InputPortClient {
+	return &InputPortClient{
+		svc: pb.NewInputPortServiceClient(cc),
+	}
+}
+
+// Close calls the Close RPC.
+func (c *InputPortClient) Close(ctx context.Context) error {
+	_, err := c.svc.Close(ctx, &pb.CloseRequest{})
+	return err
+}
+
+// GetPortNumber calls the GetPortNumber RPC.
+func (c *InputPortClient) GetPortNumber(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetPortNumber(ctx, &pb.GetPortNumberRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnFlush calls the OnFlush RPC.
+func (c *InputPortClient) OnFlush(ctx context.Context) error {
+	_, err := c.svc.OnFlush(ctx, &pb.OnFlushRequest{})
+	return err
+}
+
+// OnSend calls the OnSend RPC.
+func (c *InputPortClient) OnSend(ctx context.Context, arg0 int64, arg1 int32, arg2 int32, arg3 int64) error {
+	_, err := c.svc.OnSend(ctx, &pb.OnSendRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	return err
+}
+
+// UmpDeviceServiceClient wraps the gRPC UmpDeviceServiceService client.
+type UmpDeviceServiceClient struct {
+	svc pb.UmpDeviceServiceServiceClient
+}
+
+// NewUmpDeviceServiceClient creates a new UmpDeviceService client.
+func NewUmpDeviceServiceClient(cc grpc.ClientConnInterface) *UmpDeviceServiceClient {
+	return &UmpDeviceServiceClient{
+		svc: pb.NewUmpDeviceServiceServiceClient(cc),
+	}
+}
+
+// GetDeviceInfo calls the GetDeviceInfo RPC.
+func (c *UmpDeviceServiceClient) GetDeviceInfo(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetDeviceInfo(ctx, &pb.GetDeviceInfoRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetOutputPortReceivers calls the GetOutputPortReceivers RPC.
+func (c *UmpDeviceServiceClient) GetOutputPortReceivers(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetOutputPortReceivers(ctx, &pb.GetOutputPortReceiversRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnBind calls the OnBind RPC.
+func (c *UmpDeviceServiceClient) OnBind(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.OnBind(ctx, &pb.OnBindRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnClose calls the OnClose RPC.
+func (c *UmpDeviceServiceClient) OnClose(ctx context.Context) error {
+	_, err := c.svc.OnClose(ctx, &pb.OnCloseRequest{})
+	return err
+}
+
+// OnCreate calls the OnCreate RPC.
+func (c *UmpDeviceServiceClient) OnCreate(ctx context.Context) error {
+	_, err := c.svc.OnCreate(ctx, &pb.OnCreateRequest{})
+	return err
+}
+
+// OnDeviceStatusChanged calls the OnDeviceStatusChanged RPC.
+func (c *UmpDeviceServiceClient) OnDeviceStatusChanged(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnDeviceStatusChanged(ctx, &pb.OnDeviceStatusChangedRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnGetInputPortReceivers calls the OnGetInputPortReceivers RPC.
+func (c *UmpDeviceServiceClient) OnGetInputPortReceivers(ctx context.Context) (int64, error) {
+	resp, err := c.svc.OnGetInputPortReceivers(ctx, &pb.OnGetInputPortReceiversRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// DeviceStatusClient wraps the gRPC DeviceStatusService client.
+type DeviceStatusClient struct {
+	svc pb.DeviceStatusServiceClient
+}
+
+// NewDeviceStatusClient creates a new DeviceStatus client.
+func NewDeviceStatusClient(cc grpc.ClientConnInterface) *DeviceStatusClient {
+	return &DeviceStatusClient{
+		svc: pb.NewDeviceStatusServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *DeviceStatusClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDeviceInfo calls the GetDeviceInfo RPC.
+func (c *DeviceStatusClient) GetDeviceInfo(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetDeviceInfo(ctx, &pb.GetDeviceInfoRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetOutputPortOpenCount calls the GetOutputPortOpenCount RPC.
+func (c *DeviceStatusClient) GetOutputPortOpenCount(ctx context.Context, arg0 int32) (int32, error) {
+	resp, err := c.svc.GetOutputPortOpenCount(ctx, &pb.GetOutputPortOpenCountRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsInputPortOpen calls the IsInputPortOpen RPC.
+func (c *DeviceStatusClient) IsInputPortOpen(ctx context.Context, arg0 int32) (bool, error) {
+	resp, err := c.svc.IsInputPortOpen(ctx, &pb.IsInputPortOpenRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *DeviceStatusClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *DeviceStatusClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
 // DeviceInfoClient wraps the gRPC DeviceInfoService client.
 type DeviceInfoClient struct {
 	svc pb.DeviceInfoServiceClient
@@ -179,46 +363,204 @@ func (c *DeviceInfoPortInfoClient) GetType(ctx context.Context) (int32, error) {
 	return resp.GetResult(), nil
 }
 
-// InputPortClient wraps the gRPC InputPortService client.
-type InputPortClient struct {
-	svc pb.InputPortServiceClient
+// DeviceServiceClient wraps the gRPC DeviceServiceService client.
+type DeviceServiceClient struct {
+	svc pb.DeviceServiceServiceClient
 }
 
-// NewInputPortClient creates a new InputPort client.
-func NewInputPortClient(cc grpc.ClientConnInterface) *InputPortClient {
-	return &InputPortClient{
-		svc: pb.NewInputPortServiceClient(cc),
+// NewDeviceServiceClient creates a new DeviceService client.
+func NewDeviceServiceClient(cc grpc.ClientConnInterface) *DeviceServiceClient {
+	return &DeviceServiceClient{
+		svc: pb.NewDeviceServiceServiceClient(cc),
 	}
 }
 
-// Close calls the Close RPC.
-func (c *InputPortClient) Close(ctx context.Context) error {
-	_, err := c.svc.Close(ctx, &pb.CloseRequest{})
-	return err
-}
-
-// GetPortNumber calls the GetPortNumber RPC.
-func (c *InputPortClient) GetPortNumber(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetPortNumber(ctx, &pb.GetPortNumberRequest{})
+// GetDeviceInfo calls the GetDeviceInfo RPC.
+func (c *DeviceServiceClient) GetDeviceInfo(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetDeviceInfo(ctx, &pb.GetDeviceInfoRequest{})
 	if err != nil {
 		return 0, err
 	}
 	return resp.GetResult(), nil
 }
 
-// OnFlush calls the OnFlush RPC.
-func (c *InputPortClient) OnFlush(ctx context.Context) error {
-	_, err := c.svc.OnFlush(ctx, &pb.OnFlushRequest{})
+// GetOutputPortReceivers calls the GetOutputPortReceivers RPC.
+func (c *DeviceServiceClient) GetOutputPortReceivers(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetOutputPortReceivers(ctx, &pb.GetOutputPortReceiversRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnBind calls the OnBind RPC.
+func (c *DeviceServiceClient) OnBind(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.OnBind(ctx, &pb.OnBindRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnClose calls the OnClose RPC.
+func (c *DeviceServiceClient) OnClose(ctx context.Context) error {
+	_, err := c.svc.OnClose(ctx, &pb.OnCloseRequest{})
 	return err
 }
 
-// OnSend calls the OnSend RPC.
-func (c *InputPortClient) OnSend(ctx context.Context, arg0 int64, arg1 int32, arg2 int32, arg3 int64) error {
-	_, err := c.svc.OnSend(ctx, &pb.OnSendRequest{
+// OnCreate calls the OnCreate RPC.
+func (c *DeviceServiceClient) OnCreate(ctx context.Context) error {
+	_, err := c.svc.OnCreate(ctx, &pb.OnCreateRequest{})
+	return err
+}
+
+// OnDeviceStatusChanged calls the OnDeviceStatusChanged RPC.
+func (c *DeviceServiceClient) OnDeviceStatusChanged(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnDeviceStatusChanged(ctx, &pb.OnDeviceStatusChangedRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnGetInputPortReceivers calls the OnGetInputPortReceivers RPC.
+func (c *DeviceServiceClient) OnGetInputPortReceivers(ctx context.Context) (int64, error) {
+	resp, err := c.svc.OnGetInputPortReceivers(ctx, &pb.OnGetInputPortReceiversRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// DeviceClient wraps the gRPC DeviceService client.
+type DeviceClient struct {
+	svc pb.DeviceServiceClient
+}
+
+// NewDeviceClient creates a new Device client.
+func NewDeviceClient(cc grpc.ClientConnInterface) *DeviceClient {
+	return &DeviceClient{
+		svc: pb.NewDeviceServiceClient(cc),
+	}
+}
+
+// Close calls the Close RPC.
+func (c *DeviceClient) Close(ctx context.Context) error {
+	_, err := c.svc.Close(ctx, &pb.CloseRequest{})
+	return err
+}
+
+// ConnectPorts calls the ConnectPorts RPC.
+func (c *DeviceClient) ConnectPorts(ctx context.Context, arg0 int64, arg1 int32) (int64, error) {
+	resp, err := c.svc.ConnectPorts(ctx, &pb.ConnectPortsRequest{
 		Arg0: arg0,
 		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInfo calls the GetInfo RPC.
+func (c *DeviceClient) GetInfo(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetInfo(ctx, &pb.GetInfoRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OpenInputPort calls the OpenInputPort RPC.
+func (c *DeviceClient) OpenInputPort(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.OpenInputPort(ctx, &pb.OpenInputPortRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OpenOutputPort calls the OpenOutputPort RPC.
+func (c *DeviceClient) OpenOutputPort(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.OpenOutputPort(ctx, &pb.OpenOutputPortRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *DeviceClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// DeviceMidiConnectionClient wraps the gRPC DeviceMidiConnectionService client.
+type DeviceMidiConnectionClient struct {
+	svc pb.DeviceMidiConnectionServiceClient
+}
+
+// NewDeviceMidiConnectionClient creates a new DeviceMidiConnection client.
+func NewDeviceMidiConnectionClient(cc grpc.ClientConnInterface) *DeviceMidiConnectionClient {
+	return &DeviceMidiConnectionClient{
+		svc: pb.NewDeviceMidiConnectionServiceClient(cc),
+	}
+}
+
+// Close calls the Close RPC.
+func (c *DeviceMidiConnectionClient) Close(ctx context.Context) error {
+	_, err := c.svc.Close(ctx, &pb.CloseRequest{})
+	return err
+}
+
+// SenderClient wraps the gRPC SenderService client.
+type SenderClient struct {
+	svc pb.SenderServiceClient
+}
+
+// NewSenderClient creates a new Sender client.
+func NewSenderClient(cc grpc.ClientConnInterface) *SenderClient {
+	return &SenderClient{
+		svc: pb.NewSenderServiceClient(cc),
+	}
+}
+
+// Connect calls the Connect RPC.
+func (c *SenderClient) Connect(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.Connect(ctx, &pb.ConnectRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// Disconnect calls the Disconnect RPC.
+func (c *SenderClient) Disconnect(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.Disconnect(ctx, &pb.DisconnectRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnConnect calls the OnConnect RPC.
+func (c *SenderClient) OnConnect(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnConnect(ctx, &pb.OnConnectRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnDisconnect calls the OnDisconnect RPC.
+func (c *SenderClient) OnDisconnect(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnDisconnect(ctx, &pb.OnDisconnectRequest{
+		Arg0: arg0,
 	})
 	return err
 }
@@ -309,6 +651,17 @@ func (c *ManagerClient) GetDevices(ctx context.Context) (int64, error) {
 	return resp.GetResult(), nil
 }
 
+// GetDevicesForTransport calls the GetDevicesForTransport RPC.
+func (c *ManagerClient) GetDevicesForTransport(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.GetDevicesForTransport(ctx, &pb.GetDevicesForTransportRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // RegisterDeviceCallback calls the RegisterDeviceCallback RPC.
 func (c *ManagerClient) RegisterDeviceCallback(ctx context.Context, arg0 int32, arg1 int64, arg2 int64) error {
 	_, err := c.svc.RegisterDeviceCallback(ctx, &pb.RegisterDeviceCallbackRequest{
@@ -383,172 +736,6 @@ func (c *ManagerOnDeviceOpenedListenerClient) OnDeviceOpened(ctx context.Context
 	return err
 }
 
-// SenderClient wraps the gRPC SenderService client.
-type SenderClient struct {
-	svc pb.SenderServiceClient
-}
-
-// NewSenderClient creates a new Sender client.
-func NewSenderClient(cc grpc.ClientConnInterface) *SenderClient {
-	return &SenderClient{
-		svc: pb.NewSenderServiceClient(cc),
-	}
-}
-
-// Connect calls the Connect RPC.
-func (c *SenderClient) Connect(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.Connect(ctx, &pb.ConnectRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// Disconnect calls the Disconnect RPC.
-func (c *SenderClient) Disconnect(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.Disconnect(ctx, &pb.DisconnectRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// OnConnect calls the OnConnect RPC.
-func (c *SenderClient) OnConnect(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.OnConnect(ctx, &pb.OnConnectRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// OnDisconnect calls the OnDisconnect RPC.
-func (c *SenderClient) OnDisconnect(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.OnDisconnect(ctx, &pb.OnDisconnectRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// UmpDeviceServiceClient wraps the gRPC UmpDeviceServiceService client.
-type UmpDeviceServiceClient struct {
-	svc pb.UmpDeviceServiceServiceClient
-}
-
-// NewUmpDeviceServiceClient creates a new UmpDeviceService client.
-func NewUmpDeviceServiceClient(cc grpc.ClientConnInterface) *UmpDeviceServiceClient {
-	return &UmpDeviceServiceClient{
-		svc: pb.NewUmpDeviceServiceServiceClient(cc),
-	}
-}
-
-// GetDeviceInfo calls the GetDeviceInfo RPC.
-func (c *UmpDeviceServiceClient) GetDeviceInfo(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetDeviceInfo(ctx, &pb.GetDeviceInfoRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// OnBind calls the OnBind RPC.
-func (c *UmpDeviceServiceClient) OnBind(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.OnBind(ctx, &pb.OnBindRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// OnClose calls the OnClose RPC.
-func (c *UmpDeviceServiceClient) OnClose(ctx context.Context) error {
-	_, err := c.svc.OnClose(ctx, &pb.OnCloseRequest{})
-	return err
-}
-
-// OnCreate calls the OnCreate RPC.
-func (c *UmpDeviceServiceClient) OnCreate(ctx context.Context) error {
-	_, err := c.svc.OnCreate(ctx, &pb.OnCreateRequest{})
-	return err
-}
-
-// OnDeviceStatusChanged calls the OnDeviceStatusChanged RPC.
-func (c *UmpDeviceServiceClient) OnDeviceStatusChanged(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.OnDeviceStatusChanged(ctx, &pb.OnDeviceStatusChangedRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// DeviceServiceClient wraps the gRPC DeviceServiceService client.
-type DeviceServiceClient struct {
-	svc pb.DeviceServiceServiceClient
-}
-
-// NewDeviceServiceClient creates a new DeviceService client.
-func NewDeviceServiceClient(cc grpc.ClientConnInterface) *DeviceServiceClient {
-	return &DeviceServiceClient{
-		svc: pb.NewDeviceServiceServiceClient(cc),
-	}
-}
-
-// GetDeviceInfo calls the GetDeviceInfo RPC.
-func (c *DeviceServiceClient) GetDeviceInfo(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetDeviceInfo(ctx, &pb.GetDeviceInfoRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetOutputPortReceivers calls the GetOutputPortReceivers RPC.
-func (c *DeviceServiceClient) GetOutputPortReceivers(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetOutputPortReceivers(ctx, &pb.GetOutputPortReceiversRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// OnBind calls the OnBind RPC.
-func (c *DeviceServiceClient) OnBind(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.OnBind(ctx, &pb.OnBindRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// OnClose calls the OnClose RPC.
-func (c *DeviceServiceClient) OnClose(ctx context.Context) error {
-	_, err := c.svc.OnClose(ctx, &pb.OnCloseRequest{})
-	return err
-}
-
-// OnCreate calls the OnCreate RPC.
-func (c *DeviceServiceClient) OnCreate(ctx context.Context) error {
-	_, err := c.svc.OnCreate(ctx, &pb.OnCreateRequest{})
-	return err
-}
-
-// OnDeviceStatusChanged calls the OnDeviceStatusChanged RPC.
-func (c *DeviceServiceClient) OnDeviceStatusChanged(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.OnDeviceStatusChanged(ctx, &pb.OnDeviceStatusChangedRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// OnGetInputPortReceivers calls the OnGetInputPortReceivers RPC.
-func (c *DeviceServiceClient) OnGetInputPortReceivers(ctx context.Context) (int64, error) {
-	resp, err := c.svc.OnGetInputPortReceivers(ctx, &pb.OnGetInputPortReceiversRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
 // OutputPortClient wraps the gRPC OutputPortService client.
 type OutputPortClient struct {
 	svc pb.OutputPortServiceClient
@@ -589,163 +776,5 @@ func (c *OutputPortClient) OnDisconnect(ctx context.Context, arg0 int64) error {
 	_, err := c.svc.OnDisconnect(ctx, &pb.OnDisconnectRequest{
 		Arg0: arg0,
 	})
-	return err
-}
-
-// DeviceStatusClient wraps the gRPC DeviceStatusService client.
-type DeviceStatusClient struct {
-	svc pb.DeviceStatusServiceClient
-}
-
-// NewDeviceStatusClient creates a new DeviceStatus client.
-func NewDeviceStatusClient(cc grpc.ClientConnInterface) *DeviceStatusClient {
-	return &DeviceStatusClient{
-		svc: pb.NewDeviceStatusServiceClient(cc),
-	}
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *DeviceStatusClient) DescribeContents(ctx context.Context) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetDeviceInfo calls the GetDeviceInfo RPC.
-func (c *DeviceStatusClient) GetDeviceInfo(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetDeviceInfo(ctx, &pb.GetDeviceInfoRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetOutputPortOpenCount calls the GetOutputPortOpenCount RPC.
-func (c *DeviceStatusClient) GetOutputPortOpenCount(ctx context.Context, arg0 int32) (int32, error) {
-	resp, err := c.svc.GetOutputPortOpenCount(ctx, &pb.GetOutputPortOpenCountRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsInputPortOpen calls the IsInputPortOpen RPC.
-func (c *DeviceStatusClient) IsInputPortOpen(ctx context.Context, arg0 int32) (bool, error) {
-	resp, err := c.svc.IsInputPortOpen(ctx, &pb.IsInputPortOpenRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToString calls the ToString RPC.
-func (c *DeviceStatusClient) ToString(ctx context.Context) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *DeviceStatusClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// DeviceClient wraps the gRPC DeviceService client.
-type DeviceClient struct {
-	svc pb.DeviceServiceClient
-}
-
-// NewDeviceClient creates a new Device client.
-func NewDeviceClient(cc grpc.ClientConnInterface) *DeviceClient {
-	return &DeviceClient{
-		svc: pb.NewDeviceServiceClient(cc),
-	}
-}
-
-// Close calls the Close RPC.
-func (c *DeviceClient) Close(ctx context.Context) error {
-	_, err := c.svc.Close(ctx, &pb.CloseRequest{})
-	return err
-}
-
-// ConnectPorts calls the ConnectPorts RPC.
-func (c *DeviceClient) ConnectPorts(ctx context.Context, arg0 int64, arg1 int32) (int64, error) {
-	resp, err := c.svc.ConnectPorts(ctx, &pb.ConnectPortsRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetInfo calls the GetInfo RPC.
-func (c *DeviceClient) GetInfo(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetInfo(ctx, &pb.GetInfoRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// OpenInputPort calls the OpenInputPort RPC.
-func (c *DeviceClient) OpenInputPort(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.OpenInputPort(ctx, &pb.OpenInputPortRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// OpenOutputPort calls the OpenOutputPort RPC.
-func (c *DeviceClient) OpenOutputPort(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.OpenOutputPort(ctx, &pb.OpenOutputPortRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToString calls the ToString RPC.
-func (c *DeviceClient) ToString(ctx context.Context) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// DeviceMidiConnectionClient wraps the gRPC DeviceMidiConnectionService client.
-type DeviceMidiConnectionClient struct {
-	svc pb.DeviceMidiConnectionServiceClient
-}
-
-// NewDeviceMidiConnectionClient creates a new DeviceMidiConnection client.
-func NewDeviceMidiConnectionClient(cc grpc.ClientConnInterface) *DeviceMidiConnectionClient {
-	return &DeviceMidiConnectionClient{
-		svc: pb.NewDeviceMidiConnectionServiceClient(cc),
-	}
-}
-
-// Close calls the Close RPC.
-func (c *DeviceMidiConnectionClient) Close(ctx context.Context) error {
-	_, err := c.svc.Close(ctx, &pb.CloseRequest{})
 	return err
 }

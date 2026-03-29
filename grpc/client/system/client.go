@@ -9,268 +9,6 @@ import (
 	"google.golang.org/grpc"
 )
 
-// CleanerClient wraps the gRPC CleanerService client.
-type CleanerClient struct {
-	svc pb.CleanerServiceClient
-}
-
-// NewCleanerClient creates a new Cleaner client.
-func NewCleanerClient(cc grpc.ClientConnInterface) *CleanerClient {
-	return &CleanerClient{
-		svc: pb.NewCleanerServiceClient(cc),
-	}
-}
-
-// Cleaner calls the Cleaner RPC.
-func (c *CleanerClient) Cleaner(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Cleaner(ctx, &pb.CleanerRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// VmSocketAddressClient wraps the gRPC VmSocketAddressService client.
-type VmSocketAddressClient struct {
-	svc pb.VmSocketAddressServiceClient
-}
-
-// NewVmSocketAddressClient creates a new VmSocketAddress client.
-func NewVmSocketAddressClient(cc grpc.ClientConnInterface) *VmSocketAddressClient {
-	return &VmSocketAddressClient{
-		svc: pb.NewVmSocketAddressServiceClient(cc),
-	}
-}
-
-// GetSvmCid calls the GetSvmCid RPC.
-func (c *VmSocketAddressClient) GetSvmCid(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetSvmCid(ctx, &pb.GetSvmCidRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetSvmPort calls the GetSvmPort RPC.
-func (c *VmSocketAddressClient) GetSvmPort(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetSvmPort(ctx, &pb.GetSvmPortRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// StructStatClient wraps the gRPC StructStatService client.
-type StructStatClient struct {
-	svc pb.StructStatServiceClient
-}
-
-// NewStructStatClient creates a new StructStat client.
-func NewStructStatClient(cc grpc.ClientConnInterface) *StructStatClient {
-	return &StructStatClient{
-		svc: pb.NewStructStatServiceClient(cc),
-	}
-}
-
-// ToString calls the ToString RPC.
-func (c *StructStatClient) ToString(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// ErrnoExceptionClient wraps the gRPC ErrnoExceptionService client.
-type ErrnoExceptionClient struct {
-	svc pb.ErrnoExceptionServiceClient
-}
-
-// NewErrnoExceptionClient creates a new ErrnoException client.
-func NewErrnoExceptionClient(cc grpc.ClientConnInterface) *ErrnoExceptionClient {
-	return &ErrnoExceptionClient{
-		svc: pb.NewErrnoExceptionServiceClient(cc),
-	}
-}
-
-// GetMessage calls the GetMessage RPC.
-func (c *ErrnoExceptionClient) GetMessage(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.GetMessage(ctx, &pb.GetMessageRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// RethrowAsIOException calls the RethrowAsIOException RPC.
-func (c *ErrnoExceptionClient) RethrowAsIOException(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.RethrowAsIOException(ctx, &pb.RethrowAsIOExceptionRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// RethrowAsSocketException calls the RethrowAsSocketException RPC.
-func (c *ErrnoExceptionClient) RethrowAsSocketException(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.RethrowAsSocketException(ctx, &pb.RethrowAsSocketExceptionRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// StructStatVfsClient wraps the gRPC StructStatVfsService client.
-type StructStatVfsClient struct {
-	svc pb.StructStatVfsServiceClient
-}
-
-// NewStructStatVfsClient creates a new StructStatVfs client.
-func NewStructStatVfsClient(cc grpc.ClientConnInterface) *StructStatVfsClient {
-	return &StructStatVfsClient{
-		svc: pb.NewStructStatVfsServiceClient(cc),
-	}
-}
-
-// ToString calls the ToString RPC.
-func (c *StructStatVfsClient) ToString(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// StructTimespecClient wraps the gRPC StructTimespecService client.
-type StructTimespecClient struct {
-	svc pb.StructTimespecServiceClient
-}
-
-// NewStructTimespecClient creates a new StructTimespec client.
-func NewStructTimespecClient(cc grpc.ClientConnInterface) *StructTimespecClient {
-	return &StructTimespecClient{
-		svc: pb.NewStructTimespecServiceClient(cc),
-	}
-}
-
-// CompareTo1 calls the CompareTo1 RPC.
-func (c *StructTimespecClient) CompareTo1(ctx context.Context, handle int64, arg0 int64) (int32, error) {
-	resp, err := c.svc.CompareTo1(ctx, &pb.CompareTo1Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Equals calls the Equals RPC.
-func (c *StructTimespecClient) Equals(ctx context.Context, handle int64, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *StructTimespecClient) HashCode(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToString calls the ToString RPC.
-func (c *StructTimespecClient) ToString(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// CompareTo1_1 calls the CompareTo1_1 RPC.
-func (c *StructTimespecClient) CompareTo1_1(ctx context.Context, handle int64, arg0 int64) (int32, error) {
-	resp, err := c.svc.CompareTo1_1(ctx, &pb.CompareTo1_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Int64RefClient wraps the gRPC Int64RefService client.
-type Int64RefClient struct {
-	svc pb.Int64RefServiceClient
-}
-
-// NewInt64RefClient creates a new Int64Ref client.
-func NewInt64RefClient(cc grpc.ClientConnInterface) *Int64RefClient {
-	return &Int64RefClient{
-		svc: pb.NewInt64RefServiceClient(cc),
-	}
-}
-
-// ToString calls the ToString RPC.
-func (c *Int64RefClient) ToString(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// StructPollfdClient wraps the gRPC StructPollfdService client.
-type StructPollfdClient struct {
-	svc pb.StructPollfdServiceClient
-}
-
-// NewStructPollfdClient creates a new StructPollfd client.
-func NewStructPollfdClient(cc grpc.ClientConnInterface) *StructPollfdClient {
-	return &StructPollfdClient{
-		svc: pb.NewStructPollfdServiceClient(cc),
-	}
-}
-
-// ToString calls the ToString RPC.
-func (c *StructPollfdClient) ToString(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
 // OsConstantsClient wraps the gRPC OsConstantsService client.
 type OsConstantsClient struct {
 	svc pb.OsConstantsServiceClient
@@ -459,20 +197,88 @@ func (c *OsConstantsClient) GaiName(ctx context.Context, arg0 int32) (string, er
 	return resp.GetResult(), nil
 }
 
-// StructUtsnameClient wraps the gRPC StructUtsnameService client.
-type StructUtsnameClient struct {
-	svc pb.StructUtsnameServiceClient
+// ErrnoExceptionClient wraps the gRPC ErrnoExceptionService client.
+type ErrnoExceptionClient struct {
+	svc pb.ErrnoExceptionServiceClient
 }
 
-// NewStructUtsnameClient creates a new StructUtsname client.
-func NewStructUtsnameClient(cc grpc.ClientConnInterface) *StructUtsnameClient {
-	return &StructUtsnameClient{
-		svc: pb.NewStructUtsnameServiceClient(cc),
+// NewErrnoExceptionClient creates a new ErrnoException client.
+func NewErrnoExceptionClient(cc grpc.ClientConnInterface) *ErrnoExceptionClient {
+	return &ErrnoExceptionClient{
+		svc: pb.NewErrnoExceptionServiceClient(cc),
+	}
+}
+
+// GetMessage calls the GetMessage RPC.
+func (c *ErrnoExceptionClient) GetMessage(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetMessage(ctx, &pb.GetMessageRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// RethrowAsIOException calls the RethrowAsIOException RPC.
+func (c *ErrnoExceptionClient) RethrowAsIOException(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.RethrowAsIOException(ctx, &pb.RethrowAsIOExceptionRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// RethrowAsSocketException calls the RethrowAsSocketException RPC.
+func (c *ErrnoExceptionClient) RethrowAsSocketException(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.RethrowAsSocketException(ctx, &pb.RethrowAsSocketExceptionRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// StructPollfdClient wraps the gRPC StructPollfdService client.
+type StructPollfdClient struct {
+	svc pb.StructPollfdServiceClient
+}
+
+// NewStructPollfdClient creates a new StructPollfd client.
+func NewStructPollfdClient(cc grpc.ClientConnInterface) *StructPollfdClient {
+	return &StructPollfdClient{
+		svc: pb.NewStructPollfdServiceClient(cc),
 	}
 }
 
 // ToString calls the ToString RPC.
-func (c *StructUtsnameClient) ToString(ctx context.Context, handle int64) (string, error) {
+func (c *StructPollfdClient) ToString(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// Int64RefClient wraps the gRPC Int64RefService client.
+type Int64RefClient struct {
+	svc pb.Int64RefServiceClient
+}
+
+// NewInt64RefClient creates a new Int64Ref client.
+func NewInt64RefClient(cc grpc.ClientConnInterface) *Int64RefClient {
+	return &Int64RefClient{
+		svc: pb.NewInt64RefServiceClient(cc),
+	}
+}
+
+// ToString calls the ToString RPC.
+func (c *Int64RefClient) ToString(ctx context.Context, handle int64) (string, error) {
 	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{
 		Handle: handle,
 	})
@@ -496,7 +302,7 @@ func NewStructTimevalClient(cc grpc.ClientConnInterface) *StructTimevalClient {
 
 // Equals calls the Equals RPC.
 func (c *StructTimevalClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.StructTimevalEqualsRequest{
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
 		Arg0: arg0,
 	})
 	if err != nil {
@@ -507,7 +313,7 @@ func (c *StructTimevalClient) Equals(ctx context.Context, arg0 int64) (bool, err
 
 // HashCode calls the HashCode RPC.
 func (c *StructTimevalClient) HashCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.StructTimevalHashCodeRequest{})
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
 	if err != nil {
 		return 0, err
 	}
@@ -536,6 +342,99 @@ func (c *StructTimevalClient) ToString(ctx context.Context) (string, error) {
 func (c *StructTimevalClient) FromMillis(ctx context.Context, arg0 int64) (int64, error) {
 	resp, err := c.svc.FromMillis(ctx, &pb.FromMillisRequest{
 		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// StructUtsnameClient wraps the gRPC StructUtsnameService client.
+type StructUtsnameClient struct {
+	svc pb.StructUtsnameServiceClient
+}
+
+// NewStructUtsnameClient creates a new StructUtsname client.
+func NewStructUtsnameClient(cc grpc.ClientConnInterface) *StructUtsnameClient {
+	return &StructUtsnameClient{
+		svc: pb.NewStructUtsnameServiceClient(cc),
+	}
+}
+
+// ToString calls the ToString RPC.
+func (c *StructUtsnameClient) ToString(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// StructTimespecClient wraps the gRPC StructTimespecService client.
+type StructTimespecClient struct {
+	svc pb.StructTimespecServiceClient
+}
+
+// NewStructTimespecClient creates a new StructTimespec client.
+func NewStructTimespecClient(cc grpc.ClientConnInterface) *StructTimespecClient {
+	return &StructTimespecClient{
+		svc: pb.NewStructTimespecServiceClient(cc),
+	}
+}
+
+// CompareTo1 calls the CompareTo1 RPC.
+func (c *StructTimespecClient) CompareTo1(ctx context.Context, handle int64, arg0 int64) (int32, error) {
+	resp, err := c.svc.CompareTo1(ctx, &pb.CompareTo1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *StructTimespecClient) Equals(ctx context.Context, handle int64, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.StructTimespecEqualsRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *StructTimespecClient) HashCode(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.StructTimespecHashCodeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *StructTimespecClient) ToString(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// CompareTo1_1 calls the CompareTo1_1 RPC.
+func (c *StructTimespecClient) CompareTo1_1(ctx context.Context, handle int64, arg0 int64) (int32, error) {
+	resp, err := c.svc.CompareTo1_1(ctx, &pb.CompareTo1_1Request{
+		Handle: handle,
+		Arg0:   arg0,
 	})
 	if err != nil {
 		return 0, err
@@ -1610,6 +1509,107 @@ func (c *OsClient) Writev(ctx context.Context, arg0 int64, arg1 int64, arg2 int6
 	})
 	if err != nil {
 		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CleanerClient wraps the gRPC CleanerService client.
+type CleanerClient struct {
+	svc pb.CleanerServiceClient
+}
+
+// NewCleanerClient creates a new Cleaner client.
+func NewCleanerClient(cc grpc.ClientConnInterface) *CleanerClient {
+	return &CleanerClient{
+		svc: pb.NewCleanerServiceClient(cc),
+	}
+}
+
+// Cleaner calls the Cleaner RPC.
+func (c *CleanerClient) Cleaner(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Cleaner(ctx, &pb.CleanerRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// VmSocketAddressClient wraps the gRPC VmSocketAddressService client.
+type VmSocketAddressClient struct {
+	svc pb.VmSocketAddressServiceClient
+}
+
+// NewVmSocketAddressClient creates a new VmSocketAddress client.
+func NewVmSocketAddressClient(cc grpc.ClientConnInterface) *VmSocketAddressClient {
+	return &VmSocketAddressClient{
+		svc: pb.NewVmSocketAddressServiceClient(cc),
+	}
+}
+
+// GetSvmCid calls the GetSvmCid RPC.
+func (c *VmSocketAddressClient) GetSvmCid(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetSvmCid(ctx, &pb.GetSvmCidRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSvmPort calls the GetSvmPort RPC.
+func (c *VmSocketAddressClient) GetSvmPort(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetSvmPort(ctx, &pb.GetSvmPortRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// StructStatVfsClient wraps the gRPC StructStatVfsService client.
+type StructStatVfsClient struct {
+	svc pb.StructStatVfsServiceClient
+}
+
+// NewStructStatVfsClient creates a new StructStatVfs client.
+func NewStructStatVfsClient(cc grpc.ClientConnInterface) *StructStatVfsClient {
+	return &StructStatVfsClient{
+		svc: pb.NewStructStatVfsServiceClient(cc),
+	}
+}
+
+// ToString calls the ToString RPC.
+func (c *StructStatVfsClient) ToString(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// StructStatClient wraps the gRPC StructStatService client.
+type StructStatClient struct {
+	svc pb.StructStatServiceClient
+}
+
+// NewStructStatClient creates a new StructStat client.
+func NewStructStatClient(cc grpc.ClientConnInterface) *StructStatClient {
+	return &StructStatClient{
+		svc: pb.NewStructStatServiceClient(cc),
+	}
+}
+
+// ToString calls the ToString RPC.
+func (c *StructStatClient) ToString(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
 	}
 	return resp.GetResult(), nil
 }

@@ -22,12 +22,14 @@ const _ = grpc.SupportPackageIsVersion9
 
 const (
 	MediaRecorderService_NewMediaRecorder_FullMethodName                     = "/recorder.MediaRecorderService/NewMediaRecorder"
+	MediaRecorderService_GetActiveMicrophones_FullMethodName                 = "/recorder.MediaRecorderService/GetActiveMicrophones"
 	MediaRecorderService_GetActiveRecordingConfiguration_FullMethodName      = "/recorder.MediaRecorderService/GetActiveRecordingConfiguration"
 	MediaRecorderService_GetLogSessionId_FullMethodName                      = "/recorder.MediaRecorderService/GetLogSessionId"
 	MediaRecorderService_GetMaxAmplitude_FullMethodName                      = "/recorder.MediaRecorderService/GetMaxAmplitude"
 	MediaRecorderService_GetMetrics_FullMethodName                           = "/recorder.MediaRecorderService/GetMetrics"
 	MediaRecorderService_GetPreferredDevice_FullMethodName                   = "/recorder.MediaRecorderService/GetPreferredDevice"
 	MediaRecorderService_GetRoutedDevice_FullMethodName                      = "/recorder.MediaRecorderService/GetRoutedDevice"
+	MediaRecorderService_GetRoutedDevices_FullMethodName                     = "/recorder.MediaRecorderService/GetRoutedDevices"
 	MediaRecorderService_GetSurface_FullMethodName                           = "/recorder.MediaRecorderService/GetSurface"
 	MediaRecorderService_IsPrivacySensitive_FullMethodName                   = "/recorder.MediaRecorderService/IsPrivacySensitive"
 	MediaRecorderService_Pause_FullMethodName                                = "/recorder.MediaRecorderService/Pause"
@@ -83,12 +85,14 @@ const (
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type MediaRecorderServiceClient interface {
 	NewMediaRecorder(ctx context.Context, in *NewMediaRecorderRequest, opts ...grpc.CallOption) (*NewMediaRecorderResponse, error)
+	GetActiveMicrophones(ctx context.Context, in *GetActiveMicrophonesRequest, opts ...grpc.CallOption) (*GetActiveMicrophonesResponse, error)
 	GetActiveRecordingConfiguration(ctx context.Context, in *GetActiveRecordingConfigurationRequest, opts ...grpc.CallOption) (*GetActiveRecordingConfigurationResponse, error)
 	GetLogSessionId(ctx context.Context, in *GetLogSessionIdRequest, opts ...grpc.CallOption) (*GetLogSessionIdResponse, error)
 	GetMaxAmplitude(ctx context.Context, in *GetMaxAmplitudeRequest, opts ...grpc.CallOption) (*GetMaxAmplitudeResponse, error)
 	GetMetrics(ctx context.Context, in *GetMetricsRequest, opts ...grpc.CallOption) (*GetMetricsResponse, error)
 	GetPreferredDevice(ctx context.Context, in *GetPreferredDeviceRequest, opts ...grpc.CallOption) (*GetPreferredDeviceResponse, error)
 	GetRoutedDevice(ctx context.Context, in *GetRoutedDeviceRequest, opts ...grpc.CallOption) (*GetRoutedDeviceResponse, error)
+	GetRoutedDevices(ctx context.Context, in *GetRoutedDevicesRequest, opts ...grpc.CallOption) (*GetRoutedDevicesResponse, error)
 	GetSurface(ctx context.Context, in *GetSurfaceRequest, opts ...grpc.CallOption) (*GetSurfaceResponse, error)
 	IsPrivacySensitive(ctx context.Context, in *IsPrivacySensitiveRequest, opts ...grpc.CallOption) (*IsPrivacySensitiveResponse, error)
 	Pause(ctx context.Context, in *PauseRequest, opts ...grpc.CallOption) (*PauseResponse, error)
@@ -157,6 +161,16 @@ func (c *mediaRecorderServiceClient) NewMediaRecorder(ctx context.Context, in *N
 	return out, nil
 }
 
+func (c *mediaRecorderServiceClient) GetActiveMicrophones(ctx context.Context, in *GetActiveMicrophonesRequest, opts ...grpc.CallOption) (*GetActiveMicrophonesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetActiveMicrophonesResponse)
+	err := c.cc.Invoke(ctx, MediaRecorderService_GetActiveMicrophones_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *mediaRecorderServiceClient) GetActiveRecordingConfiguration(ctx context.Context, in *GetActiveRecordingConfigurationRequest, opts ...grpc.CallOption) (*GetActiveRecordingConfigurationResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetActiveRecordingConfigurationResponse)
@@ -211,6 +225,16 @@ func (c *mediaRecorderServiceClient) GetRoutedDevice(ctx context.Context, in *Ge
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetRoutedDeviceResponse)
 	err := c.cc.Invoke(ctx, MediaRecorderService_GetRoutedDevice_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *mediaRecorderServiceClient) GetRoutedDevices(ctx context.Context, in *GetRoutedDevicesRequest, opts ...grpc.CallOption) (*GetRoutedDevicesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetRoutedDevicesResponse)
+	err := c.cc.Invoke(ctx, MediaRecorderService_GetRoutedDevices_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -702,12 +726,14 @@ func (c *mediaRecorderServiceClient) GetAudioSourceMax(ctx context.Context, in *
 // for forward compatibility.
 type MediaRecorderServiceServer interface {
 	NewMediaRecorder(context.Context, *NewMediaRecorderRequest) (*NewMediaRecorderResponse, error)
+	GetActiveMicrophones(context.Context, *GetActiveMicrophonesRequest) (*GetActiveMicrophonesResponse, error)
 	GetActiveRecordingConfiguration(context.Context, *GetActiveRecordingConfigurationRequest) (*GetActiveRecordingConfigurationResponse, error)
 	GetLogSessionId(context.Context, *GetLogSessionIdRequest) (*GetLogSessionIdResponse, error)
 	GetMaxAmplitude(context.Context, *GetMaxAmplitudeRequest) (*GetMaxAmplitudeResponse, error)
 	GetMetrics(context.Context, *GetMetricsRequest) (*GetMetricsResponse, error)
 	GetPreferredDevice(context.Context, *GetPreferredDeviceRequest) (*GetPreferredDeviceResponse, error)
 	GetRoutedDevice(context.Context, *GetRoutedDeviceRequest) (*GetRoutedDeviceResponse, error)
+	GetRoutedDevices(context.Context, *GetRoutedDevicesRequest) (*GetRoutedDevicesResponse, error)
 	GetSurface(context.Context, *GetSurfaceRequest) (*GetSurfaceResponse, error)
 	IsPrivacySensitive(context.Context, *IsPrivacySensitiveRequest) (*IsPrivacySensitiveResponse, error)
 	Pause(context.Context, *PauseRequest) (*PauseResponse, error)
@@ -769,6 +795,9 @@ type UnimplementedMediaRecorderServiceServer struct{}
 func (UnimplementedMediaRecorderServiceServer) NewMediaRecorder(context.Context, *NewMediaRecorderRequest) (*NewMediaRecorderResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method NewMediaRecorder not implemented")
 }
+func (UnimplementedMediaRecorderServiceServer) GetActiveMicrophones(context.Context, *GetActiveMicrophonesRequest) (*GetActiveMicrophonesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetActiveMicrophones not implemented")
+}
 func (UnimplementedMediaRecorderServiceServer) GetActiveRecordingConfiguration(context.Context, *GetActiveRecordingConfigurationRequest) (*GetActiveRecordingConfigurationResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetActiveRecordingConfiguration not implemented")
 }
@@ -786,6 +815,9 @@ func (UnimplementedMediaRecorderServiceServer) GetPreferredDevice(context.Contex
 }
 func (UnimplementedMediaRecorderServiceServer) GetRoutedDevice(context.Context, *GetRoutedDeviceRequest) (*GetRoutedDeviceResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetRoutedDevice not implemented")
+}
+func (UnimplementedMediaRecorderServiceServer) GetRoutedDevices(context.Context, *GetRoutedDevicesRequest) (*GetRoutedDevicesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetRoutedDevices not implemented")
 }
 func (UnimplementedMediaRecorderServiceServer) GetSurface(context.Context, *GetSurfaceRequest) (*GetSurfaceResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetSurface not implemented")
@@ -970,6 +1002,24 @@ func _MediaRecorderService_NewMediaRecorder_Handler(srv interface{}, ctx context
 	return interceptor(ctx, in, info, handler)
 }
 
+func _MediaRecorderService_GetActiveMicrophones_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetActiveMicrophonesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MediaRecorderServiceServer).GetActiveMicrophones(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: MediaRecorderService_GetActiveMicrophones_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MediaRecorderServiceServer).GetActiveMicrophones(ctx, req.(*GetActiveMicrophonesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _MediaRecorderService_GetActiveRecordingConfiguration_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetActiveRecordingConfigurationRequest)
 	if err := dec(in); err != nil {
@@ -1074,6 +1124,24 @@ func _MediaRecorderService_GetRoutedDevice_Handler(srv interface{}, ctx context.
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(MediaRecorderServiceServer).GetRoutedDevice(ctx, req.(*GetRoutedDeviceRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _MediaRecorderService_GetRoutedDevices_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetRoutedDevicesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MediaRecorderServiceServer).GetRoutedDevices(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: MediaRecorderService_GetRoutedDevices_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MediaRecorderServiceServer).GetRoutedDevices(ctx, req.(*GetRoutedDevicesRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -1954,6 +2022,10 @@ var MediaRecorderService_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _MediaRecorderService_NewMediaRecorder_Handler,
 		},
 		{
+			MethodName: "GetActiveMicrophones",
+			Handler:    _MediaRecorderService_GetActiveMicrophones_Handler,
+		},
+		{
 			MethodName: "GetActiveRecordingConfiguration",
 			Handler:    _MediaRecorderService_GetActiveRecordingConfiguration_Handler,
 		},
@@ -1976,6 +2048,10 @@ var MediaRecorderService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetRoutedDevice",
 			Handler:    _MediaRecorderService_GetRoutedDevice_Handler,
+		},
+		{
+			MethodName: "GetRoutedDevices",
+			Handler:    _MediaRecorderService_GetRoutedDevices_Handler,
 		},
 		{
 			MethodName: "GetSurface",

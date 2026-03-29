@@ -23,94 +23,6 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-type GetRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetRequest) Reset() {
-	*x = GetRequest{}
-	mi := &file_proto_signals_signals_proto_msgTypes[0]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetRequest) ProtoMessage() {}
-
-func (x *GetRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_signals_signals_proto_msgTypes[0]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetRequest.ProtoReflect.Descriptor instead.
-func (*GetRequest) Descriptor() ([]byte, []int) {
-	return file_proto_signals_signals_proto_rawDescGZIP(), []int{0}
-}
-
-func (x *GetRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type GetResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetResponse) Reset() {
-	*x = GetResponse{}
-	mi := &file_proto_signals_signals_proto_msgTypes[1]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetResponse) ProtoMessage() {}
-
-func (x *GetResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_signals_signals_proto_msgTypes[1]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetResponse.ProtoReflect.Descriptor instead.
-func (*GetResponse) Descriptor() ([]byte, []int) {
-	return file_proto_signals_signals_proto_rawDescGZIP(), []int{1}
-}
-
-func (x *GetResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
 type EqualsRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
@@ -120,7 +32,7 @@ type EqualsRequest struct {
 
 func (x *EqualsRequest) Reset() {
 	*x = EqualsRequest{}
-	mi := &file_proto_signals_signals_proto_msgTypes[2]
+	mi := &file_proto_signals_signals_proto_msgTypes[0]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -132,7 +44,7 @@ func (x *EqualsRequest) String() string {
 func (*EqualsRequest) ProtoMessage() {}
 
 func (x *EqualsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_signals_signals_proto_msgTypes[2]
+	mi := &file_proto_signals_signals_proto_msgTypes[0]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -145,7 +57,7 @@ func (x *EqualsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use EqualsRequest.ProtoReflect.Descriptor instead.
 func (*EqualsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_signals_signals_proto_rawDescGZIP(), []int{2}
+	return file_proto_signals_signals_proto_rawDescGZIP(), []int{0}
 }
 
 func (x *EqualsRequest) GetArg0() int64 {
@@ -164,7 +76,7 @@ type EqualsResponse struct {
 
 func (x *EqualsResponse) Reset() {
 	*x = EqualsResponse{}
-	mi := &file_proto_signals_signals_proto_msgTypes[3]
+	mi := &file_proto_signals_signals_proto_msgTypes[1]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -176,7 +88,7 @@ func (x *EqualsResponse) String() string {
 func (*EqualsResponse) ProtoMessage() {}
 
 func (x *EqualsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_signals_signals_proto_msgTypes[3]
+	mi := &file_proto_signals_signals_proto_msgTypes[1]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -189,7 +101,7 @@ func (x *EqualsResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use EqualsResponse.ProtoReflect.Descriptor instead.
 func (*EqualsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_signals_signals_proto_rawDescGZIP(), []int{3}
+	return file_proto_signals_signals_proto_rawDescGZIP(), []int{1}
 }
 
 func (x *EqualsResponse) GetResult() bool {
@@ -207,7 +119,7 @@ type GetUpdateUriRequest struct {
 
 func (x *GetUpdateUriRequest) Reset() {
 	*x = GetUpdateUriRequest{}
-	mi := &file_proto_signals_signals_proto_msgTypes[4]
+	mi := &file_proto_signals_signals_proto_msgTypes[2]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -219,7 +131,7 @@ func (x *GetUpdateUriRequest) String() string {
 func (*GetUpdateUriRequest) ProtoMessage() {}
 
 func (x *GetUpdateUriRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_signals_signals_proto_msgTypes[4]
+	mi := &file_proto_signals_signals_proto_msgTypes[2]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -232,7 +144,7 @@ func (x *GetUpdateUriRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetUpdateUriRequest.ProtoReflect.Descriptor instead.
 func (*GetUpdateUriRequest) Descriptor() ([]byte, []int) {
-	return file_proto_signals_signals_proto_rawDescGZIP(), []int{4}
+	return file_proto_signals_signals_proto_rawDescGZIP(), []int{2}
 }
 
 type GetUpdateUriResponse struct {
@@ -244,7 +156,7 @@ type GetUpdateUriResponse struct {
 
 func (x *GetUpdateUriResponse) Reset() {
 	*x = GetUpdateUriResponse{}
-	mi := &file_proto_signals_signals_proto_msgTypes[5]
+	mi := &file_proto_signals_signals_proto_msgTypes[3]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -256,7 +168,7 @@ func (x *GetUpdateUriResponse) String() string {
 func (*GetUpdateUriResponse) ProtoMessage() {}
 
 func (x *GetUpdateUriResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_signals_signals_proto_msgTypes[5]
+	mi := &file_proto_signals_signals_proto_msgTypes[3]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -269,7 +181,7 @@ func (x *GetUpdateUriResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetUpdateUriResponse.ProtoReflect.Descriptor instead.
 func (*GetUpdateUriResponse) Descriptor() ([]byte, []int) {
-	return file_proto_signals_signals_proto_rawDescGZIP(), []int{5}
+	return file_proto_signals_signals_proto_rawDescGZIP(), []int{3}
 }
 
 func (x *GetUpdateUriResponse) GetResult() int64 {
@@ -287,7 +199,7 @@ type HashCodeRequest struct {
 
 func (x *HashCodeRequest) Reset() {
 	*x = HashCodeRequest{}
-	mi := &file_proto_signals_signals_proto_msgTypes[6]
+	mi := &file_proto_signals_signals_proto_msgTypes[4]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -299,7 +211,7 @@ func (x *HashCodeRequest) String() string {
 func (*HashCodeRequest) ProtoMessage() {}
 
 func (x *HashCodeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_signals_signals_proto_msgTypes[6]
+	mi := &file_proto_signals_signals_proto_msgTypes[4]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -312,7 +224,7 @@ func (x *HashCodeRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use HashCodeRequest.ProtoReflect.Descriptor instead.
 func (*HashCodeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_signals_signals_proto_rawDescGZIP(), []int{6}
+	return file_proto_signals_signals_proto_rawDescGZIP(), []int{4}
 }
 
 type HashCodeResponse struct {
@@ -324,7 +236,7 @@ type HashCodeResponse struct {
 
 func (x *HashCodeResponse) Reset() {
 	*x = HashCodeResponse{}
-	mi := &file_proto_signals_signals_proto_msgTypes[7]
+	mi := &file_proto_signals_signals_proto_msgTypes[5]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -336,7 +248,7 @@ func (x *HashCodeResponse) String() string {
 func (*HashCodeResponse) ProtoMessage() {}
 
 func (x *HashCodeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_signals_signals_proto_msgTypes[7]
+	mi := &file_proto_signals_signals_proto_msgTypes[5]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -349,7 +261,7 @@ func (x *HashCodeResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use HashCodeResponse.ProtoReflect.Descriptor instead.
 func (*HashCodeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_signals_signals_proto_rawDescGZIP(), []int{7}
+	return file_proto_signals_signals_proto_rawDescGZIP(), []int{5}
 }
 
 func (x *HashCodeResponse) GetResult() int32 {
@@ -367,7 +279,7 @@ type ToStringRequest struct {
 
 func (x *ToStringRequest) Reset() {
 	*x = ToStringRequest{}
-	mi := &file_proto_signals_signals_proto_msgTypes[8]
+	mi := &file_proto_signals_signals_proto_msgTypes[6]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -379,7 +291,7 @@ func (x *ToStringRequest) String() string {
 func (*ToStringRequest) ProtoMessage() {}
 
 func (x *ToStringRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_signals_signals_proto_msgTypes[8]
+	mi := &file_proto_signals_signals_proto_msgTypes[6]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -392,7 +304,7 @@ func (x *ToStringRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ToStringRequest.ProtoReflect.Descriptor instead.
 func (*ToStringRequest) Descriptor() ([]byte, []int) {
-	return file_proto_signals_signals_proto_rawDescGZIP(), []int{8}
+	return file_proto_signals_signals_proto_rawDescGZIP(), []int{6}
 }
 
 type ToStringResponse struct {
@@ -404,7 +316,7 @@ type ToStringResponse struct {
 
 func (x *ToStringResponse) Reset() {
 	*x = ToStringResponse{}
-	mi := &file_proto_signals_signals_proto_msgTypes[9]
+	mi := &file_proto_signals_signals_proto_msgTypes[7]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -416,7 +328,7 @@ func (x *ToStringResponse) String() string {
 func (*ToStringResponse) ProtoMessage() {}
 
 func (x *ToStringResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_signals_signals_proto_msgTypes[9]
+	mi := &file_proto_signals_signals_proto_msgTypes[7]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -429,7 +341,7 @@ func (x *ToStringResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ToStringResponse.ProtoReflect.Descriptor instead.
 func (*ToStringResponse) Descriptor() ([]byte, []int) {
-	return file_proto_signals_signals_proto_rawDescGZIP(), []int{9}
+	return file_proto_signals_signals_proto_rawDescGZIP(), []int{7}
 }
 
 func (x *ToStringResponse) GetResult() string {
@@ -447,7 +359,7 @@ type BuildRequest struct {
 
 func (x *BuildRequest) Reset() {
 	*x = BuildRequest{}
-	mi := &file_proto_signals_signals_proto_msgTypes[10]
+	mi := &file_proto_signals_signals_proto_msgTypes[8]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -459,7 +371,7 @@ func (x *BuildRequest) String() string {
 func (*BuildRequest) ProtoMessage() {}
 
 func (x *BuildRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_signals_signals_proto_msgTypes[10]
+	mi := &file_proto_signals_signals_proto_msgTypes[8]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -472,7 +384,7 @@ func (x *BuildRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use BuildRequest.ProtoReflect.Descriptor instead.
 func (*BuildRequest) Descriptor() ([]byte, []int) {
-	return file_proto_signals_signals_proto_rawDescGZIP(), []int{10}
+	return file_proto_signals_signals_proto_rawDescGZIP(), []int{8}
 }
 
 type BuildResponse struct {
@@ -484,7 +396,7 @@ type BuildResponse struct {
 
 func (x *BuildResponse) Reset() {
 	*x = BuildResponse{}
-	mi := &file_proto_signals_signals_proto_msgTypes[11]
+	mi := &file_proto_signals_signals_proto_msgTypes[9]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -496,7 +408,7 @@ func (x *BuildResponse) String() string {
 func (*BuildResponse) ProtoMessage() {}
 
 func (x *BuildResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_signals_signals_proto_msgTypes[11]
+	mi := &file_proto_signals_signals_proto_msgTypes[9]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -509,7 +421,7 @@ func (x *BuildResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use BuildResponse.ProtoReflect.Descriptor instead.
 func (*BuildResponse) Descriptor() ([]byte, []int) {
-	return file_proto_signals_signals_proto_rawDescGZIP(), []int{11}
+	return file_proto_signals_signals_proto_rawDescGZIP(), []int{9}
 }
 
 func (x *BuildResponse) GetResult() int64 {
@@ -528,7 +440,7 @@ type SetUpdateUriRequest struct {
 
 func (x *SetUpdateUriRequest) Reset() {
 	*x = SetUpdateUriRequest{}
-	mi := &file_proto_signals_signals_proto_msgTypes[12]
+	mi := &file_proto_signals_signals_proto_msgTypes[10]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -540,7 +452,7 @@ func (x *SetUpdateUriRequest) String() string {
 func (*SetUpdateUriRequest) ProtoMessage() {}
 
 func (x *SetUpdateUriRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_signals_signals_proto_msgTypes[12]
+	mi := &file_proto_signals_signals_proto_msgTypes[10]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -553,7 +465,7 @@ func (x *SetUpdateUriRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetUpdateUriRequest.ProtoReflect.Descriptor instead.
 func (*SetUpdateUriRequest) Descriptor() ([]byte, []int) {
-	return file_proto_signals_signals_proto_rawDescGZIP(), []int{12}
+	return file_proto_signals_signals_proto_rawDescGZIP(), []int{10}
 }
 
 func (x *SetUpdateUriRequest) GetArg0() int64 {
@@ -572,7 +484,7 @@ type SetUpdateUriResponse struct {
 
 func (x *SetUpdateUriResponse) Reset() {
 	*x = SetUpdateUriResponse{}
-	mi := &file_proto_signals_signals_proto_msgTypes[13]
+	mi := &file_proto_signals_signals_proto_msgTypes[11]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -584,7 +496,7 @@ func (x *SetUpdateUriResponse) String() string {
 func (*SetUpdateUriResponse) ProtoMessage() {}
 
 func (x *SetUpdateUriResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_signals_signals_proto_msgTypes[13]
+	mi := &file_proto_signals_signals_proto_msgTypes[11]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -597,10 +509,98 @@ func (x *SetUpdateUriResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetUpdateUriResponse.ProtoReflect.Descriptor instead.
 func (*SetUpdateUriResponse) Descriptor() ([]byte, []int) {
-	return file_proto_signals_signals_proto_rawDescGZIP(), []int{13}
+	return file_proto_signals_signals_proto_rawDescGZIP(), []int{11}
 }
 
 func (x *SetUpdateUriResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetRequest) Reset() {
+	*x = GetRequest{}
+	mi := &file_proto_signals_signals_proto_msgTypes[12]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetRequest) ProtoMessage() {}
+
+func (x *GetRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_signals_signals_proto_msgTypes[12]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetRequest.ProtoReflect.Descriptor instead.
+func (*GetRequest) Descriptor() ([]byte, []int) {
+	return file_proto_signals_signals_proto_rawDescGZIP(), []int{12}
+}
+
+func (x *GetRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type GetResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetResponse) Reset() {
+	*x = GetResponse{}
+	mi := &file_proto_signals_signals_proto_msgTypes[13]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetResponse) ProtoMessage() {}
+
+func (x *GetResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_signals_signals_proto_msgTypes[13]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetResponse.ProtoReflect.Descriptor instead.
+func (*GetResponse) Descriptor() ([]byte, []int) {
+	return file_proto_signals_signals_proto_rawDescGZIP(), []int{13}
+}
+
+func (x *GetResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
@@ -611,12 +611,7 @@ var File_proto_signals_signals_proto protoreflect.FileDescriptor
 
 const file_proto_signals_signals_proto_rawDesc = "" +
 	"\n" +
-	"\x1bproto/signals/signals.proto\x12\asignals\" \n" +
-	"\n" +
-	"GetRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"%\n" +
-	"\vGetResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"#\n" +
+	"\x1bproto/signals/signals.proto\x12\asignals\"#\n" +
 	"\rEqualsRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"(\n" +
 	"\x0eEqualsResponse\x12\x16\n" +
@@ -636,9 +631,12 @@ const file_proto_signals_signals_proto_rawDesc = "" +
 	"\x13SetUpdateUriRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\".\n" +
 	"\x14SetUpdateUriResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result2R\n" +
-	"\x1eProtectedSignalsManagerService\x120\n" +
-	"\x03Get\x12\x13.signals.GetRequest\x1a\x14.signals.GetResponse2\xa7\x02\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\" \n" +
+	"\n" +
+	"GetRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"%\n" +
+	"\vGetResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result2\xa7\x02\n" +
 	"\x1bUpdateSignalsRequestService\x129\n" +
 	"\x06Equals\x12\x16.signals.EqualsRequest\x1a\x17.signals.EqualsResponse\x12K\n" +
 	"\fGetUpdateUri\x12\x1c.signals.GetUpdateUriRequest\x1a\x1d.signals.GetUpdateUriResponse\x12?\n" +
@@ -646,7 +644,9 @@ const file_proto_signals_signals_proto_rawDesc = "" +
 	"\bToString\x12\x18.signals.ToStringRequest\x1a\x19.signals.ToStringResponse2\xa9\x01\n" +
 	"\"UpdateSignalsRequestBuilderService\x126\n" +
 	"\x05Build\x12\x15.signals.BuildRequest\x1a\x16.signals.BuildResponse\x12K\n" +
-	"\fSetUpdateUri\x12\x1c.signals.SetUpdateUriRequest\x1a\x1d.signals.SetUpdateUriResponseB1Z/github.com/AndroidGoLab/jni-proxy/proto/signalsb\x06proto3"
+	"\fSetUpdateUri\x12\x1c.signals.SetUpdateUriRequest\x1a\x1d.signals.SetUpdateUriResponse2R\n" +
+	"\x1eProtectedSignalsManagerService\x120\n" +
+	"\x03Get\x12\x13.signals.GetRequest\x1a\x14.signals.GetResponseB1Z/github.com/AndroidGoLab/jni-proxy/proto/signalsb\x06proto3"
 
 var (
 	file_proto_signals_signals_proto_rawDescOnce sync.Once
@@ -662,36 +662,36 @@ func file_proto_signals_signals_proto_rawDescGZIP() []byte {
 
 var file_proto_signals_signals_proto_msgTypes = make([]protoimpl.MessageInfo, 14)
 var file_proto_signals_signals_proto_goTypes = []any{
-	(*GetRequest)(nil),           // 0: signals.GetRequest
-	(*GetResponse)(nil),          // 1: signals.GetResponse
-	(*EqualsRequest)(nil),        // 2: signals.EqualsRequest
-	(*EqualsResponse)(nil),       // 3: signals.EqualsResponse
-	(*GetUpdateUriRequest)(nil),  // 4: signals.GetUpdateUriRequest
-	(*GetUpdateUriResponse)(nil), // 5: signals.GetUpdateUriResponse
-	(*HashCodeRequest)(nil),      // 6: signals.HashCodeRequest
-	(*HashCodeResponse)(nil),     // 7: signals.HashCodeResponse
-	(*ToStringRequest)(nil),      // 8: signals.ToStringRequest
-	(*ToStringResponse)(nil),     // 9: signals.ToStringResponse
-	(*BuildRequest)(nil),         // 10: signals.BuildRequest
-	(*BuildResponse)(nil),        // 11: signals.BuildResponse
-	(*SetUpdateUriRequest)(nil),  // 12: signals.SetUpdateUriRequest
-	(*SetUpdateUriResponse)(nil), // 13: signals.SetUpdateUriResponse
+	(*EqualsRequest)(nil),        // 0: signals.EqualsRequest
+	(*EqualsResponse)(nil),       // 1: signals.EqualsResponse
+	(*GetUpdateUriRequest)(nil),  // 2: signals.GetUpdateUriRequest
+	(*GetUpdateUriResponse)(nil), // 3: signals.GetUpdateUriResponse
+	(*HashCodeRequest)(nil),      // 4: signals.HashCodeRequest
+	(*HashCodeResponse)(nil),     // 5: signals.HashCodeResponse
+	(*ToStringRequest)(nil),      // 6: signals.ToStringRequest
+	(*ToStringResponse)(nil),     // 7: signals.ToStringResponse
+	(*BuildRequest)(nil),         // 8: signals.BuildRequest
+	(*BuildResponse)(nil),        // 9: signals.BuildResponse
+	(*SetUpdateUriRequest)(nil),  // 10: signals.SetUpdateUriRequest
+	(*SetUpdateUriResponse)(nil), // 11: signals.SetUpdateUriResponse
+	(*GetRequest)(nil),           // 12: signals.GetRequest
+	(*GetResponse)(nil),          // 13: signals.GetResponse
 }
 var file_proto_signals_signals_proto_depIdxs = []int32{
-	0,  // 0: signals.ProtectedSignalsManagerService.Get:input_type -> signals.GetRequest
-	2,  // 1: signals.UpdateSignalsRequestService.Equals:input_type -> signals.EqualsRequest
-	4,  // 2: signals.UpdateSignalsRequestService.GetUpdateUri:input_type -> signals.GetUpdateUriRequest
-	6,  // 3: signals.UpdateSignalsRequestService.HashCode:input_type -> signals.HashCodeRequest
-	8,  // 4: signals.UpdateSignalsRequestService.ToString:input_type -> signals.ToStringRequest
-	10, // 5: signals.UpdateSignalsRequestBuilderService.Build:input_type -> signals.BuildRequest
-	12, // 6: signals.UpdateSignalsRequestBuilderService.SetUpdateUri:input_type -> signals.SetUpdateUriRequest
-	1,  // 7: signals.ProtectedSignalsManagerService.Get:output_type -> signals.GetResponse
-	3,  // 8: signals.UpdateSignalsRequestService.Equals:output_type -> signals.EqualsResponse
-	5,  // 9: signals.UpdateSignalsRequestService.GetUpdateUri:output_type -> signals.GetUpdateUriResponse
-	7,  // 10: signals.UpdateSignalsRequestService.HashCode:output_type -> signals.HashCodeResponse
-	9,  // 11: signals.UpdateSignalsRequestService.ToString:output_type -> signals.ToStringResponse
-	11, // 12: signals.UpdateSignalsRequestBuilderService.Build:output_type -> signals.BuildResponse
-	13, // 13: signals.UpdateSignalsRequestBuilderService.SetUpdateUri:output_type -> signals.SetUpdateUriResponse
+	0,  // 0: signals.UpdateSignalsRequestService.Equals:input_type -> signals.EqualsRequest
+	2,  // 1: signals.UpdateSignalsRequestService.GetUpdateUri:input_type -> signals.GetUpdateUriRequest
+	4,  // 2: signals.UpdateSignalsRequestService.HashCode:input_type -> signals.HashCodeRequest
+	6,  // 3: signals.UpdateSignalsRequestService.ToString:input_type -> signals.ToStringRequest
+	8,  // 4: signals.UpdateSignalsRequestBuilderService.Build:input_type -> signals.BuildRequest
+	10, // 5: signals.UpdateSignalsRequestBuilderService.SetUpdateUri:input_type -> signals.SetUpdateUriRequest
+	12, // 6: signals.ProtectedSignalsManagerService.Get:input_type -> signals.GetRequest
+	1,  // 7: signals.UpdateSignalsRequestService.Equals:output_type -> signals.EqualsResponse
+	3,  // 8: signals.UpdateSignalsRequestService.GetUpdateUri:output_type -> signals.GetUpdateUriResponse
+	5,  // 9: signals.UpdateSignalsRequestService.HashCode:output_type -> signals.HashCodeResponse
+	7,  // 10: signals.UpdateSignalsRequestService.ToString:output_type -> signals.ToStringResponse
+	9,  // 11: signals.UpdateSignalsRequestBuilderService.Build:output_type -> signals.BuildResponse
+	11, // 12: signals.UpdateSignalsRequestBuilderService.SetUpdateUri:output_type -> signals.SetUpdateUriResponse
+	13, // 13: signals.ProtectedSignalsManagerService.Get:output_type -> signals.GetResponse
 	7,  // [7:14] is the sub-list for method output_type
 	0,  // [0:7] is the sub-list for method input_type
 	0,  // [0:0] is the sub-list for extension type_name

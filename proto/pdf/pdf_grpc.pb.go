@@ -21,6741 +21,6 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	PaintService_NewPaint_FullMethodName                   = "/pdf.PaintService/NewPaint"
-	PaintService_Ascent_FullMethodName                     = "/pdf.PaintService/Ascent"
-	PaintService_BreakText5_FullMethodName                 = "/pdf.PaintService/BreakText5"
-	PaintService_BreakText6_1_FullMethodName               = "/pdf.PaintService/BreakText6_1"
-	PaintService_BreakText4_2_FullMethodName               = "/pdf.PaintService/BreakText4_2"
-	PaintService_ClearShadowLayer_FullMethodName           = "/pdf.PaintService/ClearShadowLayer"
-	PaintService_Descent_FullMethodName                    = "/pdf.PaintService/Descent"
-	PaintService_EqualsForTextMeasurement_FullMethodName   = "/pdf.PaintService/EqualsForTextMeasurement"
-	PaintService_GetAlpha_FullMethodName                   = "/pdf.PaintService/GetAlpha"
-	PaintService_GetBlendMode_FullMethodName               = "/pdf.PaintService/GetBlendMode"
-	PaintService_GetColor_FullMethodName                   = "/pdf.PaintService/GetColor"
-	PaintService_GetColorFilter_FullMethodName             = "/pdf.PaintService/GetColorFilter"
-	PaintService_GetColorLong_FullMethodName               = "/pdf.PaintService/GetColorLong"
-	PaintService_GetEndHyphenEdit_FullMethodName           = "/pdf.PaintService/GetEndHyphenEdit"
-	PaintService_GetFillPath_FullMethodName                = "/pdf.PaintService/GetFillPath"
-	PaintService_GetFlags_FullMethodName                   = "/pdf.PaintService/GetFlags"
-	PaintService_GetFontFeatureSettings_FullMethodName     = "/pdf.PaintService/GetFontFeatureSettings"
-	PaintService_GetFontMetrics0_FullMethodName            = "/pdf.PaintService/GetFontMetrics0"
-	PaintService_GetFontMetrics1_1_FullMethodName          = "/pdf.PaintService/GetFontMetrics1_1"
-	PaintService_GetFontMetricsForLocale_FullMethodName    = "/pdf.PaintService/GetFontMetricsForLocale"
-	PaintService_GetFontMetricsInt0_FullMethodName         = "/pdf.PaintService/GetFontMetricsInt0"
-	PaintService_GetFontMetricsInt1_1_FullMethodName       = "/pdf.PaintService/GetFontMetricsInt1_1"
-	PaintService_GetFontMetricsInt7_2_FullMethodName       = "/pdf.PaintService/GetFontMetricsInt7_2"
-	PaintService_GetFontMetricsInt7_3_FullMethodName       = "/pdf.PaintService/GetFontMetricsInt7_3"
-	PaintService_GetFontMetricsIntForLocale_FullMethodName = "/pdf.PaintService/GetFontMetricsIntForLocale"
-	PaintService_GetFontSpacing_FullMethodName             = "/pdf.PaintService/GetFontSpacing"
-	PaintService_GetFontVariationSettings_FullMethodName   = "/pdf.PaintService/GetFontVariationSettings"
-	PaintService_GetHinting_FullMethodName                 = "/pdf.PaintService/GetHinting"
-	PaintService_GetLetterSpacing_FullMethodName           = "/pdf.PaintService/GetLetterSpacing"
-	PaintService_GetMaskFilter_FullMethodName              = "/pdf.PaintService/GetMaskFilter"
-	PaintService_GetOffsetForAdvance7_FullMethodName       = "/pdf.PaintService/GetOffsetForAdvance7"
-	PaintService_GetOffsetForAdvance7_1_FullMethodName     = "/pdf.PaintService/GetOffsetForAdvance7_1"
-	PaintService_GetPathEffect_FullMethodName              = "/pdf.PaintService/GetPathEffect"
-	PaintService_GetRunAdvance7_FullMethodName             = "/pdf.PaintService/GetRunAdvance7"
-	PaintService_GetRunAdvance7_1_FullMethodName           = "/pdf.PaintService/GetRunAdvance7_1"
-	PaintService_GetRunCharacterAdvance9_FullMethodName    = "/pdf.PaintService/GetRunCharacterAdvance9"
-	PaintService_GetRunCharacterAdvance9_1_FullMethodName  = "/pdf.PaintService/GetRunCharacterAdvance9_1"
-	PaintService_GetShader_FullMethodName                  = "/pdf.PaintService/GetShader"
-	PaintService_GetShadowLayerColor_FullMethodName        = "/pdf.PaintService/GetShadowLayerColor"
-	PaintService_GetShadowLayerColorLong_FullMethodName    = "/pdf.PaintService/GetShadowLayerColorLong"
-	PaintService_GetShadowLayerDx_FullMethodName           = "/pdf.PaintService/GetShadowLayerDx"
-	PaintService_GetShadowLayerDy_FullMethodName           = "/pdf.PaintService/GetShadowLayerDy"
-	PaintService_GetShadowLayerRadius_FullMethodName       = "/pdf.PaintService/GetShadowLayerRadius"
-	PaintService_GetStartHyphenEdit_FullMethodName         = "/pdf.PaintService/GetStartHyphenEdit"
-	PaintService_GetStrikeThruPosition_FullMethodName      = "/pdf.PaintService/GetStrikeThruPosition"
-	PaintService_GetStrikeThruThickness_FullMethodName     = "/pdf.PaintService/GetStrikeThruThickness"
-	PaintService_GetStrokeCap_FullMethodName               = "/pdf.PaintService/GetStrokeCap"
-	PaintService_GetStrokeJoin_FullMethodName              = "/pdf.PaintService/GetStrokeJoin"
-	PaintService_GetStrokeMiter_FullMethodName             = "/pdf.PaintService/GetStrokeMiter"
-	PaintService_GetStrokeWidth_FullMethodName             = "/pdf.PaintService/GetStrokeWidth"
-	PaintService_GetStyle_FullMethodName                   = "/pdf.PaintService/GetStyle"
-	PaintService_GetTextAlign_FullMethodName               = "/pdf.PaintService/GetTextAlign"
-	PaintService_GetTextBounds4_FullMethodName             = "/pdf.PaintService/GetTextBounds4"
-	PaintService_GetTextBounds4_1_FullMethodName           = "/pdf.PaintService/GetTextBounds4_1"
-	PaintService_GetTextBounds4_2_FullMethodName           = "/pdf.PaintService/GetTextBounds4_2"
-	PaintService_GetTextLocale_FullMethodName              = "/pdf.PaintService/GetTextLocale"
-	PaintService_GetTextLocales_FullMethodName             = "/pdf.PaintService/GetTextLocales"
-	PaintService_GetTextPath6_FullMethodName               = "/pdf.PaintService/GetTextPath6"
-	PaintService_GetTextPath6_1_FullMethodName             = "/pdf.PaintService/GetTextPath6_1"
-	PaintService_GetTextRunAdvances_FullMethodName         = "/pdf.PaintService/GetTextRunAdvances"
-	PaintService_GetTextRunCursor6_FullMethodName          = "/pdf.PaintService/GetTextRunCursor6"
-	PaintService_GetTextRunCursor6_1_FullMethodName        = "/pdf.PaintService/GetTextRunCursor6_1"
-	PaintService_GetTextScaleX_FullMethodName              = "/pdf.PaintService/GetTextScaleX"
-	PaintService_GetTextSize_FullMethodName                = "/pdf.PaintService/GetTextSize"
-	PaintService_GetTextSkewX_FullMethodName               = "/pdf.PaintService/GetTextSkewX"
-	PaintService_GetTextWidths4_FullMethodName             = "/pdf.PaintService/GetTextWidths4"
-	PaintService_GetTextWidths4_1_FullMethodName           = "/pdf.PaintService/GetTextWidths4_1"
-	PaintService_GetTextWidths2_2_FullMethodName           = "/pdf.PaintService/GetTextWidths2_2"
-	PaintService_GetTextWidths4_3_FullMethodName           = "/pdf.PaintService/GetTextWidths4_3"
-	PaintService_GetTypeface_FullMethodName                = "/pdf.PaintService/GetTypeface"
-	PaintService_GetUnderlinePosition_FullMethodName       = "/pdf.PaintService/GetUnderlinePosition"
-	PaintService_GetUnderlineThickness_FullMethodName      = "/pdf.PaintService/GetUnderlineThickness"
-	PaintService_GetWordSpacing_FullMethodName             = "/pdf.PaintService/GetWordSpacing"
-	PaintService_GetXfermode_FullMethodName                = "/pdf.PaintService/GetXfermode"
-	PaintService_HasGlyph_FullMethodName                   = "/pdf.PaintService/HasGlyph"
-	PaintService_IsAntiAlias_FullMethodName                = "/pdf.PaintService/IsAntiAlias"
-	PaintService_IsDither_FullMethodName                   = "/pdf.PaintService/IsDither"
-	PaintService_IsElegantTextHeight_FullMethodName        = "/pdf.PaintService/IsElegantTextHeight"
-	PaintService_IsFakeBoldText_FullMethodName             = "/pdf.PaintService/IsFakeBoldText"
-	PaintService_IsFilterBitmap_FullMethodName             = "/pdf.PaintService/IsFilterBitmap"
-	PaintService_IsLinearText_FullMethodName               = "/pdf.PaintService/IsLinearText"
-	PaintService_IsStrikeThruText_FullMethodName           = "/pdf.PaintService/IsStrikeThruText"
-	PaintService_IsSubpixelText_FullMethodName             = "/pdf.PaintService/IsSubpixelText"
-	PaintService_IsUnderlineText_FullMethodName            = "/pdf.PaintService/IsUnderlineText"
-	PaintService_MeasureText3_FullMethodName               = "/pdf.PaintService/MeasureText3"
-	PaintService_MeasureText3_1_FullMethodName             = "/pdf.PaintService/MeasureText3_1"
-	PaintService_MeasureText1_2_FullMethodName             = "/pdf.PaintService/MeasureText1_2"
-	PaintService_MeasureText3_3_FullMethodName             = "/pdf.PaintService/MeasureText3_3"
-	PaintService_Reset_FullMethodName                      = "/pdf.PaintService/Reset"
-	PaintService_Set_FullMethodName                        = "/pdf.PaintService/Set"
-	PaintService_SetARGB_FullMethodName                    = "/pdf.PaintService/SetARGB"
-	PaintService_SetAlpha_FullMethodName                   = "/pdf.PaintService/SetAlpha"
-	PaintService_SetAntiAlias_FullMethodName               = "/pdf.PaintService/SetAntiAlias"
-	PaintService_SetBlendMode_FullMethodName               = "/pdf.PaintService/SetBlendMode"
-	PaintService_SetColor1_FullMethodName                  = "/pdf.PaintService/SetColor1"
-	PaintService_SetColor1_1_FullMethodName                = "/pdf.PaintService/SetColor1_1"
-	PaintService_SetColorFilter_FullMethodName             = "/pdf.PaintService/SetColorFilter"
-	PaintService_SetDither_FullMethodName                  = "/pdf.PaintService/SetDither"
-	PaintService_SetElegantTextHeight_FullMethodName       = "/pdf.PaintService/SetElegantTextHeight"
-	PaintService_SetEndHyphenEdit_FullMethodName           = "/pdf.PaintService/SetEndHyphenEdit"
-	PaintService_SetFakeBoldText_FullMethodName            = "/pdf.PaintService/SetFakeBoldText"
-	PaintService_SetFilterBitmap_FullMethodName            = "/pdf.PaintService/SetFilterBitmap"
-	PaintService_SetFlags_FullMethodName                   = "/pdf.PaintService/SetFlags"
-	PaintService_SetFontFeatureSettings_FullMethodName     = "/pdf.PaintService/SetFontFeatureSettings"
-	PaintService_SetFontVariationSettings_FullMethodName   = "/pdf.PaintService/SetFontVariationSettings"
-	PaintService_SetHinting_FullMethodName                 = "/pdf.PaintService/SetHinting"
-	PaintService_SetLetterSpacing_FullMethodName           = "/pdf.PaintService/SetLetterSpacing"
-	PaintService_SetLinearText_FullMethodName              = "/pdf.PaintService/SetLinearText"
-	PaintService_SetMaskFilter_FullMethodName              = "/pdf.PaintService/SetMaskFilter"
-	PaintService_SetPathEffect_FullMethodName              = "/pdf.PaintService/SetPathEffect"
-	PaintService_SetShader_FullMethodName                  = "/pdf.PaintService/SetShader"
-	PaintService_SetShadowLayer4_FullMethodName            = "/pdf.PaintService/SetShadowLayer4"
-	PaintService_SetShadowLayer4_1_FullMethodName          = "/pdf.PaintService/SetShadowLayer4_1"
-	PaintService_SetStartHyphenEdit_FullMethodName         = "/pdf.PaintService/SetStartHyphenEdit"
-	PaintService_SetStrikeThruText_FullMethodName          = "/pdf.PaintService/SetStrikeThruText"
-	PaintService_SetStrokeCap_FullMethodName               = "/pdf.PaintService/SetStrokeCap"
-	PaintService_SetStrokeJoin_FullMethodName              = "/pdf.PaintService/SetStrokeJoin"
-	PaintService_SetStrokeMiter_FullMethodName             = "/pdf.PaintService/SetStrokeMiter"
-	PaintService_SetStrokeWidth_FullMethodName             = "/pdf.PaintService/SetStrokeWidth"
-	PaintService_SetStyle_FullMethodName                   = "/pdf.PaintService/SetStyle"
-	PaintService_SetSubpixelText_FullMethodName            = "/pdf.PaintService/SetSubpixelText"
-	PaintService_SetTextAlign_FullMethodName               = "/pdf.PaintService/SetTextAlign"
-	PaintService_SetTextLocale_FullMethodName              = "/pdf.PaintService/SetTextLocale"
-	PaintService_SetTextLocales_FullMethodName             = "/pdf.PaintService/SetTextLocales"
-	PaintService_SetTextScaleX_FullMethodName              = "/pdf.PaintService/SetTextScaleX"
-	PaintService_SetTextSize_FullMethodName                = "/pdf.PaintService/SetTextSize"
-	PaintService_SetTextSkewX_FullMethodName               = "/pdf.PaintService/SetTextSkewX"
-	PaintService_SetTypeface_FullMethodName                = "/pdf.PaintService/SetTypeface"
-	PaintService_SetUnderlineText_FullMethodName           = "/pdf.PaintService/SetUnderlineText"
-	PaintService_SetWordSpacing_FullMethodName             = "/pdf.PaintService/SetWordSpacing"
-	PaintService_SetXfermode_FullMethodName                = "/pdf.PaintService/SetXfermode"
-)
-
-// PaintServiceClient is the client API for PaintService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type PaintServiceClient interface {
-	NewPaint(ctx context.Context, in *NewPaintRequest, opts ...grpc.CallOption) (*NewPaintResponse, error)
-	Ascent(ctx context.Context, in *AscentRequest, opts ...grpc.CallOption) (*AscentResponse, error)
-	BreakText5(ctx context.Context, in *BreakText5Request, opts ...grpc.CallOption) (*BreakText5Response, error)
-	BreakText6_1(ctx context.Context, in *BreakText6_1Request, opts ...grpc.CallOption) (*BreakText6_1Response, error)
-	BreakText4_2(ctx context.Context, in *BreakText4_2Request, opts ...grpc.CallOption) (*BreakText4_2Response, error)
-	ClearShadowLayer(ctx context.Context, in *ClearShadowLayerRequest, opts ...grpc.CallOption) (*ClearShadowLayerResponse, error)
-	Descent(ctx context.Context, in *DescentRequest, opts ...grpc.CallOption) (*DescentResponse, error)
-	EqualsForTextMeasurement(ctx context.Context, in *EqualsForTextMeasurementRequest, opts ...grpc.CallOption) (*EqualsForTextMeasurementResponse, error)
-	GetAlpha(ctx context.Context, in *GetAlphaRequest, opts ...grpc.CallOption) (*GetAlphaResponse, error)
-	GetBlendMode(ctx context.Context, in *GetBlendModeRequest, opts ...grpc.CallOption) (*GetBlendModeResponse, error)
-	GetColor(ctx context.Context, in *GetColorRequest, opts ...grpc.CallOption) (*GetColorResponse, error)
-	GetColorFilter(ctx context.Context, in *GetColorFilterRequest, opts ...grpc.CallOption) (*GetColorFilterResponse, error)
-	GetColorLong(ctx context.Context, in *GetColorLongRequest, opts ...grpc.CallOption) (*GetColorLongResponse, error)
-	GetEndHyphenEdit(ctx context.Context, in *GetEndHyphenEditRequest, opts ...grpc.CallOption) (*GetEndHyphenEditResponse, error)
-	GetFillPath(ctx context.Context, in *GetFillPathRequest, opts ...grpc.CallOption) (*GetFillPathResponse, error)
-	GetFlags(ctx context.Context, in *GetFlagsRequest, opts ...grpc.CallOption) (*GetFlagsResponse, error)
-	GetFontFeatureSettings(ctx context.Context, in *GetFontFeatureSettingsRequest, opts ...grpc.CallOption) (*GetFontFeatureSettingsResponse, error)
-	GetFontMetrics0(ctx context.Context, in *GetFontMetrics0Request, opts ...grpc.CallOption) (*GetFontMetrics0Response, error)
-	GetFontMetrics1_1(ctx context.Context, in *GetFontMetrics1_1Request, opts ...grpc.CallOption) (*GetFontMetrics1_1Response, error)
-	GetFontMetricsForLocale(ctx context.Context, in *GetFontMetricsForLocaleRequest, opts ...grpc.CallOption) (*GetFontMetricsForLocaleResponse, error)
-	GetFontMetricsInt0(ctx context.Context, in *GetFontMetricsInt0Request, opts ...grpc.CallOption) (*GetFontMetricsInt0Response, error)
-	GetFontMetricsInt1_1(ctx context.Context, in *GetFontMetricsInt1_1Request, opts ...grpc.CallOption) (*GetFontMetricsInt1_1Response, error)
-	GetFontMetricsInt7_2(ctx context.Context, in *GetFontMetricsInt7_2Request, opts ...grpc.CallOption) (*GetFontMetricsInt7_2Response, error)
-	GetFontMetricsInt7_3(ctx context.Context, in *GetFontMetricsInt7_3Request, opts ...grpc.CallOption) (*GetFontMetricsInt7_3Response, error)
-	GetFontMetricsIntForLocale(ctx context.Context, in *GetFontMetricsIntForLocaleRequest, opts ...grpc.CallOption) (*GetFontMetricsIntForLocaleResponse, error)
-	GetFontSpacing(ctx context.Context, in *GetFontSpacingRequest, opts ...grpc.CallOption) (*GetFontSpacingResponse, error)
-	GetFontVariationSettings(ctx context.Context, in *GetFontVariationSettingsRequest, opts ...grpc.CallOption) (*GetFontVariationSettingsResponse, error)
-	GetHinting(ctx context.Context, in *GetHintingRequest, opts ...grpc.CallOption) (*GetHintingResponse, error)
-	GetLetterSpacing(ctx context.Context, in *GetLetterSpacingRequest, opts ...grpc.CallOption) (*GetLetterSpacingResponse, error)
-	GetMaskFilter(ctx context.Context, in *GetMaskFilterRequest, opts ...grpc.CallOption) (*GetMaskFilterResponse, error)
-	GetOffsetForAdvance7(ctx context.Context, in *GetOffsetForAdvance7Request, opts ...grpc.CallOption) (*GetOffsetForAdvance7Response, error)
-	GetOffsetForAdvance7_1(ctx context.Context, in *GetOffsetForAdvance7_1Request, opts ...grpc.CallOption) (*GetOffsetForAdvance7_1Response, error)
-	GetPathEffect(ctx context.Context, in *GetPathEffectRequest, opts ...grpc.CallOption) (*GetPathEffectResponse, error)
-	GetRunAdvance7(ctx context.Context, in *GetRunAdvance7Request, opts ...grpc.CallOption) (*GetRunAdvance7Response, error)
-	GetRunAdvance7_1(ctx context.Context, in *GetRunAdvance7_1Request, opts ...grpc.CallOption) (*GetRunAdvance7_1Response, error)
-	GetRunCharacterAdvance9(ctx context.Context, in *GetRunCharacterAdvance9Request, opts ...grpc.CallOption) (*GetRunCharacterAdvance9Response, error)
-	GetRunCharacterAdvance9_1(ctx context.Context, in *GetRunCharacterAdvance9_1Request, opts ...grpc.CallOption) (*GetRunCharacterAdvance9_1Response, error)
-	GetShader(ctx context.Context, in *GetShaderRequest, opts ...grpc.CallOption) (*GetShaderResponse, error)
-	GetShadowLayerColor(ctx context.Context, in *GetShadowLayerColorRequest, opts ...grpc.CallOption) (*GetShadowLayerColorResponse, error)
-	GetShadowLayerColorLong(ctx context.Context, in *GetShadowLayerColorLongRequest, opts ...grpc.CallOption) (*GetShadowLayerColorLongResponse, error)
-	GetShadowLayerDx(ctx context.Context, in *GetShadowLayerDxRequest, opts ...grpc.CallOption) (*GetShadowLayerDxResponse, error)
-	GetShadowLayerDy(ctx context.Context, in *GetShadowLayerDyRequest, opts ...grpc.CallOption) (*GetShadowLayerDyResponse, error)
-	GetShadowLayerRadius(ctx context.Context, in *GetShadowLayerRadiusRequest, opts ...grpc.CallOption) (*GetShadowLayerRadiusResponse, error)
-	GetStartHyphenEdit(ctx context.Context, in *GetStartHyphenEditRequest, opts ...grpc.CallOption) (*GetStartHyphenEditResponse, error)
-	GetStrikeThruPosition(ctx context.Context, in *GetStrikeThruPositionRequest, opts ...grpc.CallOption) (*GetStrikeThruPositionResponse, error)
-	GetStrikeThruThickness(ctx context.Context, in *GetStrikeThruThicknessRequest, opts ...grpc.CallOption) (*GetStrikeThruThicknessResponse, error)
-	GetStrokeCap(ctx context.Context, in *GetStrokeCapRequest, opts ...grpc.CallOption) (*GetStrokeCapResponse, error)
-	GetStrokeJoin(ctx context.Context, in *GetStrokeJoinRequest, opts ...grpc.CallOption) (*GetStrokeJoinResponse, error)
-	GetStrokeMiter(ctx context.Context, in *GetStrokeMiterRequest, opts ...grpc.CallOption) (*GetStrokeMiterResponse, error)
-	GetStrokeWidth(ctx context.Context, in *GetStrokeWidthRequest, opts ...grpc.CallOption) (*GetStrokeWidthResponse, error)
-	GetStyle(ctx context.Context, in *GetStyleRequest, opts ...grpc.CallOption) (*GetStyleResponse, error)
-	GetTextAlign(ctx context.Context, in *GetTextAlignRequest, opts ...grpc.CallOption) (*GetTextAlignResponse, error)
-	GetTextBounds4(ctx context.Context, in *GetTextBounds4Request, opts ...grpc.CallOption) (*GetTextBounds4Response, error)
-	GetTextBounds4_1(ctx context.Context, in *GetTextBounds4_1Request, opts ...grpc.CallOption) (*GetTextBounds4_1Response, error)
-	GetTextBounds4_2(ctx context.Context, in *GetTextBounds4_2Request, opts ...grpc.CallOption) (*GetTextBounds4_2Response, error)
-	GetTextLocale(ctx context.Context, in *GetTextLocaleRequest, opts ...grpc.CallOption) (*GetTextLocaleResponse, error)
-	GetTextLocales(ctx context.Context, in *GetTextLocalesRequest, opts ...grpc.CallOption) (*GetTextLocalesResponse, error)
-	GetTextPath6(ctx context.Context, in *GetTextPath6Request, opts ...grpc.CallOption) (*GetTextPath6Response, error)
-	GetTextPath6_1(ctx context.Context, in *GetTextPath6_1Request, opts ...grpc.CallOption) (*GetTextPath6_1Response, error)
-	GetTextRunAdvances(ctx context.Context, in *GetTextRunAdvancesRequest, opts ...grpc.CallOption) (*GetTextRunAdvancesResponse, error)
-	GetTextRunCursor6(ctx context.Context, in *GetTextRunCursor6Request, opts ...grpc.CallOption) (*GetTextRunCursor6Response, error)
-	GetTextRunCursor6_1(ctx context.Context, in *GetTextRunCursor6_1Request, opts ...grpc.CallOption) (*GetTextRunCursor6_1Response, error)
-	GetTextScaleX(ctx context.Context, in *GetTextScaleXRequest, opts ...grpc.CallOption) (*GetTextScaleXResponse, error)
-	GetTextSize(ctx context.Context, in *GetTextSizeRequest, opts ...grpc.CallOption) (*GetTextSizeResponse, error)
-	GetTextSkewX(ctx context.Context, in *GetTextSkewXRequest, opts ...grpc.CallOption) (*GetTextSkewXResponse, error)
-	GetTextWidths4(ctx context.Context, in *GetTextWidths4Request, opts ...grpc.CallOption) (*GetTextWidths4Response, error)
-	GetTextWidths4_1(ctx context.Context, in *GetTextWidths4_1Request, opts ...grpc.CallOption) (*GetTextWidths4_1Response, error)
-	GetTextWidths2_2(ctx context.Context, in *GetTextWidths2_2Request, opts ...grpc.CallOption) (*GetTextWidths2_2Response, error)
-	GetTextWidths4_3(ctx context.Context, in *GetTextWidths4_3Request, opts ...grpc.CallOption) (*GetTextWidths4_3Response, error)
-	GetTypeface(ctx context.Context, in *GetTypefaceRequest, opts ...grpc.CallOption) (*GetTypefaceResponse, error)
-	GetUnderlinePosition(ctx context.Context, in *GetUnderlinePositionRequest, opts ...grpc.CallOption) (*GetUnderlinePositionResponse, error)
-	GetUnderlineThickness(ctx context.Context, in *GetUnderlineThicknessRequest, opts ...grpc.CallOption) (*GetUnderlineThicknessResponse, error)
-	GetWordSpacing(ctx context.Context, in *GetWordSpacingRequest, opts ...grpc.CallOption) (*GetWordSpacingResponse, error)
-	GetXfermode(ctx context.Context, in *GetXfermodeRequest, opts ...grpc.CallOption) (*GetXfermodeResponse, error)
-	HasGlyph(ctx context.Context, in *HasGlyphRequest, opts ...grpc.CallOption) (*HasGlyphResponse, error)
-	IsAntiAlias(ctx context.Context, in *IsAntiAliasRequest, opts ...grpc.CallOption) (*IsAntiAliasResponse, error)
-	IsDither(ctx context.Context, in *IsDitherRequest, opts ...grpc.CallOption) (*IsDitherResponse, error)
-	IsElegantTextHeight(ctx context.Context, in *IsElegantTextHeightRequest, opts ...grpc.CallOption) (*IsElegantTextHeightResponse, error)
-	IsFakeBoldText(ctx context.Context, in *IsFakeBoldTextRequest, opts ...grpc.CallOption) (*IsFakeBoldTextResponse, error)
-	IsFilterBitmap(ctx context.Context, in *IsFilterBitmapRequest, opts ...grpc.CallOption) (*IsFilterBitmapResponse, error)
-	IsLinearText(ctx context.Context, in *IsLinearTextRequest, opts ...grpc.CallOption) (*IsLinearTextResponse, error)
-	IsStrikeThruText(ctx context.Context, in *IsStrikeThruTextRequest, opts ...grpc.CallOption) (*IsStrikeThruTextResponse, error)
-	IsSubpixelText(ctx context.Context, in *IsSubpixelTextRequest, opts ...grpc.CallOption) (*IsSubpixelTextResponse, error)
-	IsUnderlineText(ctx context.Context, in *IsUnderlineTextRequest, opts ...grpc.CallOption) (*IsUnderlineTextResponse, error)
-	MeasureText3(ctx context.Context, in *MeasureText3Request, opts ...grpc.CallOption) (*MeasureText3Response, error)
-	MeasureText3_1(ctx context.Context, in *MeasureText3_1Request, opts ...grpc.CallOption) (*MeasureText3_1Response, error)
-	MeasureText1_2(ctx context.Context, in *MeasureText1_2Request, opts ...grpc.CallOption) (*MeasureText1_2Response, error)
-	MeasureText3_3(ctx context.Context, in *MeasureText3_3Request, opts ...grpc.CallOption) (*MeasureText3_3Response, error)
-	Reset(ctx context.Context, in *ResetRequest, opts ...grpc.CallOption) (*ResetResponse, error)
-	Set(ctx context.Context, in *SetRequest, opts ...grpc.CallOption) (*SetResponse, error)
-	SetARGB(ctx context.Context, in *SetARGBRequest, opts ...grpc.CallOption) (*SetARGBResponse, error)
-	SetAlpha(ctx context.Context, in *SetAlphaRequest, opts ...grpc.CallOption) (*SetAlphaResponse, error)
-	SetAntiAlias(ctx context.Context, in *SetAntiAliasRequest, opts ...grpc.CallOption) (*SetAntiAliasResponse, error)
-	SetBlendMode(ctx context.Context, in *SetBlendModeRequest, opts ...grpc.CallOption) (*SetBlendModeResponse, error)
-	SetColor1(ctx context.Context, in *SetColor1Request, opts ...grpc.CallOption) (*SetColor1Response, error)
-	SetColor1_1(ctx context.Context, in *SetColor1_1Request, opts ...grpc.CallOption) (*SetColor1_1Response, error)
-	SetColorFilter(ctx context.Context, in *SetColorFilterRequest, opts ...grpc.CallOption) (*SetColorFilterResponse, error)
-	SetDither(ctx context.Context, in *SetDitherRequest, opts ...grpc.CallOption) (*SetDitherResponse, error)
-	SetElegantTextHeight(ctx context.Context, in *SetElegantTextHeightRequest, opts ...grpc.CallOption) (*SetElegantTextHeightResponse, error)
-	SetEndHyphenEdit(ctx context.Context, in *SetEndHyphenEditRequest, opts ...grpc.CallOption) (*SetEndHyphenEditResponse, error)
-	SetFakeBoldText(ctx context.Context, in *SetFakeBoldTextRequest, opts ...grpc.CallOption) (*SetFakeBoldTextResponse, error)
-	SetFilterBitmap(ctx context.Context, in *SetFilterBitmapRequest, opts ...grpc.CallOption) (*SetFilterBitmapResponse, error)
-	SetFlags(ctx context.Context, in *SetFlagsRequest, opts ...grpc.CallOption) (*SetFlagsResponse, error)
-	SetFontFeatureSettings(ctx context.Context, in *SetFontFeatureSettingsRequest, opts ...grpc.CallOption) (*SetFontFeatureSettingsResponse, error)
-	SetFontVariationSettings(ctx context.Context, in *SetFontVariationSettingsRequest, opts ...grpc.CallOption) (*SetFontVariationSettingsResponse, error)
-	SetHinting(ctx context.Context, in *SetHintingRequest, opts ...grpc.CallOption) (*SetHintingResponse, error)
-	SetLetterSpacing(ctx context.Context, in *SetLetterSpacingRequest, opts ...grpc.CallOption) (*SetLetterSpacingResponse, error)
-	SetLinearText(ctx context.Context, in *SetLinearTextRequest, opts ...grpc.CallOption) (*SetLinearTextResponse, error)
-	SetMaskFilter(ctx context.Context, in *SetMaskFilterRequest, opts ...grpc.CallOption) (*SetMaskFilterResponse, error)
-	SetPathEffect(ctx context.Context, in *SetPathEffectRequest, opts ...grpc.CallOption) (*SetPathEffectResponse, error)
-	SetShader(ctx context.Context, in *SetShaderRequest, opts ...grpc.CallOption) (*SetShaderResponse, error)
-	SetShadowLayer4(ctx context.Context, in *SetShadowLayer4Request, opts ...grpc.CallOption) (*SetShadowLayer4Response, error)
-	SetShadowLayer4_1(ctx context.Context, in *SetShadowLayer4_1Request, opts ...grpc.CallOption) (*SetShadowLayer4_1Response, error)
-	SetStartHyphenEdit(ctx context.Context, in *SetStartHyphenEditRequest, opts ...grpc.CallOption) (*SetStartHyphenEditResponse, error)
-	SetStrikeThruText(ctx context.Context, in *SetStrikeThruTextRequest, opts ...grpc.CallOption) (*SetStrikeThruTextResponse, error)
-	SetStrokeCap(ctx context.Context, in *SetStrokeCapRequest, opts ...grpc.CallOption) (*SetStrokeCapResponse, error)
-	SetStrokeJoin(ctx context.Context, in *SetStrokeJoinRequest, opts ...grpc.CallOption) (*SetStrokeJoinResponse, error)
-	SetStrokeMiter(ctx context.Context, in *SetStrokeMiterRequest, opts ...grpc.CallOption) (*SetStrokeMiterResponse, error)
-	SetStrokeWidth(ctx context.Context, in *SetStrokeWidthRequest, opts ...grpc.CallOption) (*SetStrokeWidthResponse, error)
-	SetStyle(ctx context.Context, in *SetStyleRequest, opts ...grpc.CallOption) (*SetStyleResponse, error)
-	SetSubpixelText(ctx context.Context, in *SetSubpixelTextRequest, opts ...grpc.CallOption) (*SetSubpixelTextResponse, error)
-	SetTextAlign(ctx context.Context, in *SetTextAlignRequest, opts ...grpc.CallOption) (*SetTextAlignResponse, error)
-	SetTextLocale(ctx context.Context, in *SetTextLocaleRequest, opts ...grpc.CallOption) (*SetTextLocaleResponse, error)
-	SetTextLocales(ctx context.Context, in *SetTextLocalesRequest, opts ...grpc.CallOption) (*SetTextLocalesResponse, error)
-	SetTextScaleX(ctx context.Context, in *SetTextScaleXRequest, opts ...grpc.CallOption) (*SetTextScaleXResponse, error)
-	SetTextSize(ctx context.Context, in *SetTextSizeRequest, opts ...grpc.CallOption) (*SetTextSizeResponse, error)
-	SetTextSkewX(ctx context.Context, in *SetTextSkewXRequest, opts ...grpc.CallOption) (*SetTextSkewXResponse, error)
-	SetTypeface(ctx context.Context, in *SetTypefaceRequest, opts ...grpc.CallOption) (*SetTypefaceResponse, error)
-	SetUnderlineText(ctx context.Context, in *SetUnderlineTextRequest, opts ...grpc.CallOption) (*SetUnderlineTextResponse, error)
-	SetWordSpacing(ctx context.Context, in *SetWordSpacingRequest, opts ...grpc.CallOption) (*SetWordSpacingResponse, error)
-	SetXfermode(ctx context.Context, in *SetXfermodeRequest, opts ...grpc.CallOption) (*SetXfermodeResponse, error)
-}
-
-type paintServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewPaintServiceClient(cc grpc.ClientConnInterface) PaintServiceClient {
-	return &paintServiceClient{cc}
-}
-
-func (c *paintServiceClient) NewPaint(ctx context.Context, in *NewPaintRequest, opts ...grpc.CallOption) (*NewPaintResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewPaintResponse)
-	err := c.cc.Invoke(ctx, PaintService_NewPaint_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *paintServiceClient) Ascent(ctx context.Context, in *AscentRequest, opts ...grpc.CallOption) (*AscentResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(AscentResponse)
-	err := c.cc.Invoke(ctx, PaintService_Ascent_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *paintServiceClient) BreakText5(ctx context.Context, in *BreakText5Request, opts ...grpc.CallOption) (*BreakText5Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(BreakText5Response)
-	err := c.cc.Invoke(ctx, PaintService_BreakText5_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *paintServiceClient) BreakText6_1(ctx context.Context, in *BreakText6_1Request, opts ...grpc.CallOption) (*BreakText6_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(BreakText6_1Response)
-	err := c.cc.Invoke(ctx, PaintService_BreakText6_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *paintServiceClient) BreakText4_2(ctx context.Context, in *BreakText4_2Request, opts ...grpc.CallOption) (*BreakText4_2Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(BreakText4_2Response)
-	err := c.cc.Invoke(ctx, PaintService_BreakText4_2_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *paintServiceClient) ClearShadowLayer(ctx context.Context, in *ClearShadowLayerRequest, opts ...grpc.CallOption) (*ClearShadowLayerResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ClearShadowLayerResponse)
-	err := c.cc.Invoke(ctx, PaintService_ClearShadowLayer_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *paintServiceClient) Descent(ctx context.Context, in *DescentRequest, opts ...grpc.CallOption) (*DescentResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DescentResponse)
-	err := c.cc.Invoke(ctx, PaintService_Descent_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *paintServiceClient) EqualsForTextMeasurement(ctx context.Context, in *EqualsForTextMeasurementRequest, opts ...grpc.CallOption) (*EqualsForTextMeasurementResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(EqualsForTextMeasurementResponse)
-	err := c.cc.Invoke(ctx, PaintService_EqualsForTextMeasurement_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *paintServiceClient) GetAlpha(ctx context.Context, in *GetAlphaRequest, opts ...grpc.CallOption) (*GetAlphaResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetAlphaResponse)
-	err := c.cc.Invoke(ctx, PaintService_GetAlpha_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *paintServiceClient) GetBlendMode(ctx context.Context, in *GetBlendModeRequest, opts ...grpc.CallOption) (*GetBlendModeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetBlendModeResponse)
-	err := c.cc.Invoke(ctx, PaintService_GetBlendMode_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *paintServiceClient) GetColor(ctx context.Context, in *GetColorRequest, opts ...grpc.CallOption) (*GetColorResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetColorResponse)
-	err := c.cc.Invoke(ctx, PaintService_GetColor_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *paintServiceClient) GetColorFilter(ctx context.Context, in *GetColorFilterRequest, opts ...grpc.CallOption) (*GetColorFilterResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetColorFilterResponse)
-	err := c.cc.Invoke(ctx, PaintService_GetColorFilter_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *paintServiceClient) GetColorLong(ctx context.Context, in *GetColorLongRequest, opts ...grpc.CallOption) (*GetColorLongResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetColorLongResponse)
-	err := c.cc.Invoke(ctx, PaintService_GetColorLong_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *paintServiceClient) GetEndHyphenEdit(ctx context.Context, in *GetEndHyphenEditRequest, opts ...grpc.CallOption) (*GetEndHyphenEditResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetEndHyphenEditResponse)
-	err := c.cc.Invoke(ctx, PaintService_GetEndHyphenEdit_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *paintServiceClient) GetFillPath(ctx context.Context, in *GetFillPathRequest, opts ...grpc.CallOption) (*GetFillPathResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetFillPathResponse)
-	err := c.cc.Invoke(ctx, PaintService_GetFillPath_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *paintServiceClient) GetFlags(ctx context.Context, in *GetFlagsRequest, opts ...grpc.CallOption) (*GetFlagsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetFlagsResponse)
-	err := c.cc.Invoke(ctx, PaintService_GetFlags_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *paintServiceClient) GetFontFeatureSettings(ctx context.Context, in *GetFontFeatureSettingsRequest, opts ...grpc.CallOption) (*GetFontFeatureSettingsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetFontFeatureSettingsResponse)
-	err := c.cc.Invoke(ctx, PaintService_GetFontFeatureSettings_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *paintServiceClient) GetFontMetrics0(ctx context.Context, in *GetFontMetrics0Request, opts ...grpc.CallOption) (*GetFontMetrics0Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetFontMetrics0Response)
-	err := c.cc.Invoke(ctx, PaintService_GetFontMetrics0_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *paintServiceClient) GetFontMetrics1_1(ctx context.Context, in *GetFontMetrics1_1Request, opts ...grpc.CallOption) (*GetFontMetrics1_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetFontMetrics1_1Response)
-	err := c.cc.Invoke(ctx, PaintService_GetFontMetrics1_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *paintServiceClient) GetFontMetricsForLocale(ctx context.Context, in *GetFontMetricsForLocaleRequest, opts ...grpc.CallOption) (*GetFontMetricsForLocaleResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetFontMetricsForLocaleResponse)
-	err := c.cc.Invoke(ctx, PaintService_GetFontMetricsForLocale_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *paintServiceClient) GetFontMetricsInt0(ctx context.Context, in *GetFontMetricsInt0Request, opts ...grpc.CallOption) (*GetFontMetricsInt0Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetFontMetricsInt0Response)
-	err := c.cc.Invoke(ctx, PaintService_GetFontMetricsInt0_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *paintServiceClient) GetFontMetricsInt1_1(ctx context.Context, in *GetFontMetricsInt1_1Request, opts ...grpc.CallOption) (*GetFontMetricsInt1_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetFontMetricsInt1_1Response)
-	err := c.cc.Invoke(ctx, PaintService_GetFontMetricsInt1_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *paintServiceClient) GetFontMetricsInt7_2(ctx context.Context, in *GetFontMetricsInt7_2Request, opts ...grpc.CallOption) (*GetFontMetricsInt7_2Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetFontMetricsInt7_2Response)
-	err := c.cc.Invoke(ctx, PaintService_GetFontMetricsInt7_2_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *paintServiceClient) GetFontMetricsInt7_3(ctx context.Context, in *GetFontMetricsInt7_3Request, opts ...grpc.CallOption) (*GetFontMetricsInt7_3Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetFontMetricsInt7_3Response)
-	err := c.cc.Invoke(ctx, PaintService_GetFontMetricsInt7_3_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *paintServiceClient) GetFontMetricsIntForLocale(ctx context.Context, in *GetFontMetricsIntForLocaleRequest, opts ...grpc.CallOption) (*GetFontMetricsIntForLocaleResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetFontMetricsIntForLocaleResponse)
-	err := c.cc.Invoke(ctx, PaintService_GetFontMetricsIntForLocale_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *paintServiceClient) GetFontSpacing(ctx context.Context, in *GetFontSpacingRequest, opts ...grpc.CallOption) (*GetFontSpacingResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetFontSpacingResponse)
-	err := c.cc.Invoke(ctx, PaintService_GetFontSpacing_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *paintServiceClient) GetFontVariationSettings(ctx context.Context, in *GetFontVariationSettingsRequest, opts ...grpc.CallOption) (*GetFontVariationSettingsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetFontVariationSettingsResponse)
-	err := c.cc.Invoke(ctx, PaintService_GetFontVariationSettings_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *paintServiceClient) GetHinting(ctx context.Context, in *GetHintingRequest, opts ...grpc.CallOption) (*GetHintingResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetHintingResponse)
-	err := c.cc.Invoke(ctx, PaintService_GetHinting_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *paintServiceClient) GetLetterSpacing(ctx context.Context, in *GetLetterSpacingRequest, opts ...grpc.CallOption) (*GetLetterSpacingResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetLetterSpacingResponse)
-	err := c.cc.Invoke(ctx, PaintService_GetLetterSpacing_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *paintServiceClient) GetMaskFilter(ctx context.Context, in *GetMaskFilterRequest, opts ...grpc.CallOption) (*GetMaskFilterResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetMaskFilterResponse)
-	err := c.cc.Invoke(ctx, PaintService_GetMaskFilter_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *paintServiceClient) GetOffsetForAdvance7(ctx context.Context, in *GetOffsetForAdvance7Request, opts ...grpc.CallOption) (*GetOffsetForAdvance7Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetOffsetForAdvance7Response)
-	err := c.cc.Invoke(ctx, PaintService_GetOffsetForAdvance7_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *paintServiceClient) GetOffsetForAdvance7_1(ctx context.Context, in *GetOffsetForAdvance7_1Request, opts ...grpc.CallOption) (*GetOffsetForAdvance7_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetOffsetForAdvance7_1Response)
-	err := c.cc.Invoke(ctx, PaintService_GetOffsetForAdvance7_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *paintServiceClient) GetPathEffect(ctx context.Context, in *GetPathEffectRequest, opts ...grpc.CallOption) (*GetPathEffectResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetPathEffectResponse)
-	err := c.cc.Invoke(ctx, PaintService_GetPathEffect_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *paintServiceClient) GetRunAdvance7(ctx context.Context, in *GetRunAdvance7Request, opts ...grpc.CallOption) (*GetRunAdvance7Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetRunAdvance7Response)
-	err := c.cc.Invoke(ctx, PaintService_GetRunAdvance7_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *paintServiceClient) GetRunAdvance7_1(ctx context.Context, in *GetRunAdvance7_1Request, opts ...grpc.CallOption) (*GetRunAdvance7_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetRunAdvance7_1Response)
-	err := c.cc.Invoke(ctx, PaintService_GetRunAdvance7_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *paintServiceClient) GetRunCharacterAdvance9(ctx context.Context, in *GetRunCharacterAdvance9Request, opts ...grpc.CallOption) (*GetRunCharacterAdvance9Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetRunCharacterAdvance9Response)
-	err := c.cc.Invoke(ctx, PaintService_GetRunCharacterAdvance9_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *paintServiceClient) GetRunCharacterAdvance9_1(ctx context.Context, in *GetRunCharacterAdvance9_1Request, opts ...grpc.CallOption) (*GetRunCharacterAdvance9_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetRunCharacterAdvance9_1Response)
-	err := c.cc.Invoke(ctx, PaintService_GetRunCharacterAdvance9_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *paintServiceClient) GetShader(ctx context.Context, in *GetShaderRequest, opts ...grpc.CallOption) (*GetShaderResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetShaderResponse)
-	err := c.cc.Invoke(ctx, PaintService_GetShader_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *paintServiceClient) GetShadowLayerColor(ctx context.Context, in *GetShadowLayerColorRequest, opts ...grpc.CallOption) (*GetShadowLayerColorResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetShadowLayerColorResponse)
-	err := c.cc.Invoke(ctx, PaintService_GetShadowLayerColor_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *paintServiceClient) GetShadowLayerColorLong(ctx context.Context, in *GetShadowLayerColorLongRequest, opts ...grpc.CallOption) (*GetShadowLayerColorLongResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetShadowLayerColorLongResponse)
-	err := c.cc.Invoke(ctx, PaintService_GetShadowLayerColorLong_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *paintServiceClient) GetShadowLayerDx(ctx context.Context, in *GetShadowLayerDxRequest, opts ...grpc.CallOption) (*GetShadowLayerDxResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetShadowLayerDxResponse)
-	err := c.cc.Invoke(ctx, PaintService_GetShadowLayerDx_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *paintServiceClient) GetShadowLayerDy(ctx context.Context, in *GetShadowLayerDyRequest, opts ...grpc.CallOption) (*GetShadowLayerDyResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetShadowLayerDyResponse)
-	err := c.cc.Invoke(ctx, PaintService_GetShadowLayerDy_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *paintServiceClient) GetShadowLayerRadius(ctx context.Context, in *GetShadowLayerRadiusRequest, opts ...grpc.CallOption) (*GetShadowLayerRadiusResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetShadowLayerRadiusResponse)
-	err := c.cc.Invoke(ctx, PaintService_GetShadowLayerRadius_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *paintServiceClient) GetStartHyphenEdit(ctx context.Context, in *GetStartHyphenEditRequest, opts ...grpc.CallOption) (*GetStartHyphenEditResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetStartHyphenEditResponse)
-	err := c.cc.Invoke(ctx, PaintService_GetStartHyphenEdit_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *paintServiceClient) GetStrikeThruPosition(ctx context.Context, in *GetStrikeThruPositionRequest, opts ...grpc.CallOption) (*GetStrikeThruPositionResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetStrikeThruPositionResponse)
-	err := c.cc.Invoke(ctx, PaintService_GetStrikeThruPosition_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *paintServiceClient) GetStrikeThruThickness(ctx context.Context, in *GetStrikeThruThicknessRequest, opts ...grpc.CallOption) (*GetStrikeThruThicknessResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetStrikeThruThicknessResponse)
-	err := c.cc.Invoke(ctx, PaintService_GetStrikeThruThickness_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *paintServiceClient) GetStrokeCap(ctx context.Context, in *GetStrokeCapRequest, opts ...grpc.CallOption) (*GetStrokeCapResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetStrokeCapResponse)
-	err := c.cc.Invoke(ctx, PaintService_GetStrokeCap_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *paintServiceClient) GetStrokeJoin(ctx context.Context, in *GetStrokeJoinRequest, opts ...grpc.CallOption) (*GetStrokeJoinResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetStrokeJoinResponse)
-	err := c.cc.Invoke(ctx, PaintService_GetStrokeJoin_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *paintServiceClient) GetStrokeMiter(ctx context.Context, in *GetStrokeMiterRequest, opts ...grpc.CallOption) (*GetStrokeMiterResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetStrokeMiterResponse)
-	err := c.cc.Invoke(ctx, PaintService_GetStrokeMiter_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *paintServiceClient) GetStrokeWidth(ctx context.Context, in *GetStrokeWidthRequest, opts ...grpc.CallOption) (*GetStrokeWidthResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetStrokeWidthResponse)
-	err := c.cc.Invoke(ctx, PaintService_GetStrokeWidth_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *paintServiceClient) GetStyle(ctx context.Context, in *GetStyleRequest, opts ...grpc.CallOption) (*GetStyleResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetStyleResponse)
-	err := c.cc.Invoke(ctx, PaintService_GetStyle_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *paintServiceClient) GetTextAlign(ctx context.Context, in *GetTextAlignRequest, opts ...grpc.CallOption) (*GetTextAlignResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetTextAlignResponse)
-	err := c.cc.Invoke(ctx, PaintService_GetTextAlign_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *paintServiceClient) GetTextBounds4(ctx context.Context, in *GetTextBounds4Request, opts ...grpc.CallOption) (*GetTextBounds4Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetTextBounds4Response)
-	err := c.cc.Invoke(ctx, PaintService_GetTextBounds4_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *paintServiceClient) GetTextBounds4_1(ctx context.Context, in *GetTextBounds4_1Request, opts ...grpc.CallOption) (*GetTextBounds4_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetTextBounds4_1Response)
-	err := c.cc.Invoke(ctx, PaintService_GetTextBounds4_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *paintServiceClient) GetTextBounds4_2(ctx context.Context, in *GetTextBounds4_2Request, opts ...grpc.CallOption) (*GetTextBounds4_2Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetTextBounds4_2Response)
-	err := c.cc.Invoke(ctx, PaintService_GetTextBounds4_2_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *paintServiceClient) GetTextLocale(ctx context.Context, in *GetTextLocaleRequest, opts ...grpc.CallOption) (*GetTextLocaleResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetTextLocaleResponse)
-	err := c.cc.Invoke(ctx, PaintService_GetTextLocale_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *paintServiceClient) GetTextLocales(ctx context.Context, in *GetTextLocalesRequest, opts ...grpc.CallOption) (*GetTextLocalesResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetTextLocalesResponse)
-	err := c.cc.Invoke(ctx, PaintService_GetTextLocales_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *paintServiceClient) GetTextPath6(ctx context.Context, in *GetTextPath6Request, opts ...grpc.CallOption) (*GetTextPath6Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetTextPath6Response)
-	err := c.cc.Invoke(ctx, PaintService_GetTextPath6_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *paintServiceClient) GetTextPath6_1(ctx context.Context, in *GetTextPath6_1Request, opts ...grpc.CallOption) (*GetTextPath6_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetTextPath6_1Response)
-	err := c.cc.Invoke(ctx, PaintService_GetTextPath6_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *paintServiceClient) GetTextRunAdvances(ctx context.Context, in *GetTextRunAdvancesRequest, opts ...grpc.CallOption) (*GetTextRunAdvancesResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetTextRunAdvancesResponse)
-	err := c.cc.Invoke(ctx, PaintService_GetTextRunAdvances_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *paintServiceClient) GetTextRunCursor6(ctx context.Context, in *GetTextRunCursor6Request, opts ...grpc.CallOption) (*GetTextRunCursor6Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetTextRunCursor6Response)
-	err := c.cc.Invoke(ctx, PaintService_GetTextRunCursor6_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *paintServiceClient) GetTextRunCursor6_1(ctx context.Context, in *GetTextRunCursor6_1Request, opts ...grpc.CallOption) (*GetTextRunCursor6_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetTextRunCursor6_1Response)
-	err := c.cc.Invoke(ctx, PaintService_GetTextRunCursor6_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *paintServiceClient) GetTextScaleX(ctx context.Context, in *GetTextScaleXRequest, opts ...grpc.CallOption) (*GetTextScaleXResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetTextScaleXResponse)
-	err := c.cc.Invoke(ctx, PaintService_GetTextScaleX_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *paintServiceClient) GetTextSize(ctx context.Context, in *GetTextSizeRequest, opts ...grpc.CallOption) (*GetTextSizeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetTextSizeResponse)
-	err := c.cc.Invoke(ctx, PaintService_GetTextSize_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *paintServiceClient) GetTextSkewX(ctx context.Context, in *GetTextSkewXRequest, opts ...grpc.CallOption) (*GetTextSkewXResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetTextSkewXResponse)
-	err := c.cc.Invoke(ctx, PaintService_GetTextSkewX_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *paintServiceClient) GetTextWidths4(ctx context.Context, in *GetTextWidths4Request, opts ...grpc.CallOption) (*GetTextWidths4Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetTextWidths4Response)
-	err := c.cc.Invoke(ctx, PaintService_GetTextWidths4_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *paintServiceClient) GetTextWidths4_1(ctx context.Context, in *GetTextWidths4_1Request, opts ...grpc.CallOption) (*GetTextWidths4_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetTextWidths4_1Response)
-	err := c.cc.Invoke(ctx, PaintService_GetTextWidths4_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *paintServiceClient) GetTextWidths2_2(ctx context.Context, in *GetTextWidths2_2Request, opts ...grpc.CallOption) (*GetTextWidths2_2Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetTextWidths2_2Response)
-	err := c.cc.Invoke(ctx, PaintService_GetTextWidths2_2_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *paintServiceClient) GetTextWidths4_3(ctx context.Context, in *GetTextWidths4_3Request, opts ...grpc.CallOption) (*GetTextWidths4_3Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetTextWidths4_3Response)
-	err := c.cc.Invoke(ctx, PaintService_GetTextWidths4_3_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *paintServiceClient) GetTypeface(ctx context.Context, in *GetTypefaceRequest, opts ...grpc.CallOption) (*GetTypefaceResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetTypefaceResponse)
-	err := c.cc.Invoke(ctx, PaintService_GetTypeface_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *paintServiceClient) GetUnderlinePosition(ctx context.Context, in *GetUnderlinePositionRequest, opts ...grpc.CallOption) (*GetUnderlinePositionResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetUnderlinePositionResponse)
-	err := c.cc.Invoke(ctx, PaintService_GetUnderlinePosition_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *paintServiceClient) GetUnderlineThickness(ctx context.Context, in *GetUnderlineThicknessRequest, opts ...grpc.CallOption) (*GetUnderlineThicknessResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetUnderlineThicknessResponse)
-	err := c.cc.Invoke(ctx, PaintService_GetUnderlineThickness_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *paintServiceClient) GetWordSpacing(ctx context.Context, in *GetWordSpacingRequest, opts ...grpc.CallOption) (*GetWordSpacingResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetWordSpacingResponse)
-	err := c.cc.Invoke(ctx, PaintService_GetWordSpacing_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *paintServiceClient) GetXfermode(ctx context.Context, in *GetXfermodeRequest, opts ...grpc.CallOption) (*GetXfermodeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetXfermodeResponse)
-	err := c.cc.Invoke(ctx, PaintService_GetXfermode_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *paintServiceClient) HasGlyph(ctx context.Context, in *HasGlyphRequest, opts ...grpc.CallOption) (*HasGlyphResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(HasGlyphResponse)
-	err := c.cc.Invoke(ctx, PaintService_HasGlyph_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *paintServiceClient) IsAntiAlias(ctx context.Context, in *IsAntiAliasRequest, opts ...grpc.CallOption) (*IsAntiAliasResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsAntiAliasResponse)
-	err := c.cc.Invoke(ctx, PaintService_IsAntiAlias_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *paintServiceClient) IsDither(ctx context.Context, in *IsDitherRequest, opts ...grpc.CallOption) (*IsDitherResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsDitherResponse)
-	err := c.cc.Invoke(ctx, PaintService_IsDither_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *paintServiceClient) IsElegantTextHeight(ctx context.Context, in *IsElegantTextHeightRequest, opts ...grpc.CallOption) (*IsElegantTextHeightResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsElegantTextHeightResponse)
-	err := c.cc.Invoke(ctx, PaintService_IsElegantTextHeight_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *paintServiceClient) IsFakeBoldText(ctx context.Context, in *IsFakeBoldTextRequest, opts ...grpc.CallOption) (*IsFakeBoldTextResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsFakeBoldTextResponse)
-	err := c.cc.Invoke(ctx, PaintService_IsFakeBoldText_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *paintServiceClient) IsFilterBitmap(ctx context.Context, in *IsFilterBitmapRequest, opts ...grpc.CallOption) (*IsFilterBitmapResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsFilterBitmapResponse)
-	err := c.cc.Invoke(ctx, PaintService_IsFilterBitmap_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *paintServiceClient) IsLinearText(ctx context.Context, in *IsLinearTextRequest, opts ...grpc.CallOption) (*IsLinearTextResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsLinearTextResponse)
-	err := c.cc.Invoke(ctx, PaintService_IsLinearText_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *paintServiceClient) IsStrikeThruText(ctx context.Context, in *IsStrikeThruTextRequest, opts ...grpc.CallOption) (*IsStrikeThruTextResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsStrikeThruTextResponse)
-	err := c.cc.Invoke(ctx, PaintService_IsStrikeThruText_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *paintServiceClient) IsSubpixelText(ctx context.Context, in *IsSubpixelTextRequest, opts ...grpc.CallOption) (*IsSubpixelTextResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsSubpixelTextResponse)
-	err := c.cc.Invoke(ctx, PaintService_IsSubpixelText_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *paintServiceClient) IsUnderlineText(ctx context.Context, in *IsUnderlineTextRequest, opts ...grpc.CallOption) (*IsUnderlineTextResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsUnderlineTextResponse)
-	err := c.cc.Invoke(ctx, PaintService_IsUnderlineText_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *paintServiceClient) MeasureText3(ctx context.Context, in *MeasureText3Request, opts ...grpc.CallOption) (*MeasureText3Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(MeasureText3Response)
-	err := c.cc.Invoke(ctx, PaintService_MeasureText3_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *paintServiceClient) MeasureText3_1(ctx context.Context, in *MeasureText3_1Request, opts ...grpc.CallOption) (*MeasureText3_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(MeasureText3_1Response)
-	err := c.cc.Invoke(ctx, PaintService_MeasureText3_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *paintServiceClient) MeasureText1_2(ctx context.Context, in *MeasureText1_2Request, opts ...grpc.CallOption) (*MeasureText1_2Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(MeasureText1_2Response)
-	err := c.cc.Invoke(ctx, PaintService_MeasureText1_2_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *paintServiceClient) MeasureText3_3(ctx context.Context, in *MeasureText3_3Request, opts ...grpc.CallOption) (*MeasureText3_3Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(MeasureText3_3Response)
-	err := c.cc.Invoke(ctx, PaintService_MeasureText3_3_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *paintServiceClient) Reset(ctx context.Context, in *ResetRequest, opts ...grpc.CallOption) (*ResetResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ResetResponse)
-	err := c.cc.Invoke(ctx, PaintService_Reset_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *paintServiceClient) Set(ctx context.Context, in *SetRequest, opts ...grpc.CallOption) (*SetResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetResponse)
-	err := c.cc.Invoke(ctx, PaintService_Set_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *paintServiceClient) SetARGB(ctx context.Context, in *SetARGBRequest, opts ...grpc.CallOption) (*SetARGBResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetARGBResponse)
-	err := c.cc.Invoke(ctx, PaintService_SetARGB_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *paintServiceClient) SetAlpha(ctx context.Context, in *SetAlphaRequest, opts ...grpc.CallOption) (*SetAlphaResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetAlphaResponse)
-	err := c.cc.Invoke(ctx, PaintService_SetAlpha_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *paintServiceClient) SetAntiAlias(ctx context.Context, in *SetAntiAliasRequest, opts ...grpc.CallOption) (*SetAntiAliasResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetAntiAliasResponse)
-	err := c.cc.Invoke(ctx, PaintService_SetAntiAlias_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *paintServiceClient) SetBlendMode(ctx context.Context, in *SetBlendModeRequest, opts ...grpc.CallOption) (*SetBlendModeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetBlendModeResponse)
-	err := c.cc.Invoke(ctx, PaintService_SetBlendMode_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *paintServiceClient) SetColor1(ctx context.Context, in *SetColor1Request, opts ...grpc.CallOption) (*SetColor1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetColor1Response)
-	err := c.cc.Invoke(ctx, PaintService_SetColor1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *paintServiceClient) SetColor1_1(ctx context.Context, in *SetColor1_1Request, opts ...grpc.CallOption) (*SetColor1_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetColor1_1Response)
-	err := c.cc.Invoke(ctx, PaintService_SetColor1_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *paintServiceClient) SetColorFilter(ctx context.Context, in *SetColorFilterRequest, opts ...grpc.CallOption) (*SetColorFilterResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetColorFilterResponse)
-	err := c.cc.Invoke(ctx, PaintService_SetColorFilter_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *paintServiceClient) SetDither(ctx context.Context, in *SetDitherRequest, opts ...grpc.CallOption) (*SetDitherResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetDitherResponse)
-	err := c.cc.Invoke(ctx, PaintService_SetDither_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *paintServiceClient) SetElegantTextHeight(ctx context.Context, in *SetElegantTextHeightRequest, opts ...grpc.CallOption) (*SetElegantTextHeightResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetElegantTextHeightResponse)
-	err := c.cc.Invoke(ctx, PaintService_SetElegantTextHeight_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *paintServiceClient) SetEndHyphenEdit(ctx context.Context, in *SetEndHyphenEditRequest, opts ...grpc.CallOption) (*SetEndHyphenEditResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetEndHyphenEditResponse)
-	err := c.cc.Invoke(ctx, PaintService_SetEndHyphenEdit_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *paintServiceClient) SetFakeBoldText(ctx context.Context, in *SetFakeBoldTextRequest, opts ...grpc.CallOption) (*SetFakeBoldTextResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetFakeBoldTextResponse)
-	err := c.cc.Invoke(ctx, PaintService_SetFakeBoldText_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *paintServiceClient) SetFilterBitmap(ctx context.Context, in *SetFilterBitmapRequest, opts ...grpc.CallOption) (*SetFilterBitmapResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetFilterBitmapResponse)
-	err := c.cc.Invoke(ctx, PaintService_SetFilterBitmap_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *paintServiceClient) SetFlags(ctx context.Context, in *SetFlagsRequest, opts ...grpc.CallOption) (*SetFlagsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetFlagsResponse)
-	err := c.cc.Invoke(ctx, PaintService_SetFlags_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *paintServiceClient) SetFontFeatureSettings(ctx context.Context, in *SetFontFeatureSettingsRequest, opts ...grpc.CallOption) (*SetFontFeatureSettingsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetFontFeatureSettingsResponse)
-	err := c.cc.Invoke(ctx, PaintService_SetFontFeatureSettings_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *paintServiceClient) SetFontVariationSettings(ctx context.Context, in *SetFontVariationSettingsRequest, opts ...grpc.CallOption) (*SetFontVariationSettingsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetFontVariationSettingsResponse)
-	err := c.cc.Invoke(ctx, PaintService_SetFontVariationSettings_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *paintServiceClient) SetHinting(ctx context.Context, in *SetHintingRequest, opts ...grpc.CallOption) (*SetHintingResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetHintingResponse)
-	err := c.cc.Invoke(ctx, PaintService_SetHinting_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *paintServiceClient) SetLetterSpacing(ctx context.Context, in *SetLetterSpacingRequest, opts ...grpc.CallOption) (*SetLetterSpacingResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetLetterSpacingResponse)
-	err := c.cc.Invoke(ctx, PaintService_SetLetterSpacing_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *paintServiceClient) SetLinearText(ctx context.Context, in *SetLinearTextRequest, opts ...grpc.CallOption) (*SetLinearTextResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetLinearTextResponse)
-	err := c.cc.Invoke(ctx, PaintService_SetLinearText_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *paintServiceClient) SetMaskFilter(ctx context.Context, in *SetMaskFilterRequest, opts ...grpc.CallOption) (*SetMaskFilterResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetMaskFilterResponse)
-	err := c.cc.Invoke(ctx, PaintService_SetMaskFilter_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *paintServiceClient) SetPathEffect(ctx context.Context, in *SetPathEffectRequest, opts ...grpc.CallOption) (*SetPathEffectResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetPathEffectResponse)
-	err := c.cc.Invoke(ctx, PaintService_SetPathEffect_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *paintServiceClient) SetShader(ctx context.Context, in *SetShaderRequest, opts ...grpc.CallOption) (*SetShaderResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetShaderResponse)
-	err := c.cc.Invoke(ctx, PaintService_SetShader_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *paintServiceClient) SetShadowLayer4(ctx context.Context, in *SetShadowLayer4Request, opts ...grpc.CallOption) (*SetShadowLayer4Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetShadowLayer4Response)
-	err := c.cc.Invoke(ctx, PaintService_SetShadowLayer4_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *paintServiceClient) SetShadowLayer4_1(ctx context.Context, in *SetShadowLayer4_1Request, opts ...grpc.CallOption) (*SetShadowLayer4_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetShadowLayer4_1Response)
-	err := c.cc.Invoke(ctx, PaintService_SetShadowLayer4_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *paintServiceClient) SetStartHyphenEdit(ctx context.Context, in *SetStartHyphenEditRequest, opts ...grpc.CallOption) (*SetStartHyphenEditResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetStartHyphenEditResponse)
-	err := c.cc.Invoke(ctx, PaintService_SetStartHyphenEdit_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *paintServiceClient) SetStrikeThruText(ctx context.Context, in *SetStrikeThruTextRequest, opts ...grpc.CallOption) (*SetStrikeThruTextResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetStrikeThruTextResponse)
-	err := c.cc.Invoke(ctx, PaintService_SetStrikeThruText_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *paintServiceClient) SetStrokeCap(ctx context.Context, in *SetStrokeCapRequest, opts ...grpc.CallOption) (*SetStrokeCapResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetStrokeCapResponse)
-	err := c.cc.Invoke(ctx, PaintService_SetStrokeCap_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *paintServiceClient) SetStrokeJoin(ctx context.Context, in *SetStrokeJoinRequest, opts ...grpc.CallOption) (*SetStrokeJoinResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetStrokeJoinResponse)
-	err := c.cc.Invoke(ctx, PaintService_SetStrokeJoin_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *paintServiceClient) SetStrokeMiter(ctx context.Context, in *SetStrokeMiterRequest, opts ...grpc.CallOption) (*SetStrokeMiterResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetStrokeMiterResponse)
-	err := c.cc.Invoke(ctx, PaintService_SetStrokeMiter_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *paintServiceClient) SetStrokeWidth(ctx context.Context, in *SetStrokeWidthRequest, opts ...grpc.CallOption) (*SetStrokeWidthResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetStrokeWidthResponse)
-	err := c.cc.Invoke(ctx, PaintService_SetStrokeWidth_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *paintServiceClient) SetStyle(ctx context.Context, in *SetStyleRequest, opts ...grpc.CallOption) (*SetStyleResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetStyleResponse)
-	err := c.cc.Invoke(ctx, PaintService_SetStyle_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *paintServiceClient) SetSubpixelText(ctx context.Context, in *SetSubpixelTextRequest, opts ...grpc.CallOption) (*SetSubpixelTextResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetSubpixelTextResponse)
-	err := c.cc.Invoke(ctx, PaintService_SetSubpixelText_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *paintServiceClient) SetTextAlign(ctx context.Context, in *SetTextAlignRequest, opts ...grpc.CallOption) (*SetTextAlignResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetTextAlignResponse)
-	err := c.cc.Invoke(ctx, PaintService_SetTextAlign_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *paintServiceClient) SetTextLocale(ctx context.Context, in *SetTextLocaleRequest, opts ...grpc.CallOption) (*SetTextLocaleResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetTextLocaleResponse)
-	err := c.cc.Invoke(ctx, PaintService_SetTextLocale_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *paintServiceClient) SetTextLocales(ctx context.Context, in *SetTextLocalesRequest, opts ...grpc.CallOption) (*SetTextLocalesResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetTextLocalesResponse)
-	err := c.cc.Invoke(ctx, PaintService_SetTextLocales_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *paintServiceClient) SetTextScaleX(ctx context.Context, in *SetTextScaleXRequest, opts ...grpc.CallOption) (*SetTextScaleXResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetTextScaleXResponse)
-	err := c.cc.Invoke(ctx, PaintService_SetTextScaleX_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *paintServiceClient) SetTextSize(ctx context.Context, in *SetTextSizeRequest, opts ...grpc.CallOption) (*SetTextSizeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetTextSizeResponse)
-	err := c.cc.Invoke(ctx, PaintService_SetTextSize_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *paintServiceClient) SetTextSkewX(ctx context.Context, in *SetTextSkewXRequest, opts ...grpc.CallOption) (*SetTextSkewXResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetTextSkewXResponse)
-	err := c.cc.Invoke(ctx, PaintService_SetTextSkewX_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *paintServiceClient) SetTypeface(ctx context.Context, in *SetTypefaceRequest, opts ...grpc.CallOption) (*SetTypefaceResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetTypefaceResponse)
-	err := c.cc.Invoke(ctx, PaintService_SetTypeface_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *paintServiceClient) SetUnderlineText(ctx context.Context, in *SetUnderlineTextRequest, opts ...grpc.CallOption) (*SetUnderlineTextResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetUnderlineTextResponse)
-	err := c.cc.Invoke(ctx, PaintService_SetUnderlineText_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *paintServiceClient) SetWordSpacing(ctx context.Context, in *SetWordSpacingRequest, opts ...grpc.CallOption) (*SetWordSpacingResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetWordSpacingResponse)
-	err := c.cc.Invoke(ctx, PaintService_SetWordSpacing_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *paintServiceClient) SetXfermode(ctx context.Context, in *SetXfermodeRequest, opts ...grpc.CallOption) (*SetXfermodeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetXfermodeResponse)
-	err := c.cc.Invoke(ctx, PaintService_SetXfermode_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// PaintServiceServer is the server API for PaintService service.
-// All implementations must embed UnimplementedPaintServiceServer
-// for forward compatibility.
-type PaintServiceServer interface {
-	NewPaint(context.Context, *NewPaintRequest) (*NewPaintResponse, error)
-	Ascent(context.Context, *AscentRequest) (*AscentResponse, error)
-	BreakText5(context.Context, *BreakText5Request) (*BreakText5Response, error)
-	BreakText6_1(context.Context, *BreakText6_1Request) (*BreakText6_1Response, error)
-	BreakText4_2(context.Context, *BreakText4_2Request) (*BreakText4_2Response, error)
-	ClearShadowLayer(context.Context, *ClearShadowLayerRequest) (*ClearShadowLayerResponse, error)
-	Descent(context.Context, *DescentRequest) (*DescentResponse, error)
-	EqualsForTextMeasurement(context.Context, *EqualsForTextMeasurementRequest) (*EqualsForTextMeasurementResponse, error)
-	GetAlpha(context.Context, *GetAlphaRequest) (*GetAlphaResponse, error)
-	GetBlendMode(context.Context, *GetBlendModeRequest) (*GetBlendModeResponse, error)
-	GetColor(context.Context, *GetColorRequest) (*GetColorResponse, error)
-	GetColorFilter(context.Context, *GetColorFilterRequest) (*GetColorFilterResponse, error)
-	GetColorLong(context.Context, *GetColorLongRequest) (*GetColorLongResponse, error)
-	GetEndHyphenEdit(context.Context, *GetEndHyphenEditRequest) (*GetEndHyphenEditResponse, error)
-	GetFillPath(context.Context, *GetFillPathRequest) (*GetFillPathResponse, error)
-	GetFlags(context.Context, *GetFlagsRequest) (*GetFlagsResponse, error)
-	GetFontFeatureSettings(context.Context, *GetFontFeatureSettingsRequest) (*GetFontFeatureSettingsResponse, error)
-	GetFontMetrics0(context.Context, *GetFontMetrics0Request) (*GetFontMetrics0Response, error)
-	GetFontMetrics1_1(context.Context, *GetFontMetrics1_1Request) (*GetFontMetrics1_1Response, error)
-	GetFontMetricsForLocale(context.Context, *GetFontMetricsForLocaleRequest) (*GetFontMetricsForLocaleResponse, error)
-	GetFontMetricsInt0(context.Context, *GetFontMetricsInt0Request) (*GetFontMetricsInt0Response, error)
-	GetFontMetricsInt1_1(context.Context, *GetFontMetricsInt1_1Request) (*GetFontMetricsInt1_1Response, error)
-	GetFontMetricsInt7_2(context.Context, *GetFontMetricsInt7_2Request) (*GetFontMetricsInt7_2Response, error)
-	GetFontMetricsInt7_3(context.Context, *GetFontMetricsInt7_3Request) (*GetFontMetricsInt7_3Response, error)
-	GetFontMetricsIntForLocale(context.Context, *GetFontMetricsIntForLocaleRequest) (*GetFontMetricsIntForLocaleResponse, error)
-	GetFontSpacing(context.Context, *GetFontSpacingRequest) (*GetFontSpacingResponse, error)
-	GetFontVariationSettings(context.Context, *GetFontVariationSettingsRequest) (*GetFontVariationSettingsResponse, error)
-	GetHinting(context.Context, *GetHintingRequest) (*GetHintingResponse, error)
-	GetLetterSpacing(context.Context, *GetLetterSpacingRequest) (*GetLetterSpacingResponse, error)
-	GetMaskFilter(context.Context, *GetMaskFilterRequest) (*GetMaskFilterResponse, error)
-	GetOffsetForAdvance7(context.Context, *GetOffsetForAdvance7Request) (*GetOffsetForAdvance7Response, error)
-	GetOffsetForAdvance7_1(context.Context, *GetOffsetForAdvance7_1Request) (*GetOffsetForAdvance7_1Response, error)
-	GetPathEffect(context.Context, *GetPathEffectRequest) (*GetPathEffectResponse, error)
-	GetRunAdvance7(context.Context, *GetRunAdvance7Request) (*GetRunAdvance7Response, error)
-	GetRunAdvance7_1(context.Context, *GetRunAdvance7_1Request) (*GetRunAdvance7_1Response, error)
-	GetRunCharacterAdvance9(context.Context, *GetRunCharacterAdvance9Request) (*GetRunCharacterAdvance9Response, error)
-	GetRunCharacterAdvance9_1(context.Context, *GetRunCharacterAdvance9_1Request) (*GetRunCharacterAdvance9_1Response, error)
-	GetShader(context.Context, *GetShaderRequest) (*GetShaderResponse, error)
-	GetShadowLayerColor(context.Context, *GetShadowLayerColorRequest) (*GetShadowLayerColorResponse, error)
-	GetShadowLayerColorLong(context.Context, *GetShadowLayerColorLongRequest) (*GetShadowLayerColorLongResponse, error)
-	GetShadowLayerDx(context.Context, *GetShadowLayerDxRequest) (*GetShadowLayerDxResponse, error)
-	GetShadowLayerDy(context.Context, *GetShadowLayerDyRequest) (*GetShadowLayerDyResponse, error)
-	GetShadowLayerRadius(context.Context, *GetShadowLayerRadiusRequest) (*GetShadowLayerRadiusResponse, error)
-	GetStartHyphenEdit(context.Context, *GetStartHyphenEditRequest) (*GetStartHyphenEditResponse, error)
-	GetStrikeThruPosition(context.Context, *GetStrikeThruPositionRequest) (*GetStrikeThruPositionResponse, error)
-	GetStrikeThruThickness(context.Context, *GetStrikeThruThicknessRequest) (*GetStrikeThruThicknessResponse, error)
-	GetStrokeCap(context.Context, *GetStrokeCapRequest) (*GetStrokeCapResponse, error)
-	GetStrokeJoin(context.Context, *GetStrokeJoinRequest) (*GetStrokeJoinResponse, error)
-	GetStrokeMiter(context.Context, *GetStrokeMiterRequest) (*GetStrokeMiterResponse, error)
-	GetStrokeWidth(context.Context, *GetStrokeWidthRequest) (*GetStrokeWidthResponse, error)
-	GetStyle(context.Context, *GetStyleRequest) (*GetStyleResponse, error)
-	GetTextAlign(context.Context, *GetTextAlignRequest) (*GetTextAlignResponse, error)
-	GetTextBounds4(context.Context, *GetTextBounds4Request) (*GetTextBounds4Response, error)
-	GetTextBounds4_1(context.Context, *GetTextBounds4_1Request) (*GetTextBounds4_1Response, error)
-	GetTextBounds4_2(context.Context, *GetTextBounds4_2Request) (*GetTextBounds4_2Response, error)
-	GetTextLocale(context.Context, *GetTextLocaleRequest) (*GetTextLocaleResponse, error)
-	GetTextLocales(context.Context, *GetTextLocalesRequest) (*GetTextLocalesResponse, error)
-	GetTextPath6(context.Context, *GetTextPath6Request) (*GetTextPath6Response, error)
-	GetTextPath6_1(context.Context, *GetTextPath6_1Request) (*GetTextPath6_1Response, error)
-	GetTextRunAdvances(context.Context, *GetTextRunAdvancesRequest) (*GetTextRunAdvancesResponse, error)
-	GetTextRunCursor6(context.Context, *GetTextRunCursor6Request) (*GetTextRunCursor6Response, error)
-	GetTextRunCursor6_1(context.Context, *GetTextRunCursor6_1Request) (*GetTextRunCursor6_1Response, error)
-	GetTextScaleX(context.Context, *GetTextScaleXRequest) (*GetTextScaleXResponse, error)
-	GetTextSize(context.Context, *GetTextSizeRequest) (*GetTextSizeResponse, error)
-	GetTextSkewX(context.Context, *GetTextSkewXRequest) (*GetTextSkewXResponse, error)
-	GetTextWidths4(context.Context, *GetTextWidths4Request) (*GetTextWidths4Response, error)
-	GetTextWidths4_1(context.Context, *GetTextWidths4_1Request) (*GetTextWidths4_1Response, error)
-	GetTextWidths2_2(context.Context, *GetTextWidths2_2Request) (*GetTextWidths2_2Response, error)
-	GetTextWidths4_3(context.Context, *GetTextWidths4_3Request) (*GetTextWidths4_3Response, error)
-	GetTypeface(context.Context, *GetTypefaceRequest) (*GetTypefaceResponse, error)
-	GetUnderlinePosition(context.Context, *GetUnderlinePositionRequest) (*GetUnderlinePositionResponse, error)
-	GetUnderlineThickness(context.Context, *GetUnderlineThicknessRequest) (*GetUnderlineThicknessResponse, error)
-	GetWordSpacing(context.Context, *GetWordSpacingRequest) (*GetWordSpacingResponse, error)
-	GetXfermode(context.Context, *GetXfermodeRequest) (*GetXfermodeResponse, error)
-	HasGlyph(context.Context, *HasGlyphRequest) (*HasGlyphResponse, error)
-	IsAntiAlias(context.Context, *IsAntiAliasRequest) (*IsAntiAliasResponse, error)
-	IsDither(context.Context, *IsDitherRequest) (*IsDitherResponse, error)
-	IsElegantTextHeight(context.Context, *IsElegantTextHeightRequest) (*IsElegantTextHeightResponse, error)
-	IsFakeBoldText(context.Context, *IsFakeBoldTextRequest) (*IsFakeBoldTextResponse, error)
-	IsFilterBitmap(context.Context, *IsFilterBitmapRequest) (*IsFilterBitmapResponse, error)
-	IsLinearText(context.Context, *IsLinearTextRequest) (*IsLinearTextResponse, error)
-	IsStrikeThruText(context.Context, *IsStrikeThruTextRequest) (*IsStrikeThruTextResponse, error)
-	IsSubpixelText(context.Context, *IsSubpixelTextRequest) (*IsSubpixelTextResponse, error)
-	IsUnderlineText(context.Context, *IsUnderlineTextRequest) (*IsUnderlineTextResponse, error)
-	MeasureText3(context.Context, *MeasureText3Request) (*MeasureText3Response, error)
-	MeasureText3_1(context.Context, *MeasureText3_1Request) (*MeasureText3_1Response, error)
-	MeasureText1_2(context.Context, *MeasureText1_2Request) (*MeasureText1_2Response, error)
-	MeasureText3_3(context.Context, *MeasureText3_3Request) (*MeasureText3_3Response, error)
-	Reset(context.Context, *ResetRequest) (*ResetResponse, error)
-	Set(context.Context, *SetRequest) (*SetResponse, error)
-	SetARGB(context.Context, *SetARGBRequest) (*SetARGBResponse, error)
-	SetAlpha(context.Context, *SetAlphaRequest) (*SetAlphaResponse, error)
-	SetAntiAlias(context.Context, *SetAntiAliasRequest) (*SetAntiAliasResponse, error)
-	SetBlendMode(context.Context, *SetBlendModeRequest) (*SetBlendModeResponse, error)
-	SetColor1(context.Context, *SetColor1Request) (*SetColor1Response, error)
-	SetColor1_1(context.Context, *SetColor1_1Request) (*SetColor1_1Response, error)
-	SetColorFilter(context.Context, *SetColorFilterRequest) (*SetColorFilterResponse, error)
-	SetDither(context.Context, *SetDitherRequest) (*SetDitherResponse, error)
-	SetElegantTextHeight(context.Context, *SetElegantTextHeightRequest) (*SetElegantTextHeightResponse, error)
-	SetEndHyphenEdit(context.Context, *SetEndHyphenEditRequest) (*SetEndHyphenEditResponse, error)
-	SetFakeBoldText(context.Context, *SetFakeBoldTextRequest) (*SetFakeBoldTextResponse, error)
-	SetFilterBitmap(context.Context, *SetFilterBitmapRequest) (*SetFilterBitmapResponse, error)
-	SetFlags(context.Context, *SetFlagsRequest) (*SetFlagsResponse, error)
-	SetFontFeatureSettings(context.Context, *SetFontFeatureSettingsRequest) (*SetFontFeatureSettingsResponse, error)
-	SetFontVariationSettings(context.Context, *SetFontVariationSettingsRequest) (*SetFontVariationSettingsResponse, error)
-	SetHinting(context.Context, *SetHintingRequest) (*SetHintingResponse, error)
-	SetLetterSpacing(context.Context, *SetLetterSpacingRequest) (*SetLetterSpacingResponse, error)
-	SetLinearText(context.Context, *SetLinearTextRequest) (*SetLinearTextResponse, error)
-	SetMaskFilter(context.Context, *SetMaskFilterRequest) (*SetMaskFilterResponse, error)
-	SetPathEffect(context.Context, *SetPathEffectRequest) (*SetPathEffectResponse, error)
-	SetShader(context.Context, *SetShaderRequest) (*SetShaderResponse, error)
-	SetShadowLayer4(context.Context, *SetShadowLayer4Request) (*SetShadowLayer4Response, error)
-	SetShadowLayer4_1(context.Context, *SetShadowLayer4_1Request) (*SetShadowLayer4_1Response, error)
-	SetStartHyphenEdit(context.Context, *SetStartHyphenEditRequest) (*SetStartHyphenEditResponse, error)
-	SetStrikeThruText(context.Context, *SetStrikeThruTextRequest) (*SetStrikeThruTextResponse, error)
-	SetStrokeCap(context.Context, *SetStrokeCapRequest) (*SetStrokeCapResponse, error)
-	SetStrokeJoin(context.Context, *SetStrokeJoinRequest) (*SetStrokeJoinResponse, error)
-	SetStrokeMiter(context.Context, *SetStrokeMiterRequest) (*SetStrokeMiterResponse, error)
-	SetStrokeWidth(context.Context, *SetStrokeWidthRequest) (*SetStrokeWidthResponse, error)
-	SetStyle(context.Context, *SetStyleRequest) (*SetStyleResponse, error)
-	SetSubpixelText(context.Context, *SetSubpixelTextRequest) (*SetSubpixelTextResponse, error)
-	SetTextAlign(context.Context, *SetTextAlignRequest) (*SetTextAlignResponse, error)
-	SetTextLocale(context.Context, *SetTextLocaleRequest) (*SetTextLocaleResponse, error)
-	SetTextLocales(context.Context, *SetTextLocalesRequest) (*SetTextLocalesResponse, error)
-	SetTextScaleX(context.Context, *SetTextScaleXRequest) (*SetTextScaleXResponse, error)
-	SetTextSize(context.Context, *SetTextSizeRequest) (*SetTextSizeResponse, error)
-	SetTextSkewX(context.Context, *SetTextSkewXRequest) (*SetTextSkewXResponse, error)
-	SetTypeface(context.Context, *SetTypefaceRequest) (*SetTypefaceResponse, error)
-	SetUnderlineText(context.Context, *SetUnderlineTextRequest) (*SetUnderlineTextResponse, error)
-	SetWordSpacing(context.Context, *SetWordSpacingRequest) (*SetWordSpacingResponse, error)
-	SetXfermode(context.Context, *SetXfermodeRequest) (*SetXfermodeResponse, error)
-	mustEmbedUnimplementedPaintServiceServer()
-}
-
-// UnimplementedPaintServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedPaintServiceServer struct{}
-
-func (UnimplementedPaintServiceServer) NewPaint(context.Context, *NewPaintRequest) (*NewPaintResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewPaint not implemented")
-}
-func (UnimplementedPaintServiceServer) Ascent(context.Context, *AscentRequest) (*AscentResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Ascent not implemented")
-}
-func (UnimplementedPaintServiceServer) BreakText5(context.Context, *BreakText5Request) (*BreakText5Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method BreakText5 not implemented")
-}
-func (UnimplementedPaintServiceServer) BreakText6_1(context.Context, *BreakText6_1Request) (*BreakText6_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method BreakText6_1 not implemented")
-}
-func (UnimplementedPaintServiceServer) BreakText4_2(context.Context, *BreakText4_2Request) (*BreakText4_2Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method BreakText4_2 not implemented")
-}
-func (UnimplementedPaintServiceServer) ClearShadowLayer(context.Context, *ClearShadowLayerRequest) (*ClearShadowLayerResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ClearShadowLayer not implemented")
-}
-func (UnimplementedPaintServiceServer) Descent(context.Context, *DescentRequest) (*DescentResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Descent not implemented")
-}
-func (UnimplementedPaintServiceServer) EqualsForTextMeasurement(context.Context, *EqualsForTextMeasurementRequest) (*EqualsForTextMeasurementResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method EqualsForTextMeasurement not implemented")
-}
-func (UnimplementedPaintServiceServer) GetAlpha(context.Context, *GetAlphaRequest) (*GetAlphaResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetAlpha not implemented")
-}
-func (UnimplementedPaintServiceServer) GetBlendMode(context.Context, *GetBlendModeRequest) (*GetBlendModeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetBlendMode not implemented")
-}
-func (UnimplementedPaintServiceServer) GetColor(context.Context, *GetColorRequest) (*GetColorResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetColor not implemented")
-}
-func (UnimplementedPaintServiceServer) GetColorFilter(context.Context, *GetColorFilterRequest) (*GetColorFilterResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetColorFilter not implemented")
-}
-func (UnimplementedPaintServiceServer) GetColorLong(context.Context, *GetColorLongRequest) (*GetColorLongResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetColorLong not implemented")
-}
-func (UnimplementedPaintServiceServer) GetEndHyphenEdit(context.Context, *GetEndHyphenEditRequest) (*GetEndHyphenEditResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetEndHyphenEdit not implemented")
-}
-func (UnimplementedPaintServiceServer) GetFillPath(context.Context, *GetFillPathRequest) (*GetFillPathResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetFillPath not implemented")
-}
-func (UnimplementedPaintServiceServer) GetFlags(context.Context, *GetFlagsRequest) (*GetFlagsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetFlags not implemented")
-}
-func (UnimplementedPaintServiceServer) GetFontFeatureSettings(context.Context, *GetFontFeatureSettingsRequest) (*GetFontFeatureSettingsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetFontFeatureSettings not implemented")
-}
-func (UnimplementedPaintServiceServer) GetFontMetrics0(context.Context, *GetFontMetrics0Request) (*GetFontMetrics0Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetFontMetrics0 not implemented")
-}
-func (UnimplementedPaintServiceServer) GetFontMetrics1_1(context.Context, *GetFontMetrics1_1Request) (*GetFontMetrics1_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetFontMetrics1_1 not implemented")
-}
-func (UnimplementedPaintServiceServer) GetFontMetricsForLocale(context.Context, *GetFontMetricsForLocaleRequest) (*GetFontMetricsForLocaleResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetFontMetricsForLocale not implemented")
-}
-func (UnimplementedPaintServiceServer) GetFontMetricsInt0(context.Context, *GetFontMetricsInt0Request) (*GetFontMetricsInt0Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetFontMetricsInt0 not implemented")
-}
-func (UnimplementedPaintServiceServer) GetFontMetricsInt1_1(context.Context, *GetFontMetricsInt1_1Request) (*GetFontMetricsInt1_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetFontMetricsInt1_1 not implemented")
-}
-func (UnimplementedPaintServiceServer) GetFontMetricsInt7_2(context.Context, *GetFontMetricsInt7_2Request) (*GetFontMetricsInt7_2Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetFontMetricsInt7_2 not implemented")
-}
-func (UnimplementedPaintServiceServer) GetFontMetricsInt7_3(context.Context, *GetFontMetricsInt7_3Request) (*GetFontMetricsInt7_3Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetFontMetricsInt7_3 not implemented")
-}
-func (UnimplementedPaintServiceServer) GetFontMetricsIntForLocale(context.Context, *GetFontMetricsIntForLocaleRequest) (*GetFontMetricsIntForLocaleResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetFontMetricsIntForLocale not implemented")
-}
-func (UnimplementedPaintServiceServer) GetFontSpacing(context.Context, *GetFontSpacingRequest) (*GetFontSpacingResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetFontSpacing not implemented")
-}
-func (UnimplementedPaintServiceServer) GetFontVariationSettings(context.Context, *GetFontVariationSettingsRequest) (*GetFontVariationSettingsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetFontVariationSettings not implemented")
-}
-func (UnimplementedPaintServiceServer) GetHinting(context.Context, *GetHintingRequest) (*GetHintingResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetHinting not implemented")
-}
-func (UnimplementedPaintServiceServer) GetLetterSpacing(context.Context, *GetLetterSpacingRequest) (*GetLetterSpacingResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetLetterSpacing not implemented")
-}
-func (UnimplementedPaintServiceServer) GetMaskFilter(context.Context, *GetMaskFilterRequest) (*GetMaskFilterResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetMaskFilter not implemented")
-}
-func (UnimplementedPaintServiceServer) GetOffsetForAdvance7(context.Context, *GetOffsetForAdvance7Request) (*GetOffsetForAdvance7Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetOffsetForAdvance7 not implemented")
-}
-func (UnimplementedPaintServiceServer) GetOffsetForAdvance7_1(context.Context, *GetOffsetForAdvance7_1Request) (*GetOffsetForAdvance7_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetOffsetForAdvance7_1 not implemented")
-}
-func (UnimplementedPaintServiceServer) GetPathEffect(context.Context, *GetPathEffectRequest) (*GetPathEffectResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetPathEffect not implemented")
-}
-func (UnimplementedPaintServiceServer) GetRunAdvance7(context.Context, *GetRunAdvance7Request) (*GetRunAdvance7Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetRunAdvance7 not implemented")
-}
-func (UnimplementedPaintServiceServer) GetRunAdvance7_1(context.Context, *GetRunAdvance7_1Request) (*GetRunAdvance7_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetRunAdvance7_1 not implemented")
-}
-func (UnimplementedPaintServiceServer) GetRunCharacterAdvance9(context.Context, *GetRunCharacterAdvance9Request) (*GetRunCharacterAdvance9Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetRunCharacterAdvance9 not implemented")
-}
-func (UnimplementedPaintServiceServer) GetRunCharacterAdvance9_1(context.Context, *GetRunCharacterAdvance9_1Request) (*GetRunCharacterAdvance9_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetRunCharacterAdvance9_1 not implemented")
-}
-func (UnimplementedPaintServiceServer) GetShader(context.Context, *GetShaderRequest) (*GetShaderResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetShader not implemented")
-}
-func (UnimplementedPaintServiceServer) GetShadowLayerColor(context.Context, *GetShadowLayerColorRequest) (*GetShadowLayerColorResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetShadowLayerColor not implemented")
-}
-func (UnimplementedPaintServiceServer) GetShadowLayerColorLong(context.Context, *GetShadowLayerColorLongRequest) (*GetShadowLayerColorLongResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetShadowLayerColorLong not implemented")
-}
-func (UnimplementedPaintServiceServer) GetShadowLayerDx(context.Context, *GetShadowLayerDxRequest) (*GetShadowLayerDxResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetShadowLayerDx not implemented")
-}
-func (UnimplementedPaintServiceServer) GetShadowLayerDy(context.Context, *GetShadowLayerDyRequest) (*GetShadowLayerDyResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetShadowLayerDy not implemented")
-}
-func (UnimplementedPaintServiceServer) GetShadowLayerRadius(context.Context, *GetShadowLayerRadiusRequest) (*GetShadowLayerRadiusResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetShadowLayerRadius not implemented")
-}
-func (UnimplementedPaintServiceServer) GetStartHyphenEdit(context.Context, *GetStartHyphenEditRequest) (*GetStartHyphenEditResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetStartHyphenEdit not implemented")
-}
-func (UnimplementedPaintServiceServer) GetStrikeThruPosition(context.Context, *GetStrikeThruPositionRequest) (*GetStrikeThruPositionResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetStrikeThruPosition not implemented")
-}
-func (UnimplementedPaintServiceServer) GetStrikeThruThickness(context.Context, *GetStrikeThruThicknessRequest) (*GetStrikeThruThicknessResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetStrikeThruThickness not implemented")
-}
-func (UnimplementedPaintServiceServer) GetStrokeCap(context.Context, *GetStrokeCapRequest) (*GetStrokeCapResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetStrokeCap not implemented")
-}
-func (UnimplementedPaintServiceServer) GetStrokeJoin(context.Context, *GetStrokeJoinRequest) (*GetStrokeJoinResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetStrokeJoin not implemented")
-}
-func (UnimplementedPaintServiceServer) GetStrokeMiter(context.Context, *GetStrokeMiterRequest) (*GetStrokeMiterResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetStrokeMiter not implemented")
-}
-func (UnimplementedPaintServiceServer) GetStrokeWidth(context.Context, *GetStrokeWidthRequest) (*GetStrokeWidthResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetStrokeWidth not implemented")
-}
-func (UnimplementedPaintServiceServer) GetStyle(context.Context, *GetStyleRequest) (*GetStyleResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetStyle not implemented")
-}
-func (UnimplementedPaintServiceServer) GetTextAlign(context.Context, *GetTextAlignRequest) (*GetTextAlignResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetTextAlign not implemented")
-}
-func (UnimplementedPaintServiceServer) GetTextBounds4(context.Context, *GetTextBounds4Request) (*GetTextBounds4Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetTextBounds4 not implemented")
-}
-func (UnimplementedPaintServiceServer) GetTextBounds4_1(context.Context, *GetTextBounds4_1Request) (*GetTextBounds4_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetTextBounds4_1 not implemented")
-}
-func (UnimplementedPaintServiceServer) GetTextBounds4_2(context.Context, *GetTextBounds4_2Request) (*GetTextBounds4_2Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetTextBounds4_2 not implemented")
-}
-func (UnimplementedPaintServiceServer) GetTextLocale(context.Context, *GetTextLocaleRequest) (*GetTextLocaleResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetTextLocale not implemented")
-}
-func (UnimplementedPaintServiceServer) GetTextLocales(context.Context, *GetTextLocalesRequest) (*GetTextLocalesResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetTextLocales not implemented")
-}
-func (UnimplementedPaintServiceServer) GetTextPath6(context.Context, *GetTextPath6Request) (*GetTextPath6Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetTextPath6 not implemented")
-}
-func (UnimplementedPaintServiceServer) GetTextPath6_1(context.Context, *GetTextPath6_1Request) (*GetTextPath6_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetTextPath6_1 not implemented")
-}
-func (UnimplementedPaintServiceServer) GetTextRunAdvances(context.Context, *GetTextRunAdvancesRequest) (*GetTextRunAdvancesResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetTextRunAdvances not implemented")
-}
-func (UnimplementedPaintServiceServer) GetTextRunCursor6(context.Context, *GetTextRunCursor6Request) (*GetTextRunCursor6Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetTextRunCursor6 not implemented")
-}
-func (UnimplementedPaintServiceServer) GetTextRunCursor6_1(context.Context, *GetTextRunCursor6_1Request) (*GetTextRunCursor6_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetTextRunCursor6_1 not implemented")
-}
-func (UnimplementedPaintServiceServer) GetTextScaleX(context.Context, *GetTextScaleXRequest) (*GetTextScaleXResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetTextScaleX not implemented")
-}
-func (UnimplementedPaintServiceServer) GetTextSize(context.Context, *GetTextSizeRequest) (*GetTextSizeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetTextSize not implemented")
-}
-func (UnimplementedPaintServiceServer) GetTextSkewX(context.Context, *GetTextSkewXRequest) (*GetTextSkewXResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetTextSkewX not implemented")
-}
-func (UnimplementedPaintServiceServer) GetTextWidths4(context.Context, *GetTextWidths4Request) (*GetTextWidths4Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetTextWidths4 not implemented")
-}
-func (UnimplementedPaintServiceServer) GetTextWidths4_1(context.Context, *GetTextWidths4_1Request) (*GetTextWidths4_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetTextWidths4_1 not implemented")
-}
-func (UnimplementedPaintServiceServer) GetTextWidths2_2(context.Context, *GetTextWidths2_2Request) (*GetTextWidths2_2Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetTextWidths2_2 not implemented")
-}
-func (UnimplementedPaintServiceServer) GetTextWidths4_3(context.Context, *GetTextWidths4_3Request) (*GetTextWidths4_3Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetTextWidths4_3 not implemented")
-}
-func (UnimplementedPaintServiceServer) GetTypeface(context.Context, *GetTypefaceRequest) (*GetTypefaceResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetTypeface not implemented")
-}
-func (UnimplementedPaintServiceServer) GetUnderlinePosition(context.Context, *GetUnderlinePositionRequest) (*GetUnderlinePositionResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetUnderlinePosition not implemented")
-}
-func (UnimplementedPaintServiceServer) GetUnderlineThickness(context.Context, *GetUnderlineThicknessRequest) (*GetUnderlineThicknessResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetUnderlineThickness not implemented")
-}
-func (UnimplementedPaintServiceServer) GetWordSpacing(context.Context, *GetWordSpacingRequest) (*GetWordSpacingResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetWordSpacing not implemented")
-}
-func (UnimplementedPaintServiceServer) GetXfermode(context.Context, *GetXfermodeRequest) (*GetXfermodeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetXfermode not implemented")
-}
-func (UnimplementedPaintServiceServer) HasGlyph(context.Context, *HasGlyphRequest) (*HasGlyphResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method HasGlyph not implemented")
-}
-func (UnimplementedPaintServiceServer) IsAntiAlias(context.Context, *IsAntiAliasRequest) (*IsAntiAliasResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsAntiAlias not implemented")
-}
-func (UnimplementedPaintServiceServer) IsDither(context.Context, *IsDitherRequest) (*IsDitherResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsDither not implemented")
-}
-func (UnimplementedPaintServiceServer) IsElegantTextHeight(context.Context, *IsElegantTextHeightRequest) (*IsElegantTextHeightResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsElegantTextHeight not implemented")
-}
-func (UnimplementedPaintServiceServer) IsFakeBoldText(context.Context, *IsFakeBoldTextRequest) (*IsFakeBoldTextResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsFakeBoldText not implemented")
-}
-func (UnimplementedPaintServiceServer) IsFilterBitmap(context.Context, *IsFilterBitmapRequest) (*IsFilterBitmapResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsFilterBitmap not implemented")
-}
-func (UnimplementedPaintServiceServer) IsLinearText(context.Context, *IsLinearTextRequest) (*IsLinearTextResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsLinearText not implemented")
-}
-func (UnimplementedPaintServiceServer) IsStrikeThruText(context.Context, *IsStrikeThruTextRequest) (*IsStrikeThruTextResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsStrikeThruText not implemented")
-}
-func (UnimplementedPaintServiceServer) IsSubpixelText(context.Context, *IsSubpixelTextRequest) (*IsSubpixelTextResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsSubpixelText not implemented")
-}
-func (UnimplementedPaintServiceServer) IsUnderlineText(context.Context, *IsUnderlineTextRequest) (*IsUnderlineTextResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsUnderlineText not implemented")
-}
-func (UnimplementedPaintServiceServer) MeasureText3(context.Context, *MeasureText3Request) (*MeasureText3Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method MeasureText3 not implemented")
-}
-func (UnimplementedPaintServiceServer) MeasureText3_1(context.Context, *MeasureText3_1Request) (*MeasureText3_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method MeasureText3_1 not implemented")
-}
-func (UnimplementedPaintServiceServer) MeasureText1_2(context.Context, *MeasureText1_2Request) (*MeasureText1_2Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method MeasureText1_2 not implemented")
-}
-func (UnimplementedPaintServiceServer) MeasureText3_3(context.Context, *MeasureText3_3Request) (*MeasureText3_3Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method MeasureText3_3 not implemented")
-}
-func (UnimplementedPaintServiceServer) Reset(context.Context, *ResetRequest) (*ResetResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Reset not implemented")
-}
-func (UnimplementedPaintServiceServer) Set(context.Context, *SetRequest) (*SetResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Set not implemented")
-}
-func (UnimplementedPaintServiceServer) SetARGB(context.Context, *SetARGBRequest) (*SetARGBResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetARGB not implemented")
-}
-func (UnimplementedPaintServiceServer) SetAlpha(context.Context, *SetAlphaRequest) (*SetAlphaResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetAlpha not implemented")
-}
-func (UnimplementedPaintServiceServer) SetAntiAlias(context.Context, *SetAntiAliasRequest) (*SetAntiAliasResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetAntiAlias not implemented")
-}
-func (UnimplementedPaintServiceServer) SetBlendMode(context.Context, *SetBlendModeRequest) (*SetBlendModeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetBlendMode not implemented")
-}
-func (UnimplementedPaintServiceServer) SetColor1(context.Context, *SetColor1Request) (*SetColor1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetColor1 not implemented")
-}
-func (UnimplementedPaintServiceServer) SetColor1_1(context.Context, *SetColor1_1Request) (*SetColor1_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetColor1_1 not implemented")
-}
-func (UnimplementedPaintServiceServer) SetColorFilter(context.Context, *SetColorFilterRequest) (*SetColorFilterResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetColorFilter not implemented")
-}
-func (UnimplementedPaintServiceServer) SetDither(context.Context, *SetDitherRequest) (*SetDitherResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetDither not implemented")
-}
-func (UnimplementedPaintServiceServer) SetElegantTextHeight(context.Context, *SetElegantTextHeightRequest) (*SetElegantTextHeightResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetElegantTextHeight not implemented")
-}
-func (UnimplementedPaintServiceServer) SetEndHyphenEdit(context.Context, *SetEndHyphenEditRequest) (*SetEndHyphenEditResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetEndHyphenEdit not implemented")
-}
-func (UnimplementedPaintServiceServer) SetFakeBoldText(context.Context, *SetFakeBoldTextRequest) (*SetFakeBoldTextResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetFakeBoldText not implemented")
-}
-func (UnimplementedPaintServiceServer) SetFilterBitmap(context.Context, *SetFilterBitmapRequest) (*SetFilterBitmapResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetFilterBitmap not implemented")
-}
-func (UnimplementedPaintServiceServer) SetFlags(context.Context, *SetFlagsRequest) (*SetFlagsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetFlags not implemented")
-}
-func (UnimplementedPaintServiceServer) SetFontFeatureSettings(context.Context, *SetFontFeatureSettingsRequest) (*SetFontFeatureSettingsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetFontFeatureSettings not implemented")
-}
-func (UnimplementedPaintServiceServer) SetFontVariationSettings(context.Context, *SetFontVariationSettingsRequest) (*SetFontVariationSettingsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetFontVariationSettings not implemented")
-}
-func (UnimplementedPaintServiceServer) SetHinting(context.Context, *SetHintingRequest) (*SetHintingResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetHinting not implemented")
-}
-func (UnimplementedPaintServiceServer) SetLetterSpacing(context.Context, *SetLetterSpacingRequest) (*SetLetterSpacingResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetLetterSpacing not implemented")
-}
-func (UnimplementedPaintServiceServer) SetLinearText(context.Context, *SetLinearTextRequest) (*SetLinearTextResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetLinearText not implemented")
-}
-func (UnimplementedPaintServiceServer) SetMaskFilter(context.Context, *SetMaskFilterRequest) (*SetMaskFilterResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetMaskFilter not implemented")
-}
-func (UnimplementedPaintServiceServer) SetPathEffect(context.Context, *SetPathEffectRequest) (*SetPathEffectResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetPathEffect not implemented")
-}
-func (UnimplementedPaintServiceServer) SetShader(context.Context, *SetShaderRequest) (*SetShaderResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetShader not implemented")
-}
-func (UnimplementedPaintServiceServer) SetShadowLayer4(context.Context, *SetShadowLayer4Request) (*SetShadowLayer4Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetShadowLayer4 not implemented")
-}
-func (UnimplementedPaintServiceServer) SetShadowLayer4_1(context.Context, *SetShadowLayer4_1Request) (*SetShadowLayer4_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetShadowLayer4_1 not implemented")
-}
-func (UnimplementedPaintServiceServer) SetStartHyphenEdit(context.Context, *SetStartHyphenEditRequest) (*SetStartHyphenEditResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetStartHyphenEdit not implemented")
-}
-func (UnimplementedPaintServiceServer) SetStrikeThruText(context.Context, *SetStrikeThruTextRequest) (*SetStrikeThruTextResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetStrikeThruText not implemented")
-}
-func (UnimplementedPaintServiceServer) SetStrokeCap(context.Context, *SetStrokeCapRequest) (*SetStrokeCapResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetStrokeCap not implemented")
-}
-func (UnimplementedPaintServiceServer) SetStrokeJoin(context.Context, *SetStrokeJoinRequest) (*SetStrokeJoinResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetStrokeJoin not implemented")
-}
-func (UnimplementedPaintServiceServer) SetStrokeMiter(context.Context, *SetStrokeMiterRequest) (*SetStrokeMiterResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetStrokeMiter not implemented")
-}
-func (UnimplementedPaintServiceServer) SetStrokeWidth(context.Context, *SetStrokeWidthRequest) (*SetStrokeWidthResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetStrokeWidth not implemented")
-}
-func (UnimplementedPaintServiceServer) SetStyle(context.Context, *SetStyleRequest) (*SetStyleResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetStyle not implemented")
-}
-func (UnimplementedPaintServiceServer) SetSubpixelText(context.Context, *SetSubpixelTextRequest) (*SetSubpixelTextResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetSubpixelText not implemented")
-}
-func (UnimplementedPaintServiceServer) SetTextAlign(context.Context, *SetTextAlignRequest) (*SetTextAlignResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetTextAlign not implemented")
-}
-func (UnimplementedPaintServiceServer) SetTextLocale(context.Context, *SetTextLocaleRequest) (*SetTextLocaleResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetTextLocale not implemented")
-}
-func (UnimplementedPaintServiceServer) SetTextLocales(context.Context, *SetTextLocalesRequest) (*SetTextLocalesResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetTextLocales not implemented")
-}
-func (UnimplementedPaintServiceServer) SetTextScaleX(context.Context, *SetTextScaleXRequest) (*SetTextScaleXResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetTextScaleX not implemented")
-}
-func (UnimplementedPaintServiceServer) SetTextSize(context.Context, *SetTextSizeRequest) (*SetTextSizeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetTextSize not implemented")
-}
-func (UnimplementedPaintServiceServer) SetTextSkewX(context.Context, *SetTextSkewXRequest) (*SetTextSkewXResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetTextSkewX not implemented")
-}
-func (UnimplementedPaintServiceServer) SetTypeface(context.Context, *SetTypefaceRequest) (*SetTypefaceResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetTypeface not implemented")
-}
-func (UnimplementedPaintServiceServer) SetUnderlineText(context.Context, *SetUnderlineTextRequest) (*SetUnderlineTextResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetUnderlineText not implemented")
-}
-func (UnimplementedPaintServiceServer) SetWordSpacing(context.Context, *SetWordSpacingRequest) (*SetWordSpacingResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetWordSpacing not implemented")
-}
-func (UnimplementedPaintServiceServer) SetXfermode(context.Context, *SetXfermodeRequest) (*SetXfermodeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetXfermode not implemented")
-}
-func (UnimplementedPaintServiceServer) mustEmbedUnimplementedPaintServiceServer() {}
-func (UnimplementedPaintServiceServer) testEmbeddedByValue()                      {}
-
-// UnsafePaintServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to PaintServiceServer will
-// result in compilation errors.
-type UnsafePaintServiceServer interface {
-	mustEmbedUnimplementedPaintServiceServer()
-}
-
-func RegisterPaintServiceServer(s grpc.ServiceRegistrar, srv PaintServiceServer) {
-	// If the following call panics, it indicates UnimplementedPaintServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&PaintService_ServiceDesc, srv)
-}
-
-func _PaintService_NewPaint_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewPaintRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PaintServiceServer).NewPaint(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PaintService_NewPaint_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PaintServiceServer).NewPaint(ctx, req.(*NewPaintRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PaintService_Ascent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AscentRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PaintServiceServer).Ascent(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PaintService_Ascent_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PaintServiceServer).Ascent(ctx, req.(*AscentRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PaintService_BreakText5_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(BreakText5Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PaintServiceServer).BreakText5(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PaintService_BreakText5_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PaintServiceServer).BreakText5(ctx, req.(*BreakText5Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PaintService_BreakText6_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(BreakText6_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PaintServiceServer).BreakText6_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PaintService_BreakText6_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PaintServiceServer).BreakText6_1(ctx, req.(*BreakText6_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PaintService_BreakText4_2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(BreakText4_2Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PaintServiceServer).BreakText4_2(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PaintService_BreakText4_2_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PaintServiceServer).BreakText4_2(ctx, req.(*BreakText4_2Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PaintService_ClearShadowLayer_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ClearShadowLayerRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PaintServiceServer).ClearShadowLayer(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PaintService_ClearShadowLayer_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PaintServiceServer).ClearShadowLayer(ctx, req.(*ClearShadowLayerRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PaintService_Descent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DescentRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PaintServiceServer).Descent(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PaintService_Descent_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PaintServiceServer).Descent(ctx, req.(*DescentRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PaintService_EqualsForTextMeasurement_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(EqualsForTextMeasurementRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PaintServiceServer).EqualsForTextMeasurement(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PaintService_EqualsForTextMeasurement_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PaintServiceServer).EqualsForTextMeasurement(ctx, req.(*EqualsForTextMeasurementRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PaintService_GetAlpha_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetAlphaRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PaintServiceServer).GetAlpha(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PaintService_GetAlpha_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PaintServiceServer).GetAlpha(ctx, req.(*GetAlphaRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PaintService_GetBlendMode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetBlendModeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PaintServiceServer).GetBlendMode(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PaintService_GetBlendMode_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PaintServiceServer).GetBlendMode(ctx, req.(*GetBlendModeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PaintService_GetColor_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetColorRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PaintServiceServer).GetColor(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PaintService_GetColor_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PaintServiceServer).GetColor(ctx, req.(*GetColorRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PaintService_GetColorFilter_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetColorFilterRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PaintServiceServer).GetColorFilter(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PaintService_GetColorFilter_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PaintServiceServer).GetColorFilter(ctx, req.(*GetColorFilterRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PaintService_GetColorLong_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetColorLongRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PaintServiceServer).GetColorLong(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PaintService_GetColorLong_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PaintServiceServer).GetColorLong(ctx, req.(*GetColorLongRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PaintService_GetEndHyphenEdit_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetEndHyphenEditRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PaintServiceServer).GetEndHyphenEdit(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PaintService_GetEndHyphenEdit_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PaintServiceServer).GetEndHyphenEdit(ctx, req.(*GetEndHyphenEditRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PaintService_GetFillPath_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetFillPathRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PaintServiceServer).GetFillPath(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PaintService_GetFillPath_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PaintServiceServer).GetFillPath(ctx, req.(*GetFillPathRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PaintService_GetFlags_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetFlagsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PaintServiceServer).GetFlags(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PaintService_GetFlags_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PaintServiceServer).GetFlags(ctx, req.(*GetFlagsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PaintService_GetFontFeatureSettings_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetFontFeatureSettingsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PaintServiceServer).GetFontFeatureSettings(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PaintService_GetFontFeatureSettings_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PaintServiceServer).GetFontFeatureSettings(ctx, req.(*GetFontFeatureSettingsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PaintService_GetFontMetrics0_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetFontMetrics0Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PaintServiceServer).GetFontMetrics0(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PaintService_GetFontMetrics0_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PaintServiceServer).GetFontMetrics0(ctx, req.(*GetFontMetrics0Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PaintService_GetFontMetrics1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetFontMetrics1_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PaintServiceServer).GetFontMetrics1_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PaintService_GetFontMetrics1_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PaintServiceServer).GetFontMetrics1_1(ctx, req.(*GetFontMetrics1_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PaintService_GetFontMetricsForLocale_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetFontMetricsForLocaleRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PaintServiceServer).GetFontMetricsForLocale(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PaintService_GetFontMetricsForLocale_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PaintServiceServer).GetFontMetricsForLocale(ctx, req.(*GetFontMetricsForLocaleRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PaintService_GetFontMetricsInt0_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetFontMetricsInt0Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PaintServiceServer).GetFontMetricsInt0(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PaintService_GetFontMetricsInt0_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PaintServiceServer).GetFontMetricsInt0(ctx, req.(*GetFontMetricsInt0Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PaintService_GetFontMetricsInt1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetFontMetricsInt1_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PaintServiceServer).GetFontMetricsInt1_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PaintService_GetFontMetricsInt1_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PaintServiceServer).GetFontMetricsInt1_1(ctx, req.(*GetFontMetricsInt1_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PaintService_GetFontMetricsInt7_2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetFontMetricsInt7_2Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PaintServiceServer).GetFontMetricsInt7_2(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PaintService_GetFontMetricsInt7_2_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PaintServiceServer).GetFontMetricsInt7_2(ctx, req.(*GetFontMetricsInt7_2Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PaintService_GetFontMetricsInt7_3_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetFontMetricsInt7_3Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PaintServiceServer).GetFontMetricsInt7_3(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PaintService_GetFontMetricsInt7_3_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PaintServiceServer).GetFontMetricsInt7_3(ctx, req.(*GetFontMetricsInt7_3Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PaintService_GetFontMetricsIntForLocale_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetFontMetricsIntForLocaleRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PaintServiceServer).GetFontMetricsIntForLocale(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PaintService_GetFontMetricsIntForLocale_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PaintServiceServer).GetFontMetricsIntForLocale(ctx, req.(*GetFontMetricsIntForLocaleRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PaintService_GetFontSpacing_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetFontSpacingRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PaintServiceServer).GetFontSpacing(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PaintService_GetFontSpacing_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PaintServiceServer).GetFontSpacing(ctx, req.(*GetFontSpacingRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PaintService_GetFontVariationSettings_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetFontVariationSettingsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PaintServiceServer).GetFontVariationSettings(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PaintService_GetFontVariationSettings_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PaintServiceServer).GetFontVariationSettings(ctx, req.(*GetFontVariationSettingsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PaintService_GetHinting_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetHintingRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PaintServiceServer).GetHinting(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PaintService_GetHinting_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PaintServiceServer).GetHinting(ctx, req.(*GetHintingRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PaintService_GetLetterSpacing_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetLetterSpacingRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PaintServiceServer).GetLetterSpacing(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PaintService_GetLetterSpacing_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PaintServiceServer).GetLetterSpacing(ctx, req.(*GetLetterSpacingRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PaintService_GetMaskFilter_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetMaskFilterRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PaintServiceServer).GetMaskFilter(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PaintService_GetMaskFilter_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PaintServiceServer).GetMaskFilter(ctx, req.(*GetMaskFilterRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PaintService_GetOffsetForAdvance7_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetOffsetForAdvance7Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PaintServiceServer).GetOffsetForAdvance7(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PaintService_GetOffsetForAdvance7_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PaintServiceServer).GetOffsetForAdvance7(ctx, req.(*GetOffsetForAdvance7Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PaintService_GetOffsetForAdvance7_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetOffsetForAdvance7_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PaintServiceServer).GetOffsetForAdvance7_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PaintService_GetOffsetForAdvance7_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PaintServiceServer).GetOffsetForAdvance7_1(ctx, req.(*GetOffsetForAdvance7_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PaintService_GetPathEffect_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetPathEffectRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PaintServiceServer).GetPathEffect(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PaintService_GetPathEffect_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PaintServiceServer).GetPathEffect(ctx, req.(*GetPathEffectRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PaintService_GetRunAdvance7_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetRunAdvance7Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PaintServiceServer).GetRunAdvance7(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PaintService_GetRunAdvance7_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PaintServiceServer).GetRunAdvance7(ctx, req.(*GetRunAdvance7Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PaintService_GetRunAdvance7_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetRunAdvance7_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PaintServiceServer).GetRunAdvance7_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PaintService_GetRunAdvance7_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PaintServiceServer).GetRunAdvance7_1(ctx, req.(*GetRunAdvance7_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PaintService_GetRunCharacterAdvance9_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetRunCharacterAdvance9Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PaintServiceServer).GetRunCharacterAdvance9(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PaintService_GetRunCharacterAdvance9_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PaintServiceServer).GetRunCharacterAdvance9(ctx, req.(*GetRunCharacterAdvance9Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PaintService_GetRunCharacterAdvance9_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetRunCharacterAdvance9_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PaintServiceServer).GetRunCharacterAdvance9_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PaintService_GetRunCharacterAdvance9_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PaintServiceServer).GetRunCharacterAdvance9_1(ctx, req.(*GetRunCharacterAdvance9_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PaintService_GetShader_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetShaderRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PaintServiceServer).GetShader(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PaintService_GetShader_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PaintServiceServer).GetShader(ctx, req.(*GetShaderRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PaintService_GetShadowLayerColor_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetShadowLayerColorRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PaintServiceServer).GetShadowLayerColor(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PaintService_GetShadowLayerColor_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PaintServiceServer).GetShadowLayerColor(ctx, req.(*GetShadowLayerColorRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PaintService_GetShadowLayerColorLong_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetShadowLayerColorLongRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PaintServiceServer).GetShadowLayerColorLong(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PaintService_GetShadowLayerColorLong_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PaintServiceServer).GetShadowLayerColorLong(ctx, req.(*GetShadowLayerColorLongRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PaintService_GetShadowLayerDx_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetShadowLayerDxRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PaintServiceServer).GetShadowLayerDx(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PaintService_GetShadowLayerDx_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PaintServiceServer).GetShadowLayerDx(ctx, req.(*GetShadowLayerDxRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PaintService_GetShadowLayerDy_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetShadowLayerDyRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PaintServiceServer).GetShadowLayerDy(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PaintService_GetShadowLayerDy_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PaintServiceServer).GetShadowLayerDy(ctx, req.(*GetShadowLayerDyRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PaintService_GetShadowLayerRadius_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetShadowLayerRadiusRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PaintServiceServer).GetShadowLayerRadius(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PaintService_GetShadowLayerRadius_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PaintServiceServer).GetShadowLayerRadius(ctx, req.(*GetShadowLayerRadiusRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PaintService_GetStartHyphenEdit_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetStartHyphenEditRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PaintServiceServer).GetStartHyphenEdit(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PaintService_GetStartHyphenEdit_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PaintServiceServer).GetStartHyphenEdit(ctx, req.(*GetStartHyphenEditRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PaintService_GetStrikeThruPosition_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetStrikeThruPositionRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PaintServiceServer).GetStrikeThruPosition(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PaintService_GetStrikeThruPosition_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PaintServiceServer).GetStrikeThruPosition(ctx, req.(*GetStrikeThruPositionRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PaintService_GetStrikeThruThickness_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetStrikeThruThicknessRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PaintServiceServer).GetStrikeThruThickness(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PaintService_GetStrikeThruThickness_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PaintServiceServer).GetStrikeThruThickness(ctx, req.(*GetStrikeThruThicknessRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PaintService_GetStrokeCap_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetStrokeCapRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PaintServiceServer).GetStrokeCap(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PaintService_GetStrokeCap_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PaintServiceServer).GetStrokeCap(ctx, req.(*GetStrokeCapRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PaintService_GetStrokeJoin_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetStrokeJoinRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PaintServiceServer).GetStrokeJoin(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PaintService_GetStrokeJoin_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PaintServiceServer).GetStrokeJoin(ctx, req.(*GetStrokeJoinRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PaintService_GetStrokeMiter_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetStrokeMiterRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PaintServiceServer).GetStrokeMiter(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PaintService_GetStrokeMiter_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PaintServiceServer).GetStrokeMiter(ctx, req.(*GetStrokeMiterRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PaintService_GetStrokeWidth_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetStrokeWidthRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PaintServiceServer).GetStrokeWidth(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PaintService_GetStrokeWidth_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PaintServiceServer).GetStrokeWidth(ctx, req.(*GetStrokeWidthRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PaintService_GetStyle_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetStyleRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PaintServiceServer).GetStyle(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PaintService_GetStyle_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PaintServiceServer).GetStyle(ctx, req.(*GetStyleRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PaintService_GetTextAlign_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetTextAlignRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PaintServiceServer).GetTextAlign(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PaintService_GetTextAlign_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PaintServiceServer).GetTextAlign(ctx, req.(*GetTextAlignRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PaintService_GetTextBounds4_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetTextBounds4Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PaintServiceServer).GetTextBounds4(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PaintService_GetTextBounds4_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PaintServiceServer).GetTextBounds4(ctx, req.(*GetTextBounds4Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PaintService_GetTextBounds4_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetTextBounds4_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PaintServiceServer).GetTextBounds4_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PaintService_GetTextBounds4_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PaintServiceServer).GetTextBounds4_1(ctx, req.(*GetTextBounds4_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PaintService_GetTextBounds4_2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetTextBounds4_2Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PaintServiceServer).GetTextBounds4_2(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PaintService_GetTextBounds4_2_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PaintServiceServer).GetTextBounds4_2(ctx, req.(*GetTextBounds4_2Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PaintService_GetTextLocale_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetTextLocaleRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PaintServiceServer).GetTextLocale(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PaintService_GetTextLocale_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PaintServiceServer).GetTextLocale(ctx, req.(*GetTextLocaleRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PaintService_GetTextLocales_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetTextLocalesRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PaintServiceServer).GetTextLocales(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PaintService_GetTextLocales_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PaintServiceServer).GetTextLocales(ctx, req.(*GetTextLocalesRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PaintService_GetTextPath6_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetTextPath6Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PaintServiceServer).GetTextPath6(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PaintService_GetTextPath6_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PaintServiceServer).GetTextPath6(ctx, req.(*GetTextPath6Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PaintService_GetTextPath6_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetTextPath6_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PaintServiceServer).GetTextPath6_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PaintService_GetTextPath6_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PaintServiceServer).GetTextPath6_1(ctx, req.(*GetTextPath6_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PaintService_GetTextRunAdvances_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetTextRunAdvancesRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PaintServiceServer).GetTextRunAdvances(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PaintService_GetTextRunAdvances_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PaintServiceServer).GetTextRunAdvances(ctx, req.(*GetTextRunAdvancesRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PaintService_GetTextRunCursor6_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetTextRunCursor6Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PaintServiceServer).GetTextRunCursor6(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PaintService_GetTextRunCursor6_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PaintServiceServer).GetTextRunCursor6(ctx, req.(*GetTextRunCursor6Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PaintService_GetTextRunCursor6_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetTextRunCursor6_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PaintServiceServer).GetTextRunCursor6_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PaintService_GetTextRunCursor6_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PaintServiceServer).GetTextRunCursor6_1(ctx, req.(*GetTextRunCursor6_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PaintService_GetTextScaleX_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetTextScaleXRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PaintServiceServer).GetTextScaleX(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PaintService_GetTextScaleX_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PaintServiceServer).GetTextScaleX(ctx, req.(*GetTextScaleXRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PaintService_GetTextSize_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetTextSizeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PaintServiceServer).GetTextSize(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PaintService_GetTextSize_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PaintServiceServer).GetTextSize(ctx, req.(*GetTextSizeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PaintService_GetTextSkewX_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetTextSkewXRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PaintServiceServer).GetTextSkewX(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PaintService_GetTextSkewX_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PaintServiceServer).GetTextSkewX(ctx, req.(*GetTextSkewXRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PaintService_GetTextWidths4_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetTextWidths4Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PaintServiceServer).GetTextWidths4(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PaintService_GetTextWidths4_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PaintServiceServer).GetTextWidths4(ctx, req.(*GetTextWidths4Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PaintService_GetTextWidths4_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetTextWidths4_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PaintServiceServer).GetTextWidths4_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PaintService_GetTextWidths4_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PaintServiceServer).GetTextWidths4_1(ctx, req.(*GetTextWidths4_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PaintService_GetTextWidths2_2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetTextWidths2_2Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PaintServiceServer).GetTextWidths2_2(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PaintService_GetTextWidths2_2_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PaintServiceServer).GetTextWidths2_2(ctx, req.(*GetTextWidths2_2Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PaintService_GetTextWidths4_3_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetTextWidths4_3Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PaintServiceServer).GetTextWidths4_3(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PaintService_GetTextWidths4_3_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PaintServiceServer).GetTextWidths4_3(ctx, req.(*GetTextWidths4_3Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PaintService_GetTypeface_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetTypefaceRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PaintServiceServer).GetTypeface(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PaintService_GetTypeface_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PaintServiceServer).GetTypeface(ctx, req.(*GetTypefaceRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PaintService_GetUnderlinePosition_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetUnderlinePositionRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PaintServiceServer).GetUnderlinePosition(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PaintService_GetUnderlinePosition_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PaintServiceServer).GetUnderlinePosition(ctx, req.(*GetUnderlinePositionRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PaintService_GetUnderlineThickness_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetUnderlineThicknessRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PaintServiceServer).GetUnderlineThickness(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PaintService_GetUnderlineThickness_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PaintServiceServer).GetUnderlineThickness(ctx, req.(*GetUnderlineThicknessRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PaintService_GetWordSpacing_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetWordSpacingRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PaintServiceServer).GetWordSpacing(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PaintService_GetWordSpacing_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PaintServiceServer).GetWordSpacing(ctx, req.(*GetWordSpacingRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PaintService_GetXfermode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetXfermodeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PaintServiceServer).GetXfermode(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PaintService_GetXfermode_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PaintServiceServer).GetXfermode(ctx, req.(*GetXfermodeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PaintService_HasGlyph_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(HasGlyphRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PaintServiceServer).HasGlyph(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PaintService_HasGlyph_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PaintServiceServer).HasGlyph(ctx, req.(*HasGlyphRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PaintService_IsAntiAlias_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsAntiAliasRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PaintServiceServer).IsAntiAlias(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PaintService_IsAntiAlias_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PaintServiceServer).IsAntiAlias(ctx, req.(*IsAntiAliasRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PaintService_IsDither_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsDitherRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PaintServiceServer).IsDither(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PaintService_IsDither_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PaintServiceServer).IsDither(ctx, req.(*IsDitherRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PaintService_IsElegantTextHeight_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsElegantTextHeightRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PaintServiceServer).IsElegantTextHeight(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PaintService_IsElegantTextHeight_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PaintServiceServer).IsElegantTextHeight(ctx, req.(*IsElegantTextHeightRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PaintService_IsFakeBoldText_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsFakeBoldTextRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PaintServiceServer).IsFakeBoldText(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PaintService_IsFakeBoldText_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PaintServiceServer).IsFakeBoldText(ctx, req.(*IsFakeBoldTextRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PaintService_IsFilterBitmap_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsFilterBitmapRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PaintServiceServer).IsFilterBitmap(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PaintService_IsFilterBitmap_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PaintServiceServer).IsFilterBitmap(ctx, req.(*IsFilterBitmapRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PaintService_IsLinearText_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsLinearTextRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PaintServiceServer).IsLinearText(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PaintService_IsLinearText_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PaintServiceServer).IsLinearText(ctx, req.(*IsLinearTextRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PaintService_IsStrikeThruText_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsStrikeThruTextRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PaintServiceServer).IsStrikeThruText(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PaintService_IsStrikeThruText_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PaintServiceServer).IsStrikeThruText(ctx, req.(*IsStrikeThruTextRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PaintService_IsSubpixelText_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsSubpixelTextRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PaintServiceServer).IsSubpixelText(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PaintService_IsSubpixelText_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PaintServiceServer).IsSubpixelText(ctx, req.(*IsSubpixelTextRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PaintService_IsUnderlineText_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsUnderlineTextRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PaintServiceServer).IsUnderlineText(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PaintService_IsUnderlineText_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PaintServiceServer).IsUnderlineText(ctx, req.(*IsUnderlineTextRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PaintService_MeasureText3_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(MeasureText3Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PaintServiceServer).MeasureText3(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PaintService_MeasureText3_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PaintServiceServer).MeasureText3(ctx, req.(*MeasureText3Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PaintService_MeasureText3_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(MeasureText3_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PaintServiceServer).MeasureText3_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PaintService_MeasureText3_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PaintServiceServer).MeasureText3_1(ctx, req.(*MeasureText3_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PaintService_MeasureText1_2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(MeasureText1_2Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PaintServiceServer).MeasureText1_2(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PaintService_MeasureText1_2_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PaintServiceServer).MeasureText1_2(ctx, req.(*MeasureText1_2Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PaintService_MeasureText3_3_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(MeasureText3_3Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PaintServiceServer).MeasureText3_3(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PaintService_MeasureText3_3_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PaintServiceServer).MeasureText3_3(ctx, req.(*MeasureText3_3Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PaintService_Reset_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ResetRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PaintServiceServer).Reset(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PaintService_Reset_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PaintServiceServer).Reset(ctx, req.(*ResetRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PaintService_Set_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PaintServiceServer).Set(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PaintService_Set_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PaintServiceServer).Set(ctx, req.(*SetRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PaintService_SetARGB_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetARGBRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PaintServiceServer).SetARGB(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PaintService_SetARGB_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PaintServiceServer).SetARGB(ctx, req.(*SetARGBRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PaintService_SetAlpha_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetAlphaRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PaintServiceServer).SetAlpha(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PaintService_SetAlpha_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PaintServiceServer).SetAlpha(ctx, req.(*SetAlphaRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PaintService_SetAntiAlias_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetAntiAliasRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PaintServiceServer).SetAntiAlias(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PaintService_SetAntiAlias_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PaintServiceServer).SetAntiAlias(ctx, req.(*SetAntiAliasRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PaintService_SetBlendMode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetBlendModeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PaintServiceServer).SetBlendMode(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PaintService_SetBlendMode_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PaintServiceServer).SetBlendMode(ctx, req.(*SetBlendModeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PaintService_SetColor1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetColor1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PaintServiceServer).SetColor1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PaintService_SetColor1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PaintServiceServer).SetColor1(ctx, req.(*SetColor1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PaintService_SetColor1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetColor1_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PaintServiceServer).SetColor1_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PaintService_SetColor1_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PaintServiceServer).SetColor1_1(ctx, req.(*SetColor1_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PaintService_SetColorFilter_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetColorFilterRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PaintServiceServer).SetColorFilter(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PaintService_SetColorFilter_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PaintServiceServer).SetColorFilter(ctx, req.(*SetColorFilterRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PaintService_SetDither_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetDitherRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PaintServiceServer).SetDither(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PaintService_SetDither_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PaintServiceServer).SetDither(ctx, req.(*SetDitherRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PaintService_SetElegantTextHeight_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetElegantTextHeightRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PaintServiceServer).SetElegantTextHeight(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PaintService_SetElegantTextHeight_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PaintServiceServer).SetElegantTextHeight(ctx, req.(*SetElegantTextHeightRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PaintService_SetEndHyphenEdit_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetEndHyphenEditRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PaintServiceServer).SetEndHyphenEdit(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PaintService_SetEndHyphenEdit_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PaintServiceServer).SetEndHyphenEdit(ctx, req.(*SetEndHyphenEditRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PaintService_SetFakeBoldText_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetFakeBoldTextRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PaintServiceServer).SetFakeBoldText(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PaintService_SetFakeBoldText_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PaintServiceServer).SetFakeBoldText(ctx, req.(*SetFakeBoldTextRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PaintService_SetFilterBitmap_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetFilterBitmapRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PaintServiceServer).SetFilterBitmap(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PaintService_SetFilterBitmap_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PaintServiceServer).SetFilterBitmap(ctx, req.(*SetFilterBitmapRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PaintService_SetFlags_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetFlagsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PaintServiceServer).SetFlags(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PaintService_SetFlags_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PaintServiceServer).SetFlags(ctx, req.(*SetFlagsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PaintService_SetFontFeatureSettings_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetFontFeatureSettingsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PaintServiceServer).SetFontFeatureSettings(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PaintService_SetFontFeatureSettings_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PaintServiceServer).SetFontFeatureSettings(ctx, req.(*SetFontFeatureSettingsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PaintService_SetFontVariationSettings_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetFontVariationSettingsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PaintServiceServer).SetFontVariationSettings(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PaintService_SetFontVariationSettings_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PaintServiceServer).SetFontVariationSettings(ctx, req.(*SetFontVariationSettingsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PaintService_SetHinting_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetHintingRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PaintServiceServer).SetHinting(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PaintService_SetHinting_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PaintServiceServer).SetHinting(ctx, req.(*SetHintingRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PaintService_SetLetterSpacing_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetLetterSpacingRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PaintServiceServer).SetLetterSpacing(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PaintService_SetLetterSpacing_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PaintServiceServer).SetLetterSpacing(ctx, req.(*SetLetterSpacingRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PaintService_SetLinearText_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetLinearTextRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PaintServiceServer).SetLinearText(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PaintService_SetLinearText_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PaintServiceServer).SetLinearText(ctx, req.(*SetLinearTextRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PaintService_SetMaskFilter_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetMaskFilterRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PaintServiceServer).SetMaskFilter(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PaintService_SetMaskFilter_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PaintServiceServer).SetMaskFilter(ctx, req.(*SetMaskFilterRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PaintService_SetPathEffect_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetPathEffectRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PaintServiceServer).SetPathEffect(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PaintService_SetPathEffect_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PaintServiceServer).SetPathEffect(ctx, req.(*SetPathEffectRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PaintService_SetShader_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetShaderRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PaintServiceServer).SetShader(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PaintService_SetShader_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PaintServiceServer).SetShader(ctx, req.(*SetShaderRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PaintService_SetShadowLayer4_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetShadowLayer4Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PaintServiceServer).SetShadowLayer4(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PaintService_SetShadowLayer4_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PaintServiceServer).SetShadowLayer4(ctx, req.(*SetShadowLayer4Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PaintService_SetShadowLayer4_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetShadowLayer4_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PaintServiceServer).SetShadowLayer4_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PaintService_SetShadowLayer4_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PaintServiceServer).SetShadowLayer4_1(ctx, req.(*SetShadowLayer4_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PaintService_SetStartHyphenEdit_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetStartHyphenEditRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PaintServiceServer).SetStartHyphenEdit(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PaintService_SetStartHyphenEdit_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PaintServiceServer).SetStartHyphenEdit(ctx, req.(*SetStartHyphenEditRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PaintService_SetStrikeThruText_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetStrikeThruTextRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PaintServiceServer).SetStrikeThruText(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PaintService_SetStrikeThruText_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PaintServiceServer).SetStrikeThruText(ctx, req.(*SetStrikeThruTextRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PaintService_SetStrokeCap_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetStrokeCapRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PaintServiceServer).SetStrokeCap(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PaintService_SetStrokeCap_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PaintServiceServer).SetStrokeCap(ctx, req.(*SetStrokeCapRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PaintService_SetStrokeJoin_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetStrokeJoinRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PaintServiceServer).SetStrokeJoin(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PaintService_SetStrokeJoin_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PaintServiceServer).SetStrokeJoin(ctx, req.(*SetStrokeJoinRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PaintService_SetStrokeMiter_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetStrokeMiterRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PaintServiceServer).SetStrokeMiter(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PaintService_SetStrokeMiter_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PaintServiceServer).SetStrokeMiter(ctx, req.(*SetStrokeMiterRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PaintService_SetStrokeWidth_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetStrokeWidthRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PaintServiceServer).SetStrokeWidth(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PaintService_SetStrokeWidth_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PaintServiceServer).SetStrokeWidth(ctx, req.(*SetStrokeWidthRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PaintService_SetStyle_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetStyleRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PaintServiceServer).SetStyle(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PaintService_SetStyle_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PaintServiceServer).SetStyle(ctx, req.(*SetStyleRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PaintService_SetSubpixelText_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetSubpixelTextRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PaintServiceServer).SetSubpixelText(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PaintService_SetSubpixelText_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PaintServiceServer).SetSubpixelText(ctx, req.(*SetSubpixelTextRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PaintService_SetTextAlign_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetTextAlignRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PaintServiceServer).SetTextAlign(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PaintService_SetTextAlign_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PaintServiceServer).SetTextAlign(ctx, req.(*SetTextAlignRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PaintService_SetTextLocale_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetTextLocaleRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PaintServiceServer).SetTextLocale(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PaintService_SetTextLocale_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PaintServiceServer).SetTextLocale(ctx, req.(*SetTextLocaleRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PaintService_SetTextLocales_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetTextLocalesRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PaintServiceServer).SetTextLocales(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PaintService_SetTextLocales_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PaintServiceServer).SetTextLocales(ctx, req.(*SetTextLocalesRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PaintService_SetTextScaleX_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetTextScaleXRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PaintServiceServer).SetTextScaleX(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PaintService_SetTextScaleX_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PaintServiceServer).SetTextScaleX(ctx, req.(*SetTextScaleXRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PaintService_SetTextSize_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetTextSizeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PaintServiceServer).SetTextSize(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PaintService_SetTextSize_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PaintServiceServer).SetTextSize(ctx, req.(*SetTextSizeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PaintService_SetTextSkewX_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetTextSkewXRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PaintServiceServer).SetTextSkewX(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PaintService_SetTextSkewX_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PaintServiceServer).SetTextSkewX(ctx, req.(*SetTextSkewXRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PaintService_SetTypeface_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetTypefaceRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PaintServiceServer).SetTypeface(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PaintService_SetTypeface_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PaintServiceServer).SetTypeface(ctx, req.(*SetTypefaceRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PaintService_SetUnderlineText_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetUnderlineTextRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PaintServiceServer).SetUnderlineText(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PaintService_SetUnderlineText_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PaintServiceServer).SetUnderlineText(ctx, req.(*SetUnderlineTextRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PaintService_SetWordSpacing_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetWordSpacingRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PaintServiceServer).SetWordSpacing(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PaintService_SetWordSpacing_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PaintServiceServer).SetWordSpacing(ctx, req.(*SetWordSpacingRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PaintService_SetXfermode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetXfermodeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PaintServiceServer).SetXfermode(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PaintService_SetXfermode_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PaintServiceServer).SetXfermode(ctx, req.(*SetXfermodeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// PaintService_ServiceDesc is the grpc.ServiceDesc for PaintService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var PaintService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "pdf.PaintService",
-	HandlerType: (*PaintServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "NewPaint",
-			Handler:    _PaintService_NewPaint_Handler,
-		},
-		{
-			MethodName: "Ascent",
-			Handler:    _PaintService_Ascent_Handler,
-		},
-		{
-			MethodName: "BreakText5",
-			Handler:    _PaintService_BreakText5_Handler,
-		},
-		{
-			MethodName: "BreakText6_1",
-			Handler:    _PaintService_BreakText6_1_Handler,
-		},
-		{
-			MethodName: "BreakText4_2",
-			Handler:    _PaintService_BreakText4_2_Handler,
-		},
-		{
-			MethodName: "ClearShadowLayer",
-			Handler:    _PaintService_ClearShadowLayer_Handler,
-		},
-		{
-			MethodName: "Descent",
-			Handler:    _PaintService_Descent_Handler,
-		},
-		{
-			MethodName: "EqualsForTextMeasurement",
-			Handler:    _PaintService_EqualsForTextMeasurement_Handler,
-		},
-		{
-			MethodName: "GetAlpha",
-			Handler:    _PaintService_GetAlpha_Handler,
-		},
-		{
-			MethodName: "GetBlendMode",
-			Handler:    _PaintService_GetBlendMode_Handler,
-		},
-		{
-			MethodName: "GetColor",
-			Handler:    _PaintService_GetColor_Handler,
-		},
-		{
-			MethodName: "GetColorFilter",
-			Handler:    _PaintService_GetColorFilter_Handler,
-		},
-		{
-			MethodName: "GetColorLong",
-			Handler:    _PaintService_GetColorLong_Handler,
-		},
-		{
-			MethodName: "GetEndHyphenEdit",
-			Handler:    _PaintService_GetEndHyphenEdit_Handler,
-		},
-		{
-			MethodName: "GetFillPath",
-			Handler:    _PaintService_GetFillPath_Handler,
-		},
-		{
-			MethodName: "GetFlags",
-			Handler:    _PaintService_GetFlags_Handler,
-		},
-		{
-			MethodName: "GetFontFeatureSettings",
-			Handler:    _PaintService_GetFontFeatureSettings_Handler,
-		},
-		{
-			MethodName: "GetFontMetrics0",
-			Handler:    _PaintService_GetFontMetrics0_Handler,
-		},
-		{
-			MethodName: "GetFontMetrics1_1",
-			Handler:    _PaintService_GetFontMetrics1_1_Handler,
-		},
-		{
-			MethodName: "GetFontMetricsForLocale",
-			Handler:    _PaintService_GetFontMetricsForLocale_Handler,
-		},
-		{
-			MethodName: "GetFontMetricsInt0",
-			Handler:    _PaintService_GetFontMetricsInt0_Handler,
-		},
-		{
-			MethodName: "GetFontMetricsInt1_1",
-			Handler:    _PaintService_GetFontMetricsInt1_1_Handler,
-		},
-		{
-			MethodName: "GetFontMetricsInt7_2",
-			Handler:    _PaintService_GetFontMetricsInt7_2_Handler,
-		},
-		{
-			MethodName: "GetFontMetricsInt7_3",
-			Handler:    _PaintService_GetFontMetricsInt7_3_Handler,
-		},
-		{
-			MethodName: "GetFontMetricsIntForLocale",
-			Handler:    _PaintService_GetFontMetricsIntForLocale_Handler,
-		},
-		{
-			MethodName: "GetFontSpacing",
-			Handler:    _PaintService_GetFontSpacing_Handler,
-		},
-		{
-			MethodName: "GetFontVariationSettings",
-			Handler:    _PaintService_GetFontVariationSettings_Handler,
-		},
-		{
-			MethodName: "GetHinting",
-			Handler:    _PaintService_GetHinting_Handler,
-		},
-		{
-			MethodName: "GetLetterSpacing",
-			Handler:    _PaintService_GetLetterSpacing_Handler,
-		},
-		{
-			MethodName: "GetMaskFilter",
-			Handler:    _PaintService_GetMaskFilter_Handler,
-		},
-		{
-			MethodName: "GetOffsetForAdvance7",
-			Handler:    _PaintService_GetOffsetForAdvance7_Handler,
-		},
-		{
-			MethodName: "GetOffsetForAdvance7_1",
-			Handler:    _PaintService_GetOffsetForAdvance7_1_Handler,
-		},
-		{
-			MethodName: "GetPathEffect",
-			Handler:    _PaintService_GetPathEffect_Handler,
-		},
-		{
-			MethodName: "GetRunAdvance7",
-			Handler:    _PaintService_GetRunAdvance7_Handler,
-		},
-		{
-			MethodName: "GetRunAdvance7_1",
-			Handler:    _PaintService_GetRunAdvance7_1_Handler,
-		},
-		{
-			MethodName: "GetRunCharacterAdvance9",
-			Handler:    _PaintService_GetRunCharacterAdvance9_Handler,
-		},
-		{
-			MethodName: "GetRunCharacterAdvance9_1",
-			Handler:    _PaintService_GetRunCharacterAdvance9_1_Handler,
-		},
-		{
-			MethodName: "GetShader",
-			Handler:    _PaintService_GetShader_Handler,
-		},
-		{
-			MethodName: "GetShadowLayerColor",
-			Handler:    _PaintService_GetShadowLayerColor_Handler,
-		},
-		{
-			MethodName: "GetShadowLayerColorLong",
-			Handler:    _PaintService_GetShadowLayerColorLong_Handler,
-		},
-		{
-			MethodName: "GetShadowLayerDx",
-			Handler:    _PaintService_GetShadowLayerDx_Handler,
-		},
-		{
-			MethodName: "GetShadowLayerDy",
-			Handler:    _PaintService_GetShadowLayerDy_Handler,
-		},
-		{
-			MethodName: "GetShadowLayerRadius",
-			Handler:    _PaintService_GetShadowLayerRadius_Handler,
-		},
-		{
-			MethodName: "GetStartHyphenEdit",
-			Handler:    _PaintService_GetStartHyphenEdit_Handler,
-		},
-		{
-			MethodName: "GetStrikeThruPosition",
-			Handler:    _PaintService_GetStrikeThruPosition_Handler,
-		},
-		{
-			MethodName: "GetStrikeThruThickness",
-			Handler:    _PaintService_GetStrikeThruThickness_Handler,
-		},
-		{
-			MethodName: "GetStrokeCap",
-			Handler:    _PaintService_GetStrokeCap_Handler,
-		},
-		{
-			MethodName: "GetStrokeJoin",
-			Handler:    _PaintService_GetStrokeJoin_Handler,
-		},
-		{
-			MethodName: "GetStrokeMiter",
-			Handler:    _PaintService_GetStrokeMiter_Handler,
-		},
-		{
-			MethodName: "GetStrokeWidth",
-			Handler:    _PaintService_GetStrokeWidth_Handler,
-		},
-		{
-			MethodName: "GetStyle",
-			Handler:    _PaintService_GetStyle_Handler,
-		},
-		{
-			MethodName: "GetTextAlign",
-			Handler:    _PaintService_GetTextAlign_Handler,
-		},
-		{
-			MethodName: "GetTextBounds4",
-			Handler:    _PaintService_GetTextBounds4_Handler,
-		},
-		{
-			MethodName: "GetTextBounds4_1",
-			Handler:    _PaintService_GetTextBounds4_1_Handler,
-		},
-		{
-			MethodName: "GetTextBounds4_2",
-			Handler:    _PaintService_GetTextBounds4_2_Handler,
-		},
-		{
-			MethodName: "GetTextLocale",
-			Handler:    _PaintService_GetTextLocale_Handler,
-		},
-		{
-			MethodName: "GetTextLocales",
-			Handler:    _PaintService_GetTextLocales_Handler,
-		},
-		{
-			MethodName: "GetTextPath6",
-			Handler:    _PaintService_GetTextPath6_Handler,
-		},
-		{
-			MethodName: "GetTextPath6_1",
-			Handler:    _PaintService_GetTextPath6_1_Handler,
-		},
-		{
-			MethodName: "GetTextRunAdvances",
-			Handler:    _PaintService_GetTextRunAdvances_Handler,
-		},
-		{
-			MethodName: "GetTextRunCursor6",
-			Handler:    _PaintService_GetTextRunCursor6_Handler,
-		},
-		{
-			MethodName: "GetTextRunCursor6_1",
-			Handler:    _PaintService_GetTextRunCursor6_1_Handler,
-		},
-		{
-			MethodName: "GetTextScaleX",
-			Handler:    _PaintService_GetTextScaleX_Handler,
-		},
-		{
-			MethodName: "GetTextSize",
-			Handler:    _PaintService_GetTextSize_Handler,
-		},
-		{
-			MethodName: "GetTextSkewX",
-			Handler:    _PaintService_GetTextSkewX_Handler,
-		},
-		{
-			MethodName: "GetTextWidths4",
-			Handler:    _PaintService_GetTextWidths4_Handler,
-		},
-		{
-			MethodName: "GetTextWidths4_1",
-			Handler:    _PaintService_GetTextWidths4_1_Handler,
-		},
-		{
-			MethodName: "GetTextWidths2_2",
-			Handler:    _PaintService_GetTextWidths2_2_Handler,
-		},
-		{
-			MethodName: "GetTextWidths4_3",
-			Handler:    _PaintService_GetTextWidths4_3_Handler,
-		},
-		{
-			MethodName: "GetTypeface",
-			Handler:    _PaintService_GetTypeface_Handler,
-		},
-		{
-			MethodName: "GetUnderlinePosition",
-			Handler:    _PaintService_GetUnderlinePosition_Handler,
-		},
-		{
-			MethodName: "GetUnderlineThickness",
-			Handler:    _PaintService_GetUnderlineThickness_Handler,
-		},
-		{
-			MethodName: "GetWordSpacing",
-			Handler:    _PaintService_GetWordSpacing_Handler,
-		},
-		{
-			MethodName: "GetXfermode",
-			Handler:    _PaintService_GetXfermode_Handler,
-		},
-		{
-			MethodName: "HasGlyph",
-			Handler:    _PaintService_HasGlyph_Handler,
-		},
-		{
-			MethodName: "IsAntiAlias",
-			Handler:    _PaintService_IsAntiAlias_Handler,
-		},
-		{
-			MethodName: "IsDither",
-			Handler:    _PaintService_IsDither_Handler,
-		},
-		{
-			MethodName: "IsElegantTextHeight",
-			Handler:    _PaintService_IsElegantTextHeight_Handler,
-		},
-		{
-			MethodName: "IsFakeBoldText",
-			Handler:    _PaintService_IsFakeBoldText_Handler,
-		},
-		{
-			MethodName: "IsFilterBitmap",
-			Handler:    _PaintService_IsFilterBitmap_Handler,
-		},
-		{
-			MethodName: "IsLinearText",
-			Handler:    _PaintService_IsLinearText_Handler,
-		},
-		{
-			MethodName: "IsStrikeThruText",
-			Handler:    _PaintService_IsStrikeThruText_Handler,
-		},
-		{
-			MethodName: "IsSubpixelText",
-			Handler:    _PaintService_IsSubpixelText_Handler,
-		},
-		{
-			MethodName: "IsUnderlineText",
-			Handler:    _PaintService_IsUnderlineText_Handler,
-		},
-		{
-			MethodName: "MeasureText3",
-			Handler:    _PaintService_MeasureText3_Handler,
-		},
-		{
-			MethodName: "MeasureText3_1",
-			Handler:    _PaintService_MeasureText3_1_Handler,
-		},
-		{
-			MethodName: "MeasureText1_2",
-			Handler:    _PaintService_MeasureText1_2_Handler,
-		},
-		{
-			MethodName: "MeasureText3_3",
-			Handler:    _PaintService_MeasureText3_3_Handler,
-		},
-		{
-			MethodName: "Reset",
-			Handler:    _PaintService_Reset_Handler,
-		},
-		{
-			MethodName: "Set",
-			Handler:    _PaintService_Set_Handler,
-		},
-		{
-			MethodName: "SetARGB",
-			Handler:    _PaintService_SetARGB_Handler,
-		},
-		{
-			MethodName: "SetAlpha",
-			Handler:    _PaintService_SetAlpha_Handler,
-		},
-		{
-			MethodName: "SetAntiAlias",
-			Handler:    _PaintService_SetAntiAlias_Handler,
-		},
-		{
-			MethodName: "SetBlendMode",
-			Handler:    _PaintService_SetBlendMode_Handler,
-		},
-		{
-			MethodName: "SetColor1",
-			Handler:    _PaintService_SetColor1_Handler,
-		},
-		{
-			MethodName: "SetColor1_1",
-			Handler:    _PaintService_SetColor1_1_Handler,
-		},
-		{
-			MethodName: "SetColorFilter",
-			Handler:    _PaintService_SetColorFilter_Handler,
-		},
-		{
-			MethodName: "SetDither",
-			Handler:    _PaintService_SetDither_Handler,
-		},
-		{
-			MethodName: "SetElegantTextHeight",
-			Handler:    _PaintService_SetElegantTextHeight_Handler,
-		},
-		{
-			MethodName: "SetEndHyphenEdit",
-			Handler:    _PaintService_SetEndHyphenEdit_Handler,
-		},
-		{
-			MethodName: "SetFakeBoldText",
-			Handler:    _PaintService_SetFakeBoldText_Handler,
-		},
-		{
-			MethodName: "SetFilterBitmap",
-			Handler:    _PaintService_SetFilterBitmap_Handler,
-		},
-		{
-			MethodName: "SetFlags",
-			Handler:    _PaintService_SetFlags_Handler,
-		},
-		{
-			MethodName: "SetFontFeatureSettings",
-			Handler:    _PaintService_SetFontFeatureSettings_Handler,
-		},
-		{
-			MethodName: "SetFontVariationSettings",
-			Handler:    _PaintService_SetFontVariationSettings_Handler,
-		},
-		{
-			MethodName: "SetHinting",
-			Handler:    _PaintService_SetHinting_Handler,
-		},
-		{
-			MethodName: "SetLetterSpacing",
-			Handler:    _PaintService_SetLetterSpacing_Handler,
-		},
-		{
-			MethodName: "SetLinearText",
-			Handler:    _PaintService_SetLinearText_Handler,
-		},
-		{
-			MethodName: "SetMaskFilter",
-			Handler:    _PaintService_SetMaskFilter_Handler,
-		},
-		{
-			MethodName: "SetPathEffect",
-			Handler:    _PaintService_SetPathEffect_Handler,
-		},
-		{
-			MethodName: "SetShader",
-			Handler:    _PaintService_SetShader_Handler,
-		},
-		{
-			MethodName: "SetShadowLayer4",
-			Handler:    _PaintService_SetShadowLayer4_Handler,
-		},
-		{
-			MethodName: "SetShadowLayer4_1",
-			Handler:    _PaintService_SetShadowLayer4_1_Handler,
-		},
-		{
-			MethodName: "SetStartHyphenEdit",
-			Handler:    _PaintService_SetStartHyphenEdit_Handler,
-		},
-		{
-			MethodName: "SetStrikeThruText",
-			Handler:    _PaintService_SetStrikeThruText_Handler,
-		},
-		{
-			MethodName: "SetStrokeCap",
-			Handler:    _PaintService_SetStrokeCap_Handler,
-		},
-		{
-			MethodName: "SetStrokeJoin",
-			Handler:    _PaintService_SetStrokeJoin_Handler,
-		},
-		{
-			MethodName: "SetStrokeMiter",
-			Handler:    _PaintService_SetStrokeMiter_Handler,
-		},
-		{
-			MethodName: "SetStrokeWidth",
-			Handler:    _PaintService_SetStrokeWidth_Handler,
-		},
-		{
-			MethodName: "SetStyle",
-			Handler:    _PaintService_SetStyle_Handler,
-		},
-		{
-			MethodName: "SetSubpixelText",
-			Handler:    _PaintService_SetSubpixelText_Handler,
-		},
-		{
-			MethodName: "SetTextAlign",
-			Handler:    _PaintService_SetTextAlign_Handler,
-		},
-		{
-			MethodName: "SetTextLocale",
-			Handler:    _PaintService_SetTextLocale_Handler,
-		},
-		{
-			MethodName: "SetTextLocales",
-			Handler:    _PaintService_SetTextLocales_Handler,
-		},
-		{
-			MethodName: "SetTextScaleX",
-			Handler:    _PaintService_SetTextScaleX_Handler,
-		},
-		{
-			MethodName: "SetTextSize",
-			Handler:    _PaintService_SetTextSize_Handler,
-		},
-		{
-			MethodName: "SetTextSkewX",
-			Handler:    _PaintService_SetTextSkewX_Handler,
-		},
-		{
-			MethodName: "SetTypeface",
-			Handler:    _PaintService_SetTypeface_Handler,
-		},
-		{
-			MethodName: "SetUnderlineText",
-			Handler:    _PaintService_SetUnderlineText_Handler,
-		},
-		{
-			MethodName: "SetWordSpacing",
-			Handler:    _PaintService_SetWordSpacing_Handler,
-		},
-		{
-			MethodName: "SetXfermode",
-			Handler:    _PaintService_SetXfermode_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/pdf/pdf.proto",
-}
-
-const (
-	PaintAlignService_Values_FullMethodName  = "/pdf.PaintAlignService/Values"
-	PaintAlignService_ValueOf_FullMethodName = "/pdf.PaintAlignService/ValueOf"
-)
-
-// PaintAlignServiceClient is the client API for PaintAlignService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type PaintAlignServiceClient interface {
-	Values(ctx context.Context, in *ValuesRequest, opts ...grpc.CallOption) (*ValuesResponse, error)
-	ValueOf(ctx context.Context, in *ValueOfRequest, opts ...grpc.CallOption) (*ValueOfResponse, error)
-}
-
-type paintAlignServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewPaintAlignServiceClient(cc grpc.ClientConnInterface) PaintAlignServiceClient {
-	return &paintAlignServiceClient{cc}
-}
-
-func (c *paintAlignServiceClient) Values(ctx context.Context, in *ValuesRequest, opts ...grpc.CallOption) (*ValuesResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ValuesResponse)
-	err := c.cc.Invoke(ctx, PaintAlignService_Values_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *paintAlignServiceClient) ValueOf(ctx context.Context, in *ValueOfRequest, opts ...grpc.CallOption) (*ValueOfResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ValueOfResponse)
-	err := c.cc.Invoke(ctx, PaintAlignService_ValueOf_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// PaintAlignServiceServer is the server API for PaintAlignService service.
-// All implementations must embed UnimplementedPaintAlignServiceServer
-// for forward compatibility.
-type PaintAlignServiceServer interface {
-	Values(context.Context, *ValuesRequest) (*ValuesResponse, error)
-	ValueOf(context.Context, *ValueOfRequest) (*ValueOfResponse, error)
-	mustEmbedUnimplementedPaintAlignServiceServer()
-}
-
-// UnimplementedPaintAlignServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedPaintAlignServiceServer struct{}
-
-func (UnimplementedPaintAlignServiceServer) Values(context.Context, *ValuesRequest) (*ValuesResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Values not implemented")
-}
-func (UnimplementedPaintAlignServiceServer) ValueOf(context.Context, *ValueOfRequest) (*ValueOfResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ValueOf not implemented")
-}
-func (UnimplementedPaintAlignServiceServer) mustEmbedUnimplementedPaintAlignServiceServer() {}
-func (UnimplementedPaintAlignServiceServer) testEmbeddedByValue()                           {}
-
-// UnsafePaintAlignServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to PaintAlignServiceServer will
-// result in compilation errors.
-type UnsafePaintAlignServiceServer interface {
-	mustEmbedUnimplementedPaintAlignServiceServer()
-}
-
-func RegisterPaintAlignServiceServer(s grpc.ServiceRegistrar, srv PaintAlignServiceServer) {
-	// If the following call panics, it indicates UnimplementedPaintAlignServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&PaintAlignService_ServiceDesc, srv)
-}
-
-func _PaintAlignService_Values_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ValuesRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PaintAlignServiceServer).Values(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PaintAlignService_Values_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PaintAlignServiceServer).Values(ctx, req.(*ValuesRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PaintAlignService_ValueOf_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ValueOfRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PaintAlignServiceServer).ValueOf(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PaintAlignService_ValueOf_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PaintAlignServiceServer).ValueOf(ctx, req.(*ValueOfRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// PaintAlignService_ServiceDesc is the grpc.ServiceDesc for PaintAlignService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var PaintAlignService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "pdf.PaintAlignService",
-	HandlerType: (*PaintAlignServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "Values",
-			Handler:    _PaintAlignService_Values_Handler,
-		},
-		{
-			MethodName: "ValueOf",
-			Handler:    _PaintAlignService_ValueOf_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/pdf/pdf.proto",
-}
-
-const (
-	PaintCapService_Values_FullMethodName  = "/pdf.PaintCapService/Values"
-	PaintCapService_ValueOf_FullMethodName = "/pdf.PaintCapService/ValueOf"
-)
-
-// PaintCapServiceClient is the client API for PaintCapService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type PaintCapServiceClient interface {
-	Values(ctx context.Context, in *ValuesRequest, opts ...grpc.CallOption) (*ValuesResponse, error)
-	ValueOf(ctx context.Context, in *ValueOfRequest, opts ...grpc.CallOption) (*ValueOfResponse, error)
-}
-
-type paintCapServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewPaintCapServiceClient(cc grpc.ClientConnInterface) PaintCapServiceClient {
-	return &paintCapServiceClient{cc}
-}
-
-func (c *paintCapServiceClient) Values(ctx context.Context, in *ValuesRequest, opts ...grpc.CallOption) (*ValuesResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ValuesResponse)
-	err := c.cc.Invoke(ctx, PaintCapService_Values_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *paintCapServiceClient) ValueOf(ctx context.Context, in *ValueOfRequest, opts ...grpc.CallOption) (*ValueOfResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ValueOfResponse)
-	err := c.cc.Invoke(ctx, PaintCapService_ValueOf_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// PaintCapServiceServer is the server API for PaintCapService service.
-// All implementations must embed UnimplementedPaintCapServiceServer
-// for forward compatibility.
-type PaintCapServiceServer interface {
-	Values(context.Context, *ValuesRequest) (*ValuesResponse, error)
-	ValueOf(context.Context, *ValueOfRequest) (*ValueOfResponse, error)
-	mustEmbedUnimplementedPaintCapServiceServer()
-}
-
-// UnimplementedPaintCapServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedPaintCapServiceServer struct{}
-
-func (UnimplementedPaintCapServiceServer) Values(context.Context, *ValuesRequest) (*ValuesResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Values not implemented")
-}
-func (UnimplementedPaintCapServiceServer) ValueOf(context.Context, *ValueOfRequest) (*ValueOfResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ValueOf not implemented")
-}
-func (UnimplementedPaintCapServiceServer) mustEmbedUnimplementedPaintCapServiceServer() {}
-func (UnimplementedPaintCapServiceServer) testEmbeddedByValue()                         {}
-
-// UnsafePaintCapServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to PaintCapServiceServer will
-// result in compilation errors.
-type UnsafePaintCapServiceServer interface {
-	mustEmbedUnimplementedPaintCapServiceServer()
-}
-
-func RegisterPaintCapServiceServer(s grpc.ServiceRegistrar, srv PaintCapServiceServer) {
-	// If the following call panics, it indicates UnimplementedPaintCapServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&PaintCapService_ServiceDesc, srv)
-}
-
-func _PaintCapService_Values_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ValuesRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PaintCapServiceServer).Values(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PaintCapService_Values_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PaintCapServiceServer).Values(ctx, req.(*ValuesRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PaintCapService_ValueOf_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ValueOfRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PaintCapServiceServer).ValueOf(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PaintCapService_ValueOf_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PaintCapServiceServer).ValueOf(ctx, req.(*ValueOfRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// PaintCapService_ServiceDesc is the grpc.ServiceDesc for PaintCapService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var PaintCapService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "pdf.PaintCapService",
-	HandlerType: (*PaintCapServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "Values",
-			Handler:    _PaintCapService_Values_Handler,
-		},
-		{
-			MethodName: "ValueOf",
-			Handler:    _PaintCapService_ValueOf_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/pdf/pdf.proto",
-}
-
-const (
-	PaintFontMetricsService_Equals_FullMethodName   = "/pdf.PaintFontMetricsService/Equals"
-	PaintFontMetricsService_HashCode_FullMethodName = "/pdf.PaintFontMetricsService/HashCode"
-	PaintFontMetricsService_ToString_FullMethodName = "/pdf.PaintFontMetricsService/ToString"
-)
-
-// PaintFontMetricsServiceClient is the client API for PaintFontMetricsService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type PaintFontMetricsServiceClient interface {
-	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
-	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
-	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
-}
-
-type paintFontMetricsServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewPaintFontMetricsServiceClient(cc grpc.ClientConnInterface) PaintFontMetricsServiceClient {
-	return &paintFontMetricsServiceClient{cc}
-}
-
-func (c *paintFontMetricsServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(EqualsResponse)
-	err := c.cc.Invoke(ctx, PaintFontMetricsService_Equals_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *paintFontMetricsServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(HashCodeResponse)
-	err := c.cc.Invoke(ctx, PaintFontMetricsService_HashCode_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *paintFontMetricsServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ToStringResponse)
-	err := c.cc.Invoke(ctx, PaintFontMetricsService_ToString_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// PaintFontMetricsServiceServer is the server API for PaintFontMetricsService service.
-// All implementations must embed UnimplementedPaintFontMetricsServiceServer
-// for forward compatibility.
-type PaintFontMetricsServiceServer interface {
-	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
-	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
-	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
-	mustEmbedUnimplementedPaintFontMetricsServiceServer()
-}
-
-// UnimplementedPaintFontMetricsServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedPaintFontMetricsServiceServer struct{}
-
-func (UnimplementedPaintFontMetricsServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
-}
-func (UnimplementedPaintFontMetricsServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
-}
-func (UnimplementedPaintFontMetricsServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
-}
-func (UnimplementedPaintFontMetricsServiceServer) mustEmbedUnimplementedPaintFontMetricsServiceServer() {
-}
-func (UnimplementedPaintFontMetricsServiceServer) testEmbeddedByValue() {}
-
-// UnsafePaintFontMetricsServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to PaintFontMetricsServiceServer will
-// result in compilation errors.
-type UnsafePaintFontMetricsServiceServer interface {
-	mustEmbedUnimplementedPaintFontMetricsServiceServer()
-}
-
-func RegisterPaintFontMetricsServiceServer(s grpc.ServiceRegistrar, srv PaintFontMetricsServiceServer) {
-	// If the following call panics, it indicates UnimplementedPaintFontMetricsServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&PaintFontMetricsService_ServiceDesc, srv)
-}
-
-func _PaintFontMetricsService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(EqualsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PaintFontMetricsServiceServer).Equals(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PaintFontMetricsService_Equals_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PaintFontMetricsServiceServer).Equals(ctx, req.(*EqualsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PaintFontMetricsService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(HashCodeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PaintFontMetricsServiceServer).HashCode(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PaintFontMetricsService_HashCode_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PaintFontMetricsServiceServer).HashCode(ctx, req.(*HashCodeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PaintFontMetricsService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ToStringRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PaintFontMetricsServiceServer).ToString(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PaintFontMetricsService_ToString_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PaintFontMetricsServiceServer).ToString(ctx, req.(*ToStringRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// PaintFontMetricsService_ServiceDesc is the grpc.ServiceDesc for PaintFontMetricsService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var PaintFontMetricsService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "pdf.PaintFontMetricsService",
-	HandlerType: (*PaintFontMetricsServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "Equals",
-			Handler:    _PaintFontMetricsService_Equals_Handler,
-		},
-		{
-			MethodName: "HashCode",
-			Handler:    _PaintFontMetricsService_HashCode_Handler,
-		},
-		{
-			MethodName: "ToString",
-			Handler:    _PaintFontMetricsService_ToString_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/pdf/pdf.proto",
-}
-
-const (
-	PaintFontMetricsIntService_Equals_FullMethodName   = "/pdf.PaintFontMetricsIntService/Equals"
-	PaintFontMetricsIntService_HashCode_FullMethodName = "/pdf.PaintFontMetricsIntService/HashCode"
-	PaintFontMetricsIntService_Set1_FullMethodName     = "/pdf.PaintFontMetricsIntService/Set1"
-	PaintFontMetricsIntService_Set1_1_FullMethodName   = "/pdf.PaintFontMetricsIntService/Set1_1"
-	PaintFontMetricsIntService_ToString_FullMethodName = "/pdf.PaintFontMetricsIntService/ToString"
-)
-
-// PaintFontMetricsIntServiceClient is the client API for PaintFontMetricsIntService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type PaintFontMetricsIntServiceClient interface {
-	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
-	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
-	Set1(ctx context.Context, in *Set1Request, opts ...grpc.CallOption) (*Set1Response, error)
-	Set1_1(ctx context.Context, in *Set1_1Request, opts ...grpc.CallOption) (*Set1_1Response, error)
-	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
-}
-
-type paintFontMetricsIntServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewPaintFontMetricsIntServiceClient(cc grpc.ClientConnInterface) PaintFontMetricsIntServiceClient {
-	return &paintFontMetricsIntServiceClient{cc}
-}
-
-func (c *paintFontMetricsIntServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(EqualsResponse)
-	err := c.cc.Invoke(ctx, PaintFontMetricsIntService_Equals_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *paintFontMetricsIntServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(HashCodeResponse)
-	err := c.cc.Invoke(ctx, PaintFontMetricsIntService_HashCode_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *paintFontMetricsIntServiceClient) Set1(ctx context.Context, in *Set1Request, opts ...grpc.CallOption) (*Set1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(Set1Response)
-	err := c.cc.Invoke(ctx, PaintFontMetricsIntService_Set1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *paintFontMetricsIntServiceClient) Set1_1(ctx context.Context, in *Set1_1Request, opts ...grpc.CallOption) (*Set1_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(Set1_1Response)
-	err := c.cc.Invoke(ctx, PaintFontMetricsIntService_Set1_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *paintFontMetricsIntServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ToStringResponse)
-	err := c.cc.Invoke(ctx, PaintFontMetricsIntService_ToString_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// PaintFontMetricsIntServiceServer is the server API for PaintFontMetricsIntService service.
-// All implementations must embed UnimplementedPaintFontMetricsIntServiceServer
-// for forward compatibility.
-type PaintFontMetricsIntServiceServer interface {
-	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
-	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
-	Set1(context.Context, *Set1Request) (*Set1Response, error)
-	Set1_1(context.Context, *Set1_1Request) (*Set1_1Response, error)
-	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
-	mustEmbedUnimplementedPaintFontMetricsIntServiceServer()
-}
-
-// UnimplementedPaintFontMetricsIntServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedPaintFontMetricsIntServiceServer struct{}
-
-func (UnimplementedPaintFontMetricsIntServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
-}
-func (UnimplementedPaintFontMetricsIntServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
-}
-func (UnimplementedPaintFontMetricsIntServiceServer) Set1(context.Context, *Set1Request) (*Set1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method Set1 not implemented")
-}
-func (UnimplementedPaintFontMetricsIntServiceServer) Set1_1(context.Context, *Set1_1Request) (*Set1_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method Set1_1 not implemented")
-}
-func (UnimplementedPaintFontMetricsIntServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
-}
-func (UnimplementedPaintFontMetricsIntServiceServer) mustEmbedUnimplementedPaintFontMetricsIntServiceServer() {
-}
-func (UnimplementedPaintFontMetricsIntServiceServer) testEmbeddedByValue() {}
-
-// UnsafePaintFontMetricsIntServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to PaintFontMetricsIntServiceServer will
-// result in compilation errors.
-type UnsafePaintFontMetricsIntServiceServer interface {
-	mustEmbedUnimplementedPaintFontMetricsIntServiceServer()
-}
-
-func RegisterPaintFontMetricsIntServiceServer(s grpc.ServiceRegistrar, srv PaintFontMetricsIntServiceServer) {
-	// If the following call panics, it indicates UnimplementedPaintFontMetricsIntServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&PaintFontMetricsIntService_ServiceDesc, srv)
-}
-
-func _PaintFontMetricsIntService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(EqualsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PaintFontMetricsIntServiceServer).Equals(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PaintFontMetricsIntService_Equals_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PaintFontMetricsIntServiceServer).Equals(ctx, req.(*EqualsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PaintFontMetricsIntService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(HashCodeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PaintFontMetricsIntServiceServer).HashCode(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PaintFontMetricsIntService_HashCode_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PaintFontMetricsIntServiceServer).HashCode(ctx, req.(*HashCodeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PaintFontMetricsIntService_Set1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(Set1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PaintFontMetricsIntServiceServer).Set1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PaintFontMetricsIntService_Set1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PaintFontMetricsIntServiceServer).Set1(ctx, req.(*Set1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PaintFontMetricsIntService_Set1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(Set1_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PaintFontMetricsIntServiceServer).Set1_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PaintFontMetricsIntService_Set1_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PaintFontMetricsIntServiceServer).Set1_1(ctx, req.(*Set1_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PaintFontMetricsIntService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ToStringRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PaintFontMetricsIntServiceServer).ToString(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PaintFontMetricsIntService_ToString_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PaintFontMetricsIntServiceServer).ToString(ctx, req.(*ToStringRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// PaintFontMetricsIntService_ServiceDesc is the grpc.ServiceDesc for PaintFontMetricsIntService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var PaintFontMetricsIntService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "pdf.PaintFontMetricsIntService",
-	HandlerType: (*PaintFontMetricsIntServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "Equals",
-			Handler:    _PaintFontMetricsIntService_Equals_Handler,
-		},
-		{
-			MethodName: "HashCode",
-			Handler:    _PaintFontMetricsIntService_HashCode_Handler,
-		},
-		{
-			MethodName: "Set1",
-			Handler:    _PaintFontMetricsIntService_Set1_Handler,
-		},
-		{
-			MethodName: "Set1_1",
-			Handler:    _PaintFontMetricsIntService_Set1_1_Handler,
-		},
-		{
-			MethodName: "ToString",
-			Handler:    _PaintFontMetricsIntService_ToString_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/pdf/pdf.proto",
-}
-
-const (
-	PaintJoinService_Values_FullMethodName  = "/pdf.PaintJoinService/Values"
-	PaintJoinService_ValueOf_FullMethodName = "/pdf.PaintJoinService/ValueOf"
-)
-
-// PaintJoinServiceClient is the client API for PaintJoinService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type PaintJoinServiceClient interface {
-	Values(ctx context.Context, in *ValuesRequest, opts ...grpc.CallOption) (*ValuesResponse, error)
-	ValueOf(ctx context.Context, in *ValueOfRequest, opts ...grpc.CallOption) (*ValueOfResponse, error)
-}
-
-type paintJoinServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewPaintJoinServiceClient(cc grpc.ClientConnInterface) PaintJoinServiceClient {
-	return &paintJoinServiceClient{cc}
-}
-
-func (c *paintJoinServiceClient) Values(ctx context.Context, in *ValuesRequest, opts ...grpc.CallOption) (*ValuesResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ValuesResponse)
-	err := c.cc.Invoke(ctx, PaintJoinService_Values_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *paintJoinServiceClient) ValueOf(ctx context.Context, in *ValueOfRequest, opts ...grpc.CallOption) (*ValueOfResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ValueOfResponse)
-	err := c.cc.Invoke(ctx, PaintJoinService_ValueOf_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// PaintJoinServiceServer is the server API for PaintJoinService service.
-// All implementations must embed UnimplementedPaintJoinServiceServer
-// for forward compatibility.
-type PaintJoinServiceServer interface {
-	Values(context.Context, *ValuesRequest) (*ValuesResponse, error)
-	ValueOf(context.Context, *ValueOfRequest) (*ValueOfResponse, error)
-	mustEmbedUnimplementedPaintJoinServiceServer()
-}
-
-// UnimplementedPaintJoinServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedPaintJoinServiceServer struct{}
-
-func (UnimplementedPaintJoinServiceServer) Values(context.Context, *ValuesRequest) (*ValuesResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Values not implemented")
-}
-func (UnimplementedPaintJoinServiceServer) ValueOf(context.Context, *ValueOfRequest) (*ValueOfResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ValueOf not implemented")
-}
-func (UnimplementedPaintJoinServiceServer) mustEmbedUnimplementedPaintJoinServiceServer() {}
-func (UnimplementedPaintJoinServiceServer) testEmbeddedByValue()                          {}
-
-// UnsafePaintJoinServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to PaintJoinServiceServer will
-// result in compilation errors.
-type UnsafePaintJoinServiceServer interface {
-	mustEmbedUnimplementedPaintJoinServiceServer()
-}
-
-func RegisterPaintJoinServiceServer(s grpc.ServiceRegistrar, srv PaintJoinServiceServer) {
-	// If the following call panics, it indicates UnimplementedPaintJoinServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&PaintJoinService_ServiceDesc, srv)
-}
-
-func _PaintJoinService_Values_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ValuesRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PaintJoinServiceServer).Values(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PaintJoinService_Values_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PaintJoinServiceServer).Values(ctx, req.(*ValuesRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PaintJoinService_ValueOf_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ValueOfRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PaintJoinServiceServer).ValueOf(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PaintJoinService_ValueOf_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PaintJoinServiceServer).ValueOf(ctx, req.(*ValueOfRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// PaintJoinService_ServiceDesc is the grpc.ServiceDesc for PaintJoinService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var PaintJoinService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "pdf.PaintJoinService",
-	HandlerType: (*PaintJoinServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "Values",
-			Handler:    _PaintJoinService_Values_Handler,
-		},
-		{
-			MethodName: "ValueOf",
-			Handler:    _PaintJoinService_ValueOf_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/pdf/pdf.proto",
-}
-
-const (
-	PaintStyleService_Values_FullMethodName  = "/pdf.PaintStyleService/Values"
-	PaintStyleService_ValueOf_FullMethodName = "/pdf.PaintStyleService/ValueOf"
-)
-
-// PaintStyleServiceClient is the client API for PaintStyleService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type PaintStyleServiceClient interface {
-	Values(ctx context.Context, in *ValuesRequest, opts ...grpc.CallOption) (*ValuesResponse, error)
-	ValueOf(ctx context.Context, in *ValueOfRequest, opts ...grpc.CallOption) (*ValueOfResponse, error)
-}
-
-type paintStyleServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewPaintStyleServiceClient(cc grpc.ClientConnInterface) PaintStyleServiceClient {
-	return &paintStyleServiceClient{cc}
-}
-
-func (c *paintStyleServiceClient) Values(ctx context.Context, in *ValuesRequest, opts ...grpc.CallOption) (*ValuesResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ValuesResponse)
-	err := c.cc.Invoke(ctx, PaintStyleService_Values_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *paintStyleServiceClient) ValueOf(ctx context.Context, in *ValueOfRequest, opts ...grpc.CallOption) (*ValueOfResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ValueOfResponse)
-	err := c.cc.Invoke(ctx, PaintStyleService_ValueOf_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// PaintStyleServiceServer is the server API for PaintStyleService service.
-// All implementations must embed UnimplementedPaintStyleServiceServer
-// for forward compatibility.
-type PaintStyleServiceServer interface {
-	Values(context.Context, *ValuesRequest) (*ValuesResponse, error)
-	ValueOf(context.Context, *ValueOfRequest) (*ValueOfResponse, error)
-	mustEmbedUnimplementedPaintStyleServiceServer()
-}
-
-// UnimplementedPaintStyleServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedPaintStyleServiceServer struct{}
-
-func (UnimplementedPaintStyleServiceServer) Values(context.Context, *ValuesRequest) (*ValuesResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Values not implemented")
-}
-func (UnimplementedPaintStyleServiceServer) ValueOf(context.Context, *ValueOfRequest) (*ValueOfResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ValueOf not implemented")
-}
-func (UnimplementedPaintStyleServiceServer) mustEmbedUnimplementedPaintStyleServiceServer() {}
-func (UnimplementedPaintStyleServiceServer) testEmbeddedByValue()                           {}
-
-// UnsafePaintStyleServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to PaintStyleServiceServer will
-// result in compilation errors.
-type UnsafePaintStyleServiceServer interface {
-	mustEmbedUnimplementedPaintStyleServiceServer()
-}
-
-func RegisterPaintStyleServiceServer(s grpc.ServiceRegistrar, srv PaintStyleServiceServer) {
-	// If the following call panics, it indicates UnimplementedPaintStyleServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&PaintStyleService_ServiceDesc, srv)
-}
-
-func _PaintStyleService_Values_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ValuesRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PaintStyleServiceServer).Values(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PaintStyleService_Values_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PaintStyleServiceServer).Values(ctx, req.(*ValuesRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PaintStyleService_ValueOf_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ValueOfRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PaintStyleServiceServer).ValueOf(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PaintStyleService_ValueOf_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PaintStyleServiceServer).ValueOf(ctx, req.(*ValueOfRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// PaintStyleService_ServiceDesc is the grpc.ServiceDesc for PaintStyleService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var PaintStyleService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "pdf.PaintStyleService",
-	HandlerType: (*PaintStyleServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "Values",
-			Handler:    _PaintStyleService_Values_Handler,
-		},
-		{
-			MethodName: "ValueOf",
-			Handler:    _PaintStyleService_ValueOf_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/pdf/pdf.proto",
-}
-
-const (
-	RendererPreVService_NewRendererPreV_FullMethodName              = "/pdf.RendererPreVService/NewRendererPreV"
-	RendererPreVService_Close_FullMethodName                        = "/pdf.RendererPreVService/Close"
-	RendererPreVService_GetDocumentLinearizationType_FullMethodName = "/pdf.RendererPreVService/GetDocumentLinearizationType"
-	RendererPreVService_GetPageCount_FullMethodName                 = "/pdf.RendererPreVService/GetPageCount"
-	RendererPreVService_GetPdfFormType_FullMethodName               = "/pdf.RendererPreVService/GetPdfFormType"
-	RendererPreVService_OpenPage_FullMethodName                     = "/pdf.RendererPreVService/OpenPage"
-	RendererPreVService_Write_FullMethodName                        = "/pdf.RendererPreVService/Write"
-)
-
-// RendererPreVServiceClient is the client API for RendererPreVService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type RendererPreVServiceClient interface {
-	NewRendererPreV(ctx context.Context, in *NewRendererPreVRequest, opts ...grpc.CallOption) (*NewRendererPreVResponse, error)
-	Close(ctx context.Context, in *CloseRequest, opts ...grpc.CallOption) (*CloseResponse, error)
-	GetDocumentLinearizationType(ctx context.Context, in *GetDocumentLinearizationTypeRequest, opts ...grpc.CallOption) (*GetDocumentLinearizationTypeResponse, error)
-	GetPageCount(ctx context.Context, in *GetPageCountRequest, opts ...grpc.CallOption) (*GetPageCountResponse, error)
-	GetPdfFormType(ctx context.Context, in *GetPdfFormTypeRequest, opts ...grpc.CallOption) (*GetPdfFormTypeResponse, error)
-	OpenPage(ctx context.Context, in *OpenPageRequest, opts ...grpc.CallOption) (*OpenPageResponse, error)
-	Write(ctx context.Context, in *WriteRequest, opts ...grpc.CallOption) (*WriteResponse, error)
-}
-
-type rendererPreVServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewRendererPreVServiceClient(cc grpc.ClientConnInterface) RendererPreVServiceClient {
-	return &rendererPreVServiceClient{cc}
-}
-
-func (c *rendererPreVServiceClient) NewRendererPreV(ctx context.Context, in *NewRendererPreVRequest, opts ...grpc.CallOption) (*NewRendererPreVResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewRendererPreVResponse)
-	err := c.cc.Invoke(ctx, RendererPreVService_NewRendererPreV_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *rendererPreVServiceClient) Close(ctx context.Context, in *CloseRequest, opts ...grpc.CallOption) (*CloseResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CloseResponse)
-	err := c.cc.Invoke(ctx, RendererPreVService_Close_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *rendererPreVServiceClient) GetDocumentLinearizationType(ctx context.Context, in *GetDocumentLinearizationTypeRequest, opts ...grpc.CallOption) (*GetDocumentLinearizationTypeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetDocumentLinearizationTypeResponse)
-	err := c.cc.Invoke(ctx, RendererPreVService_GetDocumentLinearizationType_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *rendererPreVServiceClient) GetPageCount(ctx context.Context, in *GetPageCountRequest, opts ...grpc.CallOption) (*GetPageCountResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetPageCountResponse)
-	err := c.cc.Invoke(ctx, RendererPreVService_GetPageCount_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *rendererPreVServiceClient) GetPdfFormType(ctx context.Context, in *GetPdfFormTypeRequest, opts ...grpc.CallOption) (*GetPdfFormTypeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetPdfFormTypeResponse)
-	err := c.cc.Invoke(ctx, RendererPreVService_GetPdfFormType_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *rendererPreVServiceClient) OpenPage(ctx context.Context, in *OpenPageRequest, opts ...grpc.CallOption) (*OpenPageResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OpenPageResponse)
-	err := c.cc.Invoke(ctx, RendererPreVService_OpenPage_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *rendererPreVServiceClient) Write(ctx context.Context, in *WriteRequest, opts ...grpc.CallOption) (*WriteResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WriteResponse)
-	err := c.cc.Invoke(ctx, RendererPreVService_Write_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// RendererPreVServiceServer is the server API for RendererPreVService service.
-// All implementations must embed UnimplementedRendererPreVServiceServer
-// for forward compatibility.
-type RendererPreVServiceServer interface {
-	NewRendererPreV(context.Context, *NewRendererPreVRequest) (*NewRendererPreVResponse, error)
-	Close(context.Context, *CloseRequest) (*CloseResponse, error)
-	GetDocumentLinearizationType(context.Context, *GetDocumentLinearizationTypeRequest) (*GetDocumentLinearizationTypeResponse, error)
-	GetPageCount(context.Context, *GetPageCountRequest) (*GetPageCountResponse, error)
-	GetPdfFormType(context.Context, *GetPdfFormTypeRequest) (*GetPdfFormTypeResponse, error)
-	OpenPage(context.Context, *OpenPageRequest) (*OpenPageResponse, error)
-	Write(context.Context, *WriteRequest) (*WriteResponse, error)
-	mustEmbedUnimplementedRendererPreVServiceServer()
-}
-
-// UnimplementedRendererPreVServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedRendererPreVServiceServer struct{}
-
-func (UnimplementedRendererPreVServiceServer) NewRendererPreV(context.Context, *NewRendererPreVRequest) (*NewRendererPreVResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewRendererPreV not implemented")
-}
-func (UnimplementedRendererPreVServiceServer) Close(context.Context, *CloseRequest) (*CloseResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Close not implemented")
-}
-func (UnimplementedRendererPreVServiceServer) GetDocumentLinearizationType(context.Context, *GetDocumentLinearizationTypeRequest) (*GetDocumentLinearizationTypeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetDocumentLinearizationType not implemented")
-}
-func (UnimplementedRendererPreVServiceServer) GetPageCount(context.Context, *GetPageCountRequest) (*GetPageCountResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetPageCount not implemented")
-}
-func (UnimplementedRendererPreVServiceServer) GetPdfFormType(context.Context, *GetPdfFormTypeRequest) (*GetPdfFormTypeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetPdfFormType not implemented")
-}
-func (UnimplementedRendererPreVServiceServer) OpenPage(context.Context, *OpenPageRequest) (*OpenPageResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OpenPage not implemented")
-}
-func (UnimplementedRendererPreVServiceServer) Write(context.Context, *WriteRequest) (*WriteResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Write not implemented")
-}
-func (UnimplementedRendererPreVServiceServer) mustEmbedUnimplementedRendererPreVServiceServer() {}
-func (UnimplementedRendererPreVServiceServer) testEmbeddedByValue()                             {}
-
-// UnsafeRendererPreVServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to RendererPreVServiceServer will
-// result in compilation errors.
-type UnsafeRendererPreVServiceServer interface {
-	mustEmbedUnimplementedRendererPreVServiceServer()
-}
-
-func RegisterRendererPreVServiceServer(s grpc.ServiceRegistrar, srv RendererPreVServiceServer) {
-	// If the following call panics, it indicates UnimplementedRendererPreVServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&RendererPreVService_ServiceDesc, srv)
-}
-
-func _RendererPreVService_NewRendererPreV_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewRendererPreVRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(RendererPreVServiceServer).NewRendererPreV(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: RendererPreVService_NewRendererPreV_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RendererPreVServiceServer).NewRendererPreV(ctx, req.(*NewRendererPreVRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _RendererPreVService_Close_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CloseRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(RendererPreVServiceServer).Close(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: RendererPreVService_Close_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RendererPreVServiceServer).Close(ctx, req.(*CloseRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _RendererPreVService_GetDocumentLinearizationType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetDocumentLinearizationTypeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(RendererPreVServiceServer).GetDocumentLinearizationType(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: RendererPreVService_GetDocumentLinearizationType_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RendererPreVServiceServer).GetDocumentLinearizationType(ctx, req.(*GetDocumentLinearizationTypeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _RendererPreVService_GetPageCount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetPageCountRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(RendererPreVServiceServer).GetPageCount(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: RendererPreVService_GetPageCount_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RendererPreVServiceServer).GetPageCount(ctx, req.(*GetPageCountRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _RendererPreVService_GetPdfFormType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetPdfFormTypeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(RendererPreVServiceServer).GetPdfFormType(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: RendererPreVService_GetPdfFormType_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RendererPreVServiceServer).GetPdfFormType(ctx, req.(*GetPdfFormTypeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _RendererPreVService_OpenPage_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OpenPageRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(RendererPreVServiceServer).OpenPage(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: RendererPreVService_OpenPage_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RendererPreVServiceServer).OpenPage(ctx, req.(*OpenPageRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _RendererPreVService_Write_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WriteRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(RendererPreVServiceServer).Write(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: RendererPreVService_Write_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RendererPreVServiceServer).Write(ctx, req.(*WriteRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// RendererPreVService_ServiceDesc is the grpc.ServiceDesc for RendererPreVService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var RendererPreVService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "pdf.RendererPreVService",
-	HandlerType: (*RendererPreVServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "NewRendererPreV",
-			Handler:    _RendererPreVService_NewRendererPreV_Handler,
-		},
-		{
-			MethodName: "Close",
-			Handler:    _RendererPreVService_Close_Handler,
-		},
-		{
-			MethodName: "GetDocumentLinearizationType",
-			Handler:    _RendererPreVService_GetDocumentLinearizationType_Handler,
-		},
-		{
-			MethodName: "GetPageCount",
-			Handler:    _RendererPreVService_GetPageCount_Handler,
-		},
-		{
-			MethodName: "GetPdfFormType",
-			Handler:    _RendererPreVService_GetPdfFormType_Handler,
-		},
-		{
-			MethodName: "OpenPage",
-			Handler:    _RendererPreVService_OpenPage_Handler,
-		},
-		{
-			MethodName: "Write",
-			Handler:    _RendererPreVService_Write_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/pdf/pdf.proto",
-}
-
-const (
-	RendererPreVPageService_Close_FullMethodName                       = "/pdf.RendererPreVPageService/Close"
-	RendererPreVPageService_GetFormWidgetInfoAtIndex_FullMethodName    = "/pdf.RendererPreVPageService/GetFormWidgetInfoAtIndex"
-	RendererPreVPageService_GetFormWidgetInfoAtPosition_FullMethodName = "/pdf.RendererPreVPageService/GetFormWidgetInfoAtPosition"
-	RendererPreVPageService_GetHeight_FullMethodName                   = "/pdf.RendererPreVPageService/GetHeight"
-	RendererPreVPageService_GetIndex_FullMethodName                    = "/pdf.RendererPreVPageService/GetIndex"
-	RendererPreVPageService_GetWidth_FullMethodName                    = "/pdf.RendererPreVPageService/GetWidth"
-	RendererPreVPageService_Render_FullMethodName                      = "/pdf.RendererPreVPageService/Render"
-	RendererPreVPageService_SelectContent_FullMethodName               = "/pdf.RendererPreVPageService/SelectContent"
-)
-
-// RendererPreVPageServiceClient is the client API for RendererPreVPageService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type RendererPreVPageServiceClient interface {
-	Close(ctx context.Context, in *RendererPreVPageCloseRequest, opts ...grpc.CallOption) (*CloseResponse, error)
-	GetFormWidgetInfoAtIndex(ctx context.Context, in *GetFormWidgetInfoAtIndexRequest, opts ...grpc.CallOption) (*GetFormWidgetInfoAtIndexResponse, error)
-	GetFormWidgetInfoAtPosition(ctx context.Context, in *GetFormWidgetInfoAtPositionRequest, opts ...grpc.CallOption) (*GetFormWidgetInfoAtPositionResponse, error)
-	GetHeight(ctx context.Context, in *GetHeightRequest, opts ...grpc.CallOption) (*GetHeightResponse, error)
-	GetIndex(ctx context.Context, in *GetIndexRequest, opts ...grpc.CallOption) (*GetIndexResponse, error)
-	GetWidth(ctx context.Context, in *GetWidthRequest, opts ...grpc.CallOption) (*GetWidthResponse, error)
-	Render(ctx context.Context, in *RenderRequest, opts ...grpc.CallOption) (*RenderResponse, error)
-	SelectContent(ctx context.Context, in *SelectContentRequest, opts ...grpc.CallOption) (*SelectContentResponse, error)
-}
-
-type rendererPreVPageServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewRendererPreVPageServiceClient(cc grpc.ClientConnInterface) RendererPreVPageServiceClient {
-	return &rendererPreVPageServiceClient{cc}
-}
-
-func (c *rendererPreVPageServiceClient) Close(ctx context.Context, in *RendererPreVPageCloseRequest, opts ...grpc.CallOption) (*CloseResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CloseResponse)
-	err := c.cc.Invoke(ctx, RendererPreVPageService_Close_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *rendererPreVPageServiceClient) GetFormWidgetInfoAtIndex(ctx context.Context, in *GetFormWidgetInfoAtIndexRequest, opts ...grpc.CallOption) (*GetFormWidgetInfoAtIndexResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetFormWidgetInfoAtIndexResponse)
-	err := c.cc.Invoke(ctx, RendererPreVPageService_GetFormWidgetInfoAtIndex_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *rendererPreVPageServiceClient) GetFormWidgetInfoAtPosition(ctx context.Context, in *GetFormWidgetInfoAtPositionRequest, opts ...grpc.CallOption) (*GetFormWidgetInfoAtPositionResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetFormWidgetInfoAtPositionResponse)
-	err := c.cc.Invoke(ctx, RendererPreVPageService_GetFormWidgetInfoAtPosition_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *rendererPreVPageServiceClient) GetHeight(ctx context.Context, in *GetHeightRequest, opts ...grpc.CallOption) (*GetHeightResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetHeightResponse)
-	err := c.cc.Invoke(ctx, RendererPreVPageService_GetHeight_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *rendererPreVPageServiceClient) GetIndex(ctx context.Context, in *GetIndexRequest, opts ...grpc.CallOption) (*GetIndexResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetIndexResponse)
-	err := c.cc.Invoke(ctx, RendererPreVPageService_GetIndex_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *rendererPreVPageServiceClient) GetWidth(ctx context.Context, in *GetWidthRequest, opts ...grpc.CallOption) (*GetWidthResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetWidthResponse)
-	err := c.cc.Invoke(ctx, RendererPreVPageService_GetWidth_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *rendererPreVPageServiceClient) Render(ctx context.Context, in *RenderRequest, opts ...grpc.CallOption) (*RenderResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(RenderResponse)
-	err := c.cc.Invoke(ctx, RendererPreVPageService_Render_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *rendererPreVPageServiceClient) SelectContent(ctx context.Context, in *SelectContentRequest, opts ...grpc.CallOption) (*SelectContentResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SelectContentResponse)
-	err := c.cc.Invoke(ctx, RendererPreVPageService_SelectContent_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// RendererPreVPageServiceServer is the server API for RendererPreVPageService service.
-// All implementations must embed UnimplementedRendererPreVPageServiceServer
-// for forward compatibility.
-type RendererPreVPageServiceServer interface {
-	Close(context.Context, *RendererPreVPageCloseRequest) (*CloseResponse, error)
-	GetFormWidgetInfoAtIndex(context.Context, *GetFormWidgetInfoAtIndexRequest) (*GetFormWidgetInfoAtIndexResponse, error)
-	GetFormWidgetInfoAtPosition(context.Context, *GetFormWidgetInfoAtPositionRequest) (*GetFormWidgetInfoAtPositionResponse, error)
-	GetHeight(context.Context, *GetHeightRequest) (*GetHeightResponse, error)
-	GetIndex(context.Context, *GetIndexRequest) (*GetIndexResponse, error)
-	GetWidth(context.Context, *GetWidthRequest) (*GetWidthResponse, error)
-	Render(context.Context, *RenderRequest) (*RenderResponse, error)
-	SelectContent(context.Context, *SelectContentRequest) (*SelectContentResponse, error)
-	mustEmbedUnimplementedRendererPreVPageServiceServer()
-}
-
-// UnimplementedRendererPreVPageServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedRendererPreVPageServiceServer struct{}
-
-func (UnimplementedRendererPreVPageServiceServer) Close(context.Context, *RendererPreVPageCloseRequest) (*CloseResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Close not implemented")
-}
-func (UnimplementedRendererPreVPageServiceServer) GetFormWidgetInfoAtIndex(context.Context, *GetFormWidgetInfoAtIndexRequest) (*GetFormWidgetInfoAtIndexResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetFormWidgetInfoAtIndex not implemented")
-}
-func (UnimplementedRendererPreVPageServiceServer) GetFormWidgetInfoAtPosition(context.Context, *GetFormWidgetInfoAtPositionRequest) (*GetFormWidgetInfoAtPositionResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetFormWidgetInfoAtPosition not implemented")
-}
-func (UnimplementedRendererPreVPageServiceServer) GetHeight(context.Context, *GetHeightRequest) (*GetHeightResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetHeight not implemented")
-}
-func (UnimplementedRendererPreVPageServiceServer) GetIndex(context.Context, *GetIndexRequest) (*GetIndexResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetIndex not implemented")
-}
-func (UnimplementedRendererPreVPageServiceServer) GetWidth(context.Context, *GetWidthRequest) (*GetWidthResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetWidth not implemented")
-}
-func (UnimplementedRendererPreVPageServiceServer) Render(context.Context, *RenderRequest) (*RenderResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Render not implemented")
-}
-func (UnimplementedRendererPreVPageServiceServer) SelectContent(context.Context, *SelectContentRequest) (*SelectContentResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SelectContent not implemented")
-}
-func (UnimplementedRendererPreVPageServiceServer) mustEmbedUnimplementedRendererPreVPageServiceServer() {
-}
-func (UnimplementedRendererPreVPageServiceServer) testEmbeddedByValue() {}
-
-// UnsafeRendererPreVPageServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to RendererPreVPageServiceServer will
-// result in compilation errors.
-type UnsafeRendererPreVPageServiceServer interface {
-	mustEmbedUnimplementedRendererPreVPageServiceServer()
-}
-
-func RegisterRendererPreVPageServiceServer(s grpc.ServiceRegistrar, srv RendererPreVPageServiceServer) {
-	// If the following call panics, it indicates UnimplementedRendererPreVPageServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&RendererPreVPageService_ServiceDesc, srv)
-}
-
-func _RendererPreVPageService_Close_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(RendererPreVPageCloseRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(RendererPreVPageServiceServer).Close(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: RendererPreVPageService_Close_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RendererPreVPageServiceServer).Close(ctx, req.(*RendererPreVPageCloseRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _RendererPreVPageService_GetFormWidgetInfoAtIndex_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetFormWidgetInfoAtIndexRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(RendererPreVPageServiceServer).GetFormWidgetInfoAtIndex(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: RendererPreVPageService_GetFormWidgetInfoAtIndex_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RendererPreVPageServiceServer).GetFormWidgetInfoAtIndex(ctx, req.(*GetFormWidgetInfoAtIndexRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _RendererPreVPageService_GetFormWidgetInfoAtPosition_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetFormWidgetInfoAtPositionRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(RendererPreVPageServiceServer).GetFormWidgetInfoAtPosition(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: RendererPreVPageService_GetFormWidgetInfoAtPosition_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RendererPreVPageServiceServer).GetFormWidgetInfoAtPosition(ctx, req.(*GetFormWidgetInfoAtPositionRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _RendererPreVPageService_GetHeight_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetHeightRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(RendererPreVPageServiceServer).GetHeight(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: RendererPreVPageService_GetHeight_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RendererPreVPageServiceServer).GetHeight(ctx, req.(*GetHeightRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _RendererPreVPageService_GetIndex_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetIndexRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(RendererPreVPageServiceServer).GetIndex(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: RendererPreVPageService_GetIndex_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RendererPreVPageServiceServer).GetIndex(ctx, req.(*GetIndexRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _RendererPreVPageService_GetWidth_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetWidthRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(RendererPreVPageServiceServer).GetWidth(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: RendererPreVPageService_GetWidth_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RendererPreVPageServiceServer).GetWidth(ctx, req.(*GetWidthRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _RendererPreVPageService_Render_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(RenderRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(RendererPreVPageServiceServer).Render(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: RendererPreVPageService_Render_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RendererPreVPageServiceServer).Render(ctx, req.(*RenderRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _RendererPreVPageService_SelectContent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SelectContentRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(RendererPreVPageServiceServer).SelectContent(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: RendererPreVPageService_SelectContent_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RendererPreVPageServiceServer).SelectContent(ctx, req.(*SelectContentRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// RendererPreVPageService_ServiceDesc is the grpc.ServiceDesc for RendererPreVPageService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var RendererPreVPageService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "pdf.RendererPreVPageService",
-	HandlerType: (*RendererPreVPageServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "Close",
-			Handler:    _RendererPreVPageService_Close_Handler,
-		},
-		{
-			MethodName: "GetFormWidgetInfoAtIndex",
-			Handler:    _RendererPreVPageService_GetFormWidgetInfoAtIndex_Handler,
-		},
-		{
-			MethodName: "GetFormWidgetInfoAtPosition",
-			Handler:    _RendererPreVPageService_GetFormWidgetInfoAtPosition_Handler,
-		},
-		{
-			MethodName: "GetHeight",
-			Handler:    _RendererPreVPageService_GetHeight_Handler,
-		},
-		{
-			MethodName: "GetIndex",
-			Handler:    _RendererPreVPageService_GetIndex_Handler,
-		},
-		{
-			MethodName: "GetWidth",
-			Handler:    _RendererPreVPageService_GetWidth_Handler,
-		},
-		{
-			MethodName: "Render",
-			Handler:    _RendererPreVPageService_Render_Handler,
-		},
-		{
-			MethodName: "SelectContent",
-			Handler:    _RendererPreVPageService_SelectContent_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/pdf/pdf.proto",
-}
-
-const (
 	TypefaceService_Equals_FullMethodName                  = "/pdf.TypefaceService/Equals"
 	TypefaceService_GetStyle_FullMethodName                = "/pdf.TypefaceService/GetStyle"
 	TypefaceService_GetSystemFontFamilyName_FullMethodName = "/pdf.TypefaceService/GetSystemFontFamilyName"
@@ -6777,7 +42,7 @@ const (
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type TypefaceServiceClient interface {
 	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
-	GetStyle(ctx context.Context, in *TypefaceGetStyleRequest, opts ...grpc.CallOption) (*TypefaceGetStyleResponse, error)
+	GetStyle(ctx context.Context, in *GetStyleRequest, opts ...grpc.CallOption) (*GetStyleResponse, error)
 	GetSystemFontFamilyName(ctx context.Context, in *GetSystemFontFamilyNameRequest, opts ...grpc.CallOption) (*GetSystemFontFamilyNameResponse, error)
 	GetWeight(ctx context.Context, in *GetWeightRequest, opts ...grpc.CallOption) (*GetWeightResponse, error)
 	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
@@ -6810,9 +75,9 @@ func (c *typefaceServiceClient) Equals(ctx context.Context, in *EqualsRequest, o
 	return out, nil
 }
 
-func (c *typefaceServiceClient) GetStyle(ctx context.Context, in *TypefaceGetStyleRequest, opts ...grpc.CallOption) (*TypefaceGetStyleResponse, error) {
+func (c *typefaceServiceClient) GetStyle(ctx context.Context, in *GetStyleRequest, opts ...grpc.CallOption) (*GetStyleResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(TypefaceGetStyleResponse)
+	out := new(GetStyleResponse)
 	err := c.cc.Invoke(ctx, TypefaceService_GetStyle_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -6945,7 +210,7 @@ func (c *typefaceServiceClient) DefaultFromStyle(ctx context.Context, in *Defaul
 // for forward compatibility.
 type TypefaceServiceServer interface {
 	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
-	GetStyle(context.Context, *TypefaceGetStyleRequest) (*TypefaceGetStyleResponse, error)
+	GetStyle(context.Context, *GetStyleRequest) (*GetStyleResponse, error)
 	GetSystemFontFamilyName(context.Context, *GetSystemFontFamilyNameRequest) (*GetSystemFontFamilyNameResponse, error)
 	GetWeight(context.Context, *GetWeightRequest) (*GetWeightResponse, error)
 	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
@@ -6971,7 +236,7 @@ type UnimplementedTypefaceServiceServer struct{}
 func (UnimplementedTypefaceServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
 }
-func (UnimplementedTypefaceServiceServer) GetStyle(context.Context, *TypefaceGetStyleRequest) (*TypefaceGetStyleResponse, error) {
+func (UnimplementedTypefaceServiceServer) GetStyle(context.Context, *GetStyleRequest) (*GetStyleResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetStyle not implemented")
 }
 func (UnimplementedTypefaceServiceServer) GetSystemFontFamilyName(context.Context, *GetSystemFontFamilyNameRequest) (*GetSystemFontFamilyNameResponse, error) {
@@ -7050,7 +315,7 @@ func _TypefaceService_Equals_Handler(srv interface{}, ctx context.Context, dec f
 }
 
 func _TypefaceService_GetStyle_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(TypefaceGetStyleRequest)
+	in := new(GetStyleRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -7062,7 +327,7 @@ func _TypefaceService_GetStyle_Handler(srv interface{}, ctx context.Context, dec
 		FullMethod: TypefaceService_GetStyle_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TypefaceServiceServer).GetStyle(ctx, req.(*TypefaceGetStyleRequest))
+		return srv.(TypefaceServiceServer).GetStyle(ctx, req.(*GetStyleRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -7696,7 +961,7 @@ const (
 type TypefaceCustomFallbackBuilderServiceClient interface {
 	AddCustomFallback(ctx context.Context, in *AddCustomFallbackRequest, opts ...grpc.CallOption) (*AddCustomFallbackResponse, error)
 	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
-	SetStyle(ctx context.Context, in *TypefaceCustomFallbackBuilderSetStyleRequest, opts ...grpc.CallOption) (*TypefaceCustomFallbackBuilderSetStyleResponse, error)
+	SetStyle(ctx context.Context, in *SetStyleRequest, opts ...grpc.CallOption) (*SetStyleResponse, error)
 	SetSystemFallback(ctx context.Context, in *SetSystemFallbackRequest, opts ...grpc.CallOption) (*SetSystemFallbackResponse, error)
 	GetMaxCustomFallbackCount(ctx context.Context, in *GetMaxCustomFallbackCountRequest, opts ...grpc.CallOption) (*GetMaxCustomFallbackCountResponse, error)
 }
@@ -7729,9 +994,9 @@ func (c *typefaceCustomFallbackBuilderServiceClient) Build(ctx context.Context, 
 	return out, nil
 }
 
-func (c *typefaceCustomFallbackBuilderServiceClient) SetStyle(ctx context.Context, in *TypefaceCustomFallbackBuilderSetStyleRequest, opts ...grpc.CallOption) (*TypefaceCustomFallbackBuilderSetStyleResponse, error) {
+func (c *typefaceCustomFallbackBuilderServiceClient) SetStyle(ctx context.Context, in *SetStyleRequest, opts ...grpc.CallOption) (*SetStyleResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(TypefaceCustomFallbackBuilderSetStyleResponse)
+	out := new(SetStyleResponse)
 	err := c.cc.Invoke(ctx, TypefaceCustomFallbackBuilderService_SetStyle_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -7765,7 +1030,7 @@ func (c *typefaceCustomFallbackBuilderServiceClient) GetMaxCustomFallbackCount(c
 type TypefaceCustomFallbackBuilderServiceServer interface {
 	AddCustomFallback(context.Context, *AddCustomFallbackRequest) (*AddCustomFallbackResponse, error)
 	Build(context.Context, *BuildRequest) (*BuildResponse, error)
-	SetStyle(context.Context, *TypefaceCustomFallbackBuilderSetStyleRequest) (*TypefaceCustomFallbackBuilderSetStyleResponse, error)
+	SetStyle(context.Context, *SetStyleRequest) (*SetStyleResponse, error)
 	SetSystemFallback(context.Context, *SetSystemFallbackRequest) (*SetSystemFallbackResponse, error)
 	GetMaxCustomFallbackCount(context.Context, *GetMaxCustomFallbackCountRequest) (*GetMaxCustomFallbackCountResponse, error)
 	mustEmbedUnimplementedTypefaceCustomFallbackBuilderServiceServer()
@@ -7784,7 +1049,7 @@ func (UnimplementedTypefaceCustomFallbackBuilderServiceServer) AddCustomFallback
 func (UnimplementedTypefaceCustomFallbackBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
 }
-func (UnimplementedTypefaceCustomFallbackBuilderServiceServer) SetStyle(context.Context, *TypefaceCustomFallbackBuilderSetStyleRequest) (*TypefaceCustomFallbackBuilderSetStyleResponse, error) {
+func (UnimplementedTypefaceCustomFallbackBuilderServiceServer) SetStyle(context.Context, *SetStyleRequest) (*SetStyleResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method SetStyle not implemented")
 }
 func (UnimplementedTypefaceCustomFallbackBuilderServiceServer) SetSystemFallback(context.Context, *SetSystemFallbackRequest) (*SetSystemFallbackResponse, error) {
@@ -7852,7 +1117,7 @@ func _TypefaceCustomFallbackBuilderService_Build_Handler(srv interface{}, ctx co
 }
 
 func _TypefaceCustomFallbackBuilderService_SetStyle_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(TypefaceCustomFallbackBuilderSetStyleRequest)
+	in := new(SetStyleRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -7864,7 +1129,7 @@ func _TypefaceCustomFallbackBuilderService_SetStyle_Handler(srv interface{}, ctx
 		FullMethod: TypefaceCustomFallbackBuilderService_SetStyle_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TypefaceCustomFallbackBuilderServiceServer).SetStyle(ctx, req.(*TypefaceCustomFallbackBuilderSetStyleRequest))
+		return srv.(TypefaceCustomFallbackBuilderServiceServer).SetStyle(ctx, req.(*SetStyleRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -7931,6 +1196,655 @@ var TypefaceCustomFallbackBuilderService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetMaxCustomFallbackCount",
 			Handler:    _TypefaceCustomFallbackBuilderService_GetMaxCustomFallbackCount_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/pdf/pdf.proto",
+}
+
+const (
+	DocumentService_NewDocument_FullMethodName = "/pdf.DocumentService/NewDocument"
+	DocumentService_Close_FullMethodName       = "/pdf.DocumentService/Close"
+	DocumentService_FinishPage_FullMethodName  = "/pdf.DocumentService/FinishPage"
+	DocumentService_GetPages_FullMethodName    = "/pdf.DocumentService/GetPages"
+	DocumentService_StartPage_FullMethodName   = "/pdf.DocumentService/StartPage"
+	DocumentService_WriteTo_FullMethodName     = "/pdf.DocumentService/WriteTo"
+)
+
+// DocumentServiceClient is the client API for DocumentService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type DocumentServiceClient interface {
+	NewDocument(ctx context.Context, in *NewDocumentRequest, opts ...grpc.CallOption) (*NewDocumentResponse, error)
+	Close(ctx context.Context, in *CloseRequest, opts ...grpc.CallOption) (*CloseResponse, error)
+	FinishPage(ctx context.Context, in *FinishPageRequest, opts ...grpc.CallOption) (*FinishPageResponse, error)
+	GetPages(ctx context.Context, in *GetPagesRequest, opts ...grpc.CallOption) (*GetPagesResponse, error)
+	StartPage(ctx context.Context, in *StartPageRequest, opts ...grpc.CallOption) (*StartPageResponse, error)
+	WriteTo(ctx context.Context, in *WriteToRequest, opts ...grpc.CallOption) (*WriteToResponse, error)
+}
+
+type documentServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewDocumentServiceClient(cc grpc.ClientConnInterface) DocumentServiceClient {
+	return &documentServiceClient{cc}
+}
+
+func (c *documentServiceClient) NewDocument(ctx context.Context, in *NewDocumentRequest, opts ...grpc.CallOption) (*NewDocumentResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewDocumentResponse)
+	err := c.cc.Invoke(ctx, DocumentService_NewDocument_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *documentServiceClient) Close(ctx context.Context, in *CloseRequest, opts ...grpc.CallOption) (*CloseResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CloseResponse)
+	err := c.cc.Invoke(ctx, DocumentService_Close_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *documentServiceClient) FinishPage(ctx context.Context, in *FinishPageRequest, opts ...grpc.CallOption) (*FinishPageResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(FinishPageResponse)
+	err := c.cc.Invoke(ctx, DocumentService_FinishPage_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *documentServiceClient) GetPages(ctx context.Context, in *GetPagesRequest, opts ...grpc.CallOption) (*GetPagesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetPagesResponse)
+	err := c.cc.Invoke(ctx, DocumentService_GetPages_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *documentServiceClient) StartPage(ctx context.Context, in *StartPageRequest, opts ...grpc.CallOption) (*StartPageResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(StartPageResponse)
+	err := c.cc.Invoke(ctx, DocumentService_StartPage_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *documentServiceClient) WriteTo(ctx context.Context, in *WriteToRequest, opts ...grpc.CallOption) (*WriteToResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToResponse)
+	err := c.cc.Invoke(ctx, DocumentService_WriteTo_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// DocumentServiceServer is the server API for DocumentService service.
+// All implementations must embed UnimplementedDocumentServiceServer
+// for forward compatibility.
+type DocumentServiceServer interface {
+	NewDocument(context.Context, *NewDocumentRequest) (*NewDocumentResponse, error)
+	Close(context.Context, *CloseRequest) (*CloseResponse, error)
+	FinishPage(context.Context, *FinishPageRequest) (*FinishPageResponse, error)
+	GetPages(context.Context, *GetPagesRequest) (*GetPagesResponse, error)
+	StartPage(context.Context, *StartPageRequest) (*StartPageResponse, error)
+	WriteTo(context.Context, *WriteToRequest) (*WriteToResponse, error)
+	mustEmbedUnimplementedDocumentServiceServer()
+}
+
+// UnimplementedDocumentServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedDocumentServiceServer struct{}
+
+func (UnimplementedDocumentServiceServer) NewDocument(context.Context, *NewDocumentRequest) (*NewDocumentResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewDocument not implemented")
+}
+func (UnimplementedDocumentServiceServer) Close(context.Context, *CloseRequest) (*CloseResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Close not implemented")
+}
+func (UnimplementedDocumentServiceServer) FinishPage(context.Context, *FinishPageRequest) (*FinishPageResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method FinishPage not implemented")
+}
+func (UnimplementedDocumentServiceServer) GetPages(context.Context, *GetPagesRequest) (*GetPagesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetPages not implemented")
+}
+func (UnimplementedDocumentServiceServer) StartPage(context.Context, *StartPageRequest) (*StartPageResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method StartPage not implemented")
+}
+func (UnimplementedDocumentServiceServer) WriteTo(context.Context, *WriteToRequest) (*WriteToResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteTo not implemented")
+}
+func (UnimplementedDocumentServiceServer) mustEmbedUnimplementedDocumentServiceServer() {}
+func (UnimplementedDocumentServiceServer) testEmbeddedByValue()                         {}
+
+// UnsafeDocumentServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to DocumentServiceServer will
+// result in compilation errors.
+type UnsafeDocumentServiceServer interface {
+	mustEmbedUnimplementedDocumentServiceServer()
+}
+
+func RegisterDocumentServiceServer(s grpc.ServiceRegistrar, srv DocumentServiceServer) {
+	// If the following call panics, it indicates UnimplementedDocumentServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&DocumentService_ServiceDesc, srv)
+}
+
+func _DocumentService_NewDocument_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewDocumentRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DocumentServiceServer).NewDocument(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DocumentService_NewDocument_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DocumentServiceServer).NewDocument(ctx, req.(*NewDocumentRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DocumentService_Close_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CloseRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DocumentServiceServer).Close(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DocumentService_Close_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DocumentServiceServer).Close(ctx, req.(*CloseRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DocumentService_FinishPage_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(FinishPageRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DocumentServiceServer).FinishPage(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DocumentService_FinishPage_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DocumentServiceServer).FinishPage(ctx, req.(*FinishPageRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DocumentService_GetPages_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPagesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DocumentServiceServer).GetPages(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DocumentService_GetPages_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DocumentServiceServer).GetPages(ctx, req.(*GetPagesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DocumentService_StartPage_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(StartPageRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DocumentServiceServer).StartPage(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DocumentService_StartPage_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DocumentServiceServer).StartPage(ctx, req.(*StartPageRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DocumentService_WriteTo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DocumentServiceServer).WriteTo(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DocumentService_WriteTo_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DocumentServiceServer).WriteTo(ctx, req.(*WriteToRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// DocumentService_ServiceDesc is the grpc.ServiceDesc for DocumentService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var DocumentService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "pdf.DocumentService",
+	HandlerType: (*DocumentServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewDocument",
+			Handler:    _DocumentService_NewDocument_Handler,
+		},
+		{
+			MethodName: "Close",
+			Handler:    _DocumentService_Close_Handler,
+		},
+		{
+			MethodName: "FinishPage",
+			Handler:    _DocumentService_FinishPage_Handler,
+		},
+		{
+			MethodName: "GetPages",
+			Handler:    _DocumentService_GetPages_Handler,
+		},
+		{
+			MethodName: "StartPage",
+			Handler:    _DocumentService_StartPage_Handler,
+		},
+		{
+			MethodName: "WriteTo",
+			Handler:    _DocumentService_WriteTo_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/pdf/pdf.proto",
+}
+
+const (
+	DocumentPageService_GetCanvas_FullMethodName = "/pdf.DocumentPageService/GetCanvas"
+	DocumentPageService_GetInfo_FullMethodName   = "/pdf.DocumentPageService/GetInfo"
+)
+
+// DocumentPageServiceClient is the client API for DocumentPageService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type DocumentPageServiceClient interface {
+	GetCanvas(ctx context.Context, in *GetCanvasRequest, opts ...grpc.CallOption) (*GetCanvasResponse, error)
+	GetInfo(ctx context.Context, in *GetInfoRequest, opts ...grpc.CallOption) (*GetInfoResponse, error)
+}
+
+type documentPageServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewDocumentPageServiceClient(cc grpc.ClientConnInterface) DocumentPageServiceClient {
+	return &documentPageServiceClient{cc}
+}
+
+func (c *documentPageServiceClient) GetCanvas(ctx context.Context, in *GetCanvasRequest, opts ...grpc.CallOption) (*GetCanvasResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetCanvasResponse)
+	err := c.cc.Invoke(ctx, DocumentPageService_GetCanvas_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *documentPageServiceClient) GetInfo(ctx context.Context, in *GetInfoRequest, opts ...grpc.CallOption) (*GetInfoResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetInfoResponse)
+	err := c.cc.Invoke(ctx, DocumentPageService_GetInfo_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// DocumentPageServiceServer is the server API for DocumentPageService service.
+// All implementations must embed UnimplementedDocumentPageServiceServer
+// for forward compatibility.
+type DocumentPageServiceServer interface {
+	GetCanvas(context.Context, *GetCanvasRequest) (*GetCanvasResponse, error)
+	GetInfo(context.Context, *GetInfoRequest) (*GetInfoResponse, error)
+	mustEmbedUnimplementedDocumentPageServiceServer()
+}
+
+// UnimplementedDocumentPageServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedDocumentPageServiceServer struct{}
+
+func (UnimplementedDocumentPageServiceServer) GetCanvas(context.Context, *GetCanvasRequest) (*GetCanvasResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetCanvas not implemented")
+}
+func (UnimplementedDocumentPageServiceServer) GetInfo(context.Context, *GetInfoRequest) (*GetInfoResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetInfo not implemented")
+}
+func (UnimplementedDocumentPageServiceServer) mustEmbedUnimplementedDocumentPageServiceServer() {}
+func (UnimplementedDocumentPageServiceServer) testEmbeddedByValue()                             {}
+
+// UnsafeDocumentPageServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to DocumentPageServiceServer will
+// result in compilation errors.
+type UnsafeDocumentPageServiceServer interface {
+	mustEmbedUnimplementedDocumentPageServiceServer()
+}
+
+func RegisterDocumentPageServiceServer(s grpc.ServiceRegistrar, srv DocumentPageServiceServer) {
+	// If the following call panics, it indicates UnimplementedDocumentPageServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&DocumentPageService_ServiceDesc, srv)
+}
+
+func _DocumentPageService_GetCanvas_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetCanvasRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DocumentPageServiceServer).GetCanvas(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DocumentPageService_GetCanvas_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DocumentPageServiceServer).GetCanvas(ctx, req.(*GetCanvasRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DocumentPageService_GetInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetInfoRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DocumentPageServiceServer).GetInfo(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DocumentPageService_GetInfo_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DocumentPageServiceServer).GetInfo(ctx, req.(*GetInfoRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// DocumentPageService_ServiceDesc is the grpc.ServiceDesc for DocumentPageService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var DocumentPageService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "pdf.DocumentPageService",
+	HandlerType: (*DocumentPageServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "GetCanvas",
+			Handler:    _DocumentPageService_GetCanvas_Handler,
+		},
+		{
+			MethodName: "GetInfo",
+			Handler:    _DocumentPageService_GetInfo_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/pdf/pdf.proto",
+}
+
+const (
+	DocumentPageInfoService_GetContentRect_FullMethodName = "/pdf.DocumentPageInfoService/GetContentRect"
+	DocumentPageInfoService_GetPageHeight_FullMethodName  = "/pdf.DocumentPageInfoService/GetPageHeight"
+	DocumentPageInfoService_GetPageNumber_FullMethodName  = "/pdf.DocumentPageInfoService/GetPageNumber"
+	DocumentPageInfoService_GetPageWidth_FullMethodName   = "/pdf.DocumentPageInfoService/GetPageWidth"
+)
+
+// DocumentPageInfoServiceClient is the client API for DocumentPageInfoService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type DocumentPageInfoServiceClient interface {
+	GetContentRect(ctx context.Context, in *GetContentRectRequest, opts ...grpc.CallOption) (*GetContentRectResponse, error)
+	GetPageHeight(ctx context.Context, in *GetPageHeightRequest, opts ...grpc.CallOption) (*GetPageHeightResponse, error)
+	GetPageNumber(ctx context.Context, in *GetPageNumberRequest, opts ...grpc.CallOption) (*GetPageNumberResponse, error)
+	GetPageWidth(ctx context.Context, in *GetPageWidthRequest, opts ...grpc.CallOption) (*GetPageWidthResponse, error)
+}
+
+type documentPageInfoServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewDocumentPageInfoServiceClient(cc grpc.ClientConnInterface) DocumentPageInfoServiceClient {
+	return &documentPageInfoServiceClient{cc}
+}
+
+func (c *documentPageInfoServiceClient) GetContentRect(ctx context.Context, in *GetContentRectRequest, opts ...grpc.CallOption) (*GetContentRectResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetContentRectResponse)
+	err := c.cc.Invoke(ctx, DocumentPageInfoService_GetContentRect_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *documentPageInfoServiceClient) GetPageHeight(ctx context.Context, in *GetPageHeightRequest, opts ...grpc.CallOption) (*GetPageHeightResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetPageHeightResponse)
+	err := c.cc.Invoke(ctx, DocumentPageInfoService_GetPageHeight_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *documentPageInfoServiceClient) GetPageNumber(ctx context.Context, in *GetPageNumberRequest, opts ...grpc.CallOption) (*GetPageNumberResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetPageNumberResponse)
+	err := c.cc.Invoke(ctx, DocumentPageInfoService_GetPageNumber_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *documentPageInfoServiceClient) GetPageWidth(ctx context.Context, in *GetPageWidthRequest, opts ...grpc.CallOption) (*GetPageWidthResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetPageWidthResponse)
+	err := c.cc.Invoke(ctx, DocumentPageInfoService_GetPageWidth_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// DocumentPageInfoServiceServer is the server API for DocumentPageInfoService service.
+// All implementations must embed UnimplementedDocumentPageInfoServiceServer
+// for forward compatibility.
+type DocumentPageInfoServiceServer interface {
+	GetContentRect(context.Context, *GetContentRectRequest) (*GetContentRectResponse, error)
+	GetPageHeight(context.Context, *GetPageHeightRequest) (*GetPageHeightResponse, error)
+	GetPageNumber(context.Context, *GetPageNumberRequest) (*GetPageNumberResponse, error)
+	GetPageWidth(context.Context, *GetPageWidthRequest) (*GetPageWidthResponse, error)
+	mustEmbedUnimplementedDocumentPageInfoServiceServer()
+}
+
+// UnimplementedDocumentPageInfoServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedDocumentPageInfoServiceServer struct{}
+
+func (UnimplementedDocumentPageInfoServiceServer) GetContentRect(context.Context, *GetContentRectRequest) (*GetContentRectResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetContentRect not implemented")
+}
+func (UnimplementedDocumentPageInfoServiceServer) GetPageHeight(context.Context, *GetPageHeightRequest) (*GetPageHeightResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetPageHeight not implemented")
+}
+func (UnimplementedDocumentPageInfoServiceServer) GetPageNumber(context.Context, *GetPageNumberRequest) (*GetPageNumberResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetPageNumber not implemented")
+}
+func (UnimplementedDocumentPageInfoServiceServer) GetPageWidth(context.Context, *GetPageWidthRequest) (*GetPageWidthResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetPageWidth not implemented")
+}
+func (UnimplementedDocumentPageInfoServiceServer) mustEmbedUnimplementedDocumentPageInfoServiceServer() {
+}
+func (UnimplementedDocumentPageInfoServiceServer) testEmbeddedByValue() {}
+
+// UnsafeDocumentPageInfoServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to DocumentPageInfoServiceServer will
+// result in compilation errors.
+type UnsafeDocumentPageInfoServiceServer interface {
+	mustEmbedUnimplementedDocumentPageInfoServiceServer()
+}
+
+func RegisterDocumentPageInfoServiceServer(s grpc.ServiceRegistrar, srv DocumentPageInfoServiceServer) {
+	// If the following call panics, it indicates UnimplementedDocumentPageInfoServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&DocumentPageInfoService_ServiceDesc, srv)
+}
+
+func _DocumentPageInfoService_GetContentRect_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetContentRectRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DocumentPageInfoServiceServer).GetContentRect(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DocumentPageInfoService_GetContentRect_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DocumentPageInfoServiceServer).GetContentRect(ctx, req.(*GetContentRectRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DocumentPageInfoService_GetPageHeight_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPageHeightRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DocumentPageInfoServiceServer).GetPageHeight(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DocumentPageInfoService_GetPageHeight_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DocumentPageInfoServiceServer).GetPageHeight(ctx, req.(*GetPageHeightRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DocumentPageInfoService_GetPageNumber_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPageNumberRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DocumentPageInfoServiceServer).GetPageNumber(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DocumentPageInfoService_GetPageNumber_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DocumentPageInfoServiceServer).GetPageNumber(ctx, req.(*GetPageNumberRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DocumentPageInfoService_GetPageWidth_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPageWidthRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DocumentPageInfoServiceServer).GetPageWidth(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DocumentPageInfoService_GetPageWidth_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DocumentPageInfoServiceServer).GetPageWidth(ctx, req.(*GetPageWidthRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// DocumentPageInfoService_ServiceDesc is the grpc.ServiceDesc for DocumentPageInfoService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var DocumentPageInfoService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "pdf.DocumentPageInfoService",
+	HandlerType: (*DocumentPageInfoServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "GetContentRect",
+			Handler:    _DocumentPageInfoService_GetContentRect_Handler,
+		},
+		{
+			MethodName: "GetPageHeight",
+			Handler:    _DocumentPageInfoService_GetPageHeight_Handler,
+		},
+		{
+			MethodName: "GetPageNumber",
+			Handler:    _DocumentPageInfoService_GetPageNumber_Handler,
+		},
+		{
+			MethodName: "GetPageWidth",
+			Handler:    _DocumentPageInfoService_GetPageWidth_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -8140,13 +2054,13 @@ type CanvasServiceClient interface {
 	GetClipBounds1_1(ctx context.Context, in *GetClipBounds1_1Request, opts ...grpc.CallOption) (*GetClipBounds1_1Response, error)
 	GetDensity(ctx context.Context, in *GetDensityRequest, opts ...grpc.CallOption) (*GetDensityResponse, error)
 	GetDrawFilter(ctx context.Context, in *GetDrawFilterRequest, opts ...grpc.CallOption) (*GetDrawFilterResponse, error)
-	GetHeight(ctx context.Context, in *CanvasGetHeightRequest, opts ...grpc.CallOption) (*GetHeightResponse, error)
+	GetHeight(ctx context.Context, in *GetHeightRequest, opts ...grpc.CallOption) (*GetHeightResponse, error)
 	GetMatrix0(ctx context.Context, in *GetMatrix0Request, opts ...grpc.CallOption) (*GetMatrix0Response, error)
 	GetMatrix1_1(ctx context.Context, in *GetMatrix1_1Request, opts ...grpc.CallOption) (*GetMatrix1_1Response, error)
 	GetMaximumBitmapHeight(ctx context.Context, in *GetMaximumBitmapHeightRequest, opts ...grpc.CallOption) (*GetMaximumBitmapHeightResponse, error)
 	GetMaximumBitmapWidth(ctx context.Context, in *GetMaximumBitmapWidthRequest, opts ...grpc.CallOption) (*GetMaximumBitmapWidthResponse, error)
 	GetSaveCount(ctx context.Context, in *GetSaveCountRequest, opts ...grpc.CallOption) (*GetSaveCountResponse, error)
-	GetWidth(ctx context.Context, in *CanvasGetWidthRequest, opts ...grpc.CallOption) (*GetWidthResponse, error)
+	GetWidth(ctx context.Context, in *GetWidthRequest, opts ...grpc.CallOption) (*GetWidthResponse, error)
 	IsHardwareAccelerated(ctx context.Context, in *IsHardwareAcceleratedRequest, opts ...grpc.CallOption) (*IsHardwareAcceleratedResponse, error)
 	IsOpaque(ctx context.Context, in *IsOpaqueRequest, opts ...grpc.CallOption) (*IsOpaqueResponse, error)
 	QuickReject1(ctx context.Context, in *QuickReject1Request, opts ...grpc.CallOption) (*QuickReject1Response, error)
@@ -8986,7 +2900,7 @@ func (c *canvasServiceClient) GetDrawFilter(ctx context.Context, in *GetDrawFilt
 	return out, nil
 }
 
-func (c *canvasServiceClient) GetHeight(ctx context.Context, in *CanvasGetHeightRequest, opts ...grpc.CallOption) (*GetHeightResponse, error) {
+func (c *canvasServiceClient) GetHeight(ctx context.Context, in *GetHeightRequest, opts ...grpc.CallOption) (*GetHeightResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetHeightResponse)
 	err := c.cc.Invoke(ctx, CanvasService_GetHeight_FullMethodName, in, out, cOpts...)
@@ -9046,7 +2960,7 @@ func (c *canvasServiceClient) GetSaveCount(ctx context.Context, in *GetSaveCount
 	return out, nil
 }
 
-func (c *canvasServiceClient) GetWidth(ctx context.Context, in *CanvasGetWidthRequest, opts ...grpc.CallOption) (*GetWidthResponse, error) {
+func (c *canvasServiceClient) GetWidth(ctx context.Context, in *GetWidthRequest, opts ...grpc.CallOption) (*GetWidthResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetWidthResponse)
 	err := c.cc.Invoke(ctx, CanvasService_GetWidth_FullMethodName, in, out, cOpts...)
@@ -9430,13 +3344,13 @@ type CanvasServiceServer interface {
 	GetClipBounds1_1(context.Context, *GetClipBounds1_1Request) (*GetClipBounds1_1Response, error)
 	GetDensity(context.Context, *GetDensityRequest) (*GetDensityResponse, error)
 	GetDrawFilter(context.Context, *GetDrawFilterRequest) (*GetDrawFilterResponse, error)
-	GetHeight(context.Context, *CanvasGetHeightRequest) (*GetHeightResponse, error)
+	GetHeight(context.Context, *GetHeightRequest) (*GetHeightResponse, error)
 	GetMatrix0(context.Context, *GetMatrix0Request) (*GetMatrix0Response, error)
 	GetMatrix1_1(context.Context, *GetMatrix1_1Request) (*GetMatrix1_1Response, error)
 	GetMaximumBitmapHeight(context.Context, *GetMaximumBitmapHeightRequest) (*GetMaximumBitmapHeightResponse, error)
 	GetMaximumBitmapWidth(context.Context, *GetMaximumBitmapWidthRequest) (*GetMaximumBitmapWidthResponse, error)
 	GetSaveCount(context.Context, *GetSaveCountRequest) (*GetSaveCountResponse, error)
-	GetWidth(context.Context, *CanvasGetWidthRequest) (*GetWidthResponse, error)
+	GetWidth(context.Context, *GetWidthRequest) (*GetWidthResponse, error)
 	IsHardwareAccelerated(context.Context, *IsHardwareAcceleratedRequest) (*IsHardwareAcceleratedResponse, error)
 	IsOpaque(context.Context, *IsOpaqueRequest) (*IsOpaqueResponse, error)
 	QuickReject1(context.Context, *QuickReject1Request) (*QuickReject1Response, error)
@@ -9716,7 +3630,7 @@ func (UnimplementedCanvasServiceServer) GetDensity(context.Context, *GetDensityR
 func (UnimplementedCanvasServiceServer) GetDrawFilter(context.Context, *GetDrawFilterRequest) (*GetDrawFilterResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetDrawFilter not implemented")
 }
-func (UnimplementedCanvasServiceServer) GetHeight(context.Context, *CanvasGetHeightRequest) (*GetHeightResponse, error) {
+func (UnimplementedCanvasServiceServer) GetHeight(context.Context, *GetHeightRequest) (*GetHeightResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetHeight not implemented")
 }
 func (UnimplementedCanvasServiceServer) GetMatrix0(context.Context, *GetMatrix0Request) (*GetMatrix0Response, error) {
@@ -9734,7 +3648,7 @@ func (UnimplementedCanvasServiceServer) GetMaximumBitmapWidth(context.Context, *
 func (UnimplementedCanvasServiceServer) GetSaveCount(context.Context, *GetSaveCountRequest) (*GetSaveCountResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetSaveCount not implemented")
 }
-func (UnimplementedCanvasServiceServer) GetWidth(context.Context, *CanvasGetWidthRequest) (*GetWidthResponse, error) {
+func (UnimplementedCanvasServiceServer) GetWidth(context.Context, *GetWidthRequest) (*GetWidthResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetWidth not implemented")
 }
 func (UnimplementedCanvasServiceServer) IsHardwareAccelerated(context.Context, *IsHardwareAcceleratedRequest) (*IsHardwareAcceleratedResponse, error) {
@@ -11286,7 +5200,7 @@ func _CanvasService_GetDrawFilter_Handler(srv interface{}, ctx context.Context, 
 }
 
 func _CanvasService_GetHeight_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CanvasGetHeightRequest)
+	in := new(GetHeightRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -11298,7 +5212,7 @@ func _CanvasService_GetHeight_Handler(srv interface{}, ctx context.Context, dec 
 		FullMethod: CanvasService_GetHeight_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CanvasServiceServer).GetHeight(ctx, req.(*CanvasGetHeightRequest))
+		return srv.(CanvasServiceServer).GetHeight(ctx, req.(*GetHeightRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -11394,7 +5308,7 @@ func _CanvasService_GetSaveCount_Handler(srv interface{}, ctx context.Context, d
 }
 
 func _CanvasService_GetWidth_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CanvasGetWidthRequest)
+	in := new(GetWidthRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -11406,7 +5320,7 @@ func _CanvasService_GetWidth_Handler(srv interface{}, ctx context.Context, dec f
 		FullMethod: CanvasService_GetWidth_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CanvasServiceServer).GetWidth(ctx, req.(*CanvasGetWidthRequest))
+		return srv.(CanvasServiceServer).GetWidth(ctx, req.(*GetWidthRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -12691,636 +6605,329 @@ var CanvasVertexModeService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	LoadParamsService_GetPassword_FullMethodName = "/pdf.LoadParamsService/GetPassword"
+	RendererPreVService_NewRendererPreV_FullMethodName              = "/pdf.RendererPreVService/NewRendererPreV"
+	RendererPreVService_Close_FullMethodName                        = "/pdf.RendererPreVService/Close"
+	RendererPreVService_GetDocumentLinearizationType_FullMethodName = "/pdf.RendererPreVService/GetDocumentLinearizationType"
+	RendererPreVService_GetPageCount_FullMethodName                 = "/pdf.RendererPreVService/GetPageCount"
+	RendererPreVService_GetPdfFormType_FullMethodName               = "/pdf.RendererPreVService/GetPdfFormType"
+	RendererPreVService_OpenPage_FullMethodName                     = "/pdf.RendererPreVService/OpenPage"
+	RendererPreVService_Write_FullMethodName                        = "/pdf.RendererPreVService/Write"
 )
 
-// LoadParamsServiceClient is the client API for LoadParamsService service.
+// RendererPreVServiceClient is the client API for RendererPreVService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type LoadParamsServiceClient interface {
-	GetPassword(ctx context.Context, in *GetPasswordRequest, opts ...grpc.CallOption) (*GetPasswordResponse, error)
-}
-
-type loadParamsServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewLoadParamsServiceClient(cc grpc.ClientConnInterface) LoadParamsServiceClient {
-	return &loadParamsServiceClient{cc}
-}
-
-func (c *loadParamsServiceClient) GetPassword(ctx context.Context, in *GetPasswordRequest, opts ...grpc.CallOption) (*GetPasswordResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetPasswordResponse)
-	err := c.cc.Invoke(ctx, LoadParamsService_GetPassword_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// LoadParamsServiceServer is the server API for LoadParamsService service.
-// All implementations must embed UnimplementedLoadParamsServiceServer
-// for forward compatibility.
-type LoadParamsServiceServer interface {
-	GetPassword(context.Context, *GetPasswordRequest) (*GetPasswordResponse, error)
-	mustEmbedUnimplementedLoadParamsServiceServer()
-}
-
-// UnimplementedLoadParamsServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedLoadParamsServiceServer struct{}
-
-func (UnimplementedLoadParamsServiceServer) GetPassword(context.Context, *GetPasswordRequest) (*GetPasswordResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetPassword not implemented")
-}
-func (UnimplementedLoadParamsServiceServer) mustEmbedUnimplementedLoadParamsServiceServer() {}
-func (UnimplementedLoadParamsServiceServer) testEmbeddedByValue()                           {}
-
-// UnsafeLoadParamsServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to LoadParamsServiceServer will
-// result in compilation errors.
-type UnsafeLoadParamsServiceServer interface {
-	mustEmbedUnimplementedLoadParamsServiceServer()
-}
-
-func RegisterLoadParamsServiceServer(s grpc.ServiceRegistrar, srv LoadParamsServiceServer) {
-	// If the following call panics, it indicates UnimplementedLoadParamsServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&LoadParamsService_ServiceDesc, srv)
-}
-
-func _LoadParamsService_GetPassword_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetPasswordRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(LoadParamsServiceServer).GetPassword(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: LoadParamsService_GetPassword_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(LoadParamsServiceServer).GetPassword(ctx, req.(*GetPasswordRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// LoadParamsService_ServiceDesc is the grpc.ServiceDesc for LoadParamsService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var LoadParamsService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "pdf.LoadParamsService",
-	HandlerType: (*LoadParamsServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "GetPassword",
-			Handler:    _LoadParamsService_GetPassword_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/pdf/pdf.proto",
-}
-
-const (
-	LoadParamsBuilderService_Build_FullMethodName       = "/pdf.LoadParamsBuilderService/Build"
-	LoadParamsBuilderService_SetPassword_FullMethodName = "/pdf.LoadParamsBuilderService/SetPassword"
-)
-
-// LoadParamsBuilderServiceClient is the client API for LoadParamsBuilderService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type LoadParamsBuilderServiceClient interface {
-	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
-	SetPassword(ctx context.Context, in *SetPasswordRequest, opts ...grpc.CallOption) (*SetPasswordResponse, error)
-}
-
-type loadParamsBuilderServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewLoadParamsBuilderServiceClient(cc grpc.ClientConnInterface) LoadParamsBuilderServiceClient {
-	return &loadParamsBuilderServiceClient{cc}
-}
-
-func (c *loadParamsBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(BuildResponse)
-	err := c.cc.Invoke(ctx, LoadParamsBuilderService_Build_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *loadParamsBuilderServiceClient) SetPassword(ctx context.Context, in *SetPasswordRequest, opts ...grpc.CallOption) (*SetPasswordResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetPasswordResponse)
-	err := c.cc.Invoke(ctx, LoadParamsBuilderService_SetPassword_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// LoadParamsBuilderServiceServer is the server API for LoadParamsBuilderService service.
-// All implementations must embed UnimplementedLoadParamsBuilderServiceServer
-// for forward compatibility.
-type LoadParamsBuilderServiceServer interface {
-	Build(context.Context, *BuildRequest) (*BuildResponse, error)
-	SetPassword(context.Context, *SetPasswordRequest) (*SetPasswordResponse, error)
-	mustEmbedUnimplementedLoadParamsBuilderServiceServer()
-}
-
-// UnimplementedLoadParamsBuilderServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedLoadParamsBuilderServiceServer struct{}
-
-func (UnimplementedLoadParamsBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
-}
-func (UnimplementedLoadParamsBuilderServiceServer) SetPassword(context.Context, *SetPasswordRequest) (*SetPasswordResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetPassword not implemented")
-}
-func (UnimplementedLoadParamsBuilderServiceServer) mustEmbedUnimplementedLoadParamsBuilderServiceServer() {
-}
-func (UnimplementedLoadParamsBuilderServiceServer) testEmbeddedByValue() {}
-
-// UnsafeLoadParamsBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to LoadParamsBuilderServiceServer will
-// result in compilation errors.
-type UnsafeLoadParamsBuilderServiceServer interface {
-	mustEmbedUnimplementedLoadParamsBuilderServiceServer()
-}
-
-func RegisterLoadParamsBuilderServiceServer(s grpc.ServiceRegistrar, srv LoadParamsBuilderServiceServer) {
-	// If the following call panics, it indicates UnimplementedLoadParamsBuilderServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&LoadParamsBuilderService_ServiceDesc, srv)
-}
-
-func _LoadParamsBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(BuildRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(LoadParamsBuilderServiceServer).Build(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: LoadParamsBuilderService_Build_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(LoadParamsBuilderServiceServer).Build(ctx, req.(*BuildRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _LoadParamsBuilderService_SetPassword_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetPasswordRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(LoadParamsBuilderServiceServer).SetPassword(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: LoadParamsBuilderService_SetPassword_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(LoadParamsBuilderServiceServer).SetPassword(ctx, req.(*SetPasswordRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// LoadParamsBuilderService_ServiceDesc is the grpc.ServiceDesc for LoadParamsBuilderService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var LoadParamsBuilderService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "pdf.LoadParamsBuilderService",
-	HandlerType: (*LoadParamsBuilderServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "Build",
-			Handler:    _LoadParamsBuilderService_Build_Handler,
-		},
-		{
-			MethodName: "SetPassword",
-			Handler:    _LoadParamsBuilderService_SetPassword_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/pdf/pdf.proto",
-}
-
-const (
-	DocumentService_NewDocument_FullMethodName = "/pdf.DocumentService/NewDocument"
-	DocumentService_Close_FullMethodName       = "/pdf.DocumentService/Close"
-	DocumentService_FinishPage_FullMethodName  = "/pdf.DocumentService/FinishPage"
-	DocumentService_StartPage_FullMethodName   = "/pdf.DocumentService/StartPage"
-	DocumentService_WriteTo_FullMethodName     = "/pdf.DocumentService/WriteTo"
-)
-
-// DocumentServiceClient is the client API for DocumentService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type DocumentServiceClient interface {
-	NewDocument(ctx context.Context, in *NewDocumentRequest, opts ...grpc.CallOption) (*NewDocumentResponse, error)
+type RendererPreVServiceClient interface {
+	NewRendererPreV(ctx context.Context, in *NewRendererPreVRequest, opts ...grpc.CallOption) (*NewRendererPreVResponse, error)
 	Close(ctx context.Context, in *CloseRequest, opts ...grpc.CallOption) (*CloseResponse, error)
-	FinishPage(ctx context.Context, in *FinishPageRequest, opts ...grpc.CallOption) (*FinishPageResponse, error)
-	StartPage(ctx context.Context, in *StartPageRequest, opts ...grpc.CallOption) (*StartPageResponse, error)
-	WriteTo(ctx context.Context, in *WriteToRequest, opts ...grpc.CallOption) (*WriteToResponse, error)
+	GetDocumentLinearizationType(ctx context.Context, in *GetDocumentLinearizationTypeRequest, opts ...grpc.CallOption) (*GetDocumentLinearizationTypeResponse, error)
+	GetPageCount(ctx context.Context, in *GetPageCountRequest, opts ...grpc.CallOption) (*GetPageCountResponse, error)
+	GetPdfFormType(ctx context.Context, in *GetPdfFormTypeRequest, opts ...grpc.CallOption) (*GetPdfFormTypeResponse, error)
+	OpenPage(ctx context.Context, in *OpenPageRequest, opts ...grpc.CallOption) (*OpenPageResponse, error)
+	Write(ctx context.Context, in *WriteRequest, opts ...grpc.CallOption) (*WriteResponse, error)
 }
 
-type documentServiceClient struct {
+type rendererPreVServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewDocumentServiceClient(cc grpc.ClientConnInterface) DocumentServiceClient {
-	return &documentServiceClient{cc}
+func NewRendererPreVServiceClient(cc grpc.ClientConnInterface) RendererPreVServiceClient {
+	return &rendererPreVServiceClient{cc}
 }
 
-func (c *documentServiceClient) NewDocument(ctx context.Context, in *NewDocumentRequest, opts ...grpc.CallOption) (*NewDocumentResponse, error) {
+func (c *rendererPreVServiceClient) NewRendererPreV(ctx context.Context, in *NewRendererPreVRequest, opts ...grpc.CallOption) (*NewRendererPreVResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewDocumentResponse)
-	err := c.cc.Invoke(ctx, DocumentService_NewDocument_FullMethodName, in, out, cOpts...)
+	out := new(NewRendererPreVResponse)
+	err := c.cc.Invoke(ctx, RendererPreVService_NewRendererPreV_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *documentServiceClient) Close(ctx context.Context, in *CloseRequest, opts ...grpc.CallOption) (*CloseResponse, error) {
+func (c *rendererPreVServiceClient) Close(ctx context.Context, in *CloseRequest, opts ...grpc.CallOption) (*CloseResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(CloseResponse)
-	err := c.cc.Invoke(ctx, DocumentService_Close_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, RendererPreVService_Close_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *documentServiceClient) FinishPage(ctx context.Context, in *FinishPageRequest, opts ...grpc.CallOption) (*FinishPageResponse, error) {
+func (c *rendererPreVServiceClient) GetDocumentLinearizationType(ctx context.Context, in *GetDocumentLinearizationTypeRequest, opts ...grpc.CallOption) (*GetDocumentLinearizationTypeResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(FinishPageResponse)
-	err := c.cc.Invoke(ctx, DocumentService_FinishPage_FullMethodName, in, out, cOpts...)
+	out := new(GetDocumentLinearizationTypeResponse)
+	err := c.cc.Invoke(ctx, RendererPreVService_GetDocumentLinearizationType_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *documentServiceClient) StartPage(ctx context.Context, in *StartPageRequest, opts ...grpc.CallOption) (*StartPageResponse, error) {
+func (c *rendererPreVServiceClient) GetPageCount(ctx context.Context, in *GetPageCountRequest, opts ...grpc.CallOption) (*GetPageCountResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(StartPageResponse)
-	err := c.cc.Invoke(ctx, DocumentService_StartPage_FullMethodName, in, out, cOpts...)
+	out := new(GetPageCountResponse)
+	err := c.cc.Invoke(ctx, RendererPreVService_GetPageCount_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *documentServiceClient) WriteTo(ctx context.Context, in *WriteToRequest, opts ...grpc.CallOption) (*WriteToResponse, error) {
+func (c *rendererPreVServiceClient) GetPdfFormType(ctx context.Context, in *GetPdfFormTypeRequest, opts ...grpc.CallOption) (*GetPdfFormTypeResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WriteToResponse)
-	err := c.cc.Invoke(ctx, DocumentService_WriteTo_FullMethodName, in, out, cOpts...)
+	out := new(GetPdfFormTypeResponse)
+	err := c.cc.Invoke(ctx, RendererPreVService_GetPdfFormType_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// DocumentServiceServer is the server API for DocumentService service.
-// All implementations must embed UnimplementedDocumentServiceServer
+func (c *rendererPreVServiceClient) OpenPage(ctx context.Context, in *OpenPageRequest, opts ...grpc.CallOption) (*OpenPageResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OpenPageResponse)
+	err := c.cc.Invoke(ctx, RendererPreVService_OpenPage_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *rendererPreVServiceClient) Write(ctx context.Context, in *WriteRequest, opts ...grpc.CallOption) (*WriteResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteResponse)
+	err := c.cc.Invoke(ctx, RendererPreVService_Write_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// RendererPreVServiceServer is the server API for RendererPreVService service.
+// All implementations must embed UnimplementedRendererPreVServiceServer
 // for forward compatibility.
-type DocumentServiceServer interface {
-	NewDocument(context.Context, *NewDocumentRequest) (*NewDocumentResponse, error)
+type RendererPreVServiceServer interface {
+	NewRendererPreV(context.Context, *NewRendererPreVRequest) (*NewRendererPreVResponse, error)
 	Close(context.Context, *CloseRequest) (*CloseResponse, error)
-	FinishPage(context.Context, *FinishPageRequest) (*FinishPageResponse, error)
-	StartPage(context.Context, *StartPageRequest) (*StartPageResponse, error)
-	WriteTo(context.Context, *WriteToRequest) (*WriteToResponse, error)
-	mustEmbedUnimplementedDocumentServiceServer()
+	GetDocumentLinearizationType(context.Context, *GetDocumentLinearizationTypeRequest) (*GetDocumentLinearizationTypeResponse, error)
+	GetPageCount(context.Context, *GetPageCountRequest) (*GetPageCountResponse, error)
+	GetPdfFormType(context.Context, *GetPdfFormTypeRequest) (*GetPdfFormTypeResponse, error)
+	OpenPage(context.Context, *OpenPageRequest) (*OpenPageResponse, error)
+	Write(context.Context, *WriteRequest) (*WriteResponse, error)
+	mustEmbedUnimplementedRendererPreVServiceServer()
 }
 
-// UnimplementedDocumentServiceServer must be embedded to have
+// UnimplementedRendererPreVServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedDocumentServiceServer struct{}
+type UnimplementedRendererPreVServiceServer struct{}
 
-func (UnimplementedDocumentServiceServer) NewDocument(context.Context, *NewDocumentRequest) (*NewDocumentResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewDocument not implemented")
+func (UnimplementedRendererPreVServiceServer) NewRendererPreV(context.Context, *NewRendererPreVRequest) (*NewRendererPreVResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewRendererPreV not implemented")
 }
-func (UnimplementedDocumentServiceServer) Close(context.Context, *CloseRequest) (*CloseResponse, error) {
+func (UnimplementedRendererPreVServiceServer) Close(context.Context, *CloseRequest) (*CloseResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method Close not implemented")
 }
-func (UnimplementedDocumentServiceServer) FinishPage(context.Context, *FinishPageRequest) (*FinishPageResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method FinishPage not implemented")
+func (UnimplementedRendererPreVServiceServer) GetDocumentLinearizationType(context.Context, *GetDocumentLinearizationTypeRequest) (*GetDocumentLinearizationTypeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetDocumentLinearizationType not implemented")
 }
-func (UnimplementedDocumentServiceServer) StartPage(context.Context, *StartPageRequest) (*StartPageResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method StartPage not implemented")
+func (UnimplementedRendererPreVServiceServer) GetPageCount(context.Context, *GetPageCountRequest) (*GetPageCountResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetPageCount not implemented")
 }
-func (UnimplementedDocumentServiceServer) WriteTo(context.Context, *WriteToRequest) (*WriteToResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method WriteTo not implemented")
+func (UnimplementedRendererPreVServiceServer) GetPdfFormType(context.Context, *GetPdfFormTypeRequest) (*GetPdfFormTypeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetPdfFormType not implemented")
 }
-func (UnimplementedDocumentServiceServer) mustEmbedUnimplementedDocumentServiceServer() {}
-func (UnimplementedDocumentServiceServer) testEmbeddedByValue()                         {}
+func (UnimplementedRendererPreVServiceServer) OpenPage(context.Context, *OpenPageRequest) (*OpenPageResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OpenPage not implemented")
+}
+func (UnimplementedRendererPreVServiceServer) Write(context.Context, *WriteRequest) (*WriteResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Write not implemented")
+}
+func (UnimplementedRendererPreVServiceServer) mustEmbedUnimplementedRendererPreVServiceServer() {}
+func (UnimplementedRendererPreVServiceServer) testEmbeddedByValue()                             {}
 
-// UnsafeDocumentServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to DocumentServiceServer will
+// UnsafeRendererPreVServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to RendererPreVServiceServer will
 // result in compilation errors.
-type UnsafeDocumentServiceServer interface {
-	mustEmbedUnimplementedDocumentServiceServer()
+type UnsafeRendererPreVServiceServer interface {
+	mustEmbedUnimplementedRendererPreVServiceServer()
 }
 
-func RegisterDocumentServiceServer(s grpc.ServiceRegistrar, srv DocumentServiceServer) {
-	// If the following call panics, it indicates UnimplementedDocumentServiceServer was
+func RegisterRendererPreVServiceServer(s grpc.ServiceRegistrar, srv RendererPreVServiceServer) {
+	// If the following call panics, it indicates UnimplementedRendererPreVServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&DocumentService_ServiceDesc, srv)
+	s.RegisterService(&RendererPreVService_ServiceDesc, srv)
 }
 
-func _DocumentService_NewDocument_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewDocumentRequest)
+func _RendererPreVService_NewRendererPreV_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewRendererPreVRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(DocumentServiceServer).NewDocument(ctx, in)
+		return srv.(RendererPreVServiceServer).NewRendererPreV(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: DocumentService_NewDocument_FullMethodName,
+		FullMethod: RendererPreVService_NewRendererPreV_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DocumentServiceServer).NewDocument(ctx, req.(*NewDocumentRequest))
+		return srv.(RendererPreVServiceServer).NewRendererPreV(ctx, req.(*NewRendererPreVRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _DocumentService_Close_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _RendererPreVService_Close_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(CloseRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(DocumentServiceServer).Close(ctx, in)
+		return srv.(RendererPreVServiceServer).Close(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: DocumentService_Close_FullMethodName,
+		FullMethod: RendererPreVService_Close_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DocumentServiceServer).Close(ctx, req.(*CloseRequest))
+		return srv.(RendererPreVServiceServer).Close(ctx, req.(*CloseRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _DocumentService_FinishPage_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(FinishPageRequest)
+func _RendererPreVService_GetDocumentLinearizationType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetDocumentLinearizationTypeRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(DocumentServiceServer).FinishPage(ctx, in)
+		return srv.(RendererPreVServiceServer).GetDocumentLinearizationType(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: DocumentService_FinishPage_FullMethodName,
+		FullMethod: RendererPreVService_GetDocumentLinearizationType_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DocumentServiceServer).FinishPage(ctx, req.(*FinishPageRequest))
+		return srv.(RendererPreVServiceServer).GetDocumentLinearizationType(ctx, req.(*GetDocumentLinearizationTypeRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _DocumentService_StartPage_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(StartPageRequest)
+func _RendererPreVService_GetPageCount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPageCountRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(DocumentServiceServer).StartPage(ctx, in)
+		return srv.(RendererPreVServiceServer).GetPageCount(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: DocumentService_StartPage_FullMethodName,
+		FullMethod: RendererPreVService_GetPageCount_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DocumentServiceServer).StartPage(ctx, req.(*StartPageRequest))
+		return srv.(RendererPreVServiceServer).GetPageCount(ctx, req.(*GetPageCountRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _DocumentService_WriteTo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WriteToRequest)
+func _RendererPreVService_GetPdfFormType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPdfFormTypeRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(DocumentServiceServer).WriteTo(ctx, in)
+		return srv.(RendererPreVServiceServer).GetPdfFormType(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: DocumentService_WriteTo_FullMethodName,
+		FullMethod: RendererPreVService_GetPdfFormType_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DocumentServiceServer).WriteTo(ctx, req.(*WriteToRequest))
+		return srv.(RendererPreVServiceServer).GetPdfFormType(ctx, req.(*GetPdfFormTypeRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// DocumentService_ServiceDesc is the grpc.ServiceDesc for DocumentService service.
+func _RendererPreVService_OpenPage_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OpenPageRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RendererPreVServiceServer).OpenPage(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RendererPreVService_OpenPage_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RendererPreVServiceServer).OpenPage(ctx, req.(*OpenPageRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RendererPreVService_Write_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RendererPreVServiceServer).Write(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RendererPreVService_Write_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RendererPreVServiceServer).Write(ctx, req.(*WriteRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// RendererPreVService_ServiceDesc is the grpc.ServiceDesc for RendererPreVService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var DocumentService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "pdf.DocumentService",
-	HandlerType: (*DocumentServiceServer)(nil),
+var RendererPreVService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "pdf.RendererPreVService",
+	HandlerType: (*RendererPreVServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "NewDocument",
-			Handler:    _DocumentService_NewDocument_Handler,
+			MethodName: "NewRendererPreV",
+			Handler:    _RendererPreVService_NewRendererPreV_Handler,
 		},
 		{
 			MethodName: "Close",
-			Handler:    _DocumentService_Close_Handler,
+			Handler:    _RendererPreVService_Close_Handler,
 		},
 		{
-			MethodName: "FinishPage",
-			Handler:    _DocumentService_FinishPage_Handler,
+			MethodName: "GetDocumentLinearizationType",
+			Handler:    _RendererPreVService_GetDocumentLinearizationType_Handler,
 		},
 		{
-			MethodName: "StartPage",
-			Handler:    _DocumentService_StartPage_Handler,
+			MethodName: "GetPageCount",
+			Handler:    _RendererPreVService_GetPageCount_Handler,
 		},
 		{
-			MethodName: "WriteTo",
-			Handler:    _DocumentService_WriteTo_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/pdf/pdf.proto",
-}
-
-const (
-	DocumentPageService_GetCanvas_FullMethodName = "/pdf.DocumentPageService/GetCanvas"
-	DocumentPageService_GetInfo_FullMethodName   = "/pdf.DocumentPageService/GetInfo"
-)
-
-// DocumentPageServiceClient is the client API for DocumentPageService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type DocumentPageServiceClient interface {
-	GetCanvas(ctx context.Context, in *GetCanvasRequest, opts ...grpc.CallOption) (*GetCanvasResponse, error)
-	GetInfo(ctx context.Context, in *GetInfoRequest, opts ...grpc.CallOption) (*GetInfoResponse, error)
-}
-
-type documentPageServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewDocumentPageServiceClient(cc grpc.ClientConnInterface) DocumentPageServiceClient {
-	return &documentPageServiceClient{cc}
-}
-
-func (c *documentPageServiceClient) GetCanvas(ctx context.Context, in *GetCanvasRequest, opts ...grpc.CallOption) (*GetCanvasResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetCanvasResponse)
-	err := c.cc.Invoke(ctx, DocumentPageService_GetCanvas_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *documentPageServiceClient) GetInfo(ctx context.Context, in *GetInfoRequest, opts ...grpc.CallOption) (*GetInfoResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetInfoResponse)
-	err := c.cc.Invoke(ctx, DocumentPageService_GetInfo_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// DocumentPageServiceServer is the server API for DocumentPageService service.
-// All implementations must embed UnimplementedDocumentPageServiceServer
-// for forward compatibility.
-type DocumentPageServiceServer interface {
-	GetCanvas(context.Context, *GetCanvasRequest) (*GetCanvasResponse, error)
-	GetInfo(context.Context, *GetInfoRequest) (*GetInfoResponse, error)
-	mustEmbedUnimplementedDocumentPageServiceServer()
-}
-
-// UnimplementedDocumentPageServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedDocumentPageServiceServer struct{}
-
-func (UnimplementedDocumentPageServiceServer) GetCanvas(context.Context, *GetCanvasRequest) (*GetCanvasResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetCanvas not implemented")
-}
-func (UnimplementedDocumentPageServiceServer) GetInfo(context.Context, *GetInfoRequest) (*GetInfoResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetInfo not implemented")
-}
-func (UnimplementedDocumentPageServiceServer) mustEmbedUnimplementedDocumentPageServiceServer() {}
-func (UnimplementedDocumentPageServiceServer) testEmbeddedByValue()                             {}
-
-// UnsafeDocumentPageServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to DocumentPageServiceServer will
-// result in compilation errors.
-type UnsafeDocumentPageServiceServer interface {
-	mustEmbedUnimplementedDocumentPageServiceServer()
-}
-
-func RegisterDocumentPageServiceServer(s grpc.ServiceRegistrar, srv DocumentPageServiceServer) {
-	// If the following call panics, it indicates UnimplementedDocumentPageServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&DocumentPageService_ServiceDesc, srv)
-}
-
-func _DocumentPageService_GetCanvas_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetCanvasRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DocumentPageServiceServer).GetCanvas(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DocumentPageService_GetCanvas_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DocumentPageServiceServer).GetCanvas(ctx, req.(*GetCanvasRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DocumentPageService_GetInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetInfoRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DocumentPageServiceServer).GetInfo(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DocumentPageService_GetInfo_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DocumentPageServiceServer).GetInfo(ctx, req.(*GetInfoRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// DocumentPageService_ServiceDesc is the grpc.ServiceDesc for DocumentPageService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var DocumentPageService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "pdf.DocumentPageService",
-	HandlerType: (*DocumentPageServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "GetCanvas",
-			Handler:    _DocumentPageService_GetCanvas_Handler,
+			MethodName: "GetPdfFormType",
+			Handler:    _RendererPreVService_GetPdfFormType_Handler,
 		},
 		{
-			MethodName: "GetInfo",
-			Handler:    _DocumentPageService_GetInfo_Handler,
+			MethodName: "OpenPage",
+			Handler:    _RendererPreVService_OpenPage_Handler,
+		},
+		{
+			MethodName: "Write",
+			Handler:    _RendererPreVService_Write_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -13328,535 +6935,672 @@ var DocumentPageService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	DocumentPageInfoService_GetContentRect_FullMethodName = "/pdf.DocumentPageInfoService/GetContentRect"
-	DocumentPageInfoService_GetPageHeight_FullMethodName  = "/pdf.DocumentPageInfoService/GetPageHeight"
-	DocumentPageInfoService_GetPageNumber_FullMethodName  = "/pdf.DocumentPageInfoService/GetPageNumber"
-	DocumentPageInfoService_GetPageWidth_FullMethodName   = "/pdf.DocumentPageInfoService/GetPageWidth"
+	RendererPreVPageService_ApplyEdit_FullMethodName                   = "/pdf.RendererPreVPageService/ApplyEdit"
+	RendererPreVPageService_Close_FullMethodName                       = "/pdf.RendererPreVPageService/Close"
+	RendererPreVPageService_GetFormWidgetInfoAtIndex_FullMethodName    = "/pdf.RendererPreVPageService/GetFormWidgetInfoAtIndex"
+	RendererPreVPageService_GetFormWidgetInfoAtPosition_FullMethodName = "/pdf.RendererPreVPageService/GetFormWidgetInfoAtPosition"
+	RendererPreVPageService_GetFormWidgetInfos0_FullMethodName         = "/pdf.RendererPreVPageService/GetFormWidgetInfos0"
+	RendererPreVPageService_GetFormWidgetInfos1_1_FullMethodName       = "/pdf.RendererPreVPageService/GetFormWidgetInfos1_1"
+	RendererPreVPageService_GetGotoLinks_FullMethodName                = "/pdf.RendererPreVPageService/GetGotoLinks"
+	RendererPreVPageService_GetHeight_FullMethodName                   = "/pdf.RendererPreVPageService/GetHeight"
+	RendererPreVPageService_GetImageContents_FullMethodName            = "/pdf.RendererPreVPageService/GetImageContents"
+	RendererPreVPageService_GetIndex_FullMethodName                    = "/pdf.RendererPreVPageService/GetIndex"
+	RendererPreVPageService_GetLinkContents_FullMethodName             = "/pdf.RendererPreVPageService/GetLinkContents"
+	RendererPreVPageService_GetTextContents_FullMethodName             = "/pdf.RendererPreVPageService/GetTextContents"
+	RendererPreVPageService_GetWidth_FullMethodName                    = "/pdf.RendererPreVPageService/GetWidth"
+	RendererPreVPageService_Render_FullMethodName                      = "/pdf.RendererPreVPageService/Render"
+	RendererPreVPageService_SearchText_FullMethodName                  = "/pdf.RendererPreVPageService/SearchText"
+	RendererPreVPageService_SelectContent_FullMethodName               = "/pdf.RendererPreVPageService/SelectContent"
 )
 
-// DocumentPageInfoServiceClient is the client API for DocumentPageInfoService service.
+// RendererPreVPageServiceClient is the client API for RendererPreVPageService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type DocumentPageInfoServiceClient interface {
-	GetContentRect(ctx context.Context, in *GetContentRectRequest, opts ...grpc.CallOption) (*GetContentRectResponse, error)
-	GetPageHeight(ctx context.Context, in *GetPageHeightRequest, opts ...grpc.CallOption) (*GetPageHeightResponse, error)
-	GetPageNumber(ctx context.Context, in *GetPageNumberRequest, opts ...grpc.CallOption) (*GetPageNumberResponse, error)
-	GetPageWidth(ctx context.Context, in *GetPageWidthRequest, opts ...grpc.CallOption) (*GetPageWidthResponse, error)
+type RendererPreVPageServiceClient interface {
+	ApplyEdit(ctx context.Context, in *ApplyEditRequest, opts ...grpc.CallOption) (*ApplyEditResponse, error)
+	Close(ctx context.Context, in *RendererPreVPageCloseRequest, opts ...grpc.CallOption) (*CloseResponse, error)
+	GetFormWidgetInfoAtIndex(ctx context.Context, in *GetFormWidgetInfoAtIndexRequest, opts ...grpc.CallOption) (*GetFormWidgetInfoAtIndexResponse, error)
+	GetFormWidgetInfoAtPosition(ctx context.Context, in *GetFormWidgetInfoAtPositionRequest, opts ...grpc.CallOption) (*GetFormWidgetInfoAtPositionResponse, error)
+	GetFormWidgetInfos0(ctx context.Context, in *GetFormWidgetInfos0Request, opts ...grpc.CallOption) (*GetFormWidgetInfos0Response, error)
+	GetFormWidgetInfos1_1(ctx context.Context, in *GetFormWidgetInfos1_1Request, opts ...grpc.CallOption) (*GetFormWidgetInfos1_1Response, error)
+	GetGotoLinks(ctx context.Context, in *GetGotoLinksRequest, opts ...grpc.CallOption) (*GetGotoLinksResponse, error)
+	GetHeight(ctx context.Context, in *RendererPreVPageGetHeightRequest, opts ...grpc.CallOption) (*GetHeightResponse, error)
+	GetImageContents(ctx context.Context, in *GetImageContentsRequest, opts ...grpc.CallOption) (*GetImageContentsResponse, error)
+	GetIndex(ctx context.Context, in *GetIndexRequest, opts ...grpc.CallOption) (*GetIndexResponse, error)
+	GetLinkContents(ctx context.Context, in *GetLinkContentsRequest, opts ...grpc.CallOption) (*GetLinkContentsResponse, error)
+	GetTextContents(ctx context.Context, in *GetTextContentsRequest, opts ...grpc.CallOption) (*GetTextContentsResponse, error)
+	GetWidth(ctx context.Context, in *RendererPreVPageGetWidthRequest, opts ...grpc.CallOption) (*GetWidthResponse, error)
+	Render(ctx context.Context, in *RenderRequest, opts ...grpc.CallOption) (*RenderResponse, error)
+	SearchText(ctx context.Context, in *SearchTextRequest, opts ...grpc.CallOption) (*SearchTextResponse, error)
+	SelectContent(ctx context.Context, in *SelectContentRequest, opts ...grpc.CallOption) (*SelectContentResponse, error)
 }
 
-type documentPageInfoServiceClient struct {
+type rendererPreVPageServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewDocumentPageInfoServiceClient(cc grpc.ClientConnInterface) DocumentPageInfoServiceClient {
-	return &documentPageInfoServiceClient{cc}
+func NewRendererPreVPageServiceClient(cc grpc.ClientConnInterface) RendererPreVPageServiceClient {
+	return &rendererPreVPageServiceClient{cc}
 }
 
-func (c *documentPageInfoServiceClient) GetContentRect(ctx context.Context, in *GetContentRectRequest, opts ...grpc.CallOption) (*GetContentRectResponse, error) {
+func (c *rendererPreVPageServiceClient) ApplyEdit(ctx context.Context, in *ApplyEditRequest, opts ...grpc.CallOption) (*ApplyEditResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetContentRectResponse)
-	err := c.cc.Invoke(ctx, DocumentPageInfoService_GetContentRect_FullMethodName, in, out, cOpts...)
+	out := new(ApplyEditResponse)
+	err := c.cc.Invoke(ctx, RendererPreVPageService_ApplyEdit_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *documentPageInfoServiceClient) GetPageHeight(ctx context.Context, in *GetPageHeightRequest, opts ...grpc.CallOption) (*GetPageHeightResponse, error) {
+func (c *rendererPreVPageServiceClient) Close(ctx context.Context, in *RendererPreVPageCloseRequest, opts ...grpc.CallOption) (*CloseResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetPageHeightResponse)
-	err := c.cc.Invoke(ctx, DocumentPageInfoService_GetPageHeight_FullMethodName, in, out, cOpts...)
+	out := new(CloseResponse)
+	err := c.cc.Invoke(ctx, RendererPreVPageService_Close_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *documentPageInfoServiceClient) GetPageNumber(ctx context.Context, in *GetPageNumberRequest, opts ...grpc.CallOption) (*GetPageNumberResponse, error) {
+func (c *rendererPreVPageServiceClient) GetFormWidgetInfoAtIndex(ctx context.Context, in *GetFormWidgetInfoAtIndexRequest, opts ...grpc.CallOption) (*GetFormWidgetInfoAtIndexResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetPageNumberResponse)
-	err := c.cc.Invoke(ctx, DocumentPageInfoService_GetPageNumber_FullMethodName, in, out, cOpts...)
+	out := new(GetFormWidgetInfoAtIndexResponse)
+	err := c.cc.Invoke(ctx, RendererPreVPageService_GetFormWidgetInfoAtIndex_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *documentPageInfoServiceClient) GetPageWidth(ctx context.Context, in *GetPageWidthRequest, opts ...grpc.CallOption) (*GetPageWidthResponse, error) {
+func (c *rendererPreVPageServiceClient) GetFormWidgetInfoAtPosition(ctx context.Context, in *GetFormWidgetInfoAtPositionRequest, opts ...grpc.CallOption) (*GetFormWidgetInfoAtPositionResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetPageWidthResponse)
-	err := c.cc.Invoke(ctx, DocumentPageInfoService_GetPageWidth_FullMethodName, in, out, cOpts...)
+	out := new(GetFormWidgetInfoAtPositionResponse)
+	err := c.cc.Invoke(ctx, RendererPreVPageService_GetFormWidgetInfoAtPosition_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// DocumentPageInfoServiceServer is the server API for DocumentPageInfoService service.
-// All implementations must embed UnimplementedDocumentPageInfoServiceServer
+func (c *rendererPreVPageServiceClient) GetFormWidgetInfos0(ctx context.Context, in *GetFormWidgetInfos0Request, opts ...grpc.CallOption) (*GetFormWidgetInfos0Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetFormWidgetInfos0Response)
+	err := c.cc.Invoke(ctx, RendererPreVPageService_GetFormWidgetInfos0_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *rendererPreVPageServiceClient) GetFormWidgetInfos1_1(ctx context.Context, in *GetFormWidgetInfos1_1Request, opts ...grpc.CallOption) (*GetFormWidgetInfos1_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetFormWidgetInfos1_1Response)
+	err := c.cc.Invoke(ctx, RendererPreVPageService_GetFormWidgetInfos1_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *rendererPreVPageServiceClient) GetGotoLinks(ctx context.Context, in *GetGotoLinksRequest, opts ...grpc.CallOption) (*GetGotoLinksResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetGotoLinksResponse)
+	err := c.cc.Invoke(ctx, RendererPreVPageService_GetGotoLinks_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *rendererPreVPageServiceClient) GetHeight(ctx context.Context, in *RendererPreVPageGetHeightRequest, opts ...grpc.CallOption) (*GetHeightResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetHeightResponse)
+	err := c.cc.Invoke(ctx, RendererPreVPageService_GetHeight_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *rendererPreVPageServiceClient) GetImageContents(ctx context.Context, in *GetImageContentsRequest, opts ...grpc.CallOption) (*GetImageContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetImageContentsResponse)
+	err := c.cc.Invoke(ctx, RendererPreVPageService_GetImageContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *rendererPreVPageServiceClient) GetIndex(ctx context.Context, in *GetIndexRequest, opts ...grpc.CallOption) (*GetIndexResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetIndexResponse)
+	err := c.cc.Invoke(ctx, RendererPreVPageService_GetIndex_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *rendererPreVPageServiceClient) GetLinkContents(ctx context.Context, in *GetLinkContentsRequest, opts ...grpc.CallOption) (*GetLinkContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetLinkContentsResponse)
+	err := c.cc.Invoke(ctx, RendererPreVPageService_GetLinkContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *rendererPreVPageServiceClient) GetTextContents(ctx context.Context, in *GetTextContentsRequest, opts ...grpc.CallOption) (*GetTextContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTextContentsResponse)
+	err := c.cc.Invoke(ctx, RendererPreVPageService_GetTextContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *rendererPreVPageServiceClient) GetWidth(ctx context.Context, in *RendererPreVPageGetWidthRequest, opts ...grpc.CallOption) (*GetWidthResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetWidthResponse)
+	err := c.cc.Invoke(ctx, RendererPreVPageService_GetWidth_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *rendererPreVPageServiceClient) Render(ctx context.Context, in *RenderRequest, opts ...grpc.CallOption) (*RenderResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(RenderResponse)
+	err := c.cc.Invoke(ctx, RendererPreVPageService_Render_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *rendererPreVPageServiceClient) SearchText(ctx context.Context, in *SearchTextRequest, opts ...grpc.CallOption) (*SearchTextResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SearchTextResponse)
+	err := c.cc.Invoke(ctx, RendererPreVPageService_SearchText_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *rendererPreVPageServiceClient) SelectContent(ctx context.Context, in *SelectContentRequest, opts ...grpc.CallOption) (*SelectContentResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SelectContentResponse)
+	err := c.cc.Invoke(ctx, RendererPreVPageService_SelectContent_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// RendererPreVPageServiceServer is the server API for RendererPreVPageService service.
+// All implementations must embed UnimplementedRendererPreVPageServiceServer
 // for forward compatibility.
-type DocumentPageInfoServiceServer interface {
-	GetContentRect(context.Context, *GetContentRectRequest) (*GetContentRectResponse, error)
-	GetPageHeight(context.Context, *GetPageHeightRequest) (*GetPageHeightResponse, error)
-	GetPageNumber(context.Context, *GetPageNumberRequest) (*GetPageNumberResponse, error)
-	GetPageWidth(context.Context, *GetPageWidthRequest) (*GetPageWidthResponse, error)
-	mustEmbedUnimplementedDocumentPageInfoServiceServer()
+type RendererPreVPageServiceServer interface {
+	ApplyEdit(context.Context, *ApplyEditRequest) (*ApplyEditResponse, error)
+	Close(context.Context, *RendererPreVPageCloseRequest) (*CloseResponse, error)
+	GetFormWidgetInfoAtIndex(context.Context, *GetFormWidgetInfoAtIndexRequest) (*GetFormWidgetInfoAtIndexResponse, error)
+	GetFormWidgetInfoAtPosition(context.Context, *GetFormWidgetInfoAtPositionRequest) (*GetFormWidgetInfoAtPositionResponse, error)
+	GetFormWidgetInfos0(context.Context, *GetFormWidgetInfos0Request) (*GetFormWidgetInfos0Response, error)
+	GetFormWidgetInfos1_1(context.Context, *GetFormWidgetInfos1_1Request) (*GetFormWidgetInfos1_1Response, error)
+	GetGotoLinks(context.Context, *GetGotoLinksRequest) (*GetGotoLinksResponse, error)
+	GetHeight(context.Context, *RendererPreVPageGetHeightRequest) (*GetHeightResponse, error)
+	GetImageContents(context.Context, *GetImageContentsRequest) (*GetImageContentsResponse, error)
+	GetIndex(context.Context, *GetIndexRequest) (*GetIndexResponse, error)
+	GetLinkContents(context.Context, *GetLinkContentsRequest) (*GetLinkContentsResponse, error)
+	GetTextContents(context.Context, *GetTextContentsRequest) (*GetTextContentsResponse, error)
+	GetWidth(context.Context, *RendererPreVPageGetWidthRequest) (*GetWidthResponse, error)
+	Render(context.Context, *RenderRequest) (*RenderResponse, error)
+	SearchText(context.Context, *SearchTextRequest) (*SearchTextResponse, error)
+	SelectContent(context.Context, *SelectContentRequest) (*SelectContentResponse, error)
+	mustEmbedUnimplementedRendererPreVPageServiceServer()
 }
 
-// UnimplementedDocumentPageInfoServiceServer must be embedded to have
+// UnimplementedRendererPreVPageServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedDocumentPageInfoServiceServer struct{}
+type UnimplementedRendererPreVPageServiceServer struct{}
 
-func (UnimplementedDocumentPageInfoServiceServer) GetContentRect(context.Context, *GetContentRectRequest) (*GetContentRectResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetContentRect not implemented")
+func (UnimplementedRendererPreVPageServiceServer) ApplyEdit(context.Context, *ApplyEditRequest) (*ApplyEditResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ApplyEdit not implemented")
 }
-func (UnimplementedDocumentPageInfoServiceServer) GetPageHeight(context.Context, *GetPageHeightRequest) (*GetPageHeightResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetPageHeight not implemented")
+func (UnimplementedRendererPreVPageServiceServer) Close(context.Context, *RendererPreVPageCloseRequest) (*CloseResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Close not implemented")
 }
-func (UnimplementedDocumentPageInfoServiceServer) GetPageNumber(context.Context, *GetPageNumberRequest) (*GetPageNumberResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetPageNumber not implemented")
+func (UnimplementedRendererPreVPageServiceServer) GetFormWidgetInfoAtIndex(context.Context, *GetFormWidgetInfoAtIndexRequest) (*GetFormWidgetInfoAtIndexResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetFormWidgetInfoAtIndex not implemented")
 }
-func (UnimplementedDocumentPageInfoServiceServer) GetPageWidth(context.Context, *GetPageWidthRequest) (*GetPageWidthResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetPageWidth not implemented")
+func (UnimplementedRendererPreVPageServiceServer) GetFormWidgetInfoAtPosition(context.Context, *GetFormWidgetInfoAtPositionRequest) (*GetFormWidgetInfoAtPositionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetFormWidgetInfoAtPosition not implemented")
 }
-func (UnimplementedDocumentPageInfoServiceServer) mustEmbedUnimplementedDocumentPageInfoServiceServer() {
+func (UnimplementedRendererPreVPageServiceServer) GetFormWidgetInfos0(context.Context, *GetFormWidgetInfos0Request) (*GetFormWidgetInfos0Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetFormWidgetInfos0 not implemented")
 }
-func (UnimplementedDocumentPageInfoServiceServer) testEmbeddedByValue() {}
+func (UnimplementedRendererPreVPageServiceServer) GetFormWidgetInfos1_1(context.Context, *GetFormWidgetInfos1_1Request) (*GetFormWidgetInfos1_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetFormWidgetInfos1_1 not implemented")
+}
+func (UnimplementedRendererPreVPageServiceServer) GetGotoLinks(context.Context, *GetGotoLinksRequest) (*GetGotoLinksResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetGotoLinks not implemented")
+}
+func (UnimplementedRendererPreVPageServiceServer) GetHeight(context.Context, *RendererPreVPageGetHeightRequest) (*GetHeightResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetHeight not implemented")
+}
+func (UnimplementedRendererPreVPageServiceServer) GetImageContents(context.Context, *GetImageContentsRequest) (*GetImageContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetImageContents not implemented")
+}
+func (UnimplementedRendererPreVPageServiceServer) GetIndex(context.Context, *GetIndexRequest) (*GetIndexResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetIndex not implemented")
+}
+func (UnimplementedRendererPreVPageServiceServer) GetLinkContents(context.Context, *GetLinkContentsRequest) (*GetLinkContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetLinkContents not implemented")
+}
+func (UnimplementedRendererPreVPageServiceServer) GetTextContents(context.Context, *GetTextContentsRequest) (*GetTextContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTextContents not implemented")
+}
+func (UnimplementedRendererPreVPageServiceServer) GetWidth(context.Context, *RendererPreVPageGetWidthRequest) (*GetWidthResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetWidth not implemented")
+}
+func (UnimplementedRendererPreVPageServiceServer) Render(context.Context, *RenderRequest) (*RenderResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Render not implemented")
+}
+func (UnimplementedRendererPreVPageServiceServer) SearchText(context.Context, *SearchTextRequest) (*SearchTextResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SearchText not implemented")
+}
+func (UnimplementedRendererPreVPageServiceServer) SelectContent(context.Context, *SelectContentRequest) (*SelectContentResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SelectContent not implemented")
+}
+func (UnimplementedRendererPreVPageServiceServer) mustEmbedUnimplementedRendererPreVPageServiceServer() {
+}
+func (UnimplementedRendererPreVPageServiceServer) testEmbeddedByValue() {}
 
-// UnsafeDocumentPageInfoServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to DocumentPageInfoServiceServer will
+// UnsafeRendererPreVPageServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to RendererPreVPageServiceServer will
 // result in compilation errors.
-type UnsafeDocumentPageInfoServiceServer interface {
-	mustEmbedUnimplementedDocumentPageInfoServiceServer()
+type UnsafeRendererPreVPageServiceServer interface {
+	mustEmbedUnimplementedRendererPreVPageServiceServer()
 }
 
-func RegisterDocumentPageInfoServiceServer(s grpc.ServiceRegistrar, srv DocumentPageInfoServiceServer) {
-	// If the following call panics, it indicates UnimplementedDocumentPageInfoServiceServer was
+func RegisterRendererPreVPageServiceServer(s grpc.ServiceRegistrar, srv RendererPreVPageServiceServer) {
+	// If the following call panics, it indicates UnimplementedRendererPreVPageServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&DocumentPageInfoService_ServiceDesc, srv)
+	s.RegisterService(&RendererPreVPageService_ServiceDesc, srv)
 }
 
-func _DocumentPageInfoService_GetContentRect_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetContentRectRequest)
+func _RendererPreVPageService_ApplyEdit_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ApplyEditRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(DocumentPageInfoServiceServer).GetContentRect(ctx, in)
+		return srv.(RendererPreVPageServiceServer).ApplyEdit(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: DocumentPageInfoService_GetContentRect_FullMethodName,
+		FullMethod: RendererPreVPageService_ApplyEdit_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DocumentPageInfoServiceServer).GetContentRect(ctx, req.(*GetContentRectRequest))
+		return srv.(RendererPreVPageServiceServer).ApplyEdit(ctx, req.(*ApplyEditRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _DocumentPageInfoService_GetPageHeight_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetPageHeightRequest)
+func _RendererPreVPageService_Close_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RendererPreVPageCloseRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(DocumentPageInfoServiceServer).GetPageHeight(ctx, in)
+		return srv.(RendererPreVPageServiceServer).Close(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: DocumentPageInfoService_GetPageHeight_FullMethodName,
+		FullMethod: RendererPreVPageService_Close_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DocumentPageInfoServiceServer).GetPageHeight(ctx, req.(*GetPageHeightRequest))
+		return srv.(RendererPreVPageServiceServer).Close(ctx, req.(*RendererPreVPageCloseRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _DocumentPageInfoService_GetPageNumber_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetPageNumberRequest)
+func _RendererPreVPageService_GetFormWidgetInfoAtIndex_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetFormWidgetInfoAtIndexRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(DocumentPageInfoServiceServer).GetPageNumber(ctx, in)
+		return srv.(RendererPreVPageServiceServer).GetFormWidgetInfoAtIndex(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: DocumentPageInfoService_GetPageNumber_FullMethodName,
+		FullMethod: RendererPreVPageService_GetFormWidgetInfoAtIndex_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DocumentPageInfoServiceServer).GetPageNumber(ctx, req.(*GetPageNumberRequest))
+		return srv.(RendererPreVPageServiceServer).GetFormWidgetInfoAtIndex(ctx, req.(*GetFormWidgetInfoAtIndexRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _DocumentPageInfoService_GetPageWidth_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetPageWidthRequest)
+func _RendererPreVPageService_GetFormWidgetInfoAtPosition_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetFormWidgetInfoAtPositionRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(DocumentPageInfoServiceServer).GetPageWidth(ctx, in)
+		return srv.(RendererPreVPageServiceServer).GetFormWidgetInfoAtPosition(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: DocumentPageInfoService_GetPageWidth_FullMethodName,
+		FullMethod: RendererPreVPageService_GetFormWidgetInfoAtPosition_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DocumentPageInfoServiceServer).GetPageWidth(ctx, req.(*GetPageWidthRequest))
+		return srv.(RendererPreVPageServiceServer).GetFormWidgetInfoAtPosition(ctx, req.(*GetFormWidgetInfoAtPositionRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// DocumentPageInfoService_ServiceDesc is the grpc.ServiceDesc for DocumentPageInfoService service.
+func _RendererPreVPageService_GetFormWidgetInfos0_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetFormWidgetInfos0Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RendererPreVPageServiceServer).GetFormWidgetInfos0(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RendererPreVPageService_GetFormWidgetInfos0_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RendererPreVPageServiceServer).GetFormWidgetInfos0(ctx, req.(*GetFormWidgetInfos0Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RendererPreVPageService_GetFormWidgetInfos1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetFormWidgetInfos1_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RendererPreVPageServiceServer).GetFormWidgetInfos1_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RendererPreVPageService_GetFormWidgetInfos1_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RendererPreVPageServiceServer).GetFormWidgetInfos1_1(ctx, req.(*GetFormWidgetInfos1_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RendererPreVPageService_GetGotoLinks_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetGotoLinksRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RendererPreVPageServiceServer).GetGotoLinks(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RendererPreVPageService_GetGotoLinks_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RendererPreVPageServiceServer).GetGotoLinks(ctx, req.(*GetGotoLinksRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RendererPreVPageService_GetHeight_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RendererPreVPageGetHeightRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RendererPreVPageServiceServer).GetHeight(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RendererPreVPageService_GetHeight_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RendererPreVPageServiceServer).GetHeight(ctx, req.(*RendererPreVPageGetHeightRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RendererPreVPageService_GetImageContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetImageContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RendererPreVPageServiceServer).GetImageContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RendererPreVPageService_GetImageContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RendererPreVPageServiceServer).GetImageContents(ctx, req.(*GetImageContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RendererPreVPageService_GetIndex_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetIndexRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RendererPreVPageServiceServer).GetIndex(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RendererPreVPageService_GetIndex_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RendererPreVPageServiceServer).GetIndex(ctx, req.(*GetIndexRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RendererPreVPageService_GetLinkContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetLinkContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RendererPreVPageServiceServer).GetLinkContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RendererPreVPageService_GetLinkContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RendererPreVPageServiceServer).GetLinkContents(ctx, req.(*GetLinkContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RendererPreVPageService_GetTextContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTextContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RendererPreVPageServiceServer).GetTextContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RendererPreVPageService_GetTextContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RendererPreVPageServiceServer).GetTextContents(ctx, req.(*GetTextContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RendererPreVPageService_GetWidth_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RendererPreVPageGetWidthRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RendererPreVPageServiceServer).GetWidth(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RendererPreVPageService_GetWidth_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RendererPreVPageServiceServer).GetWidth(ctx, req.(*RendererPreVPageGetWidthRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RendererPreVPageService_Render_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RenderRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RendererPreVPageServiceServer).Render(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RendererPreVPageService_Render_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RendererPreVPageServiceServer).Render(ctx, req.(*RenderRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RendererPreVPageService_SearchText_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SearchTextRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RendererPreVPageServiceServer).SearchText(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RendererPreVPageService_SearchText_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RendererPreVPageServiceServer).SearchText(ctx, req.(*SearchTextRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RendererPreVPageService_SelectContent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SelectContentRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RendererPreVPageServiceServer).SelectContent(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RendererPreVPageService_SelectContent_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RendererPreVPageServiceServer).SelectContent(ctx, req.(*SelectContentRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// RendererPreVPageService_ServiceDesc is the grpc.ServiceDesc for RendererPreVPageService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var DocumentPageInfoService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "pdf.DocumentPageInfoService",
-	HandlerType: (*DocumentPageInfoServiceServer)(nil),
+var RendererPreVPageService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "pdf.RendererPreVPageService",
+	HandlerType: (*RendererPreVPageServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "GetContentRect",
-			Handler:    _DocumentPageInfoService_GetContentRect_Handler,
+			MethodName: "ApplyEdit",
+			Handler:    _RendererPreVPageService_ApplyEdit_Handler,
 		},
 		{
-			MethodName: "GetPageHeight",
-			Handler:    _DocumentPageInfoService_GetPageHeight_Handler,
+			MethodName: "Close",
+			Handler:    _RendererPreVPageService_Close_Handler,
 		},
 		{
-			MethodName: "GetPageNumber",
-			Handler:    _DocumentPageInfoService_GetPageNumber_Handler,
+			MethodName: "GetFormWidgetInfoAtIndex",
+			Handler:    _RendererPreVPageService_GetFormWidgetInfoAtIndex_Handler,
 		},
 		{
-			MethodName: "GetPageWidth",
-			Handler:    _DocumentPageInfoService_GetPageWidth_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/pdf/pdf.proto",
-}
-
-const (
-	RenderParamsService_GetRenderFlags_FullMethodName = "/pdf.RenderParamsService/GetRenderFlags"
-	RenderParamsService_GetRenderMode_FullMethodName  = "/pdf.RenderParamsService/GetRenderMode"
-)
-
-// RenderParamsServiceClient is the client API for RenderParamsService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type RenderParamsServiceClient interface {
-	GetRenderFlags(ctx context.Context, in *GetRenderFlagsRequest, opts ...grpc.CallOption) (*GetRenderFlagsResponse, error)
-	GetRenderMode(ctx context.Context, in *GetRenderModeRequest, opts ...grpc.CallOption) (*GetRenderModeResponse, error)
-}
-
-type renderParamsServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewRenderParamsServiceClient(cc grpc.ClientConnInterface) RenderParamsServiceClient {
-	return &renderParamsServiceClient{cc}
-}
-
-func (c *renderParamsServiceClient) GetRenderFlags(ctx context.Context, in *GetRenderFlagsRequest, opts ...grpc.CallOption) (*GetRenderFlagsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetRenderFlagsResponse)
-	err := c.cc.Invoke(ctx, RenderParamsService_GetRenderFlags_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *renderParamsServiceClient) GetRenderMode(ctx context.Context, in *GetRenderModeRequest, opts ...grpc.CallOption) (*GetRenderModeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetRenderModeResponse)
-	err := c.cc.Invoke(ctx, RenderParamsService_GetRenderMode_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// RenderParamsServiceServer is the server API for RenderParamsService service.
-// All implementations must embed UnimplementedRenderParamsServiceServer
-// for forward compatibility.
-type RenderParamsServiceServer interface {
-	GetRenderFlags(context.Context, *GetRenderFlagsRequest) (*GetRenderFlagsResponse, error)
-	GetRenderMode(context.Context, *GetRenderModeRequest) (*GetRenderModeResponse, error)
-	mustEmbedUnimplementedRenderParamsServiceServer()
-}
-
-// UnimplementedRenderParamsServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedRenderParamsServiceServer struct{}
-
-func (UnimplementedRenderParamsServiceServer) GetRenderFlags(context.Context, *GetRenderFlagsRequest) (*GetRenderFlagsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetRenderFlags not implemented")
-}
-func (UnimplementedRenderParamsServiceServer) GetRenderMode(context.Context, *GetRenderModeRequest) (*GetRenderModeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetRenderMode not implemented")
-}
-func (UnimplementedRenderParamsServiceServer) mustEmbedUnimplementedRenderParamsServiceServer() {}
-func (UnimplementedRenderParamsServiceServer) testEmbeddedByValue()                             {}
-
-// UnsafeRenderParamsServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to RenderParamsServiceServer will
-// result in compilation errors.
-type UnsafeRenderParamsServiceServer interface {
-	mustEmbedUnimplementedRenderParamsServiceServer()
-}
-
-func RegisterRenderParamsServiceServer(s grpc.ServiceRegistrar, srv RenderParamsServiceServer) {
-	// If the following call panics, it indicates UnimplementedRenderParamsServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&RenderParamsService_ServiceDesc, srv)
-}
-
-func _RenderParamsService_GetRenderFlags_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetRenderFlagsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(RenderParamsServiceServer).GetRenderFlags(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: RenderParamsService_GetRenderFlags_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RenderParamsServiceServer).GetRenderFlags(ctx, req.(*GetRenderFlagsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _RenderParamsService_GetRenderMode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetRenderModeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(RenderParamsServiceServer).GetRenderMode(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: RenderParamsService_GetRenderMode_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RenderParamsServiceServer).GetRenderMode(ctx, req.(*GetRenderModeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// RenderParamsService_ServiceDesc is the grpc.ServiceDesc for RenderParamsService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var RenderParamsService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "pdf.RenderParamsService",
-	HandlerType: (*RenderParamsServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "GetRenderFlags",
-			Handler:    _RenderParamsService_GetRenderFlags_Handler,
+			MethodName: "GetFormWidgetInfoAtPosition",
+			Handler:    _RendererPreVPageService_GetFormWidgetInfoAtPosition_Handler,
 		},
 		{
-			MethodName: "GetRenderMode",
-			Handler:    _RenderParamsService_GetRenderMode_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/pdf/pdf.proto",
-}
-
-const (
-	RenderParamsBuilderService_Build_FullMethodName             = "/pdf.RenderParamsBuilderService/Build"
-	RenderParamsBuilderService_SetRenderFlags1_FullMethodName   = "/pdf.RenderParamsBuilderService/SetRenderFlags1"
-	RenderParamsBuilderService_SetRenderFlags2_1_FullMethodName = "/pdf.RenderParamsBuilderService/SetRenderFlags2_1"
-)
-
-// RenderParamsBuilderServiceClient is the client API for RenderParamsBuilderService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type RenderParamsBuilderServiceClient interface {
-	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
-	SetRenderFlags1(ctx context.Context, in *SetRenderFlags1Request, opts ...grpc.CallOption) (*SetRenderFlags1Response, error)
-	SetRenderFlags2_1(ctx context.Context, in *SetRenderFlags2_1Request, opts ...grpc.CallOption) (*SetRenderFlags2_1Response, error)
-}
-
-type renderParamsBuilderServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewRenderParamsBuilderServiceClient(cc grpc.ClientConnInterface) RenderParamsBuilderServiceClient {
-	return &renderParamsBuilderServiceClient{cc}
-}
-
-func (c *renderParamsBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(BuildResponse)
-	err := c.cc.Invoke(ctx, RenderParamsBuilderService_Build_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *renderParamsBuilderServiceClient) SetRenderFlags1(ctx context.Context, in *SetRenderFlags1Request, opts ...grpc.CallOption) (*SetRenderFlags1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetRenderFlags1Response)
-	err := c.cc.Invoke(ctx, RenderParamsBuilderService_SetRenderFlags1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *renderParamsBuilderServiceClient) SetRenderFlags2_1(ctx context.Context, in *SetRenderFlags2_1Request, opts ...grpc.CallOption) (*SetRenderFlags2_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetRenderFlags2_1Response)
-	err := c.cc.Invoke(ctx, RenderParamsBuilderService_SetRenderFlags2_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// RenderParamsBuilderServiceServer is the server API for RenderParamsBuilderService service.
-// All implementations must embed UnimplementedRenderParamsBuilderServiceServer
-// for forward compatibility.
-type RenderParamsBuilderServiceServer interface {
-	Build(context.Context, *BuildRequest) (*BuildResponse, error)
-	SetRenderFlags1(context.Context, *SetRenderFlags1Request) (*SetRenderFlags1Response, error)
-	SetRenderFlags2_1(context.Context, *SetRenderFlags2_1Request) (*SetRenderFlags2_1Response, error)
-	mustEmbedUnimplementedRenderParamsBuilderServiceServer()
-}
-
-// UnimplementedRenderParamsBuilderServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedRenderParamsBuilderServiceServer struct{}
-
-func (UnimplementedRenderParamsBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
-}
-func (UnimplementedRenderParamsBuilderServiceServer) SetRenderFlags1(context.Context, *SetRenderFlags1Request) (*SetRenderFlags1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetRenderFlags1 not implemented")
-}
-func (UnimplementedRenderParamsBuilderServiceServer) SetRenderFlags2_1(context.Context, *SetRenderFlags2_1Request) (*SetRenderFlags2_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetRenderFlags2_1 not implemented")
-}
-func (UnimplementedRenderParamsBuilderServiceServer) mustEmbedUnimplementedRenderParamsBuilderServiceServer() {
-}
-func (UnimplementedRenderParamsBuilderServiceServer) testEmbeddedByValue() {}
-
-// UnsafeRenderParamsBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to RenderParamsBuilderServiceServer will
-// result in compilation errors.
-type UnsafeRenderParamsBuilderServiceServer interface {
-	mustEmbedUnimplementedRenderParamsBuilderServiceServer()
-}
-
-func RegisterRenderParamsBuilderServiceServer(s grpc.ServiceRegistrar, srv RenderParamsBuilderServiceServer) {
-	// If the following call panics, it indicates UnimplementedRenderParamsBuilderServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&RenderParamsBuilderService_ServiceDesc, srv)
-}
-
-func _RenderParamsBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(BuildRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(RenderParamsBuilderServiceServer).Build(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: RenderParamsBuilderService_Build_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RenderParamsBuilderServiceServer).Build(ctx, req.(*BuildRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _RenderParamsBuilderService_SetRenderFlags1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetRenderFlags1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(RenderParamsBuilderServiceServer).SetRenderFlags1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: RenderParamsBuilderService_SetRenderFlags1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RenderParamsBuilderServiceServer).SetRenderFlags1(ctx, req.(*SetRenderFlags1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _RenderParamsBuilderService_SetRenderFlags2_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetRenderFlags2_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(RenderParamsBuilderServiceServer).SetRenderFlags2_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: RenderParamsBuilderService_SetRenderFlags2_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RenderParamsBuilderServiceServer).SetRenderFlags2_1(ctx, req.(*SetRenderFlags2_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// RenderParamsBuilderService_ServiceDesc is the grpc.ServiceDesc for RenderParamsBuilderService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var RenderParamsBuilderService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "pdf.RenderParamsBuilderService",
-	HandlerType: (*RenderParamsBuilderServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "Build",
-			Handler:    _RenderParamsBuilderService_Build_Handler,
+			MethodName: "GetFormWidgetInfos0",
+			Handler:    _RendererPreVPageService_GetFormWidgetInfos0_Handler,
 		},
 		{
-			MethodName: "SetRenderFlags1",
-			Handler:    _RenderParamsBuilderService_SetRenderFlags1_Handler,
+			MethodName: "GetFormWidgetInfos1_1",
+			Handler:    _RendererPreVPageService_GetFormWidgetInfos1_1_Handler,
 		},
 		{
-			MethodName: "SetRenderFlags2_1",
-			Handler:    _RenderParamsBuilderService_SetRenderFlags2_1_Handler,
+			MethodName: "GetGotoLinks",
+			Handler:    _RendererPreVPageService_GetGotoLinks_Handler,
+		},
+		{
+			MethodName: "GetHeight",
+			Handler:    _RendererPreVPageService_GetHeight_Handler,
+		},
+		{
+			MethodName: "GetImageContents",
+			Handler:    _RendererPreVPageService_GetImageContents_Handler,
+		},
+		{
+			MethodName: "GetIndex",
+			Handler:    _RendererPreVPageService_GetIndex_Handler,
+		},
+		{
+			MethodName: "GetLinkContents",
+			Handler:    _RendererPreVPageService_GetLinkContents_Handler,
+		},
+		{
+			MethodName: "GetTextContents",
+			Handler:    _RendererPreVPageService_GetTextContents_Handler,
+		},
+		{
+			MethodName: "GetWidth",
+			Handler:    _RendererPreVPageService_GetWidth_Handler,
+		},
+		{
+			MethodName: "Render",
+			Handler:    _RendererPreVPageService_Render_Handler,
+		},
+		{
+			MethodName: "SearchText",
+			Handler:    _RendererPreVPageService_SearchText_Handler,
+		},
+		{
+			MethodName: "SelectContent",
+			Handler:    _RendererPreVPageService_SelectContent_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -13952,14 +7696,14 @@ type BitmapServiceClient interface {
 	ExtractAlpha2_1(ctx context.Context, in *ExtractAlpha2_1Request, opts ...grpc.CallOption) (*ExtractAlpha2_1Response, error)
 	GetAllocationByteCount(ctx context.Context, in *GetAllocationByteCountRequest, opts ...grpc.CallOption) (*GetAllocationByteCountResponse, error)
 	GetByteCount(ctx context.Context, in *GetByteCountRequest, opts ...grpc.CallOption) (*GetByteCountResponse, error)
-	GetColor(ctx context.Context, in *BitmapGetColorRequest, opts ...grpc.CallOption) (*BitmapGetColorResponse, error)
+	GetColor(ctx context.Context, in *GetColorRequest, opts ...grpc.CallOption) (*GetColorResponse, error)
 	GetColorSpace(ctx context.Context, in *GetColorSpaceRequest, opts ...grpc.CallOption) (*GetColorSpaceResponse, error)
 	GetConfig(ctx context.Context, in *GetConfigRequest, opts ...grpc.CallOption) (*GetConfigResponse, error)
 	GetDensity(ctx context.Context, in *BitmapGetDensityRequest, opts ...grpc.CallOption) (*GetDensityResponse, error)
 	GetGainmap(ctx context.Context, in *GetGainmapRequest, opts ...grpc.CallOption) (*GetGainmapResponse, error)
 	GetGenerationId(ctx context.Context, in *GetGenerationIdRequest, opts ...grpc.CallOption) (*GetGenerationIdResponse, error)
 	GetHardwareBuffer(ctx context.Context, in *GetHardwareBufferRequest, opts ...grpc.CallOption) (*GetHardwareBufferResponse, error)
-	GetHeight(ctx context.Context, in *GetHeightRequest, opts ...grpc.CallOption) (*GetHeightResponse, error)
+	GetHeight(ctx context.Context, in *BitmapGetHeightRequest, opts ...grpc.CallOption) (*GetHeightResponse, error)
 	GetNinePatchChunk(ctx context.Context, in *GetNinePatchChunkRequest, opts ...grpc.CallOption) (*GetNinePatchChunkResponse, error)
 	GetPixel(ctx context.Context, in *GetPixelRequest, opts ...grpc.CallOption) (*GetPixelResponse, error)
 	GetPixels(ctx context.Context, in *GetPixelsRequest, opts ...grpc.CallOption) (*GetPixelsResponse, error)
@@ -13970,7 +7714,7 @@ type BitmapServiceClient interface {
 	GetScaledWidth1(ctx context.Context, in *GetScaledWidth1Request, opts ...grpc.CallOption) (*GetScaledWidth1Response, error)
 	GetScaledWidth1_1(ctx context.Context, in *GetScaledWidth1_1Request, opts ...grpc.CallOption) (*GetScaledWidth1_1Response, error)
 	GetScaledWidth1_2(ctx context.Context, in *GetScaledWidth1_2Request, opts ...grpc.CallOption) (*GetScaledWidth1_2Response, error)
-	GetWidth(ctx context.Context, in *GetWidthRequest, opts ...grpc.CallOption) (*GetWidthResponse, error)
+	GetWidth(ctx context.Context, in *BitmapGetWidthRequest, opts ...grpc.CallOption) (*GetWidthResponse, error)
 	HasAlpha(ctx context.Context, in *HasAlphaRequest, opts ...grpc.CallOption) (*HasAlphaResponse, error)
 	HasGainmap(ctx context.Context, in *HasGainmapRequest, opts ...grpc.CallOption) (*HasGainmapResponse, error)
 	HasMipMap(ctx context.Context, in *HasMipMapRequest, opts ...grpc.CallOption) (*HasMipMapResponse, error)
@@ -14140,9 +7884,9 @@ func (c *bitmapServiceClient) GetByteCount(ctx context.Context, in *GetByteCount
 	return out, nil
 }
 
-func (c *bitmapServiceClient) GetColor(ctx context.Context, in *BitmapGetColorRequest, opts ...grpc.CallOption) (*BitmapGetColorResponse, error) {
+func (c *bitmapServiceClient) GetColor(ctx context.Context, in *GetColorRequest, opts ...grpc.CallOption) (*GetColorResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(BitmapGetColorResponse)
+	out := new(GetColorResponse)
 	err := c.cc.Invoke(ctx, BitmapService_GetColor_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -14210,7 +7954,7 @@ func (c *bitmapServiceClient) GetHardwareBuffer(ctx context.Context, in *GetHard
 	return out, nil
 }
 
-func (c *bitmapServiceClient) GetHeight(ctx context.Context, in *GetHeightRequest, opts ...grpc.CallOption) (*GetHeightResponse, error) {
+func (c *bitmapServiceClient) GetHeight(ctx context.Context, in *BitmapGetHeightRequest, opts ...grpc.CallOption) (*GetHeightResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetHeightResponse)
 	err := c.cc.Invoke(ctx, BitmapService_GetHeight_FullMethodName, in, out, cOpts...)
@@ -14320,7 +8064,7 @@ func (c *bitmapServiceClient) GetScaledWidth1_2(ctx context.Context, in *GetScal
 	return out, nil
 }
 
-func (c *bitmapServiceClient) GetWidth(ctx context.Context, in *GetWidthRequest, opts ...grpc.CallOption) (*GetWidthResponse, error) {
+func (c *bitmapServiceClient) GetWidth(ctx context.Context, in *BitmapGetWidthRequest, opts ...grpc.CallOption) (*GetWidthResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetWidthResponse)
 	err := c.cc.Invoke(ctx, BitmapService_GetWidth_FullMethodName, in, out, cOpts...)
@@ -14736,14 +8480,14 @@ type BitmapServiceServer interface {
 	ExtractAlpha2_1(context.Context, *ExtractAlpha2_1Request) (*ExtractAlpha2_1Response, error)
 	GetAllocationByteCount(context.Context, *GetAllocationByteCountRequest) (*GetAllocationByteCountResponse, error)
 	GetByteCount(context.Context, *GetByteCountRequest) (*GetByteCountResponse, error)
-	GetColor(context.Context, *BitmapGetColorRequest) (*BitmapGetColorResponse, error)
+	GetColor(context.Context, *GetColorRequest) (*GetColorResponse, error)
 	GetColorSpace(context.Context, *GetColorSpaceRequest) (*GetColorSpaceResponse, error)
 	GetConfig(context.Context, *GetConfigRequest) (*GetConfigResponse, error)
 	GetDensity(context.Context, *BitmapGetDensityRequest) (*GetDensityResponse, error)
 	GetGainmap(context.Context, *GetGainmapRequest) (*GetGainmapResponse, error)
 	GetGenerationId(context.Context, *GetGenerationIdRequest) (*GetGenerationIdResponse, error)
 	GetHardwareBuffer(context.Context, *GetHardwareBufferRequest) (*GetHardwareBufferResponse, error)
-	GetHeight(context.Context, *GetHeightRequest) (*GetHeightResponse, error)
+	GetHeight(context.Context, *BitmapGetHeightRequest) (*GetHeightResponse, error)
 	GetNinePatchChunk(context.Context, *GetNinePatchChunkRequest) (*GetNinePatchChunkResponse, error)
 	GetPixel(context.Context, *GetPixelRequest) (*GetPixelResponse, error)
 	GetPixels(context.Context, *GetPixelsRequest) (*GetPixelsResponse, error)
@@ -14754,7 +8498,7 @@ type BitmapServiceServer interface {
 	GetScaledWidth1(context.Context, *GetScaledWidth1Request) (*GetScaledWidth1Response, error)
 	GetScaledWidth1_1(context.Context, *GetScaledWidth1_1Request) (*GetScaledWidth1_1Response, error)
 	GetScaledWidth1_2(context.Context, *GetScaledWidth1_2Request) (*GetScaledWidth1_2Response, error)
-	GetWidth(context.Context, *GetWidthRequest) (*GetWidthResponse, error)
+	GetWidth(context.Context, *BitmapGetWidthRequest) (*GetWidthResponse, error)
 	HasAlpha(context.Context, *HasAlphaRequest) (*HasAlphaResponse, error)
 	HasGainmap(context.Context, *HasGainmapRequest) (*HasGainmapResponse, error)
 	HasMipMap(context.Context, *HasMipMapRequest) (*HasMipMapResponse, error)
@@ -14840,7 +8584,7 @@ func (UnimplementedBitmapServiceServer) GetAllocationByteCount(context.Context, 
 func (UnimplementedBitmapServiceServer) GetByteCount(context.Context, *GetByteCountRequest) (*GetByteCountResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetByteCount not implemented")
 }
-func (UnimplementedBitmapServiceServer) GetColor(context.Context, *BitmapGetColorRequest) (*BitmapGetColorResponse, error) {
+func (UnimplementedBitmapServiceServer) GetColor(context.Context, *GetColorRequest) (*GetColorResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetColor not implemented")
 }
 func (UnimplementedBitmapServiceServer) GetColorSpace(context.Context, *GetColorSpaceRequest) (*GetColorSpaceResponse, error) {
@@ -14861,7 +8605,7 @@ func (UnimplementedBitmapServiceServer) GetGenerationId(context.Context, *GetGen
 func (UnimplementedBitmapServiceServer) GetHardwareBuffer(context.Context, *GetHardwareBufferRequest) (*GetHardwareBufferResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetHardwareBuffer not implemented")
 }
-func (UnimplementedBitmapServiceServer) GetHeight(context.Context, *GetHeightRequest) (*GetHeightResponse, error) {
+func (UnimplementedBitmapServiceServer) GetHeight(context.Context, *BitmapGetHeightRequest) (*GetHeightResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetHeight not implemented")
 }
 func (UnimplementedBitmapServiceServer) GetNinePatchChunk(context.Context, *GetNinePatchChunkRequest) (*GetNinePatchChunkResponse, error) {
@@ -14894,7 +8638,7 @@ func (UnimplementedBitmapServiceServer) GetScaledWidth1_1(context.Context, *GetS
 func (UnimplementedBitmapServiceServer) GetScaledWidth1_2(context.Context, *GetScaledWidth1_2Request) (*GetScaledWidth1_2Response, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetScaledWidth1_2 not implemented")
 }
-func (UnimplementedBitmapServiceServer) GetWidth(context.Context, *GetWidthRequest) (*GetWidthResponse, error) {
+func (UnimplementedBitmapServiceServer) GetWidth(context.Context, *BitmapGetWidthRequest) (*GetWidthResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetWidth not implemented")
 }
 func (UnimplementedBitmapServiceServer) HasAlpha(context.Context, *HasAlphaRequest) (*HasAlphaResponse, error) {
@@ -15252,7 +8996,7 @@ func _BitmapService_GetByteCount_Handler(srv interface{}, ctx context.Context, d
 }
 
 func _BitmapService_GetColor_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(BitmapGetColorRequest)
+	in := new(GetColorRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -15264,7 +9008,7 @@ func _BitmapService_GetColor_Handler(srv interface{}, ctx context.Context, dec f
 		FullMethod: BitmapService_GetColor_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BitmapServiceServer).GetColor(ctx, req.(*BitmapGetColorRequest))
+		return srv.(BitmapServiceServer).GetColor(ctx, req.(*GetColorRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -15378,7 +9122,7 @@ func _BitmapService_GetHardwareBuffer_Handler(srv interface{}, ctx context.Conte
 }
 
 func _BitmapService_GetHeight_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetHeightRequest)
+	in := new(BitmapGetHeightRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -15390,7 +9134,7 @@ func _BitmapService_GetHeight_Handler(srv interface{}, ctx context.Context, dec 
 		FullMethod: BitmapService_GetHeight_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BitmapServiceServer).GetHeight(ctx, req.(*GetHeightRequest))
+		return srv.(BitmapServiceServer).GetHeight(ctx, req.(*BitmapGetHeightRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -15576,7 +9320,7 @@ func _BitmapService_GetScaledWidth1_2_Handler(srv interface{}, ctx context.Conte
 }
 
 func _BitmapService_GetWidth_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetWidthRequest)
+	in := new(BitmapGetWidthRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -15588,7 +9332,7 @@ func _BitmapService_GetWidth_Handler(srv interface{}, ctx context.Context, dec f
 		FullMethod: BitmapService_GetWidth_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BitmapServiceServer).GetWidth(ctx, req.(*GetWidthRequest))
+		return srv.(BitmapServiceServer).GetWidth(ctx, req.(*BitmapGetWidthRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -16869,6 +10613,249 @@ var BitmapConfigService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
+	LoadParamsService_GetPassword_FullMethodName = "/pdf.LoadParamsService/GetPassword"
+)
+
+// LoadParamsServiceClient is the client API for LoadParamsService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type LoadParamsServiceClient interface {
+	GetPassword(ctx context.Context, in *GetPasswordRequest, opts ...grpc.CallOption) (*GetPasswordResponse, error)
+}
+
+type loadParamsServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewLoadParamsServiceClient(cc grpc.ClientConnInterface) LoadParamsServiceClient {
+	return &loadParamsServiceClient{cc}
+}
+
+func (c *loadParamsServiceClient) GetPassword(ctx context.Context, in *GetPasswordRequest, opts ...grpc.CallOption) (*GetPasswordResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetPasswordResponse)
+	err := c.cc.Invoke(ctx, LoadParamsService_GetPassword_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// LoadParamsServiceServer is the server API for LoadParamsService service.
+// All implementations must embed UnimplementedLoadParamsServiceServer
+// for forward compatibility.
+type LoadParamsServiceServer interface {
+	GetPassword(context.Context, *GetPasswordRequest) (*GetPasswordResponse, error)
+	mustEmbedUnimplementedLoadParamsServiceServer()
+}
+
+// UnimplementedLoadParamsServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedLoadParamsServiceServer struct{}
+
+func (UnimplementedLoadParamsServiceServer) GetPassword(context.Context, *GetPasswordRequest) (*GetPasswordResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetPassword not implemented")
+}
+func (UnimplementedLoadParamsServiceServer) mustEmbedUnimplementedLoadParamsServiceServer() {}
+func (UnimplementedLoadParamsServiceServer) testEmbeddedByValue()                           {}
+
+// UnsafeLoadParamsServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to LoadParamsServiceServer will
+// result in compilation errors.
+type UnsafeLoadParamsServiceServer interface {
+	mustEmbedUnimplementedLoadParamsServiceServer()
+}
+
+func RegisterLoadParamsServiceServer(s grpc.ServiceRegistrar, srv LoadParamsServiceServer) {
+	// If the following call panics, it indicates UnimplementedLoadParamsServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&LoadParamsService_ServiceDesc, srv)
+}
+
+func _LoadParamsService_GetPassword_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPasswordRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(LoadParamsServiceServer).GetPassword(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: LoadParamsService_GetPassword_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(LoadParamsServiceServer).GetPassword(ctx, req.(*GetPasswordRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// LoadParamsService_ServiceDesc is the grpc.ServiceDesc for LoadParamsService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var LoadParamsService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "pdf.LoadParamsService",
+	HandlerType: (*LoadParamsServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "GetPassword",
+			Handler:    _LoadParamsService_GetPassword_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/pdf/pdf.proto",
+}
+
+const (
+	LoadParamsBuilderService_Build_FullMethodName       = "/pdf.LoadParamsBuilderService/Build"
+	LoadParamsBuilderService_SetPassword_FullMethodName = "/pdf.LoadParamsBuilderService/SetPassword"
+)
+
+// LoadParamsBuilderServiceClient is the client API for LoadParamsBuilderService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type LoadParamsBuilderServiceClient interface {
+	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
+	SetPassword(ctx context.Context, in *SetPasswordRequest, opts ...grpc.CallOption) (*SetPasswordResponse, error)
+}
+
+type loadParamsBuilderServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewLoadParamsBuilderServiceClient(cc grpc.ClientConnInterface) LoadParamsBuilderServiceClient {
+	return &loadParamsBuilderServiceClient{cc}
+}
+
+func (c *loadParamsBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(BuildResponse)
+	err := c.cc.Invoke(ctx, LoadParamsBuilderService_Build_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *loadParamsBuilderServiceClient) SetPassword(ctx context.Context, in *SetPasswordRequest, opts ...grpc.CallOption) (*SetPasswordResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetPasswordResponse)
+	err := c.cc.Invoke(ctx, LoadParamsBuilderService_SetPassword_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// LoadParamsBuilderServiceServer is the server API for LoadParamsBuilderService service.
+// All implementations must embed UnimplementedLoadParamsBuilderServiceServer
+// for forward compatibility.
+type LoadParamsBuilderServiceServer interface {
+	Build(context.Context, *BuildRequest) (*BuildResponse, error)
+	SetPassword(context.Context, *SetPasswordRequest) (*SetPasswordResponse, error)
+	mustEmbedUnimplementedLoadParamsBuilderServiceServer()
+}
+
+// UnimplementedLoadParamsBuilderServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedLoadParamsBuilderServiceServer struct{}
+
+func (UnimplementedLoadParamsBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
+}
+func (UnimplementedLoadParamsBuilderServiceServer) SetPassword(context.Context, *SetPasswordRequest) (*SetPasswordResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetPassword not implemented")
+}
+func (UnimplementedLoadParamsBuilderServiceServer) mustEmbedUnimplementedLoadParamsBuilderServiceServer() {
+}
+func (UnimplementedLoadParamsBuilderServiceServer) testEmbeddedByValue() {}
+
+// UnsafeLoadParamsBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to LoadParamsBuilderServiceServer will
+// result in compilation errors.
+type UnsafeLoadParamsBuilderServiceServer interface {
+	mustEmbedUnimplementedLoadParamsBuilderServiceServer()
+}
+
+func RegisterLoadParamsBuilderServiceServer(s grpc.ServiceRegistrar, srv LoadParamsBuilderServiceServer) {
+	// If the following call panics, it indicates UnimplementedLoadParamsBuilderServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&LoadParamsBuilderService_ServiceDesc, srv)
+}
+
+func _LoadParamsBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BuildRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(LoadParamsBuilderServiceServer).Build(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: LoadParamsBuilderService_Build_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(LoadParamsBuilderServiceServer).Build(ctx, req.(*BuildRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _LoadParamsBuilderService_SetPassword_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetPasswordRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(LoadParamsBuilderServiceServer).SetPassword(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: LoadParamsBuilderService_SetPassword_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(LoadParamsBuilderServiceServer).SetPassword(ctx, req.(*SetPasswordRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// LoadParamsBuilderService_ServiceDesc is the grpc.ServiceDesc for LoadParamsBuilderService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var LoadParamsBuilderService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "pdf.LoadParamsBuilderService",
+	HandlerType: (*LoadParamsBuilderServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Build",
+			Handler:    _LoadParamsBuilderService_Build_Handler,
+		},
+		{
+			MethodName: "SetPassword",
+			Handler:    _LoadParamsBuilderService_SetPassword_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/pdf/pdf.proto",
+}
+
+const (
 	RendererService_NewRenderer_FullMethodName                  = "/pdf.RendererService/NewRenderer"
 	RendererService_Close_FullMethodName                        = "/pdf.RendererService/Close"
 	RendererService_GetDocumentLinearizationType_FullMethodName = "/pdf.RendererService/GetDocumentLinearizationType"
@@ -17237,46 +11224,46 @@ var RendererService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
+	RendererPageService_ApplyEdit_FullMethodName                   = "/pdf.RendererPageService/ApplyEdit"
 	RendererPageService_Close_FullMethodName                       = "/pdf.RendererPageService/Close"
 	RendererPageService_GetFormWidgetInfoAtIndex_FullMethodName    = "/pdf.RendererPageService/GetFormWidgetInfoAtIndex"
 	RendererPageService_GetFormWidgetInfoAtPosition_FullMethodName = "/pdf.RendererPageService/GetFormWidgetInfoAtPosition"
-	RendererPageService_GetHeight_FullMethodName                   = "/pdf.RendererPageService/GetHeight"
-	RendererPageService_GetIndex_FullMethodName                    = "/pdf.RendererPageService/GetIndex"
-	RendererPageService_GetWidth_FullMethodName                    = "/pdf.RendererPageService/GetWidth"
-	RendererPageService_Render4_FullMethodName                     = "/pdf.RendererPageService/Render4"
-	RendererPageService_Render4_1_FullMethodName                   = "/pdf.RendererPageService/Render4_1"
-	RendererPageService_SelectContent_FullMethodName               = "/pdf.RendererPageService/SelectContent"
-	RendererPageService_ApplyEdit_FullMethodName                   = "/pdf.RendererPageService/ApplyEdit"
 	RendererPageService_GetFormWidgetInfos0_FullMethodName         = "/pdf.RendererPageService/GetFormWidgetInfos0"
 	RendererPageService_GetFormWidgetInfos1_1_FullMethodName       = "/pdf.RendererPageService/GetFormWidgetInfos1_1"
 	RendererPageService_GetGotoLinks_FullMethodName                = "/pdf.RendererPageService/GetGotoLinks"
+	RendererPageService_GetHeight_FullMethodName                   = "/pdf.RendererPageService/GetHeight"
 	RendererPageService_GetImageContents_FullMethodName            = "/pdf.RendererPageService/GetImageContents"
+	RendererPageService_GetIndex_FullMethodName                    = "/pdf.RendererPageService/GetIndex"
 	RendererPageService_GetLinkContents_FullMethodName             = "/pdf.RendererPageService/GetLinkContents"
 	RendererPageService_GetTextContents_FullMethodName             = "/pdf.RendererPageService/GetTextContents"
+	RendererPageService_GetWidth_FullMethodName                    = "/pdf.RendererPageService/GetWidth"
+	RendererPageService_Render4_FullMethodName                     = "/pdf.RendererPageService/Render4"
+	RendererPageService_Render4_1_FullMethodName                   = "/pdf.RendererPageService/Render4_1"
 	RendererPageService_SearchText_FullMethodName                  = "/pdf.RendererPageService/SearchText"
+	RendererPageService_SelectContent_FullMethodName               = "/pdf.RendererPageService/SelectContent"
 )
 
 // RendererPageServiceClient is the client API for RendererPageService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type RendererPageServiceClient interface {
+	ApplyEdit(ctx context.Context, in *ApplyEditRequest, opts ...grpc.CallOption) (*ApplyEditResponse, error)
 	Close(ctx context.Context, in *RendererPageCloseRequest, opts ...grpc.CallOption) (*CloseResponse, error)
 	GetFormWidgetInfoAtIndex(ctx context.Context, in *GetFormWidgetInfoAtIndexRequest, opts ...grpc.CallOption) (*GetFormWidgetInfoAtIndexResponse, error)
 	GetFormWidgetInfoAtPosition(ctx context.Context, in *GetFormWidgetInfoAtPositionRequest, opts ...grpc.CallOption) (*GetFormWidgetInfoAtPositionResponse, error)
-	GetHeight(ctx context.Context, in *GetHeightRequest, opts ...grpc.CallOption) (*GetHeightResponse, error)
-	GetIndex(ctx context.Context, in *GetIndexRequest, opts ...grpc.CallOption) (*GetIndexResponse, error)
-	GetWidth(ctx context.Context, in *GetWidthRequest, opts ...grpc.CallOption) (*GetWidthResponse, error)
-	Render4(ctx context.Context, in *Render4Request, opts ...grpc.CallOption) (*Render4Response, error)
-	Render4_1(ctx context.Context, in *Render4_1Request, opts ...grpc.CallOption) (*Render4_1Response, error)
-	SelectContent(ctx context.Context, in *SelectContentRequest, opts ...grpc.CallOption) (*SelectContentResponse, error)
-	ApplyEdit(ctx context.Context, in *ApplyEditRequest, opts ...grpc.CallOption) (*ApplyEditResponse, error)
 	GetFormWidgetInfos0(ctx context.Context, in *GetFormWidgetInfos0Request, opts ...grpc.CallOption) (*GetFormWidgetInfos0Response, error)
 	GetFormWidgetInfos1_1(ctx context.Context, in *GetFormWidgetInfos1_1Request, opts ...grpc.CallOption) (*GetFormWidgetInfos1_1Response, error)
 	GetGotoLinks(ctx context.Context, in *GetGotoLinksRequest, opts ...grpc.CallOption) (*GetGotoLinksResponse, error)
+	GetHeight(ctx context.Context, in *RendererPageGetHeightRequest, opts ...grpc.CallOption) (*GetHeightResponse, error)
 	GetImageContents(ctx context.Context, in *GetImageContentsRequest, opts ...grpc.CallOption) (*GetImageContentsResponse, error)
+	GetIndex(ctx context.Context, in *GetIndexRequest, opts ...grpc.CallOption) (*GetIndexResponse, error)
 	GetLinkContents(ctx context.Context, in *GetLinkContentsRequest, opts ...grpc.CallOption) (*GetLinkContentsResponse, error)
 	GetTextContents(ctx context.Context, in *GetTextContentsRequest, opts ...grpc.CallOption) (*GetTextContentsResponse, error)
+	GetWidth(ctx context.Context, in *RendererPageGetWidthRequest, opts ...grpc.CallOption) (*GetWidthResponse, error)
+	Render4(ctx context.Context, in *Render4Request, opts ...grpc.CallOption) (*Render4Response, error)
+	Render4_1(ctx context.Context, in *Render4_1Request, opts ...grpc.CallOption) (*Render4_1Response, error)
 	SearchText(ctx context.Context, in *SearchTextRequest, opts ...grpc.CallOption) (*SearchTextResponse, error)
+	SelectContent(ctx context.Context, in *SelectContentRequest, opts ...grpc.CallOption) (*SelectContentResponse, error)
 }
 
 type rendererPageServiceClient struct {
@@ -17285,6 +11272,16 @@ type rendererPageServiceClient struct {
 
 func NewRendererPageServiceClient(cc grpc.ClientConnInterface) RendererPageServiceClient {
 	return &rendererPageServiceClient{cc}
+}
+
+func (c *rendererPageServiceClient) ApplyEdit(ctx context.Context, in *ApplyEditRequest, opts ...grpc.CallOption) (*ApplyEditResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ApplyEditResponse)
+	err := c.cc.Invoke(ctx, RendererPageService_ApplyEdit_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
 }
 
 func (c *rendererPageServiceClient) Close(ctx context.Context, in *RendererPageCloseRequest, opts ...grpc.CallOption) (*CloseResponse, error) {
@@ -17311,76 +11308,6 @@ func (c *rendererPageServiceClient) GetFormWidgetInfoAtPosition(ctx context.Cont
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetFormWidgetInfoAtPositionResponse)
 	err := c.cc.Invoke(ctx, RendererPageService_GetFormWidgetInfoAtPosition_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *rendererPageServiceClient) GetHeight(ctx context.Context, in *GetHeightRequest, opts ...grpc.CallOption) (*GetHeightResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetHeightResponse)
-	err := c.cc.Invoke(ctx, RendererPageService_GetHeight_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *rendererPageServiceClient) GetIndex(ctx context.Context, in *GetIndexRequest, opts ...grpc.CallOption) (*GetIndexResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetIndexResponse)
-	err := c.cc.Invoke(ctx, RendererPageService_GetIndex_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *rendererPageServiceClient) GetWidth(ctx context.Context, in *GetWidthRequest, opts ...grpc.CallOption) (*GetWidthResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetWidthResponse)
-	err := c.cc.Invoke(ctx, RendererPageService_GetWidth_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *rendererPageServiceClient) Render4(ctx context.Context, in *Render4Request, opts ...grpc.CallOption) (*Render4Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(Render4Response)
-	err := c.cc.Invoke(ctx, RendererPageService_Render4_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *rendererPageServiceClient) Render4_1(ctx context.Context, in *Render4_1Request, opts ...grpc.CallOption) (*Render4_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(Render4_1Response)
-	err := c.cc.Invoke(ctx, RendererPageService_Render4_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *rendererPageServiceClient) SelectContent(ctx context.Context, in *SelectContentRequest, opts ...grpc.CallOption) (*SelectContentResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SelectContentResponse)
-	err := c.cc.Invoke(ctx, RendererPageService_SelectContent_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *rendererPageServiceClient) ApplyEdit(ctx context.Context, in *ApplyEditRequest, opts ...grpc.CallOption) (*ApplyEditResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ApplyEditResponse)
-	err := c.cc.Invoke(ctx, RendererPageService_ApplyEdit_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -17417,10 +11344,30 @@ func (c *rendererPageServiceClient) GetGotoLinks(ctx context.Context, in *GetGot
 	return out, nil
 }
 
+func (c *rendererPageServiceClient) GetHeight(ctx context.Context, in *RendererPageGetHeightRequest, opts ...grpc.CallOption) (*GetHeightResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetHeightResponse)
+	err := c.cc.Invoke(ctx, RendererPageService_GetHeight_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *rendererPageServiceClient) GetImageContents(ctx context.Context, in *GetImageContentsRequest, opts ...grpc.CallOption) (*GetImageContentsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetImageContentsResponse)
 	err := c.cc.Invoke(ctx, RendererPageService_GetImageContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *rendererPageServiceClient) GetIndex(ctx context.Context, in *GetIndexRequest, opts ...grpc.CallOption) (*GetIndexResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetIndexResponse)
+	err := c.cc.Invoke(ctx, RendererPageService_GetIndex_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -17447,6 +11394,36 @@ func (c *rendererPageServiceClient) GetTextContents(ctx context.Context, in *Get
 	return out, nil
 }
 
+func (c *rendererPageServiceClient) GetWidth(ctx context.Context, in *RendererPageGetWidthRequest, opts ...grpc.CallOption) (*GetWidthResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetWidthResponse)
+	err := c.cc.Invoke(ctx, RendererPageService_GetWidth_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *rendererPageServiceClient) Render4(ctx context.Context, in *Render4Request, opts ...grpc.CallOption) (*Render4Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(Render4Response)
+	err := c.cc.Invoke(ctx, RendererPageService_Render4_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *rendererPageServiceClient) Render4_1(ctx context.Context, in *Render4_1Request, opts ...grpc.CallOption) (*Render4_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(Render4_1Response)
+	err := c.cc.Invoke(ctx, RendererPageService_Render4_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *rendererPageServiceClient) SearchText(ctx context.Context, in *SearchTextRequest, opts ...grpc.CallOption) (*SearchTextResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(SearchTextResponse)
@@ -17457,27 +11434,37 @@ func (c *rendererPageServiceClient) SearchText(ctx context.Context, in *SearchTe
 	return out, nil
 }
 
+func (c *rendererPageServiceClient) SelectContent(ctx context.Context, in *SelectContentRequest, opts ...grpc.CallOption) (*SelectContentResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SelectContentResponse)
+	err := c.cc.Invoke(ctx, RendererPageService_SelectContent_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // RendererPageServiceServer is the server API for RendererPageService service.
 // All implementations must embed UnimplementedRendererPageServiceServer
 // for forward compatibility.
 type RendererPageServiceServer interface {
+	ApplyEdit(context.Context, *ApplyEditRequest) (*ApplyEditResponse, error)
 	Close(context.Context, *RendererPageCloseRequest) (*CloseResponse, error)
 	GetFormWidgetInfoAtIndex(context.Context, *GetFormWidgetInfoAtIndexRequest) (*GetFormWidgetInfoAtIndexResponse, error)
 	GetFormWidgetInfoAtPosition(context.Context, *GetFormWidgetInfoAtPositionRequest) (*GetFormWidgetInfoAtPositionResponse, error)
-	GetHeight(context.Context, *GetHeightRequest) (*GetHeightResponse, error)
-	GetIndex(context.Context, *GetIndexRequest) (*GetIndexResponse, error)
-	GetWidth(context.Context, *GetWidthRequest) (*GetWidthResponse, error)
-	Render4(context.Context, *Render4Request) (*Render4Response, error)
-	Render4_1(context.Context, *Render4_1Request) (*Render4_1Response, error)
-	SelectContent(context.Context, *SelectContentRequest) (*SelectContentResponse, error)
-	ApplyEdit(context.Context, *ApplyEditRequest) (*ApplyEditResponse, error)
 	GetFormWidgetInfos0(context.Context, *GetFormWidgetInfos0Request) (*GetFormWidgetInfos0Response, error)
 	GetFormWidgetInfos1_1(context.Context, *GetFormWidgetInfos1_1Request) (*GetFormWidgetInfos1_1Response, error)
 	GetGotoLinks(context.Context, *GetGotoLinksRequest) (*GetGotoLinksResponse, error)
+	GetHeight(context.Context, *RendererPageGetHeightRequest) (*GetHeightResponse, error)
 	GetImageContents(context.Context, *GetImageContentsRequest) (*GetImageContentsResponse, error)
+	GetIndex(context.Context, *GetIndexRequest) (*GetIndexResponse, error)
 	GetLinkContents(context.Context, *GetLinkContentsRequest) (*GetLinkContentsResponse, error)
 	GetTextContents(context.Context, *GetTextContentsRequest) (*GetTextContentsResponse, error)
+	GetWidth(context.Context, *RendererPageGetWidthRequest) (*GetWidthResponse, error)
+	Render4(context.Context, *Render4Request) (*Render4Response, error)
+	Render4_1(context.Context, *Render4_1Request) (*Render4_1Response, error)
 	SearchText(context.Context, *SearchTextRequest) (*SearchTextResponse, error)
+	SelectContent(context.Context, *SelectContentRequest) (*SelectContentResponse, error)
 	mustEmbedUnimplementedRendererPageServiceServer()
 }
 
@@ -17488,6 +11475,9 @@ type RendererPageServiceServer interface {
 // pointer dereference when methods are called.
 type UnimplementedRendererPageServiceServer struct{}
 
+func (UnimplementedRendererPageServiceServer) ApplyEdit(context.Context, *ApplyEditRequest) (*ApplyEditResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ApplyEdit not implemented")
+}
 func (UnimplementedRendererPageServiceServer) Close(context.Context, *RendererPageCloseRequest) (*CloseResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method Close not implemented")
 }
@@ -17496,27 +11486,6 @@ func (UnimplementedRendererPageServiceServer) GetFormWidgetInfoAtIndex(context.C
 }
 func (UnimplementedRendererPageServiceServer) GetFormWidgetInfoAtPosition(context.Context, *GetFormWidgetInfoAtPositionRequest) (*GetFormWidgetInfoAtPositionResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetFormWidgetInfoAtPosition not implemented")
-}
-func (UnimplementedRendererPageServiceServer) GetHeight(context.Context, *GetHeightRequest) (*GetHeightResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetHeight not implemented")
-}
-func (UnimplementedRendererPageServiceServer) GetIndex(context.Context, *GetIndexRequest) (*GetIndexResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetIndex not implemented")
-}
-func (UnimplementedRendererPageServiceServer) GetWidth(context.Context, *GetWidthRequest) (*GetWidthResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetWidth not implemented")
-}
-func (UnimplementedRendererPageServiceServer) Render4(context.Context, *Render4Request) (*Render4Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method Render4 not implemented")
-}
-func (UnimplementedRendererPageServiceServer) Render4_1(context.Context, *Render4_1Request) (*Render4_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method Render4_1 not implemented")
-}
-func (UnimplementedRendererPageServiceServer) SelectContent(context.Context, *SelectContentRequest) (*SelectContentResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SelectContent not implemented")
-}
-func (UnimplementedRendererPageServiceServer) ApplyEdit(context.Context, *ApplyEditRequest) (*ApplyEditResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ApplyEdit not implemented")
 }
 func (UnimplementedRendererPageServiceServer) GetFormWidgetInfos0(context.Context, *GetFormWidgetInfos0Request) (*GetFormWidgetInfos0Response, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetFormWidgetInfos0 not implemented")
@@ -17527,8 +11496,14 @@ func (UnimplementedRendererPageServiceServer) GetFormWidgetInfos1_1(context.Cont
 func (UnimplementedRendererPageServiceServer) GetGotoLinks(context.Context, *GetGotoLinksRequest) (*GetGotoLinksResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetGotoLinks not implemented")
 }
+func (UnimplementedRendererPageServiceServer) GetHeight(context.Context, *RendererPageGetHeightRequest) (*GetHeightResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetHeight not implemented")
+}
 func (UnimplementedRendererPageServiceServer) GetImageContents(context.Context, *GetImageContentsRequest) (*GetImageContentsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetImageContents not implemented")
+}
+func (UnimplementedRendererPageServiceServer) GetIndex(context.Context, *GetIndexRequest) (*GetIndexResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetIndex not implemented")
 }
 func (UnimplementedRendererPageServiceServer) GetLinkContents(context.Context, *GetLinkContentsRequest) (*GetLinkContentsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetLinkContents not implemented")
@@ -17536,8 +11511,20 @@ func (UnimplementedRendererPageServiceServer) GetLinkContents(context.Context, *
 func (UnimplementedRendererPageServiceServer) GetTextContents(context.Context, *GetTextContentsRequest) (*GetTextContentsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetTextContents not implemented")
 }
+func (UnimplementedRendererPageServiceServer) GetWidth(context.Context, *RendererPageGetWidthRequest) (*GetWidthResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetWidth not implemented")
+}
+func (UnimplementedRendererPageServiceServer) Render4(context.Context, *Render4Request) (*Render4Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method Render4 not implemented")
+}
+func (UnimplementedRendererPageServiceServer) Render4_1(context.Context, *Render4_1Request) (*Render4_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method Render4_1 not implemented")
+}
 func (UnimplementedRendererPageServiceServer) SearchText(context.Context, *SearchTextRequest) (*SearchTextResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method SearchText not implemented")
+}
+func (UnimplementedRendererPageServiceServer) SelectContent(context.Context, *SelectContentRequest) (*SelectContentResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SelectContent not implemented")
 }
 func (UnimplementedRendererPageServiceServer) mustEmbedUnimplementedRendererPageServiceServer() {}
 func (UnimplementedRendererPageServiceServer) testEmbeddedByValue()                             {}
@@ -17558,6 +11545,24 @@ func RegisterRendererPageServiceServer(s grpc.ServiceRegistrar, srv RendererPage
 		t.testEmbeddedByValue()
 	}
 	s.RegisterService(&RendererPageService_ServiceDesc, srv)
+}
+
+func _RendererPageService_ApplyEdit_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ApplyEditRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RendererPageServiceServer).ApplyEdit(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RendererPageService_ApplyEdit_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RendererPageServiceServer).ApplyEdit(ctx, req.(*ApplyEditRequest))
+	}
+	return interceptor(ctx, in, info, handler)
 }
 
 func _RendererPageService_Close_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
@@ -17610,132 +11615,6 @@ func _RendererPageService_GetFormWidgetInfoAtPosition_Handler(srv interface{}, c
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(RendererPageServiceServer).GetFormWidgetInfoAtPosition(ctx, req.(*GetFormWidgetInfoAtPositionRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _RendererPageService_GetHeight_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetHeightRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(RendererPageServiceServer).GetHeight(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: RendererPageService_GetHeight_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RendererPageServiceServer).GetHeight(ctx, req.(*GetHeightRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _RendererPageService_GetIndex_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetIndexRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(RendererPageServiceServer).GetIndex(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: RendererPageService_GetIndex_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RendererPageServiceServer).GetIndex(ctx, req.(*GetIndexRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _RendererPageService_GetWidth_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetWidthRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(RendererPageServiceServer).GetWidth(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: RendererPageService_GetWidth_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RendererPageServiceServer).GetWidth(ctx, req.(*GetWidthRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _RendererPageService_Render4_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(Render4Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(RendererPageServiceServer).Render4(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: RendererPageService_Render4_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RendererPageServiceServer).Render4(ctx, req.(*Render4Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _RendererPageService_Render4_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(Render4_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(RendererPageServiceServer).Render4_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: RendererPageService_Render4_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RendererPageServiceServer).Render4_1(ctx, req.(*Render4_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _RendererPageService_SelectContent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SelectContentRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(RendererPageServiceServer).SelectContent(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: RendererPageService_SelectContent_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RendererPageServiceServer).SelectContent(ctx, req.(*SelectContentRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _RendererPageService_ApplyEdit_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ApplyEditRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(RendererPageServiceServer).ApplyEdit(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: RendererPageService_ApplyEdit_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RendererPageServiceServer).ApplyEdit(ctx, req.(*ApplyEditRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -17794,6 +11673,24 @@ func _RendererPageService_GetGotoLinks_Handler(srv interface{}, ctx context.Cont
 	return interceptor(ctx, in, info, handler)
 }
 
+func _RendererPageService_GetHeight_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RendererPageGetHeightRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RendererPageServiceServer).GetHeight(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RendererPageService_GetHeight_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RendererPageServiceServer).GetHeight(ctx, req.(*RendererPageGetHeightRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _RendererPageService_GetImageContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetImageContentsRequest)
 	if err := dec(in); err != nil {
@@ -17808,6 +11705,24 @@ func _RendererPageService_GetImageContents_Handler(srv interface{}, ctx context.
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(RendererPageServiceServer).GetImageContents(ctx, req.(*GetImageContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RendererPageService_GetIndex_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetIndexRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RendererPageServiceServer).GetIndex(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RendererPageService_GetIndex_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RendererPageServiceServer).GetIndex(ctx, req.(*GetIndexRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -17848,6 +11763,60 @@ func _RendererPageService_GetTextContents_Handler(srv interface{}, ctx context.C
 	return interceptor(ctx, in, info, handler)
 }
 
+func _RendererPageService_GetWidth_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RendererPageGetWidthRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RendererPageServiceServer).GetWidth(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RendererPageService_GetWidth_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RendererPageServiceServer).GetWidth(ctx, req.(*RendererPageGetWidthRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RendererPageService_Render4_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(Render4Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RendererPageServiceServer).Render4(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RendererPageService_Render4_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RendererPageServiceServer).Render4(ctx, req.(*Render4Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RendererPageService_Render4_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(Render4_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RendererPageServiceServer).Render4_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RendererPageService_Render4_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RendererPageServiceServer).Render4_1(ctx, req.(*Render4_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _RendererPageService_SearchText_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(SearchTextRequest)
 	if err := dec(in); err != nil {
@@ -17866,6 +11835,24 @@ func _RendererPageService_SearchText_Handler(srv interface{}, ctx context.Contex
 	return interceptor(ctx, in, info, handler)
 }
 
+func _RendererPageService_SelectContent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SelectContentRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RendererPageServiceServer).SelectContent(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RendererPageService_SelectContent_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RendererPageServiceServer).SelectContent(ctx, req.(*SelectContentRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // RendererPageService_ServiceDesc is the grpc.ServiceDesc for RendererPageService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -17873,6 +11860,10 @@ var RendererPageService_ServiceDesc = grpc.ServiceDesc{
 	ServiceName: "pdf.RendererPageService",
 	HandlerType: (*RendererPageServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "ApplyEdit",
+			Handler:    _RendererPageService_ApplyEdit_Handler,
+		},
 		{
 			MethodName: "Close",
 			Handler:    _RendererPageService_Close_Handler,
@@ -17884,34 +11875,6 @@ var RendererPageService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetFormWidgetInfoAtPosition",
 			Handler:    _RendererPageService_GetFormWidgetInfoAtPosition_Handler,
-		},
-		{
-			MethodName: "GetHeight",
-			Handler:    _RendererPageService_GetHeight_Handler,
-		},
-		{
-			MethodName: "GetIndex",
-			Handler:    _RendererPageService_GetIndex_Handler,
-		},
-		{
-			MethodName: "GetWidth",
-			Handler:    _RendererPageService_GetWidth_Handler,
-		},
-		{
-			MethodName: "Render4",
-			Handler:    _RendererPageService_Render4_Handler,
-		},
-		{
-			MethodName: "Render4_1",
-			Handler:    _RendererPageService_Render4_1_Handler,
-		},
-		{
-			MethodName: "SelectContent",
-			Handler:    _RendererPageService_SelectContent_Handler,
-		},
-		{
-			MethodName: "ApplyEdit",
-			Handler:    _RendererPageService_ApplyEdit_Handler,
 		},
 		{
 			MethodName: "GetFormWidgetInfos0",
@@ -17926,8 +11889,16 @@ var RendererPageService_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _RendererPageService_GetGotoLinks_Handler,
 		},
 		{
+			MethodName: "GetHeight",
+			Handler:    _RendererPageService_GetHeight_Handler,
+		},
+		{
 			MethodName: "GetImageContents",
 			Handler:    _RendererPageService_GetImageContents_Handler,
+		},
+		{
+			MethodName: "GetIndex",
+			Handler:    _RendererPageService_GetIndex_Handler,
 		},
 		{
 			MethodName: "GetLinkContents",
@@ -17938,8 +11909,24 @@ var RendererPageService_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _RendererPageService_GetTextContents_Handler,
 		},
 		{
+			MethodName: "GetWidth",
+			Handler:    _RendererPageService_GetWidth_Handler,
+		},
+		{
+			MethodName: "Render4",
+			Handler:    _RendererPageService_Render4_Handler,
+		},
+		{
+			MethodName: "Render4_1",
+			Handler:    _RendererPageService_Render4_1_Handler,
+		},
+		{
 			MethodName: "SearchText",
 			Handler:    _RendererPageService_SearchText_Handler,
+		},
+		{
+			MethodName: "SelectContent",
+			Handler:    _RendererPageService_SelectContent_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -17988,7 +11975,7 @@ type ParcelFileDescriptorServiceClient interface {
 	GetFd(ctx context.Context, in *GetFdRequest, opts ...grpc.CallOption) (*GetFdResponse, error)
 	GetFileDescriptor(ctx context.Context, in *GetFileDescriptorRequest, opts ...grpc.CallOption) (*GetFileDescriptorResponse, error)
 	GetStatSize(ctx context.Context, in *GetStatSizeRequest, opts ...grpc.CallOption) (*GetStatSizeResponse, error)
-	ToString(ctx context.Context, in *ParcelFileDescriptorToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
 	WriteToParcel(ctx context.Context, in *ParcelFileDescriptorWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
 	AdoptFd(ctx context.Context, in *AdoptFdRequest, opts ...grpc.CallOption) (*AdoptFdResponse, error)
 	CreatePipe(ctx context.Context, in *CreatePipeRequest, opts ...grpc.CallOption) (*CreatePipeResponse, error)
@@ -18121,7 +12108,7 @@ func (c *parcelFileDescriptorServiceClient) GetStatSize(ctx context.Context, in 
 	return out, nil
 }
 
-func (c *parcelFileDescriptorServiceClient) ToString(ctx context.Context, in *ParcelFileDescriptorToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+func (c *parcelFileDescriptorServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(ToStringResponse)
 	err := c.cc.Invoke(ctx, ParcelFileDescriptorService_ToString_FullMethodName, in, out, cOpts...)
@@ -18266,7 +12253,7 @@ type ParcelFileDescriptorServiceServer interface {
 	GetFd(context.Context, *GetFdRequest) (*GetFdResponse, error)
 	GetFileDescriptor(context.Context, *GetFileDescriptorRequest) (*GetFileDescriptorResponse, error)
 	GetStatSize(context.Context, *GetStatSizeRequest) (*GetStatSizeResponse, error)
-	ToString(context.Context, *ParcelFileDescriptorToStringRequest) (*ToStringResponse, error)
+	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
 	WriteToParcel(context.Context, *ParcelFileDescriptorWriteToParcelRequest) (*WriteToParcelResponse, error)
 	AdoptFd(context.Context, *AdoptFdRequest) (*AdoptFdResponse, error)
 	CreatePipe(context.Context, *CreatePipeRequest) (*CreatePipeResponse, error)
@@ -18322,7 +12309,7 @@ func (UnimplementedParcelFileDescriptorServiceServer) GetFileDescriptor(context.
 func (UnimplementedParcelFileDescriptorServiceServer) GetStatSize(context.Context, *GetStatSizeRequest) (*GetStatSizeResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetStatSize not implemented")
 }
-func (UnimplementedParcelFileDescriptorServiceServer) ToString(context.Context, *ParcelFileDescriptorToStringRequest) (*ToStringResponse, error) {
+func (UnimplementedParcelFileDescriptorServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
 }
 func (UnimplementedParcelFileDescriptorServiceServer) WriteToParcel(context.Context, *ParcelFileDescriptorWriteToParcelRequest) (*WriteToParcelResponse, error) {
@@ -18582,7 +12569,7 @@ func _ParcelFileDescriptorService_GetStatSize_Handler(srv interface{}, ctx conte
 }
 
 func _ParcelFileDescriptorService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ParcelFileDescriptorToStringRequest)
+	in := new(ToStringRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -18594,7 +12581,7 @@ func _ParcelFileDescriptorService_ToString_Handler(srv interface{}, ctx context.
 		FullMethod: ParcelFileDescriptorService_ToString_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ParcelFileDescriptorServiceServer).ToString(ctx, req.(*ParcelFileDescriptorToStringRequest))
+		return srv.(ParcelFileDescriptorServiceServer).ToString(ctx, req.(*ToStringRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -19340,6 +13327,6361 @@ var ParcelFileDescriptorOnCloseListenerService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "OnClose",
 			Handler:    _ParcelFileDescriptorOnCloseListenerService_OnClose_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/pdf/pdf.proto",
+}
+
+const (
+	RenderParamsService_GetRenderFlags_FullMethodName = "/pdf.RenderParamsService/GetRenderFlags"
+	RenderParamsService_GetRenderMode_FullMethodName  = "/pdf.RenderParamsService/GetRenderMode"
+)
+
+// RenderParamsServiceClient is the client API for RenderParamsService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type RenderParamsServiceClient interface {
+	GetRenderFlags(ctx context.Context, in *GetRenderFlagsRequest, opts ...grpc.CallOption) (*GetRenderFlagsResponse, error)
+	GetRenderMode(ctx context.Context, in *GetRenderModeRequest, opts ...grpc.CallOption) (*GetRenderModeResponse, error)
+}
+
+type renderParamsServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewRenderParamsServiceClient(cc grpc.ClientConnInterface) RenderParamsServiceClient {
+	return &renderParamsServiceClient{cc}
+}
+
+func (c *renderParamsServiceClient) GetRenderFlags(ctx context.Context, in *GetRenderFlagsRequest, opts ...grpc.CallOption) (*GetRenderFlagsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetRenderFlagsResponse)
+	err := c.cc.Invoke(ctx, RenderParamsService_GetRenderFlags_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *renderParamsServiceClient) GetRenderMode(ctx context.Context, in *GetRenderModeRequest, opts ...grpc.CallOption) (*GetRenderModeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetRenderModeResponse)
+	err := c.cc.Invoke(ctx, RenderParamsService_GetRenderMode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// RenderParamsServiceServer is the server API for RenderParamsService service.
+// All implementations must embed UnimplementedRenderParamsServiceServer
+// for forward compatibility.
+type RenderParamsServiceServer interface {
+	GetRenderFlags(context.Context, *GetRenderFlagsRequest) (*GetRenderFlagsResponse, error)
+	GetRenderMode(context.Context, *GetRenderModeRequest) (*GetRenderModeResponse, error)
+	mustEmbedUnimplementedRenderParamsServiceServer()
+}
+
+// UnimplementedRenderParamsServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedRenderParamsServiceServer struct{}
+
+func (UnimplementedRenderParamsServiceServer) GetRenderFlags(context.Context, *GetRenderFlagsRequest) (*GetRenderFlagsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetRenderFlags not implemented")
+}
+func (UnimplementedRenderParamsServiceServer) GetRenderMode(context.Context, *GetRenderModeRequest) (*GetRenderModeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetRenderMode not implemented")
+}
+func (UnimplementedRenderParamsServiceServer) mustEmbedUnimplementedRenderParamsServiceServer() {}
+func (UnimplementedRenderParamsServiceServer) testEmbeddedByValue()                             {}
+
+// UnsafeRenderParamsServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to RenderParamsServiceServer will
+// result in compilation errors.
+type UnsafeRenderParamsServiceServer interface {
+	mustEmbedUnimplementedRenderParamsServiceServer()
+}
+
+func RegisterRenderParamsServiceServer(s grpc.ServiceRegistrar, srv RenderParamsServiceServer) {
+	// If the following call panics, it indicates UnimplementedRenderParamsServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&RenderParamsService_ServiceDesc, srv)
+}
+
+func _RenderParamsService_GetRenderFlags_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetRenderFlagsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RenderParamsServiceServer).GetRenderFlags(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RenderParamsService_GetRenderFlags_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RenderParamsServiceServer).GetRenderFlags(ctx, req.(*GetRenderFlagsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RenderParamsService_GetRenderMode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetRenderModeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RenderParamsServiceServer).GetRenderMode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RenderParamsService_GetRenderMode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RenderParamsServiceServer).GetRenderMode(ctx, req.(*GetRenderModeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// RenderParamsService_ServiceDesc is the grpc.ServiceDesc for RenderParamsService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var RenderParamsService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "pdf.RenderParamsService",
+	HandlerType: (*RenderParamsServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "GetRenderFlags",
+			Handler:    _RenderParamsService_GetRenderFlags_Handler,
+		},
+		{
+			MethodName: "GetRenderMode",
+			Handler:    _RenderParamsService_GetRenderMode_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/pdf/pdf.proto",
+}
+
+const (
+	RenderParamsBuilderService_Build_FullMethodName             = "/pdf.RenderParamsBuilderService/Build"
+	RenderParamsBuilderService_SetRenderFlags1_FullMethodName   = "/pdf.RenderParamsBuilderService/SetRenderFlags1"
+	RenderParamsBuilderService_SetRenderFlags2_1_FullMethodName = "/pdf.RenderParamsBuilderService/SetRenderFlags2_1"
+)
+
+// RenderParamsBuilderServiceClient is the client API for RenderParamsBuilderService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type RenderParamsBuilderServiceClient interface {
+	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
+	SetRenderFlags1(ctx context.Context, in *SetRenderFlags1Request, opts ...grpc.CallOption) (*SetRenderFlags1Response, error)
+	SetRenderFlags2_1(ctx context.Context, in *SetRenderFlags2_1Request, opts ...grpc.CallOption) (*SetRenderFlags2_1Response, error)
+}
+
+type renderParamsBuilderServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewRenderParamsBuilderServiceClient(cc grpc.ClientConnInterface) RenderParamsBuilderServiceClient {
+	return &renderParamsBuilderServiceClient{cc}
+}
+
+func (c *renderParamsBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(BuildResponse)
+	err := c.cc.Invoke(ctx, RenderParamsBuilderService_Build_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *renderParamsBuilderServiceClient) SetRenderFlags1(ctx context.Context, in *SetRenderFlags1Request, opts ...grpc.CallOption) (*SetRenderFlags1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetRenderFlags1Response)
+	err := c.cc.Invoke(ctx, RenderParamsBuilderService_SetRenderFlags1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *renderParamsBuilderServiceClient) SetRenderFlags2_1(ctx context.Context, in *SetRenderFlags2_1Request, opts ...grpc.CallOption) (*SetRenderFlags2_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetRenderFlags2_1Response)
+	err := c.cc.Invoke(ctx, RenderParamsBuilderService_SetRenderFlags2_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// RenderParamsBuilderServiceServer is the server API for RenderParamsBuilderService service.
+// All implementations must embed UnimplementedRenderParamsBuilderServiceServer
+// for forward compatibility.
+type RenderParamsBuilderServiceServer interface {
+	Build(context.Context, *BuildRequest) (*BuildResponse, error)
+	SetRenderFlags1(context.Context, *SetRenderFlags1Request) (*SetRenderFlags1Response, error)
+	SetRenderFlags2_1(context.Context, *SetRenderFlags2_1Request) (*SetRenderFlags2_1Response, error)
+	mustEmbedUnimplementedRenderParamsBuilderServiceServer()
+}
+
+// UnimplementedRenderParamsBuilderServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedRenderParamsBuilderServiceServer struct{}
+
+func (UnimplementedRenderParamsBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
+}
+func (UnimplementedRenderParamsBuilderServiceServer) SetRenderFlags1(context.Context, *SetRenderFlags1Request) (*SetRenderFlags1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetRenderFlags1 not implemented")
+}
+func (UnimplementedRenderParamsBuilderServiceServer) SetRenderFlags2_1(context.Context, *SetRenderFlags2_1Request) (*SetRenderFlags2_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetRenderFlags2_1 not implemented")
+}
+func (UnimplementedRenderParamsBuilderServiceServer) mustEmbedUnimplementedRenderParamsBuilderServiceServer() {
+}
+func (UnimplementedRenderParamsBuilderServiceServer) testEmbeddedByValue() {}
+
+// UnsafeRenderParamsBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to RenderParamsBuilderServiceServer will
+// result in compilation errors.
+type UnsafeRenderParamsBuilderServiceServer interface {
+	mustEmbedUnimplementedRenderParamsBuilderServiceServer()
+}
+
+func RegisterRenderParamsBuilderServiceServer(s grpc.ServiceRegistrar, srv RenderParamsBuilderServiceServer) {
+	// If the following call panics, it indicates UnimplementedRenderParamsBuilderServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&RenderParamsBuilderService_ServiceDesc, srv)
+}
+
+func _RenderParamsBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BuildRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RenderParamsBuilderServiceServer).Build(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RenderParamsBuilderService_Build_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RenderParamsBuilderServiceServer).Build(ctx, req.(*BuildRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RenderParamsBuilderService_SetRenderFlags1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetRenderFlags1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RenderParamsBuilderServiceServer).SetRenderFlags1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RenderParamsBuilderService_SetRenderFlags1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RenderParamsBuilderServiceServer).SetRenderFlags1(ctx, req.(*SetRenderFlags1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RenderParamsBuilderService_SetRenderFlags2_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetRenderFlags2_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RenderParamsBuilderServiceServer).SetRenderFlags2_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RenderParamsBuilderService_SetRenderFlags2_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RenderParamsBuilderServiceServer).SetRenderFlags2_1(ctx, req.(*SetRenderFlags2_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// RenderParamsBuilderService_ServiceDesc is the grpc.ServiceDesc for RenderParamsBuilderService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var RenderParamsBuilderService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "pdf.RenderParamsBuilderService",
+	HandlerType: (*RenderParamsBuilderServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Build",
+			Handler:    _RenderParamsBuilderService_Build_Handler,
+		},
+		{
+			MethodName: "SetRenderFlags1",
+			Handler:    _RenderParamsBuilderService_SetRenderFlags1_Handler,
+		},
+		{
+			MethodName: "SetRenderFlags2_1",
+			Handler:    _RenderParamsBuilderService_SetRenderFlags2_1_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/pdf/pdf.proto",
+}
+
+const (
+	PaintService_NewPaint_FullMethodName                   = "/pdf.PaintService/NewPaint"
+	PaintService_Ascent_FullMethodName                     = "/pdf.PaintService/Ascent"
+	PaintService_BreakText5_FullMethodName                 = "/pdf.PaintService/BreakText5"
+	PaintService_BreakText6_1_FullMethodName               = "/pdf.PaintService/BreakText6_1"
+	PaintService_BreakText4_2_FullMethodName               = "/pdf.PaintService/BreakText4_2"
+	PaintService_ClearShadowLayer_FullMethodName           = "/pdf.PaintService/ClearShadowLayer"
+	PaintService_Descent_FullMethodName                    = "/pdf.PaintService/Descent"
+	PaintService_EqualsForTextMeasurement_FullMethodName   = "/pdf.PaintService/EqualsForTextMeasurement"
+	PaintService_GetAlpha_FullMethodName                   = "/pdf.PaintService/GetAlpha"
+	PaintService_GetBlendMode_FullMethodName               = "/pdf.PaintService/GetBlendMode"
+	PaintService_GetColor_FullMethodName                   = "/pdf.PaintService/GetColor"
+	PaintService_GetColorFilter_FullMethodName             = "/pdf.PaintService/GetColorFilter"
+	PaintService_GetColorLong_FullMethodName               = "/pdf.PaintService/GetColorLong"
+	PaintService_GetEndHyphenEdit_FullMethodName           = "/pdf.PaintService/GetEndHyphenEdit"
+	PaintService_GetFillPath_FullMethodName                = "/pdf.PaintService/GetFillPath"
+	PaintService_GetFlags_FullMethodName                   = "/pdf.PaintService/GetFlags"
+	PaintService_GetFontFeatureSettings_FullMethodName     = "/pdf.PaintService/GetFontFeatureSettings"
+	PaintService_GetFontMetrics0_FullMethodName            = "/pdf.PaintService/GetFontMetrics0"
+	PaintService_GetFontMetrics1_1_FullMethodName          = "/pdf.PaintService/GetFontMetrics1_1"
+	PaintService_GetFontMetricsForLocale_FullMethodName    = "/pdf.PaintService/GetFontMetricsForLocale"
+	PaintService_GetFontMetricsInt0_FullMethodName         = "/pdf.PaintService/GetFontMetricsInt0"
+	PaintService_GetFontMetricsInt1_1_FullMethodName       = "/pdf.PaintService/GetFontMetricsInt1_1"
+	PaintService_GetFontMetricsInt7_2_FullMethodName       = "/pdf.PaintService/GetFontMetricsInt7_2"
+	PaintService_GetFontMetricsInt7_3_FullMethodName       = "/pdf.PaintService/GetFontMetricsInt7_3"
+	PaintService_GetFontMetricsIntForLocale_FullMethodName = "/pdf.PaintService/GetFontMetricsIntForLocale"
+	PaintService_GetFontSpacing_FullMethodName             = "/pdf.PaintService/GetFontSpacing"
+	PaintService_GetFontVariationSettings_FullMethodName   = "/pdf.PaintService/GetFontVariationSettings"
+	PaintService_GetHinting_FullMethodName                 = "/pdf.PaintService/GetHinting"
+	PaintService_GetLetterSpacing_FullMethodName           = "/pdf.PaintService/GetLetterSpacing"
+	PaintService_GetMaskFilter_FullMethodName              = "/pdf.PaintService/GetMaskFilter"
+	PaintService_GetOffsetForAdvance7_FullMethodName       = "/pdf.PaintService/GetOffsetForAdvance7"
+	PaintService_GetOffsetForAdvance7_1_FullMethodName     = "/pdf.PaintService/GetOffsetForAdvance7_1"
+	PaintService_GetPathEffect_FullMethodName              = "/pdf.PaintService/GetPathEffect"
+	PaintService_GetRunAdvance7_FullMethodName             = "/pdf.PaintService/GetRunAdvance7"
+	PaintService_GetRunAdvance7_1_FullMethodName           = "/pdf.PaintService/GetRunAdvance7_1"
+	PaintService_GetRunCharacterAdvance9_FullMethodName    = "/pdf.PaintService/GetRunCharacterAdvance9"
+	PaintService_GetRunCharacterAdvance9_1_FullMethodName  = "/pdf.PaintService/GetRunCharacterAdvance9_1"
+	PaintService_GetShader_FullMethodName                  = "/pdf.PaintService/GetShader"
+	PaintService_GetShadowLayerColor_FullMethodName        = "/pdf.PaintService/GetShadowLayerColor"
+	PaintService_GetShadowLayerColorLong_FullMethodName    = "/pdf.PaintService/GetShadowLayerColorLong"
+	PaintService_GetShadowLayerDx_FullMethodName           = "/pdf.PaintService/GetShadowLayerDx"
+	PaintService_GetShadowLayerDy_FullMethodName           = "/pdf.PaintService/GetShadowLayerDy"
+	PaintService_GetShadowLayerRadius_FullMethodName       = "/pdf.PaintService/GetShadowLayerRadius"
+	PaintService_GetStartHyphenEdit_FullMethodName         = "/pdf.PaintService/GetStartHyphenEdit"
+	PaintService_GetStrikeThruPosition_FullMethodName      = "/pdf.PaintService/GetStrikeThruPosition"
+	PaintService_GetStrikeThruThickness_FullMethodName     = "/pdf.PaintService/GetStrikeThruThickness"
+	PaintService_GetStrokeCap_FullMethodName               = "/pdf.PaintService/GetStrokeCap"
+	PaintService_GetStrokeJoin_FullMethodName              = "/pdf.PaintService/GetStrokeJoin"
+	PaintService_GetStrokeMiter_FullMethodName             = "/pdf.PaintService/GetStrokeMiter"
+	PaintService_GetStrokeWidth_FullMethodName             = "/pdf.PaintService/GetStrokeWidth"
+	PaintService_GetStyle_FullMethodName                   = "/pdf.PaintService/GetStyle"
+	PaintService_GetTextAlign_FullMethodName               = "/pdf.PaintService/GetTextAlign"
+	PaintService_GetTextBounds4_FullMethodName             = "/pdf.PaintService/GetTextBounds4"
+	PaintService_GetTextBounds4_1_FullMethodName           = "/pdf.PaintService/GetTextBounds4_1"
+	PaintService_GetTextBounds4_2_FullMethodName           = "/pdf.PaintService/GetTextBounds4_2"
+	PaintService_GetTextLocale_FullMethodName              = "/pdf.PaintService/GetTextLocale"
+	PaintService_GetTextLocales_FullMethodName             = "/pdf.PaintService/GetTextLocales"
+	PaintService_GetTextPath6_FullMethodName               = "/pdf.PaintService/GetTextPath6"
+	PaintService_GetTextPath6_1_FullMethodName             = "/pdf.PaintService/GetTextPath6_1"
+	PaintService_GetTextRunAdvances_FullMethodName         = "/pdf.PaintService/GetTextRunAdvances"
+	PaintService_GetTextRunCursor6_FullMethodName          = "/pdf.PaintService/GetTextRunCursor6"
+	PaintService_GetTextRunCursor6_1_FullMethodName        = "/pdf.PaintService/GetTextRunCursor6_1"
+	PaintService_GetTextScaleX_FullMethodName              = "/pdf.PaintService/GetTextScaleX"
+	PaintService_GetTextSize_FullMethodName                = "/pdf.PaintService/GetTextSize"
+	PaintService_GetTextSkewX_FullMethodName               = "/pdf.PaintService/GetTextSkewX"
+	PaintService_GetTextWidths4_FullMethodName             = "/pdf.PaintService/GetTextWidths4"
+	PaintService_GetTextWidths4_1_FullMethodName           = "/pdf.PaintService/GetTextWidths4_1"
+	PaintService_GetTextWidths2_2_FullMethodName           = "/pdf.PaintService/GetTextWidths2_2"
+	PaintService_GetTextWidths4_3_FullMethodName           = "/pdf.PaintService/GetTextWidths4_3"
+	PaintService_GetTypeface_FullMethodName                = "/pdf.PaintService/GetTypeface"
+	PaintService_GetUnderlinePosition_FullMethodName       = "/pdf.PaintService/GetUnderlinePosition"
+	PaintService_GetUnderlineThickness_FullMethodName      = "/pdf.PaintService/GetUnderlineThickness"
+	PaintService_GetWordSpacing_FullMethodName             = "/pdf.PaintService/GetWordSpacing"
+	PaintService_GetXfermode_FullMethodName                = "/pdf.PaintService/GetXfermode"
+	PaintService_HasGlyph_FullMethodName                   = "/pdf.PaintService/HasGlyph"
+	PaintService_IsAntiAlias_FullMethodName                = "/pdf.PaintService/IsAntiAlias"
+	PaintService_IsDither_FullMethodName                   = "/pdf.PaintService/IsDither"
+	PaintService_IsElegantTextHeight_FullMethodName        = "/pdf.PaintService/IsElegantTextHeight"
+	PaintService_IsFakeBoldText_FullMethodName             = "/pdf.PaintService/IsFakeBoldText"
+	PaintService_IsFilterBitmap_FullMethodName             = "/pdf.PaintService/IsFilterBitmap"
+	PaintService_IsLinearText_FullMethodName               = "/pdf.PaintService/IsLinearText"
+	PaintService_IsStrikeThruText_FullMethodName           = "/pdf.PaintService/IsStrikeThruText"
+	PaintService_IsSubpixelText_FullMethodName             = "/pdf.PaintService/IsSubpixelText"
+	PaintService_IsUnderlineText_FullMethodName            = "/pdf.PaintService/IsUnderlineText"
+	PaintService_MeasureText3_FullMethodName               = "/pdf.PaintService/MeasureText3"
+	PaintService_MeasureText3_1_FullMethodName             = "/pdf.PaintService/MeasureText3_1"
+	PaintService_MeasureText1_2_FullMethodName             = "/pdf.PaintService/MeasureText1_2"
+	PaintService_MeasureText3_3_FullMethodName             = "/pdf.PaintService/MeasureText3_3"
+	PaintService_Reset_FullMethodName                      = "/pdf.PaintService/Reset"
+	PaintService_Set_FullMethodName                        = "/pdf.PaintService/Set"
+	PaintService_SetARGB_FullMethodName                    = "/pdf.PaintService/SetARGB"
+	PaintService_SetAlpha_FullMethodName                   = "/pdf.PaintService/SetAlpha"
+	PaintService_SetAntiAlias_FullMethodName               = "/pdf.PaintService/SetAntiAlias"
+	PaintService_SetBlendMode_FullMethodName               = "/pdf.PaintService/SetBlendMode"
+	PaintService_SetColor1_FullMethodName                  = "/pdf.PaintService/SetColor1"
+	PaintService_SetColor1_1_FullMethodName                = "/pdf.PaintService/SetColor1_1"
+	PaintService_SetColorFilter_FullMethodName             = "/pdf.PaintService/SetColorFilter"
+	PaintService_SetDither_FullMethodName                  = "/pdf.PaintService/SetDither"
+	PaintService_SetElegantTextHeight_FullMethodName       = "/pdf.PaintService/SetElegantTextHeight"
+	PaintService_SetEndHyphenEdit_FullMethodName           = "/pdf.PaintService/SetEndHyphenEdit"
+	PaintService_SetFakeBoldText_FullMethodName            = "/pdf.PaintService/SetFakeBoldText"
+	PaintService_SetFilterBitmap_FullMethodName            = "/pdf.PaintService/SetFilterBitmap"
+	PaintService_SetFlags_FullMethodName                   = "/pdf.PaintService/SetFlags"
+	PaintService_SetFontFeatureSettings_FullMethodName     = "/pdf.PaintService/SetFontFeatureSettings"
+	PaintService_SetFontVariationSettings_FullMethodName   = "/pdf.PaintService/SetFontVariationSettings"
+	PaintService_SetHinting_FullMethodName                 = "/pdf.PaintService/SetHinting"
+	PaintService_SetLetterSpacing_FullMethodName           = "/pdf.PaintService/SetLetterSpacing"
+	PaintService_SetLinearText_FullMethodName              = "/pdf.PaintService/SetLinearText"
+	PaintService_SetMaskFilter_FullMethodName              = "/pdf.PaintService/SetMaskFilter"
+	PaintService_SetPathEffect_FullMethodName              = "/pdf.PaintService/SetPathEffect"
+	PaintService_SetShader_FullMethodName                  = "/pdf.PaintService/SetShader"
+	PaintService_SetShadowLayer4_FullMethodName            = "/pdf.PaintService/SetShadowLayer4"
+	PaintService_SetShadowLayer4_1_FullMethodName          = "/pdf.PaintService/SetShadowLayer4_1"
+	PaintService_SetStartHyphenEdit_FullMethodName         = "/pdf.PaintService/SetStartHyphenEdit"
+	PaintService_SetStrikeThruText_FullMethodName          = "/pdf.PaintService/SetStrikeThruText"
+	PaintService_SetStrokeCap_FullMethodName               = "/pdf.PaintService/SetStrokeCap"
+	PaintService_SetStrokeJoin_FullMethodName              = "/pdf.PaintService/SetStrokeJoin"
+	PaintService_SetStrokeMiter_FullMethodName             = "/pdf.PaintService/SetStrokeMiter"
+	PaintService_SetStrokeWidth_FullMethodName             = "/pdf.PaintService/SetStrokeWidth"
+	PaintService_SetStyle_FullMethodName                   = "/pdf.PaintService/SetStyle"
+	PaintService_SetSubpixelText_FullMethodName            = "/pdf.PaintService/SetSubpixelText"
+	PaintService_SetTextAlign_FullMethodName               = "/pdf.PaintService/SetTextAlign"
+	PaintService_SetTextLocale_FullMethodName              = "/pdf.PaintService/SetTextLocale"
+	PaintService_SetTextLocales_FullMethodName             = "/pdf.PaintService/SetTextLocales"
+	PaintService_SetTextScaleX_FullMethodName              = "/pdf.PaintService/SetTextScaleX"
+	PaintService_SetTextSize_FullMethodName                = "/pdf.PaintService/SetTextSize"
+	PaintService_SetTextSkewX_FullMethodName               = "/pdf.PaintService/SetTextSkewX"
+	PaintService_SetTypeface_FullMethodName                = "/pdf.PaintService/SetTypeface"
+	PaintService_SetUnderlineText_FullMethodName           = "/pdf.PaintService/SetUnderlineText"
+	PaintService_SetWordSpacing_FullMethodName             = "/pdf.PaintService/SetWordSpacing"
+	PaintService_SetXfermode_FullMethodName                = "/pdf.PaintService/SetXfermode"
+)
+
+// PaintServiceClient is the client API for PaintService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type PaintServiceClient interface {
+	NewPaint(ctx context.Context, in *NewPaintRequest, opts ...grpc.CallOption) (*NewPaintResponse, error)
+	Ascent(ctx context.Context, in *AscentRequest, opts ...grpc.CallOption) (*AscentResponse, error)
+	BreakText5(ctx context.Context, in *BreakText5Request, opts ...grpc.CallOption) (*BreakText5Response, error)
+	BreakText6_1(ctx context.Context, in *BreakText6_1Request, opts ...grpc.CallOption) (*BreakText6_1Response, error)
+	BreakText4_2(ctx context.Context, in *BreakText4_2Request, opts ...grpc.CallOption) (*BreakText4_2Response, error)
+	ClearShadowLayer(ctx context.Context, in *ClearShadowLayerRequest, opts ...grpc.CallOption) (*ClearShadowLayerResponse, error)
+	Descent(ctx context.Context, in *DescentRequest, opts ...grpc.CallOption) (*DescentResponse, error)
+	EqualsForTextMeasurement(ctx context.Context, in *EqualsForTextMeasurementRequest, opts ...grpc.CallOption) (*EqualsForTextMeasurementResponse, error)
+	GetAlpha(ctx context.Context, in *GetAlphaRequest, opts ...grpc.CallOption) (*GetAlphaResponse, error)
+	GetBlendMode(ctx context.Context, in *GetBlendModeRequest, opts ...grpc.CallOption) (*GetBlendModeResponse, error)
+	GetColor(ctx context.Context, in *PaintGetColorRequest, opts ...grpc.CallOption) (*PaintGetColorResponse, error)
+	GetColorFilter(ctx context.Context, in *GetColorFilterRequest, opts ...grpc.CallOption) (*GetColorFilterResponse, error)
+	GetColorLong(ctx context.Context, in *GetColorLongRequest, opts ...grpc.CallOption) (*GetColorLongResponse, error)
+	GetEndHyphenEdit(ctx context.Context, in *GetEndHyphenEditRequest, opts ...grpc.CallOption) (*GetEndHyphenEditResponse, error)
+	GetFillPath(ctx context.Context, in *GetFillPathRequest, opts ...grpc.CallOption) (*GetFillPathResponse, error)
+	GetFlags(ctx context.Context, in *GetFlagsRequest, opts ...grpc.CallOption) (*GetFlagsResponse, error)
+	GetFontFeatureSettings(ctx context.Context, in *GetFontFeatureSettingsRequest, opts ...grpc.CallOption) (*GetFontFeatureSettingsResponse, error)
+	GetFontMetrics0(ctx context.Context, in *GetFontMetrics0Request, opts ...grpc.CallOption) (*GetFontMetrics0Response, error)
+	GetFontMetrics1_1(ctx context.Context, in *GetFontMetrics1_1Request, opts ...grpc.CallOption) (*GetFontMetrics1_1Response, error)
+	GetFontMetricsForLocale(ctx context.Context, in *GetFontMetricsForLocaleRequest, opts ...grpc.CallOption) (*GetFontMetricsForLocaleResponse, error)
+	GetFontMetricsInt0(ctx context.Context, in *GetFontMetricsInt0Request, opts ...grpc.CallOption) (*GetFontMetricsInt0Response, error)
+	GetFontMetricsInt1_1(ctx context.Context, in *GetFontMetricsInt1_1Request, opts ...grpc.CallOption) (*GetFontMetricsInt1_1Response, error)
+	GetFontMetricsInt7_2(ctx context.Context, in *GetFontMetricsInt7_2Request, opts ...grpc.CallOption) (*GetFontMetricsInt7_2Response, error)
+	GetFontMetricsInt7_3(ctx context.Context, in *GetFontMetricsInt7_3Request, opts ...grpc.CallOption) (*GetFontMetricsInt7_3Response, error)
+	GetFontMetricsIntForLocale(ctx context.Context, in *GetFontMetricsIntForLocaleRequest, opts ...grpc.CallOption) (*GetFontMetricsIntForLocaleResponse, error)
+	GetFontSpacing(ctx context.Context, in *GetFontSpacingRequest, opts ...grpc.CallOption) (*GetFontSpacingResponse, error)
+	GetFontVariationSettings(ctx context.Context, in *GetFontVariationSettingsRequest, opts ...grpc.CallOption) (*GetFontVariationSettingsResponse, error)
+	GetHinting(ctx context.Context, in *GetHintingRequest, opts ...grpc.CallOption) (*GetHintingResponse, error)
+	GetLetterSpacing(ctx context.Context, in *GetLetterSpacingRequest, opts ...grpc.CallOption) (*GetLetterSpacingResponse, error)
+	GetMaskFilter(ctx context.Context, in *GetMaskFilterRequest, opts ...grpc.CallOption) (*GetMaskFilterResponse, error)
+	GetOffsetForAdvance7(ctx context.Context, in *GetOffsetForAdvance7Request, opts ...grpc.CallOption) (*GetOffsetForAdvance7Response, error)
+	GetOffsetForAdvance7_1(ctx context.Context, in *GetOffsetForAdvance7_1Request, opts ...grpc.CallOption) (*GetOffsetForAdvance7_1Response, error)
+	GetPathEffect(ctx context.Context, in *GetPathEffectRequest, opts ...grpc.CallOption) (*GetPathEffectResponse, error)
+	GetRunAdvance7(ctx context.Context, in *GetRunAdvance7Request, opts ...grpc.CallOption) (*GetRunAdvance7Response, error)
+	GetRunAdvance7_1(ctx context.Context, in *GetRunAdvance7_1Request, opts ...grpc.CallOption) (*GetRunAdvance7_1Response, error)
+	GetRunCharacterAdvance9(ctx context.Context, in *GetRunCharacterAdvance9Request, opts ...grpc.CallOption) (*GetRunCharacterAdvance9Response, error)
+	GetRunCharacterAdvance9_1(ctx context.Context, in *GetRunCharacterAdvance9_1Request, opts ...grpc.CallOption) (*GetRunCharacterAdvance9_1Response, error)
+	GetShader(ctx context.Context, in *GetShaderRequest, opts ...grpc.CallOption) (*GetShaderResponse, error)
+	GetShadowLayerColor(ctx context.Context, in *GetShadowLayerColorRequest, opts ...grpc.CallOption) (*GetShadowLayerColorResponse, error)
+	GetShadowLayerColorLong(ctx context.Context, in *GetShadowLayerColorLongRequest, opts ...grpc.CallOption) (*GetShadowLayerColorLongResponse, error)
+	GetShadowLayerDx(ctx context.Context, in *GetShadowLayerDxRequest, opts ...grpc.CallOption) (*GetShadowLayerDxResponse, error)
+	GetShadowLayerDy(ctx context.Context, in *GetShadowLayerDyRequest, opts ...grpc.CallOption) (*GetShadowLayerDyResponse, error)
+	GetShadowLayerRadius(ctx context.Context, in *GetShadowLayerRadiusRequest, opts ...grpc.CallOption) (*GetShadowLayerRadiusResponse, error)
+	GetStartHyphenEdit(ctx context.Context, in *GetStartHyphenEditRequest, opts ...grpc.CallOption) (*GetStartHyphenEditResponse, error)
+	GetStrikeThruPosition(ctx context.Context, in *GetStrikeThruPositionRequest, opts ...grpc.CallOption) (*GetStrikeThruPositionResponse, error)
+	GetStrikeThruThickness(ctx context.Context, in *GetStrikeThruThicknessRequest, opts ...grpc.CallOption) (*GetStrikeThruThicknessResponse, error)
+	GetStrokeCap(ctx context.Context, in *GetStrokeCapRequest, opts ...grpc.CallOption) (*GetStrokeCapResponse, error)
+	GetStrokeJoin(ctx context.Context, in *GetStrokeJoinRequest, opts ...grpc.CallOption) (*GetStrokeJoinResponse, error)
+	GetStrokeMiter(ctx context.Context, in *GetStrokeMiterRequest, opts ...grpc.CallOption) (*GetStrokeMiterResponse, error)
+	GetStrokeWidth(ctx context.Context, in *GetStrokeWidthRequest, opts ...grpc.CallOption) (*GetStrokeWidthResponse, error)
+	GetStyle(ctx context.Context, in *PaintGetStyleRequest, opts ...grpc.CallOption) (*PaintGetStyleResponse, error)
+	GetTextAlign(ctx context.Context, in *GetTextAlignRequest, opts ...grpc.CallOption) (*GetTextAlignResponse, error)
+	GetTextBounds4(ctx context.Context, in *GetTextBounds4Request, opts ...grpc.CallOption) (*GetTextBounds4Response, error)
+	GetTextBounds4_1(ctx context.Context, in *GetTextBounds4_1Request, opts ...grpc.CallOption) (*GetTextBounds4_1Response, error)
+	GetTextBounds4_2(ctx context.Context, in *GetTextBounds4_2Request, opts ...grpc.CallOption) (*GetTextBounds4_2Response, error)
+	GetTextLocale(ctx context.Context, in *GetTextLocaleRequest, opts ...grpc.CallOption) (*GetTextLocaleResponse, error)
+	GetTextLocales(ctx context.Context, in *GetTextLocalesRequest, opts ...grpc.CallOption) (*GetTextLocalesResponse, error)
+	GetTextPath6(ctx context.Context, in *GetTextPath6Request, opts ...grpc.CallOption) (*GetTextPath6Response, error)
+	GetTextPath6_1(ctx context.Context, in *GetTextPath6_1Request, opts ...grpc.CallOption) (*GetTextPath6_1Response, error)
+	GetTextRunAdvances(ctx context.Context, in *GetTextRunAdvancesRequest, opts ...grpc.CallOption) (*GetTextRunAdvancesResponse, error)
+	GetTextRunCursor6(ctx context.Context, in *GetTextRunCursor6Request, opts ...grpc.CallOption) (*GetTextRunCursor6Response, error)
+	GetTextRunCursor6_1(ctx context.Context, in *GetTextRunCursor6_1Request, opts ...grpc.CallOption) (*GetTextRunCursor6_1Response, error)
+	GetTextScaleX(ctx context.Context, in *GetTextScaleXRequest, opts ...grpc.CallOption) (*GetTextScaleXResponse, error)
+	GetTextSize(ctx context.Context, in *GetTextSizeRequest, opts ...grpc.CallOption) (*GetTextSizeResponse, error)
+	GetTextSkewX(ctx context.Context, in *GetTextSkewXRequest, opts ...grpc.CallOption) (*GetTextSkewXResponse, error)
+	GetTextWidths4(ctx context.Context, in *GetTextWidths4Request, opts ...grpc.CallOption) (*GetTextWidths4Response, error)
+	GetTextWidths4_1(ctx context.Context, in *GetTextWidths4_1Request, opts ...grpc.CallOption) (*GetTextWidths4_1Response, error)
+	GetTextWidths2_2(ctx context.Context, in *GetTextWidths2_2Request, opts ...grpc.CallOption) (*GetTextWidths2_2Response, error)
+	GetTextWidths4_3(ctx context.Context, in *GetTextWidths4_3Request, opts ...grpc.CallOption) (*GetTextWidths4_3Response, error)
+	GetTypeface(ctx context.Context, in *GetTypefaceRequest, opts ...grpc.CallOption) (*GetTypefaceResponse, error)
+	GetUnderlinePosition(ctx context.Context, in *GetUnderlinePositionRequest, opts ...grpc.CallOption) (*GetUnderlinePositionResponse, error)
+	GetUnderlineThickness(ctx context.Context, in *GetUnderlineThicknessRequest, opts ...grpc.CallOption) (*GetUnderlineThicknessResponse, error)
+	GetWordSpacing(ctx context.Context, in *GetWordSpacingRequest, opts ...grpc.CallOption) (*GetWordSpacingResponse, error)
+	GetXfermode(ctx context.Context, in *GetXfermodeRequest, opts ...grpc.CallOption) (*GetXfermodeResponse, error)
+	HasGlyph(ctx context.Context, in *HasGlyphRequest, opts ...grpc.CallOption) (*HasGlyphResponse, error)
+	IsAntiAlias(ctx context.Context, in *IsAntiAliasRequest, opts ...grpc.CallOption) (*IsAntiAliasResponse, error)
+	IsDither(ctx context.Context, in *IsDitherRequest, opts ...grpc.CallOption) (*IsDitherResponse, error)
+	IsElegantTextHeight(ctx context.Context, in *IsElegantTextHeightRequest, opts ...grpc.CallOption) (*IsElegantTextHeightResponse, error)
+	IsFakeBoldText(ctx context.Context, in *IsFakeBoldTextRequest, opts ...grpc.CallOption) (*IsFakeBoldTextResponse, error)
+	IsFilterBitmap(ctx context.Context, in *IsFilterBitmapRequest, opts ...grpc.CallOption) (*IsFilterBitmapResponse, error)
+	IsLinearText(ctx context.Context, in *IsLinearTextRequest, opts ...grpc.CallOption) (*IsLinearTextResponse, error)
+	IsStrikeThruText(ctx context.Context, in *IsStrikeThruTextRequest, opts ...grpc.CallOption) (*IsStrikeThruTextResponse, error)
+	IsSubpixelText(ctx context.Context, in *IsSubpixelTextRequest, opts ...grpc.CallOption) (*IsSubpixelTextResponse, error)
+	IsUnderlineText(ctx context.Context, in *IsUnderlineTextRequest, opts ...grpc.CallOption) (*IsUnderlineTextResponse, error)
+	MeasureText3(ctx context.Context, in *MeasureText3Request, opts ...grpc.CallOption) (*MeasureText3Response, error)
+	MeasureText3_1(ctx context.Context, in *MeasureText3_1Request, opts ...grpc.CallOption) (*MeasureText3_1Response, error)
+	MeasureText1_2(ctx context.Context, in *MeasureText1_2Request, opts ...grpc.CallOption) (*MeasureText1_2Response, error)
+	MeasureText3_3(ctx context.Context, in *MeasureText3_3Request, opts ...grpc.CallOption) (*MeasureText3_3Response, error)
+	Reset(ctx context.Context, in *ResetRequest, opts ...grpc.CallOption) (*ResetResponse, error)
+	Set(ctx context.Context, in *SetRequest, opts ...grpc.CallOption) (*SetResponse, error)
+	SetARGB(ctx context.Context, in *SetARGBRequest, opts ...grpc.CallOption) (*SetARGBResponse, error)
+	SetAlpha(ctx context.Context, in *SetAlphaRequest, opts ...grpc.CallOption) (*SetAlphaResponse, error)
+	SetAntiAlias(ctx context.Context, in *SetAntiAliasRequest, opts ...grpc.CallOption) (*SetAntiAliasResponse, error)
+	SetBlendMode(ctx context.Context, in *SetBlendModeRequest, opts ...grpc.CallOption) (*SetBlendModeResponse, error)
+	SetColor1(ctx context.Context, in *SetColor1Request, opts ...grpc.CallOption) (*SetColor1Response, error)
+	SetColor1_1(ctx context.Context, in *SetColor1_1Request, opts ...grpc.CallOption) (*SetColor1_1Response, error)
+	SetColorFilter(ctx context.Context, in *SetColorFilterRequest, opts ...grpc.CallOption) (*SetColorFilterResponse, error)
+	SetDither(ctx context.Context, in *SetDitherRequest, opts ...grpc.CallOption) (*SetDitherResponse, error)
+	SetElegantTextHeight(ctx context.Context, in *SetElegantTextHeightRequest, opts ...grpc.CallOption) (*SetElegantTextHeightResponse, error)
+	SetEndHyphenEdit(ctx context.Context, in *SetEndHyphenEditRequest, opts ...grpc.CallOption) (*SetEndHyphenEditResponse, error)
+	SetFakeBoldText(ctx context.Context, in *SetFakeBoldTextRequest, opts ...grpc.CallOption) (*SetFakeBoldTextResponse, error)
+	SetFilterBitmap(ctx context.Context, in *SetFilterBitmapRequest, opts ...grpc.CallOption) (*SetFilterBitmapResponse, error)
+	SetFlags(ctx context.Context, in *SetFlagsRequest, opts ...grpc.CallOption) (*SetFlagsResponse, error)
+	SetFontFeatureSettings(ctx context.Context, in *SetFontFeatureSettingsRequest, opts ...grpc.CallOption) (*SetFontFeatureSettingsResponse, error)
+	SetFontVariationSettings(ctx context.Context, in *SetFontVariationSettingsRequest, opts ...grpc.CallOption) (*SetFontVariationSettingsResponse, error)
+	SetHinting(ctx context.Context, in *SetHintingRequest, opts ...grpc.CallOption) (*SetHintingResponse, error)
+	SetLetterSpacing(ctx context.Context, in *SetLetterSpacingRequest, opts ...grpc.CallOption) (*SetLetterSpacingResponse, error)
+	SetLinearText(ctx context.Context, in *SetLinearTextRequest, opts ...grpc.CallOption) (*SetLinearTextResponse, error)
+	SetMaskFilter(ctx context.Context, in *SetMaskFilterRequest, opts ...grpc.CallOption) (*SetMaskFilterResponse, error)
+	SetPathEffect(ctx context.Context, in *SetPathEffectRequest, opts ...grpc.CallOption) (*SetPathEffectResponse, error)
+	SetShader(ctx context.Context, in *SetShaderRequest, opts ...grpc.CallOption) (*SetShaderResponse, error)
+	SetShadowLayer4(ctx context.Context, in *SetShadowLayer4Request, opts ...grpc.CallOption) (*SetShadowLayer4Response, error)
+	SetShadowLayer4_1(ctx context.Context, in *SetShadowLayer4_1Request, opts ...grpc.CallOption) (*SetShadowLayer4_1Response, error)
+	SetStartHyphenEdit(ctx context.Context, in *SetStartHyphenEditRequest, opts ...grpc.CallOption) (*SetStartHyphenEditResponse, error)
+	SetStrikeThruText(ctx context.Context, in *SetStrikeThruTextRequest, opts ...grpc.CallOption) (*SetStrikeThruTextResponse, error)
+	SetStrokeCap(ctx context.Context, in *SetStrokeCapRequest, opts ...grpc.CallOption) (*SetStrokeCapResponse, error)
+	SetStrokeJoin(ctx context.Context, in *SetStrokeJoinRequest, opts ...grpc.CallOption) (*SetStrokeJoinResponse, error)
+	SetStrokeMiter(ctx context.Context, in *SetStrokeMiterRequest, opts ...grpc.CallOption) (*SetStrokeMiterResponse, error)
+	SetStrokeWidth(ctx context.Context, in *SetStrokeWidthRequest, opts ...grpc.CallOption) (*SetStrokeWidthResponse, error)
+	SetStyle(ctx context.Context, in *PaintSetStyleRequest, opts ...grpc.CallOption) (*PaintSetStyleResponse, error)
+	SetSubpixelText(ctx context.Context, in *SetSubpixelTextRequest, opts ...grpc.CallOption) (*SetSubpixelTextResponse, error)
+	SetTextAlign(ctx context.Context, in *SetTextAlignRequest, opts ...grpc.CallOption) (*SetTextAlignResponse, error)
+	SetTextLocale(ctx context.Context, in *SetTextLocaleRequest, opts ...grpc.CallOption) (*SetTextLocaleResponse, error)
+	SetTextLocales(ctx context.Context, in *SetTextLocalesRequest, opts ...grpc.CallOption) (*SetTextLocalesResponse, error)
+	SetTextScaleX(ctx context.Context, in *SetTextScaleXRequest, opts ...grpc.CallOption) (*SetTextScaleXResponse, error)
+	SetTextSize(ctx context.Context, in *SetTextSizeRequest, opts ...grpc.CallOption) (*SetTextSizeResponse, error)
+	SetTextSkewX(ctx context.Context, in *SetTextSkewXRequest, opts ...grpc.CallOption) (*SetTextSkewXResponse, error)
+	SetTypeface(ctx context.Context, in *SetTypefaceRequest, opts ...grpc.CallOption) (*SetTypefaceResponse, error)
+	SetUnderlineText(ctx context.Context, in *SetUnderlineTextRequest, opts ...grpc.CallOption) (*SetUnderlineTextResponse, error)
+	SetWordSpacing(ctx context.Context, in *SetWordSpacingRequest, opts ...grpc.CallOption) (*SetWordSpacingResponse, error)
+	SetXfermode(ctx context.Context, in *SetXfermodeRequest, opts ...grpc.CallOption) (*SetXfermodeResponse, error)
+}
+
+type paintServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewPaintServiceClient(cc grpc.ClientConnInterface) PaintServiceClient {
+	return &paintServiceClient{cc}
+}
+
+func (c *paintServiceClient) NewPaint(ctx context.Context, in *NewPaintRequest, opts ...grpc.CallOption) (*NewPaintResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewPaintResponse)
+	err := c.cc.Invoke(ctx, PaintService_NewPaint_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *paintServiceClient) Ascent(ctx context.Context, in *AscentRequest, opts ...grpc.CallOption) (*AscentResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(AscentResponse)
+	err := c.cc.Invoke(ctx, PaintService_Ascent_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *paintServiceClient) BreakText5(ctx context.Context, in *BreakText5Request, opts ...grpc.CallOption) (*BreakText5Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(BreakText5Response)
+	err := c.cc.Invoke(ctx, PaintService_BreakText5_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *paintServiceClient) BreakText6_1(ctx context.Context, in *BreakText6_1Request, opts ...grpc.CallOption) (*BreakText6_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(BreakText6_1Response)
+	err := c.cc.Invoke(ctx, PaintService_BreakText6_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *paintServiceClient) BreakText4_2(ctx context.Context, in *BreakText4_2Request, opts ...grpc.CallOption) (*BreakText4_2Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(BreakText4_2Response)
+	err := c.cc.Invoke(ctx, PaintService_BreakText4_2_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *paintServiceClient) ClearShadowLayer(ctx context.Context, in *ClearShadowLayerRequest, opts ...grpc.CallOption) (*ClearShadowLayerResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ClearShadowLayerResponse)
+	err := c.cc.Invoke(ctx, PaintService_ClearShadowLayer_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *paintServiceClient) Descent(ctx context.Context, in *DescentRequest, opts ...grpc.CallOption) (*DescentResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescentResponse)
+	err := c.cc.Invoke(ctx, PaintService_Descent_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *paintServiceClient) EqualsForTextMeasurement(ctx context.Context, in *EqualsForTextMeasurementRequest, opts ...grpc.CallOption) (*EqualsForTextMeasurementResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(EqualsForTextMeasurementResponse)
+	err := c.cc.Invoke(ctx, PaintService_EqualsForTextMeasurement_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *paintServiceClient) GetAlpha(ctx context.Context, in *GetAlphaRequest, opts ...grpc.CallOption) (*GetAlphaResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetAlphaResponse)
+	err := c.cc.Invoke(ctx, PaintService_GetAlpha_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *paintServiceClient) GetBlendMode(ctx context.Context, in *GetBlendModeRequest, opts ...grpc.CallOption) (*GetBlendModeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetBlendModeResponse)
+	err := c.cc.Invoke(ctx, PaintService_GetBlendMode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *paintServiceClient) GetColor(ctx context.Context, in *PaintGetColorRequest, opts ...grpc.CallOption) (*PaintGetColorResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(PaintGetColorResponse)
+	err := c.cc.Invoke(ctx, PaintService_GetColor_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *paintServiceClient) GetColorFilter(ctx context.Context, in *GetColorFilterRequest, opts ...grpc.CallOption) (*GetColorFilterResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetColorFilterResponse)
+	err := c.cc.Invoke(ctx, PaintService_GetColorFilter_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *paintServiceClient) GetColorLong(ctx context.Context, in *GetColorLongRequest, opts ...grpc.CallOption) (*GetColorLongResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetColorLongResponse)
+	err := c.cc.Invoke(ctx, PaintService_GetColorLong_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *paintServiceClient) GetEndHyphenEdit(ctx context.Context, in *GetEndHyphenEditRequest, opts ...grpc.CallOption) (*GetEndHyphenEditResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetEndHyphenEditResponse)
+	err := c.cc.Invoke(ctx, PaintService_GetEndHyphenEdit_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *paintServiceClient) GetFillPath(ctx context.Context, in *GetFillPathRequest, opts ...grpc.CallOption) (*GetFillPathResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetFillPathResponse)
+	err := c.cc.Invoke(ctx, PaintService_GetFillPath_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *paintServiceClient) GetFlags(ctx context.Context, in *GetFlagsRequest, opts ...grpc.CallOption) (*GetFlagsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetFlagsResponse)
+	err := c.cc.Invoke(ctx, PaintService_GetFlags_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *paintServiceClient) GetFontFeatureSettings(ctx context.Context, in *GetFontFeatureSettingsRequest, opts ...grpc.CallOption) (*GetFontFeatureSettingsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetFontFeatureSettingsResponse)
+	err := c.cc.Invoke(ctx, PaintService_GetFontFeatureSettings_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *paintServiceClient) GetFontMetrics0(ctx context.Context, in *GetFontMetrics0Request, opts ...grpc.CallOption) (*GetFontMetrics0Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetFontMetrics0Response)
+	err := c.cc.Invoke(ctx, PaintService_GetFontMetrics0_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *paintServiceClient) GetFontMetrics1_1(ctx context.Context, in *GetFontMetrics1_1Request, opts ...grpc.CallOption) (*GetFontMetrics1_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetFontMetrics1_1Response)
+	err := c.cc.Invoke(ctx, PaintService_GetFontMetrics1_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *paintServiceClient) GetFontMetricsForLocale(ctx context.Context, in *GetFontMetricsForLocaleRequest, opts ...grpc.CallOption) (*GetFontMetricsForLocaleResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetFontMetricsForLocaleResponse)
+	err := c.cc.Invoke(ctx, PaintService_GetFontMetricsForLocale_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *paintServiceClient) GetFontMetricsInt0(ctx context.Context, in *GetFontMetricsInt0Request, opts ...grpc.CallOption) (*GetFontMetricsInt0Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetFontMetricsInt0Response)
+	err := c.cc.Invoke(ctx, PaintService_GetFontMetricsInt0_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *paintServiceClient) GetFontMetricsInt1_1(ctx context.Context, in *GetFontMetricsInt1_1Request, opts ...grpc.CallOption) (*GetFontMetricsInt1_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetFontMetricsInt1_1Response)
+	err := c.cc.Invoke(ctx, PaintService_GetFontMetricsInt1_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *paintServiceClient) GetFontMetricsInt7_2(ctx context.Context, in *GetFontMetricsInt7_2Request, opts ...grpc.CallOption) (*GetFontMetricsInt7_2Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetFontMetricsInt7_2Response)
+	err := c.cc.Invoke(ctx, PaintService_GetFontMetricsInt7_2_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *paintServiceClient) GetFontMetricsInt7_3(ctx context.Context, in *GetFontMetricsInt7_3Request, opts ...grpc.CallOption) (*GetFontMetricsInt7_3Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetFontMetricsInt7_3Response)
+	err := c.cc.Invoke(ctx, PaintService_GetFontMetricsInt7_3_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *paintServiceClient) GetFontMetricsIntForLocale(ctx context.Context, in *GetFontMetricsIntForLocaleRequest, opts ...grpc.CallOption) (*GetFontMetricsIntForLocaleResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetFontMetricsIntForLocaleResponse)
+	err := c.cc.Invoke(ctx, PaintService_GetFontMetricsIntForLocale_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *paintServiceClient) GetFontSpacing(ctx context.Context, in *GetFontSpacingRequest, opts ...grpc.CallOption) (*GetFontSpacingResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetFontSpacingResponse)
+	err := c.cc.Invoke(ctx, PaintService_GetFontSpacing_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *paintServiceClient) GetFontVariationSettings(ctx context.Context, in *GetFontVariationSettingsRequest, opts ...grpc.CallOption) (*GetFontVariationSettingsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetFontVariationSettingsResponse)
+	err := c.cc.Invoke(ctx, PaintService_GetFontVariationSettings_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *paintServiceClient) GetHinting(ctx context.Context, in *GetHintingRequest, opts ...grpc.CallOption) (*GetHintingResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetHintingResponse)
+	err := c.cc.Invoke(ctx, PaintService_GetHinting_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *paintServiceClient) GetLetterSpacing(ctx context.Context, in *GetLetterSpacingRequest, opts ...grpc.CallOption) (*GetLetterSpacingResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetLetterSpacingResponse)
+	err := c.cc.Invoke(ctx, PaintService_GetLetterSpacing_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *paintServiceClient) GetMaskFilter(ctx context.Context, in *GetMaskFilterRequest, opts ...grpc.CallOption) (*GetMaskFilterResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetMaskFilterResponse)
+	err := c.cc.Invoke(ctx, PaintService_GetMaskFilter_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *paintServiceClient) GetOffsetForAdvance7(ctx context.Context, in *GetOffsetForAdvance7Request, opts ...grpc.CallOption) (*GetOffsetForAdvance7Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetOffsetForAdvance7Response)
+	err := c.cc.Invoke(ctx, PaintService_GetOffsetForAdvance7_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *paintServiceClient) GetOffsetForAdvance7_1(ctx context.Context, in *GetOffsetForAdvance7_1Request, opts ...grpc.CallOption) (*GetOffsetForAdvance7_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetOffsetForAdvance7_1Response)
+	err := c.cc.Invoke(ctx, PaintService_GetOffsetForAdvance7_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *paintServiceClient) GetPathEffect(ctx context.Context, in *GetPathEffectRequest, opts ...grpc.CallOption) (*GetPathEffectResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetPathEffectResponse)
+	err := c.cc.Invoke(ctx, PaintService_GetPathEffect_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *paintServiceClient) GetRunAdvance7(ctx context.Context, in *GetRunAdvance7Request, opts ...grpc.CallOption) (*GetRunAdvance7Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetRunAdvance7Response)
+	err := c.cc.Invoke(ctx, PaintService_GetRunAdvance7_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *paintServiceClient) GetRunAdvance7_1(ctx context.Context, in *GetRunAdvance7_1Request, opts ...grpc.CallOption) (*GetRunAdvance7_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetRunAdvance7_1Response)
+	err := c.cc.Invoke(ctx, PaintService_GetRunAdvance7_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *paintServiceClient) GetRunCharacterAdvance9(ctx context.Context, in *GetRunCharacterAdvance9Request, opts ...grpc.CallOption) (*GetRunCharacterAdvance9Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetRunCharacterAdvance9Response)
+	err := c.cc.Invoke(ctx, PaintService_GetRunCharacterAdvance9_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *paintServiceClient) GetRunCharacterAdvance9_1(ctx context.Context, in *GetRunCharacterAdvance9_1Request, opts ...grpc.CallOption) (*GetRunCharacterAdvance9_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetRunCharacterAdvance9_1Response)
+	err := c.cc.Invoke(ctx, PaintService_GetRunCharacterAdvance9_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *paintServiceClient) GetShader(ctx context.Context, in *GetShaderRequest, opts ...grpc.CallOption) (*GetShaderResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetShaderResponse)
+	err := c.cc.Invoke(ctx, PaintService_GetShader_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *paintServiceClient) GetShadowLayerColor(ctx context.Context, in *GetShadowLayerColorRequest, opts ...grpc.CallOption) (*GetShadowLayerColorResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetShadowLayerColorResponse)
+	err := c.cc.Invoke(ctx, PaintService_GetShadowLayerColor_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *paintServiceClient) GetShadowLayerColorLong(ctx context.Context, in *GetShadowLayerColorLongRequest, opts ...grpc.CallOption) (*GetShadowLayerColorLongResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetShadowLayerColorLongResponse)
+	err := c.cc.Invoke(ctx, PaintService_GetShadowLayerColorLong_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *paintServiceClient) GetShadowLayerDx(ctx context.Context, in *GetShadowLayerDxRequest, opts ...grpc.CallOption) (*GetShadowLayerDxResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetShadowLayerDxResponse)
+	err := c.cc.Invoke(ctx, PaintService_GetShadowLayerDx_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *paintServiceClient) GetShadowLayerDy(ctx context.Context, in *GetShadowLayerDyRequest, opts ...grpc.CallOption) (*GetShadowLayerDyResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetShadowLayerDyResponse)
+	err := c.cc.Invoke(ctx, PaintService_GetShadowLayerDy_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *paintServiceClient) GetShadowLayerRadius(ctx context.Context, in *GetShadowLayerRadiusRequest, opts ...grpc.CallOption) (*GetShadowLayerRadiusResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetShadowLayerRadiusResponse)
+	err := c.cc.Invoke(ctx, PaintService_GetShadowLayerRadius_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *paintServiceClient) GetStartHyphenEdit(ctx context.Context, in *GetStartHyphenEditRequest, opts ...grpc.CallOption) (*GetStartHyphenEditResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetStartHyphenEditResponse)
+	err := c.cc.Invoke(ctx, PaintService_GetStartHyphenEdit_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *paintServiceClient) GetStrikeThruPosition(ctx context.Context, in *GetStrikeThruPositionRequest, opts ...grpc.CallOption) (*GetStrikeThruPositionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetStrikeThruPositionResponse)
+	err := c.cc.Invoke(ctx, PaintService_GetStrikeThruPosition_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *paintServiceClient) GetStrikeThruThickness(ctx context.Context, in *GetStrikeThruThicknessRequest, opts ...grpc.CallOption) (*GetStrikeThruThicknessResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetStrikeThruThicknessResponse)
+	err := c.cc.Invoke(ctx, PaintService_GetStrikeThruThickness_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *paintServiceClient) GetStrokeCap(ctx context.Context, in *GetStrokeCapRequest, opts ...grpc.CallOption) (*GetStrokeCapResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetStrokeCapResponse)
+	err := c.cc.Invoke(ctx, PaintService_GetStrokeCap_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *paintServiceClient) GetStrokeJoin(ctx context.Context, in *GetStrokeJoinRequest, opts ...grpc.CallOption) (*GetStrokeJoinResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetStrokeJoinResponse)
+	err := c.cc.Invoke(ctx, PaintService_GetStrokeJoin_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *paintServiceClient) GetStrokeMiter(ctx context.Context, in *GetStrokeMiterRequest, opts ...grpc.CallOption) (*GetStrokeMiterResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetStrokeMiterResponse)
+	err := c.cc.Invoke(ctx, PaintService_GetStrokeMiter_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *paintServiceClient) GetStrokeWidth(ctx context.Context, in *GetStrokeWidthRequest, opts ...grpc.CallOption) (*GetStrokeWidthResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetStrokeWidthResponse)
+	err := c.cc.Invoke(ctx, PaintService_GetStrokeWidth_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *paintServiceClient) GetStyle(ctx context.Context, in *PaintGetStyleRequest, opts ...grpc.CallOption) (*PaintGetStyleResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(PaintGetStyleResponse)
+	err := c.cc.Invoke(ctx, PaintService_GetStyle_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *paintServiceClient) GetTextAlign(ctx context.Context, in *GetTextAlignRequest, opts ...grpc.CallOption) (*GetTextAlignResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTextAlignResponse)
+	err := c.cc.Invoke(ctx, PaintService_GetTextAlign_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *paintServiceClient) GetTextBounds4(ctx context.Context, in *GetTextBounds4Request, opts ...grpc.CallOption) (*GetTextBounds4Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTextBounds4Response)
+	err := c.cc.Invoke(ctx, PaintService_GetTextBounds4_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *paintServiceClient) GetTextBounds4_1(ctx context.Context, in *GetTextBounds4_1Request, opts ...grpc.CallOption) (*GetTextBounds4_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTextBounds4_1Response)
+	err := c.cc.Invoke(ctx, PaintService_GetTextBounds4_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *paintServiceClient) GetTextBounds4_2(ctx context.Context, in *GetTextBounds4_2Request, opts ...grpc.CallOption) (*GetTextBounds4_2Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTextBounds4_2Response)
+	err := c.cc.Invoke(ctx, PaintService_GetTextBounds4_2_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *paintServiceClient) GetTextLocale(ctx context.Context, in *GetTextLocaleRequest, opts ...grpc.CallOption) (*GetTextLocaleResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTextLocaleResponse)
+	err := c.cc.Invoke(ctx, PaintService_GetTextLocale_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *paintServiceClient) GetTextLocales(ctx context.Context, in *GetTextLocalesRequest, opts ...grpc.CallOption) (*GetTextLocalesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTextLocalesResponse)
+	err := c.cc.Invoke(ctx, PaintService_GetTextLocales_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *paintServiceClient) GetTextPath6(ctx context.Context, in *GetTextPath6Request, opts ...grpc.CallOption) (*GetTextPath6Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTextPath6Response)
+	err := c.cc.Invoke(ctx, PaintService_GetTextPath6_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *paintServiceClient) GetTextPath6_1(ctx context.Context, in *GetTextPath6_1Request, opts ...grpc.CallOption) (*GetTextPath6_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTextPath6_1Response)
+	err := c.cc.Invoke(ctx, PaintService_GetTextPath6_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *paintServiceClient) GetTextRunAdvances(ctx context.Context, in *GetTextRunAdvancesRequest, opts ...grpc.CallOption) (*GetTextRunAdvancesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTextRunAdvancesResponse)
+	err := c.cc.Invoke(ctx, PaintService_GetTextRunAdvances_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *paintServiceClient) GetTextRunCursor6(ctx context.Context, in *GetTextRunCursor6Request, opts ...grpc.CallOption) (*GetTextRunCursor6Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTextRunCursor6Response)
+	err := c.cc.Invoke(ctx, PaintService_GetTextRunCursor6_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *paintServiceClient) GetTextRunCursor6_1(ctx context.Context, in *GetTextRunCursor6_1Request, opts ...grpc.CallOption) (*GetTextRunCursor6_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTextRunCursor6_1Response)
+	err := c.cc.Invoke(ctx, PaintService_GetTextRunCursor6_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *paintServiceClient) GetTextScaleX(ctx context.Context, in *GetTextScaleXRequest, opts ...grpc.CallOption) (*GetTextScaleXResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTextScaleXResponse)
+	err := c.cc.Invoke(ctx, PaintService_GetTextScaleX_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *paintServiceClient) GetTextSize(ctx context.Context, in *GetTextSizeRequest, opts ...grpc.CallOption) (*GetTextSizeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTextSizeResponse)
+	err := c.cc.Invoke(ctx, PaintService_GetTextSize_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *paintServiceClient) GetTextSkewX(ctx context.Context, in *GetTextSkewXRequest, opts ...grpc.CallOption) (*GetTextSkewXResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTextSkewXResponse)
+	err := c.cc.Invoke(ctx, PaintService_GetTextSkewX_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *paintServiceClient) GetTextWidths4(ctx context.Context, in *GetTextWidths4Request, opts ...grpc.CallOption) (*GetTextWidths4Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTextWidths4Response)
+	err := c.cc.Invoke(ctx, PaintService_GetTextWidths4_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *paintServiceClient) GetTextWidths4_1(ctx context.Context, in *GetTextWidths4_1Request, opts ...grpc.CallOption) (*GetTextWidths4_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTextWidths4_1Response)
+	err := c.cc.Invoke(ctx, PaintService_GetTextWidths4_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *paintServiceClient) GetTextWidths2_2(ctx context.Context, in *GetTextWidths2_2Request, opts ...grpc.CallOption) (*GetTextWidths2_2Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTextWidths2_2Response)
+	err := c.cc.Invoke(ctx, PaintService_GetTextWidths2_2_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *paintServiceClient) GetTextWidths4_3(ctx context.Context, in *GetTextWidths4_3Request, opts ...grpc.CallOption) (*GetTextWidths4_3Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTextWidths4_3Response)
+	err := c.cc.Invoke(ctx, PaintService_GetTextWidths4_3_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *paintServiceClient) GetTypeface(ctx context.Context, in *GetTypefaceRequest, opts ...grpc.CallOption) (*GetTypefaceResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTypefaceResponse)
+	err := c.cc.Invoke(ctx, PaintService_GetTypeface_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *paintServiceClient) GetUnderlinePosition(ctx context.Context, in *GetUnderlinePositionRequest, opts ...grpc.CallOption) (*GetUnderlinePositionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetUnderlinePositionResponse)
+	err := c.cc.Invoke(ctx, PaintService_GetUnderlinePosition_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *paintServiceClient) GetUnderlineThickness(ctx context.Context, in *GetUnderlineThicknessRequest, opts ...grpc.CallOption) (*GetUnderlineThicknessResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetUnderlineThicknessResponse)
+	err := c.cc.Invoke(ctx, PaintService_GetUnderlineThickness_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *paintServiceClient) GetWordSpacing(ctx context.Context, in *GetWordSpacingRequest, opts ...grpc.CallOption) (*GetWordSpacingResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetWordSpacingResponse)
+	err := c.cc.Invoke(ctx, PaintService_GetWordSpacing_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *paintServiceClient) GetXfermode(ctx context.Context, in *GetXfermodeRequest, opts ...grpc.CallOption) (*GetXfermodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetXfermodeResponse)
+	err := c.cc.Invoke(ctx, PaintService_GetXfermode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *paintServiceClient) HasGlyph(ctx context.Context, in *HasGlyphRequest, opts ...grpc.CallOption) (*HasGlyphResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HasGlyphResponse)
+	err := c.cc.Invoke(ctx, PaintService_HasGlyph_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *paintServiceClient) IsAntiAlias(ctx context.Context, in *IsAntiAliasRequest, opts ...grpc.CallOption) (*IsAntiAliasResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsAntiAliasResponse)
+	err := c.cc.Invoke(ctx, PaintService_IsAntiAlias_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *paintServiceClient) IsDither(ctx context.Context, in *IsDitherRequest, opts ...grpc.CallOption) (*IsDitherResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsDitherResponse)
+	err := c.cc.Invoke(ctx, PaintService_IsDither_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *paintServiceClient) IsElegantTextHeight(ctx context.Context, in *IsElegantTextHeightRequest, opts ...grpc.CallOption) (*IsElegantTextHeightResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsElegantTextHeightResponse)
+	err := c.cc.Invoke(ctx, PaintService_IsElegantTextHeight_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *paintServiceClient) IsFakeBoldText(ctx context.Context, in *IsFakeBoldTextRequest, opts ...grpc.CallOption) (*IsFakeBoldTextResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsFakeBoldTextResponse)
+	err := c.cc.Invoke(ctx, PaintService_IsFakeBoldText_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *paintServiceClient) IsFilterBitmap(ctx context.Context, in *IsFilterBitmapRequest, opts ...grpc.CallOption) (*IsFilterBitmapResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsFilterBitmapResponse)
+	err := c.cc.Invoke(ctx, PaintService_IsFilterBitmap_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *paintServiceClient) IsLinearText(ctx context.Context, in *IsLinearTextRequest, opts ...grpc.CallOption) (*IsLinearTextResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsLinearTextResponse)
+	err := c.cc.Invoke(ctx, PaintService_IsLinearText_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *paintServiceClient) IsStrikeThruText(ctx context.Context, in *IsStrikeThruTextRequest, opts ...grpc.CallOption) (*IsStrikeThruTextResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsStrikeThruTextResponse)
+	err := c.cc.Invoke(ctx, PaintService_IsStrikeThruText_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *paintServiceClient) IsSubpixelText(ctx context.Context, in *IsSubpixelTextRequest, opts ...grpc.CallOption) (*IsSubpixelTextResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsSubpixelTextResponse)
+	err := c.cc.Invoke(ctx, PaintService_IsSubpixelText_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *paintServiceClient) IsUnderlineText(ctx context.Context, in *IsUnderlineTextRequest, opts ...grpc.CallOption) (*IsUnderlineTextResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsUnderlineTextResponse)
+	err := c.cc.Invoke(ctx, PaintService_IsUnderlineText_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *paintServiceClient) MeasureText3(ctx context.Context, in *MeasureText3Request, opts ...grpc.CallOption) (*MeasureText3Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(MeasureText3Response)
+	err := c.cc.Invoke(ctx, PaintService_MeasureText3_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *paintServiceClient) MeasureText3_1(ctx context.Context, in *MeasureText3_1Request, opts ...grpc.CallOption) (*MeasureText3_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(MeasureText3_1Response)
+	err := c.cc.Invoke(ctx, PaintService_MeasureText3_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *paintServiceClient) MeasureText1_2(ctx context.Context, in *MeasureText1_2Request, opts ...grpc.CallOption) (*MeasureText1_2Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(MeasureText1_2Response)
+	err := c.cc.Invoke(ctx, PaintService_MeasureText1_2_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *paintServiceClient) MeasureText3_3(ctx context.Context, in *MeasureText3_3Request, opts ...grpc.CallOption) (*MeasureText3_3Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(MeasureText3_3Response)
+	err := c.cc.Invoke(ctx, PaintService_MeasureText3_3_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *paintServiceClient) Reset(ctx context.Context, in *ResetRequest, opts ...grpc.CallOption) (*ResetResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ResetResponse)
+	err := c.cc.Invoke(ctx, PaintService_Reset_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *paintServiceClient) Set(ctx context.Context, in *SetRequest, opts ...grpc.CallOption) (*SetResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetResponse)
+	err := c.cc.Invoke(ctx, PaintService_Set_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *paintServiceClient) SetARGB(ctx context.Context, in *SetARGBRequest, opts ...grpc.CallOption) (*SetARGBResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetARGBResponse)
+	err := c.cc.Invoke(ctx, PaintService_SetARGB_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *paintServiceClient) SetAlpha(ctx context.Context, in *SetAlphaRequest, opts ...grpc.CallOption) (*SetAlphaResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetAlphaResponse)
+	err := c.cc.Invoke(ctx, PaintService_SetAlpha_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *paintServiceClient) SetAntiAlias(ctx context.Context, in *SetAntiAliasRequest, opts ...grpc.CallOption) (*SetAntiAliasResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetAntiAliasResponse)
+	err := c.cc.Invoke(ctx, PaintService_SetAntiAlias_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *paintServiceClient) SetBlendMode(ctx context.Context, in *SetBlendModeRequest, opts ...grpc.CallOption) (*SetBlendModeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetBlendModeResponse)
+	err := c.cc.Invoke(ctx, PaintService_SetBlendMode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *paintServiceClient) SetColor1(ctx context.Context, in *SetColor1Request, opts ...grpc.CallOption) (*SetColor1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetColor1Response)
+	err := c.cc.Invoke(ctx, PaintService_SetColor1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *paintServiceClient) SetColor1_1(ctx context.Context, in *SetColor1_1Request, opts ...grpc.CallOption) (*SetColor1_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetColor1_1Response)
+	err := c.cc.Invoke(ctx, PaintService_SetColor1_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *paintServiceClient) SetColorFilter(ctx context.Context, in *SetColorFilterRequest, opts ...grpc.CallOption) (*SetColorFilterResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetColorFilterResponse)
+	err := c.cc.Invoke(ctx, PaintService_SetColorFilter_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *paintServiceClient) SetDither(ctx context.Context, in *SetDitherRequest, opts ...grpc.CallOption) (*SetDitherResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetDitherResponse)
+	err := c.cc.Invoke(ctx, PaintService_SetDither_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *paintServiceClient) SetElegantTextHeight(ctx context.Context, in *SetElegantTextHeightRequest, opts ...grpc.CallOption) (*SetElegantTextHeightResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetElegantTextHeightResponse)
+	err := c.cc.Invoke(ctx, PaintService_SetElegantTextHeight_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *paintServiceClient) SetEndHyphenEdit(ctx context.Context, in *SetEndHyphenEditRequest, opts ...grpc.CallOption) (*SetEndHyphenEditResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetEndHyphenEditResponse)
+	err := c.cc.Invoke(ctx, PaintService_SetEndHyphenEdit_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *paintServiceClient) SetFakeBoldText(ctx context.Context, in *SetFakeBoldTextRequest, opts ...grpc.CallOption) (*SetFakeBoldTextResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetFakeBoldTextResponse)
+	err := c.cc.Invoke(ctx, PaintService_SetFakeBoldText_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *paintServiceClient) SetFilterBitmap(ctx context.Context, in *SetFilterBitmapRequest, opts ...grpc.CallOption) (*SetFilterBitmapResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetFilterBitmapResponse)
+	err := c.cc.Invoke(ctx, PaintService_SetFilterBitmap_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *paintServiceClient) SetFlags(ctx context.Context, in *SetFlagsRequest, opts ...grpc.CallOption) (*SetFlagsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetFlagsResponse)
+	err := c.cc.Invoke(ctx, PaintService_SetFlags_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *paintServiceClient) SetFontFeatureSettings(ctx context.Context, in *SetFontFeatureSettingsRequest, opts ...grpc.CallOption) (*SetFontFeatureSettingsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetFontFeatureSettingsResponse)
+	err := c.cc.Invoke(ctx, PaintService_SetFontFeatureSettings_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *paintServiceClient) SetFontVariationSettings(ctx context.Context, in *SetFontVariationSettingsRequest, opts ...grpc.CallOption) (*SetFontVariationSettingsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetFontVariationSettingsResponse)
+	err := c.cc.Invoke(ctx, PaintService_SetFontVariationSettings_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *paintServiceClient) SetHinting(ctx context.Context, in *SetHintingRequest, opts ...grpc.CallOption) (*SetHintingResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetHintingResponse)
+	err := c.cc.Invoke(ctx, PaintService_SetHinting_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *paintServiceClient) SetLetterSpacing(ctx context.Context, in *SetLetterSpacingRequest, opts ...grpc.CallOption) (*SetLetterSpacingResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetLetterSpacingResponse)
+	err := c.cc.Invoke(ctx, PaintService_SetLetterSpacing_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *paintServiceClient) SetLinearText(ctx context.Context, in *SetLinearTextRequest, opts ...grpc.CallOption) (*SetLinearTextResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetLinearTextResponse)
+	err := c.cc.Invoke(ctx, PaintService_SetLinearText_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *paintServiceClient) SetMaskFilter(ctx context.Context, in *SetMaskFilterRequest, opts ...grpc.CallOption) (*SetMaskFilterResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetMaskFilterResponse)
+	err := c.cc.Invoke(ctx, PaintService_SetMaskFilter_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *paintServiceClient) SetPathEffect(ctx context.Context, in *SetPathEffectRequest, opts ...grpc.CallOption) (*SetPathEffectResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetPathEffectResponse)
+	err := c.cc.Invoke(ctx, PaintService_SetPathEffect_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *paintServiceClient) SetShader(ctx context.Context, in *SetShaderRequest, opts ...grpc.CallOption) (*SetShaderResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetShaderResponse)
+	err := c.cc.Invoke(ctx, PaintService_SetShader_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *paintServiceClient) SetShadowLayer4(ctx context.Context, in *SetShadowLayer4Request, opts ...grpc.CallOption) (*SetShadowLayer4Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetShadowLayer4Response)
+	err := c.cc.Invoke(ctx, PaintService_SetShadowLayer4_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *paintServiceClient) SetShadowLayer4_1(ctx context.Context, in *SetShadowLayer4_1Request, opts ...grpc.CallOption) (*SetShadowLayer4_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetShadowLayer4_1Response)
+	err := c.cc.Invoke(ctx, PaintService_SetShadowLayer4_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *paintServiceClient) SetStartHyphenEdit(ctx context.Context, in *SetStartHyphenEditRequest, opts ...grpc.CallOption) (*SetStartHyphenEditResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetStartHyphenEditResponse)
+	err := c.cc.Invoke(ctx, PaintService_SetStartHyphenEdit_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *paintServiceClient) SetStrikeThruText(ctx context.Context, in *SetStrikeThruTextRequest, opts ...grpc.CallOption) (*SetStrikeThruTextResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetStrikeThruTextResponse)
+	err := c.cc.Invoke(ctx, PaintService_SetStrikeThruText_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *paintServiceClient) SetStrokeCap(ctx context.Context, in *SetStrokeCapRequest, opts ...grpc.CallOption) (*SetStrokeCapResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetStrokeCapResponse)
+	err := c.cc.Invoke(ctx, PaintService_SetStrokeCap_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *paintServiceClient) SetStrokeJoin(ctx context.Context, in *SetStrokeJoinRequest, opts ...grpc.CallOption) (*SetStrokeJoinResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetStrokeJoinResponse)
+	err := c.cc.Invoke(ctx, PaintService_SetStrokeJoin_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *paintServiceClient) SetStrokeMiter(ctx context.Context, in *SetStrokeMiterRequest, opts ...grpc.CallOption) (*SetStrokeMiterResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetStrokeMiterResponse)
+	err := c.cc.Invoke(ctx, PaintService_SetStrokeMiter_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *paintServiceClient) SetStrokeWidth(ctx context.Context, in *SetStrokeWidthRequest, opts ...grpc.CallOption) (*SetStrokeWidthResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetStrokeWidthResponse)
+	err := c.cc.Invoke(ctx, PaintService_SetStrokeWidth_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *paintServiceClient) SetStyle(ctx context.Context, in *PaintSetStyleRequest, opts ...grpc.CallOption) (*PaintSetStyleResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(PaintSetStyleResponse)
+	err := c.cc.Invoke(ctx, PaintService_SetStyle_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *paintServiceClient) SetSubpixelText(ctx context.Context, in *SetSubpixelTextRequest, opts ...grpc.CallOption) (*SetSubpixelTextResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetSubpixelTextResponse)
+	err := c.cc.Invoke(ctx, PaintService_SetSubpixelText_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *paintServiceClient) SetTextAlign(ctx context.Context, in *SetTextAlignRequest, opts ...grpc.CallOption) (*SetTextAlignResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetTextAlignResponse)
+	err := c.cc.Invoke(ctx, PaintService_SetTextAlign_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *paintServiceClient) SetTextLocale(ctx context.Context, in *SetTextLocaleRequest, opts ...grpc.CallOption) (*SetTextLocaleResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetTextLocaleResponse)
+	err := c.cc.Invoke(ctx, PaintService_SetTextLocale_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *paintServiceClient) SetTextLocales(ctx context.Context, in *SetTextLocalesRequest, opts ...grpc.CallOption) (*SetTextLocalesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetTextLocalesResponse)
+	err := c.cc.Invoke(ctx, PaintService_SetTextLocales_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *paintServiceClient) SetTextScaleX(ctx context.Context, in *SetTextScaleXRequest, opts ...grpc.CallOption) (*SetTextScaleXResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetTextScaleXResponse)
+	err := c.cc.Invoke(ctx, PaintService_SetTextScaleX_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *paintServiceClient) SetTextSize(ctx context.Context, in *SetTextSizeRequest, opts ...grpc.CallOption) (*SetTextSizeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetTextSizeResponse)
+	err := c.cc.Invoke(ctx, PaintService_SetTextSize_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *paintServiceClient) SetTextSkewX(ctx context.Context, in *SetTextSkewXRequest, opts ...grpc.CallOption) (*SetTextSkewXResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetTextSkewXResponse)
+	err := c.cc.Invoke(ctx, PaintService_SetTextSkewX_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *paintServiceClient) SetTypeface(ctx context.Context, in *SetTypefaceRequest, opts ...grpc.CallOption) (*SetTypefaceResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetTypefaceResponse)
+	err := c.cc.Invoke(ctx, PaintService_SetTypeface_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *paintServiceClient) SetUnderlineText(ctx context.Context, in *SetUnderlineTextRequest, opts ...grpc.CallOption) (*SetUnderlineTextResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetUnderlineTextResponse)
+	err := c.cc.Invoke(ctx, PaintService_SetUnderlineText_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *paintServiceClient) SetWordSpacing(ctx context.Context, in *SetWordSpacingRequest, opts ...grpc.CallOption) (*SetWordSpacingResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetWordSpacingResponse)
+	err := c.cc.Invoke(ctx, PaintService_SetWordSpacing_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *paintServiceClient) SetXfermode(ctx context.Context, in *SetXfermodeRequest, opts ...grpc.CallOption) (*SetXfermodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetXfermodeResponse)
+	err := c.cc.Invoke(ctx, PaintService_SetXfermode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// PaintServiceServer is the server API for PaintService service.
+// All implementations must embed UnimplementedPaintServiceServer
+// for forward compatibility.
+type PaintServiceServer interface {
+	NewPaint(context.Context, *NewPaintRequest) (*NewPaintResponse, error)
+	Ascent(context.Context, *AscentRequest) (*AscentResponse, error)
+	BreakText5(context.Context, *BreakText5Request) (*BreakText5Response, error)
+	BreakText6_1(context.Context, *BreakText6_1Request) (*BreakText6_1Response, error)
+	BreakText4_2(context.Context, *BreakText4_2Request) (*BreakText4_2Response, error)
+	ClearShadowLayer(context.Context, *ClearShadowLayerRequest) (*ClearShadowLayerResponse, error)
+	Descent(context.Context, *DescentRequest) (*DescentResponse, error)
+	EqualsForTextMeasurement(context.Context, *EqualsForTextMeasurementRequest) (*EqualsForTextMeasurementResponse, error)
+	GetAlpha(context.Context, *GetAlphaRequest) (*GetAlphaResponse, error)
+	GetBlendMode(context.Context, *GetBlendModeRequest) (*GetBlendModeResponse, error)
+	GetColor(context.Context, *PaintGetColorRequest) (*PaintGetColorResponse, error)
+	GetColorFilter(context.Context, *GetColorFilterRequest) (*GetColorFilterResponse, error)
+	GetColorLong(context.Context, *GetColorLongRequest) (*GetColorLongResponse, error)
+	GetEndHyphenEdit(context.Context, *GetEndHyphenEditRequest) (*GetEndHyphenEditResponse, error)
+	GetFillPath(context.Context, *GetFillPathRequest) (*GetFillPathResponse, error)
+	GetFlags(context.Context, *GetFlagsRequest) (*GetFlagsResponse, error)
+	GetFontFeatureSettings(context.Context, *GetFontFeatureSettingsRequest) (*GetFontFeatureSettingsResponse, error)
+	GetFontMetrics0(context.Context, *GetFontMetrics0Request) (*GetFontMetrics0Response, error)
+	GetFontMetrics1_1(context.Context, *GetFontMetrics1_1Request) (*GetFontMetrics1_1Response, error)
+	GetFontMetricsForLocale(context.Context, *GetFontMetricsForLocaleRequest) (*GetFontMetricsForLocaleResponse, error)
+	GetFontMetricsInt0(context.Context, *GetFontMetricsInt0Request) (*GetFontMetricsInt0Response, error)
+	GetFontMetricsInt1_1(context.Context, *GetFontMetricsInt1_1Request) (*GetFontMetricsInt1_1Response, error)
+	GetFontMetricsInt7_2(context.Context, *GetFontMetricsInt7_2Request) (*GetFontMetricsInt7_2Response, error)
+	GetFontMetricsInt7_3(context.Context, *GetFontMetricsInt7_3Request) (*GetFontMetricsInt7_3Response, error)
+	GetFontMetricsIntForLocale(context.Context, *GetFontMetricsIntForLocaleRequest) (*GetFontMetricsIntForLocaleResponse, error)
+	GetFontSpacing(context.Context, *GetFontSpacingRequest) (*GetFontSpacingResponse, error)
+	GetFontVariationSettings(context.Context, *GetFontVariationSettingsRequest) (*GetFontVariationSettingsResponse, error)
+	GetHinting(context.Context, *GetHintingRequest) (*GetHintingResponse, error)
+	GetLetterSpacing(context.Context, *GetLetterSpacingRequest) (*GetLetterSpacingResponse, error)
+	GetMaskFilter(context.Context, *GetMaskFilterRequest) (*GetMaskFilterResponse, error)
+	GetOffsetForAdvance7(context.Context, *GetOffsetForAdvance7Request) (*GetOffsetForAdvance7Response, error)
+	GetOffsetForAdvance7_1(context.Context, *GetOffsetForAdvance7_1Request) (*GetOffsetForAdvance7_1Response, error)
+	GetPathEffect(context.Context, *GetPathEffectRequest) (*GetPathEffectResponse, error)
+	GetRunAdvance7(context.Context, *GetRunAdvance7Request) (*GetRunAdvance7Response, error)
+	GetRunAdvance7_1(context.Context, *GetRunAdvance7_1Request) (*GetRunAdvance7_1Response, error)
+	GetRunCharacterAdvance9(context.Context, *GetRunCharacterAdvance9Request) (*GetRunCharacterAdvance9Response, error)
+	GetRunCharacterAdvance9_1(context.Context, *GetRunCharacterAdvance9_1Request) (*GetRunCharacterAdvance9_1Response, error)
+	GetShader(context.Context, *GetShaderRequest) (*GetShaderResponse, error)
+	GetShadowLayerColor(context.Context, *GetShadowLayerColorRequest) (*GetShadowLayerColorResponse, error)
+	GetShadowLayerColorLong(context.Context, *GetShadowLayerColorLongRequest) (*GetShadowLayerColorLongResponse, error)
+	GetShadowLayerDx(context.Context, *GetShadowLayerDxRequest) (*GetShadowLayerDxResponse, error)
+	GetShadowLayerDy(context.Context, *GetShadowLayerDyRequest) (*GetShadowLayerDyResponse, error)
+	GetShadowLayerRadius(context.Context, *GetShadowLayerRadiusRequest) (*GetShadowLayerRadiusResponse, error)
+	GetStartHyphenEdit(context.Context, *GetStartHyphenEditRequest) (*GetStartHyphenEditResponse, error)
+	GetStrikeThruPosition(context.Context, *GetStrikeThruPositionRequest) (*GetStrikeThruPositionResponse, error)
+	GetStrikeThruThickness(context.Context, *GetStrikeThruThicknessRequest) (*GetStrikeThruThicknessResponse, error)
+	GetStrokeCap(context.Context, *GetStrokeCapRequest) (*GetStrokeCapResponse, error)
+	GetStrokeJoin(context.Context, *GetStrokeJoinRequest) (*GetStrokeJoinResponse, error)
+	GetStrokeMiter(context.Context, *GetStrokeMiterRequest) (*GetStrokeMiterResponse, error)
+	GetStrokeWidth(context.Context, *GetStrokeWidthRequest) (*GetStrokeWidthResponse, error)
+	GetStyle(context.Context, *PaintGetStyleRequest) (*PaintGetStyleResponse, error)
+	GetTextAlign(context.Context, *GetTextAlignRequest) (*GetTextAlignResponse, error)
+	GetTextBounds4(context.Context, *GetTextBounds4Request) (*GetTextBounds4Response, error)
+	GetTextBounds4_1(context.Context, *GetTextBounds4_1Request) (*GetTextBounds4_1Response, error)
+	GetTextBounds4_2(context.Context, *GetTextBounds4_2Request) (*GetTextBounds4_2Response, error)
+	GetTextLocale(context.Context, *GetTextLocaleRequest) (*GetTextLocaleResponse, error)
+	GetTextLocales(context.Context, *GetTextLocalesRequest) (*GetTextLocalesResponse, error)
+	GetTextPath6(context.Context, *GetTextPath6Request) (*GetTextPath6Response, error)
+	GetTextPath6_1(context.Context, *GetTextPath6_1Request) (*GetTextPath6_1Response, error)
+	GetTextRunAdvances(context.Context, *GetTextRunAdvancesRequest) (*GetTextRunAdvancesResponse, error)
+	GetTextRunCursor6(context.Context, *GetTextRunCursor6Request) (*GetTextRunCursor6Response, error)
+	GetTextRunCursor6_1(context.Context, *GetTextRunCursor6_1Request) (*GetTextRunCursor6_1Response, error)
+	GetTextScaleX(context.Context, *GetTextScaleXRequest) (*GetTextScaleXResponse, error)
+	GetTextSize(context.Context, *GetTextSizeRequest) (*GetTextSizeResponse, error)
+	GetTextSkewX(context.Context, *GetTextSkewXRequest) (*GetTextSkewXResponse, error)
+	GetTextWidths4(context.Context, *GetTextWidths4Request) (*GetTextWidths4Response, error)
+	GetTextWidths4_1(context.Context, *GetTextWidths4_1Request) (*GetTextWidths4_1Response, error)
+	GetTextWidths2_2(context.Context, *GetTextWidths2_2Request) (*GetTextWidths2_2Response, error)
+	GetTextWidths4_3(context.Context, *GetTextWidths4_3Request) (*GetTextWidths4_3Response, error)
+	GetTypeface(context.Context, *GetTypefaceRequest) (*GetTypefaceResponse, error)
+	GetUnderlinePosition(context.Context, *GetUnderlinePositionRequest) (*GetUnderlinePositionResponse, error)
+	GetUnderlineThickness(context.Context, *GetUnderlineThicknessRequest) (*GetUnderlineThicknessResponse, error)
+	GetWordSpacing(context.Context, *GetWordSpacingRequest) (*GetWordSpacingResponse, error)
+	GetXfermode(context.Context, *GetXfermodeRequest) (*GetXfermodeResponse, error)
+	HasGlyph(context.Context, *HasGlyphRequest) (*HasGlyphResponse, error)
+	IsAntiAlias(context.Context, *IsAntiAliasRequest) (*IsAntiAliasResponse, error)
+	IsDither(context.Context, *IsDitherRequest) (*IsDitherResponse, error)
+	IsElegantTextHeight(context.Context, *IsElegantTextHeightRequest) (*IsElegantTextHeightResponse, error)
+	IsFakeBoldText(context.Context, *IsFakeBoldTextRequest) (*IsFakeBoldTextResponse, error)
+	IsFilterBitmap(context.Context, *IsFilterBitmapRequest) (*IsFilterBitmapResponse, error)
+	IsLinearText(context.Context, *IsLinearTextRequest) (*IsLinearTextResponse, error)
+	IsStrikeThruText(context.Context, *IsStrikeThruTextRequest) (*IsStrikeThruTextResponse, error)
+	IsSubpixelText(context.Context, *IsSubpixelTextRequest) (*IsSubpixelTextResponse, error)
+	IsUnderlineText(context.Context, *IsUnderlineTextRequest) (*IsUnderlineTextResponse, error)
+	MeasureText3(context.Context, *MeasureText3Request) (*MeasureText3Response, error)
+	MeasureText3_1(context.Context, *MeasureText3_1Request) (*MeasureText3_1Response, error)
+	MeasureText1_2(context.Context, *MeasureText1_2Request) (*MeasureText1_2Response, error)
+	MeasureText3_3(context.Context, *MeasureText3_3Request) (*MeasureText3_3Response, error)
+	Reset(context.Context, *ResetRequest) (*ResetResponse, error)
+	Set(context.Context, *SetRequest) (*SetResponse, error)
+	SetARGB(context.Context, *SetARGBRequest) (*SetARGBResponse, error)
+	SetAlpha(context.Context, *SetAlphaRequest) (*SetAlphaResponse, error)
+	SetAntiAlias(context.Context, *SetAntiAliasRequest) (*SetAntiAliasResponse, error)
+	SetBlendMode(context.Context, *SetBlendModeRequest) (*SetBlendModeResponse, error)
+	SetColor1(context.Context, *SetColor1Request) (*SetColor1Response, error)
+	SetColor1_1(context.Context, *SetColor1_1Request) (*SetColor1_1Response, error)
+	SetColorFilter(context.Context, *SetColorFilterRequest) (*SetColorFilterResponse, error)
+	SetDither(context.Context, *SetDitherRequest) (*SetDitherResponse, error)
+	SetElegantTextHeight(context.Context, *SetElegantTextHeightRequest) (*SetElegantTextHeightResponse, error)
+	SetEndHyphenEdit(context.Context, *SetEndHyphenEditRequest) (*SetEndHyphenEditResponse, error)
+	SetFakeBoldText(context.Context, *SetFakeBoldTextRequest) (*SetFakeBoldTextResponse, error)
+	SetFilterBitmap(context.Context, *SetFilterBitmapRequest) (*SetFilterBitmapResponse, error)
+	SetFlags(context.Context, *SetFlagsRequest) (*SetFlagsResponse, error)
+	SetFontFeatureSettings(context.Context, *SetFontFeatureSettingsRequest) (*SetFontFeatureSettingsResponse, error)
+	SetFontVariationSettings(context.Context, *SetFontVariationSettingsRequest) (*SetFontVariationSettingsResponse, error)
+	SetHinting(context.Context, *SetHintingRequest) (*SetHintingResponse, error)
+	SetLetterSpacing(context.Context, *SetLetterSpacingRequest) (*SetLetterSpacingResponse, error)
+	SetLinearText(context.Context, *SetLinearTextRequest) (*SetLinearTextResponse, error)
+	SetMaskFilter(context.Context, *SetMaskFilterRequest) (*SetMaskFilterResponse, error)
+	SetPathEffect(context.Context, *SetPathEffectRequest) (*SetPathEffectResponse, error)
+	SetShader(context.Context, *SetShaderRequest) (*SetShaderResponse, error)
+	SetShadowLayer4(context.Context, *SetShadowLayer4Request) (*SetShadowLayer4Response, error)
+	SetShadowLayer4_1(context.Context, *SetShadowLayer4_1Request) (*SetShadowLayer4_1Response, error)
+	SetStartHyphenEdit(context.Context, *SetStartHyphenEditRequest) (*SetStartHyphenEditResponse, error)
+	SetStrikeThruText(context.Context, *SetStrikeThruTextRequest) (*SetStrikeThruTextResponse, error)
+	SetStrokeCap(context.Context, *SetStrokeCapRequest) (*SetStrokeCapResponse, error)
+	SetStrokeJoin(context.Context, *SetStrokeJoinRequest) (*SetStrokeJoinResponse, error)
+	SetStrokeMiter(context.Context, *SetStrokeMiterRequest) (*SetStrokeMiterResponse, error)
+	SetStrokeWidth(context.Context, *SetStrokeWidthRequest) (*SetStrokeWidthResponse, error)
+	SetStyle(context.Context, *PaintSetStyleRequest) (*PaintSetStyleResponse, error)
+	SetSubpixelText(context.Context, *SetSubpixelTextRequest) (*SetSubpixelTextResponse, error)
+	SetTextAlign(context.Context, *SetTextAlignRequest) (*SetTextAlignResponse, error)
+	SetTextLocale(context.Context, *SetTextLocaleRequest) (*SetTextLocaleResponse, error)
+	SetTextLocales(context.Context, *SetTextLocalesRequest) (*SetTextLocalesResponse, error)
+	SetTextScaleX(context.Context, *SetTextScaleXRequest) (*SetTextScaleXResponse, error)
+	SetTextSize(context.Context, *SetTextSizeRequest) (*SetTextSizeResponse, error)
+	SetTextSkewX(context.Context, *SetTextSkewXRequest) (*SetTextSkewXResponse, error)
+	SetTypeface(context.Context, *SetTypefaceRequest) (*SetTypefaceResponse, error)
+	SetUnderlineText(context.Context, *SetUnderlineTextRequest) (*SetUnderlineTextResponse, error)
+	SetWordSpacing(context.Context, *SetWordSpacingRequest) (*SetWordSpacingResponse, error)
+	SetXfermode(context.Context, *SetXfermodeRequest) (*SetXfermodeResponse, error)
+	mustEmbedUnimplementedPaintServiceServer()
+}
+
+// UnimplementedPaintServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedPaintServiceServer struct{}
+
+func (UnimplementedPaintServiceServer) NewPaint(context.Context, *NewPaintRequest) (*NewPaintResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewPaint not implemented")
+}
+func (UnimplementedPaintServiceServer) Ascent(context.Context, *AscentRequest) (*AscentResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Ascent not implemented")
+}
+func (UnimplementedPaintServiceServer) BreakText5(context.Context, *BreakText5Request) (*BreakText5Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method BreakText5 not implemented")
+}
+func (UnimplementedPaintServiceServer) BreakText6_1(context.Context, *BreakText6_1Request) (*BreakText6_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method BreakText6_1 not implemented")
+}
+func (UnimplementedPaintServiceServer) BreakText4_2(context.Context, *BreakText4_2Request) (*BreakText4_2Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method BreakText4_2 not implemented")
+}
+func (UnimplementedPaintServiceServer) ClearShadowLayer(context.Context, *ClearShadowLayerRequest) (*ClearShadowLayerResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ClearShadowLayer not implemented")
+}
+func (UnimplementedPaintServiceServer) Descent(context.Context, *DescentRequest) (*DescentResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Descent not implemented")
+}
+func (UnimplementedPaintServiceServer) EqualsForTextMeasurement(context.Context, *EqualsForTextMeasurementRequest) (*EqualsForTextMeasurementResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method EqualsForTextMeasurement not implemented")
+}
+func (UnimplementedPaintServiceServer) GetAlpha(context.Context, *GetAlphaRequest) (*GetAlphaResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetAlpha not implemented")
+}
+func (UnimplementedPaintServiceServer) GetBlendMode(context.Context, *GetBlendModeRequest) (*GetBlendModeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetBlendMode not implemented")
+}
+func (UnimplementedPaintServiceServer) GetColor(context.Context, *PaintGetColorRequest) (*PaintGetColorResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetColor not implemented")
+}
+func (UnimplementedPaintServiceServer) GetColorFilter(context.Context, *GetColorFilterRequest) (*GetColorFilterResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetColorFilter not implemented")
+}
+func (UnimplementedPaintServiceServer) GetColorLong(context.Context, *GetColorLongRequest) (*GetColorLongResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetColorLong not implemented")
+}
+func (UnimplementedPaintServiceServer) GetEndHyphenEdit(context.Context, *GetEndHyphenEditRequest) (*GetEndHyphenEditResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetEndHyphenEdit not implemented")
+}
+func (UnimplementedPaintServiceServer) GetFillPath(context.Context, *GetFillPathRequest) (*GetFillPathResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetFillPath not implemented")
+}
+func (UnimplementedPaintServiceServer) GetFlags(context.Context, *GetFlagsRequest) (*GetFlagsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetFlags not implemented")
+}
+func (UnimplementedPaintServiceServer) GetFontFeatureSettings(context.Context, *GetFontFeatureSettingsRequest) (*GetFontFeatureSettingsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetFontFeatureSettings not implemented")
+}
+func (UnimplementedPaintServiceServer) GetFontMetrics0(context.Context, *GetFontMetrics0Request) (*GetFontMetrics0Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetFontMetrics0 not implemented")
+}
+func (UnimplementedPaintServiceServer) GetFontMetrics1_1(context.Context, *GetFontMetrics1_1Request) (*GetFontMetrics1_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetFontMetrics1_1 not implemented")
+}
+func (UnimplementedPaintServiceServer) GetFontMetricsForLocale(context.Context, *GetFontMetricsForLocaleRequest) (*GetFontMetricsForLocaleResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetFontMetricsForLocale not implemented")
+}
+func (UnimplementedPaintServiceServer) GetFontMetricsInt0(context.Context, *GetFontMetricsInt0Request) (*GetFontMetricsInt0Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetFontMetricsInt0 not implemented")
+}
+func (UnimplementedPaintServiceServer) GetFontMetricsInt1_1(context.Context, *GetFontMetricsInt1_1Request) (*GetFontMetricsInt1_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetFontMetricsInt1_1 not implemented")
+}
+func (UnimplementedPaintServiceServer) GetFontMetricsInt7_2(context.Context, *GetFontMetricsInt7_2Request) (*GetFontMetricsInt7_2Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetFontMetricsInt7_2 not implemented")
+}
+func (UnimplementedPaintServiceServer) GetFontMetricsInt7_3(context.Context, *GetFontMetricsInt7_3Request) (*GetFontMetricsInt7_3Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetFontMetricsInt7_3 not implemented")
+}
+func (UnimplementedPaintServiceServer) GetFontMetricsIntForLocale(context.Context, *GetFontMetricsIntForLocaleRequest) (*GetFontMetricsIntForLocaleResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetFontMetricsIntForLocale not implemented")
+}
+func (UnimplementedPaintServiceServer) GetFontSpacing(context.Context, *GetFontSpacingRequest) (*GetFontSpacingResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetFontSpacing not implemented")
+}
+func (UnimplementedPaintServiceServer) GetFontVariationSettings(context.Context, *GetFontVariationSettingsRequest) (*GetFontVariationSettingsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetFontVariationSettings not implemented")
+}
+func (UnimplementedPaintServiceServer) GetHinting(context.Context, *GetHintingRequest) (*GetHintingResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetHinting not implemented")
+}
+func (UnimplementedPaintServiceServer) GetLetterSpacing(context.Context, *GetLetterSpacingRequest) (*GetLetterSpacingResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetLetterSpacing not implemented")
+}
+func (UnimplementedPaintServiceServer) GetMaskFilter(context.Context, *GetMaskFilterRequest) (*GetMaskFilterResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetMaskFilter not implemented")
+}
+func (UnimplementedPaintServiceServer) GetOffsetForAdvance7(context.Context, *GetOffsetForAdvance7Request) (*GetOffsetForAdvance7Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetOffsetForAdvance7 not implemented")
+}
+func (UnimplementedPaintServiceServer) GetOffsetForAdvance7_1(context.Context, *GetOffsetForAdvance7_1Request) (*GetOffsetForAdvance7_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetOffsetForAdvance7_1 not implemented")
+}
+func (UnimplementedPaintServiceServer) GetPathEffect(context.Context, *GetPathEffectRequest) (*GetPathEffectResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetPathEffect not implemented")
+}
+func (UnimplementedPaintServiceServer) GetRunAdvance7(context.Context, *GetRunAdvance7Request) (*GetRunAdvance7Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetRunAdvance7 not implemented")
+}
+func (UnimplementedPaintServiceServer) GetRunAdvance7_1(context.Context, *GetRunAdvance7_1Request) (*GetRunAdvance7_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetRunAdvance7_1 not implemented")
+}
+func (UnimplementedPaintServiceServer) GetRunCharacterAdvance9(context.Context, *GetRunCharacterAdvance9Request) (*GetRunCharacterAdvance9Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetRunCharacterAdvance9 not implemented")
+}
+func (UnimplementedPaintServiceServer) GetRunCharacterAdvance9_1(context.Context, *GetRunCharacterAdvance9_1Request) (*GetRunCharacterAdvance9_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetRunCharacterAdvance9_1 not implemented")
+}
+func (UnimplementedPaintServiceServer) GetShader(context.Context, *GetShaderRequest) (*GetShaderResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetShader not implemented")
+}
+func (UnimplementedPaintServiceServer) GetShadowLayerColor(context.Context, *GetShadowLayerColorRequest) (*GetShadowLayerColorResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetShadowLayerColor not implemented")
+}
+func (UnimplementedPaintServiceServer) GetShadowLayerColorLong(context.Context, *GetShadowLayerColorLongRequest) (*GetShadowLayerColorLongResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetShadowLayerColorLong not implemented")
+}
+func (UnimplementedPaintServiceServer) GetShadowLayerDx(context.Context, *GetShadowLayerDxRequest) (*GetShadowLayerDxResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetShadowLayerDx not implemented")
+}
+func (UnimplementedPaintServiceServer) GetShadowLayerDy(context.Context, *GetShadowLayerDyRequest) (*GetShadowLayerDyResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetShadowLayerDy not implemented")
+}
+func (UnimplementedPaintServiceServer) GetShadowLayerRadius(context.Context, *GetShadowLayerRadiusRequest) (*GetShadowLayerRadiusResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetShadowLayerRadius not implemented")
+}
+func (UnimplementedPaintServiceServer) GetStartHyphenEdit(context.Context, *GetStartHyphenEditRequest) (*GetStartHyphenEditResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetStartHyphenEdit not implemented")
+}
+func (UnimplementedPaintServiceServer) GetStrikeThruPosition(context.Context, *GetStrikeThruPositionRequest) (*GetStrikeThruPositionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetStrikeThruPosition not implemented")
+}
+func (UnimplementedPaintServiceServer) GetStrikeThruThickness(context.Context, *GetStrikeThruThicknessRequest) (*GetStrikeThruThicknessResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetStrikeThruThickness not implemented")
+}
+func (UnimplementedPaintServiceServer) GetStrokeCap(context.Context, *GetStrokeCapRequest) (*GetStrokeCapResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetStrokeCap not implemented")
+}
+func (UnimplementedPaintServiceServer) GetStrokeJoin(context.Context, *GetStrokeJoinRequest) (*GetStrokeJoinResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetStrokeJoin not implemented")
+}
+func (UnimplementedPaintServiceServer) GetStrokeMiter(context.Context, *GetStrokeMiterRequest) (*GetStrokeMiterResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetStrokeMiter not implemented")
+}
+func (UnimplementedPaintServiceServer) GetStrokeWidth(context.Context, *GetStrokeWidthRequest) (*GetStrokeWidthResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetStrokeWidth not implemented")
+}
+func (UnimplementedPaintServiceServer) GetStyle(context.Context, *PaintGetStyleRequest) (*PaintGetStyleResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetStyle not implemented")
+}
+func (UnimplementedPaintServiceServer) GetTextAlign(context.Context, *GetTextAlignRequest) (*GetTextAlignResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTextAlign not implemented")
+}
+func (UnimplementedPaintServiceServer) GetTextBounds4(context.Context, *GetTextBounds4Request) (*GetTextBounds4Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTextBounds4 not implemented")
+}
+func (UnimplementedPaintServiceServer) GetTextBounds4_1(context.Context, *GetTextBounds4_1Request) (*GetTextBounds4_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTextBounds4_1 not implemented")
+}
+func (UnimplementedPaintServiceServer) GetTextBounds4_2(context.Context, *GetTextBounds4_2Request) (*GetTextBounds4_2Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTextBounds4_2 not implemented")
+}
+func (UnimplementedPaintServiceServer) GetTextLocale(context.Context, *GetTextLocaleRequest) (*GetTextLocaleResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTextLocale not implemented")
+}
+func (UnimplementedPaintServiceServer) GetTextLocales(context.Context, *GetTextLocalesRequest) (*GetTextLocalesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTextLocales not implemented")
+}
+func (UnimplementedPaintServiceServer) GetTextPath6(context.Context, *GetTextPath6Request) (*GetTextPath6Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTextPath6 not implemented")
+}
+func (UnimplementedPaintServiceServer) GetTextPath6_1(context.Context, *GetTextPath6_1Request) (*GetTextPath6_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTextPath6_1 not implemented")
+}
+func (UnimplementedPaintServiceServer) GetTextRunAdvances(context.Context, *GetTextRunAdvancesRequest) (*GetTextRunAdvancesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTextRunAdvances not implemented")
+}
+func (UnimplementedPaintServiceServer) GetTextRunCursor6(context.Context, *GetTextRunCursor6Request) (*GetTextRunCursor6Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTextRunCursor6 not implemented")
+}
+func (UnimplementedPaintServiceServer) GetTextRunCursor6_1(context.Context, *GetTextRunCursor6_1Request) (*GetTextRunCursor6_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTextRunCursor6_1 not implemented")
+}
+func (UnimplementedPaintServiceServer) GetTextScaleX(context.Context, *GetTextScaleXRequest) (*GetTextScaleXResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTextScaleX not implemented")
+}
+func (UnimplementedPaintServiceServer) GetTextSize(context.Context, *GetTextSizeRequest) (*GetTextSizeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTextSize not implemented")
+}
+func (UnimplementedPaintServiceServer) GetTextSkewX(context.Context, *GetTextSkewXRequest) (*GetTextSkewXResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTextSkewX not implemented")
+}
+func (UnimplementedPaintServiceServer) GetTextWidths4(context.Context, *GetTextWidths4Request) (*GetTextWidths4Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTextWidths4 not implemented")
+}
+func (UnimplementedPaintServiceServer) GetTextWidths4_1(context.Context, *GetTextWidths4_1Request) (*GetTextWidths4_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTextWidths4_1 not implemented")
+}
+func (UnimplementedPaintServiceServer) GetTextWidths2_2(context.Context, *GetTextWidths2_2Request) (*GetTextWidths2_2Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTextWidths2_2 not implemented")
+}
+func (UnimplementedPaintServiceServer) GetTextWidths4_3(context.Context, *GetTextWidths4_3Request) (*GetTextWidths4_3Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTextWidths4_3 not implemented")
+}
+func (UnimplementedPaintServiceServer) GetTypeface(context.Context, *GetTypefaceRequest) (*GetTypefaceResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTypeface not implemented")
+}
+func (UnimplementedPaintServiceServer) GetUnderlinePosition(context.Context, *GetUnderlinePositionRequest) (*GetUnderlinePositionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetUnderlinePosition not implemented")
+}
+func (UnimplementedPaintServiceServer) GetUnderlineThickness(context.Context, *GetUnderlineThicknessRequest) (*GetUnderlineThicknessResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetUnderlineThickness not implemented")
+}
+func (UnimplementedPaintServiceServer) GetWordSpacing(context.Context, *GetWordSpacingRequest) (*GetWordSpacingResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetWordSpacing not implemented")
+}
+func (UnimplementedPaintServiceServer) GetXfermode(context.Context, *GetXfermodeRequest) (*GetXfermodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetXfermode not implemented")
+}
+func (UnimplementedPaintServiceServer) HasGlyph(context.Context, *HasGlyphRequest) (*HasGlyphResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HasGlyph not implemented")
+}
+func (UnimplementedPaintServiceServer) IsAntiAlias(context.Context, *IsAntiAliasRequest) (*IsAntiAliasResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsAntiAlias not implemented")
+}
+func (UnimplementedPaintServiceServer) IsDither(context.Context, *IsDitherRequest) (*IsDitherResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsDither not implemented")
+}
+func (UnimplementedPaintServiceServer) IsElegantTextHeight(context.Context, *IsElegantTextHeightRequest) (*IsElegantTextHeightResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsElegantTextHeight not implemented")
+}
+func (UnimplementedPaintServiceServer) IsFakeBoldText(context.Context, *IsFakeBoldTextRequest) (*IsFakeBoldTextResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsFakeBoldText not implemented")
+}
+func (UnimplementedPaintServiceServer) IsFilterBitmap(context.Context, *IsFilterBitmapRequest) (*IsFilterBitmapResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsFilterBitmap not implemented")
+}
+func (UnimplementedPaintServiceServer) IsLinearText(context.Context, *IsLinearTextRequest) (*IsLinearTextResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsLinearText not implemented")
+}
+func (UnimplementedPaintServiceServer) IsStrikeThruText(context.Context, *IsStrikeThruTextRequest) (*IsStrikeThruTextResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsStrikeThruText not implemented")
+}
+func (UnimplementedPaintServiceServer) IsSubpixelText(context.Context, *IsSubpixelTextRequest) (*IsSubpixelTextResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsSubpixelText not implemented")
+}
+func (UnimplementedPaintServiceServer) IsUnderlineText(context.Context, *IsUnderlineTextRequest) (*IsUnderlineTextResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsUnderlineText not implemented")
+}
+func (UnimplementedPaintServiceServer) MeasureText3(context.Context, *MeasureText3Request) (*MeasureText3Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method MeasureText3 not implemented")
+}
+func (UnimplementedPaintServiceServer) MeasureText3_1(context.Context, *MeasureText3_1Request) (*MeasureText3_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method MeasureText3_1 not implemented")
+}
+func (UnimplementedPaintServiceServer) MeasureText1_2(context.Context, *MeasureText1_2Request) (*MeasureText1_2Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method MeasureText1_2 not implemented")
+}
+func (UnimplementedPaintServiceServer) MeasureText3_3(context.Context, *MeasureText3_3Request) (*MeasureText3_3Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method MeasureText3_3 not implemented")
+}
+func (UnimplementedPaintServiceServer) Reset(context.Context, *ResetRequest) (*ResetResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Reset not implemented")
+}
+func (UnimplementedPaintServiceServer) Set(context.Context, *SetRequest) (*SetResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Set not implemented")
+}
+func (UnimplementedPaintServiceServer) SetARGB(context.Context, *SetARGBRequest) (*SetARGBResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetARGB not implemented")
+}
+func (UnimplementedPaintServiceServer) SetAlpha(context.Context, *SetAlphaRequest) (*SetAlphaResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetAlpha not implemented")
+}
+func (UnimplementedPaintServiceServer) SetAntiAlias(context.Context, *SetAntiAliasRequest) (*SetAntiAliasResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetAntiAlias not implemented")
+}
+func (UnimplementedPaintServiceServer) SetBlendMode(context.Context, *SetBlendModeRequest) (*SetBlendModeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetBlendMode not implemented")
+}
+func (UnimplementedPaintServiceServer) SetColor1(context.Context, *SetColor1Request) (*SetColor1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetColor1 not implemented")
+}
+func (UnimplementedPaintServiceServer) SetColor1_1(context.Context, *SetColor1_1Request) (*SetColor1_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetColor1_1 not implemented")
+}
+func (UnimplementedPaintServiceServer) SetColorFilter(context.Context, *SetColorFilterRequest) (*SetColorFilterResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetColorFilter not implemented")
+}
+func (UnimplementedPaintServiceServer) SetDither(context.Context, *SetDitherRequest) (*SetDitherResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetDither not implemented")
+}
+func (UnimplementedPaintServiceServer) SetElegantTextHeight(context.Context, *SetElegantTextHeightRequest) (*SetElegantTextHeightResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetElegantTextHeight not implemented")
+}
+func (UnimplementedPaintServiceServer) SetEndHyphenEdit(context.Context, *SetEndHyphenEditRequest) (*SetEndHyphenEditResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetEndHyphenEdit not implemented")
+}
+func (UnimplementedPaintServiceServer) SetFakeBoldText(context.Context, *SetFakeBoldTextRequest) (*SetFakeBoldTextResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetFakeBoldText not implemented")
+}
+func (UnimplementedPaintServiceServer) SetFilterBitmap(context.Context, *SetFilterBitmapRequest) (*SetFilterBitmapResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetFilterBitmap not implemented")
+}
+func (UnimplementedPaintServiceServer) SetFlags(context.Context, *SetFlagsRequest) (*SetFlagsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetFlags not implemented")
+}
+func (UnimplementedPaintServiceServer) SetFontFeatureSettings(context.Context, *SetFontFeatureSettingsRequest) (*SetFontFeatureSettingsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetFontFeatureSettings not implemented")
+}
+func (UnimplementedPaintServiceServer) SetFontVariationSettings(context.Context, *SetFontVariationSettingsRequest) (*SetFontVariationSettingsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetFontVariationSettings not implemented")
+}
+func (UnimplementedPaintServiceServer) SetHinting(context.Context, *SetHintingRequest) (*SetHintingResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetHinting not implemented")
+}
+func (UnimplementedPaintServiceServer) SetLetterSpacing(context.Context, *SetLetterSpacingRequest) (*SetLetterSpacingResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetLetterSpacing not implemented")
+}
+func (UnimplementedPaintServiceServer) SetLinearText(context.Context, *SetLinearTextRequest) (*SetLinearTextResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetLinearText not implemented")
+}
+func (UnimplementedPaintServiceServer) SetMaskFilter(context.Context, *SetMaskFilterRequest) (*SetMaskFilterResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetMaskFilter not implemented")
+}
+func (UnimplementedPaintServiceServer) SetPathEffect(context.Context, *SetPathEffectRequest) (*SetPathEffectResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetPathEffect not implemented")
+}
+func (UnimplementedPaintServiceServer) SetShader(context.Context, *SetShaderRequest) (*SetShaderResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetShader not implemented")
+}
+func (UnimplementedPaintServiceServer) SetShadowLayer4(context.Context, *SetShadowLayer4Request) (*SetShadowLayer4Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetShadowLayer4 not implemented")
+}
+func (UnimplementedPaintServiceServer) SetShadowLayer4_1(context.Context, *SetShadowLayer4_1Request) (*SetShadowLayer4_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetShadowLayer4_1 not implemented")
+}
+func (UnimplementedPaintServiceServer) SetStartHyphenEdit(context.Context, *SetStartHyphenEditRequest) (*SetStartHyphenEditResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetStartHyphenEdit not implemented")
+}
+func (UnimplementedPaintServiceServer) SetStrikeThruText(context.Context, *SetStrikeThruTextRequest) (*SetStrikeThruTextResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetStrikeThruText not implemented")
+}
+func (UnimplementedPaintServiceServer) SetStrokeCap(context.Context, *SetStrokeCapRequest) (*SetStrokeCapResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetStrokeCap not implemented")
+}
+func (UnimplementedPaintServiceServer) SetStrokeJoin(context.Context, *SetStrokeJoinRequest) (*SetStrokeJoinResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetStrokeJoin not implemented")
+}
+func (UnimplementedPaintServiceServer) SetStrokeMiter(context.Context, *SetStrokeMiterRequest) (*SetStrokeMiterResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetStrokeMiter not implemented")
+}
+func (UnimplementedPaintServiceServer) SetStrokeWidth(context.Context, *SetStrokeWidthRequest) (*SetStrokeWidthResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetStrokeWidth not implemented")
+}
+func (UnimplementedPaintServiceServer) SetStyle(context.Context, *PaintSetStyleRequest) (*PaintSetStyleResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetStyle not implemented")
+}
+func (UnimplementedPaintServiceServer) SetSubpixelText(context.Context, *SetSubpixelTextRequest) (*SetSubpixelTextResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetSubpixelText not implemented")
+}
+func (UnimplementedPaintServiceServer) SetTextAlign(context.Context, *SetTextAlignRequest) (*SetTextAlignResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetTextAlign not implemented")
+}
+func (UnimplementedPaintServiceServer) SetTextLocale(context.Context, *SetTextLocaleRequest) (*SetTextLocaleResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetTextLocale not implemented")
+}
+func (UnimplementedPaintServiceServer) SetTextLocales(context.Context, *SetTextLocalesRequest) (*SetTextLocalesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetTextLocales not implemented")
+}
+func (UnimplementedPaintServiceServer) SetTextScaleX(context.Context, *SetTextScaleXRequest) (*SetTextScaleXResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetTextScaleX not implemented")
+}
+func (UnimplementedPaintServiceServer) SetTextSize(context.Context, *SetTextSizeRequest) (*SetTextSizeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetTextSize not implemented")
+}
+func (UnimplementedPaintServiceServer) SetTextSkewX(context.Context, *SetTextSkewXRequest) (*SetTextSkewXResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetTextSkewX not implemented")
+}
+func (UnimplementedPaintServiceServer) SetTypeface(context.Context, *SetTypefaceRequest) (*SetTypefaceResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetTypeface not implemented")
+}
+func (UnimplementedPaintServiceServer) SetUnderlineText(context.Context, *SetUnderlineTextRequest) (*SetUnderlineTextResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetUnderlineText not implemented")
+}
+func (UnimplementedPaintServiceServer) SetWordSpacing(context.Context, *SetWordSpacingRequest) (*SetWordSpacingResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetWordSpacing not implemented")
+}
+func (UnimplementedPaintServiceServer) SetXfermode(context.Context, *SetXfermodeRequest) (*SetXfermodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetXfermode not implemented")
+}
+func (UnimplementedPaintServiceServer) mustEmbedUnimplementedPaintServiceServer() {}
+func (UnimplementedPaintServiceServer) testEmbeddedByValue()                      {}
+
+// UnsafePaintServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to PaintServiceServer will
+// result in compilation errors.
+type UnsafePaintServiceServer interface {
+	mustEmbedUnimplementedPaintServiceServer()
+}
+
+func RegisterPaintServiceServer(s grpc.ServiceRegistrar, srv PaintServiceServer) {
+	// If the following call panics, it indicates UnimplementedPaintServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&PaintService_ServiceDesc, srv)
+}
+
+func _PaintService_NewPaint_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewPaintRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PaintServiceServer).NewPaint(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PaintService_NewPaint_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PaintServiceServer).NewPaint(ctx, req.(*NewPaintRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PaintService_Ascent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AscentRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PaintServiceServer).Ascent(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PaintService_Ascent_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PaintServiceServer).Ascent(ctx, req.(*AscentRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PaintService_BreakText5_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BreakText5Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PaintServiceServer).BreakText5(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PaintService_BreakText5_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PaintServiceServer).BreakText5(ctx, req.(*BreakText5Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PaintService_BreakText6_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BreakText6_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PaintServiceServer).BreakText6_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PaintService_BreakText6_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PaintServiceServer).BreakText6_1(ctx, req.(*BreakText6_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PaintService_BreakText4_2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BreakText4_2Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PaintServiceServer).BreakText4_2(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PaintService_BreakText4_2_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PaintServiceServer).BreakText4_2(ctx, req.(*BreakText4_2Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PaintService_ClearShadowLayer_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ClearShadowLayerRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PaintServiceServer).ClearShadowLayer(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PaintService_ClearShadowLayer_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PaintServiceServer).ClearShadowLayer(ctx, req.(*ClearShadowLayerRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PaintService_Descent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescentRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PaintServiceServer).Descent(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PaintService_Descent_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PaintServiceServer).Descent(ctx, req.(*DescentRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PaintService_EqualsForTextMeasurement_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EqualsForTextMeasurementRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PaintServiceServer).EqualsForTextMeasurement(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PaintService_EqualsForTextMeasurement_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PaintServiceServer).EqualsForTextMeasurement(ctx, req.(*EqualsForTextMeasurementRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PaintService_GetAlpha_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetAlphaRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PaintServiceServer).GetAlpha(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PaintService_GetAlpha_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PaintServiceServer).GetAlpha(ctx, req.(*GetAlphaRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PaintService_GetBlendMode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetBlendModeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PaintServiceServer).GetBlendMode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PaintService_GetBlendMode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PaintServiceServer).GetBlendMode(ctx, req.(*GetBlendModeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PaintService_GetColor_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(PaintGetColorRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PaintServiceServer).GetColor(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PaintService_GetColor_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PaintServiceServer).GetColor(ctx, req.(*PaintGetColorRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PaintService_GetColorFilter_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetColorFilterRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PaintServiceServer).GetColorFilter(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PaintService_GetColorFilter_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PaintServiceServer).GetColorFilter(ctx, req.(*GetColorFilterRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PaintService_GetColorLong_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetColorLongRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PaintServiceServer).GetColorLong(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PaintService_GetColorLong_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PaintServiceServer).GetColorLong(ctx, req.(*GetColorLongRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PaintService_GetEndHyphenEdit_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetEndHyphenEditRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PaintServiceServer).GetEndHyphenEdit(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PaintService_GetEndHyphenEdit_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PaintServiceServer).GetEndHyphenEdit(ctx, req.(*GetEndHyphenEditRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PaintService_GetFillPath_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetFillPathRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PaintServiceServer).GetFillPath(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PaintService_GetFillPath_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PaintServiceServer).GetFillPath(ctx, req.(*GetFillPathRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PaintService_GetFlags_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetFlagsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PaintServiceServer).GetFlags(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PaintService_GetFlags_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PaintServiceServer).GetFlags(ctx, req.(*GetFlagsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PaintService_GetFontFeatureSettings_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetFontFeatureSettingsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PaintServiceServer).GetFontFeatureSettings(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PaintService_GetFontFeatureSettings_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PaintServiceServer).GetFontFeatureSettings(ctx, req.(*GetFontFeatureSettingsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PaintService_GetFontMetrics0_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetFontMetrics0Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PaintServiceServer).GetFontMetrics0(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PaintService_GetFontMetrics0_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PaintServiceServer).GetFontMetrics0(ctx, req.(*GetFontMetrics0Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PaintService_GetFontMetrics1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetFontMetrics1_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PaintServiceServer).GetFontMetrics1_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PaintService_GetFontMetrics1_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PaintServiceServer).GetFontMetrics1_1(ctx, req.(*GetFontMetrics1_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PaintService_GetFontMetricsForLocale_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetFontMetricsForLocaleRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PaintServiceServer).GetFontMetricsForLocale(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PaintService_GetFontMetricsForLocale_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PaintServiceServer).GetFontMetricsForLocale(ctx, req.(*GetFontMetricsForLocaleRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PaintService_GetFontMetricsInt0_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetFontMetricsInt0Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PaintServiceServer).GetFontMetricsInt0(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PaintService_GetFontMetricsInt0_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PaintServiceServer).GetFontMetricsInt0(ctx, req.(*GetFontMetricsInt0Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PaintService_GetFontMetricsInt1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetFontMetricsInt1_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PaintServiceServer).GetFontMetricsInt1_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PaintService_GetFontMetricsInt1_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PaintServiceServer).GetFontMetricsInt1_1(ctx, req.(*GetFontMetricsInt1_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PaintService_GetFontMetricsInt7_2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetFontMetricsInt7_2Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PaintServiceServer).GetFontMetricsInt7_2(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PaintService_GetFontMetricsInt7_2_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PaintServiceServer).GetFontMetricsInt7_2(ctx, req.(*GetFontMetricsInt7_2Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PaintService_GetFontMetricsInt7_3_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetFontMetricsInt7_3Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PaintServiceServer).GetFontMetricsInt7_3(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PaintService_GetFontMetricsInt7_3_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PaintServiceServer).GetFontMetricsInt7_3(ctx, req.(*GetFontMetricsInt7_3Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PaintService_GetFontMetricsIntForLocale_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetFontMetricsIntForLocaleRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PaintServiceServer).GetFontMetricsIntForLocale(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PaintService_GetFontMetricsIntForLocale_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PaintServiceServer).GetFontMetricsIntForLocale(ctx, req.(*GetFontMetricsIntForLocaleRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PaintService_GetFontSpacing_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetFontSpacingRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PaintServiceServer).GetFontSpacing(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PaintService_GetFontSpacing_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PaintServiceServer).GetFontSpacing(ctx, req.(*GetFontSpacingRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PaintService_GetFontVariationSettings_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetFontVariationSettingsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PaintServiceServer).GetFontVariationSettings(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PaintService_GetFontVariationSettings_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PaintServiceServer).GetFontVariationSettings(ctx, req.(*GetFontVariationSettingsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PaintService_GetHinting_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetHintingRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PaintServiceServer).GetHinting(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PaintService_GetHinting_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PaintServiceServer).GetHinting(ctx, req.(*GetHintingRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PaintService_GetLetterSpacing_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetLetterSpacingRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PaintServiceServer).GetLetterSpacing(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PaintService_GetLetterSpacing_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PaintServiceServer).GetLetterSpacing(ctx, req.(*GetLetterSpacingRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PaintService_GetMaskFilter_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetMaskFilterRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PaintServiceServer).GetMaskFilter(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PaintService_GetMaskFilter_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PaintServiceServer).GetMaskFilter(ctx, req.(*GetMaskFilterRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PaintService_GetOffsetForAdvance7_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetOffsetForAdvance7Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PaintServiceServer).GetOffsetForAdvance7(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PaintService_GetOffsetForAdvance7_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PaintServiceServer).GetOffsetForAdvance7(ctx, req.(*GetOffsetForAdvance7Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PaintService_GetOffsetForAdvance7_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetOffsetForAdvance7_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PaintServiceServer).GetOffsetForAdvance7_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PaintService_GetOffsetForAdvance7_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PaintServiceServer).GetOffsetForAdvance7_1(ctx, req.(*GetOffsetForAdvance7_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PaintService_GetPathEffect_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPathEffectRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PaintServiceServer).GetPathEffect(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PaintService_GetPathEffect_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PaintServiceServer).GetPathEffect(ctx, req.(*GetPathEffectRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PaintService_GetRunAdvance7_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetRunAdvance7Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PaintServiceServer).GetRunAdvance7(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PaintService_GetRunAdvance7_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PaintServiceServer).GetRunAdvance7(ctx, req.(*GetRunAdvance7Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PaintService_GetRunAdvance7_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetRunAdvance7_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PaintServiceServer).GetRunAdvance7_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PaintService_GetRunAdvance7_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PaintServiceServer).GetRunAdvance7_1(ctx, req.(*GetRunAdvance7_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PaintService_GetRunCharacterAdvance9_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetRunCharacterAdvance9Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PaintServiceServer).GetRunCharacterAdvance9(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PaintService_GetRunCharacterAdvance9_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PaintServiceServer).GetRunCharacterAdvance9(ctx, req.(*GetRunCharacterAdvance9Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PaintService_GetRunCharacterAdvance9_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetRunCharacterAdvance9_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PaintServiceServer).GetRunCharacterAdvance9_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PaintService_GetRunCharacterAdvance9_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PaintServiceServer).GetRunCharacterAdvance9_1(ctx, req.(*GetRunCharacterAdvance9_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PaintService_GetShader_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetShaderRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PaintServiceServer).GetShader(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PaintService_GetShader_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PaintServiceServer).GetShader(ctx, req.(*GetShaderRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PaintService_GetShadowLayerColor_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetShadowLayerColorRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PaintServiceServer).GetShadowLayerColor(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PaintService_GetShadowLayerColor_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PaintServiceServer).GetShadowLayerColor(ctx, req.(*GetShadowLayerColorRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PaintService_GetShadowLayerColorLong_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetShadowLayerColorLongRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PaintServiceServer).GetShadowLayerColorLong(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PaintService_GetShadowLayerColorLong_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PaintServiceServer).GetShadowLayerColorLong(ctx, req.(*GetShadowLayerColorLongRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PaintService_GetShadowLayerDx_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetShadowLayerDxRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PaintServiceServer).GetShadowLayerDx(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PaintService_GetShadowLayerDx_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PaintServiceServer).GetShadowLayerDx(ctx, req.(*GetShadowLayerDxRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PaintService_GetShadowLayerDy_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetShadowLayerDyRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PaintServiceServer).GetShadowLayerDy(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PaintService_GetShadowLayerDy_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PaintServiceServer).GetShadowLayerDy(ctx, req.(*GetShadowLayerDyRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PaintService_GetShadowLayerRadius_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetShadowLayerRadiusRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PaintServiceServer).GetShadowLayerRadius(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PaintService_GetShadowLayerRadius_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PaintServiceServer).GetShadowLayerRadius(ctx, req.(*GetShadowLayerRadiusRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PaintService_GetStartHyphenEdit_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetStartHyphenEditRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PaintServiceServer).GetStartHyphenEdit(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PaintService_GetStartHyphenEdit_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PaintServiceServer).GetStartHyphenEdit(ctx, req.(*GetStartHyphenEditRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PaintService_GetStrikeThruPosition_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetStrikeThruPositionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PaintServiceServer).GetStrikeThruPosition(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PaintService_GetStrikeThruPosition_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PaintServiceServer).GetStrikeThruPosition(ctx, req.(*GetStrikeThruPositionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PaintService_GetStrikeThruThickness_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetStrikeThruThicknessRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PaintServiceServer).GetStrikeThruThickness(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PaintService_GetStrikeThruThickness_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PaintServiceServer).GetStrikeThruThickness(ctx, req.(*GetStrikeThruThicknessRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PaintService_GetStrokeCap_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetStrokeCapRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PaintServiceServer).GetStrokeCap(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PaintService_GetStrokeCap_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PaintServiceServer).GetStrokeCap(ctx, req.(*GetStrokeCapRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PaintService_GetStrokeJoin_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetStrokeJoinRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PaintServiceServer).GetStrokeJoin(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PaintService_GetStrokeJoin_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PaintServiceServer).GetStrokeJoin(ctx, req.(*GetStrokeJoinRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PaintService_GetStrokeMiter_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetStrokeMiterRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PaintServiceServer).GetStrokeMiter(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PaintService_GetStrokeMiter_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PaintServiceServer).GetStrokeMiter(ctx, req.(*GetStrokeMiterRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PaintService_GetStrokeWidth_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetStrokeWidthRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PaintServiceServer).GetStrokeWidth(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PaintService_GetStrokeWidth_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PaintServiceServer).GetStrokeWidth(ctx, req.(*GetStrokeWidthRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PaintService_GetStyle_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(PaintGetStyleRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PaintServiceServer).GetStyle(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PaintService_GetStyle_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PaintServiceServer).GetStyle(ctx, req.(*PaintGetStyleRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PaintService_GetTextAlign_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTextAlignRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PaintServiceServer).GetTextAlign(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PaintService_GetTextAlign_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PaintServiceServer).GetTextAlign(ctx, req.(*GetTextAlignRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PaintService_GetTextBounds4_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTextBounds4Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PaintServiceServer).GetTextBounds4(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PaintService_GetTextBounds4_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PaintServiceServer).GetTextBounds4(ctx, req.(*GetTextBounds4Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PaintService_GetTextBounds4_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTextBounds4_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PaintServiceServer).GetTextBounds4_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PaintService_GetTextBounds4_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PaintServiceServer).GetTextBounds4_1(ctx, req.(*GetTextBounds4_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PaintService_GetTextBounds4_2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTextBounds4_2Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PaintServiceServer).GetTextBounds4_2(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PaintService_GetTextBounds4_2_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PaintServiceServer).GetTextBounds4_2(ctx, req.(*GetTextBounds4_2Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PaintService_GetTextLocale_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTextLocaleRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PaintServiceServer).GetTextLocale(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PaintService_GetTextLocale_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PaintServiceServer).GetTextLocale(ctx, req.(*GetTextLocaleRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PaintService_GetTextLocales_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTextLocalesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PaintServiceServer).GetTextLocales(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PaintService_GetTextLocales_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PaintServiceServer).GetTextLocales(ctx, req.(*GetTextLocalesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PaintService_GetTextPath6_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTextPath6Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PaintServiceServer).GetTextPath6(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PaintService_GetTextPath6_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PaintServiceServer).GetTextPath6(ctx, req.(*GetTextPath6Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PaintService_GetTextPath6_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTextPath6_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PaintServiceServer).GetTextPath6_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PaintService_GetTextPath6_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PaintServiceServer).GetTextPath6_1(ctx, req.(*GetTextPath6_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PaintService_GetTextRunAdvances_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTextRunAdvancesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PaintServiceServer).GetTextRunAdvances(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PaintService_GetTextRunAdvances_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PaintServiceServer).GetTextRunAdvances(ctx, req.(*GetTextRunAdvancesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PaintService_GetTextRunCursor6_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTextRunCursor6Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PaintServiceServer).GetTextRunCursor6(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PaintService_GetTextRunCursor6_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PaintServiceServer).GetTextRunCursor6(ctx, req.(*GetTextRunCursor6Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PaintService_GetTextRunCursor6_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTextRunCursor6_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PaintServiceServer).GetTextRunCursor6_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PaintService_GetTextRunCursor6_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PaintServiceServer).GetTextRunCursor6_1(ctx, req.(*GetTextRunCursor6_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PaintService_GetTextScaleX_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTextScaleXRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PaintServiceServer).GetTextScaleX(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PaintService_GetTextScaleX_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PaintServiceServer).GetTextScaleX(ctx, req.(*GetTextScaleXRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PaintService_GetTextSize_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTextSizeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PaintServiceServer).GetTextSize(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PaintService_GetTextSize_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PaintServiceServer).GetTextSize(ctx, req.(*GetTextSizeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PaintService_GetTextSkewX_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTextSkewXRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PaintServiceServer).GetTextSkewX(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PaintService_GetTextSkewX_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PaintServiceServer).GetTextSkewX(ctx, req.(*GetTextSkewXRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PaintService_GetTextWidths4_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTextWidths4Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PaintServiceServer).GetTextWidths4(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PaintService_GetTextWidths4_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PaintServiceServer).GetTextWidths4(ctx, req.(*GetTextWidths4Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PaintService_GetTextWidths4_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTextWidths4_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PaintServiceServer).GetTextWidths4_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PaintService_GetTextWidths4_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PaintServiceServer).GetTextWidths4_1(ctx, req.(*GetTextWidths4_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PaintService_GetTextWidths2_2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTextWidths2_2Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PaintServiceServer).GetTextWidths2_2(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PaintService_GetTextWidths2_2_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PaintServiceServer).GetTextWidths2_2(ctx, req.(*GetTextWidths2_2Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PaintService_GetTextWidths4_3_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTextWidths4_3Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PaintServiceServer).GetTextWidths4_3(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PaintService_GetTextWidths4_3_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PaintServiceServer).GetTextWidths4_3(ctx, req.(*GetTextWidths4_3Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PaintService_GetTypeface_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTypefaceRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PaintServiceServer).GetTypeface(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PaintService_GetTypeface_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PaintServiceServer).GetTypeface(ctx, req.(*GetTypefaceRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PaintService_GetUnderlinePosition_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetUnderlinePositionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PaintServiceServer).GetUnderlinePosition(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PaintService_GetUnderlinePosition_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PaintServiceServer).GetUnderlinePosition(ctx, req.(*GetUnderlinePositionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PaintService_GetUnderlineThickness_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetUnderlineThicknessRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PaintServiceServer).GetUnderlineThickness(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PaintService_GetUnderlineThickness_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PaintServiceServer).GetUnderlineThickness(ctx, req.(*GetUnderlineThicknessRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PaintService_GetWordSpacing_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetWordSpacingRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PaintServiceServer).GetWordSpacing(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PaintService_GetWordSpacing_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PaintServiceServer).GetWordSpacing(ctx, req.(*GetWordSpacingRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PaintService_GetXfermode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetXfermodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PaintServiceServer).GetXfermode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PaintService_GetXfermode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PaintServiceServer).GetXfermode(ctx, req.(*GetXfermodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PaintService_HasGlyph_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HasGlyphRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PaintServiceServer).HasGlyph(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PaintService_HasGlyph_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PaintServiceServer).HasGlyph(ctx, req.(*HasGlyphRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PaintService_IsAntiAlias_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsAntiAliasRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PaintServiceServer).IsAntiAlias(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PaintService_IsAntiAlias_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PaintServiceServer).IsAntiAlias(ctx, req.(*IsAntiAliasRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PaintService_IsDither_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsDitherRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PaintServiceServer).IsDither(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PaintService_IsDither_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PaintServiceServer).IsDither(ctx, req.(*IsDitherRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PaintService_IsElegantTextHeight_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsElegantTextHeightRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PaintServiceServer).IsElegantTextHeight(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PaintService_IsElegantTextHeight_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PaintServiceServer).IsElegantTextHeight(ctx, req.(*IsElegantTextHeightRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PaintService_IsFakeBoldText_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsFakeBoldTextRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PaintServiceServer).IsFakeBoldText(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PaintService_IsFakeBoldText_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PaintServiceServer).IsFakeBoldText(ctx, req.(*IsFakeBoldTextRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PaintService_IsFilterBitmap_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsFilterBitmapRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PaintServiceServer).IsFilterBitmap(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PaintService_IsFilterBitmap_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PaintServiceServer).IsFilterBitmap(ctx, req.(*IsFilterBitmapRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PaintService_IsLinearText_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsLinearTextRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PaintServiceServer).IsLinearText(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PaintService_IsLinearText_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PaintServiceServer).IsLinearText(ctx, req.(*IsLinearTextRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PaintService_IsStrikeThruText_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsStrikeThruTextRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PaintServiceServer).IsStrikeThruText(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PaintService_IsStrikeThruText_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PaintServiceServer).IsStrikeThruText(ctx, req.(*IsStrikeThruTextRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PaintService_IsSubpixelText_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsSubpixelTextRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PaintServiceServer).IsSubpixelText(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PaintService_IsSubpixelText_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PaintServiceServer).IsSubpixelText(ctx, req.(*IsSubpixelTextRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PaintService_IsUnderlineText_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsUnderlineTextRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PaintServiceServer).IsUnderlineText(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PaintService_IsUnderlineText_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PaintServiceServer).IsUnderlineText(ctx, req.(*IsUnderlineTextRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PaintService_MeasureText3_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MeasureText3Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PaintServiceServer).MeasureText3(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PaintService_MeasureText3_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PaintServiceServer).MeasureText3(ctx, req.(*MeasureText3Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PaintService_MeasureText3_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MeasureText3_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PaintServiceServer).MeasureText3_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PaintService_MeasureText3_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PaintServiceServer).MeasureText3_1(ctx, req.(*MeasureText3_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PaintService_MeasureText1_2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MeasureText1_2Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PaintServiceServer).MeasureText1_2(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PaintService_MeasureText1_2_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PaintServiceServer).MeasureText1_2(ctx, req.(*MeasureText1_2Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PaintService_MeasureText3_3_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MeasureText3_3Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PaintServiceServer).MeasureText3_3(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PaintService_MeasureText3_3_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PaintServiceServer).MeasureText3_3(ctx, req.(*MeasureText3_3Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PaintService_Reset_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ResetRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PaintServiceServer).Reset(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PaintService_Reset_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PaintServiceServer).Reset(ctx, req.(*ResetRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PaintService_Set_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PaintServiceServer).Set(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PaintService_Set_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PaintServiceServer).Set(ctx, req.(*SetRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PaintService_SetARGB_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetARGBRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PaintServiceServer).SetARGB(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PaintService_SetARGB_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PaintServiceServer).SetARGB(ctx, req.(*SetARGBRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PaintService_SetAlpha_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetAlphaRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PaintServiceServer).SetAlpha(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PaintService_SetAlpha_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PaintServiceServer).SetAlpha(ctx, req.(*SetAlphaRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PaintService_SetAntiAlias_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetAntiAliasRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PaintServiceServer).SetAntiAlias(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PaintService_SetAntiAlias_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PaintServiceServer).SetAntiAlias(ctx, req.(*SetAntiAliasRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PaintService_SetBlendMode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetBlendModeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PaintServiceServer).SetBlendMode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PaintService_SetBlendMode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PaintServiceServer).SetBlendMode(ctx, req.(*SetBlendModeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PaintService_SetColor1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetColor1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PaintServiceServer).SetColor1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PaintService_SetColor1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PaintServiceServer).SetColor1(ctx, req.(*SetColor1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PaintService_SetColor1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetColor1_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PaintServiceServer).SetColor1_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PaintService_SetColor1_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PaintServiceServer).SetColor1_1(ctx, req.(*SetColor1_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PaintService_SetColorFilter_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetColorFilterRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PaintServiceServer).SetColorFilter(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PaintService_SetColorFilter_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PaintServiceServer).SetColorFilter(ctx, req.(*SetColorFilterRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PaintService_SetDither_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetDitherRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PaintServiceServer).SetDither(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PaintService_SetDither_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PaintServiceServer).SetDither(ctx, req.(*SetDitherRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PaintService_SetElegantTextHeight_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetElegantTextHeightRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PaintServiceServer).SetElegantTextHeight(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PaintService_SetElegantTextHeight_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PaintServiceServer).SetElegantTextHeight(ctx, req.(*SetElegantTextHeightRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PaintService_SetEndHyphenEdit_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetEndHyphenEditRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PaintServiceServer).SetEndHyphenEdit(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PaintService_SetEndHyphenEdit_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PaintServiceServer).SetEndHyphenEdit(ctx, req.(*SetEndHyphenEditRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PaintService_SetFakeBoldText_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetFakeBoldTextRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PaintServiceServer).SetFakeBoldText(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PaintService_SetFakeBoldText_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PaintServiceServer).SetFakeBoldText(ctx, req.(*SetFakeBoldTextRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PaintService_SetFilterBitmap_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetFilterBitmapRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PaintServiceServer).SetFilterBitmap(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PaintService_SetFilterBitmap_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PaintServiceServer).SetFilterBitmap(ctx, req.(*SetFilterBitmapRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PaintService_SetFlags_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetFlagsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PaintServiceServer).SetFlags(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PaintService_SetFlags_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PaintServiceServer).SetFlags(ctx, req.(*SetFlagsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PaintService_SetFontFeatureSettings_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetFontFeatureSettingsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PaintServiceServer).SetFontFeatureSettings(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PaintService_SetFontFeatureSettings_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PaintServiceServer).SetFontFeatureSettings(ctx, req.(*SetFontFeatureSettingsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PaintService_SetFontVariationSettings_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetFontVariationSettingsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PaintServiceServer).SetFontVariationSettings(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PaintService_SetFontVariationSettings_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PaintServiceServer).SetFontVariationSettings(ctx, req.(*SetFontVariationSettingsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PaintService_SetHinting_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetHintingRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PaintServiceServer).SetHinting(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PaintService_SetHinting_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PaintServiceServer).SetHinting(ctx, req.(*SetHintingRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PaintService_SetLetterSpacing_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetLetterSpacingRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PaintServiceServer).SetLetterSpacing(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PaintService_SetLetterSpacing_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PaintServiceServer).SetLetterSpacing(ctx, req.(*SetLetterSpacingRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PaintService_SetLinearText_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetLinearTextRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PaintServiceServer).SetLinearText(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PaintService_SetLinearText_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PaintServiceServer).SetLinearText(ctx, req.(*SetLinearTextRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PaintService_SetMaskFilter_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetMaskFilterRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PaintServiceServer).SetMaskFilter(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PaintService_SetMaskFilter_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PaintServiceServer).SetMaskFilter(ctx, req.(*SetMaskFilterRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PaintService_SetPathEffect_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetPathEffectRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PaintServiceServer).SetPathEffect(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PaintService_SetPathEffect_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PaintServiceServer).SetPathEffect(ctx, req.(*SetPathEffectRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PaintService_SetShader_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetShaderRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PaintServiceServer).SetShader(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PaintService_SetShader_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PaintServiceServer).SetShader(ctx, req.(*SetShaderRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PaintService_SetShadowLayer4_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetShadowLayer4Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PaintServiceServer).SetShadowLayer4(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PaintService_SetShadowLayer4_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PaintServiceServer).SetShadowLayer4(ctx, req.(*SetShadowLayer4Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PaintService_SetShadowLayer4_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetShadowLayer4_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PaintServiceServer).SetShadowLayer4_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PaintService_SetShadowLayer4_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PaintServiceServer).SetShadowLayer4_1(ctx, req.(*SetShadowLayer4_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PaintService_SetStartHyphenEdit_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetStartHyphenEditRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PaintServiceServer).SetStartHyphenEdit(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PaintService_SetStartHyphenEdit_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PaintServiceServer).SetStartHyphenEdit(ctx, req.(*SetStartHyphenEditRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PaintService_SetStrikeThruText_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetStrikeThruTextRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PaintServiceServer).SetStrikeThruText(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PaintService_SetStrikeThruText_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PaintServiceServer).SetStrikeThruText(ctx, req.(*SetStrikeThruTextRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PaintService_SetStrokeCap_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetStrokeCapRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PaintServiceServer).SetStrokeCap(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PaintService_SetStrokeCap_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PaintServiceServer).SetStrokeCap(ctx, req.(*SetStrokeCapRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PaintService_SetStrokeJoin_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetStrokeJoinRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PaintServiceServer).SetStrokeJoin(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PaintService_SetStrokeJoin_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PaintServiceServer).SetStrokeJoin(ctx, req.(*SetStrokeJoinRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PaintService_SetStrokeMiter_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetStrokeMiterRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PaintServiceServer).SetStrokeMiter(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PaintService_SetStrokeMiter_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PaintServiceServer).SetStrokeMiter(ctx, req.(*SetStrokeMiterRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PaintService_SetStrokeWidth_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetStrokeWidthRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PaintServiceServer).SetStrokeWidth(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PaintService_SetStrokeWidth_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PaintServiceServer).SetStrokeWidth(ctx, req.(*SetStrokeWidthRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PaintService_SetStyle_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(PaintSetStyleRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PaintServiceServer).SetStyle(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PaintService_SetStyle_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PaintServiceServer).SetStyle(ctx, req.(*PaintSetStyleRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PaintService_SetSubpixelText_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetSubpixelTextRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PaintServiceServer).SetSubpixelText(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PaintService_SetSubpixelText_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PaintServiceServer).SetSubpixelText(ctx, req.(*SetSubpixelTextRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PaintService_SetTextAlign_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetTextAlignRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PaintServiceServer).SetTextAlign(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PaintService_SetTextAlign_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PaintServiceServer).SetTextAlign(ctx, req.(*SetTextAlignRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PaintService_SetTextLocale_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetTextLocaleRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PaintServiceServer).SetTextLocale(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PaintService_SetTextLocale_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PaintServiceServer).SetTextLocale(ctx, req.(*SetTextLocaleRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PaintService_SetTextLocales_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetTextLocalesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PaintServiceServer).SetTextLocales(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PaintService_SetTextLocales_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PaintServiceServer).SetTextLocales(ctx, req.(*SetTextLocalesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PaintService_SetTextScaleX_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetTextScaleXRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PaintServiceServer).SetTextScaleX(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PaintService_SetTextScaleX_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PaintServiceServer).SetTextScaleX(ctx, req.(*SetTextScaleXRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PaintService_SetTextSize_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetTextSizeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PaintServiceServer).SetTextSize(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PaintService_SetTextSize_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PaintServiceServer).SetTextSize(ctx, req.(*SetTextSizeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PaintService_SetTextSkewX_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetTextSkewXRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PaintServiceServer).SetTextSkewX(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PaintService_SetTextSkewX_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PaintServiceServer).SetTextSkewX(ctx, req.(*SetTextSkewXRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PaintService_SetTypeface_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetTypefaceRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PaintServiceServer).SetTypeface(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PaintService_SetTypeface_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PaintServiceServer).SetTypeface(ctx, req.(*SetTypefaceRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PaintService_SetUnderlineText_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetUnderlineTextRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PaintServiceServer).SetUnderlineText(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PaintService_SetUnderlineText_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PaintServiceServer).SetUnderlineText(ctx, req.(*SetUnderlineTextRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PaintService_SetWordSpacing_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetWordSpacingRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PaintServiceServer).SetWordSpacing(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PaintService_SetWordSpacing_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PaintServiceServer).SetWordSpacing(ctx, req.(*SetWordSpacingRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PaintService_SetXfermode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetXfermodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PaintServiceServer).SetXfermode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PaintService_SetXfermode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PaintServiceServer).SetXfermode(ctx, req.(*SetXfermodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// PaintService_ServiceDesc is the grpc.ServiceDesc for PaintService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var PaintService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "pdf.PaintService",
+	HandlerType: (*PaintServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewPaint",
+			Handler:    _PaintService_NewPaint_Handler,
+		},
+		{
+			MethodName: "Ascent",
+			Handler:    _PaintService_Ascent_Handler,
+		},
+		{
+			MethodName: "BreakText5",
+			Handler:    _PaintService_BreakText5_Handler,
+		},
+		{
+			MethodName: "BreakText6_1",
+			Handler:    _PaintService_BreakText6_1_Handler,
+		},
+		{
+			MethodName: "BreakText4_2",
+			Handler:    _PaintService_BreakText4_2_Handler,
+		},
+		{
+			MethodName: "ClearShadowLayer",
+			Handler:    _PaintService_ClearShadowLayer_Handler,
+		},
+		{
+			MethodName: "Descent",
+			Handler:    _PaintService_Descent_Handler,
+		},
+		{
+			MethodName: "EqualsForTextMeasurement",
+			Handler:    _PaintService_EqualsForTextMeasurement_Handler,
+		},
+		{
+			MethodName: "GetAlpha",
+			Handler:    _PaintService_GetAlpha_Handler,
+		},
+		{
+			MethodName: "GetBlendMode",
+			Handler:    _PaintService_GetBlendMode_Handler,
+		},
+		{
+			MethodName: "GetColor",
+			Handler:    _PaintService_GetColor_Handler,
+		},
+		{
+			MethodName: "GetColorFilter",
+			Handler:    _PaintService_GetColorFilter_Handler,
+		},
+		{
+			MethodName: "GetColorLong",
+			Handler:    _PaintService_GetColorLong_Handler,
+		},
+		{
+			MethodName: "GetEndHyphenEdit",
+			Handler:    _PaintService_GetEndHyphenEdit_Handler,
+		},
+		{
+			MethodName: "GetFillPath",
+			Handler:    _PaintService_GetFillPath_Handler,
+		},
+		{
+			MethodName: "GetFlags",
+			Handler:    _PaintService_GetFlags_Handler,
+		},
+		{
+			MethodName: "GetFontFeatureSettings",
+			Handler:    _PaintService_GetFontFeatureSettings_Handler,
+		},
+		{
+			MethodName: "GetFontMetrics0",
+			Handler:    _PaintService_GetFontMetrics0_Handler,
+		},
+		{
+			MethodName: "GetFontMetrics1_1",
+			Handler:    _PaintService_GetFontMetrics1_1_Handler,
+		},
+		{
+			MethodName: "GetFontMetricsForLocale",
+			Handler:    _PaintService_GetFontMetricsForLocale_Handler,
+		},
+		{
+			MethodName: "GetFontMetricsInt0",
+			Handler:    _PaintService_GetFontMetricsInt0_Handler,
+		},
+		{
+			MethodName: "GetFontMetricsInt1_1",
+			Handler:    _PaintService_GetFontMetricsInt1_1_Handler,
+		},
+		{
+			MethodName: "GetFontMetricsInt7_2",
+			Handler:    _PaintService_GetFontMetricsInt7_2_Handler,
+		},
+		{
+			MethodName: "GetFontMetricsInt7_3",
+			Handler:    _PaintService_GetFontMetricsInt7_3_Handler,
+		},
+		{
+			MethodName: "GetFontMetricsIntForLocale",
+			Handler:    _PaintService_GetFontMetricsIntForLocale_Handler,
+		},
+		{
+			MethodName: "GetFontSpacing",
+			Handler:    _PaintService_GetFontSpacing_Handler,
+		},
+		{
+			MethodName: "GetFontVariationSettings",
+			Handler:    _PaintService_GetFontVariationSettings_Handler,
+		},
+		{
+			MethodName: "GetHinting",
+			Handler:    _PaintService_GetHinting_Handler,
+		},
+		{
+			MethodName: "GetLetterSpacing",
+			Handler:    _PaintService_GetLetterSpacing_Handler,
+		},
+		{
+			MethodName: "GetMaskFilter",
+			Handler:    _PaintService_GetMaskFilter_Handler,
+		},
+		{
+			MethodName: "GetOffsetForAdvance7",
+			Handler:    _PaintService_GetOffsetForAdvance7_Handler,
+		},
+		{
+			MethodName: "GetOffsetForAdvance7_1",
+			Handler:    _PaintService_GetOffsetForAdvance7_1_Handler,
+		},
+		{
+			MethodName: "GetPathEffect",
+			Handler:    _PaintService_GetPathEffect_Handler,
+		},
+		{
+			MethodName: "GetRunAdvance7",
+			Handler:    _PaintService_GetRunAdvance7_Handler,
+		},
+		{
+			MethodName: "GetRunAdvance7_1",
+			Handler:    _PaintService_GetRunAdvance7_1_Handler,
+		},
+		{
+			MethodName: "GetRunCharacterAdvance9",
+			Handler:    _PaintService_GetRunCharacterAdvance9_Handler,
+		},
+		{
+			MethodName: "GetRunCharacterAdvance9_1",
+			Handler:    _PaintService_GetRunCharacterAdvance9_1_Handler,
+		},
+		{
+			MethodName: "GetShader",
+			Handler:    _PaintService_GetShader_Handler,
+		},
+		{
+			MethodName: "GetShadowLayerColor",
+			Handler:    _PaintService_GetShadowLayerColor_Handler,
+		},
+		{
+			MethodName: "GetShadowLayerColorLong",
+			Handler:    _PaintService_GetShadowLayerColorLong_Handler,
+		},
+		{
+			MethodName: "GetShadowLayerDx",
+			Handler:    _PaintService_GetShadowLayerDx_Handler,
+		},
+		{
+			MethodName: "GetShadowLayerDy",
+			Handler:    _PaintService_GetShadowLayerDy_Handler,
+		},
+		{
+			MethodName: "GetShadowLayerRadius",
+			Handler:    _PaintService_GetShadowLayerRadius_Handler,
+		},
+		{
+			MethodName: "GetStartHyphenEdit",
+			Handler:    _PaintService_GetStartHyphenEdit_Handler,
+		},
+		{
+			MethodName: "GetStrikeThruPosition",
+			Handler:    _PaintService_GetStrikeThruPosition_Handler,
+		},
+		{
+			MethodName: "GetStrikeThruThickness",
+			Handler:    _PaintService_GetStrikeThruThickness_Handler,
+		},
+		{
+			MethodName: "GetStrokeCap",
+			Handler:    _PaintService_GetStrokeCap_Handler,
+		},
+		{
+			MethodName: "GetStrokeJoin",
+			Handler:    _PaintService_GetStrokeJoin_Handler,
+		},
+		{
+			MethodName: "GetStrokeMiter",
+			Handler:    _PaintService_GetStrokeMiter_Handler,
+		},
+		{
+			MethodName: "GetStrokeWidth",
+			Handler:    _PaintService_GetStrokeWidth_Handler,
+		},
+		{
+			MethodName: "GetStyle",
+			Handler:    _PaintService_GetStyle_Handler,
+		},
+		{
+			MethodName: "GetTextAlign",
+			Handler:    _PaintService_GetTextAlign_Handler,
+		},
+		{
+			MethodName: "GetTextBounds4",
+			Handler:    _PaintService_GetTextBounds4_Handler,
+		},
+		{
+			MethodName: "GetTextBounds4_1",
+			Handler:    _PaintService_GetTextBounds4_1_Handler,
+		},
+		{
+			MethodName: "GetTextBounds4_2",
+			Handler:    _PaintService_GetTextBounds4_2_Handler,
+		},
+		{
+			MethodName: "GetTextLocale",
+			Handler:    _PaintService_GetTextLocale_Handler,
+		},
+		{
+			MethodName: "GetTextLocales",
+			Handler:    _PaintService_GetTextLocales_Handler,
+		},
+		{
+			MethodName: "GetTextPath6",
+			Handler:    _PaintService_GetTextPath6_Handler,
+		},
+		{
+			MethodName: "GetTextPath6_1",
+			Handler:    _PaintService_GetTextPath6_1_Handler,
+		},
+		{
+			MethodName: "GetTextRunAdvances",
+			Handler:    _PaintService_GetTextRunAdvances_Handler,
+		},
+		{
+			MethodName: "GetTextRunCursor6",
+			Handler:    _PaintService_GetTextRunCursor6_Handler,
+		},
+		{
+			MethodName: "GetTextRunCursor6_1",
+			Handler:    _PaintService_GetTextRunCursor6_1_Handler,
+		},
+		{
+			MethodName: "GetTextScaleX",
+			Handler:    _PaintService_GetTextScaleX_Handler,
+		},
+		{
+			MethodName: "GetTextSize",
+			Handler:    _PaintService_GetTextSize_Handler,
+		},
+		{
+			MethodName: "GetTextSkewX",
+			Handler:    _PaintService_GetTextSkewX_Handler,
+		},
+		{
+			MethodName: "GetTextWidths4",
+			Handler:    _PaintService_GetTextWidths4_Handler,
+		},
+		{
+			MethodName: "GetTextWidths4_1",
+			Handler:    _PaintService_GetTextWidths4_1_Handler,
+		},
+		{
+			MethodName: "GetTextWidths2_2",
+			Handler:    _PaintService_GetTextWidths2_2_Handler,
+		},
+		{
+			MethodName: "GetTextWidths4_3",
+			Handler:    _PaintService_GetTextWidths4_3_Handler,
+		},
+		{
+			MethodName: "GetTypeface",
+			Handler:    _PaintService_GetTypeface_Handler,
+		},
+		{
+			MethodName: "GetUnderlinePosition",
+			Handler:    _PaintService_GetUnderlinePosition_Handler,
+		},
+		{
+			MethodName: "GetUnderlineThickness",
+			Handler:    _PaintService_GetUnderlineThickness_Handler,
+		},
+		{
+			MethodName: "GetWordSpacing",
+			Handler:    _PaintService_GetWordSpacing_Handler,
+		},
+		{
+			MethodName: "GetXfermode",
+			Handler:    _PaintService_GetXfermode_Handler,
+		},
+		{
+			MethodName: "HasGlyph",
+			Handler:    _PaintService_HasGlyph_Handler,
+		},
+		{
+			MethodName: "IsAntiAlias",
+			Handler:    _PaintService_IsAntiAlias_Handler,
+		},
+		{
+			MethodName: "IsDither",
+			Handler:    _PaintService_IsDither_Handler,
+		},
+		{
+			MethodName: "IsElegantTextHeight",
+			Handler:    _PaintService_IsElegantTextHeight_Handler,
+		},
+		{
+			MethodName: "IsFakeBoldText",
+			Handler:    _PaintService_IsFakeBoldText_Handler,
+		},
+		{
+			MethodName: "IsFilterBitmap",
+			Handler:    _PaintService_IsFilterBitmap_Handler,
+		},
+		{
+			MethodName: "IsLinearText",
+			Handler:    _PaintService_IsLinearText_Handler,
+		},
+		{
+			MethodName: "IsStrikeThruText",
+			Handler:    _PaintService_IsStrikeThruText_Handler,
+		},
+		{
+			MethodName: "IsSubpixelText",
+			Handler:    _PaintService_IsSubpixelText_Handler,
+		},
+		{
+			MethodName: "IsUnderlineText",
+			Handler:    _PaintService_IsUnderlineText_Handler,
+		},
+		{
+			MethodName: "MeasureText3",
+			Handler:    _PaintService_MeasureText3_Handler,
+		},
+		{
+			MethodName: "MeasureText3_1",
+			Handler:    _PaintService_MeasureText3_1_Handler,
+		},
+		{
+			MethodName: "MeasureText1_2",
+			Handler:    _PaintService_MeasureText1_2_Handler,
+		},
+		{
+			MethodName: "MeasureText3_3",
+			Handler:    _PaintService_MeasureText3_3_Handler,
+		},
+		{
+			MethodName: "Reset",
+			Handler:    _PaintService_Reset_Handler,
+		},
+		{
+			MethodName: "Set",
+			Handler:    _PaintService_Set_Handler,
+		},
+		{
+			MethodName: "SetARGB",
+			Handler:    _PaintService_SetARGB_Handler,
+		},
+		{
+			MethodName: "SetAlpha",
+			Handler:    _PaintService_SetAlpha_Handler,
+		},
+		{
+			MethodName: "SetAntiAlias",
+			Handler:    _PaintService_SetAntiAlias_Handler,
+		},
+		{
+			MethodName: "SetBlendMode",
+			Handler:    _PaintService_SetBlendMode_Handler,
+		},
+		{
+			MethodName: "SetColor1",
+			Handler:    _PaintService_SetColor1_Handler,
+		},
+		{
+			MethodName: "SetColor1_1",
+			Handler:    _PaintService_SetColor1_1_Handler,
+		},
+		{
+			MethodName: "SetColorFilter",
+			Handler:    _PaintService_SetColorFilter_Handler,
+		},
+		{
+			MethodName: "SetDither",
+			Handler:    _PaintService_SetDither_Handler,
+		},
+		{
+			MethodName: "SetElegantTextHeight",
+			Handler:    _PaintService_SetElegantTextHeight_Handler,
+		},
+		{
+			MethodName: "SetEndHyphenEdit",
+			Handler:    _PaintService_SetEndHyphenEdit_Handler,
+		},
+		{
+			MethodName: "SetFakeBoldText",
+			Handler:    _PaintService_SetFakeBoldText_Handler,
+		},
+		{
+			MethodName: "SetFilterBitmap",
+			Handler:    _PaintService_SetFilterBitmap_Handler,
+		},
+		{
+			MethodName: "SetFlags",
+			Handler:    _PaintService_SetFlags_Handler,
+		},
+		{
+			MethodName: "SetFontFeatureSettings",
+			Handler:    _PaintService_SetFontFeatureSettings_Handler,
+		},
+		{
+			MethodName: "SetFontVariationSettings",
+			Handler:    _PaintService_SetFontVariationSettings_Handler,
+		},
+		{
+			MethodName: "SetHinting",
+			Handler:    _PaintService_SetHinting_Handler,
+		},
+		{
+			MethodName: "SetLetterSpacing",
+			Handler:    _PaintService_SetLetterSpacing_Handler,
+		},
+		{
+			MethodName: "SetLinearText",
+			Handler:    _PaintService_SetLinearText_Handler,
+		},
+		{
+			MethodName: "SetMaskFilter",
+			Handler:    _PaintService_SetMaskFilter_Handler,
+		},
+		{
+			MethodName: "SetPathEffect",
+			Handler:    _PaintService_SetPathEffect_Handler,
+		},
+		{
+			MethodName: "SetShader",
+			Handler:    _PaintService_SetShader_Handler,
+		},
+		{
+			MethodName: "SetShadowLayer4",
+			Handler:    _PaintService_SetShadowLayer4_Handler,
+		},
+		{
+			MethodName: "SetShadowLayer4_1",
+			Handler:    _PaintService_SetShadowLayer4_1_Handler,
+		},
+		{
+			MethodName: "SetStartHyphenEdit",
+			Handler:    _PaintService_SetStartHyphenEdit_Handler,
+		},
+		{
+			MethodName: "SetStrikeThruText",
+			Handler:    _PaintService_SetStrikeThruText_Handler,
+		},
+		{
+			MethodName: "SetStrokeCap",
+			Handler:    _PaintService_SetStrokeCap_Handler,
+		},
+		{
+			MethodName: "SetStrokeJoin",
+			Handler:    _PaintService_SetStrokeJoin_Handler,
+		},
+		{
+			MethodName: "SetStrokeMiter",
+			Handler:    _PaintService_SetStrokeMiter_Handler,
+		},
+		{
+			MethodName: "SetStrokeWidth",
+			Handler:    _PaintService_SetStrokeWidth_Handler,
+		},
+		{
+			MethodName: "SetStyle",
+			Handler:    _PaintService_SetStyle_Handler,
+		},
+		{
+			MethodName: "SetSubpixelText",
+			Handler:    _PaintService_SetSubpixelText_Handler,
+		},
+		{
+			MethodName: "SetTextAlign",
+			Handler:    _PaintService_SetTextAlign_Handler,
+		},
+		{
+			MethodName: "SetTextLocale",
+			Handler:    _PaintService_SetTextLocale_Handler,
+		},
+		{
+			MethodName: "SetTextLocales",
+			Handler:    _PaintService_SetTextLocales_Handler,
+		},
+		{
+			MethodName: "SetTextScaleX",
+			Handler:    _PaintService_SetTextScaleX_Handler,
+		},
+		{
+			MethodName: "SetTextSize",
+			Handler:    _PaintService_SetTextSize_Handler,
+		},
+		{
+			MethodName: "SetTextSkewX",
+			Handler:    _PaintService_SetTextSkewX_Handler,
+		},
+		{
+			MethodName: "SetTypeface",
+			Handler:    _PaintService_SetTypeface_Handler,
+		},
+		{
+			MethodName: "SetUnderlineText",
+			Handler:    _PaintService_SetUnderlineText_Handler,
+		},
+		{
+			MethodName: "SetWordSpacing",
+			Handler:    _PaintService_SetWordSpacing_Handler,
+		},
+		{
+			MethodName: "SetXfermode",
+			Handler:    _PaintService_SetXfermode_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/pdf/pdf.proto",
+}
+
+const (
+	PaintAlignService_Values_FullMethodName  = "/pdf.PaintAlignService/Values"
+	PaintAlignService_ValueOf_FullMethodName = "/pdf.PaintAlignService/ValueOf"
+)
+
+// PaintAlignServiceClient is the client API for PaintAlignService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type PaintAlignServiceClient interface {
+	Values(ctx context.Context, in *ValuesRequest, opts ...grpc.CallOption) (*ValuesResponse, error)
+	ValueOf(ctx context.Context, in *ValueOfRequest, opts ...grpc.CallOption) (*ValueOfResponse, error)
+}
+
+type paintAlignServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewPaintAlignServiceClient(cc grpc.ClientConnInterface) PaintAlignServiceClient {
+	return &paintAlignServiceClient{cc}
+}
+
+func (c *paintAlignServiceClient) Values(ctx context.Context, in *ValuesRequest, opts ...grpc.CallOption) (*ValuesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ValuesResponse)
+	err := c.cc.Invoke(ctx, PaintAlignService_Values_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *paintAlignServiceClient) ValueOf(ctx context.Context, in *ValueOfRequest, opts ...grpc.CallOption) (*ValueOfResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ValueOfResponse)
+	err := c.cc.Invoke(ctx, PaintAlignService_ValueOf_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// PaintAlignServiceServer is the server API for PaintAlignService service.
+// All implementations must embed UnimplementedPaintAlignServiceServer
+// for forward compatibility.
+type PaintAlignServiceServer interface {
+	Values(context.Context, *ValuesRequest) (*ValuesResponse, error)
+	ValueOf(context.Context, *ValueOfRequest) (*ValueOfResponse, error)
+	mustEmbedUnimplementedPaintAlignServiceServer()
+}
+
+// UnimplementedPaintAlignServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedPaintAlignServiceServer struct{}
+
+func (UnimplementedPaintAlignServiceServer) Values(context.Context, *ValuesRequest) (*ValuesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Values not implemented")
+}
+func (UnimplementedPaintAlignServiceServer) ValueOf(context.Context, *ValueOfRequest) (*ValueOfResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ValueOf not implemented")
+}
+func (UnimplementedPaintAlignServiceServer) mustEmbedUnimplementedPaintAlignServiceServer() {}
+func (UnimplementedPaintAlignServiceServer) testEmbeddedByValue()                           {}
+
+// UnsafePaintAlignServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to PaintAlignServiceServer will
+// result in compilation errors.
+type UnsafePaintAlignServiceServer interface {
+	mustEmbedUnimplementedPaintAlignServiceServer()
+}
+
+func RegisterPaintAlignServiceServer(s grpc.ServiceRegistrar, srv PaintAlignServiceServer) {
+	// If the following call panics, it indicates UnimplementedPaintAlignServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&PaintAlignService_ServiceDesc, srv)
+}
+
+func _PaintAlignService_Values_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ValuesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PaintAlignServiceServer).Values(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PaintAlignService_Values_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PaintAlignServiceServer).Values(ctx, req.(*ValuesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PaintAlignService_ValueOf_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ValueOfRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PaintAlignServiceServer).ValueOf(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PaintAlignService_ValueOf_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PaintAlignServiceServer).ValueOf(ctx, req.(*ValueOfRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// PaintAlignService_ServiceDesc is the grpc.ServiceDesc for PaintAlignService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var PaintAlignService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "pdf.PaintAlignService",
+	HandlerType: (*PaintAlignServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Values",
+			Handler:    _PaintAlignService_Values_Handler,
+		},
+		{
+			MethodName: "ValueOf",
+			Handler:    _PaintAlignService_ValueOf_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/pdf/pdf.proto",
+}
+
+const (
+	PaintCapService_Values_FullMethodName  = "/pdf.PaintCapService/Values"
+	PaintCapService_ValueOf_FullMethodName = "/pdf.PaintCapService/ValueOf"
+)
+
+// PaintCapServiceClient is the client API for PaintCapService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type PaintCapServiceClient interface {
+	Values(ctx context.Context, in *ValuesRequest, opts ...grpc.CallOption) (*ValuesResponse, error)
+	ValueOf(ctx context.Context, in *ValueOfRequest, opts ...grpc.CallOption) (*ValueOfResponse, error)
+}
+
+type paintCapServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewPaintCapServiceClient(cc grpc.ClientConnInterface) PaintCapServiceClient {
+	return &paintCapServiceClient{cc}
+}
+
+func (c *paintCapServiceClient) Values(ctx context.Context, in *ValuesRequest, opts ...grpc.CallOption) (*ValuesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ValuesResponse)
+	err := c.cc.Invoke(ctx, PaintCapService_Values_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *paintCapServiceClient) ValueOf(ctx context.Context, in *ValueOfRequest, opts ...grpc.CallOption) (*ValueOfResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ValueOfResponse)
+	err := c.cc.Invoke(ctx, PaintCapService_ValueOf_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// PaintCapServiceServer is the server API for PaintCapService service.
+// All implementations must embed UnimplementedPaintCapServiceServer
+// for forward compatibility.
+type PaintCapServiceServer interface {
+	Values(context.Context, *ValuesRequest) (*ValuesResponse, error)
+	ValueOf(context.Context, *ValueOfRequest) (*ValueOfResponse, error)
+	mustEmbedUnimplementedPaintCapServiceServer()
+}
+
+// UnimplementedPaintCapServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedPaintCapServiceServer struct{}
+
+func (UnimplementedPaintCapServiceServer) Values(context.Context, *ValuesRequest) (*ValuesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Values not implemented")
+}
+func (UnimplementedPaintCapServiceServer) ValueOf(context.Context, *ValueOfRequest) (*ValueOfResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ValueOf not implemented")
+}
+func (UnimplementedPaintCapServiceServer) mustEmbedUnimplementedPaintCapServiceServer() {}
+func (UnimplementedPaintCapServiceServer) testEmbeddedByValue()                         {}
+
+// UnsafePaintCapServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to PaintCapServiceServer will
+// result in compilation errors.
+type UnsafePaintCapServiceServer interface {
+	mustEmbedUnimplementedPaintCapServiceServer()
+}
+
+func RegisterPaintCapServiceServer(s grpc.ServiceRegistrar, srv PaintCapServiceServer) {
+	// If the following call panics, it indicates UnimplementedPaintCapServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&PaintCapService_ServiceDesc, srv)
+}
+
+func _PaintCapService_Values_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ValuesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PaintCapServiceServer).Values(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PaintCapService_Values_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PaintCapServiceServer).Values(ctx, req.(*ValuesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PaintCapService_ValueOf_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ValueOfRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PaintCapServiceServer).ValueOf(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PaintCapService_ValueOf_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PaintCapServiceServer).ValueOf(ctx, req.(*ValueOfRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// PaintCapService_ServiceDesc is the grpc.ServiceDesc for PaintCapService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var PaintCapService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "pdf.PaintCapService",
+	HandlerType: (*PaintCapServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Values",
+			Handler:    _PaintCapService_Values_Handler,
+		},
+		{
+			MethodName: "ValueOf",
+			Handler:    _PaintCapService_ValueOf_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/pdf/pdf.proto",
+}
+
+const (
+	PaintFontMetricsService_Equals_FullMethodName   = "/pdf.PaintFontMetricsService/Equals"
+	PaintFontMetricsService_HashCode_FullMethodName = "/pdf.PaintFontMetricsService/HashCode"
+	PaintFontMetricsService_ToString_FullMethodName = "/pdf.PaintFontMetricsService/ToString"
+)
+
+// PaintFontMetricsServiceClient is the client API for PaintFontMetricsService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type PaintFontMetricsServiceClient interface {
+	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+	ToString(ctx context.Context, in *PaintFontMetricsToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+}
+
+type paintFontMetricsServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewPaintFontMetricsServiceClient(cc grpc.ClientConnInterface) PaintFontMetricsServiceClient {
+	return &paintFontMetricsServiceClient{cc}
+}
+
+func (c *paintFontMetricsServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(EqualsResponse)
+	err := c.cc.Invoke(ctx, PaintFontMetricsService_Equals_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *paintFontMetricsServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HashCodeResponse)
+	err := c.cc.Invoke(ctx, PaintFontMetricsService_HashCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *paintFontMetricsServiceClient) ToString(ctx context.Context, in *PaintFontMetricsToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, PaintFontMetricsService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// PaintFontMetricsServiceServer is the server API for PaintFontMetricsService service.
+// All implementations must embed UnimplementedPaintFontMetricsServiceServer
+// for forward compatibility.
+type PaintFontMetricsServiceServer interface {
+	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
+	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
+	ToString(context.Context, *PaintFontMetricsToStringRequest) (*ToStringResponse, error)
+	mustEmbedUnimplementedPaintFontMetricsServiceServer()
+}
+
+// UnimplementedPaintFontMetricsServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedPaintFontMetricsServiceServer struct{}
+
+func (UnimplementedPaintFontMetricsServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
+}
+func (UnimplementedPaintFontMetricsServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
+}
+func (UnimplementedPaintFontMetricsServiceServer) ToString(context.Context, *PaintFontMetricsToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedPaintFontMetricsServiceServer) mustEmbedUnimplementedPaintFontMetricsServiceServer() {
+}
+func (UnimplementedPaintFontMetricsServiceServer) testEmbeddedByValue() {}
+
+// UnsafePaintFontMetricsServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to PaintFontMetricsServiceServer will
+// result in compilation errors.
+type UnsafePaintFontMetricsServiceServer interface {
+	mustEmbedUnimplementedPaintFontMetricsServiceServer()
+}
+
+func RegisterPaintFontMetricsServiceServer(s grpc.ServiceRegistrar, srv PaintFontMetricsServiceServer) {
+	// If the following call panics, it indicates UnimplementedPaintFontMetricsServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&PaintFontMetricsService_ServiceDesc, srv)
+}
+
+func _PaintFontMetricsService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EqualsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PaintFontMetricsServiceServer).Equals(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PaintFontMetricsService_Equals_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PaintFontMetricsServiceServer).Equals(ctx, req.(*EqualsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PaintFontMetricsService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HashCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PaintFontMetricsServiceServer).HashCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PaintFontMetricsService_HashCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PaintFontMetricsServiceServer).HashCode(ctx, req.(*HashCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PaintFontMetricsService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(PaintFontMetricsToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PaintFontMetricsServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PaintFontMetricsService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PaintFontMetricsServiceServer).ToString(ctx, req.(*PaintFontMetricsToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// PaintFontMetricsService_ServiceDesc is the grpc.ServiceDesc for PaintFontMetricsService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var PaintFontMetricsService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "pdf.PaintFontMetricsService",
+	HandlerType: (*PaintFontMetricsServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Equals",
+			Handler:    _PaintFontMetricsService_Equals_Handler,
+		},
+		{
+			MethodName: "HashCode",
+			Handler:    _PaintFontMetricsService_HashCode_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _PaintFontMetricsService_ToString_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/pdf/pdf.proto",
+}
+
+const (
+	PaintFontMetricsIntService_Equals_FullMethodName   = "/pdf.PaintFontMetricsIntService/Equals"
+	PaintFontMetricsIntService_HashCode_FullMethodName = "/pdf.PaintFontMetricsIntService/HashCode"
+	PaintFontMetricsIntService_Set1_FullMethodName     = "/pdf.PaintFontMetricsIntService/Set1"
+	PaintFontMetricsIntService_Set1_1_FullMethodName   = "/pdf.PaintFontMetricsIntService/Set1_1"
+	PaintFontMetricsIntService_ToString_FullMethodName = "/pdf.PaintFontMetricsIntService/ToString"
+)
+
+// PaintFontMetricsIntServiceClient is the client API for PaintFontMetricsIntService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type PaintFontMetricsIntServiceClient interface {
+	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+	Set1(ctx context.Context, in *Set1Request, opts ...grpc.CallOption) (*Set1Response, error)
+	Set1_1(ctx context.Context, in *Set1_1Request, opts ...grpc.CallOption) (*Set1_1Response, error)
+	ToString(ctx context.Context, in *PaintFontMetricsIntToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+}
+
+type paintFontMetricsIntServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewPaintFontMetricsIntServiceClient(cc grpc.ClientConnInterface) PaintFontMetricsIntServiceClient {
+	return &paintFontMetricsIntServiceClient{cc}
+}
+
+func (c *paintFontMetricsIntServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(EqualsResponse)
+	err := c.cc.Invoke(ctx, PaintFontMetricsIntService_Equals_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *paintFontMetricsIntServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HashCodeResponse)
+	err := c.cc.Invoke(ctx, PaintFontMetricsIntService_HashCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *paintFontMetricsIntServiceClient) Set1(ctx context.Context, in *Set1Request, opts ...grpc.CallOption) (*Set1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(Set1Response)
+	err := c.cc.Invoke(ctx, PaintFontMetricsIntService_Set1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *paintFontMetricsIntServiceClient) Set1_1(ctx context.Context, in *Set1_1Request, opts ...grpc.CallOption) (*Set1_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(Set1_1Response)
+	err := c.cc.Invoke(ctx, PaintFontMetricsIntService_Set1_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *paintFontMetricsIntServiceClient) ToString(ctx context.Context, in *PaintFontMetricsIntToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, PaintFontMetricsIntService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// PaintFontMetricsIntServiceServer is the server API for PaintFontMetricsIntService service.
+// All implementations must embed UnimplementedPaintFontMetricsIntServiceServer
+// for forward compatibility.
+type PaintFontMetricsIntServiceServer interface {
+	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
+	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
+	Set1(context.Context, *Set1Request) (*Set1Response, error)
+	Set1_1(context.Context, *Set1_1Request) (*Set1_1Response, error)
+	ToString(context.Context, *PaintFontMetricsIntToStringRequest) (*ToStringResponse, error)
+	mustEmbedUnimplementedPaintFontMetricsIntServiceServer()
+}
+
+// UnimplementedPaintFontMetricsIntServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedPaintFontMetricsIntServiceServer struct{}
+
+func (UnimplementedPaintFontMetricsIntServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
+}
+func (UnimplementedPaintFontMetricsIntServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
+}
+func (UnimplementedPaintFontMetricsIntServiceServer) Set1(context.Context, *Set1Request) (*Set1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method Set1 not implemented")
+}
+func (UnimplementedPaintFontMetricsIntServiceServer) Set1_1(context.Context, *Set1_1Request) (*Set1_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method Set1_1 not implemented")
+}
+func (UnimplementedPaintFontMetricsIntServiceServer) ToString(context.Context, *PaintFontMetricsIntToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedPaintFontMetricsIntServiceServer) mustEmbedUnimplementedPaintFontMetricsIntServiceServer() {
+}
+func (UnimplementedPaintFontMetricsIntServiceServer) testEmbeddedByValue() {}
+
+// UnsafePaintFontMetricsIntServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to PaintFontMetricsIntServiceServer will
+// result in compilation errors.
+type UnsafePaintFontMetricsIntServiceServer interface {
+	mustEmbedUnimplementedPaintFontMetricsIntServiceServer()
+}
+
+func RegisterPaintFontMetricsIntServiceServer(s grpc.ServiceRegistrar, srv PaintFontMetricsIntServiceServer) {
+	// If the following call panics, it indicates UnimplementedPaintFontMetricsIntServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&PaintFontMetricsIntService_ServiceDesc, srv)
+}
+
+func _PaintFontMetricsIntService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EqualsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PaintFontMetricsIntServiceServer).Equals(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PaintFontMetricsIntService_Equals_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PaintFontMetricsIntServiceServer).Equals(ctx, req.(*EqualsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PaintFontMetricsIntService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HashCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PaintFontMetricsIntServiceServer).HashCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PaintFontMetricsIntService_HashCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PaintFontMetricsIntServiceServer).HashCode(ctx, req.(*HashCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PaintFontMetricsIntService_Set1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(Set1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PaintFontMetricsIntServiceServer).Set1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PaintFontMetricsIntService_Set1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PaintFontMetricsIntServiceServer).Set1(ctx, req.(*Set1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PaintFontMetricsIntService_Set1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(Set1_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PaintFontMetricsIntServiceServer).Set1_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PaintFontMetricsIntService_Set1_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PaintFontMetricsIntServiceServer).Set1_1(ctx, req.(*Set1_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PaintFontMetricsIntService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(PaintFontMetricsIntToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PaintFontMetricsIntServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PaintFontMetricsIntService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PaintFontMetricsIntServiceServer).ToString(ctx, req.(*PaintFontMetricsIntToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// PaintFontMetricsIntService_ServiceDesc is the grpc.ServiceDesc for PaintFontMetricsIntService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var PaintFontMetricsIntService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "pdf.PaintFontMetricsIntService",
+	HandlerType: (*PaintFontMetricsIntServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Equals",
+			Handler:    _PaintFontMetricsIntService_Equals_Handler,
+		},
+		{
+			MethodName: "HashCode",
+			Handler:    _PaintFontMetricsIntService_HashCode_Handler,
+		},
+		{
+			MethodName: "Set1",
+			Handler:    _PaintFontMetricsIntService_Set1_Handler,
+		},
+		{
+			MethodName: "Set1_1",
+			Handler:    _PaintFontMetricsIntService_Set1_1_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _PaintFontMetricsIntService_ToString_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/pdf/pdf.proto",
+}
+
+const (
+	PaintJoinService_Values_FullMethodName  = "/pdf.PaintJoinService/Values"
+	PaintJoinService_ValueOf_FullMethodName = "/pdf.PaintJoinService/ValueOf"
+)
+
+// PaintJoinServiceClient is the client API for PaintJoinService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type PaintJoinServiceClient interface {
+	Values(ctx context.Context, in *ValuesRequest, opts ...grpc.CallOption) (*ValuesResponse, error)
+	ValueOf(ctx context.Context, in *ValueOfRequest, opts ...grpc.CallOption) (*ValueOfResponse, error)
+}
+
+type paintJoinServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewPaintJoinServiceClient(cc grpc.ClientConnInterface) PaintJoinServiceClient {
+	return &paintJoinServiceClient{cc}
+}
+
+func (c *paintJoinServiceClient) Values(ctx context.Context, in *ValuesRequest, opts ...grpc.CallOption) (*ValuesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ValuesResponse)
+	err := c.cc.Invoke(ctx, PaintJoinService_Values_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *paintJoinServiceClient) ValueOf(ctx context.Context, in *ValueOfRequest, opts ...grpc.CallOption) (*ValueOfResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ValueOfResponse)
+	err := c.cc.Invoke(ctx, PaintJoinService_ValueOf_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// PaintJoinServiceServer is the server API for PaintJoinService service.
+// All implementations must embed UnimplementedPaintJoinServiceServer
+// for forward compatibility.
+type PaintJoinServiceServer interface {
+	Values(context.Context, *ValuesRequest) (*ValuesResponse, error)
+	ValueOf(context.Context, *ValueOfRequest) (*ValueOfResponse, error)
+	mustEmbedUnimplementedPaintJoinServiceServer()
+}
+
+// UnimplementedPaintJoinServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedPaintJoinServiceServer struct{}
+
+func (UnimplementedPaintJoinServiceServer) Values(context.Context, *ValuesRequest) (*ValuesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Values not implemented")
+}
+func (UnimplementedPaintJoinServiceServer) ValueOf(context.Context, *ValueOfRequest) (*ValueOfResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ValueOf not implemented")
+}
+func (UnimplementedPaintJoinServiceServer) mustEmbedUnimplementedPaintJoinServiceServer() {}
+func (UnimplementedPaintJoinServiceServer) testEmbeddedByValue()                          {}
+
+// UnsafePaintJoinServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to PaintJoinServiceServer will
+// result in compilation errors.
+type UnsafePaintJoinServiceServer interface {
+	mustEmbedUnimplementedPaintJoinServiceServer()
+}
+
+func RegisterPaintJoinServiceServer(s grpc.ServiceRegistrar, srv PaintJoinServiceServer) {
+	// If the following call panics, it indicates UnimplementedPaintJoinServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&PaintJoinService_ServiceDesc, srv)
+}
+
+func _PaintJoinService_Values_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ValuesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PaintJoinServiceServer).Values(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PaintJoinService_Values_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PaintJoinServiceServer).Values(ctx, req.(*ValuesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PaintJoinService_ValueOf_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ValueOfRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PaintJoinServiceServer).ValueOf(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PaintJoinService_ValueOf_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PaintJoinServiceServer).ValueOf(ctx, req.(*ValueOfRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// PaintJoinService_ServiceDesc is the grpc.ServiceDesc for PaintJoinService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var PaintJoinService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "pdf.PaintJoinService",
+	HandlerType: (*PaintJoinServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Values",
+			Handler:    _PaintJoinService_Values_Handler,
+		},
+		{
+			MethodName: "ValueOf",
+			Handler:    _PaintJoinService_ValueOf_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/pdf/pdf.proto",
+}
+
+const (
+	PaintStyleService_Values_FullMethodName  = "/pdf.PaintStyleService/Values"
+	PaintStyleService_ValueOf_FullMethodName = "/pdf.PaintStyleService/ValueOf"
+)
+
+// PaintStyleServiceClient is the client API for PaintStyleService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type PaintStyleServiceClient interface {
+	Values(ctx context.Context, in *ValuesRequest, opts ...grpc.CallOption) (*ValuesResponse, error)
+	ValueOf(ctx context.Context, in *ValueOfRequest, opts ...grpc.CallOption) (*ValueOfResponse, error)
+}
+
+type paintStyleServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewPaintStyleServiceClient(cc grpc.ClientConnInterface) PaintStyleServiceClient {
+	return &paintStyleServiceClient{cc}
+}
+
+func (c *paintStyleServiceClient) Values(ctx context.Context, in *ValuesRequest, opts ...grpc.CallOption) (*ValuesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ValuesResponse)
+	err := c.cc.Invoke(ctx, PaintStyleService_Values_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *paintStyleServiceClient) ValueOf(ctx context.Context, in *ValueOfRequest, opts ...grpc.CallOption) (*ValueOfResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ValueOfResponse)
+	err := c.cc.Invoke(ctx, PaintStyleService_ValueOf_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// PaintStyleServiceServer is the server API for PaintStyleService service.
+// All implementations must embed UnimplementedPaintStyleServiceServer
+// for forward compatibility.
+type PaintStyleServiceServer interface {
+	Values(context.Context, *ValuesRequest) (*ValuesResponse, error)
+	ValueOf(context.Context, *ValueOfRequest) (*ValueOfResponse, error)
+	mustEmbedUnimplementedPaintStyleServiceServer()
+}
+
+// UnimplementedPaintStyleServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedPaintStyleServiceServer struct{}
+
+func (UnimplementedPaintStyleServiceServer) Values(context.Context, *ValuesRequest) (*ValuesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Values not implemented")
+}
+func (UnimplementedPaintStyleServiceServer) ValueOf(context.Context, *ValueOfRequest) (*ValueOfResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ValueOf not implemented")
+}
+func (UnimplementedPaintStyleServiceServer) mustEmbedUnimplementedPaintStyleServiceServer() {}
+func (UnimplementedPaintStyleServiceServer) testEmbeddedByValue()                           {}
+
+// UnsafePaintStyleServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to PaintStyleServiceServer will
+// result in compilation errors.
+type UnsafePaintStyleServiceServer interface {
+	mustEmbedUnimplementedPaintStyleServiceServer()
+}
+
+func RegisterPaintStyleServiceServer(s grpc.ServiceRegistrar, srv PaintStyleServiceServer) {
+	// If the following call panics, it indicates UnimplementedPaintStyleServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&PaintStyleService_ServiceDesc, srv)
+}
+
+func _PaintStyleService_Values_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ValuesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PaintStyleServiceServer).Values(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PaintStyleService_Values_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PaintStyleServiceServer).Values(ctx, req.(*ValuesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PaintStyleService_ValueOf_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ValueOfRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PaintStyleServiceServer).ValueOf(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PaintStyleService_ValueOf_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PaintStyleServiceServer).ValueOf(ctx, req.(*ValueOfRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// PaintStyleService_ServiceDesc is the grpc.ServiceDesc for PaintStyleService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var PaintStyleService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "pdf.PaintStyleService",
+	HandlerType: (*PaintStyleServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Values",
+			Handler:    _PaintStyleService_Values_Handler,
+		},
+		{
+			MethodName: "ValueOf",
+			Handler:    _PaintStyleService_ValueOf_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

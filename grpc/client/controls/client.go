@@ -32,6 +32,68 @@ func (c *DeviceTypesClient) ValidDeviceType(ctx context.Context, arg0 int32) (bo
 	return resp.GetResult(), nil
 }
 
+// ProviderServiceClient wraps the gRPC ProviderServiceService client.
+type ProviderServiceClient struct {
+	svc pb.ProviderServiceServiceClient
+}
+
+// NewProviderServiceClient creates a new ProviderService client.
+func NewProviderServiceClient(cc grpc.ClientConnInterface) *ProviderServiceClient {
+	return &ProviderServiceClient{
+		svc: pb.NewProviderServiceServiceClient(cc),
+	}
+}
+
+// CreatePublisherForAllAvailable calls the CreatePublisherForAllAvailable RPC.
+func (c *ProviderServiceClient) CreatePublisherForAllAvailable(ctx context.Context) (int64, error) {
+	resp, err := c.svc.CreatePublisherForAllAvailable(ctx, &pb.CreatePublisherForAllAvailableRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CreatePublisherForSuggested calls the CreatePublisherForSuggested RPC.
+func (c *ProviderServiceClient) CreatePublisherForSuggested(ctx context.Context) (int64, error) {
+	resp, err := c.svc.CreatePublisherForSuggested(ctx, &pb.CreatePublisherForSuggestedRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnBind calls the OnBind RPC.
+func (c *ProviderServiceClient) OnBind(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.OnBind(ctx, &pb.OnBindRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnUnbind calls the OnUnbind RPC.
+func (c *ProviderServiceClient) OnUnbind(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.OnUnbind(ctx, &pb.OnUnbindRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// RequestAddControl calls the RequestAddControl RPC.
+func (c *ProviderServiceClient) RequestAddControl(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) error {
+	_, err := c.svc.RequestAddControl(ctx, &pb.RequestAddControlRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
 // ControlClient wraps the gRPC ControlService client.
 type ControlClient struct {
 	svc pb.ControlServiceClient
@@ -461,48 +523,4 @@ func (c *ControlStatelessBuilderClient) SetZone(ctx context.Context, arg0 string
 		return 0, err
 	}
 	return resp.GetResult(), nil
-}
-
-// ProviderServiceClient wraps the gRPC ProviderServiceService client.
-type ProviderServiceClient struct {
-	svc pb.ProviderServiceServiceClient
-}
-
-// NewProviderServiceClient creates a new ProviderService client.
-func NewProviderServiceClient(cc grpc.ClientConnInterface) *ProviderServiceClient {
-	return &ProviderServiceClient{
-		svc: pb.NewProviderServiceServiceClient(cc),
-	}
-}
-
-// OnBind calls the OnBind RPC.
-func (c *ProviderServiceClient) OnBind(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.OnBind(ctx, &pb.OnBindRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// OnUnbind calls the OnUnbind RPC.
-func (c *ProviderServiceClient) OnUnbind(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.OnUnbind(ctx, &pb.OnUnbindRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// RequestAddControl calls the RequestAddControl RPC.
-func (c *ProviderServiceClient) RequestAddControl(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) error {
-	_, err := c.svc.RequestAddControl(ctx, &pb.RequestAddControlRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	return err
 }

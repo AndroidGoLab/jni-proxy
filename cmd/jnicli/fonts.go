@@ -12,6 +12,390 @@ var fontsCmd = &cobra.Command{
 	Short: "fonts service operations",
 }
 
+var fontsFontFamilyCmd = &cobra.Command{
+	Use:   "font-family",
+	Short: "FontFamilyService operations",
+}
+
+var fontsFontFamilyGetFontCmd = &cobra.Command{
+	Use:   "get-font",
+	Short: "GetFont RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFontFamilyServiceClient(grpcConn)
+		req := &pb.GetFontRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetFont(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var fontsFontFamilyGetSizeCmd = &cobra.Command{
+	Use:   "get-size",
+	Short: "GetSize RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFontFamilyServiceClient(grpcConn)
+		req := &pb.GetSizeRequest{}
+		resp, err := client.GetSize(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var fontsFontFamilyBuilderCmd = &cobra.Command{
+	Use:   "font-family-builder",
+	Short: "FontFamilyBuilderService operations",
+}
+
+var fontsFontFamilyBuilderAddFontCmd = &cobra.Command{
+	Use:   "add-font",
+	Short: "AddFont RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFontFamilyBuilderServiceClient(grpcConn)
+		req := &pb.AddFontRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddFont(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var fontsFontFamilyBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFontFamilyBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var fontsFontFamilyBuilderBuildVariableFamilyCmd = &cobra.Command{
+	Use:   "build-variable-family",
+	Short: "BuildVariableFamily RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFontFamilyBuilderServiceClient(grpcConn)
+		req := &pb.BuildVariableFamilyRequest{}
+		resp, err := client.BuildVariableFamily(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var fontsFontStyleCmd = &cobra.Command{
+	Use:   "font-style",
+	Short: "FontStyleService operations",
+}
+
+var fontsFontStyleNewFontStyleCmd = &cobra.Command{
+	Use:   "new-font-style",
+	Short: "NewFontStyle RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFontStyleServiceClient(grpcConn)
+		req := &pb.NewFontStyleRequest{}
+		resp, err := client.NewFontStyle(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var fontsFontStyleEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFontStyleServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var fontsFontStyleGetSlantCmd = &cobra.Command{
+	Use:   "get-slant",
+	Short: "GetSlant RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFontStyleServiceClient(grpcConn)
+		req := &pb.GetSlantRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetSlant(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var fontsFontStyleGetWeightCmd = &cobra.Command{
+	Use:   "get-weight",
+	Short: "GetWeight RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFontStyleServiceClient(grpcConn)
+		req := &pb.GetWeightRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetWeight(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var fontsFontStyleHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFontStyleServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var fontsFontStyleToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFontStyleServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var fontsFontVariationAxisCmd = &cobra.Command{
+	Use:   "font-variation-axis",
+	Short: "FontVariationAxisService operations",
+}
+
+var fontsFontVariationAxisNewFontVariationAxisCmd = &cobra.Command{
+	Use:   "new-font-variation-axis",
+	Short: "NewFontVariationAxis RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFontVariationAxisServiceClient(grpcConn)
+		req := &pb.NewFontVariationAxisRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.NewFontVariationAxis(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var fontsFontVariationAxisEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFontVariationAxisServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var fontsFontVariationAxisGetStyleValueCmd = &cobra.Command{
+	Use:   "get-style-value",
+	Short: "GetStyleValue RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFontVariationAxisServiceClient(grpcConn)
+		req := &pb.GetStyleValueRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetStyleValue(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var fontsFontVariationAxisGetTagCmd = &cobra.Command{
+	Use:   "get-tag",
+	Short: "GetTag RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFontVariationAxisServiceClient(grpcConn)
+		req := &pb.GetTagRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetTag(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var fontsFontVariationAxisHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFontVariationAxisServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var fontsFontVariationAxisToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFontVariationAxisServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var fontsFontVariationAxisFromFontVariationSettingsCmd = &cobra.Command{
+	Use:   "from-font-variation-settings",
+	Short: "FromFontVariationSettings RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFontVariationAxisServiceClient(grpcConn)
+		req := &pb.FromFontVariationSettingsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.FromFontVariationSettings(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var fontsFontVariationAxisToFontVariationSettingsCmd = &cobra.Command{
+	Use:   "to-font-variation-settings",
+	Short: "ToFontVariationSettings RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFontVariationAxisServiceClient(grpcConn)
+		req := &pb.ToFontVariationSettingsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.ToFontVariationSettings(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var fontsFontCmd = &cobra.Command{
 	Use:   "font",
 	Short: "FontService operations",
@@ -24,7 +408,7 @@ var fontsFontEqualsCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewFontServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
+		req := &pb.FontEqualsRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
@@ -202,7 +586,7 @@ var fontsFontHashCodeCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewFontServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
+		req := &pb.FontHashCodeRequest{}
 		resp, err := client.HashCode(ctx, req)
 		if err != nil {
 			return err
@@ -218,7 +602,7 @@ var fontsFontToStringCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewFontServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
+		req := &pb.FontToStringRequest{}
 		resp, err := client.ToString(ctx, req)
 		if err != nil {
 			return err
@@ -343,383 +727,20 @@ var fontsFontBuilderSetWeightCmd = &cobra.Command{
 	},
 }
 
-var fontsFontStyleCmd = &cobra.Command{
-	Use:   "font-style",
-	Short: "FontStyleService operations",
+var fontsSystemFontsCmd = &cobra.Command{
+	Use:   "system-fonts",
+	Short: "SystemFontsService operations",
 }
 
-var fontsFontStyleNewFontStyleCmd = &cobra.Command{
-	Use:   "new-font-style",
-	Short: "NewFontStyle RPC",
+var fontsSystemFontsGetAvailableFontsCmd = &cobra.Command{
+	Use:   "get-available-fonts",
+	Short: "GetAvailableFonts RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewFontStyleServiceClient(grpcConn)
-		req := &pb.NewFontStyleRequest{}
-		resp, err := client.NewFontStyle(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var fontsFontStyleEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFontStyleServiceClient(grpcConn)
-		req := &pb.FontStyleEqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var fontsFontStyleGetSlantCmd = &cobra.Command{
-	Use:   "get-slant",
-	Short: "GetSlant RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFontStyleServiceClient(grpcConn)
-		req := &pb.GetSlantRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetSlant(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var fontsFontStyleGetWeightCmd = &cobra.Command{
-	Use:   "get-weight",
-	Short: "GetWeight RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFontStyleServiceClient(grpcConn)
-		req := &pb.GetWeightRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetWeight(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var fontsFontStyleHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFontStyleServiceClient(grpcConn)
-		req := &pb.FontStyleHashCodeRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var fontsFontStyleToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFontStyleServiceClient(grpcConn)
-		req := &pb.FontStyleToStringRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var fontsFontVariationAxisCmd = &cobra.Command{
-	Use:   "font-variation-axis",
-	Short: "FontVariationAxisService operations",
-}
-
-var fontsFontVariationAxisNewFontVariationAxisCmd = &cobra.Command{
-	Use:   "new-font-variation-axis",
-	Short: "NewFontVariationAxis RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFontVariationAxisServiceClient(grpcConn)
-		req := &pb.NewFontVariationAxisRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetFloat32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.NewFontVariationAxis(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var fontsFontVariationAxisEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFontVariationAxisServiceClient(grpcConn)
-		req := &pb.FontVariationAxisEqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var fontsFontVariationAxisGetStyleValueCmd = &cobra.Command{
-	Use:   "get-style-value",
-	Short: "GetStyleValue RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFontVariationAxisServiceClient(grpcConn)
-		req := &pb.GetStyleValueRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetStyleValue(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var fontsFontVariationAxisGetTagCmd = &cobra.Command{
-	Use:   "get-tag",
-	Short: "GetTag RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFontVariationAxisServiceClient(grpcConn)
-		req := &pb.GetTagRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetTag(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var fontsFontVariationAxisHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFontVariationAxisServiceClient(grpcConn)
-		req := &pb.FontVariationAxisHashCodeRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var fontsFontVariationAxisToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFontVariationAxisServiceClient(grpcConn)
-		req := &pb.FontVariationAxisToStringRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var fontsFontVariationAxisFromFontVariationSettingsCmd = &cobra.Command{
-	Use:   "from-font-variation-settings",
-	Short: "FromFontVariationSettings RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFontVariationAxisServiceClient(grpcConn)
-		req := &pb.FromFontVariationSettingsRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.FromFontVariationSettings(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var fontsFontVariationAxisToFontVariationSettingsCmd = &cobra.Command{
-	Use:   "to-font-variation-settings",
-	Short: "ToFontVariationSettings RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFontVariationAxisServiceClient(grpcConn)
-		req := &pb.ToFontVariationSettingsRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.ToFontVariationSettings(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var fontsFontFamilyCmd = &cobra.Command{
-	Use:   "font-family",
-	Short: "FontFamilyService operations",
-}
-
-var fontsFontFamilyGetFontCmd = &cobra.Command{
-	Use:   "get-font",
-	Short: "GetFont RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFontFamilyServiceClient(grpcConn)
-		req := &pb.GetFontRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetFont(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var fontsFontFamilyGetSizeCmd = &cobra.Command{
-	Use:   "get-size",
-	Short: "GetSize RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFontFamilyServiceClient(grpcConn)
-		req := &pb.GetSizeRequest{}
-		resp, err := client.GetSize(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var fontsFontFamilyBuilderCmd = &cobra.Command{
-	Use:   "font-family-builder",
-	Short: "FontFamilyBuilderService operations",
-}
-
-var fontsFontFamilyBuilderAddFontCmd = &cobra.Command{
-	Use:   "add-font",
-	Short: "AddFont RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFontFamilyBuilderServiceClient(grpcConn)
-		req := &pb.AddFontRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.AddFont(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var fontsFontFamilyBuilderBuildCmd = &cobra.Command{
-	Use:   "build",
-	Short: "Build RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFontFamilyBuilderServiceClient(grpcConn)
-		req := &pb.BuildRequest{}
-		resp, err := client.Build(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var fontsFontFamilyBuilderBuildVariableFamilyCmd = &cobra.Command{
-	Use:   "build-variable-family",
-	Short: "BuildVariableFamily RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFontFamilyBuilderServiceClient(grpcConn)
-		req := &pb.BuildVariableFamilyRequest{}
-		resp, err := client.BuildVariableFamily(ctx, req)
+		client := pb.NewSystemFontsServiceClient(grpcConn)
+		req := &pb.GetAvailableFontsRequest{}
+		resp, err := client.GetAvailableFonts(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -728,37 +749,15 @@ var fontsFontFamilyBuilderBuildVariableFamilyCmd = &cobra.Command{
 }
 
 func init() {
-	fontsFontEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	fontsFontCmd.AddCommand(fontsFontEqualsCmd)
-	fontsFontCmd.AddCommand(fontsFontGetAxesCmd)
-	fontsFontCmd.AddCommand(fontsFontGetBufferCmd)
-	fontsFontCmd.AddCommand(fontsFontGetFileCmd)
-	fontsFontGetGlyphBoundsCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	fontsFontGetGlyphBoundsCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	fontsFontGetGlyphBoundsCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	fontsFontCmd.AddCommand(fontsFontGetGlyphBoundsCmd)
-	fontsFontCmd.AddCommand(fontsFontGetLocaleListCmd)
-	fontsFontGetMetricsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	fontsFontGetMetricsCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	fontsFontCmd.AddCommand(fontsFontGetMetricsCmd)
-	fontsFontCmd.AddCommand(fontsFontGetSourceIdentifierCmd)
-	fontsFontCmd.AddCommand(fontsFontGetStyleCmd)
-	fontsFontCmd.AddCommand(fontsFontGetTtcIndexCmd)
-	fontsFontCmd.AddCommand(fontsFontHashCodeCmd)
-	fontsFontCmd.AddCommand(fontsFontToStringCmd)
-	fontsCmd.AddCommand(fontsFontCmd)
-	fontsFontBuilderCmd.AddCommand(fontsFontBuilderBuildCmd)
-	fontsFontBuilderSetFontVariationSettings1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	fontsFontBuilderCmd.AddCommand(fontsFontBuilderSetFontVariationSettings1Cmd)
-	fontsFontBuilderSetFontVariationSettings1_1Cmd.Flags().String("arg0", "", "arg0 (string)")
-	fontsFontBuilderCmd.AddCommand(fontsFontBuilderSetFontVariationSettings1_1Cmd)
-	fontsFontBuilderSetSlantCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	fontsFontBuilderCmd.AddCommand(fontsFontBuilderSetSlantCmd)
-	fontsFontBuilderSetTtcIndexCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	fontsFontBuilderCmd.AddCommand(fontsFontBuilderSetTtcIndexCmd)
-	fontsFontBuilderSetWeightCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	fontsFontBuilderCmd.AddCommand(fontsFontBuilderSetWeightCmd)
-	fontsCmd.AddCommand(fontsFontBuilderCmd)
+	fontsFontFamilyGetFontCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	fontsFontFamilyCmd.AddCommand(fontsFontFamilyGetFontCmd)
+	fontsFontFamilyCmd.AddCommand(fontsFontFamilyGetSizeCmd)
+	fontsCmd.AddCommand(fontsFontFamilyCmd)
+	fontsFontFamilyBuilderAddFontCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	fontsFontFamilyBuilderCmd.AddCommand(fontsFontFamilyBuilderAddFontCmd)
+	fontsFontFamilyBuilderCmd.AddCommand(fontsFontFamilyBuilderBuildCmd)
+	fontsFontFamilyBuilderCmd.AddCommand(fontsFontFamilyBuilderBuildVariableFamilyCmd)
+	fontsCmd.AddCommand(fontsFontFamilyBuilderCmd)
 	fontsFontStyleCmd.AddCommand(fontsFontStyleNewFontStyleCmd)
 	fontsFontStyleEqualsCmd.Flags().Int64("handle", 0, "handle (int64)")
 	fontsFontStyleEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
@@ -793,14 +792,38 @@ func init() {
 	fontsFontVariationAxisToFontVariationSettingsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	fontsFontVariationAxisCmd.AddCommand(fontsFontVariationAxisToFontVariationSettingsCmd)
 	fontsCmd.AddCommand(fontsFontVariationAxisCmd)
-	fontsFontFamilyGetFontCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	fontsFontFamilyCmd.AddCommand(fontsFontFamilyGetFontCmd)
-	fontsFontFamilyCmd.AddCommand(fontsFontFamilyGetSizeCmd)
-	fontsCmd.AddCommand(fontsFontFamilyCmd)
-	fontsFontFamilyBuilderAddFontCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	fontsFontFamilyBuilderCmd.AddCommand(fontsFontFamilyBuilderAddFontCmd)
-	fontsFontFamilyBuilderCmd.AddCommand(fontsFontFamilyBuilderBuildCmd)
-	fontsFontFamilyBuilderCmd.AddCommand(fontsFontFamilyBuilderBuildVariableFamilyCmd)
-	fontsCmd.AddCommand(fontsFontFamilyBuilderCmd)
+	fontsFontEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	fontsFontCmd.AddCommand(fontsFontEqualsCmd)
+	fontsFontCmd.AddCommand(fontsFontGetAxesCmd)
+	fontsFontCmd.AddCommand(fontsFontGetBufferCmd)
+	fontsFontCmd.AddCommand(fontsFontGetFileCmd)
+	fontsFontGetGlyphBoundsCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	fontsFontGetGlyphBoundsCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	fontsFontGetGlyphBoundsCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	fontsFontCmd.AddCommand(fontsFontGetGlyphBoundsCmd)
+	fontsFontCmd.AddCommand(fontsFontGetLocaleListCmd)
+	fontsFontGetMetricsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	fontsFontGetMetricsCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	fontsFontCmd.AddCommand(fontsFontGetMetricsCmd)
+	fontsFontCmd.AddCommand(fontsFontGetSourceIdentifierCmd)
+	fontsFontCmd.AddCommand(fontsFontGetStyleCmd)
+	fontsFontCmd.AddCommand(fontsFontGetTtcIndexCmd)
+	fontsFontCmd.AddCommand(fontsFontHashCodeCmd)
+	fontsFontCmd.AddCommand(fontsFontToStringCmd)
+	fontsCmd.AddCommand(fontsFontCmd)
+	fontsFontBuilderCmd.AddCommand(fontsFontBuilderBuildCmd)
+	fontsFontBuilderSetFontVariationSettings1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	fontsFontBuilderCmd.AddCommand(fontsFontBuilderSetFontVariationSettings1Cmd)
+	fontsFontBuilderSetFontVariationSettings1_1Cmd.Flags().String("arg0", "", "arg0 (string)")
+	fontsFontBuilderCmd.AddCommand(fontsFontBuilderSetFontVariationSettings1_1Cmd)
+	fontsFontBuilderSetSlantCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	fontsFontBuilderCmd.AddCommand(fontsFontBuilderSetSlantCmd)
+	fontsFontBuilderSetTtcIndexCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	fontsFontBuilderCmd.AddCommand(fontsFontBuilderSetTtcIndexCmd)
+	fontsFontBuilderSetWeightCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	fontsFontBuilderCmd.AddCommand(fontsFontBuilderSetWeightCmd)
+	fontsCmd.AddCommand(fontsFontBuilderCmd)
+	fontsSystemFontsCmd.AddCommand(fontsSystemFontsGetAvailableFontsCmd)
+	fontsCmd.AddCommand(fontsSystemFontsCmd)
 	rootCmd.AddCommand(fontsCmd)
 }

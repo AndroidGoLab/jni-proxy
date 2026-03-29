@@ -1351,311 +1351,7 @@ func (x *SetMinimumNetworkChunkBytesResponse) GetResult() int64 {
 	return 0
 }
 
-type CanRunUserInitiatedJobsRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *CanRunUserInitiatedJobsRequest) Reset() {
-	*x = CanRunUserInitiatedJobsRequest{}
-	mi := &file_proto_job_job_proto_msgTypes[30]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CanRunUserInitiatedJobsRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CanRunUserInitiatedJobsRequest) ProtoMessage() {}
-
-func (x *CanRunUserInitiatedJobsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[30]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CanRunUserInitiatedJobsRequest.ProtoReflect.Descriptor instead.
-func (*CanRunUserInitiatedJobsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{30}
-}
-
-type CanRunUserInitiatedJobsResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *CanRunUserInitiatedJobsResponse) Reset() {
-	*x = CanRunUserInitiatedJobsResponse{}
-	mi := &file_proto_job_job_proto_msgTypes[31]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CanRunUserInitiatedJobsResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CanRunUserInitiatedJobsResponse) ProtoMessage() {}
-
-func (x *CanRunUserInitiatedJobsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[31]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CanRunUserInitiatedJobsResponse.ProtoReflect.Descriptor instead.
-func (*CanRunUserInitiatedJobsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{31}
-}
-
-func (x *CanRunUserInitiatedJobsResponse) GetResult() bool {
-	if x != nil {
-		return x.Result
-	}
-	return false
-}
-
-type CancelRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *CancelRequest) Reset() {
-	*x = CancelRequest{}
-	mi := &file_proto_job_job_proto_msgTypes[32]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CancelRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CancelRequest) ProtoMessage() {}
-
-func (x *CancelRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[32]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CancelRequest.ProtoReflect.Descriptor instead.
-func (*CancelRequest) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{32}
-}
-
-func (x *CancelRequest) GetArg0() int32 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type CancelResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *CancelResponse) Reset() {
-	*x = CancelResponse{}
-	mi := &file_proto_job_job_proto_msgTypes[33]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CancelResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CancelResponse) ProtoMessage() {}
-
-func (x *CancelResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[33]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CancelResponse.ProtoReflect.Descriptor instead.
-func (*CancelResponse) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{33}
-}
-
-type CancelAllRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *CancelAllRequest) Reset() {
-	*x = CancelAllRequest{}
-	mi := &file_proto_job_job_proto_msgTypes[34]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CancelAllRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CancelAllRequest) ProtoMessage() {}
-
-func (x *CancelAllRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[34]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CancelAllRequest.ProtoReflect.Descriptor instead.
-func (*CancelAllRequest) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{34}
-}
-
-type CancelAllResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *CancelAllResponse) Reset() {
-	*x = CancelAllResponse{}
-	mi := &file_proto_job_job_proto_msgTypes[35]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CancelAllResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CancelAllResponse) ProtoMessage() {}
-
-func (x *CancelAllResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[35]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CancelAllResponse.ProtoReflect.Descriptor instead.
-func (*CancelAllResponse) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{35}
-}
-
-type CancelInAllNamespacesRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *CancelInAllNamespacesRequest) Reset() {
-	*x = CancelInAllNamespacesRequest{}
-	mi := &file_proto_job_job_proto_msgTypes[36]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CancelInAllNamespacesRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CancelInAllNamespacesRequest) ProtoMessage() {}
-
-func (x *CancelInAllNamespacesRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[36]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CancelInAllNamespacesRequest.ProtoReflect.Descriptor instead.
-func (*CancelInAllNamespacesRequest) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{36}
-}
-
-type CancelInAllNamespacesResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *CancelInAllNamespacesResponse) Reset() {
-	*x = CancelInAllNamespacesResponse{}
-	mi := &file_proto_job_job_proto_msgTypes[37]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CancelInAllNamespacesResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CancelInAllNamespacesResponse) ProtoMessage() {}
-
-func (x *CancelInAllNamespacesResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[37]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CancelInAllNamespacesResponse.ProtoReflect.Descriptor instead.
-func (*CancelInAllNamespacesResponse) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{37}
-}
-
-type EnqueueRequest struct {
+type NewPendingJobReasonsInfoRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
 	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
@@ -1663,21 +1359,21 @@ type EnqueueRequest struct {
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *EnqueueRequest) Reset() {
-	*x = EnqueueRequest{}
-	mi := &file_proto_job_job_proto_msgTypes[38]
+func (x *NewPendingJobReasonsInfoRequest) Reset() {
+	*x = NewPendingJobReasonsInfoRequest{}
+	mi := &file_proto_job_job_proto_msgTypes[30]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *EnqueueRequest) String() string {
+func (x *NewPendingJobReasonsInfoRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*EnqueueRequest) ProtoMessage() {}
+func (*NewPendingJobReasonsInfoRequest) ProtoMessage() {}
 
-func (x *EnqueueRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[38]
+func (x *NewPendingJobReasonsInfoRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[30]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1688,135 +1384,47 @@ func (x *EnqueueRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use EnqueueRequest.ProtoReflect.Descriptor instead.
-func (*EnqueueRequest) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{38}
+// Deprecated: Use NewPendingJobReasonsInfoRequest.ProtoReflect.Descriptor instead.
+func (*NewPendingJobReasonsInfoRequest) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{30}
 }
 
-func (x *EnqueueRequest) GetArg0() int64 {
+func (x *NewPendingJobReasonsInfoRequest) GetArg0() int64 {
 	if x != nil {
 		return x.Arg0
 	}
 	return 0
 }
 
-func (x *EnqueueRequest) GetArg1() int64 {
+func (x *NewPendingJobReasonsInfoRequest) GetArg1() int64 {
 	if x != nil {
 		return x.Arg1
 	}
 	return 0
 }
 
-type EnqueueResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *EnqueueResponse) Reset() {
-	*x = EnqueueResponse{}
-	mi := &file_proto_job_job_proto_msgTypes[39]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *EnqueueResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*EnqueueResponse) ProtoMessage() {}
-
-func (x *EnqueueResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[39]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use EnqueueResponse.ProtoReflect.Descriptor instead.
-func (*EnqueueResponse) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{39}
-}
-
-func (x *EnqueueResponse) GetResult() int32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type ForNamespaceRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ForNamespaceRequest) Reset() {
-	*x = ForNamespaceRequest{}
-	mi := &file_proto_job_job_proto_msgTypes[40]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ForNamespaceRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ForNamespaceRequest) ProtoMessage() {}
-
-func (x *ForNamespaceRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[40]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ForNamespaceRequest.ProtoReflect.Descriptor instead.
-func (*ForNamespaceRequest) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{40}
-}
-
-func (x *ForNamespaceRequest) GetArg0() string {
-	if x != nil {
-		return x.Arg0
-	}
-	return ""
-}
-
-type ForNamespaceResponse struct {
+type NewPendingJobReasonsInfoResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *ForNamespaceResponse) Reset() {
-	*x = ForNamespaceResponse{}
-	mi := &file_proto_job_job_proto_msgTypes[41]
+func (x *NewPendingJobReasonsInfoResponse) Reset() {
+	*x = NewPendingJobReasonsInfoResponse{}
+	mi := &file_proto_job_job_proto_msgTypes[31]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *ForNamespaceResponse) String() string {
+func (x *NewPendingJobReasonsInfoResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*ForNamespaceResponse) ProtoMessage() {}
+func (*NewPendingJobReasonsInfoResponse) ProtoMessage() {}
 
-func (x *ForNamespaceResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[41]
+func (x *NewPendingJobReasonsInfoResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[31]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1827,268 +1435,12 @@ func (x *ForNamespaceResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use ForNamespaceResponse.ProtoReflect.Descriptor instead.
-func (*ForNamespaceResponse) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{41}
+// Deprecated: Use NewPendingJobReasonsInfoResponse.ProtoReflect.Descriptor instead.
+func (*NewPendingJobReasonsInfoResponse) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{31}
 }
 
-func (x *ForNamespaceResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetNamespaceRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetNamespaceRequest) Reset() {
-	*x = GetNamespaceRequest{}
-	mi := &file_proto_job_job_proto_msgTypes[42]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetNamespaceRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetNamespaceRequest) ProtoMessage() {}
-
-func (x *GetNamespaceRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[42]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetNamespaceRequest.ProtoReflect.Descriptor instead.
-func (*GetNamespaceRequest) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{42}
-}
-
-type GetNamespaceResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetNamespaceResponse) Reset() {
-	*x = GetNamespaceResponse{}
-	mi := &file_proto_job_job_proto_msgTypes[43]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetNamespaceResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetNamespaceResponse) ProtoMessage() {}
-
-func (x *GetNamespaceResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[43]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetNamespaceResponse.ProtoReflect.Descriptor instead.
-func (*GetNamespaceResponse) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{43}
-}
-
-func (x *GetNamespaceResponse) GetResult() string {
-	if x != nil {
-		return x.Result
-	}
-	return ""
-}
-
-type GetPendingJobRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetPendingJobRequest) Reset() {
-	*x = GetPendingJobRequest{}
-	mi := &file_proto_job_job_proto_msgTypes[44]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetPendingJobRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetPendingJobRequest) ProtoMessage() {}
-
-func (x *GetPendingJobRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[44]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetPendingJobRequest.ProtoReflect.Descriptor instead.
-func (*GetPendingJobRequest) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{44}
-}
-
-func (x *GetPendingJobRequest) GetArg0() int32 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type GetPendingJobResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetPendingJobResponse) Reset() {
-	*x = GetPendingJobResponse{}
-	mi := &file_proto_job_job_proto_msgTypes[45]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetPendingJobResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetPendingJobResponse) ProtoMessage() {}
-
-func (x *GetPendingJobResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[45]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetPendingJobResponse.ProtoReflect.Descriptor instead.
-func (*GetPendingJobResponse) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{45}
-}
-
-func (x *GetPendingJobResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetPendingJobReasonRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetPendingJobReasonRequest) Reset() {
-	*x = GetPendingJobReasonRequest{}
-	mi := &file_proto_job_job_proto_msgTypes[46]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetPendingJobReasonRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetPendingJobReasonRequest) ProtoMessage() {}
-
-func (x *GetPendingJobReasonRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[46]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetPendingJobReasonRequest.ProtoReflect.Descriptor instead.
-func (*GetPendingJobReasonRequest) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{46}
-}
-
-func (x *GetPendingJobReasonRequest) GetArg0() int32 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type GetPendingJobReasonResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetPendingJobReasonResponse) Reset() {
-	*x = GetPendingJobReasonResponse{}
-	mi := &file_proto_job_job_proto_msgTypes[47]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetPendingJobReasonResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetPendingJobReasonResponse) ProtoMessage() {}
-
-func (x *GetPendingJobReasonResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[47]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetPendingJobReasonResponse.ProtoReflect.Descriptor instead.
-func (*GetPendingJobReasonResponse) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{47}
-}
-
-func (x *GetPendingJobReasonResponse) GetResult() int32 {
+func (x *NewPendingJobReasonsInfoResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
@@ -2097,14 +1449,14 @@ func (x *GetPendingJobReasonResponse) GetResult() int32 {
 
 type GetPendingJobReasonsRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *GetPendingJobReasonsRequest) Reset() {
 	*x = GetPendingJobReasonsRequest{}
-	mi := &file_proto_job_job_proto_msgTypes[48]
+	mi := &file_proto_job_job_proto_msgTypes[32]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2116,7 +1468,7 @@ func (x *GetPendingJobReasonsRequest) String() string {
 func (*GetPendingJobReasonsRequest) ProtoMessage() {}
 
 func (x *GetPendingJobReasonsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[48]
+	mi := &file_proto_job_job_proto_msgTypes[32]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2129,12 +1481,12 @@ func (x *GetPendingJobReasonsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetPendingJobReasonsRequest.ProtoReflect.Descriptor instead.
 func (*GetPendingJobReasonsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{48}
+	return file_proto_job_job_proto_rawDescGZIP(), []int{32}
 }
 
-func (x *GetPendingJobReasonsRequest) GetArg0() int32 {
+func (x *GetPendingJobReasonsRequest) GetHandle() int64 {
 	if x != nil {
-		return x.Arg0
+		return x.Handle
 	}
 	return 0
 }
@@ -2148,7 +1500,7 @@ type GetPendingJobReasonsResponse struct {
 
 func (x *GetPendingJobReasonsResponse) Reset() {
 	*x = GetPendingJobReasonsResponse{}
-	mi := &file_proto_job_job_proto_msgTypes[49]
+	mi := &file_proto_job_job_proto_msgTypes[33]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2160,7 +1512,7 @@ func (x *GetPendingJobReasonsResponse) String() string {
 func (*GetPendingJobReasonsResponse) ProtoMessage() {}
 
 func (x *GetPendingJobReasonsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[49]
+	mi := &file_proto_job_job_proto_msgTypes[33]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2173,7 +1525,7 @@ func (x *GetPendingJobReasonsResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetPendingJobReasonsResponse.ProtoReflect.Descriptor instead.
 func (*GetPendingJobReasonsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{49}
+	return file_proto_job_job_proto_rawDescGZIP(), []int{33}
 }
 
 func (x *GetPendingJobReasonsResponse) GetResult() int64 {
@@ -2183,28 +1535,152 @@ func (x *GetPendingJobReasonsResponse) GetResult() int64 {
 	return 0
 }
 
-type ScheduleRequest struct {
+type GetTimestampMillisRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTimestampMillisRequest) Reset() {
+	*x = GetTimestampMillisRequest{}
+	mi := &file_proto_job_job_proto_msgTypes[34]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTimestampMillisRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTimestampMillisRequest) ProtoMessage() {}
+
+func (x *GetTimestampMillisRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[34]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTimestampMillisRequest.ProtoReflect.Descriptor instead.
+func (*GetTimestampMillisRequest) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{34}
+}
+
+func (x *GetTimestampMillisRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetTimestampMillisResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTimestampMillisResponse) Reset() {
+	*x = GetTimestampMillisResponse{}
+	mi := &file_proto_job_job_proto_msgTypes[35]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTimestampMillisResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTimestampMillisResponse) ProtoMessage() {}
+
+func (x *GetTimestampMillisResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[35]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTimestampMillisResponse.ProtoReflect.Descriptor instead.
+func (*GetTimestampMillisResponse) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{35}
+}
+
+func (x *GetTimestampMillisResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type InfoDescribeContentsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *InfoDescribeContentsRequest) Reset() {
+	*x = InfoDescribeContentsRequest{}
+	mi := &file_proto_job_job_proto_msgTypes[36]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *InfoDescribeContentsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*InfoDescribeContentsRequest) ProtoMessage() {}
+
+func (x *InfoDescribeContentsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[36]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use InfoDescribeContentsRequest.ProtoReflect.Descriptor instead.
+func (*InfoDescribeContentsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{36}
+}
+
+type EqualsRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *ScheduleRequest) Reset() {
-	*x = ScheduleRequest{}
-	mi := &file_proto_job_job_proto_msgTypes[50]
+func (x *EqualsRequest) Reset() {
+	*x = EqualsRequest{}
+	mi := &file_proto_job_job_proto_msgTypes[37]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *ScheduleRequest) String() string {
+func (x *EqualsRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*ScheduleRequest) ProtoMessage() {}
+func (*EqualsRequest) ProtoMessage() {}
 
-func (x *ScheduleRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[50]
+func (x *EqualsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[37]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2215,39 +1691,547 @@ func (x *ScheduleRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use ScheduleRequest.ProtoReflect.Descriptor instead.
-func (*ScheduleRequest) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{50}
+// Deprecated: Use EqualsRequest.ProtoReflect.Descriptor instead.
+func (*EqualsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{37}
 }
 
-func (x *ScheduleRequest) GetArg0() int64 {
+func (x *EqualsRequest) GetArg0() int64 {
 	if x != nil {
 		return x.Arg0
 	}
 	return 0
 }
 
-type ScheduleResponse struct {
+type EqualsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *EqualsResponse) Reset() {
+	*x = EqualsResponse{}
+	mi := &file_proto_job_job_proto_msgTypes[38]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *EqualsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*EqualsResponse) ProtoMessage() {}
+
+func (x *EqualsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[38]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use EqualsResponse.ProtoReflect.Descriptor instead.
+func (*EqualsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{38}
+}
+
+func (x *EqualsResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type GetBackoffPolicyRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetBackoffPolicyRequest) Reset() {
+	*x = GetBackoffPolicyRequest{}
+	mi := &file_proto_job_job_proto_msgTypes[39]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetBackoffPolicyRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetBackoffPolicyRequest) ProtoMessage() {}
+
+func (x *GetBackoffPolicyRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[39]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetBackoffPolicyRequest.ProtoReflect.Descriptor instead.
+func (*GetBackoffPolicyRequest) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{39}
+}
+
+type GetBackoffPolicyResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *ScheduleResponse) Reset() {
-	*x = ScheduleResponse{}
+func (x *GetBackoffPolicyResponse) Reset() {
+	*x = GetBackoffPolicyResponse{}
+	mi := &file_proto_job_job_proto_msgTypes[40]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetBackoffPolicyResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetBackoffPolicyResponse) ProtoMessage() {}
+
+func (x *GetBackoffPolicyResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[40]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetBackoffPolicyResponse.ProtoReflect.Descriptor instead.
+func (*GetBackoffPolicyResponse) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{40}
+}
+
+func (x *GetBackoffPolicyResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetClipDataRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetClipDataRequest) Reset() {
+	*x = GetClipDataRequest{}
+	mi := &file_proto_job_job_proto_msgTypes[41]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetClipDataRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetClipDataRequest) ProtoMessage() {}
+
+func (x *GetClipDataRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[41]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetClipDataRequest.ProtoReflect.Descriptor instead.
+func (*GetClipDataRequest) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{41}
+}
+
+type GetClipDataResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetClipDataResponse) Reset() {
+	*x = GetClipDataResponse{}
+	mi := &file_proto_job_job_proto_msgTypes[42]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetClipDataResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetClipDataResponse) ProtoMessage() {}
+
+func (x *GetClipDataResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[42]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetClipDataResponse.ProtoReflect.Descriptor instead.
+func (*GetClipDataResponse) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{42}
+}
+
+func (x *GetClipDataResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetClipGrantFlagsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetClipGrantFlagsRequest) Reset() {
+	*x = GetClipGrantFlagsRequest{}
+	mi := &file_proto_job_job_proto_msgTypes[43]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetClipGrantFlagsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetClipGrantFlagsRequest) ProtoMessage() {}
+
+func (x *GetClipGrantFlagsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[43]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetClipGrantFlagsRequest.ProtoReflect.Descriptor instead.
+func (*GetClipGrantFlagsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{43}
+}
+
+type GetClipGrantFlagsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetClipGrantFlagsResponse) Reset() {
+	*x = GetClipGrantFlagsResponse{}
+	mi := &file_proto_job_job_proto_msgTypes[44]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetClipGrantFlagsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetClipGrantFlagsResponse) ProtoMessage() {}
+
+func (x *GetClipGrantFlagsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[44]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetClipGrantFlagsResponse.ProtoReflect.Descriptor instead.
+func (*GetClipGrantFlagsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{44}
+}
+
+func (x *GetClipGrantFlagsResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetDebugTagsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetDebugTagsRequest) Reset() {
+	*x = GetDebugTagsRequest{}
+	mi := &file_proto_job_job_proto_msgTypes[45]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetDebugTagsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetDebugTagsRequest) ProtoMessage() {}
+
+func (x *GetDebugTagsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[45]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetDebugTagsRequest.ProtoReflect.Descriptor instead.
+func (*GetDebugTagsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{45}
+}
+
+type GetDebugTagsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetDebugTagsResponse) Reset() {
+	*x = GetDebugTagsResponse{}
+	mi := &file_proto_job_job_proto_msgTypes[46]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetDebugTagsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetDebugTagsResponse) ProtoMessage() {}
+
+func (x *GetDebugTagsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[46]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetDebugTagsResponse.ProtoReflect.Descriptor instead.
+func (*GetDebugTagsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{46}
+}
+
+func (x *GetDebugTagsResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type InfoGetEstimatedNetworkDownloadBytesRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *InfoGetEstimatedNetworkDownloadBytesRequest) Reset() {
+	*x = InfoGetEstimatedNetworkDownloadBytesRequest{}
+	mi := &file_proto_job_job_proto_msgTypes[47]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *InfoGetEstimatedNetworkDownloadBytesRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*InfoGetEstimatedNetworkDownloadBytesRequest) ProtoMessage() {}
+
+func (x *InfoGetEstimatedNetworkDownloadBytesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[47]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use InfoGetEstimatedNetworkDownloadBytesRequest.ProtoReflect.Descriptor instead.
+func (*InfoGetEstimatedNetworkDownloadBytesRequest) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{47}
+}
+
+type InfoGetEstimatedNetworkUploadBytesRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *InfoGetEstimatedNetworkUploadBytesRequest) Reset() {
+	*x = InfoGetEstimatedNetworkUploadBytesRequest{}
+	mi := &file_proto_job_job_proto_msgTypes[48]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *InfoGetEstimatedNetworkUploadBytesRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*InfoGetEstimatedNetworkUploadBytesRequest) ProtoMessage() {}
+
+func (x *InfoGetEstimatedNetworkUploadBytesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[48]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use InfoGetEstimatedNetworkUploadBytesRequest.ProtoReflect.Descriptor instead.
+func (*InfoGetEstimatedNetworkUploadBytesRequest) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{48}
+}
+
+type InfoGetExtrasRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *InfoGetExtrasRequest) Reset() {
+	*x = InfoGetExtrasRequest{}
+	mi := &file_proto_job_job_proto_msgTypes[49]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *InfoGetExtrasRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*InfoGetExtrasRequest) ProtoMessage() {}
+
+func (x *InfoGetExtrasRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[49]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use InfoGetExtrasRequest.ProtoReflect.Descriptor instead.
+func (*InfoGetExtrasRequest) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{49}
+}
+
+type GetFlexMillisRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetFlexMillisRequest) Reset() {
+	*x = GetFlexMillisRequest{}
+	mi := &file_proto_job_job_proto_msgTypes[50]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetFlexMillisRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetFlexMillisRequest) ProtoMessage() {}
+
+func (x *GetFlexMillisRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[50]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetFlexMillisRequest.ProtoReflect.Descriptor instead.
+func (*GetFlexMillisRequest) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{50}
+}
+
+type GetFlexMillisResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetFlexMillisResponse) Reset() {
+	*x = GetFlexMillisResponse{}
 	mi := &file_proto_job_job_proto_msgTypes[51]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *ScheduleResponse) String() string {
+func (x *GetFlexMillisResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*ScheduleResponse) ProtoMessage() {}
+func (*GetFlexMillisResponse) ProtoMessage() {}
 
-func (x *ScheduleResponse) ProtoReflect() protoreflect.Message {
+func (x *GetFlexMillisResponse) ProtoReflect() protoreflect.Message {
 	mi := &file_proto_job_job_proto_msgTypes[51]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -2259,14 +2243,4770 @@ func (x *ScheduleResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use ScheduleResponse.ProtoReflect.Descriptor instead.
-func (*ScheduleResponse) Descriptor() ([]byte, []int) {
+// Deprecated: Use GetFlexMillisResponse.ProtoReflect.Descriptor instead.
+func (*GetFlexMillisResponse) Descriptor() ([]byte, []int) {
 	return file_proto_job_job_proto_rawDescGZIP(), []int{51}
 }
 
-func (x *ScheduleResponse) GetResult() int32 {
+func (x *GetFlexMillisResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
+	}
+	return 0
+}
+
+type GetIdRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetIdRequest) Reset() {
+	*x = GetIdRequest{}
+	mi := &file_proto_job_job_proto_msgTypes[52]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetIdRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetIdRequest) ProtoMessage() {}
+
+func (x *GetIdRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[52]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetIdRequest.ProtoReflect.Descriptor instead.
+func (*GetIdRequest) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{52}
+}
+
+type GetIdResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetIdResponse) Reset() {
+	*x = GetIdResponse{}
+	mi := &file_proto_job_job_proto_msgTypes[53]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetIdResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetIdResponse) ProtoMessage() {}
+
+func (x *GetIdResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[53]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetIdResponse.ProtoReflect.Descriptor instead.
+func (*GetIdResponse) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{53}
+}
+
+func (x *GetIdResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetInitialBackoffMillisRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetInitialBackoffMillisRequest) Reset() {
+	*x = GetInitialBackoffMillisRequest{}
+	mi := &file_proto_job_job_proto_msgTypes[54]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetInitialBackoffMillisRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetInitialBackoffMillisRequest) ProtoMessage() {}
+
+func (x *GetInitialBackoffMillisRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[54]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetInitialBackoffMillisRequest.ProtoReflect.Descriptor instead.
+func (*GetInitialBackoffMillisRequest) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{54}
+}
+
+type GetInitialBackoffMillisResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetInitialBackoffMillisResponse) Reset() {
+	*x = GetInitialBackoffMillisResponse{}
+	mi := &file_proto_job_job_proto_msgTypes[55]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetInitialBackoffMillisResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetInitialBackoffMillisResponse) ProtoMessage() {}
+
+func (x *GetInitialBackoffMillisResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[55]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetInitialBackoffMillisResponse.ProtoReflect.Descriptor instead.
+func (*GetInitialBackoffMillisResponse) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{55}
+}
+
+func (x *GetInitialBackoffMillisResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetIntervalMillisRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetIntervalMillisRequest) Reset() {
+	*x = GetIntervalMillisRequest{}
+	mi := &file_proto_job_job_proto_msgTypes[56]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetIntervalMillisRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetIntervalMillisRequest) ProtoMessage() {}
+
+func (x *GetIntervalMillisRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[56]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetIntervalMillisRequest.ProtoReflect.Descriptor instead.
+func (*GetIntervalMillisRequest) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{56}
+}
+
+type GetIntervalMillisResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetIntervalMillisResponse) Reset() {
+	*x = GetIntervalMillisResponse{}
+	mi := &file_proto_job_job_proto_msgTypes[57]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetIntervalMillisResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetIntervalMillisResponse) ProtoMessage() {}
+
+func (x *GetIntervalMillisResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[57]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetIntervalMillisResponse.ProtoReflect.Descriptor instead.
+func (*GetIntervalMillisResponse) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{57}
+}
+
+func (x *GetIntervalMillisResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetMaxExecutionDelayMillisRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMaxExecutionDelayMillisRequest) Reset() {
+	*x = GetMaxExecutionDelayMillisRequest{}
+	mi := &file_proto_job_job_proto_msgTypes[58]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMaxExecutionDelayMillisRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMaxExecutionDelayMillisRequest) ProtoMessage() {}
+
+func (x *GetMaxExecutionDelayMillisRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[58]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMaxExecutionDelayMillisRequest.ProtoReflect.Descriptor instead.
+func (*GetMaxExecutionDelayMillisRequest) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{58}
+}
+
+type GetMaxExecutionDelayMillisResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMaxExecutionDelayMillisResponse) Reset() {
+	*x = GetMaxExecutionDelayMillisResponse{}
+	mi := &file_proto_job_job_proto_msgTypes[59]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMaxExecutionDelayMillisResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMaxExecutionDelayMillisResponse) ProtoMessage() {}
+
+func (x *GetMaxExecutionDelayMillisResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[59]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMaxExecutionDelayMillisResponse.ProtoReflect.Descriptor instead.
+func (*GetMaxExecutionDelayMillisResponse) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{59}
+}
+
+func (x *GetMaxExecutionDelayMillisResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetMinLatencyMillisRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMinLatencyMillisRequest) Reset() {
+	*x = GetMinLatencyMillisRequest{}
+	mi := &file_proto_job_job_proto_msgTypes[60]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMinLatencyMillisRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMinLatencyMillisRequest) ProtoMessage() {}
+
+func (x *GetMinLatencyMillisRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[60]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMinLatencyMillisRequest.ProtoReflect.Descriptor instead.
+func (*GetMinLatencyMillisRequest) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{60}
+}
+
+type GetMinLatencyMillisResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMinLatencyMillisResponse) Reset() {
+	*x = GetMinLatencyMillisResponse{}
+	mi := &file_proto_job_job_proto_msgTypes[61]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMinLatencyMillisResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMinLatencyMillisResponse) ProtoMessage() {}
+
+func (x *GetMinLatencyMillisResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[61]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMinLatencyMillisResponse.ProtoReflect.Descriptor instead.
+func (*GetMinLatencyMillisResponse) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{61}
+}
+
+func (x *GetMinLatencyMillisResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type InfoGetMinimumNetworkChunkBytesRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *InfoGetMinimumNetworkChunkBytesRequest) Reset() {
+	*x = InfoGetMinimumNetworkChunkBytesRequest{}
+	mi := &file_proto_job_job_proto_msgTypes[62]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *InfoGetMinimumNetworkChunkBytesRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*InfoGetMinimumNetworkChunkBytesRequest) ProtoMessage() {}
+
+func (x *InfoGetMinimumNetworkChunkBytesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[62]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use InfoGetMinimumNetworkChunkBytesRequest.ProtoReflect.Descriptor instead.
+func (*InfoGetMinimumNetworkChunkBytesRequest) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{62}
+}
+
+type GetNetworkTypeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetNetworkTypeRequest) Reset() {
+	*x = GetNetworkTypeRequest{}
+	mi := &file_proto_job_job_proto_msgTypes[63]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetNetworkTypeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetNetworkTypeRequest) ProtoMessage() {}
+
+func (x *GetNetworkTypeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[63]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetNetworkTypeRequest.ProtoReflect.Descriptor instead.
+func (*GetNetworkTypeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{63}
+}
+
+type GetNetworkTypeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetNetworkTypeResponse) Reset() {
+	*x = GetNetworkTypeResponse{}
+	mi := &file_proto_job_job_proto_msgTypes[64]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetNetworkTypeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetNetworkTypeResponse) ProtoMessage() {}
+
+func (x *GetNetworkTypeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[64]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetNetworkTypeResponse.ProtoReflect.Descriptor instead.
+func (*GetNetworkTypeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{64}
+}
+
+func (x *GetNetworkTypeResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetPriorityRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPriorityRequest) Reset() {
+	*x = GetPriorityRequest{}
+	mi := &file_proto_job_job_proto_msgTypes[65]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPriorityRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPriorityRequest) ProtoMessage() {}
+
+func (x *GetPriorityRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[65]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPriorityRequest.ProtoReflect.Descriptor instead.
+func (*GetPriorityRequest) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{65}
+}
+
+type GetPriorityResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPriorityResponse) Reset() {
+	*x = GetPriorityResponse{}
+	mi := &file_proto_job_job_proto_msgTypes[66]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPriorityResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPriorityResponse) ProtoMessage() {}
+
+func (x *GetPriorityResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[66]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPriorityResponse.ProtoReflect.Descriptor instead.
+func (*GetPriorityResponse) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{66}
+}
+
+func (x *GetPriorityResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetRequiredNetworkRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetRequiredNetworkRequest) Reset() {
+	*x = GetRequiredNetworkRequest{}
+	mi := &file_proto_job_job_proto_msgTypes[67]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetRequiredNetworkRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetRequiredNetworkRequest) ProtoMessage() {}
+
+func (x *GetRequiredNetworkRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[67]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetRequiredNetworkRequest.ProtoReflect.Descriptor instead.
+func (*GetRequiredNetworkRequest) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{67}
+}
+
+type GetRequiredNetworkResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetRequiredNetworkResponse) Reset() {
+	*x = GetRequiredNetworkResponse{}
+	mi := &file_proto_job_job_proto_msgTypes[68]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetRequiredNetworkResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetRequiredNetworkResponse) ProtoMessage() {}
+
+func (x *GetRequiredNetworkResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[68]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetRequiredNetworkResponse.ProtoReflect.Descriptor instead.
+func (*GetRequiredNetworkResponse) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{68}
+}
+
+func (x *GetRequiredNetworkResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetServiceRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetServiceRequest) Reset() {
+	*x = GetServiceRequest{}
+	mi := &file_proto_job_job_proto_msgTypes[69]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetServiceRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetServiceRequest) ProtoMessage() {}
+
+func (x *GetServiceRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[69]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetServiceRequest.ProtoReflect.Descriptor instead.
+func (*GetServiceRequest) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{69}
+}
+
+type GetServiceResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetServiceResponse) Reset() {
+	*x = GetServiceResponse{}
+	mi := &file_proto_job_job_proto_msgTypes[70]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetServiceResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetServiceResponse) ProtoMessage() {}
+
+func (x *GetServiceResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[70]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetServiceResponse.ProtoReflect.Descriptor instead.
+func (*GetServiceResponse) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{70}
+}
+
+func (x *GetServiceResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetTraceTagRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTraceTagRequest) Reset() {
+	*x = GetTraceTagRequest{}
+	mi := &file_proto_job_job_proto_msgTypes[71]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTraceTagRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTraceTagRequest) ProtoMessage() {}
+
+func (x *GetTraceTagRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[71]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTraceTagRequest.ProtoReflect.Descriptor instead.
+func (*GetTraceTagRequest) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{71}
+}
+
+type GetTraceTagResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTraceTagResponse) Reset() {
+	*x = GetTraceTagResponse{}
+	mi := &file_proto_job_job_proto_msgTypes[72]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTraceTagResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTraceTagResponse) ProtoMessage() {}
+
+func (x *GetTraceTagResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[72]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTraceTagResponse.ProtoReflect.Descriptor instead.
+func (*GetTraceTagResponse) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{72}
+}
+
+func (x *GetTraceTagResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type GetTransientExtrasRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTransientExtrasRequest) Reset() {
+	*x = GetTransientExtrasRequest{}
+	mi := &file_proto_job_job_proto_msgTypes[73]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTransientExtrasRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTransientExtrasRequest) ProtoMessage() {}
+
+func (x *GetTransientExtrasRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[73]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTransientExtrasRequest.ProtoReflect.Descriptor instead.
+func (*GetTransientExtrasRequest) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{73}
+}
+
+type GetTransientExtrasResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTransientExtrasResponse) Reset() {
+	*x = GetTransientExtrasResponse{}
+	mi := &file_proto_job_job_proto_msgTypes[74]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTransientExtrasResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTransientExtrasResponse) ProtoMessage() {}
+
+func (x *GetTransientExtrasResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[74]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTransientExtrasResponse.ProtoReflect.Descriptor instead.
+func (*GetTransientExtrasResponse) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{74}
+}
+
+func (x *GetTransientExtrasResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetTriggerContentMaxDelayRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTriggerContentMaxDelayRequest) Reset() {
+	*x = GetTriggerContentMaxDelayRequest{}
+	mi := &file_proto_job_job_proto_msgTypes[75]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTriggerContentMaxDelayRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTriggerContentMaxDelayRequest) ProtoMessage() {}
+
+func (x *GetTriggerContentMaxDelayRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[75]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTriggerContentMaxDelayRequest.ProtoReflect.Descriptor instead.
+func (*GetTriggerContentMaxDelayRequest) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{75}
+}
+
+type GetTriggerContentMaxDelayResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTriggerContentMaxDelayResponse) Reset() {
+	*x = GetTriggerContentMaxDelayResponse{}
+	mi := &file_proto_job_job_proto_msgTypes[76]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTriggerContentMaxDelayResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTriggerContentMaxDelayResponse) ProtoMessage() {}
+
+func (x *GetTriggerContentMaxDelayResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[76]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTriggerContentMaxDelayResponse.ProtoReflect.Descriptor instead.
+func (*GetTriggerContentMaxDelayResponse) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{76}
+}
+
+func (x *GetTriggerContentMaxDelayResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetTriggerContentUpdateDelayRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTriggerContentUpdateDelayRequest) Reset() {
+	*x = GetTriggerContentUpdateDelayRequest{}
+	mi := &file_proto_job_job_proto_msgTypes[77]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTriggerContentUpdateDelayRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTriggerContentUpdateDelayRequest) ProtoMessage() {}
+
+func (x *GetTriggerContentUpdateDelayRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[77]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTriggerContentUpdateDelayRequest.ProtoReflect.Descriptor instead.
+func (*GetTriggerContentUpdateDelayRequest) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{77}
+}
+
+type GetTriggerContentUpdateDelayResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTriggerContentUpdateDelayResponse) Reset() {
+	*x = GetTriggerContentUpdateDelayResponse{}
+	mi := &file_proto_job_job_proto_msgTypes[78]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTriggerContentUpdateDelayResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTriggerContentUpdateDelayResponse) ProtoMessage() {}
+
+func (x *GetTriggerContentUpdateDelayResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[78]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTriggerContentUpdateDelayResponse.ProtoReflect.Descriptor instead.
+func (*GetTriggerContentUpdateDelayResponse) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{78}
+}
+
+func (x *GetTriggerContentUpdateDelayResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetTriggerContentUrisRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTriggerContentUrisRequest) Reset() {
+	*x = GetTriggerContentUrisRequest{}
+	mi := &file_proto_job_job_proto_msgTypes[79]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTriggerContentUrisRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTriggerContentUrisRequest) ProtoMessage() {}
+
+func (x *GetTriggerContentUrisRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[79]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTriggerContentUrisRequest.ProtoReflect.Descriptor instead.
+func (*GetTriggerContentUrisRequest) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{79}
+}
+
+type GetTriggerContentUrisResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTriggerContentUrisResponse) Reset() {
+	*x = GetTriggerContentUrisResponse{}
+	mi := &file_proto_job_job_proto_msgTypes[80]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTriggerContentUrisResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTriggerContentUrisResponse) ProtoMessage() {}
+
+func (x *GetTriggerContentUrisResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[80]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTriggerContentUrisResponse.ProtoReflect.Descriptor instead.
+func (*GetTriggerContentUrisResponse) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{80}
+}
+
+func (x *GetTriggerContentUrisResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type HashCodeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *HashCodeRequest) Reset() {
+	*x = HashCodeRequest{}
+	mi := &file_proto_job_job_proto_msgTypes[81]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *HashCodeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*HashCodeRequest) ProtoMessage() {}
+
+func (x *HashCodeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[81]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use HashCodeRequest.ProtoReflect.Descriptor instead.
+func (*HashCodeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{81}
+}
+
+type HashCodeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *HashCodeResponse) Reset() {
+	*x = HashCodeResponse{}
+	mi := &file_proto_job_job_proto_msgTypes[82]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *HashCodeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*HashCodeResponse) ProtoMessage() {}
+
+func (x *HashCodeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[82]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use HashCodeResponse.ProtoReflect.Descriptor instead.
+func (*HashCodeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{82}
+}
+
+func (x *HashCodeResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type IsExpeditedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsExpeditedRequest) Reset() {
+	*x = IsExpeditedRequest{}
+	mi := &file_proto_job_job_proto_msgTypes[83]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsExpeditedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsExpeditedRequest) ProtoMessage() {}
+
+func (x *IsExpeditedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[83]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsExpeditedRequest.ProtoReflect.Descriptor instead.
+func (*IsExpeditedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{83}
+}
+
+type IsExpeditedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsExpeditedResponse) Reset() {
+	*x = IsExpeditedResponse{}
+	mi := &file_proto_job_job_proto_msgTypes[84]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsExpeditedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsExpeditedResponse) ProtoMessage() {}
+
+func (x *IsExpeditedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[84]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsExpeditedResponse.ProtoReflect.Descriptor instead.
+func (*IsExpeditedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{84}
+}
+
+func (x *IsExpeditedResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type IsImportantWhileForegroundRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsImportantWhileForegroundRequest) Reset() {
+	*x = IsImportantWhileForegroundRequest{}
+	mi := &file_proto_job_job_proto_msgTypes[85]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsImportantWhileForegroundRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsImportantWhileForegroundRequest) ProtoMessage() {}
+
+func (x *IsImportantWhileForegroundRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[85]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsImportantWhileForegroundRequest.ProtoReflect.Descriptor instead.
+func (*IsImportantWhileForegroundRequest) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{85}
+}
+
+type IsImportantWhileForegroundResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsImportantWhileForegroundResponse) Reset() {
+	*x = IsImportantWhileForegroundResponse{}
+	mi := &file_proto_job_job_proto_msgTypes[86]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsImportantWhileForegroundResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsImportantWhileForegroundResponse) ProtoMessage() {}
+
+func (x *IsImportantWhileForegroundResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[86]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsImportantWhileForegroundResponse.ProtoReflect.Descriptor instead.
+func (*IsImportantWhileForegroundResponse) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{86}
+}
+
+func (x *IsImportantWhileForegroundResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type IsPeriodicRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsPeriodicRequest) Reset() {
+	*x = IsPeriodicRequest{}
+	mi := &file_proto_job_job_proto_msgTypes[87]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsPeriodicRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsPeriodicRequest) ProtoMessage() {}
+
+func (x *IsPeriodicRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[87]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsPeriodicRequest.ProtoReflect.Descriptor instead.
+func (*IsPeriodicRequest) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{87}
+}
+
+type IsPeriodicResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsPeriodicResponse) Reset() {
+	*x = IsPeriodicResponse{}
+	mi := &file_proto_job_job_proto_msgTypes[88]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsPeriodicResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsPeriodicResponse) ProtoMessage() {}
+
+func (x *IsPeriodicResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[88]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsPeriodicResponse.ProtoReflect.Descriptor instead.
+func (*IsPeriodicResponse) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{88}
+}
+
+func (x *IsPeriodicResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type IsPersistedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsPersistedRequest) Reset() {
+	*x = IsPersistedRequest{}
+	mi := &file_proto_job_job_proto_msgTypes[89]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsPersistedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsPersistedRequest) ProtoMessage() {}
+
+func (x *IsPersistedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[89]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsPersistedRequest.ProtoReflect.Descriptor instead.
+func (*IsPersistedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{89}
+}
+
+type IsPersistedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsPersistedResponse) Reset() {
+	*x = IsPersistedResponse{}
+	mi := &file_proto_job_job_proto_msgTypes[90]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsPersistedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsPersistedResponse) ProtoMessage() {}
+
+func (x *IsPersistedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[90]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsPersistedResponse.ProtoReflect.Descriptor instead.
+func (*IsPersistedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{90}
+}
+
+func (x *IsPersistedResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type IsPrefetchRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsPrefetchRequest) Reset() {
+	*x = IsPrefetchRequest{}
+	mi := &file_proto_job_job_proto_msgTypes[91]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsPrefetchRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsPrefetchRequest) ProtoMessage() {}
+
+func (x *IsPrefetchRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[91]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsPrefetchRequest.ProtoReflect.Descriptor instead.
+func (*IsPrefetchRequest) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{91}
+}
+
+type IsPrefetchResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsPrefetchResponse) Reset() {
+	*x = IsPrefetchResponse{}
+	mi := &file_proto_job_job_proto_msgTypes[92]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsPrefetchResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsPrefetchResponse) ProtoMessage() {}
+
+func (x *IsPrefetchResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[92]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsPrefetchResponse.ProtoReflect.Descriptor instead.
+func (*IsPrefetchResponse) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{92}
+}
+
+func (x *IsPrefetchResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type IsRequireBatteryNotLowRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsRequireBatteryNotLowRequest) Reset() {
+	*x = IsRequireBatteryNotLowRequest{}
+	mi := &file_proto_job_job_proto_msgTypes[93]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsRequireBatteryNotLowRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsRequireBatteryNotLowRequest) ProtoMessage() {}
+
+func (x *IsRequireBatteryNotLowRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[93]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsRequireBatteryNotLowRequest.ProtoReflect.Descriptor instead.
+func (*IsRequireBatteryNotLowRequest) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{93}
+}
+
+type IsRequireBatteryNotLowResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsRequireBatteryNotLowResponse) Reset() {
+	*x = IsRequireBatteryNotLowResponse{}
+	mi := &file_proto_job_job_proto_msgTypes[94]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsRequireBatteryNotLowResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsRequireBatteryNotLowResponse) ProtoMessage() {}
+
+func (x *IsRequireBatteryNotLowResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[94]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsRequireBatteryNotLowResponse.ProtoReflect.Descriptor instead.
+func (*IsRequireBatteryNotLowResponse) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{94}
+}
+
+func (x *IsRequireBatteryNotLowResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type IsRequireChargingRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsRequireChargingRequest) Reset() {
+	*x = IsRequireChargingRequest{}
+	mi := &file_proto_job_job_proto_msgTypes[95]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsRequireChargingRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsRequireChargingRequest) ProtoMessage() {}
+
+func (x *IsRequireChargingRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[95]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsRequireChargingRequest.ProtoReflect.Descriptor instead.
+func (*IsRequireChargingRequest) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{95}
+}
+
+type IsRequireChargingResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsRequireChargingResponse) Reset() {
+	*x = IsRequireChargingResponse{}
+	mi := &file_proto_job_job_proto_msgTypes[96]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsRequireChargingResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsRequireChargingResponse) ProtoMessage() {}
+
+func (x *IsRequireChargingResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[96]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsRequireChargingResponse.ProtoReflect.Descriptor instead.
+func (*IsRequireChargingResponse) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{96}
+}
+
+func (x *IsRequireChargingResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type IsRequireDeviceIdleRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsRequireDeviceIdleRequest) Reset() {
+	*x = IsRequireDeviceIdleRequest{}
+	mi := &file_proto_job_job_proto_msgTypes[97]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsRequireDeviceIdleRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsRequireDeviceIdleRequest) ProtoMessage() {}
+
+func (x *IsRequireDeviceIdleRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[97]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsRequireDeviceIdleRequest.ProtoReflect.Descriptor instead.
+func (*IsRequireDeviceIdleRequest) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{97}
+}
+
+type IsRequireDeviceIdleResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsRequireDeviceIdleResponse) Reset() {
+	*x = IsRequireDeviceIdleResponse{}
+	mi := &file_proto_job_job_proto_msgTypes[98]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsRequireDeviceIdleResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsRequireDeviceIdleResponse) ProtoMessage() {}
+
+func (x *IsRequireDeviceIdleResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[98]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsRequireDeviceIdleResponse.ProtoReflect.Descriptor instead.
+func (*IsRequireDeviceIdleResponse) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{98}
+}
+
+func (x *IsRequireDeviceIdleResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type IsRequireStorageNotLowRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsRequireStorageNotLowRequest) Reset() {
+	*x = IsRequireStorageNotLowRequest{}
+	mi := &file_proto_job_job_proto_msgTypes[99]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsRequireStorageNotLowRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsRequireStorageNotLowRequest) ProtoMessage() {}
+
+func (x *IsRequireStorageNotLowRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[99]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsRequireStorageNotLowRequest.ProtoReflect.Descriptor instead.
+func (*IsRequireStorageNotLowRequest) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{99}
+}
+
+type IsRequireStorageNotLowResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsRequireStorageNotLowResponse) Reset() {
+	*x = IsRequireStorageNotLowResponse{}
+	mi := &file_proto_job_job_proto_msgTypes[100]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsRequireStorageNotLowResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsRequireStorageNotLowResponse) ProtoMessage() {}
+
+func (x *IsRequireStorageNotLowResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[100]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsRequireStorageNotLowResponse.ProtoReflect.Descriptor instead.
+func (*IsRequireStorageNotLowResponse) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{100}
+}
+
+func (x *IsRequireStorageNotLowResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type IsUserInitiatedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsUserInitiatedRequest) Reset() {
+	*x = IsUserInitiatedRequest{}
+	mi := &file_proto_job_job_proto_msgTypes[101]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsUserInitiatedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsUserInitiatedRequest) ProtoMessage() {}
+
+func (x *IsUserInitiatedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[101]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsUserInitiatedRequest.ProtoReflect.Descriptor instead.
+func (*IsUserInitiatedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{101}
+}
+
+type IsUserInitiatedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsUserInitiatedResponse) Reset() {
+	*x = IsUserInitiatedResponse{}
+	mi := &file_proto_job_job_proto_msgTypes[102]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsUserInitiatedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsUserInitiatedResponse) ProtoMessage() {}
+
+func (x *IsUserInitiatedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[102]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsUserInitiatedResponse.ProtoReflect.Descriptor instead.
+func (*IsUserInitiatedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{102}
+}
+
+func (x *IsUserInitiatedResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type InfoToStringRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *InfoToStringRequest) Reset() {
+	*x = InfoToStringRequest{}
+	mi := &file_proto_job_job_proto_msgTypes[103]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *InfoToStringRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*InfoToStringRequest) ProtoMessage() {}
+
+func (x *InfoToStringRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[103]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use InfoToStringRequest.ProtoReflect.Descriptor instead.
+func (*InfoToStringRequest) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{103}
+}
+
+type InfoWriteToParcelRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *InfoWriteToParcelRequest) Reset() {
+	*x = InfoWriteToParcelRequest{}
+	mi := &file_proto_job_job_proto_msgTypes[104]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *InfoWriteToParcelRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*InfoWriteToParcelRequest) ProtoMessage() {}
+
+func (x *InfoWriteToParcelRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[104]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use InfoWriteToParcelRequest.ProtoReflect.Descriptor instead.
+func (*InfoWriteToParcelRequest) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{104}
+}
+
+func (x *InfoWriteToParcelRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *InfoWriteToParcelRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type GetMinFlexMillisRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMinFlexMillisRequest) Reset() {
+	*x = GetMinFlexMillisRequest{}
+	mi := &file_proto_job_job_proto_msgTypes[105]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMinFlexMillisRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMinFlexMillisRequest) ProtoMessage() {}
+
+func (x *GetMinFlexMillisRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[105]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMinFlexMillisRequest.ProtoReflect.Descriptor instead.
+func (*GetMinFlexMillisRequest) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{105}
+}
+
+type GetMinFlexMillisResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMinFlexMillisResponse) Reset() {
+	*x = GetMinFlexMillisResponse{}
+	mi := &file_proto_job_job_proto_msgTypes[106]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMinFlexMillisResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMinFlexMillisResponse) ProtoMessage() {}
+
+func (x *GetMinFlexMillisResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[106]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMinFlexMillisResponse.ProtoReflect.Descriptor instead.
+func (*GetMinFlexMillisResponse) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{106}
+}
+
+func (x *GetMinFlexMillisResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetMinPeriodMillisRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMinPeriodMillisRequest) Reset() {
+	*x = GetMinPeriodMillisRequest{}
+	mi := &file_proto_job_job_proto_msgTypes[107]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMinPeriodMillisRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMinPeriodMillisRequest) ProtoMessage() {}
+
+func (x *GetMinPeriodMillisRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[107]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMinPeriodMillisRequest.ProtoReflect.Descriptor instead.
+func (*GetMinPeriodMillisRequest) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{107}
+}
+
+type GetMinPeriodMillisResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMinPeriodMillisResponse) Reset() {
+	*x = GetMinPeriodMillisResponse{}
+	mi := &file_proto_job_job_proto_msgTypes[108]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMinPeriodMillisResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMinPeriodMillisResponse) ProtoMessage() {}
+
+func (x *GetMinPeriodMillisResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[108]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMinPeriodMillisResponse.ProtoReflect.Descriptor instead.
+func (*GetMinPeriodMillisResponse) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{108}
+}
+
+func (x *GetMinPeriodMillisResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type AddDebugTagRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddDebugTagRequest) Reset() {
+	*x = AddDebugTagRequest{}
+	mi := &file_proto_job_job_proto_msgTypes[109]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddDebugTagRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddDebugTagRequest) ProtoMessage() {}
+
+func (x *AddDebugTagRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[109]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddDebugTagRequest.ProtoReflect.Descriptor instead.
+func (*AddDebugTagRequest) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{109}
+}
+
+func (x *AddDebugTagRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type AddDebugTagResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddDebugTagResponse) Reset() {
+	*x = AddDebugTagResponse{}
+	mi := &file_proto_job_job_proto_msgTypes[110]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddDebugTagResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddDebugTagResponse) ProtoMessage() {}
+
+func (x *AddDebugTagResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[110]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddDebugTagResponse.ProtoReflect.Descriptor instead.
+func (*AddDebugTagResponse) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{110}
+}
+
+func (x *AddDebugTagResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type AddTriggerContentUriRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddTriggerContentUriRequest) Reset() {
+	*x = AddTriggerContentUriRequest{}
+	mi := &file_proto_job_job_proto_msgTypes[111]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddTriggerContentUriRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddTriggerContentUriRequest) ProtoMessage() {}
+
+func (x *AddTriggerContentUriRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[111]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddTriggerContentUriRequest.ProtoReflect.Descriptor instead.
+func (*AddTriggerContentUriRequest) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{111}
+}
+
+func (x *AddTriggerContentUriRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type AddTriggerContentUriResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddTriggerContentUriResponse) Reset() {
+	*x = AddTriggerContentUriResponse{}
+	mi := &file_proto_job_job_proto_msgTypes[112]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddTriggerContentUriResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddTriggerContentUriResponse) ProtoMessage() {}
+
+func (x *AddTriggerContentUriResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[112]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddTriggerContentUriResponse.ProtoReflect.Descriptor instead.
+func (*AddTriggerContentUriResponse) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{112}
+}
+
+func (x *AddTriggerContentUriResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type RemoveDebugTagRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RemoveDebugTagRequest) Reset() {
+	*x = RemoveDebugTagRequest{}
+	mi := &file_proto_job_job_proto_msgTypes[113]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RemoveDebugTagRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RemoveDebugTagRequest) ProtoMessage() {}
+
+func (x *RemoveDebugTagRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[113]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RemoveDebugTagRequest.ProtoReflect.Descriptor instead.
+func (*RemoveDebugTagRequest) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{113}
+}
+
+func (x *RemoveDebugTagRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type RemoveDebugTagResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RemoveDebugTagResponse) Reset() {
+	*x = RemoveDebugTagResponse{}
+	mi := &file_proto_job_job_proto_msgTypes[114]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RemoveDebugTagResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RemoveDebugTagResponse) ProtoMessage() {}
+
+func (x *RemoveDebugTagResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[114]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RemoveDebugTagResponse.ProtoReflect.Descriptor instead.
+func (*RemoveDebugTagResponse) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{114}
+}
+
+func (x *RemoveDebugTagResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetBackoffCriteriaRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetBackoffCriteriaRequest) Reset() {
+	*x = SetBackoffCriteriaRequest{}
+	mi := &file_proto_job_job_proto_msgTypes[115]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetBackoffCriteriaRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetBackoffCriteriaRequest) ProtoMessage() {}
+
+func (x *SetBackoffCriteriaRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[115]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetBackoffCriteriaRequest.ProtoReflect.Descriptor instead.
+func (*SetBackoffCriteriaRequest) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{115}
+}
+
+func (x *SetBackoffCriteriaRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *SetBackoffCriteriaRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type SetBackoffCriteriaResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetBackoffCriteriaResponse) Reset() {
+	*x = SetBackoffCriteriaResponse{}
+	mi := &file_proto_job_job_proto_msgTypes[116]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetBackoffCriteriaResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetBackoffCriteriaResponse) ProtoMessage() {}
+
+func (x *SetBackoffCriteriaResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[116]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetBackoffCriteriaResponse.ProtoReflect.Descriptor instead.
+func (*SetBackoffCriteriaResponse) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{116}
+}
+
+func (x *SetBackoffCriteriaResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetClipDataRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetClipDataRequest) Reset() {
+	*x = SetClipDataRequest{}
+	mi := &file_proto_job_job_proto_msgTypes[117]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetClipDataRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetClipDataRequest) ProtoMessage() {}
+
+func (x *SetClipDataRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[117]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetClipDataRequest.ProtoReflect.Descriptor instead.
+func (*SetClipDataRequest) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{117}
+}
+
+func (x *SetClipDataRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *SetClipDataRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type SetClipDataResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetClipDataResponse) Reset() {
+	*x = SetClipDataResponse{}
+	mi := &file_proto_job_job_proto_msgTypes[118]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetClipDataResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetClipDataResponse) ProtoMessage() {}
+
+func (x *SetClipDataResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[118]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetClipDataResponse.ProtoReflect.Descriptor instead.
+func (*SetClipDataResponse) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{118}
+}
+
+func (x *SetClipDataResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetExpeditedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          bool                   `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetExpeditedRequest) Reset() {
+	*x = SetExpeditedRequest{}
+	mi := &file_proto_job_job_proto_msgTypes[119]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetExpeditedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetExpeditedRequest) ProtoMessage() {}
+
+func (x *SetExpeditedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[119]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetExpeditedRequest.ProtoReflect.Descriptor instead.
+func (*SetExpeditedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{119}
+}
+
+func (x *SetExpeditedRequest) GetArg0() bool {
+	if x != nil {
+		return x.Arg0
+	}
+	return false
+}
+
+type SetExpeditedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetExpeditedResponse) Reset() {
+	*x = SetExpeditedResponse{}
+	mi := &file_proto_job_job_proto_msgTypes[120]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetExpeditedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetExpeditedResponse) ProtoMessage() {}
+
+func (x *SetExpeditedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[120]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetExpeditedResponse.ProtoReflect.Descriptor instead.
+func (*SetExpeditedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{120}
+}
+
+func (x *SetExpeditedResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetImportantWhileForegroundRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          bool                   `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetImportantWhileForegroundRequest) Reset() {
+	*x = SetImportantWhileForegroundRequest{}
+	mi := &file_proto_job_job_proto_msgTypes[121]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetImportantWhileForegroundRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetImportantWhileForegroundRequest) ProtoMessage() {}
+
+func (x *SetImportantWhileForegroundRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[121]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetImportantWhileForegroundRequest.ProtoReflect.Descriptor instead.
+func (*SetImportantWhileForegroundRequest) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{121}
+}
+
+func (x *SetImportantWhileForegroundRequest) GetArg0() bool {
+	if x != nil {
+		return x.Arg0
+	}
+	return false
+}
+
+type SetImportantWhileForegroundResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetImportantWhileForegroundResponse) Reset() {
+	*x = SetImportantWhileForegroundResponse{}
+	mi := &file_proto_job_job_proto_msgTypes[122]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetImportantWhileForegroundResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetImportantWhileForegroundResponse) ProtoMessage() {}
+
+func (x *SetImportantWhileForegroundResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[122]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetImportantWhileForegroundResponse.ProtoReflect.Descriptor instead.
+func (*SetImportantWhileForegroundResponse) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{122}
+}
+
+func (x *SetImportantWhileForegroundResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetMinimumLatencyRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetMinimumLatencyRequest) Reset() {
+	*x = SetMinimumLatencyRequest{}
+	mi := &file_proto_job_job_proto_msgTypes[123]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetMinimumLatencyRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetMinimumLatencyRequest) ProtoMessage() {}
+
+func (x *SetMinimumLatencyRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[123]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetMinimumLatencyRequest.ProtoReflect.Descriptor instead.
+func (*SetMinimumLatencyRequest) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{123}
+}
+
+func (x *SetMinimumLatencyRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetMinimumLatencyResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetMinimumLatencyResponse) Reset() {
+	*x = SetMinimumLatencyResponse{}
+	mi := &file_proto_job_job_proto_msgTypes[124]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetMinimumLatencyResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetMinimumLatencyResponse) ProtoMessage() {}
+
+func (x *SetMinimumLatencyResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[124]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetMinimumLatencyResponse.ProtoReflect.Descriptor instead.
+func (*SetMinimumLatencyResponse) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{124}
+}
+
+func (x *SetMinimumLatencyResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetOverrideDeadlineRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetOverrideDeadlineRequest) Reset() {
+	*x = SetOverrideDeadlineRequest{}
+	mi := &file_proto_job_job_proto_msgTypes[125]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetOverrideDeadlineRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetOverrideDeadlineRequest) ProtoMessage() {}
+
+func (x *SetOverrideDeadlineRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[125]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetOverrideDeadlineRequest.ProtoReflect.Descriptor instead.
+func (*SetOverrideDeadlineRequest) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{125}
+}
+
+func (x *SetOverrideDeadlineRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetOverrideDeadlineResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetOverrideDeadlineResponse) Reset() {
+	*x = SetOverrideDeadlineResponse{}
+	mi := &file_proto_job_job_proto_msgTypes[126]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetOverrideDeadlineResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetOverrideDeadlineResponse) ProtoMessage() {}
+
+func (x *SetOverrideDeadlineResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[126]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetOverrideDeadlineResponse.ProtoReflect.Descriptor instead.
+func (*SetOverrideDeadlineResponse) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{126}
+}
+
+func (x *SetOverrideDeadlineResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetPeriodic1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetPeriodic1Request) Reset() {
+	*x = SetPeriodic1Request{}
+	mi := &file_proto_job_job_proto_msgTypes[127]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetPeriodic1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetPeriodic1Request) ProtoMessage() {}
+
+func (x *SetPeriodic1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[127]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetPeriodic1Request.ProtoReflect.Descriptor instead.
+func (*SetPeriodic1Request) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{127}
+}
+
+func (x *SetPeriodic1Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetPeriodic1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetPeriodic1Response) Reset() {
+	*x = SetPeriodic1Response{}
+	mi := &file_proto_job_job_proto_msgTypes[128]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetPeriodic1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetPeriodic1Response) ProtoMessage() {}
+
+func (x *SetPeriodic1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[128]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetPeriodic1Response.ProtoReflect.Descriptor instead.
+func (*SetPeriodic1Response) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{128}
+}
+
+func (x *SetPeriodic1Response) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetPeriodic2_1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetPeriodic2_1Request) Reset() {
+	*x = SetPeriodic2_1Request{}
+	mi := &file_proto_job_job_proto_msgTypes[129]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetPeriodic2_1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetPeriodic2_1Request) ProtoMessage() {}
+
+func (x *SetPeriodic2_1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[129]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetPeriodic2_1Request.ProtoReflect.Descriptor instead.
+func (*SetPeriodic2_1Request) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{129}
+}
+
+func (x *SetPeriodic2_1Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *SetPeriodic2_1Request) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type SetPeriodic2_1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetPeriodic2_1Response) Reset() {
+	*x = SetPeriodic2_1Response{}
+	mi := &file_proto_job_job_proto_msgTypes[130]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetPeriodic2_1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetPeriodic2_1Response) ProtoMessage() {}
+
+func (x *SetPeriodic2_1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[130]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetPeriodic2_1Response.ProtoReflect.Descriptor instead.
+func (*SetPeriodic2_1Response) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{130}
+}
+
+func (x *SetPeriodic2_1Response) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetPersistedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          bool                   `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetPersistedRequest) Reset() {
+	*x = SetPersistedRequest{}
+	mi := &file_proto_job_job_proto_msgTypes[131]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetPersistedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetPersistedRequest) ProtoMessage() {}
+
+func (x *SetPersistedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[131]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetPersistedRequest.ProtoReflect.Descriptor instead.
+func (*SetPersistedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{131}
+}
+
+func (x *SetPersistedRequest) GetArg0() bool {
+	if x != nil {
+		return x.Arg0
+	}
+	return false
+}
+
+type SetPersistedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetPersistedResponse) Reset() {
+	*x = SetPersistedResponse{}
+	mi := &file_proto_job_job_proto_msgTypes[132]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetPersistedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetPersistedResponse) ProtoMessage() {}
+
+func (x *SetPersistedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[132]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetPersistedResponse.ProtoReflect.Descriptor instead.
+func (*SetPersistedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{132}
+}
+
+func (x *SetPersistedResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetPrefetchRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          bool                   `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetPrefetchRequest) Reset() {
+	*x = SetPrefetchRequest{}
+	mi := &file_proto_job_job_proto_msgTypes[133]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetPrefetchRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetPrefetchRequest) ProtoMessage() {}
+
+func (x *SetPrefetchRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[133]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetPrefetchRequest.ProtoReflect.Descriptor instead.
+func (*SetPrefetchRequest) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{133}
+}
+
+func (x *SetPrefetchRequest) GetArg0() bool {
+	if x != nil {
+		return x.Arg0
+	}
+	return false
+}
+
+type SetPrefetchResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetPrefetchResponse) Reset() {
+	*x = SetPrefetchResponse{}
+	mi := &file_proto_job_job_proto_msgTypes[134]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetPrefetchResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetPrefetchResponse) ProtoMessage() {}
+
+func (x *SetPrefetchResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[134]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetPrefetchResponse.ProtoReflect.Descriptor instead.
+func (*SetPrefetchResponse) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{134}
+}
+
+func (x *SetPrefetchResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetPriorityRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetPriorityRequest) Reset() {
+	*x = SetPriorityRequest{}
+	mi := &file_proto_job_job_proto_msgTypes[135]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetPriorityRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetPriorityRequest) ProtoMessage() {}
+
+func (x *SetPriorityRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[135]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetPriorityRequest.ProtoReflect.Descriptor instead.
+func (*SetPriorityRequest) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{135}
+}
+
+func (x *SetPriorityRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetPriorityResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetPriorityResponse) Reset() {
+	*x = SetPriorityResponse{}
+	mi := &file_proto_job_job_proto_msgTypes[136]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetPriorityResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetPriorityResponse) ProtoMessage() {}
+
+func (x *SetPriorityResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[136]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetPriorityResponse.ProtoReflect.Descriptor instead.
+func (*SetPriorityResponse) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{136}
+}
+
+func (x *SetPriorityResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetRequiredNetworkRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetRequiredNetworkRequest) Reset() {
+	*x = SetRequiredNetworkRequest{}
+	mi := &file_proto_job_job_proto_msgTypes[137]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetRequiredNetworkRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetRequiredNetworkRequest) ProtoMessage() {}
+
+func (x *SetRequiredNetworkRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[137]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetRequiredNetworkRequest.ProtoReflect.Descriptor instead.
+func (*SetRequiredNetworkRequest) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{137}
+}
+
+func (x *SetRequiredNetworkRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetRequiredNetworkResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetRequiredNetworkResponse) Reset() {
+	*x = SetRequiredNetworkResponse{}
+	mi := &file_proto_job_job_proto_msgTypes[138]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetRequiredNetworkResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetRequiredNetworkResponse) ProtoMessage() {}
+
+func (x *SetRequiredNetworkResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[138]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetRequiredNetworkResponse.ProtoReflect.Descriptor instead.
+func (*SetRequiredNetworkResponse) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{138}
+}
+
+func (x *SetRequiredNetworkResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetRequiredNetworkTypeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetRequiredNetworkTypeRequest) Reset() {
+	*x = SetRequiredNetworkTypeRequest{}
+	mi := &file_proto_job_job_proto_msgTypes[139]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetRequiredNetworkTypeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetRequiredNetworkTypeRequest) ProtoMessage() {}
+
+func (x *SetRequiredNetworkTypeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[139]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetRequiredNetworkTypeRequest.ProtoReflect.Descriptor instead.
+func (*SetRequiredNetworkTypeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{139}
+}
+
+func (x *SetRequiredNetworkTypeRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetRequiredNetworkTypeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetRequiredNetworkTypeResponse) Reset() {
+	*x = SetRequiredNetworkTypeResponse{}
+	mi := &file_proto_job_job_proto_msgTypes[140]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetRequiredNetworkTypeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetRequiredNetworkTypeResponse) ProtoMessage() {}
+
+func (x *SetRequiredNetworkTypeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[140]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetRequiredNetworkTypeResponse.ProtoReflect.Descriptor instead.
+func (*SetRequiredNetworkTypeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{140}
+}
+
+func (x *SetRequiredNetworkTypeResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetRequiresBatteryNotLowRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          bool                   `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetRequiresBatteryNotLowRequest) Reset() {
+	*x = SetRequiresBatteryNotLowRequest{}
+	mi := &file_proto_job_job_proto_msgTypes[141]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetRequiresBatteryNotLowRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetRequiresBatteryNotLowRequest) ProtoMessage() {}
+
+func (x *SetRequiresBatteryNotLowRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[141]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetRequiresBatteryNotLowRequest.ProtoReflect.Descriptor instead.
+func (*SetRequiresBatteryNotLowRequest) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{141}
+}
+
+func (x *SetRequiresBatteryNotLowRequest) GetArg0() bool {
+	if x != nil {
+		return x.Arg0
+	}
+	return false
+}
+
+type SetRequiresBatteryNotLowResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetRequiresBatteryNotLowResponse) Reset() {
+	*x = SetRequiresBatteryNotLowResponse{}
+	mi := &file_proto_job_job_proto_msgTypes[142]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetRequiresBatteryNotLowResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetRequiresBatteryNotLowResponse) ProtoMessage() {}
+
+func (x *SetRequiresBatteryNotLowResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[142]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetRequiresBatteryNotLowResponse.ProtoReflect.Descriptor instead.
+func (*SetRequiresBatteryNotLowResponse) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{142}
+}
+
+func (x *SetRequiresBatteryNotLowResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetRequiresChargingRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          bool                   `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetRequiresChargingRequest) Reset() {
+	*x = SetRequiresChargingRequest{}
+	mi := &file_proto_job_job_proto_msgTypes[143]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetRequiresChargingRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetRequiresChargingRequest) ProtoMessage() {}
+
+func (x *SetRequiresChargingRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[143]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetRequiresChargingRequest.ProtoReflect.Descriptor instead.
+func (*SetRequiresChargingRequest) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{143}
+}
+
+func (x *SetRequiresChargingRequest) GetArg0() bool {
+	if x != nil {
+		return x.Arg0
+	}
+	return false
+}
+
+type SetRequiresChargingResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetRequiresChargingResponse) Reset() {
+	*x = SetRequiresChargingResponse{}
+	mi := &file_proto_job_job_proto_msgTypes[144]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetRequiresChargingResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetRequiresChargingResponse) ProtoMessage() {}
+
+func (x *SetRequiresChargingResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[144]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetRequiresChargingResponse.ProtoReflect.Descriptor instead.
+func (*SetRequiresChargingResponse) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{144}
+}
+
+func (x *SetRequiresChargingResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetRequiresDeviceIdleRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          bool                   `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetRequiresDeviceIdleRequest) Reset() {
+	*x = SetRequiresDeviceIdleRequest{}
+	mi := &file_proto_job_job_proto_msgTypes[145]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetRequiresDeviceIdleRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetRequiresDeviceIdleRequest) ProtoMessage() {}
+
+func (x *SetRequiresDeviceIdleRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[145]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetRequiresDeviceIdleRequest.ProtoReflect.Descriptor instead.
+func (*SetRequiresDeviceIdleRequest) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{145}
+}
+
+func (x *SetRequiresDeviceIdleRequest) GetArg0() bool {
+	if x != nil {
+		return x.Arg0
+	}
+	return false
+}
+
+type SetRequiresDeviceIdleResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetRequiresDeviceIdleResponse) Reset() {
+	*x = SetRequiresDeviceIdleResponse{}
+	mi := &file_proto_job_job_proto_msgTypes[146]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetRequiresDeviceIdleResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetRequiresDeviceIdleResponse) ProtoMessage() {}
+
+func (x *SetRequiresDeviceIdleResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[146]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetRequiresDeviceIdleResponse.ProtoReflect.Descriptor instead.
+func (*SetRequiresDeviceIdleResponse) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{146}
+}
+
+func (x *SetRequiresDeviceIdleResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetRequiresStorageNotLowRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          bool                   `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetRequiresStorageNotLowRequest) Reset() {
+	*x = SetRequiresStorageNotLowRequest{}
+	mi := &file_proto_job_job_proto_msgTypes[147]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetRequiresStorageNotLowRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetRequiresStorageNotLowRequest) ProtoMessage() {}
+
+func (x *SetRequiresStorageNotLowRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[147]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetRequiresStorageNotLowRequest.ProtoReflect.Descriptor instead.
+func (*SetRequiresStorageNotLowRequest) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{147}
+}
+
+func (x *SetRequiresStorageNotLowRequest) GetArg0() bool {
+	if x != nil {
+		return x.Arg0
+	}
+	return false
+}
+
+type SetRequiresStorageNotLowResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetRequiresStorageNotLowResponse) Reset() {
+	*x = SetRequiresStorageNotLowResponse{}
+	mi := &file_proto_job_job_proto_msgTypes[148]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetRequiresStorageNotLowResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetRequiresStorageNotLowResponse) ProtoMessage() {}
+
+func (x *SetRequiresStorageNotLowResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[148]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetRequiresStorageNotLowResponse.ProtoReflect.Descriptor instead.
+func (*SetRequiresStorageNotLowResponse) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{148}
+}
+
+func (x *SetRequiresStorageNotLowResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetTraceTagRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetTraceTagRequest) Reset() {
+	*x = SetTraceTagRequest{}
+	mi := &file_proto_job_job_proto_msgTypes[149]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetTraceTagRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetTraceTagRequest) ProtoMessage() {}
+
+func (x *SetTraceTagRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[149]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetTraceTagRequest.ProtoReflect.Descriptor instead.
+func (*SetTraceTagRequest) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{149}
+}
+
+func (x *SetTraceTagRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type SetTraceTagResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetTraceTagResponse) Reset() {
+	*x = SetTraceTagResponse{}
+	mi := &file_proto_job_job_proto_msgTypes[150]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetTraceTagResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetTraceTagResponse) ProtoMessage() {}
+
+func (x *SetTraceTagResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[150]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetTraceTagResponse.ProtoReflect.Descriptor instead.
+func (*SetTraceTagResponse) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{150}
+}
+
+func (x *SetTraceTagResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetTransientExtrasRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetTransientExtrasRequest) Reset() {
+	*x = SetTransientExtrasRequest{}
+	mi := &file_proto_job_job_proto_msgTypes[151]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetTransientExtrasRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetTransientExtrasRequest) ProtoMessage() {}
+
+func (x *SetTransientExtrasRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[151]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetTransientExtrasRequest.ProtoReflect.Descriptor instead.
+func (*SetTransientExtrasRequest) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{151}
+}
+
+func (x *SetTransientExtrasRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetTransientExtrasResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetTransientExtrasResponse) Reset() {
+	*x = SetTransientExtrasResponse{}
+	mi := &file_proto_job_job_proto_msgTypes[152]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetTransientExtrasResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetTransientExtrasResponse) ProtoMessage() {}
+
+func (x *SetTransientExtrasResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[152]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetTransientExtrasResponse.ProtoReflect.Descriptor instead.
+func (*SetTransientExtrasResponse) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{152}
+}
+
+func (x *SetTransientExtrasResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetTriggerContentMaxDelayRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetTriggerContentMaxDelayRequest) Reset() {
+	*x = SetTriggerContentMaxDelayRequest{}
+	mi := &file_proto_job_job_proto_msgTypes[153]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetTriggerContentMaxDelayRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetTriggerContentMaxDelayRequest) ProtoMessage() {}
+
+func (x *SetTriggerContentMaxDelayRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[153]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetTriggerContentMaxDelayRequest.ProtoReflect.Descriptor instead.
+func (*SetTriggerContentMaxDelayRequest) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{153}
+}
+
+func (x *SetTriggerContentMaxDelayRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetTriggerContentMaxDelayResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetTriggerContentMaxDelayResponse) Reset() {
+	*x = SetTriggerContentMaxDelayResponse{}
+	mi := &file_proto_job_job_proto_msgTypes[154]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetTriggerContentMaxDelayResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetTriggerContentMaxDelayResponse) ProtoMessage() {}
+
+func (x *SetTriggerContentMaxDelayResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[154]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetTriggerContentMaxDelayResponse.ProtoReflect.Descriptor instead.
+func (*SetTriggerContentMaxDelayResponse) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{154}
+}
+
+func (x *SetTriggerContentMaxDelayResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetTriggerContentUpdateDelayRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetTriggerContentUpdateDelayRequest) Reset() {
+	*x = SetTriggerContentUpdateDelayRequest{}
+	mi := &file_proto_job_job_proto_msgTypes[155]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetTriggerContentUpdateDelayRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetTriggerContentUpdateDelayRequest) ProtoMessage() {}
+
+func (x *SetTriggerContentUpdateDelayRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[155]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetTriggerContentUpdateDelayRequest.ProtoReflect.Descriptor instead.
+func (*SetTriggerContentUpdateDelayRequest) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{155}
+}
+
+func (x *SetTriggerContentUpdateDelayRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetTriggerContentUpdateDelayResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetTriggerContentUpdateDelayResponse) Reset() {
+	*x = SetTriggerContentUpdateDelayResponse{}
+	mi := &file_proto_job_job_proto_msgTypes[156]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetTriggerContentUpdateDelayResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetTriggerContentUpdateDelayResponse) ProtoMessage() {}
+
+func (x *SetTriggerContentUpdateDelayResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[156]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetTriggerContentUpdateDelayResponse.ProtoReflect.Descriptor instead.
+func (*SetTriggerContentUpdateDelayResponse) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{156}
+}
+
+func (x *SetTriggerContentUpdateDelayResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetUserInitiatedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          bool                   `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetUserInitiatedRequest) Reset() {
+	*x = SetUserInitiatedRequest{}
+	mi := &file_proto_job_job_proto_msgTypes[157]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetUserInitiatedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetUserInitiatedRequest) ProtoMessage() {}
+
+func (x *SetUserInitiatedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[157]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetUserInitiatedRequest.ProtoReflect.Descriptor instead.
+func (*SetUserInitiatedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{157}
+}
+
+func (x *SetUserInitiatedRequest) GetArg0() bool {
+	if x != nil {
+		return x.Arg0
+	}
+	return false
+}
+
+type SetUserInitiatedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetUserInitiatedResponse) Reset() {
+	*x = SetUserInitiatedResponse{}
+	mi := &file_proto_job_job_proto_msgTypes[158]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetUserInitiatedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetUserInitiatedResponse) ProtoMessage() {}
+
+func (x *SetUserInitiatedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[158]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetUserInitiatedResponse.ProtoReflect.Descriptor instead.
+func (*SetUserInitiatedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{158}
+}
+
+func (x *SetUserInitiatedResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type InfoTriggerContentUriDescribeContentsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *InfoTriggerContentUriDescribeContentsRequest) Reset() {
+	*x = InfoTriggerContentUriDescribeContentsRequest{}
+	mi := &file_proto_job_job_proto_msgTypes[159]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *InfoTriggerContentUriDescribeContentsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*InfoTriggerContentUriDescribeContentsRequest) ProtoMessage() {}
+
+func (x *InfoTriggerContentUriDescribeContentsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[159]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use InfoTriggerContentUriDescribeContentsRequest.ProtoReflect.Descriptor instead.
+func (*InfoTriggerContentUriDescribeContentsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{159}
+}
+
+type GetFlagsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetFlagsRequest) Reset() {
+	*x = GetFlagsRequest{}
+	mi := &file_proto_job_job_proto_msgTypes[160]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetFlagsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetFlagsRequest) ProtoMessage() {}
+
+func (x *GetFlagsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[160]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetFlagsRequest.ProtoReflect.Descriptor instead.
+func (*GetFlagsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{160}
+}
+
+type GetFlagsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetFlagsResponse) Reset() {
+	*x = GetFlagsResponse{}
+	mi := &file_proto_job_job_proto_msgTypes[161]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetFlagsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetFlagsResponse) ProtoMessage() {}
+
+func (x *GetFlagsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[161]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetFlagsResponse.ProtoReflect.Descriptor instead.
+func (*GetFlagsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{161}
+}
+
+func (x *GetFlagsResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetUriRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetUriRequest) Reset() {
+	*x = GetUriRequest{}
+	mi := &file_proto_job_job_proto_msgTypes[162]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetUriRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetUriRequest) ProtoMessage() {}
+
+func (x *GetUriRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[162]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetUriRequest.ProtoReflect.Descriptor instead.
+func (*GetUriRequest) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{162}
+}
+
+type GetUriResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetUriResponse) Reset() {
+	*x = GetUriResponse{}
+	mi := &file_proto_job_job_proto_msgTypes[163]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetUriResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetUriResponse) ProtoMessage() {}
+
+func (x *GetUriResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[163]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetUriResponse.ProtoReflect.Descriptor instead.
+func (*GetUriResponse) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{163}
+}
+
+func (x *GetUriResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type InfoTriggerContentUriWriteToParcelRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *InfoTriggerContentUriWriteToParcelRequest) Reset() {
+	*x = InfoTriggerContentUriWriteToParcelRequest{}
+	mi := &file_proto_job_job_proto_msgTypes[164]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *InfoTriggerContentUriWriteToParcelRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*InfoTriggerContentUriWriteToParcelRequest) ProtoMessage() {}
+
+func (x *InfoTriggerContentUriWriteToParcelRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[164]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use InfoTriggerContentUriWriteToParcelRequest.ProtoReflect.Descriptor instead.
+func (*InfoTriggerContentUriWriteToParcelRequest) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{164}
+}
+
+func (x *InfoTriggerContentUriWriteToParcelRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *InfoTriggerContentUriWriteToParcelRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
 	}
 	return 0
 }
@@ -2281,7 +7021,7 @@ type JobFinishedRequest struct {
 
 func (x *JobFinishedRequest) Reset() {
 	*x = JobFinishedRequest{}
-	mi := &file_proto_job_job_proto_msgTypes[52]
+	mi := &file_proto_job_job_proto_msgTypes[165]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2293,7 +7033,7 @@ func (x *JobFinishedRequest) String() string {
 func (*JobFinishedRequest) ProtoMessage() {}
 
 func (x *JobFinishedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[52]
+	mi := &file_proto_job_job_proto_msgTypes[165]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2306,7 +7046,7 @@ func (x *JobFinishedRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use JobFinishedRequest.ProtoReflect.Descriptor instead.
 func (*JobFinishedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{52}
+	return file_proto_job_job_proto_rawDescGZIP(), []int{165}
 }
 
 func (x *JobFinishedRequest) GetArg0() int64 {
@@ -2331,7 +7071,7 @@ type JobFinishedResponse struct {
 
 func (x *JobFinishedResponse) Reset() {
 	*x = JobFinishedResponse{}
-	mi := &file_proto_job_job_proto_msgTypes[53]
+	mi := &file_proto_job_job_proto_msgTypes[166]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2343,7 +7083,7 @@ func (x *JobFinishedResponse) String() string {
 func (*JobFinishedResponse) ProtoMessage() {}
 
 func (x *JobFinishedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[53]
+	mi := &file_proto_job_job_proto_msgTypes[166]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2356,7 +7096,7 @@ func (x *JobFinishedResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use JobFinishedResponse.ProtoReflect.Descriptor instead.
 func (*JobFinishedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{53}
+	return file_proto_job_job_proto_rawDescGZIP(), []int{166}
 }
 
 type OnBindRequest struct {
@@ -2368,7 +7108,7 @@ type OnBindRequest struct {
 
 func (x *OnBindRequest) Reset() {
 	*x = OnBindRequest{}
-	mi := &file_proto_job_job_proto_msgTypes[54]
+	mi := &file_proto_job_job_proto_msgTypes[167]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2380,7 +7120,7 @@ func (x *OnBindRequest) String() string {
 func (*OnBindRequest) ProtoMessage() {}
 
 func (x *OnBindRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[54]
+	mi := &file_proto_job_job_proto_msgTypes[167]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2393,7 +7133,7 @@ func (x *OnBindRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnBindRequest.ProtoReflect.Descriptor instead.
 func (*OnBindRequest) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{54}
+	return file_proto_job_job_proto_rawDescGZIP(), []int{167}
 }
 
 func (x *OnBindRequest) GetArg0() int64 {
@@ -2412,7 +7152,7 @@ type OnBindResponse struct {
 
 func (x *OnBindResponse) Reset() {
 	*x = OnBindResponse{}
-	mi := &file_proto_job_job_proto_msgTypes[55]
+	mi := &file_proto_job_job_proto_msgTypes[168]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2424,7 +7164,7 @@ func (x *OnBindResponse) String() string {
 func (*OnBindResponse) ProtoMessage() {}
 
 func (x *OnBindResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[55]
+	mi := &file_proto_job_job_proto_msgTypes[168]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2437,7 +7177,7 @@ func (x *OnBindResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnBindResponse.ProtoReflect.Descriptor instead.
 func (*OnBindResponse) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{55}
+	return file_proto_job_job_proto_rawDescGZIP(), []int{168}
 }
 
 func (x *OnBindResponse) GetResult() int64 {
@@ -2456,7 +7196,7 @@ type OnNetworkChangedRequest struct {
 
 func (x *OnNetworkChangedRequest) Reset() {
 	*x = OnNetworkChangedRequest{}
-	mi := &file_proto_job_job_proto_msgTypes[56]
+	mi := &file_proto_job_job_proto_msgTypes[169]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2468,7 +7208,7 @@ func (x *OnNetworkChangedRequest) String() string {
 func (*OnNetworkChangedRequest) ProtoMessage() {}
 
 func (x *OnNetworkChangedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[56]
+	mi := &file_proto_job_job_proto_msgTypes[169]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2481,7 +7221,7 @@ func (x *OnNetworkChangedRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnNetworkChangedRequest.ProtoReflect.Descriptor instead.
 func (*OnNetworkChangedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{56}
+	return file_proto_job_job_proto_rawDescGZIP(), []int{169}
 }
 
 func (x *OnNetworkChangedRequest) GetArg0() int64 {
@@ -2499,7 +7239,7 @@ type OnNetworkChangedResponse struct {
 
 func (x *OnNetworkChangedResponse) Reset() {
 	*x = OnNetworkChangedResponse{}
-	mi := &file_proto_job_job_proto_msgTypes[57]
+	mi := &file_proto_job_job_proto_msgTypes[170]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2511,7 +7251,7 @@ func (x *OnNetworkChangedResponse) String() string {
 func (*OnNetworkChangedResponse) ProtoMessage() {}
 
 func (x *OnNetworkChangedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[57]
+	mi := &file_proto_job_job_proto_msgTypes[170]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2524,7 +7264,7 @@ func (x *OnNetworkChangedResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnNetworkChangedResponse.ProtoReflect.Descriptor instead.
 func (*OnNetworkChangedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{57}
+	return file_proto_job_job_proto_rawDescGZIP(), []int{170}
 }
 
 type OnStartJobRequest struct {
@@ -2536,7 +7276,7 @@ type OnStartJobRequest struct {
 
 func (x *OnStartJobRequest) Reset() {
 	*x = OnStartJobRequest{}
-	mi := &file_proto_job_job_proto_msgTypes[58]
+	mi := &file_proto_job_job_proto_msgTypes[171]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2548,7 +7288,7 @@ func (x *OnStartJobRequest) String() string {
 func (*OnStartJobRequest) ProtoMessage() {}
 
 func (x *OnStartJobRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[58]
+	mi := &file_proto_job_job_proto_msgTypes[171]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2561,7 +7301,7 @@ func (x *OnStartJobRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnStartJobRequest.ProtoReflect.Descriptor instead.
 func (*OnStartJobRequest) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{58}
+	return file_proto_job_job_proto_rawDescGZIP(), []int{171}
 }
 
 func (x *OnStartJobRequest) GetArg0() int64 {
@@ -2580,7 +7320,7 @@ type OnStartJobResponse struct {
 
 func (x *OnStartJobResponse) Reset() {
 	*x = OnStartJobResponse{}
-	mi := &file_proto_job_job_proto_msgTypes[59]
+	mi := &file_proto_job_job_proto_msgTypes[172]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2592,7 +7332,7 @@ func (x *OnStartJobResponse) String() string {
 func (*OnStartJobResponse) ProtoMessage() {}
 
 func (x *OnStartJobResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[59]
+	mi := &file_proto_job_job_proto_msgTypes[172]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2605,7 +7345,7 @@ func (x *OnStartJobResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnStartJobResponse.ProtoReflect.Descriptor instead.
 func (*OnStartJobResponse) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{59}
+	return file_proto_job_job_proto_rawDescGZIP(), []int{172}
 }
 
 func (x *OnStartJobResponse) GetResult() bool {
@@ -2624,7 +7364,7 @@ type OnStopJobRequest struct {
 
 func (x *OnStopJobRequest) Reset() {
 	*x = OnStopJobRequest{}
-	mi := &file_proto_job_job_proto_msgTypes[60]
+	mi := &file_proto_job_job_proto_msgTypes[173]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2636,7 +7376,7 @@ func (x *OnStopJobRequest) String() string {
 func (*OnStopJobRequest) ProtoMessage() {}
 
 func (x *OnStopJobRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[60]
+	mi := &file_proto_job_job_proto_msgTypes[173]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2649,7 +7389,7 @@ func (x *OnStopJobRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnStopJobRequest.ProtoReflect.Descriptor instead.
 func (*OnStopJobRequest) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{60}
+	return file_proto_job_job_proto_rawDescGZIP(), []int{173}
 }
 
 func (x *OnStopJobRequest) GetArg0() int64 {
@@ -2668,7 +7408,7 @@ type OnStopJobResponse struct {
 
 func (x *OnStopJobResponse) Reset() {
 	*x = OnStopJobResponse{}
-	mi := &file_proto_job_job_proto_msgTypes[61]
+	mi := &file_proto_job_job_proto_msgTypes[174]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2680,7 +7420,7 @@ func (x *OnStopJobResponse) String() string {
 func (*OnStopJobResponse) ProtoMessage() {}
 
 func (x *OnStopJobResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[61]
+	mi := &file_proto_job_job_proto_msgTypes[174]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2693,7 +7433,7 @@ func (x *OnStopJobResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnStopJobResponse.ProtoReflect.Descriptor instead.
 func (*OnStopJobResponse) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{61}
+	return file_proto_job_job_proto_rawDescGZIP(), []int{174}
 }
 
 func (x *OnStopJobResponse) GetResult() bool {
@@ -2715,7 +7455,7 @@ type SetNotificationRequest struct {
 
 func (x *SetNotificationRequest) Reset() {
 	*x = SetNotificationRequest{}
-	mi := &file_proto_job_job_proto_msgTypes[62]
+	mi := &file_proto_job_job_proto_msgTypes[175]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2727,7 +7467,7 @@ func (x *SetNotificationRequest) String() string {
 func (*SetNotificationRequest) ProtoMessage() {}
 
 func (x *SetNotificationRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[62]
+	mi := &file_proto_job_job_proto_msgTypes[175]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2740,7 +7480,7 @@ func (x *SetNotificationRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetNotificationRequest.ProtoReflect.Descriptor instead.
 func (*SetNotificationRequest) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{62}
+	return file_proto_job_job_proto_rawDescGZIP(), []int{175}
 }
 
 func (x *SetNotificationRequest) GetArg0() int64 {
@@ -2779,7 +7519,7 @@ type SetNotificationResponse struct {
 
 func (x *SetNotificationResponse) Reset() {
 	*x = SetNotificationResponse{}
-	mi := &file_proto_job_job_proto_msgTypes[63]
+	mi := &file_proto_job_job_proto_msgTypes[176]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2791,7 +7531,7 @@ func (x *SetNotificationResponse) String() string {
 func (*SetNotificationResponse) ProtoMessage() {}
 
 func (x *SetNotificationResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[63]
+	mi := &file_proto_job_job_proto_msgTypes[176]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2804,7 +7544,7 @@ func (x *SetNotificationResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetNotificationResponse.ProtoReflect.Descriptor instead.
 func (*SetNotificationResponse) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{63}
+	return file_proto_job_job_proto_rawDescGZIP(), []int{176}
 }
 
 type UpdateEstimatedNetworkBytes4Request struct {
@@ -2819,7 +7559,7 @@ type UpdateEstimatedNetworkBytes4Request struct {
 
 func (x *UpdateEstimatedNetworkBytes4Request) Reset() {
 	*x = UpdateEstimatedNetworkBytes4Request{}
-	mi := &file_proto_job_job_proto_msgTypes[64]
+	mi := &file_proto_job_job_proto_msgTypes[177]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2831,7 +7571,7 @@ func (x *UpdateEstimatedNetworkBytes4Request) String() string {
 func (*UpdateEstimatedNetworkBytes4Request) ProtoMessage() {}
 
 func (x *UpdateEstimatedNetworkBytes4Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[64]
+	mi := &file_proto_job_job_proto_msgTypes[177]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2844,7 +7584,7 @@ func (x *UpdateEstimatedNetworkBytes4Request) ProtoReflect() protoreflect.Messag
 
 // Deprecated: Use UpdateEstimatedNetworkBytes4Request.ProtoReflect.Descriptor instead.
 func (*UpdateEstimatedNetworkBytes4Request) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{64}
+	return file_proto_job_job_proto_rawDescGZIP(), []int{177}
 }
 
 func (x *UpdateEstimatedNetworkBytes4Request) GetArg0() int64 {
@@ -2883,7 +7623,7 @@ type UpdateEstimatedNetworkBytes4Response struct {
 
 func (x *UpdateEstimatedNetworkBytes4Response) Reset() {
 	*x = UpdateEstimatedNetworkBytes4Response{}
-	mi := &file_proto_job_job_proto_msgTypes[65]
+	mi := &file_proto_job_job_proto_msgTypes[178]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2895,7 +7635,7 @@ func (x *UpdateEstimatedNetworkBytes4Response) String() string {
 func (*UpdateEstimatedNetworkBytes4Response) ProtoMessage() {}
 
 func (x *UpdateEstimatedNetworkBytes4Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[65]
+	mi := &file_proto_job_job_proto_msgTypes[178]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2908,7 +7648,7 @@ func (x *UpdateEstimatedNetworkBytes4Response) ProtoReflect() protoreflect.Messa
 
 // Deprecated: Use UpdateEstimatedNetworkBytes4Response.ProtoReflect.Descriptor instead.
 func (*UpdateEstimatedNetworkBytes4Response) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{65}
+	return file_proto_job_job_proto_rawDescGZIP(), []int{178}
 }
 
 type UpdateEstimatedNetworkBytes3_1Request struct {
@@ -2922,7 +7662,7 @@ type UpdateEstimatedNetworkBytes3_1Request struct {
 
 func (x *UpdateEstimatedNetworkBytes3_1Request) Reset() {
 	*x = UpdateEstimatedNetworkBytes3_1Request{}
-	mi := &file_proto_job_job_proto_msgTypes[66]
+	mi := &file_proto_job_job_proto_msgTypes[179]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2934,7 +7674,7 @@ func (x *UpdateEstimatedNetworkBytes3_1Request) String() string {
 func (*UpdateEstimatedNetworkBytes3_1Request) ProtoMessage() {}
 
 func (x *UpdateEstimatedNetworkBytes3_1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[66]
+	mi := &file_proto_job_job_proto_msgTypes[179]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2947,7 +7687,7 @@ func (x *UpdateEstimatedNetworkBytes3_1Request) ProtoReflect() protoreflect.Mess
 
 // Deprecated: Use UpdateEstimatedNetworkBytes3_1Request.ProtoReflect.Descriptor instead.
 func (*UpdateEstimatedNetworkBytes3_1Request) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{66}
+	return file_proto_job_job_proto_rawDescGZIP(), []int{179}
 }
 
 func (x *UpdateEstimatedNetworkBytes3_1Request) GetArg0() int64 {
@@ -2979,7 +7719,7 @@ type UpdateEstimatedNetworkBytes3_1Response struct {
 
 func (x *UpdateEstimatedNetworkBytes3_1Response) Reset() {
 	*x = UpdateEstimatedNetworkBytes3_1Response{}
-	mi := &file_proto_job_job_proto_msgTypes[67]
+	mi := &file_proto_job_job_proto_msgTypes[180]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2991,7 +7731,7 @@ func (x *UpdateEstimatedNetworkBytes3_1Response) String() string {
 func (*UpdateEstimatedNetworkBytes3_1Response) ProtoMessage() {}
 
 func (x *UpdateEstimatedNetworkBytes3_1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[67]
+	mi := &file_proto_job_job_proto_msgTypes[180]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3004,7 +7744,7 @@ func (x *UpdateEstimatedNetworkBytes3_1Response) ProtoReflect() protoreflect.Mes
 
 // Deprecated: Use UpdateEstimatedNetworkBytes3_1Response.ProtoReflect.Descriptor instead.
 func (*UpdateEstimatedNetworkBytes3_1Response) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{67}
+	return file_proto_job_job_proto_rawDescGZIP(), []int{180}
 }
 
 type UpdateTransferredNetworkBytes4Request struct {
@@ -3019,7 +7759,7 @@ type UpdateTransferredNetworkBytes4Request struct {
 
 func (x *UpdateTransferredNetworkBytes4Request) Reset() {
 	*x = UpdateTransferredNetworkBytes4Request{}
-	mi := &file_proto_job_job_proto_msgTypes[68]
+	mi := &file_proto_job_job_proto_msgTypes[181]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3031,7 +7771,7 @@ func (x *UpdateTransferredNetworkBytes4Request) String() string {
 func (*UpdateTransferredNetworkBytes4Request) ProtoMessage() {}
 
 func (x *UpdateTransferredNetworkBytes4Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[68]
+	mi := &file_proto_job_job_proto_msgTypes[181]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3044,7 +7784,7 @@ func (x *UpdateTransferredNetworkBytes4Request) ProtoReflect() protoreflect.Mess
 
 // Deprecated: Use UpdateTransferredNetworkBytes4Request.ProtoReflect.Descriptor instead.
 func (*UpdateTransferredNetworkBytes4Request) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{68}
+	return file_proto_job_job_proto_rawDescGZIP(), []int{181}
 }
 
 func (x *UpdateTransferredNetworkBytes4Request) GetArg0() int64 {
@@ -3083,7 +7823,7 @@ type UpdateTransferredNetworkBytes4Response struct {
 
 func (x *UpdateTransferredNetworkBytes4Response) Reset() {
 	*x = UpdateTransferredNetworkBytes4Response{}
-	mi := &file_proto_job_job_proto_msgTypes[69]
+	mi := &file_proto_job_job_proto_msgTypes[182]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3095,7 +7835,7 @@ func (x *UpdateTransferredNetworkBytes4Response) String() string {
 func (*UpdateTransferredNetworkBytes4Response) ProtoMessage() {}
 
 func (x *UpdateTransferredNetworkBytes4Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[69]
+	mi := &file_proto_job_job_proto_msgTypes[182]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3108,7 +7848,7 @@ func (x *UpdateTransferredNetworkBytes4Response) ProtoReflect() protoreflect.Mes
 
 // Deprecated: Use UpdateTransferredNetworkBytes4Response.ProtoReflect.Descriptor instead.
 func (*UpdateTransferredNetworkBytes4Response) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{69}
+	return file_proto_job_job_proto_rawDescGZIP(), []int{182}
 }
 
 type UpdateTransferredNetworkBytes3_1Request struct {
@@ -3122,7 +7862,7 @@ type UpdateTransferredNetworkBytes3_1Request struct {
 
 func (x *UpdateTransferredNetworkBytes3_1Request) Reset() {
 	*x = UpdateTransferredNetworkBytes3_1Request{}
-	mi := &file_proto_job_job_proto_msgTypes[70]
+	mi := &file_proto_job_job_proto_msgTypes[183]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3134,7 +7874,7 @@ func (x *UpdateTransferredNetworkBytes3_1Request) String() string {
 func (*UpdateTransferredNetworkBytes3_1Request) ProtoMessage() {}
 
 func (x *UpdateTransferredNetworkBytes3_1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[70]
+	mi := &file_proto_job_job_proto_msgTypes[183]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3147,7 +7887,7 @@ func (x *UpdateTransferredNetworkBytes3_1Request) ProtoReflect() protoreflect.Me
 
 // Deprecated: Use UpdateTransferredNetworkBytes3_1Request.ProtoReflect.Descriptor instead.
 func (*UpdateTransferredNetworkBytes3_1Request) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{70}
+	return file_proto_job_job_proto_rawDescGZIP(), []int{183}
 }
 
 func (x *UpdateTransferredNetworkBytes3_1Request) GetArg0() int64 {
@@ -3179,7 +7919,7 @@ type UpdateTransferredNetworkBytes3_1Response struct {
 
 func (x *UpdateTransferredNetworkBytes3_1Response) Reset() {
 	*x = UpdateTransferredNetworkBytes3_1Response{}
-	mi := &file_proto_job_job_proto_msgTypes[71]
+	mi := &file_proto_job_job_proto_msgTypes[184]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3191,7 +7931,7 @@ func (x *UpdateTransferredNetworkBytes3_1Response) String() string {
 func (*UpdateTransferredNetworkBytes3_1Response) ProtoMessage() {}
 
 func (x *UpdateTransferredNetworkBytes3_1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[71]
+	mi := &file_proto_job_job_proto_msgTypes[184]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3204,32 +7944,30 @@ func (x *UpdateTransferredNetworkBytes3_1Response) ProtoReflect() protoreflect.M
 
 // Deprecated: Use UpdateTransferredNetworkBytes3_1Response.ProtoReflect.Descriptor instead.
 func (*UpdateTransferredNetworkBytes3_1Response) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{71}
+	return file_proto_job_job_proto_rawDescGZIP(), []int{184}
 }
 
-type NewPendingJobReasonsInfoRequest struct {
+type CanRunUserInitiatedJobsRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *NewPendingJobReasonsInfoRequest) Reset() {
-	*x = NewPendingJobReasonsInfoRequest{}
-	mi := &file_proto_job_job_proto_msgTypes[72]
+func (x *CanRunUserInitiatedJobsRequest) Reset() {
+	*x = CanRunUserInitiatedJobsRequest{}
+	mi := &file_proto_job_job_proto_msgTypes[185]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *NewPendingJobReasonsInfoRequest) String() string {
+func (x *CanRunUserInitiatedJobsRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*NewPendingJobReasonsInfoRequest) ProtoMessage() {}
+func (*CanRunUserInitiatedJobsRequest) ProtoMessage() {}
 
-func (x *NewPendingJobReasonsInfoRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[72]
+func (x *CanRunUserInitiatedJobsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[185]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3240,591 +7978,33 @@ func (x *NewPendingJobReasonsInfoRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use NewPendingJobReasonsInfoRequest.ProtoReflect.Descriptor instead.
-func (*NewPendingJobReasonsInfoRequest) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{72}
+// Deprecated: Use CanRunUserInitiatedJobsRequest.ProtoReflect.Descriptor instead.
+func (*CanRunUserInitiatedJobsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{185}
 }
 
-func (x *NewPendingJobReasonsInfoRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-func (x *NewPendingJobReasonsInfoRequest) GetArg1() int64 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-type NewPendingJobReasonsInfoResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *NewPendingJobReasonsInfoResponse) Reset() {
-	*x = NewPendingJobReasonsInfoResponse{}
-	mi := &file_proto_job_job_proto_msgTypes[73]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *NewPendingJobReasonsInfoResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*NewPendingJobReasonsInfoResponse) ProtoMessage() {}
-
-func (x *NewPendingJobReasonsInfoResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[73]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use NewPendingJobReasonsInfoResponse.ProtoReflect.Descriptor instead.
-func (*NewPendingJobReasonsInfoResponse) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{73}
-}
-
-func (x *NewPendingJobReasonsInfoResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type PendingJobReasonsInfoGetPendingJobReasonsRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *PendingJobReasonsInfoGetPendingJobReasonsRequest) Reset() {
-	*x = PendingJobReasonsInfoGetPendingJobReasonsRequest{}
-	mi := &file_proto_job_job_proto_msgTypes[74]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *PendingJobReasonsInfoGetPendingJobReasonsRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*PendingJobReasonsInfoGetPendingJobReasonsRequest) ProtoMessage() {}
-
-func (x *PendingJobReasonsInfoGetPendingJobReasonsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[74]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use PendingJobReasonsInfoGetPendingJobReasonsRequest.ProtoReflect.Descriptor instead.
-func (*PendingJobReasonsInfoGetPendingJobReasonsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{74}
-}
-
-func (x *PendingJobReasonsInfoGetPendingJobReasonsRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-type GetTimestampMillisRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetTimestampMillisRequest) Reset() {
-	*x = GetTimestampMillisRequest{}
-	mi := &file_proto_job_job_proto_msgTypes[75]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetTimestampMillisRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetTimestampMillisRequest) ProtoMessage() {}
-
-func (x *GetTimestampMillisRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[75]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetTimestampMillisRequest.ProtoReflect.Descriptor instead.
-func (*GetTimestampMillisRequest) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{75}
-}
-
-func (x *GetTimestampMillisRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-type GetTimestampMillisResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetTimestampMillisResponse) Reset() {
-	*x = GetTimestampMillisResponse{}
-	mi := &file_proto_job_job_proto_msgTypes[76]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetTimestampMillisResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetTimestampMillisResponse) ProtoMessage() {}
-
-func (x *GetTimestampMillisResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[76]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetTimestampMillisResponse.ProtoReflect.Descriptor instead.
-func (*GetTimestampMillisResponse) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{76}
-}
-
-func (x *GetTimestampMillisResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetBinderRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetBinderRequest) Reset() {
-	*x = GetBinderRequest{}
-	mi := &file_proto_job_job_proto_msgTypes[77]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetBinderRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetBinderRequest) ProtoMessage() {}
-
-func (x *GetBinderRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[77]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetBinderRequest.ProtoReflect.Descriptor instead.
-func (*GetBinderRequest) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{77}
-}
-
-type GetBinderResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetBinderResponse) Reset() {
-	*x = GetBinderResponse{}
-	mi := &file_proto_job_job_proto_msgTypes[78]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetBinderResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetBinderResponse) ProtoMessage() {}
-
-func (x *GetBinderResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[78]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetBinderResponse.ProtoReflect.Descriptor instead.
-func (*GetBinderResponse) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{78}
-}
-
-func (x *GetBinderResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type UpdateEstimatedNetworkBytesRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	Arg2          int64                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
-	Arg3          int64                  `protobuf:"varint,4,opt,name=arg3,proto3" json:"arg3,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *UpdateEstimatedNetworkBytesRequest) Reset() {
-	*x = UpdateEstimatedNetworkBytesRequest{}
-	mi := &file_proto_job_job_proto_msgTypes[79]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *UpdateEstimatedNetworkBytesRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*UpdateEstimatedNetworkBytesRequest) ProtoMessage() {}
-
-func (x *UpdateEstimatedNetworkBytesRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[79]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use UpdateEstimatedNetworkBytesRequest.ProtoReflect.Descriptor instead.
-func (*UpdateEstimatedNetworkBytesRequest) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{79}
-}
-
-func (x *UpdateEstimatedNetworkBytesRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-func (x *UpdateEstimatedNetworkBytesRequest) GetArg1() int64 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-func (x *UpdateEstimatedNetworkBytesRequest) GetArg2() int64 {
-	if x != nil {
-		return x.Arg2
-	}
-	return 0
-}
-
-func (x *UpdateEstimatedNetworkBytesRequest) GetArg3() int64 {
-	if x != nil {
-		return x.Arg3
-	}
-	return 0
-}
-
-type UpdateEstimatedNetworkBytesResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *UpdateEstimatedNetworkBytesResponse) Reset() {
-	*x = UpdateEstimatedNetworkBytesResponse{}
-	mi := &file_proto_job_job_proto_msgTypes[80]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *UpdateEstimatedNetworkBytesResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*UpdateEstimatedNetworkBytesResponse) ProtoMessage() {}
-
-func (x *UpdateEstimatedNetworkBytesResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[80]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use UpdateEstimatedNetworkBytesResponse.ProtoReflect.Descriptor instead.
-func (*UpdateEstimatedNetworkBytesResponse) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{80}
-}
-
-type UpdateTransferredNetworkBytesRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	Arg2          int64                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
-	Arg3          int64                  `protobuf:"varint,4,opt,name=arg3,proto3" json:"arg3,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *UpdateTransferredNetworkBytesRequest) Reset() {
-	*x = UpdateTransferredNetworkBytesRequest{}
-	mi := &file_proto_job_job_proto_msgTypes[81]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *UpdateTransferredNetworkBytesRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*UpdateTransferredNetworkBytesRequest) ProtoMessage() {}
-
-func (x *UpdateTransferredNetworkBytesRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[81]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use UpdateTransferredNetworkBytesRequest.ProtoReflect.Descriptor instead.
-func (*UpdateTransferredNetworkBytesRequest) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{81}
-}
-
-func (x *UpdateTransferredNetworkBytesRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-func (x *UpdateTransferredNetworkBytesRequest) GetArg1() int64 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-func (x *UpdateTransferredNetworkBytesRequest) GetArg2() int64 {
-	if x != nil {
-		return x.Arg2
-	}
-	return 0
-}
-
-func (x *UpdateTransferredNetworkBytesRequest) GetArg3() int64 {
-	if x != nil {
-		return x.Arg3
-	}
-	return 0
-}
-
-type UpdateTransferredNetworkBytesResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *UpdateTransferredNetworkBytesResponse) Reset() {
-	*x = UpdateTransferredNetworkBytesResponse{}
-	mi := &file_proto_job_job_proto_msgTypes[82]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *UpdateTransferredNetworkBytesResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*UpdateTransferredNetworkBytesResponse) ProtoMessage() {}
-
-func (x *UpdateTransferredNetworkBytesResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[82]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use UpdateTransferredNetworkBytesResponse.ProtoReflect.Descriptor instead.
-func (*UpdateTransferredNetworkBytesResponse) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{82}
-}
-
-type InfoDescribeContentsRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *InfoDescribeContentsRequest) Reset() {
-	*x = InfoDescribeContentsRequest{}
-	mi := &file_proto_job_job_proto_msgTypes[83]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *InfoDescribeContentsRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*InfoDescribeContentsRequest) ProtoMessage() {}
-
-func (x *InfoDescribeContentsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[83]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use InfoDescribeContentsRequest.ProtoReflect.Descriptor instead.
-func (*InfoDescribeContentsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{83}
-}
-
-type EqualsRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *EqualsRequest) Reset() {
-	*x = EqualsRequest{}
-	mi := &file_proto_job_job_proto_msgTypes[84]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *EqualsRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*EqualsRequest) ProtoMessage() {}
-
-func (x *EqualsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[84]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use EqualsRequest.ProtoReflect.Descriptor instead.
-func (*EqualsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{84}
-}
-
-func (x *EqualsRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type EqualsResponse struct {
+type CanRunUserInitiatedJobsResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *EqualsResponse) Reset() {
-	*x = EqualsResponse{}
-	mi := &file_proto_job_job_proto_msgTypes[85]
+func (x *CanRunUserInitiatedJobsResponse) Reset() {
+	*x = CanRunUserInitiatedJobsResponse{}
+	mi := &file_proto_job_job_proto_msgTypes[186]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *EqualsResponse) String() string {
+func (x *CanRunUserInitiatedJobsResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*EqualsResponse) ProtoMessage() {}
+func (*CanRunUserInitiatedJobsResponse) ProtoMessage() {}
 
-func (x *EqualsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[85]
+func (x *CanRunUserInitiatedJobsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[186]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3835,39 +8015,40 @@ func (x *EqualsResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use EqualsResponse.ProtoReflect.Descriptor instead.
-func (*EqualsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{85}
+// Deprecated: Use CanRunUserInitiatedJobsResponse.ProtoReflect.Descriptor instead.
+func (*CanRunUserInitiatedJobsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{186}
 }
 
-func (x *EqualsResponse) GetResult() bool {
+func (x *CanRunUserInitiatedJobsResponse) GetResult() bool {
 	if x != nil {
 		return x.Result
 	}
 	return false
 }
 
-type GetBackoffPolicyRequest struct {
+type CancelRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetBackoffPolicyRequest) Reset() {
-	*x = GetBackoffPolicyRequest{}
-	mi := &file_proto_job_job_proto_msgTypes[86]
+func (x *CancelRequest) Reset() {
+	*x = CancelRequest{}
+	mi := &file_proto_job_job_proto_msgTypes[187]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetBackoffPolicyRequest) String() string {
+func (x *CancelRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetBackoffPolicyRequest) ProtoMessage() {}
+func (*CancelRequest) ProtoMessage() {}
 
-func (x *GetBackoffPolicyRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[86]
+func (x *CancelRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[187]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3878,33 +8059,272 @@ func (x *GetBackoffPolicyRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetBackoffPolicyRequest.ProtoReflect.Descriptor instead.
-func (*GetBackoffPolicyRequest) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{86}
+// Deprecated: Use CancelRequest.ProtoReflect.Descriptor instead.
+func (*CancelRequest) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{187}
 }
 
-type GetBackoffPolicyResponse struct {
+func (x *CancelRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type CancelResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CancelResponse) Reset() {
+	*x = CancelResponse{}
+	mi := &file_proto_job_job_proto_msgTypes[188]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CancelResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CancelResponse) ProtoMessage() {}
+
+func (x *CancelResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[188]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CancelResponse.ProtoReflect.Descriptor instead.
+func (*CancelResponse) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{188}
+}
+
+type CancelAllRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CancelAllRequest) Reset() {
+	*x = CancelAllRequest{}
+	mi := &file_proto_job_job_proto_msgTypes[189]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CancelAllRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CancelAllRequest) ProtoMessage() {}
+
+func (x *CancelAllRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[189]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CancelAllRequest.ProtoReflect.Descriptor instead.
+func (*CancelAllRequest) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{189}
+}
+
+type CancelAllResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CancelAllResponse) Reset() {
+	*x = CancelAllResponse{}
+	mi := &file_proto_job_job_proto_msgTypes[190]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CancelAllResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CancelAllResponse) ProtoMessage() {}
+
+func (x *CancelAllResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[190]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CancelAllResponse.ProtoReflect.Descriptor instead.
+func (*CancelAllResponse) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{190}
+}
+
+type CancelInAllNamespacesRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CancelInAllNamespacesRequest) Reset() {
+	*x = CancelInAllNamespacesRequest{}
+	mi := &file_proto_job_job_proto_msgTypes[191]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CancelInAllNamespacesRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CancelInAllNamespacesRequest) ProtoMessage() {}
+
+func (x *CancelInAllNamespacesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[191]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CancelInAllNamespacesRequest.ProtoReflect.Descriptor instead.
+func (*CancelInAllNamespacesRequest) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{191}
+}
+
+type CancelInAllNamespacesResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CancelInAllNamespacesResponse) Reset() {
+	*x = CancelInAllNamespacesResponse{}
+	mi := &file_proto_job_job_proto_msgTypes[192]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CancelInAllNamespacesResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CancelInAllNamespacesResponse) ProtoMessage() {}
+
+func (x *CancelInAllNamespacesResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[192]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CancelInAllNamespacesResponse.ProtoReflect.Descriptor instead.
+func (*CancelInAllNamespacesResponse) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{192}
+}
+
+type EnqueueRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *EnqueueRequest) Reset() {
+	*x = EnqueueRequest{}
+	mi := &file_proto_job_job_proto_msgTypes[193]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *EnqueueRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*EnqueueRequest) ProtoMessage() {}
+
+func (x *EnqueueRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[193]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use EnqueueRequest.ProtoReflect.Descriptor instead.
+func (*EnqueueRequest) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{193}
+}
+
+func (x *EnqueueRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *EnqueueRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type EnqueueResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetBackoffPolicyResponse) Reset() {
-	*x = GetBackoffPolicyResponse{}
-	mi := &file_proto_job_job_proto_msgTypes[87]
+func (x *EnqueueResponse) Reset() {
+	*x = EnqueueResponse{}
+	mi := &file_proto_job_job_proto_msgTypes[194]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetBackoffPolicyResponse) String() string {
+func (x *EnqueueResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetBackoffPolicyResponse) ProtoMessage() {}
+func (*EnqueueResponse) ProtoMessage() {}
 
-func (x *GetBackoffPolicyResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[87]
+func (x *EnqueueResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[194]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3915,39 +8335,40 @@ func (x *GetBackoffPolicyResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetBackoffPolicyResponse.ProtoReflect.Descriptor instead.
-func (*GetBackoffPolicyResponse) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{87}
+// Deprecated: Use EnqueueResponse.ProtoReflect.Descriptor instead.
+func (*EnqueueResponse) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{194}
 }
 
-func (x *GetBackoffPolicyResponse) GetResult() int32 {
+func (x *EnqueueResponse) GetResult() int32 {
 	if x != nil {
 		return x.Result
 	}
 	return 0
 }
 
-type GetClipDataRequest struct {
+type ForNamespaceRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetClipDataRequest) Reset() {
-	*x = GetClipDataRequest{}
-	mi := &file_proto_job_job_proto_msgTypes[88]
+func (x *ForNamespaceRequest) Reset() {
+	*x = ForNamespaceRequest{}
+	mi := &file_proto_job_job_proto_msgTypes[195]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetClipDataRequest) String() string {
+func (x *ForNamespaceRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetClipDataRequest) ProtoMessage() {}
+func (*ForNamespaceRequest) ProtoMessage() {}
 
-func (x *GetClipDataRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[88]
+func (x *ForNamespaceRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[195]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3958,33 +8379,40 @@ func (x *GetClipDataRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetClipDataRequest.ProtoReflect.Descriptor instead.
-func (*GetClipDataRequest) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{88}
+// Deprecated: Use ForNamespaceRequest.ProtoReflect.Descriptor instead.
+func (*ForNamespaceRequest) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{195}
 }
 
-type GetClipDataResponse struct {
+func (x *ForNamespaceRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type ForNamespaceResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetClipDataResponse) Reset() {
-	*x = GetClipDataResponse{}
-	mi := &file_proto_job_job_proto_msgTypes[89]
+func (x *ForNamespaceResponse) Reset() {
+	*x = ForNamespaceResponse{}
+	mi := &file_proto_job_job_proto_msgTypes[196]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetClipDataResponse) String() string {
+func (x *ForNamespaceResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetClipDataResponse) ProtoMessage() {}
+func (*ForNamespaceResponse) ProtoMessage() {}
 
-func (x *GetClipDataResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[89]
+func (x *ForNamespaceResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[196]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3995,39 +8423,39 @@ func (x *GetClipDataResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetClipDataResponse.ProtoReflect.Descriptor instead.
-func (*GetClipDataResponse) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{89}
+// Deprecated: Use ForNamespaceResponse.ProtoReflect.Descriptor instead.
+func (*ForNamespaceResponse) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{196}
 }
 
-func (x *GetClipDataResponse) GetResult() int64 {
+func (x *ForNamespaceResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
 	return 0
 }
 
-type GetClipGrantFlagsRequest struct {
+type GetAllPendingJobsRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetClipGrantFlagsRequest) Reset() {
-	*x = GetClipGrantFlagsRequest{}
-	mi := &file_proto_job_job_proto_msgTypes[90]
+func (x *GetAllPendingJobsRequest) Reset() {
+	*x = GetAllPendingJobsRequest{}
+	mi := &file_proto_job_job_proto_msgTypes[197]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetClipGrantFlagsRequest) String() string {
+func (x *GetAllPendingJobsRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetClipGrantFlagsRequest) ProtoMessage() {}
+func (*GetAllPendingJobsRequest) ProtoMessage() {}
 
-func (x *GetClipGrantFlagsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[90]
+func (x *GetAllPendingJobsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[197]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4038,221 +8466,33 @@ func (x *GetClipGrantFlagsRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetClipGrantFlagsRequest.ProtoReflect.Descriptor instead.
-func (*GetClipGrantFlagsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{90}
+// Deprecated: Use GetAllPendingJobsRequest.ProtoReflect.Descriptor instead.
+func (*GetAllPendingJobsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{197}
 }
 
-type GetClipGrantFlagsResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetClipGrantFlagsResponse) Reset() {
-	*x = GetClipGrantFlagsResponse{}
-	mi := &file_proto_job_job_proto_msgTypes[91]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetClipGrantFlagsResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetClipGrantFlagsResponse) ProtoMessage() {}
-
-func (x *GetClipGrantFlagsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[91]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetClipGrantFlagsResponse.ProtoReflect.Descriptor instead.
-func (*GetClipGrantFlagsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{91}
-}
-
-func (x *GetClipGrantFlagsResponse) GetResult() int32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type InfoGetEstimatedNetworkDownloadBytesRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *InfoGetEstimatedNetworkDownloadBytesRequest) Reset() {
-	*x = InfoGetEstimatedNetworkDownloadBytesRequest{}
-	mi := &file_proto_job_job_proto_msgTypes[92]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *InfoGetEstimatedNetworkDownloadBytesRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*InfoGetEstimatedNetworkDownloadBytesRequest) ProtoMessage() {}
-
-func (x *InfoGetEstimatedNetworkDownloadBytesRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[92]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use InfoGetEstimatedNetworkDownloadBytesRequest.ProtoReflect.Descriptor instead.
-func (*InfoGetEstimatedNetworkDownloadBytesRequest) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{92}
-}
-
-type InfoGetEstimatedNetworkUploadBytesRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *InfoGetEstimatedNetworkUploadBytesRequest) Reset() {
-	*x = InfoGetEstimatedNetworkUploadBytesRequest{}
-	mi := &file_proto_job_job_proto_msgTypes[93]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *InfoGetEstimatedNetworkUploadBytesRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*InfoGetEstimatedNetworkUploadBytesRequest) ProtoMessage() {}
-
-func (x *InfoGetEstimatedNetworkUploadBytesRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[93]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use InfoGetEstimatedNetworkUploadBytesRequest.ProtoReflect.Descriptor instead.
-func (*InfoGetEstimatedNetworkUploadBytesRequest) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{93}
-}
-
-type InfoGetExtrasRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *InfoGetExtrasRequest) Reset() {
-	*x = InfoGetExtrasRequest{}
-	mi := &file_proto_job_job_proto_msgTypes[94]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *InfoGetExtrasRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*InfoGetExtrasRequest) ProtoMessage() {}
-
-func (x *InfoGetExtrasRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[94]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use InfoGetExtrasRequest.ProtoReflect.Descriptor instead.
-func (*InfoGetExtrasRequest) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{94}
-}
-
-type GetFlexMillisRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetFlexMillisRequest) Reset() {
-	*x = GetFlexMillisRequest{}
-	mi := &file_proto_job_job_proto_msgTypes[95]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetFlexMillisRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetFlexMillisRequest) ProtoMessage() {}
-
-func (x *GetFlexMillisRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[95]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetFlexMillisRequest.ProtoReflect.Descriptor instead.
-func (*GetFlexMillisRequest) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{95}
-}
-
-type GetFlexMillisResponse struct {
+type GetAllPendingJobsResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetFlexMillisResponse) Reset() {
-	*x = GetFlexMillisResponse{}
-	mi := &file_proto_job_job_proto_msgTypes[96]
+func (x *GetAllPendingJobsResponse) Reset() {
+	*x = GetAllPendingJobsResponse{}
+	mi := &file_proto_job_job_proto_msgTypes[198]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetFlexMillisResponse) String() string {
+func (x *GetAllPendingJobsResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetFlexMillisResponse) ProtoMessage() {}
+func (*GetAllPendingJobsResponse) ProtoMessage() {}
 
-func (x *GetFlexMillisResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[96]
+func (x *GetAllPendingJobsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[198]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4263,39 +8503,39 @@ func (x *GetFlexMillisResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetFlexMillisResponse.ProtoReflect.Descriptor instead.
-func (*GetFlexMillisResponse) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{96}
+// Deprecated: Use GetAllPendingJobsResponse.ProtoReflect.Descriptor instead.
+func (*GetAllPendingJobsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{198}
 }
 
-func (x *GetFlexMillisResponse) GetResult() int64 {
+func (x *GetAllPendingJobsResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
 	return 0
 }
 
-type GetIdRequest struct {
+type GetNamespaceRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetIdRequest) Reset() {
-	*x = GetIdRequest{}
-	mi := &file_proto_job_job_proto_msgTypes[97]
+func (x *GetNamespaceRequest) Reset() {
+	*x = GetNamespaceRequest{}
+	mi := &file_proto_job_job_proto_msgTypes[199]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetIdRequest) String() string {
+func (x *GetNamespaceRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetIdRequest) ProtoMessage() {}
+func (*GetNamespaceRequest) ProtoMessage() {}
 
-func (x *GetIdRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[97]
+func (x *GetNamespaceRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[199]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4306,4328 +8546,32 @@ func (x *GetIdRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetIdRequest.ProtoReflect.Descriptor instead.
-func (*GetIdRequest) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{97}
+// Deprecated: Use GetNamespaceRequest.ProtoReflect.Descriptor instead.
+func (*GetNamespaceRequest) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{199}
 }
 
-type GetIdResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetIdResponse) Reset() {
-	*x = GetIdResponse{}
-	mi := &file_proto_job_job_proto_msgTypes[98]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetIdResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetIdResponse) ProtoMessage() {}
-
-func (x *GetIdResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[98]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetIdResponse.ProtoReflect.Descriptor instead.
-func (*GetIdResponse) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{98}
-}
-
-func (x *GetIdResponse) GetResult() int32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetInitialBackoffMillisRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetInitialBackoffMillisRequest) Reset() {
-	*x = GetInitialBackoffMillisRequest{}
-	mi := &file_proto_job_job_proto_msgTypes[99]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetInitialBackoffMillisRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetInitialBackoffMillisRequest) ProtoMessage() {}
-
-func (x *GetInitialBackoffMillisRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[99]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetInitialBackoffMillisRequest.ProtoReflect.Descriptor instead.
-func (*GetInitialBackoffMillisRequest) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{99}
-}
-
-type GetInitialBackoffMillisResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetInitialBackoffMillisResponse) Reset() {
-	*x = GetInitialBackoffMillisResponse{}
-	mi := &file_proto_job_job_proto_msgTypes[100]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetInitialBackoffMillisResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetInitialBackoffMillisResponse) ProtoMessage() {}
-
-func (x *GetInitialBackoffMillisResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[100]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetInitialBackoffMillisResponse.ProtoReflect.Descriptor instead.
-func (*GetInitialBackoffMillisResponse) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{100}
-}
-
-func (x *GetInitialBackoffMillisResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetIntervalMillisRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetIntervalMillisRequest) Reset() {
-	*x = GetIntervalMillisRequest{}
-	mi := &file_proto_job_job_proto_msgTypes[101]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetIntervalMillisRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetIntervalMillisRequest) ProtoMessage() {}
-
-func (x *GetIntervalMillisRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[101]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetIntervalMillisRequest.ProtoReflect.Descriptor instead.
-func (*GetIntervalMillisRequest) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{101}
-}
-
-type GetIntervalMillisResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetIntervalMillisResponse) Reset() {
-	*x = GetIntervalMillisResponse{}
-	mi := &file_proto_job_job_proto_msgTypes[102]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetIntervalMillisResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetIntervalMillisResponse) ProtoMessage() {}
-
-func (x *GetIntervalMillisResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[102]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetIntervalMillisResponse.ProtoReflect.Descriptor instead.
-func (*GetIntervalMillisResponse) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{102}
-}
-
-func (x *GetIntervalMillisResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetMaxExecutionDelayMillisRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetMaxExecutionDelayMillisRequest) Reset() {
-	*x = GetMaxExecutionDelayMillisRequest{}
-	mi := &file_proto_job_job_proto_msgTypes[103]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetMaxExecutionDelayMillisRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetMaxExecutionDelayMillisRequest) ProtoMessage() {}
-
-func (x *GetMaxExecutionDelayMillisRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[103]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetMaxExecutionDelayMillisRequest.ProtoReflect.Descriptor instead.
-func (*GetMaxExecutionDelayMillisRequest) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{103}
-}
-
-type GetMaxExecutionDelayMillisResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetMaxExecutionDelayMillisResponse) Reset() {
-	*x = GetMaxExecutionDelayMillisResponse{}
-	mi := &file_proto_job_job_proto_msgTypes[104]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetMaxExecutionDelayMillisResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetMaxExecutionDelayMillisResponse) ProtoMessage() {}
-
-func (x *GetMaxExecutionDelayMillisResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[104]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetMaxExecutionDelayMillisResponse.ProtoReflect.Descriptor instead.
-func (*GetMaxExecutionDelayMillisResponse) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{104}
-}
-
-func (x *GetMaxExecutionDelayMillisResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetMinLatencyMillisRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetMinLatencyMillisRequest) Reset() {
-	*x = GetMinLatencyMillisRequest{}
-	mi := &file_proto_job_job_proto_msgTypes[105]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetMinLatencyMillisRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetMinLatencyMillisRequest) ProtoMessage() {}
-
-func (x *GetMinLatencyMillisRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[105]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetMinLatencyMillisRequest.ProtoReflect.Descriptor instead.
-func (*GetMinLatencyMillisRequest) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{105}
-}
-
-type GetMinLatencyMillisResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetMinLatencyMillisResponse) Reset() {
-	*x = GetMinLatencyMillisResponse{}
-	mi := &file_proto_job_job_proto_msgTypes[106]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetMinLatencyMillisResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetMinLatencyMillisResponse) ProtoMessage() {}
-
-func (x *GetMinLatencyMillisResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[106]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetMinLatencyMillisResponse.ProtoReflect.Descriptor instead.
-func (*GetMinLatencyMillisResponse) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{106}
-}
-
-func (x *GetMinLatencyMillisResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type InfoGetMinimumNetworkChunkBytesRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *InfoGetMinimumNetworkChunkBytesRequest) Reset() {
-	*x = InfoGetMinimumNetworkChunkBytesRequest{}
-	mi := &file_proto_job_job_proto_msgTypes[107]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *InfoGetMinimumNetworkChunkBytesRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*InfoGetMinimumNetworkChunkBytesRequest) ProtoMessage() {}
-
-func (x *InfoGetMinimumNetworkChunkBytesRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[107]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use InfoGetMinimumNetworkChunkBytesRequest.ProtoReflect.Descriptor instead.
-func (*InfoGetMinimumNetworkChunkBytesRequest) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{107}
-}
-
-type GetNetworkTypeRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetNetworkTypeRequest) Reset() {
-	*x = GetNetworkTypeRequest{}
-	mi := &file_proto_job_job_proto_msgTypes[108]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetNetworkTypeRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetNetworkTypeRequest) ProtoMessage() {}
-
-func (x *GetNetworkTypeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[108]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetNetworkTypeRequest.ProtoReflect.Descriptor instead.
-func (*GetNetworkTypeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{108}
-}
-
-type GetNetworkTypeResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetNetworkTypeResponse) Reset() {
-	*x = GetNetworkTypeResponse{}
-	mi := &file_proto_job_job_proto_msgTypes[109]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetNetworkTypeResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetNetworkTypeResponse) ProtoMessage() {}
-
-func (x *GetNetworkTypeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[109]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetNetworkTypeResponse.ProtoReflect.Descriptor instead.
-func (*GetNetworkTypeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{109}
-}
-
-func (x *GetNetworkTypeResponse) GetResult() int32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetPriorityRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetPriorityRequest) Reset() {
-	*x = GetPriorityRequest{}
-	mi := &file_proto_job_job_proto_msgTypes[110]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetPriorityRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetPriorityRequest) ProtoMessage() {}
-
-func (x *GetPriorityRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[110]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetPriorityRequest.ProtoReflect.Descriptor instead.
-func (*GetPriorityRequest) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{110}
-}
-
-type GetPriorityResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetPriorityResponse) Reset() {
-	*x = GetPriorityResponse{}
-	mi := &file_proto_job_job_proto_msgTypes[111]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetPriorityResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetPriorityResponse) ProtoMessage() {}
-
-func (x *GetPriorityResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[111]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetPriorityResponse.ProtoReflect.Descriptor instead.
-func (*GetPriorityResponse) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{111}
-}
-
-func (x *GetPriorityResponse) GetResult() int32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetRequiredNetworkRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetRequiredNetworkRequest) Reset() {
-	*x = GetRequiredNetworkRequest{}
-	mi := &file_proto_job_job_proto_msgTypes[112]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetRequiredNetworkRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetRequiredNetworkRequest) ProtoMessage() {}
-
-func (x *GetRequiredNetworkRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[112]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetRequiredNetworkRequest.ProtoReflect.Descriptor instead.
-func (*GetRequiredNetworkRequest) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{112}
-}
-
-type GetRequiredNetworkResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetRequiredNetworkResponse) Reset() {
-	*x = GetRequiredNetworkResponse{}
-	mi := &file_proto_job_job_proto_msgTypes[113]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetRequiredNetworkResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetRequiredNetworkResponse) ProtoMessage() {}
-
-func (x *GetRequiredNetworkResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[113]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetRequiredNetworkResponse.ProtoReflect.Descriptor instead.
-func (*GetRequiredNetworkResponse) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{113}
-}
-
-func (x *GetRequiredNetworkResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetServiceRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetServiceRequest) Reset() {
-	*x = GetServiceRequest{}
-	mi := &file_proto_job_job_proto_msgTypes[114]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetServiceRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetServiceRequest) ProtoMessage() {}
-
-func (x *GetServiceRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[114]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetServiceRequest.ProtoReflect.Descriptor instead.
-func (*GetServiceRequest) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{114}
-}
-
-type GetServiceResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetServiceResponse) Reset() {
-	*x = GetServiceResponse{}
-	mi := &file_proto_job_job_proto_msgTypes[115]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetServiceResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetServiceResponse) ProtoMessage() {}
-
-func (x *GetServiceResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[115]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetServiceResponse.ProtoReflect.Descriptor instead.
-func (*GetServiceResponse) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{115}
-}
-
-func (x *GetServiceResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetTraceTagRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetTraceTagRequest) Reset() {
-	*x = GetTraceTagRequest{}
-	mi := &file_proto_job_job_proto_msgTypes[116]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetTraceTagRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetTraceTagRequest) ProtoMessage() {}
-
-func (x *GetTraceTagRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[116]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetTraceTagRequest.ProtoReflect.Descriptor instead.
-func (*GetTraceTagRequest) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{116}
-}
-
-type GetTraceTagResponse struct {
+type GetNamespaceResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetTraceTagResponse) Reset() {
-	*x = GetTraceTagResponse{}
-	mi := &file_proto_job_job_proto_msgTypes[117]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetTraceTagResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetTraceTagResponse) ProtoMessage() {}
-
-func (x *GetTraceTagResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[117]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetTraceTagResponse.ProtoReflect.Descriptor instead.
-func (*GetTraceTagResponse) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{117}
-}
-
-func (x *GetTraceTagResponse) GetResult() string {
-	if x != nil {
-		return x.Result
-	}
-	return ""
-}
-
-type GetTransientExtrasRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetTransientExtrasRequest) Reset() {
-	*x = GetTransientExtrasRequest{}
-	mi := &file_proto_job_job_proto_msgTypes[118]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetTransientExtrasRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetTransientExtrasRequest) ProtoMessage() {}
-
-func (x *GetTransientExtrasRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[118]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetTransientExtrasRequest.ProtoReflect.Descriptor instead.
-func (*GetTransientExtrasRequest) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{118}
-}
-
-type GetTransientExtrasResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetTransientExtrasResponse) Reset() {
-	*x = GetTransientExtrasResponse{}
-	mi := &file_proto_job_job_proto_msgTypes[119]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetTransientExtrasResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetTransientExtrasResponse) ProtoMessage() {}
-
-func (x *GetTransientExtrasResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[119]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetTransientExtrasResponse.ProtoReflect.Descriptor instead.
-func (*GetTransientExtrasResponse) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{119}
-}
-
-func (x *GetTransientExtrasResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetTriggerContentMaxDelayRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetTriggerContentMaxDelayRequest) Reset() {
-	*x = GetTriggerContentMaxDelayRequest{}
-	mi := &file_proto_job_job_proto_msgTypes[120]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetTriggerContentMaxDelayRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetTriggerContentMaxDelayRequest) ProtoMessage() {}
-
-func (x *GetTriggerContentMaxDelayRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[120]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetTriggerContentMaxDelayRequest.ProtoReflect.Descriptor instead.
-func (*GetTriggerContentMaxDelayRequest) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{120}
-}
-
-type GetTriggerContentMaxDelayResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetTriggerContentMaxDelayResponse) Reset() {
-	*x = GetTriggerContentMaxDelayResponse{}
-	mi := &file_proto_job_job_proto_msgTypes[121]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetTriggerContentMaxDelayResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetTriggerContentMaxDelayResponse) ProtoMessage() {}
-
-func (x *GetTriggerContentMaxDelayResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[121]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetTriggerContentMaxDelayResponse.ProtoReflect.Descriptor instead.
-func (*GetTriggerContentMaxDelayResponse) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{121}
-}
-
-func (x *GetTriggerContentMaxDelayResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetTriggerContentUpdateDelayRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetTriggerContentUpdateDelayRequest) Reset() {
-	*x = GetTriggerContentUpdateDelayRequest{}
-	mi := &file_proto_job_job_proto_msgTypes[122]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetTriggerContentUpdateDelayRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetTriggerContentUpdateDelayRequest) ProtoMessage() {}
-
-func (x *GetTriggerContentUpdateDelayRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[122]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetTriggerContentUpdateDelayRequest.ProtoReflect.Descriptor instead.
-func (*GetTriggerContentUpdateDelayRequest) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{122}
-}
-
-type GetTriggerContentUpdateDelayResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetTriggerContentUpdateDelayResponse) Reset() {
-	*x = GetTriggerContentUpdateDelayResponse{}
-	mi := &file_proto_job_job_proto_msgTypes[123]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetTriggerContentUpdateDelayResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetTriggerContentUpdateDelayResponse) ProtoMessage() {}
-
-func (x *GetTriggerContentUpdateDelayResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[123]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetTriggerContentUpdateDelayResponse.ProtoReflect.Descriptor instead.
-func (*GetTriggerContentUpdateDelayResponse) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{123}
-}
-
-func (x *GetTriggerContentUpdateDelayResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetTriggerContentUrisRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetTriggerContentUrisRequest) Reset() {
-	*x = GetTriggerContentUrisRequest{}
-	mi := &file_proto_job_job_proto_msgTypes[124]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetTriggerContentUrisRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetTriggerContentUrisRequest) ProtoMessage() {}
-
-func (x *GetTriggerContentUrisRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[124]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetTriggerContentUrisRequest.ProtoReflect.Descriptor instead.
-func (*GetTriggerContentUrisRequest) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{124}
-}
-
-type GetTriggerContentUrisResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetTriggerContentUrisResponse) Reset() {
-	*x = GetTriggerContentUrisResponse{}
-	mi := &file_proto_job_job_proto_msgTypes[125]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetTriggerContentUrisResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetTriggerContentUrisResponse) ProtoMessage() {}
-
-func (x *GetTriggerContentUrisResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[125]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetTriggerContentUrisResponse.ProtoReflect.Descriptor instead.
-func (*GetTriggerContentUrisResponse) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{125}
-}
-
-func (x *GetTriggerContentUrisResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type HashCodeRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *HashCodeRequest) Reset() {
-	*x = HashCodeRequest{}
-	mi := &file_proto_job_job_proto_msgTypes[126]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *HashCodeRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*HashCodeRequest) ProtoMessage() {}
-
-func (x *HashCodeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[126]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use HashCodeRequest.ProtoReflect.Descriptor instead.
-func (*HashCodeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{126}
-}
-
-type HashCodeResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *HashCodeResponse) Reset() {
-	*x = HashCodeResponse{}
-	mi := &file_proto_job_job_proto_msgTypes[127]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *HashCodeResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*HashCodeResponse) ProtoMessage() {}
-
-func (x *HashCodeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[127]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use HashCodeResponse.ProtoReflect.Descriptor instead.
-func (*HashCodeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{127}
-}
-
-func (x *HashCodeResponse) GetResult() int32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type IsExpeditedRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *IsExpeditedRequest) Reset() {
-	*x = IsExpeditedRequest{}
-	mi := &file_proto_job_job_proto_msgTypes[128]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *IsExpeditedRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*IsExpeditedRequest) ProtoMessage() {}
-
-func (x *IsExpeditedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[128]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use IsExpeditedRequest.ProtoReflect.Descriptor instead.
-func (*IsExpeditedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{128}
-}
-
-type IsExpeditedResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *IsExpeditedResponse) Reset() {
-	*x = IsExpeditedResponse{}
-	mi := &file_proto_job_job_proto_msgTypes[129]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *IsExpeditedResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*IsExpeditedResponse) ProtoMessage() {}
-
-func (x *IsExpeditedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[129]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use IsExpeditedResponse.ProtoReflect.Descriptor instead.
-func (*IsExpeditedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{129}
-}
-
-func (x *IsExpeditedResponse) GetResult() bool {
-	if x != nil {
-		return x.Result
-	}
-	return false
-}
-
-type IsImportantWhileForegroundRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *IsImportantWhileForegroundRequest) Reset() {
-	*x = IsImportantWhileForegroundRequest{}
-	mi := &file_proto_job_job_proto_msgTypes[130]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *IsImportantWhileForegroundRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*IsImportantWhileForegroundRequest) ProtoMessage() {}
-
-func (x *IsImportantWhileForegroundRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[130]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use IsImportantWhileForegroundRequest.ProtoReflect.Descriptor instead.
-func (*IsImportantWhileForegroundRequest) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{130}
-}
-
-type IsImportantWhileForegroundResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *IsImportantWhileForegroundResponse) Reset() {
-	*x = IsImportantWhileForegroundResponse{}
-	mi := &file_proto_job_job_proto_msgTypes[131]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *IsImportantWhileForegroundResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*IsImportantWhileForegroundResponse) ProtoMessage() {}
-
-func (x *IsImportantWhileForegroundResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[131]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use IsImportantWhileForegroundResponse.ProtoReflect.Descriptor instead.
-func (*IsImportantWhileForegroundResponse) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{131}
-}
-
-func (x *IsImportantWhileForegroundResponse) GetResult() bool {
-	if x != nil {
-		return x.Result
-	}
-	return false
-}
-
-type IsPeriodicRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *IsPeriodicRequest) Reset() {
-	*x = IsPeriodicRequest{}
-	mi := &file_proto_job_job_proto_msgTypes[132]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *IsPeriodicRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*IsPeriodicRequest) ProtoMessage() {}
-
-func (x *IsPeriodicRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[132]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use IsPeriodicRequest.ProtoReflect.Descriptor instead.
-func (*IsPeriodicRequest) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{132}
-}
-
-type IsPeriodicResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *IsPeriodicResponse) Reset() {
-	*x = IsPeriodicResponse{}
-	mi := &file_proto_job_job_proto_msgTypes[133]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *IsPeriodicResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*IsPeriodicResponse) ProtoMessage() {}
-
-func (x *IsPeriodicResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[133]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use IsPeriodicResponse.ProtoReflect.Descriptor instead.
-func (*IsPeriodicResponse) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{133}
-}
-
-func (x *IsPeriodicResponse) GetResult() bool {
-	if x != nil {
-		return x.Result
-	}
-	return false
-}
-
-type IsPersistedRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *IsPersistedRequest) Reset() {
-	*x = IsPersistedRequest{}
-	mi := &file_proto_job_job_proto_msgTypes[134]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *IsPersistedRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*IsPersistedRequest) ProtoMessage() {}
-
-func (x *IsPersistedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[134]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use IsPersistedRequest.ProtoReflect.Descriptor instead.
-func (*IsPersistedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{134}
-}
-
-type IsPersistedResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *IsPersistedResponse) Reset() {
-	*x = IsPersistedResponse{}
-	mi := &file_proto_job_job_proto_msgTypes[135]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *IsPersistedResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*IsPersistedResponse) ProtoMessage() {}
-
-func (x *IsPersistedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[135]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use IsPersistedResponse.ProtoReflect.Descriptor instead.
-func (*IsPersistedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{135}
-}
-
-func (x *IsPersistedResponse) GetResult() bool {
-	if x != nil {
-		return x.Result
-	}
-	return false
-}
-
-type IsPrefetchRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *IsPrefetchRequest) Reset() {
-	*x = IsPrefetchRequest{}
-	mi := &file_proto_job_job_proto_msgTypes[136]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *IsPrefetchRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*IsPrefetchRequest) ProtoMessage() {}
-
-func (x *IsPrefetchRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[136]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use IsPrefetchRequest.ProtoReflect.Descriptor instead.
-func (*IsPrefetchRequest) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{136}
-}
-
-type IsPrefetchResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *IsPrefetchResponse) Reset() {
-	*x = IsPrefetchResponse{}
-	mi := &file_proto_job_job_proto_msgTypes[137]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *IsPrefetchResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*IsPrefetchResponse) ProtoMessage() {}
-
-func (x *IsPrefetchResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[137]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use IsPrefetchResponse.ProtoReflect.Descriptor instead.
-func (*IsPrefetchResponse) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{137}
-}
-
-func (x *IsPrefetchResponse) GetResult() bool {
-	if x != nil {
-		return x.Result
-	}
-	return false
-}
-
-type IsRequireBatteryNotLowRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *IsRequireBatteryNotLowRequest) Reset() {
-	*x = IsRequireBatteryNotLowRequest{}
-	mi := &file_proto_job_job_proto_msgTypes[138]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *IsRequireBatteryNotLowRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*IsRequireBatteryNotLowRequest) ProtoMessage() {}
-
-func (x *IsRequireBatteryNotLowRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[138]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use IsRequireBatteryNotLowRequest.ProtoReflect.Descriptor instead.
-func (*IsRequireBatteryNotLowRequest) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{138}
-}
-
-type IsRequireBatteryNotLowResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *IsRequireBatteryNotLowResponse) Reset() {
-	*x = IsRequireBatteryNotLowResponse{}
-	mi := &file_proto_job_job_proto_msgTypes[139]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *IsRequireBatteryNotLowResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*IsRequireBatteryNotLowResponse) ProtoMessage() {}
-
-func (x *IsRequireBatteryNotLowResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[139]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use IsRequireBatteryNotLowResponse.ProtoReflect.Descriptor instead.
-func (*IsRequireBatteryNotLowResponse) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{139}
-}
-
-func (x *IsRequireBatteryNotLowResponse) GetResult() bool {
-	if x != nil {
-		return x.Result
-	}
-	return false
-}
-
-type IsRequireChargingRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *IsRequireChargingRequest) Reset() {
-	*x = IsRequireChargingRequest{}
-	mi := &file_proto_job_job_proto_msgTypes[140]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *IsRequireChargingRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*IsRequireChargingRequest) ProtoMessage() {}
-
-func (x *IsRequireChargingRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[140]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use IsRequireChargingRequest.ProtoReflect.Descriptor instead.
-func (*IsRequireChargingRequest) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{140}
-}
-
-type IsRequireChargingResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *IsRequireChargingResponse) Reset() {
-	*x = IsRequireChargingResponse{}
-	mi := &file_proto_job_job_proto_msgTypes[141]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *IsRequireChargingResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*IsRequireChargingResponse) ProtoMessage() {}
-
-func (x *IsRequireChargingResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[141]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use IsRequireChargingResponse.ProtoReflect.Descriptor instead.
-func (*IsRequireChargingResponse) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{141}
-}
-
-func (x *IsRequireChargingResponse) GetResult() bool {
-	if x != nil {
-		return x.Result
-	}
-	return false
-}
-
-type IsRequireDeviceIdleRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *IsRequireDeviceIdleRequest) Reset() {
-	*x = IsRequireDeviceIdleRequest{}
-	mi := &file_proto_job_job_proto_msgTypes[142]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *IsRequireDeviceIdleRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*IsRequireDeviceIdleRequest) ProtoMessage() {}
-
-func (x *IsRequireDeviceIdleRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[142]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use IsRequireDeviceIdleRequest.ProtoReflect.Descriptor instead.
-func (*IsRequireDeviceIdleRequest) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{142}
-}
-
-type IsRequireDeviceIdleResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *IsRequireDeviceIdleResponse) Reset() {
-	*x = IsRequireDeviceIdleResponse{}
-	mi := &file_proto_job_job_proto_msgTypes[143]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *IsRequireDeviceIdleResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*IsRequireDeviceIdleResponse) ProtoMessage() {}
-
-func (x *IsRequireDeviceIdleResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[143]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use IsRequireDeviceIdleResponse.ProtoReflect.Descriptor instead.
-func (*IsRequireDeviceIdleResponse) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{143}
-}
-
-func (x *IsRequireDeviceIdleResponse) GetResult() bool {
-	if x != nil {
-		return x.Result
-	}
-	return false
-}
-
-type IsRequireStorageNotLowRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *IsRequireStorageNotLowRequest) Reset() {
-	*x = IsRequireStorageNotLowRequest{}
-	mi := &file_proto_job_job_proto_msgTypes[144]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *IsRequireStorageNotLowRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*IsRequireStorageNotLowRequest) ProtoMessage() {}
-
-func (x *IsRequireStorageNotLowRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[144]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use IsRequireStorageNotLowRequest.ProtoReflect.Descriptor instead.
-func (*IsRequireStorageNotLowRequest) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{144}
-}
-
-type IsRequireStorageNotLowResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *IsRequireStorageNotLowResponse) Reset() {
-	*x = IsRequireStorageNotLowResponse{}
-	mi := &file_proto_job_job_proto_msgTypes[145]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *IsRequireStorageNotLowResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*IsRequireStorageNotLowResponse) ProtoMessage() {}
-
-func (x *IsRequireStorageNotLowResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[145]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use IsRequireStorageNotLowResponse.ProtoReflect.Descriptor instead.
-func (*IsRequireStorageNotLowResponse) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{145}
-}
-
-func (x *IsRequireStorageNotLowResponse) GetResult() bool {
-	if x != nil {
-		return x.Result
-	}
-	return false
-}
-
-type IsUserInitiatedRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *IsUserInitiatedRequest) Reset() {
-	*x = IsUserInitiatedRequest{}
-	mi := &file_proto_job_job_proto_msgTypes[146]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *IsUserInitiatedRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*IsUserInitiatedRequest) ProtoMessage() {}
-
-func (x *IsUserInitiatedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[146]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use IsUserInitiatedRequest.ProtoReflect.Descriptor instead.
-func (*IsUserInitiatedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{146}
-}
-
-type IsUserInitiatedResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *IsUserInitiatedResponse) Reset() {
-	*x = IsUserInitiatedResponse{}
-	mi := &file_proto_job_job_proto_msgTypes[147]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *IsUserInitiatedResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*IsUserInitiatedResponse) ProtoMessage() {}
-
-func (x *IsUserInitiatedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[147]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use IsUserInitiatedResponse.ProtoReflect.Descriptor instead.
-func (*IsUserInitiatedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{147}
-}
-
-func (x *IsUserInitiatedResponse) GetResult() bool {
-	if x != nil {
-		return x.Result
-	}
-	return false
-}
-
-type InfoToStringRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *InfoToStringRequest) Reset() {
-	*x = InfoToStringRequest{}
-	mi := &file_proto_job_job_proto_msgTypes[148]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *InfoToStringRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*InfoToStringRequest) ProtoMessage() {}
-
-func (x *InfoToStringRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[148]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use InfoToStringRequest.ProtoReflect.Descriptor instead.
-func (*InfoToStringRequest) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{148}
-}
-
-type InfoWriteToParcelRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *InfoWriteToParcelRequest) Reset() {
-	*x = InfoWriteToParcelRequest{}
-	mi := &file_proto_job_job_proto_msgTypes[149]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *InfoWriteToParcelRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*InfoWriteToParcelRequest) ProtoMessage() {}
-
-func (x *InfoWriteToParcelRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[149]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use InfoWriteToParcelRequest.ProtoReflect.Descriptor instead.
-func (*InfoWriteToParcelRequest) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{149}
-}
-
-func (x *InfoWriteToParcelRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-func (x *InfoWriteToParcelRequest) GetArg1() int32 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-type GetMinFlexMillisRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetMinFlexMillisRequest) Reset() {
-	*x = GetMinFlexMillisRequest{}
-	mi := &file_proto_job_job_proto_msgTypes[150]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetMinFlexMillisRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetMinFlexMillisRequest) ProtoMessage() {}
-
-func (x *GetMinFlexMillisRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[150]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetMinFlexMillisRequest.ProtoReflect.Descriptor instead.
-func (*GetMinFlexMillisRequest) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{150}
-}
-
-type GetMinFlexMillisResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetMinFlexMillisResponse) Reset() {
-	*x = GetMinFlexMillisResponse{}
-	mi := &file_proto_job_job_proto_msgTypes[151]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetMinFlexMillisResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetMinFlexMillisResponse) ProtoMessage() {}
-
-func (x *GetMinFlexMillisResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[151]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetMinFlexMillisResponse.ProtoReflect.Descriptor instead.
-func (*GetMinFlexMillisResponse) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{151}
-}
-
-func (x *GetMinFlexMillisResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetMinPeriodMillisRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetMinPeriodMillisRequest) Reset() {
-	*x = GetMinPeriodMillisRequest{}
-	mi := &file_proto_job_job_proto_msgTypes[152]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetMinPeriodMillisRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetMinPeriodMillisRequest) ProtoMessage() {}
-
-func (x *GetMinPeriodMillisRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[152]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetMinPeriodMillisRequest.ProtoReflect.Descriptor instead.
-func (*GetMinPeriodMillisRequest) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{152}
-}
-
-type GetMinPeriodMillisResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetMinPeriodMillisResponse) Reset() {
-	*x = GetMinPeriodMillisResponse{}
-	mi := &file_proto_job_job_proto_msgTypes[153]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetMinPeriodMillisResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetMinPeriodMillisResponse) ProtoMessage() {}
-
-func (x *GetMinPeriodMillisResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[153]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetMinPeriodMillisResponse.ProtoReflect.Descriptor instead.
-func (*GetMinPeriodMillisResponse) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{153}
-}
-
-func (x *GetMinPeriodMillisResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type AddDebugTagRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *AddDebugTagRequest) Reset() {
-	*x = AddDebugTagRequest{}
-	mi := &file_proto_job_job_proto_msgTypes[154]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *AddDebugTagRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*AddDebugTagRequest) ProtoMessage() {}
-
-func (x *AddDebugTagRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[154]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use AddDebugTagRequest.ProtoReflect.Descriptor instead.
-func (*AddDebugTagRequest) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{154}
-}
-
-func (x *AddDebugTagRequest) GetArg0() string {
-	if x != nil {
-		return x.Arg0
-	}
-	return ""
-}
-
-type AddDebugTagResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *AddDebugTagResponse) Reset() {
-	*x = AddDebugTagResponse{}
-	mi := &file_proto_job_job_proto_msgTypes[155]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *AddDebugTagResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*AddDebugTagResponse) ProtoMessage() {}
-
-func (x *AddDebugTagResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[155]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use AddDebugTagResponse.ProtoReflect.Descriptor instead.
-func (*AddDebugTagResponse) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{155}
-}
-
-func (x *AddDebugTagResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type AddTriggerContentUriRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *AddTriggerContentUriRequest) Reset() {
-	*x = AddTriggerContentUriRequest{}
-	mi := &file_proto_job_job_proto_msgTypes[156]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *AddTriggerContentUriRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*AddTriggerContentUriRequest) ProtoMessage() {}
-
-func (x *AddTriggerContentUriRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[156]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use AddTriggerContentUriRequest.ProtoReflect.Descriptor instead.
-func (*AddTriggerContentUriRequest) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{156}
-}
-
-func (x *AddTriggerContentUriRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type AddTriggerContentUriResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *AddTriggerContentUriResponse) Reset() {
-	*x = AddTriggerContentUriResponse{}
-	mi := &file_proto_job_job_proto_msgTypes[157]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *AddTriggerContentUriResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*AddTriggerContentUriResponse) ProtoMessage() {}
-
-func (x *AddTriggerContentUriResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[157]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use AddTriggerContentUriResponse.ProtoReflect.Descriptor instead.
-func (*AddTriggerContentUriResponse) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{157}
-}
-
-func (x *AddTriggerContentUriResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type RemoveDebugTagRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *RemoveDebugTagRequest) Reset() {
-	*x = RemoveDebugTagRequest{}
-	mi := &file_proto_job_job_proto_msgTypes[158]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *RemoveDebugTagRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*RemoveDebugTagRequest) ProtoMessage() {}
-
-func (x *RemoveDebugTagRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[158]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use RemoveDebugTagRequest.ProtoReflect.Descriptor instead.
-func (*RemoveDebugTagRequest) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{158}
-}
-
-func (x *RemoveDebugTagRequest) GetArg0() string {
-	if x != nil {
-		return x.Arg0
-	}
-	return ""
-}
-
-type RemoveDebugTagResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *RemoveDebugTagResponse) Reset() {
-	*x = RemoveDebugTagResponse{}
-	mi := &file_proto_job_job_proto_msgTypes[159]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *RemoveDebugTagResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*RemoveDebugTagResponse) ProtoMessage() {}
-
-func (x *RemoveDebugTagResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[159]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use RemoveDebugTagResponse.ProtoReflect.Descriptor instead.
-func (*RemoveDebugTagResponse) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{159}
-}
-
-func (x *RemoveDebugTagResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type SetBackoffCriteriaRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetBackoffCriteriaRequest) Reset() {
-	*x = SetBackoffCriteriaRequest{}
-	mi := &file_proto_job_job_proto_msgTypes[160]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetBackoffCriteriaRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetBackoffCriteriaRequest) ProtoMessage() {}
-
-func (x *SetBackoffCriteriaRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[160]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetBackoffCriteriaRequest.ProtoReflect.Descriptor instead.
-func (*SetBackoffCriteriaRequest) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{160}
-}
-
-func (x *SetBackoffCriteriaRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-func (x *SetBackoffCriteriaRequest) GetArg1() int32 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-type SetBackoffCriteriaResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetBackoffCriteriaResponse) Reset() {
-	*x = SetBackoffCriteriaResponse{}
-	mi := &file_proto_job_job_proto_msgTypes[161]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetBackoffCriteriaResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetBackoffCriteriaResponse) ProtoMessage() {}
-
-func (x *SetBackoffCriteriaResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[161]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetBackoffCriteriaResponse.ProtoReflect.Descriptor instead.
-func (*SetBackoffCriteriaResponse) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{161}
-}
-
-func (x *SetBackoffCriteriaResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type SetClipDataRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetClipDataRequest) Reset() {
-	*x = SetClipDataRequest{}
-	mi := &file_proto_job_job_proto_msgTypes[162]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetClipDataRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetClipDataRequest) ProtoMessage() {}
-
-func (x *SetClipDataRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[162]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetClipDataRequest.ProtoReflect.Descriptor instead.
-func (*SetClipDataRequest) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{162}
-}
-
-func (x *SetClipDataRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-func (x *SetClipDataRequest) GetArg1() int32 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-type SetClipDataResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetClipDataResponse) Reset() {
-	*x = SetClipDataResponse{}
-	mi := &file_proto_job_job_proto_msgTypes[163]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetClipDataResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetClipDataResponse) ProtoMessage() {}
-
-func (x *SetClipDataResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[163]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetClipDataResponse.ProtoReflect.Descriptor instead.
-func (*SetClipDataResponse) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{163}
-}
-
-func (x *SetClipDataResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type SetExpeditedRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          bool                   `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetExpeditedRequest) Reset() {
-	*x = SetExpeditedRequest{}
-	mi := &file_proto_job_job_proto_msgTypes[164]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetExpeditedRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetExpeditedRequest) ProtoMessage() {}
-
-func (x *SetExpeditedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[164]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetExpeditedRequest.ProtoReflect.Descriptor instead.
-func (*SetExpeditedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{164}
-}
-
-func (x *SetExpeditedRequest) GetArg0() bool {
-	if x != nil {
-		return x.Arg0
-	}
-	return false
-}
-
-type SetExpeditedResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetExpeditedResponse) Reset() {
-	*x = SetExpeditedResponse{}
-	mi := &file_proto_job_job_proto_msgTypes[165]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetExpeditedResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetExpeditedResponse) ProtoMessage() {}
-
-func (x *SetExpeditedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[165]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetExpeditedResponse.ProtoReflect.Descriptor instead.
-func (*SetExpeditedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{165}
-}
-
-func (x *SetExpeditedResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type SetImportantWhileForegroundRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          bool                   `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetImportantWhileForegroundRequest) Reset() {
-	*x = SetImportantWhileForegroundRequest{}
-	mi := &file_proto_job_job_proto_msgTypes[166]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetImportantWhileForegroundRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetImportantWhileForegroundRequest) ProtoMessage() {}
-
-func (x *SetImportantWhileForegroundRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[166]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetImportantWhileForegroundRequest.ProtoReflect.Descriptor instead.
-func (*SetImportantWhileForegroundRequest) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{166}
-}
-
-func (x *SetImportantWhileForegroundRequest) GetArg0() bool {
-	if x != nil {
-		return x.Arg0
-	}
-	return false
-}
-
-type SetImportantWhileForegroundResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetImportantWhileForegroundResponse) Reset() {
-	*x = SetImportantWhileForegroundResponse{}
-	mi := &file_proto_job_job_proto_msgTypes[167]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetImportantWhileForegroundResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetImportantWhileForegroundResponse) ProtoMessage() {}
-
-func (x *SetImportantWhileForegroundResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[167]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetImportantWhileForegroundResponse.ProtoReflect.Descriptor instead.
-func (*SetImportantWhileForegroundResponse) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{167}
-}
-
-func (x *SetImportantWhileForegroundResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type SetMinimumLatencyRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetMinimumLatencyRequest) Reset() {
-	*x = SetMinimumLatencyRequest{}
-	mi := &file_proto_job_job_proto_msgTypes[168]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetMinimumLatencyRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetMinimumLatencyRequest) ProtoMessage() {}
-
-func (x *SetMinimumLatencyRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[168]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetMinimumLatencyRequest.ProtoReflect.Descriptor instead.
-func (*SetMinimumLatencyRequest) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{168}
-}
-
-func (x *SetMinimumLatencyRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type SetMinimumLatencyResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetMinimumLatencyResponse) Reset() {
-	*x = SetMinimumLatencyResponse{}
-	mi := &file_proto_job_job_proto_msgTypes[169]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetMinimumLatencyResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetMinimumLatencyResponse) ProtoMessage() {}
-
-func (x *SetMinimumLatencyResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[169]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetMinimumLatencyResponse.ProtoReflect.Descriptor instead.
-func (*SetMinimumLatencyResponse) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{169}
-}
-
-func (x *SetMinimumLatencyResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type SetOverrideDeadlineRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetOverrideDeadlineRequest) Reset() {
-	*x = SetOverrideDeadlineRequest{}
-	mi := &file_proto_job_job_proto_msgTypes[170]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetOverrideDeadlineRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetOverrideDeadlineRequest) ProtoMessage() {}
-
-func (x *SetOverrideDeadlineRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[170]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetOverrideDeadlineRequest.ProtoReflect.Descriptor instead.
-func (*SetOverrideDeadlineRequest) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{170}
-}
-
-func (x *SetOverrideDeadlineRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type SetOverrideDeadlineResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetOverrideDeadlineResponse) Reset() {
-	*x = SetOverrideDeadlineResponse{}
-	mi := &file_proto_job_job_proto_msgTypes[171]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetOverrideDeadlineResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetOverrideDeadlineResponse) ProtoMessage() {}
-
-func (x *SetOverrideDeadlineResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[171]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetOverrideDeadlineResponse.ProtoReflect.Descriptor instead.
-func (*SetOverrideDeadlineResponse) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{171}
-}
-
-func (x *SetOverrideDeadlineResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type SetPeriodic1Request struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetPeriodic1Request) Reset() {
-	*x = SetPeriodic1Request{}
-	mi := &file_proto_job_job_proto_msgTypes[172]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetPeriodic1Request) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetPeriodic1Request) ProtoMessage() {}
-
-func (x *SetPeriodic1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[172]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetPeriodic1Request.ProtoReflect.Descriptor instead.
-func (*SetPeriodic1Request) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{172}
-}
-
-func (x *SetPeriodic1Request) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type SetPeriodic1Response struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetPeriodic1Response) Reset() {
-	*x = SetPeriodic1Response{}
-	mi := &file_proto_job_job_proto_msgTypes[173]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetPeriodic1Response) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetPeriodic1Response) ProtoMessage() {}
-
-func (x *SetPeriodic1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[173]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetPeriodic1Response.ProtoReflect.Descriptor instead.
-func (*SetPeriodic1Response) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{173}
-}
-
-func (x *SetPeriodic1Response) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type SetPeriodic2_1Request struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetPeriodic2_1Request) Reset() {
-	*x = SetPeriodic2_1Request{}
-	mi := &file_proto_job_job_proto_msgTypes[174]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetPeriodic2_1Request) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetPeriodic2_1Request) ProtoMessage() {}
-
-func (x *SetPeriodic2_1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[174]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetPeriodic2_1Request.ProtoReflect.Descriptor instead.
-func (*SetPeriodic2_1Request) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{174}
-}
-
-func (x *SetPeriodic2_1Request) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-func (x *SetPeriodic2_1Request) GetArg1() int64 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-type SetPeriodic2_1Response struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetPeriodic2_1Response) Reset() {
-	*x = SetPeriodic2_1Response{}
-	mi := &file_proto_job_job_proto_msgTypes[175]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetPeriodic2_1Response) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetPeriodic2_1Response) ProtoMessage() {}
-
-func (x *SetPeriodic2_1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[175]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetPeriodic2_1Response.ProtoReflect.Descriptor instead.
-func (*SetPeriodic2_1Response) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{175}
-}
-
-func (x *SetPeriodic2_1Response) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type SetPersistedRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          bool                   `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetPersistedRequest) Reset() {
-	*x = SetPersistedRequest{}
-	mi := &file_proto_job_job_proto_msgTypes[176]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetPersistedRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetPersistedRequest) ProtoMessage() {}
-
-func (x *SetPersistedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[176]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetPersistedRequest.ProtoReflect.Descriptor instead.
-func (*SetPersistedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{176}
-}
-
-func (x *SetPersistedRequest) GetArg0() bool {
-	if x != nil {
-		return x.Arg0
-	}
-	return false
-}
-
-type SetPersistedResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetPersistedResponse) Reset() {
-	*x = SetPersistedResponse{}
-	mi := &file_proto_job_job_proto_msgTypes[177]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetPersistedResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetPersistedResponse) ProtoMessage() {}
-
-func (x *SetPersistedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[177]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetPersistedResponse.ProtoReflect.Descriptor instead.
-func (*SetPersistedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{177}
-}
-
-func (x *SetPersistedResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type SetPrefetchRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          bool                   `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetPrefetchRequest) Reset() {
-	*x = SetPrefetchRequest{}
-	mi := &file_proto_job_job_proto_msgTypes[178]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetPrefetchRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetPrefetchRequest) ProtoMessage() {}
-
-func (x *SetPrefetchRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[178]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetPrefetchRequest.ProtoReflect.Descriptor instead.
-func (*SetPrefetchRequest) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{178}
-}
-
-func (x *SetPrefetchRequest) GetArg0() bool {
-	if x != nil {
-		return x.Arg0
-	}
-	return false
-}
-
-type SetPrefetchResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetPrefetchResponse) Reset() {
-	*x = SetPrefetchResponse{}
-	mi := &file_proto_job_job_proto_msgTypes[179]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetPrefetchResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetPrefetchResponse) ProtoMessage() {}
-
-func (x *SetPrefetchResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[179]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetPrefetchResponse.ProtoReflect.Descriptor instead.
-func (*SetPrefetchResponse) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{179}
-}
-
-func (x *SetPrefetchResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type SetPriorityRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetPriorityRequest) Reset() {
-	*x = SetPriorityRequest{}
-	mi := &file_proto_job_job_proto_msgTypes[180]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetPriorityRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetPriorityRequest) ProtoMessage() {}
-
-func (x *SetPriorityRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[180]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetPriorityRequest.ProtoReflect.Descriptor instead.
-func (*SetPriorityRequest) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{180}
-}
-
-func (x *SetPriorityRequest) GetArg0() int32 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type SetPriorityResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetPriorityResponse) Reset() {
-	*x = SetPriorityResponse{}
-	mi := &file_proto_job_job_proto_msgTypes[181]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetPriorityResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetPriorityResponse) ProtoMessage() {}
-
-func (x *SetPriorityResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[181]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetPriorityResponse.ProtoReflect.Descriptor instead.
-func (*SetPriorityResponse) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{181}
-}
-
-func (x *SetPriorityResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type SetRequiredNetworkRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetRequiredNetworkRequest) Reset() {
-	*x = SetRequiredNetworkRequest{}
-	mi := &file_proto_job_job_proto_msgTypes[182]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetRequiredNetworkRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetRequiredNetworkRequest) ProtoMessage() {}
-
-func (x *SetRequiredNetworkRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[182]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetRequiredNetworkRequest.ProtoReflect.Descriptor instead.
-func (*SetRequiredNetworkRequest) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{182}
-}
-
-func (x *SetRequiredNetworkRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type SetRequiredNetworkResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetRequiredNetworkResponse) Reset() {
-	*x = SetRequiredNetworkResponse{}
-	mi := &file_proto_job_job_proto_msgTypes[183]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetRequiredNetworkResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetRequiredNetworkResponse) ProtoMessage() {}
-
-func (x *SetRequiredNetworkResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[183]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetRequiredNetworkResponse.ProtoReflect.Descriptor instead.
-func (*SetRequiredNetworkResponse) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{183}
-}
-
-func (x *SetRequiredNetworkResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type SetRequiredNetworkTypeRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetRequiredNetworkTypeRequest) Reset() {
-	*x = SetRequiredNetworkTypeRequest{}
-	mi := &file_proto_job_job_proto_msgTypes[184]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetRequiredNetworkTypeRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetRequiredNetworkTypeRequest) ProtoMessage() {}
-
-func (x *SetRequiredNetworkTypeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[184]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetRequiredNetworkTypeRequest.ProtoReflect.Descriptor instead.
-func (*SetRequiredNetworkTypeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{184}
-}
-
-func (x *SetRequiredNetworkTypeRequest) GetArg0() int32 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type SetRequiredNetworkTypeResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetRequiredNetworkTypeResponse) Reset() {
-	*x = SetRequiredNetworkTypeResponse{}
-	mi := &file_proto_job_job_proto_msgTypes[185]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetRequiredNetworkTypeResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetRequiredNetworkTypeResponse) ProtoMessage() {}
-
-func (x *SetRequiredNetworkTypeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[185]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetRequiredNetworkTypeResponse.ProtoReflect.Descriptor instead.
-func (*SetRequiredNetworkTypeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{185}
-}
-
-func (x *SetRequiredNetworkTypeResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type SetRequiresBatteryNotLowRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          bool                   `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetRequiresBatteryNotLowRequest) Reset() {
-	*x = SetRequiresBatteryNotLowRequest{}
-	mi := &file_proto_job_job_proto_msgTypes[186]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetRequiresBatteryNotLowRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetRequiresBatteryNotLowRequest) ProtoMessage() {}
-
-func (x *SetRequiresBatteryNotLowRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[186]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetRequiresBatteryNotLowRequest.ProtoReflect.Descriptor instead.
-func (*SetRequiresBatteryNotLowRequest) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{186}
-}
-
-func (x *SetRequiresBatteryNotLowRequest) GetArg0() bool {
-	if x != nil {
-		return x.Arg0
-	}
-	return false
-}
-
-type SetRequiresBatteryNotLowResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetRequiresBatteryNotLowResponse) Reset() {
-	*x = SetRequiresBatteryNotLowResponse{}
-	mi := &file_proto_job_job_proto_msgTypes[187]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetRequiresBatteryNotLowResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetRequiresBatteryNotLowResponse) ProtoMessage() {}
-
-func (x *SetRequiresBatteryNotLowResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[187]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetRequiresBatteryNotLowResponse.ProtoReflect.Descriptor instead.
-func (*SetRequiresBatteryNotLowResponse) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{187}
-}
-
-func (x *SetRequiresBatteryNotLowResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type SetRequiresChargingRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          bool                   `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetRequiresChargingRequest) Reset() {
-	*x = SetRequiresChargingRequest{}
-	mi := &file_proto_job_job_proto_msgTypes[188]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetRequiresChargingRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetRequiresChargingRequest) ProtoMessage() {}
-
-func (x *SetRequiresChargingRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[188]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetRequiresChargingRequest.ProtoReflect.Descriptor instead.
-func (*SetRequiresChargingRequest) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{188}
-}
-
-func (x *SetRequiresChargingRequest) GetArg0() bool {
-	if x != nil {
-		return x.Arg0
-	}
-	return false
-}
-
-type SetRequiresChargingResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetRequiresChargingResponse) Reset() {
-	*x = SetRequiresChargingResponse{}
-	mi := &file_proto_job_job_proto_msgTypes[189]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetRequiresChargingResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetRequiresChargingResponse) ProtoMessage() {}
-
-func (x *SetRequiresChargingResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[189]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetRequiresChargingResponse.ProtoReflect.Descriptor instead.
-func (*SetRequiresChargingResponse) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{189}
-}
-
-func (x *SetRequiresChargingResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type SetRequiresDeviceIdleRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          bool                   `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetRequiresDeviceIdleRequest) Reset() {
-	*x = SetRequiresDeviceIdleRequest{}
-	mi := &file_proto_job_job_proto_msgTypes[190]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetRequiresDeviceIdleRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetRequiresDeviceIdleRequest) ProtoMessage() {}
-
-func (x *SetRequiresDeviceIdleRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[190]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetRequiresDeviceIdleRequest.ProtoReflect.Descriptor instead.
-func (*SetRequiresDeviceIdleRequest) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{190}
-}
-
-func (x *SetRequiresDeviceIdleRequest) GetArg0() bool {
-	if x != nil {
-		return x.Arg0
-	}
-	return false
-}
-
-type SetRequiresDeviceIdleResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetRequiresDeviceIdleResponse) Reset() {
-	*x = SetRequiresDeviceIdleResponse{}
-	mi := &file_proto_job_job_proto_msgTypes[191]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetRequiresDeviceIdleResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetRequiresDeviceIdleResponse) ProtoMessage() {}
-
-func (x *SetRequiresDeviceIdleResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[191]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetRequiresDeviceIdleResponse.ProtoReflect.Descriptor instead.
-func (*SetRequiresDeviceIdleResponse) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{191}
-}
-
-func (x *SetRequiresDeviceIdleResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type SetRequiresStorageNotLowRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          bool                   `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetRequiresStorageNotLowRequest) Reset() {
-	*x = SetRequiresStorageNotLowRequest{}
-	mi := &file_proto_job_job_proto_msgTypes[192]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetRequiresStorageNotLowRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetRequiresStorageNotLowRequest) ProtoMessage() {}
-
-func (x *SetRequiresStorageNotLowRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[192]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetRequiresStorageNotLowRequest.ProtoReflect.Descriptor instead.
-func (*SetRequiresStorageNotLowRequest) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{192}
-}
-
-func (x *SetRequiresStorageNotLowRequest) GetArg0() bool {
-	if x != nil {
-		return x.Arg0
-	}
-	return false
-}
-
-type SetRequiresStorageNotLowResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetRequiresStorageNotLowResponse) Reset() {
-	*x = SetRequiresStorageNotLowResponse{}
-	mi := &file_proto_job_job_proto_msgTypes[193]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetRequiresStorageNotLowResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetRequiresStorageNotLowResponse) ProtoMessage() {}
-
-func (x *SetRequiresStorageNotLowResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[193]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetRequiresStorageNotLowResponse.ProtoReflect.Descriptor instead.
-func (*SetRequiresStorageNotLowResponse) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{193}
-}
-
-func (x *SetRequiresStorageNotLowResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type SetTraceTagRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetTraceTagRequest) Reset() {
-	*x = SetTraceTagRequest{}
-	mi := &file_proto_job_job_proto_msgTypes[194]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetTraceTagRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetTraceTagRequest) ProtoMessage() {}
-
-func (x *SetTraceTagRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[194]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetTraceTagRequest.ProtoReflect.Descriptor instead.
-func (*SetTraceTagRequest) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{194}
-}
-
-func (x *SetTraceTagRequest) GetArg0() string {
-	if x != nil {
-		return x.Arg0
-	}
-	return ""
-}
-
-type SetTraceTagResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetTraceTagResponse) Reset() {
-	*x = SetTraceTagResponse{}
-	mi := &file_proto_job_job_proto_msgTypes[195]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetTraceTagResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetTraceTagResponse) ProtoMessage() {}
-
-func (x *SetTraceTagResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[195]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetTraceTagResponse.ProtoReflect.Descriptor instead.
-func (*SetTraceTagResponse) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{195}
-}
-
-func (x *SetTraceTagResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type SetTransientExtrasRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetTransientExtrasRequest) Reset() {
-	*x = SetTransientExtrasRequest{}
-	mi := &file_proto_job_job_proto_msgTypes[196]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetTransientExtrasRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetTransientExtrasRequest) ProtoMessage() {}
-
-func (x *SetTransientExtrasRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[196]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetTransientExtrasRequest.ProtoReflect.Descriptor instead.
-func (*SetTransientExtrasRequest) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{196}
-}
-
-func (x *SetTransientExtrasRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type SetTransientExtrasResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetTransientExtrasResponse) Reset() {
-	*x = SetTransientExtrasResponse{}
-	mi := &file_proto_job_job_proto_msgTypes[197]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetTransientExtrasResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetTransientExtrasResponse) ProtoMessage() {}
-
-func (x *SetTransientExtrasResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[197]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetTransientExtrasResponse.ProtoReflect.Descriptor instead.
-func (*SetTransientExtrasResponse) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{197}
-}
-
-func (x *SetTransientExtrasResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type SetTriggerContentMaxDelayRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetTriggerContentMaxDelayRequest) Reset() {
-	*x = SetTriggerContentMaxDelayRequest{}
-	mi := &file_proto_job_job_proto_msgTypes[198]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetTriggerContentMaxDelayRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetTriggerContentMaxDelayRequest) ProtoMessage() {}
-
-func (x *SetTriggerContentMaxDelayRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[198]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetTriggerContentMaxDelayRequest.ProtoReflect.Descriptor instead.
-func (*SetTriggerContentMaxDelayRequest) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{198}
-}
-
-func (x *SetTriggerContentMaxDelayRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type SetTriggerContentMaxDelayResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetTriggerContentMaxDelayResponse) Reset() {
-	*x = SetTriggerContentMaxDelayResponse{}
-	mi := &file_proto_job_job_proto_msgTypes[199]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetTriggerContentMaxDelayResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetTriggerContentMaxDelayResponse) ProtoMessage() {}
-
-func (x *SetTriggerContentMaxDelayResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[199]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetTriggerContentMaxDelayResponse.ProtoReflect.Descriptor instead.
-func (*SetTriggerContentMaxDelayResponse) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{199}
-}
-
-func (x *SetTriggerContentMaxDelayResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type SetTriggerContentUpdateDelayRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetTriggerContentUpdateDelayRequest) Reset() {
-	*x = SetTriggerContentUpdateDelayRequest{}
+func (x *GetNamespaceResponse) Reset() {
+	*x = GetNamespaceResponse{}
 	mi := &file_proto_job_job_proto_msgTypes[200]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *SetTriggerContentUpdateDelayRequest) String() string {
+func (x *GetNamespaceResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*SetTriggerContentUpdateDelayRequest) ProtoMessage() {}
+func (*GetNamespaceResponse) ProtoMessage() {}
 
-func (x *SetTriggerContentUpdateDelayRequest) ProtoReflect() protoreflect.Message {
+func (x *GetNamespaceResponse) ProtoReflect() protoreflect.Message {
 	mi := &file_proto_job_job_proto_msgTypes[200]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -8639,39 +8583,39 @@ func (x *SetTriggerContentUpdateDelayRequest) ProtoReflect() protoreflect.Messag
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use SetTriggerContentUpdateDelayRequest.ProtoReflect.Descriptor instead.
-func (*SetTriggerContentUpdateDelayRequest) Descriptor() ([]byte, []int) {
+// Deprecated: Use GetNamespaceResponse.ProtoReflect.Descriptor instead.
+func (*GetNamespaceResponse) Descriptor() ([]byte, []int) {
 	return file_proto_job_job_proto_rawDescGZIP(), []int{200}
 }
 
-func (x *SetTriggerContentUpdateDelayRequest) GetArg0() int64 {
+func (x *GetNamespaceResponse) GetResult() string {
 	if x != nil {
-		return x.Arg0
+		return x.Result
 	}
-	return 0
+	return ""
 }
 
-type SetTriggerContentUpdateDelayResponse struct {
+type GetPendingJobRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *SetTriggerContentUpdateDelayResponse) Reset() {
-	*x = SetTriggerContentUpdateDelayResponse{}
+func (x *GetPendingJobRequest) Reset() {
+	*x = GetPendingJobRequest{}
 	mi := &file_proto_job_job_proto_msgTypes[201]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *SetTriggerContentUpdateDelayResponse) String() string {
+func (x *GetPendingJobRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*SetTriggerContentUpdateDelayResponse) ProtoMessage() {}
+func (*GetPendingJobRequest) ProtoMessage() {}
 
-func (x *SetTriggerContentUpdateDelayResponse) ProtoReflect() protoreflect.Message {
+func (x *GetPendingJobRequest) ProtoReflect() protoreflect.Message {
 	mi := &file_proto_job_job_proto_msgTypes[201]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -8683,84 +8627,40 @@ func (x *SetTriggerContentUpdateDelayResponse) ProtoReflect() protoreflect.Messa
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use SetTriggerContentUpdateDelayResponse.ProtoReflect.Descriptor instead.
-func (*SetTriggerContentUpdateDelayResponse) Descriptor() ([]byte, []int) {
+// Deprecated: Use GetPendingJobRequest.ProtoReflect.Descriptor instead.
+func (*GetPendingJobRequest) Descriptor() ([]byte, []int) {
 	return file_proto_job_job_proto_rawDescGZIP(), []int{201}
 }
 
-func (x *SetTriggerContentUpdateDelayResponse) GetResult() int64 {
+func (x *GetPendingJobRequest) GetArg0() int32 {
 	if x != nil {
-		return x.Result
+		return x.Arg0
 	}
 	return 0
 }
 
-type SetUserInitiatedRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          bool                   `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetUserInitiatedRequest) Reset() {
-	*x = SetUserInitiatedRequest{}
-	mi := &file_proto_job_job_proto_msgTypes[202]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetUserInitiatedRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetUserInitiatedRequest) ProtoMessage() {}
-
-func (x *SetUserInitiatedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[202]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetUserInitiatedRequest.ProtoReflect.Descriptor instead.
-func (*SetUserInitiatedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{202}
-}
-
-func (x *SetUserInitiatedRequest) GetArg0() bool {
-	if x != nil {
-		return x.Arg0
-	}
-	return false
-}
-
-type SetUserInitiatedResponse struct {
+type GetPendingJobResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *SetUserInitiatedResponse) Reset() {
-	*x = SetUserInitiatedResponse{}
-	mi := &file_proto_job_job_proto_msgTypes[203]
+func (x *GetPendingJobResponse) Reset() {
+	*x = GetPendingJobResponse{}
+	mi := &file_proto_job_job_proto_msgTypes[202]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *SetUserInitiatedResponse) String() string {
+func (x *GetPendingJobResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*SetUserInitiatedResponse) ProtoMessage() {}
+func (*GetPendingJobResponse) ProtoMessage() {}
 
-func (x *SetUserInitiatedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[203]
+func (x *GetPendingJobResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[202]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8771,39 +8671,40 @@ func (x *SetUserInitiatedResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use SetUserInitiatedResponse.ProtoReflect.Descriptor instead.
-func (*SetUserInitiatedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{203}
+// Deprecated: Use GetPendingJobResponse.ProtoReflect.Descriptor instead.
+func (*GetPendingJobResponse) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{202}
 }
 
-func (x *SetUserInitiatedResponse) GetResult() int64 {
+func (x *GetPendingJobResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
 	return 0
 }
 
-type InfoTriggerContentUriDescribeContentsRequest struct {
+type GetPendingJobReasonRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *InfoTriggerContentUriDescribeContentsRequest) Reset() {
-	*x = InfoTriggerContentUriDescribeContentsRequest{}
-	mi := &file_proto_job_job_proto_msgTypes[204]
+func (x *GetPendingJobReasonRequest) Reset() {
+	*x = GetPendingJobReasonRequest{}
+	mi := &file_proto_job_job_proto_msgTypes[203]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *InfoTriggerContentUriDescribeContentsRequest) String() string {
+func (x *GetPendingJobReasonRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*InfoTriggerContentUriDescribeContentsRequest) ProtoMessage() {}
+func (*GetPendingJobReasonRequest) ProtoMessage() {}
 
-func (x *InfoTriggerContentUriDescribeContentsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[204]
+func (x *GetPendingJobReasonRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[203]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8814,69 +8715,40 @@ func (x *InfoTriggerContentUriDescribeContentsRequest) ProtoReflect() protorefle
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use InfoTriggerContentUriDescribeContentsRequest.ProtoReflect.Descriptor instead.
-func (*InfoTriggerContentUriDescribeContentsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{204}
+// Deprecated: Use GetPendingJobReasonRequest.ProtoReflect.Descriptor instead.
+func (*GetPendingJobReasonRequest) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{203}
 }
 
-type GetFlagsRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetFlagsRequest) Reset() {
-	*x = GetFlagsRequest{}
-	mi := &file_proto_job_job_proto_msgTypes[205]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetFlagsRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetFlagsRequest) ProtoMessage() {}
-
-func (x *GetFlagsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[205]
+func (x *GetPendingJobReasonRequest) GetArg0() int32 {
 	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
+		return x.Arg0
 	}
-	return mi.MessageOf(x)
+	return 0
 }
 
-// Deprecated: Use GetFlagsRequest.ProtoReflect.Descriptor instead.
-func (*GetFlagsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{205}
-}
-
-type GetFlagsResponse struct {
+type GetPendingJobReasonResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetFlagsResponse) Reset() {
-	*x = GetFlagsResponse{}
-	mi := &file_proto_job_job_proto_msgTypes[206]
+func (x *GetPendingJobReasonResponse) Reset() {
+	*x = GetPendingJobReasonResponse{}
+	mi := &file_proto_job_job_proto_msgTypes[204]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetFlagsResponse) String() string {
+func (x *GetPendingJobReasonResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetFlagsResponse) ProtoMessage() {}
+func (*GetPendingJobReasonResponse) ProtoMessage() {}
 
-func (x *GetFlagsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[206]
+func (x *GetPendingJobReasonResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[204]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8887,39 +8759,40 @@ func (x *GetFlagsResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetFlagsResponse.ProtoReflect.Descriptor instead.
-func (*GetFlagsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{206}
+// Deprecated: Use GetPendingJobReasonResponse.ProtoReflect.Descriptor instead.
+func (*GetPendingJobReasonResponse) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{204}
 }
 
-func (x *GetFlagsResponse) GetResult() int32 {
+func (x *GetPendingJobReasonResponse) GetResult() int32 {
 	if x != nil {
 		return x.Result
 	}
 	return 0
 }
 
-type GetUriRequest struct {
+type SchedulerGetPendingJobReasonsRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetUriRequest) Reset() {
-	*x = GetUriRequest{}
-	mi := &file_proto_job_job_proto_msgTypes[207]
+func (x *SchedulerGetPendingJobReasonsRequest) Reset() {
+	*x = SchedulerGetPendingJobReasonsRequest{}
+	mi := &file_proto_job_job_proto_msgTypes[205]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetUriRequest) String() string {
+func (x *SchedulerGetPendingJobReasonsRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetUriRequest) ProtoMessage() {}
+func (*SchedulerGetPendingJobReasonsRequest) ProtoMessage() {}
 
-func (x *GetUriRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[207]
+func (x *SchedulerGetPendingJobReasonsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[205]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8930,103 +8803,190 @@ func (x *GetUriRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetUriRequest.ProtoReflect.Descriptor instead.
-func (*GetUriRequest) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{207}
+// Deprecated: Use SchedulerGetPendingJobReasonsRequest.ProtoReflect.Descriptor instead.
+func (*SchedulerGetPendingJobReasonsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{205}
 }
 
-type GetUriResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetUriResponse) Reset() {
-	*x = GetUriResponse{}
-	mi := &file_proto_job_job_proto_msgTypes[208]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetUriResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetUriResponse) ProtoMessage() {}
-
-func (x *GetUriResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[208]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetUriResponse.ProtoReflect.Descriptor instead.
-func (*GetUriResponse) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{208}
-}
-
-func (x *GetUriResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type InfoTriggerContentUriWriteToParcelRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *InfoTriggerContentUriWriteToParcelRequest) Reset() {
-	*x = InfoTriggerContentUriWriteToParcelRequest{}
-	mi := &file_proto_job_job_proto_msgTypes[209]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *InfoTriggerContentUriWriteToParcelRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*InfoTriggerContentUriWriteToParcelRequest) ProtoMessage() {}
-
-func (x *InfoTriggerContentUriWriteToParcelRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_job_job_proto_msgTypes[209]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use InfoTriggerContentUriWriteToParcelRequest.ProtoReflect.Descriptor instead.
-func (*InfoTriggerContentUriWriteToParcelRequest) Descriptor() ([]byte, []int) {
-	return file_proto_job_job_proto_rawDescGZIP(), []int{209}
-}
-
-func (x *InfoTriggerContentUriWriteToParcelRequest) GetArg0() int64 {
+func (x *SchedulerGetPendingJobReasonsRequest) GetArg0() int32 {
 	if x != nil {
 		return x.Arg0
 	}
 	return 0
 }
 
-func (x *InfoTriggerContentUriWriteToParcelRequest) GetArg1() int32 {
+type GetPendingJobReasonsHistoryRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPendingJobReasonsHistoryRequest) Reset() {
+	*x = GetPendingJobReasonsHistoryRequest{}
+	mi := &file_proto_job_job_proto_msgTypes[206]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPendingJobReasonsHistoryRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPendingJobReasonsHistoryRequest) ProtoMessage() {}
+
+func (x *GetPendingJobReasonsHistoryRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[206]
 	if x != nil {
-		return x.Arg1
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPendingJobReasonsHistoryRequest.ProtoReflect.Descriptor instead.
+func (*GetPendingJobReasonsHistoryRequest) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{206}
+}
+
+func (x *GetPendingJobReasonsHistoryRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type GetPendingJobReasonsHistoryResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPendingJobReasonsHistoryResponse) Reset() {
+	*x = GetPendingJobReasonsHistoryResponse{}
+	mi := &file_proto_job_job_proto_msgTypes[207]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPendingJobReasonsHistoryResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPendingJobReasonsHistoryResponse) ProtoMessage() {}
+
+func (x *GetPendingJobReasonsHistoryResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[207]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPendingJobReasonsHistoryResponse.ProtoReflect.Descriptor instead.
+func (*GetPendingJobReasonsHistoryResponse) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{207}
+}
+
+func (x *GetPendingJobReasonsHistoryResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type ScheduleRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ScheduleRequest) Reset() {
+	*x = ScheduleRequest{}
+	mi := &file_proto_job_job_proto_msgTypes[208]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ScheduleRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ScheduleRequest) ProtoMessage() {}
+
+func (x *ScheduleRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[208]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ScheduleRequest.ProtoReflect.Descriptor instead.
+func (*ScheduleRequest) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{208}
+}
+
+func (x *ScheduleRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type ScheduleResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ScheduleResponse) Reset() {
+	*x = ScheduleResponse{}
+	mi := &file_proto_job_job_proto_msgTypes[209]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ScheduleResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ScheduleResponse) ProtoMessage() {}
+
+func (x *ScheduleResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[209]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ScheduleResponse.ProtoReflect.Descriptor instead.
+func (*ScheduleResponse) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{209}
+}
+
+func (x *ScheduleResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
 	}
 	return 0
 }
@@ -10035,6 +9995,294 @@ func (x *ParametersWriteToParcelRequest) GetArg1() int32 {
 	return 0
 }
 
+type GetBinderRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetBinderRequest) Reset() {
+	*x = GetBinderRequest{}
+	mi := &file_proto_job_job_proto_msgTypes[235]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetBinderRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetBinderRequest) ProtoMessage() {}
+
+func (x *GetBinderRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[235]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetBinderRequest.ProtoReflect.Descriptor instead.
+func (*GetBinderRequest) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{235}
+}
+
+type GetBinderResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetBinderResponse) Reset() {
+	*x = GetBinderResponse{}
+	mi := &file_proto_job_job_proto_msgTypes[236]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetBinderResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetBinderResponse) ProtoMessage() {}
+
+func (x *GetBinderResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[236]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetBinderResponse.ProtoReflect.Descriptor instead.
+func (*GetBinderResponse) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{236}
+}
+
+func (x *GetBinderResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type UpdateEstimatedNetworkBytesRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int64                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	Arg3          int64                  `protobuf:"varint,4,opt,name=arg3,proto3" json:"arg3,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *UpdateEstimatedNetworkBytesRequest) Reset() {
+	*x = UpdateEstimatedNetworkBytesRequest{}
+	mi := &file_proto_job_job_proto_msgTypes[237]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *UpdateEstimatedNetworkBytesRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UpdateEstimatedNetworkBytesRequest) ProtoMessage() {}
+
+func (x *UpdateEstimatedNetworkBytesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[237]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UpdateEstimatedNetworkBytesRequest.ProtoReflect.Descriptor instead.
+func (*UpdateEstimatedNetworkBytesRequest) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{237}
+}
+
+func (x *UpdateEstimatedNetworkBytesRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *UpdateEstimatedNetworkBytesRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *UpdateEstimatedNetworkBytesRequest) GetArg2() int64 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+func (x *UpdateEstimatedNetworkBytesRequest) GetArg3() int64 {
+	if x != nil {
+		return x.Arg3
+	}
+	return 0
+}
+
+type UpdateEstimatedNetworkBytesResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *UpdateEstimatedNetworkBytesResponse) Reset() {
+	*x = UpdateEstimatedNetworkBytesResponse{}
+	mi := &file_proto_job_job_proto_msgTypes[238]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *UpdateEstimatedNetworkBytesResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UpdateEstimatedNetworkBytesResponse) ProtoMessage() {}
+
+func (x *UpdateEstimatedNetworkBytesResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[238]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UpdateEstimatedNetworkBytesResponse.ProtoReflect.Descriptor instead.
+func (*UpdateEstimatedNetworkBytesResponse) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{238}
+}
+
+type UpdateTransferredNetworkBytesRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int64                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	Arg3          int64                  `protobuf:"varint,4,opt,name=arg3,proto3" json:"arg3,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *UpdateTransferredNetworkBytesRequest) Reset() {
+	*x = UpdateTransferredNetworkBytesRequest{}
+	mi := &file_proto_job_job_proto_msgTypes[239]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *UpdateTransferredNetworkBytesRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UpdateTransferredNetworkBytesRequest) ProtoMessage() {}
+
+func (x *UpdateTransferredNetworkBytesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[239]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UpdateTransferredNetworkBytesRequest.ProtoReflect.Descriptor instead.
+func (*UpdateTransferredNetworkBytesRequest) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{239}
+}
+
+func (x *UpdateTransferredNetworkBytesRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *UpdateTransferredNetworkBytesRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *UpdateTransferredNetworkBytesRequest) GetArg2() int64 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+func (x *UpdateTransferredNetworkBytesRequest) GetArg3() int64 {
+	if x != nil {
+		return x.Arg3
+	}
+	return 0
+}
+
+type UpdateTransferredNetworkBytesResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *UpdateTransferredNetworkBytesResponse) Reset() {
+	*x = UpdateTransferredNetworkBytesResponse{}
+	mi := &file_proto_job_job_proto_msgTypes[240]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *UpdateTransferredNetworkBytesResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UpdateTransferredNetworkBytesResponse) ProtoMessage() {}
+
+func (x *UpdateTransferredNetworkBytesResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_job_job_proto_msgTypes[240]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UpdateTransferredNetworkBytesResponse.ProtoReflect.Descriptor instead.
+func (*UpdateTransferredNetworkBytesResponse) Descriptor() ([]byte, []int) {
+	return file_proto_job_job_proto_rawDescGZIP(), []int{240}
+}
+
 var File_proto_job_job_proto protoreflect.FileDescriptor
 
 const file_proto_job_job_proto_rawDesc = "" +
@@ -10100,118 +10348,20 @@ const file_proto_job_job_proto_rawDesc = "" +
 	"\"SetMinimumNetworkChunkBytesRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"=\n" +
 	"#SetMinimumNetworkChunkBytesResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\" \n" +
-	"\x1eCanRunUserInitiatedJobsRequest\"9\n" +
-	"\x1fCanRunUserInitiatedJobsResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\bR\x06result\"#\n" +
-	"\rCancelRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"\x10\n" +
-	"\x0eCancelResponse\"\x12\n" +
-	"\x10CancelAllRequest\"\x13\n" +
-	"\x11CancelAllResponse\"\x1e\n" +
-	"\x1cCancelInAllNamespacesRequest\"\x1f\n" +
-	"\x1dCancelInAllNamespacesResponse\"8\n" +
-	"\x0eEnqueueRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\")\n" +
-	"\x0fEnqueueResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\")\n" +
-	"\x13ForNamespaceRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\tR\x04arg0\".\n" +
-	"\x14ForNamespaceResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\x15\n" +
-	"\x13GetNamespaceRequest\".\n" +
-	"\x14GetNamespaceResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\tR\x06result\"*\n" +
-	"\x14GetPendingJobRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"/\n" +
-	"\x15GetPendingJobResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"0\n" +
-	"\x1aGetPendingJobReasonRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"5\n" +
-	"\x1bGetPendingJobReasonResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\"1\n" +
-	"\x1bGetPendingJobReasonsRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"6\n" +
-	"\x1cGetPendingJobReasonsResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"%\n" +
-	"\x0fScheduleRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"*\n" +
-	"\x10ScheduleResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\"<\n" +
-	"\x12JobFinishedRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\bR\x04arg1\"\x15\n" +
-	"\x13JobFinishedResponse\"#\n" +
-	"\rOnBindRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"(\n" +
-	"\x0eOnBindResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"-\n" +
-	"\x17OnNetworkChangedRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x1a\n" +
-	"\x18OnNetworkChangedResponse\"'\n" +
-	"\x11OnStartJobRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\",\n" +
-	"\x12OnStartJobResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\bR\x06result\"&\n" +
-	"\x10OnStopJobRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"+\n" +
-	"\x11OnStopJobResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\bR\x06result\"h\n" +
-	"\x16SetNotificationRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\x12\x12\n" +
-	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\x12\x12\n" +
-	"\x04arg3\x18\x04 \x01(\x05R\x04arg3\"\x19\n" +
-	"\x17SetNotificationResponse\"u\n" +
-	"#UpdateEstimatedNetworkBytes4Request\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
-	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\x12\x12\n" +
-	"\x04arg3\x18\x04 \x01(\x03R\x04arg3\"&\n" +
-	"$UpdateEstimatedNetworkBytes4Response\"c\n" +
-	"%UpdateEstimatedNetworkBytes3_1Request\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
-	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\"(\n" +
-	"&UpdateEstimatedNetworkBytes3_1Response\"w\n" +
-	"%UpdateTransferredNetworkBytes4Request\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
-	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\x12\x12\n" +
-	"\x04arg3\x18\x04 \x01(\x03R\x04arg3\"(\n" +
-	"&UpdateTransferredNetworkBytes4Response\"e\n" +
-	"'UpdateTransferredNetworkBytes3_1Request\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
-	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\"*\n" +
-	"(UpdateTransferredNetworkBytes3_1Response\"I\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"I\n" +
 	"\x1fNewPendingJobReasonsInfoRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
 	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\":\n" +
 	" NewPendingJobReasonsInfoResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"J\n" +
-	"0PendingJobReasonsInfoGetPendingJobReasonsRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\"3\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"5\n" +
+	"\x1bGetPendingJobReasonsRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"6\n" +
+	"\x1cGetPendingJobReasonsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"3\n" +
 	"\x19GetTimestampMillisRequest\x12\x16\n" +
 	"\x06handle\x18\x01 \x01(\x03R\x06handle\"4\n" +
 	"\x1aGetTimestampMillisResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\x12\n" +
-	"\x10GetBinderRequest\"+\n" +
-	"\x11GetBinderResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"t\n" +
-	"\"UpdateEstimatedNetworkBytesRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
-	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\x12\x12\n" +
-	"\x04arg3\x18\x04 \x01(\x03R\x04arg3\"%\n" +
-	"#UpdateEstimatedNetworkBytesResponse\"v\n" +
-	"$UpdateTransferredNetworkBytesRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
-	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\x12\x12\n" +
-	"\x04arg3\x18\x04 \x01(\x03R\x04arg3\"'\n" +
-	"%UpdateTransferredNetworkBytesResponse\"\x1d\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1d\n" +
 	"\x1bInfoDescribeContentsRequest\"#\n" +
 	"\rEqualsRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"(\n" +
@@ -10225,7 +10375,10 @@ const file_proto_job_job_proto_rawDesc = "" +
 	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1a\n" +
 	"\x18GetClipGrantFlagsRequest\"3\n" +
 	"\x19GetClipGrantFlagsResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\"-\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x15\n" +
+	"\x13GetDebugTagsRequest\".\n" +
+	"\x14GetDebugTagsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"-\n" +
 	"+InfoGetEstimatedNetworkDownloadBytesRequest\"+\n" +
 	")InfoGetEstimatedNetworkUploadBytesRequest\"\x16\n" +
 	"\x14InfoGetExtrasRequest\"\x16\n" +
@@ -10430,7 +10583,97 @@ const file_proto_job_job_proto_rawDesc = "" +
 	"\x06result\x18\x01 \x01(\x03R\x06result\"S\n" +
 	")InfoTriggerContentUriWriteToParcelRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\")\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\"<\n" +
+	"\x12JobFinishedRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\bR\x04arg1\"\x15\n" +
+	"\x13JobFinishedResponse\"#\n" +
+	"\rOnBindRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"(\n" +
+	"\x0eOnBindResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"-\n" +
+	"\x17OnNetworkChangedRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x1a\n" +
+	"\x18OnNetworkChangedResponse\"'\n" +
+	"\x11OnStartJobRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\",\n" +
+	"\x12OnStartJobResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"&\n" +
+	"\x10OnStopJobRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"+\n" +
+	"\x11OnStopJobResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"h\n" +
+	"\x16SetNotificationRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\x12\x12\n" +
+	"\x04arg3\x18\x04 \x01(\x05R\x04arg3\"\x19\n" +
+	"\x17SetNotificationResponse\"u\n" +
+	"#UpdateEstimatedNetworkBytes4Request\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\x12\x12\n" +
+	"\x04arg3\x18\x04 \x01(\x03R\x04arg3\"&\n" +
+	"$UpdateEstimatedNetworkBytes4Response\"c\n" +
+	"%UpdateEstimatedNetworkBytes3_1Request\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\"(\n" +
+	"&UpdateEstimatedNetworkBytes3_1Response\"w\n" +
+	"%UpdateTransferredNetworkBytes4Request\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\x12\x12\n" +
+	"\x04arg3\x18\x04 \x01(\x03R\x04arg3\"(\n" +
+	"&UpdateTransferredNetworkBytes4Response\"e\n" +
+	"'UpdateTransferredNetworkBytes3_1Request\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\"*\n" +
+	"(UpdateTransferredNetworkBytes3_1Response\" \n" +
+	"\x1eCanRunUserInitiatedJobsRequest\"9\n" +
+	"\x1fCanRunUserInitiatedJobsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"#\n" +
+	"\rCancelRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"\x10\n" +
+	"\x0eCancelResponse\"\x12\n" +
+	"\x10CancelAllRequest\"\x13\n" +
+	"\x11CancelAllResponse\"\x1e\n" +
+	"\x1cCancelInAllNamespacesRequest\"\x1f\n" +
+	"\x1dCancelInAllNamespacesResponse\"8\n" +
+	"\x0eEnqueueRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\")\n" +
+	"\x0fEnqueueResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\")\n" +
+	"\x13ForNamespaceRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\".\n" +
+	"\x14ForNamespaceResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1a\n" +
+	"\x18GetAllPendingJobsRequest\"3\n" +
+	"\x19GetAllPendingJobsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x15\n" +
+	"\x13GetNamespaceRequest\".\n" +
+	"\x14GetNamespaceResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"*\n" +
+	"\x14GetPendingJobRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"/\n" +
+	"\x15GetPendingJobResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"0\n" +
+	"\x1aGetPendingJobReasonRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"5\n" +
+	"\x1bGetPendingJobReasonResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\":\n" +
+	"$SchedulerGetPendingJobReasonsRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"8\n" +
+	"\"GetPendingJobReasonsHistoryRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"=\n" +
+	"#GetPendingJobReasonsHistoryResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"%\n" +
+	"\x0fScheduleRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"*\n" +
+	"\x10ScheduleResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\")\n" +
 	"\x13CompleteWorkRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x16\n" +
 	"\x14CompleteWorkResponse\"\x14\n" +
@@ -10468,7 +10711,22 @@ const file_proto_job_job_proto_rawDesc = "" +
 	"\x06result\x18\x01 \x01(\bR\x06result\"H\n" +
 	"\x1eParametersWriteToParcelRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\x05R\x04arg12\xdc\x06\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\"\x12\n" +
+	"\x10GetBinderRequest\"+\n" +
+	"\x11GetBinderResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"t\n" +
+	"\"UpdateEstimatedNetworkBytesRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\x12\x12\n" +
+	"\x04arg3\x18\x04 \x01(\x03R\x04arg3\"%\n" +
+	"#UpdateEstimatedNetworkBytesResponse\"v\n" +
+	"$UpdateTransferredNetworkBytesRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\x12\x12\n" +
+	"\x04arg3\x18\x04 \x01(\x03R\x04arg3\"'\n" +
+	"%UpdateTransferredNetworkBytesResponse2\xdc\x06\n" +
 	"\x0fWorkItemService\x12@\n" +
 	"\vNewWorkItem\x12\x17.job.NewWorkItemRequest\x1a\x18.job.NewWorkItemResponse\x12O\n" +
 	"\x10DescribeContents\x12\x1c.job.DescribeContentsRequest\x1a\x1d.job.DescribeContentsResponse\x12O\n" +
@@ -10485,53 +10743,20 @@ const file_proto_job_job_proto_rawDesc = "" +
 	"\x18SetEstimatedNetworkBytes\x12$.job.SetEstimatedNetworkBytesRequest\x1a%.job.SetEstimatedNetworkBytesResponse\x12:\n" +
 	"\tSetExtras\x12\x15.job.SetExtrasRequest\x1a\x16.job.SetExtrasResponse\x12:\n" +
 	"\tSetIntent\x12\x15.job.SetIntentRequest\x1a\x16.job.SetIntentResponse\x12p\n" +
-	"\x1bSetMinimumNetworkChunkBytes\x12'.job.SetMinimumNetworkChunkBytesRequest\x1a(.job.SetMinimumNetworkChunkBytesResponse2\xbf\x06\n" +
-	"\x10SchedulerService\x12d\n" +
-	"\x17CanRunUserInitiatedJobs\x12#.job.CanRunUserInitiatedJobsRequest\x1a$.job.CanRunUserInitiatedJobsResponse\x121\n" +
-	"\x06Cancel\x12\x12.job.CancelRequest\x1a\x13.job.CancelResponse\x12:\n" +
-	"\tCancelAll\x12\x15.job.CancelAllRequest\x1a\x16.job.CancelAllResponse\x12^\n" +
-	"\x15CancelInAllNamespaces\x12!.job.CancelInAllNamespacesRequest\x1a\".job.CancelInAllNamespacesResponse\x124\n" +
-	"\aEnqueue\x12\x13.job.EnqueueRequest\x1a\x14.job.EnqueueResponse\x12C\n" +
-	"\fForNamespace\x12\x18.job.ForNamespaceRequest\x1a\x19.job.ForNamespaceResponse\x12C\n" +
-	"\fGetNamespace\x12\x18.job.GetNamespaceRequest\x1a\x19.job.GetNamespaceResponse\x12F\n" +
-	"\rGetPendingJob\x12\x19.job.GetPendingJobRequest\x1a\x1a.job.GetPendingJobResponse\x12X\n" +
-	"\x13GetPendingJobReason\x12\x1f.job.GetPendingJobReasonRequest\x1a .job.GetPendingJobReasonResponse\x12[\n" +
-	"\x14GetPendingJobReasons\x12 .job.GetPendingJobReasonsRequest\x1a!.job.GetPendingJobReasonsResponse\x127\n" +
-	"\bSchedule\x12\x14.job.ScheduleRequest\x1a\x15.job.ScheduleResponse2\x8b\a\n" +
-	"\x0eServiceService\x12@\n" +
-	"\vJobFinished\x12\x17.job.JobFinishedRequest\x1a\x18.job.JobFinishedResponse\x121\n" +
-	"\x06OnBind\x12\x12.job.OnBindRequest\x1a\x13.job.OnBindResponse\x12O\n" +
-	"\x10OnNetworkChanged\x12\x1c.job.OnNetworkChangedRequest\x1a\x1d.job.OnNetworkChangedResponse\x12=\n" +
-	"\n" +
-	"OnStartJob\x12\x16.job.OnStartJobRequest\x1a\x17.job.OnStartJobResponse\x12:\n" +
-	"\tOnStopJob\x12\x15.job.OnStopJobRequest\x1a\x16.job.OnStopJobResponse\x12L\n" +
-	"\x0fSetNotification\x12\x1b.job.SetNotificationRequest\x1a\x1c.job.SetNotificationResponse\x12s\n" +
-	"\x1cUpdateEstimatedNetworkBytes4\x12(.job.UpdateEstimatedNetworkBytes4Request\x1a).job.UpdateEstimatedNetworkBytes4Response\x12y\n" +
-	"\x1eUpdateEstimatedNetworkBytes3_1\x12*.job.UpdateEstimatedNetworkBytes3_1Request\x1a+.job.UpdateEstimatedNetworkBytes3_1Response\x12y\n" +
-	"\x1eUpdateTransferredNetworkBytes4\x12*.job.UpdateTransferredNetworkBytes4Request\x1a+.job.UpdateTransferredNetworkBytes4Response\x12\x7f\n" +
-	" UpdateTransferredNetworkBytes3_1\x12,.job.UpdateTransferredNetworkBytes3_1Request\x1a-.job.UpdateTransferredNetworkBytes3_1Response2\xe9\x03\n" +
+	"\x1bSetMinimumNetworkChunkBytes\x12'.job.SetMinimumNetworkChunkBytesRequest\x1a(.job.SetMinimumNetworkChunkBytesResponse2\xd4\x03\n" +
 	"\x1cPendingJobReasonsInfoService\x12g\n" +
 	"\x18NewPendingJobReasonsInfo\x12$.job.NewPendingJobReasonsInfoRequest\x1a%.job.NewPendingJobReasonsInfoResponse\x12O\n" +
-	"\x10DescribeContents\x12\x1c.job.DescribeContentsRequest\x1a\x1d.job.DescribeContentsResponse\x12p\n" +
-	"\x14GetPendingJobReasons\x125.job.PendingJobReasonsInfoGetPendingJobReasonsRequest\x1a!.job.GetPendingJobReasonsResponse\x12U\n" +
+	"\x10DescribeContents\x12\x1c.job.DescribeContentsRequest\x1a\x1d.job.DescribeContentsResponse\x12[\n" +
+	"\x14GetPendingJobReasons\x12 .job.GetPendingJobReasonsRequest\x1a!.job.GetPendingJobReasonsResponse\x12U\n" +
 	"\x12GetTimestampMillis\x12\x1e.job.GetTimestampMillisRequest\x1a\x1f.job.GetTimestampMillisResponse\x12F\n" +
-	"\rWriteToParcel\x12\x19.job.WriteToParcelRequest\x1a\x1a.job.WriteToParcelResponse2\x98\x05\n" +
-	"\x14ServiceEngineService\x12:\n" +
-	"\tGetBinder\x12\x15.job.GetBinderRequest\x1a\x16.job.GetBinderResponse\x12@\n" +
-	"\vJobFinished\x12\x17.job.JobFinishedRequest\x1a\x18.job.JobFinishedResponse\x12O\n" +
-	"\x10OnNetworkChanged\x12\x1c.job.OnNetworkChangedRequest\x1a\x1d.job.OnNetworkChangedResponse\x12=\n" +
-	"\n" +
-	"OnStartJob\x12\x16.job.OnStartJobRequest\x1a\x17.job.OnStartJobResponse\x12:\n" +
-	"\tOnStopJob\x12\x15.job.OnStopJobRequest\x1a\x16.job.OnStopJobResponse\x12L\n" +
-	"\x0fSetNotification\x12\x1b.job.SetNotificationRequest\x1a\x1c.job.SetNotificationResponse\x12p\n" +
-	"\x1bUpdateEstimatedNetworkBytes\x12'.job.UpdateEstimatedNetworkBytesRequest\x1a(.job.UpdateEstimatedNetworkBytesResponse\x12v\n" +
-	"\x1dUpdateTransferredNetworkBytes\x12).job.UpdateTransferredNetworkBytesRequest\x1a*.job.UpdateTransferredNetworkBytesResponse2\xcc\x19\n" +
+	"\rWriteToParcel\x12\x19.job.WriteToParcelRequest\x1a\x1a.job.WriteToParcelResponse2\x91\x1a\n" +
 	"\vInfoService\x12S\n" +
 	"\x10DescribeContents\x12 .job.InfoDescribeContentsRequest\x1a\x1d.job.DescribeContentsResponse\x121\n" +
 	"\x06Equals\x12\x12.job.EqualsRequest\x1a\x13.job.EqualsResponse\x12O\n" +
 	"\x10GetBackoffPolicy\x12\x1c.job.GetBackoffPolicyRequest\x1a\x1d.job.GetBackoffPolicyResponse\x12@\n" +
 	"\vGetClipData\x12\x17.job.GetClipDataRequest\x1a\x18.job.GetClipDataResponse\x12R\n" +
-	"\x11GetClipGrantFlags\x12\x1d.job.GetClipGrantFlagsRequest\x1a\x1e.job.GetClipGrantFlagsResponse\x12\x83\x01\n" +
+	"\x11GetClipGrantFlags\x12\x1d.job.GetClipGrantFlagsRequest\x1a\x1e.job.GetClipGrantFlagsResponse\x12C\n" +
+	"\fGetDebugTags\x12\x18.job.GetDebugTagsRequest\x1a\x19.job.GetDebugTagsResponse\x12\x83\x01\n" +
 	" GetEstimatedNetworkDownloadBytes\x120.job.InfoGetEstimatedNetworkDownloadBytesRequest\x1a-.job.GetEstimatedNetworkDownloadBytesResponse\x12}\n" +
 	"\x1eGetEstimatedNetworkUploadBytes\x12..job.InfoGetEstimatedNetworkUploadBytesRequest\x1a+.job.GetEstimatedNetworkUploadBytesResponse\x12>\n" +
 	"\tGetExtras\x12\x19.job.InfoGetExtrasRequest\x1a\x16.job.GetExtrasResponse\x12F\n" +
@@ -10605,7 +10830,33 @@ const file_proto_job_job_proto_rawDesc = "" +
 	"\bGetFlags\x12\x14.job.GetFlagsRequest\x1a\x15.job.GetFlagsResponse\x121\n" +
 	"\x06GetUri\x12\x12.job.GetUriRequest\x1a\x13.job.GetUriResponse\x127\n" +
 	"\bHashCode\x12\x14.job.HashCodeRequest\x1a\x15.job.HashCodeResponse\x12[\n" +
-	"\rWriteToParcel\x12..job.InfoTriggerContentUriWriteToParcelRequest\x1a\x1a.job.WriteToParcelResponse2\xf7\n" +
+	"\rWriteToParcel\x12..job.InfoTriggerContentUriWriteToParcelRequest\x1a\x1a.job.WriteToParcelResponse2\x8b\a\n" +
+	"\x0eServiceService\x12@\n" +
+	"\vJobFinished\x12\x17.job.JobFinishedRequest\x1a\x18.job.JobFinishedResponse\x121\n" +
+	"\x06OnBind\x12\x12.job.OnBindRequest\x1a\x13.job.OnBindResponse\x12O\n" +
+	"\x10OnNetworkChanged\x12\x1c.job.OnNetworkChangedRequest\x1a\x1d.job.OnNetworkChangedResponse\x12=\n" +
+	"\n" +
+	"OnStartJob\x12\x16.job.OnStartJobRequest\x1a\x17.job.OnStartJobResponse\x12:\n" +
+	"\tOnStopJob\x12\x15.job.OnStopJobRequest\x1a\x16.job.OnStopJobResponse\x12L\n" +
+	"\x0fSetNotification\x12\x1b.job.SetNotificationRequest\x1a\x1c.job.SetNotificationResponse\x12s\n" +
+	"\x1cUpdateEstimatedNetworkBytes4\x12(.job.UpdateEstimatedNetworkBytes4Request\x1a).job.UpdateEstimatedNetworkBytes4Response\x12y\n" +
+	"\x1eUpdateEstimatedNetworkBytes3_1\x12*.job.UpdateEstimatedNetworkBytes3_1Request\x1a+.job.UpdateEstimatedNetworkBytes3_1Response\x12y\n" +
+	"\x1eUpdateTransferredNetworkBytes4\x12*.job.UpdateTransferredNetworkBytes4Request\x1a+.job.UpdateTransferredNetworkBytes4Response\x12\x7f\n" +
+	" UpdateTransferredNetworkBytes3_1\x12,.job.UpdateTransferredNetworkBytes3_1Request\x1a-.job.UpdateTransferredNetworkBytes3_1Response2\x8e\b\n" +
+	"\x10SchedulerService\x12d\n" +
+	"\x17CanRunUserInitiatedJobs\x12#.job.CanRunUserInitiatedJobsRequest\x1a$.job.CanRunUserInitiatedJobsResponse\x121\n" +
+	"\x06Cancel\x12\x12.job.CancelRequest\x1a\x13.job.CancelResponse\x12:\n" +
+	"\tCancelAll\x12\x15.job.CancelAllRequest\x1a\x16.job.CancelAllResponse\x12^\n" +
+	"\x15CancelInAllNamespaces\x12!.job.CancelInAllNamespacesRequest\x1a\".job.CancelInAllNamespacesResponse\x124\n" +
+	"\aEnqueue\x12\x13.job.EnqueueRequest\x1a\x14.job.EnqueueResponse\x12C\n" +
+	"\fForNamespace\x12\x18.job.ForNamespaceRequest\x1a\x19.job.ForNamespaceResponse\x12R\n" +
+	"\x11GetAllPendingJobs\x12\x1d.job.GetAllPendingJobsRequest\x1a\x1e.job.GetAllPendingJobsResponse\x12C\n" +
+	"\fGetNamespace\x12\x18.job.GetNamespaceRequest\x1a\x19.job.GetNamespaceResponse\x12F\n" +
+	"\rGetPendingJob\x12\x19.job.GetPendingJobRequest\x1a\x1a.job.GetPendingJobResponse\x12X\n" +
+	"\x13GetPendingJobReason\x12\x1f.job.GetPendingJobReasonRequest\x1a .job.GetPendingJobReasonResponse\x12d\n" +
+	"\x14GetPendingJobReasons\x12).job.SchedulerGetPendingJobReasonsRequest\x1a!.job.GetPendingJobReasonsResponse\x12p\n" +
+	"\x1bGetPendingJobReasonsHistory\x12'.job.GetPendingJobReasonsHistoryRequest\x1a(.job.GetPendingJobReasonsHistoryResponse\x127\n" +
+	"\bSchedule\x12\x14.job.ScheduleRequest\x1a\x15.job.ScheduleResponse2\xf7\n" +
 	"\n" +
 	"\x11ParametersService\x12C\n" +
 	"\fCompleteWork\x12\x18.job.CompleteWorkRequest\x1a\x19.job.CompleteWorkResponse\x12@\n" +
@@ -10625,7 +10876,17 @@ const file_proto_job_job_proto_rawDesc = "" +
 	"\x0eIsExpeditedJob\x12\x1a.job.IsExpeditedJobRequest\x1a\x1b.job.IsExpeditedJobResponse\x12j\n" +
 	"\x19IsOverrideDeadlineExpired\x12%.job.IsOverrideDeadlineExpiredRequest\x1a&.job.IsOverrideDeadlineExpiredResponse\x12U\n" +
 	"\x12IsUserInitiatedJob\x12\x1e.job.IsUserInitiatedJobRequest\x1a\x1f.job.IsUserInitiatedJobResponse\x12P\n" +
-	"\rWriteToParcel\x12#.job.ParametersWriteToParcelRequest\x1a\x1a.job.WriteToParcelResponseB-Z+github.com/AndroidGoLab/jni-proxy/proto/jobb\x06proto3"
+	"\rWriteToParcel\x12#.job.ParametersWriteToParcelRequest\x1a\x1a.job.WriteToParcelResponse2\x98\x05\n" +
+	"\x14ServiceEngineService\x12:\n" +
+	"\tGetBinder\x12\x15.job.GetBinderRequest\x1a\x16.job.GetBinderResponse\x12@\n" +
+	"\vJobFinished\x12\x17.job.JobFinishedRequest\x1a\x18.job.JobFinishedResponse\x12O\n" +
+	"\x10OnNetworkChanged\x12\x1c.job.OnNetworkChangedRequest\x1a\x1d.job.OnNetworkChangedResponse\x12=\n" +
+	"\n" +
+	"OnStartJob\x12\x16.job.OnStartJobRequest\x1a\x17.job.OnStartJobResponse\x12:\n" +
+	"\tOnStopJob\x12\x15.job.OnStopJobRequest\x1a\x16.job.OnStopJobResponse\x12L\n" +
+	"\x0fSetNotification\x12\x1b.job.SetNotificationRequest\x1a\x1c.job.SetNotificationResponse\x12p\n" +
+	"\x1bUpdateEstimatedNetworkBytes\x12'.job.UpdateEstimatedNetworkBytesRequest\x1a(.job.UpdateEstimatedNetworkBytesResponse\x12v\n" +
+	"\x1dUpdateTransferredNetworkBytes\x12).job.UpdateTransferredNetworkBytesRequest\x1a*.job.UpdateTransferredNetworkBytesResponseB-Z+github.com/AndroidGoLab/jni-proxy/proto/jobb\x06proto3"
 
 var (
 	file_proto_job_job_proto_rawDescOnce sync.Once
@@ -10639,243 +10900,249 @@ func file_proto_job_job_proto_rawDescGZIP() []byte {
 	return file_proto_job_job_proto_rawDescData
 }
 
-var file_proto_job_job_proto_msgTypes = make([]protoimpl.MessageInfo, 235)
+var file_proto_job_job_proto_msgTypes = make([]protoimpl.MessageInfo, 241)
 var file_proto_job_job_proto_goTypes = []any{
-	(*NewWorkItemRequest)(nil),                               // 0: job.NewWorkItemRequest
-	(*NewWorkItemResponse)(nil),                              // 1: job.NewWorkItemResponse
-	(*DescribeContentsRequest)(nil),                          // 2: job.DescribeContentsRequest
-	(*DescribeContentsResponse)(nil),                         // 3: job.DescribeContentsResponse
-	(*GetDeliveryCountRequest)(nil),                          // 4: job.GetDeliveryCountRequest
-	(*GetDeliveryCountResponse)(nil),                         // 5: job.GetDeliveryCountResponse
-	(*GetEstimatedNetworkDownloadBytesRequest)(nil),          // 6: job.GetEstimatedNetworkDownloadBytesRequest
-	(*GetEstimatedNetworkDownloadBytesResponse)(nil),         // 7: job.GetEstimatedNetworkDownloadBytesResponse
-	(*GetEstimatedNetworkUploadBytesRequest)(nil),            // 8: job.GetEstimatedNetworkUploadBytesRequest
-	(*GetEstimatedNetworkUploadBytesResponse)(nil),           // 9: job.GetEstimatedNetworkUploadBytesResponse
-	(*GetExtrasRequest)(nil),                                 // 10: job.GetExtrasRequest
-	(*GetExtrasResponse)(nil),                                // 11: job.GetExtrasResponse
-	(*GetIntentRequest)(nil),                                 // 12: job.GetIntentRequest
-	(*GetIntentResponse)(nil),                                // 13: job.GetIntentResponse
-	(*GetMinimumNetworkChunkBytesRequest)(nil),               // 14: job.GetMinimumNetworkChunkBytesRequest
-	(*GetMinimumNetworkChunkBytesResponse)(nil),              // 15: job.GetMinimumNetworkChunkBytesResponse
-	(*ToStringRequest)(nil),                                  // 16: job.ToStringRequest
-	(*ToStringResponse)(nil),                                 // 17: job.ToStringResponse
-	(*WriteToParcelRequest)(nil),                             // 18: job.WriteToParcelRequest
-	(*WriteToParcelResponse)(nil),                            // 19: job.WriteToParcelResponse
-	(*BuildRequest)(nil),                                     // 20: job.BuildRequest
-	(*BuildResponse)(nil),                                    // 21: job.BuildResponse
-	(*SetEstimatedNetworkBytesRequest)(nil),                  // 22: job.SetEstimatedNetworkBytesRequest
-	(*SetEstimatedNetworkBytesResponse)(nil),                 // 23: job.SetEstimatedNetworkBytesResponse
-	(*SetExtrasRequest)(nil),                                 // 24: job.SetExtrasRequest
-	(*SetExtrasResponse)(nil),                                // 25: job.SetExtrasResponse
-	(*SetIntentRequest)(nil),                                 // 26: job.SetIntentRequest
-	(*SetIntentResponse)(nil),                                // 27: job.SetIntentResponse
-	(*SetMinimumNetworkChunkBytesRequest)(nil),               // 28: job.SetMinimumNetworkChunkBytesRequest
-	(*SetMinimumNetworkChunkBytesResponse)(nil),              // 29: job.SetMinimumNetworkChunkBytesResponse
-	(*CanRunUserInitiatedJobsRequest)(nil),                   // 30: job.CanRunUserInitiatedJobsRequest
-	(*CanRunUserInitiatedJobsResponse)(nil),                  // 31: job.CanRunUserInitiatedJobsResponse
-	(*CancelRequest)(nil),                                    // 32: job.CancelRequest
-	(*CancelResponse)(nil),                                   // 33: job.CancelResponse
-	(*CancelAllRequest)(nil),                                 // 34: job.CancelAllRequest
-	(*CancelAllResponse)(nil),                                // 35: job.CancelAllResponse
-	(*CancelInAllNamespacesRequest)(nil),                     // 36: job.CancelInAllNamespacesRequest
-	(*CancelInAllNamespacesResponse)(nil),                    // 37: job.CancelInAllNamespacesResponse
-	(*EnqueueRequest)(nil),                                   // 38: job.EnqueueRequest
-	(*EnqueueResponse)(nil),                                  // 39: job.EnqueueResponse
-	(*ForNamespaceRequest)(nil),                              // 40: job.ForNamespaceRequest
-	(*ForNamespaceResponse)(nil),                             // 41: job.ForNamespaceResponse
-	(*GetNamespaceRequest)(nil),                              // 42: job.GetNamespaceRequest
-	(*GetNamespaceResponse)(nil),                             // 43: job.GetNamespaceResponse
-	(*GetPendingJobRequest)(nil),                             // 44: job.GetPendingJobRequest
-	(*GetPendingJobResponse)(nil),                            // 45: job.GetPendingJobResponse
-	(*GetPendingJobReasonRequest)(nil),                       // 46: job.GetPendingJobReasonRequest
-	(*GetPendingJobReasonResponse)(nil),                      // 47: job.GetPendingJobReasonResponse
-	(*GetPendingJobReasonsRequest)(nil),                      // 48: job.GetPendingJobReasonsRequest
-	(*GetPendingJobReasonsResponse)(nil),                     // 49: job.GetPendingJobReasonsResponse
-	(*ScheduleRequest)(nil),                                  // 50: job.ScheduleRequest
-	(*ScheduleResponse)(nil),                                 // 51: job.ScheduleResponse
-	(*JobFinishedRequest)(nil),                               // 52: job.JobFinishedRequest
-	(*JobFinishedResponse)(nil),                              // 53: job.JobFinishedResponse
-	(*OnBindRequest)(nil),                                    // 54: job.OnBindRequest
-	(*OnBindResponse)(nil),                                   // 55: job.OnBindResponse
-	(*OnNetworkChangedRequest)(nil),                          // 56: job.OnNetworkChangedRequest
-	(*OnNetworkChangedResponse)(nil),                         // 57: job.OnNetworkChangedResponse
-	(*OnStartJobRequest)(nil),                                // 58: job.OnStartJobRequest
-	(*OnStartJobResponse)(nil),                               // 59: job.OnStartJobResponse
-	(*OnStopJobRequest)(nil),                                 // 60: job.OnStopJobRequest
-	(*OnStopJobResponse)(nil),                                // 61: job.OnStopJobResponse
-	(*SetNotificationRequest)(nil),                           // 62: job.SetNotificationRequest
-	(*SetNotificationResponse)(nil),                          // 63: job.SetNotificationResponse
-	(*UpdateEstimatedNetworkBytes4Request)(nil),              // 64: job.UpdateEstimatedNetworkBytes4Request
-	(*UpdateEstimatedNetworkBytes4Response)(nil),             // 65: job.UpdateEstimatedNetworkBytes4Response
-	(*UpdateEstimatedNetworkBytes3_1Request)(nil),            // 66: job.UpdateEstimatedNetworkBytes3_1Request
-	(*UpdateEstimatedNetworkBytes3_1Response)(nil),           // 67: job.UpdateEstimatedNetworkBytes3_1Response
-	(*UpdateTransferredNetworkBytes4Request)(nil),            // 68: job.UpdateTransferredNetworkBytes4Request
-	(*UpdateTransferredNetworkBytes4Response)(nil),           // 69: job.UpdateTransferredNetworkBytes4Response
-	(*UpdateTransferredNetworkBytes3_1Request)(nil),          // 70: job.UpdateTransferredNetworkBytes3_1Request
-	(*UpdateTransferredNetworkBytes3_1Response)(nil),         // 71: job.UpdateTransferredNetworkBytes3_1Response
-	(*NewPendingJobReasonsInfoRequest)(nil),                  // 72: job.NewPendingJobReasonsInfoRequest
-	(*NewPendingJobReasonsInfoResponse)(nil),                 // 73: job.NewPendingJobReasonsInfoResponse
-	(*PendingJobReasonsInfoGetPendingJobReasonsRequest)(nil), // 74: job.PendingJobReasonsInfoGetPendingJobReasonsRequest
-	(*GetTimestampMillisRequest)(nil),                        // 75: job.GetTimestampMillisRequest
-	(*GetTimestampMillisResponse)(nil),                       // 76: job.GetTimestampMillisResponse
-	(*GetBinderRequest)(nil),                                 // 77: job.GetBinderRequest
-	(*GetBinderResponse)(nil),                                // 78: job.GetBinderResponse
-	(*UpdateEstimatedNetworkBytesRequest)(nil),               // 79: job.UpdateEstimatedNetworkBytesRequest
-	(*UpdateEstimatedNetworkBytesResponse)(nil),              // 80: job.UpdateEstimatedNetworkBytesResponse
-	(*UpdateTransferredNetworkBytesRequest)(nil),             // 81: job.UpdateTransferredNetworkBytesRequest
-	(*UpdateTransferredNetworkBytesResponse)(nil),            // 82: job.UpdateTransferredNetworkBytesResponse
-	(*InfoDescribeContentsRequest)(nil),                      // 83: job.InfoDescribeContentsRequest
-	(*EqualsRequest)(nil),                                    // 84: job.EqualsRequest
-	(*EqualsResponse)(nil),                                   // 85: job.EqualsResponse
-	(*GetBackoffPolicyRequest)(nil),                          // 86: job.GetBackoffPolicyRequest
-	(*GetBackoffPolicyResponse)(nil),                         // 87: job.GetBackoffPolicyResponse
-	(*GetClipDataRequest)(nil),                               // 88: job.GetClipDataRequest
-	(*GetClipDataResponse)(nil),                              // 89: job.GetClipDataResponse
-	(*GetClipGrantFlagsRequest)(nil),                         // 90: job.GetClipGrantFlagsRequest
-	(*GetClipGrantFlagsResponse)(nil),                        // 91: job.GetClipGrantFlagsResponse
-	(*InfoGetEstimatedNetworkDownloadBytesRequest)(nil),      // 92: job.InfoGetEstimatedNetworkDownloadBytesRequest
-	(*InfoGetEstimatedNetworkUploadBytesRequest)(nil),        // 93: job.InfoGetEstimatedNetworkUploadBytesRequest
-	(*InfoGetExtrasRequest)(nil),                             // 94: job.InfoGetExtrasRequest
-	(*GetFlexMillisRequest)(nil),                             // 95: job.GetFlexMillisRequest
-	(*GetFlexMillisResponse)(nil),                            // 96: job.GetFlexMillisResponse
-	(*GetIdRequest)(nil),                                     // 97: job.GetIdRequest
-	(*GetIdResponse)(nil),                                    // 98: job.GetIdResponse
-	(*GetInitialBackoffMillisRequest)(nil),                   // 99: job.GetInitialBackoffMillisRequest
-	(*GetInitialBackoffMillisResponse)(nil),                  // 100: job.GetInitialBackoffMillisResponse
-	(*GetIntervalMillisRequest)(nil),                         // 101: job.GetIntervalMillisRequest
-	(*GetIntervalMillisResponse)(nil),                        // 102: job.GetIntervalMillisResponse
-	(*GetMaxExecutionDelayMillisRequest)(nil),                // 103: job.GetMaxExecutionDelayMillisRequest
-	(*GetMaxExecutionDelayMillisResponse)(nil),               // 104: job.GetMaxExecutionDelayMillisResponse
-	(*GetMinLatencyMillisRequest)(nil),                       // 105: job.GetMinLatencyMillisRequest
-	(*GetMinLatencyMillisResponse)(nil),                      // 106: job.GetMinLatencyMillisResponse
-	(*InfoGetMinimumNetworkChunkBytesRequest)(nil),           // 107: job.InfoGetMinimumNetworkChunkBytesRequest
-	(*GetNetworkTypeRequest)(nil),                            // 108: job.GetNetworkTypeRequest
-	(*GetNetworkTypeResponse)(nil),                           // 109: job.GetNetworkTypeResponse
-	(*GetPriorityRequest)(nil),                               // 110: job.GetPriorityRequest
-	(*GetPriorityResponse)(nil),                              // 111: job.GetPriorityResponse
-	(*GetRequiredNetworkRequest)(nil),                        // 112: job.GetRequiredNetworkRequest
-	(*GetRequiredNetworkResponse)(nil),                       // 113: job.GetRequiredNetworkResponse
-	(*GetServiceRequest)(nil),                                // 114: job.GetServiceRequest
-	(*GetServiceResponse)(nil),                               // 115: job.GetServiceResponse
-	(*GetTraceTagRequest)(nil),                               // 116: job.GetTraceTagRequest
-	(*GetTraceTagResponse)(nil),                              // 117: job.GetTraceTagResponse
-	(*GetTransientExtrasRequest)(nil),                        // 118: job.GetTransientExtrasRequest
-	(*GetTransientExtrasResponse)(nil),                       // 119: job.GetTransientExtrasResponse
-	(*GetTriggerContentMaxDelayRequest)(nil),                 // 120: job.GetTriggerContentMaxDelayRequest
-	(*GetTriggerContentMaxDelayResponse)(nil),                // 121: job.GetTriggerContentMaxDelayResponse
-	(*GetTriggerContentUpdateDelayRequest)(nil),              // 122: job.GetTriggerContentUpdateDelayRequest
-	(*GetTriggerContentUpdateDelayResponse)(nil),             // 123: job.GetTriggerContentUpdateDelayResponse
-	(*GetTriggerContentUrisRequest)(nil),                     // 124: job.GetTriggerContentUrisRequest
-	(*GetTriggerContentUrisResponse)(nil),                    // 125: job.GetTriggerContentUrisResponse
-	(*HashCodeRequest)(nil),                                  // 126: job.HashCodeRequest
-	(*HashCodeResponse)(nil),                                 // 127: job.HashCodeResponse
-	(*IsExpeditedRequest)(nil),                               // 128: job.IsExpeditedRequest
-	(*IsExpeditedResponse)(nil),                              // 129: job.IsExpeditedResponse
-	(*IsImportantWhileForegroundRequest)(nil),                // 130: job.IsImportantWhileForegroundRequest
-	(*IsImportantWhileForegroundResponse)(nil),               // 131: job.IsImportantWhileForegroundResponse
-	(*IsPeriodicRequest)(nil),                                // 132: job.IsPeriodicRequest
-	(*IsPeriodicResponse)(nil),                               // 133: job.IsPeriodicResponse
-	(*IsPersistedRequest)(nil),                               // 134: job.IsPersistedRequest
-	(*IsPersistedResponse)(nil),                              // 135: job.IsPersistedResponse
-	(*IsPrefetchRequest)(nil),                                // 136: job.IsPrefetchRequest
-	(*IsPrefetchResponse)(nil),                               // 137: job.IsPrefetchResponse
-	(*IsRequireBatteryNotLowRequest)(nil),                    // 138: job.IsRequireBatteryNotLowRequest
-	(*IsRequireBatteryNotLowResponse)(nil),                   // 139: job.IsRequireBatteryNotLowResponse
-	(*IsRequireChargingRequest)(nil),                         // 140: job.IsRequireChargingRequest
-	(*IsRequireChargingResponse)(nil),                        // 141: job.IsRequireChargingResponse
-	(*IsRequireDeviceIdleRequest)(nil),                       // 142: job.IsRequireDeviceIdleRequest
-	(*IsRequireDeviceIdleResponse)(nil),                      // 143: job.IsRequireDeviceIdleResponse
-	(*IsRequireStorageNotLowRequest)(nil),                    // 144: job.IsRequireStorageNotLowRequest
-	(*IsRequireStorageNotLowResponse)(nil),                   // 145: job.IsRequireStorageNotLowResponse
-	(*IsUserInitiatedRequest)(nil),                           // 146: job.IsUserInitiatedRequest
-	(*IsUserInitiatedResponse)(nil),                          // 147: job.IsUserInitiatedResponse
-	(*InfoToStringRequest)(nil),                              // 148: job.InfoToStringRequest
-	(*InfoWriteToParcelRequest)(nil),                         // 149: job.InfoWriteToParcelRequest
-	(*GetMinFlexMillisRequest)(nil),                          // 150: job.GetMinFlexMillisRequest
-	(*GetMinFlexMillisResponse)(nil),                         // 151: job.GetMinFlexMillisResponse
-	(*GetMinPeriodMillisRequest)(nil),                        // 152: job.GetMinPeriodMillisRequest
-	(*GetMinPeriodMillisResponse)(nil),                       // 153: job.GetMinPeriodMillisResponse
-	(*AddDebugTagRequest)(nil),                               // 154: job.AddDebugTagRequest
-	(*AddDebugTagResponse)(nil),                              // 155: job.AddDebugTagResponse
-	(*AddTriggerContentUriRequest)(nil),                      // 156: job.AddTriggerContentUriRequest
-	(*AddTriggerContentUriResponse)(nil),                     // 157: job.AddTriggerContentUriResponse
-	(*RemoveDebugTagRequest)(nil),                            // 158: job.RemoveDebugTagRequest
-	(*RemoveDebugTagResponse)(nil),                           // 159: job.RemoveDebugTagResponse
-	(*SetBackoffCriteriaRequest)(nil),                        // 160: job.SetBackoffCriteriaRequest
-	(*SetBackoffCriteriaResponse)(nil),                       // 161: job.SetBackoffCriteriaResponse
-	(*SetClipDataRequest)(nil),                               // 162: job.SetClipDataRequest
-	(*SetClipDataResponse)(nil),                              // 163: job.SetClipDataResponse
-	(*SetExpeditedRequest)(nil),                              // 164: job.SetExpeditedRequest
-	(*SetExpeditedResponse)(nil),                             // 165: job.SetExpeditedResponse
-	(*SetImportantWhileForegroundRequest)(nil),               // 166: job.SetImportantWhileForegroundRequest
-	(*SetImportantWhileForegroundResponse)(nil),              // 167: job.SetImportantWhileForegroundResponse
-	(*SetMinimumLatencyRequest)(nil),                         // 168: job.SetMinimumLatencyRequest
-	(*SetMinimumLatencyResponse)(nil),                        // 169: job.SetMinimumLatencyResponse
-	(*SetOverrideDeadlineRequest)(nil),                       // 170: job.SetOverrideDeadlineRequest
-	(*SetOverrideDeadlineResponse)(nil),                      // 171: job.SetOverrideDeadlineResponse
-	(*SetPeriodic1Request)(nil),                              // 172: job.SetPeriodic1Request
-	(*SetPeriodic1Response)(nil),                             // 173: job.SetPeriodic1Response
-	(*SetPeriodic2_1Request)(nil),                            // 174: job.SetPeriodic2_1Request
-	(*SetPeriodic2_1Response)(nil),                           // 175: job.SetPeriodic2_1Response
-	(*SetPersistedRequest)(nil),                              // 176: job.SetPersistedRequest
-	(*SetPersistedResponse)(nil),                             // 177: job.SetPersistedResponse
-	(*SetPrefetchRequest)(nil),                               // 178: job.SetPrefetchRequest
-	(*SetPrefetchResponse)(nil),                              // 179: job.SetPrefetchResponse
-	(*SetPriorityRequest)(nil),                               // 180: job.SetPriorityRequest
-	(*SetPriorityResponse)(nil),                              // 181: job.SetPriorityResponse
-	(*SetRequiredNetworkRequest)(nil),                        // 182: job.SetRequiredNetworkRequest
-	(*SetRequiredNetworkResponse)(nil),                       // 183: job.SetRequiredNetworkResponse
-	(*SetRequiredNetworkTypeRequest)(nil),                    // 184: job.SetRequiredNetworkTypeRequest
-	(*SetRequiredNetworkTypeResponse)(nil),                   // 185: job.SetRequiredNetworkTypeResponse
-	(*SetRequiresBatteryNotLowRequest)(nil),                  // 186: job.SetRequiresBatteryNotLowRequest
-	(*SetRequiresBatteryNotLowResponse)(nil),                 // 187: job.SetRequiresBatteryNotLowResponse
-	(*SetRequiresChargingRequest)(nil),                       // 188: job.SetRequiresChargingRequest
-	(*SetRequiresChargingResponse)(nil),                      // 189: job.SetRequiresChargingResponse
-	(*SetRequiresDeviceIdleRequest)(nil),                     // 190: job.SetRequiresDeviceIdleRequest
-	(*SetRequiresDeviceIdleResponse)(nil),                    // 191: job.SetRequiresDeviceIdleResponse
-	(*SetRequiresStorageNotLowRequest)(nil),                  // 192: job.SetRequiresStorageNotLowRequest
-	(*SetRequiresStorageNotLowResponse)(nil),                 // 193: job.SetRequiresStorageNotLowResponse
-	(*SetTraceTagRequest)(nil),                               // 194: job.SetTraceTagRequest
-	(*SetTraceTagResponse)(nil),                              // 195: job.SetTraceTagResponse
-	(*SetTransientExtrasRequest)(nil),                        // 196: job.SetTransientExtrasRequest
-	(*SetTransientExtrasResponse)(nil),                       // 197: job.SetTransientExtrasResponse
-	(*SetTriggerContentMaxDelayRequest)(nil),                 // 198: job.SetTriggerContentMaxDelayRequest
-	(*SetTriggerContentMaxDelayResponse)(nil),                // 199: job.SetTriggerContentMaxDelayResponse
-	(*SetTriggerContentUpdateDelayRequest)(nil),              // 200: job.SetTriggerContentUpdateDelayRequest
-	(*SetTriggerContentUpdateDelayResponse)(nil),             // 201: job.SetTriggerContentUpdateDelayResponse
-	(*SetUserInitiatedRequest)(nil),                          // 202: job.SetUserInitiatedRequest
-	(*SetUserInitiatedResponse)(nil),                         // 203: job.SetUserInitiatedResponse
-	(*InfoTriggerContentUriDescribeContentsRequest)(nil),     // 204: job.InfoTriggerContentUriDescribeContentsRequest
-	(*GetFlagsRequest)(nil),                                  // 205: job.GetFlagsRequest
-	(*GetFlagsResponse)(nil),                                 // 206: job.GetFlagsResponse
-	(*GetUriRequest)(nil),                                    // 207: job.GetUriRequest
-	(*GetUriResponse)(nil),                                   // 208: job.GetUriResponse
-	(*InfoTriggerContentUriWriteToParcelRequest)(nil),        // 209: job.InfoTriggerContentUriWriteToParcelRequest
-	(*CompleteWorkRequest)(nil),                              // 210: job.CompleteWorkRequest
-	(*CompleteWorkResponse)(nil),                             // 211: job.CompleteWorkResponse
-	(*DequeueWorkRequest)(nil),                               // 212: job.DequeueWorkRequest
-	(*DequeueWorkResponse)(nil),                              // 213: job.DequeueWorkResponse
-	(*ParametersDescribeContentsRequest)(nil),                // 214: job.ParametersDescribeContentsRequest
-	(*ParametersGetExtrasRequest)(nil),                       // 215: job.ParametersGetExtrasRequest
-	(*GetJobIdRequest)(nil),                                  // 216: job.GetJobIdRequest
-	(*GetJobIdResponse)(nil),                                 // 217: job.GetJobIdResponse
-	(*GetJobNamespaceRequest)(nil),                           // 218: job.GetJobNamespaceRequest
-	(*GetJobNamespaceResponse)(nil),                          // 219: job.GetJobNamespaceResponse
-	(*GetNetworkRequest)(nil),                                // 220: job.GetNetworkRequest
-	(*GetNetworkResponse)(nil),                               // 221: job.GetNetworkResponse
-	(*GetStopReasonRequest)(nil),                             // 222: job.GetStopReasonRequest
-	(*GetStopReasonResponse)(nil),                            // 223: job.GetStopReasonResponse
-	(*GetTriggeredContentAuthoritiesRequest)(nil),            // 224: job.GetTriggeredContentAuthoritiesRequest
-	(*GetTriggeredContentAuthoritiesResponse)(nil),           // 225: job.GetTriggeredContentAuthoritiesResponse
-	(*GetTriggeredContentUrisRequest)(nil),                   // 226: job.GetTriggeredContentUrisRequest
-	(*GetTriggeredContentUrisResponse)(nil),                  // 227: job.GetTriggeredContentUrisResponse
-	(*IsExpeditedJobRequest)(nil),                            // 228: job.IsExpeditedJobRequest
-	(*IsExpeditedJobResponse)(nil),                           // 229: job.IsExpeditedJobResponse
-	(*IsOverrideDeadlineExpiredRequest)(nil),                 // 230: job.IsOverrideDeadlineExpiredRequest
-	(*IsOverrideDeadlineExpiredResponse)(nil),                // 231: job.IsOverrideDeadlineExpiredResponse
-	(*IsUserInitiatedJobRequest)(nil),                        // 232: job.IsUserInitiatedJobRequest
-	(*IsUserInitiatedJobResponse)(nil),                       // 233: job.IsUserInitiatedJobResponse
-	(*ParametersWriteToParcelRequest)(nil),                   // 234: job.ParametersWriteToParcelRequest
+	(*NewWorkItemRequest)(nil),                           // 0: job.NewWorkItemRequest
+	(*NewWorkItemResponse)(nil),                          // 1: job.NewWorkItemResponse
+	(*DescribeContentsRequest)(nil),                      // 2: job.DescribeContentsRequest
+	(*DescribeContentsResponse)(nil),                     // 3: job.DescribeContentsResponse
+	(*GetDeliveryCountRequest)(nil),                      // 4: job.GetDeliveryCountRequest
+	(*GetDeliveryCountResponse)(nil),                     // 5: job.GetDeliveryCountResponse
+	(*GetEstimatedNetworkDownloadBytesRequest)(nil),      // 6: job.GetEstimatedNetworkDownloadBytesRequest
+	(*GetEstimatedNetworkDownloadBytesResponse)(nil),     // 7: job.GetEstimatedNetworkDownloadBytesResponse
+	(*GetEstimatedNetworkUploadBytesRequest)(nil),        // 8: job.GetEstimatedNetworkUploadBytesRequest
+	(*GetEstimatedNetworkUploadBytesResponse)(nil),       // 9: job.GetEstimatedNetworkUploadBytesResponse
+	(*GetExtrasRequest)(nil),                             // 10: job.GetExtrasRequest
+	(*GetExtrasResponse)(nil),                            // 11: job.GetExtrasResponse
+	(*GetIntentRequest)(nil),                             // 12: job.GetIntentRequest
+	(*GetIntentResponse)(nil),                            // 13: job.GetIntentResponse
+	(*GetMinimumNetworkChunkBytesRequest)(nil),           // 14: job.GetMinimumNetworkChunkBytesRequest
+	(*GetMinimumNetworkChunkBytesResponse)(nil),          // 15: job.GetMinimumNetworkChunkBytesResponse
+	(*ToStringRequest)(nil),                              // 16: job.ToStringRequest
+	(*ToStringResponse)(nil),                             // 17: job.ToStringResponse
+	(*WriteToParcelRequest)(nil),                         // 18: job.WriteToParcelRequest
+	(*WriteToParcelResponse)(nil),                        // 19: job.WriteToParcelResponse
+	(*BuildRequest)(nil),                                 // 20: job.BuildRequest
+	(*BuildResponse)(nil),                                // 21: job.BuildResponse
+	(*SetEstimatedNetworkBytesRequest)(nil),              // 22: job.SetEstimatedNetworkBytesRequest
+	(*SetEstimatedNetworkBytesResponse)(nil),             // 23: job.SetEstimatedNetworkBytesResponse
+	(*SetExtrasRequest)(nil),                             // 24: job.SetExtrasRequest
+	(*SetExtrasResponse)(nil),                            // 25: job.SetExtrasResponse
+	(*SetIntentRequest)(nil),                             // 26: job.SetIntentRequest
+	(*SetIntentResponse)(nil),                            // 27: job.SetIntentResponse
+	(*SetMinimumNetworkChunkBytesRequest)(nil),           // 28: job.SetMinimumNetworkChunkBytesRequest
+	(*SetMinimumNetworkChunkBytesResponse)(nil),          // 29: job.SetMinimumNetworkChunkBytesResponse
+	(*NewPendingJobReasonsInfoRequest)(nil),              // 30: job.NewPendingJobReasonsInfoRequest
+	(*NewPendingJobReasonsInfoResponse)(nil),             // 31: job.NewPendingJobReasonsInfoResponse
+	(*GetPendingJobReasonsRequest)(nil),                  // 32: job.GetPendingJobReasonsRequest
+	(*GetPendingJobReasonsResponse)(nil),                 // 33: job.GetPendingJobReasonsResponse
+	(*GetTimestampMillisRequest)(nil),                    // 34: job.GetTimestampMillisRequest
+	(*GetTimestampMillisResponse)(nil),                   // 35: job.GetTimestampMillisResponse
+	(*InfoDescribeContentsRequest)(nil),                  // 36: job.InfoDescribeContentsRequest
+	(*EqualsRequest)(nil),                                // 37: job.EqualsRequest
+	(*EqualsResponse)(nil),                               // 38: job.EqualsResponse
+	(*GetBackoffPolicyRequest)(nil),                      // 39: job.GetBackoffPolicyRequest
+	(*GetBackoffPolicyResponse)(nil),                     // 40: job.GetBackoffPolicyResponse
+	(*GetClipDataRequest)(nil),                           // 41: job.GetClipDataRequest
+	(*GetClipDataResponse)(nil),                          // 42: job.GetClipDataResponse
+	(*GetClipGrantFlagsRequest)(nil),                     // 43: job.GetClipGrantFlagsRequest
+	(*GetClipGrantFlagsResponse)(nil),                    // 44: job.GetClipGrantFlagsResponse
+	(*GetDebugTagsRequest)(nil),                          // 45: job.GetDebugTagsRequest
+	(*GetDebugTagsResponse)(nil),                         // 46: job.GetDebugTagsResponse
+	(*InfoGetEstimatedNetworkDownloadBytesRequest)(nil),  // 47: job.InfoGetEstimatedNetworkDownloadBytesRequest
+	(*InfoGetEstimatedNetworkUploadBytesRequest)(nil),    // 48: job.InfoGetEstimatedNetworkUploadBytesRequest
+	(*InfoGetExtrasRequest)(nil),                         // 49: job.InfoGetExtrasRequest
+	(*GetFlexMillisRequest)(nil),                         // 50: job.GetFlexMillisRequest
+	(*GetFlexMillisResponse)(nil),                        // 51: job.GetFlexMillisResponse
+	(*GetIdRequest)(nil),                                 // 52: job.GetIdRequest
+	(*GetIdResponse)(nil),                                // 53: job.GetIdResponse
+	(*GetInitialBackoffMillisRequest)(nil),               // 54: job.GetInitialBackoffMillisRequest
+	(*GetInitialBackoffMillisResponse)(nil),              // 55: job.GetInitialBackoffMillisResponse
+	(*GetIntervalMillisRequest)(nil),                     // 56: job.GetIntervalMillisRequest
+	(*GetIntervalMillisResponse)(nil),                    // 57: job.GetIntervalMillisResponse
+	(*GetMaxExecutionDelayMillisRequest)(nil),            // 58: job.GetMaxExecutionDelayMillisRequest
+	(*GetMaxExecutionDelayMillisResponse)(nil),           // 59: job.GetMaxExecutionDelayMillisResponse
+	(*GetMinLatencyMillisRequest)(nil),                   // 60: job.GetMinLatencyMillisRequest
+	(*GetMinLatencyMillisResponse)(nil),                  // 61: job.GetMinLatencyMillisResponse
+	(*InfoGetMinimumNetworkChunkBytesRequest)(nil),       // 62: job.InfoGetMinimumNetworkChunkBytesRequest
+	(*GetNetworkTypeRequest)(nil),                        // 63: job.GetNetworkTypeRequest
+	(*GetNetworkTypeResponse)(nil),                       // 64: job.GetNetworkTypeResponse
+	(*GetPriorityRequest)(nil),                           // 65: job.GetPriorityRequest
+	(*GetPriorityResponse)(nil),                          // 66: job.GetPriorityResponse
+	(*GetRequiredNetworkRequest)(nil),                    // 67: job.GetRequiredNetworkRequest
+	(*GetRequiredNetworkResponse)(nil),                   // 68: job.GetRequiredNetworkResponse
+	(*GetServiceRequest)(nil),                            // 69: job.GetServiceRequest
+	(*GetServiceResponse)(nil),                           // 70: job.GetServiceResponse
+	(*GetTraceTagRequest)(nil),                           // 71: job.GetTraceTagRequest
+	(*GetTraceTagResponse)(nil),                          // 72: job.GetTraceTagResponse
+	(*GetTransientExtrasRequest)(nil),                    // 73: job.GetTransientExtrasRequest
+	(*GetTransientExtrasResponse)(nil),                   // 74: job.GetTransientExtrasResponse
+	(*GetTriggerContentMaxDelayRequest)(nil),             // 75: job.GetTriggerContentMaxDelayRequest
+	(*GetTriggerContentMaxDelayResponse)(nil),            // 76: job.GetTriggerContentMaxDelayResponse
+	(*GetTriggerContentUpdateDelayRequest)(nil),          // 77: job.GetTriggerContentUpdateDelayRequest
+	(*GetTriggerContentUpdateDelayResponse)(nil),         // 78: job.GetTriggerContentUpdateDelayResponse
+	(*GetTriggerContentUrisRequest)(nil),                 // 79: job.GetTriggerContentUrisRequest
+	(*GetTriggerContentUrisResponse)(nil),                // 80: job.GetTriggerContentUrisResponse
+	(*HashCodeRequest)(nil),                              // 81: job.HashCodeRequest
+	(*HashCodeResponse)(nil),                             // 82: job.HashCodeResponse
+	(*IsExpeditedRequest)(nil),                           // 83: job.IsExpeditedRequest
+	(*IsExpeditedResponse)(nil),                          // 84: job.IsExpeditedResponse
+	(*IsImportantWhileForegroundRequest)(nil),            // 85: job.IsImportantWhileForegroundRequest
+	(*IsImportantWhileForegroundResponse)(nil),           // 86: job.IsImportantWhileForegroundResponse
+	(*IsPeriodicRequest)(nil),                            // 87: job.IsPeriodicRequest
+	(*IsPeriodicResponse)(nil),                           // 88: job.IsPeriodicResponse
+	(*IsPersistedRequest)(nil),                           // 89: job.IsPersistedRequest
+	(*IsPersistedResponse)(nil),                          // 90: job.IsPersistedResponse
+	(*IsPrefetchRequest)(nil),                            // 91: job.IsPrefetchRequest
+	(*IsPrefetchResponse)(nil),                           // 92: job.IsPrefetchResponse
+	(*IsRequireBatteryNotLowRequest)(nil),                // 93: job.IsRequireBatteryNotLowRequest
+	(*IsRequireBatteryNotLowResponse)(nil),               // 94: job.IsRequireBatteryNotLowResponse
+	(*IsRequireChargingRequest)(nil),                     // 95: job.IsRequireChargingRequest
+	(*IsRequireChargingResponse)(nil),                    // 96: job.IsRequireChargingResponse
+	(*IsRequireDeviceIdleRequest)(nil),                   // 97: job.IsRequireDeviceIdleRequest
+	(*IsRequireDeviceIdleResponse)(nil),                  // 98: job.IsRequireDeviceIdleResponse
+	(*IsRequireStorageNotLowRequest)(nil),                // 99: job.IsRequireStorageNotLowRequest
+	(*IsRequireStorageNotLowResponse)(nil),               // 100: job.IsRequireStorageNotLowResponse
+	(*IsUserInitiatedRequest)(nil),                       // 101: job.IsUserInitiatedRequest
+	(*IsUserInitiatedResponse)(nil),                      // 102: job.IsUserInitiatedResponse
+	(*InfoToStringRequest)(nil),                          // 103: job.InfoToStringRequest
+	(*InfoWriteToParcelRequest)(nil),                     // 104: job.InfoWriteToParcelRequest
+	(*GetMinFlexMillisRequest)(nil),                      // 105: job.GetMinFlexMillisRequest
+	(*GetMinFlexMillisResponse)(nil),                     // 106: job.GetMinFlexMillisResponse
+	(*GetMinPeriodMillisRequest)(nil),                    // 107: job.GetMinPeriodMillisRequest
+	(*GetMinPeriodMillisResponse)(nil),                   // 108: job.GetMinPeriodMillisResponse
+	(*AddDebugTagRequest)(nil),                           // 109: job.AddDebugTagRequest
+	(*AddDebugTagResponse)(nil),                          // 110: job.AddDebugTagResponse
+	(*AddTriggerContentUriRequest)(nil),                  // 111: job.AddTriggerContentUriRequest
+	(*AddTriggerContentUriResponse)(nil),                 // 112: job.AddTriggerContentUriResponse
+	(*RemoveDebugTagRequest)(nil),                        // 113: job.RemoveDebugTagRequest
+	(*RemoveDebugTagResponse)(nil),                       // 114: job.RemoveDebugTagResponse
+	(*SetBackoffCriteriaRequest)(nil),                    // 115: job.SetBackoffCriteriaRequest
+	(*SetBackoffCriteriaResponse)(nil),                   // 116: job.SetBackoffCriteriaResponse
+	(*SetClipDataRequest)(nil),                           // 117: job.SetClipDataRequest
+	(*SetClipDataResponse)(nil),                          // 118: job.SetClipDataResponse
+	(*SetExpeditedRequest)(nil),                          // 119: job.SetExpeditedRequest
+	(*SetExpeditedResponse)(nil),                         // 120: job.SetExpeditedResponse
+	(*SetImportantWhileForegroundRequest)(nil),           // 121: job.SetImportantWhileForegroundRequest
+	(*SetImportantWhileForegroundResponse)(nil),          // 122: job.SetImportantWhileForegroundResponse
+	(*SetMinimumLatencyRequest)(nil),                     // 123: job.SetMinimumLatencyRequest
+	(*SetMinimumLatencyResponse)(nil),                    // 124: job.SetMinimumLatencyResponse
+	(*SetOverrideDeadlineRequest)(nil),                   // 125: job.SetOverrideDeadlineRequest
+	(*SetOverrideDeadlineResponse)(nil),                  // 126: job.SetOverrideDeadlineResponse
+	(*SetPeriodic1Request)(nil),                          // 127: job.SetPeriodic1Request
+	(*SetPeriodic1Response)(nil),                         // 128: job.SetPeriodic1Response
+	(*SetPeriodic2_1Request)(nil),                        // 129: job.SetPeriodic2_1Request
+	(*SetPeriodic2_1Response)(nil),                       // 130: job.SetPeriodic2_1Response
+	(*SetPersistedRequest)(nil),                          // 131: job.SetPersistedRequest
+	(*SetPersistedResponse)(nil),                         // 132: job.SetPersistedResponse
+	(*SetPrefetchRequest)(nil),                           // 133: job.SetPrefetchRequest
+	(*SetPrefetchResponse)(nil),                          // 134: job.SetPrefetchResponse
+	(*SetPriorityRequest)(nil),                           // 135: job.SetPriorityRequest
+	(*SetPriorityResponse)(nil),                          // 136: job.SetPriorityResponse
+	(*SetRequiredNetworkRequest)(nil),                    // 137: job.SetRequiredNetworkRequest
+	(*SetRequiredNetworkResponse)(nil),                   // 138: job.SetRequiredNetworkResponse
+	(*SetRequiredNetworkTypeRequest)(nil),                // 139: job.SetRequiredNetworkTypeRequest
+	(*SetRequiredNetworkTypeResponse)(nil),               // 140: job.SetRequiredNetworkTypeResponse
+	(*SetRequiresBatteryNotLowRequest)(nil),              // 141: job.SetRequiresBatteryNotLowRequest
+	(*SetRequiresBatteryNotLowResponse)(nil),             // 142: job.SetRequiresBatteryNotLowResponse
+	(*SetRequiresChargingRequest)(nil),                   // 143: job.SetRequiresChargingRequest
+	(*SetRequiresChargingResponse)(nil),                  // 144: job.SetRequiresChargingResponse
+	(*SetRequiresDeviceIdleRequest)(nil),                 // 145: job.SetRequiresDeviceIdleRequest
+	(*SetRequiresDeviceIdleResponse)(nil),                // 146: job.SetRequiresDeviceIdleResponse
+	(*SetRequiresStorageNotLowRequest)(nil),              // 147: job.SetRequiresStorageNotLowRequest
+	(*SetRequiresStorageNotLowResponse)(nil),             // 148: job.SetRequiresStorageNotLowResponse
+	(*SetTraceTagRequest)(nil),                           // 149: job.SetTraceTagRequest
+	(*SetTraceTagResponse)(nil),                          // 150: job.SetTraceTagResponse
+	(*SetTransientExtrasRequest)(nil),                    // 151: job.SetTransientExtrasRequest
+	(*SetTransientExtrasResponse)(nil),                   // 152: job.SetTransientExtrasResponse
+	(*SetTriggerContentMaxDelayRequest)(nil),             // 153: job.SetTriggerContentMaxDelayRequest
+	(*SetTriggerContentMaxDelayResponse)(nil),            // 154: job.SetTriggerContentMaxDelayResponse
+	(*SetTriggerContentUpdateDelayRequest)(nil),          // 155: job.SetTriggerContentUpdateDelayRequest
+	(*SetTriggerContentUpdateDelayResponse)(nil),         // 156: job.SetTriggerContentUpdateDelayResponse
+	(*SetUserInitiatedRequest)(nil),                      // 157: job.SetUserInitiatedRequest
+	(*SetUserInitiatedResponse)(nil),                     // 158: job.SetUserInitiatedResponse
+	(*InfoTriggerContentUriDescribeContentsRequest)(nil), // 159: job.InfoTriggerContentUriDescribeContentsRequest
+	(*GetFlagsRequest)(nil),                              // 160: job.GetFlagsRequest
+	(*GetFlagsResponse)(nil),                             // 161: job.GetFlagsResponse
+	(*GetUriRequest)(nil),                                // 162: job.GetUriRequest
+	(*GetUriResponse)(nil),                               // 163: job.GetUriResponse
+	(*InfoTriggerContentUriWriteToParcelRequest)(nil),    // 164: job.InfoTriggerContentUriWriteToParcelRequest
+	(*JobFinishedRequest)(nil),                           // 165: job.JobFinishedRequest
+	(*JobFinishedResponse)(nil),                          // 166: job.JobFinishedResponse
+	(*OnBindRequest)(nil),                                // 167: job.OnBindRequest
+	(*OnBindResponse)(nil),                               // 168: job.OnBindResponse
+	(*OnNetworkChangedRequest)(nil),                      // 169: job.OnNetworkChangedRequest
+	(*OnNetworkChangedResponse)(nil),                     // 170: job.OnNetworkChangedResponse
+	(*OnStartJobRequest)(nil),                            // 171: job.OnStartJobRequest
+	(*OnStartJobResponse)(nil),                           // 172: job.OnStartJobResponse
+	(*OnStopJobRequest)(nil),                             // 173: job.OnStopJobRequest
+	(*OnStopJobResponse)(nil),                            // 174: job.OnStopJobResponse
+	(*SetNotificationRequest)(nil),                       // 175: job.SetNotificationRequest
+	(*SetNotificationResponse)(nil),                      // 176: job.SetNotificationResponse
+	(*UpdateEstimatedNetworkBytes4Request)(nil),          // 177: job.UpdateEstimatedNetworkBytes4Request
+	(*UpdateEstimatedNetworkBytes4Response)(nil),         // 178: job.UpdateEstimatedNetworkBytes4Response
+	(*UpdateEstimatedNetworkBytes3_1Request)(nil),        // 179: job.UpdateEstimatedNetworkBytes3_1Request
+	(*UpdateEstimatedNetworkBytes3_1Response)(nil),       // 180: job.UpdateEstimatedNetworkBytes3_1Response
+	(*UpdateTransferredNetworkBytes4Request)(nil),        // 181: job.UpdateTransferredNetworkBytes4Request
+	(*UpdateTransferredNetworkBytes4Response)(nil),       // 182: job.UpdateTransferredNetworkBytes4Response
+	(*UpdateTransferredNetworkBytes3_1Request)(nil),      // 183: job.UpdateTransferredNetworkBytes3_1Request
+	(*UpdateTransferredNetworkBytes3_1Response)(nil),     // 184: job.UpdateTransferredNetworkBytes3_1Response
+	(*CanRunUserInitiatedJobsRequest)(nil),               // 185: job.CanRunUserInitiatedJobsRequest
+	(*CanRunUserInitiatedJobsResponse)(nil),              // 186: job.CanRunUserInitiatedJobsResponse
+	(*CancelRequest)(nil),                                // 187: job.CancelRequest
+	(*CancelResponse)(nil),                               // 188: job.CancelResponse
+	(*CancelAllRequest)(nil),                             // 189: job.CancelAllRequest
+	(*CancelAllResponse)(nil),                            // 190: job.CancelAllResponse
+	(*CancelInAllNamespacesRequest)(nil),                 // 191: job.CancelInAllNamespacesRequest
+	(*CancelInAllNamespacesResponse)(nil),                // 192: job.CancelInAllNamespacesResponse
+	(*EnqueueRequest)(nil),                               // 193: job.EnqueueRequest
+	(*EnqueueResponse)(nil),                              // 194: job.EnqueueResponse
+	(*ForNamespaceRequest)(nil),                          // 195: job.ForNamespaceRequest
+	(*ForNamespaceResponse)(nil),                         // 196: job.ForNamespaceResponse
+	(*GetAllPendingJobsRequest)(nil),                     // 197: job.GetAllPendingJobsRequest
+	(*GetAllPendingJobsResponse)(nil),                    // 198: job.GetAllPendingJobsResponse
+	(*GetNamespaceRequest)(nil),                          // 199: job.GetNamespaceRequest
+	(*GetNamespaceResponse)(nil),                         // 200: job.GetNamespaceResponse
+	(*GetPendingJobRequest)(nil),                         // 201: job.GetPendingJobRequest
+	(*GetPendingJobResponse)(nil),                        // 202: job.GetPendingJobResponse
+	(*GetPendingJobReasonRequest)(nil),                   // 203: job.GetPendingJobReasonRequest
+	(*GetPendingJobReasonResponse)(nil),                  // 204: job.GetPendingJobReasonResponse
+	(*SchedulerGetPendingJobReasonsRequest)(nil),         // 205: job.SchedulerGetPendingJobReasonsRequest
+	(*GetPendingJobReasonsHistoryRequest)(nil),           // 206: job.GetPendingJobReasonsHistoryRequest
+	(*GetPendingJobReasonsHistoryResponse)(nil),          // 207: job.GetPendingJobReasonsHistoryResponse
+	(*ScheduleRequest)(nil),                              // 208: job.ScheduleRequest
+	(*ScheduleResponse)(nil),                             // 209: job.ScheduleResponse
+	(*CompleteWorkRequest)(nil),                          // 210: job.CompleteWorkRequest
+	(*CompleteWorkResponse)(nil),                         // 211: job.CompleteWorkResponse
+	(*DequeueWorkRequest)(nil),                           // 212: job.DequeueWorkRequest
+	(*DequeueWorkResponse)(nil),                          // 213: job.DequeueWorkResponse
+	(*ParametersDescribeContentsRequest)(nil),            // 214: job.ParametersDescribeContentsRequest
+	(*ParametersGetExtrasRequest)(nil),                   // 215: job.ParametersGetExtrasRequest
+	(*GetJobIdRequest)(nil),                              // 216: job.GetJobIdRequest
+	(*GetJobIdResponse)(nil),                             // 217: job.GetJobIdResponse
+	(*GetJobNamespaceRequest)(nil),                       // 218: job.GetJobNamespaceRequest
+	(*GetJobNamespaceResponse)(nil),                      // 219: job.GetJobNamespaceResponse
+	(*GetNetworkRequest)(nil),                            // 220: job.GetNetworkRequest
+	(*GetNetworkResponse)(nil),                           // 221: job.GetNetworkResponse
+	(*GetStopReasonRequest)(nil),                         // 222: job.GetStopReasonRequest
+	(*GetStopReasonResponse)(nil),                        // 223: job.GetStopReasonResponse
+	(*GetTriggeredContentAuthoritiesRequest)(nil),        // 224: job.GetTriggeredContentAuthoritiesRequest
+	(*GetTriggeredContentAuthoritiesResponse)(nil),       // 225: job.GetTriggeredContentAuthoritiesResponse
+	(*GetTriggeredContentUrisRequest)(nil),               // 226: job.GetTriggeredContentUrisRequest
+	(*GetTriggeredContentUrisResponse)(nil),              // 227: job.GetTriggeredContentUrisResponse
+	(*IsExpeditedJobRequest)(nil),                        // 228: job.IsExpeditedJobRequest
+	(*IsExpeditedJobResponse)(nil),                       // 229: job.IsExpeditedJobResponse
+	(*IsOverrideDeadlineExpiredRequest)(nil),             // 230: job.IsOverrideDeadlineExpiredRequest
+	(*IsOverrideDeadlineExpiredResponse)(nil),            // 231: job.IsOverrideDeadlineExpiredResponse
+	(*IsUserInitiatedJobRequest)(nil),                    // 232: job.IsUserInitiatedJobRequest
+	(*IsUserInitiatedJobResponse)(nil),                   // 233: job.IsUserInitiatedJobResponse
+	(*ParametersWriteToParcelRequest)(nil),               // 234: job.ParametersWriteToParcelRequest
+	(*GetBinderRequest)(nil),                             // 235: job.GetBinderRequest
+	(*GetBinderResponse)(nil),                            // 236: job.GetBinderResponse
+	(*UpdateEstimatedNetworkBytesRequest)(nil),           // 237: job.UpdateEstimatedNetworkBytesRequest
+	(*UpdateEstimatedNetworkBytesResponse)(nil),          // 238: job.UpdateEstimatedNetworkBytesResponse
+	(*UpdateTransferredNetworkBytesRequest)(nil),         // 239: job.UpdateTransferredNetworkBytesRequest
+	(*UpdateTransferredNetworkBytesResponse)(nil),        // 240: job.UpdateTransferredNetworkBytesResponse
 }
 var file_proto_job_job_proto_depIdxs = []int32{
 	0,   // 0: job.WorkItemService.NewWorkItem:input_type -> job.NewWorkItemRequest
@@ -10893,273 +11160,279 @@ var file_proto_job_job_proto_depIdxs = []int32{
 	24,  // 12: job.WorkItemBuilderService.SetExtras:input_type -> job.SetExtrasRequest
 	26,  // 13: job.WorkItemBuilderService.SetIntent:input_type -> job.SetIntentRequest
 	28,  // 14: job.WorkItemBuilderService.SetMinimumNetworkChunkBytes:input_type -> job.SetMinimumNetworkChunkBytesRequest
-	30,  // 15: job.SchedulerService.CanRunUserInitiatedJobs:input_type -> job.CanRunUserInitiatedJobsRequest
-	32,  // 16: job.SchedulerService.Cancel:input_type -> job.CancelRequest
-	34,  // 17: job.SchedulerService.CancelAll:input_type -> job.CancelAllRequest
-	36,  // 18: job.SchedulerService.CancelInAllNamespaces:input_type -> job.CancelInAllNamespacesRequest
-	38,  // 19: job.SchedulerService.Enqueue:input_type -> job.EnqueueRequest
-	40,  // 20: job.SchedulerService.ForNamespace:input_type -> job.ForNamespaceRequest
-	42,  // 21: job.SchedulerService.GetNamespace:input_type -> job.GetNamespaceRequest
-	44,  // 22: job.SchedulerService.GetPendingJob:input_type -> job.GetPendingJobRequest
-	46,  // 23: job.SchedulerService.GetPendingJobReason:input_type -> job.GetPendingJobReasonRequest
-	48,  // 24: job.SchedulerService.GetPendingJobReasons:input_type -> job.GetPendingJobReasonsRequest
-	50,  // 25: job.SchedulerService.Schedule:input_type -> job.ScheduleRequest
-	52,  // 26: job.ServiceService.JobFinished:input_type -> job.JobFinishedRequest
-	54,  // 27: job.ServiceService.OnBind:input_type -> job.OnBindRequest
-	56,  // 28: job.ServiceService.OnNetworkChanged:input_type -> job.OnNetworkChangedRequest
-	58,  // 29: job.ServiceService.OnStartJob:input_type -> job.OnStartJobRequest
-	60,  // 30: job.ServiceService.OnStopJob:input_type -> job.OnStopJobRequest
-	62,  // 31: job.ServiceService.SetNotification:input_type -> job.SetNotificationRequest
-	64,  // 32: job.ServiceService.UpdateEstimatedNetworkBytes4:input_type -> job.UpdateEstimatedNetworkBytes4Request
-	66,  // 33: job.ServiceService.UpdateEstimatedNetworkBytes3_1:input_type -> job.UpdateEstimatedNetworkBytes3_1Request
-	68,  // 34: job.ServiceService.UpdateTransferredNetworkBytes4:input_type -> job.UpdateTransferredNetworkBytes4Request
-	70,  // 35: job.ServiceService.UpdateTransferredNetworkBytes3_1:input_type -> job.UpdateTransferredNetworkBytes3_1Request
-	72,  // 36: job.PendingJobReasonsInfoService.NewPendingJobReasonsInfo:input_type -> job.NewPendingJobReasonsInfoRequest
-	2,   // 37: job.PendingJobReasonsInfoService.DescribeContents:input_type -> job.DescribeContentsRequest
-	74,  // 38: job.PendingJobReasonsInfoService.GetPendingJobReasons:input_type -> job.PendingJobReasonsInfoGetPendingJobReasonsRequest
-	75,  // 39: job.PendingJobReasonsInfoService.GetTimestampMillis:input_type -> job.GetTimestampMillisRequest
-	18,  // 40: job.PendingJobReasonsInfoService.WriteToParcel:input_type -> job.WriteToParcelRequest
-	77,  // 41: job.ServiceEngineService.GetBinder:input_type -> job.GetBinderRequest
-	52,  // 42: job.ServiceEngineService.JobFinished:input_type -> job.JobFinishedRequest
-	56,  // 43: job.ServiceEngineService.OnNetworkChanged:input_type -> job.OnNetworkChangedRequest
-	58,  // 44: job.ServiceEngineService.OnStartJob:input_type -> job.OnStartJobRequest
-	60,  // 45: job.ServiceEngineService.OnStopJob:input_type -> job.OnStopJobRequest
-	62,  // 46: job.ServiceEngineService.SetNotification:input_type -> job.SetNotificationRequest
-	79,  // 47: job.ServiceEngineService.UpdateEstimatedNetworkBytes:input_type -> job.UpdateEstimatedNetworkBytesRequest
-	81,  // 48: job.ServiceEngineService.UpdateTransferredNetworkBytes:input_type -> job.UpdateTransferredNetworkBytesRequest
-	83,  // 49: job.InfoService.DescribeContents:input_type -> job.InfoDescribeContentsRequest
-	84,  // 50: job.InfoService.Equals:input_type -> job.EqualsRequest
-	86,  // 51: job.InfoService.GetBackoffPolicy:input_type -> job.GetBackoffPolicyRequest
-	88,  // 52: job.InfoService.GetClipData:input_type -> job.GetClipDataRequest
-	90,  // 53: job.InfoService.GetClipGrantFlags:input_type -> job.GetClipGrantFlagsRequest
-	92,  // 54: job.InfoService.GetEstimatedNetworkDownloadBytes:input_type -> job.InfoGetEstimatedNetworkDownloadBytesRequest
-	93,  // 55: job.InfoService.GetEstimatedNetworkUploadBytes:input_type -> job.InfoGetEstimatedNetworkUploadBytesRequest
-	94,  // 56: job.InfoService.GetExtras:input_type -> job.InfoGetExtrasRequest
-	95,  // 57: job.InfoService.GetFlexMillis:input_type -> job.GetFlexMillisRequest
-	97,  // 58: job.InfoService.GetId:input_type -> job.GetIdRequest
-	99,  // 59: job.InfoService.GetInitialBackoffMillis:input_type -> job.GetInitialBackoffMillisRequest
-	101, // 60: job.InfoService.GetIntervalMillis:input_type -> job.GetIntervalMillisRequest
-	103, // 61: job.InfoService.GetMaxExecutionDelayMillis:input_type -> job.GetMaxExecutionDelayMillisRequest
-	105, // 62: job.InfoService.GetMinLatencyMillis:input_type -> job.GetMinLatencyMillisRequest
-	107, // 63: job.InfoService.GetMinimumNetworkChunkBytes:input_type -> job.InfoGetMinimumNetworkChunkBytesRequest
-	108, // 64: job.InfoService.GetNetworkType:input_type -> job.GetNetworkTypeRequest
-	110, // 65: job.InfoService.GetPriority:input_type -> job.GetPriorityRequest
-	112, // 66: job.InfoService.GetRequiredNetwork:input_type -> job.GetRequiredNetworkRequest
-	114, // 67: job.InfoService.GetService:input_type -> job.GetServiceRequest
-	116, // 68: job.InfoService.GetTraceTag:input_type -> job.GetTraceTagRequest
-	118, // 69: job.InfoService.GetTransientExtras:input_type -> job.GetTransientExtrasRequest
-	120, // 70: job.InfoService.GetTriggerContentMaxDelay:input_type -> job.GetTriggerContentMaxDelayRequest
-	122, // 71: job.InfoService.GetTriggerContentUpdateDelay:input_type -> job.GetTriggerContentUpdateDelayRequest
-	124, // 72: job.InfoService.GetTriggerContentUris:input_type -> job.GetTriggerContentUrisRequest
-	126, // 73: job.InfoService.HashCode:input_type -> job.HashCodeRequest
-	128, // 74: job.InfoService.IsExpedited:input_type -> job.IsExpeditedRequest
-	130, // 75: job.InfoService.IsImportantWhileForeground:input_type -> job.IsImportantWhileForegroundRequest
-	132, // 76: job.InfoService.IsPeriodic:input_type -> job.IsPeriodicRequest
-	134, // 77: job.InfoService.IsPersisted:input_type -> job.IsPersistedRequest
-	136, // 78: job.InfoService.IsPrefetch:input_type -> job.IsPrefetchRequest
-	138, // 79: job.InfoService.IsRequireBatteryNotLow:input_type -> job.IsRequireBatteryNotLowRequest
-	140, // 80: job.InfoService.IsRequireCharging:input_type -> job.IsRequireChargingRequest
-	142, // 81: job.InfoService.IsRequireDeviceIdle:input_type -> job.IsRequireDeviceIdleRequest
-	144, // 82: job.InfoService.IsRequireStorageNotLow:input_type -> job.IsRequireStorageNotLowRequest
-	146, // 83: job.InfoService.IsUserInitiated:input_type -> job.IsUserInitiatedRequest
-	148, // 84: job.InfoService.ToString:input_type -> job.InfoToStringRequest
-	149, // 85: job.InfoService.WriteToParcel:input_type -> job.InfoWriteToParcelRequest
-	150, // 86: job.InfoService.GetMinFlexMillis:input_type -> job.GetMinFlexMillisRequest
-	152, // 87: job.InfoService.GetMinPeriodMillis:input_type -> job.GetMinPeriodMillisRequest
-	154, // 88: job.InfoBuilderService.AddDebugTag:input_type -> job.AddDebugTagRequest
-	156, // 89: job.InfoBuilderService.AddTriggerContentUri:input_type -> job.AddTriggerContentUriRequest
-	20,  // 90: job.InfoBuilderService.Build:input_type -> job.BuildRequest
-	158, // 91: job.InfoBuilderService.RemoveDebugTag:input_type -> job.RemoveDebugTagRequest
-	160, // 92: job.InfoBuilderService.SetBackoffCriteria:input_type -> job.SetBackoffCriteriaRequest
-	162, // 93: job.InfoBuilderService.SetClipData:input_type -> job.SetClipDataRequest
-	22,  // 94: job.InfoBuilderService.SetEstimatedNetworkBytes:input_type -> job.SetEstimatedNetworkBytesRequest
-	164, // 95: job.InfoBuilderService.SetExpedited:input_type -> job.SetExpeditedRequest
-	24,  // 96: job.InfoBuilderService.SetExtras:input_type -> job.SetExtrasRequest
-	166, // 97: job.InfoBuilderService.SetImportantWhileForeground:input_type -> job.SetImportantWhileForegroundRequest
-	168, // 98: job.InfoBuilderService.SetMinimumLatency:input_type -> job.SetMinimumLatencyRequest
-	28,  // 99: job.InfoBuilderService.SetMinimumNetworkChunkBytes:input_type -> job.SetMinimumNetworkChunkBytesRequest
-	170, // 100: job.InfoBuilderService.SetOverrideDeadline:input_type -> job.SetOverrideDeadlineRequest
-	172, // 101: job.InfoBuilderService.SetPeriodic1:input_type -> job.SetPeriodic1Request
-	174, // 102: job.InfoBuilderService.SetPeriodic2_1:input_type -> job.SetPeriodic2_1Request
-	176, // 103: job.InfoBuilderService.SetPersisted:input_type -> job.SetPersistedRequest
-	178, // 104: job.InfoBuilderService.SetPrefetch:input_type -> job.SetPrefetchRequest
-	180, // 105: job.InfoBuilderService.SetPriority:input_type -> job.SetPriorityRequest
-	182, // 106: job.InfoBuilderService.SetRequiredNetwork:input_type -> job.SetRequiredNetworkRequest
-	184, // 107: job.InfoBuilderService.SetRequiredNetworkType:input_type -> job.SetRequiredNetworkTypeRequest
-	186, // 108: job.InfoBuilderService.SetRequiresBatteryNotLow:input_type -> job.SetRequiresBatteryNotLowRequest
-	188, // 109: job.InfoBuilderService.SetRequiresCharging:input_type -> job.SetRequiresChargingRequest
-	190, // 110: job.InfoBuilderService.SetRequiresDeviceIdle:input_type -> job.SetRequiresDeviceIdleRequest
-	192, // 111: job.InfoBuilderService.SetRequiresStorageNotLow:input_type -> job.SetRequiresStorageNotLowRequest
-	194, // 112: job.InfoBuilderService.SetTraceTag:input_type -> job.SetTraceTagRequest
-	196, // 113: job.InfoBuilderService.SetTransientExtras:input_type -> job.SetTransientExtrasRequest
-	198, // 114: job.InfoBuilderService.SetTriggerContentMaxDelay:input_type -> job.SetTriggerContentMaxDelayRequest
-	200, // 115: job.InfoBuilderService.SetTriggerContentUpdateDelay:input_type -> job.SetTriggerContentUpdateDelayRequest
-	202, // 116: job.InfoBuilderService.SetUserInitiated:input_type -> job.SetUserInitiatedRequest
-	204, // 117: job.InfoTriggerContentUriService.DescribeContents:input_type -> job.InfoTriggerContentUriDescribeContentsRequest
-	84,  // 118: job.InfoTriggerContentUriService.Equals:input_type -> job.EqualsRequest
-	205, // 119: job.InfoTriggerContentUriService.GetFlags:input_type -> job.GetFlagsRequest
-	207, // 120: job.InfoTriggerContentUriService.GetUri:input_type -> job.GetUriRequest
-	126, // 121: job.InfoTriggerContentUriService.HashCode:input_type -> job.HashCodeRequest
-	209, // 122: job.InfoTriggerContentUriService.WriteToParcel:input_type -> job.InfoTriggerContentUriWriteToParcelRequest
-	210, // 123: job.ParametersService.CompleteWork:input_type -> job.CompleteWorkRequest
-	212, // 124: job.ParametersService.DequeueWork:input_type -> job.DequeueWorkRequest
-	214, // 125: job.ParametersService.DescribeContents:input_type -> job.ParametersDescribeContentsRequest
-	88,  // 126: job.ParametersService.GetClipData:input_type -> job.GetClipDataRequest
-	90,  // 127: job.ParametersService.GetClipGrantFlags:input_type -> job.GetClipGrantFlagsRequest
-	215, // 128: job.ParametersService.GetExtras:input_type -> job.ParametersGetExtrasRequest
-	216, // 129: job.ParametersService.GetJobId:input_type -> job.GetJobIdRequest
-	218, // 130: job.ParametersService.GetJobNamespace:input_type -> job.GetJobNamespaceRequest
-	220, // 131: job.ParametersService.GetNetwork:input_type -> job.GetNetworkRequest
-	222, // 132: job.ParametersService.GetStopReason:input_type -> job.GetStopReasonRequest
-	118, // 133: job.ParametersService.GetTransientExtras:input_type -> job.GetTransientExtrasRequest
-	224, // 134: job.ParametersService.GetTriggeredContentAuthorities:input_type -> job.GetTriggeredContentAuthoritiesRequest
-	226, // 135: job.ParametersService.GetTriggeredContentUris:input_type -> job.GetTriggeredContentUrisRequest
-	228, // 136: job.ParametersService.IsExpeditedJob:input_type -> job.IsExpeditedJobRequest
-	230, // 137: job.ParametersService.IsOverrideDeadlineExpired:input_type -> job.IsOverrideDeadlineExpiredRequest
-	232, // 138: job.ParametersService.IsUserInitiatedJob:input_type -> job.IsUserInitiatedJobRequest
-	234, // 139: job.ParametersService.WriteToParcel:input_type -> job.ParametersWriteToParcelRequest
-	1,   // 140: job.WorkItemService.NewWorkItem:output_type -> job.NewWorkItemResponse
-	3,   // 141: job.WorkItemService.DescribeContents:output_type -> job.DescribeContentsResponse
-	5,   // 142: job.WorkItemService.GetDeliveryCount:output_type -> job.GetDeliveryCountResponse
-	7,   // 143: job.WorkItemService.GetEstimatedNetworkDownloadBytes:output_type -> job.GetEstimatedNetworkDownloadBytesResponse
-	9,   // 144: job.WorkItemService.GetEstimatedNetworkUploadBytes:output_type -> job.GetEstimatedNetworkUploadBytesResponse
-	11,  // 145: job.WorkItemService.GetExtras:output_type -> job.GetExtrasResponse
-	13,  // 146: job.WorkItemService.GetIntent:output_type -> job.GetIntentResponse
-	15,  // 147: job.WorkItemService.GetMinimumNetworkChunkBytes:output_type -> job.GetMinimumNetworkChunkBytesResponse
-	17,  // 148: job.WorkItemService.ToString:output_type -> job.ToStringResponse
-	19,  // 149: job.WorkItemService.WriteToParcel:output_type -> job.WriteToParcelResponse
-	21,  // 150: job.WorkItemBuilderService.Build:output_type -> job.BuildResponse
-	23,  // 151: job.WorkItemBuilderService.SetEstimatedNetworkBytes:output_type -> job.SetEstimatedNetworkBytesResponse
-	25,  // 152: job.WorkItemBuilderService.SetExtras:output_type -> job.SetExtrasResponse
-	27,  // 153: job.WorkItemBuilderService.SetIntent:output_type -> job.SetIntentResponse
-	29,  // 154: job.WorkItemBuilderService.SetMinimumNetworkChunkBytes:output_type -> job.SetMinimumNetworkChunkBytesResponse
-	31,  // 155: job.SchedulerService.CanRunUserInitiatedJobs:output_type -> job.CanRunUserInitiatedJobsResponse
-	33,  // 156: job.SchedulerService.Cancel:output_type -> job.CancelResponse
-	35,  // 157: job.SchedulerService.CancelAll:output_type -> job.CancelAllResponse
-	37,  // 158: job.SchedulerService.CancelInAllNamespaces:output_type -> job.CancelInAllNamespacesResponse
-	39,  // 159: job.SchedulerService.Enqueue:output_type -> job.EnqueueResponse
-	41,  // 160: job.SchedulerService.ForNamespace:output_type -> job.ForNamespaceResponse
-	43,  // 161: job.SchedulerService.GetNamespace:output_type -> job.GetNamespaceResponse
-	45,  // 162: job.SchedulerService.GetPendingJob:output_type -> job.GetPendingJobResponse
-	47,  // 163: job.SchedulerService.GetPendingJobReason:output_type -> job.GetPendingJobReasonResponse
-	49,  // 164: job.SchedulerService.GetPendingJobReasons:output_type -> job.GetPendingJobReasonsResponse
-	51,  // 165: job.SchedulerService.Schedule:output_type -> job.ScheduleResponse
-	53,  // 166: job.ServiceService.JobFinished:output_type -> job.JobFinishedResponse
-	55,  // 167: job.ServiceService.OnBind:output_type -> job.OnBindResponse
-	57,  // 168: job.ServiceService.OnNetworkChanged:output_type -> job.OnNetworkChangedResponse
-	59,  // 169: job.ServiceService.OnStartJob:output_type -> job.OnStartJobResponse
-	61,  // 170: job.ServiceService.OnStopJob:output_type -> job.OnStopJobResponse
-	63,  // 171: job.ServiceService.SetNotification:output_type -> job.SetNotificationResponse
-	65,  // 172: job.ServiceService.UpdateEstimatedNetworkBytes4:output_type -> job.UpdateEstimatedNetworkBytes4Response
-	67,  // 173: job.ServiceService.UpdateEstimatedNetworkBytes3_1:output_type -> job.UpdateEstimatedNetworkBytes3_1Response
-	69,  // 174: job.ServiceService.UpdateTransferredNetworkBytes4:output_type -> job.UpdateTransferredNetworkBytes4Response
-	71,  // 175: job.ServiceService.UpdateTransferredNetworkBytes3_1:output_type -> job.UpdateTransferredNetworkBytes3_1Response
-	73,  // 176: job.PendingJobReasonsInfoService.NewPendingJobReasonsInfo:output_type -> job.NewPendingJobReasonsInfoResponse
-	3,   // 177: job.PendingJobReasonsInfoService.DescribeContents:output_type -> job.DescribeContentsResponse
-	49,  // 178: job.PendingJobReasonsInfoService.GetPendingJobReasons:output_type -> job.GetPendingJobReasonsResponse
-	76,  // 179: job.PendingJobReasonsInfoService.GetTimestampMillis:output_type -> job.GetTimestampMillisResponse
-	19,  // 180: job.PendingJobReasonsInfoService.WriteToParcel:output_type -> job.WriteToParcelResponse
-	78,  // 181: job.ServiceEngineService.GetBinder:output_type -> job.GetBinderResponse
-	53,  // 182: job.ServiceEngineService.JobFinished:output_type -> job.JobFinishedResponse
-	57,  // 183: job.ServiceEngineService.OnNetworkChanged:output_type -> job.OnNetworkChangedResponse
-	59,  // 184: job.ServiceEngineService.OnStartJob:output_type -> job.OnStartJobResponse
-	61,  // 185: job.ServiceEngineService.OnStopJob:output_type -> job.OnStopJobResponse
-	63,  // 186: job.ServiceEngineService.SetNotification:output_type -> job.SetNotificationResponse
-	80,  // 187: job.ServiceEngineService.UpdateEstimatedNetworkBytes:output_type -> job.UpdateEstimatedNetworkBytesResponse
-	82,  // 188: job.ServiceEngineService.UpdateTransferredNetworkBytes:output_type -> job.UpdateTransferredNetworkBytesResponse
-	3,   // 189: job.InfoService.DescribeContents:output_type -> job.DescribeContentsResponse
-	85,  // 190: job.InfoService.Equals:output_type -> job.EqualsResponse
-	87,  // 191: job.InfoService.GetBackoffPolicy:output_type -> job.GetBackoffPolicyResponse
-	89,  // 192: job.InfoService.GetClipData:output_type -> job.GetClipDataResponse
-	91,  // 193: job.InfoService.GetClipGrantFlags:output_type -> job.GetClipGrantFlagsResponse
-	7,   // 194: job.InfoService.GetEstimatedNetworkDownloadBytes:output_type -> job.GetEstimatedNetworkDownloadBytesResponse
-	9,   // 195: job.InfoService.GetEstimatedNetworkUploadBytes:output_type -> job.GetEstimatedNetworkUploadBytesResponse
-	11,  // 196: job.InfoService.GetExtras:output_type -> job.GetExtrasResponse
-	96,  // 197: job.InfoService.GetFlexMillis:output_type -> job.GetFlexMillisResponse
-	98,  // 198: job.InfoService.GetId:output_type -> job.GetIdResponse
-	100, // 199: job.InfoService.GetInitialBackoffMillis:output_type -> job.GetInitialBackoffMillisResponse
-	102, // 200: job.InfoService.GetIntervalMillis:output_type -> job.GetIntervalMillisResponse
-	104, // 201: job.InfoService.GetMaxExecutionDelayMillis:output_type -> job.GetMaxExecutionDelayMillisResponse
-	106, // 202: job.InfoService.GetMinLatencyMillis:output_type -> job.GetMinLatencyMillisResponse
-	15,  // 203: job.InfoService.GetMinimumNetworkChunkBytes:output_type -> job.GetMinimumNetworkChunkBytesResponse
-	109, // 204: job.InfoService.GetNetworkType:output_type -> job.GetNetworkTypeResponse
-	111, // 205: job.InfoService.GetPriority:output_type -> job.GetPriorityResponse
-	113, // 206: job.InfoService.GetRequiredNetwork:output_type -> job.GetRequiredNetworkResponse
-	115, // 207: job.InfoService.GetService:output_type -> job.GetServiceResponse
-	117, // 208: job.InfoService.GetTraceTag:output_type -> job.GetTraceTagResponse
-	119, // 209: job.InfoService.GetTransientExtras:output_type -> job.GetTransientExtrasResponse
-	121, // 210: job.InfoService.GetTriggerContentMaxDelay:output_type -> job.GetTriggerContentMaxDelayResponse
-	123, // 211: job.InfoService.GetTriggerContentUpdateDelay:output_type -> job.GetTriggerContentUpdateDelayResponse
-	125, // 212: job.InfoService.GetTriggerContentUris:output_type -> job.GetTriggerContentUrisResponse
-	127, // 213: job.InfoService.HashCode:output_type -> job.HashCodeResponse
-	129, // 214: job.InfoService.IsExpedited:output_type -> job.IsExpeditedResponse
-	131, // 215: job.InfoService.IsImportantWhileForeground:output_type -> job.IsImportantWhileForegroundResponse
-	133, // 216: job.InfoService.IsPeriodic:output_type -> job.IsPeriodicResponse
-	135, // 217: job.InfoService.IsPersisted:output_type -> job.IsPersistedResponse
-	137, // 218: job.InfoService.IsPrefetch:output_type -> job.IsPrefetchResponse
-	139, // 219: job.InfoService.IsRequireBatteryNotLow:output_type -> job.IsRequireBatteryNotLowResponse
-	141, // 220: job.InfoService.IsRequireCharging:output_type -> job.IsRequireChargingResponse
-	143, // 221: job.InfoService.IsRequireDeviceIdle:output_type -> job.IsRequireDeviceIdleResponse
-	145, // 222: job.InfoService.IsRequireStorageNotLow:output_type -> job.IsRequireStorageNotLowResponse
-	147, // 223: job.InfoService.IsUserInitiated:output_type -> job.IsUserInitiatedResponse
-	17,  // 224: job.InfoService.ToString:output_type -> job.ToStringResponse
-	19,  // 225: job.InfoService.WriteToParcel:output_type -> job.WriteToParcelResponse
-	151, // 226: job.InfoService.GetMinFlexMillis:output_type -> job.GetMinFlexMillisResponse
-	153, // 227: job.InfoService.GetMinPeriodMillis:output_type -> job.GetMinPeriodMillisResponse
-	155, // 228: job.InfoBuilderService.AddDebugTag:output_type -> job.AddDebugTagResponse
-	157, // 229: job.InfoBuilderService.AddTriggerContentUri:output_type -> job.AddTriggerContentUriResponse
-	21,  // 230: job.InfoBuilderService.Build:output_type -> job.BuildResponse
-	159, // 231: job.InfoBuilderService.RemoveDebugTag:output_type -> job.RemoveDebugTagResponse
-	161, // 232: job.InfoBuilderService.SetBackoffCriteria:output_type -> job.SetBackoffCriteriaResponse
-	163, // 233: job.InfoBuilderService.SetClipData:output_type -> job.SetClipDataResponse
-	23,  // 234: job.InfoBuilderService.SetEstimatedNetworkBytes:output_type -> job.SetEstimatedNetworkBytesResponse
-	165, // 235: job.InfoBuilderService.SetExpedited:output_type -> job.SetExpeditedResponse
-	25,  // 236: job.InfoBuilderService.SetExtras:output_type -> job.SetExtrasResponse
-	167, // 237: job.InfoBuilderService.SetImportantWhileForeground:output_type -> job.SetImportantWhileForegroundResponse
-	169, // 238: job.InfoBuilderService.SetMinimumLatency:output_type -> job.SetMinimumLatencyResponse
-	29,  // 239: job.InfoBuilderService.SetMinimumNetworkChunkBytes:output_type -> job.SetMinimumNetworkChunkBytesResponse
-	171, // 240: job.InfoBuilderService.SetOverrideDeadline:output_type -> job.SetOverrideDeadlineResponse
-	173, // 241: job.InfoBuilderService.SetPeriodic1:output_type -> job.SetPeriodic1Response
-	175, // 242: job.InfoBuilderService.SetPeriodic2_1:output_type -> job.SetPeriodic2_1Response
-	177, // 243: job.InfoBuilderService.SetPersisted:output_type -> job.SetPersistedResponse
-	179, // 244: job.InfoBuilderService.SetPrefetch:output_type -> job.SetPrefetchResponse
-	181, // 245: job.InfoBuilderService.SetPriority:output_type -> job.SetPriorityResponse
-	183, // 246: job.InfoBuilderService.SetRequiredNetwork:output_type -> job.SetRequiredNetworkResponse
-	185, // 247: job.InfoBuilderService.SetRequiredNetworkType:output_type -> job.SetRequiredNetworkTypeResponse
-	187, // 248: job.InfoBuilderService.SetRequiresBatteryNotLow:output_type -> job.SetRequiresBatteryNotLowResponse
-	189, // 249: job.InfoBuilderService.SetRequiresCharging:output_type -> job.SetRequiresChargingResponse
-	191, // 250: job.InfoBuilderService.SetRequiresDeviceIdle:output_type -> job.SetRequiresDeviceIdleResponse
-	193, // 251: job.InfoBuilderService.SetRequiresStorageNotLow:output_type -> job.SetRequiresStorageNotLowResponse
-	195, // 252: job.InfoBuilderService.SetTraceTag:output_type -> job.SetTraceTagResponse
-	197, // 253: job.InfoBuilderService.SetTransientExtras:output_type -> job.SetTransientExtrasResponse
-	199, // 254: job.InfoBuilderService.SetTriggerContentMaxDelay:output_type -> job.SetTriggerContentMaxDelayResponse
-	201, // 255: job.InfoBuilderService.SetTriggerContentUpdateDelay:output_type -> job.SetTriggerContentUpdateDelayResponse
-	203, // 256: job.InfoBuilderService.SetUserInitiated:output_type -> job.SetUserInitiatedResponse
-	3,   // 257: job.InfoTriggerContentUriService.DescribeContents:output_type -> job.DescribeContentsResponse
-	85,  // 258: job.InfoTriggerContentUriService.Equals:output_type -> job.EqualsResponse
-	206, // 259: job.InfoTriggerContentUriService.GetFlags:output_type -> job.GetFlagsResponse
-	208, // 260: job.InfoTriggerContentUriService.GetUri:output_type -> job.GetUriResponse
-	127, // 261: job.InfoTriggerContentUriService.HashCode:output_type -> job.HashCodeResponse
-	19,  // 262: job.InfoTriggerContentUriService.WriteToParcel:output_type -> job.WriteToParcelResponse
-	211, // 263: job.ParametersService.CompleteWork:output_type -> job.CompleteWorkResponse
-	213, // 264: job.ParametersService.DequeueWork:output_type -> job.DequeueWorkResponse
-	3,   // 265: job.ParametersService.DescribeContents:output_type -> job.DescribeContentsResponse
-	89,  // 266: job.ParametersService.GetClipData:output_type -> job.GetClipDataResponse
-	91,  // 267: job.ParametersService.GetClipGrantFlags:output_type -> job.GetClipGrantFlagsResponse
-	11,  // 268: job.ParametersService.GetExtras:output_type -> job.GetExtrasResponse
-	217, // 269: job.ParametersService.GetJobId:output_type -> job.GetJobIdResponse
-	219, // 270: job.ParametersService.GetJobNamespace:output_type -> job.GetJobNamespaceResponse
-	221, // 271: job.ParametersService.GetNetwork:output_type -> job.GetNetworkResponse
-	223, // 272: job.ParametersService.GetStopReason:output_type -> job.GetStopReasonResponse
-	119, // 273: job.ParametersService.GetTransientExtras:output_type -> job.GetTransientExtrasResponse
-	225, // 274: job.ParametersService.GetTriggeredContentAuthorities:output_type -> job.GetTriggeredContentAuthoritiesResponse
-	227, // 275: job.ParametersService.GetTriggeredContentUris:output_type -> job.GetTriggeredContentUrisResponse
-	229, // 276: job.ParametersService.IsExpeditedJob:output_type -> job.IsExpeditedJobResponse
-	231, // 277: job.ParametersService.IsOverrideDeadlineExpired:output_type -> job.IsOverrideDeadlineExpiredResponse
-	233, // 278: job.ParametersService.IsUserInitiatedJob:output_type -> job.IsUserInitiatedJobResponse
-	19,  // 279: job.ParametersService.WriteToParcel:output_type -> job.WriteToParcelResponse
-	140, // [140:280] is the sub-list for method output_type
-	0,   // [0:140] is the sub-list for method input_type
+	30,  // 15: job.PendingJobReasonsInfoService.NewPendingJobReasonsInfo:input_type -> job.NewPendingJobReasonsInfoRequest
+	2,   // 16: job.PendingJobReasonsInfoService.DescribeContents:input_type -> job.DescribeContentsRequest
+	32,  // 17: job.PendingJobReasonsInfoService.GetPendingJobReasons:input_type -> job.GetPendingJobReasonsRequest
+	34,  // 18: job.PendingJobReasonsInfoService.GetTimestampMillis:input_type -> job.GetTimestampMillisRequest
+	18,  // 19: job.PendingJobReasonsInfoService.WriteToParcel:input_type -> job.WriteToParcelRequest
+	36,  // 20: job.InfoService.DescribeContents:input_type -> job.InfoDescribeContentsRequest
+	37,  // 21: job.InfoService.Equals:input_type -> job.EqualsRequest
+	39,  // 22: job.InfoService.GetBackoffPolicy:input_type -> job.GetBackoffPolicyRequest
+	41,  // 23: job.InfoService.GetClipData:input_type -> job.GetClipDataRequest
+	43,  // 24: job.InfoService.GetClipGrantFlags:input_type -> job.GetClipGrantFlagsRequest
+	45,  // 25: job.InfoService.GetDebugTags:input_type -> job.GetDebugTagsRequest
+	47,  // 26: job.InfoService.GetEstimatedNetworkDownloadBytes:input_type -> job.InfoGetEstimatedNetworkDownloadBytesRequest
+	48,  // 27: job.InfoService.GetEstimatedNetworkUploadBytes:input_type -> job.InfoGetEstimatedNetworkUploadBytesRequest
+	49,  // 28: job.InfoService.GetExtras:input_type -> job.InfoGetExtrasRequest
+	50,  // 29: job.InfoService.GetFlexMillis:input_type -> job.GetFlexMillisRequest
+	52,  // 30: job.InfoService.GetId:input_type -> job.GetIdRequest
+	54,  // 31: job.InfoService.GetInitialBackoffMillis:input_type -> job.GetInitialBackoffMillisRequest
+	56,  // 32: job.InfoService.GetIntervalMillis:input_type -> job.GetIntervalMillisRequest
+	58,  // 33: job.InfoService.GetMaxExecutionDelayMillis:input_type -> job.GetMaxExecutionDelayMillisRequest
+	60,  // 34: job.InfoService.GetMinLatencyMillis:input_type -> job.GetMinLatencyMillisRequest
+	62,  // 35: job.InfoService.GetMinimumNetworkChunkBytes:input_type -> job.InfoGetMinimumNetworkChunkBytesRequest
+	63,  // 36: job.InfoService.GetNetworkType:input_type -> job.GetNetworkTypeRequest
+	65,  // 37: job.InfoService.GetPriority:input_type -> job.GetPriorityRequest
+	67,  // 38: job.InfoService.GetRequiredNetwork:input_type -> job.GetRequiredNetworkRequest
+	69,  // 39: job.InfoService.GetService:input_type -> job.GetServiceRequest
+	71,  // 40: job.InfoService.GetTraceTag:input_type -> job.GetTraceTagRequest
+	73,  // 41: job.InfoService.GetTransientExtras:input_type -> job.GetTransientExtrasRequest
+	75,  // 42: job.InfoService.GetTriggerContentMaxDelay:input_type -> job.GetTriggerContentMaxDelayRequest
+	77,  // 43: job.InfoService.GetTriggerContentUpdateDelay:input_type -> job.GetTriggerContentUpdateDelayRequest
+	79,  // 44: job.InfoService.GetTriggerContentUris:input_type -> job.GetTriggerContentUrisRequest
+	81,  // 45: job.InfoService.HashCode:input_type -> job.HashCodeRequest
+	83,  // 46: job.InfoService.IsExpedited:input_type -> job.IsExpeditedRequest
+	85,  // 47: job.InfoService.IsImportantWhileForeground:input_type -> job.IsImportantWhileForegroundRequest
+	87,  // 48: job.InfoService.IsPeriodic:input_type -> job.IsPeriodicRequest
+	89,  // 49: job.InfoService.IsPersisted:input_type -> job.IsPersistedRequest
+	91,  // 50: job.InfoService.IsPrefetch:input_type -> job.IsPrefetchRequest
+	93,  // 51: job.InfoService.IsRequireBatteryNotLow:input_type -> job.IsRequireBatteryNotLowRequest
+	95,  // 52: job.InfoService.IsRequireCharging:input_type -> job.IsRequireChargingRequest
+	97,  // 53: job.InfoService.IsRequireDeviceIdle:input_type -> job.IsRequireDeviceIdleRequest
+	99,  // 54: job.InfoService.IsRequireStorageNotLow:input_type -> job.IsRequireStorageNotLowRequest
+	101, // 55: job.InfoService.IsUserInitiated:input_type -> job.IsUserInitiatedRequest
+	103, // 56: job.InfoService.ToString:input_type -> job.InfoToStringRequest
+	104, // 57: job.InfoService.WriteToParcel:input_type -> job.InfoWriteToParcelRequest
+	105, // 58: job.InfoService.GetMinFlexMillis:input_type -> job.GetMinFlexMillisRequest
+	107, // 59: job.InfoService.GetMinPeriodMillis:input_type -> job.GetMinPeriodMillisRequest
+	109, // 60: job.InfoBuilderService.AddDebugTag:input_type -> job.AddDebugTagRequest
+	111, // 61: job.InfoBuilderService.AddTriggerContentUri:input_type -> job.AddTriggerContentUriRequest
+	20,  // 62: job.InfoBuilderService.Build:input_type -> job.BuildRequest
+	113, // 63: job.InfoBuilderService.RemoveDebugTag:input_type -> job.RemoveDebugTagRequest
+	115, // 64: job.InfoBuilderService.SetBackoffCriteria:input_type -> job.SetBackoffCriteriaRequest
+	117, // 65: job.InfoBuilderService.SetClipData:input_type -> job.SetClipDataRequest
+	22,  // 66: job.InfoBuilderService.SetEstimatedNetworkBytes:input_type -> job.SetEstimatedNetworkBytesRequest
+	119, // 67: job.InfoBuilderService.SetExpedited:input_type -> job.SetExpeditedRequest
+	24,  // 68: job.InfoBuilderService.SetExtras:input_type -> job.SetExtrasRequest
+	121, // 69: job.InfoBuilderService.SetImportantWhileForeground:input_type -> job.SetImportantWhileForegroundRequest
+	123, // 70: job.InfoBuilderService.SetMinimumLatency:input_type -> job.SetMinimumLatencyRequest
+	28,  // 71: job.InfoBuilderService.SetMinimumNetworkChunkBytes:input_type -> job.SetMinimumNetworkChunkBytesRequest
+	125, // 72: job.InfoBuilderService.SetOverrideDeadline:input_type -> job.SetOverrideDeadlineRequest
+	127, // 73: job.InfoBuilderService.SetPeriodic1:input_type -> job.SetPeriodic1Request
+	129, // 74: job.InfoBuilderService.SetPeriodic2_1:input_type -> job.SetPeriodic2_1Request
+	131, // 75: job.InfoBuilderService.SetPersisted:input_type -> job.SetPersistedRequest
+	133, // 76: job.InfoBuilderService.SetPrefetch:input_type -> job.SetPrefetchRequest
+	135, // 77: job.InfoBuilderService.SetPriority:input_type -> job.SetPriorityRequest
+	137, // 78: job.InfoBuilderService.SetRequiredNetwork:input_type -> job.SetRequiredNetworkRequest
+	139, // 79: job.InfoBuilderService.SetRequiredNetworkType:input_type -> job.SetRequiredNetworkTypeRequest
+	141, // 80: job.InfoBuilderService.SetRequiresBatteryNotLow:input_type -> job.SetRequiresBatteryNotLowRequest
+	143, // 81: job.InfoBuilderService.SetRequiresCharging:input_type -> job.SetRequiresChargingRequest
+	145, // 82: job.InfoBuilderService.SetRequiresDeviceIdle:input_type -> job.SetRequiresDeviceIdleRequest
+	147, // 83: job.InfoBuilderService.SetRequiresStorageNotLow:input_type -> job.SetRequiresStorageNotLowRequest
+	149, // 84: job.InfoBuilderService.SetTraceTag:input_type -> job.SetTraceTagRequest
+	151, // 85: job.InfoBuilderService.SetTransientExtras:input_type -> job.SetTransientExtrasRequest
+	153, // 86: job.InfoBuilderService.SetTriggerContentMaxDelay:input_type -> job.SetTriggerContentMaxDelayRequest
+	155, // 87: job.InfoBuilderService.SetTriggerContentUpdateDelay:input_type -> job.SetTriggerContentUpdateDelayRequest
+	157, // 88: job.InfoBuilderService.SetUserInitiated:input_type -> job.SetUserInitiatedRequest
+	159, // 89: job.InfoTriggerContentUriService.DescribeContents:input_type -> job.InfoTriggerContentUriDescribeContentsRequest
+	37,  // 90: job.InfoTriggerContentUriService.Equals:input_type -> job.EqualsRequest
+	160, // 91: job.InfoTriggerContentUriService.GetFlags:input_type -> job.GetFlagsRequest
+	162, // 92: job.InfoTriggerContentUriService.GetUri:input_type -> job.GetUriRequest
+	81,  // 93: job.InfoTriggerContentUriService.HashCode:input_type -> job.HashCodeRequest
+	164, // 94: job.InfoTriggerContentUriService.WriteToParcel:input_type -> job.InfoTriggerContentUriWriteToParcelRequest
+	165, // 95: job.ServiceService.JobFinished:input_type -> job.JobFinishedRequest
+	167, // 96: job.ServiceService.OnBind:input_type -> job.OnBindRequest
+	169, // 97: job.ServiceService.OnNetworkChanged:input_type -> job.OnNetworkChangedRequest
+	171, // 98: job.ServiceService.OnStartJob:input_type -> job.OnStartJobRequest
+	173, // 99: job.ServiceService.OnStopJob:input_type -> job.OnStopJobRequest
+	175, // 100: job.ServiceService.SetNotification:input_type -> job.SetNotificationRequest
+	177, // 101: job.ServiceService.UpdateEstimatedNetworkBytes4:input_type -> job.UpdateEstimatedNetworkBytes4Request
+	179, // 102: job.ServiceService.UpdateEstimatedNetworkBytes3_1:input_type -> job.UpdateEstimatedNetworkBytes3_1Request
+	181, // 103: job.ServiceService.UpdateTransferredNetworkBytes4:input_type -> job.UpdateTransferredNetworkBytes4Request
+	183, // 104: job.ServiceService.UpdateTransferredNetworkBytes3_1:input_type -> job.UpdateTransferredNetworkBytes3_1Request
+	185, // 105: job.SchedulerService.CanRunUserInitiatedJobs:input_type -> job.CanRunUserInitiatedJobsRequest
+	187, // 106: job.SchedulerService.Cancel:input_type -> job.CancelRequest
+	189, // 107: job.SchedulerService.CancelAll:input_type -> job.CancelAllRequest
+	191, // 108: job.SchedulerService.CancelInAllNamespaces:input_type -> job.CancelInAllNamespacesRequest
+	193, // 109: job.SchedulerService.Enqueue:input_type -> job.EnqueueRequest
+	195, // 110: job.SchedulerService.ForNamespace:input_type -> job.ForNamespaceRequest
+	197, // 111: job.SchedulerService.GetAllPendingJobs:input_type -> job.GetAllPendingJobsRequest
+	199, // 112: job.SchedulerService.GetNamespace:input_type -> job.GetNamespaceRequest
+	201, // 113: job.SchedulerService.GetPendingJob:input_type -> job.GetPendingJobRequest
+	203, // 114: job.SchedulerService.GetPendingJobReason:input_type -> job.GetPendingJobReasonRequest
+	205, // 115: job.SchedulerService.GetPendingJobReasons:input_type -> job.SchedulerGetPendingJobReasonsRequest
+	206, // 116: job.SchedulerService.GetPendingJobReasonsHistory:input_type -> job.GetPendingJobReasonsHistoryRequest
+	208, // 117: job.SchedulerService.Schedule:input_type -> job.ScheduleRequest
+	210, // 118: job.ParametersService.CompleteWork:input_type -> job.CompleteWorkRequest
+	212, // 119: job.ParametersService.DequeueWork:input_type -> job.DequeueWorkRequest
+	214, // 120: job.ParametersService.DescribeContents:input_type -> job.ParametersDescribeContentsRequest
+	41,  // 121: job.ParametersService.GetClipData:input_type -> job.GetClipDataRequest
+	43,  // 122: job.ParametersService.GetClipGrantFlags:input_type -> job.GetClipGrantFlagsRequest
+	215, // 123: job.ParametersService.GetExtras:input_type -> job.ParametersGetExtrasRequest
+	216, // 124: job.ParametersService.GetJobId:input_type -> job.GetJobIdRequest
+	218, // 125: job.ParametersService.GetJobNamespace:input_type -> job.GetJobNamespaceRequest
+	220, // 126: job.ParametersService.GetNetwork:input_type -> job.GetNetworkRequest
+	222, // 127: job.ParametersService.GetStopReason:input_type -> job.GetStopReasonRequest
+	73,  // 128: job.ParametersService.GetTransientExtras:input_type -> job.GetTransientExtrasRequest
+	224, // 129: job.ParametersService.GetTriggeredContentAuthorities:input_type -> job.GetTriggeredContentAuthoritiesRequest
+	226, // 130: job.ParametersService.GetTriggeredContentUris:input_type -> job.GetTriggeredContentUrisRequest
+	228, // 131: job.ParametersService.IsExpeditedJob:input_type -> job.IsExpeditedJobRequest
+	230, // 132: job.ParametersService.IsOverrideDeadlineExpired:input_type -> job.IsOverrideDeadlineExpiredRequest
+	232, // 133: job.ParametersService.IsUserInitiatedJob:input_type -> job.IsUserInitiatedJobRequest
+	234, // 134: job.ParametersService.WriteToParcel:input_type -> job.ParametersWriteToParcelRequest
+	235, // 135: job.ServiceEngineService.GetBinder:input_type -> job.GetBinderRequest
+	165, // 136: job.ServiceEngineService.JobFinished:input_type -> job.JobFinishedRequest
+	169, // 137: job.ServiceEngineService.OnNetworkChanged:input_type -> job.OnNetworkChangedRequest
+	171, // 138: job.ServiceEngineService.OnStartJob:input_type -> job.OnStartJobRequest
+	173, // 139: job.ServiceEngineService.OnStopJob:input_type -> job.OnStopJobRequest
+	175, // 140: job.ServiceEngineService.SetNotification:input_type -> job.SetNotificationRequest
+	237, // 141: job.ServiceEngineService.UpdateEstimatedNetworkBytes:input_type -> job.UpdateEstimatedNetworkBytesRequest
+	239, // 142: job.ServiceEngineService.UpdateTransferredNetworkBytes:input_type -> job.UpdateTransferredNetworkBytesRequest
+	1,   // 143: job.WorkItemService.NewWorkItem:output_type -> job.NewWorkItemResponse
+	3,   // 144: job.WorkItemService.DescribeContents:output_type -> job.DescribeContentsResponse
+	5,   // 145: job.WorkItemService.GetDeliveryCount:output_type -> job.GetDeliveryCountResponse
+	7,   // 146: job.WorkItemService.GetEstimatedNetworkDownloadBytes:output_type -> job.GetEstimatedNetworkDownloadBytesResponse
+	9,   // 147: job.WorkItemService.GetEstimatedNetworkUploadBytes:output_type -> job.GetEstimatedNetworkUploadBytesResponse
+	11,  // 148: job.WorkItemService.GetExtras:output_type -> job.GetExtrasResponse
+	13,  // 149: job.WorkItemService.GetIntent:output_type -> job.GetIntentResponse
+	15,  // 150: job.WorkItemService.GetMinimumNetworkChunkBytes:output_type -> job.GetMinimumNetworkChunkBytesResponse
+	17,  // 151: job.WorkItemService.ToString:output_type -> job.ToStringResponse
+	19,  // 152: job.WorkItemService.WriteToParcel:output_type -> job.WriteToParcelResponse
+	21,  // 153: job.WorkItemBuilderService.Build:output_type -> job.BuildResponse
+	23,  // 154: job.WorkItemBuilderService.SetEstimatedNetworkBytes:output_type -> job.SetEstimatedNetworkBytesResponse
+	25,  // 155: job.WorkItemBuilderService.SetExtras:output_type -> job.SetExtrasResponse
+	27,  // 156: job.WorkItemBuilderService.SetIntent:output_type -> job.SetIntentResponse
+	29,  // 157: job.WorkItemBuilderService.SetMinimumNetworkChunkBytes:output_type -> job.SetMinimumNetworkChunkBytesResponse
+	31,  // 158: job.PendingJobReasonsInfoService.NewPendingJobReasonsInfo:output_type -> job.NewPendingJobReasonsInfoResponse
+	3,   // 159: job.PendingJobReasonsInfoService.DescribeContents:output_type -> job.DescribeContentsResponse
+	33,  // 160: job.PendingJobReasonsInfoService.GetPendingJobReasons:output_type -> job.GetPendingJobReasonsResponse
+	35,  // 161: job.PendingJobReasonsInfoService.GetTimestampMillis:output_type -> job.GetTimestampMillisResponse
+	19,  // 162: job.PendingJobReasonsInfoService.WriteToParcel:output_type -> job.WriteToParcelResponse
+	3,   // 163: job.InfoService.DescribeContents:output_type -> job.DescribeContentsResponse
+	38,  // 164: job.InfoService.Equals:output_type -> job.EqualsResponse
+	40,  // 165: job.InfoService.GetBackoffPolicy:output_type -> job.GetBackoffPolicyResponse
+	42,  // 166: job.InfoService.GetClipData:output_type -> job.GetClipDataResponse
+	44,  // 167: job.InfoService.GetClipGrantFlags:output_type -> job.GetClipGrantFlagsResponse
+	46,  // 168: job.InfoService.GetDebugTags:output_type -> job.GetDebugTagsResponse
+	7,   // 169: job.InfoService.GetEstimatedNetworkDownloadBytes:output_type -> job.GetEstimatedNetworkDownloadBytesResponse
+	9,   // 170: job.InfoService.GetEstimatedNetworkUploadBytes:output_type -> job.GetEstimatedNetworkUploadBytesResponse
+	11,  // 171: job.InfoService.GetExtras:output_type -> job.GetExtrasResponse
+	51,  // 172: job.InfoService.GetFlexMillis:output_type -> job.GetFlexMillisResponse
+	53,  // 173: job.InfoService.GetId:output_type -> job.GetIdResponse
+	55,  // 174: job.InfoService.GetInitialBackoffMillis:output_type -> job.GetInitialBackoffMillisResponse
+	57,  // 175: job.InfoService.GetIntervalMillis:output_type -> job.GetIntervalMillisResponse
+	59,  // 176: job.InfoService.GetMaxExecutionDelayMillis:output_type -> job.GetMaxExecutionDelayMillisResponse
+	61,  // 177: job.InfoService.GetMinLatencyMillis:output_type -> job.GetMinLatencyMillisResponse
+	15,  // 178: job.InfoService.GetMinimumNetworkChunkBytes:output_type -> job.GetMinimumNetworkChunkBytesResponse
+	64,  // 179: job.InfoService.GetNetworkType:output_type -> job.GetNetworkTypeResponse
+	66,  // 180: job.InfoService.GetPriority:output_type -> job.GetPriorityResponse
+	68,  // 181: job.InfoService.GetRequiredNetwork:output_type -> job.GetRequiredNetworkResponse
+	70,  // 182: job.InfoService.GetService:output_type -> job.GetServiceResponse
+	72,  // 183: job.InfoService.GetTraceTag:output_type -> job.GetTraceTagResponse
+	74,  // 184: job.InfoService.GetTransientExtras:output_type -> job.GetTransientExtrasResponse
+	76,  // 185: job.InfoService.GetTriggerContentMaxDelay:output_type -> job.GetTriggerContentMaxDelayResponse
+	78,  // 186: job.InfoService.GetTriggerContentUpdateDelay:output_type -> job.GetTriggerContentUpdateDelayResponse
+	80,  // 187: job.InfoService.GetTriggerContentUris:output_type -> job.GetTriggerContentUrisResponse
+	82,  // 188: job.InfoService.HashCode:output_type -> job.HashCodeResponse
+	84,  // 189: job.InfoService.IsExpedited:output_type -> job.IsExpeditedResponse
+	86,  // 190: job.InfoService.IsImportantWhileForeground:output_type -> job.IsImportantWhileForegroundResponse
+	88,  // 191: job.InfoService.IsPeriodic:output_type -> job.IsPeriodicResponse
+	90,  // 192: job.InfoService.IsPersisted:output_type -> job.IsPersistedResponse
+	92,  // 193: job.InfoService.IsPrefetch:output_type -> job.IsPrefetchResponse
+	94,  // 194: job.InfoService.IsRequireBatteryNotLow:output_type -> job.IsRequireBatteryNotLowResponse
+	96,  // 195: job.InfoService.IsRequireCharging:output_type -> job.IsRequireChargingResponse
+	98,  // 196: job.InfoService.IsRequireDeviceIdle:output_type -> job.IsRequireDeviceIdleResponse
+	100, // 197: job.InfoService.IsRequireStorageNotLow:output_type -> job.IsRequireStorageNotLowResponse
+	102, // 198: job.InfoService.IsUserInitiated:output_type -> job.IsUserInitiatedResponse
+	17,  // 199: job.InfoService.ToString:output_type -> job.ToStringResponse
+	19,  // 200: job.InfoService.WriteToParcel:output_type -> job.WriteToParcelResponse
+	106, // 201: job.InfoService.GetMinFlexMillis:output_type -> job.GetMinFlexMillisResponse
+	108, // 202: job.InfoService.GetMinPeriodMillis:output_type -> job.GetMinPeriodMillisResponse
+	110, // 203: job.InfoBuilderService.AddDebugTag:output_type -> job.AddDebugTagResponse
+	112, // 204: job.InfoBuilderService.AddTriggerContentUri:output_type -> job.AddTriggerContentUriResponse
+	21,  // 205: job.InfoBuilderService.Build:output_type -> job.BuildResponse
+	114, // 206: job.InfoBuilderService.RemoveDebugTag:output_type -> job.RemoveDebugTagResponse
+	116, // 207: job.InfoBuilderService.SetBackoffCriteria:output_type -> job.SetBackoffCriteriaResponse
+	118, // 208: job.InfoBuilderService.SetClipData:output_type -> job.SetClipDataResponse
+	23,  // 209: job.InfoBuilderService.SetEstimatedNetworkBytes:output_type -> job.SetEstimatedNetworkBytesResponse
+	120, // 210: job.InfoBuilderService.SetExpedited:output_type -> job.SetExpeditedResponse
+	25,  // 211: job.InfoBuilderService.SetExtras:output_type -> job.SetExtrasResponse
+	122, // 212: job.InfoBuilderService.SetImportantWhileForeground:output_type -> job.SetImportantWhileForegroundResponse
+	124, // 213: job.InfoBuilderService.SetMinimumLatency:output_type -> job.SetMinimumLatencyResponse
+	29,  // 214: job.InfoBuilderService.SetMinimumNetworkChunkBytes:output_type -> job.SetMinimumNetworkChunkBytesResponse
+	126, // 215: job.InfoBuilderService.SetOverrideDeadline:output_type -> job.SetOverrideDeadlineResponse
+	128, // 216: job.InfoBuilderService.SetPeriodic1:output_type -> job.SetPeriodic1Response
+	130, // 217: job.InfoBuilderService.SetPeriodic2_1:output_type -> job.SetPeriodic2_1Response
+	132, // 218: job.InfoBuilderService.SetPersisted:output_type -> job.SetPersistedResponse
+	134, // 219: job.InfoBuilderService.SetPrefetch:output_type -> job.SetPrefetchResponse
+	136, // 220: job.InfoBuilderService.SetPriority:output_type -> job.SetPriorityResponse
+	138, // 221: job.InfoBuilderService.SetRequiredNetwork:output_type -> job.SetRequiredNetworkResponse
+	140, // 222: job.InfoBuilderService.SetRequiredNetworkType:output_type -> job.SetRequiredNetworkTypeResponse
+	142, // 223: job.InfoBuilderService.SetRequiresBatteryNotLow:output_type -> job.SetRequiresBatteryNotLowResponse
+	144, // 224: job.InfoBuilderService.SetRequiresCharging:output_type -> job.SetRequiresChargingResponse
+	146, // 225: job.InfoBuilderService.SetRequiresDeviceIdle:output_type -> job.SetRequiresDeviceIdleResponse
+	148, // 226: job.InfoBuilderService.SetRequiresStorageNotLow:output_type -> job.SetRequiresStorageNotLowResponse
+	150, // 227: job.InfoBuilderService.SetTraceTag:output_type -> job.SetTraceTagResponse
+	152, // 228: job.InfoBuilderService.SetTransientExtras:output_type -> job.SetTransientExtrasResponse
+	154, // 229: job.InfoBuilderService.SetTriggerContentMaxDelay:output_type -> job.SetTriggerContentMaxDelayResponse
+	156, // 230: job.InfoBuilderService.SetTriggerContentUpdateDelay:output_type -> job.SetTriggerContentUpdateDelayResponse
+	158, // 231: job.InfoBuilderService.SetUserInitiated:output_type -> job.SetUserInitiatedResponse
+	3,   // 232: job.InfoTriggerContentUriService.DescribeContents:output_type -> job.DescribeContentsResponse
+	38,  // 233: job.InfoTriggerContentUriService.Equals:output_type -> job.EqualsResponse
+	161, // 234: job.InfoTriggerContentUriService.GetFlags:output_type -> job.GetFlagsResponse
+	163, // 235: job.InfoTriggerContentUriService.GetUri:output_type -> job.GetUriResponse
+	82,  // 236: job.InfoTriggerContentUriService.HashCode:output_type -> job.HashCodeResponse
+	19,  // 237: job.InfoTriggerContentUriService.WriteToParcel:output_type -> job.WriteToParcelResponse
+	166, // 238: job.ServiceService.JobFinished:output_type -> job.JobFinishedResponse
+	168, // 239: job.ServiceService.OnBind:output_type -> job.OnBindResponse
+	170, // 240: job.ServiceService.OnNetworkChanged:output_type -> job.OnNetworkChangedResponse
+	172, // 241: job.ServiceService.OnStartJob:output_type -> job.OnStartJobResponse
+	174, // 242: job.ServiceService.OnStopJob:output_type -> job.OnStopJobResponse
+	176, // 243: job.ServiceService.SetNotification:output_type -> job.SetNotificationResponse
+	178, // 244: job.ServiceService.UpdateEstimatedNetworkBytes4:output_type -> job.UpdateEstimatedNetworkBytes4Response
+	180, // 245: job.ServiceService.UpdateEstimatedNetworkBytes3_1:output_type -> job.UpdateEstimatedNetworkBytes3_1Response
+	182, // 246: job.ServiceService.UpdateTransferredNetworkBytes4:output_type -> job.UpdateTransferredNetworkBytes4Response
+	184, // 247: job.ServiceService.UpdateTransferredNetworkBytes3_1:output_type -> job.UpdateTransferredNetworkBytes3_1Response
+	186, // 248: job.SchedulerService.CanRunUserInitiatedJobs:output_type -> job.CanRunUserInitiatedJobsResponse
+	188, // 249: job.SchedulerService.Cancel:output_type -> job.CancelResponse
+	190, // 250: job.SchedulerService.CancelAll:output_type -> job.CancelAllResponse
+	192, // 251: job.SchedulerService.CancelInAllNamespaces:output_type -> job.CancelInAllNamespacesResponse
+	194, // 252: job.SchedulerService.Enqueue:output_type -> job.EnqueueResponse
+	196, // 253: job.SchedulerService.ForNamespace:output_type -> job.ForNamespaceResponse
+	198, // 254: job.SchedulerService.GetAllPendingJobs:output_type -> job.GetAllPendingJobsResponse
+	200, // 255: job.SchedulerService.GetNamespace:output_type -> job.GetNamespaceResponse
+	202, // 256: job.SchedulerService.GetPendingJob:output_type -> job.GetPendingJobResponse
+	204, // 257: job.SchedulerService.GetPendingJobReason:output_type -> job.GetPendingJobReasonResponse
+	33,  // 258: job.SchedulerService.GetPendingJobReasons:output_type -> job.GetPendingJobReasonsResponse
+	207, // 259: job.SchedulerService.GetPendingJobReasonsHistory:output_type -> job.GetPendingJobReasonsHistoryResponse
+	209, // 260: job.SchedulerService.Schedule:output_type -> job.ScheduleResponse
+	211, // 261: job.ParametersService.CompleteWork:output_type -> job.CompleteWorkResponse
+	213, // 262: job.ParametersService.DequeueWork:output_type -> job.DequeueWorkResponse
+	3,   // 263: job.ParametersService.DescribeContents:output_type -> job.DescribeContentsResponse
+	42,  // 264: job.ParametersService.GetClipData:output_type -> job.GetClipDataResponse
+	44,  // 265: job.ParametersService.GetClipGrantFlags:output_type -> job.GetClipGrantFlagsResponse
+	11,  // 266: job.ParametersService.GetExtras:output_type -> job.GetExtrasResponse
+	217, // 267: job.ParametersService.GetJobId:output_type -> job.GetJobIdResponse
+	219, // 268: job.ParametersService.GetJobNamespace:output_type -> job.GetJobNamespaceResponse
+	221, // 269: job.ParametersService.GetNetwork:output_type -> job.GetNetworkResponse
+	223, // 270: job.ParametersService.GetStopReason:output_type -> job.GetStopReasonResponse
+	74,  // 271: job.ParametersService.GetTransientExtras:output_type -> job.GetTransientExtrasResponse
+	225, // 272: job.ParametersService.GetTriggeredContentAuthorities:output_type -> job.GetTriggeredContentAuthoritiesResponse
+	227, // 273: job.ParametersService.GetTriggeredContentUris:output_type -> job.GetTriggeredContentUrisResponse
+	229, // 274: job.ParametersService.IsExpeditedJob:output_type -> job.IsExpeditedJobResponse
+	231, // 275: job.ParametersService.IsOverrideDeadlineExpired:output_type -> job.IsOverrideDeadlineExpiredResponse
+	233, // 276: job.ParametersService.IsUserInitiatedJob:output_type -> job.IsUserInitiatedJobResponse
+	19,  // 277: job.ParametersService.WriteToParcel:output_type -> job.WriteToParcelResponse
+	236, // 278: job.ServiceEngineService.GetBinder:output_type -> job.GetBinderResponse
+	166, // 279: job.ServiceEngineService.JobFinished:output_type -> job.JobFinishedResponse
+	170, // 280: job.ServiceEngineService.OnNetworkChanged:output_type -> job.OnNetworkChangedResponse
+	172, // 281: job.ServiceEngineService.OnStartJob:output_type -> job.OnStartJobResponse
+	174, // 282: job.ServiceEngineService.OnStopJob:output_type -> job.OnStopJobResponse
+	176, // 283: job.ServiceEngineService.SetNotification:output_type -> job.SetNotificationResponse
+	238, // 284: job.ServiceEngineService.UpdateEstimatedNetworkBytes:output_type -> job.UpdateEstimatedNetworkBytesResponse
+	240, // 285: job.ServiceEngineService.UpdateTransferredNetworkBytes:output_type -> job.UpdateTransferredNetworkBytesResponse
+	143, // [143:286] is the sub-list for method output_type
+	0,   // [0:143] is the sub-list for method input_type
 	0,   // [0:0] is the sub-list for extension type_name
 	0,   // [0:0] is the sub-list for extension extendee
 	0,   // [0:0] is the sub-list for field type_name
@@ -11176,7 +11449,7 @@ func file_proto_job_job_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_proto_job_job_proto_rawDesc), len(file_proto_job_job_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   235,
+			NumMessages:   241,
 			NumExtensions: 0,
 			NumServices:   10,
 		},

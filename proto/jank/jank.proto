@@ -6,37 +6,6 @@ package jank;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/jank";
 
-message NewRelativeFrameTimeHistogramRequest {
-}
-
-message NewRelativeFrameTimeHistogramResponse {
-  int64 result = 1;
-}
-
-message AddRelativeFrameTimeMillisRequest {
-  int64 handle = 1;
-  int32 arg0 = 2;
-}
-
-message AddRelativeFrameTimeMillisResponse {
-}
-
-message GetBucketCountersRequest {
-  int64 handle = 1;
-}
-
-message GetBucketCountersResponse {
-  int64 result = 1;
-}
-
-message GetBucketEndpointsMillisRequest {
-  int64 handle = 1;
-}
-
-message GetBucketEndpointsMillisResponse {
-  int64 result = 1;
-}
-
 message NewAppJankStatsRequest {
   int32 arg0 = 1;
   string arg1 = 2;
@@ -116,11 +85,35 @@ message GetWidgetStateResponse {
   string result = 1;
 }
 
-service RelativeFrameTimeHistogramService {
-  rpc NewRelativeFrameTimeHistogram (NewRelativeFrameTimeHistogramRequest) returns (NewRelativeFrameTimeHistogramResponse);
-  rpc AddRelativeFrameTimeMillis (AddRelativeFrameTimeMillisRequest) returns (AddRelativeFrameTimeMillisResponse);
-  rpc GetBucketCounters (GetBucketCountersRequest) returns (GetBucketCountersResponse);
-  rpc GetBucketEndpointsMillis (GetBucketEndpointsMillisRequest) returns (GetBucketEndpointsMillisResponse);
+message NewRelativeFrameTimeHistogramRequest {
+}
+
+message NewRelativeFrameTimeHistogramResponse {
+  int64 result = 1;
+}
+
+message AddRelativeFrameTimeMillisRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message AddRelativeFrameTimeMillisResponse {
+}
+
+message GetBucketCountersRequest {
+  int64 handle = 1;
+}
+
+message GetBucketCountersResponse {
+  int64 result = 1;
+}
+
+message GetBucketEndpointsMillisRequest {
+  int64 handle = 1;
+}
+
+message GetBucketEndpointsMillisResponse {
+  int64 result = 1;
 }
 
 service AppJankStatsService {
@@ -133,4 +126,11 @@ service AppJankStatsService {
   rpc GetWidgetCategory (GetWidgetCategoryRequest) returns (GetWidgetCategoryResponse);
   rpc GetWidgetId (GetWidgetIdRequest) returns (GetWidgetIdResponse);
   rpc GetWidgetState (GetWidgetStateRequest) returns (GetWidgetStateResponse);
+}
+
+service RelativeFrameTimeHistogramService {
+  rpc NewRelativeFrameTimeHistogram (NewRelativeFrameTimeHistogramRequest) returns (NewRelativeFrameTimeHistogramResponse);
+  rpc AddRelativeFrameTimeMillis (AddRelativeFrameTimeMillisRequest) returns (AddRelativeFrameTimeMillisResponse);
+  rpc GetBucketCounters (GetBucketCountersRequest) returns (GetBucketCountersResponse);
+  rpc GetBucketEndpointsMillis (GetBucketEndpointsMillisRequest) returns (GetBucketEndpointsMillisResponse);
 }

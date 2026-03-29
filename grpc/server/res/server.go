@@ -51,7 +51,7 @@ func (s *ConfigurationServer) CompareTo1(_ context.Context, req *pb.CompareTo1Re
 	return &pb.CompareTo1Response{Result: result}, nil
 }
 
-func (s *ConfigurationServer) DescribeContents(_ context.Context, req *pb.DescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
+func (s *ConfigurationServer) DescribeContents(_ context.Context, req *pb.ConfigurationDescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -135,7 +135,7 @@ func (s *ConfigurationServer) GetLayoutDirection(_ context.Context, req *pb.GetL
 	return &pb.GetLayoutDirectionResponse{Result: result}, nil
 }
 
-func (s *ConfigurationServer) GetLocales(_ context.Context, req *pb.GetLocalesRequest) (*pb.GetLocalesResponse, error) {
+func (s *ConfigurationServer) GetLocales(_ context.Context, req *pb.ConfigurationGetLocalesRequest) (*pb.GetLocalesResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -320,7 +320,7 @@ func (s *ConfigurationServer) SetToDefaults(_ context.Context, req *pb.SetToDefa
 	return &pb.SetToDefaultsResponse{}, nil
 }
 
-func (s *ConfigurationServer) ToString(_ context.Context, req *pb.ToStringRequest) (*pb.ToStringResponse, error) {
+func (s *ConfigurationServer) ToString(_ context.Context, req *pb.ConfigurationToStringRequest) (*pb.ToStringResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -348,7 +348,7 @@ func (s *ConfigurationServer) UpdateFrom(_ context.Context, req *pb.UpdateFromRe
 	return &pb.UpdateFromResponse{Result: result}, nil
 }
 
-func (s *ConfigurationServer) WriteToParcel(_ context.Context, req *pb.WriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
+func (s *ConfigurationServer) WriteToParcel(_ context.Context, req *pb.ConfigurationWriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -412,6 +412,254 @@ func (s *ConfigurationServer) NeedNewResources(_ context.Context, req *pb.NeedNe
 	return &pb.NeedNewResourcesResponse{Result: result}, nil
 }
 
+// ColorStateListServer implements pb.ColorStateListServiceServer.
+type ColorStateListServer struct {
+	pb.UnimplementedColorStateListServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *ColorStateListServer) NewColorStateList(_ context.Context, req *pb.NewColorStateListRequest) (*pb.NewColorStateListResponse, error) {
+	obj, err := jnipkg.NewColorStateList(s.Ctx.VM, s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewColorStateListResponse{Result: handle}, nil
+}
+
+func (s *ColorStateListServer) DescribeContents(_ context.Context, req *pb.ColorStateListDescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ColorStateList{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.DescribeContents()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.DescribeContentsResponse{Result: result}, nil
+}
+
+func (s *ColorStateListServer) GetChangingConfigurations(_ context.Context, req *pb.ColorStateListGetChangingConfigurationsRequest) (*pb.GetChangingConfigurationsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ColorStateList{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetChangingConfigurations()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetChangingConfigurationsResponse{Result: result}, nil
+}
+
+func (s *ColorStateListServer) GetColorForState(_ context.Context, req *pb.GetColorForStateRequest) (*pb.GetColorForStateResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ColorStateList{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetColorForState(s.Handles.Get(req.GetArg0()), req.GetArg1())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetColorForStateResponse{Result: result}, nil
+}
+
+func (s *ColorStateListServer) GetDefaultColor(_ context.Context, req *pb.GetDefaultColorRequest) (*pb.GetDefaultColorResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ColorStateList{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetDefaultColor()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetDefaultColorResponse{Result: result}, nil
+}
+
+func (s *ColorStateListServer) IsOpaque(_ context.Context, req *pb.IsOpaqueRequest) (*pb.IsOpaqueResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ColorStateList{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.IsOpaque()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.IsOpaqueResponse{Result: result}, nil
+}
+
+func (s *ColorStateListServer) IsStateful(_ context.Context, req *pb.IsStatefulRequest) (*pb.IsStatefulResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ColorStateList{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.IsStateful()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.IsStatefulResponse{Result: result}, nil
+}
+
+func (s *ColorStateListServer) ToString(_ context.Context, req *pb.ColorStateListToStringRequest) (*pb.ToStringResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ColorStateList{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.ToString()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ToStringResponse{Result: result}, nil
+}
+
+func (s *ColorStateListServer) WithAlpha(_ context.Context, req *pb.WithAlphaRequest) (*pb.WithAlphaResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ColorStateList{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.WithAlpha(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.WithAlphaResponse{Result: handle}, nil
+}
+
+func (s *ColorStateListServer) WithLStar(_ context.Context, req *pb.WithLStarRequest) (*pb.WithLStarResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ColorStateList{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.WithLStar(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.WithLStarResponse{Result: handle}, nil
+}
+
+func (s *ColorStateListServer) WriteToParcel(_ context.Context, req *pb.ColorStateListWriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ColorStateList{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.WriteToParcel(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.WriteToParcelResponse{}, nil
+}
+
+func (s *ColorStateListServer) CreateFromXml2(_ context.Context, req *pb.CreateFromXml2Request) (*pb.CreateFromXml2Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ColorStateList{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.CreateFromXml2(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.CreateFromXml2Response{Result: handle}, nil
+}
+
+func (s *ColorStateListServer) CreateFromXml3_1(_ context.Context, req *pb.CreateFromXml3_1Request) (*pb.CreateFromXml3_1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ColorStateList{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.CreateFromXml3_1(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()), s.Handles.Get(req.GetArg2()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.CreateFromXml3_1Response{Result: handle}, nil
+}
+
+func (s *ColorStateListServer) ValueOf(_ context.Context, req *pb.ValueOfRequest) (*pb.ValueOfResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ColorStateList{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.ValueOf(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.ValueOfResponse{Result: handle}, nil
+}
+
 // AssetFileDescriptorServer implements pb.AssetFileDescriptorServiceServer.
 type AssetFileDescriptorServer struct {
 	pb.UnimplementedAssetFileDescriptorServiceServer
@@ -434,7 +682,7 @@ func (s *AssetFileDescriptorServer) NewAssetFileDescriptor(_ context.Context, re
 	return &pb.NewAssetFileDescriptorResponse{Result: handle}, nil
 }
 
-func (s *AssetFileDescriptorServer) Close(_ context.Context, req *pb.CloseRequest) (*pb.CloseResponse, error) {
+func (s *AssetFileDescriptorServer) Close(_ context.Context, req *pb.AssetFileDescriptorCloseRequest) (*pb.CloseResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -493,7 +741,7 @@ func (s *AssetFileDescriptorServer) CreateOutputStream(_ context.Context, req *p
 	return &pb.CreateOutputStreamResponse{Result: handle}, nil
 }
 
-func (s *AssetFileDescriptorServer) DescribeContents(_ context.Context, req *pb.DescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
+func (s *AssetFileDescriptorServer) DescribeContents(_ context.Context, req *pb.AssetFileDescriptorDescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -618,7 +866,7 @@ func (s *AssetFileDescriptorServer) GetStartOffset(_ context.Context, req *pb.Ge
 	return &pb.GetStartOffsetResponse{Result: result}, nil
 }
 
-func (s *AssetFileDescriptorServer) ToString(_ context.Context, req *pb.ToStringRequest) (*pb.ToStringResponse, error) {
+func (s *AssetFileDescriptorServer) ToString(_ context.Context, req *pb.AssetFileDescriptorToStringRequest) (*pb.ToStringResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -632,7 +880,7 @@ func (s *AssetFileDescriptorServer) ToString(_ context.Context, req *pb.ToString
 	return &pb.ToStringResponse{Result: result}, nil
 }
 
-func (s *AssetFileDescriptorServer) WriteToParcel(_ context.Context, req *pb.WriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
+func (s *AssetFileDescriptorServer) WriteToParcel(_ context.Context, req *pb.AssetFileDescriptorWriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -643,252 +891,4 @@ func (s *AssetFileDescriptorServer) WriteToParcel(_ context.Context, req *pb.Wri
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
 	return &pb.WriteToParcelResponse{}, nil
-}
-
-// ColorStateListServer implements pb.ColorStateListServiceServer.
-type ColorStateListServer struct {
-	pb.UnimplementedColorStateListServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *ColorStateListServer) NewColorStateList(_ context.Context, req *pb.NewColorStateListRequest) (*pb.NewColorStateListResponse, error) {
-	obj, err := jnipkg.NewColorStateList(s.Ctx.VM, s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
-	}
-	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-	}
-	return &pb.NewColorStateListResponse{Result: handle}, nil
-}
-
-func (s *ColorStateListServer) DescribeContents(_ context.Context, req *pb.DescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.ColorStateList{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.DescribeContents()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.DescribeContentsResponse{Result: result}, nil
-}
-
-func (s *ColorStateListServer) GetChangingConfigurations(_ context.Context, req *pb.GetChangingConfigurationsRequest) (*pb.GetChangingConfigurationsResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.ColorStateList{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetChangingConfigurations()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetChangingConfigurationsResponse{Result: result}, nil
-}
-
-func (s *ColorStateListServer) GetColorForState(_ context.Context, req *pb.GetColorForStateRequest) (*pb.GetColorForStateResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.ColorStateList{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetColorForState(s.Handles.Get(req.GetArg0()), req.GetArg1())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetColorForStateResponse{Result: result}, nil
-}
-
-func (s *ColorStateListServer) GetDefaultColor(_ context.Context, req *pb.GetDefaultColorRequest) (*pb.GetDefaultColorResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.ColorStateList{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetDefaultColor()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetDefaultColorResponse{Result: result}, nil
-}
-
-func (s *ColorStateListServer) IsOpaque(_ context.Context, req *pb.IsOpaqueRequest) (*pb.IsOpaqueResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.ColorStateList{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.IsOpaque()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.IsOpaqueResponse{Result: result}, nil
-}
-
-func (s *ColorStateListServer) IsStateful(_ context.Context, req *pb.IsStatefulRequest) (*pb.IsStatefulResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.ColorStateList{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.IsStateful()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.IsStatefulResponse{Result: result}, nil
-}
-
-func (s *ColorStateListServer) ToString(_ context.Context, req *pb.ToStringRequest) (*pb.ToStringResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.ColorStateList{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.ToString()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.ToStringResponse{Result: result}, nil
-}
-
-func (s *ColorStateListServer) WithAlpha(_ context.Context, req *pb.WithAlphaRequest) (*pb.WithAlphaResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.ColorStateList{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.WithAlpha(req.GetArg0())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.WithAlphaResponse{Result: handle}, nil
-}
-
-func (s *ColorStateListServer) WithLStar(_ context.Context, req *pb.WithLStarRequest) (*pb.WithLStarResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.ColorStateList{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.WithLStar(req.GetArg0())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.WithLStarResponse{Result: handle}, nil
-}
-
-func (s *ColorStateListServer) WriteToParcel(_ context.Context, req *pb.WriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.ColorStateList{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.WriteToParcel(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.WriteToParcelResponse{}, nil
-}
-
-func (s *ColorStateListServer) CreateFromXml2(_ context.Context, req *pb.CreateFromXml2Request) (*pb.CreateFromXml2Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.ColorStateList{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.CreateFromXml2(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.CreateFromXml2Response{Result: handle}, nil
-}
-
-func (s *ColorStateListServer) CreateFromXml3_1(_ context.Context, req *pb.CreateFromXml3_1Request) (*pb.CreateFromXml3_1Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.ColorStateList{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.CreateFromXml3_1(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()), s.Handles.Get(req.GetArg2()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.CreateFromXml3_1Response{Result: handle}, nil
-}
-
-func (s *ColorStateListServer) ValueOf(_ context.Context, req *pb.ValueOfRequest) (*pb.ValueOfResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.ColorStateList{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.ValueOf(req.GetArg0())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.ValueOfResponse{Result: handle}, nil
 }

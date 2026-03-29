@@ -23,26 +23,27 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-type DescribeContentsRequest struct {
+type OnDocumentChangedRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *DescribeContentsRequest) Reset() {
-	*x = DescribeContentsRequest{}
+func (x *OnDocumentChangedRequest) Reset() {
+	*x = OnDocumentChangedRequest{}
 	mi := &file_proto_observer_observer_proto_msgTypes[0]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *DescribeContentsRequest) String() string {
+func (x *OnDocumentChangedRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*DescribeContentsRequest) ProtoMessage() {}
+func (*OnDocumentChangedRequest) ProtoMessage() {}
 
-func (x *DescribeContentsRequest) ProtoReflect() protoreflect.Message {
+func (x *OnDocumentChangedRequest) ProtoReflect() protoreflect.Message {
 	mi := &file_proto_observer_observer_proto_msgTypes[0]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -54,32 +55,38 @@ func (x *DescribeContentsRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use DescribeContentsRequest.ProtoReflect.Descriptor instead.
-func (*DescribeContentsRequest) Descriptor() ([]byte, []int) {
+// Deprecated: Use OnDocumentChangedRequest.ProtoReflect.Descriptor instead.
+func (*OnDocumentChangedRequest) Descriptor() ([]byte, []int) {
 	return file_proto_observer_observer_proto_rawDescGZIP(), []int{0}
 }
 
-type DescribeContentsResponse struct {
+func (x *OnDocumentChangedRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type OnDocumentChangedResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *DescribeContentsResponse) Reset() {
-	*x = DescribeContentsResponse{}
+func (x *OnDocumentChangedResponse) Reset() {
+	*x = OnDocumentChangedResponse{}
 	mi := &file_proto_observer_observer_proto_msgTypes[1]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *DescribeContentsResponse) String() string {
+func (x *OnDocumentChangedResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*DescribeContentsResponse) ProtoMessage() {}
+func (*OnDocumentChangedResponse) ProtoMessage() {}
 
-func (x *DescribeContentsResponse) ProtoReflect() protoreflect.Message {
+func (x *OnDocumentChangedResponse) ProtoReflect() protoreflect.Message {
 	mi := &file_proto_observer_observer_proto_msgTypes[1]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -91,40 +98,32 @@ func (x *DescribeContentsResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use DescribeContentsResponse.ProtoReflect.Descriptor instead.
-func (*DescribeContentsResponse) Descriptor() ([]byte, []int) {
+// Deprecated: Use OnDocumentChangedResponse.ProtoReflect.Descriptor instead.
+func (*OnDocumentChangedResponse) Descriptor() ([]byte, []int) {
 	return file_proto_observer_observer_proto_rawDescGZIP(), []int{1}
 }
 
-func (x *DescribeContentsResponse) GetResult() int32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type WriteToParcelRequest struct {
+type OnSchemaChangedRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *WriteToParcelRequest) Reset() {
-	*x = WriteToParcelRequest{}
+func (x *OnSchemaChangedRequest) Reset() {
+	*x = OnSchemaChangedRequest{}
 	mi := &file_proto_observer_observer_proto_msgTypes[2]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *WriteToParcelRequest) String() string {
+func (x *OnSchemaChangedRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*WriteToParcelRequest) ProtoMessage() {}
+func (*OnSchemaChangedRequest) ProtoMessage() {}
 
-func (x *WriteToParcelRequest) ProtoReflect() protoreflect.Message {
+func (x *OnSchemaChangedRequest) ProtoReflect() protoreflect.Message {
 	mi := &file_proto_observer_observer_proto_msgTypes[2]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -136,45 +135,38 @@ func (x *WriteToParcelRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use WriteToParcelRequest.ProtoReflect.Descriptor instead.
-func (*WriteToParcelRequest) Descriptor() ([]byte, []int) {
+// Deprecated: Use OnSchemaChangedRequest.ProtoReflect.Descriptor instead.
+func (*OnSchemaChangedRequest) Descriptor() ([]byte, []int) {
 	return file_proto_observer_observer_proto_rawDescGZIP(), []int{2}
 }
 
-func (x *WriteToParcelRequest) GetArg0() int64 {
+func (x *OnSchemaChangedRequest) GetArg0() int64 {
 	if x != nil {
 		return x.Arg0
 	}
 	return 0
 }
 
-func (x *WriteToParcelRequest) GetArg1() int32 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-type WriteToParcelResponse struct {
+type OnSchemaChangedResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *WriteToParcelResponse) Reset() {
-	*x = WriteToParcelResponse{}
+func (x *OnSchemaChangedResponse) Reset() {
+	*x = OnSchemaChangedResponse{}
 	mi := &file_proto_observer_observer_proto_msgTypes[3]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *WriteToParcelResponse) String() string {
+func (x *OnSchemaChangedResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*WriteToParcelResponse) ProtoMessage() {}
+func (*OnSchemaChangedResponse) ProtoMessage() {}
 
-func (x *WriteToParcelResponse) ProtoReflect() protoreflect.Message {
+func (x *OnSchemaChangedResponse) ProtoReflect() protoreflect.Message {
 	mi := &file_proto_observer_observer_proto_msgTypes[3]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -186,177 +178,9 @@ func (x *WriteToParcelResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use WriteToParcelResponse.ProtoReflect.Descriptor instead.
-func (*WriteToParcelResponse) Descriptor() ([]byte, []int) {
+// Deprecated: Use OnSchemaChangedResponse.ProtoReflect.Descriptor instead.
+func (*OnSchemaChangedResponse) Descriptor() ([]byte, []int) {
 	return file_proto_observer_observer_proto_rawDescGZIP(), []int{3}
-}
-
-type AddFilterSchemasRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *AddFilterSchemasRequest) Reset() {
-	*x = AddFilterSchemasRequest{}
-	mi := &file_proto_observer_observer_proto_msgTypes[4]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *AddFilterSchemasRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*AddFilterSchemasRequest) ProtoMessage() {}
-
-func (x *AddFilterSchemasRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_observer_observer_proto_msgTypes[4]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use AddFilterSchemasRequest.ProtoReflect.Descriptor instead.
-func (*AddFilterSchemasRequest) Descriptor() ([]byte, []int) {
-	return file_proto_observer_observer_proto_rawDescGZIP(), []int{4}
-}
-
-func (x *AddFilterSchemasRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type AddFilterSchemasResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *AddFilterSchemasResponse) Reset() {
-	*x = AddFilterSchemasResponse{}
-	mi := &file_proto_observer_observer_proto_msgTypes[5]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *AddFilterSchemasResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*AddFilterSchemasResponse) ProtoMessage() {}
-
-func (x *AddFilterSchemasResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_observer_observer_proto_msgTypes[5]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use AddFilterSchemasResponse.ProtoReflect.Descriptor instead.
-func (*AddFilterSchemasResponse) Descriptor() ([]byte, []int) {
-	return file_proto_observer_observer_proto_rawDescGZIP(), []int{5}
-}
-
-func (x *AddFilterSchemasResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type BuildRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *BuildRequest) Reset() {
-	*x = BuildRequest{}
-	mi := &file_proto_observer_observer_proto_msgTypes[6]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *BuildRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*BuildRequest) ProtoMessage() {}
-
-func (x *BuildRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_observer_observer_proto_msgTypes[6]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use BuildRequest.ProtoReflect.Descriptor instead.
-func (*BuildRequest) Descriptor() ([]byte, []int) {
-	return file_proto_observer_observer_proto_rawDescGZIP(), []int{6}
-}
-
-type BuildResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *BuildResponse) Reset() {
-	*x = BuildResponse{}
-	mi := &file_proto_observer_observer_proto_msgTypes[7]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *BuildResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*BuildResponse) ProtoMessage() {}
-
-func (x *BuildResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_observer_observer_proto_msgTypes[7]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use BuildResponse.ProtoReflect.Descriptor instead.
-func (*BuildResponse) Descriptor() ([]byte, []int) {
-	return file_proto_observer_observer_proto_rawDescGZIP(), []int{7}
-}
-
-func (x *BuildResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
 }
 
 type NewDocumentChangeInfoRequest struct {
@@ -372,7 +196,7 @@ type NewDocumentChangeInfoRequest struct {
 
 func (x *NewDocumentChangeInfoRequest) Reset() {
 	*x = NewDocumentChangeInfoRequest{}
-	mi := &file_proto_observer_observer_proto_msgTypes[8]
+	mi := &file_proto_observer_observer_proto_msgTypes[4]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -384,7 +208,7 @@ func (x *NewDocumentChangeInfoRequest) String() string {
 func (*NewDocumentChangeInfoRequest) ProtoMessage() {}
 
 func (x *NewDocumentChangeInfoRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_observer_observer_proto_msgTypes[8]
+	mi := &file_proto_observer_observer_proto_msgTypes[4]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -397,7 +221,7 @@ func (x *NewDocumentChangeInfoRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NewDocumentChangeInfoRequest.ProtoReflect.Descriptor instead.
 func (*NewDocumentChangeInfoRequest) Descriptor() ([]byte, []int) {
-	return file_proto_observer_observer_proto_rawDescGZIP(), []int{8}
+	return file_proto_observer_observer_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *NewDocumentChangeInfoRequest) GetArg0() string {
@@ -444,7 +268,7 @@ type NewDocumentChangeInfoResponse struct {
 
 func (x *NewDocumentChangeInfoResponse) Reset() {
 	*x = NewDocumentChangeInfoResponse{}
-	mi := &file_proto_observer_observer_proto_msgTypes[9]
+	mi := &file_proto_observer_observer_proto_msgTypes[5]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -456,7 +280,7 @@ func (x *NewDocumentChangeInfoResponse) String() string {
 func (*NewDocumentChangeInfoResponse) ProtoMessage() {}
 
 func (x *NewDocumentChangeInfoResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_observer_observer_proto_msgTypes[9]
+	mi := &file_proto_observer_observer_proto_msgTypes[5]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -469,7 +293,7 @@ func (x *NewDocumentChangeInfoResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NewDocumentChangeInfoResponse.ProtoReflect.Descriptor instead.
 func (*NewDocumentChangeInfoResponse) Descriptor() ([]byte, []int) {
-	return file_proto_observer_observer_proto_rawDescGZIP(), []int{9}
+	return file_proto_observer_observer_proto_rawDescGZIP(), []int{5}
 }
 
 func (x *NewDocumentChangeInfoResponse) GetResult() int64 {
@@ -489,7 +313,7 @@ type EqualsRequest struct {
 
 func (x *EqualsRequest) Reset() {
 	*x = EqualsRequest{}
-	mi := &file_proto_observer_observer_proto_msgTypes[10]
+	mi := &file_proto_observer_observer_proto_msgTypes[6]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -501,7 +325,7 @@ func (x *EqualsRequest) String() string {
 func (*EqualsRequest) ProtoMessage() {}
 
 func (x *EqualsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_observer_observer_proto_msgTypes[10]
+	mi := &file_proto_observer_observer_proto_msgTypes[6]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -514,7 +338,7 @@ func (x *EqualsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use EqualsRequest.ProtoReflect.Descriptor instead.
 func (*EqualsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_observer_observer_proto_rawDescGZIP(), []int{10}
+	return file_proto_observer_observer_proto_rawDescGZIP(), []int{6}
 }
 
 func (x *EqualsRequest) GetHandle() int64 {
@@ -540,7 +364,7 @@ type EqualsResponse struct {
 
 func (x *EqualsResponse) Reset() {
 	*x = EqualsResponse{}
-	mi := &file_proto_observer_observer_proto_msgTypes[11]
+	mi := &file_proto_observer_observer_proto_msgTypes[7]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -552,7 +376,7 @@ func (x *EqualsResponse) String() string {
 func (*EqualsResponse) ProtoMessage() {}
 
 func (x *EqualsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_observer_observer_proto_msgTypes[11]
+	mi := &file_proto_observer_observer_proto_msgTypes[7]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -565,7 +389,7 @@ func (x *EqualsResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use EqualsResponse.ProtoReflect.Descriptor instead.
 func (*EqualsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_observer_observer_proto_rawDescGZIP(), []int{11}
+	return file_proto_observer_observer_proto_rawDescGZIP(), []int{7}
 }
 
 func (x *EqualsResponse) GetResult() bool {
@@ -573,6 +397,94 @@ func (x *EqualsResponse) GetResult() bool {
 		return x.Result
 	}
 	return false
+}
+
+type GetChangedDocumentIdsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetChangedDocumentIdsRequest) Reset() {
+	*x = GetChangedDocumentIdsRequest{}
+	mi := &file_proto_observer_observer_proto_msgTypes[8]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetChangedDocumentIdsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetChangedDocumentIdsRequest) ProtoMessage() {}
+
+func (x *GetChangedDocumentIdsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_observer_observer_proto_msgTypes[8]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetChangedDocumentIdsRequest.ProtoReflect.Descriptor instead.
+func (*GetChangedDocumentIdsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_observer_observer_proto_rawDescGZIP(), []int{8}
+}
+
+func (x *GetChangedDocumentIdsRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetChangedDocumentIdsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetChangedDocumentIdsResponse) Reset() {
+	*x = GetChangedDocumentIdsResponse{}
+	mi := &file_proto_observer_observer_proto_msgTypes[9]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetChangedDocumentIdsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetChangedDocumentIdsResponse) ProtoMessage() {}
+
+func (x *GetChangedDocumentIdsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_observer_observer_proto_msgTypes[9]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetChangedDocumentIdsResponse.ProtoReflect.Descriptor instead.
+func (*GetChangedDocumentIdsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_observer_observer_proto_rawDescGZIP(), []int{9}
+}
+
+func (x *GetChangedDocumentIdsResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
 }
 
 type GetDatabaseNameRequest struct {
@@ -584,7 +496,7 @@ type GetDatabaseNameRequest struct {
 
 func (x *GetDatabaseNameRequest) Reset() {
 	*x = GetDatabaseNameRequest{}
-	mi := &file_proto_observer_observer_proto_msgTypes[12]
+	mi := &file_proto_observer_observer_proto_msgTypes[10]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -596,7 +508,7 @@ func (x *GetDatabaseNameRequest) String() string {
 func (*GetDatabaseNameRequest) ProtoMessage() {}
 
 func (x *GetDatabaseNameRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_observer_observer_proto_msgTypes[12]
+	mi := &file_proto_observer_observer_proto_msgTypes[10]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -609,7 +521,7 @@ func (x *GetDatabaseNameRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetDatabaseNameRequest.ProtoReflect.Descriptor instead.
 func (*GetDatabaseNameRequest) Descriptor() ([]byte, []int) {
-	return file_proto_observer_observer_proto_rawDescGZIP(), []int{12}
+	return file_proto_observer_observer_proto_rawDescGZIP(), []int{10}
 }
 
 func (x *GetDatabaseNameRequest) GetHandle() int64 {
@@ -628,7 +540,7 @@ type GetDatabaseNameResponse struct {
 
 func (x *GetDatabaseNameResponse) Reset() {
 	*x = GetDatabaseNameResponse{}
-	mi := &file_proto_observer_observer_proto_msgTypes[13]
+	mi := &file_proto_observer_observer_proto_msgTypes[11]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -640,7 +552,7 @@ func (x *GetDatabaseNameResponse) String() string {
 func (*GetDatabaseNameResponse) ProtoMessage() {}
 
 func (x *GetDatabaseNameResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_observer_observer_proto_msgTypes[13]
+	mi := &file_proto_observer_observer_proto_msgTypes[11]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -653,7 +565,7 @@ func (x *GetDatabaseNameResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetDatabaseNameResponse.ProtoReflect.Descriptor instead.
 func (*GetDatabaseNameResponse) Descriptor() ([]byte, []int) {
-	return file_proto_observer_observer_proto_rawDescGZIP(), []int{13}
+	return file_proto_observer_observer_proto_rawDescGZIP(), []int{11}
 }
 
 func (x *GetDatabaseNameResponse) GetResult() string {
@@ -672,7 +584,7 @@ type GetNamespaceRequest struct {
 
 func (x *GetNamespaceRequest) Reset() {
 	*x = GetNamespaceRequest{}
-	mi := &file_proto_observer_observer_proto_msgTypes[14]
+	mi := &file_proto_observer_observer_proto_msgTypes[12]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -684,7 +596,7 @@ func (x *GetNamespaceRequest) String() string {
 func (*GetNamespaceRequest) ProtoMessage() {}
 
 func (x *GetNamespaceRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_observer_observer_proto_msgTypes[14]
+	mi := &file_proto_observer_observer_proto_msgTypes[12]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -697,7 +609,7 @@ func (x *GetNamespaceRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetNamespaceRequest.ProtoReflect.Descriptor instead.
 func (*GetNamespaceRequest) Descriptor() ([]byte, []int) {
-	return file_proto_observer_observer_proto_rawDescGZIP(), []int{14}
+	return file_proto_observer_observer_proto_rawDescGZIP(), []int{12}
 }
 
 func (x *GetNamespaceRequest) GetHandle() int64 {
@@ -716,7 +628,7 @@ type GetNamespaceResponse struct {
 
 func (x *GetNamespaceResponse) Reset() {
 	*x = GetNamespaceResponse{}
-	mi := &file_proto_observer_observer_proto_msgTypes[15]
+	mi := &file_proto_observer_observer_proto_msgTypes[13]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -728,7 +640,7 @@ func (x *GetNamespaceResponse) String() string {
 func (*GetNamespaceResponse) ProtoMessage() {}
 
 func (x *GetNamespaceResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_observer_observer_proto_msgTypes[15]
+	mi := &file_proto_observer_observer_proto_msgTypes[13]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -741,7 +653,7 @@ func (x *GetNamespaceResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetNamespaceResponse.ProtoReflect.Descriptor instead.
 func (*GetNamespaceResponse) Descriptor() ([]byte, []int) {
-	return file_proto_observer_observer_proto_rawDescGZIP(), []int{15}
+	return file_proto_observer_observer_proto_rawDescGZIP(), []int{13}
 }
 
 func (x *GetNamespaceResponse) GetResult() string {
@@ -760,7 +672,7 @@ type GetPackageNameRequest struct {
 
 func (x *GetPackageNameRequest) Reset() {
 	*x = GetPackageNameRequest{}
-	mi := &file_proto_observer_observer_proto_msgTypes[16]
+	mi := &file_proto_observer_observer_proto_msgTypes[14]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -772,7 +684,7 @@ func (x *GetPackageNameRequest) String() string {
 func (*GetPackageNameRequest) ProtoMessage() {}
 
 func (x *GetPackageNameRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_observer_observer_proto_msgTypes[16]
+	mi := &file_proto_observer_observer_proto_msgTypes[14]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -785,7 +697,7 @@ func (x *GetPackageNameRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetPackageNameRequest.ProtoReflect.Descriptor instead.
 func (*GetPackageNameRequest) Descriptor() ([]byte, []int) {
-	return file_proto_observer_observer_proto_rawDescGZIP(), []int{16}
+	return file_proto_observer_observer_proto_rawDescGZIP(), []int{14}
 }
 
 func (x *GetPackageNameRequest) GetHandle() int64 {
@@ -804,7 +716,7 @@ type GetPackageNameResponse struct {
 
 func (x *GetPackageNameResponse) Reset() {
 	*x = GetPackageNameResponse{}
-	mi := &file_proto_observer_observer_proto_msgTypes[17]
+	mi := &file_proto_observer_observer_proto_msgTypes[15]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -816,7 +728,7 @@ func (x *GetPackageNameResponse) String() string {
 func (*GetPackageNameResponse) ProtoMessage() {}
 
 func (x *GetPackageNameResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_observer_observer_proto_msgTypes[17]
+	mi := &file_proto_observer_observer_proto_msgTypes[15]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -829,7 +741,7 @@ func (x *GetPackageNameResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetPackageNameResponse.ProtoReflect.Descriptor instead.
 func (*GetPackageNameResponse) Descriptor() ([]byte, []int) {
-	return file_proto_observer_observer_proto_rawDescGZIP(), []int{17}
+	return file_proto_observer_observer_proto_rawDescGZIP(), []int{15}
 }
 
 func (x *GetPackageNameResponse) GetResult() string {
@@ -848,7 +760,7 @@ type GetSchemaNameRequest struct {
 
 func (x *GetSchemaNameRequest) Reset() {
 	*x = GetSchemaNameRequest{}
-	mi := &file_proto_observer_observer_proto_msgTypes[18]
+	mi := &file_proto_observer_observer_proto_msgTypes[16]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -860,7 +772,7 @@ func (x *GetSchemaNameRequest) String() string {
 func (*GetSchemaNameRequest) ProtoMessage() {}
 
 func (x *GetSchemaNameRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_observer_observer_proto_msgTypes[18]
+	mi := &file_proto_observer_observer_proto_msgTypes[16]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -873,7 +785,7 @@ func (x *GetSchemaNameRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetSchemaNameRequest.ProtoReflect.Descriptor instead.
 func (*GetSchemaNameRequest) Descriptor() ([]byte, []int) {
-	return file_proto_observer_observer_proto_rawDescGZIP(), []int{18}
+	return file_proto_observer_observer_proto_rawDescGZIP(), []int{16}
 }
 
 func (x *GetSchemaNameRequest) GetHandle() int64 {
@@ -892,7 +804,7 @@ type GetSchemaNameResponse struct {
 
 func (x *GetSchemaNameResponse) Reset() {
 	*x = GetSchemaNameResponse{}
-	mi := &file_proto_observer_observer_proto_msgTypes[19]
+	mi := &file_proto_observer_observer_proto_msgTypes[17]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -904,7 +816,7 @@ func (x *GetSchemaNameResponse) String() string {
 func (*GetSchemaNameResponse) ProtoMessage() {}
 
 func (x *GetSchemaNameResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_observer_observer_proto_msgTypes[19]
+	mi := &file_proto_observer_observer_proto_msgTypes[17]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -917,7 +829,7 @@ func (x *GetSchemaNameResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetSchemaNameResponse.ProtoReflect.Descriptor instead.
 func (*GetSchemaNameResponse) Descriptor() ([]byte, []int) {
-	return file_proto_observer_observer_proto_rawDescGZIP(), []int{19}
+	return file_proto_observer_observer_proto_rawDescGZIP(), []int{17}
 }
 
 func (x *GetSchemaNameResponse) GetResult() string {
@@ -936,7 +848,7 @@ type HashCodeRequest struct {
 
 func (x *HashCodeRequest) Reset() {
 	*x = HashCodeRequest{}
-	mi := &file_proto_observer_observer_proto_msgTypes[20]
+	mi := &file_proto_observer_observer_proto_msgTypes[18]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -948,7 +860,7 @@ func (x *HashCodeRequest) String() string {
 func (*HashCodeRequest) ProtoMessage() {}
 
 func (x *HashCodeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_observer_observer_proto_msgTypes[20]
+	mi := &file_proto_observer_observer_proto_msgTypes[18]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -961,7 +873,7 @@ func (x *HashCodeRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use HashCodeRequest.ProtoReflect.Descriptor instead.
 func (*HashCodeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_observer_observer_proto_rawDescGZIP(), []int{20}
+	return file_proto_observer_observer_proto_rawDescGZIP(), []int{18}
 }
 
 func (x *HashCodeRequest) GetHandle() int64 {
@@ -980,7 +892,7 @@ type HashCodeResponse struct {
 
 func (x *HashCodeResponse) Reset() {
 	*x = HashCodeResponse{}
-	mi := &file_proto_observer_observer_proto_msgTypes[21]
+	mi := &file_proto_observer_observer_proto_msgTypes[19]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -992,7 +904,7 @@ func (x *HashCodeResponse) String() string {
 func (*HashCodeResponse) ProtoMessage() {}
 
 func (x *HashCodeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_observer_observer_proto_msgTypes[21]
+	mi := &file_proto_observer_observer_proto_msgTypes[19]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1005,7 +917,7 @@ func (x *HashCodeResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use HashCodeResponse.ProtoReflect.Descriptor instead.
 func (*HashCodeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_observer_observer_proto_rawDescGZIP(), []int{21}
+	return file_proto_observer_observer_proto_rawDescGZIP(), []int{19}
 }
 
 func (x *HashCodeResponse) GetResult() int32 {
@@ -1024,7 +936,7 @@ type ToStringRequest struct {
 
 func (x *ToStringRequest) Reset() {
 	*x = ToStringRequest{}
-	mi := &file_proto_observer_observer_proto_msgTypes[22]
+	mi := &file_proto_observer_observer_proto_msgTypes[20]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1036,7 +948,7 @@ func (x *ToStringRequest) String() string {
 func (*ToStringRequest) ProtoMessage() {}
 
 func (x *ToStringRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_observer_observer_proto_msgTypes[22]
+	mi := &file_proto_observer_observer_proto_msgTypes[20]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1049,7 +961,7 @@ func (x *ToStringRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ToStringRequest.ProtoReflect.Descriptor instead.
 func (*ToStringRequest) Descriptor() ([]byte, []int) {
-	return file_proto_observer_observer_proto_rawDescGZIP(), []int{22}
+	return file_proto_observer_observer_proto_rawDescGZIP(), []int{20}
 }
 
 func (x *ToStringRequest) GetHandle() int64 {
@@ -1068,7 +980,7 @@ type ToStringResponse struct {
 
 func (x *ToStringResponse) Reset() {
 	*x = ToStringResponse{}
-	mi := &file_proto_observer_observer_proto_msgTypes[23]
+	mi := &file_proto_observer_observer_proto_msgTypes[21]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1080,7 +992,7 @@ func (x *ToStringResponse) String() string {
 func (*ToStringResponse) ProtoMessage() {}
 
 func (x *ToStringResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_observer_observer_proto_msgTypes[23]
+	mi := &file_proto_observer_observer_proto_msgTypes[21]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1093,7 +1005,7 @@ func (x *ToStringResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ToStringResponse.ProtoReflect.Descriptor instead.
 func (*ToStringResponse) Descriptor() ([]byte, []int) {
-	return file_proto_observer_observer_proto_rawDescGZIP(), []int{23}
+	return file_proto_observer_observer_proto_rawDescGZIP(), []int{21}
 }
 
 func (x *ToStringResponse) GetResult() string {
@@ -1114,7 +1026,7 @@ type NewSchemaChangeInfoRequest struct {
 
 func (x *NewSchemaChangeInfoRequest) Reset() {
 	*x = NewSchemaChangeInfoRequest{}
-	mi := &file_proto_observer_observer_proto_msgTypes[24]
+	mi := &file_proto_observer_observer_proto_msgTypes[22]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1126,7 +1038,7 @@ func (x *NewSchemaChangeInfoRequest) String() string {
 func (*NewSchemaChangeInfoRequest) ProtoMessage() {}
 
 func (x *NewSchemaChangeInfoRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_observer_observer_proto_msgTypes[24]
+	mi := &file_proto_observer_observer_proto_msgTypes[22]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1139,7 +1051,7 @@ func (x *NewSchemaChangeInfoRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NewSchemaChangeInfoRequest.ProtoReflect.Descriptor instead.
 func (*NewSchemaChangeInfoRequest) Descriptor() ([]byte, []int) {
-	return file_proto_observer_observer_proto_rawDescGZIP(), []int{24}
+	return file_proto_observer_observer_proto_rawDescGZIP(), []int{22}
 }
 
 func (x *NewSchemaChangeInfoRequest) GetArg0() string {
@@ -1172,7 +1084,7 @@ type NewSchemaChangeInfoResponse struct {
 
 func (x *NewSchemaChangeInfoResponse) Reset() {
 	*x = NewSchemaChangeInfoResponse{}
-	mi := &file_proto_observer_observer_proto_msgTypes[25]
+	mi := &file_proto_observer_observer_proto_msgTypes[23]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1184,7 +1096,7 @@ func (x *NewSchemaChangeInfoResponse) String() string {
 func (*NewSchemaChangeInfoResponse) ProtoMessage() {}
 
 func (x *NewSchemaChangeInfoResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_observer_observer_proto_msgTypes[25]
+	mi := &file_proto_observer_observer_proto_msgTypes[23]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1197,7 +1109,7 @@ func (x *NewSchemaChangeInfoResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NewSchemaChangeInfoResponse.ProtoReflect.Descriptor instead.
 func (*NewSchemaChangeInfoResponse) Descriptor() ([]byte, []int) {
-	return file_proto_observer_observer_proto_rawDescGZIP(), []int{25}
+	return file_proto_observer_observer_proto_rawDescGZIP(), []int{23}
 }
 
 func (x *NewSchemaChangeInfoResponse) GetResult() int64 {
@@ -1207,27 +1119,114 @@ func (x *NewSchemaChangeInfoResponse) GetResult() int64 {
 	return 0
 }
 
-type OnDocumentChangedRequest struct {
+type GetChangedSchemaNamesRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *OnDocumentChangedRequest) Reset() {
-	*x = OnDocumentChangedRequest{}
+func (x *GetChangedSchemaNamesRequest) Reset() {
+	*x = GetChangedSchemaNamesRequest{}
+	mi := &file_proto_observer_observer_proto_msgTypes[24]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetChangedSchemaNamesRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetChangedSchemaNamesRequest) ProtoMessage() {}
+
+func (x *GetChangedSchemaNamesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_observer_observer_proto_msgTypes[24]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetChangedSchemaNamesRequest.ProtoReflect.Descriptor instead.
+func (*GetChangedSchemaNamesRequest) Descriptor() ([]byte, []int) {
+	return file_proto_observer_observer_proto_rawDescGZIP(), []int{24}
+}
+
+func (x *GetChangedSchemaNamesRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetChangedSchemaNamesResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetChangedSchemaNamesResponse) Reset() {
+	*x = GetChangedSchemaNamesResponse{}
+	mi := &file_proto_observer_observer_proto_msgTypes[25]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetChangedSchemaNamesResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetChangedSchemaNamesResponse) ProtoMessage() {}
+
+func (x *GetChangedSchemaNamesResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_observer_observer_proto_msgTypes[25]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetChangedSchemaNamesResponse.ProtoReflect.Descriptor instead.
+func (*GetChangedSchemaNamesResponse) Descriptor() ([]byte, []int) {
+	return file_proto_observer_observer_proto_rawDescGZIP(), []int{25}
+}
+
+func (x *GetChangedSchemaNamesResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type DescribeContentsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DescribeContentsRequest) Reset() {
+	*x = DescribeContentsRequest{}
 	mi := &file_proto_observer_observer_proto_msgTypes[26]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *OnDocumentChangedRequest) String() string {
+func (x *DescribeContentsRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*OnDocumentChangedRequest) ProtoMessage() {}
+func (*DescribeContentsRequest) ProtoMessage() {}
 
-func (x *OnDocumentChangedRequest) ProtoReflect() protoreflect.Message {
+func (x *DescribeContentsRequest) ProtoReflect() protoreflect.Message {
 	mi := &file_proto_observer_observer_proto_msgTypes[26]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -1239,38 +1238,32 @@ func (x *OnDocumentChangedRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use OnDocumentChangedRequest.ProtoReflect.Descriptor instead.
-func (*OnDocumentChangedRequest) Descriptor() ([]byte, []int) {
+// Deprecated: Use DescribeContentsRequest.ProtoReflect.Descriptor instead.
+func (*DescribeContentsRequest) Descriptor() ([]byte, []int) {
 	return file_proto_observer_observer_proto_rawDescGZIP(), []int{26}
 }
 
-func (x *OnDocumentChangedRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type OnDocumentChangedResponse struct {
+type DescribeContentsResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *OnDocumentChangedResponse) Reset() {
-	*x = OnDocumentChangedResponse{}
+func (x *DescribeContentsResponse) Reset() {
+	*x = DescribeContentsResponse{}
 	mi := &file_proto_observer_observer_proto_msgTypes[27]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *OnDocumentChangedResponse) String() string {
+func (x *DescribeContentsResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*OnDocumentChangedResponse) ProtoMessage() {}
+func (*DescribeContentsResponse) ProtoMessage() {}
 
-func (x *OnDocumentChangedResponse) ProtoReflect() protoreflect.Message {
+func (x *DescribeContentsResponse) ProtoReflect() protoreflect.Message {
 	mi := &file_proto_observer_observer_proto_msgTypes[27]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -1282,33 +1275,208 @@ func (x *OnDocumentChangedResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use OnDocumentChangedResponse.ProtoReflect.Descriptor instead.
-func (*OnDocumentChangedResponse) Descriptor() ([]byte, []int) {
+// Deprecated: Use DescribeContentsResponse.ProtoReflect.Descriptor instead.
+func (*DescribeContentsResponse) Descriptor() ([]byte, []int) {
 	return file_proto_observer_observer_proto_rawDescGZIP(), []int{27}
 }
 
-type OnSchemaChangedRequest struct {
+func (x *DescribeContentsResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetFilterSchemasRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetFilterSchemasRequest) Reset() {
+	*x = GetFilterSchemasRequest{}
+	mi := &file_proto_observer_observer_proto_msgTypes[28]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetFilterSchemasRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetFilterSchemasRequest) ProtoMessage() {}
+
+func (x *GetFilterSchemasRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_observer_observer_proto_msgTypes[28]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetFilterSchemasRequest.ProtoReflect.Descriptor instead.
+func (*GetFilterSchemasRequest) Descriptor() ([]byte, []int) {
+	return file_proto_observer_observer_proto_rawDescGZIP(), []int{28}
+}
+
+type GetFilterSchemasResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetFilterSchemasResponse) Reset() {
+	*x = GetFilterSchemasResponse{}
+	mi := &file_proto_observer_observer_proto_msgTypes[29]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetFilterSchemasResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetFilterSchemasResponse) ProtoMessage() {}
+
+func (x *GetFilterSchemasResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_observer_observer_proto_msgTypes[29]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetFilterSchemasResponse.ProtoReflect.Descriptor instead.
+func (*GetFilterSchemasResponse) Descriptor() ([]byte, []int) {
+	return file_proto_observer_observer_proto_rawDescGZIP(), []int{29}
+}
+
+func (x *GetFilterSchemasResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type WriteToParcelRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *WriteToParcelRequest) Reset() {
+	*x = WriteToParcelRequest{}
+	mi := &file_proto_observer_observer_proto_msgTypes[30]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *WriteToParcelRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*WriteToParcelRequest) ProtoMessage() {}
+
+func (x *WriteToParcelRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_observer_observer_proto_msgTypes[30]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use WriteToParcelRequest.ProtoReflect.Descriptor instead.
+func (*WriteToParcelRequest) Descriptor() ([]byte, []int) {
+	return file_proto_observer_observer_proto_rawDescGZIP(), []int{30}
+}
+
+func (x *WriteToParcelRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *WriteToParcelRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type WriteToParcelResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *WriteToParcelResponse) Reset() {
+	*x = WriteToParcelResponse{}
+	mi := &file_proto_observer_observer_proto_msgTypes[31]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *WriteToParcelResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*WriteToParcelResponse) ProtoMessage() {}
+
+func (x *WriteToParcelResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_observer_observer_proto_msgTypes[31]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use WriteToParcelResponse.ProtoReflect.Descriptor instead.
+func (*WriteToParcelResponse) Descriptor() ([]byte, []int) {
+	return file_proto_observer_observer_proto_rawDescGZIP(), []int{31}
+}
+
+type AddFilterSchemasRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *OnSchemaChangedRequest) Reset() {
-	*x = OnSchemaChangedRequest{}
-	mi := &file_proto_observer_observer_proto_msgTypes[28]
+func (x *AddFilterSchemasRequest) Reset() {
+	*x = AddFilterSchemasRequest{}
+	mi := &file_proto_observer_observer_proto_msgTypes[32]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *OnSchemaChangedRequest) String() string {
+func (x *AddFilterSchemasRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*OnSchemaChangedRequest) ProtoMessage() {}
+func (*AddFilterSchemasRequest) ProtoMessage() {}
 
-func (x *OnSchemaChangedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_observer_observer_proto_msgTypes[28]
+func (x *AddFilterSchemasRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_observer_observer_proto_msgTypes[32]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1319,39 +1487,40 @@ func (x *OnSchemaChangedRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use OnSchemaChangedRequest.ProtoReflect.Descriptor instead.
-func (*OnSchemaChangedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_observer_observer_proto_rawDescGZIP(), []int{28}
+// Deprecated: Use AddFilterSchemasRequest.ProtoReflect.Descriptor instead.
+func (*AddFilterSchemasRequest) Descriptor() ([]byte, []int) {
+	return file_proto_observer_observer_proto_rawDescGZIP(), []int{32}
 }
 
-func (x *OnSchemaChangedRequest) GetArg0() int64 {
+func (x *AddFilterSchemasRequest) GetArg0() int64 {
 	if x != nil {
 		return x.Arg0
 	}
 	return 0
 }
 
-type OnSchemaChangedResponse struct {
+type AddFilterSchemasResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *OnSchemaChangedResponse) Reset() {
-	*x = OnSchemaChangedResponse{}
-	mi := &file_proto_observer_observer_proto_msgTypes[29]
+func (x *AddFilterSchemasResponse) Reset() {
+	*x = AddFilterSchemasResponse{}
+	mi := &file_proto_observer_observer_proto_msgTypes[33]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *OnSchemaChangedResponse) String() string {
+func (x *AddFilterSchemasResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*OnSchemaChangedResponse) ProtoMessage() {}
+func (*AddFilterSchemasResponse) ProtoMessage() {}
 
-func (x *OnSchemaChangedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_observer_observer_proto_msgTypes[29]
+func (x *AddFilterSchemasResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_observer_observer_proto_msgTypes[33]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1362,30 +1531,109 @@ func (x *OnSchemaChangedResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use OnSchemaChangedResponse.ProtoReflect.Descriptor instead.
-func (*OnSchemaChangedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_observer_observer_proto_rawDescGZIP(), []int{29}
+// Deprecated: Use AddFilterSchemasResponse.ProtoReflect.Descriptor instead.
+func (*AddFilterSchemasResponse) Descriptor() ([]byte, []int) {
+	return file_proto_observer_observer_proto_rawDescGZIP(), []int{33}
+}
+
+func (x *AddFilterSchemasResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type BuildRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *BuildRequest) Reset() {
+	*x = BuildRequest{}
+	mi := &file_proto_observer_observer_proto_msgTypes[34]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *BuildRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*BuildRequest) ProtoMessage() {}
+
+func (x *BuildRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_observer_observer_proto_msgTypes[34]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use BuildRequest.ProtoReflect.Descriptor instead.
+func (*BuildRequest) Descriptor() ([]byte, []int) {
+	return file_proto_observer_observer_proto_rawDescGZIP(), []int{34}
+}
+
+type BuildResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *BuildResponse) Reset() {
+	*x = BuildResponse{}
+	mi := &file_proto_observer_observer_proto_msgTypes[35]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *BuildResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*BuildResponse) ProtoMessage() {}
+
+func (x *BuildResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_observer_observer_proto_msgTypes[35]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use BuildResponse.ProtoReflect.Descriptor instead.
+func (*BuildResponse) Descriptor() ([]byte, []int) {
+	return file_proto_observer_observer_proto_rawDescGZIP(), []int{35}
+}
+
+func (x *BuildResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
 }
 
 var File_proto_observer_observer_proto protoreflect.FileDescriptor
 
 const file_proto_observer_observer_proto_rawDesc = "" +
 	"\n" +
-	"\x1dproto/observer/observer.proto\x12\bobserver\"\x19\n" +
-	"\x17DescribeContentsRequest\"2\n" +
-	"\x18DescribeContentsResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\">\n" +
-	"\x14WriteToParcelRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\"\x17\n" +
-	"\x15WriteToParcelResponse\"-\n" +
-	"\x17AddFilterSchemasRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"2\n" +
-	"\x18AddFilterSchemasResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\x0e\n" +
-	"\fBuildRequest\"'\n" +
-	"\rBuildResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\x82\x01\n" +
+	"\x1dproto/observer/observer.proto\x12\bobserver\".\n" +
+	"\x18OnDocumentChangedRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x1b\n" +
+	"\x19OnDocumentChangedResponse\",\n" +
+	"\x16OnSchemaChangedRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x19\n" +
+	"\x17OnSchemaChangedResponse\"\x82\x01\n" +
 	"\x1cNewDocumentChangeInfoRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
 	"\x04arg1\x18\x02 \x01(\tR\x04arg1\x12\x12\n" +
@@ -1398,7 +1646,11 @@ const file_proto_observer_observer_proto_rawDesc = "" +
 	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
 	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"(\n" +
 	"\x0eEqualsResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\bR\x06result\"0\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"6\n" +
+	"\x1cGetChangedDocumentIdsRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"7\n" +
+	"\x1dGetChangedDocumentIdsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"0\n" +
 	"\x16GetDatabaseNameRequest\x12\x16\n" +
 	"\x06handle\x18\x01 \x01(\x03R\x06handle\"1\n" +
 	"\x17GetDatabaseNameResponse\x12\x16\n" +
@@ -1428,38 +1680,56 @@ const file_proto_observer_observer_proto_rawDesc = "" +
 	"\x04arg1\x18\x02 \x01(\tR\x04arg1\x12\x12\n" +
 	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\"5\n" +
 	"\x1bNewSchemaChangeInfoResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\".\n" +
-	"\x18OnDocumentChangedRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x1b\n" +
-	"\x19OnDocumentChangedResponse\",\n" +
-	"\x16OnSchemaChangedRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x19\n" +
-	"\x17OnSchemaChangedResponse2\xba\x01\n" +
-	"\vSpecService\x12Y\n" +
-	"\x10DescribeContents\x12!.observer.DescribeContentsRequest\x1a\".observer.DescribeContentsResponse\x12P\n" +
-	"\rWriteToParcel\x12\x1e.observer.WriteToParcelRequest\x1a\x1f.observer.WriteToParcelResponse2\xa9\x01\n" +
-	"\x12SpecBuilderService\x12Y\n" +
-	"\x10AddFilterSchemas\x12!.observer.AddFilterSchemasRequest\x1a\".observer.AddFilterSchemasResponse\x128\n" +
-	"\x05Build\x12\x16.observer.BuildRequest\x1a\x17.observer.BuildResponse2\x96\x05\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"6\n" +
+	"\x1cGetChangedSchemaNamesRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"7\n" +
+	"\x1dGetChangedSchemaNamesResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x19\n" +
+	"\x17DescribeContentsRequest\"2\n" +
+	"\x18DescribeContentsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x19\n" +
+	"\x17GetFilterSchemasRequest\"2\n" +
+	"\x18GetFilterSchemasResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\">\n" +
+	"\x14WriteToParcelRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\"\x17\n" +
+	"\x15WriteToParcelResponse\"-\n" +
+	"\x17AddFilterSchemasRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"2\n" +
+	"\x18AddFilterSchemasResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x0e\n" +
+	"\fBuildRequest\"'\n" +
+	"\rBuildResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result2\xc7\x01\n" +
+	"\x0fCallbackService\x12\\\n" +
+	"\x11OnDocumentChanged\x12\".observer.OnDocumentChangedRequest\x1a#.observer.OnDocumentChangedResponse\x12V\n" +
+	"\x0fOnSchemaChanged\x12 .observer.OnSchemaChangedRequest\x1a!.observer.OnSchemaChangedResponse2\x80\x06\n" +
 	"\x19DocumentChangeInfoService\x12h\n" +
 	"\x15NewDocumentChangeInfo\x12&.observer.NewDocumentChangeInfoRequest\x1a'.observer.NewDocumentChangeInfoResponse\x12;\n" +
-	"\x06Equals\x12\x17.observer.EqualsRequest\x1a\x18.observer.EqualsResponse\x12V\n" +
+	"\x06Equals\x12\x17.observer.EqualsRequest\x1a\x18.observer.EqualsResponse\x12h\n" +
+	"\x15GetChangedDocumentIds\x12&.observer.GetChangedDocumentIdsRequest\x1a'.observer.GetChangedDocumentIdsResponse\x12V\n" +
 	"\x0fGetDatabaseName\x12 .observer.GetDatabaseNameRequest\x1a!.observer.GetDatabaseNameResponse\x12M\n" +
 	"\fGetNamespace\x12\x1d.observer.GetNamespaceRequest\x1a\x1e.observer.GetNamespaceResponse\x12S\n" +
 	"\x0eGetPackageName\x12\x1f.observer.GetPackageNameRequest\x1a .observer.GetPackageNameResponse\x12P\n" +
 	"\rGetSchemaName\x12\x1e.observer.GetSchemaNameRequest\x1a\x1f.observer.GetSchemaNameResponse\x12A\n" +
 	"\bHashCode\x12\x19.observer.HashCodeRequest\x1a\x1a.observer.HashCodeResponse\x12A\n" +
-	"\bToString\x12\x19.observer.ToStringRequest\x1a\x1a.observer.ToStringResponse2\xed\x03\n" +
+	"\bToString\x12\x19.observer.ToStringRequest\x1a\x1a.observer.ToStringResponse2\xd7\x04\n" +
 	"\x17SchemaChangeInfoService\x12b\n" +
 	"\x13NewSchemaChangeInfo\x12$.observer.NewSchemaChangeInfoRequest\x1a%.observer.NewSchemaChangeInfoResponse\x12;\n" +
-	"\x06Equals\x12\x17.observer.EqualsRequest\x1a\x18.observer.EqualsResponse\x12V\n" +
+	"\x06Equals\x12\x17.observer.EqualsRequest\x1a\x18.observer.EqualsResponse\x12h\n" +
+	"\x15GetChangedSchemaNames\x12&.observer.GetChangedSchemaNamesRequest\x1a'.observer.GetChangedSchemaNamesResponse\x12V\n" +
 	"\x0fGetDatabaseName\x12 .observer.GetDatabaseNameRequest\x1a!.observer.GetDatabaseNameResponse\x12S\n" +
 	"\x0eGetPackageName\x12\x1f.observer.GetPackageNameRequest\x1a .observer.GetPackageNameResponse\x12A\n" +
 	"\bHashCode\x12\x19.observer.HashCodeRequest\x1a\x1a.observer.HashCodeResponse\x12A\n" +
-	"\bToString\x12\x19.observer.ToStringRequest\x1a\x1a.observer.ToStringResponse2\xc7\x01\n" +
-	"\x0fCallbackService\x12\\\n" +
-	"\x11OnDocumentChanged\x12\".observer.OnDocumentChangedRequest\x1a#.observer.OnDocumentChangedResponse\x12V\n" +
-	"\x0fOnSchemaChanged\x12 .observer.OnSchemaChangedRequest\x1a!.observer.OnSchemaChangedResponseB2Z0github.com/AndroidGoLab/jni-proxy/proto/observerb\x06proto3"
+	"\bToString\x12\x19.observer.ToStringRequest\x1a\x1a.observer.ToStringResponse2\x95\x02\n" +
+	"\vSpecService\x12Y\n" +
+	"\x10DescribeContents\x12!.observer.DescribeContentsRequest\x1a\".observer.DescribeContentsResponse\x12Y\n" +
+	"\x10GetFilterSchemas\x12!.observer.GetFilterSchemasRequest\x1a\".observer.GetFilterSchemasResponse\x12P\n" +
+	"\rWriteToParcel\x12\x1e.observer.WriteToParcelRequest\x1a\x1f.observer.WriteToParcelResponse2\xa9\x01\n" +
+	"\x12SpecBuilderService\x12Y\n" +
+	"\x10AddFilterSchemas\x12!.observer.AddFilterSchemasRequest\x1a\".observer.AddFilterSchemasResponse\x128\n" +
+	"\x05Build\x12\x16.observer.BuildRequest\x1a\x17.observer.BuildResponseB2Z0github.com/AndroidGoLab/jni-proxy/proto/observerb\x06proto3"
 
 var (
 	file_proto_observer_observer_proto_rawDescOnce sync.Once
@@ -1473,82 +1743,94 @@ func file_proto_observer_observer_proto_rawDescGZIP() []byte {
 	return file_proto_observer_observer_proto_rawDescData
 }
 
-var file_proto_observer_observer_proto_msgTypes = make([]protoimpl.MessageInfo, 30)
+var file_proto_observer_observer_proto_msgTypes = make([]protoimpl.MessageInfo, 36)
 var file_proto_observer_observer_proto_goTypes = []any{
-	(*DescribeContentsRequest)(nil),       // 0: observer.DescribeContentsRequest
-	(*DescribeContentsResponse)(nil),      // 1: observer.DescribeContentsResponse
-	(*WriteToParcelRequest)(nil),          // 2: observer.WriteToParcelRequest
-	(*WriteToParcelResponse)(nil),         // 3: observer.WriteToParcelResponse
-	(*AddFilterSchemasRequest)(nil),       // 4: observer.AddFilterSchemasRequest
-	(*AddFilterSchemasResponse)(nil),      // 5: observer.AddFilterSchemasResponse
-	(*BuildRequest)(nil),                  // 6: observer.BuildRequest
-	(*BuildResponse)(nil),                 // 7: observer.BuildResponse
-	(*NewDocumentChangeInfoRequest)(nil),  // 8: observer.NewDocumentChangeInfoRequest
-	(*NewDocumentChangeInfoResponse)(nil), // 9: observer.NewDocumentChangeInfoResponse
-	(*EqualsRequest)(nil),                 // 10: observer.EqualsRequest
-	(*EqualsResponse)(nil),                // 11: observer.EqualsResponse
-	(*GetDatabaseNameRequest)(nil),        // 12: observer.GetDatabaseNameRequest
-	(*GetDatabaseNameResponse)(nil),       // 13: observer.GetDatabaseNameResponse
-	(*GetNamespaceRequest)(nil),           // 14: observer.GetNamespaceRequest
-	(*GetNamespaceResponse)(nil),          // 15: observer.GetNamespaceResponse
-	(*GetPackageNameRequest)(nil),         // 16: observer.GetPackageNameRequest
-	(*GetPackageNameResponse)(nil),        // 17: observer.GetPackageNameResponse
-	(*GetSchemaNameRequest)(nil),          // 18: observer.GetSchemaNameRequest
-	(*GetSchemaNameResponse)(nil),         // 19: observer.GetSchemaNameResponse
-	(*HashCodeRequest)(nil),               // 20: observer.HashCodeRequest
-	(*HashCodeResponse)(nil),              // 21: observer.HashCodeResponse
-	(*ToStringRequest)(nil),               // 22: observer.ToStringRequest
-	(*ToStringResponse)(nil),              // 23: observer.ToStringResponse
-	(*NewSchemaChangeInfoRequest)(nil),    // 24: observer.NewSchemaChangeInfoRequest
-	(*NewSchemaChangeInfoResponse)(nil),   // 25: observer.NewSchemaChangeInfoResponse
-	(*OnDocumentChangedRequest)(nil),      // 26: observer.OnDocumentChangedRequest
-	(*OnDocumentChangedResponse)(nil),     // 27: observer.OnDocumentChangedResponse
-	(*OnSchemaChangedRequest)(nil),        // 28: observer.OnSchemaChangedRequest
-	(*OnSchemaChangedResponse)(nil),       // 29: observer.OnSchemaChangedResponse
+	(*OnDocumentChangedRequest)(nil),      // 0: observer.OnDocumentChangedRequest
+	(*OnDocumentChangedResponse)(nil),     // 1: observer.OnDocumentChangedResponse
+	(*OnSchemaChangedRequest)(nil),        // 2: observer.OnSchemaChangedRequest
+	(*OnSchemaChangedResponse)(nil),       // 3: observer.OnSchemaChangedResponse
+	(*NewDocumentChangeInfoRequest)(nil),  // 4: observer.NewDocumentChangeInfoRequest
+	(*NewDocumentChangeInfoResponse)(nil), // 5: observer.NewDocumentChangeInfoResponse
+	(*EqualsRequest)(nil),                 // 6: observer.EqualsRequest
+	(*EqualsResponse)(nil),                // 7: observer.EqualsResponse
+	(*GetChangedDocumentIdsRequest)(nil),  // 8: observer.GetChangedDocumentIdsRequest
+	(*GetChangedDocumentIdsResponse)(nil), // 9: observer.GetChangedDocumentIdsResponse
+	(*GetDatabaseNameRequest)(nil),        // 10: observer.GetDatabaseNameRequest
+	(*GetDatabaseNameResponse)(nil),       // 11: observer.GetDatabaseNameResponse
+	(*GetNamespaceRequest)(nil),           // 12: observer.GetNamespaceRequest
+	(*GetNamespaceResponse)(nil),          // 13: observer.GetNamespaceResponse
+	(*GetPackageNameRequest)(nil),         // 14: observer.GetPackageNameRequest
+	(*GetPackageNameResponse)(nil),        // 15: observer.GetPackageNameResponse
+	(*GetSchemaNameRequest)(nil),          // 16: observer.GetSchemaNameRequest
+	(*GetSchemaNameResponse)(nil),         // 17: observer.GetSchemaNameResponse
+	(*HashCodeRequest)(nil),               // 18: observer.HashCodeRequest
+	(*HashCodeResponse)(nil),              // 19: observer.HashCodeResponse
+	(*ToStringRequest)(nil),               // 20: observer.ToStringRequest
+	(*ToStringResponse)(nil),              // 21: observer.ToStringResponse
+	(*NewSchemaChangeInfoRequest)(nil),    // 22: observer.NewSchemaChangeInfoRequest
+	(*NewSchemaChangeInfoResponse)(nil),   // 23: observer.NewSchemaChangeInfoResponse
+	(*GetChangedSchemaNamesRequest)(nil),  // 24: observer.GetChangedSchemaNamesRequest
+	(*GetChangedSchemaNamesResponse)(nil), // 25: observer.GetChangedSchemaNamesResponse
+	(*DescribeContentsRequest)(nil),       // 26: observer.DescribeContentsRequest
+	(*DescribeContentsResponse)(nil),      // 27: observer.DescribeContentsResponse
+	(*GetFilterSchemasRequest)(nil),       // 28: observer.GetFilterSchemasRequest
+	(*GetFilterSchemasResponse)(nil),      // 29: observer.GetFilterSchemasResponse
+	(*WriteToParcelRequest)(nil),          // 30: observer.WriteToParcelRequest
+	(*WriteToParcelResponse)(nil),         // 31: observer.WriteToParcelResponse
+	(*AddFilterSchemasRequest)(nil),       // 32: observer.AddFilterSchemasRequest
+	(*AddFilterSchemasResponse)(nil),      // 33: observer.AddFilterSchemasResponse
+	(*BuildRequest)(nil),                  // 34: observer.BuildRequest
+	(*BuildResponse)(nil),                 // 35: observer.BuildResponse
 }
 var file_proto_observer_observer_proto_depIdxs = []int32{
-	0,  // 0: observer.SpecService.DescribeContents:input_type -> observer.DescribeContentsRequest
-	2,  // 1: observer.SpecService.WriteToParcel:input_type -> observer.WriteToParcelRequest
-	4,  // 2: observer.SpecBuilderService.AddFilterSchemas:input_type -> observer.AddFilterSchemasRequest
-	6,  // 3: observer.SpecBuilderService.Build:input_type -> observer.BuildRequest
-	8,  // 4: observer.DocumentChangeInfoService.NewDocumentChangeInfo:input_type -> observer.NewDocumentChangeInfoRequest
-	10, // 5: observer.DocumentChangeInfoService.Equals:input_type -> observer.EqualsRequest
-	12, // 6: observer.DocumentChangeInfoService.GetDatabaseName:input_type -> observer.GetDatabaseNameRequest
-	14, // 7: observer.DocumentChangeInfoService.GetNamespace:input_type -> observer.GetNamespaceRequest
-	16, // 8: observer.DocumentChangeInfoService.GetPackageName:input_type -> observer.GetPackageNameRequest
-	18, // 9: observer.DocumentChangeInfoService.GetSchemaName:input_type -> observer.GetSchemaNameRequest
-	20, // 10: observer.DocumentChangeInfoService.HashCode:input_type -> observer.HashCodeRequest
-	22, // 11: observer.DocumentChangeInfoService.ToString:input_type -> observer.ToStringRequest
-	24, // 12: observer.SchemaChangeInfoService.NewSchemaChangeInfo:input_type -> observer.NewSchemaChangeInfoRequest
-	10, // 13: observer.SchemaChangeInfoService.Equals:input_type -> observer.EqualsRequest
-	12, // 14: observer.SchemaChangeInfoService.GetDatabaseName:input_type -> observer.GetDatabaseNameRequest
-	16, // 15: observer.SchemaChangeInfoService.GetPackageName:input_type -> observer.GetPackageNameRequest
-	20, // 16: observer.SchemaChangeInfoService.HashCode:input_type -> observer.HashCodeRequest
-	22, // 17: observer.SchemaChangeInfoService.ToString:input_type -> observer.ToStringRequest
-	26, // 18: observer.CallbackService.OnDocumentChanged:input_type -> observer.OnDocumentChangedRequest
-	28, // 19: observer.CallbackService.OnSchemaChanged:input_type -> observer.OnSchemaChangedRequest
-	1,  // 20: observer.SpecService.DescribeContents:output_type -> observer.DescribeContentsResponse
-	3,  // 21: observer.SpecService.WriteToParcel:output_type -> observer.WriteToParcelResponse
-	5,  // 22: observer.SpecBuilderService.AddFilterSchemas:output_type -> observer.AddFilterSchemasResponse
-	7,  // 23: observer.SpecBuilderService.Build:output_type -> observer.BuildResponse
-	9,  // 24: observer.DocumentChangeInfoService.NewDocumentChangeInfo:output_type -> observer.NewDocumentChangeInfoResponse
-	11, // 25: observer.DocumentChangeInfoService.Equals:output_type -> observer.EqualsResponse
-	13, // 26: observer.DocumentChangeInfoService.GetDatabaseName:output_type -> observer.GetDatabaseNameResponse
-	15, // 27: observer.DocumentChangeInfoService.GetNamespace:output_type -> observer.GetNamespaceResponse
-	17, // 28: observer.DocumentChangeInfoService.GetPackageName:output_type -> observer.GetPackageNameResponse
-	19, // 29: observer.DocumentChangeInfoService.GetSchemaName:output_type -> observer.GetSchemaNameResponse
-	21, // 30: observer.DocumentChangeInfoService.HashCode:output_type -> observer.HashCodeResponse
-	23, // 31: observer.DocumentChangeInfoService.ToString:output_type -> observer.ToStringResponse
-	25, // 32: observer.SchemaChangeInfoService.NewSchemaChangeInfo:output_type -> observer.NewSchemaChangeInfoResponse
-	11, // 33: observer.SchemaChangeInfoService.Equals:output_type -> observer.EqualsResponse
-	13, // 34: observer.SchemaChangeInfoService.GetDatabaseName:output_type -> observer.GetDatabaseNameResponse
-	17, // 35: observer.SchemaChangeInfoService.GetPackageName:output_type -> observer.GetPackageNameResponse
-	21, // 36: observer.SchemaChangeInfoService.HashCode:output_type -> observer.HashCodeResponse
-	23, // 37: observer.SchemaChangeInfoService.ToString:output_type -> observer.ToStringResponse
-	27, // 38: observer.CallbackService.OnDocumentChanged:output_type -> observer.OnDocumentChangedResponse
-	29, // 39: observer.CallbackService.OnSchemaChanged:output_type -> observer.OnSchemaChangedResponse
-	20, // [20:40] is the sub-list for method output_type
-	0,  // [0:20] is the sub-list for method input_type
+	0,  // 0: observer.CallbackService.OnDocumentChanged:input_type -> observer.OnDocumentChangedRequest
+	2,  // 1: observer.CallbackService.OnSchemaChanged:input_type -> observer.OnSchemaChangedRequest
+	4,  // 2: observer.DocumentChangeInfoService.NewDocumentChangeInfo:input_type -> observer.NewDocumentChangeInfoRequest
+	6,  // 3: observer.DocumentChangeInfoService.Equals:input_type -> observer.EqualsRequest
+	8,  // 4: observer.DocumentChangeInfoService.GetChangedDocumentIds:input_type -> observer.GetChangedDocumentIdsRequest
+	10, // 5: observer.DocumentChangeInfoService.GetDatabaseName:input_type -> observer.GetDatabaseNameRequest
+	12, // 6: observer.DocumentChangeInfoService.GetNamespace:input_type -> observer.GetNamespaceRequest
+	14, // 7: observer.DocumentChangeInfoService.GetPackageName:input_type -> observer.GetPackageNameRequest
+	16, // 8: observer.DocumentChangeInfoService.GetSchemaName:input_type -> observer.GetSchemaNameRequest
+	18, // 9: observer.DocumentChangeInfoService.HashCode:input_type -> observer.HashCodeRequest
+	20, // 10: observer.DocumentChangeInfoService.ToString:input_type -> observer.ToStringRequest
+	22, // 11: observer.SchemaChangeInfoService.NewSchemaChangeInfo:input_type -> observer.NewSchemaChangeInfoRequest
+	6,  // 12: observer.SchemaChangeInfoService.Equals:input_type -> observer.EqualsRequest
+	24, // 13: observer.SchemaChangeInfoService.GetChangedSchemaNames:input_type -> observer.GetChangedSchemaNamesRequest
+	10, // 14: observer.SchemaChangeInfoService.GetDatabaseName:input_type -> observer.GetDatabaseNameRequest
+	14, // 15: observer.SchemaChangeInfoService.GetPackageName:input_type -> observer.GetPackageNameRequest
+	18, // 16: observer.SchemaChangeInfoService.HashCode:input_type -> observer.HashCodeRequest
+	20, // 17: observer.SchemaChangeInfoService.ToString:input_type -> observer.ToStringRequest
+	26, // 18: observer.SpecService.DescribeContents:input_type -> observer.DescribeContentsRequest
+	28, // 19: observer.SpecService.GetFilterSchemas:input_type -> observer.GetFilterSchemasRequest
+	30, // 20: observer.SpecService.WriteToParcel:input_type -> observer.WriteToParcelRequest
+	32, // 21: observer.SpecBuilderService.AddFilterSchemas:input_type -> observer.AddFilterSchemasRequest
+	34, // 22: observer.SpecBuilderService.Build:input_type -> observer.BuildRequest
+	1,  // 23: observer.CallbackService.OnDocumentChanged:output_type -> observer.OnDocumentChangedResponse
+	3,  // 24: observer.CallbackService.OnSchemaChanged:output_type -> observer.OnSchemaChangedResponse
+	5,  // 25: observer.DocumentChangeInfoService.NewDocumentChangeInfo:output_type -> observer.NewDocumentChangeInfoResponse
+	7,  // 26: observer.DocumentChangeInfoService.Equals:output_type -> observer.EqualsResponse
+	9,  // 27: observer.DocumentChangeInfoService.GetChangedDocumentIds:output_type -> observer.GetChangedDocumentIdsResponse
+	11, // 28: observer.DocumentChangeInfoService.GetDatabaseName:output_type -> observer.GetDatabaseNameResponse
+	13, // 29: observer.DocumentChangeInfoService.GetNamespace:output_type -> observer.GetNamespaceResponse
+	15, // 30: observer.DocumentChangeInfoService.GetPackageName:output_type -> observer.GetPackageNameResponse
+	17, // 31: observer.DocumentChangeInfoService.GetSchemaName:output_type -> observer.GetSchemaNameResponse
+	19, // 32: observer.DocumentChangeInfoService.HashCode:output_type -> observer.HashCodeResponse
+	21, // 33: observer.DocumentChangeInfoService.ToString:output_type -> observer.ToStringResponse
+	23, // 34: observer.SchemaChangeInfoService.NewSchemaChangeInfo:output_type -> observer.NewSchemaChangeInfoResponse
+	7,  // 35: observer.SchemaChangeInfoService.Equals:output_type -> observer.EqualsResponse
+	25, // 36: observer.SchemaChangeInfoService.GetChangedSchemaNames:output_type -> observer.GetChangedSchemaNamesResponse
+	11, // 37: observer.SchemaChangeInfoService.GetDatabaseName:output_type -> observer.GetDatabaseNameResponse
+	15, // 38: observer.SchemaChangeInfoService.GetPackageName:output_type -> observer.GetPackageNameResponse
+	19, // 39: observer.SchemaChangeInfoService.HashCode:output_type -> observer.HashCodeResponse
+	21, // 40: observer.SchemaChangeInfoService.ToString:output_type -> observer.ToStringResponse
+	27, // 41: observer.SpecService.DescribeContents:output_type -> observer.DescribeContentsResponse
+	29, // 42: observer.SpecService.GetFilterSchemas:output_type -> observer.GetFilterSchemasResponse
+	31, // 43: observer.SpecService.WriteToParcel:output_type -> observer.WriteToParcelResponse
+	33, // 44: observer.SpecBuilderService.AddFilterSchemas:output_type -> observer.AddFilterSchemasResponse
+	35, // 45: observer.SpecBuilderService.Build:output_type -> observer.BuildResponse
+	23, // [23:46] is the sub-list for method output_type
+	0,  // [0:23] is the sub-list for method input_type
 	0,  // [0:0] is the sub-list for extension type_name
 	0,  // [0:0] is the sub-list for extension extendee
 	0,  // [0:0] is the sub-list for field type_name
@@ -1565,7 +1847,7 @@ func file_proto_observer_observer_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_proto_observer_observer_proto_rawDesc), len(file_proto_observer_observer_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   30,
+			NumMessages:   36,
 			NumExtensions: 0,
 			NumServices:   5,
 		},

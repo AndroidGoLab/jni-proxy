@@ -9,84 +9,6 @@ import (
 	"google.golang.org/grpc"
 )
 
-// DeviceHandleClient wraps the gRPC DeviceHandleService client.
-type DeviceHandleClient struct {
-	svc pb.DeviceHandleServiceClient
-}
-
-// NewDeviceHandleClient creates a new DeviceHandle client.
-func NewDeviceHandleClient(cc grpc.ClientConnInterface) *DeviceHandleClient {
-	return &DeviceHandleClient{
-		svc: pb.NewDeviceHandleServiceClient(cc),
-	}
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *DeviceHandleClient) DescribeContents(ctx context.Context) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetRangingDevice calls the GetRangingDevice RPC.
-func (c *DeviceHandleClient) GetRangingDevice(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetRangingDevice(ctx, &pb.GetRangingDeviceRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetTransportHandle calls the GetTransportHandle RPC.
-func (c *DeviceHandleClient) GetTransportHandle(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetTransportHandle(ctx, &pb.GetTransportHandleRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToString calls the ToString RPC.
-func (c *DeviceHandleClient) ToString(ctx context.Context) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *DeviceHandleClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// DeviceHandleBuilderClient wraps the gRPC DeviceHandleBuilderService client.
-type DeviceHandleBuilderClient struct {
-	svc pb.DeviceHandleBuilderServiceClient
-}
-
-// NewDeviceHandleBuilderClient creates a new DeviceHandleBuilder client.
-func NewDeviceHandleBuilderClient(cc grpc.ClientConnInterface) *DeviceHandleBuilderClient {
-	return &DeviceHandleBuilderClient{
-		svc: pb.NewDeviceHandleBuilderServiceClient(cc),
-	}
-}
-
-// Build calls the Build RPC.
-func (c *DeviceHandleBuilderClient) Build(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
 // TransportHandleClient wraps the gRPC TransportHandleService client.
 type TransportHandleClient struct {
 	svc pb.TransportHandleServiceClient
@@ -160,6 +82,75 @@ func (c *TransportHandleReceiveCallbackClient) OnSendFailed(ctx context.Context)
 	return err
 }
 
+// ResponderRangingConfigClient wraps the gRPC ResponderRangingConfigService client.
+type ResponderRangingConfigClient struct {
+	svc pb.ResponderRangingConfigServiceClient
+}
+
+// NewResponderRangingConfigClient creates a new ResponderRangingConfig client.
+func NewResponderRangingConfigClient(cc grpc.ClientConnInterface) *ResponderRangingConfigClient {
+	return &ResponderRangingConfigClient{
+		svc: pb.NewResponderRangingConfigServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *ResponderRangingConfigClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDeviceHandle calls the GetDeviceHandle RPC.
+func (c *ResponderRangingConfigClient) GetDeviceHandle(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetDeviceHandle(ctx, &pb.GetDeviceHandleRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *ResponderRangingConfigClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *ResponderRangingConfigClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// ResponderRangingConfigBuilderClient wraps the gRPC ResponderRangingConfigBuilderService client.
+type ResponderRangingConfigBuilderClient struct {
+	svc pb.ResponderRangingConfigBuilderServiceClient
+}
+
+// NewResponderRangingConfigBuilderClient creates a new ResponderRangingConfigBuilder client.
+func NewResponderRangingConfigBuilderClient(cc grpc.ClientConnInterface) *ResponderRangingConfigBuilderClient {
+	return &ResponderRangingConfigBuilderClient{
+		svc: pb.NewResponderRangingConfigBuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *ResponderRangingConfigBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // InitiatorRangingConfigClient wraps the gRPC InitiatorRangingConfigService client.
 type InitiatorRangingConfigClient struct {
 	svc pb.InitiatorRangingConfigServiceClient
@@ -181,9 +172,27 @@ func (c *InitiatorRangingConfigClient) DescribeContents(ctx context.Context) (in
 	return resp.GetResult(), nil
 }
 
+// GetDeviceHandles calls the GetDeviceHandles RPC.
+func (c *InitiatorRangingConfigClient) GetDeviceHandles(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetDeviceHandles(ctx, &pb.GetDeviceHandlesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // GetFastestRangingInterval calls the GetFastestRangingInterval RPC.
 func (c *InitiatorRangingConfigClient) GetFastestRangingInterval(ctx context.Context) (int64, error) {
 	resp, err := c.svc.GetFastestRangingInterval(ctx, &pb.GetFastestRangingIntervalRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetRangingIntervalRange calls the GetRangingIntervalRange RPC.
+func (c *InitiatorRangingConfigClient) GetRangingIntervalRange(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetRangingIntervalRange(ctx, &pb.GetRangingIntervalRangeRequest{})
 	if err != nil {
 		return 0, err
 	}
@@ -311,20 +320,20 @@ func (c *InitiatorRangingConfigBuilderClient) SetSlowestRangingInterval(ctx cont
 	return resp.GetResult(), nil
 }
 
-// ResponderRangingConfigClient wraps the gRPC ResponderRangingConfigService client.
-type ResponderRangingConfigClient struct {
-	svc pb.ResponderRangingConfigServiceClient
+// DeviceHandleClient wraps the gRPC DeviceHandleService client.
+type DeviceHandleClient struct {
+	svc pb.DeviceHandleServiceClient
 }
 
-// NewResponderRangingConfigClient creates a new ResponderRangingConfig client.
-func NewResponderRangingConfigClient(cc grpc.ClientConnInterface) *ResponderRangingConfigClient {
-	return &ResponderRangingConfigClient{
-		svc: pb.NewResponderRangingConfigServiceClient(cc),
+// NewDeviceHandleClient creates a new DeviceHandle client.
+func NewDeviceHandleClient(cc grpc.ClientConnInterface) *DeviceHandleClient {
+	return &DeviceHandleClient{
+		svc: pb.NewDeviceHandleServiceClient(cc),
 	}
 }
 
 // DescribeContents calls the DescribeContents RPC.
-func (c *ResponderRangingConfigClient) DescribeContents(ctx context.Context) (int32, error) {
+func (c *DeviceHandleClient) DescribeContents(ctx context.Context) (int32, error) {
 	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
 	if err != nil {
 		return 0, err
@@ -332,9 +341,18 @@ func (c *ResponderRangingConfigClient) DescribeContents(ctx context.Context) (in
 	return resp.GetResult(), nil
 }
 
-// GetDeviceHandle calls the GetDeviceHandle RPC.
-func (c *ResponderRangingConfigClient) GetDeviceHandle(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetDeviceHandle(ctx, &pb.GetDeviceHandleRequest{})
+// GetRangingDevice calls the GetRangingDevice RPC.
+func (c *DeviceHandleClient) GetRangingDevice(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetRangingDevice(ctx, &pb.GetRangingDeviceRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTransportHandle calls the GetTransportHandle RPC.
+func (c *DeviceHandleClient) GetTransportHandle(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetTransportHandle(ctx, &pb.GetTransportHandleRequest{})
 	if err != nil {
 		return 0, err
 	}
@@ -342,7 +360,7 @@ func (c *ResponderRangingConfigClient) GetDeviceHandle(ctx context.Context) (int
 }
 
 // ToString calls the ToString RPC.
-func (c *ResponderRangingConfigClient) ToString(ctx context.Context) (string, error) {
+func (c *DeviceHandleClient) ToString(ctx context.Context) (string, error) {
 	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
 	if err != nil {
 		return "", err
@@ -351,7 +369,7 @@ func (c *ResponderRangingConfigClient) ToString(ctx context.Context) (string, er
 }
 
 // WriteToParcel calls the WriteToParcel RPC.
-func (c *ResponderRangingConfigClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+func (c *DeviceHandleClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
 	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -359,20 +377,20 @@ func (c *ResponderRangingConfigClient) WriteToParcel(ctx context.Context, arg0 i
 	return err
 }
 
-// ResponderRangingConfigBuilderClient wraps the gRPC ResponderRangingConfigBuilderService client.
-type ResponderRangingConfigBuilderClient struct {
-	svc pb.ResponderRangingConfigBuilderServiceClient
+// DeviceHandleBuilderClient wraps the gRPC DeviceHandleBuilderService client.
+type DeviceHandleBuilderClient struct {
+	svc pb.DeviceHandleBuilderServiceClient
 }
 
-// NewResponderRangingConfigBuilderClient creates a new ResponderRangingConfigBuilder client.
-func NewResponderRangingConfigBuilderClient(cc grpc.ClientConnInterface) *ResponderRangingConfigBuilderClient {
-	return &ResponderRangingConfigBuilderClient{
-		svc: pb.NewResponderRangingConfigBuilderServiceClient(cc),
+// NewDeviceHandleBuilderClient creates a new DeviceHandleBuilder client.
+func NewDeviceHandleBuilderClient(cc grpc.ClientConnInterface) *DeviceHandleBuilderClient {
+	return &DeviceHandleBuilderClient{
+		svc: pb.NewDeviceHandleBuilderServiceClient(cc),
 	}
 }
 
 // Build calls the Build RPC.
-func (c *ResponderRangingConfigBuilderClient) Build(ctx context.Context) (int64, error) {
+func (c *DeviceHandleBuilderClient) Build(ctx context.Context) (int64, error) {
 	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
 	if err != nil {
 		return 0, err

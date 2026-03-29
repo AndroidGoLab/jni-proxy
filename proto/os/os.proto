@@ -6,61 +6,701 @@ package os;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/os";
 
-message OnFinishRequest {
+message NewConditionVariableRequest {
 }
 
-message OnFinishResponse {
+message NewConditionVariableResponse {
+  int64 result = 1;
 }
 
-message OnTickRequest {
-  int64 arg0 = 1;
+message Block0Request {
+  int64 handle = 1;
 }
 
-message OnTickResponse {
+message Block0Response {
 }
 
-message BeginAsyncSectionRequest {
-  string arg0 = 1;
-  int32 arg1 = 2;
+message Block1_1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
 }
 
-message BeginAsyncSectionResponse {
-}
-
-message BeginSectionRequest {
-  string arg0 = 1;
-}
-
-message BeginSectionResponse {
-}
-
-message EndAsyncSectionRequest {
-  string arg0 = 1;
-  int32 arg1 = 2;
-}
-
-message EndAsyncSectionResponse {
-}
-
-message EndSectionRequest {
-}
-
-message EndSectionResponse {
-}
-
-message IsEnabledRequest {
-}
-
-message IsEnabledResponse {
+message Block1_1Response {
   bool result = 1;
 }
 
-message SetCounterRequest {
-  string arg0 = 1;
+message CloseRequest {
+  int64 handle = 1;
+}
+
+message CloseResponse {
+}
+
+message OpenRequest {
+  int64 handle = 1;
+}
+
+message OpenResponse {
+}
+
+message CancelRequest {
+}
+
+message CancelResponse {
+}
+
+message GetDefaultVibratorRequest {
+}
+
+message GetDefaultVibratorResponse {
+  int64 result = 1;
+}
+
+message GetVibratorRequest {
+  int32 arg0 = 1;
+}
+
+message GetVibratorResponse {
+  int64 result = 1;
+}
+
+message GetVibratorIdsRequest {
+}
+
+message GetVibratorIdsResponse {
+  int64 result = 1;
+}
+
+message Vibrate1Request {
+  int64 arg0 = 1;
+}
+
+message Vibrate1Response {
+}
+
+message Vibrate2_1Request {
+  int64 arg0 = 1;
   int64 arg1 = 2;
 }
 
-message SetCounterResponse {
+message Vibrate2_1Response {
+}
+
+message AddOnFileDescriptorEventListenerRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message AddOnFileDescriptorEventListenerResponse {
+}
+
+message IsIdleRequest {
+}
+
+message IsIdleResponse {
+  bool result = 1;
+}
+
+message RemoveOnFileDescriptorEventListenerRequest {
+  int64 arg0 = 1;
+}
+
+message RemoveOnFileDescriptorEventListenerResponse {
+}
+
+message QueueIdleRequest {
+}
+
+message QueueIdleResponse {
+  bool result = 1;
+}
+
+message OnFileDescriptorEventsRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message OnFileDescriptorEventsResponse {
+  int32 result = 1;
+}
+
+message DescribeContentsRequest {
+}
+
+message DescribeContentsResponse {
+  int32 result = 1;
+}
+
+message CreateOneShotRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message CreateOneShotResponse {
+  int64 result = 1;
+}
+
+message CreatePredefinedRequest {
+  int32 arg0 = 1;
+}
+
+message CreatePredefinedResponse {
+  int64 result = 1;
+}
+
+message CreateRepeatingEffect1Request {
+  int64 arg0 = 1;
+}
+
+message CreateRepeatingEffect1Response {
+  int64 result = 1;
+}
+
+message CreateRepeatingEffect2_1Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message CreateRepeatingEffect2_1Response {
+  int64 result = 1;
+}
+
+message CreateWaveform2Request {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message CreateWaveform2Response {
+  int64 result = 1;
+}
+
+message CreateWaveform3_1Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int32 arg2 = 3;
+}
+
+message CreateWaveform3_1Response {
+  int64 result = 1;
+}
+
+message StartCompositionRequest {
+}
+
+message StartCompositionResponse {
+  int64 result = 1;
+}
+
+message AddControlPointRequest {
+  float arg0 = 1;
+  float arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message AddControlPointResponse {
+  int64 result = 1;
+}
+
+message BuildRequest {
+}
+
+message BuildResponse {
+  int64 result = 1;
+}
+
+message SetInitialSharpnessRequest {
+  float arg0 = 1;
+}
+
+message SetInitialSharpnessResponse {
+  int64 result = 1;
+}
+
+message AddPrimitive1Request {
+  int32 arg0 = 1;
+}
+
+message AddPrimitive1Response {
+  int64 result = 1;
+}
+
+message AddPrimitive2_1Request {
+  int32 arg0 = 1;
+  float arg1 = 2;
+}
+
+message AddPrimitive2_1Response {
+  int64 result = 1;
+}
+
+message AddPrimitive3_2Request {
+  int32 arg0 = 1;
+  float arg1 = 2;
+  int32 arg2 = 3;
+}
+
+message AddPrimitive3_2Response {
+  int64 result = 1;
+}
+
+message AddPrimitive4_3Request {
+  int32 arg0 = 1;
+  float arg1 = 2;
+  int32 arg2 = 3;
+  int32 arg3 = 4;
+}
+
+message AddPrimitive4_3Response {
+  int64 result = 1;
+}
+
+message ComposeRequest {
+}
+
+message ComposeResponse {
+  int64 result = 1;
+}
+
+message SetInitialFrequencyHzRequest {
+  float arg0 = 1;
+}
+
+message SetInitialFrequencyHzResponse {
+  int64 result = 1;
+}
+
+message NewPersistableBundleRequest {
+}
+
+message NewPersistableBundleResponse {
+  int64 result = 1;
+}
+
+message CloneRequest {
+  int64 handle = 1;
+}
+
+message CloneResponse {
+  int64 result = 1;
+}
+
+message DeepCopyRequest {
+  int64 handle = 1;
+}
+
+message DeepCopyResponse {
+  int64 result = 1;
+}
+
+message PersistableBundleDescribeContentsRequest {
+  int64 handle = 1;
+}
+
+message GetPersistableBundleRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message GetPersistableBundleResponse {
+  int64 result = 1;
+}
+
+message PutPersistableBundleRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message PutPersistableBundleResponse {
+}
+
+message WriteToParcelRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message WriteToParcelResponse {
+}
+
+message WriteToStreamRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message WriteToStreamResponse {
+}
+
+message ReadFromStreamRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message ReadFromStreamResponse {
+  int64 result = 1;
+}
+
+message InstallPackageRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message InstallPackageResponse {
+}
+
+message RebootWipeCacheRequest {
+  int64 arg0 = 1;
+}
+
+message RebootWipeCacheResponse {
+}
+
+message RebootWipeUserDataRequest {
+  int64 arg0 = 1;
+}
+
+message RebootWipeUserDataResponse {
+}
+
+message VerifyPackageRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message VerifyPackageResponse {
+}
+
+message OnProgressRequest {
+  int32 arg0 = 1;
+}
+
+message OnProgressResponse {
+}
+
+message CreateHintSessionRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message CreateHintSessionResponse {
+  int64 result = 1;
+}
+
+message GetPreferredUpdateRateNanosRequest {
+}
+
+message GetPreferredUpdateRateNanosResponse {
+  int64 result = 1;
+}
+
+message PerformanceHintManagerSessionCloseRequest {
+}
+
+message ReportActualWorkDuration1Request {
+  int64 arg0 = 1;
+}
+
+message ReportActualWorkDuration1Response {
+}
+
+message ReportActualWorkDuration1_1Request {
+  int64 arg0 = 1;
+}
+
+message ReportActualWorkDuration1_1Response {
+}
+
+message SetPreferPowerEfficiencyRequest {
+  bool arg0 = 1;
+}
+
+message SetPreferPowerEfficiencyResponse {
+}
+
+message SetThreadsRequest {
+  int64 arg0 = 1;
+}
+
+message SetThreadsResponse {
+}
+
+message UpdateTargetWorkDurationRequest {
+  int64 arg0 = 1;
+}
+
+message UpdateTargetWorkDurationResponse {
+}
+
+message CurrentGnssTimeClockRequest {
+}
+
+message CurrentGnssTimeClockResponse {
+  int64 result = 1;
+}
+
+message CurrentNetworkTimeClockRequest {
+}
+
+message CurrentNetworkTimeClockResponse {
+  int64 result = 1;
+}
+
+message CurrentThreadTimeMillisRequest {
+}
+
+message CurrentThreadTimeMillisResponse {
+  int64 result = 1;
+}
+
+message ElapsedRealtimeRequest {
+}
+
+message ElapsedRealtimeResponse {
+  int64 result = 1;
+}
+
+message ElapsedRealtimeNanosRequest {
+}
+
+message ElapsedRealtimeNanosResponse {
+  int64 result = 1;
+}
+
+message SetCurrentTimeMillisRequest {
+  int64 arg0 = 1;
+}
+
+message SetCurrentTimeMillisResponse {
+  bool result = 1;
+}
+
+message SleepRequest {
+  int64 arg0 = 1;
+}
+
+message SleepResponse {
+}
+
+message UptimeMillisRequest {
+}
+
+message UptimeMillisResponse {
+  int64 result = 1;
+}
+
+message UptimeNanosRequest {
+}
+
+message UptimeNanosResponse {
+  int64 result = 1;
+}
+
+message NewLocaleListRequest {
+  int64 arg0 = 1;
+}
+
+message NewLocaleListResponse {
+  int64 result = 1;
+}
+
+message LocaleListDescribeContentsRequest {
+  int64 handle = 1;
+}
+
+message EqualsRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message EqualsResponse {
+  bool result = 1;
+}
+
+message GetRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message GetResponse {
+  int64 result = 1;
+}
+
+message GetFirstMatchRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message GetFirstMatchResponse {
+  int64 result = 1;
+}
+
+message HashCodeRequest {
+  int64 handle = 1;
+}
+
+message HashCodeResponse {
+  int32 result = 1;
+}
+
+message IndexOfRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message IndexOfResponse {
+  int32 result = 1;
+}
+
+message IsEmptyRequest {
+  int64 handle = 1;
+}
+
+message IsEmptyResponse {
+  bool result = 1;
+}
+
+message SizeRequest {
+  int64 handle = 1;
+}
+
+message SizeResponse {
+  int32 result = 1;
+}
+
+message ToLanguageTagsRequest {
+  int64 handle = 1;
+}
+
+message ToLanguageTagsResponse {
+  string result = 1;
+}
+
+message ToStringRequest {
+  int64 handle = 1;
+}
+
+message ToStringResponse {
+  string result = 1;
+}
+
+message ForLanguageTagsRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message ForLanguageTagsResponse {
+  int64 result = 1;
+}
+
+message GetAdjustedDefaultRequest {
+  int64 handle = 1;
+}
+
+message GetAdjustedDefaultResponse {
+  int64 result = 1;
+}
+
+message GetDefaultRequest {
+  int64 handle = 1;
+}
+
+message GetDefaultResponse {
+  int64 result = 1;
+}
+
+message GetEmptyLocaleListRequest {
+  int64 handle = 1;
+}
+
+message GetEmptyLocaleListResponse {
+  int64 result = 1;
+}
+
+message IsPseudoLocaleRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message IsPseudoLocaleResponse {
+  bool result = 1;
+}
+
+message MatchesLanguageAndScriptRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message MatchesLanguageAndScriptResponse {
+  bool result = 1;
+}
+
+message SetDefaultRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetDefaultResponse {
+}
+
+message GetNameRequest {
+}
+
+message GetNameResponse {
+  string result = 1;
+}
+
+message GetTypeRequest {
+}
+
+message GetTypeResponse {
+  int32 result = 1;
+}
+
+message PowerMonitorWriteToParcelRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message OnFsyncRequest {
+}
+
+message OnFsyncResponse {
+}
+
+message OnGetSizeRequest {
+}
+
+message OnGetSizeResponse {
+  int64 result = 1;
+}
+
+message OnReadRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message OnReadResponse {
+  int32 result = 1;
+}
+
+message OnReleaseRequest {
+}
+
+message OnReleaseResponse {
+}
+
+message OnWriteRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message OnWriteResponse {
+  int32 result = 1;
 }
 
 message NewHandlerThreadRequest {
@@ -110,43 +750,626 @@ message RunRequest {
 message RunResponse {
 }
 
-message OnFsyncRequest {
+message GetActiveRequest {
 }
 
-message OnFsyncResponse {
-}
-
-message OnGetSizeRequest {
-}
-
-message OnGetSizeResponse {
+message GetActiveResponse {
   int64 result = 1;
 }
 
-message OnReadRequest {
-  int64 arg0 = 1;
-  int32 arg1 = 2;
-  int64 arg2 = 3;
+message GetTotalRequest {
 }
 
-message OnReadResponse {
+message GetTotalResponse {
+  int64 result = 1;
+}
+
+message CpuUsageInfoWriteToParcelRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message OnEventRequest {
+  int32 arg0 = 1;
+  string arg1 = 2;
+}
+
+message OnEventResponse {
+}
+
+message StartWatchingRequest {
+}
+
+message StartWatchingResponse {
+}
+
+message StopWatchingRequest {
+}
+
+message StopWatchingResponse {
+}
+
+message ExecuteRequest {
+  int64 arg0 = 1;
+}
+
+message ExecuteResponse {
+}
+
+message GetMessageQueueRequest {
+}
+
+message GetMessageQueueResponse {
+  int64 result = 1;
+}
+
+message IsBlockedOnSyncBarrierRequest {
+}
+
+message IsBlockedOnSyncBarrierResponse {
+  bool result = 1;
+}
+
+message NextRequest {
+}
+
+message NextResponse {
+  int64 result = 1;
+}
+
+message PeekWhenRequest {
+}
+
+message PeekWhenResponse {
+  int64 result = 1;
+}
+
+message PollRequest {
+}
+
+message PollResponse {
+  int64 result = 1;
+}
+
+message RecycleRequest {
+  int64 arg0 = 1;
+}
+
+message RecycleResponse {
+}
+
+message ReleaseRequest {
+}
+
+message ReleaseResponse {
+}
+
+message VibrationAttributesEqualsRequest {
+  int64 arg0 = 1;
+}
+
+message GetFlagsRequest {
+}
+
+message GetFlagsResponse {
   int32 result = 1;
 }
 
-message OnReleaseRequest {
+message GetUsageRequest {
 }
 
-message OnReleaseResponse {
+message GetUsageResponse {
+  int32 result = 1;
 }
 
-message OnWriteRequest {
+message GetUsageClassRequest {
+}
+
+message GetUsageClassResponse {
+  int32 result = 1;
+}
+
+message VibrationAttributesHashCodeRequest {
+}
+
+message IsFlagSetRequest {
+  int32 arg0 = 1;
+}
+
+message IsFlagSetResponse {
+  bool result = 1;
+}
+
+message VibrationAttributesToStringRequest {
+}
+
+message VibrationAttributesWriteToParcelRequest {
   int64 arg0 = 1;
   int32 arg1 = 2;
-  int64 arg2 = 3;
 }
 
-message OnWriteResponse {
+message CreateForUsageRequest {
+  int32 arg0 = 1;
+}
+
+message CreateForUsageResponse {
+  int64 result = 1;
+}
+
+message SetFlagsRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message SetFlagsResponse {
+  int64 result = 1;
+}
+
+message SetUsageRequest {
+  int32 arg0 = 1;
+}
+
+message SetUsageResponse {
+  int64 result = 1;
+}
+
+message DumpRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message DumpResponse {
+}
+
+message DumpAsyncRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message DumpAsyncResponse {
+}
+
+message GetInterfaceDescriptorRequest {
+}
+
+message GetInterfaceDescriptorResponse {
+  string result = 1;
+}
+
+message IsBinderAliveRequest {
+}
+
+message IsBinderAliveResponse {
+  bool result = 1;
+}
+
+message LinkToDeathRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message LinkToDeathResponse {
+}
+
+message PingBinderRequest {
+}
+
+message PingBinderResponse {
+  bool result = 1;
+}
+
+message QueryLocalInterfaceRequest {
+  string arg0 = 1;
+}
+
+message QueryLocalInterfaceResponse {
+  int64 result = 1;
+}
+
+message TransactRequest {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+  int32 arg3 = 4;
+}
+
+message TransactResponse {
+  bool result = 1;
+}
+
+message UnlinkToDeathRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message UnlinkToDeathResponse {
+  bool result = 1;
+}
+
+message GetSuggestedMaxIpcSizeBytesRequest {
+}
+
+message GetSuggestedMaxIpcSizeBytesResponse {
   int32 result = 1;
+}
+
+message BinderDiedRequest {
+}
+
+message BinderDiedResponse {
+}
+
+message OnFrozenStateChangedRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message OnFrozenStateChangedResponse {
+}
+
+message AcquireRequest {
+  int64 arg0 = 1;
+  string arg1 = 2;
+}
+
+message AcquireResponse {
+}
+
+message AcquiredRequest {
+}
+
+message AcquiredResponse {
+}
+
+message CleanupRequest {
+  int64 arg0 = 1;
+  bool arg1 = 2;
+}
+
+message CleanupResponse {
+}
+
+message Dump0Request {
+}
+
+message Dump0Response {
+}
+
+message Dump1_1Request {
+  int64 arg0 = 1;
+}
+
+message Dump1_1Response {
+}
+
+message IsAcquiredRequest {
+}
+
+message IsAcquiredResponse {
+  bool result = 1;
+}
+
+message TokenWatcherReleaseRequest {
+  int64 arg0 = 1;
+}
+
+message ReleasedRequest {
+}
+
+message ReleasedResponse {
+}
+
+message GetApplicationRestrictionsRequest {
+  string arg0 = 1;
+}
+
+message GetApplicationRestrictionsResponse {
+  int64 result = 1;
+}
+
+message GetSerialNumberForUserRequest {
+  int64 arg0 = 1;
+}
+
+message GetSerialNumberForUserResponse {
+  int64 result = 1;
+}
+
+message GetUserCountRequest {
+}
+
+message GetUserCountResponse {
+  int32 result = 1;
+}
+
+message GetUserCreationTimeRequest {
+  int64 arg0 = 1;
+}
+
+message GetUserCreationTimeResponse {
+  int64 result = 1;
+}
+
+message GetUserForSerialNumberRequest {
+  int64 arg0 = 1;
+}
+
+message GetUserForSerialNumberResponse {
+  int64 result = 1;
+}
+
+message GetUserNameRequest {
+}
+
+message GetUserNameResponse {
+  string result = 1;
+}
+
+message GetUserProfilesRequest {
+}
+
+message GetUserProfilesResponse {
+  int64 result = 1;
+}
+
+message GetUserRestrictions0Request {
+}
+
+message GetUserRestrictions0Response {
+  int64 result = 1;
+}
+
+message GetUserRestrictions1_1Request {
+  int64 arg0 = 1;
+}
+
+message GetUserRestrictions1_1Response {
+  int64 result = 1;
+}
+
+message HasUserRestrictionRequest {
+  string arg0 = 1;
+}
+
+message HasUserRestrictionResponse {
+  bool result = 1;
+}
+
+message IsAdminUserRequest {
+}
+
+message IsAdminUserResponse {
+  bool result = 1;
+}
+
+message IsDemoUserRequest {
+}
+
+message IsDemoUserResponse {
+  bool result = 1;
+}
+
+message IsManagedProfileRequest {
+}
+
+message IsManagedProfileResponse {
+  bool result = 1;
+}
+
+message IsProfileRequest {
+}
+
+message IsProfileResponse {
+  bool result = 1;
+}
+
+message IsQuietModeEnabledRequest {
+  int64 arg0 = 1;
+}
+
+message IsQuietModeEnabledResponse {
+  bool result = 1;
+}
+
+message IsSystemUserRequest {
+}
+
+message IsSystemUserResponse {
+  bool result = 1;
+}
+
+message IsUserAGoatRequest {
+}
+
+message IsUserAGoatResponse {
+  bool result = 1;
+}
+
+message IsUserForegroundRequest {
+}
+
+message IsUserForegroundResponse {
+  bool result = 1;
+}
+
+message IsUserRunningRequest {
+  int64 arg0 = 1;
+}
+
+message IsUserRunningResponse {
+  bool result = 1;
+}
+
+message IsUserRunningOrStoppingRequest {
+  int64 arg0 = 1;
+}
+
+message IsUserRunningOrStoppingResponse {
+  bool result = 1;
+}
+
+message IsUserUnlocked0Request {
+}
+
+message IsUserUnlocked0Response {
+  bool result = 1;
+}
+
+message IsUserUnlocked1_1Request {
+  int64 arg0 = 1;
+}
+
+message IsUserUnlocked1_1Response {
+  bool result = 1;
+}
+
+message RequestQuietModeEnabled2Request {
+  bool arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message RequestQuietModeEnabled2Response {
+  bool result = 1;
+}
+
+message RequestQuietModeEnabled3_1Request {
+  bool arg0 = 1;
+  int64 arg1 = 2;
+  int32 arg2 = 3;
+}
+
+message RequestQuietModeEnabled3_1Response {
+  bool result = 1;
+}
+
+message SetRestrictionsChallengeRequest {
+  string arg0 = 1;
+}
+
+message SetRestrictionsChallengeResponse {
+  bool result = 1;
+}
+
+message SetUserRestrictionRequest {
+  string arg0 = 1;
+  bool arg1 = 2;
+}
+
+message SetUserRestrictionResponse {
+}
+
+message SetUserRestrictions1Request {
+  int64 arg0 = 1;
+}
+
+message SetUserRestrictions1Response {
+}
+
+message SetUserRestrictions2_1Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message SetUserRestrictions2_1Response {
+}
+
+message CreateUserCreationIntentRequest {
+  string arg0 = 1;
+  string arg1 = 2;
+  string arg2 = 3;
+  int64 arg3 = 4;
+}
+
+message CreateUserCreationIntentResponse {
+  int64 result = 1;
+}
+
+message IsHeadlessSystemUserModeRequest {
+}
+
+message IsHeadlessSystemUserModeResponse {
+  bool result = 1;
+}
+
+message SupportsMultipleUsersRequest {
+}
+
+message SupportsMultipleUsersResponse {
+  bool result = 1;
+}
+
+message GetUserOperationResultRequest {
+}
+
+message GetUserOperationResultResponse {
+  int32 result = 1;
+}
+
+message NewResultReceiverRequest {
+  int64 arg0 = 1;
+}
+
+message NewResultReceiverResponse {
+  int64 result = 1;
+}
+
+message ResultReceiverDescribeContentsRequest {
+  int64 handle = 1;
+}
+
+message SendRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message SendResponse {
+}
+
+message NewPatternMatcherRequest {
+  int64 arg0 = 1;
+}
+
+message NewPatternMatcherResponse {
+  int64 result = 1;
+}
+
+message PatternMatcherDescribeContentsRequest {
+  int64 handle = 1;
+}
+
+message GetPathRequest {
+  int64 handle = 1;
+}
+
+message GetPathResponse {
+  string result = 1;
+}
+
+message PatternMatcherGetTypeRequest {
+  int64 handle = 1;
+}
+
+message MatchRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message MatchResponse {
+  bool result = 1;
+}
+
+message OnFinishRequest {
+}
+
+message OnFinishResponse {
+}
+
+message OnTickRequest {
+  int64 arg0 = 1;
+}
+
+message OnTickResponse {
 }
 
 message AttachJvmtiAgentRequest {
@@ -641,13 +1864,6 @@ message ResetAndStartResponse {
   bool result = 1;
 }
 
-message DescribeContentsRequest {
-}
-
-message DescribeContentsResponse {
-  int32 result = 1;
-}
-
 message GetMemoryStatRequest {
   string arg0 = 1;
 }
@@ -705,410 +1921,12 @@ message ReadFromParcelRequest {
 message ReadFromParcelResponse {
 }
 
-message WriteToParcelRequest {
+message DebugMemoryInfoWriteToParcelRequest {
   int64 arg0 = 1;
   int32 arg1 = 2;
 }
 
-message WriteToParcelResponse {
-}
-
-message CreateHintSessionRequest {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-}
-
-message CreateHintSessionResponse {
-  int64 result = 1;
-}
-
-message GetPreferredUpdateRateNanosRequest {
-}
-
-message GetPreferredUpdateRateNanosResponse {
-  int64 result = 1;
-}
-
-message CloseRequest {
-}
-
-message CloseResponse {
-}
-
-message ReportActualWorkDuration1Request {
-  int64 arg0 = 1;
-}
-
-message ReportActualWorkDuration1Response {
-}
-
-message ReportActualWorkDuration1_1Request {
-  int64 arg0 = 1;
-}
-
-message ReportActualWorkDuration1_1Response {
-}
-
-message SetPreferPowerEfficiencyRequest {
-  bool arg0 = 1;
-}
-
-message SetPreferPowerEfficiencyResponse {
-}
-
-message SetThreadsRequest {
-  int64 arg0 = 1;
-}
-
-message SetThreadsResponse {
-}
-
-message UpdateTargetWorkDurationRequest {
-  int64 arg0 = 1;
-}
-
-message UpdateTargetWorkDurationResponse {
-}
-
-message NewWorkDurationRequest {
-}
-
-message NewWorkDurationResponse {
-  int64 result = 1;
-}
-
-message EqualsRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-}
-
-message EqualsResponse {
-  bool result = 1;
-}
-
-message GetActualCpuDurationNanosRequest {
-  int64 handle = 1;
-}
-
-message GetActualCpuDurationNanosResponse {
-  int64 result = 1;
-}
-
-message GetActualGpuDurationNanosRequest {
-  int64 handle = 1;
-}
-
-message GetActualGpuDurationNanosResponse {
-  int64 result = 1;
-}
-
-message GetActualTotalDurationNanosRequest {
-  int64 handle = 1;
-}
-
-message GetActualTotalDurationNanosResponse {
-  int64 result = 1;
-}
-
-message GetWorkPeriodStartTimestampNanosRequest {
-  int64 handle = 1;
-}
-
-message GetWorkPeriodStartTimestampNanosResponse {
-  int64 result = 1;
-}
-
-message HashCodeRequest {
-  int64 handle = 1;
-}
-
-message HashCodeResponse {
-  int32 result = 1;
-}
-
-message SetActualCpuDurationNanosRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-}
-
-message SetActualCpuDurationNanosResponse {
-}
-
-message SetActualGpuDurationNanosRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-}
-
-message SetActualGpuDurationNanosResponse {
-}
-
-message SetActualTotalDurationNanosRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-}
-
-message SetActualTotalDurationNanosResponse {
-}
-
-message SetWorkPeriodStartTimestampNanosRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-}
-
-message SetWorkPeriodStartTimestampNanosResponse {
-}
-
-message NewPatternMatcherRequest {
-  int64 arg0 = 1;
-}
-
-message NewPatternMatcherResponse {
-  int64 result = 1;
-}
-
-message PatternMatcherDescribeContentsRequest {
-  int64 handle = 1;
-}
-
-message GetPathRequest {
-  int64 handle = 1;
-}
-
-message GetPathResponse {
-  string result = 1;
-}
-
-message GetTypeRequest {
-  int64 handle = 1;
-}
-
-message GetTypeResponse {
-  int32 result = 1;
-}
-
-message MatchRequest {
-  int64 handle = 1;
-  string arg0 = 2;
-}
-
-message MatchResponse {
-  bool result = 1;
-}
-
-message ToStringRequest {
-  int64 handle = 1;
-}
-
-message ToStringResponse {
-  string result = 1;
-}
-
-message PatternMatcherWriteToParcelRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-  int32 arg1 = 3;
-}
-
-message NewMessengerRequest {
-  int64 arg0 = 1;
-}
-
-message NewMessengerResponse {
-  int64 result = 1;
-}
-
-message MessengerDescribeContentsRequest {
-  int64 handle = 1;
-}
-
-message GetBinderRequest {
-  int64 handle = 1;
-}
-
-message GetBinderResponse {
-  int64 result = 1;
-}
-
-message SendRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-}
-
-message SendResponse {
-}
-
-message MessengerWriteToParcelRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-  int32 arg1 = 3;
-}
-
-message ReadMessengerOrNullFromParcelRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-}
-
-message ReadMessengerOrNullFromParcelResponse {
-  int64 result = 1;
-}
-
-message WriteMessengerOrNullToParcelRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-  int64 arg1 = 3;
-}
-
-message WriteMessengerOrNullToParcelResponse {
-}
-
-message InstallPackageRequest {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-}
-
-message InstallPackageResponse {
-}
-
-message RebootWipeCacheRequest {
-  int64 arg0 = 1;
-}
-
-message RebootWipeCacheResponse {
-}
-
-message RebootWipeUserDataRequest {
-  int64 arg0 = 1;
-}
-
-message RebootWipeUserDataResponse {
-}
-
-message VerifyPackageRequest {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-  int64 arg2 = 3;
-}
-
-message VerifyPackageResponse {
-}
-
-message OnProgressRequest {
-  int32 arg0 = 1;
-}
-
-message OnProgressResponse {
-}
-
-message CurrentGnssTimeClockRequest {
-}
-
-message CurrentGnssTimeClockResponse {
-  int64 result = 1;
-}
-
-message CurrentNetworkTimeClockRequest {
-}
-
-message CurrentNetworkTimeClockResponse {
-  int64 result = 1;
-}
-
-message CurrentThreadTimeMillisRequest {
-}
-
-message CurrentThreadTimeMillisResponse {
-  int64 result = 1;
-}
-
-message ElapsedRealtimeRequest {
-}
-
-message ElapsedRealtimeResponse {
-  int64 result = 1;
-}
-
-message ElapsedRealtimeNanosRequest {
-}
-
-message ElapsedRealtimeNanosResponse {
-  int64 result = 1;
-}
-
-message SetCurrentTimeMillisRequest {
-  int64 arg0 = 1;
-}
-
-message SetCurrentTimeMillisResponse {
-  bool result = 1;
-}
-
-message SleepRequest {
-  int64 arg0 = 1;
-}
-
-message SleepResponse {
-}
-
-message UptimeMillisRequest {
-}
-
-message UptimeMillisResponse {
-  int64 result = 1;
-}
-
-message UptimeNanosRequest {
-}
-
-message UptimeNanosResponse {
-  int64 result = 1;
-}
-
-message NewUserHandleRequest {
-  int64 arg0 = 1;
-}
-
-message NewUserHandleResponse {
-  int64 result = 1;
-}
-
-message UserHandleDescribeContentsRequest {
-  int64 handle = 1;
-}
-
-message WriteToParcel2Request {
-  int64 handle = 1;
-  int64 arg0 = 2;
-  int32 arg1 = 3;
-}
-
-message WriteToParcel2Response {
-}
-
-message GetUserHandleForUidRequest {
-  int64 handle = 1;
-  int32 arg0 = 2;
-}
-
-message GetUserHandleForUidResponse {
-  int64 result = 1;
-}
-
-message UserHandleReadFromParcelRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-}
-
-message UserHandleReadFromParcelResponse {
-  int64 result = 1;
-}
-
-message WriteToParcel2_1Request {
-  int64 handle = 1;
-  int64 arg0 = 2;
-  int64 arg1 = 3;
-}
-
-message WriteToParcel2_1Response {
+message SharedMemoryCloseRequest {
 }
 
 message GetSizeRequest {
@@ -1150,6 +1968,11 @@ message SetProtectResponse {
   bool result = 1;
 }
 
+message SharedMemoryWriteToParcelRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
 message CreateRequest {
   string arg0 = 1;
   int32 arg1 = 2;
@@ -1167,271 +1990,35 @@ message FromFileDescriptorResponse {
   int64 result = 1;
 }
 
-message NewMessageRequest {
-}
-
-message NewMessageResponse {
-  int64 result = 1;
-}
-
-message CopyFromRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-}
-
-message CopyFromResponse {
-}
-
-message MessageDescribeContentsRequest {
-  int64 handle = 1;
-}
-
-message GetCallbackRequest {
-  int64 handle = 1;
-}
-
-message GetCallbackResponse {
-  int64 result = 1;
-}
-
-message GetDataRequest {
-  int64 handle = 1;
-}
-
-message GetDataResponse {
-  int64 result = 1;
-}
-
-message GetTargetRequest {
-  int64 handle = 1;
-}
-
-message GetTargetResponse {
-  int64 result = 1;
-}
-
-message GetWhenRequest {
-  int64 handle = 1;
-}
-
-message GetWhenResponse {
-  int64 result = 1;
-}
-
-message IsAsynchronousRequest {
-  int64 handle = 1;
-}
-
-message IsAsynchronousResponse {
-  bool result = 1;
-}
-
-message PeekDataRequest {
-  int64 handle = 1;
-}
-
-message PeekDataResponse {
-  int64 result = 1;
-}
-
-message RecycleRequest {
-  int64 handle = 1;
-}
-
-message RecycleResponse {
-}
-
-message SendToTargetRequest {
-  int64 handle = 1;
-}
-
-message SendToTargetResponse {
-}
-
-message SetAsynchronousRequest {
-  int64 handle = 1;
-  bool arg0 = 2;
-}
-
-message SetAsynchronousResponse {
-}
-
-message SetDataRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-}
-
-message SetDataResponse {
-}
-
-message MessageWriteToParcelRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-  int32 arg1 = 3;
-}
-
-message Obtain0Request {
-  int64 handle = 1;
-}
-
-message Obtain0Response {
-  int64 result = 1;
-}
-
-message Obtain1_1Request {
-  int64 handle = 1;
-  int64 arg0 = 2;
-}
-
-message Obtain1_1Response {
-  int64 result = 1;
-}
-
-message NewParcelUuidRequest {
+message CreateParallelRequest {
   int64 arg0 = 1;
 }
 
-message NewParcelUuidResponse {
+message CreateParallelResponse {
   int64 result = 1;
 }
 
-message ParcelUuidDescribeContentsRequest {
-  int64 handle = 1;
+message StartParallelRequest {
 }
 
-message GetUuidRequest {
-  int64 handle = 1;
-}
-
-message GetUuidResponse {
+message StartParallelResponse {
   int64 result = 1;
 }
 
-message ParcelUuidWriteToParcelRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-  int32 arg1 = 3;
-}
-
-message FromStringRequest {
-  int64 handle = 1;
-  string arg0 = 2;
-}
-
-message FromStringResponse {
-  int64 result = 1;
-}
-
-message GetRateLimitingPeriodHoursRequest {
-}
-
-message GetRateLimitingPeriodHoursResponse {
-  int32 result = 1;
-}
-
-message GetTriggerTypeRequest {
-}
-
-message GetTriggerTypeResponse {
-  int32 result = 1;
-}
-
-message BuildRequest {
-}
-
-message BuildResponse {
-  int64 result = 1;
-}
-
-message SetRateLimitingPeriodHoursRequest {
+message AddVibratorRequest {
   int32 arg0 = 1;
+  int64 arg1 = 2;
 }
 
-message SetRateLimitingPeriodHoursResponse {
+message AddVibratorResponse {
   int64 result = 1;
 }
 
-message VibrationAttributesEqualsRequest {
-  int64 arg0 = 1;
+message CombineRequest {
 }
 
-message GetFlagsRequest {
-}
-
-message GetFlagsResponse {
-  int32 result = 1;
-}
-
-message GetUsageRequest {
-}
-
-message GetUsageResponse {
-  int32 result = 1;
-}
-
-message GetUsageClassRequest {
-}
-
-message GetUsageClassResponse {
-  int32 result = 1;
-}
-
-message VibrationAttributesHashCodeRequest {
-}
-
-message IsFlagSetRequest {
-  int32 arg0 = 1;
-}
-
-message IsFlagSetResponse {
-  bool result = 1;
-}
-
-message VibrationAttributesToStringRequest {
-}
-
-message CreateForUsageRequest {
-  int32 arg0 = 1;
-}
-
-message CreateForUsageResponse {
+message CombineResponse {
   int64 result = 1;
-}
-
-message SetFlagsRequest {
-  int32 arg0 = 1;
-  int32 arg1 = 2;
-}
-
-message SetFlagsResponse {
-  int64 result = 1;
-}
-
-message SetUsageRequest {
-  int32 arg0 = 1;
-}
-
-message SetUsageResponse {
-  int64 result = 1;
-}
-
-message GetConsumedEnergyRequest {
-  int64 arg0 = 1;
-}
-
-message GetConsumedEnergyResponse {
-  int64 result = 1;
-}
-
-message GetTimestampMillisRequest {
-  int64 arg0 = 1;
-}
-
-message GetTimestampMillisResponse {
-  int64 result = 1;
-}
-
-message PowerMonitorReadingsToStringRequest {
 }
 
 message NewWorkSourceRequest {
@@ -1487,1711 +2074,119 @@ message SetRequest {
 message SetResponse {
 }
 
-message WorkSourceWriteToParcelRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-  int32 arg1 = 3;
-}
-
-message ExecuteRequest {
-  int64 arg0 = 1;
-}
-
-message ExecuteResponse {
-}
-
-message GetMessageQueueRequest {
-}
-
-message GetMessageQueueResponse {
-  int64 result = 1;
-}
-
-message IsBlockedOnSyncBarrierRequest {
-}
-
-message IsBlockedOnSyncBarrierResponse {
-  bool result = 1;
-}
-
-message NextRequest {
-}
-
-message NextResponse {
-  int64 result = 1;
-}
-
-message PeekWhenRequest {
-}
-
-message PeekWhenResponse {
-  int64 result = 1;
-}
-
-message PollRequest {
-}
-
-message PollResponse {
-  int64 result = 1;
-}
-
-message TestLooperManagerRecycleRequest {
-  int64 arg0 = 1;
-}
-
-message ReleaseRequest {
-}
-
-message ReleaseResponse {
-}
-
-message GetCpuUsagesRequest {
-}
-
-message GetCpuUsagesResponse {
-  int64 result = 1;
-}
-
-message GetDeviceTemperaturesRequest {
-  int32 arg0 = 1;
-  int32 arg1 = 2;
-}
-
-message GetDeviceTemperaturesResponse {
-  int64 result = 1;
-}
-
-message GetFanSpeedsRequest {
-}
-
-message GetFanSpeedsResponse {
-  int64 result = 1;
-}
-
-message BaseBundleClearRequest {
-}
-
-message ContainsKeyRequest {
-  string arg0 = 1;
-}
-
-message ContainsKeyResponse {
-  bool result = 1;
-}
-
-message GetRequest {
-  string arg0 = 1;
-}
-
-message GetResponse {
-  int64 result = 1;
-}
-
-message GetBoolean1Request {
-  string arg0 = 1;
-}
-
-message GetBoolean1Response {
-  bool result = 1;
-}
-
-message GetBoolean2_1Request {
-  string arg0 = 1;
-  bool arg1 = 2;
-}
-
-message GetBoolean2_1Response {
-  bool result = 1;
-}
-
-message GetBooleanArrayRequest {
-  string arg0 = 1;
-}
-
-message GetBooleanArrayResponse {
-  int64 result = 1;
-}
-
-message GetDouble1Request {
-  string arg0 = 1;
-}
-
-message GetDouble1Response {
-  double result = 1;
-}
-
-message GetDouble2_1Request {
-  string arg0 = 1;
-  double arg1 = 2;
-}
-
-message GetDouble2_1Response {
-  double result = 1;
-}
-
-message GetDoubleArrayRequest {
-  string arg0 = 1;
-}
-
-message GetDoubleArrayResponse {
-  int64 result = 1;
-}
-
-message GetInt1Request {
-  string arg0 = 1;
-}
-
-message GetInt1Response {
-  int32 result = 1;
-}
-
-message GetInt2_1Request {
-  string arg0 = 1;
-  int32 arg1 = 2;
-}
-
-message GetInt2_1Response {
-  int32 result = 1;
-}
-
-message GetIntArrayRequest {
-  string arg0 = 1;
-}
-
-message GetIntArrayResponse {
-  int64 result = 1;
-}
-
-message GetLong1Request {
-  string arg0 = 1;
-}
-
-message GetLong1Response {
-  int64 result = 1;
-}
-
-message GetLong2_1Request {
-  string arg0 = 1;
-  int64 arg1 = 2;
-}
-
-message GetLong2_1Response {
-  int64 result = 1;
-}
-
-message GetLongArrayRequest {
-  string arg0 = 1;
-}
-
-message GetLongArrayResponse {
-  int64 result = 1;
-}
-
-message GetString1Request {
-  string arg0 = 1;
-}
-
-message GetString1Response {
-  string result = 1;
-}
-
-message GetString2_1Request {
-  string arg0 = 1;
-  string arg1 = 2;
-}
-
-message GetString2_1Response {
-  string result = 1;
-}
-
-message GetStringArrayRequest {
-  string arg0 = 1;
-}
-
-message GetStringArrayResponse {
-  int64 result = 1;
-}
-
-message IsEmptyRequest {
-}
-
-message IsEmptyResponse {
-  bool result = 1;
-}
-
-message PutAllRequest {
-  int64 arg0 = 1;
-}
-
-message PutAllResponse {
-}
-
-message PutBooleanRequest {
-  string arg0 = 1;
-  bool arg1 = 2;
-}
-
-message PutBooleanResponse {
-}
-
-message PutBooleanArrayRequest {
-  string arg0 = 1;
-  int64 arg1 = 2;
-}
-
-message PutBooleanArrayResponse {
-}
-
-message PutDoubleRequest {
-  string arg0 = 1;
-  double arg1 = 2;
-}
-
-message PutDoubleResponse {
-}
-
-message PutDoubleArrayRequest {
-  string arg0 = 1;
-  int64 arg1 = 2;
-}
-
-message PutDoubleArrayResponse {
-}
-
-message PutIntRequest {
-  string arg0 = 1;
-  int32 arg1 = 2;
-}
-
-message PutIntResponse {
-}
-
-message PutIntArrayRequest {
-  string arg0 = 1;
-  int64 arg1 = 2;
-}
-
-message PutIntArrayResponse {
-}
-
-message PutLongRequest {
-  string arg0 = 1;
-  int64 arg1 = 2;
-}
-
-message PutLongResponse {
-}
-
-message PutLongArrayRequest {
-  string arg0 = 1;
-  int64 arg1 = 2;
-}
-
-message PutLongArrayResponse {
-}
-
-message PutStringRequest {
-  string arg0 = 1;
-  string arg1 = 2;
-}
-
-message PutStringResponse {
-}
-
-message PutStringArrayRequest {
-  string arg0 = 1;
-  int64 arg1 = 2;
-}
-
-message PutStringArrayResponse {
-}
-
-message BaseBundleRemoveRequest {
-  string arg0 = 1;
-}
-
-message BaseBundleRemoveResponse {
-}
-
-message SizeRequest {
-}
-
-message SizeResponse {
-  int32 result = 1;
-}
-
-message GetActiveRequest {
-}
-
-message GetActiveResponse {
-  int64 result = 1;
-}
-
-message GetTotalRequest {
-}
-
-message GetTotalResponse {
-  int64 result = 1;
-}
-
-message NewResultReceiverRequest {
-  int64 arg0 = 1;
-}
-
-message NewResultReceiverResponse {
-  int64 result = 1;
-}
-
-message ResultReceiverDescribeContentsRequest {
-  int64 handle = 1;
-}
-
-message ResultReceiverSendRequest {
-  int64 handle = 1;
-  int32 arg0 = 2;
-  int64 arg1 = 3;
-}
-
-message ResultReceiverWriteToParcelRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-  int32 arg1 = 3;
-}
-
-message CancelRequest {
-  bool arg0 = 1;
-}
-
-message CancelResponse {
-  bool result = 1;
-}
-
-message Get0Request {
-}
-
-message Get0Response {
-  int64 result = 1;
-}
-
-message Get2_1Request {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-}
-
-message Get2_1Response {
-  int64 result = 1;
-}
-
-message GetStatusRequest {
-}
-
-message GetStatusResponse {
-  int64 result = 1;
-}
-
-message IsCancelledRequest {
-}
-
-message IsCancelledResponse {
-  bool result = 1;
-}
-
-message ValuesRequest {
-}
-
-message ValuesResponse {
-  int64 result = 1;
-}
-
-message ValueOfRequest {
-  string arg0 = 1;
-}
-
-message ValueOfResponse {
-  int64 result = 1;
-}
-
-message NewBinderRequest {
-}
-
-message NewBinderResponse {
-  int64 result = 1;
-}
-
-message AttachInterfaceRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-  string arg1 = 3;
-}
-
-message AttachInterfaceResponse {
-}
-
-message DumpRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-  int64 arg1 = 3;
-}
-
-message DumpResponse {
-}
-
-message DumpAsyncRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-  int64 arg1 = 3;
-}
-
-message DumpAsyncResponse {
-}
-
-message GetInterfaceDescriptorRequest {
-  int64 handle = 1;
-}
-
-message GetInterfaceDescriptorResponse {
-  string result = 1;
-}
-
-message IsBinderAliveRequest {
-  int64 handle = 1;
-}
-
-message IsBinderAliveResponse {
-  bool result = 1;
-}
-
-message LinkToDeathRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-  int32 arg1 = 3;
-}
-
-message LinkToDeathResponse {
-}
-
-message PingBinderRequest {
-  int64 handle = 1;
-}
-
-message PingBinderResponse {
-  bool result = 1;
-}
-
-message QueryLocalInterfaceRequest {
-  int64 handle = 1;
-  string arg0 = 2;
-}
-
-message QueryLocalInterfaceResponse {
-  int64 result = 1;
-}
-
-message TransactRequest {
-  int64 handle = 1;
-  int32 arg0 = 2;
-  int64 arg1 = 3;
-  int64 arg2 = 4;
-  int32 arg3 = 5;
-}
-
-message TransactResponse {
-  bool result = 1;
-}
-
-message UnlinkToDeathRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-  int32 arg1 = 3;
-}
-
-message UnlinkToDeathResponse {
-  bool result = 1;
-}
-
-message ClearCallingIdentityRequest {
-  int64 handle = 1;
-}
-
-message ClearCallingIdentityResponse {
-  int64 result = 1;
-}
-
-message ClearCallingWorkSourceRequest {
-  int64 handle = 1;
-}
-
-message ClearCallingWorkSourceResponse {
-  int64 result = 1;
-}
-
-message FlushPendingCommandsRequest {
-  int64 handle = 1;
-}
-
-message FlushPendingCommandsResponse {
-}
-
-message GetCallingPidRequest {
-  int64 handle = 1;
-}
-
-message GetCallingPidResponse {
-  int32 result = 1;
-}
-
-message GetCallingUidRequest {
-  int64 handle = 1;
-}
-
-message GetCallingUidResponse {
-  int32 result = 1;
-}
-
-message GetCallingUidOrThrowRequest {
-  int64 handle = 1;
-}
-
-message GetCallingUidOrThrowResponse {
-  int32 result = 1;
-}
-
-message GetCallingUserHandleRequest {
-  int64 handle = 1;
-}
-
-message GetCallingUserHandleResponse {
-  int64 result = 1;
-}
-
-message GetCallingWorkSourceUidRequest {
-  int64 handle = 1;
-}
-
-message GetCallingWorkSourceUidResponse {
-  int32 result = 1;
-}
-
-message JoinThreadPoolRequest {
-  int64 handle = 1;
-}
-
-message JoinThreadPoolResponse {
-}
-
-message RestoreCallingIdentityRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-}
-
-message RestoreCallingIdentityResponse {
-}
-
-message RestoreCallingWorkSourceRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-}
-
-message RestoreCallingWorkSourceResponse {
-}
-
-message SetCallingWorkSourceUidRequest {
-  int64 handle = 1;
-  int32 arg0 = 2;
-}
-
-message SetCallingWorkSourceUidResponse {
-  int64 result = 1;
-}
-
-message NewProcessRequest {
-}
-
-message NewProcessResponse {
-  int64 result = 1;
-}
-
-message GetAppUidForSdkSandboxUidRequest {
-  int64 handle = 1;
-  int32 arg0 = 2;
-}
-
-message GetAppUidForSdkSandboxUidResponse {
-  int32 result = 1;
-}
-
-message GetElapsedCpuTimeRequest {
-  int64 handle = 1;
-}
-
-message GetElapsedCpuTimeResponse {
-  int64 result = 1;
-}
-
-message GetExclusiveCoresRequest {
-  int64 handle = 1;
-}
-
-message GetExclusiveCoresResponse {
-  int64 result = 1;
-}
-
-message GetGidForNameRequest {
-  int64 handle = 1;
-  string arg0 = 2;
-}
-
-message GetGidForNameResponse {
-  int32 result = 1;
-}
-
-message GetSdkSandboxUidForAppUidRequest {
-  int64 handle = 1;
-  int32 arg0 = 2;
-}
-
-message GetSdkSandboxUidForAppUidResponse {
-  int32 result = 1;
-}
-
-message GetStartElapsedRealtimeRequest {
-  int64 handle = 1;
-}
-
-message GetStartElapsedRealtimeResponse {
-  int64 result = 1;
-}
-
-message GetStartRequestedElapsedRealtimeRequest {
-  int64 handle = 1;
-}
-
-message GetStartRequestedElapsedRealtimeResponse {
-  int64 result = 1;
-}
-
-message GetStartRequestedUptimeMillisRequest {
-  int64 handle = 1;
-}
-
-message GetStartRequestedUptimeMillisResponse {
-  int64 result = 1;
-}
-
-message GetStartUptimeMillisRequest {
-  int64 handle = 1;
-}
-
-message GetStartUptimeMillisResponse {
-  int64 result = 1;
-}
-
-message GetThreadPriorityRequest {
-  int64 handle = 1;
-  int32 arg0 = 2;
-}
-
-message GetThreadPriorityResponse {
-  int32 result = 1;
-}
-
-message GetUidForNameRequest {
-  int64 handle = 1;
-  string arg0 = 2;
-}
-
-message GetUidForNameResponse {
-  int32 result = 1;
-}
-
-message Is64BitRequest {
-  int64 handle = 1;
-}
-
-message Is64BitResponse {
-  bool result = 1;
-}
-
-message IsApplicationUidRequest {
-  int64 handle = 1;
-  int32 arg0 = 2;
-}
-
-message IsApplicationUidResponse {
-  bool result = 1;
-}
-
-message IsIsolatedRequest {
-  int64 handle = 1;
-}
-
-message IsIsolatedResponse {
-  bool result = 1;
-}
-
-message IsIsolatedUidRequest {
-  int64 handle = 1;
-  int32 arg0 = 2;
-}
-
-message IsIsolatedUidResponse {
-  bool result = 1;
-}
-
-message IsSdkSandboxRequest {
-  int64 handle = 1;
-}
-
-message IsSdkSandboxResponse {
-  bool result = 1;
-}
-
-message IsSdkSandboxUidRequest {
-  int64 handle = 1;
-  int32 arg0 = 2;
-}
-
-message IsSdkSandboxUidResponse {
-  bool result = 1;
-}
-
-message KillProcessRequest {
-  int64 handle = 1;
-  int32 arg0 = 2;
-}
-
-message KillProcessResponse {
-}
-
-message MyPidRequest {
-  int64 handle = 1;
-}
-
-message MyPidResponse {
-  int32 result = 1;
-}
-
-message MyProcessNameRequest {
-  int64 handle = 1;
-}
-
-message MyProcessNameResponse {
-  string result = 1;
-}
-
-message MyTidRequest {
-  int64 handle = 1;
-}
-
-message MyTidResponse {
-  int32 result = 1;
-}
-
-message MyUidRequest {
-  int64 handle = 1;
-}
-
-message MyUidResponse {
-  int32 result = 1;
-}
-
-message MyUserHandleRequest {
-  int64 handle = 1;
-}
-
-message MyUserHandleResponse {
-  int64 result = 1;
-}
-
-message SendSignalRequest {
-  int64 handle = 1;
-  int32 arg0 = 2;
-  int32 arg1 = 3;
-}
-
-message SendSignalResponse {
-}
-
-message SetThreadPriority1Request {
-  int64 handle = 1;
-  int32 arg0 = 2;
-}
-
-message SetThreadPriority1Response {
-}
-
-message SetThreadPriority2_1Request {
-  int64 handle = 1;
-  int32 arg0 = 2;
-  int32 arg1 = 3;
-}
-
-message SetThreadPriority2_1Response {
-}
-
-message SupportsProcessesRequest {
-  int64 handle = 1;
-}
-
-message SupportsProcessesResponse {
-  bool result = 1;
-}
-
-message AcquireRequest {
-  int64 arg0 = 1;
-  string arg1 = 2;
-}
-
-message AcquireResponse {
-}
-
-message AcquiredRequest {
-}
-
-message AcquiredResponse {
-}
-
-message CleanupRequest {
-  int64 arg0 = 1;
-  bool arg1 = 2;
-}
-
-message CleanupResponse {
-}
-
-message Dump0Request {
-}
-
-message Dump0Response {
-}
-
-message Dump1_1Request {
-  int64 arg0 = 1;
-}
-
-message Dump1_1Response {
-}
-
-message IsAcquiredRequest {
-}
-
-message IsAcquiredResponse {
-  bool result = 1;
-}
-
-message TokenWatcherReleaseRequest {
-  int64 arg0 = 1;
-}
-
-message ReleasedRequest {
-}
-
-message ReleasedResponse {
-}
-
-message NewRemoteExceptionRequest {
-}
-
-message NewRemoteExceptionResponse {
-  int64 result = 1;
-}
-
-message RethrowAsRuntimeExceptionRequest {
-  int64 handle = 1;
-}
-
-message RethrowAsRuntimeExceptionResponse {
-  int64 result = 1;
-}
-
-message RethrowFromSystemServerRequest {
-  int64 handle = 1;
-}
-
-message RethrowFromSystemServerResponse {
-  int64 result = 1;
-}
-
-message GpuHeadroomParamsEqualsRequest {
-  int64 arg0 = 1;
-}
-
-message GetCalculationTypeRequest {
-}
-
-message GetCalculationTypeResponse {
-  int32 result = 1;
-}
-
-message GetCalculationWindowMillisRequest {
-}
-
-message GetCalculationWindowMillisResponse {
-  int32 result = 1;
-}
-
-message GpuHeadroomParamsHashCodeRequest {
-}
-
-message GpuHeadroomParamsToStringRequest {
-}
-
-message SetCalculationTypeRequest {
-  int32 arg0 = 1;
-}
-
-message SetCalculationTypeResponse {
-  int64 result = 1;
-}
-
-message SetCalculationWindowMillisRequest {
-  int32 arg0 = 1;
-}
-
-message SetCalculationWindowMillisResponse {
-  int64 result = 1;
-}
-
-message OnEventRequest {
-  int32 arg0 = 1;
-  string arg1 = 2;
-}
-
-message OnEventResponse {
-}
-
-message StartWatchingRequest {
-}
-
-message StartWatchingResponse {
-}
-
-message StopWatchingRequest {
-}
-
-message StopWatchingResponse {
-}
-
-message CloseQuietly1Request {
-  int64 arg0 = 1;
-}
-
-message CloseQuietly1Response {
-}
-
-message CloseQuietly1_1Request {
-  int64 arg0 = 1;
-}
-
-message CloseQuietly1_1Response {
-}
-
-message Copy2Request {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-}
-
-message Copy2Response {
-  int64 result = 1;
-}
-
-message Copy5_1Request {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-  int64 arg2 = 3;
-  int64 arg3 = 4;
-  int64 arg4 = 5;
-}
-
-message Copy5_1Response {
-  int64 result = 1;
-}
-
-message Copy2_2Request {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-}
-
-message Copy2_2Response {
-  int64 result = 1;
-}
-
-message Copy5_3Request {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-  int64 arg2 = 3;
-  int64 arg3 = 4;
-  int64 arg4 = 5;
-}
-
-message Copy5_3Response {
-  int64 result = 1;
-}
-
-message FileUtilsProgressListenerOnProgressRequest {
-  int64 arg0 = 1;
-}
-
-message CreateParallelRequest {
-  int64 arg0 = 1;
-}
-
-message CreateParallelResponse {
-  int64 result = 1;
-}
-
-message StartParallelRequest {
-}
-
-message StartParallelResponse {
-  int64 result = 1;
-}
-
-message AddVibratorRequest {
-  int32 arg0 = 1;
-  int64 arg1 = 2;
-}
-
-message AddVibratorResponse {
-  int64 result = 1;
-}
-
-message CombineRequest {
-}
-
-message CombineResponse {
-  int64 result = 1;
-}
-
-message NewPersistableBundleRequest {
-}
-
-message NewPersistableBundleResponse {
-  int64 result = 1;
-}
-
-message CloneRequest {
-  int64 handle = 1;
-}
-
-message CloneResponse {
-  int64 result = 1;
-}
-
-message DeepCopyRequest {
-  int64 handle = 1;
-}
-
-message DeepCopyResponse {
-  int64 result = 1;
-}
-
-message PersistableBundleDescribeContentsRequest {
-  int64 handle = 1;
-}
-
-message GetPersistableBundleRequest {
-  int64 handle = 1;
-  string arg0 = 2;
-}
-
-message GetPersistableBundleResponse {
-  int64 result = 1;
-}
-
-message PutPersistableBundleRequest {
-  int64 handle = 1;
-  string arg0 = 2;
-  int64 arg1 = 3;
-}
-
-message PutPersistableBundleResponse {
-}
-
-message PersistableBundleWriteToParcelRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-  int32 arg1 = 3;
-}
-
-message WriteToStreamRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-}
-
-message WriteToStreamResponse {
-}
-
-message ReadFromStreamRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-}
-
-message ReadFromStreamResponse {
-  int64 result = 1;
-}
-
-message ProfilingResultEqualsRequest {
-  int64 arg0 = 1;
-}
-
-message GetErrorCodeRequest {
-}
-
-message GetErrorCodeResponse {
-  int32 result = 1;
-}
-
-message GetErrorMessageRequest {
-}
-
-message GetErrorMessageResponse {
-  string result = 1;
-}
-
-message GetResultFilePathRequest {
-}
-
-message GetResultFilePathResponse {
-  string result = 1;
-}
-
-message GetTagRequest {
-}
-
-message GetTagResponse {
-  string result = 1;
-}
-
-message ProfilingResultHashCodeRequest {
-}
-
-message CancelBugreportRequest {
-}
-
-message CancelBugreportResponse {
-}
-
-message StartConnectivityBugreportRequest {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-  int64 arg2 = 3;
-}
-
-message StartConnectivityBugreportResponse {
-}
-
-message OnEarlyReportFinishedRequest {
-}
-
-message OnEarlyReportFinishedResponse {
-}
-
-message OnErrorRequest {
-  int32 arg0 = 1;
-}
-
-message OnErrorResponse {
-}
-
-message OnFinishedRequest {
-}
-
-message OnFinishedResponse {
-}
-
-message BugreportManagerBugreportCallbackOnProgressRequest {
-  float arg0 = 1;
-}
-
-message NewLocaleListRequest {
-  int64 arg0 = 1;
-}
-
-message NewLocaleListResponse {
-  int64 result = 1;
-}
-
-message LocaleListDescribeContentsRequest {
-  int64 handle = 1;
-}
-
-message LocaleListGetRequest {
-  int64 handle = 1;
-  int32 arg0 = 2;
-}
-
-message GetFirstMatchRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-}
-
-message GetFirstMatchResponse {
-  int64 result = 1;
-}
-
-message IndexOfRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-}
-
-message IndexOfResponse {
-  int32 result = 1;
-}
-
-message LocaleListIsEmptyRequest {
-  int64 handle = 1;
-}
-
-message LocaleListSizeRequest {
-  int64 handle = 1;
-}
-
-message ToLanguageTagsRequest {
-  int64 handle = 1;
-}
-
-message ToLanguageTagsResponse {
-  string result = 1;
-}
-
-message LocaleListWriteToParcelRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-  int32 arg1 = 3;
-}
-
-message ForLanguageTagsRequest {
-  int64 handle = 1;
-  string arg0 = 2;
-}
-
-message ForLanguageTagsResponse {
-  int64 result = 1;
-}
-
-message GetAdjustedDefaultRequest {
-  int64 handle = 1;
-}
-
-message GetAdjustedDefaultResponse {
-  int64 result = 1;
-}
-
-message GetDefaultRequest {
-  int64 handle = 1;
-}
-
-message GetDefaultResponse {
-  int64 result = 1;
-}
-
-message GetEmptyLocaleListRequest {
-  int64 handle = 1;
-}
-
-message GetEmptyLocaleListResponse {
-  int64 result = 1;
-}
-
-message IsPseudoLocaleRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-}
-
-message IsPseudoLocaleResponse {
-  bool result = 1;
-}
-
-message MatchesLanguageAndScriptRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-  int64 arg1 = 3;
-}
-
-message MatchesLanguageAndScriptResponse {
-  bool result = 1;
-}
-
-message SetDefaultRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-}
-
-message SetDefaultResponse {
-}
-
-message LooperDumpRequest {
-  int64 arg0 = 1;
-  string arg1 = 2;
-}
-
-message GetQueueRequest {
-}
-
-message GetQueueResponse {
-  int64 result = 1;
-}
-
-message GetThreadRequest {
-}
-
-message GetThreadResponse {
-  int64 result = 1;
-}
-
-message IsCurrentThreadRequest {
-}
-
-message IsCurrentThreadResponse {
-  bool result = 1;
-}
-
-message LooperQuitRequest {
-}
-
-message LooperQuitResponse {
-}
-
-message LooperQuitSafelyRequest {
-}
-
-message LooperQuitSafelyResponse {
-}
-
-message SetMessageLoggingRequest {
-  int64 arg0 = 1;
-}
-
-message SetMessageLoggingResponse {
-}
-
-message LooperToStringRequest {
-}
-
-message GetMainLooperRequest {
-}
-
-message GetMainLooperResponse {
-  int64 result = 1;
-}
-
-message LoopRequest {
-}
-
-message LoopResponse {
-}
-
-message MyLooperRequest {
-}
-
-message MyLooperResponse {
-  int64 result = 1;
-}
-
-message MyQueueRequest {
-}
-
-message MyQueueResponse {
-  int64 result = 1;
-}
-
-message PrepareRequest {
-}
-
-message PrepareResponse {
-}
-
-message PrepareMainLooperRequest {
-}
-
-message PrepareMainLooperResponse {
-}
-
-message AllowThreadDiskReadsRequest {
-}
-
-message AllowThreadDiskReadsResponse {
-  int64 result = 1;
-}
-
-message AllowThreadDiskWritesRequest {
-}
-
-message AllowThreadDiskWritesResponse {
-  int64 result = 1;
-}
-
-message EnableDefaultsRequest {
-}
-
-message EnableDefaultsResponse {
-}
-
-message GetThreadPolicyRequest {
-}
-
-message GetThreadPolicyResponse {
-  int64 result = 1;
-}
-
-message GetVmPolicyRequest {
-}
-
-message GetVmPolicyResponse {
-  int64 result = 1;
-}
-
-message NoteSlowCallRequest {
-  string arg0 = 1;
-}
-
-message NoteSlowCallResponse {
-}
-
-message SetThreadPolicyRequest {
-  int64 arg0 = 1;
-}
-
-message SetThreadPolicyResponse {
-}
-
-message SetVmPolicyRequest {
-  int64 arg0 = 1;
-}
-
-message SetVmPolicyResponse {
-}
-
-message OnThreadViolationRequest {
-  int64 arg0 = 1;
-}
-
-message OnThreadViolationResponse {
-}
-
-message OnVmViolationRequest {
-  int64 arg0 = 1;
-}
-
-message OnVmViolationResponse {
-}
-
-message StrictModeThreadPolicyToStringRequest {
-}
-
-message StrictModeVmPolicyToStringRequest {
-}
-
-message AddOnFileDescriptorEventListenerRequest {
-  int64 arg0 = 1;
-  int32 arg1 = 2;
-  int64 arg2 = 3;
-}
-
-message AddOnFileDescriptorEventListenerResponse {
-}
-
-message IsIdleRequest {
-}
-
-message IsIdleResponse {
-  bool result = 1;
-}
-
-message RemoveOnFileDescriptorEventListenerRequest {
-  int64 arg0 = 1;
-}
-
-message RemoveOnFileDescriptorEventListenerResponse {
-}
-
-message QueueIdleRequest {
-}
-
-message QueueIdleResponse {
-  bool result = 1;
-}
-
-message OnFileDescriptorEventsRequest {
+message ParcelableWriteToParcelRequest {
   int64 arg0 = 1;
   int32 arg1 = 2;
 }
 
-message OnFileDescriptorEventsResponse {
-  int32 result = 1;
+message GetGlobalSecurityStateRequest {
 }
 
-message NewMemoryFileRequest {
-  string arg0 = 1;
-  int32 arg1 = 2;
-}
-
-message NewMemoryFileResponse {
+message GetGlobalSecurityStateResponse {
   int64 result = 1;
 }
 
-message MemoryFileCloseRequest {
-  int64 handle = 1;
+message GetConsumedEnergyRequest {
+  int64 arg0 = 1;
 }
 
-message GetInputStreamRequest {
-  int64 handle = 1;
-}
-
-message GetInputStreamResponse {
+message GetConsumedEnergyResponse {
   int64 result = 1;
 }
 
-message GetOutputStreamRequest {
-  int64 handle = 1;
+message GetTimestampMillisRequest {
+  int64 arg0 = 1;
 }
 
-message GetOutputStreamResponse {
+message GetTimestampMillisResponse {
   int64 result = 1;
 }
 
-message IsPurgingAllowedRequest {
+message PowerMonitorReadingsToStringRequest {
+}
+
+message NewWorkDurationRequest {
+}
+
+message NewWorkDurationResponse {
+  int64 result = 1;
+}
+
+message GetActualCpuDurationNanosRequest {
   int64 handle = 1;
 }
 
-message IsPurgingAllowedResponse {
-  bool result = 1;
+message GetActualCpuDurationNanosResponse {
+  int64 result = 1;
 }
 
-message LengthRequest {
+message GetActualGpuDurationNanosRequest {
   int64 handle = 1;
 }
 
-message LengthResponse {
-  int32 result = 1;
+message GetActualGpuDurationNanosResponse {
+  int64 result = 1;
 }
 
-message ReadBytesRequest {
+message GetActualTotalDurationNanosRequest {
+  int64 handle = 1;
+}
+
+message GetActualTotalDurationNanosResponse {
+  int64 result = 1;
+}
+
+message GetWorkPeriodStartTimestampNanosRequest {
+  int64 handle = 1;
+}
+
+message GetWorkPeriodStartTimestampNanosResponse {
+  int64 result = 1;
+}
+
+message SetActualCpuDurationNanosRequest {
   int64 handle = 1;
   int64 arg0 = 2;
-  int32 arg1 = 3;
-  int32 arg2 = 4;
-  int32 arg3 = 5;
 }
 
-message ReadBytesResponse {
-  int32 result = 1;
+message SetActualCpuDurationNanosResponse {
 }
 
-message WriteBytesRequest {
+message SetActualGpuDurationNanosRequest {
   int64 handle = 1;
   int64 arg0 = 2;
-  int32 arg1 = 3;
-  int32 arg2 = 4;
-  int32 arg3 = 5;
 }
 
-message WriteBytesResponse {
+message SetActualGpuDurationNanosResponse {
 }
 
-message NewStatFsRequest {
-  string arg0 = 1;
-}
-
-message NewStatFsResponse {
-  int64 result = 1;
-}
-
-message GetAvailableBlocksRequest {
+message SetActualTotalDurationNanosRequest {
   int64 handle = 1;
+  int64 arg0 = 2;
 }
 
-message GetAvailableBlocksResponse {
-  int32 result = 1;
+message SetActualTotalDurationNanosResponse {
 }
 
-message GetAvailableBlocksLongRequest {
+message SetWorkPeriodStartTimestampNanosRequest {
   int64 handle = 1;
+  int64 arg0 = 2;
 }
 
-message GetAvailableBlocksLongResponse {
-  int64 result = 1;
+message SetWorkPeriodStartTimestampNanosResponse {
 }
 
-message GetAvailableBytesRequest {
-  int64 handle = 1;
+message ClearProfilingTriggersRequest {
 }
 
-message GetAvailableBytesResponse {
-  int64 result = 1;
+message ClearProfilingTriggersResponse {
 }
 
-message GetBlockCountRequest {
-  int64 handle = 1;
+message RemoveProfilingTriggersByTypeRequest {
+  int64 arg0 = 1;
 }
 
-message GetBlockCountResponse {
-  int32 result = 1;
-}
-
-message GetBlockCountLongRequest {
-  int64 handle = 1;
-}
-
-message GetBlockCountLongResponse {
-  int64 result = 1;
-}
-
-message GetBlockSizeRequest {
-  int64 handle = 1;
-}
-
-message GetBlockSizeResponse {
-  int32 result = 1;
-}
-
-message GetBlockSizeLongRequest {
-  int64 handle = 1;
-}
-
-message GetBlockSizeLongResponse {
-  int64 result = 1;
-}
-
-message GetFreeBlocksRequest {
-  int64 handle = 1;
-}
-
-message GetFreeBlocksResponse {
-  int32 result = 1;
-}
-
-message GetFreeBlocksLongRequest {
-  int64 handle = 1;
-}
-
-message GetFreeBlocksLongResponse {
-  int64 result = 1;
-}
-
-message GetFreeBytesRequest {
-  int64 handle = 1;
-}
-
-message GetFreeBytesResponse {
-  int64 result = 1;
-}
-
-message GetTotalBytesRequest {
-  int64 handle = 1;
-}
-
-message GetTotalBytesResponse {
-  int64 result = 1;
-}
-
-message RestatRequest {
-  int64 handle = 1;
-  string arg0 = 2;
-}
-
-message RestatResponse {
+message RemoveProfilingTriggersByTypeResponse {
 }
 
 message AddDataRequest {
@@ -3237,7 +2232,21 @@ message IsTagEnabledResponse {
   bool result = 1;
 }
 
-message DropBoxManagerEntryGetInputStreamRequest {
+message DropBoxManagerEntryCloseRequest {
+}
+
+message GetInputStreamRequest {
+}
+
+message GetInputStreamResponse {
+  int64 result = 1;
+}
+
+message GetTagRequest {
+}
+
+message GetTagResponse {
+  string result = 1;
 }
 
 message GetTextRequest {
@@ -3255,146 +2264,105 @@ message GetTimeMillisResponse {
   int64 result = 1;
 }
 
-message NewRemoteCallbackListRequest {
+message DropBoxManagerEntryWriteToParcelRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
 }
 
-message NewRemoteCallbackListResponse {
-  int64 result = 1;
-}
-
-message BeginBroadcastRequest {
-  int64 handle = 1;
-}
-
-message BeginBroadcastResponse {
-  int32 result = 1;
-}
-
-message FinishBroadcastRequest {
-  int64 handle = 1;
-}
-
-message FinishBroadcastResponse {
-}
-
-message GetBroadcastCookieRequest {
-  int64 handle = 1;
-  int32 arg0 = 2;
-}
-
-message GetBroadcastCookieResponse {
-  int64 result = 1;
-}
-
-message GetExecutorRequest {
-  int64 handle = 1;
-}
-
-message GetExecutorResponse {
-  int64 result = 1;
-}
-
-message GetFrozenCalleePolicyRequest {
-  int64 handle = 1;
-}
-
-message GetFrozenCalleePolicyResponse {
-  int32 result = 1;
-}
-
-message GetMaxQueueSizeRequest {
-  int64 handle = 1;
-}
-
-message GetMaxQueueSizeResponse {
-  int32 result = 1;
-}
-
-message GetRegisteredCallbackCookieRequest {
-  int64 handle = 1;
-  int32 arg0 = 2;
-}
-
-message GetRegisteredCallbackCookieResponse {
-  int64 result = 1;
-}
-
-message GetRegisteredCallbackCountRequest {
-  int64 handle = 1;
-}
-
-message GetRegisteredCallbackCountResponse {
-  int32 result = 1;
-}
-
-message KillRequest {
-  int64 handle = 1;
-}
-
-message KillResponse {
-}
-
-message SetExecutorRequest {
+message NewParcelUuidRequest {
   int64 arg0 = 1;
 }
 
-message SetExecutorResponse {
+message NewParcelUuidResponse {
   int64 result = 1;
 }
 
-message SetMaxQueueSizeRequest {
+message ParcelUuidDescribeContentsRequest {
+  int64 handle = 1;
+}
+
+message GetUuidRequest {
+  int64 handle = 1;
+}
+
+message GetUuidResponse {
+  int64 result = 1;
+}
+
+message FromStringRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message FromStringResponse {
+  int64 result = 1;
+}
+
+message GetCpuUsagesRequest {
+}
+
+message GetCpuUsagesResponse {
+  int64 result = 1;
+}
+
+message GetDeviceTemperaturesRequest {
   int32 arg0 = 1;
+  int32 arg1 = 2;
 }
 
-message SetMaxQueueSizeResponse {
+message GetDeviceTemperaturesResponse {
   int64 result = 1;
 }
 
-message ClearProfilingTriggersRequest {
+message GetFanSpeedsRequest {
 }
 
-message ClearProfilingTriggersResponse {
-}
-
-message RemoveProfilingTriggersByTypeRequest {
-  int64 arg0 = 1;
-}
-
-message RemoveProfilingTriggersByTypeResponse {
-}
-
-message NewConditionVariableRequest {
-}
-
-message NewConditionVariableResponse {
+message GetFanSpeedsResponse {
   int64 result = 1;
 }
 
-message Block0Request {
-  int64 handle = 1;
+message BeginAsyncSectionRequest {
+  string arg0 = 1;
+  int32 arg1 = 2;
 }
 
-message Block0Response {
+message BeginAsyncSectionResponse {
 }
 
-message Block1_1Request {
-  int64 handle = 1;
-  int64 arg0 = 2;
+message BeginSectionRequest {
+  string arg0 = 1;
 }
 
-message Block1_1Response {
+message BeginSectionResponse {
+}
+
+message EndAsyncSectionRequest {
+  string arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message EndAsyncSectionResponse {
+}
+
+message EndSectionRequest {
+}
+
+message EndSectionResponse {
+}
+
+message IsEnabledRequest {
+}
+
+message IsEnabledResponse {
   bool result = 1;
 }
 
-message ConditionVariableCloseRequest {
-  int64 handle = 1;
+message SetCounterRequest {
+  string arg0 = 1;
+  int64 arg1 = 2;
 }
 
-message OpenRequest {
-  int64 handle = 1;
-}
-
-message OpenResponse {
+message SetCounterResponse {
 }
 
 message AppendFromRequest {
@@ -3410,6 +2378,13 @@ message CreateBinderArrayRequest {
 }
 
 message CreateBinderArrayResponse {
+  int64 result = 1;
+}
+
+message CreateBinderArrayListRequest {
+}
+
+message CreateBinderArrayListResponse {
   int64 result = 1;
 }
 
@@ -3466,6 +2441,13 @@ message CreateStringArrayRequest {
 }
 
 message CreateStringArrayResponse {
+  int64 result = 1;
+}
+
+message CreateStringArrayListRequest {
+}
+
+message CreateStringArrayListResponse {
   int64 result = 1;
 }
 
@@ -3719,6 +2701,14 @@ message ReadParcelableArrayRequest {
 }
 
 message ReadParcelableArrayResponse {
+  int64 result = 1;
+}
+
+message ReadParcelableCreatorRequest {
+  int64 arg0 = 1;
+}
+
+message ReadParcelableCreatorResponse {
   int64 result = 1;
 }
 
@@ -4096,11 +3086,915 @@ message WriteValueRequest {
 message WriteValueResponse {
 }
 
-message ParcelObtain0Request {
+message Obtain0Request {
 }
 
-message ParcelObtain1_1Request {
+message Obtain0Response {
+  int64 result = 1;
+}
+
+message Obtain1_1Request {
   int64 arg0 = 1;
+}
+
+message Obtain1_1Response {
+  int64 result = 1;
+}
+
+message NewStatFsRequest {
+  string arg0 = 1;
+}
+
+message NewStatFsResponse {
+  int64 result = 1;
+}
+
+message GetAvailableBlocksRequest {
+  int64 handle = 1;
+}
+
+message GetAvailableBlocksResponse {
+  int32 result = 1;
+}
+
+message GetAvailableBlocksLongRequest {
+  int64 handle = 1;
+}
+
+message GetAvailableBlocksLongResponse {
+  int64 result = 1;
+}
+
+message GetAvailableBytesRequest {
+  int64 handle = 1;
+}
+
+message GetAvailableBytesResponse {
+  int64 result = 1;
+}
+
+message GetBlockCountRequest {
+  int64 handle = 1;
+}
+
+message GetBlockCountResponse {
+  int32 result = 1;
+}
+
+message GetBlockCountLongRequest {
+  int64 handle = 1;
+}
+
+message GetBlockCountLongResponse {
+  int64 result = 1;
+}
+
+message GetBlockSizeRequest {
+  int64 handle = 1;
+}
+
+message GetBlockSizeResponse {
+  int32 result = 1;
+}
+
+message GetBlockSizeLongRequest {
+  int64 handle = 1;
+}
+
+message GetBlockSizeLongResponse {
+  int64 result = 1;
+}
+
+message GetFreeBlocksRequest {
+  int64 handle = 1;
+}
+
+message GetFreeBlocksResponse {
+  int32 result = 1;
+}
+
+message GetFreeBlocksLongRequest {
+  int64 handle = 1;
+}
+
+message GetFreeBlocksLongResponse {
+  int64 result = 1;
+}
+
+message GetFreeBytesRequest {
+  int64 handle = 1;
+}
+
+message GetFreeBytesResponse {
+  int64 result = 1;
+}
+
+message GetTotalBytesRequest {
+  int64 handle = 1;
+}
+
+message GetTotalBytesResponse {
+  int64 result = 1;
+}
+
+message RestatRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message RestatResponse {
+}
+
+message CancelBugreportRequest {
+}
+
+message CancelBugreportResponse {
+}
+
+message StartConnectivityBugreportRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message StartConnectivityBugreportResponse {
+}
+
+message OnEarlyReportFinishedRequest {
+}
+
+message OnEarlyReportFinishedResponse {
+}
+
+message OnErrorRequest {
+  int32 arg0 = 1;
+}
+
+message OnErrorResponse {
+}
+
+message OnFinishedRequest {
+}
+
+message OnFinishedResponse {
+}
+
+message BugreportManagerBugreportCallbackOnProgressRequest {
+  float arg0 = 1;
+}
+
+message NewMessengerRequest {
+  int64 arg0 = 1;
+}
+
+message NewMessengerResponse {
+  int64 result = 1;
+}
+
+message MessengerDescribeContentsRequest {
+  int64 handle = 1;
+}
+
+message GetBinderRequest {
+  int64 handle = 1;
+}
+
+message GetBinderResponse {
+  int64 result = 1;
+}
+
+message MessengerSendRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message ReadMessengerOrNullFromParcelRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message ReadMessengerOrNullFromParcelResponse {
+  int64 result = 1;
+}
+
+message WriteMessengerOrNullToParcelRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message WriteMessengerOrNullToParcelResponse {
+}
+
+message CpuHeadroomParamsEqualsRequest {
+  int64 arg0 = 1;
+}
+
+message GetCalculationTypeRequest {
+}
+
+message GetCalculationTypeResponse {
+  int32 result = 1;
+}
+
+message GetCalculationWindowMillisRequest {
+}
+
+message GetCalculationWindowMillisResponse {
+  int64 result = 1;
+}
+
+message GetTidsRequest {
+}
+
+message GetTidsResponse {
+  int64 result = 1;
+}
+
+message CpuHeadroomParamsHashCodeRequest {
+}
+
+message ToBuilderRequest {
+}
+
+message ToBuilderResponse {
+  int64 result = 1;
+}
+
+message CpuHeadroomParamsToStringRequest {
+}
+
+message SetCalculationTypeRequest {
+  int32 arg0 = 1;
+}
+
+message SetCalculationTypeResponse {
+  int64 result = 1;
+}
+
+message SetCalculationWindowMillisRequest {
+  int32 arg0 = 1;
+}
+
+message SetCalculationWindowMillisResponse {
+  int64 result = 1;
+}
+
+message SetTidsRequest {
+  int64 arg0 = 1;
+}
+
+message SetTidsResponse {
+  int64 result = 1;
+}
+
+message NewRemoteCallbackListRequest {
+}
+
+message NewRemoteCallbackListResponse {
+  int64 result = 1;
+}
+
+message BeginBroadcastRequest {
+  int64 handle = 1;
+}
+
+message BeginBroadcastResponse {
+  int32 result = 1;
+}
+
+message FinishBroadcastRequest {
+  int64 handle = 1;
+}
+
+message FinishBroadcastResponse {
+}
+
+message GetBroadcastCookieRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message GetBroadcastCookieResponse {
+  int64 result = 1;
+}
+
+message GetExecutorRequest {
+  int64 handle = 1;
+}
+
+message GetExecutorResponse {
+  int64 result = 1;
+}
+
+message GetFrozenCalleePolicyRequest {
+  int64 handle = 1;
+}
+
+message GetFrozenCalleePolicyResponse {
+  int32 result = 1;
+}
+
+message GetMaxQueueSizeRequest {
+  int64 handle = 1;
+}
+
+message GetMaxQueueSizeResponse {
+  int32 result = 1;
+}
+
+message GetRegisteredCallbackCookieRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message GetRegisteredCallbackCookieResponse {
+  int64 result = 1;
+}
+
+message GetRegisteredCallbackCountRequest {
+  int64 handle = 1;
+}
+
+message GetRegisteredCallbackCountResponse {
+  int32 result = 1;
+}
+
+message KillRequest {
+  int64 handle = 1;
+}
+
+message KillResponse {
+}
+
+message SetExecutorRequest {
+  int64 arg0 = 1;
+}
+
+message SetExecutorResponse {
+  int64 result = 1;
+}
+
+message SetMaxQueueSizeRequest {
+  int32 arg0 = 1;
+}
+
+message SetMaxQueueSizeResponse {
+  int64 result = 1;
+}
+
+message GpuHeadroomParamsEqualsRequest {
+  int64 arg0 = 1;
+}
+
+message GpuHeadroomParamsGetCalculationWindowMillisResponse {
+  int32 result = 1;
+}
+
+message GpuHeadroomParamsHashCodeRequest {
+}
+
+message GpuHeadroomParamsToStringRequest {
+}
+
+message NewProcessRequest {
+}
+
+message NewProcessResponse {
+  int64 result = 1;
+}
+
+message GetAppUidForSdkSandboxUidRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message GetAppUidForSdkSandboxUidResponse {
+  int32 result = 1;
+}
+
+message GetElapsedCpuTimeRequest {
+  int64 handle = 1;
+}
+
+message GetElapsedCpuTimeResponse {
+  int64 result = 1;
+}
+
+message GetExclusiveCoresRequest {
+  int64 handle = 1;
+}
+
+message GetExclusiveCoresResponse {
+  int64 result = 1;
+}
+
+message GetGidForNameRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message GetGidForNameResponse {
+  int32 result = 1;
+}
+
+message GetSdkSandboxUidForAppUidRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message GetSdkSandboxUidForAppUidResponse {
+  int32 result = 1;
+}
+
+message GetStartElapsedRealtimeRequest {
+  int64 handle = 1;
+}
+
+message GetStartElapsedRealtimeResponse {
+  int64 result = 1;
+}
+
+message GetStartRequestedElapsedRealtimeRequest {
+  int64 handle = 1;
+}
+
+message GetStartRequestedElapsedRealtimeResponse {
+  int64 result = 1;
+}
+
+message GetStartRequestedUptimeMillisRequest {
+  int64 handle = 1;
+}
+
+message GetStartRequestedUptimeMillisResponse {
+  int64 result = 1;
+}
+
+message GetStartUptimeMillisRequest {
+  int64 handle = 1;
+}
+
+message GetStartUptimeMillisResponse {
+  int64 result = 1;
+}
+
+message GetThreadPriorityRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message GetThreadPriorityResponse {
+  int32 result = 1;
+}
+
+message GetUidForNameRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message GetUidForNameResponse {
+  int32 result = 1;
+}
+
+message Is64BitRequest {
+  int64 handle = 1;
+}
+
+message Is64BitResponse {
+  bool result = 1;
+}
+
+message IsApplicationUidRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message IsApplicationUidResponse {
+  bool result = 1;
+}
+
+message IsIsolatedRequest {
+  int64 handle = 1;
+}
+
+message IsIsolatedResponse {
+  bool result = 1;
+}
+
+message IsIsolatedUidRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message IsIsolatedUidResponse {
+  bool result = 1;
+}
+
+message IsSdkSandboxRequest {
+  int64 handle = 1;
+}
+
+message IsSdkSandboxResponse {
+  bool result = 1;
+}
+
+message IsSdkSandboxUidRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message IsSdkSandboxUidResponse {
+  bool result = 1;
+}
+
+message KillProcessRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message KillProcessResponse {
+}
+
+message MyPidRequest {
+  int64 handle = 1;
+}
+
+message MyPidResponse {
+  int32 result = 1;
+}
+
+message MyProcessNameRequest {
+  int64 handle = 1;
+}
+
+message MyProcessNameResponse {
+  string result = 1;
+}
+
+message MyTidRequest {
+  int64 handle = 1;
+}
+
+message MyTidResponse {
+  int32 result = 1;
+}
+
+message MyUidRequest {
+  int64 handle = 1;
+}
+
+message MyUidResponse {
+  int32 result = 1;
+}
+
+message MyUserHandleRequest {
+  int64 handle = 1;
+}
+
+message MyUserHandleResponse {
+  int64 result = 1;
+}
+
+message SendSignalRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message SendSignalResponse {
+}
+
+message SetThreadPriority1Request {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetThreadPriority1Response {
+}
+
+message SetThreadPriority2_1Request {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message SetThreadPriority2_1Response {
+}
+
+message SupportsProcessesRequest {
+  int64 handle = 1;
+}
+
+message SupportsProcessesResponse {
+  bool result = 1;
+}
+
+message NewMemoryFileRequest {
+  string arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message NewMemoryFileResponse {
+  int64 result = 1;
+}
+
+message MemoryFileGetInputStreamRequest {
+  int64 handle = 1;
+}
+
+message GetOutputStreamRequest {
+  int64 handle = 1;
+}
+
+message GetOutputStreamResponse {
+  int64 result = 1;
+}
+
+message IsPurgingAllowedRequest {
+  int64 handle = 1;
+}
+
+message IsPurgingAllowedResponse {
+  bool result = 1;
+}
+
+message LengthRequest {
+  int64 handle = 1;
+}
+
+message LengthResponse {
+  int32 result = 1;
+}
+
+message ReadBytesRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+  int32 arg2 = 4;
+  int32 arg3 = 5;
+}
+
+message ReadBytesResponse {
+  int32 result = 1;
+}
+
+message WriteBytesRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+  int32 arg2 = 4;
+  int32 arg3 = 5;
+}
+
+message WriteBytesResponse {
+}
+
+message LooperDumpRequest {
+  int64 arg0 = 1;
+  string arg1 = 2;
+}
+
+message GetQueueRequest {
+}
+
+message GetQueueResponse {
+  int64 result = 1;
+}
+
+message GetThreadRequest {
+}
+
+message GetThreadResponse {
+  int64 result = 1;
+}
+
+message IsCurrentThreadRequest {
+}
+
+message IsCurrentThreadResponse {
+  bool result = 1;
+}
+
+message LooperQuitRequest {
+}
+
+message LooperQuitResponse {
+}
+
+message LooperQuitSafelyRequest {
+}
+
+message LooperQuitSafelyResponse {
+}
+
+message SetMessageLoggingRequest {
+  int64 arg0 = 1;
+}
+
+message SetMessageLoggingResponse {
+}
+
+message LooperToStringRequest {
+}
+
+message GetMainLooperRequest {
+}
+
+message GetMainLooperResponse {
+  int64 result = 1;
+}
+
+message LoopRequest {
+}
+
+message LoopResponse {
+}
+
+message MyLooperRequest {
+}
+
+message MyLooperResponse {
+  int64 result = 1;
+}
+
+message MyQueueRequest {
+}
+
+message MyQueueResponse {
+  int64 result = 1;
+}
+
+message PrepareRequest {
+}
+
+message PrepareResponse {
+}
+
+message PrepareMainLooperRequest {
+}
+
+message PrepareMainLooperResponse {
+}
+
+message NewBinderRequest {
+}
+
+message NewBinderResponse {
+  int64 result = 1;
+}
+
+message AttachInterfaceRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  string arg1 = 3;
+}
+
+message AttachInterfaceResponse {
+}
+
+message BinderDumpRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message BinderDumpAsyncRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message BinderGetInterfaceDescriptorRequest {
+  int64 handle = 1;
+}
+
+message BinderIsBinderAliveRequest {
+  int64 handle = 1;
+}
+
+message BinderLinkToDeathRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message BinderPingBinderRequest {
+  int64 handle = 1;
+}
+
+message BinderQueryLocalInterfaceRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message BinderTransactRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int64 arg1 = 3;
+  int64 arg2 = 4;
+  int32 arg3 = 5;
+}
+
+message BinderUnlinkToDeathRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message ClearCallingIdentityRequest {
+  int64 handle = 1;
+}
+
+message ClearCallingIdentityResponse {
+  int64 result = 1;
+}
+
+message ClearCallingWorkSourceRequest {
+  int64 handle = 1;
+}
+
+message ClearCallingWorkSourceResponse {
+  int64 result = 1;
+}
+
+message FlushPendingCommandsRequest {
+  int64 handle = 1;
+}
+
+message FlushPendingCommandsResponse {
+}
+
+message GetCallingPidRequest {
+  int64 handle = 1;
+}
+
+message GetCallingPidResponse {
+  int32 result = 1;
+}
+
+message GetCallingUidRequest {
+  int64 handle = 1;
+}
+
+message GetCallingUidResponse {
+  int32 result = 1;
+}
+
+message GetCallingUidOrThrowRequest {
+  int64 handle = 1;
+}
+
+message GetCallingUidOrThrowResponse {
+  int32 result = 1;
+}
+
+message GetCallingUserHandleRequest {
+  int64 handle = 1;
+}
+
+message GetCallingUserHandleResponse {
+  int64 result = 1;
+}
+
+message GetCallingWorkSourceUidRequest {
+  int64 handle = 1;
+}
+
+message GetCallingWorkSourceUidResponse {
+  int32 result = 1;
+}
+
+message JoinThreadPoolRequest {
+  int64 handle = 1;
+}
+
+message JoinThreadPoolResponse {
+}
+
+message RestoreCallingIdentityRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message RestoreCallingIdentityResponse {
+}
+
+message RestoreCallingWorkSourceRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message RestoreCallingWorkSourceResponse {
+}
+
+message SetCallingWorkSourceUidRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetCallingWorkSourceUidResponse {
+  int64 result = 1;
 }
 
 message AsBinderRequest {
@@ -4110,53 +4004,504 @@ message AsBinderResponse {
   int64 result = 1;
 }
 
-message VibratorManagerCancelRequest {
-}
-
-message VibratorManagerCancelResponse {
-}
-
-message GetDefaultVibratorRequest {
-}
-
-message GetDefaultVibratorResponse {
-  int64 result = 1;
-}
-
-message GetVibratorRequest {
-  int32 arg0 = 1;
-}
-
-message GetVibratorResponse {
-  int64 result = 1;
-}
-
-message GetVibratorIdsRequest {
-}
-
-message GetVibratorIdsResponse {
-  int64 result = 1;
-}
-
-message Vibrate1Request {
+message NewUserHandleRequest {
   int64 arg0 = 1;
 }
 
-message Vibrate1Response {
+message NewUserHandleResponse {
+  int64 result = 1;
 }
 
-message Vibrate2_1Request {
+message UserHandleDescribeContentsRequest {
+  int64 handle = 1;
+}
+
+message WriteToParcel2Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message WriteToParcel2Response {
+}
+
+message GetUserHandleForUidRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message GetUserHandleForUidResponse {
+  int64 result = 1;
+}
+
+message UserHandleReadFromParcelRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message UserHandleReadFromParcelResponse {
+  int64 result = 1;
+}
+
+message WriteToParcel2_1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message WriteToParcel2_1Response {
+}
+
+message AllowThreadDiskReadsRequest {
+}
+
+message AllowThreadDiskReadsResponse {
+  int64 result = 1;
+}
+
+message AllowThreadDiskWritesRequest {
+}
+
+message AllowThreadDiskWritesResponse {
+  int64 result = 1;
+}
+
+message EnableDefaultsRequest {
+}
+
+message EnableDefaultsResponse {
+}
+
+message GetThreadPolicyRequest {
+}
+
+message GetThreadPolicyResponse {
+  int64 result = 1;
+}
+
+message GetVmPolicyRequest {
+}
+
+message GetVmPolicyResponse {
+  int64 result = 1;
+}
+
+message NoteSlowCallRequest {
+  string arg0 = 1;
+}
+
+message NoteSlowCallResponse {
+}
+
+message SetThreadPolicyRequest {
+  int64 arg0 = 1;
+}
+
+message SetThreadPolicyResponse {
+}
+
+message SetVmPolicyRequest {
+  int64 arg0 = 1;
+}
+
+message SetVmPolicyResponse {
+}
+
+message OnThreadViolationRequest {
+  int64 arg0 = 1;
+}
+
+message OnThreadViolationResponse {
+}
+
+message OnVmViolationRequest {
+  int64 arg0 = 1;
+}
+
+message OnVmViolationResponse {
+}
+
+message StrictModeThreadPolicyToStringRequest {
+}
+
+message StrictModeVmPolicyToStringRequest {
+}
+
+message ProfilingResultEqualsRequest {
+  int64 arg0 = 1;
+}
+
+message GetErrorCodeRequest {
+}
+
+message GetErrorCodeResponse {
+  int32 result = 1;
+}
+
+message GetErrorMessageRequest {
+}
+
+message GetErrorMessageResponse {
+  string result = 1;
+}
+
+message GetResultFilePathRequest {
+}
+
+message GetResultFilePathResponse {
+  string result = 1;
+}
+
+message GetTriggerTypeRequest {
+}
+
+message GetTriggerTypeResponse {
+  int32 result = 1;
+}
+
+message ProfilingResultHashCodeRequest {
+}
+
+message ProfilingResultWriteToParcelRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message NewRemoteExceptionRequest {
+}
+
+message NewRemoteExceptionResponse {
+  int64 result = 1;
+}
+
+message RethrowAsRuntimeExceptionRequest {
+  int64 handle = 1;
+}
+
+message RethrowAsRuntimeExceptionResponse {
+  int64 result = 1;
+}
+
+message RethrowFromSystemServerRequest {
+  int64 handle = 1;
+}
+
+message RethrowFromSystemServerResponse {
+  int64 result = 1;
+}
+
+message BaseBundleClearRequest {
+}
+
+message ContainsKeyRequest {
+  string arg0 = 1;
+}
+
+message ContainsKeyResponse {
+  bool result = 1;
+}
+
+message BaseBundleGetRequest {
+  string arg0 = 1;
+}
+
+message GetBoolean1Request {
+  string arg0 = 1;
+}
+
+message GetBoolean1Response {
+  bool result = 1;
+}
+
+message GetBoolean2_1Request {
+  string arg0 = 1;
+  bool arg1 = 2;
+}
+
+message GetBoolean2_1Response {
+  bool result = 1;
+}
+
+message GetBooleanArrayRequest {
+  string arg0 = 1;
+}
+
+message GetBooleanArrayResponse {
+  int64 result = 1;
+}
+
+message GetDouble1Request {
+  string arg0 = 1;
+}
+
+message GetDouble1Response {
+  double result = 1;
+}
+
+message GetDouble2_1Request {
+  string arg0 = 1;
+  double arg1 = 2;
+}
+
+message GetDouble2_1Response {
+  double result = 1;
+}
+
+message GetDoubleArrayRequest {
+  string arg0 = 1;
+}
+
+message GetDoubleArrayResponse {
+  int64 result = 1;
+}
+
+message GetInt1Request {
+  string arg0 = 1;
+}
+
+message GetInt1Response {
+  int32 result = 1;
+}
+
+message GetInt2_1Request {
+  string arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message GetInt2_1Response {
+  int32 result = 1;
+}
+
+message GetIntArrayRequest {
+  string arg0 = 1;
+}
+
+message GetIntArrayResponse {
+  int64 result = 1;
+}
+
+message GetLong1Request {
+  string arg0 = 1;
+}
+
+message GetLong1Response {
+  int64 result = 1;
+}
+
+message GetLong2_1Request {
+  string arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message GetLong2_1Response {
+  int64 result = 1;
+}
+
+message GetLongArrayRequest {
+  string arg0 = 1;
+}
+
+message GetLongArrayResponse {
+  int64 result = 1;
+}
+
+message GetString1Request {
+  string arg0 = 1;
+}
+
+message GetString1Response {
+  string result = 1;
+}
+
+message GetString2_1Request {
+  string arg0 = 1;
+  string arg1 = 2;
+}
+
+message GetString2_1Response {
+  string result = 1;
+}
+
+message GetStringArrayRequest {
+  string arg0 = 1;
+}
+
+message GetStringArrayResponse {
+  int64 result = 1;
+}
+
+message BaseBundleIsEmptyRequest {
+}
+
+message KeySetRequest {
+}
+
+message KeySetResponse {
+  int64 result = 1;
+}
+
+message PutAllRequest {
+  int64 arg0 = 1;
+}
+
+message PutAllResponse {
+}
+
+message PutBooleanRequest {
+  string arg0 = 1;
+  bool arg1 = 2;
+}
+
+message PutBooleanResponse {
+}
+
+message PutBooleanArrayRequest {
+  string arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message PutBooleanArrayResponse {
+}
+
+message PutDoubleRequest {
+  string arg0 = 1;
+  double arg1 = 2;
+}
+
+message PutDoubleResponse {
+}
+
+message PutDoubleArrayRequest {
+  string arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message PutDoubleArrayResponse {
+}
+
+message PutIntRequest {
+  string arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message PutIntResponse {
+}
+
+message PutIntArrayRequest {
+  string arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message PutIntArrayResponse {
+}
+
+message PutLongRequest {
+  string arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message PutLongResponse {
+}
+
+message PutLongArrayRequest {
+  string arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message PutLongArrayResponse {
+}
+
+message PutStringRequest {
+  string arg0 = 1;
+  string arg1 = 2;
+}
+
+message PutStringResponse {
+}
+
+message PutStringArrayRequest {
+  string arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message PutStringArrayResponse {
+}
+
+message BaseBundleRemoveRequest {
+  string arg0 = 1;
+}
+
+message BaseBundleRemoveResponse {
+}
+
+message BaseBundleSizeRequest {
+}
+
+message AsyncTaskCancelRequest {
+  bool arg0 = 1;
+}
+
+message AsyncTaskCancelResponse {
+  bool result = 1;
+}
+
+message Get0Request {
+}
+
+message Get0Response {
+  int64 result = 1;
+}
+
+message Get2_1Request {
   int64 arg0 = 1;
   int64 arg1 = 2;
 }
 
-message Vibrate2_1Response {
+message Get2_1Response {
+  int64 result = 1;
 }
 
-message GetGlobalSecurityStateRequest {
+message GetStatusRequest {
 }
 
-message GetGlobalSecurityStateResponse {
+message GetStatusResponse {
+  int64 result = 1;
+}
+
+message IsCancelledRequest {
+}
+
+message IsCancelledResponse {
+  bool result = 1;
+}
+
+message ValuesRequest {
+}
+
+message ValuesResponse {
+  int64 result = 1;
+}
+
+message ValueOfRequest {
+  string arg0 = 1;
+}
+
+message ValueOfResponse {
+  int64 result = 1;
+}
+
+message GetRateLimitingPeriodHoursRequest {
+}
+
+message GetRateLimitingPeriodHoursResponse {
+  int32 result = 1;
+}
+
+message SetRateLimitingPeriodHoursRequest {
+  int32 arg0 = 1;
+}
+
+message SetRateLimitingPeriodHoursResponse {
   int64 result = 1;
 }
 
@@ -4462,495 +4807,315 @@ message HandlerCallbackHandleMessageResponse {
   bool result = 1;
 }
 
-message GetNameRequest {
+message NewMessageRequest {
 }
 
-message GetNameResponse {
-  string result = 1;
+message NewMessageResponse {
+  int64 result = 1;
 }
 
-message PowerMonitorGetTypeRequest {
+message CopyFromRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
 }
 
-message IBinderDumpRequest {
+message CopyFromResponse {
+}
+
+message MessageDescribeContentsRequest {
+  int64 handle = 1;
+}
+
+message GetCallbackRequest {
+  int64 handle = 1;
+}
+
+message GetCallbackResponse {
+  int64 result = 1;
+}
+
+message GetDataRequest {
+  int64 handle = 1;
+}
+
+message GetDataResponse {
+  int64 result = 1;
+}
+
+message GetTargetRequest {
+  int64 handle = 1;
+}
+
+message GetTargetResponse {
+  int64 result = 1;
+}
+
+message GetWhenRequest {
+  int64 handle = 1;
+}
+
+message GetWhenResponse {
+  int64 result = 1;
+}
+
+message IsAsynchronousRequest {
+  int64 handle = 1;
+}
+
+message IsAsynchronousResponse {
+  bool result = 1;
+}
+
+message PeekDataRequest {
+  int64 handle = 1;
+}
+
+message PeekDataResponse {
+  int64 result = 1;
+}
+
+message MessageRecycleRequest {
+  int64 handle = 1;
+}
+
+message SendToTargetRequest {
+  int64 handle = 1;
+}
+
+message SendToTargetResponse {
+}
+
+message SetAsynchronousRequest {
+  int64 handle = 1;
+  bool arg0 = 2;
+}
+
+message SetAsynchronousResponse {
+}
+
+message SetDataRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetDataResponse {
+}
+
+message MessageObtain0Request {
+  int64 handle = 1;
+}
+
+message MessageObtain1_1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message CloseQuietly1Request {
+  int64 arg0 = 1;
+}
+
+message CloseQuietly1Response {
+}
+
+message CloseQuietly1_1Request {
+  int64 arg0 = 1;
+}
+
+message CloseQuietly1_1Response {
+}
+
+message Copy2Request {
   int64 arg0 = 1;
   int64 arg1 = 2;
 }
 
-message IBinderDumpAsyncRequest {
+message Copy2Response {
+  int64 result = 1;
+}
+
+message Copy5_1Request {
   int64 arg0 = 1;
-  int64 arg1 = 2;
-}
-
-message IBinderGetInterfaceDescriptorRequest {
-}
-
-message IBinderIsBinderAliveRequest {
-}
-
-message IBinderLinkToDeathRequest {
-  int64 arg0 = 1;
-  int32 arg1 = 2;
-}
-
-message IBinderPingBinderRequest {
-}
-
-message IBinderQueryLocalInterfaceRequest {
-  string arg0 = 1;
-}
-
-message IBinderTransactRequest {
-  int32 arg0 = 1;
   int64 arg1 = 2;
   int64 arg2 = 3;
-  int32 arg3 = 4;
-}
-
-message IBinderUnlinkToDeathRequest {
-  int64 arg0 = 1;
-  int32 arg1 = 2;
-}
-
-message GetSuggestedMaxIpcSizeBytesRequest {
-}
-
-message GetSuggestedMaxIpcSizeBytesResponse {
-  int32 result = 1;
-}
-
-message BinderDiedRequest {
-}
-
-message BinderDiedResponse {
-}
-
-message OnFrozenStateChangedRequest {
-  int64 arg0 = 1;
-  int32 arg1 = 2;
-}
-
-message OnFrozenStateChangedResponse {
-}
-
-message CpuHeadroomParamsEqualsRequest {
-  int64 arg0 = 1;
-}
-
-message CpuHeadroomParamsGetCalculationWindowMillisResponse {
-  int64 result = 1;
-}
-
-message GetTidsRequest {
-}
-
-message GetTidsResponse {
-  int64 result = 1;
-}
-
-message CpuHeadroomParamsHashCodeRequest {
-}
-
-message ToBuilderRequest {
-}
-
-message ToBuilderResponse {
-  int64 result = 1;
-}
-
-message CpuHeadroomParamsToStringRequest {
-}
-
-message SetTidsRequest {
-  int64 arg0 = 1;
-}
-
-message SetTidsResponse {
-  int64 result = 1;
-}
-
-message GetApplicationRestrictionsRequest {
-  string arg0 = 1;
-}
-
-message GetApplicationRestrictionsResponse {
-  int64 result = 1;
-}
-
-message GetSerialNumberForUserRequest {
-  int64 arg0 = 1;
-}
-
-message GetSerialNumberForUserResponse {
-  int64 result = 1;
-}
-
-message GetUserCountRequest {
-}
-
-message GetUserCountResponse {
-  int32 result = 1;
-}
-
-message GetUserCreationTimeRequest {
-  int64 arg0 = 1;
-}
-
-message GetUserCreationTimeResponse {
-  int64 result = 1;
-}
-
-message GetUserForSerialNumberRequest {
-  int64 arg0 = 1;
-}
-
-message GetUserForSerialNumberResponse {
-  int64 result = 1;
-}
-
-message GetUserNameRequest {
-}
-
-message GetUserNameResponse {
-  string result = 1;
-}
-
-message GetUserRestrictions0Request {
-}
-
-message GetUserRestrictions0Response {
-  int64 result = 1;
-}
-
-message GetUserRestrictions1_1Request {
-  int64 arg0 = 1;
-}
-
-message GetUserRestrictions1_1Response {
-  int64 result = 1;
-}
-
-message HasUserRestrictionRequest {
-  string arg0 = 1;
-}
-
-message HasUserRestrictionResponse {
-  bool result = 1;
-}
-
-message IsAdminUserRequest {
-}
-
-message IsAdminUserResponse {
-  bool result = 1;
-}
-
-message IsDemoUserRequest {
-}
-
-message IsDemoUserResponse {
-  bool result = 1;
-}
-
-message IsManagedProfileRequest {
-}
-
-message IsManagedProfileResponse {
-  bool result = 1;
-}
-
-message IsProfileRequest {
-}
-
-message IsProfileResponse {
-  bool result = 1;
-}
-
-message IsQuietModeEnabledRequest {
-  int64 arg0 = 1;
-}
-
-message IsQuietModeEnabledResponse {
-  bool result = 1;
-}
-
-message IsSystemUserRequest {
-}
-
-message IsSystemUserResponse {
-  bool result = 1;
-}
-
-message IsUserAGoatRequest {
-}
-
-message IsUserAGoatResponse {
-  bool result = 1;
-}
-
-message IsUserForegroundRequest {
-}
-
-message IsUserForegroundResponse {
-  bool result = 1;
-}
-
-message IsUserRunningRequest {
-  int64 arg0 = 1;
-}
-
-message IsUserRunningResponse {
-  bool result = 1;
-}
-
-message IsUserRunningOrStoppingRequest {
-  int64 arg0 = 1;
-}
-
-message IsUserRunningOrStoppingResponse {
-  bool result = 1;
-}
-
-message IsUserUnlocked0Request {
-}
-
-message IsUserUnlocked0Response {
-  bool result = 1;
-}
-
-message IsUserUnlocked1_1Request {
-  int64 arg0 = 1;
-}
-
-message IsUserUnlocked1_1Response {
-  bool result = 1;
-}
-
-message RequestQuietModeEnabled2Request {
-  bool arg0 = 1;
-  int64 arg1 = 2;
-}
-
-message RequestQuietModeEnabled2Response {
-  bool result = 1;
-}
-
-message RequestQuietModeEnabled3_1Request {
-  bool arg0 = 1;
-  int64 arg1 = 2;
-  int32 arg2 = 3;
-}
-
-message RequestQuietModeEnabled3_1Response {
-  bool result = 1;
-}
-
-message SetRestrictionsChallengeRequest {
-  string arg0 = 1;
-}
-
-message SetRestrictionsChallengeResponse {
-  bool result = 1;
-}
-
-message SetUserRestrictionRequest {
-  string arg0 = 1;
-  bool arg1 = 2;
-}
-
-message SetUserRestrictionResponse {
-}
-
-message SetUserRestrictions1Request {
-  int64 arg0 = 1;
-}
-
-message SetUserRestrictions1Response {
-}
-
-message SetUserRestrictions2_1Request {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-}
-
-message SetUserRestrictions2_1Response {
-}
-
-message CreateUserCreationIntentRequest {
-  string arg0 = 1;
-  string arg1 = 2;
-  string arg2 = 3;
   int64 arg3 = 4;
+  int64 arg4 = 5;
 }
 
-message CreateUserCreationIntentResponse {
+message Copy5_1Response {
   int64 result = 1;
 }
 
-message IsHeadlessSystemUserModeRequest {
-}
-
-message IsHeadlessSystemUserModeResponse {
-  bool result = 1;
-}
-
-message SupportsMultipleUsersRequest {
-}
-
-message SupportsMultipleUsersResponse {
-  bool result = 1;
-}
-
-message GetUserOperationResultRequest {
-}
-
-message GetUserOperationResultResponse {
-  int32 result = 1;
-}
-
-message CreateOneShotRequest {
-  int64 arg0 = 1;
-  int32 arg1 = 2;
-}
-
-message CreateOneShotResponse {
-  int64 result = 1;
-}
-
-message CreatePredefinedRequest {
-  int32 arg0 = 1;
-}
-
-message CreatePredefinedResponse {
-  int64 result = 1;
-}
-
-message CreateRepeatingEffect1Request {
-  int64 arg0 = 1;
-}
-
-message CreateRepeatingEffect1Response {
-  int64 result = 1;
-}
-
-message CreateRepeatingEffect2_1Request {
+message Copy2_2Request {
   int64 arg0 = 1;
   int64 arg1 = 2;
 }
 
-message CreateRepeatingEffect2_1Response {
+message Copy2_2Response {
   int64 result = 1;
 }
 
-message CreateWaveform2Request {
-  int64 arg0 = 1;
-  int32 arg1 = 2;
-}
-
-message CreateWaveform2Response {
-  int64 result = 1;
-}
-
-message CreateWaveform3_1Request {
+message Copy5_3Request {
   int64 arg0 = 1;
   int64 arg1 = 2;
-  int32 arg2 = 3;
-}
-
-message CreateWaveform3_1Response {
-  int64 result = 1;
-}
-
-message StartCompositionRequest {
-}
-
-message StartCompositionResponse {
-  int64 result = 1;
-}
-
-message AddControlPointRequest {
-  float arg0 = 1;
-  float arg1 = 2;
   int64 arg2 = 3;
+  int64 arg3 = 4;
+  int64 arg4 = 5;
 }
 
-message AddControlPointResponse {
+message Copy5_3Response {
   int64 result = 1;
 }
 
-message SetInitialSharpnessRequest {
-  float arg0 = 1;
+message FileUtilsProgressListenerOnProgressRequest {
+  int64 arg0 = 1;
 }
 
-message SetInitialSharpnessResponse {
-  int64 result = 1;
+service ConditionVariableService {
+  rpc NewConditionVariable (NewConditionVariableRequest) returns (NewConditionVariableResponse);
+  rpc Block0 (Block0Request) returns (Block0Response);
+  rpc Block1_1 (Block1_1Request) returns (Block1_1Response);
+  rpc Close (CloseRequest) returns (CloseResponse);
+  rpc Open (OpenRequest) returns (OpenResponse);
 }
 
-message AddPrimitive1Request {
-  int32 arg0 = 1;
+service VibratorManagerService {
+  rpc Cancel (CancelRequest) returns (CancelResponse);
+  rpc GetDefaultVibrator (GetDefaultVibratorRequest) returns (GetDefaultVibratorResponse);
+  rpc GetVibrator (GetVibratorRequest) returns (GetVibratorResponse);
+  rpc GetVibratorIds (GetVibratorIdsRequest) returns (GetVibratorIdsResponse);
+  rpc Vibrate1 (Vibrate1Request) returns (Vibrate1Response);
+  rpc Vibrate2_1 (Vibrate2_1Request) returns (Vibrate2_1Response);
 }
 
-message AddPrimitive1Response {
-  int64 result = 1;
+service MessageQueueService {
+  rpc AddOnFileDescriptorEventListener (AddOnFileDescriptorEventListenerRequest) returns (AddOnFileDescriptorEventListenerResponse);
+  rpc IsIdle (IsIdleRequest) returns (IsIdleResponse);
+  rpc RemoveOnFileDescriptorEventListener (RemoveOnFileDescriptorEventListenerRequest) returns (RemoveOnFileDescriptorEventListenerResponse);
 }
 
-message AddPrimitive2_1Request {
-  int32 arg0 = 1;
-  float arg1 = 2;
+service MessageQueueIdleHandlerService {
+  rpc QueueIdle (QueueIdleRequest) returns (QueueIdleResponse);
 }
 
-message AddPrimitive2_1Response {
-  int64 result = 1;
+service MessageQueueOnFileDescriptorEventListenerService {
+  rpc OnFileDescriptorEvents (OnFileDescriptorEventsRequest) returns (OnFileDescriptorEventsResponse);
 }
 
-message AddPrimitive3_2Request {
-  int32 arg0 = 1;
-  float arg1 = 2;
-  int32 arg2 = 3;
+service VibrationEffectService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc CreateOneShot (CreateOneShotRequest) returns (CreateOneShotResponse);
+  rpc CreatePredefined (CreatePredefinedRequest) returns (CreatePredefinedResponse);
+  rpc CreateRepeatingEffect1 (CreateRepeatingEffect1Request) returns (CreateRepeatingEffect1Response);
+  rpc CreateRepeatingEffect2_1 (CreateRepeatingEffect2_1Request) returns (CreateRepeatingEffect2_1Response);
+  rpc CreateWaveform2 (CreateWaveform2Request) returns (CreateWaveform2Response);
+  rpc CreateWaveform3_1 (CreateWaveform3_1Request) returns (CreateWaveform3_1Response);
+  rpc StartComposition (StartCompositionRequest) returns (StartCompositionResponse);
 }
 
-message AddPrimitive3_2Response {
-  int64 result = 1;
+service VibrationEffectBasicEnvelopeBuilderService {
+  rpc AddControlPoint (AddControlPointRequest) returns (AddControlPointResponse);
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetInitialSharpness (SetInitialSharpnessRequest) returns (SetInitialSharpnessResponse);
 }
 
-message AddPrimitive4_3Request {
-  int32 arg0 = 1;
-  float arg1 = 2;
-  int32 arg2 = 3;
-  int32 arg3 = 4;
+service VibrationEffectCompositionService {
+  rpc AddPrimitive1 (AddPrimitive1Request) returns (AddPrimitive1Response);
+  rpc AddPrimitive2_1 (AddPrimitive2_1Request) returns (AddPrimitive2_1Response);
+  rpc AddPrimitive3_2 (AddPrimitive3_2Request) returns (AddPrimitive3_2Response);
+  rpc AddPrimitive4_3 (AddPrimitive4_3Request) returns (AddPrimitive4_3Response);
+  rpc Compose (ComposeRequest) returns (ComposeResponse);
 }
 
-message AddPrimitive4_3Response {
-  int64 result = 1;
+service VibrationEffectWaveformEnvelopeBuilderService {
+  rpc AddControlPoint (AddControlPointRequest) returns (AddControlPointResponse);
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetInitialFrequencyHz (SetInitialFrequencyHzRequest) returns (SetInitialFrequencyHzResponse);
 }
 
-message ComposeRequest {
+service PersistableBundleService {
+  rpc NewPersistableBundle (NewPersistableBundleRequest) returns (NewPersistableBundleResponse);
+  rpc Clone (CloneRequest) returns (CloneResponse);
+  rpc DeepCopy (DeepCopyRequest) returns (DeepCopyResponse);
+  rpc DescribeContents (PersistableBundleDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetPersistableBundle (GetPersistableBundleRequest) returns (GetPersistableBundleResponse);
+  rpc PutPersistableBundle (PutPersistableBundleRequest) returns (PutPersistableBundleResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+  rpc WriteToStream (WriteToStreamRequest) returns (WriteToStreamResponse);
+  rpc ReadFromStream (ReadFromStreamRequest) returns (ReadFromStreamResponse);
 }
 
-message ComposeResponse {
-  int64 result = 1;
+service RecoverySystemService {
+  rpc InstallPackage (InstallPackageRequest) returns (InstallPackageResponse);
+  rpc RebootWipeCache (RebootWipeCacheRequest) returns (RebootWipeCacheResponse);
+  rpc RebootWipeUserData (RebootWipeUserDataRequest) returns (RebootWipeUserDataResponse);
+  rpc VerifyPackage (VerifyPackageRequest) returns (VerifyPackageResponse);
 }
 
-message SetInitialFrequencyHzRequest {
-  float arg0 = 1;
+service RecoverySystemProgressListenerService {
+  rpc OnProgress (OnProgressRequest) returns (OnProgressResponse);
 }
 
-message SetInitialFrequencyHzResponse {
-  int64 result = 1;
+service PerformanceHintManagerService {
+  rpc CreateHintSession (CreateHintSessionRequest) returns (CreateHintSessionResponse);
+  rpc GetPreferredUpdateRateNanos (GetPreferredUpdateRateNanosRequest) returns (GetPreferredUpdateRateNanosResponse);
 }
 
-service CountDownTimerService {
-  rpc OnFinish (OnFinishRequest) returns (OnFinishResponse);
-  rpc OnTick (OnTickRequest) returns (OnTickResponse);
+service PerformanceHintManagerSessionService {
+  rpc Close (PerformanceHintManagerSessionCloseRequest) returns (CloseResponse);
+  rpc ReportActualWorkDuration1 (ReportActualWorkDuration1Request) returns (ReportActualWorkDuration1Response);
+  rpc ReportActualWorkDuration1_1 (ReportActualWorkDuration1_1Request) returns (ReportActualWorkDuration1_1Response);
+  rpc SetPreferPowerEfficiency (SetPreferPowerEfficiencyRequest) returns (SetPreferPowerEfficiencyResponse);
+  rpc SetThreads (SetThreadsRequest) returns (SetThreadsResponse);
+  rpc UpdateTargetWorkDuration (UpdateTargetWorkDurationRequest) returns (UpdateTargetWorkDurationResponse);
 }
 
-service TraceService {
-  rpc BeginAsyncSection (BeginAsyncSectionRequest) returns (BeginAsyncSectionResponse);
-  rpc BeginSection (BeginSectionRequest) returns (BeginSectionResponse);
-  rpc EndAsyncSection (EndAsyncSectionRequest) returns (EndAsyncSectionResponse);
-  rpc EndSection (EndSectionRequest) returns (EndSectionResponse);
-  rpc IsEnabled (IsEnabledRequest) returns (IsEnabledResponse);
-  rpc SetCounter (SetCounterRequest) returns (SetCounterResponse);
+service SystemClockService {
+  rpc CurrentGnssTimeClock (CurrentGnssTimeClockRequest) returns (CurrentGnssTimeClockResponse);
+  rpc CurrentNetworkTimeClock (CurrentNetworkTimeClockRequest) returns (CurrentNetworkTimeClockResponse);
+  rpc CurrentThreadTimeMillis (CurrentThreadTimeMillisRequest) returns (CurrentThreadTimeMillisResponse);
+  rpc ElapsedRealtime (ElapsedRealtimeRequest) returns (ElapsedRealtimeResponse);
+  rpc ElapsedRealtimeNanos (ElapsedRealtimeNanosRequest) returns (ElapsedRealtimeNanosResponse);
+  rpc SetCurrentTimeMillis (SetCurrentTimeMillisRequest) returns (SetCurrentTimeMillisResponse);
+  rpc Sleep (SleepRequest) returns (SleepResponse);
+  rpc UptimeMillis (UptimeMillisRequest) returns (UptimeMillisResponse);
+  rpc UptimeNanos (UptimeNanosRequest) returns (UptimeNanosResponse);
+}
+
+service LocaleListService {
+  rpc NewLocaleList (NewLocaleListRequest) returns (NewLocaleListResponse);
+  rpc DescribeContents (LocaleListDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc Get (GetRequest) returns (GetResponse);
+  rpc GetFirstMatch (GetFirstMatchRequest) returns (GetFirstMatchResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc IndexOf (IndexOfRequest) returns (IndexOfResponse);
+  rpc IsEmpty (IsEmptyRequest) returns (IsEmptyResponse);
+  rpc Size (SizeRequest) returns (SizeResponse);
+  rpc ToLanguageTags (ToLanguageTagsRequest) returns (ToLanguageTagsResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+  rpc ForLanguageTags (ForLanguageTagsRequest) returns (ForLanguageTagsResponse);
+  rpc GetAdjustedDefault (GetAdjustedDefaultRequest) returns (GetAdjustedDefaultResponse);
+  rpc GetDefault (GetDefaultRequest) returns (GetDefaultResponse);
+  rpc GetEmptyLocaleList (GetEmptyLocaleListRequest) returns (GetEmptyLocaleListResponse);
+  rpc IsPseudoLocale (IsPseudoLocaleRequest) returns (IsPseudoLocaleResponse);
+  rpc MatchesLanguageAndScript (MatchesLanguageAndScriptRequest) returns (MatchesLanguageAndScriptResponse);
+  rpc SetDefault (SetDefaultRequest) returns (SetDefaultResponse);
+}
+
+service PowerMonitorService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetName (GetNameRequest) returns (GetNameResponse);
+  rpc GetType (GetTypeRequest) returns (GetTypeResponse);
+  rpc WriteToParcel (PowerMonitorWriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service ProxyFileDescriptorCallbackService {
+  rpc OnFsync (OnFsyncRequest) returns (OnFsyncResponse);
+  rpc OnGetSize (OnGetSizeRequest) returns (OnGetSizeResponse);
+  rpc OnRead (OnReadRequest) returns (OnReadResponse);
+  rpc OnRelease (OnReleaseRequest) returns (OnReleaseResponse);
+  rpc OnWrite (OnWriteRequest) returns (OnWriteResponse);
 }
 
 service HandlerThreadService {
@@ -4962,12 +5127,139 @@ service HandlerThreadService {
   rpc Run (RunRequest) returns (RunResponse);
 }
 
-service ProxyFileDescriptorCallbackService {
-  rpc OnFsync (OnFsyncRequest) returns (OnFsyncResponse);
-  rpc OnGetSize (OnGetSizeRequest) returns (OnGetSizeResponse);
-  rpc OnRead (OnReadRequest) returns (OnReadResponse);
-  rpc OnRelease (OnReleaseRequest) returns (OnReleaseResponse);
-  rpc OnWrite (OnWriteRequest) returns (OnWriteResponse);
+service CpuUsageInfoService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetActive (GetActiveRequest) returns (GetActiveResponse);
+  rpc GetTotal (GetTotalRequest) returns (GetTotalResponse);
+  rpc WriteToParcel (CpuUsageInfoWriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service FileObserverService {
+  rpc OnEvent (OnEventRequest) returns (OnEventResponse);
+  rpc StartWatching (StartWatchingRequest) returns (StartWatchingResponse);
+  rpc StopWatching (StopWatchingRequest) returns (StopWatchingResponse);
+}
+
+service TestLooperManagerService {
+  rpc Execute (ExecuteRequest) returns (ExecuteResponse);
+  rpc GetMessageQueue (GetMessageQueueRequest) returns (GetMessageQueueResponse);
+  rpc IsBlockedOnSyncBarrier (IsBlockedOnSyncBarrierRequest) returns (IsBlockedOnSyncBarrierResponse);
+  rpc Next (NextRequest) returns (NextResponse);
+  rpc PeekWhen (PeekWhenRequest) returns (PeekWhenResponse);
+  rpc Poll (PollRequest) returns (PollResponse);
+  rpc Recycle (RecycleRequest) returns (RecycleResponse);
+  rpc Release (ReleaseRequest) returns (ReleaseResponse);
+}
+
+service VibrationAttributesService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (VibrationAttributesEqualsRequest) returns (EqualsResponse);
+  rpc GetFlags (GetFlagsRequest) returns (GetFlagsResponse);
+  rpc GetUsage (GetUsageRequest) returns (GetUsageResponse);
+  rpc GetUsageClass (GetUsageClassRequest) returns (GetUsageClassResponse);
+  rpc HashCode (VibrationAttributesHashCodeRequest) returns (HashCodeResponse);
+  rpc IsFlagSet (IsFlagSetRequest) returns (IsFlagSetResponse);
+  rpc ToString (VibrationAttributesToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (VibrationAttributesWriteToParcelRequest) returns (WriteToParcelResponse);
+  rpc CreateForUsage (CreateForUsageRequest) returns (CreateForUsageResponse);
+}
+
+service VibrationAttributesBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetFlags (SetFlagsRequest) returns (SetFlagsResponse);
+  rpc SetUsage (SetUsageRequest) returns (SetUsageResponse);
+}
+
+service IBinderService {
+  rpc Dump (DumpRequest) returns (DumpResponse);
+  rpc DumpAsync (DumpAsyncRequest) returns (DumpAsyncResponse);
+  rpc GetInterfaceDescriptor (GetInterfaceDescriptorRequest) returns (GetInterfaceDescriptorResponse);
+  rpc IsBinderAlive (IsBinderAliveRequest) returns (IsBinderAliveResponse);
+  rpc LinkToDeath (LinkToDeathRequest) returns (LinkToDeathResponse);
+  rpc PingBinder (PingBinderRequest) returns (PingBinderResponse);
+  rpc QueryLocalInterface (QueryLocalInterfaceRequest) returns (QueryLocalInterfaceResponse);
+  rpc Transact (TransactRequest) returns (TransactResponse);
+  rpc UnlinkToDeath (UnlinkToDeathRequest) returns (UnlinkToDeathResponse);
+  rpc GetSuggestedMaxIpcSizeBytes (GetSuggestedMaxIpcSizeBytesRequest) returns (GetSuggestedMaxIpcSizeBytesResponse);
+}
+
+service IBinderDeathRecipientService {
+  rpc BinderDied (BinderDiedRequest) returns (BinderDiedResponse);
+}
+
+service IBinderFrozenStateChangeCallbackService {
+  rpc OnFrozenStateChanged (OnFrozenStateChangedRequest) returns (OnFrozenStateChangedResponse);
+}
+
+service TokenWatcherService {
+  rpc Acquire (AcquireRequest) returns (AcquireResponse);
+  rpc Acquired (AcquiredRequest) returns (AcquiredResponse);
+  rpc Cleanup (CleanupRequest) returns (CleanupResponse);
+  rpc Dump0 (Dump0Request) returns (Dump0Response);
+  rpc Dump1_1 (Dump1_1Request) returns (Dump1_1Response);
+  rpc IsAcquired (IsAcquiredRequest) returns (IsAcquiredResponse);
+  rpc Release (TokenWatcherReleaseRequest) returns (ReleaseResponse);
+  rpc Released (ReleasedRequest) returns (ReleasedResponse);
+}
+
+service UserManagerService {
+  rpc GetApplicationRestrictions (GetApplicationRestrictionsRequest) returns (GetApplicationRestrictionsResponse);
+  rpc GetSerialNumberForUser (GetSerialNumberForUserRequest) returns (GetSerialNumberForUserResponse);
+  rpc GetUserCount (GetUserCountRequest) returns (GetUserCountResponse);
+  rpc GetUserCreationTime (GetUserCreationTimeRequest) returns (GetUserCreationTimeResponse);
+  rpc GetUserForSerialNumber (GetUserForSerialNumberRequest) returns (GetUserForSerialNumberResponse);
+  rpc GetUserName (GetUserNameRequest) returns (GetUserNameResponse);
+  rpc GetUserProfiles (GetUserProfilesRequest) returns (GetUserProfilesResponse);
+  rpc GetUserRestrictions0 (GetUserRestrictions0Request) returns (GetUserRestrictions0Response);
+  rpc GetUserRestrictions1_1 (GetUserRestrictions1_1Request) returns (GetUserRestrictions1_1Response);
+  rpc HasUserRestriction (HasUserRestrictionRequest) returns (HasUserRestrictionResponse);
+  rpc IsAdminUser (IsAdminUserRequest) returns (IsAdminUserResponse);
+  rpc IsDemoUser (IsDemoUserRequest) returns (IsDemoUserResponse);
+  rpc IsManagedProfile (IsManagedProfileRequest) returns (IsManagedProfileResponse);
+  rpc IsProfile (IsProfileRequest) returns (IsProfileResponse);
+  rpc IsQuietModeEnabled (IsQuietModeEnabledRequest) returns (IsQuietModeEnabledResponse);
+  rpc IsSystemUser (IsSystemUserRequest) returns (IsSystemUserResponse);
+  rpc IsUserAGoat (IsUserAGoatRequest) returns (IsUserAGoatResponse);
+  rpc IsUserForeground (IsUserForegroundRequest) returns (IsUserForegroundResponse);
+  rpc IsUserRunning (IsUserRunningRequest) returns (IsUserRunningResponse);
+  rpc IsUserRunningOrStopping (IsUserRunningOrStoppingRequest) returns (IsUserRunningOrStoppingResponse);
+  rpc IsUserUnlocked0 (IsUserUnlocked0Request) returns (IsUserUnlocked0Response);
+  rpc IsUserUnlocked1_1 (IsUserUnlocked1_1Request) returns (IsUserUnlocked1_1Response);
+  rpc RequestQuietModeEnabled2 (RequestQuietModeEnabled2Request) returns (RequestQuietModeEnabled2Response);
+  rpc RequestQuietModeEnabled3_1 (RequestQuietModeEnabled3_1Request) returns (RequestQuietModeEnabled3_1Response);
+  rpc SetRestrictionsChallenge (SetRestrictionsChallengeRequest) returns (SetRestrictionsChallengeResponse);
+  rpc SetUserRestriction (SetUserRestrictionRequest) returns (SetUserRestrictionResponse);
+  rpc SetUserRestrictions1 (SetUserRestrictions1Request) returns (SetUserRestrictions1Response);
+  rpc SetUserRestrictions2_1 (SetUserRestrictions2_1Request) returns (SetUserRestrictions2_1Response);
+  rpc CreateUserCreationIntent (CreateUserCreationIntentRequest) returns (CreateUserCreationIntentResponse);
+  rpc IsHeadlessSystemUserMode (IsHeadlessSystemUserModeRequest) returns (IsHeadlessSystemUserModeResponse);
+  rpc SupportsMultipleUsers (SupportsMultipleUsersRequest) returns (SupportsMultipleUsersResponse);
+}
+
+service UserManagerUserOperationExceptionService {
+  rpc GetUserOperationResult (GetUserOperationResultRequest) returns (GetUserOperationResultResponse);
+}
+
+service ResultReceiverService {
+  rpc NewResultReceiver (NewResultReceiverRequest) returns (NewResultReceiverResponse);
+  rpc DescribeContents (ResultReceiverDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Send (SendRequest) returns (SendResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service PatternMatcherService {
+  rpc NewPatternMatcher (NewPatternMatcherRequest) returns (NewPatternMatcherResponse);
+  rpc DescribeContents (PatternMatcherDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetPath (GetPathRequest) returns (GetPathResponse);
+  rpc GetType (PatternMatcherGetTypeRequest) returns (GetTypeResponse);
+  rpc Match (MatchRequest) returns (MatchResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service CountDownTimerService {
+  rpc OnFinish (OnFinishRequest) returns (OnFinishResponse);
+  rpc OnTick (OnTickRequest) returns (OnTickResponse);
 }
 
 service DebugService {
@@ -5058,21 +5350,60 @@ service DebugMemoryInfoService {
   rpc GetTotalSharedDirty (GetTotalSharedDirtyRequest) returns (GetTotalSharedDirtyResponse);
   rpc GetTotalSwappablePss (GetTotalSwappablePssRequest) returns (GetTotalSwappablePssResponse);
   rpc ReadFromParcel (ReadFromParcelRequest) returns (ReadFromParcelResponse);
+  rpc WriteToParcel (DebugMemoryInfoWriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service SharedMemoryService {
+  rpc Close (SharedMemoryCloseRequest) returns (CloseResponse);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetSize (GetSizeRequest) returns (GetSizeResponse);
+  rpc Map (MapRequest) returns (MapResponse);
+  rpc MapReadOnly (MapReadOnlyRequest) returns (MapReadOnlyResponse);
+  rpc MapReadWrite (MapReadWriteRequest) returns (MapReadWriteResponse);
+  rpc SetProtect (SetProtectRequest) returns (SetProtectResponse);
+  rpc WriteToParcel (SharedMemoryWriteToParcelRequest) returns (WriteToParcelResponse);
+  rpc Create (CreateRequest) returns (CreateResponse);
+  rpc FromFileDescriptor (FromFileDescriptorRequest) returns (FromFileDescriptorResponse);
+}
+
+service CombinedVibrationService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc CreateParallel (CreateParallelRequest) returns (CreateParallelResponse);
+  rpc StartParallel (StartParallelRequest) returns (StartParallelResponse);
+}
+
+service CombinedVibrationParallelCombinationService {
+  rpc AddVibrator (AddVibratorRequest) returns (AddVibratorResponse);
+  rpc Combine (CombineRequest) returns (CombineResponse);
+}
+
+service WorkSourceService {
+  rpc NewWorkSource (NewWorkSourceRequest) returns (NewWorkSourceResponse);
+  rpc Add (AddRequest) returns (AddResponse);
+  rpc Clear (ClearRequest) returns (ClearResponse);
+  rpc DescribeContents (WorkSourceDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Diff (DiffRequest) returns (DiffResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc Remove (RemoveRequest) returns (RemoveResponse);
+  rpc Set (SetRequest) returns (SetResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
   rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
 }
 
-service PerformanceHintManagerService {
-  rpc CreateHintSession (CreateHintSessionRequest) returns (CreateHintSessionResponse);
-  rpc GetPreferredUpdateRateNanos (GetPreferredUpdateRateNanosRequest) returns (GetPreferredUpdateRateNanosResponse);
+service ParcelableService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc WriteToParcel (ParcelableWriteToParcelRequest) returns (WriteToParcelResponse);
 }
 
-service PerformanceHintManagerSessionService {
-  rpc Close (CloseRequest) returns (CloseResponse);
-  rpc ReportActualWorkDuration1 (ReportActualWorkDuration1Request) returns (ReportActualWorkDuration1Response);
-  rpc ReportActualWorkDuration1_1 (ReportActualWorkDuration1_1Request) returns (ReportActualWorkDuration1_1Response);
-  rpc SetPreferPowerEfficiency (SetPreferPowerEfficiencyRequest) returns (SetPreferPowerEfficiencyResponse);
-  rpc SetThreads (SetThreadsRequest) returns (SetThreadsResponse);
-  rpc UpdateTargetWorkDuration (UpdateTargetWorkDurationRequest) returns (UpdateTargetWorkDurationResponse);
+service SecurityStateManagerService {
+  rpc GetGlobalSecurityState (GetGlobalSecurityStateRequest) returns (GetGlobalSecurityStateResponse);
+}
+
+service PowerMonitorReadingsService {
+  rpc GetConsumedEnergy (GetConsumedEnergyRequest) returns (GetConsumedEnergyResponse);
+  rpc GetTimestampMillis (GetTimestampMillisRequest) returns (GetTimestampMillisResponse);
+  rpc ToString (PowerMonitorReadingsToStringRequest) returns (ToStringResponse);
 }
 
 service WorkDurationService {
@@ -5089,500 +5420,9 @@ service WorkDurationService {
   rpc SetWorkPeriodStartTimestampNanos (SetWorkPeriodStartTimestampNanosRequest) returns (SetWorkPeriodStartTimestampNanosResponse);
 }
 
-service PatternMatcherService {
-  rpc NewPatternMatcher (NewPatternMatcherRequest) returns (NewPatternMatcherResponse);
-  rpc DescribeContents (PatternMatcherDescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc GetPath (GetPathRequest) returns (GetPathResponse);
-  rpc GetType (GetTypeRequest) returns (GetTypeResponse);
-  rpc Match (MatchRequest) returns (MatchResponse);
-  rpc ToString (ToStringRequest) returns (ToStringResponse);
-  rpc WriteToParcel (PatternMatcherWriteToParcelRequest) returns (WriteToParcelResponse);
-}
-
-service MessengerService {
-  rpc NewMessenger (NewMessengerRequest) returns (NewMessengerResponse);
-  rpc DescribeContents (MessengerDescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc Equals (EqualsRequest) returns (EqualsResponse);
-  rpc GetBinder (GetBinderRequest) returns (GetBinderResponse);
-  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
-  rpc Send (SendRequest) returns (SendResponse);
-  rpc WriteToParcel (MessengerWriteToParcelRequest) returns (WriteToParcelResponse);
-  rpc ReadMessengerOrNullFromParcel (ReadMessengerOrNullFromParcelRequest) returns (ReadMessengerOrNullFromParcelResponse);
-  rpc WriteMessengerOrNullToParcel (WriteMessengerOrNullToParcelRequest) returns (WriteMessengerOrNullToParcelResponse);
-}
-
-service RecoverySystemService {
-  rpc InstallPackage (InstallPackageRequest) returns (InstallPackageResponse);
-  rpc RebootWipeCache (RebootWipeCacheRequest) returns (RebootWipeCacheResponse);
-  rpc RebootWipeUserData (RebootWipeUserDataRequest) returns (RebootWipeUserDataResponse);
-  rpc VerifyPackage (VerifyPackageRequest) returns (VerifyPackageResponse);
-}
-
-service RecoverySystemProgressListenerService {
-  rpc OnProgress (OnProgressRequest) returns (OnProgressResponse);
-}
-
-service SystemClockService {
-  rpc CurrentGnssTimeClock (CurrentGnssTimeClockRequest) returns (CurrentGnssTimeClockResponse);
-  rpc CurrentNetworkTimeClock (CurrentNetworkTimeClockRequest) returns (CurrentNetworkTimeClockResponse);
-  rpc CurrentThreadTimeMillis (CurrentThreadTimeMillisRequest) returns (CurrentThreadTimeMillisResponse);
-  rpc ElapsedRealtime (ElapsedRealtimeRequest) returns (ElapsedRealtimeResponse);
-  rpc ElapsedRealtimeNanos (ElapsedRealtimeNanosRequest) returns (ElapsedRealtimeNanosResponse);
-  rpc SetCurrentTimeMillis (SetCurrentTimeMillisRequest) returns (SetCurrentTimeMillisResponse);
-  rpc Sleep (SleepRequest) returns (SleepResponse);
-  rpc UptimeMillis (UptimeMillisRequest) returns (UptimeMillisResponse);
-  rpc UptimeNanos (UptimeNanosRequest) returns (UptimeNanosResponse);
-}
-
-service UserHandleService {
-  rpc NewUserHandle (NewUserHandleRequest) returns (NewUserHandleResponse);
-  rpc DescribeContents (UserHandleDescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc Equals (EqualsRequest) returns (EqualsResponse);
-  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
-  rpc ToString (ToStringRequest) returns (ToStringResponse);
-  rpc WriteToParcel2 (WriteToParcel2Request) returns (WriteToParcel2Response);
-  rpc GetUserHandleForUid (GetUserHandleForUidRequest) returns (GetUserHandleForUidResponse);
-  rpc ReadFromParcel (UserHandleReadFromParcelRequest) returns (UserHandleReadFromParcelResponse);
-  rpc WriteToParcel2_1 (WriteToParcel2_1Request) returns (WriteToParcel2_1Response);
-}
-
-service SharedMemoryService {
-  rpc Close (CloseRequest) returns (CloseResponse);
-  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc GetSize (GetSizeRequest) returns (GetSizeResponse);
-  rpc Map (MapRequest) returns (MapResponse);
-  rpc MapReadOnly (MapReadOnlyRequest) returns (MapReadOnlyResponse);
-  rpc MapReadWrite (MapReadWriteRequest) returns (MapReadWriteResponse);
-  rpc SetProtect (SetProtectRequest) returns (SetProtectResponse);
-  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
-  rpc Create (CreateRequest) returns (CreateResponse);
-  rpc FromFileDescriptor (FromFileDescriptorRequest) returns (FromFileDescriptorResponse);
-}
-
-service MessageService {
-  rpc NewMessage (NewMessageRequest) returns (NewMessageResponse);
-  rpc CopyFrom (CopyFromRequest) returns (CopyFromResponse);
-  rpc DescribeContents (MessageDescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc GetCallback (GetCallbackRequest) returns (GetCallbackResponse);
-  rpc GetData (GetDataRequest) returns (GetDataResponse);
-  rpc GetTarget (GetTargetRequest) returns (GetTargetResponse);
-  rpc GetWhen (GetWhenRequest) returns (GetWhenResponse);
-  rpc IsAsynchronous (IsAsynchronousRequest) returns (IsAsynchronousResponse);
-  rpc PeekData (PeekDataRequest) returns (PeekDataResponse);
-  rpc Recycle (RecycleRequest) returns (RecycleResponse);
-  rpc SendToTarget (SendToTargetRequest) returns (SendToTargetResponse);
-  rpc SetAsynchronous (SetAsynchronousRequest) returns (SetAsynchronousResponse);
-  rpc SetData (SetDataRequest) returns (SetDataResponse);
-  rpc ToString (ToStringRequest) returns (ToStringResponse);
-  rpc WriteToParcel (MessageWriteToParcelRequest) returns (WriteToParcelResponse);
-  rpc Obtain0 (Obtain0Request) returns (Obtain0Response);
-  rpc Obtain1_1 (Obtain1_1Request) returns (Obtain1_1Response);
-}
-
-service ParcelUuidService {
-  rpc NewParcelUuid (NewParcelUuidRequest) returns (NewParcelUuidResponse);
-  rpc DescribeContents (ParcelUuidDescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc Equals (EqualsRequest) returns (EqualsResponse);
-  rpc GetUuid (GetUuidRequest) returns (GetUuidResponse);
-  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
-  rpc ToString (ToStringRequest) returns (ToStringResponse);
-  rpc WriteToParcel (ParcelUuidWriteToParcelRequest) returns (WriteToParcelResponse);
-  rpc FromString (FromStringRequest) returns (FromStringResponse);
-}
-
-service ProfilingTriggerService {
-  rpc GetRateLimitingPeriodHours (GetRateLimitingPeriodHoursRequest) returns (GetRateLimitingPeriodHoursResponse);
-  rpc GetTriggerType (GetTriggerTypeRequest) returns (GetTriggerTypeResponse);
-}
-
-service ProfilingTriggerBuilderService {
-  rpc Build (BuildRequest) returns (BuildResponse);
-  rpc SetRateLimitingPeriodHours (SetRateLimitingPeriodHoursRequest) returns (SetRateLimitingPeriodHoursResponse);
-}
-
-service VibrationAttributesService {
-  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc Equals (VibrationAttributesEqualsRequest) returns (EqualsResponse);
-  rpc GetFlags (GetFlagsRequest) returns (GetFlagsResponse);
-  rpc GetUsage (GetUsageRequest) returns (GetUsageResponse);
-  rpc GetUsageClass (GetUsageClassRequest) returns (GetUsageClassResponse);
-  rpc HashCode (VibrationAttributesHashCodeRequest) returns (HashCodeResponse);
-  rpc IsFlagSet (IsFlagSetRequest) returns (IsFlagSetResponse);
-  rpc ToString (VibrationAttributesToStringRequest) returns (ToStringResponse);
-  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
-  rpc CreateForUsage (CreateForUsageRequest) returns (CreateForUsageResponse);
-}
-
-service VibrationAttributesBuilderService {
-  rpc Build (BuildRequest) returns (BuildResponse);
-  rpc SetFlags (SetFlagsRequest) returns (SetFlagsResponse);
-  rpc SetUsage (SetUsageRequest) returns (SetUsageResponse);
-}
-
-service PowerMonitorReadingsService {
-  rpc GetConsumedEnergy (GetConsumedEnergyRequest) returns (GetConsumedEnergyResponse);
-  rpc GetTimestampMillis (GetTimestampMillisRequest) returns (GetTimestampMillisResponse);
-  rpc ToString (PowerMonitorReadingsToStringRequest) returns (ToStringResponse);
-}
-
-service WorkSourceService {
-  rpc NewWorkSource (NewWorkSourceRequest) returns (NewWorkSourceResponse);
-  rpc Add (AddRequest) returns (AddResponse);
-  rpc Clear (ClearRequest) returns (ClearResponse);
-  rpc DescribeContents (WorkSourceDescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc Diff (DiffRequest) returns (DiffResponse);
-  rpc Equals (EqualsRequest) returns (EqualsResponse);
-  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
-  rpc Remove (RemoveRequest) returns (RemoveResponse);
-  rpc Set (SetRequest) returns (SetResponse);
-  rpc ToString (ToStringRequest) returns (ToStringResponse);
-  rpc WriteToParcel (WorkSourceWriteToParcelRequest) returns (WriteToParcelResponse);
-}
-
-service TestLooperManagerService {
-  rpc Execute (ExecuteRequest) returns (ExecuteResponse);
-  rpc GetMessageQueue (GetMessageQueueRequest) returns (GetMessageQueueResponse);
-  rpc IsBlockedOnSyncBarrier (IsBlockedOnSyncBarrierRequest) returns (IsBlockedOnSyncBarrierResponse);
-  rpc Next (NextRequest) returns (NextResponse);
-  rpc PeekWhen (PeekWhenRequest) returns (PeekWhenResponse);
-  rpc Poll (PollRequest) returns (PollResponse);
-  rpc Recycle (TestLooperManagerRecycleRequest) returns (RecycleResponse);
-  rpc Release (ReleaseRequest) returns (ReleaseResponse);
-}
-
-service HardwarePropertiesManagerService {
-  rpc GetCpuUsages (GetCpuUsagesRequest) returns (GetCpuUsagesResponse);
-  rpc GetDeviceTemperatures (GetDeviceTemperaturesRequest) returns (GetDeviceTemperaturesResponse);
-  rpc GetFanSpeeds (GetFanSpeedsRequest) returns (GetFanSpeedsResponse);
-}
-
-service BaseBundleService {
-  rpc Clear (BaseBundleClearRequest) returns (ClearResponse);
-  rpc ContainsKey (ContainsKeyRequest) returns (ContainsKeyResponse);
-  rpc Get (GetRequest) returns (GetResponse);
-  rpc GetBoolean1 (GetBoolean1Request) returns (GetBoolean1Response);
-  rpc GetBoolean2_1 (GetBoolean2_1Request) returns (GetBoolean2_1Response);
-  rpc GetBooleanArray (GetBooleanArrayRequest) returns (GetBooleanArrayResponse);
-  rpc GetDouble1 (GetDouble1Request) returns (GetDouble1Response);
-  rpc GetDouble2_1 (GetDouble2_1Request) returns (GetDouble2_1Response);
-  rpc GetDoubleArray (GetDoubleArrayRequest) returns (GetDoubleArrayResponse);
-  rpc GetInt1 (GetInt1Request) returns (GetInt1Response);
-  rpc GetInt2_1 (GetInt2_1Request) returns (GetInt2_1Response);
-  rpc GetIntArray (GetIntArrayRequest) returns (GetIntArrayResponse);
-  rpc GetLong1 (GetLong1Request) returns (GetLong1Response);
-  rpc GetLong2_1 (GetLong2_1Request) returns (GetLong2_1Response);
-  rpc GetLongArray (GetLongArrayRequest) returns (GetLongArrayResponse);
-  rpc GetString1 (GetString1Request) returns (GetString1Response);
-  rpc GetString2_1 (GetString2_1Request) returns (GetString2_1Response);
-  rpc GetStringArray (GetStringArrayRequest) returns (GetStringArrayResponse);
-  rpc IsEmpty (IsEmptyRequest) returns (IsEmptyResponse);
-  rpc PutAll (PutAllRequest) returns (PutAllResponse);
-  rpc PutBoolean (PutBooleanRequest) returns (PutBooleanResponse);
-  rpc PutBooleanArray (PutBooleanArrayRequest) returns (PutBooleanArrayResponse);
-  rpc PutDouble (PutDoubleRequest) returns (PutDoubleResponse);
-  rpc PutDoubleArray (PutDoubleArrayRequest) returns (PutDoubleArrayResponse);
-  rpc PutInt (PutIntRequest) returns (PutIntResponse);
-  rpc PutIntArray (PutIntArrayRequest) returns (PutIntArrayResponse);
-  rpc PutLong (PutLongRequest) returns (PutLongResponse);
-  rpc PutLongArray (PutLongArrayRequest) returns (PutLongArrayResponse);
-  rpc PutString (PutStringRequest) returns (PutStringResponse);
-  rpc PutStringArray (PutStringArrayRequest) returns (PutStringArrayResponse);
-  rpc Remove (BaseBundleRemoveRequest) returns (BaseBundleRemoveResponse);
-  rpc Size (SizeRequest) returns (SizeResponse);
-}
-
-service CpuUsageInfoService {
-  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc GetActive (GetActiveRequest) returns (GetActiveResponse);
-  rpc GetTotal (GetTotalRequest) returns (GetTotalResponse);
-  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
-}
-
-service ResultReceiverService {
-  rpc NewResultReceiver (NewResultReceiverRequest) returns (NewResultReceiverResponse);
-  rpc DescribeContents (ResultReceiverDescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc Send (ResultReceiverSendRequest) returns (SendResponse);
-  rpc WriteToParcel (ResultReceiverWriteToParcelRequest) returns (WriteToParcelResponse);
-}
-
-service AsyncTaskService {
-  rpc Cancel (CancelRequest) returns (CancelResponse);
-  rpc Get0 (Get0Request) returns (Get0Response);
-  rpc Get2_1 (Get2_1Request) returns (Get2_1Response);
-  rpc GetStatus (GetStatusRequest) returns (GetStatusResponse);
-  rpc IsCancelled (IsCancelledRequest) returns (IsCancelledResponse);
-  rpc Execute (ExecuteRequest) returns (ExecuteResponse);
-}
-
-service AsyncTaskStatusService {
-  rpc Values (ValuesRequest) returns (ValuesResponse);
-  rpc ValueOf (ValueOfRequest) returns (ValueOfResponse);
-}
-
-service BinderService {
-  rpc NewBinder (NewBinderRequest) returns (NewBinderResponse);
-  rpc AttachInterface (AttachInterfaceRequest) returns (AttachInterfaceResponse);
-  rpc Dump (DumpRequest) returns (DumpResponse);
-  rpc DumpAsync (DumpAsyncRequest) returns (DumpAsyncResponse);
-  rpc GetInterfaceDescriptor (GetInterfaceDescriptorRequest) returns (GetInterfaceDescriptorResponse);
-  rpc IsBinderAlive (IsBinderAliveRequest) returns (IsBinderAliveResponse);
-  rpc LinkToDeath (LinkToDeathRequest) returns (LinkToDeathResponse);
-  rpc PingBinder (PingBinderRequest) returns (PingBinderResponse);
-  rpc QueryLocalInterface (QueryLocalInterfaceRequest) returns (QueryLocalInterfaceResponse);
-  rpc Transact (TransactRequest) returns (TransactResponse);
-  rpc UnlinkToDeath (UnlinkToDeathRequest) returns (UnlinkToDeathResponse);
-  rpc ClearCallingIdentity (ClearCallingIdentityRequest) returns (ClearCallingIdentityResponse);
-  rpc ClearCallingWorkSource (ClearCallingWorkSourceRequest) returns (ClearCallingWorkSourceResponse);
-  rpc FlushPendingCommands (FlushPendingCommandsRequest) returns (FlushPendingCommandsResponse);
-  rpc GetCallingPid (GetCallingPidRequest) returns (GetCallingPidResponse);
-  rpc GetCallingUid (GetCallingUidRequest) returns (GetCallingUidResponse);
-  rpc GetCallingUidOrThrow (GetCallingUidOrThrowRequest) returns (GetCallingUidOrThrowResponse);
-  rpc GetCallingUserHandle (GetCallingUserHandleRequest) returns (GetCallingUserHandleResponse);
-  rpc GetCallingWorkSourceUid (GetCallingWorkSourceUidRequest) returns (GetCallingWorkSourceUidResponse);
-  rpc JoinThreadPool (JoinThreadPoolRequest) returns (JoinThreadPoolResponse);
-  rpc RestoreCallingIdentity (RestoreCallingIdentityRequest) returns (RestoreCallingIdentityResponse);
-  rpc RestoreCallingWorkSource (RestoreCallingWorkSourceRequest) returns (RestoreCallingWorkSourceResponse);
-  rpc SetCallingWorkSourceUid (SetCallingWorkSourceUidRequest) returns (SetCallingWorkSourceUidResponse);
-}
-
-service ProcessService {
-  rpc NewProcess (NewProcessRequest) returns (NewProcessResponse);
-  rpc GetAppUidForSdkSandboxUid (GetAppUidForSdkSandboxUidRequest) returns (GetAppUidForSdkSandboxUidResponse);
-  rpc GetElapsedCpuTime (GetElapsedCpuTimeRequest) returns (GetElapsedCpuTimeResponse);
-  rpc GetExclusiveCores (GetExclusiveCoresRequest) returns (GetExclusiveCoresResponse);
-  rpc GetGidForName (GetGidForNameRequest) returns (GetGidForNameResponse);
-  rpc GetSdkSandboxUidForAppUid (GetSdkSandboxUidForAppUidRequest) returns (GetSdkSandboxUidForAppUidResponse);
-  rpc GetStartElapsedRealtime (GetStartElapsedRealtimeRequest) returns (GetStartElapsedRealtimeResponse);
-  rpc GetStartRequestedElapsedRealtime (GetStartRequestedElapsedRealtimeRequest) returns (GetStartRequestedElapsedRealtimeResponse);
-  rpc GetStartRequestedUptimeMillis (GetStartRequestedUptimeMillisRequest) returns (GetStartRequestedUptimeMillisResponse);
-  rpc GetStartUptimeMillis (GetStartUptimeMillisRequest) returns (GetStartUptimeMillisResponse);
-  rpc GetThreadPriority (GetThreadPriorityRequest) returns (GetThreadPriorityResponse);
-  rpc GetUidForName (GetUidForNameRequest) returns (GetUidForNameResponse);
-  rpc Is64Bit (Is64BitRequest) returns (Is64BitResponse);
-  rpc IsApplicationUid (IsApplicationUidRequest) returns (IsApplicationUidResponse);
-  rpc IsIsolated (IsIsolatedRequest) returns (IsIsolatedResponse);
-  rpc IsIsolatedUid (IsIsolatedUidRequest) returns (IsIsolatedUidResponse);
-  rpc IsSdkSandbox (IsSdkSandboxRequest) returns (IsSdkSandboxResponse);
-  rpc IsSdkSandboxUid (IsSdkSandboxUidRequest) returns (IsSdkSandboxUidResponse);
-  rpc KillProcess (KillProcessRequest) returns (KillProcessResponse);
-  rpc MyPid (MyPidRequest) returns (MyPidResponse);
-  rpc MyProcessName (MyProcessNameRequest) returns (MyProcessNameResponse);
-  rpc MyTid (MyTidRequest) returns (MyTidResponse);
-  rpc MyUid (MyUidRequest) returns (MyUidResponse);
-  rpc MyUserHandle (MyUserHandleRequest) returns (MyUserHandleResponse);
-  rpc SendSignal (SendSignalRequest) returns (SendSignalResponse);
-  rpc SetThreadPriority1 (SetThreadPriority1Request) returns (SetThreadPriority1Response);
-  rpc SetThreadPriority2_1 (SetThreadPriority2_1Request) returns (SetThreadPriority2_1Response);
-  rpc SupportsProcesses (SupportsProcessesRequest) returns (SupportsProcessesResponse);
-}
-
-service TokenWatcherService {
-  rpc Acquire (AcquireRequest) returns (AcquireResponse);
-  rpc Acquired (AcquiredRequest) returns (AcquiredResponse);
-  rpc Cleanup (CleanupRequest) returns (CleanupResponse);
-  rpc Dump0 (Dump0Request) returns (Dump0Response);
-  rpc Dump1_1 (Dump1_1Request) returns (Dump1_1Response);
-  rpc IsAcquired (IsAcquiredRequest) returns (IsAcquiredResponse);
-  rpc Release (TokenWatcherReleaseRequest) returns (ReleaseResponse);
-  rpc Released (ReleasedRequest) returns (ReleasedResponse);
-}
-
-service RemoteExceptionService {
-  rpc NewRemoteException (NewRemoteExceptionRequest) returns (NewRemoteExceptionResponse);
-  rpc RethrowAsRuntimeException (RethrowAsRuntimeExceptionRequest) returns (RethrowAsRuntimeExceptionResponse);
-  rpc RethrowFromSystemServer (RethrowFromSystemServerRequest) returns (RethrowFromSystemServerResponse);
-}
-
-service GpuHeadroomParamsService {
-  rpc Equals (GpuHeadroomParamsEqualsRequest) returns (EqualsResponse);
-  rpc GetCalculationType (GetCalculationTypeRequest) returns (GetCalculationTypeResponse);
-  rpc GetCalculationWindowMillis (GetCalculationWindowMillisRequest) returns (GetCalculationWindowMillisResponse);
-  rpc HashCode (GpuHeadroomParamsHashCodeRequest) returns (HashCodeResponse);
-  rpc ToString (GpuHeadroomParamsToStringRequest) returns (ToStringResponse);
-}
-
-service GpuHeadroomParamsBuilderService {
-  rpc Build (BuildRequest) returns (BuildResponse);
-  rpc SetCalculationType (SetCalculationTypeRequest) returns (SetCalculationTypeResponse);
-  rpc SetCalculationWindowMillis (SetCalculationWindowMillisRequest) returns (SetCalculationWindowMillisResponse);
-}
-
-service FileObserverService {
-  rpc OnEvent (OnEventRequest) returns (OnEventResponse);
-  rpc StartWatching (StartWatchingRequest) returns (StartWatchingResponse);
-  rpc StopWatching (StopWatchingRequest) returns (StopWatchingResponse);
-}
-
-service FileUtilsService {
-  rpc CloseQuietly1 (CloseQuietly1Request) returns (CloseQuietly1Response);
-  rpc CloseQuietly1_1 (CloseQuietly1_1Request) returns (CloseQuietly1_1Response);
-  rpc Copy2 (Copy2Request) returns (Copy2Response);
-  rpc Copy5_1 (Copy5_1Request) returns (Copy5_1Response);
-  rpc Copy2_2 (Copy2_2Request) returns (Copy2_2Response);
-  rpc Copy5_3 (Copy5_3Request) returns (Copy5_3Response);
-}
-
-service FileUtilsProgressListenerService {
-  rpc OnProgress (FileUtilsProgressListenerOnProgressRequest) returns (OnProgressResponse);
-}
-
-service CombinedVibrationService {
-  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc CreateParallel (CreateParallelRequest) returns (CreateParallelResponse);
-  rpc StartParallel (StartParallelRequest) returns (StartParallelResponse);
-}
-
-service CombinedVibrationParallelCombinationService {
-  rpc AddVibrator (AddVibratorRequest) returns (AddVibratorResponse);
-  rpc Combine (CombineRequest) returns (CombineResponse);
-}
-
-service PersistableBundleService {
-  rpc NewPersistableBundle (NewPersistableBundleRequest) returns (NewPersistableBundleResponse);
-  rpc Clone (CloneRequest) returns (CloneResponse);
-  rpc DeepCopy (DeepCopyRequest) returns (DeepCopyResponse);
-  rpc DescribeContents (PersistableBundleDescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc GetPersistableBundle (GetPersistableBundleRequest) returns (GetPersistableBundleResponse);
-  rpc PutPersistableBundle (PutPersistableBundleRequest) returns (PutPersistableBundleResponse);
-  rpc WriteToParcel (PersistableBundleWriteToParcelRequest) returns (WriteToParcelResponse);
-  rpc WriteToStream (WriteToStreamRequest) returns (WriteToStreamResponse);
-  rpc ReadFromStream (ReadFromStreamRequest) returns (ReadFromStreamResponse);
-}
-
-service ProfilingResultService {
-  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc Equals (ProfilingResultEqualsRequest) returns (EqualsResponse);
-  rpc GetErrorCode (GetErrorCodeRequest) returns (GetErrorCodeResponse);
-  rpc GetErrorMessage (GetErrorMessageRequest) returns (GetErrorMessageResponse);
-  rpc GetResultFilePath (GetResultFilePathRequest) returns (GetResultFilePathResponse);
-  rpc GetTag (GetTagRequest) returns (GetTagResponse);
-  rpc GetTriggerType (GetTriggerTypeRequest) returns (GetTriggerTypeResponse);
-  rpc HashCode (ProfilingResultHashCodeRequest) returns (HashCodeResponse);
-  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
-}
-
-service BugreportManagerService {
-  rpc CancelBugreport (CancelBugreportRequest) returns (CancelBugreportResponse);
-  rpc StartConnectivityBugreport (StartConnectivityBugreportRequest) returns (StartConnectivityBugreportResponse);
-}
-
-service BugreportManagerBugreportCallbackService {
-  rpc OnEarlyReportFinished (OnEarlyReportFinishedRequest) returns (OnEarlyReportFinishedResponse);
-  rpc OnError (OnErrorRequest) returns (OnErrorResponse);
-  rpc OnFinished (OnFinishedRequest) returns (OnFinishedResponse);
-  rpc OnProgress (BugreportManagerBugreportCallbackOnProgressRequest) returns (OnProgressResponse);
-}
-
-service LocaleListService {
-  rpc NewLocaleList (NewLocaleListRequest) returns (NewLocaleListResponse);
-  rpc DescribeContents (LocaleListDescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc Equals (EqualsRequest) returns (EqualsResponse);
-  rpc Get (LocaleListGetRequest) returns (GetResponse);
-  rpc GetFirstMatch (GetFirstMatchRequest) returns (GetFirstMatchResponse);
-  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
-  rpc IndexOf (IndexOfRequest) returns (IndexOfResponse);
-  rpc IsEmpty (LocaleListIsEmptyRequest) returns (IsEmptyResponse);
-  rpc Size (LocaleListSizeRequest) returns (SizeResponse);
-  rpc ToLanguageTags (ToLanguageTagsRequest) returns (ToLanguageTagsResponse);
-  rpc ToString (ToStringRequest) returns (ToStringResponse);
-  rpc WriteToParcel (LocaleListWriteToParcelRequest) returns (WriteToParcelResponse);
-  rpc ForLanguageTags (ForLanguageTagsRequest) returns (ForLanguageTagsResponse);
-  rpc GetAdjustedDefault (GetAdjustedDefaultRequest) returns (GetAdjustedDefaultResponse);
-  rpc GetDefault (GetDefaultRequest) returns (GetDefaultResponse);
-  rpc GetEmptyLocaleList (GetEmptyLocaleListRequest) returns (GetEmptyLocaleListResponse);
-  rpc IsPseudoLocale (IsPseudoLocaleRequest) returns (IsPseudoLocaleResponse);
-  rpc MatchesLanguageAndScript (MatchesLanguageAndScriptRequest) returns (MatchesLanguageAndScriptResponse);
-  rpc SetDefault (SetDefaultRequest) returns (SetDefaultResponse);
-}
-
-service LooperService {
-  rpc Dump (LooperDumpRequest) returns (DumpResponse);
-  rpc GetQueue (GetQueueRequest) returns (GetQueueResponse);
-  rpc GetThread (GetThreadRequest) returns (GetThreadResponse);
-  rpc IsCurrentThread (IsCurrentThreadRequest) returns (IsCurrentThreadResponse);
-  rpc Quit (LooperQuitRequest) returns (LooperQuitResponse);
-  rpc QuitSafely (LooperQuitSafelyRequest) returns (LooperQuitSafelyResponse);
-  rpc SetMessageLogging (SetMessageLoggingRequest) returns (SetMessageLoggingResponse);
-  rpc ToString (LooperToStringRequest) returns (ToStringResponse);
-  rpc GetMainLooper (GetMainLooperRequest) returns (GetMainLooperResponse);
-  rpc Loop (LoopRequest) returns (LoopResponse);
-  rpc MyLooper (MyLooperRequest) returns (MyLooperResponse);
-  rpc MyQueue (MyQueueRequest) returns (MyQueueResponse);
-  rpc Prepare (PrepareRequest) returns (PrepareResponse);
-  rpc PrepareMainLooper (PrepareMainLooperRequest) returns (PrepareMainLooperResponse);
-}
-
-service StrictModeService {
-  rpc AllowThreadDiskReads (AllowThreadDiskReadsRequest) returns (AllowThreadDiskReadsResponse);
-  rpc AllowThreadDiskWrites (AllowThreadDiskWritesRequest) returns (AllowThreadDiskWritesResponse);
-  rpc EnableDefaults (EnableDefaultsRequest) returns (EnableDefaultsResponse);
-  rpc GetThreadPolicy (GetThreadPolicyRequest) returns (GetThreadPolicyResponse);
-  rpc GetVmPolicy (GetVmPolicyRequest) returns (GetVmPolicyResponse);
-  rpc NoteSlowCall (NoteSlowCallRequest) returns (NoteSlowCallResponse);
-  rpc SetThreadPolicy (SetThreadPolicyRequest) returns (SetThreadPolicyResponse);
-  rpc SetVmPolicy (SetVmPolicyRequest) returns (SetVmPolicyResponse);
-}
-
-service StrictModeOnThreadViolationListenerService {
-  rpc OnThreadViolation (OnThreadViolationRequest) returns (OnThreadViolationResponse);
-}
-
-service StrictModeOnVmViolationListenerService {
-  rpc OnVmViolation (OnVmViolationRequest) returns (OnVmViolationResponse);
-}
-
-service StrictModeThreadPolicyService {
-  rpc ToString (StrictModeThreadPolicyToStringRequest) returns (ToStringResponse);
-}
-
-service StrictModeVmPolicyService {
-  rpc ToString (StrictModeVmPolicyToStringRequest) returns (ToStringResponse);
-}
-
-service MessageQueueService {
-  rpc AddOnFileDescriptorEventListener (AddOnFileDescriptorEventListenerRequest) returns (AddOnFileDescriptorEventListenerResponse);
-  rpc IsIdle (IsIdleRequest) returns (IsIdleResponse);
-  rpc RemoveOnFileDescriptorEventListener (RemoveOnFileDescriptorEventListenerRequest) returns (RemoveOnFileDescriptorEventListenerResponse);
-}
-
-service MessageQueueIdleHandlerService {
-  rpc QueueIdle (QueueIdleRequest) returns (QueueIdleResponse);
-}
-
-service MessageQueueOnFileDescriptorEventListenerService {
-  rpc OnFileDescriptorEvents (OnFileDescriptorEventsRequest) returns (OnFileDescriptorEventsResponse);
-}
-
-service MemoryFileService {
-  rpc NewMemoryFile (NewMemoryFileRequest) returns (NewMemoryFileResponse);
-  rpc Close (MemoryFileCloseRequest) returns (CloseResponse);
-  rpc GetInputStream (GetInputStreamRequest) returns (GetInputStreamResponse);
-  rpc GetOutputStream (GetOutputStreamRequest) returns (GetOutputStreamResponse);
-  rpc IsPurgingAllowed (IsPurgingAllowedRequest) returns (IsPurgingAllowedResponse);
-  rpc Length (LengthRequest) returns (LengthResponse);
-  rpc ReadBytes (ReadBytesRequest) returns (ReadBytesResponse);
-  rpc WriteBytes (WriteBytesRequest) returns (WriteBytesResponse);
-}
-
-service ParcelableService {
-  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
-}
-
-service StatFsService {
-  rpc NewStatFs (NewStatFsRequest) returns (NewStatFsResponse);
-  rpc GetAvailableBlocks (GetAvailableBlocksRequest) returns (GetAvailableBlocksResponse);
-  rpc GetAvailableBlocksLong (GetAvailableBlocksLongRequest) returns (GetAvailableBlocksLongResponse);
-  rpc GetAvailableBytes (GetAvailableBytesRequest) returns (GetAvailableBytesResponse);
-  rpc GetBlockCount (GetBlockCountRequest) returns (GetBlockCountResponse);
-  rpc GetBlockCountLong (GetBlockCountLongRequest) returns (GetBlockCountLongResponse);
-  rpc GetBlockSize (GetBlockSizeRequest) returns (GetBlockSizeResponse);
-  rpc GetBlockSizeLong (GetBlockSizeLongRequest) returns (GetBlockSizeLongResponse);
-  rpc GetFreeBlocks (GetFreeBlocksRequest) returns (GetFreeBlocksResponse);
-  rpc GetFreeBlocksLong (GetFreeBlocksLongRequest) returns (GetFreeBlocksLongResponse);
-  rpc GetFreeBytes (GetFreeBytesRequest) returns (GetFreeBytesResponse);
-  rpc GetTotalBytes (GetTotalBytesRequest) returns (GetTotalBytesResponse);
-  rpc Restat (RestatRequest) returns (RestatResponse);
+service ProfilingManagerService {
+  rpc ClearProfilingTriggers (ClearProfilingTriggersRequest) returns (ClearProfilingTriggersResponse);
+  rpc RemoveProfilingTriggersByType (RemoveProfilingTriggersByTypeRequest) returns (RemoveProfilingTriggersByTypeResponse);
 }
 
 service DropBoxManagerService {
@@ -5594,50 +5434,46 @@ service DropBoxManagerService {
 }
 
 service DropBoxManagerEntryService {
-  rpc Close (CloseRequest) returns (CloseResponse);
+  rpc Close (DropBoxManagerEntryCloseRequest) returns (CloseResponse);
   rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
   rpc GetFlags (GetFlagsRequest) returns (GetFlagsResponse);
-  rpc GetInputStream (DropBoxManagerEntryGetInputStreamRequest) returns (GetInputStreamResponse);
+  rpc GetInputStream (GetInputStreamRequest) returns (GetInputStreamResponse);
   rpc GetTag (GetTagRequest) returns (GetTagResponse);
   rpc GetText (GetTextRequest) returns (GetTextResponse);
   rpc GetTimeMillis (GetTimeMillisRequest) returns (GetTimeMillisResponse);
+  rpc WriteToParcel (DropBoxManagerEntryWriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service ParcelUuidService {
+  rpc NewParcelUuid (NewParcelUuidRequest) returns (NewParcelUuidResponse);
+  rpc DescribeContents (ParcelUuidDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetUuid (GetUuidRequest) returns (GetUuidResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
   rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+  rpc FromString (FromStringRequest) returns (FromStringResponse);
 }
 
-service RemoteCallbackListService {
-  rpc NewRemoteCallbackList (NewRemoteCallbackListRequest) returns (NewRemoteCallbackListResponse);
-  rpc BeginBroadcast (BeginBroadcastRequest) returns (BeginBroadcastResponse);
-  rpc FinishBroadcast (FinishBroadcastRequest) returns (FinishBroadcastResponse);
-  rpc GetBroadcastCookie (GetBroadcastCookieRequest) returns (GetBroadcastCookieResponse);
-  rpc GetExecutor (GetExecutorRequest) returns (GetExecutorResponse);
-  rpc GetFrozenCalleePolicy (GetFrozenCalleePolicyRequest) returns (GetFrozenCalleePolicyResponse);
-  rpc GetMaxQueueSize (GetMaxQueueSizeRequest) returns (GetMaxQueueSizeResponse);
-  rpc GetRegisteredCallbackCookie (GetRegisteredCallbackCookieRequest) returns (GetRegisteredCallbackCookieResponse);
-  rpc GetRegisteredCallbackCount (GetRegisteredCallbackCountRequest) returns (GetRegisteredCallbackCountResponse);
-  rpc Kill (KillRequest) returns (KillResponse);
+service HardwarePropertiesManagerService {
+  rpc GetCpuUsages (GetCpuUsagesRequest) returns (GetCpuUsagesResponse);
+  rpc GetDeviceTemperatures (GetDeviceTemperaturesRequest) returns (GetDeviceTemperaturesResponse);
+  rpc GetFanSpeeds (GetFanSpeedsRequest) returns (GetFanSpeedsResponse);
 }
 
-service RemoteCallbackListBuilderService {
-  rpc SetExecutor (SetExecutorRequest) returns (SetExecutorResponse);
-  rpc SetMaxQueueSize (SetMaxQueueSizeRequest) returns (SetMaxQueueSizeResponse);
-}
-
-service ProfilingManagerService {
-  rpc ClearProfilingTriggers (ClearProfilingTriggersRequest) returns (ClearProfilingTriggersResponse);
-  rpc RemoveProfilingTriggersByType (RemoveProfilingTriggersByTypeRequest) returns (RemoveProfilingTriggersByTypeResponse);
-}
-
-service ConditionVariableService {
-  rpc NewConditionVariable (NewConditionVariableRequest) returns (NewConditionVariableResponse);
-  rpc Block0 (Block0Request) returns (Block0Response);
-  rpc Block1_1 (Block1_1Request) returns (Block1_1Response);
-  rpc Close (ConditionVariableCloseRequest) returns (CloseResponse);
-  rpc Open (OpenRequest) returns (OpenResponse);
+service TraceService {
+  rpc BeginAsyncSection (BeginAsyncSectionRequest) returns (BeginAsyncSectionResponse);
+  rpc BeginSection (BeginSectionRequest) returns (BeginSectionResponse);
+  rpc EndAsyncSection (EndAsyncSectionRequest) returns (EndAsyncSectionResponse);
+  rpc EndSection (EndSectionRequest) returns (EndSectionResponse);
+  rpc IsEnabled (IsEnabledRequest) returns (IsEnabledResponse);
+  rpc SetCounter (SetCounterRequest) returns (SetCounterResponse);
 }
 
 service ParcelService {
   rpc AppendFrom (AppendFromRequest) returns (AppendFromResponse);
   rpc CreateBinderArray (CreateBinderArrayRequest) returns (CreateBinderArrayResponse);
+  rpc CreateBinderArrayList (CreateBinderArrayListRequest) returns (CreateBinderArrayListResponse);
   rpc CreateBooleanArray (CreateBooleanArrayRequest) returns (CreateBooleanArrayResponse);
   rpc CreateByteArray (CreateByteArrayRequest) returns (CreateByteArrayResponse);
   rpc CreateCharArray (CreateCharArrayRequest) returns (CreateCharArrayResponse);
@@ -5646,6 +5482,7 @@ service ParcelService {
   rpc CreateIntArray (CreateIntArrayRequest) returns (CreateIntArrayResponse);
   rpc CreateLongArray (CreateLongArrayRequest) returns (CreateLongArrayResponse);
   rpc CreateStringArray (CreateStringArrayRequest) returns (CreateStringArrayResponse);
+  rpc CreateStringArrayList (CreateStringArrayListRequest) returns (CreateStringArrayListResponse);
   rpc DataAvail (DataAvailRequest) returns (DataAvailResponse);
   rpc DataCapacity (DataCapacityRequest) returns (DataCapacityResponse);
   rpc DataPosition (DataPositionRequest) returns (DataPositionResponse);
@@ -5681,6 +5518,7 @@ service ParcelService {
   rpc ReadLongArray (ReadLongArrayRequest) returns (ReadLongArrayResponse);
   rpc ReadMap (ReadMapRequest) returns (ReadMapResponse);
   rpc ReadParcelableArray (ReadParcelableArrayRequest) returns (ReadParcelableArrayResponse);
+  rpc ReadParcelableCreator (ReadParcelableCreatorRequest) returns (ReadParcelableCreatorResponse);
   rpc ReadPersistableBundle0 (ReadPersistableBundle0Request) returns (ReadPersistableBundle0Response);
   rpc ReadPersistableBundle1_1 (ReadPersistableBundle1_1Request) returns (ReadPersistableBundle1_1Response);
   rpc ReadSerializable (ReadSerializableRequest) returns (ReadSerializableResponse);
@@ -5734,25 +5572,304 @@ service ParcelService {
   rpc WriteStrongBinder (WriteStrongBinderRequest) returns (WriteStrongBinderResponse);
   rpc WriteStrongInterface (WriteStrongInterfaceRequest) returns (WriteStrongInterfaceResponse);
   rpc WriteValue (WriteValueRequest) returns (WriteValueResponse);
-  rpc Obtain0 (ParcelObtain0Request) returns (Obtain0Response);
-  rpc Obtain1_1 (ParcelObtain1_1Request) returns (Obtain1_1Response);
+  rpc Obtain0 (Obtain0Request) returns (Obtain0Response);
+  rpc Obtain1_1 (Obtain1_1Request) returns (Obtain1_1Response);
+}
+
+service StatFsService {
+  rpc NewStatFs (NewStatFsRequest) returns (NewStatFsResponse);
+  rpc GetAvailableBlocks (GetAvailableBlocksRequest) returns (GetAvailableBlocksResponse);
+  rpc GetAvailableBlocksLong (GetAvailableBlocksLongRequest) returns (GetAvailableBlocksLongResponse);
+  rpc GetAvailableBytes (GetAvailableBytesRequest) returns (GetAvailableBytesResponse);
+  rpc GetBlockCount (GetBlockCountRequest) returns (GetBlockCountResponse);
+  rpc GetBlockCountLong (GetBlockCountLongRequest) returns (GetBlockCountLongResponse);
+  rpc GetBlockSize (GetBlockSizeRequest) returns (GetBlockSizeResponse);
+  rpc GetBlockSizeLong (GetBlockSizeLongRequest) returns (GetBlockSizeLongResponse);
+  rpc GetFreeBlocks (GetFreeBlocksRequest) returns (GetFreeBlocksResponse);
+  rpc GetFreeBlocksLong (GetFreeBlocksLongRequest) returns (GetFreeBlocksLongResponse);
+  rpc GetFreeBytes (GetFreeBytesRequest) returns (GetFreeBytesResponse);
+  rpc GetTotalBytes (GetTotalBytesRequest) returns (GetTotalBytesResponse);
+  rpc Restat (RestatRequest) returns (RestatResponse);
+}
+
+service BugreportManagerService {
+  rpc CancelBugreport (CancelBugreportRequest) returns (CancelBugreportResponse);
+  rpc StartConnectivityBugreport (StartConnectivityBugreportRequest) returns (StartConnectivityBugreportResponse);
+}
+
+service BugreportManagerBugreportCallbackService {
+  rpc OnEarlyReportFinished (OnEarlyReportFinishedRequest) returns (OnEarlyReportFinishedResponse);
+  rpc OnError (OnErrorRequest) returns (OnErrorResponse);
+  rpc OnFinished (OnFinishedRequest) returns (OnFinishedResponse);
+  rpc OnProgress (BugreportManagerBugreportCallbackOnProgressRequest) returns (OnProgressResponse);
+}
+
+service MessengerService {
+  rpc NewMessenger (NewMessengerRequest) returns (NewMessengerResponse);
+  rpc DescribeContents (MessengerDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetBinder (GetBinderRequest) returns (GetBinderResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc Send (MessengerSendRequest) returns (SendResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+  rpc ReadMessengerOrNullFromParcel (ReadMessengerOrNullFromParcelRequest) returns (ReadMessengerOrNullFromParcelResponse);
+  rpc WriteMessengerOrNullToParcel (WriteMessengerOrNullToParcelRequest) returns (WriteMessengerOrNullToParcelResponse);
+}
+
+service CpuHeadroomParamsService {
+  rpc Equals (CpuHeadroomParamsEqualsRequest) returns (EqualsResponse);
+  rpc GetCalculationType (GetCalculationTypeRequest) returns (GetCalculationTypeResponse);
+  rpc GetCalculationWindowMillis (GetCalculationWindowMillisRequest) returns (GetCalculationWindowMillisResponse);
+  rpc GetTids (GetTidsRequest) returns (GetTidsResponse);
+  rpc HashCode (CpuHeadroomParamsHashCodeRequest) returns (HashCodeResponse);
+  rpc ToBuilder (ToBuilderRequest) returns (ToBuilderResponse);
+  rpc ToString (CpuHeadroomParamsToStringRequest) returns (ToStringResponse);
+}
+
+service CpuHeadroomParamsBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetCalculationType (SetCalculationTypeRequest) returns (SetCalculationTypeResponse);
+  rpc SetCalculationWindowMillis (SetCalculationWindowMillisRequest) returns (SetCalculationWindowMillisResponse);
+  rpc SetTids (SetTidsRequest) returns (SetTidsResponse);
+}
+
+service RemoteCallbackListService {
+  rpc NewRemoteCallbackList (NewRemoteCallbackListRequest) returns (NewRemoteCallbackListResponse);
+  rpc BeginBroadcast (BeginBroadcastRequest) returns (BeginBroadcastResponse);
+  rpc FinishBroadcast (FinishBroadcastRequest) returns (FinishBroadcastResponse);
+  rpc GetBroadcastCookie (GetBroadcastCookieRequest) returns (GetBroadcastCookieResponse);
+  rpc GetExecutor (GetExecutorRequest) returns (GetExecutorResponse);
+  rpc GetFrozenCalleePolicy (GetFrozenCalleePolicyRequest) returns (GetFrozenCalleePolicyResponse);
+  rpc GetMaxQueueSize (GetMaxQueueSizeRequest) returns (GetMaxQueueSizeResponse);
+  rpc GetRegisteredCallbackCookie (GetRegisteredCallbackCookieRequest) returns (GetRegisteredCallbackCookieResponse);
+  rpc GetRegisteredCallbackCount (GetRegisteredCallbackCountRequest) returns (GetRegisteredCallbackCountResponse);
+  rpc Kill (KillRequest) returns (KillResponse);
+}
+
+service RemoteCallbackListBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetExecutor (SetExecutorRequest) returns (SetExecutorResponse);
+  rpc SetMaxQueueSize (SetMaxQueueSizeRequest) returns (SetMaxQueueSizeResponse);
+}
+
+service GpuHeadroomParamsService {
+  rpc Equals (GpuHeadroomParamsEqualsRequest) returns (EqualsResponse);
+  rpc GetCalculationType (GetCalculationTypeRequest) returns (GetCalculationTypeResponse);
+  rpc GetCalculationWindowMillis (GetCalculationWindowMillisRequest) returns (GpuHeadroomParamsGetCalculationWindowMillisResponse);
+  rpc HashCode (GpuHeadroomParamsHashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (GpuHeadroomParamsToStringRequest) returns (ToStringResponse);
+}
+
+service GpuHeadroomParamsBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetCalculationType (SetCalculationTypeRequest) returns (SetCalculationTypeResponse);
+  rpc SetCalculationWindowMillis (SetCalculationWindowMillisRequest) returns (SetCalculationWindowMillisResponse);
+}
+
+service ProcessService {
+  rpc NewProcess (NewProcessRequest) returns (NewProcessResponse);
+  rpc GetAppUidForSdkSandboxUid (GetAppUidForSdkSandboxUidRequest) returns (GetAppUidForSdkSandboxUidResponse);
+  rpc GetElapsedCpuTime (GetElapsedCpuTimeRequest) returns (GetElapsedCpuTimeResponse);
+  rpc GetExclusiveCores (GetExclusiveCoresRequest) returns (GetExclusiveCoresResponse);
+  rpc GetGidForName (GetGidForNameRequest) returns (GetGidForNameResponse);
+  rpc GetSdkSandboxUidForAppUid (GetSdkSandboxUidForAppUidRequest) returns (GetSdkSandboxUidForAppUidResponse);
+  rpc GetStartElapsedRealtime (GetStartElapsedRealtimeRequest) returns (GetStartElapsedRealtimeResponse);
+  rpc GetStartRequestedElapsedRealtime (GetStartRequestedElapsedRealtimeRequest) returns (GetStartRequestedElapsedRealtimeResponse);
+  rpc GetStartRequestedUptimeMillis (GetStartRequestedUptimeMillisRequest) returns (GetStartRequestedUptimeMillisResponse);
+  rpc GetStartUptimeMillis (GetStartUptimeMillisRequest) returns (GetStartUptimeMillisResponse);
+  rpc GetThreadPriority (GetThreadPriorityRequest) returns (GetThreadPriorityResponse);
+  rpc GetUidForName (GetUidForNameRequest) returns (GetUidForNameResponse);
+  rpc Is64Bit (Is64BitRequest) returns (Is64BitResponse);
+  rpc IsApplicationUid (IsApplicationUidRequest) returns (IsApplicationUidResponse);
+  rpc IsIsolated (IsIsolatedRequest) returns (IsIsolatedResponse);
+  rpc IsIsolatedUid (IsIsolatedUidRequest) returns (IsIsolatedUidResponse);
+  rpc IsSdkSandbox (IsSdkSandboxRequest) returns (IsSdkSandboxResponse);
+  rpc IsSdkSandboxUid (IsSdkSandboxUidRequest) returns (IsSdkSandboxUidResponse);
+  rpc KillProcess (KillProcessRequest) returns (KillProcessResponse);
+  rpc MyPid (MyPidRequest) returns (MyPidResponse);
+  rpc MyProcessName (MyProcessNameRequest) returns (MyProcessNameResponse);
+  rpc MyTid (MyTidRequest) returns (MyTidResponse);
+  rpc MyUid (MyUidRequest) returns (MyUidResponse);
+  rpc MyUserHandle (MyUserHandleRequest) returns (MyUserHandleResponse);
+  rpc SendSignal (SendSignalRequest) returns (SendSignalResponse);
+  rpc SetThreadPriority1 (SetThreadPriority1Request) returns (SetThreadPriority1Response);
+  rpc SetThreadPriority2_1 (SetThreadPriority2_1Request) returns (SetThreadPriority2_1Response);
+  rpc SupportsProcesses (SupportsProcessesRequest) returns (SupportsProcessesResponse);
+}
+
+service MemoryFileService {
+  rpc NewMemoryFile (NewMemoryFileRequest) returns (NewMemoryFileResponse);
+  rpc Close (CloseRequest) returns (CloseResponse);
+  rpc GetInputStream (MemoryFileGetInputStreamRequest) returns (GetInputStreamResponse);
+  rpc GetOutputStream (GetOutputStreamRequest) returns (GetOutputStreamResponse);
+  rpc IsPurgingAllowed (IsPurgingAllowedRequest) returns (IsPurgingAllowedResponse);
+  rpc Length (LengthRequest) returns (LengthResponse);
+  rpc ReadBytes (ReadBytesRequest) returns (ReadBytesResponse);
+  rpc WriteBytes (WriteBytesRequest) returns (WriteBytesResponse);
+}
+
+service LooperService {
+  rpc Dump (LooperDumpRequest) returns (DumpResponse);
+  rpc GetQueue (GetQueueRequest) returns (GetQueueResponse);
+  rpc GetThread (GetThreadRequest) returns (GetThreadResponse);
+  rpc IsCurrentThread (IsCurrentThreadRequest) returns (IsCurrentThreadResponse);
+  rpc Quit (LooperQuitRequest) returns (LooperQuitResponse);
+  rpc QuitSafely (LooperQuitSafelyRequest) returns (LooperQuitSafelyResponse);
+  rpc SetMessageLogging (SetMessageLoggingRequest) returns (SetMessageLoggingResponse);
+  rpc ToString (LooperToStringRequest) returns (ToStringResponse);
+  rpc GetMainLooper (GetMainLooperRequest) returns (GetMainLooperResponse);
+  rpc Loop (LoopRequest) returns (LoopResponse);
+  rpc MyLooper (MyLooperRequest) returns (MyLooperResponse);
+  rpc MyQueue (MyQueueRequest) returns (MyQueueResponse);
+  rpc Prepare (PrepareRequest) returns (PrepareResponse);
+  rpc PrepareMainLooper (PrepareMainLooperRequest) returns (PrepareMainLooperResponse);
+}
+
+service BinderService {
+  rpc NewBinder (NewBinderRequest) returns (NewBinderResponse);
+  rpc AttachInterface (AttachInterfaceRequest) returns (AttachInterfaceResponse);
+  rpc Dump (BinderDumpRequest) returns (DumpResponse);
+  rpc DumpAsync (BinderDumpAsyncRequest) returns (DumpAsyncResponse);
+  rpc GetInterfaceDescriptor (BinderGetInterfaceDescriptorRequest) returns (GetInterfaceDescriptorResponse);
+  rpc IsBinderAlive (BinderIsBinderAliveRequest) returns (IsBinderAliveResponse);
+  rpc LinkToDeath (BinderLinkToDeathRequest) returns (LinkToDeathResponse);
+  rpc PingBinder (BinderPingBinderRequest) returns (PingBinderResponse);
+  rpc QueryLocalInterface (BinderQueryLocalInterfaceRequest) returns (QueryLocalInterfaceResponse);
+  rpc Transact (BinderTransactRequest) returns (TransactResponse);
+  rpc UnlinkToDeath (BinderUnlinkToDeathRequest) returns (UnlinkToDeathResponse);
+  rpc ClearCallingIdentity (ClearCallingIdentityRequest) returns (ClearCallingIdentityResponse);
+  rpc ClearCallingWorkSource (ClearCallingWorkSourceRequest) returns (ClearCallingWorkSourceResponse);
+  rpc FlushPendingCommands (FlushPendingCommandsRequest) returns (FlushPendingCommandsResponse);
+  rpc GetCallingPid (GetCallingPidRequest) returns (GetCallingPidResponse);
+  rpc GetCallingUid (GetCallingUidRequest) returns (GetCallingUidResponse);
+  rpc GetCallingUidOrThrow (GetCallingUidOrThrowRequest) returns (GetCallingUidOrThrowResponse);
+  rpc GetCallingUserHandle (GetCallingUserHandleRequest) returns (GetCallingUserHandleResponse);
+  rpc GetCallingWorkSourceUid (GetCallingWorkSourceUidRequest) returns (GetCallingWorkSourceUidResponse);
+  rpc JoinThreadPool (JoinThreadPoolRequest) returns (JoinThreadPoolResponse);
+  rpc RestoreCallingIdentity (RestoreCallingIdentityRequest) returns (RestoreCallingIdentityResponse);
+  rpc RestoreCallingWorkSource (RestoreCallingWorkSourceRequest) returns (RestoreCallingWorkSourceResponse);
+  rpc SetCallingWorkSourceUid (SetCallingWorkSourceUidRequest) returns (SetCallingWorkSourceUidResponse);
 }
 
 service IInterfaceService {
   rpc AsBinder (AsBinderRequest) returns (AsBinderResponse);
 }
 
-service VibratorManagerService {
-  rpc Cancel (VibratorManagerCancelRequest) returns (VibratorManagerCancelResponse);
-  rpc GetDefaultVibrator (GetDefaultVibratorRequest) returns (GetDefaultVibratorResponse);
-  rpc GetVibrator (GetVibratorRequest) returns (GetVibratorResponse);
-  rpc GetVibratorIds (GetVibratorIdsRequest) returns (GetVibratorIdsResponse);
-  rpc Vibrate1 (Vibrate1Request) returns (Vibrate1Response);
-  rpc Vibrate2_1 (Vibrate2_1Request) returns (Vibrate2_1Response);
+service UserHandleService {
+  rpc NewUserHandle (NewUserHandleRequest) returns (NewUserHandleResponse);
+  rpc DescribeContents (UserHandleDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel2 (WriteToParcel2Request) returns (WriteToParcel2Response);
+  rpc GetUserHandleForUid (GetUserHandleForUidRequest) returns (GetUserHandleForUidResponse);
+  rpc ReadFromParcel (UserHandleReadFromParcelRequest) returns (UserHandleReadFromParcelResponse);
+  rpc WriteToParcel2_1 (WriteToParcel2_1Request) returns (WriteToParcel2_1Response);
 }
 
-service SecurityStateManagerService {
-  rpc GetGlobalSecurityState (GetGlobalSecurityStateRequest) returns (GetGlobalSecurityStateResponse);
+service StrictModeService {
+  rpc AllowThreadDiskReads (AllowThreadDiskReadsRequest) returns (AllowThreadDiskReadsResponse);
+  rpc AllowThreadDiskWrites (AllowThreadDiskWritesRequest) returns (AllowThreadDiskWritesResponse);
+  rpc EnableDefaults (EnableDefaultsRequest) returns (EnableDefaultsResponse);
+  rpc GetThreadPolicy (GetThreadPolicyRequest) returns (GetThreadPolicyResponse);
+  rpc GetVmPolicy (GetVmPolicyRequest) returns (GetVmPolicyResponse);
+  rpc NoteSlowCall (NoteSlowCallRequest) returns (NoteSlowCallResponse);
+  rpc SetThreadPolicy (SetThreadPolicyRequest) returns (SetThreadPolicyResponse);
+  rpc SetVmPolicy (SetVmPolicyRequest) returns (SetVmPolicyResponse);
+}
+
+service StrictModeOnThreadViolationListenerService {
+  rpc OnThreadViolation (OnThreadViolationRequest) returns (OnThreadViolationResponse);
+}
+
+service StrictModeOnVmViolationListenerService {
+  rpc OnVmViolation (OnVmViolationRequest) returns (OnVmViolationResponse);
+}
+
+service StrictModeThreadPolicyService {
+  rpc ToString (StrictModeThreadPolicyToStringRequest) returns (ToStringResponse);
+}
+
+service StrictModeVmPolicyService {
+  rpc ToString (StrictModeVmPolicyToStringRequest) returns (ToStringResponse);
+}
+
+service ProfilingResultService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (ProfilingResultEqualsRequest) returns (EqualsResponse);
+  rpc GetErrorCode (GetErrorCodeRequest) returns (GetErrorCodeResponse);
+  rpc GetErrorMessage (GetErrorMessageRequest) returns (GetErrorMessageResponse);
+  rpc GetResultFilePath (GetResultFilePathRequest) returns (GetResultFilePathResponse);
+  rpc GetTag (GetTagRequest) returns (GetTagResponse);
+  rpc GetTriggerType (GetTriggerTypeRequest) returns (GetTriggerTypeResponse);
+  rpc HashCode (ProfilingResultHashCodeRequest) returns (HashCodeResponse);
+  rpc WriteToParcel (ProfilingResultWriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service RemoteExceptionService {
+  rpc NewRemoteException (NewRemoteExceptionRequest) returns (NewRemoteExceptionResponse);
+  rpc RethrowAsRuntimeException (RethrowAsRuntimeExceptionRequest) returns (RethrowAsRuntimeExceptionResponse);
+  rpc RethrowFromSystemServer (RethrowFromSystemServerRequest) returns (RethrowFromSystemServerResponse);
+}
+
+service BaseBundleService {
+  rpc Clear (BaseBundleClearRequest) returns (ClearResponse);
+  rpc ContainsKey (ContainsKeyRequest) returns (ContainsKeyResponse);
+  rpc Get (BaseBundleGetRequest) returns (GetResponse);
+  rpc GetBoolean1 (GetBoolean1Request) returns (GetBoolean1Response);
+  rpc GetBoolean2_1 (GetBoolean2_1Request) returns (GetBoolean2_1Response);
+  rpc GetBooleanArray (GetBooleanArrayRequest) returns (GetBooleanArrayResponse);
+  rpc GetDouble1 (GetDouble1Request) returns (GetDouble1Response);
+  rpc GetDouble2_1 (GetDouble2_1Request) returns (GetDouble2_1Response);
+  rpc GetDoubleArray (GetDoubleArrayRequest) returns (GetDoubleArrayResponse);
+  rpc GetInt1 (GetInt1Request) returns (GetInt1Response);
+  rpc GetInt2_1 (GetInt2_1Request) returns (GetInt2_1Response);
+  rpc GetIntArray (GetIntArrayRequest) returns (GetIntArrayResponse);
+  rpc GetLong1 (GetLong1Request) returns (GetLong1Response);
+  rpc GetLong2_1 (GetLong2_1Request) returns (GetLong2_1Response);
+  rpc GetLongArray (GetLongArrayRequest) returns (GetLongArrayResponse);
+  rpc GetString1 (GetString1Request) returns (GetString1Response);
+  rpc GetString2_1 (GetString2_1Request) returns (GetString2_1Response);
+  rpc GetStringArray (GetStringArrayRequest) returns (GetStringArrayResponse);
+  rpc IsEmpty (BaseBundleIsEmptyRequest) returns (IsEmptyResponse);
+  rpc KeySet (KeySetRequest) returns (KeySetResponse);
+  rpc PutAll (PutAllRequest) returns (PutAllResponse);
+  rpc PutBoolean (PutBooleanRequest) returns (PutBooleanResponse);
+  rpc PutBooleanArray (PutBooleanArrayRequest) returns (PutBooleanArrayResponse);
+  rpc PutDouble (PutDoubleRequest) returns (PutDoubleResponse);
+  rpc PutDoubleArray (PutDoubleArrayRequest) returns (PutDoubleArrayResponse);
+  rpc PutInt (PutIntRequest) returns (PutIntResponse);
+  rpc PutIntArray (PutIntArrayRequest) returns (PutIntArrayResponse);
+  rpc PutLong (PutLongRequest) returns (PutLongResponse);
+  rpc PutLongArray (PutLongArrayRequest) returns (PutLongArrayResponse);
+  rpc PutString (PutStringRequest) returns (PutStringResponse);
+  rpc PutStringArray (PutStringArrayRequest) returns (PutStringArrayResponse);
+  rpc Remove (BaseBundleRemoveRequest) returns (BaseBundleRemoveResponse);
+  rpc Size (BaseBundleSizeRequest) returns (SizeResponse);
+}
+
+service AsyncTaskService {
+  rpc Cancel (AsyncTaskCancelRequest) returns (AsyncTaskCancelResponse);
+  rpc Get0 (Get0Request) returns (Get0Response);
+  rpc Get2_1 (Get2_1Request) returns (Get2_1Response);
+  rpc GetStatus (GetStatusRequest) returns (GetStatusResponse);
+  rpc IsCancelled (IsCancelledRequest) returns (IsCancelledResponse);
+  rpc Execute (ExecuteRequest) returns (ExecuteResponse);
+}
+
+service AsyncTaskStatusService {
+  rpc Values (ValuesRequest) returns (ValuesResponse);
+  rpc ValueOf (ValueOfRequest) returns (ValueOfResponse);
+}
+
+service ProfilingTriggerService {
+  rpc GetRateLimitingPeriodHours (GetRateLimitingPeriodHoursRequest) returns (GetRateLimitingPeriodHoursResponse);
+  rpc GetTriggerType (GetTriggerTypeRequest) returns (GetTriggerTypeResponse);
+}
+
+service ProfilingTriggerBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetRateLimitingPeriodHours (SetRateLimitingPeriodHoursRequest) returns (SetRateLimitingPeriodHoursResponse);
 }
 
 service HandlerService {
@@ -5796,115 +5913,35 @@ service HandlerCallbackService {
   rpc HandleMessage (HandlerCallbackHandleMessageRequest) returns (HandlerCallbackHandleMessageResponse);
 }
 
-service PowerMonitorService {
-  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc GetName (GetNameRequest) returns (GetNameResponse);
-  rpc GetType (PowerMonitorGetTypeRequest) returns (GetTypeResponse);
+service MessageService {
+  rpc NewMessage (NewMessageRequest) returns (NewMessageResponse);
+  rpc CopyFrom (CopyFromRequest) returns (CopyFromResponse);
+  rpc DescribeContents (MessageDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetCallback (GetCallbackRequest) returns (GetCallbackResponse);
+  rpc GetData (GetDataRequest) returns (GetDataResponse);
+  rpc GetTarget (GetTargetRequest) returns (GetTargetResponse);
+  rpc GetWhen (GetWhenRequest) returns (GetWhenResponse);
+  rpc IsAsynchronous (IsAsynchronousRequest) returns (IsAsynchronousResponse);
+  rpc PeekData (PeekDataRequest) returns (PeekDataResponse);
+  rpc Recycle (MessageRecycleRequest) returns (RecycleResponse);
+  rpc SendToTarget (SendToTargetRequest) returns (SendToTargetResponse);
+  rpc SetAsynchronous (SetAsynchronousRequest) returns (SetAsynchronousResponse);
+  rpc SetData (SetDataRequest) returns (SetDataResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
   rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+  rpc Obtain0 (MessageObtain0Request) returns (Obtain0Response);
+  rpc Obtain1_1 (MessageObtain1_1Request) returns (Obtain1_1Response);
 }
 
-service IBinderService {
-  rpc Dump (IBinderDumpRequest) returns (DumpResponse);
-  rpc DumpAsync (IBinderDumpAsyncRequest) returns (DumpAsyncResponse);
-  rpc GetInterfaceDescriptor (IBinderGetInterfaceDescriptorRequest) returns (GetInterfaceDescriptorResponse);
-  rpc IsBinderAlive (IBinderIsBinderAliveRequest) returns (IsBinderAliveResponse);
-  rpc LinkToDeath (IBinderLinkToDeathRequest) returns (LinkToDeathResponse);
-  rpc PingBinder (IBinderPingBinderRequest) returns (PingBinderResponse);
-  rpc QueryLocalInterface (IBinderQueryLocalInterfaceRequest) returns (QueryLocalInterfaceResponse);
-  rpc Transact (IBinderTransactRequest) returns (TransactResponse);
-  rpc UnlinkToDeath (IBinderUnlinkToDeathRequest) returns (UnlinkToDeathResponse);
-  rpc GetSuggestedMaxIpcSizeBytes (GetSuggestedMaxIpcSizeBytesRequest) returns (GetSuggestedMaxIpcSizeBytesResponse);
+service FileUtilsService {
+  rpc CloseQuietly1 (CloseQuietly1Request) returns (CloseQuietly1Response);
+  rpc CloseQuietly1_1 (CloseQuietly1_1Request) returns (CloseQuietly1_1Response);
+  rpc Copy2 (Copy2Request) returns (Copy2Response);
+  rpc Copy5_1 (Copy5_1Request) returns (Copy5_1Response);
+  rpc Copy2_2 (Copy2_2Request) returns (Copy2_2Response);
+  rpc Copy5_3 (Copy5_3Request) returns (Copy5_3Response);
 }
 
-service IBinderDeathRecipientService {
-  rpc BinderDied (BinderDiedRequest) returns (BinderDiedResponse);
-}
-
-service IBinderFrozenStateChangeCallbackService {
-  rpc OnFrozenStateChanged (OnFrozenStateChangedRequest) returns (OnFrozenStateChangedResponse);
-}
-
-service CpuHeadroomParamsService {
-  rpc Equals (CpuHeadroomParamsEqualsRequest) returns (EqualsResponse);
-  rpc GetCalculationType (GetCalculationTypeRequest) returns (GetCalculationTypeResponse);
-  rpc GetCalculationWindowMillis (GetCalculationWindowMillisRequest) returns (CpuHeadroomParamsGetCalculationWindowMillisResponse);
-  rpc GetTids (GetTidsRequest) returns (GetTidsResponse);
-  rpc HashCode (CpuHeadroomParamsHashCodeRequest) returns (HashCodeResponse);
-  rpc ToBuilder (ToBuilderRequest) returns (ToBuilderResponse);
-  rpc ToString (CpuHeadroomParamsToStringRequest) returns (ToStringResponse);
-}
-
-service CpuHeadroomParamsBuilderService {
-  rpc Build (BuildRequest) returns (BuildResponse);
-  rpc SetCalculationType (SetCalculationTypeRequest) returns (SetCalculationTypeResponse);
-  rpc SetCalculationWindowMillis (SetCalculationWindowMillisRequest) returns (SetCalculationWindowMillisResponse);
-  rpc SetTids (SetTidsRequest) returns (SetTidsResponse);
-}
-
-service UserManagerService {
-  rpc GetApplicationRestrictions (GetApplicationRestrictionsRequest) returns (GetApplicationRestrictionsResponse);
-  rpc GetSerialNumberForUser (GetSerialNumberForUserRequest) returns (GetSerialNumberForUserResponse);
-  rpc GetUserCount (GetUserCountRequest) returns (GetUserCountResponse);
-  rpc GetUserCreationTime (GetUserCreationTimeRequest) returns (GetUserCreationTimeResponse);
-  rpc GetUserForSerialNumber (GetUserForSerialNumberRequest) returns (GetUserForSerialNumberResponse);
-  rpc GetUserName (GetUserNameRequest) returns (GetUserNameResponse);
-  rpc GetUserRestrictions0 (GetUserRestrictions0Request) returns (GetUserRestrictions0Response);
-  rpc GetUserRestrictions1_1 (GetUserRestrictions1_1Request) returns (GetUserRestrictions1_1Response);
-  rpc HasUserRestriction (HasUserRestrictionRequest) returns (HasUserRestrictionResponse);
-  rpc IsAdminUser (IsAdminUserRequest) returns (IsAdminUserResponse);
-  rpc IsDemoUser (IsDemoUserRequest) returns (IsDemoUserResponse);
-  rpc IsManagedProfile (IsManagedProfileRequest) returns (IsManagedProfileResponse);
-  rpc IsProfile (IsProfileRequest) returns (IsProfileResponse);
-  rpc IsQuietModeEnabled (IsQuietModeEnabledRequest) returns (IsQuietModeEnabledResponse);
-  rpc IsSystemUser (IsSystemUserRequest) returns (IsSystemUserResponse);
-  rpc IsUserAGoat (IsUserAGoatRequest) returns (IsUserAGoatResponse);
-  rpc IsUserForeground (IsUserForegroundRequest) returns (IsUserForegroundResponse);
-  rpc IsUserRunning (IsUserRunningRequest) returns (IsUserRunningResponse);
-  rpc IsUserRunningOrStopping (IsUserRunningOrStoppingRequest) returns (IsUserRunningOrStoppingResponse);
-  rpc IsUserUnlocked0 (IsUserUnlocked0Request) returns (IsUserUnlocked0Response);
-  rpc IsUserUnlocked1_1 (IsUserUnlocked1_1Request) returns (IsUserUnlocked1_1Response);
-  rpc RequestQuietModeEnabled2 (RequestQuietModeEnabled2Request) returns (RequestQuietModeEnabled2Response);
-  rpc RequestQuietModeEnabled3_1 (RequestQuietModeEnabled3_1Request) returns (RequestQuietModeEnabled3_1Response);
-  rpc SetRestrictionsChallenge (SetRestrictionsChallengeRequest) returns (SetRestrictionsChallengeResponse);
-  rpc SetUserRestriction (SetUserRestrictionRequest) returns (SetUserRestrictionResponse);
-  rpc SetUserRestrictions1 (SetUserRestrictions1Request) returns (SetUserRestrictions1Response);
-  rpc SetUserRestrictions2_1 (SetUserRestrictions2_1Request) returns (SetUserRestrictions2_1Response);
-  rpc CreateUserCreationIntent (CreateUserCreationIntentRequest) returns (CreateUserCreationIntentResponse);
-  rpc IsHeadlessSystemUserMode (IsHeadlessSystemUserModeRequest) returns (IsHeadlessSystemUserModeResponse);
-  rpc SupportsMultipleUsers (SupportsMultipleUsersRequest) returns (SupportsMultipleUsersResponse);
-}
-
-service UserManagerUserOperationExceptionService {
-  rpc GetUserOperationResult (GetUserOperationResultRequest) returns (GetUserOperationResultResponse);
-}
-
-service VibrationEffectService {
-  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc CreateOneShot (CreateOneShotRequest) returns (CreateOneShotResponse);
-  rpc CreatePredefined (CreatePredefinedRequest) returns (CreatePredefinedResponse);
-  rpc CreateRepeatingEffect1 (CreateRepeatingEffect1Request) returns (CreateRepeatingEffect1Response);
-  rpc CreateRepeatingEffect2_1 (CreateRepeatingEffect2_1Request) returns (CreateRepeatingEffect2_1Response);
-  rpc CreateWaveform2 (CreateWaveform2Request) returns (CreateWaveform2Response);
-  rpc CreateWaveform3_1 (CreateWaveform3_1Request) returns (CreateWaveform3_1Response);
-  rpc StartComposition (StartCompositionRequest) returns (StartCompositionResponse);
-}
-
-service VibrationEffectBasicEnvelopeBuilderService {
-  rpc AddControlPoint (AddControlPointRequest) returns (AddControlPointResponse);
-  rpc Build (BuildRequest) returns (BuildResponse);
-  rpc SetInitialSharpness (SetInitialSharpnessRequest) returns (SetInitialSharpnessResponse);
-}
-
-service VibrationEffectCompositionService {
-  rpc AddPrimitive1 (AddPrimitive1Request) returns (AddPrimitive1Response);
-  rpc AddPrimitive2_1 (AddPrimitive2_1Request) returns (AddPrimitive2_1Response);
-  rpc AddPrimitive3_2 (AddPrimitive3_2Request) returns (AddPrimitive3_2Response);
-  rpc AddPrimitive4_3 (AddPrimitive4_3Request) returns (AddPrimitive4_3Response);
-  rpc Compose (ComposeRequest) returns (ComposeResponse);
-}
-
-service VibrationEffectWaveformEnvelopeBuilderService {
-  rpc AddControlPoint (AddControlPointRequest) returns (AddControlPointResponse);
-  rpc Build (BuildRequest) returns (BuildResponse);
-  rpc SetInitialFrequencyHz (SetInitialFrequencyHzRequest) returns (SetInitialFrequencyHzResponse);
+service FileUtilsProgressListenerService {
+  rpc OnProgress (FileUtilsProgressListenerOnProgressRequest) returns (OnProgressResponse);
 }

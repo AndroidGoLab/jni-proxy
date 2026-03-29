@@ -36,6 +36,106 @@ var controlsDeviceTypesValidDeviceTypeCmd = &cobra.Command{
 	},
 }
 
+var controlsProviderServiceCmd = &cobra.Command{
+	Use:   "provider-service",
+	Short: "ProviderServiceService operations",
+}
+
+var controlsProviderServiceCreatePublisherForAllAvailableCmd = &cobra.Command{
+	Use:   "create-publisher-for-all-available",
+	Short: "CreatePublisherForAllAvailable RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewProviderServiceServiceClient(grpcConn)
+		req := &pb.CreatePublisherForAllAvailableRequest{}
+		resp, err := client.CreatePublisherForAllAvailable(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var controlsProviderServiceCreatePublisherForSuggestedCmd = &cobra.Command{
+	Use:   "create-publisher-for-suggested",
+	Short: "CreatePublisherForSuggested RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewProviderServiceServiceClient(grpcConn)
+		req := &pb.CreatePublisherForSuggestedRequest{}
+		resp, err := client.CreatePublisherForSuggested(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var controlsProviderServiceOnBindCmd = &cobra.Command{
+	Use:   "on-bind",
+	Short: "OnBind RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewProviderServiceServiceClient(grpcConn)
+		req := &pb.OnBindRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnBind(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var controlsProviderServiceOnUnbindCmd = &cobra.Command{
+	Use:   "on-unbind",
+	Short: "OnUnbind RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewProviderServiceServiceClient(grpcConn)
+		req := &pb.OnUnbindRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnUnbind(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var controlsProviderServiceRequestAddControlCmd = &cobra.Command{
+	Use:   "request-add-control",
+	Short: "RequestAddControl RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewProviderServiceServiceClient(grpcConn)
+		req := &pb.RequestAddControlRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.RequestAddControl(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var controlsControlCmd = &cobra.Command{
 	Use:   "control",
 	Short: "ControlService operations",
@@ -747,78 +847,21 @@ var controlsControlStatelessBuilderSetZoneCmd = &cobra.Command{
 	},
 }
 
-var controlsProviderServiceCmd = &cobra.Command{
-	Use:   "provider-service",
-	Short: "ProviderServiceService operations",
-}
-
-var controlsProviderServiceOnBindCmd = &cobra.Command{
-	Use:   "on-bind",
-	Short: "OnBind RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewProviderServiceServiceClient(grpcConn)
-		req := &pb.OnBindRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.OnBind(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var controlsProviderServiceOnUnbindCmd = &cobra.Command{
-	Use:   "on-unbind",
-	Short: "OnUnbind RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewProviderServiceServiceClient(grpcConn)
-		req := &pb.OnUnbindRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.OnUnbind(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var controlsProviderServiceRequestAddControlCmd = &cobra.Command{
-	Use:   "request-add-control",
-	Short: "RequestAddControl RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewProviderServiceServiceClient(grpcConn)
-		req := &pb.RequestAddControlRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.RequestAddControl(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
 func init() {
 	controlsDeviceTypesValidDeviceTypeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
 	controlsDeviceTypesCmd.AddCommand(controlsDeviceTypesValidDeviceTypeCmd)
 	controlsCmd.AddCommand(controlsDeviceTypesCmd)
+	controlsProviderServiceCmd.AddCommand(controlsProviderServiceCreatePublisherForAllAvailableCmd)
+	controlsProviderServiceCmd.AddCommand(controlsProviderServiceCreatePublisherForSuggestedCmd)
+	controlsProviderServiceOnBindCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	controlsProviderServiceCmd.AddCommand(controlsProviderServiceOnBindCmd)
+	controlsProviderServiceOnUnbindCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	controlsProviderServiceCmd.AddCommand(controlsProviderServiceOnUnbindCmd)
+	controlsProviderServiceRequestAddControlCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	controlsProviderServiceRequestAddControlCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	controlsProviderServiceRequestAddControlCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	controlsProviderServiceCmd.AddCommand(controlsProviderServiceRequestAddControlCmd)
+	controlsCmd.AddCommand(controlsProviderServiceCmd)
 	controlsControlCmd.AddCommand(controlsControlDescribeContentsCmd)
 	controlsControlCmd.AddCommand(controlsControlGetAppIntentCmd)
 	controlsControlCmd.AddCommand(controlsControlGetControlIdCmd)
@@ -885,14 +928,5 @@ func init() {
 	controlsControlStatelessBuilderSetZoneCmd.Flags().String("arg0", "", "arg0 (string)")
 	controlsControlStatelessBuilderCmd.AddCommand(controlsControlStatelessBuilderSetZoneCmd)
 	controlsCmd.AddCommand(controlsControlStatelessBuilderCmd)
-	controlsProviderServiceOnBindCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	controlsProviderServiceCmd.AddCommand(controlsProviderServiceOnBindCmd)
-	controlsProviderServiceOnUnbindCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	controlsProviderServiceCmd.AddCommand(controlsProviderServiceOnUnbindCmd)
-	controlsProviderServiceRequestAddControlCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	controlsProviderServiceRequestAddControlCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	controlsProviderServiceRequestAddControlCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	controlsProviderServiceCmd.AddCommand(controlsProviderServiceRequestAddControlCmd)
-	controlsCmd.AddCommand(controlsProviderServiceCmd)
 	rootCmd.AddCommand(controlsCmd)
 }

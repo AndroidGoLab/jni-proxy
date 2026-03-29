@@ -12,29 +12,20 @@ var telecomCmd = &cobra.Command{
 	Short: "telecom service operations",
 }
 
-var telecomPhoneAccountSuggestionCmd = &cobra.Command{
-	Use:   "phone-account-suggestion",
-	Short: "PhoneAccountSuggestionService operations",
+var telecomRemoteConferenceCmd = &cobra.Command{
+	Use:   "remote-conference",
+	Short: "RemoteConferenceService operations",
 }
 
-var telecomPhoneAccountSuggestionNewPhoneAccountSuggestionCmd = &cobra.Command{
-	Use:   "new-phone-account-suggestion",
-	Short: "NewPhoneAccountSuggestion RPC",
+var telecomRemoteConferenceDisconnectCmd = &cobra.Command{
+	Use:   "disconnect",
+	Short: "Disconnect RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewPhoneAccountSuggestionServiceClient(grpcConn)
-		req := &pb.NewPhoneAccountSuggestionRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetBool("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.NewPhoneAccountSuggestion(ctx, req)
+		client := pb.NewRemoteConferenceServiceClient(grpcConn)
+		req := &pb.DisconnectRequest{}
+		resp, err := client.Disconnect(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -42,17 +33,487 @@ var telecomPhoneAccountSuggestionNewPhoneAccountSuggestionCmd = &cobra.Command{
 	},
 }
 
-var telecomPhoneAccountSuggestionDescribeContentsCmd = &cobra.Command{
+var telecomRemoteConferenceGetConferenceableConnectionsCmd = &cobra.Command{
+	Use:   "get-conferenceable-connections",
+	Short: "GetConferenceableConnections RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRemoteConferenceServiceClient(grpcConn)
+		req := &pb.GetConferenceableConnectionsRequest{}
+		resp, err := client.GetConferenceableConnections(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomRemoteConferenceGetConnectionCapabilitiesCmd = &cobra.Command{
+	Use:   "get-connection-capabilities",
+	Short: "GetConnectionCapabilities RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRemoteConferenceServiceClient(grpcConn)
+		req := &pb.GetConnectionCapabilitiesRequest{}
+		resp, err := client.GetConnectionCapabilities(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomRemoteConferenceGetConnectionPropertiesCmd = &cobra.Command{
+	Use:   "get-connection-properties",
+	Short: "GetConnectionProperties RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRemoteConferenceServiceClient(grpcConn)
+		req := &pb.GetConnectionPropertiesRequest{}
+		resp, err := client.GetConnectionProperties(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomRemoteConferenceGetConnectionsCmd = &cobra.Command{
+	Use:   "get-connections",
+	Short: "GetConnections RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRemoteConferenceServiceClient(grpcConn)
+		req := &pb.GetConnectionsRequest{}
+		resp, err := client.GetConnections(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomRemoteConferenceGetDisconnectCauseCmd = &cobra.Command{
+	Use:   "get-disconnect-cause",
+	Short: "GetDisconnectCause RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRemoteConferenceServiceClient(grpcConn)
+		req := &pb.GetDisconnectCauseRequest{}
+		resp, err := client.GetDisconnectCause(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomRemoteConferenceGetExtrasCmd = &cobra.Command{
+	Use:   "get-extras",
+	Short: "GetExtras RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRemoteConferenceServiceClient(grpcConn)
+		req := &pb.GetExtrasRequest{}
+		resp, err := client.GetExtras(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomRemoteConferenceGetStateCmd = &cobra.Command{
+	Use:   "get-state",
+	Short: "GetState RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRemoteConferenceServiceClient(grpcConn)
+		req := &pb.GetStateRequest{}
+		resp, err := client.GetState(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomRemoteConferenceHoldCmd = &cobra.Command{
+	Use:   "hold",
+	Short: "Hold RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRemoteConferenceServiceClient(grpcConn)
+		req := &pb.HoldRequest{}
+		resp, err := client.Hold(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomRemoteConferenceMergeCmd = &cobra.Command{
+	Use:   "merge",
+	Short: "Merge RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRemoteConferenceServiceClient(grpcConn)
+		req := &pb.MergeRequest{}
+		resp, err := client.Merge(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomRemoteConferencePlayDtmfToneCmd = &cobra.Command{
+	Use:   "play-dtmf-tone",
+	Short: "PlayDtmfTone RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRemoteConferenceServiceClient(grpcConn)
+		req := &pb.PlayDtmfToneRequest{}
+		if v, err := cmd.Flags().GetUint32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.PlayDtmfTone(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomRemoteConferenceRegisterCallbackCmd = &cobra.Command{
+	Use:   "register-callback",
+	Short: "RegisterCallback RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRemoteConferenceServiceClient(grpcConn)
+		req := &pb.RegisterCallbackRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.RegisterCallback(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomRemoteConferenceSeparateCmd = &cobra.Command{
+	Use:   "separate",
+	Short: "Separate RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRemoteConferenceServiceClient(grpcConn)
+		req := &pb.SeparateRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Separate(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomRemoteConferenceSetCallAudioStateCmd = &cobra.Command{
+	Use:   "set-call-audio-state",
+	Short: "SetCallAudioState RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRemoteConferenceServiceClient(grpcConn)
+		req := &pb.SetCallAudioStateRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetCallAudioState(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomRemoteConferenceStopDtmfToneCmd = &cobra.Command{
+	Use:   "stop-dtmf-tone",
+	Short: "StopDtmfTone RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRemoteConferenceServiceClient(grpcConn)
+		req := &pb.StopDtmfToneRequest{}
+		resp, err := client.StopDtmfTone(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomRemoteConferenceSwapCmd = &cobra.Command{
+	Use:   "swap",
+	Short: "Swap RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRemoteConferenceServiceClient(grpcConn)
+		req := &pb.SwapRequest{}
+		resp, err := client.Swap(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomRemoteConferenceUnholdCmd = &cobra.Command{
+	Use:   "unhold",
+	Short: "Unhold RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRemoteConferenceServiceClient(grpcConn)
+		req := &pb.UnholdRequest{}
+		resp, err := client.Unhold(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomRemoteConferenceUnregisterCallbackCmd = &cobra.Command{
+	Use:   "unregister-callback",
+	Short: "UnregisterCallback RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRemoteConferenceServiceClient(grpcConn)
+		req := &pb.UnregisterCallbackRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.UnregisterCallback(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomRemoteConferenceCallbackCmd = &cobra.Command{
+	Use:   "remote-conference-callback",
+	Short: "RemoteConferenceCallbackService operations",
+}
+
+var telecomRemoteConferenceCallbackOnConnectionAddedCmd = &cobra.Command{
+	Use:   "on-connection-added",
+	Short: "OnConnectionAdded RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRemoteConferenceCallbackServiceClient(grpcConn)
+		req := &pb.OnConnectionAddedRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.OnConnectionAdded(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomRemoteConferenceCallbackOnConnectionCapabilitiesChangedCmd = &cobra.Command{
+	Use:   "on-connection-capabilities-changed",
+	Short: "OnConnectionCapabilitiesChanged RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRemoteConferenceCallbackServiceClient(grpcConn)
+		req := &pb.OnConnectionCapabilitiesChangedRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.OnConnectionCapabilitiesChanged(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomRemoteConferenceCallbackOnConnectionPropertiesChangedCmd = &cobra.Command{
+	Use:   "on-connection-properties-changed",
+	Short: "OnConnectionPropertiesChanged RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRemoteConferenceCallbackServiceClient(grpcConn)
+		req := &pb.OnConnectionPropertiesChangedRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.OnConnectionPropertiesChanged(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomRemoteConferenceCallbackOnConnectionRemovedCmd = &cobra.Command{
+	Use:   "on-connection-removed",
+	Short: "OnConnectionRemoved RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRemoteConferenceCallbackServiceClient(grpcConn)
+		req := &pb.OnConnectionRemovedRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.OnConnectionRemoved(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomRemoteConferenceCallbackOnDestroyedCmd = &cobra.Command{
+	Use:   "on-destroyed",
+	Short: "OnDestroyed RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRemoteConferenceCallbackServiceClient(grpcConn)
+		req := &pb.OnDestroyedRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnDestroyed(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomRemoteConferenceCallbackOnDisconnectedCmd = &cobra.Command{
+	Use:   "on-disconnected",
+	Short: "OnDisconnected RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRemoteConferenceCallbackServiceClient(grpcConn)
+		req := &pb.OnDisconnectedRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.OnDisconnected(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomRemoteConferenceCallbackOnExtrasChangedCmd = &cobra.Command{
+	Use:   "on-extras-changed",
+	Short: "OnExtrasChanged RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRemoteConferenceCallbackServiceClient(grpcConn)
+		req := &pb.OnExtrasChangedRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.OnExtrasChanged(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomRemoteConferenceCallbackOnStateChangedCmd = &cobra.Command{
+	Use:   "on-state-changed",
+	Short: "OnStateChanged RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRemoteConferenceCallbackServiceClient(grpcConn)
+		req := &pb.OnStateChangedRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.OnStateChanged(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomCallAttributesCmd = &cobra.Command{
+	Use:   "call-attributes",
+	Short: "CallAttributesService operations",
+}
+
+var telecomCallAttributesDescribeContentsCmd = &cobra.Command{
 	Use:   "describe-contents",
 	Short: "DescribeContents RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewPhoneAccountSuggestionServiceClient(grpcConn)
+		client := pb.NewCallAttributesServiceClient(grpcConn)
 		req := &pb.DescribeContentsRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
 		resp, err := client.DescribeContents(ctx, req)
 		if err != nil {
 			return err
@@ -61,17 +522,14 @@ var telecomPhoneAccountSuggestionDescribeContentsCmd = &cobra.Command{
 	},
 }
 
-var telecomPhoneAccountSuggestionEqualsCmd = &cobra.Command{
+var telecomCallAttributesEqualsCmd = &cobra.Command{
 	Use:   "equals",
 	Short: "Equals RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewPhoneAccountSuggestionServiceClient(grpcConn)
+		client := pb.NewCallAttributesServiceClient(grpcConn)
 		req := &pb.EqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
@@ -83,17 +541,94 @@ var telecomPhoneAccountSuggestionEqualsCmd = &cobra.Command{
 	},
 }
 
-var telecomPhoneAccountSuggestionGetPhoneAccountHandleCmd = &cobra.Command{
+var telecomCallAttributesGetAddressCmd = &cobra.Command{
+	Use:   "get-address",
+	Short: "GetAddress RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCallAttributesServiceClient(grpcConn)
+		req := &pb.GetAddressRequest{}
+		resp, err := client.GetAddress(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomCallAttributesGetCallCapabilitiesCmd = &cobra.Command{
+	Use:   "get-call-capabilities",
+	Short: "GetCallCapabilities RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCallAttributesServiceClient(grpcConn)
+		req := &pb.GetCallCapabilitiesRequest{}
+		resp, err := client.GetCallCapabilities(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomCallAttributesGetCallTypeCmd = &cobra.Command{
+	Use:   "get-call-type",
+	Short: "GetCallType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCallAttributesServiceClient(grpcConn)
+		req := &pb.GetCallTypeRequest{}
+		resp, err := client.GetCallType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomCallAttributesGetDirectionCmd = &cobra.Command{
+	Use:   "get-direction",
+	Short: "GetDirection RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCallAttributesServiceClient(grpcConn)
+		req := &pb.GetDirectionRequest{}
+		resp, err := client.GetDirection(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomCallAttributesGetDisplayNameCmd = &cobra.Command{
+	Use:   "get-display-name",
+	Short: "GetDisplayName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCallAttributesServiceClient(grpcConn)
+		req := &pb.GetDisplayNameRequest{}
+		resp, err := client.GetDisplayName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomCallAttributesGetPhoneAccountHandleCmd = &cobra.Command{
 	Use:   "get-phone-account-handle",
 	Short: "GetPhoneAccountHandle RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewPhoneAccountSuggestionServiceClient(grpcConn)
+		client := pb.NewCallAttributesServiceClient(grpcConn)
 		req := &pb.GetPhoneAccountHandleRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
 		resp, err := client.GetPhoneAccountHandle(ctx, req)
 		if err != nil {
 			return err
@@ -102,36 +637,14 @@ var telecomPhoneAccountSuggestionGetPhoneAccountHandleCmd = &cobra.Command{
 	},
 }
 
-var telecomPhoneAccountSuggestionGetReasonCmd = &cobra.Command{
-	Use:   "get-reason",
-	Short: "GetReason RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPhoneAccountSuggestionServiceClient(grpcConn)
-		req := &pb.GetReasonRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetReason(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomPhoneAccountSuggestionHashCodeCmd = &cobra.Command{
+var telecomCallAttributesHashCodeCmd = &cobra.Command{
 	Use:   "hash-code",
 	Short: "HashCode RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewPhoneAccountSuggestionServiceClient(grpcConn)
+		client := pb.NewCallAttributesServiceClient(grpcConn)
 		req := &pb.HashCodeRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
 		resp, err := client.HashCode(ctx, req)
 		if err != nil {
 			return err
@@ -140,18 +653,15 @@ var telecomPhoneAccountSuggestionHashCodeCmd = &cobra.Command{
 	},
 }
 
-var telecomPhoneAccountSuggestionShouldAutoSelectCmd = &cobra.Command{
-	Use:   "should-auto-select",
-	Short: "ShouldAutoSelect RPC",
+var telecomCallAttributesToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewPhoneAccountSuggestionServiceClient(grpcConn)
-		req := &pb.ShouldAutoSelectRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.ShouldAutoSelect(ctx, req)
+		client := pb.NewCallAttributesServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		resp, err := client.ToString(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -159,14 +669,724 @@ var telecomPhoneAccountSuggestionShouldAutoSelectCmd = &cobra.Command{
 	},
 }
 
-var telecomPhoneAccountSuggestionWriteToParcelCmd = &cobra.Command{
+var telecomCallAttributesWriteToParcelCmd = &cobra.Command{
 	Use:   "write-to-parcel",
 	Short: "WriteToParcel RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewPhoneAccountSuggestionServiceClient(grpcConn)
+		client := pb.NewCallAttributesServiceClient(grpcConn)
 		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomCallAttributesBuilderCmd = &cobra.Command{
+	Use:   "call-attributes-builder",
+	Short: "CallAttributesBuilderService operations",
+}
+
+var telecomCallAttributesBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCallAttributesBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomCallAttributesBuilderSetCallCapabilitiesCmd = &cobra.Command{
+	Use:   "set-call-capabilities",
+	Short: "SetCallCapabilities RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCallAttributesBuilderServiceClient(grpcConn)
+		req := &pb.SetCallCapabilitiesRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetCallCapabilities(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomCallAttributesBuilderSetCallTypeCmd = &cobra.Command{
+	Use:   "set-call-type",
+	Short: "SetCallType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCallAttributesBuilderServiceClient(grpcConn)
+		req := &pb.SetCallTypeRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetCallType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomPhoneAccountCmd = &cobra.Command{
+	Use:   "phone-account",
+	Short: "PhoneAccountService operations",
+}
+
+var telecomPhoneAccountDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPhoneAccountServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomPhoneAccountEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPhoneAccountServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomPhoneAccountGetAccountHandleCmd = &cobra.Command{
+	Use:   "get-account-handle",
+	Short: "GetAccountHandle RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPhoneAccountServiceClient(grpcConn)
+		req := &pb.GetAccountHandleRequest{}
+		resp, err := client.GetAccountHandle(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomPhoneAccountGetAddressCmd = &cobra.Command{
+	Use:   "get-address",
+	Short: "GetAddress RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPhoneAccountServiceClient(grpcConn)
+		req := &pb.GetAddressRequest{}
+		resp, err := client.GetAddress(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomPhoneAccountGetCapabilitiesCmd = &cobra.Command{
+	Use:   "get-capabilities",
+	Short: "GetCapabilities RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPhoneAccountServiceClient(grpcConn)
+		req := &pb.GetCapabilitiesRequest{}
+		resp, err := client.GetCapabilities(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomPhoneAccountGetExtrasCmd = &cobra.Command{
+	Use:   "get-extras",
+	Short: "GetExtras RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPhoneAccountServiceClient(grpcConn)
+		req := &pb.GetExtrasRequest{}
+		resp, err := client.GetExtras(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomPhoneAccountGetHighlightColorCmd = &cobra.Command{
+	Use:   "get-highlight-color",
+	Short: "GetHighlightColor RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPhoneAccountServiceClient(grpcConn)
+		req := &pb.GetHighlightColorRequest{}
+		resp, err := client.GetHighlightColor(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomPhoneAccountGetIconCmd = &cobra.Command{
+	Use:   "get-icon",
+	Short: "GetIcon RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPhoneAccountServiceClient(grpcConn)
+		req := &pb.GetIconRequest{}
+		resp, err := client.GetIcon(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomPhoneAccountGetLabelCmd = &cobra.Command{
+	Use:   "get-label",
+	Short: "GetLabel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPhoneAccountServiceClient(grpcConn)
+		req := &pb.GetLabelRequest{}
+		resp, err := client.GetLabel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomPhoneAccountGetShortDescriptionCmd = &cobra.Command{
+	Use:   "get-short-description",
+	Short: "GetShortDescription RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPhoneAccountServiceClient(grpcConn)
+		req := &pb.GetShortDescriptionRequest{}
+		resp, err := client.GetShortDescription(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomPhoneAccountGetSimultaneousCallingRestrictionCmd = &cobra.Command{
+	Use:   "get-simultaneous-calling-restriction",
+	Short: "GetSimultaneousCallingRestriction RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPhoneAccountServiceClient(grpcConn)
+		req := &pb.GetSimultaneousCallingRestrictionRequest{}
+		resp, err := client.GetSimultaneousCallingRestriction(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomPhoneAccountGetSubscriptionAddressCmd = &cobra.Command{
+	Use:   "get-subscription-address",
+	Short: "GetSubscriptionAddress RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPhoneAccountServiceClient(grpcConn)
+		req := &pb.GetSubscriptionAddressRequest{}
+		resp, err := client.GetSubscriptionAddress(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomPhoneAccountGetSupportedUriSchemesCmd = &cobra.Command{
+	Use:   "get-supported-uri-schemes",
+	Short: "GetSupportedUriSchemes RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPhoneAccountServiceClient(grpcConn)
+		req := &pb.GetSupportedUriSchemesRequest{}
+		resp, err := client.GetSupportedUriSchemes(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomPhoneAccountHasCapabilitiesCmd = &cobra.Command{
+	Use:   "has-capabilities",
+	Short: "HasCapabilities RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPhoneAccountServiceClient(grpcConn)
+		req := &pb.HasCapabilitiesRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.HasCapabilities(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomPhoneAccountHasSimultaneousCallingRestrictionCmd = &cobra.Command{
+	Use:   "has-simultaneous-calling-restriction",
+	Short: "HasSimultaneousCallingRestriction RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPhoneAccountServiceClient(grpcConn)
+		req := &pb.HasSimultaneousCallingRestrictionRequest{}
+		resp, err := client.HasSimultaneousCallingRestriction(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomPhoneAccountHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPhoneAccountServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomPhoneAccountIsEnabledCmd = &cobra.Command{
+	Use:   "is-enabled",
+	Short: "IsEnabled RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPhoneAccountServiceClient(grpcConn)
+		req := &pb.IsEnabledRequest{}
+		resp, err := client.IsEnabled(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomPhoneAccountSupportsUriSchemeCmd = &cobra.Command{
+	Use:   "supports-uri-scheme",
+	Short: "SupportsUriScheme RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPhoneAccountServiceClient(grpcConn)
+		req := &pb.SupportsUriSchemeRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SupportsUriScheme(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomPhoneAccountToBuilderCmd = &cobra.Command{
+	Use:   "to-builder",
+	Short: "ToBuilder RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPhoneAccountServiceClient(grpcConn)
+		req := &pb.ToBuilderRequest{}
+		resp, err := client.ToBuilder(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomPhoneAccountToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPhoneAccountServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomPhoneAccountWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPhoneAccountServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomPhoneAccountBuilderCmd = &cobra.Command{
+	Use:   "builder",
+	Short: "Builder RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPhoneAccountServiceClient(grpcConn)
+		req := &pb.BuilderRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.Builder(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomPhoneAccountBuilderSvcCmd = &cobra.Command{
+	Use:   "phone-account-builder",
+	Short: "PhoneAccountBuilderService operations",
+}
+
+var telecomPhoneAccountBuilderSvcAddSupportedUriSchemeCmd = &cobra.Command{
+	Use:   "add-supported-uri-scheme",
+	Short: "AddSupportedUriScheme RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPhoneAccountBuilderServiceClient(grpcConn)
+		req := &pb.AddSupportedUriSchemeRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddSupportedUriScheme(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomPhoneAccountBuilderSvcBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPhoneAccountBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomPhoneAccountBuilderSvcClearSimultaneousCallingRestrictionCmd = &cobra.Command{
+	Use:   "clear-simultaneous-calling-restriction",
+	Short: "ClearSimultaneousCallingRestriction RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPhoneAccountBuilderServiceClient(grpcConn)
+		req := &pb.ClearSimultaneousCallingRestrictionRequest{}
+		resp, err := client.ClearSimultaneousCallingRestriction(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomPhoneAccountBuilderSvcSetAddressCmd = &cobra.Command{
+	Use:   "set-address",
+	Short: "SetAddress RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPhoneAccountBuilderServiceClient(grpcConn)
+		req := &pb.SetAddressRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetAddress(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomPhoneAccountBuilderSvcSetCapabilitiesCmd = &cobra.Command{
+	Use:   "set-capabilities",
+	Short: "SetCapabilities RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPhoneAccountBuilderServiceClient(grpcConn)
+		req := &pb.SetCapabilitiesRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetCapabilities(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomPhoneAccountBuilderSvcSetExtrasCmd = &cobra.Command{
+	Use:   "set-extras",
+	Short: "SetExtras RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPhoneAccountBuilderServiceClient(grpcConn)
+		req := &pb.SetExtrasRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetExtras(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomPhoneAccountBuilderSvcSetHighlightColorCmd = &cobra.Command{
+	Use:   "set-highlight-color",
+	Short: "SetHighlightColor RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPhoneAccountBuilderServiceClient(grpcConn)
+		req := &pb.SetHighlightColorRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetHighlightColor(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomPhoneAccountBuilderSvcSetIconCmd = &cobra.Command{
+	Use:   "set-icon",
+	Short: "SetIcon RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPhoneAccountBuilderServiceClient(grpcConn)
+		req := &pb.SetIconRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetIcon(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomPhoneAccountBuilderSvcSetShortDescriptionCmd = &cobra.Command{
+	Use:   "set-short-description",
+	Short: "SetShortDescription RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPhoneAccountBuilderServiceClient(grpcConn)
+		req := &pb.SetShortDescriptionRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetShortDescription(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomPhoneAccountBuilderSvcSetSubscriptionAddressCmd = &cobra.Command{
+	Use:   "set-subscription-address",
+	Short: "SetSubscriptionAddress RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPhoneAccountBuilderServiceClient(grpcConn)
+		req := &pb.SetSubscriptionAddressRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetSubscriptionAddress(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomQueryLocationExceptionCmd = &cobra.Command{
+	Use:   "query-location-exception",
+	Short: "QueryLocationExceptionService operations",
+}
+
+var telecomQueryLocationExceptionNewQueryLocationExceptionCmd = &cobra.Command{
+	Use:   "new-query-location-exception",
+	Short: "NewQueryLocationException RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewQueryLocationExceptionServiceClient(grpcConn)
+		req := &pb.NewQueryLocationExceptionRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.NewQueryLocationException(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomQueryLocationExceptionDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewQueryLocationExceptionServiceClient(grpcConn)
+		req := &pb.QueryLocationExceptionDescribeContentsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomQueryLocationExceptionGetCodeCmd = &cobra.Command{
+	Use:   "get-code",
+	Short: "GetCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewQueryLocationExceptionServiceClient(grpcConn)
+		req := &pb.GetCodeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomQueryLocationExceptionWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewQueryLocationExceptionServiceClient(grpcConn)
+		req := &pb.QueryLocationExceptionWriteToParcelRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
@@ -184,23 +1404,23 @@ var telecomPhoneAccountSuggestionWriteToParcelCmd = &cobra.Command{
 	},
 }
 
-var telecomConferenceCmd = &cobra.Command{
-	Use:   "conference",
-	Short: "ConferenceService operations",
+var telecomCallScreeningServiceCmd = &cobra.Command{
+	Use:   "call-screening-service",
+	Short: "CallScreeningServiceService operations",
 }
 
-var telecomConferenceAddConnectionCmd = &cobra.Command{
-	Use:   "add-connection",
-	Short: "AddConnection RPC",
+var telecomCallScreeningServiceOnBindCmd = &cobra.Command{
+	Use:   "on-bind",
+	Short: "OnBind RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewConferenceServiceClient(grpcConn)
-		req := &pb.AddConnectionRequest{}
+		client := pb.NewCallScreeningServiceServiceClient(grpcConn)
+		req := &pb.OnBindRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		resp, err := client.AddConnection(ctx, req)
+		resp, err := client.OnBind(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -208,15 +1428,18 @@ var telecomConferenceAddConnectionCmd = &cobra.Command{
 	},
 }
 
-var telecomConferenceDestroyCmd = &cobra.Command{
-	Use:   "destroy",
-	Short: "Destroy RPC",
+var telecomCallScreeningServiceOnScreenCallCmd = &cobra.Command{
+	Use:   "on-screen-call",
+	Short: "OnScreenCall RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewConferenceServiceClient(grpcConn)
-		req := &pb.DestroyRequest{}
-		resp, err := client.Destroy(ctx, req)
+		client := pb.NewCallScreeningServiceServiceClient(grpcConn)
+		req := &pb.OnScreenCallRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnScreenCall(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -224,15 +1447,18 @@ var telecomConferenceDestroyCmd = &cobra.Command{
 	},
 }
 
-var telecomConferenceGetCallAudioStateCmd = &cobra.Command{
-	Use:   "get-call-audio-state",
-	Short: "GetCallAudioState RPC",
+var telecomCallScreeningServiceOnUnbindCmd = &cobra.Command{
+	Use:   "on-unbind",
+	Short: "OnUnbind RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewConferenceServiceClient(grpcConn)
-		req := &pb.GetCallAudioStateRequest{}
-		resp, err := client.GetCallAudioState(ctx, req)
+		client := pb.NewCallScreeningServiceServiceClient(grpcConn)
+		req := &pb.OnUnbindRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnUnbind(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -240,15 +1466,21 @@ var telecomConferenceGetCallAudioStateCmd = &cobra.Command{
 	},
 }
 
-var telecomConferenceGetConnectionCapabilitiesCmd = &cobra.Command{
-	Use:   "get-connection-capabilities",
-	Short: "GetConnectionCapabilities RPC",
+var telecomCallScreeningServiceRespondToCallCmd = &cobra.Command{
+	Use:   "respond-to-call",
+	Short: "RespondToCall RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewConferenceServiceClient(grpcConn)
-		req := &pb.GetConnectionCapabilitiesRequest{}
-		resp, err := client.GetConnectionCapabilities(ctx, req)
+		client := pb.NewCallScreeningServiceServiceClient(grpcConn)
+		req := &pb.RespondToCallRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.RespondToCall(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -256,15 +1488,23 @@ var telecomConferenceGetConnectionCapabilitiesCmd = &cobra.Command{
 	},
 }
 
-var telecomConferenceGetConnectionPropertiesCmd = &cobra.Command{
-	Use:   "get-connection-properties",
-	Short: "GetConnectionProperties RPC",
+var telecomCallScreeningServiceCallResponseCmd = &cobra.Command{
+	Use:   "call-screening-service-call-response",
+	Short: "CallScreeningServiceCallResponseService operations",
+}
+
+var telecomCallScreeningServiceCallResponseEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewConferenceServiceClient(grpcConn)
-		req := &pb.GetConnectionPropertiesRequest{}
-		resp, err := client.GetConnectionProperties(ctx, req)
+		client := pb.NewCallScreeningServiceCallResponseServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -272,15 +1512,15 @@ var telecomConferenceGetConnectionPropertiesCmd = &cobra.Command{
 	},
 }
 
-var telecomConferenceGetConnectionStartElapsedRealtimeMillisCmd = &cobra.Command{
-	Use:   "get-connection-start-elapsed-realtime-millis",
-	Short: "GetConnectionStartElapsedRealtimeMillis RPC",
+var telecomCallScreeningServiceCallResponseGetCallComposerAttachmentsToShowCmd = &cobra.Command{
+	Use:   "get-call-composer-attachments-to-show",
+	Short: "GetCallComposerAttachmentsToShow RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewConferenceServiceClient(grpcConn)
-		req := &pb.GetConnectionStartElapsedRealtimeMillisRequest{}
-		resp, err := client.GetConnectionStartElapsedRealtimeMillis(ctx, req)
+		client := pb.NewCallScreeningServiceCallResponseServiceClient(grpcConn)
+		req := &pb.GetCallComposerAttachmentsToShowRequest{}
+		resp, err := client.GetCallComposerAttachmentsToShow(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -288,15 +1528,15 @@ var telecomConferenceGetConnectionStartElapsedRealtimeMillisCmd = &cobra.Command
 	},
 }
 
-var telecomConferenceGetConnectionTimeCmd = &cobra.Command{
-	Use:   "get-connection-time",
-	Short: "GetConnectionTime RPC",
+var telecomCallScreeningServiceCallResponseGetDisallowCallCmd = &cobra.Command{
+	Use:   "get-disallow-call",
+	Short: "GetDisallowCall RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewConferenceServiceClient(grpcConn)
-		req := &pb.GetConnectionTimeRequest{}
-		resp, err := client.GetConnectionTime(ctx, req)
+		client := pb.NewCallScreeningServiceCallResponseServiceClient(grpcConn)
+		req := &pb.GetDisallowCallRequest{}
+		resp, err := client.GetDisallowCall(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -304,15 +1544,15 @@ var telecomConferenceGetConnectionTimeCmd = &cobra.Command{
 	},
 }
 
-var telecomConferenceGetCurrentCallEndpointCmd = &cobra.Command{
-	Use:   "get-current-call-endpoint",
-	Short: "GetCurrentCallEndpoint RPC",
+var telecomCallScreeningServiceCallResponseGetRejectCallCmd = &cobra.Command{
+	Use:   "get-reject-call",
+	Short: "GetRejectCall RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewConferenceServiceClient(grpcConn)
-		req := &pb.GetCurrentCallEndpointRequest{}
-		resp, err := client.GetCurrentCallEndpoint(ctx, req)
+		client := pb.NewCallScreeningServiceCallResponseServiceClient(grpcConn)
+		req := &pb.GetRejectCallRequest{}
+		resp, err := client.GetRejectCall(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -320,15 +1560,15 @@ var telecomConferenceGetCurrentCallEndpointCmd = &cobra.Command{
 	},
 }
 
-var telecomConferenceGetDisconnectCauseCmd = &cobra.Command{
-	Use:   "get-disconnect-cause",
-	Short: "GetDisconnectCause RPC",
+var telecomCallScreeningServiceCallResponseGetSilenceCallCmd = &cobra.Command{
+	Use:   "get-silence-call",
+	Short: "GetSilenceCall RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewConferenceServiceClient(grpcConn)
-		req := &pb.GetDisconnectCauseRequest{}
-		resp, err := client.GetDisconnectCause(ctx, req)
+		client := pb.NewCallScreeningServiceCallResponseServiceClient(grpcConn)
+		req := &pb.GetSilenceCallRequest{}
+		resp, err := client.GetSilenceCall(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -336,15 +1576,15 @@ var telecomConferenceGetDisconnectCauseCmd = &cobra.Command{
 	},
 }
 
-var telecomConferenceGetExtrasCmd = &cobra.Command{
-	Use:   "get-extras",
-	Short: "GetExtras RPC",
+var telecomCallScreeningServiceCallResponseGetSkipCallLogCmd = &cobra.Command{
+	Use:   "get-skip-call-log",
+	Short: "GetSkipCallLog RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewConferenceServiceClient(grpcConn)
-		req := &pb.GetExtrasRequest{}
-		resp, err := client.GetExtras(ctx, req)
+		client := pb.NewCallScreeningServiceCallResponseServiceClient(grpcConn)
+		req := &pb.GetSkipCallLogRequest{}
+		resp, err := client.GetSkipCallLog(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -352,15 +1592,15 @@ var telecomConferenceGetExtrasCmd = &cobra.Command{
 	},
 }
 
-var telecomConferenceGetPhoneAccountHandleCmd = &cobra.Command{
-	Use:   "get-phone-account-handle",
-	Short: "GetPhoneAccountHandle RPC",
+var telecomCallScreeningServiceCallResponseGetSkipNotificationCmd = &cobra.Command{
+	Use:   "get-skip-notification",
+	Short: "GetSkipNotification RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewConferenceServiceClient(grpcConn)
-		req := &pb.ConferenceGetPhoneAccountHandleRequest{}
-		resp, err := client.GetPhoneAccountHandle(ctx, req)
+		client := pb.NewCallScreeningServiceCallResponseServiceClient(grpcConn)
+		req := &pb.GetSkipNotificationRequest{}
+		resp, err := client.GetSkipNotification(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -368,15 +1608,15 @@ var telecomConferenceGetPhoneAccountHandleCmd = &cobra.Command{
 	},
 }
 
-var telecomConferenceGetStateCmd = &cobra.Command{
-	Use:   "get-state",
-	Short: "GetState RPC",
+var telecomCallScreeningServiceCallResponseHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewConferenceServiceClient(grpcConn)
-		req := &pb.GetStateRequest{}
-		resp, err := client.GetState(ctx, req)
+		client := pb.NewCallScreeningServiceCallResponseServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -384,15 +1624,23 @@ var telecomConferenceGetStateCmd = &cobra.Command{
 	},
 }
 
-var telecomConferenceGetStatusHintsCmd = &cobra.Command{
-	Use:   "get-status-hints",
-	Short: "GetStatusHints RPC",
+var telecomVideoProfileCmd = &cobra.Command{
+	Use:   "video-profile",
+	Short: "VideoProfileService operations",
+}
+
+var telecomVideoProfileNewVideoProfileCmd = &cobra.Command{
+	Use:   "new-video-profile",
+	Short: "NewVideoProfile RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewConferenceServiceClient(grpcConn)
-		req := &pb.GetStatusHintsRequest{}
-		resp, err := client.GetStatusHints(ctx, req)
+		client := pb.NewVideoProfileServiceClient(grpcConn)
+		req := &pb.NewVideoProfileRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.NewVideoProfile(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -400,15 +1648,18 @@ var telecomConferenceGetStatusHintsCmd = &cobra.Command{
 	},
 }
 
-var telecomConferenceGetVideoProviderCmd = &cobra.Command{
-	Use:   "get-video-provider",
-	Short: "GetVideoProvider RPC",
+var telecomVideoProfileDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewConferenceServiceClient(grpcConn)
-		req := &pb.GetVideoProviderRequest{}
-		resp, err := client.GetVideoProvider(ctx, req)
+		client := pb.NewVideoProfileServiceClient(grpcConn)
+		req := &pb.VideoProfileDescribeContentsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.DescribeContents(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -416,14 +1667,36 @@ var telecomConferenceGetVideoProviderCmd = &cobra.Command{
 	},
 }
 
-var telecomConferenceGetVideoStateCmd = &cobra.Command{
+var telecomVideoProfileGetQualityCmd = &cobra.Command{
+	Use:   "get-quality",
+	Short: "GetQuality RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVideoProfileServiceClient(grpcConn)
+		req := &pb.GetQualityRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetQuality(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomVideoProfileGetVideoStateCmd = &cobra.Command{
 	Use:   "get-video-state",
 	Short: "GetVideoState RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewConferenceServiceClient(grpcConn)
+		client := pb.NewVideoProfileServiceClient(grpcConn)
 		req := &pb.GetVideoStateRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
 		resp, err := client.GetVideoState(ctx, req)
 		if err != nil {
 			return err
@@ -432,671 +1705,17 @@ var telecomConferenceGetVideoStateCmd = &cobra.Command{
 	},
 }
 
-var telecomConferenceIsRingbackRequestedCmd = &cobra.Command{
-	Use:   "is-ringback-requested",
-	Short: "IsRingbackRequested RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewConferenceServiceClient(grpcConn)
-		req := &pb.IsRingbackRequestedRequest{}
-		resp, err := client.IsRingbackRequested(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomConferenceOnAnswerCmd = &cobra.Command{
-	Use:   "on-answer",
-	Short: "OnAnswer RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewConferenceServiceClient(grpcConn)
-		req := &pb.OnAnswerRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.OnAnswer(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomConferenceOnCallAudioStateChangedCmd = &cobra.Command{
-	Use:   "on-call-audio-state-changed",
-	Short: "OnCallAudioStateChanged RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewConferenceServiceClient(grpcConn)
-		req := &pb.OnCallAudioStateChangedRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.OnCallAudioStateChanged(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomConferenceOnCallEndpointChangedCmd = &cobra.Command{
-	Use:   "on-call-endpoint-changed",
-	Short: "OnCallEndpointChanged RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewConferenceServiceClient(grpcConn)
-		req := &pb.OnCallEndpointChangedRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.OnCallEndpointChanged(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomConferenceOnConnectionAddedCmd = &cobra.Command{
-	Use:   "on-connection-added",
-	Short: "OnConnectionAdded RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewConferenceServiceClient(grpcConn)
-		req := &pb.OnConnectionAddedRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.OnConnectionAdded(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomConferenceOnDisconnectCmd = &cobra.Command{
-	Use:   "on-disconnect",
-	Short: "OnDisconnect RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewConferenceServiceClient(grpcConn)
-		req := &pb.OnDisconnectRequest{}
-		resp, err := client.OnDisconnect(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomConferenceOnExtrasChangedCmd = &cobra.Command{
-	Use:   "on-extras-changed",
-	Short: "OnExtrasChanged RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewConferenceServiceClient(grpcConn)
-		req := &pb.OnExtrasChangedRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.OnExtrasChanged(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomConferenceOnHoldCmd = &cobra.Command{
-	Use:   "on-hold",
-	Short: "OnHold RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewConferenceServiceClient(grpcConn)
-		req := &pb.OnHoldRequest{}
-		resp, err := client.OnHold(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomConferenceOnMerge0Cmd = &cobra.Command{
-	Use:   "on-merge0",
-	Short: "OnMerge0 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewConferenceServiceClient(grpcConn)
-		req := &pb.OnMerge0Request{}
-		resp, err := client.OnMerge0(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomConferenceOnMerge1_1Cmd = &cobra.Command{
-	Use:   "on-merge1_1",
-	Short: "OnMerge1_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewConferenceServiceClient(grpcConn)
-		req := &pb.OnMerge1_1Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.OnMerge1_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomConferenceOnMuteStateChangedCmd = &cobra.Command{
-	Use:   "on-mute-state-changed",
-	Short: "OnMuteStateChanged RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewConferenceServiceClient(grpcConn)
-		req := &pb.OnMuteStateChangedRequest{}
-		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.OnMuteStateChanged(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomConferenceOnPlayDtmfToneCmd = &cobra.Command{
-	Use:   "on-play-dtmf-tone",
-	Short: "OnPlayDtmfTone RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewConferenceServiceClient(grpcConn)
-		req := &pb.OnPlayDtmfToneRequest{}
-		if v, err := cmd.Flags().GetUint32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.OnPlayDtmfTone(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomConferenceOnRejectCmd = &cobra.Command{
-	Use:   "on-reject",
-	Short: "OnReject RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewConferenceServiceClient(grpcConn)
-		req := &pb.OnRejectRequest{}
-		resp, err := client.OnReject(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomConferenceOnSeparateCmd = &cobra.Command{
-	Use:   "on-separate",
-	Short: "OnSeparate RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewConferenceServiceClient(grpcConn)
-		req := &pb.OnSeparateRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.OnSeparate(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomConferenceOnStopDtmfToneCmd = &cobra.Command{
-	Use:   "on-stop-dtmf-tone",
-	Short: "OnStopDtmfTone RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewConferenceServiceClient(grpcConn)
-		req := &pb.OnStopDtmfToneRequest{}
-		resp, err := client.OnStopDtmfTone(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomConferenceOnSwapCmd = &cobra.Command{
-	Use:   "on-swap",
-	Short: "OnSwap RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewConferenceServiceClient(grpcConn)
-		req := &pb.OnSwapRequest{}
-		resp, err := client.OnSwap(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomConferenceOnUnholdCmd = &cobra.Command{
-	Use:   "on-unhold",
-	Short: "OnUnhold RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewConferenceServiceClient(grpcConn)
-		req := &pb.OnUnholdRequest{}
-		resp, err := client.OnUnhold(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomConferencePutExtrasCmd = &cobra.Command{
-	Use:   "put-extras",
-	Short: "PutExtras RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewConferenceServiceClient(grpcConn)
-		req := &pb.PutExtrasRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.PutExtras(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomConferenceRemoveConnectionCmd = &cobra.Command{
-	Use:   "remove-connection",
-	Short: "RemoveConnection RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewConferenceServiceClient(grpcConn)
-		req := &pb.RemoveConnectionRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.RemoveConnection(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomConferenceRemoveExtrasCmd = &cobra.Command{
-	Use:   "remove-extras",
-	Short: "RemoveExtras RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewConferenceServiceClient(grpcConn)
-		req := &pb.RemoveExtrasRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.RemoveExtras(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomConferenceSendConferenceEventCmd = &cobra.Command{
-	Use:   "send-conference-event",
-	Short: "SendConferenceEvent RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewConferenceServiceClient(grpcConn)
-		req := &pb.SendConferenceEventRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.SendConferenceEvent(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomConferenceSetActiveCmd = &cobra.Command{
-	Use:   "set-active",
-	Short: "SetActive RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewConferenceServiceClient(grpcConn)
-		req := &pb.SetActiveRequest{}
-		resp, err := client.SetActive(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomConferenceSetConnectionCapabilitiesCmd = &cobra.Command{
-	Use:   "set-connection-capabilities",
-	Short: "SetConnectionCapabilities RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewConferenceServiceClient(grpcConn)
-		req := &pb.SetConnectionCapabilitiesRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetConnectionCapabilities(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomConferenceSetConnectionPropertiesCmd = &cobra.Command{
-	Use:   "set-connection-properties",
-	Short: "SetConnectionProperties RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewConferenceServiceClient(grpcConn)
-		req := &pb.SetConnectionPropertiesRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetConnectionProperties(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomConferenceSetConnectionStartElapsedRealTimeCmd = &cobra.Command{
-	Use:   "set-connection-start-elapsed-real-time",
-	Short: "SetConnectionStartElapsedRealTime RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewConferenceServiceClient(grpcConn)
-		req := &pb.SetConnectionStartElapsedRealTimeRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetConnectionStartElapsedRealTime(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomConferenceSetConnectionStartElapsedRealtimeMillisCmd = &cobra.Command{
-	Use:   "set-connection-start-elapsed-realtime-millis",
-	Short: "SetConnectionStartElapsedRealtimeMillis RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewConferenceServiceClient(grpcConn)
-		req := &pb.SetConnectionStartElapsedRealtimeMillisRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetConnectionStartElapsedRealtimeMillis(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomConferenceSetConnectionTimeCmd = &cobra.Command{
-	Use:   "set-connection-time",
-	Short: "SetConnectionTime RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewConferenceServiceClient(grpcConn)
-		req := &pb.SetConnectionTimeRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetConnectionTime(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomConferenceSetDialingCmd = &cobra.Command{
-	Use:   "set-dialing",
-	Short: "SetDialing RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewConferenceServiceClient(grpcConn)
-		req := &pb.SetDialingRequest{}
-		resp, err := client.SetDialing(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomConferenceSetDisconnectedCmd = &cobra.Command{
-	Use:   "set-disconnected",
-	Short: "SetDisconnected RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewConferenceServiceClient(grpcConn)
-		req := &pb.SetDisconnectedRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetDisconnected(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomConferenceSetExtrasCmd = &cobra.Command{
-	Use:   "set-extras",
-	Short: "SetExtras RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewConferenceServiceClient(grpcConn)
-		req := &pb.SetExtrasRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetExtras(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomConferenceSetOnHoldCmd = &cobra.Command{
-	Use:   "set-on-hold",
-	Short: "SetOnHold RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewConferenceServiceClient(grpcConn)
-		req := &pb.SetOnHoldRequest{}
-		resp, err := client.SetOnHold(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomConferenceSetRingbackRequestedCmd = &cobra.Command{
-	Use:   "set-ringback-requested",
-	Short: "SetRingbackRequested RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewConferenceServiceClient(grpcConn)
-		req := &pb.SetRingbackRequestedRequest{}
-		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetRingbackRequested(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomConferenceSetRingingCmd = &cobra.Command{
-	Use:   "set-ringing",
-	Short: "SetRinging RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewConferenceServiceClient(grpcConn)
-		req := &pb.SetRingingRequest{}
-		resp, err := client.SetRinging(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomConferenceSetStatusHintsCmd = &cobra.Command{
-	Use:   "set-status-hints",
-	Short: "SetStatusHints RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewConferenceServiceClient(grpcConn)
-		req := &pb.SetStatusHintsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetStatusHints(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomConferenceSetVideoProviderCmd = &cobra.Command{
-	Use:   "set-video-provider",
-	Short: "SetVideoProvider RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewConferenceServiceClient(grpcConn)
-		req := &pb.SetVideoProviderRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.SetVideoProvider(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomConferenceSetVideoStateCmd = &cobra.Command{
-	Use:   "set-video-state",
-	Short: "SetVideoState RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewConferenceServiceClient(grpcConn)
-		req := &pb.SetVideoStateRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.SetVideoState(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomConferenceToStringCmd = &cobra.Command{
+var telecomVideoProfileToStringCmd = &cobra.Command{
 	Use:   "to-string",
 	Short: "ToString RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewConferenceServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
+		client := pb.NewVideoProfileServiceClient(grpcConn)
+		req := &pb.VideoProfileToStringRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
 		resp, err := client.ToString(ctx, req)
 		if err != nil {
 			return err
@@ -1105,21 +1724,645 @@ var telecomConferenceToStringCmd = &cobra.Command{
 	},
 }
 
-var telecomConferenceCreateFailedConferenceCmd = &cobra.Command{
-	Use:   "create-failed-conference",
-	Short: "CreateFailedConference RPC",
+var telecomVideoProfileWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewConferenceServiceClient(grpcConn)
-		req := &pb.CreateFailedConferenceRequest{}
+		client := pb.NewVideoProfileServiceClient(grpcConn)
+		req := &pb.VideoProfileWriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomVideoProfileIsAudioOnlyCmd = &cobra.Command{
+	Use:   "is-audio-only",
+	Short: "IsAudioOnly RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVideoProfileServiceClient(grpcConn)
+		req := &pb.IsAudioOnlyRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.IsAudioOnly(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomVideoProfileIsBidirectionalCmd = &cobra.Command{
+	Use:   "is-bidirectional",
+	Short: "IsBidirectional RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVideoProfileServiceClient(grpcConn)
+		req := &pb.IsBidirectionalRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.IsBidirectional(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomVideoProfileIsPausedCmd = &cobra.Command{
+	Use:   "is-paused",
+	Short: "IsPaused RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVideoProfileServiceClient(grpcConn)
+		req := &pb.IsPausedRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.IsPaused(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomVideoProfileIsReceptionEnabledCmd = &cobra.Command{
+	Use:   "is-reception-enabled",
+	Short: "IsReceptionEnabled RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVideoProfileServiceClient(grpcConn)
+		req := &pb.IsReceptionEnabledRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.IsReceptionEnabled(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomVideoProfileIsTransmissionEnabledCmd = &cobra.Command{
+	Use:   "is-transmission-enabled",
+	Short: "IsTransmissionEnabled RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVideoProfileServiceClient(grpcConn)
+		req := &pb.IsTransmissionEnabledRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.IsTransmissionEnabled(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomVideoProfileIsVideoCmd = &cobra.Command{
+	Use:   "is-video",
+	Short: "IsVideo RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVideoProfileServiceClient(grpcConn)
+		req := &pb.IsVideoRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.IsVideo(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomVideoProfileVideoStateToStringCmd = &cobra.Command{
+	Use:   "video-state-to-string",
+	Short: "VideoStateToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVideoProfileServiceClient(grpcConn)
+		req := &pb.VideoStateToStringRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.VideoStateToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomVideoProfileCameraCapabilitiesCmd = &cobra.Command{
+	Use:   "video-profile-camera-capabilities",
+	Short: "VideoProfileCameraCapabilitiesService operations",
+}
+
+var telecomVideoProfileCameraCapabilitiesDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVideoProfileCameraCapabilitiesServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomVideoProfileCameraCapabilitiesGetHeightCmd = &cobra.Command{
+	Use:   "get-height",
+	Short: "GetHeight RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVideoProfileCameraCapabilitiesServiceClient(grpcConn)
+		req := &pb.GetHeightRequest{}
+		resp, err := client.GetHeight(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomVideoProfileCameraCapabilitiesGetMaxZoomCmd = &cobra.Command{
+	Use:   "get-max-zoom",
+	Short: "GetMaxZoom RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVideoProfileCameraCapabilitiesServiceClient(grpcConn)
+		req := &pb.GetMaxZoomRequest{}
+		resp, err := client.GetMaxZoom(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomVideoProfileCameraCapabilitiesGetWidthCmd = &cobra.Command{
+	Use:   "get-width",
+	Short: "GetWidth RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVideoProfileCameraCapabilitiesServiceClient(grpcConn)
+		req := &pb.GetWidthRequest{}
+		resp, err := client.GetWidth(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomVideoProfileCameraCapabilitiesIsZoomSupportedCmd = &cobra.Command{
+	Use:   "is-zoom-supported",
+	Short: "IsZoomSupported RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVideoProfileCameraCapabilitiesServiceClient(grpcConn)
+		req := &pb.IsZoomSupportedRequest{}
+		resp, err := client.IsZoomSupported(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomVideoProfileCameraCapabilitiesWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVideoProfileCameraCapabilitiesServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomPhoneAccountHandleCmd = &cobra.Command{
+	Use:   "phone-account-handle",
+	Short: "PhoneAccountHandleService operations",
+}
+
+var telecomPhoneAccountHandleNewPhoneAccountHandleCmd = &cobra.Command{
+	Use:   "new-phone-account-handle",
+	Short: "NewPhoneAccountHandle RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPhoneAccountHandleServiceClient(grpcConn)
+		req := &pb.NewPhoneAccountHandleRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.NewPhoneAccountHandle(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomPhoneAccountHandleDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPhoneAccountHandleServiceClient(grpcConn)
+		req := &pb.PhoneAccountHandleDescribeContentsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomPhoneAccountHandleEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPhoneAccountHandleServiceClient(grpcConn)
+		req := &pb.PhoneAccountHandleEqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomPhoneAccountHandleGetComponentNameCmd = &cobra.Command{
+	Use:   "get-component-name",
+	Short: "GetComponentName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPhoneAccountHandleServiceClient(grpcConn)
+		req := &pb.GetComponentNameRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetComponentName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomPhoneAccountHandleGetIdCmd = &cobra.Command{
+	Use:   "get-id",
+	Short: "GetId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPhoneAccountHandleServiceClient(grpcConn)
+		req := &pb.GetIdRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomPhoneAccountHandleGetUserHandleCmd = &cobra.Command{
+	Use:   "get-user-handle",
+	Short: "GetUserHandle RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPhoneAccountHandleServiceClient(grpcConn)
+		req := &pb.GetUserHandleRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetUserHandle(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomPhoneAccountHandleHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPhoneAccountHandleServiceClient(grpcConn)
+		req := &pb.PhoneAccountHandleHashCodeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomPhoneAccountHandleToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPhoneAccountHandleServiceClient(grpcConn)
+		req := &pb.PhoneAccountHandleToStringRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomPhoneAccountHandleWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPhoneAccountHandleServiceClient(grpcConn)
+		req := &pb.PhoneAccountHandleWriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomStatusHintsCmd = &cobra.Command{
+	Use:   "status-hints",
+	Short: "StatusHintsService operations",
+}
+
+var telecomStatusHintsNewStatusHintsCmd = &cobra.Command{
+	Use:   "new-status-hints",
+	Short: "NewStatusHints RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStatusHintsServiceClient(grpcConn)
+		req := &pb.NewStatusHintsRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
 			req.Arg0 = v
 		}
 		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
 			req.Arg1 = v
 		}
-		resp, err := client.CreateFailedConference(ctx, req)
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.NewStatusHints(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomStatusHintsDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStatusHintsServiceClient(grpcConn)
+		req := &pb.StatusHintsDescribeContentsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomStatusHintsEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStatusHintsServiceClient(grpcConn)
+		req := &pb.StatusHintsEqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomStatusHintsGetExtrasCmd = &cobra.Command{
+	Use:   "get-extras",
+	Short: "GetExtras RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStatusHintsServiceClient(grpcConn)
+		req := &pb.StatusHintsGetExtrasRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetExtras(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomStatusHintsGetIconCmd = &cobra.Command{
+	Use:   "get-icon",
+	Short: "GetIcon RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStatusHintsServiceClient(grpcConn)
+		req := &pb.StatusHintsGetIconRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetIcon(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomStatusHintsGetLabelCmd = &cobra.Command{
+	Use:   "get-label",
+	Short: "GetLabel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStatusHintsServiceClient(grpcConn)
+		req := &pb.StatusHintsGetLabelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetLabel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomStatusHintsHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStatusHintsServiceClient(grpcConn)
+		req := &pb.StatusHintsHashCodeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomStatusHintsWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStatusHintsServiceClient(grpcConn)
+		req := &pb.StatusHintsWriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1198,6 +2441,54 @@ var telecomCallDisconnectCmd = &cobra.Command{
 		client := pb.NewCallServiceClient(grpcConn)
 		req := &pb.DisconnectRequest{}
 		resp, err := client.Disconnect(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomCallGetCannedTextResponsesCmd = &cobra.Command{
+	Use:   "get-canned-text-responses",
+	Short: "GetCannedTextResponses RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCallServiceClient(grpcConn)
+		req := &pb.GetCannedTextResponsesRequest{}
+		resp, err := client.GetCannedTextResponses(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomCallGetChildrenCmd = &cobra.Command{
+	Use:   "get-children",
+	Short: "GetChildren RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCallServiceClient(grpcConn)
+		req := &pb.GetChildrenRequest{}
+		resp, err := client.GetChildren(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomCallGetConferenceableCallsCmd = &cobra.Command{
+	Use:   "get-conferenceable-calls",
+	Short: "GetConferenceableCalls RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCallServiceClient(grpcConn)
+		req := &pb.GetConferenceableCallsRequest{}
+		resp, err := client.GetConferenceableCalls(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1993,7 +3284,7 @@ var telecomCallCallbackOnStateChangedCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewCallCallbackServiceClient(grpcConn)
-		req := &pb.OnStateChangedRequest{}
+		req := &pb.CallCallbackOnStateChangedRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
@@ -2061,7 +3352,7 @@ var telecomCallDetailsEqualsCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewCallDetailsServiceClient(grpcConn)
-		req := &pb.CallDetailsEqualsRequest{}
+		req := &pb.EqualsRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
@@ -2336,7 +3627,7 @@ var telecomCallDetailsGetIdCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewCallDetailsServiceClient(grpcConn)
-		req := &pb.GetIdRequest{}
+		req := &pb.CallDetailsGetIdRequest{}
 		resp, err := client.GetId(ctx, req)
 		if err != nil {
 			return err
@@ -2400,7 +3691,7 @@ var telecomCallDetailsGetVideoStateCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewCallDetailsServiceClient(grpcConn)
-		req := &pb.GetVideoStateRequest{}
+		req := &pb.CallDetailsGetVideoStateRequest{}
 		resp, err := client.GetVideoState(ctx, req)
 		if err != nil {
 			return err
@@ -2435,7 +3726,7 @@ var telecomCallDetailsHashCodeCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewCallDetailsServiceClient(grpcConn)
-		req := &pb.CallDetailsHashCodeRequest{}
+		req := &pb.HashCodeRequest{}
 		resp, err := client.HashCode(ctx, req)
 		if err != nil {
 			return err
@@ -2633,26 +3924,29 @@ var telecomCallRttCallWriteCmd = &cobra.Command{
 	},
 }
 
-var telecomPhoneAccountHandleCmd = &cobra.Command{
-	Use:   "phone-account-handle",
-	Short: "PhoneAccountHandleService operations",
+var telecomPhoneAccountSuggestionCmd = &cobra.Command{
+	Use:   "phone-account-suggestion",
+	Short: "PhoneAccountSuggestionService operations",
 }
 
-var telecomPhoneAccountHandleNewPhoneAccountHandleCmd = &cobra.Command{
-	Use:   "new-phone-account-handle",
-	Short: "NewPhoneAccountHandle RPC",
+var telecomPhoneAccountSuggestionNewPhoneAccountSuggestionCmd = &cobra.Command{
+	Use:   "new-phone-account-suggestion",
+	Short: "NewPhoneAccountSuggestion RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewPhoneAccountHandleServiceClient(grpcConn)
-		req := &pb.NewPhoneAccountHandleRequest{}
+		client := pb.NewPhoneAccountSuggestionServiceClient(grpcConn)
+		req := &pb.NewPhoneAccountSuggestionRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
 			req.Arg1 = v
 		}
-		resp, err := client.NewPhoneAccountHandle(ctx, req)
+		if v, err := cmd.Flags().GetBool("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.NewPhoneAccountSuggestion(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -2660,14 +3954,14 @@ var telecomPhoneAccountHandleNewPhoneAccountHandleCmd = &cobra.Command{
 	},
 }
 
-var telecomPhoneAccountHandleDescribeContentsCmd = &cobra.Command{
+var telecomPhoneAccountSuggestionDescribeContentsCmd = &cobra.Command{
 	Use:   "describe-contents",
 	Short: "DescribeContents RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewPhoneAccountHandleServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
+		client := pb.NewPhoneAccountSuggestionServiceClient(grpcConn)
+		req := &pb.PhoneAccountSuggestionDescribeContentsRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
@@ -2679,14 +3973,14 @@ var telecomPhoneAccountHandleDescribeContentsCmd = &cobra.Command{
 	},
 }
 
-var telecomPhoneAccountHandleEqualsCmd = &cobra.Command{
+var telecomPhoneAccountSuggestionEqualsCmd = &cobra.Command{
 	Use:   "equals",
 	Short: "Equals RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewPhoneAccountHandleServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
+		client := pb.NewPhoneAccountSuggestionServiceClient(grpcConn)
+		req := &pb.PhoneAccountSuggestionEqualsRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
@@ -2701,18 +3995,18 @@ var telecomPhoneAccountHandleEqualsCmd = &cobra.Command{
 	},
 }
 
-var telecomPhoneAccountHandleGetComponentNameCmd = &cobra.Command{
-	Use:   "get-component-name",
-	Short: "GetComponentName RPC",
+var telecomPhoneAccountSuggestionGetPhoneAccountHandleCmd = &cobra.Command{
+	Use:   "get-phone-account-handle",
+	Short: "GetPhoneAccountHandle RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewPhoneAccountHandleServiceClient(grpcConn)
-		req := &pb.GetComponentNameRequest{}
+		client := pb.NewPhoneAccountSuggestionServiceClient(grpcConn)
+		req := &pb.PhoneAccountSuggestionGetPhoneAccountHandleRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
-		resp, err := client.GetComponentName(ctx, req)
+		resp, err := client.GetPhoneAccountHandle(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -2720,18 +4014,18 @@ var telecomPhoneAccountHandleGetComponentNameCmd = &cobra.Command{
 	},
 }
 
-var telecomPhoneAccountHandleGetIdCmd = &cobra.Command{
-	Use:   "get-id",
-	Short: "GetId RPC",
+var telecomPhoneAccountSuggestionGetReasonCmd = &cobra.Command{
+	Use:   "get-reason",
+	Short: "GetReason RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewPhoneAccountHandleServiceClient(grpcConn)
-		req := &pb.PhoneAccountHandleGetIdRequest{}
+		client := pb.NewPhoneAccountSuggestionServiceClient(grpcConn)
+		req := &pb.GetReasonRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
-		resp, err := client.GetId(ctx, req)
+		resp, err := client.GetReason(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -2739,33 +4033,14 @@ var telecomPhoneAccountHandleGetIdCmd = &cobra.Command{
 	},
 }
 
-var telecomPhoneAccountHandleGetUserHandleCmd = &cobra.Command{
-	Use:   "get-user-handle",
-	Short: "GetUserHandle RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPhoneAccountHandleServiceClient(grpcConn)
-		req := &pb.GetUserHandleRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetUserHandle(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomPhoneAccountHandleHashCodeCmd = &cobra.Command{
+var telecomPhoneAccountSuggestionHashCodeCmd = &cobra.Command{
 	Use:   "hash-code",
 	Short: "HashCode RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewPhoneAccountHandleServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
+		client := pb.NewPhoneAccountSuggestionServiceClient(grpcConn)
+		req := &pb.PhoneAccountSuggestionHashCodeRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
@@ -2777,18 +4052,18 @@ var telecomPhoneAccountHandleHashCodeCmd = &cobra.Command{
 	},
 }
 
-var telecomPhoneAccountHandleToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
+var telecomPhoneAccountSuggestionShouldAutoSelectCmd = &cobra.Command{
+	Use:   "should-auto-select",
+	Short: "ShouldAutoSelect RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewPhoneAccountHandleServiceClient(grpcConn)
-		req := &pb.PhoneAccountHandleToStringRequest{}
+		client := pb.NewPhoneAccountSuggestionServiceClient(grpcConn)
+		req := &pb.ShouldAutoSelectRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
-		resp, err := client.ToString(ctx, req)
+		resp, err := client.ShouldAutoSelect(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -2796,14 +4071,14 @@ var telecomPhoneAccountHandleToStringCmd = &cobra.Command{
 	},
 }
 
-var telecomPhoneAccountHandleWriteToParcelCmd = &cobra.Command{
+var telecomPhoneAccountSuggestionWriteToParcelCmd = &cobra.Command{
 	Use:   "write-to-parcel",
 	Short: "WriteToParcel RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewPhoneAccountHandleServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
+		client := pb.NewPhoneAccountSuggestionServiceClient(grpcConn)
+		req := &pb.PhoneAccountSuggestionWriteToParcelRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
@@ -2821,23 +4096,26 @@ var telecomPhoneAccountHandleWriteToParcelCmd = &cobra.Command{
 	},
 }
 
-var telecomCallScreeningServiceCmd = &cobra.Command{
-	Use:   "call-screening-service",
-	Short: "CallScreeningServiceService operations",
+var telecomCallEndpointExceptionCmd = &cobra.Command{
+	Use:   "call-endpoint-exception",
+	Short: "CallEndpointExceptionService operations",
 }
 
-var telecomCallScreeningServiceOnBindCmd = &cobra.Command{
-	Use:   "on-bind",
-	Short: "OnBind RPC",
+var telecomCallEndpointExceptionNewCallEndpointExceptionCmd = &cobra.Command{
+	Use:   "new-call-endpoint-exception",
+	Short: "NewCallEndpointException RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewCallScreeningServiceServiceClient(grpcConn)
-		req := &pb.OnBindRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+		client := pb.NewCallEndpointExceptionServiceClient(grpcConn)
+		req := &pb.NewCallEndpointExceptionRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		resp, err := client.OnBind(ctx, req)
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.NewCallEndpointException(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -2845,18 +4123,18 @@ var telecomCallScreeningServiceOnBindCmd = &cobra.Command{
 	},
 }
 
-var telecomCallScreeningServiceOnScreenCallCmd = &cobra.Command{
-	Use:   "on-screen-call",
-	Short: "OnScreenCall RPC",
+var telecomCallEndpointExceptionDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewCallScreeningServiceServiceClient(grpcConn)
-		req := &pb.OnScreenCallRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
+		client := pb.NewCallEndpointExceptionServiceClient(grpcConn)
+		req := &pb.CallEndpointExceptionDescribeContentsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
 		}
-		resp, err := client.OnScreenCall(ctx, req)
+		resp, err := client.DescribeContents(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -2864,18 +4142,18 @@ var telecomCallScreeningServiceOnScreenCallCmd = &cobra.Command{
 	},
 }
 
-var telecomCallScreeningServiceOnUnbindCmd = &cobra.Command{
-	Use:   "on-unbind",
-	Short: "OnUnbind RPC",
+var telecomCallEndpointExceptionGetCodeCmd = &cobra.Command{
+	Use:   "get-code",
+	Short: "GetCode RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewCallScreeningServiceServiceClient(grpcConn)
-		req := &pb.OnUnbindRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
+		client := pb.NewCallEndpointExceptionServiceClient(grpcConn)
+		req := &pb.GetCodeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
 		}
-		resp, err := client.OnUnbind(ctx, req)
+		resp, err := client.GetCode(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -2883,21 +4161,54 @@ var telecomCallScreeningServiceOnUnbindCmd = &cobra.Command{
 	},
 }
 
-var telecomCallScreeningServiceRespondToCallCmd = &cobra.Command{
-	Use:   "respond-to-call",
-	Short: "RespondToCall RPC",
+var telecomCallEndpointExceptionWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewCallScreeningServiceServiceClient(grpcConn)
-		req := &pb.RespondToCallRequest{}
+		client := pb.NewCallEndpointExceptionServiceClient(grpcConn)
+		req := &pb.CallEndpointExceptionWriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomConnectionRequestCmd = &cobra.Command{
+	Use:   "connection-request",
+	Short: "ConnectionRequestService operations",
+}
+
+var telecomConnectionRequestNewConnectionRequestCmd = &cobra.Command{
+	Use:   "new-connection-request",
+	Short: "NewConnectionRequest RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConnectionRequestServiceClient(grpcConn)
+		req := &pb.NewConnectionRequestRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
 		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
 			req.Arg1 = v
 		}
-		resp, err := client.RespondToCall(ctx, req)
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.NewConnectionRequest(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -2905,19 +4216,275 @@ var telecomCallScreeningServiceRespondToCallCmd = &cobra.Command{
 	},
 }
 
-var telecomCallScreeningServiceCallResponseCmd = &cobra.Command{
-	Use:   "call-screening-service-call-response",
-	Short: "CallScreeningServiceCallResponseService operations",
+var telecomConnectionRequestDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConnectionRequestServiceClient(grpcConn)
+		req := &pb.ConnectionRequestDescribeContentsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
 }
 
-var telecomCallScreeningServiceCallResponseEqualsCmd = &cobra.Command{
+var telecomConnectionRequestGetAccountHandleCmd = &cobra.Command{
+	Use:   "get-account-handle",
+	Short: "GetAccountHandle RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConnectionRequestServiceClient(grpcConn)
+		req := &pb.ConnectionRequestGetAccountHandleRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetAccountHandle(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomConnectionRequestGetAddressCmd = &cobra.Command{
+	Use:   "get-address",
+	Short: "GetAddress RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConnectionRequestServiceClient(grpcConn)
+		req := &pb.ConnectionRequestGetAddressRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetAddress(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomConnectionRequestGetExtrasCmd = &cobra.Command{
+	Use:   "get-extras",
+	Short: "GetExtras RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConnectionRequestServiceClient(grpcConn)
+		req := &pb.ConnectionRequestGetExtrasRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetExtras(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomConnectionRequestGetParticipantsCmd = &cobra.Command{
+	Use:   "get-participants",
+	Short: "GetParticipants RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConnectionRequestServiceClient(grpcConn)
+		req := &pb.GetParticipantsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetParticipants(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomConnectionRequestGetRttTextStreamCmd = &cobra.Command{
+	Use:   "get-rtt-text-stream",
+	Short: "GetRttTextStream RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConnectionRequestServiceClient(grpcConn)
+		req := &pb.GetRttTextStreamRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetRttTextStream(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomConnectionRequestGetVideoStateCmd = &cobra.Command{
+	Use:   "get-video-state",
+	Short: "GetVideoState RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConnectionRequestServiceClient(grpcConn)
+		req := &pb.GetVideoStateRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetVideoState(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomConnectionRequestIsAdhocConferenceCallCmd = &cobra.Command{
+	Use:   "is-adhoc-conference-call",
+	Short: "IsAdhocConferenceCall RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConnectionRequestServiceClient(grpcConn)
+		req := &pb.IsAdhocConferenceCallRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.IsAdhocConferenceCall(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomConnectionRequestIsRequestingRttCmd = &cobra.Command{
+	Use:   "is-requesting-rtt",
+	Short: "IsRequestingRtt RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConnectionRequestServiceClient(grpcConn)
+		req := &pb.IsRequestingRttRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.IsRequestingRtt(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomConnectionRequestToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConnectionRequestServiceClient(grpcConn)
+		req := &pb.ConnectionRequestToStringRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomConnectionRequestWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConnectionRequestServiceClient(grpcConn)
+		req := &pb.ConnectionRequestWriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomDisconnectCauseCmd = &cobra.Command{
+	Use:   "disconnect-cause",
+	Short: "DisconnectCauseService operations",
+}
+
+var telecomDisconnectCauseNewDisconnectCauseCmd = &cobra.Command{
+	Use:   "new-disconnect-cause",
+	Short: "NewDisconnectCause RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDisconnectCauseServiceClient(grpcConn)
+		req := &pb.NewDisconnectCauseRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.NewDisconnectCause(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomDisconnectCauseDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDisconnectCauseServiceClient(grpcConn)
+		req := &pb.DisconnectCauseDescribeContentsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomDisconnectCauseEqualsCmd = &cobra.Command{
 	Use:   "equals",
 	Short: "Equals RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewCallScreeningServiceCallResponseServiceClient(grpcConn)
-		req := &pb.CallScreeningServiceCallResponseEqualsRequest{}
+		client := pb.NewDisconnectCauseServiceClient(grpcConn)
+		req := &pb.DisconnectCauseEqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
@@ -2929,15 +4496,18 @@ var telecomCallScreeningServiceCallResponseEqualsCmd = &cobra.Command{
 	},
 }
 
-var telecomCallScreeningServiceCallResponseGetCallComposerAttachmentsToShowCmd = &cobra.Command{
-	Use:   "get-call-composer-attachments-to-show",
-	Short: "GetCallComposerAttachmentsToShow RPC",
+var telecomDisconnectCauseGetCodeCmd = &cobra.Command{
+	Use:   "get-code",
+	Short: "GetCode RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewCallScreeningServiceCallResponseServiceClient(grpcConn)
-		req := &pb.GetCallComposerAttachmentsToShowRequest{}
-		resp, err := client.GetCallComposerAttachmentsToShow(ctx, req)
+		client := pb.NewDisconnectCauseServiceClient(grpcConn)
+		req := &pb.GetCodeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetCode(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -2945,15 +4515,18 @@ var telecomCallScreeningServiceCallResponseGetCallComposerAttachmentsToShowCmd =
 	},
 }
 
-var telecomCallScreeningServiceCallResponseGetDisallowCallCmd = &cobra.Command{
-	Use:   "get-disallow-call",
-	Short: "GetDisallowCall RPC",
+var telecomDisconnectCauseGetDescriptionCmd = &cobra.Command{
+	Use:   "get-description",
+	Short: "GetDescription RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewCallScreeningServiceCallResponseServiceClient(grpcConn)
-		req := &pb.GetDisallowCallRequest{}
-		resp, err := client.GetDisallowCall(ctx, req)
+		client := pb.NewDisconnectCauseServiceClient(grpcConn)
+		req := &pb.GetDescriptionRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetDescription(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -2961,15 +4534,18 @@ var telecomCallScreeningServiceCallResponseGetDisallowCallCmd = &cobra.Command{
 	},
 }
 
-var telecomCallScreeningServiceCallResponseGetRejectCallCmd = &cobra.Command{
-	Use:   "get-reject-call",
-	Short: "GetRejectCall RPC",
+var telecomDisconnectCauseGetLabelCmd = &cobra.Command{
+	Use:   "get-label",
+	Short: "GetLabel RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewCallScreeningServiceCallResponseServiceClient(grpcConn)
-		req := &pb.GetRejectCallRequest{}
-		resp, err := client.GetRejectCall(ctx, req)
+		client := pb.NewDisconnectCauseServiceClient(grpcConn)
+		req := &pb.DisconnectCauseGetLabelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetLabel(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -2977,15 +4553,18 @@ var telecomCallScreeningServiceCallResponseGetRejectCallCmd = &cobra.Command{
 	},
 }
 
-var telecomCallScreeningServiceCallResponseGetSilenceCallCmd = &cobra.Command{
-	Use:   "get-silence-call",
-	Short: "GetSilenceCall RPC",
+var telecomDisconnectCauseGetReasonCmd = &cobra.Command{
+	Use:   "get-reason",
+	Short: "GetReason RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewCallScreeningServiceCallResponseServiceClient(grpcConn)
-		req := &pb.GetSilenceCallRequest{}
-		resp, err := client.GetSilenceCall(ctx, req)
+		client := pb.NewDisconnectCauseServiceClient(grpcConn)
+		req := &pb.GetReasonRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetReason(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -2993,15 +4572,18 @@ var telecomCallScreeningServiceCallResponseGetSilenceCallCmd = &cobra.Command{
 	},
 }
 
-var telecomCallScreeningServiceCallResponseGetSkipCallLogCmd = &cobra.Command{
-	Use:   "get-skip-call-log",
-	Short: "GetSkipCallLog RPC",
+var telecomDisconnectCauseGetToneCmd = &cobra.Command{
+	Use:   "get-tone",
+	Short: "GetTone RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewCallScreeningServiceCallResponseServiceClient(grpcConn)
-		req := &pb.GetSkipCallLogRequest{}
-		resp, err := client.GetSkipCallLog(ctx, req)
+		client := pb.NewDisconnectCauseServiceClient(grpcConn)
+		req := &pb.GetToneRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetTone(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -3009,31 +4591,195 @@ var telecomCallScreeningServiceCallResponseGetSkipCallLogCmd = &cobra.Command{
 	},
 }
 
-var telecomCallScreeningServiceCallResponseGetSkipNotificationCmd = &cobra.Command{
-	Use:   "get-skip-notification",
-	Short: "GetSkipNotification RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCallScreeningServiceCallResponseServiceClient(grpcConn)
-		req := &pb.GetSkipNotificationRequest{}
-		resp, err := client.GetSkipNotification(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomCallScreeningServiceCallResponseHashCodeCmd = &cobra.Command{
+var telecomDisconnectCauseHashCodeCmd = &cobra.Command{
 	Use:   "hash-code",
 	Short: "HashCode RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewCallScreeningServiceCallResponseServiceClient(grpcConn)
-		req := &pb.CallScreeningServiceCallResponseHashCodeRequest{}
+		client := pb.NewDisconnectCauseServiceClient(grpcConn)
+		req := &pb.DisconnectCauseHashCodeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
 		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomDisconnectCauseToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDisconnectCauseServiceClient(grpcConn)
+		req := &pb.DisconnectCauseToStringRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomDisconnectCauseWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDisconnectCauseServiceClient(grpcConn)
+		req := &pb.DisconnectCauseWriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomCallControlCmd = &cobra.Command{
+	Use:   "call-control",
+	Short: "CallControlService operations",
+}
+
+var telecomCallControlGetCallIdCmd = &cobra.Command{
+	Use:   "get-call-id",
+	Short: "GetCallId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCallControlServiceClient(grpcConn)
+		req := &pb.GetCallIdRequest{}
+		resp, err := client.GetCallId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomCallControlSendEventCmd = &cobra.Command{
+	Use:   "send-event",
+	Short: "SendEvent RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCallControlServiceClient(grpcConn)
+		req := &pb.SendEventRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.SendEvent(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomCallExceptionCmd = &cobra.Command{
+	Use:   "call-exception",
+	Short: "CallExceptionService operations",
+}
+
+var telecomCallExceptionNewCallExceptionCmd = &cobra.Command{
+	Use:   "new-call-exception",
+	Short: "NewCallException RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCallExceptionServiceClient(grpcConn)
+		req := &pb.NewCallExceptionRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.NewCallException(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomCallExceptionDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCallExceptionServiceClient(grpcConn)
+		req := &pb.CallExceptionDescribeContentsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomCallExceptionGetCodeCmd = &cobra.Command{
+	Use:   "get-code",
+	Short: "GetCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCallExceptionServiceClient(grpcConn)
+		req := &pb.GetCodeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomCallExceptionWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCallExceptionServiceClient(grpcConn)
+		req := &pb.CallExceptionWriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -3078,7 +4824,7 @@ var telecomCallEndpointDescribeContentsCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewCallEndpointServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
+		req := &pb.CallEndpointDescribeContentsRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
@@ -3097,7 +4843,7 @@ var telecomCallEndpointEqualsCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewCallEndpointServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
+		req := &pb.CallEndpointEqualsRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
@@ -3176,7 +4922,7 @@ var telecomCallEndpointHashCodeCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewCallEndpointServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
+		req := &pb.CallEndpointHashCodeRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
@@ -3214,7 +4960,7 @@ var telecomCallEndpointWriteToParcelCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewCallEndpointServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
+		req := &pb.CallEndpointWriteToParcelRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
@@ -3225,6 +4971,1206 @@ var telecomCallEndpointWriteToParcelCmd = &cobra.Command{
 			req.Arg1 = v
 		}
 		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomCallRedirectionServiceCmd = &cobra.Command{
+	Use:   "call-redirection-service",
+	Short: "CallRedirectionServiceService operations",
+}
+
+var telecomCallRedirectionServiceCancelCallCmd = &cobra.Command{
+	Use:   "cancel-call",
+	Short: "CancelCall RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCallRedirectionServiceServiceClient(grpcConn)
+		req := &pb.CancelCallRequest{}
+		resp, err := client.CancelCall(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomCallRedirectionServiceOnBindCmd = &cobra.Command{
+	Use:   "on-bind",
+	Short: "OnBind RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCallRedirectionServiceServiceClient(grpcConn)
+		req := &pb.OnBindRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnBind(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomCallRedirectionServiceOnPlaceCallCmd = &cobra.Command{
+	Use:   "on-place-call",
+	Short: "OnPlaceCall RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCallRedirectionServiceServiceClient(grpcConn)
+		req := &pb.OnPlaceCallRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetBool("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.OnPlaceCall(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomCallRedirectionServiceOnRedirectionTimeoutCmd = &cobra.Command{
+	Use:   "on-redirection-timeout",
+	Short: "OnRedirectionTimeout RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCallRedirectionServiceServiceClient(grpcConn)
+		req := &pb.OnRedirectionTimeoutRequest{}
+		resp, err := client.OnRedirectionTimeout(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomCallRedirectionServiceOnUnbindCmd = &cobra.Command{
+	Use:   "on-unbind",
+	Short: "OnUnbind RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCallRedirectionServiceServiceClient(grpcConn)
+		req := &pb.OnUnbindRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnUnbind(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomCallRedirectionServicePlaceCallUnmodifiedCmd = &cobra.Command{
+	Use:   "place-call-unmodified",
+	Short: "PlaceCallUnmodified RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCallRedirectionServiceServiceClient(grpcConn)
+		req := &pb.PlaceCallUnmodifiedRequest{}
+		resp, err := client.PlaceCallUnmodified(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomCallRedirectionServiceRedirectCallCmd = &cobra.Command{
+	Use:   "redirect-call",
+	Short: "RedirectCall RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCallRedirectionServiceServiceClient(grpcConn)
+		req := &pb.RedirectCallRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetBool("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.RedirectCall(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomConferenceCmd = &cobra.Command{
+	Use:   "conference",
+	Short: "ConferenceService operations",
+}
+
+var telecomConferenceAddConnectionCmd = &cobra.Command{
+	Use:   "add-connection",
+	Short: "AddConnection RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConferenceServiceClient(grpcConn)
+		req := &pb.AddConnectionRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddConnection(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomConferenceDestroyCmd = &cobra.Command{
+	Use:   "destroy",
+	Short: "Destroy RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConferenceServiceClient(grpcConn)
+		req := &pb.DestroyRequest{}
+		resp, err := client.Destroy(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomConferenceGetCallAudioStateCmd = &cobra.Command{
+	Use:   "get-call-audio-state",
+	Short: "GetCallAudioState RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConferenceServiceClient(grpcConn)
+		req := &pb.GetCallAudioStateRequest{}
+		resp, err := client.GetCallAudioState(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomConferenceGetConferenceableConnectionsCmd = &cobra.Command{
+	Use:   "get-conferenceable-connections",
+	Short: "GetConferenceableConnections RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConferenceServiceClient(grpcConn)
+		req := &pb.GetConferenceableConnectionsRequest{}
+		resp, err := client.GetConferenceableConnections(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomConferenceGetConnectionCapabilitiesCmd = &cobra.Command{
+	Use:   "get-connection-capabilities",
+	Short: "GetConnectionCapabilities RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConferenceServiceClient(grpcConn)
+		req := &pb.GetConnectionCapabilitiesRequest{}
+		resp, err := client.GetConnectionCapabilities(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomConferenceGetConnectionPropertiesCmd = &cobra.Command{
+	Use:   "get-connection-properties",
+	Short: "GetConnectionProperties RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConferenceServiceClient(grpcConn)
+		req := &pb.GetConnectionPropertiesRequest{}
+		resp, err := client.GetConnectionProperties(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomConferenceGetConnectionStartElapsedRealtimeMillisCmd = &cobra.Command{
+	Use:   "get-connection-start-elapsed-realtime-millis",
+	Short: "GetConnectionStartElapsedRealtimeMillis RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConferenceServiceClient(grpcConn)
+		req := &pb.GetConnectionStartElapsedRealtimeMillisRequest{}
+		resp, err := client.GetConnectionStartElapsedRealtimeMillis(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomConferenceGetConnectionTimeCmd = &cobra.Command{
+	Use:   "get-connection-time",
+	Short: "GetConnectionTime RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConferenceServiceClient(grpcConn)
+		req := &pb.GetConnectionTimeRequest{}
+		resp, err := client.GetConnectionTime(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomConferenceGetConnectionsCmd = &cobra.Command{
+	Use:   "get-connections",
+	Short: "GetConnections RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConferenceServiceClient(grpcConn)
+		req := &pb.GetConnectionsRequest{}
+		resp, err := client.GetConnections(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomConferenceGetCurrentCallEndpointCmd = &cobra.Command{
+	Use:   "get-current-call-endpoint",
+	Short: "GetCurrentCallEndpoint RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConferenceServiceClient(grpcConn)
+		req := &pb.GetCurrentCallEndpointRequest{}
+		resp, err := client.GetCurrentCallEndpoint(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomConferenceGetDisconnectCauseCmd = &cobra.Command{
+	Use:   "get-disconnect-cause",
+	Short: "GetDisconnectCause RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConferenceServiceClient(grpcConn)
+		req := &pb.GetDisconnectCauseRequest{}
+		resp, err := client.GetDisconnectCause(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomConferenceGetExtrasCmd = &cobra.Command{
+	Use:   "get-extras",
+	Short: "GetExtras RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConferenceServiceClient(grpcConn)
+		req := &pb.GetExtrasRequest{}
+		resp, err := client.GetExtras(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomConferenceGetPhoneAccountHandleCmd = &cobra.Command{
+	Use:   "get-phone-account-handle",
+	Short: "GetPhoneAccountHandle RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConferenceServiceClient(grpcConn)
+		req := &pb.GetPhoneAccountHandleRequest{}
+		resp, err := client.GetPhoneAccountHandle(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomConferenceGetStateCmd = &cobra.Command{
+	Use:   "get-state",
+	Short: "GetState RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConferenceServiceClient(grpcConn)
+		req := &pb.GetStateRequest{}
+		resp, err := client.GetState(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomConferenceGetStatusHintsCmd = &cobra.Command{
+	Use:   "get-status-hints",
+	Short: "GetStatusHints RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConferenceServiceClient(grpcConn)
+		req := &pb.GetStatusHintsRequest{}
+		resp, err := client.GetStatusHints(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomConferenceGetVideoProviderCmd = &cobra.Command{
+	Use:   "get-video-provider",
+	Short: "GetVideoProvider RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConferenceServiceClient(grpcConn)
+		req := &pb.GetVideoProviderRequest{}
+		resp, err := client.GetVideoProvider(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomConferenceGetVideoStateCmd = &cobra.Command{
+	Use:   "get-video-state",
+	Short: "GetVideoState RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConferenceServiceClient(grpcConn)
+		req := &pb.ConferenceGetVideoStateRequest{}
+		resp, err := client.GetVideoState(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomConferenceIsRingbackRequestedCmd = &cobra.Command{
+	Use:   "is-ringback-requested",
+	Short: "IsRingbackRequested RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConferenceServiceClient(grpcConn)
+		req := &pb.IsRingbackRequestedRequest{}
+		resp, err := client.IsRingbackRequested(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomConferenceOnAnswerCmd = &cobra.Command{
+	Use:   "on-answer",
+	Short: "OnAnswer RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConferenceServiceClient(grpcConn)
+		req := &pb.OnAnswerRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnAnswer(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomConferenceOnCallAudioStateChangedCmd = &cobra.Command{
+	Use:   "on-call-audio-state-changed",
+	Short: "OnCallAudioStateChanged RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConferenceServiceClient(grpcConn)
+		req := &pb.OnCallAudioStateChangedRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnCallAudioStateChanged(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomConferenceOnCallEndpointChangedCmd = &cobra.Command{
+	Use:   "on-call-endpoint-changed",
+	Short: "OnCallEndpointChanged RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConferenceServiceClient(grpcConn)
+		req := &pb.OnCallEndpointChangedRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnCallEndpointChanged(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomConferenceOnConnectionAddedCmd = &cobra.Command{
+	Use:   "on-connection-added",
+	Short: "OnConnectionAdded RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConferenceServiceClient(grpcConn)
+		req := &pb.ConferenceOnConnectionAddedRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnConnectionAdded(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomConferenceOnDisconnectCmd = &cobra.Command{
+	Use:   "on-disconnect",
+	Short: "OnDisconnect RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConferenceServiceClient(grpcConn)
+		req := &pb.OnDisconnectRequest{}
+		resp, err := client.OnDisconnect(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomConferenceOnExtrasChangedCmd = &cobra.Command{
+	Use:   "on-extras-changed",
+	Short: "OnExtrasChanged RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConferenceServiceClient(grpcConn)
+		req := &pb.ConferenceOnExtrasChangedRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnExtrasChanged(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomConferenceOnHoldCmd = &cobra.Command{
+	Use:   "on-hold",
+	Short: "OnHold RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConferenceServiceClient(grpcConn)
+		req := &pb.OnHoldRequest{}
+		resp, err := client.OnHold(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomConferenceOnMerge0Cmd = &cobra.Command{
+	Use:   "on-merge0",
+	Short: "OnMerge0 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConferenceServiceClient(grpcConn)
+		req := &pb.OnMerge0Request{}
+		resp, err := client.OnMerge0(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomConferenceOnMerge1_1Cmd = &cobra.Command{
+	Use:   "on-merge1_1",
+	Short: "OnMerge1_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConferenceServiceClient(grpcConn)
+		req := &pb.OnMerge1_1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnMerge1_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomConferenceOnMuteStateChangedCmd = &cobra.Command{
+	Use:   "on-mute-state-changed",
+	Short: "OnMuteStateChanged RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConferenceServiceClient(grpcConn)
+		req := &pb.OnMuteStateChangedRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnMuteStateChanged(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomConferenceOnPlayDtmfToneCmd = &cobra.Command{
+	Use:   "on-play-dtmf-tone",
+	Short: "OnPlayDtmfTone RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConferenceServiceClient(grpcConn)
+		req := &pb.OnPlayDtmfToneRequest{}
+		if v, err := cmd.Flags().GetUint32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnPlayDtmfTone(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomConferenceOnRejectCmd = &cobra.Command{
+	Use:   "on-reject",
+	Short: "OnReject RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConferenceServiceClient(grpcConn)
+		req := &pb.OnRejectRequest{}
+		resp, err := client.OnReject(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomConferenceOnSeparateCmd = &cobra.Command{
+	Use:   "on-separate",
+	Short: "OnSeparate RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConferenceServiceClient(grpcConn)
+		req := &pb.OnSeparateRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnSeparate(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomConferenceOnStopDtmfToneCmd = &cobra.Command{
+	Use:   "on-stop-dtmf-tone",
+	Short: "OnStopDtmfTone RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConferenceServiceClient(grpcConn)
+		req := &pb.OnStopDtmfToneRequest{}
+		resp, err := client.OnStopDtmfTone(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomConferenceOnSwapCmd = &cobra.Command{
+	Use:   "on-swap",
+	Short: "OnSwap RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConferenceServiceClient(grpcConn)
+		req := &pb.OnSwapRequest{}
+		resp, err := client.OnSwap(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomConferenceOnUnholdCmd = &cobra.Command{
+	Use:   "on-unhold",
+	Short: "OnUnhold RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConferenceServiceClient(grpcConn)
+		req := &pb.OnUnholdRequest{}
+		resp, err := client.OnUnhold(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomConferencePutExtrasCmd = &cobra.Command{
+	Use:   "put-extras",
+	Short: "PutExtras RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConferenceServiceClient(grpcConn)
+		req := &pb.PutExtrasRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.PutExtras(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomConferenceRemoveConnectionCmd = &cobra.Command{
+	Use:   "remove-connection",
+	Short: "RemoveConnection RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConferenceServiceClient(grpcConn)
+		req := &pb.RemoveConnectionRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.RemoveConnection(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomConferenceRemoveExtrasCmd = &cobra.Command{
+	Use:   "remove-extras",
+	Short: "RemoveExtras RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConferenceServiceClient(grpcConn)
+		req := &pb.RemoveExtrasRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.RemoveExtras(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomConferenceSendConferenceEventCmd = &cobra.Command{
+	Use:   "send-conference-event",
+	Short: "SendConferenceEvent RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConferenceServiceClient(grpcConn)
+		req := &pb.SendConferenceEventRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.SendConferenceEvent(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomConferenceSetActiveCmd = &cobra.Command{
+	Use:   "set-active",
+	Short: "SetActive RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConferenceServiceClient(grpcConn)
+		req := &pb.SetActiveRequest{}
+		resp, err := client.SetActive(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomConferenceSetConnectionCapabilitiesCmd = &cobra.Command{
+	Use:   "set-connection-capabilities",
+	Short: "SetConnectionCapabilities RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConferenceServiceClient(grpcConn)
+		req := &pb.SetConnectionCapabilitiesRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetConnectionCapabilities(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomConferenceSetConnectionPropertiesCmd = &cobra.Command{
+	Use:   "set-connection-properties",
+	Short: "SetConnectionProperties RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConferenceServiceClient(grpcConn)
+		req := &pb.SetConnectionPropertiesRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetConnectionProperties(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomConferenceSetConnectionStartElapsedRealTimeCmd = &cobra.Command{
+	Use:   "set-connection-start-elapsed-real-time",
+	Short: "SetConnectionStartElapsedRealTime RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConferenceServiceClient(grpcConn)
+		req := &pb.SetConnectionStartElapsedRealTimeRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetConnectionStartElapsedRealTime(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomConferenceSetConnectionStartElapsedRealtimeMillisCmd = &cobra.Command{
+	Use:   "set-connection-start-elapsed-realtime-millis",
+	Short: "SetConnectionStartElapsedRealtimeMillis RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConferenceServiceClient(grpcConn)
+		req := &pb.SetConnectionStartElapsedRealtimeMillisRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetConnectionStartElapsedRealtimeMillis(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomConferenceSetConnectionTimeCmd = &cobra.Command{
+	Use:   "set-connection-time",
+	Short: "SetConnectionTime RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConferenceServiceClient(grpcConn)
+		req := &pb.SetConnectionTimeRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetConnectionTime(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomConferenceSetDialingCmd = &cobra.Command{
+	Use:   "set-dialing",
+	Short: "SetDialing RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConferenceServiceClient(grpcConn)
+		req := &pb.SetDialingRequest{}
+		resp, err := client.SetDialing(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomConferenceSetDisconnectedCmd = &cobra.Command{
+	Use:   "set-disconnected",
+	Short: "SetDisconnected RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConferenceServiceClient(grpcConn)
+		req := &pb.SetDisconnectedRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetDisconnected(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomConferenceSetExtrasCmd = &cobra.Command{
+	Use:   "set-extras",
+	Short: "SetExtras RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConferenceServiceClient(grpcConn)
+		req := &pb.SetExtrasRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetExtras(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomConferenceSetOnHoldCmd = &cobra.Command{
+	Use:   "set-on-hold",
+	Short: "SetOnHold RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConferenceServiceClient(grpcConn)
+		req := &pb.SetOnHoldRequest{}
+		resp, err := client.SetOnHold(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomConferenceSetRingbackRequestedCmd = &cobra.Command{
+	Use:   "set-ringback-requested",
+	Short: "SetRingbackRequested RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConferenceServiceClient(grpcConn)
+		req := &pb.SetRingbackRequestedRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetRingbackRequested(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomConferenceSetRingingCmd = &cobra.Command{
+	Use:   "set-ringing",
+	Short: "SetRinging RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConferenceServiceClient(grpcConn)
+		req := &pb.SetRingingRequest{}
+		resp, err := client.SetRinging(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomConferenceSetStatusHintsCmd = &cobra.Command{
+	Use:   "set-status-hints",
+	Short: "SetStatusHints RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConferenceServiceClient(grpcConn)
+		req := &pb.SetStatusHintsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetStatusHints(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomConferenceSetVideoProviderCmd = &cobra.Command{
+	Use:   "set-video-provider",
+	Short: "SetVideoProvider RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConferenceServiceClient(grpcConn)
+		req := &pb.SetVideoProviderRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.SetVideoProvider(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomConferenceSetVideoStateCmd = &cobra.Command{
+	Use:   "set-video-state",
+	Short: "SetVideoState RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConferenceServiceClient(grpcConn)
+		req := &pb.SetVideoStateRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.SetVideoState(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomConferenceToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConferenceServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomConferenceCreateFailedConferenceCmd = &cobra.Command{
+	Use:   "create-failed-conference",
+	Short: "CreateFailedConference RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConferenceServiceClient(grpcConn)
+		req := &pb.CreateFailedConferenceRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.CreateFailedConference(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomCallEventCallbackCmd = &cobra.Command{
+	Use:   "call-event-callback",
+	Short: "CallEventCallbackService operations",
+}
+
+var telecomCallEventCallbackOnCallEndpointChangedCmd = &cobra.Command{
+	Use:   "on-call-endpoint-changed",
+	Short: "OnCallEndpointChanged RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCallEventCallbackServiceClient(grpcConn)
+		req := &pb.OnCallEndpointChangedRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnCallEndpointChanged(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomCallEventCallbackOnCallStreamingFailedCmd = &cobra.Command{
+	Use:   "on-call-streaming-failed",
+	Short: "OnCallStreamingFailed RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCallEventCallbackServiceClient(grpcConn)
+		req := &pb.OnCallStreamingFailedRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnCallStreamingFailed(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomCallEventCallbackOnEventCmd = &cobra.Command{
+	Use:   "on-event",
+	Short: "OnEvent RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCallEventCallbackServiceClient(grpcConn)
+		req := &pb.OnEventRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.OnEvent(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomCallEventCallbackOnMuteStateChangedCmd = &cobra.Command{
+	Use:   "on-mute-state-changed",
+	Short: "OnMuteStateChanged RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCallEventCallbackServiceClient(grpcConn)
+		req := &pb.OnMuteStateChangedRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnMuteStateChanged(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -3262,6 +6208,22 @@ var telecomInCallServiceGetCallAudioStateCmd = &cobra.Command{
 		client := pb.NewInCallServiceServiceClient(grpcConn)
 		req := &pb.GetCallAudioStateRequest{}
 		resp, err := client.GetCallAudioState(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomInCallServiceGetCallsCmd = &cobra.Command{
+	Use:   "get-calls",
+	Short: "GetCalls RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInCallServiceServiceClient(grpcConn)
+		req := &pb.GetCallsRequest{}
+		resp, err := client.GetCalls(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -3781,1310 +6743,6 @@ var telecomInCallServiceVideoCallUnregisterCallbackCmd = &cobra.Command{
 	},
 }
 
-var telecomPhoneAccountCmd = &cobra.Command{
-	Use:   "phone-account",
-	Short: "PhoneAccountService operations",
-}
-
-var telecomPhoneAccountDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPhoneAccountServiceClient(grpcConn)
-		req := &pb.PhoneAccountDescribeContentsRequest{}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomPhoneAccountEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPhoneAccountServiceClient(grpcConn)
-		req := &pb.PhoneAccountEqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomPhoneAccountGetAccountHandleCmd = &cobra.Command{
-	Use:   "get-account-handle",
-	Short: "GetAccountHandle RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPhoneAccountServiceClient(grpcConn)
-		req := &pb.GetAccountHandleRequest{}
-		resp, err := client.GetAccountHandle(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomPhoneAccountGetAddressCmd = &cobra.Command{
-	Use:   "get-address",
-	Short: "GetAddress RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPhoneAccountServiceClient(grpcConn)
-		req := &pb.GetAddressRequest{}
-		resp, err := client.GetAddress(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomPhoneAccountGetCapabilitiesCmd = &cobra.Command{
-	Use:   "get-capabilities",
-	Short: "GetCapabilities RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPhoneAccountServiceClient(grpcConn)
-		req := &pb.GetCapabilitiesRequest{}
-		resp, err := client.GetCapabilities(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomPhoneAccountGetExtrasCmd = &cobra.Command{
-	Use:   "get-extras",
-	Short: "GetExtras RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPhoneAccountServiceClient(grpcConn)
-		req := &pb.GetExtrasRequest{}
-		resp, err := client.GetExtras(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomPhoneAccountGetHighlightColorCmd = &cobra.Command{
-	Use:   "get-highlight-color",
-	Short: "GetHighlightColor RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPhoneAccountServiceClient(grpcConn)
-		req := &pb.GetHighlightColorRequest{}
-		resp, err := client.GetHighlightColor(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomPhoneAccountGetIconCmd = &cobra.Command{
-	Use:   "get-icon",
-	Short: "GetIcon RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPhoneAccountServiceClient(grpcConn)
-		req := &pb.GetIconRequest{}
-		resp, err := client.GetIcon(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomPhoneAccountGetLabelCmd = &cobra.Command{
-	Use:   "get-label",
-	Short: "GetLabel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPhoneAccountServiceClient(grpcConn)
-		req := &pb.GetLabelRequest{}
-		resp, err := client.GetLabel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomPhoneAccountGetShortDescriptionCmd = &cobra.Command{
-	Use:   "get-short-description",
-	Short: "GetShortDescription RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPhoneAccountServiceClient(grpcConn)
-		req := &pb.GetShortDescriptionRequest{}
-		resp, err := client.GetShortDescription(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomPhoneAccountGetSubscriptionAddressCmd = &cobra.Command{
-	Use:   "get-subscription-address",
-	Short: "GetSubscriptionAddress RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPhoneAccountServiceClient(grpcConn)
-		req := &pb.GetSubscriptionAddressRequest{}
-		resp, err := client.GetSubscriptionAddress(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomPhoneAccountHasCapabilitiesCmd = &cobra.Command{
-	Use:   "has-capabilities",
-	Short: "HasCapabilities RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPhoneAccountServiceClient(grpcConn)
-		req := &pb.HasCapabilitiesRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.HasCapabilities(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomPhoneAccountHasSimultaneousCallingRestrictionCmd = &cobra.Command{
-	Use:   "has-simultaneous-calling-restriction",
-	Short: "HasSimultaneousCallingRestriction RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPhoneAccountServiceClient(grpcConn)
-		req := &pb.HasSimultaneousCallingRestrictionRequest{}
-		resp, err := client.HasSimultaneousCallingRestriction(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomPhoneAccountHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPhoneAccountServiceClient(grpcConn)
-		req := &pb.PhoneAccountHashCodeRequest{}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomPhoneAccountIsEnabledCmd = &cobra.Command{
-	Use:   "is-enabled",
-	Short: "IsEnabled RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPhoneAccountServiceClient(grpcConn)
-		req := &pb.IsEnabledRequest{}
-		resp, err := client.IsEnabled(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomPhoneAccountSupportsUriSchemeCmd = &cobra.Command{
-	Use:   "supports-uri-scheme",
-	Short: "SupportsUriScheme RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPhoneAccountServiceClient(grpcConn)
-		req := &pb.SupportsUriSchemeRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SupportsUriScheme(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomPhoneAccountToBuilderCmd = &cobra.Command{
-	Use:   "to-builder",
-	Short: "ToBuilder RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPhoneAccountServiceClient(grpcConn)
-		req := &pb.ToBuilderRequest{}
-		resp, err := client.ToBuilder(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomPhoneAccountToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPhoneAccountServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomPhoneAccountWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPhoneAccountServiceClient(grpcConn)
-		req := &pb.PhoneAccountWriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomPhoneAccountBuilderCmd = &cobra.Command{
-	Use:   "builder",
-	Short: "Builder RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPhoneAccountServiceClient(grpcConn)
-		req := &pb.BuilderRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetString("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.Builder(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomPhoneAccountBuilderSvcCmd = &cobra.Command{
-	Use:   "phone-account-builder",
-	Short: "PhoneAccountBuilderService operations",
-}
-
-var telecomPhoneAccountBuilderSvcAddSupportedUriSchemeCmd = &cobra.Command{
-	Use:   "add-supported-uri-scheme",
-	Short: "AddSupportedUriScheme RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPhoneAccountBuilderServiceClient(grpcConn)
-		req := &pb.AddSupportedUriSchemeRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.AddSupportedUriScheme(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomPhoneAccountBuilderSvcBuildCmd = &cobra.Command{
-	Use:   "build",
-	Short: "Build RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPhoneAccountBuilderServiceClient(grpcConn)
-		req := &pb.BuildRequest{}
-		resp, err := client.Build(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomPhoneAccountBuilderSvcClearSimultaneousCallingRestrictionCmd = &cobra.Command{
-	Use:   "clear-simultaneous-calling-restriction",
-	Short: "ClearSimultaneousCallingRestriction RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPhoneAccountBuilderServiceClient(grpcConn)
-		req := &pb.ClearSimultaneousCallingRestrictionRequest{}
-		resp, err := client.ClearSimultaneousCallingRestriction(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomPhoneAccountBuilderSvcSetAddressCmd = &cobra.Command{
-	Use:   "set-address",
-	Short: "SetAddress RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPhoneAccountBuilderServiceClient(grpcConn)
-		req := &pb.SetAddressRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetAddress(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomPhoneAccountBuilderSvcSetCapabilitiesCmd = &cobra.Command{
-	Use:   "set-capabilities",
-	Short: "SetCapabilities RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPhoneAccountBuilderServiceClient(grpcConn)
-		req := &pb.SetCapabilitiesRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetCapabilities(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomPhoneAccountBuilderSvcSetExtrasCmd = &cobra.Command{
-	Use:   "set-extras",
-	Short: "SetExtras RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPhoneAccountBuilderServiceClient(grpcConn)
-		req := &pb.SetExtrasRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetExtras(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomPhoneAccountBuilderSvcSetHighlightColorCmd = &cobra.Command{
-	Use:   "set-highlight-color",
-	Short: "SetHighlightColor RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPhoneAccountBuilderServiceClient(grpcConn)
-		req := &pb.SetHighlightColorRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetHighlightColor(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomPhoneAccountBuilderSvcSetIconCmd = &cobra.Command{
-	Use:   "set-icon",
-	Short: "SetIcon RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPhoneAccountBuilderServiceClient(grpcConn)
-		req := &pb.SetIconRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetIcon(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomPhoneAccountBuilderSvcSetShortDescriptionCmd = &cobra.Command{
-	Use:   "set-short-description",
-	Short: "SetShortDescription RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPhoneAccountBuilderServiceClient(grpcConn)
-		req := &pb.SetShortDescriptionRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetShortDescription(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomPhoneAccountBuilderSvcSetSubscriptionAddressCmd = &cobra.Command{
-	Use:   "set-subscription-address",
-	Short: "SetSubscriptionAddress RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPhoneAccountBuilderServiceClient(grpcConn)
-		req := &pb.SetSubscriptionAddressRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetSubscriptionAddress(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomCallEndpointExceptionCmd = &cobra.Command{
-	Use:   "call-endpoint-exception",
-	Short: "CallEndpointExceptionService operations",
-}
-
-var telecomCallEndpointExceptionNewCallEndpointExceptionCmd = &cobra.Command{
-	Use:   "new-call-endpoint-exception",
-	Short: "NewCallEndpointException RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCallEndpointExceptionServiceClient(grpcConn)
-		req := &pb.NewCallEndpointExceptionRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.NewCallEndpointException(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomCallEndpointExceptionDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCallEndpointExceptionServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomCallEndpointExceptionGetCodeCmd = &cobra.Command{
-	Use:   "get-code",
-	Short: "GetCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCallEndpointExceptionServiceClient(grpcConn)
-		req := &pb.GetCodeRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomCallEndpointExceptionWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCallEndpointExceptionServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomManagerCmd = &cobra.Command{
-	Use:   "manager",
-	Short: "ManagerService operations",
-}
-
-var telecomManagerAcceptHandoverCmd = &cobra.Command{
-	Use:   "accept-handover",
-	Short: "AcceptHandover RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewManagerServiceClient(grpcConn)
-		req := &pb.AcceptHandoverRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.AcceptHandover(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomManagerAcceptRingingCall0Cmd = &cobra.Command{
-	Use:   "accept-ringing-call0",
-	Short: "AcceptRingingCall0 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewManagerServiceClient(grpcConn)
-		req := &pb.AcceptRingingCall0Request{}
-		resp, err := client.AcceptRingingCall0(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomManagerAcceptRingingCall1_1Cmd = &cobra.Command{
-	Use:   "accept-ringing-call1_1",
-	Short: "AcceptRingingCall1_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewManagerServiceClient(grpcConn)
-		req := &pb.AcceptRingingCall1_1Request{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.AcceptRingingCall1_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomManagerAddNewIncomingCallCmd = &cobra.Command{
-	Use:   "add-new-incoming-call",
-	Short: "AddNewIncomingCall RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewManagerServiceClient(grpcConn)
-		req := &pb.AddNewIncomingCallRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.AddNewIncomingCall(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomManagerAddNewIncomingConferenceCmd = &cobra.Command{
-	Use:   "add-new-incoming-conference",
-	Short: "AddNewIncomingConference RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewManagerServiceClient(grpcConn)
-		req := &pb.AddNewIncomingConferenceRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.AddNewIncomingConference(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomManagerCancelMissedCallsNotificationCmd = &cobra.Command{
-	Use:   "cancel-missed-calls-notification",
-	Short: "CancelMissedCallsNotification RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewManagerServiceClient(grpcConn)
-		req := &pb.CancelMissedCallsNotificationRequest{}
-		resp, err := client.CancelMissedCallsNotification(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomManagerCreateManageBlockedNumbersIntentCmd = &cobra.Command{
-	Use:   "create-manage-blocked-numbers-intent",
-	Short: "CreateManageBlockedNumbersIntent RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewManagerServiceClient(grpcConn)
-		req := &pb.CreateManageBlockedNumbersIntentRequest{}
-		resp, err := client.CreateManageBlockedNumbersIntent(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomManagerEndCallCmd = &cobra.Command{
-	Use:   "end-call",
-	Short: "EndCall RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewManagerServiceClient(grpcConn)
-		req := &pb.EndCallRequest{}
-		resp, err := client.EndCall(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomManagerGetAdnUriForPhoneAccountCmd = &cobra.Command{
-	Use:   "get-adn-uri-for-phone-account",
-	Short: "GetAdnUriForPhoneAccount RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewManagerServiceClient(grpcConn)
-		req := &pb.GetAdnUriForPhoneAccountRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetAdnUriForPhoneAccount(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomManagerGetDefaultDialerPackageCmd = &cobra.Command{
-	Use:   "get-default-dialer-package",
-	Short: "GetDefaultDialerPackage RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewManagerServiceClient(grpcConn)
-		req := &pb.GetDefaultDialerPackageRequest{}
-		resp, err := client.GetDefaultDialerPackage(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomManagerGetDefaultOutgoingPhoneAccountCmd = &cobra.Command{
-	Use:   "get-default-outgoing-phone-account",
-	Short: "GetDefaultOutgoingPhoneAccount RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewManagerServiceClient(grpcConn)
-		req := &pb.GetDefaultOutgoingPhoneAccountRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetDefaultOutgoingPhoneAccount(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomManagerGetLine1NumberCmd = &cobra.Command{
-	Use:   "get-line1number",
-	Short: "GetLine1Number RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewManagerServiceClient(grpcConn)
-		req := &pb.GetLine1NumberRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetLine1Number(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomManagerGetPhoneAccountCmd = &cobra.Command{
-	Use:   "get-phone-account",
-	Short: "GetPhoneAccount RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewManagerServiceClient(grpcConn)
-		req := &pb.GetPhoneAccountRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetPhoneAccount(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomManagerGetSimCallManagerCmd = &cobra.Command{
-	Use:   "get-sim-call-manager",
-	Short: "GetSimCallManager RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewManagerServiceClient(grpcConn)
-		req := &pb.GetSimCallManagerRequest{}
-		resp, err := client.GetSimCallManager(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomManagerGetSimCallManagerForSubscriptionCmd = &cobra.Command{
-	Use:   "get-sim-call-manager-for-subscription",
-	Short: "GetSimCallManagerForSubscription RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewManagerServiceClient(grpcConn)
-		req := &pb.GetSimCallManagerForSubscriptionRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetSimCallManagerForSubscription(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomManagerGetSystemDialerPackageCmd = &cobra.Command{
-	Use:   "get-system-dialer-package",
-	Short: "GetSystemDialerPackage RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewManagerServiceClient(grpcConn)
-		req := &pb.GetSystemDialerPackageRequest{}
-		resp, err := client.GetSystemDialerPackage(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomManagerGetUserSelectedOutgoingPhoneAccountCmd = &cobra.Command{
-	Use:   "get-user-selected-outgoing-phone-account",
-	Short: "GetUserSelectedOutgoingPhoneAccount RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewManagerServiceClient(grpcConn)
-		req := &pb.GetUserSelectedOutgoingPhoneAccountRequest{}
-		resp, err := client.GetUserSelectedOutgoingPhoneAccount(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomManagerGetVoiceMailNumberCmd = &cobra.Command{
-	Use:   "get-voice-mail-number",
-	Short: "GetVoiceMailNumber RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewManagerServiceClient(grpcConn)
-		req := &pb.GetVoiceMailNumberRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetVoiceMailNumber(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomManagerHandleMmi1Cmd = &cobra.Command{
-	Use:   "handle-mmi1",
-	Short: "HandleMmi1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewManagerServiceClient(grpcConn)
-		req := &pb.HandleMmi1Request{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.HandleMmi1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomManagerHandleMmi2_1Cmd = &cobra.Command{
-	Use:   "handle-mmi2_1",
-	Short: "HandleMmi2_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewManagerServiceClient(grpcConn)
-		req := &pb.HandleMmi2_1Request{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.HandleMmi2_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomManagerHasManageOngoingCallsPermissionCmd = &cobra.Command{
-	Use:   "has-manage-ongoing-calls-permission",
-	Short: "HasManageOngoingCallsPermission RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewManagerServiceClient(grpcConn)
-		req := &pb.HasManageOngoingCallsPermissionRequest{}
-		resp, err := client.HasManageOngoingCallsPermission(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomManagerIsInCallCmd = &cobra.Command{
-	Use:   "is-in-call",
-	Short: "IsInCall RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewManagerServiceClient(grpcConn)
-		req := &pb.IsInCallRequest{}
-		resp, err := client.IsInCall(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomManagerIsInManagedCallCmd = &cobra.Command{
-	Use:   "is-in-managed-call",
-	Short: "IsInManagedCall RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewManagerServiceClient(grpcConn)
-		req := &pb.IsInManagedCallRequest{}
-		resp, err := client.IsInManagedCall(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomManagerIsIncomingCallPermittedCmd = &cobra.Command{
-	Use:   "is-incoming-call-permitted",
-	Short: "IsIncomingCallPermitted RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewManagerServiceClient(grpcConn)
-		req := &pb.IsIncomingCallPermittedRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.IsIncomingCallPermitted(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomManagerIsOutgoingCallPermittedCmd = &cobra.Command{
-	Use:   "is-outgoing-call-permitted",
-	Short: "IsOutgoingCallPermitted RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewManagerServiceClient(grpcConn)
-		req := &pb.IsOutgoingCallPermittedRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.IsOutgoingCallPermitted(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomManagerIsTtySupportedCmd = &cobra.Command{
-	Use:   "is-tty-supported",
-	Short: "IsTtySupported RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewManagerServiceClient(grpcConn)
-		req := &pb.IsTtySupportedRequest{}
-		resp, err := client.IsTtySupported(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomManagerIsVoiceMailNumberCmd = &cobra.Command{
-	Use:   "is-voice-mail-number",
-	Short: "IsVoiceMailNumber RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewManagerServiceClient(grpcConn)
-		req := &pb.IsVoiceMailNumberRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetString("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.IsVoiceMailNumber(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomManagerPlaceCallCmd = &cobra.Command{
-	Use:   "place-call",
-	Short: "PlaceCall RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewManagerServiceClient(grpcConn)
-		req := &pb.PlaceCallRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.PlaceCall(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomManagerRegisterPhoneAccountCmd = &cobra.Command{
-	Use:   "register-phone-account",
-	Short: "RegisterPhoneAccount RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewManagerServiceClient(grpcConn)
-		req := &pb.RegisterPhoneAccountRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.RegisterPhoneAccount(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomManagerShowInCallScreenCmd = &cobra.Command{
-	Use:   "show-in-call-screen",
-	Short: "ShowInCallScreen RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewManagerServiceClient(grpcConn)
-		req := &pb.ShowInCallScreenRequest{}
-		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.ShowInCallScreen(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomManagerSilenceRingerCmd = &cobra.Command{
-	Use:   "silence-ringer",
-	Short: "SilenceRinger RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewManagerServiceClient(grpcConn)
-		req := &pb.SilenceRingerRequest{}
-		resp, err := client.SilenceRinger(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomManagerUnregisterPhoneAccountCmd = &cobra.Command{
-	Use:   "unregister-phone-account",
-	Short: "UnregisterPhoneAccount RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewManagerServiceClient(grpcConn)
-		req := &pb.UnregisterPhoneAccountRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.UnregisterPhoneAccount(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomCallEventCallbackCmd = &cobra.Command{
-	Use:   "call-event-callback",
-	Short: "CallEventCallbackService operations",
-}
-
-var telecomCallEventCallbackOnCallEndpointChangedCmd = &cobra.Command{
-	Use:   "on-call-endpoint-changed",
-	Short: "OnCallEndpointChanged RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCallEventCallbackServiceClient(grpcConn)
-		req := &pb.OnCallEndpointChangedRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.OnCallEndpointChanged(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomCallEventCallbackOnCallStreamingFailedCmd = &cobra.Command{
-	Use:   "on-call-streaming-failed",
-	Short: "OnCallStreamingFailed RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCallEventCallbackServiceClient(grpcConn)
-		req := &pb.OnCallStreamingFailedRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.OnCallStreamingFailed(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomCallEventCallbackOnEventCmd = &cobra.Command{
-	Use:   "on-event",
-	Short: "OnEvent RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCallEventCallbackServiceClient(grpcConn)
-		req := &pb.OnEventRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.OnEvent(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomCallEventCallbackOnMuteStateChangedCmd = &cobra.Command{
-	Use:   "on-mute-state-changed",
-	Short: "OnMuteStateChanged RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCallEventCallbackServiceClient(grpcConn)
-		req := &pb.OnMuteStateChangedRequest{}
-		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.OnMuteStateChanged(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
 var telecomRemoteConnectionCmd = &cobra.Command{
 	Use:   "remote-connection",
 	Short: "RemoteConnectionService operations",
@@ -5218,6 +6876,22 @@ var telecomRemoteConnectionGetConferenceCmd = &cobra.Command{
 	},
 }
 
+var telecomRemoteConnectionGetConferenceableConnectionsCmd = &cobra.Command{
+	Use:   "get-conferenceable-connections",
+	Short: "GetConferenceableConnections RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRemoteConnectionServiceClient(grpcConn)
+		req := &pb.GetConferenceableConnectionsRequest{}
+		resp, err := client.GetConferenceableConnections(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var telecomRemoteConnectionGetConnectionCapabilitiesCmd = &cobra.Command{
 	Use:   "get-connection-capabilities",
 	Short: "GetConnectionCapabilities RPC",
@@ -5337,7 +7011,7 @@ var telecomRemoteConnectionGetVideoStateCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewRemoteConnectionServiceClient(grpcConn)
-		req := &pb.GetVideoStateRequest{}
+		req := &pb.RemoteConnectionGetVideoStateRequest{}
 		resp, err := client.GetVideoState(ctx, req)
 		if err != nil {
 			return err
@@ -5747,7 +7421,7 @@ var telecomRemoteConnectionCallbackOnExtrasChangedCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewRemoteConnectionCallbackServiceClient(grpcConn)
-		req := &pb.RemoteConnectionCallbackOnExtrasChangedRequest{}
+		req := &pb.OnExtrasChangedRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
@@ -5835,7 +7509,7 @@ var telecomRemoteConnectionCallbackOnStateChangedCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewRemoteConnectionCallbackServiceClient(grpcConn)
-		req := &pb.OnStateChangedRequest{}
+		req := &pb.RemoteConnectionCallbackOnStateChangedRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
@@ -6168,2764 +7842,6 @@ var telecomRemoteConnectionVideoProviderUnregisterCallbackCmd = &cobra.Command{
 	},
 }
 
-var telecomCallControlCmd = &cobra.Command{
-	Use:   "call-control",
-	Short: "CallControlService operations",
-}
-
-var telecomCallControlGetCallIdCmd = &cobra.Command{
-	Use:   "get-call-id",
-	Short: "GetCallId RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCallControlServiceClient(grpcConn)
-		req := &pb.GetCallIdRequest{}
-		resp, err := client.GetCallId(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomCallControlSendEventCmd = &cobra.Command{
-	Use:   "send-event",
-	Short: "SendEvent RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCallControlServiceClient(grpcConn)
-		req := &pb.SendEventRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.SendEvent(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomConnectionRequestCmd = &cobra.Command{
-	Use:   "connection-request",
-	Short: "ConnectionRequestService operations",
-}
-
-var telecomConnectionRequestNewConnectionRequestCmd = &cobra.Command{
-	Use:   "new-connection-request",
-	Short: "NewConnectionRequest RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewConnectionRequestServiceClient(grpcConn)
-		req := &pb.NewConnectionRequestRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.NewConnectionRequest(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomConnectionRequestDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewConnectionRequestServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomConnectionRequestGetAccountHandleCmd = &cobra.Command{
-	Use:   "get-account-handle",
-	Short: "GetAccountHandle RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewConnectionRequestServiceClient(grpcConn)
-		req := &pb.ConnectionRequestGetAccountHandleRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetAccountHandle(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomConnectionRequestGetAddressCmd = &cobra.Command{
-	Use:   "get-address",
-	Short: "GetAddress RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewConnectionRequestServiceClient(grpcConn)
-		req := &pb.ConnectionRequestGetAddressRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetAddress(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomConnectionRequestGetExtrasCmd = &cobra.Command{
-	Use:   "get-extras",
-	Short: "GetExtras RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewConnectionRequestServiceClient(grpcConn)
-		req := &pb.ConnectionRequestGetExtrasRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetExtras(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomConnectionRequestGetRttTextStreamCmd = &cobra.Command{
-	Use:   "get-rtt-text-stream",
-	Short: "GetRttTextStream RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewConnectionRequestServiceClient(grpcConn)
-		req := &pb.GetRttTextStreamRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetRttTextStream(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomConnectionRequestGetVideoStateCmd = &cobra.Command{
-	Use:   "get-video-state",
-	Short: "GetVideoState RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewConnectionRequestServiceClient(grpcConn)
-		req := &pb.ConnectionRequestGetVideoStateRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetVideoState(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomConnectionRequestIsAdhocConferenceCallCmd = &cobra.Command{
-	Use:   "is-adhoc-conference-call",
-	Short: "IsAdhocConferenceCall RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewConnectionRequestServiceClient(grpcConn)
-		req := &pb.IsAdhocConferenceCallRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.IsAdhocConferenceCall(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomConnectionRequestIsRequestingRttCmd = &cobra.Command{
-	Use:   "is-requesting-rtt",
-	Short: "IsRequestingRtt RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewConnectionRequestServiceClient(grpcConn)
-		req := &pb.IsRequestingRttRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.IsRequestingRtt(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomConnectionRequestToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewConnectionRequestServiceClient(grpcConn)
-		req := &pb.ConnectionRequestToStringRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomConnectionRequestWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewConnectionRequestServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomStatusHintsCmd = &cobra.Command{
-	Use:   "status-hints",
-	Short: "StatusHintsService operations",
-}
-
-var telecomStatusHintsNewStatusHintsCmd = &cobra.Command{
-	Use:   "new-status-hints",
-	Short: "NewStatusHints RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewStatusHintsServiceClient(grpcConn)
-		req := &pb.NewStatusHintsRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.NewStatusHints(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomStatusHintsDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewStatusHintsServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomStatusHintsEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewStatusHintsServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomStatusHintsGetExtrasCmd = &cobra.Command{
-	Use:   "get-extras",
-	Short: "GetExtras RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewStatusHintsServiceClient(grpcConn)
-		req := &pb.StatusHintsGetExtrasRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetExtras(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomStatusHintsGetIconCmd = &cobra.Command{
-	Use:   "get-icon",
-	Short: "GetIcon RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewStatusHintsServiceClient(grpcConn)
-		req := &pb.StatusHintsGetIconRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetIcon(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomStatusHintsGetLabelCmd = &cobra.Command{
-	Use:   "get-label",
-	Short: "GetLabel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewStatusHintsServiceClient(grpcConn)
-		req := &pb.StatusHintsGetLabelRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetLabel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomStatusHintsHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewStatusHintsServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomStatusHintsWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewStatusHintsServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomCallAudioStateCmd = &cobra.Command{
-	Use:   "call-audio-state",
-	Short: "CallAudioStateService operations",
-}
-
-var telecomCallAudioStateNewCallAudioStateCmd = &cobra.Command{
-	Use:   "new-call-audio-state",
-	Short: "NewCallAudioState RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCallAudioStateServiceClient(grpcConn)
-		req := &pb.NewCallAudioStateRequest{}
-		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.NewCallAudioState(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomCallAudioStateDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCallAudioStateServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomCallAudioStateEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCallAudioStateServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomCallAudioStateGetActiveBluetoothDeviceCmd = &cobra.Command{
-	Use:   "get-active-bluetooth-device",
-	Short: "GetActiveBluetoothDevice RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCallAudioStateServiceClient(grpcConn)
-		req := &pb.GetActiveBluetoothDeviceRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetActiveBluetoothDevice(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomCallAudioStateGetRouteCmd = &cobra.Command{
-	Use:   "get-route",
-	Short: "GetRoute RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCallAudioStateServiceClient(grpcConn)
-		req := &pb.GetRouteRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetRoute(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomCallAudioStateGetSupportedRouteMaskCmd = &cobra.Command{
-	Use:   "get-supported-route-mask",
-	Short: "GetSupportedRouteMask RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCallAudioStateServiceClient(grpcConn)
-		req := &pb.GetSupportedRouteMaskRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetSupportedRouteMask(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomCallAudioStateIsMutedCmd = &cobra.Command{
-	Use:   "is-muted",
-	Short: "IsMuted RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCallAudioStateServiceClient(grpcConn)
-		req := &pb.IsMutedRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.IsMuted(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomCallAudioStateToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCallAudioStateServiceClient(grpcConn)
-		req := &pb.CallAudioStateToStringRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomCallAudioStateWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCallAudioStateServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomCallAudioStateAudioRouteToStringCmd = &cobra.Command{
-	Use:   "audio-route-to-string",
-	Short: "AudioRouteToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCallAudioStateServiceClient(grpcConn)
-		req := &pb.AudioRouteToStringRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.AudioRouteToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomCallAttributesCmd = &cobra.Command{
-	Use:   "call-attributes",
-	Short: "CallAttributesService operations",
-}
-
-var telecomCallAttributesDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCallAttributesServiceClient(grpcConn)
-		req := &pb.CallAttributesDescribeContentsRequest{}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomCallAttributesEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCallAttributesServiceClient(grpcConn)
-		req := &pb.CallAttributesEqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomCallAttributesGetAddressCmd = &cobra.Command{
-	Use:   "get-address",
-	Short: "GetAddress RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCallAttributesServiceClient(grpcConn)
-		req := &pb.GetAddressRequest{}
-		resp, err := client.GetAddress(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomCallAttributesGetCallCapabilitiesCmd = &cobra.Command{
-	Use:   "get-call-capabilities",
-	Short: "GetCallCapabilities RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCallAttributesServiceClient(grpcConn)
-		req := &pb.GetCallCapabilitiesRequest{}
-		resp, err := client.GetCallCapabilities(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomCallAttributesGetCallTypeCmd = &cobra.Command{
-	Use:   "get-call-type",
-	Short: "GetCallType RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCallAttributesServiceClient(grpcConn)
-		req := &pb.GetCallTypeRequest{}
-		resp, err := client.GetCallType(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomCallAttributesGetDirectionCmd = &cobra.Command{
-	Use:   "get-direction",
-	Short: "GetDirection RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCallAttributesServiceClient(grpcConn)
-		req := &pb.GetDirectionRequest{}
-		resp, err := client.GetDirection(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomCallAttributesGetDisplayNameCmd = &cobra.Command{
-	Use:   "get-display-name",
-	Short: "GetDisplayName RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCallAttributesServiceClient(grpcConn)
-		req := &pb.GetDisplayNameRequest{}
-		resp, err := client.GetDisplayName(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomCallAttributesGetPhoneAccountHandleCmd = &cobra.Command{
-	Use:   "get-phone-account-handle",
-	Short: "GetPhoneAccountHandle RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCallAttributesServiceClient(grpcConn)
-		req := &pb.CallAttributesGetPhoneAccountHandleRequest{}
-		resp, err := client.GetPhoneAccountHandle(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomCallAttributesHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCallAttributesServiceClient(grpcConn)
-		req := &pb.CallAttributesHashCodeRequest{}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomCallAttributesToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCallAttributesServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomCallAttributesWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCallAttributesServiceClient(grpcConn)
-		req := &pb.CallAttributesWriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomCallAttributesBuilderCmd = &cobra.Command{
-	Use:   "call-attributes-builder",
-	Short: "CallAttributesBuilderService operations",
-}
-
-var telecomCallAttributesBuilderBuildCmd = &cobra.Command{
-	Use:   "build",
-	Short: "Build RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCallAttributesBuilderServiceClient(grpcConn)
-		req := &pb.BuildRequest{}
-		resp, err := client.Build(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomCallAttributesBuilderSetCallCapabilitiesCmd = &cobra.Command{
-	Use:   "set-call-capabilities",
-	Short: "SetCallCapabilities RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCallAttributesBuilderServiceClient(grpcConn)
-		req := &pb.SetCallCapabilitiesRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetCallCapabilities(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomCallAttributesBuilderSetCallTypeCmd = &cobra.Command{
-	Use:   "set-call-type",
-	Short: "SetCallType RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCallAttributesBuilderServiceClient(grpcConn)
-		req := &pb.SetCallTypeRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetCallType(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomConnectionServiceCmd = &cobra.Command{
-	Use:   "connection-service",
-	Short: "ConnectionServiceService operations",
-}
-
-var telecomConnectionServiceAddConferenceCmd = &cobra.Command{
-	Use:   "add-conference",
-	Short: "AddConference RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewConnectionServiceServiceClient(grpcConn)
-		req := &pb.AddConferenceRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.AddConference(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomConnectionServiceAddExistingConnectionCmd = &cobra.Command{
-	Use:   "add-existing-connection",
-	Short: "AddExistingConnection RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewConnectionServiceServiceClient(grpcConn)
-		req := &pb.AddExistingConnectionRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.AddExistingConnection(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomConnectionServiceConferenceRemoteConnectionsCmd = &cobra.Command{
-	Use:   "conference-remote-connections",
-	Short: "ConferenceRemoteConnections RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewConnectionServiceServiceClient(grpcConn)
-		req := &pb.ConferenceRemoteConnectionsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.ConferenceRemoteConnections(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomConnectionServiceConnectionServiceFocusReleasedCmd = &cobra.Command{
-	Use:   "connection-service-focus-released",
-	Short: "ConnectionServiceFocusReleased RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewConnectionServiceServiceClient(grpcConn)
-		req := &pb.ConnectionServiceFocusReleasedRequest{}
-		resp, err := client.ConnectionServiceFocusReleased(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomConnectionServiceCreateRemoteIncomingConferenceCmd = &cobra.Command{
-	Use:   "create-remote-incoming-conference",
-	Short: "CreateRemoteIncomingConference RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewConnectionServiceServiceClient(grpcConn)
-		req := &pb.CreateRemoteIncomingConferenceRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.CreateRemoteIncomingConference(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomConnectionServiceCreateRemoteIncomingConnectionCmd = &cobra.Command{
-	Use:   "create-remote-incoming-connection",
-	Short: "CreateRemoteIncomingConnection RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewConnectionServiceServiceClient(grpcConn)
-		req := &pb.CreateRemoteIncomingConnectionRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.CreateRemoteIncomingConnection(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomConnectionServiceCreateRemoteOutgoingConferenceCmd = &cobra.Command{
-	Use:   "create-remote-outgoing-conference",
-	Short: "CreateRemoteOutgoingConference RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewConnectionServiceServiceClient(grpcConn)
-		req := &pb.CreateRemoteOutgoingConferenceRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.CreateRemoteOutgoingConference(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomConnectionServiceCreateRemoteOutgoingConnectionCmd = &cobra.Command{
-	Use:   "create-remote-outgoing-connection",
-	Short: "CreateRemoteOutgoingConnection RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewConnectionServiceServiceClient(grpcConn)
-		req := &pb.CreateRemoteOutgoingConnectionRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.CreateRemoteOutgoingConnection(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomConnectionServiceOnBindCmd = &cobra.Command{
-	Use:   "on-bind",
-	Short: "OnBind RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewConnectionServiceServiceClient(grpcConn)
-		req := &pb.OnBindRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.OnBind(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomConnectionServiceOnConferenceCmd = &cobra.Command{
-	Use:   "on-conference",
-	Short: "OnConference RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewConnectionServiceServiceClient(grpcConn)
-		req := &pb.OnConferenceRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.OnConference(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomConnectionServiceOnConnectionServiceFocusGainedCmd = &cobra.Command{
-	Use:   "on-connection-service-focus-gained",
-	Short: "OnConnectionServiceFocusGained RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewConnectionServiceServiceClient(grpcConn)
-		req := &pb.OnConnectionServiceFocusGainedRequest{}
-		resp, err := client.OnConnectionServiceFocusGained(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomConnectionServiceOnConnectionServiceFocusLostCmd = &cobra.Command{
-	Use:   "on-connection-service-focus-lost",
-	Short: "OnConnectionServiceFocusLost RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewConnectionServiceServiceClient(grpcConn)
-		req := &pb.OnConnectionServiceFocusLostRequest{}
-		resp, err := client.OnConnectionServiceFocusLost(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomConnectionServiceOnCreateIncomingConferenceCmd = &cobra.Command{
-	Use:   "on-create-incoming-conference",
-	Short: "OnCreateIncomingConference RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewConnectionServiceServiceClient(grpcConn)
-		req := &pb.OnCreateIncomingConferenceRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.OnCreateIncomingConference(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomConnectionServiceOnCreateIncomingConferenceFailedCmd = &cobra.Command{
-	Use:   "on-create-incoming-conference-failed",
-	Short: "OnCreateIncomingConferenceFailed RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewConnectionServiceServiceClient(grpcConn)
-		req := &pb.OnCreateIncomingConferenceFailedRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.OnCreateIncomingConferenceFailed(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomConnectionServiceOnCreateIncomingConnectionCmd = &cobra.Command{
-	Use:   "on-create-incoming-connection",
-	Short: "OnCreateIncomingConnection RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewConnectionServiceServiceClient(grpcConn)
-		req := &pb.OnCreateIncomingConnectionRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.OnCreateIncomingConnection(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomConnectionServiceOnCreateIncomingConnectionFailedCmd = &cobra.Command{
-	Use:   "on-create-incoming-connection-failed",
-	Short: "OnCreateIncomingConnectionFailed RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewConnectionServiceServiceClient(grpcConn)
-		req := &pb.OnCreateIncomingConnectionFailedRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.OnCreateIncomingConnectionFailed(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomConnectionServiceOnCreateIncomingHandoverConnectionCmd = &cobra.Command{
-	Use:   "on-create-incoming-handover-connection",
-	Short: "OnCreateIncomingHandoverConnection RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewConnectionServiceServiceClient(grpcConn)
-		req := &pb.OnCreateIncomingHandoverConnectionRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.OnCreateIncomingHandoverConnection(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomConnectionServiceOnCreateOutgoingConferenceCmd = &cobra.Command{
-	Use:   "on-create-outgoing-conference",
-	Short: "OnCreateOutgoingConference RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewConnectionServiceServiceClient(grpcConn)
-		req := &pb.OnCreateOutgoingConferenceRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.OnCreateOutgoingConference(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomConnectionServiceOnCreateOutgoingConferenceFailedCmd = &cobra.Command{
-	Use:   "on-create-outgoing-conference-failed",
-	Short: "OnCreateOutgoingConferenceFailed RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewConnectionServiceServiceClient(grpcConn)
-		req := &pb.OnCreateOutgoingConferenceFailedRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.OnCreateOutgoingConferenceFailed(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomConnectionServiceOnCreateOutgoingConnectionCmd = &cobra.Command{
-	Use:   "on-create-outgoing-connection",
-	Short: "OnCreateOutgoingConnection RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewConnectionServiceServiceClient(grpcConn)
-		req := &pb.OnCreateOutgoingConnectionRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.OnCreateOutgoingConnection(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomConnectionServiceOnCreateOutgoingConnectionFailedCmd = &cobra.Command{
-	Use:   "on-create-outgoing-connection-failed",
-	Short: "OnCreateOutgoingConnectionFailed RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewConnectionServiceServiceClient(grpcConn)
-		req := &pb.OnCreateOutgoingConnectionFailedRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.OnCreateOutgoingConnectionFailed(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomConnectionServiceOnCreateOutgoingHandoverConnectionCmd = &cobra.Command{
-	Use:   "on-create-outgoing-handover-connection",
-	Short: "OnCreateOutgoingHandoverConnection RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewConnectionServiceServiceClient(grpcConn)
-		req := &pb.OnCreateOutgoingHandoverConnectionRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.OnCreateOutgoingHandoverConnection(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomConnectionServiceOnHandoverFailedCmd = &cobra.Command{
-	Use:   "on-handover-failed",
-	Short: "OnHandoverFailed RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewConnectionServiceServiceClient(grpcConn)
-		req := &pb.OnHandoverFailedRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.OnHandoverFailed(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomConnectionServiceOnRemoteConferenceAddedCmd = &cobra.Command{
-	Use:   "on-remote-conference-added",
-	Short: "OnRemoteConferenceAdded RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewConnectionServiceServiceClient(grpcConn)
-		req := &pb.OnRemoteConferenceAddedRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.OnRemoteConferenceAdded(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomConnectionServiceOnRemoteExistingConnectionAddedCmd = &cobra.Command{
-	Use:   "on-remote-existing-connection-added",
-	Short: "OnRemoteExistingConnectionAdded RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewConnectionServiceServiceClient(grpcConn)
-		req := &pb.OnRemoteExistingConnectionAddedRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.OnRemoteExistingConnectionAdded(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomConnectionServiceOnUnbindCmd = &cobra.Command{
-	Use:   "on-unbind",
-	Short: "OnUnbind RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewConnectionServiceServiceClient(grpcConn)
-		req := &pb.OnUnbindRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.OnUnbind(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomGatewayInfoCmd = &cobra.Command{
-	Use:   "gateway-info",
-	Short: "GatewayInfoService operations",
-}
-
-var telecomGatewayInfoNewGatewayInfoCmd = &cobra.Command{
-	Use:   "new-gateway-info",
-	Short: "NewGatewayInfo RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewGatewayInfoServiceClient(grpcConn)
-		req := &pb.NewGatewayInfoRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.NewGatewayInfo(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomGatewayInfoDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewGatewayInfoServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomGatewayInfoGetGatewayAddressCmd = &cobra.Command{
-	Use:   "get-gateway-address",
-	Short: "GetGatewayAddress RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewGatewayInfoServiceClient(grpcConn)
-		req := &pb.GetGatewayAddressRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetGatewayAddress(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomGatewayInfoGetGatewayProviderPackageNameCmd = &cobra.Command{
-	Use:   "get-gateway-provider-package-name",
-	Short: "GetGatewayProviderPackageName RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewGatewayInfoServiceClient(grpcConn)
-		req := &pb.GetGatewayProviderPackageNameRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetGatewayProviderPackageName(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomGatewayInfoGetOriginalAddressCmd = &cobra.Command{
-	Use:   "get-original-address",
-	Short: "GetOriginalAddress RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewGatewayInfoServiceClient(grpcConn)
-		req := &pb.GetOriginalAddressRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetOriginalAddress(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomGatewayInfoIsEmptyCmd = &cobra.Command{
-	Use:   "is-empty",
-	Short: "IsEmpty RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewGatewayInfoServiceClient(grpcConn)
-		req := &pb.IsEmptyRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.IsEmpty(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomGatewayInfoWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewGatewayInfoServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomCallExceptionCmd = &cobra.Command{
-	Use:   "call-exception",
-	Short: "CallExceptionService operations",
-}
-
-var telecomCallExceptionNewCallExceptionCmd = &cobra.Command{
-	Use:   "new-call-exception",
-	Short: "NewCallException RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCallExceptionServiceClient(grpcConn)
-		req := &pb.NewCallExceptionRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.NewCallException(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomCallExceptionDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCallExceptionServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomCallExceptionGetCodeCmd = &cobra.Command{
-	Use:   "get-code",
-	Short: "GetCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCallExceptionServiceClient(grpcConn)
-		req := &pb.GetCodeRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomCallExceptionWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCallExceptionServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomCallRedirectionServiceCmd = &cobra.Command{
-	Use:   "call-redirection-service",
-	Short: "CallRedirectionServiceService operations",
-}
-
-var telecomCallRedirectionServiceCancelCallCmd = &cobra.Command{
-	Use:   "cancel-call",
-	Short: "CancelCall RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCallRedirectionServiceServiceClient(grpcConn)
-		req := &pb.CancelCallRequest{}
-		resp, err := client.CancelCall(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomCallRedirectionServiceOnBindCmd = &cobra.Command{
-	Use:   "on-bind",
-	Short: "OnBind RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCallRedirectionServiceServiceClient(grpcConn)
-		req := &pb.OnBindRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.OnBind(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomCallRedirectionServiceOnPlaceCallCmd = &cobra.Command{
-	Use:   "on-place-call",
-	Short: "OnPlaceCall RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCallRedirectionServiceServiceClient(grpcConn)
-		req := &pb.OnPlaceCallRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetBool("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.OnPlaceCall(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomCallRedirectionServiceOnRedirectionTimeoutCmd = &cobra.Command{
-	Use:   "on-redirection-timeout",
-	Short: "OnRedirectionTimeout RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCallRedirectionServiceServiceClient(grpcConn)
-		req := &pb.OnRedirectionTimeoutRequest{}
-		resp, err := client.OnRedirectionTimeout(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomCallRedirectionServiceOnUnbindCmd = &cobra.Command{
-	Use:   "on-unbind",
-	Short: "OnUnbind RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCallRedirectionServiceServiceClient(grpcConn)
-		req := &pb.OnUnbindRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.OnUnbind(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomCallRedirectionServicePlaceCallUnmodifiedCmd = &cobra.Command{
-	Use:   "place-call-unmodified",
-	Short: "PlaceCallUnmodified RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCallRedirectionServiceServiceClient(grpcConn)
-		req := &pb.PlaceCallUnmodifiedRequest{}
-		resp, err := client.PlaceCallUnmodified(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomCallRedirectionServiceRedirectCallCmd = &cobra.Command{
-	Use:   "redirect-call",
-	Short: "RedirectCall RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCallRedirectionServiceServiceClient(grpcConn)
-		req := &pb.RedirectCallRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetBool("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.RedirectCall(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomQueryLocationExceptionCmd = &cobra.Command{
-	Use:   "query-location-exception",
-	Short: "QueryLocationExceptionService operations",
-}
-
-var telecomQueryLocationExceptionNewQueryLocationExceptionCmd = &cobra.Command{
-	Use:   "new-query-location-exception",
-	Short: "NewQueryLocationException RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewQueryLocationExceptionServiceClient(grpcConn)
-		req := &pb.NewQueryLocationExceptionRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.NewQueryLocationException(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomQueryLocationExceptionDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewQueryLocationExceptionServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomQueryLocationExceptionGetCodeCmd = &cobra.Command{
-	Use:   "get-code",
-	Short: "GetCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewQueryLocationExceptionServiceClient(grpcConn)
-		req := &pb.GetCodeRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomQueryLocationExceptionWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewQueryLocationExceptionServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomRemoteConferenceCmd = &cobra.Command{
-	Use:   "remote-conference",
-	Short: "RemoteConferenceService operations",
-}
-
-var telecomRemoteConferenceDisconnectCmd = &cobra.Command{
-	Use:   "disconnect",
-	Short: "Disconnect RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRemoteConferenceServiceClient(grpcConn)
-		req := &pb.DisconnectRequest{}
-		resp, err := client.Disconnect(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomRemoteConferenceGetConnectionCapabilitiesCmd = &cobra.Command{
-	Use:   "get-connection-capabilities",
-	Short: "GetConnectionCapabilities RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRemoteConferenceServiceClient(grpcConn)
-		req := &pb.GetConnectionCapabilitiesRequest{}
-		resp, err := client.GetConnectionCapabilities(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomRemoteConferenceGetConnectionPropertiesCmd = &cobra.Command{
-	Use:   "get-connection-properties",
-	Short: "GetConnectionProperties RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRemoteConferenceServiceClient(grpcConn)
-		req := &pb.GetConnectionPropertiesRequest{}
-		resp, err := client.GetConnectionProperties(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomRemoteConferenceGetDisconnectCauseCmd = &cobra.Command{
-	Use:   "get-disconnect-cause",
-	Short: "GetDisconnectCause RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRemoteConferenceServiceClient(grpcConn)
-		req := &pb.GetDisconnectCauseRequest{}
-		resp, err := client.GetDisconnectCause(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomRemoteConferenceGetExtrasCmd = &cobra.Command{
-	Use:   "get-extras",
-	Short: "GetExtras RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRemoteConferenceServiceClient(grpcConn)
-		req := &pb.GetExtrasRequest{}
-		resp, err := client.GetExtras(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomRemoteConferenceGetStateCmd = &cobra.Command{
-	Use:   "get-state",
-	Short: "GetState RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRemoteConferenceServiceClient(grpcConn)
-		req := &pb.GetStateRequest{}
-		resp, err := client.GetState(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomRemoteConferenceHoldCmd = &cobra.Command{
-	Use:   "hold",
-	Short: "Hold RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRemoteConferenceServiceClient(grpcConn)
-		req := &pb.HoldRequest{}
-		resp, err := client.Hold(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomRemoteConferenceMergeCmd = &cobra.Command{
-	Use:   "merge",
-	Short: "Merge RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRemoteConferenceServiceClient(grpcConn)
-		req := &pb.MergeRequest{}
-		resp, err := client.Merge(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomRemoteConferencePlayDtmfToneCmd = &cobra.Command{
-	Use:   "play-dtmf-tone",
-	Short: "PlayDtmfTone RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRemoteConferenceServiceClient(grpcConn)
-		req := &pb.PlayDtmfToneRequest{}
-		if v, err := cmd.Flags().GetUint32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.PlayDtmfTone(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomRemoteConferenceRegisterCallbackCmd = &cobra.Command{
-	Use:   "register-callback",
-	Short: "RegisterCallback RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRemoteConferenceServiceClient(grpcConn)
-		req := &pb.RegisterCallbackRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.RegisterCallback(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomRemoteConferenceSeparateCmd = &cobra.Command{
-	Use:   "separate",
-	Short: "Separate RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRemoteConferenceServiceClient(grpcConn)
-		req := &pb.SeparateRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Separate(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomRemoteConferenceSetCallAudioStateCmd = &cobra.Command{
-	Use:   "set-call-audio-state",
-	Short: "SetCallAudioState RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRemoteConferenceServiceClient(grpcConn)
-		req := &pb.SetCallAudioStateRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetCallAudioState(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomRemoteConferenceStopDtmfToneCmd = &cobra.Command{
-	Use:   "stop-dtmf-tone",
-	Short: "StopDtmfTone RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRemoteConferenceServiceClient(grpcConn)
-		req := &pb.StopDtmfToneRequest{}
-		resp, err := client.StopDtmfTone(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomRemoteConferenceSwapCmd = &cobra.Command{
-	Use:   "swap",
-	Short: "Swap RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRemoteConferenceServiceClient(grpcConn)
-		req := &pb.SwapRequest{}
-		resp, err := client.Swap(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomRemoteConferenceUnholdCmd = &cobra.Command{
-	Use:   "unhold",
-	Short: "Unhold RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRemoteConferenceServiceClient(grpcConn)
-		req := &pb.UnholdRequest{}
-		resp, err := client.Unhold(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomRemoteConferenceUnregisterCallbackCmd = &cobra.Command{
-	Use:   "unregister-callback",
-	Short: "UnregisterCallback RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRemoteConferenceServiceClient(grpcConn)
-		req := &pb.UnregisterCallbackRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.UnregisterCallback(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomRemoteConferenceCallbackCmd = &cobra.Command{
-	Use:   "remote-conference-callback",
-	Short: "RemoteConferenceCallbackService operations",
-}
-
-var telecomRemoteConferenceCallbackOnConnectionAddedCmd = &cobra.Command{
-	Use:   "on-connection-added",
-	Short: "OnConnectionAdded RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRemoteConferenceCallbackServiceClient(grpcConn)
-		req := &pb.RemoteConferenceCallbackOnConnectionAddedRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.OnConnectionAdded(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomRemoteConferenceCallbackOnConnectionCapabilitiesChangedCmd = &cobra.Command{
-	Use:   "on-connection-capabilities-changed",
-	Short: "OnConnectionCapabilitiesChanged RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRemoteConferenceCallbackServiceClient(grpcConn)
-		req := &pb.OnConnectionCapabilitiesChangedRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.OnConnectionCapabilitiesChanged(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomRemoteConferenceCallbackOnConnectionPropertiesChangedCmd = &cobra.Command{
-	Use:   "on-connection-properties-changed",
-	Short: "OnConnectionPropertiesChanged RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRemoteConferenceCallbackServiceClient(grpcConn)
-		req := &pb.OnConnectionPropertiesChangedRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.OnConnectionPropertiesChanged(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomRemoteConferenceCallbackOnConnectionRemovedCmd = &cobra.Command{
-	Use:   "on-connection-removed",
-	Short: "OnConnectionRemoved RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRemoteConferenceCallbackServiceClient(grpcConn)
-		req := &pb.OnConnectionRemovedRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.OnConnectionRemoved(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomRemoteConferenceCallbackOnDestroyedCmd = &cobra.Command{
-	Use:   "on-destroyed",
-	Short: "OnDestroyed RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRemoteConferenceCallbackServiceClient(grpcConn)
-		req := &pb.OnDestroyedRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.OnDestroyed(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomRemoteConferenceCallbackOnDisconnectedCmd = &cobra.Command{
-	Use:   "on-disconnected",
-	Short: "OnDisconnected RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRemoteConferenceCallbackServiceClient(grpcConn)
-		req := &pb.OnDisconnectedRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.OnDisconnected(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomRemoteConferenceCallbackOnExtrasChangedCmd = &cobra.Command{
-	Use:   "on-extras-changed",
-	Short: "OnExtrasChanged RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRemoteConferenceCallbackServiceClient(grpcConn)
-		req := &pb.RemoteConferenceCallbackOnExtrasChangedRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.OnExtrasChanged(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomRemoteConferenceCallbackOnStateChangedCmd = &cobra.Command{
-	Use:   "on-state-changed",
-	Short: "OnStateChanged RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRemoteConferenceCallbackServiceClient(grpcConn)
-		req := &pb.RemoteConferenceCallbackOnStateChangedRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.OnStateChanged(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomVideoProfileCmd = &cobra.Command{
-	Use:   "video-profile",
-	Short: "VideoProfileService operations",
-}
-
-var telecomVideoProfileNewVideoProfileCmd = &cobra.Command{
-	Use:   "new-video-profile",
-	Short: "NewVideoProfile RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewVideoProfileServiceClient(grpcConn)
-		req := &pb.NewVideoProfileRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.NewVideoProfile(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomVideoProfileDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewVideoProfileServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomVideoProfileGetQualityCmd = &cobra.Command{
-	Use:   "get-quality",
-	Short: "GetQuality RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewVideoProfileServiceClient(grpcConn)
-		req := &pb.GetQualityRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetQuality(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomVideoProfileGetVideoStateCmd = &cobra.Command{
-	Use:   "get-video-state",
-	Short: "GetVideoState RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewVideoProfileServiceClient(grpcConn)
-		req := &pb.VideoProfileGetVideoStateRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetVideoState(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomVideoProfileToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewVideoProfileServiceClient(grpcConn)
-		req := &pb.VideoProfileToStringRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomVideoProfileWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewVideoProfileServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomVideoProfileIsAudioOnlyCmd = &cobra.Command{
-	Use:   "is-audio-only",
-	Short: "IsAudioOnly RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewVideoProfileServiceClient(grpcConn)
-		req := &pb.IsAudioOnlyRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.IsAudioOnly(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomVideoProfileIsBidirectionalCmd = &cobra.Command{
-	Use:   "is-bidirectional",
-	Short: "IsBidirectional RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewVideoProfileServiceClient(grpcConn)
-		req := &pb.IsBidirectionalRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.IsBidirectional(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomVideoProfileIsPausedCmd = &cobra.Command{
-	Use:   "is-paused",
-	Short: "IsPaused RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewVideoProfileServiceClient(grpcConn)
-		req := &pb.IsPausedRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.IsPaused(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomVideoProfileIsReceptionEnabledCmd = &cobra.Command{
-	Use:   "is-reception-enabled",
-	Short: "IsReceptionEnabled RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewVideoProfileServiceClient(grpcConn)
-		req := &pb.IsReceptionEnabledRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.IsReceptionEnabled(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomVideoProfileIsTransmissionEnabledCmd = &cobra.Command{
-	Use:   "is-transmission-enabled",
-	Short: "IsTransmissionEnabled RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewVideoProfileServiceClient(grpcConn)
-		req := &pb.IsTransmissionEnabledRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.IsTransmissionEnabled(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomVideoProfileIsVideoCmd = &cobra.Command{
-	Use:   "is-video",
-	Short: "IsVideo RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewVideoProfileServiceClient(grpcConn)
-		req := &pb.IsVideoRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.IsVideo(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomVideoProfileVideoStateToStringCmd = &cobra.Command{
-	Use:   "video-state-to-string",
-	Short: "VideoStateToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewVideoProfileServiceClient(grpcConn)
-		req := &pb.VideoStateToStringRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.VideoStateToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomVideoProfileCameraCapabilitiesCmd = &cobra.Command{
-	Use:   "video-profile-camera-capabilities",
-	Short: "VideoProfileCameraCapabilitiesService operations",
-}
-
-var telecomVideoProfileCameraCapabilitiesDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewVideoProfileCameraCapabilitiesServiceClient(grpcConn)
-		req := &pb.VideoProfileCameraCapabilitiesDescribeContentsRequest{}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomVideoProfileCameraCapabilitiesGetHeightCmd = &cobra.Command{
-	Use:   "get-height",
-	Short: "GetHeight RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewVideoProfileCameraCapabilitiesServiceClient(grpcConn)
-		req := &pb.GetHeightRequest{}
-		resp, err := client.GetHeight(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomVideoProfileCameraCapabilitiesGetMaxZoomCmd = &cobra.Command{
-	Use:   "get-max-zoom",
-	Short: "GetMaxZoom RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewVideoProfileCameraCapabilitiesServiceClient(grpcConn)
-		req := &pb.GetMaxZoomRequest{}
-		resp, err := client.GetMaxZoom(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomVideoProfileCameraCapabilitiesGetWidthCmd = &cobra.Command{
-	Use:   "get-width",
-	Short: "GetWidth RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewVideoProfileCameraCapabilitiesServiceClient(grpcConn)
-		req := &pb.GetWidthRequest{}
-		resp, err := client.GetWidth(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomVideoProfileCameraCapabilitiesIsZoomSupportedCmd = &cobra.Command{
-	Use:   "is-zoom-supported",
-	Short: "IsZoomSupported RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewVideoProfileCameraCapabilitiesServiceClient(grpcConn)
-		req := &pb.IsZoomSupportedRequest{}
-		resp, err := client.IsZoomSupported(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomVideoProfileCameraCapabilitiesWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewVideoProfileCameraCapabilitiesServiceClient(grpcConn)
-		req := &pb.VideoProfileCameraCapabilitiesWriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
 var telecomConnectionCmd = &cobra.Command{
 	Use:   "connection",
 	Short: "ConnectionService operations",
@@ -9075,6 +7991,22 @@ var telecomConnectionGetConferenceCmd = &cobra.Command{
 	},
 }
 
+var telecomConnectionGetConferenceablesCmd = &cobra.Command{
+	Use:   "get-conferenceables",
+	Short: "GetConferenceables RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConnectionServiceClient(grpcConn)
+		req := &pb.GetConferenceablesRequest{}
+		resp, err := client.GetConferenceables(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var telecomConnectionGetConnectionCapabilitiesCmd = &cobra.Command{
 	Use:   "get-connection-capabilities",
 	Short: "GetConnectionCapabilities RPC",
@@ -9210,7 +8142,7 @@ var telecomConnectionGetVideoStateCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewConnectionServiceClient(grpcConn)
-		req := &pb.GetVideoStateRequest{}
+		req := &pb.ConnectionGetVideoStateRequest{}
 		resp, err := client.GetVideoState(ctx, req)
 		if err != nil {
 			return err
@@ -9423,7 +8355,7 @@ var telecomConnectionOnExtrasChangedCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewConnectionServiceClient(grpcConn)
-		req := &pb.OnExtrasChangedRequest{}
+		req := &pb.ConnectionOnExtrasChangedRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
@@ -10797,23 +9729,29 @@ var telecomConnectionVideoProviderSetCallDataUsageCmd = &cobra.Command{
 	},
 }
 
-var telecomDisconnectCauseCmd = &cobra.Command{
-	Use:   "disconnect-cause",
-	Short: "DisconnectCauseService operations",
+var telecomManagerCmd = &cobra.Command{
+	Use:   "manager",
+	Short: "ManagerService operations",
 }
 
-var telecomDisconnectCauseNewDisconnectCauseCmd = &cobra.Command{
-	Use:   "new-disconnect-cause",
-	Short: "NewDisconnectCause RPC",
+var telecomManagerAcceptHandoverCmd = &cobra.Command{
+	Use:   "accept-handover",
+	Short: "AcceptHandover RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewDisconnectCauseServiceClient(grpcConn)
-		req := &pb.NewDisconnectCauseRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+		client := pb.NewManagerServiceClient(grpcConn)
+		req := &pb.AcceptHandoverRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		resp, err := client.NewDisconnectCause(ctx, req)
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.AcceptHandover(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -10821,14 +9759,1249 @@ var telecomDisconnectCauseNewDisconnectCauseCmd = &cobra.Command{
 	},
 }
 
-var telecomDisconnectCauseDescribeContentsCmd = &cobra.Command{
+var telecomManagerAcceptRingingCall0Cmd = &cobra.Command{
+	Use:   "accept-ringing-call0",
+	Short: "AcceptRingingCall0 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerServiceClient(grpcConn)
+		req := &pb.AcceptRingingCall0Request{}
+		resp, err := client.AcceptRingingCall0(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomManagerAcceptRingingCall1_1Cmd = &cobra.Command{
+	Use:   "accept-ringing-call1_1",
+	Short: "AcceptRingingCall1_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerServiceClient(grpcConn)
+		req := &pb.AcceptRingingCall1_1Request{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AcceptRingingCall1_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomManagerAddNewIncomingCallCmd = &cobra.Command{
+	Use:   "add-new-incoming-call",
+	Short: "AddNewIncomingCall RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerServiceClient(grpcConn)
+		req := &pb.AddNewIncomingCallRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.AddNewIncomingCall(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomManagerAddNewIncomingConferenceCmd = &cobra.Command{
+	Use:   "add-new-incoming-conference",
+	Short: "AddNewIncomingConference RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerServiceClient(grpcConn)
+		req := &pb.AddNewIncomingConferenceRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.AddNewIncomingConference(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomManagerCancelMissedCallsNotificationCmd = &cobra.Command{
+	Use:   "cancel-missed-calls-notification",
+	Short: "CancelMissedCallsNotification RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerServiceClient(grpcConn)
+		req := &pb.CancelMissedCallsNotificationRequest{}
+		resp, err := client.CancelMissedCallsNotification(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomManagerCreateManageBlockedNumbersIntentCmd = &cobra.Command{
+	Use:   "create-manage-blocked-numbers-intent",
+	Short: "CreateManageBlockedNumbersIntent RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerServiceClient(grpcConn)
+		req := &pb.CreateManageBlockedNumbersIntentRequest{}
+		resp, err := client.CreateManageBlockedNumbersIntent(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomManagerEndCallCmd = &cobra.Command{
+	Use:   "end-call",
+	Short: "EndCall RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerServiceClient(grpcConn)
+		req := &pb.EndCallRequest{}
+		resp, err := client.EndCall(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomManagerGetAdnUriForPhoneAccountCmd = &cobra.Command{
+	Use:   "get-adn-uri-for-phone-account",
+	Short: "GetAdnUriForPhoneAccount RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerServiceClient(grpcConn)
+		req := &pb.GetAdnUriForPhoneAccountRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetAdnUriForPhoneAccount(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomManagerGetCallCapablePhoneAccountsCmd = &cobra.Command{
+	Use:   "get-call-capable-phone-accounts",
+	Short: "GetCallCapablePhoneAccounts RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerServiceClient(grpcConn)
+		req := &pb.GetCallCapablePhoneAccountsRequest{}
+		resp, err := client.GetCallCapablePhoneAccounts(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomManagerGetDefaultDialerPackageCmd = &cobra.Command{
+	Use:   "get-default-dialer-package",
+	Short: "GetDefaultDialerPackage RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerServiceClient(grpcConn)
+		req := &pb.GetDefaultDialerPackageRequest{}
+		resp, err := client.GetDefaultDialerPackage(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomManagerGetDefaultOutgoingPhoneAccountCmd = &cobra.Command{
+	Use:   "get-default-outgoing-phone-account",
+	Short: "GetDefaultOutgoingPhoneAccount RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerServiceClient(grpcConn)
+		req := &pb.GetDefaultOutgoingPhoneAccountRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetDefaultOutgoingPhoneAccount(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomManagerGetLine1NumberCmd = &cobra.Command{
+	Use:   "get-line1number",
+	Short: "GetLine1Number RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerServiceClient(grpcConn)
+		req := &pb.GetLine1NumberRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetLine1Number(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomManagerGetOwnSelfManagedPhoneAccountsCmd = &cobra.Command{
+	Use:   "get-own-self-managed-phone-accounts",
+	Short: "GetOwnSelfManagedPhoneAccounts RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerServiceClient(grpcConn)
+		req := &pb.GetOwnSelfManagedPhoneAccountsRequest{}
+		resp, err := client.GetOwnSelfManagedPhoneAccounts(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomManagerGetPhoneAccountCmd = &cobra.Command{
+	Use:   "get-phone-account",
+	Short: "GetPhoneAccount RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerServiceClient(grpcConn)
+		req := &pb.GetPhoneAccountRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetPhoneAccount(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomManagerGetRegisteredPhoneAccountsCmd = &cobra.Command{
+	Use:   "get-registered-phone-accounts",
+	Short: "GetRegisteredPhoneAccounts RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerServiceClient(grpcConn)
+		req := &pb.GetRegisteredPhoneAccountsRequest{}
+		resp, err := client.GetRegisteredPhoneAccounts(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomManagerGetSelfManagedPhoneAccountsCmd = &cobra.Command{
+	Use:   "get-self-managed-phone-accounts",
+	Short: "GetSelfManagedPhoneAccounts RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerServiceClient(grpcConn)
+		req := &pb.GetSelfManagedPhoneAccountsRequest{}
+		resp, err := client.GetSelfManagedPhoneAccounts(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomManagerGetSimCallManagerCmd = &cobra.Command{
+	Use:   "get-sim-call-manager",
+	Short: "GetSimCallManager RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerServiceClient(grpcConn)
+		req := &pb.GetSimCallManagerRequest{}
+		resp, err := client.GetSimCallManager(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomManagerGetSimCallManagerForSubscriptionCmd = &cobra.Command{
+	Use:   "get-sim-call-manager-for-subscription",
+	Short: "GetSimCallManagerForSubscription RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerServiceClient(grpcConn)
+		req := &pb.GetSimCallManagerForSubscriptionRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetSimCallManagerForSubscription(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomManagerGetSystemDialerPackageCmd = &cobra.Command{
+	Use:   "get-system-dialer-package",
+	Short: "GetSystemDialerPackage RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerServiceClient(grpcConn)
+		req := &pb.GetSystemDialerPackageRequest{}
+		resp, err := client.GetSystemDialerPackage(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomManagerGetUserSelectedOutgoingPhoneAccountCmd = &cobra.Command{
+	Use:   "get-user-selected-outgoing-phone-account",
+	Short: "GetUserSelectedOutgoingPhoneAccount RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerServiceClient(grpcConn)
+		req := &pb.GetUserSelectedOutgoingPhoneAccountRequest{}
+		resp, err := client.GetUserSelectedOutgoingPhoneAccount(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomManagerGetVoiceMailNumberCmd = &cobra.Command{
+	Use:   "get-voice-mail-number",
+	Short: "GetVoiceMailNumber RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerServiceClient(grpcConn)
+		req := &pb.GetVoiceMailNumberRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetVoiceMailNumber(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomManagerHandleMmi1Cmd = &cobra.Command{
+	Use:   "handle-mmi1",
+	Short: "HandleMmi1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerServiceClient(grpcConn)
+		req := &pb.HandleMmi1Request{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.HandleMmi1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomManagerHandleMmi2_1Cmd = &cobra.Command{
+	Use:   "handle-mmi2_1",
+	Short: "HandleMmi2_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerServiceClient(grpcConn)
+		req := &pb.HandleMmi2_1Request{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.HandleMmi2_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomManagerHasManageOngoingCallsPermissionCmd = &cobra.Command{
+	Use:   "has-manage-ongoing-calls-permission",
+	Short: "HasManageOngoingCallsPermission RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerServiceClient(grpcConn)
+		req := &pb.HasManageOngoingCallsPermissionRequest{}
+		resp, err := client.HasManageOngoingCallsPermission(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomManagerIsInCallCmd = &cobra.Command{
+	Use:   "is-in-call",
+	Short: "IsInCall RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerServiceClient(grpcConn)
+		req := &pb.IsInCallRequest{}
+		resp, err := client.IsInCall(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomManagerIsInManagedCallCmd = &cobra.Command{
+	Use:   "is-in-managed-call",
+	Short: "IsInManagedCall RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerServiceClient(grpcConn)
+		req := &pb.IsInManagedCallRequest{}
+		resp, err := client.IsInManagedCall(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomManagerIsIncomingCallPermittedCmd = &cobra.Command{
+	Use:   "is-incoming-call-permitted",
+	Short: "IsIncomingCallPermitted RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerServiceClient(grpcConn)
+		req := &pb.IsIncomingCallPermittedRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.IsIncomingCallPermitted(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomManagerIsOutgoingCallPermittedCmd = &cobra.Command{
+	Use:   "is-outgoing-call-permitted",
+	Short: "IsOutgoingCallPermitted RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerServiceClient(grpcConn)
+		req := &pb.IsOutgoingCallPermittedRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.IsOutgoingCallPermitted(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomManagerIsTtySupportedCmd = &cobra.Command{
+	Use:   "is-tty-supported",
+	Short: "IsTtySupported RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerServiceClient(grpcConn)
+		req := &pb.IsTtySupportedRequest{}
+		resp, err := client.IsTtySupported(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomManagerIsVoiceMailNumberCmd = &cobra.Command{
+	Use:   "is-voice-mail-number",
+	Short: "IsVoiceMailNumber RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerServiceClient(grpcConn)
+		req := &pb.IsVoiceMailNumberRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.IsVoiceMailNumber(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomManagerPlaceCallCmd = &cobra.Command{
+	Use:   "place-call",
+	Short: "PlaceCall RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerServiceClient(grpcConn)
+		req := &pb.PlaceCallRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.PlaceCall(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomManagerRegisterPhoneAccountCmd = &cobra.Command{
+	Use:   "register-phone-account",
+	Short: "RegisterPhoneAccount RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerServiceClient(grpcConn)
+		req := &pb.RegisterPhoneAccountRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.RegisterPhoneAccount(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomManagerShowInCallScreenCmd = &cobra.Command{
+	Use:   "show-in-call-screen",
+	Short: "ShowInCallScreen RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerServiceClient(grpcConn)
+		req := &pb.ShowInCallScreenRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.ShowInCallScreen(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomManagerSilenceRingerCmd = &cobra.Command{
+	Use:   "silence-ringer",
+	Short: "SilenceRinger RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerServiceClient(grpcConn)
+		req := &pb.SilenceRingerRequest{}
+		resp, err := client.SilenceRinger(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomManagerUnregisterPhoneAccountCmd = &cobra.Command{
+	Use:   "unregister-phone-account",
+	Short: "UnregisterPhoneAccount RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerServiceClient(grpcConn)
+		req := &pb.UnregisterPhoneAccountRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.UnregisterPhoneAccount(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomConnectionServiceCmd = &cobra.Command{
+	Use:   "connection-service",
+	Short: "ConnectionServiceService operations",
+}
+
+var telecomConnectionServiceAddConferenceCmd = &cobra.Command{
+	Use:   "add-conference",
+	Short: "AddConference RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConnectionServiceServiceClient(grpcConn)
+		req := &pb.AddConferenceRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddConference(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomConnectionServiceAddExistingConnectionCmd = &cobra.Command{
+	Use:   "add-existing-connection",
+	Short: "AddExistingConnection RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConnectionServiceServiceClient(grpcConn)
+		req := &pb.AddExistingConnectionRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.AddExistingConnection(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomConnectionServiceConferenceRemoteConnectionsCmd = &cobra.Command{
+	Use:   "conference-remote-connections",
+	Short: "ConferenceRemoteConnections RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConnectionServiceServiceClient(grpcConn)
+		req := &pb.ConferenceRemoteConnectionsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.ConferenceRemoteConnections(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomConnectionServiceConnectionServiceFocusReleasedCmd = &cobra.Command{
+	Use:   "connection-service-focus-released",
+	Short: "ConnectionServiceFocusReleased RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConnectionServiceServiceClient(grpcConn)
+		req := &pb.ConnectionServiceFocusReleasedRequest{}
+		resp, err := client.ConnectionServiceFocusReleased(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomConnectionServiceCreateRemoteIncomingConferenceCmd = &cobra.Command{
+	Use:   "create-remote-incoming-conference",
+	Short: "CreateRemoteIncomingConference RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConnectionServiceServiceClient(grpcConn)
+		req := &pb.CreateRemoteIncomingConferenceRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.CreateRemoteIncomingConference(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomConnectionServiceCreateRemoteIncomingConnectionCmd = &cobra.Command{
+	Use:   "create-remote-incoming-connection",
+	Short: "CreateRemoteIncomingConnection RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConnectionServiceServiceClient(grpcConn)
+		req := &pb.CreateRemoteIncomingConnectionRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.CreateRemoteIncomingConnection(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomConnectionServiceCreateRemoteOutgoingConferenceCmd = &cobra.Command{
+	Use:   "create-remote-outgoing-conference",
+	Short: "CreateRemoteOutgoingConference RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConnectionServiceServiceClient(grpcConn)
+		req := &pb.CreateRemoteOutgoingConferenceRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.CreateRemoteOutgoingConference(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomConnectionServiceCreateRemoteOutgoingConnectionCmd = &cobra.Command{
+	Use:   "create-remote-outgoing-connection",
+	Short: "CreateRemoteOutgoingConnection RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConnectionServiceServiceClient(grpcConn)
+		req := &pb.CreateRemoteOutgoingConnectionRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.CreateRemoteOutgoingConnection(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomConnectionServiceGetAllConferencesCmd = &cobra.Command{
+	Use:   "get-all-conferences",
+	Short: "GetAllConferences RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConnectionServiceServiceClient(grpcConn)
+		req := &pb.GetAllConferencesRequest{}
+		resp, err := client.GetAllConferences(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomConnectionServiceGetAllConnectionsCmd = &cobra.Command{
+	Use:   "get-all-connections",
+	Short: "GetAllConnections RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConnectionServiceServiceClient(grpcConn)
+		req := &pb.GetAllConnectionsRequest{}
+		resp, err := client.GetAllConnections(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomConnectionServiceOnBindCmd = &cobra.Command{
+	Use:   "on-bind",
+	Short: "OnBind RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConnectionServiceServiceClient(grpcConn)
+		req := &pb.OnBindRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnBind(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomConnectionServiceOnConferenceCmd = &cobra.Command{
+	Use:   "on-conference",
+	Short: "OnConference RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConnectionServiceServiceClient(grpcConn)
+		req := &pb.OnConferenceRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.OnConference(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomConnectionServiceOnConnectionServiceFocusGainedCmd = &cobra.Command{
+	Use:   "on-connection-service-focus-gained",
+	Short: "OnConnectionServiceFocusGained RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConnectionServiceServiceClient(grpcConn)
+		req := &pb.OnConnectionServiceFocusGainedRequest{}
+		resp, err := client.OnConnectionServiceFocusGained(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomConnectionServiceOnConnectionServiceFocusLostCmd = &cobra.Command{
+	Use:   "on-connection-service-focus-lost",
+	Short: "OnConnectionServiceFocusLost RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConnectionServiceServiceClient(grpcConn)
+		req := &pb.OnConnectionServiceFocusLostRequest{}
+		resp, err := client.OnConnectionServiceFocusLost(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomConnectionServiceOnCreateIncomingConferenceCmd = &cobra.Command{
+	Use:   "on-create-incoming-conference",
+	Short: "OnCreateIncomingConference RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConnectionServiceServiceClient(grpcConn)
+		req := &pb.OnCreateIncomingConferenceRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.OnCreateIncomingConference(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomConnectionServiceOnCreateIncomingConferenceFailedCmd = &cobra.Command{
+	Use:   "on-create-incoming-conference-failed",
+	Short: "OnCreateIncomingConferenceFailed RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConnectionServiceServiceClient(grpcConn)
+		req := &pb.OnCreateIncomingConferenceFailedRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.OnCreateIncomingConferenceFailed(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomConnectionServiceOnCreateIncomingConnectionCmd = &cobra.Command{
+	Use:   "on-create-incoming-connection",
+	Short: "OnCreateIncomingConnection RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConnectionServiceServiceClient(grpcConn)
+		req := &pb.OnCreateIncomingConnectionRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.OnCreateIncomingConnection(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomConnectionServiceOnCreateIncomingConnectionFailedCmd = &cobra.Command{
+	Use:   "on-create-incoming-connection-failed",
+	Short: "OnCreateIncomingConnectionFailed RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConnectionServiceServiceClient(grpcConn)
+		req := &pb.OnCreateIncomingConnectionFailedRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.OnCreateIncomingConnectionFailed(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomConnectionServiceOnCreateIncomingHandoverConnectionCmd = &cobra.Command{
+	Use:   "on-create-incoming-handover-connection",
+	Short: "OnCreateIncomingHandoverConnection RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConnectionServiceServiceClient(grpcConn)
+		req := &pb.OnCreateIncomingHandoverConnectionRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.OnCreateIncomingHandoverConnection(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomConnectionServiceOnCreateOutgoingConferenceCmd = &cobra.Command{
+	Use:   "on-create-outgoing-conference",
+	Short: "OnCreateOutgoingConference RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConnectionServiceServiceClient(grpcConn)
+		req := &pb.OnCreateOutgoingConferenceRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.OnCreateOutgoingConference(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomConnectionServiceOnCreateOutgoingConferenceFailedCmd = &cobra.Command{
+	Use:   "on-create-outgoing-conference-failed",
+	Short: "OnCreateOutgoingConferenceFailed RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConnectionServiceServiceClient(grpcConn)
+		req := &pb.OnCreateOutgoingConferenceFailedRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.OnCreateOutgoingConferenceFailed(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomConnectionServiceOnCreateOutgoingConnectionCmd = &cobra.Command{
+	Use:   "on-create-outgoing-connection",
+	Short: "OnCreateOutgoingConnection RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConnectionServiceServiceClient(grpcConn)
+		req := &pb.OnCreateOutgoingConnectionRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.OnCreateOutgoingConnection(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomConnectionServiceOnCreateOutgoingConnectionFailedCmd = &cobra.Command{
+	Use:   "on-create-outgoing-connection-failed",
+	Short: "OnCreateOutgoingConnectionFailed RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConnectionServiceServiceClient(grpcConn)
+		req := &pb.OnCreateOutgoingConnectionFailedRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.OnCreateOutgoingConnectionFailed(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomConnectionServiceOnCreateOutgoingHandoverConnectionCmd = &cobra.Command{
+	Use:   "on-create-outgoing-handover-connection",
+	Short: "OnCreateOutgoingHandoverConnection RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConnectionServiceServiceClient(grpcConn)
+		req := &pb.OnCreateOutgoingHandoverConnectionRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.OnCreateOutgoingHandoverConnection(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomConnectionServiceOnHandoverFailedCmd = &cobra.Command{
+	Use:   "on-handover-failed",
+	Short: "OnHandoverFailed RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConnectionServiceServiceClient(grpcConn)
+		req := &pb.OnHandoverFailedRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.OnHandoverFailed(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomConnectionServiceOnRemoteConferenceAddedCmd = &cobra.Command{
+	Use:   "on-remote-conference-added",
+	Short: "OnRemoteConferenceAdded RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConnectionServiceServiceClient(grpcConn)
+		req := &pb.OnRemoteConferenceAddedRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnRemoteConferenceAdded(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomConnectionServiceOnRemoteExistingConnectionAddedCmd = &cobra.Command{
+	Use:   "on-remote-existing-connection-added",
+	Short: "OnRemoteExistingConnectionAdded RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConnectionServiceServiceClient(grpcConn)
+		req := &pb.OnRemoteExistingConnectionAddedRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnRemoteExistingConnectionAdded(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomConnectionServiceOnUnbindCmd = &cobra.Command{
+	Use:   "on-unbind",
+	Short: "OnUnbind RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConnectionServiceServiceClient(grpcConn)
+		req := &pb.OnUnbindRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnUnbind(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomGatewayInfoCmd = &cobra.Command{
+	Use:   "gateway-info",
+	Short: "GatewayInfoService operations",
+}
+
+var telecomGatewayInfoNewGatewayInfoCmd = &cobra.Command{
+	Use:   "new-gateway-info",
+	Short: "NewGatewayInfo RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGatewayInfoServiceClient(grpcConn)
+		req := &pb.NewGatewayInfoRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.NewGatewayInfo(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomGatewayInfoDescribeContentsCmd = &cobra.Command{
 	Use:   "describe-contents",
 	Short: "DescribeContents RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewDisconnectCauseServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
+		client := pb.NewGatewayInfoServiceClient(grpcConn)
+		req := &pb.GatewayInfoDescribeContentsRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
@@ -10840,21 +11013,18 @@ var telecomDisconnectCauseDescribeContentsCmd = &cobra.Command{
 	},
 }
 
-var telecomDisconnectCauseEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
+var telecomGatewayInfoGetGatewayAddressCmd = &cobra.Command{
+	Use:   "get-gateway-address",
+	Short: "GetGatewayAddress RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewDisconnectCauseServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
+		client := pb.NewGatewayInfoServiceClient(grpcConn)
+		req := &pb.GetGatewayAddressRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
+		resp, err := client.GetGatewayAddress(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -10862,18 +11032,18 @@ var telecomDisconnectCauseEqualsCmd = &cobra.Command{
 	},
 }
 
-var telecomDisconnectCauseGetCodeCmd = &cobra.Command{
-	Use:   "get-code",
-	Short: "GetCode RPC",
+var telecomGatewayInfoGetGatewayProviderPackageNameCmd = &cobra.Command{
+	Use:   "get-gateway-provider-package-name",
+	Short: "GetGatewayProviderPackageName RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewDisconnectCauseServiceClient(grpcConn)
-		req := &pb.GetCodeRequest{}
+		client := pb.NewGatewayInfoServiceClient(grpcConn)
+		req := &pb.GetGatewayProviderPackageNameRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
-		resp, err := client.GetCode(ctx, req)
+		resp, err := client.GetGatewayProviderPackageName(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -10881,18 +11051,18 @@ var telecomDisconnectCauseGetCodeCmd = &cobra.Command{
 	},
 }
 
-var telecomDisconnectCauseGetDescriptionCmd = &cobra.Command{
-	Use:   "get-description",
-	Short: "GetDescription RPC",
+var telecomGatewayInfoGetOriginalAddressCmd = &cobra.Command{
+	Use:   "get-original-address",
+	Short: "GetOriginalAddress RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewDisconnectCauseServiceClient(grpcConn)
-		req := &pb.GetDescriptionRequest{}
+		client := pb.NewGatewayInfoServiceClient(grpcConn)
+		req := &pb.GetOriginalAddressRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
-		resp, err := client.GetDescription(ctx, req)
+		resp, err := client.GetOriginalAddress(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -10900,18 +11070,18 @@ var telecomDisconnectCauseGetDescriptionCmd = &cobra.Command{
 	},
 }
 
-var telecomDisconnectCauseGetLabelCmd = &cobra.Command{
-	Use:   "get-label",
-	Short: "GetLabel RPC",
+var telecomGatewayInfoIsEmptyCmd = &cobra.Command{
+	Use:   "is-empty",
+	Short: "IsEmpty RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewDisconnectCauseServiceClient(grpcConn)
-		req := &pb.DisconnectCauseGetLabelRequest{}
+		client := pb.NewGatewayInfoServiceClient(grpcConn)
+		req := &pb.IsEmptyRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
-		resp, err := client.GetLabel(ctx, req)
+		resp, err := client.IsEmpty(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -10919,90 +11089,14 @@ var telecomDisconnectCauseGetLabelCmd = &cobra.Command{
 	},
 }
 
-var telecomDisconnectCauseGetReasonCmd = &cobra.Command{
-	Use:   "get-reason",
-	Short: "GetReason RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDisconnectCauseServiceClient(grpcConn)
-		req := &pb.GetReasonRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetReason(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomDisconnectCauseGetToneCmd = &cobra.Command{
-	Use:   "get-tone",
-	Short: "GetTone RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDisconnectCauseServiceClient(grpcConn)
-		req := &pb.GetToneRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetTone(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomDisconnectCauseHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDisconnectCauseServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomDisconnectCauseToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDisconnectCauseServiceClient(grpcConn)
-		req := &pb.DisconnectCauseToStringRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telecomDisconnectCauseWriteToParcelCmd = &cobra.Command{
+var telecomGatewayInfoWriteToParcelCmd = &cobra.Command{
 	Use:   "write-to-parcel",
 	Short: "WriteToParcel RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewDisconnectCauseServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
+		client := pb.NewGatewayInfoServiceClient(grpcConn)
+		req := &pb.GatewayInfoWriteToParcelRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
@@ -11020,113 +11114,479 @@ var telecomDisconnectCauseWriteToParcelCmd = &cobra.Command{
 	},
 }
 
+var telecomCallAudioStateCmd = &cobra.Command{
+	Use:   "call-audio-state",
+	Short: "CallAudioStateService operations",
+}
+
+var telecomCallAudioStateNewCallAudioStateCmd = &cobra.Command{
+	Use:   "new-call-audio-state",
+	Short: "NewCallAudioState RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCallAudioStateServiceClient(grpcConn)
+		req := &pb.NewCallAudioStateRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.NewCallAudioState(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomCallAudioStateDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCallAudioStateServiceClient(grpcConn)
+		req := &pb.CallAudioStateDescribeContentsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomCallAudioStateEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCallAudioStateServiceClient(grpcConn)
+		req := &pb.CallAudioStateEqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomCallAudioStateGetActiveBluetoothDeviceCmd = &cobra.Command{
+	Use:   "get-active-bluetooth-device",
+	Short: "GetActiveBluetoothDevice RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCallAudioStateServiceClient(grpcConn)
+		req := &pb.GetActiveBluetoothDeviceRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetActiveBluetoothDevice(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomCallAudioStateGetRouteCmd = &cobra.Command{
+	Use:   "get-route",
+	Short: "GetRoute RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCallAudioStateServiceClient(grpcConn)
+		req := &pb.GetRouteRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetRoute(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomCallAudioStateGetSupportedBluetoothDevicesCmd = &cobra.Command{
+	Use:   "get-supported-bluetooth-devices",
+	Short: "GetSupportedBluetoothDevices RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCallAudioStateServiceClient(grpcConn)
+		req := &pb.GetSupportedBluetoothDevicesRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetSupportedBluetoothDevices(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomCallAudioStateGetSupportedRouteMaskCmd = &cobra.Command{
+	Use:   "get-supported-route-mask",
+	Short: "GetSupportedRouteMask RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCallAudioStateServiceClient(grpcConn)
+		req := &pb.GetSupportedRouteMaskRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetSupportedRouteMask(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomCallAudioStateIsMutedCmd = &cobra.Command{
+	Use:   "is-muted",
+	Short: "IsMuted RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCallAudioStateServiceClient(grpcConn)
+		req := &pb.IsMutedRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.IsMuted(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomCallAudioStateToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCallAudioStateServiceClient(grpcConn)
+		req := &pb.CallAudioStateToStringRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomCallAudioStateWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCallAudioStateServiceClient(grpcConn)
+		req := &pb.CallAudioStateWriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telecomCallAudioStateAudioRouteToStringCmd = &cobra.Command{
+	Use:   "audio-route-to-string",
+	Short: "AudioRouteToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCallAudioStateServiceClient(grpcConn)
+		req := &pb.AudioRouteToStringRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AudioRouteToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 func init() {
-	telecomPhoneAccountSuggestionNewPhoneAccountSuggestionCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	telecomPhoneAccountSuggestionNewPhoneAccountSuggestionCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	telecomPhoneAccountSuggestionNewPhoneAccountSuggestionCmd.Flags().Bool("arg2", false, "arg2 (bool)")
-	telecomPhoneAccountSuggestionCmd.AddCommand(telecomPhoneAccountSuggestionNewPhoneAccountSuggestionCmd)
-	telecomPhoneAccountSuggestionDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	telecomPhoneAccountSuggestionCmd.AddCommand(telecomPhoneAccountSuggestionDescribeContentsCmd)
-	telecomPhoneAccountSuggestionEqualsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	telecomPhoneAccountSuggestionEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	telecomPhoneAccountSuggestionCmd.AddCommand(telecomPhoneAccountSuggestionEqualsCmd)
-	telecomPhoneAccountSuggestionGetPhoneAccountHandleCmd.Flags().Int64("handle", 0, "handle (int64)")
-	telecomPhoneAccountSuggestionCmd.AddCommand(telecomPhoneAccountSuggestionGetPhoneAccountHandleCmd)
-	telecomPhoneAccountSuggestionGetReasonCmd.Flags().Int64("handle", 0, "handle (int64)")
-	telecomPhoneAccountSuggestionCmd.AddCommand(telecomPhoneAccountSuggestionGetReasonCmd)
-	telecomPhoneAccountSuggestionHashCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
-	telecomPhoneAccountSuggestionCmd.AddCommand(telecomPhoneAccountSuggestionHashCodeCmd)
-	telecomPhoneAccountSuggestionShouldAutoSelectCmd.Flags().Int64("handle", 0, "handle (int64)")
-	telecomPhoneAccountSuggestionCmd.AddCommand(telecomPhoneAccountSuggestionShouldAutoSelectCmd)
-	telecomPhoneAccountSuggestionWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
-	telecomPhoneAccountSuggestionWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	telecomPhoneAccountSuggestionWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	telecomPhoneAccountSuggestionCmd.AddCommand(telecomPhoneAccountSuggestionWriteToParcelCmd)
-	telecomCmd.AddCommand(telecomPhoneAccountSuggestionCmd)
-	telecomConferenceAddConnectionCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	telecomConferenceCmd.AddCommand(telecomConferenceAddConnectionCmd)
-	telecomConferenceCmd.AddCommand(telecomConferenceDestroyCmd)
-	telecomConferenceCmd.AddCommand(telecomConferenceGetCallAudioStateCmd)
-	telecomConferenceCmd.AddCommand(telecomConferenceGetConnectionCapabilitiesCmd)
-	telecomConferenceCmd.AddCommand(telecomConferenceGetConnectionPropertiesCmd)
-	telecomConferenceCmd.AddCommand(telecomConferenceGetConnectionStartElapsedRealtimeMillisCmd)
-	telecomConferenceCmd.AddCommand(telecomConferenceGetConnectionTimeCmd)
-	telecomConferenceCmd.AddCommand(telecomConferenceGetCurrentCallEndpointCmd)
-	telecomConferenceCmd.AddCommand(telecomConferenceGetDisconnectCauseCmd)
-	telecomConferenceCmd.AddCommand(telecomConferenceGetExtrasCmd)
-	telecomConferenceCmd.AddCommand(telecomConferenceGetPhoneAccountHandleCmd)
-	telecomConferenceCmd.AddCommand(telecomConferenceGetStateCmd)
-	telecomConferenceCmd.AddCommand(telecomConferenceGetStatusHintsCmd)
-	telecomConferenceCmd.AddCommand(telecomConferenceGetVideoProviderCmd)
-	telecomConferenceCmd.AddCommand(telecomConferenceGetVideoStateCmd)
-	telecomConferenceCmd.AddCommand(telecomConferenceIsRingbackRequestedCmd)
-	telecomConferenceOnAnswerCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	telecomConferenceCmd.AddCommand(telecomConferenceOnAnswerCmd)
-	telecomConferenceOnCallAudioStateChangedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	telecomConferenceCmd.AddCommand(telecomConferenceOnCallAudioStateChangedCmd)
-	telecomConferenceOnCallEndpointChangedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	telecomConferenceCmd.AddCommand(telecomConferenceOnCallEndpointChangedCmd)
-	telecomConferenceOnConnectionAddedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	telecomConferenceCmd.AddCommand(telecomConferenceOnConnectionAddedCmd)
-	telecomConferenceCmd.AddCommand(telecomConferenceOnDisconnectCmd)
-	telecomConferenceOnExtrasChangedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	telecomConferenceCmd.AddCommand(telecomConferenceOnExtrasChangedCmd)
-	telecomConferenceCmd.AddCommand(telecomConferenceOnHoldCmd)
-	telecomConferenceCmd.AddCommand(telecomConferenceOnMerge0Cmd)
-	telecomConferenceOnMerge1_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	telecomConferenceCmd.AddCommand(telecomConferenceOnMerge1_1Cmd)
-	telecomConferenceOnMuteStateChangedCmd.Flags().Bool("arg0", false, "arg0 (bool)")
-	telecomConferenceCmd.AddCommand(telecomConferenceOnMuteStateChangedCmd)
-	telecomConferenceOnPlayDtmfToneCmd.Flags().Uint32("arg0", 0, "arg0 (uint32)")
-	telecomConferenceCmd.AddCommand(telecomConferenceOnPlayDtmfToneCmd)
-	telecomConferenceCmd.AddCommand(telecomConferenceOnRejectCmd)
-	telecomConferenceOnSeparateCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	telecomConferenceCmd.AddCommand(telecomConferenceOnSeparateCmd)
-	telecomConferenceCmd.AddCommand(telecomConferenceOnStopDtmfToneCmd)
-	telecomConferenceCmd.AddCommand(telecomConferenceOnSwapCmd)
-	telecomConferenceCmd.AddCommand(telecomConferenceOnUnholdCmd)
-	telecomConferencePutExtrasCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	telecomConferenceCmd.AddCommand(telecomConferencePutExtrasCmd)
-	telecomConferenceRemoveConnectionCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	telecomConferenceCmd.AddCommand(telecomConferenceRemoveConnectionCmd)
-	telecomConferenceRemoveExtrasCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	telecomConferenceCmd.AddCommand(telecomConferenceRemoveExtrasCmd)
-	telecomConferenceSendConferenceEventCmd.Flags().String("arg0", "", "arg0 (string)")
-	telecomConferenceSendConferenceEventCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	telecomConferenceCmd.AddCommand(telecomConferenceSendConferenceEventCmd)
-	telecomConferenceCmd.AddCommand(telecomConferenceSetActiveCmd)
-	telecomConferenceSetConnectionCapabilitiesCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	telecomConferenceCmd.AddCommand(telecomConferenceSetConnectionCapabilitiesCmd)
-	telecomConferenceSetConnectionPropertiesCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	telecomConferenceCmd.AddCommand(telecomConferenceSetConnectionPropertiesCmd)
-	telecomConferenceSetConnectionStartElapsedRealTimeCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	telecomConferenceCmd.AddCommand(telecomConferenceSetConnectionStartElapsedRealTimeCmd)
-	telecomConferenceSetConnectionStartElapsedRealtimeMillisCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	telecomConferenceCmd.AddCommand(telecomConferenceSetConnectionStartElapsedRealtimeMillisCmd)
-	telecomConferenceSetConnectionTimeCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	telecomConferenceCmd.AddCommand(telecomConferenceSetConnectionTimeCmd)
-	telecomConferenceCmd.AddCommand(telecomConferenceSetDialingCmd)
-	telecomConferenceSetDisconnectedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	telecomConferenceCmd.AddCommand(telecomConferenceSetDisconnectedCmd)
-	telecomConferenceSetExtrasCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	telecomConferenceCmd.AddCommand(telecomConferenceSetExtrasCmd)
-	telecomConferenceCmd.AddCommand(telecomConferenceSetOnHoldCmd)
-	telecomConferenceSetRingbackRequestedCmd.Flags().Bool("arg0", false, "arg0 (bool)")
-	telecomConferenceCmd.AddCommand(telecomConferenceSetRingbackRequestedCmd)
-	telecomConferenceCmd.AddCommand(telecomConferenceSetRingingCmd)
-	telecomConferenceSetStatusHintsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	telecomConferenceCmd.AddCommand(telecomConferenceSetStatusHintsCmd)
-	telecomConferenceSetVideoProviderCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	telecomConferenceSetVideoProviderCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	telecomConferenceCmd.AddCommand(telecomConferenceSetVideoProviderCmd)
-	telecomConferenceSetVideoStateCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	telecomConferenceSetVideoStateCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	telecomConferenceCmd.AddCommand(telecomConferenceSetVideoStateCmd)
-	telecomConferenceCmd.AddCommand(telecomConferenceToStringCmd)
-	telecomConferenceCreateFailedConferenceCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	telecomConferenceCreateFailedConferenceCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	telecomConferenceCmd.AddCommand(telecomConferenceCreateFailedConferenceCmd)
-	telecomCmd.AddCommand(telecomConferenceCmd)
+	telecomRemoteConferenceCmd.AddCommand(telecomRemoteConferenceDisconnectCmd)
+	telecomRemoteConferenceCmd.AddCommand(telecomRemoteConferenceGetConferenceableConnectionsCmd)
+	telecomRemoteConferenceCmd.AddCommand(telecomRemoteConferenceGetConnectionCapabilitiesCmd)
+	telecomRemoteConferenceCmd.AddCommand(telecomRemoteConferenceGetConnectionPropertiesCmd)
+	telecomRemoteConferenceCmd.AddCommand(telecomRemoteConferenceGetConnectionsCmd)
+	telecomRemoteConferenceCmd.AddCommand(telecomRemoteConferenceGetDisconnectCauseCmd)
+	telecomRemoteConferenceCmd.AddCommand(telecomRemoteConferenceGetExtrasCmd)
+	telecomRemoteConferenceCmd.AddCommand(telecomRemoteConferenceGetStateCmd)
+	telecomRemoteConferenceCmd.AddCommand(telecomRemoteConferenceHoldCmd)
+	telecomRemoteConferenceCmd.AddCommand(telecomRemoteConferenceMergeCmd)
+	telecomRemoteConferencePlayDtmfToneCmd.Flags().Uint32("arg0", 0, "arg0 (uint32)")
+	telecomRemoteConferenceCmd.AddCommand(telecomRemoteConferencePlayDtmfToneCmd)
+	telecomRemoteConferenceRegisterCallbackCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telecomRemoteConferenceCmd.AddCommand(telecomRemoteConferenceRegisterCallbackCmd)
+	telecomRemoteConferenceSeparateCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telecomRemoteConferenceCmd.AddCommand(telecomRemoteConferenceSeparateCmd)
+	telecomRemoteConferenceSetCallAudioStateCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telecomRemoteConferenceCmd.AddCommand(telecomRemoteConferenceSetCallAudioStateCmd)
+	telecomRemoteConferenceCmd.AddCommand(telecomRemoteConferenceStopDtmfToneCmd)
+	telecomRemoteConferenceCmd.AddCommand(telecomRemoteConferenceSwapCmd)
+	telecomRemoteConferenceCmd.AddCommand(telecomRemoteConferenceUnholdCmd)
+	telecomRemoteConferenceUnregisterCallbackCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telecomRemoteConferenceCmd.AddCommand(telecomRemoteConferenceUnregisterCallbackCmd)
+	telecomCmd.AddCommand(telecomRemoteConferenceCmd)
+	telecomRemoteConferenceCallbackOnConnectionAddedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telecomRemoteConferenceCallbackOnConnectionAddedCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	telecomRemoteConferenceCallbackCmd.AddCommand(telecomRemoteConferenceCallbackOnConnectionAddedCmd)
+	telecomRemoteConferenceCallbackOnConnectionCapabilitiesChangedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telecomRemoteConferenceCallbackOnConnectionCapabilitiesChangedCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	telecomRemoteConferenceCallbackCmd.AddCommand(telecomRemoteConferenceCallbackOnConnectionCapabilitiesChangedCmd)
+	telecomRemoteConferenceCallbackOnConnectionPropertiesChangedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telecomRemoteConferenceCallbackOnConnectionPropertiesChangedCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	telecomRemoteConferenceCallbackCmd.AddCommand(telecomRemoteConferenceCallbackOnConnectionPropertiesChangedCmd)
+	telecomRemoteConferenceCallbackOnConnectionRemovedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telecomRemoteConferenceCallbackOnConnectionRemovedCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	telecomRemoteConferenceCallbackCmd.AddCommand(telecomRemoteConferenceCallbackOnConnectionRemovedCmd)
+	telecomRemoteConferenceCallbackOnDestroyedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telecomRemoteConferenceCallbackCmd.AddCommand(telecomRemoteConferenceCallbackOnDestroyedCmd)
+	telecomRemoteConferenceCallbackOnDisconnectedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telecomRemoteConferenceCallbackOnDisconnectedCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	telecomRemoteConferenceCallbackCmd.AddCommand(telecomRemoteConferenceCallbackOnDisconnectedCmd)
+	telecomRemoteConferenceCallbackOnExtrasChangedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telecomRemoteConferenceCallbackOnExtrasChangedCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	telecomRemoteConferenceCallbackCmd.AddCommand(telecomRemoteConferenceCallbackOnExtrasChangedCmd)
+	telecomRemoteConferenceCallbackOnStateChangedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telecomRemoteConferenceCallbackOnStateChangedCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	telecomRemoteConferenceCallbackOnStateChangedCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	telecomRemoteConferenceCallbackCmd.AddCommand(telecomRemoteConferenceCallbackOnStateChangedCmd)
+	telecomCmd.AddCommand(telecomRemoteConferenceCallbackCmd)
+	telecomCallAttributesCmd.AddCommand(telecomCallAttributesDescribeContentsCmd)
+	telecomCallAttributesEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telecomCallAttributesCmd.AddCommand(telecomCallAttributesEqualsCmd)
+	telecomCallAttributesCmd.AddCommand(telecomCallAttributesGetAddressCmd)
+	telecomCallAttributesCmd.AddCommand(telecomCallAttributesGetCallCapabilitiesCmd)
+	telecomCallAttributesCmd.AddCommand(telecomCallAttributesGetCallTypeCmd)
+	telecomCallAttributesCmd.AddCommand(telecomCallAttributesGetDirectionCmd)
+	telecomCallAttributesCmd.AddCommand(telecomCallAttributesGetDisplayNameCmd)
+	telecomCallAttributesCmd.AddCommand(telecomCallAttributesGetPhoneAccountHandleCmd)
+	telecomCallAttributesCmd.AddCommand(telecomCallAttributesHashCodeCmd)
+	telecomCallAttributesCmd.AddCommand(telecomCallAttributesToStringCmd)
+	telecomCallAttributesWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telecomCallAttributesWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	telecomCallAttributesCmd.AddCommand(telecomCallAttributesWriteToParcelCmd)
+	telecomCmd.AddCommand(telecomCallAttributesCmd)
+	telecomCallAttributesBuilderCmd.AddCommand(telecomCallAttributesBuilderBuildCmd)
+	telecomCallAttributesBuilderSetCallCapabilitiesCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	telecomCallAttributesBuilderCmd.AddCommand(telecomCallAttributesBuilderSetCallCapabilitiesCmd)
+	telecomCallAttributesBuilderSetCallTypeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	telecomCallAttributesBuilderCmd.AddCommand(telecomCallAttributesBuilderSetCallTypeCmd)
+	telecomCmd.AddCommand(telecomCallAttributesBuilderCmd)
+	telecomPhoneAccountCmd.AddCommand(telecomPhoneAccountDescribeContentsCmd)
+	telecomPhoneAccountEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telecomPhoneAccountCmd.AddCommand(telecomPhoneAccountEqualsCmd)
+	telecomPhoneAccountCmd.AddCommand(telecomPhoneAccountGetAccountHandleCmd)
+	telecomPhoneAccountCmd.AddCommand(telecomPhoneAccountGetAddressCmd)
+	telecomPhoneAccountCmd.AddCommand(telecomPhoneAccountGetCapabilitiesCmd)
+	telecomPhoneAccountCmd.AddCommand(telecomPhoneAccountGetExtrasCmd)
+	telecomPhoneAccountCmd.AddCommand(telecomPhoneAccountGetHighlightColorCmd)
+	telecomPhoneAccountCmd.AddCommand(telecomPhoneAccountGetIconCmd)
+	telecomPhoneAccountCmd.AddCommand(telecomPhoneAccountGetLabelCmd)
+	telecomPhoneAccountCmd.AddCommand(telecomPhoneAccountGetShortDescriptionCmd)
+	telecomPhoneAccountCmd.AddCommand(telecomPhoneAccountGetSimultaneousCallingRestrictionCmd)
+	telecomPhoneAccountCmd.AddCommand(telecomPhoneAccountGetSubscriptionAddressCmd)
+	telecomPhoneAccountCmd.AddCommand(telecomPhoneAccountGetSupportedUriSchemesCmd)
+	telecomPhoneAccountHasCapabilitiesCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	telecomPhoneAccountCmd.AddCommand(telecomPhoneAccountHasCapabilitiesCmd)
+	telecomPhoneAccountCmd.AddCommand(telecomPhoneAccountHasSimultaneousCallingRestrictionCmd)
+	telecomPhoneAccountCmd.AddCommand(telecomPhoneAccountHashCodeCmd)
+	telecomPhoneAccountCmd.AddCommand(telecomPhoneAccountIsEnabledCmd)
+	telecomPhoneAccountSupportsUriSchemeCmd.Flags().String("arg0", "", "arg0 (string)")
+	telecomPhoneAccountCmd.AddCommand(telecomPhoneAccountSupportsUriSchemeCmd)
+	telecomPhoneAccountCmd.AddCommand(telecomPhoneAccountToBuilderCmd)
+	telecomPhoneAccountCmd.AddCommand(telecomPhoneAccountToStringCmd)
+	telecomPhoneAccountWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telecomPhoneAccountWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	telecomPhoneAccountCmd.AddCommand(telecomPhoneAccountWriteToParcelCmd)
+	telecomPhoneAccountBuilderCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telecomPhoneAccountBuilderCmd.Flags().String("arg1", "", "arg1 (string)")
+	telecomPhoneAccountCmd.AddCommand(telecomPhoneAccountBuilderCmd)
+	telecomCmd.AddCommand(telecomPhoneAccountCmd)
+	telecomPhoneAccountBuilderSvcAddSupportedUriSchemeCmd.Flags().String("arg0", "", "arg0 (string)")
+	telecomPhoneAccountBuilderSvcCmd.AddCommand(telecomPhoneAccountBuilderSvcAddSupportedUriSchemeCmd)
+	telecomPhoneAccountBuilderSvcCmd.AddCommand(telecomPhoneAccountBuilderSvcBuildCmd)
+	telecomPhoneAccountBuilderSvcCmd.AddCommand(telecomPhoneAccountBuilderSvcClearSimultaneousCallingRestrictionCmd)
+	telecomPhoneAccountBuilderSvcSetAddressCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telecomPhoneAccountBuilderSvcCmd.AddCommand(telecomPhoneAccountBuilderSvcSetAddressCmd)
+	telecomPhoneAccountBuilderSvcSetCapabilitiesCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	telecomPhoneAccountBuilderSvcCmd.AddCommand(telecomPhoneAccountBuilderSvcSetCapabilitiesCmd)
+	telecomPhoneAccountBuilderSvcSetExtrasCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telecomPhoneAccountBuilderSvcCmd.AddCommand(telecomPhoneAccountBuilderSvcSetExtrasCmd)
+	telecomPhoneAccountBuilderSvcSetHighlightColorCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	telecomPhoneAccountBuilderSvcCmd.AddCommand(telecomPhoneAccountBuilderSvcSetHighlightColorCmd)
+	telecomPhoneAccountBuilderSvcSetIconCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telecomPhoneAccountBuilderSvcCmd.AddCommand(telecomPhoneAccountBuilderSvcSetIconCmd)
+	telecomPhoneAccountBuilderSvcSetShortDescriptionCmd.Flags().String("arg0", "", "arg0 (string)")
+	telecomPhoneAccountBuilderSvcCmd.AddCommand(telecomPhoneAccountBuilderSvcSetShortDescriptionCmd)
+	telecomPhoneAccountBuilderSvcSetSubscriptionAddressCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telecomPhoneAccountBuilderSvcCmd.AddCommand(telecomPhoneAccountBuilderSvcSetSubscriptionAddressCmd)
+	telecomCmd.AddCommand(telecomPhoneAccountBuilderSvcCmd)
+	telecomQueryLocationExceptionNewQueryLocationExceptionCmd.Flags().String("arg0", "", "arg0 (string)")
+	telecomQueryLocationExceptionCmd.AddCommand(telecomQueryLocationExceptionNewQueryLocationExceptionCmd)
+	telecomQueryLocationExceptionDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telecomQueryLocationExceptionCmd.AddCommand(telecomQueryLocationExceptionDescribeContentsCmd)
+	telecomQueryLocationExceptionGetCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telecomQueryLocationExceptionCmd.AddCommand(telecomQueryLocationExceptionGetCodeCmd)
+	telecomQueryLocationExceptionWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telecomQueryLocationExceptionWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telecomQueryLocationExceptionWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	telecomQueryLocationExceptionCmd.AddCommand(telecomQueryLocationExceptionWriteToParcelCmd)
+	telecomCmd.AddCommand(telecomQueryLocationExceptionCmd)
+	telecomCallScreeningServiceOnBindCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telecomCallScreeningServiceCmd.AddCommand(telecomCallScreeningServiceOnBindCmd)
+	telecomCallScreeningServiceOnScreenCallCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telecomCallScreeningServiceCmd.AddCommand(telecomCallScreeningServiceOnScreenCallCmd)
+	telecomCallScreeningServiceOnUnbindCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telecomCallScreeningServiceCmd.AddCommand(telecomCallScreeningServiceOnUnbindCmd)
+	telecomCallScreeningServiceRespondToCallCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telecomCallScreeningServiceRespondToCallCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	telecomCallScreeningServiceCmd.AddCommand(telecomCallScreeningServiceRespondToCallCmd)
+	telecomCmd.AddCommand(telecomCallScreeningServiceCmd)
+	telecomCallScreeningServiceCallResponseEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telecomCallScreeningServiceCallResponseCmd.AddCommand(telecomCallScreeningServiceCallResponseEqualsCmd)
+	telecomCallScreeningServiceCallResponseCmd.AddCommand(telecomCallScreeningServiceCallResponseGetCallComposerAttachmentsToShowCmd)
+	telecomCallScreeningServiceCallResponseCmd.AddCommand(telecomCallScreeningServiceCallResponseGetDisallowCallCmd)
+	telecomCallScreeningServiceCallResponseCmd.AddCommand(telecomCallScreeningServiceCallResponseGetRejectCallCmd)
+	telecomCallScreeningServiceCallResponseCmd.AddCommand(telecomCallScreeningServiceCallResponseGetSilenceCallCmd)
+	telecomCallScreeningServiceCallResponseCmd.AddCommand(telecomCallScreeningServiceCallResponseGetSkipCallLogCmd)
+	telecomCallScreeningServiceCallResponseCmd.AddCommand(telecomCallScreeningServiceCallResponseGetSkipNotificationCmd)
+	telecomCallScreeningServiceCallResponseCmd.AddCommand(telecomCallScreeningServiceCallResponseHashCodeCmd)
+	telecomCmd.AddCommand(telecomCallScreeningServiceCallResponseCmd)
+	telecomVideoProfileNewVideoProfileCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	telecomVideoProfileCmd.AddCommand(telecomVideoProfileNewVideoProfileCmd)
+	telecomVideoProfileDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telecomVideoProfileCmd.AddCommand(telecomVideoProfileDescribeContentsCmd)
+	telecomVideoProfileGetQualityCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telecomVideoProfileCmd.AddCommand(telecomVideoProfileGetQualityCmd)
+	telecomVideoProfileGetVideoStateCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telecomVideoProfileCmd.AddCommand(telecomVideoProfileGetVideoStateCmd)
+	telecomVideoProfileToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telecomVideoProfileCmd.AddCommand(telecomVideoProfileToStringCmd)
+	telecomVideoProfileWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telecomVideoProfileWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telecomVideoProfileWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	telecomVideoProfileCmd.AddCommand(telecomVideoProfileWriteToParcelCmd)
+	telecomVideoProfileIsAudioOnlyCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telecomVideoProfileIsAudioOnlyCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	telecomVideoProfileCmd.AddCommand(telecomVideoProfileIsAudioOnlyCmd)
+	telecomVideoProfileIsBidirectionalCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telecomVideoProfileIsBidirectionalCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	telecomVideoProfileCmd.AddCommand(telecomVideoProfileIsBidirectionalCmd)
+	telecomVideoProfileIsPausedCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telecomVideoProfileIsPausedCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	telecomVideoProfileCmd.AddCommand(telecomVideoProfileIsPausedCmd)
+	telecomVideoProfileIsReceptionEnabledCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telecomVideoProfileIsReceptionEnabledCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	telecomVideoProfileCmd.AddCommand(telecomVideoProfileIsReceptionEnabledCmd)
+	telecomVideoProfileIsTransmissionEnabledCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telecomVideoProfileIsTransmissionEnabledCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	telecomVideoProfileCmd.AddCommand(telecomVideoProfileIsTransmissionEnabledCmd)
+	telecomVideoProfileIsVideoCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telecomVideoProfileIsVideoCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	telecomVideoProfileCmd.AddCommand(telecomVideoProfileIsVideoCmd)
+	telecomVideoProfileVideoStateToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telecomVideoProfileVideoStateToStringCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	telecomVideoProfileCmd.AddCommand(telecomVideoProfileVideoStateToStringCmd)
+	telecomCmd.AddCommand(telecomVideoProfileCmd)
+	telecomVideoProfileCameraCapabilitiesCmd.AddCommand(telecomVideoProfileCameraCapabilitiesDescribeContentsCmd)
+	telecomVideoProfileCameraCapabilitiesCmd.AddCommand(telecomVideoProfileCameraCapabilitiesGetHeightCmd)
+	telecomVideoProfileCameraCapabilitiesCmd.AddCommand(telecomVideoProfileCameraCapabilitiesGetMaxZoomCmd)
+	telecomVideoProfileCameraCapabilitiesCmd.AddCommand(telecomVideoProfileCameraCapabilitiesGetWidthCmd)
+	telecomVideoProfileCameraCapabilitiesCmd.AddCommand(telecomVideoProfileCameraCapabilitiesIsZoomSupportedCmd)
+	telecomVideoProfileCameraCapabilitiesWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telecomVideoProfileCameraCapabilitiesWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	telecomVideoProfileCameraCapabilitiesCmd.AddCommand(telecomVideoProfileCameraCapabilitiesWriteToParcelCmd)
+	telecomCmd.AddCommand(telecomVideoProfileCameraCapabilitiesCmd)
+	telecomPhoneAccountHandleNewPhoneAccountHandleCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telecomPhoneAccountHandleNewPhoneAccountHandleCmd.Flags().String("arg1", "", "arg1 (string)")
+	telecomPhoneAccountHandleCmd.AddCommand(telecomPhoneAccountHandleNewPhoneAccountHandleCmd)
+	telecomPhoneAccountHandleDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telecomPhoneAccountHandleCmd.AddCommand(telecomPhoneAccountHandleDescribeContentsCmd)
+	telecomPhoneAccountHandleEqualsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telecomPhoneAccountHandleEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telecomPhoneAccountHandleCmd.AddCommand(telecomPhoneAccountHandleEqualsCmd)
+	telecomPhoneAccountHandleGetComponentNameCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telecomPhoneAccountHandleCmd.AddCommand(telecomPhoneAccountHandleGetComponentNameCmd)
+	telecomPhoneAccountHandleGetIdCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telecomPhoneAccountHandleCmd.AddCommand(telecomPhoneAccountHandleGetIdCmd)
+	telecomPhoneAccountHandleGetUserHandleCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telecomPhoneAccountHandleCmd.AddCommand(telecomPhoneAccountHandleGetUserHandleCmd)
+	telecomPhoneAccountHandleHashCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telecomPhoneAccountHandleCmd.AddCommand(telecomPhoneAccountHandleHashCodeCmd)
+	telecomPhoneAccountHandleToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telecomPhoneAccountHandleCmd.AddCommand(telecomPhoneAccountHandleToStringCmd)
+	telecomPhoneAccountHandleWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telecomPhoneAccountHandleWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telecomPhoneAccountHandleWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	telecomPhoneAccountHandleCmd.AddCommand(telecomPhoneAccountHandleWriteToParcelCmd)
+	telecomCmd.AddCommand(telecomPhoneAccountHandleCmd)
+	telecomStatusHintsNewStatusHintsCmd.Flags().String("arg0", "", "arg0 (string)")
+	telecomStatusHintsNewStatusHintsCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	telecomStatusHintsNewStatusHintsCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	telecomStatusHintsCmd.AddCommand(telecomStatusHintsNewStatusHintsCmd)
+	telecomStatusHintsDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telecomStatusHintsCmd.AddCommand(telecomStatusHintsDescribeContentsCmd)
+	telecomStatusHintsEqualsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telecomStatusHintsEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telecomStatusHintsCmd.AddCommand(telecomStatusHintsEqualsCmd)
+	telecomStatusHintsGetExtrasCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telecomStatusHintsCmd.AddCommand(telecomStatusHintsGetExtrasCmd)
+	telecomStatusHintsGetIconCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telecomStatusHintsCmd.AddCommand(telecomStatusHintsGetIconCmd)
+	telecomStatusHintsGetLabelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telecomStatusHintsCmd.AddCommand(telecomStatusHintsGetLabelCmd)
+	telecomStatusHintsHashCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telecomStatusHintsCmd.AddCommand(telecomStatusHintsHashCodeCmd)
+	telecomStatusHintsWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telecomStatusHintsWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telecomStatusHintsWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	telecomStatusHintsCmd.AddCommand(telecomStatusHintsWriteToParcelCmd)
+	telecomCmd.AddCommand(telecomStatusHintsCmd)
 	telecomCallAnswerCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
 	telecomCallCmd.AddCommand(telecomCallAnswerCmd)
 	telecomCallConferenceCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
@@ -11134,6 +11594,9 @@ func init() {
 	telecomCallDeflectCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	telecomCallCmd.AddCommand(telecomCallDeflectCmd)
 	telecomCallCmd.AddCommand(telecomCallDisconnectCmd)
+	telecomCallCmd.AddCommand(telecomCallGetCannedTextResponsesCmd)
+	telecomCallCmd.AddCommand(telecomCallGetChildrenCmd)
+	telecomCallCmd.AddCommand(telecomCallGetConferenceableCallsCmd)
 	telecomCallCmd.AddCommand(telecomCallGetDetailsCmd)
 	telecomCallCmd.AddCommand(telecomCallGetGenericConferenceActiveChildCallCmd)
 	telecomCallCmd.AddCommand(telecomCallGetParentCmd)
@@ -11271,49 +11734,112 @@ func init() {
 	telecomCallRttCallWriteCmd.Flags().String("arg0", "", "arg0 (string)")
 	telecomCallRttCallCmd.AddCommand(telecomCallRttCallWriteCmd)
 	telecomCmd.AddCommand(telecomCallRttCallCmd)
-	telecomPhoneAccountHandleNewPhoneAccountHandleCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	telecomPhoneAccountHandleNewPhoneAccountHandleCmd.Flags().String("arg1", "", "arg1 (string)")
-	telecomPhoneAccountHandleCmd.AddCommand(telecomPhoneAccountHandleNewPhoneAccountHandleCmd)
-	telecomPhoneAccountHandleDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	telecomPhoneAccountHandleCmd.AddCommand(telecomPhoneAccountHandleDescribeContentsCmd)
-	telecomPhoneAccountHandleEqualsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	telecomPhoneAccountHandleEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	telecomPhoneAccountHandleCmd.AddCommand(telecomPhoneAccountHandleEqualsCmd)
-	telecomPhoneAccountHandleGetComponentNameCmd.Flags().Int64("handle", 0, "handle (int64)")
-	telecomPhoneAccountHandleCmd.AddCommand(telecomPhoneAccountHandleGetComponentNameCmd)
-	telecomPhoneAccountHandleGetIdCmd.Flags().Int64("handle", 0, "handle (int64)")
-	telecomPhoneAccountHandleCmd.AddCommand(telecomPhoneAccountHandleGetIdCmd)
-	telecomPhoneAccountHandleGetUserHandleCmd.Flags().Int64("handle", 0, "handle (int64)")
-	telecomPhoneAccountHandleCmd.AddCommand(telecomPhoneAccountHandleGetUserHandleCmd)
-	telecomPhoneAccountHandleHashCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
-	telecomPhoneAccountHandleCmd.AddCommand(telecomPhoneAccountHandleHashCodeCmd)
-	telecomPhoneAccountHandleToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
-	telecomPhoneAccountHandleCmd.AddCommand(telecomPhoneAccountHandleToStringCmd)
-	telecomPhoneAccountHandleWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
-	telecomPhoneAccountHandleWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	telecomPhoneAccountHandleWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	telecomPhoneAccountHandleCmd.AddCommand(telecomPhoneAccountHandleWriteToParcelCmd)
-	telecomCmd.AddCommand(telecomPhoneAccountHandleCmd)
-	telecomCallScreeningServiceOnBindCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	telecomCallScreeningServiceCmd.AddCommand(telecomCallScreeningServiceOnBindCmd)
-	telecomCallScreeningServiceOnScreenCallCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	telecomCallScreeningServiceCmd.AddCommand(telecomCallScreeningServiceOnScreenCallCmd)
-	telecomCallScreeningServiceOnUnbindCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	telecomCallScreeningServiceCmd.AddCommand(telecomCallScreeningServiceOnUnbindCmd)
-	telecomCallScreeningServiceRespondToCallCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	telecomCallScreeningServiceRespondToCallCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	telecomCallScreeningServiceCmd.AddCommand(telecomCallScreeningServiceRespondToCallCmd)
-	telecomCmd.AddCommand(telecomCallScreeningServiceCmd)
-	telecomCallScreeningServiceCallResponseEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	telecomCallScreeningServiceCallResponseCmd.AddCommand(telecomCallScreeningServiceCallResponseEqualsCmd)
-	telecomCallScreeningServiceCallResponseCmd.AddCommand(telecomCallScreeningServiceCallResponseGetCallComposerAttachmentsToShowCmd)
-	telecomCallScreeningServiceCallResponseCmd.AddCommand(telecomCallScreeningServiceCallResponseGetDisallowCallCmd)
-	telecomCallScreeningServiceCallResponseCmd.AddCommand(telecomCallScreeningServiceCallResponseGetRejectCallCmd)
-	telecomCallScreeningServiceCallResponseCmd.AddCommand(telecomCallScreeningServiceCallResponseGetSilenceCallCmd)
-	telecomCallScreeningServiceCallResponseCmd.AddCommand(telecomCallScreeningServiceCallResponseGetSkipCallLogCmd)
-	telecomCallScreeningServiceCallResponseCmd.AddCommand(telecomCallScreeningServiceCallResponseGetSkipNotificationCmd)
-	telecomCallScreeningServiceCallResponseCmd.AddCommand(telecomCallScreeningServiceCallResponseHashCodeCmd)
-	telecomCmd.AddCommand(telecomCallScreeningServiceCallResponseCmd)
+	telecomPhoneAccountSuggestionNewPhoneAccountSuggestionCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telecomPhoneAccountSuggestionNewPhoneAccountSuggestionCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	telecomPhoneAccountSuggestionNewPhoneAccountSuggestionCmd.Flags().Bool("arg2", false, "arg2 (bool)")
+	telecomPhoneAccountSuggestionCmd.AddCommand(telecomPhoneAccountSuggestionNewPhoneAccountSuggestionCmd)
+	telecomPhoneAccountSuggestionDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telecomPhoneAccountSuggestionCmd.AddCommand(telecomPhoneAccountSuggestionDescribeContentsCmd)
+	telecomPhoneAccountSuggestionEqualsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telecomPhoneAccountSuggestionEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telecomPhoneAccountSuggestionCmd.AddCommand(telecomPhoneAccountSuggestionEqualsCmd)
+	telecomPhoneAccountSuggestionGetPhoneAccountHandleCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telecomPhoneAccountSuggestionCmd.AddCommand(telecomPhoneAccountSuggestionGetPhoneAccountHandleCmd)
+	telecomPhoneAccountSuggestionGetReasonCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telecomPhoneAccountSuggestionCmd.AddCommand(telecomPhoneAccountSuggestionGetReasonCmd)
+	telecomPhoneAccountSuggestionHashCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telecomPhoneAccountSuggestionCmd.AddCommand(telecomPhoneAccountSuggestionHashCodeCmd)
+	telecomPhoneAccountSuggestionShouldAutoSelectCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telecomPhoneAccountSuggestionCmd.AddCommand(telecomPhoneAccountSuggestionShouldAutoSelectCmd)
+	telecomPhoneAccountSuggestionWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telecomPhoneAccountSuggestionWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telecomPhoneAccountSuggestionWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	telecomPhoneAccountSuggestionCmd.AddCommand(telecomPhoneAccountSuggestionWriteToParcelCmd)
+	telecomCmd.AddCommand(telecomPhoneAccountSuggestionCmd)
+	telecomCallEndpointExceptionNewCallEndpointExceptionCmd.Flags().String("arg0", "", "arg0 (string)")
+	telecomCallEndpointExceptionNewCallEndpointExceptionCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	telecomCallEndpointExceptionCmd.AddCommand(telecomCallEndpointExceptionNewCallEndpointExceptionCmd)
+	telecomCallEndpointExceptionDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telecomCallEndpointExceptionCmd.AddCommand(telecomCallEndpointExceptionDescribeContentsCmd)
+	telecomCallEndpointExceptionGetCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telecomCallEndpointExceptionCmd.AddCommand(telecomCallEndpointExceptionGetCodeCmd)
+	telecomCallEndpointExceptionWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telecomCallEndpointExceptionWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telecomCallEndpointExceptionWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	telecomCallEndpointExceptionCmd.AddCommand(telecomCallEndpointExceptionWriteToParcelCmd)
+	telecomCmd.AddCommand(telecomCallEndpointExceptionCmd)
+	telecomConnectionRequestNewConnectionRequestCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telecomConnectionRequestNewConnectionRequestCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	telecomConnectionRequestNewConnectionRequestCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	telecomConnectionRequestCmd.AddCommand(telecomConnectionRequestNewConnectionRequestCmd)
+	telecomConnectionRequestDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telecomConnectionRequestCmd.AddCommand(telecomConnectionRequestDescribeContentsCmd)
+	telecomConnectionRequestGetAccountHandleCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telecomConnectionRequestCmd.AddCommand(telecomConnectionRequestGetAccountHandleCmd)
+	telecomConnectionRequestGetAddressCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telecomConnectionRequestCmd.AddCommand(telecomConnectionRequestGetAddressCmd)
+	telecomConnectionRequestGetExtrasCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telecomConnectionRequestCmd.AddCommand(telecomConnectionRequestGetExtrasCmd)
+	telecomConnectionRequestGetParticipantsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telecomConnectionRequestCmd.AddCommand(telecomConnectionRequestGetParticipantsCmd)
+	telecomConnectionRequestGetRttTextStreamCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telecomConnectionRequestCmd.AddCommand(telecomConnectionRequestGetRttTextStreamCmd)
+	telecomConnectionRequestGetVideoStateCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telecomConnectionRequestCmd.AddCommand(telecomConnectionRequestGetVideoStateCmd)
+	telecomConnectionRequestIsAdhocConferenceCallCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telecomConnectionRequestCmd.AddCommand(telecomConnectionRequestIsAdhocConferenceCallCmd)
+	telecomConnectionRequestIsRequestingRttCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telecomConnectionRequestCmd.AddCommand(telecomConnectionRequestIsRequestingRttCmd)
+	telecomConnectionRequestToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telecomConnectionRequestCmd.AddCommand(telecomConnectionRequestToStringCmd)
+	telecomConnectionRequestWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telecomConnectionRequestWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telecomConnectionRequestWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	telecomConnectionRequestCmd.AddCommand(telecomConnectionRequestWriteToParcelCmd)
+	telecomCmd.AddCommand(telecomConnectionRequestCmd)
+	telecomDisconnectCauseNewDisconnectCauseCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	telecomDisconnectCauseCmd.AddCommand(telecomDisconnectCauseNewDisconnectCauseCmd)
+	telecomDisconnectCauseDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telecomDisconnectCauseCmd.AddCommand(telecomDisconnectCauseDescribeContentsCmd)
+	telecomDisconnectCauseEqualsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telecomDisconnectCauseEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telecomDisconnectCauseCmd.AddCommand(telecomDisconnectCauseEqualsCmd)
+	telecomDisconnectCauseGetCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telecomDisconnectCauseCmd.AddCommand(telecomDisconnectCauseGetCodeCmd)
+	telecomDisconnectCauseGetDescriptionCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telecomDisconnectCauseCmd.AddCommand(telecomDisconnectCauseGetDescriptionCmd)
+	telecomDisconnectCauseGetLabelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telecomDisconnectCauseCmd.AddCommand(telecomDisconnectCauseGetLabelCmd)
+	telecomDisconnectCauseGetReasonCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telecomDisconnectCauseCmd.AddCommand(telecomDisconnectCauseGetReasonCmd)
+	telecomDisconnectCauseGetToneCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telecomDisconnectCauseCmd.AddCommand(telecomDisconnectCauseGetToneCmd)
+	telecomDisconnectCauseHashCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telecomDisconnectCauseCmd.AddCommand(telecomDisconnectCauseHashCodeCmd)
+	telecomDisconnectCauseToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telecomDisconnectCauseCmd.AddCommand(telecomDisconnectCauseToStringCmd)
+	telecomDisconnectCauseWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telecomDisconnectCauseWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telecomDisconnectCauseWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	telecomDisconnectCauseCmd.AddCommand(telecomDisconnectCauseWriteToParcelCmd)
+	telecomCmd.AddCommand(telecomDisconnectCauseCmd)
+	telecomCallControlCmd.AddCommand(telecomCallControlGetCallIdCmd)
+	telecomCallControlSendEventCmd.Flags().String("arg0", "", "arg0 (string)")
+	telecomCallControlSendEventCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	telecomCallControlCmd.AddCommand(telecomCallControlSendEventCmd)
+	telecomCmd.AddCommand(telecomCallControlCmd)
+	telecomCallExceptionNewCallExceptionCmd.Flags().String("arg0", "", "arg0 (string)")
+	telecomCallExceptionNewCallExceptionCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	telecomCallExceptionCmd.AddCommand(telecomCallExceptionNewCallExceptionCmd)
+	telecomCallExceptionDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telecomCallExceptionCmd.AddCommand(telecomCallExceptionDescribeContentsCmd)
+	telecomCallExceptionGetCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telecomCallExceptionCmd.AddCommand(telecomCallExceptionGetCodeCmd)
+	telecomCallExceptionWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telecomCallExceptionWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telecomCallExceptionWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	telecomCallExceptionCmd.AddCommand(telecomCallExceptionWriteToParcelCmd)
+	telecomCmd.AddCommand(telecomCallExceptionCmd)
 	telecomCallEndpointNewCallEndpointCmd.Flags().String("arg0", "", "arg0 (string)")
 	telecomCallEndpointNewCallEndpointCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
 	telecomCallEndpointNewCallEndpointCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
@@ -11338,8 +11864,121 @@ func init() {
 	telecomCallEndpointWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
 	telecomCallEndpointCmd.AddCommand(telecomCallEndpointWriteToParcelCmd)
 	telecomCmd.AddCommand(telecomCallEndpointCmd)
+	telecomCallRedirectionServiceCmd.AddCommand(telecomCallRedirectionServiceCancelCallCmd)
+	telecomCallRedirectionServiceOnBindCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telecomCallRedirectionServiceCmd.AddCommand(telecomCallRedirectionServiceOnBindCmd)
+	telecomCallRedirectionServiceOnPlaceCallCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telecomCallRedirectionServiceOnPlaceCallCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	telecomCallRedirectionServiceOnPlaceCallCmd.Flags().Bool("arg2", false, "arg2 (bool)")
+	telecomCallRedirectionServiceCmd.AddCommand(telecomCallRedirectionServiceOnPlaceCallCmd)
+	telecomCallRedirectionServiceCmd.AddCommand(telecomCallRedirectionServiceOnRedirectionTimeoutCmd)
+	telecomCallRedirectionServiceOnUnbindCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telecomCallRedirectionServiceCmd.AddCommand(telecomCallRedirectionServiceOnUnbindCmd)
+	telecomCallRedirectionServiceCmd.AddCommand(telecomCallRedirectionServicePlaceCallUnmodifiedCmd)
+	telecomCallRedirectionServiceRedirectCallCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telecomCallRedirectionServiceRedirectCallCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	telecomCallRedirectionServiceRedirectCallCmd.Flags().Bool("arg2", false, "arg2 (bool)")
+	telecomCallRedirectionServiceCmd.AddCommand(telecomCallRedirectionServiceRedirectCallCmd)
+	telecomCmd.AddCommand(telecomCallRedirectionServiceCmd)
+	telecomConferenceAddConnectionCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telecomConferenceCmd.AddCommand(telecomConferenceAddConnectionCmd)
+	telecomConferenceCmd.AddCommand(telecomConferenceDestroyCmd)
+	telecomConferenceCmd.AddCommand(telecomConferenceGetCallAudioStateCmd)
+	telecomConferenceCmd.AddCommand(telecomConferenceGetConferenceableConnectionsCmd)
+	telecomConferenceCmd.AddCommand(telecomConferenceGetConnectionCapabilitiesCmd)
+	telecomConferenceCmd.AddCommand(telecomConferenceGetConnectionPropertiesCmd)
+	telecomConferenceCmd.AddCommand(telecomConferenceGetConnectionStartElapsedRealtimeMillisCmd)
+	telecomConferenceCmd.AddCommand(telecomConferenceGetConnectionTimeCmd)
+	telecomConferenceCmd.AddCommand(telecomConferenceGetConnectionsCmd)
+	telecomConferenceCmd.AddCommand(telecomConferenceGetCurrentCallEndpointCmd)
+	telecomConferenceCmd.AddCommand(telecomConferenceGetDisconnectCauseCmd)
+	telecomConferenceCmd.AddCommand(telecomConferenceGetExtrasCmd)
+	telecomConferenceCmd.AddCommand(telecomConferenceGetPhoneAccountHandleCmd)
+	telecomConferenceCmd.AddCommand(telecomConferenceGetStateCmd)
+	telecomConferenceCmd.AddCommand(telecomConferenceGetStatusHintsCmd)
+	telecomConferenceCmd.AddCommand(telecomConferenceGetVideoProviderCmd)
+	telecomConferenceCmd.AddCommand(telecomConferenceGetVideoStateCmd)
+	telecomConferenceCmd.AddCommand(telecomConferenceIsRingbackRequestedCmd)
+	telecomConferenceOnAnswerCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	telecomConferenceCmd.AddCommand(telecomConferenceOnAnswerCmd)
+	telecomConferenceOnCallAudioStateChangedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telecomConferenceCmd.AddCommand(telecomConferenceOnCallAudioStateChangedCmd)
+	telecomConferenceOnCallEndpointChangedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telecomConferenceCmd.AddCommand(telecomConferenceOnCallEndpointChangedCmd)
+	telecomConferenceOnConnectionAddedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telecomConferenceCmd.AddCommand(telecomConferenceOnConnectionAddedCmd)
+	telecomConferenceCmd.AddCommand(telecomConferenceOnDisconnectCmd)
+	telecomConferenceOnExtrasChangedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telecomConferenceCmd.AddCommand(telecomConferenceOnExtrasChangedCmd)
+	telecomConferenceCmd.AddCommand(telecomConferenceOnHoldCmd)
+	telecomConferenceCmd.AddCommand(telecomConferenceOnMerge0Cmd)
+	telecomConferenceOnMerge1_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telecomConferenceCmd.AddCommand(telecomConferenceOnMerge1_1Cmd)
+	telecomConferenceOnMuteStateChangedCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	telecomConferenceCmd.AddCommand(telecomConferenceOnMuteStateChangedCmd)
+	telecomConferenceOnPlayDtmfToneCmd.Flags().Uint32("arg0", 0, "arg0 (uint32)")
+	telecomConferenceCmd.AddCommand(telecomConferenceOnPlayDtmfToneCmd)
+	telecomConferenceCmd.AddCommand(telecomConferenceOnRejectCmd)
+	telecomConferenceOnSeparateCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telecomConferenceCmd.AddCommand(telecomConferenceOnSeparateCmd)
+	telecomConferenceCmd.AddCommand(telecomConferenceOnStopDtmfToneCmd)
+	telecomConferenceCmd.AddCommand(telecomConferenceOnSwapCmd)
+	telecomConferenceCmd.AddCommand(telecomConferenceOnUnholdCmd)
+	telecomConferencePutExtrasCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telecomConferenceCmd.AddCommand(telecomConferencePutExtrasCmd)
+	telecomConferenceRemoveConnectionCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telecomConferenceCmd.AddCommand(telecomConferenceRemoveConnectionCmd)
+	telecomConferenceRemoveExtrasCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telecomConferenceCmd.AddCommand(telecomConferenceRemoveExtrasCmd)
+	telecomConferenceSendConferenceEventCmd.Flags().String("arg0", "", "arg0 (string)")
+	telecomConferenceSendConferenceEventCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	telecomConferenceCmd.AddCommand(telecomConferenceSendConferenceEventCmd)
+	telecomConferenceCmd.AddCommand(telecomConferenceSetActiveCmd)
+	telecomConferenceSetConnectionCapabilitiesCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	telecomConferenceCmd.AddCommand(telecomConferenceSetConnectionCapabilitiesCmd)
+	telecomConferenceSetConnectionPropertiesCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	telecomConferenceCmd.AddCommand(telecomConferenceSetConnectionPropertiesCmd)
+	telecomConferenceSetConnectionStartElapsedRealTimeCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telecomConferenceCmd.AddCommand(telecomConferenceSetConnectionStartElapsedRealTimeCmd)
+	telecomConferenceSetConnectionStartElapsedRealtimeMillisCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telecomConferenceCmd.AddCommand(telecomConferenceSetConnectionStartElapsedRealtimeMillisCmd)
+	telecomConferenceSetConnectionTimeCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telecomConferenceCmd.AddCommand(telecomConferenceSetConnectionTimeCmd)
+	telecomConferenceCmd.AddCommand(telecomConferenceSetDialingCmd)
+	telecomConferenceSetDisconnectedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telecomConferenceCmd.AddCommand(telecomConferenceSetDisconnectedCmd)
+	telecomConferenceSetExtrasCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telecomConferenceCmd.AddCommand(telecomConferenceSetExtrasCmd)
+	telecomConferenceCmd.AddCommand(telecomConferenceSetOnHoldCmd)
+	telecomConferenceSetRingbackRequestedCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	telecomConferenceCmd.AddCommand(telecomConferenceSetRingbackRequestedCmd)
+	telecomConferenceCmd.AddCommand(telecomConferenceSetRingingCmd)
+	telecomConferenceSetStatusHintsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telecomConferenceCmd.AddCommand(telecomConferenceSetStatusHintsCmd)
+	telecomConferenceSetVideoProviderCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telecomConferenceSetVideoProviderCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	telecomConferenceCmd.AddCommand(telecomConferenceSetVideoProviderCmd)
+	telecomConferenceSetVideoStateCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telecomConferenceSetVideoStateCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	telecomConferenceCmd.AddCommand(telecomConferenceSetVideoStateCmd)
+	telecomConferenceCmd.AddCommand(telecomConferenceToStringCmd)
+	telecomConferenceCreateFailedConferenceCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telecomConferenceCreateFailedConferenceCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	telecomConferenceCmd.AddCommand(telecomConferenceCreateFailedConferenceCmd)
+	telecomCmd.AddCommand(telecomConferenceCmd)
+	telecomCallEventCallbackOnCallEndpointChangedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telecomCallEventCallbackCmd.AddCommand(telecomCallEventCallbackOnCallEndpointChangedCmd)
+	telecomCallEventCallbackOnCallStreamingFailedCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	telecomCallEventCallbackCmd.AddCommand(telecomCallEventCallbackOnCallStreamingFailedCmd)
+	telecomCallEventCallbackOnEventCmd.Flags().String("arg0", "", "arg0 (string)")
+	telecomCallEventCallbackOnEventCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	telecomCallEventCallbackCmd.AddCommand(telecomCallEventCallbackOnEventCmd)
+	telecomCallEventCallbackOnMuteStateChangedCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	telecomCallEventCallbackCmd.AddCommand(telecomCallEventCallbackOnMuteStateChangedCmd)
+	telecomCmd.AddCommand(telecomCallEventCallbackCmd)
 	telecomInCallServiceCmd.AddCommand(telecomInCallServiceCanAddCallCmd)
 	telecomInCallServiceCmd.AddCommand(telecomInCallServiceGetCallAudioStateCmd)
+	telecomInCallServiceCmd.AddCommand(telecomInCallServiceGetCallsCmd)
 	telecomInCallServiceCmd.AddCommand(telecomInCallServiceGetCurrentCallEndpointCmd)
 	telecomInCallServiceOnBindCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	telecomInCallServiceCmd.AddCommand(telecomInCallServiceOnBindCmd)
@@ -11394,134 +12033,6 @@ func init() {
 	telecomInCallServiceVideoCallUnregisterCallbackCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	telecomInCallServiceVideoCallCmd.AddCommand(telecomInCallServiceVideoCallUnregisterCallbackCmd)
 	telecomCmd.AddCommand(telecomInCallServiceVideoCallCmd)
-	telecomPhoneAccountCmd.AddCommand(telecomPhoneAccountDescribeContentsCmd)
-	telecomPhoneAccountEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	telecomPhoneAccountCmd.AddCommand(telecomPhoneAccountEqualsCmd)
-	telecomPhoneAccountCmd.AddCommand(telecomPhoneAccountGetAccountHandleCmd)
-	telecomPhoneAccountCmd.AddCommand(telecomPhoneAccountGetAddressCmd)
-	telecomPhoneAccountCmd.AddCommand(telecomPhoneAccountGetCapabilitiesCmd)
-	telecomPhoneAccountCmd.AddCommand(telecomPhoneAccountGetExtrasCmd)
-	telecomPhoneAccountCmd.AddCommand(telecomPhoneAccountGetHighlightColorCmd)
-	telecomPhoneAccountCmd.AddCommand(telecomPhoneAccountGetIconCmd)
-	telecomPhoneAccountCmd.AddCommand(telecomPhoneAccountGetLabelCmd)
-	telecomPhoneAccountCmd.AddCommand(telecomPhoneAccountGetShortDescriptionCmd)
-	telecomPhoneAccountCmd.AddCommand(telecomPhoneAccountGetSubscriptionAddressCmd)
-	telecomPhoneAccountHasCapabilitiesCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	telecomPhoneAccountCmd.AddCommand(telecomPhoneAccountHasCapabilitiesCmd)
-	telecomPhoneAccountCmd.AddCommand(telecomPhoneAccountHasSimultaneousCallingRestrictionCmd)
-	telecomPhoneAccountCmd.AddCommand(telecomPhoneAccountHashCodeCmd)
-	telecomPhoneAccountCmd.AddCommand(telecomPhoneAccountIsEnabledCmd)
-	telecomPhoneAccountSupportsUriSchemeCmd.Flags().String("arg0", "", "arg0 (string)")
-	telecomPhoneAccountCmd.AddCommand(telecomPhoneAccountSupportsUriSchemeCmd)
-	telecomPhoneAccountCmd.AddCommand(telecomPhoneAccountToBuilderCmd)
-	telecomPhoneAccountCmd.AddCommand(telecomPhoneAccountToStringCmd)
-	telecomPhoneAccountWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	telecomPhoneAccountWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	telecomPhoneAccountCmd.AddCommand(telecomPhoneAccountWriteToParcelCmd)
-	telecomPhoneAccountBuilderCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	telecomPhoneAccountBuilderCmd.Flags().String("arg1", "", "arg1 (string)")
-	telecomPhoneAccountCmd.AddCommand(telecomPhoneAccountBuilderCmd)
-	telecomCmd.AddCommand(telecomPhoneAccountCmd)
-	telecomPhoneAccountBuilderSvcAddSupportedUriSchemeCmd.Flags().String("arg0", "", "arg0 (string)")
-	telecomPhoneAccountBuilderSvcCmd.AddCommand(telecomPhoneAccountBuilderSvcAddSupportedUriSchemeCmd)
-	telecomPhoneAccountBuilderSvcCmd.AddCommand(telecomPhoneAccountBuilderSvcBuildCmd)
-	telecomPhoneAccountBuilderSvcCmd.AddCommand(telecomPhoneAccountBuilderSvcClearSimultaneousCallingRestrictionCmd)
-	telecomPhoneAccountBuilderSvcSetAddressCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	telecomPhoneAccountBuilderSvcCmd.AddCommand(telecomPhoneAccountBuilderSvcSetAddressCmd)
-	telecomPhoneAccountBuilderSvcSetCapabilitiesCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	telecomPhoneAccountBuilderSvcCmd.AddCommand(telecomPhoneAccountBuilderSvcSetCapabilitiesCmd)
-	telecomPhoneAccountBuilderSvcSetExtrasCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	telecomPhoneAccountBuilderSvcCmd.AddCommand(telecomPhoneAccountBuilderSvcSetExtrasCmd)
-	telecomPhoneAccountBuilderSvcSetHighlightColorCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	telecomPhoneAccountBuilderSvcCmd.AddCommand(telecomPhoneAccountBuilderSvcSetHighlightColorCmd)
-	telecomPhoneAccountBuilderSvcSetIconCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	telecomPhoneAccountBuilderSvcCmd.AddCommand(telecomPhoneAccountBuilderSvcSetIconCmd)
-	telecomPhoneAccountBuilderSvcSetShortDescriptionCmd.Flags().String("arg0", "", "arg0 (string)")
-	telecomPhoneAccountBuilderSvcCmd.AddCommand(telecomPhoneAccountBuilderSvcSetShortDescriptionCmd)
-	telecomPhoneAccountBuilderSvcSetSubscriptionAddressCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	telecomPhoneAccountBuilderSvcCmd.AddCommand(telecomPhoneAccountBuilderSvcSetSubscriptionAddressCmd)
-	telecomCmd.AddCommand(telecomPhoneAccountBuilderSvcCmd)
-	telecomCallEndpointExceptionNewCallEndpointExceptionCmd.Flags().String("arg0", "", "arg0 (string)")
-	telecomCallEndpointExceptionNewCallEndpointExceptionCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	telecomCallEndpointExceptionCmd.AddCommand(telecomCallEndpointExceptionNewCallEndpointExceptionCmd)
-	telecomCallEndpointExceptionDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	telecomCallEndpointExceptionCmd.AddCommand(telecomCallEndpointExceptionDescribeContentsCmd)
-	telecomCallEndpointExceptionGetCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
-	telecomCallEndpointExceptionCmd.AddCommand(telecomCallEndpointExceptionGetCodeCmd)
-	telecomCallEndpointExceptionWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
-	telecomCallEndpointExceptionWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	telecomCallEndpointExceptionWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	telecomCallEndpointExceptionCmd.AddCommand(telecomCallEndpointExceptionWriteToParcelCmd)
-	telecomCmd.AddCommand(telecomCallEndpointExceptionCmd)
-	telecomManagerAcceptHandoverCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	telecomManagerAcceptHandoverCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	telecomManagerAcceptHandoverCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	telecomManagerCmd.AddCommand(telecomManagerAcceptHandoverCmd)
-	telecomManagerCmd.AddCommand(telecomManagerAcceptRingingCall0Cmd)
-	telecomManagerAcceptRingingCall1_1Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	telecomManagerCmd.AddCommand(telecomManagerAcceptRingingCall1_1Cmd)
-	telecomManagerAddNewIncomingCallCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	telecomManagerAddNewIncomingCallCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	telecomManagerCmd.AddCommand(telecomManagerAddNewIncomingCallCmd)
-	telecomManagerAddNewIncomingConferenceCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	telecomManagerAddNewIncomingConferenceCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	telecomManagerCmd.AddCommand(telecomManagerAddNewIncomingConferenceCmd)
-	telecomManagerCmd.AddCommand(telecomManagerCancelMissedCallsNotificationCmd)
-	telecomManagerCmd.AddCommand(telecomManagerCreateManageBlockedNumbersIntentCmd)
-	telecomManagerCmd.AddCommand(telecomManagerEndCallCmd)
-	telecomManagerGetAdnUriForPhoneAccountCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	telecomManagerCmd.AddCommand(telecomManagerGetAdnUriForPhoneAccountCmd)
-	telecomManagerCmd.AddCommand(telecomManagerGetDefaultDialerPackageCmd)
-	telecomManagerGetDefaultOutgoingPhoneAccountCmd.Flags().String("arg0", "", "arg0 (string)")
-	telecomManagerCmd.AddCommand(telecomManagerGetDefaultOutgoingPhoneAccountCmd)
-	telecomManagerGetLine1NumberCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	telecomManagerCmd.AddCommand(telecomManagerGetLine1NumberCmd)
-	telecomManagerGetPhoneAccountCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	telecomManagerCmd.AddCommand(telecomManagerGetPhoneAccountCmd)
-	telecomManagerCmd.AddCommand(telecomManagerGetSimCallManagerCmd)
-	telecomManagerGetSimCallManagerForSubscriptionCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	telecomManagerCmd.AddCommand(telecomManagerGetSimCallManagerForSubscriptionCmd)
-	telecomManagerCmd.AddCommand(telecomManagerGetSystemDialerPackageCmd)
-	telecomManagerCmd.AddCommand(telecomManagerGetUserSelectedOutgoingPhoneAccountCmd)
-	telecomManagerGetVoiceMailNumberCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	telecomManagerCmd.AddCommand(telecomManagerGetVoiceMailNumberCmd)
-	telecomManagerHandleMmi1Cmd.Flags().String("arg0", "", "arg0 (string)")
-	telecomManagerCmd.AddCommand(telecomManagerHandleMmi1Cmd)
-	telecomManagerHandleMmi2_1Cmd.Flags().String("arg0", "", "arg0 (string)")
-	telecomManagerHandleMmi2_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	telecomManagerCmd.AddCommand(telecomManagerHandleMmi2_1Cmd)
-	telecomManagerCmd.AddCommand(telecomManagerHasManageOngoingCallsPermissionCmd)
-	telecomManagerCmd.AddCommand(telecomManagerIsInCallCmd)
-	telecomManagerCmd.AddCommand(telecomManagerIsInManagedCallCmd)
-	telecomManagerIsIncomingCallPermittedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	telecomManagerCmd.AddCommand(telecomManagerIsIncomingCallPermittedCmd)
-	telecomManagerIsOutgoingCallPermittedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	telecomManagerCmd.AddCommand(telecomManagerIsOutgoingCallPermittedCmd)
-	telecomManagerCmd.AddCommand(telecomManagerIsTtySupportedCmd)
-	telecomManagerIsVoiceMailNumberCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	telecomManagerIsVoiceMailNumberCmd.Flags().String("arg1", "", "arg1 (string)")
-	telecomManagerCmd.AddCommand(telecomManagerIsVoiceMailNumberCmd)
-	telecomManagerPlaceCallCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	telecomManagerPlaceCallCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	telecomManagerCmd.AddCommand(telecomManagerPlaceCallCmd)
-	telecomManagerRegisterPhoneAccountCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	telecomManagerCmd.AddCommand(telecomManagerRegisterPhoneAccountCmd)
-	telecomManagerShowInCallScreenCmd.Flags().Bool("arg0", false, "arg0 (bool)")
-	telecomManagerCmd.AddCommand(telecomManagerShowInCallScreenCmd)
-	telecomManagerCmd.AddCommand(telecomManagerSilenceRingerCmd)
-	telecomManagerUnregisterPhoneAccountCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	telecomManagerCmd.AddCommand(telecomManagerUnregisterPhoneAccountCmd)
-	telecomCmd.AddCommand(telecomManagerCmd)
-	telecomCallEventCallbackOnCallEndpointChangedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	telecomCallEventCallbackCmd.AddCommand(telecomCallEventCallbackOnCallEndpointChangedCmd)
-	telecomCallEventCallbackOnCallStreamingFailedCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	telecomCallEventCallbackCmd.AddCommand(telecomCallEventCallbackOnCallStreamingFailedCmd)
-	telecomCallEventCallbackOnEventCmd.Flags().String("arg0", "", "arg0 (string)")
-	telecomCallEventCallbackOnEventCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	telecomCallEventCallbackCmd.AddCommand(telecomCallEventCallbackOnEventCmd)
-	telecomCallEventCallbackOnMuteStateChangedCmd.Flags().Bool("arg0", false, "arg0 (bool)")
-	telecomCallEventCallbackCmd.AddCommand(telecomCallEventCallbackOnMuteStateChangedCmd)
-	telecomCmd.AddCommand(telecomCallEventCallbackCmd)
 	telecomRemoteConnectionCmd.AddCommand(telecomRemoteConnectionAbortCmd)
 	telecomRemoteConnectionCmd.AddCommand(telecomRemoteConnectionAnswerCmd)
 	telecomRemoteConnectionCmd.AddCommand(telecomRemoteConnectionDisconnectCmd)
@@ -11530,6 +12041,7 @@ func init() {
 	telecomRemoteConnectionCmd.AddCommand(telecomRemoteConnectionGetCallerDisplayNameCmd)
 	telecomRemoteConnectionCmd.AddCommand(telecomRemoteConnectionGetCallerDisplayNamePresentationCmd)
 	telecomRemoteConnectionCmd.AddCommand(telecomRemoteConnectionGetConferenceCmd)
+	telecomRemoteConnectionCmd.AddCommand(telecomRemoteConnectionGetConferenceableConnectionsCmd)
 	telecomRemoteConnectionCmd.AddCommand(telecomRemoteConnectionGetConnectionCapabilitiesCmd)
 	telecomRemoteConnectionCmd.AddCommand(telecomRemoteConnectionGetConnectionPropertiesCmd)
 	telecomRemoteConnectionCmd.AddCommand(telecomRemoteConnectionGetDisconnectCauseCmd)
@@ -11634,326 +12146,6 @@ func init() {
 	telecomRemoteConnectionVideoProviderUnregisterCallbackCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	telecomRemoteConnectionVideoProviderCmd.AddCommand(telecomRemoteConnectionVideoProviderUnregisterCallbackCmd)
 	telecomCmd.AddCommand(telecomRemoteConnectionVideoProviderCmd)
-	telecomCallControlCmd.AddCommand(telecomCallControlGetCallIdCmd)
-	telecomCallControlSendEventCmd.Flags().String("arg0", "", "arg0 (string)")
-	telecomCallControlSendEventCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	telecomCallControlCmd.AddCommand(telecomCallControlSendEventCmd)
-	telecomCmd.AddCommand(telecomCallControlCmd)
-	telecomConnectionRequestNewConnectionRequestCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	telecomConnectionRequestNewConnectionRequestCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	telecomConnectionRequestNewConnectionRequestCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	telecomConnectionRequestCmd.AddCommand(telecomConnectionRequestNewConnectionRequestCmd)
-	telecomConnectionRequestDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	telecomConnectionRequestCmd.AddCommand(telecomConnectionRequestDescribeContentsCmd)
-	telecomConnectionRequestGetAccountHandleCmd.Flags().Int64("handle", 0, "handle (int64)")
-	telecomConnectionRequestCmd.AddCommand(telecomConnectionRequestGetAccountHandleCmd)
-	telecomConnectionRequestGetAddressCmd.Flags().Int64("handle", 0, "handle (int64)")
-	telecomConnectionRequestCmd.AddCommand(telecomConnectionRequestGetAddressCmd)
-	telecomConnectionRequestGetExtrasCmd.Flags().Int64("handle", 0, "handle (int64)")
-	telecomConnectionRequestCmd.AddCommand(telecomConnectionRequestGetExtrasCmd)
-	telecomConnectionRequestGetRttTextStreamCmd.Flags().Int64("handle", 0, "handle (int64)")
-	telecomConnectionRequestCmd.AddCommand(telecomConnectionRequestGetRttTextStreamCmd)
-	telecomConnectionRequestGetVideoStateCmd.Flags().Int64("handle", 0, "handle (int64)")
-	telecomConnectionRequestCmd.AddCommand(telecomConnectionRequestGetVideoStateCmd)
-	telecomConnectionRequestIsAdhocConferenceCallCmd.Flags().Int64("handle", 0, "handle (int64)")
-	telecomConnectionRequestCmd.AddCommand(telecomConnectionRequestIsAdhocConferenceCallCmd)
-	telecomConnectionRequestIsRequestingRttCmd.Flags().Int64("handle", 0, "handle (int64)")
-	telecomConnectionRequestCmd.AddCommand(telecomConnectionRequestIsRequestingRttCmd)
-	telecomConnectionRequestToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
-	telecomConnectionRequestCmd.AddCommand(telecomConnectionRequestToStringCmd)
-	telecomConnectionRequestWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
-	telecomConnectionRequestWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	telecomConnectionRequestWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	telecomConnectionRequestCmd.AddCommand(telecomConnectionRequestWriteToParcelCmd)
-	telecomCmd.AddCommand(telecomConnectionRequestCmd)
-	telecomStatusHintsNewStatusHintsCmd.Flags().String("arg0", "", "arg0 (string)")
-	telecomStatusHintsNewStatusHintsCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	telecomStatusHintsNewStatusHintsCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	telecomStatusHintsCmd.AddCommand(telecomStatusHintsNewStatusHintsCmd)
-	telecomStatusHintsDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	telecomStatusHintsCmd.AddCommand(telecomStatusHintsDescribeContentsCmd)
-	telecomStatusHintsEqualsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	telecomStatusHintsEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	telecomStatusHintsCmd.AddCommand(telecomStatusHintsEqualsCmd)
-	telecomStatusHintsGetExtrasCmd.Flags().Int64("handle", 0, "handle (int64)")
-	telecomStatusHintsCmd.AddCommand(telecomStatusHintsGetExtrasCmd)
-	telecomStatusHintsGetIconCmd.Flags().Int64("handle", 0, "handle (int64)")
-	telecomStatusHintsCmd.AddCommand(telecomStatusHintsGetIconCmd)
-	telecomStatusHintsGetLabelCmd.Flags().Int64("handle", 0, "handle (int64)")
-	telecomStatusHintsCmd.AddCommand(telecomStatusHintsGetLabelCmd)
-	telecomStatusHintsHashCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
-	telecomStatusHintsCmd.AddCommand(telecomStatusHintsHashCodeCmd)
-	telecomStatusHintsWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
-	telecomStatusHintsWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	telecomStatusHintsWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	telecomStatusHintsCmd.AddCommand(telecomStatusHintsWriteToParcelCmd)
-	telecomCmd.AddCommand(telecomStatusHintsCmd)
-	telecomCallAudioStateNewCallAudioStateCmd.Flags().Bool("arg0", false, "arg0 (bool)")
-	telecomCallAudioStateNewCallAudioStateCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	telecomCallAudioStateNewCallAudioStateCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
-	telecomCallAudioStateCmd.AddCommand(telecomCallAudioStateNewCallAudioStateCmd)
-	telecomCallAudioStateDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	telecomCallAudioStateCmd.AddCommand(telecomCallAudioStateDescribeContentsCmd)
-	telecomCallAudioStateEqualsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	telecomCallAudioStateEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	telecomCallAudioStateCmd.AddCommand(telecomCallAudioStateEqualsCmd)
-	telecomCallAudioStateGetActiveBluetoothDeviceCmd.Flags().Int64("handle", 0, "handle (int64)")
-	telecomCallAudioStateCmd.AddCommand(telecomCallAudioStateGetActiveBluetoothDeviceCmd)
-	telecomCallAudioStateGetRouteCmd.Flags().Int64("handle", 0, "handle (int64)")
-	telecomCallAudioStateCmd.AddCommand(telecomCallAudioStateGetRouteCmd)
-	telecomCallAudioStateGetSupportedRouteMaskCmd.Flags().Int64("handle", 0, "handle (int64)")
-	telecomCallAudioStateCmd.AddCommand(telecomCallAudioStateGetSupportedRouteMaskCmd)
-	telecomCallAudioStateIsMutedCmd.Flags().Int64("handle", 0, "handle (int64)")
-	telecomCallAudioStateCmd.AddCommand(telecomCallAudioStateIsMutedCmd)
-	telecomCallAudioStateToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
-	telecomCallAudioStateCmd.AddCommand(telecomCallAudioStateToStringCmd)
-	telecomCallAudioStateWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
-	telecomCallAudioStateWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	telecomCallAudioStateWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	telecomCallAudioStateCmd.AddCommand(telecomCallAudioStateWriteToParcelCmd)
-	telecomCallAudioStateAudioRouteToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
-	telecomCallAudioStateAudioRouteToStringCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	telecomCallAudioStateCmd.AddCommand(telecomCallAudioStateAudioRouteToStringCmd)
-	telecomCmd.AddCommand(telecomCallAudioStateCmd)
-	telecomCallAttributesCmd.AddCommand(telecomCallAttributesDescribeContentsCmd)
-	telecomCallAttributesEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	telecomCallAttributesCmd.AddCommand(telecomCallAttributesEqualsCmd)
-	telecomCallAttributesCmd.AddCommand(telecomCallAttributesGetAddressCmd)
-	telecomCallAttributesCmd.AddCommand(telecomCallAttributesGetCallCapabilitiesCmd)
-	telecomCallAttributesCmd.AddCommand(telecomCallAttributesGetCallTypeCmd)
-	telecomCallAttributesCmd.AddCommand(telecomCallAttributesGetDirectionCmd)
-	telecomCallAttributesCmd.AddCommand(telecomCallAttributesGetDisplayNameCmd)
-	telecomCallAttributesCmd.AddCommand(telecomCallAttributesGetPhoneAccountHandleCmd)
-	telecomCallAttributesCmd.AddCommand(telecomCallAttributesHashCodeCmd)
-	telecomCallAttributesCmd.AddCommand(telecomCallAttributesToStringCmd)
-	telecomCallAttributesWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	telecomCallAttributesWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	telecomCallAttributesCmd.AddCommand(telecomCallAttributesWriteToParcelCmd)
-	telecomCmd.AddCommand(telecomCallAttributesCmd)
-	telecomCallAttributesBuilderCmd.AddCommand(telecomCallAttributesBuilderBuildCmd)
-	telecomCallAttributesBuilderSetCallCapabilitiesCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	telecomCallAttributesBuilderCmd.AddCommand(telecomCallAttributesBuilderSetCallCapabilitiesCmd)
-	telecomCallAttributesBuilderSetCallTypeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	telecomCallAttributesBuilderCmd.AddCommand(telecomCallAttributesBuilderSetCallTypeCmd)
-	telecomCmd.AddCommand(telecomCallAttributesBuilderCmd)
-	telecomConnectionServiceAddConferenceCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	telecomConnectionServiceCmd.AddCommand(telecomConnectionServiceAddConferenceCmd)
-	telecomConnectionServiceAddExistingConnectionCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	telecomConnectionServiceAddExistingConnectionCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	telecomConnectionServiceCmd.AddCommand(telecomConnectionServiceAddExistingConnectionCmd)
-	telecomConnectionServiceConferenceRemoteConnectionsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	telecomConnectionServiceConferenceRemoteConnectionsCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	telecomConnectionServiceCmd.AddCommand(telecomConnectionServiceConferenceRemoteConnectionsCmd)
-	telecomConnectionServiceCmd.AddCommand(telecomConnectionServiceConnectionServiceFocusReleasedCmd)
-	telecomConnectionServiceCreateRemoteIncomingConferenceCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	telecomConnectionServiceCreateRemoteIncomingConferenceCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	telecomConnectionServiceCmd.AddCommand(telecomConnectionServiceCreateRemoteIncomingConferenceCmd)
-	telecomConnectionServiceCreateRemoteIncomingConnectionCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	telecomConnectionServiceCreateRemoteIncomingConnectionCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	telecomConnectionServiceCmd.AddCommand(telecomConnectionServiceCreateRemoteIncomingConnectionCmd)
-	telecomConnectionServiceCreateRemoteOutgoingConferenceCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	telecomConnectionServiceCreateRemoteOutgoingConferenceCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	telecomConnectionServiceCmd.AddCommand(telecomConnectionServiceCreateRemoteOutgoingConferenceCmd)
-	telecomConnectionServiceCreateRemoteOutgoingConnectionCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	telecomConnectionServiceCreateRemoteOutgoingConnectionCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	telecomConnectionServiceCmd.AddCommand(telecomConnectionServiceCreateRemoteOutgoingConnectionCmd)
-	telecomConnectionServiceOnBindCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	telecomConnectionServiceCmd.AddCommand(telecomConnectionServiceOnBindCmd)
-	telecomConnectionServiceOnConferenceCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	telecomConnectionServiceOnConferenceCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	telecomConnectionServiceCmd.AddCommand(telecomConnectionServiceOnConferenceCmd)
-	telecomConnectionServiceCmd.AddCommand(telecomConnectionServiceOnConnectionServiceFocusGainedCmd)
-	telecomConnectionServiceCmd.AddCommand(telecomConnectionServiceOnConnectionServiceFocusLostCmd)
-	telecomConnectionServiceOnCreateIncomingConferenceCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	telecomConnectionServiceOnCreateIncomingConferenceCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	telecomConnectionServiceCmd.AddCommand(telecomConnectionServiceOnCreateIncomingConferenceCmd)
-	telecomConnectionServiceOnCreateIncomingConferenceFailedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	telecomConnectionServiceOnCreateIncomingConferenceFailedCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	telecomConnectionServiceCmd.AddCommand(telecomConnectionServiceOnCreateIncomingConferenceFailedCmd)
-	telecomConnectionServiceOnCreateIncomingConnectionCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	telecomConnectionServiceOnCreateIncomingConnectionCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	telecomConnectionServiceCmd.AddCommand(telecomConnectionServiceOnCreateIncomingConnectionCmd)
-	telecomConnectionServiceOnCreateIncomingConnectionFailedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	telecomConnectionServiceOnCreateIncomingConnectionFailedCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	telecomConnectionServiceCmd.AddCommand(telecomConnectionServiceOnCreateIncomingConnectionFailedCmd)
-	telecomConnectionServiceOnCreateIncomingHandoverConnectionCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	telecomConnectionServiceOnCreateIncomingHandoverConnectionCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	telecomConnectionServiceCmd.AddCommand(telecomConnectionServiceOnCreateIncomingHandoverConnectionCmd)
-	telecomConnectionServiceOnCreateOutgoingConferenceCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	telecomConnectionServiceOnCreateOutgoingConferenceCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	telecomConnectionServiceCmd.AddCommand(telecomConnectionServiceOnCreateOutgoingConferenceCmd)
-	telecomConnectionServiceOnCreateOutgoingConferenceFailedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	telecomConnectionServiceOnCreateOutgoingConferenceFailedCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	telecomConnectionServiceCmd.AddCommand(telecomConnectionServiceOnCreateOutgoingConferenceFailedCmd)
-	telecomConnectionServiceOnCreateOutgoingConnectionCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	telecomConnectionServiceOnCreateOutgoingConnectionCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	telecomConnectionServiceCmd.AddCommand(telecomConnectionServiceOnCreateOutgoingConnectionCmd)
-	telecomConnectionServiceOnCreateOutgoingConnectionFailedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	telecomConnectionServiceOnCreateOutgoingConnectionFailedCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	telecomConnectionServiceCmd.AddCommand(telecomConnectionServiceOnCreateOutgoingConnectionFailedCmd)
-	telecomConnectionServiceOnCreateOutgoingHandoverConnectionCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	telecomConnectionServiceOnCreateOutgoingHandoverConnectionCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	telecomConnectionServiceCmd.AddCommand(telecomConnectionServiceOnCreateOutgoingHandoverConnectionCmd)
-	telecomConnectionServiceOnHandoverFailedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	telecomConnectionServiceOnHandoverFailedCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	telecomConnectionServiceCmd.AddCommand(telecomConnectionServiceOnHandoverFailedCmd)
-	telecomConnectionServiceOnRemoteConferenceAddedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	telecomConnectionServiceCmd.AddCommand(telecomConnectionServiceOnRemoteConferenceAddedCmd)
-	telecomConnectionServiceOnRemoteExistingConnectionAddedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	telecomConnectionServiceCmd.AddCommand(telecomConnectionServiceOnRemoteExistingConnectionAddedCmd)
-	telecomConnectionServiceOnUnbindCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	telecomConnectionServiceCmd.AddCommand(telecomConnectionServiceOnUnbindCmd)
-	telecomCmd.AddCommand(telecomConnectionServiceCmd)
-	telecomGatewayInfoNewGatewayInfoCmd.Flags().String("arg0", "", "arg0 (string)")
-	telecomGatewayInfoNewGatewayInfoCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	telecomGatewayInfoNewGatewayInfoCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	telecomGatewayInfoCmd.AddCommand(telecomGatewayInfoNewGatewayInfoCmd)
-	telecomGatewayInfoDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	telecomGatewayInfoCmd.AddCommand(telecomGatewayInfoDescribeContentsCmd)
-	telecomGatewayInfoGetGatewayAddressCmd.Flags().Int64("handle", 0, "handle (int64)")
-	telecomGatewayInfoCmd.AddCommand(telecomGatewayInfoGetGatewayAddressCmd)
-	telecomGatewayInfoGetGatewayProviderPackageNameCmd.Flags().Int64("handle", 0, "handle (int64)")
-	telecomGatewayInfoCmd.AddCommand(telecomGatewayInfoGetGatewayProviderPackageNameCmd)
-	telecomGatewayInfoGetOriginalAddressCmd.Flags().Int64("handle", 0, "handle (int64)")
-	telecomGatewayInfoCmd.AddCommand(telecomGatewayInfoGetOriginalAddressCmd)
-	telecomGatewayInfoIsEmptyCmd.Flags().Int64("handle", 0, "handle (int64)")
-	telecomGatewayInfoCmd.AddCommand(telecomGatewayInfoIsEmptyCmd)
-	telecomGatewayInfoWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
-	telecomGatewayInfoWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	telecomGatewayInfoWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	telecomGatewayInfoCmd.AddCommand(telecomGatewayInfoWriteToParcelCmd)
-	telecomCmd.AddCommand(telecomGatewayInfoCmd)
-	telecomCallExceptionNewCallExceptionCmd.Flags().String("arg0", "", "arg0 (string)")
-	telecomCallExceptionNewCallExceptionCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	telecomCallExceptionCmd.AddCommand(telecomCallExceptionNewCallExceptionCmd)
-	telecomCallExceptionDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	telecomCallExceptionCmd.AddCommand(telecomCallExceptionDescribeContentsCmd)
-	telecomCallExceptionGetCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
-	telecomCallExceptionCmd.AddCommand(telecomCallExceptionGetCodeCmd)
-	telecomCallExceptionWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
-	telecomCallExceptionWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	telecomCallExceptionWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	telecomCallExceptionCmd.AddCommand(telecomCallExceptionWriteToParcelCmd)
-	telecomCmd.AddCommand(telecomCallExceptionCmd)
-	telecomCallRedirectionServiceCmd.AddCommand(telecomCallRedirectionServiceCancelCallCmd)
-	telecomCallRedirectionServiceOnBindCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	telecomCallRedirectionServiceCmd.AddCommand(telecomCallRedirectionServiceOnBindCmd)
-	telecomCallRedirectionServiceOnPlaceCallCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	telecomCallRedirectionServiceOnPlaceCallCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	telecomCallRedirectionServiceOnPlaceCallCmd.Flags().Bool("arg2", false, "arg2 (bool)")
-	telecomCallRedirectionServiceCmd.AddCommand(telecomCallRedirectionServiceOnPlaceCallCmd)
-	telecomCallRedirectionServiceCmd.AddCommand(telecomCallRedirectionServiceOnRedirectionTimeoutCmd)
-	telecomCallRedirectionServiceOnUnbindCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	telecomCallRedirectionServiceCmd.AddCommand(telecomCallRedirectionServiceOnUnbindCmd)
-	telecomCallRedirectionServiceCmd.AddCommand(telecomCallRedirectionServicePlaceCallUnmodifiedCmd)
-	telecomCallRedirectionServiceRedirectCallCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	telecomCallRedirectionServiceRedirectCallCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	telecomCallRedirectionServiceRedirectCallCmd.Flags().Bool("arg2", false, "arg2 (bool)")
-	telecomCallRedirectionServiceCmd.AddCommand(telecomCallRedirectionServiceRedirectCallCmd)
-	telecomCmd.AddCommand(telecomCallRedirectionServiceCmd)
-	telecomQueryLocationExceptionNewQueryLocationExceptionCmd.Flags().String("arg0", "", "arg0 (string)")
-	telecomQueryLocationExceptionCmd.AddCommand(telecomQueryLocationExceptionNewQueryLocationExceptionCmd)
-	telecomQueryLocationExceptionDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	telecomQueryLocationExceptionCmd.AddCommand(telecomQueryLocationExceptionDescribeContentsCmd)
-	telecomQueryLocationExceptionGetCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
-	telecomQueryLocationExceptionCmd.AddCommand(telecomQueryLocationExceptionGetCodeCmd)
-	telecomQueryLocationExceptionWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
-	telecomQueryLocationExceptionWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	telecomQueryLocationExceptionWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	telecomQueryLocationExceptionCmd.AddCommand(telecomQueryLocationExceptionWriteToParcelCmd)
-	telecomCmd.AddCommand(telecomQueryLocationExceptionCmd)
-	telecomRemoteConferenceCmd.AddCommand(telecomRemoteConferenceDisconnectCmd)
-	telecomRemoteConferenceCmd.AddCommand(telecomRemoteConferenceGetConnectionCapabilitiesCmd)
-	telecomRemoteConferenceCmd.AddCommand(telecomRemoteConferenceGetConnectionPropertiesCmd)
-	telecomRemoteConferenceCmd.AddCommand(telecomRemoteConferenceGetDisconnectCauseCmd)
-	telecomRemoteConferenceCmd.AddCommand(telecomRemoteConferenceGetExtrasCmd)
-	telecomRemoteConferenceCmd.AddCommand(telecomRemoteConferenceGetStateCmd)
-	telecomRemoteConferenceCmd.AddCommand(telecomRemoteConferenceHoldCmd)
-	telecomRemoteConferenceCmd.AddCommand(telecomRemoteConferenceMergeCmd)
-	telecomRemoteConferencePlayDtmfToneCmd.Flags().Uint32("arg0", 0, "arg0 (uint32)")
-	telecomRemoteConferenceCmd.AddCommand(telecomRemoteConferencePlayDtmfToneCmd)
-	telecomRemoteConferenceRegisterCallbackCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	telecomRemoteConferenceCmd.AddCommand(telecomRemoteConferenceRegisterCallbackCmd)
-	telecomRemoteConferenceSeparateCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	telecomRemoteConferenceCmd.AddCommand(telecomRemoteConferenceSeparateCmd)
-	telecomRemoteConferenceSetCallAudioStateCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	telecomRemoteConferenceCmd.AddCommand(telecomRemoteConferenceSetCallAudioStateCmd)
-	telecomRemoteConferenceCmd.AddCommand(telecomRemoteConferenceStopDtmfToneCmd)
-	telecomRemoteConferenceCmd.AddCommand(telecomRemoteConferenceSwapCmd)
-	telecomRemoteConferenceCmd.AddCommand(telecomRemoteConferenceUnholdCmd)
-	telecomRemoteConferenceUnregisterCallbackCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	telecomRemoteConferenceCmd.AddCommand(telecomRemoteConferenceUnregisterCallbackCmd)
-	telecomCmd.AddCommand(telecomRemoteConferenceCmd)
-	telecomRemoteConferenceCallbackOnConnectionAddedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	telecomRemoteConferenceCallbackOnConnectionAddedCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	telecomRemoteConferenceCallbackCmd.AddCommand(telecomRemoteConferenceCallbackOnConnectionAddedCmd)
-	telecomRemoteConferenceCallbackOnConnectionCapabilitiesChangedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	telecomRemoteConferenceCallbackOnConnectionCapabilitiesChangedCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	telecomRemoteConferenceCallbackCmd.AddCommand(telecomRemoteConferenceCallbackOnConnectionCapabilitiesChangedCmd)
-	telecomRemoteConferenceCallbackOnConnectionPropertiesChangedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	telecomRemoteConferenceCallbackOnConnectionPropertiesChangedCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	telecomRemoteConferenceCallbackCmd.AddCommand(telecomRemoteConferenceCallbackOnConnectionPropertiesChangedCmd)
-	telecomRemoteConferenceCallbackOnConnectionRemovedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	telecomRemoteConferenceCallbackOnConnectionRemovedCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	telecomRemoteConferenceCallbackCmd.AddCommand(telecomRemoteConferenceCallbackOnConnectionRemovedCmd)
-	telecomRemoteConferenceCallbackOnDestroyedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	telecomRemoteConferenceCallbackCmd.AddCommand(telecomRemoteConferenceCallbackOnDestroyedCmd)
-	telecomRemoteConferenceCallbackOnDisconnectedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	telecomRemoteConferenceCallbackOnDisconnectedCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	telecomRemoteConferenceCallbackCmd.AddCommand(telecomRemoteConferenceCallbackOnDisconnectedCmd)
-	telecomRemoteConferenceCallbackOnExtrasChangedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	telecomRemoteConferenceCallbackOnExtrasChangedCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	telecomRemoteConferenceCallbackCmd.AddCommand(telecomRemoteConferenceCallbackOnExtrasChangedCmd)
-	telecomRemoteConferenceCallbackOnStateChangedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	telecomRemoteConferenceCallbackOnStateChangedCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	telecomRemoteConferenceCallbackOnStateChangedCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
-	telecomRemoteConferenceCallbackCmd.AddCommand(telecomRemoteConferenceCallbackOnStateChangedCmd)
-	telecomCmd.AddCommand(telecomRemoteConferenceCallbackCmd)
-	telecomVideoProfileNewVideoProfileCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	telecomVideoProfileCmd.AddCommand(telecomVideoProfileNewVideoProfileCmd)
-	telecomVideoProfileDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	telecomVideoProfileCmd.AddCommand(telecomVideoProfileDescribeContentsCmd)
-	telecomVideoProfileGetQualityCmd.Flags().Int64("handle", 0, "handle (int64)")
-	telecomVideoProfileCmd.AddCommand(telecomVideoProfileGetQualityCmd)
-	telecomVideoProfileGetVideoStateCmd.Flags().Int64("handle", 0, "handle (int64)")
-	telecomVideoProfileCmd.AddCommand(telecomVideoProfileGetVideoStateCmd)
-	telecomVideoProfileToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
-	telecomVideoProfileCmd.AddCommand(telecomVideoProfileToStringCmd)
-	telecomVideoProfileWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
-	telecomVideoProfileWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	telecomVideoProfileWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	telecomVideoProfileCmd.AddCommand(telecomVideoProfileWriteToParcelCmd)
-	telecomVideoProfileIsAudioOnlyCmd.Flags().Int64("handle", 0, "handle (int64)")
-	telecomVideoProfileIsAudioOnlyCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	telecomVideoProfileCmd.AddCommand(telecomVideoProfileIsAudioOnlyCmd)
-	telecomVideoProfileIsBidirectionalCmd.Flags().Int64("handle", 0, "handle (int64)")
-	telecomVideoProfileIsBidirectionalCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	telecomVideoProfileCmd.AddCommand(telecomVideoProfileIsBidirectionalCmd)
-	telecomVideoProfileIsPausedCmd.Flags().Int64("handle", 0, "handle (int64)")
-	telecomVideoProfileIsPausedCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	telecomVideoProfileCmd.AddCommand(telecomVideoProfileIsPausedCmd)
-	telecomVideoProfileIsReceptionEnabledCmd.Flags().Int64("handle", 0, "handle (int64)")
-	telecomVideoProfileIsReceptionEnabledCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	telecomVideoProfileCmd.AddCommand(telecomVideoProfileIsReceptionEnabledCmd)
-	telecomVideoProfileIsTransmissionEnabledCmd.Flags().Int64("handle", 0, "handle (int64)")
-	telecomVideoProfileIsTransmissionEnabledCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	telecomVideoProfileCmd.AddCommand(telecomVideoProfileIsTransmissionEnabledCmd)
-	telecomVideoProfileIsVideoCmd.Flags().Int64("handle", 0, "handle (int64)")
-	telecomVideoProfileIsVideoCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	telecomVideoProfileCmd.AddCommand(telecomVideoProfileIsVideoCmd)
-	telecomVideoProfileVideoStateToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
-	telecomVideoProfileVideoStateToStringCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	telecomVideoProfileCmd.AddCommand(telecomVideoProfileVideoStateToStringCmd)
-	telecomCmd.AddCommand(telecomVideoProfileCmd)
-	telecomVideoProfileCameraCapabilitiesCmd.AddCommand(telecomVideoProfileCameraCapabilitiesDescribeContentsCmd)
-	telecomVideoProfileCameraCapabilitiesCmd.AddCommand(telecomVideoProfileCameraCapabilitiesGetHeightCmd)
-	telecomVideoProfileCameraCapabilitiesCmd.AddCommand(telecomVideoProfileCameraCapabilitiesGetMaxZoomCmd)
-	telecomVideoProfileCameraCapabilitiesCmd.AddCommand(telecomVideoProfileCameraCapabilitiesGetWidthCmd)
-	telecomVideoProfileCameraCapabilitiesCmd.AddCommand(telecomVideoProfileCameraCapabilitiesIsZoomSupportedCmd)
-	telecomVideoProfileCameraCapabilitiesWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	telecomVideoProfileCameraCapabilitiesWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	telecomVideoProfileCameraCapabilitiesCmd.AddCommand(telecomVideoProfileCameraCapabilitiesWriteToParcelCmd)
-	telecomCmd.AddCommand(telecomVideoProfileCameraCapabilitiesCmd)
 	telecomConnectionCmd.AddCommand(telecomConnectionDestroyCmd)
 	telecomConnectionCmd.AddCommand(telecomConnectionGetAddressCmd)
 	telecomConnectionCmd.AddCommand(telecomConnectionGetAddressPresentationCmd)
@@ -11963,6 +12155,7 @@ func init() {
 	telecomConnectionCmd.AddCommand(telecomConnectionGetCallerDisplayNamePresentationCmd)
 	telecomConnectionCmd.AddCommand(telecomConnectionGetCallerNumberVerificationStatusCmd)
 	telecomConnectionCmd.AddCommand(telecomConnectionGetConferenceCmd)
+	telecomConnectionCmd.AddCommand(telecomConnectionGetConferenceablesCmd)
 	telecomConnectionCmd.AddCommand(telecomConnectionGetConnectionCapabilitiesCmd)
 	telecomConnectionCmd.AddCommand(telecomConnectionGetConnectionPropertiesCmd)
 	telecomConnectionCmd.AddCommand(telecomConnectionGetCurrentCallEndpointCmd)
@@ -12125,31 +12318,186 @@ func init() {
 	telecomConnectionVideoProviderSetCallDataUsageCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	telecomConnectionVideoProviderCmd.AddCommand(telecomConnectionVideoProviderSetCallDataUsageCmd)
 	telecomCmd.AddCommand(telecomConnectionVideoProviderCmd)
-	telecomDisconnectCauseNewDisconnectCauseCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	telecomDisconnectCauseCmd.AddCommand(telecomDisconnectCauseNewDisconnectCauseCmd)
-	telecomDisconnectCauseDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	telecomDisconnectCauseCmd.AddCommand(telecomDisconnectCauseDescribeContentsCmd)
-	telecomDisconnectCauseEqualsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	telecomDisconnectCauseEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	telecomDisconnectCauseCmd.AddCommand(telecomDisconnectCauseEqualsCmd)
-	telecomDisconnectCauseGetCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
-	telecomDisconnectCauseCmd.AddCommand(telecomDisconnectCauseGetCodeCmd)
-	telecomDisconnectCauseGetDescriptionCmd.Flags().Int64("handle", 0, "handle (int64)")
-	telecomDisconnectCauseCmd.AddCommand(telecomDisconnectCauseGetDescriptionCmd)
-	telecomDisconnectCauseGetLabelCmd.Flags().Int64("handle", 0, "handle (int64)")
-	telecomDisconnectCauseCmd.AddCommand(telecomDisconnectCauseGetLabelCmd)
-	telecomDisconnectCauseGetReasonCmd.Flags().Int64("handle", 0, "handle (int64)")
-	telecomDisconnectCauseCmd.AddCommand(telecomDisconnectCauseGetReasonCmd)
-	telecomDisconnectCauseGetToneCmd.Flags().Int64("handle", 0, "handle (int64)")
-	telecomDisconnectCauseCmd.AddCommand(telecomDisconnectCauseGetToneCmd)
-	telecomDisconnectCauseHashCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
-	telecomDisconnectCauseCmd.AddCommand(telecomDisconnectCauseHashCodeCmd)
-	telecomDisconnectCauseToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
-	telecomDisconnectCauseCmd.AddCommand(telecomDisconnectCauseToStringCmd)
-	telecomDisconnectCauseWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
-	telecomDisconnectCauseWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	telecomDisconnectCauseWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	telecomDisconnectCauseCmd.AddCommand(telecomDisconnectCauseWriteToParcelCmd)
-	telecomCmd.AddCommand(telecomDisconnectCauseCmd)
+	telecomManagerAcceptHandoverCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telecomManagerAcceptHandoverCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	telecomManagerAcceptHandoverCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	telecomManagerCmd.AddCommand(telecomManagerAcceptHandoverCmd)
+	telecomManagerCmd.AddCommand(telecomManagerAcceptRingingCall0Cmd)
+	telecomManagerAcceptRingingCall1_1Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	telecomManagerCmd.AddCommand(telecomManagerAcceptRingingCall1_1Cmd)
+	telecomManagerAddNewIncomingCallCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telecomManagerAddNewIncomingCallCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	telecomManagerCmd.AddCommand(telecomManagerAddNewIncomingCallCmd)
+	telecomManagerAddNewIncomingConferenceCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telecomManagerAddNewIncomingConferenceCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	telecomManagerCmd.AddCommand(telecomManagerAddNewIncomingConferenceCmd)
+	telecomManagerCmd.AddCommand(telecomManagerCancelMissedCallsNotificationCmd)
+	telecomManagerCmd.AddCommand(telecomManagerCreateManageBlockedNumbersIntentCmd)
+	telecomManagerCmd.AddCommand(telecomManagerEndCallCmd)
+	telecomManagerGetAdnUriForPhoneAccountCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telecomManagerCmd.AddCommand(telecomManagerGetAdnUriForPhoneAccountCmd)
+	telecomManagerCmd.AddCommand(telecomManagerGetCallCapablePhoneAccountsCmd)
+	telecomManagerCmd.AddCommand(telecomManagerGetDefaultDialerPackageCmd)
+	telecomManagerGetDefaultOutgoingPhoneAccountCmd.Flags().String("arg0", "", "arg0 (string)")
+	telecomManagerCmd.AddCommand(telecomManagerGetDefaultOutgoingPhoneAccountCmd)
+	telecomManagerGetLine1NumberCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telecomManagerCmd.AddCommand(telecomManagerGetLine1NumberCmd)
+	telecomManagerCmd.AddCommand(telecomManagerGetOwnSelfManagedPhoneAccountsCmd)
+	telecomManagerGetPhoneAccountCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telecomManagerCmd.AddCommand(telecomManagerGetPhoneAccountCmd)
+	telecomManagerCmd.AddCommand(telecomManagerGetRegisteredPhoneAccountsCmd)
+	telecomManagerCmd.AddCommand(telecomManagerGetSelfManagedPhoneAccountsCmd)
+	telecomManagerCmd.AddCommand(telecomManagerGetSimCallManagerCmd)
+	telecomManagerGetSimCallManagerForSubscriptionCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	telecomManagerCmd.AddCommand(telecomManagerGetSimCallManagerForSubscriptionCmd)
+	telecomManagerCmd.AddCommand(telecomManagerGetSystemDialerPackageCmd)
+	telecomManagerCmd.AddCommand(telecomManagerGetUserSelectedOutgoingPhoneAccountCmd)
+	telecomManagerGetVoiceMailNumberCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telecomManagerCmd.AddCommand(telecomManagerGetVoiceMailNumberCmd)
+	telecomManagerHandleMmi1Cmd.Flags().String("arg0", "", "arg0 (string)")
+	telecomManagerCmd.AddCommand(telecomManagerHandleMmi1Cmd)
+	telecomManagerHandleMmi2_1Cmd.Flags().String("arg0", "", "arg0 (string)")
+	telecomManagerHandleMmi2_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	telecomManagerCmd.AddCommand(telecomManagerHandleMmi2_1Cmd)
+	telecomManagerCmd.AddCommand(telecomManagerHasManageOngoingCallsPermissionCmd)
+	telecomManagerCmd.AddCommand(telecomManagerIsInCallCmd)
+	telecomManagerCmd.AddCommand(telecomManagerIsInManagedCallCmd)
+	telecomManagerIsIncomingCallPermittedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telecomManagerCmd.AddCommand(telecomManagerIsIncomingCallPermittedCmd)
+	telecomManagerIsOutgoingCallPermittedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telecomManagerCmd.AddCommand(telecomManagerIsOutgoingCallPermittedCmd)
+	telecomManagerCmd.AddCommand(telecomManagerIsTtySupportedCmd)
+	telecomManagerIsVoiceMailNumberCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telecomManagerIsVoiceMailNumberCmd.Flags().String("arg1", "", "arg1 (string)")
+	telecomManagerCmd.AddCommand(telecomManagerIsVoiceMailNumberCmd)
+	telecomManagerPlaceCallCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telecomManagerPlaceCallCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	telecomManagerCmd.AddCommand(telecomManagerPlaceCallCmd)
+	telecomManagerRegisterPhoneAccountCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telecomManagerCmd.AddCommand(telecomManagerRegisterPhoneAccountCmd)
+	telecomManagerShowInCallScreenCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	telecomManagerCmd.AddCommand(telecomManagerShowInCallScreenCmd)
+	telecomManagerCmd.AddCommand(telecomManagerSilenceRingerCmd)
+	telecomManagerUnregisterPhoneAccountCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telecomManagerCmd.AddCommand(telecomManagerUnregisterPhoneAccountCmd)
+	telecomCmd.AddCommand(telecomManagerCmd)
+	telecomConnectionServiceAddConferenceCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telecomConnectionServiceCmd.AddCommand(telecomConnectionServiceAddConferenceCmd)
+	telecomConnectionServiceAddExistingConnectionCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telecomConnectionServiceAddExistingConnectionCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	telecomConnectionServiceCmd.AddCommand(telecomConnectionServiceAddExistingConnectionCmd)
+	telecomConnectionServiceConferenceRemoteConnectionsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telecomConnectionServiceConferenceRemoteConnectionsCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	telecomConnectionServiceCmd.AddCommand(telecomConnectionServiceConferenceRemoteConnectionsCmd)
+	telecomConnectionServiceCmd.AddCommand(telecomConnectionServiceConnectionServiceFocusReleasedCmd)
+	telecomConnectionServiceCreateRemoteIncomingConferenceCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telecomConnectionServiceCreateRemoteIncomingConferenceCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	telecomConnectionServiceCmd.AddCommand(telecomConnectionServiceCreateRemoteIncomingConferenceCmd)
+	telecomConnectionServiceCreateRemoteIncomingConnectionCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telecomConnectionServiceCreateRemoteIncomingConnectionCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	telecomConnectionServiceCmd.AddCommand(telecomConnectionServiceCreateRemoteIncomingConnectionCmd)
+	telecomConnectionServiceCreateRemoteOutgoingConferenceCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telecomConnectionServiceCreateRemoteOutgoingConferenceCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	telecomConnectionServiceCmd.AddCommand(telecomConnectionServiceCreateRemoteOutgoingConferenceCmd)
+	telecomConnectionServiceCreateRemoteOutgoingConnectionCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telecomConnectionServiceCreateRemoteOutgoingConnectionCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	telecomConnectionServiceCmd.AddCommand(telecomConnectionServiceCreateRemoteOutgoingConnectionCmd)
+	telecomConnectionServiceCmd.AddCommand(telecomConnectionServiceGetAllConferencesCmd)
+	telecomConnectionServiceCmd.AddCommand(telecomConnectionServiceGetAllConnectionsCmd)
+	telecomConnectionServiceOnBindCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telecomConnectionServiceCmd.AddCommand(telecomConnectionServiceOnBindCmd)
+	telecomConnectionServiceOnConferenceCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telecomConnectionServiceOnConferenceCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	telecomConnectionServiceCmd.AddCommand(telecomConnectionServiceOnConferenceCmd)
+	telecomConnectionServiceCmd.AddCommand(telecomConnectionServiceOnConnectionServiceFocusGainedCmd)
+	telecomConnectionServiceCmd.AddCommand(telecomConnectionServiceOnConnectionServiceFocusLostCmd)
+	telecomConnectionServiceOnCreateIncomingConferenceCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telecomConnectionServiceOnCreateIncomingConferenceCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	telecomConnectionServiceCmd.AddCommand(telecomConnectionServiceOnCreateIncomingConferenceCmd)
+	telecomConnectionServiceOnCreateIncomingConferenceFailedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telecomConnectionServiceOnCreateIncomingConferenceFailedCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	telecomConnectionServiceCmd.AddCommand(telecomConnectionServiceOnCreateIncomingConferenceFailedCmd)
+	telecomConnectionServiceOnCreateIncomingConnectionCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telecomConnectionServiceOnCreateIncomingConnectionCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	telecomConnectionServiceCmd.AddCommand(telecomConnectionServiceOnCreateIncomingConnectionCmd)
+	telecomConnectionServiceOnCreateIncomingConnectionFailedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telecomConnectionServiceOnCreateIncomingConnectionFailedCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	telecomConnectionServiceCmd.AddCommand(telecomConnectionServiceOnCreateIncomingConnectionFailedCmd)
+	telecomConnectionServiceOnCreateIncomingHandoverConnectionCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telecomConnectionServiceOnCreateIncomingHandoverConnectionCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	telecomConnectionServiceCmd.AddCommand(telecomConnectionServiceOnCreateIncomingHandoverConnectionCmd)
+	telecomConnectionServiceOnCreateOutgoingConferenceCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telecomConnectionServiceOnCreateOutgoingConferenceCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	telecomConnectionServiceCmd.AddCommand(telecomConnectionServiceOnCreateOutgoingConferenceCmd)
+	telecomConnectionServiceOnCreateOutgoingConferenceFailedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telecomConnectionServiceOnCreateOutgoingConferenceFailedCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	telecomConnectionServiceCmd.AddCommand(telecomConnectionServiceOnCreateOutgoingConferenceFailedCmd)
+	telecomConnectionServiceOnCreateOutgoingConnectionCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telecomConnectionServiceOnCreateOutgoingConnectionCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	telecomConnectionServiceCmd.AddCommand(telecomConnectionServiceOnCreateOutgoingConnectionCmd)
+	telecomConnectionServiceOnCreateOutgoingConnectionFailedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telecomConnectionServiceOnCreateOutgoingConnectionFailedCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	telecomConnectionServiceCmd.AddCommand(telecomConnectionServiceOnCreateOutgoingConnectionFailedCmd)
+	telecomConnectionServiceOnCreateOutgoingHandoverConnectionCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telecomConnectionServiceOnCreateOutgoingHandoverConnectionCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	telecomConnectionServiceCmd.AddCommand(telecomConnectionServiceOnCreateOutgoingHandoverConnectionCmd)
+	telecomConnectionServiceOnHandoverFailedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telecomConnectionServiceOnHandoverFailedCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	telecomConnectionServiceCmd.AddCommand(telecomConnectionServiceOnHandoverFailedCmd)
+	telecomConnectionServiceOnRemoteConferenceAddedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telecomConnectionServiceCmd.AddCommand(telecomConnectionServiceOnRemoteConferenceAddedCmd)
+	telecomConnectionServiceOnRemoteExistingConnectionAddedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telecomConnectionServiceCmd.AddCommand(telecomConnectionServiceOnRemoteExistingConnectionAddedCmd)
+	telecomConnectionServiceOnUnbindCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telecomConnectionServiceCmd.AddCommand(telecomConnectionServiceOnUnbindCmd)
+	telecomCmd.AddCommand(telecomConnectionServiceCmd)
+	telecomGatewayInfoNewGatewayInfoCmd.Flags().String("arg0", "", "arg0 (string)")
+	telecomGatewayInfoNewGatewayInfoCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	telecomGatewayInfoNewGatewayInfoCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	telecomGatewayInfoCmd.AddCommand(telecomGatewayInfoNewGatewayInfoCmd)
+	telecomGatewayInfoDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telecomGatewayInfoCmd.AddCommand(telecomGatewayInfoDescribeContentsCmd)
+	telecomGatewayInfoGetGatewayAddressCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telecomGatewayInfoCmd.AddCommand(telecomGatewayInfoGetGatewayAddressCmd)
+	telecomGatewayInfoGetGatewayProviderPackageNameCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telecomGatewayInfoCmd.AddCommand(telecomGatewayInfoGetGatewayProviderPackageNameCmd)
+	telecomGatewayInfoGetOriginalAddressCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telecomGatewayInfoCmd.AddCommand(telecomGatewayInfoGetOriginalAddressCmd)
+	telecomGatewayInfoIsEmptyCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telecomGatewayInfoCmd.AddCommand(telecomGatewayInfoIsEmptyCmd)
+	telecomGatewayInfoWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telecomGatewayInfoWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telecomGatewayInfoWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	telecomGatewayInfoCmd.AddCommand(telecomGatewayInfoWriteToParcelCmd)
+	telecomCmd.AddCommand(telecomGatewayInfoCmd)
+	telecomCallAudioStateNewCallAudioStateCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	telecomCallAudioStateNewCallAudioStateCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	telecomCallAudioStateNewCallAudioStateCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	telecomCallAudioStateCmd.AddCommand(telecomCallAudioStateNewCallAudioStateCmd)
+	telecomCallAudioStateDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telecomCallAudioStateCmd.AddCommand(telecomCallAudioStateDescribeContentsCmd)
+	telecomCallAudioStateEqualsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telecomCallAudioStateEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telecomCallAudioStateCmd.AddCommand(telecomCallAudioStateEqualsCmd)
+	telecomCallAudioStateGetActiveBluetoothDeviceCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telecomCallAudioStateCmd.AddCommand(telecomCallAudioStateGetActiveBluetoothDeviceCmd)
+	telecomCallAudioStateGetRouteCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telecomCallAudioStateCmd.AddCommand(telecomCallAudioStateGetRouteCmd)
+	telecomCallAudioStateGetSupportedBluetoothDevicesCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telecomCallAudioStateCmd.AddCommand(telecomCallAudioStateGetSupportedBluetoothDevicesCmd)
+	telecomCallAudioStateGetSupportedRouteMaskCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telecomCallAudioStateCmd.AddCommand(telecomCallAudioStateGetSupportedRouteMaskCmd)
+	telecomCallAudioStateIsMutedCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telecomCallAudioStateCmd.AddCommand(telecomCallAudioStateIsMutedCmd)
+	telecomCallAudioStateToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telecomCallAudioStateCmd.AddCommand(telecomCallAudioStateToStringCmd)
+	telecomCallAudioStateWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telecomCallAudioStateWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telecomCallAudioStateWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	telecomCallAudioStateCmd.AddCommand(telecomCallAudioStateWriteToParcelCmd)
+	telecomCallAudioStateAudioRouteToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telecomCallAudioStateAudioRouteToStringCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	telecomCallAudioStateCmd.AddCommand(telecomCallAudioStateAudioRouteToStringCmd)
+	telecomCmd.AddCommand(telecomCallAudioStateCmd)
 	rootCmd.AddCommand(telecomCmd)
 }

@@ -21,633 +21,215 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	GestureService_NewGesture_FullMethodName       = "/gesture.GestureService/NewGesture"
-	GestureService_AddStroke_FullMethodName        = "/gesture.GestureService/AddStroke"
-	GestureService_Clone_FullMethodName            = "/gesture.GestureService/Clone"
-	GestureService_DescribeContents_FullMethodName = "/gesture.GestureService/DescribeContents"
-	GestureService_GetBoundingBox_FullMethodName   = "/gesture.GestureService/GetBoundingBox"
-	GestureService_GetID_FullMethodName            = "/gesture.GestureService/GetID"
-	GestureService_GetLength_FullMethodName        = "/gesture.GestureService/GetLength"
-	GestureService_GetStrokesCount_FullMethodName  = "/gesture.GestureService/GetStrokesCount"
-	GestureService_ToBitmap4_FullMethodName        = "/gesture.GestureService/ToBitmap4"
-	GestureService_ToBitmap5_1_FullMethodName      = "/gesture.GestureService/ToBitmap5_1"
-	GestureService_ToPath0_FullMethodName          = "/gesture.GestureService/ToPath0"
-	GestureService_ToPath1_1_FullMethodName        = "/gesture.GestureService/ToPath1_1"
-	GestureService_ToPath5_2_FullMethodName        = "/gesture.GestureService/ToPath5_2"
-	GestureService_ToPath4_3_FullMethodName        = "/gesture.GestureService/ToPath4_3"
-	GestureService_WriteToParcel_FullMethodName    = "/gesture.GestureService/WriteToParcel"
+	UtilsService_ComputeOrientedBoundingBox_FullMethodName = "/gesture.UtilsService/ComputeOrientedBoundingBox"
+	UtilsService_SpatialSampling2_FullMethodName           = "/gesture.UtilsService/SpatialSampling2"
+	UtilsService_SpatialSampling3_1_FullMethodName         = "/gesture.UtilsService/SpatialSampling3_1"
+	UtilsService_TemporalSampling_FullMethodName           = "/gesture.UtilsService/TemporalSampling"
 )
 
-// GestureServiceClient is the client API for GestureService service.
+// UtilsServiceClient is the client API for UtilsService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type GestureServiceClient interface {
-	NewGesture(ctx context.Context, in *NewGestureRequest, opts ...grpc.CallOption) (*NewGestureResponse, error)
-	AddStroke(ctx context.Context, in *AddStrokeRequest, opts ...grpc.CallOption) (*AddStrokeResponse, error)
-	Clone(ctx context.Context, in *CloneRequest, opts ...grpc.CallOption) (*CloneResponse, error)
-	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	GetBoundingBox(ctx context.Context, in *GetBoundingBoxRequest, opts ...grpc.CallOption) (*GetBoundingBoxResponse, error)
-	GetID(ctx context.Context, in *GetIDRequest, opts ...grpc.CallOption) (*GetIDResponse, error)
-	GetLength(ctx context.Context, in *GetLengthRequest, opts ...grpc.CallOption) (*GetLengthResponse, error)
-	GetStrokesCount(ctx context.Context, in *GetStrokesCountRequest, opts ...grpc.CallOption) (*GetStrokesCountResponse, error)
-	ToBitmap4(ctx context.Context, in *ToBitmap4Request, opts ...grpc.CallOption) (*ToBitmap4Response, error)
-	ToBitmap5_1(ctx context.Context, in *ToBitmap5_1Request, opts ...grpc.CallOption) (*ToBitmap5_1Response, error)
-	ToPath0(ctx context.Context, in *ToPath0Request, opts ...grpc.CallOption) (*ToPath0Response, error)
-	ToPath1_1(ctx context.Context, in *ToPath1_1Request, opts ...grpc.CallOption) (*ToPath1_1Response, error)
-	ToPath5_2(ctx context.Context, in *ToPath5_2Request, opts ...grpc.CallOption) (*ToPath5_2Response, error)
-	ToPath4_3(ctx context.Context, in *ToPath4_3Request, opts ...grpc.CallOption) (*ToPath4_3Response, error)
-	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+type UtilsServiceClient interface {
+	ComputeOrientedBoundingBox(ctx context.Context, in *ComputeOrientedBoundingBoxRequest, opts ...grpc.CallOption) (*ComputeOrientedBoundingBoxResponse, error)
+	SpatialSampling2(ctx context.Context, in *SpatialSampling2Request, opts ...grpc.CallOption) (*SpatialSampling2Response, error)
+	SpatialSampling3_1(ctx context.Context, in *SpatialSampling3_1Request, opts ...grpc.CallOption) (*SpatialSampling3_1Response, error)
+	TemporalSampling(ctx context.Context, in *TemporalSamplingRequest, opts ...grpc.CallOption) (*TemporalSamplingResponse, error)
 }
 
-type gestureServiceClient struct {
+type utilsServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewGestureServiceClient(cc grpc.ClientConnInterface) GestureServiceClient {
-	return &gestureServiceClient{cc}
+func NewUtilsServiceClient(cc grpc.ClientConnInterface) UtilsServiceClient {
+	return &utilsServiceClient{cc}
 }
 
-func (c *gestureServiceClient) NewGesture(ctx context.Context, in *NewGestureRequest, opts ...grpc.CallOption) (*NewGestureResponse, error) {
+func (c *utilsServiceClient) ComputeOrientedBoundingBox(ctx context.Context, in *ComputeOrientedBoundingBoxRequest, opts ...grpc.CallOption) (*ComputeOrientedBoundingBoxResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewGestureResponse)
-	err := c.cc.Invoke(ctx, GestureService_NewGesture_FullMethodName, in, out, cOpts...)
+	out := new(ComputeOrientedBoundingBoxResponse)
+	err := c.cc.Invoke(ctx, UtilsService_ComputeOrientedBoundingBox_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *gestureServiceClient) AddStroke(ctx context.Context, in *AddStrokeRequest, opts ...grpc.CallOption) (*AddStrokeResponse, error) {
+func (c *utilsServiceClient) SpatialSampling2(ctx context.Context, in *SpatialSampling2Request, opts ...grpc.CallOption) (*SpatialSampling2Response, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(AddStrokeResponse)
-	err := c.cc.Invoke(ctx, GestureService_AddStroke_FullMethodName, in, out, cOpts...)
+	out := new(SpatialSampling2Response)
+	err := c.cc.Invoke(ctx, UtilsService_SpatialSampling2_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *gestureServiceClient) Clone(ctx context.Context, in *CloneRequest, opts ...grpc.CallOption) (*CloneResponse, error) {
+func (c *utilsServiceClient) SpatialSampling3_1(ctx context.Context, in *SpatialSampling3_1Request, opts ...grpc.CallOption) (*SpatialSampling3_1Response, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CloneResponse)
-	err := c.cc.Invoke(ctx, GestureService_Clone_FullMethodName, in, out, cOpts...)
+	out := new(SpatialSampling3_1Response)
+	err := c.cc.Invoke(ctx, UtilsService_SpatialSampling3_1_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *gestureServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+func (c *utilsServiceClient) TemporalSampling(ctx context.Context, in *TemporalSamplingRequest, opts ...grpc.CallOption) (*TemporalSamplingResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, GestureService_DescribeContents_FullMethodName, in, out, cOpts...)
+	out := new(TemporalSamplingResponse)
+	err := c.cc.Invoke(ctx, UtilsService_TemporalSampling_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *gestureServiceClient) GetBoundingBox(ctx context.Context, in *GetBoundingBoxRequest, opts ...grpc.CallOption) (*GetBoundingBoxResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetBoundingBoxResponse)
-	err := c.cc.Invoke(ctx, GestureService_GetBoundingBox_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *gestureServiceClient) GetID(ctx context.Context, in *GetIDRequest, opts ...grpc.CallOption) (*GetIDResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetIDResponse)
-	err := c.cc.Invoke(ctx, GestureService_GetID_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *gestureServiceClient) GetLength(ctx context.Context, in *GetLengthRequest, opts ...grpc.CallOption) (*GetLengthResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetLengthResponse)
-	err := c.cc.Invoke(ctx, GestureService_GetLength_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *gestureServiceClient) GetStrokesCount(ctx context.Context, in *GetStrokesCountRequest, opts ...grpc.CallOption) (*GetStrokesCountResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetStrokesCountResponse)
-	err := c.cc.Invoke(ctx, GestureService_GetStrokesCount_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *gestureServiceClient) ToBitmap4(ctx context.Context, in *ToBitmap4Request, opts ...grpc.CallOption) (*ToBitmap4Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ToBitmap4Response)
-	err := c.cc.Invoke(ctx, GestureService_ToBitmap4_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *gestureServiceClient) ToBitmap5_1(ctx context.Context, in *ToBitmap5_1Request, opts ...grpc.CallOption) (*ToBitmap5_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ToBitmap5_1Response)
-	err := c.cc.Invoke(ctx, GestureService_ToBitmap5_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *gestureServiceClient) ToPath0(ctx context.Context, in *ToPath0Request, opts ...grpc.CallOption) (*ToPath0Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ToPath0Response)
-	err := c.cc.Invoke(ctx, GestureService_ToPath0_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *gestureServiceClient) ToPath1_1(ctx context.Context, in *ToPath1_1Request, opts ...grpc.CallOption) (*ToPath1_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ToPath1_1Response)
-	err := c.cc.Invoke(ctx, GestureService_ToPath1_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *gestureServiceClient) ToPath5_2(ctx context.Context, in *ToPath5_2Request, opts ...grpc.CallOption) (*ToPath5_2Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ToPath5_2Response)
-	err := c.cc.Invoke(ctx, GestureService_ToPath5_2_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *gestureServiceClient) ToPath4_3(ctx context.Context, in *ToPath4_3Request, opts ...grpc.CallOption) (*ToPath4_3Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ToPath4_3Response)
-	err := c.cc.Invoke(ctx, GestureService_ToPath4_3_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *gestureServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, GestureService_WriteToParcel_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// GestureServiceServer is the server API for GestureService service.
-// All implementations must embed UnimplementedGestureServiceServer
+// UtilsServiceServer is the server API for UtilsService service.
+// All implementations must embed UnimplementedUtilsServiceServer
 // for forward compatibility.
-type GestureServiceServer interface {
-	NewGesture(context.Context, *NewGestureRequest) (*NewGestureResponse, error)
-	AddStroke(context.Context, *AddStrokeRequest) (*AddStrokeResponse, error)
-	Clone(context.Context, *CloneRequest) (*CloneResponse, error)
-	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
-	GetBoundingBox(context.Context, *GetBoundingBoxRequest) (*GetBoundingBoxResponse, error)
-	GetID(context.Context, *GetIDRequest) (*GetIDResponse, error)
-	GetLength(context.Context, *GetLengthRequest) (*GetLengthResponse, error)
-	GetStrokesCount(context.Context, *GetStrokesCountRequest) (*GetStrokesCountResponse, error)
-	ToBitmap4(context.Context, *ToBitmap4Request) (*ToBitmap4Response, error)
-	ToBitmap5_1(context.Context, *ToBitmap5_1Request) (*ToBitmap5_1Response, error)
-	ToPath0(context.Context, *ToPath0Request) (*ToPath0Response, error)
-	ToPath1_1(context.Context, *ToPath1_1Request) (*ToPath1_1Response, error)
-	ToPath5_2(context.Context, *ToPath5_2Request) (*ToPath5_2Response, error)
-	ToPath4_3(context.Context, *ToPath4_3Request) (*ToPath4_3Response, error)
-	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
-	mustEmbedUnimplementedGestureServiceServer()
+type UtilsServiceServer interface {
+	ComputeOrientedBoundingBox(context.Context, *ComputeOrientedBoundingBoxRequest) (*ComputeOrientedBoundingBoxResponse, error)
+	SpatialSampling2(context.Context, *SpatialSampling2Request) (*SpatialSampling2Response, error)
+	SpatialSampling3_1(context.Context, *SpatialSampling3_1Request) (*SpatialSampling3_1Response, error)
+	TemporalSampling(context.Context, *TemporalSamplingRequest) (*TemporalSamplingResponse, error)
+	mustEmbedUnimplementedUtilsServiceServer()
 }
 
-// UnimplementedGestureServiceServer must be embedded to have
+// UnimplementedUtilsServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedGestureServiceServer struct{}
+type UnimplementedUtilsServiceServer struct{}
 
-func (UnimplementedGestureServiceServer) NewGesture(context.Context, *NewGestureRequest) (*NewGestureResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewGesture not implemented")
+func (UnimplementedUtilsServiceServer) ComputeOrientedBoundingBox(context.Context, *ComputeOrientedBoundingBoxRequest) (*ComputeOrientedBoundingBoxResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ComputeOrientedBoundingBox not implemented")
 }
-func (UnimplementedGestureServiceServer) AddStroke(context.Context, *AddStrokeRequest) (*AddStrokeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method AddStroke not implemented")
+func (UnimplementedUtilsServiceServer) SpatialSampling2(context.Context, *SpatialSampling2Request) (*SpatialSampling2Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method SpatialSampling2 not implemented")
 }
-func (UnimplementedGestureServiceServer) Clone(context.Context, *CloneRequest) (*CloneResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Clone not implemented")
+func (UnimplementedUtilsServiceServer) SpatialSampling3_1(context.Context, *SpatialSampling3_1Request) (*SpatialSampling3_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method SpatialSampling3_1 not implemented")
 }
-func (UnimplementedGestureServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+func (UnimplementedUtilsServiceServer) TemporalSampling(context.Context, *TemporalSamplingRequest) (*TemporalSamplingResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method TemporalSampling not implemented")
 }
-func (UnimplementedGestureServiceServer) GetBoundingBox(context.Context, *GetBoundingBoxRequest) (*GetBoundingBoxResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetBoundingBox not implemented")
-}
-func (UnimplementedGestureServiceServer) GetID(context.Context, *GetIDRequest) (*GetIDResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetID not implemented")
-}
-func (UnimplementedGestureServiceServer) GetLength(context.Context, *GetLengthRequest) (*GetLengthResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetLength not implemented")
-}
-func (UnimplementedGestureServiceServer) GetStrokesCount(context.Context, *GetStrokesCountRequest) (*GetStrokesCountResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetStrokesCount not implemented")
-}
-func (UnimplementedGestureServiceServer) ToBitmap4(context.Context, *ToBitmap4Request) (*ToBitmap4Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method ToBitmap4 not implemented")
-}
-func (UnimplementedGestureServiceServer) ToBitmap5_1(context.Context, *ToBitmap5_1Request) (*ToBitmap5_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method ToBitmap5_1 not implemented")
-}
-func (UnimplementedGestureServiceServer) ToPath0(context.Context, *ToPath0Request) (*ToPath0Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method ToPath0 not implemented")
-}
-func (UnimplementedGestureServiceServer) ToPath1_1(context.Context, *ToPath1_1Request) (*ToPath1_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method ToPath1_1 not implemented")
-}
-func (UnimplementedGestureServiceServer) ToPath5_2(context.Context, *ToPath5_2Request) (*ToPath5_2Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method ToPath5_2 not implemented")
-}
-func (UnimplementedGestureServiceServer) ToPath4_3(context.Context, *ToPath4_3Request) (*ToPath4_3Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method ToPath4_3 not implemented")
-}
-func (UnimplementedGestureServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
-}
-func (UnimplementedGestureServiceServer) mustEmbedUnimplementedGestureServiceServer() {}
-func (UnimplementedGestureServiceServer) testEmbeddedByValue()                        {}
+func (UnimplementedUtilsServiceServer) mustEmbedUnimplementedUtilsServiceServer() {}
+func (UnimplementedUtilsServiceServer) testEmbeddedByValue()                      {}
 
-// UnsafeGestureServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to GestureServiceServer will
+// UnsafeUtilsServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to UtilsServiceServer will
 // result in compilation errors.
-type UnsafeGestureServiceServer interface {
-	mustEmbedUnimplementedGestureServiceServer()
+type UnsafeUtilsServiceServer interface {
+	mustEmbedUnimplementedUtilsServiceServer()
 }
 
-func RegisterGestureServiceServer(s grpc.ServiceRegistrar, srv GestureServiceServer) {
-	// If the following call panics, it indicates UnimplementedGestureServiceServer was
+func RegisterUtilsServiceServer(s grpc.ServiceRegistrar, srv UtilsServiceServer) {
+	// If the following call panics, it indicates UnimplementedUtilsServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&GestureService_ServiceDesc, srv)
+	s.RegisterService(&UtilsService_ServiceDesc, srv)
 }
 
-func _GestureService_NewGesture_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewGestureRequest)
+func _UtilsService_ComputeOrientedBoundingBox_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ComputeOrientedBoundingBoxRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(GestureServiceServer).NewGesture(ctx, in)
+		return srv.(UtilsServiceServer).ComputeOrientedBoundingBox(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: GestureService_NewGesture_FullMethodName,
+		FullMethod: UtilsService_ComputeOrientedBoundingBox_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(GestureServiceServer).NewGesture(ctx, req.(*NewGestureRequest))
+		return srv.(UtilsServiceServer).ComputeOrientedBoundingBox(ctx, req.(*ComputeOrientedBoundingBoxRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _GestureService_AddStroke_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AddStrokeRequest)
+func _UtilsService_SpatialSampling2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SpatialSampling2Request)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(GestureServiceServer).AddStroke(ctx, in)
+		return srv.(UtilsServiceServer).SpatialSampling2(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: GestureService_AddStroke_FullMethodName,
+		FullMethod: UtilsService_SpatialSampling2_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(GestureServiceServer).AddStroke(ctx, req.(*AddStrokeRequest))
+		return srv.(UtilsServiceServer).SpatialSampling2(ctx, req.(*SpatialSampling2Request))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _GestureService_Clone_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CloneRequest)
+func _UtilsService_SpatialSampling3_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SpatialSampling3_1Request)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(GestureServiceServer).Clone(ctx, in)
+		return srv.(UtilsServiceServer).SpatialSampling3_1(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: GestureService_Clone_FullMethodName,
+		FullMethod: UtilsService_SpatialSampling3_1_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(GestureServiceServer).Clone(ctx, req.(*CloneRequest))
+		return srv.(UtilsServiceServer).SpatialSampling3_1(ctx, req.(*SpatialSampling3_1Request))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _GestureService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DescribeContentsRequest)
+func _UtilsService_TemporalSampling_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(TemporalSamplingRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(GestureServiceServer).DescribeContents(ctx, in)
+		return srv.(UtilsServiceServer).TemporalSampling(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: GestureService_DescribeContents_FullMethodName,
+		FullMethod: UtilsService_TemporalSampling_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(GestureServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+		return srv.(UtilsServiceServer).TemporalSampling(ctx, req.(*TemporalSamplingRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _GestureService_GetBoundingBox_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetBoundingBoxRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(GestureServiceServer).GetBoundingBox(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: GestureService_GetBoundingBox_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(GestureServiceServer).GetBoundingBox(ctx, req.(*GetBoundingBoxRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _GestureService_GetID_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetIDRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(GestureServiceServer).GetID(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: GestureService_GetID_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(GestureServiceServer).GetID(ctx, req.(*GetIDRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _GestureService_GetLength_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetLengthRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(GestureServiceServer).GetLength(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: GestureService_GetLength_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(GestureServiceServer).GetLength(ctx, req.(*GetLengthRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _GestureService_GetStrokesCount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetStrokesCountRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(GestureServiceServer).GetStrokesCount(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: GestureService_GetStrokesCount_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(GestureServiceServer).GetStrokesCount(ctx, req.(*GetStrokesCountRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _GestureService_ToBitmap4_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ToBitmap4Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(GestureServiceServer).ToBitmap4(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: GestureService_ToBitmap4_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(GestureServiceServer).ToBitmap4(ctx, req.(*ToBitmap4Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _GestureService_ToBitmap5_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ToBitmap5_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(GestureServiceServer).ToBitmap5_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: GestureService_ToBitmap5_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(GestureServiceServer).ToBitmap5_1(ctx, req.(*ToBitmap5_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _GestureService_ToPath0_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ToPath0Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(GestureServiceServer).ToPath0(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: GestureService_ToPath0_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(GestureServiceServer).ToPath0(ctx, req.(*ToPath0Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _GestureService_ToPath1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ToPath1_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(GestureServiceServer).ToPath1_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: GestureService_ToPath1_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(GestureServiceServer).ToPath1_1(ctx, req.(*ToPath1_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _GestureService_ToPath5_2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ToPath5_2Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(GestureServiceServer).ToPath5_2(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: GestureService_ToPath5_2_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(GestureServiceServer).ToPath5_2(ctx, req.(*ToPath5_2Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _GestureService_ToPath4_3_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ToPath4_3Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(GestureServiceServer).ToPath4_3(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: GestureService_ToPath4_3_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(GestureServiceServer).ToPath4_3(ctx, req.(*ToPath4_3Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _GestureService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WriteToParcelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(GestureServiceServer).WriteToParcel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: GestureService_WriteToParcel_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(GestureServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// GestureService_ServiceDesc is the grpc.ServiceDesc for GestureService service.
+// UtilsService_ServiceDesc is the grpc.ServiceDesc for UtilsService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var GestureService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "gesture.GestureService",
-	HandlerType: (*GestureServiceServer)(nil),
+var UtilsService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "gesture.UtilsService",
+	HandlerType: (*UtilsServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "NewGesture",
-			Handler:    _GestureService_NewGesture_Handler,
+			MethodName: "ComputeOrientedBoundingBox",
+			Handler:    _UtilsService_ComputeOrientedBoundingBox_Handler,
 		},
 		{
-			MethodName: "AddStroke",
-			Handler:    _GestureService_AddStroke_Handler,
+			MethodName: "SpatialSampling2",
+			Handler:    _UtilsService_SpatialSampling2_Handler,
 		},
 		{
-			MethodName: "Clone",
-			Handler:    _GestureService_Clone_Handler,
+			MethodName: "SpatialSampling3_1",
+			Handler:    _UtilsService_SpatialSampling3_1_Handler,
 		},
 		{
-			MethodName: "DescribeContents",
-			Handler:    _GestureService_DescribeContents_Handler,
-		},
-		{
-			MethodName: "GetBoundingBox",
-			Handler:    _GestureService_GetBoundingBox_Handler,
-		},
-		{
-			MethodName: "GetID",
-			Handler:    _GestureService_GetID_Handler,
-		},
-		{
-			MethodName: "GetLength",
-			Handler:    _GestureService_GetLength_Handler,
-		},
-		{
-			MethodName: "GetStrokesCount",
-			Handler:    _GestureService_GetStrokesCount_Handler,
-		},
-		{
-			MethodName: "ToBitmap4",
-			Handler:    _GestureService_ToBitmap4_Handler,
-		},
-		{
-			MethodName: "ToBitmap5_1",
-			Handler:    _GestureService_ToBitmap5_1_Handler,
-		},
-		{
-			MethodName: "ToPath0",
-			Handler:    _GestureService_ToPath0_Handler,
-		},
-		{
-			MethodName: "ToPath1_1",
-			Handler:    _GestureService_ToPath1_1_Handler,
-		},
-		{
-			MethodName: "ToPath5_2",
-			Handler:    _GestureService_ToPath5_2_Handler,
-		},
-		{
-			MethodName: "ToPath4_3",
-			Handler:    _GestureService_ToPath4_3_Handler,
-		},
-		{
-			MethodName: "WriteToParcel",
-			Handler:    _GestureService_WriteToParcel_Handler,
+			MethodName: "TemporalSampling",
+			Handler:    _UtilsService_TemporalSampling_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -655,557 +237,1345 @@ var GestureService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	StoreService_NewStore_FullMethodName            = "/gesture.StoreService/NewStore"
-	StoreService_AddGesture_FullMethodName          = "/gesture.StoreService/AddGesture"
-	StoreService_GetOrientationStyle_FullMethodName = "/gesture.StoreService/GetOrientationStyle"
-	StoreService_GetSequenceType_FullMethodName     = "/gesture.StoreService/GetSequenceType"
-	StoreService_HasChanged_FullMethodName          = "/gesture.StoreService/HasChanged"
-	StoreService_Load1_FullMethodName               = "/gesture.StoreService/Load1"
-	StoreService_Load2_1_FullMethodName             = "/gesture.StoreService/Load2_1"
-	StoreService_RemoveEntry_FullMethodName         = "/gesture.StoreService/RemoveEntry"
-	StoreService_RemoveGesture_FullMethodName       = "/gesture.StoreService/RemoveGesture"
-	StoreService_Save1_FullMethodName               = "/gesture.StoreService/Save1"
-	StoreService_Save2_1_FullMethodName             = "/gesture.StoreService/Save2_1"
-	StoreService_SetOrientationStyle_FullMethodName = "/gesture.StoreService/SetOrientationStyle"
-	StoreService_SetSequenceType_FullMethodName     = "/gesture.StoreService/SetSequenceType"
+	LibraryService_AddGesture_FullMethodName          = "/gesture.LibraryService/AddGesture"
+	LibraryService_GetGestureEntries_FullMethodName   = "/gesture.LibraryService/GetGestureEntries"
+	LibraryService_GetGestures_FullMethodName         = "/gesture.LibraryService/GetGestures"
+	LibraryService_GetOrientationStyle_FullMethodName = "/gesture.LibraryService/GetOrientationStyle"
+	LibraryService_GetSequenceType_FullMethodName     = "/gesture.LibraryService/GetSequenceType"
+	LibraryService_IsReadOnly_FullMethodName          = "/gesture.LibraryService/IsReadOnly"
+	LibraryService_Load_FullMethodName                = "/gesture.LibraryService/Load"
+	LibraryService_Recognize_FullMethodName           = "/gesture.LibraryService/Recognize"
+	LibraryService_RemoveEntry_FullMethodName         = "/gesture.LibraryService/RemoveEntry"
+	LibraryService_RemoveGesture_FullMethodName       = "/gesture.LibraryService/RemoveGesture"
+	LibraryService_Save_FullMethodName                = "/gesture.LibraryService/Save"
+	LibraryService_SetOrientationStyle_FullMethodName = "/gesture.LibraryService/SetOrientationStyle"
+	LibraryService_SetSequenceType_FullMethodName     = "/gesture.LibraryService/SetSequenceType"
 )
 
-// StoreServiceClient is the client API for StoreService service.
+// LibraryServiceClient is the client API for LibraryService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type StoreServiceClient interface {
-	NewStore(ctx context.Context, in *NewStoreRequest, opts ...grpc.CallOption) (*NewStoreResponse, error)
+type LibraryServiceClient interface {
 	AddGesture(ctx context.Context, in *AddGestureRequest, opts ...grpc.CallOption) (*AddGestureResponse, error)
+	GetGestureEntries(ctx context.Context, in *GetGestureEntriesRequest, opts ...grpc.CallOption) (*GetGestureEntriesResponse, error)
+	GetGestures(ctx context.Context, in *GetGesturesRequest, opts ...grpc.CallOption) (*GetGesturesResponse, error)
 	GetOrientationStyle(ctx context.Context, in *GetOrientationStyleRequest, opts ...grpc.CallOption) (*GetOrientationStyleResponse, error)
 	GetSequenceType(ctx context.Context, in *GetSequenceTypeRequest, opts ...grpc.CallOption) (*GetSequenceTypeResponse, error)
-	HasChanged(ctx context.Context, in *HasChangedRequest, opts ...grpc.CallOption) (*HasChangedResponse, error)
-	Load1(ctx context.Context, in *Load1Request, opts ...grpc.CallOption) (*Load1Response, error)
-	Load2_1(ctx context.Context, in *Load2_1Request, opts ...grpc.CallOption) (*Load2_1Response, error)
+	IsReadOnly(ctx context.Context, in *IsReadOnlyRequest, opts ...grpc.CallOption) (*IsReadOnlyResponse, error)
+	Load(ctx context.Context, in *LoadRequest, opts ...grpc.CallOption) (*LoadResponse, error)
+	Recognize(ctx context.Context, in *RecognizeRequest, opts ...grpc.CallOption) (*RecognizeResponse, error)
 	RemoveEntry(ctx context.Context, in *RemoveEntryRequest, opts ...grpc.CallOption) (*RemoveEntryResponse, error)
 	RemoveGesture(ctx context.Context, in *RemoveGestureRequest, opts ...grpc.CallOption) (*RemoveGestureResponse, error)
-	Save1(ctx context.Context, in *Save1Request, opts ...grpc.CallOption) (*Save1Response, error)
-	Save2_1(ctx context.Context, in *Save2_1Request, opts ...grpc.CallOption) (*Save2_1Response, error)
+	Save(ctx context.Context, in *SaveRequest, opts ...grpc.CallOption) (*SaveResponse, error)
 	SetOrientationStyle(ctx context.Context, in *SetOrientationStyleRequest, opts ...grpc.CallOption) (*SetOrientationStyleResponse, error)
 	SetSequenceType(ctx context.Context, in *SetSequenceTypeRequest, opts ...grpc.CallOption) (*SetSequenceTypeResponse, error)
 }
 
-type storeServiceClient struct {
+type libraryServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewStoreServiceClient(cc grpc.ClientConnInterface) StoreServiceClient {
-	return &storeServiceClient{cc}
+func NewLibraryServiceClient(cc grpc.ClientConnInterface) LibraryServiceClient {
+	return &libraryServiceClient{cc}
 }
 
-func (c *storeServiceClient) NewStore(ctx context.Context, in *NewStoreRequest, opts ...grpc.CallOption) (*NewStoreResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewStoreResponse)
-	err := c.cc.Invoke(ctx, StoreService_NewStore_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *storeServiceClient) AddGesture(ctx context.Context, in *AddGestureRequest, opts ...grpc.CallOption) (*AddGestureResponse, error) {
+func (c *libraryServiceClient) AddGesture(ctx context.Context, in *AddGestureRequest, opts ...grpc.CallOption) (*AddGestureResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(AddGestureResponse)
-	err := c.cc.Invoke(ctx, StoreService_AddGesture_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, LibraryService_AddGesture_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *storeServiceClient) GetOrientationStyle(ctx context.Context, in *GetOrientationStyleRequest, opts ...grpc.CallOption) (*GetOrientationStyleResponse, error) {
+func (c *libraryServiceClient) GetGestureEntries(ctx context.Context, in *GetGestureEntriesRequest, opts ...grpc.CallOption) (*GetGestureEntriesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetGestureEntriesResponse)
+	err := c.cc.Invoke(ctx, LibraryService_GetGestureEntries_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *libraryServiceClient) GetGestures(ctx context.Context, in *GetGesturesRequest, opts ...grpc.CallOption) (*GetGesturesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetGesturesResponse)
+	err := c.cc.Invoke(ctx, LibraryService_GetGestures_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *libraryServiceClient) GetOrientationStyle(ctx context.Context, in *GetOrientationStyleRequest, opts ...grpc.CallOption) (*GetOrientationStyleResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetOrientationStyleResponse)
-	err := c.cc.Invoke(ctx, StoreService_GetOrientationStyle_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, LibraryService_GetOrientationStyle_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *storeServiceClient) GetSequenceType(ctx context.Context, in *GetSequenceTypeRequest, opts ...grpc.CallOption) (*GetSequenceTypeResponse, error) {
+func (c *libraryServiceClient) GetSequenceType(ctx context.Context, in *GetSequenceTypeRequest, opts ...grpc.CallOption) (*GetSequenceTypeResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetSequenceTypeResponse)
-	err := c.cc.Invoke(ctx, StoreService_GetSequenceType_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, LibraryService_GetSequenceType_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *storeServiceClient) HasChanged(ctx context.Context, in *HasChangedRequest, opts ...grpc.CallOption) (*HasChangedResponse, error) {
+func (c *libraryServiceClient) IsReadOnly(ctx context.Context, in *IsReadOnlyRequest, opts ...grpc.CallOption) (*IsReadOnlyResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(HasChangedResponse)
-	err := c.cc.Invoke(ctx, StoreService_HasChanged_FullMethodName, in, out, cOpts...)
+	out := new(IsReadOnlyResponse)
+	err := c.cc.Invoke(ctx, LibraryService_IsReadOnly_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *storeServiceClient) Load1(ctx context.Context, in *Load1Request, opts ...grpc.CallOption) (*Load1Response, error) {
+func (c *libraryServiceClient) Load(ctx context.Context, in *LoadRequest, opts ...grpc.CallOption) (*LoadResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(Load1Response)
-	err := c.cc.Invoke(ctx, StoreService_Load1_FullMethodName, in, out, cOpts...)
+	out := new(LoadResponse)
+	err := c.cc.Invoke(ctx, LibraryService_Load_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *storeServiceClient) Load2_1(ctx context.Context, in *Load2_1Request, opts ...grpc.CallOption) (*Load2_1Response, error) {
+func (c *libraryServiceClient) Recognize(ctx context.Context, in *RecognizeRequest, opts ...grpc.CallOption) (*RecognizeResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(Load2_1Response)
-	err := c.cc.Invoke(ctx, StoreService_Load2_1_FullMethodName, in, out, cOpts...)
+	out := new(RecognizeResponse)
+	err := c.cc.Invoke(ctx, LibraryService_Recognize_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *storeServiceClient) RemoveEntry(ctx context.Context, in *RemoveEntryRequest, opts ...grpc.CallOption) (*RemoveEntryResponse, error) {
+func (c *libraryServiceClient) RemoveEntry(ctx context.Context, in *RemoveEntryRequest, opts ...grpc.CallOption) (*RemoveEntryResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(RemoveEntryResponse)
-	err := c.cc.Invoke(ctx, StoreService_RemoveEntry_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, LibraryService_RemoveEntry_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *storeServiceClient) RemoveGesture(ctx context.Context, in *RemoveGestureRequest, opts ...grpc.CallOption) (*RemoveGestureResponse, error) {
+func (c *libraryServiceClient) RemoveGesture(ctx context.Context, in *RemoveGestureRequest, opts ...grpc.CallOption) (*RemoveGestureResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(RemoveGestureResponse)
-	err := c.cc.Invoke(ctx, StoreService_RemoveGesture_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, LibraryService_RemoveGesture_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *storeServiceClient) Save1(ctx context.Context, in *Save1Request, opts ...grpc.CallOption) (*Save1Response, error) {
+func (c *libraryServiceClient) Save(ctx context.Context, in *SaveRequest, opts ...grpc.CallOption) (*SaveResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(Save1Response)
-	err := c.cc.Invoke(ctx, StoreService_Save1_FullMethodName, in, out, cOpts...)
+	out := new(SaveResponse)
+	err := c.cc.Invoke(ctx, LibraryService_Save_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *storeServiceClient) Save2_1(ctx context.Context, in *Save2_1Request, opts ...grpc.CallOption) (*Save2_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(Save2_1Response)
-	err := c.cc.Invoke(ctx, StoreService_Save2_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *storeServiceClient) SetOrientationStyle(ctx context.Context, in *SetOrientationStyleRequest, opts ...grpc.CallOption) (*SetOrientationStyleResponse, error) {
+func (c *libraryServiceClient) SetOrientationStyle(ctx context.Context, in *SetOrientationStyleRequest, opts ...grpc.CallOption) (*SetOrientationStyleResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(SetOrientationStyleResponse)
-	err := c.cc.Invoke(ctx, StoreService_SetOrientationStyle_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, LibraryService_SetOrientationStyle_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *storeServiceClient) SetSequenceType(ctx context.Context, in *SetSequenceTypeRequest, opts ...grpc.CallOption) (*SetSequenceTypeResponse, error) {
+func (c *libraryServiceClient) SetSequenceType(ctx context.Context, in *SetSequenceTypeRequest, opts ...grpc.CallOption) (*SetSequenceTypeResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(SetSequenceTypeResponse)
-	err := c.cc.Invoke(ctx, StoreService_SetSequenceType_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, LibraryService_SetSequenceType_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// StoreServiceServer is the server API for StoreService service.
-// All implementations must embed UnimplementedStoreServiceServer
+// LibraryServiceServer is the server API for LibraryService service.
+// All implementations must embed UnimplementedLibraryServiceServer
 // for forward compatibility.
-type StoreServiceServer interface {
-	NewStore(context.Context, *NewStoreRequest) (*NewStoreResponse, error)
+type LibraryServiceServer interface {
 	AddGesture(context.Context, *AddGestureRequest) (*AddGestureResponse, error)
+	GetGestureEntries(context.Context, *GetGestureEntriesRequest) (*GetGestureEntriesResponse, error)
+	GetGestures(context.Context, *GetGesturesRequest) (*GetGesturesResponse, error)
 	GetOrientationStyle(context.Context, *GetOrientationStyleRequest) (*GetOrientationStyleResponse, error)
 	GetSequenceType(context.Context, *GetSequenceTypeRequest) (*GetSequenceTypeResponse, error)
-	HasChanged(context.Context, *HasChangedRequest) (*HasChangedResponse, error)
-	Load1(context.Context, *Load1Request) (*Load1Response, error)
-	Load2_1(context.Context, *Load2_1Request) (*Load2_1Response, error)
+	IsReadOnly(context.Context, *IsReadOnlyRequest) (*IsReadOnlyResponse, error)
+	Load(context.Context, *LoadRequest) (*LoadResponse, error)
+	Recognize(context.Context, *RecognizeRequest) (*RecognizeResponse, error)
 	RemoveEntry(context.Context, *RemoveEntryRequest) (*RemoveEntryResponse, error)
 	RemoveGesture(context.Context, *RemoveGestureRequest) (*RemoveGestureResponse, error)
-	Save1(context.Context, *Save1Request) (*Save1Response, error)
-	Save2_1(context.Context, *Save2_1Request) (*Save2_1Response, error)
+	Save(context.Context, *SaveRequest) (*SaveResponse, error)
 	SetOrientationStyle(context.Context, *SetOrientationStyleRequest) (*SetOrientationStyleResponse, error)
 	SetSequenceType(context.Context, *SetSequenceTypeRequest) (*SetSequenceTypeResponse, error)
-	mustEmbedUnimplementedStoreServiceServer()
+	mustEmbedUnimplementedLibraryServiceServer()
 }
 
-// UnimplementedStoreServiceServer must be embedded to have
+// UnimplementedLibraryServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedStoreServiceServer struct{}
+type UnimplementedLibraryServiceServer struct{}
 
-func (UnimplementedStoreServiceServer) NewStore(context.Context, *NewStoreRequest) (*NewStoreResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewStore not implemented")
-}
-func (UnimplementedStoreServiceServer) AddGesture(context.Context, *AddGestureRequest) (*AddGestureResponse, error) {
+func (UnimplementedLibraryServiceServer) AddGesture(context.Context, *AddGestureRequest) (*AddGestureResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method AddGesture not implemented")
 }
-func (UnimplementedStoreServiceServer) GetOrientationStyle(context.Context, *GetOrientationStyleRequest) (*GetOrientationStyleResponse, error) {
+func (UnimplementedLibraryServiceServer) GetGestureEntries(context.Context, *GetGestureEntriesRequest) (*GetGestureEntriesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetGestureEntries not implemented")
+}
+func (UnimplementedLibraryServiceServer) GetGestures(context.Context, *GetGesturesRequest) (*GetGesturesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetGestures not implemented")
+}
+func (UnimplementedLibraryServiceServer) GetOrientationStyle(context.Context, *GetOrientationStyleRequest) (*GetOrientationStyleResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetOrientationStyle not implemented")
 }
-func (UnimplementedStoreServiceServer) GetSequenceType(context.Context, *GetSequenceTypeRequest) (*GetSequenceTypeResponse, error) {
+func (UnimplementedLibraryServiceServer) GetSequenceType(context.Context, *GetSequenceTypeRequest) (*GetSequenceTypeResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetSequenceType not implemented")
 }
-func (UnimplementedStoreServiceServer) HasChanged(context.Context, *HasChangedRequest) (*HasChangedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method HasChanged not implemented")
+func (UnimplementedLibraryServiceServer) IsReadOnly(context.Context, *IsReadOnlyRequest) (*IsReadOnlyResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsReadOnly not implemented")
 }
-func (UnimplementedStoreServiceServer) Load1(context.Context, *Load1Request) (*Load1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method Load1 not implemented")
+func (UnimplementedLibraryServiceServer) Load(context.Context, *LoadRequest) (*LoadResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Load not implemented")
 }
-func (UnimplementedStoreServiceServer) Load2_1(context.Context, *Load2_1Request) (*Load2_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method Load2_1 not implemented")
+func (UnimplementedLibraryServiceServer) Recognize(context.Context, *RecognizeRequest) (*RecognizeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Recognize not implemented")
 }
-func (UnimplementedStoreServiceServer) RemoveEntry(context.Context, *RemoveEntryRequest) (*RemoveEntryResponse, error) {
+func (UnimplementedLibraryServiceServer) RemoveEntry(context.Context, *RemoveEntryRequest) (*RemoveEntryResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method RemoveEntry not implemented")
 }
-func (UnimplementedStoreServiceServer) RemoveGesture(context.Context, *RemoveGestureRequest) (*RemoveGestureResponse, error) {
+func (UnimplementedLibraryServiceServer) RemoveGesture(context.Context, *RemoveGestureRequest) (*RemoveGestureResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method RemoveGesture not implemented")
 }
-func (UnimplementedStoreServiceServer) Save1(context.Context, *Save1Request) (*Save1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method Save1 not implemented")
+func (UnimplementedLibraryServiceServer) Save(context.Context, *SaveRequest) (*SaveResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Save not implemented")
 }
-func (UnimplementedStoreServiceServer) Save2_1(context.Context, *Save2_1Request) (*Save2_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method Save2_1 not implemented")
-}
-func (UnimplementedStoreServiceServer) SetOrientationStyle(context.Context, *SetOrientationStyleRequest) (*SetOrientationStyleResponse, error) {
+func (UnimplementedLibraryServiceServer) SetOrientationStyle(context.Context, *SetOrientationStyleRequest) (*SetOrientationStyleResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method SetOrientationStyle not implemented")
 }
-func (UnimplementedStoreServiceServer) SetSequenceType(context.Context, *SetSequenceTypeRequest) (*SetSequenceTypeResponse, error) {
+func (UnimplementedLibraryServiceServer) SetSequenceType(context.Context, *SetSequenceTypeRequest) (*SetSequenceTypeResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method SetSequenceType not implemented")
 }
-func (UnimplementedStoreServiceServer) mustEmbedUnimplementedStoreServiceServer() {}
-func (UnimplementedStoreServiceServer) testEmbeddedByValue()                      {}
+func (UnimplementedLibraryServiceServer) mustEmbedUnimplementedLibraryServiceServer() {}
+func (UnimplementedLibraryServiceServer) testEmbeddedByValue()                        {}
 
-// UnsafeStoreServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to StoreServiceServer will
+// UnsafeLibraryServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to LibraryServiceServer will
 // result in compilation errors.
-type UnsafeStoreServiceServer interface {
-	mustEmbedUnimplementedStoreServiceServer()
+type UnsafeLibraryServiceServer interface {
+	mustEmbedUnimplementedLibraryServiceServer()
 }
 
-func RegisterStoreServiceServer(s grpc.ServiceRegistrar, srv StoreServiceServer) {
-	// If the following call panics, it indicates UnimplementedStoreServiceServer was
+func RegisterLibraryServiceServer(s grpc.ServiceRegistrar, srv LibraryServiceServer) {
+	// If the following call panics, it indicates UnimplementedLibraryServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&StoreService_ServiceDesc, srv)
+	s.RegisterService(&LibraryService_ServiceDesc, srv)
 }
 
-func _StoreService_NewStore_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewStoreRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(StoreServiceServer).NewStore(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: StoreService_NewStore_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(StoreServiceServer).NewStore(ctx, req.(*NewStoreRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _StoreService_AddGesture_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _LibraryService_AddGesture_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(AddGestureRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(StoreServiceServer).AddGesture(ctx, in)
+		return srv.(LibraryServiceServer).AddGesture(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: StoreService_AddGesture_FullMethodName,
+		FullMethod: LibraryService_AddGesture_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(StoreServiceServer).AddGesture(ctx, req.(*AddGestureRequest))
+		return srv.(LibraryServiceServer).AddGesture(ctx, req.(*AddGestureRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _StoreService_GetOrientationStyle_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _LibraryService_GetGestureEntries_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetGestureEntriesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(LibraryServiceServer).GetGestureEntries(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: LibraryService_GetGestureEntries_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(LibraryServiceServer).GetGestureEntries(ctx, req.(*GetGestureEntriesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _LibraryService_GetGestures_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetGesturesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(LibraryServiceServer).GetGestures(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: LibraryService_GetGestures_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(LibraryServiceServer).GetGestures(ctx, req.(*GetGesturesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _LibraryService_GetOrientationStyle_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetOrientationStyleRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(StoreServiceServer).GetOrientationStyle(ctx, in)
+		return srv.(LibraryServiceServer).GetOrientationStyle(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: StoreService_GetOrientationStyle_FullMethodName,
+		FullMethod: LibraryService_GetOrientationStyle_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(StoreServiceServer).GetOrientationStyle(ctx, req.(*GetOrientationStyleRequest))
+		return srv.(LibraryServiceServer).GetOrientationStyle(ctx, req.(*GetOrientationStyleRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _StoreService_GetSequenceType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _LibraryService_GetSequenceType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetSequenceTypeRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(StoreServiceServer).GetSequenceType(ctx, in)
+		return srv.(LibraryServiceServer).GetSequenceType(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: StoreService_GetSequenceType_FullMethodName,
+		FullMethod: LibraryService_GetSequenceType_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(StoreServiceServer).GetSequenceType(ctx, req.(*GetSequenceTypeRequest))
+		return srv.(LibraryServiceServer).GetSequenceType(ctx, req.(*GetSequenceTypeRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _StoreService_HasChanged_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(HasChangedRequest)
+func _LibraryService_IsReadOnly_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsReadOnlyRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(StoreServiceServer).HasChanged(ctx, in)
+		return srv.(LibraryServiceServer).IsReadOnly(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: StoreService_HasChanged_FullMethodName,
+		FullMethod: LibraryService_IsReadOnly_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(StoreServiceServer).HasChanged(ctx, req.(*HasChangedRequest))
+		return srv.(LibraryServiceServer).IsReadOnly(ctx, req.(*IsReadOnlyRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _StoreService_Load1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(Load1Request)
+func _LibraryService_Load_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(LoadRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(StoreServiceServer).Load1(ctx, in)
+		return srv.(LibraryServiceServer).Load(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: StoreService_Load1_FullMethodName,
+		FullMethod: LibraryService_Load_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(StoreServiceServer).Load1(ctx, req.(*Load1Request))
+		return srv.(LibraryServiceServer).Load(ctx, req.(*LoadRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _StoreService_Load2_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(Load2_1Request)
+func _LibraryService_Recognize_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RecognizeRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(StoreServiceServer).Load2_1(ctx, in)
+		return srv.(LibraryServiceServer).Recognize(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: StoreService_Load2_1_FullMethodName,
+		FullMethod: LibraryService_Recognize_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(StoreServiceServer).Load2_1(ctx, req.(*Load2_1Request))
+		return srv.(LibraryServiceServer).Recognize(ctx, req.(*RecognizeRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _StoreService_RemoveEntry_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _LibraryService_RemoveEntry_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(RemoveEntryRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(StoreServiceServer).RemoveEntry(ctx, in)
+		return srv.(LibraryServiceServer).RemoveEntry(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: StoreService_RemoveEntry_FullMethodName,
+		FullMethod: LibraryService_RemoveEntry_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(StoreServiceServer).RemoveEntry(ctx, req.(*RemoveEntryRequest))
+		return srv.(LibraryServiceServer).RemoveEntry(ctx, req.(*RemoveEntryRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _StoreService_RemoveGesture_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _LibraryService_RemoveGesture_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(RemoveGestureRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(StoreServiceServer).RemoveGesture(ctx, in)
+		return srv.(LibraryServiceServer).RemoveGesture(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: StoreService_RemoveGesture_FullMethodName,
+		FullMethod: LibraryService_RemoveGesture_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(StoreServiceServer).RemoveGesture(ctx, req.(*RemoveGestureRequest))
+		return srv.(LibraryServiceServer).RemoveGesture(ctx, req.(*RemoveGestureRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _StoreService_Save1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(Save1Request)
+func _LibraryService_Save_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SaveRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(StoreServiceServer).Save1(ctx, in)
+		return srv.(LibraryServiceServer).Save(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: StoreService_Save1_FullMethodName,
+		FullMethod: LibraryService_Save_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(StoreServiceServer).Save1(ctx, req.(*Save1Request))
+		return srv.(LibraryServiceServer).Save(ctx, req.(*SaveRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _StoreService_Save2_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(Save2_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(StoreServiceServer).Save2_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: StoreService_Save2_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(StoreServiceServer).Save2_1(ctx, req.(*Save2_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _StoreService_SetOrientationStyle_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _LibraryService_SetOrientationStyle_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(SetOrientationStyleRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(StoreServiceServer).SetOrientationStyle(ctx, in)
+		return srv.(LibraryServiceServer).SetOrientationStyle(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: StoreService_SetOrientationStyle_FullMethodName,
+		FullMethod: LibraryService_SetOrientationStyle_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(StoreServiceServer).SetOrientationStyle(ctx, req.(*SetOrientationStyleRequest))
+		return srv.(LibraryServiceServer).SetOrientationStyle(ctx, req.(*SetOrientationStyleRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _StoreService_SetSequenceType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _LibraryService_SetSequenceType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(SetSequenceTypeRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(StoreServiceServer).SetSequenceType(ctx, in)
+		return srv.(LibraryServiceServer).SetSequenceType(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: StoreService_SetSequenceType_FullMethodName,
+		FullMethod: LibraryService_SetSequenceType_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(StoreServiceServer).SetSequenceType(ctx, req.(*SetSequenceTypeRequest))
+		return srv.(LibraryServiceServer).SetSequenceType(ctx, req.(*SetSequenceTypeRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// StoreService_ServiceDesc is the grpc.ServiceDesc for StoreService service.
+// LibraryService_ServiceDesc is the grpc.ServiceDesc for LibraryService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var StoreService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "gesture.StoreService",
-	HandlerType: (*StoreServiceServer)(nil),
+var LibraryService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "gesture.LibraryService",
+	HandlerType: (*LibraryServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "NewStore",
-			Handler:    _StoreService_NewStore_Handler,
+			MethodName: "AddGesture",
+			Handler:    _LibraryService_AddGesture_Handler,
 		},
 		{
-			MethodName: "AddGesture",
-			Handler:    _StoreService_AddGesture_Handler,
+			MethodName: "GetGestureEntries",
+			Handler:    _LibraryService_GetGestureEntries_Handler,
+		},
+		{
+			MethodName: "GetGestures",
+			Handler:    _LibraryService_GetGestures_Handler,
 		},
 		{
 			MethodName: "GetOrientationStyle",
-			Handler:    _StoreService_GetOrientationStyle_Handler,
+			Handler:    _LibraryService_GetOrientationStyle_Handler,
 		},
 		{
 			MethodName: "GetSequenceType",
-			Handler:    _StoreService_GetSequenceType_Handler,
+			Handler:    _LibraryService_GetSequenceType_Handler,
 		},
 		{
-			MethodName: "HasChanged",
-			Handler:    _StoreService_HasChanged_Handler,
+			MethodName: "IsReadOnly",
+			Handler:    _LibraryService_IsReadOnly_Handler,
 		},
 		{
-			MethodName: "Load1",
-			Handler:    _StoreService_Load1_Handler,
+			MethodName: "Load",
+			Handler:    _LibraryService_Load_Handler,
 		},
 		{
-			MethodName: "Load2_1",
-			Handler:    _StoreService_Load2_1_Handler,
+			MethodName: "Recognize",
+			Handler:    _LibraryService_Recognize_Handler,
 		},
 		{
 			MethodName: "RemoveEntry",
-			Handler:    _StoreService_RemoveEntry_Handler,
+			Handler:    _LibraryService_RemoveEntry_Handler,
 		},
 		{
 			MethodName: "RemoveGesture",
-			Handler:    _StoreService_RemoveGesture_Handler,
+			Handler:    _LibraryService_RemoveGesture_Handler,
 		},
 		{
-			MethodName: "Save1",
-			Handler:    _StoreService_Save1_Handler,
-		},
-		{
-			MethodName: "Save2_1",
-			Handler:    _StoreService_Save2_1_Handler,
+			MethodName: "Save",
+			Handler:    _LibraryService_Save_Handler,
 		},
 		{
 			MethodName: "SetOrientationStyle",
-			Handler:    _StoreService_SetOrientationStyle_Handler,
+			Handler:    _LibraryService_SetOrientationStyle_Handler,
 		},
 		{
 			MethodName: "SetSequenceType",
-			Handler:    _StoreService_SetSequenceType_Handler,
+			Handler:    _LibraryService_SetSequenceType_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/gesture/gesture.proto",
+}
+
+const (
+	PredictionService_ToString_FullMethodName = "/gesture.PredictionService/ToString"
+)
+
+// PredictionServiceClient is the client API for PredictionService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type PredictionServiceClient interface {
+	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+}
+
+type predictionServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewPredictionServiceClient(cc grpc.ClientConnInterface) PredictionServiceClient {
+	return &predictionServiceClient{cc}
+}
+
+func (c *predictionServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, PredictionService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// PredictionServiceServer is the server API for PredictionService service.
+// All implementations must embed UnimplementedPredictionServiceServer
+// for forward compatibility.
+type PredictionServiceServer interface {
+	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
+	mustEmbedUnimplementedPredictionServiceServer()
+}
+
+// UnimplementedPredictionServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedPredictionServiceServer struct{}
+
+func (UnimplementedPredictionServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedPredictionServiceServer) mustEmbedUnimplementedPredictionServiceServer() {}
+func (UnimplementedPredictionServiceServer) testEmbeddedByValue()                           {}
+
+// UnsafePredictionServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to PredictionServiceServer will
+// result in compilation errors.
+type UnsafePredictionServiceServer interface {
+	mustEmbedUnimplementedPredictionServiceServer()
+}
+
+func RegisterPredictionServiceServer(s grpc.ServiceRegistrar, srv PredictionServiceServer) {
+	// If the following call panics, it indicates UnimplementedPredictionServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&PredictionService_ServiceDesc, srv)
+}
+
+func _PredictionService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PredictionServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PredictionService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PredictionServiceServer).ToString(ctx, req.(*ToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// PredictionService_ServiceDesc is the grpc.ServiceDesc for PredictionService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var PredictionService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "gesture.PredictionService",
+	HandlerType: (*PredictionServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "ToString",
+			Handler:    _PredictionService_ToString_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/gesture/gesture.proto",
+}
+
+const (
+	PointService_NewPoint_FullMethodName = "/gesture.PointService/NewPoint"
+	PointService_Clone_FullMethodName    = "/gesture.PointService/Clone"
+)
+
+// PointServiceClient is the client API for PointService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type PointServiceClient interface {
+	NewPoint(ctx context.Context, in *NewPointRequest, opts ...grpc.CallOption) (*NewPointResponse, error)
+	Clone(ctx context.Context, in *CloneRequest, opts ...grpc.CallOption) (*CloneResponse, error)
+}
+
+type pointServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewPointServiceClient(cc grpc.ClientConnInterface) PointServiceClient {
+	return &pointServiceClient{cc}
+}
+
+func (c *pointServiceClient) NewPoint(ctx context.Context, in *NewPointRequest, opts ...grpc.CallOption) (*NewPointResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewPointResponse)
+	err := c.cc.Invoke(ctx, PointService_NewPoint_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *pointServiceClient) Clone(ctx context.Context, in *CloneRequest, opts ...grpc.CallOption) (*CloneResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CloneResponse)
+	err := c.cc.Invoke(ctx, PointService_Clone_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// PointServiceServer is the server API for PointService service.
+// All implementations must embed UnimplementedPointServiceServer
+// for forward compatibility.
+type PointServiceServer interface {
+	NewPoint(context.Context, *NewPointRequest) (*NewPointResponse, error)
+	Clone(context.Context, *CloneRequest) (*CloneResponse, error)
+	mustEmbedUnimplementedPointServiceServer()
+}
+
+// UnimplementedPointServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedPointServiceServer struct{}
+
+func (UnimplementedPointServiceServer) NewPoint(context.Context, *NewPointRequest) (*NewPointResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewPoint not implemented")
+}
+func (UnimplementedPointServiceServer) Clone(context.Context, *CloneRequest) (*CloneResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Clone not implemented")
+}
+func (UnimplementedPointServiceServer) mustEmbedUnimplementedPointServiceServer() {}
+func (UnimplementedPointServiceServer) testEmbeddedByValue()                      {}
+
+// UnsafePointServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to PointServiceServer will
+// result in compilation errors.
+type UnsafePointServiceServer interface {
+	mustEmbedUnimplementedPointServiceServer()
+}
+
+func RegisterPointServiceServer(s grpc.ServiceRegistrar, srv PointServiceServer) {
+	// If the following call panics, it indicates UnimplementedPointServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&PointService_ServiceDesc, srv)
+}
+
+func _PointService_NewPoint_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewPointRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PointServiceServer).NewPoint(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PointService_NewPoint_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PointServiceServer).NewPoint(ctx, req.(*NewPointRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PointService_Clone_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CloneRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PointServiceServer).Clone(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PointService_Clone_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PointServiceServer).Clone(ctx, req.(*CloneRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// PointService_ServiceDesc is the grpc.ServiceDesc for PointService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var PointService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "gesture.PointService",
+	HandlerType: (*PointServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewPoint",
+			Handler:    _PointService_NewPoint_Handler,
+		},
+		{
+			MethodName: "Clone",
+			Handler:    _PointService_Clone_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/gesture/gesture.proto",
+}
+
+const (
+	StrokeService_NewStroke_FullMethodName                  = "/gesture.StrokeService/NewStroke"
+	StrokeService_ClearPath_FullMethodName                  = "/gesture.StrokeService/ClearPath"
+	StrokeService_Clone_FullMethodName                      = "/gesture.StrokeService/Clone"
+	StrokeService_ComputeOrientedBoundingBox_FullMethodName = "/gesture.StrokeService/ComputeOrientedBoundingBox"
+	StrokeService_GetPath_FullMethodName                    = "/gesture.StrokeService/GetPath"
+	StrokeService_ToPath_FullMethodName                     = "/gesture.StrokeService/ToPath"
+)
+
+// StrokeServiceClient is the client API for StrokeService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type StrokeServiceClient interface {
+	NewStroke(ctx context.Context, in *NewStrokeRequest, opts ...grpc.CallOption) (*NewStrokeResponse, error)
+	ClearPath(ctx context.Context, in *ClearPathRequest, opts ...grpc.CallOption) (*ClearPathResponse, error)
+	Clone(ctx context.Context, in *CloneRequest, opts ...grpc.CallOption) (*CloneResponse, error)
+	ComputeOrientedBoundingBox(ctx context.Context, in *StrokeComputeOrientedBoundingBoxRequest, opts ...grpc.CallOption) (*ComputeOrientedBoundingBoxResponse, error)
+	GetPath(ctx context.Context, in *GetPathRequest, opts ...grpc.CallOption) (*GetPathResponse, error)
+	ToPath(ctx context.Context, in *ToPathRequest, opts ...grpc.CallOption) (*ToPathResponse, error)
+}
+
+type strokeServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewStrokeServiceClient(cc grpc.ClientConnInterface) StrokeServiceClient {
+	return &strokeServiceClient{cc}
+}
+
+func (c *strokeServiceClient) NewStroke(ctx context.Context, in *NewStrokeRequest, opts ...grpc.CallOption) (*NewStrokeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewStrokeResponse)
+	err := c.cc.Invoke(ctx, StrokeService_NewStroke_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *strokeServiceClient) ClearPath(ctx context.Context, in *ClearPathRequest, opts ...grpc.CallOption) (*ClearPathResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ClearPathResponse)
+	err := c.cc.Invoke(ctx, StrokeService_ClearPath_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *strokeServiceClient) Clone(ctx context.Context, in *CloneRequest, opts ...grpc.CallOption) (*CloneResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CloneResponse)
+	err := c.cc.Invoke(ctx, StrokeService_Clone_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *strokeServiceClient) ComputeOrientedBoundingBox(ctx context.Context, in *StrokeComputeOrientedBoundingBoxRequest, opts ...grpc.CallOption) (*ComputeOrientedBoundingBoxResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ComputeOrientedBoundingBoxResponse)
+	err := c.cc.Invoke(ctx, StrokeService_ComputeOrientedBoundingBox_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *strokeServiceClient) GetPath(ctx context.Context, in *GetPathRequest, opts ...grpc.CallOption) (*GetPathResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetPathResponse)
+	err := c.cc.Invoke(ctx, StrokeService_GetPath_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *strokeServiceClient) ToPath(ctx context.Context, in *ToPathRequest, opts ...grpc.CallOption) (*ToPathResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToPathResponse)
+	err := c.cc.Invoke(ctx, StrokeService_ToPath_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// StrokeServiceServer is the server API for StrokeService service.
+// All implementations must embed UnimplementedStrokeServiceServer
+// for forward compatibility.
+type StrokeServiceServer interface {
+	NewStroke(context.Context, *NewStrokeRequest) (*NewStrokeResponse, error)
+	ClearPath(context.Context, *ClearPathRequest) (*ClearPathResponse, error)
+	Clone(context.Context, *CloneRequest) (*CloneResponse, error)
+	ComputeOrientedBoundingBox(context.Context, *StrokeComputeOrientedBoundingBoxRequest) (*ComputeOrientedBoundingBoxResponse, error)
+	GetPath(context.Context, *GetPathRequest) (*GetPathResponse, error)
+	ToPath(context.Context, *ToPathRequest) (*ToPathResponse, error)
+	mustEmbedUnimplementedStrokeServiceServer()
+}
+
+// UnimplementedStrokeServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedStrokeServiceServer struct{}
+
+func (UnimplementedStrokeServiceServer) NewStroke(context.Context, *NewStrokeRequest) (*NewStrokeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewStroke not implemented")
+}
+func (UnimplementedStrokeServiceServer) ClearPath(context.Context, *ClearPathRequest) (*ClearPathResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ClearPath not implemented")
+}
+func (UnimplementedStrokeServiceServer) Clone(context.Context, *CloneRequest) (*CloneResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Clone not implemented")
+}
+func (UnimplementedStrokeServiceServer) ComputeOrientedBoundingBox(context.Context, *StrokeComputeOrientedBoundingBoxRequest) (*ComputeOrientedBoundingBoxResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ComputeOrientedBoundingBox not implemented")
+}
+func (UnimplementedStrokeServiceServer) GetPath(context.Context, *GetPathRequest) (*GetPathResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetPath not implemented")
+}
+func (UnimplementedStrokeServiceServer) ToPath(context.Context, *ToPathRequest) (*ToPathResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToPath not implemented")
+}
+func (UnimplementedStrokeServiceServer) mustEmbedUnimplementedStrokeServiceServer() {}
+func (UnimplementedStrokeServiceServer) testEmbeddedByValue()                       {}
+
+// UnsafeStrokeServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to StrokeServiceServer will
+// result in compilation errors.
+type UnsafeStrokeServiceServer interface {
+	mustEmbedUnimplementedStrokeServiceServer()
+}
+
+func RegisterStrokeServiceServer(s grpc.ServiceRegistrar, srv StrokeServiceServer) {
+	// If the following call panics, it indicates UnimplementedStrokeServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&StrokeService_ServiceDesc, srv)
+}
+
+func _StrokeService_NewStroke_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewStrokeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(StrokeServiceServer).NewStroke(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: StrokeService_NewStroke_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(StrokeServiceServer).NewStroke(ctx, req.(*NewStrokeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _StrokeService_ClearPath_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ClearPathRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(StrokeServiceServer).ClearPath(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: StrokeService_ClearPath_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(StrokeServiceServer).ClearPath(ctx, req.(*ClearPathRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _StrokeService_Clone_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CloneRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(StrokeServiceServer).Clone(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: StrokeService_Clone_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(StrokeServiceServer).Clone(ctx, req.(*CloneRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _StrokeService_ComputeOrientedBoundingBox_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(StrokeComputeOrientedBoundingBoxRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(StrokeServiceServer).ComputeOrientedBoundingBox(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: StrokeService_ComputeOrientedBoundingBox_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(StrokeServiceServer).ComputeOrientedBoundingBox(ctx, req.(*StrokeComputeOrientedBoundingBoxRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _StrokeService_GetPath_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPathRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(StrokeServiceServer).GetPath(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: StrokeService_GetPath_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(StrokeServiceServer).GetPath(ctx, req.(*GetPathRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _StrokeService_ToPath_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ToPathRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(StrokeServiceServer).ToPath(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: StrokeService_ToPath_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(StrokeServiceServer).ToPath(ctx, req.(*ToPathRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// StrokeService_ServiceDesc is the grpc.ServiceDesc for StrokeService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var StrokeService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "gesture.StrokeService",
+	HandlerType: (*StrokeServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewStroke",
+			Handler:    _StrokeService_NewStroke_Handler,
+		},
+		{
+			MethodName: "ClearPath",
+			Handler:    _StrokeService_ClearPath_Handler,
+		},
+		{
+			MethodName: "Clone",
+			Handler:    _StrokeService_Clone_Handler,
+		},
+		{
+			MethodName: "ComputeOrientedBoundingBox",
+			Handler:    _StrokeService_ComputeOrientedBoundingBox_Handler,
+		},
+		{
+			MethodName: "GetPath",
+			Handler:    _StrokeService_GetPath_Handler,
+		},
+		{
+			MethodName: "ToPath",
+			Handler:    _StrokeService_ToPath_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/gesture/gesture.proto",
+}
+
+const (
+	LibrariesService_FromFile1_FullMethodName          = "/gesture.LibrariesService/FromFile1"
+	LibrariesService_FromFile1_1_FullMethodName        = "/gesture.LibrariesService/FromFile1_1"
+	LibrariesService_FromFileDescriptor_FullMethodName = "/gesture.LibrariesService/FromFileDescriptor"
+	LibrariesService_FromPrivateFile_FullMethodName    = "/gesture.LibrariesService/FromPrivateFile"
+	LibrariesService_FromRawResource_FullMethodName    = "/gesture.LibrariesService/FromRawResource"
+)
+
+// LibrariesServiceClient is the client API for LibrariesService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type LibrariesServiceClient interface {
+	FromFile1(ctx context.Context, in *FromFile1Request, opts ...grpc.CallOption) (*FromFile1Response, error)
+	FromFile1_1(ctx context.Context, in *FromFile1_1Request, opts ...grpc.CallOption) (*FromFile1_1Response, error)
+	FromFileDescriptor(ctx context.Context, in *FromFileDescriptorRequest, opts ...grpc.CallOption) (*FromFileDescriptorResponse, error)
+	FromPrivateFile(ctx context.Context, in *FromPrivateFileRequest, opts ...grpc.CallOption) (*FromPrivateFileResponse, error)
+	FromRawResource(ctx context.Context, in *FromRawResourceRequest, opts ...grpc.CallOption) (*FromRawResourceResponse, error)
+}
+
+type librariesServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewLibrariesServiceClient(cc grpc.ClientConnInterface) LibrariesServiceClient {
+	return &librariesServiceClient{cc}
+}
+
+func (c *librariesServiceClient) FromFile1(ctx context.Context, in *FromFile1Request, opts ...grpc.CallOption) (*FromFile1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(FromFile1Response)
+	err := c.cc.Invoke(ctx, LibrariesService_FromFile1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *librariesServiceClient) FromFile1_1(ctx context.Context, in *FromFile1_1Request, opts ...grpc.CallOption) (*FromFile1_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(FromFile1_1Response)
+	err := c.cc.Invoke(ctx, LibrariesService_FromFile1_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *librariesServiceClient) FromFileDescriptor(ctx context.Context, in *FromFileDescriptorRequest, opts ...grpc.CallOption) (*FromFileDescriptorResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(FromFileDescriptorResponse)
+	err := c.cc.Invoke(ctx, LibrariesService_FromFileDescriptor_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *librariesServiceClient) FromPrivateFile(ctx context.Context, in *FromPrivateFileRequest, opts ...grpc.CallOption) (*FromPrivateFileResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(FromPrivateFileResponse)
+	err := c.cc.Invoke(ctx, LibrariesService_FromPrivateFile_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *librariesServiceClient) FromRawResource(ctx context.Context, in *FromRawResourceRequest, opts ...grpc.CallOption) (*FromRawResourceResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(FromRawResourceResponse)
+	err := c.cc.Invoke(ctx, LibrariesService_FromRawResource_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// LibrariesServiceServer is the server API for LibrariesService service.
+// All implementations must embed UnimplementedLibrariesServiceServer
+// for forward compatibility.
+type LibrariesServiceServer interface {
+	FromFile1(context.Context, *FromFile1Request) (*FromFile1Response, error)
+	FromFile1_1(context.Context, *FromFile1_1Request) (*FromFile1_1Response, error)
+	FromFileDescriptor(context.Context, *FromFileDescriptorRequest) (*FromFileDescriptorResponse, error)
+	FromPrivateFile(context.Context, *FromPrivateFileRequest) (*FromPrivateFileResponse, error)
+	FromRawResource(context.Context, *FromRawResourceRequest) (*FromRawResourceResponse, error)
+	mustEmbedUnimplementedLibrariesServiceServer()
+}
+
+// UnimplementedLibrariesServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedLibrariesServiceServer struct{}
+
+func (UnimplementedLibrariesServiceServer) FromFile1(context.Context, *FromFile1Request) (*FromFile1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method FromFile1 not implemented")
+}
+func (UnimplementedLibrariesServiceServer) FromFile1_1(context.Context, *FromFile1_1Request) (*FromFile1_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method FromFile1_1 not implemented")
+}
+func (UnimplementedLibrariesServiceServer) FromFileDescriptor(context.Context, *FromFileDescriptorRequest) (*FromFileDescriptorResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method FromFileDescriptor not implemented")
+}
+func (UnimplementedLibrariesServiceServer) FromPrivateFile(context.Context, *FromPrivateFileRequest) (*FromPrivateFileResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method FromPrivateFile not implemented")
+}
+func (UnimplementedLibrariesServiceServer) FromRawResource(context.Context, *FromRawResourceRequest) (*FromRawResourceResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method FromRawResource not implemented")
+}
+func (UnimplementedLibrariesServiceServer) mustEmbedUnimplementedLibrariesServiceServer() {}
+func (UnimplementedLibrariesServiceServer) testEmbeddedByValue()                          {}
+
+// UnsafeLibrariesServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to LibrariesServiceServer will
+// result in compilation errors.
+type UnsafeLibrariesServiceServer interface {
+	mustEmbedUnimplementedLibrariesServiceServer()
+}
+
+func RegisterLibrariesServiceServer(s grpc.ServiceRegistrar, srv LibrariesServiceServer) {
+	// If the following call panics, it indicates UnimplementedLibrariesServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&LibrariesService_ServiceDesc, srv)
+}
+
+func _LibrariesService_FromFile1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(FromFile1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(LibrariesServiceServer).FromFile1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: LibrariesService_FromFile1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(LibrariesServiceServer).FromFile1(ctx, req.(*FromFile1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _LibrariesService_FromFile1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(FromFile1_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(LibrariesServiceServer).FromFile1_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: LibrariesService_FromFile1_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(LibrariesServiceServer).FromFile1_1(ctx, req.(*FromFile1_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _LibrariesService_FromFileDescriptor_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(FromFileDescriptorRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(LibrariesServiceServer).FromFileDescriptor(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: LibrariesService_FromFileDescriptor_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(LibrariesServiceServer).FromFileDescriptor(ctx, req.(*FromFileDescriptorRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _LibrariesService_FromPrivateFile_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(FromPrivateFileRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(LibrariesServiceServer).FromPrivateFile(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: LibrariesService_FromPrivateFile_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(LibrariesServiceServer).FromPrivateFile(ctx, req.(*FromPrivateFileRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _LibrariesService_FromRawResource_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(FromRawResourceRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(LibrariesServiceServer).FromRawResource(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: LibrariesService_FromRawResource_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(LibrariesServiceServer).FromRawResource(ctx, req.(*FromRawResourceRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// LibrariesService_ServiceDesc is the grpc.ServiceDesc for LibrariesService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var LibrariesService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "gesture.LibrariesService",
+	HandlerType: (*LibrariesServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "FromFile1",
+			Handler:    _LibrariesService_FromFile1_Handler,
+		},
+		{
+			MethodName: "FromFile1_1",
+			Handler:    _LibrariesService_FromFile1_1_Handler,
+		},
+		{
+			MethodName: "FromFileDescriptor",
+			Handler:    _LibrariesService_FromFileDescriptor_Handler,
+		},
+		{
+			MethodName: "FromPrivateFile",
+			Handler:    _LibrariesService_FromPrivateFile_Handler,
+		},
+		{
+			MethodName: "FromRawResource",
+			Handler:    _LibrariesService_FromRawResource_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -1222,6 +1592,7 @@ const (
 	OverlayViewService_Clear_FullMethodName                                = "/gesture.OverlayViewService/Clear"
 	OverlayViewService_DispatchTouchEvent_FullMethodName                   = "/gesture.OverlayViewService/DispatchTouchEvent"
 	OverlayViewService_Draw_FullMethodName                                 = "/gesture.OverlayViewService/Draw"
+	OverlayViewService_GetCurrentStroke_FullMethodName                     = "/gesture.OverlayViewService/GetCurrentStroke"
 	OverlayViewService_GetFadeOffset_FullMethodName                        = "/gesture.OverlayViewService/GetFadeOffset"
 	OverlayViewService_GetGesture_FullMethodName                           = "/gesture.OverlayViewService/GetGesture"
 	OverlayViewService_GetGestureColor_FullMethodName                      = "/gesture.OverlayViewService/GetGestureColor"
@@ -1272,6 +1643,7 @@ type OverlayViewServiceClient interface {
 	Clear(ctx context.Context, in *ClearRequest, opts ...grpc.CallOption) (*ClearResponse, error)
 	DispatchTouchEvent(ctx context.Context, in *DispatchTouchEventRequest, opts ...grpc.CallOption) (*DispatchTouchEventResponse, error)
 	Draw(ctx context.Context, in *DrawRequest, opts ...grpc.CallOption) (*DrawResponse, error)
+	GetCurrentStroke(ctx context.Context, in *GetCurrentStrokeRequest, opts ...grpc.CallOption) (*GetCurrentStrokeResponse, error)
 	GetFadeOffset(ctx context.Context, in *GetFadeOffsetRequest, opts ...grpc.CallOption) (*GetFadeOffsetResponse, error)
 	GetGesture(ctx context.Context, in *GetGestureRequest, opts ...grpc.CallOption) (*GetGestureResponse, error)
 	GetGestureColor(ctx context.Context, in *GetGestureColorRequest, opts ...grpc.CallOption) (*GetGestureColorResponse, error)
@@ -1401,6 +1773,16 @@ func (c *overlayViewServiceClient) Draw(ctx context.Context, in *DrawRequest, op
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(DrawResponse)
 	err := c.cc.Invoke(ctx, OverlayViewService_Draw_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *overlayViewServiceClient) GetCurrentStroke(ctx context.Context, in *GetCurrentStrokeRequest, opts ...grpc.CallOption) (*GetCurrentStrokeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetCurrentStrokeResponse)
+	err := c.cc.Invoke(ctx, OverlayViewService_GetCurrentStroke_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -1770,6 +2152,7 @@ type OverlayViewServiceServer interface {
 	Clear(context.Context, *ClearRequest) (*ClearResponse, error)
 	DispatchTouchEvent(context.Context, *DispatchTouchEventRequest) (*DispatchTouchEventResponse, error)
 	Draw(context.Context, *DrawRequest) (*DrawResponse, error)
+	GetCurrentStroke(context.Context, *GetCurrentStrokeRequest) (*GetCurrentStrokeResponse, error)
 	GetFadeOffset(context.Context, *GetFadeOffsetRequest) (*GetFadeOffsetResponse, error)
 	GetGesture(context.Context, *GetGestureRequest) (*GetGestureResponse, error)
 	GetGestureColor(context.Context, *GetGestureColorRequest) (*GetGestureColorResponse, error)
@@ -1841,6 +2224,9 @@ func (UnimplementedOverlayViewServiceServer) DispatchTouchEvent(context.Context,
 }
 func (UnimplementedOverlayViewServiceServer) Draw(context.Context, *DrawRequest) (*DrawResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method Draw not implemented")
+}
+func (UnimplementedOverlayViewServiceServer) GetCurrentStroke(context.Context, *GetCurrentStrokeRequest) (*GetCurrentStrokeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetCurrentStroke not implemented")
 }
 func (UnimplementedOverlayViewServiceServer) GetFadeOffset(context.Context, *GetFadeOffsetRequest) (*GetFadeOffsetResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetFadeOffset not implemented")
@@ -2126,6 +2512,24 @@ func _OverlayViewService_Draw_Handler(srv interface{}, ctx context.Context, dec 
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(OverlayViewServiceServer).Draw(ctx, req.(*DrawRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _OverlayViewService_GetCurrentStroke_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetCurrentStrokeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(OverlayViewServiceServer).GetCurrentStroke(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: OverlayViewService_GetCurrentStroke_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(OverlayViewServiceServer).GetCurrentStroke(ctx, req.(*GetCurrentStrokeRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -2804,6 +3208,10 @@ var OverlayViewService_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _OverlayViewService_Draw_Handler,
 		},
 		{
+			MethodName: "GetCurrentStroke",
+			Handler:    _OverlayViewService_GetCurrentStroke_Handler,
+		},
+		{
 			MethodName: "GetFadeOffset",
 			Handler:    _OverlayViewService_GetFadeOffset_Handler,
 		},
@@ -3410,443 +3818,671 @@ var OverlayViewOnGesturingListenerService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	LibraryService_AddGesture_FullMethodName          = "/gesture.LibraryService/AddGesture"
-	LibraryService_GetOrientationStyle_FullMethodName = "/gesture.LibraryService/GetOrientationStyle"
-	LibraryService_GetSequenceType_FullMethodName     = "/gesture.LibraryService/GetSequenceType"
-	LibraryService_IsReadOnly_FullMethodName          = "/gesture.LibraryService/IsReadOnly"
-	LibraryService_Load_FullMethodName                = "/gesture.LibraryService/Load"
-	LibraryService_RemoveEntry_FullMethodName         = "/gesture.LibraryService/RemoveEntry"
-	LibraryService_RemoveGesture_FullMethodName       = "/gesture.LibraryService/RemoveGesture"
-	LibraryService_Save_FullMethodName                = "/gesture.LibraryService/Save"
-	LibraryService_SetOrientationStyle_FullMethodName = "/gesture.LibraryService/SetOrientationStyle"
-	LibraryService_SetSequenceType_FullMethodName     = "/gesture.LibraryService/SetSequenceType"
+	StoreService_NewStore_FullMethodName            = "/gesture.StoreService/NewStore"
+	StoreService_AddGesture_FullMethodName          = "/gesture.StoreService/AddGesture"
+	StoreService_GetGestureEntries_FullMethodName   = "/gesture.StoreService/GetGestureEntries"
+	StoreService_GetGestures_FullMethodName         = "/gesture.StoreService/GetGestures"
+	StoreService_GetOrientationStyle_FullMethodName = "/gesture.StoreService/GetOrientationStyle"
+	StoreService_GetSequenceType_FullMethodName     = "/gesture.StoreService/GetSequenceType"
+	StoreService_HasChanged_FullMethodName          = "/gesture.StoreService/HasChanged"
+	StoreService_Load1_FullMethodName               = "/gesture.StoreService/Load1"
+	StoreService_Load2_1_FullMethodName             = "/gesture.StoreService/Load2_1"
+	StoreService_Recognize_FullMethodName           = "/gesture.StoreService/Recognize"
+	StoreService_RemoveEntry_FullMethodName         = "/gesture.StoreService/RemoveEntry"
+	StoreService_RemoveGesture_FullMethodName       = "/gesture.StoreService/RemoveGesture"
+	StoreService_Save1_FullMethodName               = "/gesture.StoreService/Save1"
+	StoreService_Save2_1_FullMethodName             = "/gesture.StoreService/Save2_1"
+	StoreService_SetOrientationStyle_FullMethodName = "/gesture.StoreService/SetOrientationStyle"
+	StoreService_SetSequenceType_FullMethodName     = "/gesture.StoreService/SetSequenceType"
 )
 
-// LibraryServiceClient is the client API for LibraryService service.
+// StoreServiceClient is the client API for StoreService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type LibraryServiceClient interface {
-	AddGesture(ctx context.Context, in *LibraryAddGestureRequest, opts ...grpc.CallOption) (*AddGestureResponse, error)
-	GetOrientationStyle(ctx context.Context, in *LibraryGetOrientationStyleRequest, opts ...grpc.CallOption) (*GetOrientationStyleResponse, error)
-	GetSequenceType(ctx context.Context, in *LibraryGetSequenceTypeRequest, opts ...grpc.CallOption) (*GetSequenceTypeResponse, error)
-	IsReadOnly(ctx context.Context, in *IsReadOnlyRequest, opts ...grpc.CallOption) (*IsReadOnlyResponse, error)
-	Load(ctx context.Context, in *LoadRequest, opts ...grpc.CallOption) (*LoadResponse, error)
-	RemoveEntry(ctx context.Context, in *LibraryRemoveEntryRequest, opts ...grpc.CallOption) (*RemoveEntryResponse, error)
-	RemoveGesture(ctx context.Context, in *LibraryRemoveGestureRequest, opts ...grpc.CallOption) (*RemoveGestureResponse, error)
-	Save(ctx context.Context, in *SaveRequest, opts ...grpc.CallOption) (*SaveResponse, error)
-	SetOrientationStyle(ctx context.Context, in *LibrarySetOrientationStyleRequest, opts ...grpc.CallOption) (*SetOrientationStyleResponse, error)
-	SetSequenceType(ctx context.Context, in *LibrarySetSequenceTypeRequest, opts ...grpc.CallOption) (*SetSequenceTypeResponse, error)
+type StoreServiceClient interface {
+	NewStore(ctx context.Context, in *NewStoreRequest, opts ...grpc.CallOption) (*NewStoreResponse, error)
+	AddGesture(ctx context.Context, in *StoreAddGestureRequest, opts ...grpc.CallOption) (*AddGestureResponse, error)
+	GetGestureEntries(ctx context.Context, in *StoreGetGestureEntriesRequest, opts ...grpc.CallOption) (*GetGestureEntriesResponse, error)
+	GetGestures(ctx context.Context, in *StoreGetGesturesRequest, opts ...grpc.CallOption) (*GetGesturesResponse, error)
+	GetOrientationStyle(ctx context.Context, in *StoreGetOrientationStyleRequest, opts ...grpc.CallOption) (*GetOrientationStyleResponse, error)
+	GetSequenceType(ctx context.Context, in *StoreGetSequenceTypeRequest, opts ...grpc.CallOption) (*GetSequenceTypeResponse, error)
+	HasChanged(ctx context.Context, in *HasChangedRequest, opts ...grpc.CallOption) (*HasChangedResponse, error)
+	Load1(ctx context.Context, in *Load1Request, opts ...grpc.CallOption) (*Load1Response, error)
+	Load2_1(ctx context.Context, in *Load2_1Request, opts ...grpc.CallOption) (*Load2_1Response, error)
+	Recognize(ctx context.Context, in *StoreRecognizeRequest, opts ...grpc.CallOption) (*RecognizeResponse, error)
+	RemoveEntry(ctx context.Context, in *StoreRemoveEntryRequest, opts ...grpc.CallOption) (*RemoveEntryResponse, error)
+	RemoveGesture(ctx context.Context, in *StoreRemoveGestureRequest, opts ...grpc.CallOption) (*RemoveGestureResponse, error)
+	Save1(ctx context.Context, in *Save1Request, opts ...grpc.CallOption) (*Save1Response, error)
+	Save2_1(ctx context.Context, in *Save2_1Request, opts ...grpc.CallOption) (*Save2_1Response, error)
+	SetOrientationStyle(ctx context.Context, in *StoreSetOrientationStyleRequest, opts ...grpc.CallOption) (*SetOrientationStyleResponse, error)
+	SetSequenceType(ctx context.Context, in *StoreSetSequenceTypeRequest, opts ...grpc.CallOption) (*SetSequenceTypeResponse, error)
 }
 
-type libraryServiceClient struct {
+type storeServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewLibraryServiceClient(cc grpc.ClientConnInterface) LibraryServiceClient {
-	return &libraryServiceClient{cc}
+func NewStoreServiceClient(cc grpc.ClientConnInterface) StoreServiceClient {
+	return &storeServiceClient{cc}
 }
 
-func (c *libraryServiceClient) AddGesture(ctx context.Context, in *LibraryAddGestureRequest, opts ...grpc.CallOption) (*AddGestureResponse, error) {
+func (c *storeServiceClient) NewStore(ctx context.Context, in *NewStoreRequest, opts ...grpc.CallOption) (*NewStoreResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewStoreResponse)
+	err := c.cc.Invoke(ctx, StoreService_NewStore_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *storeServiceClient) AddGesture(ctx context.Context, in *StoreAddGestureRequest, opts ...grpc.CallOption) (*AddGestureResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(AddGestureResponse)
-	err := c.cc.Invoke(ctx, LibraryService_AddGesture_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, StoreService_AddGesture_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *libraryServiceClient) GetOrientationStyle(ctx context.Context, in *LibraryGetOrientationStyleRequest, opts ...grpc.CallOption) (*GetOrientationStyleResponse, error) {
+func (c *storeServiceClient) GetGestureEntries(ctx context.Context, in *StoreGetGestureEntriesRequest, opts ...grpc.CallOption) (*GetGestureEntriesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetGestureEntriesResponse)
+	err := c.cc.Invoke(ctx, StoreService_GetGestureEntries_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *storeServiceClient) GetGestures(ctx context.Context, in *StoreGetGesturesRequest, opts ...grpc.CallOption) (*GetGesturesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetGesturesResponse)
+	err := c.cc.Invoke(ctx, StoreService_GetGestures_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *storeServiceClient) GetOrientationStyle(ctx context.Context, in *StoreGetOrientationStyleRequest, opts ...grpc.CallOption) (*GetOrientationStyleResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetOrientationStyleResponse)
-	err := c.cc.Invoke(ctx, LibraryService_GetOrientationStyle_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, StoreService_GetOrientationStyle_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *libraryServiceClient) GetSequenceType(ctx context.Context, in *LibraryGetSequenceTypeRequest, opts ...grpc.CallOption) (*GetSequenceTypeResponse, error) {
+func (c *storeServiceClient) GetSequenceType(ctx context.Context, in *StoreGetSequenceTypeRequest, opts ...grpc.CallOption) (*GetSequenceTypeResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetSequenceTypeResponse)
-	err := c.cc.Invoke(ctx, LibraryService_GetSequenceType_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, StoreService_GetSequenceType_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *libraryServiceClient) IsReadOnly(ctx context.Context, in *IsReadOnlyRequest, opts ...grpc.CallOption) (*IsReadOnlyResponse, error) {
+func (c *storeServiceClient) HasChanged(ctx context.Context, in *HasChangedRequest, opts ...grpc.CallOption) (*HasChangedResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsReadOnlyResponse)
-	err := c.cc.Invoke(ctx, LibraryService_IsReadOnly_FullMethodName, in, out, cOpts...)
+	out := new(HasChangedResponse)
+	err := c.cc.Invoke(ctx, StoreService_HasChanged_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *libraryServiceClient) Load(ctx context.Context, in *LoadRequest, opts ...grpc.CallOption) (*LoadResponse, error) {
+func (c *storeServiceClient) Load1(ctx context.Context, in *Load1Request, opts ...grpc.CallOption) (*Load1Response, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(LoadResponse)
-	err := c.cc.Invoke(ctx, LibraryService_Load_FullMethodName, in, out, cOpts...)
+	out := new(Load1Response)
+	err := c.cc.Invoke(ctx, StoreService_Load1_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *libraryServiceClient) RemoveEntry(ctx context.Context, in *LibraryRemoveEntryRequest, opts ...grpc.CallOption) (*RemoveEntryResponse, error) {
+func (c *storeServiceClient) Load2_1(ctx context.Context, in *Load2_1Request, opts ...grpc.CallOption) (*Load2_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(Load2_1Response)
+	err := c.cc.Invoke(ctx, StoreService_Load2_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *storeServiceClient) Recognize(ctx context.Context, in *StoreRecognizeRequest, opts ...grpc.CallOption) (*RecognizeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(RecognizeResponse)
+	err := c.cc.Invoke(ctx, StoreService_Recognize_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *storeServiceClient) RemoveEntry(ctx context.Context, in *StoreRemoveEntryRequest, opts ...grpc.CallOption) (*RemoveEntryResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(RemoveEntryResponse)
-	err := c.cc.Invoke(ctx, LibraryService_RemoveEntry_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, StoreService_RemoveEntry_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *libraryServiceClient) RemoveGesture(ctx context.Context, in *LibraryRemoveGestureRequest, opts ...grpc.CallOption) (*RemoveGestureResponse, error) {
+func (c *storeServiceClient) RemoveGesture(ctx context.Context, in *StoreRemoveGestureRequest, opts ...grpc.CallOption) (*RemoveGestureResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(RemoveGestureResponse)
-	err := c.cc.Invoke(ctx, LibraryService_RemoveGesture_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, StoreService_RemoveGesture_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *libraryServiceClient) Save(ctx context.Context, in *SaveRequest, opts ...grpc.CallOption) (*SaveResponse, error) {
+func (c *storeServiceClient) Save1(ctx context.Context, in *Save1Request, opts ...grpc.CallOption) (*Save1Response, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SaveResponse)
-	err := c.cc.Invoke(ctx, LibraryService_Save_FullMethodName, in, out, cOpts...)
+	out := new(Save1Response)
+	err := c.cc.Invoke(ctx, StoreService_Save1_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *libraryServiceClient) SetOrientationStyle(ctx context.Context, in *LibrarySetOrientationStyleRequest, opts ...grpc.CallOption) (*SetOrientationStyleResponse, error) {
+func (c *storeServiceClient) Save2_1(ctx context.Context, in *Save2_1Request, opts ...grpc.CallOption) (*Save2_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(Save2_1Response)
+	err := c.cc.Invoke(ctx, StoreService_Save2_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *storeServiceClient) SetOrientationStyle(ctx context.Context, in *StoreSetOrientationStyleRequest, opts ...grpc.CallOption) (*SetOrientationStyleResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(SetOrientationStyleResponse)
-	err := c.cc.Invoke(ctx, LibraryService_SetOrientationStyle_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, StoreService_SetOrientationStyle_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *libraryServiceClient) SetSequenceType(ctx context.Context, in *LibrarySetSequenceTypeRequest, opts ...grpc.CallOption) (*SetSequenceTypeResponse, error) {
+func (c *storeServiceClient) SetSequenceType(ctx context.Context, in *StoreSetSequenceTypeRequest, opts ...grpc.CallOption) (*SetSequenceTypeResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(SetSequenceTypeResponse)
-	err := c.cc.Invoke(ctx, LibraryService_SetSequenceType_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, StoreService_SetSequenceType_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// LibraryServiceServer is the server API for LibraryService service.
-// All implementations must embed UnimplementedLibraryServiceServer
+// StoreServiceServer is the server API for StoreService service.
+// All implementations must embed UnimplementedStoreServiceServer
 // for forward compatibility.
-type LibraryServiceServer interface {
-	AddGesture(context.Context, *LibraryAddGestureRequest) (*AddGestureResponse, error)
-	GetOrientationStyle(context.Context, *LibraryGetOrientationStyleRequest) (*GetOrientationStyleResponse, error)
-	GetSequenceType(context.Context, *LibraryGetSequenceTypeRequest) (*GetSequenceTypeResponse, error)
-	IsReadOnly(context.Context, *IsReadOnlyRequest) (*IsReadOnlyResponse, error)
-	Load(context.Context, *LoadRequest) (*LoadResponse, error)
-	RemoveEntry(context.Context, *LibraryRemoveEntryRequest) (*RemoveEntryResponse, error)
-	RemoveGesture(context.Context, *LibraryRemoveGestureRequest) (*RemoveGestureResponse, error)
-	Save(context.Context, *SaveRequest) (*SaveResponse, error)
-	SetOrientationStyle(context.Context, *LibrarySetOrientationStyleRequest) (*SetOrientationStyleResponse, error)
-	SetSequenceType(context.Context, *LibrarySetSequenceTypeRequest) (*SetSequenceTypeResponse, error)
-	mustEmbedUnimplementedLibraryServiceServer()
+type StoreServiceServer interface {
+	NewStore(context.Context, *NewStoreRequest) (*NewStoreResponse, error)
+	AddGesture(context.Context, *StoreAddGestureRequest) (*AddGestureResponse, error)
+	GetGestureEntries(context.Context, *StoreGetGestureEntriesRequest) (*GetGestureEntriesResponse, error)
+	GetGestures(context.Context, *StoreGetGesturesRequest) (*GetGesturesResponse, error)
+	GetOrientationStyle(context.Context, *StoreGetOrientationStyleRequest) (*GetOrientationStyleResponse, error)
+	GetSequenceType(context.Context, *StoreGetSequenceTypeRequest) (*GetSequenceTypeResponse, error)
+	HasChanged(context.Context, *HasChangedRequest) (*HasChangedResponse, error)
+	Load1(context.Context, *Load1Request) (*Load1Response, error)
+	Load2_1(context.Context, *Load2_1Request) (*Load2_1Response, error)
+	Recognize(context.Context, *StoreRecognizeRequest) (*RecognizeResponse, error)
+	RemoveEntry(context.Context, *StoreRemoveEntryRequest) (*RemoveEntryResponse, error)
+	RemoveGesture(context.Context, *StoreRemoveGestureRequest) (*RemoveGestureResponse, error)
+	Save1(context.Context, *Save1Request) (*Save1Response, error)
+	Save2_1(context.Context, *Save2_1Request) (*Save2_1Response, error)
+	SetOrientationStyle(context.Context, *StoreSetOrientationStyleRequest) (*SetOrientationStyleResponse, error)
+	SetSequenceType(context.Context, *StoreSetSequenceTypeRequest) (*SetSequenceTypeResponse, error)
+	mustEmbedUnimplementedStoreServiceServer()
 }
 
-// UnimplementedLibraryServiceServer must be embedded to have
+// UnimplementedStoreServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedLibraryServiceServer struct{}
+type UnimplementedStoreServiceServer struct{}
 
-func (UnimplementedLibraryServiceServer) AddGesture(context.Context, *LibraryAddGestureRequest) (*AddGestureResponse, error) {
+func (UnimplementedStoreServiceServer) NewStore(context.Context, *NewStoreRequest) (*NewStoreResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewStore not implemented")
+}
+func (UnimplementedStoreServiceServer) AddGesture(context.Context, *StoreAddGestureRequest) (*AddGestureResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method AddGesture not implemented")
 }
-func (UnimplementedLibraryServiceServer) GetOrientationStyle(context.Context, *LibraryGetOrientationStyleRequest) (*GetOrientationStyleResponse, error) {
+func (UnimplementedStoreServiceServer) GetGestureEntries(context.Context, *StoreGetGestureEntriesRequest) (*GetGestureEntriesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetGestureEntries not implemented")
+}
+func (UnimplementedStoreServiceServer) GetGestures(context.Context, *StoreGetGesturesRequest) (*GetGesturesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetGestures not implemented")
+}
+func (UnimplementedStoreServiceServer) GetOrientationStyle(context.Context, *StoreGetOrientationStyleRequest) (*GetOrientationStyleResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetOrientationStyle not implemented")
 }
-func (UnimplementedLibraryServiceServer) GetSequenceType(context.Context, *LibraryGetSequenceTypeRequest) (*GetSequenceTypeResponse, error) {
+func (UnimplementedStoreServiceServer) GetSequenceType(context.Context, *StoreGetSequenceTypeRequest) (*GetSequenceTypeResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetSequenceType not implemented")
 }
-func (UnimplementedLibraryServiceServer) IsReadOnly(context.Context, *IsReadOnlyRequest) (*IsReadOnlyResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsReadOnly not implemented")
+func (UnimplementedStoreServiceServer) HasChanged(context.Context, *HasChangedRequest) (*HasChangedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HasChanged not implemented")
 }
-func (UnimplementedLibraryServiceServer) Load(context.Context, *LoadRequest) (*LoadResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Load not implemented")
+func (UnimplementedStoreServiceServer) Load1(context.Context, *Load1Request) (*Load1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method Load1 not implemented")
 }
-func (UnimplementedLibraryServiceServer) RemoveEntry(context.Context, *LibraryRemoveEntryRequest) (*RemoveEntryResponse, error) {
+func (UnimplementedStoreServiceServer) Load2_1(context.Context, *Load2_1Request) (*Load2_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method Load2_1 not implemented")
+}
+func (UnimplementedStoreServiceServer) Recognize(context.Context, *StoreRecognizeRequest) (*RecognizeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Recognize not implemented")
+}
+func (UnimplementedStoreServiceServer) RemoveEntry(context.Context, *StoreRemoveEntryRequest) (*RemoveEntryResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method RemoveEntry not implemented")
 }
-func (UnimplementedLibraryServiceServer) RemoveGesture(context.Context, *LibraryRemoveGestureRequest) (*RemoveGestureResponse, error) {
+func (UnimplementedStoreServiceServer) RemoveGesture(context.Context, *StoreRemoveGestureRequest) (*RemoveGestureResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method RemoveGesture not implemented")
 }
-func (UnimplementedLibraryServiceServer) Save(context.Context, *SaveRequest) (*SaveResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Save not implemented")
+func (UnimplementedStoreServiceServer) Save1(context.Context, *Save1Request) (*Save1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method Save1 not implemented")
 }
-func (UnimplementedLibraryServiceServer) SetOrientationStyle(context.Context, *LibrarySetOrientationStyleRequest) (*SetOrientationStyleResponse, error) {
+func (UnimplementedStoreServiceServer) Save2_1(context.Context, *Save2_1Request) (*Save2_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method Save2_1 not implemented")
+}
+func (UnimplementedStoreServiceServer) SetOrientationStyle(context.Context, *StoreSetOrientationStyleRequest) (*SetOrientationStyleResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method SetOrientationStyle not implemented")
 }
-func (UnimplementedLibraryServiceServer) SetSequenceType(context.Context, *LibrarySetSequenceTypeRequest) (*SetSequenceTypeResponse, error) {
+func (UnimplementedStoreServiceServer) SetSequenceType(context.Context, *StoreSetSequenceTypeRequest) (*SetSequenceTypeResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method SetSequenceType not implemented")
 }
-func (UnimplementedLibraryServiceServer) mustEmbedUnimplementedLibraryServiceServer() {}
-func (UnimplementedLibraryServiceServer) testEmbeddedByValue()                        {}
+func (UnimplementedStoreServiceServer) mustEmbedUnimplementedStoreServiceServer() {}
+func (UnimplementedStoreServiceServer) testEmbeddedByValue()                      {}
 
-// UnsafeLibraryServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to LibraryServiceServer will
+// UnsafeStoreServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to StoreServiceServer will
 // result in compilation errors.
-type UnsafeLibraryServiceServer interface {
-	mustEmbedUnimplementedLibraryServiceServer()
+type UnsafeStoreServiceServer interface {
+	mustEmbedUnimplementedStoreServiceServer()
 }
 
-func RegisterLibraryServiceServer(s grpc.ServiceRegistrar, srv LibraryServiceServer) {
-	// If the following call panics, it indicates UnimplementedLibraryServiceServer was
+func RegisterStoreServiceServer(s grpc.ServiceRegistrar, srv StoreServiceServer) {
+	// If the following call panics, it indicates UnimplementedStoreServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&LibraryService_ServiceDesc, srv)
+	s.RegisterService(&StoreService_ServiceDesc, srv)
 }
 
-func _LibraryService_AddGesture_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(LibraryAddGestureRequest)
+func _StoreService_NewStore_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewStoreRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(LibraryServiceServer).AddGesture(ctx, in)
+		return srv.(StoreServiceServer).NewStore(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: LibraryService_AddGesture_FullMethodName,
+		FullMethod: StoreService_NewStore_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(LibraryServiceServer).AddGesture(ctx, req.(*LibraryAddGestureRequest))
+		return srv.(StoreServiceServer).NewStore(ctx, req.(*NewStoreRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _LibraryService_GetOrientationStyle_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(LibraryGetOrientationStyleRequest)
+func _StoreService_AddGesture_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(StoreAddGestureRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(LibraryServiceServer).GetOrientationStyle(ctx, in)
+		return srv.(StoreServiceServer).AddGesture(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: LibraryService_GetOrientationStyle_FullMethodName,
+		FullMethod: StoreService_AddGesture_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(LibraryServiceServer).GetOrientationStyle(ctx, req.(*LibraryGetOrientationStyleRequest))
+		return srv.(StoreServiceServer).AddGesture(ctx, req.(*StoreAddGestureRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _LibraryService_GetSequenceType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(LibraryGetSequenceTypeRequest)
+func _StoreService_GetGestureEntries_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(StoreGetGestureEntriesRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(LibraryServiceServer).GetSequenceType(ctx, in)
+		return srv.(StoreServiceServer).GetGestureEntries(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: LibraryService_GetSequenceType_FullMethodName,
+		FullMethod: StoreService_GetGestureEntries_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(LibraryServiceServer).GetSequenceType(ctx, req.(*LibraryGetSequenceTypeRequest))
+		return srv.(StoreServiceServer).GetGestureEntries(ctx, req.(*StoreGetGestureEntriesRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _LibraryService_IsReadOnly_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsReadOnlyRequest)
+func _StoreService_GetGestures_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(StoreGetGesturesRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(LibraryServiceServer).IsReadOnly(ctx, in)
+		return srv.(StoreServiceServer).GetGestures(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: LibraryService_IsReadOnly_FullMethodName,
+		FullMethod: StoreService_GetGestures_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(LibraryServiceServer).IsReadOnly(ctx, req.(*IsReadOnlyRequest))
+		return srv.(StoreServiceServer).GetGestures(ctx, req.(*StoreGetGesturesRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _LibraryService_Load_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(LoadRequest)
+func _StoreService_GetOrientationStyle_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(StoreGetOrientationStyleRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(LibraryServiceServer).Load(ctx, in)
+		return srv.(StoreServiceServer).GetOrientationStyle(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: LibraryService_Load_FullMethodName,
+		FullMethod: StoreService_GetOrientationStyle_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(LibraryServiceServer).Load(ctx, req.(*LoadRequest))
+		return srv.(StoreServiceServer).GetOrientationStyle(ctx, req.(*StoreGetOrientationStyleRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _LibraryService_RemoveEntry_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(LibraryRemoveEntryRequest)
+func _StoreService_GetSequenceType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(StoreGetSequenceTypeRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(LibraryServiceServer).RemoveEntry(ctx, in)
+		return srv.(StoreServiceServer).GetSequenceType(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: LibraryService_RemoveEntry_FullMethodName,
+		FullMethod: StoreService_GetSequenceType_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(LibraryServiceServer).RemoveEntry(ctx, req.(*LibraryRemoveEntryRequest))
+		return srv.(StoreServiceServer).GetSequenceType(ctx, req.(*StoreGetSequenceTypeRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _LibraryService_RemoveGesture_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(LibraryRemoveGestureRequest)
+func _StoreService_HasChanged_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HasChangedRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(LibraryServiceServer).RemoveGesture(ctx, in)
+		return srv.(StoreServiceServer).HasChanged(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: LibraryService_RemoveGesture_FullMethodName,
+		FullMethod: StoreService_HasChanged_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(LibraryServiceServer).RemoveGesture(ctx, req.(*LibraryRemoveGestureRequest))
+		return srv.(StoreServiceServer).HasChanged(ctx, req.(*HasChangedRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _LibraryService_Save_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SaveRequest)
+func _StoreService_Load1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(Load1Request)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(LibraryServiceServer).Save(ctx, in)
+		return srv.(StoreServiceServer).Load1(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: LibraryService_Save_FullMethodName,
+		FullMethod: StoreService_Load1_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(LibraryServiceServer).Save(ctx, req.(*SaveRequest))
+		return srv.(StoreServiceServer).Load1(ctx, req.(*Load1Request))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _LibraryService_SetOrientationStyle_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(LibrarySetOrientationStyleRequest)
+func _StoreService_Load2_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(Load2_1Request)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(LibraryServiceServer).SetOrientationStyle(ctx, in)
+		return srv.(StoreServiceServer).Load2_1(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: LibraryService_SetOrientationStyle_FullMethodName,
+		FullMethod: StoreService_Load2_1_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(LibraryServiceServer).SetOrientationStyle(ctx, req.(*LibrarySetOrientationStyleRequest))
+		return srv.(StoreServiceServer).Load2_1(ctx, req.(*Load2_1Request))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _LibraryService_SetSequenceType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(LibrarySetSequenceTypeRequest)
+func _StoreService_Recognize_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(StoreRecognizeRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(LibraryServiceServer).SetSequenceType(ctx, in)
+		return srv.(StoreServiceServer).Recognize(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: LibraryService_SetSequenceType_FullMethodName,
+		FullMethod: StoreService_Recognize_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(LibraryServiceServer).SetSequenceType(ctx, req.(*LibrarySetSequenceTypeRequest))
+		return srv.(StoreServiceServer).Recognize(ctx, req.(*StoreRecognizeRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// LibraryService_ServiceDesc is the grpc.ServiceDesc for LibraryService service.
+func _StoreService_RemoveEntry_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(StoreRemoveEntryRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(StoreServiceServer).RemoveEntry(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: StoreService_RemoveEntry_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(StoreServiceServer).RemoveEntry(ctx, req.(*StoreRemoveEntryRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _StoreService_RemoveGesture_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(StoreRemoveGestureRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(StoreServiceServer).RemoveGesture(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: StoreService_RemoveGesture_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(StoreServiceServer).RemoveGesture(ctx, req.(*StoreRemoveGestureRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _StoreService_Save1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(Save1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(StoreServiceServer).Save1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: StoreService_Save1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(StoreServiceServer).Save1(ctx, req.(*Save1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _StoreService_Save2_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(Save2_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(StoreServiceServer).Save2_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: StoreService_Save2_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(StoreServiceServer).Save2_1(ctx, req.(*Save2_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _StoreService_SetOrientationStyle_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(StoreSetOrientationStyleRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(StoreServiceServer).SetOrientationStyle(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: StoreService_SetOrientationStyle_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(StoreServiceServer).SetOrientationStyle(ctx, req.(*StoreSetOrientationStyleRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _StoreService_SetSequenceType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(StoreSetSequenceTypeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(StoreServiceServer).SetSequenceType(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: StoreService_SetSequenceType_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(StoreServiceServer).SetSequenceType(ctx, req.(*StoreSetSequenceTypeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// StoreService_ServiceDesc is the grpc.ServiceDesc for StoreService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var LibraryService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "gesture.LibraryService",
-	HandlerType: (*LibraryServiceServer)(nil),
+var StoreService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "gesture.StoreService",
+	HandlerType: (*StoreServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
+			MethodName: "NewStore",
+			Handler:    _StoreService_NewStore_Handler,
+		},
+		{
 			MethodName: "AddGesture",
-			Handler:    _LibraryService_AddGesture_Handler,
+			Handler:    _StoreService_AddGesture_Handler,
+		},
+		{
+			MethodName: "GetGestureEntries",
+			Handler:    _StoreService_GetGestureEntries_Handler,
+		},
+		{
+			MethodName: "GetGestures",
+			Handler:    _StoreService_GetGestures_Handler,
 		},
 		{
 			MethodName: "GetOrientationStyle",
-			Handler:    _LibraryService_GetOrientationStyle_Handler,
+			Handler:    _StoreService_GetOrientationStyle_Handler,
 		},
 		{
 			MethodName: "GetSequenceType",
-			Handler:    _LibraryService_GetSequenceType_Handler,
+			Handler:    _StoreService_GetSequenceType_Handler,
 		},
 		{
-			MethodName: "IsReadOnly",
-			Handler:    _LibraryService_IsReadOnly_Handler,
+			MethodName: "HasChanged",
+			Handler:    _StoreService_HasChanged_Handler,
 		},
 		{
-			MethodName: "Load",
-			Handler:    _LibraryService_Load_Handler,
+			MethodName: "Load1",
+			Handler:    _StoreService_Load1_Handler,
+		},
+		{
+			MethodName: "Load2_1",
+			Handler:    _StoreService_Load2_1_Handler,
+		},
+		{
+			MethodName: "Recognize",
+			Handler:    _StoreService_Recognize_Handler,
 		},
 		{
 			MethodName: "RemoveEntry",
-			Handler:    _LibraryService_RemoveEntry_Handler,
+			Handler:    _StoreService_RemoveEntry_Handler,
 		},
 		{
 			MethodName: "RemoveGesture",
-			Handler:    _LibraryService_RemoveGesture_Handler,
+			Handler:    _StoreService_RemoveGesture_Handler,
 		},
 		{
-			MethodName: "Save",
-			Handler:    _LibraryService_Save_Handler,
+			MethodName: "Save1",
+			Handler:    _StoreService_Save1_Handler,
+		},
+		{
+			MethodName: "Save2_1",
+			Handler:    _StoreService_Save2_1_Handler,
 		},
 		{
 			MethodName: "SetOrientationStyle",
-			Handler:    _LibraryService_SetOrientationStyle_Handler,
+			Handler:    _StoreService_SetOrientationStyle_Handler,
 		},
 		{
 			MethodName: "SetSequenceType",
-			Handler:    _LibraryService_SetSequenceType_Handler,
+			Handler:    _StoreService_SetSequenceType_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -3854,1003 +4490,671 @@ var LibraryService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	PredictionService_ToString_FullMethodName = "/gesture.PredictionService/ToString"
+	GestureService_NewGesture_FullMethodName       = "/gesture.GestureService/NewGesture"
+	GestureService_AddStroke_FullMethodName        = "/gesture.GestureService/AddStroke"
+	GestureService_Clone_FullMethodName            = "/gesture.GestureService/Clone"
+	GestureService_DescribeContents_FullMethodName = "/gesture.GestureService/DescribeContents"
+	GestureService_GetBoundingBox_FullMethodName   = "/gesture.GestureService/GetBoundingBox"
+	GestureService_GetID_FullMethodName            = "/gesture.GestureService/GetID"
+	GestureService_GetLength_FullMethodName        = "/gesture.GestureService/GetLength"
+	GestureService_GetStrokes_FullMethodName       = "/gesture.GestureService/GetStrokes"
+	GestureService_GetStrokesCount_FullMethodName  = "/gesture.GestureService/GetStrokesCount"
+	GestureService_ToBitmap4_FullMethodName        = "/gesture.GestureService/ToBitmap4"
+	GestureService_ToBitmap5_1_FullMethodName      = "/gesture.GestureService/ToBitmap5_1"
+	GestureService_ToPath0_FullMethodName          = "/gesture.GestureService/ToPath0"
+	GestureService_ToPath1_1_FullMethodName        = "/gesture.GestureService/ToPath1_1"
+	GestureService_ToPath5_2_FullMethodName        = "/gesture.GestureService/ToPath5_2"
+	GestureService_ToPath4_3_FullMethodName        = "/gesture.GestureService/ToPath4_3"
+	GestureService_WriteToParcel_FullMethodName    = "/gesture.GestureService/WriteToParcel"
 )
 
-// PredictionServiceClient is the client API for PredictionService service.
+// GestureServiceClient is the client API for GestureService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type PredictionServiceClient interface {
-	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
-}
-
-type predictionServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewPredictionServiceClient(cc grpc.ClientConnInterface) PredictionServiceClient {
-	return &predictionServiceClient{cc}
-}
-
-func (c *predictionServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ToStringResponse)
-	err := c.cc.Invoke(ctx, PredictionService_ToString_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// PredictionServiceServer is the server API for PredictionService service.
-// All implementations must embed UnimplementedPredictionServiceServer
-// for forward compatibility.
-type PredictionServiceServer interface {
-	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
-	mustEmbedUnimplementedPredictionServiceServer()
-}
-
-// UnimplementedPredictionServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedPredictionServiceServer struct{}
-
-func (UnimplementedPredictionServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
-}
-func (UnimplementedPredictionServiceServer) mustEmbedUnimplementedPredictionServiceServer() {}
-func (UnimplementedPredictionServiceServer) testEmbeddedByValue()                           {}
-
-// UnsafePredictionServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to PredictionServiceServer will
-// result in compilation errors.
-type UnsafePredictionServiceServer interface {
-	mustEmbedUnimplementedPredictionServiceServer()
-}
-
-func RegisterPredictionServiceServer(s grpc.ServiceRegistrar, srv PredictionServiceServer) {
-	// If the following call panics, it indicates UnimplementedPredictionServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&PredictionService_ServiceDesc, srv)
-}
-
-func _PredictionService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ToStringRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PredictionServiceServer).ToString(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PredictionService_ToString_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PredictionServiceServer).ToString(ctx, req.(*ToStringRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// PredictionService_ServiceDesc is the grpc.ServiceDesc for PredictionService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var PredictionService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "gesture.PredictionService",
-	HandlerType: (*PredictionServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "ToString",
-			Handler:    _PredictionService_ToString_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/gesture/gesture.proto",
-}
-
-const (
-	StrokeService_NewStroke_FullMethodName                  = "/gesture.StrokeService/NewStroke"
-	StrokeService_ClearPath_FullMethodName                  = "/gesture.StrokeService/ClearPath"
-	StrokeService_Clone_FullMethodName                      = "/gesture.StrokeService/Clone"
-	StrokeService_ComputeOrientedBoundingBox_FullMethodName = "/gesture.StrokeService/ComputeOrientedBoundingBox"
-	StrokeService_GetPath_FullMethodName                    = "/gesture.StrokeService/GetPath"
-	StrokeService_ToPath_FullMethodName                     = "/gesture.StrokeService/ToPath"
-)
-
-// StrokeServiceClient is the client API for StrokeService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type StrokeServiceClient interface {
-	NewStroke(ctx context.Context, in *NewStrokeRequest, opts ...grpc.CallOption) (*NewStrokeResponse, error)
-	ClearPath(ctx context.Context, in *ClearPathRequest, opts ...grpc.CallOption) (*ClearPathResponse, error)
+type GestureServiceClient interface {
+	NewGesture(ctx context.Context, in *NewGestureRequest, opts ...grpc.CallOption) (*NewGestureResponse, error)
+	AddStroke(ctx context.Context, in *AddStrokeRequest, opts ...grpc.CallOption) (*AddStrokeResponse, error)
 	Clone(ctx context.Context, in *CloneRequest, opts ...grpc.CallOption) (*CloneResponse, error)
-	ComputeOrientedBoundingBox(ctx context.Context, in *ComputeOrientedBoundingBoxRequest, opts ...grpc.CallOption) (*ComputeOrientedBoundingBoxResponse, error)
-	GetPath(ctx context.Context, in *GetPathRequest, opts ...grpc.CallOption) (*GetPathResponse, error)
-	ToPath(ctx context.Context, in *ToPathRequest, opts ...grpc.CallOption) (*ToPathResponse, error)
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	GetBoundingBox(ctx context.Context, in *GetBoundingBoxRequest, opts ...grpc.CallOption) (*GetBoundingBoxResponse, error)
+	GetID(ctx context.Context, in *GetIDRequest, opts ...grpc.CallOption) (*GetIDResponse, error)
+	GetLength(ctx context.Context, in *GetLengthRequest, opts ...grpc.CallOption) (*GetLengthResponse, error)
+	GetStrokes(ctx context.Context, in *GetStrokesRequest, opts ...grpc.CallOption) (*GetStrokesResponse, error)
+	GetStrokesCount(ctx context.Context, in *GetStrokesCountRequest, opts ...grpc.CallOption) (*GetStrokesCountResponse, error)
+	ToBitmap4(ctx context.Context, in *ToBitmap4Request, opts ...grpc.CallOption) (*ToBitmap4Response, error)
+	ToBitmap5_1(ctx context.Context, in *ToBitmap5_1Request, opts ...grpc.CallOption) (*ToBitmap5_1Response, error)
+	ToPath0(ctx context.Context, in *ToPath0Request, opts ...grpc.CallOption) (*ToPath0Response, error)
+	ToPath1_1(ctx context.Context, in *ToPath1_1Request, opts ...grpc.CallOption) (*ToPath1_1Response, error)
+	ToPath5_2(ctx context.Context, in *ToPath5_2Request, opts ...grpc.CallOption) (*ToPath5_2Response, error)
+	ToPath4_3(ctx context.Context, in *ToPath4_3Request, opts ...grpc.CallOption) (*ToPath4_3Response, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
 }
 
-type strokeServiceClient struct {
+type gestureServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewStrokeServiceClient(cc grpc.ClientConnInterface) StrokeServiceClient {
-	return &strokeServiceClient{cc}
+func NewGestureServiceClient(cc grpc.ClientConnInterface) GestureServiceClient {
+	return &gestureServiceClient{cc}
 }
 
-func (c *strokeServiceClient) NewStroke(ctx context.Context, in *NewStrokeRequest, opts ...grpc.CallOption) (*NewStrokeResponse, error) {
+func (c *gestureServiceClient) NewGesture(ctx context.Context, in *NewGestureRequest, opts ...grpc.CallOption) (*NewGestureResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewStrokeResponse)
-	err := c.cc.Invoke(ctx, StrokeService_NewStroke_FullMethodName, in, out, cOpts...)
+	out := new(NewGestureResponse)
+	err := c.cc.Invoke(ctx, GestureService_NewGesture_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *strokeServiceClient) ClearPath(ctx context.Context, in *ClearPathRequest, opts ...grpc.CallOption) (*ClearPathResponse, error) {
+func (c *gestureServiceClient) AddStroke(ctx context.Context, in *AddStrokeRequest, opts ...grpc.CallOption) (*AddStrokeResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ClearPathResponse)
-	err := c.cc.Invoke(ctx, StrokeService_ClearPath_FullMethodName, in, out, cOpts...)
+	out := new(AddStrokeResponse)
+	err := c.cc.Invoke(ctx, GestureService_AddStroke_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *strokeServiceClient) Clone(ctx context.Context, in *CloneRequest, opts ...grpc.CallOption) (*CloneResponse, error) {
+func (c *gestureServiceClient) Clone(ctx context.Context, in *CloneRequest, opts ...grpc.CallOption) (*CloneResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(CloneResponse)
-	err := c.cc.Invoke(ctx, StrokeService_Clone_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, GestureService_Clone_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *strokeServiceClient) ComputeOrientedBoundingBox(ctx context.Context, in *ComputeOrientedBoundingBoxRequest, opts ...grpc.CallOption) (*ComputeOrientedBoundingBoxResponse, error) {
+func (c *gestureServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ComputeOrientedBoundingBoxResponse)
-	err := c.cc.Invoke(ctx, StrokeService_ComputeOrientedBoundingBox_FullMethodName, in, out, cOpts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, GestureService_DescribeContents_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *strokeServiceClient) GetPath(ctx context.Context, in *GetPathRequest, opts ...grpc.CallOption) (*GetPathResponse, error) {
+func (c *gestureServiceClient) GetBoundingBox(ctx context.Context, in *GetBoundingBoxRequest, opts ...grpc.CallOption) (*GetBoundingBoxResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetPathResponse)
-	err := c.cc.Invoke(ctx, StrokeService_GetPath_FullMethodName, in, out, cOpts...)
+	out := new(GetBoundingBoxResponse)
+	err := c.cc.Invoke(ctx, GestureService_GetBoundingBox_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *strokeServiceClient) ToPath(ctx context.Context, in *ToPathRequest, opts ...grpc.CallOption) (*ToPathResponse, error) {
+func (c *gestureServiceClient) GetID(ctx context.Context, in *GetIDRequest, opts ...grpc.CallOption) (*GetIDResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ToPathResponse)
-	err := c.cc.Invoke(ctx, StrokeService_ToPath_FullMethodName, in, out, cOpts...)
+	out := new(GetIDResponse)
+	err := c.cc.Invoke(ctx, GestureService_GetID_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// StrokeServiceServer is the server API for StrokeService service.
-// All implementations must embed UnimplementedStrokeServiceServer
+func (c *gestureServiceClient) GetLength(ctx context.Context, in *GetLengthRequest, opts ...grpc.CallOption) (*GetLengthResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetLengthResponse)
+	err := c.cc.Invoke(ctx, GestureService_GetLength_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *gestureServiceClient) GetStrokes(ctx context.Context, in *GetStrokesRequest, opts ...grpc.CallOption) (*GetStrokesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetStrokesResponse)
+	err := c.cc.Invoke(ctx, GestureService_GetStrokes_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *gestureServiceClient) GetStrokesCount(ctx context.Context, in *GetStrokesCountRequest, opts ...grpc.CallOption) (*GetStrokesCountResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetStrokesCountResponse)
+	err := c.cc.Invoke(ctx, GestureService_GetStrokesCount_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *gestureServiceClient) ToBitmap4(ctx context.Context, in *ToBitmap4Request, opts ...grpc.CallOption) (*ToBitmap4Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToBitmap4Response)
+	err := c.cc.Invoke(ctx, GestureService_ToBitmap4_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *gestureServiceClient) ToBitmap5_1(ctx context.Context, in *ToBitmap5_1Request, opts ...grpc.CallOption) (*ToBitmap5_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToBitmap5_1Response)
+	err := c.cc.Invoke(ctx, GestureService_ToBitmap5_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *gestureServiceClient) ToPath0(ctx context.Context, in *ToPath0Request, opts ...grpc.CallOption) (*ToPath0Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToPath0Response)
+	err := c.cc.Invoke(ctx, GestureService_ToPath0_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *gestureServiceClient) ToPath1_1(ctx context.Context, in *ToPath1_1Request, opts ...grpc.CallOption) (*ToPath1_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToPath1_1Response)
+	err := c.cc.Invoke(ctx, GestureService_ToPath1_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *gestureServiceClient) ToPath5_2(ctx context.Context, in *ToPath5_2Request, opts ...grpc.CallOption) (*ToPath5_2Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToPath5_2Response)
+	err := c.cc.Invoke(ctx, GestureService_ToPath5_2_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *gestureServiceClient) ToPath4_3(ctx context.Context, in *ToPath4_3Request, opts ...grpc.CallOption) (*ToPath4_3Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToPath4_3Response)
+	err := c.cc.Invoke(ctx, GestureService_ToPath4_3_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *gestureServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, GestureService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// GestureServiceServer is the server API for GestureService service.
+// All implementations must embed UnimplementedGestureServiceServer
 // for forward compatibility.
-type StrokeServiceServer interface {
-	NewStroke(context.Context, *NewStrokeRequest) (*NewStrokeResponse, error)
-	ClearPath(context.Context, *ClearPathRequest) (*ClearPathResponse, error)
+type GestureServiceServer interface {
+	NewGesture(context.Context, *NewGestureRequest) (*NewGestureResponse, error)
+	AddStroke(context.Context, *AddStrokeRequest) (*AddStrokeResponse, error)
 	Clone(context.Context, *CloneRequest) (*CloneResponse, error)
-	ComputeOrientedBoundingBox(context.Context, *ComputeOrientedBoundingBoxRequest) (*ComputeOrientedBoundingBoxResponse, error)
-	GetPath(context.Context, *GetPathRequest) (*GetPathResponse, error)
-	ToPath(context.Context, *ToPathRequest) (*ToPathResponse, error)
-	mustEmbedUnimplementedStrokeServiceServer()
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	GetBoundingBox(context.Context, *GetBoundingBoxRequest) (*GetBoundingBoxResponse, error)
+	GetID(context.Context, *GetIDRequest) (*GetIDResponse, error)
+	GetLength(context.Context, *GetLengthRequest) (*GetLengthResponse, error)
+	GetStrokes(context.Context, *GetStrokesRequest) (*GetStrokesResponse, error)
+	GetStrokesCount(context.Context, *GetStrokesCountRequest) (*GetStrokesCountResponse, error)
+	ToBitmap4(context.Context, *ToBitmap4Request) (*ToBitmap4Response, error)
+	ToBitmap5_1(context.Context, *ToBitmap5_1Request) (*ToBitmap5_1Response, error)
+	ToPath0(context.Context, *ToPath0Request) (*ToPath0Response, error)
+	ToPath1_1(context.Context, *ToPath1_1Request) (*ToPath1_1Response, error)
+	ToPath5_2(context.Context, *ToPath5_2Request) (*ToPath5_2Response, error)
+	ToPath4_3(context.Context, *ToPath4_3Request) (*ToPath4_3Response, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedGestureServiceServer()
 }
 
-// UnimplementedStrokeServiceServer must be embedded to have
+// UnimplementedGestureServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedStrokeServiceServer struct{}
+type UnimplementedGestureServiceServer struct{}
 
-func (UnimplementedStrokeServiceServer) NewStroke(context.Context, *NewStrokeRequest) (*NewStrokeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewStroke not implemented")
+func (UnimplementedGestureServiceServer) NewGesture(context.Context, *NewGestureRequest) (*NewGestureResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewGesture not implemented")
 }
-func (UnimplementedStrokeServiceServer) ClearPath(context.Context, *ClearPathRequest) (*ClearPathResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ClearPath not implemented")
+func (UnimplementedGestureServiceServer) AddStroke(context.Context, *AddStrokeRequest) (*AddStrokeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method AddStroke not implemented")
 }
-func (UnimplementedStrokeServiceServer) Clone(context.Context, *CloneRequest) (*CloneResponse, error) {
+func (UnimplementedGestureServiceServer) Clone(context.Context, *CloneRequest) (*CloneResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method Clone not implemented")
 }
-func (UnimplementedStrokeServiceServer) ComputeOrientedBoundingBox(context.Context, *ComputeOrientedBoundingBoxRequest) (*ComputeOrientedBoundingBoxResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ComputeOrientedBoundingBox not implemented")
+func (UnimplementedGestureServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
 }
-func (UnimplementedStrokeServiceServer) GetPath(context.Context, *GetPathRequest) (*GetPathResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetPath not implemented")
+func (UnimplementedGestureServiceServer) GetBoundingBox(context.Context, *GetBoundingBoxRequest) (*GetBoundingBoxResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetBoundingBox not implemented")
 }
-func (UnimplementedStrokeServiceServer) ToPath(context.Context, *ToPathRequest) (*ToPathResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ToPath not implemented")
+func (UnimplementedGestureServiceServer) GetID(context.Context, *GetIDRequest) (*GetIDResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetID not implemented")
 }
-func (UnimplementedStrokeServiceServer) mustEmbedUnimplementedStrokeServiceServer() {}
-func (UnimplementedStrokeServiceServer) testEmbeddedByValue()                       {}
+func (UnimplementedGestureServiceServer) GetLength(context.Context, *GetLengthRequest) (*GetLengthResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetLength not implemented")
+}
+func (UnimplementedGestureServiceServer) GetStrokes(context.Context, *GetStrokesRequest) (*GetStrokesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetStrokes not implemented")
+}
+func (UnimplementedGestureServiceServer) GetStrokesCount(context.Context, *GetStrokesCountRequest) (*GetStrokesCountResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetStrokesCount not implemented")
+}
+func (UnimplementedGestureServiceServer) ToBitmap4(context.Context, *ToBitmap4Request) (*ToBitmap4Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToBitmap4 not implemented")
+}
+func (UnimplementedGestureServiceServer) ToBitmap5_1(context.Context, *ToBitmap5_1Request) (*ToBitmap5_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToBitmap5_1 not implemented")
+}
+func (UnimplementedGestureServiceServer) ToPath0(context.Context, *ToPath0Request) (*ToPath0Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToPath0 not implemented")
+}
+func (UnimplementedGestureServiceServer) ToPath1_1(context.Context, *ToPath1_1Request) (*ToPath1_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToPath1_1 not implemented")
+}
+func (UnimplementedGestureServiceServer) ToPath5_2(context.Context, *ToPath5_2Request) (*ToPath5_2Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToPath5_2 not implemented")
+}
+func (UnimplementedGestureServiceServer) ToPath4_3(context.Context, *ToPath4_3Request) (*ToPath4_3Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToPath4_3 not implemented")
+}
+func (UnimplementedGestureServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedGestureServiceServer) mustEmbedUnimplementedGestureServiceServer() {}
+func (UnimplementedGestureServiceServer) testEmbeddedByValue()                        {}
 
-// UnsafeStrokeServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to StrokeServiceServer will
+// UnsafeGestureServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to GestureServiceServer will
 // result in compilation errors.
-type UnsafeStrokeServiceServer interface {
-	mustEmbedUnimplementedStrokeServiceServer()
+type UnsafeGestureServiceServer interface {
+	mustEmbedUnimplementedGestureServiceServer()
 }
 
-func RegisterStrokeServiceServer(s grpc.ServiceRegistrar, srv StrokeServiceServer) {
-	// If the following call panics, it indicates UnimplementedStrokeServiceServer was
+func RegisterGestureServiceServer(s grpc.ServiceRegistrar, srv GestureServiceServer) {
+	// If the following call panics, it indicates UnimplementedGestureServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&StrokeService_ServiceDesc, srv)
+	s.RegisterService(&GestureService_ServiceDesc, srv)
 }
 
-func _StrokeService_NewStroke_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewStrokeRequest)
+func _GestureService_NewGesture_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewGestureRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(StrokeServiceServer).NewStroke(ctx, in)
+		return srv.(GestureServiceServer).NewGesture(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: StrokeService_NewStroke_FullMethodName,
+		FullMethod: GestureService_NewGesture_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(StrokeServiceServer).NewStroke(ctx, req.(*NewStrokeRequest))
+		return srv.(GestureServiceServer).NewGesture(ctx, req.(*NewGestureRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _StrokeService_ClearPath_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ClearPathRequest)
+func _GestureService_AddStroke_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AddStrokeRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(StrokeServiceServer).ClearPath(ctx, in)
+		return srv.(GestureServiceServer).AddStroke(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: StrokeService_ClearPath_FullMethodName,
+		FullMethod: GestureService_AddStroke_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(StrokeServiceServer).ClearPath(ctx, req.(*ClearPathRequest))
+		return srv.(GestureServiceServer).AddStroke(ctx, req.(*AddStrokeRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _StrokeService_Clone_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _GestureService_Clone_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(CloneRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(StrokeServiceServer).Clone(ctx, in)
+		return srv.(GestureServiceServer).Clone(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: StrokeService_Clone_FullMethodName,
+		FullMethod: GestureService_Clone_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(StrokeServiceServer).Clone(ctx, req.(*CloneRequest))
+		return srv.(GestureServiceServer).Clone(ctx, req.(*CloneRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _StrokeService_ComputeOrientedBoundingBox_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ComputeOrientedBoundingBoxRequest)
+func _GestureService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(StrokeServiceServer).ComputeOrientedBoundingBox(ctx, in)
+		return srv.(GestureServiceServer).DescribeContents(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: StrokeService_ComputeOrientedBoundingBox_FullMethodName,
+		FullMethod: GestureService_DescribeContents_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(StrokeServiceServer).ComputeOrientedBoundingBox(ctx, req.(*ComputeOrientedBoundingBoxRequest))
+		return srv.(GestureServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _StrokeService_GetPath_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetPathRequest)
+func _GestureService_GetBoundingBox_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetBoundingBoxRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(StrokeServiceServer).GetPath(ctx, in)
+		return srv.(GestureServiceServer).GetBoundingBox(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: StrokeService_GetPath_FullMethodName,
+		FullMethod: GestureService_GetBoundingBox_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(StrokeServiceServer).GetPath(ctx, req.(*GetPathRequest))
+		return srv.(GestureServiceServer).GetBoundingBox(ctx, req.(*GetBoundingBoxRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _StrokeService_ToPath_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ToPathRequest)
+func _GestureService_GetID_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetIDRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(StrokeServiceServer).ToPath(ctx, in)
+		return srv.(GestureServiceServer).GetID(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: StrokeService_ToPath_FullMethodName,
+		FullMethod: GestureService_GetID_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(StrokeServiceServer).ToPath(ctx, req.(*ToPathRequest))
+		return srv.(GestureServiceServer).GetID(ctx, req.(*GetIDRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// StrokeService_ServiceDesc is the grpc.ServiceDesc for StrokeService service.
+func _GestureService_GetLength_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetLengthRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GestureServiceServer).GetLength(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: GestureService_GetLength_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GestureServiceServer).GetLength(ctx, req.(*GetLengthRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _GestureService_GetStrokes_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetStrokesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GestureServiceServer).GetStrokes(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: GestureService_GetStrokes_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GestureServiceServer).GetStrokes(ctx, req.(*GetStrokesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _GestureService_GetStrokesCount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetStrokesCountRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GestureServiceServer).GetStrokesCount(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: GestureService_GetStrokesCount_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GestureServiceServer).GetStrokesCount(ctx, req.(*GetStrokesCountRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _GestureService_ToBitmap4_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ToBitmap4Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GestureServiceServer).ToBitmap4(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: GestureService_ToBitmap4_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GestureServiceServer).ToBitmap4(ctx, req.(*ToBitmap4Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _GestureService_ToBitmap5_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ToBitmap5_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GestureServiceServer).ToBitmap5_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: GestureService_ToBitmap5_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GestureServiceServer).ToBitmap5_1(ctx, req.(*ToBitmap5_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _GestureService_ToPath0_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ToPath0Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GestureServiceServer).ToPath0(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: GestureService_ToPath0_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GestureServiceServer).ToPath0(ctx, req.(*ToPath0Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _GestureService_ToPath1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ToPath1_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GestureServiceServer).ToPath1_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: GestureService_ToPath1_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GestureServiceServer).ToPath1_1(ctx, req.(*ToPath1_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _GestureService_ToPath5_2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ToPath5_2Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GestureServiceServer).ToPath5_2(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: GestureService_ToPath5_2_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GestureServiceServer).ToPath5_2(ctx, req.(*ToPath5_2Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _GestureService_ToPath4_3_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ToPath4_3Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GestureServiceServer).ToPath4_3(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: GestureService_ToPath4_3_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GestureServiceServer).ToPath4_3(ctx, req.(*ToPath4_3Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _GestureService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GestureServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: GestureService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GestureServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// GestureService_ServiceDesc is the grpc.ServiceDesc for GestureService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var StrokeService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "gesture.StrokeService",
-	HandlerType: (*StrokeServiceServer)(nil),
+var GestureService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "gesture.GestureService",
+	HandlerType: (*GestureServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "NewStroke",
-			Handler:    _StrokeService_NewStroke_Handler,
+			MethodName: "NewGesture",
+			Handler:    _GestureService_NewGesture_Handler,
 		},
 		{
-			MethodName: "ClearPath",
-			Handler:    _StrokeService_ClearPath_Handler,
+			MethodName: "AddStroke",
+			Handler:    _GestureService_AddStroke_Handler,
 		},
 		{
 			MethodName: "Clone",
-			Handler:    _StrokeService_Clone_Handler,
+			Handler:    _GestureService_Clone_Handler,
 		},
 		{
-			MethodName: "ComputeOrientedBoundingBox",
-			Handler:    _StrokeService_ComputeOrientedBoundingBox_Handler,
+			MethodName: "DescribeContents",
+			Handler:    _GestureService_DescribeContents_Handler,
 		},
 		{
-			MethodName: "GetPath",
-			Handler:    _StrokeService_GetPath_Handler,
+			MethodName: "GetBoundingBox",
+			Handler:    _GestureService_GetBoundingBox_Handler,
 		},
 		{
-			MethodName: "ToPath",
-			Handler:    _StrokeService_ToPath_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/gesture/gesture.proto",
-}
-
-const (
-	PointService_NewPoint_FullMethodName = "/gesture.PointService/NewPoint"
-	PointService_Clone_FullMethodName    = "/gesture.PointService/Clone"
-)
-
-// PointServiceClient is the client API for PointService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type PointServiceClient interface {
-	NewPoint(ctx context.Context, in *NewPointRequest, opts ...grpc.CallOption) (*NewPointResponse, error)
-	Clone(ctx context.Context, in *CloneRequest, opts ...grpc.CallOption) (*CloneResponse, error)
-}
-
-type pointServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewPointServiceClient(cc grpc.ClientConnInterface) PointServiceClient {
-	return &pointServiceClient{cc}
-}
-
-func (c *pointServiceClient) NewPoint(ctx context.Context, in *NewPointRequest, opts ...grpc.CallOption) (*NewPointResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewPointResponse)
-	err := c.cc.Invoke(ctx, PointService_NewPoint_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *pointServiceClient) Clone(ctx context.Context, in *CloneRequest, opts ...grpc.CallOption) (*CloneResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CloneResponse)
-	err := c.cc.Invoke(ctx, PointService_Clone_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// PointServiceServer is the server API for PointService service.
-// All implementations must embed UnimplementedPointServiceServer
-// for forward compatibility.
-type PointServiceServer interface {
-	NewPoint(context.Context, *NewPointRequest) (*NewPointResponse, error)
-	Clone(context.Context, *CloneRequest) (*CloneResponse, error)
-	mustEmbedUnimplementedPointServiceServer()
-}
-
-// UnimplementedPointServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedPointServiceServer struct{}
-
-func (UnimplementedPointServiceServer) NewPoint(context.Context, *NewPointRequest) (*NewPointResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewPoint not implemented")
-}
-func (UnimplementedPointServiceServer) Clone(context.Context, *CloneRequest) (*CloneResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Clone not implemented")
-}
-func (UnimplementedPointServiceServer) mustEmbedUnimplementedPointServiceServer() {}
-func (UnimplementedPointServiceServer) testEmbeddedByValue()                      {}
-
-// UnsafePointServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to PointServiceServer will
-// result in compilation errors.
-type UnsafePointServiceServer interface {
-	mustEmbedUnimplementedPointServiceServer()
-}
-
-func RegisterPointServiceServer(s grpc.ServiceRegistrar, srv PointServiceServer) {
-	// If the following call panics, it indicates UnimplementedPointServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&PointService_ServiceDesc, srv)
-}
-
-func _PointService_NewPoint_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewPointRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PointServiceServer).NewPoint(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PointService_NewPoint_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PointServiceServer).NewPoint(ctx, req.(*NewPointRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PointService_Clone_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CloneRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PointServiceServer).Clone(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PointService_Clone_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PointServiceServer).Clone(ctx, req.(*CloneRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// PointService_ServiceDesc is the grpc.ServiceDesc for PointService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var PointService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "gesture.PointService",
-	HandlerType: (*PointServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "NewPoint",
-			Handler:    _PointService_NewPoint_Handler,
+			MethodName: "GetID",
+			Handler:    _GestureService_GetID_Handler,
 		},
 		{
-			MethodName: "Clone",
-			Handler:    _PointService_Clone_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/gesture/gesture.proto",
-}
-
-const (
-	UtilsService_ComputeOrientedBoundingBox_FullMethodName = "/gesture.UtilsService/ComputeOrientedBoundingBox"
-	UtilsService_SpatialSampling2_FullMethodName           = "/gesture.UtilsService/SpatialSampling2"
-	UtilsService_SpatialSampling3_1_FullMethodName         = "/gesture.UtilsService/SpatialSampling3_1"
-	UtilsService_TemporalSampling_FullMethodName           = "/gesture.UtilsService/TemporalSampling"
-)
-
-// UtilsServiceClient is the client API for UtilsService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type UtilsServiceClient interface {
-	ComputeOrientedBoundingBox(ctx context.Context, in *UtilsComputeOrientedBoundingBoxRequest, opts ...grpc.CallOption) (*ComputeOrientedBoundingBoxResponse, error)
-	SpatialSampling2(ctx context.Context, in *SpatialSampling2Request, opts ...grpc.CallOption) (*SpatialSampling2Response, error)
-	SpatialSampling3_1(ctx context.Context, in *SpatialSampling3_1Request, opts ...grpc.CallOption) (*SpatialSampling3_1Response, error)
-	TemporalSampling(ctx context.Context, in *TemporalSamplingRequest, opts ...grpc.CallOption) (*TemporalSamplingResponse, error)
-}
-
-type utilsServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewUtilsServiceClient(cc grpc.ClientConnInterface) UtilsServiceClient {
-	return &utilsServiceClient{cc}
-}
-
-func (c *utilsServiceClient) ComputeOrientedBoundingBox(ctx context.Context, in *UtilsComputeOrientedBoundingBoxRequest, opts ...grpc.CallOption) (*ComputeOrientedBoundingBoxResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ComputeOrientedBoundingBoxResponse)
-	err := c.cc.Invoke(ctx, UtilsService_ComputeOrientedBoundingBox_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *utilsServiceClient) SpatialSampling2(ctx context.Context, in *SpatialSampling2Request, opts ...grpc.CallOption) (*SpatialSampling2Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SpatialSampling2Response)
-	err := c.cc.Invoke(ctx, UtilsService_SpatialSampling2_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *utilsServiceClient) SpatialSampling3_1(ctx context.Context, in *SpatialSampling3_1Request, opts ...grpc.CallOption) (*SpatialSampling3_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SpatialSampling3_1Response)
-	err := c.cc.Invoke(ctx, UtilsService_SpatialSampling3_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *utilsServiceClient) TemporalSampling(ctx context.Context, in *TemporalSamplingRequest, opts ...grpc.CallOption) (*TemporalSamplingResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(TemporalSamplingResponse)
-	err := c.cc.Invoke(ctx, UtilsService_TemporalSampling_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// UtilsServiceServer is the server API for UtilsService service.
-// All implementations must embed UnimplementedUtilsServiceServer
-// for forward compatibility.
-type UtilsServiceServer interface {
-	ComputeOrientedBoundingBox(context.Context, *UtilsComputeOrientedBoundingBoxRequest) (*ComputeOrientedBoundingBoxResponse, error)
-	SpatialSampling2(context.Context, *SpatialSampling2Request) (*SpatialSampling2Response, error)
-	SpatialSampling3_1(context.Context, *SpatialSampling3_1Request) (*SpatialSampling3_1Response, error)
-	TemporalSampling(context.Context, *TemporalSamplingRequest) (*TemporalSamplingResponse, error)
-	mustEmbedUnimplementedUtilsServiceServer()
-}
-
-// UnimplementedUtilsServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedUtilsServiceServer struct{}
-
-func (UnimplementedUtilsServiceServer) ComputeOrientedBoundingBox(context.Context, *UtilsComputeOrientedBoundingBoxRequest) (*ComputeOrientedBoundingBoxResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ComputeOrientedBoundingBox not implemented")
-}
-func (UnimplementedUtilsServiceServer) SpatialSampling2(context.Context, *SpatialSampling2Request) (*SpatialSampling2Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method SpatialSampling2 not implemented")
-}
-func (UnimplementedUtilsServiceServer) SpatialSampling3_1(context.Context, *SpatialSampling3_1Request) (*SpatialSampling3_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method SpatialSampling3_1 not implemented")
-}
-func (UnimplementedUtilsServiceServer) TemporalSampling(context.Context, *TemporalSamplingRequest) (*TemporalSamplingResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method TemporalSampling not implemented")
-}
-func (UnimplementedUtilsServiceServer) mustEmbedUnimplementedUtilsServiceServer() {}
-func (UnimplementedUtilsServiceServer) testEmbeddedByValue()                      {}
-
-// UnsafeUtilsServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to UtilsServiceServer will
-// result in compilation errors.
-type UnsafeUtilsServiceServer interface {
-	mustEmbedUnimplementedUtilsServiceServer()
-}
-
-func RegisterUtilsServiceServer(s grpc.ServiceRegistrar, srv UtilsServiceServer) {
-	// If the following call panics, it indicates UnimplementedUtilsServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&UtilsService_ServiceDesc, srv)
-}
-
-func _UtilsService_ComputeOrientedBoundingBox_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UtilsComputeOrientedBoundingBoxRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(UtilsServiceServer).ComputeOrientedBoundingBox(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: UtilsService_ComputeOrientedBoundingBox_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UtilsServiceServer).ComputeOrientedBoundingBox(ctx, req.(*UtilsComputeOrientedBoundingBoxRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _UtilsService_SpatialSampling2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SpatialSampling2Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(UtilsServiceServer).SpatialSampling2(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: UtilsService_SpatialSampling2_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UtilsServiceServer).SpatialSampling2(ctx, req.(*SpatialSampling2Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _UtilsService_SpatialSampling3_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SpatialSampling3_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(UtilsServiceServer).SpatialSampling3_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: UtilsService_SpatialSampling3_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UtilsServiceServer).SpatialSampling3_1(ctx, req.(*SpatialSampling3_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _UtilsService_TemporalSampling_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(TemporalSamplingRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(UtilsServiceServer).TemporalSampling(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: UtilsService_TemporalSampling_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UtilsServiceServer).TemporalSampling(ctx, req.(*TemporalSamplingRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// UtilsService_ServiceDesc is the grpc.ServiceDesc for UtilsService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var UtilsService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "gesture.UtilsService",
-	HandlerType: (*UtilsServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "ComputeOrientedBoundingBox",
-			Handler:    _UtilsService_ComputeOrientedBoundingBox_Handler,
+			MethodName: "GetLength",
+			Handler:    _GestureService_GetLength_Handler,
 		},
 		{
-			MethodName: "SpatialSampling2",
-			Handler:    _UtilsService_SpatialSampling2_Handler,
+			MethodName: "GetStrokes",
+			Handler:    _GestureService_GetStrokes_Handler,
 		},
 		{
-			MethodName: "SpatialSampling3_1",
-			Handler:    _UtilsService_SpatialSampling3_1_Handler,
+			MethodName: "GetStrokesCount",
+			Handler:    _GestureService_GetStrokesCount_Handler,
 		},
 		{
-			MethodName: "TemporalSampling",
-			Handler:    _UtilsService_TemporalSampling_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/gesture/gesture.proto",
-}
-
-const (
-	LibrariesService_FromFile1_FullMethodName          = "/gesture.LibrariesService/FromFile1"
-	LibrariesService_FromFile1_1_FullMethodName        = "/gesture.LibrariesService/FromFile1_1"
-	LibrariesService_FromFileDescriptor_FullMethodName = "/gesture.LibrariesService/FromFileDescriptor"
-	LibrariesService_FromPrivateFile_FullMethodName    = "/gesture.LibrariesService/FromPrivateFile"
-	LibrariesService_FromRawResource_FullMethodName    = "/gesture.LibrariesService/FromRawResource"
-)
-
-// LibrariesServiceClient is the client API for LibrariesService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type LibrariesServiceClient interface {
-	FromFile1(ctx context.Context, in *FromFile1Request, opts ...grpc.CallOption) (*FromFile1Response, error)
-	FromFile1_1(ctx context.Context, in *FromFile1_1Request, opts ...grpc.CallOption) (*FromFile1_1Response, error)
-	FromFileDescriptor(ctx context.Context, in *FromFileDescriptorRequest, opts ...grpc.CallOption) (*FromFileDescriptorResponse, error)
-	FromPrivateFile(ctx context.Context, in *FromPrivateFileRequest, opts ...grpc.CallOption) (*FromPrivateFileResponse, error)
-	FromRawResource(ctx context.Context, in *FromRawResourceRequest, opts ...grpc.CallOption) (*FromRawResourceResponse, error)
-}
-
-type librariesServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewLibrariesServiceClient(cc grpc.ClientConnInterface) LibrariesServiceClient {
-	return &librariesServiceClient{cc}
-}
-
-func (c *librariesServiceClient) FromFile1(ctx context.Context, in *FromFile1Request, opts ...grpc.CallOption) (*FromFile1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(FromFile1Response)
-	err := c.cc.Invoke(ctx, LibrariesService_FromFile1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *librariesServiceClient) FromFile1_1(ctx context.Context, in *FromFile1_1Request, opts ...grpc.CallOption) (*FromFile1_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(FromFile1_1Response)
-	err := c.cc.Invoke(ctx, LibrariesService_FromFile1_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *librariesServiceClient) FromFileDescriptor(ctx context.Context, in *FromFileDescriptorRequest, opts ...grpc.CallOption) (*FromFileDescriptorResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(FromFileDescriptorResponse)
-	err := c.cc.Invoke(ctx, LibrariesService_FromFileDescriptor_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *librariesServiceClient) FromPrivateFile(ctx context.Context, in *FromPrivateFileRequest, opts ...grpc.CallOption) (*FromPrivateFileResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(FromPrivateFileResponse)
-	err := c.cc.Invoke(ctx, LibrariesService_FromPrivateFile_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *librariesServiceClient) FromRawResource(ctx context.Context, in *FromRawResourceRequest, opts ...grpc.CallOption) (*FromRawResourceResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(FromRawResourceResponse)
-	err := c.cc.Invoke(ctx, LibrariesService_FromRawResource_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// LibrariesServiceServer is the server API for LibrariesService service.
-// All implementations must embed UnimplementedLibrariesServiceServer
-// for forward compatibility.
-type LibrariesServiceServer interface {
-	FromFile1(context.Context, *FromFile1Request) (*FromFile1Response, error)
-	FromFile1_1(context.Context, *FromFile1_1Request) (*FromFile1_1Response, error)
-	FromFileDescriptor(context.Context, *FromFileDescriptorRequest) (*FromFileDescriptorResponse, error)
-	FromPrivateFile(context.Context, *FromPrivateFileRequest) (*FromPrivateFileResponse, error)
-	FromRawResource(context.Context, *FromRawResourceRequest) (*FromRawResourceResponse, error)
-	mustEmbedUnimplementedLibrariesServiceServer()
-}
-
-// UnimplementedLibrariesServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedLibrariesServiceServer struct{}
-
-func (UnimplementedLibrariesServiceServer) FromFile1(context.Context, *FromFile1Request) (*FromFile1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method FromFile1 not implemented")
-}
-func (UnimplementedLibrariesServiceServer) FromFile1_1(context.Context, *FromFile1_1Request) (*FromFile1_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method FromFile1_1 not implemented")
-}
-func (UnimplementedLibrariesServiceServer) FromFileDescriptor(context.Context, *FromFileDescriptorRequest) (*FromFileDescriptorResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method FromFileDescriptor not implemented")
-}
-func (UnimplementedLibrariesServiceServer) FromPrivateFile(context.Context, *FromPrivateFileRequest) (*FromPrivateFileResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method FromPrivateFile not implemented")
-}
-func (UnimplementedLibrariesServiceServer) FromRawResource(context.Context, *FromRawResourceRequest) (*FromRawResourceResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method FromRawResource not implemented")
-}
-func (UnimplementedLibrariesServiceServer) mustEmbedUnimplementedLibrariesServiceServer() {}
-func (UnimplementedLibrariesServiceServer) testEmbeddedByValue()                          {}
-
-// UnsafeLibrariesServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to LibrariesServiceServer will
-// result in compilation errors.
-type UnsafeLibrariesServiceServer interface {
-	mustEmbedUnimplementedLibrariesServiceServer()
-}
-
-func RegisterLibrariesServiceServer(s grpc.ServiceRegistrar, srv LibrariesServiceServer) {
-	// If the following call panics, it indicates UnimplementedLibrariesServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&LibrariesService_ServiceDesc, srv)
-}
-
-func _LibrariesService_FromFile1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(FromFile1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(LibrariesServiceServer).FromFile1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: LibrariesService_FromFile1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(LibrariesServiceServer).FromFile1(ctx, req.(*FromFile1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _LibrariesService_FromFile1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(FromFile1_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(LibrariesServiceServer).FromFile1_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: LibrariesService_FromFile1_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(LibrariesServiceServer).FromFile1_1(ctx, req.(*FromFile1_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _LibrariesService_FromFileDescriptor_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(FromFileDescriptorRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(LibrariesServiceServer).FromFileDescriptor(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: LibrariesService_FromFileDescriptor_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(LibrariesServiceServer).FromFileDescriptor(ctx, req.(*FromFileDescriptorRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _LibrariesService_FromPrivateFile_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(FromPrivateFileRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(LibrariesServiceServer).FromPrivateFile(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: LibrariesService_FromPrivateFile_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(LibrariesServiceServer).FromPrivateFile(ctx, req.(*FromPrivateFileRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _LibrariesService_FromRawResource_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(FromRawResourceRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(LibrariesServiceServer).FromRawResource(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: LibrariesService_FromRawResource_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(LibrariesServiceServer).FromRawResource(ctx, req.(*FromRawResourceRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// LibrariesService_ServiceDesc is the grpc.ServiceDesc for LibrariesService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var LibrariesService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "gesture.LibrariesService",
-	HandlerType: (*LibrariesServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "FromFile1",
-			Handler:    _LibrariesService_FromFile1_Handler,
+			MethodName: "ToBitmap4",
+			Handler:    _GestureService_ToBitmap4_Handler,
 		},
 		{
-			MethodName: "FromFile1_1",
-			Handler:    _LibrariesService_FromFile1_1_Handler,
+			MethodName: "ToBitmap5_1",
+			Handler:    _GestureService_ToBitmap5_1_Handler,
 		},
 		{
-			MethodName: "FromFileDescriptor",
-			Handler:    _LibrariesService_FromFileDescriptor_Handler,
+			MethodName: "ToPath0",
+			Handler:    _GestureService_ToPath0_Handler,
 		},
 		{
-			MethodName: "FromPrivateFile",
-			Handler:    _LibrariesService_FromPrivateFile_Handler,
+			MethodName: "ToPath1_1",
+			Handler:    _GestureService_ToPath1_1_Handler,
 		},
 		{
-			MethodName: "FromRawResource",
-			Handler:    _LibrariesService_FromRawResource_Handler,
+			MethodName: "ToPath5_2",
+			Handler:    _GestureService_ToPath5_2_Handler,
+		},
+		{
+			MethodName: "ToPath4_3",
+			Handler:    _GestureService_ToPath4_3_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _GestureService_WriteToParcel_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

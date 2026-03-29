@@ -9,6 +9,237 @@ import (
 	"google.golang.org/grpc"
 )
 
+// MultiResolutionStreamInfoClient wraps the gRPC MultiResolutionStreamInfoService client.
+type MultiResolutionStreamInfoClient struct {
+	svc pb.MultiResolutionStreamInfoServiceClient
+}
+
+// NewMultiResolutionStreamInfoClient creates a new MultiResolutionStreamInfo client.
+func NewMultiResolutionStreamInfoClient(cc grpc.ClientConnInterface) *MultiResolutionStreamInfoClient {
+	return &MultiResolutionStreamInfoClient{
+		svc: pb.NewMultiResolutionStreamInfoServiceClient(cc),
+	}
+}
+
+// Equals calls the Equals RPC.
+func (c *MultiResolutionStreamInfoClient) Equals(ctx context.Context, handle int64, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetHeight calls the GetHeight RPC.
+func (c *MultiResolutionStreamInfoClient) GetHeight(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetHeight(ctx, &pb.GetHeightRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPhysicalCameraId calls the GetPhysicalCameraId RPC.
+func (c *MultiResolutionStreamInfoClient) GetPhysicalCameraId(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetPhysicalCameraId(ctx, &pb.GetPhysicalCameraIdRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetWidth calls the GetWidth RPC.
+func (c *MultiResolutionStreamInfoClient) GetWidth(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetWidth(ctx, &pb.GetWidthRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *MultiResolutionStreamInfoClient) HashCode(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// MandatoryStreamCombinationClient wraps the gRPC MandatoryStreamCombinationService client.
+type MandatoryStreamCombinationClient struct {
+	svc pb.MandatoryStreamCombinationServiceClient
+}
+
+// NewMandatoryStreamCombinationClient creates a new MandatoryStreamCombination client.
+func NewMandatoryStreamCombinationClient(cc grpc.ClientConnInterface) *MandatoryStreamCombinationClient {
+	return &MandatoryStreamCombinationClient{
+		svc: pb.NewMandatoryStreamCombinationServiceClient(cc),
+	}
+}
+
+// Equals calls the Equals RPC.
+func (c *MandatoryStreamCombinationClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.MandatoryStreamCombinationEqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDescription calls the GetDescription RPC.
+func (c *MandatoryStreamCombinationClient) GetDescription(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetDescription(ctx, &pb.GetDescriptionRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetStreamsInformation calls the GetStreamsInformation RPC.
+func (c *MandatoryStreamCombinationClient) GetStreamsInformation(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetStreamsInformation(ctx, &pb.GetStreamsInformationRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *MandatoryStreamCombinationClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.MandatoryStreamCombinationHashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsReprocessable calls the IsReprocessable RPC.
+func (c *MandatoryStreamCombinationClient) IsReprocessable(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsReprocessable(ctx, &pb.IsReprocessableRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// MandatoryStreamCombinationMandatoryStreamInformationClient wraps the gRPC MandatoryStreamCombinationMandatoryStreamInformationService client.
+type MandatoryStreamCombinationMandatoryStreamInformationClient struct {
+	svc pb.MandatoryStreamCombinationMandatoryStreamInformationServiceClient
+}
+
+// NewMandatoryStreamCombinationMandatoryStreamInformationClient creates a new MandatoryStreamCombinationMandatoryStreamInformation client.
+func NewMandatoryStreamCombinationMandatoryStreamInformationClient(cc grpc.ClientConnInterface) *MandatoryStreamCombinationMandatoryStreamInformationClient {
+	return &MandatoryStreamCombinationMandatoryStreamInformationClient{
+		svc: pb.NewMandatoryStreamCombinationMandatoryStreamInformationServiceClient(cc),
+	}
+}
+
+// Equals calls the Equals RPC.
+func (c *MandatoryStreamCombinationMandatoryStreamInformationClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.MandatoryStreamCombinationMandatoryStreamInformationEqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Get10BitFormat calls the Get10BitFormat RPC.
+func (c *MandatoryStreamCombinationMandatoryStreamInformationClient) Get10BitFormat(ctx context.Context) (int32, error) {
+	resp, err := c.svc.Get10BitFormat(ctx, &pb.Get10BitFormatRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAvailableSizes calls the GetAvailableSizes RPC.
+func (c *MandatoryStreamCombinationMandatoryStreamInformationClient) GetAvailableSizes(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetAvailableSizes(ctx, &pb.GetAvailableSizesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetFormat calls the GetFormat RPC.
+func (c *MandatoryStreamCombinationMandatoryStreamInformationClient) GetFormat(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetFormat(ctx, &pb.GetFormatRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetStreamUseCase calls the GetStreamUseCase RPC.
+func (c *MandatoryStreamCombinationMandatoryStreamInformationClient) GetStreamUseCase(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetStreamUseCase(ctx, &pb.GetStreamUseCaseRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *MandatoryStreamCombinationMandatoryStreamInformationClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.MandatoryStreamCombinationMandatoryStreamInformationHashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Is10BitCapable calls the Is10BitCapable RPC.
+func (c *MandatoryStreamCombinationMandatoryStreamInformationClient) Is10BitCapable(ctx context.Context) (bool, error) {
+	resp, err := c.svc.Is10BitCapable(ctx, &pb.Is10BitCapableRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsInput calls the IsInput RPC.
+func (c *MandatoryStreamCombinationMandatoryStreamInformationClient) IsInput(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsInput(ctx, &pb.IsInputRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsMaximumSize calls the IsMaximumSize RPC.
+func (c *MandatoryStreamCombinationMandatoryStreamInformationClient) IsMaximumSize(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsMaximumSize(ctx, &pb.IsMaximumSizeRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsUltraHighResolution calls the IsUltraHighResolution RPC.
+func (c *MandatoryStreamCombinationMandatoryStreamInformationClient) IsUltraHighResolution(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsUltraHighResolution(ctx, &pb.IsUltraHighResolutionRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
 // InputConfigurationClient wraps the gRPC InputConfigurationService client.
 type InputConfigurationClient struct {
 	svc pb.InputConfigurationServiceClient
@@ -35,7 +266,7 @@ func (c *InputConfigurationClient) Equals(ctx context.Context, handle int64, arg
 
 // GetFormat calls the GetFormat RPC.
 func (c *InputConfigurationClient) GetFormat(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetFormat(ctx, &pb.GetFormatRequest{
+	resp, err := c.svc.GetFormat(ctx, &pb.InputConfigurationGetFormatRequest{
 		Handle: handle,
 	})
 	if err != nil {
@@ -95,6 +326,458 @@ func (c *InputConfigurationClient) ToString(ctx context.Context, handle int64) (
 	})
 	if err != nil {
 		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// MeteringRectangleClient wraps the gRPC MeteringRectangleService client.
+type MeteringRectangleClient struct {
+	svc pb.MeteringRectangleServiceClient
+}
+
+// NewMeteringRectangleClient creates a new MeteringRectangle client.
+func NewMeteringRectangleClient(cc grpc.ClientConnInterface) *MeteringRectangleClient {
+	return &MeteringRectangleClient{
+		svc: pb.NewMeteringRectangleServiceClient(cc),
+	}
+}
+
+// Equals1 calls the Equals1 RPC.
+func (c *MeteringRectangleClient) Equals1(ctx context.Context, handle int64, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals1(ctx, &pb.Equals1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals1_1 calls the Equals1_1 RPC.
+func (c *MeteringRectangleClient) Equals1_1(ctx context.Context, handle int64, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals1_1(ctx, &pb.Equals1_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetHeight calls the GetHeight RPC.
+func (c *MeteringRectangleClient) GetHeight(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetHeight(ctx, &pb.GetHeightRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMeteringWeight calls the GetMeteringWeight RPC.
+func (c *MeteringRectangleClient) GetMeteringWeight(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetMeteringWeight(ctx, &pb.GetMeteringWeightRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetRect calls the GetRect RPC.
+func (c *MeteringRectangleClient) GetRect(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetRect(ctx, &pb.GetRectRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSize calls the GetSize RPC.
+func (c *MeteringRectangleClient) GetSize(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetSize(ctx, &pb.GetSizeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetUpperLeftPoint calls the GetUpperLeftPoint RPC.
+func (c *MeteringRectangleClient) GetUpperLeftPoint(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetUpperLeftPoint(ctx, &pb.GetUpperLeftPointRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetWidth calls the GetWidth RPC.
+func (c *MeteringRectangleClient) GetWidth(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetWidth(ctx, &pb.GetWidthRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetX calls the GetX RPC.
+func (c *MeteringRectangleClient) GetX(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetX(ctx, &pb.GetXRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetY calls the GetY RPC.
+func (c *MeteringRectangleClient) GetY(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetY(ctx, &pb.GetYRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *MeteringRectangleClient) HashCode(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *MeteringRectangleClient) ToString(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// DynamicRangeProfilesClient wraps the gRPC DynamicRangeProfilesService client.
+type DynamicRangeProfilesClient struct {
+	svc pb.DynamicRangeProfilesServiceClient
+}
+
+// NewDynamicRangeProfilesClient creates a new DynamicRangeProfiles client.
+func NewDynamicRangeProfilesClient(cc grpc.ClientConnInterface) *DynamicRangeProfilesClient {
+	return &DynamicRangeProfilesClient{
+		svc: pb.NewDynamicRangeProfilesServiceClient(cc),
+	}
+}
+
+// GetProfileCaptureRequestConstraints calls the GetProfileCaptureRequestConstraints RPC.
+func (c *DynamicRangeProfilesClient) GetProfileCaptureRequestConstraints(ctx context.Context, handle int64, arg0 int64) (int64, error) {
+	resp, err := c.svc.GetProfileCaptureRequestConstraints(ctx, &pb.GetProfileCaptureRequestConstraintsRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSupportedProfiles calls the GetSupportedProfiles RPC.
+func (c *DynamicRangeProfilesClient) GetSupportedProfiles(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetSupportedProfiles(ctx, &pb.GetSupportedProfilesRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsExtraLatencyPresent calls the IsExtraLatencyPresent RPC.
+func (c *DynamicRangeProfilesClient) IsExtraLatencyPresent(ctx context.Context, handle int64, arg0 int64) (bool, error) {
+	resp, err := c.svc.IsExtraLatencyPresent(ctx, &pb.IsExtraLatencyPresentRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CapabilityClient wraps the gRPC CapabilityService client.
+type CapabilityClient struct {
+	svc pb.CapabilityServiceClient
+}
+
+// NewCapabilityClient creates a new Capability client.
+func NewCapabilityClient(cc grpc.ClientConnInterface) *CapabilityClient {
+	return &CapabilityClient{
+		svc: pb.NewCapabilityServiceClient(cc),
+	}
+}
+
+// Equals calls the Equals RPC.
+func (c *CapabilityClient) Equals(ctx context.Context, handle int64, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMaxStreamingSize calls the GetMaxStreamingSize RPC.
+func (c *CapabilityClient) GetMaxStreamingSize(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetMaxStreamingSize(ctx, &pb.GetMaxStreamingSizeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMode calls the GetMode RPC.
+func (c *CapabilityClient) GetMode(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetMode(ctx, &pb.GetModeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetZoomRatioRange calls the GetZoomRatioRange RPC.
+func (c *CapabilityClient) GetZoomRatioRange(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetZoomRatioRange(ctx, &pb.GetZoomRatioRangeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *CapabilityClient) HashCode(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *CapabilityClient) ToString(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// ExtensionSessionConfigurationClient wraps the gRPC ExtensionSessionConfigurationService client.
+type ExtensionSessionConfigurationClient struct {
+	svc pb.ExtensionSessionConfigurationServiceClient
+}
+
+// NewExtensionSessionConfigurationClient creates a new ExtensionSessionConfiguration client.
+func NewExtensionSessionConfigurationClient(cc grpc.ClientConnInterface) *ExtensionSessionConfigurationClient {
+	return &ExtensionSessionConfigurationClient{
+		svc: pb.NewExtensionSessionConfigurationServiceClient(cc),
+	}
+}
+
+// ClearColorSpace calls the ClearColorSpace RPC.
+func (c *ExtensionSessionConfigurationClient) ClearColorSpace(ctx context.Context, handle int64) error {
+	_, err := c.svc.ClearColorSpace(ctx, &pb.ClearColorSpaceRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// GetColorSpace calls the GetColorSpace RPC.
+func (c *ExtensionSessionConfigurationClient) GetColorSpace(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetColorSpace(ctx, &pb.GetColorSpaceRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetExecutor calls the GetExecutor RPC.
+func (c *ExtensionSessionConfigurationClient) GetExecutor(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetExecutor(ctx, &pb.GetExecutorRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetExtension calls the GetExtension RPC.
+func (c *ExtensionSessionConfigurationClient) GetExtension(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetExtension(ctx, &pb.GetExtensionRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetOutputConfigurations calls the GetOutputConfigurations RPC.
+func (c *ExtensionSessionConfigurationClient) GetOutputConfigurations(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetOutputConfigurations(ctx, &pb.GetOutputConfigurationsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPostviewOutputConfiguration calls the GetPostviewOutputConfiguration RPC.
+func (c *ExtensionSessionConfigurationClient) GetPostviewOutputConfiguration(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetPostviewOutputConfiguration(ctx, &pb.GetPostviewOutputConfigurationRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetStateCallback calls the GetStateCallback RPC.
+func (c *ExtensionSessionConfigurationClient) GetStateCallback(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetStateCallback(ctx, &pb.GetStateCallbackRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetColorSpace calls the SetColorSpace RPC.
+func (c *ExtensionSessionConfigurationClient) SetColorSpace(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetColorSpace(ctx, &pb.SetColorSpaceRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetPostviewOutputConfiguration calls the SetPostviewOutputConfiguration RPC.
+func (c *ExtensionSessionConfigurationClient) SetPostviewOutputConfiguration(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetPostviewOutputConfiguration(ctx, &pb.SetPostviewOutputConfigurationRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// DeviceStateSensorOrientationMapClient wraps the gRPC DeviceStateSensorOrientationMapService client.
+type DeviceStateSensorOrientationMapClient struct {
+	svc pb.DeviceStateSensorOrientationMapServiceClient
+}
+
+// NewDeviceStateSensorOrientationMapClient creates a new DeviceStateSensorOrientationMap client.
+func NewDeviceStateSensorOrientationMapClient(cc grpc.ClientConnInterface) *DeviceStateSensorOrientationMapClient {
+	return &DeviceStateSensorOrientationMapClient{
+		svc: pb.NewDeviceStateSensorOrientationMapServiceClient(cc),
+	}
+}
+
+// Equals calls the Equals RPC.
+func (c *DeviceStateSensorOrientationMapClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.DeviceStateSensorOrientationMapEqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSensorOrientation calls the GetSensorOrientation RPC.
+func (c *DeviceStateSensorOrientationMapClient) GetSensorOrientation(ctx context.Context, arg0 int64) (int32, error) {
+	resp, err := c.svc.GetSensorOrientation(ctx, &pb.GetSensorOrientationRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *DeviceStateSensorOrientationMapClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.DeviceStateSensorOrientationMapHashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// DeviceStateSensorOrientationMapBuilderClient wraps the gRPC DeviceStateSensorOrientationMapBuilderService client.
+type DeviceStateSensorOrientationMapBuilderClient struct {
+	svc pb.DeviceStateSensorOrientationMapBuilderServiceClient
+}
+
+// NewDeviceStateSensorOrientationMapBuilderClient creates a new DeviceStateSensorOrientationMapBuilder client.
+func NewDeviceStateSensorOrientationMapBuilderClient(cc grpc.ClientConnInterface) *DeviceStateSensorOrientationMapBuilderClient {
+	return &DeviceStateSensorOrientationMapBuilderClient{
+		svc: pb.NewDeviceStateSensorOrientationMapBuilderServiceClient(cc),
+	}
+}
+
+// AddOrientationForState calls the AddOrientationForState RPC.
+func (c *DeviceStateSensorOrientationMapBuilderClient) AddOrientationForState(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
+	resp, err := c.svc.AddOrientationForState(ctx, &pb.AddOrientationForStateRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Build calls the Build RPC.
+func (c *DeviceStateSensorOrientationMapBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
 	}
 	return resp.GetResult(), nil
 }
@@ -178,22 +861,23 @@ func (c *OisSampleClient) ToString(ctx context.Context, handle int64) (string, e
 	return resp.GetResult(), nil
 }
 
-// MultiResolutionStreamConfigurationMapClient wraps the gRPC MultiResolutionStreamConfigurationMapService client.
-type MultiResolutionStreamConfigurationMapClient struct {
-	svc pb.MultiResolutionStreamConfigurationMapServiceClient
+// LensIntrinsicsSampleClient wraps the gRPC LensIntrinsicsSampleService client.
+type LensIntrinsicsSampleClient struct {
+	svc pb.LensIntrinsicsSampleServiceClient
 }
 
-// NewMultiResolutionStreamConfigurationMapClient creates a new MultiResolutionStreamConfigurationMap client.
-func NewMultiResolutionStreamConfigurationMapClient(cc grpc.ClientConnInterface) *MultiResolutionStreamConfigurationMapClient {
-	return &MultiResolutionStreamConfigurationMapClient{
-		svc: pb.NewMultiResolutionStreamConfigurationMapServiceClient(cc),
+// NewLensIntrinsicsSampleClient creates a new LensIntrinsicsSample client.
+func NewLensIntrinsicsSampleClient(cc grpc.ClientConnInterface) *LensIntrinsicsSampleClient {
+	return &LensIntrinsicsSampleClient{
+		svc: pb.NewLensIntrinsicsSampleServiceClient(cc),
 	}
 }
 
 // Equals calls the Equals RPC.
-func (c *MultiResolutionStreamConfigurationMapClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.MultiResolutionStreamConfigurationMapEqualsRequest{
-		Arg0: arg0,
+func (c *LensIntrinsicsSampleClient) Equals(ctx context.Context, handle int64, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Handle: handle,
+		Arg0:   arg0,
 	})
 	if err != nil {
 		return false, err
@@ -201,18 +885,22 @@ func (c *MultiResolutionStreamConfigurationMapClient) Equals(ctx context.Context
 	return resp.GetResult(), nil
 }
 
-// GetInputFormats calls the GetInputFormats RPC.
-func (c *MultiResolutionStreamConfigurationMapClient) GetInputFormats(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetInputFormats(ctx, &pb.GetInputFormatsRequest{})
+// GetLensIntrinsics calls the GetLensIntrinsics RPC.
+func (c *LensIntrinsicsSampleClient) GetLensIntrinsics(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetLensIntrinsics(ctx, &pb.GetLensIntrinsicsRequest{
+		Handle: handle,
+	})
 	if err != nil {
 		return 0, err
 	}
 	return resp.GetResult(), nil
 }
 
-// GetOutputFormats calls the GetOutputFormats RPC.
-func (c *MultiResolutionStreamConfigurationMapClient) GetOutputFormats(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetOutputFormats(ctx, &pb.GetOutputFormatsRequest{})
+// GetTimestampNanos calls the GetTimestampNanos RPC.
+func (c *LensIntrinsicsSampleClient) GetTimestampNanos(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetTimestampNanos(ctx, &pb.GetTimestampNanosRequest{
+		Handle: handle,
+	})
 	if err != nil {
 		return 0, err
 	}
@@ -220,8 +908,10 @@ func (c *MultiResolutionStreamConfigurationMapClient) GetOutputFormats(ctx conte
 }
 
 // HashCode calls the HashCode RPC.
-func (c *MultiResolutionStreamConfigurationMapClient) HashCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.MultiResolutionStreamConfigurationMapHashCodeRequest{})
+func (c *LensIntrinsicsSampleClient) HashCode(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{
+		Handle: handle,
+	})
 	if err != nil {
 		return 0, err
 	}
@@ -229,30 +919,132 @@ func (c *MultiResolutionStreamConfigurationMapClient) HashCode(ctx context.Conte
 }
 
 // ToString calls the ToString RPC.
-func (c *MultiResolutionStreamConfigurationMapClient) ToString(ctx context.Context) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.MultiResolutionStreamConfigurationMapToStringRequest{})
+func (c *LensIntrinsicsSampleClient) ToString(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{
+		Handle: handle,
+	})
 	if err != nil {
 		return "", err
 	}
 	return resp.GetResult(), nil
 }
 
-// MandatoryStreamCombinationClient wraps the gRPC MandatoryStreamCombinationService client.
-type MandatoryStreamCombinationClient struct {
-	svc pb.MandatoryStreamCombinationServiceClient
+// ColorSpaceProfilesClient wraps the gRPC ColorSpaceProfilesService client.
+type ColorSpaceProfilesClient struct {
+	svc pb.ColorSpaceProfilesServiceClient
 }
 
-// NewMandatoryStreamCombinationClient creates a new MandatoryStreamCombination client.
-func NewMandatoryStreamCombinationClient(cc grpc.ClientConnInterface) *MandatoryStreamCombinationClient {
-	return &MandatoryStreamCombinationClient{
-		svc: pb.NewMandatoryStreamCombinationServiceClient(cc),
+// NewColorSpaceProfilesClient creates a new ColorSpaceProfiles client.
+func NewColorSpaceProfilesClient(cc grpc.ClientConnInterface) *ColorSpaceProfilesClient {
+	return &ColorSpaceProfilesClient{
+		svc: pb.NewColorSpaceProfilesServiceClient(cc),
 	}
 }
 
+// GetSupportedColorSpaces calls the GetSupportedColorSpaces RPC.
+func (c *ColorSpaceProfilesClient) GetSupportedColorSpaces(ctx context.Context, handle int64, arg0 int32) (int64, error) {
+	resp, err := c.svc.GetSupportedColorSpaces(ctx, &pb.GetSupportedColorSpacesRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSupportedColorSpacesForDynamicRange calls the GetSupportedColorSpacesForDynamicRange RPC.
+func (c *ColorSpaceProfilesClient) GetSupportedColorSpacesForDynamicRange(ctx context.Context, handle int64, arg0 int32, arg1 int64) (int64, error) {
+	resp, err := c.svc.GetSupportedColorSpacesForDynamicRange(ctx, &pb.GetSupportedColorSpacesForDynamicRangeRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSupportedDynamicRangeProfiles calls the GetSupportedDynamicRangeProfiles RPC.
+func (c *ColorSpaceProfilesClient) GetSupportedDynamicRangeProfiles(ctx context.Context, handle int64, arg0 int64, arg1 int32) (int64, error) {
+	resp, err := c.svc.GetSupportedDynamicRangeProfiles(ctx, &pb.GetSupportedDynamicRangeProfilesRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSupportedImageFormatsForColorSpace calls the GetSupportedImageFormatsForColorSpace RPC.
+func (c *ColorSpaceProfilesClient) GetSupportedImageFormatsForColorSpace(ctx context.Context, handle int64, arg0 int64) (int64, error) {
+	resp, err := c.svc.GetSupportedImageFormatsForColorSpace(ctx, &pb.GetSupportedImageFormatsForColorSpaceRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OutputConfigurationClient wraps the gRPC OutputConfigurationService client.
+type OutputConfigurationClient struct {
+	svc pb.OutputConfigurationServiceClient
+}
+
+// NewOutputConfigurationClient creates a new OutputConfiguration client.
+func NewOutputConfigurationClient(cc grpc.ClientConnInterface) *OutputConfigurationClient {
+	return &OutputConfigurationClient{
+		svc: pb.NewOutputConfigurationServiceClient(cc),
+	}
+}
+
+// AddSensorPixelModeUsed calls the AddSensorPixelModeUsed RPC.
+func (c *OutputConfigurationClient) AddSensorPixelModeUsed(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.AddSensorPixelModeUsed(ctx, &pb.AddSensorPixelModeUsedRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// AddSurface calls the AddSurface RPC.
+func (c *OutputConfigurationClient) AddSurface(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.AddSurface(ctx, &pb.AddSurfaceRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *OutputConfigurationClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// EnableSurfaceSharing calls the EnableSurfaceSharing RPC.
+func (c *OutputConfigurationClient) EnableSurfaceSharing(ctx context.Context, handle int64) error {
+	_, err := c.svc.EnableSurfaceSharing(ctx, &pb.EnableSurfaceSharingRequest{
+		Handle: handle,
+	})
+	return err
+}
+
 // Equals calls the Equals RPC.
-func (c *MandatoryStreamCombinationClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.MandatoryStreamCombinationEqualsRequest{
-		Arg0: arg0,
+func (c *OutputConfigurationClient) Equals(ctx context.Context, handle int64, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Handle: handle,
+		Arg0:   arg0,
 	})
 	if err != nil {
 		return false, err
@@ -260,68 +1052,45 @@ func (c *MandatoryStreamCombinationClient) Equals(ctx context.Context, arg0 int6
 	return resp.GetResult(), nil
 }
 
-// GetDescription calls the GetDescription RPC.
-func (c *MandatoryStreamCombinationClient) GetDescription(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetDescription(ctx, &pb.GetDescriptionRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *MandatoryStreamCombinationClient) HashCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.MandatoryStreamCombinationHashCodeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsReprocessable calls the IsReprocessable RPC.
-func (c *MandatoryStreamCombinationClient) IsReprocessable(ctx context.Context) (bool, error) {
-	resp, err := c.svc.IsReprocessable(ctx, &pb.IsReprocessableRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// MandatoryStreamCombinationMandatoryStreamInformationClient wraps the gRPC MandatoryStreamCombinationMandatoryStreamInformationService client.
-type MandatoryStreamCombinationMandatoryStreamInformationClient struct {
-	svc pb.MandatoryStreamCombinationMandatoryStreamInformationServiceClient
-}
-
-// NewMandatoryStreamCombinationMandatoryStreamInformationClient creates a new MandatoryStreamCombinationMandatoryStreamInformation client.
-func NewMandatoryStreamCombinationMandatoryStreamInformationClient(cc grpc.ClientConnInterface) *MandatoryStreamCombinationMandatoryStreamInformationClient {
-	return &MandatoryStreamCombinationMandatoryStreamInformationClient{
-		svc: pb.NewMandatoryStreamCombinationMandatoryStreamInformationServiceClient(cc),
-	}
-}
-
-// Equals calls the Equals RPC.
-func (c *MandatoryStreamCombinationMandatoryStreamInformationClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.MandatoryStreamCombinationMandatoryStreamInformationEqualsRequest{
-		Arg0: arg0,
+// GetDynamicRangeProfile calls the GetDynamicRangeProfile RPC.
+func (c *OutputConfigurationClient) GetDynamicRangeProfile(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetDynamicRangeProfile(ctx, &pb.GetDynamicRangeProfileRequest{
+		Handle: handle,
 	})
 	if err != nil {
-		return false, err
+		return 0, err
 	}
 	return resp.GetResult(), nil
 }
 
-// Get10BitFormat calls the Get10BitFormat RPC.
-func (c *MandatoryStreamCombinationMandatoryStreamInformationClient) Get10BitFormat(ctx context.Context) (int32, error) {
-	resp, err := c.svc.Get10BitFormat(ctx, &pb.Get10BitFormatRequest{})
+// GetMaxSharedSurfaceCount calls the GetMaxSharedSurfaceCount RPC.
+func (c *OutputConfigurationClient) GetMaxSharedSurfaceCount(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetMaxSharedSurfaceCount(ctx, &pb.GetMaxSharedSurfaceCountRequest{
+		Handle: handle,
+	})
 	if err != nil {
 		return 0, err
 	}
 	return resp.GetResult(), nil
 }
 
-// GetFormat calls the GetFormat RPC.
-func (c *MandatoryStreamCombinationMandatoryStreamInformationClient) GetFormat(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetFormat(ctx, &pb.MandatoryStreamCombinationMandatoryStreamInformationGetFormatRequest{})
+// GetMirrorMode0 calls the GetMirrorMode0 RPC.
+func (c *OutputConfigurationClient) GetMirrorMode0(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetMirrorMode0(ctx, &pb.GetMirrorMode0Request{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMirrorMode1_1 calls the GetMirrorMode1_1 RPC.
+func (c *OutputConfigurationClient) GetMirrorMode1_1(ctx context.Context, handle int64, arg0 int64) (int32, error) {
+	resp, err := c.svc.GetMirrorMode1_1(ctx, &pb.GetMirrorMode1_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
 	if err != nil {
 		return 0, err
 	}
@@ -329,110 +1098,8 @@ func (c *MandatoryStreamCombinationMandatoryStreamInformationClient) GetFormat(c
 }
 
 // GetStreamUseCase calls the GetStreamUseCase RPC.
-func (c *MandatoryStreamCombinationMandatoryStreamInformationClient) GetStreamUseCase(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetStreamUseCase(ctx, &pb.GetStreamUseCaseRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *MandatoryStreamCombinationMandatoryStreamInformationClient) HashCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.MandatoryStreamCombinationMandatoryStreamInformationHashCodeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Is10BitCapable calls the Is10BitCapable RPC.
-func (c *MandatoryStreamCombinationMandatoryStreamInformationClient) Is10BitCapable(ctx context.Context) (bool, error) {
-	resp, err := c.svc.Is10BitCapable(ctx, &pb.Is10BitCapableRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsInput calls the IsInput RPC.
-func (c *MandatoryStreamCombinationMandatoryStreamInformationClient) IsInput(ctx context.Context) (bool, error) {
-	resp, err := c.svc.IsInput(ctx, &pb.IsInputRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsMaximumSize calls the IsMaximumSize RPC.
-func (c *MandatoryStreamCombinationMandatoryStreamInformationClient) IsMaximumSize(ctx context.Context) (bool, error) {
-	resp, err := c.svc.IsMaximumSize(ctx, &pb.IsMaximumSizeRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsUltraHighResolution calls the IsUltraHighResolution RPC.
-func (c *MandatoryStreamCombinationMandatoryStreamInformationClient) IsUltraHighResolution(ctx context.Context) (bool, error) {
-	resp, err := c.svc.IsUltraHighResolution(ctx, &pb.IsUltraHighResolutionRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// DynamicRangeProfilesClient wraps the gRPC DynamicRangeProfilesService client.
-type DynamicRangeProfilesClient struct {
-	svc pb.DynamicRangeProfilesServiceClient
-}
-
-// NewDynamicRangeProfilesClient creates a new DynamicRangeProfiles client.
-func NewDynamicRangeProfilesClient(cc grpc.ClientConnInterface) *DynamicRangeProfilesClient {
-	return &DynamicRangeProfilesClient{
-		svc: pb.NewDynamicRangeProfilesServiceClient(cc),
-	}
-}
-
-// IsExtraLatencyPresent calls the IsExtraLatencyPresent RPC.
-func (c *DynamicRangeProfilesClient) IsExtraLatencyPresent(ctx context.Context, handle int64, arg0 int64) (bool, error) {
-	resp, err := c.svc.IsExtraLatencyPresent(ctx, &pb.IsExtraLatencyPresentRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// MultiResolutionStreamInfoClient wraps the gRPC MultiResolutionStreamInfoService client.
-type MultiResolutionStreamInfoClient struct {
-	svc pb.MultiResolutionStreamInfoServiceClient
-}
-
-// NewMultiResolutionStreamInfoClient creates a new MultiResolutionStreamInfo client.
-func NewMultiResolutionStreamInfoClient(cc grpc.ClientConnInterface) *MultiResolutionStreamInfoClient {
-	return &MultiResolutionStreamInfoClient{
-		svc: pb.NewMultiResolutionStreamInfoServiceClient(cc),
-	}
-}
-
-// Equals calls the Equals RPC.
-func (c *MultiResolutionStreamInfoClient) Equals(ctx context.Context, handle int64, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetHeight calls the GetHeight RPC.
-func (c *MultiResolutionStreamInfoClient) GetHeight(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetHeight(ctx, &pb.GetHeightRequest{
+func (c *OutputConfigurationClient) GetStreamUseCase(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetStreamUseCase(ctx, &pb.OutputConfigurationGetStreamUseCaseRequest{
 		Handle: handle,
 	})
 	if err != nil {
@@ -441,20 +1108,42 @@ func (c *MultiResolutionStreamInfoClient) GetHeight(ctx context.Context, handle 
 	return resp.GetResult(), nil
 }
 
-// GetPhysicalCameraId calls the GetPhysicalCameraId RPC.
-func (c *MultiResolutionStreamInfoClient) GetPhysicalCameraId(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.GetPhysicalCameraId(ctx, &pb.GetPhysicalCameraIdRequest{
+// GetSurface calls the GetSurface RPC.
+func (c *OutputConfigurationClient) GetSurface(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetSurface(ctx, &pb.GetSurfaceRequest{
 		Handle: handle,
 	})
 	if err != nil {
-		return "", err
+		return 0, err
 	}
 	return resp.GetResult(), nil
 }
 
-// GetWidth calls the GetWidth RPC.
-func (c *MultiResolutionStreamInfoClient) GetWidth(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetWidth(ctx, &pb.GetWidthRequest{
+// GetSurfaceGroupId calls the GetSurfaceGroupId RPC.
+func (c *OutputConfigurationClient) GetSurfaceGroupId(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetSurfaceGroupId(ctx, &pb.GetSurfaceGroupIdRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSurfaces calls the GetSurfaces RPC.
+func (c *OutputConfigurationClient) GetSurfaces(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetSurfaces(ctx, &pb.GetSurfacesRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTimestampBase calls the GetTimestampBase RPC.
+func (c *OutputConfigurationClient) GetTimestampBase(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetTimestampBase(ctx, &pb.GetTimestampBaseRequest{
 		Handle: handle,
 	})
 	if err != nil {
@@ -464,7 +1153,7 @@ func (c *MultiResolutionStreamInfoClient) GetWidth(ctx context.Context, handle i
 }
 
 // HashCode calls the HashCode RPC.
-func (c *MultiResolutionStreamInfoClient) HashCode(ctx context.Context, handle int64) (int32, error) {
+func (c *OutputConfigurationClient) HashCode(ctx context.Context, handle int64) (int32, error) {
 	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{
 		Handle: handle,
 	})
@@ -474,136 +1163,10 @@ func (c *MultiResolutionStreamInfoClient) HashCode(ctx context.Context, handle i
 	return resp.GetResult(), nil
 }
 
-// ExtensionSessionConfigurationClient wraps the gRPC ExtensionSessionConfigurationService client.
-type ExtensionSessionConfigurationClient struct {
-	svc pb.ExtensionSessionConfigurationServiceClient
-}
-
-// NewExtensionSessionConfigurationClient creates a new ExtensionSessionConfiguration client.
-func NewExtensionSessionConfigurationClient(cc grpc.ClientConnInterface) *ExtensionSessionConfigurationClient {
-	return &ExtensionSessionConfigurationClient{
-		svc: pb.NewExtensionSessionConfigurationServiceClient(cc),
-	}
-}
-
-// ClearColorSpace calls the ClearColorSpace RPC.
-func (c *ExtensionSessionConfigurationClient) ClearColorSpace(ctx context.Context, handle int64) error {
-	_, err := c.svc.ClearColorSpace(ctx, &pb.ClearColorSpaceRequest{
+// IsReadoutTimestampEnabled calls the IsReadoutTimestampEnabled RPC.
+func (c *OutputConfigurationClient) IsReadoutTimestampEnabled(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsReadoutTimestampEnabled(ctx, &pb.IsReadoutTimestampEnabledRequest{
 		Handle: handle,
-	})
-	return err
-}
-
-// GetColorSpace calls the GetColorSpace RPC.
-func (c *ExtensionSessionConfigurationClient) GetColorSpace(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetColorSpace(ctx, &pb.GetColorSpaceRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetExecutor calls the GetExecutor RPC.
-func (c *ExtensionSessionConfigurationClient) GetExecutor(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetExecutor(ctx, &pb.GetExecutorRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetExtension calls the GetExtension RPC.
-func (c *ExtensionSessionConfigurationClient) GetExtension(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetExtension(ctx, &pb.GetExtensionRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetPostviewOutputConfiguration calls the GetPostviewOutputConfiguration RPC.
-func (c *ExtensionSessionConfigurationClient) GetPostviewOutputConfiguration(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetPostviewOutputConfiguration(ctx, &pb.GetPostviewOutputConfigurationRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetStateCallback calls the GetStateCallback RPC.
-func (c *ExtensionSessionConfigurationClient) GetStateCallback(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetStateCallback(ctx, &pb.GetStateCallbackRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetColorSpace calls the SetColorSpace RPC.
-func (c *ExtensionSessionConfigurationClient) SetColorSpace(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.SetColorSpace(ctx, &pb.SetColorSpaceRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetPostviewOutputConfiguration calls the SetPostviewOutputConfiguration RPC.
-func (c *ExtensionSessionConfigurationClient) SetPostviewOutputConfiguration(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.SetPostviewOutputConfiguration(ctx, &pb.SetPostviewOutputConfigurationRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// ColorSpaceTransformClient wraps the gRPC ColorSpaceTransformService client.
-type ColorSpaceTransformClient struct {
-	svc pb.ColorSpaceTransformServiceClient
-}
-
-// NewColorSpaceTransformClient creates a new ColorSpaceTransform client.
-func NewColorSpaceTransformClient(cc grpc.ClientConnInterface) *ColorSpaceTransformClient {
-	return &ColorSpaceTransformClient{
-		svc: pb.NewColorSpaceTransformServiceClient(cc),
-	}
-}
-
-// CopyElements2 calls the CopyElements2 RPC.
-func (c *ColorSpaceTransformClient) CopyElements2(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
-	_, err := c.svc.CopyElements2(ctx, &pb.CopyElements2Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// CopyElements2_1 calls the CopyElements2_1 RPC.
-func (c *ColorSpaceTransformClient) CopyElements2_1(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
-	_, err := c.svc.CopyElements2_1(ctx, &pb.CopyElements2_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// Equals calls the Equals RPC.
-func (c *ColorSpaceTransformClient) Equals(ctx context.Context, handle int64, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
-		Handle: handle,
-		Arg0:   arg0,
 	})
 	if err != nil {
 		return false, err
@@ -611,37 +1174,106 @@ func (c *ColorSpaceTransformClient) Equals(ctx context.Context, handle int64, ar
 	return resp.GetResult(), nil
 }
 
-// GetElement calls the GetElement RPC.
-func (c *ColorSpaceTransformClient) GetElement(ctx context.Context, handle int64, arg0 int32, arg1 int32) (int64, error) {
-	resp, err := c.svc.GetElement(ctx, &pb.GetElementRequest{
+// RemoveSensorPixelModeUsed calls the RemoveSensorPixelModeUsed RPC.
+func (c *OutputConfigurationClient) RemoveSensorPixelModeUsed(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.RemoveSensorPixelModeUsed(ctx, &pb.RemoveSensorPixelModeUsedRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// RemoveSurface calls the RemoveSurface RPC.
+func (c *OutputConfigurationClient) RemoveSurface(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.RemoveSurface(ctx, &pb.RemoveSurfaceRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetDynamicRangeProfile calls the SetDynamicRangeProfile RPC.
+func (c *OutputConfigurationClient) SetDynamicRangeProfile(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetDynamicRangeProfile(ctx, &pb.SetDynamicRangeProfileRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetMirrorMode2 calls the SetMirrorMode2 RPC.
+func (c *OutputConfigurationClient) SetMirrorMode2(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.SetMirrorMode2(ctx, &pb.SetMirrorMode2Request{
 		Handle: handle,
 		Arg0:   arg0,
 		Arg1:   arg1,
 	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
+	return err
 }
 
-// HashCode calls the HashCode RPC.
-func (c *ColorSpaceTransformClient) HashCode(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{
+// SetMirrorMode1_1 calls the SetMirrorMode1_1 RPC.
+func (c *OutputConfigurationClient) SetMirrorMode1_1(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.SetMirrorMode1_1(ctx, &pb.SetMirrorMode1_1Request{
 		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetPhysicalCameraId calls the SetPhysicalCameraId RPC.
+func (c *OutputConfigurationClient) SetPhysicalCameraId(ctx context.Context, handle int64, arg0 string) error {
+	_, err := c.svc.SetPhysicalCameraId(ctx, &pb.SetPhysicalCameraIdRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetReadoutTimestampEnabled calls the SetReadoutTimestampEnabled RPC.
+func (c *OutputConfigurationClient) SetReadoutTimestampEnabled(ctx context.Context, handle int64, arg0 bool) error {
+	_, err := c.svc.SetReadoutTimestampEnabled(ctx, &pb.SetReadoutTimestampEnabledRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetStreamUseCase calls the SetStreamUseCase RPC.
+func (c *OutputConfigurationClient) SetStreamUseCase(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetStreamUseCase(ctx, &pb.SetStreamUseCaseRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetTimestampBase calls the SetTimestampBase RPC.
+func (c *OutputConfigurationClient) SetTimestampBase(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.SetTimestampBase(ctx, &pb.SetTimestampBaseRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *OutputConfigurationClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// CreateInstancesForMultiResolutionOutput calls the CreateInstancesForMultiResolutionOutput RPC.
+func (c *OutputConfigurationClient) CreateInstancesForMultiResolutionOutput(ctx context.Context, handle int64, arg0 int64) (int64, error) {
+	resp, err := c.svc.CreateInstancesForMultiResolutionOutput(ctx, &pb.CreateInstancesForMultiResolutionOutputRequest{
+		Handle: handle,
+		Arg0:   arg0,
 	})
 	if err != nil {
 		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToString calls the ToString RPC.
-func (c *ColorSpaceTransformClient) ToString(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return "", err
 	}
 	return resp.GetResult(), nil
 }
@@ -714,6 +1346,17 @@ func (c *SessionConfigurationClient) GetExecutor(ctx context.Context, handle int
 // GetInputConfiguration calls the GetInputConfiguration RPC.
 func (c *SessionConfigurationClient) GetInputConfiguration(ctx context.Context, handle int64) (int64, error) {
 	resp, err := c.svc.GetInputConfiguration(ctx, &pb.GetInputConfigurationRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetOutputConfigurations calls the GetOutputConfigurations RPC.
+func (c *SessionConfigurationClient) GetOutputConfigurations(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetOutputConfigurations(ctx, &pb.GetOutputConfigurationsRequest{
 		Handle: handle,
 	})
 	if err != nil {
@@ -813,76 +1456,162 @@ func (c *SessionConfigurationClient) WriteToParcel(ctx context.Context, handle i
 	return err
 }
 
-// DeviceStateSensorOrientationMapClient wraps the gRPC DeviceStateSensorOrientationMapService client.
-type DeviceStateSensorOrientationMapClient struct {
-	svc pb.DeviceStateSensorOrientationMapServiceClient
+// FaceClient wraps the gRPC FaceService client.
+type FaceClient struct {
+	svc pb.FaceServiceClient
 }
 
-// NewDeviceStateSensorOrientationMapClient creates a new DeviceStateSensorOrientationMap client.
-func NewDeviceStateSensorOrientationMapClient(cc grpc.ClientConnInterface) *DeviceStateSensorOrientationMapClient {
-	return &DeviceStateSensorOrientationMapClient{
-		svc: pb.NewDeviceStateSensorOrientationMapServiceClient(cc),
+// NewFaceClient creates a new Face client.
+func NewFaceClient(cc grpc.ClientConnInterface) *FaceClient {
+	return &FaceClient{
+		svc: pb.NewFaceServiceClient(cc),
 	}
 }
 
-// Equals calls the Equals RPC.
-func (c *DeviceStateSensorOrientationMapClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.DeviceStateSensorOrientationMapEqualsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetSensorOrientation calls the GetSensorOrientation RPC.
-func (c *DeviceStateSensorOrientationMapClient) GetSensorOrientation(ctx context.Context, arg0 int64) (int32, error) {
-	resp, err := c.svc.GetSensorOrientation(ctx, &pb.GetSensorOrientationRequest{
-		Arg0: arg0,
-	})
+// GetBounds calls the GetBounds RPC.
+func (c *FaceClient) GetBounds(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetBounds(ctx, &pb.GetBoundsRequest{})
 	if err != nil {
 		return 0, err
 	}
 	return resp.GetResult(), nil
 }
 
-// HashCode calls the HashCode RPC.
-func (c *DeviceStateSensorOrientationMapClient) HashCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.DeviceStateSensorOrientationMapHashCodeRequest{})
+// GetId calls the GetId RPC.
+func (c *FaceClient) GetId(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetId(ctx, &pb.GetIdRequest{})
 	if err != nil {
 		return 0, err
 	}
 	return resp.GetResult(), nil
 }
 
-// DeviceStateSensorOrientationMapBuilderClient wraps the gRPC DeviceStateSensorOrientationMapBuilderService client.
-type DeviceStateSensorOrientationMapBuilderClient struct {
-	svc pb.DeviceStateSensorOrientationMapBuilderServiceClient
-}
-
-// NewDeviceStateSensorOrientationMapBuilderClient creates a new DeviceStateSensorOrientationMapBuilder client.
-func NewDeviceStateSensorOrientationMapBuilderClient(cc grpc.ClientConnInterface) *DeviceStateSensorOrientationMapBuilderClient {
-	return &DeviceStateSensorOrientationMapBuilderClient{
-		svc: pb.NewDeviceStateSensorOrientationMapBuilderServiceClient(cc),
-	}
-}
-
-// AddOrientationForState calls the AddOrientationForState RPC.
-func (c *DeviceStateSensorOrientationMapBuilderClient) AddOrientationForState(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
-	resp, err := c.svc.AddOrientationForState(ctx, &pb.AddOrientationForStateRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
+// GetLeftEyePosition calls the GetLeftEyePosition RPC.
+func (c *FaceClient) GetLeftEyePosition(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetLeftEyePosition(ctx, &pb.GetLeftEyePositionRequest{})
 	if err != nil {
 		return 0, err
 	}
 	return resp.GetResult(), nil
+}
+
+// GetMouthPosition calls the GetMouthPosition RPC.
+func (c *FaceClient) GetMouthPosition(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetMouthPosition(ctx, &pb.GetMouthPositionRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetRightEyePosition calls the GetRightEyePosition RPC.
+func (c *FaceClient) GetRightEyePosition(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetRightEyePosition(ctx, &pb.GetRightEyePositionRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetScore calls the GetScore RPC.
+func (c *FaceClient) GetScore(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetScore(ctx, &pb.GetScoreRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *FaceClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.FaceToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// FaceBuilderClient wraps the gRPC FaceBuilderService client.
+type FaceBuilderClient struct {
+	svc pb.FaceBuilderServiceClient
+}
+
+// NewFaceBuilderClient creates a new FaceBuilder client.
+func NewFaceBuilderClient(cc grpc.ClientConnInterface) *FaceBuilderClient {
+	return &FaceBuilderClient{
+		svc: pb.NewFaceBuilderServiceClient(cc),
+	}
 }
 
 // Build calls the Build RPC.
-func (c *DeviceStateSensorOrientationMapBuilderClient) Build(ctx context.Context) (int64, error) {
+func (c *FaceBuilderClient) Build(ctx context.Context) (int64, error) {
 	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetBounds calls the SetBounds RPC.
+func (c *FaceBuilderClient) SetBounds(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetBounds(ctx, &pb.SetBoundsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetId calls the SetId RPC.
+func (c *FaceBuilderClient) SetId(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetId(ctx, &pb.SetIdRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetLeftEyePosition calls the SetLeftEyePosition RPC.
+func (c *FaceBuilderClient) SetLeftEyePosition(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetLeftEyePosition(ctx, &pb.SetLeftEyePositionRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetMouthPosition calls the SetMouthPosition RPC.
+func (c *FaceBuilderClient) SetMouthPosition(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetMouthPosition(ctx, &pb.SetMouthPositionRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetRightEyePosition calls the SetRightEyePosition RPC.
+func (c *FaceBuilderClient) SetRightEyePosition(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetRightEyePosition(ctx, &pb.SetRightEyePositionRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetScore calls the SetScore RPC.
+func (c *FaceBuilderClient) SetScore(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetScore(ctx, &pb.SetScoreRequest{
+		Arg0: arg0,
+	})
 	if err != nil {
 		return 0, err
 	}
@@ -971,20 +1700,111 @@ func (c *TonemapCurveClient) ToString(ctx context.Context, handle int64) (string
 	return resp.GetResult(), nil
 }
 
-// CapabilityClient wraps the gRPC CapabilityService client.
-type CapabilityClient struct {
-	svc pb.CapabilityServiceClient
+// MultiResolutionStreamConfigurationMapClient wraps the gRPC MultiResolutionStreamConfigurationMapService client.
+type MultiResolutionStreamConfigurationMapClient struct {
+	svc pb.MultiResolutionStreamConfigurationMapServiceClient
 }
 
-// NewCapabilityClient creates a new Capability client.
-func NewCapabilityClient(cc grpc.ClientConnInterface) *CapabilityClient {
-	return &CapabilityClient{
-		svc: pb.NewCapabilityServiceClient(cc),
+// NewMultiResolutionStreamConfigurationMapClient creates a new MultiResolutionStreamConfigurationMap client.
+func NewMultiResolutionStreamConfigurationMapClient(cc grpc.ClientConnInterface) *MultiResolutionStreamConfigurationMapClient {
+	return &MultiResolutionStreamConfigurationMapClient{
+		svc: pb.NewMultiResolutionStreamConfigurationMapServiceClient(cc),
 	}
 }
 
 // Equals calls the Equals RPC.
-func (c *CapabilityClient) Equals(ctx context.Context, handle int64, arg0 int64) (bool, error) {
+func (c *MultiResolutionStreamConfigurationMapClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.MultiResolutionStreamConfigurationMapEqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInputFormats calls the GetInputFormats RPC.
+func (c *MultiResolutionStreamConfigurationMapClient) GetInputFormats(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetInputFormats(ctx, &pb.GetInputFormatsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInputInfo calls the GetInputInfo RPC.
+func (c *MultiResolutionStreamConfigurationMapClient) GetInputInfo(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.GetInputInfo(ctx, &pb.GetInputInfoRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetOutputFormats calls the GetOutputFormats RPC.
+func (c *MultiResolutionStreamConfigurationMapClient) GetOutputFormats(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetOutputFormats(ctx, &pb.GetOutputFormatsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetOutputInfo calls the GetOutputInfo RPC.
+func (c *MultiResolutionStreamConfigurationMapClient) GetOutputInfo(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.GetOutputInfo(ctx, &pb.GetOutputInfoRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *MultiResolutionStreamConfigurationMapClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.MultiResolutionStreamConfigurationMapHashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *MultiResolutionStreamConfigurationMapClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.MultiResolutionStreamConfigurationMapToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// RggbChannelVectorClient wraps the gRPC RggbChannelVectorService client.
+type RggbChannelVectorClient struct {
+	svc pb.RggbChannelVectorServiceClient
+}
+
+// NewRggbChannelVectorClient creates a new RggbChannelVector client.
+func NewRggbChannelVectorClient(cc grpc.ClientConnInterface) *RggbChannelVectorClient {
+	return &RggbChannelVectorClient{
+		svc: pb.NewRggbChannelVectorServiceClient(cc),
+	}
+}
+
+// CopyTo calls the CopyTo RPC.
+func (c *RggbChannelVectorClient) CopyTo(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.CopyTo(ctx, &pb.CopyToRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// Equals calls the Equals RPC.
+func (c *RggbChannelVectorClient) Equals(ctx context.Context, handle int64, arg0 int64) (bool, error) {
 	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
 		Handle: handle,
 		Arg0:   arg0,
@@ -995,9 +1815,9 @@ func (c *CapabilityClient) Equals(ctx context.Context, handle int64, arg0 int64)
 	return resp.GetResult(), nil
 }
 
-// GetMaxStreamingSize calls the GetMaxStreamingSize RPC.
-func (c *CapabilityClient) GetMaxStreamingSize(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetMaxStreamingSize(ctx, &pb.GetMaxStreamingSizeRequest{
+// GetBlue calls the GetBlue RPC.
+func (c *RggbChannelVectorClient) GetBlue(ctx context.Context, handle int64) (float32, error) {
+	resp, err := c.svc.GetBlue(ctx, &pb.GetBlueRequest{
 		Handle: handle,
 	})
 	if err != nil {
@@ -1006,9 +1826,43 @@ func (c *CapabilityClient) GetMaxStreamingSize(ctx context.Context, handle int64
 	return resp.GetResult(), nil
 }
 
-// GetMode calls the GetMode RPC.
-func (c *CapabilityClient) GetMode(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetMode(ctx, &pb.GetModeRequest{
+// GetComponent calls the GetComponent RPC.
+func (c *RggbChannelVectorClient) GetComponent(ctx context.Context, handle int64, arg0 int32) (float32, error) {
+	resp, err := c.svc.GetComponent(ctx, &pb.GetComponentRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetGreenEven calls the GetGreenEven RPC.
+func (c *RggbChannelVectorClient) GetGreenEven(ctx context.Context, handle int64) (float32, error) {
+	resp, err := c.svc.GetGreenEven(ctx, &pb.GetGreenEvenRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetGreenOdd calls the GetGreenOdd RPC.
+func (c *RggbChannelVectorClient) GetGreenOdd(ctx context.Context, handle int64) (float32, error) {
+	resp, err := c.svc.GetGreenOdd(ctx, &pb.GetGreenOddRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetRed calls the GetRed RPC.
+func (c *RggbChannelVectorClient) GetRed(ctx context.Context, handle int64) (float32, error) {
+	resp, err := c.svc.GetRed(ctx, &pb.GetRedRequest{
 		Handle: handle,
 	})
 	if err != nil {
@@ -1018,7 +1872,7 @@ func (c *CapabilityClient) GetMode(ctx context.Context, handle int64) (int32, er
 }
 
 // HashCode calls the HashCode RPC.
-func (c *CapabilityClient) HashCode(ctx context.Context, handle int64) (int32, error) {
+func (c *RggbChannelVectorClient) HashCode(ctx context.Context, handle int64) (int32, error) {
 	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{
 		Handle: handle,
 	})
@@ -1029,12 +1883,427 @@ func (c *CapabilityClient) HashCode(ctx context.Context, handle int64) (int32, e
 }
 
 // ToString calls the ToString RPC.
-func (c *CapabilityClient) ToString(ctx context.Context, handle int64) (string, error) {
+func (c *RggbChannelVectorClient) ToString(ctx context.Context, handle int64) (string, error) {
 	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{
 		Handle: handle,
 	})
 	if err != nil {
 		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// ColorSpaceTransformClient wraps the gRPC ColorSpaceTransformService client.
+type ColorSpaceTransformClient struct {
+	svc pb.ColorSpaceTransformServiceClient
+}
+
+// NewColorSpaceTransformClient creates a new ColorSpaceTransform client.
+func NewColorSpaceTransformClient(cc grpc.ClientConnInterface) *ColorSpaceTransformClient {
+	return &ColorSpaceTransformClient{
+		svc: pb.NewColorSpaceTransformServiceClient(cc),
+	}
+}
+
+// CopyElements2 calls the CopyElements2 RPC.
+func (c *ColorSpaceTransformClient) CopyElements2(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.CopyElements2(ctx, &pb.CopyElements2Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// CopyElements2_1 calls the CopyElements2_1 RPC.
+func (c *ColorSpaceTransformClient) CopyElements2_1(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.CopyElements2_1(ctx, &pb.CopyElements2_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// Equals calls the Equals RPC.
+func (c *ColorSpaceTransformClient) Equals(ctx context.Context, handle int64, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetElement calls the GetElement RPC.
+func (c *ColorSpaceTransformClient) GetElement(ctx context.Context, handle int64, arg0 int32, arg1 int32) (int64, error) {
+	resp, err := c.svc.GetElement(ctx, &pb.GetElementRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *ColorSpaceTransformClient) HashCode(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *ColorSpaceTransformClient) ToString(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// StreamConfigurationMapClient wraps the gRPC StreamConfigurationMapService client.
+type StreamConfigurationMapClient struct {
+	svc pb.StreamConfigurationMapServiceClient
+}
+
+// NewStreamConfigurationMapClient creates a new StreamConfigurationMap client.
+func NewStreamConfigurationMapClient(cc grpc.ClientConnInterface) *StreamConfigurationMapClient {
+	return &StreamConfigurationMapClient{
+		svc: pb.NewStreamConfigurationMapServiceClient(cc),
+	}
+}
+
+// Equals calls the Equals RPC.
+func (c *StreamConfigurationMapClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.StreamConfigurationMapEqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetHighResolutionOutputSizes calls the GetHighResolutionOutputSizes RPC.
+func (c *StreamConfigurationMapClient) GetHighResolutionOutputSizes(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.GetHighResolutionOutputSizes(ctx, &pb.GetHighResolutionOutputSizesRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetHighSpeedVideoFpsRanges calls the GetHighSpeedVideoFpsRanges RPC.
+func (c *StreamConfigurationMapClient) GetHighSpeedVideoFpsRanges(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetHighSpeedVideoFpsRanges(ctx, &pb.GetHighSpeedVideoFpsRangesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetHighSpeedVideoFpsRangesFor calls the GetHighSpeedVideoFpsRangesFor RPC.
+func (c *StreamConfigurationMapClient) GetHighSpeedVideoFpsRangesFor(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.GetHighSpeedVideoFpsRangesFor(ctx, &pb.GetHighSpeedVideoFpsRangesForRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetHighSpeedVideoSizes calls the GetHighSpeedVideoSizes RPC.
+func (c *StreamConfigurationMapClient) GetHighSpeedVideoSizes(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetHighSpeedVideoSizes(ctx, &pb.GetHighSpeedVideoSizesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInputFormats calls the GetInputFormats RPC.
+func (c *StreamConfigurationMapClient) GetInputFormats(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetInputFormats(ctx, &pb.GetInputFormatsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInputSizes calls the GetInputSizes RPC.
+func (c *StreamConfigurationMapClient) GetInputSizes(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.GetInputSizes(ctx, &pb.GetInputSizesRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetOutputFormats calls the GetOutputFormats RPC.
+func (c *StreamConfigurationMapClient) GetOutputFormats(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetOutputFormats(ctx, &pb.GetOutputFormatsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetOutputMinFrameDuration calls the GetOutputMinFrameDuration RPC.
+func (c *StreamConfigurationMapClient) GetOutputMinFrameDuration(ctx context.Context, arg0 int32, arg1 int64) (int64, error) {
+	resp, err := c.svc.GetOutputMinFrameDuration(ctx, &pb.GetOutputMinFrameDurationRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetOutputSizes calls the GetOutputSizes RPC.
+func (c *StreamConfigurationMapClient) GetOutputSizes(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.GetOutputSizes(ctx, &pb.GetOutputSizesRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetOutputStallDuration calls the GetOutputStallDuration RPC.
+func (c *StreamConfigurationMapClient) GetOutputStallDuration(ctx context.Context, arg0 int32, arg1 int64) (int64, error) {
+	resp, err := c.svc.GetOutputStallDuration(ctx, &pb.GetOutputStallDurationRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetValidOutputFormatsForInput calls the GetValidOutputFormatsForInput RPC.
+func (c *StreamConfigurationMapClient) GetValidOutputFormatsForInput(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.GetValidOutputFormatsForInput(ctx, &pb.GetValidOutputFormatsForInputRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *StreamConfigurationMapClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.StreamConfigurationMapHashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsOutputSupportedFor1 calls the IsOutputSupportedFor1 RPC.
+func (c *StreamConfigurationMapClient) IsOutputSupportedFor1(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.IsOutputSupportedFor1(ctx, &pb.IsOutputSupportedFor1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsOutputSupportedFor1_1 calls the IsOutputSupportedFor1_1 RPC.
+func (c *StreamConfigurationMapClient) IsOutputSupportedFor1_1(ctx context.Context, arg0 int32) (bool, error) {
+	resp, err := c.svc.IsOutputSupportedFor1_1(ctx, &pb.IsOutputSupportedFor1_1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *StreamConfigurationMapClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.StreamConfigurationMapToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// RecommendedStreamConfigurationMapClient wraps the gRPC RecommendedStreamConfigurationMapService client.
+type RecommendedStreamConfigurationMapClient struct {
+	svc pb.RecommendedStreamConfigurationMapServiceClient
+}
+
+// NewRecommendedStreamConfigurationMapClient creates a new RecommendedStreamConfigurationMap client.
+func NewRecommendedStreamConfigurationMapClient(cc grpc.ClientConnInterface) *RecommendedStreamConfigurationMapClient {
+	return &RecommendedStreamConfigurationMapClient{
+		svc: pb.NewRecommendedStreamConfigurationMapServiceClient(cc),
+	}
+}
+
+// GetHighResolutionOutputSizes calls the GetHighResolutionOutputSizes RPC.
+func (c *RecommendedStreamConfigurationMapClient) GetHighResolutionOutputSizes(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.GetHighResolutionOutputSizes(ctx, &pb.GetHighResolutionOutputSizesRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetHighSpeedVideoFpsRanges calls the GetHighSpeedVideoFpsRanges RPC.
+func (c *RecommendedStreamConfigurationMapClient) GetHighSpeedVideoFpsRanges(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetHighSpeedVideoFpsRanges(ctx, &pb.GetHighSpeedVideoFpsRangesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetHighSpeedVideoFpsRangesFor calls the GetHighSpeedVideoFpsRangesFor RPC.
+func (c *RecommendedStreamConfigurationMapClient) GetHighSpeedVideoFpsRangesFor(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.GetHighSpeedVideoFpsRangesFor(ctx, &pb.GetHighSpeedVideoFpsRangesForRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetHighSpeedVideoSizes calls the GetHighSpeedVideoSizes RPC.
+func (c *RecommendedStreamConfigurationMapClient) GetHighSpeedVideoSizes(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetHighSpeedVideoSizes(ctx, &pb.GetHighSpeedVideoSizesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInputFormats calls the GetInputFormats RPC.
+func (c *RecommendedStreamConfigurationMapClient) GetInputFormats(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetInputFormats(ctx, &pb.GetInputFormatsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInputSizes calls the GetInputSizes RPC.
+func (c *RecommendedStreamConfigurationMapClient) GetInputSizes(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.GetInputSizes(ctx, &pb.GetInputSizesRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetOutputFormats calls the GetOutputFormats RPC.
+func (c *RecommendedStreamConfigurationMapClient) GetOutputFormats(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetOutputFormats(ctx, &pb.GetOutputFormatsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetOutputMinFrameDuration calls the GetOutputMinFrameDuration RPC.
+func (c *RecommendedStreamConfigurationMapClient) GetOutputMinFrameDuration(ctx context.Context, arg0 int32, arg1 int64) (int64, error) {
+	resp, err := c.svc.GetOutputMinFrameDuration(ctx, &pb.GetOutputMinFrameDurationRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetOutputSizes calls the GetOutputSizes RPC.
+func (c *RecommendedStreamConfigurationMapClient) GetOutputSizes(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.GetOutputSizes(ctx, &pb.GetOutputSizesRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetOutputStallDuration calls the GetOutputStallDuration RPC.
+func (c *RecommendedStreamConfigurationMapClient) GetOutputStallDuration(ctx context.Context, arg0 int32, arg1 int64) (int64, error) {
+	resp, err := c.svc.GetOutputStallDuration(ctx, &pb.GetOutputStallDurationRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetRecommendedUseCase calls the GetRecommendedUseCase RPC.
+func (c *RecommendedStreamConfigurationMapClient) GetRecommendedUseCase(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetRecommendedUseCase(ctx, &pb.GetRecommendedUseCaseRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetValidOutputFormatsForInput calls the GetValidOutputFormatsForInput RPC.
+func (c *RecommendedStreamConfigurationMapClient) GetValidOutputFormatsForInput(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.GetValidOutputFormatsForInput(ctx, &pb.GetValidOutputFormatsForInputRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsOutputSupportedFor1 calls the IsOutputSupportedFor1 RPC.
+func (c *RecommendedStreamConfigurationMapClient) IsOutputSupportedFor1(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.IsOutputSupportedFor1(ctx, &pb.IsOutputSupportedFor1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsOutputSupportedFor1_1 calls the IsOutputSupportedFor1_1 RPC.
+func (c *RecommendedStreamConfigurationMapClient) IsOutputSupportedFor1_1(ctx context.Context, arg0 int32) (bool, error) {
+	resp, err := c.svc.IsOutputSupportedFor1_1(ctx, &pb.IsOutputSupportedFor1_1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
 	}
 	return resp.GetResult(), nil
 }
@@ -1204,983 +2473,6 @@ func (c *LensShadingMapClient) HashCode(ctx context.Context) (int32, error) {
 // ToString calls the ToString RPC.
 func (c *LensShadingMapClient) ToString(ctx context.Context) (string, error) {
 	resp, err := c.svc.ToString(ctx, &pb.LensShadingMapToStringRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// MeteringRectangleClient wraps the gRPC MeteringRectangleService client.
-type MeteringRectangleClient struct {
-	svc pb.MeteringRectangleServiceClient
-}
-
-// NewMeteringRectangleClient creates a new MeteringRectangle client.
-func NewMeteringRectangleClient(cc grpc.ClientConnInterface) *MeteringRectangleClient {
-	return &MeteringRectangleClient{
-		svc: pb.NewMeteringRectangleServiceClient(cc),
-	}
-}
-
-// Equals1 calls the Equals1 RPC.
-func (c *MeteringRectangleClient) Equals1(ctx context.Context, handle int64, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals1(ctx, &pb.Equals1Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Equals1_1 calls the Equals1_1 RPC.
-func (c *MeteringRectangleClient) Equals1_1(ctx context.Context, handle int64, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals1_1(ctx, &pb.Equals1_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetHeight calls the GetHeight RPC.
-func (c *MeteringRectangleClient) GetHeight(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetHeight(ctx, &pb.GetHeightRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetMeteringWeight calls the GetMeteringWeight RPC.
-func (c *MeteringRectangleClient) GetMeteringWeight(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetMeteringWeight(ctx, &pb.GetMeteringWeightRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetRect calls the GetRect RPC.
-func (c *MeteringRectangleClient) GetRect(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetRect(ctx, &pb.GetRectRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetSize calls the GetSize RPC.
-func (c *MeteringRectangleClient) GetSize(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetSize(ctx, &pb.GetSizeRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetUpperLeftPoint calls the GetUpperLeftPoint RPC.
-func (c *MeteringRectangleClient) GetUpperLeftPoint(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetUpperLeftPoint(ctx, &pb.GetUpperLeftPointRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetWidth calls the GetWidth RPC.
-func (c *MeteringRectangleClient) GetWidth(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetWidth(ctx, &pb.GetWidthRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetX calls the GetX RPC.
-func (c *MeteringRectangleClient) GetX(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetX(ctx, &pb.GetXRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetY calls the GetY RPC.
-func (c *MeteringRectangleClient) GetY(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetY(ctx, &pb.GetYRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *MeteringRectangleClient) HashCode(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToString calls the ToString RPC.
-func (c *MeteringRectangleClient) ToString(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// RecommendedStreamConfigurationMapClient wraps the gRPC RecommendedStreamConfigurationMapService client.
-type RecommendedStreamConfigurationMapClient struct {
-	svc pb.RecommendedStreamConfigurationMapServiceClient
-}
-
-// NewRecommendedStreamConfigurationMapClient creates a new RecommendedStreamConfigurationMap client.
-func NewRecommendedStreamConfigurationMapClient(cc grpc.ClientConnInterface) *RecommendedStreamConfigurationMapClient {
-	return &RecommendedStreamConfigurationMapClient{
-		svc: pb.NewRecommendedStreamConfigurationMapServiceClient(cc),
-	}
-}
-
-// GetOutputMinFrameDuration calls the GetOutputMinFrameDuration RPC.
-func (c *RecommendedStreamConfigurationMapClient) GetOutputMinFrameDuration(ctx context.Context, arg0 int32, arg1 int64) (int64, error) {
-	resp, err := c.svc.GetOutputMinFrameDuration(ctx, &pb.GetOutputMinFrameDurationRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetOutputStallDuration calls the GetOutputStallDuration RPC.
-func (c *RecommendedStreamConfigurationMapClient) GetOutputStallDuration(ctx context.Context, arg0 int32, arg1 int64) (int64, error) {
-	resp, err := c.svc.GetOutputStallDuration(ctx, &pb.GetOutputStallDurationRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetRecommendedUseCase calls the GetRecommendedUseCase RPC.
-func (c *RecommendedStreamConfigurationMapClient) GetRecommendedUseCase(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetRecommendedUseCase(ctx, &pb.GetRecommendedUseCaseRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsOutputSupportedFor1 calls the IsOutputSupportedFor1 RPC.
-func (c *RecommendedStreamConfigurationMapClient) IsOutputSupportedFor1(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.IsOutputSupportedFor1(ctx, &pb.IsOutputSupportedFor1Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsOutputSupportedFor1_1 calls the IsOutputSupportedFor1_1 RPC.
-func (c *RecommendedStreamConfigurationMapClient) IsOutputSupportedFor1_1(ctx context.Context, arg0 int32) (bool, error) {
-	resp, err := c.svc.IsOutputSupportedFor1_1(ctx, &pb.IsOutputSupportedFor1_1Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// OutputConfigurationClient wraps the gRPC OutputConfigurationService client.
-type OutputConfigurationClient struct {
-	svc pb.OutputConfigurationServiceClient
-}
-
-// NewOutputConfigurationClient creates a new OutputConfiguration client.
-func NewOutputConfigurationClient(cc grpc.ClientConnInterface) *OutputConfigurationClient {
-	return &OutputConfigurationClient{
-		svc: pb.NewOutputConfigurationServiceClient(cc),
-	}
-}
-
-// AddSensorPixelModeUsed calls the AddSensorPixelModeUsed RPC.
-func (c *OutputConfigurationClient) AddSensorPixelModeUsed(ctx context.Context, handle int64, arg0 int32) error {
-	_, err := c.svc.AddSensorPixelModeUsed(ctx, &pb.AddSensorPixelModeUsedRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// AddSurface calls the AddSurface RPC.
-func (c *OutputConfigurationClient) AddSurface(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.AddSurface(ctx, &pb.AddSurfaceRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *OutputConfigurationClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// EnableSurfaceSharing calls the EnableSurfaceSharing RPC.
-func (c *OutputConfigurationClient) EnableSurfaceSharing(ctx context.Context, handle int64) error {
-	_, err := c.svc.EnableSurfaceSharing(ctx, &pb.EnableSurfaceSharingRequest{
-		Handle: handle,
-	})
-	return err
-}
-
-// Equals calls the Equals RPC.
-func (c *OutputConfigurationClient) Equals(ctx context.Context, handle int64, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetDynamicRangeProfile calls the GetDynamicRangeProfile RPC.
-func (c *OutputConfigurationClient) GetDynamicRangeProfile(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetDynamicRangeProfile(ctx, &pb.GetDynamicRangeProfileRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetMaxSharedSurfaceCount calls the GetMaxSharedSurfaceCount RPC.
-func (c *OutputConfigurationClient) GetMaxSharedSurfaceCount(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetMaxSharedSurfaceCount(ctx, &pb.GetMaxSharedSurfaceCountRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetMirrorMode0 calls the GetMirrorMode0 RPC.
-func (c *OutputConfigurationClient) GetMirrorMode0(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetMirrorMode0(ctx, &pb.GetMirrorMode0Request{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetMirrorMode1_1 calls the GetMirrorMode1_1 RPC.
-func (c *OutputConfigurationClient) GetMirrorMode1_1(ctx context.Context, handle int64, arg0 int64) (int32, error) {
-	resp, err := c.svc.GetMirrorMode1_1(ctx, &pb.GetMirrorMode1_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetStreamUseCase calls the GetStreamUseCase RPC.
-func (c *OutputConfigurationClient) GetStreamUseCase(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetStreamUseCase(ctx, &pb.OutputConfigurationGetStreamUseCaseRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetSurface calls the GetSurface RPC.
-func (c *OutputConfigurationClient) GetSurface(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetSurface(ctx, &pb.GetSurfaceRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetSurfaceGroupId calls the GetSurfaceGroupId RPC.
-func (c *OutputConfigurationClient) GetSurfaceGroupId(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetSurfaceGroupId(ctx, &pb.GetSurfaceGroupIdRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetTimestampBase calls the GetTimestampBase RPC.
-func (c *OutputConfigurationClient) GetTimestampBase(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetTimestampBase(ctx, &pb.GetTimestampBaseRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *OutputConfigurationClient) HashCode(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsReadoutTimestampEnabled calls the IsReadoutTimestampEnabled RPC.
-func (c *OutputConfigurationClient) IsReadoutTimestampEnabled(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.IsReadoutTimestampEnabled(ctx, &pb.IsReadoutTimestampEnabledRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// RemoveSensorPixelModeUsed calls the RemoveSensorPixelModeUsed RPC.
-func (c *OutputConfigurationClient) RemoveSensorPixelModeUsed(ctx context.Context, handle int64, arg0 int32) error {
-	_, err := c.svc.RemoveSensorPixelModeUsed(ctx, &pb.RemoveSensorPixelModeUsedRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// RemoveSurface calls the RemoveSurface RPC.
-func (c *OutputConfigurationClient) RemoveSurface(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.RemoveSurface(ctx, &pb.RemoveSurfaceRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetDynamicRangeProfile calls the SetDynamicRangeProfile RPC.
-func (c *OutputConfigurationClient) SetDynamicRangeProfile(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.SetDynamicRangeProfile(ctx, &pb.SetDynamicRangeProfileRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetMirrorMode2 calls the SetMirrorMode2 RPC.
-func (c *OutputConfigurationClient) SetMirrorMode2(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
-	_, err := c.svc.SetMirrorMode2(ctx, &pb.SetMirrorMode2Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// SetMirrorMode1_1 calls the SetMirrorMode1_1 RPC.
-func (c *OutputConfigurationClient) SetMirrorMode1_1(ctx context.Context, handle int64, arg0 int32) error {
-	_, err := c.svc.SetMirrorMode1_1(ctx, &pb.SetMirrorMode1_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetPhysicalCameraId calls the SetPhysicalCameraId RPC.
-func (c *OutputConfigurationClient) SetPhysicalCameraId(ctx context.Context, handle int64, arg0 string) error {
-	_, err := c.svc.SetPhysicalCameraId(ctx, &pb.SetPhysicalCameraIdRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetReadoutTimestampEnabled calls the SetReadoutTimestampEnabled RPC.
-func (c *OutputConfigurationClient) SetReadoutTimestampEnabled(ctx context.Context, handle int64, arg0 bool) error {
-	_, err := c.svc.SetReadoutTimestampEnabled(ctx, &pb.SetReadoutTimestampEnabledRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetStreamUseCase calls the SetStreamUseCase RPC.
-func (c *OutputConfigurationClient) SetStreamUseCase(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.SetStreamUseCase(ctx, &pb.SetStreamUseCaseRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetTimestampBase calls the SetTimestampBase RPC.
-func (c *OutputConfigurationClient) SetTimestampBase(ctx context.Context, handle int64, arg0 int32) error {
-	_, err := c.svc.SetTimestampBase(ctx, &pb.SetTimestampBaseRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *OutputConfigurationClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// LensIntrinsicsSampleClient wraps the gRPC LensIntrinsicsSampleService client.
-type LensIntrinsicsSampleClient struct {
-	svc pb.LensIntrinsicsSampleServiceClient
-}
-
-// NewLensIntrinsicsSampleClient creates a new LensIntrinsicsSample client.
-func NewLensIntrinsicsSampleClient(cc grpc.ClientConnInterface) *LensIntrinsicsSampleClient {
-	return &LensIntrinsicsSampleClient{
-		svc: pb.NewLensIntrinsicsSampleServiceClient(cc),
-	}
-}
-
-// Equals calls the Equals RPC.
-func (c *LensIntrinsicsSampleClient) Equals(ctx context.Context, handle int64, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetLensIntrinsics calls the GetLensIntrinsics RPC.
-func (c *LensIntrinsicsSampleClient) GetLensIntrinsics(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetLensIntrinsics(ctx, &pb.GetLensIntrinsicsRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetTimestampNanos calls the GetTimestampNanos RPC.
-func (c *LensIntrinsicsSampleClient) GetTimestampNanos(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetTimestampNanos(ctx, &pb.GetTimestampNanosRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *LensIntrinsicsSampleClient) HashCode(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToString calls the ToString RPC.
-func (c *LensIntrinsicsSampleClient) ToString(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// FaceClient wraps the gRPC FaceService client.
-type FaceClient struct {
-	svc pb.FaceServiceClient
-}
-
-// NewFaceClient creates a new Face client.
-func NewFaceClient(cc grpc.ClientConnInterface) *FaceClient {
-	return &FaceClient{
-		svc: pb.NewFaceServiceClient(cc),
-	}
-}
-
-// GetBounds calls the GetBounds RPC.
-func (c *FaceClient) GetBounds(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetBounds(ctx, &pb.GetBoundsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetId calls the GetId RPC.
-func (c *FaceClient) GetId(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetId(ctx, &pb.GetIdRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetLeftEyePosition calls the GetLeftEyePosition RPC.
-func (c *FaceClient) GetLeftEyePosition(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetLeftEyePosition(ctx, &pb.GetLeftEyePositionRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetMouthPosition calls the GetMouthPosition RPC.
-func (c *FaceClient) GetMouthPosition(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetMouthPosition(ctx, &pb.GetMouthPositionRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetRightEyePosition calls the GetRightEyePosition RPC.
-func (c *FaceClient) GetRightEyePosition(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetRightEyePosition(ctx, &pb.GetRightEyePositionRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetScore calls the GetScore RPC.
-func (c *FaceClient) GetScore(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetScore(ctx, &pb.GetScoreRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToString calls the ToString RPC.
-func (c *FaceClient) ToString(ctx context.Context) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.FaceToStringRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// FaceBuilderClient wraps the gRPC FaceBuilderService client.
-type FaceBuilderClient struct {
-	svc pb.FaceBuilderServiceClient
-}
-
-// NewFaceBuilderClient creates a new FaceBuilder client.
-func NewFaceBuilderClient(cc grpc.ClientConnInterface) *FaceBuilderClient {
-	return &FaceBuilderClient{
-		svc: pb.NewFaceBuilderServiceClient(cc),
-	}
-}
-
-// Build calls the Build RPC.
-func (c *FaceBuilderClient) Build(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetBounds calls the SetBounds RPC.
-func (c *FaceBuilderClient) SetBounds(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetBounds(ctx, &pb.SetBoundsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetId calls the SetId RPC.
-func (c *FaceBuilderClient) SetId(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.SetId(ctx, &pb.SetIdRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetLeftEyePosition calls the SetLeftEyePosition RPC.
-func (c *FaceBuilderClient) SetLeftEyePosition(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetLeftEyePosition(ctx, &pb.SetLeftEyePositionRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetMouthPosition calls the SetMouthPosition RPC.
-func (c *FaceBuilderClient) SetMouthPosition(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetMouthPosition(ctx, &pb.SetMouthPositionRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetRightEyePosition calls the SetRightEyePosition RPC.
-func (c *FaceBuilderClient) SetRightEyePosition(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetRightEyePosition(ctx, &pb.SetRightEyePositionRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetScore calls the SetScore RPC.
-func (c *FaceBuilderClient) SetScore(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.SetScore(ctx, &pb.SetScoreRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// StreamConfigurationMapClient wraps the gRPC StreamConfigurationMapService client.
-type StreamConfigurationMapClient struct {
-	svc pb.StreamConfigurationMapServiceClient
-}
-
-// NewStreamConfigurationMapClient creates a new StreamConfigurationMap client.
-func NewStreamConfigurationMapClient(cc grpc.ClientConnInterface) *StreamConfigurationMapClient {
-	return &StreamConfigurationMapClient{
-		svc: pb.NewStreamConfigurationMapServiceClient(cc),
-	}
-}
-
-// Equals calls the Equals RPC.
-func (c *StreamConfigurationMapClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.StreamConfigurationMapEqualsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetHighResolutionOutputSizes calls the GetHighResolutionOutputSizes RPC.
-func (c *StreamConfigurationMapClient) GetHighResolutionOutputSizes(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.GetHighResolutionOutputSizes(ctx, &pb.GetHighResolutionOutputSizesRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetHighSpeedVideoSizes calls the GetHighSpeedVideoSizes RPC.
-func (c *StreamConfigurationMapClient) GetHighSpeedVideoSizes(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetHighSpeedVideoSizes(ctx, &pb.GetHighSpeedVideoSizesRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetInputFormats calls the GetInputFormats RPC.
-func (c *StreamConfigurationMapClient) GetInputFormats(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetInputFormats(ctx, &pb.GetInputFormatsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetInputSizes calls the GetInputSizes RPC.
-func (c *StreamConfigurationMapClient) GetInputSizes(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.GetInputSizes(ctx, &pb.GetInputSizesRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetOutputFormats calls the GetOutputFormats RPC.
-func (c *StreamConfigurationMapClient) GetOutputFormats(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetOutputFormats(ctx, &pb.GetOutputFormatsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetOutputMinFrameDuration calls the GetOutputMinFrameDuration RPC.
-func (c *StreamConfigurationMapClient) GetOutputMinFrameDuration(ctx context.Context, arg0 int32, arg1 int64) (int64, error) {
-	resp, err := c.svc.GetOutputMinFrameDuration(ctx, &pb.GetOutputMinFrameDurationRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetOutputSizes calls the GetOutputSizes RPC.
-func (c *StreamConfigurationMapClient) GetOutputSizes(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.GetOutputSizes(ctx, &pb.GetOutputSizesRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetOutputStallDuration calls the GetOutputStallDuration RPC.
-func (c *StreamConfigurationMapClient) GetOutputStallDuration(ctx context.Context, arg0 int32, arg1 int64) (int64, error) {
-	resp, err := c.svc.GetOutputStallDuration(ctx, &pb.GetOutputStallDurationRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetValidOutputFormatsForInput calls the GetValidOutputFormatsForInput RPC.
-func (c *StreamConfigurationMapClient) GetValidOutputFormatsForInput(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.GetValidOutputFormatsForInput(ctx, &pb.GetValidOutputFormatsForInputRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *StreamConfigurationMapClient) HashCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.StreamConfigurationMapHashCodeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsOutputSupportedFor1 calls the IsOutputSupportedFor1 RPC.
-func (c *StreamConfigurationMapClient) IsOutputSupportedFor1(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.IsOutputSupportedFor1(ctx, &pb.IsOutputSupportedFor1Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsOutputSupportedFor1_1 calls the IsOutputSupportedFor1_1 RPC.
-func (c *StreamConfigurationMapClient) IsOutputSupportedFor1_1(ctx context.Context, arg0 int32) (bool, error) {
-	resp, err := c.svc.IsOutputSupportedFor1_1(ctx, &pb.IsOutputSupportedFor1_1Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToString calls the ToString RPC.
-func (c *StreamConfigurationMapClient) ToString(ctx context.Context) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.StreamConfigurationMapToStringRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// RggbChannelVectorClient wraps the gRPC RggbChannelVectorService client.
-type RggbChannelVectorClient struct {
-	svc pb.RggbChannelVectorServiceClient
-}
-
-// NewRggbChannelVectorClient creates a new RggbChannelVector client.
-func NewRggbChannelVectorClient(cc grpc.ClientConnInterface) *RggbChannelVectorClient {
-	return &RggbChannelVectorClient{
-		svc: pb.NewRggbChannelVectorServiceClient(cc),
-	}
-}
-
-// CopyTo calls the CopyTo RPC.
-func (c *RggbChannelVectorClient) CopyTo(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
-	_, err := c.svc.CopyTo(ctx, &pb.CopyToRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// Equals calls the Equals RPC.
-func (c *RggbChannelVectorClient) Equals(ctx context.Context, handle int64, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetBlue calls the GetBlue RPC.
-func (c *RggbChannelVectorClient) GetBlue(ctx context.Context, handle int64) (float32, error) {
-	resp, err := c.svc.GetBlue(ctx, &pb.GetBlueRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetComponent calls the GetComponent RPC.
-func (c *RggbChannelVectorClient) GetComponent(ctx context.Context, handle int64, arg0 int32) (float32, error) {
-	resp, err := c.svc.GetComponent(ctx, &pb.GetComponentRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetGreenEven calls the GetGreenEven RPC.
-func (c *RggbChannelVectorClient) GetGreenEven(ctx context.Context, handle int64) (float32, error) {
-	resp, err := c.svc.GetGreenEven(ctx, &pb.GetGreenEvenRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetGreenOdd calls the GetGreenOdd RPC.
-func (c *RggbChannelVectorClient) GetGreenOdd(ctx context.Context, handle int64) (float32, error) {
-	resp, err := c.svc.GetGreenOdd(ctx, &pb.GetGreenOddRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetRed calls the GetRed RPC.
-func (c *RggbChannelVectorClient) GetRed(ctx context.Context, handle int64) (float32, error) {
-	resp, err := c.svc.GetRed(ctx, &pb.GetRedRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *RggbChannelVectorClient) HashCode(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToString calls the ToString RPC.
-func (c *RggbChannelVectorClient) ToString(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{
-		Handle: handle,
-	})
 	if err != nil {
 		return "", err
 	}

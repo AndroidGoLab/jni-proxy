@@ -55,62 +55,6 @@ message TransmitResponse {
   int64 result = 1;
 }
 
-message NewSEServiceRequest {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-  int64 arg2 = 3;
-}
-
-message NewSEServiceResponse {
-  int64 result = 1;
-}
-
-message GetReadersRequest {
-  int64 handle = 1;
-}
-
-message GetReadersResponse {
-  int64 result = 1;
-}
-
-message GetUiccReaderRequest {
-  int64 handle = 1;
-  int32 arg0 = 2;
-}
-
-message GetUiccReaderResponse {
-  int64 result = 1;
-}
-
-message GetVersionRequest {
-  int64 handle = 1;
-}
-
-message GetVersionResponse {
-  string result = 1;
-}
-
-message IsConnectedRequest {
-  int64 handle = 1;
-}
-
-message IsConnectedResponse {
-  bool result = 1;
-}
-
-message ShutdownRequest {
-  int64 handle = 1;
-}
-
-message ShutdownResponse {
-}
-
-message OnConnectedRequest {
-}
-
-message OnConnectedResponse {
-}
-
 message CloseChannelsRequest {
 }
 
@@ -172,6 +116,62 @@ message OpenLogicalChannel2_1Response {
   int64 result = 1;
 }
 
+message NewSEServiceRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message NewSEServiceResponse {
+  int64 result = 1;
+}
+
+message GetReadersRequest {
+  int64 handle = 1;
+}
+
+message GetReadersResponse {
+  int64 result = 1;
+}
+
+message GetUiccReaderRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message GetUiccReaderResponse {
+  int64 result = 1;
+}
+
+message GetVersionRequest {
+  int64 handle = 1;
+}
+
+message GetVersionResponse {
+  string result = 1;
+}
+
+message IsConnectedRequest {
+  int64 handle = 1;
+}
+
+message IsConnectedResponse {
+  bool result = 1;
+}
+
+message ShutdownRequest {
+  int64 handle = 1;
+}
+
+message ShutdownResponse {
+}
+
+message OnConnectedRequest {
+}
+
+message OnConnectedResponse {
+}
+
 message CloseSessionsRequest {
 }
 
@@ -216,6 +216,18 @@ service ChannelService {
   rpc Transmit (TransmitRequest) returns (TransmitResponse);
 }
 
+service SessionService {
+  rpc Close (CloseRequest) returns (CloseResponse);
+  rpc CloseChannels (CloseChannelsRequest) returns (CloseChannelsResponse);
+  rpc GetATR (GetATRRequest) returns (GetATRResponse);
+  rpc GetReader (GetReaderRequest) returns (GetReaderResponse);
+  rpc IsClosed (IsClosedRequest) returns (IsClosedResponse);
+  rpc OpenBasicChannel1 (OpenBasicChannel1Request) returns (OpenBasicChannel1Response);
+  rpc OpenBasicChannel2_1 (OpenBasicChannel2_1Request) returns (OpenBasicChannel2_1Response);
+  rpc OpenLogicalChannel1 (OpenLogicalChannel1Request) returns (OpenLogicalChannel1Response);
+  rpc OpenLogicalChannel2_1 (OpenLogicalChannel2_1Request) returns (OpenLogicalChannel2_1Response);
+}
+
 service SEServiceService {
   rpc NewSEService (NewSEServiceRequest) returns (NewSEServiceResponse);
   rpc GetReaders (GetReadersRequest) returns (GetReadersResponse);
@@ -227,18 +239,6 @@ service SEServiceService {
 
 service SEServiceOnConnectedListenerService {
   rpc OnConnected (OnConnectedRequest) returns (OnConnectedResponse);
-}
-
-service SessionService {
-  rpc Close (CloseRequest) returns (CloseResponse);
-  rpc CloseChannels (CloseChannelsRequest) returns (CloseChannelsResponse);
-  rpc GetATR (GetATRRequest) returns (GetATRResponse);
-  rpc GetReader (GetReaderRequest) returns (GetReaderResponse);
-  rpc IsClosed (IsClosedRequest) returns (IsClosedResponse);
-  rpc OpenBasicChannel1 (OpenBasicChannel1Request) returns (OpenBasicChannel1Response);
-  rpc OpenBasicChannel2_1 (OpenBasicChannel2_1Request) returns (OpenBasicChannel2_1Response);
-  rpc OpenLogicalChannel1 (OpenLogicalChannel1Request) returns (OpenLogicalChannel1Response);
-  rpc OpenLogicalChannel2_1 (OpenLogicalChannel2_1Request) returns (OpenLogicalChannel2_1Response);
 }
 
 service ReaderService {

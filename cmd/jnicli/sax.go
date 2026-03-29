@@ -33,97 +33,6 @@ var saxEndElementListenerEndCmd = &cobra.Command{
 	},
 }
 
-var saxEndTextElementListenerCmd = &cobra.Command{
-	Use:   "end-text-element-listener",
-	Short: "EndTextElementListenerService operations",
-}
-
-var saxEndTextElementListenerEndCmd = &cobra.Command{
-	Use:   "end",
-	Short: "End RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewEndTextElementListenerServiceClient(grpcConn)
-		req := &pb.EndTextElementListenerEndRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.End(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var saxStartElementListenerCmd = &cobra.Command{
-	Use:   "start-element-listener",
-	Short: "StartElementListenerService operations",
-}
-
-var saxStartElementListenerStartCmd = &cobra.Command{
-	Use:   "start",
-	Short: "Start RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewStartElementListenerServiceClient(grpcConn)
-		req := &pb.StartRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Start(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var saxRootElementCmd = &cobra.Command{
-	Use:   "root-element",
-	Short: "RootElementService operations",
-}
-
-var saxRootElementNewRootElementCmd = &cobra.Command{
-	Use:   "new-root-element",
-	Short: "NewRootElement RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRootElementServiceClient(grpcConn)
-		req := &pb.NewRootElementRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.NewRootElement(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var saxRootElementGetContentHandlerCmd = &cobra.Command{
-	Use:   "get-content-handler",
-	Short: "GetContentHandler RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRootElementServiceClient(grpcConn)
-		req := &pb.GetContentHandlerRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetContentHandler(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
 var saxElementCmd = &cobra.Command{
 	Use:   "element",
 	Short: "ElementService operations",
@@ -322,20 +231,100 @@ var saxElementToStringCmd = &cobra.Command{
 	},
 }
 
+var saxStartElementListenerCmd = &cobra.Command{
+	Use:   "start-element-listener",
+	Short: "StartElementListenerService operations",
+}
+
+var saxStartElementListenerStartCmd = &cobra.Command{
+	Use:   "start",
+	Short: "Start RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStartElementListenerServiceClient(grpcConn)
+		req := &pb.StartRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Start(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var saxEndTextElementListenerCmd = &cobra.Command{
+	Use:   "end-text-element-listener",
+	Short: "EndTextElementListenerService operations",
+}
+
+var saxEndTextElementListenerEndCmd = &cobra.Command{
+	Use:   "end",
+	Short: "End RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEndTextElementListenerServiceClient(grpcConn)
+		req := &pb.EndTextElementListenerEndRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.End(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var saxRootElementCmd = &cobra.Command{
+	Use:   "root-element",
+	Short: "RootElementService operations",
+}
+
+var saxRootElementNewRootElementCmd = &cobra.Command{
+	Use:   "new-root-element",
+	Short: "NewRootElement RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRootElementServiceClient(grpcConn)
+		req := &pb.NewRootElementRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.NewRootElement(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var saxRootElementGetContentHandlerCmd = &cobra.Command{
+	Use:   "get-content-handler",
+	Short: "GetContentHandler RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRootElementServiceClient(grpcConn)
+		req := &pb.GetContentHandlerRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetContentHandler(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 func init() {
 	saxEndElementListenerCmd.AddCommand(saxEndElementListenerEndCmd)
 	saxCmd.AddCommand(saxEndElementListenerCmd)
-	saxEndTextElementListenerEndCmd.Flags().String("arg0", "", "arg0 (string)")
-	saxEndTextElementListenerCmd.AddCommand(saxEndTextElementListenerEndCmd)
-	saxCmd.AddCommand(saxEndTextElementListenerCmd)
-	saxStartElementListenerStartCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	saxStartElementListenerCmd.AddCommand(saxStartElementListenerStartCmd)
-	saxCmd.AddCommand(saxStartElementListenerCmd)
-	saxRootElementNewRootElementCmd.Flags().String("arg0", "", "arg0 (string)")
-	saxRootElementCmd.AddCommand(saxRootElementNewRootElementCmd)
-	saxRootElementGetContentHandlerCmd.Flags().Int64("handle", 0, "handle (int64)")
-	saxRootElementCmd.AddCommand(saxRootElementGetContentHandlerCmd)
-	saxCmd.AddCommand(saxRootElementCmd)
 	saxElementGetChild1Cmd.Flags().String("arg0", "", "arg0 (string)")
 	saxElementCmd.AddCommand(saxElementGetChild1Cmd)
 	saxElementGetChild2_1Cmd.Flags().String("arg0", "", "arg0 (string)")
@@ -358,5 +347,16 @@ func init() {
 	saxElementCmd.AddCommand(saxElementSetTextElementListenerCmd)
 	saxElementCmd.AddCommand(saxElementToStringCmd)
 	saxCmd.AddCommand(saxElementCmd)
+	saxStartElementListenerStartCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	saxStartElementListenerCmd.AddCommand(saxStartElementListenerStartCmd)
+	saxCmd.AddCommand(saxStartElementListenerCmd)
+	saxEndTextElementListenerEndCmd.Flags().String("arg0", "", "arg0 (string)")
+	saxEndTextElementListenerCmd.AddCommand(saxEndTextElementListenerEndCmd)
+	saxCmd.AddCommand(saxEndTextElementListenerCmd)
+	saxRootElementNewRootElementCmd.Flags().String("arg0", "", "arg0 (string)")
+	saxRootElementCmd.AddCommand(saxRootElementNewRootElementCmd)
+	saxRootElementGetContentHandlerCmd.Flags().Int64("handle", 0, "handle (int64)")
+	saxRootElementCmd.AddCommand(saxRootElementGetContentHandlerCmd)
+	saxCmd.AddCommand(saxRootElementCmd)
 	rootCmd.AddCommand(saxCmd)
 }

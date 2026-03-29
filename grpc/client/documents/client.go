@@ -404,6 +404,15 @@ func (c *ContractPathClient) Equals(ctx context.Context, arg0 int64) (bool, erro
 	return resp.GetResult(), nil
 }
 
+// GetPath calls the GetPath RPC.
+func (c *ContractPathClient) GetPath(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetPath(ctx, &pb.GetPathRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // GetRootId calls the GetRootId RPC.
 func (c *ContractPathClient) GetRootId(ctx context.Context) (string, error) {
 	resp, err := c.svc.GetRootId(ctx, &pb.ContractPathGetRootIdRequest{})

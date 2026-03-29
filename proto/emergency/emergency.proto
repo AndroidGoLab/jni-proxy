@@ -43,6 +43,27 @@ message GetEmergencyCallRoutingResponse {
   int32 result = 1;
 }
 
+message GetEmergencyNumberSourcesRequest {
+}
+
+message GetEmergencyNumberSourcesResponse {
+  int64 result = 1;
+}
+
+message GetEmergencyServiceCategoriesRequest {
+}
+
+message GetEmergencyServiceCategoriesResponse {
+  int64 result = 1;
+}
+
+message GetEmergencyUrnsRequest {
+}
+
+message GetEmergencyUrnsResponse {
+  int64 result = 1;
+}
+
 message GetMncRequest {
 }
 
@@ -109,6 +130,9 @@ service NumberService {
   rpc Equals (EqualsRequest) returns (EqualsResponse);
   rpc GetCountryIso (GetCountryIsoRequest) returns (GetCountryIsoResponse);
   rpc GetEmergencyCallRouting (GetEmergencyCallRoutingRequest) returns (GetEmergencyCallRoutingResponse);
+  rpc GetEmergencyNumberSources (GetEmergencyNumberSourcesRequest) returns (GetEmergencyNumberSourcesResponse);
+  rpc GetEmergencyServiceCategories (GetEmergencyServiceCategoriesRequest) returns (GetEmergencyServiceCategoriesResponse);
+  rpc GetEmergencyUrns (GetEmergencyUrnsRequest) returns (GetEmergencyUrnsResponse);
   rpc GetMnc (GetMncRequest) returns (GetMncResponse);
   rpc GetNumber (GetNumberRequest) returns (GetNumberResponse);
   rpc HashCode (HashCodeRequest) returns (HashCodeResponse);

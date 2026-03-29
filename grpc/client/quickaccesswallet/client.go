@@ -9,6 +9,50 @@ import (
 	"google.golang.org/grpc"
 )
 
+// SelectWalletCardRequestClient wraps the gRPC SelectWalletCardRequestService client.
+type SelectWalletCardRequestClient struct {
+	svc pb.SelectWalletCardRequestServiceClient
+}
+
+// NewSelectWalletCardRequestClient creates a new SelectWalletCardRequest client.
+func NewSelectWalletCardRequestClient(cc grpc.ClientConnInterface) *SelectWalletCardRequestClient {
+	return &SelectWalletCardRequestClient{
+		svc: pb.NewSelectWalletCardRequestServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *SelectWalletCardRequestClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCardId calls the GetCardId RPC.
+func (c *SelectWalletCardRequestClient) GetCardId(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetCardId(ctx, &pb.GetCardIdRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *SelectWalletCardRequestClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
 // QuickAccessWalletServiceClient wraps the gRPC QuickAccessWalletServiceService client.
 type QuickAccessWalletServiceClient struct {
 	svc pb.QuickAccessWalletServiceServiceClient
@@ -81,6 +125,89 @@ func (c *QuickAccessWalletServiceClient) SendWalletServiceEvent(ctx context.Cont
 	return err
 }
 
+// GetWalletCardsCallbackClient wraps the gRPC GetWalletCardsCallbackService client.
+type GetWalletCardsCallbackClient struct {
+	svc pb.GetWalletCardsCallbackServiceClient
+}
+
+// NewGetWalletCardsCallbackClient creates a new GetWalletCardsCallback client.
+func NewGetWalletCardsCallbackClient(cc grpc.ClientConnInterface) *GetWalletCardsCallbackClient {
+	return &GetWalletCardsCallbackClient{
+		svc: pb.NewGetWalletCardsCallbackServiceClient(cc),
+	}
+}
+
+// OnFailure calls the OnFailure RPC.
+func (c *GetWalletCardsCallbackClient) OnFailure(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnFailure(ctx, &pb.OnFailureRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnSuccess calls the OnSuccess RPC.
+func (c *GetWalletCardsCallbackClient) OnSuccess(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnSuccess(ctx, &pb.OnSuccessRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// GetWalletCardsErrorClient wraps the gRPC GetWalletCardsErrorService client.
+type GetWalletCardsErrorClient struct {
+	svc pb.GetWalletCardsErrorServiceClient
+}
+
+// NewGetWalletCardsErrorClient creates a new GetWalletCardsError client.
+func NewGetWalletCardsErrorClient(cc grpc.ClientConnInterface) *GetWalletCardsErrorClient {
+	return &GetWalletCardsErrorClient{
+		svc: pb.NewGetWalletCardsErrorServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *GetWalletCardsErrorClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetIcon calls the GetIcon RPC.
+func (c *GetWalletCardsErrorClient) GetIcon(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetIcon(ctx, &pb.GetIconRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMessage calls the GetMessage RPC.
+func (c *GetWalletCardsErrorClient) GetMessage(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetMessage(ctx, &pb.GetMessageRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *GetWalletCardsErrorClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
 // WalletCardClient wraps the gRPC WalletCardService client.
 type WalletCardClient struct {
 	svc pb.WalletCardServiceClient
@@ -95,7 +222,7 @@ func NewWalletCardClient(cc grpc.ClientConnInterface) *WalletCardClient {
 
 // DescribeContents calls the DescribeContents RPC.
 func (c *WalletCardClient) DescribeContents(ctx context.Context) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	resp, err := c.svc.DescribeContents(ctx, &pb.WalletCardDescribeContentsRequest{})
 	if err != nil {
 		return 0, err
 	}
@@ -113,7 +240,7 @@ func (c *WalletCardClient) GetCardIcon(ctx context.Context) (int64, error) {
 
 // GetCardId calls the GetCardId RPC.
 func (c *WalletCardClient) GetCardId(ctx context.Context) (string, error) {
-	resp, err := c.svc.GetCardId(ctx, &pb.GetCardIdRequest{})
+	resp, err := c.svc.GetCardId(ctx, &pb.WalletCardGetCardIdRequest{})
 	if err != nil {
 		return "", err
 	}
@@ -132,6 +259,15 @@ func (c *WalletCardClient) GetCardImage(ctx context.Context) (int64, error) {
 // GetCardLabel calls the GetCardLabel RPC.
 func (c *WalletCardClient) GetCardLabel(ctx context.Context) (int64, error) {
 	resp, err := c.svc.GetCardLabel(ctx, &pb.GetCardLabelRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCardLocations calls the GetCardLocations RPC.
+func (c *WalletCardClient) GetCardLocations(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetCardLocations(ctx, &pb.GetCardLocationsRequest{})
 	if err != nil {
 		return 0, err
 	}
@@ -176,7 +312,7 @@ func (c *WalletCardClient) GetPendingIntent(ctx context.Context) (int64, error) 
 
 // WriteToParcel calls the WriteToParcel RPC.
 func (c *WalletCardClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+	_, err := c.svc.WriteToParcel(ctx, &pb.WalletCardWriteToParcelRequest{
 		Arg0: arg0,
 		Arg1: arg1,
 	})
@@ -237,105 +373,6 @@ func (c *WalletCardBuilderClient) SetNonPaymentCardSecondaryImage(ctx context.Co
 	return resp.GetResult(), nil
 }
 
-// SelectWalletCardRequestClient wraps the gRPC SelectWalletCardRequestService client.
-type SelectWalletCardRequestClient struct {
-	svc pb.SelectWalletCardRequestServiceClient
-}
-
-// NewSelectWalletCardRequestClient creates a new SelectWalletCardRequest client.
-func NewSelectWalletCardRequestClient(cc grpc.ClientConnInterface) *SelectWalletCardRequestClient {
-	return &SelectWalletCardRequestClient{
-		svc: pb.NewSelectWalletCardRequestServiceClient(cc),
-	}
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *SelectWalletCardRequestClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.SelectWalletCardRequestDescribeContentsRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetCardId calls the GetCardId RPC.
-func (c *SelectWalletCardRequestClient) GetCardId(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.GetCardId(ctx, &pb.SelectWalletCardRequestGetCardIdRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *SelectWalletCardRequestClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.SelectWalletCardRequestWriteToParcelRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// GetWalletCardsErrorClient wraps the gRPC GetWalletCardsErrorService client.
-type GetWalletCardsErrorClient struct {
-	svc pb.GetWalletCardsErrorServiceClient
-}
-
-// NewGetWalletCardsErrorClient creates a new GetWalletCardsError client.
-func NewGetWalletCardsErrorClient(cc grpc.ClientConnInterface) *GetWalletCardsErrorClient {
-	return &GetWalletCardsErrorClient{
-		svc: pb.NewGetWalletCardsErrorServiceClient(cc),
-	}
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *GetWalletCardsErrorClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.GetWalletCardsErrorDescribeContentsRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetIcon calls the GetIcon RPC.
-func (c *GetWalletCardsErrorClient) GetIcon(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetIcon(ctx, &pb.GetIconRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetMessage calls the GetMessage RPC.
-func (c *GetWalletCardsErrorClient) GetMessage(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetMessage(ctx, &pb.GetMessageRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *GetWalletCardsErrorClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.GetWalletCardsErrorWriteToParcelRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
 // WalletServiceEventClient wraps the gRPC WalletServiceEventService client.
 type WalletServiceEventClient struct {
 	svc pb.WalletServiceEventServiceClient
@@ -350,7 +387,7 @@ func NewWalletServiceEventClient(cc grpc.ClientConnInterface) *WalletServiceEven
 
 // DescribeContents calls the DescribeContents RPC.
 func (c *WalletServiceEventClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.WalletServiceEventDescribeContentsRequest{
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{
 		Handle: handle,
 	})
 	if err != nil {
@@ -372,79 +409,7 @@ func (c *WalletServiceEventClient) GetEventType(ctx context.Context, handle int6
 
 // WriteToParcel calls the WriteToParcel RPC.
 func (c *WalletServiceEventClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.WalletServiceEventWriteToParcelRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// GetWalletCardsCallbackClient wraps the gRPC GetWalletCardsCallbackService client.
-type GetWalletCardsCallbackClient struct {
-	svc pb.GetWalletCardsCallbackServiceClient
-}
-
-// NewGetWalletCardsCallbackClient creates a new GetWalletCardsCallback client.
-func NewGetWalletCardsCallbackClient(cc grpc.ClientConnInterface) *GetWalletCardsCallbackClient {
-	return &GetWalletCardsCallbackClient{
-		svc: pb.NewGetWalletCardsCallbackServiceClient(cc),
-	}
-}
-
-// OnFailure calls the OnFailure RPC.
-func (c *GetWalletCardsCallbackClient) OnFailure(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.OnFailure(ctx, &pb.OnFailureRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// OnSuccess calls the OnSuccess RPC.
-func (c *GetWalletCardsCallbackClient) OnSuccess(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.OnSuccess(ctx, &pb.OnSuccessRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// GetWalletCardsResponseClient wraps the gRPC GetWalletCardsResponseService client.
-type GetWalletCardsResponseClient struct {
-	svc pb.GetWalletCardsResponseServiceClient
-}
-
-// NewGetWalletCardsResponseClient creates a new GetWalletCardsResponse client.
-func NewGetWalletCardsResponseClient(cc grpc.ClientConnInterface) *GetWalletCardsResponseClient {
-	return &GetWalletCardsResponseClient{
-		svc: pb.NewGetWalletCardsResponseServiceClient(cc),
-	}
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *GetWalletCardsResponseClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.GetWalletCardsResponseDescribeContentsRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetSelectedIndex calls the GetSelectedIndex RPC.
-func (c *GetWalletCardsResponseClient) GetSelectedIndex(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetSelectedIndex(ctx, &pb.GetSelectedIndexRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *GetWalletCardsResponseClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.GetWalletCardsResponseWriteToParcelRequest{
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
 		Handle: handle,
 		Arg0:   arg0,
 		Arg1:   arg1,
@@ -466,7 +431,7 @@ func NewGetWalletCardsRequestClient(cc grpc.ClientConnInterface) *GetWalletCards
 
 // DescribeContents calls the DescribeContents RPC.
 func (c *GetWalletCardsRequestClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.GetWalletCardsRequestDescribeContentsRequest{
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{
 		Handle: handle,
 	})
 	if err != nil {
@@ -521,7 +486,62 @@ func (c *GetWalletCardsRequestClient) GetMaxCards(ctx context.Context, handle in
 
 // WriteToParcel calls the WriteToParcel RPC.
 func (c *GetWalletCardsRequestClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.GetWalletCardsRequestWriteToParcelRequest{
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// GetWalletCardsResponseClient wraps the gRPC GetWalletCardsResponseService client.
+type GetWalletCardsResponseClient struct {
+	svc pb.GetWalletCardsResponseServiceClient
+}
+
+// NewGetWalletCardsResponseClient creates a new GetWalletCardsResponse client.
+func NewGetWalletCardsResponseClient(cc grpc.ClientConnInterface) *GetWalletCardsResponseClient {
+	return &GetWalletCardsResponseClient{
+		svc: pb.NewGetWalletCardsResponseServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *GetWalletCardsResponseClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSelectedIndex calls the GetSelectedIndex RPC.
+func (c *GetWalletCardsResponseClient) GetSelectedIndex(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetSelectedIndex(ctx, &pb.GetSelectedIndexRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetWalletCards calls the GetWalletCards RPC.
+func (c *GetWalletCardsResponseClient) GetWalletCards(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetWalletCards(ctx, &pb.GetWalletCardsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *GetWalletCardsResponseClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
 		Handle: handle,
 		Arg0:   arg0,
 		Arg1:   arg1,

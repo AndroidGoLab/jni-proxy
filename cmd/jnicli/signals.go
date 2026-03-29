@@ -12,30 +12,6 @@ var signalsCmd = &cobra.Command{
 	Short: "signals service operations",
 }
 
-var signalsProtectedSignalsManagerCmd = &cobra.Command{
-	Use:   "protected-signals-manager",
-	Short: "ProtectedSignalsManagerService operations",
-}
-
-var signalsProtectedSignalsManagerGetCmd = &cobra.Command{
-	Use:   "get",
-	Short: "Get RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewProtectedSignalsManagerServiceClient(grpcConn)
-		req := &pb.GetRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Get(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
 var signalsUpdateSignalsRequestCmd = &cobra.Command{
 	Use:   "update-signals-request",
 	Short: "UpdateSignalsRequestService operations",
@@ -148,10 +124,31 @@ var signalsUpdateSignalsRequestBuilderSetUpdateUriCmd = &cobra.Command{
 	},
 }
 
+var signalsProtectedSignalsManagerCmd = &cobra.Command{
+	Use:   "protected-signals-manager",
+	Short: "ProtectedSignalsManagerService operations",
+}
+
+var signalsProtectedSignalsManagerGetCmd = &cobra.Command{
+	Use:   "get",
+	Short: "Get RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewProtectedSignalsManagerServiceClient(grpcConn)
+		req := &pb.GetRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Get(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 func init() {
-	signalsProtectedSignalsManagerGetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	signalsProtectedSignalsManagerCmd.AddCommand(signalsProtectedSignalsManagerGetCmd)
-	signalsCmd.AddCommand(signalsProtectedSignalsManagerCmd)
 	signalsUpdateSignalsRequestEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	signalsUpdateSignalsRequestCmd.AddCommand(signalsUpdateSignalsRequestEqualsCmd)
 	signalsUpdateSignalsRequestCmd.AddCommand(signalsUpdateSignalsRequestGetUpdateUriCmd)
@@ -162,5 +159,8 @@ func init() {
 	signalsUpdateSignalsRequestBuilderSetUpdateUriCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	signalsUpdateSignalsRequestBuilderCmd.AddCommand(signalsUpdateSignalsRequestBuilderSetUpdateUriCmd)
 	signalsCmd.AddCommand(signalsUpdateSignalsRequestBuilderCmd)
+	signalsProtectedSignalsManagerGetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	signalsProtectedSignalsManagerCmd.AddCommand(signalsProtectedSignalsManagerGetCmd)
+	signalsCmd.AddCommand(signalsProtectedSignalsManagerCmd)
 	rootCmd.AddCommand(signalsCmd)
 }

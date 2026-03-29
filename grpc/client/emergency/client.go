@@ -70,6 +70,33 @@ func (c *NumberClient) GetEmergencyCallRouting(ctx context.Context) (int32, erro
 	return resp.GetResult(), nil
 }
 
+// GetEmergencyNumberSources calls the GetEmergencyNumberSources RPC.
+func (c *NumberClient) GetEmergencyNumberSources(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetEmergencyNumberSources(ctx, &pb.GetEmergencyNumberSourcesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetEmergencyServiceCategories calls the GetEmergencyServiceCategories RPC.
+func (c *NumberClient) GetEmergencyServiceCategories(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetEmergencyServiceCategories(ctx, &pb.GetEmergencyServiceCategoriesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetEmergencyUrns calls the GetEmergencyUrns RPC.
+func (c *NumberClient) GetEmergencyUrns(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetEmergencyUrns(ctx, &pb.GetEmergencyUrnsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // GetMnc calls the GetMnc RPC.
 func (c *NumberClient) GetMnc(ctx context.Context) (string, error) {
 	resp, err := c.svc.GetMnc(ctx, &pb.GetMncRequest{})

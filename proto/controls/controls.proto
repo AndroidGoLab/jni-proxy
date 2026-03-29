@@ -14,6 +14,45 @@ message ValidDeviceTypeResponse {
   bool result = 1;
 }
 
+message CreatePublisherForAllAvailableRequest {
+}
+
+message CreatePublisherForAllAvailableResponse {
+  int64 result = 1;
+}
+
+message CreatePublisherForSuggestedRequest {
+}
+
+message CreatePublisherForSuggestedResponse {
+  int64 result = 1;
+}
+
+message OnBindRequest {
+  int64 arg0 = 1;
+}
+
+message OnBindResponse {
+  int64 result = 1;
+}
+
+message OnUnbindRequest {
+  int64 arg0 = 1;
+}
+
+message OnUnbindResponse {
+  bool result = 1;
+}
+
+message RequestAddControlRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message RequestAddControlResponse {
+}
+
 message DescribeContentsRequest {
 }
 
@@ -231,33 +270,16 @@ message SetZoneResponse {
   int64 result = 1;
 }
 
-message OnBindRequest {
-  int64 arg0 = 1;
-}
-
-message OnBindResponse {
-  int64 result = 1;
-}
-
-message OnUnbindRequest {
-  int64 arg0 = 1;
-}
-
-message OnUnbindResponse {
-  bool result = 1;
-}
-
-message RequestAddControlRequest {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-  int64 arg2 = 3;
-}
-
-message RequestAddControlResponse {
-}
-
 service DeviceTypesService {
   rpc ValidDeviceType (ValidDeviceTypeRequest) returns (ValidDeviceTypeResponse);
+}
+
+service ProviderServiceService {
+  rpc CreatePublisherForAllAvailable (CreatePublisherForAllAvailableRequest) returns (CreatePublisherForAllAvailableResponse);
+  rpc CreatePublisherForSuggested (CreatePublisherForSuggestedRequest) returns (CreatePublisherForSuggestedResponse);
+  rpc OnBind (OnBindRequest) returns (OnBindResponse);
+  rpc OnUnbind (OnUnbindRequest) returns (OnUnbindResponse);
+  rpc RequestAddControl (RequestAddControlRequest) returns (RequestAddControlResponse);
 }
 
 service ControlService {
@@ -306,10 +328,4 @@ service ControlStatelessBuilderService {
   rpc SetSubtitle (SetSubtitleRequest) returns (SetSubtitleResponse);
   rpc SetTitle (SetTitleRequest) returns (SetTitleResponse);
   rpc SetZone (SetZoneRequest) returns (SetZoneResponse);
-}
-
-service ProviderServiceService {
-  rpc OnBind (OnBindRequest) returns (OnBindResponse);
-  rpc OnUnbind (OnUnbindRequest) returns (OnUnbindResponse);
-  rpc RequestAddControl (RequestAddControlRequest) returns (RequestAddControlResponse);
 }

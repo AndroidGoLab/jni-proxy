@@ -9,39 +9,59 @@ import (
 	"google.golang.org/grpc"
 )
 
-// PersistAdSelectionResultRequestClient wraps the gRPC PersistAdSelectionResultRequestService client.
-type PersistAdSelectionResultRequestClient struct {
-	svc pb.PersistAdSelectionResultRequestServiceClient
+// AdSelectionConfigClient wraps the gRPC AdSelectionConfigService client.
+type AdSelectionConfigClient struct {
+	svc pb.AdSelectionConfigServiceClient
 }
 
-// NewPersistAdSelectionResultRequestClient creates a new PersistAdSelectionResultRequest client.
-func NewPersistAdSelectionResultRequestClient(cc grpc.ClientConnInterface) *PersistAdSelectionResultRequestClient {
-	return &PersistAdSelectionResultRequestClient{
-		svc: pb.NewPersistAdSelectionResultRequestServiceClient(cc),
+// NewAdSelectionConfigClient creates a new AdSelectionConfig client.
+func NewAdSelectionConfigClient(cc grpc.ClientConnInterface) *AdSelectionConfigClient {
+	return &AdSelectionConfigClient{
+		svc: pb.NewAdSelectionConfigServiceClient(cc),
 	}
 }
 
-// GetAdSelectionDataId calls the GetAdSelectionDataId RPC.
-func (c *PersistAdSelectionResultRequestClient) GetAdSelectionDataId(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetAdSelectionDataId(ctx, &pb.GetAdSelectionDataIdRequest{})
+// DescribeContents calls the DescribeContents RPC.
+func (c *AdSelectionConfigClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
 	if err != nil {
 		return 0, err
 	}
 	return resp.GetResult(), nil
 }
 
-// GetAdSelectionId calls the GetAdSelectionId RPC.
-func (c *PersistAdSelectionResultRequestClient) GetAdSelectionId(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetAdSelectionId(ctx, &pb.GetAdSelectionIdRequest{})
+// Equals calls the Equals RPC.
+func (c *AdSelectionConfigClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAdSelectionSignals calls the GetAdSelectionSignals RPC.
+func (c *AdSelectionConfigClient) GetAdSelectionSignals(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetAdSelectionSignals(ctx, &pb.GetAdSelectionSignalsRequest{})
 	if err != nil {
 		return 0, err
 	}
 	return resp.GetResult(), nil
 }
 
-// GetAdSelectionResult calls the GetAdSelectionResult RPC.
-func (c *PersistAdSelectionResultRequestClient) GetAdSelectionResult(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetAdSelectionResult(ctx, &pb.GetAdSelectionResultRequest{})
+// GetCustomAudienceBuyers calls the GetCustomAudienceBuyers RPC.
+func (c *AdSelectionConfigClient) GetCustomAudienceBuyers(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetCustomAudienceBuyers(ctx, &pb.GetCustomAudienceBuyersRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDecisionLogicUri calls the GetDecisionLogicUri RPC.
+func (c *AdSelectionConfigClient) GetDecisionLogicUri(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetDecisionLogicUri(ctx, &pb.GetDecisionLogicUriRequest{})
 	if err != nil {
 		return 0, err
 	}
@@ -49,7 +69,7 @@ func (c *PersistAdSelectionResultRequestClient) GetAdSelectionResult(ctx context
 }
 
 // GetSeller calls the GetSeller RPC.
-func (c *PersistAdSelectionResultRequestClient) GetSeller(ctx context.Context) (int64, error) {
+func (c *AdSelectionConfigClient) GetSeller(ctx context.Context) (int64, error) {
 	resp, err := c.svc.GetSeller(ctx, &pb.GetSellerRequest{})
 	if err != nil {
 		return 0, err
@@ -57,20 +77,56 @@ func (c *PersistAdSelectionResultRequestClient) GetSeller(ctx context.Context) (
 	return resp.GetResult(), nil
 }
 
-// PersistAdSelectionResultRequestBuilderClient wraps the gRPC PersistAdSelectionResultRequestBuilderService client.
-type PersistAdSelectionResultRequestBuilderClient struct {
-	svc pb.PersistAdSelectionResultRequestBuilderServiceClient
+// GetSellerSignals calls the GetSellerSignals RPC.
+func (c *AdSelectionConfigClient) GetSellerSignals(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetSellerSignals(ctx, &pb.GetSellerSignalsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
 }
 
-// NewPersistAdSelectionResultRequestBuilderClient creates a new PersistAdSelectionResultRequestBuilder client.
-func NewPersistAdSelectionResultRequestBuilderClient(cc grpc.ClientConnInterface) *PersistAdSelectionResultRequestBuilderClient {
-	return &PersistAdSelectionResultRequestBuilderClient{
-		svc: pb.NewPersistAdSelectionResultRequestBuilderServiceClient(cc),
+// GetTrustedScoringSignalsUri calls the GetTrustedScoringSignalsUri RPC.
+func (c *AdSelectionConfigClient) GetTrustedScoringSignalsUri(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetTrustedScoringSignalsUri(ctx, &pb.GetTrustedScoringSignalsUriRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *AdSelectionConfigClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *AdSelectionConfigClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// AdSelectionConfigBuilderClient wraps the gRPC AdSelectionConfigBuilderService client.
+type AdSelectionConfigBuilderClient struct {
+	svc pb.AdSelectionConfigBuilderServiceClient
+}
+
+// NewAdSelectionConfigBuilderClient creates a new AdSelectionConfigBuilder client.
+func NewAdSelectionConfigBuilderClient(cc grpc.ClientConnInterface) *AdSelectionConfigBuilderClient {
+	return &AdSelectionConfigBuilderClient{
+		svc: pb.NewAdSelectionConfigBuilderServiceClient(cc),
 	}
 }
 
 // Build calls the Build RPC.
-func (c *PersistAdSelectionResultRequestBuilderClient) Build(ctx context.Context) (int64, error) {
+func (c *AdSelectionConfigBuilderClient) Build(ctx context.Context) (int64, error) {
 	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
 	if err != nil {
 		return 0, err
@@ -78,9 +134,9 @@ func (c *PersistAdSelectionResultRequestBuilderClient) Build(ctx context.Context
 	return resp.GetResult(), nil
 }
 
-// SetAdSelectionDataId calls the SetAdSelectionDataId RPC.
-func (c *PersistAdSelectionResultRequestBuilderClient) SetAdSelectionDataId(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetAdSelectionDataId(ctx, &pb.SetAdSelectionDataIdRequest{
+// SetAdSelectionSignals calls the SetAdSelectionSignals RPC.
+func (c *AdSelectionConfigBuilderClient) SetAdSelectionSignals(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetAdSelectionSignals(ctx, &pb.SetAdSelectionSignalsRequest{
 		Arg0: arg0,
 	})
 	if err != nil {
@@ -89,20 +145,9 @@ func (c *PersistAdSelectionResultRequestBuilderClient) SetAdSelectionDataId(ctx 
 	return resp.GetResult(), nil
 }
 
-// SetAdSelectionId calls the SetAdSelectionId RPC.
-func (c *PersistAdSelectionResultRequestBuilderClient) SetAdSelectionId(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetAdSelectionId(ctx, &pb.SetAdSelectionIdRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetAdSelectionResult calls the SetAdSelectionResult RPC.
-func (c *PersistAdSelectionResultRequestBuilderClient) SetAdSelectionResult(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetAdSelectionResult(ctx, &pb.SetAdSelectionResultRequest{
+// SetDecisionLogicUri calls the SetDecisionLogicUri RPC.
+func (c *AdSelectionConfigBuilderClient) SetDecisionLogicUri(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetDecisionLogicUri(ctx, &pb.SetDecisionLogicUriRequest{
 		Arg0: arg0,
 	})
 	if err != nil {
@@ -112,7 +157,7 @@ func (c *PersistAdSelectionResultRequestBuilderClient) SetAdSelectionResult(ctx 
 }
 
 // SetSeller calls the SetSeller RPC.
-func (c *PersistAdSelectionResultRequestBuilderClient) SetSeller(ctx context.Context, arg0 int64) (int64, error) {
+func (c *AdSelectionConfigBuilderClient) SetSeller(ctx context.Context, arg0 int64) (int64, error) {
 	resp, err := c.svc.SetSeller(ctx, &pb.SetSellerRequest{
 		Arg0: arg0,
 	})
@@ -122,89 +167,9 @@ func (c *PersistAdSelectionResultRequestBuilderClient) SetSeller(ctx context.Con
 	return resp.GetResult(), nil
 }
 
-// SellerConfigurationClient wraps the gRPC SellerConfigurationService client.
-type SellerConfigurationClient struct {
-	svc pb.SellerConfigurationServiceClient
-}
-
-// NewSellerConfigurationClient creates a new SellerConfiguration client.
-func NewSellerConfigurationClient(cc grpc.ClientConnInterface) *SellerConfigurationClient {
-	return &SellerConfigurationClient{
-		svc: pb.NewSellerConfigurationServiceClient(cc),
-	}
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *SellerConfigurationClient) DescribeContents(ctx context.Context) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Equals calls the Equals RPC.
-func (c *SellerConfigurationClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetMaximumPayloadSizeBytes calls the GetMaximumPayloadSizeBytes RPC.
-func (c *SellerConfigurationClient) GetMaximumPayloadSizeBytes(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetMaximumPayloadSizeBytes(ctx, &pb.GetMaximumPayloadSizeBytesRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *SellerConfigurationClient) HashCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *SellerConfigurationClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// SellerConfigurationBuilderClient wraps the gRPC SellerConfigurationBuilderService client.
-type SellerConfigurationBuilderClient struct {
-	svc pb.SellerConfigurationBuilderServiceClient
-}
-
-// NewSellerConfigurationBuilderClient creates a new SellerConfigurationBuilder client.
-func NewSellerConfigurationBuilderClient(cc grpc.ClientConnInterface) *SellerConfigurationBuilderClient {
-	return &SellerConfigurationBuilderClient{
-		svc: pb.NewSellerConfigurationBuilderServiceClient(cc),
-	}
-}
-
-// Build calls the Build RPC.
-func (c *SellerConfigurationBuilderClient) Build(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetMaximumPayloadSizeBytes calls the SetMaximumPayloadSizeBytes RPC.
-func (c *SellerConfigurationBuilderClient) SetMaximumPayloadSizeBytes(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.SetMaximumPayloadSizeBytes(ctx, &pb.SetMaximumPayloadSizeBytesRequest{
+// SetSellerSignals calls the SetSellerSignals RPC.
+func (c *AdSelectionConfigBuilderClient) SetSellerSignals(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetSellerSignals(ctx, &pb.SetSellerSignalsRequest{
 		Arg0: arg0,
 	})
 	if err != nil {
@@ -213,307 +178,9 @@ func (c *SellerConfigurationBuilderClient) SetMaximumPayloadSizeBytes(ctx contex
 	return resp.GetResult(), nil
 }
 
-// RemoveAdSelectionFromOutcomesOverrideRequestClient wraps the gRPC RemoveAdSelectionFromOutcomesOverrideRequestService client.
-type RemoveAdSelectionFromOutcomesOverrideRequestClient struct {
-	svc pb.RemoveAdSelectionFromOutcomesOverrideRequestServiceClient
-}
-
-// NewRemoveAdSelectionFromOutcomesOverrideRequestClient creates a new RemoveAdSelectionFromOutcomesOverrideRequest client.
-func NewRemoveAdSelectionFromOutcomesOverrideRequestClient(cc grpc.ClientConnInterface) *RemoveAdSelectionFromOutcomesOverrideRequestClient {
-	return &RemoveAdSelectionFromOutcomesOverrideRequestClient{
-		svc: pb.NewRemoveAdSelectionFromOutcomesOverrideRequestServiceClient(cc),
-	}
-}
-
-// GetAdSelectionFromOutcomesConfig calls the GetAdSelectionFromOutcomesConfig RPC.
-func (c *RemoveAdSelectionFromOutcomesOverrideRequestClient) GetAdSelectionFromOutcomesConfig(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetAdSelectionFromOutcomesConfig(ctx, &pb.GetAdSelectionFromOutcomesConfigRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetAppInstallAdvertisersRequestBuilderClient wraps the gRPC SetAppInstallAdvertisersRequestBuilderService client.
-type SetAppInstallAdvertisersRequestBuilderClient struct {
-	svc pb.SetAppInstallAdvertisersRequestBuilderServiceClient
-}
-
-// NewSetAppInstallAdvertisersRequestBuilderClient creates a new SetAppInstallAdvertisersRequestBuilder client.
-func NewSetAppInstallAdvertisersRequestBuilderClient(cc grpc.ClientConnInterface) *SetAppInstallAdvertisersRequestBuilderClient {
-	return &SetAppInstallAdvertisersRequestBuilderClient{
-		svc: pb.NewSetAppInstallAdvertisersRequestBuilderServiceClient(cc),
-	}
-}
-
-// Build calls the Build RPC.
-func (c *SetAppInstallAdvertisersRequestBuilderClient) Build(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// UpdateAdCounterHistogramRequestClient wraps the gRPC UpdateAdCounterHistogramRequestService client.
-type UpdateAdCounterHistogramRequestClient struct {
-	svc pb.UpdateAdCounterHistogramRequestServiceClient
-}
-
-// NewUpdateAdCounterHistogramRequestClient creates a new UpdateAdCounterHistogramRequest client.
-func NewUpdateAdCounterHistogramRequestClient(cc grpc.ClientConnInterface) *UpdateAdCounterHistogramRequestClient {
-	return &UpdateAdCounterHistogramRequestClient{
-		svc: pb.NewUpdateAdCounterHistogramRequestServiceClient(cc),
-	}
-}
-
-// Equals calls the Equals RPC.
-func (c *UpdateAdCounterHistogramRequestClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetAdEventType calls the GetAdEventType RPC.
-func (c *UpdateAdCounterHistogramRequestClient) GetAdEventType(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetAdEventType(ctx, &pb.GetAdEventTypeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetAdSelectionId calls the GetAdSelectionId RPC.
-func (c *UpdateAdCounterHistogramRequestClient) GetAdSelectionId(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetAdSelectionId(ctx, &pb.GetAdSelectionIdRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetCallerAdTech calls the GetCallerAdTech RPC.
-func (c *UpdateAdCounterHistogramRequestClient) GetCallerAdTech(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetCallerAdTech(ctx, &pb.GetCallerAdTechRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *UpdateAdCounterHistogramRequestClient) HashCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToString calls the ToString RPC.
-func (c *UpdateAdCounterHistogramRequestClient) ToString(ctx context.Context) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// UpdateAdCounterHistogramRequestBuilderClient wraps the gRPC UpdateAdCounterHistogramRequestBuilderService client.
-type UpdateAdCounterHistogramRequestBuilderClient struct {
-	svc pb.UpdateAdCounterHistogramRequestBuilderServiceClient
-}
-
-// NewUpdateAdCounterHistogramRequestBuilderClient creates a new UpdateAdCounterHistogramRequestBuilder client.
-func NewUpdateAdCounterHistogramRequestBuilderClient(cc grpc.ClientConnInterface) *UpdateAdCounterHistogramRequestBuilderClient {
-	return &UpdateAdCounterHistogramRequestBuilderClient{
-		svc: pb.NewUpdateAdCounterHistogramRequestBuilderServiceClient(cc),
-	}
-}
-
-// Build calls the Build RPC.
-func (c *UpdateAdCounterHistogramRequestBuilderClient) Build(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetAdEventType calls the SetAdEventType RPC.
-func (c *UpdateAdCounterHistogramRequestBuilderClient) SetAdEventType(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.SetAdEventType(ctx, &pb.SetAdEventTypeRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetAdSelectionId calls the SetAdSelectionId RPC.
-func (c *UpdateAdCounterHistogramRequestBuilderClient) SetAdSelectionId(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetAdSelectionId(ctx, &pb.SetAdSelectionIdRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetCallerAdTech calls the SetCallerAdTech RPC.
-func (c *UpdateAdCounterHistogramRequestBuilderClient) SetCallerAdTech(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetCallerAdTech(ctx, &pb.SetCallerAdTechRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// PerBuyerConfigurationClient wraps the gRPC PerBuyerConfigurationService client.
-type PerBuyerConfigurationClient struct {
-	svc pb.PerBuyerConfigurationServiceClient
-}
-
-// NewPerBuyerConfigurationClient creates a new PerBuyerConfiguration client.
-func NewPerBuyerConfigurationClient(cc grpc.ClientConnInterface) *PerBuyerConfigurationClient {
-	return &PerBuyerConfigurationClient{
-		svc: pb.NewPerBuyerConfigurationServiceClient(cc),
-	}
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *PerBuyerConfigurationClient) DescribeContents(ctx context.Context) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Equals calls the Equals RPC.
-func (c *PerBuyerConfigurationClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetBuyer calls the GetBuyer RPC.
-func (c *PerBuyerConfigurationClient) GetBuyer(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetBuyer(ctx, &pb.GetBuyerRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetTargetInputSizeBytes calls the GetTargetInputSizeBytes RPC.
-func (c *PerBuyerConfigurationClient) GetTargetInputSizeBytes(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetTargetInputSizeBytes(ctx, &pb.GetTargetInputSizeBytesRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *PerBuyerConfigurationClient) HashCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *PerBuyerConfigurationClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// PerBuyerConfigurationBuilderClient wraps the gRPC PerBuyerConfigurationBuilderService client.
-type PerBuyerConfigurationBuilderClient struct {
-	svc pb.PerBuyerConfigurationBuilderServiceClient
-}
-
-// NewPerBuyerConfigurationBuilderClient creates a new PerBuyerConfigurationBuilder client.
-func NewPerBuyerConfigurationBuilderClient(cc grpc.ClientConnInterface) *PerBuyerConfigurationBuilderClient {
-	return &PerBuyerConfigurationBuilderClient{
-		svc: pb.NewPerBuyerConfigurationBuilderServiceClient(cc),
-	}
-}
-
-// Build calls the Build RPC.
-func (c *PerBuyerConfigurationBuilderClient) Build(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetBuyer calls the SetBuyer RPC.
-func (c *PerBuyerConfigurationBuilderClient) SetBuyer(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetBuyer(ctx, &pb.SetBuyerRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetTargetInputSizeBytes calls the SetTargetInputSizeBytes RPC.
-func (c *PerBuyerConfigurationBuilderClient) SetTargetInputSizeBytes(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.SetTargetInputSizeBytes(ctx, &pb.SetTargetInputSizeBytesRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// AdSelectionManagerClient wraps the gRPC AdSelectionManagerService client.
-type AdSelectionManagerClient struct {
-	svc pb.AdSelectionManagerServiceClient
-}
-
-// NewAdSelectionManagerClient creates a new AdSelectionManager client.
-func NewAdSelectionManagerClient(cc grpc.ClientConnInterface) *AdSelectionManagerClient {
-	return &AdSelectionManagerClient{
-		svc: pb.NewAdSelectionManagerServiceClient(cc),
-	}
-}
-
-// GetTestAdSelectionManager calls the GetTestAdSelectionManager RPC.
-func (c *AdSelectionManagerClient) GetTestAdSelectionManager(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetTestAdSelectionManager(ctx, &pb.GetTestAdSelectionManagerRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Get calls the Get RPC.
-func (c *AdSelectionManagerClient) Get(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.Get(ctx, &pb.GetRequest{
+// SetTrustedScoringSignalsUri calls the SetTrustedScoringSignalsUri RPC.
+func (c *AdSelectionConfigBuilderClient) SetTrustedScoringSignalsUri(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetTrustedScoringSignalsUri(ctx, &pb.SetTrustedScoringSignalsUriRequest{
 		Arg0: arg0,
 	})
 	if err != nil {
@@ -655,6 +322,214 @@ func (c *ReportEventRequestBuilderClient) SetReportingDestinations(ctx context.C
 	return resp.GetResult(), nil
 }
 
+// AddAdSelectionOverrideRequestClient wraps the gRPC AddAdSelectionOverrideRequestService client.
+type AddAdSelectionOverrideRequestClient struct {
+	svc pb.AddAdSelectionOverrideRequestServiceClient
+}
+
+// NewAddAdSelectionOverrideRequestClient creates a new AddAdSelectionOverrideRequest client.
+func NewAddAdSelectionOverrideRequestClient(cc grpc.ClientConnInterface) *AddAdSelectionOverrideRequestClient {
+	return &AddAdSelectionOverrideRequestClient{
+		svc: pb.NewAddAdSelectionOverrideRequestServiceClient(cc),
+	}
+}
+
+// GetAdSelectionConfig calls the GetAdSelectionConfig RPC.
+func (c *AddAdSelectionOverrideRequestClient) GetAdSelectionConfig(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetAdSelectionConfig(ctx, &pb.GetAdSelectionConfigRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDecisionLogicJs calls the GetDecisionLogicJs RPC.
+func (c *AddAdSelectionOverrideRequestClient) GetDecisionLogicJs(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetDecisionLogicJs(ctx, &pb.GetDecisionLogicJsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPerBuyerDecisionLogic calls the GetPerBuyerDecisionLogic RPC.
+func (c *AddAdSelectionOverrideRequestClient) GetPerBuyerDecisionLogic(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetPerBuyerDecisionLogic(ctx, &pb.GetPerBuyerDecisionLogicRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTrustedScoringSignals calls the GetTrustedScoringSignals RPC.
+func (c *AddAdSelectionOverrideRequestClient) GetTrustedScoringSignals(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetTrustedScoringSignals(ctx, &pb.GetTrustedScoringSignalsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AdSelectionManagerClient wraps the gRPC AdSelectionManagerService client.
+type AdSelectionManagerClient struct {
+	svc pb.AdSelectionManagerServiceClient
+}
+
+// NewAdSelectionManagerClient creates a new AdSelectionManager client.
+func NewAdSelectionManagerClient(cc grpc.ClientConnInterface) *AdSelectionManagerClient {
+	return &AdSelectionManagerClient{
+		svc: pb.NewAdSelectionManagerServiceClient(cc),
+	}
+}
+
+// GetTestAdSelectionManager calls the GetTestAdSelectionManager RPC.
+func (c *AdSelectionManagerClient) GetTestAdSelectionManager(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetTestAdSelectionManager(ctx, &pb.GetTestAdSelectionManagerRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Get calls the Get RPC.
+func (c *AdSelectionManagerClient) Get(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.Get(ctx, &pb.GetRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// DecisionLogicClient wraps the gRPC DecisionLogicService client.
+type DecisionLogicClient struct {
+	svc pb.DecisionLogicServiceClient
+}
+
+// NewDecisionLogicClient creates a new DecisionLogic client.
+func NewDecisionLogicClient(cc grpc.ClientConnInterface) *DecisionLogicClient {
+	return &DecisionLogicClient{
+		svc: pb.NewDecisionLogicServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *DecisionLogicClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DecisionLogicDescribeContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *DecisionLogicClient) Equals(ctx context.Context, handle int64, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.DecisionLogicEqualsRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLogic calls the GetLogic RPC.
+func (c *DecisionLogicClient) GetLogic(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetLogic(ctx, &pb.GetLogicRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *DecisionLogicClient) HashCode(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.DecisionLogicHashCodeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *DecisionLogicClient) ToString(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *DecisionLogicClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.DecisionLogicWriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// SetAppInstallAdvertisersRequestClient wraps the gRPC SetAppInstallAdvertisersRequestService client.
+type SetAppInstallAdvertisersRequestClient struct {
+	svc pb.SetAppInstallAdvertisersRequestServiceClient
+}
+
+// NewSetAppInstallAdvertisersRequestClient creates a new SetAppInstallAdvertisersRequest client.
+func NewSetAppInstallAdvertisersRequestClient(cc grpc.ClientConnInterface) *SetAppInstallAdvertisersRequestClient {
+	return &SetAppInstallAdvertisersRequestClient{
+		svc: pb.NewSetAppInstallAdvertisersRequestServiceClient(cc),
+	}
+}
+
+// GetAdvertisers calls the GetAdvertisers RPC.
+func (c *SetAppInstallAdvertisersRequestClient) GetAdvertisers(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetAdvertisers(ctx, &pb.GetAdvertisersRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetAppInstallAdvertisersRequestBuilderClient wraps the gRPC SetAppInstallAdvertisersRequestBuilderService client.
+type SetAppInstallAdvertisersRequestBuilderClient struct {
+	svc pb.SetAppInstallAdvertisersRequestBuilderServiceClient
+}
+
+// NewSetAppInstallAdvertisersRequestBuilderClient creates a new SetAppInstallAdvertisersRequestBuilder client.
+func NewSetAppInstallAdvertisersRequestBuilderClient(cc grpc.ClientConnInterface) *SetAppInstallAdvertisersRequestBuilderClient {
+	return &SetAppInstallAdvertisersRequestBuilderClient{
+		svc: pb.NewSetAppInstallAdvertisersRequestBuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *SetAppInstallAdvertisersRequestBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // SignedContextualAdsClient wraps the gRPC SignedContextualAdsService client.
 type SignedContextualAdsClient struct {
 	svc pb.SignedContextualAdsServiceClient
@@ -683,6 +558,15 @@ func (c *SignedContextualAdsClient) Equals(ctx context.Context, arg0 int64) (boo
 	})
 	if err != nil {
 		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAdsWithBid calls the GetAdsWithBid RPC.
+func (c *SignedContextualAdsClient) GetAdsWithBid(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetAdsWithBid(ctx, &pb.GetAdsWithBidRequest{})
+	if err != nil {
+		return 0, err
 	}
 	return resp.GetResult(), nil
 }
@@ -725,7 +609,7 @@ func (c *SignedContextualAdsClient) HashCode(ctx context.Context) (int32, error)
 
 // ToString calls the ToString RPC.
 func (c *SignedContextualAdsClient) ToString(ctx context.Context) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	resp, err := c.svc.ToString(ctx, &pb.SignedContextualAdsToStringRequest{})
 	if err != nil {
 		return "", err
 	}
@@ -795,6 +679,670 @@ func (c *SignedContextualAdsBuilderClient) SetSignature(ctx context.Context, arg
 	return resp.GetResult(), nil
 }
 
+// SellerConfigurationClient wraps the gRPC SellerConfigurationService client.
+type SellerConfigurationClient struct {
+	svc pb.SellerConfigurationServiceClient
+}
+
+// NewSellerConfigurationClient creates a new SellerConfiguration client.
+func NewSellerConfigurationClient(cc grpc.ClientConnInterface) *SellerConfigurationClient {
+	return &SellerConfigurationClient{
+		svc: pb.NewSellerConfigurationServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *SellerConfigurationClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *SellerConfigurationClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMaximumPayloadSizeBytes calls the GetMaximumPayloadSizeBytes RPC.
+func (c *SellerConfigurationClient) GetMaximumPayloadSizeBytes(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetMaximumPayloadSizeBytes(ctx, &pb.GetMaximumPayloadSizeBytesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPerBuyerConfigurations calls the GetPerBuyerConfigurations RPC.
+func (c *SellerConfigurationClient) GetPerBuyerConfigurations(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetPerBuyerConfigurations(ctx, &pb.GetPerBuyerConfigurationsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *SellerConfigurationClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *SellerConfigurationClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// SellerConfigurationBuilderClient wraps the gRPC SellerConfigurationBuilderService client.
+type SellerConfigurationBuilderClient struct {
+	svc pb.SellerConfigurationBuilderServiceClient
+}
+
+// NewSellerConfigurationBuilderClient creates a new SellerConfigurationBuilder client.
+func NewSellerConfigurationBuilderClient(cc grpc.ClientConnInterface) *SellerConfigurationBuilderClient {
+	return &SellerConfigurationBuilderClient{
+		svc: pb.NewSellerConfigurationBuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *SellerConfigurationBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetMaximumPayloadSizeBytes calls the SetMaximumPayloadSizeBytes RPC.
+func (c *SellerConfigurationBuilderClient) SetMaximumPayloadSizeBytes(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetMaximumPayloadSizeBytes(ctx, &pb.SetMaximumPayloadSizeBytesRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AdSelectionOutcomeClient wraps the gRPC AdSelectionOutcomeService client.
+type AdSelectionOutcomeClient struct {
+	svc pb.AdSelectionOutcomeServiceClient
+}
+
+// NewAdSelectionOutcomeClient creates a new AdSelectionOutcome client.
+func NewAdSelectionOutcomeClient(cc grpc.ClientConnInterface) *AdSelectionOutcomeClient {
+	return &AdSelectionOutcomeClient{
+		svc: pb.NewAdSelectionOutcomeServiceClient(cc),
+	}
+}
+
+// Equals calls the Equals RPC.
+func (c *AdSelectionOutcomeClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAdSelectionId calls the GetAdSelectionId RPC.
+func (c *AdSelectionOutcomeClient) GetAdSelectionId(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetAdSelectionId(ctx, &pb.GetAdSelectionIdRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetComponentAdUris calls the GetComponentAdUris RPC.
+func (c *AdSelectionOutcomeClient) GetComponentAdUris(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetComponentAdUris(ctx, &pb.GetComponentAdUrisRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetRenderUri calls the GetRenderUri RPC.
+func (c *AdSelectionOutcomeClient) GetRenderUri(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetRenderUri(ctx, &pb.GetRenderUriRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetWinningSeller calls the GetWinningSeller RPC.
+func (c *AdSelectionOutcomeClient) GetWinningSeller(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetWinningSeller(ctx, &pb.GetWinningSellerRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasOutcome calls the HasOutcome RPC.
+func (c *AdSelectionOutcomeClient) HasOutcome(ctx context.Context) (bool, error) {
+	resp, err := c.svc.HasOutcome(ctx, &pb.HasOutcomeRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *AdSelectionOutcomeClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AdSelectionOutcomeBuilderClient wraps the gRPC AdSelectionOutcomeBuilderService client.
+type AdSelectionOutcomeBuilderClient struct {
+	svc pb.AdSelectionOutcomeBuilderServiceClient
+}
+
+// NewAdSelectionOutcomeBuilderClient creates a new AdSelectionOutcomeBuilder client.
+func NewAdSelectionOutcomeBuilderClient(cc grpc.ClientConnInterface) *AdSelectionOutcomeBuilderClient {
+	return &AdSelectionOutcomeBuilderClient{
+		svc: pb.NewAdSelectionOutcomeBuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *AdSelectionOutcomeBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetAdSelectionId calls the SetAdSelectionId RPC.
+func (c *AdSelectionOutcomeBuilderClient) SetAdSelectionId(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetAdSelectionId(ctx, &pb.SetAdSelectionIdRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetRenderUri calls the SetRenderUri RPC.
+func (c *AdSelectionOutcomeBuilderClient) SetRenderUri(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetRenderUri(ctx, &pb.SetRenderUriRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// PerBuyerConfigurationClient wraps the gRPC PerBuyerConfigurationService client.
+type PerBuyerConfigurationClient struct {
+	svc pb.PerBuyerConfigurationServiceClient
+}
+
+// NewPerBuyerConfigurationClient creates a new PerBuyerConfiguration client.
+func NewPerBuyerConfigurationClient(cc grpc.ClientConnInterface) *PerBuyerConfigurationClient {
+	return &PerBuyerConfigurationClient{
+		svc: pb.NewPerBuyerConfigurationServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *PerBuyerConfigurationClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *PerBuyerConfigurationClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetBuyer calls the GetBuyer RPC.
+func (c *PerBuyerConfigurationClient) GetBuyer(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetBuyer(ctx, &pb.GetBuyerRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTargetInputSizeBytes calls the GetTargetInputSizeBytes RPC.
+func (c *PerBuyerConfigurationClient) GetTargetInputSizeBytes(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetTargetInputSizeBytes(ctx, &pb.GetTargetInputSizeBytesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *PerBuyerConfigurationClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *PerBuyerConfigurationClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// PerBuyerConfigurationBuilderClient wraps the gRPC PerBuyerConfigurationBuilderService client.
+type PerBuyerConfigurationBuilderClient struct {
+	svc pb.PerBuyerConfigurationBuilderServiceClient
+}
+
+// NewPerBuyerConfigurationBuilderClient creates a new PerBuyerConfigurationBuilder client.
+func NewPerBuyerConfigurationBuilderClient(cc grpc.ClientConnInterface) *PerBuyerConfigurationBuilderClient {
+	return &PerBuyerConfigurationBuilderClient{
+		svc: pb.NewPerBuyerConfigurationBuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *PerBuyerConfigurationBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetBuyer calls the SetBuyer RPC.
+func (c *PerBuyerConfigurationBuilderClient) SetBuyer(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetBuyer(ctx, &pb.SetBuyerRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetTargetInputSizeBytes calls the SetTargetInputSizeBytes RPC.
+func (c *PerBuyerConfigurationBuilderClient) SetTargetInputSizeBytes(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetTargetInputSizeBytes(ctx, &pb.SetTargetInputSizeBytesRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// PerBuyerDecisionLogicClient wraps the gRPC PerBuyerDecisionLogicService client.
+type PerBuyerDecisionLogicClient struct {
+	svc pb.PerBuyerDecisionLogicServiceClient
+}
+
+// NewPerBuyerDecisionLogicClient creates a new PerBuyerDecisionLogic client.
+func NewPerBuyerDecisionLogicClient(cc grpc.ClientConnInterface) *PerBuyerDecisionLogicClient {
+	return &PerBuyerDecisionLogicClient{
+		svc: pb.NewPerBuyerDecisionLogicServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *PerBuyerDecisionLogicClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.PerBuyerDecisionLogicDescribeContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *PerBuyerDecisionLogicClient) Equals(ctx context.Context, handle int64, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.PerBuyerDecisionLogicEqualsRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *PerBuyerDecisionLogicClient) HashCode(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.PerBuyerDecisionLogicHashCodeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *PerBuyerDecisionLogicClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.PerBuyerDecisionLogicWriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// RemoveAdSelectionOverrideRequestClient wraps the gRPC RemoveAdSelectionOverrideRequestService client.
+type RemoveAdSelectionOverrideRequestClient struct {
+	svc pb.RemoveAdSelectionOverrideRequestServiceClient
+}
+
+// NewRemoveAdSelectionOverrideRequestClient creates a new RemoveAdSelectionOverrideRequest client.
+func NewRemoveAdSelectionOverrideRequestClient(cc grpc.ClientConnInterface) *RemoveAdSelectionOverrideRequestClient {
+	return &RemoveAdSelectionOverrideRequestClient{
+		svc: pb.NewRemoveAdSelectionOverrideRequestServiceClient(cc),
+	}
+}
+
+// GetAdSelectionConfig calls the GetAdSelectionConfig RPC.
+func (c *RemoveAdSelectionOverrideRequestClient) GetAdSelectionConfig(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetAdSelectionConfig(ctx, &pb.GetAdSelectionConfigRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ReportImpressionRequestClient wraps the gRPC ReportImpressionRequestService client.
+type ReportImpressionRequestClient struct {
+	svc pb.ReportImpressionRequestServiceClient
+}
+
+// NewReportImpressionRequestClient creates a new ReportImpressionRequest client.
+func NewReportImpressionRequestClient(cc grpc.ClientConnInterface) *ReportImpressionRequestClient {
+	return &ReportImpressionRequestClient{
+		svc: pb.NewReportImpressionRequestServiceClient(cc),
+	}
+}
+
+// GetAdSelectionConfig calls the GetAdSelectionConfig RPC.
+func (c *ReportImpressionRequestClient) GetAdSelectionConfig(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetAdSelectionConfig(ctx, &pb.GetAdSelectionConfigRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAdSelectionId calls the GetAdSelectionId RPC.
+func (c *ReportImpressionRequestClient) GetAdSelectionId(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetAdSelectionId(ctx, &pb.ReportImpressionRequestGetAdSelectionIdRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AddAdSelectionFromOutcomesOverrideRequestClient wraps the gRPC AddAdSelectionFromOutcomesOverrideRequestService client.
+type AddAdSelectionFromOutcomesOverrideRequestClient struct {
+	svc pb.AddAdSelectionFromOutcomesOverrideRequestServiceClient
+}
+
+// NewAddAdSelectionFromOutcomesOverrideRequestClient creates a new AddAdSelectionFromOutcomesOverrideRequest client.
+func NewAddAdSelectionFromOutcomesOverrideRequestClient(cc grpc.ClientConnInterface) *AddAdSelectionFromOutcomesOverrideRequestClient {
+	return &AddAdSelectionFromOutcomesOverrideRequestClient{
+		svc: pb.NewAddAdSelectionFromOutcomesOverrideRequestServiceClient(cc),
+	}
+}
+
+// GetAdSelectionFromOutcomesConfig calls the GetAdSelectionFromOutcomesConfig RPC.
+func (c *AddAdSelectionFromOutcomesOverrideRequestClient) GetAdSelectionFromOutcomesConfig(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetAdSelectionFromOutcomesConfig(ctx, &pb.GetAdSelectionFromOutcomesConfigRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetOutcomeSelectionLogicJs calls the GetOutcomeSelectionLogicJs RPC.
+func (c *AddAdSelectionFromOutcomesOverrideRequestClient) GetOutcomeSelectionLogicJs(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetOutcomeSelectionLogicJs(ctx, &pb.GetOutcomeSelectionLogicJsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetOutcomeSelectionTrustedSignals calls the GetOutcomeSelectionTrustedSignals RPC.
+func (c *AddAdSelectionFromOutcomesOverrideRequestClient) GetOutcomeSelectionTrustedSignals(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetOutcomeSelectionTrustedSignals(ctx, &pb.GetOutcomeSelectionTrustedSignalsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAdSelectionDataOutcomeClient wraps the gRPC GetAdSelectionDataOutcomeService client.
+type GetAdSelectionDataOutcomeClient struct {
+	svc pb.GetAdSelectionDataOutcomeServiceClient
+}
+
+// NewGetAdSelectionDataOutcomeClient creates a new GetAdSelectionDataOutcome client.
+func NewGetAdSelectionDataOutcomeClient(cc grpc.ClientConnInterface) *GetAdSelectionDataOutcomeClient {
+	return &GetAdSelectionDataOutcomeClient{
+		svc: pb.NewGetAdSelectionDataOutcomeServiceClient(cc),
+	}
+}
+
+// GetAdSelectionData calls the GetAdSelectionData RPC.
+func (c *GetAdSelectionDataOutcomeClient) GetAdSelectionData(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetAdSelectionData(ctx, &pb.GetAdSelectionDataRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAdSelectionDataId calls the GetAdSelectionDataId RPC.
+func (c *GetAdSelectionDataOutcomeClient) GetAdSelectionDataId(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetAdSelectionDataId(ctx, &pb.GetAdSelectionDataIdRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAdSelectionId calls the GetAdSelectionId RPC.
+func (c *GetAdSelectionDataOutcomeClient) GetAdSelectionId(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetAdSelectionId(ctx, &pb.GetAdSelectionIdRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// RemoveAdSelectionFromOutcomesOverrideRequestClient wraps the gRPC RemoveAdSelectionFromOutcomesOverrideRequestService client.
+type RemoveAdSelectionFromOutcomesOverrideRequestClient struct {
+	svc pb.RemoveAdSelectionFromOutcomesOverrideRequestServiceClient
+}
+
+// NewRemoveAdSelectionFromOutcomesOverrideRequestClient creates a new RemoveAdSelectionFromOutcomesOverrideRequest client.
+func NewRemoveAdSelectionFromOutcomesOverrideRequestClient(cc grpc.ClientConnInterface) *RemoveAdSelectionFromOutcomesOverrideRequestClient {
+	return &RemoveAdSelectionFromOutcomesOverrideRequestClient{
+		svc: pb.NewRemoveAdSelectionFromOutcomesOverrideRequestServiceClient(cc),
+	}
+}
+
+// GetAdSelectionFromOutcomesConfig calls the GetAdSelectionFromOutcomesConfig RPC.
+func (c *RemoveAdSelectionFromOutcomesOverrideRequestClient) GetAdSelectionFromOutcomesConfig(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetAdSelectionFromOutcomesConfig(ctx, &pb.GetAdSelectionFromOutcomesConfigRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// PersistAdSelectionResultRequestClient wraps the gRPC PersistAdSelectionResultRequestService client.
+type PersistAdSelectionResultRequestClient struct {
+	svc pb.PersistAdSelectionResultRequestServiceClient
+}
+
+// NewPersistAdSelectionResultRequestClient creates a new PersistAdSelectionResultRequest client.
+func NewPersistAdSelectionResultRequestClient(cc grpc.ClientConnInterface) *PersistAdSelectionResultRequestClient {
+	return &PersistAdSelectionResultRequestClient{
+		svc: pb.NewPersistAdSelectionResultRequestServiceClient(cc),
+	}
+}
+
+// GetAdSelectionDataId calls the GetAdSelectionDataId RPC.
+func (c *PersistAdSelectionResultRequestClient) GetAdSelectionDataId(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetAdSelectionDataId(ctx, &pb.GetAdSelectionDataIdRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAdSelectionId calls the GetAdSelectionId RPC.
+func (c *PersistAdSelectionResultRequestClient) GetAdSelectionId(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetAdSelectionId(ctx, &pb.GetAdSelectionIdRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAdSelectionResult calls the GetAdSelectionResult RPC.
+func (c *PersistAdSelectionResultRequestClient) GetAdSelectionResult(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetAdSelectionResult(ctx, &pb.GetAdSelectionResultRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSeller calls the GetSeller RPC.
+func (c *PersistAdSelectionResultRequestClient) GetSeller(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetSeller(ctx, &pb.GetSellerRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// PersistAdSelectionResultRequestBuilderClient wraps the gRPC PersistAdSelectionResultRequestBuilderService client.
+type PersistAdSelectionResultRequestBuilderClient struct {
+	svc pb.PersistAdSelectionResultRequestBuilderServiceClient
+}
+
+// NewPersistAdSelectionResultRequestBuilderClient creates a new PersistAdSelectionResultRequestBuilder client.
+func NewPersistAdSelectionResultRequestBuilderClient(cc grpc.ClientConnInterface) *PersistAdSelectionResultRequestBuilderClient {
+	return &PersistAdSelectionResultRequestBuilderClient{
+		svc: pb.NewPersistAdSelectionResultRequestBuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *PersistAdSelectionResultRequestBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetAdSelectionDataId calls the SetAdSelectionDataId RPC.
+func (c *PersistAdSelectionResultRequestBuilderClient) SetAdSelectionDataId(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetAdSelectionDataId(ctx, &pb.SetAdSelectionDataIdRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetAdSelectionId calls the SetAdSelectionId RPC.
+func (c *PersistAdSelectionResultRequestBuilderClient) SetAdSelectionId(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetAdSelectionId(ctx, &pb.SetAdSelectionIdRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetAdSelectionResult calls the SetAdSelectionResult RPC.
+func (c *PersistAdSelectionResultRequestBuilderClient) SetAdSelectionResult(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetAdSelectionResult(ctx, &pb.SetAdSelectionResultRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetSeller calls the SetSeller RPC.
+func (c *PersistAdSelectionResultRequestBuilderClient) SetSeller(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetSeller(ctx, &pb.SetSellerRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // AdSelectionFromOutcomesConfigClient wraps the gRPC AdSelectionFromOutcomesConfigService client.
 type AdSelectionFromOutcomesConfigClient struct {
 	svc pb.AdSelectionFromOutcomesConfigServiceClient
@@ -823,6 +1371,15 @@ func (c *AdSelectionFromOutcomesConfigClient) Equals(ctx context.Context, arg0 i
 	})
 	if err != nil {
 		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAdSelectionIds calls the GetAdSelectionIds RPC.
+func (c *AdSelectionFromOutcomesConfigClient) GetAdSelectionIds(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetAdSelectionIds(ctx, &pb.GetAdSelectionIdsRequest{})
+	if err != nil {
+		return 0, err
 	}
 	return resp.GetResult(), nil
 }
@@ -926,552 +1483,6 @@ func (c *AdSelectionFromOutcomesConfigBuilderClient) SetSeller(ctx context.Conte
 	return resp.GetResult(), nil
 }
 
-// AddAdSelectionFromOutcomesOverrideRequestClient wraps the gRPC AddAdSelectionFromOutcomesOverrideRequestService client.
-type AddAdSelectionFromOutcomesOverrideRequestClient struct {
-	svc pb.AddAdSelectionFromOutcomesOverrideRequestServiceClient
-}
-
-// NewAddAdSelectionFromOutcomesOverrideRequestClient creates a new AddAdSelectionFromOutcomesOverrideRequest client.
-func NewAddAdSelectionFromOutcomesOverrideRequestClient(cc grpc.ClientConnInterface) *AddAdSelectionFromOutcomesOverrideRequestClient {
-	return &AddAdSelectionFromOutcomesOverrideRequestClient{
-		svc: pb.NewAddAdSelectionFromOutcomesOverrideRequestServiceClient(cc),
-	}
-}
-
-// GetAdSelectionFromOutcomesConfig calls the GetAdSelectionFromOutcomesConfig RPC.
-func (c *AddAdSelectionFromOutcomesOverrideRequestClient) GetAdSelectionFromOutcomesConfig(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetAdSelectionFromOutcomesConfig(ctx, &pb.GetAdSelectionFromOutcomesConfigRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetOutcomeSelectionLogicJs calls the GetOutcomeSelectionLogicJs RPC.
-func (c *AddAdSelectionFromOutcomesOverrideRequestClient) GetOutcomeSelectionLogicJs(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.GetOutcomeSelectionLogicJs(ctx, &pb.GetOutcomeSelectionLogicJsRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetOutcomeSelectionTrustedSignals calls the GetOutcomeSelectionTrustedSignals RPC.
-func (c *AddAdSelectionFromOutcomesOverrideRequestClient) GetOutcomeSelectionTrustedSignals(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetOutcomeSelectionTrustedSignals(ctx, &pb.GetOutcomeSelectionTrustedSignalsRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// PerBuyerDecisionLogicClient wraps the gRPC PerBuyerDecisionLogicService client.
-type PerBuyerDecisionLogicClient struct {
-	svc pb.PerBuyerDecisionLogicServiceClient
-}
-
-// NewPerBuyerDecisionLogicClient creates a new PerBuyerDecisionLogic client.
-func NewPerBuyerDecisionLogicClient(cc grpc.ClientConnInterface) *PerBuyerDecisionLogicClient {
-	return &PerBuyerDecisionLogicClient{
-		svc: pb.NewPerBuyerDecisionLogicServiceClient(cc),
-	}
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *PerBuyerDecisionLogicClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.PerBuyerDecisionLogicDescribeContentsRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Equals calls the Equals RPC.
-func (c *PerBuyerDecisionLogicClient) Equals(ctx context.Context, handle int64, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.PerBuyerDecisionLogicEqualsRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *PerBuyerDecisionLogicClient) HashCode(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.PerBuyerDecisionLogicHashCodeRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *PerBuyerDecisionLogicClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.PerBuyerDecisionLogicWriteToParcelRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// AdSelectionConfigClient wraps the gRPC AdSelectionConfigService client.
-type AdSelectionConfigClient struct {
-	svc pb.AdSelectionConfigServiceClient
-}
-
-// NewAdSelectionConfigClient creates a new AdSelectionConfig client.
-func NewAdSelectionConfigClient(cc grpc.ClientConnInterface) *AdSelectionConfigClient {
-	return &AdSelectionConfigClient{
-		svc: pb.NewAdSelectionConfigServiceClient(cc),
-	}
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *AdSelectionConfigClient) DescribeContents(ctx context.Context) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Equals calls the Equals RPC.
-func (c *AdSelectionConfigClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetAdSelectionSignals calls the GetAdSelectionSignals RPC.
-func (c *AdSelectionConfigClient) GetAdSelectionSignals(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetAdSelectionSignals(ctx, &pb.GetAdSelectionSignalsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetDecisionLogicUri calls the GetDecisionLogicUri RPC.
-func (c *AdSelectionConfigClient) GetDecisionLogicUri(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetDecisionLogicUri(ctx, &pb.GetDecisionLogicUriRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetSeller calls the GetSeller RPC.
-func (c *AdSelectionConfigClient) GetSeller(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetSeller(ctx, &pb.GetSellerRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetSellerSignals calls the GetSellerSignals RPC.
-func (c *AdSelectionConfigClient) GetSellerSignals(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetSellerSignals(ctx, &pb.GetSellerSignalsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetTrustedScoringSignalsUri calls the GetTrustedScoringSignalsUri RPC.
-func (c *AdSelectionConfigClient) GetTrustedScoringSignalsUri(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetTrustedScoringSignalsUri(ctx, &pb.GetTrustedScoringSignalsUriRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *AdSelectionConfigClient) HashCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *AdSelectionConfigClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// AdSelectionConfigBuilderClient wraps the gRPC AdSelectionConfigBuilderService client.
-type AdSelectionConfigBuilderClient struct {
-	svc pb.AdSelectionConfigBuilderServiceClient
-}
-
-// NewAdSelectionConfigBuilderClient creates a new AdSelectionConfigBuilder client.
-func NewAdSelectionConfigBuilderClient(cc grpc.ClientConnInterface) *AdSelectionConfigBuilderClient {
-	return &AdSelectionConfigBuilderClient{
-		svc: pb.NewAdSelectionConfigBuilderServiceClient(cc),
-	}
-}
-
-// Build calls the Build RPC.
-func (c *AdSelectionConfigBuilderClient) Build(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetAdSelectionSignals calls the SetAdSelectionSignals RPC.
-func (c *AdSelectionConfigBuilderClient) SetAdSelectionSignals(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetAdSelectionSignals(ctx, &pb.SetAdSelectionSignalsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetDecisionLogicUri calls the SetDecisionLogicUri RPC.
-func (c *AdSelectionConfigBuilderClient) SetDecisionLogicUri(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetDecisionLogicUri(ctx, &pb.SetDecisionLogicUriRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetSeller calls the SetSeller RPC.
-func (c *AdSelectionConfigBuilderClient) SetSeller(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetSeller(ctx, &pb.SetSellerRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetSellerSignals calls the SetSellerSignals RPC.
-func (c *AdSelectionConfigBuilderClient) SetSellerSignals(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetSellerSignals(ctx, &pb.SetSellerSignalsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetTrustedScoringSignalsUri calls the SetTrustedScoringSignalsUri RPC.
-func (c *AdSelectionConfigBuilderClient) SetTrustedScoringSignalsUri(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetTrustedScoringSignalsUri(ctx, &pb.SetTrustedScoringSignalsUriRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// AddAdSelectionOverrideRequestClient wraps the gRPC AddAdSelectionOverrideRequestService client.
-type AddAdSelectionOverrideRequestClient struct {
-	svc pb.AddAdSelectionOverrideRequestServiceClient
-}
-
-// NewAddAdSelectionOverrideRequestClient creates a new AddAdSelectionOverrideRequest client.
-func NewAddAdSelectionOverrideRequestClient(cc grpc.ClientConnInterface) *AddAdSelectionOverrideRequestClient {
-	return &AddAdSelectionOverrideRequestClient{
-		svc: pb.NewAddAdSelectionOverrideRequestServiceClient(cc),
-	}
-}
-
-// GetAdSelectionConfig calls the GetAdSelectionConfig RPC.
-func (c *AddAdSelectionOverrideRequestClient) GetAdSelectionConfig(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetAdSelectionConfig(ctx, &pb.GetAdSelectionConfigRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetDecisionLogicJs calls the GetDecisionLogicJs RPC.
-func (c *AddAdSelectionOverrideRequestClient) GetDecisionLogicJs(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.GetDecisionLogicJs(ctx, &pb.GetDecisionLogicJsRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetPerBuyerDecisionLogic calls the GetPerBuyerDecisionLogic RPC.
-func (c *AddAdSelectionOverrideRequestClient) GetPerBuyerDecisionLogic(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetPerBuyerDecisionLogic(ctx, &pb.GetPerBuyerDecisionLogicRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetTrustedScoringSignals calls the GetTrustedScoringSignals RPC.
-func (c *AddAdSelectionOverrideRequestClient) GetTrustedScoringSignals(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetTrustedScoringSignals(ctx, &pb.GetTrustedScoringSignalsRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// AdWithBidClient wraps the gRPC AdWithBidService client.
-type AdWithBidClient struct {
-	svc pb.AdWithBidServiceClient
-}
-
-// NewAdWithBidClient creates a new AdWithBid client.
-func NewAdWithBidClient(cc grpc.ClientConnInterface) *AdWithBidClient {
-	return &AdWithBidClient{
-		svc: pb.NewAdWithBidServiceClient(cc),
-	}
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *AdWithBidClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.AdWithBidDescribeContentsRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Equals calls the Equals RPC.
-func (c *AdWithBidClient) Equals(ctx context.Context, handle int64, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.AdWithBidEqualsRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetAdData calls the GetAdData RPC.
-func (c *AdWithBidClient) GetAdData(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetAdData(ctx, &pb.GetAdDataRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetBid calls the GetBid RPC.
-func (c *AdWithBidClient) GetBid(ctx context.Context, handle int64) (float64, error) {
-	resp, err := c.svc.GetBid(ctx, &pb.GetBidRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *AdWithBidClient) HashCode(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.AdWithBidHashCodeRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *AdWithBidClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.AdWithBidWriteToParcelRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// RemoveAdSelectionOverrideRequestClient wraps the gRPC RemoveAdSelectionOverrideRequestService client.
-type RemoveAdSelectionOverrideRequestClient struct {
-	svc pb.RemoveAdSelectionOverrideRequestServiceClient
-}
-
-// NewRemoveAdSelectionOverrideRequestClient creates a new RemoveAdSelectionOverrideRequest client.
-func NewRemoveAdSelectionOverrideRequestClient(cc grpc.ClientConnInterface) *RemoveAdSelectionOverrideRequestClient {
-	return &RemoveAdSelectionOverrideRequestClient{
-		svc: pb.NewRemoveAdSelectionOverrideRequestServiceClient(cc),
-	}
-}
-
-// GetAdSelectionConfig calls the GetAdSelectionConfig RPC.
-func (c *RemoveAdSelectionOverrideRequestClient) GetAdSelectionConfig(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetAdSelectionConfig(ctx, &pb.GetAdSelectionConfigRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetAdSelectionDataOutcomeClient wraps the gRPC GetAdSelectionDataOutcomeService client.
-type GetAdSelectionDataOutcomeClient struct {
-	svc pb.GetAdSelectionDataOutcomeServiceClient
-}
-
-// NewGetAdSelectionDataOutcomeClient creates a new GetAdSelectionDataOutcome client.
-func NewGetAdSelectionDataOutcomeClient(cc grpc.ClientConnInterface) *GetAdSelectionDataOutcomeClient {
-	return &GetAdSelectionDataOutcomeClient{
-		svc: pb.NewGetAdSelectionDataOutcomeServiceClient(cc),
-	}
-}
-
-// GetAdSelectionData calls the GetAdSelectionData RPC.
-func (c *GetAdSelectionDataOutcomeClient) GetAdSelectionData(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetAdSelectionData(ctx, &pb.GetAdSelectionDataRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetAdSelectionDataId calls the GetAdSelectionDataId RPC.
-func (c *GetAdSelectionDataOutcomeClient) GetAdSelectionDataId(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetAdSelectionDataId(ctx, &pb.GetAdSelectionDataIdRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetAdSelectionId calls the GetAdSelectionId RPC.
-func (c *GetAdSelectionDataOutcomeClient) GetAdSelectionId(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetAdSelectionId(ctx, &pb.GetAdSelectionIdRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// DecisionLogicClient wraps the gRPC DecisionLogicService client.
-type DecisionLogicClient struct {
-	svc pb.DecisionLogicServiceClient
-}
-
-// NewDecisionLogicClient creates a new DecisionLogic client.
-func NewDecisionLogicClient(cc grpc.ClientConnInterface) *DecisionLogicClient {
-	return &DecisionLogicClient{
-		svc: pb.NewDecisionLogicServiceClient(cc),
-	}
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *DecisionLogicClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.DecisionLogicDescribeContentsRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Equals calls the Equals RPC.
-func (c *DecisionLogicClient) Equals(ctx context.Context, handle int64, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.DecisionLogicEqualsRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetLogic calls the GetLogic RPC.
-func (c *DecisionLogicClient) GetLogic(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.GetLogic(ctx, &pb.GetLogicRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *DecisionLogicClient) HashCode(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.DecisionLogicHashCodeRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToString calls the ToString RPC.
-func (c *DecisionLogicClient) ToString(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.DecisionLogicToStringRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *DecisionLogicClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.DecisionLogicWriteToParcelRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
 // GetAdSelectionDataRequestClient wraps the gRPC GetAdSelectionDataRequestService client.
 type GetAdSelectionDataRequestClient struct {
 	svc pb.GetAdSelectionDataRequestServiceClient
@@ -1565,20 +1576,98 @@ func (c *GetAdSelectionDataRequestBuilderClient) SetSellerConfiguration(ctx cont
 	return resp.GetResult(), nil
 }
 
-// AdSelectionOutcomeClient wraps the gRPC AdSelectionOutcomeService client.
-type AdSelectionOutcomeClient struct {
-	svc pb.AdSelectionOutcomeServiceClient
+// AdWithBidClient wraps the gRPC AdWithBidService client.
+type AdWithBidClient struct {
+	svc pb.AdWithBidServiceClient
 }
 
-// NewAdSelectionOutcomeClient creates a new AdSelectionOutcome client.
-func NewAdSelectionOutcomeClient(cc grpc.ClientConnInterface) *AdSelectionOutcomeClient {
-	return &AdSelectionOutcomeClient{
-		svc: pb.NewAdSelectionOutcomeServiceClient(cc),
+// NewAdWithBidClient creates a new AdWithBid client.
+func NewAdWithBidClient(cc grpc.ClientConnInterface) *AdWithBidClient {
+	return &AdWithBidClient{
+		svc: pb.NewAdWithBidServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *AdWithBidClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.AdWithBidDescribeContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *AdWithBidClient) Equals(ctx context.Context, handle int64, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.AdWithBidEqualsRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAdData calls the GetAdData RPC.
+func (c *AdWithBidClient) GetAdData(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetAdData(ctx, &pb.GetAdDataRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetBid calls the GetBid RPC.
+func (c *AdWithBidClient) GetBid(ctx context.Context, handle int64) (float64, error) {
+	resp, err := c.svc.GetBid(ctx, &pb.GetBidRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *AdWithBidClient) HashCode(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.AdWithBidHashCodeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *AdWithBidClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.AdWithBidWriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// UpdateAdCounterHistogramRequestClient wraps the gRPC UpdateAdCounterHistogramRequestService client.
+type UpdateAdCounterHistogramRequestClient struct {
+	svc pb.UpdateAdCounterHistogramRequestServiceClient
+}
+
+// NewUpdateAdCounterHistogramRequestClient creates a new UpdateAdCounterHistogramRequest client.
+func NewUpdateAdCounterHistogramRequestClient(cc grpc.ClientConnInterface) *UpdateAdCounterHistogramRequestClient {
+	return &UpdateAdCounterHistogramRequestClient{
+		svc: pb.NewUpdateAdCounterHistogramRequestServiceClient(cc),
 	}
 }
 
 // Equals calls the Equals RPC.
-func (c *AdSelectionOutcomeClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+func (c *UpdateAdCounterHistogramRequestClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
 	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
 		Arg0: arg0,
 	})
@@ -1588,8 +1677,17 @@ func (c *AdSelectionOutcomeClient) Equals(ctx context.Context, arg0 int64) (bool
 	return resp.GetResult(), nil
 }
 
+// GetAdEventType calls the GetAdEventType RPC.
+func (c *UpdateAdCounterHistogramRequestClient) GetAdEventType(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetAdEventType(ctx, &pb.GetAdEventTypeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // GetAdSelectionId calls the GetAdSelectionId RPC.
-func (c *AdSelectionOutcomeClient) GetAdSelectionId(ctx context.Context) (int64, error) {
+func (c *UpdateAdCounterHistogramRequestClient) GetAdSelectionId(ctx context.Context) (int64, error) {
 	resp, err := c.svc.GetAdSelectionId(ctx, &pb.GetAdSelectionIdRequest{})
 	if err != nil {
 		return 0, err
@@ -1597,35 +1695,17 @@ func (c *AdSelectionOutcomeClient) GetAdSelectionId(ctx context.Context) (int64,
 	return resp.GetResult(), nil
 }
 
-// GetRenderUri calls the GetRenderUri RPC.
-func (c *AdSelectionOutcomeClient) GetRenderUri(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetRenderUri(ctx, &pb.GetRenderUriRequest{})
+// GetCallerAdTech calls the GetCallerAdTech RPC.
+func (c *UpdateAdCounterHistogramRequestClient) GetCallerAdTech(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetCallerAdTech(ctx, &pb.GetCallerAdTechRequest{})
 	if err != nil {
 		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetWinningSeller calls the GetWinningSeller RPC.
-func (c *AdSelectionOutcomeClient) GetWinningSeller(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetWinningSeller(ctx, &pb.GetWinningSellerRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HasOutcome calls the HasOutcome RPC.
-func (c *AdSelectionOutcomeClient) HasOutcome(ctx context.Context) (bool, error) {
-	resp, err := c.svc.HasOutcome(ctx, &pb.HasOutcomeRequest{})
-	if err != nil {
-		return false, err
 	}
 	return resp.GetResult(), nil
 }
 
 // HashCode calls the HashCode RPC.
-func (c *AdSelectionOutcomeClient) HashCode(ctx context.Context) (int32, error) {
+func (c *UpdateAdCounterHistogramRequestClient) HashCode(ctx context.Context) (int32, error) {
 	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
 	if err != nil {
 		return 0, err
@@ -1633,20 +1713,29 @@ func (c *AdSelectionOutcomeClient) HashCode(ctx context.Context) (int32, error) 
 	return resp.GetResult(), nil
 }
 
-// AdSelectionOutcomeBuilderClient wraps the gRPC AdSelectionOutcomeBuilderService client.
-type AdSelectionOutcomeBuilderClient struct {
-	svc pb.AdSelectionOutcomeBuilderServiceClient
+// ToString calls the ToString RPC.
+func (c *UpdateAdCounterHistogramRequestClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.UpdateAdCounterHistogramRequestToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
 }
 
-// NewAdSelectionOutcomeBuilderClient creates a new AdSelectionOutcomeBuilder client.
-func NewAdSelectionOutcomeBuilderClient(cc grpc.ClientConnInterface) *AdSelectionOutcomeBuilderClient {
-	return &AdSelectionOutcomeBuilderClient{
-		svc: pb.NewAdSelectionOutcomeBuilderServiceClient(cc),
+// UpdateAdCounterHistogramRequestBuilderClient wraps the gRPC UpdateAdCounterHistogramRequestBuilderService client.
+type UpdateAdCounterHistogramRequestBuilderClient struct {
+	svc pb.UpdateAdCounterHistogramRequestBuilderServiceClient
+}
+
+// NewUpdateAdCounterHistogramRequestBuilderClient creates a new UpdateAdCounterHistogramRequestBuilder client.
+func NewUpdateAdCounterHistogramRequestBuilderClient(cc grpc.ClientConnInterface) *UpdateAdCounterHistogramRequestBuilderClient {
+	return &UpdateAdCounterHistogramRequestBuilderClient{
+		svc: pb.NewUpdateAdCounterHistogramRequestBuilderServiceClient(cc),
 	}
 }
 
 // Build calls the Build RPC.
-func (c *AdSelectionOutcomeBuilderClient) Build(ctx context.Context) (int64, error) {
+func (c *UpdateAdCounterHistogramRequestBuilderClient) Build(ctx context.Context) (int64, error) {
 	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
 	if err != nil {
 		return 0, err
@@ -1654,8 +1743,19 @@ func (c *AdSelectionOutcomeBuilderClient) Build(ctx context.Context) (int64, err
 	return resp.GetResult(), nil
 }
 
+// SetAdEventType calls the SetAdEventType RPC.
+func (c *UpdateAdCounterHistogramRequestBuilderClient) SetAdEventType(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetAdEventType(ctx, &pb.SetAdEventTypeRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // SetAdSelectionId calls the SetAdSelectionId RPC.
-func (c *AdSelectionOutcomeBuilderClient) SetAdSelectionId(ctx context.Context, arg0 int64) (int64, error) {
+func (c *UpdateAdCounterHistogramRequestBuilderClient) SetAdSelectionId(ctx context.Context, arg0 int64) (int64, error) {
 	resp, err := c.svc.SetAdSelectionId(ctx, &pb.SetAdSelectionIdRequest{
 		Arg0: arg0,
 	})
@@ -1665,44 +1765,10 @@ func (c *AdSelectionOutcomeBuilderClient) SetAdSelectionId(ctx context.Context, 
 	return resp.GetResult(), nil
 }
 
-// SetRenderUri calls the SetRenderUri RPC.
-func (c *AdSelectionOutcomeBuilderClient) SetRenderUri(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetRenderUri(ctx, &pb.SetRenderUriRequest{
+// SetCallerAdTech calls the SetCallerAdTech RPC.
+func (c *UpdateAdCounterHistogramRequestBuilderClient) SetCallerAdTech(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetCallerAdTech(ctx, &pb.SetCallerAdTechRequest{
 		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ReportImpressionRequestClient wraps the gRPC ReportImpressionRequestService client.
-type ReportImpressionRequestClient struct {
-	svc pb.ReportImpressionRequestServiceClient
-}
-
-// NewReportImpressionRequestClient creates a new ReportImpressionRequest client.
-func NewReportImpressionRequestClient(cc grpc.ClientConnInterface) *ReportImpressionRequestClient {
-	return &ReportImpressionRequestClient{
-		svc: pb.NewReportImpressionRequestServiceClient(cc),
-	}
-}
-
-// GetAdSelectionConfig calls the GetAdSelectionConfig RPC.
-func (c *ReportImpressionRequestClient) GetAdSelectionConfig(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetAdSelectionConfig(ctx, &pb.GetAdSelectionConfigRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetAdSelectionId calls the GetAdSelectionId RPC.
-func (c *ReportImpressionRequestClient) GetAdSelectionId(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetAdSelectionId(ctx, &pb.ReportImpressionRequestGetAdSelectionIdRequest{
-		Handle: handle,
 	})
 	if err != nil {
 		return 0, err

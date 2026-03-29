@@ -21,11 +21,12 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	BuildService_NewBuild_FullMethodName           = "/build.BuildService/NewBuild"
-	BuildService_GetMajorSdkVersion_FullMethodName = "/build.BuildService/GetMajorSdkVersion"
-	BuildService_GetMinorSdkVersion_FullMethodName = "/build.BuildService/GetMinorSdkVersion"
-	BuildService_GetRadioVersion_FullMethodName    = "/build.BuildService/GetRadioVersion"
-	BuildService_GetSerial_FullMethodName          = "/build.BuildService/GetSerial"
+	BuildService_NewBuild_FullMethodName                   = "/build.BuildService/NewBuild"
+	BuildService_GetFingerprintedPartitions_FullMethodName = "/build.BuildService/GetFingerprintedPartitions"
+	BuildService_GetMajorSdkVersion_FullMethodName         = "/build.BuildService/GetMajorSdkVersion"
+	BuildService_GetMinorSdkVersion_FullMethodName         = "/build.BuildService/GetMinorSdkVersion"
+	BuildService_GetRadioVersion_FullMethodName            = "/build.BuildService/GetRadioVersion"
+	BuildService_GetSerial_FullMethodName                  = "/build.BuildService/GetSerial"
 )
 
 // BuildServiceClient is the client API for BuildService service.
@@ -33,6 +34,7 @@ const (
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type BuildServiceClient interface {
 	NewBuild(ctx context.Context, in *NewBuildRequest, opts ...grpc.CallOption) (*NewBuildResponse, error)
+	GetFingerprintedPartitions(ctx context.Context, in *GetFingerprintedPartitionsRequest, opts ...grpc.CallOption) (*GetFingerprintedPartitionsResponse, error)
 	GetMajorSdkVersion(ctx context.Context, in *GetMajorSdkVersionRequest, opts ...grpc.CallOption) (*GetMajorSdkVersionResponse, error)
 	GetMinorSdkVersion(ctx context.Context, in *GetMinorSdkVersionRequest, opts ...grpc.CallOption) (*GetMinorSdkVersionResponse, error)
 	GetRadioVersion(ctx context.Context, in *GetRadioVersionRequest, opts ...grpc.CallOption) (*GetRadioVersionResponse, error)
@@ -51,6 +53,16 @@ func (c *buildServiceClient) NewBuild(ctx context.Context, in *NewBuildRequest, 
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(NewBuildResponse)
 	err := c.cc.Invoke(ctx, BuildService_NewBuild_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *buildServiceClient) GetFingerprintedPartitions(ctx context.Context, in *GetFingerprintedPartitionsRequest, opts ...grpc.CallOption) (*GetFingerprintedPartitionsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetFingerprintedPartitionsResponse)
+	err := c.cc.Invoke(ctx, BuildService_GetFingerprintedPartitions_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -102,6 +114,7 @@ func (c *buildServiceClient) GetSerial(ctx context.Context, in *GetSerialRequest
 // for forward compatibility.
 type BuildServiceServer interface {
 	NewBuild(context.Context, *NewBuildRequest) (*NewBuildResponse, error)
+	GetFingerprintedPartitions(context.Context, *GetFingerprintedPartitionsRequest) (*GetFingerprintedPartitionsResponse, error)
 	GetMajorSdkVersion(context.Context, *GetMajorSdkVersionRequest) (*GetMajorSdkVersionResponse, error)
 	GetMinorSdkVersion(context.Context, *GetMinorSdkVersionRequest) (*GetMinorSdkVersionResponse, error)
 	GetRadioVersion(context.Context, *GetRadioVersionRequest) (*GetRadioVersionResponse, error)
@@ -118,6 +131,9 @@ type UnimplementedBuildServiceServer struct{}
 
 func (UnimplementedBuildServiceServer) NewBuild(context.Context, *NewBuildRequest) (*NewBuildResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method NewBuild not implemented")
+}
+func (UnimplementedBuildServiceServer) GetFingerprintedPartitions(context.Context, *GetFingerprintedPartitionsRequest) (*GetFingerprintedPartitionsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetFingerprintedPartitions not implemented")
 }
 func (UnimplementedBuildServiceServer) GetMajorSdkVersion(context.Context, *GetMajorSdkVersionRequest) (*GetMajorSdkVersionResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetMajorSdkVersion not implemented")
@@ -166,6 +182,24 @@ func _BuildService_NewBuild_Handler(srv interface{}, ctx context.Context, dec fu
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(BuildServiceServer).NewBuild(ctx, req.(*NewBuildRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _BuildService_GetFingerprintedPartitions_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetFingerprintedPartitionsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(BuildServiceServer).GetFingerprintedPartitions(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: BuildService_GetFingerprintedPartitions_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(BuildServiceServer).GetFingerprintedPartitions(ctx, req.(*GetFingerprintedPartitionsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -252,6 +286,10 @@ var BuildService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "NewBuild",
 			Handler:    _BuildService_NewBuild_Handler,
+		},
+		{
+			MethodName: "GetFingerprintedPartitions",
+			Handler:    _BuildService_GetFingerprintedPartitions_Handler,
 		},
 		{
 			MethodName: "GetMajorSdkVersion",

@@ -1025,6 +1025,1465 @@ var AppWidgetHostViewService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
+	AppWidgetHostService_NewAppWidgetHost_FullMethodName                         = "/appwidget.AppWidgetHostService/NewAppWidgetHost"
+	AppWidgetHostService_AllocateAppWidgetId_FullMethodName                      = "/appwidget.AppWidgetHostService/AllocateAppWidgetId"
+	AppWidgetHostService_CreateView_FullMethodName                               = "/appwidget.AppWidgetHostService/CreateView"
+	AppWidgetHostService_DeleteAppWidgetId_FullMethodName                        = "/appwidget.AppWidgetHostService/DeleteAppWidgetId"
+	AppWidgetHostService_DeleteHost_FullMethodName                               = "/appwidget.AppWidgetHostService/DeleteHost"
+	AppWidgetHostService_GetAppWidgetIds_FullMethodName                          = "/appwidget.AppWidgetHostService/GetAppWidgetIds"
+	AppWidgetHostService_OnAppWidgetRemoved_FullMethodName                       = "/appwidget.AppWidgetHostService/OnAppWidgetRemoved"
+	AppWidgetHostService_StartAppWidgetConfigureActivityForResult_FullMethodName = "/appwidget.AppWidgetHostService/StartAppWidgetConfigureActivityForResult"
+	AppWidgetHostService_StartListening_FullMethodName                           = "/appwidget.AppWidgetHostService/StartListening"
+	AppWidgetHostService_StopListening_FullMethodName                            = "/appwidget.AppWidgetHostService/StopListening"
+	AppWidgetHostService_DeleteAllHosts_FullMethodName                           = "/appwidget.AppWidgetHostService/DeleteAllHosts"
+)
+
+// AppWidgetHostServiceClient is the client API for AppWidgetHostService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type AppWidgetHostServiceClient interface {
+	NewAppWidgetHost(ctx context.Context, in *NewAppWidgetHostRequest, opts ...grpc.CallOption) (*NewAppWidgetHostResponse, error)
+	AllocateAppWidgetId(ctx context.Context, in *AllocateAppWidgetIdRequest, opts ...grpc.CallOption) (*AllocateAppWidgetIdResponse, error)
+	CreateView(ctx context.Context, in *CreateViewRequest, opts ...grpc.CallOption) (*CreateViewResponse, error)
+	DeleteAppWidgetId(ctx context.Context, in *DeleteAppWidgetIdRequest, opts ...grpc.CallOption) (*DeleteAppWidgetIdResponse, error)
+	DeleteHost(ctx context.Context, in *DeleteHostRequest, opts ...grpc.CallOption) (*DeleteHostResponse, error)
+	GetAppWidgetIds(ctx context.Context, in *GetAppWidgetIdsRequest, opts ...grpc.CallOption) (*GetAppWidgetIdsResponse, error)
+	OnAppWidgetRemoved(ctx context.Context, in *OnAppWidgetRemovedRequest, opts ...grpc.CallOption) (*OnAppWidgetRemovedResponse, error)
+	StartAppWidgetConfigureActivityForResult(ctx context.Context, in *StartAppWidgetConfigureActivityForResultRequest, opts ...grpc.CallOption) (*StartAppWidgetConfigureActivityForResultResponse, error)
+	StartListening(ctx context.Context, in *StartListeningRequest, opts ...grpc.CallOption) (*StartListeningResponse, error)
+	StopListening(ctx context.Context, in *StopListeningRequest, opts ...grpc.CallOption) (*StopListeningResponse, error)
+	DeleteAllHosts(ctx context.Context, in *DeleteAllHostsRequest, opts ...grpc.CallOption) (*DeleteAllHostsResponse, error)
+}
+
+type appWidgetHostServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewAppWidgetHostServiceClient(cc grpc.ClientConnInterface) AppWidgetHostServiceClient {
+	return &appWidgetHostServiceClient{cc}
+}
+
+func (c *appWidgetHostServiceClient) NewAppWidgetHost(ctx context.Context, in *NewAppWidgetHostRequest, opts ...grpc.CallOption) (*NewAppWidgetHostResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewAppWidgetHostResponse)
+	err := c.cc.Invoke(ctx, AppWidgetHostService_NewAppWidgetHost_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *appWidgetHostServiceClient) AllocateAppWidgetId(ctx context.Context, in *AllocateAppWidgetIdRequest, opts ...grpc.CallOption) (*AllocateAppWidgetIdResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(AllocateAppWidgetIdResponse)
+	err := c.cc.Invoke(ctx, AppWidgetHostService_AllocateAppWidgetId_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *appWidgetHostServiceClient) CreateView(ctx context.Context, in *CreateViewRequest, opts ...grpc.CallOption) (*CreateViewResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CreateViewResponse)
+	err := c.cc.Invoke(ctx, AppWidgetHostService_CreateView_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *appWidgetHostServiceClient) DeleteAppWidgetId(ctx context.Context, in *DeleteAppWidgetIdRequest, opts ...grpc.CallOption) (*DeleteAppWidgetIdResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DeleteAppWidgetIdResponse)
+	err := c.cc.Invoke(ctx, AppWidgetHostService_DeleteAppWidgetId_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *appWidgetHostServiceClient) DeleteHost(ctx context.Context, in *DeleteHostRequest, opts ...grpc.CallOption) (*DeleteHostResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DeleteHostResponse)
+	err := c.cc.Invoke(ctx, AppWidgetHostService_DeleteHost_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *appWidgetHostServiceClient) GetAppWidgetIds(ctx context.Context, in *GetAppWidgetIdsRequest, opts ...grpc.CallOption) (*GetAppWidgetIdsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetAppWidgetIdsResponse)
+	err := c.cc.Invoke(ctx, AppWidgetHostService_GetAppWidgetIds_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *appWidgetHostServiceClient) OnAppWidgetRemoved(ctx context.Context, in *OnAppWidgetRemovedRequest, opts ...grpc.CallOption) (*OnAppWidgetRemovedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnAppWidgetRemovedResponse)
+	err := c.cc.Invoke(ctx, AppWidgetHostService_OnAppWidgetRemoved_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *appWidgetHostServiceClient) StartAppWidgetConfigureActivityForResult(ctx context.Context, in *StartAppWidgetConfigureActivityForResultRequest, opts ...grpc.CallOption) (*StartAppWidgetConfigureActivityForResultResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(StartAppWidgetConfigureActivityForResultResponse)
+	err := c.cc.Invoke(ctx, AppWidgetHostService_StartAppWidgetConfigureActivityForResult_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *appWidgetHostServiceClient) StartListening(ctx context.Context, in *StartListeningRequest, opts ...grpc.CallOption) (*StartListeningResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(StartListeningResponse)
+	err := c.cc.Invoke(ctx, AppWidgetHostService_StartListening_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *appWidgetHostServiceClient) StopListening(ctx context.Context, in *StopListeningRequest, opts ...grpc.CallOption) (*StopListeningResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(StopListeningResponse)
+	err := c.cc.Invoke(ctx, AppWidgetHostService_StopListening_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *appWidgetHostServiceClient) DeleteAllHosts(ctx context.Context, in *DeleteAllHostsRequest, opts ...grpc.CallOption) (*DeleteAllHostsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DeleteAllHostsResponse)
+	err := c.cc.Invoke(ctx, AppWidgetHostService_DeleteAllHosts_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// AppWidgetHostServiceServer is the server API for AppWidgetHostService service.
+// All implementations must embed UnimplementedAppWidgetHostServiceServer
+// for forward compatibility.
+type AppWidgetHostServiceServer interface {
+	NewAppWidgetHost(context.Context, *NewAppWidgetHostRequest) (*NewAppWidgetHostResponse, error)
+	AllocateAppWidgetId(context.Context, *AllocateAppWidgetIdRequest) (*AllocateAppWidgetIdResponse, error)
+	CreateView(context.Context, *CreateViewRequest) (*CreateViewResponse, error)
+	DeleteAppWidgetId(context.Context, *DeleteAppWidgetIdRequest) (*DeleteAppWidgetIdResponse, error)
+	DeleteHost(context.Context, *DeleteHostRequest) (*DeleteHostResponse, error)
+	GetAppWidgetIds(context.Context, *GetAppWidgetIdsRequest) (*GetAppWidgetIdsResponse, error)
+	OnAppWidgetRemoved(context.Context, *OnAppWidgetRemovedRequest) (*OnAppWidgetRemovedResponse, error)
+	StartAppWidgetConfigureActivityForResult(context.Context, *StartAppWidgetConfigureActivityForResultRequest) (*StartAppWidgetConfigureActivityForResultResponse, error)
+	StartListening(context.Context, *StartListeningRequest) (*StartListeningResponse, error)
+	StopListening(context.Context, *StopListeningRequest) (*StopListeningResponse, error)
+	DeleteAllHosts(context.Context, *DeleteAllHostsRequest) (*DeleteAllHostsResponse, error)
+	mustEmbedUnimplementedAppWidgetHostServiceServer()
+}
+
+// UnimplementedAppWidgetHostServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedAppWidgetHostServiceServer struct{}
+
+func (UnimplementedAppWidgetHostServiceServer) NewAppWidgetHost(context.Context, *NewAppWidgetHostRequest) (*NewAppWidgetHostResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewAppWidgetHost not implemented")
+}
+func (UnimplementedAppWidgetHostServiceServer) AllocateAppWidgetId(context.Context, *AllocateAppWidgetIdRequest) (*AllocateAppWidgetIdResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method AllocateAppWidgetId not implemented")
+}
+func (UnimplementedAppWidgetHostServiceServer) CreateView(context.Context, *CreateViewRequest) (*CreateViewResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method CreateView not implemented")
+}
+func (UnimplementedAppWidgetHostServiceServer) DeleteAppWidgetId(context.Context, *DeleteAppWidgetIdRequest) (*DeleteAppWidgetIdResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DeleteAppWidgetId not implemented")
+}
+func (UnimplementedAppWidgetHostServiceServer) DeleteHost(context.Context, *DeleteHostRequest) (*DeleteHostResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DeleteHost not implemented")
+}
+func (UnimplementedAppWidgetHostServiceServer) GetAppWidgetIds(context.Context, *GetAppWidgetIdsRequest) (*GetAppWidgetIdsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetAppWidgetIds not implemented")
+}
+func (UnimplementedAppWidgetHostServiceServer) OnAppWidgetRemoved(context.Context, *OnAppWidgetRemovedRequest) (*OnAppWidgetRemovedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnAppWidgetRemoved not implemented")
+}
+func (UnimplementedAppWidgetHostServiceServer) StartAppWidgetConfigureActivityForResult(context.Context, *StartAppWidgetConfigureActivityForResultRequest) (*StartAppWidgetConfigureActivityForResultResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method StartAppWidgetConfigureActivityForResult not implemented")
+}
+func (UnimplementedAppWidgetHostServiceServer) StartListening(context.Context, *StartListeningRequest) (*StartListeningResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method StartListening not implemented")
+}
+func (UnimplementedAppWidgetHostServiceServer) StopListening(context.Context, *StopListeningRequest) (*StopListeningResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method StopListening not implemented")
+}
+func (UnimplementedAppWidgetHostServiceServer) DeleteAllHosts(context.Context, *DeleteAllHostsRequest) (*DeleteAllHostsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DeleteAllHosts not implemented")
+}
+func (UnimplementedAppWidgetHostServiceServer) mustEmbedUnimplementedAppWidgetHostServiceServer() {}
+func (UnimplementedAppWidgetHostServiceServer) testEmbeddedByValue()                              {}
+
+// UnsafeAppWidgetHostServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to AppWidgetHostServiceServer will
+// result in compilation errors.
+type UnsafeAppWidgetHostServiceServer interface {
+	mustEmbedUnimplementedAppWidgetHostServiceServer()
+}
+
+func RegisterAppWidgetHostServiceServer(s grpc.ServiceRegistrar, srv AppWidgetHostServiceServer) {
+	// If the following call panics, it indicates UnimplementedAppWidgetHostServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&AppWidgetHostService_ServiceDesc, srv)
+}
+
+func _AppWidgetHostService_NewAppWidgetHost_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewAppWidgetHostRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AppWidgetHostServiceServer).NewAppWidgetHost(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AppWidgetHostService_NewAppWidgetHost_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AppWidgetHostServiceServer).NewAppWidgetHost(ctx, req.(*NewAppWidgetHostRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AppWidgetHostService_AllocateAppWidgetId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AllocateAppWidgetIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AppWidgetHostServiceServer).AllocateAppWidgetId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AppWidgetHostService_AllocateAppWidgetId_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AppWidgetHostServiceServer).AllocateAppWidgetId(ctx, req.(*AllocateAppWidgetIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AppWidgetHostService_CreateView_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreateViewRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AppWidgetHostServiceServer).CreateView(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AppWidgetHostService_CreateView_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AppWidgetHostServiceServer).CreateView(ctx, req.(*CreateViewRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AppWidgetHostService_DeleteAppWidgetId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DeleteAppWidgetIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AppWidgetHostServiceServer).DeleteAppWidgetId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AppWidgetHostService_DeleteAppWidgetId_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AppWidgetHostServiceServer).DeleteAppWidgetId(ctx, req.(*DeleteAppWidgetIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AppWidgetHostService_DeleteHost_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DeleteHostRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AppWidgetHostServiceServer).DeleteHost(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AppWidgetHostService_DeleteHost_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AppWidgetHostServiceServer).DeleteHost(ctx, req.(*DeleteHostRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AppWidgetHostService_GetAppWidgetIds_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetAppWidgetIdsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AppWidgetHostServiceServer).GetAppWidgetIds(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AppWidgetHostService_GetAppWidgetIds_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AppWidgetHostServiceServer).GetAppWidgetIds(ctx, req.(*GetAppWidgetIdsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AppWidgetHostService_OnAppWidgetRemoved_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnAppWidgetRemovedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AppWidgetHostServiceServer).OnAppWidgetRemoved(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AppWidgetHostService_OnAppWidgetRemoved_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AppWidgetHostServiceServer).OnAppWidgetRemoved(ctx, req.(*OnAppWidgetRemovedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AppWidgetHostService_StartAppWidgetConfigureActivityForResult_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(StartAppWidgetConfigureActivityForResultRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AppWidgetHostServiceServer).StartAppWidgetConfigureActivityForResult(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AppWidgetHostService_StartAppWidgetConfigureActivityForResult_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AppWidgetHostServiceServer).StartAppWidgetConfigureActivityForResult(ctx, req.(*StartAppWidgetConfigureActivityForResultRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AppWidgetHostService_StartListening_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(StartListeningRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AppWidgetHostServiceServer).StartListening(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AppWidgetHostService_StartListening_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AppWidgetHostServiceServer).StartListening(ctx, req.(*StartListeningRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AppWidgetHostService_StopListening_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(StopListeningRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AppWidgetHostServiceServer).StopListening(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AppWidgetHostService_StopListening_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AppWidgetHostServiceServer).StopListening(ctx, req.(*StopListeningRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AppWidgetHostService_DeleteAllHosts_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DeleteAllHostsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AppWidgetHostServiceServer).DeleteAllHosts(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AppWidgetHostService_DeleteAllHosts_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AppWidgetHostServiceServer).DeleteAllHosts(ctx, req.(*DeleteAllHostsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// AppWidgetHostService_ServiceDesc is the grpc.ServiceDesc for AppWidgetHostService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var AppWidgetHostService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "appwidget.AppWidgetHostService",
+	HandlerType: (*AppWidgetHostServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewAppWidgetHost",
+			Handler:    _AppWidgetHostService_NewAppWidgetHost_Handler,
+		},
+		{
+			MethodName: "AllocateAppWidgetId",
+			Handler:    _AppWidgetHostService_AllocateAppWidgetId_Handler,
+		},
+		{
+			MethodName: "CreateView",
+			Handler:    _AppWidgetHostService_CreateView_Handler,
+		},
+		{
+			MethodName: "DeleteAppWidgetId",
+			Handler:    _AppWidgetHostService_DeleteAppWidgetId_Handler,
+		},
+		{
+			MethodName: "DeleteHost",
+			Handler:    _AppWidgetHostService_DeleteHost_Handler,
+		},
+		{
+			MethodName: "GetAppWidgetIds",
+			Handler:    _AppWidgetHostService_GetAppWidgetIds_Handler,
+		},
+		{
+			MethodName: "OnAppWidgetRemoved",
+			Handler:    _AppWidgetHostService_OnAppWidgetRemoved_Handler,
+		},
+		{
+			MethodName: "StartAppWidgetConfigureActivityForResult",
+			Handler:    _AppWidgetHostService_StartAppWidgetConfigureActivityForResult_Handler,
+		},
+		{
+			MethodName: "StartListening",
+			Handler:    _AppWidgetHostService_StartListening_Handler,
+		},
+		{
+			MethodName: "StopListening",
+			Handler:    _AppWidgetHostService_StopListening_Handler,
+		},
+		{
+			MethodName: "DeleteAllHosts",
+			Handler:    _AppWidgetHostService_DeleteAllHosts_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/appwidget/appwidget.proto",
+}
+
+const (
+	AppWidgetManagerService_BindAppWidgetIdIfAllowed2_FullMethodName         = "/appwidget.AppWidgetManagerService/BindAppWidgetIdIfAllowed2"
+	AppWidgetManagerService_BindAppWidgetIdIfAllowed3_1_FullMethodName       = "/appwidget.AppWidgetManagerService/BindAppWidgetIdIfAllowed3_1"
+	AppWidgetManagerService_BindAppWidgetIdIfAllowed4_2_FullMethodName       = "/appwidget.AppWidgetManagerService/BindAppWidgetIdIfAllowed4_2"
+	AppWidgetManagerService_GetAppWidgetIds_FullMethodName                   = "/appwidget.AppWidgetManagerService/GetAppWidgetIds"
+	AppWidgetManagerService_GetAppWidgetInfo_FullMethodName                  = "/appwidget.AppWidgetManagerService/GetAppWidgetInfo"
+	AppWidgetManagerService_GetAppWidgetOptions_FullMethodName               = "/appwidget.AppWidgetManagerService/GetAppWidgetOptions"
+	AppWidgetManagerService_GetInstalledProviders_FullMethodName             = "/appwidget.AppWidgetManagerService/GetInstalledProviders"
+	AppWidgetManagerService_GetInstalledProvidersForPackage_FullMethodName   = "/appwidget.AppWidgetManagerService/GetInstalledProvidersForPackage"
+	AppWidgetManagerService_GetInstalledProvidersForProfile_FullMethodName   = "/appwidget.AppWidgetManagerService/GetInstalledProvidersForProfile"
+	AppWidgetManagerService_GetWidgetPreview_FullMethodName                  = "/appwidget.AppWidgetManagerService/GetWidgetPreview"
+	AppWidgetManagerService_IsRequestPinAppWidgetSupported_FullMethodName    = "/appwidget.AppWidgetManagerService/IsRequestPinAppWidgetSupported"
+	AppWidgetManagerService_NotifyAppWidgetViewDataChanged2_FullMethodName   = "/appwidget.AppWidgetManagerService/NotifyAppWidgetViewDataChanged2"
+	AppWidgetManagerService_NotifyAppWidgetViewDataChanged2_1_FullMethodName = "/appwidget.AppWidgetManagerService/NotifyAppWidgetViewDataChanged2_1"
+	AppWidgetManagerService_PartiallyUpdateAppWidget2_FullMethodName         = "/appwidget.AppWidgetManagerService/PartiallyUpdateAppWidget2"
+	AppWidgetManagerService_PartiallyUpdateAppWidget2_1_FullMethodName       = "/appwidget.AppWidgetManagerService/PartiallyUpdateAppWidget2_1"
+	AppWidgetManagerService_RemoveWidgetPreview_FullMethodName               = "/appwidget.AppWidgetManagerService/RemoveWidgetPreview"
+	AppWidgetManagerService_RequestPinAppWidget_FullMethodName               = "/appwidget.AppWidgetManagerService/RequestPinAppWidget"
+	AppWidgetManagerService_SetWidgetPreview_FullMethodName                  = "/appwidget.AppWidgetManagerService/SetWidgetPreview"
+	AppWidgetManagerService_UpdateAppWidget2_FullMethodName                  = "/appwidget.AppWidgetManagerService/UpdateAppWidget2"
+	AppWidgetManagerService_UpdateAppWidget2_1_FullMethodName                = "/appwidget.AppWidgetManagerService/UpdateAppWidget2_1"
+	AppWidgetManagerService_UpdateAppWidget2_2_FullMethodName                = "/appwidget.AppWidgetManagerService/UpdateAppWidget2_2"
+	AppWidgetManagerService_UpdateAppWidgetOptions_FullMethodName            = "/appwidget.AppWidgetManagerService/UpdateAppWidgetOptions"
+	AppWidgetManagerService_UpdateAppWidgetProviderInfo_FullMethodName       = "/appwidget.AppWidgetManagerService/UpdateAppWidgetProviderInfo"
+	AppWidgetManagerService_GetInstance_FullMethodName                       = "/appwidget.AppWidgetManagerService/GetInstance"
+)
+
+// AppWidgetManagerServiceClient is the client API for AppWidgetManagerService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type AppWidgetManagerServiceClient interface {
+	BindAppWidgetIdIfAllowed2(ctx context.Context, in *BindAppWidgetIdIfAllowed2Request, opts ...grpc.CallOption) (*BindAppWidgetIdIfAllowed2Response, error)
+	BindAppWidgetIdIfAllowed3_1(ctx context.Context, in *BindAppWidgetIdIfAllowed3_1Request, opts ...grpc.CallOption) (*BindAppWidgetIdIfAllowed3_1Response, error)
+	BindAppWidgetIdIfAllowed4_2(ctx context.Context, in *BindAppWidgetIdIfAllowed4_2Request, opts ...grpc.CallOption) (*BindAppWidgetIdIfAllowed4_2Response, error)
+	GetAppWidgetIds(ctx context.Context, in *AppWidgetManagerGetAppWidgetIdsRequest, opts ...grpc.CallOption) (*GetAppWidgetIdsResponse, error)
+	GetAppWidgetInfo(ctx context.Context, in *AppWidgetManagerGetAppWidgetInfoRequest, opts ...grpc.CallOption) (*GetAppWidgetInfoResponse, error)
+	GetAppWidgetOptions(ctx context.Context, in *GetAppWidgetOptionsRequest, opts ...grpc.CallOption) (*GetAppWidgetOptionsResponse, error)
+	GetInstalledProviders(ctx context.Context, in *GetInstalledProvidersRequest, opts ...grpc.CallOption) (*GetInstalledProvidersResponse, error)
+	GetInstalledProvidersForPackage(ctx context.Context, in *GetInstalledProvidersForPackageRequest, opts ...grpc.CallOption) (*GetInstalledProvidersForPackageResponse, error)
+	GetInstalledProvidersForProfile(ctx context.Context, in *GetInstalledProvidersForProfileRequest, opts ...grpc.CallOption) (*GetInstalledProvidersForProfileResponse, error)
+	GetWidgetPreview(ctx context.Context, in *GetWidgetPreviewRequest, opts ...grpc.CallOption) (*GetWidgetPreviewResponse, error)
+	IsRequestPinAppWidgetSupported(ctx context.Context, in *IsRequestPinAppWidgetSupportedRequest, opts ...grpc.CallOption) (*IsRequestPinAppWidgetSupportedResponse, error)
+	NotifyAppWidgetViewDataChanged2(ctx context.Context, in *NotifyAppWidgetViewDataChanged2Request, opts ...grpc.CallOption) (*NotifyAppWidgetViewDataChanged2Response, error)
+	NotifyAppWidgetViewDataChanged2_1(ctx context.Context, in *NotifyAppWidgetViewDataChanged2_1Request, opts ...grpc.CallOption) (*NotifyAppWidgetViewDataChanged2_1Response, error)
+	PartiallyUpdateAppWidget2(ctx context.Context, in *PartiallyUpdateAppWidget2Request, opts ...grpc.CallOption) (*PartiallyUpdateAppWidget2Response, error)
+	PartiallyUpdateAppWidget2_1(ctx context.Context, in *PartiallyUpdateAppWidget2_1Request, opts ...grpc.CallOption) (*PartiallyUpdateAppWidget2_1Response, error)
+	RemoveWidgetPreview(ctx context.Context, in *RemoveWidgetPreviewRequest, opts ...grpc.CallOption) (*RemoveWidgetPreviewResponse, error)
+	RequestPinAppWidget(ctx context.Context, in *RequestPinAppWidgetRequest, opts ...grpc.CallOption) (*RequestPinAppWidgetResponse, error)
+	SetWidgetPreview(ctx context.Context, in *SetWidgetPreviewRequest, opts ...grpc.CallOption) (*SetWidgetPreviewResponse, error)
+	UpdateAppWidget2(ctx context.Context, in *UpdateAppWidget2Request, opts ...grpc.CallOption) (*UpdateAppWidget2Response, error)
+	UpdateAppWidget2_1(ctx context.Context, in *UpdateAppWidget2_1Request, opts ...grpc.CallOption) (*UpdateAppWidget2_1Response, error)
+	UpdateAppWidget2_2(ctx context.Context, in *UpdateAppWidget2_2Request, opts ...grpc.CallOption) (*UpdateAppWidget2_2Response, error)
+	UpdateAppWidgetOptions(ctx context.Context, in *AppWidgetManagerUpdateAppWidgetOptionsRequest, opts ...grpc.CallOption) (*UpdateAppWidgetOptionsResponse, error)
+	UpdateAppWidgetProviderInfo(ctx context.Context, in *UpdateAppWidgetProviderInfoRequest, opts ...grpc.CallOption) (*UpdateAppWidgetProviderInfoResponse, error)
+	GetInstance(ctx context.Context, in *GetInstanceRequest, opts ...grpc.CallOption) (*GetInstanceResponse, error)
+}
+
+type appWidgetManagerServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewAppWidgetManagerServiceClient(cc grpc.ClientConnInterface) AppWidgetManagerServiceClient {
+	return &appWidgetManagerServiceClient{cc}
+}
+
+func (c *appWidgetManagerServiceClient) BindAppWidgetIdIfAllowed2(ctx context.Context, in *BindAppWidgetIdIfAllowed2Request, opts ...grpc.CallOption) (*BindAppWidgetIdIfAllowed2Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(BindAppWidgetIdIfAllowed2Response)
+	err := c.cc.Invoke(ctx, AppWidgetManagerService_BindAppWidgetIdIfAllowed2_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *appWidgetManagerServiceClient) BindAppWidgetIdIfAllowed3_1(ctx context.Context, in *BindAppWidgetIdIfAllowed3_1Request, opts ...grpc.CallOption) (*BindAppWidgetIdIfAllowed3_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(BindAppWidgetIdIfAllowed3_1Response)
+	err := c.cc.Invoke(ctx, AppWidgetManagerService_BindAppWidgetIdIfAllowed3_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *appWidgetManagerServiceClient) BindAppWidgetIdIfAllowed4_2(ctx context.Context, in *BindAppWidgetIdIfAllowed4_2Request, opts ...grpc.CallOption) (*BindAppWidgetIdIfAllowed4_2Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(BindAppWidgetIdIfAllowed4_2Response)
+	err := c.cc.Invoke(ctx, AppWidgetManagerService_BindAppWidgetIdIfAllowed4_2_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *appWidgetManagerServiceClient) GetAppWidgetIds(ctx context.Context, in *AppWidgetManagerGetAppWidgetIdsRequest, opts ...grpc.CallOption) (*GetAppWidgetIdsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetAppWidgetIdsResponse)
+	err := c.cc.Invoke(ctx, AppWidgetManagerService_GetAppWidgetIds_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *appWidgetManagerServiceClient) GetAppWidgetInfo(ctx context.Context, in *AppWidgetManagerGetAppWidgetInfoRequest, opts ...grpc.CallOption) (*GetAppWidgetInfoResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetAppWidgetInfoResponse)
+	err := c.cc.Invoke(ctx, AppWidgetManagerService_GetAppWidgetInfo_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *appWidgetManagerServiceClient) GetAppWidgetOptions(ctx context.Context, in *GetAppWidgetOptionsRequest, opts ...grpc.CallOption) (*GetAppWidgetOptionsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetAppWidgetOptionsResponse)
+	err := c.cc.Invoke(ctx, AppWidgetManagerService_GetAppWidgetOptions_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *appWidgetManagerServiceClient) GetInstalledProviders(ctx context.Context, in *GetInstalledProvidersRequest, opts ...grpc.CallOption) (*GetInstalledProvidersResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetInstalledProvidersResponse)
+	err := c.cc.Invoke(ctx, AppWidgetManagerService_GetInstalledProviders_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *appWidgetManagerServiceClient) GetInstalledProvidersForPackage(ctx context.Context, in *GetInstalledProvidersForPackageRequest, opts ...grpc.CallOption) (*GetInstalledProvidersForPackageResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetInstalledProvidersForPackageResponse)
+	err := c.cc.Invoke(ctx, AppWidgetManagerService_GetInstalledProvidersForPackage_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *appWidgetManagerServiceClient) GetInstalledProvidersForProfile(ctx context.Context, in *GetInstalledProvidersForProfileRequest, opts ...grpc.CallOption) (*GetInstalledProvidersForProfileResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetInstalledProvidersForProfileResponse)
+	err := c.cc.Invoke(ctx, AppWidgetManagerService_GetInstalledProvidersForProfile_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *appWidgetManagerServiceClient) GetWidgetPreview(ctx context.Context, in *GetWidgetPreviewRequest, opts ...grpc.CallOption) (*GetWidgetPreviewResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetWidgetPreviewResponse)
+	err := c.cc.Invoke(ctx, AppWidgetManagerService_GetWidgetPreview_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *appWidgetManagerServiceClient) IsRequestPinAppWidgetSupported(ctx context.Context, in *IsRequestPinAppWidgetSupportedRequest, opts ...grpc.CallOption) (*IsRequestPinAppWidgetSupportedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsRequestPinAppWidgetSupportedResponse)
+	err := c.cc.Invoke(ctx, AppWidgetManagerService_IsRequestPinAppWidgetSupported_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *appWidgetManagerServiceClient) NotifyAppWidgetViewDataChanged2(ctx context.Context, in *NotifyAppWidgetViewDataChanged2Request, opts ...grpc.CallOption) (*NotifyAppWidgetViewDataChanged2Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NotifyAppWidgetViewDataChanged2Response)
+	err := c.cc.Invoke(ctx, AppWidgetManagerService_NotifyAppWidgetViewDataChanged2_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *appWidgetManagerServiceClient) NotifyAppWidgetViewDataChanged2_1(ctx context.Context, in *NotifyAppWidgetViewDataChanged2_1Request, opts ...grpc.CallOption) (*NotifyAppWidgetViewDataChanged2_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NotifyAppWidgetViewDataChanged2_1Response)
+	err := c.cc.Invoke(ctx, AppWidgetManagerService_NotifyAppWidgetViewDataChanged2_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *appWidgetManagerServiceClient) PartiallyUpdateAppWidget2(ctx context.Context, in *PartiallyUpdateAppWidget2Request, opts ...grpc.CallOption) (*PartiallyUpdateAppWidget2Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(PartiallyUpdateAppWidget2Response)
+	err := c.cc.Invoke(ctx, AppWidgetManagerService_PartiallyUpdateAppWidget2_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *appWidgetManagerServiceClient) PartiallyUpdateAppWidget2_1(ctx context.Context, in *PartiallyUpdateAppWidget2_1Request, opts ...grpc.CallOption) (*PartiallyUpdateAppWidget2_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(PartiallyUpdateAppWidget2_1Response)
+	err := c.cc.Invoke(ctx, AppWidgetManagerService_PartiallyUpdateAppWidget2_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *appWidgetManagerServiceClient) RemoveWidgetPreview(ctx context.Context, in *RemoveWidgetPreviewRequest, opts ...grpc.CallOption) (*RemoveWidgetPreviewResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(RemoveWidgetPreviewResponse)
+	err := c.cc.Invoke(ctx, AppWidgetManagerService_RemoveWidgetPreview_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *appWidgetManagerServiceClient) RequestPinAppWidget(ctx context.Context, in *RequestPinAppWidgetRequest, opts ...grpc.CallOption) (*RequestPinAppWidgetResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(RequestPinAppWidgetResponse)
+	err := c.cc.Invoke(ctx, AppWidgetManagerService_RequestPinAppWidget_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *appWidgetManagerServiceClient) SetWidgetPreview(ctx context.Context, in *SetWidgetPreviewRequest, opts ...grpc.CallOption) (*SetWidgetPreviewResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetWidgetPreviewResponse)
+	err := c.cc.Invoke(ctx, AppWidgetManagerService_SetWidgetPreview_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *appWidgetManagerServiceClient) UpdateAppWidget2(ctx context.Context, in *UpdateAppWidget2Request, opts ...grpc.CallOption) (*UpdateAppWidget2Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(UpdateAppWidget2Response)
+	err := c.cc.Invoke(ctx, AppWidgetManagerService_UpdateAppWidget2_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *appWidgetManagerServiceClient) UpdateAppWidget2_1(ctx context.Context, in *UpdateAppWidget2_1Request, opts ...grpc.CallOption) (*UpdateAppWidget2_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(UpdateAppWidget2_1Response)
+	err := c.cc.Invoke(ctx, AppWidgetManagerService_UpdateAppWidget2_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *appWidgetManagerServiceClient) UpdateAppWidget2_2(ctx context.Context, in *UpdateAppWidget2_2Request, opts ...grpc.CallOption) (*UpdateAppWidget2_2Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(UpdateAppWidget2_2Response)
+	err := c.cc.Invoke(ctx, AppWidgetManagerService_UpdateAppWidget2_2_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *appWidgetManagerServiceClient) UpdateAppWidgetOptions(ctx context.Context, in *AppWidgetManagerUpdateAppWidgetOptionsRequest, opts ...grpc.CallOption) (*UpdateAppWidgetOptionsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(UpdateAppWidgetOptionsResponse)
+	err := c.cc.Invoke(ctx, AppWidgetManagerService_UpdateAppWidgetOptions_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *appWidgetManagerServiceClient) UpdateAppWidgetProviderInfo(ctx context.Context, in *UpdateAppWidgetProviderInfoRequest, opts ...grpc.CallOption) (*UpdateAppWidgetProviderInfoResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(UpdateAppWidgetProviderInfoResponse)
+	err := c.cc.Invoke(ctx, AppWidgetManagerService_UpdateAppWidgetProviderInfo_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *appWidgetManagerServiceClient) GetInstance(ctx context.Context, in *GetInstanceRequest, opts ...grpc.CallOption) (*GetInstanceResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetInstanceResponse)
+	err := c.cc.Invoke(ctx, AppWidgetManagerService_GetInstance_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// AppWidgetManagerServiceServer is the server API for AppWidgetManagerService service.
+// All implementations must embed UnimplementedAppWidgetManagerServiceServer
+// for forward compatibility.
+type AppWidgetManagerServiceServer interface {
+	BindAppWidgetIdIfAllowed2(context.Context, *BindAppWidgetIdIfAllowed2Request) (*BindAppWidgetIdIfAllowed2Response, error)
+	BindAppWidgetIdIfAllowed3_1(context.Context, *BindAppWidgetIdIfAllowed3_1Request) (*BindAppWidgetIdIfAllowed3_1Response, error)
+	BindAppWidgetIdIfAllowed4_2(context.Context, *BindAppWidgetIdIfAllowed4_2Request) (*BindAppWidgetIdIfAllowed4_2Response, error)
+	GetAppWidgetIds(context.Context, *AppWidgetManagerGetAppWidgetIdsRequest) (*GetAppWidgetIdsResponse, error)
+	GetAppWidgetInfo(context.Context, *AppWidgetManagerGetAppWidgetInfoRequest) (*GetAppWidgetInfoResponse, error)
+	GetAppWidgetOptions(context.Context, *GetAppWidgetOptionsRequest) (*GetAppWidgetOptionsResponse, error)
+	GetInstalledProviders(context.Context, *GetInstalledProvidersRequest) (*GetInstalledProvidersResponse, error)
+	GetInstalledProvidersForPackage(context.Context, *GetInstalledProvidersForPackageRequest) (*GetInstalledProvidersForPackageResponse, error)
+	GetInstalledProvidersForProfile(context.Context, *GetInstalledProvidersForProfileRequest) (*GetInstalledProvidersForProfileResponse, error)
+	GetWidgetPreview(context.Context, *GetWidgetPreviewRequest) (*GetWidgetPreviewResponse, error)
+	IsRequestPinAppWidgetSupported(context.Context, *IsRequestPinAppWidgetSupportedRequest) (*IsRequestPinAppWidgetSupportedResponse, error)
+	NotifyAppWidgetViewDataChanged2(context.Context, *NotifyAppWidgetViewDataChanged2Request) (*NotifyAppWidgetViewDataChanged2Response, error)
+	NotifyAppWidgetViewDataChanged2_1(context.Context, *NotifyAppWidgetViewDataChanged2_1Request) (*NotifyAppWidgetViewDataChanged2_1Response, error)
+	PartiallyUpdateAppWidget2(context.Context, *PartiallyUpdateAppWidget2Request) (*PartiallyUpdateAppWidget2Response, error)
+	PartiallyUpdateAppWidget2_1(context.Context, *PartiallyUpdateAppWidget2_1Request) (*PartiallyUpdateAppWidget2_1Response, error)
+	RemoveWidgetPreview(context.Context, *RemoveWidgetPreviewRequest) (*RemoveWidgetPreviewResponse, error)
+	RequestPinAppWidget(context.Context, *RequestPinAppWidgetRequest) (*RequestPinAppWidgetResponse, error)
+	SetWidgetPreview(context.Context, *SetWidgetPreviewRequest) (*SetWidgetPreviewResponse, error)
+	UpdateAppWidget2(context.Context, *UpdateAppWidget2Request) (*UpdateAppWidget2Response, error)
+	UpdateAppWidget2_1(context.Context, *UpdateAppWidget2_1Request) (*UpdateAppWidget2_1Response, error)
+	UpdateAppWidget2_2(context.Context, *UpdateAppWidget2_2Request) (*UpdateAppWidget2_2Response, error)
+	UpdateAppWidgetOptions(context.Context, *AppWidgetManagerUpdateAppWidgetOptionsRequest) (*UpdateAppWidgetOptionsResponse, error)
+	UpdateAppWidgetProviderInfo(context.Context, *UpdateAppWidgetProviderInfoRequest) (*UpdateAppWidgetProviderInfoResponse, error)
+	GetInstance(context.Context, *GetInstanceRequest) (*GetInstanceResponse, error)
+	mustEmbedUnimplementedAppWidgetManagerServiceServer()
+}
+
+// UnimplementedAppWidgetManagerServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedAppWidgetManagerServiceServer struct{}
+
+func (UnimplementedAppWidgetManagerServiceServer) BindAppWidgetIdIfAllowed2(context.Context, *BindAppWidgetIdIfAllowed2Request) (*BindAppWidgetIdIfAllowed2Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method BindAppWidgetIdIfAllowed2 not implemented")
+}
+func (UnimplementedAppWidgetManagerServiceServer) BindAppWidgetIdIfAllowed3_1(context.Context, *BindAppWidgetIdIfAllowed3_1Request) (*BindAppWidgetIdIfAllowed3_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method BindAppWidgetIdIfAllowed3_1 not implemented")
+}
+func (UnimplementedAppWidgetManagerServiceServer) BindAppWidgetIdIfAllowed4_2(context.Context, *BindAppWidgetIdIfAllowed4_2Request) (*BindAppWidgetIdIfAllowed4_2Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method BindAppWidgetIdIfAllowed4_2 not implemented")
+}
+func (UnimplementedAppWidgetManagerServiceServer) GetAppWidgetIds(context.Context, *AppWidgetManagerGetAppWidgetIdsRequest) (*GetAppWidgetIdsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetAppWidgetIds not implemented")
+}
+func (UnimplementedAppWidgetManagerServiceServer) GetAppWidgetInfo(context.Context, *AppWidgetManagerGetAppWidgetInfoRequest) (*GetAppWidgetInfoResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetAppWidgetInfo not implemented")
+}
+func (UnimplementedAppWidgetManagerServiceServer) GetAppWidgetOptions(context.Context, *GetAppWidgetOptionsRequest) (*GetAppWidgetOptionsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetAppWidgetOptions not implemented")
+}
+func (UnimplementedAppWidgetManagerServiceServer) GetInstalledProviders(context.Context, *GetInstalledProvidersRequest) (*GetInstalledProvidersResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetInstalledProviders not implemented")
+}
+func (UnimplementedAppWidgetManagerServiceServer) GetInstalledProvidersForPackage(context.Context, *GetInstalledProvidersForPackageRequest) (*GetInstalledProvidersForPackageResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetInstalledProvidersForPackage not implemented")
+}
+func (UnimplementedAppWidgetManagerServiceServer) GetInstalledProvidersForProfile(context.Context, *GetInstalledProvidersForProfileRequest) (*GetInstalledProvidersForProfileResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetInstalledProvidersForProfile not implemented")
+}
+func (UnimplementedAppWidgetManagerServiceServer) GetWidgetPreview(context.Context, *GetWidgetPreviewRequest) (*GetWidgetPreviewResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetWidgetPreview not implemented")
+}
+func (UnimplementedAppWidgetManagerServiceServer) IsRequestPinAppWidgetSupported(context.Context, *IsRequestPinAppWidgetSupportedRequest) (*IsRequestPinAppWidgetSupportedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsRequestPinAppWidgetSupported not implemented")
+}
+func (UnimplementedAppWidgetManagerServiceServer) NotifyAppWidgetViewDataChanged2(context.Context, *NotifyAppWidgetViewDataChanged2Request) (*NotifyAppWidgetViewDataChanged2Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method NotifyAppWidgetViewDataChanged2 not implemented")
+}
+func (UnimplementedAppWidgetManagerServiceServer) NotifyAppWidgetViewDataChanged2_1(context.Context, *NotifyAppWidgetViewDataChanged2_1Request) (*NotifyAppWidgetViewDataChanged2_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method NotifyAppWidgetViewDataChanged2_1 not implemented")
+}
+func (UnimplementedAppWidgetManagerServiceServer) PartiallyUpdateAppWidget2(context.Context, *PartiallyUpdateAppWidget2Request) (*PartiallyUpdateAppWidget2Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method PartiallyUpdateAppWidget2 not implemented")
+}
+func (UnimplementedAppWidgetManagerServiceServer) PartiallyUpdateAppWidget2_1(context.Context, *PartiallyUpdateAppWidget2_1Request) (*PartiallyUpdateAppWidget2_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method PartiallyUpdateAppWidget2_1 not implemented")
+}
+func (UnimplementedAppWidgetManagerServiceServer) RemoveWidgetPreview(context.Context, *RemoveWidgetPreviewRequest) (*RemoveWidgetPreviewResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method RemoveWidgetPreview not implemented")
+}
+func (UnimplementedAppWidgetManagerServiceServer) RequestPinAppWidget(context.Context, *RequestPinAppWidgetRequest) (*RequestPinAppWidgetResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method RequestPinAppWidget not implemented")
+}
+func (UnimplementedAppWidgetManagerServiceServer) SetWidgetPreview(context.Context, *SetWidgetPreviewRequest) (*SetWidgetPreviewResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetWidgetPreview not implemented")
+}
+func (UnimplementedAppWidgetManagerServiceServer) UpdateAppWidget2(context.Context, *UpdateAppWidget2Request) (*UpdateAppWidget2Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method UpdateAppWidget2 not implemented")
+}
+func (UnimplementedAppWidgetManagerServiceServer) UpdateAppWidget2_1(context.Context, *UpdateAppWidget2_1Request) (*UpdateAppWidget2_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method UpdateAppWidget2_1 not implemented")
+}
+func (UnimplementedAppWidgetManagerServiceServer) UpdateAppWidget2_2(context.Context, *UpdateAppWidget2_2Request) (*UpdateAppWidget2_2Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method UpdateAppWidget2_2 not implemented")
+}
+func (UnimplementedAppWidgetManagerServiceServer) UpdateAppWidgetOptions(context.Context, *AppWidgetManagerUpdateAppWidgetOptionsRequest) (*UpdateAppWidgetOptionsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method UpdateAppWidgetOptions not implemented")
+}
+func (UnimplementedAppWidgetManagerServiceServer) UpdateAppWidgetProviderInfo(context.Context, *UpdateAppWidgetProviderInfoRequest) (*UpdateAppWidgetProviderInfoResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method UpdateAppWidgetProviderInfo not implemented")
+}
+func (UnimplementedAppWidgetManagerServiceServer) GetInstance(context.Context, *GetInstanceRequest) (*GetInstanceResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetInstance not implemented")
+}
+func (UnimplementedAppWidgetManagerServiceServer) mustEmbedUnimplementedAppWidgetManagerServiceServer() {
+}
+func (UnimplementedAppWidgetManagerServiceServer) testEmbeddedByValue() {}
+
+// UnsafeAppWidgetManagerServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to AppWidgetManagerServiceServer will
+// result in compilation errors.
+type UnsafeAppWidgetManagerServiceServer interface {
+	mustEmbedUnimplementedAppWidgetManagerServiceServer()
+}
+
+func RegisterAppWidgetManagerServiceServer(s grpc.ServiceRegistrar, srv AppWidgetManagerServiceServer) {
+	// If the following call panics, it indicates UnimplementedAppWidgetManagerServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&AppWidgetManagerService_ServiceDesc, srv)
+}
+
+func _AppWidgetManagerService_BindAppWidgetIdIfAllowed2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BindAppWidgetIdIfAllowed2Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AppWidgetManagerServiceServer).BindAppWidgetIdIfAllowed2(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AppWidgetManagerService_BindAppWidgetIdIfAllowed2_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AppWidgetManagerServiceServer).BindAppWidgetIdIfAllowed2(ctx, req.(*BindAppWidgetIdIfAllowed2Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AppWidgetManagerService_BindAppWidgetIdIfAllowed3_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BindAppWidgetIdIfAllowed3_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AppWidgetManagerServiceServer).BindAppWidgetIdIfAllowed3_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AppWidgetManagerService_BindAppWidgetIdIfAllowed3_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AppWidgetManagerServiceServer).BindAppWidgetIdIfAllowed3_1(ctx, req.(*BindAppWidgetIdIfAllowed3_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AppWidgetManagerService_BindAppWidgetIdIfAllowed4_2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BindAppWidgetIdIfAllowed4_2Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AppWidgetManagerServiceServer).BindAppWidgetIdIfAllowed4_2(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AppWidgetManagerService_BindAppWidgetIdIfAllowed4_2_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AppWidgetManagerServiceServer).BindAppWidgetIdIfAllowed4_2(ctx, req.(*BindAppWidgetIdIfAllowed4_2Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AppWidgetManagerService_GetAppWidgetIds_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AppWidgetManagerGetAppWidgetIdsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AppWidgetManagerServiceServer).GetAppWidgetIds(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AppWidgetManagerService_GetAppWidgetIds_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AppWidgetManagerServiceServer).GetAppWidgetIds(ctx, req.(*AppWidgetManagerGetAppWidgetIdsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AppWidgetManagerService_GetAppWidgetInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AppWidgetManagerGetAppWidgetInfoRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AppWidgetManagerServiceServer).GetAppWidgetInfo(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AppWidgetManagerService_GetAppWidgetInfo_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AppWidgetManagerServiceServer).GetAppWidgetInfo(ctx, req.(*AppWidgetManagerGetAppWidgetInfoRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AppWidgetManagerService_GetAppWidgetOptions_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetAppWidgetOptionsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AppWidgetManagerServiceServer).GetAppWidgetOptions(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AppWidgetManagerService_GetAppWidgetOptions_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AppWidgetManagerServiceServer).GetAppWidgetOptions(ctx, req.(*GetAppWidgetOptionsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AppWidgetManagerService_GetInstalledProviders_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetInstalledProvidersRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AppWidgetManagerServiceServer).GetInstalledProviders(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AppWidgetManagerService_GetInstalledProviders_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AppWidgetManagerServiceServer).GetInstalledProviders(ctx, req.(*GetInstalledProvidersRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AppWidgetManagerService_GetInstalledProvidersForPackage_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetInstalledProvidersForPackageRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AppWidgetManagerServiceServer).GetInstalledProvidersForPackage(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AppWidgetManagerService_GetInstalledProvidersForPackage_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AppWidgetManagerServiceServer).GetInstalledProvidersForPackage(ctx, req.(*GetInstalledProvidersForPackageRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AppWidgetManagerService_GetInstalledProvidersForProfile_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetInstalledProvidersForProfileRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AppWidgetManagerServiceServer).GetInstalledProvidersForProfile(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AppWidgetManagerService_GetInstalledProvidersForProfile_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AppWidgetManagerServiceServer).GetInstalledProvidersForProfile(ctx, req.(*GetInstalledProvidersForProfileRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AppWidgetManagerService_GetWidgetPreview_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetWidgetPreviewRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AppWidgetManagerServiceServer).GetWidgetPreview(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AppWidgetManagerService_GetWidgetPreview_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AppWidgetManagerServiceServer).GetWidgetPreview(ctx, req.(*GetWidgetPreviewRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AppWidgetManagerService_IsRequestPinAppWidgetSupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsRequestPinAppWidgetSupportedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AppWidgetManagerServiceServer).IsRequestPinAppWidgetSupported(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AppWidgetManagerService_IsRequestPinAppWidgetSupported_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AppWidgetManagerServiceServer).IsRequestPinAppWidgetSupported(ctx, req.(*IsRequestPinAppWidgetSupportedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AppWidgetManagerService_NotifyAppWidgetViewDataChanged2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NotifyAppWidgetViewDataChanged2Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AppWidgetManagerServiceServer).NotifyAppWidgetViewDataChanged2(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AppWidgetManagerService_NotifyAppWidgetViewDataChanged2_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AppWidgetManagerServiceServer).NotifyAppWidgetViewDataChanged2(ctx, req.(*NotifyAppWidgetViewDataChanged2Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AppWidgetManagerService_NotifyAppWidgetViewDataChanged2_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NotifyAppWidgetViewDataChanged2_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AppWidgetManagerServiceServer).NotifyAppWidgetViewDataChanged2_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AppWidgetManagerService_NotifyAppWidgetViewDataChanged2_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AppWidgetManagerServiceServer).NotifyAppWidgetViewDataChanged2_1(ctx, req.(*NotifyAppWidgetViewDataChanged2_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AppWidgetManagerService_PartiallyUpdateAppWidget2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(PartiallyUpdateAppWidget2Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AppWidgetManagerServiceServer).PartiallyUpdateAppWidget2(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AppWidgetManagerService_PartiallyUpdateAppWidget2_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AppWidgetManagerServiceServer).PartiallyUpdateAppWidget2(ctx, req.(*PartiallyUpdateAppWidget2Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AppWidgetManagerService_PartiallyUpdateAppWidget2_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(PartiallyUpdateAppWidget2_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AppWidgetManagerServiceServer).PartiallyUpdateAppWidget2_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AppWidgetManagerService_PartiallyUpdateAppWidget2_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AppWidgetManagerServiceServer).PartiallyUpdateAppWidget2_1(ctx, req.(*PartiallyUpdateAppWidget2_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AppWidgetManagerService_RemoveWidgetPreview_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RemoveWidgetPreviewRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AppWidgetManagerServiceServer).RemoveWidgetPreview(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AppWidgetManagerService_RemoveWidgetPreview_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AppWidgetManagerServiceServer).RemoveWidgetPreview(ctx, req.(*RemoveWidgetPreviewRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AppWidgetManagerService_RequestPinAppWidget_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RequestPinAppWidgetRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AppWidgetManagerServiceServer).RequestPinAppWidget(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AppWidgetManagerService_RequestPinAppWidget_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AppWidgetManagerServiceServer).RequestPinAppWidget(ctx, req.(*RequestPinAppWidgetRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AppWidgetManagerService_SetWidgetPreview_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetWidgetPreviewRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AppWidgetManagerServiceServer).SetWidgetPreview(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AppWidgetManagerService_SetWidgetPreview_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AppWidgetManagerServiceServer).SetWidgetPreview(ctx, req.(*SetWidgetPreviewRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AppWidgetManagerService_UpdateAppWidget2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateAppWidget2Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AppWidgetManagerServiceServer).UpdateAppWidget2(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AppWidgetManagerService_UpdateAppWidget2_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AppWidgetManagerServiceServer).UpdateAppWidget2(ctx, req.(*UpdateAppWidget2Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AppWidgetManagerService_UpdateAppWidget2_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateAppWidget2_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AppWidgetManagerServiceServer).UpdateAppWidget2_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AppWidgetManagerService_UpdateAppWidget2_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AppWidgetManagerServiceServer).UpdateAppWidget2_1(ctx, req.(*UpdateAppWidget2_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AppWidgetManagerService_UpdateAppWidget2_2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateAppWidget2_2Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AppWidgetManagerServiceServer).UpdateAppWidget2_2(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AppWidgetManagerService_UpdateAppWidget2_2_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AppWidgetManagerServiceServer).UpdateAppWidget2_2(ctx, req.(*UpdateAppWidget2_2Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AppWidgetManagerService_UpdateAppWidgetOptions_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AppWidgetManagerUpdateAppWidgetOptionsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AppWidgetManagerServiceServer).UpdateAppWidgetOptions(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AppWidgetManagerService_UpdateAppWidgetOptions_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AppWidgetManagerServiceServer).UpdateAppWidgetOptions(ctx, req.(*AppWidgetManagerUpdateAppWidgetOptionsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AppWidgetManagerService_UpdateAppWidgetProviderInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateAppWidgetProviderInfoRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AppWidgetManagerServiceServer).UpdateAppWidgetProviderInfo(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AppWidgetManagerService_UpdateAppWidgetProviderInfo_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AppWidgetManagerServiceServer).UpdateAppWidgetProviderInfo(ctx, req.(*UpdateAppWidgetProviderInfoRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AppWidgetManagerService_GetInstance_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetInstanceRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AppWidgetManagerServiceServer).GetInstance(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AppWidgetManagerService_GetInstance_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AppWidgetManagerServiceServer).GetInstance(ctx, req.(*GetInstanceRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// AppWidgetManagerService_ServiceDesc is the grpc.ServiceDesc for AppWidgetManagerService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var AppWidgetManagerService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "appwidget.AppWidgetManagerService",
+	HandlerType: (*AppWidgetManagerServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "BindAppWidgetIdIfAllowed2",
+			Handler:    _AppWidgetManagerService_BindAppWidgetIdIfAllowed2_Handler,
+		},
+		{
+			MethodName: "BindAppWidgetIdIfAllowed3_1",
+			Handler:    _AppWidgetManagerService_BindAppWidgetIdIfAllowed3_1_Handler,
+		},
+		{
+			MethodName: "BindAppWidgetIdIfAllowed4_2",
+			Handler:    _AppWidgetManagerService_BindAppWidgetIdIfAllowed4_2_Handler,
+		},
+		{
+			MethodName: "GetAppWidgetIds",
+			Handler:    _AppWidgetManagerService_GetAppWidgetIds_Handler,
+		},
+		{
+			MethodName: "GetAppWidgetInfo",
+			Handler:    _AppWidgetManagerService_GetAppWidgetInfo_Handler,
+		},
+		{
+			MethodName: "GetAppWidgetOptions",
+			Handler:    _AppWidgetManagerService_GetAppWidgetOptions_Handler,
+		},
+		{
+			MethodName: "GetInstalledProviders",
+			Handler:    _AppWidgetManagerService_GetInstalledProviders_Handler,
+		},
+		{
+			MethodName: "GetInstalledProvidersForPackage",
+			Handler:    _AppWidgetManagerService_GetInstalledProvidersForPackage_Handler,
+		},
+		{
+			MethodName: "GetInstalledProvidersForProfile",
+			Handler:    _AppWidgetManagerService_GetInstalledProvidersForProfile_Handler,
+		},
+		{
+			MethodName: "GetWidgetPreview",
+			Handler:    _AppWidgetManagerService_GetWidgetPreview_Handler,
+		},
+		{
+			MethodName: "IsRequestPinAppWidgetSupported",
+			Handler:    _AppWidgetManagerService_IsRequestPinAppWidgetSupported_Handler,
+		},
+		{
+			MethodName: "NotifyAppWidgetViewDataChanged2",
+			Handler:    _AppWidgetManagerService_NotifyAppWidgetViewDataChanged2_Handler,
+		},
+		{
+			MethodName: "NotifyAppWidgetViewDataChanged2_1",
+			Handler:    _AppWidgetManagerService_NotifyAppWidgetViewDataChanged2_1_Handler,
+		},
+		{
+			MethodName: "PartiallyUpdateAppWidget2",
+			Handler:    _AppWidgetManagerService_PartiallyUpdateAppWidget2_Handler,
+		},
+		{
+			MethodName: "PartiallyUpdateAppWidget2_1",
+			Handler:    _AppWidgetManagerService_PartiallyUpdateAppWidget2_1_Handler,
+		},
+		{
+			MethodName: "RemoveWidgetPreview",
+			Handler:    _AppWidgetManagerService_RemoveWidgetPreview_Handler,
+		},
+		{
+			MethodName: "RequestPinAppWidget",
+			Handler:    _AppWidgetManagerService_RequestPinAppWidget_Handler,
+		},
+		{
+			MethodName: "SetWidgetPreview",
+			Handler:    _AppWidgetManagerService_SetWidgetPreview_Handler,
+		},
+		{
+			MethodName: "UpdateAppWidget2",
+			Handler:    _AppWidgetManagerService_UpdateAppWidget2_Handler,
+		},
+		{
+			MethodName: "UpdateAppWidget2_1",
+			Handler:    _AppWidgetManagerService_UpdateAppWidget2_1_Handler,
+		},
+		{
+			MethodName: "UpdateAppWidget2_2",
+			Handler:    _AppWidgetManagerService_UpdateAppWidget2_2_Handler,
+		},
+		{
+			MethodName: "UpdateAppWidgetOptions",
+			Handler:    _AppWidgetManagerService_UpdateAppWidgetOptions_Handler,
+		},
+		{
+			MethodName: "UpdateAppWidgetProviderInfo",
+			Handler:    _AppWidgetManagerService_UpdateAppWidgetProviderInfo_Handler,
+		},
+		{
+			MethodName: "GetInstance",
+			Handler:    _AppWidgetManagerService_GetInstance_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/appwidget/appwidget.proto",
+}
+
+const (
 	AppWidgetProviderInfoService_NewAppWidgetProviderInfo_FullMethodName = "/appwidget.AppWidgetProviderInfoService/NewAppWidgetProviderInfo"
 	AppWidgetProviderInfoService_Clone0_FullMethodName                   = "/appwidget.AppWidgetProviderInfoService/Clone0"
 	AppWidgetProviderInfoService_DescribeContents_FullMethodName         = "/appwidget.AppWidgetProviderInfoService/DescribeContents"
@@ -1539,1351 +2998,6 @@ var AppWidgetProviderInfoService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "Clone0_1",
 			Handler:    _AppWidgetProviderInfoService_Clone0_1_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/appwidget/appwidget.proto",
-}
-
-const (
-	AppWidgetManagerService_BindAppWidgetIdIfAllowed2_FullMethodName         = "/appwidget.AppWidgetManagerService/BindAppWidgetIdIfAllowed2"
-	AppWidgetManagerService_BindAppWidgetIdIfAllowed3_1_FullMethodName       = "/appwidget.AppWidgetManagerService/BindAppWidgetIdIfAllowed3_1"
-	AppWidgetManagerService_BindAppWidgetIdIfAllowed4_2_FullMethodName       = "/appwidget.AppWidgetManagerService/BindAppWidgetIdIfAllowed4_2"
-	AppWidgetManagerService_GetAppWidgetIds_FullMethodName                   = "/appwidget.AppWidgetManagerService/GetAppWidgetIds"
-	AppWidgetManagerService_GetAppWidgetInfo_FullMethodName                  = "/appwidget.AppWidgetManagerService/GetAppWidgetInfo"
-	AppWidgetManagerService_GetAppWidgetOptions_FullMethodName               = "/appwidget.AppWidgetManagerService/GetAppWidgetOptions"
-	AppWidgetManagerService_GetWidgetPreview_FullMethodName                  = "/appwidget.AppWidgetManagerService/GetWidgetPreview"
-	AppWidgetManagerService_IsRequestPinAppWidgetSupported_FullMethodName    = "/appwidget.AppWidgetManagerService/IsRequestPinAppWidgetSupported"
-	AppWidgetManagerService_NotifyAppWidgetViewDataChanged2_FullMethodName   = "/appwidget.AppWidgetManagerService/NotifyAppWidgetViewDataChanged2"
-	AppWidgetManagerService_NotifyAppWidgetViewDataChanged2_1_FullMethodName = "/appwidget.AppWidgetManagerService/NotifyAppWidgetViewDataChanged2_1"
-	AppWidgetManagerService_PartiallyUpdateAppWidget2_FullMethodName         = "/appwidget.AppWidgetManagerService/PartiallyUpdateAppWidget2"
-	AppWidgetManagerService_PartiallyUpdateAppWidget2_1_FullMethodName       = "/appwidget.AppWidgetManagerService/PartiallyUpdateAppWidget2_1"
-	AppWidgetManagerService_RemoveWidgetPreview_FullMethodName               = "/appwidget.AppWidgetManagerService/RemoveWidgetPreview"
-	AppWidgetManagerService_RequestPinAppWidget_FullMethodName               = "/appwidget.AppWidgetManagerService/RequestPinAppWidget"
-	AppWidgetManagerService_SetWidgetPreview_FullMethodName                  = "/appwidget.AppWidgetManagerService/SetWidgetPreview"
-	AppWidgetManagerService_UpdateAppWidget2_FullMethodName                  = "/appwidget.AppWidgetManagerService/UpdateAppWidget2"
-	AppWidgetManagerService_UpdateAppWidget2_1_FullMethodName                = "/appwidget.AppWidgetManagerService/UpdateAppWidget2_1"
-	AppWidgetManagerService_UpdateAppWidget2_2_FullMethodName                = "/appwidget.AppWidgetManagerService/UpdateAppWidget2_2"
-	AppWidgetManagerService_UpdateAppWidgetOptions_FullMethodName            = "/appwidget.AppWidgetManagerService/UpdateAppWidgetOptions"
-	AppWidgetManagerService_UpdateAppWidgetProviderInfo_FullMethodName       = "/appwidget.AppWidgetManagerService/UpdateAppWidgetProviderInfo"
-	AppWidgetManagerService_GetInstance_FullMethodName                       = "/appwidget.AppWidgetManagerService/GetInstance"
-)
-
-// AppWidgetManagerServiceClient is the client API for AppWidgetManagerService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type AppWidgetManagerServiceClient interface {
-	BindAppWidgetIdIfAllowed2(ctx context.Context, in *BindAppWidgetIdIfAllowed2Request, opts ...grpc.CallOption) (*BindAppWidgetIdIfAllowed2Response, error)
-	BindAppWidgetIdIfAllowed3_1(ctx context.Context, in *BindAppWidgetIdIfAllowed3_1Request, opts ...grpc.CallOption) (*BindAppWidgetIdIfAllowed3_1Response, error)
-	BindAppWidgetIdIfAllowed4_2(ctx context.Context, in *BindAppWidgetIdIfAllowed4_2Request, opts ...grpc.CallOption) (*BindAppWidgetIdIfAllowed4_2Response, error)
-	GetAppWidgetIds(ctx context.Context, in *GetAppWidgetIdsRequest, opts ...grpc.CallOption) (*GetAppWidgetIdsResponse, error)
-	GetAppWidgetInfo(ctx context.Context, in *AppWidgetManagerGetAppWidgetInfoRequest, opts ...grpc.CallOption) (*GetAppWidgetInfoResponse, error)
-	GetAppWidgetOptions(ctx context.Context, in *GetAppWidgetOptionsRequest, opts ...grpc.CallOption) (*GetAppWidgetOptionsResponse, error)
-	GetWidgetPreview(ctx context.Context, in *GetWidgetPreviewRequest, opts ...grpc.CallOption) (*GetWidgetPreviewResponse, error)
-	IsRequestPinAppWidgetSupported(ctx context.Context, in *IsRequestPinAppWidgetSupportedRequest, opts ...grpc.CallOption) (*IsRequestPinAppWidgetSupportedResponse, error)
-	NotifyAppWidgetViewDataChanged2(ctx context.Context, in *NotifyAppWidgetViewDataChanged2Request, opts ...grpc.CallOption) (*NotifyAppWidgetViewDataChanged2Response, error)
-	NotifyAppWidgetViewDataChanged2_1(ctx context.Context, in *NotifyAppWidgetViewDataChanged2_1Request, opts ...grpc.CallOption) (*NotifyAppWidgetViewDataChanged2_1Response, error)
-	PartiallyUpdateAppWidget2(ctx context.Context, in *PartiallyUpdateAppWidget2Request, opts ...grpc.CallOption) (*PartiallyUpdateAppWidget2Response, error)
-	PartiallyUpdateAppWidget2_1(ctx context.Context, in *PartiallyUpdateAppWidget2_1Request, opts ...grpc.CallOption) (*PartiallyUpdateAppWidget2_1Response, error)
-	RemoveWidgetPreview(ctx context.Context, in *RemoveWidgetPreviewRequest, opts ...grpc.CallOption) (*RemoveWidgetPreviewResponse, error)
-	RequestPinAppWidget(ctx context.Context, in *RequestPinAppWidgetRequest, opts ...grpc.CallOption) (*RequestPinAppWidgetResponse, error)
-	SetWidgetPreview(ctx context.Context, in *SetWidgetPreviewRequest, opts ...grpc.CallOption) (*SetWidgetPreviewResponse, error)
-	UpdateAppWidget2(ctx context.Context, in *UpdateAppWidget2Request, opts ...grpc.CallOption) (*UpdateAppWidget2Response, error)
-	UpdateAppWidget2_1(ctx context.Context, in *UpdateAppWidget2_1Request, opts ...grpc.CallOption) (*UpdateAppWidget2_1Response, error)
-	UpdateAppWidget2_2(ctx context.Context, in *UpdateAppWidget2_2Request, opts ...grpc.CallOption) (*UpdateAppWidget2_2Response, error)
-	UpdateAppWidgetOptions(ctx context.Context, in *AppWidgetManagerUpdateAppWidgetOptionsRequest, opts ...grpc.CallOption) (*UpdateAppWidgetOptionsResponse, error)
-	UpdateAppWidgetProviderInfo(ctx context.Context, in *UpdateAppWidgetProviderInfoRequest, opts ...grpc.CallOption) (*UpdateAppWidgetProviderInfoResponse, error)
-	GetInstance(ctx context.Context, in *GetInstanceRequest, opts ...grpc.CallOption) (*GetInstanceResponse, error)
-}
-
-type appWidgetManagerServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewAppWidgetManagerServiceClient(cc grpc.ClientConnInterface) AppWidgetManagerServiceClient {
-	return &appWidgetManagerServiceClient{cc}
-}
-
-func (c *appWidgetManagerServiceClient) BindAppWidgetIdIfAllowed2(ctx context.Context, in *BindAppWidgetIdIfAllowed2Request, opts ...grpc.CallOption) (*BindAppWidgetIdIfAllowed2Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(BindAppWidgetIdIfAllowed2Response)
-	err := c.cc.Invoke(ctx, AppWidgetManagerService_BindAppWidgetIdIfAllowed2_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *appWidgetManagerServiceClient) BindAppWidgetIdIfAllowed3_1(ctx context.Context, in *BindAppWidgetIdIfAllowed3_1Request, opts ...grpc.CallOption) (*BindAppWidgetIdIfAllowed3_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(BindAppWidgetIdIfAllowed3_1Response)
-	err := c.cc.Invoke(ctx, AppWidgetManagerService_BindAppWidgetIdIfAllowed3_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *appWidgetManagerServiceClient) BindAppWidgetIdIfAllowed4_2(ctx context.Context, in *BindAppWidgetIdIfAllowed4_2Request, opts ...grpc.CallOption) (*BindAppWidgetIdIfAllowed4_2Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(BindAppWidgetIdIfAllowed4_2Response)
-	err := c.cc.Invoke(ctx, AppWidgetManagerService_BindAppWidgetIdIfAllowed4_2_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *appWidgetManagerServiceClient) GetAppWidgetIds(ctx context.Context, in *GetAppWidgetIdsRequest, opts ...grpc.CallOption) (*GetAppWidgetIdsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetAppWidgetIdsResponse)
-	err := c.cc.Invoke(ctx, AppWidgetManagerService_GetAppWidgetIds_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *appWidgetManagerServiceClient) GetAppWidgetInfo(ctx context.Context, in *AppWidgetManagerGetAppWidgetInfoRequest, opts ...grpc.CallOption) (*GetAppWidgetInfoResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetAppWidgetInfoResponse)
-	err := c.cc.Invoke(ctx, AppWidgetManagerService_GetAppWidgetInfo_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *appWidgetManagerServiceClient) GetAppWidgetOptions(ctx context.Context, in *GetAppWidgetOptionsRequest, opts ...grpc.CallOption) (*GetAppWidgetOptionsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetAppWidgetOptionsResponse)
-	err := c.cc.Invoke(ctx, AppWidgetManagerService_GetAppWidgetOptions_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *appWidgetManagerServiceClient) GetWidgetPreview(ctx context.Context, in *GetWidgetPreviewRequest, opts ...grpc.CallOption) (*GetWidgetPreviewResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetWidgetPreviewResponse)
-	err := c.cc.Invoke(ctx, AppWidgetManagerService_GetWidgetPreview_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *appWidgetManagerServiceClient) IsRequestPinAppWidgetSupported(ctx context.Context, in *IsRequestPinAppWidgetSupportedRequest, opts ...grpc.CallOption) (*IsRequestPinAppWidgetSupportedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsRequestPinAppWidgetSupportedResponse)
-	err := c.cc.Invoke(ctx, AppWidgetManagerService_IsRequestPinAppWidgetSupported_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *appWidgetManagerServiceClient) NotifyAppWidgetViewDataChanged2(ctx context.Context, in *NotifyAppWidgetViewDataChanged2Request, opts ...grpc.CallOption) (*NotifyAppWidgetViewDataChanged2Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NotifyAppWidgetViewDataChanged2Response)
-	err := c.cc.Invoke(ctx, AppWidgetManagerService_NotifyAppWidgetViewDataChanged2_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *appWidgetManagerServiceClient) NotifyAppWidgetViewDataChanged2_1(ctx context.Context, in *NotifyAppWidgetViewDataChanged2_1Request, opts ...grpc.CallOption) (*NotifyAppWidgetViewDataChanged2_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NotifyAppWidgetViewDataChanged2_1Response)
-	err := c.cc.Invoke(ctx, AppWidgetManagerService_NotifyAppWidgetViewDataChanged2_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *appWidgetManagerServiceClient) PartiallyUpdateAppWidget2(ctx context.Context, in *PartiallyUpdateAppWidget2Request, opts ...grpc.CallOption) (*PartiallyUpdateAppWidget2Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(PartiallyUpdateAppWidget2Response)
-	err := c.cc.Invoke(ctx, AppWidgetManagerService_PartiallyUpdateAppWidget2_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *appWidgetManagerServiceClient) PartiallyUpdateAppWidget2_1(ctx context.Context, in *PartiallyUpdateAppWidget2_1Request, opts ...grpc.CallOption) (*PartiallyUpdateAppWidget2_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(PartiallyUpdateAppWidget2_1Response)
-	err := c.cc.Invoke(ctx, AppWidgetManagerService_PartiallyUpdateAppWidget2_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *appWidgetManagerServiceClient) RemoveWidgetPreview(ctx context.Context, in *RemoveWidgetPreviewRequest, opts ...grpc.CallOption) (*RemoveWidgetPreviewResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(RemoveWidgetPreviewResponse)
-	err := c.cc.Invoke(ctx, AppWidgetManagerService_RemoveWidgetPreview_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *appWidgetManagerServiceClient) RequestPinAppWidget(ctx context.Context, in *RequestPinAppWidgetRequest, opts ...grpc.CallOption) (*RequestPinAppWidgetResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(RequestPinAppWidgetResponse)
-	err := c.cc.Invoke(ctx, AppWidgetManagerService_RequestPinAppWidget_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *appWidgetManagerServiceClient) SetWidgetPreview(ctx context.Context, in *SetWidgetPreviewRequest, opts ...grpc.CallOption) (*SetWidgetPreviewResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetWidgetPreviewResponse)
-	err := c.cc.Invoke(ctx, AppWidgetManagerService_SetWidgetPreview_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *appWidgetManagerServiceClient) UpdateAppWidget2(ctx context.Context, in *UpdateAppWidget2Request, opts ...grpc.CallOption) (*UpdateAppWidget2Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(UpdateAppWidget2Response)
-	err := c.cc.Invoke(ctx, AppWidgetManagerService_UpdateAppWidget2_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *appWidgetManagerServiceClient) UpdateAppWidget2_1(ctx context.Context, in *UpdateAppWidget2_1Request, opts ...grpc.CallOption) (*UpdateAppWidget2_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(UpdateAppWidget2_1Response)
-	err := c.cc.Invoke(ctx, AppWidgetManagerService_UpdateAppWidget2_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *appWidgetManagerServiceClient) UpdateAppWidget2_2(ctx context.Context, in *UpdateAppWidget2_2Request, opts ...grpc.CallOption) (*UpdateAppWidget2_2Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(UpdateAppWidget2_2Response)
-	err := c.cc.Invoke(ctx, AppWidgetManagerService_UpdateAppWidget2_2_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *appWidgetManagerServiceClient) UpdateAppWidgetOptions(ctx context.Context, in *AppWidgetManagerUpdateAppWidgetOptionsRequest, opts ...grpc.CallOption) (*UpdateAppWidgetOptionsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(UpdateAppWidgetOptionsResponse)
-	err := c.cc.Invoke(ctx, AppWidgetManagerService_UpdateAppWidgetOptions_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *appWidgetManagerServiceClient) UpdateAppWidgetProviderInfo(ctx context.Context, in *UpdateAppWidgetProviderInfoRequest, opts ...grpc.CallOption) (*UpdateAppWidgetProviderInfoResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(UpdateAppWidgetProviderInfoResponse)
-	err := c.cc.Invoke(ctx, AppWidgetManagerService_UpdateAppWidgetProviderInfo_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *appWidgetManagerServiceClient) GetInstance(ctx context.Context, in *GetInstanceRequest, opts ...grpc.CallOption) (*GetInstanceResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetInstanceResponse)
-	err := c.cc.Invoke(ctx, AppWidgetManagerService_GetInstance_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// AppWidgetManagerServiceServer is the server API for AppWidgetManagerService service.
-// All implementations must embed UnimplementedAppWidgetManagerServiceServer
-// for forward compatibility.
-type AppWidgetManagerServiceServer interface {
-	BindAppWidgetIdIfAllowed2(context.Context, *BindAppWidgetIdIfAllowed2Request) (*BindAppWidgetIdIfAllowed2Response, error)
-	BindAppWidgetIdIfAllowed3_1(context.Context, *BindAppWidgetIdIfAllowed3_1Request) (*BindAppWidgetIdIfAllowed3_1Response, error)
-	BindAppWidgetIdIfAllowed4_2(context.Context, *BindAppWidgetIdIfAllowed4_2Request) (*BindAppWidgetIdIfAllowed4_2Response, error)
-	GetAppWidgetIds(context.Context, *GetAppWidgetIdsRequest) (*GetAppWidgetIdsResponse, error)
-	GetAppWidgetInfo(context.Context, *AppWidgetManagerGetAppWidgetInfoRequest) (*GetAppWidgetInfoResponse, error)
-	GetAppWidgetOptions(context.Context, *GetAppWidgetOptionsRequest) (*GetAppWidgetOptionsResponse, error)
-	GetWidgetPreview(context.Context, *GetWidgetPreviewRequest) (*GetWidgetPreviewResponse, error)
-	IsRequestPinAppWidgetSupported(context.Context, *IsRequestPinAppWidgetSupportedRequest) (*IsRequestPinAppWidgetSupportedResponse, error)
-	NotifyAppWidgetViewDataChanged2(context.Context, *NotifyAppWidgetViewDataChanged2Request) (*NotifyAppWidgetViewDataChanged2Response, error)
-	NotifyAppWidgetViewDataChanged2_1(context.Context, *NotifyAppWidgetViewDataChanged2_1Request) (*NotifyAppWidgetViewDataChanged2_1Response, error)
-	PartiallyUpdateAppWidget2(context.Context, *PartiallyUpdateAppWidget2Request) (*PartiallyUpdateAppWidget2Response, error)
-	PartiallyUpdateAppWidget2_1(context.Context, *PartiallyUpdateAppWidget2_1Request) (*PartiallyUpdateAppWidget2_1Response, error)
-	RemoveWidgetPreview(context.Context, *RemoveWidgetPreviewRequest) (*RemoveWidgetPreviewResponse, error)
-	RequestPinAppWidget(context.Context, *RequestPinAppWidgetRequest) (*RequestPinAppWidgetResponse, error)
-	SetWidgetPreview(context.Context, *SetWidgetPreviewRequest) (*SetWidgetPreviewResponse, error)
-	UpdateAppWidget2(context.Context, *UpdateAppWidget2Request) (*UpdateAppWidget2Response, error)
-	UpdateAppWidget2_1(context.Context, *UpdateAppWidget2_1Request) (*UpdateAppWidget2_1Response, error)
-	UpdateAppWidget2_2(context.Context, *UpdateAppWidget2_2Request) (*UpdateAppWidget2_2Response, error)
-	UpdateAppWidgetOptions(context.Context, *AppWidgetManagerUpdateAppWidgetOptionsRequest) (*UpdateAppWidgetOptionsResponse, error)
-	UpdateAppWidgetProviderInfo(context.Context, *UpdateAppWidgetProviderInfoRequest) (*UpdateAppWidgetProviderInfoResponse, error)
-	GetInstance(context.Context, *GetInstanceRequest) (*GetInstanceResponse, error)
-	mustEmbedUnimplementedAppWidgetManagerServiceServer()
-}
-
-// UnimplementedAppWidgetManagerServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedAppWidgetManagerServiceServer struct{}
-
-func (UnimplementedAppWidgetManagerServiceServer) BindAppWidgetIdIfAllowed2(context.Context, *BindAppWidgetIdIfAllowed2Request) (*BindAppWidgetIdIfAllowed2Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method BindAppWidgetIdIfAllowed2 not implemented")
-}
-func (UnimplementedAppWidgetManagerServiceServer) BindAppWidgetIdIfAllowed3_1(context.Context, *BindAppWidgetIdIfAllowed3_1Request) (*BindAppWidgetIdIfAllowed3_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method BindAppWidgetIdIfAllowed3_1 not implemented")
-}
-func (UnimplementedAppWidgetManagerServiceServer) BindAppWidgetIdIfAllowed4_2(context.Context, *BindAppWidgetIdIfAllowed4_2Request) (*BindAppWidgetIdIfAllowed4_2Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method BindAppWidgetIdIfAllowed4_2 not implemented")
-}
-func (UnimplementedAppWidgetManagerServiceServer) GetAppWidgetIds(context.Context, *GetAppWidgetIdsRequest) (*GetAppWidgetIdsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetAppWidgetIds not implemented")
-}
-func (UnimplementedAppWidgetManagerServiceServer) GetAppWidgetInfo(context.Context, *AppWidgetManagerGetAppWidgetInfoRequest) (*GetAppWidgetInfoResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetAppWidgetInfo not implemented")
-}
-func (UnimplementedAppWidgetManagerServiceServer) GetAppWidgetOptions(context.Context, *GetAppWidgetOptionsRequest) (*GetAppWidgetOptionsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetAppWidgetOptions not implemented")
-}
-func (UnimplementedAppWidgetManagerServiceServer) GetWidgetPreview(context.Context, *GetWidgetPreviewRequest) (*GetWidgetPreviewResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetWidgetPreview not implemented")
-}
-func (UnimplementedAppWidgetManagerServiceServer) IsRequestPinAppWidgetSupported(context.Context, *IsRequestPinAppWidgetSupportedRequest) (*IsRequestPinAppWidgetSupportedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsRequestPinAppWidgetSupported not implemented")
-}
-func (UnimplementedAppWidgetManagerServiceServer) NotifyAppWidgetViewDataChanged2(context.Context, *NotifyAppWidgetViewDataChanged2Request) (*NotifyAppWidgetViewDataChanged2Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method NotifyAppWidgetViewDataChanged2 not implemented")
-}
-func (UnimplementedAppWidgetManagerServiceServer) NotifyAppWidgetViewDataChanged2_1(context.Context, *NotifyAppWidgetViewDataChanged2_1Request) (*NotifyAppWidgetViewDataChanged2_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method NotifyAppWidgetViewDataChanged2_1 not implemented")
-}
-func (UnimplementedAppWidgetManagerServiceServer) PartiallyUpdateAppWidget2(context.Context, *PartiallyUpdateAppWidget2Request) (*PartiallyUpdateAppWidget2Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method PartiallyUpdateAppWidget2 not implemented")
-}
-func (UnimplementedAppWidgetManagerServiceServer) PartiallyUpdateAppWidget2_1(context.Context, *PartiallyUpdateAppWidget2_1Request) (*PartiallyUpdateAppWidget2_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method PartiallyUpdateAppWidget2_1 not implemented")
-}
-func (UnimplementedAppWidgetManagerServiceServer) RemoveWidgetPreview(context.Context, *RemoveWidgetPreviewRequest) (*RemoveWidgetPreviewResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method RemoveWidgetPreview not implemented")
-}
-func (UnimplementedAppWidgetManagerServiceServer) RequestPinAppWidget(context.Context, *RequestPinAppWidgetRequest) (*RequestPinAppWidgetResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method RequestPinAppWidget not implemented")
-}
-func (UnimplementedAppWidgetManagerServiceServer) SetWidgetPreview(context.Context, *SetWidgetPreviewRequest) (*SetWidgetPreviewResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetWidgetPreview not implemented")
-}
-func (UnimplementedAppWidgetManagerServiceServer) UpdateAppWidget2(context.Context, *UpdateAppWidget2Request) (*UpdateAppWidget2Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method UpdateAppWidget2 not implemented")
-}
-func (UnimplementedAppWidgetManagerServiceServer) UpdateAppWidget2_1(context.Context, *UpdateAppWidget2_1Request) (*UpdateAppWidget2_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method UpdateAppWidget2_1 not implemented")
-}
-func (UnimplementedAppWidgetManagerServiceServer) UpdateAppWidget2_2(context.Context, *UpdateAppWidget2_2Request) (*UpdateAppWidget2_2Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method UpdateAppWidget2_2 not implemented")
-}
-func (UnimplementedAppWidgetManagerServiceServer) UpdateAppWidgetOptions(context.Context, *AppWidgetManagerUpdateAppWidgetOptionsRequest) (*UpdateAppWidgetOptionsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method UpdateAppWidgetOptions not implemented")
-}
-func (UnimplementedAppWidgetManagerServiceServer) UpdateAppWidgetProviderInfo(context.Context, *UpdateAppWidgetProviderInfoRequest) (*UpdateAppWidgetProviderInfoResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method UpdateAppWidgetProviderInfo not implemented")
-}
-func (UnimplementedAppWidgetManagerServiceServer) GetInstance(context.Context, *GetInstanceRequest) (*GetInstanceResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetInstance not implemented")
-}
-func (UnimplementedAppWidgetManagerServiceServer) mustEmbedUnimplementedAppWidgetManagerServiceServer() {
-}
-func (UnimplementedAppWidgetManagerServiceServer) testEmbeddedByValue() {}
-
-// UnsafeAppWidgetManagerServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to AppWidgetManagerServiceServer will
-// result in compilation errors.
-type UnsafeAppWidgetManagerServiceServer interface {
-	mustEmbedUnimplementedAppWidgetManagerServiceServer()
-}
-
-func RegisterAppWidgetManagerServiceServer(s grpc.ServiceRegistrar, srv AppWidgetManagerServiceServer) {
-	// If the following call panics, it indicates UnimplementedAppWidgetManagerServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&AppWidgetManagerService_ServiceDesc, srv)
-}
-
-func _AppWidgetManagerService_BindAppWidgetIdIfAllowed2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(BindAppWidgetIdIfAllowed2Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AppWidgetManagerServiceServer).BindAppWidgetIdIfAllowed2(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AppWidgetManagerService_BindAppWidgetIdIfAllowed2_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AppWidgetManagerServiceServer).BindAppWidgetIdIfAllowed2(ctx, req.(*BindAppWidgetIdIfAllowed2Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AppWidgetManagerService_BindAppWidgetIdIfAllowed3_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(BindAppWidgetIdIfAllowed3_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AppWidgetManagerServiceServer).BindAppWidgetIdIfAllowed3_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AppWidgetManagerService_BindAppWidgetIdIfAllowed3_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AppWidgetManagerServiceServer).BindAppWidgetIdIfAllowed3_1(ctx, req.(*BindAppWidgetIdIfAllowed3_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AppWidgetManagerService_BindAppWidgetIdIfAllowed4_2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(BindAppWidgetIdIfAllowed4_2Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AppWidgetManagerServiceServer).BindAppWidgetIdIfAllowed4_2(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AppWidgetManagerService_BindAppWidgetIdIfAllowed4_2_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AppWidgetManagerServiceServer).BindAppWidgetIdIfAllowed4_2(ctx, req.(*BindAppWidgetIdIfAllowed4_2Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AppWidgetManagerService_GetAppWidgetIds_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetAppWidgetIdsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AppWidgetManagerServiceServer).GetAppWidgetIds(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AppWidgetManagerService_GetAppWidgetIds_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AppWidgetManagerServiceServer).GetAppWidgetIds(ctx, req.(*GetAppWidgetIdsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AppWidgetManagerService_GetAppWidgetInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AppWidgetManagerGetAppWidgetInfoRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AppWidgetManagerServiceServer).GetAppWidgetInfo(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AppWidgetManagerService_GetAppWidgetInfo_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AppWidgetManagerServiceServer).GetAppWidgetInfo(ctx, req.(*AppWidgetManagerGetAppWidgetInfoRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AppWidgetManagerService_GetAppWidgetOptions_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetAppWidgetOptionsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AppWidgetManagerServiceServer).GetAppWidgetOptions(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AppWidgetManagerService_GetAppWidgetOptions_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AppWidgetManagerServiceServer).GetAppWidgetOptions(ctx, req.(*GetAppWidgetOptionsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AppWidgetManagerService_GetWidgetPreview_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetWidgetPreviewRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AppWidgetManagerServiceServer).GetWidgetPreview(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AppWidgetManagerService_GetWidgetPreview_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AppWidgetManagerServiceServer).GetWidgetPreview(ctx, req.(*GetWidgetPreviewRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AppWidgetManagerService_IsRequestPinAppWidgetSupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsRequestPinAppWidgetSupportedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AppWidgetManagerServiceServer).IsRequestPinAppWidgetSupported(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AppWidgetManagerService_IsRequestPinAppWidgetSupported_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AppWidgetManagerServiceServer).IsRequestPinAppWidgetSupported(ctx, req.(*IsRequestPinAppWidgetSupportedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AppWidgetManagerService_NotifyAppWidgetViewDataChanged2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NotifyAppWidgetViewDataChanged2Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AppWidgetManagerServiceServer).NotifyAppWidgetViewDataChanged2(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AppWidgetManagerService_NotifyAppWidgetViewDataChanged2_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AppWidgetManagerServiceServer).NotifyAppWidgetViewDataChanged2(ctx, req.(*NotifyAppWidgetViewDataChanged2Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AppWidgetManagerService_NotifyAppWidgetViewDataChanged2_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NotifyAppWidgetViewDataChanged2_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AppWidgetManagerServiceServer).NotifyAppWidgetViewDataChanged2_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AppWidgetManagerService_NotifyAppWidgetViewDataChanged2_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AppWidgetManagerServiceServer).NotifyAppWidgetViewDataChanged2_1(ctx, req.(*NotifyAppWidgetViewDataChanged2_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AppWidgetManagerService_PartiallyUpdateAppWidget2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(PartiallyUpdateAppWidget2Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AppWidgetManagerServiceServer).PartiallyUpdateAppWidget2(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AppWidgetManagerService_PartiallyUpdateAppWidget2_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AppWidgetManagerServiceServer).PartiallyUpdateAppWidget2(ctx, req.(*PartiallyUpdateAppWidget2Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AppWidgetManagerService_PartiallyUpdateAppWidget2_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(PartiallyUpdateAppWidget2_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AppWidgetManagerServiceServer).PartiallyUpdateAppWidget2_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AppWidgetManagerService_PartiallyUpdateAppWidget2_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AppWidgetManagerServiceServer).PartiallyUpdateAppWidget2_1(ctx, req.(*PartiallyUpdateAppWidget2_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AppWidgetManagerService_RemoveWidgetPreview_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(RemoveWidgetPreviewRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AppWidgetManagerServiceServer).RemoveWidgetPreview(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AppWidgetManagerService_RemoveWidgetPreview_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AppWidgetManagerServiceServer).RemoveWidgetPreview(ctx, req.(*RemoveWidgetPreviewRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AppWidgetManagerService_RequestPinAppWidget_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(RequestPinAppWidgetRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AppWidgetManagerServiceServer).RequestPinAppWidget(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AppWidgetManagerService_RequestPinAppWidget_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AppWidgetManagerServiceServer).RequestPinAppWidget(ctx, req.(*RequestPinAppWidgetRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AppWidgetManagerService_SetWidgetPreview_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetWidgetPreviewRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AppWidgetManagerServiceServer).SetWidgetPreview(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AppWidgetManagerService_SetWidgetPreview_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AppWidgetManagerServiceServer).SetWidgetPreview(ctx, req.(*SetWidgetPreviewRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AppWidgetManagerService_UpdateAppWidget2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UpdateAppWidget2Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AppWidgetManagerServiceServer).UpdateAppWidget2(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AppWidgetManagerService_UpdateAppWidget2_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AppWidgetManagerServiceServer).UpdateAppWidget2(ctx, req.(*UpdateAppWidget2Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AppWidgetManagerService_UpdateAppWidget2_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UpdateAppWidget2_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AppWidgetManagerServiceServer).UpdateAppWidget2_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AppWidgetManagerService_UpdateAppWidget2_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AppWidgetManagerServiceServer).UpdateAppWidget2_1(ctx, req.(*UpdateAppWidget2_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AppWidgetManagerService_UpdateAppWidget2_2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UpdateAppWidget2_2Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AppWidgetManagerServiceServer).UpdateAppWidget2_2(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AppWidgetManagerService_UpdateAppWidget2_2_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AppWidgetManagerServiceServer).UpdateAppWidget2_2(ctx, req.(*UpdateAppWidget2_2Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AppWidgetManagerService_UpdateAppWidgetOptions_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AppWidgetManagerUpdateAppWidgetOptionsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AppWidgetManagerServiceServer).UpdateAppWidgetOptions(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AppWidgetManagerService_UpdateAppWidgetOptions_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AppWidgetManagerServiceServer).UpdateAppWidgetOptions(ctx, req.(*AppWidgetManagerUpdateAppWidgetOptionsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AppWidgetManagerService_UpdateAppWidgetProviderInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UpdateAppWidgetProviderInfoRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AppWidgetManagerServiceServer).UpdateAppWidgetProviderInfo(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AppWidgetManagerService_UpdateAppWidgetProviderInfo_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AppWidgetManagerServiceServer).UpdateAppWidgetProviderInfo(ctx, req.(*UpdateAppWidgetProviderInfoRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AppWidgetManagerService_GetInstance_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetInstanceRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AppWidgetManagerServiceServer).GetInstance(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AppWidgetManagerService_GetInstance_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AppWidgetManagerServiceServer).GetInstance(ctx, req.(*GetInstanceRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// AppWidgetManagerService_ServiceDesc is the grpc.ServiceDesc for AppWidgetManagerService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var AppWidgetManagerService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "appwidget.AppWidgetManagerService",
-	HandlerType: (*AppWidgetManagerServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "BindAppWidgetIdIfAllowed2",
-			Handler:    _AppWidgetManagerService_BindAppWidgetIdIfAllowed2_Handler,
-		},
-		{
-			MethodName: "BindAppWidgetIdIfAllowed3_1",
-			Handler:    _AppWidgetManagerService_BindAppWidgetIdIfAllowed3_1_Handler,
-		},
-		{
-			MethodName: "BindAppWidgetIdIfAllowed4_2",
-			Handler:    _AppWidgetManagerService_BindAppWidgetIdIfAllowed4_2_Handler,
-		},
-		{
-			MethodName: "GetAppWidgetIds",
-			Handler:    _AppWidgetManagerService_GetAppWidgetIds_Handler,
-		},
-		{
-			MethodName: "GetAppWidgetInfo",
-			Handler:    _AppWidgetManagerService_GetAppWidgetInfo_Handler,
-		},
-		{
-			MethodName: "GetAppWidgetOptions",
-			Handler:    _AppWidgetManagerService_GetAppWidgetOptions_Handler,
-		},
-		{
-			MethodName: "GetWidgetPreview",
-			Handler:    _AppWidgetManagerService_GetWidgetPreview_Handler,
-		},
-		{
-			MethodName: "IsRequestPinAppWidgetSupported",
-			Handler:    _AppWidgetManagerService_IsRequestPinAppWidgetSupported_Handler,
-		},
-		{
-			MethodName: "NotifyAppWidgetViewDataChanged2",
-			Handler:    _AppWidgetManagerService_NotifyAppWidgetViewDataChanged2_Handler,
-		},
-		{
-			MethodName: "NotifyAppWidgetViewDataChanged2_1",
-			Handler:    _AppWidgetManagerService_NotifyAppWidgetViewDataChanged2_1_Handler,
-		},
-		{
-			MethodName: "PartiallyUpdateAppWidget2",
-			Handler:    _AppWidgetManagerService_PartiallyUpdateAppWidget2_Handler,
-		},
-		{
-			MethodName: "PartiallyUpdateAppWidget2_1",
-			Handler:    _AppWidgetManagerService_PartiallyUpdateAppWidget2_1_Handler,
-		},
-		{
-			MethodName: "RemoveWidgetPreview",
-			Handler:    _AppWidgetManagerService_RemoveWidgetPreview_Handler,
-		},
-		{
-			MethodName: "RequestPinAppWidget",
-			Handler:    _AppWidgetManagerService_RequestPinAppWidget_Handler,
-		},
-		{
-			MethodName: "SetWidgetPreview",
-			Handler:    _AppWidgetManagerService_SetWidgetPreview_Handler,
-		},
-		{
-			MethodName: "UpdateAppWidget2",
-			Handler:    _AppWidgetManagerService_UpdateAppWidget2_Handler,
-		},
-		{
-			MethodName: "UpdateAppWidget2_1",
-			Handler:    _AppWidgetManagerService_UpdateAppWidget2_1_Handler,
-		},
-		{
-			MethodName: "UpdateAppWidget2_2",
-			Handler:    _AppWidgetManagerService_UpdateAppWidget2_2_Handler,
-		},
-		{
-			MethodName: "UpdateAppWidgetOptions",
-			Handler:    _AppWidgetManagerService_UpdateAppWidgetOptions_Handler,
-		},
-		{
-			MethodName: "UpdateAppWidgetProviderInfo",
-			Handler:    _AppWidgetManagerService_UpdateAppWidgetProviderInfo_Handler,
-		},
-		{
-			MethodName: "GetInstance",
-			Handler:    _AppWidgetManagerService_GetInstance_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/appwidget/appwidget.proto",
-}
-
-const (
-	AppWidgetHostService_NewAppWidgetHost_FullMethodName                         = "/appwidget.AppWidgetHostService/NewAppWidgetHost"
-	AppWidgetHostService_AllocateAppWidgetId_FullMethodName                      = "/appwidget.AppWidgetHostService/AllocateAppWidgetId"
-	AppWidgetHostService_CreateView_FullMethodName                               = "/appwidget.AppWidgetHostService/CreateView"
-	AppWidgetHostService_DeleteAppWidgetId_FullMethodName                        = "/appwidget.AppWidgetHostService/DeleteAppWidgetId"
-	AppWidgetHostService_DeleteHost_FullMethodName                               = "/appwidget.AppWidgetHostService/DeleteHost"
-	AppWidgetHostService_GetAppWidgetIds_FullMethodName                          = "/appwidget.AppWidgetHostService/GetAppWidgetIds"
-	AppWidgetHostService_OnAppWidgetRemoved_FullMethodName                       = "/appwidget.AppWidgetHostService/OnAppWidgetRemoved"
-	AppWidgetHostService_StartAppWidgetConfigureActivityForResult_FullMethodName = "/appwidget.AppWidgetHostService/StartAppWidgetConfigureActivityForResult"
-	AppWidgetHostService_StartListening_FullMethodName                           = "/appwidget.AppWidgetHostService/StartListening"
-	AppWidgetHostService_StopListening_FullMethodName                            = "/appwidget.AppWidgetHostService/StopListening"
-	AppWidgetHostService_DeleteAllHosts_FullMethodName                           = "/appwidget.AppWidgetHostService/DeleteAllHosts"
-)
-
-// AppWidgetHostServiceClient is the client API for AppWidgetHostService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type AppWidgetHostServiceClient interface {
-	NewAppWidgetHost(ctx context.Context, in *NewAppWidgetHostRequest, opts ...grpc.CallOption) (*NewAppWidgetHostResponse, error)
-	AllocateAppWidgetId(ctx context.Context, in *AllocateAppWidgetIdRequest, opts ...grpc.CallOption) (*AllocateAppWidgetIdResponse, error)
-	CreateView(ctx context.Context, in *CreateViewRequest, opts ...grpc.CallOption) (*CreateViewResponse, error)
-	DeleteAppWidgetId(ctx context.Context, in *DeleteAppWidgetIdRequest, opts ...grpc.CallOption) (*DeleteAppWidgetIdResponse, error)
-	DeleteHost(ctx context.Context, in *DeleteHostRequest, opts ...grpc.CallOption) (*DeleteHostResponse, error)
-	GetAppWidgetIds(ctx context.Context, in *AppWidgetHostGetAppWidgetIdsRequest, opts ...grpc.CallOption) (*GetAppWidgetIdsResponse, error)
-	OnAppWidgetRemoved(ctx context.Context, in *OnAppWidgetRemovedRequest, opts ...grpc.CallOption) (*OnAppWidgetRemovedResponse, error)
-	StartAppWidgetConfigureActivityForResult(ctx context.Context, in *StartAppWidgetConfigureActivityForResultRequest, opts ...grpc.CallOption) (*StartAppWidgetConfigureActivityForResultResponse, error)
-	StartListening(ctx context.Context, in *StartListeningRequest, opts ...grpc.CallOption) (*StartListeningResponse, error)
-	StopListening(ctx context.Context, in *StopListeningRequest, opts ...grpc.CallOption) (*StopListeningResponse, error)
-	DeleteAllHosts(ctx context.Context, in *DeleteAllHostsRequest, opts ...grpc.CallOption) (*DeleteAllHostsResponse, error)
-}
-
-type appWidgetHostServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewAppWidgetHostServiceClient(cc grpc.ClientConnInterface) AppWidgetHostServiceClient {
-	return &appWidgetHostServiceClient{cc}
-}
-
-func (c *appWidgetHostServiceClient) NewAppWidgetHost(ctx context.Context, in *NewAppWidgetHostRequest, opts ...grpc.CallOption) (*NewAppWidgetHostResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewAppWidgetHostResponse)
-	err := c.cc.Invoke(ctx, AppWidgetHostService_NewAppWidgetHost_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *appWidgetHostServiceClient) AllocateAppWidgetId(ctx context.Context, in *AllocateAppWidgetIdRequest, opts ...grpc.CallOption) (*AllocateAppWidgetIdResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(AllocateAppWidgetIdResponse)
-	err := c.cc.Invoke(ctx, AppWidgetHostService_AllocateAppWidgetId_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *appWidgetHostServiceClient) CreateView(ctx context.Context, in *CreateViewRequest, opts ...grpc.CallOption) (*CreateViewResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CreateViewResponse)
-	err := c.cc.Invoke(ctx, AppWidgetHostService_CreateView_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *appWidgetHostServiceClient) DeleteAppWidgetId(ctx context.Context, in *DeleteAppWidgetIdRequest, opts ...grpc.CallOption) (*DeleteAppWidgetIdResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DeleteAppWidgetIdResponse)
-	err := c.cc.Invoke(ctx, AppWidgetHostService_DeleteAppWidgetId_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *appWidgetHostServiceClient) DeleteHost(ctx context.Context, in *DeleteHostRequest, opts ...grpc.CallOption) (*DeleteHostResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DeleteHostResponse)
-	err := c.cc.Invoke(ctx, AppWidgetHostService_DeleteHost_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *appWidgetHostServiceClient) GetAppWidgetIds(ctx context.Context, in *AppWidgetHostGetAppWidgetIdsRequest, opts ...grpc.CallOption) (*GetAppWidgetIdsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetAppWidgetIdsResponse)
-	err := c.cc.Invoke(ctx, AppWidgetHostService_GetAppWidgetIds_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *appWidgetHostServiceClient) OnAppWidgetRemoved(ctx context.Context, in *OnAppWidgetRemovedRequest, opts ...grpc.CallOption) (*OnAppWidgetRemovedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnAppWidgetRemovedResponse)
-	err := c.cc.Invoke(ctx, AppWidgetHostService_OnAppWidgetRemoved_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *appWidgetHostServiceClient) StartAppWidgetConfigureActivityForResult(ctx context.Context, in *StartAppWidgetConfigureActivityForResultRequest, opts ...grpc.CallOption) (*StartAppWidgetConfigureActivityForResultResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(StartAppWidgetConfigureActivityForResultResponse)
-	err := c.cc.Invoke(ctx, AppWidgetHostService_StartAppWidgetConfigureActivityForResult_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *appWidgetHostServiceClient) StartListening(ctx context.Context, in *StartListeningRequest, opts ...grpc.CallOption) (*StartListeningResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(StartListeningResponse)
-	err := c.cc.Invoke(ctx, AppWidgetHostService_StartListening_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *appWidgetHostServiceClient) StopListening(ctx context.Context, in *StopListeningRequest, opts ...grpc.CallOption) (*StopListeningResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(StopListeningResponse)
-	err := c.cc.Invoke(ctx, AppWidgetHostService_StopListening_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *appWidgetHostServiceClient) DeleteAllHosts(ctx context.Context, in *DeleteAllHostsRequest, opts ...grpc.CallOption) (*DeleteAllHostsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DeleteAllHostsResponse)
-	err := c.cc.Invoke(ctx, AppWidgetHostService_DeleteAllHosts_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// AppWidgetHostServiceServer is the server API for AppWidgetHostService service.
-// All implementations must embed UnimplementedAppWidgetHostServiceServer
-// for forward compatibility.
-type AppWidgetHostServiceServer interface {
-	NewAppWidgetHost(context.Context, *NewAppWidgetHostRequest) (*NewAppWidgetHostResponse, error)
-	AllocateAppWidgetId(context.Context, *AllocateAppWidgetIdRequest) (*AllocateAppWidgetIdResponse, error)
-	CreateView(context.Context, *CreateViewRequest) (*CreateViewResponse, error)
-	DeleteAppWidgetId(context.Context, *DeleteAppWidgetIdRequest) (*DeleteAppWidgetIdResponse, error)
-	DeleteHost(context.Context, *DeleteHostRequest) (*DeleteHostResponse, error)
-	GetAppWidgetIds(context.Context, *AppWidgetHostGetAppWidgetIdsRequest) (*GetAppWidgetIdsResponse, error)
-	OnAppWidgetRemoved(context.Context, *OnAppWidgetRemovedRequest) (*OnAppWidgetRemovedResponse, error)
-	StartAppWidgetConfigureActivityForResult(context.Context, *StartAppWidgetConfigureActivityForResultRequest) (*StartAppWidgetConfigureActivityForResultResponse, error)
-	StartListening(context.Context, *StartListeningRequest) (*StartListeningResponse, error)
-	StopListening(context.Context, *StopListeningRequest) (*StopListeningResponse, error)
-	DeleteAllHosts(context.Context, *DeleteAllHostsRequest) (*DeleteAllHostsResponse, error)
-	mustEmbedUnimplementedAppWidgetHostServiceServer()
-}
-
-// UnimplementedAppWidgetHostServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedAppWidgetHostServiceServer struct{}
-
-func (UnimplementedAppWidgetHostServiceServer) NewAppWidgetHost(context.Context, *NewAppWidgetHostRequest) (*NewAppWidgetHostResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewAppWidgetHost not implemented")
-}
-func (UnimplementedAppWidgetHostServiceServer) AllocateAppWidgetId(context.Context, *AllocateAppWidgetIdRequest) (*AllocateAppWidgetIdResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method AllocateAppWidgetId not implemented")
-}
-func (UnimplementedAppWidgetHostServiceServer) CreateView(context.Context, *CreateViewRequest) (*CreateViewResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method CreateView not implemented")
-}
-func (UnimplementedAppWidgetHostServiceServer) DeleteAppWidgetId(context.Context, *DeleteAppWidgetIdRequest) (*DeleteAppWidgetIdResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method DeleteAppWidgetId not implemented")
-}
-func (UnimplementedAppWidgetHostServiceServer) DeleteHost(context.Context, *DeleteHostRequest) (*DeleteHostResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method DeleteHost not implemented")
-}
-func (UnimplementedAppWidgetHostServiceServer) GetAppWidgetIds(context.Context, *AppWidgetHostGetAppWidgetIdsRequest) (*GetAppWidgetIdsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetAppWidgetIds not implemented")
-}
-func (UnimplementedAppWidgetHostServiceServer) OnAppWidgetRemoved(context.Context, *OnAppWidgetRemovedRequest) (*OnAppWidgetRemovedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnAppWidgetRemoved not implemented")
-}
-func (UnimplementedAppWidgetHostServiceServer) StartAppWidgetConfigureActivityForResult(context.Context, *StartAppWidgetConfigureActivityForResultRequest) (*StartAppWidgetConfigureActivityForResultResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method StartAppWidgetConfigureActivityForResult not implemented")
-}
-func (UnimplementedAppWidgetHostServiceServer) StartListening(context.Context, *StartListeningRequest) (*StartListeningResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method StartListening not implemented")
-}
-func (UnimplementedAppWidgetHostServiceServer) StopListening(context.Context, *StopListeningRequest) (*StopListeningResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method StopListening not implemented")
-}
-func (UnimplementedAppWidgetHostServiceServer) DeleteAllHosts(context.Context, *DeleteAllHostsRequest) (*DeleteAllHostsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method DeleteAllHosts not implemented")
-}
-func (UnimplementedAppWidgetHostServiceServer) mustEmbedUnimplementedAppWidgetHostServiceServer() {}
-func (UnimplementedAppWidgetHostServiceServer) testEmbeddedByValue()                              {}
-
-// UnsafeAppWidgetHostServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to AppWidgetHostServiceServer will
-// result in compilation errors.
-type UnsafeAppWidgetHostServiceServer interface {
-	mustEmbedUnimplementedAppWidgetHostServiceServer()
-}
-
-func RegisterAppWidgetHostServiceServer(s grpc.ServiceRegistrar, srv AppWidgetHostServiceServer) {
-	// If the following call panics, it indicates UnimplementedAppWidgetHostServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&AppWidgetHostService_ServiceDesc, srv)
-}
-
-func _AppWidgetHostService_NewAppWidgetHost_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewAppWidgetHostRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AppWidgetHostServiceServer).NewAppWidgetHost(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AppWidgetHostService_NewAppWidgetHost_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AppWidgetHostServiceServer).NewAppWidgetHost(ctx, req.(*NewAppWidgetHostRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AppWidgetHostService_AllocateAppWidgetId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AllocateAppWidgetIdRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AppWidgetHostServiceServer).AllocateAppWidgetId(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AppWidgetHostService_AllocateAppWidgetId_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AppWidgetHostServiceServer).AllocateAppWidgetId(ctx, req.(*AllocateAppWidgetIdRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AppWidgetHostService_CreateView_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CreateViewRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AppWidgetHostServiceServer).CreateView(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AppWidgetHostService_CreateView_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AppWidgetHostServiceServer).CreateView(ctx, req.(*CreateViewRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AppWidgetHostService_DeleteAppWidgetId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DeleteAppWidgetIdRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AppWidgetHostServiceServer).DeleteAppWidgetId(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AppWidgetHostService_DeleteAppWidgetId_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AppWidgetHostServiceServer).DeleteAppWidgetId(ctx, req.(*DeleteAppWidgetIdRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AppWidgetHostService_DeleteHost_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DeleteHostRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AppWidgetHostServiceServer).DeleteHost(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AppWidgetHostService_DeleteHost_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AppWidgetHostServiceServer).DeleteHost(ctx, req.(*DeleteHostRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AppWidgetHostService_GetAppWidgetIds_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AppWidgetHostGetAppWidgetIdsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AppWidgetHostServiceServer).GetAppWidgetIds(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AppWidgetHostService_GetAppWidgetIds_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AppWidgetHostServiceServer).GetAppWidgetIds(ctx, req.(*AppWidgetHostGetAppWidgetIdsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AppWidgetHostService_OnAppWidgetRemoved_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnAppWidgetRemovedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AppWidgetHostServiceServer).OnAppWidgetRemoved(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AppWidgetHostService_OnAppWidgetRemoved_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AppWidgetHostServiceServer).OnAppWidgetRemoved(ctx, req.(*OnAppWidgetRemovedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AppWidgetHostService_StartAppWidgetConfigureActivityForResult_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(StartAppWidgetConfigureActivityForResultRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AppWidgetHostServiceServer).StartAppWidgetConfigureActivityForResult(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AppWidgetHostService_StartAppWidgetConfigureActivityForResult_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AppWidgetHostServiceServer).StartAppWidgetConfigureActivityForResult(ctx, req.(*StartAppWidgetConfigureActivityForResultRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AppWidgetHostService_StartListening_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(StartListeningRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AppWidgetHostServiceServer).StartListening(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AppWidgetHostService_StartListening_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AppWidgetHostServiceServer).StartListening(ctx, req.(*StartListeningRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AppWidgetHostService_StopListening_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(StopListeningRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AppWidgetHostServiceServer).StopListening(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AppWidgetHostService_StopListening_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AppWidgetHostServiceServer).StopListening(ctx, req.(*StopListeningRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AppWidgetHostService_DeleteAllHosts_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DeleteAllHostsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AppWidgetHostServiceServer).DeleteAllHosts(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AppWidgetHostService_DeleteAllHosts_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AppWidgetHostServiceServer).DeleteAllHosts(ctx, req.(*DeleteAllHostsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// AppWidgetHostService_ServiceDesc is the grpc.ServiceDesc for AppWidgetHostService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var AppWidgetHostService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "appwidget.AppWidgetHostService",
-	HandlerType: (*AppWidgetHostServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "NewAppWidgetHost",
-			Handler:    _AppWidgetHostService_NewAppWidgetHost_Handler,
-		},
-		{
-			MethodName: "AllocateAppWidgetId",
-			Handler:    _AppWidgetHostService_AllocateAppWidgetId_Handler,
-		},
-		{
-			MethodName: "CreateView",
-			Handler:    _AppWidgetHostService_CreateView_Handler,
-		},
-		{
-			MethodName: "DeleteAppWidgetId",
-			Handler:    _AppWidgetHostService_DeleteAppWidgetId_Handler,
-		},
-		{
-			MethodName: "DeleteHost",
-			Handler:    _AppWidgetHostService_DeleteHost_Handler,
-		},
-		{
-			MethodName: "GetAppWidgetIds",
-			Handler:    _AppWidgetHostService_GetAppWidgetIds_Handler,
-		},
-		{
-			MethodName: "OnAppWidgetRemoved",
-			Handler:    _AppWidgetHostService_OnAppWidgetRemoved_Handler,
-		},
-		{
-			MethodName: "StartAppWidgetConfigureActivityForResult",
-			Handler:    _AppWidgetHostService_StartAppWidgetConfigureActivityForResult_Handler,
-		},
-		{
-			MethodName: "StartListening",
-			Handler:    _AppWidgetHostService_StartListening_Handler,
-		},
-		{
-			MethodName: "StopListening",
-			Handler:    _AppWidgetHostService_StopListening_Handler,
-		},
-		{
-			MethodName: "DeleteAllHosts",
-			Handler:    _AppWidgetHostService_DeleteAllHosts_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

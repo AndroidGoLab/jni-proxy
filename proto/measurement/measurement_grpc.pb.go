@@ -21,356 +21,292 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	ManagerService_Get_FullMethodName = "/measurement.ManagerService/Get"
+	WebSourceParamsService_DescribeContents_FullMethodName   = "/measurement.WebSourceParamsService/DescribeContents"
+	WebSourceParamsService_Equals_FullMethodName             = "/measurement.WebSourceParamsService/Equals"
+	WebSourceParamsService_GetRegistrationUri_FullMethodName = "/measurement.WebSourceParamsService/GetRegistrationUri"
+	WebSourceParamsService_HashCode_FullMethodName           = "/measurement.WebSourceParamsService/HashCode"
+	WebSourceParamsService_IsDebugKeyAllowed_FullMethodName  = "/measurement.WebSourceParamsService/IsDebugKeyAllowed"
+	WebSourceParamsService_WriteToParcel_FullMethodName      = "/measurement.WebSourceParamsService/WriteToParcel"
 )
 
-// ManagerServiceClient is the client API for ManagerService service.
+// WebSourceParamsServiceClient is the client API for WebSourceParamsService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type ManagerServiceClient interface {
-	Get(ctx context.Context, in *GetRequest, opts ...grpc.CallOption) (*GetResponse, error)
-}
-
-type managerServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewManagerServiceClient(cc grpc.ClientConnInterface) ManagerServiceClient {
-	return &managerServiceClient{cc}
-}
-
-func (c *managerServiceClient) Get(ctx context.Context, in *GetRequest, opts ...grpc.CallOption) (*GetResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetResponse)
-	err := c.cc.Invoke(ctx, ManagerService_Get_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// ManagerServiceServer is the server API for ManagerService service.
-// All implementations must embed UnimplementedManagerServiceServer
-// for forward compatibility.
-type ManagerServiceServer interface {
-	Get(context.Context, *GetRequest) (*GetResponse, error)
-	mustEmbedUnimplementedManagerServiceServer()
-}
-
-// UnimplementedManagerServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedManagerServiceServer struct{}
-
-func (UnimplementedManagerServiceServer) Get(context.Context, *GetRequest) (*GetResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Get not implemented")
-}
-func (UnimplementedManagerServiceServer) mustEmbedUnimplementedManagerServiceServer() {}
-func (UnimplementedManagerServiceServer) testEmbeddedByValue()                        {}
-
-// UnsafeManagerServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to ManagerServiceServer will
-// result in compilation errors.
-type UnsafeManagerServiceServer interface {
-	mustEmbedUnimplementedManagerServiceServer()
-}
-
-func RegisterManagerServiceServer(s grpc.ServiceRegistrar, srv ManagerServiceServer) {
-	// If the following call panics, it indicates UnimplementedManagerServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&ManagerService_ServiceDesc, srv)
-}
-
-func _ManagerService_Get_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerServiceServer).Get(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerService_Get_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).Get(ctx, req.(*GetRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// ManagerService_ServiceDesc is the grpc.ServiceDesc for ManagerService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var ManagerService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "measurement.ManagerService",
-	HandlerType: (*ManagerServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "Get",
-			Handler:    _ManagerService_Get_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/measurement/measurement.proto",
-}
-
-const (
-	SourceRegistrationRequestService_DescribeContents_FullMethodName = "/measurement.SourceRegistrationRequestService/DescribeContents"
-	SourceRegistrationRequestService_Equals_FullMethodName           = "/measurement.SourceRegistrationRequestService/Equals"
-	SourceRegistrationRequestService_GetInputEvent_FullMethodName    = "/measurement.SourceRegistrationRequestService/GetInputEvent"
-	SourceRegistrationRequestService_HashCode_FullMethodName         = "/measurement.SourceRegistrationRequestService/HashCode"
-	SourceRegistrationRequestService_WriteToParcel_FullMethodName    = "/measurement.SourceRegistrationRequestService/WriteToParcel"
-)
-
-// SourceRegistrationRequestServiceClient is the client API for SourceRegistrationRequestService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type SourceRegistrationRequestServiceClient interface {
+type WebSourceParamsServiceClient interface {
 	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
 	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
-	GetInputEvent(ctx context.Context, in *GetInputEventRequest, opts ...grpc.CallOption) (*GetInputEventResponse, error)
+	GetRegistrationUri(ctx context.Context, in *GetRegistrationUriRequest, opts ...grpc.CallOption) (*GetRegistrationUriResponse, error)
 	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+	IsDebugKeyAllowed(ctx context.Context, in *IsDebugKeyAllowedRequest, opts ...grpc.CallOption) (*IsDebugKeyAllowedResponse, error)
 	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
 }
 
-type sourceRegistrationRequestServiceClient struct {
+type webSourceParamsServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewSourceRegistrationRequestServiceClient(cc grpc.ClientConnInterface) SourceRegistrationRequestServiceClient {
-	return &sourceRegistrationRequestServiceClient{cc}
+func NewWebSourceParamsServiceClient(cc grpc.ClientConnInterface) WebSourceParamsServiceClient {
+	return &webSourceParamsServiceClient{cc}
 }
 
-func (c *sourceRegistrationRequestServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+func (c *webSourceParamsServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, SourceRegistrationRequestService_DescribeContents_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, WebSourceParamsService_DescribeContents_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *sourceRegistrationRequestServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+func (c *webSourceParamsServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(EqualsResponse)
-	err := c.cc.Invoke(ctx, SourceRegistrationRequestService_Equals_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, WebSourceParamsService_Equals_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *sourceRegistrationRequestServiceClient) GetInputEvent(ctx context.Context, in *GetInputEventRequest, opts ...grpc.CallOption) (*GetInputEventResponse, error) {
+func (c *webSourceParamsServiceClient) GetRegistrationUri(ctx context.Context, in *GetRegistrationUriRequest, opts ...grpc.CallOption) (*GetRegistrationUriResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetInputEventResponse)
-	err := c.cc.Invoke(ctx, SourceRegistrationRequestService_GetInputEvent_FullMethodName, in, out, cOpts...)
+	out := new(GetRegistrationUriResponse)
+	err := c.cc.Invoke(ctx, WebSourceParamsService_GetRegistrationUri_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *sourceRegistrationRequestServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+func (c *webSourceParamsServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(HashCodeResponse)
-	err := c.cc.Invoke(ctx, SourceRegistrationRequestService_HashCode_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, WebSourceParamsService_HashCode_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *sourceRegistrationRequestServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+func (c *webSourceParamsServiceClient) IsDebugKeyAllowed(ctx context.Context, in *IsDebugKeyAllowedRequest, opts ...grpc.CallOption) (*IsDebugKeyAllowedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsDebugKeyAllowedResponse)
+	err := c.cc.Invoke(ctx, WebSourceParamsService_IsDebugKeyAllowed_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *webSourceParamsServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, SourceRegistrationRequestService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, WebSourceParamsService_WriteToParcel_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// SourceRegistrationRequestServiceServer is the server API for SourceRegistrationRequestService service.
-// All implementations must embed UnimplementedSourceRegistrationRequestServiceServer
+// WebSourceParamsServiceServer is the server API for WebSourceParamsService service.
+// All implementations must embed UnimplementedWebSourceParamsServiceServer
 // for forward compatibility.
-type SourceRegistrationRequestServiceServer interface {
+type WebSourceParamsServiceServer interface {
 	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
 	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
-	GetInputEvent(context.Context, *GetInputEventRequest) (*GetInputEventResponse, error)
+	GetRegistrationUri(context.Context, *GetRegistrationUriRequest) (*GetRegistrationUriResponse, error)
 	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
+	IsDebugKeyAllowed(context.Context, *IsDebugKeyAllowedRequest) (*IsDebugKeyAllowedResponse, error)
 	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
-	mustEmbedUnimplementedSourceRegistrationRequestServiceServer()
+	mustEmbedUnimplementedWebSourceParamsServiceServer()
 }
 
-// UnimplementedSourceRegistrationRequestServiceServer must be embedded to have
+// UnimplementedWebSourceParamsServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedSourceRegistrationRequestServiceServer struct{}
+type UnimplementedWebSourceParamsServiceServer struct{}
 
-func (UnimplementedSourceRegistrationRequestServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+func (UnimplementedWebSourceParamsServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
 }
-func (UnimplementedSourceRegistrationRequestServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
+func (UnimplementedWebSourceParamsServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
 }
-func (UnimplementedSourceRegistrationRequestServiceServer) GetInputEvent(context.Context, *GetInputEventRequest) (*GetInputEventResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetInputEvent not implemented")
+func (UnimplementedWebSourceParamsServiceServer) GetRegistrationUri(context.Context, *GetRegistrationUriRequest) (*GetRegistrationUriResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetRegistrationUri not implemented")
 }
-func (UnimplementedSourceRegistrationRequestServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
+func (UnimplementedWebSourceParamsServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
 }
-func (UnimplementedSourceRegistrationRequestServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+func (UnimplementedWebSourceParamsServiceServer) IsDebugKeyAllowed(context.Context, *IsDebugKeyAllowedRequest) (*IsDebugKeyAllowedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsDebugKeyAllowed not implemented")
+}
+func (UnimplementedWebSourceParamsServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
 }
-func (UnimplementedSourceRegistrationRequestServiceServer) mustEmbedUnimplementedSourceRegistrationRequestServiceServer() {
+func (UnimplementedWebSourceParamsServiceServer) mustEmbedUnimplementedWebSourceParamsServiceServer() {
 }
-func (UnimplementedSourceRegistrationRequestServiceServer) testEmbeddedByValue() {}
+func (UnimplementedWebSourceParamsServiceServer) testEmbeddedByValue() {}
 
-// UnsafeSourceRegistrationRequestServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to SourceRegistrationRequestServiceServer will
+// UnsafeWebSourceParamsServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to WebSourceParamsServiceServer will
 // result in compilation errors.
-type UnsafeSourceRegistrationRequestServiceServer interface {
-	mustEmbedUnimplementedSourceRegistrationRequestServiceServer()
+type UnsafeWebSourceParamsServiceServer interface {
+	mustEmbedUnimplementedWebSourceParamsServiceServer()
 }
 
-func RegisterSourceRegistrationRequestServiceServer(s grpc.ServiceRegistrar, srv SourceRegistrationRequestServiceServer) {
-	// If the following call panics, it indicates UnimplementedSourceRegistrationRequestServiceServer was
+func RegisterWebSourceParamsServiceServer(s grpc.ServiceRegistrar, srv WebSourceParamsServiceServer) {
+	// If the following call panics, it indicates UnimplementedWebSourceParamsServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&SourceRegistrationRequestService_ServiceDesc, srv)
+	s.RegisterService(&WebSourceParamsService_ServiceDesc, srv)
 }
 
-func _SourceRegistrationRequestService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _WebSourceParamsService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(DescribeContentsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(SourceRegistrationRequestServiceServer).DescribeContents(ctx, in)
+		return srv.(WebSourceParamsServiceServer).DescribeContents(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: SourceRegistrationRequestService_DescribeContents_FullMethodName,
+		FullMethod: WebSourceParamsService_DescribeContents_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SourceRegistrationRequestServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+		return srv.(WebSourceParamsServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _SourceRegistrationRequestService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _WebSourceParamsService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(EqualsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(SourceRegistrationRequestServiceServer).Equals(ctx, in)
+		return srv.(WebSourceParamsServiceServer).Equals(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: SourceRegistrationRequestService_Equals_FullMethodName,
+		FullMethod: WebSourceParamsService_Equals_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SourceRegistrationRequestServiceServer).Equals(ctx, req.(*EqualsRequest))
+		return srv.(WebSourceParamsServiceServer).Equals(ctx, req.(*EqualsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _SourceRegistrationRequestService_GetInputEvent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetInputEventRequest)
+func _WebSourceParamsService_GetRegistrationUri_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetRegistrationUriRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(SourceRegistrationRequestServiceServer).GetInputEvent(ctx, in)
+		return srv.(WebSourceParamsServiceServer).GetRegistrationUri(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: SourceRegistrationRequestService_GetInputEvent_FullMethodName,
+		FullMethod: WebSourceParamsService_GetRegistrationUri_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SourceRegistrationRequestServiceServer).GetInputEvent(ctx, req.(*GetInputEventRequest))
+		return srv.(WebSourceParamsServiceServer).GetRegistrationUri(ctx, req.(*GetRegistrationUriRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _SourceRegistrationRequestService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _WebSourceParamsService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(HashCodeRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(SourceRegistrationRequestServiceServer).HashCode(ctx, in)
+		return srv.(WebSourceParamsServiceServer).HashCode(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: SourceRegistrationRequestService_HashCode_FullMethodName,
+		FullMethod: WebSourceParamsService_HashCode_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SourceRegistrationRequestServiceServer).HashCode(ctx, req.(*HashCodeRequest))
+		return srv.(WebSourceParamsServiceServer).HashCode(ctx, req.(*HashCodeRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _SourceRegistrationRequestService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _WebSourceParamsService_IsDebugKeyAllowed_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsDebugKeyAllowedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WebSourceParamsServiceServer).IsDebugKeyAllowed(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WebSourceParamsService_IsDebugKeyAllowed_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WebSourceParamsServiceServer).IsDebugKeyAllowed(ctx, req.(*IsDebugKeyAllowedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WebSourceParamsService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(WriteToParcelRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(SourceRegistrationRequestServiceServer).WriteToParcel(ctx, in)
+		return srv.(WebSourceParamsServiceServer).WriteToParcel(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: SourceRegistrationRequestService_WriteToParcel_FullMethodName,
+		FullMethod: WebSourceParamsService_WriteToParcel_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SourceRegistrationRequestServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+		return srv.(WebSourceParamsServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// SourceRegistrationRequestService_ServiceDesc is the grpc.ServiceDesc for SourceRegistrationRequestService service.
+// WebSourceParamsService_ServiceDesc is the grpc.ServiceDesc for WebSourceParamsService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var SourceRegistrationRequestService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "measurement.SourceRegistrationRequestService",
-	HandlerType: (*SourceRegistrationRequestServiceServer)(nil),
+var WebSourceParamsService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "measurement.WebSourceParamsService",
+	HandlerType: (*WebSourceParamsServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
 			MethodName: "DescribeContents",
-			Handler:    _SourceRegistrationRequestService_DescribeContents_Handler,
+			Handler:    _WebSourceParamsService_DescribeContents_Handler,
 		},
 		{
 			MethodName: "Equals",
-			Handler:    _SourceRegistrationRequestService_Equals_Handler,
+			Handler:    _WebSourceParamsService_Equals_Handler,
 		},
 		{
-			MethodName: "GetInputEvent",
-			Handler:    _SourceRegistrationRequestService_GetInputEvent_Handler,
+			MethodName: "GetRegistrationUri",
+			Handler:    _WebSourceParamsService_GetRegistrationUri_Handler,
 		},
 		{
 			MethodName: "HashCode",
-			Handler:    _SourceRegistrationRequestService_HashCode_Handler,
+			Handler:    _WebSourceParamsService_HashCode_Handler,
+		},
+		{
+			MethodName: "IsDebugKeyAllowed",
+			Handler:    _WebSourceParamsService_IsDebugKeyAllowed_Handler,
 		},
 		{
 			MethodName: "WriteToParcel",
-			Handler:    _SourceRegistrationRequestService_WriteToParcel_Handler,
+			Handler:    _WebSourceParamsService_WriteToParcel_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -378,140 +314,140 @@ var SourceRegistrationRequestService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	SourceRegistrationRequestBuilderService_Build_FullMethodName         = "/measurement.SourceRegistrationRequestBuilderService/Build"
-	SourceRegistrationRequestBuilderService_SetInputEvent_FullMethodName = "/measurement.SourceRegistrationRequestBuilderService/SetInputEvent"
+	WebSourceParamsBuilderService_Build_FullMethodName              = "/measurement.WebSourceParamsBuilderService/Build"
+	WebSourceParamsBuilderService_SetDebugKeyAllowed_FullMethodName = "/measurement.WebSourceParamsBuilderService/SetDebugKeyAllowed"
 )
 
-// SourceRegistrationRequestBuilderServiceClient is the client API for SourceRegistrationRequestBuilderService service.
+// WebSourceParamsBuilderServiceClient is the client API for WebSourceParamsBuilderService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type SourceRegistrationRequestBuilderServiceClient interface {
+type WebSourceParamsBuilderServiceClient interface {
 	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
-	SetInputEvent(ctx context.Context, in *SetInputEventRequest, opts ...grpc.CallOption) (*SetInputEventResponse, error)
+	SetDebugKeyAllowed(ctx context.Context, in *SetDebugKeyAllowedRequest, opts ...grpc.CallOption) (*SetDebugKeyAllowedResponse, error)
 }
 
-type sourceRegistrationRequestBuilderServiceClient struct {
+type webSourceParamsBuilderServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewSourceRegistrationRequestBuilderServiceClient(cc grpc.ClientConnInterface) SourceRegistrationRequestBuilderServiceClient {
-	return &sourceRegistrationRequestBuilderServiceClient{cc}
+func NewWebSourceParamsBuilderServiceClient(cc grpc.ClientConnInterface) WebSourceParamsBuilderServiceClient {
+	return &webSourceParamsBuilderServiceClient{cc}
 }
 
-func (c *sourceRegistrationRequestBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
+func (c *webSourceParamsBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(BuildResponse)
-	err := c.cc.Invoke(ctx, SourceRegistrationRequestBuilderService_Build_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, WebSourceParamsBuilderService_Build_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *sourceRegistrationRequestBuilderServiceClient) SetInputEvent(ctx context.Context, in *SetInputEventRequest, opts ...grpc.CallOption) (*SetInputEventResponse, error) {
+func (c *webSourceParamsBuilderServiceClient) SetDebugKeyAllowed(ctx context.Context, in *SetDebugKeyAllowedRequest, opts ...grpc.CallOption) (*SetDebugKeyAllowedResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetInputEventResponse)
-	err := c.cc.Invoke(ctx, SourceRegistrationRequestBuilderService_SetInputEvent_FullMethodName, in, out, cOpts...)
+	out := new(SetDebugKeyAllowedResponse)
+	err := c.cc.Invoke(ctx, WebSourceParamsBuilderService_SetDebugKeyAllowed_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// SourceRegistrationRequestBuilderServiceServer is the server API for SourceRegistrationRequestBuilderService service.
-// All implementations must embed UnimplementedSourceRegistrationRequestBuilderServiceServer
+// WebSourceParamsBuilderServiceServer is the server API for WebSourceParamsBuilderService service.
+// All implementations must embed UnimplementedWebSourceParamsBuilderServiceServer
 // for forward compatibility.
-type SourceRegistrationRequestBuilderServiceServer interface {
+type WebSourceParamsBuilderServiceServer interface {
 	Build(context.Context, *BuildRequest) (*BuildResponse, error)
-	SetInputEvent(context.Context, *SetInputEventRequest) (*SetInputEventResponse, error)
-	mustEmbedUnimplementedSourceRegistrationRequestBuilderServiceServer()
+	SetDebugKeyAllowed(context.Context, *SetDebugKeyAllowedRequest) (*SetDebugKeyAllowedResponse, error)
+	mustEmbedUnimplementedWebSourceParamsBuilderServiceServer()
 }
 
-// UnimplementedSourceRegistrationRequestBuilderServiceServer must be embedded to have
+// UnimplementedWebSourceParamsBuilderServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedSourceRegistrationRequestBuilderServiceServer struct{}
+type UnimplementedWebSourceParamsBuilderServiceServer struct{}
 
-func (UnimplementedSourceRegistrationRequestBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
+func (UnimplementedWebSourceParamsBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
 }
-func (UnimplementedSourceRegistrationRequestBuilderServiceServer) SetInputEvent(context.Context, *SetInputEventRequest) (*SetInputEventResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetInputEvent not implemented")
+func (UnimplementedWebSourceParamsBuilderServiceServer) SetDebugKeyAllowed(context.Context, *SetDebugKeyAllowedRequest) (*SetDebugKeyAllowedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetDebugKeyAllowed not implemented")
 }
-func (UnimplementedSourceRegistrationRequestBuilderServiceServer) mustEmbedUnimplementedSourceRegistrationRequestBuilderServiceServer() {
+func (UnimplementedWebSourceParamsBuilderServiceServer) mustEmbedUnimplementedWebSourceParamsBuilderServiceServer() {
 }
-func (UnimplementedSourceRegistrationRequestBuilderServiceServer) testEmbeddedByValue() {}
+func (UnimplementedWebSourceParamsBuilderServiceServer) testEmbeddedByValue() {}
 
-// UnsafeSourceRegistrationRequestBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to SourceRegistrationRequestBuilderServiceServer will
+// UnsafeWebSourceParamsBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to WebSourceParamsBuilderServiceServer will
 // result in compilation errors.
-type UnsafeSourceRegistrationRequestBuilderServiceServer interface {
-	mustEmbedUnimplementedSourceRegistrationRequestBuilderServiceServer()
+type UnsafeWebSourceParamsBuilderServiceServer interface {
+	mustEmbedUnimplementedWebSourceParamsBuilderServiceServer()
 }
 
-func RegisterSourceRegistrationRequestBuilderServiceServer(s grpc.ServiceRegistrar, srv SourceRegistrationRequestBuilderServiceServer) {
-	// If the following call panics, it indicates UnimplementedSourceRegistrationRequestBuilderServiceServer was
+func RegisterWebSourceParamsBuilderServiceServer(s grpc.ServiceRegistrar, srv WebSourceParamsBuilderServiceServer) {
+	// If the following call panics, it indicates UnimplementedWebSourceParamsBuilderServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&SourceRegistrationRequestBuilderService_ServiceDesc, srv)
+	s.RegisterService(&WebSourceParamsBuilderService_ServiceDesc, srv)
 }
 
-func _SourceRegistrationRequestBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _WebSourceParamsBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(BuildRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(SourceRegistrationRequestBuilderServiceServer).Build(ctx, in)
+		return srv.(WebSourceParamsBuilderServiceServer).Build(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: SourceRegistrationRequestBuilderService_Build_FullMethodName,
+		FullMethod: WebSourceParamsBuilderService_Build_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SourceRegistrationRequestBuilderServiceServer).Build(ctx, req.(*BuildRequest))
+		return srv.(WebSourceParamsBuilderServiceServer).Build(ctx, req.(*BuildRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _SourceRegistrationRequestBuilderService_SetInputEvent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetInputEventRequest)
+func _WebSourceParamsBuilderService_SetDebugKeyAllowed_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetDebugKeyAllowedRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(SourceRegistrationRequestBuilderServiceServer).SetInputEvent(ctx, in)
+		return srv.(WebSourceParamsBuilderServiceServer).SetDebugKeyAllowed(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: SourceRegistrationRequestBuilderService_SetInputEvent_FullMethodName,
+		FullMethod: WebSourceParamsBuilderService_SetDebugKeyAllowed_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SourceRegistrationRequestBuilderServiceServer).SetInputEvent(ctx, req.(*SetInputEventRequest))
+		return srv.(WebSourceParamsBuilderServiceServer).SetDebugKeyAllowed(ctx, req.(*SetDebugKeyAllowedRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// SourceRegistrationRequestBuilderService_ServiceDesc is the grpc.ServiceDesc for SourceRegistrationRequestBuilderService service.
+// WebSourceParamsBuilderService_ServiceDesc is the grpc.ServiceDesc for WebSourceParamsBuilderService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var SourceRegistrationRequestBuilderService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "measurement.SourceRegistrationRequestBuilderService",
-	HandlerType: (*SourceRegistrationRequestBuilderServiceServer)(nil),
+var WebSourceParamsBuilderService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "measurement.WebSourceParamsBuilderService",
+	HandlerType: (*WebSourceParamsBuilderServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
 			MethodName: "Build",
-			Handler:    _SourceRegistrationRequestBuilderService_Build_Handler,
+			Handler:    _WebSourceParamsBuilderService_Build_Handler,
 		},
 		{
-			MethodName: "SetInputEvent",
-			Handler:    _SourceRegistrationRequestBuilderService_SetInputEvent_Handler,
+			MethodName: "SetDebugKeyAllowed",
+			Handler:    _WebSourceParamsBuilderService_SetDebugKeyAllowed_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -520,8 +456,10 @@ var SourceRegistrationRequestBuilderService_ServiceDesc = grpc.ServiceDesc{
 
 const (
 	DeletionRequestService_GetDeletionMode_FullMethodName  = "/measurement.DeletionRequestService/GetDeletionMode"
+	DeletionRequestService_GetDomainUris_FullMethodName    = "/measurement.DeletionRequestService/GetDomainUris"
 	DeletionRequestService_GetEnd_FullMethodName           = "/measurement.DeletionRequestService/GetEnd"
 	DeletionRequestService_GetMatchBehavior_FullMethodName = "/measurement.DeletionRequestService/GetMatchBehavior"
+	DeletionRequestService_GetOriginUris_FullMethodName    = "/measurement.DeletionRequestService/GetOriginUris"
 	DeletionRequestService_GetStart_FullMethodName         = "/measurement.DeletionRequestService/GetStart"
 )
 
@@ -530,8 +468,10 @@ const (
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type DeletionRequestServiceClient interface {
 	GetDeletionMode(ctx context.Context, in *GetDeletionModeRequest, opts ...grpc.CallOption) (*GetDeletionModeResponse, error)
+	GetDomainUris(ctx context.Context, in *GetDomainUrisRequest, opts ...grpc.CallOption) (*GetDomainUrisResponse, error)
 	GetEnd(ctx context.Context, in *GetEndRequest, opts ...grpc.CallOption) (*GetEndResponse, error)
 	GetMatchBehavior(ctx context.Context, in *GetMatchBehaviorRequest, opts ...grpc.CallOption) (*GetMatchBehaviorResponse, error)
+	GetOriginUris(ctx context.Context, in *GetOriginUrisRequest, opts ...grpc.CallOption) (*GetOriginUrisResponse, error)
 	GetStart(ctx context.Context, in *GetStartRequest, opts ...grpc.CallOption) (*GetStartResponse, error)
 }
 
@@ -547,6 +487,16 @@ func (c *deletionRequestServiceClient) GetDeletionMode(ctx context.Context, in *
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetDeletionModeResponse)
 	err := c.cc.Invoke(ctx, DeletionRequestService_GetDeletionMode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *deletionRequestServiceClient) GetDomainUris(ctx context.Context, in *GetDomainUrisRequest, opts ...grpc.CallOption) (*GetDomainUrisResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetDomainUrisResponse)
+	err := c.cc.Invoke(ctx, DeletionRequestService_GetDomainUris_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -573,6 +523,16 @@ func (c *deletionRequestServiceClient) GetMatchBehavior(ctx context.Context, in 
 	return out, nil
 }
 
+func (c *deletionRequestServiceClient) GetOriginUris(ctx context.Context, in *GetOriginUrisRequest, opts ...grpc.CallOption) (*GetOriginUrisResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetOriginUrisResponse)
+	err := c.cc.Invoke(ctx, DeletionRequestService_GetOriginUris_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *deletionRequestServiceClient) GetStart(ctx context.Context, in *GetStartRequest, opts ...grpc.CallOption) (*GetStartResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetStartResponse)
@@ -588,8 +548,10 @@ func (c *deletionRequestServiceClient) GetStart(ctx context.Context, in *GetStar
 // for forward compatibility.
 type DeletionRequestServiceServer interface {
 	GetDeletionMode(context.Context, *GetDeletionModeRequest) (*GetDeletionModeResponse, error)
+	GetDomainUris(context.Context, *GetDomainUrisRequest) (*GetDomainUrisResponse, error)
 	GetEnd(context.Context, *GetEndRequest) (*GetEndResponse, error)
 	GetMatchBehavior(context.Context, *GetMatchBehaviorRequest) (*GetMatchBehaviorResponse, error)
+	GetOriginUris(context.Context, *GetOriginUrisRequest) (*GetOriginUrisResponse, error)
 	GetStart(context.Context, *GetStartRequest) (*GetStartResponse, error)
 	mustEmbedUnimplementedDeletionRequestServiceServer()
 }
@@ -604,11 +566,17 @@ type UnimplementedDeletionRequestServiceServer struct{}
 func (UnimplementedDeletionRequestServiceServer) GetDeletionMode(context.Context, *GetDeletionModeRequest) (*GetDeletionModeResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetDeletionMode not implemented")
 }
+func (UnimplementedDeletionRequestServiceServer) GetDomainUris(context.Context, *GetDomainUrisRequest) (*GetDomainUrisResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetDomainUris not implemented")
+}
 func (UnimplementedDeletionRequestServiceServer) GetEnd(context.Context, *GetEndRequest) (*GetEndResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetEnd not implemented")
 }
 func (UnimplementedDeletionRequestServiceServer) GetMatchBehavior(context.Context, *GetMatchBehaviorRequest) (*GetMatchBehaviorResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetMatchBehavior not implemented")
+}
+func (UnimplementedDeletionRequestServiceServer) GetOriginUris(context.Context, *GetOriginUrisRequest) (*GetOriginUrisResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetOriginUris not implemented")
 }
 func (UnimplementedDeletionRequestServiceServer) GetStart(context.Context, *GetStartRequest) (*GetStartResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetStart not implemented")
@@ -653,6 +621,24 @@ func _DeletionRequestService_GetDeletionMode_Handler(srv interface{}, ctx contex
 	return interceptor(ctx, in, info, handler)
 }
 
+func _DeletionRequestService_GetDomainUris_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetDomainUrisRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DeletionRequestServiceServer).GetDomainUris(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DeletionRequestService_GetDomainUris_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DeletionRequestServiceServer).GetDomainUris(ctx, req.(*GetDomainUrisRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _DeletionRequestService_GetEnd_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetEndRequest)
 	if err := dec(in); err != nil {
@@ -689,6 +675,24 @@ func _DeletionRequestService_GetMatchBehavior_Handler(srv interface{}, ctx conte
 	return interceptor(ctx, in, info, handler)
 }
 
+func _DeletionRequestService_GetOriginUris_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetOriginUrisRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DeletionRequestServiceServer).GetOriginUris(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DeletionRequestService_GetOriginUris_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DeletionRequestServiceServer).GetOriginUris(ctx, req.(*GetOriginUrisRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _DeletionRequestService_GetStart_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetStartRequest)
 	if err := dec(in); err != nil {
@@ -719,12 +723,20 @@ var DeletionRequestService_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _DeletionRequestService_GetDeletionMode_Handler,
 		},
 		{
+			MethodName: "GetDomainUris",
+			Handler:    _DeletionRequestService_GetDomainUris_Handler,
+		},
+		{
 			MethodName: "GetEnd",
 			Handler:    _DeletionRequestService_GetEnd_Handler,
 		},
 		{
 			MethodName: "GetMatchBehavior",
 			Handler:    _DeletionRequestService_GetMatchBehavior_Handler,
+		},
+		{
+			MethodName: "GetOriginUris",
+			Handler:    _DeletionRequestService_GetOriginUris_Handler,
 		},
 		{
 			MethodName: "GetStart",
@@ -1425,443 +1437,10 @@ var WebTriggerParamsBuilderService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	WebSourceParamsService_DescribeContents_FullMethodName   = "/measurement.WebSourceParamsService/DescribeContents"
-	WebSourceParamsService_Equals_FullMethodName             = "/measurement.WebSourceParamsService/Equals"
-	WebSourceParamsService_GetRegistrationUri_FullMethodName = "/measurement.WebSourceParamsService/GetRegistrationUri"
-	WebSourceParamsService_HashCode_FullMethodName           = "/measurement.WebSourceParamsService/HashCode"
-	WebSourceParamsService_IsDebugKeyAllowed_FullMethodName  = "/measurement.WebSourceParamsService/IsDebugKeyAllowed"
-	WebSourceParamsService_WriteToParcel_FullMethodName      = "/measurement.WebSourceParamsService/WriteToParcel"
-)
-
-// WebSourceParamsServiceClient is the client API for WebSourceParamsService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type WebSourceParamsServiceClient interface {
-	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
-	GetRegistrationUri(ctx context.Context, in *GetRegistrationUriRequest, opts ...grpc.CallOption) (*GetRegistrationUriResponse, error)
-	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
-	IsDebugKeyAllowed(ctx context.Context, in *IsDebugKeyAllowedRequest, opts ...grpc.CallOption) (*IsDebugKeyAllowedResponse, error)
-	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
-}
-
-type webSourceParamsServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewWebSourceParamsServiceClient(cc grpc.ClientConnInterface) WebSourceParamsServiceClient {
-	return &webSourceParamsServiceClient{cc}
-}
-
-func (c *webSourceParamsServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, WebSourceParamsService_DescribeContents_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *webSourceParamsServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(EqualsResponse)
-	err := c.cc.Invoke(ctx, WebSourceParamsService_Equals_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *webSourceParamsServiceClient) GetRegistrationUri(ctx context.Context, in *GetRegistrationUriRequest, opts ...grpc.CallOption) (*GetRegistrationUriResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetRegistrationUriResponse)
-	err := c.cc.Invoke(ctx, WebSourceParamsService_GetRegistrationUri_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *webSourceParamsServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(HashCodeResponse)
-	err := c.cc.Invoke(ctx, WebSourceParamsService_HashCode_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *webSourceParamsServiceClient) IsDebugKeyAllowed(ctx context.Context, in *IsDebugKeyAllowedRequest, opts ...grpc.CallOption) (*IsDebugKeyAllowedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsDebugKeyAllowedResponse)
-	err := c.cc.Invoke(ctx, WebSourceParamsService_IsDebugKeyAllowed_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *webSourceParamsServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, WebSourceParamsService_WriteToParcel_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// WebSourceParamsServiceServer is the server API for WebSourceParamsService service.
-// All implementations must embed UnimplementedWebSourceParamsServiceServer
-// for forward compatibility.
-type WebSourceParamsServiceServer interface {
-	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
-	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
-	GetRegistrationUri(context.Context, *GetRegistrationUriRequest) (*GetRegistrationUriResponse, error)
-	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
-	IsDebugKeyAllowed(context.Context, *IsDebugKeyAllowedRequest) (*IsDebugKeyAllowedResponse, error)
-	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
-	mustEmbedUnimplementedWebSourceParamsServiceServer()
-}
-
-// UnimplementedWebSourceParamsServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedWebSourceParamsServiceServer struct{}
-
-func (UnimplementedWebSourceParamsServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
-}
-func (UnimplementedWebSourceParamsServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
-}
-func (UnimplementedWebSourceParamsServiceServer) GetRegistrationUri(context.Context, *GetRegistrationUriRequest) (*GetRegistrationUriResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetRegistrationUri not implemented")
-}
-func (UnimplementedWebSourceParamsServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
-}
-func (UnimplementedWebSourceParamsServiceServer) IsDebugKeyAllowed(context.Context, *IsDebugKeyAllowedRequest) (*IsDebugKeyAllowedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsDebugKeyAllowed not implemented")
-}
-func (UnimplementedWebSourceParamsServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
-}
-func (UnimplementedWebSourceParamsServiceServer) mustEmbedUnimplementedWebSourceParamsServiceServer() {
-}
-func (UnimplementedWebSourceParamsServiceServer) testEmbeddedByValue() {}
-
-// UnsafeWebSourceParamsServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to WebSourceParamsServiceServer will
-// result in compilation errors.
-type UnsafeWebSourceParamsServiceServer interface {
-	mustEmbedUnimplementedWebSourceParamsServiceServer()
-}
-
-func RegisterWebSourceParamsServiceServer(s grpc.ServiceRegistrar, srv WebSourceParamsServiceServer) {
-	// If the following call panics, it indicates UnimplementedWebSourceParamsServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&WebSourceParamsService_ServiceDesc, srv)
-}
-
-func _WebSourceParamsService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DescribeContentsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(WebSourceParamsServiceServer).DescribeContents(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: WebSourceParamsService_DescribeContents_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WebSourceParamsServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _WebSourceParamsService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(EqualsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(WebSourceParamsServiceServer).Equals(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: WebSourceParamsService_Equals_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WebSourceParamsServiceServer).Equals(ctx, req.(*EqualsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _WebSourceParamsService_GetRegistrationUri_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetRegistrationUriRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(WebSourceParamsServiceServer).GetRegistrationUri(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: WebSourceParamsService_GetRegistrationUri_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WebSourceParamsServiceServer).GetRegistrationUri(ctx, req.(*GetRegistrationUriRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _WebSourceParamsService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(HashCodeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(WebSourceParamsServiceServer).HashCode(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: WebSourceParamsService_HashCode_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WebSourceParamsServiceServer).HashCode(ctx, req.(*HashCodeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _WebSourceParamsService_IsDebugKeyAllowed_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsDebugKeyAllowedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(WebSourceParamsServiceServer).IsDebugKeyAllowed(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: WebSourceParamsService_IsDebugKeyAllowed_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WebSourceParamsServiceServer).IsDebugKeyAllowed(ctx, req.(*IsDebugKeyAllowedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _WebSourceParamsService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WriteToParcelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(WebSourceParamsServiceServer).WriteToParcel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: WebSourceParamsService_WriteToParcel_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WebSourceParamsServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// WebSourceParamsService_ServiceDesc is the grpc.ServiceDesc for WebSourceParamsService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var WebSourceParamsService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "measurement.WebSourceParamsService",
-	HandlerType: (*WebSourceParamsServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "DescribeContents",
-			Handler:    _WebSourceParamsService_DescribeContents_Handler,
-		},
-		{
-			MethodName: "Equals",
-			Handler:    _WebSourceParamsService_Equals_Handler,
-		},
-		{
-			MethodName: "GetRegistrationUri",
-			Handler:    _WebSourceParamsService_GetRegistrationUri_Handler,
-		},
-		{
-			MethodName: "HashCode",
-			Handler:    _WebSourceParamsService_HashCode_Handler,
-		},
-		{
-			MethodName: "IsDebugKeyAllowed",
-			Handler:    _WebSourceParamsService_IsDebugKeyAllowed_Handler,
-		},
-		{
-			MethodName: "WriteToParcel",
-			Handler:    _WebSourceParamsService_WriteToParcel_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/measurement/measurement.proto",
-}
-
-const (
-	WebSourceParamsBuilderService_Build_FullMethodName              = "/measurement.WebSourceParamsBuilderService/Build"
-	WebSourceParamsBuilderService_SetDebugKeyAllowed_FullMethodName = "/measurement.WebSourceParamsBuilderService/SetDebugKeyAllowed"
-)
-
-// WebSourceParamsBuilderServiceClient is the client API for WebSourceParamsBuilderService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type WebSourceParamsBuilderServiceClient interface {
-	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
-	SetDebugKeyAllowed(ctx context.Context, in *SetDebugKeyAllowedRequest, opts ...grpc.CallOption) (*SetDebugKeyAllowedResponse, error)
-}
-
-type webSourceParamsBuilderServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewWebSourceParamsBuilderServiceClient(cc grpc.ClientConnInterface) WebSourceParamsBuilderServiceClient {
-	return &webSourceParamsBuilderServiceClient{cc}
-}
-
-func (c *webSourceParamsBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(BuildResponse)
-	err := c.cc.Invoke(ctx, WebSourceParamsBuilderService_Build_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *webSourceParamsBuilderServiceClient) SetDebugKeyAllowed(ctx context.Context, in *SetDebugKeyAllowedRequest, opts ...grpc.CallOption) (*SetDebugKeyAllowedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetDebugKeyAllowedResponse)
-	err := c.cc.Invoke(ctx, WebSourceParamsBuilderService_SetDebugKeyAllowed_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// WebSourceParamsBuilderServiceServer is the server API for WebSourceParamsBuilderService service.
-// All implementations must embed UnimplementedWebSourceParamsBuilderServiceServer
-// for forward compatibility.
-type WebSourceParamsBuilderServiceServer interface {
-	Build(context.Context, *BuildRequest) (*BuildResponse, error)
-	SetDebugKeyAllowed(context.Context, *SetDebugKeyAllowedRequest) (*SetDebugKeyAllowedResponse, error)
-	mustEmbedUnimplementedWebSourceParamsBuilderServiceServer()
-}
-
-// UnimplementedWebSourceParamsBuilderServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedWebSourceParamsBuilderServiceServer struct{}
-
-func (UnimplementedWebSourceParamsBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
-}
-func (UnimplementedWebSourceParamsBuilderServiceServer) SetDebugKeyAllowed(context.Context, *SetDebugKeyAllowedRequest) (*SetDebugKeyAllowedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetDebugKeyAllowed not implemented")
-}
-func (UnimplementedWebSourceParamsBuilderServiceServer) mustEmbedUnimplementedWebSourceParamsBuilderServiceServer() {
-}
-func (UnimplementedWebSourceParamsBuilderServiceServer) testEmbeddedByValue() {}
-
-// UnsafeWebSourceParamsBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to WebSourceParamsBuilderServiceServer will
-// result in compilation errors.
-type UnsafeWebSourceParamsBuilderServiceServer interface {
-	mustEmbedUnimplementedWebSourceParamsBuilderServiceServer()
-}
-
-func RegisterWebSourceParamsBuilderServiceServer(s grpc.ServiceRegistrar, srv WebSourceParamsBuilderServiceServer) {
-	// If the following call panics, it indicates UnimplementedWebSourceParamsBuilderServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&WebSourceParamsBuilderService_ServiceDesc, srv)
-}
-
-func _WebSourceParamsBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(BuildRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(WebSourceParamsBuilderServiceServer).Build(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: WebSourceParamsBuilderService_Build_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WebSourceParamsBuilderServiceServer).Build(ctx, req.(*BuildRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _WebSourceParamsBuilderService_SetDebugKeyAllowed_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetDebugKeyAllowedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(WebSourceParamsBuilderServiceServer).SetDebugKeyAllowed(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: WebSourceParamsBuilderService_SetDebugKeyAllowed_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WebSourceParamsBuilderServiceServer).SetDebugKeyAllowed(ctx, req.(*SetDebugKeyAllowedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// WebSourceParamsBuilderService_ServiceDesc is the grpc.ServiceDesc for WebSourceParamsBuilderService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var WebSourceParamsBuilderService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "measurement.WebSourceParamsBuilderService",
-	HandlerType: (*WebSourceParamsBuilderServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "Build",
-			Handler:    _WebSourceParamsBuilderService_Build_Handler,
-		},
-		{
-			MethodName: "SetDebugKeyAllowed",
-			Handler:    _WebSourceParamsBuilderService_SetDebugKeyAllowed_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/measurement/measurement.proto",
-}
-
-const (
 	WebTriggerRegistrationRequestService_DescribeContents_FullMethodName = "/measurement.WebTriggerRegistrationRequestService/DescribeContents"
 	WebTriggerRegistrationRequestService_Equals_FullMethodName           = "/measurement.WebTriggerRegistrationRequestService/Equals"
 	WebTriggerRegistrationRequestService_GetDestination_FullMethodName   = "/measurement.WebTriggerRegistrationRequestService/GetDestination"
+	WebTriggerRegistrationRequestService_GetTriggerParams_FullMethodName = "/measurement.WebTriggerRegistrationRequestService/GetTriggerParams"
 	WebTriggerRegistrationRequestService_HashCode_FullMethodName         = "/measurement.WebTriggerRegistrationRequestService/HashCode"
 	WebTriggerRegistrationRequestService_WriteToParcel_FullMethodName    = "/measurement.WebTriggerRegistrationRequestService/WriteToParcel"
 )
@@ -1873,6 +1452,7 @@ type WebTriggerRegistrationRequestServiceClient interface {
 	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
 	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
 	GetDestination(ctx context.Context, in *GetDestinationRequest, opts ...grpc.CallOption) (*GetDestinationResponse, error)
+	GetTriggerParams(ctx context.Context, in *GetTriggerParamsRequest, opts ...grpc.CallOption) (*GetTriggerParamsResponse, error)
 	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
 	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
 }
@@ -1915,6 +1495,16 @@ func (c *webTriggerRegistrationRequestServiceClient) GetDestination(ctx context.
 	return out, nil
 }
 
+func (c *webTriggerRegistrationRequestServiceClient) GetTriggerParams(ctx context.Context, in *GetTriggerParamsRequest, opts ...grpc.CallOption) (*GetTriggerParamsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTriggerParamsResponse)
+	err := c.cc.Invoke(ctx, WebTriggerRegistrationRequestService_GetTriggerParams_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *webTriggerRegistrationRequestServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(HashCodeResponse)
@@ -1942,6 +1532,7 @@ type WebTriggerRegistrationRequestServiceServer interface {
 	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
 	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
 	GetDestination(context.Context, *GetDestinationRequest) (*GetDestinationResponse, error)
+	GetTriggerParams(context.Context, *GetTriggerParamsRequest) (*GetTriggerParamsResponse, error)
 	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
 	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
 	mustEmbedUnimplementedWebTriggerRegistrationRequestServiceServer()
@@ -1962,6 +1553,9 @@ func (UnimplementedWebTriggerRegistrationRequestServiceServer) Equals(context.Co
 }
 func (UnimplementedWebTriggerRegistrationRequestServiceServer) GetDestination(context.Context, *GetDestinationRequest) (*GetDestinationResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetDestination not implemented")
+}
+func (UnimplementedWebTriggerRegistrationRequestServiceServer) GetTriggerParams(context.Context, *GetTriggerParamsRequest) (*GetTriggerParamsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTriggerParams not implemented")
 }
 func (UnimplementedWebTriggerRegistrationRequestServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
@@ -2045,6 +1639,24 @@ func _WebTriggerRegistrationRequestService_GetDestination_Handler(srv interface{
 	return interceptor(ctx, in, info, handler)
 }
 
+func _WebTriggerRegistrationRequestService_GetTriggerParams_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTriggerParamsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WebTriggerRegistrationRequestServiceServer).GetTriggerParams(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WebTriggerRegistrationRequestService_GetTriggerParams_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WebTriggerRegistrationRequestServiceServer).GetTriggerParams(ctx, req.(*GetTriggerParamsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _WebTriggerRegistrationRequestService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(HashCodeRequest)
 	if err := dec(in); err != nil {
@@ -2099,6 +1711,10 @@ var WebTriggerRegistrationRequestService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetDestination",
 			Handler:    _WebTriggerRegistrationRequestService_GetDestination_Handler,
+		},
+		{
+			MethodName: "GetTriggerParams",
+			Handler:    _WebTriggerRegistrationRequestService_GetTriggerParams_Handler,
 		},
 		{
 			MethodName: "HashCode",
@@ -2217,10 +1833,113 @@ var WebTriggerRegistrationRequestBuilderService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
+	ManagerService_Get_FullMethodName = "/measurement.ManagerService/Get"
+)
+
+// ManagerServiceClient is the client API for ManagerService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ManagerServiceClient interface {
+	Get(ctx context.Context, in *GetRequest, opts ...grpc.CallOption) (*GetResponse, error)
+}
+
+type managerServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewManagerServiceClient(cc grpc.ClientConnInterface) ManagerServiceClient {
+	return &managerServiceClient{cc}
+}
+
+func (c *managerServiceClient) Get(ctx context.Context, in *GetRequest, opts ...grpc.CallOption) (*GetResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetResponse)
+	err := c.cc.Invoke(ctx, ManagerService_Get_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ManagerServiceServer is the server API for ManagerService service.
+// All implementations must embed UnimplementedManagerServiceServer
+// for forward compatibility.
+type ManagerServiceServer interface {
+	Get(context.Context, *GetRequest) (*GetResponse, error)
+	mustEmbedUnimplementedManagerServiceServer()
+}
+
+// UnimplementedManagerServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedManagerServiceServer struct{}
+
+func (UnimplementedManagerServiceServer) Get(context.Context, *GetRequest) (*GetResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Get not implemented")
+}
+func (UnimplementedManagerServiceServer) mustEmbedUnimplementedManagerServiceServer() {}
+func (UnimplementedManagerServiceServer) testEmbeddedByValue()                        {}
+
+// UnsafeManagerServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ManagerServiceServer will
+// result in compilation errors.
+type UnsafeManagerServiceServer interface {
+	mustEmbedUnimplementedManagerServiceServer()
+}
+
+func RegisterManagerServiceServer(s grpc.ServiceRegistrar, srv ManagerServiceServer) {
+	// If the following call panics, it indicates UnimplementedManagerServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&ManagerService_ServiceDesc, srv)
+}
+
+func _ManagerService_Get_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerServiceServer).Get(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerService_Get_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerServiceServer).Get(ctx, req.(*GetRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ManagerService_ServiceDesc is the grpc.ServiceDesc for ManagerService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ManagerService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "measurement.ManagerService",
+	HandlerType: (*ManagerServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Get",
+			Handler:    _ManagerService_Get_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/measurement/measurement.proto",
+}
+
+const (
 	WebSourceRegistrationRequestService_DescribeContents_FullMethodName       = "/measurement.WebSourceRegistrationRequestService/DescribeContents"
 	WebSourceRegistrationRequestService_Equals_FullMethodName                 = "/measurement.WebSourceRegistrationRequestService/Equals"
 	WebSourceRegistrationRequestService_GetAppDestination_FullMethodName      = "/measurement.WebSourceRegistrationRequestService/GetAppDestination"
 	WebSourceRegistrationRequestService_GetInputEvent_FullMethodName          = "/measurement.WebSourceRegistrationRequestService/GetInputEvent"
+	WebSourceRegistrationRequestService_GetSourceParams_FullMethodName        = "/measurement.WebSourceRegistrationRequestService/GetSourceParams"
 	WebSourceRegistrationRequestService_GetTopOriginUri_FullMethodName        = "/measurement.WebSourceRegistrationRequestService/GetTopOriginUri"
 	WebSourceRegistrationRequestService_GetVerifiedDestination_FullMethodName = "/measurement.WebSourceRegistrationRequestService/GetVerifiedDestination"
 	WebSourceRegistrationRequestService_GetWebDestination_FullMethodName      = "/measurement.WebSourceRegistrationRequestService/GetWebDestination"
@@ -2236,6 +1955,7 @@ type WebSourceRegistrationRequestServiceClient interface {
 	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
 	GetAppDestination(ctx context.Context, in *GetAppDestinationRequest, opts ...grpc.CallOption) (*GetAppDestinationResponse, error)
 	GetInputEvent(ctx context.Context, in *GetInputEventRequest, opts ...grpc.CallOption) (*GetInputEventResponse, error)
+	GetSourceParams(ctx context.Context, in *GetSourceParamsRequest, opts ...grpc.CallOption) (*GetSourceParamsResponse, error)
 	GetTopOriginUri(ctx context.Context, in *GetTopOriginUriRequest, opts ...grpc.CallOption) (*GetTopOriginUriResponse, error)
 	GetVerifiedDestination(ctx context.Context, in *GetVerifiedDestinationRequest, opts ...grpc.CallOption) (*GetVerifiedDestinationResponse, error)
 	GetWebDestination(ctx context.Context, in *GetWebDestinationRequest, opts ...grpc.CallOption) (*GetWebDestinationResponse, error)
@@ -2285,6 +2005,16 @@ func (c *webSourceRegistrationRequestServiceClient) GetInputEvent(ctx context.Co
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetInputEventResponse)
 	err := c.cc.Invoke(ctx, WebSourceRegistrationRequestService_GetInputEvent_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *webSourceRegistrationRequestServiceClient) GetSourceParams(ctx context.Context, in *GetSourceParamsRequest, opts ...grpc.CallOption) (*GetSourceParamsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSourceParamsResponse)
+	err := c.cc.Invoke(ctx, WebSourceRegistrationRequestService_GetSourceParams_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -2349,6 +2079,7 @@ type WebSourceRegistrationRequestServiceServer interface {
 	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
 	GetAppDestination(context.Context, *GetAppDestinationRequest) (*GetAppDestinationResponse, error)
 	GetInputEvent(context.Context, *GetInputEventRequest) (*GetInputEventResponse, error)
+	GetSourceParams(context.Context, *GetSourceParamsRequest) (*GetSourceParamsResponse, error)
 	GetTopOriginUri(context.Context, *GetTopOriginUriRequest) (*GetTopOriginUriResponse, error)
 	GetVerifiedDestination(context.Context, *GetVerifiedDestinationRequest) (*GetVerifiedDestinationResponse, error)
 	GetWebDestination(context.Context, *GetWebDestinationRequest) (*GetWebDestinationResponse, error)
@@ -2375,6 +2106,9 @@ func (UnimplementedWebSourceRegistrationRequestServiceServer) GetAppDestination(
 }
 func (UnimplementedWebSourceRegistrationRequestServiceServer) GetInputEvent(context.Context, *GetInputEventRequest) (*GetInputEventResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetInputEvent not implemented")
+}
+func (UnimplementedWebSourceRegistrationRequestServiceServer) GetSourceParams(context.Context, *GetSourceParamsRequest) (*GetSourceParamsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSourceParams not implemented")
 }
 func (UnimplementedWebSourceRegistrationRequestServiceServer) GetTopOriginUri(context.Context, *GetTopOriginUriRequest) (*GetTopOriginUriResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetTopOriginUri not implemented")
@@ -2481,6 +2215,24 @@ func _WebSourceRegistrationRequestService_GetInputEvent_Handler(srv interface{},
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(WebSourceRegistrationRequestServiceServer).GetInputEvent(ctx, req.(*GetInputEventRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WebSourceRegistrationRequestService_GetSourceParams_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSourceParamsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WebSourceRegistrationRequestServiceServer).GetSourceParams(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WebSourceRegistrationRequestService_GetSourceParams_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WebSourceRegistrationRequestServiceServer).GetSourceParams(ctx, req.(*GetSourceParamsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -2597,6 +2349,10 @@ var WebSourceRegistrationRequestService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetInputEvent",
 			Handler:    _WebSourceRegistrationRequestService_GetInputEvent_Handler,
+		},
+		{
+			MethodName: "GetSourceParams",
+			Handler:    _WebSourceRegistrationRequestService_GetSourceParams_Handler,
 		},
 		{
 			MethodName: "GetTopOriginUri",
@@ -2872,6 +2628,440 @@ var WebSourceRegistrationRequestBuilderService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "SetWebDestination",
 			Handler:    _WebSourceRegistrationRequestBuilderService_SetWebDestination_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/measurement/measurement.proto",
+}
+
+const (
+	SourceRegistrationRequestService_DescribeContents_FullMethodName    = "/measurement.SourceRegistrationRequestService/DescribeContents"
+	SourceRegistrationRequestService_Equals_FullMethodName              = "/measurement.SourceRegistrationRequestService/Equals"
+	SourceRegistrationRequestService_GetInputEvent_FullMethodName       = "/measurement.SourceRegistrationRequestService/GetInputEvent"
+	SourceRegistrationRequestService_GetRegistrationUris_FullMethodName = "/measurement.SourceRegistrationRequestService/GetRegistrationUris"
+	SourceRegistrationRequestService_HashCode_FullMethodName            = "/measurement.SourceRegistrationRequestService/HashCode"
+	SourceRegistrationRequestService_WriteToParcel_FullMethodName       = "/measurement.SourceRegistrationRequestService/WriteToParcel"
+)
+
+// SourceRegistrationRequestServiceClient is the client API for SourceRegistrationRequestService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type SourceRegistrationRequestServiceClient interface {
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	GetInputEvent(ctx context.Context, in *GetInputEventRequest, opts ...grpc.CallOption) (*GetInputEventResponse, error)
+	GetRegistrationUris(ctx context.Context, in *GetRegistrationUrisRequest, opts ...grpc.CallOption) (*GetRegistrationUrisResponse, error)
+	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type sourceRegistrationRequestServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewSourceRegistrationRequestServiceClient(cc grpc.ClientConnInterface) SourceRegistrationRequestServiceClient {
+	return &sourceRegistrationRequestServiceClient{cc}
+}
+
+func (c *sourceRegistrationRequestServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, SourceRegistrationRequestService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sourceRegistrationRequestServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(EqualsResponse)
+	err := c.cc.Invoke(ctx, SourceRegistrationRequestService_Equals_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sourceRegistrationRequestServiceClient) GetInputEvent(ctx context.Context, in *GetInputEventRequest, opts ...grpc.CallOption) (*GetInputEventResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetInputEventResponse)
+	err := c.cc.Invoke(ctx, SourceRegistrationRequestService_GetInputEvent_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sourceRegistrationRequestServiceClient) GetRegistrationUris(ctx context.Context, in *GetRegistrationUrisRequest, opts ...grpc.CallOption) (*GetRegistrationUrisResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetRegistrationUrisResponse)
+	err := c.cc.Invoke(ctx, SourceRegistrationRequestService_GetRegistrationUris_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sourceRegistrationRequestServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HashCodeResponse)
+	err := c.cc.Invoke(ctx, SourceRegistrationRequestService_HashCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sourceRegistrationRequestServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, SourceRegistrationRequestService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// SourceRegistrationRequestServiceServer is the server API for SourceRegistrationRequestService service.
+// All implementations must embed UnimplementedSourceRegistrationRequestServiceServer
+// for forward compatibility.
+type SourceRegistrationRequestServiceServer interface {
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
+	GetInputEvent(context.Context, *GetInputEventRequest) (*GetInputEventResponse, error)
+	GetRegistrationUris(context.Context, *GetRegistrationUrisRequest) (*GetRegistrationUrisResponse, error)
+	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedSourceRegistrationRequestServiceServer()
+}
+
+// UnimplementedSourceRegistrationRequestServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedSourceRegistrationRequestServiceServer struct{}
+
+func (UnimplementedSourceRegistrationRequestServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedSourceRegistrationRequestServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
+}
+func (UnimplementedSourceRegistrationRequestServiceServer) GetInputEvent(context.Context, *GetInputEventRequest) (*GetInputEventResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetInputEvent not implemented")
+}
+func (UnimplementedSourceRegistrationRequestServiceServer) GetRegistrationUris(context.Context, *GetRegistrationUrisRequest) (*GetRegistrationUrisResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetRegistrationUris not implemented")
+}
+func (UnimplementedSourceRegistrationRequestServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
+}
+func (UnimplementedSourceRegistrationRequestServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedSourceRegistrationRequestServiceServer) mustEmbedUnimplementedSourceRegistrationRequestServiceServer() {
+}
+func (UnimplementedSourceRegistrationRequestServiceServer) testEmbeddedByValue() {}
+
+// UnsafeSourceRegistrationRequestServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to SourceRegistrationRequestServiceServer will
+// result in compilation errors.
+type UnsafeSourceRegistrationRequestServiceServer interface {
+	mustEmbedUnimplementedSourceRegistrationRequestServiceServer()
+}
+
+func RegisterSourceRegistrationRequestServiceServer(s grpc.ServiceRegistrar, srv SourceRegistrationRequestServiceServer) {
+	// If the following call panics, it indicates UnimplementedSourceRegistrationRequestServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&SourceRegistrationRequestService_ServiceDesc, srv)
+}
+
+func _SourceRegistrationRequestService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SourceRegistrationRequestServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SourceRegistrationRequestService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SourceRegistrationRequestServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SourceRegistrationRequestService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EqualsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SourceRegistrationRequestServiceServer).Equals(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SourceRegistrationRequestService_Equals_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SourceRegistrationRequestServiceServer).Equals(ctx, req.(*EqualsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SourceRegistrationRequestService_GetInputEvent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetInputEventRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SourceRegistrationRequestServiceServer).GetInputEvent(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SourceRegistrationRequestService_GetInputEvent_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SourceRegistrationRequestServiceServer).GetInputEvent(ctx, req.(*GetInputEventRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SourceRegistrationRequestService_GetRegistrationUris_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetRegistrationUrisRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SourceRegistrationRequestServiceServer).GetRegistrationUris(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SourceRegistrationRequestService_GetRegistrationUris_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SourceRegistrationRequestServiceServer).GetRegistrationUris(ctx, req.(*GetRegistrationUrisRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SourceRegistrationRequestService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HashCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SourceRegistrationRequestServiceServer).HashCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SourceRegistrationRequestService_HashCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SourceRegistrationRequestServiceServer).HashCode(ctx, req.(*HashCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SourceRegistrationRequestService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SourceRegistrationRequestServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SourceRegistrationRequestService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SourceRegistrationRequestServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// SourceRegistrationRequestService_ServiceDesc is the grpc.ServiceDesc for SourceRegistrationRequestService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var SourceRegistrationRequestService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "measurement.SourceRegistrationRequestService",
+	HandlerType: (*SourceRegistrationRequestServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "DescribeContents",
+			Handler:    _SourceRegistrationRequestService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "Equals",
+			Handler:    _SourceRegistrationRequestService_Equals_Handler,
+		},
+		{
+			MethodName: "GetInputEvent",
+			Handler:    _SourceRegistrationRequestService_GetInputEvent_Handler,
+		},
+		{
+			MethodName: "GetRegistrationUris",
+			Handler:    _SourceRegistrationRequestService_GetRegistrationUris_Handler,
+		},
+		{
+			MethodName: "HashCode",
+			Handler:    _SourceRegistrationRequestService_HashCode_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _SourceRegistrationRequestService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/measurement/measurement.proto",
+}
+
+const (
+	SourceRegistrationRequestBuilderService_Build_FullMethodName         = "/measurement.SourceRegistrationRequestBuilderService/Build"
+	SourceRegistrationRequestBuilderService_SetInputEvent_FullMethodName = "/measurement.SourceRegistrationRequestBuilderService/SetInputEvent"
+)
+
+// SourceRegistrationRequestBuilderServiceClient is the client API for SourceRegistrationRequestBuilderService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type SourceRegistrationRequestBuilderServiceClient interface {
+	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
+	SetInputEvent(ctx context.Context, in *SetInputEventRequest, opts ...grpc.CallOption) (*SetInputEventResponse, error)
+}
+
+type sourceRegistrationRequestBuilderServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewSourceRegistrationRequestBuilderServiceClient(cc grpc.ClientConnInterface) SourceRegistrationRequestBuilderServiceClient {
+	return &sourceRegistrationRequestBuilderServiceClient{cc}
+}
+
+func (c *sourceRegistrationRequestBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(BuildResponse)
+	err := c.cc.Invoke(ctx, SourceRegistrationRequestBuilderService_Build_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sourceRegistrationRequestBuilderServiceClient) SetInputEvent(ctx context.Context, in *SetInputEventRequest, opts ...grpc.CallOption) (*SetInputEventResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetInputEventResponse)
+	err := c.cc.Invoke(ctx, SourceRegistrationRequestBuilderService_SetInputEvent_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// SourceRegistrationRequestBuilderServiceServer is the server API for SourceRegistrationRequestBuilderService service.
+// All implementations must embed UnimplementedSourceRegistrationRequestBuilderServiceServer
+// for forward compatibility.
+type SourceRegistrationRequestBuilderServiceServer interface {
+	Build(context.Context, *BuildRequest) (*BuildResponse, error)
+	SetInputEvent(context.Context, *SetInputEventRequest) (*SetInputEventResponse, error)
+	mustEmbedUnimplementedSourceRegistrationRequestBuilderServiceServer()
+}
+
+// UnimplementedSourceRegistrationRequestBuilderServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedSourceRegistrationRequestBuilderServiceServer struct{}
+
+func (UnimplementedSourceRegistrationRequestBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
+}
+func (UnimplementedSourceRegistrationRequestBuilderServiceServer) SetInputEvent(context.Context, *SetInputEventRequest) (*SetInputEventResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetInputEvent not implemented")
+}
+func (UnimplementedSourceRegistrationRequestBuilderServiceServer) mustEmbedUnimplementedSourceRegistrationRequestBuilderServiceServer() {
+}
+func (UnimplementedSourceRegistrationRequestBuilderServiceServer) testEmbeddedByValue() {}
+
+// UnsafeSourceRegistrationRequestBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to SourceRegistrationRequestBuilderServiceServer will
+// result in compilation errors.
+type UnsafeSourceRegistrationRequestBuilderServiceServer interface {
+	mustEmbedUnimplementedSourceRegistrationRequestBuilderServiceServer()
+}
+
+func RegisterSourceRegistrationRequestBuilderServiceServer(s grpc.ServiceRegistrar, srv SourceRegistrationRequestBuilderServiceServer) {
+	// If the following call panics, it indicates UnimplementedSourceRegistrationRequestBuilderServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&SourceRegistrationRequestBuilderService_ServiceDesc, srv)
+}
+
+func _SourceRegistrationRequestBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BuildRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SourceRegistrationRequestBuilderServiceServer).Build(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SourceRegistrationRequestBuilderService_Build_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SourceRegistrationRequestBuilderServiceServer).Build(ctx, req.(*BuildRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SourceRegistrationRequestBuilderService_SetInputEvent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetInputEventRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SourceRegistrationRequestBuilderServiceServer).SetInputEvent(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SourceRegistrationRequestBuilderService_SetInputEvent_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SourceRegistrationRequestBuilderServiceServer).SetInputEvent(ctx, req.(*SetInputEventRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// SourceRegistrationRequestBuilderService_ServiceDesc is the grpc.ServiceDesc for SourceRegistrationRequestBuilderService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var SourceRegistrationRequestBuilderService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "measurement.SourceRegistrationRequestBuilderService",
+	HandlerType: (*SourceRegistrationRequestBuilderServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Build",
+			Handler:    _SourceRegistrationRequestBuilderService_Build_Handler,
+		},
+		{
+			MethodName: "SetInputEvent",
+			Handler:    _SourceRegistrationRequestBuilderService_SetInputEvent_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

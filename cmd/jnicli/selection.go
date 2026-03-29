@@ -83,6 +83,25 @@ var selectionPageSelectionGetPageCmd = &cobra.Command{
 	},
 }
 
+var selectionPageSelectionGetSelectedTextContentsCmd = &cobra.Command{
+	Use:   "get-selected-text-contents",
+	Short: "GetSelectedTextContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPageSelectionServiceClient(grpcConn)
+		req := &pb.GetSelectedTextContentsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetSelectedTextContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var selectionPageSelectionGetStartCmd = &cobra.Command{
 	Use:   "get-start",
 	Short: "GetStart RPC",
@@ -281,6 +300,8 @@ func init() {
 	selectionPageSelectionCmd.AddCommand(selectionPageSelectionDescribeContentsCmd)
 	selectionPageSelectionGetPageCmd.Flags().Int64("handle", 0, "handle (int64)")
 	selectionPageSelectionCmd.AddCommand(selectionPageSelectionGetPageCmd)
+	selectionPageSelectionGetSelectedTextContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	selectionPageSelectionCmd.AddCommand(selectionPageSelectionGetSelectedTextContentsCmd)
 	selectionPageSelectionGetStartCmd.Flags().Int64("handle", 0, "handle (int64)")
 	selectionPageSelectionCmd.AddCommand(selectionPageSelectionGetStartCmd)
 	selectionPageSelectionGetStopCmd.Flags().Int64("handle", 0, "handle (int64)")

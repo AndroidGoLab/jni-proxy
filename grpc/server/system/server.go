@@ -15,92 +15,6 @@ import (
 	"google.golang.org/grpc/status"
 )
 
-// VmSocketAddressServer implements pb.VmSocketAddressServiceServer.
-type VmSocketAddressServer struct {
-	pb.UnimplementedVmSocketAddressServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *VmSocketAddressServer) NewVmSocketAddress(_ context.Context, req *pb.NewVmSocketAddressRequest) (*pb.NewVmSocketAddressResponse, error) {
-	obj, err := jnipkg.NewVmSocketAddress(s.Ctx.VM, req.GetArg0(), req.GetArg1())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
-	}
-	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-	}
-	return &pb.NewVmSocketAddressResponse{Result: handle}, nil
-}
-
-func (s *VmSocketAddressServer) GetSvmCid(_ context.Context, req *pb.GetSvmCidRequest) (*pb.GetSvmCidResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.VmSocketAddress{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetSvmCid()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetSvmCidResponse{Result: result}, nil
-}
-
-func (s *VmSocketAddressServer) GetSvmPort(_ context.Context, req *pb.GetSvmPortRequest) (*pb.GetSvmPortResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.VmSocketAddress{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetSvmPort()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetSvmPortResponse{Result: result}, nil
-}
-
-// StructStatServer implements pb.StructStatServiceServer.
-type StructStatServer struct {
-	pb.UnimplementedStructStatServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *StructStatServer) NewStructStat(_ context.Context, req *pb.NewStructStatRequest) (*pb.NewStructStatResponse, error) {
-	obj, err := jnipkg.NewStructStat(s.Ctx.VM, req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3(), req.GetArg4(), req.GetArg5(), req.GetArg6(), req.GetArg7(), s.Handles.Get(req.GetArg8()), s.Handles.Get(req.GetArg9()), s.Handles.Get(req.GetArg10()), req.GetArg11(), req.GetArg12())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
-	}
-	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-	}
-	return &pb.NewStructStatResponse{Result: handle}, nil
-}
-
-func (s *StructStatServer) ToString(_ context.Context, req *pb.ToStringRequest) (*pb.ToStringResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.StructStat{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.ToString()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.ToStringResponse{Result: result}, nil
-}
-
 // ErrnoExceptionServer implements pb.ErrnoExceptionServiceServer.
 type ErrnoExceptionServer struct {
 	pb.UnimplementedErrnoExceptionServiceServer
@@ -183,15 +97,15 @@ func (s *ErrnoExceptionServer) RethrowAsSocketException(_ context.Context, req *
 	return &pb.RethrowAsSocketExceptionResponse{Result: handle}, nil
 }
 
-// StructStatVfsServer implements pb.StructStatVfsServiceServer.
-type StructStatVfsServer struct {
-	pb.UnimplementedStructStatVfsServiceServer
+// StructPollfdServer implements pb.StructPollfdServiceServer.
+type StructPollfdServer struct {
+	pb.UnimplementedStructPollfdServiceServer
 	Ctx     *app.Context
 	Handles *handlestore.HandleStore
 }
 
-func (s *StructStatVfsServer) NewStructStatVfs(_ context.Context, req *pb.NewStructStatVfsRequest) (*pb.NewStructStatVfsResponse, error) {
-	obj, err := jnipkg.NewStructStatVfs(s.Ctx.VM, req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3(), req.GetArg4(), req.GetArg5(), req.GetArg6(), req.GetArg7(), req.GetArg8(), req.GetArg9(), req.GetArg10())
+func (s *StructPollfdServer) NewStructPollfd(_ context.Context, req *pb.NewStructPollfdRequest) (*pb.NewStructPollfdResponse, error) {
+	obj, err := jnipkg.NewStructPollfd(s.Ctx.VM)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create object: %v", err)
 	}
@@ -202,15 +116,87 @@ func (s *StructStatVfsServer) NewStructStatVfs(_ context.Context, req *pb.NewStr
 	}); doErr != nil {
 		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
 	}
-	return &pb.NewStructStatVfsResponse{Result: handle}, nil
+	return &pb.NewStructPollfdResponse{Result: handle}, nil
 }
 
-func (s *StructStatVfsServer) ToString(_ context.Context, req *pb.ToStringRequest) (*pb.ToStringResponse, error) {
+func (s *StructPollfdServer) ToString(_ context.Context, req *pb.ToStringRequest) (*pb.ToStringResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.StructStatVfs{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.StructPollfd{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.ToString()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ToStringResponse{Result: result}, nil
+}
+
+// Int64RefServer implements pb.Int64RefServiceServer.
+type Int64RefServer struct {
+	pb.UnimplementedInt64RefServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *Int64RefServer) NewInt64Ref(_ context.Context, req *pb.NewInt64RefRequest) (*pb.NewInt64RefResponse, error) {
+	obj, err := jnipkg.NewInt64Ref(s.Ctx.VM, req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewInt64RefResponse{Result: handle}, nil
+}
+
+func (s *Int64RefServer) ToString(_ context.Context, req *pb.ToStringRequest) (*pb.ToStringResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Int64Ref{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.ToString()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ToStringResponse{Result: result}, nil
+}
+
+// StructUtsnameServer implements pb.StructUtsnameServiceServer.
+type StructUtsnameServer struct {
+	pb.UnimplementedStructUtsnameServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *StructUtsnameServer) NewStructUtsname(_ context.Context, req *pb.NewStructUtsnameRequest) (*pb.NewStructUtsnameResponse, error) {
+	obj, err := jnipkg.NewStructUtsname(s.Ctx.VM, req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3(), req.GetArg4())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewStructUtsnameResponse{Result: handle}, nil
+}
+
+func (s *StructUtsnameServer) ToString(_ context.Context, req *pb.ToStringRequest) (*pb.ToStringResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.StructUtsname{VM: s.Ctx.VM, Obj: rawObj}
 
 	result, err := mgr.ToString()
 	if err != nil {
@@ -255,7 +241,7 @@ func (s *StructTimespecServer) CompareTo1(_ context.Context, req *pb.CompareTo1R
 	return &pb.CompareTo1Response{Result: result}, nil
 }
 
-func (s *StructTimespecServer) Equals(_ context.Context, req *pb.EqualsRequest) (*pb.EqualsResponse, error) {
+func (s *StructTimespecServer) Equals(_ context.Context, req *pb.StructTimespecEqualsRequest) (*pb.EqualsResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -269,7 +255,7 @@ func (s *StructTimespecServer) Equals(_ context.Context, req *pb.EqualsRequest) 
 	return &pb.EqualsResponse{Result: result}, nil
 }
 
-func (s *StructTimespecServer) HashCode(_ context.Context, req *pb.HashCodeRequest) (*pb.HashCodeResponse, error) {
+func (s *StructTimespecServer) HashCode(_ context.Context, req *pb.StructTimespecHashCodeRequest) (*pb.HashCodeResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -311,15 +297,15 @@ func (s *StructTimespecServer) CompareTo1_1(_ context.Context, req *pb.CompareTo
 	return &pb.CompareTo1_1Response{Result: result}, nil
 }
 
-// Int64RefServer implements pb.Int64RefServiceServer.
-type Int64RefServer struct {
-	pb.UnimplementedInt64RefServiceServer
+// VmSocketAddressServer implements pb.VmSocketAddressServiceServer.
+type VmSocketAddressServer struct {
+	pb.UnimplementedVmSocketAddressServiceServer
 	Ctx     *app.Context
 	Handles *handlestore.HandleStore
 }
 
-func (s *Int64RefServer) NewInt64Ref(_ context.Context, req *pb.NewInt64RefRequest) (*pb.NewInt64RefResponse, error) {
-	obj, err := jnipkg.NewInt64Ref(s.Ctx.VM, req.GetArg0())
+func (s *VmSocketAddressServer) NewVmSocketAddress(_ context.Context, req *pb.NewVmSocketAddressRequest) (*pb.NewVmSocketAddressResponse, error) {
+	obj, err := jnipkg.NewVmSocketAddress(s.Ctx.VM, req.GetArg0(), req.GetArg1())
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create object: %v", err)
 	}
@@ -330,15 +316,65 @@ func (s *Int64RefServer) NewInt64Ref(_ context.Context, req *pb.NewInt64RefReque
 	}); doErr != nil {
 		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
 	}
-	return &pb.NewInt64RefResponse{Result: handle}, nil
+	return &pb.NewVmSocketAddressResponse{Result: handle}, nil
 }
 
-func (s *Int64RefServer) ToString(_ context.Context, req *pb.ToStringRequest) (*pb.ToStringResponse, error) {
+func (s *VmSocketAddressServer) GetSvmCid(_ context.Context, req *pb.GetSvmCidRequest) (*pb.GetSvmCidResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.Int64Ref{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.VmSocketAddress{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetSvmCid()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetSvmCidResponse{Result: result}, nil
+}
+
+func (s *VmSocketAddressServer) GetSvmPort(_ context.Context, req *pb.GetSvmPortRequest) (*pb.GetSvmPortResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.VmSocketAddress{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetSvmPort()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetSvmPortResponse{Result: result}, nil
+}
+
+// StructStatVfsServer implements pb.StructStatVfsServiceServer.
+type StructStatVfsServer struct {
+	pb.UnimplementedStructStatVfsServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *StructStatVfsServer) NewStructStatVfs(_ context.Context, req *pb.NewStructStatVfsRequest) (*pb.NewStructStatVfsResponse, error) {
+	obj, err := jnipkg.NewStructStatVfs(s.Ctx.VM, req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3(), req.GetArg4(), req.GetArg5(), req.GetArg6(), req.GetArg7(), req.GetArg8(), req.GetArg9(), req.GetArg10())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewStructStatVfsResponse{Result: handle}, nil
+}
+
+func (s *StructStatVfsServer) ToString(_ context.Context, req *pb.ToStringRequest) (*pb.ToStringResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.StructStatVfs{VM: s.Ctx.VM, Obj: rawObj}
 
 	result, err := mgr.ToString()
 	if err != nil {
@@ -347,15 +383,15 @@ func (s *Int64RefServer) ToString(_ context.Context, req *pb.ToStringRequest) (*
 	return &pb.ToStringResponse{Result: result}, nil
 }
 
-// StructPollfdServer implements pb.StructPollfdServiceServer.
-type StructPollfdServer struct {
-	pb.UnimplementedStructPollfdServiceServer
+// StructStatServer implements pb.StructStatServiceServer.
+type StructStatServer struct {
+	pb.UnimplementedStructStatServiceServer
 	Ctx     *app.Context
 	Handles *handlestore.HandleStore
 }
 
-func (s *StructPollfdServer) NewStructPollfd(_ context.Context, req *pb.NewStructPollfdRequest) (*pb.NewStructPollfdResponse, error) {
-	obj, err := jnipkg.NewStructPollfd(s.Ctx.VM)
+func (s *StructStatServer) NewStructStat(_ context.Context, req *pb.NewStructStatRequest) (*pb.NewStructStatResponse, error) {
+	obj, err := jnipkg.NewStructStat(s.Ctx.VM, req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3(), req.GetArg4(), req.GetArg5(), req.GetArg6(), req.GetArg7(), s.Handles.Get(req.GetArg8()), s.Handles.Get(req.GetArg9()), s.Handles.Get(req.GetArg10()), req.GetArg11(), req.GetArg12())
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create object: %v", err)
 	}
@@ -366,51 +402,15 @@ func (s *StructPollfdServer) NewStructPollfd(_ context.Context, req *pb.NewStruc
 	}); doErr != nil {
 		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
 	}
-	return &pb.NewStructPollfdResponse{Result: handle}, nil
+	return &pb.NewStructStatResponse{Result: handle}, nil
 }
 
-func (s *StructPollfdServer) ToString(_ context.Context, req *pb.ToStringRequest) (*pb.ToStringResponse, error) {
+func (s *StructStatServer) ToString(_ context.Context, req *pb.ToStringRequest) (*pb.ToStringResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.StructPollfd{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.ToString()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.ToStringResponse{Result: result}, nil
-}
-
-// StructUtsnameServer implements pb.StructUtsnameServiceServer.
-type StructUtsnameServer struct {
-	pb.UnimplementedStructUtsnameServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *StructUtsnameServer) NewStructUtsname(_ context.Context, req *pb.NewStructUtsnameRequest) (*pb.NewStructUtsnameResponse, error) {
-	obj, err := jnipkg.NewStructUtsname(s.Ctx.VM, req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3(), req.GetArg4())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
-	}
-	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-	}
-	return &pb.NewStructUtsnameResponse{Result: handle}, nil
-}
-
-func (s *StructUtsnameServer) ToString(_ context.Context, req *pb.ToStringRequest) (*pb.ToStringResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.StructUtsname{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.StructStat{VM: s.Ctx.VM, Obj: rawObj}
 
 	result, err := mgr.ToString()
 	if err != nil {

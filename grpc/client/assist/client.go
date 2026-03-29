@@ -9,6 +9,172 @@ import (
 	"google.golang.org/grpc"
 )
 
+// ContentClient wraps the gRPC ContentService client.
+type ContentClient struct {
+	svc pb.ContentServiceClient
+}
+
+// NewContentClient creates a new Content client.
+func NewContentClient(cc grpc.ClientConnInterface) *ContentClient {
+	return &ContentClient{
+		svc: pb.NewContentServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *ContentClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetClipData calls the GetClipData RPC.
+func (c *ContentClient) GetClipData(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetClipData(ctx, &pb.GetClipDataRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetExtras calls the GetExtras RPC.
+func (c *ContentClient) GetExtras(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetExtras(ctx, &pb.GetExtrasRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetIntent calls the GetIntent RPC.
+func (c *ContentClient) GetIntent(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetIntent(ctx, &pb.GetIntentRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSessionTransferUri calls the GetSessionTransferUri RPC.
+func (c *ContentClient) GetSessionTransferUri(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetSessionTransferUri(ctx, &pb.GetSessionTransferUriRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetStructuredData calls the GetStructuredData RPC.
+func (c *ContentClient) GetStructuredData(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetStructuredData(ctx, &pb.GetStructuredDataRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetWebUri calls the GetWebUri RPC.
+func (c *ContentClient) GetWebUri(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetWebUri(ctx, &pb.GetWebUriRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsAppProvidedIntent calls the IsAppProvidedIntent RPC.
+func (c *ContentClient) IsAppProvidedIntent(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsAppProvidedIntent(ctx, &pb.IsAppProvidedIntentRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsAppProvidedWebUri calls the IsAppProvidedWebUri RPC.
+func (c *ContentClient) IsAppProvidedWebUri(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsAppProvidedWebUri(ctx, &pb.IsAppProvidedWebUriRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetClipData calls the SetClipData RPC.
+func (c *ContentClient) SetClipData(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetClipData(ctx, &pb.SetClipDataRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetIntent calls the SetIntent RPC.
+func (c *ContentClient) SetIntent(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetIntent(ctx, &pb.SetIntentRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetSessionTransferUri calls the SetSessionTransferUri RPC.
+func (c *ContentClient) SetSessionTransferUri(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetSessionTransferUri(ctx, &pb.SetSessionTransferUriRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetStructuredData calls the SetStructuredData RPC.
+func (c *ContentClient) SetStructuredData(ctx context.Context, handle int64, arg0 string) error {
+	_, err := c.svc.SetStructuredData(ctx, &pb.SetStructuredDataRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetWebUri calls the SetWebUri RPC.
+func (c *ContentClient) SetWebUri(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetWebUri(ctx, &pb.SetWebUriRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *ContentClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
 // StructureClient wraps the gRPC StructureService client.
 type StructureClient struct {
 	svc pb.StructureServiceClient
@@ -224,7 +390,7 @@ func (c *StructureViewNodeClient) GetElevation(ctx context.Context) (float32, er
 
 // GetExtras calls the GetExtras RPC.
 func (c *StructureViewNodeClient) GetExtras(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetExtras(ctx, &pb.GetExtrasRequest{})
+	resp, err := c.svc.GetExtras(ctx, &pb.StructureViewNodeGetExtrasRequest{})
 	if err != nil {
 		return 0, err
 	}
@@ -727,170 +893,4 @@ func (c *StructureWindowNodeClient) GetWidth(ctx context.Context) (int32, error)
 		return 0, err
 	}
 	return resp.GetResult(), nil
-}
-
-// ContentClient wraps the gRPC ContentService client.
-type ContentClient struct {
-	svc pb.ContentServiceClient
-}
-
-// NewContentClient creates a new Content client.
-func NewContentClient(cc grpc.ClientConnInterface) *ContentClient {
-	return &ContentClient{
-		svc: pb.NewContentServiceClient(cc),
-	}
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *ContentClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetClipData calls the GetClipData RPC.
-func (c *ContentClient) GetClipData(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetClipData(ctx, &pb.GetClipDataRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetExtras calls the GetExtras RPC.
-func (c *ContentClient) GetExtras(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetExtras(ctx, &pb.ContentGetExtrasRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetIntent calls the GetIntent RPC.
-func (c *ContentClient) GetIntent(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetIntent(ctx, &pb.GetIntentRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetSessionTransferUri calls the GetSessionTransferUri RPC.
-func (c *ContentClient) GetSessionTransferUri(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetSessionTransferUri(ctx, &pb.GetSessionTransferUriRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetStructuredData calls the GetStructuredData RPC.
-func (c *ContentClient) GetStructuredData(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.GetStructuredData(ctx, &pb.GetStructuredDataRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetWebUri calls the GetWebUri RPC.
-func (c *ContentClient) GetWebUri(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetWebUri(ctx, &pb.GetWebUriRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsAppProvidedIntent calls the IsAppProvidedIntent RPC.
-func (c *ContentClient) IsAppProvidedIntent(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.IsAppProvidedIntent(ctx, &pb.IsAppProvidedIntentRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsAppProvidedWebUri calls the IsAppProvidedWebUri RPC.
-func (c *ContentClient) IsAppProvidedWebUri(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.IsAppProvidedWebUri(ctx, &pb.IsAppProvidedWebUriRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetClipData calls the SetClipData RPC.
-func (c *ContentClient) SetClipData(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.SetClipData(ctx, &pb.SetClipDataRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetIntent calls the SetIntent RPC.
-func (c *ContentClient) SetIntent(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.SetIntent(ctx, &pb.SetIntentRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetSessionTransferUri calls the SetSessionTransferUri RPC.
-func (c *ContentClient) SetSessionTransferUri(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.SetSessionTransferUri(ctx, &pb.SetSessionTransferUriRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetStructuredData calls the SetStructuredData RPC.
-func (c *ContentClient) SetStructuredData(ctx context.Context, handle int64, arg0 string) error {
-	_, err := c.svc.SetStructuredData(ctx, &pb.SetStructuredDataRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetWebUri calls the SetWebUri RPC.
-func (c *ContentClient) SetWebUri(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.SetWebUri(ctx, &pb.SetWebUriRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *ContentClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
 }

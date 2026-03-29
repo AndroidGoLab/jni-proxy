@@ -55,49 +55,6 @@ var exceptionsAppSearchExceptionGetResultCodeCmd = &cobra.Command{
 	},
 }
 
-var exceptionsIkeNetworkLostExceptionCmd = &cobra.Command{
-	Use:   "ike-network-lost-exception",
-	Short: "IkeNetworkLostExceptionService operations",
-}
-
-var exceptionsIkeNetworkLostExceptionNewIkeNetworkLostExceptionCmd = &cobra.Command{
-	Use:   "new-ike-network-lost-exception",
-	Short: "NewIkeNetworkLostException RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewIkeNetworkLostExceptionServiceClient(grpcConn)
-		req := &pb.NewIkeNetworkLostExceptionRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.NewIkeNetworkLostException(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var exceptionsIkeNetworkLostExceptionGetNetworkCmd = &cobra.Command{
-	Use:   "get-network",
-	Short: "GetNetwork RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewIkeNetworkLostExceptionServiceClient(grpcConn)
-		req := &pb.GetNetworkRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetNetwork(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
 var exceptionsIkeProtocolExceptionCmd = &cobra.Command{
 	Use:   "ike-protocol-exception",
 	Short: "IkeProtocolExceptionService operations",
@@ -112,92 +69,6 @@ var exceptionsIkeProtocolExceptionGetErrorTypeCmd = &cobra.Command{
 		client := pb.NewIkeProtocolExceptionServiceClient(grpcConn)
 		req := &pb.GetErrorTypeRequest{}
 		resp, err := client.GetErrorType(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var exceptionsInvalidKeExceptionCmd = &cobra.Command{
-	Use:   "invalid-ke-exception",
-	Short: "InvalidKeExceptionService operations",
-}
-
-var exceptionsInvalidKeExceptionNewInvalidKeExceptionCmd = &cobra.Command{
-	Use:   "new-invalid-ke-exception",
-	Short: "NewInvalidKeException RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewInvalidKeExceptionServiceClient(grpcConn)
-		req := &pb.NewInvalidKeExceptionRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.NewInvalidKeException(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var exceptionsInvalidKeExceptionGetDhGroupCmd = &cobra.Command{
-	Use:   "get-dh-group",
-	Short: "GetDhGroup RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewInvalidKeExceptionServiceClient(grpcConn)
-		req := &pb.GetDhGroupRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetDhGroup(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var exceptionsInvalidMajorVersionExceptionCmd = &cobra.Command{
-	Use:   "invalid-major-version-exception",
-	Short: "InvalidMajorVersionExceptionService operations",
-}
-
-var exceptionsInvalidMajorVersionExceptionNewInvalidMajorVersionExceptionCmd = &cobra.Command{
-	Use:   "new-invalid-major-version-exception",
-	Short: "NewInvalidMajorVersionException RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewInvalidMajorVersionExceptionServiceClient(grpcConn)
-		req := &pb.NewInvalidMajorVersionExceptionRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.NewInvalidMajorVersionException(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var exceptionsInvalidMajorVersionExceptionGetMajorVersionCmd = &cobra.Command{
-	Use:   "get-major-version",
-	Short: "GetMajorVersion RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewInvalidMajorVersionExceptionServiceClient(grpcConn)
-		req := &pb.GetMajorVersionRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetMajorVersion(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -263,6 +134,135 @@ var exceptionsInvalidSelectorsExceptionGetIpSecSpiCmd = &cobra.Command{
 			req.Handle = v
 		}
 		resp, err := client.GetIpSecSpi(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var exceptionsInvalidKeExceptionCmd = &cobra.Command{
+	Use:   "invalid-ke-exception",
+	Short: "InvalidKeExceptionService operations",
+}
+
+var exceptionsInvalidKeExceptionNewInvalidKeExceptionCmd = &cobra.Command{
+	Use:   "new-invalid-ke-exception",
+	Short: "NewInvalidKeException RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInvalidKeExceptionServiceClient(grpcConn)
+		req := &pb.NewInvalidKeExceptionRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.NewInvalidKeException(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var exceptionsInvalidKeExceptionGetDhGroupCmd = &cobra.Command{
+	Use:   "get-dh-group",
+	Short: "GetDhGroup RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInvalidKeExceptionServiceClient(grpcConn)
+		req := &pb.GetDhGroupRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetDhGroup(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var exceptionsIkeNetworkLostExceptionCmd = &cobra.Command{
+	Use:   "ike-network-lost-exception",
+	Short: "IkeNetworkLostExceptionService operations",
+}
+
+var exceptionsIkeNetworkLostExceptionNewIkeNetworkLostExceptionCmd = &cobra.Command{
+	Use:   "new-ike-network-lost-exception",
+	Short: "NewIkeNetworkLostException RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewIkeNetworkLostExceptionServiceClient(grpcConn)
+		req := &pb.NewIkeNetworkLostExceptionRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.NewIkeNetworkLostException(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var exceptionsIkeNetworkLostExceptionGetNetworkCmd = &cobra.Command{
+	Use:   "get-network",
+	Short: "GetNetwork RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewIkeNetworkLostExceptionServiceClient(grpcConn)
+		req := &pb.GetNetworkRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetNetwork(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var exceptionsInvalidMajorVersionExceptionCmd = &cobra.Command{
+	Use:   "invalid-major-version-exception",
+	Short: "InvalidMajorVersionExceptionService operations",
+}
+
+var exceptionsInvalidMajorVersionExceptionNewInvalidMajorVersionExceptionCmd = &cobra.Command{
+	Use:   "new-invalid-major-version-exception",
+	Short: "NewInvalidMajorVersionException RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInvalidMajorVersionExceptionServiceClient(grpcConn)
+		req := &pb.NewInvalidMajorVersionExceptionRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.NewInvalidMajorVersionException(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var exceptionsInvalidMajorVersionExceptionGetMajorVersionCmd = &cobra.Command{
+	Use:   "get-major-version",
+	Short: "GetMajorVersion RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInvalidMajorVersionExceptionServiceClient(grpcConn)
+		req := &pb.GetMajorVersionRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetMajorVersion(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -338,23 +338,8 @@ func init() {
 	exceptionsAppSearchExceptionGetResultCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
 	exceptionsAppSearchExceptionCmd.AddCommand(exceptionsAppSearchExceptionGetResultCodeCmd)
 	exceptionsCmd.AddCommand(exceptionsAppSearchExceptionCmd)
-	exceptionsIkeNetworkLostExceptionNewIkeNetworkLostExceptionCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	exceptionsIkeNetworkLostExceptionCmd.AddCommand(exceptionsIkeNetworkLostExceptionNewIkeNetworkLostExceptionCmd)
-	exceptionsIkeNetworkLostExceptionGetNetworkCmd.Flags().Int64("handle", 0, "handle (int64)")
-	exceptionsIkeNetworkLostExceptionCmd.AddCommand(exceptionsIkeNetworkLostExceptionGetNetworkCmd)
-	exceptionsCmd.AddCommand(exceptionsIkeNetworkLostExceptionCmd)
 	exceptionsIkeProtocolExceptionCmd.AddCommand(exceptionsIkeProtocolExceptionGetErrorTypeCmd)
 	exceptionsCmd.AddCommand(exceptionsIkeProtocolExceptionCmd)
-	exceptionsInvalidKeExceptionNewInvalidKeExceptionCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	exceptionsInvalidKeExceptionCmd.AddCommand(exceptionsInvalidKeExceptionNewInvalidKeExceptionCmd)
-	exceptionsInvalidKeExceptionGetDhGroupCmd.Flags().Int64("handle", 0, "handle (int64)")
-	exceptionsInvalidKeExceptionCmd.AddCommand(exceptionsInvalidKeExceptionGetDhGroupCmd)
-	exceptionsCmd.AddCommand(exceptionsInvalidKeExceptionCmd)
-	exceptionsInvalidMajorVersionExceptionNewInvalidMajorVersionExceptionCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	exceptionsInvalidMajorVersionExceptionCmd.AddCommand(exceptionsInvalidMajorVersionExceptionNewInvalidMajorVersionExceptionCmd)
-	exceptionsInvalidMajorVersionExceptionGetMajorVersionCmd.Flags().Int64("handle", 0, "handle (int64)")
-	exceptionsInvalidMajorVersionExceptionCmd.AddCommand(exceptionsInvalidMajorVersionExceptionGetMajorVersionCmd)
-	exceptionsCmd.AddCommand(exceptionsInvalidMajorVersionExceptionCmd)
 	exceptionsInvalidSelectorsExceptionNewInvalidSelectorsExceptionCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
 	exceptionsInvalidSelectorsExceptionNewInvalidSelectorsExceptionCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
 	exceptionsInvalidSelectorsExceptionCmd.AddCommand(exceptionsInvalidSelectorsExceptionNewInvalidSelectorsExceptionCmd)
@@ -363,6 +348,21 @@ func init() {
 	exceptionsInvalidSelectorsExceptionGetIpSecSpiCmd.Flags().Int64("handle", 0, "handle (int64)")
 	exceptionsInvalidSelectorsExceptionCmd.AddCommand(exceptionsInvalidSelectorsExceptionGetIpSecSpiCmd)
 	exceptionsCmd.AddCommand(exceptionsInvalidSelectorsExceptionCmd)
+	exceptionsInvalidKeExceptionNewInvalidKeExceptionCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	exceptionsInvalidKeExceptionCmd.AddCommand(exceptionsInvalidKeExceptionNewInvalidKeExceptionCmd)
+	exceptionsInvalidKeExceptionGetDhGroupCmd.Flags().Int64("handle", 0, "handle (int64)")
+	exceptionsInvalidKeExceptionCmd.AddCommand(exceptionsInvalidKeExceptionGetDhGroupCmd)
+	exceptionsCmd.AddCommand(exceptionsInvalidKeExceptionCmd)
+	exceptionsIkeNetworkLostExceptionNewIkeNetworkLostExceptionCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	exceptionsIkeNetworkLostExceptionCmd.AddCommand(exceptionsIkeNetworkLostExceptionNewIkeNetworkLostExceptionCmd)
+	exceptionsIkeNetworkLostExceptionGetNetworkCmd.Flags().Int64("handle", 0, "handle (int64)")
+	exceptionsIkeNetworkLostExceptionCmd.AddCommand(exceptionsIkeNetworkLostExceptionGetNetworkCmd)
+	exceptionsCmd.AddCommand(exceptionsIkeNetworkLostExceptionCmd)
+	exceptionsInvalidMajorVersionExceptionNewInvalidMajorVersionExceptionCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	exceptionsInvalidMajorVersionExceptionCmd.AddCommand(exceptionsInvalidMajorVersionExceptionNewInvalidMajorVersionExceptionCmd)
+	exceptionsInvalidMajorVersionExceptionGetMajorVersionCmd.Flags().Int64("handle", 0, "handle (int64)")
+	exceptionsInvalidMajorVersionExceptionCmd.AddCommand(exceptionsInvalidMajorVersionExceptionGetMajorVersionCmd)
+	exceptionsCmd.AddCommand(exceptionsInvalidMajorVersionExceptionCmd)
 	exceptionsIkeIOExceptionNewIkeIOExceptionCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	exceptionsIkeIOExceptionCmd.AddCommand(exceptionsIkeIOExceptionNewIkeIOExceptionCmd)
 	exceptionsIkeIOExceptionGetCause0Cmd.Flags().Int64("handle", 0, "handle (int64)")

@@ -6,45 +6,25 @@ package webkit;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/webkit";
 
-message CloseRequest {
+message DeleteAllDataRequest {
 }
 
-message CloseResponse {
+message DeleteAllDataResponse {
 }
 
-message OpenRequest {
+message DeleteOriginRequest {
   string arg0 = 1;
 }
 
-message OpenResponse {
+message DeleteOriginResponse {
 }
 
-message ReleaseIconForPageUrlRequest {
-  string arg0 = 1;
-}
-
-message ReleaseIconForPageUrlResponse {
-}
-
-message RemoveAllIconsRequest {
-}
-
-message RemoveAllIconsResponse {
-}
-
-message RequestIconForPageUrlRequest {
+message SetQuotaForOriginRequest {
   string arg0 = 1;
   int64 arg1 = 2;
 }
 
-message RequestIconForPageUrlResponse {
-}
-
-message RetainIconForPageUrlRequest {
-  string arg0 = 1;
-}
-
-message RetainIconForPageUrlResponse {
+message SetQuotaForOriginResponse {
 }
 
 message GetInstanceRequest {
@@ -54,54 +34,735 @@ message GetInstanceResponse {
   int64 result = 1;
 }
 
-message OnReceivedIconRequest {
-  string arg0 = 1;
-  int64 arg1 = 2;
+message GetOriginRequest {
 }
 
-message OnReceivedIconResponse {
-}
-
-message NewConsoleMessageRequest {
-  string arg0 = 1;
-  string arg1 = 2;
-  int32 arg2 = 3;
-  int64 arg3 = 4;
-}
-
-message NewConsoleMessageResponse {
-  int64 result = 1;
-}
-
-message LineNumberRequest {
-  int64 handle = 1;
-}
-
-message LineNumberResponse {
-  int32 result = 1;
-}
-
-message MessageRequest {
-  int64 handle = 1;
-}
-
-message MessageResponse {
+message GetOriginResponse {
   string result = 1;
 }
 
-message MessageLevelRequest {
-  int64 handle = 1;
+message GetQuotaRequest {
 }
 
-message MessageLevelResponse {
+message GetQuotaResponse {
   int64 result = 1;
 }
 
-message SourceIdRequest {
-  int64 handle = 1;
+message GetUsageRequest {
 }
 
-message SourceIdResponse {
+message GetUsageResponse {
+  int64 result = 1;
+}
+
+message UpdateQuotaRequest {
+  int64 arg0 = 1;
+}
+
+message UpdateQuotaResponse {
+}
+
+message CancelRequest {
+}
+
+message CancelResponse {
+}
+
+message ProceedRequest {
+}
+
+message ProceedResponse {
+}
+
+message HttpAuthHandlerProceedRequest {
+  string arg0 = 1;
+  string arg1 = 2;
+}
+
+message UseHttpAuthUsernamePasswordRequest {
+}
+
+message UseHttpAuthUsernamePasswordResponse {
+  bool result = 1;
+}
+
+message EnableSmoothTransitionRequest {
+}
+
+message EnableSmoothTransitionResponse {
+  bool result = 1;
+}
+
+message GetAllowContentAccessRequest {
+}
+
+message GetAllowContentAccessResponse {
+  bool result = 1;
+}
+
+message GetAllowFileAccessRequest {
+}
+
+message GetAllowFileAccessResponse {
+  bool result = 1;
+}
+
+message GetAllowFileAccessFromFileURLsRequest {
+}
+
+message GetAllowFileAccessFromFileURLsResponse {
+  bool result = 1;
+}
+
+message GetAllowUniversalAccessFromFileURLsRequest {
+}
+
+message GetAllowUniversalAccessFromFileURLsResponse {
+  bool result = 1;
+}
+
+message GetBlockNetworkImageRequest {
+}
+
+message GetBlockNetworkImageResponse {
+  bool result = 1;
+}
+
+message GetBlockNetworkLoadsRequest {
+}
+
+message GetBlockNetworkLoadsResponse {
+  bool result = 1;
+}
+
+message GetBuiltInZoomControlsRequest {
+}
+
+message GetBuiltInZoomControlsResponse {
+  bool result = 1;
+}
+
+message GetCacheModeRequest {
+}
+
+message GetCacheModeResponse {
+  int32 result = 1;
+}
+
+message GetCursiveFontFamilyRequest {
+}
+
+message GetCursiveFontFamilyResponse {
+  string result = 1;
+}
+
+message GetDatabaseEnabledRequest {
+}
+
+message GetDatabaseEnabledResponse {
+  bool result = 1;
+}
+
+message GetDatabasePathRequest {
+}
+
+message GetDatabasePathResponse {
+  string result = 1;
+}
+
+message GetDefaultFixedFontSizeRequest {
+}
+
+message GetDefaultFixedFontSizeResponse {
+  int32 result = 1;
+}
+
+message GetDefaultFontSizeRequest {
+}
+
+message GetDefaultFontSizeResponse {
+  int32 result = 1;
+}
+
+message GetDefaultTextEncodingNameRequest {
+}
+
+message GetDefaultTextEncodingNameResponse {
+  string result = 1;
+}
+
+message GetDefaultZoomRequest {
+}
+
+message GetDefaultZoomResponse {
+  int64 result = 1;
+}
+
+message GetDisabledActionModeMenuItemsRequest {
+}
+
+message GetDisabledActionModeMenuItemsResponse {
+  int32 result = 1;
+}
+
+message GetDisplayZoomControlsRequest {
+}
+
+message GetDisplayZoomControlsResponse {
+  bool result = 1;
+}
+
+message GetDomStorageEnabledRequest {
+}
+
+message GetDomStorageEnabledResponse {
+  bool result = 1;
+}
+
+message GetFantasyFontFamilyRequest {
+}
+
+message GetFantasyFontFamilyResponse {
+  string result = 1;
+}
+
+message GetFixedFontFamilyRequest {
+}
+
+message GetFixedFontFamilyResponse {
+  string result = 1;
+}
+
+message GetForceDarkRequest {
+}
+
+message GetForceDarkResponse {
+  int32 result = 1;
+}
+
+message GetJavaScriptCanOpenWindowsAutomaticallyRequest {
+}
+
+message GetJavaScriptCanOpenWindowsAutomaticallyResponse {
+  bool result = 1;
+}
+
+message GetJavaScriptEnabledRequest {
+}
+
+message GetJavaScriptEnabledResponse {
+  bool result = 1;
+}
+
+message GetLayoutAlgorithmRequest {
+}
+
+message GetLayoutAlgorithmResponse {
+  int64 result = 1;
+}
+
+message GetLightTouchEnabledRequest {
+}
+
+message GetLightTouchEnabledResponse {
+  bool result = 1;
+}
+
+message GetLoadWithOverviewModeRequest {
+}
+
+message GetLoadWithOverviewModeResponse {
+  bool result = 1;
+}
+
+message GetLoadsImagesAutomaticallyRequest {
+}
+
+message GetLoadsImagesAutomaticallyResponse {
+  bool result = 1;
+}
+
+message GetMediaPlaybackRequiresUserGestureRequest {
+}
+
+message GetMediaPlaybackRequiresUserGestureResponse {
+  bool result = 1;
+}
+
+message GetMinimumFontSizeRequest {
+}
+
+message GetMinimumFontSizeResponse {
+  int32 result = 1;
+}
+
+message GetMinimumLogicalFontSizeRequest {
+}
+
+message GetMinimumLogicalFontSizeResponse {
+  int32 result = 1;
+}
+
+message GetMixedContentModeRequest {
+}
+
+message GetMixedContentModeResponse {
+  int32 result = 1;
+}
+
+message GetOffscreenPreRasterRequest {
+}
+
+message GetOffscreenPreRasterResponse {
+  bool result = 1;
+}
+
+message GetPluginStateRequest {
+}
+
+message GetPluginStateResponse {
+  int64 result = 1;
+}
+
+message GetSafeBrowsingEnabledRequest {
+}
+
+message GetSafeBrowsingEnabledResponse {
+  bool result = 1;
+}
+
+message GetSansSerifFontFamilyRequest {
+}
+
+message GetSansSerifFontFamilyResponse {
+  string result = 1;
+}
+
+message GetSaveFormDataRequest {
+}
+
+message GetSaveFormDataResponse {
+  bool result = 1;
+}
+
+message GetSavePasswordRequest {
+}
+
+message GetSavePasswordResponse {
+  bool result = 1;
+}
+
+message GetSerifFontFamilyRequest {
+}
+
+message GetSerifFontFamilyResponse {
+  string result = 1;
+}
+
+message GetStandardFontFamilyRequest {
+}
+
+message GetStandardFontFamilyResponse {
+  string result = 1;
+}
+
+message GetTextZoomRequest {
+}
+
+message GetTextZoomResponse {
+  int32 result = 1;
+}
+
+message GetUseWideViewPortRequest {
+}
+
+message GetUseWideViewPortResponse {
+  bool result = 1;
+}
+
+message GetUserAgentStringRequest {
+}
+
+message GetUserAgentStringResponse {
+  string result = 1;
+}
+
+message IsAlgorithmicDarkeningAllowedRequest {
+}
+
+message IsAlgorithmicDarkeningAllowedResponse {
+  bool result = 1;
+}
+
+message SetAlgorithmicDarkeningAllowedRequest {
+  bool arg0 = 1;
+}
+
+message SetAlgorithmicDarkeningAllowedResponse {
+}
+
+message SetAllowContentAccessRequest {
+  bool arg0 = 1;
+}
+
+message SetAllowContentAccessResponse {
+}
+
+message SetAllowFileAccessRequest {
+  bool arg0 = 1;
+}
+
+message SetAllowFileAccessResponse {
+}
+
+message SetAllowFileAccessFromFileURLsRequest {
+  bool arg0 = 1;
+}
+
+message SetAllowFileAccessFromFileURLsResponse {
+}
+
+message SetAllowUniversalAccessFromFileURLsRequest {
+  bool arg0 = 1;
+}
+
+message SetAllowUniversalAccessFromFileURLsResponse {
+}
+
+message SetBlockNetworkImageRequest {
+  bool arg0 = 1;
+}
+
+message SetBlockNetworkImageResponse {
+}
+
+message SetBlockNetworkLoadsRequest {
+  bool arg0 = 1;
+}
+
+message SetBlockNetworkLoadsResponse {
+}
+
+message SetBuiltInZoomControlsRequest {
+  bool arg0 = 1;
+}
+
+message SetBuiltInZoomControlsResponse {
+}
+
+message SetCacheModeRequest {
+  int32 arg0 = 1;
+}
+
+message SetCacheModeResponse {
+}
+
+message SetCursiveFontFamilyRequest {
+  string arg0 = 1;
+}
+
+message SetCursiveFontFamilyResponse {
+}
+
+message SetDatabaseEnabledRequest {
+  bool arg0 = 1;
+}
+
+message SetDatabaseEnabledResponse {
+}
+
+message SetDatabasePathRequest {
+  string arg0 = 1;
+}
+
+message SetDatabasePathResponse {
+}
+
+message SetDefaultFixedFontSizeRequest {
+  int32 arg0 = 1;
+}
+
+message SetDefaultFixedFontSizeResponse {
+}
+
+message SetDefaultFontSizeRequest {
+  int32 arg0 = 1;
+}
+
+message SetDefaultFontSizeResponse {
+}
+
+message SetDefaultTextEncodingNameRequest {
+  string arg0 = 1;
+}
+
+message SetDefaultTextEncodingNameResponse {
+}
+
+message SetDefaultZoomRequest {
+  int64 arg0 = 1;
+}
+
+message SetDefaultZoomResponse {
+}
+
+message SetDisabledActionModeMenuItemsRequest {
+  int32 arg0 = 1;
+}
+
+message SetDisabledActionModeMenuItemsResponse {
+}
+
+message SetDisplayZoomControlsRequest {
+  bool arg0 = 1;
+}
+
+message SetDisplayZoomControlsResponse {
+}
+
+message SetDomStorageEnabledRequest {
+  bool arg0 = 1;
+}
+
+message SetDomStorageEnabledResponse {
+}
+
+message SetEnableSmoothTransitionRequest {
+  bool arg0 = 1;
+}
+
+message SetEnableSmoothTransitionResponse {
+}
+
+message SetFantasyFontFamilyRequest {
+  string arg0 = 1;
+}
+
+message SetFantasyFontFamilyResponse {
+}
+
+message SetFixedFontFamilyRequest {
+  string arg0 = 1;
+}
+
+message SetFixedFontFamilyResponse {
+}
+
+message SetForceDarkRequest {
+  int32 arg0 = 1;
+}
+
+message SetForceDarkResponse {
+}
+
+message SetGeolocationDatabasePathRequest {
+  string arg0 = 1;
+}
+
+message SetGeolocationDatabasePathResponse {
+}
+
+message SetGeolocationEnabledRequest {
+  bool arg0 = 1;
+}
+
+message SetGeolocationEnabledResponse {
+}
+
+message SetJavaScriptCanOpenWindowsAutomaticallyRequest {
+  bool arg0 = 1;
+}
+
+message SetJavaScriptCanOpenWindowsAutomaticallyResponse {
+}
+
+message SetJavaScriptEnabledRequest {
+  bool arg0 = 1;
+}
+
+message SetJavaScriptEnabledResponse {
+}
+
+message SetLayoutAlgorithmRequest {
+  int64 arg0 = 1;
+}
+
+message SetLayoutAlgorithmResponse {
+}
+
+message SetLightTouchEnabledRequest {
+  bool arg0 = 1;
+}
+
+message SetLightTouchEnabledResponse {
+}
+
+message SetLoadWithOverviewModeRequest {
+  bool arg0 = 1;
+}
+
+message SetLoadWithOverviewModeResponse {
+}
+
+message SetLoadsImagesAutomaticallyRequest {
+  bool arg0 = 1;
+}
+
+message SetLoadsImagesAutomaticallyResponse {
+}
+
+message SetMediaPlaybackRequiresUserGestureRequest {
+  bool arg0 = 1;
+}
+
+message SetMediaPlaybackRequiresUserGestureResponse {
+}
+
+message SetMinimumFontSizeRequest {
+  int32 arg0 = 1;
+}
+
+message SetMinimumFontSizeResponse {
+}
+
+message SetMinimumLogicalFontSizeRequest {
+  int32 arg0 = 1;
+}
+
+message SetMinimumLogicalFontSizeResponse {
+}
+
+message SetMixedContentModeRequest {
+  int32 arg0 = 1;
+}
+
+message SetMixedContentModeResponse {
+}
+
+message SetNeedInitialFocusRequest {
+  bool arg0 = 1;
+}
+
+message SetNeedInitialFocusResponse {
+}
+
+message SetOffscreenPreRasterRequest {
+  bool arg0 = 1;
+}
+
+message SetOffscreenPreRasterResponse {
+}
+
+message SetPluginStateRequest {
+  int64 arg0 = 1;
+}
+
+message SetPluginStateResponse {
+}
+
+message SetRenderPriorityRequest {
+  int64 arg0 = 1;
+}
+
+message SetRenderPriorityResponse {
+}
+
+message SetSafeBrowsingEnabledRequest {
+  bool arg0 = 1;
+}
+
+message SetSafeBrowsingEnabledResponse {
+}
+
+message SetSansSerifFontFamilyRequest {
+  string arg0 = 1;
+}
+
+message SetSansSerifFontFamilyResponse {
+}
+
+message SetSaveFormDataRequest {
+  bool arg0 = 1;
+}
+
+message SetSaveFormDataResponse {
+}
+
+message SetSavePasswordRequest {
+  bool arg0 = 1;
+}
+
+message SetSavePasswordResponse {
+}
+
+message SetSerifFontFamilyRequest {
+  string arg0 = 1;
+}
+
+message SetSerifFontFamilyResponse {
+}
+
+message SetStandardFontFamilyRequest {
+  string arg0 = 1;
+}
+
+message SetStandardFontFamilyResponse {
+}
+
+message SetSupportMultipleWindowsRequest {
+  bool arg0 = 1;
+}
+
+message SetSupportMultipleWindowsResponse {
+}
+
+message SetSupportZoomRequest {
+  bool arg0 = 1;
+}
+
+message SetSupportZoomResponse {
+}
+
+message SetTextZoomRequest {
+  int32 arg0 = 1;
+}
+
+message SetTextZoomResponse {
+}
+
+message SetUseWideViewPortRequest {
+  bool arg0 = 1;
+}
+
+message SetUseWideViewPortResponse {
+}
+
+message SetUserAgentStringRequest {
+  string arg0 = 1;
+}
+
+message SetUserAgentStringResponse {
+}
+
+message SupportMultipleWindowsRequest {
+}
+
+message SupportMultipleWindowsResponse {
+  bool result = 1;
+}
+
+message SupportZoomRequest {
+}
+
+message SupportZoomResponse {
+  bool result = 1;
+}
+
+message GetDefaultUserAgentRequest {
+  int64 arg0 = 1;
+}
+
+message GetDefaultUserAgentResponse {
   string result = 1;
 }
 
@@ -118,409 +779,6 @@ message ValueOfRequest {
 
 message ValueOfResponse {
   int64 result = 1;
-}
-
-message DidCrashRequest {
-}
-
-message DidCrashResponse {
-  bool result = 1;
-}
-
-message RendererPriorityAtExitRequest {
-}
-
-message RendererPriorityAtExitResponse {
-  int32 result = 1;
-}
-
-message NewDateSorterRequest {
-  int64 arg0 = 1;
-}
-
-message NewDateSorterResponse {
-  int64 result = 1;
-}
-
-message GetBoundaryRequest {
-  int64 handle = 1;
-  int32 arg0 = 2;
-}
-
-message GetBoundaryResponse {
-  int64 result = 1;
-}
-
-message GetIndexRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-}
-
-message GetIndexResponse {
-  int32 result = 1;
-}
-
-message GetLabelRequest {
-  int64 handle = 1;
-  int32 arg0 = 2;
-}
-
-message GetLabelResponse {
-  string result = 1;
-}
-
-message CancelRequest {
-}
-
-message CancelResponse {
-}
-
-message GetHostRequest {
-}
-
-message GetHostResponse {
-  string result = 1;
-}
-
-message GetKeyTypesRequest {
-}
-
-message GetKeyTypesResponse {
-  int64 result = 1;
-}
-
-message GetPortRequest {
-}
-
-message GetPortResponse {
-  int32 result = 1;
-}
-
-message GetPrincipalsRequest {
-}
-
-message GetPrincipalsResponse {
-  int64 result = 1;
-}
-
-message IgnoreRequest {
-}
-
-message IgnoreResponse {
-}
-
-message ProceedRequest {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-}
-
-message ProceedResponse {
-}
-
-message GetMethodRequest {
-}
-
-message GetMethodResponse {
-  string result = 1;
-}
-
-message GetUrlRequest {
-}
-
-message GetUrlResponse {
-  int64 result = 1;
-}
-
-message HasGestureRequest {
-}
-
-message HasGestureResponse {
-  bool result = 1;
-}
-
-message IsForMainFrameRequest {
-}
-
-message IsForMainFrameResponse {
-  bool result = 1;
-}
-
-message IsRedirectRequest {
-}
-
-message IsRedirectResponse {
-  bool result = 1;
-}
-
-message GetServiceWorkerWebSettingsRequest {
-}
-
-message GetServiceWorkerWebSettingsResponse {
-  int64 result = 1;
-}
-
-message SetServiceWorkerClientRequest {
-  int64 arg0 = 1;
-}
-
-message SetServiceWorkerClientResponse {
-}
-
-message NewURLUtilRequest {
-}
-
-message NewURLUtilResponse {
-  int64 result = 1;
-}
-
-message ComposeSearchUrlRequest {
-  int64 handle = 1;
-  string arg0 = 2;
-  string arg1 = 3;
-  string arg2 = 4;
-}
-
-message ComposeSearchUrlResponse {
-  string result = 1;
-}
-
-message DecodeRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-}
-
-message DecodeResponse {
-  int64 result = 1;
-}
-
-message GuessFileNameRequest {
-  int64 handle = 1;
-  string arg0 = 2;
-  string arg1 = 3;
-  string arg2 = 4;
-}
-
-message GuessFileNameResponse {
-  string result = 1;
-}
-
-message GuessUrlRequest {
-  int64 handle = 1;
-  string arg0 = 2;
-}
-
-message GuessUrlResponse {
-  string result = 1;
-}
-
-message IsAboutUrlRequest {
-  int64 handle = 1;
-  string arg0 = 2;
-}
-
-message IsAboutUrlResponse {
-  bool result = 1;
-}
-
-message IsAssetUrlRequest {
-  int64 handle = 1;
-  string arg0 = 2;
-}
-
-message IsAssetUrlResponse {
-  bool result = 1;
-}
-
-message IsContentUrlRequest {
-  int64 handle = 1;
-  string arg0 = 2;
-}
-
-message IsContentUrlResponse {
-  bool result = 1;
-}
-
-message IsCookielessProxyUrlRequest {
-  int64 handle = 1;
-  string arg0 = 2;
-}
-
-message IsCookielessProxyUrlResponse {
-  bool result = 1;
-}
-
-message IsDataUrlRequest {
-  int64 handle = 1;
-  string arg0 = 2;
-}
-
-message IsDataUrlResponse {
-  bool result = 1;
-}
-
-message IsFileUrlRequest {
-  int64 handle = 1;
-  string arg0 = 2;
-}
-
-message IsFileUrlResponse {
-  bool result = 1;
-}
-
-message IsHttpUrlRequest {
-  int64 handle = 1;
-  string arg0 = 2;
-}
-
-message IsHttpUrlResponse {
-  bool result = 1;
-}
-
-message IsHttpsUrlRequest {
-  int64 handle = 1;
-  string arg0 = 2;
-}
-
-message IsHttpsUrlResponse {
-  bool result = 1;
-}
-
-message IsJavaScriptUrlRequest {
-  int64 handle = 1;
-  string arg0 = 2;
-}
-
-message IsJavaScriptUrlResponse {
-  bool result = 1;
-}
-
-message IsNetworkUrlRequest {
-  int64 handle = 1;
-  string arg0 = 2;
-}
-
-message IsNetworkUrlResponse {
-  bool result = 1;
-}
-
-message IsValidUrlRequest {
-  int64 handle = 1;
-  string arg0 = 2;
-}
-
-message IsValidUrlResponse {
-  bool result = 1;
-}
-
-message StripAnchorRequest {
-  int64 handle = 1;
-  string arg0 = 2;
-}
-
-message StripAnchorResponse {
-  string result = 1;
-}
-
-message NewWebResourceResponseRequest {
-  string arg0 = 1;
-  string arg1 = 2;
-  int32 arg2 = 3;
-  string arg3 = 4;
-  int64 arg4 = 5;
-  int64 arg5 = 6;
-}
-
-message NewWebResourceResponseResponse {
-  int64 result = 1;
-}
-
-message GetDataRequest {
-  int64 handle = 1;
-}
-
-message GetDataResponse {
-  int64 result = 1;
-}
-
-message GetEncodingRequest {
-  int64 handle = 1;
-}
-
-message GetEncodingResponse {
-  string result = 1;
-}
-
-message GetMimeTypeRequest {
-  int64 handle = 1;
-}
-
-message GetMimeTypeResponse {
-  string result = 1;
-}
-
-message GetReasonPhraseRequest {
-  int64 handle = 1;
-}
-
-message GetReasonPhraseResponse {
-  string result = 1;
-}
-
-message GetStatusCodeRequest {
-  int64 handle = 1;
-}
-
-message GetStatusCodeResponse {
-  int32 result = 1;
-}
-
-message SetDataRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-}
-
-message SetDataResponse {
-}
-
-message SetEncodingRequest {
-  int64 handle = 1;
-  string arg0 = 2;
-}
-
-message SetEncodingResponse {
-}
-
-message SetMimeTypeRequest {
-  int64 handle = 1;
-  string arg0 = 2;
-}
-
-message SetMimeTypeResponse {
-}
-
-message SetStatusCodeAndReasonPhraseRequest {
-  int64 handle = 1;
-  int32 arg0 = 2;
-  string arg1 = 3;
-}
-
-message SetStatusCodeAndReasonPhraseResponse {
-}
-
-message OnRenderProcessResponsiveRequest {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-}
-
-message OnRenderProcessResponsiveResponse {
-}
-
-message OnRenderProcessUnresponsiveRequest {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-}
-
-message OnRenderProcessUnresponsiveResponse {
 }
 
 message NewWebViewRequest {
@@ -875,11 +1133,11 @@ message GetTitleResponse {
   string result = 1;
 }
 
-message WebViewGetUrlRequest {
+message GetUrlRequest {
   int64 handle = 1;
 }
 
-message WebViewGetUrlResponse {
+message GetUrlResponse {
   string result = 1;
 }
 
@@ -1703,926 +1961,18 @@ message OnCompleteRequest {
 message OnCompleteResponse {
 }
 
-message GetPredefinedCategoriesRequest {
+message GetServiceWorkerWebSettingsRequest {
 }
 
-message GetPredefinedCategoriesResponse {
-  int32 result = 1;
+message GetServiceWorkerWebSettingsResponse {
+  int64 result = 1;
 }
 
-message GetTracingModeRequest {
-}
-
-message GetTracingModeResponse {
-  int32 result = 1;
-}
-
-message AddCategories1Request {
+message SetServiceWorkerClientRequest {
   int64 arg0 = 1;
 }
 
-message AddCategories1Response {
-  int64 result = 1;
-}
-
-message AddCategories1_1Request {
-  int64 arg0 = 1;
-}
-
-message AddCategories1_1Response {
-  int64 result = 1;
-}
-
-message BuildRequest {
-}
-
-message BuildResponse {
-  int64 result = 1;
-}
-
-message SetTracingModeRequest {
-  int32 arg0 = 1;
-}
-
-message SetTracingModeResponse {
-  int64 result = 1;
-}
-
-message PostMessageRequest {
-  int64 arg0 = 1;
-}
-
-message PostMessageResponse {
-}
-
-message SetWebMessageCallbackRequest {
-  int64 arg0 = 1;
-}
-
-message SetWebMessageCallbackResponse {
-}
-
-message OnMessageRequest {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-}
-
-message OnMessageResponse {
-}
-
-message ConfirmRequest {
-  string arg0 = 1;
-}
-
-message ConfirmResponse {
-}
-
-message DeleteAllDataRequest {
-}
-
-message DeleteAllDataResponse {
-}
-
-message DeleteOriginRequest {
-  string arg0 = 1;
-}
-
-message DeleteOriginResponse {
-}
-
-message SetQuotaForOriginRequest {
-  string arg0 = 1;
-  int64 arg1 = 2;
-}
-
-message SetQuotaForOriginResponse {
-}
-
-message GetOriginRequest {
-}
-
-message GetOriginResponse {
-  string result = 1;
-}
-
-message GetQuotaRequest {
-}
-
-message GetQuotaResponse {
-  int64 result = 1;
-}
-
-message GetUsageRequest {
-}
-
-message GetUsageResponse {
-  int64 result = 1;
-}
-
-message UpdateQuotaRequest {
-  int64 arg0 = 1;
-}
-
-message UpdateQuotaResponse {
-}
-
-message SslErrorHandlerProceedRequest {
-}
-
-message NewWebViewFragmentRequest {
-}
-
-message NewWebViewFragmentResponse {
-  int64 result = 1;
-}
-
-message GetWebViewRequest {
-  int64 handle = 1;
-}
-
-message GetWebViewResponse {
-  int64 result = 1;
-}
-
-message OnCreateViewRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-  int64 arg1 = 3;
-  int64 arg2 = 4;
-}
-
-message OnCreateViewResponse {
-  int64 result = 1;
-}
-
-message OnDestroyRequest {
-  int64 handle = 1;
-}
-
-message OnDestroyResponse {
-}
-
-message OnDestroyViewRequest {
-  int64 handle = 1;
-}
-
-message OnDestroyViewResponse {
-}
-
-message HttpAuthHandlerProceedRequest {
-  string arg0 = 1;
-  string arg1 = 2;
-}
-
-message UseHttpAuthUsernamePasswordRequest {
-}
-
-message UseHttpAuthUsernamePasswordResponse {
-  bool result = 1;
-}
-
-message GetDescriptionRequest {
-}
-
-message GetDescriptionResponse {
-  int64 result = 1;
-}
-
-message GetErrorCodeRequest {
-}
-
-message GetErrorCodeResponse {
-  int32 result = 1;
-}
-
-message GetEmbeddedViewRequest {
-  int32 arg0 = 1;
-  int64 arg1 = 2;
-}
-
-message GetEmbeddedViewResponse {
-  int64 result = 1;
-}
-
-message GetFullScreenViewRequest {
-  int32 arg0 = 1;
-  int64 arg1 = 2;
-}
-
-message GetFullScreenViewResponse {
-  int64 result = 1;
-}
-
-message GetExtensionFromMimeTypeRequest {
-  string arg0 = 1;
-}
-
-message GetExtensionFromMimeTypeResponse {
-  string result = 1;
-}
-
-message GetMimeTypeFromExtensionRequest {
-  string arg0 = 1;
-}
-
-message GetMimeTypeFromExtensionResponse {
-  string result = 1;
-}
-
-message HasExtensionRequest {
-  string arg0 = 1;
-}
-
-message HasExtensionResponse {
-  bool result = 1;
-}
-
-message HasMimeTypeRequest {
-  string arg0 = 1;
-}
-
-message HasMimeTypeResponse {
-  bool result = 1;
-}
-
-message GetFileExtensionFromUrlRequest {
-  string arg0 = 1;
-}
-
-message GetFileExtensionFromUrlResponse {
-  string result = 1;
-}
-
-message GetSingletonRequest {
-}
-
-message GetSingletonResponse {
-  int64 result = 1;
-}
-
-message WebViewDatabaseClearFormDataRequest {
-}
-
-message ClearHttpAuthUsernamePasswordRequest {
-}
-
-message ClearHttpAuthUsernamePasswordResponse {
-}
-
-message ClearUsernamePasswordRequest {
-}
-
-message ClearUsernamePasswordResponse {
-}
-
-message WebViewDatabaseGetHttpAuthUsernamePasswordRequest {
-  string arg0 = 1;
-  string arg1 = 2;
-}
-
-message HasFormDataRequest {
-}
-
-message HasFormDataResponse {
-  bool result = 1;
-}
-
-message HasHttpAuthUsernamePasswordRequest {
-}
-
-message HasHttpAuthUsernamePasswordResponse {
-  bool result = 1;
-}
-
-message HasUsernamePasswordRequest {
-}
-
-message HasUsernamePasswordResponse {
-  bool result = 1;
-}
-
-message WebViewDatabaseSetHttpAuthUsernamePasswordRequest {
-  string arg0 = 1;
-  string arg1 = 2;
-  string arg2 = 3;
-  string arg3 = 4;
-}
-
-message WebViewDatabaseGetInstanceRequest {
-  int64 arg0 = 1;
-}
-
-message AcceptCookieRequest {
-}
-
-message AcceptCookieResponse {
-  bool result = 1;
-}
-
-message AcceptThirdPartyCookiesRequest {
-  int64 arg0 = 1;
-}
-
-message AcceptThirdPartyCookiesResponse {
-  bool result = 1;
-}
-
-message FlushRequest {
-}
-
-message FlushResponse {
-}
-
-message GetCookieRequest {
-  string arg0 = 1;
-}
-
-message GetCookieResponse {
-  string result = 1;
-}
-
-message HasCookiesRequest {
-}
-
-message HasCookiesResponse {
-  bool result = 1;
-}
-
-message RemoveAllCookieRequest {
-}
-
-message RemoveAllCookieResponse {
-}
-
-message RemoveExpiredCookieRequest {
-}
-
-message RemoveExpiredCookieResponse {
-}
-
-message RemoveSessionCookieRequest {
-}
-
-message RemoveSessionCookieResponse {
-}
-
-message SetAcceptCookieRequest {
-  bool arg0 = 1;
-}
-
-message SetAcceptCookieResponse {
-}
-
-message SetAcceptThirdPartyCookiesRequest {
-  int64 arg0 = 1;
-  bool arg1 = 2;
-}
-
-message SetAcceptThirdPartyCookiesResponse {
-}
-
-message SetCookieRequest {
-  string arg0 = 1;
-  string arg1 = 2;
-}
-
-message SetCookieResponse {
-}
-
-message AllowFileSchemeCookiesRequest {
-}
-
-message AllowFileSchemeCookiesResponse {
-  bool result = 1;
-}
-
-message SetAcceptFileSchemeCookiesRequest {
-  bool arg0 = 1;
-}
-
-message SetAcceptFileSchemeCookiesResponse {
-}
-
-message OnDownloadStartRequest {
-  string arg0 = 1;
-  string arg1 = 2;
-  string arg2 = 3;
-  string arg3 = 4;
-  int64 arg4 = 5;
-}
-
-message OnDownloadStartResponse {
-}
-
-message GetAllowContentAccessRequest {
-}
-
-message GetAllowContentAccessResponse {
-  bool result = 1;
-}
-
-message GetAllowFileAccessRequest {
-}
-
-message GetAllowFileAccessResponse {
-  bool result = 1;
-}
-
-message GetBlockNetworkLoadsRequest {
-}
-
-message GetBlockNetworkLoadsResponse {
-  bool result = 1;
-}
-
-message GetCacheModeRequest {
-}
-
-message GetCacheModeResponse {
-  int32 result = 1;
-}
-
-message SetAllowContentAccessRequest {
-  bool arg0 = 1;
-}
-
-message SetAllowContentAccessResponse {
-}
-
-message SetAllowFileAccessRequest {
-  bool arg0 = 1;
-}
-
-message SetAllowFileAccessResponse {
-}
-
-message SetBlockNetworkLoadsRequest {
-  bool arg0 = 1;
-}
-
-message SetBlockNetworkLoadsResponse {
-}
-
-message SetCacheModeRequest {
-  int32 arg0 = 1;
-}
-
-message SetCacheModeResponse {
-}
-
-message DenyRequest {
-}
-
-message DenyResponse {
-}
-
-message PermissionRequestGetOriginResponse {
-  int64 result = 1;
-}
-
-message GetResourcesRequest {
-}
-
-message GetResourcesResponse {
-  int64 result = 1;
-}
-
-message GrantRequest {
-  int64 arg0 = 1;
-}
-
-message GrantResponse {
-}
-
-message GetCurrentIndexRequest {
-}
-
-message GetCurrentIndexResponse {
-  int32 result = 1;
-}
-
-message GetCurrentItemRequest {
-}
-
-message GetCurrentItemResponse {
-  int64 result = 1;
-}
-
-message GetItemAtIndexRequest {
-  int32 arg0 = 1;
-}
-
-message GetItemAtIndexResponse {
-  int64 result = 1;
-}
-
-message GetSizeRequest {
-}
-
-message GetSizeResponse {
-  int32 result = 1;
-}
-
-message NewWebMessageRequest {
-  string arg0 = 1;
-}
-
-message NewWebMessageResponse {
-  int64 result = 1;
-}
-
-message WebMessageGetDataResponse {
-  string result = 1;
-}
-
-message GetPortsRequest {
-  int64 handle = 1;
-}
-
-message GetPortsResponse {
-  int64 result = 1;
-}
-
-message ResetSyncRequest {
-}
-
-message ResetSyncResponse {
-}
-
-message RunRequest {
-}
-
-message RunResponse {
-}
-
-message StartSyncRequest {
-}
-
-message StartSyncResponse {
-}
-
-message StopSyncRequest {
-}
-
-message StopSyncResponse {
-}
-
-message SyncRequest {
-}
-
-message SyncResponse {
-}
-
-message CreateInstanceRequest {
-  int64 arg0 = 1;
-}
-
-message CreateInstanceResponse {
-  int64 result = 1;
-}
-
-message JsResultConfirmRequest {
-}
-
-message NewServiceWorkerClientRequest {
-}
-
-message NewServiceWorkerClientResponse {
-  int64 result = 1;
-}
-
-message ShouldInterceptRequestRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-}
-
-message ShouldInterceptRequestResponse {
-  int64 result = 1;
-}
-
-message IsTracingRequest {
-}
-
-message IsTracingResponse {
-  bool result = 1;
-}
-
-message StartRequest {
-  int64 arg0 = 1;
-}
-
-message StartResponse {
-}
-
-message StopRequest {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-}
-
-message StopResponse {
-  bool result = 1;
-}
-
-message NewWebChromeClientRequest {
-}
-
-message NewWebChromeClientResponse {
-  int64 result = 1;
-}
-
-message GetDefaultVideoPosterRequest {
-  int64 handle = 1;
-}
-
-message GetDefaultVideoPosterResponse {
-  int64 result = 1;
-}
-
-message GetVideoLoadingProgressViewRequest {
-  int64 handle = 1;
-}
-
-message GetVideoLoadingProgressViewResponse {
-  int64 result = 1;
-}
-
-message OnCloseWindowRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-}
-
-message OnCloseWindowResponse {
-}
-
-message OnConsoleMessage1Request {
-  int64 handle = 1;
-  int64 arg0 = 2;
-}
-
-message OnConsoleMessage1Response {
-  bool result = 1;
-}
-
-message OnConsoleMessage3_1Request {
-  int64 handle = 1;
-  string arg0 = 2;
-  int32 arg1 = 3;
-  string arg2 = 4;
-}
-
-message OnConsoleMessage3_1Response {
-}
-
-message OnCreateWindowRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-  bool arg1 = 3;
-  bool arg2 = 4;
-  int64 arg3 = 5;
-}
-
-message OnCreateWindowResponse {
-  bool result = 1;
-}
-
-message OnExceededDatabaseQuotaRequest {
-  int64 handle = 1;
-  string arg0 = 2;
-  string arg1 = 3;
-  int64 arg2 = 4;
-  int64 arg3 = 5;
-  int64 arg4 = 6;
-  int64 arg5 = 7;
-}
-
-message OnExceededDatabaseQuotaResponse {
-}
-
-message OnGeolocationPermissionsHidePromptRequest {
-  int64 handle = 1;
-}
-
-message OnGeolocationPermissionsHidePromptResponse {
-}
-
-message OnGeolocationPermissionsShowPromptRequest {
-  int64 handle = 1;
-  string arg0 = 2;
-  int64 arg1 = 3;
-}
-
-message OnGeolocationPermissionsShowPromptResponse {
-}
-
-message OnHideCustomViewRequest {
-  int64 handle = 1;
-}
-
-message OnHideCustomViewResponse {
-}
-
-message OnJsAlertRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-  string arg1 = 3;
-  string arg2 = 4;
-  int64 arg3 = 5;
-}
-
-message OnJsAlertResponse {
-  bool result = 1;
-}
-
-message OnJsBeforeUnloadRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-  string arg1 = 3;
-  string arg2 = 4;
-  int64 arg3 = 5;
-}
-
-message OnJsBeforeUnloadResponse {
-  bool result = 1;
-}
-
-message OnJsConfirmRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-  string arg1 = 3;
-  string arg2 = 4;
-  int64 arg3 = 5;
-}
-
-message OnJsConfirmResponse {
-  bool result = 1;
-}
-
-message OnJsPromptRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-  string arg1 = 3;
-  string arg2 = 4;
-  string arg3 = 5;
-  int64 arg4 = 6;
-}
-
-message OnJsPromptResponse {
-  bool result = 1;
-}
-
-message OnJsTimeoutRequest {
-  int64 handle = 1;
-}
-
-message OnJsTimeoutResponse {
-  bool result = 1;
-}
-
-message OnPermissionRequestRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-}
-
-message OnPermissionRequestResponse {
-}
-
-message OnPermissionRequestCanceledRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-}
-
-message OnPermissionRequestCanceledResponse {
-}
-
-message OnProgressChangedRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-  int32 arg1 = 3;
-}
-
-message OnProgressChangedResponse {
-}
-
-message WebChromeClientOnReceivedIconRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-  int64 arg1 = 3;
-}
-
-message OnReceivedTitleRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-  string arg1 = 3;
-}
-
-message OnReceivedTitleResponse {
-}
-
-message OnReceivedTouchIconUrlRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-  string arg1 = 3;
-  bool arg2 = 4;
-}
-
-message OnReceivedTouchIconUrlResponse {
-}
-
-message OnRequestFocusRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-}
-
-message OnRequestFocusResponse {
-}
-
-message OnShowCustomView2Request {
-  int64 handle = 1;
-  int64 arg0 = 2;
-  int64 arg1 = 3;
-}
-
-message OnShowCustomView2Response {
-}
-
-message OnShowCustomView3_1Request {
-  int64 handle = 1;
-  int64 arg0 = 2;
-  int32 arg1 = 3;
-  int64 arg2 = 4;
-}
-
-message OnShowCustomView3_1Response {
-}
-
-message OnCustomViewHiddenRequest {
-}
-
-message OnCustomViewHiddenResponse {
-}
-
-message CreateIntentRequest {
-}
-
-message CreateIntentResponse {
-  int64 result = 1;
-}
-
-message GetAcceptTypesRequest {
-}
-
-message GetAcceptTypesResponse {
-  int64 result = 1;
-}
-
-message GetFilenameHintRequest {
-}
-
-message GetFilenameHintResponse {
-  string result = 1;
-}
-
-message GetModeRequest {
-}
-
-message GetModeResponse {
-  int32 result = 1;
-}
-
-message WebChromeClientFileChooserParamsGetTitleRequest {
-}
-
-message WebChromeClientFileChooserParamsGetTitleResponse {
-  int64 result = 1;
-}
-
-message IsCaptureEnabledRequest {
-}
-
-message IsCaptureEnabledResponse {
-  bool result = 1;
-}
-
-message ParseResultRequest {
-  int32 arg0 = 1;
-  int64 arg1 = 2;
-}
-
-message ParseResultResponse {
-  int64 result = 1;
-}
-
-message WebHistoryItemGetFaviconRequest {
-}
-
-message WebHistoryItemGetOriginalUrlRequest {
-}
-
-message WebHistoryItemGetTitleRequest {
-}
-
-message WebHistoryItemGetUrlResponse {
-  string result = 1;
+message SetServiceWorkerClientResponse {
 }
 
 message NewWebViewClientRequest {
@@ -2840,6 +2190,44 @@ message ShouldOverrideUrlLoading2_1Response {
   bool result = 1;
 }
 
+message ResetSyncRequest {
+}
+
+message ResetSyncResponse {
+}
+
+message RunRequest {
+}
+
+message RunResponse {
+}
+
+message StartSyncRequest {
+}
+
+message StartSyncResponse {
+}
+
+message StopSyncRequest {
+}
+
+message StopSyncResponse {
+}
+
+message SyncRequest {
+}
+
+message SyncResponse {
+}
+
+message CreateInstanceRequest {
+  int64 arg0 = 1;
+}
+
+message CreateInstanceResponse {
+  int64 result = 1;
+}
+
 message AllowRequest {
   string arg0 = 1;
 }
@@ -2869,6 +2257,953 @@ message InvokeRequest {
 message InvokeResponse {
 }
 
+message OnRenderProcessResponsiveRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message OnRenderProcessResponsiveResponse {
+}
+
+message OnRenderProcessUnresponsiveRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message OnRenderProcessUnresponsiveResponse {
+}
+
+message AcceptCookieRequest {
+}
+
+message AcceptCookieResponse {
+  bool result = 1;
+}
+
+message AcceptThirdPartyCookiesRequest {
+  int64 arg0 = 1;
+}
+
+message AcceptThirdPartyCookiesResponse {
+  bool result = 1;
+}
+
+message FlushRequest {
+}
+
+message FlushResponse {
+}
+
+message GetCookieRequest {
+  string arg0 = 1;
+}
+
+message GetCookieResponse {
+  string result = 1;
+}
+
+message HasCookiesRequest {
+}
+
+message HasCookiesResponse {
+  bool result = 1;
+}
+
+message RemoveAllCookieRequest {
+}
+
+message RemoveAllCookieResponse {
+}
+
+message RemoveExpiredCookieRequest {
+}
+
+message RemoveExpiredCookieResponse {
+}
+
+message RemoveSessionCookieRequest {
+}
+
+message RemoveSessionCookieResponse {
+}
+
+message SetAcceptCookieRequest {
+  bool arg0 = 1;
+}
+
+message SetAcceptCookieResponse {
+}
+
+message SetAcceptThirdPartyCookiesRequest {
+  int64 arg0 = 1;
+  bool arg1 = 2;
+}
+
+message SetAcceptThirdPartyCookiesResponse {
+}
+
+message SetCookieRequest {
+  string arg0 = 1;
+  string arg1 = 2;
+}
+
+message SetCookieResponse {
+}
+
+message AllowFileSchemeCookiesRequest {
+}
+
+message AllowFileSchemeCookiesResponse {
+  bool result = 1;
+}
+
+message SetAcceptFileSchemeCookiesRequest {
+  bool arg0 = 1;
+}
+
+message SetAcceptFileSchemeCookiesResponse {
+}
+
+message NewURLUtilRequest {
+}
+
+message NewURLUtilResponse {
+  int64 result = 1;
+}
+
+message ComposeSearchUrlRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+  string arg1 = 3;
+  string arg2 = 4;
+}
+
+message ComposeSearchUrlResponse {
+  string result = 1;
+}
+
+message DecodeRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message DecodeResponse {
+  int64 result = 1;
+}
+
+message GuessFileNameRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+  string arg1 = 3;
+  string arg2 = 4;
+}
+
+message GuessFileNameResponse {
+  string result = 1;
+}
+
+message GuessUrlRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message GuessUrlResponse {
+  string result = 1;
+}
+
+message IsAboutUrlRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message IsAboutUrlResponse {
+  bool result = 1;
+}
+
+message IsAssetUrlRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message IsAssetUrlResponse {
+  bool result = 1;
+}
+
+message IsContentUrlRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message IsContentUrlResponse {
+  bool result = 1;
+}
+
+message IsCookielessProxyUrlRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message IsCookielessProxyUrlResponse {
+  bool result = 1;
+}
+
+message IsDataUrlRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message IsDataUrlResponse {
+  bool result = 1;
+}
+
+message IsFileUrlRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message IsFileUrlResponse {
+  bool result = 1;
+}
+
+message IsHttpUrlRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message IsHttpUrlResponse {
+  bool result = 1;
+}
+
+message IsHttpsUrlRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message IsHttpsUrlResponse {
+  bool result = 1;
+}
+
+message IsJavaScriptUrlRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message IsJavaScriptUrlResponse {
+  bool result = 1;
+}
+
+message IsNetworkUrlRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message IsNetworkUrlResponse {
+  bool result = 1;
+}
+
+message IsValidUrlRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message IsValidUrlResponse {
+  bool result = 1;
+}
+
+message StripAnchorRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message StripAnchorResponse {
+  string result = 1;
+}
+
+message GetHostRequest {
+}
+
+message GetHostResponse {
+  string result = 1;
+}
+
+message GetKeyTypesRequest {
+}
+
+message GetKeyTypesResponse {
+  int64 result = 1;
+}
+
+message GetPortRequest {
+}
+
+message GetPortResponse {
+  int32 result = 1;
+}
+
+message GetPrincipalsRequest {
+}
+
+message GetPrincipalsResponse {
+  int64 result = 1;
+}
+
+message IgnoreRequest {
+}
+
+message IgnoreResponse {
+}
+
+message ClientCertRequestProceedRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message GetCustomIncludedCategoriesRequest {
+}
+
+message GetCustomIncludedCategoriesResponse {
+  int64 result = 1;
+}
+
+message GetPredefinedCategoriesRequest {
+}
+
+message GetPredefinedCategoriesResponse {
+  int32 result = 1;
+}
+
+message GetTracingModeRequest {
+}
+
+message GetTracingModeResponse {
+  int32 result = 1;
+}
+
+message AddCategories1Request {
+  int64 arg0 = 1;
+}
+
+message AddCategories1Response {
+  int64 result = 1;
+}
+
+message AddCategories1_1Request {
+  int64 arg0 = 1;
+}
+
+message AddCategories1_1Response {
+  int64 result = 1;
+}
+
+message BuildRequest {
+}
+
+message BuildResponse {
+  int64 result = 1;
+}
+
+message SetTracingModeRequest {
+  int32 arg0 = 1;
+}
+
+message SetTracingModeResponse {
+  int64 result = 1;
+}
+
+message NewWebChromeClientRequest {
+}
+
+message NewWebChromeClientResponse {
+  int64 result = 1;
+}
+
+message GetDefaultVideoPosterRequest {
+  int64 handle = 1;
+}
+
+message GetDefaultVideoPosterResponse {
+  int64 result = 1;
+}
+
+message GetVideoLoadingProgressViewRequest {
+  int64 handle = 1;
+}
+
+message GetVideoLoadingProgressViewResponse {
+  int64 result = 1;
+}
+
+message OnCloseWindowRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message OnCloseWindowResponse {
+}
+
+message OnConsoleMessage1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message OnConsoleMessage1Response {
+  bool result = 1;
+}
+
+message OnConsoleMessage3_1Request {
+  int64 handle = 1;
+  string arg0 = 2;
+  int32 arg1 = 3;
+  string arg2 = 4;
+}
+
+message OnConsoleMessage3_1Response {
+}
+
+message OnCreateWindowRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  bool arg1 = 3;
+  bool arg2 = 4;
+  int64 arg3 = 5;
+}
+
+message OnCreateWindowResponse {
+  bool result = 1;
+}
+
+message OnExceededDatabaseQuotaRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+  string arg1 = 3;
+  int64 arg2 = 4;
+  int64 arg3 = 5;
+  int64 arg4 = 6;
+  int64 arg5 = 7;
+}
+
+message OnExceededDatabaseQuotaResponse {
+}
+
+message OnGeolocationPermissionsHidePromptRequest {
+  int64 handle = 1;
+}
+
+message OnGeolocationPermissionsHidePromptResponse {
+}
+
+message OnGeolocationPermissionsShowPromptRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message OnGeolocationPermissionsShowPromptResponse {
+}
+
+message OnHideCustomViewRequest {
+  int64 handle = 1;
+}
+
+message OnHideCustomViewResponse {
+}
+
+message OnJsAlertRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  string arg1 = 3;
+  string arg2 = 4;
+  int64 arg3 = 5;
+}
+
+message OnJsAlertResponse {
+  bool result = 1;
+}
+
+message OnJsBeforeUnloadRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  string arg1 = 3;
+  string arg2 = 4;
+  int64 arg3 = 5;
+}
+
+message OnJsBeforeUnloadResponse {
+  bool result = 1;
+}
+
+message OnJsConfirmRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  string arg1 = 3;
+  string arg2 = 4;
+  int64 arg3 = 5;
+}
+
+message OnJsConfirmResponse {
+  bool result = 1;
+}
+
+message OnJsPromptRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  string arg1 = 3;
+  string arg2 = 4;
+  string arg3 = 5;
+  int64 arg4 = 6;
+}
+
+message OnJsPromptResponse {
+  bool result = 1;
+}
+
+message OnJsTimeoutRequest {
+  int64 handle = 1;
+}
+
+message OnJsTimeoutResponse {
+  bool result = 1;
+}
+
+message OnPermissionRequestRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message OnPermissionRequestResponse {
+}
+
+message OnPermissionRequestCanceledRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message OnPermissionRequestCanceledResponse {
+}
+
+message OnProgressChangedRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message OnProgressChangedResponse {
+}
+
+message OnReceivedIconRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message OnReceivedIconResponse {
+}
+
+message OnReceivedTitleRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  string arg1 = 3;
+}
+
+message OnReceivedTitleResponse {
+}
+
+message OnReceivedTouchIconUrlRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  string arg1 = 3;
+  bool arg2 = 4;
+}
+
+message OnReceivedTouchIconUrlResponse {
+}
+
+message OnRequestFocusRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message OnRequestFocusResponse {
+}
+
+message OnShowCustomView2Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message OnShowCustomView2Response {
+}
+
+message OnShowCustomView3_1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+  int64 arg2 = 4;
+}
+
+message OnShowCustomView3_1Response {
+}
+
+message OnCustomViewHiddenRequest {
+}
+
+message OnCustomViewHiddenResponse {
+}
+
+message CreateIntentRequest {
+}
+
+message CreateIntentResponse {
+  int64 result = 1;
+}
+
+message GetAcceptTypesRequest {
+}
+
+message GetAcceptTypesResponse {
+  int64 result = 1;
+}
+
+message GetFilenameHintRequest {
+}
+
+message GetFilenameHintResponse {
+  string result = 1;
+}
+
+message GetModeRequest {
+}
+
+message GetModeResponse {
+  int32 result = 1;
+}
+
+message WebChromeClientFileChooserParamsGetTitleRequest {
+}
+
+message WebChromeClientFileChooserParamsGetTitleResponse {
+  int64 result = 1;
+}
+
+message IsCaptureEnabledRequest {
+}
+
+message IsCaptureEnabledResponse {
+  bool result = 1;
+}
+
+message ParseResultRequest {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message ParseResultResponse {
+  int64 result = 1;
+}
+
+message DidCrashRequest {
+}
+
+message DidCrashResponse {
+  bool result = 1;
+}
+
+message RendererPriorityAtExitRequest {
+}
+
+message RendererPriorityAtExitResponse {
+  int32 result = 1;
+}
+
+message NewDateSorterRequest {
+  int64 arg0 = 1;
+}
+
+message NewDateSorterResponse {
+  int64 result = 1;
+}
+
+message GetBoundaryRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message GetBoundaryResponse {
+  int64 result = 1;
+}
+
+message GetIndexRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message GetIndexResponse {
+  int32 result = 1;
+}
+
+message GetLabelRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message GetLabelResponse {
+  string result = 1;
+}
+
+message GetEmbeddedViewRequest {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message GetEmbeddedViewResponse {
+  int64 result = 1;
+}
+
+message GetFullScreenViewRequest {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message GetFullScreenViewResponse {
+  int64 result = 1;
+}
+
+message TerminateRequest {
+}
+
+message TerminateResponse {
+  bool result = 1;
+}
+
+message NewWebResourceResponseRequest {
+  string arg0 = 1;
+  string arg1 = 2;
+  int32 arg2 = 3;
+  string arg3 = 4;
+  int64 arg4 = 5;
+  int64 arg5 = 6;
+}
+
+message NewWebResourceResponseResponse {
+  int64 result = 1;
+}
+
+message GetDataRequest {
+  int64 handle = 1;
+}
+
+message GetDataResponse {
+  int64 result = 1;
+}
+
+message GetEncodingRequest {
+  int64 handle = 1;
+}
+
+message GetEncodingResponse {
+  string result = 1;
+}
+
+message GetMimeTypeRequest {
+  int64 handle = 1;
+}
+
+message GetMimeTypeResponse {
+  string result = 1;
+}
+
+message GetReasonPhraseRequest {
+  int64 handle = 1;
+}
+
+message GetReasonPhraseResponse {
+  string result = 1;
+}
+
+message GetStatusCodeRequest {
+  int64 handle = 1;
+}
+
+message GetStatusCodeResponse {
+  int32 result = 1;
+}
+
+message SetDataRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetDataResponse {
+}
+
+message SetEncodingRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message SetEncodingResponse {
+}
+
+message SetMimeTypeRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message SetMimeTypeResponse {
+}
+
+message SetStatusCodeAndReasonPhraseRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  string arg1 = 3;
+}
+
+message SetStatusCodeAndReasonPhraseResponse {
+}
+
+message NewConsoleMessageRequest {
+  string arg0 = 1;
+  string arg1 = 2;
+  int32 arg2 = 3;
+  int64 arg3 = 4;
+}
+
+message NewConsoleMessageResponse {
+  int64 result = 1;
+}
+
+message LineNumberRequest {
+  int64 handle = 1;
+}
+
+message LineNumberResponse {
+  int32 result = 1;
+}
+
+message MessageRequest {
+  int64 handle = 1;
+}
+
+message MessageResponse {
+  string result = 1;
+}
+
+message MessageLevelRequest {
+  int64 handle = 1;
+}
+
+message MessageLevelResponse {
+  int64 result = 1;
+}
+
+message SourceIdRequest {
+  int64 handle = 1;
+}
+
+message SourceIdResponse {
+  string result = 1;
+}
+
+message ConfirmRequest {
+  string arg0 = 1;
+}
+
+message ConfirmResponse {
+}
+
+message JsResultConfirmRequest {
+}
+
+message CloseRequest {
+}
+
+message CloseResponse {
+}
+
+message PostMessageRequest {
+  int64 arg0 = 1;
+}
+
+message PostMessageResponse {
+}
+
+message SetWebMessageCallbackRequest {
+  int64 arg0 = 1;
+}
+
+message SetWebMessageCallbackResponse {
+}
+
+message OnMessageRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message OnMessageResponse {
+}
+
+message GetExtensionFromMimeTypeRequest {
+  string arg0 = 1;
+}
+
+message GetExtensionFromMimeTypeResponse {
+  string result = 1;
+}
+
+message GetMimeTypeFromExtensionRequest {
+  string arg0 = 1;
+}
+
+message GetMimeTypeFromExtensionResponse {
+  string result = 1;
+}
+
+message HasExtensionRequest {
+  string arg0 = 1;
+}
+
+message HasExtensionResponse {
+  bool result = 1;
+}
+
+message HasMimeTypeRequest {
+  string arg0 = 1;
+}
+
+message HasMimeTypeResponse {
+  bool result = 1;
+}
+
+message GetFileExtensionFromUrlRequest {
+  string arg0 = 1;
+}
+
+message GetFileExtensionFromUrlResponse {
+  string result = 1;
+}
+
+message GetSingletonRequest {
+}
+
+message GetSingletonResponse {
+  int64 result = 1;
+}
+
+message GetDescriptionRequest {
+}
+
+message GetDescriptionResponse {
+  int64 result = 1;
+}
+
+message GetErrorCodeRequest {
+}
+
+message GetErrorCodeResponse {
+  int32 result = 1;
+}
+
 message BackToSafetyRequest {
   bool arg0 = 1;
 }
@@ -2887,920 +3222,306 @@ message ShowInterstitialRequest {
 message ShowInterstitialResponse {
 }
 
-message TerminateRequest {
+message WebHistoryItemGetFaviconRequest {
 }
 
-message TerminateResponse {
-  bool result = 1;
+message WebHistoryItemGetOriginalUrlRequest {
 }
 
-message EnableSmoothTransitionRequest {
+message WebHistoryItemGetTitleRequest {
 }
 
-message EnableSmoothTransitionResponse {
-  bool result = 1;
+message WebHistoryItemGetUrlRequest {
 }
 
-message GetAllowFileAccessFromFileURLsRequest {
+message NewWebMessageRequest {
+  string arg0 = 1;
 }
 
-message GetAllowFileAccessFromFileURLsResponse {
-  bool result = 1;
-}
-
-message GetAllowUniversalAccessFromFileURLsRequest {
-}
-
-message GetAllowUniversalAccessFromFileURLsResponse {
-  bool result = 1;
-}
-
-message GetBlockNetworkImageRequest {
-}
-
-message GetBlockNetworkImageResponse {
-  bool result = 1;
-}
-
-message GetBuiltInZoomControlsRequest {
-}
-
-message GetBuiltInZoomControlsResponse {
-  bool result = 1;
-}
-
-message GetCursiveFontFamilyRequest {
-}
-
-message GetCursiveFontFamilyResponse {
-  string result = 1;
-}
-
-message GetDatabaseEnabledRequest {
-}
-
-message GetDatabaseEnabledResponse {
-  bool result = 1;
-}
-
-message GetDatabasePathRequest {
-}
-
-message GetDatabasePathResponse {
-  string result = 1;
-}
-
-message GetDefaultFixedFontSizeRequest {
-}
-
-message GetDefaultFixedFontSizeResponse {
-  int32 result = 1;
-}
-
-message GetDefaultFontSizeRequest {
-}
-
-message GetDefaultFontSizeResponse {
-  int32 result = 1;
-}
-
-message GetDefaultTextEncodingNameRequest {
-}
-
-message GetDefaultTextEncodingNameResponse {
-  string result = 1;
-}
-
-message GetDefaultZoomRequest {
-}
-
-message GetDefaultZoomResponse {
+message NewWebMessageResponse {
   int64 result = 1;
 }
 
-message GetDisabledActionModeMenuItemsRequest {
-}
-
-message GetDisabledActionModeMenuItemsResponse {
-  int32 result = 1;
-}
-
-message GetDisplayZoomControlsRequest {
-}
-
-message GetDisplayZoomControlsResponse {
-  bool result = 1;
-}
-
-message GetDomStorageEnabledRequest {
-}
-
-message GetDomStorageEnabledResponse {
-  bool result = 1;
-}
-
-message GetFantasyFontFamilyRequest {
-}
-
-message GetFantasyFontFamilyResponse {
+message WebMessageGetDataResponse {
   string result = 1;
 }
 
-message GetFixedFontFamilyRequest {
+message GetPortsRequest {
+  int64 handle = 1;
 }
 
-message GetFixedFontFamilyResponse {
-  string result = 1;
-}
-
-message GetForceDarkRequest {
-}
-
-message GetForceDarkResponse {
-  int32 result = 1;
-}
-
-message GetJavaScriptCanOpenWindowsAutomaticallyRequest {
-}
-
-message GetJavaScriptCanOpenWindowsAutomaticallyResponse {
-  bool result = 1;
-}
-
-message GetJavaScriptEnabledRequest {
-}
-
-message GetJavaScriptEnabledResponse {
-  bool result = 1;
-}
-
-message GetLayoutAlgorithmRequest {
-}
-
-message GetLayoutAlgorithmResponse {
+message GetPortsResponse {
   int64 result = 1;
 }
 
-message GetLightTouchEnabledRequest {
+message NewWebViewFragmentRequest {
 }
 
-message GetLightTouchEnabledResponse {
-  bool result = 1;
-}
-
-message GetLoadWithOverviewModeRequest {
-}
-
-message GetLoadWithOverviewModeResponse {
-  bool result = 1;
-}
-
-message GetLoadsImagesAutomaticallyRequest {
-}
-
-message GetLoadsImagesAutomaticallyResponse {
-  bool result = 1;
-}
-
-message GetMediaPlaybackRequiresUserGestureRequest {
-}
-
-message GetMediaPlaybackRequiresUserGestureResponse {
-  bool result = 1;
-}
-
-message GetMinimumFontSizeRequest {
-}
-
-message GetMinimumFontSizeResponse {
-  int32 result = 1;
-}
-
-message GetMinimumLogicalFontSizeRequest {
-}
-
-message GetMinimumLogicalFontSizeResponse {
-  int32 result = 1;
-}
-
-message GetMixedContentModeRequest {
-}
-
-message GetMixedContentModeResponse {
-  int32 result = 1;
-}
-
-message GetOffscreenPreRasterRequest {
-}
-
-message GetOffscreenPreRasterResponse {
-  bool result = 1;
-}
-
-message GetPluginStateRequest {
-}
-
-message GetPluginStateResponse {
+message NewWebViewFragmentResponse {
   int64 result = 1;
 }
 
-message GetSafeBrowsingEnabledRequest {
+message GetWebViewRequest {
+  int64 handle = 1;
 }
 
-message GetSafeBrowsingEnabledResponse {
-  bool result = 1;
+message GetWebViewResponse {
+  int64 result = 1;
 }
 
-message GetSansSerifFontFamilyRequest {
+message OnCreateViewRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+  int64 arg2 = 4;
 }
 
-message GetSansSerifFontFamilyResponse {
-  string result = 1;
+message OnCreateViewResponse {
+  int64 result = 1;
 }
 
-message GetSaveFormDataRequest {
+message OnDestroyRequest {
+  int64 handle = 1;
 }
 
-message GetSaveFormDataResponse {
-  bool result = 1;
+message OnDestroyResponse {
 }
 
-message GetSavePasswordRequest {
+message OnDestroyViewRequest {
+  int64 handle = 1;
 }
 
-message GetSavePasswordResponse {
-  bool result = 1;
+message OnDestroyViewResponse {
 }
 
-message GetSerifFontFamilyRequest {
+message DenyRequest {
 }
 
-message GetSerifFontFamilyResponse {
-  string result = 1;
+message DenyResponse {
 }
 
-message GetStandardFontFamilyRequest {
+message PermissionRequestGetOriginResponse {
+  int64 result = 1;
 }
 
-message GetStandardFontFamilyResponse {
-  string result = 1;
+message GetResourcesRequest {
 }
 
-message GetTextZoomRequest {
+message GetResourcesResponse {
+  int64 result = 1;
 }
 
-message GetTextZoomResponse {
+message GrantRequest {
+  int64 arg0 = 1;
+}
+
+message GrantResponse {
+}
+
+message OpenRequest {
+  string arg0 = 1;
+}
+
+message OpenResponse {
+}
+
+message ReleaseIconForPageUrlRequest {
+  string arg0 = 1;
+}
+
+message ReleaseIconForPageUrlResponse {
+}
+
+message RemoveAllIconsRequest {
+}
+
+message RemoveAllIconsResponse {
+}
+
+message RequestIconForPageUrlRequest {
+  string arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message RequestIconForPageUrlResponse {
+}
+
+message RetainIconForPageUrlRequest {
+  string arg0 = 1;
+}
+
+message RetainIconForPageUrlResponse {
+}
+
+message WebIconDatabaseIconListenerOnReceivedIconRequest {
+  string arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message OnDownloadStartRequest {
+  string arg0 = 1;
+  string arg1 = 2;
+  string arg2 = 3;
+  string arg3 = 4;
+  int64 arg4 = 5;
+}
+
+message OnDownloadStartResponse {
+}
+
+message GetCurrentIndexRequest {
+}
+
+message GetCurrentIndexResponse {
   int32 result = 1;
 }
 
-message GetUseWideViewPortRequest {
+message GetCurrentItemRequest {
 }
 
-message GetUseWideViewPortResponse {
-  bool result = 1;
+message GetCurrentItemResponse {
+  int64 result = 1;
 }
 
-message GetUserAgentStringRequest {
+message GetItemAtIndexRequest {
+  int32 arg0 = 1;
 }
 
-message GetUserAgentStringResponse {
+message GetItemAtIndexResponse {
+  int64 result = 1;
+}
+
+message GetSizeRequest {
+}
+
+message GetSizeResponse {
+  int32 result = 1;
+}
+
+message GetMethodRequest {
+}
+
+message GetMethodResponse {
   string result = 1;
 }
 
-message IsAlgorithmicDarkeningAllowedRequest {
+message WebResourceRequestGetUrlRequest {
 }
 
-message IsAlgorithmicDarkeningAllowedResponse {
+message WebResourceRequestGetUrlResponse {
+  int64 result = 1;
+}
+
+message HasGestureRequest {
+}
+
+message HasGestureResponse {
   bool result = 1;
 }
 
-message SetAlgorithmicDarkeningAllowedRequest {
-  bool arg0 = 1;
+message IsForMainFrameRequest {
 }
 
-message SetAlgorithmicDarkeningAllowedResponse {
-}
-
-message SetAllowFileAccessFromFileURLsRequest {
-  bool arg0 = 1;
-}
-
-message SetAllowFileAccessFromFileURLsResponse {
-}
-
-message SetAllowUniversalAccessFromFileURLsRequest {
-  bool arg0 = 1;
-}
-
-message SetAllowUniversalAccessFromFileURLsResponse {
-}
-
-message SetBlockNetworkImageRequest {
-  bool arg0 = 1;
-}
-
-message SetBlockNetworkImageResponse {
-}
-
-message SetBuiltInZoomControlsRequest {
-  bool arg0 = 1;
-}
-
-message SetBuiltInZoomControlsResponse {
-}
-
-message SetCursiveFontFamilyRequest {
-  string arg0 = 1;
-}
-
-message SetCursiveFontFamilyResponse {
-}
-
-message SetDatabaseEnabledRequest {
-  bool arg0 = 1;
-}
-
-message SetDatabaseEnabledResponse {
-}
-
-message SetDatabasePathRequest {
-  string arg0 = 1;
-}
-
-message SetDatabasePathResponse {
-}
-
-message SetDefaultFixedFontSizeRequest {
-  int32 arg0 = 1;
-}
-
-message SetDefaultFixedFontSizeResponse {
-}
-
-message SetDefaultFontSizeRequest {
-  int32 arg0 = 1;
-}
-
-message SetDefaultFontSizeResponse {
-}
-
-message SetDefaultTextEncodingNameRequest {
-  string arg0 = 1;
-}
-
-message SetDefaultTextEncodingNameResponse {
-}
-
-message SetDefaultZoomRequest {
-  int64 arg0 = 1;
-}
-
-message SetDefaultZoomResponse {
-}
-
-message SetDisabledActionModeMenuItemsRequest {
-  int32 arg0 = 1;
-}
-
-message SetDisabledActionModeMenuItemsResponse {
-}
-
-message SetDisplayZoomControlsRequest {
-  bool arg0 = 1;
-}
-
-message SetDisplayZoomControlsResponse {
-}
-
-message SetDomStorageEnabledRequest {
-  bool arg0 = 1;
-}
-
-message SetDomStorageEnabledResponse {
-}
-
-message SetEnableSmoothTransitionRequest {
-  bool arg0 = 1;
-}
-
-message SetEnableSmoothTransitionResponse {
-}
-
-message SetFantasyFontFamilyRequest {
-  string arg0 = 1;
-}
-
-message SetFantasyFontFamilyResponse {
-}
-
-message SetFixedFontFamilyRequest {
-  string arg0 = 1;
-}
-
-message SetFixedFontFamilyResponse {
-}
-
-message SetForceDarkRequest {
-  int32 arg0 = 1;
-}
-
-message SetForceDarkResponse {
-}
-
-message SetGeolocationDatabasePathRequest {
-  string arg0 = 1;
-}
-
-message SetGeolocationDatabasePathResponse {
-}
-
-message SetGeolocationEnabledRequest {
-  bool arg0 = 1;
-}
-
-message SetGeolocationEnabledResponse {
-}
-
-message SetJavaScriptCanOpenWindowsAutomaticallyRequest {
-  bool arg0 = 1;
-}
-
-message SetJavaScriptCanOpenWindowsAutomaticallyResponse {
-}
-
-message SetJavaScriptEnabledRequest {
-  bool arg0 = 1;
-}
-
-message SetJavaScriptEnabledResponse {
-}
-
-message SetLayoutAlgorithmRequest {
-  int64 arg0 = 1;
-}
-
-message SetLayoutAlgorithmResponse {
-}
-
-message SetLightTouchEnabledRequest {
-  bool arg0 = 1;
-}
-
-message SetLightTouchEnabledResponse {
-}
-
-message SetLoadWithOverviewModeRequest {
-  bool arg0 = 1;
-}
-
-message SetLoadWithOverviewModeResponse {
-}
-
-message SetLoadsImagesAutomaticallyRequest {
-  bool arg0 = 1;
-}
-
-message SetLoadsImagesAutomaticallyResponse {
-}
-
-message SetMediaPlaybackRequiresUserGestureRequest {
-  bool arg0 = 1;
-}
-
-message SetMediaPlaybackRequiresUserGestureResponse {
-}
-
-message SetMinimumFontSizeRequest {
-  int32 arg0 = 1;
-}
-
-message SetMinimumFontSizeResponse {
-}
-
-message SetMinimumLogicalFontSizeRequest {
-  int32 arg0 = 1;
-}
-
-message SetMinimumLogicalFontSizeResponse {
-}
-
-message SetMixedContentModeRequest {
-  int32 arg0 = 1;
-}
-
-message SetMixedContentModeResponse {
-}
-
-message SetNeedInitialFocusRequest {
-  bool arg0 = 1;
-}
-
-message SetNeedInitialFocusResponse {
-}
-
-message SetOffscreenPreRasterRequest {
-  bool arg0 = 1;
-}
-
-message SetOffscreenPreRasterResponse {
-}
-
-message SetPluginStateRequest {
-  int64 arg0 = 1;
-}
-
-message SetPluginStateResponse {
-}
-
-message SetRenderPriorityRequest {
-  int64 arg0 = 1;
-}
-
-message SetRenderPriorityResponse {
-}
-
-message SetSafeBrowsingEnabledRequest {
-  bool arg0 = 1;
-}
-
-message SetSafeBrowsingEnabledResponse {
-}
-
-message SetSansSerifFontFamilyRequest {
-  string arg0 = 1;
-}
-
-message SetSansSerifFontFamilyResponse {
-}
-
-message SetSaveFormDataRequest {
-  bool arg0 = 1;
-}
-
-message SetSaveFormDataResponse {
-}
-
-message SetSavePasswordRequest {
-  bool arg0 = 1;
-}
-
-message SetSavePasswordResponse {
-}
-
-message SetSerifFontFamilyRequest {
-  string arg0 = 1;
-}
-
-message SetSerifFontFamilyResponse {
-}
-
-message SetStandardFontFamilyRequest {
-  string arg0 = 1;
-}
-
-message SetStandardFontFamilyResponse {
-}
-
-message SetSupportMultipleWindowsRequest {
-  bool arg0 = 1;
-}
-
-message SetSupportMultipleWindowsResponse {
-}
-
-message SetSupportZoomRequest {
-  bool arg0 = 1;
-}
-
-message SetSupportZoomResponse {
-}
-
-message SetTextZoomRequest {
-  int32 arg0 = 1;
-}
-
-message SetTextZoomResponse {
-}
-
-message SetUseWideViewPortRequest {
-  bool arg0 = 1;
-}
-
-message SetUseWideViewPortResponse {
-}
-
-message SetUserAgentStringRequest {
-  string arg0 = 1;
-}
-
-message SetUserAgentStringResponse {
-}
-
-message SupportMultipleWindowsRequest {
-}
-
-message SupportMultipleWindowsResponse {
+message IsForMainFrameResponse {
   bool result = 1;
 }
 
-message SupportZoomRequest {
+message IsRedirectRequest {
 }
 
-message SupportZoomResponse {
+message IsRedirectResponse {
   bool result = 1;
 }
 
-message GetDefaultUserAgentRequest {
+message NewServiceWorkerClientRequest {
+}
+
+message NewServiceWorkerClientResponse {
+  int64 result = 1;
+}
+
+message ShouldInterceptRequestRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message ShouldInterceptRequestResponse {
+  int64 result = 1;
+}
+
+message WebViewDatabaseClearFormDataRequest {
+}
+
+message ClearHttpAuthUsernamePasswordRequest {
+}
+
+message ClearHttpAuthUsernamePasswordResponse {
+}
+
+message ClearUsernamePasswordRequest {
+}
+
+message ClearUsernamePasswordResponse {
+}
+
+message WebViewDatabaseGetHttpAuthUsernamePasswordRequest {
+  string arg0 = 1;
+  string arg1 = 2;
+}
+
+message HasFormDataRequest {
+}
+
+message HasFormDataResponse {
+  bool result = 1;
+}
+
+message HasHttpAuthUsernamePasswordRequest {
+}
+
+message HasHttpAuthUsernamePasswordResponse {
+  bool result = 1;
+}
+
+message HasUsernamePasswordRequest {
+}
+
+message HasUsernamePasswordResponse {
+  bool result = 1;
+}
+
+message WebViewDatabaseSetHttpAuthUsernamePasswordRequest {
+  string arg0 = 1;
+  string arg1 = 2;
+  string arg2 = 3;
+  string arg3 = 4;
+}
+
+message WebViewDatabaseGetInstanceRequest {
   int64 arg0 = 1;
 }
 
-message GetDefaultUserAgentResponse {
-  string result = 1;
+message IsTracingRequest {
 }
 
-service WebIconDatabaseService {
-  rpc Close (CloseRequest) returns (CloseResponse);
-  rpc Open (OpenRequest) returns (OpenResponse);
-  rpc ReleaseIconForPageUrl (ReleaseIconForPageUrlRequest) returns (ReleaseIconForPageUrlResponse);
-  rpc RemoveAllIcons (RemoveAllIconsRequest) returns (RemoveAllIconsResponse);
-  rpc RequestIconForPageUrl (RequestIconForPageUrlRequest) returns (RequestIconForPageUrlResponse);
-  rpc RetainIconForPageUrl (RetainIconForPageUrlRequest) returns (RetainIconForPageUrlResponse);
-  rpc GetInstance (GetInstanceRequest) returns (GetInstanceResponse);
+message IsTracingResponse {
+  bool result = 1;
 }
 
-service WebIconDatabaseIconListenerService {
-  rpc OnReceivedIcon (OnReceivedIconRequest) returns (OnReceivedIconResponse);
+message StartRequest {
+  int64 arg0 = 1;
 }
 
-service ConsoleMessageService {
-  rpc NewConsoleMessage (NewConsoleMessageRequest) returns (NewConsoleMessageResponse);
-  rpc LineNumber (LineNumberRequest) returns (LineNumberResponse);
-  rpc Message (MessageRequest) returns (MessageResponse);
-  rpc MessageLevel (MessageLevelRequest) returns (MessageLevelResponse);
-  rpc SourceId (SourceIdRequest) returns (SourceIdResponse);
+message StartResponse {
 }
 
-service ConsoleMessageMessageLevelService {
-  rpc Values (ValuesRequest) returns (ValuesResponse);
-  rpc ValueOf (ValueOfRequest) returns (ValueOfResponse);
+message StopRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
 }
 
-service RenderProcessGoneDetailService {
-  rpc DidCrash (DidCrashRequest) returns (DidCrashResponse);
-  rpc RendererPriorityAtExit (RendererPriorityAtExitRequest) returns (RendererPriorityAtExitResponse);
-}
-
-service DateSorterService {
-  rpc NewDateSorter (NewDateSorterRequest) returns (NewDateSorterResponse);
-  rpc GetBoundary (GetBoundaryRequest) returns (GetBoundaryResponse);
-  rpc GetIndex (GetIndexRequest) returns (GetIndexResponse);
-  rpc GetLabel (GetLabelRequest) returns (GetLabelResponse);
-}
-
-service ClientCertRequestService {
-  rpc Cancel (CancelRequest) returns (CancelResponse);
-  rpc GetHost (GetHostRequest) returns (GetHostResponse);
-  rpc GetKeyTypes (GetKeyTypesRequest) returns (GetKeyTypesResponse);
-  rpc GetPort (GetPortRequest) returns (GetPortResponse);
-  rpc GetPrincipals (GetPrincipalsRequest) returns (GetPrincipalsResponse);
-  rpc Ignore (IgnoreRequest) returns (IgnoreResponse);
-  rpc Proceed (ProceedRequest) returns (ProceedResponse);
-}
-
-service WebResourceRequestService {
-  rpc GetMethod (GetMethodRequest) returns (GetMethodResponse);
-  rpc GetUrl (GetUrlRequest) returns (GetUrlResponse);
-  rpc HasGesture (HasGestureRequest) returns (HasGestureResponse);
-  rpc IsForMainFrame (IsForMainFrameRequest) returns (IsForMainFrameResponse);
-  rpc IsRedirect (IsRedirectRequest) returns (IsRedirectResponse);
-}
-
-service ServiceWorkerControllerService {
-  rpc GetServiceWorkerWebSettings (GetServiceWorkerWebSettingsRequest) returns (GetServiceWorkerWebSettingsResponse);
-  rpc SetServiceWorkerClient (SetServiceWorkerClientRequest) returns (SetServiceWorkerClientResponse);
-  rpc GetInstance (GetInstanceRequest) returns (GetInstanceResponse);
-}
-
-service URLUtilService {
-  rpc NewURLUtil (NewURLUtilRequest) returns (NewURLUtilResponse);
-  rpc ComposeSearchUrl (ComposeSearchUrlRequest) returns (ComposeSearchUrlResponse);
-  rpc Decode (DecodeRequest) returns (DecodeResponse);
-  rpc GuessFileName (GuessFileNameRequest) returns (GuessFileNameResponse);
-  rpc GuessUrl (GuessUrlRequest) returns (GuessUrlResponse);
-  rpc IsAboutUrl (IsAboutUrlRequest) returns (IsAboutUrlResponse);
-  rpc IsAssetUrl (IsAssetUrlRequest) returns (IsAssetUrlResponse);
-  rpc IsContentUrl (IsContentUrlRequest) returns (IsContentUrlResponse);
-  rpc IsCookielessProxyUrl (IsCookielessProxyUrlRequest) returns (IsCookielessProxyUrlResponse);
-  rpc IsDataUrl (IsDataUrlRequest) returns (IsDataUrlResponse);
-  rpc IsFileUrl (IsFileUrlRequest) returns (IsFileUrlResponse);
-  rpc IsHttpUrl (IsHttpUrlRequest) returns (IsHttpUrlResponse);
-  rpc IsHttpsUrl (IsHttpsUrlRequest) returns (IsHttpsUrlResponse);
-  rpc IsJavaScriptUrl (IsJavaScriptUrlRequest) returns (IsJavaScriptUrlResponse);
-  rpc IsNetworkUrl (IsNetworkUrlRequest) returns (IsNetworkUrlResponse);
-  rpc IsValidUrl (IsValidUrlRequest) returns (IsValidUrlResponse);
-  rpc StripAnchor (StripAnchorRequest) returns (StripAnchorResponse);
-}
-
-service WebResourceResponseService {
-  rpc NewWebResourceResponse (NewWebResourceResponseRequest) returns (NewWebResourceResponseResponse);
-  rpc GetData (GetDataRequest) returns (GetDataResponse);
-  rpc GetEncoding (GetEncodingRequest) returns (GetEncodingResponse);
-  rpc GetMimeType (GetMimeTypeRequest) returns (GetMimeTypeResponse);
-  rpc GetReasonPhrase (GetReasonPhraseRequest) returns (GetReasonPhraseResponse);
-  rpc GetStatusCode (GetStatusCodeRequest) returns (GetStatusCodeResponse);
-  rpc SetData (SetDataRequest) returns (SetDataResponse);
-  rpc SetEncoding (SetEncodingRequest) returns (SetEncodingResponse);
-  rpc SetMimeType (SetMimeTypeRequest) returns (SetMimeTypeResponse);
-  rpc SetStatusCodeAndReasonPhrase (SetStatusCodeAndReasonPhraseRequest) returns (SetStatusCodeAndReasonPhraseResponse);
-}
-
-service WebViewRenderProcessClientService {
-  rpc OnRenderProcessResponsive (OnRenderProcessResponsiveRequest) returns (OnRenderProcessResponsiveResponse);
-  rpc OnRenderProcessUnresponsive (OnRenderProcessUnresponsiveRequest) returns (OnRenderProcessUnresponsiveResponse);
-}
-
-service WebViewService {
-  rpc NewWebView (NewWebViewRequest) returns (NewWebViewResponse);
-  rpc AddJavascriptInterface (AddJavascriptInterfaceRequest) returns (AddJavascriptInterfaceResponse);
-  rpc CanGoBack (CanGoBackRequest) returns (CanGoBackResponse);
-  rpc CanGoBackOrForward (CanGoBackOrForwardRequest) returns (CanGoBackOrForwardResponse);
-  rpc CanGoForward (CanGoForwardRequest) returns (CanGoForwardResponse);
-  rpc CanZoomIn (CanZoomInRequest) returns (CanZoomInResponse);
-  rpc CanZoomOut (CanZoomOutRequest) returns (CanZoomOutResponse);
-  rpc CapturePicture (CapturePictureRequest) returns (CapturePictureResponse);
-  rpc ClearCache (ClearCacheRequest) returns (ClearCacheResponse);
-  rpc ClearFormData (ClearFormDataRequest) returns (ClearFormDataResponse);
-  rpc ClearHistory (ClearHistoryRequest) returns (ClearHistoryResponse);
-  rpc ClearMatches (ClearMatchesRequest) returns (ClearMatchesResponse);
-  rpc ClearSslPreferences (ClearSslPreferencesRequest) returns (ClearSslPreferencesResponse);
-  rpc ClearView (ClearViewRequest) returns (ClearViewResponse);
-  rpc ComputeScroll (ComputeScrollRequest) returns (ComputeScrollResponse);
-  rpc CopyBackForwardList (CopyBackForwardListRequest) returns (CopyBackForwardListResponse);
-  rpc CreatePrintDocumentAdapter0 (CreatePrintDocumentAdapter0Request) returns (CreatePrintDocumentAdapter0Response);
-  rpc CreatePrintDocumentAdapter1_1 (CreatePrintDocumentAdapter1_1Request) returns (CreatePrintDocumentAdapter1_1Response);
-  rpc CreateWebMessageChannel (CreateWebMessageChannelRequest) returns (CreateWebMessageChannelResponse);
-  rpc Destroy (DestroyRequest) returns (DestroyResponse);
-  rpc DispatchKeyEvent (DispatchKeyEventRequest) returns (DispatchKeyEventResponse);
-  rpc DocumentHasImages (DocumentHasImagesRequest) returns (DocumentHasImagesResponse);
-  rpc FindAll (FindAllRequest) returns (FindAllResponse);
-  rpc FindAllAsync (FindAllAsyncRequest) returns (FindAllAsyncResponse);
-  rpc FindFocus (FindFocusRequest) returns (FindFocusResponse);
-  rpc FindNext (FindNextRequest) returns (FindNextResponse);
-  rpc FlingScroll (FlingScrollRequest) returns (FlingScrollResponse);
-  rpc FreeMemory (FreeMemoryRequest) returns (FreeMemoryResponse);
-  rpc GetAccessibilityClassName (GetAccessibilityClassNameRequest) returns (GetAccessibilityClassNameResponse);
-  rpc GetAccessibilityNodeProvider (GetAccessibilityNodeProviderRequest) returns (GetAccessibilityNodeProviderResponse);
-  rpc GetCertificate (GetCertificateRequest) returns (GetCertificateResponse);
-  rpc GetContentHeight (GetContentHeightRequest) returns (GetContentHeightResponse);
-  rpc GetFavicon (GetFaviconRequest) returns (GetFaviconResponse);
-  rpc GetHandler (GetHandlerRequest) returns (GetHandlerResponse);
-  rpc GetHitTestResult (GetHitTestResultRequest) returns (GetHitTestResultResponse);
-  rpc GetHttpAuthUsernamePassword (GetHttpAuthUsernamePasswordRequest) returns (GetHttpAuthUsernamePasswordResponse);
-  rpc GetOriginalUrl (GetOriginalUrlRequest) returns (GetOriginalUrlResponse);
-  rpc GetProgress (GetProgressRequest) returns (GetProgressResponse);
-  rpc GetRendererPriorityWaivedWhenNotVisible (GetRendererPriorityWaivedWhenNotVisibleRequest) returns (GetRendererPriorityWaivedWhenNotVisibleResponse);
-  rpc GetRendererRequestedPriority (GetRendererRequestedPriorityRequest) returns (GetRendererRequestedPriorityResponse);
-  rpc GetScale (GetScaleRequest) returns (GetScaleResponse);
-  rpc GetSettings (GetSettingsRequest) returns (GetSettingsResponse);
-  rpc GetTextClassifier (GetTextClassifierRequest) returns (GetTextClassifierResponse);
-  rpc GetTitle (GetTitleRequest) returns (GetTitleResponse);
-  rpc GetUrl (WebViewGetUrlRequest) returns (WebViewGetUrlResponse);
-  rpc GetWebChromeClient (GetWebChromeClientRequest) returns (GetWebChromeClientResponse);
-  rpc GetWebViewClient (GetWebViewClientRequest) returns (GetWebViewClientResponse);
-  rpc GetWebViewLooper (GetWebViewLooperRequest) returns (GetWebViewLooperResponse);
-  rpc GetWebViewRenderProcess (GetWebViewRenderProcessRequest) returns (GetWebViewRenderProcessResponse);
-  rpc GetWebViewRenderProcessClient (GetWebViewRenderProcessClientRequest) returns (GetWebViewRenderProcessClientResponse);
-  rpc GoBack (GoBackRequest) returns (GoBackResponse);
-  rpc GoBackOrForward (GoBackOrForwardRequest) returns (GoBackOrForwardResponse);
-  rpc GoForward (GoForwardRequest) returns (GoForwardResponse);
-  rpc InvokeZoomPicker (InvokeZoomPickerRequest) returns (InvokeZoomPickerResponse);
-  rpc IsPrivateBrowsingEnabled (IsPrivateBrowsingEnabledRequest) returns (IsPrivateBrowsingEnabledResponse);
-  rpc IsVisibleToUserForAutofill (IsVisibleToUserForAutofillRequest) returns (IsVisibleToUserForAutofillResponse);
-  rpc LoadData (LoadDataRequest) returns (LoadDataResponse);
-  rpc LoadDataWithBaseURL (LoadDataWithBaseURLRequest) returns (LoadDataWithBaseURLResponse);
-  rpc LoadUrl (LoadUrlRequest) returns (LoadUrlResponse);
-  rpc OnApplyWindowInsets (OnApplyWindowInsetsRequest) returns (OnApplyWindowInsetsResponse);
-  rpc OnCheckIsTextEditor (OnCheckIsTextEditorRequest) returns (OnCheckIsTextEditorResponse);
-  rpc OnChildViewAdded (OnChildViewAddedRequest) returns (OnChildViewAddedResponse);
-  rpc OnChildViewRemoved (OnChildViewRemovedRequest) returns (OnChildViewRemovedResponse);
-  rpc OnCreateInputConnection (OnCreateInputConnectionRequest) returns (OnCreateInputConnectionResponse);
-  rpc OnDragEvent (OnDragEventRequest) returns (OnDragEventResponse);
-  rpc OnFinishTemporaryDetach (OnFinishTemporaryDetachRequest) returns (OnFinishTemporaryDetachResponse);
-  rpc OnGenericMotionEvent (OnGenericMotionEventRequest) returns (OnGenericMotionEventResponse);
-  rpc OnGlobalFocusChanged (OnGlobalFocusChangedRequest) returns (OnGlobalFocusChangedResponse);
-  rpc OnHoverEvent (OnHoverEventRequest) returns (OnHoverEventResponse);
-  rpc OnKeyDown (OnKeyDownRequest) returns (OnKeyDownResponse);
-  rpc OnKeyMultiple (OnKeyMultipleRequest) returns (OnKeyMultipleResponse);
-  rpc OnKeyUp (OnKeyUpRequest) returns (OnKeyUpResponse);
-  rpc OnPause (OnPauseRequest) returns (OnPauseResponse);
-  rpc OnProvideAutofillVirtualStructure (OnProvideAutofillVirtualStructureRequest) returns (OnProvideAutofillVirtualStructureResponse);
-  rpc OnProvideContentCaptureStructure (OnProvideContentCaptureStructureRequest) returns (OnProvideContentCaptureStructureResponse);
-  rpc OnProvideVirtualStructure (OnProvideVirtualStructureRequest) returns (OnProvideVirtualStructureResponse);
-  rpc OnResolvePointerIcon (OnResolvePointerIconRequest) returns (OnResolvePointerIconResponse);
-  rpc OnResume (OnResumeRequest) returns (OnResumeResponse);
-  rpc OnStartTemporaryDetach (OnStartTemporaryDetachRequest) returns (OnStartTemporaryDetachResponse);
-  rpc OnTouchEvent (OnTouchEventRequest) returns (OnTouchEventResponse);
-  rpc OnTrackballEvent (OnTrackballEventRequest) returns (OnTrackballEventResponse);
-  rpc OnWindowFocusChanged (OnWindowFocusChangedRequest) returns (OnWindowFocusChangedResponse);
-  rpc OverlayHorizontalScrollbar (OverlayHorizontalScrollbarRequest) returns (OverlayHorizontalScrollbarResponse);
-  rpc OverlayVerticalScrollbar (OverlayVerticalScrollbarRequest) returns (OverlayVerticalScrollbarResponse);
-  rpc PageDown (PageDownRequest) returns (PageDownResponse);
-  rpc PageUp (PageUpRequest) returns (PageUpResponse);
-  rpc PauseTimers (PauseTimersRequest) returns (PauseTimersResponse);
-  rpc PerformLongClick (PerformLongClickRequest) returns (PerformLongClickResponse);
-  rpc PostUrl (PostUrlRequest) returns (PostUrlResponse);
-  rpc PostVisualStateCallback (PostVisualStateCallbackRequest) returns (PostVisualStateCallbackResponse);
-  rpc PostWebMessage (PostWebMessageRequest) returns (PostWebMessageResponse);
-  rpc Reload (ReloadRequest) returns (ReloadResponse);
-  rpc RemoveJavascriptInterface (RemoveJavascriptInterfaceRequest) returns (RemoveJavascriptInterfaceResponse);
-  rpc RequestChildRectangleOnScreen (RequestChildRectangleOnScreenRequest) returns (RequestChildRectangleOnScreenResponse);
-  rpc RequestFocus (RequestFocusRequest) returns (RequestFocusResponse);
-  rpc RequestFocusNodeHref (RequestFocusNodeHrefRequest) returns (RequestFocusNodeHrefResponse);
-  rpc RequestImageRef (RequestImageRefRequest) returns (RequestImageRefResponse);
-  rpc RestoreState (RestoreStateRequest) returns (RestoreStateResponse);
-  rpc ResumeTimers (ResumeTimersRequest) returns (ResumeTimersResponse);
-  rpc SavePassword (SavePasswordRequest) returns (SavePasswordResponse);
-  rpc SaveState (SaveStateRequest) returns (SaveStateResponse);
-  rpc SaveWebArchive (SaveWebArchiveRequest) returns (SaveWebArchiveResponse);
-  rpc SetBackgroundColor (SetBackgroundColorRequest) returns (SetBackgroundColorResponse);
-  rpc SetCertificate (SetCertificateRequest) returns (SetCertificateResponse);
-  rpc SetDownloadListener (SetDownloadListenerRequest) returns (SetDownloadListenerResponse);
-  rpc SetFindListener (SetFindListenerRequest) returns (SetFindListenerResponse);
-  rpc SetHorizontalScrollbarOverlay (SetHorizontalScrollbarOverlayRequest) returns (SetHorizontalScrollbarOverlayResponse);
-  rpc SetHttpAuthUsernamePassword (SetHttpAuthUsernamePasswordRequest) returns (SetHttpAuthUsernamePasswordResponse);
-  rpc SetInitialScale (SetInitialScaleRequest) returns (SetInitialScaleResponse);
-  rpc SetLayerType (SetLayerTypeRequest) returns (SetLayerTypeResponse);
-  rpc SetLayoutParams (SetLayoutParamsRequest) returns (SetLayoutParamsResponse);
-  rpc SetMapTrackballToArrowKeys (SetMapTrackballToArrowKeysRequest) returns (SetMapTrackballToArrowKeysResponse);
-  rpc SetNetworkAvailable (SetNetworkAvailableRequest) returns (SetNetworkAvailableResponse);
-  rpc SetOverScrollMode (SetOverScrollModeRequest) returns (SetOverScrollModeResponse);
-  rpc SetPictureListener (SetPictureListenerRequest) returns (SetPictureListenerResponse);
-  rpc SetRendererPriorityPolicy (SetRendererPriorityPolicyRequest) returns (SetRendererPriorityPolicyResponse);
-  rpc SetScrollBarStyle (SetScrollBarStyleRequest) returns (SetScrollBarStyleResponse);
-  rpc SetTextClassifier (SetTextClassifierRequest) returns (SetTextClassifierResponse);
-  rpc SetVerticalScrollbarOverlay (SetVerticalScrollbarOverlayRequest) returns (SetVerticalScrollbarOverlayResponse);
-  rpc SetWebChromeClient (SetWebChromeClientRequest) returns (SetWebChromeClientResponse);
-  rpc SetWebViewClient (SetWebViewClientRequest) returns (SetWebViewClientResponse);
-  rpc SetWebViewRenderProcessClient1 (SetWebViewRenderProcessClient1Request) returns (SetWebViewRenderProcessClient1Response);
-  rpc SetWebViewRenderProcessClient2_1 (SetWebViewRenderProcessClient2_1Request) returns (SetWebViewRenderProcessClient2_1Response);
-  rpc ShouldDelayChildPressedState (ShouldDelayChildPressedStateRequest) returns (ShouldDelayChildPressedStateResponse);
-  rpc ShowFindDialog (ShowFindDialogRequest) returns (ShowFindDialogResponse);
-  rpc StopLoading (StopLoadingRequest) returns (StopLoadingResponse);
-  rpc ZoomBy (ZoomByRequest) returns (ZoomByResponse);
-  rpc ZoomIn (ZoomInRequest) returns (ZoomInResponse);
-  rpc ZoomOut (ZoomOutRequest) returns (ZoomOutResponse);
-  rpc ClearClientCertPreferences (ClearClientCertPreferencesRequest) returns (ClearClientCertPreferencesResponse);
-  rpc DisableWebView (DisableWebViewRequest) returns (DisableWebViewResponse);
-  rpc EnableSlowWholeDocumentDraw (EnableSlowWholeDocumentDrawRequest) returns (EnableSlowWholeDocumentDrawResponse);
-  rpc FindAddress (FindAddressRequest) returns (FindAddressResponse);
-  rpc GetCurrentWebViewPackage (GetCurrentWebViewPackageRequest) returns (GetCurrentWebViewPackageResponse);
-  rpc GetSafeBrowsingPrivacyPolicyUrl (GetSafeBrowsingPrivacyPolicyUrlRequest) returns (GetSafeBrowsingPrivacyPolicyUrlResponse);
-  rpc GetWebViewClassLoader (GetWebViewClassLoaderRequest) returns (GetWebViewClassLoaderResponse);
-  rpc SetDataDirectorySuffix (SetDataDirectorySuffixRequest) returns (SetDataDirectorySuffixResponse);
-  rpc SetWebContentsDebuggingEnabled (SetWebContentsDebuggingEnabledRequest) returns (SetWebContentsDebuggingEnabledResponse);
-}
-
-service WebViewFindListenerService {
-  rpc OnFindResultReceived (OnFindResultReceivedRequest) returns (OnFindResultReceivedResponse);
-}
-
-service WebViewHitTestResultService {
-  rpc GetExtra (GetExtraRequest) returns (GetExtraResponse);
-  rpc GetType (GetTypeRequest) returns (GetTypeResponse);
-}
-
-service WebViewPictureListenerService {
-  rpc OnNewPicture (OnNewPictureRequest) returns (OnNewPictureResponse);
-}
-
-service WebViewVisualStateCallbackService {
-  rpc OnComplete (OnCompleteRequest) returns (OnCompleteResponse);
-}
-
-service TracingConfigService {
-  rpc GetPredefinedCategories (GetPredefinedCategoriesRequest) returns (GetPredefinedCategoriesResponse);
-  rpc GetTracingMode (GetTracingModeRequest) returns (GetTracingModeResponse);
-}
-
-service TracingConfigBuilderService {
-  rpc AddCategories1 (AddCategories1Request) returns (AddCategories1Response);
-  rpc AddCategories1_1 (AddCategories1_1Request) returns (AddCategories1_1Response);
-  rpc Build (BuildRequest) returns (BuildResponse);
-  rpc SetTracingMode (SetTracingModeRequest) returns (SetTracingModeResponse);
-}
-
-service WebMessagePortService {
-  rpc Close (CloseRequest) returns (CloseResponse);
-  rpc PostMessage (PostMessageRequest) returns (PostMessageResponse);
-  rpc SetWebMessageCallback (SetWebMessageCallbackRequest) returns (SetWebMessageCallbackResponse);
-}
-
-service WebMessagePortWebMessageCallbackService {
-  rpc OnMessage (OnMessageRequest) returns (OnMessageResponse);
-}
-
-service JsPromptResultService {
-  rpc Confirm (ConfirmRequest) returns (ConfirmResponse);
+message StopResponse {
+  bool result = 1;
 }
 
 service WebStorageService {
@@ -3822,228 +3543,13 @@ service WebStorageQuotaUpdaterService {
 
 service SslErrorHandlerService {
   rpc Cancel (CancelRequest) returns (CancelResponse);
-  rpc Proceed (SslErrorHandlerProceedRequest) returns (ProceedResponse);
-}
-
-service WebViewFragmentService {
-  rpc NewWebViewFragment (NewWebViewFragmentRequest) returns (NewWebViewFragmentResponse);
-  rpc GetWebView (GetWebViewRequest) returns (GetWebViewResponse);
-  rpc OnCreateView (OnCreateViewRequest) returns (OnCreateViewResponse);
-  rpc OnDestroy (OnDestroyRequest) returns (OnDestroyResponse);
-  rpc OnDestroyView (OnDestroyViewRequest) returns (OnDestroyViewResponse);
-  rpc OnPause (OnPauseRequest) returns (OnPauseResponse);
-  rpc OnResume (OnResumeRequest) returns (OnResumeResponse);
+  rpc Proceed (ProceedRequest) returns (ProceedResponse);
 }
 
 service HttpAuthHandlerService {
   rpc Cancel (CancelRequest) returns (CancelResponse);
   rpc Proceed (HttpAuthHandlerProceedRequest) returns (ProceedResponse);
   rpc UseHttpAuthUsernamePassword (UseHttpAuthUsernamePasswordRequest) returns (UseHttpAuthUsernamePasswordResponse);
-}
-
-service WebResourceErrorService {
-  rpc GetDescription (GetDescriptionRequest) returns (GetDescriptionResponse);
-  rpc GetErrorCode (GetErrorCodeRequest) returns (GetErrorCodeResponse);
-}
-
-service PluginStubService {
-  rpc GetEmbeddedView (GetEmbeddedViewRequest) returns (GetEmbeddedViewResponse);
-  rpc GetFullScreenView (GetFullScreenViewRequest) returns (GetFullScreenViewResponse);
-}
-
-service MimeTypeMapService {
-  rpc GetExtensionFromMimeType (GetExtensionFromMimeTypeRequest) returns (GetExtensionFromMimeTypeResponse);
-  rpc GetMimeTypeFromExtension (GetMimeTypeFromExtensionRequest) returns (GetMimeTypeFromExtensionResponse);
-  rpc HasExtension (HasExtensionRequest) returns (HasExtensionResponse);
-  rpc HasMimeType (HasMimeTypeRequest) returns (HasMimeTypeResponse);
-  rpc GetFileExtensionFromUrl (GetFileExtensionFromUrlRequest) returns (GetFileExtensionFromUrlResponse);
-  rpc GetSingleton (GetSingletonRequest) returns (GetSingletonResponse);
-}
-
-service WebViewDatabaseService {
-  rpc ClearFormData (WebViewDatabaseClearFormDataRequest) returns (ClearFormDataResponse);
-  rpc ClearHttpAuthUsernamePassword (ClearHttpAuthUsernamePasswordRequest) returns (ClearHttpAuthUsernamePasswordResponse);
-  rpc ClearUsernamePassword (ClearUsernamePasswordRequest) returns (ClearUsernamePasswordResponse);
-  rpc GetHttpAuthUsernamePassword (WebViewDatabaseGetHttpAuthUsernamePasswordRequest) returns (GetHttpAuthUsernamePasswordResponse);
-  rpc HasFormData (HasFormDataRequest) returns (HasFormDataResponse);
-  rpc HasHttpAuthUsernamePassword (HasHttpAuthUsernamePasswordRequest) returns (HasHttpAuthUsernamePasswordResponse);
-  rpc HasUsernamePassword (HasUsernamePasswordRequest) returns (HasUsernamePasswordResponse);
-  rpc SetHttpAuthUsernamePassword (WebViewDatabaseSetHttpAuthUsernamePasswordRequest) returns (SetHttpAuthUsernamePasswordResponse);
-  rpc GetInstance (WebViewDatabaseGetInstanceRequest) returns (GetInstanceResponse);
-}
-
-service CookieManagerService {
-  rpc AcceptCookie (AcceptCookieRequest) returns (AcceptCookieResponse);
-  rpc AcceptThirdPartyCookies (AcceptThirdPartyCookiesRequest) returns (AcceptThirdPartyCookiesResponse);
-  rpc Flush (FlushRequest) returns (FlushResponse);
-  rpc GetCookie (GetCookieRequest) returns (GetCookieResponse);
-  rpc HasCookies (HasCookiesRequest) returns (HasCookiesResponse);
-  rpc RemoveAllCookie (RemoveAllCookieRequest) returns (RemoveAllCookieResponse);
-  rpc RemoveExpiredCookie (RemoveExpiredCookieRequest) returns (RemoveExpiredCookieResponse);
-  rpc RemoveSessionCookie (RemoveSessionCookieRequest) returns (RemoveSessionCookieResponse);
-  rpc SetAcceptCookie (SetAcceptCookieRequest) returns (SetAcceptCookieResponse);
-  rpc SetAcceptThirdPartyCookies (SetAcceptThirdPartyCookiesRequest) returns (SetAcceptThirdPartyCookiesResponse);
-  rpc SetCookie (SetCookieRequest) returns (SetCookieResponse);
-  rpc AllowFileSchemeCookies (AllowFileSchemeCookiesRequest) returns (AllowFileSchemeCookiesResponse);
-  rpc GetInstance (GetInstanceRequest) returns (GetInstanceResponse);
-  rpc SetAcceptFileSchemeCookies (SetAcceptFileSchemeCookiesRequest) returns (SetAcceptFileSchemeCookiesResponse);
-}
-
-service DownloadListenerService {
-  rpc OnDownloadStart (OnDownloadStartRequest) returns (OnDownloadStartResponse);
-}
-
-service ServiceWorkerWebSettingsService {
-  rpc GetAllowContentAccess (GetAllowContentAccessRequest) returns (GetAllowContentAccessResponse);
-  rpc GetAllowFileAccess (GetAllowFileAccessRequest) returns (GetAllowFileAccessResponse);
-  rpc GetBlockNetworkLoads (GetBlockNetworkLoadsRequest) returns (GetBlockNetworkLoadsResponse);
-  rpc GetCacheMode (GetCacheModeRequest) returns (GetCacheModeResponse);
-  rpc SetAllowContentAccess (SetAllowContentAccessRequest) returns (SetAllowContentAccessResponse);
-  rpc SetAllowFileAccess (SetAllowFileAccessRequest) returns (SetAllowFileAccessResponse);
-  rpc SetBlockNetworkLoads (SetBlockNetworkLoadsRequest) returns (SetBlockNetworkLoadsResponse);
-  rpc SetCacheMode (SetCacheModeRequest) returns (SetCacheModeResponse);
-}
-
-service PermissionRequestService {
-  rpc Deny (DenyRequest) returns (DenyResponse);
-  rpc GetOrigin (GetOriginRequest) returns (PermissionRequestGetOriginResponse);
-  rpc GetResources (GetResourcesRequest) returns (GetResourcesResponse);
-  rpc Grant (GrantRequest) returns (GrantResponse);
-}
-
-service WebBackForwardListService {
-  rpc GetCurrentIndex (GetCurrentIndexRequest) returns (GetCurrentIndexResponse);
-  rpc GetCurrentItem (GetCurrentItemRequest) returns (GetCurrentItemResponse);
-  rpc GetItemAtIndex (GetItemAtIndexRequest) returns (GetItemAtIndexResponse);
-  rpc GetSize (GetSizeRequest) returns (GetSizeResponse);
-}
-
-service WebMessageService {
-  rpc NewWebMessage (NewWebMessageRequest) returns (NewWebMessageResponse);
-  rpc GetData (GetDataRequest) returns (WebMessageGetDataResponse);
-  rpc GetPorts (GetPortsRequest) returns (GetPortsResponse);
-}
-
-service CookieSyncManagerService {
-  rpc ResetSync (ResetSyncRequest) returns (ResetSyncResponse);
-  rpc Run (RunRequest) returns (RunResponse);
-  rpc StartSync (StartSyncRequest) returns (StartSyncResponse);
-  rpc StopSync (StopSyncRequest) returns (StopSyncResponse);
-  rpc Sync (SyncRequest) returns (SyncResponse);
-  rpc CreateInstance (CreateInstanceRequest) returns (CreateInstanceResponse);
-  rpc GetInstance (GetInstanceRequest) returns (GetInstanceResponse);
-}
-
-service JsResultService {
-  rpc Cancel (CancelRequest) returns (CancelResponse);
-  rpc Confirm (JsResultConfirmRequest) returns (ConfirmResponse);
-}
-
-service ServiceWorkerClientService {
-  rpc NewServiceWorkerClient (NewServiceWorkerClientRequest) returns (NewServiceWorkerClientResponse);
-  rpc ShouldInterceptRequest (ShouldInterceptRequestRequest) returns (ShouldInterceptRequestResponse);
-}
-
-service TracingControllerService {
-  rpc IsTracing (IsTracingRequest) returns (IsTracingResponse);
-  rpc Start (StartRequest) returns (StartResponse);
-  rpc Stop (StopRequest) returns (StopResponse);
-  rpc GetInstance (GetInstanceRequest) returns (GetInstanceResponse);
-}
-
-service WebChromeClientService {
-  rpc NewWebChromeClient (NewWebChromeClientRequest) returns (NewWebChromeClientResponse);
-  rpc GetDefaultVideoPoster (GetDefaultVideoPosterRequest) returns (GetDefaultVideoPosterResponse);
-  rpc GetVideoLoadingProgressView (GetVideoLoadingProgressViewRequest) returns (GetVideoLoadingProgressViewResponse);
-  rpc OnCloseWindow (OnCloseWindowRequest) returns (OnCloseWindowResponse);
-  rpc OnConsoleMessage1 (OnConsoleMessage1Request) returns (OnConsoleMessage1Response);
-  rpc OnConsoleMessage3_1 (OnConsoleMessage3_1Request) returns (OnConsoleMessage3_1Response);
-  rpc OnCreateWindow (OnCreateWindowRequest) returns (OnCreateWindowResponse);
-  rpc OnExceededDatabaseQuota (OnExceededDatabaseQuotaRequest) returns (OnExceededDatabaseQuotaResponse);
-  rpc OnGeolocationPermissionsHidePrompt (OnGeolocationPermissionsHidePromptRequest) returns (OnGeolocationPermissionsHidePromptResponse);
-  rpc OnGeolocationPermissionsShowPrompt (OnGeolocationPermissionsShowPromptRequest) returns (OnGeolocationPermissionsShowPromptResponse);
-  rpc OnHideCustomView (OnHideCustomViewRequest) returns (OnHideCustomViewResponse);
-  rpc OnJsAlert (OnJsAlertRequest) returns (OnJsAlertResponse);
-  rpc OnJsBeforeUnload (OnJsBeforeUnloadRequest) returns (OnJsBeforeUnloadResponse);
-  rpc OnJsConfirm (OnJsConfirmRequest) returns (OnJsConfirmResponse);
-  rpc OnJsPrompt (OnJsPromptRequest) returns (OnJsPromptResponse);
-  rpc OnJsTimeout (OnJsTimeoutRequest) returns (OnJsTimeoutResponse);
-  rpc OnPermissionRequest (OnPermissionRequestRequest) returns (OnPermissionRequestResponse);
-  rpc OnPermissionRequestCanceled (OnPermissionRequestCanceledRequest) returns (OnPermissionRequestCanceledResponse);
-  rpc OnProgressChanged (OnProgressChangedRequest) returns (OnProgressChangedResponse);
-  rpc OnReceivedIcon (WebChromeClientOnReceivedIconRequest) returns (OnReceivedIconResponse);
-  rpc OnReceivedTitle (OnReceivedTitleRequest) returns (OnReceivedTitleResponse);
-  rpc OnReceivedTouchIconUrl (OnReceivedTouchIconUrlRequest) returns (OnReceivedTouchIconUrlResponse);
-  rpc OnRequestFocus (OnRequestFocusRequest) returns (OnRequestFocusResponse);
-  rpc OnShowCustomView2 (OnShowCustomView2Request) returns (OnShowCustomView2Response);
-  rpc OnShowCustomView3_1 (OnShowCustomView3_1Request) returns (OnShowCustomView3_1Response);
-}
-
-service WebChromeClientCustomViewCallbackService {
-  rpc OnCustomViewHidden (OnCustomViewHiddenRequest) returns (OnCustomViewHiddenResponse);
-}
-
-service WebChromeClientFileChooserParamsService {
-  rpc CreateIntent (CreateIntentRequest) returns (CreateIntentResponse);
-  rpc GetAcceptTypes (GetAcceptTypesRequest) returns (GetAcceptTypesResponse);
-  rpc GetFilenameHint (GetFilenameHintRequest) returns (GetFilenameHintResponse);
-  rpc GetMode (GetModeRequest) returns (GetModeResponse);
-  rpc GetTitle (WebChromeClientFileChooserParamsGetTitleRequest) returns (WebChromeClientFileChooserParamsGetTitleResponse);
-  rpc IsCaptureEnabled (IsCaptureEnabledRequest) returns (IsCaptureEnabledResponse);
-  rpc ParseResult (ParseResultRequest) returns (ParseResultResponse);
-}
-
-service WebHistoryItemService {
-  rpc GetFavicon (WebHistoryItemGetFaviconRequest) returns (GetFaviconResponse);
-  rpc GetOriginalUrl (WebHistoryItemGetOriginalUrlRequest) returns (GetOriginalUrlResponse);
-  rpc GetTitle (WebHistoryItemGetTitleRequest) returns (GetTitleResponse);
-  rpc GetUrl (GetUrlRequest) returns (WebHistoryItemGetUrlResponse);
-}
-
-service WebViewClientService {
-  rpc NewWebViewClient (NewWebViewClientRequest) returns (NewWebViewClientResponse);
-  rpc DoUpdateVisitedHistory (DoUpdateVisitedHistoryRequest) returns (DoUpdateVisitedHistoryResponse);
-  rpc OnFormResubmission (OnFormResubmissionRequest) returns (OnFormResubmissionResponse);
-  rpc OnLoadResource (OnLoadResourceRequest) returns (OnLoadResourceResponse);
-  rpc OnPageCommitVisible (OnPageCommitVisibleRequest) returns (OnPageCommitVisibleResponse);
-  rpc OnPageFinished (OnPageFinishedRequest) returns (OnPageFinishedResponse);
-  rpc OnPageStarted (OnPageStartedRequest) returns (OnPageStartedResponse);
-  rpc OnReceivedClientCertRequest (OnReceivedClientCertRequestRequest) returns (OnReceivedClientCertRequestResponse);
-  rpc OnReceivedError3 (OnReceivedError3Request) returns (OnReceivedError3Response);
-  rpc OnReceivedError4_1 (OnReceivedError4_1Request) returns (OnReceivedError4_1Response);
-  rpc OnReceivedHttpError (OnReceivedHttpErrorRequest) returns (OnReceivedHttpErrorResponse);
-  rpc OnReceivedLoginRequest (OnReceivedLoginRequestRequest) returns (OnReceivedLoginRequestResponse);
-  rpc OnRenderProcessGone (OnRenderProcessGoneRequest) returns (OnRenderProcessGoneResponse);
-  rpc OnSafeBrowsingHit (OnSafeBrowsingHitRequest) returns (OnSafeBrowsingHitResponse);
-  rpc OnScaleChanged (OnScaleChangedRequest) returns (OnScaleChangedResponse);
-  rpc OnTooManyRedirects (OnTooManyRedirectsRequest) returns (OnTooManyRedirectsResponse);
-  rpc OnUnhandledKeyEvent (OnUnhandledKeyEventRequest) returns (OnUnhandledKeyEventResponse);
-  rpc ShouldInterceptRequest2 (ShouldInterceptRequest2Request) returns (ShouldInterceptRequest2Response);
-  rpc ShouldInterceptRequest2_1 (ShouldInterceptRequest2_1Request) returns (ShouldInterceptRequest2_1Response);
-  rpc ShouldOverrideKeyEvent (ShouldOverrideKeyEventRequest) returns (ShouldOverrideKeyEventResponse);
-  rpc ShouldOverrideUrlLoading2 (ShouldOverrideUrlLoading2Request) returns (ShouldOverrideUrlLoading2Response);
-  rpc ShouldOverrideUrlLoading2_1 (ShouldOverrideUrlLoading2_1Request) returns (ShouldOverrideUrlLoading2_1Response);
-}
-
-service GeolocationPermissionsService {
-  rpc Allow (AllowRequest) returns (AllowResponse);
-  rpc Clear (ClearRequest) returns (ClearResponse);
-  rpc ClearAll (ClearAllRequest) returns (ClearAllResponse);
-  rpc GetInstance (GetInstanceRequest) returns (GetInstanceResponse);
-}
-
-service GeolocationPermissionsCallbackService {
-  rpc Invoke (InvokeRequest) returns (InvokeResponse);
-}
-
-service SafeBrowsingResponseService {
-  rpc BackToSafety (BackToSafetyRequest) returns (BackToSafetyResponse);
-  rpc Proceed (SafeBrowsingResponseProceedRequest) returns (ProceedResponse);
-  rpc ShowInterstitial (ShowInterstitialRequest) returns (ShowInterstitialResponse);
-}
-
-service WebViewRenderProcessService {
-  rpc Terminate (TerminateRequest) returns (TerminateResponse);
 }
 
 service WebSettingsService {
@@ -4169,4 +3675,505 @@ service WebSettingsTextSizeService {
 service WebSettingsZoomDensityService {
   rpc Values (ValuesRequest) returns (ValuesResponse);
   rpc ValueOf (ValueOfRequest) returns (ValueOfResponse);
+}
+
+service WebViewService {
+  rpc NewWebView (NewWebViewRequest) returns (NewWebViewResponse);
+  rpc AddJavascriptInterface (AddJavascriptInterfaceRequest) returns (AddJavascriptInterfaceResponse);
+  rpc CanGoBack (CanGoBackRequest) returns (CanGoBackResponse);
+  rpc CanGoBackOrForward (CanGoBackOrForwardRequest) returns (CanGoBackOrForwardResponse);
+  rpc CanGoForward (CanGoForwardRequest) returns (CanGoForwardResponse);
+  rpc CanZoomIn (CanZoomInRequest) returns (CanZoomInResponse);
+  rpc CanZoomOut (CanZoomOutRequest) returns (CanZoomOutResponse);
+  rpc CapturePicture (CapturePictureRequest) returns (CapturePictureResponse);
+  rpc ClearCache (ClearCacheRequest) returns (ClearCacheResponse);
+  rpc ClearFormData (ClearFormDataRequest) returns (ClearFormDataResponse);
+  rpc ClearHistory (ClearHistoryRequest) returns (ClearHistoryResponse);
+  rpc ClearMatches (ClearMatchesRequest) returns (ClearMatchesResponse);
+  rpc ClearSslPreferences (ClearSslPreferencesRequest) returns (ClearSslPreferencesResponse);
+  rpc ClearView (ClearViewRequest) returns (ClearViewResponse);
+  rpc ComputeScroll (ComputeScrollRequest) returns (ComputeScrollResponse);
+  rpc CopyBackForwardList (CopyBackForwardListRequest) returns (CopyBackForwardListResponse);
+  rpc CreatePrintDocumentAdapter0 (CreatePrintDocumentAdapter0Request) returns (CreatePrintDocumentAdapter0Response);
+  rpc CreatePrintDocumentAdapter1_1 (CreatePrintDocumentAdapter1_1Request) returns (CreatePrintDocumentAdapter1_1Response);
+  rpc CreateWebMessageChannel (CreateWebMessageChannelRequest) returns (CreateWebMessageChannelResponse);
+  rpc Destroy (DestroyRequest) returns (DestroyResponse);
+  rpc DispatchKeyEvent (DispatchKeyEventRequest) returns (DispatchKeyEventResponse);
+  rpc DocumentHasImages (DocumentHasImagesRequest) returns (DocumentHasImagesResponse);
+  rpc FindAll (FindAllRequest) returns (FindAllResponse);
+  rpc FindAllAsync (FindAllAsyncRequest) returns (FindAllAsyncResponse);
+  rpc FindFocus (FindFocusRequest) returns (FindFocusResponse);
+  rpc FindNext (FindNextRequest) returns (FindNextResponse);
+  rpc FlingScroll (FlingScrollRequest) returns (FlingScrollResponse);
+  rpc FreeMemory (FreeMemoryRequest) returns (FreeMemoryResponse);
+  rpc GetAccessibilityClassName (GetAccessibilityClassNameRequest) returns (GetAccessibilityClassNameResponse);
+  rpc GetAccessibilityNodeProvider (GetAccessibilityNodeProviderRequest) returns (GetAccessibilityNodeProviderResponse);
+  rpc GetCertificate (GetCertificateRequest) returns (GetCertificateResponse);
+  rpc GetContentHeight (GetContentHeightRequest) returns (GetContentHeightResponse);
+  rpc GetFavicon (GetFaviconRequest) returns (GetFaviconResponse);
+  rpc GetHandler (GetHandlerRequest) returns (GetHandlerResponse);
+  rpc GetHitTestResult (GetHitTestResultRequest) returns (GetHitTestResultResponse);
+  rpc GetHttpAuthUsernamePassword (GetHttpAuthUsernamePasswordRequest) returns (GetHttpAuthUsernamePasswordResponse);
+  rpc GetOriginalUrl (GetOriginalUrlRequest) returns (GetOriginalUrlResponse);
+  rpc GetProgress (GetProgressRequest) returns (GetProgressResponse);
+  rpc GetRendererPriorityWaivedWhenNotVisible (GetRendererPriorityWaivedWhenNotVisibleRequest) returns (GetRendererPriorityWaivedWhenNotVisibleResponse);
+  rpc GetRendererRequestedPriority (GetRendererRequestedPriorityRequest) returns (GetRendererRequestedPriorityResponse);
+  rpc GetScale (GetScaleRequest) returns (GetScaleResponse);
+  rpc GetSettings (GetSettingsRequest) returns (GetSettingsResponse);
+  rpc GetTextClassifier (GetTextClassifierRequest) returns (GetTextClassifierResponse);
+  rpc GetTitle (GetTitleRequest) returns (GetTitleResponse);
+  rpc GetUrl (GetUrlRequest) returns (GetUrlResponse);
+  rpc GetWebChromeClient (GetWebChromeClientRequest) returns (GetWebChromeClientResponse);
+  rpc GetWebViewClient (GetWebViewClientRequest) returns (GetWebViewClientResponse);
+  rpc GetWebViewLooper (GetWebViewLooperRequest) returns (GetWebViewLooperResponse);
+  rpc GetWebViewRenderProcess (GetWebViewRenderProcessRequest) returns (GetWebViewRenderProcessResponse);
+  rpc GetWebViewRenderProcessClient (GetWebViewRenderProcessClientRequest) returns (GetWebViewRenderProcessClientResponse);
+  rpc GoBack (GoBackRequest) returns (GoBackResponse);
+  rpc GoBackOrForward (GoBackOrForwardRequest) returns (GoBackOrForwardResponse);
+  rpc GoForward (GoForwardRequest) returns (GoForwardResponse);
+  rpc InvokeZoomPicker (InvokeZoomPickerRequest) returns (InvokeZoomPickerResponse);
+  rpc IsPrivateBrowsingEnabled (IsPrivateBrowsingEnabledRequest) returns (IsPrivateBrowsingEnabledResponse);
+  rpc IsVisibleToUserForAutofill (IsVisibleToUserForAutofillRequest) returns (IsVisibleToUserForAutofillResponse);
+  rpc LoadData (LoadDataRequest) returns (LoadDataResponse);
+  rpc LoadDataWithBaseURL (LoadDataWithBaseURLRequest) returns (LoadDataWithBaseURLResponse);
+  rpc LoadUrl (LoadUrlRequest) returns (LoadUrlResponse);
+  rpc OnApplyWindowInsets (OnApplyWindowInsetsRequest) returns (OnApplyWindowInsetsResponse);
+  rpc OnCheckIsTextEditor (OnCheckIsTextEditorRequest) returns (OnCheckIsTextEditorResponse);
+  rpc OnChildViewAdded (OnChildViewAddedRequest) returns (OnChildViewAddedResponse);
+  rpc OnChildViewRemoved (OnChildViewRemovedRequest) returns (OnChildViewRemovedResponse);
+  rpc OnCreateInputConnection (OnCreateInputConnectionRequest) returns (OnCreateInputConnectionResponse);
+  rpc OnDragEvent (OnDragEventRequest) returns (OnDragEventResponse);
+  rpc OnFinishTemporaryDetach (OnFinishTemporaryDetachRequest) returns (OnFinishTemporaryDetachResponse);
+  rpc OnGenericMotionEvent (OnGenericMotionEventRequest) returns (OnGenericMotionEventResponse);
+  rpc OnGlobalFocusChanged (OnGlobalFocusChangedRequest) returns (OnGlobalFocusChangedResponse);
+  rpc OnHoverEvent (OnHoverEventRequest) returns (OnHoverEventResponse);
+  rpc OnKeyDown (OnKeyDownRequest) returns (OnKeyDownResponse);
+  rpc OnKeyMultiple (OnKeyMultipleRequest) returns (OnKeyMultipleResponse);
+  rpc OnKeyUp (OnKeyUpRequest) returns (OnKeyUpResponse);
+  rpc OnPause (OnPauseRequest) returns (OnPauseResponse);
+  rpc OnProvideAutofillVirtualStructure (OnProvideAutofillVirtualStructureRequest) returns (OnProvideAutofillVirtualStructureResponse);
+  rpc OnProvideContentCaptureStructure (OnProvideContentCaptureStructureRequest) returns (OnProvideContentCaptureStructureResponse);
+  rpc OnProvideVirtualStructure (OnProvideVirtualStructureRequest) returns (OnProvideVirtualStructureResponse);
+  rpc OnResolvePointerIcon (OnResolvePointerIconRequest) returns (OnResolvePointerIconResponse);
+  rpc OnResume (OnResumeRequest) returns (OnResumeResponse);
+  rpc OnStartTemporaryDetach (OnStartTemporaryDetachRequest) returns (OnStartTemporaryDetachResponse);
+  rpc OnTouchEvent (OnTouchEventRequest) returns (OnTouchEventResponse);
+  rpc OnTrackballEvent (OnTrackballEventRequest) returns (OnTrackballEventResponse);
+  rpc OnWindowFocusChanged (OnWindowFocusChangedRequest) returns (OnWindowFocusChangedResponse);
+  rpc OverlayHorizontalScrollbar (OverlayHorizontalScrollbarRequest) returns (OverlayHorizontalScrollbarResponse);
+  rpc OverlayVerticalScrollbar (OverlayVerticalScrollbarRequest) returns (OverlayVerticalScrollbarResponse);
+  rpc PageDown (PageDownRequest) returns (PageDownResponse);
+  rpc PageUp (PageUpRequest) returns (PageUpResponse);
+  rpc PauseTimers (PauseTimersRequest) returns (PauseTimersResponse);
+  rpc PerformLongClick (PerformLongClickRequest) returns (PerformLongClickResponse);
+  rpc PostUrl (PostUrlRequest) returns (PostUrlResponse);
+  rpc PostVisualStateCallback (PostVisualStateCallbackRequest) returns (PostVisualStateCallbackResponse);
+  rpc PostWebMessage (PostWebMessageRequest) returns (PostWebMessageResponse);
+  rpc Reload (ReloadRequest) returns (ReloadResponse);
+  rpc RemoveJavascriptInterface (RemoveJavascriptInterfaceRequest) returns (RemoveJavascriptInterfaceResponse);
+  rpc RequestChildRectangleOnScreen (RequestChildRectangleOnScreenRequest) returns (RequestChildRectangleOnScreenResponse);
+  rpc RequestFocus (RequestFocusRequest) returns (RequestFocusResponse);
+  rpc RequestFocusNodeHref (RequestFocusNodeHrefRequest) returns (RequestFocusNodeHrefResponse);
+  rpc RequestImageRef (RequestImageRefRequest) returns (RequestImageRefResponse);
+  rpc RestoreState (RestoreStateRequest) returns (RestoreStateResponse);
+  rpc ResumeTimers (ResumeTimersRequest) returns (ResumeTimersResponse);
+  rpc SavePassword (SavePasswordRequest) returns (SavePasswordResponse);
+  rpc SaveState (SaveStateRequest) returns (SaveStateResponse);
+  rpc SaveWebArchive (SaveWebArchiveRequest) returns (SaveWebArchiveResponse);
+  rpc SetBackgroundColor (SetBackgroundColorRequest) returns (SetBackgroundColorResponse);
+  rpc SetCertificate (SetCertificateRequest) returns (SetCertificateResponse);
+  rpc SetDownloadListener (SetDownloadListenerRequest) returns (SetDownloadListenerResponse);
+  rpc SetFindListener (SetFindListenerRequest) returns (SetFindListenerResponse);
+  rpc SetHorizontalScrollbarOverlay (SetHorizontalScrollbarOverlayRequest) returns (SetHorizontalScrollbarOverlayResponse);
+  rpc SetHttpAuthUsernamePassword (SetHttpAuthUsernamePasswordRequest) returns (SetHttpAuthUsernamePasswordResponse);
+  rpc SetInitialScale (SetInitialScaleRequest) returns (SetInitialScaleResponse);
+  rpc SetLayerType (SetLayerTypeRequest) returns (SetLayerTypeResponse);
+  rpc SetLayoutParams (SetLayoutParamsRequest) returns (SetLayoutParamsResponse);
+  rpc SetMapTrackballToArrowKeys (SetMapTrackballToArrowKeysRequest) returns (SetMapTrackballToArrowKeysResponse);
+  rpc SetNetworkAvailable (SetNetworkAvailableRequest) returns (SetNetworkAvailableResponse);
+  rpc SetOverScrollMode (SetOverScrollModeRequest) returns (SetOverScrollModeResponse);
+  rpc SetPictureListener (SetPictureListenerRequest) returns (SetPictureListenerResponse);
+  rpc SetRendererPriorityPolicy (SetRendererPriorityPolicyRequest) returns (SetRendererPriorityPolicyResponse);
+  rpc SetScrollBarStyle (SetScrollBarStyleRequest) returns (SetScrollBarStyleResponse);
+  rpc SetTextClassifier (SetTextClassifierRequest) returns (SetTextClassifierResponse);
+  rpc SetVerticalScrollbarOverlay (SetVerticalScrollbarOverlayRequest) returns (SetVerticalScrollbarOverlayResponse);
+  rpc SetWebChromeClient (SetWebChromeClientRequest) returns (SetWebChromeClientResponse);
+  rpc SetWebViewClient (SetWebViewClientRequest) returns (SetWebViewClientResponse);
+  rpc SetWebViewRenderProcessClient1 (SetWebViewRenderProcessClient1Request) returns (SetWebViewRenderProcessClient1Response);
+  rpc SetWebViewRenderProcessClient2_1 (SetWebViewRenderProcessClient2_1Request) returns (SetWebViewRenderProcessClient2_1Response);
+  rpc ShouldDelayChildPressedState (ShouldDelayChildPressedStateRequest) returns (ShouldDelayChildPressedStateResponse);
+  rpc ShowFindDialog (ShowFindDialogRequest) returns (ShowFindDialogResponse);
+  rpc StopLoading (StopLoadingRequest) returns (StopLoadingResponse);
+  rpc ZoomBy (ZoomByRequest) returns (ZoomByResponse);
+  rpc ZoomIn (ZoomInRequest) returns (ZoomInResponse);
+  rpc ZoomOut (ZoomOutRequest) returns (ZoomOutResponse);
+  rpc ClearClientCertPreferences (ClearClientCertPreferencesRequest) returns (ClearClientCertPreferencesResponse);
+  rpc DisableWebView (DisableWebViewRequest) returns (DisableWebViewResponse);
+  rpc EnableSlowWholeDocumentDraw (EnableSlowWholeDocumentDrawRequest) returns (EnableSlowWholeDocumentDrawResponse);
+  rpc FindAddress (FindAddressRequest) returns (FindAddressResponse);
+  rpc GetCurrentWebViewPackage (GetCurrentWebViewPackageRequest) returns (GetCurrentWebViewPackageResponse);
+  rpc GetSafeBrowsingPrivacyPolicyUrl (GetSafeBrowsingPrivacyPolicyUrlRequest) returns (GetSafeBrowsingPrivacyPolicyUrlResponse);
+  rpc GetWebViewClassLoader (GetWebViewClassLoaderRequest) returns (GetWebViewClassLoaderResponse);
+  rpc SetDataDirectorySuffix (SetDataDirectorySuffixRequest) returns (SetDataDirectorySuffixResponse);
+  rpc SetWebContentsDebuggingEnabled (SetWebContentsDebuggingEnabledRequest) returns (SetWebContentsDebuggingEnabledResponse);
+}
+
+service WebViewFindListenerService {
+  rpc OnFindResultReceived (OnFindResultReceivedRequest) returns (OnFindResultReceivedResponse);
+}
+
+service WebViewHitTestResultService {
+  rpc GetExtra (GetExtraRequest) returns (GetExtraResponse);
+  rpc GetType (GetTypeRequest) returns (GetTypeResponse);
+}
+
+service WebViewPictureListenerService {
+  rpc OnNewPicture (OnNewPictureRequest) returns (OnNewPictureResponse);
+}
+
+service WebViewVisualStateCallbackService {
+  rpc OnComplete (OnCompleteRequest) returns (OnCompleteResponse);
+}
+
+service ServiceWorkerControllerService {
+  rpc GetServiceWorkerWebSettings (GetServiceWorkerWebSettingsRequest) returns (GetServiceWorkerWebSettingsResponse);
+  rpc SetServiceWorkerClient (SetServiceWorkerClientRequest) returns (SetServiceWorkerClientResponse);
+  rpc GetInstance (GetInstanceRequest) returns (GetInstanceResponse);
+}
+
+service WebViewClientService {
+  rpc NewWebViewClient (NewWebViewClientRequest) returns (NewWebViewClientResponse);
+  rpc DoUpdateVisitedHistory (DoUpdateVisitedHistoryRequest) returns (DoUpdateVisitedHistoryResponse);
+  rpc OnFormResubmission (OnFormResubmissionRequest) returns (OnFormResubmissionResponse);
+  rpc OnLoadResource (OnLoadResourceRequest) returns (OnLoadResourceResponse);
+  rpc OnPageCommitVisible (OnPageCommitVisibleRequest) returns (OnPageCommitVisibleResponse);
+  rpc OnPageFinished (OnPageFinishedRequest) returns (OnPageFinishedResponse);
+  rpc OnPageStarted (OnPageStartedRequest) returns (OnPageStartedResponse);
+  rpc OnReceivedClientCertRequest (OnReceivedClientCertRequestRequest) returns (OnReceivedClientCertRequestResponse);
+  rpc OnReceivedError3 (OnReceivedError3Request) returns (OnReceivedError3Response);
+  rpc OnReceivedError4_1 (OnReceivedError4_1Request) returns (OnReceivedError4_1Response);
+  rpc OnReceivedHttpError (OnReceivedHttpErrorRequest) returns (OnReceivedHttpErrorResponse);
+  rpc OnReceivedLoginRequest (OnReceivedLoginRequestRequest) returns (OnReceivedLoginRequestResponse);
+  rpc OnRenderProcessGone (OnRenderProcessGoneRequest) returns (OnRenderProcessGoneResponse);
+  rpc OnSafeBrowsingHit (OnSafeBrowsingHitRequest) returns (OnSafeBrowsingHitResponse);
+  rpc OnScaleChanged (OnScaleChangedRequest) returns (OnScaleChangedResponse);
+  rpc OnTooManyRedirects (OnTooManyRedirectsRequest) returns (OnTooManyRedirectsResponse);
+  rpc OnUnhandledKeyEvent (OnUnhandledKeyEventRequest) returns (OnUnhandledKeyEventResponse);
+  rpc ShouldInterceptRequest2 (ShouldInterceptRequest2Request) returns (ShouldInterceptRequest2Response);
+  rpc ShouldInterceptRequest2_1 (ShouldInterceptRequest2_1Request) returns (ShouldInterceptRequest2_1Response);
+  rpc ShouldOverrideKeyEvent (ShouldOverrideKeyEventRequest) returns (ShouldOverrideKeyEventResponse);
+  rpc ShouldOverrideUrlLoading2 (ShouldOverrideUrlLoading2Request) returns (ShouldOverrideUrlLoading2Response);
+  rpc ShouldOverrideUrlLoading2_1 (ShouldOverrideUrlLoading2_1Request) returns (ShouldOverrideUrlLoading2_1Response);
+}
+
+service CookieSyncManagerService {
+  rpc ResetSync (ResetSyncRequest) returns (ResetSyncResponse);
+  rpc Run (RunRequest) returns (RunResponse);
+  rpc StartSync (StartSyncRequest) returns (StartSyncResponse);
+  rpc StopSync (StopSyncRequest) returns (StopSyncResponse);
+  rpc Sync (SyncRequest) returns (SyncResponse);
+  rpc CreateInstance (CreateInstanceRequest) returns (CreateInstanceResponse);
+  rpc GetInstance (GetInstanceRequest) returns (GetInstanceResponse);
+}
+
+service GeolocationPermissionsService {
+  rpc Allow (AllowRequest) returns (AllowResponse);
+  rpc Clear (ClearRequest) returns (ClearResponse);
+  rpc ClearAll (ClearAllRequest) returns (ClearAllResponse);
+  rpc GetInstance (GetInstanceRequest) returns (GetInstanceResponse);
+}
+
+service GeolocationPermissionsCallbackService {
+  rpc Invoke (InvokeRequest) returns (InvokeResponse);
+}
+
+service WebViewRenderProcessClientService {
+  rpc OnRenderProcessResponsive (OnRenderProcessResponsiveRequest) returns (OnRenderProcessResponsiveResponse);
+  rpc OnRenderProcessUnresponsive (OnRenderProcessUnresponsiveRequest) returns (OnRenderProcessUnresponsiveResponse);
+}
+
+service CookieManagerService {
+  rpc AcceptCookie (AcceptCookieRequest) returns (AcceptCookieResponse);
+  rpc AcceptThirdPartyCookies (AcceptThirdPartyCookiesRequest) returns (AcceptThirdPartyCookiesResponse);
+  rpc Flush (FlushRequest) returns (FlushResponse);
+  rpc GetCookie (GetCookieRequest) returns (GetCookieResponse);
+  rpc HasCookies (HasCookiesRequest) returns (HasCookiesResponse);
+  rpc RemoveAllCookie (RemoveAllCookieRequest) returns (RemoveAllCookieResponse);
+  rpc RemoveExpiredCookie (RemoveExpiredCookieRequest) returns (RemoveExpiredCookieResponse);
+  rpc RemoveSessionCookie (RemoveSessionCookieRequest) returns (RemoveSessionCookieResponse);
+  rpc SetAcceptCookie (SetAcceptCookieRequest) returns (SetAcceptCookieResponse);
+  rpc SetAcceptThirdPartyCookies (SetAcceptThirdPartyCookiesRequest) returns (SetAcceptThirdPartyCookiesResponse);
+  rpc SetCookie (SetCookieRequest) returns (SetCookieResponse);
+  rpc AllowFileSchemeCookies (AllowFileSchemeCookiesRequest) returns (AllowFileSchemeCookiesResponse);
+  rpc GetInstance (GetInstanceRequest) returns (GetInstanceResponse);
+  rpc SetAcceptFileSchemeCookies (SetAcceptFileSchemeCookiesRequest) returns (SetAcceptFileSchemeCookiesResponse);
+}
+
+service URLUtilService {
+  rpc NewURLUtil (NewURLUtilRequest) returns (NewURLUtilResponse);
+  rpc ComposeSearchUrl (ComposeSearchUrlRequest) returns (ComposeSearchUrlResponse);
+  rpc Decode (DecodeRequest) returns (DecodeResponse);
+  rpc GuessFileName (GuessFileNameRequest) returns (GuessFileNameResponse);
+  rpc GuessUrl (GuessUrlRequest) returns (GuessUrlResponse);
+  rpc IsAboutUrl (IsAboutUrlRequest) returns (IsAboutUrlResponse);
+  rpc IsAssetUrl (IsAssetUrlRequest) returns (IsAssetUrlResponse);
+  rpc IsContentUrl (IsContentUrlRequest) returns (IsContentUrlResponse);
+  rpc IsCookielessProxyUrl (IsCookielessProxyUrlRequest) returns (IsCookielessProxyUrlResponse);
+  rpc IsDataUrl (IsDataUrlRequest) returns (IsDataUrlResponse);
+  rpc IsFileUrl (IsFileUrlRequest) returns (IsFileUrlResponse);
+  rpc IsHttpUrl (IsHttpUrlRequest) returns (IsHttpUrlResponse);
+  rpc IsHttpsUrl (IsHttpsUrlRequest) returns (IsHttpsUrlResponse);
+  rpc IsJavaScriptUrl (IsJavaScriptUrlRequest) returns (IsJavaScriptUrlResponse);
+  rpc IsNetworkUrl (IsNetworkUrlRequest) returns (IsNetworkUrlResponse);
+  rpc IsValidUrl (IsValidUrlRequest) returns (IsValidUrlResponse);
+  rpc StripAnchor (StripAnchorRequest) returns (StripAnchorResponse);
+}
+
+service ClientCertRequestService {
+  rpc Cancel (CancelRequest) returns (CancelResponse);
+  rpc GetHost (GetHostRequest) returns (GetHostResponse);
+  rpc GetKeyTypes (GetKeyTypesRequest) returns (GetKeyTypesResponse);
+  rpc GetPort (GetPortRequest) returns (GetPortResponse);
+  rpc GetPrincipals (GetPrincipalsRequest) returns (GetPrincipalsResponse);
+  rpc Ignore (IgnoreRequest) returns (IgnoreResponse);
+  rpc Proceed (ClientCertRequestProceedRequest) returns (ProceedResponse);
+}
+
+service TracingConfigService {
+  rpc GetCustomIncludedCategories (GetCustomIncludedCategoriesRequest) returns (GetCustomIncludedCategoriesResponse);
+  rpc GetPredefinedCategories (GetPredefinedCategoriesRequest) returns (GetPredefinedCategoriesResponse);
+  rpc GetTracingMode (GetTracingModeRequest) returns (GetTracingModeResponse);
+}
+
+service TracingConfigBuilderService {
+  rpc AddCategories1 (AddCategories1Request) returns (AddCategories1Response);
+  rpc AddCategories1_1 (AddCategories1_1Request) returns (AddCategories1_1Response);
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetTracingMode (SetTracingModeRequest) returns (SetTracingModeResponse);
+}
+
+service WebChromeClientService {
+  rpc NewWebChromeClient (NewWebChromeClientRequest) returns (NewWebChromeClientResponse);
+  rpc GetDefaultVideoPoster (GetDefaultVideoPosterRequest) returns (GetDefaultVideoPosterResponse);
+  rpc GetVideoLoadingProgressView (GetVideoLoadingProgressViewRequest) returns (GetVideoLoadingProgressViewResponse);
+  rpc OnCloseWindow (OnCloseWindowRequest) returns (OnCloseWindowResponse);
+  rpc OnConsoleMessage1 (OnConsoleMessage1Request) returns (OnConsoleMessage1Response);
+  rpc OnConsoleMessage3_1 (OnConsoleMessage3_1Request) returns (OnConsoleMessage3_1Response);
+  rpc OnCreateWindow (OnCreateWindowRequest) returns (OnCreateWindowResponse);
+  rpc OnExceededDatabaseQuota (OnExceededDatabaseQuotaRequest) returns (OnExceededDatabaseQuotaResponse);
+  rpc OnGeolocationPermissionsHidePrompt (OnGeolocationPermissionsHidePromptRequest) returns (OnGeolocationPermissionsHidePromptResponse);
+  rpc OnGeolocationPermissionsShowPrompt (OnGeolocationPermissionsShowPromptRequest) returns (OnGeolocationPermissionsShowPromptResponse);
+  rpc OnHideCustomView (OnHideCustomViewRequest) returns (OnHideCustomViewResponse);
+  rpc OnJsAlert (OnJsAlertRequest) returns (OnJsAlertResponse);
+  rpc OnJsBeforeUnload (OnJsBeforeUnloadRequest) returns (OnJsBeforeUnloadResponse);
+  rpc OnJsConfirm (OnJsConfirmRequest) returns (OnJsConfirmResponse);
+  rpc OnJsPrompt (OnJsPromptRequest) returns (OnJsPromptResponse);
+  rpc OnJsTimeout (OnJsTimeoutRequest) returns (OnJsTimeoutResponse);
+  rpc OnPermissionRequest (OnPermissionRequestRequest) returns (OnPermissionRequestResponse);
+  rpc OnPermissionRequestCanceled (OnPermissionRequestCanceledRequest) returns (OnPermissionRequestCanceledResponse);
+  rpc OnProgressChanged (OnProgressChangedRequest) returns (OnProgressChangedResponse);
+  rpc OnReceivedIcon (OnReceivedIconRequest) returns (OnReceivedIconResponse);
+  rpc OnReceivedTitle (OnReceivedTitleRequest) returns (OnReceivedTitleResponse);
+  rpc OnReceivedTouchIconUrl (OnReceivedTouchIconUrlRequest) returns (OnReceivedTouchIconUrlResponse);
+  rpc OnRequestFocus (OnRequestFocusRequest) returns (OnRequestFocusResponse);
+  rpc OnShowCustomView2 (OnShowCustomView2Request) returns (OnShowCustomView2Response);
+  rpc OnShowCustomView3_1 (OnShowCustomView3_1Request) returns (OnShowCustomView3_1Response);
+}
+
+service WebChromeClientCustomViewCallbackService {
+  rpc OnCustomViewHidden (OnCustomViewHiddenRequest) returns (OnCustomViewHiddenResponse);
+}
+
+service WebChromeClientFileChooserParamsService {
+  rpc CreateIntent (CreateIntentRequest) returns (CreateIntentResponse);
+  rpc GetAcceptTypes (GetAcceptTypesRequest) returns (GetAcceptTypesResponse);
+  rpc GetFilenameHint (GetFilenameHintRequest) returns (GetFilenameHintResponse);
+  rpc GetMode (GetModeRequest) returns (GetModeResponse);
+  rpc GetTitle (WebChromeClientFileChooserParamsGetTitleRequest) returns (WebChromeClientFileChooserParamsGetTitleResponse);
+  rpc IsCaptureEnabled (IsCaptureEnabledRequest) returns (IsCaptureEnabledResponse);
+  rpc ParseResult (ParseResultRequest) returns (ParseResultResponse);
+}
+
+service ServiceWorkerWebSettingsService {
+  rpc GetAllowContentAccess (GetAllowContentAccessRequest) returns (GetAllowContentAccessResponse);
+  rpc GetAllowFileAccess (GetAllowFileAccessRequest) returns (GetAllowFileAccessResponse);
+  rpc GetBlockNetworkLoads (GetBlockNetworkLoadsRequest) returns (GetBlockNetworkLoadsResponse);
+  rpc GetCacheMode (GetCacheModeRequest) returns (GetCacheModeResponse);
+  rpc SetAllowContentAccess (SetAllowContentAccessRequest) returns (SetAllowContentAccessResponse);
+  rpc SetAllowFileAccess (SetAllowFileAccessRequest) returns (SetAllowFileAccessResponse);
+  rpc SetBlockNetworkLoads (SetBlockNetworkLoadsRequest) returns (SetBlockNetworkLoadsResponse);
+  rpc SetCacheMode (SetCacheModeRequest) returns (SetCacheModeResponse);
+}
+
+service RenderProcessGoneDetailService {
+  rpc DidCrash (DidCrashRequest) returns (DidCrashResponse);
+  rpc RendererPriorityAtExit (RendererPriorityAtExitRequest) returns (RendererPriorityAtExitResponse);
+}
+
+service DateSorterService {
+  rpc NewDateSorter (NewDateSorterRequest) returns (NewDateSorterResponse);
+  rpc GetBoundary (GetBoundaryRequest) returns (GetBoundaryResponse);
+  rpc GetIndex (GetIndexRequest) returns (GetIndexResponse);
+  rpc GetLabel (GetLabelRequest) returns (GetLabelResponse);
+}
+
+service PluginStubService {
+  rpc GetEmbeddedView (GetEmbeddedViewRequest) returns (GetEmbeddedViewResponse);
+  rpc GetFullScreenView (GetFullScreenViewRequest) returns (GetFullScreenViewResponse);
+}
+
+service WebViewRenderProcessService {
+  rpc Terminate (TerminateRequest) returns (TerminateResponse);
+}
+
+service WebResourceResponseService {
+  rpc NewWebResourceResponse (NewWebResourceResponseRequest) returns (NewWebResourceResponseResponse);
+  rpc GetData (GetDataRequest) returns (GetDataResponse);
+  rpc GetEncoding (GetEncodingRequest) returns (GetEncodingResponse);
+  rpc GetMimeType (GetMimeTypeRequest) returns (GetMimeTypeResponse);
+  rpc GetReasonPhrase (GetReasonPhraseRequest) returns (GetReasonPhraseResponse);
+  rpc GetStatusCode (GetStatusCodeRequest) returns (GetStatusCodeResponse);
+  rpc SetData (SetDataRequest) returns (SetDataResponse);
+  rpc SetEncoding (SetEncodingRequest) returns (SetEncodingResponse);
+  rpc SetMimeType (SetMimeTypeRequest) returns (SetMimeTypeResponse);
+  rpc SetStatusCodeAndReasonPhrase (SetStatusCodeAndReasonPhraseRequest) returns (SetStatusCodeAndReasonPhraseResponse);
+}
+
+service ConsoleMessageService {
+  rpc NewConsoleMessage (NewConsoleMessageRequest) returns (NewConsoleMessageResponse);
+  rpc LineNumber (LineNumberRequest) returns (LineNumberResponse);
+  rpc Message (MessageRequest) returns (MessageResponse);
+  rpc MessageLevel (MessageLevelRequest) returns (MessageLevelResponse);
+  rpc SourceId (SourceIdRequest) returns (SourceIdResponse);
+}
+
+service ConsoleMessageMessageLevelService {
+  rpc Values (ValuesRequest) returns (ValuesResponse);
+  rpc ValueOf (ValueOfRequest) returns (ValueOfResponse);
+}
+
+service JsPromptResultService {
+  rpc Confirm (ConfirmRequest) returns (ConfirmResponse);
+}
+
+service JsResultService {
+  rpc Cancel (CancelRequest) returns (CancelResponse);
+  rpc Confirm (JsResultConfirmRequest) returns (ConfirmResponse);
+}
+
+service WebMessagePortService {
+  rpc Close (CloseRequest) returns (CloseResponse);
+  rpc PostMessage (PostMessageRequest) returns (PostMessageResponse);
+  rpc SetWebMessageCallback (SetWebMessageCallbackRequest) returns (SetWebMessageCallbackResponse);
+}
+
+service WebMessagePortWebMessageCallbackService {
+  rpc OnMessage (OnMessageRequest) returns (OnMessageResponse);
+}
+
+service MimeTypeMapService {
+  rpc GetExtensionFromMimeType (GetExtensionFromMimeTypeRequest) returns (GetExtensionFromMimeTypeResponse);
+  rpc GetMimeTypeFromExtension (GetMimeTypeFromExtensionRequest) returns (GetMimeTypeFromExtensionResponse);
+  rpc HasExtension (HasExtensionRequest) returns (HasExtensionResponse);
+  rpc HasMimeType (HasMimeTypeRequest) returns (HasMimeTypeResponse);
+  rpc GetFileExtensionFromUrl (GetFileExtensionFromUrlRequest) returns (GetFileExtensionFromUrlResponse);
+  rpc GetSingleton (GetSingletonRequest) returns (GetSingletonResponse);
+}
+
+service WebResourceErrorService {
+  rpc GetDescription (GetDescriptionRequest) returns (GetDescriptionResponse);
+  rpc GetErrorCode (GetErrorCodeRequest) returns (GetErrorCodeResponse);
+}
+
+service SafeBrowsingResponseService {
+  rpc BackToSafety (BackToSafetyRequest) returns (BackToSafetyResponse);
+  rpc Proceed (SafeBrowsingResponseProceedRequest) returns (ProceedResponse);
+  rpc ShowInterstitial (ShowInterstitialRequest) returns (ShowInterstitialResponse);
+}
+
+service WebHistoryItemService {
+  rpc GetFavicon (WebHistoryItemGetFaviconRequest) returns (GetFaviconResponse);
+  rpc GetOriginalUrl (WebHistoryItemGetOriginalUrlRequest) returns (GetOriginalUrlResponse);
+  rpc GetTitle (WebHistoryItemGetTitleRequest) returns (GetTitleResponse);
+  rpc GetUrl (WebHistoryItemGetUrlRequest) returns (GetUrlResponse);
+}
+
+service WebMessageService {
+  rpc NewWebMessage (NewWebMessageRequest) returns (NewWebMessageResponse);
+  rpc GetData (GetDataRequest) returns (WebMessageGetDataResponse);
+  rpc GetPorts (GetPortsRequest) returns (GetPortsResponse);
+}
+
+service WebViewFragmentService {
+  rpc NewWebViewFragment (NewWebViewFragmentRequest) returns (NewWebViewFragmentResponse);
+  rpc GetWebView (GetWebViewRequest) returns (GetWebViewResponse);
+  rpc OnCreateView (OnCreateViewRequest) returns (OnCreateViewResponse);
+  rpc OnDestroy (OnDestroyRequest) returns (OnDestroyResponse);
+  rpc OnDestroyView (OnDestroyViewRequest) returns (OnDestroyViewResponse);
+  rpc OnPause (OnPauseRequest) returns (OnPauseResponse);
+  rpc OnResume (OnResumeRequest) returns (OnResumeResponse);
+}
+
+service PermissionRequestService {
+  rpc Deny (DenyRequest) returns (DenyResponse);
+  rpc GetOrigin (GetOriginRequest) returns (PermissionRequestGetOriginResponse);
+  rpc GetResources (GetResourcesRequest) returns (GetResourcesResponse);
+  rpc Grant (GrantRequest) returns (GrantResponse);
+}
+
+service WebIconDatabaseService {
+  rpc Close (CloseRequest) returns (CloseResponse);
+  rpc Open (OpenRequest) returns (OpenResponse);
+  rpc ReleaseIconForPageUrl (ReleaseIconForPageUrlRequest) returns (ReleaseIconForPageUrlResponse);
+  rpc RemoveAllIcons (RemoveAllIconsRequest) returns (RemoveAllIconsResponse);
+  rpc RequestIconForPageUrl (RequestIconForPageUrlRequest) returns (RequestIconForPageUrlResponse);
+  rpc RetainIconForPageUrl (RetainIconForPageUrlRequest) returns (RetainIconForPageUrlResponse);
+  rpc GetInstance (GetInstanceRequest) returns (GetInstanceResponse);
+}
+
+service WebIconDatabaseIconListenerService {
+  rpc OnReceivedIcon (WebIconDatabaseIconListenerOnReceivedIconRequest) returns (OnReceivedIconResponse);
+}
+
+service DownloadListenerService {
+  rpc OnDownloadStart (OnDownloadStartRequest) returns (OnDownloadStartResponse);
+}
+
+service WebBackForwardListService {
+  rpc GetCurrentIndex (GetCurrentIndexRequest) returns (GetCurrentIndexResponse);
+  rpc GetCurrentItem (GetCurrentItemRequest) returns (GetCurrentItemResponse);
+  rpc GetItemAtIndex (GetItemAtIndexRequest) returns (GetItemAtIndexResponse);
+  rpc GetSize (GetSizeRequest) returns (GetSizeResponse);
+}
+
+service WebResourceRequestService {
+  rpc GetMethod (GetMethodRequest) returns (GetMethodResponse);
+  rpc GetUrl (WebResourceRequestGetUrlRequest) returns (WebResourceRequestGetUrlResponse);
+  rpc HasGesture (HasGestureRequest) returns (HasGestureResponse);
+  rpc IsForMainFrame (IsForMainFrameRequest) returns (IsForMainFrameResponse);
+  rpc IsRedirect (IsRedirectRequest) returns (IsRedirectResponse);
+}
+
+service ServiceWorkerClientService {
+  rpc NewServiceWorkerClient (NewServiceWorkerClientRequest) returns (NewServiceWorkerClientResponse);
+  rpc ShouldInterceptRequest (ShouldInterceptRequestRequest) returns (ShouldInterceptRequestResponse);
+}
+
+service WebViewDatabaseService {
+  rpc ClearFormData (WebViewDatabaseClearFormDataRequest) returns (ClearFormDataResponse);
+  rpc ClearHttpAuthUsernamePassword (ClearHttpAuthUsernamePasswordRequest) returns (ClearHttpAuthUsernamePasswordResponse);
+  rpc ClearUsernamePassword (ClearUsernamePasswordRequest) returns (ClearUsernamePasswordResponse);
+  rpc GetHttpAuthUsernamePassword (WebViewDatabaseGetHttpAuthUsernamePasswordRequest) returns (GetHttpAuthUsernamePasswordResponse);
+  rpc HasFormData (HasFormDataRequest) returns (HasFormDataResponse);
+  rpc HasHttpAuthUsernamePassword (HasHttpAuthUsernamePasswordRequest) returns (HasHttpAuthUsernamePasswordResponse);
+  rpc HasUsernamePassword (HasUsernamePasswordRequest) returns (HasUsernamePasswordResponse);
+  rpc SetHttpAuthUsernamePassword (WebViewDatabaseSetHttpAuthUsernamePasswordRequest) returns (SetHttpAuthUsernamePasswordResponse);
+  rpc GetInstance (WebViewDatabaseGetInstanceRequest) returns (GetInstanceResponse);
+}
+
+service TracingControllerService {
+  rpc IsTracing (IsTracingRequest) returns (IsTracingResponse);
+  rpc Start (StartRequest) returns (StartResponse);
+  rpc Stop (StopRequest) returns (StopResponse);
+  rpc GetInstance (GetInstanceRequest) returns (GetInstanceResponse);
 }

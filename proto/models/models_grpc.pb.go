@@ -21,1377 +21,6 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	FormWidgetInfoService_DescribeContents_FullMethodName      = "/models.FormWidgetInfoService/DescribeContents"
-	FormWidgetInfoService_Equals_FullMethodName                = "/models.FormWidgetInfoService/Equals"
-	FormWidgetInfoService_GetAccessibilityLabel_FullMethodName = "/models.FormWidgetInfoService/GetAccessibilityLabel"
-	FormWidgetInfoService_GetFontSize_FullMethodName           = "/models.FormWidgetInfoService/GetFontSize"
-	FormWidgetInfoService_GetMaxLength_FullMethodName          = "/models.FormWidgetInfoService/GetMaxLength"
-	FormWidgetInfoService_GetTextValue_FullMethodName          = "/models.FormWidgetInfoService/GetTextValue"
-	FormWidgetInfoService_GetWidgetIndex_FullMethodName        = "/models.FormWidgetInfoService/GetWidgetIndex"
-	FormWidgetInfoService_GetWidgetRect_FullMethodName         = "/models.FormWidgetInfoService/GetWidgetRect"
-	FormWidgetInfoService_GetWidgetType_FullMethodName         = "/models.FormWidgetInfoService/GetWidgetType"
-	FormWidgetInfoService_HashCode_FullMethodName              = "/models.FormWidgetInfoService/HashCode"
-	FormWidgetInfoService_IsEditableText_FullMethodName        = "/models.FormWidgetInfoService/IsEditableText"
-	FormWidgetInfoService_IsMultiLineText_FullMethodName       = "/models.FormWidgetInfoService/IsMultiLineText"
-	FormWidgetInfoService_IsMultiSelect_FullMethodName         = "/models.FormWidgetInfoService/IsMultiSelect"
-	FormWidgetInfoService_IsReadOnly_FullMethodName            = "/models.FormWidgetInfoService/IsReadOnly"
-	FormWidgetInfoService_ToString_FullMethodName              = "/models.FormWidgetInfoService/ToString"
-	FormWidgetInfoService_WriteToParcel_FullMethodName         = "/models.FormWidgetInfoService/WriteToParcel"
-)
-
-// FormWidgetInfoServiceClient is the client API for FormWidgetInfoService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type FormWidgetInfoServiceClient interface {
-	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
-	GetAccessibilityLabel(ctx context.Context, in *GetAccessibilityLabelRequest, opts ...grpc.CallOption) (*GetAccessibilityLabelResponse, error)
-	GetFontSize(ctx context.Context, in *GetFontSizeRequest, opts ...grpc.CallOption) (*GetFontSizeResponse, error)
-	GetMaxLength(ctx context.Context, in *GetMaxLengthRequest, opts ...grpc.CallOption) (*GetMaxLengthResponse, error)
-	GetTextValue(ctx context.Context, in *GetTextValueRequest, opts ...grpc.CallOption) (*GetTextValueResponse, error)
-	GetWidgetIndex(ctx context.Context, in *GetWidgetIndexRequest, opts ...grpc.CallOption) (*GetWidgetIndexResponse, error)
-	GetWidgetRect(ctx context.Context, in *GetWidgetRectRequest, opts ...grpc.CallOption) (*GetWidgetRectResponse, error)
-	GetWidgetType(ctx context.Context, in *GetWidgetTypeRequest, opts ...grpc.CallOption) (*GetWidgetTypeResponse, error)
-	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
-	IsEditableText(ctx context.Context, in *IsEditableTextRequest, opts ...grpc.CallOption) (*IsEditableTextResponse, error)
-	IsMultiLineText(ctx context.Context, in *IsMultiLineTextRequest, opts ...grpc.CallOption) (*IsMultiLineTextResponse, error)
-	IsMultiSelect(ctx context.Context, in *IsMultiSelectRequest, opts ...grpc.CallOption) (*IsMultiSelectResponse, error)
-	IsReadOnly(ctx context.Context, in *IsReadOnlyRequest, opts ...grpc.CallOption) (*IsReadOnlyResponse, error)
-	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
-	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
-}
-
-type formWidgetInfoServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewFormWidgetInfoServiceClient(cc grpc.ClientConnInterface) FormWidgetInfoServiceClient {
-	return &formWidgetInfoServiceClient{cc}
-}
-
-func (c *formWidgetInfoServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, FormWidgetInfoService_DescribeContents_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *formWidgetInfoServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(EqualsResponse)
-	err := c.cc.Invoke(ctx, FormWidgetInfoService_Equals_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *formWidgetInfoServiceClient) GetAccessibilityLabel(ctx context.Context, in *GetAccessibilityLabelRequest, opts ...grpc.CallOption) (*GetAccessibilityLabelResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetAccessibilityLabelResponse)
-	err := c.cc.Invoke(ctx, FormWidgetInfoService_GetAccessibilityLabel_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *formWidgetInfoServiceClient) GetFontSize(ctx context.Context, in *GetFontSizeRequest, opts ...grpc.CallOption) (*GetFontSizeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetFontSizeResponse)
-	err := c.cc.Invoke(ctx, FormWidgetInfoService_GetFontSize_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *formWidgetInfoServiceClient) GetMaxLength(ctx context.Context, in *GetMaxLengthRequest, opts ...grpc.CallOption) (*GetMaxLengthResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetMaxLengthResponse)
-	err := c.cc.Invoke(ctx, FormWidgetInfoService_GetMaxLength_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *formWidgetInfoServiceClient) GetTextValue(ctx context.Context, in *GetTextValueRequest, opts ...grpc.CallOption) (*GetTextValueResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetTextValueResponse)
-	err := c.cc.Invoke(ctx, FormWidgetInfoService_GetTextValue_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *formWidgetInfoServiceClient) GetWidgetIndex(ctx context.Context, in *GetWidgetIndexRequest, opts ...grpc.CallOption) (*GetWidgetIndexResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetWidgetIndexResponse)
-	err := c.cc.Invoke(ctx, FormWidgetInfoService_GetWidgetIndex_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *formWidgetInfoServiceClient) GetWidgetRect(ctx context.Context, in *GetWidgetRectRequest, opts ...grpc.CallOption) (*GetWidgetRectResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetWidgetRectResponse)
-	err := c.cc.Invoke(ctx, FormWidgetInfoService_GetWidgetRect_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *formWidgetInfoServiceClient) GetWidgetType(ctx context.Context, in *GetWidgetTypeRequest, opts ...grpc.CallOption) (*GetWidgetTypeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetWidgetTypeResponse)
-	err := c.cc.Invoke(ctx, FormWidgetInfoService_GetWidgetType_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *formWidgetInfoServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(HashCodeResponse)
-	err := c.cc.Invoke(ctx, FormWidgetInfoService_HashCode_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *formWidgetInfoServiceClient) IsEditableText(ctx context.Context, in *IsEditableTextRequest, opts ...grpc.CallOption) (*IsEditableTextResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsEditableTextResponse)
-	err := c.cc.Invoke(ctx, FormWidgetInfoService_IsEditableText_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *formWidgetInfoServiceClient) IsMultiLineText(ctx context.Context, in *IsMultiLineTextRequest, opts ...grpc.CallOption) (*IsMultiLineTextResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsMultiLineTextResponse)
-	err := c.cc.Invoke(ctx, FormWidgetInfoService_IsMultiLineText_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *formWidgetInfoServiceClient) IsMultiSelect(ctx context.Context, in *IsMultiSelectRequest, opts ...grpc.CallOption) (*IsMultiSelectResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsMultiSelectResponse)
-	err := c.cc.Invoke(ctx, FormWidgetInfoService_IsMultiSelect_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *formWidgetInfoServiceClient) IsReadOnly(ctx context.Context, in *IsReadOnlyRequest, opts ...grpc.CallOption) (*IsReadOnlyResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsReadOnlyResponse)
-	err := c.cc.Invoke(ctx, FormWidgetInfoService_IsReadOnly_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *formWidgetInfoServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ToStringResponse)
-	err := c.cc.Invoke(ctx, FormWidgetInfoService_ToString_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *formWidgetInfoServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, FormWidgetInfoService_WriteToParcel_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// FormWidgetInfoServiceServer is the server API for FormWidgetInfoService service.
-// All implementations must embed UnimplementedFormWidgetInfoServiceServer
-// for forward compatibility.
-type FormWidgetInfoServiceServer interface {
-	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
-	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
-	GetAccessibilityLabel(context.Context, *GetAccessibilityLabelRequest) (*GetAccessibilityLabelResponse, error)
-	GetFontSize(context.Context, *GetFontSizeRequest) (*GetFontSizeResponse, error)
-	GetMaxLength(context.Context, *GetMaxLengthRequest) (*GetMaxLengthResponse, error)
-	GetTextValue(context.Context, *GetTextValueRequest) (*GetTextValueResponse, error)
-	GetWidgetIndex(context.Context, *GetWidgetIndexRequest) (*GetWidgetIndexResponse, error)
-	GetWidgetRect(context.Context, *GetWidgetRectRequest) (*GetWidgetRectResponse, error)
-	GetWidgetType(context.Context, *GetWidgetTypeRequest) (*GetWidgetTypeResponse, error)
-	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
-	IsEditableText(context.Context, *IsEditableTextRequest) (*IsEditableTextResponse, error)
-	IsMultiLineText(context.Context, *IsMultiLineTextRequest) (*IsMultiLineTextResponse, error)
-	IsMultiSelect(context.Context, *IsMultiSelectRequest) (*IsMultiSelectResponse, error)
-	IsReadOnly(context.Context, *IsReadOnlyRequest) (*IsReadOnlyResponse, error)
-	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
-	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
-	mustEmbedUnimplementedFormWidgetInfoServiceServer()
-}
-
-// UnimplementedFormWidgetInfoServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedFormWidgetInfoServiceServer struct{}
-
-func (UnimplementedFormWidgetInfoServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
-}
-func (UnimplementedFormWidgetInfoServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
-}
-func (UnimplementedFormWidgetInfoServiceServer) GetAccessibilityLabel(context.Context, *GetAccessibilityLabelRequest) (*GetAccessibilityLabelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetAccessibilityLabel not implemented")
-}
-func (UnimplementedFormWidgetInfoServiceServer) GetFontSize(context.Context, *GetFontSizeRequest) (*GetFontSizeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetFontSize not implemented")
-}
-func (UnimplementedFormWidgetInfoServiceServer) GetMaxLength(context.Context, *GetMaxLengthRequest) (*GetMaxLengthResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetMaxLength not implemented")
-}
-func (UnimplementedFormWidgetInfoServiceServer) GetTextValue(context.Context, *GetTextValueRequest) (*GetTextValueResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetTextValue not implemented")
-}
-func (UnimplementedFormWidgetInfoServiceServer) GetWidgetIndex(context.Context, *GetWidgetIndexRequest) (*GetWidgetIndexResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetWidgetIndex not implemented")
-}
-func (UnimplementedFormWidgetInfoServiceServer) GetWidgetRect(context.Context, *GetWidgetRectRequest) (*GetWidgetRectResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetWidgetRect not implemented")
-}
-func (UnimplementedFormWidgetInfoServiceServer) GetWidgetType(context.Context, *GetWidgetTypeRequest) (*GetWidgetTypeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetWidgetType not implemented")
-}
-func (UnimplementedFormWidgetInfoServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
-}
-func (UnimplementedFormWidgetInfoServiceServer) IsEditableText(context.Context, *IsEditableTextRequest) (*IsEditableTextResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsEditableText not implemented")
-}
-func (UnimplementedFormWidgetInfoServiceServer) IsMultiLineText(context.Context, *IsMultiLineTextRequest) (*IsMultiLineTextResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsMultiLineText not implemented")
-}
-func (UnimplementedFormWidgetInfoServiceServer) IsMultiSelect(context.Context, *IsMultiSelectRequest) (*IsMultiSelectResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsMultiSelect not implemented")
-}
-func (UnimplementedFormWidgetInfoServiceServer) IsReadOnly(context.Context, *IsReadOnlyRequest) (*IsReadOnlyResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsReadOnly not implemented")
-}
-func (UnimplementedFormWidgetInfoServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
-}
-func (UnimplementedFormWidgetInfoServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
-}
-func (UnimplementedFormWidgetInfoServiceServer) mustEmbedUnimplementedFormWidgetInfoServiceServer() {}
-func (UnimplementedFormWidgetInfoServiceServer) testEmbeddedByValue()                               {}
-
-// UnsafeFormWidgetInfoServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to FormWidgetInfoServiceServer will
-// result in compilation errors.
-type UnsafeFormWidgetInfoServiceServer interface {
-	mustEmbedUnimplementedFormWidgetInfoServiceServer()
-}
-
-func RegisterFormWidgetInfoServiceServer(s grpc.ServiceRegistrar, srv FormWidgetInfoServiceServer) {
-	// If the following call panics, it indicates UnimplementedFormWidgetInfoServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&FormWidgetInfoService_ServiceDesc, srv)
-}
-
-func _FormWidgetInfoService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DescribeContentsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(FormWidgetInfoServiceServer).DescribeContents(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: FormWidgetInfoService_DescribeContents_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FormWidgetInfoServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _FormWidgetInfoService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(EqualsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(FormWidgetInfoServiceServer).Equals(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: FormWidgetInfoService_Equals_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FormWidgetInfoServiceServer).Equals(ctx, req.(*EqualsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _FormWidgetInfoService_GetAccessibilityLabel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetAccessibilityLabelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(FormWidgetInfoServiceServer).GetAccessibilityLabel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: FormWidgetInfoService_GetAccessibilityLabel_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FormWidgetInfoServiceServer).GetAccessibilityLabel(ctx, req.(*GetAccessibilityLabelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _FormWidgetInfoService_GetFontSize_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetFontSizeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(FormWidgetInfoServiceServer).GetFontSize(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: FormWidgetInfoService_GetFontSize_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FormWidgetInfoServiceServer).GetFontSize(ctx, req.(*GetFontSizeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _FormWidgetInfoService_GetMaxLength_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetMaxLengthRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(FormWidgetInfoServiceServer).GetMaxLength(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: FormWidgetInfoService_GetMaxLength_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FormWidgetInfoServiceServer).GetMaxLength(ctx, req.(*GetMaxLengthRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _FormWidgetInfoService_GetTextValue_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetTextValueRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(FormWidgetInfoServiceServer).GetTextValue(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: FormWidgetInfoService_GetTextValue_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FormWidgetInfoServiceServer).GetTextValue(ctx, req.(*GetTextValueRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _FormWidgetInfoService_GetWidgetIndex_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetWidgetIndexRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(FormWidgetInfoServiceServer).GetWidgetIndex(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: FormWidgetInfoService_GetWidgetIndex_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FormWidgetInfoServiceServer).GetWidgetIndex(ctx, req.(*GetWidgetIndexRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _FormWidgetInfoService_GetWidgetRect_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetWidgetRectRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(FormWidgetInfoServiceServer).GetWidgetRect(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: FormWidgetInfoService_GetWidgetRect_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FormWidgetInfoServiceServer).GetWidgetRect(ctx, req.(*GetWidgetRectRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _FormWidgetInfoService_GetWidgetType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetWidgetTypeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(FormWidgetInfoServiceServer).GetWidgetType(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: FormWidgetInfoService_GetWidgetType_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FormWidgetInfoServiceServer).GetWidgetType(ctx, req.(*GetWidgetTypeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _FormWidgetInfoService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(HashCodeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(FormWidgetInfoServiceServer).HashCode(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: FormWidgetInfoService_HashCode_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FormWidgetInfoServiceServer).HashCode(ctx, req.(*HashCodeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _FormWidgetInfoService_IsEditableText_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsEditableTextRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(FormWidgetInfoServiceServer).IsEditableText(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: FormWidgetInfoService_IsEditableText_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FormWidgetInfoServiceServer).IsEditableText(ctx, req.(*IsEditableTextRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _FormWidgetInfoService_IsMultiLineText_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsMultiLineTextRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(FormWidgetInfoServiceServer).IsMultiLineText(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: FormWidgetInfoService_IsMultiLineText_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FormWidgetInfoServiceServer).IsMultiLineText(ctx, req.(*IsMultiLineTextRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _FormWidgetInfoService_IsMultiSelect_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsMultiSelectRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(FormWidgetInfoServiceServer).IsMultiSelect(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: FormWidgetInfoService_IsMultiSelect_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FormWidgetInfoServiceServer).IsMultiSelect(ctx, req.(*IsMultiSelectRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _FormWidgetInfoService_IsReadOnly_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsReadOnlyRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(FormWidgetInfoServiceServer).IsReadOnly(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: FormWidgetInfoService_IsReadOnly_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FormWidgetInfoServiceServer).IsReadOnly(ctx, req.(*IsReadOnlyRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _FormWidgetInfoService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ToStringRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(FormWidgetInfoServiceServer).ToString(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: FormWidgetInfoService_ToString_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FormWidgetInfoServiceServer).ToString(ctx, req.(*ToStringRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _FormWidgetInfoService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WriteToParcelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(FormWidgetInfoServiceServer).WriteToParcel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: FormWidgetInfoService_WriteToParcel_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FormWidgetInfoServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// FormWidgetInfoService_ServiceDesc is the grpc.ServiceDesc for FormWidgetInfoService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var FormWidgetInfoService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "models.FormWidgetInfoService",
-	HandlerType: (*FormWidgetInfoServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "DescribeContents",
-			Handler:    _FormWidgetInfoService_DescribeContents_Handler,
-		},
-		{
-			MethodName: "Equals",
-			Handler:    _FormWidgetInfoService_Equals_Handler,
-		},
-		{
-			MethodName: "GetAccessibilityLabel",
-			Handler:    _FormWidgetInfoService_GetAccessibilityLabel_Handler,
-		},
-		{
-			MethodName: "GetFontSize",
-			Handler:    _FormWidgetInfoService_GetFontSize_Handler,
-		},
-		{
-			MethodName: "GetMaxLength",
-			Handler:    _FormWidgetInfoService_GetMaxLength_Handler,
-		},
-		{
-			MethodName: "GetTextValue",
-			Handler:    _FormWidgetInfoService_GetTextValue_Handler,
-		},
-		{
-			MethodName: "GetWidgetIndex",
-			Handler:    _FormWidgetInfoService_GetWidgetIndex_Handler,
-		},
-		{
-			MethodName: "GetWidgetRect",
-			Handler:    _FormWidgetInfoService_GetWidgetRect_Handler,
-		},
-		{
-			MethodName: "GetWidgetType",
-			Handler:    _FormWidgetInfoService_GetWidgetType_Handler,
-		},
-		{
-			MethodName: "HashCode",
-			Handler:    _FormWidgetInfoService_HashCode_Handler,
-		},
-		{
-			MethodName: "IsEditableText",
-			Handler:    _FormWidgetInfoService_IsEditableText_Handler,
-		},
-		{
-			MethodName: "IsMultiLineText",
-			Handler:    _FormWidgetInfoService_IsMultiLineText_Handler,
-		},
-		{
-			MethodName: "IsMultiSelect",
-			Handler:    _FormWidgetInfoService_IsMultiSelect_Handler,
-		},
-		{
-			MethodName: "IsReadOnly",
-			Handler:    _FormWidgetInfoService_IsReadOnly_Handler,
-		},
-		{
-			MethodName: "ToString",
-			Handler:    _FormWidgetInfoService_ToString_Handler,
-		},
-		{
-			MethodName: "WriteToParcel",
-			Handler:    _FormWidgetInfoService_WriteToParcel_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/models/models.proto",
-}
-
-const (
-	FormWidgetInfoBuilderService_Build_FullMethodName            = "/models.FormWidgetInfoBuilderService/Build"
-	FormWidgetInfoBuilderService_SetEditableText_FullMethodName  = "/models.FormWidgetInfoBuilderService/SetEditableText"
-	FormWidgetInfoBuilderService_SetFontSize_FullMethodName      = "/models.FormWidgetInfoBuilderService/SetFontSize"
-	FormWidgetInfoBuilderService_SetMaxLength_FullMethodName     = "/models.FormWidgetInfoBuilderService/SetMaxLength"
-	FormWidgetInfoBuilderService_SetMultiLineText_FullMethodName = "/models.FormWidgetInfoBuilderService/SetMultiLineText"
-	FormWidgetInfoBuilderService_SetMultiSelect_FullMethodName   = "/models.FormWidgetInfoBuilderService/SetMultiSelect"
-	FormWidgetInfoBuilderService_SetReadOnly_FullMethodName      = "/models.FormWidgetInfoBuilderService/SetReadOnly"
-)
-
-// FormWidgetInfoBuilderServiceClient is the client API for FormWidgetInfoBuilderService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type FormWidgetInfoBuilderServiceClient interface {
-	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
-	SetEditableText(ctx context.Context, in *SetEditableTextRequest, opts ...grpc.CallOption) (*SetEditableTextResponse, error)
-	SetFontSize(ctx context.Context, in *SetFontSizeRequest, opts ...grpc.CallOption) (*SetFontSizeResponse, error)
-	SetMaxLength(ctx context.Context, in *SetMaxLengthRequest, opts ...grpc.CallOption) (*SetMaxLengthResponse, error)
-	SetMultiLineText(ctx context.Context, in *SetMultiLineTextRequest, opts ...grpc.CallOption) (*SetMultiLineTextResponse, error)
-	SetMultiSelect(ctx context.Context, in *SetMultiSelectRequest, opts ...grpc.CallOption) (*SetMultiSelectResponse, error)
-	SetReadOnly(ctx context.Context, in *SetReadOnlyRequest, opts ...grpc.CallOption) (*SetReadOnlyResponse, error)
-}
-
-type formWidgetInfoBuilderServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewFormWidgetInfoBuilderServiceClient(cc grpc.ClientConnInterface) FormWidgetInfoBuilderServiceClient {
-	return &formWidgetInfoBuilderServiceClient{cc}
-}
-
-func (c *formWidgetInfoBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(BuildResponse)
-	err := c.cc.Invoke(ctx, FormWidgetInfoBuilderService_Build_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *formWidgetInfoBuilderServiceClient) SetEditableText(ctx context.Context, in *SetEditableTextRequest, opts ...grpc.CallOption) (*SetEditableTextResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetEditableTextResponse)
-	err := c.cc.Invoke(ctx, FormWidgetInfoBuilderService_SetEditableText_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *formWidgetInfoBuilderServiceClient) SetFontSize(ctx context.Context, in *SetFontSizeRequest, opts ...grpc.CallOption) (*SetFontSizeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetFontSizeResponse)
-	err := c.cc.Invoke(ctx, FormWidgetInfoBuilderService_SetFontSize_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *formWidgetInfoBuilderServiceClient) SetMaxLength(ctx context.Context, in *SetMaxLengthRequest, opts ...grpc.CallOption) (*SetMaxLengthResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetMaxLengthResponse)
-	err := c.cc.Invoke(ctx, FormWidgetInfoBuilderService_SetMaxLength_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *formWidgetInfoBuilderServiceClient) SetMultiLineText(ctx context.Context, in *SetMultiLineTextRequest, opts ...grpc.CallOption) (*SetMultiLineTextResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetMultiLineTextResponse)
-	err := c.cc.Invoke(ctx, FormWidgetInfoBuilderService_SetMultiLineText_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *formWidgetInfoBuilderServiceClient) SetMultiSelect(ctx context.Context, in *SetMultiSelectRequest, opts ...grpc.CallOption) (*SetMultiSelectResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetMultiSelectResponse)
-	err := c.cc.Invoke(ctx, FormWidgetInfoBuilderService_SetMultiSelect_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *formWidgetInfoBuilderServiceClient) SetReadOnly(ctx context.Context, in *SetReadOnlyRequest, opts ...grpc.CallOption) (*SetReadOnlyResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetReadOnlyResponse)
-	err := c.cc.Invoke(ctx, FormWidgetInfoBuilderService_SetReadOnly_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// FormWidgetInfoBuilderServiceServer is the server API for FormWidgetInfoBuilderService service.
-// All implementations must embed UnimplementedFormWidgetInfoBuilderServiceServer
-// for forward compatibility.
-type FormWidgetInfoBuilderServiceServer interface {
-	Build(context.Context, *BuildRequest) (*BuildResponse, error)
-	SetEditableText(context.Context, *SetEditableTextRequest) (*SetEditableTextResponse, error)
-	SetFontSize(context.Context, *SetFontSizeRequest) (*SetFontSizeResponse, error)
-	SetMaxLength(context.Context, *SetMaxLengthRequest) (*SetMaxLengthResponse, error)
-	SetMultiLineText(context.Context, *SetMultiLineTextRequest) (*SetMultiLineTextResponse, error)
-	SetMultiSelect(context.Context, *SetMultiSelectRequest) (*SetMultiSelectResponse, error)
-	SetReadOnly(context.Context, *SetReadOnlyRequest) (*SetReadOnlyResponse, error)
-	mustEmbedUnimplementedFormWidgetInfoBuilderServiceServer()
-}
-
-// UnimplementedFormWidgetInfoBuilderServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedFormWidgetInfoBuilderServiceServer struct{}
-
-func (UnimplementedFormWidgetInfoBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
-}
-func (UnimplementedFormWidgetInfoBuilderServiceServer) SetEditableText(context.Context, *SetEditableTextRequest) (*SetEditableTextResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetEditableText not implemented")
-}
-func (UnimplementedFormWidgetInfoBuilderServiceServer) SetFontSize(context.Context, *SetFontSizeRequest) (*SetFontSizeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetFontSize not implemented")
-}
-func (UnimplementedFormWidgetInfoBuilderServiceServer) SetMaxLength(context.Context, *SetMaxLengthRequest) (*SetMaxLengthResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetMaxLength not implemented")
-}
-func (UnimplementedFormWidgetInfoBuilderServiceServer) SetMultiLineText(context.Context, *SetMultiLineTextRequest) (*SetMultiLineTextResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetMultiLineText not implemented")
-}
-func (UnimplementedFormWidgetInfoBuilderServiceServer) SetMultiSelect(context.Context, *SetMultiSelectRequest) (*SetMultiSelectResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetMultiSelect not implemented")
-}
-func (UnimplementedFormWidgetInfoBuilderServiceServer) SetReadOnly(context.Context, *SetReadOnlyRequest) (*SetReadOnlyResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetReadOnly not implemented")
-}
-func (UnimplementedFormWidgetInfoBuilderServiceServer) mustEmbedUnimplementedFormWidgetInfoBuilderServiceServer() {
-}
-func (UnimplementedFormWidgetInfoBuilderServiceServer) testEmbeddedByValue() {}
-
-// UnsafeFormWidgetInfoBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to FormWidgetInfoBuilderServiceServer will
-// result in compilation errors.
-type UnsafeFormWidgetInfoBuilderServiceServer interface {
-	mustEmbedUnimplementedFormWidgetInfoBuilderServiceServer()
-}
-
-func RegisterFormWidgetInfoBuilderServiceServer(s grpc.ServiceRegistrar, srv FormWidgetInfoBuilderServiceServer) {
-	// If the following call panics, it indicates UnimplementedFormWidgetInfoBuilderServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&FormWidgetInfoBuilderService_ServiceDesc, srv)
-}
-
-func _FormWidgetInfoBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(BuildRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(FormWidgetInfoBuilderServiceServer).Build(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: FormWidgetInfoBuilderService_Build_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FormWidgetInfoBuilderServiceServer).Build(ctx, req.(*BuildRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _FormWidgetInfoBuilderService_SetEditableText_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetEditableTextRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(FormWidgetInfoBuilderServiceServer).SetEditableText(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: FormWidgetInfoBuilderService_SetEditableText_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FormWidgetInfoBuilderServiceServer).SetEditableText(ctx, req.(*SetEditableTextRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _FormWidgetInfoBuilderService_SetFontSize_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetFontSizeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(FormWidgetInfoBuilderServiceServer).SetFontSize(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: FormWidgetInfoBuilderService_SetFontSize_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FormWidgetInfoBuilderServiceServer).SetFontSize(ctx, req.(*SetFontSizeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _FormWidgetInfoBuilderService_SetMaxLength_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetMaxLengthRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(FormWidgetInfoBuilderServiceServer).SetMaxLength(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: FormWidgetInfoBuilderService_SetMaxLength_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FormWidgetInfoBuilderServiceServer).SetMaxLength(ctx, req.(*SetMaxLengthRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _FormWidgetInfoBuilderService_SetMultiLineText_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetMultiLineTextRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(FormWidgetInfoBuilderServiceServer).SetMultiLineText(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: FormWidgetInfoBuilderService_SetMultiLineText_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FormWidgetInfoBuilderServiceServer).SetMultiLineText(ctx, req.(*SetMultiLineTextRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _FormWidgetInfoBuilderService_SetMultiSelect_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetMultiSelectRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(FormWidgetInfoBuilderServiceServer).SetMultiSelect(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: FormWidgetInfoBuilderService_SetMultiSelect_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FormWidgetInfoBuilderServiceServer).SetMultiSelect(ctx, req.(*SetMultiSelectRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _FormWidgetInfoBuilderService_SetReadOnly_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetReadOnlyRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(FormWidgetInfoBuilderServiceServer).SetReadOnly(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: FormWidgetInfoBuilderService_SetReadOnly_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FormWidgetInfoBuilderServiceServer).SetReadOnly(ctx, req.(*SetReadOnlyRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// FormWidgetInfoBuilderService_ServiceDesc is the grpc.ServiceDesc for FormWidgetInfoBuilderService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var FormWidgetInfoBuilderService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "models.FormWidgetInfoBuilderService",
-	HandlerType: (*FormWidgetInfoBuilderServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "Build",
-			Handler:    _FormWidgetInfoBuilderService_Build_Handler,
-		},
-		{
-			MethodName: "SetEditableText",
-			Handler:    _FormWidgetInfoBuilderService_SetEditableText_Handler,
-		},
-		{
-			MethodName: "SetFontSize",
-			Handler:    _FormWidgetInfoBuilderService_SetFontSize_Handler,
-		},
-		{
-			MethodName: "SetMaxLength",
-			Handler:    _FormWidgetInfoBuilderService_SetMaxLength_Handler,
-		},
-		{
-			MethodName: "SetMultiLineText",
-			Handler:    _FormWidgetInfoBuilderService_SetMultiLineText_Handler,
-		},
-		{
-			MethodName: "SetMultiSelect",
-			Handler:    _FormWidgetInfoBuilderService_SetMultiSelect_Handler,
-		},
-		{
-			MethodName: "SetReadOnly",
-			Handler:    _FormWidgetInfoBuilderService_SetReadOnly_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/models/models.proto",
-}
-
-const (
-	ListItemService_NewListItem_FullMethodName      = "/models.ListItemService/NewListItem"
-	ListItemService_DescribeContents_FullMethodName = "/models.ListItemService/DescribeContents"
-	ListItemService_Equals_FullMethodName           = "/models.ListItemService/Equals"
-	ListItemService_GetLabel_FullMethodName         = "/models.ListItemService/GetLabel"
-	ListItemService_HashCode_FullMethodName         = "/models.ListItemService/HashCode"
-	ListItemService_IsSelected_FullMethodName       = "/models.ListItemService/IsSelected"
-	ListItemService_ToString_FullMethodName         = "/models.ListItemService/ToString"
-	ListItemService_WriteToParcel_FullMethodName    = "/models.ListItemService/WriteToParcel"
-)
-
-// ListItemServiceClient is the client API for ListItemService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type ListItemServiceClient interface {
-	NewListItem(ctx context.Context, in *NewListItemRequest, opts ...grpc.CallOption) (*NewListItemResponse, error)
-	DescribeContents(ctx context.Context, in *ListItemDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	Equals(ctx context.Context, in *ListItemEqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
-	GetLabel(ctx context.Context, in *GetLabelRequest, opts ...grpc.CallOption) (*GetLabelResponse, error)
-	HashCode(ctx context.Context, in *ListItemHashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
-	IsSelected(ctx context.Context, in *IsSelectedRequest, opts ...grpc.CallOption) (*IsSelectedResponse, error)
-	ToString(ctx context.Context, in *ListItemToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
-	WriteToParcel(ctx context.Context, in *ListItemWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
-}
-
-type listItemServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewListItemServiceClient(cc grpc.ClientConnInterface) ListItemServiceClient {
-	return &listItemServiceClient{cc}
-}
-
-func (c *listItemServiceClient) NewListItem(ctx context.Context, in *NewListItemRequest, opts ...grpc.CallOption) (*NewListItemResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewListItemResponse)
-	err := c.cc.Invoke(ctx, ListItemService_NewListItem_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *listItemServiceClient) DescribeContents(ctx context.Context, in *ListItemDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, ListItemService_DescribeContents_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *listItemServiceClient) Equals(ctx context.Context, in *ListItemEqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(EqualsResponse)
-	err := c.cc.Invoke(ctx, ListItemService_Equals_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *listItemServiceClient) GetLabel(ctx context.Context, in *GetLabelRequest, opts ...grpc.CallOption) (*GetLabelResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetLabelResponse)
-	err := c.cc.Invoke(ctx, ListItemService_GetLabel_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *listItemServiceClient) HashCode(ctx context.Context, in *ListItemHashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(HashCodeResponse)
-	err := c.cc.Invoke(ctx, ListItemService_HashCode_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *listItemServiceClient) IsSelected(ctx context.Context, in *IsSelectedRequest, opts ...grpc.CallOption) (*IsSelectedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsSelectedResponse)
-	err := c.cc.Invoke(ctx, ListItemService_IsSelected_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *listItemServiceClient) ToString(ctx context.Context, in *ListItemToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ToStringResponse)
-	err := c.cc.Invoke(ctx, ListItemService_ToString_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *listItemServiceClient) WriteToParcel(ctx context.Context, in *ListItemWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, ListItemService_WriteToParcel_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// ListItemServiceServer is the server API for ListItemService service.
-// All implementations must embed UnimplementedListItemServiceServer
-// for forward compatibility.
-type ListItemServiceServer interface {
-	NewListItem(context.Context, *NewListItemRequest) (*NewListItemResponse, error)
-	DescribeContents(context.Context, *ListItemDescribeContentsRequest) (*DescribeContentsResponse, error)
-	Equals(context.Context, *ListItemEqualsRequest) (*EqualsResponse, error)
-	GetLabel(context.Context, *GetLabelRequest) (*GetLabelResponse, error)
-	HashCode(context.Context, *ListItemHashCodeRequest) (*HashCodeResponse, error)
-	IsSelected(context.Context, *IsSelectedRequest) (*IsSelectedResponse, error)
-	ToString(context.Context, *ListItemToStringRequest) (*ToStringResponse, error)
-	WriteToParcel(context.Context, *ListItemWriteToParcelRequest) (*WriteToParcelResponse, error)
-	mustEmbedUnimplementedListItemServiceServer()
-}
-
-// UnimplementedListItemServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedListItemServiceServer struct{}
-
-func (UnimplementedListItemServiceServer) NewListItem(context.Context, *NewListItemRequest) (*NewListItemResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewListItem not implemented")
-}
-func (UnimplementedListItemServiceServer) DescribeContents(context.Context, *ListItemDescribeContentsRequest) (*DescribeContentsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
-}
-func (UnimplementedListItemServiceServer) Equals(context.Context, *ListItemEqualsRequest) (*EqualsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
-}
-func (UnimplementedListItemServiceServer) GetLabel(context.Context, *GetLabelRequest) (*GetLabelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetLabel not implemented")
-}
-func (UnimplementedListItemServiceServer) HashCode(context.Context, *ListItemHashCodeRequest) (*HashCodeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
-}
-func (UnimplementedListItemServiceServer) IsSelected(context.Context, *IsSelectedRequest) (*IsSelectedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsSelected not implemented")
-}
-func (UnimplementedListItemServiceServer) ToString(context.Context, *ListItemToStringRequest) (*ToStringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
-}
-func (UnimplementedListItemServiceServer) WriteToParcel(context.Context, *ListItemWriteToParcelRequest) (*WriteToParcelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
-}
-func (UnimplementedListItemServiceServer) mustEmbedUnimplementedListItemServiceServer() {}
-func (UnimplementedListItemServiceServer) testEmbeddedByValue()                         {}
-
-// UnsafeListItemServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to ListItemServiceServer will
-// result in compilation errors.
-type UnsafeListItemServiceServer interface {
-	mustEmbedUnimplementedListItemServiceServer()
-}
-
-func RegisterListItemServiceServer(s grpc.ServiceRegistrar, srv ListItemServiceServer) {
-	// If the following call panics, it indicates UnimplementedListItemServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&ListItemService_ServiceDesc, srv)
-}
-
-func _ListItemService_NewListItem_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewListItemRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ListItemServiceServer).NewListItem(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ListItemService_NewListItem_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ListItemServiceServer).NewListItem(ctx, req.(*NewListItemRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ListItemService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ListItemDescribeContentsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ListItemServiceServer).DescribeContents(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ListItemService_DescribeContents_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ListItemServiceServer).DescribeContents(ctx, req.(*ListItemDescribeContentsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ListItemService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ListItemEqualsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ListItemServiceServer).Equals(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ListItemService_Equals_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ListItemServiceServer).Equals(ctx, req.(*ListItemEqualsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ListItemService_GetLabel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetLabelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ListItemServiceServer).GetLabel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ListItemService_GetLabel_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ListItemServiceServer).GetLabel(ctx, req.(*GetLabelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ListItemService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ListItemHashCodeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ListItemServiceServer).HashCode(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ListItemService_HashCode_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ListItemServiceServer).HashCode(ctx, req.(*ListItemHashCodeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ListItemService_IsSelected_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsSelectedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ListItemServiceServer).IsSelected(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ListItemService_IsSelected_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ListItemServiceServer).IsSelected(ctx, req.(*IsSelectedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ListItemService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ListItemToStringRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ListItemServiceServer).ToString(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ListItemService_ToString_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ListItemServiceServer).ToString(ctx, req.(*ListItemToStringRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ListItemService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ListItemWriteToParcelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ListItemServiceServer).WriteToParcel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ListItemService_WriteToParcel_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ListItemServiceServer).WriteToParcel(ctx, req.(*ListItemWriteToParcelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// ListItemService_ServiceDesc is the grpc.ServiceDesc for ListItemService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var ListItemService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "models.ListItemService",
-	HandlerType: (*ListItemServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "NewListItem",
-			Handler:    _ListItemService_NewListItem_Handler,
-		},
-		{
-			MethodName: "DescribeContents",
-			Handler:    _ListItemService_DescribeContents_Handler,
-		},
-		{
-			MethodName: "Equals",
-			Handler:    _ListItemService_Equals_Handler,
-		},
-		{
-			MethodName: "GetLabel",
-			Handler:    _ListItemService_GetLabel_Handler,
-		},
-		{
-			MethodName: "HashCode",
-			Handler:    _ListItemService_HashCode_Handler,
-		},
-		{
-			MethodName: "IsSelected",
-			Handler:    _ListItemService_IsSelected_Handler,
-		},
-		{
-			MethodName: "ToString",
-			Handler:    _ListItemService_ToString_Handler,
-		},
-		{
-			MethodName: "WriteToParcel",
-			Handler:    _ListItemService_WriteToParcel_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/models/models.proto",
-}
-
-const (
 	FormEditRecordService_DescribeContents_FullMethodName   = "/models.FormEditRecordService/DescribeContents"
 	FormEditRecordService_Equals_FullMethodName             = "/models.FormEditRecordService/Equals"
 	FormEditRecordService_GetClickPoint_FullMethodName      = "/models.FormEditRecordService/GetClickPoint"
@@ -2055,6 +684,7 @@ var FormEditRecordBuilderService_ServiceDesc = grpc.ServiceDesc{
 const (
 	PageMatchBoundsService_NewPageMatchBounds_FullMethodName = "/models.PageMatchBoundsService/NewPageMatchBounds"
 	PageMatchBoundsService_DescribeContents_FullMethodName   = "/models.PageMatchBoundsService/DescribeContents"
+	PageMatchBoundsService_GetBounds_FullMethodName          = "/models.PageMatchBoundsService/GetBounds"
 	PageMatchBoundsService_GetTextStartIndex_FullMethodName  = "/models.PageMatchBoundsService/GetTextStartIndex"
 	PageMatchBoundsService_WriteToParcel_FullMethodName      = "/models.PageMatchBoundsService/WriteToParcel"
 )
@@ -2065,6 +695,7 @@ const (
 type PageMatchBoundsServiceClient interface {
 	NewPageMatchBounds(ctx context.Context, in *NewPageMatchBoundsRequest, opts ...grpc.CallOption) (*NewPageMatchBoundsResponse, error)
 	DescribeContents(ctx context.Context, in *PageMatchBoundsDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	GetBounds(ctx context.Context, in *GetBoundsRequest, opts ...grpc.CallOption) (*GetBoundsResponse, error)
 	GetTextStartIndex(ctx context.Context, in *GetTextStartIndexRequest, opts ...grpc.CallOption) (*GetTextStartIndexResponse, error)
 	WriteToParcel(ctx context.Context, in *PageMatchBoundsWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
 }
@@ -2097,6 +728,16 @@ func (c *pageMatchBoundsServiceClient) DescribeContents(ctx context.Context, in 
 	return out, nil
 }
 
+func (c *pageMatchBoundsServiceClient) GetBounds(ctx context.Context, in *GetBoundsRequest, opts ...grpc.CallOption) (*GetBoundsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetBoundsResponse)
+	err := c.cc.Invoke(ctx, PageMatchBoundsService_GetBounds_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *pageMatchBoundsServiceClient) GetTextStartIndex(ctx context.Context, in *GetTextStartIndexRequest, opts ...grpc.CallOption) (*GetTextStartIndexResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetTextStartIndexResponse)
@@ -2123,6 +764,7 @@ func (c *pageMatchBoundsServiceClient) WriteToParcel(ctx context.Context, in *Pa
 type PageMatchBoundsServiceServer interface {
 	NewPageMatchBounds(context.Context, *NewPageMatchBoundsRequest) (*NewPageMatchBoundsResponse, error)
 	DescribeContents(context.Context, *PageMatchBoundsDescribeContentsRequest) (*DescribeContentsResponse, error)
+	GetBounds(context.Context, *GetBoundsRequest) (*GetBoundsResponse, error)
 	GetTextStartIndex(context.Context, *GetTextStartIndexRequest) (*GetTextStartIndexResponse, error)
 	WriteToParcel(context.Context, *PageMatchBoundsWriteToParcelRequest) (*WriteToParcelResponse, error)
 	mustEmbedUnimplementedPageMatchBoundsServiceServer()
@@ -2140,6 +782,9 @@ func (UnimplementedPageMatchBoundsServiceServer) NewPageMatchBounds(context.Cont
 }
 func (UnimplementedPageMatchBoundsServiceServer) DescribeContents(context.Context, *PageMatchBoundsDescribeContentsRequest) (*DescribeContentsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedPageMatchBoundsServiceServer) GetBounds(context.Context, *GetBoundsRequest) (*GetBoundsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetBounds not implemented")
 }
 func (UnimplementedPageMatchBoundsServiceServer) GetTextStartIndex(context.Context, *GetTextStartIndexRequest) (*GetTextStartIndexResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetTextStartIndex not implemented")
@@ -2205,6 +850,24 @@ func _PageMatchBoundsService_DescribeContents_Handler(srv interface{}, ctx conte
 	return interceptor(ctx, in, info, handler)
 }
 
+func _PageMatchBoundsService_GetBounds_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetBoundsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PageMatchBoundsServiceServer).GetBounds(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PageMatchBoundsService_GetBounds_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PageMatchBoundsServiceServer).GetBounds(ctx, req.(*GetBoundsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _PageMatchBoundsService_GetTextStartIndex_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetTextStartIndexRequest)
 	if err := dec(in); err != nil {
@@ -2257,12 +920,1425 @@ var PageMatchBoundsService_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _PageMatchBoundsService_DescribeContents_Handler,
 		},
 		{
+			MethodName: "GetBounds",
+			Handler:    _PageMatchBoundsService_GetBounds_Handler,
+		},
+		{
 			MethodName: "GetTextStartIndex",
 			Handler:    _PageMatchBoundsService_GetTextStartIndex_Handler,
 		},
 		{
 			MethodName: "WriteToParcel",
 			Handler:    _PageMatchBoundsService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/models/models.proto",
+}
+
+const (
+	ListItemService_NewListItem_FullMethodName      = "/models.ListItemService/NewListItem"
+	ListItemService_DescribeContents_FullMethodName = "/models.ListItemService/DescribeContents"
+	ListItemService_Equals_FullMethodName           = "/models.ListItemService/Equals"
+	ListItemService_GetLabel_FullMethodName         = "/models.ListItemService/GetLabel"
+	ListItemService_HashCode_FullMethodName         = "/models.ListItemService/HashCode"
+	ListItemService_IsSelected_FullMethodName       = "/models.ListItemService/IsSelected"
+	ListItemService_ToString_FullMethodName         = "/models.ListItemService/ToString"
+	ListItemService_WriteToParcel_FullMethodName    = "/models.ListItemService/WriteToParcel"
+)
+
+// ListItemServiceClient is the client API for ListItemService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ListItemServiceClient interface {
+	NewListItem(ctx context.Context, in *NewListItemRequest, opts ...grpc.CallOption) (*NewListItemResponse, error)
+	DescribeContents(ctx context.Context, in *ListItemDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	Equals(ctx context.Context, in *ListItemEqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	GetLabel(ctx context.Context, in *GetLabelRequest, opts ...grpc.CallOption) (*GetLabelResponse, error)
+	HashCode(ctx context.Context, in *ListItemHashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+	IsSelected(ctx context.Context, in *IsSelectedRequest, opts ...grpc.CallOption) (*IsSelectedResponse, error)
+	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+	WriteToParcel(ctx context.Context, in *ListItemWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type listItemServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewListItemServiceClient(cc grpc.ClientConnInterface) ListItemServiceClient {
+	return &listItemServiceClient{cc}
+}
+
+func (c *listItemServiceClient) NewListItem(ctx context.Context, in *NewListItemRequest, opts ...grpc.CallOption) (*NewListItemResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewListItemResponse)
+	err := c.cc.Invoke(ctx, ListItemService_NewListItem_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *listItemServiceClient) DescribeContents(ctx context.Context, in *ListItemDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, ListItemService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *listItemServiceClient) Equals(ctx context.Context, in *ListItemEqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(EqualsResponse)
+	err := c.cc.Invoke(ctx, ListItemService_Equals_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *listItemServiceClient) GetLabel(ctx context.Context, in *GetLabelRequest, opts ...grpc.CallOption) (*GetLabelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetLabelResponse)
+	err := c.cc.Invoke(ctx, ListItemService_GetLabel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *listItemServiceClient) HashCode(ctx context.Context, in *ListItemHashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HashCodeResponse)
+	err := c.cc.Invoke(ctx, ListItemService_HashCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *listItemServiceClient) IsSelected(ctx context.Context, in *IsSelectedRequest, opts ...grpc.CallOption) (*IsSelectedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsSelectedResponse)
+	err := c.cc.Invoke(ctx, ListItemService_IsSelected_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *listItemServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, ListItemService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *listItemServiceClient) WriteToParcel(ctx context.Context, in *ListItemWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, ListItemService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ListItemServiceServer is the server API for ListItemService service.
+// All implementations must embed UnimplementedListItemServiceServer
+// for forward compatibility.
+type ListItemServiceServer interface {
+	NewListItem(context.Context, *NewListItemRequest) (*NewListItemResponse, error)
+	DescribeContents(context.Context, *ListItemDescribeContentsRequest) (*DescribeContentsResponse, error)
+	Equals(context.Context, *ListItemEqualsRequest) (*EqualsResponse, error)
+	GetLabel(context.Context, *GetLabelRequest) (*GetLabelResponse, error)
+	HashCode(context.Context, *ListItemHashCodeRequest) (*HashCodeResponse, error)
+	IsSelected(context.Context, *IsSelectedRequest) (*IsSelectedResponse, error)
+	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
+	WriteToParcel(context.Context, *ListItemWriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedListItemServiceServer()
+}
+
+// UnimplementedListItemServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedListItemServiceServer struct{}
+
+func (UnimplementedListItemServiceServer) NewListItem(context.Context, *NewListItemRequest) (*NewListItemResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewListItem not implemented")
+}
+func (UnimplementedListItemServiceServer) DescribeContents(context.Context, *ListItemDescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedListItemServiceServer) Equals(context.Context, *ListItemEqualsRequest) (*EqualsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
+}
+func (UnimplementedListItemServiceServer) GetLabel(context.Context, *GetLabelRequest) (*GetLabelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetLabel not implemented")
+}
+func (UnimplementedListItemServiceServer) HashCode(context.Context, *ListItemHashCodeRequest) (*HashCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
+}
+func (UnimplementedListItemServiceServer) IsSelected(context.Context, *IsSelectedRequest) (*IsSelectedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsSelected not implemented")
+}
+func (UnimplementedListItemServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedListItemServiceServer) WriteToParcel(context.Context, *ListItemWriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedListItemServiceServer) mustEmbedUnimplementedListItemServiceServer() {}
+func (UnimplementedListItemServiceServer) testEmbeddedByValue()                         {}
+
+// UnsafeListItemServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ListItemServiceServer will
+// result in compilation errors.
+type UnsafeListItemServiceServer interface {
+	mustEmbedUnimplementedListItemServiceServer()
+}
+
+func RegisterListItemServiceServer(s grpc.ServiceRegistrar, srv ListItemServiceServer) {
+	// If the following call panics, it indicates UnimplementedListItemServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&ListItemService_ServiceDesc, srv)
+}
+
+func _ListItemService_NewListItem_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewListItemRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ListItemServiceServer).NewListItem(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ListItemService_NewListItem_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ListItemServiceServer).NewListItem(ctx, req.(*NewListItemRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ListItemService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ListItemDescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ListItemServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ListItemService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ListItemServiceServer).DescribeContents(ctx, req.(*ListItemDescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ListItemService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ListItemEqualsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ListItemServiceServer).Equals(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ListItemService_Equals_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ListItemServiceServer).Equals(ctx, req.(*ListItemEqualsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ListItemService_GetLabel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetLabelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ListItemServiceServer).GetLabel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ListItemService_GetLabel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ListItemServiceServer).GetLabel(ctx, req.(*GetLabelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ListItemService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ListItemHashCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ListItemServiceServer).HashCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ListItemService_HashCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ListItemServiceServer).HashCode(ctx, req.(*ListItemHashCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ListItemService_IsSelected_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsSelectedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ListItemServiceServer).IsSelected(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ListItemService_IsSelected_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ListItemServiceServer).IsSelected(ctx, req.(*IsSelectedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ListItemService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ListItemServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ListItemService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ListItemServiceServer).ToString(ctx, req.(*ToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ListItemService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ListItemWriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ListItemServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ListItemService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ListItemServiceServer).WriteToParcel(ctx, req.(*ListItemWriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ListItemService_ServiceDesc is the grpc.ServiceDesc for ListItemService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ListItemService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "models.ListItemService",
+	HandlerType: (*ListItemServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewListItem",
+			Handler:    _ListItemService_NewListItem_Handler,
+		},
+		{
+			MethodName: "DescribeContents",
+			Handler:    _ListItemService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "Equals",
+			Handler:    _ListItemService_Equals_Handler,
+		},
+		{
+			MethodName: "GetLabel",
+			Handler:    _ListItemService_GetLabel_Handler,
+		},
+		{
+			MethodName: "HashCode",
+			Handler:    _ListItemService_HashCode_Handler,
+		},
+		{
+			MethodName: "IsSelected",
+			Handler:    _ListItemService_IsSelected_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _ListItemService_ToString_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _ListItemService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/models/models.proto",
+}
+
+const (
+	FormWidgetInfoService_DescribeContents_FullMethodName      = "/models.FormWidgetInfoService/DescribeContents"
+	FormWidgetInfoService_Equals_FullMethodName                = "/models.FormWidgetInfoService/Equals"
+	FormWidgetInfoService_GetAccessibilityLabel_FullMethodName = "/models.FormWidgetInfoService/GetAccessibilityLabel"
+	FormWidgetInfoService_GetFontSize_FullMethodName           = "/models.FormWidgetInfoService/GetFontSize"
+	FormWidgetInfoService_GetListItems_FullMethodName          = "/models.FormWidgetInfoService/GetListItems"
+	FormWidgetInfoService_GetMaxLength_FullMethodName          = "/models.FormWidgetInfoService/GetMaxLength"
+	FormWidgetInfoService_GetTextValue_FullMethodName          = "/models.FormWidgetInfoService/GetTextValue"
+	FormWidgetInfoService_GetWidgetIndex_FullMethodName        = "/models.FormWidgetInfoService/GetWidgetIndex"
+	FormWidgetInfoService_GetWidgetRect_FullMethodName         = "/models.FormWidgetInfoService/GetWidgetRect"
+	FormWidgetInfoService_GetWidgetType_FullMethodName         = "/models.FormWidgetInfoService/GetWidgetType"
+	FormWidgetInfoService_HashCode_FullMethodName              = "/models.FormWidgetInfoService/HashCode"
+	FormWidgetInfoService_IsEditableText_FullMethodName        = "/models.FormWidgetInfoService/IsEditableText"
+	FormWidgetInfoService_IsMultiLineText_FullMethodName       = "/models.FormWidgetInfoService/IsMultiLineText"
+	FormWidgetInfoService_IsMultiSelect_FullMethodName         = "/models.FormWidgetInfoService/IsMultiSelect"
+	FormWidgetInfoService_IsReadOnly_FullMethodName            = "/models.FormWidgetInfoService/IsReadOnly"
+	FormWidgetInfoService_ToString_FullMethodName              = "/models.FormWidgetInfoService/ToString"
+	FormWidgetInfoService_WriteToParcel_FullMethodName         = "/models.FormWidgetInfoService/WriteToParcel"
+)
+
+// FormWidgetInfoServiceClient is the client API for FormWidgetInfoService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type FormWidgetInfoServiceClient interface {
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	GetAccessibilityLabel(ctx context.Context, in *GetAccessibilityLabelRequest, opts ...grpc.CallOption) (*GetAccessibilityLabelResponse, error)
+	GetFontSize(ctx context.Context, in *GetFontSizeRequest, opts ...grpc.CallOption) (*GetFontSizeResponse, error)
+	GetListItems(ctx context.Context, in *GetListItemsRequest, opts ...grpc.CallOption) (*GetListItemsResponse, error)
+	GetMaxLength(ctx context.Context, in *GetMaxLengthRequest, opts ...grpc.CallOption) (*GetMaxLengthResponse, error)
+	GetTextValue(ctx context.Context, in *GetTextValueRequest, opts ...grpc.CallOption) (*GetTextValueResponse, error)
+	GetWidgetIndex(ctx context.Context, in *GetWidgetIndexRequest, opts ...grpc.CallOption) (*GetWidgetIndexResponse, error)
+	GetWidgetRect(ctx context.Context, in *GetWidgetRectRequest, opts ...grpc.CallOption) (*GetWidgetRectResponse, error)
+	GetWidgetType(ctx context.Context, in *GetWidgetTypeRequest, opts ...grpc.CallOption) (*GetWidgetTypeResponse, error)
+	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+	IsEditableText(ctx context.Context, in *IsEditableTextRequest, opts ...grpc.CallOption) (*IsEditableTextResponse, error)
+	IsMultiLineText(ctx context.Context, in *IsMultiLineTextRequest, opts ...grpc.CallOption) (*IsMultiLineTextResponse, error)
+	IsMultiSelect(ctx context.Context, in *IsMultiSelectRequest, opts ...grpc.CallOption) (*IsMultiSelectResponse, error)
+	IsReadOnly(ctx context.Context, in *IsReadOnlyRequest, opts ...grpc.CallOption) (*IsReadOnlyResponse, error)
+	ToString(ctx context.Context, in *FormWidgetInfoToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type formWidgetInfoServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewFormWidgetInfoServiceClient(cc grpc.ClientConnInterface) FormWidgetInfoServiceClient {
+	return &formWidgetInfoServiceClient{cc}
+}
+
+func (c *formWidgetInfoServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, FormWidgetInfoService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *formWidgetInfoServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(EqualsResponse)
+	err := c.cc.Invoke(ctx, FormWidgetInfoService_Equals_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *formWidgetInfoServiceClient) GetAccessibilityLabel(ctx context.Context, in *GetAccessibilityLabelRequest, opts ...grpc.CallOption) (*GetAccessibilityLabelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetAccessibilityLabelResponse)
+	err := c.cc.Invoke(ctx, FormWidgetInfoService_GetAccessibilityLabel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *formWidgetInfoServiceClient) GetFontSize(ctx context.Context, in *GetFontSizeRequest, opts ...grpc.CallOption) (*GetFontSizeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetFontSizeResponse)
+	err := c.cc.Invoke(ctx, FormWidgetInfoService_GetFontSize_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *formWidgetInfoServiceClient) GetListItems(ctx context.Context, in *GetListItemsRequest, opts ...grpc.CallOption) (*GetListItemsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetListItemsResponse)
+	err := c.cc.Invoke(ctx, FormWidgetInfoService_GetListItems_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *formWidgetInfoServiceClient) GetMaxLength(ctx context.Context, in *GetMaxLengthRequest, opts ...grpc.CallOption) (*GetMaxLengthResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetMaxLengthResponse)
+	err := c.cc.Invoke(ctx, FormWidgetInfoService_GetMaxLength_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *formWidgetInfoServiceClient) GetTextValue(ctx context.Context, in *GetTextValueRequest, opts ...grpc.CallOption) (*GetTextValueResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTextValueResponse)
+	err := c.cc.Invoke(ctx, FormWidgetInfoService_GetTextValue_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *formWidgetInfoServiceClient) GetWidgetIndex(ctx context.Context, in *GetWidgetIndexRequest, opts ...grpc.CallOption) (*GetWidgetIndexResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetWidgetIndexResponse)
+	err := c.cc.Invoke(ctx, FormWidgetInfoService_GetWidgetIndex_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *formWidgetInfoServiceClient) GetWidgetRect(ctx context.Context, in *GetWidgetRectRequest, opts ...grpc.CallOption) (*GetWidgetRectResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetWidgetRectResponse)
+	err := c.cc.Invoke(ctx, FormWidgetInfoService_GetWidgetRect_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *formWidgetInfoServiceClient) GetWidgetType(ctx context.Context, in *GetWidgetTypeRequest, opts ...grpc.CallOption) (*GetWidgetTypeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetWidgetTypeResponse)
+	err := c.cc.Invoke(ctx, FormWidgetInfoService_GetWidgetType_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *formWidgetInfoServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HashCodeResponse)
+	err := c.cc.Invoke(ctx, FormWidgetInfoService_HashCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *formWidgetInfoServiceClient) IsEditableText(ctx context.Context, in *IsEditableTextRequest, opts ...grpc.CallOption) (*IsEditableTextResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsEditableTextResponse)
+	err := c.cc.Invoke(ctx, FormWidgetInfoService_IsEditableText_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *formWidgetInfoServiceClient) IsMultiLineText(ctx context.Context, in *IsMultiLineTextRequest, opts ...grpc.CallOption) (*IsMultiLineTextResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsMultiLineTextResponse)
+	err := c.cc.Invoke(ctx, FormWidgetInfoService_IsMultiLineText_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *formWidgetInfoServiceClient) IsMultiSelect(ctx context.Context, in *IsMultiSelectRequest, opts ...grpc.CallOption) (*IsMultiSelectResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsMultiSelectResponse)
+	err := c.cc.Invoke(ctx, FormWidgetInfoService_IsMultiSelect_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *formWidgetInfoServiceClient) IsReadOnly(ctx context.Context, in *IsReadOnlyRequest, opts ...grpc.CallOption) (*IsReadOnlyResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsReadOnlyResponse)
+	err := c.cc.Invoke(ctx, FormWidgetInfoService_IsReadOnly_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *formWidgetInfoServiceClient) ToString(ctx context.Context, in *FormWidgetInfoToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, FormWidgetInfoService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *formWidgetInfoServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, FormWidgetInfoService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// FormWidgetInfoServiceServer is the server API for FormWidgetInfoService service.
+// All implementations must embed UnimplementedFormWidgetInfoServiceServer
+// for forward compatibility.
+type FormWidgetInfoServiceServer interface {
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
+	GetAccessibilityLabel(context.Context, *GetAccessibilityLabelRequest) (*GetAccessibilityLabelResponse, error)
+	GetFontSize(context.Context, *GetFontSizeRequest) (*GetFontSizeResponse, error)
+	GetListItems(context.Context, *GetListItemsRequest) (*GetListItemsResponse, error)
+	GetMaxLength(context.Context, *GetMaxLengthRequest) (*GetMaxLengthResponse, error)
+	GetTextValue(context.Context, *GetTextValueRequest) (*GetTextValueResponse, error)
+	GetWidgetIndex(context.Context, *GetWidgetIndexRequest) (*GetWidgetIndexResponse, error)
+	GetWidgetRect(context.Context, *GetWidgetRectRequest) (*GetWidgetRectResponse, error)
+	GetWidgetType(context.Context, *GetWidgetTypeRequest) (*GetWidgetTypeResponse, error)
+	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
+	IsEditableText(context.Context, *IsEditableTextRequest) (*IsEditableTextResponse, error)
+	IsMultiLineText(context.Context, *IsMultiLineTextRequest) (*IsMultiLineTextResponse, error)
+	IsMultiSelect(context.Context, *IsMultiSelectRequest) (*IsMultiSelectResponse, error)
+	IsReadOnly(context.Context, *IsReadOnlyRequest) (*IsReadOnlyResponse, error)
+	ToString(context.Context, *FormWidgetInfoToStringRequest) (*ToStringResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedFormWidgetInfoServiceServer()
+}
+
+// UnimplementedFormWidgetInfoServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedFormWidgetInfoServiceServer struct{}
+
+func (UnimplementedFormWidgetInfoServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedFormWidgetInfoServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
+}
+func (UnimplementedFormWidgetInfoServiceServer) GetAccessibilityLabel(context.Context, *GetAccessibilityLabelRequest) (*GetAccessibilityLabelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetAccessibilityLabel not implemented")
+}
+func (UnimplementedFormWidgetInfoServiceServer) GetFontSize(context.Context, *GetFontSizeRequest) (*GetFontSizeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetFontSize not implemented")
+}
+func (UnimplementedFormWidgetInfoServiceServer) GetListItems(context.Context, *GetListItemsRequest) (*GetListItemsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetListItems not implemented")
+}
+func (UnimplementedFormWidgetInfoServiceServer) GetMaxLength(context.Context, *GetMaxLengthRequest) (*GetMaxLengthResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetMaxLength not implemented")
+}
+func (UnimplementedFormWidgetInfoServiceServer) GetTextValue(context.Context, *GetTextValueRequest) (*GetTextValueResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTextValue not implemented")
+}
+func (UnimplementedFormWidgetInfoServiceServer) GetWidgetIndex(context.Context, *GetWidgetIndexRequest) (*GetWidgetIndexResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetWidgetIndex not implemented")
+}
+func (UnimplementedFormWidgetInfoServiceServer) GetWidgetRect(context.Context, *GetWidgetRectRequest) (*GetWidgetRectResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetWidgetRect not implemented")
+}
+func (UnimplementedFormWidgetInfoServiceServer) GetWidgetType(context.Context, *GetWidgetTypeRequest) (*GetWidgetTypeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetWidgetType not implemented")
+}
+func (UnimplementedFormWidgetInfoServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
+}
+func (UnimplementedFormWidgetInfoServiceServer) IsEditableText(context.Context, *IsEditableTextRequest) (*IsEditableTextResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsEditableText not implemented")
+}
+func (UnimplementedFormWidgetInfoServiceServer) IsMultiLineText(context.Context, *IsMultiLineTextRequest) (*IsMultiLineTextResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsMultiLineText not implemented")
+}
+func (UnimplementedFormWidgetInfoServiceServer) IsMultiSelect(context.Context, *IsMultiSelectRequest) (*IsMultiSelectResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsMultiSelect not implemented")
+}
+func (UnimplementedFormWidgetInfoServiceServer) IsReadOnly(context.Context, *IsReadOnlyRequest) (*IsReadOnlyResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsReadOnly not implemented")
+}
+func (UnimplementedFormWidgetInfoServiceServer) ToString(context.Context, *FormWidgetInfoToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedFormWidgetInfoServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedFormWidgetInfoServiceServer) mustEmbedUnimplementedFormWidgetInfoServiceServer() {}
+func (UnimplementedFormWidgetInfoServiceServer) testEmbeddedByValue()                               {}
+
+// UnsafeFormWidgetInfoServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to FormWidgetInfoServiceServer will
+// result in compilation errors.
+type UnsafeFormWidgetInfoServiceServer interface {
+	mustEmbedUnimplementedFormWidgetInfoServiceServer()
+}
+
+func RegisterFormWidgetInfoServiceServer(s grpc.ServiceRegistrar, srv FormWidgetInfoServiceServer) {
+	// If the following call panics, it indicates UnimplementedFormWidgetInfoServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&FormWidgetInfoService_ServiceDesc, srv)
+}
+
+func _FormWidgetInfoService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FormWidgetInfoServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: FormWidgetInfoService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FormWidgetInfoServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _FormWidgetInfoService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EqualsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FormWidgetInfoServiceServer).Equals(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: FormWidgetInfoService_Equals_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FormWidgetInfoServiceServer).Equals(ctx, req.(*EqualsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _FormWidgetInfoService_GetAccessibilityLabel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetAccessibilityLabelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FormWidgetInfoServiceServer).GetAccessibilityLabel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: FormWidgetInfoService_GetAccessibilityLabel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FormWidgetInfoServiceServer).GetAccessibilityLabel(ctx, req.(*GetAccessibilityLabelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _FormWidgetInfoService_GetFontSize_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetFontSizeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FormWidgetInfoServiceServer).GetFontSize(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: FormWidgetInfoService_GetFontSize_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FormWidgetInfoServiceServer).GetFontSize(ctx, req.(*GetFontSizeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _FormWidgetInfoService_GetListItems_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetListItemsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FormWidgetInfoServiceServer).GetListItems(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: FormWidgetInfoService_GetListItems_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FormWidgetInfoServiceServer).GetListItems(ctx, req.(*GetListItemsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _FormWidgetInfoService_GetMaxLength_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetMaxLengthRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FormWidgetInfoServiceServer).GetMaxLength(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: FormWidgetInfoService_GetMaxLength_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FormWidgetInfoServiceServer).GetMaxLength(ctx, req.(*GetMaxLengthRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _FormWidgetInfoService_GetTextValue_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTextValueRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FormWidgetInfoServiceServer).GetTextValue(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: FormWidgetInfoService_GetTextValue_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FormWidgetInfoServiceServer).GetTextValue(ctx, req.(*GetTextValueRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _FormWidgetInfoService_GetWidgetIndex_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetWidgetIndexRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FormWidgetInfoServiceServer).GetWidgetIndex(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: FormWidgetInfoService_GetWidgetIndex_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FormWidgetInfoServiceServer).GetWidgetIndex(ctx, req.(*GetWidgetIndexRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _FormWidgetInfoService_GetWidgetRect_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetWidgetRectRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FormWidgetInfoServiceServer).GetWidgetRect(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: FormWidgetInfoService_GetWidgetRect_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FormWidgetInfoServiceServer).GetWidgetRect(ctx, req.(*GetWidgetRectRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _FormWidgetInfoService_GetWidgetType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetWidgetTypeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FormWidgetInfoServiceServer).GetWidgetType(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: FormWidgetInfoService_GetWidgetType_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FormWidgetInfoServiceServer).GetWidgetType(ctx, req.(*GetWidgetTypeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _FormWidgetInfoService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HashCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FormWidgetInfoServiceServer).HashCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: FormWidgetInfoService_HashCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FormWidgetInfoServiceServer).HashCode(ctx, req.(*HashCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _FormWidgetInfoService_IsEditableText_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsEditableTextRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FormWidgetInfoServiceServer).IsEditableText(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: FormWidgetInfoService_IsEditableText_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FormWidgetInfoServiceServer).IsEditableText(ctx, req.(*IsEditableTextRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _FormWidgetInfoService_IsMultiLineText_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsMultiLineTextRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FormWidgetInfoServiceServer).IsMultiLineText(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: FormWidgetInfoService_IsMultiLineText_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FormWidgetInfoServiceServer).IsMultiLineText(ctx, req.(*IsMultiLineTextRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _FormWidgetInfoService_IsMultiSelect_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsMultiSelectRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FormWidgetInfoServiceServer).IsMultiSelect(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: FormWidgetInfoService_IsMultiSelect_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FormWidgetInfoServiceServer).IsMultiSelect(ctx, req.(*IsMultiSelectRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _FormWidgetInfoService_IsReadOnly_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsReadOnlyRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FormWidgetInfoServiceServer).IsReadOnly(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: FormWidgetInfoService_IsReadOnly_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FormWidgetInfoServiceServer).IsReadOnly(ctx, req.(*IsReadOnlyRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _FormWidgetInfoService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(FormWidgetInfoToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FormWidgetInfoServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: FormWidgetInfoService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FormWidgetInfoServiceServer).ToString(ctx, req.(*FormWidgetInfoToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _FormWidgetInfoService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FormWidgetInfoServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: FormWidgetInfoService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FormWidgetInfoServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// FormWidgetInfoService_ServiceDesc is the grpc.ServiceDesc for FormWidgetInfoService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var FormWidgetInfoService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "models.FormWidgetInfoService",
+	HandlerType: (*FormWidgetInfoServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "DescribeContents",
+			Handler:    _FormWidgetInfoService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "Equals",
+			Handler:    _FormWidgetInfoService_Equals_Handler,
+		},
+		{
+			MethodName: "GetAccessibilityLabel",
+			Handler:    _FormWidgetInfoService_GetAccessibilityLabel_Handler,
+		},
+		{
+			MethodName: "GetFontSize",
+			Handler:    _FormWidgetInfoService_GetFontSize_Handler,
+		},
+		{
+			MethodName: "GetListItems",
+			Handler:    _FormWidgetInfoService_GetListItems_Handler,
+		},
+		{
+			MethodName: "GetMaxLength",
+			Handler:    _FormWidgetInfoService_GetMaxLength_Handler,
+		},
+		{
+			MethodName: "GetTextValue",
+			Handler:    _FormWidgetInfoService_GetTextValue_Handler,
+		},
+		{
+			MethodName: "GetWidgetIndex",
+			Handler:    _FormWidgetInfoService_GetWidgetIndex_Handler,
+		},
+		{
+			MethodName: "GetWidgetRect",
+			Handler:    _FormWidgetInfoService_GetWidgetRect_Handler,
+		},
+		{
+			MethodName: "GetWidgetType",
+			Handler:    _FormWidgetInfoService_GetWidgetType_Handler,
+		},
+		{
+			MethodName: "HashCode",
+			Handler:    _FormWidgetInfoService_HashCode_Handler,
+		},
+		{
+			MethodName: "IsEditableText",
+			Handler:    _FormWidgetInfoService_IsEditableText_Handler,
+		},
+		{
+			MethodName: "IsMultiLineText",
+			Handler:    _FormWidgetInfoService_IsMultiLineText_Handler,
+		},
+		{
+			MethodName: "IsMultiSelect",
+			Handler:    _FormWidgetInfoService_IsMultiSelect_Handler,
+		},
+		{
+			MethodName: "IsReadOnly",
+			Handler:    _FormWidgetInfoService_IsReadOnly_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _FormWidgetInfoService_ToString_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _FormWidgetInfoService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/models/models.proto",
+}
+
+const (
+	FormWidgetInfoBuilderService_Build_FullMethodName            = "/models.FormWidgetInfoBuilderService/Build"
+	FormWidgetInfoBuilderService_SetEditableText_FullMethodName  = "/models.FormWidgetInfoBuilderService/SetEditableText"
+	FormWidgetInfoBuilderService_SetFontSize_FullMethodName      = "/models.FormWidgetInfoBuilderService/SetFontSize"
+	FormWidgetInfoBuilderService_SetMaxLength_FullMethodName     = "/models.FormWidgetInfoBuilderService/SetMaxLength"
+	FormWidgetInfoBuilderService_SetMultiLineText_FullMethodName = "/models.FormWidgetInfoBuilderService/SetMultiLineText"
+	FormWidgetInfoBuilderService_SetMultiSelect_FullMethodName   = "/models.FormWidgetInfoBuilderService/SetMultiSelect"
+	FormWidgetInfoBuilderService_SetReadOnly_FullMethodName      = "/models.FormWidgetInfoBuilderService/SetReadOnly"
+)
+
+// FormWidgetInfoBuilderServiceClient is the client API for FormWidgetInfoBuilderService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type FormWidgetInfoBuilderServiceClient interface {
+	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
+	SetEditableText(ctx context.Context, in *SetEditableTextRequest, opts ...grpc.CallOption) (*SetEditableTextResponse, error)
+	SetFontSize(ctx context.Context, in *SetFontSizeRequest, opts ...grpc.CallOption) (*SetFontSizeResponse, error)
+	SetMaxLength(ctx context.Context, in *SetMaxLengthRequest, opts ...grpc.CallOption) (*SetMaxLengthResponse, error)
+	SetMultiLineText(ctx context.Context, in *SetMultiLineTextRequest, opts ...grpc.CallOption) (*SetMultiLineTextResponse, error)
+	SetMultiSelect(ctx context.Context, in *SetMultiSelectRequest, opts ...grpc.CallOption) (*SetMultiSelectResponse, error)
+	SetReadOnly(ctx context.Context, in *SetReadOnlyRequest, opts ...grpc.CallOption) (*SetReadOnlyResponse, error)
+}
+
+type formWidgetInfoBuilderServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewFormWidgetInfoBuilderServiceClient(cc grpc.ClientConnInterface) FormWidgetInfoBuilderServiceClient {
+	return &formWidgetInfoBuilderServiceClient{cc}
+}
+
+func (c *formWidgetInfoBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(BuildResponse)
+	err := c.cc.Invoke(ctx, FormWidgetInfoBuilderService_Build_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *formWidgetInfoBuilderServiceClient) SetEditableText(ctx context.Context, in *SetEditableTextRequest, opts ...grpc.CallOption) (*SetEditableTextResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetEditableTextResponse)
+	err := c.cc.Invoke(ctx, FormWidgetInfoBuilderService_SetEditableText_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *formWidgetInfoBuilderServiceClient) SetFontSize(ctx context.Context, in *SetFontSizeRequest, opts ...grpc.CallOption) (*SetFontSizeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetFontSizeResponse)
+	err := c.cc.Invoke(ctx, FormWidgetInfoBuilderService_SetFontSize_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *formWidgetInfoBuilderServiceClient) SetMaxLength(ctx context.Context, in *SetMaxLengthRequest, opts ...grpc.CallOption) (*SetMaxLengthResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetMaxLengthResponse)
+	err := c.cc.Invoke(ctx, FormWidgetInfoBuilderService_SetMaxLength_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *formWidgetInfoBuilderServiceClient) SetMultiLineText(ctx context.Context, in *SetMultiLineTextRequest, opts ...grpc.CallOption) (*SetMultiLineTextResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetMultiLineTextResponse)
+	err := c.cc.Invoke(ctx, FormWidgetInfoBuilderService_SetMultiLineText_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *formWidgetInfoBuilderServiceClient) SetMultiSelect(ctx context.Context, in *SetMultiSelectRequest, opts ...grpc.CallOption) (*SetMultiSelectResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetMultiSelectResponse)
+	err := c.cc.Invoke(ctx, FormWidgetInfoBuilderService_SetMultiSelect_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *formWidgetInfoBuilderServiceClient) SetReadOnly(ctx context.Context, in *SetReadOnlyRequest, opts ...grpc.CallOption) (*SetReadOnlyResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetReadOnlyResponse)
+	err := c.cc.Invoke(ctx, FormWidgetInfoBuilderService_SetReadOnly_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// FormWidgetInfoBuilderServiceServer is the server API for FormWidgetInfoBuilderService service.
+// All implementations must embed UnimplementedFormWidgetInfoBuilderServiceServer
+// for forward compatibility.
+type FormWidgetInfoBuilderServiceServer interface {
+	Build(context.Context, *BuildRequest) (*BuildResponse, error)
+	SetEditableText(context.Context, *SetEditableTextRequest) (*SetEditableTextResponse, error)
+	SetFontSize(context.Context, *SetFontSizeRequest) (*SetFontSizeResponse, error)
+	SetMaxLength(context.Context, *SetMaxLengthRequest) (*SetMaxLengthResponse, error)
+	SetMultiLineText(context.Context, *SetMultiLineTextRequest) (*SetMultiLineTextResponse, error)
+	SetMultiSelect(context.Context, *SetMultiSelectRequest) (*SetMultiSelectResponse, error)
+	SetReadOnly(context.Context, *SetReadOnlyRequest) (*SetReadOnlyResponse, error)
+	mustEmbedUnimplementedFormWidgetInfoBuilderServiceServer()
+}
+
+// UnimplementedFormWidgetInfoBuilderServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedFormWidgetInfoBuilderServiceServer struct{}
+
+func (UnimplementedFormWidgetInfoBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
+}
+func (UnimplementedFormWidgetInfoBuilderServiceServer) SetEditableText(context.Context, *SetEditableTextRequest) (*SetEditableTextResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetEditableText not implemented")
+}
+func (UnimplementedFormWidgetInfoBuilderServiceServer) SetFontSize(context.Context, *SetFontSizeRequest) (*SetFontSizeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetFontSize not implemented")
+}
+func (UnimplementedFormWidgetInfoBuilderServiceServer) SetMaxLength(context.Context, *SetMaxLengthRequest) (*SetMaxLengthResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetMaxLength not implemented")
+}
+func (UnimplementedFormWidgetInfoBuilderServiceServer) SetMultiLineText(context.Context, *SetMultiLineTextRequest) (*SetMultiLineTextResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetMultiLineText not implemented")
+}
+func (UnimplementedFormWidgetInfoBuilderServiceServer) SetMultiSelect(context.Context, *SetMultiSelectRequest) (*SetMultiSelectResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetMultiSelect not implemented")
+}
+func (UnimplementedFormWidgetInfoBuilderServiceServer) SetReadOnly(context.Context, *SetReadOnlyRequest) (*SetReadOnlyResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetReadOnly not implemented")
+}
+func (UnimplementedFormWidgetInfoBuilderServiceServer) mustEmbedUnimplementedFormWidgetInfoBuilderServiceServer() {
+}
+func (UnimplementedFormWidgetInfoBuilderServiceServer) testEmbeddedByValue() {}
+
+// UnsafeFormWidgetInfoBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to FormWidgetInfoBuilderServiceServer will
+// result in compilation errors.
+type UnsafeFormWidgetInfoBuilderServiceServer interface {
+	mustEmbedUnimplementedFormWidgetInfoBuilderServiceServer()
+}
+
+func RegisterFormWidgetInfoBuilderServiceServer(s grpc.ServiceRegistrar, srv FormWidgetInfoBuilderServiceServer) {
+	// If the following call panics, it indicates UnimplementedFormWidgetInfoBuilderServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&FormWidgetInfoBuilderService_ServiceDesc, srv)
+}
+
+func _FormWidgetInfoBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BuildRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FormWidgetInfoBuilderServiceServer).Build(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: FormWidgetInfoBuilderService_Build_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FormWidgetInfoBuilderServiceServer).Build(ctx, req.(*BuildRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _FormWidgetInfoBuilderService_SetEditableText_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetEditableTextRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FormWidgetInfoBuilderServiceServer).SetEditableText(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: FormWidgetInfoBuilderService_SetEditableText_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FormWidgetInfoBuilderServiceServer).SetEditableText(ctx, req.(*SetEditableTextRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _FormWidgetInfoBuilderService_SetFontSize_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetFontSizeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FormWidgetInfoBuilderServiceServer).SetFontSize(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: FormWidgetInfoBuilderService_SetFontSize_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FormWidgetInfoBuilderServiceServer).SetFontSize(ctx, req.(*SetFontSizeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _FormWidgetInfoBuilderService_SetMaxLength_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetMaxLengthRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FormWidgetInfoBuilderServiceServer).SetMaxLength(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: FormWidgetInfoBuilderService_SetMaxLength_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FormWidgetInfoBuilderServiceServer).SetMaxLength(ctx, req.(*SetMaxLengthRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _FormWidgetInfoBuilderService_SetMultiLineText_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetMultiLineTextRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FormWidgetInfoBuilderServiceServer).SetMultiLineText(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: FormWidgetInfoBuilderService_SetMultiLineText_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FormWidgetInfoBuilderServiceServer).SetMultiLineText(ctx, req.(*SetMultiLineTextRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _FormWidgetInfoBuilderService_SetMultiSelect_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetMultiSelectRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FormWidgetInfoBuilderServiceServer).SetMultiSelect(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: FormWidgetInfoBuilderService_SetMultiSelect_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FormWidgetInfoBuilderServiceServer).SetMultiSelect(ctx, req.(*SetMultiSelectRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _FormWidgetInfoBuilderService_SetReadOnly_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetReadOnlyRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FormWidgetInfoBuilderServiceServer).SetReadOnly(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: FormWidgetInfoBuilderService_SetReadOnly_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FormWidgetInfoBuilderServiceServer).SetReadOnly(ctx, req.(*SetReadOnlyRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// FormWidgetInfoBuilderService_ServiceDesc is the grpc.ServiceDesc for FormWidgetInfoBuilderService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var FormWidgetInfoBuilderService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "models.FormWidgetInfoBuilderService",
+	HandlerType: (*FormWidgetInfoBuilderServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Build",
+			Handler:    _FormWidgetInfoBuilderService_Build_Handler,
+		},
+		{
+			MethodName: "SetEditableText",
+			Handler:    _FormWidgetInfoBuilderService_SetEditableText_Handler,
+		},
+		{
+			MethodName: "SetFontSize",
+			Handler:    _FormWidgetInfoBuilderService_SetFontSize_Handler,
+		},
+		{
+			MethodName: "SetMaxLength",
+			Handler:    _FormWidgetInfoBuilderService_SetMaxLength_Handler,
+		},
+		{
+			MethodName: "SetMultiLineText",
+			Handler:    _FormWidgetInfoBuilderService_SetMultiLineText_Handler,
+		},
+		{
+			MethodName: "SetMultiSelect",
+			Handler:    _FormWidgetInfoBuilderService_SetMultiSelect_Handler,
+		},
+		{
+			MethodName: "SetReadOnly",
+			Handler:    _FormWidgetInfoBuilderService_SetReadOnly_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

@@ -9,96 +9,34 @@ import (
 	"google.golang.org/grpc"
 )
 
-// TouchInteractionControllerClient wraps the gRPC TouchInteractionControllerService client.
-type TouchInteractionControllerClient struct {
-	svc pb.TouchInteractionControllerServiceClient
+// AccessibilityServiceInfoClient wraps the gRPC AccessibilityServiceInfoService client.
+type AccessibilityServiceInfoClient struct {
+	svc pb.AccessibilityServiceInfoServiceClient
 }
 
-// NewTouchInteractionControllerClient creates a new TouchInteractionController client.
-func NewTouchInteractionControllerClient(cc grpc.ClientConnInterface) *TouchInteractionControllerClient {
-	return &TouchInteractionControllerClient{
-		svc: pb.NewTouchInteractionControllerServiceClient(cc),
+// NewAccessibilityServiceInfoClient creates a new AccessibilityServiceInfo client.
+func NewAccessibilityServiceInfoClient(cc grpc.ClientConnInterface) *AccessibilityServiceInfoClient {
+	return &AccessibilityServiceInfoClient{
+		svc: pb.NewAccessibilityServiceInfoServiceClient(cc),
 	}
 }
 
-// GetDisplayId calls the GetDisplayId RPC.
-func (c *TouchInteractionControllerClient) GetDisplayId(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetDisplayId(ctx, &pb.GetDisplayIdRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetMaxPointerCount calls the GetMaxPointerCount RPC.
-func (c *TouchInteractionControllerClient) GetMaxPointerCount(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetMaxPointerCount(ctx, &pb.GetMaxPointerCountRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetState calls the GetState RPC.
-func (c *TouchInteractionControllerClient) GetState(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetState(ctx, &pb.GetStateRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// PerformClick calls the PerformClick RPC.
-func (c *TouchInteractionControllerClient) PerformClick(ctx context.Context) error {
-	_, err := c.svc.PerformClick(ctx, &pb.PerformClickRequest{})
-	return err
-}
-
-// PerformLongClickAndStartDrag calls the PerformLongClickAndStartDrag RPC.
-func (c *TouchInteractionControllerClient) PerformLongClickAndStartDrag(ctx context.Context) error {
-	_, err := c.svc.PerformLongClickAndStartDrag(ctx, &pb.PerformLongClickAndStartDragRequest{})
-	return err
-}
-
-// RegisterCallback calls the RegisterCallback RPC.
-func (c *TouchInteractionControllerClient) RegisterCallback(ctx context.Context, arg0 int64, arg1 int64) error {
-	_, err := c.svc.RegisterCallback(ctx, &pb.RegisterCallbackRequest{
-		Arg0: arg0,
-		Arg1: arg1,
+// DescribeContents calls the DescribeContents RPC.
+func (c *AccessibilityServiceInfoClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{
+		Handle: handle,
 	})
-	return err
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
 }
 
-// RequestDelegating calls the RequestDelegating RPC.
-func (c *TouchInteractionControllerClient) RequestDelegating(ctx context.Context) error {
-	_, err := c.svc.RequestDelegating(ctx, &pb.RequestDelegatingRequest{})
-	return err
-}
-
-// RequestDragging calls the RequestDragging RPC.
-func (c *TouchInteractionControllerClient) RequestDragging(ctx context.Context, arg0 int32) error {
-	_, err := c.svc.RequestDragging(ctx, &pb.RequestDraggingRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// RequestTouchExploration calls the RequestTouchExploration RPC.
-func (c *TouchInteractionControllerClient) RequestTouchExploration(ctx context.Context) error {
-	_, err := c.svc.RequestTouchExploration(ctx, &pb.RequestTouchExplorationRequest{})
-	return err
-}
-
-// UnregisterAllCallbacks calls the UnregisterAllCallbacks RPC.
-func (c *TouchInteractionControllerClient) UnregisterAllCallbacks(ctx context.Context) error {
-	_, err := c.svc.UnregisterAllCallbacks(ctx, &pb.UnregisterAllCallbacksRequest{})
-	return err
-}
-
-// UnregisterCallback calls the UnregisterCallback RPC.
-func (c *TouchInteractionControllerClient) UnregisterCallback(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.UnregisterCallback(ctx, &pb.UnregisterCallbackRequest{
-		Arg0: arg0,
+// Equals calls the Equals RPC.
+func (c *AccessibilityServiceInfoClient) Equals(ctx context.Context, handle int64, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Handle: handle,
+		Arg0:   arg0,
 	})
 	if err != nil {
 		return false, err
@@ -106,10 +44,32 @@ func (c *TouchInteractionControllerClient) UnregisterCallback(ctx context.Contex
 	return resp.GetResult(), nil
 }
 
-// StateToString calls the StateToString RPC.
-func (c *TouchInteractionControllerClient) StateToString(ctx context.Context, arg0 int32) (string, error) {
-	resp, err := c.svc.StateToString(ctx, &pb.StateToStringRequest{
-		Arg0: arg0,
+// GetCanRetrieveWindowContent calls the GetCanRetrieveWindowContent RPC.
+func (c *AccessibilityServiceInfoClient) GetCanRetrieveWindowContent(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.GetCanRetrieveWindowContent(ctx, &pb.GetCanRetrieveWindowContentRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCapabilities calls the GetCapabilities RPC.
+func (c *AccessibilityServiceInfoClient) GetCapabilities(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetCapabilities(ctx, &pb.GetCapabilitiesRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDescription calls the GetDescription RPC.
+func (c *AccessibilityServiceInfoClient) GetDescription(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetDescription(ctx, &pb.GetDescriptionRequest{
+		Handle: handle,
 	})
 	if err != nil {
 		return "", err
@@ -117,58 +77,391 @@ func (c *TouchInteractionControllerClient) StateToString(ctx context.Context, ar
 	return resp.GetResult(), nil
 }
 
-// TouchInteractionControllerCallbackClient wraps the gRPC TouchInteractionControllerCallbackService client.
-type TouchInteractionControllerCallbackClient struct {
-	svc pb.TouchInteractionControllerCallbackServiceClient
+// GetId calls the GetId RPC.
+func (c *AccessibilityServiceInfoClient) GetId(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetId(ctx, &pb.GetIdRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
 }
 
-// NewTouchInteractionControllerCallbackClient creates a new TouchInteractionControllerCallback client.
-func NewTouchInteractionControllerCallbackClient(cc grpc.ClientConnInterface) *TouchInteractionControllerCallbackClient {
-	return &TouchInteractionControllerCallbackClient{
-		svc: pb.NewTouchInteractionControllerCallbackServiceClient(cc),
+// GetInteractiveUiTimeoutMillis calls the GetInteractiveUiTimeoutMillis RPC.
+func (c *AccessibilityServiceInfoClient) GetInteractiveUiTimeoutMillis(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetInteractiveUiTimeoutMillis(ctx, &pb.GetInteractiveUiTimeoutMillisRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMotionEventSources calls the GetMotionEventSources RPC.
+func (c *AccessibilityServiceInfoClient) GetMotionEventSources(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetMotionEventSources(ctx, &pb.GetMotionEventSourcesRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetNonInteractiveUiTimeoutMillis calls the GetNonInteractiveUiTimeoutMillis RPC.
+func (c *AccessibilityServiceInfoClient) GetNonInteractiveUiTimeoutMillis(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetNonInteractiveUiTimeoutMillis(ctx, &pb.GetNonInteractiveUiTimeoutMillisRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetResolveInfo calls the GetResolveInfo RPC.
+func (c *AccessibilityServiceInfoClient) GetResolveInfo(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetResolveInfo(ctx, &pb.GetResolveInfoRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSettingsActivityName calls the GetSettingsActivityName RPC.
+func (c *AccessibilityServiceInfoClient) GetSettingsActivityName(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetSettingsActivityName(ctx, &pb.GetSettingsActivityNameRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTileServiceName calls the GetTileServiceName RPC.
+func (c *AccessibilityServiceInfoClient) GetTileServiceName(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetTileServiceName(ctx, &pb.GetTileServiceNameRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *AccessibilityServiceInfoClient) HashCode(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsAccessibilityTool calls the IsAccessibilityTool RPC.
+func (c *AccessibilityServiceInfoClient) IsAccessibilityTool(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsAccessibilityTool(ctx, &pb.IsAccessibilityToolRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// LoadDescription calls the LoadDescription RPC.
+func (c *AccessibilityServiceInfoClient) LoadDescription(ctx context.Context, handle int64, arg0 int64) (string, error) {
+	resp, err := c.svc.LoadDescription(ctx, &pb.LoadDescriptionRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// LoadIntro calls the LoadIntro RPC.
+func (c *AccessibilityServiceInfoClient) LoadIntro(ctx context.Context, handle int64, arg0 int64) (int64, error) {
+	resp, err := c.svc.LoadIntro(ctx, &pb.LoadIntroRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// LoadSummary calls the LoadSummary RPC.
+func (c *AccessibilityServiceInfoClient) LoadSummary(ctx context.Context, handle int64, arg0 int64) (int64, error) {
+	resp, err := c.svc.LoadSummary(ctx, &pb.LoadSummaryRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetInteractiveUiTimeoutMillis calls the SetInteractiveUiTimeoutMillis RPC.
+func (c *AccessibilityServiceInfoClient) SetInteractiveUiTimeoutMillis(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.SetInteractiveUiTimeoutMillis(ctx, &pb.SetInteractiveUiTimeoutMillisRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetMotionEventSources calls the SetMotionEventSources RPC.
+func (c *AccessibilityServiceInfoClient) SetMotionEventSources(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.SetMotionEventSources(ctx, &pb.SetMotionEventSourcesRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetNonInteractiveUiTimeoutMillis calls the SetNonInteractiveUiTimeoutMillis RPC.
+func (c *AccessibilityServiceInfoClient) SetNonInteractiveUiTimeoutMillis(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.SetNonInteractiveUiTimeoutMillis(ctx, &pb.SetNonInteractiveUiTimeoutMillisRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// ToString calls the ToString RPC.
+func (c *AccessibilityServiceInfoClient) ToString(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *AccessibilityServiceInfoClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// CapabilityToString calls the CapabilityToString RPC.
+func (c *AccessibilityServiceInfoClient) CapabilityToString(ctx context.Context, handle int64, arg0 int32) (string, error) {
+	resp, err := c.svc.CapabilityToString(ctx, &pb.CapabilityToStringRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// FeedbackTypeToString calls the FeedbackTypeToString RPC.
+func (c *AccessibilityServiceInfoClient) FeedbackTypeToString(ctx context.Context, handle int64, arg0 int32) (string, error) {
+	resp, err := c.svc.FeedbackTypeToString(ctx, &pb.FeedbackTypeToStringRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// FlagToString calls the FlagToString RPC.
+func (c *AccessibilityServiceInfoClient) FlagToString(ctx context.Context, handle int64, arg0 int32) (string, error) {
+	resp, err := c.svc.FlagToString(ctx, &pb.FlagToStringRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// AccessibilityButtonControllerClient wraps the gRPC AccessibilityButtonControllerService client.
+type AccessibilityButtonControllerClient struct {
+	svc pb.AccessibilityButtonControllerServiceClient
+}
+
+// NewAccessibilityButtonControllerClient creates a new AccessibilityButtonController client.
+func NewAccessibilityButtonControllerClient(cc grpc.ClientConnInterface) *AccessibilityButtonControllerClient {
+	return &AccessibilityButtonControllerClient{
+		svc: pb.NewAccessibilityButtonControllerServiceClient(cc),
 	}
 }
 
-// OnMotionEvent calls the OnMotionEvent RPC.
-func (c *TouchInteractionControllerCallbackClient) OnMotionEvent(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.OnMotionEvent(ctx, &pb.OnMotionEventRequest{
+// IsAccessibilityButtonAvailable calls the IsAccessibilityButtonAvailable RPC.
+func (c *AccessibilityButtonControllerClient) IsAccessibilityButtonAvailable(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsAccessibilityButtonAvailable(ctx, &pb.IsAccessibilityButtonAvailableRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// RegisterAccessibilityButtonCallback calls the RegisterAccessibilityButtonCallback RPC.
+func (c *AccessibilityButtonControllerClient) RegisterAccessibilityButtonCallback(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.RegisterAccessibilityButtonCallback(ctx, &pb.RegisterAccessibilityButtonCallbackRequest{
 		Arg0: arg0,
 	})
 	return err
 }
 
-// OnStateChanged calls the OnStateChanged RPC.
-func (c *TouchInteractionControllerCallbackClient) OnStateChanged(ctx context.Context, arg0 int32) error {
-	_, err := c.svc.OnStateChanged(ctx, &pb.OnStateChangedRequest{
+// UnregisterAccessibilityButtonCallback calls the UnregisterAccessibilityButtonCallback RPC.
+func (c *AccessibilityButtonControllerClient) UnregisterAccessibilityButtonCallback(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.UnregisterAccessibilityButtonCallback(ctx, &pb.UnregisterAccessibilityButtonCallbackRequest{
 		Arg0: arg0,
 	})
 	return err
 }
 
-// BrailleDisplayControllerClient wraps the gRPC BrailleDisplayControllerService client.
-type BrailleDisplayControllerClient struct {
-	svc pb.BrailleDisplayControllerServiceClient
+// AccessibilityButtonControllerAccessibilityButtonCallbackClient wraps the gRPC AccessibilityButtonControllerAccessibilityButtonCallbackService client.
+type AccessibilityButtonControllerAccessibilityButtonCallbackClient struct {
+	svc pb.AccessibilityButtonControllerAccessibilityButtonCallbackServiceClient
 }
 
-// NewBrailleDisplayControllerClient creates a new BrailleDisplayController client.
-func NewBrailleDisplayControllerClient(cc grpc.ClientConnInterface) *BrailleDisplayControllerClient {
-	return &BrailleDisplayControllerClient{
-		svc: pb.NewBrailleDisplayControllerServiceClient(cc),
+// NewAccessibilityButtonControllerAccessibilityButtonCallbackClient creates a new AccessibilityButtonControllerAccessibilityButtonCallback client.
+func NewAccessibilityButtonControllerAccessibilityButtonCallbackClient(cc grpc.ClientConnInterface) *AccessibilityButtonControllerAccessibilityButtonCallbackClient {
+	return &AccessibilityButtonControllerAccessibilityButtonCallbackClient{
+		svc: pb.NewAccessibilityButtonControllerAccessibilityButtonCallbackServiceClient(cc),
 	}
 }
 
-// Connect2 calls the Connect2 RPC.
-func (c *BrailleDisplayControllerClient) Connect2(ctx context.Context, arg0 int64, arg1 int64) error {
-	_, err := c.svc.Connect2(ctx, &pb.Connect2Request{
+// OnAvailabilityChanged calls the OnAvailabilityChanged RPC.
+func (c *AccessibilityButtonControllerAccessibilityButtonCallbackClient) OnAvailabilityChanged(ctx context.Context, arg0 int64, arg1 bool) error {
+	_, err := c.svc.OnAvailabilityChanged(ctx, &pb.OnAvailabilityChangedRequest{
 		Arg0: arg0,
 		Arg1: arg1,
 	})
 	return err
 }
 
-// Connect3_1 calls the Connect3_1 RPC.
-func (c *BrailleDisplayControllerClient) Connect3_1(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) error {
-	_, err := c.svc.Connect3_1(ctx, &pb.Connect3_1Request{
+// OnClicked calls the OnClicked RPC.
+func (c *AccessibilityButtonControllerAccessibilityButtonCallbackClient) OnClicked(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnClicked(ctx, &pb.OnClickedRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// InputMethodClient wraps the gRPC InputMethodService client.
+type InputMethodClient struct {
+	svc pb.InputMethodServiceClient
+}
+
+// NewInputMethodClient creates a new InputMethod client.
+func NewInputMethodClient(cc grpc.ClientConnInterface) *InputMethodClient {
+	return &InputMethodClient{
+		svc: pb.NewInputMethodServiceClient(cc),
+	}
+}
+
+// GetCurrentInputConnection calls the GetCurrentInputConnection RPC.
+func (c *InputMethodClient) GetCurrentInputConnection(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetCurrentInputConnection(ctx, &pb.GetCurrentInputConnectionRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCurrentInputEditorInfo calls the GetCurrentInputEditorInfo RPC.
+func (c *InputMethodClient) GetCurrentInputEditorInfo(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetCurrentInputEditorInfo(ctx, &pb.GetCurrentInputEditorInfoRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCurrentInputStarted calls the GetCurrentInputStarted RPC.
+func (c *InputMethodClient) GetCurrentInputStarted(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.GetCurrentInputStarted(ctx, &pb.GetCurrentInputStartedRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnFinishInput calls the OnFinishInput RPC.
+func (c *InputMethodClient) OnFinishInput(ctx context.Context, handle int64) error {
+	_, err := c.svc.OnFinishInput(ctx, &pb.OnFinishInputRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// OnStartInput calls the OnStartInput RPC.
+func (c *InputMethodClient) OnStartInput(ctx context.Context, handle int64, arg0 int64, arg1 bool) error {
+	_, err := c.svc.OnStartInput(ctx, &pb.OnStartInputRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// OnUpdateSelection calls the OnUpdateSelection RPC.
+func (c *InputMethodClient) OnUpdateSelection(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32, arg3 int32, arg4 int32, arg5 int32) error {
+	_, err := c.svc.OnUpdateSelection(ctx, &pb.OnUpdateSelectionRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+		Arg4:   arg4,
+		Arg5:   arg5,
+	})
+	return err
+}
+
+// InputMethodAccessibilityInputConnectionClient wraps the gRPC InputMethodAccessibilityInputConnectionService client.
+type InputMethodAccessibilityInputConnectionClient struct {
+	svc pb.InputMethodAccessibilityInputConnectionServiceClient
+}
+
+// NewInputMethodAccessibilityInputConnectionClient creates a new InputMethodAccessibilityInputConnection client.
+func NewInputMethodAccessibilityInputConnectionClient(cc grpc.ClientConnInterface) *InputMethodAccessibilityInputConnectionClient {
+	return &InputMethodAccessibilityInputConnectionClient{
+		svc: pb.NewInputMethodAccessibilityInputConnectionServiceClient(cc),
+	}
+}
+
+// ClearMetaKeyStates calls the ClearMetaKeyStates RPC.
+func (c *InputMethodAccessibilityInputConnectionClient) ClearMetaKeyStates(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.ClearMetaKeyStates(ctx, &pb.ClearMetaKeyStatesRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// CommitText calls the CommitText RPC.
+func (c *InputMethodAccessibilityInputConnectionClient) CommitText(ctx context.Context, arg0 string, arg1 int32, arg2 int64) error {
+	_, err := c.svc.CommitText(ctx, &pb.CommitTextRequest{
 		Arg0: arg0,
 		Arg1: arg1,
 		Arg2: arg2,
@@ -176,143 +469,68 @@ func (c *BrailleDisplayControllerClient) Connect3_1(ctx context.Context, arg0 in
 	return err
 }
 
-// Connect2_2 calls the Connect2_2 RPC.
-func (c *BrailleDisplayControllerClient) Connect2_2(ctx context.Context, arg0 int64, arg1 int64) error {
-	_, err := c.svc.Connect2_2(ctx, &pb.Connect2_2Request{
+// DeleteSurroundingText calls the DeleteSurroundingText RPC.
+func (c *InputMethodAccessibilityInputConnectionClient) DeleteSurroundingText(ctx context.Context, arg0 int32, arg1 int32) error {
+	_, err := c.svc.DeleteSurroundingText(ctx, &pb.DeleteSurroundingTextRequest{
 		Arg0: arg0,
 		Arg1: arg1,
 	})
 	return err
 }
 
-// Connect3_3 calls the Connect3_3 RPC.
-func (c *BrailleDisplayControllerClient) Connect3_3(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) error {
-	_, err := c.svc.Connect3_3(ctx, &pb.Connect3_3Request{
+// GetCursorCapsMode calls the GetCursorCapsMode RPC.
+func (c *InputMethodAccessibilityInputConnectionClient) GetCursorCapsMode(ctx context.Context, arg0 int32) (int32, error) {
+	resp, err := c.svc.GetCursorCapsMode(ctx, &pb.GetCursorCapsModeRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSurroundingText calls the GetSurroundingText RPC.
+func (c *InputMethodAccessibilityInputConnectionClient) GetSurroundingText(ctx context.Context, arg0 int32, arg1 int32, arg2 int32) (int64, error) {
+	resp, err := c.svc.GetSurroundingText(ctx, &pb.GetSurroundingTextRequest{
 		Arg0: arg0,
 		Arg1: arg1,
 		Arg2: arg2,
 	})
-	return err
-}
-
-// Disconnect calls the Disconnect RPC.
-func (c *BrailleDisplayControllerClient) Disconnect(ctx context.Context) error {
-	_, err := c.svc.Disconnect(ctx, &pb.DisconnectRequest{})
-	return err
-}
-
-// IsConnected calls the IsConnected RPC.
-func (c *BrailleDisplayControllerClient) IsConnected(ctx context.Context) (bool, error) {
-	resp, err := c.svc.IsConnected(ctx, &pb.IsConnectedRequest{})
 	if err != nil {
-		return false, err
+		return 0, err
 	}
 	return resp.GetResult(), nil
 }
 
-// Write calls the Write RPC.
-func (c *BrailleDisplayControllerClient) Write(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.Write(ctx, &pb.WriteRequest{
+// PerformContextMenuAction calls the PerformContextMenuAction RPC.
+func (c *InputMethodAccessibilityInputConnectionClient) PerformContextMenuAction(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.PerformContextMenuAction(ctx, &pb.PerformContextMenuActionRequest{
 		Arg0: arg0,
 	})
 	return err
 }
 
-// BrailleDisplayControllerBrailleDisplayCallbackClient wraps the gRPC BrailleDisplayControllerBrailleDisplayCallbackService client.
-type BrailleDisplayControllerBrailleDisplayCallbackClient struct {
-	svc pb.BrailleDisplayControllerBrailleDisplayCallbackServiceClient
-}
-
-// NewBrailleDisplayControllerBrailleDisplayCallbackClient creates a new BrailleDisplayControllerBrailleDisplayCallback client.
-func NewBrailleDisplayControllerBrailleDisplayCallbackClient(cc grpc.ClientConnInterface) *BrailleDisplayControllerBrailleDisplayCallbackClient {
-	return &BrailleDisplayControllerBrailleDisplayCallbackClient{
-		svc: pb.NewBrailleDisplayControllerBrailleDisplayCallbackServiceClient(cc),
-	}
-}
-
-// OnConnected calls the OnConnected RPC.
-func (c *BrailleDisplayControllerBrailleDisplayCallbackClient) OnConnected(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.OnConnected(ctx, &pb.OnConnectedRequest{
+// PerformEditorAction calls the PerformEditorAction RPC.
+func (c *InputMethodAccessibilityInputConnectionClient) PerformEditorAction(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.PerformEditorAction(ctx, &pb.PerformEditorActionRequest{
 		Arg0: arg0,
 	})
 	return err
 }
 
-// OnConnectionFailed calls the OnConnectionFailed RPC.
-func (c *BrailleDisplayControllerBrailleDisplayCallbackClient) OnConnectionFailed(ctx context.Context, arg0 int32) error {
-	_, err := c.svc.OnConnectionFailed(ctx, &pb.OnConnectionFailedRequest{
+// SendKeyEvent calls the SendKeyEvent RPC.
+func (c *InputMethodAccessibilityInputConnectionClient) SendKeyEvent(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SendKeyEvent(ctx, &pb.SendKeyEventRequest{
 		Arg0: arg0,
 	})
 	return err
 }
 
-// OnDisconnected calls the OnDisconnected RPC.
-func (c *BrailleDisplayControllerBrailleDisplayCallbackClient) OnDisconnected(ctx context.Context) error {
-	_, err := c.svc.OnDisconnected(ctx, &pb.OnDisconnectedRequest{})
-	return err
-}
-
-// OnInput calls the OnInput RPC.
-func (c *BrailleDisplayControllerBrailleDisplayCallbackClient) OnInput(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.OnInput(ctx, &pb.OnInputRequest{
+// SetSelection calls the SetSelection RPC.
+func (c *InputMethodAccessibilityInputConnectionClient) SetSelection(ctx context.Context, arg0 int32, arg1 int32) error {
+	_, err := c.svc.SetSelection(ctx, &pb.SetSelectionRequest{
 		Arg0: arg0,
-	})
-	return err
-}
-
-// FingerprintGestureControllerClient wraps the gRPC FingerprintGestureControllerService client.
-type FingerprintGestureControllerClient struct {
-	svc pb.FingerprintGestureControllerServiceClient
-}
-
-// NewFingerprintGestureControllerClient creates a new FingerprintGestureController client.
-func NewFingerprintGestureControllerClient(cc grpc.ClientConnInterface) *FingerprintGestureControllerClient {
-	return &FingerprintGestureControllerClient{
-		svc: pb.NewFingerprintGestureControllerServiceClient(cc),
-	}
-}
-
-// IsGestureDetectionAvailable calls the IsGestureDetectionAvailable RPC.
-func (c *FingerprintGestureControllerClient) IsGestureDetectionAvailable(ctx context.Context) (bool, error) {
-	resp, err := c.svc.IsGestureDetectionAvailable(ctx, &pb.IsGestureDetectionAvailableRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// UnregisterFingerprintGestureCallback calls the UnregisterFingerprintGestureCallback RPC.
-func (c *FingerprintGestureControllerClient) UnregisterFingerprintGestureCallback(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.UnregisterFingerprintGestureCallback(ctx, &pb.UnregisterFingerprintGestureCallbackRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// FingerprintGestureControllerFingerprintGestureCallbackClient wraps the gRPC FingerprintGestureControllerFingerprintGestureCallbackService client.
-type FingerprintGestureControllerFingerprintGestureCallbackClient struct {
-	svc pb.FingerprintGestureControllerFingerprintGestureCallbackServiceClient
-}
-
-// NewFingerprintGestureControllerFingerprintGestureCallbackClient creates a new FingerprintGestureControllerFingerprintGestureCallback client.
-func NewFingerprintGestureControllerFingerprintGestureCallbackClient(cc grpc.ClientConnInterface) *FingerprintGestureControllerFingerprintGestureCallbackClient {
-	return &FingerprintGestureControllerFingerprintGestureCallbackClient{
-		svc: pb.NewFingerprintGestureControllerFingerprintGestureCallbackServiceClient(cc),
-	}
-}
-
-// OnGestureDetected calls the OnGestureDetected RPC.
-func (c *FingerprintGestureControllerFingerprintGestureCallbackClient) OnGestureDetected(ctx context.Context, arg0 int32) error {
-	_, err := c.svc.OnGestureDetected(ctx, &pb.OnGestureDetectedRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// OnGestureDetectionAvailabilityChanged calls the OnGestureDetectionAvailabilityChanged RPC.
-func (c *FingerprintGestureControllerFingerprintGestureCallbackClient) OnGestureDetectionAvailabilityChanged(ctx context.Context, arg0 bool) error {
-	_, err := c.svc.OnGestureDetectionAvailabilityChanged(ctx, &pb.OnGestureDetectionAvailabilityChangedRequest{
-		Arg0: arg0,
+		Arg1: arg1,
 	})
 	return err
 }
@@ -514,6 +732,15 @@ func (c *AccessibilityServiceClient) GetSoftKeyboardController(ctx context.Conte
 	return resp.GetResult(), nil
 }
 
+// GetSystemActions calls the GetSystemActions RPC.
+func (c *AccessibilityServiceClient) GetSystemActions(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetSystemActions(ctx, &pb.GetSystemActionsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // GetSystemService calls the GetSystemService RPC.
 func (c *AccessibilityServiceClient) GetSystemService(ctx context.Context, arg0 string) (int64, error) {
 	resp, err := c.svc.GetSystemService(ctx, &pb.GetSystemServiceRequest{
@@ -530,6 +757,24 @@ func (c *AccessibilityServiceClient) GetTouchInteractionController(ctx context.C
 	resp, err := c.svc.GetTouchInteractionController(ctx, &pb.GetTouchInteractionControllerRequest{
 		Arg0: arg0,
 	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetWindows calls the GetWindows RPC.
+func (c *AccessibilityServiceClient) GetWindows(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetWindows(ctx, &pb.GetWindowsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetWindowsOnAllDisplays calls the GetWindowsOnAllDisplays RPC.
+func (c *AccessibilityServiceClient) GetWindowsOnAllDisplays(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetWindowsOnAllDisplays(ctx, &pb.GetWindowsOnAllDisplaysRequest{})
 	if err != nil {
 		return 0, err
 	}
@@ -1013,88 +1258,183 @@ func (c *AccessibilityServiceTakeScreenshotCallbackClient) OnSuccess(ctx context
 	return err
 }
 
-// AccessibilityButtonControllerClient wraps the gRPC AccessibilityButtonControllerService client.
-type AccessibilityButtonControllerClient struct {
-	svc pb.AccessibilityButtonControllerServiceClient
+// FingerprintGestureControllerClient wraps the gRPC FingerprintGestureControllerService client.
+type FingerprintGestureControllerClient struct {
+	svc pb.FingerprintGestureControllerServiceClient
 }
 
-// NewAccessibilityButtonControllerClient creates a new AccessibilityButtonController client.
-func NewAccessibilityButtonControllerClient(cc grpc.ClientConnInterface) *AccessibilityButtonControllerClient {
-	return &AccessibilityButtonControllerClient{
-		svc: pb.NewAccessibilityButtonControllerServiceClient(cc),
+// NewFingerprintGestureControllerClient creates a new FingerprintGestureController client.
+func NewFingerprintGestureControllerClient(cc grpc.ClientConnInterface) *FingerprintGestureControllerClient {
+	return &FingerprintGestureControllerClient{
+		svc: pb.NewFingerprintGestureControllerServiceClient(cc),
 	}
 }
 
-// IsAccessibilityButtonAvailable calls the IsAccessibilityButtonAvailable RPC.
-func (c *AccessibilityButtonControllerClient) IsAccessibilityButtonAvailable(ctx context.Context) (bool, error) {
-	resp, err := c.svc.IsAccessibilityButtonAvailable(ctx, &pb.IsAccessibilityButtonAvailableRequest{})
+// IsGestureDetectionAvailable calls the IsGestureDetectionAvailable RPC.
+func (c *FingerprintGestureControllerClient) IsGestureDetectionAvailable(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsGestureDetectionAvailable(ctx, &pb.IsGestureDetectionAvailableRequest{})
 	if err != nil {
 		return false, err
 	}
 	return resp.GetResult(), nil
 }
 
-// RegisterAccessibilityButtonCallback calls the RegisterAccessibilityButtonCallback RPC.
-func (c *AccessibilityButtonControllerClient) RegisterAccessibilityButtonCallback(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.RegisterAccessibilityButtonCallback(ctx, &pb.RegisterAccessibilityButtonCallbackRequest{
+// UnregisterFingerprintGestureCallback calls the UnregisterFingerprintGestureCallback RPC.
+func (c *FingerprintGestureControllerClient) UnregisterFingerprintGestureCallback(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.UnregisterFingerprintGestureCallback(ctx, &pb.UnregisterFingerprintGestureCallbackRequest{
 		Arg0: arg0,
 	})
 	return err
 }
 
-// UnregisterAccessibilityButtonCallback calls the UnregisterAccessibilityButtonCallback RPC.
-func (c *AccessibilityButtonControllerClient) UnregisterAccessibilityButtonCallback(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.UnregisterAccessibilityButtonCallback(ctx, &pb.UnregisterAccessibilityButtonCallbackRequest{
-		Arg0: arg0,
-	})
-	return err
+// FingerprintGestureControllerFingerprintGestureCallbackClient wraps the gRPC FingerprintGestureControllerFingerprintGestureCallbackService client.
+type FingerprintGestureControllerFingerprintGestureCallbackClient struct {
+	svc pb.FingerprintGestureControllerFingerprintGestureCallbackServiceClient
 }
 
-// AccessibilityButtonControllerAccessibilityButtonCallbackClient wraps the gRPC AccessibilityButtonControllerAccessibilityButtonCallbackService client.
-type AccessibilityButtonControllerAccessibilityButtonCallbackClient struct {
-	svc pb.AccessibilityButtonControllerAccessibilityButtonCallbackServiceClient
-}
-
-// NewAccessibilityButtonControllerAccessibilityButtonCallbackClient creates a new AccessibilityButtonControllerAccessibilityButtonCallback client.
-func NewAccessibilityButtonControllerAccessibilityButtonCallbackClient(cc grpc.ClientConnInterface) *AccessibilityButtonControllerAccessibilityButtonCallbackClient {
-	return &AccessibilityButtonControllerAccessibilityButtonCallbackClient{
-		svc: pb.NewAccessibilityButtonControllerAccessibilityButtonCallbackServiceClient(cc),
+// NewFingerprintGestureControllerFingerprintGestureCallbackClient creates a new FingerprintGestureControllerFingerprintGestureCallback client.
+func NewFingerprintGestureControllerFingerprintGestureCallbackClient(cc grpc.ClientConnInterface) *FingerprintGestureControllerFingerprintGestureCallbackClient {
+	return &FingerprintGestureControllerFingerprintGestureCallbackClient{
+		svc: pb.NewFingerprintGestureControllerFingerprintGestureCallbackServiceClient(cc),
 	}
 }
 
-// OnAvailabilityChanged calls the OnAvailabilityChanged RPC.
-func (c *AccessibilityButtonControllerAccessibilityButtonCallbackClient) OnAvailabilityChanged(ctx context.Context, arg0 int64, arg1 bool) error {
-	_, err := c.svc.OnAvailabilityChanged(ctx, &pb.OnAvailabilityChangedRequest{
+// OnGestureDetected calls the OnGestureDetected RPC.
+func (c *FingerprintGestureControllerFingerprintGestureCallbackClient) OnGestureDetected(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.OnGestureDetected(ctx, &pb.OnGestureDetectedRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnGestureDetectionAvailabilityChanged calls the OnGestureDetectionAvailabilityChanged RPC.
+func (c *FingerprintGestureControllerFingerprintGestureCallbackClient) OnGestureDetectionAvailabilityChanged(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.OnGestureDetectionAvailabilityChanged(ctx, &pb.OnGestureDetectionAvailabilityChangedRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// MagnificationConfigClient wraps the gRPC MagnificationConfigService client.
+type MagnificationConfigClient struct {
+	svc pb.MagnificationConfigServiceClient
+}
+
+// NewMagnificationConfigClient creates a new MagnificationConfig client.
+func NewMagnificationConfigClient(cc grpc.ClientConnInterface) *MagnificationConfigClient {
+	return &MagnificationConfigClient{
+		svc: pb.NewMagnificationConfigServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *MagnificationConfigClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.MagnificationConfigDescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCenterX calls the GetCenterX RPC.
+func (c *MagnificationConfigClient) GetCenterX(ctx context.Context) (float32, error) {
+	resp, err := c.svc.GetCenterX(ctx, &pb.GetCenterXRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCenterY calls the GetCenterY RPC.
+func (c *MagnificationConfigClient) GetCenterY(ctx context.Context) (float32, error) {
+	resp, err := c.svc.GetCenterY(ctx, &pb.GetCenterYRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMode calls the GetMode RPC.
+func (c *MagnificationConfigClient) GetMode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetMode(ctx, &pb.GetModeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetScale calls the GetScale RPC.
+func (c *MagnificationConfigClient) GetScale(ctx context.Context) (float32, error) {
+	resp, err := c.svc.GetScale(ctx, &pb.GetScaleRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsActivated calls the IsActivated RPC.
+func (c *MagnificationConfigClient) IsActivated(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsActivated(ctx, &pb.IsActivatedRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *MagnificationConfigClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.MagnificationConfigToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *MagnificationConfigClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.MagnificationConfigWriteToParcelRequest{
 		Arg0: arg0,
 		Arg1: arg1,
 	})
 	return err
 }
 
-// OnClicked calls the OnClicked RPC.
-func (c *AccessibilityButtonControllerAccessibilityButtonCallbackClient) OnClicked(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.OnClicked(ctx, &pb.OnClickedRequest{
+// MagnificationConfigBuilderClient wraps the gRPC MagnificationConfigBuilderService client.
+type MagnificationConfigBuilderClient struct {
+	svc pb.MagnificationConfigBuilderServiceClient
+}
+
+// NewMagnificationConfigBuilderClient creates a new MagnificationConfigBuilder client.
+func NewMagnificationConfigBuilderClient(cc grpc.ClientConnInterface) *MagnificationConfigBuilderClient {
+	return &MagnificationConfigBuilderClient{
+		svc: pb.NewMagnificationConfigBuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *MagnificationConfigBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetActivated calls the SetActivated RPC.
+func (c *MagnificationConfigBuilderClient) SetActivated(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetActivated(ctx, &pb.SetActivatedRequest{
 		Arg0: arg0,
 	})
-	return err
-}
-
-// AccessibilityGestureEventClient wraps the gRPC AccessibilityGestureEventService client.
-type AccessibilityGestureEventClient struct {
-	svc pb.AccessibilityGestureEventServiceClient
-}
-
-// NewAccessibilityGestureEventClient creates a new AccessibilityGestureEvent client.
-func NewAccessibilityGestureEventClient(cc grpc.ClientConnInterface) *AccessibilityGestureEventClient {
-	return &AccessibilityGestureEventClient{
-		svc: pb.NewAccessibilityGestureEventServiceClient(cc),
+	if err != nil {
+		return 0, err
 	}
+	return resp.GetResult(), nil
 }
 
-// DescribeContents calls the DescribeContents RPC.
-func (c *AccessibilityGestureEventClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{
-		Handle: handle,
+// SetCenterX calls the SetCenterX RPC.
+func (c *MagnificationConfigBuilderClient) SetCenterX(ctx context.Context, arg0 float32) (int64, error) {
+	resp, err := c.svc.SetCenterX(ctx, &pb.SetCenterXRequest{
+		Arg0: arg0,
 	})
 	if err != nil {
 		return 0, err
@@ -1102,10 +1442,10 @@ func (c *AccessibilityGestureEventClient) DescribeContents(ctx context.Context, 
 	return resp.GetResult(), nil
 }
 
-// GetDisplayId calls the GetDisplayId RPC.
-func (c *AccessibilityGestureEventClient) GetDisplayId(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetDisplayId(ctx, &pb.AccessibilityGestureEventGetDisplayIdRequest{
-		Handle: handle,
+// SetCenterY calls the SetCenterY RPC.
+func (c *MagnificationConfigBuilderClient) SetCenterY(ctx context.Context, arg0 float32) (int64, error) {
+	resp, err := c.svc.SetCenterY(ctx, &pb.SetCenterYRequest{
+		Arg0: arg0,
 	})
 	if err != nil {
 		return 0, err
@@ -1113,10 +1453,10 @@ func (c *AccessibilityGestureEventClient) GetDisplayId(ctx context.Context, hand
 	return resp.GetResult(), nil
 }
 
-// GetGestureId calls the GetGestureId RPC.
-func (c *AccessibilityGestureEventClient) GetGestureId(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetGestureId(ctx, &pb.GetGestureIdRequest{
-		Handle: handle,
+// SetMode calls the SetMode RPC.
+func (c *MagnificationConfigBuilderClient) SetMode(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetMode(ctx, &pb.SetModeRequest{
+		Arg0: arg0,
 	})
 	if err != nil {
 		return 0, err
@@ -1124,322 +1464,13 @@ func (c *AccessibilityGestureEventClient) GetGestureId(ctx context.Context, hand
 	return resp.GetResult(), nil
 }
 
-// ToString calls the ToString RPC.
-func (c *AccessibilityGestureEventClient) ToString(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *AccessibilityGestureEventClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// GestureIdToString calls the GestureIdToString RPC.
-func (c *AccessibilityGestureEventClient) GestureIdToString(ctx context.Context, handle int64, arg0 int32) (string, error) {
-	resp, err := c.svc.GestureIdToString(ctx, &pb.GestureIdToStringRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// AccessibilityServiceInfoClient wraps the gRPC AccessibilityServiceInfoService client.
-type AccessibilityServiceInfoClient struct {
-	svc pb.AccessibilityServiceInfoServiceClient
-}
-
-// NewAccessibilityServiceInfoClient creates a new AccessibilityServiceInfo client.
-func NewAccessibilityServiceInfoClient(cc grpc.ClientConnInterface) *AccessibilityServiceInfoClient {
-	return &AccessibilityServiceInfoClient{
-		svc: pb.NewAccessibilityServiceInfoServiceClient(cc),
-	}
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *AccessibilityServiceInfoClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{
-		Handle: handle,
+// SetScale calls the SetScale RPC.
+func (c *MagnificationConfigBuilderClient) SetScale(ctx context.Context, arg0 float32) (int64, error) {
+	resp, err := c.svc.SetScale(ctx, &pb.MagnificationConfigBuilderSetScaleRequest{
+		Arg0: arg0,
 	})
 	if err != nil {
 		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Equals calls the Equals RPC.
-func (c *AccessibilityServiceInfoClient) Equals(ctx context.Context, handle int64, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetCanRetrieveWindowContent calls the GetCanRetrieveWindowContent RPC.
-func (c *AccessibilityServiceInfoClient) GetCanRetrieveWindowContent(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.GetCanRetrieveWindowContent(ctx, &pb.GetCanRetrieveWindowContentRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetCapabilities calls the GetCapabilities RPC.
-func (c *AccessibilityServiceInfoClient) GetCapabilities(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetCapabilities(ctx, &pb.GetCapabilitiesRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetDescription calls the GetDescription RPC.
-func (c *AccessibilityServiceInfoClient) GetDescription(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.GetDescription(ctx, &pb.GetDescriptionRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetId calls the GetId RPC.
-func (c *AccessibilityServiceInfoClient) GetId(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.GetId(ctx, &pb.GetIdRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetInteractiveUiTimeoutMillis calls the GetInteractiveUiTimeoutMillis RPC.
-func (c *AccessibilityServiceInfoClient) GetInteractiveUiTimeoutMillis(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetInteractiveUiTimeoutMillis(ctx, &pb.GetInteractiveUiTimeoutMillisRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetMotionEventSources calls the GetMotionEventSources RPC.
-func (c *AccessibilityServiceInfoClient) GetMotionEventSources(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetMotionEventSources(ctx, &pb.GetMotionEventSourcesRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetNonInteractiveUiTimeoutMillis calls the GetNonInteractiveUiTimeoutMillis RPC.
-func (c *AccessibilityServiceInfoClient) GetNonInteractiveUiTimeoutMillis(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetNonInteractiveUiTimeoutMillis(ctx, &pb.GetNonInteractiveUiTimeoutMillisRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetResolveInfo calls the GetResolveInfo RPC.
-func (c *AccessibilityServiceInfoClient) GetResolveInfo(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetResolveInfo(ctx, &pb.GetResolveInfoRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetSettingsActivityName calls the GetSettingsActivityName RPC.
-func (c *AccessibilityServiceInfoClient) GetSettingsActivityName(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.GetSettingsActivityName(ctx, &pb.GetSettingsActivityNameRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetTileServiceName calls the GetTileServiceName RPC.
-func (c *AccessibilityServiceInfoClient) GetTileServiceName(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.GetTileServiceName(ctx, &pb.GetTileServiceNameRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *AccessibilityServiceInfoClient) HashCode(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsAccessibilityTool calls the IsAccessibilityTool RPC.
-func (c *AccessibilityServiceInfoClient) IsAccessibilityTool(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.IsAccessibilityTool(ctx, &pb.IsAccessibilityToolRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// LoadDescription calls the LoadDescription RPC.
-func (c *AccessibilityServiceInfoClient) LoadDescription(ctx context.Context, handle int64, arg0 int64) (string, error) {
-	resp, err := c.svc.LoadDescription(ctx, &pb.LoadDescriptionRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// LoadIntro calls the LoadIntro RPC.
-func (c *AccessibilityServiceInfoClient) LoadIntro(ctx context.Context, handle int64, arg0 int64) (int64, error) {
-	resp, err := c.svc.LoadIntro(ctx, &pb.LoadIntroRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// LoadSummary calls the LoadSummary RPC.
-func (c *AccessibilityServiceInfoClient) LoadSummary(ctx context.Context, handle int64, arg0 int64) (int64, error) {
-	resp, err := c.svc.LoadSummary(ctx, &pb.LoadSummaryRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetInteractiveUiTimeoutMillis calls the SetInteractiveUiTimeoutMillis RPC.
-func (c *AccessibilityServiceInfoClient) SetInteractiveUiTimeoutMillis(ctx context.Context, handle int64, arg0 int32) error {
-	_, err := c.svc.SetInteractiveUiTimeoutMillis(ctx, &pb.SetInteractiveUiTimeoutMillisRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetMotionEventSources calls the SetMotionEventSources RPC.
-func (c *AccessibilityServiceInfoClient) SetMotionEventSources(ctx context.Context, handle int64, arg0 int32) error {
-	_, err := c.svc.SetMotionEventSources(ctx, &pb.SetMotionEventSourcesRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetNonInteractiveUiTimeoutMillis calls the SetNonInteractiveUiTimeoutMillis RPC.
-func (c *AccessibilityServiceInfoClient) SetNonInteractiveUiTimeoutMillis(ctx context.Context, handle int64, arg0 int32) error {
-	_, err := c.svc.SetNonInteractiveUiTimeoutMillis(ctx, &pb.SetNonInteractiveUiTimeoutMillisRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// ToString calls the ToString RPC.
-func (c *AccessibilityServiceInfoClient) ToString(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *AccessibilityServiceInfoClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// CapabilityToString calls the CapabilityToString RPC.
-func (c *AccessibilityServiceInfoClient) CapabilityToString(ctx context.Context, handle int64, arg0 int32) (string, error) {
-	resp, err := c.svc.CapabilityToString(ctx, &pb.CapabilityToStringRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// FeedbackTypeToString calls the FeedbackTypeToString RPC.
-func (c *AccessibilityServiceInfoClient) FeedbackTypeToString(ctx context.Context, handle int64, arg0 int32) (string, error) {
-	resp, err := c.svc.FeedbackTypeToString(ctx, &pb.FeedbackTypeToStringRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// FlagToString calls the FlagToString RPC.
-func (c *AccessibilityServiceInfoClient) FlagToString(ctx context.Context, handle int64, arg0 int32) (string, error) {
-	resp, err := c.svc.FlagToString(ctx, &pb.FlagToStringRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return "", err
 	}
 	return resp.GetResult(), nil
 }
@@ -1608,75 +1639,67 @@ func (c *GestureDescriptionStrokeDescriptionClient) WillContinue(ctx context.Con
 	return resp.GetResult(), nil
 }
 
-// MagnificationConfigClient wraps the gRPC MagnificationConfigService client.
-type MagnificationConfigClient struct {
-	svc pb.MagnificationConfigServiceClient
+// AccessibilityGestureEventClient wraps the gRPC AccessibilityGestureEventService client.
+type AccessibilityGestureEventClient struct {
+	svc pb.AccessibilityGestureEventServiceClient
 }
 
-// NewMagnificationConfigClient creates a new MagnificationConfig client.
-func NewMagnificationConfigClient(cc grpc.ClientConnInterface) *MagnificationConfigClient {
-	return &MagnificationConfigClient{
-		svc: pb.NewMagnificationConfigServiceClient(cc),
+// NewAccessibilityGestureEventClient creates a new AccessibilityGestureEvent client.
+func NewAccessibilityGestureEventClient(cc grpc.ClientConnInterface) *AccessibilityGestureEventClient {
+	return &AccessibilityGestureEventClient{
+		svc: pb.NewAccessibilityGestureEventServiceClient(cc),
 	}
 }
 
 // DescribeContents calls the DescribeContents RPC.
-func (c *MagnificationConfigClient) DescribeContents(ctx context.Context) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.MagnificationConfigDescribeContentsRequest{})
+func (c *AccessibilityGestureEventClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{
+		Handle: handle,
+	})
 	if err != nil {
 		return 0, err
 	}
 	return resp.GetResult(), nil
 }
 
-// GetCenterX calls the GetCenterX RPC.
-func (c *MagnificationConfigClient) GetCenterX(ctx context.Context) (float32, error) {
-	resp, err := c.svc.GetCenterX(ctx, &pb.GetCenterXRequest{})
+// GetDisplayId calls the GetDisplayId RPC.
+func (c *AccessibilityGestureEventClient) GetDisplayId(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetDisplayId(ctx, &pb.AccessibilityGestureEventGetDisplayIdRequest{
+		Handle: handle,
+	})
 	if err != nil {
 		return 0, err
 	}
 	return resp.GetResult(), nil
 }
 
-// GetCenterY calls the GetCenterY RPC.
-func (c *MagnificationConfigClient) GetCenterY(ctx context.Context) (float32, error) {
-	resp, err := c.svc.GetCenterY(ctx, &pb.GetCenterYRequest{})
+// GetGestureId calls the GetGestureId RPC.
+func (c *AccessibilityGestureEventClient) GetGestureId(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetGestureId(ctx, &pb.GetGestureIdRequest{
+		Handle: handle,
+	})
 	if err != nil {
 		return 0, err
 	}
 	return resp.GetResult(), nil
 }
 
-// GetMode calls the GetMode RPC.
-func (c *MagnificationConfigClient) GetMode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetMode(ctx, &pb.GetModeRequest{})
+// GetMotionEvents calls the GetMotionEvents RPC.
+func (c *AccessibilityGestureEventClient) GetMotionEvents(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetMotionEvents(ctx, &pb.GetMotionEventsRequest{
+		Handle: handle,
+	})
 	if err != nil {
 		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetScale calls the GetScale RPC.
-func (c *MagnificationConfigClient) GetScale(ctx context.Context) (float32, error) {
-	resp, err := c.svc.GetScale(ctx, &pb.GetScaleRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsActivated calls the IsActivated RPC.
-func (c *MagnificationConfigClient) IsActivated(ctx context.Context) (bool, error) {
-	resp, err := c.svc.IsActivated(ctx, &pb.IsActivatedRequest{})
-	if err != nil {
-		return false, err
 	}
 	return resp.GetResult(), nil
 }
 
 // ToString calls the ToString RPC.
-func (c *MagnificationConfigClient) ToString(ctx context.Context) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.MagnificationConfigToStringRequest{})
+func (c *AccessibilityGestureEventClient) ToString(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{
+		Handle: handle,
+	})
 	if err != nil {
 		return "", err
 	}
@@ -1684,128 +1707,232 @@ func (c *MagnificationConfigClient) ToString(ctx context.Context) (string, error
 }
 
 // WriteToParcel calls the WriteToParcel RPC.
-func (c *MagnificationConfigClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.MagnificationConfigWriteToParcelRequest{
+func (c *AccessibilityGestureEventClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// GestureIdToString calls the GestureIdToString RPC.
+func (c *AccessibilityGestureEventClient) GestureIdToString(ctx context.Context, handle int64, arg0 int32) (string, error) {
+	resp, err := c.svc.GestureIdToString(ctx, &pb.GestureIdToStringRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// BrailleDisplayControllerClient wraps the gRPC BrailleDisplayControllerService client.
+type BrailleDisplayControllerClient struct {
+	svc pb.BrailleDisplayControllerServiceClient
+}
+
+// NewBrailleDisplayControllerClient creates a new BrailleDisplayController client.
+func NewBrailleDisplayControllerClient(cc grpc.ClientConnInterface) *BrailleDisplayControllerClient {
+	return &BrailleDisplayControllerClient{
+		svc: pb.NewBrailleDisplayControllerServiceClient(cc),
+	}
+}
+
+// Connect2 calls the Connect2 RPC.
+func (c *BrailleDisplayControllerClient) Connect2(ctx context.Context, arg0 int64, arg1 int64) error {
+	_, err := c.svc.Connect2(ctx, &pb.Connect2Request{
 		Arg0: arg0,
 		Arg1: arg1,
 	})
 	return err
 }
 
-// MagnificationConfigBuilderClient wraps the gRPC MagnificationConfigBuilderService client.
-type MagnificationConfigBuilderClient struct {
-	svc pb.MagnificationConfigBuilderServiceClient
+// Connect3_1 calls the Connect3_1 RPC.
+func (c *BrailleDisplayControllerClient) Connect3_1(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) error {
+	_, err := c.svc.Connect3_1(ctx, &pb.Connect3_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
 }
 
-// NewMagnificationConfigBuilderClient creates a new MagnificationConfigBuilder client.
-func NewMagnificationConfigBuilderClient(cc grpc.ClientConnInterface) *MagnificationConfigBuilderClient {
-	return &MagnificationConfigBuilderClient{
-		svc: pb.NewMagnificationConfigBuilderServiceClient(cc),
-	}
+// Connect2_2 calls the Connect2_2 RPC.
+func (c *BrailleDisplayControllerClient) Connect2_2(ctx context.Context, arg0 int64, arg1 int64) error {
+	_, err := c.svc.Connect2_2(ctx, &pb.Connect2_2Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
 }
 
-// Build calls the Build RPC.
-func (c *MagnificationConfigBuilderClient) Build(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+// Connect3_3 calls the Connect3_3 RPC.
+func (c *BrailleDisplayControllerClient) Connect3_3(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) error {
+	_, err := c.svc.Connect3_3(ctx, &pb.Connect3_3Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// Disconnect calls the Disconnect RPC.
+func (c *BrailleDisplayControllerClient) Disconnect(ctx context.Context) error {
+	_, err := c.svc.Disconnect(ctx, &pb.DisconnectRequest{})
+	return err
+}
+
+// IsConnected calls the IsConnected RPC.
+func (c *BrailleDisplayControllerClient) IsConnected(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsConnected(ctx, &pb.IsConnectedRequest{})
 	if err != nil {
-		return 0, err
+		return false, err
 	}
 	return resp.GetResult(), nil
 }
 
-// SetActivated calls the SetActivated RPC.
-func (c *MagnificationConfigBuilderClient) SetActivated(ctx context.Context, arg0 bool) (int64, error) {
-	resp, err := c.svc.SetActivated(ctx, &pb.SetActivatedRequest{
+// Write calls the Write RPC.
+func (c *BrailleDisplayControllerClient) Write(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.Write(ctx, &pb.WriteRequest{
 		Arg0: arg0,
 	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
+	return err
 }
 
-// SetCenterX calls the SetCenterX RPC.
-func (c *MagnificationConfigBuilderClient) SetCenterX(ctx context.Context, arg0 float32) (int64, error) {
-	resp, err := c.svc.SetCenterX(ctx, &pb.SetCenterXRequest{
+// BrailleDisplayControllerBrailleDisplayCallbackClient wraps the gRPC BrailleDisplayControllerBrailleDisplayCallbackService client.
+type BrailleDisplayControllerBrailleDisplayCallbackClient struct {
+	svc pb.BrailleDisplayControllerBrailleDisplayCallbackServiceClient
+}
+
+// NewBrailleDisplayControllerBrailleDisplayCallbackClient creates a new BrailleDisplayControllerBrailleDisplayCallback client.
+func NewBrailleDisplayControllerBrailleDisplayCallbackClient(cc grpc.ClientConnInterface) *BrailleDisplayControllerBrailleDisplayCallbackClient {
+	return &BrailleDisplayControllerBrailleDisplayCallbackClient{
+		svc: pb.NewBrailleDisplayControllerBrailleDisplayCallbackServiceClient(cc),
+	}
+}
+
+// OnConnected calls the OnConnected RPC.
+func (c *BrailleDisplayControllerBrailleDisplayCallbackClient) OnConnected(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnConnected(ctx, &pb.OnConnectedRequest{
 		Arg0: arg0,
 	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
+	return err
 }
 
-// SetCenterY calls the SetCenterY RPC.
-func (c *MagnificationConfigBuilderClient) SetCenterY(ctx context.Context, arg0 float32) (int64, error) {
-	resp, err := c.svc.SetCenterY(ctx, &pb.SetCenterYRequest{
+// OnConnectionFailed calls the OnConnectionFailed RPC.
+func (c *BrailleDisplayControllerBrailleDisplayCallbackClient) OnConnectionFailed(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.OnConnectionFailed(ctx, &pb.OnConnectionFailedRequest{
 		Arg0: arg0,
 	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
+	return err
 }
 
-// SetMode calls the SetMode RPC.
-func (c *MagnificationConfigBuilderClient) SetMode(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.SetMode(ctx, &pb.SetModeRequest{
+// OnDisconnected calls the OnDisconnected RPC.
+func (c *BrailleDisplayControllerBrailleDisplayCallbackClient) OnDisconnected(ctx context.Context) error {
+	_, err := c.svc.OnDisconnected(ctx, &pb.OnDisconnectedRequest{})
+	return err
+}
+
+// OnInput calls the OnInput RPC.
+func (c *BrailleDisplayControllerBrailleDisplayCallbackClient) OnInput(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnInput(ctx, &pb.OnInputRequest{
 		Arg0: arg0,
 	})
+	return err
+}
+
+// TouchInteractionControllerClient wraps the gRPC TouchInteractionControllerService client.
+type TouchInteractionControllerClient struct {
+	svc pb.TouchInteractionControllerServiceClient
+}
+
+// NewTouchInteractionControllerClient creates a new TouchInteractionController client.
+func NewTouchInteractionControllerClient(cc grpc.ClientConnInterface) *TouchInteractionControllerClient {
+	return &TouchInteractionControllerClient{
+		svc: pb.NewTouchInteractionControllerServiceClient(cc),
+	}
+}
+
+// GetDisplayId calls the GetDisplayId RPC.
+func (c *TouchInteractionControllerClient) GetDisplayId(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetDisplayId(ctx, &pb.GetDisplayIdRequest{})
 	if err != nil {
 		return 0, err
 	}
 	return resp.GetResult(), nil
 }
 
-// SetScale calls the SetScale RPC.
-func (c *MagnificationConfigBuilderClient) SetScale(ctx context.Context, arg0 float32) (int64, error) {
-	resp, err := c.svc.SetScale(ctx, &pb.MagnificationConfigBuilderSetScaleRequest{
+// GetMaxPointerCount calls the GetMaxPointerCount RPC.
+func (c *TouchInteractionControllerClient) GetMaxPointerCount(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetMaxPointerCount(ctx, &pb.GetMaxPointerCountRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetState calls the GetState RPC.
+func (c *TouchInteractionControllerClient) GetState(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetState(ctx, &pb.GetStateRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// PerformClick calls the PerformClick RPC.
+func (c *TouchInteractionControllerClient) PerformClick(ctx context.Context) error {
+	_, err := c.svc.PerformClick(ctx, &pb.PerformClickRequest{})
+	return err
+}
+
+// PerformLongClickAndStartDrag calls the PerformLongClickAndStartDrag RPC.
+func (c *TouchInteractionControllerClient) PerformLongClickAndStartDrag(ctx context.Context) error {
+	_, err := c.svc.PerformLongClickAndStartDrag(ctx, &pb.PerformLongClickAndStartDragRequest{})
+	return err
+}
+
+// RegisterCallback calls the RegisterCallback RPC.
+func (c *TouchInteractionControllerClient) RegisterCallback(ctx context.Context, arg0 int64, arg1 int64) error {
+	_, err := c.svc.RegisterCallback(ctx, &pb.RegisterCallbackRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// RequestDelegating calls the RequestDelegating RPC.
+func (c *TouchInteractionControllerClient) RequestDelegating(ctx context.Context) error {
+	_, err := c.svc.RequestDelegating(ctx, &pb.RequestDelegatingRequest{})
+	return err
+}
+
+// RequestDragging calls the RequestDragging RPC.
+func (c *TouchInteractionControllerClient) RequestDragging(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.RequestDragging(ctx, &pb.RequestDraggingRequest{
 		Arg0: arg0,
 	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
+	return err
 }
 
-// InputMethodClient wraps the gRPC InputMethodService client.
-type InputMethodClient struct {
-	svc pb.InputMethodServiceClient
+// RequestTouchExploration calls the RequestTouchExploration RPC.
+func (c *TouchInteractionControllerClient) RequestTouchExploration(ctx context.Context) error {
+	_, err := c.svc.RequestTouchExploration(ctx, &pb.RequestTouchExplorationRequest{})
+	return err
 }
 
-// NewInputMethodClient creates a new InputMethod client.
-func NewInputMethodClient(cc grpc.ClientConnInterface) *InputMethodClient {
-	return &InputMethodClient{
-		svc: pb.NewInputMethodServiceClient(cc),
-	}
+// UnregisterAllCallbacks calls the UnregisterAllCallbacks RPC.
+func (c *TouchInteractionControllerClient) UnregisterAllCallbacks(ctx context.Context) error {
+	_, err := c.svc.UnregisterAllCallbacks(ctx, &pb.UnregisterAllCallbacksRequest{})
+	return err
 }
 
-// GetCurrentInputConnection calls the GetCurrentInputConnection RPC.
-func (c *InputMethodClient) GetCurrentInputConnection(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetCurrentInputConnection(ctx, &pb.GetCurrentInputConnectionRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetCurrentInputEditorInfo calls the GetCurrentInputEditorInfo RPC.
-func (c *InputMethodClient) GetCurrentInputEditorInfo(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetCurrentInputEditorInfo(ctx, &pb.GetCurrentInputEditorInfoRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetCurrentInputStarted calls the GetCurrentInputStarted RPC.
-func (c *InputMethodClient) GetCurrentInputStarted(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.GetCurrentInputStarted(ctx, &pb.GetCurrentInputStartedRequest{
-		Handle: handle,
+// UnregisterCallback calls the UnregisterCallback RPC.
+func (c *TouchInteractionControllerClient) UnregisterCallback(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.UnregisterCallback(ctx, &pb.UnregisterCallbackRequest{
+		Arg0: arg0,
 	})
 	if err != nil {
 		return false, err
@@ -1813,130 +1940,41 @@ func (c *InputMethodClient) GetCurrentInputStarted(ctx context.Context, handle i
 	return resp.GetResult(), nil
 }
 
-// OnFinishInput calls the OnFinishInput RPC.
-func (c *InputMethodClient) OnFinishInput(ctx context.Context, handle int64) error {
-	_, err := c.svc.OnFinishInput(ctx, &pb.OnFinishInputRequest{
-		Handle: handle,
-	})
-	return err
-}
-
-// OnStartInput calls the OnStartInput RPC.
-func (c *InputMethodClient) OnStartInput(ctx context.Context, handle int64, arg0 int64, arg1 bool) error {
-	_, err := c.svc.OnStartInput(ctx, &pb.OnStartInputRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// OnUpdateSelection calls the OnUpdateSelection RPC.
-func (c *InputMethodClient) OnUpdateSelection(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32, arg3 int32, arg4 int32, arg5 int32) error {
-	_, err := c.svc.OnUpdateSelection(ctx, &pb.OnUpdateSelectionRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-		Arg4:   arg4,
-		Arg5:   arg5,
-	})
-	return err
-}
-
-// InputMethodAccessibilityInputConnectionClient wraps the gRPC InputMethodAccessibilityInputConnectionService client.
-type InputMethodAccessibilityInputConnectionClient struct {
-	svc pb.InputMethodAccessibilityInputConnectionServiceClient
-}
-
-// NewInputMethodAccessibilityInputConnectionClient creates a new InputMethodAccessibilityInputConnection client.
-func NewInputMethodAccessibilityInputConnectionClient(cc grpc.ClientConnInterface) *InputMethodAccessibilityInputConnectionClient {
-	return &InputMethodAccessibilityInputConnectionClient{
-		svc: pb.NewInputMethodAccessibilityInputConnectionServiceClient(cc),
-	}
-}
-
-// ClearMetaKeyStates calls the ClearMetaKeyStates RPC.
-func (c *InputMethodAccessibilityInputConnectionClient) ClearMetaKeyStates(ctx context.Context, arg0 int32) error {
-	_, err := c.svc.ClearMetaKeyStates(ctx, &pb.ClearMetaKeyStatesRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// CommitText calls the CommitText RPC.
-func (c *InputMethodAccessibilityInputConnectionClient) CommitText(ctx context.Context, arg0 string, arg1 int32, arg2 int64) error {
-	_, err := c.svc.CommitText(ctx, &pb.CommitTextRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	return err
-}
-
-// DeleteSurroundingText calls the DeleteSurroundingText RPC.
-func (c *InputMethodAccessibilityInputConnectionClient) DeleteSurroundingText(ctx context.Context, arg0 int32, arg1 int32) error {
-	_, err := c.svc.DeleteSurroundingText(ctx, &pb.DeleteSurroundingTextRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// GetCursorCapsMode calls the GetCursorCapsMode RPC.
-func (c *InputMethodAccessibilityInputConnectionClient) GetCursorCapsMode(ctx context.Context, arg0 int32) (int32, error) {
-	resp, err := c.svc.GetCursorCapsMode(ctx, &pb.GetCursorCapsModeRequest{
+// StateToString calls the StateToString RPC.
+func (c *TouchInteractionControllerClient) StateToString(ctx context.Context, arg0 int32) (string, error) {
+	resp, err := c.svc.StateToString(ctx, &pb.StateToStringRequest{
 		Arg0: arg0,
 	})
 	if err != nil {
-		return 0, err
+		return "", err
 	}
 	return resp.GetResult(), nil
 }
 
-// GetSurroundingText calls the GetSurroundingText RPC.
-func (c *InputMethodAccessibilityInputConnectionClient) GetSurroundingText(ctx context.Context, arg0 int32, arg1 int32, arg2 int32) (int64, error) {
-	resp, err := c.svc.GetSurroundingText(ctx, &pb.GetSurroundingTextRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	if err != nil {
-		return 0, err
+// TouchInteractionControllerCallbackClient wraps the gRPC TouchInteractionControllerCallbackService client.
+type TouchInteractionControllerCallbackClient struct {
+	svc pb.TouchInteractionControllerCallbackServiceClient
+}
+
+// NewTouchInteractionControllerCallbackClient creates a new TouchInteractionControllerCallback client.
+func NewTouchInteractionControllerCallbackClient(cc grpc.ClientConnInterface) *TouchInteractionControllerCallbackClient {
+	return &TouchInteractionControllerCallbackClient{
+		svc: pb.NewTouchInteractionControllerCallbackServiceClient(cc),
 	}
-	return resp.GetResult(), nil
 }
 
-// PerformContextMenuAction calls the PerformContextMenuAction RPC.
-func (c *InputMethodAccessibilityInputConnectionClient) PerformContextMenuAction(ctx context.Context, arg0 int32) error {
-	_, err := c.svc.PerformContextMenuAction(ctx, &pb.PerformContextMenuActionRequest{
+// OnMotionEvent calls the OnMotionEvent RPC.
+func (c *TouchInteractionControllerCallbackClient) OnMotionEvent(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnMotionEvent(ctx, &pb.OnMotionEventRequest{
 		Arg0: arg0,
 	})
 	return err
 }
 
-// PerformEditorAction calls the PerformEditorAction RPC.
-func (c *InputMethodAccessibilityInputConnectionClient) PerformEditorAction(ctx context.Context, arg0 int32) error {
-	_, err := c.svc.PerformEditorAction(ctx, &pb.PerformEditorActionRequest{
+// OnStateChanged calls the OnStateChanged RPC.
+func (c *TouchInteractionControllerCallbackClient) OnStateChanged(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.OnStateChanged(ctx, &pb.OnStateChangedRequest{
 		Arg0: arg0,
-	})
-	return err
-}
-
-// SendKeyEvent calls the SendKeyEvent RPC.
-func (c *InputMethodAccessibilityInputConnectionClient) SendKeyEvent(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.SendKeyEvent(ctx, &pb.SendKeyEventRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetSelection calls the SetSelection RPC.
-func (c *InputMethodAccessibilityInputConnectionClient) SetSelection(ctx context.Context, arg0 int32, arg1 int32) error {
-	_, err := c.svc.SetSelection(ctx, &pb.SetSelectionRequest{
-		Arg0: arg0,
-		Arg1: arg1,
 	})
 	return err
 }

@@ -27,69 +27,6 @@ func (c *EndElementListenerClient) End(ctx context.Context) error {
 	return err
 }
 
-// EndTextElementListenerClient wraps the gRPC EndTextElementListenerService client.
-type EndTextElementListenerClient struct {
-	svc pb.EndTextElementListenerServiceClient
-}
-
-// NewEndTextElementListenerClient creates a new EndTextElementListener client.
-func NewEndTextElementListenerClient(cc grpc.ClientConnInterface) *EndTextElementListenerClient {
-	return &EndTextElementListenerClient{
-		svc: pb.NewEndTextElementListenerServiceClient(cc),
-	}
-}
-
-// End calls the End RPC.
-func (c *EndTextElementListenerClient) End(ctx context.Context, arg0 string) error {
-	_, err := c.svc.End(ctx, &pb.EndTextElementListenerEndRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// StartElementListenerClient wraps the gRPC StartElementListenerService client.
-type StartElementListenerClient struct {
-	svc pb.StartElementListenerServiceClient
-}
-
-// NewStartElementListenerClient creates a new StartElementListener client.
-func NewStartElementListenerClient(cc grpc.ClientConnInterface) *StartElementListenerClient {
-	return &StartElementListenerClient{
-		svc: pb.NewStartElementListenerServiceClient(cc),
-	}
-}
-
-// Start calls the Start RPC.
-func (c *StartElementListenerClient) Start(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.Start(ctx, &pb.StartRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// RootElementClient wraps the gRPC RootElementService client.
-type RootElementClient struct {
-	svc pb.RootElementServiceClient
-}
-
-// NewRootElementClient creates a new RootElement client.
-func NewRootElementClient(cc grpc.ClientConnInterface) *RootElementClient {
-	return &RootElementClient{
-		svc: pb.NewRootElementServiceClient(cc),
-	}
-}
-
-// GetContentHandler calls the GetContentHandler RPC.
-func (c *RootElementClient) GetContentHandler(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetContentHandler(ctx, &pb.GetContentHandlerRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
 // ElementClient wraps the gRPC ElementService client.
 type ElementClient struct {
 	svc pb.ElementServiceClient
@@ -193,6 +130,69 @@ func (c *ElementClient) ToString(ctx context.Context) (string, error) {
 	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
 	if err != nil {
 		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// StartElementListenerClient wraps the gRPC StartElementListenerService client.
+type StartElementListenerClient struct {
+	svc pb.StartElementListenerServiceClient
+}
+
+// NewStartElementListenerClient creates a new StartElementListener client.
+func NewStartElementListenerClient(cc grpc.ClientConnInterface) *StartElementListenerClient {
+	return &StartElementListenerClient{
+		svc: pb.NewStartElementListenerServiceClient(cc),
+	}
+}
+
+// Start calls the Start RPC.
+func (c *StartElementListenerClient) Start(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.Start(ctx, &pb.StartRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// EndTextElementListenerClient wraps the gRPC EndTextElementListenerService client.
+type EndTextElementListenerClient struct {
+	svc pb.EndTextElementListenerServiceClient
+}
+
+// NewEndTextElementListenerClient creates a new EndTextElementListener client.
+func NewEndTextElementListenerClient(cc grpc.ClientConnInterface) *EndTextElementListenerClient {
+	return &EndTextElementListenerClient{
+		svc: pb.NewEndTextElementListenerServiceClient(cc),
+	}
+}
+
+// End calls the End RPC.
+func (c *EndTextElementListenerClient) End(ctx context.Context, arg0 string) error {
+	_, err := c.svc.End(ctx, &pb.EndTextElementListenerEndRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// RootElementClient wraps the gRPC RootElementService client.
+type RootElementClient struct {
+	svc pb.RootElementServiceClient
+}
+
+// NewRootElementClient creates a new RootElement client.
+func NewRootElementClient(cc grpc.ClientConnInterface) *RootElementClient {
+	return &RootElementClient{
+		svc: pb.NewRootElementServiceClient(cc),
+	}
+}
+
+// GetContentHandler calls the GetContentHandler RPC.
+func (c *RootElementClient) GetContentHandler(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetContentHandler(ctx, &pb.GetContentHandlerRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
 	}
 	return resp.GetResult(), nil
 }
